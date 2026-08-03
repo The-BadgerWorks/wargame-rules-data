@@ -1,0 +1,40 @@
+{
+  "costs": [
+    {
+      "copy_index_min": 1,
+      "label": "5 models",
+      "model_count": 5,
+      "points": 80,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260504T000000Z-baseline"
+    },
+    {
+      "copy_index_min": 1,
+      "label": "20 models",
+      "model_count": 20,
+      "points": 300,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260504T000000Z-baseline"
+    }
+  ],
+  "datasheet_id": "ds-slate-phalanx",
+  "faction_id": "f-slateguard",
+  "is_battleline": false,
+  "is_character": false,
+  "is_dedicated_transport": false,
+  "is_epic_hero": false,
+  "is_legends": false,
+  "name": "SLATE PHALANX",
+  "pricing_confidence": {
+    "state": "verified"
+  },
+  "provenance": {
+    "detail_acquisition_id": "wahapedia-20260504T000000Z-baseline",
+    "detail_edition_code": "wh40k-10e",
+    "detail_source": "wahapedia",
+    "is_hybrid_edition": true,
+    "points_acquisition_id": "mfm-20260504T000000Z-baseline",
+    "points_edition_code": "wh40k-11e",
+    "points_source": "mfm"
+  }
+}

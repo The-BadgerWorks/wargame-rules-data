@@ -1,0 +1,20 @@
+{
+  "enhancements": [
+    {
+      "detachment_id": "d-slate-vigil",
+      "enhancement_id": "e-slate-oath",
+      "max_per_army": 1,
+      "name": "Slate Oath",
+      "points": 15,
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20260504T000000Z-baseline",
+        "detail_edition_code": "wh40k-10e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": true,
+        "points_acquisition_id": "mfm-20260504T000000Z-baseline",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    }
+  ]
+}

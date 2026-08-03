@@ -1,0 +1,20 @@
+{
+  "enhancements": [
+    {
+      "detachment_id": "d-quill-conclave",
+      "enhancement_id": "e-quill-mantle",
+      "max_per_army": 1,
+      "name": "Quill Mantle",
+      "points": 30,
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20260504T000000Z-baseline",
+        "detail_edition_code": "wh40k-10e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": true,
+        "points_acquisition_id": "mfm-20260504T000000Z-baseline",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    }
+  ]
+}

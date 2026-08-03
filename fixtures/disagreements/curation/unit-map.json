@@ -1,0 +1,16 @@
+[
+  {
+    "confirmed_at": "2026-05-04T00:00:00Z",
+    "confirmed_by": "curator",
+    "datasheet_id": "ds-slate-sentinel",
+    "mfm_display_name": "SLATE SENTINEL",
+    "wahapedia_datasheet_id": "SG01"
+  },
+  {
+    "confirmed_at": "2026-05-04T00:00:00Z",
+    "confirmed_by": "curator",
+    "datasheet_id": "ds-slate-aegis",
+    "mfm_display_name": "SLATE AEGIS",
+    "wahapedia_datasheet_id": "SG09"
+  }
+]

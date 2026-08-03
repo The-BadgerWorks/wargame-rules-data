@@ -1,0 +1,51 @@
+[
+  {
+    "code": "quill-covenant",
+    "detail_source_faction_id": "QC",
+    "faction_id": "f-quill-covenant",
+    "mfm_slug": "quill-covenant",
+    "name": "Quill Covenant",
+    "provenance": {
+      "detail_acquisition_id": "wahapedia-20260504T000000Z-baseline",
+      "detail_edition_code": "wh40k-10e",
+      "detail_source": "wahapedia",
+      "is_hybrid_edition": true,
+      "points_acquisition_id": "mfm-20260504T000000Z-baseline",
+      "points_edition_code": "wh40k-11e",
+      "points_source": "mfm"
+    }
+  },
+  {
+    "code": "slate-wardens",
+    "detail_source_faction_id": "SG",
+    "faction_id": "f-slate-wardens",
+    "mfm_slug": "slate-wardens",
+    "name": "Slate Wardens",
+    "parent_faction_id": "f-slateguard",
+    "provenance": {
+      "detail_acquisition_id": "wahapedia-20260504T000000Z-baseline",
+      "detail_edition_code": "wh40k-10e",
+      "detail_source": "wahapedia",
+      "is_hybrid_edition": true,
+      "points_acquisition_id": "mfm-20260504T000000Z-baseline",
+      "points_edition_code": "wh40k-11e",
+      "points_source": "mfm"
+    }
+  },
+  {
+    "code": "slateguard",
+    "detail_source_faction_id": "SG",
+    "faction_id": "f-slateguard",
+    "mfm_slug": "slateguard",
+    "name": "Slateguard",
+    "provenance": {
+      "detail_acquisition_id": "wahapedia-20260504T000000Z-baseline",
+      "detail_edition_code": "wh40k-10e",
+      "detail_source": "wahapedia",
+      "is_hybrid_edition": true,
+      "points_acquisition_id": "mfm-20260504T000000Z-baseline",
+      "points_edition_code": "wh40k-11e",
+      "points_source": "mfm"
+    }
+  }
+]

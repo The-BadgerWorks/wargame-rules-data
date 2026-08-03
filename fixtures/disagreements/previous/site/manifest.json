@@ -1,0 +1,20 @@
+{
+  "generatedAt": "2026-05-04T00:00:00Z",
+  "manifestVersion": 1,
+  "versions": [
+    {
+      "displayName": "Invented Baseline 2026.05",
+      "editionCodes": [
+        "wh40k-11e"
+      ],
+      "fileUrl": "https://example.invalid/rules-mfm-2026-05.json",
+      "publishedAt": "2026-05-04T00:00:00Z",
+      "restrictionVocabularyVersion": 1,
+      "rulesVersionId": "mfm-2026-05",
+      "schemaContractVersion": 1,
+      "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+      "sizeBytes": 1024,
+      "withdrawn": false
+    }
+  ]
+}

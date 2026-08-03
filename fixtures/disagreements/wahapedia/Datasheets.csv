@@ -1,0 +1,12 @@
+﻿id|name|faction_id|source_id|legend|role|loadout|transport|virtual|leader_head|leader_footer|damaged_w|damaged_description|link|
+SG01|Slate Sentinel|SG|1|Invented placeholder flavour on a NON-Legends datasheet.|Battleline|Invented placeholder loadout prose.|0|0|||||https://example.invalid/ds/SG01|
+SG02|Slate Phalanx|SG|1||Battleline|Invented placeholder loadout prose.|0|0|||||https://example.invalid/ds/SG02|
+SG03|Slate Warden|SG|1||Other|Invented placeholder loadout prose.|0|0|||||https://example.invalid/ds/SG03|
+SG04|Slate Revenant|SG|1||Other|Invented placeholder loadout prose.|0|0|||||https://example.invalid/ds/SG04|
+SG05|Slate Revenant|SG|2||Other|Invented placeholder loadout prose.|0|0|||||https://example.invalid/ds/SG05|
+SG06|Slate Lantern|SG|1||Other|Invented placeholder loadout prose.|0|0|||||https://example.invalid/ds/SG06|
+SG07|Slate Cipher|SG|1||Other|Invented placeholder loadout prose.|0|0|||||https://example.invalid/ds/SG07|
+SG08|Warden Adept|SG|1||Other|Invented placeholder loadout prose.|0|0|||||https://example.invalid/ds/SG08|
+SG09|Slate Aegis|SG|1||Other|Invented placeholder loadout prose.|0|0|||1-4||https://example.invalid/ds/SG09|
+QC01|Slate Warden|QC|1||Other|Invented placeholder loadout prose.|0|0|||||https://example.invalid/ds/QC01|
+QC02|Quill Scrivener|QC|1||Characters|Invented placeholder loadout prose.|0|0|||||https://example.invalid/ds/QC02|

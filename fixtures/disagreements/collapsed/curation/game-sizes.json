@@ -1,0 +1,20 @@
+[
+  {
+    "detachment_points_budget": 6,
+    "id": "gs-incursion",
+    "label": "Incursion",
+    "max_detachments": 2,
+    "max_enhancements": 2,
+    "max_points": 1999,
+    "min_points": 500
+  },
+  {
+    "detachment_points_budget": 12,
+    "id": "gs-strike-force",
+    "label": "Strike Force",
+    "max_detachments": 4,
+    "max_enhancements": 3,
+    "max_points": 5000,
+    "min_points": 2000
+  }
+]

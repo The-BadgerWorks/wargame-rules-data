@@ -1,0 +1,14 @@
+{
+  "edition": {
+    "code": "wh40k-11e",
+    "display_order": 1,
+    "id": "ed-wh40k-11e",
+    "name": "Warhammer 40,000 11th Edition"
+  },
+  "edition_rules": [
+    {
+      "rule_key": "warlord_required",
+      "value": true
+    }
+  ]
+}

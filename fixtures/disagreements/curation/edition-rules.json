@@ -1,0 +1,10 @@
+[
+  {
+    "rule_key": "enhancement_limit_per_army",
+    "value": 3
+  },
+  {
+    "rule_key": "warlord_required",
+    "value": true
+  }
+]

@@ -1,0 +1,21 @@
+{
+  "detachments": [
+    {
+      "detachment_id": "d-quill-conclave",
+      "detachment_points_cost": 1,
+      "force_disposition": "PRIORITY ASSETS",
+      "is_legends": false,
+      "is_unique": false,
+      "name": "QUILL CONCLAVE",
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20260504T000000Z-baseline",
+        "detail_edition_code": "wh40k-10e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": true,
+        "points_acquisition_id": "mfm-20260504T000000Z-baseline",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    }
+  ]
+}
