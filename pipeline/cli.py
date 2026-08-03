@@ -35,6 +35,7 @@ from __future__ import annotations
 
 import argparse
 import logging
+import os
 import sys
 from collections.abc import Mapping, Sequence
 from dataclasses import dataclass
@@ -42,7 +43,7 @@ from datetime import UTC, datetime
 from pathlib import Path
 from typing import Final
 
-from pipeline.acquire.http import AcquisitionError
+from pipeline.acquire.http import AcquisitionError, PoliteClient
 from pipeline.acquire.mfm import acquire_mfm
 from pipeline.acquire.wahapedia import acquire_wahapedia
 from pipeline.build.bundle_emit import BundleMeta, emit_bundle
@@ -53,11 +54,23 @@ from pipeline.curate.assemble import assemble
 from pipeline.curate.authored import load_authored
 from pipeline.curate.prior import PriorSnapshot, load_prior, read_curated_tree
 from pipeline.curate.writer import write_tree
+from pipeline.detect.digest import DIGEST_STATE_RELATIVE_PATH
+from pipeline.detect.digest import compare as compare_digests
+from pipeline.detect.digest import load_state as load_detection_state
+from pipeline.detect.digest import save_state as save_detection_state
+from pipeline.detect.staleness import is_stale
 from pipeline.exit_codes import ExitCode
 from pipeline.models.curated import CuratedSnapshot
 from pipeline.models.findings import Finding, Severity, ValidationReport
+from pipeline.observability.ledger import (
+    LEDGER_RELATIVE_PATH,
+    RunLedgerEntry,
+    Trigger,
+    append_entry,
+    read_entries,
+)
 from pipeline.parse.mfm_dom import MfmPage, parse_faction_page
-from pipeline.parse.mfm_swap_replay import replay
+from pipeline.parse.mfm_swap_replay import StructureChanged, replay
 from pipeline.parse.wahapedia_csv import read_text as read_csv_text
 from pipeline.reconcile.conflicts import detect_faction_changes, detect_renames
 from pipeline.reconcile.findings import apply_resolutions
@@ -136,7 +149,6 @@ _HELP: Final[Mapping[str, str]] = {
 
 #: Commands whose stage modules arrive in a later phase, with the task that lands each.
 _PENDING_STAGES: Final[Mapping[str, str]] = {
-    "detect": "T106 (pipeline.detect)",
     "acquire": "T108 (the acquire-only entry point)",
     "publish": "T117 (the publish job's CLI entry point)",
     "withdraw": "T118 (pipeline.publish.withdraw)",
@@ -594,6 +606,147 @@ def _run_validate_command(config: PipelineConfig, args: argparse.Namespace, *, w
     return int(exit_code)
 
 
+@dataclass(frozen=True, slots=True)
+class DetectResult:
+    """Everything one ``detect`` sweep produced (contract §1-§2, research D4b)."""
+
+    exit_code: ExitCode
+    changed_factions: tuple[str, ...] = ()
+    diagnostic: str | None = None
+    stale: bool = False
+    ledger_line: str = ""
+
+
+def _trigger_from_environment() -> Trigger:
+    """What started this run, read from the GitHub Actions event context.
+
+    Falls back to :attr:`Trigger.MANUAL` outside CI — a curator's laptop run and an explicit
+    ``workflow_dispatch`` are the same kind of trigger from the ledger's point of view.
+    """
+    if os.environ.get("GITHUB_EVENT_NAME") == "schedule":
+        return Trigger.SCHEDULED
+    return Trigger.MANUAL
+
+
+def run_detect(  # noqa: PLR0913 - the stage boundary is the argument list
+    *,
+    config: PipelineConfig,
+    fixtures_dir: Path | None = None,
+    offline: bool = False,
+    client: PoliteClient | None = None,
+    repository_root: Path | None = None,
+    retrieved_at: datetime | None = None,
+    now: datetime | None = None,
+    run_id: str | None = None,
+    trigger: Trigger = Trigger.MANUAL,
+) -> DetectResult:
+    """Sweep the points source, digest its mechanical values, and compare with the last digest.
+
+    ``detect`` never touches the detail source and never writes ``data/`` or a report — its only
+    writes are the digest state and one ledger line (contract §1, §3). A structural or
+    reachability failure leaves the previously recorded digest untouched, so the previously
+    published version stays current (FR-007, FR-008, exit codes 40/41 §2).
+    """
+    root = repository_root or repo_root()
+    state_path = root / DIGEST_STATE_RELATIVE_PATH
+    ledger_path = root / LEDGER_RELATIVE_PATH
+    prior_state = load_detection_state(state_path)
+    moment = now or datetime.now(UTC)
+    started_at = moment.isoformat().replace("+00:00", "Z")
+
+    def _finish(
+        exit_code: ExitCode,
+        *,
+        changed: tuple[str, ...] = (),
+        diagnostic: str | None = None,
+        coverage: Mapping[str, int] | None = None,
+    ) -> DetectResult:
+        entry = RunLedgerEntry(
+            run_id=run_id or f"local-detect-{moment.strftime('%Y%m%dT%H%M%SZ')}",
+            command="detect",
+            trigger=trigger,
+            channel=config.data_channel.value,
+            started_at=started_at,
+            coverage=coverage or {},
+            exit_code=int(exit_code),
+        )
+        line = append_entry(ledger_path, entry)
+        stale = is_stale(
+            read_entries(ledger_path), now=moment, staleness_hours=config.detect_staleness_hours
+        )
+        return DetectResult(
+            exit_code=exit_code,
+            changed_factions=changed,
+            diagnostic=diagnostic,
+            stale=stale,
+            ledger_line=line,
+        )
+
+    try:
+        _acquisition, payloads = acquire_mfm(
+            config,
+            fixtures_dir=fixtures_dir,
+            offline=offline,
+            client=client,
+            retrieved_at=retrieved_at,
+        )
+    except AcquisitionError as exc:
+        diagnostic = f"{exc.finding_code}: {exc}"
+        if exc.exit_code is ExitCode.CONFIG_ERROR:
+            # An invocation error (e.g. `--offline` with no `--fixtures`), not a detection
+            # attempt: the source was never contacted, so there is nothing for the ledger to
+            # record -- the same reasoning `run_build`'s missing `--rules-version-id` check
+            # already applies before it writes anything.
+            return DetectResult(exit_code=exc.exit_code, diagnostic=diagnostic)
+        return _finish(exc.exit_code, diagnostic=diagnostic)
+
+    pages: list[MfmPage] = []
+    try:
+        for payload in payloads:
+            replayed = replay(payload.text)
+            pages.append(parse_faction_page(payload.name, replayed.html))
+    except StructureChanged as exc:
+        return _finish(exc.exit_code, diagnostic=f"{exc.finding_code}: {exc}")
+
+    comparison = compare_digests(pages, prior_state)
+    save_detection_state(state_path, comparison.new_state)
+
+    exit_code = ExitCode.CHANGE_DETECTED if comparison.changed else ExitCode.SUCCESS
+    return _finish(
+        exit_code,
+        changed=comparison.changed_factions,
+        coverage={"faction_pages": len(payloads)},
+    )
+
+
+def _report_detect(result: DetectResult) -> None:
+    """Print the detect verdict, the same way :func:`_report_blocking` prints a build one."""
+    if result.diagnostic is not None:
+        print(f"{PROG}: {result.diagnostic}", file=sys.stderr)
+    if result.changed_factions:
+        print(f"{PROG}: CHANGE DETECTED {' '.join(result.changed_factions)}")
+    elif result.diagnostic is None:
+        print(f"{PROG}: no change")
+    if result.stale:
+        print(
+            f"{PROG}: STALE detection - no successful check completed within the configured "
+            "staleness window",
+            file=sys.stderr,
+        )
+
+
+def _run_detect_command(config: PipelineConfig, args: argparse.Namespace) -> int:
+    fixtures = getattr(args, "fixtures", None)
+    result = run_detect(
+        config=config,
+        fixtures_dir=Path(fixtures) if fixtures else None,
+        offline=bool(getattr(args, "offline", False)),
+        trigger=_trigger_from_environment(),
+    )
+    _report_detect(result)
+    return int(result.exit_code)
+
+
 def dispatch(command: str, config: PipelineConfig, args: argparse.Namespace) -> int:
     """Run one command and return its contract exit code.
 
@@ -603,6 +756,8 @@ def dispatch(command: str, config: PipelineConfig, args: argparse.Namespace) -> 
         return _run_build_command(config, args)
     if command in {"validate", "report"}:
         return _run_validate_command(config, args, write=True)
+    if command == "detect":
+        return _run_detect_command(config, args)
     del config, args  # consumed by the stage modules as they land
     return _pending(command)
 

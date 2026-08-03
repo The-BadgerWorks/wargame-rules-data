@@ -150,4 +150,10 @@ def test_help_exits_zero() -> None:
 
 @pytest.mark.parametrize("command", sorted(CONTRACT_COMMANDS))
 def test_every_command_returns_a_code_from_the_stable_set(command: str) -> None:
-    assert main([command]) in STABLE_EXIT_CODES
+    # `--offline` is the contract's own "make no network request" mode (§1), so this stays a
+    # smoke test of the exit-code mapping rather than a test that happens to depend on which
+    # commands are implemented yet. A wired command with no other input (`detect`) fails
+    # cleanly at `OfflineViolation` -> 60; an unimplemented one still falls through to
+    # `_pending` -> 60 either way (task T106 wired `detect`; `acquire`/`publish`/`withdraw`/
+    # `verify` remain pending stage modules).
+    assert main([command, "--offline"]) in STABLE_EXIT_CODES
