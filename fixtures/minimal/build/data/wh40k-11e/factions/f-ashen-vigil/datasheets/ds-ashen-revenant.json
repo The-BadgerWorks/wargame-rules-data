@@ -9,7 +9,7 @@
       "model_count": 1,
       "points": 60,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260803T174039Z-dc347aec"
+      "source_acquisition_id": "wahapedia-20260803T174956Z-1ab4c254"
     }
   ],
   "datasheet_id": "ds-ashen-revenant",
@@ -44,7 +44,7 @@
   ],
   "name": "Ashen Revenant",
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260803T174039Z-dc347aec",
+    "detail_acquisition_id": "wahapedia-20260803T174956Z-1ab4c254",
     "detail_edition_code": "wh40k-10e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": true,

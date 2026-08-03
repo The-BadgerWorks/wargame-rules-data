@@ -94,6 +94,12 @@ _BATTLELINE_ROLES: Final[frozenset[str]] = frozenset({"battleline"})
 _CHARACTER_ROLES: Final[frozenset[str]] = frozenset({"characters", "character"})
 _TRANSPORT_ROLES: Final[frozenset[str]] = frozenset({"dedicated transports", "dedicated transport"})
 
+#: How a Legends datasheet is actually identified. **Not** the datasheet's own `legend` column:
+#: that is flavour text, which this pipeline must not read at all, and 1 220 datasheets carry it
+#: where only 569 are Legends. The real signal is the publication the datasheet came from, so it
+#: is resolved through `source_id` into `Source.csv`.
+_LEGENDS_SOURCE: Final = "legends"
+
 
 @dataclass(slots=True)
 class AssemblyResult:
@@ -195,9 +201,23 @@ def _deduplicate_options(
     return sorted(unique.values(), key=lambda option: option.id)
 
 
+def _legends_source_ids(detail: Mapping[str, CsvReadResult]) -> frozenset[str]:
+    """The publication ids that make a datasheet Legends."""
+    sources = detail.get("Source.csv")
+    if sources is None:
+        return frozenset()
+    return frozenset(
+        row.fields["id"]
+        for row in sources.rows
+        if _LEGENDS_SOURCE
+        in f"{row.fields.get('name', '')} {row.fields.get('type', '')}".casefold()
+    )
+
+
 def _detail_datasheet_fields(
     detail_id: str,
     detail: Mapping[str, CsvReadResult],
+    legends_sources: frozenset[str] = frozenset(),
 ) -> tuple[dict[str, object], list[Finding]]:
     """Everything the detail source contributes to one datasheet."""
     findings: list[Finding] = []
@@ -213,11 +233,23 @@ def _detail_datasheet_fields(
 
     fields["role"] = role
     fields["is_dedicated_transport"] = role_key in _TRANSPORT_ROLES
-    fields["is_legends"] = bool(row.fields.get("legend", "").strip())
+    fields["is_legends"] = row.fields.get("source_id", "") in legends_sources
     fields["damaged_threshold"] = upper_bound(row.fields.get("damaged_w"), field="damaged_w")
 
     models: list[CuratedModelLine] = []
     for model in detail["Datasheets_models.csv"].grouped_by("datasheet_id").get(detail_id, []):
+        # A nameless line is a defect in the export, not a nameless model. Emitting it would put
+        # an empty string into a NOT NULL column the app renders; skipping it and saying so
+        # keeps the rest of the datasheet, which is the useful part.
+        if not strip_field(model.fields.get("name", ""), field="model.name").text:
+            findings.append(
+                build_finding(
+                    "DQ-MALFORMED-ROW",
+                    entity_refs=[f"wahapedia:{detail_id}"],
+                    detail={"file_name": "Datasheets_models.csv", "field": "name"},
+                )
+            )
+            continue
         try:
             models.append(
                 CuratedModelLine(
@@ -245,6 +277,15 @@ def _detail_datasheet_fields(
 
     weapons: list[CuratedWeaponLine] = []
     for weapon in detail["Datasheets_wargear.csv"].grouped_by("datasheet_id").get(detail_id, []):
+        if not strip_field(weapon.fields.get("name", ""), field="weapon.name").text:
+            findings.append(
+                build_finding(
+                    "DQ-MALFORMED-ROW",
+                    entity_refs=[f"wahapedia:{detail_id}"],
+                    detail={"file_name": "Datasheets_wargear.csv", "field": "name"},
+                )
+            )
+            continue
         weapon_range = optional_characteristic(weapon.fields.get("range"))
         is_melee = (weapon.fields.get("type", "") or "").strip().casefold() == "melee"
         try:
@@ -363,6 +404,7 @@ def assemble(  # noqa: PLR0913 - the stage genuinely needs every upstream input
     scopes = {scope.entry.mfm_slug: scope for scope in factions_outcome.scopes}
 
     detail_datasheets = detail["Datasheets.csv"]
+    legends_sources = _legends_source_ids(detail)
     findings.extend(
         report_orphan_detail_factions(
             [row.fields.get("faction_id", "") for row in detail_datasheets.rows], authored
@@ -441,6 +483,7 @@ def assemble(  # noqa: PLR0913 - the stage genuinely needs every upstream input
                 points_acquisition=points_acquisition,
                 provenance=provenance if match.wahapedia_datasheet_id else points_only_provenance,
                 edition_code=edition_code,
+                legends_sources=legends_sources,
             )
             findings.extend(datasheet_findings)
             datasheets.append(datasheet)
@@ -470,6 +513,7 @@ def assemble(  # noqa: PLR0913 - the stage genuinely needs every upstream input
             provenance=detail_only_provenance,
             registry=registry,
             detail_acquisition=detail_acquisition,
+            legends_sources=legends_sources,
         )
         findings.extend(unverified_findings)
         if unverified is not None:
@@ -590,6 +634,7 @@ def _datasheet_for(  # noqa: PLR0913 - one datasheet needs both sources and the 
     points_acquisition: SourceAcquisition,
     provenance: EntityProvenance,
     edition_code: str,
+    legends_sources: frozenset[str],
 ) -> tuple[CuratedDatasheet, list[Finding]]:
     findings: list[Finding] = []
     costs, wargear_options, cost_findings = _costs(
@@ -599,7 +644,9 @@ def _datasheet_for(  # noqa: PLR0913 - one datasheet needs both sources and the 
 
     fields: dict[str, object] = {}
     if match.wahapedia_datasheet_id:
-        fields, detail_findings = _detail_datasheet_fields(match.wahapedia_datasheet_id, detail)
+        fields, detail_findings = _detail_datasheet_fields(
+            match.wahapedia_datasheet_id, detail, legends_sources
+        )
         findings.extend(detail_findings)
         _, wargear_findings = _wargear_options(
             match.wahapedia_datasheet_id, match.datasheet_id, detail
@@ -669,6 +716,7 @@ def _detail_only_datasheet(  # noqa: PLR0913 - one datasheet needs both trees an
     provenance: EntityProvenance,
     registry: IdRegistry,
     detail_acquisition: SourceAcquisition,
+    legends_sources: frozenset[str],
 ) -> tuple[CuratedDatasheet | None, list[Finding]]:
     """A datasheet the points authority did not price this release (FR-026, FR-035).
 
@@ -724,7 +772,7 @@ def _detail_only_datasheet(  # noqa: PLR0913 - one datasheet needs both trees an
     )
 
     datasheet_id = registry.mint(EntityKind.DATASHEET, normalize_name(display_name), display_name)
-    fields, detail_findings = _detail_datasheet_fields(detail_id, detail)
+    fields, detail_findings = _detail_datasheet_fields(detail_id, detail, legends_sources)
     findings.extend(detail_findings)
 
     datasheet = CuratedDatasheet(

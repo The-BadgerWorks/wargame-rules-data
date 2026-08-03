@@ -52,6 +52,7 @@ EXPORT_FILES: Final[tuple[str, ...]] = (
     "Detachments.csv",
     "Enhancements.csv",
     "Factions.csv",
+    "Source.csv",
 )
 
 
