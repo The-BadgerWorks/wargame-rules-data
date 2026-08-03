@@ -65,6 +65,16 @@ def test_a_cost_cell_without_a_delta_records_none() -> None:
     assert all(row.delta_marker is None for row in block.rows)
 
 
+def test_leader_and_support_lists_are_extracted_as_names() -> None:
+    """The list is a comma-separated run of unit names, not prose, and stays a list of names."""
+    block = _block(_parsed(), "FORGE MARSHAL", "YOUR UNIT COSTS")
+    assert list(block.support_targets) == ["EMBER SENTINEL", "CINDER WARDEN"]
+
+
+def test_a_unit_with_no_leader_or_support_list_records_none() -> None:
+    assert list(_block(_parsed(), "EMBER SENTINEL", "YOUR UNIT COSTS").support_targets) == []
+
+
 def test_detachment_card_carries_dp_disposition_tags_and_enhancements() -> None:
     page = _parsed()
     cards = {card.detachment_name: card for card in page.detachments}
