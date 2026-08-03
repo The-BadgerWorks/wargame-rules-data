@@ -1,0 +1,17 @@
+{
+  "_comment": "AI-Assisted: Claude Code (model: claude-opus-5) - Authored per data-model.md §4 (task T034). No upstream source publishes per-datasheet copy limits, so they are authored -- and uncurated at first release by design. An absent limit is emitted as an ABSENT max_copies_per_army, which the app reports as unevaluated; a guessed 1 would be a fabricated rule (FR-019). A record here naming a datasheet absent from curated data is the blocking AUT-DANGLING-REF (FR-018).",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://the-badgerworks.github.io/wargame-rules-data/schemas/curation/copy-limits.schema.json",
+  "title": "curation/copy-limits.json",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": ["datasheet_id", "max_copies_per_army"],
+    "properties": {
+      "datasheet_id": { "type": "string", "pattern": "^ds-[a-z0-9-]+$" },
+      "max_copies_per_army": { "type": "integer", "minimum": 1 },
+      "note": { "type": "string", "maxLength": 240 }
+    }
+  }
+}

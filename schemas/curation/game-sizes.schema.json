@@ -1,0 +1,29 @@
+{
+  "_comment": "AI-Assisted: Claude Code (model: claude-opus-5) - Authored per data-model.md §4 and §3.5 (task T034). Bands are unsourced and therefore authored. They MUST be contiguous, non-overlapping, and cover reference-db-schema.md §3.4's declared 500..5000 range end to end -- that contract is the single source of truth for the range and the pipeline reads it rather than carrying its own copy (C7/R9). Violations are the blocking CON-BAND-GAP / CON-BAND-OVERLAP; a JSON Schema cannot express a cross-record property, so that check is validation rule V3.",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://the-badgerworks.github.io/wargame-rules-data/schemas/curation/game-sizes.schema.json",
+  "title": "curation/game-sizes.json",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "id",
+      "label",
+      "min_points",
+      "max_points",
+      "detachment_points_budget",
+      "max_detachments",
+      "max_enhancements"
+    ],
+    "properties": {
+      "id": { "type": "string", "minLength": 1 },
+      "label": { "type": "string", "minLength": 1, "maxLength": 64 },
+      "min_points": { "type": "integer", "minimum": 0 },
+      "max_points": { "type": "integer", "minimum": 0 },
+      "detachment_points_budget": { "type": "integer", "minimum": 0 },
+      "max_detachments": { "type": "integer", "minimum": 0 },
+      "max_enhancements": { "type": "integer", "minimum": 0 }
+    }
+  }
+}

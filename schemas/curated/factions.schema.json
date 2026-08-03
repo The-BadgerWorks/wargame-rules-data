@@ -1,0 +1,45 @@
+{
+  "_comment": "AI-Assisted: Claude Code (model: claude-opus-5) - Authored per curated-snapshot-format.md §2.3 (task T032). mfm_slug and detail_source_faction_id are CURATED-ONLY provenance keys, dropped at the bundle boundary. parent_faction_id carries the points source's chapter split (C3/R6); the consuming app must include ancestors when querying a faction (reference-db-schema.md §3.5).",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://the-badgerworks.github.io/wargame-rules-data/schemas/curated/factions.schema.json",
+  "title": "Curated factions.json",
+  "description": "Faction rows, sorted by faction_id.",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "faction_id",
+      "code",
+      "name",
+      "mfm_slug",
+      "detail_source_faction_id",
+      "provenance"
+    ],
+    "properties": {
+      "faction_id": { "type": "string", "pattern": "^f-[a-z0-9-]+$" },
+      "code": { "type": "string", "minLength": 1 },
+      "name": { "type": "string", "minLength": 1 },
+      "parent_faction_id": { "type": "string", "pattern": "^f-[a-z0-9-]+$" },
+      "mfm_slug": { "type": "string", "minLength": 1 },
+      "detail_source_faction_id": { "type": "string", "minLength": 1 },
+      "provenance": { "$ref": "#/$defs/provenance" }
+    }
+  },
+  "$defs": {
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["points_source", "points_edition_code", "detail_source", "detail_edition_code"],
+      "description": "Carried by every curated entity, not only disputed ones (FR-003). is_hybrid_edition is derived (detail_edition_code != points_edition_code) and never stored.",
+      "properties": {
+        "points_source": { "enum": ["mfm", "last_known", "none"] },
+        "points_acquisition_id": { "type": "string", "minLength": 1 },
+        "points_edition_code": { "type": "string", "minLength": 1 },
+        "detail_source": { "enum": ["wahapedia", "none"] },
+        "detail_acquisition_id": { "type": "string", "minLength": 1 },
+        "detail_edition_code": { "type": "string", "minLength": 1 }
+      }
+    }
+  }
+}

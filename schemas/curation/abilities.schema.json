@@ -1,0 +1,26 @@
+{
+  "_comment": "AI-Assisted: Claude Code (model: claude-opus-5) - Authored per data-model.md §4 and §4.1 (task T034), for curation/abilities/<faction-id>.json. Keyed per ABILITY, never per (datasheet, ability) binding: the export carries thousands of bindings over a much smaller distinct ability set, so keying per binding would multiply release 1's dominant editorial cost by roughly an order of magnitude for no editorial benefit (research D6). `summary` is authored from the mechanic in this data set's own words; machine paraphrase of the publisher's text does not satisfy reference-db-schema.md §6.1(2) and is prohibited. draft, in_review, and needs_rereview all BLOCK publication; approved carries forward untouched while mechanic_digest is unchanged, which is what SC-011 measures.",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://the-badgerworks.github.io/wargame-rules-data/schemas/curation/abilities.schema.json",
+  "title": "curation/abilities/<faction-id>.json",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": ["ability_key", "name", "summary", "review_state", "mechanic_digest"],
+    "properties": {
+      "ability_key": { "type": "string", "pattern": "^(core|faction|datasheet):[A-Za-z0-9:_-]+$" },
+      "name": { "type": "string", "minLength": 1, "maxLength": 120 },
+      "summary": { "type": "string", "minLength": 1, "maxLength": 400 },
+      "review_state": { "enum": ["draft", "in_review", "approved", "needs_rereview"] },
+      "mechanic_digest": {
+        "type": "string",
+        "minLength": 1,
+        "description": "A KEYED, TRUNCATED digest (HMAC-SHA256 under a repository-held key, 128 bits) over the hard-normalised mechanic text, computed while that text exists only in ephemeral storage and then discarded. Keying matters: an unkeyed hash of a short, publicly known string can be confirmed by anyone holding the text, whereas a keyed digest can be neither inverted nor used to verify a guess (C6/R8)."
+      },
+      "reviewed_by": { "type": "string", "minLength": 1 },
+      "reviewed_at": { "type": "string", "minLength": 1 },
+      "authored_against_acquisition": { "type": "string", "minLength": 1 }
+    }
+  }
+}

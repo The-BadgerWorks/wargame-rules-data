@@ -1,0 +1,18 @@
+{
+  "_comment": "AI-Assisted: Claude Code (model: claude-opus-5) - Authored per data-model.md §4 (task T034). Curator-confirmed non-identical spellings, consulted after normalised exact matching and before giving up (research D5 stage 3). An alias is a human decision recorded once; it is never inferred from a similarity score.",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://the-badgerworks.github.io/wargame-rules-data/schemas/curation/unit-aliases.schema.json",
+  "title": "curation/unit-aliases.json",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": ["faction_id", "alias", "datasheet_id"],
+    "properties": {
+      "faction_id": { "type": "string", "pattern": "^f-[a-z0-9-]+$" },
+      "alias": { "type": "string", "minLength": 1, "maxLength": 120 },
+      "datasheet_id": { "type": "string", "pattern": "^ds-[a-z0-9-]+$" },
+      "note": { "type": "string", "maxLength": 240 }
+    }
+  }
+}
