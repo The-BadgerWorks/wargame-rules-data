@@ -50,7 +50,7 @@ is no CI-only code path.
 | `sample/` | The general-purpose set: the `$RS` swap replay, cost tables and tiers, detachment cards, and one page with an **unfilled** placeholder that must fail the run |
 | `minimal/` | The minimal snapshot `reference-db-schema.md` §7 requires, built by the same builder as a real release so it can never drift from the real emitter (FR-048) |
 | `disagreements/` | One case per disagreement class in the spec's *Edge Cases* list |
-| `detection/` | Baseline / mechanical-change / presentation-only-change page sets (research D4b) |
+| `detection/` | Baseline / mechanical-change / presentation-only-change / restructured page sets (research D4b) |
 
 Each set is added by the task that needs it; a set is not a dumping ground for "a page that
 looked interesting".

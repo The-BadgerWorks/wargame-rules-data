@@ -1,0 +1,58 @@
+<!-- AI-Assisted: Claude Code (model: claude-sonnet-5) - Authored this SYNTHETIC points-source
+     faction page (task T100) as the presentation-only variant of baseline/mfm/verdant-marchers
+     .html: reordered rows and sections, renumbered P:/S: element ids, different utility and
+     colour classes, an added UPDATED tag, an added delta marker on an unchanged value, and
+     extra whitespace -- every mechanical value (names, labels, points, DP, force disposition,
+     enhancement cost) is identical to the baseline. `test_digest_projection.py` asserts this
+     file's digest equals the baseline's (research D4b). Every name here is invented
+     (fixtures/README.md). -->
+<!doctype html>
+<html lang="en">
+<head><title>VERDANT MARCHERS</title></head>
+<body>
+  <div class="mx-auto max-w-screen-2xl">
+
+    <div class="flex flex-col mb-5">
+      <h3 class="text-4xl font-header p-1">UNITS</h3>
+      <div class="grid gap-1 md:grid-cols-2 text-sm">
+        <div class="flex flex-col space-y-1 m-1">
+          <template id="P:21"></template>
+          <div class="space-y-1">
+            <div class="bg-slate-100 px-1 py-0.5 font-bold text-black">YOUR UNIT COSTS</div>
+            <ul class="leaders bg-amber">
+              <li><span>10 models</span><template id="P:23"></template></li>
+              <li><span>5 models</span><template id="P:22"></template></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="flex flex-col mb-5 ">
+      <h3 class="text-4xl font-header p-1 print:break-after-avoid-page">DETACHMENTS</h3>
+      <div class="grid gap-1 print:grid-cols-2 md:grid-cols-2 text-sm">
+        <div class="flex flex-col space-y-1 m-1 print:break-inside-avoid-page">
+          <div class="flex flex-row justify-between px-1 py-0.5 bg-slate-900 dark:bg-slate-950 font-bold text-white"><span class="text-xl break-all">WARDEN'S OATH</span><span class="text-sm self-end pl-2">2DP</span></div>
+          <div class="m-0 px-1 py-0.5 text-white font-bold" style="background-color:#1A4D2E">GUARD THE GROVE</div>
+          <div class="space-y-1">
+            <div class="px-1 py-0.5 bg-slate-300 dark:bg-slate-600 font-bold text-foreground">ENHANCEMENTS</div>
+            <ul class="leaders">
+              <div><li><div class="flex flex-row justify-between"><span>Bloomward Sigil</span><span class="text-emerald-500">20 pts</span></div></li></div>
+            </ul>
+          </div>
+          <div class="m-0 px-1 py-0.5 bg-slate-300 dark:bg-slate-700 font-bold"><span>UPDATED</span></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div hidden id="S:21"><div class="flex flex-row justify-between px-1 py-0.5 bg-slate-900 dark:bg-slate-950 font-bold text-xl text-white">THICKET STALKER</div></div>
+  <script>$RS("S:21","P:21")</script>
+  <div hidden id="S:22"><span class="text-slate-400">80 pts</span></div>
+  <script>$RS("S:22","P:22")</script>
+  <div hidden id="S:23"><span class="text-emerald-500 dark:text-emerald-400">▼ (-5) 150 pts</span></div>
+  <script>$RS("S:23","P:23")</script>
+
+</body>
+</html>
