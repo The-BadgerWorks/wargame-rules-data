@@ -1,0 +1,69 @@
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - CI workflow (task T010): on pull_request
+# and push, runs ruff (lint + format check), mypy, pytest offline, and actionlint. No
+# credential, no network access beyond installing pinned dependencies and the actionlint
+# binary, and it writes nothing back to the repository
+# (contracts/pipeline-run-interface.md §3). The change-class guard (task T014) runs as a
+# second job, pull_request only, since it needs a base/head ref pair to diff.
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  ci:
+    name: lint, typecheck, test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install package (dev extras)
+        run: pip install -e ".[dev]"
+
+      - name: ruff check
+        run: ruff check .
+
+      - name: ruff format --check
+        run: ruff format --check .
+
+      - name: mypy
+        run: mypy
+
+      - name: pytest (offline)
+        run: pytest
+
+      - name: Download actionlint
+        run: |
+          bash <(curl -fsSL https://raw.githubusercontent.com/rhysd/actionlint/main/scripts/download-actionlint.bash)
+
+      - name: actionlint
+        run: ./actionlint -color
+
+  change-class-guard:
+    name: change-class guard
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Enforce one change class per PR
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          PR_ACTOR: ${{ github.event.pull_request.user.login }}
+        run: |
+          python tools/check_change_classes.py diff --base "$BASE_SHA" --head "$HEAD_SHA" --actor "$PR_ACTOR"
