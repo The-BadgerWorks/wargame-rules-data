@@ -1,0 +1,12 @@
+# AI-Assisted: Claude Code (model: claude-opus-5) - Pinned line endings to LF everywhere.
+# LF is part of a contract here, not a preference: curated-snapshot-format.md §1 requires LF
+# and one trailing newline in every curated file, the bundle checksum is computed over bytes
+# (FR-033, SC-006), and the detail-source fixture CSVs are byte-sensitive (a CRLF checkout
+# would leave a stray CR in the last field of every record). A Windows curator with
+# core.autocrlf=true must get the same bytes as CI.
+* text=auto eol=lf
+
+# Binary-ish: never touched, never diffed as text.
+*.png binary
+*.jpg binary
+*.sqlite binary
