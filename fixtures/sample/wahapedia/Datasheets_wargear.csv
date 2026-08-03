@@ -1,0 +1,6 @@
+﻿datasheet_id|line|line_in_wargear|dice|name|description|range|type|A|BS_WS|S|AP|D|
+EW01|1|1||Ember lance||24"|Ranged|2|3+|5|-1|2|
+EW01|2|2||Slag maul|<span class="kwb">Invented</span> placeholder prose.|Melee|Melee|3|3+|6|-1|2|
+EW02|1|1||Cinder carbine||18"|Ranged|3|3+|4|0|1|
+EW03|1|1||Marshal&#8217;s hammer||Melee|Melee|4|2+|8|-2|3|
+GC01|1|1||Glass shard thrower||12"|Ranged|2|4+|3|0|1|

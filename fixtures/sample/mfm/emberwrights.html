@@ -1,0 +1,131 @@
+<!-- AI-Assisted: Claude Code (model: claude-opus-5) - Authored this SYNTHETIC points-source
+     faction page (task T041) from the structural description in research.md §0.2 and D4a.
+     Every faction name, unit name, detachment name and enhancement name here is invented, and
+     no part of it was captured from or redacted out of a real page (fixtures/README.md).
+     Structures reproduced, one case each: deferred <template id="P:n"> placeholders filled by
+     hidden <div id="S:n"> blocks through $RS("S:n","P:n") id-to-id move instructions, including
+     a NESTED placeholder that a later swap fills; the streamed-boundary reveal
+     $RC("B:n","S:n"), whose arguments are the other way round; a plain "YOUR UNIT COSTS" table;
+     the
+     "YOUR 1ST TO 2ND UNITS COST" + "YOUR 3RD + UNIT COSTS" requisition-threshold pair for one
+     datasheet; a detachment card carrying DP, a force disposition, an enhancement list and a
+     Unique tag; and a "▲ (+15)" change-delta span, which is a witness for the D4d cross-check
+     and never an authority. -->
+<!doctype html>
+<html lang="en">
+<head><title>EMBERWRIGHTS</title></head>
+<body>
+<div class="mx-auto max-w-screen-2xl">
+
+<div class="flex flex-col mb-5 ">
+  <h3 class="text-4xl font-header p-1 print:break-after-avoid-page">DETACHMENTS</h3>
+  <div class="grid gap-1 print:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 text-sm">
+
+    <div class="flex flex-col space-y-1 m-1 print:break-inside-avoid-page">
+      <div class="flex flex-row justify-between px-1 py-0.5 bg-slate-500 dark:bg-slate-800 font-bold text-white"><span class="text-xl break-all">ANVIL VIGIL</span><span class="text-sm self-end pl-2">2DP</span></div>
+      <div class="m-0 px-1 py-0.5 text-white font-bold" style="background-color:#8B1B1B">HOLD THE LINE</div>
+      <div class="space-y-1">
+        <div class="px-1 py-0.5 bg-slate-200 dark:bg-slate-600 font-bold text-foreground">ENHANCEMENTS</div>
+        <ul class="leaders">
+          <div><li><div class="flex flex-row justify-between"><span>Emberbound Oath</span><span>25 pts</span></div></li></div>
+          <div><li><div class="flex flex-row justify-between"><span>Slagged Aegis</span><span class="text-red-500 dark:text-red-400">▲ (+15) 30 pts</span></div></li></div>
+        </ul>
+      </div>
+      <div class="m-0 px-1 py-0.5 bg-slate-300 dark:bg-slate-700 font-bold"><span>UPDATED</span></div>
+    </div>
+
+    <div class="flex flex-col space-y-1 m-1 print:break-inside-avoid-page">
+      <div class="flex flex-row justify-between px-1 py-0.5 bg-slate-500 dark:bg-slate-800 font-bold text-white"><span class="text-xl break-all">CRUCIBLE HOST</span><span class="text-sm self-end pl-2">3DP</span></div>
+      <div class="m-0 px-1 py-0.5 text-white font-bold" style="background-color:#2E6B3E">BREAK THE SIEGE</div>
+      <div class="space-y-1">
+        <div class="px-1 py-0.5 bg-slate-200 dark:bg-slate-600 font-bold text-foreground">ENHANCEMENTS</div>
+        <ul class="leaders">
+          <div><li><div class="flex flex-row justify-between"><span>Kindled Resolve</span><span>15 pts</span></div></li></div>
+        </ul>
+      </div>
+      <div class="m-0 px-1 py-0.5 bg-slate-300 dark:bg-slate-700 font-bold"><span>Unique</span></div>
+    </div>
+
+  </div>
+</div>
+
+<template id="B:0"></template>
+<div hidden id="S:0">
+  <div class="flex flex-col mb-5">
+    <h3 class="text-4xl font-header p-1 print:break-after-avoid-page">UNITS</h3>
+    <div class="pb-2">
+      <div class="grid gap-1 grid-cols-1 print:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 text-sm">
+
+        <div class="flex flex-col space-y-1 m-1 print:break-inside-avoid-page">
+          <template id="P:1"></template>
+          <div class="space-y-1">
+            <div class="bg-slate-200 dark:bg-slate-600 px-1 py-0.5 font-bold text-black dark:text-white">YOUR UNIT COSTS</div>
+            <ul class="leaders bg-yellow">
+              <li><span>3 models</span><template id="P:2"></template></li>
+              <li><span>6 models</span><template id="P:3"></template></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="flex flex-col space-y-1 m-1 print:break-inside-avoid-page">
+          <template id="P:4"></template>
+          <div class="space-y-1">
+            <div class="bg-slate-200 dark:bg-slate-600 px-1 py-0.5 font-bold text-black dark:text-white">YOUR 1ST TO 2ND UNITS COST</div>
+            <ul class="leaders bg-yellow">
+              <li><span>5 models</span><template id="P:5"></template></li>
+              <li><span>10 models</span><template id="P:6"></template></li>
+            </ul>
+          </div>
+          <div class="space-y-1">
+            <div class="bg-slate-200 dark:bg-slate-600 px-1 py-0.5 font-bold text-black dark:text-white">YOUR 3RD + UNIT COSTS</div>
+            <ul class="leaders bg-yellow">
+              <li><span>5 models</span><template id="P:7"></template></li>
+              <li><span>10 models</span><template id="P:8"></template></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="flex flex-col space-y-1 m-1 print:break-inside-avoid-page">
+          <template id="P:9"></template>
+          <div class="space-y-1">
+            <div class="bg-slate-200 dark:bg-slate-600 px-1 py-0.5 font-bold text-black dark:text-white">YOUR UNIT COSTS</div>
+            <ul class="leaders bg-yellow">
+              <li><span>1 model</span><template id="P:a"></template></li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+<script>$RC("B:0","S:0")</script>
+
+<div hidden id="S:1"><div class="px-1 py-0.5 bg-slate-500 dark:bg-slate-800 font-bold text-xl text-white">EMBER SENTINEL</div></div>
+<script>$RS("S:1","P:1")</script>
+<div hidden id="S:2"><span>60 pts</span></div>
+<script>$RS("S:2","P:2")</script>
+<div hidden id="S:3"><span>115 pts</span></div>
+<script>$RS("S:3","P:3")</script>
+
+<div hidden id="S:4"><div class="flex flex-row justify-between px-1 py-0.5 bg-emerald-600 font-bold text-white"><span class="text-xl keep-all">CINDER WARDEN</span><span class="text-sm self-end pl-2 text-nowrap">▼</span></div></div>
+<script>$RS("S:4","P:4")</script>
+<div hidden id="S:5"><span class="text-emerald-600 dark:text-emerald-400">▼ (-10) 90 pts</span></div>
+<script>$RS("S:5","P:5")</script>
+<div hidden id="S:6"><span class="text-emerald-600 dark:text-emerald-400">▼ (-20) 175 pts</span></div>
+<script>$RS("S:6","P:6")</script>
+<div hidden id="S:7"><span>100 pts</span></div>
+<script>$RS("S:7","P:7")</script>
+<div hidden id="S:8"><span>195 pts</span></div>
+<script>$RS("S:8","P:8")</script>
+
+<div hidden id="S:9"><div class="flex flex-row justify-between px-1 py-0.5 bg-rose-600 font-bold text-white"><span class="text-xl keep-all">FORGE MARSHAL</span><template id="P:b"></template></div></div>
+<script>$RS("S:9","P:9")</script>
+<div hidden id="S:a"><span class="text-red-500 dark:text-red-400">▲ (+15) 155 pts</span></div>
+<script>$RS("S:a","P:a")</script>
+<div hidden id="S:b"><span class="text-sm self-end pl-2 text-nowrap">▲</span></div>
+<script>$RS("S:b","P:b")</script>
+
+</div>
+</body>
+</html>

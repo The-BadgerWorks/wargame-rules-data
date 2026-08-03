@@ -1,0 +1,5 @@
+﻿faction_id|name|id|type|cp_cost|legend|turn|phase|detachment|detachment_id|description|
+EW|Ember Surge|S001|Battle Tactic|1||Your turn|Fight|Anvil Vigil|D001|Invented placeholder prose.|
+EW|Slag Curtain|S002|Strategic Ploy|2||Either
+player|Movement|Anvil Vigil|D001|Invented placeholder prose with an embedded newline.|
+EW|Kindle|S003|Epic Deed|1||Your turn|Charge|Crucible Host|D002|Invented placeholder prose.|

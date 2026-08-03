@@ -1,0 +1,5 @@
+﻿id|name|faction_id|source_id|legend|role|loadout|transport|virtual|leader_head|leader_footer|damaged_w|damaged_description|link|
+EW01|Ember Sentinel|EW|1||Battleline|3 Ember Sentinels, each armed with an ember lance.|0|0|||||https://example.invalid/ds/EW01|
+EW02|Cinder Warden|EW|1||Infantry|<span class="kwb">5 Cinder Wardens</span>, each armed with a cinder carbine.|0|0|||6|Invented placeholder prose describing a damaged state.|https://example.invalid/ds/EW02|
+EW03|Forge Marshal|EW|1||Character|1 Forge Marshal armed with a marshal&#8217;s hammer.|0|0|This model can be attached to the following units:|Invented placeholder prose about attachment.|||https://example.invalid/ds/EW03|
+GC01|Glasswold Skirmisher|GC|1||Infantry|4 Glasswold Skirmishers.|0|0|||||https://example.invalid/ds/GC01|

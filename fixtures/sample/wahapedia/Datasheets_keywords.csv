@@ -1,0 +1,11 @@
+﻿datasheet_id|keyword|model|is_faction_keyword|
+EW01|Infantry||false|
+EW01|Battleline||false|
+EW01|Emberwrights||true|
+EW02|Infantry||false|
+EW02|Emberwrights||true|
+EW03|Infantry||false|
+EW03|Character||false|
+EW03|Emberwrights||true|
+GC01|Infantry||false|
+GC01|Glasswold Covenant||true|
