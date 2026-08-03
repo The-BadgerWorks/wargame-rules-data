@@ -51,19 +51,40 @@ from pipeline.build.checksum import BundleChecksum, checksum
 from pipeline.config import Channel, ConfigError, PipelineConfig, load_config, repo_root
 from pipeline.curate.assemble import assemble
 from pipeline.curate.authored import load_authored
+from pipeline.curate.prior import PriorSnapshot, load_prior, read_curated_tree
 from pipeline.curate.writer import write_tree
 from pipeline.exit_codes import ExitCode
 from pipeline.models.curated import CuratedSnapshot
-from pipeline.models.findings import Finding, Severity
-from pipeline.parse.mfm_dom import parse_faction_page
+from pipeline.models.findings import Finding, Severity, ValidationReport
+from pipeline.parse.mfm_dom import MfmPage, parse_faction_page
 from pipeline.parse.mfm_swap_replay import replay
 from pipeline.parse.wahapedia_csv import read_text as read_csv_text
+from pipeline.reconcile.conflicts import detect_faction_changes, detect_renames
+from pipeline.reconcile.findings import apply_resolutions
+from pipeline.reconcile.pricing_confidence import apply_pricing_confidence
+from pipeline.report.change_summary import (
+    compute_change_summary,
+    render_change_summary,
+    tier_findings,
+)
+from pipeline.report.delta_crosscheck import crosscheck_deltas
+from pipeline.report.edition_mismatch import (
+    render_edition_mismatch,
+    render_summary_coverage,
+    render_unverified_pricing,
+)
+from pipeline.report.validation import (
+    build_report,
+    report_dir,
+    write_reports,
+)
 from pipeline.schema_validation import validate_bundle
 from pipeline.validate.contract_checks import (
     RESTRICTION_VOCABULARY_VERSION,
     SCHEMA_CONTRACT_VERSION,
     check_snapshot,
 )
+from pipeline.validate.coverage import CoverageOutcome, check_coverage
 from pipeline.validate.ip_scan import scan_bundle
 from pipeline.validate.refs import check_authored_references
 from pipeline.workspace import workspace
@@ -117,8 +138,6 @@ _HELP: Final[Mapping[str, str]] = {
 _PENDING_STAGES: Final[Mapping[str, str]] = {
     "detect": "T106 (pipeline.detect)",
     "acquire": "T108 (the acquire-only entry point)",
-    "validate": "T099 (pipeline.validate re-run without acquiring)",
-    "report": "T099 (pipeline.report.validation)",
     "publish": "T117 (the publish job's CLI entry point)",
     "withdraw": "T118 (pipeline.publish.withdraw)",
     "verify": "T124 (pipeline.publish.integrity)",
@@ -229,19 +248,72 @@ class BuildResult:
     findings: tuple[Finding, ...]
     output_root: Path
     bundle_path: Path
+    report: ValidationReport
+    report_path: Path
+    coverage: CoverageOutcome
 
 
-def _verdict(findings: Sequence[Finding]) -> ExitCode:
-    """``30`` if anything blocking stands, ``20`` if only advisories remain, ``0`` if none.
+def _verdict(findings: Sequence[Finding], coverage: CoverageOutcome | None = None) -> ExitCode:
+    """``42`` on coverage collapse, ``30`` if anything else blocking stands, ``20``, or ``0``.
+
+    Coverage collapse comes first and gets its own code, because "the source went strange" and
+    "a curator has work to do" want different alerts even though neither may publish (§2).
 
     There is no override flag anywhere in this function or reachable from it. The only ways past
     a blocking finding are to fix the data or to record a dated resolution (FR-029, SC-005).
     """
+    if coverage is not None and coverage.collapsed:
+        return ExitCode.COVERAGE_COLLAPSE
     if any(
         finding.severity is Severity.BLOCKING and not finding.is_suppressed for finding in findings
     ):
         return ExitCode.BLOCKING
     return ExitCode.ADVISORY_ONLY if findings else ExitCode.SUCCESS
+
+
+def _reconcile_against_prior(
+    snapshot: CuratedSnapshot,
+    *,
+    prior: PriorSnapshot | None,
+    pages: Sequence[MfmPage],
+    datasheet_ids: Mapping[tuple[str, str], str],
+    rules_version_id: str,
+    config: PipelineConfig,
+) -> tuple[CuratedSnapshot, list[Finding], CoverageOutcome, dict[str, str]]:
+    """Everything US2 adds that needs a baseline, in one place.
+
+    Ordered so each step sees the finished state of the last: pricing confidence is resolved
+    before the change summary, because a confidence transition *is* one of the changes the
+    summary has to account for.
+    """
+    resolved, findings = apply_pricing_confidence(
+        snapshot.datasheets,
+        prior_confidence={
+            datasheet_id: entry.pricing_confidence
+            for datasheet_id, entry in (prior.datasheets.items() if prior else {}.items())
+        },
+        rules_version_id=rules_version_id,
+        escalate_after=config.unverified_escalate_releases,
+    )
+    snapshot = snapshot.model_copy(update={"datasheets": resolved})
+
+    findings.extend(detect_renames(prior, snapshot))
+    findings.extend(detect_faction_changes(prior, snapshot))
+
+    summary = compute_change_summary(prior, snapshot)
+    findings.extend(tier_findings(summary))
+    findings.extend(crosscheck_deltas(pages, summary, datasheet_ids=datasheet_ids))
+
+    coverage = check_coverage(snapshot, prior, config)
+    findings.extend(coverage.findings)
+
+    sub_reports = {
+        "change_summary": render_change_summary(summary),
+        "edition_mismatch": render_edition_mismatch(snapshot),
+        "unverified_pricing": render_unverified_pricing(snapshot),
+        "summary_coverage": render_summary_coverage(snapshot),
+    }
+    return snapshot, findings, coverage, sub_reports
 
 
 def run_build(  # noqa: PLR0913 - the stage boundary is the argument list
@@ -255,6 +327,9 @@ def run_build(  # noqa: PLR0913 - the stage boundary is the argument list
     curation_dir: Path | None = None,
     published_at: str | None = None,
     source_note: str | None = None,
+    prior_dir: Path | None = None,
+    reports_root: Path | None = None,
+    run_id: str | None = None,
 ) -> BuildResult:
     """The full run: acquire, parse, normalize, reconcile, curate, validate, build.
 
@@ -267,6 +342,14 @@ def run_build(  # noqa: PLR0913 - the stage boundary is the argument list
     assertion mean anything (FR-033, FR-039).
     """
     root = repository_root or repo_root()
+    # The baseline is read from a checkout, never re-acquired: the previous curated tree is
+    # committed and the previously published version id is in the channel manifest beside it
+    # (FR-032, FR-035, spec Support implications). A fixture set carries its own `previous/`.
+    baseline_root = prior_dir or (
+        fixtures_dir / "previous"
+        if fixtures_dir is not None and (fixtures_dir / "previous").is_dir()
+        else root
+    )
     # A fixture set brings its own authored tree. It has to: the repository's `curation/` maps
     # the publisher's real faction slugs, and a synthetic set's invented slugs would every one
     # of them be the blocking `REC-FACTION-UNMAPPED`. The set is self-contained, which is also
@@ -317,6 +400,21 @@ def run_build(  # noqa: PLR0913 - the stage boundary is the argument list
         findings.extend(assembly.findings)
         snapshot = assembly.snapshot
 
+    # Always the **published** manifest, whichever channel this run targets: FR-009 measures a
+    # candidate against the last version players actually have, and measuring a pre-release
+    # against the previous pre-release would let coverage erode one candidate at a time without
+    # any single run crossing a threshold.
+    prior = load_prior(baseline_root, edition_code=EDITION_CODE)
+    snapshot, prior_findings, coverage, sub_reports = _reconcile_against_prior(
+        snapshot,
+        prior=prior,
+        pages=pages,
+        datasheet_ids=assembly.datasheet_ids,
+        rules_version_id=rules_version_id,
+        config=config,
+    )
+    findings.extend(prior_findings)
+
     destination = output_root or (
         fixtures_dir / FIXTURE_BUILD_DIR if fixtures_dir is not None else root
     )
@@ -342,16 +440,54 @@ def run_build(  # noqa: PLR0913 - the stage boundary is the argument list
     bundle_path = destination / f"rules-{rules_version_id}.json"
     write_bundle(bundle_path, bundle)
 
+    # Resolutions are applied last, over the whole finding set, so a curator's dated explanation
+    # covers a finding whichever stage raised it (FR-034).
+    resolved_findings = apply_resolutions(findings, authored.resolutions)
+
+    report = build_report(
+        run_id=run_id or f"local-{rules_version_id}",
+        rules_version_id=rules_version_id,
+        channel=config.data_channel.value,
+        generated_at=meta.published_at,
+        acquisitions=[points_acq, detail_acq],
+        coverage=coverage.figures,
+        snapshot=snapshot,
+        findings=resolved_findings,
+    )
+    # A fixture run's reports land beside its build output, never in the repository's own
+    # `reports/`, which holds the retained report of a real published version (§1).
+    report_path = write_reports(
+        report,
+        directory=report_dir(reports_root or destination, rules_version_id),
+        sub_reports=sub_reports,
+    )
+
     return BuildResult(
-        exit_code=_verdict(findings),
+        exit_code=_verdict(resolved_findings, coverage),
         snapshot=snapshot,
         bundle=bundle,
         payload=payload,
         checksum=checksum(payload),
-        findings=tuple(findings),
+        findings=tuple(resolved_findings),
         output_root=destination,
         bundle_path=bundle_path,
+        report=report,
+        report_path=report_path,
+        coverage=coverage,
     )
+
+
+def _report_blocking(findings: Sequence[Finding], report_path: Path) -> None:
+    """Name every unresolved blocking finding on stdout, then the report path (§1-§2).
+
+    Both are printed on every verdict, not only on a refusal: an approver reading an advisory
+    run still needs the path, and a curator reading a blocked one needs the codes without having
+    to open a file to find out why the run stopped.
+    """
+    for finding in findings:
+        if finding.severity is Severity.BLOCKING and not finding.is_suppressed:
+            print(f"{PROG}: BLOCKING {finding.finding_code} {sorted(finding.entity_refs)}")
+    print(f"{PROG}: report {report_path}")
 
 
 def _run_build_command(config: PipelineConfig, args: argparse.Namespace) -> int:
@@ -368,16 +504,94 @@ def _run_build_command(config: PipelineConfig, args: argparse.Namespace) -> int:
         offline=bool(getattr(args, "offline", False)),
     )
 
-    blocking = [
-        f for f in result.findings if f.severity is Severity.BLOCKING and not f.is_suppressed
-    ]
-    for finding in blocking:
-        print(
-            f"{PROG}: BLOCKING {finding.finding_code} {sorted(finding.entity_refs)}",
-            file=sys.stderr,
-        )
+    _report_blocking(result.findings, result.report_path)
     print(f"{PROG}: bundle {result.bundle_path} sha256 {result.checksum.sha256}")
     return int(result.exit_code)
+
+
+def run_validate(
+    *,
+    config: PipelineConfig,
+    rules_version_id: str,
+    repository_root: Path | None = None,
+    reports_root: Path | None = None,
+    write: bool = True,
+    run_id: str | None = None,
+) -> tuple[ExitCode, ValidationReport, Path | None]:
+    """Re-check the existing curated tree, acquiring nothing (contract §1).
+
+    The tree is the canonical state, so everything that can be checked at all can be checked
+    from it — which is what lets a curator reproduce a verdict, and lets a support enquiry be
+    answered months later, without touching either upstream source.
+    """
+    root = repository_root or repo_root()
+    snapshot = read_curated_tree(root / "data" / EDITION_CODE)
+    if snapshot is None:
+        print(
+            f"{PROG}: no curated tree at {root / 'data' / EDITION_CODE}; run 'build' first",
+            file=sys.stderr,
+        )
+        raise FileNotFoundError(root / "data" / EDITION_CODE)
+
+    authored = load_authored(root / "curation")
+    meta = BundleMeta(
+        rules_version_id=rules_version_id,
+        published_at="1970-01-01T00:00:00Z",
+        source_note=f"Rules data {rules_version_id}",
+        schema_contract_version=SCHEMA_CONTRACT_VERSION,
+        restriction_vocabulary_version=RESTRICTION_VOCABULARY_VERSION,
+    )
+
+    findings: list[Finding] = [
+        *check_snapshot(snapshot, meta),
+        *check_authored_references(snapshot, authored),
+        *scan_bundle(emit_bundle(snapshot, meta)),
+    ]
+
+    prior = load_prior(root, edition_code=EDITION_CODE)
+    coverage = check_coverage(snapshot, prior, config)
+    findings.extend(coverage.findings)
+
+    summary = compute_change_summary(prior, snapshot)
+    resolved = apply_resolutions(findings, authored.resolutions)
+
+    report = build_report(
+        run_id=run_id or f"local-{rules_version_id}",
+        rules_version_id=rules_version_id,
+        channel=config.data_channel.value,
+        generated_at=meta.published_at,
+        acquisitions=[],
+        coverage=coverage.figures,
+        snapshot=snapshot,
+        findings=resolved,
+    )
+
+    directory: Path | None = None
+    if write:
+        directory = write_reports(
+            report,
+            directory=report_dir(reports_root or root, rules_version_id),
+            sub_reports={
+                "change_summary": render_change_summary(summary),
+                "edition_mismatch": render_edition_mismatch(snapshot),
+                "unverified_pricing": render_unverified_pricing(snapshot),
+                "summary_coverage": render_summary_coverage(snapshot),
+            },
+        )
+    return _verdict(resolved, coverage), report, directory
+
+
+def _run_validate_command(config: PipelineConfig, args: argparse.Namespace, *, write: bool) -> int:
+    rules_version_id = getattr(args, "rules_version_id", None) or "candidate"
+    try:
+        exit_code, report, directory = run_validate(
+            config=config, rules_version_id=rules_version_id, write=write
+        )
+    except FileNotFoundError:
+        return int(ExitCode.CONFIG_ERROR)
+
+    _report_blocking(report.findings, directory or report_dir(repo_root(), rules_version_id))
+    return int(exit_code)
 
 
 def dispatch(command: str, config: PipelineConfig, args: argparse.Namespace) -> int:
@@ -387,6 +601,8 @@ def dispatch(command: str, config: PipelineConfig, args: argparse.Namespace) -> 
     """
     if command == "build":
         return _run_build_command(config, args)
+    if command in {"validate", "report"}:
+        return _run_validate_command(config, args, write=True)
     del config, args  # consumed by the stage modules as they land
     return _pending(command)
 

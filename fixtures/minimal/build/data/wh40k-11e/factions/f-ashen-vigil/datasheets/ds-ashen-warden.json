@@ -9,7 +9,7 @@
       "model_count": 3,
       "points": 70,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260803T174956Z-3a7632ef"
+      "source_acquisition_id": "mfm-20260803T190441Z-3a7632ef"
     },
     {
       "copy_index_min": 3,
@@ -17,7 +17,7 @@
       "model_count": 3,
       "points": 80,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260803T174956Z-3a7632ef"
+      "source_acquisition_id": "mfm-20260803T190441Z-3a7632ef"
     }
   ],
   "datasheet_id": "ds-ashen-warden",
@@ -51,12 +51,18 @@
     }
   ],
   "name": "ASHEN WARDEN",
+  "pricing_confidence": {
+    "consecutive_unverified_releases": 0,
+    "last_verified_points_digest": "sha256:506ea899ec1c86505b3cbee86f82435ce9df16bfba0d991369dec71d589b2238",
+    "last_verified_version": "fixture-minimal",
+    "state": "verified"
+  },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260803T174956Z-1ab4c254",
+    "detail_acquisition_id": "wahapedia-20260803T190441Z-1ab4c254",
     "detail_edition_code": "wh40k-10e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": true,
-    "points_acquisition_id": "mfm-20260803T174956Z-3a7632ef",
+    "points_acquisition_id": "mfm-20260803T190441Z-3a7632ef",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },

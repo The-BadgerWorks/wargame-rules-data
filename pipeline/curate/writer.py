@@ -36,7 +36,26 @@ from pipeline.models.curated import (
     CuratedFaction,
     CuratedSnapshot,
 )
-from pipeline.models.provenance import EntityProvenance
+from pipeline.models.provenance import EntityProvenance, PricingConfidence
+
+
+def _pricing_confidence(confidence: PricingConfidence) -> dict[str, JsonValue]:
+    """The carry-forward bookkeeping, CURATED-ONLY.
+
+    Written to the tree because the tree is the only durable record of it, and FR-035's
+    "unverified since version X, for N consecutive releases" is meaningless if it resets every
+    run. It also belongs in the *diff*: a unit falling back to last-known pricing is exactly the
+    kind of change a reviewer should see happen, rather than discover in a report.
+    """
+    return omit_absent(
+        {
+            "state": confidence.state.value,
+            "unverified_since_version": confidence.unverified_since_version,
+            "consecutive_unverified_releases": confidence.consecutive_unverified_releases,
+            "last_verified_version": confidence.last_verified_version,
+            "last_verified_points_digest": confidence.last_verified_points_digest,
+        }
+    )
 
 
 def _provenance(provenance: EntityProvenance) -> dict[str, JsonValue]:
@@ -208,6 +227,7 @@ def _datasheet(datasheet: CuratedDatasheet) -> dict[str, JsonValue]:
                 _cost(c)
                 for c in sorted(datasheet.costs, key=lambda c: (c.copy_index_min, c.model_count))
             ],
+            "pricing_confidence": _pricing_confidence(datasheet.pricing_confidence),
             "provenance": _provenance(datasheet.provenance),
         }
     )

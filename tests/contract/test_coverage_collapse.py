@@ -16,6 +16,7 @@ from __future__ import annotations
 
 from pathlib import Path
 
+from pipeline.cli import run_build
 from pipeline.config import load_config
 from pipeline.curate.prior import load_prior, prior_from_snapshot
 from pipeline.exit_codes import ExitCode
@@ -100,19 +101,36 @@ def test_no_previous_published_version_cannot_collapse() -> None:
     assert outcome.figures == {}, "there is nothing to compare a first release against"
 
 
-def test_the_partial_page_fixture_collapses_against_its_baseline() -> None:
+def test_the_baseline_is_read_from_a_checkout_without_acquiring_anything() -> None:
     prior = load_prior(FIXTURES / "disagreements" / "previous", edition_code="wh40k-11e")
-    assert prior is not None and prior.rules_version_id == "mfm-2026-05"
+
+    assert prior is not None
+    assert prior.rules_version_id == "mfm-2026-05"
     assert prior.faction_count == 3
+    assert prior.datasheet_count == prior.priced_datasheet_count == 11
 
-    config = load_config(env={})
-    collapsed = snapshot_of(factions=1, datasheets=2, priced=2)
 
-    outcome = check_coverage(collapsed, prior, config)
+def test_the_partial_page_fixture_exits_42_without_publishing(tmp_path: Path) -> None:
+    """The end-to-end case: a page that parses cleanly and still loses most of the release."""
+    result = run_build(
+        config=load_config(env={}),
+        rules_version_id="fixture-collapsed",
+        fixtures_dir=FIXTURES / "disagreements" / "collapsed",
+        prior_dir=FIXTURES / "disagreements" / "previous",
+        offline=True,
+        output_root=tmp_path / "out",
+        reports_root=tmp_path,
+        published_at="2026-08-02T00:00:00Z",
+    )
 
-    assert outcome.collapsed
-    assert {str(f.detail["category"]) for f in outcome.findings} == {
+    assert result.exit_code is ExitCode.COVERAGE_COLLAPSE
+    assert result.coverage.collapsed
+    assert {
+        str(f.detail["category"]) for f in result.findings if f.finding_code == "COV-COLLAPSE"
+    } == {
         "factions",
         "datasheets",
         "priced_datasheets",
     }
+    assert not list((tmp_path / "out").rglob("manifest.json")), "exit 42 never publishes"
+    assert (result.report_path / "report.json").is_file(), "the report is written regardless"

@@ -1,0 +1,276 @@
+# AI-Assisted: Claude Code (model: claude-opus-5) - Implemented report.json and report.md
+# (task T095) exactly per validation-report.md §2 and §4: a derived verdict, the coverage block,
+# a scale block stating count AND proportion for every category, counts by class and severity,
+# and a human report opening with verdict, scale, and blocking findings in that order (FR-031).
+"""`reports/<rulesVersionId>/report.json` and `report.md`.
+
+Every run produces this, whether or not it publishes (FR-031), and the report of a run that
+*did* publish is retained for the life of that version — because a support enquiry about a
+mispriced unit has to be answerable from it without re-running the pipeline or re-acquiring any
+source (spec: *Support implications*).
+
+Two structural properties, both from `validation-report.md` §1:
+
+* **`verdict` is derived, never authored.** It is a property of the findings, computed by
+  :class:`~pipeline.models.findings.ValidationReport`. Nothing in this module can set it, which
+  is what makes "there is no override flag" a fact about the code rather than a policy.
+* **Every category states a count and a proportion.** A bare enumeration at a few thousand
+  datasheets is unreadable; the approver's question is *how much* of this release is uncertain.
+
+`report.md` opens with the verdict, then the scale table, then the blocking findings, in that
+order, so an approver's first screen answers "can this ship, and how much of it is uncertain?".
+Everything else follows.
+"""
+
+from __future__ import annotations
+
+from collections.abc import Mapping, Sequence
+from pathlib import Path
+
+from pipeline.build.canonical_json import JsonValue, omit_absent, write_tree_file
+from pipeline.models.curated import CuratedSnapshot
+from pipeline.models.findings import (
+    CoverageFigure,
+    Finding,
+    ScaleFigure,
+    Severity,
+    ValidationReport,
+    Verdict,
+)
+from pipeline.models.mechanical import MechanicalValue
+from pipeline.models.provenance import PricingConfidenceState
+from pipeline.models.source import SourceAcquisition
+
+#: The sub-report file names, fixed by `validation-report.md` §4.
+SUB_REPORT_FILES: Mapping[str, str] = {
+    "change_summary": "change-summary.md",
+    "edition_mismatch": "edition-mismatch.md",
+    "unverified_pricing": "unverified-pricing.md",
+    "summary_coverage": "summary-coverage.md",
+}
+
+
+def report_dir(root: Path, rules_version_id: str) -> Path:
+    """`reports/<rulesVersionId>/`."""
+    return root / "reports" / rules_version_id
+
+
+def scale_figures(snapshot: CuratedSnapshot, findings: Sequence[Finding]) -> dict[str, ScaleFigure]:
+    """The `scale` block: a count **and** a proportion for every category (§1.3)."""
+    total = len(snapshot.datasheets)
+
+    def figure(count: int) -> ScaleFigure:
+        return ScaleFigure(count=count, proportion=round(count / total, 4) if total else 0.0)
+
+    unverified = sum(
+        1
+        for datasheet in snapshot.datasheets
+        if datasheet.pricing_confidence.state is PricingConfidenceState.UNVERIFIED
+    )
+    hybrid = sum(1 for d in snapshot.datasheets if d.provenance.is_hybrid_edition)
+    escalating = sum(
+        1 for d in snapshot.datasheets if any(cost.copy_index_min > 1 for cost in d.costs)
+    )
+    outstanding = sum(
+        1
+        for datasheet in snapshot.datasheets
+        for key in datasheet.ability_keys
+        if key not in snapshot.ability_summaries
+        or snapshot.ability_summaries[key].review_state.value != "approved"
+    )
+
+    return {
+        "unverified_pricing": figure(unverified),
+        "hybrid_edition": figure(hybrid),
+        "escalating_price_datasheets": figure(escalating),
+        "summaries_outstanding": figure(outstanding),
+    }
+
+
+def _acquisition_row(acquisition: SourceAcquisition) -> dict[str, MechanicalValue]:
+    return {
+        "acquisition_id": acquisition.acquisition_id,
+        "source_key": acquisition.source_key.value,
+        "declared_edition_code": acquisition.declared_edition_code,
+        "retrieved_at": acquisition.retrieved_at,
+        "content_fingerprint": acquisition.content_fingerprint,
+        **{f"coverage_{key}": value for key, value in sorted(acquisition.coverage.items())},
+    }
+
+
+def build_report(
+    *,
+    run_id: str,
+    rules_version_id: str,
+    channel: str,
+    generated_at: str,
+    acquisitions: Sequence[SourceAcquisition],
+    coverage: Mapping[str, CoverageFigure],
+    snapshot: CuratedSnapshot,
+    findings: Sequence[Finding],
+) -> ValidationReport:
+    """Assemble the report. The verdict is not a parameter — it is derived from ``findings``."""
+    return ValidationReport(
+        run_id=run_id,
+        rules_version_id=rules_version_id,
+        channel=channel,
+        generated_at=generated_at,
+        source_acquisitions=[_acquisition_row(a) for a in acquisitions],
+        coverage=dict(coverage),
+        scale=scale_figures(snapshot, findings),
+        findings=sorted(findings, key=lambda f: (f.finding_code, tuple(f.entity_refs))),
+        sub_reports=dict(SUB_REPORT_FILES),
+    )
+
+
+def report_json(report: ValidationReport) -> dict[str, JsonValue]:
+    """`report.json` exactly as §2 shapes it."""
+    return {
+        "report_contract_version": report.report_contract_version,
+        "run_id": report.run_id,
+        "rules_version_id": report.rules_version_id,
+        "channel": report.channel,
+        "generated_at": report.generated_at,
+        "verdict": report.verdict.value,
+        "source_acquisitions": [dict(row) for row in report.source_acquisitions],
+        "coverage": {
+            name: {
+                "current": figure.current,
+                "previous": figure.previous,
+                "ratio_percent": round(figure.ratio * 100),
+                "threshold_percent": round(figure.threshold * 100),
+            }
+            for name, figure in sorted(report.coverage.items())
+        },
+        "scale": {
+            name: {"count": figure.count, "proportion_percent": round(figure.proportion * 100)}
+            for name, figure in sorted(report.scale.items())
+        },
+        "counts": report.counts(),
+        "findings": [
+            omit_absent(
+                {
+                    "finding_code": finding.finding_code,
+                    "class": finding.finding_class.value,
+                    "severity": finding.severity.value,
+                    "entity_refs": list(finding.entity_refs),
+                    "detail": dict(finding.detail),
+                    "data_digest": finding.data_digest,
+                    "suggestions": [
+                        {"entity_ref": s.entity_ref, "score_percent": round(s.score * 100)}
+                        for s in finding.suggestions
+                    ]
+                    or None,
+                    "resolution": finding.resolution,
+                }
+            )
+            for finding in report.findings
+        ],
+        "sub_reports": dict(sorted(report.sub_reports.items())),
+    }
+
+
+_VERDICT_LINE: Mapping[Verdict, str] = {
+    Verdict.CLEAN: "**CLEAN** — nothing to report. Eligible for publication.",
+    Verdict.ADVISORY_ONLY: "**ADVISORY ONLY** — eligible for publication pending approval.",
+    Verdict.BLOCKED: "**BLOCKED** — publication refused. There is no override flag (FR-029).",
+}
+
+
+def render_report_markdown(report: ValidationReport) -> str:
+    """`report.md`: verdict, scale, blocking findings — in that order (§4)."""
+    counts = report.counts()
+    out: list[str] = [
+        f"# Validation report — {report.rules_version_id}",
+        "",
+        _VERDICT_LINE[report.verdict],
+        "",
+        f"Run `{report.run_id}` on the `{report.channel}` channel, {report.generated_at}.",
+        "",
+        "## Scale",
+        "",
+        "| category | count | proportion of the snapshot |",
+        "|---|---|---|",
+    ]
+    out += [
+        f"| {name.replace('_', ' ')} | {figure.count} | {figure.proportion * 100:.1f}% |"
+        for name, figure in sorted(report.scale.items())
+    ]
+
+    if report.coverage:
+        out += [
+            "",
+            "## Coverage against the previous published version",
+            "",
+            "| category | current | previous | ratio | threshold |",
+            "|---|---|---|---|---|",
+        ]
+        out += [
+            f"| {name.replace('_', ' ')} | {figure.current} | {figure.previous} | "
+            f"{figure.ratio * 100:.1f}% | {figure.threshold * 100:.1f}% |"
+            for name, figure in sorted(report.coverage.items())
+        ]
+
+    blocking = report.unresolved_blocking
+    out += ["", "## Blocking findings", ""]
+    if not blocking:
+        out.append("None.")
+    else:
+        out += [
+            f"- `{finding.finding_code}` {', '.join(finding.entity_refs) or '(snapshot-wide)'}"
+            for finding in blocking
+        ]
+
+    out += [
+        "",
+        "## All findings",
+        "",
+        f"{counts['blocking']} blocking, {counts['advisory']} advisory, "
+        f"{counts['suppressed']} suppressed.",
+        "",
+    ]
+    by_class: dict[str, list[Finding]] = {}
+    for finding in report.findings:
+        by_class.setdefault(finding.finding_class.value, []).append(finding)
+    for class_name in sorted(by_class):
+        out += [
+            f"<details><summary>{class_name} ({len(by_class[class_name])})</summary>",
+            "",
+            "| code | severity | entities | resolved |",
+            "|---|---|---|---|",
+        ]
+        out += [
+            f"| `{f.finding_code}` | {f.severity.value} | "
+            f"{', '.join(f'`{ref}`' for ref in f.entity_refs) or '—'} | "
+            f"{f.resolution or '—'} |"
+            for f in by_class[class_name]
+        ]
+        out += ["", "</details>", ""]
+
+    out += ["## Sub-reports", ""]
+    out += [f"- [{title}]({file})" for title, file in sorted(report.sub_reports.items())]
+    return "\n".join(out).rstrip() + "\n"
+
+
+def write_reports(
+    report: ValidationReport, *, directory: Path, sub_reports: Mapping[str, str]
+) -> Path:
+    """Write `report.json`, `report.md`, and each sub-report. Returns the directory written."""
+    directory.mkdir(parents=True, exist_ok=True)
+    write_tree_file(directory / "report.json", report_json(report))
+    (directory / "report.md").write_bytes(render_report_markdown(report).encode("utf-8"))
+    for key, body in sorted(sub_reports.items()):
+        file_name = SUB_REPORT_FILES.get(key, f"{key.replace('_', '-')}.md")
+        (directory / file_name).write_bytes(body.encode("utf-8"))
+    return directory
+
+
+def blocking_codes(findings: Sequence[Finding]) -> list[str]:
+    """The unresolved blocking codes, sorted — what the CLI names on stdout (FR-029)."""
+    return sorted(
+        {
+            finding.finding_code
+            for finding in findings
+            if finding.severity is Severity.BLOCKING and not finding.is_suppressed
+        }
+    )

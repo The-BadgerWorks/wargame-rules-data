@@ -67,10 +67,13 @@ from pipeline.normalize.numerics import (
 )
 from pipeline.parse.mfm_dom import MfmPage
 from pipeline.parse.wahapedia_csv import CsvReadResult
+from pipeline.reconcile.bands import reconcile_bands
+from pipeline.reconcile.conflicts import resolve_cost_conflict
 from pipeline.reconcile.identity import EntityKind, IdRegistry, slugify
 from pipeline.reconcile.match import (
     FactionScope,
     UnitMatch,
+    datasheet_key,
     match_units,
     report_orphan_detail_factions,
     resolve_factions,
@@ -105,6 +108,47 @@ _LEGENDS_SOURCE: Final = "legends"
 class AssemblyResult:
     snapshot: CuratedSnapshot
     findings: list[Finding] = field(default_factory=list)
+    datasheet_ids: dict[tuple[str, str], str] = field(default_factory=dict)
+    """``(points-source faction slug, unit display name) -> curated datasheet_id``.
+
+    Carried out of the stage rather than re-derived downstream: the delta cross-check needs the
+    same pairing this stage decided, and a second derivation is a second chance to disagree.
+    """
+
+
+def _composition_lines(detail_id: str | None, detail: Mapping[str, CsvReadResult]) -> list[str]:
+    """The detail source's composition lines for one datasheet, in file order."""
+    rows = detail.get("Datasheets_unit_composition.csv")
+    if rows is None or detail_id is None:
+        return []
+    return [
+        strip_field(row.fields.get("description", ""), field="composition").text
+        for row in rows.grouped_by("datasheet_id").get(detail_id, [])
+    ]
+
+
+def _detail_prices(detail_id: str | None, detail: Mapping[str, CsvReadResult]) -> dict[int, int]:
+    """``model_count -> points`` as the **detail** source publishes them.
+
+    Read for two purposes only: to price a datasheet the points authority did not publish this
+    release (FR-035), and to notice a disagreement about one it did (FR-028). It is never a
+    fallback for a value the points source published — that would be the losing value of a
+    conflict quietly coming back.
+    """
+    rows = detail.get("Datasheets_models_cost.csv")
+    if rows is None or detail_id is None:
+        return {}
+
+    prices: dict[int, int] = {}
+    for row in rows.grouped_by("datasheet_id").get(detail_id, []):
+        label = strip_field(row.fields.get("description", ""), field="cost.label").text
+        try:
+            prices[model_count(label, field="cost.model_count")] = to_int(
+                row.fields.get("cost", ""), field="cost.points"
+            )
+        except NumericParseError:
+            continue
+    return prices
 
 
 def _tier_indices(label: str) -> int:
@@ -423,6 +467,7 @@ def assemble(  # noqa: PLR0913 - the stage genuinely needs every upstream input
     enhancements: list[CuratedEnhancement] = []
     datasheets: list[CuratedDatasheet] = []
     detail_to_curated: dict[str, str] = {}
+    datasheet_ids: dict[tuple[str, str], str] = {}
 
     for page in sorted(pages, key=lambda p: p.faction_slug):
         scope = scopes.get(page.faction_slug)
@@ -458,8 +503,11 @@ def assemble(  # noqa: PLR0913 - the stage genuinely needs every upstream input
             for row in detail_datasheets.rows
             if row.fields.get("faction_id") in scope.detail_faction_ids
         }
+        # Legends status comes from the **publication**, not from the datasheet's own `legend`
+        # column: that column is flavour text this pipeline must not read, and it is set on
+        # roughly twice as many datasheets as are actually Legends (research §0.1).
         legends = {
-            row.fields["id"]: bool(row.fields.get("legend", "").strip())
+            row.fields["id"]: row.fields.get("source_id", "") in legends_sources
             for row in detail_datasheets.rows
         }
 
@@ -482,11 +530,11 @@ def assemble(  # noqa: PLR0913 - the stage genuinely needs every upstream input
                 edition_id=edition_id,
                 points_acquisition=points_acquisition,
                 provenance=provenance if match.wahapedia_datasheet_id else points_only_provenance,
-                edition_code=edition_code,
                 legends_sources=legends_sources,
             )
             findings.extend(datasheet_findings)
             datasheets.append(datasheet)
+            datasheet_ids[(page.faction_slug, match.display_name)] = match.datasheet_id
             if match.wahapedia_datasheet_id:
                 detail_to_curated[match.wahapedia_datasheet_id] = match.datasheet_id
 
@@ -561,7 +609,7 @@ def assemble(  # noqa: PLR0913 - the stage genuinely needs every upstream input
         ability_summaries=authored.ability_summaries,
     )
 
-    return AssemblyResult(snapshot=snapshot, findings=findings)
+    return AssemblyResult(snapshot=snapshot, findings=findings, datasheet_ids=datasheet_ids)
 
 
 def _detachments_for(
@@ -633,7 +681,6 @@ def _datasheet_for(  # noqa: PLR0913 - one datasheet needs both sources and the 
     edition_id: str,
     points_acquisition: SourceAcquisition,
     provenance: EntityProvenance,
-    edition_code: str,
     legends_sources: frozenset[str],
 ) -> tuple[CuratedDatasheet, list[Finding]]:
     findings: list[Finding] = []
@@ -652,16 +699,45 @@ def _datasheet_for(  # noqa: PLR0913 - one datasheet needs both sources and the 
             match.wahapedia_datasheet_id, match.datasheet_id, detail
         )
         findings.extend(wargear_findings)
-    else:
-        findings.append(
-            build_finding(
-                "EDN-HYBRID-ENTITY"
-                if provenance.is_hybrid_edition
-                else "REC-UNMATCHED-DETAIL-ONLY",
-                entity_refs=[match.datasheet_id],
-                detail={"datasheet_id": match.datasheet_id, "edition_code": edition_code},
+
+        # Both sources priced it: the points source wins, both values are reported, and the
+        # losing value is carried nowhere (FR-028).
+        detail_prices = _detail_prices(match.wahapedia_datasheet_id, detail)
+        for cost in costs:
+            conflict = resolve_cost_conflict(
+                datasheet_id=match.datasheet_id,
+                model_count=cost.model_count,
+                points_value=cost.points,
+                detail_value=detail_prices.get(cost.model_count),
+            )
+            findings.extend(conflict.findings)
+
+        # Do the points source's size bands fit the unit the detail source describes (FR-027)?
+        findings.extend(
+            reconcile_bands(
+                datasheet_id=match.datasheet_id,
+                model_counts=[cost.model_count for cost in costs],
+                composition_lines=_composition_lines(match.wahapedia_datasheet_id, detail),
             )
         )
+
+        # A hybrid entity is self-describing all the way to the bundle, but the approver still
+        # needs the scale of it, so each one is reported (FR-058, FR-060).
+        if provenance.is_hybrid_edition:
+            findings.append(
+                build_finding(
+                    "EDN-HYBRID-ENTITY",
+                    entity_refs=[match.datasheet_id],
+                    detail={
+                        "datasheet_id": match.datasheet_id,
+                        "points_edition_code": provenance.points_edition_code,
+                        "detail_edition_code": provenance.detail_edition_code,
+                    },
+                )
+            )
+    # A points-only datasheet needs no finding here: `match_units` already raised
+    # REC-UNMATCHED-POINTS-ONLY with its ranked suggestions, and raising a second one would
+    # double-count one gap across two categories.
 
     datasheet = CuratedDatasheet(
         datasheet_id=match.datasheet_id,
@@ -738,42 +814,69 @@ def _detail_only_datasheet(  # noqa: PLR0913 - one datasheet needs both trees an
         )
     ]
 
-    prices = detail.get("Datasheets_models_cost.csv")
-    rows = prices.grouped_by("datasheet_id").get(detail_id, []) if prices else []
-
     costs: list[CuratedDatasheetCost] = []
-    for row in rows:
-        label = strip_field(row.fields.get("description", ""), field="cost.label").text
-        try:
-            count = model_count(label, field="cost.model_count")
-            points = to_int(row.fields.get("cost", ""), field="cost.points")
-        except NumericParseError:
-            continue
+    for count, points in sorted(_detail_prices(detail_id, detail).items()):
         costs.append(
             CuratedDatasheetCost(
                 model_count=count,
                 copy_index_min=1,
                 points=points,
-                label=label,
+                label=f"{count} model{'s' if count != 1 else ''}",
                 pricing_confidence=PricingConfidenceState.UNVERIFIED,
                 source_acquisition_id=detail_acquisition.acquisition_id,
             )
         )
 
     if not costs:
+        # No source has ever priced it. There is nothing to carry forward and nothing to label,
+        # so it is reported and left out rather than emitted at zero — a free unit in a player's
+        # list is worse than an absent one (FR-026).
+        findings.append(
+            build_finding(
+                "REC-NEVER-PRICED",
+                entity_refs=[f"wahapedia:{detail_id}"],
+                detail={"faction_id": faction_id, "detail_datasheet_id": detail_id},
+            )
+        )
         return None, findings
 
-    findings.append(
-        build_finding(
-            "PRC-UNVERIFIED",
-            entity_refs=[f"wahapedia:{detail_id}"],
-            detail={"faction_id": faction_id, "detail_datasheet_id": detail_id},
+    # The Legends discriminator is part of the key, not an afterthought: a faction can publish
+    # two datasheets whose only difference is that one is Legends, and they need two ids.
+    source_row = detail["Datasheets.csv"].by_id("id").get(detail_id)
+    is_legends = (
+        source_row is not None and source_row.fields.get("source_id", "") in legends_sources
+    )
+    datasheet_id = registry.mint(
+        EntityKind.DATASHEET,
+        datasheet_key(faction_id, normalize_name(display_name), is_legends=is_legends),
+        display_name,
+    )
+    fields, detail_findings = _detail_datasheet_fields(detail_id, detail, legends_sources)
+    findings.extend(detail_findings)
+
+    findings.extend(
+        reconcile_bands(
+            datasheet_id=datasheet_id,
+            model_counts=[cost.model_count for cost in costs],
+            composition_lines=_composition_lines(detail_id, detail),
         )
     )
 
-    datasheet_id = registry.mint(EntityKind.DATASHEET, normalize_name(display_name), display_name)
-    fields, detail_findings = _detail_datasheet_fields(detail_id, detail, legends_sources)
-    findings.extend(detail_findings)
+    # A detail-only datasheet is hybrid on exactly the same terms as a matched one, and is
+    # reported on the same terms — otherwise the report's hybrid *count* and its hybrid
+    # *findings* disagree, and an approver has to work out which of the two to believe.
+    if provenance.is_hybrid_edition:
+        findings.append(
+            build_finding(
+                "EDN-HYBRID-ENTITY",
+                entity_refs=[datasheet_id],
+                detail={
+                    "datasheet_id": datasheet_id,
+                    "points_edition_code": provenance.points_edition_code,
+                    "detail_edition_code": provenance.detail_edition_code,
+                },
+            )
+        )
 
     datasheet = CuratedDatasheet(
         datasheet_id=datasheet_id,

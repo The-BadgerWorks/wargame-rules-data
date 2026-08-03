@@ -66,3 +66,29 @@ rules-pipeline build --fixtures fixtures/disagreements --rules-version-id fixtur
 
 The run exits `30`: `REC-NEVER-PRICED` and `CON-BAND-GAP` both stand, and there is no override
 flag (FR-029). That is the point of the set.
+
+The finding profile it produces, for reference when a change to the reconcile stage moves it:
+
+| Code | Count | | Code | Count |
+|---|---|---|---|---|
+| `REC-UNMATCHED-POINTS-ONLY` | 1 | | `PRC-UNVERIFIED` | 2 |
+| `REC-UNMATCHED-DETAIL-ONLY` | 3 | | `PRC-UNVERIFIED-STALE` | 1 |
+| `REC-NEVER-PRICED` | 1 | | `PRC-REVERIFIED` | 1 |
+| `REC-VALUE-CONFLICT` | 1 | | `EDN-HYBRID-ENTITY` | 10 |
+| `REC-BAND-MISMATCH` | 1 | | `CHG-DELTA-DISAGREEMENT` | 1 |
+| `REC-COMPOSITION-UNPARSED` | 1 | | `CON-BAND-GAP` | 1 |
+| `REC-RENAME` | 1 | | | |
+
+Eleven datasheets across three factions, matching the baseline's counts exactly, so nothing in
+this set collapses coverage — `collapsed/` is where that is tested, and it exits `42`.
+
+## The collapsed set
+
+```bash
+rules-pipeline build --fixtures fixtures/disagreements/collapsed \
+  --rules-version-id fixture-collapsed --offline
+```
+
+One faction and two datasheets where the baseline had three and eleven: ratios of 0.33, 0.18 and
+0.18 against thresholds of 0.95, 0.90 and 0.90. Exit `42`, not `30` — coverage collapse gets its
+own code because "the source went strange" and "a curator has work to do" want different alerts.

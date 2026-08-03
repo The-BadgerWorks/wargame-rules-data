@@ -1,7 +1,9 @@
 # AI-Assisted: Claude Code (model: claude-opus-5) - Implemented the deterministic core of the D5
 # matching ladder for US1 (needed by the T073 reconcile stage): authored faction mapping, stable
 # identity first, faction-scoped normalised exact match with a parent-faction fallback, authored
-# aliases, and refusal on ambiguity. Suggestion ranking and the US2 finding set land in T088.
+# aliases, and refusal on ambiguity.
+# Completed for US2 (task T088): report-only suggestion ranking, faction-scoped and
+# Legends-discriminated registry keys, and alias resolution of the detail-source pairing.
 """Pair the points source's units with the detail source's datasheets, deterministically.
 
 The ladder, and the reason each rung exists (research D5):
@@ -26,20 +28,37 @@ under its parent.
 **Stage 4 — report, never guess.** *No automatic fuzzy match is ever accepted.* The failure mode
 is not a missed match — that is a finding a human resolves once and which then carries forward —
 it is a *wrong* match, which is a silently mispriced unit in a player's hands at a tournament.
-An ambiguous pair is treated as **no** match and blocks.
+An ambiguous pair is treated as **no** match and blocks. Edit-distance scoring exists in exactly
+one place — :func:`rank_suggestions` — and its output goes into a finding's ``suggestions[]`` for
+a human to confirm. Nothing in this module reads a score back.
+
+**Curated ids are keyed by faction, and by Legends status within it.** A bare normalised name is
+not an identity: the two sources between them publish the same unit name in different factions
+(``Slate Warden`` under two banners) and twice within one faction where only the Legends status
+differs. Keying on the name alone would hand two distinct datasheets one curated id, which is the
+FR-014 violation that resolves a saved army to the wrong unit.
 """
 
 from __future__ import annotations
 
 from collections.abc import Mapping, Sequence
 from dataclasses import dataclass, field
+from difflib import SequenceMatcher
+from typing import Final
 
 from pipeline.curate.authored import AuthoredContent
 from pipeline.models.authored import FactionMapEntry
-from pipeline.models.findings import Finding
+from pipeline.models.findings import Finding, Suggestion
 from pipeline.normalize.names import normalize_name
 from pipeline.reconcile.identity import EntityKind, IdRegistry
 from pipeline.report.catalogue import build_finding
+
+#: How many candidates a finding offers a human. Three is enough to recognise the right one and
+#: few enough that a report of a thousand findings is still readable.
+SUGGESTION_LIMIT: Final = 3
+
+#: Below this the "closest candidate" is not close to anything and listing it is noise.
+SUGGESTION_FLOOR: Final = 0.5
 
 
 @dataclass(frozen=True, slots=True)
@@ -69,6 +88,46 @@ class MatchOutcome:
     scopes: list[FactionScope] = field(default_factory=list)
     matches: list[UnitMatch] = field(default_factory=list)
     findings: list[Finding] = field(default_factory=list)
+
+
+def datasheet_key(faction_id: str, normalized_name: str, *, is_legends: bool = False) -> str:
+    """The registry key one datasheet is minted under.
+
+    Faction-scoped because the same display name legitimately appears in two factions, and
+    Legends-discriminated because it legitimately appears twice in one faction where that is the
+    only difference. Both are observed cases, and either collision would give two datasheets one
+    curated id (FR-014).
+    """
+    suffix = "/legends" if is_legends else ""
+    return f"{faction_id}/{normalized_name}{suffix}"
+
+
+def rank_suggestions(
+    normalized_name: str,
+    candidates: Mapping[str, str],
+    *,
+    limit: int = SUGGESTION_LIMIT,
+    floor: float = SUGGESTION_FLOOR,
+) -> tuple[Suggestion, ...]:
+    """Rank unmatched detail candidates for a **human**, closest first.
+
+    This is the only place in the pipeline that computes a similarity score, and the score
+    leaves here only inside a report finding. Ordering is total — score descending, then entity
+    reference — so the same inputs produce the same report bytes regardless of the order the
+    candidates were collected in (FR-033).
+    """
+    scored = [
+        (SequenceMatcher(None, normalized_name, normalize_name(name)).ratio(), candidate_id)
+        for candidate_id, name in candidates.items()
+    ]
+    ordered = sorted(
+        ((score, candidate_id) for score, candidate_id in scored if score >= floor),
+        key=lambda item: (-item[0], item[1]),
+    )
+    return tuple(
+        Suggestion(entity_ref=f"wahapedia:{candidate_id}", score=round(score, 4))
+        for score, candidate_id in ordered[:limit]
+    )
 
 
 def resolve_factions(slugs: Sequence[str], authored: AuthoredContent) -> MatchOutcome:
@@ -155,19 +214,40 @@ def match_units(
     # Stage 1's index. The authored map is authoritative on its own — the id registry is
     # consulted only when an id has to be *issued*, which by definition is not this case.
     identity_by_name = {entry.mfm_display_name: entry for entry in authored.unit_map}
+    # The reverse of it, so an alias can resolve the *detail* pairing too. An alias records a
+    # curated id, which is the durable half; the detail-source id that curated id was confirmed
+    # against lives in the unit map, and re-deriving it from the name is exactly the derivation
+    # the alias exists because nobody could make.
+    detail_for_curated = {
+        entry.datasheet_id: entry.wahapedia_datasheet_id for entry in authored.unit_map
+    }
     aliases = {
         normalize_name(alias.alias): alias.datasheet_id
         for alias in authored.unit_aliases
         if alias.faction_id == scope.faction_id
     }
 
+    # Only candidates nothing has claimed are worth suggesting: proposing a datasheet that is
+    # already paired with another unit wastes the curator's attention on a pairing they cannot
+    # accept. Names are processed in sorted order, so the set a finding sees is deterministic.
+    claimed: set[str] = set()
+
     for display_name in sorted(set(display_names)):
+        unmatched_detail = {
+            candidate_id: name
+            for candidate_id, name in detail_names.items()
+            if candidate_id not in claimed
+        }
         normalised = normalize_name(display_name)
 
         # Stage 1 — stable identity, consulted before any name comparison.
         mapped = identity_by_name.get(display_name)
         if mapped is not None:
-            registry.adopt(EntityKind.DATASHEET, normalised, mapped.datasheet_id)
+            registry.adopt(
+                EntityKind.DATASHEET,
+                datasheet_key(scope.faction_id, normalised),
+                mapped.datasheet_id,
+            )
             outcome.matches.append(
                 UnitMatch(
                     datasheet_id=mapped.datasheet_id,
@@ -177,6 +257,8 @@ def match_units(
                     stage="identity",
                 )
             )
+            if mapped.wahapedia_datasheet_id:
+                claimed.add(mapped.wahapedia_datasheet_id)
             continue
 
         candidates = by_normalised.get(normalised, [])
@@ -198,6 +280,9 @@ def match_units(
                         "candidate_count": len(candidates),
                         "candidates": sorted(candidates),
                     },
+                    suggestions=rank_suggestions(
+                        normalised, {c: detail_names[c] for c in candidates}
+                    ),
                 )
             )
             continue
@@ -206,19 +291,24 @@ def match_units(
         alias_target = aliases.get(normalised)
 
         detail_id: str | None = None
+        key = datasheet_key(scope.faction_id, normalised)
         if candidates:
-            datasheet_id = registry.mint(EntityKind.DATASHEET, normalised, display_name)
-            stage = "exact"
             detail_id = candidates[0]
+            key = datasheet_key(
+                scope.faction_id, normalised, is_legends=detail_is_legends.get(detail_id, False)
+            )
+            datasheet_id = registry.mint(EntityKind.DATASHEET, key, display_name)
+            stage = "exact"
         elif alias_target is not None:
             datasheet_id = alias_target
-            registry.adopt(EntityKind.DATASHEET, normalised, alias_target)
+            registry.adopt(EntityKind.DATASHEET, key, alias_target)
             stage = "alias"
-            detail_id = next((d for d, name in detail_names.items() if name == display_name), None)
+            detail_id = detail_for_curated.get(alias_target) or None
         else:
             # Stage 4 — reported, never guessed. Priced but with no detail: it still ships, on
-            # the points the publisher gave it (FR-026, FR-035).
-            datasheet_id = registry.mint(EntityKind.DATASHEET, normalised, display_name)
+            # the points the publisher gave it (FR-026, FR-035). The closest candidates are
+            # ranked into the finding for a curator, and no further.
+            datasheet_id = registry.mint(EntityKind.DATASHEET, key, display_name)
             stage = "unmatched"
             detail_id = None
             outcome.findings.append(
@@ -226,8 +316,12 @@ def match_units(
                     "REC-UNMATCHED-POINTS-ONLY",
                     entity_refs=[f"mfm:{scope.entry.mfm_slug}/{normalised}"],
                     detail={"faction_id": scope.faction_id, "normalized_name": normalised},
+                    suggestions=rank_suggestions(normalised, unmatched_detail),
                 )
             )
+
+        if detail_id:
+            claimed.add(detail_id)
 
         outcome.matches.append(
             UnitMatch(

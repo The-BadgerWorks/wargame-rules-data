@@ -10,7 +10,7 @@
       "model_count": 1,
       "points": 110,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260803T174956Z-3a7632ef"
+      "source_acquisition_id": "mfm-20260803T190441Z-3a7632ef"
     }
   ],
   "damaged_threshold": 6,
@@ -58,12 +58,18 @@
     }
   ],
   "name": "LORD ASHEN",
+  "pricing_confidence": {
+    "consecutive_unverified_releases": 0,
+    "last_verified_points_digest": "sha256:2f900182d6312175a2cfc7ca76df756b3daeda5f47acb43fb9945d9582246751",
+    "last_verified_version": "fixture-minimal",
+    "state": "verified"
+  },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260803T174956Z-1ab4c254",
+    "detail_acquisition_id": "wahapedia-20260803T190441Z-1ab4c254",
     "detail_edition_code": "wh40k-10e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": true,
-    "points_acquisition_id": "mfm-20260803T174956Z-3a7632ef",
+    "points_acquisition_id": "mfm-20260803T190441Z-3a7632ef",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },

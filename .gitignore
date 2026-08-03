@@ -23,3 +23,11 @@ __pycache__/
 .idea/
 .DS_Store
 Thumbs.db
+
+# The disagreement set's build output and reports are test artifacts. `fixtures/minimal/build/`
+# is deliberately NOT ignored: it is the published fixture bundle the consuming app's CI
+# ingests, and it must stay in review (FR-048).
+fixtures/disagreements/build/
+# The minimal set's committed artifact is the bundle and the curated tree the consuming app
+# ingests; its report is a by-product of regenerating them.
+fixtures/minimal/build/reports/

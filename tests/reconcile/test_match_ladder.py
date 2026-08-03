@@ -287,7 +287,7 @@ def test_suggestions_are_ranked_deterministically_and_bounded() -> None:
         limit=2,
     )
 
-    assert [s.entity_ref for s in ranked] == ["wahapedia:SG01", "wahapedia:SG02"]
+    assert [s.entity_ref for s in ranked] == ["wahapedia:SG01", "wahapedia:SG03"]
     assert ranked == rank_suggestions(
         "slate sentinel",
         {

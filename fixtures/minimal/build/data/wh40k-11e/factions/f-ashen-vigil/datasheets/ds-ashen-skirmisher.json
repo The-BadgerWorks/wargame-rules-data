@@ -9,7 +9,7 @@
       "model_count": 5,
       "points": 65,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260803T174956Z-3a7632ef"
+      "source_acquisition_id": "mfm-20260803T190441Z-3a7632ef"
     }
   ],
   "datasheet_id": "ds-ashen-skirmisher",
@@ -43,12 +43,18 @@
     }
   ],
   "name": "ASHEN SKIRMISHER",
+  "pricing_confidence": {
+    "consecutive_unverified_releases": 0,
+    "last_verified_points_digest": "sha256:06aa7af62d3dc33e6ee8550915fdb4a207eb889386cfb022e8c948168e7fcc0b",
+    "last_verified_version": "fixture-minimal",
+    "state": "verified"
+  },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260803T174956Z-1ab4c254",
+    "detail_acquisition_id": "wahapedia-20260803T190441Z-1ab4c254",
     "detail_edition_code": "wh40k-10e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": true,
-    "points_acquisition_id": "mfm-20260803T174956Z-3a7632ef",
+    "points_acquisition_id": "mfm-20260803T190441Z-3a7632ef",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
