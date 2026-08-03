@@ -13,8 +13,10 @@ __pycache__/
 .mypy_cache/
 .ruff_cache/
 *.egg-info/
-dist/
-build/
+# Anchored to the repository root: an unanchored `build/` would also swallow the
+# pipeline's own `pipeline/build/` stage package, which is source, not an artifact.
+/dist/
+/build/
 
 # Editors / OS
 .vscode/

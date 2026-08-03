@@ -27,6 +27,7 @@ dev = [
     "pytest-httpx>=0.30",
     "ruff>=0.6",
     "mypy>=1.11",
+    "types-jsonschema>=4",
 ]
 
 [project.scripts]
@@ -42,6 +43,12 @@ src = ["pipeline", "tests", "tools"]
 
 [tool.ruff.lint]
 select = ["E", "F", "I", "UP", "B", "SIM"]
+
+[tool.ruff.lint.isort]
+# The package is installed editable into the dev venv, so ruff would otherwise sort `pipeline`
+# with the third-party imports and the ordering would differ between a fresh checkout and a
+# working one.
+known-first-party = ["pipeline", "tools"]
 
 [tool.ruff.format]
 quote-style = "double"
