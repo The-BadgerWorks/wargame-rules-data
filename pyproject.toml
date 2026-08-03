@@ -48,7 +48,7 @@ select = ["E", "F", "I", "UP", "B", "SIM"]
 # The package is installed editable into the dev venv, so ruff would otherwise sort `pipeline`
 # with the third-party imports and the ordering would differ between a fresh checkout and a
 # working one.
-known-first-party = ["pipeline", "tools"]
+known-first-party = ["pipeline", "tools", "tests"]
 
 [tool.ruff.format]
 quote-style = "double"
@@ -60,3 +60,6 @@ packages = ["pipeline"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+# The repository root, so `from tests import factories` resolves the shared test-support
+# builders the same way whether the suite is run as `pytest` or as `python -m pytest`.
+pythonpath = ["."]

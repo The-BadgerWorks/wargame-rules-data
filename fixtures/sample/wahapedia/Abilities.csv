@@ -1,5 +1,5 @@
 ﻿id|name|legend|faction_id|description|
 A001|Ember Shield||EW|<span class="kwb">Invented</span> placeholder prose granting a 5+ invulnerable save.|
 A002|Slag Wake||EW|<table><tr><td>Distance</td><td>Effect</td></tr></table><img src="https://example.invalid/icon.png"/> Invented placeholder prose for a tabular ability.|
-A003|Kindling Surge||EW|Invented placeholder prose adding $1 to a characteristic.|
+A003|Kindling Surge||EW|Invented placeholder prose adding $BONUS$ to a characteristic.|
 A004|Glass Veil||GC|Invented placeholder prose.|
