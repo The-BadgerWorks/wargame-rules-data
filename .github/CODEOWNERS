@@ -1,0 +1,32 @@
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - CODEOWNERS routing the four mutually
+# exclusive change classes (plan.md Separation gate; research D2/D3; task T007). A PR that
+# touches more than one class fails the change-class guard in
+# .github/workflows/ci.yml (tools/check_change_classes.py, task T014), independent of this
+# file's review routing.
+#
+# GitHub does not permit a pull request author to approve their own pull request, so routing
+# curation/abilities/ through CODEOWNERS already guarantees a non-author reviewer without any
+# extra mechanism -- PROVIDED a second reviewer exists. NOTE (recorded per instruction to record
+# blocked items precisely): at the time this file was authored, The-BadgerWorks org has no teams
+# (`gh api orgs/The-BadgerWorks/teams` returns `[]`) and the only known maintainer is @adhoxx.
+# All classes are therefore routed to @adhoxx below as the only available owner; the "distinct
+# non-author reviewer" compensating control for curation/abilities/ is not actually enforceable
+# until a second maintainer or a team is added to the org. Update this file (and the reviewer
+# lists in docs/repo-settings.md) the day a second maintainer joins.
+
+# Class 1: pipeline code and its tests
+/pipeline/  @adhoxx
+/tests/     @adhoxx
+
+# Class 2: the machine-written curated tree (normally only ever touched by the pipeline bot in
+# a candidate branch; a human-authored PR touching this path is itself a signal worth a review)
+/data/      @adhoxx
+
+# Class 3: the human-authored tree
+/curation/            @adhoxx
+/curation/abilities/  @adhoxx
+
+# Class 4: infrastructure -- workflows, Pages source, and the declared repo-settings doc
+/.github/                 @adhoxx
+/site/                    @adhoxx
+/docs/repo-settings.md    @adhoxx
