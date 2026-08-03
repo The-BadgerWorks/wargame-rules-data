@@ -1,0 +1,23 @@
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - .gitignore for the curated rules-data
+# pipeline repository (T003). The work/ rule is the first and most important line: raw acquired
+# source material must never be committed to any repository (FR-010).
+
+# Ephemeral raw source -- NEVER committed. Emptied at the start and end of every run.
+work/
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.egg-info/
+dist/
+build/
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

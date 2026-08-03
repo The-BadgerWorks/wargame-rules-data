@@ -1,0 +1,55 @@
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - Scaffolded the Python package definition,
+# runtime and dev dependencies, console script entry point, and the ruff/mypy tool configuration
+# per plan.md Technical Context and research.md D1.
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "wargame-rules-data"
+version = "0.1.0"
+description = "Curated rules-data pipeline for WargameCompanion: acquire, normalize, reconcile, curate, validate, build, and publish versioned mechanical-only rules snapshots."
+readme = "README.md"
+requires-python = ">=3.12"
+license = { text = "MIT" }
+authors = [{ name = "The-BadgerWorks" }]
+
+dependencies = [
+    "httpx>=0.27",
+    "selectolax>=0.3",
+    "pydantic>=2",
+    "jsonschema>=4",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8",
+    "pytest-httpx>=0.30",
+    "ruff>=0.6",
+    "mypy>=1.11",
+]
+
+[project.scripts]
+rules-pipeline = "pipeline.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["pipeline*"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+src = ["pipeline", "tests", "tools"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
+
+[tool.ruff.format]
+quote-style = "double"
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+packages = ["pipeline"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
