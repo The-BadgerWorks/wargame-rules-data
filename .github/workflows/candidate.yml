@@ -1,0 +1,95 @@
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - Authored the candidate workflow (task
+# T109-T110): workflow_dispatch plus called by detect.yml on exit 10, running the full build,
+# pushing candidate/<rulesVersionId>, and opening or updating a PR carrying the curated diff and
+# every report -- with no permission that can reach Releases or Pages, so FR-052 is enforced by
+# capability rather than by policy, plus the supersession concurrency group (FR-057).
+name: candidate
+
+# Two ways in: a curator dispatching it directly (FR-056's manual path, independent of detection
+# state) and `detect.yml` calling it as a reusable workflow on exit 10. Neither is `schedule` and
+# neither is `push` -- the only thing this workflow ever does is build a reviewable candidate.
+on:
+  workflow_dispatch:
+    inputs:
+      rules_version_id:
+        description: The rulesVersionId this candidate will carry, e.g. mfm-2026-06
+        required: true
+        type: string
+  workflow_call:
+    inputs:
+      rules_version_id:
+        required: true
+        type: string
+
+# A newer candidate explicitly supersedes an older one for the SAME version id (FR-057, research
+# D7) -- a manual re-run and a scheduled detection for the same release cannot both land.
+concurrency:
+  group: candidate-${{ inputs.rules_version_id }}
+  cancel-in-progress: true
+
+# `contents: write` pushes the candidate branch; `pull-requests: write` opens or updates its PR.
+# Nothing here can create a Release, upload an asset, or deploy Pages -- compare `publish.yml`'s
+# `pages: write` and `id-token: write`, which this workflow deliberately does not have. FR-052 is
+# therefore enforced by what this token *can* do, not by a check that it did not.
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  candidate:
+    runs-on: ubuntu-latest
+    env:
+      RULES_VERSION_ID: ${{ inputs.rules_version_id }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install the pipeline
+        run: python -m pip install --disable-pip-version-check -e .
+
+      # The full run, prerelease channel: acquire -> parse -> normalize -> reconcile -> curate ->
+      # validate -> build (contract §1). This never publishes -- there is no publish step in this
+      # workflow, and the token above cannot reach Releases or Pages even if there were one.
+      - name: Build the candidate snapshot
+        run: >-
+          rules-pipeline build
+          --channel prerelease
+          --rules-version-id "$RULES_VERSION_ID"
+
+      - name: Push the candidate branch
+        run: |
+          set -euo pipefail
+          git config user.name "wargame-rules-data bot"
+          git config user.email "noreply@users.noreply.github.com"
+          git checkout -B "candidate/$RULES_VERSION_ID"
+          git add data reports
+          if git diff --cached --quiet; then
+            echo "no curated change to push for $RULES_VERSION_ID"
+          else
+            git commit -m "Candidate $RULES_VERSION_ID"
+          fi
+          git push --force origin "candidate/$RULES_VERSION_ID"
+
+      # Opens the PR the first time a candidate is pushed for this version id, or leaves the
+      # existing one for `git push --force` above to update -- either way this is the reviewer
+      # view FR-037 asks for: the curated diff plus every report under
+      # reports/<rulesVersionId>/, assembled from artifacts a reviewer already knows how to read.
+      - name: Open the candidate pull request if none exists yet
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          if gh pr view "candidate/$RULES_VERSION_ID" --json number >/dev/null 2>&1; then
+            echo "candidate PR for $RULES_VERSION_ID already exists"
+          else
+            gh pr create \
+              --title "Candidate $RULES_VERSION_ID" \
+              --base main \
+              --head "candidate/$RULES_VERSION_ID" \
+              --body "Automated candidate. Never auto-published -- see \`reports/$RULES_VERSION_ID/\` for the validation and reconciliation reports, and \`.github/workflows/publish.yml\` for the approval gate."
+          fi
