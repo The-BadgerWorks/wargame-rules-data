@@ -45,6 +45,7 @@ EXPORT_FILES: Final[tuple[str, ...]] = (
     "Datasheets_keywords.csv",
     "Datasheets_leader.csv",
     "Datasheets_models.csv",
+    "Datasheets_models_cost.csv",
     "Datasheets_options.csv",
     "Datasheets_unit_composition.csv",
     "Datasheets_wargear.csv",

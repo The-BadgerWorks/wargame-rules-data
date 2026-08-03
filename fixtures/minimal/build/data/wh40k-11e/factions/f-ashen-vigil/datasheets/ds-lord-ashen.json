@@ -1,0 +1,83 @@
+{
+  "ability_keys": [
+    "core:leader",
+    "datasheet:kindling-surge"
+  ],
+  "costs": [
+    {
+      "copy_index_min": 1,
+      "label": "1 model",
+      "model_count": 1,
+      "points": 110,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260803T174039Z-3a7632ef"
+    }
+  ],
+  "damaged_threshold": 6,
+  "datasheet_id": "ds-lord-ashen",
+  "faction_id": "f-ashen-vigil",
+  "is_battleline": false,
+  "is_character": true,
+  "is_dedicated_transport": false,
+  "is_epic_hero": true,
+  "is_legends": false,
+  "keywords": [
+    {
+      "is_faction_keyword": true,
+      "keyword": "ASHEN VIGIL"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHARACTER"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "EPIC HERO"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "INFANTRY"
+    }
+  ],
+  "leader_pairs": [
+    "ds-ashen-sentinel"
+  ],
+  "max_copies_per_army": 1,
+  "models": [
+    {
+      "base_size": "32mm",
+      "invuln_save": "4+",
+      "leadership": "6+",
+      "line": 1,
+      "movement": "6\"",
+      "name": "Lord Ashen",
+      "objective_control": 2,
+      "save": "3+",
+      "toughness": 5,
+      "wounds": 6
+    }
+  ],
+  "name": "LORD ASHEN",
+  "provenance": {
+    "detail_acquisition_id": "wahapedia-20260803T174039Z-dc347aec",
+    "detail_edition_code": "wh40k-10e",
+    "detail_source": "wahapedia",
+    "is_hybrid_edition": true,
+    "points_acquisition_id": "mfm-20260803T174039Z-3a7632ef",
+    "points_edition_code": "wh40k-11e",
+    "points_source": "mfm"
+  },
+  "role": "Characters",
+  "weapons": [
+    {
+      "armour_penetration": "-1",
+      "attacks": "3",
+      "damage": "2",
+      "is_melee": true,
+      "line": 1,
+      "name": "Lord Ashen blade",
+      "skill": "3+",
+      "strength": "5"
+    }
+  ]
+}

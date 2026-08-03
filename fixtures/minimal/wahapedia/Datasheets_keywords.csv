@@ -1,0 +1,24 @@
+﻿datasheet_id|keyword|model|is_faction_keyword|
+AV01|INFANTRY||false|
+AV01|BATTLELINE||false|
+AV01|ASHEN VIGIL||true|
+AV02|INFANTRY||false|
+AV02|ASHEN VIGIL||true|
+AV03|INFANTRY||false|
+AV03|CHARACTER||false|
+AV03|EPIC HERO||false|
+AV03|ASHEN VIGIL||true|
+AV04|INFANTRY||false|
+AV04|CHARACTER||false|
+AV04|ASHEN VIGIL||true|
+AV05|VEHICLE||false|
+AV05|ASHEN VIGIL||true|
+AV06|VEHICLE||false|
+AV06|TRANSPORT||false|
+AV06|ASHEN VIGIL||true|
+AV07|INFANTRY||false|
+AV07|ASHEN VIGIL||true|
+AV08|INFANTRY||false|
+AV08|ASHEN VIGIL||true|
+EC01|INFANTRY||false|
+EC01|EMBER CHAPTER||true|

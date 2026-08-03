@@ -35,7 +35,10 @@ def test_costs_are_the_first_copy_projection_of_the_tiers() -> None:
     )
     bundle = emit_bundle(snapshot, factories.meta())
 
-    assert [(r["modelCount"], r["points"]) for r in bundle["datasheetCosts"]] == [(5, 90), (10, 175)]
+    assert [(r["modelCount"], r["points"]) for r in bundle["datasheetCosts"]] == [
+        (5, 90),
+        (10, 175),
+    ]
     assert [
         (r["modelCount"], r["copyIndexMin"], r["points"]) for r in bundle["datasheetCostTiers"]
     ] == [(5, 1, 90), (5, 3, 100), (10, 1, 175), (10, 3, 195)]
@@ -91,7 +94,9 @@ def test_the_finding_names_the_datasheet_and_the_counts_and_nothing_else() -> No
         datasheets=[factories.datasheet(cost_rows=factories.costs(lopsided))]
     )
     finding = next(
-        f for f in check_snapshot(snapshot, factories.meta()) if f.finding_code == "PRC-TIER-INCOMPLETE"
+        f
+        for f in check_snapshot(snapshot, factories.meta())
+        if f.finding_code == "PRC-TIER-INCOMPLETE"
     )
     assert finding.detail["datasheet_id"] == "ds-ember-sentinel"
     assert finding.detail["model_count"] == 10

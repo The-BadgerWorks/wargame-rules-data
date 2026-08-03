@@ -61,7 +61,7 @@ def _entry(**overrides):  # type: ignore[no-untyped-def]
 
 
 def test_an_entry_carries_every_required_field() -> None:
-    assert REQUIRED_FIELDS <= set(_entry())
+    assert set(_entry()) >= REQUIRED_FIELDS
 
 
 def test_the_entry_carries_nothing_the_contract_does_not_define() -> None:
@@ -111,7 +111,11 @@ def test_regeneration_appends_without_disturbing_existing_entries(tmp_path) -> N
     path = tmp_path / "manifest.json"
     path.write_text(
         json.dumps(
-            {"manifestVersion": 1, "generatedAt": "2026-05-01T00:00:00Z", "versions": [_entry(meta=factories.meta("mfm-2026-05"))]}
+            {
+                "manifestVersion": 1,
+                "generatedAt": "2026-05-01T00:00:00Z",
+                "versions": [_entry(meta=factories.meta("mfm-2026-05"))],
+            }
         ),
         encoding="utf-8",
     )
@@ -126,7 +130,9 @@ def test_republishing_an_existing_id_is_refused(tmp_path) -> None:  # type: igno
     """Immutability is guarantee 1: a correction ships as a new id, never as an edit."""
     path = tmp_path / "manifest.json"
     path.write_text(
-        json.dumps({"manifestVersion": 1, "generatedAt": "2026-05-01T00:00:00Z", "versions": [_entry()]}),
+        json.dumps(
+            {"manifestVersion": 1, "generatedAt": "2026-05-01T00:00:00Z", "versions": [_entry()]}
+        ),
         encoding="utf-8",
     )
     with pytest.raises(ManifestError, match="mfm-2026-06"):
@@ -139,7 +145,9 @@ def test_a_withdrawn_entry_stays_listed_when_the_manifest_is_regenerated(tmp_pat
     withdrawn["withdrawnReason"] = "Superseded by a corrected build."
     path = tmp_path / "manifest.json"
     path.write_text(
-        json.dumps({"manifestVersion": 1, "generatedAt": "2026-05-01T00:00:00Z", "versions": [withdrawn]}),
+        json.dumps(
+            {"manifestVersion": 1, "generatedAt": "2026-05-01T00:00:00Z", "versions": [withdrawn]}
+        ),
         encoding="utf-8",
     )
 

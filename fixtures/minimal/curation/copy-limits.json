@@ -1,0 +1,7 @@
+[
+  {
+    "datasheet_id": "ds-lord-ashen",
+    "max_copies_per_army": 1,
+    "note": "Invented limit, so the fixture exercises a non-NULL max_copies_per_army."
+  }
+]

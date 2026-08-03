@@ -48,8 +48,14 @@ def test_requisition_threshold_pair_keeps_both_label_literals() -> None:
     first = _block(page, "CINDER WARDEN", "YOUR 1ST TO 2ND UNITS COST")
     later = _block(page, "CINDER WARDEN", "YOUR 3RD + UNIT COSTS")
 
-    assert [(r.model_count_label, r.points) for r in first.rows] == [("5 models", 90), ("10 models", 175)]
-    assert [(r.model_count_label, r.points) for r in later.rows] == [("5 models", 100), ("10 models", 195)]
+    assert [(r.model_count_label, r.points) for r in first.rows] == [
+        ("5 models", 90),
+        ("10 models", 175),
+    ]
+    assert [(r.model_count_label, r.points) for r in later.rows] == [
+        ("5 models", 100),
+        ("10 models", 195),
+    ]
 
 
 def test_delta_markers_are_captured_but_never_treated_as_points() -> None:
@@ -117,14 +123,20 @@ def test_extraction_is_not_positional() -> None:
     assert len(fragments) >= 6
     # Emit the independent fragments last-first. Nested ones must still follow their parent, so
     # only the leading independent run is reversed.
-    shuffled = head + '<script>$RC("B:0","S:0")</script>' + "".join(fragments[-3::-1] + fragments[-2:])
+    shuffled = (
+        head + '<script>$RC("B:0","S:0")</script>' + "".join(fragments[-3::-1] + fragments[-2:])
+    )
 
     original = parse_faction_page("emberwrights", replay(source).html)
     reordered = parse_faction_page("emberwrights", replay(shuffled).html)
 
     def key(blocks):  # type: ignore[no-untyped-def]
         return sorted(
-            (b.unit_display_name, b.cost_table_label, tuple((r.model_count_label, r.points) for r in b.rows))
+            (
+                b.unit_display_name,
+                b.cost_table_label,
+                tuple((r.model_count_label, r.points) for r in b.rows),
+            )
             for b in blocks
         )
 

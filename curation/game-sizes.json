@@ -1,0 +1,38 @@
+[
+  {
+    "detachment_points_budget": 3,
+    "id": "gs-combat-patrol",
+    "label": "Combat Patrol",
+    "max_detachments": 1,
+    "max_enhancements": 1,
+    "max_points": 999,
+    "min_points": 500
+  },
+  {
+    "detachment_points_budget": 6,
+    "id": "gs-incursion",
+    "label": "Incursion",
+    "max_detachments": 2,
+    "max_enhancements": 2,
+    "max_points": 1999,
+    "min_points": 1000
+  },
+  {
+    "detachment_points_budget": 9,
+    "id": "gs-strike-force",
+    "label": "Strike Force",
+    "max_detachments": 3,
+    "max_enhancements": 3,
+    "max_points": 2999,
+    "min_points": 2000
+  },
+  {
+    "detachment_points_budget": 12,
+    "id": "gs-onslaught",
+    "label": "Onslaught",
+    "max_detachments": 4,
+    "max_enhancements": 3,
+    "max_points": 5000,
+    "min_points": 3000
+  }
+]

@@ -1,0 +1,18 @@
+[
+  {
+    "rule_key": "enhancement_limit_per_army",
+    "value": 3
+  },
+  {
+    "rule_key": "legends_allowed_by_default",
+    "value": false
+  },
+  {
+    "rule_key": "max_detachment_repeats",
+    "value": 1
+  },
+  {
+    "rule_key": "warlord_required",
+    "value": true
+  }
+]

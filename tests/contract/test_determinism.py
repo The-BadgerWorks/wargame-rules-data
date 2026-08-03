@@ -45,9 +45,7 @@ def test_two_builds_of_the_same_tree_share_a_checksum() -> None:
 
 
 def test_dictionary_insertion_order_does_not_reach_the_bytes() -> None:
-    forwards = factories.snapshot(
-        factions=[factories.faction("f-aaa"), factories.faction("f-zzz")]
-    )
+    forwards = factories.snapshot(factions=[factories.faction("f-aaa"), factories.faction("f-zzz")])
     backwards = factories.snapshot(
         factions=[factories.faction("f-zzz"), factories.faction("f-aaa")]
     )

@@ -1,0 +1,90 @@
+{
+  "ability_keys": [
+    "core:deep-strike",
+    "datasheet:ember-shield"
+  ],
+  "costs": [
+    {
+      "copy_index_min": 1,
+      "label": "5 models",
+      "model_count": 5,
+      "points": 90,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260803T174039Z-3a7632ef"
+    },
+    {
+      "copy_index_min": 1,
+      "label": "10 models",
+      "model_count": 10,
+      "points": 175,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260803T174039Z-3a7632ef"
+    }
+  ],
+  "datasheet_id": "ds-ashen-sentinel",
+  "faction_id": "f-ashen-vigil",
+  "is_battleline": true,
+  "is_character": false,
+  "is_dedicated_transport": false,
+  "is_epic_hero": false,
+  "is_legends": false,
+  "keywords": [
+    {
+      "is_faction_keyword": true,
+      "keyword": "ASHEN VIGIL"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "BATTLELINE"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "INFANTRY"
+    }
+  ],
+  "models": [
+    {
+      "base_size": "32mm",
+      "leadership": "6+",
+      "line": 1,
+      "movement": "6\"",
+      "name": "Ashen Sentinel",
+      "objective_control": 2,
+      "save": "3+",
+      "toughness": 5,
+      "wounds": 3
+    }
+  ],
+  "name": "ASHEN SENTINEL",
+  "provenance": {
+    "detail_acquisition_id": "wahapedia-20260803T174039Z-dc347aec",
+    "detail_edition_code": "wh40k-10e",
+    "detail_source": "wahapedia",
+    "is_hybrid_edition": true,
+    "points_acquisition_id": "mfm-20260803T174039Z-3a7632ef",
+    "points_edition_code": "wh40k-11e",
+    "points_source": "mfm"
+  },
+  "role": "Battleline",
+  "wargear_options": [
+    {
+      "group_key": "sentinel-banner",
+      "id": "wo-ashen-sentinel-sentinel-banner",
+      "max_per_unit": 1,
+      "name": "Sentinel Banner",
+      "points_delta": 15
+    }
+  ],
+  "weapons": [
+    {
+      "armour_penetration": "-1",
+      "attacks": "3",
+      "damage": "2",
+      "is_melee": true,
+      "line": 1,
+      "name": "Ashen Sentinel blade",
+      "skill": "3+",
+      "strength": "5"
+    }
+  ]
+}

@@ -42,17 +42,23 @@ SITEMAP_PATH: Final = "sitemap.xml"
 def _slug_of(url: str, base_path: str) -> str | None:
     """The faction slug a sitemap entry names, or ``None`` when it is not a faction page.
 
-    Anything that is not exactly one path segment below the configured base — the index itself,
-    a deeper page, another locale — is not a faction page and is skipped rather than guessed at.
+    The sitemap lists **locale-neutral** URLs at the host root — ``/necrons``, not
+    ``/en/necrons`` — and carries the locales as ``xhtml:link`` alternates. The configured base
+    URL names the locale we request, so a slug is accepted one segment below either the base
+    path or the host root, and the request is then made against the base.
+
+    Anything deeper, and the index itself, is not a faction page and is skipped rather than
+    guessed at.
     """
     path = urlparse(url).path.rstrip("/")
-    base = base_path.rstrip("/")
-    if not path.startswith(f"{base}/"):
-        return None
-    remainder = path[len(base) + 1 :]
-    if not remainder or "/" in remainder:
-        return None
-    return remainder
+    for base in (base_path.rstrip("/"), ""):
+        prefix = f"{base}/"
+        if not path.startswith(prefix):
+            continue
+        remainder = path[len(prefix) :]
+        if remainder and "/" not in remainder:
+            return remainder
+    return None
 
 
 def enumerate_faction_slugs(client: PoliteClient, base_url: str) -> list[str]:
@@ -97,9 +103,7 @@ def acquire_mfm(
     produced are the same either way, so there is no CI-only code path (contract §1).
     """
     if fixtures_dir is not None:
-        return acquire_from_fixtures(
-            fixtures_dir, SourceKey.MFM, config, retrieved_at=retrieved_at
-        )
+        return acquire_from_fixtures(fixtures_dir, SourceKey.MFM, config, retrieved_at=retrieved_at)
 
     owned = client is None
     active = client or PoliteClient(config, offline=offline)

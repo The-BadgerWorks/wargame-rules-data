@@ -1,0 +1,13 @@
+[
+  {
+    "detail_source_faction_id": "AV",
+    "faction_id": "f-ashen-vigil",
+    "mfm_slug": "ashen-vigil"
+  },
+  {
+    "detail_source_faction_id": "EC",
+    "faction_id": "f-ember-chapter",
+    "mfm_slug": "ember-chapter",
+    "parent_faction_id": "f-ashen-vigil"
+  }
+]

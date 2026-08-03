@@ -1,0 +1,55 @@
+{
+  "detachments": [
+    {
+      "detachment_id": "d-ashen-vanguard",
+      "detachment_points_cost": 1,
+      "force_disposition": "HOLD THE LINE",
+      "is_legends": false,
+      "is_unique": false,
+      "name": "ASHEN VANGUARD",
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20260803T174039Z-dc347aec",
+        "detail_edition_code": "wh40k-10e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": true,
+        "points_acquisition_id": "mfm-20260803T174039Z-3a7632ef",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    },
+    {
+      "detachment_id": "d-cinder-host",
+      "detachment_points_cost": 2,
+      "force_disposition": "BREAK THE SIEGE",
+      "is_legends": false,
+      "is_unique": false,
+      "name": "CINDER HOST",
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20260803T174039Z-dc347aec",
+        "detail_edition_code": "wh40k-10e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": true,
+        "points_acquisition_id": "mfm-20260803T174039Z-3a7632ef",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    },
+    {
+      "detachment_id": "d-pyre-conclave",
+      "detachment_points_cost": 3,
+      "force_disposition": "PRIORITY ASSETS",
+      "is_legends": false,
+      "is_unique": true,
+      "name": "PYRE CONCLAVE",
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20260803T174039Z-dc347aec",
+        "detail_edition_code": "wh40k-10e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": true,
+        "points_acquisition_id": "mfm-20260803T174039Z-3a7632ef",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    }
+  ]
+}

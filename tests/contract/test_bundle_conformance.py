@@ -109,9 +109,9 @@ def test_arrays_are_sorted_by_their_primary_key() -> None:
 
     assert [row["id"] for row in bundle["factions"]] == ["f-aaa", "f-zzz"]
     assert [row["id"] for row in bundle["datasheets"]] == ["ds-aaa", "ds-zzz"]
-    assert [
+    assert [(row["datasheetId"], row["modelCount"]) for row in bundle["datasheetCosts"]] == sorted(
         (row["datasheetId"], row["modelCount"]) for row in bundle["datasheetCosts"]
-    ] == sorted((row["datasheetId"], row["modelCount"]) for row in bundle["datasheetCosts"])
+    )
 
 
 def test_absent_optionals_are_omitted_rather_than_null(bundle) -> None:  # type: ignore[no-untyped-def]
@@ -133,9 +133,7 @@ def test_absent_optionals_are_omitted_rather_than_null(bundle) -> None:  # type:
 
 
 def test_a_hybrid_edition_datasheet_states_its_detail_edition() -> None:
-    snapshot = factories.snapshot(
-        datasheets=[factories.datasheet(detail_edition_code="wh40k-10e")]
-    )
+    snapshot = factories.snapshot(datasheets=[factories.datasheet(detail_edition_code="wh40k-10e")])
     (datasheet,) = emit_bundle(snapshot, factories.meta())["datasheets"]
     assert datasheet["detailEditionCode"] == "wh40k-10e"
 
@@ -178,7 +176,9 @@ def test_the_mapping_is_total_for_every_curated_model() -> None:
 def test_an_unmapped_field_fails_the_build_rather_than_being_dropped_silently(monkeypatch) -> None:  # type: ignore[no-untyped-def]
     from pipeline.models.curated import CuratedDatasheet
 
-    mapping = {model: (set(mapped), set(dropped)) for model, (mapped, dropped) in FIELD_MAPPING.items()}
+    mapping = {
+        model: (set(mapped), set(dropped)) for model, (mapped, dropped) in FIELD_MAPPING.items()
+    }
     mapping[CuratedDatasheet][0].discard("role")
     monkeypatch.setattr(bundle_emit, "FIELD_MAPPING", mapping)
 

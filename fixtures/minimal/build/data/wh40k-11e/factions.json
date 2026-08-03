@@ -1,0 +1,35 @@
+[
+  {
+    "code": "ashen-vigil",
+    "detail_source_faction_id": "AV",
+    "faction_id": "f-ashen-vigil",
+    "mfm_slug": "ashen-vigil",
+    "name": "Ashen Vigil",
+    "provenance": {
+      "detail_acquisition_id": "wahapedia-20260803T174039Z-dc347aec",
+      "detail_edition_code": "wh40k-10e",
+      "detail_source": "wahapedia",
+      "is_hybrid_edition": true,
+      "points_acquisition_id": "mfm-20260803T174039Z-3a7632ef",
+      "points_edition_code": "wh40k-11e",
+      "points_source": "mfm"
+    }
+  },
+  {
+    "code": "ember-chapter",
+    "detail_source_faction_id": "EC",
+    "faction_id": "f-ember-chapter",
+    "mfm_slug": "ember-chapter",
+    "name": "Ember Chapter",
+    "parent_faction_id": "f-ashen-vigil",
+    "provenance": {
+      "detail_acquisition_id": "wahapedia-20260803T174039Z-dc347aec",
+      "detail_edition_code": "wh40k-10e",
+      "detail_source": "wahapedia",
+      "is_hybrid_edition": true,
+      "points_acquisition_id": "mfm-20260803T174039Z-3a7632ef",
+      "points_edition_code": "wh40k-11e",
+      "points_source": "mfm"
+    }
+  }
+]

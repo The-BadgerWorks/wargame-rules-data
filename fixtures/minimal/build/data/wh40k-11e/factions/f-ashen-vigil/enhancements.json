@@ -1,0 +1,68 @@
+{
+  "enhancements": [
+    {
+      "detachment_id": "d-ashen-vanguard",
+      "enhancement_id": "e-ashen-oath",
+      "max_per_army": 1,
+      "name": "Ashen Oath",
+      "points": 15,
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20260803T174039Z-dc347aec",
+        "detail_edition_code": "wh40k-10e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": true,
+        "points_acquisition_id": "mfm-20260803T174039Z-3a7632ef",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    },
+    {
+      "detachment_id": "d-ashen-vanguard",
+      "enhancement_id": "e-cinderbrand",
+      "max_per_army": 1,
+      "name": "Cinderbrand",
+      "points": 20,
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20260803T174039Z-dc347aec",
+        "detail_edition_code": "wh40k-10e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": true,
+        "points_acquisition_id": "mfm-20260803T174039Z-3a7632ef",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    },
+    {
+      "detachment_id": "d-cinder-host",
+      "enhancement_id": "e-emberward",
+      "max_per_army": 1,
+      "name": "Emberward",
+      "points": 25,
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20260803T174039Z-dc347aec",
+        "detail_edition_code": "wh40k-10e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": true,
+        "points_acquisition_id": "mfm-20260803T174039Z-3a7632ef",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    },
+    {
+      "detachment_id": "d-pyre-conclave",
+      "enhancement_id": "e-pyre-mantle",
+      "max_per_army": 1,
+      "name": "Pyre Mantle",
+      "points": 30,
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20260803T174039Z-dc347aec",
+        "detail_edition_code": "wh40k-10e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": true,
+        "points_acquisition_id": "mfm-20260803T174039Z-3a7632ef",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    }
+  ]
+}

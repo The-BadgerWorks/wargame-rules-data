@@ -1,0 +1,56 @@
+[
+  {
+    "ability_key": "core:deep-strike",
+    "mechanic_digest": "000000000000000054a3b536b8ad4374",
+    "name": "Deep Strike",
+    "review_state": "approved",
+    "reviewed_at": "2026-06-13T00:00:00Z",
+    "reviewed_by": "fixture-curator",
+    "summary": "Invented mechanics-only summary for Deep Strike, authored for this data set."
+  },
+  {
+    "ability_key": "core:leader",
+    "mechanic_digest": "0000000000000000753c7591850fd95c",
+    "name": "Leader",
+    "review_state": "approved",
+    "reviewed_at": "2026-06-13T00:00:00Z",
+    "reviewed_by": "fixture-curator",
+    "summary": "Invented mechanics-only summary for Leader, authored for this data set."
+  },
+  {
+    "ability_key": "datasheet:ember-shield",
+    "mechanic_digest": "0000000000000000545864311f3ef1cf",
+    "name": "Ember Shield",
+    "review_state": "approved",
+    "reviewed_at": "2026-06-13T00:00:00Z",
+    "reviewed_by": "fixture-curator",
+    "summary": "Invented mechanics-only summary for Ember Shield, authored for this data set."
+  },
+  {
+    "ability_key": "datasheet:kindling-surge",
+    "mechanic_digest": "00000000000000005f12c3c1ad5e21d4",
+    "name": "Kindling Surge",
+    "review_state": "approved",
+    "reviewed_at": "2026-06-13T00:00:00Z",
+    "reviewed_by": "fixture-curator",
+    "summary": "Invented mechanics-only summary for Kindling Surge, authored for this data set."
+  },
+  {
+    "ability_key": "datasheet:slag-wake",
+    "mechanic_digest": "00000000000000007e10d167712a84eb",
+    "name": "Slag Wake",
+    "review_state": "approved",
+    "reviewed_at": "2026-06-13T00:00:00Z",
+    "reviewed_by": "fixture-curator",
+    "summary": "Invented mechanics-only summary for Slag Wake, authored for this data set."
+  },
+  {
+    "ability_key": "faction:kindling-surge",
+    "mechanic_digest": "000000000000000035ea268fbfc69231",
+    "name": "Kindling Surge",
+    "review_state": "approved",
+    "reviewed_at": "2026-06-13T00:00:00Z",
+    "reviewed_by": "fixture-curator",
+    "summary": "Invented mechanics-only summary for Kindling Surge, authored for this data set."
+  }
+]

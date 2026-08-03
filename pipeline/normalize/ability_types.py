@@ -71,7 +71,9 @@ def coerce_ability_type(raw: str) -> AbilityType:
         ) from exc
 
 
-def classify(raw: str, *, entity_ref: str | None = None) -> tuple[AbilityType | None, Finding | None]:
+def classify(
+    raw: str, *, entity_ref: str | None = None
+) -> tuple[AbilityType | None, Finding | None]:
     """Map one value, returning a finding instead of raising when it is unmapped.
 
     The stage form: a single unmapped value should cost one dropped ability binding and one

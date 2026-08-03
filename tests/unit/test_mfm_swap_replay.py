@@ -115,6 +115,6 @@ def test_boundary_reveal_form_takes_its_arguments_the_other_way_round() -> None:
 
 
 def test_instruction_naming_a_missing_element_is_a_structural_failure() -> None:
-    html = "<div><template id='P:1'></template></div><script>$RS(\"S:1\",\"P:1\")</script>"
+    html = '<div><template id=\'P:1\'></template></div><script>$RS("S:1","P:1")</script>'
     with pytest.raises(StructureChanged, match="S:1"):
         replay(html)

@@ -154,9 +154,7 @@ def replay(html: str) -> ReplayResult:
     for script in tree.css("script"):
         script.decompose(recursive=True)
 
-    unfilled = tuple(
-        node.attributes.get("id") or "<anonymous>" for node in tree.css("template")
-    )
+    unfilled = tuple(node.attributes.get("id") or "<anonymous>" for node in tree.css("template"))
     unclaimed = tuple(
         node.attributes.get("id") or "<anonymous>"
         for node in tree.css("div[hidden]")

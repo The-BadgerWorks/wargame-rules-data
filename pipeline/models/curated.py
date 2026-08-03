@@ -28,6 +28,7 @@ from typing import Final
 from pydantic import BaseModel, ConfigDict, Field
 
 from pipeline.build.canonical_json import JsonValue
+from pipeline.models.authored import AbilitySummary
 from pipeline.models.provenance import EntityProvenance, PricingConfidence, PricingConfidenceState
 
 #: ``restriction_type`` is a closed set at ``restriction_vocabulary_version`` 1
@@ -253,3 +254,43 @@ class CuratedDatasheet(_Curated):
     )
     pricing_confidence: PricingConfidence
     provenance: EntityProvenance
+
+
+class CuratedSnapshot(_Curated):
+    """One complete curated data set: everything ``validate`` checks and ``build`` emits.
+
+    A container rather than a stage-local tuple because three stages need the *same* view of it
+    — ``curate`` writes it to the tree, ``validate`` checks it whole (referential integrity is
+    not checkable a file at a time), and ``build`` transforms it into the bundle. Passing the
+    pieces around separately is how one of the three ends up checking a set the other two did
+    not build.
+
+    ``ability_summaries`` is authored content, keyed per ability rather than per
+    ``(datasheet, ability)`` binding (data-model.md §4). It travels with the snapshot because
+    the builder expands the keys into per-datasheet rows at emission time — the consumer
+    contract requires a summary on every binding, while the editorial cost is paid once per
+    distinct ability.
+    """
+
+    edition: CuratedEdition
+    edition_rules: Sequence[CuratedEditionRule] = ()
+    game_sizes: Sequence[CuratedGameSizeRule] = ()
+    factions: Sequence[CuratedFaction] = ()
+    detachments: Sequence[CuratedDetachment] = ()
+    enhancements: Sequence[CuratedEnhancement] = ()
+    datasheets: Sequence[CuratedDatasheet] = ()
+    restrictions: Sequence[CuratedDetachmentRestriction] = Field(
+        default=(),
+        description="edition-wide restrictions; a detachment's own live on the detachment",
+    )
+    ability_summaries: Mapping[str, AbilitySummary] = Field(
+        default_factory=dict, description="ability_key -> approved summary (FR-020)"
+    )
+
+    @property
+    def all_restrictions(self) -> list[CuratedDetachmentRestriction]:
+        """Edition-wide and per-detachment restrictions in one list, sorted by id."""
+        collected = list(self.restrictions)
+        for detachment in self.detachments:
+            collected.extend(detachment.restrictions)
+        return sorted(collected, key=lambda restriction: restriction.id)

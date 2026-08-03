@@ -152,8 +152,15 @@ def test_an_unverified_cost_row(bundle: dict) -> None:
 
 
 def test_a_non_null_detail_edition_code(bundle: dict) -> None:
-    assert any("detailEditionCode" in d for d in bundle["datasheets"])
-    assert any("detailEditionCode" not in d for d in bundle["datasheets"])
+    """At launch the hybrid case is the *normal* one, not the exception (research §0.1).
+
+    The detail source is an edition behind the points source, so every matched datasheet is
+    hybrid and says so. §7 asks for one such datasheet; the fixture has nine, which is the
+    honest picture of release 1 rather than a contrived one.
+    """
+    hybrid = [d for d in bundle["datasheets"] if "detailEditionCode" in d]
+    assert hybrid
+    assert {d["detailEditionCode"] for d in hybrid} == {"wh40k-10e"}
 
 
 def test_the_bundle_was_built_by_the_ordinary_builder(bundle: dict) -> None:
