@@ -1,0 +1,299 @@
+[
+  {
+    "ability_key": "datasheet:ancients-banner",
+    "mechanic_digest": "d5e1efbaa70e0a8ba8029f7d609080c4",
+    "name": "Ancient’s Banner",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Add 1 to the Objective Control characteristic of models in the bearer's unit."
+  },
+  {
+    "ability_key": "datasheet:apothecarys-narthecium",
+    "mechanic_digest": "000199a156ac5a17389699e8185c6358",
+    "name": "Apothecary’s Narthecium",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "In your Command phase, if the bearer is alive, return 1 destroyed non-Character model to the bearer's unit."
+  },
+  {
+    "ability_key": "datasheet:attuned-onslaught-psychic",
+    "mechanic_digest": "35b5f9c5c734a7a96bd310ac9f687929",
+    "name": "Attuned Onslaught (Psychic)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When this unit makes a Charge move, until the end of the turn, add 1 to the Damage characteristic of its named models' melee weapons."
+  },
+  {
+    "ability_key": "datasheet:champion-of-the-order-of-purifiers-psychic",
+    "mechanic_digest": "727b8e27c131d0225a51a2289eea023f",
+    "name": "Champion of the Order of Purifiers (Psychic)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model leads a unit, add 1 to the Attacks characteristic of Purifying Flame weapons equipped by models in that unit."
+  },
+  {
+    "ability_key": "datasheet:clarion-of-haste-psychic",
+    "mechanic_digest": "59253d062b63e493d45278a5dc0b4e91",
+    "name": "Clarion of Haste (Psychic)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model leads a unit, that unit remains eligible to declare a charge in a turn in which it Advanced."
+  },
+  {
+    "ability_key": "datasheet:exemplar-of-the-silvered-host",
+    "mechanic_digest": "e2ad1c2fdfe9b51b2aeae9e4a44dda14",
+    "name": "Exemplar of the Silvered Host",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model leads a unit, a Critical Wound scored by a melee attack from that unit inflicts 1 additional mortal wound."
+  },
+  {
+    "ability_key": "datasheet:eye-of-judgement-psychic",
+    "mechanic_digest": "494ac1c6d7f2e0e4b1b51dafb5d3e5ed",
+    "name": "Eye of Judgement (Psychic)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When this model attacks, you can re-roll the Wound roll."
+  },
+  {
+    "ability_key": "datasheet:fire-focus",
+    "mechanic_digest": "f6c79d9d0a03de4ae106daf7c56cd2eb",
+    "name": "Fire Focus",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "After this model shoots, select an enemy unit it hit; until the end of the turn, one attack per turn made against that unit by a model that disembarked from this transport this turn gains +1 Armour Penetration."
+  },
+  {
+    "ability_key": "datasheet:force-edge-psychic",
+    "mechanic_digest": "b4d9efdae43bb7e002ad67625880898c",
+    "name": "Force Edge (Psychic)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When a model in this unit makes a melee attack against a unit other than a Monster or Vehicle, improve that attack's Armour Penetration characteristic by 1."
+  },
+  {
+    "ability_key": "datasheet:foresight-psychic",
+    "mechanic_digest": "5528814ceebd593ea954d47642cd57c4",
+    "name": "Foresight (Psychic)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When this model attacks a Character unit, you can re-roll the Hit roll."
+  },
+  {
+    "ability_key": "datasheet:guardians-of-the-machine",
+    "mechanic_digest": "728563f7edeaefd9b595fd79a0196226",
+    "name": "Guardians of the Machine",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When an enemy ends a charge within Engagement Range of a friendly Vehicle and within 6\" of this unit, this unit may be targeted by the Heroic Intervention Stratagem for 0CP, even if another unit was already targeted this phase."
+  },
+  {
+    "ability_key": "datasheet:guidance-of-the-ancients-psychic",
+    "mechanic_digest": "f736db18851f25a129c084e0f44c9381",
+    "name": "Guidance of the Ancients (Psychic)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "After this unit shoots, select an enemy unit it hit; until the end of the phase, friendly attacks of this model's faction against that unit add 1 to the Hit roll."
+  },
+  {
+    "ability_key": "datasheet:haloed-in-soulfire-psychic",
+    "mechanic_digest": "4322abc8b0cf8a23d9749120ad9d2c26",
+    "name": "Haloed in Soulfire (Psychic)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model leads a unit, that unit can only be targeted by a ranged attack if the attacker is within 18\"."
+  },
+  {
+    "ability_key": "datasheet:hammer-aflame-psychic",
+    "mechanic_digest": "99895074c969bb43870ddc11c32dda65",
+    "name": "Hammer Aflame (Psychic)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When this model's unit fights, you may target an enemy unit within Engagement Range and roll a D6: 2-3 deals 1 mortal wound, 4-5 deals D3 mortal wounds, 6 deals D3+3 mortal wounds."
+  },
+  {
+    "ability_key": "datasheet:hammerhand-psychic",
+    "mechanic_digest": "041e88b2867346f76368e1f89f414326",
+    "name": "Hammerhand (Psychic)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Melee weapons equipped by models in this unit gain the Lethal Hits ability - while this model is leading the unit, or until the end of the turn after the unit makes a Charge move, depending on the datasheet."
+  },
+  {
+    "ability_key": "datasheet:indomitable-spirit-psychic",
+    "mechanic_digest": "e5e9cec1c68deaad891343c87b811efb",
+    "name": "Indomitable Spirit (Psychic)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "This model remains eligible to shoot and to declare a charge in a turn in which it Advanced or Fell Back."
+  },
+  {
+    "ability_key": "datasheet:inspiring-exemplar",
+    "mechanic_digest": "72b9d886c86f50ff496ada34df7300b0",
+    "name": "Inspiring Exemplar",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Each time this model destroys an enemy Character in the Fight phase, gain 1CP, and its Nemesis force weapon's Attacks characteristic increases by 1 for the rest of the battle."
+  },
+  {
+    "ability_key": "datasheet:litanies-of-sanctity",
+    "mechanic_digest": "73d1a6bf77b1c812b82cf763c2a91ea9",
+    "name": "Litanies of Sanctity",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per battle, at the start of any phase, remove Battle-shocked status from one friendly unit of this model's faction within 12\" of this model."
+  },
+  {
+    "ability_key": "datasheet:might-of-titan-psychic",
+    "mechanic_digest": "86cf39782647a6548f881cdaa6beaac5",
+    "name": "Might of Titan (Psychic)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per battle, at the start of the Fight phase, this model can add 3 to the Attacks and Strength characteristics of its melee weapons until the end of the phase."
+  },
+  {
+    "ability_key": "datasheet:one-with-the-warp-psychic",
+    "mechanic_digest": "babd6b50364a0d86a40d4005d37f1a27",
+    "name": "One With the Warp (Psychic)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per battle, when this model's unit declares a charge in the turn it arrived via Deep Strike or Teleport Assault, add 3 to the Charge roll."
+  },
+  {
+    "ability_key": "datasheet:personal-teleporters",
+    "mechanic_digest": "421d0d0d28928ef5b2875386d2f0d1ab",
+    "name": "Personal Teleporters",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "After this unit shoots, if it is not within Engagement Range of any enemy, it can make a further 6\" Normal move, but becomes ineligible to charge that turn."
+  },
+  {
+    "ability_key": "datasheet:retinue",
+    "mechanic_digest": "055942c9fcfccc48fbb1670594a4f60d",
+    "name": "Retinue",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While a named Techmarine leads this unit, models in this unit gain the Deep Strike and Teleport Assault abilities."
+  },
+  {
+    "ability_key": "datasheet:righteous-persecution",
+    "mechanic_digest": "f10b3d59da15cff49307f561dc75e0d9",
+    "name": "Righteous Persecution",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "After this unit shoots, select a non-Monster, non-Vehicle enemy unit it hit; until the start of your next turn that unit is pinned, subtracting 2 from its Move characteristic and 2 from Charge rolls made for it."
+  },
+  {
+    "ability_key": "datasheet:sanctic-hood",
+    "mechanic_digest": "791248b1d94f2cb29ac7636afb33f1cb",
+    "name": "Sanctic Hood",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model leads a unit, models in that unit gain the Feel No Pain 4+ ability against psychic attacks."
+  },
+  {
+    "ability_key": "datasheet:sanctifying-ritual-psychic",
+    "mechanic_digest": "4c6281128b5b6d40d9fd23219f1e13d9",
+    "name": "Sanctifying Ritual (Psychic)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the end of your Command phase, if this unit is within range of an objective you control, you retain control of it until the enemy's Level of Control there exceeds yours at the end of a phase."
+  },
+  {
+    "ability_key": "datasheet:sanctity-of-purpose",
+    "mechanic_digest": "bd8e49c13ad59afd5397fdf060710b25",
+    "name": "Sanctity of Purpose",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When a model in this unit attacks, re-roll a Wound roll of 1, or re-roll any Wound roll if the target is within range of an objective marker."
+  },
+  {
+    "ability_key": "datasheet:sanctuary-psychic",
+    "mechanic_digest": "5b74fd201c7cfc3ae009e342b73acd98",
+    "name": "Sanctuary (Psychic)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model leads a unit, attacks against that unit subtract 1 from the Hit roll."
+  },
+  {
+    "ability_key": "datasheet:strands-of-fate-psychic",
+    "mechanic_digest": "7a6c0c817461db4cda33e27a5ec6904f",
+    "name": "Strands of Fate (Psychic)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "The first time this model is destroyed, roll a D6 at the end of the phase; on 2+, return it to the battlefield near where it fell, out of Engagement Range, at full wounds."
+  },
+  {
+    "ability_key": "datasheet:surge-of-wrath-psychic",
+    "mechanic_digest": "f9fcf9dca126a62c7ff645220febb873",
+    "name": "Surge of Wrath (Psychic)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When this model makes a melee attack against a Monster or Vehicle unit, you can re-roll the Hit roll, the Wound roll, and the Damage roll."
+  },
+  {
+    "ability_key": "datasheet:truesilver-aegis-aura",
+    "mechanic_digest": "c37ce196d9e64ddce366d30feef2151e",
+    "name": "Truesilver Aegis (Aura)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While a friendly unit of this model's faction is wholly within 6\" of this unit, models in that unit gain the Feel No Pain 6+ ability against mortal wounds."
+  },
+  {
+    "ability_key": "datasheet:untouchable-purity",
+    "mechanic_digest": "faf55ed5484edae94f46d21c893b5342",
+    "name": "Untouchable Purity",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model leads a unit, models in that unit gain the Feel No Pain 4+ ability against mortal wounds."
+  },
+  {
+    "ability_key": "datasheet:warrior-strategist",
+    "mechanic_digest": "b7147c846ff0ebab746750195fca02c0",
+    "name": "Warrior Strategist",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per battle round, when a unit with this ability is targeted by a Stratagem, its CP cost is reduced by 1."
+  },
+  {
+    "ability_key": "datasheet:zealous-path",
+    "mechanic_digest": "04ce090b7368826172dd4ab811f45e7a",
+    "name": "Zealous Path",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model leads a unit, Charge rolls made for that unit can be re-rolled."
+  }
+]

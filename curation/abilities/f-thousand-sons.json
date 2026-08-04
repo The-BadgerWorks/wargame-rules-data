@@ -1,0 +1,371 @@
+[
+  {
+    "ability_key": "datasheet:aetherstride-psychic",
+    "mechanic_digest": "21cfec503a51b78bd7c7da6caf6ad38e",
+    "name": "Aetherstride (Psychic)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When this model Deep Strikes, it can arrive anywhere more than 6\" from all enemy units; until end of turn its melee weapon gains Sustained Hits D3 but it cannot charge."
+  },
+  {
+    "ability_key": "datasheet:ambushing-hunters",
+    "mechanic_digest": "876e10e1c6ae6c64c9ca414f54ad6fa0",
+    "name": "Ambushing Hunters",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the end of the opponent's turn, if this unit is more than 6\" from all enemy units, remove it from the battlefield and place it in Strategic Reserves."
+  },
+  {
+    "ability_key": "datasheet:arcane-shield-psychic",
+    "mechanic_digest": "91956115a4ae9c954ac60b6f4d4af5c5",
+    "name": "Arcane Shield (Psychic)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model leads a unit, models in that unit have a 4+ invulnerable save."
+  },
+  {
+    "ability_key": "datasheet:arch-sorcerer-of-tzeentch-psychic",
+    "mechanic_digest": "66b0ef4d3776add731eb359413e86fc3",
+    "name": "Arch-Sorcerer of Tzeentch (Psychic)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Each time this model attempts a Ritual, add 1 to the Psychic test result."
+  },
+  {
+    "ability_key": "datasheet:bestial-prophet",
+    "mechanic_digest": "3f0f38a62b8d1dbfcc662e7133bab17d",
+    "name": "Bestial Prophet",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model leads a unit, add 1 to the Hit roll for attacks made by models in that unit."
+  },
+  {
+    "ability_key": "datasheet:binding-tendrils-psychic",
+    "mechanic_digest": "e474ffe49aecb4be2326051bfa3967bc",
+    "name": "Binding Tendrils (Psychic)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "After this model shoots, pick an enemy Infantry unit hit by its Arcane Fire attacks; until your next turn that unit's Move characteristic is reduced by 2\" and its Charge rolls suffer -2."
+  },
+  {
+    "ability_key": "datasheet:blazing-salvoes",
+    "mechanic_digest": "9d65c532df288a3c2309aff14b70e04a",
+    "name": "Blazing Salvoes",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "After this model shoots, pick an enemy unit it hit; until your next turn, attacks made by models in that unit suffer -1 to the Hit roll."
+  },
+  {
+    "ability_key": "datasheet:brayhorn",
+    "mechanic_digest": "90306fea2e99d9f26c094b91f1f5fdda",
+    "name": "Brayhorn",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Re-roll Advance and Charge rolls made for the bearer's unit."
+  },
+  {
+    "ability_key": "datasheet:destroyer-of-futures",
+    "mechanic_digest": "797d4d1afc0592a4b0efbc00b0e054d1",
+    "name": "Destroyer of Futures",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When targeted with the Fire Overwatch Stratagem, this unit scores hits on unmodified rolls of 5+, or 4+ against an enemy unit within 9\" of a friendly Thousand Sons Psyker unit."
+  },
+  {
+    "ability_key": "datasheet:empyric-guidance-psychic",
+    "mechanic_digest": "12e87fe25987f213165113cf413204f4",
+    "name": "Empyric Guidance (Psychic)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model leads a unit, weapons equipped by models in that unit gain the Lethal Hits ability."
+  },
+  {
+    "ability_key": "datasheet:ensorcelled-annihilation",
+    "mechanic_digest": "3edcb2716ef7b8070dffb1a194c657eb",
+    "name": "Ensorcelled Annihilation",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Ranged attacks this model makes against a Monster or Vehicle already hit this phase by a friendly Thousand Sons Psyker's Psychic Attack can re-roll the Hit roll and the Damage roll."
+  },
+  {
+    "ability_key": "datasheet:ensorcelled-destruction",
+    "mechanic_digest": "713cc61a475d151be711f434e3bdcaa5",
+    "name": "Ensorcelled Destruction",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Ranged attacks this model makes against a non-Monster, non-Vehicle unit already hit this phase by a friendly Thousand Sons Psyker's Psychic Attack get +1 Strength and +1 Armour Penetration."
+  },
+  {
+    "ability_key": "datasheet:flame-wreathed",
+    "mechanic_digest": "96e3ab6eb46611c5b8015aca9d45ded7",
+    "name": "Flame-wreathed",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "After this model's Normal move, pick an enemy unit it moved over; until end of turn models in that unit cannot claim Benefit of Cover."
+  },
+  {
+    "ability_key": "datasheet:glamour-of-tzeentch-aura-psychic",
+    "mechanic_digest": "6a7ca59f0a233c54b74c4fdbb13a5c2e",
+    "name": "Glamour of Tzeentch (Aura, Psychic)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While a friendly Thousand Sons Infantry unit is within 6\" of this model, models in that unit gain the Stealth ability."
+  },
+  {
+    "ability_key": "datasheet:glimpse-of-eternity-psychic",
+    "mechanic_digest": "06aead9f7253502d46388103e1e691b6",
+    "name": "Glimpse of Eternity (Psychic)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per turn, change the result of one Hit roll, Wound roll, or saving throw made for this model to an unmodified 6."
+  },
+  {
+    "ability_key": "datasheet:herd-banner",
+    "mechanic_digest": "edddd4bc2f74cef1b29d250c4ffce1b7",
+    "name": "Herd Banner",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While the bearer's unit is within range of an objective marker you control, models in that unit gain +1 Leadership."
+  },
+  {
+    "ability_key": "datasheet:hunter-of-souls",
+    "mechanic_digest": "1e4aa88f5fb2ad9a6270e5c6646e9add",
+    "name": "Hunter of Souls",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Attacks against Character units re-roll a Hit or Wound roll of 1 (or either roll entirely against Psyker Characters); destroying a Character heals this model D3 wounds, or 3 if it was a Psyker."
+  },
+  {
+    "ability_key": "datasheet:illusions-of-tzeentch-psychic",
+    "mechanic_digest": "4322abc8b0cf8a23d9749120ad9d2c26",
+    "name": "Illusions of Tzeentch (Psychic)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model leads a unit, that unit can only be targeted by a ranged attack from within 18\"."
+  },
+  {
+    "ability_key": "datasheet:immaterial-flare-aura",
+    "mechanic_digest": "10b8bc664415c8dc741be38f17dceb08",
+    "name": "Immaterial Flare (Aura)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While a friendly Thousand Sons Psyker is within 6\" of this model, add 1 (non-cumulative) to that model's Psychic test result when it Channels the Warp."
+  },
+  {
+    "ability_key": "datasheet:impossible-form-psychic",
+    "mechanic_digest": "fda8555787d962679833db5597ff8465",
+    "name": "Impossible Form (Psychic)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Non-Psychic attacks against this model have their Damage characteristic reduced by 1."
+  },
+  {
+    "ability_key": "datasheet:lord-of-the-planet-of-the-sorcerers-psychic",
+    "mechanic_digest": "99c3ced3a4c7021acdd175ccdd00ea35",
+    "name": "Lord of the Planet of the Sorcerers (Psychic)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "This model can attempt two Rituals per turn instead of one, and adds 2 to the Psychic test result for each attempt."
+  },
+  {
+    "ability_key": "datasheet:malefic-maelstrom-psychic",
+    "mechanic_digest": "df259011937ffca1a0f64a89f66133cd",
+    "name": "Malefic Maelstrom (Psychic)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model leads a unit, weapons equipped by models in that unit gain the Sustained Hits 1 ability."
+  },
+  {
+    "ability_key": "datasheet:malign-trickery",
+    "mechanic_digest": "1c05bdeb68335f1b96a1b58f0f83bbad",
+    "name": "Malign Trickery",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per turn, when an enemy unit ends a Normal, Advance or Fall Back move within 9\" of this unit and this unit is not in Engagement Range, this unit can make a Normal move of up to D6\"."
+  },
+  {
+    "ability_key": "datasheet:marked-by-fate-psychic",
+    "mechanic_digest": "7186660c31d65c069051ef4167f227c3",
+    "name": "Marked by Fate (Psychic)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the start of your Shooting phase, pick a visible enemy unit; until end of phase, attacks this unit's models make against it gain +1 to the Hit roll."
+  },
+  {
+    "ability_key": "datasheet:mutating-vortex-aura",
+    "mechanic_digest": "11f71e0994cc2883374982ec4a7cdde6",
+    "name": "Mutating Vortex (Aura)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the end of your Movement phase, roll a D6 per enemy unit within 6\", dealing 1, D3, or D6 mortal wounds on increasing results, then each affected unit must take a Battle-shock test."
+  },
+  {
+    "ability_key": "datasheet:prophesied-doom",
+    "mechanic_digest": "6db54089235747c8095d269da5378134",
+    "name": "Prophesied Doom",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "After this unit ends a Charge move, roll a D6 for each of its models within Engagement Range of the charged unit; each 4+ deals 1 mortal wound to that enemy unit."
+  },
+  {
+    "ability_key": "datasheet:prophetic-sentinels",
+    "mechanic_digest": "eac0c88d4ce076d3815a3cfe7d2b0ea5",
+    "name": "Prophetic Sentinels",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per battle round, target this unit with the Fire Overwatch or Heroic Intervention Stratagem for 0 Command Points."
+  },
+  {
+    "ability_key": "datasheet:rebind-rubricae-psychic",
+    "mechanic_digest": "8f36d0b5f53494507c3b8c8bdfc79011",
+    "name": "Rebind Rubricae (Psychic)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "In your Command phase, while leading a unit, roll a D6: on a 1 the unit suffers D3 mortal wounds, on 2-5 return one destroyed Bodyguard model, on a 6 return up to two."
+  },
+  {
+    "ability_key": "datasheet:regenerating-monstrosities",
+    "mechanic_digest": "b19889f9aa8087ce0b073a46a5728491",
+    "name": "Regenerating Monstrosities",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the start of each Command phase, one model in this unit regains up to 3 lost wounds."
+  },
+  {
+    "ability_key": "datasheet:rites-of-coalescence",
+    "mechanic_digest": "b6d57b27e6f549b06d52d2ee72eac4c9",
+    "name": "Rites of Coalescence",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this unit contains a Psyker model, attacks that target it suffer -1 to the Wound roll."
+  },
+  {
+    "ability_key": "datasheet:sacrificial-blessing",
+    "mechanic_digest": "f521f369c911eae9aeb0029af2e2a7cb",
+    "name": "Sacrificial Blessing",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When this model's unit is selected to shoot or fight, it may destroy a Bodyguard model in that unit to add D3 to the Attacks and Strength of its Psychic weapons until end of phase."
+  },
+  {
+    "ability_key": "datasheet:scryer-of-fates-psychic",
+    "mechanic_digest": "861ff316541cc4e4e7d9682b34a8ea64",
+    "name": "Scryer of Fates (Psychic)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "After deployment, you may redeploy up to three Thousand Sons units, optionally placing them in Strategic Reserves regardless of the normal Strategic Reserves limit."
+  },
+  {
+    "ability_key": "datasheet:servile-pawns",
+    "mechanic_digest": "67a63542b522fd04d73b492decc32a85",
+    "name": "Servile Pawns",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While within 3\" of a friendly Thousand Sons Infantry unit, this model has the Lone Operative ability."
+  },
+  {
+    "ability_key": "datasheet:snarling-protector",
+    "mechanic_digest": "76675d0fa242cab8c925a27f9c595bb5",
+    "name": "Snarling Protector",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "This model can be targeted by the Heroic Intervention Stratagem for 0 Command Points even if another unit was targeted this phase, and re-rolls Charge rolls against enemies within Engagement Range of a friendly Thousand Sons Psyker unit."
+  },
+  {
+    "ability_key": "datasheet:sorcerous-support",
+    "mechanic_digest": "ff44924c38ffa6cfd9ab7d87d8f391f6",
+    "name": "Sorcerous Support",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "After this model shoots, pick an enemy unit it hit; until end of phase, Psychic Attacks made against that unit by models that disembarked from this transport this turn get +1 to the Hit and Wound rolls."
+  },
+  {
+    "ability_key": "datasheet:spirit-snare",
+    "mechanic_digest": "6ce1a0f299d77612930623d0ec3e275e",
+    "name": "Spirit Snare",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When a friendly Psyker with Cabal of Sorcerers is destroyed within 9\" of a model with this ability, that model gets a permanent +1 (max +2) to its Ritual Psychic test results for the rest of the battle."
+  },
+  {
+    "ability_key": "datasheet:time-flux-aura-psychic",
+    "mechanic_digest": "3be7ab762d340f484bb5f2c4a48edc5c",
+    "name": "Time Flux (Aura, Psychic)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While a friendly Thousand Sons unit is within 6\" of this Psyker, add 2\" to the Move characteristic of models in that unit."
+  },
+  {
+    "ability_key": "datasheet:treason-of-tzeentch-psychic",
+    "mechanic_digest": "adae0d71de8c5236ab7e0f1593e09de6",
+    "name": "Treason of Tzeentch (Psychic)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the start of the opponent's Shooting phase, pick an enemy unit within 24\"; until end of phase, ranged weapons equipped by its models gain the Hazardous ability."
+  },
+  {
+    "ability_key": "datasheet:twisted-sorceries-psychic",
+    "mechanic_digest": "7577ff935553db866fc2d30f539ca56b",
+    "name": "Twisted Sorceries (Psychic)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per battle, in the Shooting or Fight phase, improve the Strength and Attacks characteristics of this model's Psychic weapons by 3 until end of phase."
+  },
+  {
+    "ability_key": "datasheet:unearthly-power",
+    "mechanic_digest": "8f6808daab0482d9da636c566cf0ff3a",
+    "name": "Unearthly Power",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the start of each battle round, select one ability from a fixed list of options; this model has that ability until the next battle round."
+  },
+  {
+    "ability_key": "faction:cabal-of-sorcerers-scarab-occult-sorcerer-only",
+    "mechanic_digest": "987cb44d3aa06e4de39effc82ba690d4",
+    "name": "Cabal of Sorcerers (Scarab Occult Sorcerer only)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the start of your Shooting phase, one eligible model can attempt a Ritual by rolling 2D6 (optionally risking mortal wounds for a bonus die); meeting the Ritual's Warp Charge value manifests its effect."
+  }
+]

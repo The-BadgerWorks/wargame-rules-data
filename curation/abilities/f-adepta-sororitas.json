@@ -1,0 +1,695 @@
+[
+  {
+    "ability_key": "datasheet:abbess-sanctorum",
+    "mechanic_digest": "84deda66446d5b027eaa27ba06f276eb",
+    "name": "Abbess Sanctorum",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model leads a unit, models in that unit can re-roll Hit rolls and re-roll Wound rolls when they attack."
+  },
+  {
+    "ability_key": "datasheet:anchorite-sarcophagus",
+    "mechanic_digest": "2454846a014818b30cd5b1d5d4b554e4",
+    "name": "Anchorite Sarcophagus",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Gives the bearer a Move characteristic of 7\" and a Save characteristic of 3+."
+  },
+  {
+    "ability_key": "datasheet:angelic-ascent",
+    "mechanic_digest": "7db99823088778cb4fb3c50ce3aae461",
+    "name": "Angelic Ascent",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "After this unit shoots, if it is not within Engagement Range of any enemy, it can make a further 6\" Normal move, but becomes ineligible to charge that turn."
+  },
+  {
+    "ability_key": "datasheet:anguish-of-the-unredeemed",
+    "mechanic_digest": "3405075ed4805fcf553942ff7867dacd",
+    "name": "Anguish of the Unredeemed",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When a model in this unit is destroyed by a melee attack before it has fought this phase, roll a D6: on 2+ it fights before being removed as a casualty."
+  },
+  {
+    "ability_key": "datasheet:attached-unit",
+    "mechanic_digest": "c2e5776d4271a3ef592161d352bc4026",
+    "name": "ATTACHED UNIT",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Lets a Leader character that could normally attach to a different named unit attach to this unit instead."
+  },
+  {
+    "ability_key": "datasheet:auto-tapestry-of-the-emperors-judgement",
+    "mechanic_digest": "5c1b449228b9301c80ae503e2bda46ae",
+    "name": "Auto-Tapestry of the Emperor’s Judgement",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model leads a unit that includes its named companion model, weapons carried by that unit gain the Devastating Wounds ability."
+  },
+  {
+    "ability_key": "datasheet:censer-of-the-sacred-rose-aura",
+    "mechanic_digest": "199dbbf2afe18749ebb59bd2a96b822c",
+    "name": "Censer of the Sacred Rose (Aura)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Friendly units of the bearer's faction within 6\" of this model can re-roll failed Battle-shock tests."
+  },
+  {
+    "ability_key": "datasheet:cherub",
+    "mechanic_digest": "b09b8686305f8efdb08fa4e499e1e1e1",
+    "name": "Cherub",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per battle, after this unit performs an Act of Faith, you gain 1 Miracle dice."
+  },
+  {
+    "ability_key": "datasheet:cherubs",
+    "mechanic_digest": "737b5beed5515c43f8ddf11ac992325a",
+    "name": "Cherubs",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Twice per battle, after this unit performs an Act of Faith, you gain 1 Miracle dice."
+  },
+  {
+    "ability_key": "datasheet:consecrated-ground",
+    "mechanic_digest": "82553641b2b80107904c603bb2277613",
+    "name": "Consecrated Ground",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Friendly infantry of the bearer's faction can move onto this fortification's floor sections, and a friendly unit within 1\" of it may perform one extra Act of Faith per phase."
+  },
+  {
+    "ability_key": "datasheet:daemonbreaker",
+    "mechanic_digest": "37452c556f5467788daca5bb55f61e2a",
+    "name": "Daemonbreaker",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When this model attacks a Daemon unit, it can re-roll the Hit roll and re-roll the Wound roll."
+  },
+  {
+    "ability_key": "datasheet:death-cult",
+    "mechanic_digest": "3c86566f6a3a2f92ca8ad128e43950db",
+    "name": "Death Cult",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When a model in this unit attacks a Character unit, it re-rolls one Wound roll."
+  },
+  {
+    "ability_key": "datasheet:defenders-of-the-faith",
+    "mechanic_digest": "5207bdc66ef08024e9a1625732583d38",
+    "name": "Defenders of the Faith",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "If this unit ends your Command phase within range of an objective you control, you keep control of it, even with no models present, until an opponent controls it at a turn's start or end."
+  },
+  {
+    "ability_key": "datasheet:denuncia-oratory",
+    "mechanic_digest": "1e78c7103aa138a5614161b6330b2a83",
+    "name": "Denuncia Oratory",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Whenever this unit's marked quarry is destroyed, you may select a new enemy unit as its quarry."
+  },
+  {
+    "ability_key": "datasheet:devastating-refrain",
+    "mechanic_digest": "a143946fb15fb1ab4075cc7fffa57f21",
+    "name": "Devastating Refrain",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "After this model shoots, if an Indirect Fire attack hit an enemy unit, that unit must take a Battle-shock test, and enemy Deadly Demise triggers on a 5+ instead of a 6 against this model's attacks that turn."
+  },
+  {
+    "ability_key": "datasheet:divine-deliverance",
+    "mechanic_digest": "fee1c31d696431db096656d98628f1ac",
+    "name": "Divine Deliverance",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per battle, at the start of the Fight phase, this model can add 3 Attacks to its melee weapons and give them Devastating Wounds until the end of the phase."
+  },
+  {
+    "ability_key": "datasheet:embodied-prophecy",
+    "mechanic_digest": "6d1b1bad4db1d28b92fabb6004ead4f5",
+    "name": "Embodied Prophecy",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When this unit fights, choose Sustained Hits 1 or Lethal Hits for its melee weapons until the end of the phase; if it charged this turn, both apply instead."
+  },
+  {
+    "ability_key": "datasheet:emergency-combat-embarkation",
+    "mechanic_digest": "ed784f98a433486599991a109cde8d6a",
+    "name": "Emergency Combat Embarkation",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per turn, in the enemy Charge phase after targets are chosen but before the charge move, a targeted unit not in Engagement Range and within 3\" of this transport may embark in it instead."
+  },
+  {
+    "ability_key": "datasheet:endless-suffering",
+    "mechanic_digest": "c39e0af67903774b39bcd86c72cd9fca",
+    "name": "Endless Suffering",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "This unit remains eligible to declare a charge even in a turn in which it Advanced."
+  },
+  {
+    "ability_key": "datasheet:executioner-of-heretics-aura",
+    "mechanic_digest": "a8776250005102d8edf1ff237970e206",
+    "name": "Executioner of Heretics (Aura)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While an enemy unit is within 6\" of this model, that unit's Leadership characteristic is worsened by 1."
+  },
+  {
+    "ability_key": "datasheet:extremis-trigger-word",
+    "mechanic_digest": "b3e4be82d3770ead4abc74a970f2d62d",
+    "name": "Extremis Trigger Word",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When this unit fights, you may invoke its trigger word so that its melee weapons gain an Attacks characteristic of 6 and the Hazardous ability until the end of the phase."
+  },
+  {
+    "ability_key": "datasheet:fiery-conviction",
+    "mechanic_digest": "5c59e2390e5f2e35d5cafbd7ed25b53c",
+    "name": "Fiery Conviction",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "If this model is alive at the start of your Command phase, you may either discard a Miracle dice to gain 1CP, or pass a Leadership test on this model to gain 1CP."
+  },
+  {
+    "ability_key": "datasheet:fortification",
+    "mechanic_digest": "d8ba8af3095fb18995406575cbabe78f",
+    "name": "Fortification",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While an enemy unit is only within Engagement Range of friendly Fortifications, non-Pistol attacks against it suffer -1 to Hit, and its models are exempt from Desperate Escape tests unless they'd move over enemy models."
+  },
+  {
+    "ability_key": "datasheet:fury-of-the-righteous",
+    "mechanic_digest": "12e87fe25987f213165113cf413204f4",
+    "name": "Fury of the Righteous",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model leads a unit, weapons carried by that unit gain the Lethal Hits ability."
+  },
+  {
+    "ability_key": "datasheet:healing-tears",
+    "mechanic_digest": "e6fd1b87430b6a64d123999c6a6b4417",
+    "name": "Healing Tears",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this unit includes its named hero model, in your Command phase, if under Starting Strength, return one destroyed bodyguard model (or up to D3 others) to the unit."
+  },
+  {
+    "ability_key": "datasheet:holy-cover",
+    "mechanic_digest": "a36651fb50ac2cd42924bd84995caf4b",
+    "name": "Holy Cover",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "A model hit by a ranged attack while not fully visible to the attacker because of this fortification gains the Benefit of Cover against that attack."
+  },
+  {
+    "ability_key": "datasheet:holy-judgement",
+    "mechanic_digest": "0d622bfba81c561445651f4049a4c4b7",
+    "name": "Holy Judgement",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the start of your Shooting phase, target an enemy unit within 12\" and visible to this unit's named hero model; it must take a Battle-shock test (a further -2 if a Chaos unit) or suffer 3 mortal wounds."
+  },
+  {
+    "ability_key": "datasheet:holy-mission",
+    "mechanic_digest": "106c5d3325ed1131248b0552910d0c81",
+    "name": "Holy Mission",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "If this model is attached to one named squad it gains the Scouts 6\" ability; if attached to another named squad it gains the Infiltrators ability instead."
+  },
+  {
+    "ability_key": "datasheet:holy-vanguard",
+    "mechanic_digest": "a973637b76e15dec48cba70389383c80",
+    "name": "Holy Vanguard",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "If this unit starts the battle embarked and has a Leader attached during Declare Battle Formations, that Leader gains the Scouts 6\" ability."
+  },
+  {
+    "ability_key": "datasheet:icon-of-the-valorous-heart-aura",
+    "mechanic_digest": "cbcc7d0f5ae18bb0d08889b2009f45cd",
+    "name": "Icon of the Valorous Heart (Aura)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While a friendly unit of the bearer's faction is within 6\" of this model, models in that unit gain the Feel No Pain 6+ ability."
+  },
+  {
+    "ability_key": "datasheet:impetuous-fervour",
+    "mechanic_digest": "639a84dff9b1f17174a41d3f52aaba20",
+    "name": "Impetuous Fervour",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When a model in this unit attacks, it re-rolls a Hit roll of 1, or may re-roll any Hit roll if the target is within range of an objective marker."
+  },
+  {
+    "ability_key": "datasheet:instrument-of-the-emperors-wrath",
+    "mechanic_digest": "fee1c31d696431db096656d98628f1ac",
+    "name": "Instrument of the Emperor’s Wrath",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per battle, at the start of the Fight phase, this model can add 3 Attacks to its melee weapons and give them Devastating Wounds until the end of the phase."
+  },
+  {
+    "ability_key": "datasheet:judged-for-execution",
+    "mechanic_digest": "5fd88e1f527806bfc4037864999f21cb",
+    "name": "Judged for Execution",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the end of your Movement phase, mark an enemy unit within 18\" and visible to this model; until your next Command phase, friendly attacks of the bearer's faction against it gain the Lethal Hits ability."
+  },
+  {
+    "ability_key": "datasheet:laud-hailer",
+    "mechanic_digest": "e3c2fea20f0dbd9607fcb5e1f2be0bd3",
+    "name": "Laud Hailer",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per battle, at the start of any phase, remove Battle-shocked status from one friendly unit of the bearer's faction within 12\" of this model."
+  },
+  {
+    "ability_key": "datasheet:lifewards",
+    "mechanic_digest": "0a2b1920ba20c6bdfd7091ea536cbeb7",
+    "name": "Lifewards",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this unit includes one or more of its named companion models, its named hero model gains the Feel No Pain 4+ ability."
+  },
+  {
+    "ability_key": "datasheet:litany-of-deeds",
+    "mechanic_digest": "2e378f117bcd2a4d704c7931b8c55195",
+    "name": "Litany of Deeds",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When you gain a Miracle dice from the destruction of a friendly unit within 12\" of this model, you may re-roll that dice's result before adding it to your pool."
+  },
+  {
+    "ability_key": "datasheet:medicus-ministorum",
+    "mechanic_digest": "c41914e4186d3d3d14e7f6f2fc5d6380",
+    "name": "Medicus Ministorum",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model leads a unit, models in that unit gain the Feel No Pain 5+ ability."
+  },
+  {
+    "ability_key": "datasheet:ministorum-sermon",
+    "mechanic_digest": "dc7d448fad2a84d6759abdf273b0a0b6",
+    "name": "Ministorum Sermon",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this unit includes its named priest model, its melee attacks add 1 to the Wound roll and its melee weapons gain the Sustained Hits 1 ability."
+  },
+  {
+    "ability_key": "datasheet:miraculous-intervention",
+    "mechanic_digest": "78b88afb781e6dd63eb00716c88a97f2",
+    "name": "Miraculous Intervention",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "The first time this unit's named hero model is destroyed, roll a D6 at the end of the phase; on 2+, return it to the battlefield near where it fell, out of Engagement Range, at full wounds."
+  },
+  {
+    "ability_key": "datasheet:mysterious-saviours",
+    "mechanic_digest": "ef7b15e515e41ac8112db2ddcf18c045",
+    "name": "Mysterious Saviours",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "This unit may be targeted by the Heroic Intervention Stratagem for 0CP, even if another unit has already been targeted with it that phase."
+  },
+  {
+    "ability_key": "datasheet:null-rod",
+    "mechanic_digest": "df1e9b4d6131b3dd7415c82edd81ba00",
+    "name": "Null Rod",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Models in the bearer's unit gain the Feel No Pain 4+ ability against mortal wounds and psychic attacks."
+  },
+  {
+    "ability_key": "datasheet:one-shot",
+    "mechanic_digest": "f5aa689d794f86650f89056d1eb8da5c",
+    "name": "One Shot",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "The bearer may fire this weapon only once per battle."
+  },
+  {
+    "ability_key": "datasheet:overseer-of-redemption",
+    "mechanic_digest": "215699a7585274bf700e873901dba632",
+    "name": "Overseer of Redemption",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this unit includes its named sergeant model, other models in the unit re-roll Hit rolls and Wound rolls when they make melee attacks."
+  },
+  {
+    "ability_key": "datasheet:petals-of-the-bloody-rose-aura",
+    "mechanic_digest": "a4805bb8c6595c005a33b32d8607c83c",
+    "name": "Petals of the Bloody Rose (Aura)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While a friendly unit of the bearer's faction is within 6\" of this model, melee weapons carried by that unit gain +1 Armour Penetration."
+  },
+  {
+    "ability_key": "datasheet:purge-and-cleanse",
+    "mechanic_digest": "00dfee72c66315c1f344d7e1a4dee2e4",
+    "name": "Purge and Cleanse",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "After this model shoots, select an enemy unit it hit; that unit cannot claim the Benefit of Cover until the end of the phase."
+  },
+  {
+    "ability_key": "datasheet:rapturous-blows",
+    "mechanic_digest": "2a17d47b7c6b9b04957c1408836873c7",
+    "name": "Rapturous Blows",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When this model's unit fights, you may discard a Miracle dice so that, until the end of the phase, each of its successful melee Wound rolls also inflicts 1 mortal wound."
+  },
+  {
+    "ability_key": "datasheet:recount-the-deeds-of-the-saints",
+    "mechanic_digest": "f3828fd624c01c4aa11527e6a74cd5af",
+    "name": "Recount the Deeds of the Saints",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model leads a unit containing its named companion, each enemy unit that unit destroys grants 1 Miracle dice, and D3 more when the companion model is destroyed."
+  },
+  {
+    "ability_key": "datasheet:relics-of-the-matriarchs",
+    "mechanic_digest": "80643744f039d60a1a5e9476c44e47e8",
+    "name": "Relics of the Matriarchs",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the start of the battle round, choose up to two listed relic abilities; this model has those abilities until the start of the next battle round."
+  },
+  {
+    "ability_key": "datasheet:righteous-awareness",
+    "mechanic_digest": "1c05bdeb68335f1b96a1b58f0f83bbad",
+    "name": "Righteous Awareness",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per turn, when an enemy unit ends a Normal, Advance or Fall Back move within 9\" of this unit and it is not in Engagement Range, this unit may make a Normal move of up to D6\"."
+  },
+  {
+    "ability_key": "datasheet:righteous-denunciation",
+    "mechanic_digest": "9a2f7b2449a8a798fc6689efbf6dd2c1",
+    "name": "Righteous Denunciation",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the start of the Fight phase, each enemy unit within 6\" of this model must take a Battle-shock test with -1 to the result."
+  },
+  {
+    "ability_key": "datasheet:righteous-paragons",
+    "mechanic_digest": "92225d154ffe6812a6aa3db319890bf2",
+    "name": "Righteous Paragons",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When a model in this unit attacks a Monster or Vehicle unit, add 1 to the Hit roll and add 1 to the Wound roll."
+  },
+  {
+    "ability_key": "datasheet:righteous-repugnance",
+    "mechanic_digest": "a8593ba400450a7d762e2674299715f3",
+    "name": "Righteous Repugnance",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When this model's unit shoots or fights, you may discard a Miracle dice to add 3 Attacks to its named weapons until the end of the phase; each enemy unit this model destroys grants 1 Miracle dice."
+  },
+  {
+    "ability_key": "datasheet:righteous-smiting",
+    "mechanic_digest": "ed085f00bb66f09707fa60887849cc70",
+    "name": "Righteous Smiting",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model leads a unit, melee attacks made by models in that unit add 1 to the Wound roll."
+  },
+  {
+    "ability_key": "datasheet:rites-of-castigation",
+    "mechanic_digest": "2e27d9cfba663ae5a39015cce6c50ddc",
+    "name": "Rites of Castigation",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "After this model shoots, select an enemy unit it hit; until the end of the turn, friendly ranged attacks of the bearer's faction against it gain +1 Armour Penetration. Each enemy unit can be selected only once per turn."
+  },
+  {
+    "ability_key": "datasheet:rituale-nullificatus",
+    "mechanic_digest": "5954af0374a926c8e330643f3c2f211a",
+    "name": "Rituale Nullificatus",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Models in this unit gain the Feel No Pain 4+ ability against psychic attacks and mortal wounds."
+  },
+  {
+    "ability_key": "datasheet:rod-of-office",
+    "mechanic_digest": "f01f5c00f2492c803584199a7da79fe9",
+    "name": "Rod of Office",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When a model in the bearer's unit attacks, it re-rolls a Hit roll of 1."
+  },
+  {
+    "ability_key": "datasheet:sacred-banner",
+    "mechanic_digest": "90306fea2e99d9f26c094b91f1f5fdda",
+    "name": "Sacred Banner",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Advance and Charge rolls made for the bearer's unit can be re-rolled."
+  },
+  {
+    "ability_key": "datasheet:sacred-command",
+    "mechanic_digest": "598238fd129b3bec15344c911996003f",
+    "name": "Sacred Command",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per battle round, when a unit with this ability is targeted by a Stratagem, its CP cost is reduced by 1."
+  },
+  {
+    "ability_key": "datasheet:sacred-healing",
+    "mechanic_digest": "fed930628f4dcaa756a6067ea713243f",
+    "name": "Sacred Healing",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model leads a unit, in your Command phase you may return 1 destroyed non-Character model to it, or discard a Miracle dice to return up to D3+1 instead."
+  },
+  {
+    "ability_key": "datasheet:salvationist-medikit",
+    "mechanic_digest": "70f441bb07d946ef084a50a169faf634",
+    "name": "Salvationist Medikit",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "In your Command phase, if the bearer is alive, return up to D3 destroyed non-Character models to this unit."
+  },
+  {
+    "ability_key": "datasheet:self-repair",
+    "mechanic_digest": "0b276e1c1880dabb9e297756e4f3b3b8",
+    "name": "Self Repair",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "In your Command phase, this model regains 1 lost wound; whether that happens at the start or the end of the phase varies by model."
+  },
+  {
+    "ability_key": "datasheet:simulacrum-imperialis",
+    "mechanic_digest": "d1cdadd4a51b0f7ba91c0c72b89bcd23",
+    "name": "Simulacrum Imperialis",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Usually: at the end of your Command phase, roll a D6 for each objective marker you control with a bearing unit in range, gaining a Miracle dice of that value on a 4+. One bearer instead improves its unit's Leadership by 1."
+  },
+  {
+    "ability_key": "datasheet:simulacrum-of-the-argent-shroud-aura",
+    "mechanic_digest": "24ec1b4cf452dc9d79e0528c56900914",
+    "name": "Simulacrum of the Argent Shroud (Aura)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While a friendly unit of the bearer's faction is within 6\" of this model, its models re-roll a Wound roll of 1 on ranged attacks."
+  },
+  {
+    "ability_key": "datasheet:simulacrum-of-the-ebon-chalice-aura",
+    "mechanic_digest": "8ffd1bf1484259602548f92b3c460fae",
+    "name": "Simulacrum of the Ebon Chalice (Aura)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While a friendly unit of the bearer's faction is within 6\" of this model, it can perform up to two Acts of Faith per phase instead of one."
+  },
+  {
+    "ability_key": "datasheet:solemn-procession",
+    "mechanic_digest": "ca5eedc0684493c643b99668a24593f6",
+    "name": "Solemn Procession",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model is alive, each Miracle dice gained at the start of the battle round has a value of 6 instead of being rolled."
+  },
+  {
+    "ability_key": "datasheet:spiritual-fortitude",
+    "mechanic_digest": "5954af0374a926c8e330643f3c2f211a",
+    "name": "Spiritual Fortitude",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Models in this unit gain the Feel No Pain 4+ ability against psychic attacks and mortal wounds."
+  },
+  {
+    "ability_key": "datasheet:stanchion-of-holy-martyrs",
+    "mechanic_digest": "67031ba5609c35de4b4a13ec22f458f7",
+    "name": "Stanchion of Holy Martyrs",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model leads a unit, models in that unit gain a Save characteristic of 2+ and a 4+ invulnerable save."
+  },
+  {
+    "ability_key": "datasheet:stirring-rhetoric",
+    "mechanic_digest": "85560e22fe226a4de317eedfe7defc97",
+    "name": "Stirring Rhetoric",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model leads a unit, each time that unit performs an Act of Faith, one of the Miracle dice used is treated as a 6."
+  },
+  {
+    "ability_key": "datasheet:storm-of-retribution",
+    "mechanic_digest": "b44468e9765ae825fc6c0cc931ffe8b0",
+    "name": "Storm of Retribution",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When a model in this unit makes a ranged attack, re-roll a Hit roll of 1 and a Wound roll of 1; add 1 to both rolls instead if the target has destroyed a friendly unit of the bearer's faction this battle."
+  },
+  {
+    "ability_key": "datasheet:supreme-commander",
+    "mechanic_digest": "4194d89fa823e5d8b4fb78d3b88d6979",
+    "name": "SUPREME COMMANDER",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "If this unit is included in your army, it must be your Warlord."
+  },
+  {
+    "ability_key": "datasheet:sworn-protectors",
+    "mechanic_digest": "339541e6b7c09e076be638cccc0d6a7b",
+    "name": "Sworn Protectors",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While a Character of the bearer's faction leads this unit, attacks against this unit subtract 1 from the Wound roll."
+  },
+  {
+    "ability_key": "datasheet:the-emperors-grace",
+    "mechanic_digest": "12d3a81ffb123ecb2b424959c25a788d",
+    "name": "The Emperor’s Grace",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per battle, at the start of any phase, this model can gain a 2+ invulnerable save until the end of the phase."
+  },
+  {
+    "ability_key": "datasheet:the-fiery-heart-aura",
+    "mechanic_digest": "5cf92c52634c531ca1c4b4eea746a30d",
+    "name": "The Fiery Heart (Aura)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While a friendly unit of the bearer's faction is within 6\" of this model, add 2\" to that unit's Move and add 1 to its Advance and Charge rolls."
+  },
+  {
+    "ability_key": "datasheet:the-pulpit-of-saint-hollines-basilica",
+    "mechanic_digest": "5b74fd201c7cfc3ae009e342b73acd98",
+    "name": "The Pulpit of Saint Holline’s Basilica",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model leads a unit, attacks against that unit subtract 1 from the Hit roll."
+  },
+  {
+    "ability_key": "datasheet:unflinching-determination",
+    "mechanic_digest": "3ed4cf5b6d6bc414f4c86842a87299aa",
+    "name": "Unflinching Determination",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model leads a unit, add 1 to the Objective Control characteristic of models in that unit."
+  },
+  {
+    "ability_key": "datasheet:virtue-of-intolerance",
+    "mechanic_digest": "1e4c658100300ed283aeb7033c685dd2",
+    "name": "Virtue of Intolerance",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the start of the battle, mark an enemy unit as this unit's quarry; attacks against that quarry gain the Precision ability and can re-roll the Hit roll, even while embarked."
+  },
+  {
+    "ability_key": "datasheet:zealot",
+    "mechanic_digest": "4985b6629434ae5eb103684f7c460a21",
+    "name": "Zealot",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per battle, in the Fight phase, this model can improve its melee weapons' Strength and Attacks characteristics by 3 until the end of the phase."
+  }
+]

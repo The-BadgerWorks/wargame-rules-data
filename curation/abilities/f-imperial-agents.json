@@ -1,0 +1,632 @@
+[
+  {
+    "ability_key": "datasheet:a-weaponsmith-not-a-warlord",
+    "mechanic_digest": "99d5ef44868607424d499c1ce0046d63",
+    "name": "A Weaponsmith, Not a Warlord",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "This model cannot be your Warlord; while attached to a unit led by an Inquisitor, its Objective Control characteristic is 1."
+  },
+  {
+    "ability_key": "datasheet:abomination",
+    "mechanic_digest": "d231a4c7a3da86042a5c61ee657be47b",
+    "name": "Abomination",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "This model has the Feel No Pain 2+ ability against Psychic Attacks."
+  },
+  {
+    "ability_key": "datasheet:acrobatic-escape",
+    "mechanic_digest": "e036d6e832966b1f04bd7c73281284df",
+    "name": "Acrobatic Escape",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the end of the Fight phase this model can Fall Back up to D6\" if engaged; if clear of enemies at the end of your opponent's turn it can vanish and redeploy more than 9\" from enemies next Movement phase."
+  },
+  {
+    "ability_key": "datasheet:arbites-medi-kit",
+    "mechanic_digest": "ecce5fbf182e0a0e016237b88bd20696",
+    "name": "Arbites Medi-kit",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the start of your Command phase, if the bearer's unit is below its Starting Strength, up to D3 destroyed non-character models can be returned to it."
+  },
+  {
+    "ability_key": "datasheet:authority-of-the-inquisition",
+    "mechanic_digest": "4eddd5b54afce89fb964b609295b1977",
+    "name": "Authority of the Inquisition",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While attached to a unit, this model can embark within any Transport that its Bodyguard unit can embark within."
+  },
+  {
+    "ability_key": "datasheet:backroom-deals",
+    "mechanic_digest": "0be7830a214392268982dd10c2ac58bf",
+    "name": "Backroom Deals",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "During Battle Formations, select one friendly unit with this ability: while it leads a unit, models in that unit gain the Infiltrators ability."
+  },
+  {
+    "ability_key": "datasheet:blessed-wardings",
+    "mechanic_digest": "9de6a76f43b796106c770ace1957803f",
+    "name": "Blessed Wardings",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While attached to a unit, models in that unit gain a 6+ invulnerable save."
+  },
+  {
+    "ability_key": "datasheet:bound-daemon",
+    "mechanic_digest": "b8a92dea06edf17b640099011801e556",
+    "name": "Bound Daemon",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While attached to a unit led by an Inquisitor, this model's Objective Control characteristic is 1."
+  },
+  {
+    "ability_key": "datasheet:breaching-team",
+    "mechanic_digest": "bd8e49c13ad59afd5397fdf060710b25",
+    "name": "Breaching Team",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Attacks from this unit re-roll a Wound roll of 1, or any Wound roll if the target is within range of an objective marker."
+  },
+  {
+    "ability_key": "datasheet:cassius",
+    "mechanic_digest": "cf7bc4bb45f5dd93124bc0c3508cba99",
+    "name": "CASSIUS",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "This named model and its kill team version cannot both be included in the same army."
+  },
+  {
+    "ability_key": "datasheet:cat-unit",
+    "mechanic_digest": "6b035caae3ac653706d6867d4d534c13",
+    "name": "CAT Unit",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per battle, when this unit is selected to shoot, its ranged weapons gain the Ignores Cover ability until the end of the phase."
+  },
+  {
+    "ability_key": "datasheet:catechism-of-death",
+    "mechanic_digest": "730b7563c6ccf1c9644771470abe6041",
+    "name": "Catechism of Death",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While attached to a unit, or while this unit contains its named character, melee weapons of models in that unit gain the Devastating Wounds ability."
+  },
+  {
+    "ability_key": "datasheet:deadshot",
+    "mechanic_digest": "9ee86e8cc3b53e2418336398a62aff20",
+    "name": "Deadshot",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "This model's ranged attacks can ignore the Lone Operative ability when selecting targets."
+  },
+  {
+    "ability_key": "datasheet:dedication-to-duty",
+    "mechanic_digest": "5da3523b578e117240aafe235e896a3a",
+    "name": "Dedication to Duty",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When a model in this unit that has not yet fought is destroyed in melee, roll a die: on a 4+ it still fights before being removed from play."
+  },
+  {
+    "ability_key": "datasheet:dominate-will-psychic",
+    "mechanic_digest": "e16536788966dd389fe75a7be7c91edd",
+    "name": "Dominate Will (Psychic)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the start of your opponent's Shooting phase, target a visible enemy Infantry unit within 12\" and roll a die: a 1 deals this model D3 mortal wounds, a 2-5 gives that unit -1 to Hit, a 6 stops it shooting, until end of phase."
+  },
+  {
+    "ability_key": "datasheet:endurant-shield",
+    "mechanic_digest": "b36164ee977a6aa60f1b415444a27d9f",
+    "name": "Endurant Shield",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "The bearer has a 4+ invulnerable save."
+  },
+  {
+    "ability_key": "datasheet:etheric-emergence",
+    "mechanic_digest": "ba8feb58a4b4db09cb84dae4bbdc79b2",
+    "name": "Etheric Emergence",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When arriving via Deep Strike in your Movement phase, this model can instead be set up more than 6\" from all enemy units, but cannot declare a charge that turn."
+  },
+  {
+    "ability_key": "datasheet:frenzon",
+    "mechanic_digest": "7d45a87cfbe21d8522abceb94f65165c",
+    "name": "Frenzon",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "This model is eligible to shoot and to declare a charge in a turn in which it Advanced."
+  },
+  {
+    "ability_key": "datasheet:gaze-into-the-empyrean-psychic",
+    "mechanic_digest": "aa1f5329b248dd75c1fb4ea9266518c0",
+    "name": "Gaze into the Empyrean (Psychic)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Enemy Reinforcements cannot be set up within 12\" of this model."
+  },
+  {
+    "ability_key": "datasheet:gheistskull",
+    "mechanic_digest": "30252bec42800ba92b4e1827a80f6d56",
+    "name": "Gheistskull",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per battle, when this unit is targeted by the Grenade Stratagem, it can target a visible unengaged enemy unit within 18\" instead of the usual 8\"."
+  },
+  {
+    "ability_key": "datasheet:glovodan-psyber-eagle",
+    "mechanic_digest": "20802812a24a91a3a41eca83d35b9a90",
+    "name": "Glovodan Psyber-eagle",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "In your Command phase, one enemy unit within 18\" of the bearer loses the Benefit of Cover until the start of your next Command phase."
+  },
+  {
+    "ability_key": "datasheet:grim-spectres",
+    "mechanic_digest": "fcc6a8c9497e4e70b0a497900d1009c0",
+    "name": "Grim Spectres",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "After this unit shoots, one enemy unit it hit must take a Battle-shock test with -1 to the result."
+  },
+  {
+    "ability_key": "datasheet:healing-serum",
+    "mechanic_digest": "8a6e7639911af58dccb814e5e6f685e2",
+    "name": "Healing Serum",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the start of your Command phase, if the bearer's unit is below its Starting Strength, up to D3 destroyed non-character models can be returned to it."
+  },
+  {
+    "ability_key": "datasheet:holy-hatred",
+    "mechanic_digest": "85e222883fb256f6a261648c47247a31",
+    "name": "Holy Hatred",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While attached to a unit, melee weapons of models in that unit gain the Sustained Hits 1 ability."
+  },
+  {
+    "ability_key": "datasheet:imperial-law",
+    "mechanic_digest": "38060b9e57e0b7b3f005d6fc8f3905c9",
+    "name": "Imperial Law",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the start of the battle, nominate one enemy unit: attacks from this unit against it gain the Lethal Hits and Precision abilities."
+  },
+  {
+    "ability_key": "datasheet:incensor-cherub",
+    "mechanic_digest": "ed16dad0445ac5a4bd01454b2413b1a5",
+    "name": "Incensor Cherub",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per battle, this unit can be targeted with the Command Re-roll Stratagem for 0CP, even if that Stratagem has already been used on a different unit this phase."
+  },
+  {
+    "ability_key": "datasheet:inconceivable-augmentation",
+    "mechanic_digest": "295eab290abc79f9158c644ade6e01ea",
+    "name": "Inconceivable Augmentation",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While attached to a unit, ranged weapons of models in that unit gain the Lethal Hits ability."
+  },
+  {
+    "ability_key": "datasheet:inquisitorial-agent",
+    "mechanic_digest": "11656777a5f0a7024838656914ed4e5e",
+    "name": "INQUISITORIAL AGENT",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "If your army is not Agents of the Imperium, each unique pairing of an Inquisitorial Agents unit with this ability and a partner unit lets you include one more Character unit than normal."
+  },
+  {
+    "ability_key": "datasheet:inquisitorial-henchmen",
+    "mechanic_digest": "dd04ed8c6d421ca9586286cfb64216da",
+    "name": "INQUISITORIAL HENCHMEN",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "If your army is not Agents of the Imperium, each Inquisitor unit lets you include an extra unit with this ability that does not count against your Retinue limit."
+  },
+  {
+    "ability_key": "datasheet:inquisitorial-retinue",
+    "mechanic_digest": "36fb957282b19f1286bb391c1d2c200c",
+    "name": "INQUISITORIAL RETINUE",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "This unit can join an Inquisitor-led allied unit during Battle Formations, counting as part of it and increasing that unit's Starting Strength; outside Agents of the Imperium armies, pairing it also raises your Retinue unit limit by 1."
+  },
+  {
+    "ability_key": "datasheet:jump-pack",
+    "mechanic_digest": "d339ac607d62b2c6fb66b20154edf4f6",
+    "name": "Jump Pack",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "The bearer has a Move characteristic of 12\" (10\" on one datasheet) and can move over models and terrain features as if they were not there."
+  },
+  {
+    "ability_key": "datasheet:kill-team",
+    "mechanic_digest": "47990ff08d0e829b2226947629e7fc7a",
+    "name": "Kill Team",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When a mixed-Toughness unit with this ability is attacked, the attacker uses the majority Toughness value, and certain larger models count as taking up two Transport slots."
+  },
+  {
+    "ability_key": "datasheet:lord-of-deceit-aura",
+    "mechanic_digest": "c158784d903bfeda4563253325d86bc1",
+    "name": "Lord of Deceit (Aura)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Enemy Stratagems used to target a unit within 12\" of this model cost 1 extra CP."
+  },
+  {
+    "ability_key": "datasheet:loyal-henchmen",
+    "mechanic_digest": "cfef7faa98f9768b121e9eb112afa1d9",
+    "name": "Loyal Henchmen",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While led by an Inquisitor, attacks that target this unit suffer -1 to the Wound roll."
+  },
+  {
+    "ability_key": "datasheet:malefic-warding",
+    "mechanic_digest": "e66cdfbe437eb203bd4a07bf1c2ad81b",
+    "name": "Malefic Warding",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While attached to a unit led by an Inquisitor, models in that unit gain a 5+ invulnerable save."
+  },
+  {
+    "ability_key": "datasheet:malefic-wardings-psychic",
+    "mechanic_digest": "b9833e572919b4c27837c9b8ae83536e",
+    "name": "Malefic Wardings (Psychic)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While attached to a unit, models in that unit gain a 6+ invulnerable save, improved to 4+ against Psychic Attacks and attacks from Daemon models."
+  },
+  {
+    "ability_key": "datasheet:malus-codicium",
+    "mechanic_digest": "8f9e4b88cf0d49bbe2fc300f448c602a",
+    "name": "Malus Codicium",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While attached to a unit, this model doubles the Attacks characteristic of melee weapons equipped by Daemonhost models in that unit."
+  },
+  {
+    "ability_key": "datasheet:masters-of-close-confines",
+    "mechanic_digest": "3bbbc146dbc7a980c70ebebe98d7745d",
+    "name": "Masters of Close Confines",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Ranged attacks from this unit against the closest eligible target gain the Lethal Hits ability."
+  },
+  {
+    "ability_key": "datasheet:merciless-judgement",
+    "mechanic_digest": "28330678f34a052ed268fafd4b43030f",
+    "name": "Merciless Judgement",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Ranged attacks from this unit against a target Below Half-strength gain +1 to the Wound roll."
+  },
+  {
+    "ability_key": "datasheet:navy-bodyguard",
+    "mechanic_digest": "ba8f7efacdbc0c7876d625f6138476c4",
+    "name": "NAVY BODYGUARD",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "If your army is not Agents of the Imperium, each Voidfarers Character unit you include lets you add an extra unit with this ability that does not count against your Retinue limit."
+  },
+  {
+    "ability_key": "datasheet:no-mercy",
+    "mechanic_digest": "39a7bf8095dddeb64a864d85d4eddc0d",
+    "name": "No Mercy",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While attached to a unit, attacks made by models in that unit against a target Below Half-strength gain +1 to the Hit roll."
+  },
+  {
+    "ability_key": "datasheet:nuncio-aquila",
+    "mechanic_digest": "2bfe4f7e53b7c26c85bcf39e68052300",
+    "name": "Nuncio Aquila",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per battle, at the start of any Command phase, target one objective marker within 6\" of the bearer: enemy units within range of it, excluding Monsters and Vehicles, must take a Battle-shock test."
+  },
+  {
+    "ability_key": "datasheet:nuncio-aquila-aura",
+    "mechanic_digest": "2bfe4f7e53b7c26c85bcf39e68052300",
+    "name": "Nuncio Aquila (Aura)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per battle, at the start of any Command phase, target one objective marker within 6\" of the bearer: enemy units within range of it, excluding Monsters and Vehicles, must take a Battle-shock test."
+  },
+  {
+    "ability_key": "datasheet:on-my-signal-fire",
+    "mechanic_digest": "a32377e8b281436d036629f9d04d6446",
+    "name": "On My Signal, Fire!",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "After this unit shoots, friendly Agents of the Imperium or Imperium Infantry Battleline models can re-roll Hit rolls against one enemy unit it hit, until the end of the phase."
+  },
+  {
+    "ability_key": "datasheet:overkill",
+    "mechanic_digest": "993719faabfa1cd689aa72a28cb1b156",
+    "name": "Overkill",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per battle, before this model makes a Normal move, it can gain +6\" Move and +3 Attacks on its melee weapons until the end of the turn."
+  },
+  {
+    "ability_key": "datasheet:power-of-the-rosette",
+    "mechanic_digest": "765052fe77547f49ec80d85ec79eaf0f",
+    "name": "Power of the Rosette",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Each time this model's unit is targeted by a Stratagem, roll a die: on a 3+ you gain 1CP."
+  },
+  {
+    "ability_key": "datasheet:proteus-doctrines",
+    "mechanic_digest": "cf7f6b9b53ed05c8e871f0729bf05a0e",
+    "name": "Proteus Doctrines",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Attacks from this unit against a target that is not Below Half-strength gain +1 to the Hit roll."
+  },
+  {
+    "ability_key": "datasheet:psychic-assassin",
+    "mechanic_digest": "93900d4a9bab3f35fb63e3b1ebe225a2",
+    "name": "Psychic Assassin",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When this weapon targets a Psyker unit, its Attacks characteristic becomes 6 for those attacks."
+  },
+  {
+    "ability_key": "datasheet:psychic-gifts",
+    "mechanic_digest": "ec79e841fd4426eac7fa11b67f3faf18",
+    "name": "Psychic Gifts",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "The bearer has the Psyker keyword."
+  },
+  {
+    "ability_key": "datasheet:psychic-veil-psychic",
+    "mechanic_digest": "97ff4cc6359e55b6085a8c76bdf6ee39",
+    "name": "Psychic Veil (Psychic)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "In your Command phase, this Psyker can roll a die: on a 1 its unit suffers D3 mortal wounds, on a 2+ that unit can only be targeted by ranged attacks from within 18\" until your next Command phase."
+  },
+  {
+    "ability_key": "datasheet:psyoculum",
+    "mechanic_digest": "fe7f6c015a69662493313af3b6b97448",
+    "name": "Psyoculum",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While attached to a unit, ranged weapons of models in that unit gain the Anti-Psyker 4+ ability."
+  },
+  {
+    "ability_key": "datasheet:rites-of-teleportation",
+    "mechanic_digest": "0946a3ad3fff4755afd6ccaf3779f1ec",
+    "name": "Rites of Teleportation",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "If an Inquisitor unit is attached to this unit during Battle Formations, models in the merged unit gain the Deep Strike ability."
+  },
+  {
+    "ability_key": "datasheet:shadow-assignment",
+    "mechanic_digest": "f8d84e4cb10abd69ef7db4f20b68aa92",
+    "name": "SHADOW ASSIGNMENT",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "This model cannot be your Warlord; in an Agents of the Imperium army it can be swapped during Battle Formations for another Officio Assassinorum model of equal or lower points, with no duplicate Assassin types allowed."
+  },
+  {
+    "ability_key": "datasheet:shieldbreaker",
+    "mechanic_digest": "a7efa78d11fd4a313b465b5556352beb",
+    "name": "Shieldbreaker",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per battle, this model's signature rifle can fire a special round: until the end of the phase, its attacks gain +1 to Wound and any successful Wound roll scores a Critical Wound."
+  },
+  {
+    "ability_key": "datasheet:simulacrum-imperials",
+    "mechanic_digest": "d80a108cebc994f086d31e49ec09ce56",
+    "name": "Simulacrum Imperials",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Models in the bearer's unit have their Leadership improved by 1."
+  },
+  {
+    "ability_key": "datasheet:soulguilt-scanner",
+    "mechanic_digest": "241d352cbf0fbcb2dc9746469c0ac621",
+    "name": "Soulguilt Scanner",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Ranged weapons of models in the bearer's unit gain the Ignores Cover ability."
+  },
+  {
+    "ability_key": "datasheet:soulless-horror",
+    "mechanic_digest": "d5b84c6436b04f695226c7bd4e765178",
+    "name": "Soulless Horror",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per battle, at the start of any Command phase, every enemy unit within 9\" of this model must take a Battle-shock test with -1 to the result, or -2 if it is a Psyker."
+  },
+  {
+    "ability_key": "datasheet:spy-network",
+    "mechanic_digest": "4a855ddf8c2d4374f3316413984de0fa",
+    "name": "Spy Network",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Each time your opponent gains a CP from an ability, roll a die: on a 2+ you also gain 1CP."
+  },
+  {
+    "ability_key": "datasheet:third-eye-psychic",
+    "mechanic_digest": "46593a610a6c05bf1acebf83fee6cc8d",
+    "name": "Third Eye (Psychic)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the start of your Shooting phase, target a visible enemy unit within 12\": it must take a Battle-shock test, worsened by 2 if it is Infantry, and suffers 3 mortal wounds if the test is failed."
+  },
+  {
+    "ability_key": "datasheet:throne-of-judgement-aura",
+    "mechanic_digest": "3f74b280b2e920c810bdd5d1e1be597c",
+    "name": "Throne of Judgement (Aura)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Friendly units within 6\" of this model have their Leadership improved by 1; enemy units within 6\" have their Leadership worsened by 1."
+  },
+  {
+    "ability_key": "datasheet:tome-skull",
+    "mechanic_digest": "33ff9acb6a2defba38c75afdac530fd1",
+    "name": "Tome-skull",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per battle for each token this unit has, at the start of any phase, it can remove Battle-shocked status from a nearby friendly unit or force a nearby enemy unit to take a Battle-shock test."
+  },
+  {
+    "ability_key": "datasheet:tox-cycler",
+    "mechanic_digest": "b54872bad4c3f684872a29f975da0000",
+    "name": "Tox-cycler",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "After this unit shoots, if this model's signature weapon scored a hit, it permanently gains +2 Strength and +2 Damage, to a maximum Damage of 6."
+  },
+  {
+    "ability_key": "datasheet:transport",
+    "mechanic_digest": "2becbb3d69a7a36037ba665540625125",
+    "name": "TRANSPORT",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "This unit cannot embark within an Imperial Rhino."
+  },
+  {
+    "ability_key": "datasheet:unflinching",
+    "mechanic_digest": "c791dc469892e69c671067d98888dee5",
+    "name": "Unflinching",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Battle-shock tests taken for this unit can be re-rolled."
+  },
+  {
+    "ability_key": "datasheet:unsubtle-crusader",
+    "mechanic_digest": "8278d7eb8767b08a7afc1572b79bba74",
+    "name": "Unsubtle Crusader",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "During Battle Formations, select up to three friendly Agents of the Imperium Infantry units, or one Imperium Battleline unit, to gain the Scouts 6\" ability."
+  },
+  {
+    "ability_key": "datasheet:vox-cast-proclamations-aura",
+    "mechanic_digest": "9c934362fa21b0acd504eb01a4fc0321",
+    "name": "Vox-cast Proclamations (Aura)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Enemy Stratagems used to target a unit within 12\" of this unit's named character cost 1 extra CP."
+  },
+  {
+    "ability_key": "datasheet:vox-skull",
+    "mechanic_digest": "3c11881b622b0c817c748f2e607d408c",
+    "name": "Vox-skull",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per battle, at the start of any phase, target a non-Monster, non-Vehicle enemy unit within 12\": it must take a Battle-shock test, and loses the Benefit of Cover until the start of your next turn if it fails."
+  },
+  {
+    "ability_key": "datasheet:ward-against-the-malefic-arts",
+    "mechanic_digest": "0485726f2be58b9ca5c5bca30c9849db",
+    "name": "Ward Against the Malefic Arts",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While attached to a unit, Psychic Attacks that target that unit suffer -1 to the Hit roll and -1 to the Wound roll."
+  },
+  {
+    "ability_key": "datasheet:warrant-of-trade",
+    "mechanic_digest": "f96ee7a0fab86e8b789fac95b6e723ea",
+    "name": "Warrant of Trade",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "If your army includes a unit with this ability, after deployment you can redeploy up to D3 friendly Imperium Battleline units, including into Strategic Reserves regardless of reserve limits."
+  },
+  {
+    "ability_key": "datasheet:xenos-hunter",
+    "mechanic_digest": "af5fb53fed20d6f9bea94250fa2d18e8",
+    "name": "Xenos Hunter",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While attached to a unit, attacks made by models in that unit against a target without the Imperium or Chaos keywords gain +1 to the Hit roll."
+  }
+]

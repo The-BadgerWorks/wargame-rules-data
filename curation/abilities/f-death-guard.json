@@ -1,0 +1,479 @@
+[
+  {
+    "ability_key": "datasheet:barrage-of-filth",
+    "mechanic_digest": "a222ab3a432ff05a6c7d02dfe2c79d29",
+    "name": "Barrage of Filth",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "After this model shoots, select an enemy unit it hit; that unit cannot claim the Benefit of Cover until the end of the phase."
+  },
+  {
+    "ability_key": "datasheet:blessed-icon-of-disease",
+    "mechanic_digest": "9465cf7e9f5b6e9be5a04c7ecfa7a542",
+    "name": "Blessed Icon of Disease",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per battle, at the start of any phase, remove Battle-shocked status from one friendly Death Guard unit within 12\" of this model."
+  },
+  {
+    "ability_key": "datasheet:blight-bombardment",
+    "mechanic_digest": "1fa306ae6ce186152f16ca4750f1e755",
+    "name": "Blight Bombardment",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the start of your Shooting phase, mark an enemy unit within 30\" and visible to this model; until the end of the phase, friendly Death Guard ranged attacks against it re-roll a Hit roll of 1, or any Hit roll if made with a Blast weapon."
+  },
+  {
+    "ability_key": "datasheet:blinding-spray",
+    "mechanic_digest": "0d5a45ff30490db1cbdd3d6ef6ad0f50",
+    "name": "Blinding Spray",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "In the Fight phase, once per battle per model with this ability, you can give that model's unit the Fights First ability until the end of the phase."
+  },
+  {
+    "ability_key": "datasheet:blistering-fusillade",
+    "mechanic_digest": "2ffdaa7fa290604659ace028cd9c9079",
+    "name": "Blistering Fusillade",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "If this unit has 5 or more starting models, or is led by a Character, its ranged attacks against Afflicted units gain +1 Strength and +1 Armour Penetration."
+  },
+  {
+    "ability_key": "datasheet:boon-of-death",
+    "mechanic_digest": "050a04a0368571c1c7b7c4e22bb18fa6",
+    "name": "Boon of Death",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "In the Fight phase, when a friendly Death Guard unit within 6\" is targeted by an attack, this model can let melee-destroyed models in that unit that haven't fought yet roll a D6: on 2+ they fight before being removed."
+  },
+  {
+    "ability_key": "datasheet:chaos-lord",
+    "mechanic_digest": "b42d1fd887c2a9236c6721b105f6569a",
+    "name": "Chaos Lord",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model leads a unit, models in that unit re-roll a Hit roll of 1 when they attack."
+  },
+  {
+    "ability_key": "datasheet:curse-of-the-walking-pox",
+    "mechanic_digest": "71c8c7aff70575b15dc347eb4d30a809",
+    "name": "Curse of the Walking Pox",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When a Poxwalker in this unit destroys a non-Monster, non-Vehicle enemy model, you may return one destroyed Poxwalker to the unit after attacks resolve; a leading named hero's psychic kills count toward this too."
+  },
+  {
+    "ability_key": "datasheet:death-approaches",
+    "mechanic_digest": "63f41c6a922d4f33f562c6a0d928505e",
+    "name": "Death Approaches",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When this unit arrives via Deep Strike, it can be set up more than 6\" from Afflicted enemy units and more than 9\" from all other enemy units."
+  },
+  {
+    "ability_key": "datasheet:death-guard-defenders",
+    "mechanic_digest": "d3721695c513333f4c642cadb3cc1257",
+    "name": "Death Guard Defenders",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model is within 3\" of a friendly Death Guard Infantry unit, it gains the Lone Operative ability."
+  },
+  {
+    "ability_key": "datasheet:desiccation-conduit-aura",
+    "mechanic_digest": "55e63c4a18d2c02c414d01f77f9275ae",
+    "name": "Desiccation Conduit (Aura)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While an enemy unit is within this model's Contagion Range, at the end of the turn roll a D6: on 4+ that unit suffers D3 mortal wounds."
+  },
+  {
+    "ability_key": "datasheet:diseased-icon",
+    "mechanic_digest": "6b5c526dbc132c2779acfbf7fc50b130",
+    "name": "Diseased Icon",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Melee weapons equipped by models in the bearer's unit gain the Lethal Hits ability."
+  },
+  {
+    "ability_key": "datasheet:diseased-influence",
+    "mechanic_digest": "20876aea6d7ae6dd54b60b95a98108b8",
+    "name": "Diseased Influence",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When an enemy ends a Normal, Advance or Fall Back move within 9\" of a friendly Death Guard unit that is within 6\" of this model, that unit may make a 5\" Normal move if it is not in Engagement Range."
+  },
+  {
+    "ability_key": "datasheet:diseased-malice",
+    "mechanic_digest": "e5d40749e57bf56d862da50eeefa9255",
+    "name": "Diseased Malice",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When this model attacks an Afflicted unit, add 1 to the Wound roll."
+  },
+  {
+    "ability_key": "datasheet:eater-plague-psychic",
+    "mechanic_digest": "e6c513ec1de0b0f5b0c20fe0cf6c2600",
+    "name": "Eater Plague (Psychic)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "In your Shooting phase, target an enemy unit within 18\" and visible to this psyker and roll a D6: 1 deals D3 mortal wounds to this model's unit instead, 2-5 deals D6 mortal wounds to the target, 6 deals D3+3."
+  },
+  {
+    "ability_key": "datasheet:enfeebling-miasma-aura",
+    "mechanic_digest": "468f52067784738946953a94d04246c0",
+    "name": "Enfeebling Miasma (Aura)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While a non-Monster, non-Vehicle enemy unit is within 6\" of this model, models in that unit take Desperate Escape tests when it Falls Back, with -1 to the test if it is Battle-shocked."
+  },
+  {
+    "ability_key": "datasheet:explosive-blight",
+    "mechanic_digest": "4678e341bcddac85bced60325bb2969a",
+    "name": "Explosive Blight",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "In your Shooting phase, when this model's attack destroys an enemy unit, before removing its last model roll a D6 (+1 if Afflicted): on 5+, every enemy unit within 6\" becomes Afflicted until the start of your next turn."
+  },
+  {
+    "ability_key": "datasheet:extraction-of-fresh-disease",
+    "mechanic_digest": "41240743fb33d69d6a86cd7d487fa858",
+    "name": "Extraction of Fresh Disease",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "The first time this model's unit destroys an enemy unit in melee, add 6 to this model's Objective Control characteristic for the rest of the battle."
+  },
+  {
+    "ability_key": "datasheet:fevered-strategist",
+    "mechanic_digest": "2119a13a77b3047f454ae089865d3ab1",
+    "name": "Fevered Strategist",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per battle round, when a friendly Death Guard unit within 12\" of a model with this ability is targeted by a Stratagem, reduce that Stratagem's CP cost by 1."
+  },
+  {
+    "ability_key": "datasheet:foul-infusion",
+    "mechanic_digest": "093894d66ca786922c75123c38ddb472",
+    "name": "Foul Infusion",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model leads a unit, that unit's weapons gain the Lethal Hits ability and score Critical Hits on an unmodified Hit roll of 5+ instead of only 6."
+  },
+  {
+    "ability_key": "datasheet:froth-spattered-frenzy",
+    "mechanic_digest": "30f45b295f6150105ed627dc9f0fb885",
+    "name": "Froth-spattered Frenzy",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "If this model carries two melee weapons besides its close combat weapon, add 2 to the Attacks characteristic of those two weapons."
+  },
+  {
+    "ability_key": "datasheet:gift-of-contagion-psychic",
+    "mechanic_digest": "85a2c8b3e353b11998579aae0b250820",
+    "name": "Gift of Contagion (Psychic)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model leads a unit, that unit's attacks against Afflicted units gain the Sustained Hits 1 ability."
+  },
+  {
+    "ability_key": "datasheet:gift-of-poxes",
+    "mechanic_digest": "a2ffed75e93bfbbe99e518fb12eb1832",
+    "name": "Gift of Poxes",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Add 3\" to this model's Contagion Range."
+  },
+  {
+    "ability_key": "datasheet:hail-of-corrosive-disease",
+    "mechanic_digest": "5ce1a61b24dfd3ba068d2aeca0c85284",
+    "name": "Hail of Corrosive Disease",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "After this model shoots, select a non-Monster, non-Vehicle enemy unit it hit; until the end of the phase, one friendly Death Guard ranged attack per phase against that unit gains +1 Armour Penetration."
+  },
+  {
+    "ability_key": "datasheet:horrifying-visage",
+    "mechanic_digest": "264621f482749b452381009db803653f",
+    "name": "Horrifying Visage",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When this model ends a Charge move, an enemy unit within Engagement Range of it must take a Battle-shock test with -1 to the result."
+  },
+  {
+    "ability_key": "datasheet:host-of-plagues",
+    "mechanic_digest": "a9d2973e046f4010156eb17d8404997c",
+    "name": "Host of Plagues",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the end of your Movement phase, roll a D6 for each enemy unit within 6\" of this model (+1 if Afflicted): on 3+, that unit suffers D3 mortal wounds."
+  },
+  {
+    "ability_key": "datasheet:infectious-bloodshed",
+    "mechanic_digest": "1d3e706d6f92989ee84c085e3b5a1be5",
+    "name": "Infectious Bloodshed",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When this unit makes a Charge move, until the end of the turn its weapons gain the Sustained Hits 1 ability."
+  },
+  {
+    "ability_key": "datasheet:inflamed-infections",
+    "mechanic_digest": "56543d0be589cb7fce308db4b722134d",
+    "name": "Inflamed Infections",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the start of the Fight phase, mark an enemy unit within Engagement Range of this model; this model's attacks against it score a Critical Hit on an unmodified 5+ (4+ if the target is Below Half-strength) until the end of the phase."
+  },
+  {
+    "ability_key": "datasheet:inflamed-reprisal",
+    "mechanic_digest": "48228d797f7d56080e715b99abe38c18",
+    "name": "Inflamed Reprisal",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "In the enemy Shooting phase, when a friendly Death Guard unit within 6\" of this model is targeted, that unit may shoot back at the attacker as if in your own Shooting phase after the attack resolves."
+  },
+  {
+    "ability_key": "datasheet:lethal-ichor",
+    "mechanic_digest": "8cbdce80d476bfc596881d235bcec7ea",
+    "name": "Lethal Ichor",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When a melee attack is allocated to a model in this unit, after the attacker finishes its attacks, roll up to six D6: each 4+ deals 1 mortal wound to the attacking unit."
+  },
+  {
+    "ability_key": "datasheet:lord-of-the-death-guard",
+    "mechanic_digest": "c13ca5b5d993160e3c6577de65600f36",
+    "name": "Lord of the Death Guard",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per turn, this model can use one of its listed Lord of the Death Guard abilities."
+  },
+  {
+    "ability_key": "datasheet:malicious-calculations",
+    "mechanic_digest": "d191d1790a2a8e338f59948cc3aee579",
+    "name": "Malicious Calculations",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model leads a unit, attacks made by models in that unit can ignore modifiers to Ballistic Skill, Weapon Skill, or the Hit roll."
+  },
+  {
+    "ability_key": "datasheet:metalophagic-infection",
+    "mechanic_digest": "55756a54764939efeb0ce20736a424f1",
+    "name": "Metalophagic Infection",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "After this model shoots, select an enemy Monster or Vehicle unit it hit; roll a D6 (+1 if Afflicted): on 5+ that unit suffers D3 mortal wounds."
+  },
+  {
+    "ability_key": "datasheet:miasma-of-pestilence-aura",
+    "mechanic_digest": "464f161e6ae7d988db8c930aee64dc06",
+    "name": "Miasma of Pestilence (Aura)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While a friendly Death Guard unit is within 6\" of this model, models in that unit gain the Benefit of Cover against ranged attacks."
+  },
+  {
+    "ability_key": "datasheet:pestilent-fallout-psychic",
+    "mechanic_digest": "4ecb2123de79f11c679e08406ab5e97d",
+    "name": "Pestilent Fallout (Psychic)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "After this model shoots, select an Infantry unit hit by its Plague Wind attacks; until the end of the opponent's next turn that unit is enfeebled, subtracting 2\" from its models' Move characteristic."
+  },
+  {
+    "ability_key": "datasheet:pestilent-familiar-psychic",
+    "mechanic_digest": "bba7172d7c189304e70e45e376d8cb36",
+    "name": "Pestilent Familiar (Psychic)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per battle, after this model's Psychic weapon selects targets, improve that weapon's Strength and Damage characteristics by 2 until the end of the phase."
+  },
+  {
+    "ability_key": "datasheet:possessed",
+    "mechanic_digest": "a9da06e085091dada05ffcec6bfe019d",
+    "name": "POSSESSED",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "For embarking in Transports, each model in this unit counts as one Terminator model."
+  },
+  {
+    "ability_key": "datasheet:putrefying-stink",
+    "mechanic_digest": "95fac9f62dd841362127ddde8e739591",
+    "name": "Putrefying Stink",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Enemy models cannot start or end an Advance move within 9\" of this model."
+  },
+  {
+    "ability_key": "datasheet:putrescent-fog-aura",
+    "mechanic_digest": "aa1f5329b248dd75c1fb4ea9266518c0",
+    "name": "Putrescent Fog (Aura)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Enemy units arriving as Reinforcements cannot be set up within 12\" of this model."
+  },
+  {
+    "ability_key": "datasheet:putrescent-vitality-psychic",
+    "mechanic_digest": "91b20be3aa28c4af5fe8d53189c187e6",
+    "name": "Putrescent Vitality (Psychic)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the start of the Fight phase, you may roll a D6: on 1 this psyker's unit suffers D3 mortal wounds; on 2+, attacks allocated to models in that unit have Damage reduced by 1 until the end of the phase."
+  },
+  {
+    "ability_key": "datasheet:sevenfold-chant",
+    "mechanic_digest": "c8f3333685c8fee63b6b55e3a54f46bf",
+    "name": "Sevenfold Chant",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "In your Command phase, if this model is on the battlefield, roll 2D6: on a 7+, gain 1CP."
+  },
+  {
+    "ability_key": "datasheet:shroud-of-disease",
+    "mechanic_digest": "8dc81725d1d688a677298c79cf7a89b5",
+    "name": "Shroud of Disease",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model leads a unit, that unit cannot be targeted by a ranged attack unless the attacker is within 18\"."
+  },
+  {
+    "ability_key": "datasheet:sickening-vitality",
+    "mechanic_digest": "1788178cb82958a19894c46cd2257aa9",
+    "name": "Sickening Vitality",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model leads a unit, add 1\" to that unit's Move characteristic and re-roll Advance and Charge rolls made for it."
+  },
+  {
+    "ability_key": "datasheet:silent-bodyguard",
+    "mechanic_digest": "c487bf243286e89d213680f8b1e6cf1d",
+    "name": "Silent Bodyguard",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While a Character leads this unit, that Character gains the Feel No Pain 4+ ability."
+  },
+  {
+    "ability_key": "datasheet:spore-laced-shock-waves",
+    "mechanic_digest": "40b8f94aea8eb94857fce306b77fb886",
+    "name": "Spore-laced Shock Waves",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When this model's Plagueburst mortar targets a unit, roll a D6 for the target and every other enemy unit within 3\" of it (+1 if Afflicted); on 6+ that unit suffers D3 mortal wounds after this model's attacks resolve."
+  },
+  {
+    "ability_key": "datasheet:tainted-narthecium",
+    "mechanic_digest": "ce6a7788d83521406d965c211b52043a",
+    "name": "Tainted Narthecium",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model leads a unit, in your Command phase you may return 1 destroyed bodyguard model to that unit."
+  },
+  {
+    "ability_key": "datasheet:tank-hunters",
+    "mechanic_digest": "0a1448f705586d432c904fe7119bd8ac",
+    "name": "Tank Hunters",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When a model in this unit attacks a Monster or Vehicle unit, add 1 to the Hit roll and add 1 to the Wound roll."
+  },
+  {
+    "ability_key": "datasheet:the-destroyer-hive",
+    "mechanic_digest": "c4ef6296b3bdd5fd2de19a50c31ace1e",
+    "name": "The Destroyer Hive",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model leads a unit, melee attacks against that unit subtract 1 from the Hit roll."
+  },
+  {
+    "ability_key": "datasheet:tocsin-of-misery-aura",
+    "mechanic_digest": "42a4edeedd3cf6ca54d01466952fe7a4",
+    "name": "Tocsin of Misery (Aura)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "In the opponent's Battle-shock step, an enemy unit below its Starting Strength within 9\" of this model must take a Battle-shock test, with -1 if it is a Psyker unit."
+  },
+  {
+    "ability_key": "datasheet:unclean-icon",
+    "mechanic_digest": "3ed4cf5b6d6bc414f4c86842a87299aa",
+    "name": "Unclean Icon",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model leads a unit, add 1 to the Objective Control characteristic of models in that unit."
+  },
+  {
+    "ability_key": "datasheet:unholy-resilience",
+    "mechanic_digest": "ed5c2df3acc43b8bece003bf260dbd8e",
+    "name": "Unholy Resilience",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "The first time a model with this ability is destroyed in a battle round, roll a D6 at the end of the phase; on 2+, return it to the battlefield near where it fell, out of Engagement Range, with 3 wounds, once per battle."
+  },
+  {
+    "ability_key": "datasheet:vector-of-disease",
+    "mechanic_digest": "0a4b5fed3e110b12a94e0c2d166aa072",
+    "name": "Vector of Disease",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model leads a unit, melee weapons equipped by models in that unit gain the Sustained Hits 1 and Lance abilities."
+  },
+  {
+    "ability_key": "datasheet:virulent-aura",
+    "mechanic_digest": "6f35406aec45109343c40841b9f9e31c",
+    "name": "Virulent Aura",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model leads a unit, models in that unit can re-roll the Wound roll when they make a ranged attack."
+  }
+]

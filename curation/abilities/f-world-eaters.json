@@ -1,0 +1,326 @@
+[
+  {
+    "ability_key": "datasheet:a-worthy-skull",
+    "mechanic_digest": "dd0a90055c35a3fbf3011a1cf4eef5f0",
+    "name": "A Worthy Skull",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "This model re-rolls Hit and Wound rolls on melee attacks against Character units; if its unit destroys a Character model, gain 1CP."
+  },
+  {
+    "ability_key": "datasheet:aggressive-advance",
+    "mechanic_digest": "45f665fad85d17cd9ff58728bb37e495",
+    "name": "Aggressive Advance",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While leading a unit, that unit has a 10\" Move characteristic and its models can move horizontally through terrain on any move."
+  },
+  {
+    "ability_key": "datasheet:beacons-of-rage-aura",
+    "mechanic_digest": "40219d79fbc2d413b412764d33f35095",
+    "name": "Beacons of Rage (Aura)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While a friendly World Eaters unit is within 6\" of this unit, its melee attacks against non-Monster/Vehicle units get +1 to Hit, plus +1 to Wound if the target is Below Half-strength."
+  },
+  {
+    "ability_key": "datasheet:berzerker-frenzy",
+    "mechanic_digest": "459cce9f46c890c48a0ff8caf440758f",
+    "name": "Berzerker Frenzy",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "The first time this model is destroyed, at the end of that phase roll a D6: on a 2+ it returns to the battlefield near where it fell, outside enemy Engagement Range, with 3 wounds."
+  },
+  {
+    "ability_key": "datasheet:blood-hungry-annihilator",
+    "mechanic_digest": "620f6f9982583e5ceadf50eee36b4701",
+    "name": "Blood-hungry Annihilator",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "This model re-rolls Wound and Damage rolls on ranged attacks against the closest eligible Monster or Vehicle target within 18\"."
+  },
+  {
+    "ability_key": "datasheet:bloodied-terror",
+    "mechanic_digest": "38a1dbfc1cc72d502cf1b20b89feff36",
+    "name": "Bloodied Terror",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the start of the Fight phase, each enemy unit within Engagement Range of this model must take a Battle-shock test, at -1 if that unit is Below Half-strength."
+  },
+  {
+    "ability_key": "datasheet:bloody-fury",
+    "mechanic_digest": "90b1f0eaa95b21f07ad643ec0abf466c",
+    "name": "Bloody Fury",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "This unit re-rolls Hit rolls on ranged attacks against the closest enemy unit, and re-rolls the Charge roll when charging the closest eligible enemy unit."
+  },
+  {
+    "ability_key": "datasheet:crush-all-who-stand-before-us",
+    "mechanic_digest": "36b81c6330603e60291d80f525f0a7dc",
+    "name": "Crush All Who Stand Before Us",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When this unit fights, models within 3\" of an enemy model (rather than only Engagement Range) become eligible to fight, targeting an enemy unit within 3\" that is within the unit's Engagement Range."
+  },
+  {
+    "ability_key": "datasheet:direct-the-slaughter",
+    "mechanic_digest": "9341d32cca22110a785988037434736d",
+    "name": "Direct the Slaughter",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per battle round, when a friendly World Eaters unit within 12\" of a model with this ability is targeted by a Stratagem, reduce that Stratagem's cost by 1CP."
+  },
+  {
+    "ability_key": "datasheet:driven-by-ultimate-rage-aura",
+    "mechanic_digest": "8a15847e87f392000d7310a645d5683c",
+    "name": "Driven by Ultimate Rage (Aura)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While a friendly World Eaters unit is within 6\" of this model, it can ignore modifiers to its Move characteristic, Advance/Charge rolls, and its melee attacks' Weapon Skill and Hit roll."
+  },
+  {
+    "ability_key": "datasheet:fire-riders",
+    "mechanic_digest": "1c947addfeae7e7b2bd46d47e918bad7",
+    "name": "Fire Riders",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While leading a unit, that unit gains Deep Strike, can move horizontally through models and terrain, and may move into (but not end in) Engagement Range, auto-passing any Desperate Escape test."
+  },
+  {
+    "ability_key": "datasheet:forwards-for-blood",
+    "mechanic_digest": "f9ae47f5d6858db8d279601c7b696b0b",
+    "name": "Forwards, for Blood!",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While leading a unit, re-roll Advance rolls for it, and re-roll the D6 that sets that unit's Blood Surge move distance."
+  },
+  {
+    "ability_key": "datasheet:frenzy",
+    "mechanic_digest": "f7697a3b16084cb5c8b0ccbd108c733b",
+    "name": "Frenzy",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When an enemy unit finishes attacking this model without destroying it, this model can immediately retaliate (fighting, or shooting/fighting depending on the model), targeting only that enemy unit."
+  },
+  {
+    "ability_key": "datasheet:furious-onslaught",
+    "mechanic_digest": "a5fc4c46e28d64a0da8809d32d1b0455",
+    "name": "Furious Onslaught",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "This model re-rolls Hit rolls on ranged attacks against the closest eligible target within 18\"."
+  },
+  {
+    "ability_key": "datasheet:idol-of-blessed-blood",
+    "mechanic_digest": "ef6900bacb79860ccd1a1c372b45872c",
+    "name": "Idol of Blessed Blood",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the start of the battle round, while this model is on the battlefield, roll an extra D6 for your Blessings of Khorne roll."
+  },
+  {
+    "ability_key": "datasheet:legendary-killer",
+    "mechanic_digest": "b598aa138521f8754d38da4fd5ac733a",
+    "name": "Legendary Killer",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While leading a unit, melee attacks by models in that unit re-roll Hit rolls of 1 and Wound rolls of 1."
+  },
+  {
+    "ability_key": "datasheet:loping-speed",
+    "mechanic_digest": "1c05bdeb68335f1b96a1b58f0f83bbad",
+    "name": "Loping Speed",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per turn, when an enemy unit ends a Normal, Advance or Fall Back move within 9\" of this unit, if this unit is outside Engagement Range of all enemies, it can make a Normal move of up to D6\"."
+  },
+  {
+    "ability_key": "datasheet:lord-of-murder",
+    "mechanic_digest": "af0044062cc48fb24ac246d812b1823a",
+    "name": "Lord of Murder",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While within 3\" of a friendly World Eaters Infantry unit, this model has the Lone Operative ability."
+  },
+  {
+    "ability_key": "datasheet:lord-of-the-eightbound",
+    "mechanic_digest": "fed00ef6f606b5f31f40a2368baf7b5e",
+    "name": "LORD OF THE EIGHTBOUND",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "If attached to a World Eaters Possessed unit during Declare Battle Formations, this model has Deep Strike and Scouts 6\" for the rest of the battle."
+  },
+  {
+    "ability_key": "datasheet:meet-any-challenge",
+    "mechanic_digest": "7a07a430b1b0a4047f573ee7c6ff7ddb",
+    "name": "Meet Any Challenge",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "In the opponent's Movement phase, each time an enemy unit is set up or moves within 9\" of this model, any units embarked within it may disembark."
+  },
+  {
+    "ability_key": "datasheet:objective-ravaged",
+    "mechanic_digest": "4c6281128b5b6d40d9fd23219f1e13d9",
+    "name": "Objective Ravaged",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the end of your Command phase, if this unit is within range of an objective marker you control, you keep control of it until the enemy's control level there exceeds yours at the end of a phase."
+  },
+  {
+    "ability_key": "datasheet:overwhelming-wrath-aura",
+    "mechanic_digest": "7b38f75a9209d56d2b8dff7557170b12",
+    "name": "Overwhelming Wrath (Aura)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Each time an enemy unit within 6\" of this model is selected to Fall Back, it must pass a Leadership test or Remain Stationary that phase instead."
+  },
+  {
+    "ability_key": "datasheet:possessed-lord",
+    "mechanic_digest": "fee1c31d696431db096656d98628f1ac",
+    "name": "Possessed Lord",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per battle, at the start of the Fight phase, this model can add 3 Attacks to its melee weapons and give them Devastating Wounds until the end of the phase."
+  },
+  {
+    "ability_key": "datasheet:punishing-suppression",
+    "mechanic_digest": "f5af51661ec730454bbe6c3305e44ef5",
+    "name": "Punishing Suppression",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "After this model shoots, pick one hit enemy unit (Monsters/Vehicles excluded); until your next turn it is suppressed, giving -1 to the Hit roll for its attacks."
+  },
+  {
+    "ability_key": "datasheet:rage-eternal",
+    "mechanic_digest": "743c2bfbcb1995d7dab4c6c8a3d5987e",
+    "name": "Rage Eternal",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While leading a unit, in your Command phase you can return one destroyed Bodyguard model to that unit."
+  },
+  {
+    "ability_key": "datasheet:reborn-in-blood",
+    "mechanic_digest": "51c951de04340825484b9a7b2f1ad675",
+    "name": "Reborn in Blood",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the start of the battle round, if this model is destroyed and your Blessings of Khorne roll includes a triple 6, you may use it instead of any Blessing: this model returns via Deep Strike next Movement phase with 8 wounds."
+  },
+  {
+    "ability_key": "datasheet:rend-and-tear",
+    "mechanic_digest": "1f776e07f0d6b20618feb217a9b07796",
+    "name": "Rend and Tear",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Melee attacks by this unit against Monster or Vehicle units gain +1 Damage for the rest of the phase."
+  },
+  {
+    "ability_key": "datasheet:savage-exaltation",
+    "mechanic_digest": "381e33d351e8381859a421866ff26c40",
+    "name": "Savage Exaltation",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "This model's melee attacks against a target below its Starting Strength get +1 to Hit, plus +1 to Wound if that target is Below Half-strength."
+  },
+  {
+    "ability_key": "datasheet:super-heavy-war-engine",
+    "mechanic_digest": "12b0a0f23d9ee9ae2a6e767de057e5e9",
+    "name": "Super-heavy War Engine",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "This model can move through non-Titanic models and terrain up to 4\" tall, entering but not ending in Engagement Range; moving through taller terrain risks Battle-shock on a D6 roll of 1."
+  },
+  {
+    "ability_key": "datasheet:swooping-predator",
+    "mechanic_digest": "676608a3de31a070745f9759f1330200",
+    "name": "Swooping Predator",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "After a Normal or Advance move, roll 6D6 against one enemy unit this model moved over: each 4+ deals 1 mortal wound to that unit."
+  },
+  {
+    "ability_key": "datasheet:the-betrayer",
+    "mechanic_digest": "d02b7a0ba96696f7cccd23542175e9c3",
+    "name": "The Betrayer",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the end of your Charge phase, if this model leads a unit outside Engagement Range, take a Leadership test: on a failure, one Bodyguard model in that unit is destroyed."
+  },
+  {
+    "ability_key": "datasheet:the-blood-gods-favour",
+    "mechanic_digest": "98db1034fe7a579c60f8d7a5d145b89e",
+    "name": "The Blood God’s Favour",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model is on the battlefield, you can re-roll up to six dice from your Blessings of Khorne roll."
+  },
+  {
+    "ability_key": "datasheet:the-scent-of-blood",
+    "mechanic_digest": "de5ee1d38646adab978d08fc055953f6",
+    "name": "The Scent of Blood",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When this model charges a target below Starting Strength, add 1 to the Charge roll (add 2 instead if a target is Below Half-strength)."
+  },
+  {
+    "ability_key": "datasheet:to-slake-its-rage",
+    "mechanic_digest": "c39e0af67903774b39bcd86c72cd9fca",
+    "name": "To Slake its Rage",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "This unit is eligible to declare a charge in a turn in which it Advanced."
+  },
+  {
+    "ability_key": "datasheet:unleash-wrath",
+    "mechanic_digest": "e4b3749adf979e4fe36d0f26ecbcbb6a",
+    "name": "Unleash Wrath",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the end of the opponent's Movement phase, this model can shoot at or charge one enemy unit that arrived within 12\" of it this phase (a successful charge this way grants no Charge bonus)."
+  },
+  {
+    "ability_key": "datasheet:wrathful-presence",
+    "mechanic_digest": "603174ebad737eb8c662be8676ccb028",
+    "name": "Wrathful Presence",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the start of the battle round, choose one Wrathful Presence ability for this model to have until the next battle round begins."
+  }
+]

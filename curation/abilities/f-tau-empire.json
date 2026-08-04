@@ -1,0 +1,839 @@
+[
+  {
+    "ability_key": "datasheet:advanced-armour",
+    "mechanic_digest": "c311f43b216b12c8fc48b447d10b4123",
+    "name": "Advanced Armour",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Models in this unit have the Feel No Pain 4+ ability against mortal wounds."
+  },
+  {
+    "ability_key": "datasheet:advanced-guardian-drone",
+    "mechanic_digest": "52bba9334507af6d07486e207324550b",
+    "name": "Advanced Guardian Drone",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Ranged attacks that target the bearer suffer -1 to the Wound roll."
+  },
+  {
+    "ability_key": "datasheet:advanced-scouting",
+    "mechanic_digest": "4c6a714cc08204efdab1d4b987987e6d",
+    "name": "Advanced Scouting",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "After this model's ranged attack hits an enemy unit, other friendly Kroot models can re-roll Hit rolls against that unit until the end of the turn."
+  },
+  {
+    "ability_key": "datasheet:aerial-disengagement",
+    "mechanic_digest": "6fd1d8f08f8be1b3fca578248178c14e",
+    "name": "Aerial Disengagement",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per turn, if an enemy unit ends a Normal, Advance or Fall Back move within 9\" of this unit while it is not engaged, this unit can make a Normal move of up to 6\"."
+  },
+  {
+    "ability_key": "datasheet:aggressive-deployment",
+    "mechanic_digest": "4e5db4e6674f4cec09fb7eb7ae93621a",
+    "name": "Aggressive Deployment",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "After this model shoots, friendly models that disembarked from it this turn can re-roll Wound rolls against one enemy unit it hit, until the end of the phase."
+  },
+  {
+    "ability_key": "datasheet:agile-combatant",
+    "mechanic_digest": "6d5cbc387af4d3c9a50e3cdc1254af90",
+    "name": "Agile Combatant",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "This model is eligible to shoot in a turn in which it Fell Back."
+  },
+  {
+    "ability_key": "datasheet:air-caste-colossus",
+    "mechanic_digest": "2a0aefab8f11424e3107b87578aac050",
+    "name": "Air Caste Colossus",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Targeting this model with a Stratagem costs three times that Stratagem's normal CP cost."
+  },
+  {
+    "ability_key": "datasheet:airborne-agility",
+    "mechanic_digest": "f1c5d41273b53a2a9c3c8a690cde7069",
+    "name": "Airborne Agility",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the end of your opponent's turn, if this unit is not engaged, it can be removed from the battlefield and placed into Strategic Reserves."
+  },
+  {
+    "ability_key": "datasheet:armour-hunter",
+    "mechanic_digest": "219df3b9668cfc43397efe5daea79c9e",
+    "name": "Armour Hunter",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Attacks from this model against a Monster or Vehicle gain +1 to the Hit roll."
+  },
+  {
+    "ability_key": "datasheet:assassin",
+    "mechanic_digest": "5528814ceebd593ea954d47642cd57c4",
+    "name": "Assassin",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Attacks from this model against a Character unit can re-roll the Hit roll."
+  },
+  {
+    "ability_key": "datasheet:baggage-harness-aura",
+    "mechanic_digest": "e8888f482537d568c3d76f12a37f4c0a",
+    "name": "Baggage Harness (Aura)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Friendly Kroot units within 3\" of the bearer have their ranged weapons gain the Sustained Hits 1 ability."
+  },
+  {
+    "ability_key": "datasheet:battlesuit-support-system",
+    "mechanic_digest": "50da2e57b7c274a23fd261c0723b3874",
+    "name": "Battlesuit Support System",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "This model or unit is eligible to shoot in a turn in which it Fell Back."
+  },
+  {
+    "ability_key": "datasheet:blacklight-marker-drones",
+    "mechanic_digest": "0c013b916d28756f4882c5d9a5fdbf92",
+    "name": "Blacklight Marker Drones",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Twice per battle, while this unit is an Observer unit, friendly attacks against its Spotted unit can re-roll a Wound roll of 1 until the end of the phase."
+  },
+  {
+    "ability_key": "datasheet:bounty-hunters",
+    "mechanic_digest": "38060b9e57e0b7b3f005d6fc8f3905c9",
+    "name": "Bounty Hunters",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the start of the battle, nominate one enemy unit: attacks from this unit against it gain the Lethal Hits and Precision abilities."
+  },
+  {
+    "ability_key": "datasheet:breach-and-clear",
+    "mechanic_digest": "b0c01d283e3977b56400fbb73435fc43",
+    "name": "Breach and Clear",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Ranged attacks from this unit against a target within range of an objective marker can re-roll the Wound roll."
+  },
+  {
+    "ability_key": "datasheet:coldstar-commander",
+    "mechanic_digest": "707be5acce3dd7e10b890a83f8bc2bf2",
+    "name": "Coldstar Commander",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While attached to a unit, models in that unit have a Move characteristic of 12\" and their ranged weapons gain the Assault ability."
+  },
+  {
+    "ability_key": "datasheet:command-link-drone-aura",
+    "mechanic_digest": "976a46eab91bac3c84af587c373e462c",
+    "name": "Command-link Drone (Aura)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Each time a friendly T'au Empire unit within 6\" of the bearer is targeted by a Stratagem, roll a die: on a 5+ you gain 1CP."
+  },
+  {
+    "ability_key": "datasheet:coordinated-leadership",
+    "mechanic_digest": "08043972af9da5a57434999784161420",
+    "name": "Coordinated Leadership",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the end of your Command phase, roll a die: on a 4+ you gain 1CP."
+  },
+  {
+    "ability_key": "datasheet:coordinated-strike",
+    "mechanic_digest": "0828393cf24fd3a41b0cd992f1f8be3c",
+    "name": "Coordinated Strike",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While a Guided unit, this model's attacks against its Spotted unit re-roll a Hit roll of 1."
+  },
+  {
+    "ability_key": "datasheet:crack-shot",
+    "mechanic_digest": "880ac8f4b01a541b40442bf180eabb16",
+    "name": "Crack Shot",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Ranged attacks from this model that score a Critical Wound gain an Armour Penetration characteristic of -3."
+  },
+  {
+    "ability_key": "datasheet:crisis-commander",
+    "mechanic_digest": "ae8f1947bfbd0f7eadbb3bad3010dfbb",
+    "name": "Crisis Commander",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While attached to a unit, ranged attacks made by models in that unit re-roll a Hit roll of 1."
+  },
+  {
+    "ability_key": "datasheet:drone-escort",
+    "mechanic_digest": "37853898e969edb64bc0aee9da4bd9e9",
+    "name": "Drone Escort",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per turn, after an enemy unit shoots a nearby friendly T'au Empire unit, a unit with this ability can shoot back at that enemy unit outside your own turn."
+  },
+  {
+    "ability_key": "datasheet:drone-harassment-tactics",
+    "mechanic_digest": "9248edbd87c96e8055faa84b442fdab9",
+    "name": "Drone Harassment Tactics",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the end of your Movement phase, force one enemy unit within 12\" to take a Battle-shock test."
+  },
+  {
+    "ability_key": "datasheet:droneport",
+    "mechanic_digest": "fd829699c9405159614cc875be846e88",
+    "name": "Droneport",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When this fortification is selected to shoot, its drone weapon attacks every eligible enemy unit rather than a single target."
+  },
+  {
+    "ability_key": "datasheet:ds8-support-turret",
+    "mechanic_digest": "87e17200523930144d2a9f6ed523c2b1",
+    "name": "DS8 Support Turret",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "If this unit Remains Stationary in your Movement phase, one of its models gains a support turret weapon until your next Movement phase."
+  },
+  {
+    "ability_key": "datasheet:duality-shield",
+    "mechanic_digest": "a241ebb49cfac21f7c98de575e25962f",
+    "name": "Duality Shield",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per battle, when this unit is targeted by an attack, models in it can gain a 2+ invulnerable save until the end of the phase."
+  },
+  {
+    "ability_key": "datasheet:eclipse-field-generator",
+    "mechanic_digest": "c04015b9451ae5fe7dc92d6be0be5e16",
+    "name": "Eclipse Field Generator",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While attached to a unit, models in that unit gain a 5+ invulnerable save."
+  },
+  {
+    "ability_key": "datasheet:enforcer-commander",
+    "mechanic_digest": "a5ab9656a7b16ad7e804e7cf0834efcc",
+    "name": "Enforcer Commander",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While attached to a unit, ranged attacks that target that unit have their Armour Penetration worsened by 1."
+  },
+  {
+    "ability_key": "datasheet:exemplars-of-montka",
+    "mechanic_digest": "a8284c0243aa9f35b20034a00e838ba4",
+    "name": "Exemplars of Mont’ka",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Ranged attacks from this unit against the closest eligible target gain the Sustained Hits 1 and Ignores Cover abilities."
+  },
+  {
+    "ability_key": "datasheet:failure-is-not-an-option",
+    "mechanic_digest": "c41914e4186d3d3d14e7f6f2fc5d6380",
+    "name": "Failure Is Not an Option",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While attached to a unit, models in that unit gain the Feel No Pain 5+ ability."
+  },
+  {
+    "ability_key": "datasheet:fieldcraft",
+    "mechanic_digest": "5207bdc66ef08024e9a1625732583d38",
+    "name": "Fieldcraft",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "If this unit is within range of an objective marker you control at the end of your Command phase, you retain control of it even without models present, until your opponent claims it."
+  },
+  {
+    "ability_key": "datasheet:fire-and-fade",
+    "mechanic_digest": "8c9dd8e3062f251b50431ba9e8f9ed86",
+    "name": "Fire and Fade",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "After this model shoots, if it is not engaged, it can make a Normal move of up to 6\", but is then not eligible to declare a charge this turn."
+  },
+  {
+    "ability_key": "datasheet:fireknife",
+    "mechanic_digest": "4e68e0f2900a2572a9890070e12a182a",
+    "name": "Fireknife",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Ranged attacks from this unit re-roll a Hit roll of 1, or any Hit roll if the target is at its Starting Strength."
+  },
+  {
+    "ability_key": "datasheet:forward-observers",
+    "mechanic_digest": "7b819b4a6d68da862c0203e417bb0672",
+    "name": "Forward Observers",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While an Observer unit, this unit lets ranged attacks from its Guided unit against its Spotted unit re-roll a Hit roll of 1 and a Wound roll of 1, until the end of the phase."
+  },
+  {
+    "ability_key": "datasheet:grav-inhibitor-drone",
+    "mechanic_digest": "02cc85da2d5b1105db63f016781529e5",
+    "name": "Grav-inhibitor Drone",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Enemy units that charge the bearer's unit suffer -2 to their Charge roll, not cumulative with similar reductions."
+  },
+  {
+    "ability_key": "datasheet:ground-strike-fighter",
+    "mechanic_digest": "576a65b04486ce0afa944ea6da39c56e",
+    "name": "Ground Strike Fighter",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Ranged attacks from this model against a unit that cannot FLY gain +1 to the Hit roll."
+  },
+  {
+    "ability_key": "datasheet:heavy-walker",
+    "mechanic_digest": "cf542c667e09558da5caec0a56207ea7",
+    "name": "Heavy Walker",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "This model can make Normal, Advance or Fall Back moves through models, excluding Titanic, and terrain features up to 4\" tall as if they were not there."
+  },
+  {
+    "ability_key": "datasheet:hero-of-the-empire-aura",
+    "mechanic_digest": "8d61d7a97e729a7695b667b13ecec4ff",
+    "name": "Hero of the Empire (Aura)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Friendly T'au Empire units within 6\" of this model re-roll a Hit roll of 1 on their ranged attacks."
+  },
+  {
+    "ability_key": "datasheet:high-intensity-markerlights",
+    "mechanic_digest": "8f5e5e91d5a33405cc96a780ad874894",
+    "name": "High-intensity Markerlights",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While an Observer unit, this unit lets attacks from its Guided unit against its Spotted unit re-roll the Hit roll until the end of the phase."
+  },
+  {
+    "ability_key": "datasheet:homing-beacon",
+    "mechanic_digest": "53568a2a6b44890a9a8ec540fd273f1d",
+    "name": "Homing Beacon",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per battle, this unit can use the Rapid Ingress Stratagem for 0CP, arriving within 3\" of it and more than 9\" from all enemy units."
+  },
+  {
+    "ability_key": "datasheet:hooked",
+    "mechanic_digest": "8670ebefb47b45a1ac8fe928e7fb9e0c",
+    "name": "Hooked",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "A hit from this weapon against a Monster or Vehicle lets the bearer add 2 to Charge rolls against that unit for the rest of the turn, and stops that unit using Fire Overwatch against the bearer."
+  },
+  {
+    "ability_key": "datasheet:hover-drone",
+    "mechanic_digest": "f83e6449d805928836e026efb0899349",
+    "name": "Hover Drone",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "The bearer gains the FLY keyword and a Move characteristic of 10\"."
+  },
+  {
+    "ability_key": "datasheet:independent-power",
+    "mechanic_digest": "0d9222aa15ba466e772b7edecec0c417",
+    "name": "INDEPENDENT POWER",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "This model and any Ethereal units cannot both be included in the same army."
+  },
+  {
+    "ability_key": "datasheet:inspirational-defiance",
+    "mechanic_digest": "3ed4cf5b6d6bc414f4c86842a87299aa",
+    "name": "Inspirational Defiance",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While attached to a unit, models in that unit gain +1 Objective Control."
+  },
+  {
+    "ability_key": "datasheet:jammer-array",
+    "mechanic_digest": "e6aa09c2c59c3adea9d9cbe3085053b4",
+    "name": "Jammer Array",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Enemy units arriving from Reserves cannot be set up within 12\" of this model."
+  },
+  {
+    "ability_key": "datasheet:jet-pack-insertion",
+    "mechanic_digest": "ffc5120bafe64ae4eb4f1746254c9efe",
+    "name": "Jet Pack Insertion",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the end of your opponent's Movement phase, units embarked in this transport that all have the Deep Strike ability can disembark from it."
+  },
+  {
+    "ability_key": "datasheet:kroot-ambush",
+    "mechanic_digest": "2351fd6519ab61f293c4a3f879f7cbd7",
+    "name": "Kroot Ambush",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "After deployment, this unit and one other friendly Kroot unit can be redeployed, including into Strategic Reserves regardless of reserve limits."
+  },
+  {
+    "ability_key": "datasheet:kroot-linebreakers",
+    "mechanic_digest": "e6a20c40e6c7de3a2189d0b6384a5e14",
+    "name": "Kroot Linebreakers",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "After this unit ends a Charge move, roll one die per engaged model against the charged enemy unit: each 4+ deals D3 mortal wounds, and losses can force a Battle-shock test."
+  },
+  {
+    "ability_key": "datasheet:kroot-packmates",
+    "mechanic_digest": "6bf9c1d9dd202e760b1d4691e3fd0bf9",
+    "name": "Kroot Packmates",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per turn, after an enemy unit shoots a nearby friendly Kroot Infantry unit, a unit with this ability can shoot back at that enemy unit outside your own turn."
+  },
+  {
+    "ability_key": "datasheet:loping-pounce",
+    "mechanic_digest": "93d470b3556f47575bfedd9188435f80",
+    "name": "Loping Pounce",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the start of your Command phase, if within 6\" of friendly Kroot Infantry, this unit is eligible to charge in a turn in which it Advanced, until the end of the turn."
+  },
+  {
+    "ability_key": "datasheet:loping-stride",
+    "mechanic_digest": "0148caab9a7643247599225dc2ba8e14",
+    "name": "Loping Stride",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Instead of rolling to Advance, this model's Move characteristic simply increases by 6\" until the end of the phase."
+  },
+  {
+    "ability_key": "datasheet:markerlight",
+    "mechanic_digest": "c01c2bec52c340e0947ced922a8bac34",
+    "name": "Markerlight",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "The bearer has the Markerlight keyword."
+  },
+  {
+    "ability_key": "datasheet:martial-warrior",
+    "mechanic_digest": "0a50ec0f6a863bb22fffcf1ab0aa82dc",
+    "name": "Martial Warrior",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Each time this model fights, choose one of several bonuses (Precision, Devastating Wounds, or an improved Sustained Hits tier) for its signature weapon to have during those attacks."
+  },
+  {
+    "ability_key": "datasheet:mv15-gun-drone",
+    "mechanic_digest": "0718d0255bbf5d54ee1159c05f896fcb",
+    "name": "MV15 Gun Drone",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "The bearer is equipped with one twin pulse blaster."
+  },
+  {
+    "ability_key": "datasheet:neocapacitor-shields",
+    "mechanic_digest": "fd9545568a8f2c2e3972a86c092e99a2",
+    "name": "Neocapacitor Shields",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the start of your opponent's Charge phase, target a non-Monster, non-Vehicle enemy unit within 12\": it must take a Battle-shock test and suffers -1 to Charge rolls until the end of the turn."
+  },
+  {
+    "ability_key": "datasheet:nova-burst",
+    "mechanic_digest": "6282d938ecb5b2ea45f3bbacc59dfacc",
+    "name": "Nova Burst",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per battle, before this model moves, it can raise its Move characteristic to 18\" until the end of the phase."
+  },
+  {
+    "ability_key": "datasheet:nova-charge",
+    "mechanic_digest": "2e6da3c3ca5ed47e9025830d3449c850",
+    "name": "Nova Charge",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per battle, when this unit is selected to shoot, one of its ranged weapons gains the Devastating Wounds ability until the end of the phase."
+  },
+  {
+    "ability_key": "datasheet:nova-shielding",
+    "mechanic_digest": "4b43a90999603ddbd15ccd0e8a82d0a6",
+    "name": "Nova Shielding",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per battle, when targeted by a ranged attack, this model can gain -1 to the Wound roll against attacks with higher Strength than its Toughness, until the end of the phase."
+  },
+  {
+    "ability_key": "datasheet:oversight-drone",
+    "mechanic_digest": "81c0934e88a155fe74c346953db51865",
+    "name": "Oversight Drone",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per battle, when this unit is selected to shoot, its ranged weapons gain the Ignores Cover ability until the end of the phase."
+  },
+  {
+    "ability_key": "datasheet:paradox-of-duality",
+    "mechanic_digest": "15677cddba31e4eea7c6be582794f21f",
+    "name": "Paradox of Duality",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Attacks that target this unit suffer -1 to the Hit roll and -1 to the Wound roll."
+  },
+  {
+    "ability_key": "datasheet:pechra",
+    "mechanic_digest": "5707b89070ecdc9ff8465d747ada6ce0",
+    "name": "Pech’ra",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Ranged weapons of models in the bearer's unit gain the Ignores Cover ability."
+  },
+  {
+    "ability_key": "datasheet:photon-casters",
+    "mechanic_digest": "19f3868b4a2c7cef2ff7f7baeb9c0e56",
+    "name": "Photon Casters",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "After this unit shoots, an enemy Infantry unit it hit can be stunned until the end of your opponent's next turn, giving it -2 Move and -2 to Advance and Charge rolls."
+  },
+  {
+    "ability_key": "datasheet:precise-targeting",
+    "mechanic_digest": "e0fe64db130095dce837c08d044979f8",
+    "name": "Precise Targeting",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Attacks from this unit against a Spotted unit can re-roll the Hit roll."
+  },
+  {
+    "ability_key": "datasheet:pulse-accelerator-drone",
+    "mechanic_digest": "03523addc8863e208b16165dcd1c4ce9",
+    "name": "Pulse Accelerator Drone",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Pulse carbines equipped by models in the bearer's unit have their Range increased by 6\"."
+  },
+  {
+    "ability_key": "datasheet:pulse-bombs",
+    "mechanic_digest": "3a52a800156ab8983a34d1eb505a047b",
+    "name": "Pulse Bombs",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per battle, after this model moves over an enemy unit, roll six dice: each 4+ deals that unit 1 mortal wound."
+  },
+  {
+    "ability_key": "datasheet:puretides-teachings",
+    "mechanic_digest": "7d0d748e20aae96984eab50194e5aaee",
+    "name": "Puretide's Teachings",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per battle round, if this model's unit is targeted by a Stratagem, its CP cost is reduced by 1."
+  },
+  {
+    "ability_key": "datasheet:recon-drone",
+    "mechanic_digest": "ae57932f485a32c8a367d4fdc01da5d2",
+    "name": "Recon Drone",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "The bearer is equipped with a drone burst cannon and its unit gains the Infiltrators ability."
+  },
+  {
+    "ability_key": "datasheet:retro-thrusters",
+    "mechanic_digest": "074369e9d9a101fba5f87327c8be3904",
+    "name": "Retro-thrusters",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "If this unit was eligible to fight this phase, at the end of the Fight phase it can make a Normal move of up to 6\" or a Fall Back move."
+  },
+  {
+    "ability_key": "datasheet:rites-of-feasting",
+    "mechanic_digest": "d32af1e883c5bce427b91973867af9ee",
+    "name": "Rites of Feasting",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While attached to a unit, models in it gain the Feel No Pain 6+ ability, improving to 5+ for the rest of the battle if that unit destroys an enemy unit in the Fight phase."
+  },
+  {
+    "ability_key": "datasheet:ritual-butchery",
+    "mechanic_digest": "85e222883fb256f6a261648c47247a31",
+    "name": "Ritual Butchery",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While attached to a unit, melee weapons of models in that unit gain the Sustained Hits 1 ability."
+  },
+  {
+    "ability_key": "datasheet:root-of-honour",
+    "mechanic_digest": "0b9d684efdb5d60e618ea1f6915c78e1",
+    "name": "Root of Honour",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per battle, at the start of any phase, remove Battle-shocked status from one friendly Kroot unit within 12\" of this model."
+  },
+  {
+    "ability_key": "datasheet:shield-generator",
+    "mechanic_digest": "b36164ee977a6aa60f1b415444a27d9f",
+    "name": "Shield Generator",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "The bearer has a 4+ invulnerable save."
+  },
+  {
+    "ability_key": "datasheet:starscythe",
+    "mechanic_digest": "045388467f9bd18f33d32161999ed32a",
+    "name": "Starscythe",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Ranged attacks from this unit, excluding those against Monsters and Vehicles, gain +1 Armour Penetration."
+  },
+  {
+    "ability_key": "datasheet:stealth-drones",
+    "mechanic_digest": "d75c924c86a0091dabfefd501fe7d1d9",
+    "name": "Stealth Drones",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Twice per battle, an attack allocated to this model can have its Damage characteristic changed to 0."
+  },
+  {
+    "ability_key": "datasheet:structural-analyser",
+    "mechanic_digest": "a0f770d4d8f5453c7bf3d6178aa8a77c",
+    "name": "Structural Analyser",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While attached to a unit, ranged attacks made by models in that unit gain +1 to the Wound roll."
+  },
+  {
+    "ability_key": "datasheet:sunforge",
+    "mechanic_digest": "c1fc0430ea2d871e1abc5c297070d835",
+    "name": "Sunforge",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Ranged attacks from this unit against a Monster or Vehicle can re-roll the Wound roll and the Damage roll."
+  },
+  {
+    "ability_key": "datasheet:support-system",
+    "mechanic_digest": "a60fd9772deccd86acbc73c61c8dd705",
+    "name": "Support System",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "This model's ranged attacks can ignore any modifiers to the Hit roll."
+  },
+  {
+    "ability_key": "datasheet:suppression-volley",
+    "mechanic_digest": "9e2e38fc2735a94de69a9c74778f7916",
+    "name": "Suppression Volley",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "After this unit shoots, one enemy Infantry unit it hit becomes suppressed until the start of your next turn, giving -1 to its Hit rolls while this unit is on the battlefield."
+  },
+  {
+    "ability_key": "datasheet:supreme-loyalty-aura",
+    "mechanic_digest": "bacd79fc966aad7c26e3834f52448488",
+    "name": "Supreme Loyalty (Aura)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Friendly T'au Empire units within 6\" of this unit gain +1 to Battle-shock and Leadership tests."
+  },
+  {
+    "ability_key": "datasheet:target-uploaded",
+    "mechanic_digest": "e570f783956b3266e3c8e998e2139d38",
+    "name": "Target Uploaded",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Attacks from this unit against their Spotted unit gain +1 Ballistic Skill and the Ignores Cover ability."
+  },
+  {
+    "ability_key": "datasheet:targeting-array",
+    "mechanic_digest": "326887b4464d5c3c62be16a4f4f19372",
+    "name": "Targeting Array",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When this model or unit is selected to shoot, one Hit roll or one Wound roll made for its attacks can be re-rolled."
+  },
+  {
+    "ability_key": "datasheet:thunderous-pounce",
+    "mechanic_digest": "ff55255104d2974d55028b246e78cf94",
+    "name": "Thunderous Pounce",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "After this unit ends a Charge move, its melee weapon gains the Lance ability until the end of the turn."
+  },
+  {
+    "ability_key": "datasheet:tidewall-cover",
+    "mechanic_digest": "a36651fb50ac2cd42924bd84995caf4b",
+    "name": "Tidewall Cover",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "A model not fully visible to the attacking unit because of this fortification has the Benefit of Cover against that ranged attack."
+  },
+  {
+    "ability_key": "datasheet:tidewall-defence-platform",
+    "mechanic_digest": "6a70183a9be55a7bec53d69d8a5e7374",
+    "name": "Tidewall Defence Platform",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "If equipped with this wargear, the fortification's Wounds characteristic becomes 15."
+  },
+  {
+    "ability_key": "datasheet:trail-finding",
+    "mechanic_digest": "e84b34e704fb96fe2bec41bc4a16e760",
+    "name": "Trail Finding",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per turn, if an enemy unit ends a Normal, Advance or Fall Back move within 9\" of this model's unit while it is not engaged, that unit can make a Normal move of up to D6\"."
+  },
+  {
+    "ability_key": "datasheet:transport-bay",
+    "mechanic_digest": "598bbf50576c4e2f959658fd631c4399",
+    "name": "Transport Bay",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "The bearer gains the Transport keyword with a capacity of 12 Tactical Drone models."
+  },
+  {
+    "ability_key": "datasheet:turbo-jets",
+    "mechanic_digest": "159f0a51618d238dfd31863e233d1a3b",
+    "name": "Turbo-jets",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Instead of rolling to Advance, this unit's Move characteristic simply increases by 6\" until the end of the phase."
+  },
+  {
+    "ability_key": "datasheet:velocity-tracker",
+    "mechanic_digest": "10dc63d2bb3a9054515f9af0ed3e5781",
+    "name": "Velocity Tracker",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Ranged attacks from this model against a unit that can FLY can re-roll the Hit roll."
+  },
+  {
+    "ability_key": "datasheet:volley-fire",
+    "mechanic_digest": "e04dd24f5a64239eb6ab4efabfe8fe34",
+    "name": "Volley Fire",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While attached to a unit, ranged weapons of models in that unit gain +1 Attacks."
+  },
+  {
+    "ability_key": "datasheet:war-leader",
+    "mechanic_digest": "598238fd129b3bec15344c911996003f",
+    "name": "War Leader",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per battle round, if a unit with this ability is targeted by a Stratagem, its CP cost is reduced by 1."
+  },
+  {
+    "ability_key": "datasheet:way-of-the-short-blade",
+    "mechanic_digest": "f4d9d7d1b2b06f1a9f5d2b5d949e50f3",
+    "name": "Way of the Short Blade",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While attached to a unit, attacks made by models in that unit against a target within 9\" gain +1 to the Wound roll."
+  },
+  {
+    "ability_key": "datasheet:weapon-support-system",
+    "mechanic_digest": "2e22439450090f1406ab7a1dfe142681",
+    "name": "Weapon Support System",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "This model's ranged attacks can ignore any modifiers to the Hit roll."
+  },
+  {
+    "ability_key": "datasheet:xv02-pilot-battlesuit",
+    "mechanic_digest": "da65b3b63346906a586af74dd1f6b5f4",
+    "name": "XV02 Pilot Battlesuit",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "In your Command phase, one friendly Hammerhead Gunship unit within 12\" gains the Lethal Hits ability on its ranged weapons until your next Command phase."
+  }
+]

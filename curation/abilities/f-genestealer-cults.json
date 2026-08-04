@@ -1,0 +1,596 @@
+[
+  {
+    "ability_key": "datasheet:a-plan-generations-in-the-making",
+    "mechanic_digest": "5207bdc66ef08024e9a1625732583d38",
+    "name": "A Plan Generations in the Making",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the end of your Command phase, an objective marker this unit controls within range stays under your control with no models near it, until the opponent controls it at a turn's start or end."
+  },
+  {
+    "ability_key": "datasheet:aerial-seeding",
+    "mechanic_digest": "e4737564869ab0bc69a520c65b8352d6",
+    "name": "Aerial Seeding",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "This model must start in Reserves without counting toward Reserves limits and can arrive in your first three Movement phases; embarked units disembark over 9\" from all enemies immediately, and none can embark afterward."
+  },
+  {
+    "ability_key": "datasheet:alchemicus-familiar",
+    "mechanic_digest": "b9f76585124359af8851a149c0605adc",
+    "name": "Alchemicus Familiar",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per battle when this unit fights, add 1 to the Wound roll for its attacks against Infantry units until end of phase."
+  },
+  {
+    "ability_key": "datasheet:alpha-invader",
+    "mechanic_digest": "a1b8d0e5438507d11ae9a39a7ca2f4ab",
+    "name": "Alpha Invader",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Weapons equipped by models in this unit have the Sustained Hits 1 ability."
+  },
+  {
+    "ability_key": "datasheet:alpha-warrior",
+    "mechanic_digest": "df259011937ffca1a0f64a89f66133cd",
+    "name": "Alpha Warrior",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model leads a unit, weapons equipped by models in that unit gain the Sustained Hits 1 ability."
+  },
+  {
+    "ability_key": "datasheet:battlefield-analysis",
+    "mechanic_digest": "b7147c846ff0ebab746750195fca02c0",
+    "name": "Battlefield Analysis",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per battle round, when this model's unit is targeted by a Stratagem, reduce that Stratagem's Command Point cost by 1."
+  },
+  {
+    "ability_key": "datasheet:bio-horror-disruption-psychic",
+    "mechanic_digest": "295eab290abc79f9158c644ade6e01ea",
+    "name": "Bio-horror Disruption (Psychic)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model leads a unit, ranged weapons equipped by models in that unit gain the Lethal Hits ability."
+  },
+  {
+    "ability_key": "datasheet:biological-warfare",
+    "mechanic_digest": "0b4fdb24fd50202d9cfe680022323d2b",
+    "name": "Biological Warfare",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per battle when this model's unit fights, improve the Attacks and Damage characteristics of its injector goad by 3 until end of phase."
+  },
+  {
+    "ability_key": "datasheet:bodyguard",
+    "mechanic_digest": "92723b00bde167aa3be8ba247b1a55c1",
+    "name": "BODYGUARD",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Usually: a 20-strong unit can have two Leader units attached instead of one, subject to its datasheet's restriction, and they separate if it is destroyed. One model instead gives other attached Characters Feel No Pain 4+."
+  },
+  {
+    "ability_key": "datasheet:brood-surge",
+    "mechanic_digest": "1a83c587b564c751155ff3542faaba88",
+    "name": "Brood Surge",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "If models in this unit were destroyed by an enemy's shooting, it can then move D6\" (6\" if unarmed with hand flamers) toward the nearest enemy, potentially into Engagement Range, unless Battle-shocked."
+  },
+  {
+    "ability_key": "datasheet:claimed-for-the-cult",
+    "mechanic_digest": "4e008b996dd00f65bacb71a958d652c9",
+    "name": "Claimed for the Cult",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the start of your Command phase, roll a D6 for each controlled objective marker with a model bearing this ability nearby; a 4+ on any die gains 1 Command Point."
+  },
+  {
+    "ability_key": "datasheet:cloaked-assassin",
+    "mechanic_digest": "8556d82ac2b96eeed6a5dc7f9490c44f",
+    "name": "Cloaked Assassin",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "If equipped with a Sanctus bio-dagger, this model cannot be targeted by the Fire Overwatch Stratagem."
+  },
+  {
+    "ability_key": "datasheet:cosmic-horror-psychic",
+    "mechanic_digest": "229caa45fd1d0016f944a32714d2322b",
+    "name": "Cosmic Horror (Psychic)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the start of the Fight phase, each enemy unit within 6\" of this model must take a Battle-shock test."
+  },
+  {
+    "ability_key": "datasheet:creeping-shadow",
+    "mechanic_digest": "b7e09e2aef6be5d211944c12eb8a031a",
+    "name": "Creeping Shadow",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "If equipped with a cult sniper rifle, once per turn when an enemy unit ends a Normal, Advance or Fall Back move within 9\" of this model and it is not in Engagement Range, it can make a Normal move of up to 6\"."
+  },
+  {
+    "ability_key": "datasheet:crossfire",
+    "mechanic_digest": "abc3cf2d53051ff9901d2aa96f8e0a27",
+    "name": "Crossfire",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "After this unit shoots, pick one enemy unit it hit; until end of turn, the first attack a friendly Genestealer Cults unit makes against it gains +1 Armour Penetration."
+  },
+  {
+    "ability_key": "datasheet:cult-demagogue",
+    "mechanic_digest": "027516cbba2ae47d06c7725d65adfbf6",
+    "name": "Cult Demagogue",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model leads a unit, attacks made by models in that unit can add 1 to the Hit roll."
+  },
+  {
+    "ability_key": "datasheet:cult-icon",
+    "mechanic_digest": "b207cd5137e1336e7f8c00c4440f5b9a",
+    "name": "Cult Icon",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "In your Command phase, return up to D3 destroyed models to the bearer's unit (up to 3, or more if within range of a controlled objective), excluding attached Characters."
+  },
+  {
+    "ability_key": "datasheet:cult-infiltration",
+    "mechanic_digest": "6da566b3b2b7a15f543fcfa438992c53",
+    "name": "Cult Infiltration",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the start of each player's Command phase, move one of your Cult Ambush markers that hasn't moved this turn up to 6\"."
+  },
+  {
+    "ability_key": "datasheet:death-blow",
+    "mechanic_digest": "c5c1dbd8bcc4dd9b8b74e54c5bb9e0eb",
+    "name": "Death Blow",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "If this model is destroyed by a melee attack before fighting this phase, roll a D6: on a 4+ it fights after the attacker's unit finishes, then is removed."
+  },
+  {
+    "ability_key": "datasheet:death-from-below",
+    "mechanic_digest": "f1c5d41273b53a2a9c3c8a690cde7069",
+    "name": "Death From Below",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the end of the opponent's turn, if this unit is not in Engagement Range of any enemy unit, remove it and place it in Strategic Reserves."
+  },
+  {
+    "ability_key": "datasheet:decoys-and-misdirection",
+    "mechanic_digest": "a7c2946ce954a70d38d40b1ce8d01e38",
+    "name": "Decoys and Misdirection",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "After deployment, redeploy up to three Genestealer Cults units, optionally placing them in Strategic Reserves regardless of the normal Strategic Reserves limit."
+  },
+  {
+    "ability_key": "datasheet:demolition-run",
+    "mechanic_digest": "e87fa3299c2996d363ed256d637302de",
+    "name": "Demolition Run",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per turn, after this unit moves, roll a D6 per model in it against an enemy unit within 6\" and visible; each 4+ deals 1 mortal wound, up to 6."
+  },
+  {
+    "ability_key": "datasheet:fear-of-the-unseen-aura",
+    "mechanic_digest": "8efd2812a02ec4e7eb4a76b12ee7db54",
+    "name": "Fear of the Unseen (Aura)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While an enemy unit is within 6\", worsen its Leadership by 1; if that unit is below Starting Strength, it must take a Battle-shock test in the opponent's Command phase."
+  },
+  {
+    "ability_key": "datasheet:feeder-tendrils",
+    "mechanic_digest": "6af903a1ddb246982cbcb7874aaea8ed",
+    "name": "Feeder Tendrils",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Each time this model destroys an enemy Character model, gain 1 Command Point."
+  },
+  {
+    "ability_key": "datasheet:flare-launcher",
+    "mechanic_digest": "e9215adb26a83e580f34da047984304a",
+    "name": "Flare Launcher",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "The bearer's unit gains the Smoke keyword and can be targeted by the Smokescreen Stratagem for 0 Command Points."
+  },
+  {
+    "ability_key": "datasheet:grinding-clearance",
+    "mechanic_digest": "06d4d396a38f4c9da85deb29d0773144",
+    "name": "Grinding Clearance",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When a non-Monster, non-Vehicle enemy unit within this model's Engagement Range Falls Back, its models take a Desperate Escape test, with a -1 penalty if that unit is Battle-shocked."
+  },
+  {
+    "ability_key": "datasheet:heroic-fusillade",
+    "mechanic_digest": "cfa7f064cb3cdf98bc832a439ef82589",
+    "name": "Heroic Fusillade",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per turn, after this model shoots, pick an Infantry unit it hit; that unit must take a Battle-shock test."
+  },
+  {
+    "ability_key": "datasheet:hulking-bodyguards",
+    "mechanic_digest": "aa8a3bae52077223c9b90c0a9738f21f",
+    "name": "Hulking Bodyguards",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While a Character leads this unit, attacks against it with a Strength greater than this unit's Toughness suffer -1 to the Wound roll."
+  },
+  {
+    "ability_key": "datasheet:hunter-organism",
+    "mechanic_digest": "d5e3e9e9a38740e26b4f73ae5c04b4ae",
+    "name": "HUNTER ORGANISM",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "This model cannot be selected as your Warlord."
+  },
+  {
+    "ability_key": "datasheet:hypersensory-abilities",
+    "mechanic_digest": "facd0c03743eaeeba88e65308b8b454e",
+    "name": "Hypersensory Abilities",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per turn, in the opponent's Movement phase, when an enemy unit ends a Normal, Advance or Fall Back move within 9\" of this model and it is not in Engagement Range, it can shoot that unit as in your Shooting phase, then move D6\"."
+  },
+  {
+    "ability_key": "datasheet:hypersensory-array",
+    "mechanic_digest": "d88eeb35ed3911ee1800532932966909",
+    "name": "Hypersensory Array",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per battle round, target this unit with the Rapid Ingress or Heroic Intervention Stratagem for 0 Command Points, even if another unit was already targeted this turn."
+  },
+  {
+    "ability_key": "datasheet:industrialised-destruction",
+    "mechanic_digest": "36b8882929e705660ae1101c2d23b454",
+    "name": "Industrialised Destruction",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Attacks by models in this unit re-roll a Wound roll of 1, or re-roll the Wound roll entirely against an enemy unit within range of an objective marker."
+  },
+  {
+    "ability_key": "datasheet:it-itches",
+    "mechanic_digest": "7f0b1957ddc31b65b0ac7bb087071062",
+    "name": "It Itches!",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the start of the Fight phase, pick an enemy unit within this model's Engagement Range; that unit must take a Battle-shock test."
+  },
+  {
+    "ability_key": "datasheet:manufactorum-cover",
+    "mechanic_digest": "a36651fb50ac2cd42924bd84995caf4b",
+    "name": "Manufactorum Cover",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "If this Fortification blocks visibility to a model targeted by a ranged attack, that model gains Benefit of Cover against the attack."
+  },
+  {
+    "ability_key": "datasheet:master-outrider",
+    "mechanic_digest": "0d7fa8c56bdebf13700d09b335178d3c",
+    "name": "Master Outrider",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "After this model's unit shoots, if not in Engagement Range, it can make a Normal move of up to 6\" as in the Movement phase, but cannot then charge that turn."
+  },
+  {
+    "ability_key": "datasheet:might-from-beyond",
+    "mechanic_digest": "730b7563c6ccf1c9644771470abe6041",
+    "name": "Might From Beyond",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model leads a unit, melee weapons equipped by models in that unit gain the Devastating Wounds ability."
+  },
+  {
+    "ability_key": "datasheet:mind-control-psychic",
+    "mechanic_digest": "c6123401a7220ebfd0bdd902b00712ea",
+    "name": "Mind Control (Psychic)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the start of the opponent's Shooting phase, target an enemy unit within 18\" and roll a D6: on a 1 this model takes D3 mortal wounds; on 2-5 that unit suffers -1 to Hit rolls until end of phase; on a 6 it also suffers -1 to Wound rolls."
+  },
+  {
+    "ability_key": "datasheet:neural-disruption",
+    "mechanic_digest": "5d90d24eb42f637930b2bb219d1ba151",
+    "name": "Neural Disruption",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "In your Command phase, pick an enemy unit within 12\" of this model; that unit must take a Battle-shock test."
+  },
+  {
+    "ability_key": "datasheet:nexus-of-devotion",
+    "mechanic_digest": "b46aa5aea149ad219658fc121e1fbd66",
+    "name": "Nexus of Devotion",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model leads a unit, models in that unit have the Feel No Pain 5+ ability, or 4+ if the unit is Hybrid Metamorphs."
+  },
+  {
+    "ability_key": "datasheet:outrider-gangs",
+    "mechanic_digest": "6443e8fa3176810c883d0240dcb61318",
+    "name": "Outrider Gangs",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When this unit arrives via Cult Ambush, its models must set up within 9\" of a battlefield edge with at least one touching a Cult Ambush marker, which is then removed; otherwise it cannot be set up."
+  },
+  {
+    "ability_key": "datasheet:parasitic-infection",
+    "mechanic_digest": "184b1daf38ed01143bda00a382562c3c",
+    "name": "Parasitic Infection",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Each time this model's barbed ovipositor destroys an Infantry model, you may add a new D3-model Ripper Swarms unit within 3\" of this model, possibly within Engagement Range of the destroyed model's unit."
+  },
+  {
+    "ability_key": "datasheet:paroxysm-psychic",
+    "mechanic_digest": "38d0eaa574c3cd713265e86bdb4cbf89",
+    "name": "Paroxysm (Psychic)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the start of the Fight phase, target a visible enemy unit within 12\" and roll a D6: on a 1 this model takes D3 mortal wounds; on 2+ that unit's weapons lose 1 Attack until end of phase."
+  },
+  {
+    "ability_key": "datasheet:pheromone-trail",
+    "mechanic_digest": "c9800d9fe9b9a9704680b20c7f0197aa",
+    "name": "Pheromone Trail",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per battle round, target a model with this ability with the Rapid Ingress Stratagem for 0 Command Points."
+  },
+  {
+    "ability_key": "datasheet:planted-explosives",
+    "mechanic_digest": "a6a27a1772907fb0b6440920fdb615d2",
+    "name": "Planted Explosives",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per battle, when an enemy unit ends a Normal, Advance or Fall Back move within 9\" of this model, it may detonate its mine: on a D6 of 2+, that unit suffers D3+3 mortal wounds. Only one such model may do so per battle round."
+  },
+  {
+    "ability_key": "datasheet:priority-target",
+    "mechanic_digest": "9a182efe4ae619c14d13fee566540fac",
+    "name": "Priority Target",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "After this model's unit shoots, pick an enemy unit hit by its cult sniper rifle attacks; until end of phase, friendly Genestealer Cults attacks against it re-roll a Hit roll of 1."
+  },
+  {
+    "ability_key": "datasheet:psionic-shield-psychic",
+    "mechanic_digest": "488971c574c6206977febbc06fc9c752",
+    "name": "Psionic Shield (Psychic)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per battle, at the start of any phase, this model gains a 4+ invulnerable save until the end of the phase."
+  },
+  {
+    "ability_key": "datasheet:psychic-familiar",
+    "mechanic_digest": "35e5b275ee85a0318bd1f53325aec60d",
+    "name": "Psychic Familiar",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per battle, at a set trigger point, add 6\" to the range of this model's other named psychic ability until end of phase."
+  },
+  {
+    "ability_key": "datasheet:psychic-spoor",
+    "mechanic_digest": "612dd779f05a282191b5ff8ad7ca8570",
+    "name": "Psychic Spoor",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the start of the first battle round, select one enemy unit as this model's prey; attacks this model makes against it can re-roll the Hit roll and the Wound roll."
+  },
+  {
+    "ability_key": "datasheet:psychological-saboteur-aura",
+    "mechanic_digest": "0a25f2232fd1238777463e17e116e342",
+    "name": "Psychological Saboteur (Aura)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While a Battle-shocked enemy unit is within 12\", its attacks suffer -1 to the Hit roll, and friendly Tyranids attacks against it get +1 to the Wound roll."
+  },
+  {
+    "ability_key": "datasheet:regenerating-gene-mass",
+    "mechanic_digest": "7a6c0c817461db4cda33e27a5ec6904f",
+    "name": "Regenerating Gene-mass",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "The first time this model is destroyed, roll a D6 at the end of the phase; on a 2+, set it back up at full wounds near where it died, not within Engagement Range of any enemy."
+  },
+  {
+    "ability_key": "datasheet:scrambler-array",
+    "mechanic_digest": "aa1f5329b248dd75c1fb4ea9266518c0",
+    "name": "Scrambler Array",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Enemy Reinforcement units cannot be set up within 12\" of this model."
+  },
+  {
+    "ability_key": "datasheet:spotter",
+    "mechanic_digest": "f4ff134894ce442408bc5773f61ca08e",
+    "name": "Spotter",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "The bearer's ranged weapons have a Ballistic Skill characteristic of 3+."
+  },
+  {
+    "ability_key": "datasheet:subterranean-tunnels",
+    "mechanic_digest": "96f3435e85434f6138bfc272b78e72d3",
+    "name": "Subterranean Tunnels",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When this model Deep Strikes, it may arrive anywhere more than 6\" from all enemy units, but cannot charge until the following turn."
+  },
+  {
+    "ability_key": "datasheet:sudden-assault",
+    "mechanic_digest": "0348c9d133fab0ee5e45b1090f48c387",
+    "name": "Sudden Assault",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model leads a unit, models in that unit have the Fights First ability."
+  },
+  {
+    "ability_key": "datasheet:summon-the-cult",
+    "mechanic_digest": "21e8279a864b38342164e638451e37a1",
+    "name": "Summon the Cult",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per battle, when a Cult Ambush marker would be removed for being too close to the enemy, instead relocate it within 12\" of a model with this ability and more than 9\" from all enemies, if possible."
+  },
+  {
+    "ability_key": "datasheet:survey-augur",
+    "mechanic_digest": "db655150f07a3d6feaeff09219fc6abe",
+    "name": "Survey Augur",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "After the bearer's unit shoots, pick an enemy unit it hit; until end of phase, friendly Genestealer Cults attacks against that unit gain the Ignores Cover ability."
+  },
+  {
+    "ability_key": "datasheet:swift-and-deadly",
+    "mechanic_digest": "c39e0af67903774b39bcd86c72cd9fca",
+    "name": "Swift and Deadly",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "This unit is eligible to declare a charge in a turn in which it Advanced."
+  },
+  {
+    "ability_key": "datasheet:tectonic-fragdrill",
+    "mechanic_digest": "062a618d68428b72b775888fab2710f9",
+    "name": "Tectonic Fragdrill",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Friendly Genestealer Cults Infantry models can be set up or end moves on top of this Fortification's floor sections."
+  },
+  {
+    "ability_key": "datasheet:terror-from-the-deep",
+    "mechanic_digest": "4903ff5563ad1afdac8914e930abb720",
+    "name": "Terror From The Deep",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When this model Deep Strikes, roll a D6 for each enemy unit within 12\": on 2-4 it suffers D3 mortal wounds; on 5+ it suffers 3 mortal wounds and must take a Battle-shock test."
+  },
+  {
+    "ability_key": "datasheet:the-chosen-one",
+    "mechanic_digest": "5515457758f391bf83c3a73ad2ffbfc7",
+    "name": "The Chosen One",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model leads a unit, a model in that unit destroyed by a melee attack before fighting this phase can, on a D6 roll of 4+, fight after the attacker's unit finishes, then is removed."
+  },
+  {
+    "ability_key": "datasheet:twisted-science",
+    "mechanic_digest": "041e88b2867346f76368e1f89f414326",
+    "name": "Twisted Science",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model leads a unit, melee weapons equipped by models in that unit gain the Lethal Hits ability."
+  },
+  {
+    "ability_key": "datasheet:underground-egress",
+    "mechanic_digest": "2083cc7908f9642e12eb4bbecfec7a9d",
+    "name": "Underground Egress",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When a Cult Ambush marker would be removed because an enemy ended a move within 9\" of it, instead move it within 9\" of this Fortification and more than 9\" from all enemies, if possible."
+  },
+  {
+    "ability_key": "datasheet:voice-of-new-truths",
+    "mechanic_digest": "49ed87517bfa0261fab05a70a10e95f2",
+    "name": "Voice of New Truths",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "In your Command phase, pick an enemy unit within 18\"; that unit must take a Battle-shock test."
+  },
+  {
+    "ability_key": "datasheet:will-of-the-hive-mind",
+    "mechanic_digest": "a9aaef4c77dd6249061c94b6b0890095",
+    "name": "Will of the Hive Mind",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per battle round, when a friendly Tyranids unit within 12\" is targeted by a Stratagem, reduce that Stratagem's Command Point cost by 1."
+  },
+  {
+    "ability_key": "datasheet:winged-swarm",
+    "mechanic_digest": "7db99823088778cb4fb3c50ce3aae461",
+    "name": "Winged Swarm",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "After this unit shoots, if not in Engagement Range, it can make a Normal move of up to 6\"; if it does, it cannot charge this turn."
+  },
+  {
+    "ability_key": "faction:shadow-in-the-warp-ravener-prime-only",
+    "mechanic_digest": "a51a703853b33a27322f6c1783879c9a",
+    "name": "Shadow In The Warp (Ravener Prime only)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per battle, in either player's Command phase, force a Battle-shock test on every enemy unit on the battlefield; units within 6\" of a friendly Synapse unit take that test with a -1 penalty."
+  }
+]

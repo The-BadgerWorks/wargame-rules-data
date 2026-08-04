@@ -1,0 +1,1397 @@
+[
+  {
+    "ability_key": "datasheet:acrobatic",
+    "mechanic_digest": "eb4a787b3e16c9f663a5abda3d20332a",
+    "name": "Acrobatic",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "This unit is eligible to declare a charge in a turn in which it Advanced or Fell Back."
+  },
+  {
+    "ability_key": "datasheet:acrobatic-grace",
+    "mechanic_digest": "cc87d2acdd7923dd3ef8a76d03068906",
+    "name": "Acrobatic Grace",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Attacks that target this unit suffer -1 to the Hit roll."
+  },
+  {
+    "ability_key": "datasheet:aethersails",
+    "mechanic_digest": "312a34f761f32b8ba86dfd2baa4799af",
+    "name": "Aethersails",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Effect varies by model: either Advance and Charge rolls for this model can be re-rolled while a Drukhari unit is embarked, or it skips the Advance roll and adds 6\" to its Move characteristic until the end of the phase."
+  },
+  {
+    "ability_key": "datasheet:aethersense-psychic",
+    "mechanic_digest": "e6aa09c2c59c3adea9d9cbe3085053b4",
+    "name": "Aethersense (Psychic)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Enemy Reinforcement units cannot be set up within 12\" of this model."
+  },
+  {
+    "ability_key": "datasheet:agile",
+    "mechanic_digest": "b3b24718a341e71ca5305876d935b329",
+    "name": "Agile",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When this model makes a Normal, Advance, or Fall Back move, it can move over other non-Titanic models and terrain 4\" or less in height as if they were not there."
+  },
+  {
+    "ability_key": "datasheet:arcane-cover",
+    "mechanic_digest": "a36651fb50ac2cd42924bd84995caf4b",
+    "name": "Arcane Cover",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "If this Fortification blocks visibility to a model targeted by a ranged attack, that model gains Benefit of Cover against the attack."
+  },
+  {
+    "ability_key": "datasheet:aspect-shrine-token",
+    "mechanic_digest": "bdef785920b4edf7f0a0789e89a955ed",
+    "name": "Aspect Shrine Token",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per battle per token this unit has, change the result of a Hit or Wound roll for a non-Character model in this unit to an unmodified 6, consuming one token."
+  },
+  {
+    "ability_key": "datasheet:aspect-training",
+    "mechanic_digest": "c36fe237c6d6506985eb4ddf321e3e47",
+    "name": "ASPECT TRAINING",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model leads a Howling Banshees unit, it has the Fights First ability; while leading a Striking Scorpions unit, it has Infiltrators, Scouts 7\", and Stealth."
+  },
+  {
+    "ability_key": "datasheet:assured-destruction",
+    "mechanic_digest": "6ed59a3afad522b08e159b55aa379167",
+    "name": "Assured Destruction",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Ranged attacks by models in this unit against a Monster or Vehicle can re-roll the Hit roll, the Wound roll, and the Damage roll."
+  },
+  {
+    "ability_key": "datasheet:avatar-of-the-whispering-god",
+    "mechanic_digest": "cc5972b446462e1f5a5ebb3063cbf44e",
+    "name": "AVATAR OF THE WHISPERING GOD",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "If your army includes this model, it cannot also include any Epic Hero units excluding Ynnari, and vice versa."
+  },
+  {
+    "ability_key": "datasheet:bladestorm",
+    "mechanic_digest": "6bee8bf7e18239c8b21d951c6988f6a7",
+    "name": "Bladestorm",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Ranged weapons equipped by models in this unit gain the Sustained Hits 1 ability while targeting an enemy unit within half range."
+  },
+  {
+    "ability_key": "datasheet:blitz",
+    "mechanic_digest": "8138e5e77521ab1edebf909d74cf1def",
+    "name": "Blitz",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per battle, before this model's Normal move, add 2D6\" to its Move characteristic and 3 Attacks to its melee weapons until end of turn."
+  },
+  {
+    "ability_key": "datasheet:blur-of-movement",
+    "mechanic_digest": "1e2fc6bc6328c6b9209e47a36795f670",
+    "name": "Blur of Movement",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "This model is eligible to declare a charge in a turn in which it Advanced."
+  },
+  {
+    "ability_key": "datasheet:bonesinger",
+    "mechanic_digest": "d9e2e83342a7ba4eca4d6a85e6fe3412",
+    "name": "Bonesinger",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While within 3\" of a friendly Wraith Construct or Asuryani Vehicle unit, unless leading a unit, this model has the Lone Operative ability."
+  },
+  {
+    "ability_key": "datasheet:branching-fates-psychic",
+    "mechanic_digest": "47011f8ef84ae612d0c7789875adb1b5",
+    "name": "Branching Fates (Psychic)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model leads a unit, once per phase change the result of a Hit, Wound, or Damage roll made for a model in that unit to an unmodified 6."
+  },
+  {
+    "ability_key": "datasheet:bringer-of-the-true-death",
+    "mechanic_digest": "155161456ff4fb03847a13382fd7d950",
+    "name": "Bringer of the True Death",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model leads a unit, attacks made by models in that unit can re-roll the Wound roll."
+  },
+  {
+    "ability_key": "datasheet:burning-lance",
+    "mechanic_digest": "672e837a14c382738fdc5d7ce9513e15",
+    "name": "Burning Lance",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model leads a unit, add 6\" to the Range characteristic of Melta weapons equipped by models in that unit."
+  },
+  {
+    "ability_key": "datasheet:cegorachs-favour",
+    "mechanic_digest": "ec6d72fcd53a71a4f39d99f4197f7839",
+    "name": "Cegorach’s Favour",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Melee attacks this model makes can re-roll a Hit roll of 1 and add 1 to the Wound roll."
+  },
+  {
+    "ability_key": "datasheet:channeller-stones",
+    "mechanic_digest": "ebb50c458bcefd184cc1be7450adffe4",
+    "name": "Channeller Stones",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per turn, the first failed saving throw for the bearer's unit has the attack's Damage characteristic changed to 0."
+  },
+  {
+    "ability_key": "datasheet:choreographer-of-war",
+    "mechanic_digest": "490b68712a3c52afe06ffc0f20350c35",
+    "name": "Choreographer of War",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model leads a unit, models in that unit can Pile-in or Consolidate up to 6\" instead of 3\", without needing to end closer to the closest enemy model."
+  },
+  {
+    "ability_key": "datasheet:cloudbreakers",
+    "mechanic_digest": "0148caab9a7643247599225dc2ba8e14",
+    "name": "Cloudbreakers",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When this model Advances, skip the Advance roll and instead add 6\" to its Move characteristic until end of phase."
+  },
+  {
+    "ability_key": "datasheet:cloudstrider",
+    "mechanic_digest": "fc531d9f965f3801ce4ccd6cc6408382",
+    "name": "Cloudstrider",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While leading a unit, that unit can be removed and placed in Strategic Reserves at the end of the opponent's turn if not in Engagement Range; on Deep Strike it may arrive over 6\" from all enemies but cannot then charge."
+  },
+  {
+    "ability_key": "datasheet:cluster-caltrops",
+    "mechanic_digest": "cd8bc6ec4ef48a4e4fdae90d8995b33d",
+    "name": "Cluster Caltrops",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Re-roll a D6 rolled for the bearer's unit while resolving its fly-by mortal wound ability."
+  },
+  {
+    "ability_key": "datasheet:corsairs",
+    "mechanic_digest": "fb30925964638953ba51141d19a5cbe2",
+    "name": "CORSAIRS",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "A model with the Leader ability that could attach to a related unit can attach to this unit instead."
+  },
+  {
+    "ability_key": "datasheet:crewed-platform",
+    "mechanic_digest": "5b4da6ae93ca5c0578946301b0e61fab",
+    "name": "Crewed Platform",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When the last non-platform model in this unit is destroyed, any remaining Heavy Weapon Platform models in it are also destroyed."
+  },
+  {
+    "ability_key": "datasheet:cruel-amusement",
+    "mechanic_digest": "7b6af2f3f41cb9e15ebfb85e563b91a5",
+    "name": "Cruel Amusement",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When this model shoots, choose Ignores Cover, Precision, or Sustained Hits 3 for its shrieker cannon to have until end of phase."
+  },
+  {
+    "ability_key": "datasheet:cry-of-the-wind",
+    "mechanic_digest": "f119d66459255073f0e81126e6d3fbab",
+    "name": "Cry of the Wind",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When this model is set up on the battlefield, until end of turn its ranged attacks score a Critical Hit on any successful unmodified Hit roll."
+  },
+  {
+    "ability_key": "datasheet:crystal-matrix",
+    "mechanic_digest": "0e1624dd9b71cc87984707407963c523",
+    "name": "Crystal Matrix",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When this model shoots, re-roll one Hit roll and one Wound roll among those attacks."
+  },
+  {
+    "ability_key": "datasheet:crystalline-targeting",
+    "mechanic_digest": "0273cf256bdc89c15afe98e1ec666795",
+    "name": "Crystalline Targeting",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "After this unit shoots, pick an enemy unit it hit, once per turn; until end of phase, friendly Aeldari attacks against it get +1 Armour Penetration."
+  },
+  {
+    "ability_key": "datasheet:d-rift",
+    "mechanic_digest": "6fb30638a04019330048b2d8ee63f953",
+    "name": "D-rift",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When this model targets with its D-impaler, roll a D6 for the target and each unit within 3\" of it; on a 5+ that unit takes D3 mortal wounds after this model's attacks resolve."
+  },
+  {
+    "ability_key": "datasheet:dance-of-death",
+    "mechanic_digest": "df8f09cb5ffcab4a35989eb4e21c1fd9",
+    "name": "Dance of Death",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the start of the Fight phase, choose one buff for this unit until end of phase: re-roll a Hit roll of 1, add 1 to the Wound roll, or -1 to the Hit roll of attacks against it."
+  },
+  {
+    "ability_key": "datasheet:death-is-not-enough",
+    "mechanic_digest": "18f55d29cf48028eabe3cbe553b5a364",
+    "name": "Death is Not Enough",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "After this model shoots, pick a non-Monster, non-Vehicle enemy unit it hit; it must take a Battle-shock test, with -1 if a model in it was destroyed by those attacks."
+  },
+  {
+    "ability_key": "datasheet:deployment",
+    "mechanic_digest": "6979ffbacc2194660bcdb3951be9f1dc",
+    "name": "DEPLOYMENT",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Setup rule for a multi-part model or Fortification: its parts must be placed in the arrangement its datasheet specifies, and are then treated either as a single model or as separate units, depending on the datasheet."
+  },
+  {
+    "ability_key": "datasheet:devastating-assault",
+    "mechanic_digest": "ffc5754725243f3293b31b33e897e780",
+    "name": "Devastating Assault",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Effect varies by model: either one enemy unit hit by this model's shooting must take a Battle-shock test, or this model's melee weapons gain Devastating Wounds until the end of the turn after it makes a Charge move."
+  },
+  {
+    "ability_key": "datasheet:diviner-of-futures",
+    "mechanic_digest": "4c8136b4973369dd3121c9bd4e3b49f7",
+    "name": "Diviner of Futures",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the start of your Command phase, if this model is on the battlefield, gain 1 Command Point."
+  },
+  {
+    "ability_key": "datasheet:doom-psychic",
+    "mechanic_digest": "6dadb7c8f61b282989e80c08c1dfc607",
+    "name": "Doom (Psychic)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the end of your Movement phase, pick a visible enemy unit within 18\"; until your next Command phase, friendly Aeldari attacks against it get +1 to the Wound roll."
+  },
+  {
+    "ability_key": "datasheet:empowered-by-death",
+    "mechanic_digest": "a82c704d6d5ee41829b8669c3944f660",
+    "name": "Empowered by Death",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the start of the Fight phase, if this model's unit is below Starting Strength, models in it have the Fights First ability until end of phase."
+  },
+  {
+    "ability_key": "datasheet:empyric-ambush",
+    "mechanic_digest": "f7235dfe04a46464bd341f1b61acac48",
+    "name": "Empyric Ambush",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model leads a unit, that unit is eligible to declare a charge in a turn in which it used its teleport-style movement ability."
+  },
+  {
+    "ability_key": "datasheet:ethereal-form",
+    "mechanic_digest": "52b283a0db3eb732c1f47acf8fbe8f17",
+    "name": "Ethereal Form",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Each time this model destroys an enemy unit, it regains up to D3 lost wounds."
+  },
+  {
+    "ability_key": "datasheet:eviscerating-fly-by",
+    "mechanic_digest": "14321068aaa95344c8be3ae5a36a0e78",
+    "name": "Eviscerating Fly-by",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "After this unit's Normal move, pick a non-Monster, non-Vehicle enemy unit it moved over and roll a D6 per model in this unit; each 4+ deals 1 mortal wound."
+  },
+  {
+    "ability_key": "datasheet:extreme-mobility",
+    "mechanic_digest": "f230e35a80bbb21dece025db72c876f2",
+    "name": "Extreme Mobility",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When this unit makes any type of move, ignore vertical distance when determining total distance moved."
+  },
+  {
+    "ability_key": "datasheet:face-of-death",
+    "mechanic_digest": "64e873a4ef8165d0cc6830393ccfa526",
+    "name": "Face of Death",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "After this model shoots, pick an enemy unit it hit; that unit must take a Battle-shock test with a -1 penalty."
+  },
+  {
+    "ability_key": "datasheet:faolchu",
+    "mechanic_digest": "241d352cbf0fbcb2dc9746469c0ac621",
+    "name": "Faolchú",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Ranged weapons equipped by models in the bearer's unit gain the Ignores Cover ability."
+  },
+  {
+    "ability_key": "datasheet:fated-hero",
+    "mechanic_digest": "ceb493f2fe0de6e14394733dbc131f4e",
+    "name": "Fated Hero",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the start of the battle, choose Infantry, Monster, Mounted, or Vehicle; attacks this model makes against a unit with that keyword re-roll a Hit roll of 1 and a Wound roll of 1."
+  },
+  {
+    "ability_key": "datasheet:flawless-poise",
+    "mechanic_digest": "0cc6846536fc87f42c9e4dc4387c4812",
+    "name": "Flawless Poise",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "This model is eligible to shoot and declare a charge in a turn in which it Fell Back."
+  },
+  {
+    "ability_key": "datasheet:fleet-of-foot",
+    "mechanic_digest": "c00ad03842ed63f9913ce7b2a6c934f8",
+    "name": "Fleet of Foot",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "This unit can perform its Fade Back manoeuvre without spending a Battle Focus token, without limit or interaction with other units doing the same."
+  },
+  {
+    "ability_key": "datasheet:flickerjump",
+    "mechanic_digest": "dac53deed239027df01929f69a731062",
+    "name": "Flickerjump",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When this unit is selected to make a Normal move, it may instead gain a 24\" Move but cannot then charge this turn; at end of phase roll a D6 per model, each 1 dealing 1 mortal wound to the unit."
+  },
+  {
+    "ability_key": "datasheet:flip-belt",
+    "mechanic_digest": "e59c48b4550640f6c0c8bbdd733f9df8",
+    "name": "Flip Belt",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When the bearer's unit makes any type of move, ignore vertical distance when determining the total distance the bearer can be moved."
+  },
+  {
+    "ability_key": "datasheet:fog-of-dreams-psychic",
+    "mechanic_digest": "4322abc8b0cf8a23d9749120ad9d2c26",
+    "name": "Fog of Dreams (Psychic)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model leads a unit, that unit can only be targeted by a ranged attack from within 18\"."
+  },
+  {
+    "ability_key": "datasheet:forceshield",
+    "mechanic_digest": "b36164ee977a6aa60f1b415444a27d9f",
+    "name": "Forceshield",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "The bearer has a 4+ invulnerable save."
+  },
+  {
+    "ability_key": "datasheet:fury-of-the-void-psychic",
+    "mechanic_digest": "e916d9bee6baf63196dd5c94e7d13301",
+    "name": "Fury of the Void (Psychic)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "After this model's unit shoots, pick an enemy unit hit by its named weapon; until end of turn, friendly Aeldari attacks against it get +1 Strength."
+  },
+  {
+    "ability_key": "datasheet:grav-talon",
+    "mechanic_digest": "04b3f478a4c84d2eaead47fb3e5f8544",
+    "name": "Grav-talon",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "The bearer's melee weapons gain the Lance ability."
+  },
+  {
+    "ability_key": "datasheet:grenade-pack-flyover",
+    "mechanic_digest": "c867728307a0d86728bac06c783e4c9e",
+    "name": "Grenade Pack Flyover",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per turn, when this unit is set up or ends a move, pick a visible enemy unit within 8\" and roll a D6 per model in this unit; each 4+ deals 1 mortal wound, up to 6, and this unit cannot be targeted by the Grenade Stratagem this turn."
+  },
+  {
+    "ability_key": "datasheet:guide-psychic",
+    "mechanic_digest": "ea9e7751823fbb128d438c6b9ff04029",
+    "name": "Guide (Psychic)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the end of your Movement phase, pick a visible enemy unit within 18\", once per unit per turn; until your next Command phase friendly Aeldari attacks against it get +1 to the Hit roll."
+  },
+  {
+    "ability_key": "datasheet:hallucinogen-grenades",
+    "mechanic_digest": "7429cb8b117b5d4ef9fe30c51d230221",
+    "name": "Hallucinogen Grenades",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the start of the opponent's Shooting phase, grant a visible friendly Aeldari Infantry unit within 36\" the Stealth ability until end of phase."
+  },
+  {
+    "ability_key": "datasheet:hand-of-asuryan",
+    "mechanic_digest": "61e7153b2d80a295057413b857f36704",
+    "name": "Hand of Asuryan",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per battle, when this model shoots, its named weapon gains Damage 3, Anti-Infantry 5+, and Devastating Wounds until end of phase."
+  },
+  {
+    "ability_key": "datasheet:harassment-fire",
+    "mechanic_digest": "8cda4a0e72a830cfc8106ca3af0ec0e4",
+    "name": "Harassment Fire",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "After this unit shoots, pick an enemy unit it hit; until your next turn that unit's attacks suffer -1 to the Hit roll."
+  },
+  {
+    "ability_key": "datasheet:harvester-of-souls",
+    "mechanic_digest": "a2cf5db31e5be8400e6e4b452b95aa92",
+    "name": "Harvester of Souls",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model leads a unit and all its attacks target the same enemy unit, roll a D6 for that unit and each other enemy unit within 3\"; each 5+ deals D3 mortal wounds after attacks resolve."
+  },
+  {
+    "ability_key": "datasheet:herald-of-ynnead",
+    "mechanic_digest": "d61e1baa2ad19d4c1ded1af731ad0ae2",
+    "name": "Herald of Ynnead",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the start of the Fight phase, pick an enemy unit within Engagement Range; until end of phase friendly Aeldari attacks against it can re-roll a Wound roll of 1."
+  },
+  {
+    "ability_key": "datasheet:hero-of-iyanden",
+    "mechanic_digest": "3ed4cf5b6d6bc414f4c86842a87299aa",
+    "name": "Hero of Iyanden",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model leads a unit, add 1 to the Objective Control characteristic of models in that unit."
+  },
+  {
+    "ability_key": "datasheet:horrify-psychic",
+    "mechanic_digest": "ffc5754725243f3293b31b33e897e780",
+    "name": "Horrify (Psychic)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "After this model shoots, pick an enemy unit it hit; that unit must take a Battle-shock test."
+  },
+  {
+    "ability_key": "datasheet:hunter-unseen",
+    "mechanic_digest": "a6988066594f68406a38fd5774223385",
+    "name": "Hunter Unseen",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "This model's unit can only be targeted by a ranged attack from within 12\"."
+  },
+  {
+    "ability_key": "datasheet:indomitable-strength-of-will",
+    "mechanic_digest": "cf29e4b9982e68dad1f654b1069ef3df",
+    "name": "Indomitable Strength of Will",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model leads a unit, each time you spend a Battle Focus token for that unit's Agile Manoeuvre, roll a D6: on a 3+ regain 1 Battle Focus token."
+  },
+  {
+    "ability_key": "datasheet:inescapable-accuracy",
+    "mechanic_digest": "1f6f3c3118dc2c43d421ecec4df1092a",
+    "name": "Inescapable Accuracy",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Ranged attacks by models in this unit may ignore modifiers to their Ballistic Skill characteristic and to the Hit roll."
+  },
+  {
+    "ability_key": "datasheet:inevitable-death",
+    "mechanic_digest": "f980c4dbe37c966c7d26020b0bbeafeb",
+    "name": "Inevitable Death",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per opponent's turn, when a friendly Aeldari unit is destroyed while this model is on the battlefield, you may remove this model and set it up near the destroyed unit, outside Engagement Range."
+  },
+  {
+    "ability_key": "datasheet:interceptor",
+    "mechanic_digest": "36ab48015d7ce71ed934ca987b9c4180",
+    "name": "Interceptor",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Ranged attacks this model makes against a unit that can Fly get +1 to the Hit roll."
+  },
+  {
+    "ability_key": "datasheet:into-the-foe",
+    "mechanic_digest": "e4a8854b28ae0d6edfc46a5c6be7c7d8",
+    "name": "Into the Foe",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "If a unit disembarks from this transport before it moves, it is eligible to charge this turn even though it Advanced."
+  },
+  {
+    "ability_key": "datasheet:lanced-obliteration",
+    "mechanic_digest": "ee8e80018479a26651c90e031eebee1d",
+    "name": "Lanced Obliteration",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "If this model's twin weapon destroys an enemy model with a Deadly Demise ability, that ability triggers on a D6 of 4+ instead of only a 6."
+  },
+  {
+    "ability_key": "datasheet:lightning-assault",
+    "mechanic_digest": "db0d95b97d23a25b127c6912849eadd3",
+    "name": "Lightning Assault",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "After this model's Normal move, pick a non-Monster, non-Vehicle unit it moved over and roll six D6; each 4+ deals 1 mortal wound to it."
+  },
+  {
+    "ability_key": "datasheet:linked-fire",
+    "mechanic_digest": "575f43ffc968aa10bfa5b2455c262e13",
+    "name": "Linked Fire",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "This weapon can measure range and visibility from another friendly model of the same type visible to the bearer, but then only makes 1 attack."
+  },
+  {
+    "ability_key": "datasheet:lithe-embarkation",
+    "mechanic_digest": "7e816aa6362011c5ab754b5fb6819846",
+    "name": "Lithe Embarkation",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the end of the Fight phase, if empty, a small friendly matching Infantry unit wholly within 6\" of this transport and not in Engagement Range may embark within it."
+  },
+  {
+    "ability_key": "datasheet:malevolent-souls",
+    "mechanic_digest": "fe5b5a46639b64ded614f13cfb86bc24",
+    "name": "Malevolent Souls",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "If a model in this unit is destroyed by a melee attack before fighting this phase, roll a D6: on a 3+ it fights after the attacker's unit finishes, then is removed."
+  },
+  {
+    "ability_key": "datasheet:mandiblasters",
+    "mechanic_digest": "d0d8bfcaefabf361ca8ad3eafce1021c",
+    "name": "Mandiblasters",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Melee attacks by models in this unit that made a Charge move this turn score a Critical Hit on an unmodified Hit roll of 5+."
+  },
+  {
+    "ability_key": "datasheet:mindshock-pod-aura-psychic",
+    "mechanic_digest": "243fe871faf4a84aa3aea2a84da739b8",
+    "name": "Mindshock Pod (Aura, Psychic)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While an enemy unit is within 9\" of this model, its Battle-shock and Leadership tests suffer -1."
+  },
+  {
+    "ability_key": "datasheet:misfortune-psychic",
+    "mechanic_digest": "a87ea7030aa79ebb0a1b20c89ab99565",
+    "name": "Misfortune (Psychic)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the end of your Movement phase, pick a visible enemy unit within 18\", once per unit per turn; until your next Command phase its attacks suffer -1 to the Wound roll."
+  },
+  {
+    "ability_key": "datasheet:mistshield",
+    "mechanic_digest": "b36164ee977a6aa60f1b415444a27d9f",
+    "name": "Mistshield",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "The bearer has a 4+ invulnerable save."
+  },
+  {
+    "ability_key": "datasheet:molten-form",
+    "mechanic_digest": "9a43b1a784116cfb301b9db18eb8eaf8",
+    "name": "Molten Form",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Attacks allocated to this model have their Damage characteristic halved."
+  },
+  {
+    "ability_key": "datasheet:monofilament-snare",
+    "mechanic_digest": "02b22b477aa47567a523dc0edbda244c",
+    "name": "Monofilament Snare",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "After this model shoots, pick an enemy unit hit by its named weapon; until your next turn, each time that unit moves, roll a D6 per model, each 1 dealing 1 mortal wound."
+  },
+  {
+    "ability_key": "datasheet:monofilament-web",
+    "mechanic_digest": "fd0c59d0a184954aad5dddfb8cf58b1a",
+    "name": "Monofilament Web",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "After this model shoots, if a hit was scored with its named weapon, until your next turn that unit's Move characteristic is reduced by 2\" and its Charge rolls suffer -2."
+  },
+  {
+    "ability_key": "datasheet:no-escape",
+    "mechanic_digest": "497390ea4fd75340efd15c24dad59649",
+    "name": "No Escape",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When a non-Monster, non-Vehicle enemy unit within this unit's Engagement Range Falls Back, its models take a Desperate Escape test, with -1 if that unit is Battle-shocked."
+  },
+  {
+    "ability_key": "datasheet:overlord",
+    "mechanic_digest": "6ee97b0753796ab4268276942a20af09",
+    "name": "Overlord",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Effect varies by model: either once per battle a Battle-shocked friendly unit within 12\" stops being Battle-shocked, or the led unit's attacks re-roll a Wound roll of 1, or the whole roll while it is below Starting Strength."
+  },
+  {
+    "ability_key": "datasheet:path-of-command",
+    "mechanic_digest": "6b4cca81c1e9c66039ab1a23d1df06b7",
+    "name": "Path of Command",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per battle round, when this model's unit is targeted by a Stratagem, reduce that Stratagem's Command Point cost by 1."
+  },
+  {
+    "ability_key": "datasheet:path-of-damnation",
+    "mechanic_digest": "d5e3e9e9a38740e26b4f73ae5c04b4ae",
+    "name": "PATH OF DAMNATION",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "This model cannot be selected as your Warlord."
+  },
+  {
+    "ability_key": "datasheet:path-of-the-outcast",
+    "mechanic_digest": "d4808bf5a94ef83ef9ee93b82f836a07",
+    "name": "Path of the Outcast",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per turn, when an enemy unit ends a Normal, Advance or Fall Back move within 9\" and this unit or model is not in Engagement Range, it can make a Normal move of up to D6\"."
+  },
+  {
+    "ability_key": "datasheet:phantasm-grenade-launcher",
+    "mechanic_digest": "60ddcf135e8318e4d9d62e736ce39ad0",
+    "name": "Phantasm Grenade Launcher",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "The bearer's unit gains the Grenades keyword, the Smoke keyword, or both, depending on the model."
+  },
+  {
+    "ability_key": "datasheet:piratical-hero",
+    "mechanic_digest": "3dff825e8c79bf3e98ab2041567bcee8",
+    "name": "Piratical Hero",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model leads a unit, attacks by models in it gain the Sustained Hits 1 ability and +1 to the Hit roll."
+  },
+  {
+    "ability_key": "datasheet:piratical-raiders",
+    "mechanic_digest": "b16d49096abd4fef33acca427d10e326",
+    "name": "Piratical Raiders",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the start of the battle, choose an enemy unit; this unit's weapons gain Lethal Hits and Precision while targeting it."
+  },
+  {
+    "ability_key": "datasheet:point-blank-devastation",
+    "mechanic_digest": "4615b613b7818582826c07c80aa2fffb",
+    "name": "Point-blank Devastation",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When this model's named weapon targets a unit within half range, re-roll the dice used to determine the number of attacks."
+  },
+  {
+    "ability_key": "datasheet:polychromatic-camouflage",
+    "mechanic_digest": "d590dba79924f65040415a3b1f2cafe1",
+    "name": "Polychromatic Camouflage",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "This unit can only be targeted by a ranged attack from within 18\"."
+  },
+  {
+    "ability_key": "datasheet:prince-of-corsairs",
+    "mechanic_digest": "975b4bac47de27c66dee32da8d4c26fe",
+    "name": "Prince of Corsairs",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "After deployment, redeploy up to three Aeldari units, optionally placing them in Strategic Reserves regardless of the normal Strategic Reserves limit."
+  },
+  {
+    "ability_key": "datasheet:protect-psychic",
+    "mechanic_digest": "4f90377b64ed360d8617de5b108bc6cd",
+    "name": "Protect (Psychic)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While a Farseer leads this unit, attacks that target it suffer -1 to the Wound roll."
+  },
+  {
+    "ability_key": "datasheet:psychic-communion-psychic",
+    "mechanic_digest": "afe9382555e23a8e29da89d974fa2872",
+    "name": "Psychic Communion (Psychic)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When this unit shoots, each Warlock's Destructor weapon gets +1 Attacks and +1 Strength for each other friendly Aeldari Psyker within 6\", to a maximum of +2."
+  },
+  {
+    "ability_key": "datasheet:psychic-guidance",
+    "mechanic_digest": "88c5e0a0d866fd008920306e4db80c08",
+    "name": "Psychic Guidance",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While within 12\" of a friendly Aeldari Psyker, this unit gains Leadership 6+ and +1 to the Hit roll, or improved Ballistic Skill and Weapon Skill for a single model."
+  },
+  {
+    "ability_key": "datasheet:psytronome-shaper",
+    "mechanic_digest": "003eda9678ca0c90a1dd5a8cc83a6e5a",
+    "name": "Psytronome Shaper",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "In your Command phase, a friendly Wraith Construct or Asuryani Vehicle model within 3\" of this model regains up to D3 lost wounds."
+  },
+  {
+    "ability_key": "datasheet:raid-and-run",
+    "mechanic_digest": "2f2c281b287c27078fff17a17a68033a",
+    "name": "Raid and Run",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the end of the Fight phase, if eligible to fight, this unit can move up to D3+3\": a Normal move if not in Engagement Range, otherwise a Fall Back move."
+  },
+  {
+    "ability_key": "datasheet:rapid-embarkation",
+    "mechanic_digest": "379ab38b23c8c904956506e4393490d1",
+    "name": "Rapid Embarkation",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the end of the Fight phase, if empty, a small friendly matching Infantry unit wholly within 6\" of this transport and not in Engagement Range may embark within it."
+  },
+  {
+    "ability_key": "datasheet:reaper-of-souls",
+    "mechanic_digest": "3f0f38a62b8d1dbfcc662e7133bab17d",
+    "name": "Reaper of Souls",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model leads a unit, attacks by models in that unit get +1 to the Hit roll."
+  },
+  {
+    "ability_key": "datasheet:reaver-band",
+    "mechanic_digest": "1c05bdeb68335f1b96a1b58f0f83bbad",
+    "name": "Reaver Band",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per turn, when an enemy unit ends a Normal, Advance or Fall Back move within 9\" and this unit is not in Engagement Range, it can make a Normal move of up to D6\"."
+  },
+  {
+    "ability_key": "datasheet:reavers-of-the-void",
+    "mechanic_digest": "42044fdaa9b4ff6ae12db597f2272bb8",
+    "name": "Reavers of the Void",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Attacks by models in this unit re-roll a Hit roll of 1, or re-roll the Hit roll entirely against a target within range of an objective marker."
+  },
+  {
+    "ability_key": "datasheet:reborn-mastermind",
+    "mechanic_digest": "6b4cca81c1e9c66039ab1a23d1df06b7",
+    "name": "Reborn Mastermind",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per battle round, when this model's unit is targeted by a Stratagem, reduce that Stratagem's Command Point cost by 1."
+  },
+  {
+    "ability_key": "datasheet:reckless-abandon",
+    "mechanic_digest": "0915b6daad339340428a03c95512ecdc",
+    "name": "Reckless Abandon",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Target this unit with the Heroic Intervention Stratagem for 0 Command Points, even if another unit was already targeted this phase."
+  },
+  {
+    "ability_key": "datasheet:revenant-jet-pack",
+    "mechanic_digest": "db74c46d16b529d9016f9331c735968e",
+    "name": "Revenant Jet Pack",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When this model Advances, skip the Advance roll and instead add 8\" to its Move characteristic until end of phase."
+  },
+  {
+    "ability_key": "datasheet:ride-the-wind",
+    "mechanic_digest": "849cac7538ddc28a822a3c60184b2570",
+    "name": "Ride the Wind",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model leads a unit, when it Advances, skip the Advance roll and add 6\" to its Move characteristic instead until end of phase."
+  },
+  {
+    "ability_key": "datasheet:runes-of-battle-psychic",
+    "mechanic_digest": "b55cf267c25e5fcc6025a82ccb4cb108",
+    "name": "Runes of Battle (Psychic)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Weapons equipped by models in this unit gain the Ignores Cover ability."
+  },
+  {
+    "ability_key": "datasheet:runes-of-fortune-psychic",
+    "mechanic_digest": "798493eb49b8b2b5ff9ce0616da90e64",
+    "name": "Runes of Fortune (Psychic)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When an enemy declares a charge targeting a unit with this ability, subtract 2 from the Charge roll."
+  },
+  {
+    "ability_key": "datasheet:sadistic-raiders",
+    "mechanic_digest": "96420fd633eeb65a44e50588cf62e0b6",
+    "name": "Sadistic Raiders",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the end of your Command phase, an objective marker this unit or its transport controls within range stays controlled until the opponent's Control Level there exceeds yours."
+  },
+  {
+    "ability_key": "datasheet:scattershield",
+    "mechanic_digest": "40e4f0753155f29cc0cb150f1fe88fb5",
+    "name": "Scattershield",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "The bearer has a 4+ invulnerable save; on some models, attacks allocated to it also have their Damage characteristic reduced by 1."
+  },
+  {
+    "ability_key": "datasheet:serpent-shield",
+    "mechanic_digest": "d2841bb2cf33adfc477cae089c87b778",
+    "name": "Serpent Shield",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Models in the bearer's unit have a 5+ invulnerable save."
+  },
+  {
+    "ability_key": "datasheet:servant-of-the-whispering-god",
+    "mechanic_digest": "9c1543f61556f91f32251d0733679f41",
+    "name": "SERVANT OF THE WHISPERING GOD",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "If your army includes this model, it cannot also include any Epic Hero units excluding Ynnari, and vice versa."
+  },
+  {
+    "ability_key": "datasheet:shade-of-twilight",
+    "mechanic_digest": "e30d24d06b73ce8dfbfe4ea83aaac44b",
+    "name": "Shade of Twilight",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "After this unit shoots, if not in Engagement Range, it can make a Normal move of up to D6\"; if it does, it cannot charge this turn."
+  },
+  {
+    "ability_key": "datasheet:shadow-field",
+    "mechanic_digest": "c41f8dfe213d6630e3fa8d6234ffc84d",
+    "name": "Shadow Field",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "The bearer's invulnerable save cannot be re-rolled; the first time it fails one, the bearer loses its invulnerable save for the rest of the battle."
+  },
+  {
+    "ability_key": "datasheet:shadow-hunter",
+    "mechanic_digest": "3f0f38a62b8d1dbfcc662e7133bab17d",
+    "name": "Shadow Hunter",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model leads a unit, attacks by models in that unit get +1 to the Hit roll."
+  },
+  {
+    "ability_key": "datasheet:shadow-of-death-aura",
+    "mechanic_digest": "2f71692ce6aac6bab63bf343518593ee",
+    "name": "Shadow of Death (Aura)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While an enemy unit is within 6\" of this model, its Battle-shock and Leadership tests suffer -1."
+  },
+  {
+    "ability_key": "datasheet:shimmershield",
+    "mechanic_digest": "b36164ee977a6aa60f1b415444a27d9f",
+    "name": "Shimmershield",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "The bearer has a 4+ invulnerable save."
+  },
+  {
+    "ability_key": "datasheet:skyfire",
+    "mechanic_digest": "d85ead144dd1304a862bd886b311c1d9",
+    "name": "Skyfire",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When targeted with the Fire Overwatch Stratagem as an enemy Flying unit moves, this model can also shoot up to 3 other Flying enemy units within 24\", hitting them only on an unmodified Hit roll of 6."
+  },
+  {
+    "ability_key": "datasheet:skyhunter",
+    "mechanic_digest": "eca30896e321c5a8475401f2932a37c7",
+    "name": "Skyhunter",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Ranged attacks this model makes against a unit that can Fly get +1 to the Hit roll and +1 to the Wound roll."
+  },
+  {
+    "ability_key": "datasheet:skyleap",
+    "mechanic_digest": "7b66c0503c357b81eda94a9eb85944a4",
+    "name": "Skyleap",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the end of the opponent's turn, if not in Engagement Range, remove this unit and place it in Strategic Reserves."
+  },
+  {
+    "ability_key": "datasheet:sonic-destruction",
+    "mechanic_digest": "0c0936046bd3e4711663210c2b7edba3",
+    "name": "Sonic Destruction",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "This model's named cannon attacks against a unit get +1 Strength, +1 Armour Penetration, and +1 Damage for each other friendly model of the same type that also hit that unit with the same weapon this phase."
+  },
+  {
+    "ability_key": "datasheet:speed-of-vaul",
+    "mechanic_digest": "5ccba3702ce84405f86dd2aaf0d0b6c8",
+    "name": "Speed of Vaul",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When this model Advances, skip the Advance roll and instead add 9\" to its Move characteristic until end of phase."
+  },
+  {
+    "ability_key": "datasheet:spirit-mark-psychic",
+    "mechanic_digest": "fcd149033624ce11dacd38f8df736c5a",
+    "name": "Spirit Mark (Psychic)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per turn, in your Movement phase, pick a friendly non-Titanic Wraith Construct unit within 6\" and a visible enemy unit; until your next Movement phase that friendly unit's weapons gain Sustained Hits 1 against that enemy."
+  },
+  {
+    "ability_key": "datasheet:spiritseer",
+    "mechanic_digest": "9719b71565d90b5d3948399f225a8cfb",
+    "name": "Spiritseer",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While within 3\" of a friendly Wraith Construct unit, this model has the Lone Operative ability."
+  },
+  {
+    "ability_key": "datasheet:storm-of-blades",
+    "mechanic_digest": "85e222883fb256f6a261648c47247a31",
+    "name": "Storm of Blades",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model leads a unit, melee weapons equipped by models in that unit gain the Sustained Hits 1 ability."
+  },
+  {
+    "ability_key": "datasheet:storm-of-silence",
+    "mechanic_digest": "fc6248490f20e60383a9d29f765bc37f",
+    "name": "Storm of Silence",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Attacks this model makes against a Character unit can re-roll the Wound roll."
+  },
+  {
+    "ability_key": "datasheet:stormblades",
+    "mechanic_digest": "4c6281128b5b6d40d9fd23219f1e13d9",
+    "name": "Stormblades",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the end of your Command phase, an objective marker this unit controls within range stays controlled until the opponent's Control Level there exceeds yours."
+  },
+  {
+    "ability_key": "datasheet:structural-collapse",
+    "mechanic_digest": "4588766eaee67176f574acd561d57f6d",
+    "name": "Structural Collapse",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Attacks this model makes with its named cannon re-roll a Damage roll of 1, or the whole Damage roll instead against a Titanic unit."
+  },
+  {
+    "ability_key": "datasheet:superlative-strategist",
+    "mechanic_digest": "fdd92dc6af3c39064227e35189436429",
+    "name": "Superlative Strategist",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model leads a unit, re-roll Advance rolls for it and re-roll any rolls it makes while performing an Agile Manoeuvre."
+  },
+  {
+    "ability_key": "datasheet:support-artillery",
+    "mechanic_digest": "4ccc94cc7fb8ab3d17f38353f0b4d1e1",
+    "name": "SUPPORT ARTILLERY",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "During Declare Battle Formations, this model can join a Guardian Defenders unit, becoming part of it for the rest of the battle and increasing its Starting Strength; the joined unit cannot embark in a transport."
+  },
+  {
+    "ability_key": "datasheet:support-weapon",
+    "mechanic_digest": "ce288b56d2533ac7f1ad55b7bd0e411d",
+    "name": "Support Weapon",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model's unit contains another model, this model has a Toughness characteristic of 3 against attacks that target the unit."
+  },
+  {
+    "ability_key": "datasheet:sustained-assault",
+    "mechanic_digest": "27d56b667ccfbb12e57a3d86fe35432c",
+    "name": "Sustained Assault",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Melee attacks this model makes after a Charge move this turn score a Critical Hit on an unmodified Hit roll of 4+."
+  },
+  {
+    "ability_key": "datasheet:swift-demise",
+    "mechanic_digest": "d6f0e49903c70a31dee0a886f0e762d6",
+    "name": "Swift Demise",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Ranged attacks by models in this unit re-roll a Hit roll of 1, or re-roll the Hit roll entirely against the closest eligible target."
+  },
+  {
+    "ability_key": "datasheet:tactical-acumen",
+    "mechanic_digest": "9263e1e899e46140fe95a98a3f7872c5",
+    "name": "Tactical Acumen",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model leads a unit, after that unit shoots, it can make a Normal move of up to 6\"; if it does, it cannot charge this turn."
+  },
+  {
+    "ability_key": "datasheet:target-acquisition",
+    "mechanic_digest": "1b5210233047fb9907b6ee7dafd5d2c3",
+    "name": "Target Acquisition",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "After this unit shoots, pick an enemy unit hit by its long rifle attacks; until end of phase that unit cannot claim Benefit of Cover."
+  },
+  {
+    "ability_key": "datasheet:tears-of-isha-psychic",
+    "mechanic_digest": "ef1681826ed8a9a5a046c0c575b201c3",
+    "name": "Tears of Isha (Psychic)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "In your Command phase, pick a friendly Wraith Construct unit within 6\", once per turn; return a destroyed model to it, or heal a model up to D3 wounds if none were lost."
+  },
+  {
+    "ability_key": "datasheet:the-bloody-handed-aura",
+    "mechanic_digest": "bc1593f3642202cac8d543ca7ecf4c75",
+    "name": "The Bloody-Handed (Aura)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While a friendly Aeldari unit is within 6\" of this model, add 1 to Advance and Charge rolls made for that unit."
+  },
+  {
+    "ability_key": "datasheet:the-path-least-travelled",
+    "mechanic_digest": "784a2bac5f7d040cea43e98b1bc71c23",
+    "name": "The Path Least Travelled",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "After deployment and determining first turn, redeploy one eligible Ranger-type unit, optionally placing it in Strategic Reserves regardless of the normal limit."
+  },
+  {
+    "ability_key": "datasheet:the-scorpions-bite",
+    "mechanic_digest": "cdaa63ffbc79c4cfd8913bc242ddbe70",
+    "name": "The Scorpion’s Bite",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Melee weapons equipped by the bearer gain the Devastating Wounds ability against non-Titanic units."
+  },
+  {
+    "ability_key": "datasheet:titan-hunter",
+    "mechanic_digest": "e663effbbf39bb37d8e88799ec59fe4e",
+    "name": "Titan Hunter",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "This model's ranged attacks gain a bonus against heavy targets that varies by model: either a re-roll of the Damage roll (or of a Damage roll of 1) against Monster and Vehicle models, or Anti-Titanic 3+ within half range."
+  },
+  {
+    "ability_key": "datasheet:titanic-advance",
+    "mechanic_digest": "cf542c667e09558da5caec0a56207ea7",
+    "name": "Titanic Advance",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When this model makes a Normal, Advance, or Fall Back move, it can move over non-Titanic models and terrain 4\" or less in height as if they were not there."
+  },
+  {
+    "ability_key": "datasheet:titanic-agility",
+    "mechanic_digest": "b031c77904ca1fcd06a381cd2335324f",
+    "name": "Titanic Agility",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When this model makes a Normal, Advance, or Fall Back move, it can move through models and terrain, entering but not ending within Engagement Range of enemy models."
+  },
+  {
+    "ability_key": "datasheet:titanic-strides",
+    "mechanic_digest": "85483c3c719e9a3b82c3b413d01b0996",
+    "name": "Titanic Strides",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When this model makes a Normal, Advance, or Fall Back move, it can move through non-Titanic models and terrain up to 4\" high, or taller terrain at the risk of Battle-shock on a D6 of 1, without ending within Engagement Range."
+  },
+  {
+    "ability_key": "datasheet:tormentors",
+    "mechanic_digest": "3e9167f7ec0e43f60a83c236d1d68290",
+    "name": "Tormentors",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the start of the Fight phase, each enemy unit within Engagement Range of a unit with this ability must take a Battle-shock test."
+  },
+  {
+    "ability_key": "datasheet:towering-wraith-construct",
+    "mechanic_digest": "1edf5aa201a847e0982c313800c18d50",
+    "name": "Towering Wraith Construct",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Stratagems used against this model cost extra Command Points beyond their stated cost, with the surcharge scaling by this model's class."
+  },
+  {
+    "ability_key": "datasheet:travelling-players",
+    "mechanic_digest": "8dd38e810c12e4b88eb3df67fc11b8d9",
+    "name": "TRAVELLING PLAYERS",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Unless stated otherwise, your army cannot include more than one of this model."
+  },
+  {
+    "ability_key": "datasheet:treacherous-illusion-psychic",
+    "mechanic_digest": "933988080a11036be2c801ce8fa01600",
+    "name": "Treacherous Illusion (Psychic)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Enemy melee weapons gain the Hazardous ability while targeting this model's unit."
+  },
+  {
+    "ability_key": "datasheet:unquenchable-resolve",
+    "mechanic_digest": "e6e83d2836cd178d1b979012c5dbeb73",
+    "name": "Unquenchable Resolve",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "The first time this model is destroyed, roll a D6 at the end of the phase; on a 2+ set it back up at full wounds near where it died, outside Engagement Range."
+  },
+  {
+    "ability_key": "datasheet:war-construct",
+    "mechanic_digest": "4e04f367d72d290a16e796f78232ebb9",
+    "name": "War Construct",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "This unit is eligible to shoot in a turn in which it Fell Back."
+  },
+  {
+    "ability_key": "datasheet:wave-serpent-shield",
+    "mechanic_digest": "4c0c4b721c2ab0a9b5e15018f70f02ec",
+    "name": "Wave Serpent Shield",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Ranged attacks against this model with a Strength greater than its Toughness suffer -1 to the Wound roll."
+  },
+  {
+    "ability_key": "datasheet:way-of-the-blade",
+    "mechanic_digest": "60f679a018fb9b7acd1d56b124e446e2",
+    "name": "Way of the Blade",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model leads a unit, models in that unit have the Fights First ability."
+  },
+  {
+    "ability_key": "datasheet:way-of-the-shaper-psychic",
+    "mechanic_digest": "89659386511841c1b06414b5e86deff5",
+    "name": "Way of the Shaper (Psychic)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model leads a unit, Wraith Construct models in that unit have the Feel No Pain 6+ ability."
+  },
+  {
+    "ability_key": "datasheet:webway-shunt-generator",
+    "mechanic_digest": "132b9a6aaf09f16a54a96f04e8309505",
+    "name": "Webway Shunt Generator",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per battle, at the end of the opponent's turn, if not in Engagement Range, remove this model and place it in Strategic Reserves."
+  },
+  {
+    "ability_key": "datasheet:webway-strike",
+    "mechanic_digest": "d1eea7ac88c06d8e62ccaf9d7a7f9c92",
+    "name": "Webway Strike",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "A friendly Aeldari unit arriving from Strategic Reserves may instead set up wholly within 6\" of this Fortification, even within 9\" or Engagement Range of enemies; doing the latter counts as a charge, letting it fight this turn."
+  },
+  {
+    "ability_key": "datasheet:whirling-death",
+    "mechanic_digest": "270dc4e2203a2281183f1eb4a49a7e00",
+    "name": "Whirling Death",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model leads a unit, when it Advances, skip the Advance roll and add 6\" to its Move characteristic instead, ignoring vertical distance for that move."
+  },
+  {
+    "ability_key": "datasheet:whispering-web",
+    "mechanic_digest": "7d1aaf7e3e028c0fae98504925d2ffd7",
+    "name": "Whispering Web",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "After this model shoots, pick an enemy unit it hit; until end of turn, friendly Aeldari attacks against it score a Critical Hit on an unmodified Hit roll of 5+."
+  },
+  {
+    "ability_key": "datasheet:word-of-the-phoenix-psychic",
+    "mechanic_digest": "f43ea2461c85bd630bfe194670b43b31",
+    "name": "Word of the Phoenix (Psychic)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model leads a unit, in your Command phase roll a D6: on a 2+ return D3+1 destroyed non-Support-Weapon Bodyguard models to that unit at full wounds."
+  },
+  {
+    "ability_key": "datasheet:yvraines-champion",
+    "mechanic_digest": "345dd6b0e6904265c6a94620faf8b2c7",
+    "name": "Yvraine’s Champion",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model leads a unit, other Character models attached to that unit have the Feel No Pain 4+ ability."
+  }
+]

@@ -1,0 +1,263 @@
+[
+  {
+    "ability_key": "datasheet:book-of-salvation",
+    "mechanic_digest": "d07b46e8a9e8d6ecc484009eb10f5ade",
+    "name": "Book of Salvation",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While leading a unit, melee weapons of models in it gain +1 Attacks; if this model is destroyed, each friendly Adeptus Astartes unit within 6\" must take a Battle-shock test."
+  },
+  {
+    "ability_key": "datasheet:braziers-of-judgement",
+    "mechanic_digest": "bb9c4a4da2cd1f34cfd956ad2bb0247b",
+    "name": "Braziers of Judgement",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While a Character leads this unit, attacks targeting this unit suffer -1 to the Hit roll."
+  },
+  {
+    "ability_key": "datasheet:dark-angels-bodyguard",
+    "mechanic_digest": "ad95c9b3957ac5af0d66104c0764ccc8",
+    "name": "Dark Angels Bodyguard",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While within 3\" of a friendly Adeptus Astartes Infantry unit, this model has the Lone Operative ability."
+  },
+  {
+    "ability_key": "datasheet:deathwing",
+    "mechanic_digest": "067ed40a46cd014ec14e951b1d691dd5",
+    "name": "Deathwing",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "This unit's attacks can ignore modifiers to Ballistic Skill, Weapon Skill, or the Hit roll; attacks against the unit selected for Oath of Moment also get +1 to Hit."
+  },
+  {
+    "ability_key": "datasheet:engulfing-fear-psychic",
+    "mechanic_digest": "f04238e1d888b96edec47c99cbcd7581",
+    "name": "Engulfing Fear (Psychic)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "In your Shooting phase, force one enemy unit within 18\" of this model to take a Battle-shock test."
+  },
+  {
+    "ability_key": "datasheet:enmity-for-the-unworthy",
+    "mechanic_digest": "071b367a1d8cdbafc899ec08211c21e4",
+    "name": "Enmity for the Unworthy",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "This unit's attacks against Character units get +1 to the Hit roll."
+  },
+  {
+    "ability_key": "datasheet:exemplar-of-hate",
+    "mechanic_digest": "bd23b20fabca4dfae9a8bbf1befa70da",
+    "name": "Exemplar of Hate",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While leading a unit, melee attacks by models in that unit can re-roll the Hit roll."
+  },
+  {
+    "ability_key": "datasheet:feared-interrogator",
+    "mechanic_digest": "9cec4562cb5f98ba5816080e6307373e",
+    "name": "Feared Interrogator",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the start of the Fight phase, each enemy Character unit within 6\" of this model must take a Battle-shock test at -1; destroying an enemy Character with a melee attack grants 1CP."
+  },
+  {
+    "ability_key": "datasheet:grand-master-of-the-deathwing",
+    "mechanic_digest": "a9ebb76117ef14529de7501d50dc277d",
+    "name": "Grand Master of the Deathwing",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While leading a unit, attacks by models in it that score a Critical Hit gain the Precision ability."
+  },
+  {
+    "ability_key": "datasheet:grand-master-of-the-ravenwing",
+    "mechanic_digest": "a44537ecd9af313f11e1b4edbe601b81",
+    "name": "Grand Master of the Ravenwing",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While leading a unit, that unit can shoot and charge in a turn it Advanced; if already able to do so, add 1 to its Advance and Charge rolls instead."
+  },
+  {
+    "ability_key": "datasheet:honour-or-death",
+    "mechanic_digest": "75f638c8d24adefeddf4b39e86e1da14",
+    "name": "Honour or Death",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this unit includes a Champion-type model, add 1 to its Advance and Charge rolls, and it can be targeted with the Heroic Intervention Stratagem for 0CP, sometimes even after that Stratagem was already used this phase."
+  },
+  {
+    "ability_key": "datasheet:icon-of-old-caliban-aura",
+    "mechanic_digest": "bc10a1547ef9c4f7630d915fb33f25f8",
+    "name": "Icon of Old Caliban (Aura)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While a friendly Adeptus Astartes unit is within 6\" of this model, it has the Stealth ability and Benefit of Cover against ranged attacks."
+  },
+  {
+    "ability_key": "datasheet:inner-circle",
+    "mechanic_digest": "df8f121d163f03ee44f34b9023ff79ff",
+    "name": "Inner Circle",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Attacks allocated to a model in this unit have their Damage characteristic reduced by 1."
+  },
+  {
+    "ability_key": "datasheet:intractable-will",
+    "mechanic_digest": "fb8f1f100ef333a1430bb6a64eb4d2b3",
+    "name": "Intractable Will",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While leading a unit, when a model in it that has not yet fought is destroyed by a melee attack, roll a D6: on a 4+ it fights after the attacker before being removed from play."
+  },
+  {
+    "ability_key": "datasheet:knights-of-caliban",
+    "mechanic_digest": "8cb4ee22825ac13879d09e7904d1bd01",
+    "name": "Knights of Caliban",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "If this unit made a Charge move this turn, its melee weapons gain Anti-Monster 4+ and Anti-Vehicle 4+ for the rest of the phase when it fights."
+  },
+  {
+    "ability_key": "datasheet:lightning-fast-manoeuvres",
+    "mechanic_digest": "580ee3677b56202a456e00ffa86b3eb5",
+    "name": "Lightning-fast Manoeuvres",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Ranged attacks targeting this model suffer -1 to the Hit roll, and a further -1 to the Wound roll if made by a model that can Fly."
+  },
+  {
+    "ability_key": "datasheet:martial-exemplar-aura",
+    "mechanic_digest": "518f6a10695d6e8031d5511c8ad51294",
+    "name": "Martial Exemplar (Aura)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While a friendly Adeptus Astartes unit is within 6\" of this model, its melee attacks re-roll Hit rolls of 1 and Wound rolls of 1."
+  },
+  {
+    "ability_key": "datasheet:masterful-tactician",
+    "mechanic_digest": "4c8136b4973369dd3121c9bd4e3b49f7",
+    "name": "Masterful Tactician",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the start of your Command phase, while this model is on the battlefield, gain 1CP."
+  },
+  {
+    "ability_key": "datasheet:mist-wreathed-shadow-realms",
+    "mechanic_digest": "2b94c2b0bcff73559e4cc89b2ea12348",
+    "name": "Mist-wreathed Shadow Realms",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "In your Command phase, if this unit is outside Engagement Range of all enemies, you can remove it from the battlefield and place it into Strategic Reserves."
+  },
+  {
+    "ability_key": "datasheet:no-hiding-from-the-watchers-aura",
+    "mechanic_digest": "1086442994a4dd3d143c5e79c399709f",
+    "name": "No Hiding From the Watchers (Aura)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While a friendly Adeptus Astartes unit is within 6\" of this model, it has Feel No Pain 4+ against mortal wounds."
+  },
+  {
+    "ability_key": "datasheet:primarch-of-the-first-legion",
+    "mechanic_digest": "06d7d77d4ed1a5e86cd41636d907d03c",
+    "name": "Primarch of the First Legion",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the start of your Command phase, choose two Primarch of the First Legion abilities for this model to have until your next Command phase."
+  },
+  {
+    "ability_key": "datasheet:stasis-bomb",
+    "mechanic_digest": "66ad106b7de7aae2f6d368e45ab72273",
+    "name": "Stasis Bomb",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per battle, after a Normal move, target one enemy unit (not Aircraft) moved over: it suffers D3 mortal wounds, then on a D6 either cannot Advance/Fall Back or must Remain Stationary next opponent Movement phase."
+  },
+  {
+    "ability_key": "datasheet:storm-of-vengeance",
+    "mechanic_digest": "861d1e7c11ac2410f0d04cc75908ee58",
+    "name": "Storm of Vengeance",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per turn in the opponent's Shooting phase, if a friendly Adeptus Astartes unit within 6\" of this model is destroyed (and this model is not), it can shoot back at the attacking unit as if it were your Shooting phase."
+  },
+  {
+    "ability_key": "datasheet:strikes-of-retribution",
+    "mechanic_digest": "da90fdd6b1ecf257575f62f3566eeec9",
+    "name": "Strikes of Retribution",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When a melee attack is allocated to this model, after the attacker finishes its attacks, roll up to six D6: each 4+ deals 1 mortal wound to the attacking unit."
+  },
+  {
+    "ability_key": "datasheet:supreme-grand-master",
+    "mechanic_digest": "df259011937ffca1a0f64a89f66133cd",
+    "name": "Supreme Grand Master",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While leading a unit, weapons equipped by models in that unit gain Sustained Hits 1."
+  },
+  {
+    "ability_key": "datasheet:the-emperors-shield",
+    "mechanic_digest": "77e9e35b9506db341917fc51e71414d9",
+    "name": "The Emperor’s Shield",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When an attack with higher Strength than this model's Toughness is allocated to it, subtract 1 from the Wound roll."
+  },
+  {
+    "ability_key": "datasheet:the-lion-helm",
+    "mechanic_digest": "a818a90b9d739412c0ab96b96cd0e9fd",
+    "name": "The Lion Helm",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "The bearer's unit has a 4+ invulnerable save; once per battle, in any phase, the bearer can summon a Watcher in the Dark to grant that unit Feel No Pain 4+ against mortal wounds until the end of the phase."
+  },
+  {
+    "ability_key": "datasheet:the-spiritshield-helm",
+    "mechanic_digest": "66f160a3042b0cc701c288be383995ab",
+    "name": "The Spiritshield Helm",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "This model has Feel No Pain 3+ against Psychic Attacks and mortal wounds."
+  },
+  {
+    "ability_key": "datasheet:watcher-in-the-dark",
+    "mechanic_digest": "a4ecf89ac7560f4aef2560110dc08a9a",
+    "name": "Watcher in the Dark",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per battle, in any phase, just after a mortal wound is allocated to a model in this unit, summon a Watcher in the Dark to grant Feel No Pain 4+ against mortal wounds until the end of the phase."
+  }
+]

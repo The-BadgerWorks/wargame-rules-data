@@ -1,0 +1,245 @@
+[
+  {
+    "ability_key": "datasheet:a-challenge-worthy-of-skill",
+    "mechanic_digest": "0e2a048062921fb7e1218a41bab09aad",
+    "name": "A Challenge Worthy of Skill",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Each attack this model makes against a Character, Monster, or Walker unit can have both its Hit roll and its Wound roll re-rolled."
+  },
+  {
+    "ability_key": "datasheet:beguiling-form",
+    "mechanic_digest": "a80e06720dfd82053545e1e9e52242fa",
+    "name": "Beguiling Form",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Each attack that targets this model has -1 applied to its Hit roll."
+  },
+  {
+    "ability_key": "datasheet:daemon-primarch-of-slaanesh",
+    "mechanic_digest": "be8e313638e63737778298252494a3d4",
+    "name": "Daemon Primarch of Slaanesh",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the start of the opponent's Command phase, select one ability from this model's Daemon Primarch of Slaanesh list; this model has that ability until the opponent's next Command phase."
+  },
+  {
+    "ability_key": "datasheet:daemonic-patrons",
+    "mechanic_digest": "ec3ae81a2c5f8c1d11562cf812e0f37c",
+    "name": "Daemonic Patrons",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When this unit is selected to fight, it may call on daemonic patrons: until the end of the phase, an unmodified Wound roll of 3+ scores a Critical Wound, but if no enemy models are destroyed that phase, one model in this unit is destroyed."
+  },
+  {
+    "ability_key": "datasheet:daemonic-poisons",
+    "mechanic_digest": "9863c3753da48b89d849637954aec76e",
+    "name": "Daemonic Poisons",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "After this model attacks in the Shooting or Fight phase, one hit enemy unit becomes poisoned for the rest of the battle; each Command phase, roll a D6 for it and on a 4+ it suffers D3 mortal wounds."
+  },
+  {
+    "ability_key": "datasheet:daemonic-speed",
+    "mechanic_digest": "67409ba6abae4d38ba35b4b2b21667e5",
+    "name": "Daemonic Speed",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "This model has the Fights First ability."
+  },
+  {
+    "ability_key": "datasheet:doom-siren",
+    "mechanic_digest": "3c9a6525c2c55450aee9c2e299685560",
+    "name": "Doom Siren",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "After this model's unit shoots, select one hit enemy Infantry unit and roll three D6: each 4+ deals it 1 mortal wound, and if it suffers any mortal wounds this way it must take a Battle-shock test."
+  },
+  {
+    "ability_key": "datasheet:duellists-hubris",
+    "mechanic_digest": "e75d7baf2dd481f20edb0e2a658415eb",
+    "name": "Duellist’s Hubris",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the start of the Fight phase, if this model is not leading a unit, it has the Fights First ability until the end of the phase."
+  },
+  {
+    "ability_key": "datasheet:ecstatic-death",
+    "mechanic_digest": "33e645f394f2aea22f7f4ef2c0090dac",
+    "name": "Ecstatic Death",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "If this model is destroyed by a melee attack before it has fought this phase, roll a D6: on a 2+ it is not removed yet, and instead fights after the attacking unit finishes, then is removed from play."
+  },
+  {
+    "ability_key": "datasheet:enthralling-hypnosis-aura",
+    "mechanic_digest": "48d18ee98b297f755cb97c90bc2541d3",
+    "name": "Enthralling Hypnosis (Aura)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While an enemy unit is within 6\" of this model, each time it is selected to Fall Back it must take a Leadership test; if failed, it must Remain Stationary that phase instead."
+  },
+  {
+    "ability_key": "datasheet:euphoric-strikes",
+    "mechanic_digest": "fb18d2129b1e19606a9b201d2c4ad8b6",
+    "name": "Euphoric Strikes",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per battle, at the start of the Fight phase, this model can add 3 to the Attacks characteristic and improve the Armour Penetration by 1 of its melee weapons until the end of the phase."
+  },
+  {
+    "ability_key": "datasheet:excessive-assault",
+    "mechanic_digest": "e4df213abd483b05231e7c7045af81b7",
+    "name": "Excessive Assault",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Each melee attack a model in this unit makes can re-roll a Wound roll of 1, or re-roll the Wound roll entirely if the target is within range of an objective marker."
+  },
+  {
+    "ability_key": "datasheet:excessive-vigour-aura",
+    "mechanic_digest": "6a1310da2490fbfa8e1fe1772d44d930",
+    "name": "Excessive Vigour (Aura)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While a friendly Slaanesh unit that made a Charge move this turn is within 6\" of this model, melee weapons equipped by models in that unit have their Armour Penetration improved by 1."
+  },
+  {
+    "ability_key": "datasheet:glutton-for-punishment",
+    "mechanic_digest": "2ea358fed1bed1bfb4bbb45138a2e723",
+    "name": "Glutton for Punishment",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Each attack this model makes gains +1 to the Hit roll if it is below its Starting Strength, and also +1 to the Wound roll if it is Below Half-strength."
+  },
+  {
+    "ability_key": "datasheet:icon-of-excess",
+    "mechanic_digest": "600745f6c8310d0b540dbc51c110e269",
+    "name": "Icon of Excess",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the end of your Shooting phase or Fight phase, if the bearer's unit destroyed an enemy unit that phase, it takes a Leadership test; if passed, you gain 1CP."
+  },
+  {
+    "ability_key": "datasheet:lethal-obsession",
+    "mechanic_digest": "4251d7fef1b744c82c43731f5003691d",
+    "name": "Lethal Obsession",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "If this unit's ranged attacks in your Shooting phase all target the same enemy unit, it can re-roll the Charge roll when charging that unit later this turn."
+  },
+  {
+    "ability_key": "datasheet:lord-of-excess",
+    "mechanic_digest": "fa11d5cc162fa90f92df61189832328c",
+    "name": "Lord of Excess",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model is within 3\" of one or more friendly Slaanesh Infantry units, it has the Lone Operative ability."
+  },
+  {
+    "ability_key": "datasheet:lord-of-the-host",
+    "mechanic_digest": "95c1dcd602fe34e70cfa299191e25a2f",
+    "name": "LORD OF THE HOST",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "If this model is attached to an Emperor's Children Battleline unit during the Declare Battle Formations step, it gains the Infiltrators and Scouts 6\" abilities."
+  },
+  {
+    "ability_key": "datasheet:objective-defiled",
+    "mechanic_digest": "4c6281128b5b6d40d9fd23219f1e13d9",
+    "name": "Objective Defiled",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the end of your Command phase, if this unit is within range of an objective marker you control, you retain control of it until the opponent's Level of Control there exceeds yours."
+  },
+  {
+    "ability_key": "datasheet:obsessive-annunciation",
+    "mechanic_digest": "4a222b1541905ed745404dc54b7e8e28",
+    "name": "Obsessive Annunciation",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model leads a unit, ranged weapons equipped by models in that unit have the Sustained Hits 1 ability."
+  },
+  {
+    "ability_key": "datasheet:perfectionists",
+    "mechanic_digest": "12e87fe25987f213165113cf413204f4",
+    "name": "Perfectionists",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model leads a unit, weapons equipped by models in that unit have the Lethal Hits ability."
+  },
+  {
+    "ability_key": "datasheet:revel-in-desecration",
+    "mechanic_digest": "9d1373229a3f70a23508f54641893f13",
+    "name": "Revel in Desecration",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Each attack this model makes against an enemy unit that is not Below Half-strength gains +1 to the Hit roll."
+  },
+  {
+    "ability_key": "datasheet:scuttling-horrors",
+    "mechanic_digest": "ae5ed4765bf7151265dd0760d345d9d0",
+    "name": "Scuttling Horrors",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per turn, when an enemy unit ends a Normal, Advance, or Fall Back move within 9\" of this unit, this unit can make a Normal move of up to 6\"."
+  },
+  {
+    "ability_key": "datasheet:serpentine",
+    "mechanic_digest": "6188352cf6952ae994405e795bcbdb27",
+    "name": "Serpentine",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Each time this model makes a Normal, Advance, or Fall Back move, it can move across terrain features that are 4\" or less in height."
+  },
+  {
+    "ability_key": "datasheet:stimulated-by-pain",
+    "mechanic_digest": "a7334678c134ee9708bc6adc8bb83a26",
+    "name": "Stimulated by Pain",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Each attack allocated to this model has its Damage characteristic reduced by 1."
+  },
+  {
+    "ability_key": "datasheet:warped-interference-psychic",
+    "mechanic_digest": "f5828d1a2890c2dc551be3902e8d4d9b",
+    "name": "Warped Interference (Psychic)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model leads a unit, models in that unit have the Benefit of Cover against ranged attacks that target it."
+  },
+  {
+    "ability_key": "datasheet:wracking-agonies-psychic",
+    "mechanic_digest": "830ac430a3a988f26849cf5d58e02df9",
+    "name": "Wracking Agonies (Psychic)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "After this model shoots, select one hit enemy Infantry unit struck by its Agonising Energies: until your next turn, that unit has -2\" Move and -2 to Charge rolls made for it."
+  }
+]

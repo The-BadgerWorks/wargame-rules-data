@@ -1,0 +1,263 @@
+[
+  {
+    "ability_key": "datasheet:acherons-duty-bondsman",
+    "mechanic_digest": "b2058ab06d2dd499d444b57e23fc46b1",
+    "name": "Acheron’s Duty (Bondsman)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While bonded, at the start of the Fight phase every enemy unit within Engagement Range of this model must take a Battle-shock test with a -1 penalty."
+  },
+  {
+    "ability_key": "datasheet:aggressive-assault",
+    "mechanic_digest": "2a819372bcb7292ae2f067ad76409685",
+    "name": "Aggressive Assault",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Each time this model makes a ranged attack against the closest eligible target, add 1 to the Hit roll."
+  },
+  {
+    "ability_key": "datasheet:atrapos-duty-bondsman",
+    "mechanic_digest": "7d64c2b3acf71a80416267b60c4954be",
+    "name": "Atrapos’ Duty (Bondsman)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While bonded, this model can re-roll both the Hit roll and the Wound roll when attacking a Titanic or Towering model."
+  },
+  {
+    "ability_key": "datasheet:castigators-duty-bondsman",
+    "mechanic_digest": "a412793a7d1a7e0dac66819a5ed7120a",
+    "name": "Castigator’s Duty (Bondsman)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While bonded, this model's ranged weapons gain the Sustained Hits 1 ability and their Armour Penetration improves by 1."
+  },
+  {
+    "ability_key": "datasheet:chainbreaker",
+    "mechanic_digest": "5d6e1158c175fe8cc50531ca26d5b5b5",
+    "name": "Chainbreaker",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per battle, at the start of any phase, remove the Battle-shocked condition from one friendly Imperium unit within 12\" of this model."
+  },
+  {
+    "ability_key": "datasheet:crusaders-duty-bondsman",
+    "mechanic_digest": "14e76d7201d9aa8d8d73e775b9877f43",
+    "name": "Crusader’s Duty (Bondsman)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While bonded, this model adds 1 to the Hit roll for each of its ranged attacks."
+  },
+  {
+    "ability_key": "datasheet:defenders-duty-bondsman",
+    "mechanic_digest": "8054b0924a208713d9288d238af74277",
+    "name": "Defender’s Duty (Bondsman)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While bonded, subtract 1 from the Damage characteristic of each attack allocated to this model."
+  },
+  {
+    "ability_key": "datasheet:errants-duty-bondsman",
+    "mechanic_digest": "ff1f63d6c82dad75c5ccfa2db7399a8a",
+    "name": "Errant’s Duty (Bondsman)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While bonded, this model can re-roll Advance rolls and its ranged weapons gain the Assault ability."
+  },
+  {
+    "ability_key": "datasheet:exemplar-of-the-code",
+    "mechanic_digest": "15d377efc8094653330237a6c51556bd",
+    "name": "Exemplar of the Code",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the start of the battle, choose an enemy unit as this model's quarry; re-roll Wound rolls against it, and pick a new quarry whenever the current one is destroyed."
+  },
+  {
+    "ability_key": "datasheet:gallants-duty-bondsman",
+    "mechanic_digest": "68030b4790a87f3c61b153ee31992df1",
+    "name": "Gallant’s Duty (Bondsman)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While bonded, this model can re-roll Charge rolls and re-roll Hit rolls for its melee attacks."
+  },
+  {
+    "ability_key": "datasheet:impetuous-glory",
+    "mechanic_digest": "97b88d23885039093085d48dc5a2c4f4",
+    "name": "Impetuous Glory",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "After this model makes a Charge move, until end of turn add 1 Attack to its reaper chain-cleaver strike profile and 2 Attacks to its sweep profile."
+  },
+  {
+    "ability_key": "datasheet:ion-aegis-aura",
+    "mechanic_digest": "03564f96ad70c414b24834211c064f67",
+    "name": "Ion Aegis (Aura)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While a friendly Armiger model is within 6\" of this model, ranged attacks against that Armiger treat it as having Benefit of Cover."
+  },
+  {
+    "ability_key": "datasheet:lancers-duty-bondsman",
+    "mechanic_digest": "66f47d9e58ddc6f3c2e5185a377d138c",
+    "name": "Lancer’s Duty (Bondsman)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While bonded, this model is eligible to declare a charge in a turn in which it Advanced."
+  },
+  {
+    "ability_key": "datasheet:legendary-freeblade",
+    "mechanic_digest": "3ca692fb6d0c5d13ea48b3a268b471c1",
+    "name": "Legendary Freeblade",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per turn, when you target this model with a Stratagem, you can reduce that Stratagem's Command Point cost by 1."
+  },
+  {
+    "ability_key": "datasheet:magaeras-duty-bondsman",
+    "mechanic_digest": "40c4cc21c51732af0526a7ff0d46ef14",
+    "name": "Magaera’s Duty (Bondsman)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While bonded, ranged attacks this model makes against the closest eligible target get +1 Strength and +1 Armour Penetration."
+  },
+  {
+    "ability_key": "datasheet:martial-pride",
+    "mechanic_digest": "0f801c3fcc9433998f29085c868bd51c",
+    "name": "Martial Pride",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When this unit Consolidates, models can move up to 3\" further, provided the unit ends the move within Engagement Range of an enemy unit."
+  },
+  {
+    "ability_key": "datasheet:mentor-bondsman",
+    "mechanic_digest": "12c2f4308fa15db9d7d7c4407b785502",
+    "name": "Mentor (Bondsman)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While bonded, models with this ability re-roll Wound rolls when attacking this model's quarry."
+  },
+  {
+    "ability_key": "datasheet:paladins-duty-bondsman",
+    "mechanic_digest": "86259c6930f06595550333739bad2130",
+    "name": "Paladin’s Duty (Bondsman)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While bonded, this model's weapons gain the Lethal Hits ability, and its melee weapons also gain the Lance ability."
+  },
+  {
+    "ability_key": "datasheet:punishing-salvoes",
+    "mechanic_digest": "df6bc0ca482c8baad7322011c352f9af",
+    "name": "Punishing Salvoes",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "If this model Remains Stationary in the Movement phase, its ranged weapons gain the Sustained Hits 1 ability until end of turn."
+  },
+  {
+    "ability_key": "datasheet:ram-jets",
+    "mechanic_digest": "a4790be8e9bdc0c75d1582d01da69774",
+    "name": "Ram Jets",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Each time this model makes a Normal or Advance move, add D3\" to its Move characteristic for that move."
+  },
+  {
+    "ability_key": "datasheet:saturation-fire",
+    "mechanic_digest": "8ed151bbb599c7565d7adbd0da95d3da",
+    "name": "Saturation Fire",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Ranged attacks this model makes against a unit within range of an objective marker gain the Ignores Cover ability."
+  },
+  {
+    "ability_key": "datasheet:seasoned-noble",
+    "mechanic_digest": "9b4185364ebce530b1664a92378a9de5",
+    "name": "Seasoned Noble",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Ranged attacks this model makes against the closest eligible target get +1 to their Armour Penetration."
+  },
+  {
+    "ability_key": "datasheet:selfless-protector",
+    "mechanic_digest": "3d2ba2f421562cefc20685c3ec132e41",
+    "name": "Selfless Protector",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "If this model blocks visibility to a friendly Imperial Knights model targeted by a ranged attack, that model gains Benefit of Cover and a 4+ invulnerable save against the attack."
+  },
+  {
+    "ability_key": "datasheet:styrixs-duty-bondsman",
+    "mechanic_digest": "3e702d16302c57ee5febcd6491f0f7d8",
+    "name": "Styrix’s Duty (Bondsman)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While bonded, after this model shoots or fights, pick an enemy unit it hit; that unit must take a Battle-shock test with a -1 penalty."
+  },
+  {
+    "ability_key": "datasheet:suppression-protocols",
+    "mechanic_digest": "62598f30428e725d9244c0911a33ea78",
+    "name": "Suppression Protocols",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "After this model shoots, pick an enemy unit (not a Monster or Vehicle) hit by its Armiger autocannon attacks; until your next turn that unit subtracts 1 from Hit rolls it makes."
+  },
+  {
+    "ability_key": "datasheet:thin-their-ranks",
+    "mechanic_digest": "53ebee03979f7953daaf82892b234a37",
+    "name": "Thin Their Ranks",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Ranged attacks this model makes against enemy units, excluding Monsters and Vehicles, gain the Devastating Wounds ability."
+  },
+  {
+    "ability_key": "datasheet:thundercharge",
+    "mechanic_digest": "50cef542eeb8e913152970fa4d942a49",
+    "name": "Thundercharge",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "If equipped with both a thundershock spear and a bellatus reaper chainsword, this model's melee weapons get +2 Attacks."
+  },
+  {
+    "ability_key": "datasheet:thundershock",
+    "mechanic_digest": "645ff9807e5eddc91233f38b9e3160cc",
+    "name": "Thundershock",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When this model targets with its thundercoil harpoon, roll a D6 for the target and each enemy unit within 6\" of it; on a 4+ that unit suffers D3 mortal wounds after this model's attacks resolve."
+  },
+  {
+    "ability_key": "datasheet:wardens-duty-bondsman",
+    "mechanic_digest": "a68eb11fc33d0aeaaab1a52990a22b43",
+    "name": "Warden’s Duty (Bondsman)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While bonded, this model's weapons gain the Sustained Hits 1 ability, and its ranged weapons also gain Ignores Cover."
+  }
+]

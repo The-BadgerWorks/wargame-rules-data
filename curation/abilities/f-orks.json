@@ -1,0 +1,1109 @@
+[
+  {
+    "ability_key": "datasheet:ammo-runt",
+    "mechanic_digest": "f413ba5c8d9e53a3911423b97b5091cb",
+    "name": "Ammo Runt",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per battle for each Ammo Runt token this unit has, its ranged weapons can gain the Lethal Hits ability until the end of the phase when it is selected to shoot."
+  },
+  {
+    "ability_key": "datasheet:ard-case",
+    "mechanic_digest": "dc3830b50e5efc13ac0ab93d8af431db",
+    "name": "’Ard Case",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "The bearer gains +2 Toughness but loses the Firing Deck ability."
+  },
+  {
+    "ability_key": "datasheet:beastboss",
+    "mechanic_digest": "3f67b79f9a024f19e42b4f1c486536cf",
+    "name": "Beastboss",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While attached to a unit, melee attacks made by models in that unit gain +1 to the Hit roll."
+  },
+  {
+    "ability_key": "datasheet:beastly-rage",
+    "mechanic_digest": "fef954a5497519e92a58b60df0423c3f",
+    "name": "Beastly Rage",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "After this model makes a Charge move, its melee weapons gain the Devastating Wounds ability until the end of the turn."
+  },
+  {
+    "ability_key": "datasheet:big-an-shooty",
+    "mechanic_digest": "63d137a1e71d6792d1f89da136c5e4f5",
+    "name": "Big an’ Shooty",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Ranged attacks from this model gain +1 to the Hit roll while the Waaagh! is active for your army."
+  },
+  {
+    "ability_key": "datasheet:big-an-stompy",
+    "mechanic_digest": "ccc849eb28b9ac3bf667901d00fd517c",
+    "name": "Big an’ Stompy",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Melee attacks from this model gain +1 to the Hit roll while the Waaagh! is active for your army."
+  },
+  {
+    "ability_key": "datasheet:big-bomms",
+    "mechanic_digest": "52d8ad9ff0eb49eb4b175d163dc4a971",
+    "name": "Big Bomms",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per battle, after this model moves over an enemy unit, roll six dice: each 4+ deals that unit 1 mortal wound."
+  },
+  {
+    "ability_key": "datasheet:big-booms",
+    "mechanic_digest": "5dbb98dbaf242ee4f62602d63209803d",
+    "name": "Big Booms",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When this model's main gun selects a target, that unit and others within 3\" can be struck by a concussive wave on a 5+; after the attack resolves, each struck unit suffers D3 mortal wounds."
+  },
+  {
+    "ability_key": "datasheet:big-gunz",
+    "mechanic_digest": "fcdb742a2fee80ce53d7883c4cc73a0f",
+    "name": "BIG GUNZ",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Each gun model in this unit starts with two Grot Crew tokens, removing one whenever the gun model loses a wound."
+  },
+  {
+    "ability_key": "datasheet:bizarrely-resilient",
+    "mechanic_digest": "5b578e9fb2c9609eee77bc6ea84c3988",
+    "name": "Bizarrely Resilient",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Attacks that target this model have their Armour Penetration worsened by 1."
+  },
+  {
+    "ability_key": "datasheet:blastajet-attack-run",
+    "mechanic_digest": "ba7a2d445c09903e1b7e35177d39d16f",
+    "name": "Blastajet Attack Run",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Ranged attacks from this model against a unit that cannot FLY re-roll a Hit roll of 1."
+  },
+  {
+    "ability_key": "datasheet:blastajet-force-field",
+    "mechanic_digest": "2cb497beca2264a9a0174211f50f62fd",
+    "name": "Blastajet Force Field",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "The bearer gains a 4+ invulnerable save but loses the Grenades keyword."
+  },
+  {
+    "ability_key": "datasheet:bomb-squigs",
+    "mechanic_digest": "fb232f8c500d3de9e541362f868972a0",
+    "name": "Bomb Squigs",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per battle for each Bomb Squig token this unit has, after it moves, it can target a visible enemy unit within 12\": on a 3+ that unit suffers D3 mortal wounds."
+  },
+  {
+    "ability_key": "datasheet:boom-bomb",
+    "mechanic_digest": "075d56e70413749a4e79053362849824",
+    "name": "Boom Bomb",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "After this model moves over an enemy unit, on a 4+ roll that unit suffers D6 mortal wounds."
+  },
+  {
+    "ability_key": "datasheet:bubblechukka",
+    "mechanic_digest": "7d67bea98693b6721d0131788df3d39c",
+    "name": "Bubblechukka",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Before this weapon's models select targets, roll a die to determine which of its listed profiles they attack with."
+  },
+  {
+    "ability_key": "datasheet:burna-bomb",
+    "mechanic_digest": "33e710883f635fd88b861172114a41e1",
+    "name": "Burna Bomb",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "After this model moves over an enemy unit, that unit loses the Benefit of Cover until the end of the turn and suffers 1 mortal wound for each 6 rolled, one die per model in the unit."
+  },
+  {
+    "ability_key": "datasheet:buzzer-squigs",
+    "mechanic_digest": "52993517aadb10b71d7e9cff71ff9bde",
+    "name": "Buzzer Squigs",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "After this model shoots, one non-Monster, non-Vehicle enemy unit it hit with squig-launchas can be hindered on a 4+, reducing its Move by 2\" and Advance/Charge rolls by 2 until the end of your opponent's next turn."
+  },
+  {
+    "ability_key": "datasheet:clankin-forward",
+    "mechanic_digest": "06819f43c80537382bd4e758f553374d",
+    "name": "Clankin’ Forward",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "This model can move through enemy models, excluding Monsters and Vehicles, and terrain features up to 4\" tall as if they were not there."
+  },
+  {
+    "ability_key": "datasheet:da-bigger-dey-are-da-better-dey-drop",
+    "mechanic_digest": "a9265ddda19a6ca88c694e53cf19891b",
+    "name": "Da Bigger Dey Are, da Better Dey Drop",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When this model's lifta-droppa destroys an enemy model with the Deadly Demise ability, that ability triggers on a 3+ instead of a 6."
+  },
+  {
+    "ability_key": "datasheet:da-bigger-dey-iz",
+    "mechanic_digest": "8022791adf8d838cb4c95e81462eb87c",
+    "name": "Da Bigger Dey iz...",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Melee attacks from this model against a Monster or Vehicle gain +1 Damage, or +2 Damage instead if the target is Titanic."
+  },
+  {
+    "ability_key": "datasheet:da-biggest-and-da-best",
+    "mechanic_digest": "63c13ae24579ed6830b3867de4946b25",
+    "name": "Da Biggest and da Best",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While the Waaagh! is active for your army, this model's melee weapons gain +4 Attacks."
+  },
+  {
+    "ability_key": "datasheet:da-biggest-booms",
+    "mechanic_digest": "e74445050d6d3eca379dfe867ca994e9",
+    "name": "Da Biggest Booms",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When this model's main gun selects a target, that unit and other enemy Infantry within 3\" of it must take a Battle-shock test."
+  },
+  {
+    "ability_key": "datasheet:da-boss-iz-watchin",
+    "mechanic_digest": "b9c7abfbb613c2c36514a4d6f555c697",
+    "name": "Da Boss Iz Watchin’",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While benefiting from the Waaagh! ability, this model gains a 4+ invulnerable save and an Objective Control characteristic of 5."
+  },
+  {
+    "ability_key": "datasheet:da-boss-ladz",
+    "mechanic_digest": "f3fdfed8f4b06ce0c5269381485ab342",
+    "name": "Da Boss’ Ladz",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While led by a Warboss, attacks against this unit with a Strength greater than its Toughness suffer -1 to the Wound roll."
+  },
+  {
+    "ability_key": "datasheet:da-jump-psychic",
+    "mechanic_digest": "0207f733b4837c4b21dc46521336d5a0",
+    "name": "Da Jump (Psychic)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per turn, at the end of your Movement phase, a Weirdboy can teleport its unit anywhere more than 9\" from enemy models; on a roll of 1, the unit instead suffers D6 mortal wounds."
+  },
+  {
+    "ability_key": "datasheet:da-revolushun",
+    "mechanic_digest": "3f0f38a62b8d1dbfcc662e7133bab17d",
+    "name": "Da Revolushun!",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While attached to a unit, models in that unit gain +1 to their Hit rolls."
+  },
+  {
+    "ability_key": "datasheet:dakkastorm",
+    "mechanic_digest": "08bbfb6746f061d1849152b48667669a",
+    "name": "Dakkastorm",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Every successful Hit roll from this model's ranged attacks counts as a Critical Hit."
+  },
+  {
+    "ability_key": "datasheet:dats-our-loot",
+    "mechanic_digest": "6849052b609fe74f654815c907cef3e8",
+    "name": "Dat’s Our Loot!",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Ranged attacks from this unit re-roll a Hit roll of 1, or any Hit roll if the target is within range of an objective marker."
+  },
+  {
+    "ability_key": "datasheet:dead-brutal",
+    "mechanic_digest": "84494bd39f572915b481a24b352e08d4",
+    "name": "Dead Brutal",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While the Waaagh! is active for your army, this model's melee weapon has a Damage characteristic of 3."
+  },
+  {
+    "ability_key": "datasheet:dead-choppy",
+    "mechanic_digest": "a82b5c34b4941ba0804bd514e613fde2",
+    "name": "Dead Choppy",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "This weapon's Attacks characteristic increases by 1 for each additional copy of it the model is equipped with."
+  },
+  {
+    "ability_key": "datasheet:dead-rippy",
+    "mechanic_digest": "abcd85e433bd1b7206e674ab0b54897d",
+    "name": "Dead Rippy",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "If this model is equipped with two of the same named melee weapon, those weapons gain the Twin-linked ability."
+  },
+  {
+    "ability_key": "datasheet:ded-glowy-ammo-aura",
+    "mechanic_digest": "5fa2d52737ea178daab08d0f2c216643",
+    "name": "Ded Glowy Ammo (Aura)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Enemy Infantry units within 6\" of this model have their Toughness reduced by 1."
+  },
+  {
+    "ability_key": "datasheet:deff-from-above",
+    "mechanic_digest": "eb383ec8bb5289762fd48961aac2f27f",
+    "name": "Deff from Above",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "After this unit moves over an enemy unit, roll one die per model in this unit: each 4+ deals that enemy unit 1 mortal wound."
+  },
+  {
+    "ability_key": "datasheet:deranged-snotling-assault",
+    "mechanic_digest": "ddfd284ce8d3e5490f6a12e5729455e8",
+    "name": "Deranged Snotling Assault",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "After this model shoots, one enemy unit it hit must take a Battle-shock test."
+  },
+  {
+    "ability_key": "datasheet:distraction-grot",
+    "mechanic_digest": "00be6ef52f219655608056c4744104ce",
+    "name": "Distraction Grot",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per battle, before a saving throw against this unit in your opponent's Shooting phase, it can gain a 5+ invulnerable save until the end of the phase."
+  },
+  {
+    "ability_key": "datasheet:doks-toolz",
+    "mechanic_digest": "c41914e4186d3d3d14e7f6f2fc5d6380",
+    "name": "Dok’s Toolz",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While attached to a unit, models in that unit gain the Feel No Pain 5+ ability."
+  },
+  {
+    "ability_key": "datasheet:drill-boss",
+    "mechanic_digest": "3f67b79f9a024f19e42b4f1c486536cf",
+    "name": "Drill Boss",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While attached to a unit, melee attacks made by models in that unit gain +1 to the Hit roll."
+  },
+  {
+    "ability_key": "datasheet:drill-through",
+    "mechanic_digest": "c75dbf533f77b7ff08239c36dde767e2",
+    "name": "Drill Through",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "After this model ends a Charge move, it can target an engaged enemy unit and roll a die: a 2-5 deals D3 mortal wounds, a 6 deals 3 mortal wounds."
+  },
+  {
+    "ability_key": "datasheet:drive-by-dakka",
+    "mechanic_digest": "b149bea474e4fe4fbd48e633c56a214a",
+    "name": "Drive-by Dakka",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Ranged attacks from this unit against a target within 9\" gain +1 Armour Penetration."
+  },
+  {
+    "ability_key": "datasheet:drive-by-krumpin",
+    "mechanic_digest": "e5d396c0f92278742eb08d3025ff9432",
+    "name": "Drive-by Krumpin'",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "This unit can Consolidate up to 6\" instead of the usual 3\"."
+  },
+  {
+    "ability_key": "datasheet:dust-trails-aura",
+    "mechanic_digest": "92948d5f1915b769194682bf764bafdb",
+    "name": "Dust Trails (Aura)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Enemy units, excluding Monsters and Vehicles, within 6\" of this model have -1 to their Hit rolls when they attack."
+  },
+  {
+    "ability_key": "datasheet:fix-dat-armour-up",
+    "mechanic_digest": "ce6a7788d83521406d965c211b52043a",
+    "name": "Fix Dat Armour Up",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While attached to a unit, in your Command phase you can return one destroyed non-character model to that unit."
+  },
+  {
+    "ability_key": "datasheet:fixit-da-grot",
+    "mechanic_digest": "c75360379a68d40a195e3d7b4bf659d3",
+    "name": "Fixit da Grot",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the start of your Command phase, this model regains up to D3 lost wounds."
+  },
+  {
+    "ability_key": "datasheet:flashiest-gitz",
+    "mechanic_digest": "3e699acb1cb6d043f93c19eb383e6c0a",
+    "name": "Flashiest Gitz",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While attached to a unit, ranged attacks made by models in that unit can re-roll the Hit roll."
+  },
+  {
+    "ability_key": "datasheet:fuel-mixa-grot",
+    "mechanic_digest": "1a57fda70e7e686ae69d4a35744d3d8f",
+    "name": "Fuel-mixa Grot",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Instead of rolling to Advance, this unit's Move characteristic simply increases by 6\" until the end of the phase."
+  },
+  {
+    "ability_key": "datasheet:full-throttle",
+    "mechanic_digest": "eb4a787b3e16c9f663a5abda3d20332a",
+    "name": "Full Throttle",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "This unit is eligible to declare a charge in a turn in which it Advanced or Fell Back."
+  },
+  {
+    "ability_key": "datasheet:gargantsmasha",
+    "mechanic_digest": "aacd235de71b1f6f8dd1c848f8890182",
+    "name": "Gargantsmasha",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Attacks from this model against a Titanic unit can re-roll the Hit roll and the Wound roll."
+  },
+  {
+    "ability_key": "datasheet:gargantuan",
+    "mechanic_digest": "cf542c667e09558da5caec0a56207ea7",
+    "name": "Gargantuan",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "This model can make Normal, Advance or Fall Back moves through models, excluding Titanic, and terrain features up to 4\" tall as if they were not there."
+  },
+  {
+    "ability_key": "datasheet:get-da-good-bitz",
+    "mechanic_digest": "5207bdc66ef08024e9a1625732583d38",
+    "name": "Get Da Good Bitz",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "If this unit is within range of an objective marker you control at the end of your Command phase, you retain control of it even without models present, until your opponent claims it."
+  },
+  {
+    "ability_key": "datasheet:ghazghkulls-waaagh-banner-aura",
+    "mechanic_digest": "d8255cc325f127c84c4741d78ee25722",
+    "name": "Ghazghkull’s Waaagh! Banner (Aura)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Friendly Orks units within 12\" of this named model gain the Lethal Hits ability on their melee weapons while the Waaagh! is active."
+  },
+  {
+    "ability_key": "datasheet:grot-assistant",
+    "mechanic_digest": "7affb4d0037b87122e20d5fe3f75afee",
+    "name": "Grot Assistant",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per battle, the die roll for how many attacks the bearer's signature weapon makes can be re-rolled."
+  },
+  {
+    "ability_key": "datasheet:grot-helper",
+    "mechanic_digest": "d728dab0c7564726b5e55536fc31be28",
+    "name": "Grot Helper",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per battle, the bearer can overcharge its force field ability an additional time."
+  },
+  {
+    "ability_key": "datasheet:grot-oiler",
+    "mechanic_digest": "a2cfd60b706bb6472f10143f6b32654b",
+    "name": "Grot Oiler",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per battle, at the end of your Movement phase, one model in the bearer's unit regains up to D3 lost wounds."
+  },
+  {
+    "ability_key": "datasheet:grot-orderly",
+    "mechanic_digest": "610eb026ab58f08fa7d00406ab129df4",
+    "name": "Grot Orderly",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per battle, in your Command phase, if this model leads a depleted unit, up to D3 destroyed non-character models can be returned to it."
+  },
+  {
+    "ability_key": "datasheet:grot-riggers",
+    "mechanic_digest": "be69460d2c83b6af97a619be10de2a22",
+    "name": "Grot Riggers",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the start of your Command phase, this model regains 1 lost wound."
+  },
+  {
+    "ability_key": "datasheet:gun-crazy-show-offs",
+    "mechanic_digest": "8bcf40759b1c41444ce34956390068c0",
+    "name": "Gun-crazy Show-offs",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Each time a model in this unit targets the closest eligible enemy with its signature gun, that weapon's Attacks characteristic becomes 4 until the end of the phase."
+  },
+  {
+    "ability_key": "datasheet:has-yoo-been-a-good-little-grot-this-year",
+    "mechanic_digest": "aee1eecc63ae714bf8aa9a6e9108a64d",
+    "name": "Has Yoo Been a Good Little Grot This Year?",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per battle, this unit can be targeted with the Grenade Stratagem for 0CP, even if that Stratagem has already been used on a different unit this phase."
+  },
+  {
+    "ability_key": "datasheet:high-octane-fuel",
+    "mechanic_digest": "1a57fda70e7e686ae69d4a35744d3d8f",
+    "name": "High-octane Fuel",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Instead of rolling to Advance, this unit's Move characteristic simply increases by 6\" until the end of the phase."
+  },
+  {
+    "ability_key": "datasheet:hold-still-and-say-aargh",
+    "mechanic_digest": "becae64f83a0f5907ccaa1e8ad379966",
+    "name": "Hold Still and Say ‘Aargh!’",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When this model's signature melee weapon scores a Critical Wound against a non-Vehicle unit, that unit suffers D6 mortal wounds."
+  },
+  {
+    "ability_key": "datasheet:krumpin-time",
+    "mechanic_digest": "bdc8248483192d090a948514ba56160e",
+    "name": "Krumpin’ Time",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While the Waaagh! is active for your army, models in this unit have the Feel No Pain 5+ ability."
+  },
+  {
+    "ability_key": "datasheet:kunnin-infiltrator",
+    "mechanic_digest": "973c4ab0deab2b178c327db10791ff84",
+    "name": "Kunnin’ Infiltrator",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per battle, instead of a Normal move, this model's unit can be removed and redeployed anywhere more than 9\" from all enemy models."
+  },
+  {
+    "ability_key": "datasheet:kustom-force-field",
+    "mechanic_digest": "c0a878929e60db31c604b97b06251607",
+    "name": "Kustom Force Field",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While attached to a unit, models in it gain a 5+ invulnerable save against ranged attacks; once per battle this model can overcharge the field, improving that save to 4+ until the end of the phase."
+  },
+  {
+    "ability_key": "datasheet:mad-dok",
+    "mechanic_digest": "c41914e4186d3d3d14e7f6f2fc5d6380",
+    "name": "Mad Dok",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While attached to a unit, models in that unit gain the Feel No Pain 5+ ability."
+  },
+  {
+    "ability_key": "datasheet:mega-carnage",
+    "mechanic_digest": "c9cc9c69ef37049c17b98d9608cfbd5c",
+    "name": "Mega Carnage",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When this model fights, it can target an engaged enemy unit and roll a die, +2 if it charged this turn: a 4-5 deals D3 mortal wounds, a 6+ deals 3 mortal wounds."
+  },
+  {
+    "ability_key": "datasheet:mekaniak",
+    "mechanic_digest": "63e7e30de9810e10ccfa29028ecb5122",
+    "name": "Mekaniak",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the end of your Movement phase, one friendly Orks Vehicle within 3\" of this model regains D3 wounds and gains +1 to Hit until your next Movement phase; each model benefits once per turn."
+  },
+  {
+    "ability_key": "datasheet:mekboy",
+    "mechanic_digest": "90f93b64953108d7c2a744d37d8d8558",
+    "name": "Mekboy",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While within 3\" of a friendly Orks Vehicle unit, this model has the Lone Operative ability."
+  },
+  {
+    "ability_key": "datasheet:might-is-right",
+    "mechanic_digest": "3f67b79f9a024f19e42b4f1c486536cf",
+    "name": "Might is Right",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While attached to a unit, melee attacks made by models in that unit gain +1 to the Hit roll."
+  },
+  {
+    "ability_key": "datasheet:monster-hunters",
+    "mechanic_digest": "ce4943d5cf02a7b8248bf37c6a43b73a",
+    "name": "Monster Hunters",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Attacks from this unit against a Monster or Vehicle unit can re-roll the Hit roll."
+  },
+  {
+    "ability_key": "datasheet:more-dakka",
+    "mechanic_digest": "ae8f1947bfbd0f7eadbb3bad3010dfbb",
+    "name": "More Dakka",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While attached to a unit, ranged attacks made by models in that unit re-roll a Hit roll of 1."
+  },
+  {
+    "ability_key": "datasheet:on-da-hunt",
+    "mechanic_digest": "67164decd319c60b94f73f243c6d3fc9",
+    "name": "On Da Hunt",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "This model's signature melee weapon gains +1 Attacks, to a maximum of +6, for each model embarked within it."
+  },
+  {
+    "ability_key": "datasheet:one-last-kill",
+    "mechanic_digest": "9006e5d54633303612fbb3ab2335b51d",
+    "name": "One Last Kill",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While attached to a unit, if a model in it that has not yet fought is destroyed in melee, a 4+ roll lets it still fight before being removed from play."
+  },
+  {
+    "ability_key": "datasheet:one-scalpel-short-of-a-medpack",
+    "mechanic_digest": "f921ecdb996a20b73c926ff97cdb197c",
+    "name": "One Scalpel Short of a Medpack",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While attached to a unit, that unit is eligible to declare a charge in a turn in which it Fell Back."
+  },
+  {
+    "ability_key": "datasheet:patrol-squad",
+    "mechanic_digest": "ec8c525256ec5ab55625233d078cb257",
+    "name": "PATROL SQUAD",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the start of the Declare Battle Formations step, this unit can split into two five-model units, with any single-use wargear token usable by only one of them."
+  },
+  {
+    "ability_key": "datasheet:piston-driven-brutality",
+    "mechanic_digest": "d67c2cfc5463fb7612a9ad3d167b49b8",
+    "name": "Piston-driven Brutality",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "After this model ends a Charge move, it can target an engaged enemy unit and roll a die: a 2-5 deals D3 mortal wounds, a 6 deals D3+3 mortal wounds."
+  },
+  {
+    "ability_key": "datasheet:plant-the-waaagh-banner",
+    "mechanic_digest": "775d379df6352df23ba11918e854ab43",
+    "name": "Plant the Waaagh! Banner",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per battle, at the start of the battle round, this model's unit can gain the benefits of the Waaagh! ability as though it had been called this round, until the next battle round begins."
+  },
+  {
+    "ability_key": "datasheet:plummeting-descent",
+    "mechanic_digest": "da6b2334deac2099292daf89f3051ba5",
+    "name": "Plummeting Descent",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Charge rolls for this model's unit can be re-rolled in a turn in which it arrived from Reserves."
+  },
+  {
+    "ability_key": "datasheet:prophet-of-da-great-waaagh",
+    "mechanic_digest": "1a083f1e1349f0350371f7f8072c195a",
+    "name": "Prophet of Da Great Waaagh!",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While attached to a unit, melee attacks made by models in that unit gain +1 to Hit and +1 to Wound, and score a Critical Hit on an unmodified 5+ instead of 6 while the Waaagh! is active."
+  },
+  {
+    "ability_key": "datasheet:pulsa-rokkit",
+    "mechanic_digest": "9365d3e459cf793d92943349f678823d",
+    "name": "Pulsa Rokkit",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per battle, when this unit is selected to shoot, its ranged weapons gain +1 Strength and +1 Armour Penetration until the end of the phase."
+  },
+  {
+    "ability_key": "datasheet:pulse-jet",
+    "mechanic_digest": "0c67f4892cfb15328003f4bdca3afd32",
+    "name": "Pulse Jet",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Instead of rolling to Advance, this unit's Move characteristic increases by 6\" and it can move through models and terrain, until the end of the phase."
+  },
+  {
+    "ability_key": "datasheet:pyromaniaks",
+    "mechanic_digest": "5f4018b43a8952bd6ef1e2979fc539a4",
+    "name": "Pyromaniaks",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Ranged attacks from this unit with a flame weapon against a target within 6\" re-roll a Wound roll of 1, or any Wound roll if the target is within range of an objective marker."
+  },
+  {
+    "ability_key": "datasheet:ramshackle-but-rugged",
+    "mechanic_digest": "ea52362b601ec6a199a38f9fed82ceb0",
+    "name": "Ramshackle but Rugged",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Attacks allocated to this model have their Armour Penetration worsened by 1."
+  },
+  {
+    "ability_key": "datasheet:ramshackle-cover",
+    "mechanic_digest": "a36651fb50ac2cd42924bd84995caf4b",
+    "name": "Ramshackle Cover",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "A model not fully visible to the attacking unit because of this fortification has the Benefit of Cover against that ranged attack."
+  },
+  {
+    "ability_key": "datasheet:red-skull-kommandos",
+    "mechanic_digest": "954444c66d84f0d1a6c9601b970a2a3a",
+    "name": "Red Skull Kommandos",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While attached to a unit, models in that unit have the Benefit of Cover."
+  },
+  {
+    "ability_key": "datasheet:redistributin-da-gifts",
+    "mechanic_digest": "fbc32ede98d6e22b2cbf752374e4e5d9",
+    "name": "Redistributin’ da Gifts",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once in each of your Shooting phases, this unit can be targeted with the Grenade Stratagem for 0CP, even if that Stratagem has already been used on a different unit this phase."
+  },
+  {
+    "ability_key": "datasheet:rivetin-dakka",
+    "mechanic_digest": "f55cbc731667d26fd7b9b30f9f09b9a2",
+    "name": "Rivetin’ Dakka",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "After this model shoots, one enemy unit hit by its rivet kannon becomes suppressed until the start of your next turn, giving -1 to its ranged Hit rolls."
+  },
+  {
+    "ability_key": "datasheet:roar-of-mork-psychic",
+    "mechanic_digest": "7ddb380da689d45e0f8f53babf464048",
+    "name": "Roar of Mork (Psychic)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "In your opponent's Command phase, target a visible enemy unit within 18\" and roll a die: a 1 deals this model's unit D3 mortal wounds, a 2+ gives that unit -2 to Battle-shock and Leadership tests until your opponent's next Command phase."
+  },
+  {
+    "ability_key": "datasheet:runtherd",
+    "mechanic_digest": "ed55f42d030e46aa841c8c7bd4cc6d9d",
+    "name": "Runtherd",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this unit contains Gretchin models, Runtherd models in it are treated as having a Toughness characteristic of 2 when targeted."
+  },
+  {
+    "ability_key": "datasheet:sawbonez",
+    "mechanic_digest": "3d0a6e79ada13ca4c5d0f0fece8220da",
+    "name": "Sawbonez",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the end of your Movement phase, one friendly Beast Snagga Character within 3\" of this model regains up to 3 lost wounds, once per model per turn."
+  },
+  {
+    "ability_key": "datasheet:scatter",
+    "mechanic_digest": "6fd1d8f08f8be1b3fca578248178c14e",
+    "name": "Scatter!",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per turn, if an enemy unit ends a Normal, Advance or Fall Back move within 9\" of this unit while it is not engaged, this unit can make a Normal move of up to 6\"."
+  },
+  {
+    "ability_key": "datasheet:shokk-attack-engine",
+    "mechanic_digest": "2b94c2b0bcff73559e4cc89b2ea12348",
+    "name": "Shokk Attack Engine",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "In your Command phase, if this unit is not within Engagement Range of an enemy, it can be removed from the battlefield and placed into Strategic Reserves."
+  },
+  {
+    "ability_key": "datasheet:shokk-boosta",
+    "mechanic_digest": "d7c3b155cfae04e209717f35d9d76426",
+    "name": "Shokk-boosta",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "This unit can re-roll Advance rolls and move through models and terrain during any move without ending within Engagement Range, and automatically passes Desperate Escape tests."
+  },
+  {
+    "ability_key": "datasheet:shokk-tunnel",
+    "mechanic_digest": "9ae818c3d37f9029a8a24c804f0e1726",
+    "name": "Shokk Tunnel",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Instead of making an Advance move, this model can be removed and set up again anywhere more than 9\" from all enemy models, still counting as having Advanced."
+  },
+  {
+    "ability_key": "datasheet:shooty-power-trip",
+    "mechanic_digest": "1c442a1e9405ee6e3968111b18f87e97",
+    "name": "Shooty Power Trip",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When this unit is selected to shoot, roll a die: a 1-2 deals it D3 mortal wounds, a 3-4 gives its ranged weapons +1 Strength, a 5-6 gives them +1 Attacks, until the end of the phase."
+  },
+  {
+    "ability_key": "datasheet:shoutin-pole-aura",
+    "mechanic_digest": "dccaa34a38bf2c96daac73a0ae8b0e32",
+    "name": "Shoutin’ Pole (Aura)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Friendly Orks units within 6\" of this fortification have their Leadership improved by 1."
+  },
+  {
+    "ability_key": "datasheet:single-minded-predator",
+    "mechanic_digest": "926519da623043e128448bed78de61f3",
+    "name": "Single-minded Predator",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "This unit can be targeted with the Heroic Intervention Stratagem for 0CP, even if that Stratagem has already been used on a different unit this phase."
+  },
+  {
+    "ability_key": "datasheet:small-bomms",
+    "mechanic_digest": "ac561c0009cebecdb3597ccdc1a2f2a0",
+    "name": "Small Bomms",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "After this model moves over an enemy unit, roll three dice: each 4+ deals that unit 1 mortal wound."
+  },
+  {
+    "ability_key": "datasheet:snagged",
+    "mechanic_digest": "a7a3aace3cfbced5b2a8d3cc44757764",
+    "name": "Snagged",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "A hit from this weapon against a Monster or Vehicle lets the bearer add 2 to Charge rolls against that unit for the rest of the turn, and stops that unit using Fire Overwatch against the bearer."
+  },
+  {
+    "ability_key": "datasheet:sneaky-surprise",
+    "mechanic_digest": "121de6a17df5097aa73f6c5a60c6d954",
+    "name": "Sneaky Surprise",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Enemy units cannot use the Fire Overwatch Stratagem to shoot at this unit."
+  },
+  {
+    "ability_key": "datasheet:special-dose",
+    "mechanic_digest": "7c64524523dae0ce80565626e1f30764",
+    "name": "Special Dose",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While the Waaagh! is active for your army, this model's unit gains +6\" Move."
+  },
+  {
+    "ability_key": "datasheet:speed-freeks",
+    "mechanic_digest": "29faf990181601ba4955b68ceed79393",
+    "name": "SPEED FREEKS",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "A model with the Leader ability that could attach to a Warbikers unit can attach to this unit instead."
+  },
+  {
+    "ability_key": "datasheet:speed-freeks-mob",
+    "mechanic_digest": "29faf990181601ba4955b68ceed79393",
+    "name": "SPEED FREEKS MOB",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "A model with the Leader ability that could attach to a Warbikers unit can attach to this unit instead."
+  },
+  {
+    "ability_key": "datasheet:speedboss",
+    "mechanic_digest": "3f67b79f9a024f19e42b4f1c486536cf",
+    "name": "Speedboss",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While attached to a unit, melee attacks made by models in that unit gain +1 to the Hit roll."
+  },
+  {
+    "ability_key": "datasheet:spiked-ram",
+    "mechanic_digest": "c75dbf533f77b7ff08239c36dde767e2",
+    "name": "Spiked Ram",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "After this model ends a Charge move, it can target an engaged enemy unit and roll a die: a 2-5 deals D3 mortal wounds, a 6 deals 3 mortal wounds."
+  },
+  {
+    "ability_key": "datasheet:spirit-of-gork-psychic",
+    "mechanic_digest": "e27c16b75a1983a80301838534776784",
+    "name": "Spirit of Gork (Psychic)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the start of the Fight phase, target a friendly Orks unit within 12\" and roll a die: a 1 deals this model D3 mortal wounds, a 2-5 gives that unit's melee weapons +1 Strength, a 6 also grants them Lethal Hits, until the end of the phase."
+  },
+  {
+    "ability_key": "datasheet:splat",
+    "mechanic_digest": "4818a58ff589be9f1cd2185436827ce6",
+    "name": "Splat!",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Ranged attacks from this unit against a large or full-strength enemy unit re-roll a Hit roll of 1."
+  },
+  {
+    "ability_key": "datasheet:squig-mine",
+    "mechanic_digest": "f32b787eda690e4934c1cc168150090a",
+    "name": "Squig Mine",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per battle, at the start of any phase, this model can target an enemy unit within 3\": on a 4+ that unit suffers D6 mortal wounds."
+  },
+  {
+    "ability_key": "datasheet:stompin-forward",
+    "mechanic_digest": "cf542c667e09558da5caec0a56207ea7",
+    "name": "Stompin’ Forward",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "This model can make Normal, Advance or Fall Back moves through models, excluding Titanic, and terrain features up to 4\" tall as if they were not there."
+  },
+  {
+    "ability_key": "datasheet:super-runts",
+    "mechanic_digest": "a8305f9cfbf8e10179c1b31571707893",
+    "name": "Super Runts",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While attached to a unit, that unit gains Scouts 9\", its attacks gain +1 to Hit and +1 to Wound, and attacks against it suffer -1 to the Wound roll."
+  },
+  {
+    "ability_key": "datasheet:tellyporta-tech",
+    "mechanic_digest": "186362ee4b6635a41140febcb7a10ac4",
+    "name": "Tellyporta Tech",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While attached to a unit, models in that unit gain the Deep Strike ability."
+  },
+  {
+    "ability_key": "datasheet:thievin-scavengers",
+    "mechanic_digest": "5a4f139631342bf0ae34bab33544feff",
+    "name": "Thievin’ Scavengers",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the start of your Movement phase, roll one die for each objective marker you control that has a non-Battle-shocked unit with this ability nearby: any 4+ grants 1CP."
+  },
+  {
+    "ability_key": "datasheet:throttlerokkit-shokka-engine",
+    "mechanic_digest": "277f809a70f2ea30bfb58d00e80da281",
+    "name": "Throttlerokkit Shokka Engine",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "In your Command phase, choose one of several listed abilities for this model to have until your next Command phase."
+  },
+  {
+    "ability_key": "datasheet:thundering-stampede",
+    "mechanic_digest": "805f7c0f353f3e77b976e372162ecaba",
+    "name": "Thundering Stampede",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While attached to a unit, Charge rolls made for that unit gain +1."
+  },
+  {
+    "ability_key": "datasheet:trample",
+    "mechanic_digest": "c9cc9c69ef37049c17b98d9608cfbd5c",
+    "name": "Trample",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When this model fights, it can target an engaged enemy unit and roll a die, +2 if it charged this turn: a 4-5 deals D3 mortal wounds, a 6+ deals 3 mortal wounds."
+  },
+  {
+    "ability_key": "datasheet:trophy-hunters",
+    "mechanic_digest": "fae61dbf046b693b9fd7c603950f5126",
+    "name": "Trophy Hunters",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Charge rolls made for this unit can be re-rolled."
+  },
+  {
+    "ability_key": "datasheet:turbo-engine",
+    "mechanic_digest": "eb4a787b3e16c9f663a5abda3d20332a",
+    "name": "Turbo Engine",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "This unit is eligible to declare a charge in a turn in which it Advanced or Fell Back."
+  },
+  {
+    "ability_key": "datasheet:unstable-oracle",
+    "mechanic_digest": "82ab2c85cf7f17be6efde7ce76804c22",
+    "name": "Unstable Oracle",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While attached to a unit, this model's signature weapon gains +2 Attacks for every 5 models in that unit, rounding down, but gains the Hazardous ability once the unit has 10 or more models."
+  },
+  {
+    "ability_key": "datasheet:waaagh-effigy-aura",
+    "mechanic_digest": "0bef9140ca1bcaa8d5b6630fb365c8ce",
+    "name": "Waaagh! Effigy (Aura)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Friendly Orks units within 12\" of this model add 1 to their Battle-shock tests."
+  },
+  {
+    "ability_key": "datasheet:waaagh-energy",
+    "mechanic_digest": "79c37dc93d0a0dfe9749d250d6ea52b4",
+    "name": "Waaagh! Energy",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While attached to a unit, this model's signature weapon gains +1 Strength and +1 Damage for every 5 models in that unit, rounding down, but gains the Hazardous ability once the unit has 10 or more models."
+  },
+  {
+    "ability_key": "datasheet:waaagh-wazdakka",
+    "mechanic_digest": "33430041ca40718e9a8fd0ec041ace96",
+    "name": "WAAAGH! WAZDAKKA",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "If this model is your Warlord, friendly Warbiker units gain the Battleline keyword."
+  },
+  {
+    "ability_key": "datasheet:walking-bastion",
+    "mechanic_digest": "7c8842a00626dc7f9f3203f45d977ef7",
+    "name": "Walking Bastion",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "This model does not suffer the usual penalty to ranged Hit rolls while enemy units are within Engagement Range of it."
+  },
+  {
+    "ability_key": "datasheet:wall-of-dakka",
+    "mechanic_digest": "e9291c9e325b6804e4323bac6be7a0e7",
+    "name": "Wall of Dakka",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Ranged attacks from this model against a target within half range gain +1 to the Hit roll."
+  },
+  {
+    "ability_key": "datasheet:wild-ride",
+    "mechanic_digest": "1f19bd5fb78687e212b170c45ab78bb0",
+    "name": "Wild Ride",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "This unit can ignore any modifiers applied to its Move characteristic or to its Advance and Charge rolls."
+  },
+  {
+    "ability_key": "datasheet:workshop",
+    "mechanic_digest": "a795ddfb802415421560cb293793d89e",
+    "name": "Workshop",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Parts of this fortification must be set up within 1\" of each other; at the end of your Movement phase, each friendly Orks Vehicle within 12\" can regain up to D3 lost wounds, once per model per turn."
+  }
+]

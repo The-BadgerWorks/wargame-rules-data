@@ -1,0 +1,542 @@
+[
+  {
+    "ability_key": "datasheet:adaptable-predators",
+    "mechanic_digest": "94b1b5375add20418e40b5872a3fecec",
+    "name": "Adaptable Predators",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "This unit is eligible to shoot and to declare a charge in a turn in which it Fell Back."
+  },
+  {
+    "ability_key": "datasheet:adaptive-instincts",
+    "mechanic_digest": "ef7a3159e66c7a0fa52622e7a5ab98e8",
+    "name": "Adaptive Instincts",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the start of the Fight phase, choose one until the end of the phase: this unit's attacks can re-roll a Hit roll of 1, or its saving throws can re-roll a roll of 1."
+  },
+  {
+    "ability_key": "datasheet:aggressive-leader-beast",
+    "mechanic_digest": "1e24e90888decf0531f683008b2afe74",
+    "name": "Aggressive Leader-beast",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "In the opponent's Shooting phase, if enemy fire destroys a model in this unit, it can move up to D6\" toward the closest non-Aircraft enemy, possibly into Engagement Range, unless Battle-shocked or already engaged; once per phase."
+  },
+  {
+    "ability_key": "datasheet:alpha-leader",
+    "mechanic_digest": "b994f62b588a3d53661a24c157233cc5",
+    "name": "Alpha Leader",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model leads a unit, attacks made by models in it can have their Hit roll re-rolled."
+  },
+  {
+    "ability_key": "datasheet:apex-beast",
+    "mechanic_digest": "96196c05a3ed4e3b3b388123ad3e6b3c",
+    "name": "Apex-beast",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Each attack this model makes against a Battle-shocked unit gains +1 to the Hit roll."
+  },
+  {
+    "ability_key": "datasheet:bio-minefield",
+    "mechanic_digest": "a4484c9bfd724e7a5fa49483bae73475",
+    "name": "Bio-minefield",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Enemy units cannot start or end an Advance move within 6\" of this unit."
+  },
+  {
+    "ability_key": "datasheet:bio-stimulus",
+    "mechanic_digest": "262cd852c9e7c916416ea7eca5e4c6d1",
+    "name": "Bio-stimulus",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "After this model shoots, select one hit enemy unit (once per turn): until the end of the turn, friendly Tyranids melee attacks against it have their Armour Penetration improved by 1."
+  },
+  {
+    "ability_key": "datasheet:blistering-assault",
+    "mechanic_digest": "80c51c8644821b5be82b822d2f438182",
+    "name": "Blistering Assault",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Each time an enemy unit shoots and this unit loses one or more wounds from it, this unit can move up to D6+2\" toward the closest enemy unit, potentially into Engagement Range, once per phase."
+  },
+  {
+    "ability_key": "datasheet:bounding-leap",
+    "mechanic_digest": "c39e0af67903774b39bcd86c72cd9fca",
+    "name": "Bounding Leap",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "This unit is eligible to declare a charge in a turn in which it Advanced."
+  },
+  {
+    "ability_key": "datasheet:brood-progenitor-aura-psychic",
+    "mechanic_digest": "1b8b3c6c07f11c87f7b89c986a1d4c71",
+    "name": "Brood Progenitor (Aura, Psychic)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While a friendly Termagants unit is within 6\" of this model, ranged weapons equipped by models in that unit have the Lethal Hits ability."
+  },
+  {
+    "ability_key": "datasheet:burning-spray",
+    "mechanic_digest": "a44d071951e2bfbf7cb34283c4f35d2c",
+    "name": "Burning Spray",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "After this unit shoots, select one hit enemy unit: until the end of the phase, it cannot have the Benefit of Cover."
+  },
+  {
+    "ability_key": "datasheet:chitinous-horrors",
+    "mechanic_digest": "5cefd7db9639a0872c88fe4ba62fe6c6",
+    "name": "Chitinous Horrors",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While an enemy unit is within Engagement Range of a unit with this ability, that enemy unit's Objective Control characteristic is halved."
+  },
+  {
+    "ability_key": "datasheet:chitinous-horrors-aura",
+    "mechanic_digest": "3308e8821fd9a4605f6eb7e01087dc8b",
+    "name": "Chitinous Horrors (Aura)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While an enemy unit is within Engagement Range of this unit, that enemy unit's Objective Control characteristic is halved."
+  },
+  {
+    "ability_key": "datasheet:death-scream",
+    "mechanic_digest": "2b151926ef57d90a4ce018f1cbc50720",
+    "name": "Death Scream",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "After this model shoots, select one hit unit: it must take a Battle-shock test with -1 applied."
+  },
+  {
+    "ability_key": "datasheet:defensive-stance",
+    "mechanic_digest": "95592d3738dadc57f64733afa55c2bd6",
+    "name": "Defensive Stance",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When this unit is targeted with the Fire Overwatch Stratagem, it scores hits on unmodified Hit rolls of 5+, or 4+ instead while it is within range of an objective marker."
+  },
+  {
+    "ability_key": "datasheet:digestion-spine",
+    "mechanic_digest": "284353a74919f8bf332ea1298f3e415d",
+    "name": "Digestion Spine",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Each time this model fights, if its attacks destroy one or more non-Vehicle enemy models, it regains up to D3 lost wounds."
+  },
+  {
+    "ability_key": "datasheet:disruption-bombardment",
+    "mechanic_digest": "ca93921d486fc101cc361dd76067d48f",
+    "name": "Disruption Bombardment",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "After this unit shoots, select one hit enemy Infantry unit: until the end of the opponent's next turn, it has -2 to its Move characteristic and -2 to Advance and Charge rolls made for it."
+  },
+  {
+    "ability_key": "datasheet:domination-of-the-hive-mind-aura",
+    "mechanic_digest": "98dee4a13246b7cf0f5cd553f9ce87e2",
+    "name": "Domination of the Hive Mind (Aura)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While a friendly Tyranids unit is within 9\" of this model, it counts as being within your army's Synapse Range."
+  },
+  {
+    "ability_key": "datasheet:encephalic-diffusion-aura-psychic",
+    "mechanic_digest": "334979ea647dc426fbb2ee850f1f8879",
+    "name": "Encephalic Diffusion (Aura, Psychic)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While an enemy unit is within 6\" of this model, its attacks suffer -1 to the Hit roll, and also -1 to the Wound roll if that unit is Below Half-strength."
+  },
+  {
+    "ability_key": "datasheet:enhanced-toxic-miasma",
+    "mechanic_digest": "d68854b721da1113d419787a406ed799",
+    "name": "Enhanced Toxic Miasma",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model leads a unit, the range of that unit's Foul Spores Aura ability increases to 9\"."
+  },
+  {
+    "ability_key": "datasheet:feeding-frenzy",
+    "mechanic_digest": "6f1e7b35b0403bf5fabbbb990003e75a",
+    "name": "Feeding Frenzy",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Each melee attack this model makes against a unit below its Starting Strength gains +1 to the Hit roll, and also +1 to the Wound roll if that unit is Below Half-strength."
+  },
+  {
+    "ability_key": "datasheet:floating-death",
+    "mechanic_digest": "be2651667cd659f9616bbd0f8a3bd3a0",
+    "name": "Floating Death",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Each time this unit or an enemy unit ends a move, each model in this unit within 3\" of an enemy picks one of those enemy units and is destroyed; roll a D6 for it, inflicting mortal wounds on a scale that varies by datasheet."
+  },
+  {
+    "ability_key": "datasheet:foul-spores-aura",
+    "mechanic_digest": "3462e017a98c4c8dc3b63baa591e2952",
+    "name": "Foul Spores (Aura)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While a friendly Tyranids unit is within 6\" of this unit, it has the Benefit of Cover against ranged attacks; if that unit is not a Monster, it also has the Stealth ability."
+  },
+  {
+    "ability_key": "datasheet:frenzied-metabolism",
+    "mechanic_digest": "d830b29d1dc739510b3712c595961f1f",
+    "name": "Frenzied Metabolism",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When this model shoots, you may add 1 to the Wound roll of its attacks until the end of the phase; if you do, afterward roll a D6, and on a 2+ this model suffers D3 mortal wounds."
+  },
+  {
+    "ability_key": "datasheet:grasping-tendrils",
+    "mechanic_digest": "86ed76223c6ef93b2e9d7ed242cf26c2",
+    "name": "Grasping Tendrils",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Each time a non-Titanic enemy unit within Engagement Range of a unit with this ability is selected to Fall Back, roll a D6: on a 3+ it must Remain Stationary instead."
+  },
+  {
+    "ability_key": "datasheet:grisly-spectacle",
+    "mechanic_digest": "d3d9e3e3ff3f65d2c2dc0d6e7fbc07d1",
+    "name": "Grisly Spectacle",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Each time this model fights, if its attacks destroy an enemy unit, every enemy unit within 6\" of it must take a Battle-shock test."
+  },
+  {
+    "ability_key": "datasheet:guardian-organism",
+    "mechanic_digest": "b6962f7fb406b5a9ecfa515e6e3b6a7f",
+    "name": "Guardian Organism",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While a Character model leads this unit, that Character has the Feel No Pain 5+ ability."
+  },
+  {
+    "ability_key": "datasheet:harpoon-barbs",
+    "mechanic_digest": "a293348233db63674b78699b5c149a43",
+    "name": "Harpoon Barbs",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per turn, when an enemy unit within Engagement Range of this model is selected to Fall Back, roll a D6: on a 2+ it suffers D6 mortal wounds."
+  },
+  {
+    "ability_key": "datasheet:harpooned",
+    "mechanic_digest": "79e04383c61f68c6088cb5c879321328",
+    "name": "Harpooned",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "After the bearer shoots with this weapon, select one hit enemy Monster or Vehicle unit: until the end of the turn, Charge rolls made to charge that unit are increased by 2."
+  },
+  {
+    "ability_key": "datasheet:hive-commander",
+    "mechanic_digest": "4c8136b4973369dd3121c9bd4e3b49f7",
+    "name": "Hive Commander",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the start of your Command phase, if this model is on the battlefield, you gain 1CP."
+  },
+  {
+    "ability_key": "datasheet:hive-defences",
+    "mechanic_digest": "a040775d5addedec9fb02134216dcf5e",
+    "name": "Hive Defences",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "This model can be targeted with the Fire Overwatch Stratagem for 0CP, even if a different unit was already targeted this turn, but only once per turn."
+  },
+  {
+    "ability_key": "datasheet:hypertoxic-miasma-aura",
+    "mechanic_digest": "5eeda37fed590ff9151fe191d1bcb64b",
+    "name": "Hypertoxic Miasma (Aura)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the end of your Movement phase, roll a D6 for each enemy unit within 6\" of this model: on 2-3 it suffers 1 mortal wound, on 4-5 D3 mortal wounds, on a 6 D6 mortal wounds."
+  },
+  {
+    "ability_key": "datasheet:hypnotic-gaze-psychic",
+    "mechanic_digest": "3e723cd8cd5688f9a00ea959ca9152bc",
+    "name": "Hypnotic Gaze (Psychic)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the start of the Fight phase, select one enemy unit within Engagement Range of this model: until the end of the phase, its attacks suffer -1 to the Hit roll."
+  },
+  {
+    "ability_key": "datasheet:irresistible-force",
+    "mechanic_digest": "14cbbace1e43b5a1a0d57e6ac1b65f35",
+    "name": "Irresistible Force",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "This model is eligible to declare a charge in a turn in which it Fell Back."
+  },
+  {
+    "ability_key": "datasheet:malign-presence-aura",
+    "mechanic_digest": "b6ab05a4f0344ad20a5b22488658e1a3",
+    "name": "Malign Presence (Aura)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "If this model is your Warlord, each time the opponent targets a unit within 12\" of it with a Stratagem, that Stratagem's cost increases by 1CP."
+  },
+  {
+    "ability_key": "datasheet:neurocytes",
+    "mechanic_digest": "5c46fd9455c51be55a345c709ed22de5",
+    "name": "Neurocytes",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this unit is within Synapse Range of a friendly non-Neurogaunt Tyranids unit, it has the Synapse keyword."
+  },
+  {
+    "ability_key": "datasheet:neuroloids",
+    "mechanic_digest": "e7d2d931c8ba618194147b0a8be0da5e",
+    "name": "Neuroloids",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "In your Command phase, select up to two friendly Tyranids units within 18\" of this model's unit: until your next Command phase, they always count as within your army's Synapse Range."
+  },
+  {
+    "ability_key": "datasheet:node-lash-psychic",
+    "mechanic_digest": "9cf070f080a8cca613af0828e767b099",
+    "name": "Node Lash (Psychic)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model leads a unit, its attacks gain +1 to the Hit roll, and also +1 to the Wound roll if the target is Battle-shocked."
+  },
+  {
+    "ability_key": "datasheet:onslaught-aura-psychic",
+    "mechanic_digest": "9a3afbc1d7a849d763dc59dfe9217873",
+    "name": "Onslaught (Aura, Psychic)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While a friendly Tyranids unit is within 6\" of this model, ranged weapons equipped by models in it have the Assault and Lethal Hits abilities."
+  },
+  {
+    "ability_key": "datasheet:overgrown-barbs",
+    "mechanic_digest": "516f5e7cd1f748a7c1d7fb400bd3170b",
+    "name": "Overgrown Barbs",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "After this model shoots, select one hit non-Titanic enemy unit: until your next turn, while this model remains on the battlefield, that unit's attacks suffer -1 to their Hit roll."
+  },
+  {
+    "ability_key": "datasheet:prey-adaptation",
+    "mechanic_digest": "51522b3c1aa78154135b8c7ba4301c14",
+    "name": "Prey Adaptation",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Each time this model's unit is selected to fight, choose one of Sustained Hits 1, Lance, or Lethal Hits for its melee weapons until the end of the phase."
+  },
+  {
+    "ability_key": "datasheet:psychic-terror-psychic",
+    "mechanic_digest": "f11a8c2348c6a7f89d8c19f85d7ca5f1",
+    "name": "Psychic Terror (Psychic)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "If a model with this ability is on the battlefield when you unleash Shadow in the Warp, subtract 1 from the resulting Battle-shock tests enemy units must take."
+  },
+  {
+    "ability_key": "datasheet:resilient-organism",
+    "mechanic_digest": "f742f702aa5a5b5b76522b7d755c1a6b",
+    "name": "Resilient Organism",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per battle, when an attack is allocated to this model, its Damage characteristic can be changed to 0."
+  },
+  {
+    "ability_key": "datasheet:seed-mucolids",
+    "mechanic_digest": "dca67506cd4c8fb51836fa54e47286d9",
+    "name": "Seed Mucolids",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per turn, in your Shooting phase, this unit can forgo its ranged attacks to add a new 1-model Mucolid Spores unit to your army, set up within 18\" of this model and more than 9\" horizontally from all enemy units."
+  },
+  {
+    "ability_key": "datasheet:seed-spore-mines",
+    "mechanic_digest": "9b555fd8a3e481cbda4f8232502736dc",
+    "name": "Seed Spore Mines",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per turn, in your Shooting phase, this unit can forgo its ranged attacks to add a new Spore Mines unit (1 model per model in this unit) to your army, set up within 48\" of it and more than 9\" horizontally from all enemy units."
+  },
+  {
+    "ability_key": "datasheet:serpentine-fiend",
+    "mechanic_digest": "8b2e1559601c9d4556d50fe9f5a5f18f",
+    "name": "Serpentine Fiend",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "This model can move through terrain features (but not end its move inside one) and can be set up or end a move on any floor level of Ruins, provided its base does not overhang a non-ground floor."
+  },
+  {
+    "ability_key": "datasheet:singular-purpose",
+    "mechanic_digest": "dcf17e974436c54d07b85a6e0ac6f0da",
+    "name": "Singular Purpose",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the start of the first battle round, choose for the rest of the battle: attacks vs a chosen enemy unit re-roll Hit and Wound rolls, or while in range of a chosen objective this model gains Feel No Pain 5+ and OC 15."
+  },
+  {
+    "ability_key": "datasheet:skulking-horrors",
+    "mechanic_digest": "1c05bdeb68335f1b96a1b58f0f83bbad",
+    "name": "Skulking Horrors",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per turn, when an enemy unit ends a Normal, Advance, or Fall Back move within 9\" of this unit, and it is not within Engagement Range of any enemy unit, it can make a Normal move of up to D6\"."
+  },
+  {
+    "ability_key": "datasheet:spawn-termagants",
+    "mechanic_digest": "056a2b97fbcbc5f861391db8b3ef7c47",
+    "name": "Spawn Termagants",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "In your Command phase, select one friendly Termagants unit within 6\" of this model (once per unit per phase): return up to D3+3 destroyed models to it."
+  },
+  {
+    "ability_key": "datasheet:spirit-leech-aura-psychic",
+    "mechanic_digest": "1116dedaf1bb10f2375a4f2ee28f6a3e",
+    "name": "Spirit Leech (Aura, Psychic)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While an enemy unit is within 6\" of this unit and it contains a Neurothrope, each time that enemy unit fails a Battle-shock test it suffers D3 mortal wounds and a model in this unit regains up to D3 lost wounds."
+  },
+  {
+    "ability_key": "datasheet:spore-mine-cysts",
+    "mechanic_digest": "2a8019b5611bc5d20960114eaef4d76a",
+    "name": "Spore Mine Cysts",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Each time this model ends a Normal move, choose one: roll six D6 against an enemy unit it moved over, dealing 1 mortal wound per 3+; or add a new D3-model Spore Mines unit within 6\" of it and 9\"+ from enemies (once per turn per unit)."
+  },
+  {
+    "ability_key": "datasheet:stalking-forward",
+    "mechanic_digest": "cf542c667e09558da5caec0a56207ea7",
+    "name": "Stalking Forward",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Each time this model makes a Normal, Advance, or Fall Back move, it can move through non-Titanic models and terrain features that are 4\" or less in height as if they were not there."
+  },
+  {
+    "ability_key": "datasheet:subterranean-hunter",
+    "mechanic_digest": "822792b394b1693ce156f270ffd588d2",
+    "name": "Subterranean Hunter",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the end of the Fight phase, if this unit is not within Engagement Range of any enemy unit, it can be removed from the battlefield and placed into Strategic Reserves."
+  },
+  {
+    "ability_key": "datasheet:swallow-whole",
+    "mechanic_digest": "23b28c19f2bd7225c759b1ed1cc3fb34",
+    "name": "Swallow Whole",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Each attack with this model's gaping maw against an Infantry, Mounted, or Beasts unit scores a Critical Wound on any successful unmodified Wound roll, and this model regains up to D3+2 lost wounds each time such a model is destroyed by it."
+  },
+  {
+    "ability_key": "datasheet:symbiotic-targeting",
+    "mechanic_digest": "0e60660e32641e4b832507700c2bc52f",
+    "name": "Symbiotic Targeting",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "After this model shoots, select one hit enemy unit: until the end of the phase, friendly Tyranids attacks against it can re-roll a Hit roll of 1."
+  },
+  {
+    "ability_key": "datasheet:unnatural-resilience",
+    "mechanic_digest": "050910e685ce7bc7198a6e8988ffb79d",
+    "name": "Unnatural Resilience",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "This model has the Feel No Pain 4+ ability against mortal wounds."
+  },
+  {
+    "ability_key": "datasheet:unstoppable-monster",
+    "mechanic_digest": "24e9477201c5b4ddb58719be873ef0ef",
+    "name": "Unstoppable Monster",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the start of each player's Command phase, this model regains up to D3 lost wounds."
+  },
+  {
+    "ability_key": "datasheet:vanguard-predator",
+    "mechanic_digest": "368d07610ce0aad3ee8646607e92e275",
+    "name": "Vanguard Predator",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Each attack a model in this unit makes can re-roll a Hit roll of 1, and also a Wound roll of 1 if the target is within range of an objective marker."
+  },
+  {
+    "ability_key": "datasheet:vicious-insight",
+    "mechanic_digest": "8a74fc08c0128aea06a670c26217fd04",
+    "name": "Vicious Insight",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model leads a unit, weapons equipped by models in that unit have the Devastating Wounds ability."
+  },
+  {
+    "ability_key": "datasheet:warp-field-aura-psychic",
+    "mechanic_digest": "a785b306081ef8d3a56d6dfa52e2e723",
+    "name": "Warp Field (Aura, Psychic)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While a friendly Tyranids unit is within 6\" of this unit, models in it have a 6+ invulnerable save."
+  }
+]

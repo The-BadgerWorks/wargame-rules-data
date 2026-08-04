@@ -1,0 +1,1028 @@
+[
+  {
+    "ability_key": "datasheet:accelerator-mandible",
+    "mechanic_digest": "0fe3dabfe74dd34032b29813b4590ed4",
+    "name": "Accelerator Mandible",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the start of the Fight phase, pick a friendly Canoptek unit within 3\"; until end of phase its weapons get +1 Weapon Skill."
+  },
+  {
+    "ability_key": "datasheet:adaptive-strategy",
+    "mechanic_digest": "27d6aa95779b7cfbd3162e58c9b72702",
+    "name": "Adaptive Strategy",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "This model's unit is eligible to shoot and declare a charge in a turn in which it Fell Back."
+  },
+  {
+    "ability_key": "datasheet:advanced-quantum-shielding",
+    "mechanic_digest": "ed82ef1d7835f46d01d440d735f635f2",
+    "name": "Advanced Quantum Shielding",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Attacks against this model with a Strength greater than its Toughness suffer -1 to the Wound roll."
+  },
+  {
+    "ability_key": "datasheet:aggressor-guardian",
+    "mechanic_digest": "04707edefb7c9e209339d195949b1ea2",
+    "name": "Aggressor Guardian",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While within range of an objective marker, attacks against this model suffer -1 Armour Penetration, and this model's attacks against a unit within range of an objective marker get +1 Armour Penetration."
+  },
+  {
+    "ability_key": "datasheet:ancient-collector",
+    "mechanic_digest": "ca5a2e888d53446e126fcdc5b07220c1",
+    "name": "Ancient Collector",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model leads a unit, at the end of your Command phase an objective marker that unit controls within range stays controlled with no models nearby, until the opponent controls it at a turn's start or end."
+  },
+  {
+    "ability_key": "datasheet:ancient-cover",
+    "mechanic_digest": "a36651fb50ac2cd42924bd84995caf4b",
+    "name": "Ancient Cover",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "If this Fortification blocks visibility to a model targeted by a ranged attack, that model gains Benefit of Cover against the attack."
+  },
+  {
+    "ability_key": "datasheet:atavistic-instigation",
+    "mechanic_digest": "17bbfa6eae695f5c81c4ee7a24c7af11",
+    "name": "Atavistic Instigation",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When this model targets a unit with its heavy death ray, the opponent chooses: stand firm (unmodified Hit rolls of 5+ score Critical Hits vs it this phase) or duck for cover (-1 to its Hit rolls until your next Shooting phase)."
+  },
+  {
+    "ability_key": "datasheet:atomic-energy-manipulator",
+    "mechanic_digest": "583b176c2a6b7e9f6219a603d3c76931",
+    "name": "Atomic Energy Manipulator",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "If this model destroyed a model in the Fight phase, permanently add 3\" (to a max of 12\") to the range of its other named augmentation ability."
+  },
+  {
+    "ability_key": "datasheet:canoptek-retinue",
+    "mechanic_digest": "44283d7b738cc02ab312258e01c2a18f",
+    "name": "CANOPTEK RETINUE",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "During Declare Battle Formations, this unit can join another unit led by a Cryptek, merging into that Bodyguard unit and increasing its Starting Strength for the rest of the battle."
+  },
+  {
+    "ability_key": "datasheet:canoptek-swarm",
+    "mechanic_digest": "8015961c7cdbf5293a3658acffa3943e",
+    "name": "Canoptek Swarm",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "In your Command phase, pick a friendly Canoptek Scarab Swarms unit within 6\"; return one destroyed model to it for each model with this ability."
+  },
+  {
+    "ability_key": "datasheet:carrier-wave-aura",
+    "mechanic_digest": "d173e5a114d870b85a1372006ea32a7f",
+    "name": "Carrier Wave (Aura)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While a friendly Necrons unit is within 6\" of this model, models in that unit get +1 Objective Control."
+  },
+  {
+    "ability_key": "datasheet:chittering-swarm",
+    "mechanic_digest": "1a1aa873856572b0dba66581930c2046",
+    "name": "Chittering swarm",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While an enemy unit is within this unit's Engagement Range, its Objective Control is reduced by 1 to a minimum of 1; this unit's own Objective Control becomes 1 while within 6\" of a friendly Cryptek."
+  },
+  {
+    "ability_key": "datasheet:chronometron",
+    "mechanic_digest": "a709ba0adabf24f3217ba342125340b6",
+    "name": "Chronometron",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "After this model's unit shoots, if not in Engagement Range, it can make a Normal move of up to 5\" as in the Movement phase, but cannot then charge that turn."
+  },
+  {
+    "ability_key": "datasheet:crimson-harvest",
+    "mechanic_digest": "73697965ec3a980f8754dbf745ec81e0",
+    "name": "Crimson Harvest",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "After this model ends a Charge move, pick an enemy unit within Engagement Range and roll a D6: on 2-5 it suffers D3 mortal wounds, on a 6 it suffers D3+3."
+  },
+  {
+    "ability_key": "datasheet:cryptek-retinue",
+    "mechanic_digest": "9859d9f74450fee8b7c9494b30116d0b",
+    "name": "CRYPTEK RETINUE",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "During Declare Battle Formations, this unit can join another unit led by a Cryptek Infantry model, merging into that Bodyguard unit and increasing its Starting Strength for the rest of the battle."
+  },
+  {
+    "ability_key": "datasheet:ctan-shard",
+    "mechanic_digest": "8f6324860ca149a93d7676185cf4ff56",
+    "name": "C’TAN SHARD",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "This model cannot be given Enhancements."
+  },
+  {
+    "ability_key": "datasheet:damaged-armour",
+    "mechanic_digest": "a3c1b764635eed0f58ca1db5cfe75da1",
+    "name": "Damaged Armour",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "After this unit shoots, pick an enemy unit it hit; until end of phase, friendly Necrons attacks against it get +1 Armour Penetration on a Critical Wound."
+  },
+  {
+    "ability_key": "datasheet:death-sphere-bombardment",
+    "mechanic_digest": "abd9f230e4203a65b755b5cba28167e9",
+    "name": "Death Sphere Bombardment",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "After this model's Normal move, pick an enemy unit it moved over and roll six D6; each 3+ deals 1 mortal wound to that unit."
+  },
+  {
+    "ability_key": "datasheet:destroyer-cult",
+    "mechanic_digest": "7944fb0a756164d81c7ced39a10d4849",
+    "name": "Destroyer Cult",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model leads a unit, ranged attacks by models in that unit score a Critical Hit on an unmodified Hit roll of 5+."
+  },
+  {
+    "ability_key": "datasheet:dispersion-shield",
+    "mechanic_digest": "b36164ee977a6aa60f1b415444a27d9f",
+    "name": "Dispersion Shield",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "The bearer has a 4+ invulnerable save."
+  },
+  {
+    "ability_key": "datasheet:drain-life",
+    "mechanic_digest": "a645578e24e8448b0518aaba7d35e2d4",
+    "name": "Drain Life",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the end of the Fight phase, roll a D6 for each enemy unit within 6\"; on a 4+ that unit suffers D3 mortal wounds."
+  },
+  {
+    "ability_key": "datasheet:driven-by-hatred",
+    "mechanic_digest": "aed6a4bf556963cce9498f41a5b12d3b",
+    "name": "Driven by Hatred",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Attacks this model makes against an enemy unit that is Below Half-strength can re-roll the Hit roll and the Wound roll."
+  },
+  {
+    "ability_key": "datasheet:engrammatic-logic",
+    "mechanic_digest": "106c8a12f5aef4a4cbbda59916d82bb6",
+    "name": "Engrammatic Logic",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per battle, at the start of any phase, remove the Battle-shocked condition from a friendly Necrons unit within 12\" of this model."
+  },
+  {
+    "ability_key": "datasheet:enslaved-star-god",
+    "mechanic_digest": "d5e3e9e9a38740e26b4f73ae5c04b4ae",
+    "name": "ENSLAVED STAR GOD",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "This model cannot be selected as your Warlord."
+  },
+  {
+    "ability_key": "datasheet:eternity-gate",
+    "mechanic_digest": "a1d63a2e0cf9335474350b6b237bde91",
+    "name": "Eternity Gate",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "In the Reinforcements step of your Movement phase, bring a Necrons Infantry unit from Reserves, or redeploy one already on the battlefield, to set up wholly within 6\" of this model and outside Engagement Range; it cannot charge this turn."
+  },
+  {
+    "ability_key": "datasheet:evasion-engrams",
+    "mechanic_digest": "443fb116b883f67e36bd5b77776adaed",
+    "name": "Evasion Engrams",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "After this unit shoots, it can make a Normal move of up to 6\"; if it does, it cannot charge this turn."
+  },
+  {
+    "ability_key": "datasheet:fabricator-claw-array-aura",
+    "mechanic_digest": "a7a41a47d4cd3a17ff1e8f0300322ff8",
+    "name": "Fabricator Claw Array (Aura)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While a friendly Necrons Vehicle unit is within 6\" of the bearer, that unit has the Feel No Pain 6+ ability."
+  },
+  {
+    "ability_key": "datasheet:flesh-hunger",
+    "mechanic_digest": "f628bc2477c1694bf418320e36739ea5",
+    "name": "Flesh Hunger",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Melee attacks by models in this unit against a Below Half-strength target automatically score a Critical Hit on any successful Hit roll."
+  },
+  {
+    "ability_key": "datasheet:ghostwalk-mantle",
+    "mechanic_digest": "0348c9d133fab0ee5e45b1090f48c387",
+    "name": "Ghostwalk Mantle",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model leads a unit, models in that unit have the Fights First ability."
+  },
+  {
+    "ability_key": "datasheet:gloom-prism-aura",
+    "mechanic_digest": "5c2de2148ef88ac42716790a163fb8b9",
+    "name": "Gloom Prism (Aura)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While a friendly Necrons unit is within 6\" of the bearer, models in that unit gain Feel No Pain against mortal wounds and Psychic Attacks."
+  },
+  {
+    "ability_key": "datasheet:grand-illusion",
+    "mechanic_digest": "94710915d6f12aacda4bc0dc2d65a22c",
+    "name": "Grand Illusion",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "After deployment, redeploy up to three Necrons units, optionally placing any of them in Strategic Reserves regardless of the normal Strategic Reserves limit."
+  },
+  {
+    "ability_key": "datasheet:grand-strategist",
+    "mechanic_digest": "4c8136b4973369dd3121c9bd4e3b49f7",
+    "name": "Grand Strategist",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the start of your Command phase, if this model is on the battlefield, gain 1 Command Point."
+  },
+  {
+    "ability_key": "datasheet:gravitational-field",
+    "mechanic_digest": "6d807467c8c4c8fb489078b330dd7432",
+    "name": "Gravitational Field",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When an enemy unit targets this model with a charge, subtract 2 from the Charge roll; this does not stack with other reductions."
+  },
+  {
+    "ability_key": "datasheet:gravitic-pulse",
+    "mechanic_digest": "08bd65b1480ca162ad46e59ee71b1d7f",
+    "name": "Gravitic Pulse",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the start of the opponent's Movement phase, pick a visible enemy unit within 18\"; until end of turn halve its Move and its Advance and Charge rolls. If it can Fly, it also risks D3 mortal wounds per move until your next Movement phase."
+  },
+  {
+    "ability_key": "datasheet:guardian-protocols",
+    "mechanic_digest": "6220a8bea8560da418522562fa8be335",
+    "name": "Guardian Protocols",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While a Noble leads this unit, attacks against it with a Strength greater than this unit's Toughness suffer -1 to the Wound roll."
+  },
+  {
+    "ability_key": "datasheet:harassment-swarm-aura",
+    "mechanic_digest": "01913ba551aec7ec92404211f3e791b4",
+    "name": "Harassment Swarm (Aura)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While a non-Monster, non-Vehicle enemy unit is within 3\", its attacks suffer -1 to the Hit roll."
+  },
+  {
+    "ability_key": "datasheet:harbinger-of-despair",
+    "mechanic_digest": "2009d98d6ba86e281b75cf00b1e1681f",
+    "name": "Harbinger of Despair",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per turn, at the start of any phase, pick an enemy unit within 18\"; that unit must take a Battle-shock test with a -1 penalty."
+  },
+  {
+    "ability_key": "datasheet:harbinger-of-destruction",
+    "mechanic_digest": "7944fb0a756164d81c7ced39a10d4849",
+    "name": "Harbinger of Destruction",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model leads a unit, ranged attacks by models in that unit score a Critical Hit on an unmodified Hit roll of 5+."
+  },
+  {
+    "ability_key": "datasheet:hard-wired-for-destruction",
+    "mechanic_digest": "e4462cf7ac6fcbd3246dd6a92f25d90f",
+    "name": "Hard-wired for Destruction",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Ranged attacks by models in this unit against the closest eligible enemy re-roll a Hit roll of 1, or re-roll the Hit roll entirely if the target is within range of an objective the opponent controls."
+  },
+  {
+    "ability_key": "datasheet:hyperspace-hunters",
+    "mechanic_digest": "e73a17cadc4b1c9dea85e802b18d9840",
+    "name": "Hyperspace Hunters",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per turn, when an enemy unit arrives from Reserves within 18\" and visible, this unit can shoot at only that unit as if it were your Shooting phase."
+  },
+  {
+    "ability_key": "datasheet:illuminor",
+    "mechanic_digest": "7d06a6401c4d266459df45b8d70c37e8",
+    "name": "Illuminor",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While within 3\" of another friendly Necrons unit, this model has the Lone Operative ability."
+  },
+  {
+    "ability_key": "datasheet:implacable-eradication",
+    "mechanic_digest": "ca58cfeaa3e944a554fbd1eef71731f1",
+    "name": "Implacable Eradication",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Attacks by models in this unit re-roll a Wound roll of 1, or re-roll the Wound roll entirely against an enemy unit within range of an objective marker."
+  },
+  {
+    "ability_key": "datasheet:implacable-resilience",
+    "mechanic_digest": "590ab91d6c7d37f4e0c94871cd094dcf",
+    "name": "Implacable Resilience",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Attacks allocated to this model have their Damage characteristic reduced by 1."
+  },
+  {
+    "ability_key": "datasheet:inescapable-death",
+    "mechanic_digest": "490177279f6aa53927c41eb428e674af",
+    "name": "Inescapable Death",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per turn, target a unit with this ability with the Fire Overwatch Stratagem for 0 Command Points even if already used this phase, scoring hits on unmodified Hit rolls of 2+ when doing so."
+  },
+  {
+    "ability_key": "datasheet:infectious-murder-madness-aura",
+    "mechanic_digest": "0e8392b80c2ef2de4ae1b66c2693e0d0",
+    "name": "Infectious Murder-madness (Aura)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While a friendly non-Monster, non-Titanic Necrons unit is within 6\", attacks its Destroyer Cult models make, or attacks any of its models make against the closest eligible target, gain the Sustained Hits 1 ability."
+  },
+  {
+    "ability_key": "datasheet:living-lightning",
+    "mechanic_digest": "c68e70ea0e846d6a4658e994da7095e0",
+    "name": "Living Lightning",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "In your Shooting phase, target a visible enemy unit within 18\" (excluding unattached Lone Operatives beyond 12\") and roll four D6; each 4+ deals 1 mortal wound."
+  },
+  {
+    "ability_key": "datasheet:lord-of-the-pyrrhian-eternals",
+    "mechanic_digest": "a2ee822707758c4ee3c1fa41b7d578c5",
+    "name": "Lord of the Pyrrhian Eternals",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model leads a unit, add 1 to the Wound roll for attacks made by models in that unit."
+  },
+  {
+    "ability_key": "datasheet:lord-of-the-storm",
+    "mechanic_digest": "e0cf07e4d5652f93d1f5fbca0e403ea1",
+    "name": "Lord of the Storm",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per battle, at the end of your Command phase, roll a D6 for each enemy unit within 12\": on 2-5 it suffers D3 mortal wounds, on a 6 it suffers D3+3."
+  },
+  {
+    "ability_key": "datasheet:malevolent-arcing",
+    "mechanic_digest": "93ed1f8e7093798d99d727b7f3bc9fc0",
+    "name": "Malevolent Arcing",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When this model targets with its twin tesla destructor, roll a D6 for the target and each other enemy unit within 3\" of it; on a 5+ that unit suffers D3 mortal wounds after this model's attacks resolve."
+  },
+  {
+    "ability_key": "datasheet:master-chronomancer",
+    "mechanic_digest": "91956115a4ae9c954ac60b6f4d4af5c5",
+    "name": "Master Chronomancer",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model leads a unit, models in that unit have a 4+ invulnerable save."
+  },
+  {
+    "ability_key": "datasheet:matter-absorption",
+    "mechanic_digest": "6d351add00ec6574553fe5bb6ff33706",
+    "name": "Matter Absorption",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the start of your Shooting phase, target an enemy Vehicle unit within 12\" and roll a D6: on a 2+ it suffers D3 mortal wounds and this model regains up to that many lost wounds."
+  },
+  {
+    "ability_key": "datasheet:mechanical-augmentation-aura",
+    "mechanic_digest": "0b44eaa964f06d13c9bc528798d1c28a",
+    "name": "Mechanical Augmentation (Aura)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While a friendly Necrons Battleline unit is within 3\", its attacks get +1 Armour Penetration and attacks against it suffer -1 Armour Penetration."
+  },
+  {
+    "ability_key": "datasheet:mind-in-the-machine",
+    "mechanic_digest": "b893c08f2cd7adc83401ba02257ac76c",
+    "name": "Mind in the Machine",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the start of the opponent's Shooting phase, target a visible enemy Vehicle unit within 12\" and force a Leadership test: on a pass its attacks suffer -1 to Hit until end of phase; on a fail it cannot shoot this phase."
+  },
+  {
+    "ability_key": "datasheet:multi-threat-eliminator",
+    "mechanic_digest": "849a976b82184d660317de5ac4bfee21",
+    "name": "Multi-threat Eliminator",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per turn, when an enemy unit shoots a friendly Necrons unit within 3\" of a model with this ability, after it has shot, one such model within 3\" of the target can shoot back at only that enemy unit as if it were your Shooting phase."
+  },
+  {
+    "ability_key": "datasheet:my-will-be-done",
+    "mechanic_digest": "598238fd129b3bec15344c911996003f",
+    "name": "My Will Be Done",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per battle round, when this model's unit is targeted by a Stratagem, reduce that Stratagem's Command Point cost by 1."
+  },
+  {
+    "ability_key": "datasheet:nanoscarab-amulet",
+    "mechanic_digest": "6e3b67c771679acf66d95c4319e4ba76",
+    "name": "Nanoscarab Amulet",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "The bearer has the Feel No Pain 5+ ability."
+  },
+  {
+    "ability_key": "datasheet:nanoscarab-projector",
+    "mechanic_digest": "22292658a7ac489e5a3b9f14d1aee1c0",
+    "name": "Nanoscarab Projector",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per battle round, when a friendly Necrons unit within 3\" of the bearer activates Reanimation Protocols, that unit reanimates 1 additional wound."
+  },
+  {
+    "ability_key": "datasheet:nanoscarab-reanimation-beam-aura",
+    "mechanic_digest": "b901a5ef818fa69d353336ecf15458f5",
+    "name": "Nanoscarab Reanimation Beam (Aura)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While a friendly Necrons unit is within 3\" of this model, its Reanimation Protocols reanimate an additional D3 wounds when activated."
+  },
+  {
+    "ability_key": "datasheet:nebuloscope",
+    "mechanic_digest": "aa15ccfcb62ae057f47ab49f7ff78a5b",
+    "name": "Nebuloscope",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Ranged weapons equipped by the bearer have the Ignores Cover ability."
+  },
+  {
+    "ability_key": "datasheet:necrodermis",
+    "mechanic_digest": "a7334678c134ee9708bc6adc8bb83a26",
+    "name": "Necrodermis",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Attacks allocated to this model have their Damage characteristic reduced by 1."
+  },
+  {
+    "ability_key": "datasheet:nightmare-shroud-aura",
+    "mechanic_digest": "4755a57f643510019641d1c3bc7e8068",
+    "name": "Nightmare Shroud (Aura)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "In the opponent's Battle-shock step, an enemy unit below Starting Strength within 6\" of this model must take a Battle-shock test with a -1 penalty."
+  },
+  {
+    "ability_key": "datasheet:nullstone-field-generator-aura",
+    "mechanic_digest": "5c2de2148ef88ac42716790a163fb8b9",
+    "name": "Nullstone Field Generator (Aura)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While a friendly Necrons unit is within 6\" of the bearer, models in that unit gain Feel No Pain against mortal wounds and Psychic Attacks."
+  },
+  {
+    "ability_key": "datasheet:obelisk-node-control",
+    "mechanic_digest": "0c91bba36b8c97c5297f4e2b94de3843",
+    "name": "Obelisk Node Control",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While within range of an objective marker you control, enemy Reinforcement units cannot be set up within 12\" of this model."
+  },
+  {
+    "ability_key": "datasheet:optimised-for-slaughter",
+    "mechanic_digest": "e9366fa3d299e80a9472a3f8d3d88024",
+    "name": "Optimised for Slaughter",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Attacks with this unit's enmitic exterminator against non-Monster, non-Vehicle units, and attacks with its gauss destructor against Monsters or Vehicles, re-roll a Wound roll of 1."
+  },
+  {
+    "ability_key": "datasheet:overwhelming-obliteration",
+    "mechanic_digest": "c0c6b53a6f9a14da5845e39d73510053",
+    "name": "Overwhelming Obliteration",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "If this model Remains Stationary in the Movement phase, its doomsday cannon gains the Devastating Wounds ability until end of turn."
+  },
+  {
+    "ability_key": "datasheet:phaeron-of-the-blades-aura",
+    "mechanic_digest": "784ed049079fbd8eaa05f79e19945e43",
+    "name": "Phaeron of the Blades (Aura)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While a friendly non-Monster Necrons unit is within 6\" of Szarekh, re-roll Charge rolls for that unit and its melee attacks get +1 Strength."
+  },
+  {
+    "ability_key": "datasheet:phaeron-of-the-stars-aura",
+    "mechanic_digest": "724a01dd2ddac9c27da7cc7e3662002f",
+    "name": "Phaeron of the Stars (Aura)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While a friendly non-Monster Necrons unit is within 6\" of Szarekh, its attacks re-roll a Hit roll of 1 and a Wound roll of 1."
+  },
+  {
+    "ability_key": "datasheet:phase-shift-generator-aura",
+    "mechanic_digest": "c4d92b9f15768cc5e481136c78f4f052",
+    "name": "Phase Shift Generator (Aura)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While a friendly Necrons unit is within 3\" of this Fortification, models in that unit have a 5+ invulnerable save against ranged attacks."
+  },
+  {
+    "ability_key": "datasheet:phase-shifted-cover",
+    "mechanic_digest": "a36651fb50ac2cd42924bd84995caf4b",
+    "name": "Phase-shifted Cover",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "If this Fortification blocks visibility to a model targeted by a ranged attack, that model gains Benefit of Cover against the attack."
+  },
+  {
+    "ability_key": "datasheet:phased-cover",
+    "mechanic_digest": "a36651fb50ac2cd42924bd84995caf4b",
+    "name": "Phased Cover",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "If this Fortification blocks visibility to a model targeted by a ranged attack, that model gains Benefit of Cover against the attack."
+  },
+  {
+    "ability_key": "datasheet:plasmacyte",
+    "mechanic_digest": "459a08a821c163a21b7ce0ffe01516c3",
+    "name": "Plasmacyte",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per battle per Plasmacyte token, when this unit fights, its melee weapons gain the Devastating Wounds ability until end of phase, consuming one token."
+  },
+  {
+    "ability_key": "datasheet:powers-of-the-ctan",
+    "mechanic_digest": "cefebebedea7b166ce4ea7093d974e31",
+    "name": "Powers of the C’tan",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When this model shoots, choose up to two C'tan Power weapons from a fixed list to equip for the phase, replacing any other C'tan Power weapons it could otherwise use."
+  },
+  {
+    "ability_key": "datasheet:prophet-of-destruction",
+    "mechanic_digest": "ef7ba2aa4be9abd79c134d5e8b9f604d",
+    "name": "Prophet of Destruction",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Each time this model destroys an enemy unit, a friendly Destroyer Cult unit within 9\" re-rolls a Wound roll of 1 for its attacks until end of phase."
+  },
+  {
+    "ability_key": "datasheet:protective-disciples",
+    "mechanic_digest": "f7e5988168d7440e516d5808673b5c58",
+    "name": "Protective Disciples",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While within 3\" of another friendly Destroyer Cult unit, this model has the Lone Operative ability."
+  },
+  {
+    "ability_key": "datasheet:quantum-invader",
+    "mechanic_digest": "a3bf15f560909fe9ae57bbc95e81170a",
+    "name": "Quantum Invader",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "This model can be set up in the Reinforcements step of your first, second, or third Movement phase, regardless of mission rules."
+  },
+  {
+    "ability_key": "datasheet:reanimation-nodes-aura",
+    "mechanic_digest": "dc188e1180442a5dc56588251a5314eb",
+    "name": "Reanimation Nodes (Aura)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While a friendly Necrons Infantry unit is within 6\" of this Fortification, models in that unit have the Feel No Pain 6+ ability."
+  },
+  {
+    "ability_key": "datasheet:relentless-combatants",
+    "mechanic_digest": "66f9fe9177d2734c8a5916e38041a2ae",
+    "name": "Relentless Combatants",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Re-roll Charge rolls made for this unit, and it is eligible to declare a charge in a turn in which it Fell Back."
+  },
+  {
+    "ability_key": "datasheet:relentless-march",
+    "mechanic_digest": "1863d83b360f1d52b993edb5c951f496",
+    "name": "Relentless March",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model leads a unit, add 1\" to the Move characteristic of models in that unit."
+  },
+  {
+    "ability_key": "datasheet:relentless-march-aura",
+    "mechanic_digest": "09f6aa5242bc59e03fc067e8c47c22b0",
+    "name": "Relentless March (Aura)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While a friendly non-Monster Necrons unit is within 6\" of this model, add 2\" to the Move characteristic of models in that unit."
+  },
+  {
+    "ability_key": "datasheet:repair-barge",
+    "mechanic_digest": "206cd9f069cdfbae22b1be41bb0a5f99",
+    "name": "Repair Barge",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per turn, after an enemy unit finishes attacking, if a friendly Necron Warriors unit within 3\" lost wounds from that attack, activate that unit's Reanimation Protocols; only one activation per turn."
+  },
+  {
+    "ability_key": "datasheet:resurrection-orb",
+    "mechanic_digest": "7b082af304c0fa80c56312e57e2f8a92",
+    "name": "Resurrection Orb",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per battle, at the end of any phase, resurrect a friendly Necrons unit on the battlefield by activating its Reanimation Protocols to reanimate D6 wounds instead of D3; only one unit per turn."
+  },
+  {
+    "ability_key": "datasheet:rites-of-reanimation",
+    "mechanic_digest": "c41914e4186d3d3d14e7f6f2fc5d6380",
+    "name": "Rites of Reanimation",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model leads a unit, models in that unit have the Feel No Pain 5+ ability."
+  },
+  {
+    "ability_key": "datasheet:self-destruction",
+    "mechanic_digest": "13ee1b444e3e43c68ce439e3b36f183f",
+    "name": "Self-destruction",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the start of the Fight phase, if in Engagement Range of an enemy, destroy one of this unit's own models to roll a D6 (+1 vs a Vehicle) against a nearby enemy: 2-5 deals D3 mortal wounds, 6+ deals 3."
+  },
+  {
+    "ability_key": "datasheet:sentinel-construct",
+    "mechanic_digest": "bbe289f9aa91396ea01c301b6e091cb1",
+    "name": "Sentinel Construct",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When this unit is targeted with the Fire Overwatch Stratagem, hits are scored on unmodified Hit rolls of 5+ instead of the normal threshold."
+  },
+  {
+    "ability_key": "datasheet:shadowloom",
+    "mechanic_digest": "2a9118856ebeaa386a8af87eab8114e6",
+    "name": "Shadowloom",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "The bearer has the Stealth ability."
+  },
+  {
+    "ability_key": "datasheet:shieldvanes",
+    "mechanic_digest": "d69fa542e3fe9e7fd6aae7bab5340edd",
+    "name": "Shieldvanes",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "The bearer has a 3+ Save characteristic and an 8\" Move characteristic."
+  },
+  {
+    "ability_key": "datasheet:snaking-ambush",
+    "mechanic_digest": "0915b6daad339340428a03c95512ecdc",
+    "name": "Snaking Ambush",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Target this unit with the Heroic Intervention Stratagem for 0 Command Points, even if another unit was already targeted this phase."
+  },
+  {
+    "ability_key": "datasheet:surrogate-hosts",
+    "mechanic_digest": "3e36b46be7f80eefdff8117578ddd58b",
+    "name": "Surrogate Hosts",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the start of your Command phase, swap this model for another friendly Necrons Infantry Character on the battlefield; that model is destroyed with no death-trigger effects, and this model arrives at full wounds in its place."
+  },
+  {
+    "ability_key": "datasheet:systematic-vigour",
+    "mechanic_digest": "37641ec51a73986f71fbf32757ee80a5",
+    "name": "Systematic Vigour",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "If a model in this unit is destroyed by a melee attack before fighting this phase, roll a D6: on a 2+ it fights after the attacker's unit finishes, then is removed."
+  },
+  {
+    "ability_key": "datasheet:targeting-relay",
+    "mechanic_digest": "0556a2921bdbd373acd88277cecf81f0",
+    "name": "Targeting Relay",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "After this model shoots, pick an enemy unit it hit; until end of phase that unit cannot claim Benefit of Cover."
+  },
+  {
+    "ability_key": "datasheet:technomancer",
+    "mechanic_digest": "28a81afbbb7781151b76615c56d0bd7e",
+    "name": "Technomancer",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the end of your Movement phase, pick a friendly Necrons model within 6\" of the bearer to regain up to D3 lost wounds; each model can only benefit once per turn."
+  },
+  {
+    "ability_key": "datasheet:tectonic-reverberations",
+    "mechanic_digest": "b0acd205007c3a62f54f4305b3b01c16",
+    "name": "Tectonic Reverberations",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "In your Movement phase, pick a visible enemy unit within 18\"; until your next Movement phase it is pinned, reducing its Move by 2\" and its Charge rolls by 2."
+  },
+  {
+    "ability_key": "datasheet:teleportation-matrix",
+    "mechanic_digest": "7558623ce8a6ea9c70d2b1e49fe49ed3",
+    "name": "Teleportation Matrix",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per battle, if not in Engagement Range at the end of the opponent's turn, remove this Fortification and redeploy it over 9\" from all enemies next Movement phase; it is destroyed if the battle ends while off the battlefield."
+  },
+  {
+    "ability_key": "datasheet:terrifying-monstrosity",
+    "mechanic_digest": "0fd447d42a7de85cb0bbf3844ac88e6d",
+    "name": "Terrifying Monstrosity",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the start of the Fight phase, each enemy unit within Engagement Range of a unit with this ability must take a Battle-shock test."
+  },
+  {
+    "ability_key": "datasheet:the-lords-will",
+    "mechanic_digest": "8dedae92ac60a04dda59afae5923220e",
+    "name": "The Lord’s Will",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model leads a unit, that unit can be targeted by Stratagems even while Battle-shocked."
+  },
+  {
+    "ability_key": "datasheet:the-silent-king",
+    "mechanic_digest": "5a03d7dd72d8804a3fd8139084ba12c9",
+    "name": "The Silent King",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While a friendly Necrons unit is within 6\" of Szarekh, that unit's Leadership characteristic improves by 1."
+  },
+  {
+    "ability_key": "datasheet:the-stars-are-right",
+    "mechanic_digest": "42e7e775bef735013b96478fd2aabe67",
+    "name": "The Stars Are Right",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per battle, at the start of the Fight phase, triple this model's Staff of Tomorrow Attacks and Strength characteristics and every successful Wound roll it makes scores a Critical Wound, until end of phase."
+  },
+  {
+    "ability_key": "datasheet:the-vargards-duty",
+    "mechanic_digest": "0a9a21c485da44fa2834ac0c8b290923",
+    "name": "The Vargard’s Duty",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model is in the same unit as Nemesor Zahndrekh, Character models in that unit have the Feel No Pain 4+ ability."
+  },
+  {
+    "ability_key": "datasheet:their-number-is-legion",
+    "mechanic_digest": "91a39b05ad752d6f0ce22a38d402a00e",
+    "name": "Their Number is Legion",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Each time this unit's Reanimation Protocols activate, you may re-roll the dice that determine how many wounds are reanimated."
+  },
+  {
+    "ability_key": "datasheet:timesplinter-mantle",
+    "mechanic_digest": "5b74fd201c7cfc3ae009e342b73acd98",
+    "name": "Timesplinter Mantle",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model leads a unit, attacks that target that unit suffer -1 to the Hit roll."
+  },
+  {
+    "ability_key": "datasheet:titanic-walker",
+    "mechanic_digest": "cf542c667e09558da5caec0a56207ea7",
+    "name": "Titanic Walker",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When this model makes a Normal, Advance, or Fall Back move, it can move over non-Titanic models and terrain 4\" or less in height as if they were not there."
+  },
+  {
+    "ability_key": "datasheet:transdimensional-displacement",
+    "mechanic_digest": "6b6b3c13c2fdba0f56e9ed33e0ab382b",
+    "name": "Transdimensional Displacement",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When this model would Advance, you may instead remove it and set it up anywhere more than 9\" from all enemy units."
+  },
+  {
+    "ability_key": "datasheet:transient-madness",
+    "mechanic_digest": "f5e98a43a860df37c4412c99e5e8845f",
+    "name": "Transient Madness",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model leads a unit, at the start of your Command phase roll a D6; until your next Command phase weapons equipped by models in that unit gain Sustained Hits 1 (1-2), Lethal Hits (3-4), or Devastating Wounds (5-6)."
+  },
+  {
+    "ability_key": "datasheet:translocation-beams",
+    "mechanic_digest": "1693e9b3a8d600210ae0ecf12a350163",
+    "name": "Translocation Beams",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the end of the Fight phase, if this transport is empty, a friendly Necrons Infantry unit wholly within 6\" and not in Engagement Range may embark within it."
+  },
+  {
+    "ability_key": "datasheet:translocation-shroud",
+    "mechanic_digest": "d959f68950936e11180a231cad6b0e98",
+    "name": "Translocation Shroud",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When this model's unit Advances, skip the Advance roll and add 6\" to its Move instead; until that move ends, its models can move through models and terrain, but cannot end atop them."
+  },
+  {
+    "ability_key": "datasheet:triarchal-menhirs",
+    "mechanic_digest": "dbef5d2b7ae5dc1c6ef48344c2038e4e",
+    "name": "TRIARCHAL MENHIRS",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "If this unit's Szarekh model is destroyed, all remaining Triarchal Menhir models in the unit are destroyed too."
+  },
+  {
+    "ability_key": "datasheet:tunnelling-horrors",
+    "mechanic_digest": "f81bf60717eafbc855f43715c962939f",
+    "name": "Tunnelling Horrors",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the end of the opponent's turn, if not in Engagement Range, remove this unit and redeploy it more than 9\" from all enemies in your next Movement phase."
+  },
+  {
+    "ability_key": "datasheet:united-in-destruction",
+    "mechanic_digest": "041e88b2867346f76368e1f89f414326",
+    "name": "United In Destruction",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model leads a unit, melee weapons equipped by models in that unit gain the Lethal Hits ability."
+  },
+  {
+    "ability_key": "datasheet:vanguard-protocols",
+    "mechanic_digest": "a82b16e350af4a876245190cbacab10d",
+    "name": "VANGUARD PROTOCOLS",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "If attached to a Canoptek Macrocytes unit during Declare Battle Formations, this model has the Scouts 8\" ability."
+  },
+  {
+    "ability_key": "datasheet:voice-of-the-triarch",
+    "mechanic_digest": "6ce81ea2472e3bca5fcf755a73471e97",
+    "name": "Voice of the Triarch",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the start of the battle round, select one ability from a fixed list; this unit has that ability until the next battle round."
+  },
+  {
+    "ability_key": "datasheet:weapon-sentinels",
+    "mechanic_digest": "4ac6e65ce38d64ad7b2382063fa69e3a",
+    "name": "Weapon Sentinels",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Ranged attacks by models in this unit against a unit within 12\" may ignore modifiers to Ballistic Skill, the Hit roll, or the Wound roll."
+  },
+  {
+    "ability_key": "datasheet:whirling-onslaught",
+    "mechanic_digest": "ad7836e75532a5aa4315bea80b6cf1be",
+    "name": "Whirling Onslaught",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Melee attacks by models in this unit re-roll a Hit roll of 1, or re-roll the Hit roll entirely if this unit made a Charge move this turn."
+  },
+  {
+    "ability_key": "datasheet:wraith-form",
+    "mechanic_digest": "eb383ec8bb5289762fd48961aac2f27f",
+    "name": "Wraith Form",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "After this unit's Normal move, pick an enemy unit it moved over and roll a D6 per model in this unit; each 4+ deals 1 mortal wound to that unit."
+  },
+  {
+    "ability_key": "datasheet:ziggurat-dock",
+    "mechanic_digest": "65a9d7a5f72da7b38ade682ee0dbf2b4",
+    "name": "Ziggurat Dock",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "One friendly named Fortification-family model can start the battle atop this Fortification's platform, gaining the Heavy ability on its ranged weapons while there; any friendly model can move onto its ramps or platform sections."
+  }
+]

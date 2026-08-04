@@ -1,0 +1,1577 @@
+[
+  {
+    "ability_key": "datasheet:a-gory-path",
+    "mechanic_digest": "558589f8ba5ae993e111b28a19b1518e",
+    "name": "A Gory Path",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Each time this model's unit Consolidates, it can move up to 6\" instead of up to 3\"."
+  },
+  {
+    "ability_key": "datasheet:accursed-horde",
+    "mechanic_digest": "93a74812158549fe7130f7b8e251a4e9",
+    "name": "Accursed Horde",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Each time an enemy unit's shooting destroys a model in this unit, and it is not Battle-shocked, this unit can move up to D6\" toward the closest non-Aircraft enemy, potentially into Engagement Range."
+  },
+  {
+    "ability_key": "datasheet:altered-reality-psychic",
+    "mechanic_digest": "0b22d8f8c1be35077067e87cef14b788",
+    "name": "Altered Reality (Psychic)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per battle round, after a Hit roll, Wound roll, or saving throw is made for this model, you can change that result to a 6."
+  },
+  {
+    "ability_key": "datasheet:bane-of-cowards",
+    "mechanic_digest": "cbb07f35ee03045febd41d1ca04bd719",
+    "name": "Bane of Cowards",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Each non-Monster, non-Vehicle enemy unit within Engagement Range of a unit with this ability that Falls Back must take a Desperate Escape test, at -1 if it is also Battle-shocked."
+  },
+  {
+    "ability_key": "datasheet:beast-handler",
+    "mechanic_digest": "f3c0ce4ee05720f39014c0669e511509",
+    "name": "Beast Handler",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model leads a unit, Charge rolls made for it can be re-rolled, and once per battle it can be targeted with the Heroic Intervention Stratagem for 0CP even if already used on a different unit this phase."
+  },
+  {
+    "ability_key": "datasheet:beastmaster",
+    "mechanic_digest": "5eda1c25231b7ce13f8888e3191e179b",
+    "name": "Beastmaster",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this unit contains an Ogryn Pack Master model, Charge rolls made for it can be re-rolled, and Chaos Mauler Hound models in it can re-roll a Hit roll of 1."
+  },
+  {
+    "ability_key": "datasheet:bestial-raiders",
+    "mechanic_digest": "3ffb1ce6b25ebbdc6ad4b07696739164",
+    "name": "Bestial Raiders",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "If this unit starts the battle in Strategic Reserves, it can arrive in the Reinforcements step of your first, second, or third Movement phase regardless of mission rules, treating the battle round as one higher than actual for that purpose."
+  },
+  {
+    "ability_key": "datasheet:blazing-warpfire-psychic",
+    "mechanic_digest": "b06a60089c4d3207c99dda062169ff9e",
+    "name": "Blazing Warpfire (Psychic)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model leads a unit, ranged weapons equipped by models in it have the Assault ability."
+  },
+  {
+    "ability_key": "datasheet:blessed-by-the-plague-god",
+    "mechanic_digest": "91956115a4ae9c954ac60b6f4d4af5c5",
+    "name": "Blessed by the Plague God",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model leads a unit, models in that unit have a 4+ invulnerable save."
+  },
+  {
+    "ability_key": "datasheet:blood-throne",
+    "mechanic_digest": "e8e2e3f13f8b8dc58fec06e58e7a4a9a",
+    "name": "Blood Throne",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the start of the Fight phase, select one visible enemy unit within 18\": until the end of the phase, friendly Khorne Legiones Daemonica attacks against it gain +1 to Strength, Armour Penetration, and Damage."
+  },
+  {
+    "ability_key": "datasheet:bloodmaster",
+    "mechanic_digest": "a2ee822707758c4ee3c1fa41b7d578c5",
+    "name": "Bloodmaster",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model leads a unit, attacks made by models in it gain +1 to the Wound roll."
+  },
+  {
+    "ability_key": "datasheet:bloody-stampede",
+    "mechanic_digest": "fcb593ce7be40571ad36c8c75597bfdb",
+    "name": "Bloody Stampede",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Each time this model's unit ends a Charge move, select one enemy unit within Engagement Range and roll a D6: on 2-3 it suffers 1 mortal wound, on 4-5 D3 mortal wounds, on a 6 D3+3 mortal wounds."
+  },
+  {
+    "ability_key": "datasheet:bounding-assault",
+    "mechanic_digest": "b61351ffb1eefe4f8d275cf55a60bc74",
+    "name": "Bounding Assault",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Each time this unit ends a Charge move, its Pox Rider plagueswords have the Lance ability until the end of the turn."
+  },
+  {
+    "ability_key": "datasheet:bounding-leaps",
+    "mechanic_digest": "4e04f367d72d290a16e796f78232ebb9",
+    "name": "Bounding Leaps",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "This unit is eligible to shoot in a turn in which it Fell Back."
+  },
+  {
+    "ability_key": "datasheet:brass-collar-of-bloody-vengeance",
+    "mechanic_digest": "78e5acba044e8414bce6d3f0ee51e6d2",
+    "name": "Brass Collar of Bloody Vengeance",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "The bearer has the Feel No Pain 3+ ability against Psychic Attacks and against mortal wounds."
+  },
+  {
+    "ability_key": "datasheet:brass-stampede",
+    "mechanic_digest": "4170185653d55c0bcc27e713d0900dc7",
+    "name": "Brass Stampede",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Each time this unit ends a Charge move, select one enemy unit within Engagement Range: roll a D6 per model in this unit, dealing D3 mortal wounds per 4+."
+  },
+  {
+    "ability_key": "datasheet:brutal-example",
+    "mechanic_digest": "a2a52e6407f534fc442018a62415c5db",
+    "name": "Brutal Example",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model leads a unit, that unit can be targeted for 0CP with a Stratagem that varies by model (Fire Overwatch or Insane Bravery), even if another unit already was; each use destroys one Bodyguard model in it."
+  },
+  {
+    "ability_key": "datasheet:champion-slayer",
+    "mechanic_digest": "b4cba8d6da7e9897f6e7e2877605af77",
+    "name": "Champion Slayer",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Each melee attack this model makes against a Character or Monster unit can have its Wound roll re-rolled, and destroying such a unit lets this model regain up to D6 lost wounds."
+  },
+  {
+    "ability_key": "datasheet:chance-for-glory",
+    "mechanic_digest": "83778700f15ba1fd6a6c61d7b57b23fa",
+    "name": "Chance for Glory",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per battle, at the start of the Fight phase, this model can improve the Strength, Attacks, Armour Penetration, and Damage of its melee weapons by 1 until the end of the phase."
+  },
+  {
+    "ability_key": "datasheet:changecaster",
+    "mechanic_digest": "4a222b1541905ed745404dc54b7e8e28",
+    "name": "Changecaster",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model leads a unit, ranged weapons equipped by models in it have the Sustained Hits 1 ability."
+  },
+  {
+    "ability_key": "datasheet:chaos-familiar",
+    "mechanic_digest": "edb94ff967bb5d249845150bd462aa22",
+    "name": "Chaos Familiar",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per battle, when an attack is allocated to the bearer, its Damage characteristic can be changed to 0."
+  },
+  {
+    "ability_key": "datasheet:chaos-icon",
+    "mechanic_digest": "c92d0c96126c3e2a4c72c82537cf00c3",
+    "name": "Chaos Icon",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Each time the bearer's unit takes a Leadership test for the Dark Pacts ability, that test can be re-rolled."
+  },
+  {
+    "ability_key": "datasheet:chosen-marauders",
+    "mechanic_digest": "51490e33f6966463f5f4f215720a96e4",
+    "name": "Chosen Marauders",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "This unit is eligible to shoot and to declare a charge in a turn in which it Advanced or Fell Back."
+  },
+  {
+    "ability_key": "datasheet:collar-of-khorne",
+    "mechanic_digest": "4f44951c903560729f927b7850ca011b",
+    "name": "Collar of Khorne",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "The bearer has the Feel No Pain 3+ ability against Psychic Attacks."
+  },
+  {
+    "ability_key": "datasheet:cover",
+    "mechanic_digest": "a36651fb50ac2cd42924bd84995caf4b",
+    "name": "Cover",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Each time a ranged attack is allocated to a model that is not fully visible to the attacker because of this Fortification, that model has the Benefit of Cover against that attack."
+  },
+  {
+    "ability_key": "datasheet:creature-of-khorne",
+    "mechanic_digest": "d375de1ebc628a39463983795fc5b20a",
+    "name": "Creature of Khorne",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "If this model has the Khorne keyword, its melee weapons gain +2 to their Strength characteristic."
+  },
+  {
+    "ability_key": "datasheet:creature-of-nurgle",
+    "mechanic_digest": "69d3e1aec6e2ea5bbac5d38a17673dc9",
+    "name": "Creature of Nurgle",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "If this model has the Nurgle keyword, it gains +1 to its Toughness characteristic."
+  },
+  {
+    "ability_key": "datasheet:creature-of-slaanesh",
+    "mechanic_digest": "b83488ce90eab87e484ba7284672e60b",
+    "name": "Creature of Slaanesh",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "If this model has the Slaanesh keyword, it gains +2\" to its Move characteristic."
+  },
+  {
+    "ability_key": "datasheet:creature-of-tzeentch",
+    "mechanic_digest": "056ceb91bddd4a37f23b3534dd955a67",
+    "name": "Creature of Tzeentch",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "If this model has the Tzeentch keyword, it has a 4+ invulnerable save."
+  },
+  {
+    "ability_key": "datasheet:cruel-hunter",
+    "mechanic_digest": "e00965e91de5a961f2ffa88d6a20d5c1",
+    "name": "Cruel Hunter",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model leads a unit, models in it can Pile In or Consolidate up to 6\" instead of up to 3\"."
+  },
+  {
+    "ability_key": "datasheet:cursed-flames",
+    "mechanic_digest": "ebf3d5d6622079ea25af6403da9daefc",
+    "name": "Cursed Flames",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "After this model shoots, select one hit enemy Infantry unit: it must take a Battle-shock test."
+  },
+  {
+    "ability_key": "datasheet:cursed-wardings-psychic",
+    "mechanic_digest": "791248b1d94f2cb29ac7636afb33f1cb",
+    "name": "Cursed Wardings (Psychic)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model leads a unit, models in it have the Feel No Pain 4+ ability against Psychic Attacks."
+  },
+  {
+    "ability_key": "datasheet:cut-off-their-escape",
+    "mechanic_digest": "9a2d87d947e9e3528848a3eac1681754",
+    "name": "Cut Off Their Escape",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Each non-Monster, non-Vehicle enemy unit within Engagement Range of this model's unit that Falls Back must take Desperate Escape tests as if Battle-shocked, at a further -1 if it truly is Battle-shocked."
+  },
+  {
+    "ability_key": "datasheet:cutting-down-the-foe",
+    "mechanic_digest": "eeb173d152ce03b7ddf5f50751594c51",
+    "name": "Cutting Down the Foe",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Effect varies by model: either melee attacks gain +1 Strength and +1 Damage in a turn this unit charged, or when it fights, one enemy unit within Engagement Range suffers mortal wounds on a D6, with a bonus against Infantry."
+  },
+  {
+    "ability_key": "datasheet:daemon-lord-of-khorne-aura",
+    "mechanic_digest": "06089801ddd80bb039d2cf83d19cbbb4",
+    "name": "Daemon Lord of Khorne (Aura)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While a friendly Khorne Legiones Daemonica unit is within 6\" of this model, its melee attacks gain +1 to the Hit roll."
+  },
+  {
+    "ability_key": "datasheet:daemon-lord-of-nurgle-aura",
+    "mechanic_digest": "074126060f5fcd8eb9b8777e38b5869e",
+    "name": "Daemon Lord of Nurgle (Aura)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While a friendly Nurgle Legiones Daemonica unit is within 6\" of this model, its models gain +1 to their Toughness characteristic."
+  },
+  {
+    "ability_key": "datasheet:daemon-lord-of-slaanesh-aura",
+    "mechanic_digest": "4ae5b42e9097faf7fb036e59e3ada207",
+    "name": "Daemon Lord of Slaanesh (Aura)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While a friendly Slaanesh Legiones Daemonica unit is within 6\" of this model, its melee weapons have their Armour Penetration improved by 1."
+  },
+  {
+    "ability_key": "datasheet:daemon-lord-of-tzeentch-aura",
+    "mechanic_digest": "ca950e420f41bb7e8c130860ca1dbe4a",
+    "name": "Daemon Lord of Tzeentch (Aura)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While a friendly Tzeentch Legiones Daemonica unit is within 6\" of this model, its ranged attacks gain +1 to their Strength characteristic."
+  },
+  {
+    "ability_key": "datasheet:daemon-prince-of-khorne",
+    "mechanic_digest": "7a13587ae5040f737892f98965150fa7",
+    "name": "Daemon Prince of Khorne",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "If this model has the Khorne keyword, its hellforged weapons gain +2 to their Strength characteristic."
+  },
+  {
+    "ability_key": "datasheet:daemon-prince-of-nurgle",
+    "mechanic_digest": "69d3e1aec6e2ea5bbac5d38a17673dc9",
+    "name": "Daemon Prince of Nurgle",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "If this model has the Nurgle keyword, it gains +1 to its Toughness characteristic."
+  },
+  {
+    "ability_key": "datasheet:daemon-prince-of-slaanesh",
+    "mechanic_digest": "b83488ce90eab87e484ba7284672e60b",
+    "name": "Daemon Prince of Slaanesh",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "If this model has the Slaanesh keyword, it gains +2\" to its Move characteristic."
+  },
+  {
+    "ability_key": "datasheet:daemon-prince-of-tzeentch",
+    "mechanic_digest": "534157f0fae566cfe862fbcae24771d6",
+    "name": "Daemon Prince of Tzeentch",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "If this model has the Tzeentch keyword, its infernal cannon gains +3 to its Attacks characteristic."
+  },
+  {
+    "ability_key": "datasheet:daemonic-allegiance",
+    "mechanic_digest": "77408bdb8932c63a18dbe7e29af15779",
+    "name": "Daemonic Allegiance",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When you include this model in your army, choose Khorne, Tzeentch, Nurgle, or Slaanesh for it to gain as a keyword; the choice also affects some of its characteristics or wargear."
+  },
+  {
+    "ability_key": "datasheet:daemonic-icon",
+    "mechanic_digest": "a2bc085bb01a2b9eb05171a5155e479a",
+    "name": "Daemonic Icon",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Models in the bearer's unit have a Leadership characteristic of 6+."
+  },
+  {
+    "ability_key": "datasheet:daemonic-lord",
+    "mechanic_digest": "c4f8b078cedf5c45c6c4311460e37041",
+    "name": "Daemonic Lord",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model is within 3\" of a friendly Legiones Daemonica Infantry unit, it has the Lone Operative ability."
+  },
+  {
+    "ability_key": "datasheet:daemonkin-psychic",
+    "mechanic_digest": "a7a2923ce5e24cb8e6f338e6d7a1e848",
+    "name": "Daemonkin (Psychic)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model leads a unit, add 1 to Advance and Charge rolls made for it."
+  },
+  {
+    "ability_key": "datasheet:dark-favour-psychic",
+    "mechanic_digest": "91956115a4ae9c954ac60b6f4d4af5c5",
+    "name": "Dark Favour (Psychic)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model leads a unit, models in it have a 4+ invulnerable save."
+  },
+  {
+    "ability_key": "datasheet:dark-ritual",
+    "mechanic_digest": "dfaf34fa5b47dcb2a94e8eb28d0001e0",
+    "name": "Dark Ritual",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per battle, in your Command phase, if this unit contains a Cult Demagogue model, until the end of the turn it can charge in a turn it Advanced, and its attacks gain +1 to the Hit roll and +1 to the Wound roll."
+  },
+  {
+    "ability_key": "datasheet:dark-zealotry",
+    "mechanic_digest": "8d0cce0955f45c9814a3760e4b69a025",
+    "name": "Dark Zealotry",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While a unit is led by a Dark Apostle model, melee attacks made by models in it gain +1 to the Wound roll."
+  },
+  {
+    "ability_key": "datasheet:dazzling-acrobatics",
+    "mechanic_digest": "25ce37f610ef911430f6eb8d5625a189",
+    "name": "Dazzling Acrobatics",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "This model is eligible to declare a charge in a turn in which it Advanced or Fell Back."
+  },
+  {
+    "ability_key": "datasheet:death-hex-psychic",
+    "mechanic_digest": "ac0592e0950b44f479db4ecc70e0d3db",
+    "name": "Death Hex (Psychic)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the start of your Shooting phase, a Psyker with this ability targets a visible enemy unit within 12\" and rolls a D6: on a 1 its unit takes D3 mortal wounds, on 2+ attacks vs that enemy gain +1 AP until your next Movement phase."
+  },
+  {
+    "ability_key": "datasheet:deaths-heads",
+    "mechanic_digest": "a5103897bf852c05b1fa641e7d2dd362",
+    "name": "Death’s Heads",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "After this unit shoots, select one hit enemy unit: until the end of the turn, friendly Nurgle Legiones Daemonica attacks against it can re-roll the Wound roll."
+  },
+  {
+    "ability_key": "datasheet:delightful-agonies",
+    "mechanic_digest": "7a6c0c817461db4cda33e27a5ec6904f",
+    "name": "Delightful Agonies",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "The first time this model is destroyed, roll a D6 at the end of the phase: on a 2+ it is set back up near where it fell, outside Engagement Range, with its wounds fully restored."
+  },
+  {
+    "ability_key": "datasheet:deluge-of-nurgle-aura",
+    "mechanic_digest": "b384b157ee69482590eccee00a158c44",
+    "name": "Deluge of Nurgle (Aura)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While an enemy unit is within 6\" of this model, its models have -2 to their Move characteristic and -1 to their Objective Control characteristic."
+  },
+  {
+    "ability_key": "datasheet:demagogue",
+    "mechanic_digest": "5f0eba92b742ac7896fb56f4a2ed2fde",
+    "name": "Demagogue",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per battle, at the start of any phase, select a Battle-shocked friendly Heretic Astartes unit within 12\" of this unit's Dark Apostle model: it is no longer Battle-shocked."
+  },
+  {
+    "ability_key": "datasheet:despoilers",
+    "mechanic_digest": "71f23cbe828fb036cf1d0878aee2fce4",
+    "name": "Despoilers",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Each time this unit makes a Dark Pact, its attacks can re-roll the Hit roll until the end of the phase."
+  },
+  {
+    "ability_key": "datasheet:devastating-charge",
+    "mechanic_digest": "be4f83d557e8e14842f0f7dd2515c994",
+    "name": "Devastating Charge",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Each time this model's unit ends a Charge move, every enemy unit within Engagement Range of it must take a Battle-shock test."
+  },
+  {
+    "ability_key": "datasheet:discordant-disruption-aura",
+    "mechanic_digest": "a94acdd14f1cce08696c1b67080b837f",
+    "name": "Discordant Disruption (Aura)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While an enemy Psyker unit is within 12\" of this model, Psychic weapons equipped by models in it have the Hazardous ability."
+  },
+  {
+    "ability_key": "datasheet:disease-of-mirth-aura",
+    "mechanic_digest": "6c40224557c0e7e8c109c4f55c6df825",
+    "name": "Disease of Mirth (Aura)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the start of the Fight phase, every non-Monster, non-Vehicle enemy unit within 6\" of this model must take a Battle-shock test."
+  },
+  {
+    "ability_key": "datasheet:diseased-cover",
+    "mechanic_digest": "a36651fb50ac2cd42924bd84995caf4b",
+    "name": "Diseased Cover",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Each time a ranged attack is allocated to a model that is not fully visible to the attacker because of this Fortification, that model has the Benefit of Cover against that attack."
+  },
+  {
+    "ability_key": "datasheet:eldritch-flames-psychic",
+    "mechanic_digest": "f48d93fa6691d2bdaf597a33d76c4db6",
+    "name": "Eldritch Flames (Psychic)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "After this model shoots, select one hit enemy unit: until the end of the phase, it cannot have the Benefit of Cover."
+  },
+  {
+    "ability_key": "datasheet:emissary-of-the-blood-god-aura",
+    "mechanic_digest": "7533bc74b67afbd2f110d7ac2e51c76d",
+    "name": "Emissary of the Blood God (Aura)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While a friendly Khorne Legiones Daemonica unit is within 6\" of this model, Battle-shock tests taken for it can be re-rolled."
+  },
+  {
+    "ability_key": "datasheet:emissary-of-the-great-mutator-aura",
+    "mechanic_digest": "17ee8757e471e1d4e683f7ce0845a80a",
+    "name": "Emissary of the Great Mutator (Aura)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While a friendly Tzeentch Legiones Daemonica unit is within 6\" of this model, Battle-shock tests taken for it can be re-rolled."
+  },
+  {
+    "ability_key": "datasheet:emissary-of-the-plague-god-aura",
+    "mechanic_digest": "c37885ae150a57c7ddaba0eca835c9fe",
+    "name": "Emissary of the Plague God (Aura)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While a friendly Nurgle Legiones Daemonica unit is within 6\" of this model, Battle-shock tests taken for it can be re-rolled."
+  },
+  {
+    "ability_key": "datasheet:emissary-of-the-prince-of-excess-aura",
+    "mechanic_digest": "96b0965f8b015349a672069843ad2af0",
+    "name": "Emissary of the Prince of Excess (Aura)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While a friendly Slaanesh Legiones Daemonica unit is within 6\" of this model, Battle-shock tests taken for it can be re-rolled."
+  },
+  {
+    "ability_key": "datasheet:enforcer",
+    "mechanic_digest": "d52136059a1369a86595ce633091d3fa",
+    "name": "Enforcer",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "This model's unit is eligible to declare a charge in a turn in which it Fell Back."
+  },
+  {
+    "ability_key": "datasheet:exploding-horrors",
+    "mechanic_digest": "1974bd04043764ece6d5aab16d4a1ff1",
+    "name": "Exploding Horrors",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When this unit is selected to fight, select an enemy unit within Engagement Range and one or more Brimstone Horror models in this unit: roll a D6 for each, and on a 4+ that model is destroyed and the enemy unit suffers 1 mortal wound."
+  },
+  {
+    "ability_key": "datasheet:faithful-flock",
+    "mechanic_digest": "a517b8902fc90c34616fac2a0075d35f",
+    "name": "Faithful Flock",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this unit is led by a Cult Demagogue model, its models have a 5+ invulnerable save."
+  },
+  {
+    "ability_key": "datasheet:fateskimmer",
+    "mechanic_digest": "041e88b2867346f76368e1f89f414326",
+    "name": "Fateskimmer",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model leads a unit, melee weapons equipped by models in it have the Lethal Hits ability."
+  },
+  {
+    "ability_key": "datasheet:fearsome-aura",
+    "mechanic_digest": "c39febb507fecf6d99cde4e016b71675",
+    "name": "Fearsome (Aura)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While an enemy unit is within 6\" of this unit, its Battle-shock and Leadership tests suffer -1."
+  },
+  {
+    "ability_key": "datasheet:feculent-despair-aura-psychic",
+    "mechanic_digest": "0c3f977567cd08342e75c188e80ac07b",
+    "name": "Feculent Despair (Aura, Psychic)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While an enemy unit is within 6\" of this model, its Battle-shock tests suffer -1."
+  },
+  {
+    "ability_key": "datasheet:fiery-faith",
+    "mechanic_digest": "6fd36edda5b9162313f7f43c031b8750",
+    "name": "Fiery Faith",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model leads a unit, Leadership tests taken for it can be re-rolled."
+  },
+  {
+    "ability_key": "datasheet:flames-of-change-psychic",
+    "mechanic_digest": "e859ba1608df8b9aa5b81d184c64e828",
+    "name": "Flames of Change (Psychic)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Effect varies by model: either ranged weapons in the led unit gain Ignores Cover, or a hit non-Monster, non-Vehicle unit is set aflame on a 4+, suffering -2\" Move and -2 to Advance and Charge rolls."
+  },
+  {
+    "ability_key": "datasheet:fluxmaster",
+    "mechanic_digest": "1817b20c87320271feda6a6f0e42fec0",
+    "name": "Fluxmaster",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model leads a unit, attacks that target it have -1 applied to the Hit roll."
+  },
+  {
+    "ability_key": "datasheet:for-the-dark-gods",
+    "mechanic_digest": "5207bdc66ef08024e9a1625732583d38",
+    "name": "For the Dark Gods",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the end of your Command phase, if this unit is within range of an objective marker you control, you retain control of it until the opponent's Level of Control there exceeds yours."
+  },
+  {
+    "ability_key": "datasheet:formidably-resilient",
+    "mechanic_digest": "9a43b1a784116cfb301b9db18eb8eaf8",
+    "name": "Formidably Resilient",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Each time an attack is allocated to this model, its Damage characteristic is halved."
+  },
+  {
+    "ability_key": "datasheet:formless-horror",
+    "mechanic_digest": "6003d700a00add73c68283f3ff86bfd7",
+    "name": "Formless Horror",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Each time an enemy unit wants to target this model with an attack, it must first take a Battle-shock test; if failed, it also cannot target this model this phase."
+  },
+  {
+    "ability_key": "datasheet:gift-of-chaos-psychic",
+    "mechanic_digest": "a4058e8fb0f1cd3784722eb26f670d1c",
+    "name": "Gift of Chaos (Psychic)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Each time this model shoots or fights, after its attacks, select one hit enemy Psychic-ability unit: it must take a Leadership test, suffering D3 mortal wounds if failed."
+  },
+  {
+    "ability_key": "datasheet:gift-of-poxes-psychic",
+    "mechanic_digest": "df259011937ffca1a0f64a89f66133cd",
+    "name": "Gift of Poxes (Psychic)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model leads a unit, weapons equipped by models in it have the Sustained Hits 1 ability."
+  },
+  {
+    "ability_key": "datasheet:grandfathers-blessing",
+    "mechanic_digest": "98533ffaaa5b57c09e7582664def4514",
+    "name": "GRANDFATHER'S BLESSING",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "If a model with the Leader ability could be attached to a Beasts of Nurgle unit, it can be attached to this unit instead."
+  },
+  {
+    "ability_key": "datasheet:greater-daemon-of-khorne-aura",
+    "mechanic_digest": "11f16612093f0c61f0ea5105e033d7f0",
+    "name": "Greater Daemon of Khorne (Aura)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While a friendly Khorne Legiones Daemonica unit is within 6\" of this model, it counts as within your army's Shadow of Chaos."
+  },
+  {
+    "ability_key": "datasheet:greater-daemon-of-nurgle-aura",
+    "mechanic_digest": "d3e2930e669a8f84d70c01d8f45fc348",
+    "name": "Greater Daemon of Nurgle (Aura)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While a friendly Nurgle Legiones Daemonica unit is within 6\" of this model, it counts as within your army's Shadow of Chaos."
+  },
+  {
+    "ability_key": "datasheet:greater-daemon-of-slaanesh-aura",
+    "mechanic_digest": "ffa4d58e61b0b46fa796df08340e817d",
+    "name": "Greater Daemon of Slaanesh (Aura)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While a friendly Slaanesh Legiones Daemonica unit is within 6\" of this model, it counts as within your army's Shadow of Chaos."
+  },
+  {
+    "ability_key": "datasheet:greater-daemon-of-tzeentch-aura",
+    "mechanic_digest": "059065385bcf3470a34833adc89f1856",
+    "name": "Greater Daemon of Tzeentch (Aura)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While a friendly Tzeentch Legiones Daemonica unit is within 6\" of this model, it counts as within your army's Shadow of Chaos."
+  },
+  {
+    "ability_key": "datasheet:grotesque-regeneration",
+    "mechanic_digest": "bf0b933f72ae7e79ee2494d61a0750d8",
+    "name": "Grotesque Regeneration",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the end of each phase, a Beasts of Nurgle model in this unit that has lost wounds but was not destroyed regains all of its lost wounds."
+  },
+  {
+    "ability_key": "datasheet:harbinger-of-death",
+    "mechanic_digest": "5928bd80b4fbbe4144ec2a45013ecaff",
+    "name": "Harbinger of Death",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Each time this model is selected to fight, choose Lethal Hits, Precision, or Sustained Hits 1 for its hellforged weapons until the end of the phase."
+  },
+  {
+    "ability_key": "datasheet:harmonic-alignment",
+    "mechanic_digest": "e5e34f63f9f749b5e263068dc0a7f96b",
+    "name": "Harmonic Alignment",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model leads a unit, in your Command phase you can return D3 destroyed Bodyguard models to it."
+  },
+  {
+    "ability_key": "datasheet:heavy-weapons-team",
+    "mechanic_digest": "bb76cdb5ba08e6d3e51832845cc73754",
+    "name": "HEAVY WEAPONS TEAM",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "For the purposes of embarking within Transports, each model in this unit counts as two models."
+  },
+  {
+    "ability_key": "datasheet:horrible-fascination-psychic",
+    "mechanic_digest": "370916b3b517ddb6e715ed2f8ae7d084",
+    "name": "Horrible Fascination(Psychic)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Opponent's Shooting phase: a Psyker with this ability targets a visible enemy within 12\" and rolls a D6: 1 = Psyker takes D3 mortal wounds; 2-5 = that unit gets -1 Hit this phase; 6 = it cannot shoot this phase."
+  },
+  {
+    "ability_key": "datasheet:horrifying-beauty",
+    "mechanic_digest": "81e3d19e14e5e6a652cf28c6105d58ce",
+    "name": "Horrifying Beauty",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the start of the Fight phase, each enemy unit within Engagement Range of a unit with this ability must take a Battle-shock test, at -1 if it is Below Half-strength."
+  },
+  {
+    "ability_key": "datasheet:horrors-are-pink-horrors-are-blue-whereonce-there-was-one-now-there-are-two",
+    "mechanic_digest": "822cee4a4c092a5a659683efe28c0c7f",
+    "name": "HORRORS ARE PINK. HORRORS ARE BLUE. WHEREONCE THERE WAS ONE, NOW THERE ARE TWO.",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "If this unit ever contains no Pink Horror models, it uses the Blue Horrors datasheet instead."
+  },
+  {
+    "ability_key": "datasheet:hunters-from-the-warp",
+    "mechanic_digest": "f1c5d41273b53a2a9c3c8a690cde7069",
+    "name": "Hunters from the Warp",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the end of the opponent's turn, if this unit is not within Engagement Range of any enemy unit, it can be removed from the battlefield and placed into Strategic Reserves."
+  },
+  {
+    "ability_key": "datasheet:hysterical-frenzy-psychic",
+    "mechanic_digest": "e6b134286c83499c9b721e3ab6a35657",
+    "name": "Hysterical Frenzy (Psychic)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Each time a model in this model's unit is destroyed before it has fought this phase, it is not removed yet - it fights after the attacking unit finishes, then is removed from play."
+  },
+  {
+    "ability_key": "datasheet:infected-outbreak",
+    "mechanic_digest": "e747ff57fb9bffcb082ff4d9bebd723e",
+    "name": "Infected Outbreak",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the end of your Command phase, if this unit is within range of an objective marker you control, you retain control of it until the opponent's Level of Control there exceeds yours."
+  },
+  {
+    "ability_key": "datasheet:infernal-engines-of-torment",
+    "mechanic_digest": "004ee60357bfafec6d932eb1cea28c83",
+    "name": "Infernal Engines of Torment",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Each time this model's attacks in the Fight phase destroy an enemy unit, every enemy unit within 6\" of it must take a Battle-shock test."
+  },
+  {
+    "ability_key": "datasheet:infernal-speed",
+    "mechanic_digest": "c166c3c3ecd19f52180231e478c6ded6",
+    "name": "Infernal Speed",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model leads a unit, the Move characteristic of models in it becomes 14\"."
+  },
+  {
+    "ability_key": "datasheet:instrument-of-chaos",
+    "mechanic_digest": "bbf1bdc11f12a5f18726ba727f4bc786",
+    "name": "Instrument of Chaos",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Add 1 to Charge rolls made for the bearer's unit."
+  },
+  {
+    "ability_key": "datasheet:jolly-gutpipes",
+    "mechanic_digest": "d00f699da71253a96a3acf9b4022420f",
+    "name": "Jolly Gutpipes",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model leads a unit, add 1 to the Move characteristic of models in it, and Advance rolls made for it can be re-rolled."
+  },
+  {
+    "ability_key": "datasheet:keep-counting",
+    "mechanic_digest": "85e222883fb256f6a261648c47247a31",
+    "name": "Keep Counting!",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model leads a unit, melee weapons equipped by models in it have the Sustained Hits 1 ability."
+  },
+  {
+    "ability_key": "datasheet:lethal-caress",
+    "mechanic_digest": "753f0dbbfc2677876221c4d3d1e0b640",
+    "name": "Lethal Caress",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model leads a unit, melee weapons equipped by models in it have their Armour Penetration improved by 1."
+  },
+  {
+    "ability_key": "datasheet:lord-of-chaos",
+    "mechanic_digest": "598238fd129b3bec15344c911996003f",
+    "name": "Lord of Chaos",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Usually: once per battle round, when a unit with this ability is targeted by a Stratagem, that Stratagem costs 1CP less. One model instead has Lone Operative while within 3\" of a friendly Heretic Astartes Infantry unit."
+  },
+  {
+    "ability_key": "datasheet:lord-of-decapitations",
+    "mechanic_digest": "730b7563c6ccf1c9644771470abe6041",
+    "name": "Lord of Decapitations",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model leads a unit, melee weapons equipped by models in it have the Devastating Wounds ability."
+  },
+  {
+    "ability_key": "datasheet:lord-of-fate",
+    "mechanic_digest": "24ef82c004d22accc00de8693df97b94",
+    "name": "Lord of Fate",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model leads a unit, models in it have the Feel No Pain 5+ ability against mortal wounds."
+  },
+  {
+    "ability_key": "datasheet:malefic-destruction",
+    "mechanic_digest": "f73525efe8188cdf17702ddf33144189",
+    "name": "Malefic Destruction",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per battle, at the start of the Fight phase, this model can add 3 to the Attacks characteristic of its hellforged weapons until the end of the phase."
+  },
+  {
+    "ability_key": "datasheet:malign-sacrifice",
+    "mechanic_digest": "3b1c2e34f68fe1df761b5ec7ef2e562a",
+    "name": "Malign Sacrifice",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the start of the Fight phase, if this unit contains a Dark Disciple model, sacrifice one against an enemy unit within Engagement Range: roll a D6, dealing 1 mortal wound on 2-5 or D3 on a 6, then that model is destroyed."
+  },
+  {
+    "ability_key": "datasheet:manifestation-of-destruction",
+    "mechanic_digest": "8995e63931963f255f3ed15aec4ee5b4",
+    "name": "MANIFESTATION OF DESTRUCTION",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "This model cannot be your Warlord and cannot be given Enhancements."
+  },
+  {
+    "ability_key": "datasheet:master-of-magicks-psychic",
+    "mechanic_digest": "f009dff2b6662cc0cb4871486932fd67",
+    "name": "Master of Magicks (Psychic)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "In your Shooting phase, choose Ignores Cover, Lethal Hits, or Sustained Hits D3 for this model's ranged weapon until the end of the phase."
+  },
+  {
+    "ability_key": "datasheet:meet-your-quota",
+    "mechanic_digest": "3ed4cf5b6d6bc414f4c86842a87299aa",
+    "name": "Meet Your Quota!",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model leads a unit, models in it gain +1 to their Objective Control characteristic."
+  },
+  {
+    "ability_key": "datasheet:mesmerising-form",
+    "mechanic_digest": "46b98f7b5744d6fb1daabcb8b1705447",
+    "name": "Mesmerising Form",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Each attack that targets this model has -1 applied to its Hit roll."
+  },
+  {
+    "ability_key": "datasheet:mischief-and-confusion",
+    "mechanic_digest": "aca839c2b9660cfafd1957b46f134841",
+    "name": "Mischief and Confusion",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the start of the opponent's Shooting phase, target a visible enemy unit within 12\" and roll a D6: on 2-5 its attacks suffer -1 to the Hit roll this phase, on a 6 it cannot shoot this phase."
+  },
+  {
+    "ability_key": "datasheet:mischief-makers",
+    "mechanic_digest": "128396abbf8d1897bf943cc23e934350",
+    "name": "Mischief Makers",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Each time a non-Titanic enemy unit within Engagement Range of a unit with this ability is selected to fight, its melee attacks suffer -1 to the Hit roll until the end of the phase."
+  },
+  {
+    "ability_key": "datasheet:mischief-makers-aura",
+    "mechanic_digest": "91f9d4f1e1c896882347126270dcd8d9",
+    "name": "Mischief Makers (Aura)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While a non-Monster, non-Vehicle enemy unit is within 6\" of this unit, its melee attacks suffer -1 to the Hit roll."
+  },
+  {
+    "ability_key": "datasheet:monarch-of-the-hunt",
+    "mechanic_digest": "635ab65e36ad6b41e3eff98a4cc34a9b",
+    "name": "Monarch of the Hunt",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the start of the first battle round, select an enemy unit as this model's quarry: its melee attacks against that quarry can re-roll both the Hit and Wound roll, and a new quarry is chosen whenever the current one is destroyed."
+  },
+  {
+    "ability_key": "datasheet:murderlust",
+    "mechanic_digest": "c39e0af67903774b39bcd86c72cd9fca",
+    "name": "Murderlust",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "This unit is eligible to declare a charge in a turn in which it Advanced."
+  },
+  {
+    "ability_key": "datasheet:mutated-bodyguard",
+    "mechanic_digest": "7f5035e85ab0bc7db7aee0055206c3fa",
+    "name": "Mutated Bodyguard",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this unit contains a Traitor Ogryn model, Character models in it have the Feel No Pain 4+ ability."
+  },
+  {
+    "ability_key": "datasheet:no-prey-can-evade",
+    "mechanic_digest": "b2f45739ff9444ddf2805f9bfafcc519",
+    "name": "No Prey Can Evade",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Advance and Charge rolls made for this model can be re-rolled."
+  },
+  {
+    "ability_key": "datasheet:nurgles-rot-psychic",
+    "mechanic_digest": "20e528ab61cd31a476f7b545199b45d4",
+    "name": "Nurgle’s Rot (Psychic)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the end of your Movement phase, select an enemy unit within 12\": until your next Movement phase, its models have -1 to their Toughness characteristic."
+  },
+  {
+    "ability_key": "datasheet:ogryn-combat-stimms",
+    "mechanic_digest": "862da6062029c682f9099a7f7d37c36e",
+    "name": "Ogryn Combat Stimms",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Each time a model in this unit is destroyed by a melee attack before it has fought this phase, roll a D6: on a 4+ it fights after the attacking unit finishes before being removed."
+  },
+  {
+    "ability_key": "datasheet:ogryns",
+    "mechanic_digest": "4e402269b78cbc756327e0b77735b608",
+    "name": "OGRYNS",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "For the purposes of embarking within Transports, each model in this unit counts as one Terminator model."
+  },
+  {
+    "ability_key": "datasheet:one-head-looks-back-aura",
+    "mechanic_digest": "be38b6bcae1a66ef4a268b44ef3a9dc9",
+    "name": "One Head Looks Back (Aura)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Each time the opponent targets a unit within 12\" of this model with a Stratagem, that Stratagem's cost increases by 1CP, not cumulative with similar effects."
+  },
+  {
+    "ability_key": "datasheet:one-head-looks-forward",
+    "mechanic_digest": "b2bd8cc8fde0036ddac1dbd3a6b5ec4a",
+    "name": "One Head Looks Forward",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the end of your Command phase, if this model is on the battlefield, it takes a Leadership test; if passed, you gain 1CP."
+  },
+  {
+    "ability_key": "datasheet:pack-leader",
+    "mechanic_digest": "08d12e8c1d3eeb9ea50004fcfa6a5f78",
+    "name": "Pack Leader",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Effect varies by model: either Advance and Charge rolls for the led unit can be re-rolled, or this model cannot be your Warlord and cannot be given Enhancements."
+  },
+  {
+    "ability_key": "datasheet:pall-of-despair-aura-psychic",
+    "mechanic_digest": "4568e2d67b04de5129eefb03488765e0",
+    "name": "Pall of Despair (Aura, Psychic)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "In the opponent's Battle-shock step, each enemy unit below its Starting Strength within 9\" of this model must take a Battle-shock test; this model regains up to D3 wounds for each such test failed."
+  },
+  {
+    "ability_key": "datasheet:pouncing-leap",
+    "mechanic_digest": "0915b6daad339340428a03c95512ecdc",
+    "name": "Pouncing Leap",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "This unit can be targeted with the Heroic Intervention Stratagem for 0CP, even if a different unit was already targeted with it this phase."
+  },
+  {
+    "ability_key": "datasheet:poxbringer",
+    "mechanic_digest": "a30aacf7958819860a7bf65741769f51",
+    "name": "Poxbringer",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model leads a unit, an unmodified Hit roll of 5+ made by a model in it scores a Critical Hit."
+  },
+  {
+    "ability_key": "datasheet:prescience-psychic",
+    "mechanic_digest": "5b74fd201c7cfc3ae009e342b73acd98",
+    "name": "Prescience (Psychic)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model leads a unit, attacks that target it have -1 applied to the Hit roll."
+  },
+  {
+    "ability_key": "datasheet:prey-of-the-blood-god",
+    "mechanic_digest": "35c4f3de8c01664416b65d6e9db02396",
+    "name": "Prey of the Blood God",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the start of the first battle round, pick an enemy unit as this model's prey; its unit's attacks against that prey gain a bonus that varies by model (a Wound re-roll, or Lethal Hits). A new prey is picked when it is destroyed."
+  },
+  {
+    "ability_key": "datasheet:prey-on-the-weak",
+    "mechanic_digest": "fce45a1bca11fdd17fb00f716218be3b",
+    "name": "Prey on the Weak",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Each attack this model makes against a Battle-shocked enemy unit gains +1 to the Wound roll."
+  },
+  {
+    "ability_key": "datasheet:prince-of-darkness-aura",
+    "mechanic_digest": "37278fb0f1e2afde6fb408f6893dea03",
+    "name": "Prince of Darkness (Aura)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While a friendly Legiones Daemonica unit is within 6\" of this model, it has the Stealth ability."
+  },
+  {
+    "ability_key": "datasheet:prince-of-slaanesh",
+    "mechanic_digest": "17877d9d106286f228e8befce1829f18",
+    "name": "Prince of Slaanesh",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model leads a unit, an unmodified Wound roll of 5+ made in melee by a model in it scores a Critical Wound."
+  },
+  {
+    "ability_key": "datasheet:ptarixs-sorcerous-syphon-aura",
+    "mechanic_digest": "91cd32d55747e291528c30f06d164a1f",
+    "name": "P’tarix’s Sorcerous Syphon (Aura)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While an enemy unit is within 12\" of this model, its Psychic Attacks suffer -1 to the Wound roll."
+  },
+  {
+    "ability_key": "datasheet:rage-embodied-aura",
+    "mechanic_digest": "94884867f662e4856f3da15d6a92f02f",
+    "name": "Rage Embodied (Aura)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While a friendly Khorne Legiones Daemonica unit is within 6\" of this model, its melee weapons gain +1 to their Attacks characteristic."
+  },
+  {
+    "ability_key": "datasheet:regenerating-monstrosity",
+    "mechanic_digest": "24e9477201c5b4ddb58719be873ef0ef",
+    "name": "Regenerating Monstrosity",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the start of each player's Command phase, this model regains up to D3 lost wounds."
+  },
+  {
+    "ability_key": "datasheet:relentless-carnage",
+    "mechanic_digest": "0148a1a56168b599fbbe78dbfb361892",
+    "name": "Relentless Carnage",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the end of the Fight phase, select one enemy unit within Engagement Range and roll eight D6: each 4+ deals it 1 mortal wound."
+  },
+  {
+    "ability_key": "datasheet:reverberating-summons",
+    "mechanic_digest": "890ebd75b1bbaab6056cb013e7a074d7",
+    "name": "Reverberating Summons",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Each time a model is destroyed by this weapon, return 1 destroyed Plaguebearer model to a friendly Plaguebearers unit within 12\" of the bearer."
+  },
+  {
+    "ability_key": "datasheet:revolting-regeneration",
+    "mechanic_digest": "c75360379a68d40a195e3d7b4bf659d3",
+    "name": "Revolting Regeneration",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the start of your Command phase, this model regains up to D3 lost wounds."
+  },
+  {
+    "ability_key": "datasheet:rider-of-the-immaterial-winds",
+    "mechanic_digest": "d0de3dbf7f55f2003d49574ee7c7c8f4",
+    "name": "Rider of the Immaterial Winds",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per battle, at the end of the opponent's turn, if this model's unit is not within Engagement Range of any enemy unit, it can be removed from the battlefield and placed into Strategic Reserves."
+  },
+  {
+    "ability_key": "datasheet:sacrificial-dagger",
+    "mechanic_digest": "6b71eb16b8070616027f453c506cf105",
+    "name": "Sacrificial Dagger",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per phase, when this model shoots or fights, it can inflict 1 mortal wound on its own unit; if it does, its Psychic Attacks gain +1 to the Hit roll and +1 to the Wound roll until the end of the phase."
+  },
+  {
+    "ability_key": "datasheet:scythed-impact",
+    "mechanic_digest": "957300a1eb3effd4f4400faa1479948f",
+    "name": "Scythed Impact",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Each time this unit makes a Charge move, its melee weapons have the Anti-Infantry 4+ ability until the end of the phase."
+  },
+  {
+    "ability_key": "datasheet:seed-the-garden-of-nurgle",
+    "mechanic_digest": "8ed30d7cda09ebbe3a2e7daae649082a",
+    "name": "Seed the Garden of Nurgle",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the end of your Movement phase, if this model is within an Area Terrain feature, that feature counts as within your army's Shadow of Chaos for the rest of the battle."
+  },
+  {
+    "ability_key": "datasheet:servants-of-the-abyss",
+    "mechanic_digest": "d81eba4970e58f9915c6ddca814fb2ff",
+    "name": "SERVANTS OF THE ABYSS",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "If a unit with the Leader ability could be attached to a Cultist Mob, it can be attached to this unit instead."
+  },
+  {
+    "ability_key": "datasheet:shadow-form",
+    "mechanic_digest": "47516963203766913637bbd85020f6a5",
+    "name": "Shadow Form",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the start of the battle round, select one Shadow Form ability from this model's list; it has that ability until the end of the round."
+  },
+  {
+    "ability_key": "datasheet:shadow-lord-aura-psychic",
+    "mechanic_digest": "584291ebc4d216afa8030520db74fa40",
+    "name": "Shadow Lord (Aura, Psychic)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While a friendly Legiones Daemonica or Shadow Legion unit is within 6\" of this model, its attacks can re-roll a Hit roll of 1."
+  },
+  {
+    "ability_key": "datasheet:shadow-of-khorne-aura",
+    "mechanic_digest": "55a71f6c329a885e0fef9d5a7703413e",
+    "name": "Shadow of Khorne (Aura)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "The area within 6\" of this Fortification counts as within your army's Shadow of Chaos, and Battle-shock tests for a friendly Khorne Legiones Daemonica unit within 6\" of it can be re-rolled."
+  },
+  {
+    "ability_key": "datasheet:shining-aegis",
+    "mechanic_digest": "0ec84fdb3a08dbd7103aedc2d8cb267a",
+    "name": "Shining Aegis",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "The bearer has a Save characteristic of 3+."
+  },
+  {
+    "ability_key": "datasheet:shroud-of-flies-aura",
+    "mechanic_digest": "fd772e6cc4dc34455813e2a120999b61",
+    "name": "Shroud of Flies (Aura)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While a friendly Nurgle Legiones Daemonica unit is within 6\" of this Fortification, its models have the Stealth ability."
+  },
+  {
+    "ability_key": "datasheet:skullmasters-fury",
+    "mechanic_digest": "9897815acf7db57a62f71f4d8336d062",
+    "name": "Skullmaster’s Fury",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model leads a unit, each time that unit ends a Charge move, its Juggernaut's bladed horns have the Devastating Wounds ability until the end of the turn."
+  },
+  {
+    "ability_key": "datasheet:skulls-for-khorne",
+    "mechanic_digest": "1611b59b9189e165800692808ba22ec4",
+    "name": "Skulls for Khorne",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Each attack this model makes against a Character unit can have both its Hit roll and Wound roll re-rolled, and destroying an enemy Character gains you 1CP."
+  },
+  {
+    "ability_key": "datasheet:skulls-of-the-fallen",
+    "mechanic_digest": "17e3d8c01d10bad2d18cafd99d47eaaa",
+    "name": "Skulls of the Fallen",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "After this model shoots, select one hit enemy unit: it must take a Battle-shock test."
+  },
+  {
+    "ability_key": "datasheet:slashing-dive",
+    "mechanic_digest": "ceac17cb591f6d27f4273ce8fd792b3f",
+    "name": "Slashing Dive",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "After this unit ends a Normal move, select one enemy unit it moved over: roll a D6 per model in this unit, dealing 1 mortal wound per 4+."
+  },
+  {
+    "ability_key": "datasheet:soporific-musk",
+    "mechanic_digest": "cbb07f35ee03045febd41d1ca04bd719",
+    "name": "Soporific Musk",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Each non-Monster, non-Vehicle enemy unit within Engagement Range of a unit with this ability that Falls Back must take a Desperate Escape test, at -1 if it is also Battle-shocked."
+  },
+  {
+    "ability_key": "datasheet:split",
+    "mechanic_digest": "213830b66f9b56b50f986b9dd403b399",
+    "name": "Split",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When a Pink or Blue Horror model in this unit is destroyed, after the attacker finishes, if the unit survives roll a D6: on a 4+ a Pink Horror is replaced by two Blue Horrors and a Blue Horror by one Brimstone Horror."
+  },
+  {
+    "ability_key": "datasheet:stabilisation-talons",
+    "mechanic_digest": "388db4fa20e03b4c1f201527b7f82e16",
+    "name": "Stabilisation Talons",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Each ranged attack a model in this unit makes can ignore modifiers to the Hit roll and to that weapon's Ballistic Skill characteristic."
+  },
+  {
+    "ability_key": "datasheet:storm-of-mutating-sorcery-psychic",
+    "mechanic_digest": "ebf3d5d6622079ea25af6403da9daefc",
+    "name": "Storm of Mutating Sorcery (Psychic)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "After this model shoots, select one hit enemy Infantry unit: it must take a Battle-shock test."
+  },
+  {
+    "ability_key": "datasheet:sullen-malevolence-aura",
+    "mechanic_digest": "22179db572f9427b485baa01c902deeb",
+    "name": "Sullen Malevolence (Aura)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While an enemy unit is within 6\" of this unit, if it contains a Blue Horror model, that enemy unit's Leadership is worsened by 1."
+  },
+  {
+    "ability_key": "datasheet:swallow-energy-psychic",
+    "mechanic_digest": "b7fa3cc4683c27256dfe258c95d0f67b",
+    "name": "Swallow Energy (Psychic)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model leads a unit, models in it have the Feel No Pain 4+ ability against mortal wounds and Psychic Attacks."
+  },
+  {
+    "ability_key": "datasheet:symphony-of-pain-psychic",
+    "mechanic_digest": "c3b8b35b3a5544c43c68051008adfa01",
+    "name": "Symphony of Pain (Psychic)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the end of your Movement phase, select a Battle-shocked enemy unit within 12\": until the end of the turn, friendly Slaanesh Legiones Daemonica attacks against it can re-roll both the Hit and Wound roll."
+  },
+  {
+    "ability_key": "datasheet:tally-of-pestilence",
+    "mechanic_digest": "f582514fc884278196843a44fb85c845",
+    "name": "Tally of Pestilence",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Track enemy models destroyed by friendly Nurgle Legiones Daemonica models: at the start of your Command phase, if 7 or more have been tallied, gain 1CP and reset the tally to 0."
+  },
+  {
+    "ability_key": "datasheet:terrifying-assault",
+    "mechanic_digest": "0fd447d42a7de85cb0bbf3844ac88e6d",
+    "name": "Terrifying Assault",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Effect varies by model: either every enemy unit within Engagement Range takes a Battle-shock test at the start of the Fight phase, or one enemy unit hit by this model's shooting or fighting takes that test."
+  },
+  {
+    "ability_key": "datasheet:the-dark-master-aura",
+    "mechanic_digest": "a0f19ad5fa4f09ae9f47c1799b86f849",
+    "name": "The Dark Master (Aura)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "The area within 6\" of this model counts as within your army's Shadow of Chaos."
+  },
+  {
+    "ability_key": "datasheet:the-eternal-dance",
+    "mechanic_digest": "2e623d1a6346358576ad9f750630f785",
+    "name": "The Eternal Dance",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the start of the Fight phase, select an enemy unit within 6\": until the end of the phase, friendly Slaanesh Legiones Daemonica melee attacks against it gain +1 to the Wound roll, and its own melee attacks suffer -1 to the Wound roll."
+  },
+  {
+    "ability_key": "datasheet:tormentbringer-aura",
+    "mechanic_digest": "9a62f72637a19bfff4ca89e0a7d3ca57",
+    "name": "Tormentbringer (Aura)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While a friendly Slaanesh Legiones Daemonica unit is within 6\" of this model, its melee weapons have the Sustained Hits 1 ability."
+  },
+  {
+    "ability_key": "datasheet:tranceweaver",
+    "mechanic_digest": "42044fdaa9b4ff6ae12db597f2272bb8",
+    "name": "Tranceweaver",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Each attack a model in this unit makes can re-roll a Hit roll of 1, or re-roll the Hit roll entirely if the target is within range of an objective marker."
+  },
+  {
+    "ability_key": "datasheet:twisted-defence-force",
+    "mechanic_digest": "bce91fb05b84d76b8218d2be3b69c6dd",
+    "name": "Twisted Defence Force",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this unit is within range of an objective marker, ranged attacks that target it grant models in it the Benefit of Cover."
+  },
+  {
+    "ability_key": "datasheet:unholy-bloodshed",
+    "mechanic_digest": "1d05c9d4a5431eec0382a47665018b24",
+    "name": "Unholy Bloodshed",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per battle, when this unit makes a Dark Pact, weapons equipped by models in it have the Devastating Wounds ability until the end of the phase."
+  },
+  {
+    "ability_key": "datasheet:unholy-speed",
+    "mechanic_digest": "8f331af0f98dd4e5d3a5a7ad5d6d7da9",
+    "name": "Unholy Speed",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Advance and Charge rolls made for this unit can be re-rolled."
+  },
+  {
+    "ability_key": "datasheet:unholy-vigour",
+    "mechanic_digest": "72618986c0032702261b42cc970953fe",
+    "name": "Unholy Vigour",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per battle, at the start of any phase, this model can gain a 3+ invulnerable save until the end of that phase."
+  },
+  {
+    "ability_key": "datasheet:veterans-of-the-long-war",
+    "mechanic_digest": "e4df213abd483b05231e7c7045af81b7",
+    "name": "Veterans of the Long War",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Each melee attack a model in this unit makes against an enemy unit can re-roll a Wound roll of 1, or re-roll it entirely if that unit is within range of an objective marker."
+  },
+  {
+    "ability_key": "datasheet:virulent-blessing-psychic",
+    "mechanic_digest": "94e03c9115fb611b920c262eade7e3a6",
+    "name": "Virulent Blessing (Psychic)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the start of the Fight phase, select a visible enemy unit within 24\": until the end of the phase, attacks by friendly Nurgle Legiones Daemonica models allocated to it gain +1 Damage."
+  },
+  {
+    "ability_key": "datasheet:voltagheist-field",
+    "mechanic_digest": "9e20cbba470f3e2877f3045b0a45ca38",
+    "name": "Voltagheist Field",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Each time this unit ends a Charge move, select one enemy unit within Engagement Range: roll a D6 per model in this unit, dealing 1 mortal wound per 4+."
+  },
+  {
+    "ability_key": "datasheet:warp-spines",
+    "mechanic_digest": "16bc4a131bd0cde636bee27b59519df9",
+    "name": "Warp Spines",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Each time this model ends a Charge move, select one enemy unit within Engagement Range and roll a D6: on 2-3 it suffers D3 mortal wounds, on 4-5 it suffers 3 mortal wounds, on a 6 it suffers D3+3 mortal wounds."
+  },
+  {
+    "ability_key": "datasheet:warp-strike",
+    "mechanic_digest": "62620573b90276e71cd4a06c4b8b4136",
+    "name": "Warp Strike",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the end of the Fight phase, if this unit destroyed an enemy unit this phase and is not within Engagement Range of any enemy unit, it can be removed from the battlefield and placed into Strategic Reserves."
+  },
+  {
+    "ability_key": "datasheet:warptime-psychic",
+    "mechanic_digest": "08d12e8c1d3eeb9ea50004fcfa6a5f78",
+    "name": "Warptime (Psychic)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model leads a unit, Advance and Charge rolls made for it can be re-rolled."
+  },
+  {
+    "ability_key": "datasheet:wreathed-in-shadows-aura-psychic",
+    "mechanic_digest": "c368ca2dd8aec06dd375038a1a9fcd27",
+    "name": "Wreathed in Shadows (Aura, Psychic)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While a friendly Legiones Daemonica or Shadow Legion unit is within 6\" of this model, it can only be targeted by ranged attacks from a model within 18\"."
+  },
+  {
+    "ability_key": "datasheet:xiratps-sorcerous-barrages-psychic",
+    "mechanic_digest": "5eeda37fed590ff9151fe191d1bcb64b",
+    "name": "Xirat’p’s Sorcerous Barrages (Psychic)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the end of your Movement phase, roll a D6 for each enemy unit within 6\" of this model: on 2-3 it suffers 1 mortal wound, on 4-5 D3 mortal wounds, on a 6 D6 mortal wounds."
+  }
+]

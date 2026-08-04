@@ -1,0 +1,1109 @@
+[
+  {
+    "ability_key": "datasheet:aerial-assault",
+    "mechanic_digest": "a1a5b3a448038471deadd7ae5c7994cd",
+    "name": "Aerial Assault",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When a unit with Deep Strike disembarks from this model after it has made a Normal move, that unit remains eligible to declare a charge this turn."
+  },
+  {
+    "ability_key": "datasheet:angels-wrath",
+    "mechanic_digest": "45e2f1c365e6fb38a5f8457b91bf1ba7",
+    "name": "Angel’s Wrath",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While leading a unit, each time that unit ends a Charge move, melee weapons of models in it gain +1 Strength until the end of the turn."
+  },
+  {
+    "ability_key": "datasheet:annihilator",
+    "mechanic_digest": "6d1d280ef416034185e1b8dea5864d97",
+    "name": "Annihilator",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "This model re-rolls Damage rolls of 1 on ranged attacks against Monster or Vehicle targets."
+  },
+  {
+    "ability_key": "datasheet:annihilator-protocols",
+    "mechanic_digest": "6cc944dd145165596414dadb2255ea63",
+    "name": "Annihilator Protocols",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Melee weapons of models in this unit gain Sustained Hits 2 when targeting Monster, Vehicle, or Fortification units."
+  },
+  {
+    "ability_key": "datasheet:aquilon-optics",
+    "mechanic_digest": "a34db93a6c94a82b92f9feeb28e9b03c",
+    "name": "Aquilon Optics",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per Shooting phase, this model can re-roll one Hit roll, one Wound roll, and one Damage roll among its attacks."
+  },
+  {
+    "ability_key": "datasheet:armorium-cherub",
+    "mechanic_digest": "276ee23797ad0af18f7f8986c367cf2d",
+    "name": "Armorium Cherub",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per battle, change one Hit roll made for a model in this unit to an unmodified 6."
+  },
+  {
+    "ability_key": "datasheet:armour-of-faith",
+    "mechanic_digest": "04b0a37dcc53d6c172b824a1e994d9fd",
+    "name": "Armour of Faith",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per phase, when this model fails a saving throw, you can set that attack's Damage characteristic to 0."
+  },
+  {
+    "ability_key": "datasheet:armoured-resilience",
+    "mechanic_digest": "a7334678c134ee9708bc6adc8bb83a26",
+    "name": "Armoured Resilience",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Attacks allocated to this model have their Damage characteristic reduced by 1."
+  },
+  {
+    "ability_key": "datasheet:assault-vehicle",
+    "mechanic_digest": "25d508d8df5c8f70ac45e432913738b3",
+    "name": "Assault Vehicle",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Units may disembark from this Transport after it Advances; they count as having made a Normal move and cannot declare a charge that turn."
+  },
+  {
+    "ability_key": "datasheet:astartes-banner",
+    "mechanic_digest": "2d552dfd7b6c050848c10c0b4bb8bd0d",
+    "name": "Astartes Banner",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this unit includes an Ancient-type model, add 1 to the Objective Control characteristic of models in it."
+  },
+  {
+    "ability_key": "datasheet:ballistus-strike",
+    "mechanic_digest": "577e98cb71f04fac53cbaeab46439020",
+    "name": "Ballistus Strike",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "This model re-rolls Hit rolls on ranged attacks against a target that is not Below Half-strength."
+  },
+  {
+    "ability_key": "datasheet:banner-of-the-emperor-victorious",
+    "mechanic_digest": "c5d52d778340d95db2e586975d0ad5ac",
+    "name": "Banner of the Emperor Victorious",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Add 1 to Advance and Charge rolls made for this unit."
+  },
+  {
+    "ability_key": "datasheet:bladeguard",
+    "mechanic_digest": "b65b6e9317c615be88c43f7f04ab0d5f",
+    "name": "Bladeguard",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the start of the Fight phase, choose one bonus for this unit until the end of the phase: melee attacks re-roll Hit rolls of 1, or invulnerable saves re-roll rolls of 1."
+  },
+  {
+    "ability_key": "datasheet:blessing-of-the-omnissiah",
+    "mechanic_digest": "2c7ff949d067777d42877c76a3013781",
+    "name": "Blessing of the Omnissiah",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "In your Command phase, pick one friendly Vehicle within 3\": it regains D3 wounds and its attacks get +1 to Hit until your next Command phase. Once per model per turn."
+  },
+  {
+    "ability_key": "datasheet:brutalis-charge",
+    "mechanic_digest": "16bc4a131bd0cde636bee27b59519df9",
+    "name": "Brutalis Charge",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "After this model ends a Charge move, roll a D6 against one enemy unit within Engagement Range: 2-3 deals D3 mortal wounds, 4-5 deals 3, 6 deals D3+3."
+  },
+  {
+    "ability_key": "datasheet:catechism-of-fire",
+    "mechanic_digest": "3afd1e9f6d90cfcf972a63268af3f1e6",
+    "name": "Catechism of Fire",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When this model's unit is selected to shoot, pick one enemy unit within 12\" and visible to this model; the unit's ranged weapons gain Devastating Wounds against it for the phase."
+  },
+  {
+    "ability_key": "datasheet:centurion-assault-launcher",
+    "mechanic_digest": "b32ad2d07b81825ce6a8e9c5033e59bc",
+    "name": "Centurion Assault Launcher",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "The bearer gains the Grenades keyword."
+  },
+  {
+    "ability_key": "datasheet:ceramite-cover",
+    "mechanic_digest": "a36651fb50ac2cd42924bd84995caf4b",
+    "name": "Ceramite Cover",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "A model not fully visible to the attacking unit because of this Fortification has the Benefit of Cover against that ranged attack."
+  },
+  {
+    "ability_key": "datasheet:chosen-of-the-emperor",
+    "mechanic_digest": "bb7203f1569ace66058883e77e767ac3",
+    "name": "CHOSEN OF THE EMPEROR",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Your army cannot include more than one model with this ability."
+  },
+  {
+    "ability_key": "datasheet:close-quarters-firepower",
+    "mechanic_digest": "0e39068bd646237c8ad1dee1caa925e4",
+    "name": "Close-quarters Firepower",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "This unit's ranged attacks against the closest eligible target gain +1 Armour Penetration."
+  },
+  {
+    "ability_key": "datasheet:column-from-the-major-altar",
+    "mechanic_digest": "08ace2706dae3738a845f6364ef4cc41",
+    "name": "Column from the Major Altar",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Add 1 to the Toughness characteristic of models in this unit."
+  },
+  {
+    "ability_key": "datasheet:combat-disembarkation",
+    "mechanic_digest": "b4d30bba90e688361e0bd9cd5748a91b",
+    "name": "Combat Disembarkation",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "A unit that disembarks from this model after it is set up on the battlefield remains eligible to declare a charge this turn."
+  },
+  {
+    "ability_key": "datasheet:combat-squads",
+    "mechanic_digest": "6083f1b10ec43d6b0815c7336fb1bafa",
+    "name": "Combat Squads",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Before deployment, this unit may split into two five-model units."
+  },
+  {
+    "ability_key": "datasheet:combat-support",
+    "mechanic_digest": "d28201dea07f4c581c4279ad42f11569",
+    "name": "Combat Support",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per turn in the opponent's Shooting phase, if a friendly Phobos Infantry unit within 6\" is targeted, this model can shoot back at the attacker after it finishes, as if it were your Shooting phase."
+  },
+  {
+    "ability_key": "datasheet:command-squad",
+    "mechanic_digest": "578de99be7b227516b328c7a9b5f1f40",
+    "name": "Command Squad",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While a Character leads this unit, attacks targeting this unit suffer -1 to the Wound roll."
+  },
+  {
+    "ability_key": "datasheet:company-heroes",
+    "mechanic_digest": "d65eca91c8e95affa15a7b4823c79e01",
+    "name": "COMPANY HEROES",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "A Captain or Chapter Master model must be attached to this unit, or it does not take part in the battle and counts as destroyed."
+  },
+  {
+    "ability_key": "datasheet:condemnatory-annihilation",
+    "mechanic_digest": "ae73ca78263d0d30246b8b1de0c447c1",
+    "name": "Condemnatory Annihilation",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "If this unit's fight destroys one or more enemy units, every enemy unit within 6\" of this model must take a Battle-shock test."
+  },
+  {
+    "ability_key": "datasheet:crusade-of-wrath",
+    "mechanic_digest": "2e2713d81ddfba7512c8c10b06382e58",
+    "name": "Crusade of Wrath",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While leading a unit, melee weapons of models in it gain +1 Attacks and +1 Strength."
+  },
+  {
+    "ability_key": "datasheet:deadly-terror",
+    "mechanic_digest": "e3392195418c508c34ceaaf857087404",
+    "name": "Deadly Terror",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While leading a unit, increase the range of that unit's Terror Troops ability by 3\"."
+  },
+  {
+    "ability_key": "datasheet:decimator-protocols",
+    "mechanic_digest": "5ef16d3532c186d22518427d111d9959",
+    "name": "Decimator Protocols",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "This unit's ranged attacks re-roll Hit rolls of 1, or re-roll the whole Hit roll instead if the target is within range of an objective marker."
+  },
+  {
+    "ability_key": "datasheet:deeds-of-heroism",
+    "mechanic_digest": "fdefdb7c662ec7b6651139680ba8d87b",
+    "name": "Deeds of Heroism",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per battle, when selected to fight, this model can give melee weapons of models in its unit +1 Attacks until the end of the phase."
+  },
+  {
+    "ability_key": "datasheet:defensive-array",
+    "mechanic_digest": "49a1ec02198a6532f70b63c2a6538a05",
+    "name": "Defensive Array",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "This Fortification can be targeted with the Fire Overwatch Stratagem for 0CP once per turn, even if another unit was already targeted with it this turn."
+  },
+  {
+    "ability_key": "datasheet:deployment-complete",
+    "mechanic_digest": "e569231df8f01b007b1edf578cba9e4a",
+    "name": "Deployment Complete",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once this Transport has deployed and all embarked units have disembarked, no unit may embark within it for the rest of the battle."
+  },
+  {
+    "ability_key": "datasheet:designers-note",
+    "mechanic_digest": "c1616aec5d7c30820488c3795bf92bd5",
+    "name": "Designer’s Note",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "A datasheet-specific clarification of how another rule on that datasheet is applied: which parts of the model count as its hull for placement, that an ability still triggers on a Hazardous test, or which token tracks its use."
+  },
+  {
+    "ability_key": "datasheet:destructor",
+    "mechanic_digest": "d758f72cdf655f36ad3932561f11e5e7",
+    "name": "Destructor",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "This model's ranged attacks against Infantry units gain +1 Armour Penetration."
+  },
+  {
+    "ability_key": "datasheet:drop-pod-assault",
+    "mechanic_digest": "46b5b75450c0ed17c53662f9020963a9",
+    "name": "Drop Pod Assault",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "This model starts in Reserves and can arrive in the first, second, or third Movement phase regardless of mission rules; embarked units must disembark immediately, more than 9\" from all enemy models."
+  },
+  {
+    "ability_key": "datasheet:duty-eternal",
+    "mechanic_digest": "a7334678c134ee9708bc6adc8bb83a26",
+    "name": "Duty Eternal",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Attacks allocated to this model have their Damage characteristic reduced by 1."
+  },
+  {
+    "ability_key": "datasheet:evade-and-survive",
+    "mechanic_digest": "e67d3281e5fceaec857f1965f30e6f15",
+    "name": "Evade and Survive",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per turn, when an enemy ends a Normal, Advance or Fall Back move within 9\" of this unit while it is outside Engagement Range of all enemies, this unit can make a Normal move."
+  },
+  {
+    "ability_key": "datasheet:exhortation-of-rage",
+    "mechanic_digest": "29dcaaaf4a151695a6027391a9bb8948",
+    "name": "Exhortation of Rage",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When this model's unit is selected to fight, target an enemy unit within its Engagement Range and roll a D6: 4-5 deals D3 mortal wounds, 6 deals 3 mortal wounds."
+  },
+  {
+    "ability_key": "datasheet:exploit-their-cowardice",
+    "mechanic_digest": "b064db113c7aeb8f83a5da8e611ebbab",
+    "name": "Exploit Their Cowardice",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When an enemy unit within this unit's Engagement Range Falls Back, if this unit then ends outside Engagement Range of all enemies, it can make a Normal move."
+  },
+  {
+    "ability_key": "datasheet:fearsome-assault",
+    "mechanic_digest": "0fd447d42a7de85cb0bbf3844ac88e6d",
+    "name": "Fearsome Assault",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Each enemy unit within Engagement Range of a unit with this ability must take a Battle-shock test at the start of the Fight phase; some variants apply -1 to that test."
+  },
+  {
+    "ability_key": "datasheet:finest-hour",
+    "mechanic_digest": "fee1c31d696431db096656d98628f1ac",
+    "name": "Finest Hour",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per battle, at the start of the Fight phase, this model can add 3 Attacks to its melee weapons and give them Devastating Wounds until the end of the phase."
+  },
+  {
+    "ability_key": "datasheet:for-the-chapter",
+    "mechanic_digest": "a659e3707ded7354a680deb057b881fe",
+    "name": "For the Chapter!",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When a model in this unit is destroyed, roll a D6: on a 3+ it can shoot after the attacker finishes before being removed from play, and any Hazardous tests taken for those attacks are automatically passed."
+  },
+  {
+    "ability_key": "datasheet:gene-seed-recovery",
+    "mechanic_digest": "c8c79d22449ae2dda73b7c5bf6a09165",
+    "name": "Gene-seed Recovery",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When this model's Bodyguard unit is destroyed, roll a D6: on a 2+ gain 1CP."
+  },
+  {
+    "ability_key": "datasheet:grapnel-launcher",
+    "mechanic_digest": "e59c48b4550640f6c0c8bbdd733f9df8",
+    "name": "Grapnel Launcher",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "The bearer's unit ignores vertical distance when determining the total distance moved during any move."
+  },
+  {
+    "ability_key": "datasheet:guerrilla-tactics",
+    "mechanic_digest": "a38c480fb290caf50ae7d24d72dc2ac6",
+    "name": "Guerrilla Tactics",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the end of the opponent's turn, if this unit is more than 6\" from all enemy models, you can remove it from the battlefield and place it into Strategic Reserves."
+  },
+  {
+    "ability_key": "datasheet:hailstrike",
+    "mechanic_digest": "9803ebacdefe655a4719279a18d19c0c",
+    "name": "Hailstrike",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "After this model shoots, mark one hit enemy unit (Monsters/Vehicles excluded): friendly Adeptus Astartes ranged attacks against it gain +1 Armour Penetration for the rest of the phase, once per unit per phase."
+  },
+  {
+    "ability_key": "datasheet:hammer-of-wrath",
+    "mechanic_digest": "9e20cbba470f3e2877f3045b0a45ca38",
+    "name": "Hammer of Wrath",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "After this unit ends a Charge move, roll a D6 per eligible model against one enemy unit within Engagement Range: each 4+ deals 1 mortal wound."
+  },
+  {
+    "ability_key": "datasheet:hammerstrike",
+    "mechanic_digest": "584267b9360af668069da0f5d7fbd78d",
+    "name": "Hammerstrike",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "After this model shoots, pick one enemy unit it hit this phase; until the end of the phase that unit has no Benefit of Cover."
+  },
+  {
+    "ability_key": "datasheet:haywire-mine",
+    "mechanic_digest": "67214cee0b959a304c5a5d01ad830791",
+    "name": "Haywire Mine",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per battle, at the start of any phase, target one enemy unit within 3\" of the bearer and roll a D6: on a 2+ it suffers D3 mortal wounds (2D3 instead against a Vehicle)."
+  },
+  {
+    "ability_key": "datasheet:helix-gauntlet",
+    "mechanic_digest": "7f030a2da3f3cfd333774e0d0969691b",
+    "name": "Helix Gauntlet",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Models in the bearer's unit have the Feel No Pain 6+ ability."
+  },
+  {
+    "ability_key": "datasheet:high-marshal",
+    "mechanic_digest": "94fbe97dcd969e7e64e134631ce0ac34",
+    "name": "High Marshal",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the start of the Fight phase, target an enemy unit within this model's unit's Engagement Range and roll a D6 (+1 per five models in the unit): 2-3 deals D3 mortal wounds, 4-5 deals 3, 6+ deals D3+3."
+  },
+  {
+    "ability_key": "datasheet:incendiary-terror",
+    "mechanic_digest": "a416c873dcb97c507e0414cc21945217",
+    "name": "Incendiary Terror",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "After this unit shoots, pick one enemy Infantry unit hit by its pyreblaster attacks; that unit must take a Battle-shock test at -1."
+  },
+  {
+    "ability_key": "datasheet:infiltrator-comms-array",
+    "mechanic_digest": "d2a0f81c120d4ffe6e4ac56bc96be438",
+    "name": "Infiltrator Comms Array",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Each time the bearer's unit is targeted by a Stratagem, roll a D6: on a 5+ you gain 1CP."
+  },
+  {
+    "ability_key": "datasheet:inspirational-exemplar",
+    "mechanic_digest": "2f7a28bc8452b0b0430183e89a713e2e",
+    "name": "Inspirational Exemplar",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While leading a unit, melee attacks by models in it score a Critical Hit on an unmodified Hit roll of 5+."
+  },
+  {
+    "ability_key": "datasheet:interception-strike",
+    "mechanic_digest": "357d56bb765831a66fe8da0b7579d678",
+    "name": "Interception Strike",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "This model re-rolls Hit rolls on ranged attacks against enemy units within 12\" of a friendly Adeptus Astartes unit."
+  },
+  {
+    "ability_key": "datasheet:judgement-of-the-weak",
+    "mechanic_digest": "351652be88400868810e32fc40844106",
+    "name": "Judgement of the Weak",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When a non-Monster/Vehicle enemy unit within this unit's Engagement Range Falls Back, it must take a Desperate Escape test, at -1 if it is Battle-shocked."
+  },
+  {
+    "ability_key": "datasheet:keep-the-banner-high",
+    "mechanic_digest": "2052a6a1211c04e72f7d3c6d484e8b24",
+    "name": "Keep the Banner High",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While leading a unit, if that unit is below Starting Strength its attacks get +1 to Hit; if Below Half-strength, +1 to Wound as well."
+  },
+  {
+    "ability_key": "datasheet:last-survivor",
+    "mechanic_digest": "bb6bb92f025b56136c0b7b4e9dc4c57e",
+    "name": "LAST SURVIVOR",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "This model cannot be selected as your Warlord."
+  },
+  {
+    "ability_key": "datasheet:legacy-of-jerulas",
+    "mechanic_digest": "4636704de5a2536b66157bbb82ce1a11",
+    "name": "Legacy of Jerulas",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "After this model shoots, pick one hit enemy unit; until the end of the turn, attacks against it from models that disembarked from this Transport this turn re-roll Hit and Wound rolls of 1."
+  },
+  {
+    "ability_key": "datasheet:litanies-of-the-devout",
+    "mechanic_digest": "4afe7fff17dc55eb005c36ff9cfb000c",
+    "name": "Litanies of the Devout",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model's unit leads another unit, melee attacks by that led unit's models can re-roll the Hit roll."
+  },
+  {
+    "ability_key": "datasheet:litany-of-hate",
+    "mechanic_digest": "ed085f00bb66f09707fa60887849cc70",
+    "name": "Litany of Hate",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While leading a unit, melee attacks by models in that unit get +1 to the Wound roll."
+  },
+  {
+    "ability_key": "datasheet:martial-honour",
+    "mechanic_digest": "5880e7dc84362c45870ab2a036f680de",
+    "name": "Martial Honour",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "The first time this model's unit destroys an enemy unit with a melee attack, this model gains +5 Objective Control for the rest of the battle while its unit is not Battle-shocked."
+  },
+  {
+    "ability_key": "datasheet:master-of-deceit",
+    "mechanic_digest": "b1cc7b3f7daa7fa043e28e7b78b4e739",
+    "name": "Master of Deceit",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "After deployment, if your army includes this model, redeploy up to three friendly Adeptus Astartes Infantry units, optionally into Strategic Reserves beyond the normal limit."
+  },
+  {
+    "ability_key": "datasheet:multi-spectrum-array",
+    "mechanic_digest": "852e6c410d937753ddbfbfb11d6165c0",
+    "name": "Multi-spectrum Array",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "After this unit shoots, mark one enemy unit it hit this phase; friendly Adeptus Astartes attacks against it get +1 to Hit for the rest of the phase."
+  },
+  {
+    "ability_key": "datasheet:narthecium",
+    "mechanic_digest": "cf3a91262209af7797dd29213cf1ecfe",
+    "name": "Narthecium",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model leads a unit, or its unit includes an Apothecary-type model, return one destroyed non-Character model to that unit each Command phase."
+  },
+  {
+    "ability_key": "datasheet:objective-secured",
+    "mechanic_digest": "e747ff57fb9bffcb082ff4d9bebd723e",
+    "name": "Objective Secured",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "If you control an objective marker at the end of your Command phase and this unit is in range of it, you keep control until the opponent controls it at the start or end of a turn, even with no models present."
+  },
+  {
+    "ability_key": "datasheet:omni-scramblers",
+    "mechanic_digest": "e2a446bfc200e3c83d765c4a0dae5a50",
+    "name": "Omni-scramblers",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Enemy units arriving from Reserves cannot be set up within 12\" of this unit."
+  },
+  {
+    "ability_key": "datasheet:orbital-comms-array-aura",
+    "mechanic_digest": "832cc7d573d4e5da2da85ad8ebe38d20",
+    "name": "Orbital Comms Array (Aura)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While a friendly allied unit is within 6\" of the bearer, each time that unit is targeted by a Stratagem, roll a D6: on a 5+ gain 1CP."
+  },
+  {
+    "ability_key": "datasheet:outrider-escort",
+    "mechanic_digest": "b3238d96e2d037cb87e7441905a82aaa",
+    "name": "Outrider Escort",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per turn in the opponent's Shooting phase, when another friendly Mounted unit within 6\" is targeted, this unit can shoot back at the attacker after it finishes, as if it were your Shooting phase."
+  },
+  {
+    "ability_key": "datasheet:pious-fervour",
+    "mechanic_digest": "97c9e334e1d8d22d1cf4ed6ab5c71c55",
+    "name": "Pious Fervour",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When this model's unit fights, its master-crafted power weapon gains +1 Attacks per enemy unit within 6\" of this model (max +3) until the end of the phase."
+  },
+  {
+    "ability_key": "datasheet:prioritised-eradication",
+    "mechanic_digest": "46903a85ca3e2e39a130b7d40c4df743",
+    "name": "Prioritised Eradication",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When a model in this model's unit destroys an enemy unit with a melee attack, roll a D6: on a 4+ gain 1CP."
+  },
+  {
+    "ability_key": "datasheet:priority-objective-identified",
+    "mechanic_digest": "0d2975dba590a0b7439e0229e4e22ed6",
+    "name": "Priority Objective Identified",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the start of the battle, select one objective marker; while this model is on the battlefield, friendly Adeptus Astartes attacks against enemy units within range of it re-roll Wound rolls of 1."
+  },
+  {
+    "ability_key": "datasheet:priority-target-acquisition",
+    "mechanic_digest": "3295601989e72aa93b478808821f9436",
+    "name": "Priority Target Acquisition",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "This model's twin las-talon attacks against the closest eligible Monster or Vehicle get +1 to the Hit roll."
+  },
+  {
+    "ability_key": "datasheet:reaping-tally",
+    "mechanic_digest": "a51a22675e7fed8b2293240d6af9cf3c",
+    "name": "Reaping Tally",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "This model's twin heavy onslaught gatling cannon gains Sustained Hits 2 against Infantry units."
+  },
+  {
+    "ability_key": "datasheet:recitation-of-faith",
+    "mechanic_digest": "faf55ed5484edae94f46d21c893b5342",
+    "name": "Recitation of Faith",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While leading a unit, that unit has the Feel No Pain 4+ ability against mortal wounds."
+  },
+  {
+    "ability_key": "datasheet:refuse-to-yield",
+    "mechanic_digest": "9a43b1a784116cfb301b9db18eb8eaf8",
+    "name": "Refuse to Yield",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Attacks allocated to this model have their Damage characteristic halved."
+  },
+  {
+    "ability_key": "datasheet:reiver-grav-chute",
+    "mechanic_digest": "565c535d3b3440ab21e094e3a9fcb232",
+    "name": "Reiver Grav-chute",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "The bearer has the Deep Strike ability."
+  },
+  {
+    "ability_key": "datasheet:relic-shield",
+    "mechanic_digest": "f9e56641682c5b23573a4b2f657301e9",
+    "name": "Relic Shield",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "The bearer's Wounds characteristic is increased to a fixed value (6 or 7, depending on the model)."
+  },
+  {
+    "ability_key": "datasheet:remorseless-persecution",
+    "mechanic_digest": "59253d062b63e493d45278a5dc0b4e91",
+    "name": "Remorseless Persecution",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While leading a unit, that unit is eligible to declare a charge in a turn in which it Advanced."
+  },
+  {
+    "ability_key": "datasheet:reposition-under-covering-fire",
+    "mechanic_digest": "791888d1326945a88b29247438048a3b",
+    "name": "Reposition Under Covering Fire",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "After this unit shoots, if it includes a Sergeant equipped with an instigator bolt carbine, it can make a Normal move; if it does, it cannot declare a charge this turn."
+  },
+  {
+    "ability_key": "datasheet:righteous-zeal",
+    "mechanic_digest": "c5a33ef1d00d43838e2ed9ba4ef2dfa7",
+    "name": "Righteous Zeal",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "If this unit loses models to enemy shooting, once per phase it may move D6+2\" toward the nearest non-Aircraft enemy, into Engagement Range if needed; not while Battle-shocked or engaged. Some variants re-roll Advance/Charge instead."
+  },
+  {
+    "ability_key": "datasheet:rites-of-battle",
+    "mechanic_digest": "598238fd129b3bec15344c911996003f",
+    "name": "Rites of Battle",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per battle round, when a unit with this ability is targeted by a Stratagem, reduce that Stratagem's cost by 1CP."
+  },
+  {
+    "ability_key": "datasheet:sentinel-protocols",
+    "mechanic_digest": "888d38554b09c9f5b4f70c4e6d039d66",
+    "name": "Sentinel Protocols",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When targeted with the Fire Overwatch Stratagem, this unit scores hits on unmodified Hit rolls of 4+ or 5+ (depending on the model) while resolving it."
+  },
+  {
+    "ability_key": "datasheet:shield-dome",
+    "mechanic_digest": "9941421bf07f20d14ade925c22391663",
+    "name": "Shield Dome",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "The bearer has a 5+ invulnerable save."
+  },
+  {
+    "ability_key": "datasheet:shock-assault",
+    "mechanic_digest": "e4df213abd483b05231e7c7045af81b7",
+    "name": "Shock Assault",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "This unit's melee attacks re-roll Wound rolls of 1, or re-roll the whole Wound roll instead if the target is within range of an objective marker."
+  },
+  {
+    "ability_key": "datasheet:siege-shield",
+    "mechanic_digest": "d463d52da3a5c2e2e3c99c7264fd5a6e",
+    "name": "Siege Shield",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "This model's demolisher cannon can target enemy units within its own Engagement Range if no other friendly unit is also engaged with them, and this model ignores the ranged Hit roll penalty for being within Engagement Range."
+  },
+  {
+    "ability_key": "datasheet:sigismunds-heir",
+    "mechanic_digest": "32a3602121b4c60e9ea60eb3c0ebe1c5",
+    "name": "Sigismund’s Heir",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "This model's unit gets +2 to the Charge roll when a target has the Character keyword; once per battle, while engaged with an enemy Character, this model's melee weapons can gain Devastating Wounds for the phase."
+  },
+  {
+    "ability_key": "datasheet:signum",
+    "mechanic_digest": "149e5dd5acd5ee93f6c11fee2de80116",
+    "name": "Signum",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Each time this unit Remains Stationary, its ranged weapons gain the Ignores Cover ability until the start of your next Movement phase."
+  },
+  {
+    "ability_key": "datasheet:silent-fury",
+    "mechanic_digest": "444c6ca12a866d3dbabe109097b91a1c",
+    "name": "Silent Fury",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Each time this model destroys an enemy Character model, its melee weapon gains a cumulative +1 Attacks for the rest of the battle."
+  },
+  {
+    "ability_key": "datasheet:spiritual-leader",
+    "mechanic_digest": "aabd0592ff7d02deb8c7f226c9457e8b",
+    "name": "Spiritual Leader",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per battle, at the start of any phase, remove Battle-shock from one friendly unit within 12\" of this model."
+  },
+  {
+    "ability_key": "datasheet:stabilised-disembarkation",
+    "mechanic_digest": "aec07fb84b593e7ba05e88874da30876",
+    "name": "Stabilised Disembarkation",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "In the opponent's Shooting phase, after this Transport is shot at, embarked units can disembark, setting up wholly within 6\" of it and outside enemy Engagement Range."
+  },
+  {
+    "ability_key": "datasheet:storm-shield",
+    "mechanic_digest": "990aca7befcb602399e8fa3097c9dbd2",
+    "name": "Storm Shield",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Sets the bearer's Wounds characteristic to a fixed higher value (4 or 6, depending on the model), or instead gives the bearer a 4+ invulnerable save."
+  },
+  {
+    "ability_key": "datasheet:strategic-dispersal",
+    "mechanic_digest": "23f95f5f5b9f521e71047147c51af19b",
+    "name": "Strategic Dispersal",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "After this model's unit shoots, if it is outside Engagement Range of all enemies, it can make a Normal move of up to 6\"; if it does, it cannot declare a charge this turn."
+  },
+  {
+    "ability_key": "datasheet:suppression-fire",
+    "mechanic_digest": "2a8a2224d1a97fe8fb59b5799f540b7d",
+    "name": "Suppression Fire",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "After this model or unit shoots, one hit enemy unit becomes suppressed until your next turn while this model/unit remains on the battlefield: suppressed units suffer -1 to the Hit roll on their attacks."
+  },
+  {
+    "ability_key": "datasheet:surgical-precision",
+    "mechanic_digest": "12e87fe25987f213165113cf413204f4",
+    "name": "Surgical Precision",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While leading a unit, weapons equipped by models in that unit gain the Lethal Hits ability."
+  },
+  {
+    "ability_key": "datasheet:tactical-precision",
+    "mechanic_digest": "0f8fb069c32e6e211c45ed1329fee1bf",
+    "name": "Tactical Precision",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While leading a unit, weapons equipped by models in that unit gain the Lethal Hits ability."
+  },
+  {
+    "ability_key": "datasheet:target-elimination",
+    "mechanic_digest": "041be4dc6ef7357db95ed4508f3ba49c",
+    "name": "Target Elimination",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When this unit is selected to shoot, its bolt rifles gain +2 Attacks for the phase, but all of the unit's attacks must target a single chosen enemy unit."
+  },
+  {
+    "ability_key": "datasheet:target-priority",
+    "mechanic_digest": "27d6aa95779b7cfbd3162e58c9b72702",
+    "name": "Target Priority",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "This model's unit is eligible to shoot and declare a charge in a turn in which it Fell Back."
+  },
+  {
+    "ability_key": "datasheet:target-sighted",
+    "mechanic_digest": "5ad3d81d3555a1a0fe0b17a8b5f22714",
+    "name": "Target Sighted",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the start of your Shooting phase, pick one enemy unit visible to this model; friendly Adeptus Astartes Blast attacks against it get +1 to Hit and gain Ignores Cover for the phase."
+  },
+  {
+    "ability_key": "datasheet:targeter-optics",
+    "mechanic_digest": "149e5dd5acd5ee93f6c11fee2de80116",
+    "name": "Targeter Optics",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Each time this unit Remains Stationary, its ranged weapons gain the Ignores Cover ability until the start of your next Movement phase."
+  },
+  {
+    "ability_key": "datasheet:techmarine",
+    "mechanic_digest": "d7acecafc877783087eb7a2ef5bfefc9",
+    "name": "Techmarine",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While within 3\" of a friendly Vehicle unit, this model has the Lone Operative ability."
+  },
+  {
+    "ability_key": "datasheet:teleport-homer",
+    "mechanic_digest": "aba146d4fad286315c685199d839e1cc",
+    "name": "Teleport Homer",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the start of the battle, place a token outside the enemy deployment zone; once per battle, use it for the Rapid Ingress Stratagem at 0CP, deploying this unit within 3\" of the token and 9\" from enemies, then remove the token."
+  },
+  {
+    "ability_key": "datasheet:temple-relics",
+    "mechanic_digest": "3595b1ed0ee929c50cac76a2c7f50af7",
+    "name": "Temple Relics",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "In your Command phase, if this unit includes a Cenobyte Servitor model, choose one Temple Relics ability for its Chaplain Grimaldus model to have until your next Command phase."
+  },
+  {
+    "ability_key": "datasheet:tempormortis",
+    "mechanic_digest": "6ea86b6c8a906f1f29fa1b71579d8cf2",
+    "name": "Tempormortis",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While leading a unit, that unit has the Fights First ability."
+  },
+  {
+    "ability_key": "datasheet:terminator-storm-shield",
+    "mechanic_digest": "f9e56641682c5b23573a4b2f657301e9",
+    "name": "Terminator Storm Shield",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "The bearer's Wounds characteristic is increased to 6."
+  },
+  {
+    "ability_key": "datasheet:terminatus-assault",
+    "mechanic_digest": "ece0e67684b250504d2e33ecb7d19009",
+    "name": "Terminatus Assault",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Each enemy unit within this unit's Engagement Range must Battle-shock test at the Fight phase's start or after a Charge move; some variants re-roll Charge rolls and apply -1 for non-Imperium/Chaos targets."
+  },
+  {
+    "ability_key": "datasheet:terror-troops-aura",
+    "mechanic_digest": "c578be20c7eeabd8d44f2b6d8d2fd958",
+    "name": "Terror Troops (Aura)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While a non-Monster/Vehicle enemy unit is within 3\" of a unit with this ability, subtract 1 from that enemy unit's Objective Control characteristic."
+  },
+  {
+    "ability_key": "datasheet:the-imperiums-sword",
+    "mechanic_digest": "4730953312718e1902aa5e36e19582f9",
+    "name": "The Imperium’s Sword",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "This model's unit can re-roll Charge rolls made for it."
+  },
+  {
+    "ability_key": "datasheet:thunderhawk-cluster-bombs",
+    "mechanic_digest": "0dc8789c368dff839b9deaf70ba4e69f",
+    "name": "Thunderhawk Cluster Bombs",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "After the bearer ends a Normal move, roll six D6 against one enemy unit it moved over: each 3+ deals 1 mortal wound."
+  },
+  {
+    "ability_key": "datasheet:thunderous-impact",
+    "mechanic_digest": "eeb173d152ce03b7ddf5f50751594c51",
+    "name": "Thunderous Impact",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "If this unit made a Charge move this turn, its melee attacks get +1 Strength and +1 Damage."
+  },
+  {
+    "ability_key": "datasheet:thunderstrike",
+    "mechanic_digest": "bd504c12c71729e0ac667b116b752e88",
+    "name": "Thunderstrike",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "After this model shoots, mark one hit Monster or Vehicle unit; friendly Adeptus Astartes ranged attacks against it get +1 to Wound for the rest of the phase."
+  },
+  {
+    "ability_key": "datasheet:total-obliteration",
+    "mechanic_digest": "2f2a6049ebf808ef85f113cfdd680b21",
+    "name": "Total Obliteration",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "This unit's ranged attacks against Monster or Vehicle models can re-roll the Hit roll, the Wound roll, and the Damage roll."
+  },
+  {
+    "ability_key": "datasheet:unbreakable-duty",
+    "mechanic_digest": "128fdd0562f5752c75bbdd83586ccd3a",
+    "name": "Unbreakable Duty",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While within range of an objective marker or within 6\" of the battlefield centre, this model has the Feel No Pain 4+ ability."
+  },
+  {
+    "ability_key": "datasheet:unyielding-in-the-face-of-the-foe",
+    "mechanic_digest": "5433dff83a2357960d9381a53850757f",
+    "name": "Unyielding in the Face of the Foe",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this unit is within range of an objective marker it controls, add 1 to armour saves against attacks with Damage characteristic 1."
+  },
+  {
+    "ability_key": "datasheet:vanguard-assault",
+    "mechanic_digest": "db8d176b7d8f002db0d6be13e786e449",
+    "name": "Vanguard Assault",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "After this unit ends a Charge move, its melee weapons gain the Lethal Hits ability until the end of the turn."
+  },
+  {
+    "ability_key": "datasheet:vehement-aggression",
+    "mechanic_digest": "0379f7532bf06dbc940bb5e425d73dad",
+    "name": "Vehement Aggression",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While leading a unit selected to fight, take a Leadership test: on a pass, that unit's attacks can re-roll the Hit roll for the phase; on a fail, they re-roll Hit rolls of 1 instead."
+  },
+  {
+    "ability_key": "datasheet:vengeance-of-the-omnissiah",
+    "mechanic_digest": "68f349aaba8a1c7273c9b54ec46c16ed",
+    "name": "Vengeance of the Omnissiah",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "If a friendly Vehicle within 12\" of this model is destroyed, this model's melee weapon gains a fixed higher Attacks characteristic (6 or 7, depending on the model) for the rest of the battle."
+  },
+  {
+    "ability_key": "datasheet:vengeful-exhortation",
+    "mechanic_digest": "9006e5d54633303612fbb3ab2335b51d",
+    "name": "Vengeful Exhortation",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While leading a unit, when a model in it that has not fought is destroyed by a melee attack, roll a D6: on a 4+ it fights after the attacker before being removed from play."
+  },
+  {
+    "ability_key": "datasheet:virtuous-onslaught",
+    "mechanic_digest": "947506228138e0b4196565b0a25c80f2",
+    "name": "Virtuous Onslaught",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "This unit's attacks against the closest eligible target re-roll Wound rolls of 1."
+  },
+  {
+    "ability_key": "datasheet:vivispectrum",
+    "mechanic_digest": "46fb502cc94800c3c289dd5b722baf23",
+    "name": "Vivispectrum",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "If this model's unit destroys an enemy unit with a melee attack, this model's Objective Control characteristic becomes 9 for the rest of the battle."
+  },
+  {
+    "ability_key": "datasheet:water-from-the-stoup-of-elucidation",
+    "mechanic_digest": "7a0f61f62ff85fe70b6971b6466203bd",
+    "name": "Water from the Stoup of Elucidation",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Melee weapons equipped by models in this unit get +1 Armour Penetration."
+  },
+  {
+    "ability_key": "datasheet:wisdom-of-the-ancients-aura",
+    "mechanic_digest": "faea712917efc64e0c7883e474435749",
+    "name": "Wisdom of the Ancients (Aura)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While a friendly Infantry unit is within 6\" of this model, its attacks re-roll Hit rolls of 1 (some variants also re-roll Wound rolls of 1)."
+  }
+]

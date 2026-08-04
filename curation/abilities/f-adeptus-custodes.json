@@ -1,0 +1,470 @@
+[
+  {
+    "ability_key": "datasheet:advanced-firepower",
+    "mechanic_digest": "909bdc8b420cef3b78f5950c9225acc3",
+    "name": "Advanced Firepower",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "This model's twin iliastus accelerator cannon gains Lethal Hits against non-Monster, non-Vehicle targets; its twin arachnus heavy blaze cannon gains Lethal Hits against Monster or Vehicle targets."
+  },
+  {
+    "ability_key": "datasheet:assault-dropship",
+    "mechanic_digest": "e4a8854b28ae0d6edfc46a5c6be7c7d8",
+    "name": "Assault Dropship",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "A unit that disembarks from this transport before it moves may still charge this turn even if it Advanced."
+  },
+  {
+    "ability_key": "datasheet:assault-ramp",
+    "mechanic_digest": "768f471bfc903fe93644e9b31e0e7caf",
+    "name": "Assault Ramp",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "A unit that disembarks from this transport after making a Normal move remains eligible to declare a charge that turn."
+  },
+  {
+    "ability_key": "datasheet:auramite-and-adamantine",
+    "mechanic_digest": "6f9e6d046bc0456c9c5ae737d33bc7b1",
+    "name": "Auramite and Adamantine",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per battle, at the start of any phase, this model can reduce the Damage of every attack allocated to it to 1 until the end of that phase."
+  },
+  {
+    "ability_key": "datasheet:captain-general",
+    "mechanic_digest": "d6553c237ab76176ba6d243ac0f5dca4",
+    "name": "Captain-General",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model leads a unit, models in that unit ignore all modifiers to their Ballistic Skill, Weapon Skill, or Hit roll characteristics."
+  },
+  {
+    "ability_key": "datasheet:corner-the-quarry",
+    "mechanic_digest": "956c44b0b38da9f733c94451e46cd97b",
+    "name": "Corner the Quarry",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Each non-Monster, non-Vehicle enemy unit within Engagement Range of this model that Falls Back must take a Desperate Escape test, at -1 if it is Battle-shocked."
+  },
+  {
+    "ability_key": "datasheet:custodian-guard",
+    "mechanic_digest": "c554d175f799718562b5e28bcc628b18",
+    "name": "CUSTODIAN GUARD",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "If an Adeptus Custodes model with the Leader ability could be attached to a Custodian Guard unit, it can be attached to this unit instead."
+  },
+  {
+    "ability_key": "datasheet:daughter-of-the-abyss",
+    "mechanic_digest": "66f160a3042b0cc701c288be383995ab",
+    "name": "Daughter of the Abyss",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "This model has Feel No Pain 3+ against Psychic Attacks and against mortal wounds."
+  },
+  {
+    "ability_key": "datasheet:daughters-of-the-abyss",
+    "mechanic_digest": "70abf11316a6d0a074d3747b3761b264",
+    "name": "Daughters of the Abyss",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Models in this unit have Feel No Pain 3+ against Psychic Attacks and against mortal wounds."
+  },
+  {
+    "ability_key": "datasheet:deft-parry",
+    "mechanic_digest": "2e42ca2a06c6dbd667e6b8998550e0a5",
+    "name": "Deft Parry",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Each melee attack that targets this unit has -1 applied to its Hit roll."
+  },
+  {
+    "ability_key": "datasheet:devoted-to-destruction",
+    "mechanic_digest": "30f45b295f6150105ed627dc9f0fb885",
+    "name": "Devoted to Destruction",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "If this model is equipped with two melee weapons in addition to its default close combat weapon, add 2 to the Attacks characteristic of each of those two weapons."
+  },
+  {
+    "ability_key": "datasheet:disintegration-beams",
+    "mechanic_digest": "e63de9c60480edbc2478ff9f15e5d9d3",
+    "name": "Disintegration Beams",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per battle, at the start of your Shooting phase, this unit's ranged weapons gain the Devastating Wounds ability until the end of the phase."
+  },
+  {
+    "ability_key": "datasheet:dread-foe",
+    "mechanic_digest": "c9cc9c69ef37049c17b98d9608cfbd5c",
+    "name": "Dread Foe",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When this model fights, roll one D6 (+2 if it made a Charge move this turn) against an enemy unit within Engagement Range: on 4-5 it suffers D3 mortal wounds, on 6+ it suffers 3 mortal wounds."
+  },
+  {
+    "ability_key": "datasheet:fire-support",
+    "mechanic_digest": "4e5db4e6674f4cec09fb7eb7ae93621a",
+    "name": "Fire Support",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "After this transport shoots and hits an enemy unit, until the end of the phase, models that disembarked from it this turn may re-roll the Wound roll when attacking that unit."
+  },
+  {
+    "ability_key": "datasheet:from-golden-light",
+    "mechanic_digest": "afaf55a1813bf7db5004645170562921",
+    "name": "From Golden Light",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per battle, at the end of the opponent's turn, if this unit is not within Engagement Range of any enemy unit, it can be removed from the battlefield and placed into Strategic Reserves."
+  },
+  {
+    "ability_key": "datasheet:galatus-shield",
+    "mechanic_digest": "3c87f15f4d2826ff9ad0a30f75159fd2",
+    "name": "Galatus Shield",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Each melee attack that targets this model has -1 applied to its Wound roll."
+  },
+  {
+    "ability_key": "datasheet:golden-laurels",
+    "mechanic_digest": "2d84e74f671900e42ce0a85fe158f3a3",
+    "name": "Golden Laurels",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model leads a unit, each melee attack that targets that unit has its Armour Penetration worsened by 1."
+  },
+  {
+    "ability_key": "datasheet:guardian-eternal",
+    "mechanic_digest": "a7334678c134ee9708bc6adc8bb83a26",
+    "name": "Guardian Eternal",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Each attack allocated to this model has its Damage characteristic reduced by 1."
+  },
+  {
+    "ability_key": "datasheet:heavy-assault-infantry",
+    "mechanic_digest": "a6caf8e0c105313bfc7d405d10fe5ea9",
+    "name": "Heavy Assault Infantry",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Each time a model in this unit makes a ranged attack against the closest eligible target, it can re-roll a Wound roll of 1."
+  },
+  {
+    "ability_key": "datasheet:hero-of-lions-gate",
+    "mechanic_digest": "2f2be1a71cd3549ff56c9ed987e17c9b",
+    "name": "Hero of Lion’s Gate",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per battle, after making a Hit roll, Wound roll, or saving throw for this model, you can change that result to an unmodified 6."
+  },
+  {
+    "ability_key": "datasheet:implacable-vanguard",
+    "mechanic_digest": "98b30552040f8d5518e541bc6822a5b0",
+    "name": "Implacable Vanguard",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per battle, after this unit shoots, if it is not within Engagement Range of any enemy unit, it can make a Normal move of up to 6\", but is then not eligible to charge that turn."
+  },
+  {
+    "ability_key": "datasheet:infernus-firebombs",
+    "mechanic_digest": "33e710883f635fd88b861172114a41e1",
+    "name": "Infernus Firebombs",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Each time this model ends a Normal move, it can select one enemy unit it moved over: that unit loses Benefit of Cover until the end of the turn and suffers 1 mortal wound for each 6 rolled on a D6 per model in it."
+  },
+  {
+    "ability_key": "datasheet:jetbike-outriders",
+    "mechanic_digest": "ef9417999d89d9125153a8655ed00a0a",
+    "name": "JETBIKE OUTRIDERS",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "If a model with the Leader ability could be attached to a Vertus Praetors unit, it can be attached to this unit instead."
+  },
+  {
+    "ability_key": "datasheet:jump-packs",
+    "mechanic_digest": "c6c1273e0a52599e21a5c2f215a275d5",
+    "name": "JUMP PACKS",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "This unit cannot embark within a Venerable Land Raider."
+  },
+  {
+    "ability_key": "datasheet:lions-of-the-emperor",
+    "mechanic_digest": "692f002ddb6ecddfdaeda26c67369715",
+    "name": "LIONS OF THE EMPEROR",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "If a model with the Leader ability could be attached to an Allarus Custodians unit, it can be attached to this unit instead."
+  },
+  {
+    "ability_key": "datasheet:living-fortress",
+    "mechanic_digest": "30f8c9109b318e01df307b0e5075e734",
+    "name": "Living Fortress",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per battle, at the start of any phase, this unit can gain the Feel No Pain 4+ ability until the end of that phase."
+  },
+  {
+    "ability_key": "datasheet:martial-inspiration",
+    "mechanic_digest": "45294551087e19abc78d42dfb9c2575e",
+    "name": "Martial Inspiration",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per battle, in your Charge phase, this model's unit is eligible to declare a charge in a turn in which it Advanced."
+  },
+  {
+    "ability_key": "datasheet:master-of-the-stances",
+    "mechanic_digest": "74105b14d0063ecc258cc5fd46fb999a",
+    "name": "Master of the Stances",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per battle, when this model's unit is selected to fight, both Ka'tah Stances can be active for that unit simultaneously until the fight is resolved, instead of only one."
+  },
+  {
+    "ability_key": "datasheet:merciless-hunter",
+    "mechanic_digest": "979064301172dfe9e1b70b44205780e6",
+    "name": "Merciless Hunter",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "In your Shooting phase, each attack this model makes against an enemy unit that is Below Half-strength gains +1 to its Wound roll."
+  },
+  {
+    "ability_key": "datasheet:moment-shackle",
+    "mechanic_digest": "8c59b52ba1966a709268ddfa036ea87d",
+    "name": "Moment Shackle",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per battle, at the start of the Fight phase, choose one until the end of the phase: this model's Watcher's Axe has an Attacks characteristic of 12, or this model gains a 2+ invulnerable save."
+  },
+  {
+    "ability_key": "datasheet:no-foe-shall-stand",
+    "mechanic_digest": "4e5d70efe0b514c62345aa3a164f85f0",
+    "name": "No Foe Shall Stand",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per battle, at the start of your Shooting phase, this unit's ranged weapons gain the Lethal Hits and Ignores Cover abilities until the end of the phase."
+  },
+  {
+    "ability_key": "datasheet:praesidium-shield",
+    "mechanic_digest": "e85df857fe5b6bb561254c7269b85c45",
+    "name": "Praesidium Shield",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "The bearer's Wounds characteristic is increased by 1."
+  },
+  {
+    "ability_key": "datasheet:purity-of-execution",
+    "mechanic_digest": "b67b9218b564ecbab89efa83bf81e48e",
+    "name": "Purity of Execution",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Each ranged attack a model in this unit makes against a Psyker unit gains the Precision and Devastating Wounds abilities."
+  },
+  {
+    "ability_key": "datasheet:quicksilver-execution",
+    "mechanic_digest": "289a44d221b337b2e0146890a2debda1",
+    "name": "Quicksilver Execution",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per battle, after this unit makes a Normal or Advance move, it can target one non-Monster, non-Vehicle enemy unit it moved over: roll one D6 per model in this unit, and that enemy unit suffers 2 mortal wounds for each roll of 2+."
+  },
+  {
+    "ability_key": "datasheet:resolute-will",
+    "mechanic_digest": "aa8a3bae52077223c9b90c0a9738f21f",
+    "name": "Resolute Will",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While a Character leads this unit, each attack against it whose Strength exceeds this unit's Toughness has -1 applied to its Wound roll."
+  },
+  {
+    "ability_key": "datasheet:sanctified-flames",
+    "mechanic_digest": "ca2f870a03542d439830ff4ddc9bfce6",
+    "name": "Sanctified Flames",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "After this unit shoots, select one enemy unit it hit: that unit must take a Battle-shock test."
+  },
+  {
+    "ability_key": "datasheet:saturation-volleys",
+    "mechanic_digest": "f30a1bca9e7bad1a78b09a575a78529a",
+    "name": "Saturation Volleys",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "After this unit shoots, select one hit non-Monster, non-Vehicle enemy unit: until your next turn, while this unit remains on the battlefield, that enemy unit's attacks suffer -1 to their Hit roll."
+  },
+  {
+    "ability_key": "datasheet:seekers-instincts",
+    "mechanic_digest": "0d8b88ca99539407a4ca972fb78e0300",
+    "name": "Seeker’s Instincts",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model leads a unit, add 2\" to the Move characteristic of models in that unit and add 2 to Advance and Charge rolls made for it."
+  },
+  {
+    "ability_key": "datasheet:sentinel-storm",
+    "mechanic_digest": "14b710cb6cc6c798bf051666bd07495d",
+    "name": "Sentinel Storm",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per battle, after this unit shoots in your Shooting phase, it can shoot again."
+  },
+  {
+    "ability_key": "datasheet:slayers-of-tyrants",
+    "mechanic_digest": "c0f983e51d11173b9062b6ab2015f5e9",
+    "name": "Slayers of Tyrants",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Each attack a model in this unit makes against a Character, Monster, or Vehicle unit can have its Wound roll re-rolled."
+  },
+  {
+    "ability_key": "datasheet:stand-vigil",
+    "mechanic_digest": "15698020e1c11b166d06e2f666630e7d",
+    "name": "Stand Vigil",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Each attack a model in this unit makes can re-roll a Wound roll of 1, or re-roll the Wound roll entirely while the unit is within range of an objective marker it controls."
+  },
+  {
+    "ability_key": "datasheet:strategic-mastery",
+    "mechanic_digest": "c3024ce86a8595b6b00c758e9540efb8",
+    "name": "Strategic Mastery",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per battle round, select one model in your army with this ability: a Stratagem used to target that model's unit costs 1CP less."
+  },
+  {
+    "ability_key": "datasheet:strike-from-the-skies",
+    "mechanic_digest": "94b1b5375add20418e40b5872a3fecec",
+    "name": "Strike from the Skies",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "This unit remains eligible to shoot and to declare a charge in a turn in which it Fell Back."
+  },
+  {
+    "ability_key": "datasheet:sweeping-advance",
+    "mechanic_digest": "86fbe1021619e884d42df2f139b63b95",
+    "name": "Sweeping Advance",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per battle, at the end of the Fight phase, if this model's unit fought this phase, it can make a Fall Back move if within Engagement Range of an enemy unit, or otherwise a Normal move."
+  },
+  {
+    "ability_key": "datasheet:swift-onslaught",
+    "mechanic_digest": "04ce090b7368826172dd4ab811f45e7a",
+    "name": "Swift Onslaught",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model leads a unit, Charge rolls made for that unit can be re-rolled."
+  },
+  {
+    "ability_key": "datasheet:swooping-dive",
+    "mechanic_digest": "78fa5802605c8df42f59744135810982",
+    "name": "Swooping Dive",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per battle, this unit can be targeted with the Rapid Ingress Stratagem for 0CP, even if a different unit was already targeted with it this phase."
+  },
+  {
+    "ability_key": "datasheet:tactical-perception",
+    "mechanic_digest": "0348c9d133fab0ee5e45b1090f48c387",
+    "name": "Tactical Perception",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model leads a unit, models in that unit have the Fights First ability."
+  },
+  {
+    "ability_key": "datasheet:tarsis-buckler",
+    "mechanic_digest": "990aca7befcb602399e8fa3097c9dbd2",
+    "name": "Tarsis Buckler",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "The bearer has a Wounds characteristic of 4."
+  },
+  {
+    "ability_key": "datasheet:tenacious-spirit",
+    "mechanic_digest": "2052a6a1211c04e72f7d3c6d484e8b24",
+    "name": "Tenacious Spirit",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model leads a unit, its attacks gain +1 to the Hit roll if the unit is below its Starting Strength, and also +1 to the Wound roll if it is Below Half-strength."
+  },
+  {
+    "ability_key": "datasheet:turbo-boost",
+    "mechanic_digest": "159f0a51618d238dfd31863e233d1a3b",
+    "name": "Turbo-boost",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Each time this unit Advances, skip the Advance roll; instead add 6\" to the Move characteristic of models in it until the end of the phase."
+  },
+  {
+    "ability_key": "datasheet:unyielding-ancient",
+    "mechanic_digest": "ef7d78d6dcc9ab9c46bffdbb0bcd8a60",
+    "name": "Unyielding Ancient",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "The first time this model is destroyed, it is removed without triggering Deadly Demise; at the end of the phase, roll a D6 and on a 2+ it returns to the battlefield near where it fell, outside Engagement Range, with D6 wounds remaining."
+  },
+  {
+    "ability_key": "datasheet:vexilla",
+    "mechanic_digest": "d5e1efbaa70e0a8ba8029f7d609080c4",
+    "name": "Vexilla",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Models in the bearer's unit have their Objective Control characteristic increased by 1."
+  }
+]

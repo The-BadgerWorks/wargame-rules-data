@@ -1,0 +1,632 @@
+[
+  {
+    "ability_key": "datasheet:acrobatic-gladiators-pain",
+    "mechanic_digest": "6770db25e18c2b4839079d54b21d87e7",
+    "name": "Acrobatic Gladiators (Pain)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the start of your Charge phase, this unit can spend 1 Pain token to become Empowered: while Empowered, it is eligible to declare a charge in a turn in which it Advanced or Fell Back."
+  },
+  {
+    "ability_key": "datasheet:aerialists",
+    "mechanic_digest": "80ef9071aaccd52acb565d31284cad70",
+    "name": "Aerialists",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the end of the Fight phase, if this empty transport has no embarked models, a friendly Drukhari Infantry unit of 6 or fewer models (that cannot Fly) wholly within 6\" and not within Engagement Range of an enemy can embark within it."
+  },
+  {
+    "ability_key": "datasheet:agonising-suppression-pain",
+    "mechanic_digest": "85f49187d933a3efd4678abf4dc8071d",
+    "name": "Agonising Suppression (Pain)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When this model is selected to shoot, it can spend 1 Pain token to become Empowered: while Empowered, after it shoots, select one hit enemy unit, which is suppressed (its attacks suffer -1 to the Hit roll) until your next turn."
+  },
+  {
+    "ability_key": "datasheet:airborne-evasion",
+    "mechanic_digest": "421d0d0d28928ef5b2875386d2f0d1ab",
+    "name": "Airborne Evasion",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "After this unit shoots, if it is not within Engagement Range of any enemy unit, it can make a Normal move of up to 6\", but is then not eligible to charge that turn."
+  },
+  {
+    "ability_key": "datasheet:archon-of-the-poisoned-tongue-pain",
+    "mechanic_digest": "7b24eebbc836adbc377fc83c91431e5e",
+    "name": "Archon of the Poisoned Tongue (Pain)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When this model's unit is selected to shoot or fight, it can spend 1 Pain token to become Empowered: while Empowered, choose Sustained Hits 1 or Lethal Hits for its weapons until the end of the phase."
+  },
+  {
+    "ability_key": "datasheet:archons-retinue",
+    "mechanic_digest": "a77d92efbf7a6d39ac4966de0aa3faee",
+    "name": "ARCHON’S RETINUE",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "If a Leader unit is attached to this unit during the Declare Battle Formations step, that Leader gains the Scouts 7\" ability."
+  },
+  {
+    "ability_key": "datasheet:archons-will",
+    "mechanic_digest": "35ccdd78a0d93facf9e79b417c0f21e9",
+    "name": "Archon’s Will",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the start of the first battle round, select an objective marker: for the rest of the battle, while this unit is within range of it and not Battle-shocked, its models have a 5+ invulnerable save and Objective Control 3."
+  },
+  {
+    "ability_key": "datasheet:assassins-poisons-pain",
+    "mechanic_digest": "c0a4ac89dc7be4a057734593801fade5",
+    "name": "Assassins’ Poisons (Pain)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When this unit is selected to shoot or fight, it can spend 1 Pain token to become Empowered: while Empowered, its weapons (except blast pistols, blasters, and dark lances) have the Lethal Hits and Precision abilities."
+  },
+  {
+    "ability_key": "datasheet:battlefield-butchery-pain",
+    "mechanic_digest": "de0693e6e922fb6b67abef3bb5170820",
+    "name": "Battlefield Butchery (Pain)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When this unit is selected to fight, it can spend 1 Pain token to become Empowered: while Empowered, its melee weapons gain +1 to their Attacks and Strength characteristics."
+  },
+  {
+    "ability_key": "datasheet:bloody-spectacle",
+    "mechanic_digest": "dd0a90055c35a3fbf3011a1cf4eef5f0",
+    "name": "Bloody Spectacle",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Each melee attack this model makes against a Character unit can have both its Hit roll and Wound roll re-rolled, and destroying a Character with this model's unit gains you 1CP."
+  },
+  {
+    "ability_key": "datasheet:blur-of-blades",
+    "mechanic_digest": "0348c9d133fab0ee5e45b1090f48c387",
+    "name": "Blur of Blades",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model leads a unit, models in that unit have the Fights First ability."
+  },
+  {
+    "ability_key": "datasheet:brides-of-death-pain",
+    "mechanic_digest": "eccc631c863e3935187dde1288969479",
+    "name": "Brides of Death (Pain)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When this model's unit is selected to fight, it can spend 1 Pain token to become Empowered: while Empowered, its melee attacks gain +1 to their Strength and Armour Penetration characteristics."
+  },
+  {
+    "ability_key": "datasheet:court-of-the-archon",
+    "mechanic_digest": "5d373733ef02ae4e96bfecda85acf36d",
+    "name": "Court of the Archon",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Two effects: a Character leading a unit containing Lhamaean, Medusae, Sslyth or Ur-ghul models gains Feel No Pain 4+; and this unit can instead join an Archon-led Kabalite Warriors or Hand of the Archon unit, raising its Starting Strength."
+  },
+  {
+    "ability_key": "datasheet:cruel-enforcers",
+    "mechanic_digest": "4c6281128b5b6d40d9fd23219f1e13d9",
+    "name": "Cruel Enforcers",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the end of your Command phase, if this unit is within range of an objective marker you control, you retain control of it until the opponent's Level of Control there exceeds yours."
+  },
+  {
+    "ability_key": "datasheet:deadly-retinue-pain",
+    "mechanic_digest": "90a08b7f66e478230e1575b8413f1507",
+    "name": "Deadly Retinue (Pain)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Spend 1 Pain token at the start of Shooting/Fight phase to Empower this unit, gaining a bonus by model type: Lhamaean = melee Lethal Hits; Medusae = ranged Ignores Cover; Sslyth = -1 Wound vs its melee; Ur-ghul = Fights First."
+  },
+  {
+    "ability_key": "datasheet:decapitating-strikes-pain",
+    "mechanic_digest": "3488cd154465c57d880bba27569bc736",
+    "name": "Decapitating Strikes (Pain)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When this unit is selected to fight, it can spend 1 Pain token to become Empowered: while Empowered, its melee attacks against Infantry units have the Devastating Wounds ability."
+  },
+  {
+    "ability_key": "datasheet:devious-mastermind",
+    "mechanic_digest": "b7147c846ff0ebab746750195fca02c0",
+    "name": "Devious Mastermind",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per battle round, when a unit led by a model with this ability is targeted by a Stratagem, its CP cost is reduced by 1."
+  },
+  {
+    "ability_key": "datasheet:devoted-to-pain",
+    "mechanic_digest": "b624556c14e5ad24e3763dd9d096e6c1",
+    "name": "Devoted to Pain",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "If a model in this unit is equipped with two macro-scalpels, those weapons have the Twin-linked ability."
+  },
+  {
+    "ability_key": "datasheet:electromagentic-cascade-pain",
+    "mechanic_digest": "dbf117380f57e4dc685fdebb6ed564d0",
+    "name": "Electromagentic Cascade (Pain)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When this model is selected to shoot, it can spend 1 Pain token to become Empowered: while Empowered, its ranged attacks gain Sustained Hits 2 against Vehicle units, or Sustained Hits 1 against other units."
+  },
+  {
+    "ability_key": "datasheet:engine-of-destruction-pain",
+    "mechanic_digest": "77ba9ab31e887912aabceaadd8b847af",
+    "name": "Engine of Destruction (Pain)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When this model is selected to shoot, it can spend 1 Pain token to become Empowered: while Empowered, its pulse disintegrators have the Rapid Fire 8 ability."
+  },
+  {
+    "ability_key": "datasheet:eradicate-the-foe",
+    "mechanic_digest": "0b75c99747d82ae0553ae53f26937ce9",
+    "name": "Eradicate the Foe",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Attacks this model makes against an enemy unit still at its Starting Strength can re-roll the Hit roll, or only a Hit roll of 1, depending on the model."
+  },
+  {
+    "ability_key": "datasheet:experimental-enhancements-pain",
+    "mechanic_digest": "7d81861cfc6f9529c66f9757b82ceab4",
+    "name": "Experimental Enhancements (Pain)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When this unit is selected to fight, it can spend 1 Pain token to become Empowered, choosing until the end of the phase: melee weapons of non-Character models gain an Attacks characteristic of 3, or Attacks 4 with the Hazardous ability."
+  },
+  {
+    "ability_key": "datasheet:fade-away-pain",
+    "mechanic_digest": "83e430bef75a173a4fc48ce5dc455b3a",
+    "name": "Fade Away (Pain)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the end of the opponent's Fight phase, if this unit is not within Engagement Range of any enemy unit, it can spend 1 Pain token to be removed from the battlefield and placed into Strategic Reserves."
+  },
+  {
+    "ability_key": "datasheet:father-of-pain",
+    "mechanic_digest": "2dcbcca412048511ad5f76efa8e63744",
+    "name": "Father of Pain",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Each time an attack with a Damage characteristic of 1 is allocated to a model in this model's unit, that model has the Feel No Pain 4+ ability against that attack."
+  },
+  {
+    "ability_key": "datasheet:fear-incarnate-aura",
+    "mechanic_digest": "8efd2812a02ec4e7eb4a76b12ee7db54",
+    "name": "Fear Incarnate (Aura)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While an enemy unit is within 6\" of this model, its Leadership is worsened by 1, and if it is below its Starting Strength it must take a Battle-shock test in the opponent's Command phase."
+  },
+  {
+    "ability_key": "datasheet:fleshcraft-pain",
+    "mechanic_digest": "f73de603b9e3821a1d863db005fc484f",
+    "name": "Fleshcraft (Pain)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "In your Command phase, this model's unit can spend 1 Pain token to return up to D3+1 destroyed Bodyguard models to it."
+  },
+  {
+    "ability_key": "datasheet:goaded-savagery-pain",
+    "mechanic_digest": "a74d82b82f53fe2004a6cb04bef6b208",
+    "name": "Goaded Savagery (Pain)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When this unit is selected to fight, it can spend 1 Pain token to become Empowered: while Empowered, if it contains a Beastmaster model, its Beast models' melee attacks can re-roll both the Hit and Wound roll."
+  },
+  {
+    "ability_key": "datasheet:ground-attack-craft",
+    "mechanic_digest": "036c05cfab989697ea2e87a309eceda6",
+    "name": "Ground Attack Craft",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Each ranged attack a model in this unit makes against an enemy unit that cannot Fly gains +1 to the Hit roll."
+  },
+  {
+    "ability_key": "datasheet:hatred-eternal-pain",
+    "mechanic_digest": "85f8d88f1d2f2494a77cbc334b6529f3",
+    "name": "Hatred Eternal (Pain)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When this model's unit is selected to shoot or fight, it can spend 1 Pain token to become Empowered: while Empowered, its attacks can re-roll the Hit roll."
+  },
+  {
+    "ability_key": "datasheet:horrific-regeneration",
+    "mechanic_digest": "7a6c0c817461db4cda33e27a5ec6904f",
+    "name": "Horrific Regeneration",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "The first time this model is destroyed, roll a D6 at the end of the phase: on a 2+ it is set back up near where it fell, outside Engagement Range, with its wounds fully restored."
+  },
+  {
+    "ability_key": "datasheet:incubi-shrine-token",
+    "mechanic_digest": "6b1aa449c52701373088fd8f130cb349",
+    "name": "Incubi Shrine Token",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per battle for each Incubi Shrine token this unit has, change the result of one Hit or Wound roll made for a Klaivex or Incubi model in it to an unmodified 6."
+  },
+  {
+    "ability_key": "datasheet:kabalite-icon",
+    "mechanic_digest": "ae8451fd95028b2db83517af2b947790",
+    "name": "Kabalite Icon",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While the bearer's unit is not Battle-shocked, the bearer has +1 to its Objective Control characteristic."
+  },
+  {
+    "ability_key": "datasheet:lithe-agility-pain",
+    "mechanic_digest": "e4d90f36b25ea66432a24b2253979fc5",
+    "name": "Lithe Agility (Pain)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When this model's unit Advances or before its Charge roll, it can spend 1 Pain token to become Empowered: while Empowered, Advance and Charge rolls made for it can be re-rolled."
+  },
+  {
+    "ability_key": "datasheet:macro-steroids-pain",
+    "mechanic_digest": "13145457368b3baf6dff9ebef0705180",
+    "name": "Macro-steroids (Pain)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When this unit is selected to fight, it can spend 1 Pain token to become Empowered: while Empowered, its melee weapons have a Strength characteristic of 8 and the Lethal Hits ability."
+  },
+  {
+    "ability_key": "datasheet:master-of-blades-pain",
+    "mechanic_digest": "4755c954c8cbcab2c3a0bd7c934d8a84",
+    "name": "Master of Blades (Pain)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When this model's unit is selected to fight, it can spend 1 Pain token to become Empowered: while Empowered, its melee attacks gain +1 to the Wound roll."
+  },
+  {
+    "ability_key": "datasheet:masters-of-the-shadowed-sky",
+    "mechanic_digest": "cc9c84473a46204fb25a8643d50a594f",
+    "name": "Masters of the Shadowed Sky",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the end of your Command phase, if this model is within range of an objective marker you control and has a Kabalite Warriors unit embarked, you retain control of it until the opponent's Level of Control there exceeds yours."
+  },
+  {
+    "ability_key": "datasheet:matchless-swiftness-pain",
+    "mechanic_digest": "1c48cb19363ee892ba0241aad79f9e3e",
+    "name": "Matchless Swiftness (Pain)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When this unit Advances, it can spend 1 Pain token to become Empowered: while Empowered, it skips the Advance roll and instead adds 8\" to its Move characteristic until the end of the phase."
+  },
+  {
+    "ability_key": "datasheet:mind-like-a-steel-trap-aura",
+    "mechanic_digest": "c158784d903bfeda4563253325d86bc1",
+    "name": "Mind Like a Steel Trap (Aura)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Each time the opponent targets a unit within 12\" of this model with a Stratagem, that Stratagem's cost increases by 1CP."
+  },
+  {
+    "ability_key": "datasheet:mindless-killing-machines-pain",
+    "mechanic_digest": "d11ab19523ffbe4983576d2b24affe14",
+    "name": "Mindless Killing Machines (Pain)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the start of the Fight phase, this unit can spend 1 Pain token to become Empowered: if a model in it is destroyed by melee before fighting, roll a D6 - on a 2+ it fights after the attacker finishes before being removed."
+  },
+  {
+    "ability_key": "datasheet:monstrous-charge",
+    "mechanic_digest": "88ec58dc41753b4bdc1676c69a243d6f",
+    "name": "Monstrous Charge",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Each time this unit ends a Charge move, select one enemy unit within Engagement Range: roll a D6 per model of this unit within Engagement Range of it, dealing D3 mortal wounds per 4+."
+  },
+  {
+    "ability_key": "datasheet:monstrous-hulks",
+    "mechanic_digest": "645a3070062b3488a3dcd91513692350",
+    "name": "MONSTROUS HULKS",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "This unit cannot embark within a Venom, but can embark within other Drukhari Transports, where each model takes up the space of 3 models."
+  },
+  {
+    "ability_key": "datasheet:murderous-crossfire",
+    "mechanic_digest": "d94aa0084a34de2a91c6466387433c4c",
+    "name": "Murderous Crossfire",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "After this unit shoots, select one hit enemy unit (once per turn): until the end of the phase, friendly Drukhari ranged attacks against it have their Armour Penetration improved by 1."
+  },
+  {
+    "ability_key": "datasheet:nowhere-to-hide-pain",
+    "mechanic_digest": "f959b67351801bdf68436ed0b35390b0",
+    "name": "Nowhere to Hide (Pain)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When this unit is selected to shoot, it can spend 1 Pain token to become Empowered: while Empowered, after it shoots, select one hit enemy unit, which cannot have the Benefit of Cover until the end of the phase."
+  },
+  {
+    "ability_key": "datasheet:nowhere-to-run-pain",
+    "mechanic_digest": "8ac34461e36348cd339639a42ee4e65f",
+    "name": "Nowhere to Run (Pain)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When this unit is selected to shoot, it can spend 1 Pain token to become Empowered: while Empowered, after it shoots, select one hit non-Monster, non-Vehicle enemy unit, which has -2 Move and -2 to Charge rolls until your next turn."
+  },
+  {
+    "ability_key": "datasheet:onslaught",
+    "mechanic_digest": "84f425de88b7ba0516bbcf49e1c212f8",
+    "name": "Onslaught",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model leads a unit, models in it can make Pile-in and Consolidation moves of up to 6\" instead of up to 3\"."
+  },
+  {
+    "ability_key": "datasheet:pain-adept",
+    "mechanic_digest": "f95aa1617ff860bfb7286587299bd5b8",
+    "name": "Pain Adept",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "In your Command phase, if a model with this ability is on the battlefield, roll a D6: on a 4+ you gain 1 Pain token."
+  },
+  {
+    "ability_key": "datasheet:pain-engine-aura",
+    "mechanic_digest": "f87639c405eb125e8ad5669f02702ad4",
+    "name": "Pain Engine (Aura)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Each time you spend a Pain token to Empower a friendly unit within 9\" of this unit, roll a D6 (+1 if this unit has a model without a spirit vortex): on a 5+ you gain 1 Pain token."
+  },
+  {
+    "ability_key": "datasheet:pain-parasite-pain",
+    "mechanic_digest": "007c644cd3841254d1fe83066965c6f8",
+    "name": "Pain Parasite (Pain)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When this unit shoots or fights, it can spend 1 Pain token to become Empowered: if its attacks destroy an enemy model, a model in it regains up to 3 wounds, or a destroyed model returns with 3 wounds if below Starting Strength."
+  },
+  {
+    "ability_key": "datasheet:precognisant",
+    "mechanic_digest": "7d48fe674864f3019ef3fd806ec7cf22",
+    "name": "Precognisant",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "After both players deploy, if this model is in your army, select up to three Drukhari units and redeploy them, optionally into Strategic Reserves regardless of normal limits."
+  },
+  {
+    "ability_key": "datasheet:rapid-deployment-pain",
+    "mechanic_digest": "343a34d6de4fb351cb2e327a9b230f70",
+    "name": "Rapid Deployment (Pain)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When this model Advances, it can spend 1 Pain token to become Empowered: while Empowered, units can disembark from it after it has Advanced, counting as having made a Normal move and unable to charge that turn."
+  },
+  {
+    "ability_key": "datasheet:sadistic-raiders-pain",
+    "mechanic_digest": "9232a4198005c9f45541ccc10443f86e",
+    "name": "Sadistic Raiders (Pain)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When this unit is selected to shoot or fight, it can spend 1 Pain token to become Empowered: while Empowered, its attacks can re-roll a Wound roll of 1, or re-roll it entirely if the target is within range of an objective marker."
+  },
+  {
+    "ability_key": "datasheet:sculptor-of-torments-pain",
+    "mechanic_digest": "78e863dc25d1bf087e336e48c3a1e951",
+    "name": "Sculptor of Torments (Pain)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When this model's unit is selected to fight, it can spend 1 Pain token to become Empowered: while Empowered, its melee attacks gain +1 to the Wound roll."
+  },
+  {
+    "ability_key": "datasheet:scything-charge",
+    "mechanic_digest": "16bc4a131bd0cde636bee27b59519df9",
+    "name": "Scything Charge",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Each time this model ends a Charge move, select one enemy unit within Engagement Range and roll a D6: on 2-3 it suffers D3 mortal wounds, on 4-5 it suffers 3 mortal wounds, on a 6 it suffers D3+3 mortal wounds."
+  },
+  {
+    "ability_key": "datasheet:shade-weavers",
+    "mechanic_digest": "e3c90ff68a74d48a1c7b0f42fbc440ef",
+    "name": "Shade Weavers",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "This unit cannot be targeted by ranged attacks from a model more than 18\" away."
+  },
+  {
+    "ability_key": "datasheet:shadowfield",
+    "mechanic_digest": "c41f8dfe213d6630e3fa8d6234ffc84d",
+    "name": "Shadowfield",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Invulnerable saving throws made for the bearer cannot be re-rolled. The first time one is failed, the bearer loses its invulnerable save for the rest of the battle."
+  },
+  {
+    "ability_key": "datasheet:shredding-fire-pain",
+    "mechanic_digest": "e5497a9bcf9daf81a6cad05374934d94",
+    "name": "Shredding Fire (Pain)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When this unit is selected to shoot, it can spend 1 Pain token to become Empowered: while Empowered, its ranged weapons have their Armour Penetration increased by 1."
+  },
+  {
+    "ability_key": "datasheet:silent-executioner",
+    "mechanic_digest": "a0f3e66eb08dd7a5f6400360861bc652",
+    "name": "Silent Executioner",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Each attack this model makes against a unit below its Starting Strength can have its Hit roll re-rolled, and also its Wound roll re-rolled if the target is Below Half-strength."
+  },
+  {
+    "ability_key": "datasheet:skyboard-evasion",
+    "mechanic_digest": "2856dfa754483bc61f73bea78566de40",
+    "name": "Skyboard Evasion",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per turn, when an enemy unit ends a Normal, Advance, or Fall Back move within 9\" of this unit, it can make a Normal move of up to D6\"."
+  },
+  {
+    "ability_key": "datasheet:soul-trap",
+    "mechanic_digest": "6d8f97e33842db660821db5857bf9b11",
+    "name": "Soul Trap",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "The bearer's melee weapons gain +1 to their Attacks and Strength characteristics; the first time the bearer destroys an enemy model in melee, those weapons gain a further +1 to Attacks and Strength for the rest of the battle."
+  },
+  {
+    "ability_key": "datasheet:speed-of-the-kill",
+    "mechanic_digest": "0fddf7aa9b31c4fc73bb8585a9b1c443",
+    "name": "Speed of the Kill",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Each time a Wyches unit disembarks from this model (except an Emergency Disembarkation), it must be set up wholly within 6\" of this model."
+  },
+  {
+    "ability_key": "datasheet:splinter-racks-pain",
+    "mechanic_digest": "739cccee1d8e63828c0145e0afd49efd",
+    "name": "Splinter Racks (Pain)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When this model is selected to shoot, it can spend 1 Pain token to become Empowered: while Empowered, if a unit is embarked within it, its ranged attacks with the Anti ability can re-roll the Hit roll."
+  },
+  {
+    "ability_key": "datasheet:stimm-needler",
+    "mechanic_digest": "06c334ae4d28317ef4ca3343b3fd8c95",
+    "name": "Stimm-needler",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per turn, the first time a saving throw is failed for a model in the bearer's unit, the Damage characteristic of that attack is changed to 0."
+  },
+  {
+    "ability_key": "datasheet:swooping-descent-pain",
+    "mechanic_digest": "65c142865054f02767f798f27da10abd",
+    "name": "Swooping Descent (Pain)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "In your Movement phase, this unit can spend 1 Pain token to become Empowered: Deep Strike models can be set up more than 6\" (instead of 9\") from enemies, but if within 9\" of one afterward, cannot charge that turn."
+  },
+  {
+    "ability_key": "datasheet:thrilling-spectacle",
+    "mechanic_digest": "bcd60543991f938992c7a083fa50f97b",
+    "name": "Thrilling Spectacle",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per battle, at the start of the Fight phase, this model can gain a 3+ invulnerable save and change its melee weapons' Attacks characteristic to 12, both until the end of the phase."
+  },
+  {
+    "ability_key": "datasheet:torture-device",
+    "mechanic_digest": "a9360753fd2160b425644882dd5b06ba",
+    "name": "Torture Device",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Each time this unit destroys an enemy unit, you gain 1 additional Pain token."
+  },
+  {
+    "ability_key": "datasheet:torturers-craft",
+    "mechanic_digest": "7ebb2c2141d144d6779ca2db920c11c3",
+    "name": "Torturer’s Craft",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "After this unit shoots or fights, select one hit non-Vehicle enemy unit: it must take a Battle-shock test."
+  },
+  {
+    "ability_key": "datasheet:vanguard-of-the-dark-city",
+    "mechanic_digest": "eb8b5bd27ace7802c674074a0002d1d2",
+    "name": "Vanguard of the Dark City",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the start of your Command phase, select one ability from this model's Vanguard of the Dark City list; it has that ability until your next Command phase."
+  },
+  {
+    "ability_key": "datasheet:visions-of-butchery",
+    "mechanic_digest": "c7f4d46b3a61d41587fd79bbbbcd222f",
+    "name": "Visions of Butchery",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While one or more Wracks units are embarked within this model, its bladevanes and chainsnares gain +1 Attacks for each embarked Wracks model."
+  },
+  {
+    "ability_key": "datasheet:void-mine",
+    "mechanic_digest": "2b5803e5f98e556b92d2299766f57c4a",
+    "name": "Void Mine",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per battle, after this unit ends a Normal move, select one enemy model it moved over: roll a D6 for each enemy unit within D6\" of it, and each 4+ deals that unit D6 mortal wounds."
+  },
+  {
+    "ability_key": "datasheet:winged-strike-pain",
+    "mechanic_digest": "997e848ae15f144b58a5d5cde20edd1d",
+    "name": "Winged Strike (Pain)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When this unit is selected to shoot, it can spend 1 Pain token to become Empowered: while Empowered, its ranged attacks can re-roll the Hit roll."
+  }
+]

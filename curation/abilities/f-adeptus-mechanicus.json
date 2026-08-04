@@ -1,0 +1,605 @@
+[
+  {
+    "ability_key": "datasheet:achillan-eye",
+    "mechanic_digest": "af8306283f3a3d214acddaf8a9c1ddd4",
+    "name": "Achillan Eye",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "This model's radium jezzail attacks against Infantry units can re-roll the Wound roll; its Skatros transuranic arquebus attacks against Monster or Vehicle units can re-roll the Wound roll."
+  },
+  {
+    "ability_key": "datasheet:adaptive-tactics",
+    "mechanic_digest": "461564f32e1ec0f0f246b7de1ab8a4da",
+    "name": "Adaptive Tactics",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Select one friendly Skitarii or Thulia Ghuld unit within 6\" of this model: until your next Command phase, that unit remains eligible to shoot and to declare a charge in a turn in which it Fell Back."
+  },
+  {
+    "ability_key": "datasheet:aerial-deployment",
+    "mechanic_digest": "00a3838cffd9631792b5fe6c6a282141",
+    "name": "Aerial Deployment",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "If this model starts the battle in Hover mode and in Strategic Reserves, it can be set up in the Reinforcements step of your first, second, or third Movement phase regardless of mission rules."
+  },
+  {
+    "ability_key": "datasheet:battle-protocols",
+    "mechanic_digest": "d365e9c2aac4553cea5194ede23b1fc7",
+    "name": "Battle Protocols",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model leads a Kastelan Robots unit, it begins in Aegis Protocols; each Command phase it can switch to Protector Protocol (+2 ranged Attacks) or Conqueror Protocol (+2 melee Attacks) until changed again."
+  },
+  {
+    "ability_key": "datasheet:blind-barrage",
+    "mechanic_digest": "262cc5e073794285e42b4993fd335d98",
+    "name": "Blind Barrage",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "After this unit shoots, select one hit enemy Infantry unit: until your next turn, while this unit remains on the battlefield, that enemy unit's attacks suffer -1 to their Hit roll."
+  },
+  {
+    "ability_key": "datasheet:blistering-salvoes",
+    "mechanic_digest": "2431818d5bad118649b92296af65c8a9",
+    "name": "Blistering Salvoes",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "This model's belleros energy cannon attacks against Infantry units gain +1 to the Hit roll; its ferrumite cannon attacks against Monster or Vehicle units gain +1 to the Hit roll."
+  },
+  {
+    "ability_key": "datasheet:bomb-rack",
+    "mechanic_digest": "1ad49daa10cc84ed0e44d1015d7ab32c",
+    "name": "Bomb Rack",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Each time this model ends a Normal move, it can target one enemy unit it moved across: roll six D6, and that unit suffers 1 mortal wound for each result of 4+."
+  },
+  {
+    "ability_key": "datasheet:bound-creation",
+    "mechanic_digest": "c768e8c1cf1566d00dac00537bf4ec19",
+    "name": "Bound Creation",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While a Tech-Priest model leads this model's unit, that Tech-Priest model has the Feel No Pain 5+ ability."
+  },
+  {
+    "ability_key": "datasheet:breaching-command",
+    "mechanic_digest": "4c2d9853138ee8b806a2592ead30ed26",
+    "name": "Breaching Command",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Each attack a model in this unit makes can re-roll a Hit roll of 1, or re-roll the Hit roll entirely while this unit is within 6\" of a friendly Adeptus Mechanicus Battleline unit."
+  },
+  {
+    "ability_key": "datasheet:broad-spectrum-data-tether",
+    "mechanic_digest": "906ab233b2b5e558bf2e6fbc7b455f7e",
+    "name": "Broad Spectrum Data-tether",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Each time this unit is targeted by a Stratagem, roll a D6: on a 5+ you gain 1CP."
+  },
+  {
+    "ability_key": "datasheet:broad-spectrum-targeting-augurs",
+    "mechanic_digest": "a0dd16df9b836e491c5a3792c9aef2d5",
+    "name": "Broad-spectrum Targeting Augurs",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Each attack a model in this unit makes with an eradication caster against a non-Monster, non-Vehicle unit gains the Sustained Hits 1 ability."
+  },
+  {
+    "ability_key": "datasheet:canticles-of-the-omnissiah",
+    "mechanic_digest": "0a6fffa22c2d4ab0e5ca46cee04b7f8b",
+    "name": "Canticles of the Omnissiah",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the start of your Command phase, select one ability from this model's Canticles of the Omnissiah list; this model has that ability until your next Command phase."
+  },
+  {
+    "ability_key": "datasheet:chaff-launcher",
+    "mechanic_digest": "0916838b0b5000839c5eba071b64282e",
+    "name": "Chaff Launcher",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "The bearer gains the Smoke keyword."
+  },
+  {
+    "ability_key": "datasheet:cogitative-instincts",
+    "mechanic_digest": "f9ad9811ef8549cf58dcf0693f5af1d2",
+    "name": "Cogitative Instincts",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Enemy units set up on the battlefield as Reinforcements cannot be placed within 12\" horizontally of this model."
+  },
+  {
+    "ability_key": "datasheet:command-uplink",
+    "mechanic_digest": "4c182b5e1fe6fe48ceea57b3c8d96ee6",
+    "name": "Command Uplink",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Each time the bearer's unit is targeted by a Stratagem, roll a D6: on a 5+ you gain 1CP."
+  },
+  {
+    "ability_key": "datasheet:control-edict",
+    "mechanic_digest": "b994f62b588a3d53661a24c157233cc5",
+    "name": "Control Edict",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model leads a unit, attacks made by models in that unit can have their Hit roll re-rolled."
+  },
+  {
+    "ability_key": "datasheet:cybernetic-augmentation",
+    "mechanic_digest": "8b2e1559601c9d4556d50fe9f5a5f18f",
+    "name": "Cybernetic Augmentation",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "This model can move through terrain features (but not end its move inside one) and can be set up or end a move on any floor level of Ruins, provided its base does not overhang a non-ground floor."
+  },
+  {
+    "ability_key": "datasheet:data-spike",
+    "mechanic_digest": "bbff436c94736c21edc55d78f2ff383f",
+    "name": "Data-spike",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the start of the Fight phase, select one enemy Vehicle unit within Engagement Range of this model's unit and roll a D6: on a 4+ it suffers D6 mortal wounds and its melee weapons' Weapon Skill is worsened by 1 until the end of the phase."
+  },
+  {
+    "ability_key": "datasheet:defend-the-divine-work",
+    "mechanic_digest": "2e3eb6a7ac1d49b6094d1e16d5e44dfa",
+    "name": "Defend the Divine Work",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per battle, at the start of any phase, this model can give every model in its unit a 4+ invulnerable save until the end of that phase."
+  },
+  {
+    "ability_key": "datasheet:dread-snipers",
+    "mechanic_digest": "ddfd284ce8d3e5490f6a12e5729455e8",
+    "name": "Dread Snipers",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "After this model shoots, select one hit enemy unit: that unit must take a Battle-shock test."
+  },
+  {
+    "ability_key": "datasheet:dynamic-efficiency",
+    "mechanic_digest": "e9a7fb8b960b8a5436855a18ca7b1087",
+    "name": "Dynamic Efficiency",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "This unit is eligible to declare a charge in a turn in which it Advanced or Fell Back, and Desperate Escape tests taken for its models can be re-rolled."
+  },
+  {
+    "ability_key": "datasheet:electro-infusion",
+    "mechanic_digest": "578de99be7b227516b328c7a9b5f1f40",
+    "name": "Electro-infusion",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While a Character leads this unit, each attack that targets it has -1 applied to its Wound roll."
+  },
+  {
+    "ability_key": "datasheet:electro-shock",
+    "mechanic_digest": "b8f0d823620f04828cf86ba5167939c4",
+    "name": "Electro-shock",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "After this unit shoots, select one hit non-Monster, non-Vehicle enemy unit: until the end of the opponent's next turn, that unit has -2\" Move and -2 to Advance and Charge rolls made for it."
+  },
+  {
+    "ability_key": "datasheet:elevated-strider",
+    "mechanic_digest": "9b45695e4df5e40166ff87a6913cfe1c",
+    "name": "Elevated Strider",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "This unit is eligible to shoot in a turn in which it Fell Back or Advanced, and Desperate Escape tests taken for its models can be re-rolled."
+  },
+  {
+    "ability_key": "datasheet:emanatus-force-field-aura",
+    "mechanic_digest": "0d469d5c32bf6cdb015ec5a6e9254caf",
+    "name": "Emanatus Force Field (Aura)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While a friendly Adeptus Mechanicus Battleline model is wholly within 6\" of this model, it has a 4+ invulnerable save against ranged attacks."
+  },
+  {
+    "ability_key": "datasheet:enginseer",
+    "mechanic_digest": "8e233a7a50df2f4b7c73a5ed4ad157eb",
+    "name": "Enginseer",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While within 3\" of a friendly Vehicle unit of the specified faction, this model has the Lone Operative ability; on one datasheet only while it is not leading a unit."
+  },
+  {
+    "ability_key": "datasheet:enhanced-data-tether",
+    "mechanic_digest": "4c182b5e1fe6fe48ceea57b3c8d96ee6",
+    "name": "Enhanced data-tether",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Each time the bearer's unit is targeted by a Stratagem, roll a D6: on a 5+ you gain 1CP."
+  },
+  {
+    "ability_key": "datasheet:fanatical-devotion",
+    "mechanic_digest": "2fb972fc87555f26de50372e0d6d2bf1",
+    "name": "Fanatical Devotion",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Select one friendly Skitarii or Thulia Ghuld unit within 6\" of this model: until your next Command phase, that unit remains eligible to shoot and to declare a charge in a turn in which it Advanced."
+  },
+  {
+    "ability_key": "datasheet:focused-hunters",
+    "mechanic_digest": "3cb118cbeaefb80cac1d4a2869a3374f",
+    "name": "Focused Hunters",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the start of the battle, select one enemy unit: for the rest of the battle, attacks a model in this unit makes against it can have their Hit roll re-rolled."
+  },
+  {
+    "ability_key": "datasheet:galvanic-field",
+    "mechanic_digest": "12e87fe25987f213165113cf413204f4",
+    "name": "Galvanic Field",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model leads a unit, weapons equipped by models in that unit have the Lethal Hits ability."
+  },
+  {
+    "ability_key": "datasheet:invocation-of-machine-vengeance",
+    "mechanic_digest": "941509074aa98739e99545fba118a57d",
+    "name": "Invocation of Machine Vengeance",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the start of your Command phase, designate one enemy unit as your Machine Vengeance target until your next Command phase: attacks by friendly Adeptus Mechanicus models against it can have their Hit roll re-rolled."
+  },
+  {
+    "ability_key": "datasheet:line-breakers",
+    "mechanic_digest": "267d8d7a7f966c49b0e1aab52f3791b2",
+    "name": "Line-breakers",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When this unit ends a Charge move, roll a D6 per model within Engagement Range of a selected enemy unit (+2 if the charge started within 6\" of a friendly Adeptus Mechanicus Battleline unit); each 4+ deals 1 mortal wound."
+  },
+  {
+    "ability_key": "datasheet:lord-of-the-machine-cult",
+    "mechanic_digest": "ee3a1a8f35eb08b5aa3c3e4a3b7dbbb7",
+    "name": "Lord of the Machine Cult",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model leads a unit, models in it have the Feel No Pain 5+ ability, or Feel No Pain 4+ instead if that unit has the Electro-Priests keyword."
+  },
+  {
+    "ability_key": "datasheet:mantra-of-discipline",
+    "mechanic_digest": "ce28657b946ddc25fd58b085709e9fee",
+    "name": "Mantra of Discipline",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "This model has the Battleline keyword. While a friendly Adeptus Mechanicus unit is within 6\" of it, that unit's Objective Control is increased by 1 and it adds 1 to Battle-shock and Leadership tests."
+  },
+  {
+    "ability_key": "datasheet:mechanicus-bodyguard",
+    "mechanic_digest": "6897ace4c15d7be96bcf8f5ef239e334",
+    "name": "Mechanicus Bodyguard",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model is within 3\" of one or more other friendly Adeptus Mechanicus units, it has the Lone Operative ability."
+  },
+  {
+    "ability_key": "datasheet:mindlock",
+    "mechanic_digest": "cf49751f1afd65d2b34a45b22c65598e",
+    "name": "Mindlock",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While the specified leader model is with this unit, the Ballistic Skill and Weapon Skill of weapons equipped by its Servitor-type models are improved by 1; which leader and which weapons vary by datasheet."
+  },
+  {
+    "ability_key": "datasheet:monocular-targeting-helms",
+    "mechanic_digest": "17f7bc6383f765678ba898362ab258d4",
+    "name": "Monocular Targeting Helms",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Each attack a model in this unit makes with a neutron fusil against a Monster or Vehicle unit gains the Ignores Cover ability."
+  },
+  {
+    "ability_key": "datasheet:network-override",
+    "mechanic_digest": "f34c5c4fc44137f325d897642bd32697",
+    "name": "Network Override",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this unit contains a Tech-Priest model, it is eligible to perform an Action in a turn in which it Advanced, and eligible to shoot in a turn in which it started an Action."
+  },
+  {
+    "ability_key": "datasheet:neurostatic-interference-aura",
+    "mechanic_digest": "c8f6076bd11673fd144d925441467991",
+    "name": "Neurostatic Interference (Aura)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While an enemy unit is within 6\" of this unit, its Battle-shock and Leadership tests suffer -1, or -2 instead while this unit is within 6\" of a friendly Adeptus Mechanicus Battleline unit."
+  },
+  {
+    "ability_key": "datasheet:objective-scouted",
+    "mechanic_digest": "5207bdc66ef08024e9a1625732583d38",
+    "name": "Objective Scouted",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the end of your Command phase, if this unit is within range of an objective marker you control, you retain control of it, even without models in range, until the opponent controls it at the start or end of a turn."
+  },
+  {
+    "ability_key": "datasheet:omnispex",
+    "mechanic_digest": "241d352cbf0fbcb2dc9746469c0ac621",
+    "name": "Omnispex",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Ranged weapons equipped by models in the bearer's unit have the Ignores Cover ability."
+  },
+  {
+    "ability_key": "datasheet:omnissiahs-blessing",
+    "mechanic_digest": "e854457162ce758643a55239503bfb95",
+    "name": "Omnissiah’s Blessing",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "In your Command phase, select one friendly Adeptus Mechanicus model within 3\" (once per phase): it regains up to D3 wounds, and if a Vehicle it also gains Feel No Pain 5+ until your next Command phase."
+  },
+  {
+    "ability_key": "datasheet:optimised-gait",
+    "mechanic_digest": "a3ae105ddf6612de4f807a7af0d2e1d9",
+    "name": "Optimised Gait",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Add 1 to Advance and Charge rolls made for this unit, or add 2 instead while it is within 6\" of a friendly Adeptus Mechanicus Battleline unit."
+  },
+  {
+    "ability_key": "datasheet:rad-saturation-aura",
+    "mechanic_digest": "bf975a10d508a49a916a391e5e79c310",
+    "name": "Rad-saturation (Aura)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While a non-Vehicle enemy unit is within 3\" of this unit, its models have -1 to their Objective Control characteristic."
+  },
+  {
+    "ability_key": "datasheet:repulsor-grid",
+    "mechanic_digest": "78b2fc378443afe5496a7b506669b8f7",
+    "name": "Repulsor Grid",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Each time a ranged attack is allocated to a Kastelan Robot model in this unit, an unmodified saving throw of 6 deals the attacking unit 1 mortal wound after it finishes attacking."
+  },
+  {
+    "ability_key": "datasheet:ride-the-thermals",
+    "mechanic_digest": "aa98aa2242cf12588a58ac456941b0f5",
+    "name": "Ride the Thermals",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "After this unit shoots, if not within Engagement Range of any enemy unit, it can move up to 6\" (or up to 12\" if it ends wholly within 6\" of a friendly Adeptus Mechanicus Battleline unit), but then cannot charge that turn."
+  },
+  {
+    "ability_key": "datasheet:robotic-bodyguard",
+    "mechanic_digest": "c08e725b660b6970346ca252323cf81a",
+    "name": "Robotic Bodyguard",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While a Cybernetica Datasmith model leads this unit, that model has the Feel No Pain 4+ ability."
+  },
+  {
+    "ability_key": "datasheet:rod-of-the-war-forge",
+    "mechanic_digest": "10ebe82462eb9fc4a180c29b87dd3236",
+    "name": "Rod of the War Forge",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "In your Command phase, select one ability from this model's Icon of War list; this model has that ability until your next Command phase."
+  },
+  {
+    "ability_key": "datasheet:scuttling-walker",
+    "mechanic_digest": "f92564b7d243e4d96934704fff530820",
+    "name": "Scuttling Walker",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When this model makes a Normal, Advance or Fall Back move it can move through models and terrain features; how far that extends varies by datasheet, from friendly Monsters, Vehicles and terrain 4\" or less in height to any non-Titanic model."
+  },
+  {
+    "ability_key": "datasheet:searing-conflagration",
+    "mechanic_digest": "21f96a5299ce77860aad112732a45fe5",
+    "name": "Searing Conflagration",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Phosphor torch attacks against an enemy unit within range of an objective marker can re-roll a Wound roll of 1, or re-roll it entirely while this unit is within 6\" of a friendly Adeptus Mechanicus Battleline unit."
+  },
+  {
+    "ability_key": "datasheet:secutarii",
+    "mechanic_digest": "55fb733e8941bb35b6944e39142529d9",
+    "name": "SECUTARII",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "If a model with the Leader ability could be attached to a Skitarii Vanguard unit, it can be attached to this unit instead."
+  },
+  {
+    "ability_key": "datasheet:secutor-of-olympus",
+    "mechanic_digest": "3cb2988af1dae2cfa46476c62b8e2a75",
+    "name": "Secutor of Olympus",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the start of your Shooting phase, select one enemy Vehicle unit within 12\" of this model and roll a D6: on a 2+ it suffers D3+1 mortal wounds."
+  },
+  {
+    "ability_key": "datasheet:seekers-of-divine-arcana",
+    "mechanic_digest": "3ed4cf5b6d6bc414f4c86842a87299aa",
+    "name": "Seekers of Divine Arcana",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model leads a unit, models in that unit have +1 to their Objective Control characteristic."
+  },
+  {
+    "ability_key": "datasheet:self-repair-mechanisms",
+    "mechanic_digest": "c75360379a68d40a195e3d7b4bf659d3",
+    "name": "Self-repair Mechanisms",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the start of your Command phase, this model regains up to D3 lost wounds."
+  },
+  {
+    "ability_key": "datasheet:sentinel-directives",
+    "mechanic_digest": "c849547929637bbf77b65be81b10de89",
+    "name": "Sentinel Directives",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When this unit is targeted with the Fire Overwatch Stratagem, it scores hits on unmodified Hit rolls of 5+ instead of the normal threshold."
+  },
+  {
+    "ability_key": "datasheet:servitor-bodyguard",
+    "mechanic_digest": "5bb56e9b0b0e540a34c05e5bacde969a",
+    "name": "SERVITOR BODYGUARD",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the start of the Declare Battle Formations step, this model can join another unit led by a Tech-Priest Infantry model; for the rest of the battle it counts as part of that unit, increasing its Starting Strength accordingly."
+  },
+  {
+    "ability_key": "datasheet:servitor-retinue",
+    "mechanic_digest": "296bd2d96e5e9a7f4dfaac90823dbaeb",
+    "name": "SERVITOR RETINUE",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the start of Declare Battle Formations, this unit can join one unit led by a Tech-Priest Enginseer (only one Servitors unit may join); its models then count as part of that Bodyguard unit, increasing its Starting Strength."
+  },
+  {
+    "ability_key": "datasheet:servo-skull-uplink",
+    "mechanic_digest": "2c1fb1c922f8bfeef9eff1ca90dd2d9d",
+    "name": "Servo-skull Uplink",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per battle, at the start of any phase, select one Battle-shocked friendly Skitarii unit within 6\" of this model: it is no longer Battle-shocked."
+  },
+  {
+    "ability_key": "datasheet:shroudpsalm-aura",
+    "mechanic_digest": "0aa0cce902e30f89775badefa56dd041",
+    "name": "Shroudpsalm (Aura)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While a friendly Adeptus Mechanicus unit is within 6\" of this model, that unit has the Stealth ability."
+  },
+  {
+    "ability_key": "datasheet:strafing-run",
+    "mechanic_digest": "afe1b3dda3b805ec741c224945e9f7c1",
+    "name": "Strafing Run",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Usually: this model's ranged attacks against an enemy unit that cannot Fly get +1 to the Hit roll. On one model, a non-Fly unit hit by its shooting must instead take a Battle-shock test."
+  },
+  {
+    "ability_key": "datasheet:sydonian-sentinel",
+    "mechanic_digest": "d5e3e9e9a38740e26b4f73ae5c04b4ae",
+    "name": "SYDONIAN SENTINEL",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "This model cannot be selected as your Warlord."
+  },
+  {
+    "ability_key": "datasheet:tactica-obliqua",
+    "mechanic_digest": "aeb824ca4aea8b603c9f86edc190f8b8",
+    "name": "Tactica Obliqua",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per turn, when an enemy unit ends a Normal, Advance or Fall Back move within 9\" of this unit and it is not in Engagement Range, it can move up to D6\", or 6\" if it ends wholly within 6\" of a friendly Adeptus Mechanicus Battleline unit."
+  },
+  {
+    "ability_key": "datasheet:termite-assault",
+    "mechanic_digest": "d5f1405a535b5728b39f21f99dc2b5c3",
+    "name": "Termite Assault",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "This model must start in Reserves without counting against Reserves limits, and can arrive in the Reinforcements step of your first, second, or third Movement phase; embarked units then disembark more than 9\" from enemy models."
+  },
+  {
+    "ability_key": "datasheet:the-fires-of-mars",
+    "mechanic_digest": "f4c9896d113d5b92c17c0e487c3d1bf2",
+    "name": "The Fires of Mars",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Select one friendly Skitarii or Thulia Ghuld unit within 6\" of this model: until your next Command phase, both the Conqueror Imperative and Protector Imperative are active for that unit."
+  },
+  {
+    "ability_key": "datasheet:titan-guard",
+    "mechanic_digest": "1b54a607c23f4a6daa231c6186a088a3",
+    "name": "Titan Guard",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "This unit can be targeted with the Heroic Intervention Stratagem for 0CP, even if a different unit was already targeted this phase; if a friendly Adeptus Titanicus unit is on the battlefield, the resulting charge roll can be re-rolled."
+  },
+  {
+    "ability_key": "datasheet:vengeance-for-the-omnissiah",
+    "mechanic_digest": "57c7d1d948add29f0e8a1d48a4125d5c",
+    "name": "Vengeance for the Omnissiah",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "If a friendly Adeptus Mechanicus Vehicle model is destroyed within 12\" of this model, its Omnissian axe gains an Attacks characteristic of 6 for the rest of the battle."
+  },
+  {
+    "ability_key": "datasheet:voices-in-the-code",
+    "mechanic_digest": "0fd447d42a7de85cb0bbf3844ac88e6d",
+    "name": "Voices in the Code",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the start of the Fight phase, each enemy unit within Engagement Range of a unit with this ability must take a Battle-shock test."
+  }
+]

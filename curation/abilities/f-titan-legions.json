@@ -1,0 +1,47 @@
+[
+  {
+    "ability_key": "datasheet:flank-speed",
+    "mechanic_digest": "db74c46d16b529d9016f9331c735968e",
+    "name": "Flank Speed",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When this model Advances, skip the Advance roll and instead add 8\" to its Move characteristic until the end of the phase."
+  },
+  {
+    "ability_key": "datasheet:god-machine",
+    "mechanic_digest": "0cc6846536fc87f42c9e4dc4387c4812",
+    "name": "God-machine",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "This model is eligible to shoot and to declare a charge in a turn during which it Fell Back."
+  },
+  {
+    "ability_key": "datasheet:striding-colossus",
+    "mechanic_digest": "1edf5aa201a847e0982c313800c18d50",
+    "name": "Striding Colossus",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Stratagems used against this model cost extra Command Points beyond their stated cost, with the surcharge scaling by this model's titan class."
+  },
+  {
+    "ability_key": "datasheet:titanic-fire-support",
+    "mechanic_digest": "cda4485ce298f38612ab18f9a3737808",
+    "name": "Titanic Fire Support",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "After this model shoots, pick one enemy unit it hit. Until end of phase, friendly Imperium attacks against that unit gain +1 Armour Penetration on a Critical Wound."
+  },
+  {
+    "ability_key": "datasheet:wrath-of-the-omnissiah",
+    "mechanic_digest": "ddfd284ce8d3e5490f6a12e5729455e8",
+    "name": "Wrath of the Omnissiah",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "After this model shoots, pick one enemy unit hit by those attacks; that unit must take a Battle-shock test."
+  }
+]

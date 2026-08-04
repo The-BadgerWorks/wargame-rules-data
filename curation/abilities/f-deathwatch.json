@@ -1,0 +1,128 @@
+[
+  {
+    "ability_key": "datasheet:astartes-shield",
+    "mechanic_digest": "b36164ee977a6aa60f1b415444a27d9f",
+    "name": "Astartes Shield",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Gives the bearer a 4+ invulnerable save."
+  },
+  {
+    "ability_key": "datasheet:auspex-array",
+    "mechanic_digest": "aa15ccfcb62ae057f47ab49f7ff78a5b",
+    "name": "Auspex Array",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Ranged weapons equipped by the bearer gain the Ignores Cover ability."
+  },
+  {
+    "ability_key": "datasheet:blackstar-cluster-launcher",
+    "mechanic_digest": "56c8e1b15fa08fab87beecc8ac62b534",
+    "name": "Blackstar Cluster Launcher",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When this model ends a Normal move, target one enemy unit it moved over and roll six D6: each 5+ deals 1 mortal wound to that unit."
+  },
+  {
+    "ability_key": "datasheet:death-to-the-alien",
+    "mechanic_digest": "53c95bb08b651795e4f53d0c3ed6e805",
+    "name": "Death to the Alien",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When a model in this unit attacks, re-roll a Hit roll of 1, or re-roll any Hit roll if the target lacks the Imperium or Chaos keywords."
+  },
+  {
+    "ability_key": "datasheet:fortis-doctrines",
+    "mechanic_digest": "6524a028dded85921decda580cb458e2",
+    "name": "Fortis Doctrines",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "This unit's attacks gain +1 to the Hit roll against a weakened target; on some datasheets that applies only while the target is Below Half-strength, and on others a Below Half-strength target also gives +1 to the Wound roll."
+  },
+  {
+    "ability_key": "datasheet:indomitor-doctrines",
+    "mechanic_digest": "ff18f06cabb9def2880dccbfdeda77c1",
+    "name": "Indomitor Doctrines",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "This unit's attacks gain a bonus that varies by datasheet: either +2 Strength when shooting the closest eligible target or fighting after a Charge move, or +1 to Hit below Starting Strength and +1 to Wound Below Half-strength."
+  },
+  {
+    "ability_key": "datasheet:infernum-halo-launcher",
+    "mechanic_digest": "0916838b0b5000839c5eba071b64282e",
+    "name": "Infernum Halo-launcher",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "The bearer has the Smoke keyword."
+  },
+  {
+    "ability_key": "datasheet:instigator-bolt-carbine",
+    "mechanic_digest": "3ad91fec4eb95dfe1fa71c80f2ad924b",
+    "name": "Instigator Bolt Carbine",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "After the bearer's unit shoots, it can make a Normal move, but becomes ineligible to declare a charge for the rest of the turn if it does."
+  },
+  {
+    "ability_key": "datasheet:spectrus-doctrines",
+    "mechanic_digest": "a13e60d41fcd74eebdeb1a92604bcc19",
+    "name": "Spectrus Doctrines",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the end of the opponent's turn, if this unit is more than 6\" from all enemy units, you may remove it from the battlefield and place it into Strategic Reserves."
+  },
+  {
+    "ability_key": "datasheet:strategic-knowledge",
+    "mechanic_digest": "439e351dc52dc6c2fbc2995dbf665303",
+    "name": "Strategic Knowledge",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model leads a unit, that unit remains eligible to shoot and to declare a charge in a turn in which it Advanced or Fell Back."
+  },
+  {
+    "ability_key": "datasheet:tactical-instinct",
+    "mechanic_digest": "12e87fe25987f213165113cf413204f4",
+    "name": "Tactical Instinct",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model leads a unit, weapons equipped by models in that unit gain the Lethal Hits ability."
+  },
+  {
+    "ability_key": "datasheet:talonstrike-doctrines",
+    "mechanic_digest": "4ecba7c9d8f88aca96c2a2acdedea790",
+    "name": "Talonstrike Doctrines",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When this unit is set up on the battlefield, until the end of the turn its weapons gain +1 Armour Penetration and its melee weapons gain the Lance ability."
+  },
+  {
+    "ability_key": "datasheet:unstoppable-champion",
+    "mechanic_digest": "9711ca4abec19def3f75830d78c52f50",
+    "name": "Unstoppable Champion",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "The first time this model is destroyed, roll a D6 at the end of the phase; on 2+, return it to the battlefield near where it fell, out of Engagement Range, with 1 wound remaining."
+  },
+  {
+    "ability_key": "datasheet:watch-master",
+    "mechanic_digest": "598238fd129b3bec15344c911996003f",
+    "name": "Watch Master",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per battle round, when a unit with this ability is targeted by a Stratagem, its CP cost is reduced by 1."
+  }
+]

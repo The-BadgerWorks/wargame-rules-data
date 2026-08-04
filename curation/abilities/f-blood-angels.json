@@ -1,0 +1,299 @@
+[
+  {
+    "ability_key": "datasheet:an-honourable-death-in-combat",
+    "mechanic_digest": "a702401f28866bf0eec8950403c461b0",
+    "name": "An Honourable Death in Combat",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Attacks from this unit gain the Sustained Hits 1 ability if the unit is below its Starting Strength, or Sustained Hits 2 if it is Below Half-strength."
+  },
+  {
+    "ability_key": "datasheet:angelic-visage",
+    "mechanic_digest": "2e42ca2a06c6dbd667e6b8998550e0a5",
+    "name": "Angelic Visage",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Each time a melee attack targets this unit, subtract 1 from the Hit roll."
+  },
+  {
+    "ability_key": "datasheet:aura-of-fervour-aura",
+    "mechanic_digest": "5faeca02b5c8e9ffe8a0efbe28ee3652",
+    "name": "Aura of Fervour (Aura)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Friendly Adeptus Astartes units within 6\" can re-roll Battle-shock and Leadership tests."
+  },
+  {
+    "ability_key": "datasheet:black-rage",
+    "mechanic_digest": "5e382acefc1aa8f6475b7746d406592e",
+    "name": "Black Rage",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "This model can re-roll melee Hit rolls; while its unit is not within 6\" of a friendly Blood Angels Character or 12\" of a friendly Chaplain, it cannot Fall Back and its Objective Control characteristic is 0."
+  },
+  {
+    "ability_key": "datasheet:blood-chalice",
+    "mechanic_digest": "753f0dbbfc2677876221c4d3d1e0b640",
+    "name": "Blood Chalice",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While attached to a unit, that unit's melee weapons gain +1 Armour Penetration."
+  },
+  {
+    "ability_key": "datasheet:death-mask-of-sanguinius",
+    "mechanic_digest": "d91a7f1c170c75af24ff88c089d704a8",
+    "name": "Death Mask of Sanguinius",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the start of the Fight phase, every enemy unit within 6\" of this model must take a Battle-shock test with -1 to the result."
+  },
+  {
+    "ability_key": "datasheet:death-vision-of-sanguinius",
+    "mechanic_digest": "c0c2229b076ba4ec9643f91db69d8efc",
+    "name": "Death Vision of Sanguinius",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "If this model is destroyed in melee, after the attacker finishes, roll a D6 (+2 if that unit contains the enemy Warlord): higher results inflict more mortal wounds on it, on a scale that varies by model."
+  },
+  {
+    "ability_key": "datasheet:driven-by-fury",
+    "mechanic_digest": "2b7d075e7cf1e65cc4b956f0f562757c",
+    "name": "Driven by Fury",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "If this model is hit by enemy shooting, once per phase it can move D6+2\" toward the nearest enemy, possibly into Engagement Range, unless Battle-shocked or already engaged."
+  },
+  {
+    "ability_key": "datasheet:executioner",
+    "mechanic_digest": "7e3f460593fe95e9df248594c7bba9bc",
+    "name": "Executioner",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "This model's attacks against a Below Half-strength target get +1 to the Hit roll; on one model, destroying an enemy unit also forces a Battle-shock test on each enemy unit within 3\" of it."
+  },
+  {
+    "ability_key": "datasheet:ferocious-assault",
+    "mechanic_digest": "1764a2b490083f0130d0b94c79b5e07f",
+    "name": "Ferocious Assault",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Ranged attacks from this model that target the closest eligible Monster or Vehicle unit gain +1 to the Hit roll."
+  },
+  {
+    "ability_key": "datasheet:forlorn-hero",
+    "mechanic_digest": "59253d062b63e493d45278a5dc0b4e91",
+    "name": "Forlorn Hero",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Effect varies by model: while leading a unit, either that unit is eligible to declare a charge in a turn in which it Advanced, or its models gain Scouts 6\" unless it starts the battle embarked within a Transport."
+  },
+  {
+    "ability_key": "datasheet:fury-of-the-first",
+    "mechanic_digest": "77204a4c98fb9edabed325d9b8b3250c",
+    "name": "Fury of the First",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Attacks from this unit ignore modifiers to their Hit roll or relevant skill characteristic, and gain +1 to Hit against this turn's Oath of Moment target."
+  },
+  {
+    "ability_key": "datasheet:fury-unbound",
+    "mechanic_digest": "041e88b2867346f76368e1f89f414326",
+    "name": "Fury Unbound",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While attached to a unit, melee weapons of models in that unit gain the Lethal Hits ability."
+  },
+  {
+    "ability_key": "datasheet:guardian-of-the-lost",
+    "mechanic_digest": "d4c7587ad0db686d4d5fefeea5f0a275",
+    "name": "Guardian of the Lost",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While attached to a unit, attacks allocated to models in that unit have their Damage reduced by 1."
+  },
+  {
+    "ability_key": "datasheet:heirs-of-azkaellon",
+    "mechanic_digest": "f9e57e345394953952c07f3e05163df3",
+    "name": "Heirs of Azkaellon",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While led by a Character, melee attacks that target this unit suffer -1 to the Wound roll."
+  },
+  {
+    "ability_key": "datasheet:lost-to-fury",
+    "mechanic_digest": "85e222883fb256f6a261648c47247a31",
+    "name": "Lost to Fury",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While attached to a unit, melee weapons of models in that unit gain the Sustained Hits 1 ability."
+  },
+  {
+    "ability_key": "datasheet:mass-of-doom",
+    "mechanic_digest": "efb80b815a0616e15a035fa1f1350d9b",
+    "name": "Mass of Doom",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "After this unit makes a Charge move, its melee weapons gain the Devastating Wounds ability until the end of the turn."
+  },
+  {
+    "ability_key": "datasheet:mental-fortress-psychic",
+    "mechanic_digest": "91956115a4ae9c954ac60b6f4d4af5c5",
+    "name": "Mental Fortress (Psychic)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While attached to a unit, models in that unit gain a 4+ invulnerable save."
+  },
+  {
+    "ability_key": "datasheet:miraculous-saviour",
+    "mechanic_digest": "6b64c248e7f99228679e6436a12103f8",
+    "name": "Miraculous Saviour",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per battle, at the end of your opponent's Charge phase, if this model is still in Reserves, it can be set up within Engagement Range of an enemy unit that charged this phase."
+  },
+  {
+    "ability_key": "datasheet:overcharged-engines",
+    "mechanic_digest": "64df10b3757942f641f05d74f194d422",
+    "name": "Overcharged Engines",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Advance rolls made for this model can be re-rolled."
+  },
+  {
+    "ability_key": "datasheet:psychic-hood",
+    "mechanic_digest": "791248b1d94f2cb29ac7636afb33f1cb",
+    "name": "Psychic Hood",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While attached to a unit, models in that unit gain the Feel No Pain 4+ ability against Psychic Attacks."
+  },
+  {
+    "ability_key": "datasheet:redeemer-of-the-lost",
+    "mechanic_digest": "fb8f1f100ef333a1430bb6a64eb4d2b3",
+    "name": "Redeemer of the Lost",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While attached to a unit, if a model in that unit that has not yet fought is destroyed in melee, a 4+ roll lets it still fight before being removed from play."
+  },
+  {
+    "ability_key": "datasheet:rotating-death",
+    "mechanic_digest": "44c9bdd1dd60d858791f95a556efef79",
+    "name": "Rotating Death",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "This model's named rotary weapon gains Sustained Hits 1, or Sustained Hits 2 depending on the model, when targeting Infantry units."
+  },
+  {
+    "ability_key": "datasheet:sanguinary-banner",
+    "mechanic_digest": "d5e1efbaa70e0a8ba8029f7d609080c4",
+    "name": "Sanguinary Banner",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Models in the bearer's unit gain +1 Objective Control."
+  },
+  {
+    "ability_key": "datasheet:sanguinary-priest",
+    "mechanic_digest": "c41914e4186d3d3d14e7f6f2fc5d6380",
+    "name": "Sanguinary Priest",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While attached to a unit, models in that unit gain the Feel No Pain 5+ ability."
+  },
+  {
+    "ability_key": "datasheet:savage-fury",
+    "mechanic_digest": "b83a3f0de653ae0b483e4e9a67bd110a",
+    "name": "Savage Fury",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Charge rolls made for this unit can be re-rolled."
+  },
+  {
+    "ability_key": "datasheet:shrouding-psychic",
+    "mechanic_digest": "0fcc54c6a9cbb8f16f6bdf5bb83b8a80",
+    "name": "Shrouding (Psychic)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While attached to a unit, models in that unit gain the Stealth ability, and the unit can only be targeted by ranged attacks from within 12\"."
+  },
+  {
+    "ability_key": "datasheet:sternguard-focus",
+    "mechanic_digest": "2b098b809426aaf22d4502aae09fcc22",
+    "name": "Sternguard Focus",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Attacks from this unit that target this turn's Oath of Moment target can re-roll the Wound roll."
+  },
+  {
+    "ability_key": "datasheet:the-quickening-psychic",
+    "mechanic_digest": "1e2fc6bc6328c6b9209e47a36795f670",
+    "name": "The Quickening (Psychic)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "This model is eligible to declare a charge in a turn in which it Advanced."
+  },
+  {
+    "ability_key": "datasheet:transfixing-gaze-aura-psychic",
+    "mechanic_digest": "48d18ee98b297f755cb97c90bc2541d3",
+    "name": "Transfixing Gaze (Aura, Psychic)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "An enemy unit within 6\" that is selected to Fall Back must pass a Leadership test or Remain Stationary that phase instead."
+  },
+  {
+    "ability_key": "datasheet:veil-of-time-psychic",
+    "mechanic_digest": "df259011937ffca1a0f64a89f66133cd",
+    "name": "Veil of Time (Psychic)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While attached to a unit, weapons of models in that unit gain the Sustained Hits 1 ability."
+  },
+  {
+    "ability_key": "datasheet:visions-of-heresy",
+    "mechanic_digest": "77ab78797eab193579ce3ecb4b62b21f",
+    "name": "Visions of Heresy",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per turn, this unit can be targeted with the Fire Overwatch or Heroic Intervention Stratagem for 0CP, with its ranged Hit rolls or Charge roll re-rollable while resolving it."
+  },
+  {
+    "ability_key": "datasheet:warden-of-the-imperium-nihilus",
+    "mechanic_digest": "d70516a82db3334e94cd11d8b0664594",
+    "name": "Warden of the Imperium Nihilus",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While attached to a unit, that unit gains +1 to Advance and Charge rolls, and models in it gain +1 to their Hit rolls."
+  }
+]

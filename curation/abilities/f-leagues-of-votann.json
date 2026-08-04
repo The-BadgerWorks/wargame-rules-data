@@ -1,0 +1,389 @@
+[
+  {
+    "ability_key": "datasheet:ancestral-fortune",
+    "mechanic_digest": "b35b6d6cd6bd277cc2b6b6cb77f566b3",
+    "name": "Ancestral Fortune",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per turn, pay 1 Votann Point to set one Hit roll, Wound roll, or saving throw made for this model to an automatic unmodified 6."
+  },
+  {
+    "ability_key": "datasheet:breaching-fire",
+    "mechanic_digest": "c2e823eae990948cc57e632be5c92fe3",
+    "name": "Breaching Fire",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "After this unit shoots, pick one enemy unit it hit; until the start of your next Shooting phase that unit has no Benefit of Cover."
+  },
+  {
+    "ability_key": "datasheet:break-the-foe",
+    "mechanic_digest": "5445533d2fed1bd1bd852f06b765d2d4",
+    "name": "Break the Foe",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Melee weapons carried by models in this model's unit gain Sustained Hits 1."
+  },
+  {
+    "ability_key": "datasheet:brokhyr-guild-support",
+    "mechanic_digest": "6d69f76fd6ae852eaff18aa6340bb070",
+    "name": "Brôkhyr Guild Support",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While within 3\" of a friendly Votann Vehicle or Ironkin Steeljacks unit, this unit (if not an Attached unit) has the Lone Operative ability."
+  },
+  {
+    "ability_key": "datasheet:computational-mastermind",
+    "mechanic_digest": "599a347b0ff862ba5d435fc22ebda7d4",
+    "name": "Computational Mastermind",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the end of your Command phase, before checking Hostile Acquisition or Fortify Takeover, gain or spend 1 Votann Point per controlled objective marker within range of a model with this ability."
+  },
+  {
+    "ability_key": "datasheet:cyberstimms",
+    "mechanic_digest": "13e9968842c5b2344d44366f5a9e199a",
+    "name": "Cyberstimms",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When a model in this unit that has not fought is destroyed by a melee attack, roll a D6 (+1 with Fortify Takeover): on a 4+ it fights after the attacker, then is removed from play."
+  },
+  {
+    "ability_key": "datasheet:decisive-destruction",
+    "mechanic_digest": "d24ec4c72d85a87fea6fdafb89cb1b57",
+    "name": "Decisive Destruction",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Ranged attacks this unit makes against its closest eligible target re-roll Hit rolls of 1."
+  },
+  {
+    "ability_key": "datasheet:destabilising-quakes",
+    "mechanic_digest": "316342aa05618ea002616632d4e83009",
+    "name": "Destabilising Quakes",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "After this unit shoots, pick one enemy unit hit by its tremor shell attacks; that unit must take a Battle-shock test with -1 to the result."
+  },
+  {
+    "ability_key": "datasheet:exemplar-of-the-einhyr",
+    "mechanic_digest": "a7a2923ce5e24cb8e6f338e6d7a1e848",
+    "name": "Exemplar of the Einhyr",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While leading a unit, add 1 to Advance and Charge rolls made for that unit."
+  },
+  {
+    "ability_key": "datasheet:forgewrought-expertise",
+    "mechanic_digest": "b1ea359146ba6c05c40582ed2d638b2e",
+    "name": "Forgewrought Expertise",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the end of your Movement phase, repair one friendly Votann Vehicle, Exoframe, or Ironkin Steeljacks unit within 3\": it regains D3 lost wounds (3 with an Ironkin Assistant model present). Once per unit per turn."
+  },
+  {
+    "ability_key": "datasheet:fortify-psychic",
+    "mechanic_digest": "f301061cd6adbf3e97eb7e274acbd66a",
+    "name": "Fortify (Psychic)",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While this model leads a unit, that unit has the Feel No Pain 5+ ability."
+  },
+  {
+    "ability_key": "datasheet:geomantic-hunters",
+    "mechanic_digest": "e3d6f8cd442bc3b674d03428e163ca0f",
+    "name": "Geomantic Hunters",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Up to twice per battle, when selected to shoot, re-roll Wound rolls for this unit's breacher ordnance attacks for the rest of the phase."
+  },
+  {
+    "ability_key": "datasheet:grim-efficiency",
+    "mechanic_digest": "e7ddb6643500b91cd8b8f7d5deb76ceb",
+    "name": "Grim Efficiency",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per battle round, when a friendly Votann unit within 12\" of this model is targeted by a Stratagem, reduce that Stratagem's cost by 1CP."
+  },
+  {
+    "ability_key": "datasheet:grimnyrs-regard",
+    "mechanic_digest": "6433e21338cbc81e050a0d93ae7bf662",
+    "name": "Grimnyr’s Regard",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per battle, at the start of any phase, remove Battle-shock from one friendly Votann unit within 12\" of this unit's Grimnyr model."
+  },
+  {
+    "ability_key": "datasheet:grudge-fuelled-fortitude",
+    "mechanic_digest": "e6e83d2836cd178d1b979012c5dbeb73",
+    "name": "Grudge-fuelled Fortitude",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "The first time this model is destroyed, at the end of that phase roll a D6: on a 2+ it returns to the battlefield near where it fell, outside enemy Engagement Range, with full wounds restored."
+  },
+  {
+    "ability_key": "datasheet:kindred-hero",
+    "mechanic_digest": "12e87fe25987f213165113cf413204f4",
+    "name": "Kindred Hero",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While leading a unit, weapons carried by models in that unit gain the Lethal Hits ability."
+  },
+  {
+    "ability_key": "datasheet:luck-has-need-keeps-toil-earns",
+    "mechanic_digest": "51997bb0933fb4649a09163175a6a833",
+    "name": "Luck Has. Need Keeps. Toil Earns",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the end of your Command phase, if this unit is within range of an objective marker you control, you retain control of it until the enemy's control level there exceeds yours at the end of a phase."
+  },
+  {
+    "ability_key": "datasheet:mass-driver-accelerators",
+    "mechanic_digest": "fcc15595f072957ca6320a37f53d8396",
+    "name": "Mass Driver Accelerators",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "After this model ends a Charge move, roll a D6 against one enemy unit within Engagement Range: 2-5 inflicts D3 mortal wounds, 6 inflicts D3+3 mortal wounds."
+  },
+  {
+    "ability_key": "datasheet:merciless-eradication",
+    "mechanic_digest": "aef3569b5dcfbb7838696ff2956202c3",
+    "name": "Merciless Eradication",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When an enemy unit within this unit's Engagement Range Falls Back, it must take a Desperate Escape test (Monsters and Vehicles excluded), at -1 if that unit is Battle-shocked."
+  },
+  {
+    "ability_key": "datasheet:multicog-targeting",
+    "mechanic_digest": "56cb342b7233ff13d13d8fa86b44e865",
+    "name": "MultiCOG Targeting",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "This model's ranged attacks may ignore any or all modifiers to its Ballistic Skill characteristic and to the Hit roll."
+  },
+  {
+    "ability_key": "datasheet:multispectral-visor",
+    "mechanic_digest": "70e159b52fd29c8e9d4a05bf00694a43",
+    "name": "Multispectral Visor",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Ranged attacks made by models in this unit re-roll Wound rolls of 1."
+  },
+  {
+    "ability_key": "datasheet:multiwave-comms-array",
+    "mechanic_digest": "d2a0f81c120d4ffe6e4ac56bc96be438",
+    "name": "Multiwave Comms Array",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Each time the bearer's unit is targeted by a Stratagem, roll a D6: on a 5+ you gain 1 Command Point."
+  },
+  {
+    "ability_key": "datasheet:opportunistic-manoeuvre",
+    "mechanic_digest": "11fd403907965e61ae8f6a0a17ef1b90",
+    "name": "Opportunistic Manoeuvre",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "After this unit shoots, it can make a Normal move of up to D6\"; if it does, it cannot be declared as a charging unit for the rest of the turn."
+  },
+  {
+    "ability_key": "datasheet:outflanking-mag-riders",
+    "mechanic_digest": "db33194da59288d19cf02b4fefad3e57",
+    "name": "Outflanking Mag-riders",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "At the end of the opponent's turn, if wholly within 9\" of a battlefield edge and outside enemy Engagement Range, remove this unit and place it into Strategic Reserves."
+  },
+  {
+    "ability_key": "datasheet:overcharge",
+    "mechanic_digest": "cb9e26c05daf25966bb8f050d1f16244",
+    "name": "Overcharge",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Subtract 2 from the result of any Hazardous test the bearer takes for this weapon profile."
+  },
+  {
+    "ability_key": "datasheet:panspectral-scanner",
+    "mechanic_digest": "aa56767437277999804117c06455b1f5",
+    "name": "Panspectral Scanner",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Ranged attacks made by models in the bearer's unit re-roll Hit rolls of 1."
+  },
+  {
+    "ability_key": "datasheet:panspectral-scanning",
+    "mechanic_digest": "628bb2cc31ff960ecce078f57ad2beb7",
+    "name": "Panspectral Scanning",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Ranged attacks made by models in this unit re-roll Hit rolls of 1."
+  },
+  {
+    "ability_key": "datasheet:pragmatic-hunters",
+    "mechanic_digest": "d4808bf5a94ef83ef9ee93b82f836a07",
+    "name": "Pragmatic Hunters",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per turn, when an enemy unit ends a Normal, Advance, or Fall Back move within 9\" of this unit, this unit can make a Normal move of up to D6\"."
+  },
+  {
+    "ability_key": "datasheet:predictive-guidance",
+    "mechanic_digest": "994019a0f9e68503f6fb1b4b67e7bbb1",
+    "name": "Predictive Guidance",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per battle round, this model can target its unit with the Fire Overwatch or Heroic Intervention Stratagem for 0CP."
+  },
+  {
+    "ability_key": "datasheet:preymark-crest",
+    "mechanic_digest": "d0d247844c9e0a8f9c7724cd03385743",
+    "name": "Preymark Crest",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Attacks by models in the bearer's unit against an enemy unit within range of an objective marker gain the Precision ability on a Critical Wound."
+  },
+  {
+    "ability_key": "datasheet:purge-response",
+    "mechanic_digest": "7c227287616e88a17ec261bc60faf53f",
+    "name": "Purge Response",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "When this unit is targeted by the Fire Overwatch Stratagem, it scores hits on unmodified Hit rolls of 5+ (4+ if your army has Fortify Takeover)."
+  },
+  {
+    "ability_key": "datasheet:rampart-crest",
+    "mechanic_digest": "f6cb71ec484432168e65a2ae614b2119",
+    "name": "Rampart Crest",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While the bearer leads a unit, that unit has a 5+ invulnerable save."
+  },
+  {
+    "ability_key": "datasheet:relentless-avalanche",
+    "mechanic_digest": "926519da623043e128448bed78de61f3",
+    "name": "Relentless Avalanche",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "This model's unit can be targeted with the Heroic Intervention Stratagem for 0CP, even if a different unit was already targeted with it this phase."
+  },
+  {
+    "ability_key": "datasheet:resource-transmutation",
+    "mechanic_digest": "a6b8db1c6ec7132e30e3e0516df6e39a",
+    "name": "Resource Transmutation",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per turn when selected to shoot, spend 1 Votann Point: this model's ranged weapons gain Sustained Hits 1 for the phase, and if an enemy unit is destroyed by those attacks you may gain up to 2 Votann Points."
+  },
+  {
+    "ability_key": "datasheet:rollbar-searchlight",
+    "mechanic_digest": "bbd25638868a231493f40c56acdc4314",
+    "name": "Rollbar Searchlight",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Ranged attacks made by models in the bearer's unit may ignore any or all modifiers to the Hit roll."
+  },
+  {
+    "ability_key": "datasheet:scanner-uplinks",
+    "mechanic_digest": "03751c67164667dcae6d71631212ca10",
+    "name": "Scanner Uplinks",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "After this model shoots, pick one hit enemy unit (Monsters and Vehicles excluded); until your next turn its attacks suffer -1 to the Hit roll."
+  },
+  {
+    "ability_key": "datasheet:science-guild-support",
+    "mechanic_digest": "a8cdf9805b834a0ef93a204f3f9f10e8",
+    "name": "Science Guild Support",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "While within 3\" of another friendly Votann Infantry unit that lacks the Lone Operative ability, this model has the Lone Operative ability."
+  },
+  {
+    "ability_key": "datasheet:seized-opportunity",
+    "mechanic_digest": "2e1eed8d39fab9799b14da1a9fdc2530",
+    "name": "Seized Opportunity",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Once per phase, when this model's unit destroys an enemy unit, gain 1 Votann Point."
+  },
+  {
+    "ability_key": "datasheet:smoke-launcher",
+    "mechanic_digest": "0916838b0b5000839c5eba071b64282e",
+    "name": "Smoke Launcher",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "The bearer gains the Smoke keyword."
+  },
+  {
+    "ability_key": "datasheet:subterranean-explosives",
+    "mechanic_digest": "9a87008299727de187986c97ce63f1d1",
+    "name": "Subterranean Explosives",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "After this unit shoots, pick one enemy unit (Monsters and Vehicles excluded) hit by its mole grenade launcher attacks; until your next Shooting phase it cannot be targeted with the Fire Overwatch Stratagem."
+  },
+  {
+    "ability_key": "datasheet:teleport-crest",
+    "mechanic_digest": "9849223fd601bb58f9b370d81fc2e762",
+    "name": "Teleport Crest",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Models in the bearer's unit have the Deep Strike ability, on some datasheets only while the bearer is leading that unit."
+  },
+  {
+    "ability_key": "datasheet:unhinged-vengeance",
+    "mechanic_digest": "c12d9be591b6d50d542191da302dc26b",
+    "name": "Unhinged Vengeance",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "In the opponent's Shooting phase, if this model loses wounds, it may move D6+2\" toward the nearest non-Aircraft enemy, possibly into Engagement Range; not while Battle-shocked, engaged, or more than once per phase."
+  },
+  {
+    "ability_key": "datasheet:weavefield-crest",
+    "mechanic_digest": "b36164ee977a6aa60f1b415444a27d9f",
+    "name": "Weavefield Crest",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-04T00:00:00Z",
+    "reviewed_by": "claude-reviewer-opus",
+    "summary": "Grants an invulnerable save: 4+ for the bearer alone, or 5+ for every model in the bearer's unit, depending on which model carries it."
+  }
+]
