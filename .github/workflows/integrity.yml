@@ -1,4 +1,4 @@
-# AI-Assisted: Claude Code (model: claude-sonnet-5) - Authored the daily integrity workflow
+﻿# AI-Assisted: Claude Code (model: claude-sonnet-5) - Authored the daily integrity workflow
 # (task T144): schedule running `rules-pipeline verify`, appending to the ledger and raising the
 # same alert channel as the stale detector, turning "we promise not to edit a release asset"
 # into a monitored control (research D3, SC-007, SC-009).
@@ -18,7 +18,7 @@ concurrency:
   cancel-in-progress: false
 
 # `contents: write` for the ledger commit only -- `verify` never touches Releases or Pages, so
-# this workflow carries neither `pages: write` nor `id-token: write` (contract §3's
+# this workflow carries neither `pages: write` nor `id-token: write` (contract Â§3's
 # capability-not-policy separation, same discipline as `candidate.yml`).
 permissions:
   contents: write
@@ -28,6 +28,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          # This job commits state updates to protected main; same push-auth rationale as
+          # publish.yml -- maintainer PAT, falling back to the default token when unset.
+          token: ${{ secrets.WGC_PUBLISH_PUSH_TOKEN || github.token }}
 
       - uses: actions/setup-python@v5
         with:
@@ -38,7 +42,7 @@ jobs:
 
       # `rules-pipeline verify` (task T143) re-fetches every `fileUrl` in
       # `state/published-checksums.json` from its public URL and re-hashes it. Exit codes are
-      # read from the stable set (`pipeline-run-interface.md` §2): 0 every checksum still
+      # read from the stable set (`pipeline-run-interface.md` Â§2): 0 every checksum still
       # matches, 50 a checksum moved (tamper or corruption), 40 an asset could not be fetched at
       # all. `set +e` for the same reason `detect.yml` uses it -- a non-zero exit here is
       # expected data the steps below act on, not a step failure.
@@ -51,7 +55,7 @@ jobs:
           echo "exit_code=$code" >> "$GITHUB_OUTPUT"
           exit 0
 
-      # `verify`'s only write is one line appended to `state/run-ledger.jsonl` (contract §6),
+      # `verify`'s only write is one line appended to `state/run-ledger.jsonl` (contract Â§6),
       # whatever the outcome -- a clean sweep and a broken one are both recorded, exactly as
       # `detect.yml` records a no-change check, so a quiet integrity history is distinguishable
       # from an integrity check that stopped running.

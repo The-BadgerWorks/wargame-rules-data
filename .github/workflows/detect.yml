@@ -1,4 +1,4 @@
-# AI-Assisted: Claude Code (model: claude-sonnet-5) - Authored the scheduled detection workflow
+﻿# AI-Assisted: Claude Code (model: claude-sonnet-5) - Authored the scheduled detection workflow
 # (task T108): schedule at 09:00/21:00 UTC plus workflow_dispatch, writing only
 # state/detection-digest.json and the ledger, invoking candidate.yml on exit 10, notifying on a
 # raised candidate, and alerting on a detector fault or the staleness alarm (FR-051, FR-052,
@@ -13,7 +13,7 @@ on:
   schedule:
     # research D4c: two checks a day survive one transient failure without breaching SC-004's
     # 24h detection target. The cadence is documented here and in
-    # `contracts/pipeline-run-interface.md` §5 (`WGC_DETECT_CRON`); changing one without the
+    # `contracts/pipeline-run-interface.md` Â§5 (`WGC_DETECT_CRON`); changing one without the
     # other is a drift this comment exists to prevent.
     - cron: "0 9,21 * * *"
   workflow_dispatch: {}
@@ -36,6 +36,10 @@ jobs:
       rules_version_id: ${{ steps.version.outputs.rules_version_id }}
     steps:
       - uses: actions/checkout@v4
+        with:
+          # This job commits state updates to protected main; same push-auth rationale as
+          # publish.yml -- maintainer PAT, falling back to the default token when unset.
+          token: ${{ secrets.WGC_PUBLISH_PUSH_TOKEN || github.token }}
 
       - uses: actions/setup-python@v5
         with:
@@ -46,7 +50,7 @@ jobs:
 
       # `rules-pipeline detect` sweeps the points source, digests it, and compares against
       # `state/detection-digest.json`. Its exit code IS the contract (`pipeline-run-interface.md`
-      # §2): 0 no change, 10 a mechanical change, 40 unreachable, 41 restructured. `set +e`
+      # Â§2): 0 no change, 10 a mechanical change, 40 unreachable, 41 restructured. `set +e`
       # because a non-zero exit here is expected data, not a step failure -- the job decides what
       # each code means in the steps below, not the runner. Output is captured so the staleness
       # alarm (FR-055), which `rules-pipeline detect` prints on stderr on every run whether or
@@ -76,7 +80,7 @@ jobs:
 
       # `detect`'s only writes are `state/detection-digest.json` (only on a successful sweep,
       # exit 0 or 10) and one line appended to `state/run-ledger.jsonl` (every sweep, including a
-      # failed one) -- never `data/`, never `curation/`, never a report (contract §3).
+      # failed one) -- never `data/`, never `curation/`, never a report (contract Â§3).
       - name: Commit the detection state and ledger
         run: |
           set -euo pipefail
