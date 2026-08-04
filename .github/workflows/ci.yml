@@ -4,6 +4,8 @@
 # binary, and it writes nothing back to the repository
 # (contracts/pipeline-run-interface.md §3). The change-class guard (task T014) runs as a
 # second job, pull_request only, since it needs a base/head ref pair to diff.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - Added the self-approval guard step (task
+# T131) to the same job, since it needs the identical base/head/actor inputs.
 name: CI
 
 on:
@@ -67,3 +69,11 @@ jobs:
           PR_ACTOR: ${{ github.event.pull_request.user.login }}
         run: |
           python tools/check_change_classes.py diff --base "$BASE_SHA" --head "$HEAD_SHA" --actor "$PR_ACTOR"
+
+      - name: Refuse a self-approved ability summary
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          PR_ACTOR: ${{ github.event.pull_request.user.login }}
+        run: |
+          python tools/check_summary_approvals.py diff --base "$BASE_SHA" --head "$HEAD_SHA" --actor "$PR_ACTOR"
