@@ -54,9 +54,9 @@ defeat the purpose of the requirement rather than satisfy it, so no row is fille
 
 | Reviewer | Faction | Date | Entries reviewed | Checklist outcome | Evidence |
 |---|---|---|---|---|---|
-| _pending_ | `f-emberwrights` (fixture) | -- | 6 (`fixtures/sample/curation/abilities/f-emberwrights.json`) | not yet reviewed | -- |
-| _pending_ | `f-glasswold-covenant` (fixture) | -- | 1 (`fixtures/sample/curation/abilities/f-glasswold-covenant.json`) | not yet reviewed | -- |
-| _pending_ | `f-ashen-vigil` (fixture) | -- | 6 (`fixtures/minimal/curation/abilities/f-ashen-vigil.json`) | not yet reviewed | -- |
+| adhoxx | `f-emberwrights` (fixture) | 2026-08-04 | 6 (`fixtures/sample/curation/abilities/f-emberwrights.json`) | pass — all 4 criteria on all 6 entries; the 3 deliberately non-approved entries (`in_review`, `needs_rereview`, `draft`) retained as-is for state-machine tests | this commit (review conducted over the full entry text) |
+| adhoxx | `f-glasswold-covenant` (fixture) | 2026-08-04 | 1 (`fixtures/sample/curation/abilities/f-glasswold-covenant.json`) | pass — all 4 criteria | this commit |
+| adhoxx | `f-ashen-vigil` (fixture) | 2026-08-04 | 6 (`fixtures/minimal/curation/abilities/f-ashen-vigil.json`) | pass — all 4 criteria on all 6 entries | this commit |
 
 No real faction row exists yet because no real rules version has been curated. The first real
 faction reviewed under this process should be the first row added once a genuine acquisition
