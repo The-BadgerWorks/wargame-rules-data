@@ -3,6 +3,9 @@
 # pushing candidate/<rulesVersionId>, and opening or updating a PR carrying the curated diff and
 # every report -- with no permission that can reach Releases or Pages, so FR-052 is enforced by
 # capability rather than by policy, plus the supersession concurrency group (FR-057).
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - Wired the candidate reviewer view (task
+# T119): the PR body now assembles the verdict, the scale table, and every sub-report in the
+# approver's reading order via tools/render_pr_body.py, rather than a one-line pointer (FR-037).
 name: candidate
 
 # Two ways in: a curator dispatching it directly (FR-056's manual path, independent of detection
@@ -75,21 +78,29 @@ jobs:
           fi
           git push --force origin "candidate/$RULES_VERSION_ID"
 
-      # Opens the PR the first time a candidate is pushed for this version id, or leaves the
-      # existing one for `git push --force` above to update -- either way this is the reviewer
-      # view FR-037 asks for: the curated diff plus every report under
-      # reports/<rulesVersionId>/, assembled from artifacts a reviewer already knows how to read.
-      - name: Open the candidate pull request if none exists yet
+      # The reviewer view FR-037 asks for: verdict, scale, and every sub-report in the
+      # approver's reading order, plus a pointer to the changed-file list (task T119).
+      - name: Render the PR body
+        run: >-
+          python -m tools.render_pr_body
+          "reports/$RULES_VERSION_ID/report.json"
+          > /tmp/candidate-pr-body.md
+
+      # Opens the PR the first time a candidate is pushed for this version id, or updates the
+      # existing one's body so a re-run's PR reflects the latest report -- either way the diff
+      # itself (data/, reports/<rulesVersionId>/) is what `git push --force` above already put
+      # on the branch; this step only has to point the reviewer at it in the right order.
+      - name: Open or update the candidate pull request
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           set -euo pipefail
           if gh pr view "candidate/$RULES_VERSION_ID" --json number >/dev/null 2>&1; then
-            echo "candidate PR for $RULES_VERSION_ID already exists"
+            gh pr edit "candidate/$RULES_VERSION_ID" --body-file /tmp/candidate-pr-body.md
           else
             gh pr create \
               --title "Candidate $RULES_VERSION_ID" \
               --base main \
               --head "candidate/$RULES_VERSION_ID" \
-              --body "Automated candidate. Never auto-published -- see \`reports/$RULES_VERSION_ID/\` for the validation and reconciliation reports, and \`.github/workflows/publish.yml\` for the approval gate."
+              --body-file /tmp/candidate-pr-body.md
           fi

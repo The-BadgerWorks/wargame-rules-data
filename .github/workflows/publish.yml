@@ -2,6 +2,15 @@
 # (task T072): workflow_dispatch ONLY, never schedule and never push, running against a GitHub
 # Environment with required reviewers, with GITHUB_TOKEN permissions limited to what publication
 # needs and no long-lived PAT anywhere (FR-038, FR-046, research D7).
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - Consolidated the checksum assertion and
+# the re-validation into `rules-pipeline publish` itself (task T116, pipeline/publish/gate.py),
+# replacing the inline bash `exit 51` and the separate `validate` step with the one CLI command
+# a curator can also run locally against the same checked-out commit (contract §1's "no CI-only
+# code path"). This job's own name ("publish") is part of the gate's own refusal to run anywhere
+# else (task T118's `in_approved_ci_context`). Also completed the Pages half `docs/repo-
+# settings.md` flagged as deferred: the actual `actions/deploy-pages` steps, since
+# `pipeline.publish.pages.deploy_pages` only ever wrote a local marker file and nothing had
+# called the Pages deployment action since the environment was created (task T117).
 name: publish
 
 # `workflow_dispatch` and nothing else. This is the only code path in the repository that can
@@ -80,29 +89,23 @@ jobs:
       - name: Install the pipeline
         run: python -m pip install --disable-pip-version-check -e .
 
+      # Produces the artifact `rules-pipeline publish` locates and checks below (contract §4
+      # step 2). This is the only network-touching step other than `publish` itself -- both run
+      # the real acquire -> ... -> build chain against the checked-out commit, exactly as a
+      # curator reproducing this on a laptop would (contract §1's "no CI-only code path").
       - name: Rebuild the snapshot from the approved commit
         run: >-
           rules-pipeline build
           --channel "${{ inputs.channel }}"
           --rules-version-id "${{ inputs.rules_version_id }}"
 
-      # One assertion delivers FR-039 (an approval does not authorise rebuilt content) and
-      # FR-033/SC-006 (determinism). A mismatch exits 51 and nothing consumer-visible is touched.
-      - name: Assert the rebuild reproduces the approved bundle
-        run: |
-          set -euo pipefail
-          built="$(sha256sum "rules-${{ inputs.rules_version_id }}.json" | cut -d' ' -f1)"
-          if [ "$built" != "${{ inputs.expect_sha256 }}" ]; then
-            echo "::error::rebuilt bundle ${built} is not the approved ${{ inputs.expect_sha256 }}"
-            exit 51
-          fi
-
-      - name: Re-run validation
-        run: rules-pipeline validate --channel "${{ inputs.channel }}"
-
-      # Steps below are the publication sequence itself: create the release, upload the asset,
-      # re-download and verify it, and only then regenerate the manifest and deploy. In that
-      # order the manifest never names an artifact that is not already retrievable (FR-045).
+      # `pipeline.publish.gate.run_publish` (task T116) owns everything from here: it refuses
+      # outside this exact job (this workflow's own `name: publish`), refuses a duplicate
+      # rulesVersionId before touching anything (FR-041), asserts the rebuild above reproduces
+      # `expect_sha256` or exits 51 (FR-039), re-validates and refuses on any blocking finding
+      # (exit 30), and only then creates the Release, uploads the asset, re-downloads and
+      # verifies it, and regenerates the manifest (FR-045) -- one command instead of four
+      # workflow steps, so the same command is what a curator runs locally with `--dry-run`.
       - name: Publish
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -111,6 +114,21 @@ jobs:
           --channel "${{ inputs.channel }}"
           --commit-sha "${{ inputs.commit_sha }}"
           --expect-sha256 "${{ inputs.expect_sha256 }}"
+
+      # The manifest `rules-pipeline publish` just regenerated is on disk in `site/` at this
+      # point, whether or not it has been committed to `main` yet -- Pages serves what this
+      # workflow uploads as an artifact, per `docs/repo-settings.md`'s "GitHub Actions" Pages
+      # source (`build_type: workflow`), not what is on the default branch. Deploying here,
+      # after the checksum and validation gates and before the git commit below, means Pages
+      # only ever serves a manifest this job already verified.
+      - name: Upload the Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+      - name: Deploy to GitHub Pages
+        id: pages_deployment
+        uses: actions/deploy-pages@v4
 
       - name: Empty the workspace
         if: always()
