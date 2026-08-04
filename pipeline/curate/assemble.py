@@ -1,6 +1,9 @@
 # AI-Assisted: Claude Code (model: claude-opus-5) - Assemble the CuratedSnapshot from the two
 # normalized sources plus the authored tree (needed by the T073 build wiring, which names the
 # curate stage but assigns it no assembly module of its own).
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - Built the datasheet_id -> source_id mapping
+# `match_units` needs for its publication-id disambiguation step, alongside the existing
+# `legends_sources` read of the same column, and passed it through as `detail_source_ids`.
 """Build one :class:`~pipeline.models.curated.CuratedSnapshot` from everything upstream.
 
 This is where the two sources stop being two sources. The **points** source is authoritative for
@@ -510,12 +513,20 @@ def assemble(  # noqa: PLR0913 - the stage genuinely needs every upstream input
             row.fields["id"]: row.fields.get("source_id", "") in legends_sources
             for row in detail_datasheets.rows
         }
+        # The detail source's own publication id per datasheet — the same `source_id` column
+        # `legends` reads above, kept separately because it answers a different question (which
+        # publication, not whether that publication is Legends). Only consulted by `match_units`
+        # when a chapter's own supplement collides by name with the core codex (D5 stage 2).
+        detail_source_ids = {
+            row.fields["id"]: row.fields.get("source_id", "") for row in detail_datasheets.rows
+        }
 
         outcome = match_units(
             scope,
             display_names=list(blocks_by_unit),
             detail_names=in_scope,
             detail_is_legends=legends,
+            detail_source_ids=detail_source_ids,
             authored=authored,
             registry=registry,
         )

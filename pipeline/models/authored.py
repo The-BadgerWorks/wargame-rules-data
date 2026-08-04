@@ -1,6 +1,10 @@
 # AI-Assisted: Claude Code (model: claude-opus-5) - Defined the authored records of
 # data-model.md §4 (task T023), including the AbilitySummary review-state machine of §4.1 and
 # the digest-bound FindingResolution of validation-report.md §5.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - Added FactionMapEntry.
+# detail_source_publication_id, an optional stage-2 disambiguation signal for the
+# REC-AMBIGUOUS-MATCH ladder (see pipeline/reconcile/match.py): it lets a chapter-scoped mapping
+# prefer its own supplement's datasheet over a same-named core-codex twin.
 """Authored records — human-written, under ``curation/``.
 
 **Invariant:** the pipeline reads these and never writes them; humans write these and never
@@ -75,12 +79,23 @@ class FactionMapEntry(_Authored):
     Faction mapping is **authored, not derived**: the taxonomies genuinely disagree — 30 points
     slugs against 26 detail ids, chapters split one way and Titan Legions the other (C3/R6). An
     unmapped slug is the blocking ``REC-FACTION-UNMAPPED``.
+
+    ``detail_source_publication_id`` is an optional, narrowly-scoped disambiguation signal for
+    D5 stage 2 (:func:`pipeline.reconcile.match.match_units`). When a chapter-scoped mapping's
+    detail-source faction id collides with its parent's (five Space Marine chapters all share
+    ``SM``), two detail-source datasheets can normalise to the same name with neither Legends —
+    an ambiguity stage 2 cannot otherwise resolve. If set, it names the detail source's own
+    publication id (Wahapedia's ``source_id``) for this chapter's supplement, letting stage 2
+    prefer the datasheet published there over a same-named core-codex twin — but **only** when
+    that preference narrows the candidates to exactly one; it never manufactures a match where
+    none of the candidates carry that publication id.
     """
 
     mfm_slug: str
     faction_id: str
     parent_faction_id: str | None = None
     detail_source_faction_id: str
+    detail_source_publication_id: str | None = None
 
 
 class UnitMapEntry(_Authored):

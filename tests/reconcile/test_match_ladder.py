@@ -1,6 +1,10 @@
 # AI-Assisted: Claude Code (model: claude-opus-5) - The D5 matching-ladder tests (task T079):
 # stage order, faction scoping with the parent fallback, Legends disambiguation before any name
 # comparison, refusal on ambiguity, and the property that no fuzzy match is ever auto-applied.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - Passed detail_source_ids={} at every
+# existing match_units() call site to keep this file compiling and passing after that parameter
+# became required (see tests/reconcile/test_publication_preference.py for the new coverage of
+# what it does).
 """The matching ladder (FR-014, FR-026, research D5).
 
 The single most important assertion in this file is the negative one: **a suggestion is never
@@ -102,6 +106,7 @@ def test_stable_identity_is_consulted_before_any_name_comparison() -> None:
         # that is the point: the confirmed pairing is never re-derived.
         detail_names={"SG09": "Slate Aegis"},
         detail_is_legends={},
+        detail_source_ids={},
         authored=content,
         registry=IdRegistry(),
     )
@@ -125,6 +130,7 @@ def test_normalised_exact_match_folds_the_observed_spelling_classes(points_name:
         display_names=[points_name],
         detail_names={"SG01": "Slate Sentinel"},
         detail_is_legends={},
+        detail_source_ids={},
         authored=content,
         registry=IdRegistry(),
     )
@@ -142,6 +148,7 @@ def test_the_same_display_name_in_two_factions_gets_two_ids() -> None:
         display_names=["SLATE WARDEN"],
         detail_names={"QC01": "Slate Warden"},
         detail_is_legends={},
+        detail_source_ids={},
         authored=content,
         registry=registry,
     )
@@ -150,6 +157,7 @@ def test_the_same_display_name_in_two_factions_gets_two_ids() -> None:
         display_names=["SLATE WARDEN"],
         detail_names={"SG03": "Slate Warden"},
         detail_is_legends={},
+        detail_source_ids={},
         authored=content,
         registry=registry,
     )
@@ -177,6 +185,7 @@ def test_legends_status_is_consulted_before_the_name_is_trusted() -> None:
         display_names=["SLATE REVENANT"],
         detail_names={"SG04": "Slate Revenant", "SG05": "Slate Revenant"},
         detail_is_legends={"SG05": True},
+        detail_source_ids={},
         authored=content,
         registry=IdRegistry(),
     )
@@ -192,6 +201,7 @@ def test_an_ambiguous_pair_is_treated_as_no_match_and_blocks() -> None:
         display_names=["SLATE REVENANT"],
         detail_names={"SG04": "Slate Revenant", "SG05": "Slate Revenant"},
         detail_is_legends={},  # neither is Legends, so the guard cannot separate them
+        detail_source_ids={},
         authored=content,
         registry=IdRegistry(),
     )
@@ -226,6 +236,7 @@ def test_an_authored_alias_resolves_the_curated_id_and_the_detail_pairing() -> N
         display_names=["SLATE BULWARK"],
         detail_names={"SG09": "Slate Aegis"},
         detail_is_legends={},
+        detail_source_ids={},
         authored=content,
         registry=IdRegistry(),
     )
@@ -244,6 +255,7 @@ def test_an_unmatched_points_unit_is_reported_and_still_ships() -> None:
         display_names=["SLATE HERALD"],
         detail_names={"SG01": "Slate Sentinel"},
         detail_is_legends={},
+        detail_source_ids={},
         authored=content,
         registry=IdRegistry(),
     )
@@ -261,6 +273,7 @@ def test_a_near_miss_is_ranked_as_a_suggestion_and_never_applied() -> None:
         display_names=["SLATE SENTINELS"],
         detail_names={"SG01": "Slate Sentinel", "SG02": "Slate Phalanx"},
         detail_is_legends={},
+        detail_source_ids={},
         authored=content,
         registry=IdRegistry(),
     )

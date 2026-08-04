@@ -26,6 +26,7 @@
   },
   {
     "detail_source_faction_id": "SM",
+    "detail_source_publication_id": "000000162",
     "faction_id": "f-black-templars",
     "mfm_slug": "black-templars",
     "parent_faction_id": "f-space-marines"
