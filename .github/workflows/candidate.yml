@@ -46,6 +46,9 @@ jobs:
       # The keyed ability mechanic digest (contract pipeline-run-interface §5, 1.0.1) is part
       # of every full build; without the key the build refuses with DigestKeyMissingError.
       WGC_MECHANIC_DIGEST_KEY: ${{ secrets.WGC_MECHANIC_DIGEST_KEY }}
+      # Where the detail-source CSV export lives (empty default refuses live acquisition);
+      # a repository variable so a curator can repoint it without a workflow change.
+      WGC_DETAIL_SOURCE_URL: ${{ vars.WGC_DETAIL_SOURCE_URL }}
     steps:
       - uses: actions/checkout@v4
         with:

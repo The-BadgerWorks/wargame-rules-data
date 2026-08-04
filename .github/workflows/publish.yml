@@ -75,6 +75,9 @@ jobs:
       # Same keyed digest the candidate build used — the deterministic rebuild must produce
       # byte-identical digests or the checksum assertion below would fail spuriously.
       WGC_MECHANIC_DIGEST_KEY: ${{ secrets.WGC_MECHANIC_DIGEST_KEY }}
+      # Same detail-source location the candidate build acquired from, for the byte-identical
+      # rebuild the checksum assertion depends on.
+      WGC_DETAIL_SOURCE_URL: ${{ vars.WGC_DETAIL_SOURCE_URL }}
 
     steps:
       - name: Check out the approved commit
