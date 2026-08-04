@@ -87,6 +87,12 @@ jobs:
           # would mean the approval covered content that is no longer what ships.
           ref: ${{ inputs.commit_sha }}
           fetch-depth: 0
+          # The manifest/ledger commit at the end of this job pushes to protected main. The
+          # default GITHUB_TOKEN cannot bypass branch protection on this org, so the push
+          # authenticates as the maintainer via a fine-grained PAT (Contents: read-write,
+          # this repository only) — the documented write-capable exception beside the
+          # read-only WGC_SETTINGS_AUDIT_TOKEN. Falls back to the default token when unset.
+          token: ${{ secrets.WGC_PUBLISH_PUSH_TOKEN || github.token }}
 
       - uses: actions/setup-python@v5
         with:

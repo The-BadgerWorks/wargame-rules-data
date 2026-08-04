@@ -54,6 +54,10 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+        with:
+          # Withdrawal edits site/manifest.json on protected main; same push-auth rationale
+          # as publish.yml — maintainer PAT with Contents read-write on this repo only.
+          token: ${{ secrets.WGC_PUBLISH_PUSH_TOKEN || github.token }}
 
       - uses: actions/setup-python@v5
         with:
