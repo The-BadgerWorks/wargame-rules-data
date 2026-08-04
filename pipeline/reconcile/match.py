@@ -4,6 +4,12 @@
 # aliases, and refusal on ambiguity.
 # Completed for US2 (task T088): report-only suggestion ranking, faction-scoped and
 # Legends-discriminated registry keys, and alias resolution of the detail-source pairing.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - Added a publication-id narrowing step to
+# stage 2, ahead of REC-AMBIGUOUS-MATCH: when a chapter's FactionMapEntry names its own
+# detail-source publication id, candidates are narrowed to it first, and only fall through to the
+# ambiguous-match finding if that narrowing does not resolve to exactly one candidate. Fixes the
+# real Black Templars case, where its supplement republishes core-codex datasheets under
+# colliding names and neither copy is Legends.
 """Pair the points source's units with the detail source's datasheets, deterministically.
 
 The ladder, and the reason each rung exists (research D5):
@@ -21,7 +27,12 @@ addition and breaking every saved army that names the unit.
 
 **Stage 2 — normalised exact match**, scoped to the faction, falling back to the parent faction
 for chapter sub-factions because the points source lists a chapter unit the detail source files
-under its parent.
+under its parent. When that scoping still leaves two or more same-named candidates — as it does
+for the five Space Marine chapters, which share the parent's detail-source faction id outright —
+the Legends flag is tried first, and then, if the mapping names its own
+``detail_source_publication_id`` (a chapter whose own supplement republishes a core-codex
+datasheet under a colliding name), candidates are narrowed to that publication before either
+resolving to the one candidate it leaves or falling through to ``REC-AMBIGUOUS-MATCH`` unchanged.
 
 **Stage 3 — authored aliases**, for spellings a curator has confirmed once.
 
@@ -194,6 +205,7 @@ def match_units(
     display_names: Sequence[str],
     detail_names: Mapping[str, str],
     detail_is_legends: Mapping[str, bool],
+    detail_source_ids: Mapping[str, str],
     authored: AuthoredContent,
     registry: IdRegistry,
 ) -> MatchOutcome:
@@ -204,6 +216,11 @@ def match_units(
         detail_names: detail-source ``datasheet_id -> display name`` in scope (own + ancestors).
         detail_is_legends: the Legends flag per detail datasheet id, consulted **before** the
             name, so two datasheets differing only by Legends never collide.
+        detail_source_ids: the detail source's own publication id (Wahapedia's ``source_id``)
+            per datasheet id. Consulted only when the Legends flag has failed to narrow an
+            ambiguous stage-2 match and the scope's ``FactionMapEntry`` names its own
+            ``detail_source_publication_id`` — never to accept a fuzzy match, only to prefer a
+            chapter's own supplement over a same-named core-codex twin (see module docstring).
     """
     outcome = MatchOutcome()
 
@@ -268,6 +285,18 @@ def match_units(
             non_legends = [c for c in candidates if not detail_is_legends.get(c, False)]
             if len(non_legends) == 1:
                 candidates = non_legends
+
+        # Publication-id disambiguation, tried only once Legends has failed to narrow it, and
+        # only when the mapping names its own detail-source publication (the Black Templars
+        # case: its supplement republishes a core-codex datasheet under a colliding name, and
+        # neither copy is Legends). Never applied if it would leave zero or 2+ candidates — that
+        # is still ambiguous, not resolved, and must still block (D5 stage 4: report, never
+        # guess).
+        if len(candidates) > 1 and scope.entry.detail_source_publication_id is not None:
+            publication_id = scope.entry.detail_source_publication_id
+            by_publication = [c for c in candidates if detail_source_ids.get(c) == publication_id]
+            if len(by_publication) == 1:
+                candidates = by_publication
 
         if len(candidates) > 1:
             outcome.findings.append(
