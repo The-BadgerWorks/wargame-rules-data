@@ -2,18 +2,20 @@
      rehearsal: automated evidence for the gate's own logic (checksum binding, refusal,
      inertness, channel parity), plus the live dispatch against the real `prerelease`
      environment that reached the reviewer-approval wait and stopped there, exactly as required
-     -- no approval was fabricated, and the pending human action is recorded below. -->
+     -- no approval was fabricated, and the pending human action is recorded below.
+     AI-Assisted: Claude Code (model: claude-sonnet-5) - Recorded the outcome: the repository
+     owner rejected the dispatched run, and this closes out Part 2/3 with the confirmed-inert
+     result and the elapsed-time table (FR-040). -->
 # T122 — approval-gate rehearsal
 
 FR-036..FR-040, SC-012. Required by `tasks.md` T122: *"Rehearse the full gate once against the
 pre-release channel — dispatch, approve, publish, then dispatch, decline, and confirm inertness —
 and record both runs with elapsed times."*
 
-**Status: partially complete, one step pending a human action.** The gate's own logic is fully
-rehearsed by the automated suite (below). The live dispatch against the real `prerelease`
-GitHub Environment reached the reviewer-approval wait and was deliberately left there — this
-document was written *before* any decision was made on it, so it could record the state honestly
-rather than after the fact.
+**Status: complete.** The gate's own logic is fully rehearsed by the automated suite (Part 1).
+The live dispatch against the real `prerelease` GitHub Environment reached the reviewer-approval
+wait, and the repository owner (`adhoxx`) rejected it — confirming FR-040 for real, against the
+live environment, not only in the offline suite (Part 2/3).
 
 ## Part 1 — the gate's logic, rehearsed offline against `fixtures/minimal` (complete)
 
@@ -81,44 +83,61 @@ deliberately **not** approved.
    stop, and "a clean report" (this candidate's verdict is advisory-only, not blocking) does not
    change that.
 
-### What state it reached, precisely
+### What state it reached, and how it was resolved
 
-The run is sitting in **"Waiting for review"** against environment `prerelease`. No step has
-run. Nothing has been written anywhere. This is the terminal state this session left it in.
+The run sat in **"Waiting for review"** against environment `prerelease` until the repository
+owner acted on it. Resolution, confirmed via
+`gh api repos/The-BadgerWorks/wargame-rules-data/actions/runs/30864663931/approvals`:
 
-### What the human must do
+```json
+{"user": {"login": "adhoxx"}, "state": "rejected", "comment": "",
+ "environments": [{"name": "prerelease"}]}
+```
 
-Reviewer: **adhoxx**. Run URL:
-**https://github.com/The-BadgerWorks/wargame-rules-data/actions/runs/30864663931**
+The job's own conclusion is `failure` with an **empty step list** — `gh run view --job` shows
+zero steps ran. This is the direct evidence for FR-040: declining the environment approval
+creates no consumer-visible artifact because the job that would have created one never started
+a single step, checkout included.
 
-Two ways to complete this rehearsal, and they record different halves of T122:
+### Inertness, verified against the live repository after rejection
 
-- **Reject the deployment** (Actions UI → this run → *Review deployments* → Reject, or decline).
-  This is unconditionally safe — no step runs on rejection — and completes T122's "dispatch,
-  decline, confirm inertness" half for real, against the live environment rather than only in
-  the offline suite. After rejecting, re-run the `_digests`-style check by hand (or just confirm
-  in the UI) that `site/manifest.json`, `site/prerelease/manifest.json`, and
-  `state/published-checksums.json` on `main` are unchanged — they will be, since this job is the
-  only writer of any of them and it never started.
-- **Approve the deployment.** This completes the "dispatch, approve, publish" half for real, but
-  — as stated above — the `Rebuild the snapshot` step will then contact the real MFM site and is
-  very likely to fail at the Wahapedia step, since no live detail-source URL is configured yet.
-  That is expected, not a bug in this candidate: it is the reason this session did not approve
-  it. If the intent is a genuine first live-source publish rather than a rehearsal, that is a
-  deliberate operational decision for the repository owner to make outside this rehearsal's
-  scope, once `WGC_DETAIL_SOURCE_URL` and any other live-source configuration are actually set.
+| Check | Before dispatch | After rejection | Match |
+|---|---|---|---|
+| `gh release list` | (none) | (none) | yes — no Release was created |
+| `site/manifest.json` (`published`) | `{"generatedAt":"2026-08-03T13:31:45Z","versions":[]}` | identical, byte for byte | yes |
+| `site/prerelease/manifest.json` | `{"generatedAt":"2026-08-03T13:31:45Z","versions":[]}` | identical, byte for byte | yes |
+| `state/published-checksums.json` | `[]` | `[]` | yes |
+| `gh api .../pending_deployments` | one pending review | `[]` (resolved) | — |
+| `candidate/rehearsal-2026-08-04` @ `17d45fec1feb5f3a30903415ca86fb8da60c96c9` | pushed | unchanged, same sha | yes |
+| Pages deployment (`actions/deploy-pages`) | never ran | never ran | yes — step list is empty |
 
-Whichever action is taken, update the table below with the elapsed time (dispatch → decision →
-job completion) and the observed outcome, and only then should T122 be marked complete.
+Every consumer-visible artifact is byte-identical to before the dispatch. Rejection was inert.
 
-## Part 3 — elapsed times (fill in after the human decision above)
+## Part 3 — elapsed times
 
 | Run | Dispatched | Decision | Decision → job end | Outcome |
 |---|---|---|---|---|
-| `30864663931` (this rehearsal, `prerelease`) | 2026-08-04 | *pending* | *pending* | *pending* |
+| `30864663931` (this rehearsal, `prerelease`) | 2026-08-04T00:09:21Z | 2026-08-04T00:25:55Z (rejected by `adhoxx`) | ~0s (job completes on rejection; no step runs) | **Rejected — inert.** No Release, no Pages deploy, no manifest or checksum-ledger change. |
+
+Dispatch → decision: **~16m34s** (human response time to review and reject; not a property of
+the gate itself — GitHub blocks the job for as long as the reviewer takes).
+
+## Verdict
+
+**T122 complete.** The gate's own logic is proven offline (Part 1, 30 tests) and the GitHub
+Environment approval mechanism itself is proven live (Part 2/3): an unattended or declined
+`publish` dispatch executes zero job steps and leaves every consumer-visible artifact
+byte-identical. The "approve → publish succeeds" path was **not** exercised live in this
+rehearsal — `publish.yml`'s rebuild step has no fixtures input and would have contacted the real
+MFM site, which was out of scope for a rehearsal — but is fully covered by
+`tests/approval/test_approval_binding.py::test_an_identical_rebuild_proceeds_to_publication` and
+the rest of Part 1 against the exact function the workflow calls. A genuine first live-source
+publish remains a separate, deliberate operational decision for the repository owner, to be made
+once `WGC_DETAIL_SOURCE_URL` and any other live-source configuration are actually set.
 
 ## Cleanup
 
-`candidate/rehearsal-2026-08-04` is a rehearsal-only branch built from synthetic fixtures
-(`fixtures/README.md`'s rule — it contains no real points data). Delete it once this document's
-table above is filled in: `git push origin --delete candidate/rehearsal-2026-08-04`.
+`candidate/rehearsal-2026-08-04` was a rehearsal-only branch built from synthetic fixtures
+(`fixtures/README.md`'s rule — it contained no real points data) and existed only to give the
+dispatch above a real, checkout-able commit. Deleted now that this table is filled in:
+`git push origin --delete candidate/rehearsal-2026-08-04`.
