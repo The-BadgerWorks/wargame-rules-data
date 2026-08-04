@@ -51,6 +51,32 @@ WORK_DIRECTORY: Final = "work"
 #: What a finding names when the scanned document is the in-memory bundle rather than a file.
 BUNDLE_PATH: Final = "bundle"
 
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - Exempted the report renderer's own
+# collapsible-section tags from the "markup" violation class (CI run 30939452542 on PR #1,
+# candidate/mfm-2026-08's first committed report.md): `pipeline/report/validation.py`'s
+# `render_report_markdown` deliberately emits `<details><summary>...</summary>` around each
+# findings class so a report with thousands of advisory rows stays readable, and that is
+# pipeline-authored formatting, never upstream data -- exactly what the "markup" class does not
+# exist to catch (see this module's own docstring: it is watching for un-stripped source markup
+# like `<span class="kwb">`). Every real build with any findings produces this markup, so this
+# was latent since T067 and only surfaced once a real report.md was first committed.
+#: The exact structural tags the report renderer emits. Stripped only before the "markup"
+#: pattern runs against free text (`_scan_text` -- `.md` files and any malformed-JSON fallback);
+#: `_scan_json_document` and every other violation class are unaffected, so a `<span>` or other
+#: tag genuinely leaked from data, in a report or anywhere else, is still caught undiminished.
+REPORT_STRUCTURAL_TAGS: Final[tuple[str, ...]] = (
+    "<details>",
+    "</details>",
+    "<summary>",
+    "</summary>",
+)
+
+
+def _strip_report_structural_markup(text: str) -> str:
+    for tag in REPORT_STRUCTURAL_TAGS:
+        text = text.replace(tag, "")
+    return text
+
 
 def _violations(value: str, *, check_length: bool) -> list[str]:
     found = [reason for reason, pattern in NON_MECHANICAL_PATTERNS.items() if pattern.search(value)]
@@ -116,10 +142,15 @@ def _scan_text(relative: str, text: str) -> list[Finding]:
     Length is not checked here. A report's prose *about* the data is authored by the producer
     and is meant to be readable, so a long sentence in `report.md` is not an IP violation — the
     length rule is about a *field* that has stopped being a field.
+
+    The report renderer's own `<details>`/`<summary>` collapsible-section tags are stripped
+    before the pattern classes run (`REPORT_STRUCTURAL_TAGS`) — pipeline-authored formatting,
+    not upstream data, so it is not what "markup" exists to catch. Nothing else about the text
+    is touched: any other tag, real or not, still matches undiminished.
     """
     findings: list[Finding] = []
     seen: set[str] = set()
-    for violation in _violations(text, check_length=False):
+    for violation in _violations(_strip_report_structural_markup(text), check_length=False):
         if violation not in seen:
             seen.add(violation)
             findings.append(_finding(relative, violation))

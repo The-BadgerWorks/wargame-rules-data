@@ -1,6 +1,11 @@
 # AI-Assisted: Claude Code (model: claude-opus-5) - Wrote the IP-scan tests (task T047): the
 # scanner over data/, curation/, reports/, state/ and the built bundle finds zero occurrences,
 # and a deliberately poisoned tree fails with CON-IP-BOUNDARY.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - Added coverage for the report renderer's
+# `<details>`/`<summary>` exemption (CI run 30939452542 on PR #1, candidate/mfm-2026-08's first
+# committed report.md): pipeline/report/validation.py's collapsible sections are pipeline-
+# authored formatting, not upstream data, and must not trip the "markup" violation class -- while
+# any other tag in the same file still must.
 """Tests for validation V8, the scan that turns the IP boundary into a monitored control.
 
 The schema design is what *makes* the boundary hold — there is no prose-typed field anywhere
@@ -21,6 +26,12 @@ def _write(root: Path, relative: str, payload: object) -> None:
     path = root / relative
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(payload, ensure_ascii=False), encoding="utf-8")
+
+
+def _write_text(root: Path, relative: str, text: str) -> None:
+    path = root / relative
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(text, encoding="utf-8")
 
 
 def test_the_scanner_covers_every_directory_the_requirement_names() -> None:
@@ -102,3 +113,37 @@ def test_keys_are_scanned_as_well_as_values() -> None:
 
 def test_a_bare_ampersand_or_dollar_sign_is_not_a_false_positive() -> None:
     assert scan_bundle({"name": "Fire & Fury costs $"}) == []
+
+
+def test_the_report_renderers_own_collapsible_sections_are_not_a_false_positive(
+    temp_repo,  # type: ignore[no-untyped-def]
+) -> None:
+    """`pipeline/report/validation.py`'s `render_report_markdown` wraps each findings class in
+    `<details><summary>...</summary>` / `</details>` so a report with thousands of rows stays
+    readable. That is pipeline-authored formatting, not upstream data, and must not be what
+    "markup" flags -- every real build with any findings emits exactly this."""
+    root = temp_repo()
+    _write_text(
+        root,
+        "reports/fixture-minimal/report.md",
+        "## All findings\n\n"
+        "<details><summary>contract (3)</summary>\n\n"
+        "| code | severity |\n|---|---|\n"
+        "| `CON-WARGEAR-COST-MISSING` | advisory |\n\n"
+        "</details>\n",
+    )
+
+    assert scan_repository(root) == []
+
+
+def test_a_genuine_tag_in_a_report_markdown_file_is_still_caught(
+    temp_repo,  # type: ignore[no-untyped-def]
+) -> None:
+    """The `<details>`/`<summary>` exemption is narrow: anything else still trips "markup", even
+    inside `reports/`."""
+    root = temp_repo()
+    _write_text(root, "reports/fixture-minimal/report.md", "See <span class='kwb'>this</span>.")
+
+    (finding,) = scan_repository(root)
+    assert finding.detail["violation"] == "markup"
+    assert finding.detail["path"] == "reports/fixture-minimal/report.md"
