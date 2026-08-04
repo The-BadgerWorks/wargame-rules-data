@@ -153,11 +153,24 @@ jobs:
         if: always()
         run: rm -rf work
 
+      # The job runs from the approved commit, which may be behind main by the time the
+      # publish completes — so the bookkeeping commit is made on the detached HEAD and then
+      # replayed onto the CURRENT main tip before pushing. A cherry-pick conflict here means
+      # main's site/state changed since approval (e.g. a concurrent publish) — failing is
+      # correct in that case, not something to force past.
       - name: Commit the manifest and the checksum ledger
         run: |
           set -euo pipefail
           git config user.name "wargame-rules-data bot"
           git config user.email "noreply@users.noreply.github.com"
           git add site state
-          git diff --cached --quiet || git commit -m "Publish ${{ inputs.rules_version_id }} to ${{ inputs.channel }}"
+          if git diff --cached --quiet; then
+            echo "nothing to commit"
+            exit 0
+          fi
+          git commit -m "Publish ${{ inputs.rules_version_id }} to ${{ inputs.channel }}"
+          bookkeeping=$(git rev-parse HEAD)
+          git fetch origin main
+          git checkout --detach origin/main
+          git cherry-pick "$bookkeeping"
           git push origin HEAD:main
