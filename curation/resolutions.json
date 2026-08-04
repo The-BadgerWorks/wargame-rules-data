@@ -1,0 +1,18 @@
+[
+  {
+    "data_digest": "sha256:381dd466378fe1b5e02cf69cbb443528517c62dd29f1ada07045b6af26622b0b",
+    "entity_ref": "wahapedia:000002770",
+    "explanation": "Not a fieldable unit: an Epic Hero INFANTRY character datasheet that carries no cost row in the detail source's own cost export and no points entry on the points source's faction page. It is a companion model attached to another unit's datasheet, so no source has ever priced it separately and none is expected to. Excluded deliberately rather than shipped at zero.",
+    "finding_code": "REC-NEVER-PRICED",
+    "resolved_at": "2026-08-04T00:00:00Z",
+    "resolved_by": "adhoxx"
+  },
+  {
+    "data_digest": "sha256:62fbb9edd15f9a46c5010e18123a98006d0b9ab62090a775b081ed4976f47a6e",
+    "entity_ref": "wahapedia:000003708",
+    "explanation": "Not a unit at all: an upstream placeholder row in the detail source's datasheet export, flagged virtual with an empty publication id, empty role and no cost row anywhere. Nothing prices it because there is nothing to price. Excluded deliberately; the digest lapses the moment the row gains a publication or a cost.",
+    "finding_code": "REC-NEVER-PRICED",
+    "resolved_at": "2026-08-04T00:00:00Z",
+    "resolved_by": "adhoxx"
+  }
+]

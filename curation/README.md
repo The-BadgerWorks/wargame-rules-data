@@ -6,6 +6,11 @@
      has no _comment field of its own, so this file records the change for it; the schema file,
      schemas/curation/faction-map.schema.json, does have its own _comment and its header was
      extended directly). -->
+<!-- AI-Assisted: Claude Code (model: claude-sonnet-5) - Recorded the mfm-2026-08 curation round:
+     the core-codex detail_source_publication_id now carried by the five Space Marine entries
+     that are not Black Templars, and the two dated REC-NEVER-PRICED exclusions seeded into
+     curation/resolutions.json. Both JSON files admit no comment syntax of their own, so their
+     rationale lives here. -->
 # `curation/` — the authored tree
 
 **Humans write this directory. The pipeline never does.** The pipeline writes `data/` and never
@@ -55,12 +60,56 @@ their core-Codex-Space-Marines twin (`source_id 000000139`) — a Chaplain-type 
 example — and neither copy is Legends, so the existing Legends-flag narrowing cannot separate
 them either. `detail_source_publication_id` records the chapter's own publication id so stage 2
 can prefer the datasheet published there when, and only when, that preference narrows the
-candidates to exactly one; otherwise it falls through to `REC-AMBIGUOUS-MATCH` unchanged. Blood
-Angels, Dark Angels, Deathwatch and Space Wolves do not get this field: their points-source units
-did not collide ambiguously with the core codex at the time this was authored, so guessing a
-publication id for them would be exactly the fabricated-rule failure mode FR-019 exists to
-prevent. If one of them develops the same collision later, the fix is the same one-line addition,
-made when the real collision is observed — not pre-emptively.
+candidates to exactly one; otherwise it falls through to `REC-AMBIGUOUS-MATCH` unchanged.
+
+**The other five Space Marine entries carry `detail_source_publication_id: "000000139"` — the
+core codex — for the same reason, in the opposite direction.** That collision was observed for
+real on the first `mfm-2026-08` candidate build, which raised 44 blocking
+`REC-AMBIGUOUS-MATCH` findings: nine vehicles and squads that the Black Templars supplement
+republishes verbatim under the shared `SM` detail-source faction id, each seen twice by every
+chapter that is *not* Black Templars, plus by the parent faction itself. Black Templars was
+already unaffected — its own entry prefers the supplement. So `f-space-marines`,
+`f-blood-angels`, `f-dark-angels`, `f-deathwatch` and `f-space-wolves` now name the core codex,
+which is the copy each of them is entitled to.
+
+This is evidence-led rather than pre-emptive, which is the standard the Black Templars entry set
+and is worth restating: the nine collisions above are the **only** duplicate normalised names
+anywhere in the `SM` detail-source faction, and in every one of them the pair is exactly one
+core-codex datasheet and one Black Templars supplement datasheet. No chapter's own supplement
+republishes a core-codex name, so no chapter can lose its own datasheet to this preference. The
+narrowing is also inert unless a name is genuinely ambiguous — stage 2 reaches it only after an
+exact match has already found two or more candidates and the Legends flag has failed to separate
+them — so a chapter-specific unit with a unique name never consults it at all.
+
+State the residual risk plainly, because it is the price of the preference: if a chapter's own
+supplement ever republishes a core-codex *name*, this field will quietly pick the core-codex
+copy for that chapter rather than raise a finding — a preference that resolves to exactly one
+candidate is indistinguishable, at that point in the ladder, from a preference that resolves to
+the right one. That case does not exist in the data today and the check for it is cheap: the
+`SM` faction's duplicate normalised names, grouped by publication. When it does appear, the fix
+is a `unit-map.json` entry, which is stage 1 and outranks every rung below it.
+
+**`resolutions.json` is seeded with two `REC-NEVER-PRICED` exclusions, and nothing else.** Both
+came off the same first `mfm-2026-08` candidate build, and both are the honest answer to "no
+source has ever published a price for this", which is what that finding says and why it blocks:
+a unit shipped at zero points is worse in a player's list than one that is absent. The two here
+are not units.
+
+* One is an Epic Hero **infantry** character datasheet in the knightly faction — a companion
+  model that belongs to another unit's datasheet. The detail source's own cost export carries no
+  row for it at all, and the points source's faction page has no entry that could be its renamed
+  self: every unit that page prices matched a datasheet, so there is no leftover name for a
+  rename to be argued from. No source prices it because none is meant to.
+* The other is an upstream placeholder row in the datasheet export: flagged `virtual`, with an
+  empty publication id, an empty role, and no cost row anywhere. It is the export's own example
+  record, not a datasheet.
+
+Neither is a rename, so neither gets a `unit-map.json` entry — inventing a pairing to silence a
+finding is precisely the fabrication FR-019 exists to prevent. And a resolution is not a mute
+button: it is bound to the finding's `data_digest`, so if either row ever gains a publication, a
+cost, or a faction, the digest moves, the resolution lapses, and the finding blocks again with
+nobody having to remember to look. Both stay visible in every report as suppressed, with the
+explanation above, so an approver can see what was waved through and why.
 
 **`game-sizes.json` and `edition-rules.json` are authored, not extracted.** No upstream source
 publishes a machine-readable band table or construction-rule set — that gap is recorded in

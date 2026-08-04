@@ -33,6 +33,7 @@
   },
   {
     "detail_source_faction_id": "SM",
+    "detail_source_publication_id": "000000139",
     "faction_id": "f-blood-angels",
     "mfm_slug": "blood-angels",
     "parent_faction_id": "f-space-marines"
@@ -59,6 +60,7 @@
   },
   {
     "detail_source_faction_id": "SM",
+    "detail_source_publication_id": "000000139",
     "faction_id": "f-dark-angels",
     "mfm_slug": "dark-angels",
     "parent_faction_id": "f-space-marines"
@@ -70,6 +72,7 @@
   },
   {
     "detail_source_faction_id": "SM",
+    "detail_source_publication_id": "000000139",
     "faction_id": "f-deathwatch",
     "mfm_slug": "deathwatch",
     "parent_faction_id": "f-space-marines"
@@ -121,11 +124,13 @@
   },
   {
     "detail_source_faction_id": "SM",
+    "detail_source_publication_id": "000000139",
     "faction_id": "f-space-marines",
     "mfm_slug": "space-marines"
   },
   {
     "detail_source_faction_id": "SM",
+    "detail_source_publication_id": "000000139",
     "faction_id": "f-space-wolves",
     "mfm_slug": "space-wolves",
     "parent_faction_id": "f-space-marines"
