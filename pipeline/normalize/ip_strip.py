@@ -1,6 +1,10 @@
 # AI-Assisted: Claude Code (model: claude-opus-5) - Implemented the per-record IP strip (task
 # T060), ported from the Dart strip-wahapedia-ip precedent and narrowed so that no rules text of
 # any kind is carried (FR-011, FR-012, FR-013, research D8).
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - Folded Cyrillic/Latin homoglyphs at the end
+# of strip_field, the single funnel every detail-source name and label passes through, so a
+# source-side look-alike character is corrected upstream of the IP scan instead of blocking the
+# release as an indistinguishable Cyrillic artefact (pipeline/normalize/homoglyphs.py).
 """Strip everything the product may not carry, and keep only mechanical values.
 
 **Relationship to the `strip-wahapedia-ip` precedent.** That skill's per-record classification —
@@ -22,6 +26,15 @@ tabular rules, just harder to notice.
 **A finding never quotes what it found.** `DQ-MARKUP-IN-FIELD` names the field, not the markup.
 A stripper that reports what it stripped has moved the text into the report rather than removed
 it, and FR-013 covers reports and logs as well as data.
+
+**The homoglyph fold runs here, last**, because this function is the single funnel every
+detail-source name and label passes through on its way to the curated tree (see the call sites
+in `pipeline/curate/assemble.py`: datasheet, model, weapon, ability and keyword names, the
+cost-table label, the role and the composition line). Folding at that funnel is what lets
+`pipeline/validate/ip_scan.py` stay exactly as strict as it is: the scanner sees names that are
+already clean, rather than needing an exception for the source's own typing slips. See
+`pipeline.normalize.homoglyphs` for the heuristic and for why it refuses far more often than it
+acts.
 """
 
 from __future__ import annotations
@@ -32,6 +45,7 @@ from dataclasses import dataclass
 from typing import Final
 
 from pipeline.models.findings import Finding
+from pipeline.normalize.homoglyphs import fold_homoglyphs
 from pipeline.report.catalogue import build_finding
 
 #: Elements whose *content* is dropped along with the element: publisher artwork references and
@@ -88,7 +102,10 @@ def strip_field(raw: str, *, field: str, entity_ref: str | None = None) -> Strip
     without_subtrees = _DROPPED_SUBTREES.sub(" ", raw)
     without_tags = _TAG.sub(" ", without_subtrees)
     decoded = html.unescape(without_tags)
-    text = _collapse(decoded)
+    # Folded after the collapse, never before: the fold weighs look-alikes against the string's
+    # other letters, and a value still carrying markup would be weighed against the tag names
+    # too. It is a no-op for every string with no Cyrillic in it, which is nearly all of them.
+    text = fold_homoglyphs(_collapse(decoded))
 
     if _PLACEHOLDER_TOKEN.search(text):
         findings.append(
