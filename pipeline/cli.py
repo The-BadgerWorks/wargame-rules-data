@@ -1,6 +1,10 @@
 # AI-Assisted: Claude Code (model: claude-opus-5) - Implemented the CLI skeleton (task T029):
 # the eight commands, the global options, the per-command options, and the exit-code mapping of
 # contracts/pipeline-run-interface.md §1-§2, each command dispatching to its stage module.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - Wired `rules-pipeline publish` (task T116)
+# to pipeline.publish.gate: locate the rebuilt bundle, re-validate, and hand off to the release
+# and Pages steps, with the environment deployment's approval record read from the Actions run
+# context (task T117, FR-038, FR-039).
 """``rules-pipeline`` — the operator-facing surface.
 
 The same CLI runs locally against fixtures and in CI against the real sources: **there is no
@@ -34,6 +38,7 @@ exactly the contract's own.
 from __future__ import annotations
 
 import argparse
+import json
 import logging
 import os
 import sys
@@ -72,6 +77,16 @@ from pipeline.observability.ledger import (
 from pipeline.parse.mfm_dom import MfmPage, parse_faction_page
 from pipeline.parse.mfm_swap_replay import StructureChanged, replay
 from pipeline.parse.wahapedia_csv import read_text as read_csv_text
+from pipeline.publish.gate import (
+    AlreadyPublishedError,
+    GateOutcome,
+    OutsideApprovedContextError,
+    RebuildOutcome,
+    run_publish,
+)
+from pipeline.publish.github_api import GitHubReleaseApi
+from pipeline.publish.pages import ApprovalRecord
+from pipeline.publish.release import ReleaseApi
 from pipeline.reconcile.conflicts import detect_faction_changes, detect_renames
 from pipeline.reconcile.findings import apply_resolutions
 from pipeline.reconcile.pricing_confidence import apply_pricing_confidence
@@ -150,9 +165,8 @@ _HELP: Final[Mapping[str, str]] = {
 #: Commands whose stage modules arrive in a later phase, with the task that lands each.
 _PENDING_STAGES: Final[Mapping[str, str]] = {
     "acquire": "T108 (the acquire-only entry point)",
-    "publish": "T117 (the publish job's CLI entry point)",
-    "withdraw": "T118 (pipeline.publish.withdraw)",
-    "verify": "T124 (pipeline.publish.integrity)",
+    "withdraw": "T141 (pipeline.publish.withdraw)",
+    "verify": "T143 (pipeline.publish.verify)",
 }
 
 #: Where a fixture-sourced run writes. A fixture build must never overwrite the real curated
@@ -606,6 +620,157 @@ def _run_validate_command(config: PipelineConfig, args: argparse.Namespace, *, w
     return int(exit_code)
 
 
+class PublishInvocationError(RuntimeError):
+    """A `publish` invocation is missing required input, or the working tree is not in the
+    state contract §4 requires (no rebuilt bundle, or more than one)."""
+
+
+def _discover_rebuilt_bundle(root: Path) -> tuple[str, bytes]:
+    """Locate the single ``rules-<id>.json`` the preceding ``build`` step just wrote.
+
+    Contract §1 gives ``publish`` only ``--commit-sha`` and ``--expect-sha256`` — the rebuilt
+    artifact is *found*, not requested by id, because ``publish.yml``'s "Rebuild the snapshot
+    from the approved commit" step has already run ``rules-pipeline build`` against the checked-
+    out commit before this command runs (contract §4 steps 1-2). Exactly one such file should
+    exist after a clean checkout; more or fewer means the working tree is not in the state this
+    command requires, which is a configuration error rather than a checksum mismatch.
+    """
+    candidates = sorted(root.glob("rules-*.json"))
+    if len(candidates) == 0:
+        raise PublishInvocationError(
+            f"no rebuilt bundle at {root}; run 'rules-pipeline build --rules-version-id <id>' "
+            "against the approved commit before 'publish' (contract §4 step 2)"
+        )
+    if len(candidates) > 1:
+        names = ", ".join(p.name for p in candidates)
+        raise PublishInvocationError(
+            f"more than one rebuilt bundle at {root} ({names}); publish cannot tell which one "
+            "was approved — clean the working tree and rebuild exactly one"
+        )
+    path = candidates[0]
+    return path.stem.removeprefix("rules-"), path.read_bytes()
+
+
+def run_publish_command(  # noqa: PLR0913 - the stage boundary is the argument list
+    *,
+    config: PipelineConfig,
+    commit_sha: str,
+    expect_sha256: str,
+    api: ReleaseApi | None = None,
+    repository_root: Path | None = None,
+    generated_at: str | None = None,
+    approval: ApprovalRecord | None = None,
+    require_ci_context: bool = True,
+    deploy: bool = True,
+) -> GateOutcome:
+    """Wire the discovered rebuild, the curated tree, and a ``ReleaseApi`` into the gate.
+
+    Split from :func:`_run_publish_command` so a test can drive the whole sequence with a fake
+    ``api`` and a throwaway repository root, without going through argv parsing (task T116).
+    """
+    root = repository_root or repo_root()
+    rules_version_id, payload = _discover_rebuilt_bundle(root)
+
+    def _rebuild() -> RebuildOutcome:
+        snapshot = read_curated_tree(root / "data" / EDITION_CODE)
+        if snapshot is None:
+            raise PublishInvocationError(f"no curated tree at {root / 'data' / EDITION_CODE}")
+        # The bundle's own `snapshotMeta.publishedAt` is the authoritative build input (FR-033)
+        # — never `now()`, and never `run_validate`'s placeholder timestamp for a bare re-check.
+        published_at = json.loads(payload)["snapshotMeta"]["publishedAt"]
+        _exit_code, report, _directory = run_validate(
+            config=config, rules_version_id=rules_version_id, repository_root=root, write=False
+        )
+        return RebuildOutcome(
+            payload=payload,
+            findings=report.findings,
+            display_name=f"{snapshot.edition.name} {rules_version_id}",
+            edition_codes=[snapshot.edition.code],
+            published_at=published_at,
+        )
+
+    release_api = api or GitHubReleaseApi(
+        repository=os.environ.get("GITHUB_REPOSITORY", ""),
+        token=os.environ.get("GITHUB_TOKEN", ""),
+    )
+
+    return run_publish(
+        config=config,
+        commit_sha=commit_sha,
+        expect_sha256=expect_sha256,
+        rules_version_id=rules_version_id,
+        rebuild=_rebuild,
+        api=release_api,
+        site_dir=root / "site",
+        state_dir=root / "state",
+        generated_at=generated_at or datetime.now(UTC).isoformat().replace("+00:00", "Z"),
+        approval=approval,
+        require_ci_context=require_ci_context,
+        deploy=deploy,
+    )
+
+
+def _approval_from_environment() -> ApprovalRecord | None:
+    """The environment deployment's approval record, read from the Actions run context (T117).
+
+    GitHub's own environment-protection review is the real control (contract §4) — a named
+    reviewer approved before this job could even start. This function only carries that fact
+    forward into the checksum ledger. **Documented limitation, not glossed over**: attributing
+    the record to the *specific approver* rather than the run's actor would need a Deployments-
+    API call this command does not make; while `docs/repo-settings.md` records a single reviewer
+    (`adhoxx`) with `prevent_self_review: false`, the dispatching actor and the approver are the
+    same person in practice, so this is accurate today and a limitation to revisit the day a
+    second reviewer exists — exactly the posture that file already documents for the environment
+    itself.
+    """
+    if os.environ.get("GITHUB_ACTIONS") != "true":
+        return None
+    run_id = os.environ.get("GITHUB_RUN_ID")
+    actor = os.environ.get("GITHUB_ACTOR")
+    if not run_id or not actor:
+        return None
+    return ApprovalRecord(
+        deployment_id=run_id,
+        approver=actor,
+        approved_at=datetime.now(UTC).isoformat().replace("+00:00", "Z"),
+    )
+
+
+def _run_publish_command(config: PipelineConfig, args: argparse.Namespace) -> int:
+    commit_sha = getattr(args, "commit_sha", None)
+    expect_sha256 = getattr(args, "expect_sha256", None)
+    if not commit_sha or not expect_sha256:
+        print(f"{PROG}: publish requires --commit-sha and --expect-sha256", file=sys.stderr)
+        return int(ExitCode.CONFIG_ERROR)
+
+    # `--dry-run` is the contract's own "make no lasting change" global (§1): it lets a curator
+    # reproduce the gate's verdict — the checksum assertion and the re-validation — without the
+    # CI-context refusal or an actual Release/Pages write, which is what "no CI-only code path"
+    # (§1) has to mean for a job whose only real trigger is the environment-gated workflow.
+    dry_run = bool(getattr(args, "dry_run", False))
+
+    try:
+        outcome = run_publish_command(
+            config=config,
+            commit_sha=commit_sha,
+            expect_sha256=expect_sha256,
+            approval=_approval_from_environment(),
+            require_ci_context=not dry_run,
+            deploy=not dry_run,
+        )
+    except (PublishInvocationError, AlreadyPublishedError, OutsideApprovedContextError) as exc:
+        print(f"{PROG}: {exc}", file=sys.stderr)
+        return int(ExitCode.CONFIG_ERROR)
+
+    if outcome.diagnostic:
+        print(f"{PROG}: {outcome.diagnostic}", file=sys.stderr)
+    if outcome.result:
+        print(
+            f"{PROG}: published {outcome.result.file_url} sha256 {outcome.result.checksum.sha256}"
+        )
+    return int(outcome.exit_code)
+
+
 @dataclass(frozen=True, slots=True)
 class DetectResult:
     """Everything one ``detect`` sweep produced (contract §1-§2, research D4b)."""
@@ -758,6 +923,8 @@ def dispatch(command: str, config: PipelineConfig, args: argparse.Namespace) -> 
         return _run_validate_command(config, args, write=True)
     if command == "detect":
         return _run_detect_command(config, args)
+    if command == "publish":
+        return _run_publish_command(config, args)
     del config, args  # consumed by the stage modules as they land
     return _pending(command)
 

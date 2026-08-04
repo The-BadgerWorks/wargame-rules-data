@@ -1,6 +1,12 @@
 # AI-Assisted: Claude Code (model: claude-opus-5) - Implemented the Pages side of publication
 # (task T071): the published-checksum ledger and the Pages deployment marker, both written only
 # after the uploaded asset has been re-downloaded and verified (FR-045).
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - Extended the ledger entry with the
+# approval record (task T117): deployment id, approver, and approval timestamp, bound to the
+# approved commit sha, read back from the GitHub Environment deployment that gated this publish
+# (data-model.md §7.2, FR-038). Deliberately not added to site/manifest.json, which is the
+# frozen rules-data-manifest.md v1.1.1 consumer contract and has no field for it -- the approval
+# record is producer-side operational data, not something the app needs to ingest.
 """The last two steps of publication: record the checksum, then serve the manifest.
 
 `state/published-checksums.json` is what turns "we promise not to edit a release asset" into a
@@ -21,6 +27,7 @@ to record which version it was left in for the run ledger.
 from __future__ import annotations
 
 import json
+from dataclasses import dataclass
 from pathlib import Path
 from typing import Final
 
@@ -41,6 +48,22 @@ class ChecksumLedgerError(RuntimeError):
     """
 
 
+@dataclass(frozen=True, slots=True)
+class ApprovalRecord:
+    """The GitHub `published`/`prerelease` environment's deployment record (data-model.md §7.2).
+
+    Not a file the pipeline writes on its own initiative — it is what the environment
+    protection rule already produced (a named reviewer approving in the Actions UI) by the time
+    the gated job is allowed to start, read back and carried forward here so a defective
+    release is attributable to an approver and a moment months later without re-reading a
+    workflow run log.
+    """
+
+    deployment_id: str
+    approver: str
+    approved_at: str
+
+
 def read_published_checksums(path: Path) -> list[dict[str, JsonValue]]:
     """The recorded checksums, or the empty list a fresh repository starts from."""
     if not path.is_file():
@@ -56,8 +79,15 @@ def record_published_checksum(
     file_url: str,
     checksum: BundleChecksum,
     published_at: str,
+    commit_sha: str | None = None,
+    approval: ApprovalRecord | None = None,
 ) -> list[dict[str, JsonValue]]:
-    """Append one entry, refusing to contradict an existing one."""
+    """Append one entry, refusing to contradict an existing one.
+
+    ``commit_sha`` and ``approval`` are optional so a hand-authored break-glass reconciliation
+    entry (`docs/break-glass.md`) can still be recorded without inventing an approval that never
+    happened; every entry written by the real `publish` job supplies both.
+    """
     existing = read_published_checksums(path)
 
     for entry in existing:
@@ -78,6 +108,14 @@ def record_published_checksum(
         "sizeBytes": checksum.size_bytes,
         "publishedAt": published_at,
     }
+    if commit_sha is not None:
+        appended["commitSha"] = commit_sha
+    if approval is not None:
+        appended["approvalRef"] = {
+            "deploymentId": approval.deployment_id,
+            "approver": approval.approver,
+            "approvedAt": approval.approved_at,
+        }
     updated: list[dict[str, JsonValue]] = sorted(
         [*existing, appended], key=lambda entry: str(entry["rulesVersionId"])
     )

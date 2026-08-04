@@ -2,6 +2,8 @@
 # T071) in the strict order create release -> upload asset -> re-download and verify size and
 # sha256 -> regenerate the manifest -> append to state/published-checksums.json -> deploy Pages,
 # so the manifest never names an unretrievable artifact (FR-045, research D3).
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - Threaded the approval record and the
+# approved commit sha through to the checksum ledger entry (task T117, data-model.md §7.2).
 """Publish one approved candidate, in an order chosen for what an interruption leaves behind.
 
 The sequence is the requirement (contract §4, FR-045):
@@ -40,7 +42,7 @@ from pipeline.build.canonical_json import write_bundle
 from pipeline.build.checksum import BundleChecksum, assert_reproducible, checksum
 from pipeline.build.manifest import manifest_entry, manifest_relative_path, regenerate_manifest
 from pipeline.config import Channel
-from pipeline.publish.pages import deploy_pages, record_published_checksum
+from pipeline.publish.pages import ApprovalRecord, deploy_pages, record_published_checksum
 
 
 class ReleaseApi(Protocol):
@@ -75,6 +77,9 @@ class PublicationRequest:
     commit_sha: str
     expect_sha256: str
     channel: Channel = Channel.PRERELEASE
+    approval: ApprovalRecord | None = None
+    """The environment deployment's approval record (data-model.md §7.2), when this publish is
+    driven by the gated CI job. ``None`` only for a break-glass reconciliation entry."""
 
 
 @dataclass(frozen=True, slots=True)
@@ -146,6 +151,8 @@ def publish(
         file_url=file_url,
         checksum=verified,
         published_at=request.meta.published_at,
+        commit_sha=request.commit_sha,
+        approval=request.approval,
     )
 
     if deploy:

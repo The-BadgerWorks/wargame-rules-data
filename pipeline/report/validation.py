@@ -2,6 +2,9 @@
 # (task T095) exactly per validation-report.md §2 and §4: a derived verdict, the coverage block,
 # a scale block stating count AND proportion for every category, counts by class and severity,
 # and a human report opening with verdict, scale, and blocking findings in that order (FR-031).
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - Exported the verdict-line table as
+# `VERDICT_LINE` (task T119) so pipeline.report.pr_body can open the candidate PR body with the
+# same headline wording report.md already uses.
 """`reports/<rulesVersionId>/report.json` and `report.md`.
 
 Every run produces this, whether or not it publishes (FR-031), and the report of a run that
@@ -170,7 +173,9 @@ def report_json(report: ValidationReport) -> dict[str, JsonValue]:
     }
 
 
-_VERDICT_LINE: Mapping[Verdict, str] = {
+#: Public so :mod:`pipeline.report.pr_body` (task T119) can open the approver's PR body with the
+#: same headline sentence `report.md` opens with, rather than inventing a second wording of it.
+VERDICT_LINE: Mapping[Verdict, str] = {
     Verdict.CLEAN: "**CLEAN** — nothing to report. Eligible for publication.",
     Verdict.ADVISORY_ONLY: "**ADVISORY ONLY** — eligible for publication pending approval.",
     Verdict.BLOCKED: "**BLOCKED** — publication refused. There is no override flag (FR-029).",
@@ -183,7 +188,7 @@ def render_report_markdown(report: ValidationReport) -> str:
     out: list[str] = [
         f"# Validation report — {report.rules_version_id}",
         "",
-        _VERDICT_LINE[report.verdict],
+        VERDICT_LINE[report.verdict],
         "",
         f"Run `{report.run_id}` on the `{report.channel}` channel, {report.generated_at}.",
         "",
