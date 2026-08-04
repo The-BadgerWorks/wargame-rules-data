@@ -99,11 +99,18 @@ jobs:
       # step 2). This is the only network-touching step other than `publish` itself -- both run
       # the real acquire -> ... -> build chain against the checked-out commit, exactly as a
       # curator reproducing this on a laptop would (contract §1's "no CI-only code path").
+      # Exit 20 (valid with advisory findings) is a publishable rebuild — the gate below
+      # re-validates and refuses blocking findings itself. Only 0 and 20 proceed.
       - name: Rebuild the snapshot from the approved commit
-        run: >-
-          rules-pipeline build
-          --channel "${{ inputs.channel }}"
-          --rules-version-id "${{ inputs.rules_version_id }}"
+        run: |
+          set +e
+          rules-pipeline build \
+            --channel "${{ inputs.channel }}" \
+            --rules-version-id "${{ inputs.rules_version_id }}"
+          code=$?
+          if [ "$code" -ne 0 ] && [ "$code" -ne 20 ]; then
+            exit "$code"
+          fi
 
       # `pipeline.publish.gate.run_publish` (task T116) owns everything from here: it refuses
       # outside this exact job (this workflow's own `name: publish`), refuses a duplicate

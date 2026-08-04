@@ -64,11 +64,19 @@ jobs:
       # The full run, prerelease channel: acquire -> parse -> normalize -> reconcile -> curate ->
       # validate -> build (contract §1). This never publishes -- there is no publish step in this
       # workflow, and the token above cannot reach Releases or Pages even if there were one.
+      # Exit 20 is the "valid candidate, advisory findings attached" outcome (contract §1's
+      # exit-code table) — a reviewable candidate, not a failure. Only 0 and 20 proceed to
+      # the branch push; 30 (blocking findings) and 40+ (acquisition/infra) still fail here.
       - name: Build the candidate snapshot
-        run: >-
-          rules-pipeline build
-          --channel prerelease
-          --rules-version-id "$RULES_VERSION_ID"
+        run: |
+          set +e
+          rules-pipeline build \
+            --channel prerelease \
+            --rules-version-id "$RULES_VERSION_ID"
+          code=$?
+          if [ "$code" -ne 0 ] && [ "$code" -ne 20 ]; then
+            exit "$code"
+          fi
 
       - name: Push the candidate branch
         run: |
