@@ -1,0 +1,51 @@
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - Authored the settings-drift workflow
+# (task T148): runs tools/check_repo_settings.py against the live repository and fails on any
+# divergence from docs/repo-settings.md §1-§3. Deliberately its own workflow, never a job in
+# ci.yml: the default Actions GITHUB_TOKEN carries no `administration` scope at all (that
+# permission is app-installation-only, not something a workflow's `permissions:` block can grant),
+# so reading branch protection or environment settings is impossible with it regardless of
+# trigger -- and even setting that aside, wiring an admin-capable PAT into a `pull_request`-
+# triggered job would be a bad idea on its own terms, so this workflow's trigger set excludes
+# `pull_request` outright rather than leaning on GitHub's fork-secret withholding as the only
+# guard. `workflow_dispatch` for an on-demand check plus a weekly `schedule` for unattended drift
+# detection; nothing else can start this job.
+name: settings-drift
+
+on:
+  schedule:
+    # Weekly is enough: these three settings classes change by deliberate admin action, not by
+    # anything the pipeline itself does, so a week of staleness on the drift signal is an
+    # acceptable trade against running an admin-token job any more often than needed.
+    - cron: "0 6 * * 1"
+  workflow_dispatch: {}
+
+# Read-only against the GitHub API and against the checkout; no concurrency hazard to guard.
+permissions:
+  contents: read
+
+jobs:
+  settings-drift:
+    name: settings drift
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install package (dev extras)
+        run: pip install -e ".[dev]"
+
+      # tools/check_repo_settings.py (task T148) reads environments, branch protection, and the
+      # Pages source back through the API and diffs them against the constants copied from
+      # docs/repo-settings.md §1-§3. WGC_SETTINGS_AUDIT_TOKEN is a fine-grained, read-only,
+      # administration-read personal access token scoped to this one repository -- the narrow,
+      # documented exception to "no long-lived PAT anywhere in this design"
+      # (contracts/pipeline-run-interface.md §5): it cannot write anything, cannot touch
+      # Releases or Pages, and is never available to a pull_request-triggered job because this
+      # workflow has no pull_request trigger at all.
+      - name: Check repository settings against docs/repo-settings.md
+        env:
+          WGC_SETTINGS_AUDIT_TOKEN: ${{ secrets.WGC_SETTINGS_AUDIT_TOKEN }}
+        run: python tools/check_repo_settings.py --repo "${{ github.repository }}"

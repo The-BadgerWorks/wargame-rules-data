@@ -9,6 +9,10 @@
 # to pipeline.publish.withdraw, and `rules-pipeline verify` (task T143) to pipeline.publish.
 # verify with its own ledger entry, completing the eight-command contract surface (FR-044,
 # SC-007, SC-009).
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - Wired `pipeline.report.trends.
+# render_trends` (task T149) into both `write_reports` call sites (`run_build` and
+# `run_validate`), reading `state/run-ledger.jsonl` from the real repository root each time so
+# the trend is always a property of the actual run history, never of a fixture's synthetic one.
 """``rules-pipeline`` — the operator-facing surface.
 
 The same CLI runs locally against fixtures and in CI against the real sources: **there is no
@@ -112,6 +116,7 @@ from pipeline.report.edition_mismatch import (
     render_edition_mismatch,
     render_unverified_pricing,
 )
+from pipeline.report.trends import render_trends
 from pipeline.report.validation import (
     build_report,
     report_dir,
@@ -521,6 +526,13 @@ def run_build(  # noqa: PLR0913 - the stage boundary is the argument list
         snapshot=snapshot,
         findings=resolved_findings,
     )
+    # `trends` (task T149) reads the ledger this same repository root already carries — never a
+    # fixture's own root, since the trend is a property of the real run history, not of one
+    # synthetic set.
+    sub_reports = {
+        **sub_reports,
+        "trends": render_trends(read_entries(root / LEDGER_RELATIVE_PATH)),
+    }
     # A fixture run's reports land beside its build output, never in the repository's own
     # `reports/`, which holds the retained report of a real published version (§1).
     report_path = write_reports(
@@ -654,6 +666,7 @@ def run_validate(
                 "summary_coverage": render_summary_coverage(
                     snapshot, authored_summaries=authored.ability_summaries, current_digests=None
                 ),
+                "trends": render_trends(read_entries(root / LEDGER_RELATIVE_PATH)),
             },
         )
     return _verdict(resolved, coverage), report, directory

@@ -5,6 +5,9 @@
 # AI-Assisted: Claude Code (model: claude-sonnet-5) - Exported the verdict-line table as
 # `VERDICT_LINE` (task T119) so pipeline.report.pr_body can open the candidate PR body with the
 # same headline wording report.md already uses.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - Added `trends` to `SUB_REPORT_FILES`
+# (task T149) for `pipeline.report.trends.render_trends`'s unverified/hybrid-count trend, wired
+# in the same way as every other sub-report already listed here.
 """`reports/<rulesVersionId>/report.json` and `report.md`.
 
 Every run produces this, whether or not it publishes (FR-031), and the report of a run that
@@ -50,6 +53,7 @@ SUB_REPORT_FILES: Mapping[str, str] = {
     "edition_mismatch": "edition-mismatch.md",
     "unverified_pricing": "unverified-pricing.md",
     "summary_coverage": "summary-coverage.md",
+    "trends": "trends.md",
 }
 
 
