@@ -1,18 +1,34 @@
 #!/usr/bin/env python3
 # AI-Assisted: Claude Code (model: claude-sonnet-5) - Change-class guard (task T014):
 # enforces that a pull request touches at most one of the four mutually exclusive change
-# classes {pipeline/+tests/, data/, curation/, infrastructure}, that a PR touching data/ is
-# authored by the pipeline bot, and (in `worktree` mode) that a pipeline run's own working-tree
+# classes {pipeline/+tests/, data/, curation/, infrastructure}, that a PR touching data/ was
+# committed by the pipeline bot, and (in `worktree` mode) that a pipeline run's own working-tree
 # diff never touches curation/ -- the data/<->curation/ write boundary (plan.md Separation
 # gate, research D2/D3).
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - Switched the data/ writer check from the
+# PR's opener login to the git author identity of the commits that touch data/ (CI run
+# 30936394229 on PR #1, candidate/mfm-2026-08): this repository's org disallows "GitHub Actions
+# is not permitted to create or approve pull requests" for the default `GITHUB_TOKEN`
+# (confirmed in candidate.yml's `Open or update the candidate pull request` step failing with
+# that exact message), so `candidate.yml` pushes the candidate branch under the commit identity
+# it sets (`git config user.name "wargame-rules-data bot"`) but a maintainer must open the PR by
+# hand until that org policy changes -- `github.event.pull_request.user.login` is then the
+# maintainer, not the bot, even though every byte in data/ still came from the pipeline commit.
+# The commit's author is the fact that actually answers "did the pipeline write this," and
+# reading it from `git log` rather than PR metadata also matches how `worktree` mode below
+# already inspects git state directly instead of trusting an external actor string.
 """Change-class guard for wargame-rules-data.
 
 Two invocation modes:
 
   check_change_classes.py diff --base <ref> --head <ref> [--actor <login>]
       Used in CI on pull_request events. Fails if the file set changed between `base` and
-      `head` spans more than one of the four change classes, or if the diff touches `data/`
-      and `--actor` is not the pipeline bot.
+      `head` spans more than one of the four change classes, or if the diff touches `data/` and
+      any commit in `base..head` was not authored under the pipeline bot's git identity
+      (`PIPELINE_BOT_COMMIT_NAME`/`PIPELINE_BOT_COMMIT_EMAIL`) -- regardless of which account
+      opened the pull request itself. `--actor` is accepted for interface compatibility with
+      `check_summary_approvals.py`'s identical flag but no longer decides this check's verdict;
+      the commit author is the fact that matters.
 
   check_change_classes.py worktree
       Used after a pipeline invocation (e.g. in candidate.yml, once it exists) to assert the
@@ -31,7 +47,12 @@ import subprocess
 import sys
 from enum import StrEnum
 
-PIPELINE_BOT_LOGIN = "github-actions[bot]"
+# The git identity `candidate.yml` (and any future data-writing workflow) commits under -- see
+# that workflow's `git config user.name`/`user.email` in its "Push the candidate branch" step.
+# This is the provenance signal the guard actually trusts for data/, independent of which GitHub
+# account ends up as the pull request's opener (see the module docstring).
+PIPELINE_BOT_COMMIT_NAME = "wargame-rules-data bot"
+PIPELINE_BOT_COMMIT_EMAIL = "noreply@users.noreply.github.com"
 
 
 class ChangeClass(StrEnum):
@@ -62,6 +83,41 @@ def changed_files(base: str, head: str) -> list[str]:
         check=True,
     )
     return [line for line in result.stdout.splitlines() if line.strip()]
+
+
+def commit_authors(base: str, head: str) -> list[tuple[str, str]]:
+    """The ``(name, email)`` of every commit reachable from ``head`` but not from ``base``.
+
+    Two-dot, not three-dot: this asks "what did this branch add," which is the PR's own
+    commits, the same commits ``candidate.yml`` created. A three-dot (merge-base) diff would
+    answer a different question and is what :func:`changed_files` uses instead, correctly, for
+    the file set.
+    """
+    result = subprocess.run(
+        ["git", "log", "--format=%an\t%ae", f"{base}..{head}"],
+        capture_output=True,
+        text=True,
+        check=True,
+    )
+    authors = []
+    for line in result.stdout.splitlines():
+        if not line.strip():
+            continue
+        name, _, email = line.partition("\t")
+        authors.append((name, email))
+    return authors
+
+
+def non_bot_data_authors(base: str, head: str) -> list[tuple[str, str]]:
+    """Commit authors in ``base..head`` that are not the pipeline bot's git identity.
+
+    Empty when every commit -- there is always at least one, or ``data/`` could not have
+    changed -- was committed as the bot. That is the actual claim "data/ is machine-written
+    only" needs verified; who clicked "Create pull request" is a different, weaker fact (see
+    the module docstring).
+    """
+    bot_identity = (PIPELINE_BOT_COMMIT_NAME, PIPELINE_BOT_COMMIT_EMAIL)
+    return [author for author in commit_authors(base, head) if author != bot_identity]
 
 
 def worktree_changed_files() -> list[str]:
@@ -101,15 +157,23 @@ def cmd_diff(args: argparse.Namespace) -> int:
                 print(f"  [{c.value}] {path}", file=sys.stderr)
         return 1
 
-    if ChangeClass.DATA in classes and args.actor != PIPELINE_BOT_LOGIN:
-        print(
-            f"FAIL: this PR touches data/ but its actor ({args.actor!r}) is not the "
-            f"pipeline bot ({PIPELINE_BOT_LOGIN!r}). data/ is machine-written only.",
-            file=sys.stderr,
-        )
-        return 1
+    if ChangeClass.DATA in classes:
+        offending = non_bot_data_authors(args.base, args.head)
+        if offending:
+            bot = f"{PIPELINE_BOT_COMMIT_NAME} <{PIPELINE_BOT_COMMIT_EMAIL}>"
+            print(
+                f"FAIL: this PR touches data/ but was not committed entirely under the "
+                f"pipeline bot's git identity ({bot!r}). data/ is machine-written only. "
+                "Offending commit author(s):",
+                file=sys.stderr,
+            )
+            for name, email in offending:
+                print(f"  {name} <{email}>", file=sys.stderr)
+            return 1
 
-    print(f"OK: change class = {classes[0].value if classes else 'none'}")
+    class_label = classes[0].value if classes else "none"
+    actor_note = f" (PR opened by {args.actor!r})" if args.actor else ""
+    print(f"OK: change class = {class_label}{actor_note}")
     return 0
 
 

@@ -1,6 +1,10 @@
 # AI-Assisted: Claude Code (model: claude-opus-5) - Wrote the minimal-fixture conformance tests
 # (task T054): the fixtures/minimal build satisfies every item of reference-db-schema.md §7,
 # including the v1.2.0 additions.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - Gave the `bundle` fixture its own throwaway
+# `repository_root` with an empty data/ tree (CI run 30936394229 on PR #1,
+# candidate/mfm-2026-08): without it, `run_build`'s coverage-collapse baseline fell back to the
+# ambient checkout's real data/ tree whenever one was present, raising a spurious COV-COLLAPSE.
 """Tests for the minimal fixture snapshot the consuming app's CI runs against (FR-048, SC-008).
 
 `reference-db-schema.md` §7 exists so `001` can develop against a real bundle without waiting
@@ -32,12 +36,32 @@ MINIMAL = REPO_ROOT / "fixtures" / "minimal"
 def bundle(tmp_path_factory) -> dict:  # type: ignore[no-untyped-def, type-arg]
     if not MINIMAL.is_dir():
         pytest.skip("fixtures/minimal does not exist yet")
+    # `fixtures/minimal` carries no `previous/` of its own, so `run_build` would otherwise fall
+    # back to the ambient checkout's `data/` as the coverage baseline (`pipeline/cli.py`'s
+    # `baseline_root`). That is fine on a repository with an empty `data/` — but on a checkout
+    # that carries a real published tree (a candidate branch, or `main` once a version ships)
+    # this fixture's dozen datasheets would collapse against however many thousand the real tree
+    # has, and COV-COLLAPSE would fire for a reason that has nothing to do with the fixture. An
+    # explicit throwaway `repository_root` with an empty `data/` tree keeps this test's baseline
+    # a first release regardless of what the surrounding repository happens to contain (mirrors
+    # `tests/conftest.py`'s `temp_repo`, which module scope cannot use directly).
+    repository_root = tmp_path_factory.mktemp("minimal-repo")
+    for relative in (
+        "data/wh40k-11e/factions",
+        "curation/abilities",
+        "reports",
+        "state",
+        "site/prerelease",
+        "work",
+    ):
+        (repository_root / relative).mkdir(parents=True, exist_ok=True)
     result = run_build(
         config=load_config(env={}),
         rules_version_id="fixture-minimal",
         fixtures_dir=MINIMAL,
         offline=True,
         output_root=tmp_path_factory.mktemp("minimal-build"),
+        repository_root=repository_root,
     )
     assert result.exit_code in (ExitCode.SUCCESS, ExitCode.ADVISORY_ONLY), [
         f.finding_code for f in result.findings if f.severity == "blocking"

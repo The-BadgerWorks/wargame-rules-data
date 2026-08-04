@@ -3,6 +3,10 @@
 # synthetic snapshot, using the mixed-state records seeded in
 # fixtures/sample/curation/abilities/ and the fully-approved records in
 # fixtures/minimal/curation/abilities/ (FR-020, research D10).
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - Gave both `run_build` calls a throwaway
+# `temp_repo()` repository_root (CI run 30936394229 on PR #1, candidate/mfm-2026-08): without
+# it, the coverage-collapse baseline fell back to the ambient checkout's real data/ tree
+# whenever one was present, raising a spurious COV-COLLAPSE unrelated to ability summaries.
 """`curation/abilities/` fixture data, exercised against the real fixture files.
 
 `fixtures/minimal` is what US1's own tests already build end to end (`test_minimal_fixture_
@@ -22,6 +26,7 @@ This module reads its detail-source CSVs and authored tree directly instead, the
 
 from __future__ import annotations
 
+from collections.abc import Callable
 from pathlib import Path
 
 from pipeline.cli import run_build
@@ -38,20 +43,29 @@ SAMPLE = REPO_ROOT / "fixtures" / "sample"
 FIXTURE_DIGEST_KEY = b"fixture-mechanic-digest-key"
 
 
-def test_fixtures_minimal_summaries_are_fully_approved_and_current(tmp_path: Path) -> None:
+def test_fixtures_minimal_summaries_are_fully_approved_and_current(
+    tmp_path: Path, temp_repo: Callable[[], Path]
+) -> None:
     result = run_build(
         config=load_config(env={"WGC_MECHANIC_DIGEST_KEY": FIXTURE_DIGEST_KEY.decode()}),
         rules_version_id="fixture-minimal-summaries",
         fixtures_dir=REPO_ROOT / "fixtures" / "minimal",
         offline=True,
         output_root=tmp_path,
+        # `fixtures/minimal` has no `previous/` of its own, so without an explicit throwaway
+        # `repository_root` the build would fall back to the ambient checkout's `data/` as its
+        # coverage baseline — hermetic on `main` (empty `data/`) but not on a branch that carries
+        # a real published tree. `temp_repo` (tests/conftest.py) gives it an empty one always.
+        repository_root=temp_repo(),
     )
 
     sum_findings = [f for f in result.findings if f.finding_code.startswith("SUM-")]
     assert sum_findings == []
 
 
-def test_a_run_with_no_digest_key_never_flips_an_approved_summary(tmp_path: Path) -> None:
+def test_a_run_with_no_digest_key_never_flips_an_approved_summary(
+    tmp_path: Path, temp_repo: Callable[[], Path]
+) -> None:
     """Without WGC_MECHANIC_DIGEST_KEY there is no fresh text to compare against, so every key
     fixtures/minimal stores as `approved` stays `approved` — no SUM-NEEDS-REREVIEW appears, even
     though it would if the digest key were set and the source text had moved (it has not, here;
@@ -62,6 +76,7 @@ def test_a_run_with_no_digest_key_never_flips_an_approved_summary(tmp_path: Path
         fixtures_dir=REPO_ROOT / "fixtures" / "minimal",
         offline=True,
         output_root=tmp_path,
+        repository_root=temp_repo(),
     )
 
     sum_findings = [f for f in result.findings if f.finding_code.startswith("SUM-")]
