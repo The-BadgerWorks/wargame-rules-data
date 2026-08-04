@@ -1,0 +1,52 @@
+[
+  {
+    "ability_key": "core:deep-strike",
+    "mechanic_digest": "c493287b6e24119a2b13a1c20f78a280",
+    "name": "Deep Strike",
+    "review_state": "approved",
+    "reviewed_at": "2026-06-13T00:00:00Z",
+    "reviewed_by": "fixture-curator",
+    "summary": "Invented mechanics-only summary for Deep Strike, authored for this data set."
+  },
+  {
+    "ability_key": "core:leader",
+    "mechanic_digest": "c493287b6e24119a2b13a1c20f78a280",
+    "name": "Leader",
+    "review_state": "in_review",
+    "summary": "Invented mechanics-only summary for Leader, drafted for this data set and awaiting a second reviewer."
+  },
+  {
+    "ability_key": "datasheet:ember-shield",
+    "mechanic_digest": "9d04587a99a3304e1f9e347e1c487f30",
+    "name": "Ember Shield",
+    "review_state": "approved",
+    "reviewed_at": "2026-06-13T00:00:00Z",
+    "reviewed_by": "fixture-curator",
+    "summary": "Invented mechanics-only summary for Ember Shield, authored for this data set."
+  },
+  {
+    "ability_key": "datasheet:slag-wake",
+    "mechanic_digest": "88221b4cdf306694420da680336b1068",
+    "name": "Slag Wake",
+    "review_state": "approved",
+    "reviewed_at": "2026-06-13T00:00:00Z",
+    "reviewed_by": "fixture-curator",
+    "summary": "Invented mechanics-only summary for Slag Wake, authored for this data set."
+  },
+  {
+    "ability_key": "datasheet:kindling-surge",
+    "mechanic_digest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "name": "Kindling Surge",
+    "review_state": "needs_rereview",
+    "reviewed_at": "2026-05-01T00:00:00Z",
+    "reviewed_by": "fixture-curator",
+    "summary": "Invented mechanics-only summary for Kindling Surge, approved against an earlier mechanic and now stale for the state-machine tests."
+  },
+  {
+    "ability_key": "faction:oath-of-ember",
+    "mechanic_digest": "c493287b6e24119a2b13a1c20f78a280",
+    "name": "Oath of Ember",
+    "review_state": "draft",
+    "summary": "Invented mechanics-only draft summary for Oath of Ember, not yet ready for review."
+  }
+]

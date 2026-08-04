@@ -1,7 +1,7 @@
 [
   {
     "ability_key": "core:deep-strike",
-    "mechanic_digest": "0000000000000000593885fedaeee27a",
+    "mechanic_digest": "647e4dd518c3b4733ce43bf5963d248f",
     "name": "Deep Strike",
     "review_state": "approved",
     "reviewed_at": "2026-06-13T00:00:00Z",
@@ -10,7 +10,7 @@
   },
   {
     "ability_key": "core:leader",
-    "mechanic_digest": "00000000000000005a4c727b0991df50",
+    "mechanic_digest": "647e4dd518c3b4733ce43bf5963d248f",
     "name": "Leader",
     "review_state": "approved",
     "reviewed_at": "2026-06-13T00:00:00Z",
@@ -19,7 +19,7 @@
   },
   {
     "ability_key": "datasheet:ember-shield",
-    "mechanic_digest": "0000000000000000174f68ba15ea4a5e",
+    "mechanic_digest": "647e4dd518c3b4733ce43bf5963d248f",
     "name": "Ember Shield",
     "review_state": "approved",
     "reviewed_at": "2026-06-13T00:00:00Z",
@@ -28,7 +28,7 @@
   },
   {
     "ability_key": "datasheet:kindling-surge",
-    "mechanic_digest": "0000000000000000203c1f10a4e7cdde",
+    "mechanic_digest": "647e4dd518c3b4733ce43bf5963d248f",
     "name": "Kindling Surge",
     "review_state": "approved",
     "reviewed_at": "2026-06-13T00:00:00Z",
@@ -37,7 +37,7 @@
   },
   {
     "ability_key": "datasheet:slag-wake",
-    "mechanic_digest": "00000000000000003ce7e30d3fceec87",
+    "mechanic_digest": "647e4dd518c3b4733ce43bf5963d248f",
     "name": "Slag Wake",
     "review_state": "approved",
     "reviewed_at": "2026-06-13T00:00:00Z",
@@ -46,7 +46,7 @@
   },
   {
     "ability_key": "faction:kindling-surge",
-    "mechanic_digest": "0000000000000000536be9710d454f14",
+    "mechanic_digest": "647e4dd518c3b4733ce43bf5963d248f",
     "name": "Kindling Surge",
     "review_state": "approved",
     "reviewed_at": "2026-06-13T00:00:00Z",

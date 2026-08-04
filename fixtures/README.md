@@ -54,3 +54,16 @@ is no CI-only code path.
 
 Each set is added by the task that needs it; a set is not a dumping ground for "a page that
 looked interesting".
+
+## Ability-summary digests (US5, task T133)
+
+`curation/abilities/*.json` records inside `sample/` and `minimal/` carry a real
+`mechanic_digest` — computed from that set's own `Datasheets_abilities.csv`/`Abilities.csv` text
+with `pipeline.curate.summaries.compute_current_digests` — rather than a placeholder value, so a
+future test exercising staleness end to end against a fixture set has a correct baseline to
+diverge from. They are keyed under the fixture-only test key `fixture-mechanic-digest-key`,
+which carries no significance beyond being a fixed, documented value every fixture-digest test
+can reproduce; it is never `WGC_MECHANIC_DIGEST_KEY`'s real value in any environment. An
+ordinary fixture build does not set that variable at all and so never compares digests (no
+evidence of drift, `pipeline.curate.summaries.effective_status`) — the stored value only matters
+to a test that deliberately sets the key to recompute and compare.

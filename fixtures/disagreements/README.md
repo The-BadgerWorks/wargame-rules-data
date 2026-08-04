@@ -57,6 +57,16 @@ published on using the same registry key the detachment was minted under — so 
 asserted where it can be asserted, at the snapshot level, in
 `tests/contract/test_contract_guarantees.py`.
 
+### Ability summaries (US5, task T133)
+
+This set's `Datasheets_abilities.csv` and `Abilities.csv` are header-only — every case above is
+about *reconciliation*, and none of the invented datasheets needed an ability to realise its
+case. There is therefore no `curation/abilities/` here: nothing built from this set ever
+references an ability key, so there is nothing for `pipeline.validate.summaries` to check and
+nothing to seed. `fixtures/sample/curation/abilities/` and
+`fixtures/minimal/curation/abilities/` are where the summary-coverage state machine (draft,
+in_review, needs_rereview, approved) is exercised against real ability data instead.
+
 ## Running it
 
 ```bash
