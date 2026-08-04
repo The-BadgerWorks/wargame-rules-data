@@ -5,6 +5,10 @@
 # to pipeline.publish.gate: locate the rebuilt bundle, re-validate, and hand off to the release
 # and Pages steps, with the environment deployment's approval record read from the Actions run
 # context (task T117, FR-038, FR-039).
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - Wired `rules-pipeline withdraw` (task T141)
+# to pipeline.publish.withdraw, and `rules-pipeline verify` (task T143) to pipeline.publish.
+# verify with its own ledger entry, completing the eight-command contract surface (FR-044,
+# SC-007, SC-009).
 """``rules-pipeline`` — the operator-facing surface.
 
 The same CLI runs locally against fixtures and in CI against the real sources: **there is no
@@ -54,6 +58,7 @@ from pipeline.acquire.wahapedia import acquire_wahapedia
 from pipeline.build.bundle_emit import BundleMeta, emit_bundle
 from pipeline.build.canonical_json import encode_bundle, write_bundle
 from pipeline.build.checksum import BundleChecksum, checksum
+from pipeline.build.manifest import ManifestError
 from pipeline.config import Channel, ConfigError, PipelineConfig, load_config, repo_root
 from pipeline.curate.assemble import assemble
 from pipeline.curate.authored import AuthoredContent, load_authored
@@ -89,6 +94,10 @@ from pipeline.publish.gate import (
 from pipeline.publish.github_api import GitHubReleaseApi
 from pipeline.publish.pages import ApprovalRecord
 from pipeline.publish.release import ReleaseApi
+from pipeline.publish.verify import AssetDownloader, VerifyOutcome, mismatched, unreachable
+from pipeline.publish.verify import run_verify as _verify_all_published
+from pipeline.publish.withdraw import WithdrawalError, WithdrawOutcome
+from pipeline.publish.withdraw import run_withdraw as _withdraw_one
 from pipeline.reconcile.conflicts import detect_faction_changes, detect_renames
 from pipeline.reconcile.findings import apply_resolutions
 from pipeline.reconcile.pricing_confidence import apply_pricing_confidence
@@ -168,8 +177,6 @@ _HELP: Final[Mapping[str, str]] = {
 #: Commands whose stage modules arrive in a later phase, with the task that lands each.
 _PENDING_STAGES: Final[Mapping[str, str]] = {
     "acquire": "T108 (the acquire-only entry point)",
-    "withdraw": "T141 (pipeline.publish.withdraw)",
-    "verify": "T143 (pipeline.publish.verify)",
 }
 
 #: Where a fixture-sourced run writes. A fixture build must never overwrite the real curated
@@ -816,6 +823,118 @@ def _run_publish_command(config: PipelineConfig, args: argparse.Namespace) -> in
     return int(outcome.exit_code)
 
 
+def run_withdraw_command(
+    *,
+    config: PipelineConfig,
+    rules_version_id: str,
+    reason: str,
+    repository_root: Path | None = None,
+    generated_at: str | None = None,
+    require_ci_context: bool = True,
+    deploy: bool = True,
+) -> WithdrawOutcome:
+    """Wire the CLI's ``--rules-version-id``/``--reason`` into the withdrawal gate.
+
+    Split from :func:`_run_withdraw_command` the same way :func:`run_publish_command` is split
+    from its own CLI wrapper (task T116) — so a test drives the whole sequence without argv
+    parsing (task T141).
+    """
+    root = repository_root or repo_root()
+    return _withdraw_one(
+        config=config,
+        rules_version_id=rules_version_id,
+        reason=reason,
+        site_dir=root / "site",
+        generated_at=generated_at or datetime.now(UTC).isoformat().replace("+00:00", "Z"),
+        require_ci_context=require_ci_context,
+        deploy=deploy,
+    )
+
+
+def _run_withdraw_command(config: PipelineConfig, args: argparse.Namespace) -> int:
+    rules_version_id = getattr(args, "rules_version_id", None)
+    reason = getattr(args, "reason", None)
+    if not rules_version_id or not reason:
+        print(f"{PROG}: withdraw requires --rules-version-id and --reason", file=sys.stderr)
+        return int(ExitCode.CONFIG_ERROR)
+
+    # Mirrors `publish`'s own `--dry-run` (§1): a curator reproduces the gate's verdict without
+    # the CI-context refusal or an actual Pages write.
+    dry_run = bool(getattr(args, "dry_run", False))
+
+    try:
+        outcome = run_withdraw_command(
+            config=config,
+            rules_version_id=rules_version_id,
+            reason=reason,
+            require_ci_context=not dry_run,
+            deploy=not dry_run,
+        )
+    except (WithdrawalError, ManifestError, OutsideApprovedContextError) as exc:
+        print(f"{PROG}: {exc}", file=sys.stderr)
+        return int(ExitCode.CONFIG_ERROR)
+
+    print(f"{PROG}: withdrew {outcome.rules_version_id} ({outcome.manifest_path})")
+    return int(outcome.exit_code)
+
+
+def run_verify_command(
+    *,
+    api: AssetDownloader | None = None,
+    repository_root: Path | None = None,
+    ledger_path: Path | None = None,
+    run_id: str | None = None,
+    trigger: Trigger = Trigger.MANUAL,
+    channel: str = "published",
+    now: datetime | None = None,
+) -> VerifyOutcome:
+    """Re-verify every published checksum and append the one ledger entry `verify` contributes.
+
+    Mirrors :func:`run_detect`'s own "append exactly one line, whatever the outcome" shape
+    (contract §6) — a quiet integrity sweep and a broken one both have to be distinguishable from
+    a sweep that never ran (task T143, task T144).
+    """
+    root = repository_root or repo_root()
+    release_api = api or GitHubReleaseApi(
+        repository=os.environ.get("GITHUB_REPOSITORY", ""),
+        token=os.environ.get("GITHUB_TOKEN", ""),
+    )
+    outcome = _verify_all_published(state_dir=root / "state", api=release_api)
+
+    moment = now or datetime.now(UTC)
+    entry = RunLedgerEntry(
+        run_id=run_id or f"local-verify-{moment.strftime('%Y%m%dT%H%M%SZ')}",
+        command="verify",
+        trigger=trigger,
+        channel=channel,
+        started_at=moment.isoformat().replace("+00:00", "Z"),
+        coverage={
+            "versions_checked": len(outcome.results),
+            "mismatched": len(mismatched(outcome.results)),
+            "unreachable": len(unreachable(outcome.results)),
+        },
+        exit_code=int(outcome.exit_code),
+    )
+    append_entry(ledger_path or (root / LEDGER_RELATIVE_PATH), entry)
+    return outcome
+
+
+def _run_verify_command(config: PipelineConfig, args: argparse.Namespace) -> int:
+    del args  # `verify` takes global options only — nothing per-command to read
+    outcome = run_verify_command(
+        trigger=_trigger_from_environment(), channel=config.data_channel.value
+    )
+    for result in outcome.results:
+        if not result.matched:
+            print(
+                f"{PROG}: MISMATCH {result.rules_version_id} {result.file_url} "
+                f"expected {result.expected_sha256} got {result.actual_sha256 or result.error}",
+                file=sys.stderr,
+            )
+    print(f"{PROG}: verified {len(outcome.results)} version(s)")
+    return int(outcome.exit_code)
+
+
 @dataclass(frozen=True, slots=True)
 class DetectResult:
     """Everything one ``detect`` sweep produced (contract §1-§2, research D4b)."""
@@ -970,6 +1089,10 @@ def dispatch(command: str, config: PipelineConfig, args: argparse.Namespace) -> 
         return _run_detect_command(config, args)
     if command == "publish":
         return _run_publish_command(config, args)
+    if command == "withdraw":
+        return _run_withdraw_command(config, args)
+    if command == "verify":
+        return _run_verify_command(config, args)
     del config, args  # consumed by the stage modules as they land
     return _pending(command)
 

@@ -75,16 +75,19 @@ def test_publish_is_workflow_dispatch_only() -> None:
         assert forbidden not in on_section, f"publish.yml's 'on:' must never declare {forbidden}"
 
 
-def test_publish_is_the_sole_workflow_that_can_reach_pages() -> None:
+def test_only_publish_and_withdraw_can_reach_pages() -> None:
     """`pages: write` is the capability that matters — `contents: write` alone is legitimately
     shared with `candidate.yml`, which pushes the candidate branch but cannot deploy Pages or
-    create a Release asset (contract §3's capability-not-policy design)."""
+    create a Release asset (contract §3's capability-not-policy design). `withdraw.yml` (task
+    T142) is the one other workflow that legitimately needs it: it is deliberately not part of
+    the `publish` job (contract §4), but it is the only other code path allowed to touch
+    `site/`, and it is gated by the same kind of environment approval."""
     capable = [
         path.name
         for path in _workflow_files()
         if "pages: write" in _top_level_section(path.read_text(encoding="utf-8"), "permissions")
     ]
-    assert capable == ["publish.yml"]
+    assert capable == ["publish.yml", "withdraw.yml"]
 
 
 def test_publish_is_bound_to_a_github_environment() -> None:
@@ -96,9 +99,10 @@ def test_publish_is_bound_to_a_github_environment() -> None:
     )
 
 
-def test_no_other_workflow_declares_an_environment() -> None:
-    """`withdraw.yml` will bind to an environment too once it lands (US6) -- today, only
-    `publish.yml` exists and does, so this pins the current state precisely rather than loosely."""
+def test_only_publish_and_withdraw_declare_an_environment() -> None:
+    """`withdraw.yml` (task T142) binds to an environment too, for the same reason `publish.yml`
+    does: a named reviewer must approve before the job can start, whether it is about to create
+    a Release or only flip one manifest entry's withdrawal fields."""
     bound = [
         path.name
         for path in _workflow_files()
@@ -108,7 +112,7 @@ def test_no_other_workflow_declares_an_environment() -> None:
             re.MULTILINE,
         )
     ]
-    assert bound == ["publish.yml"]
+    assert bound == ["publish.yml", "withdraw.yml"]
 
 
 def _rebuild_stub(*, findings: list[object]):  # type: ignore[no-untyped-def]

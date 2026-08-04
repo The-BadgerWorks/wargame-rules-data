@@ -2,6 +2,10 @@
 # manifest generation (task T070) into site/manifest.json or site/prerelease/manifest.json per
 # WGC_DATA_CHANNEL, with every rules-data-manifest.md v1.1.1 field populated (FR-042, FR-045,
 # FR-047).
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - Added `withdraw_entry` (task T139): the
+# only other way a manifest may ever be rewritten -- flipping `withdrawn`/`withdrawnReason` on
+# exactly one existing entry, never adding, removing, or otherwise editing one (FR-042, FR-043,
+# FR-044, data-model.md §7.4).
 """Generate the manifest — the only network resource the consuming app requires.
 
 Every field in it is load bearing. `sizeBytes` and `sha256` gate ingestion; `publishedAt` orders
@@ -146,6 +150,53 @@ def regenerate_manifest(
         )
 
     rendered = render_manifest([*existing, entry], generated_at=generated_at)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    write_bundle(path, rendered)
+    return rendered
+
+
+def withdraw_entry(
+    path: Path, *, rules_version_id: str, reason: str, generated_at: str
+) -> dict[str, JsonValue]:
+    """Mark one existing entry withdrawn, and touch nothing else in the manifest (FR-044).
+
+    The only two fields that ever change are ``withdrawn`` and ``withdrawnReason``, on exactly
+    the one entry named. Every other entry, and every other field of this one, is carried
+    forward byte-for-byte through :func:`render_manifest`'s own re-sort — which is a no-op here
+    since the id set is unchanged, but keeps this function going through the same ordering-
+    stable path every other manifest write does, rather than a bespoke in-place edit that could
+    drift from it.
+
+    Refuses when the id is not listed at all: withdrawing a version that was never published is
+    not "no-op safe", it is evidence the caller named the wrong id (§3.1 of the manifest
+    contract — a withdrawn entry's *presence* is what lets the app explain itself to a player,
+    so silently doing nothing here would be the wrong failure mode).
+    """
+    if not reason.strip():
+        raise ManifestError(
+            "withdrawnReason must be a short factual reason a player pinned to this version "
+            "can be shown, not an empty or whitespace-only string (FR-044)"
+        )
+
+    document = read_manifest(path)
+    existing = list(document.get("versions", []))
+    if not any(str(item.get("rulesVersionId")) == rules_version_id for item in existing):
+        raise ManifestError(
+            f"{rules_version_id} is not listed in {path.name}; nothing to withdraw. Withdrawal "
+            "only ever edits an existing entry, it never creates one."
+        )
+
+    updated: list[dict[str, JsonValue]] = []
+    for item in existing:
+        if str(item.get("rulesVersionId")) != rules_version_id:
+            updated.append(dict(item))
+            continue
+        edited = dict(item)
+        edited["withdrawn"] = True
+        edited["withdrawnReason"] = reason
+        updated.append(edited)
+
+    rendered = render_manifest(updated, generated_at=generated_at)
     path.parent.mkdir(parents=True, exist_ok=True)
     write_bundle(path, rendered)
     return rendered

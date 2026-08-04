@@ -7,6 +7,9 @@
 # (data-model.md §7.2, FR-038). Deliberately not added to site/manifest.json, which is the
 # frozen rules-data-manifest.md v1.1.1 consumer contract and has no field for it -- the approval
 # record is producer-side operational data, not something the app needs to ingest.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - Extended the ledger entry with a
+# `reportRef` (task T140), so a support enquiry starting from this ledger can reach the retained
+# validation report for a version without re-deriving its path (spec *Support implications*).
 """The last two steps of publication: record the checksum, then serve the manifest.
 
 `state/published-checksums.json` is what turns "we promise not to edit a release asset" into a
@@ -81,12 +84,16 @@ def record_published_checksum(
     published_at: str,
     commit_sha: str | None = None,
     approval: ApprovalRecord | None = None,
+    report_ref: str | None = None,
 ) -> list[dict[str, JsonValue]]:
     """Append one entry, refusing to contradict an existing one.
 
     ``commit_sha`` and ``approval`` are optional so a hand-authored break-glass reconciliation
     entry (`docs/break-glass.md`) can still be recorded without inventing an approval that never
-    happened; every entry written by the real `publish` job supplies both.
+    happened; every entry written by the real `publish` job supplies both. ``report_ref`` is the
+    retained `reports/<rulesVersionId>/report.json` path that same job's rebuild already wrote
+    (T140) — recorded so a support enquiry or `rules-pipeline verify` (T143) can find the
+    validation report a published version shipped with without re-deriving the convention.
     """
     existing = read_published_checksums(path)
 
@@ -116,6 +123,8 @@ def record_published_checksum(
             "approver": approval.approver,
             "approvedAt": approval.approved_at,
         }
+    if report_ref is not None:
+        appended["reportRef"] = report_ref
     updated: list[dict[str, JsonValue]] = sorted(
         [*existing, appended], key=lambda entry: str(entry["rulesVersionId"])
     )

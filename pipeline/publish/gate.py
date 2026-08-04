@@ -5,6 +5,10 @@
 # Pages steps -- plus the FR-041 pre-flight refusal on an already-published rulesVersionId
 # (task T118), since both refusals belong before the first irreversible step for the same
 # reason (FR-038, FR-039, FR-041, contract §4).
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - Generalised `in_approved_ci_context` to
+# take the gating workflow's own name as a parameter (task T141), so `pipeline.publish.withdraw`
+# can reuse the exact same "which job am I actually running in" check instead of re-deriving it,
+# and threaded a `report_ref` into the publication request (task T140).
 """The publish gate: the one function the `publish` workflow job's CLI step calls.
 
 Contract §4 fixes the order. This module owns steps 0-4; step 5 onward (create release, upload
@@ -89,20 +93,24 @@ class GateOutcome:
     result: PublicationResult | None = None
 
 
-def in_approved_ci_context(env: Mapping[str, str]) -> bool:
-    """True only inside the Actions job the `published`/`prerelease` environment gates.
+def in_approved_ci_context(env: Mapping[str, str], *, workflow: str = "publish") -> bool:
+    """True only inside the Actions job ``workflow`` names, which an environment gates.
 
-    A curator's own machine, a `pull_request`-triggered run, and every workflow other than
-    `publish` fail at least one of these three together. None of them is a security boundary on
+    A curator's own machine, a `pull_request`-triggered run, and every workflow other than the
+    named one fail at least one of these three together. None of them is a security boundary on
     its own — they are ordinary environment variables — which is exactly why the real control is
     the environment approval GitHub already enforced before this job could start; this check
     only stops the accidental or convenience case of running the *command* somewhere that
     approval was never asked for.
+
+    ``workflow`` defaults to ``"publish"`` for this module's own use;
+    :mod:`pipeline.publish.withdraw` calls this with ``workflow="withdraw"`` rather than
+    re-deriving the same three-condition check for its own environment-gated job (T141).
     """
     return (
         env.get("GITHUB_ACTIONS") == "true"
         and bool(env.get("GITHUB_JOB"))
-        and env.get("GITHUB_WORKFLOW") == "publish"
+        and env.get("GITHUB_WORKFLOW") == workflow
     )
 
 
@@ -198,6 +206,10 @@ def run_publish(
         expect_sha256=expect_sha256,
         channel=config.data_channel,
         approval=approval,
+        # The convention `report_dir` fixes (`reports/<rulesVersionId>/report.json`, §6.3): the
+        # rebuild this gate already ran wrote it there before this function was ever reached, so
+        # this is a path, not a re-derivation of what that report contains (T140).
+        report_ref=f"reports/{rules_version_id}/report.json",
     )
     result = publish_release(
         request,

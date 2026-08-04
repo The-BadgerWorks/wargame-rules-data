@@ -4,6 +4,9 @@
 # so the manifest never names an unretrievable artifact (FR-045, research D3).
 # AI-Assisted: Claude Code (model: claude-sonnet-5) - Threaded the approval record and the
 # approved commit sha through to the checksum ledger entry (task T117, data-model.md §7.2).
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - Threaded a `report_ref` through to the
+# checksum ledger entry (task T140), so the ledger names the retained validation report
+# alongside the checksum it verifies.
 """Publish one approved candidate, in an order chosen for what an interruption leaves behind.
 
 The sequence is the requirement (contract §4, FR-045):
@@ -80,6 +83,9 @@ class PublicationRequest:
     approval: ApprovalRecord | None = None
     """The environment deployment's approval record (data-model.md §7.2), when this publish is
     driven by the gated CI job. ``None`` only for a break-glass reconciliation entry."""
+    report_ref: str | None = None
+    """The retained validation report's path, e.g. ``reports/mfm-2026-06/report.json`` (T140).
+    ``None`` only for a break-glass reconciliation entry with no rebuild behind it."""
 
 
 @dataclass(frozen=True, slots=True)
@@ -153,6 +159,7 @@ def publish(
         published_at=request.meta.published_at,
         commit_sha=request.commit_sha,
         approval=request.approval,
+        report_ref=request.report_ref,
     )
 
     if deploy:
