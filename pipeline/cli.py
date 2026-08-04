@@ -56,8 +56,9 @@ from pipeline.build.canonical_json import encode_bundle, write_bundle
 from pipeline.build.checksum import BundleChecksum, checksum
 from pipeline.config import Channel, ConfigError, PipelineConfig, load_config, repo_root
 from pipeline.curate.assemble import assemble
-from pipeline.curate.authored import load_authored
+from pipeline.curate.authored import AuthoredContent, load_authored
 from pipeline.curate.prior import PriorSnapshot, load_prior, read_curated_tree
+from pipeline.curate.summaries import compute_current_digests
 from pipeline.curate.writer import write_tree
 from pipeline.detect.digest import DIGEST_STATE_RELATIVE_PATH
 from pipeline.detect.digest import compare as compare_digests
@@ -67,6 +68,7 @@ from pipeline.detect.staleness import is_stale
 from pipeline.exit_codes import ExitCode
 from pipeline.models.curated import CuratedSnapshot
 from pipeline.models.findings import Finding, Severity, ValidationReport
+from pipeline.normalize.mechanic_digest import DigestKeyMissingError, resolve_digest_key
 from pipeline.observability.ledger import (
     LEDGER_RELATIVE_PATH,
     RunLedgerEntry,
@@ -95,10 +97,10 @@ from pipeline.report.change_summary import (
     render_change_summary,
     tier_findings,
 )
+from pipeline.report.coverage import render_summary_coverage
 from pipeline.report.delta_crosscheck import crosscheck_deltas
 from pipeline.report.edition_mismatch import (
     render_edition_mismatch,
-    render_summary_coverage,
     render_unverified_pricing,
 )
 from pipeline.report.validation import (
@@ -115,6 +117,7 @@ from pipeline.validate.contract_checks import (
 from pipeline.validate.coverage import CoverageOutcome, check_coverage
 from pipeline.validate.ip_scan import scan_bundle
 from pipeline.validate.refs import check_authored_references
+from pipeline.validate.summaries import check_summaries
 from pipeline.workspace import workspace
 
 LOGGER: Final = logging.getLogger("pipeline")
@@ -305,6 +308,8 @@ def _reconcile_against_prior(
     datasheet_ids: Mapping[tuple[str, str], str],
     rules_version_id: str,
     config: PipelineConfig,
+    authored: AuthoredContent,
+    ability_current_digests: Mapping[str, str] | None,
 ) -> tuple[CuratedSnapshot, list[Finding], CoverageOutcome, dict[str, str]]:
     """Everything US2 adds that needs a baseline, in one place.
 
@@ -333,11 +338,24 @@ def _reconcile_against_prior(
     coverage = check_coverage(snapshot, prior, config)
     findings.extend(coverage.findings)
 
+    findings.extend(
+        check_summaries(
+            snapshot,
+            authored_summaries=authored.ability_summaries,
+            current_digests=ability_current_digests,
+            summary_max_chars=config.summary_max_chars,
+        )
+    )
+
     sub_reports = {
         "change_summary": render_change_summary(summary),
         "edition_mismatch": render_edition_mismatch(snapshot),
         "unverified_pricing": render_unverified_pricing(snapshot),
-        "summary_coverage": render_summary_coverage(snapshot),
+        "summary_coverage": render_summary_coverage(
+            snapshot,
+            authored_summaries=authored.ability_summaries,
+            current_digests=ability_current_digests,
+        ),
     }
     return snapshot, findings, coverage, sub_reports
 
@@ -426,6 +444,20 @@ def run_build(  # noqa: PLR0913 - the stage boundary is the argument list
         findings.extend(assembly.findings)
         snapshot = assembly.snapshot
 
+        # The mechanic digest may only be computed while the detail source's text is in hand
+        # (research D6: "the digest may only be computed where the text exists"), which is here
+        # and only here — `detail` goes out of scope with `work/` at the end of this block. A
+        # run with no configured key computes no digests at all rather than failing the build:
+        # every summary still gets its non-staleness checks (SUM-MISSING, SUM-UNAPPROVED), and
+        # an `approved` summary is trusted as-is for this run, exactly as a bare `validate`
+        # re-run (which never has source text either) already must (FR-020, FR-024, C6/R8).
+        try:
+            digest_key = resolve_digest_key(config)
+        except DigestKeyMissingError:
+            ability_current_digests: Mapping[str, str] | None = None
+        else:
+            ability_current_digests = compute_current_digests(detail, key=digest_key)
+
     # Always the **published** manifest, whichever channel this run targets: FR-009 measures a
     # candidate against the last version players actually have, and measuring a pre-release
     # against the previous pre-release would let coverage erode one candidate at a time without
@@ -438,6 +470,8 @@ def run_build(  # noqa: PLR0913 - the stage boundary is the argument list
         datasheet_ids=assembly.datasheet_ids,
         rules_version_id=rules_version_id,
         config=config,
+        authored=authored,
+        ability_current_digests=ability_current_digests,
     )
     findings.extend(prior_findings)
 
@@ -572,6 +606,15 @@ def run_validate(
         *check_snapshot(snapshot, meta),
         *check_authored_references(snapshot, authored),
         *scan_bundle(emit_bundle(snapshot, meta)),
+        # No source text is ever re-acquired here (contract §1), so this run has no evidence of
+        # digest drift — `current_digests=None` — and trusts each stored `review_state` as-is.
+        # It still catches a key with no summary at all, or one left in `draft`/`in_review`.
+        *check_summaries(
+            snapshot,
+            authored_summaries=authored.ability_summaries,
+            current_digests=None,
+            summary_max_chars=config.summary_max_chars,
+        ),
     ]
 
     prior = load_prior(root, edition_code=EDITION_CODE)
@@ -601,7 +644,9 @@ def run_validate(
                 "change_summary": render_change_summary(summary),
                 "edition_mismatch": render_edition_mismatch(snapshot),
                 "unverified_pricing": render_unverified_pricing(snapshot),
-                "summary_coverage": render_summary_coverage(snapshot),
+                "summary_coverage": render_summary_coverage(
+                    snapshot, authored_summaries=authored.ability_summaries, current_digests=None
+                ),
             },
         )
     return _verdict(resolved, coverage), report, directory

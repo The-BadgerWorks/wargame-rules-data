@@ -1,7 +1,8 @@
-# AI-Assisted: Claude Code (model: claude-opus-5) - Implemented the edition-mismatch,
-# unverified-pricing and summary-coverage sub-reports (task T097), each leading with count AND
-# proportion before any enumeration (FR-060, FR-035, FR-025, SC-013).
-"""The three enumerating sub-reports, each of which leads with its scale.
+# AI-Assisted: Claude Code (model: claude-opus-5) - Implemented the edition-mismatch and
+# unverified-pricing sub-reports (task T097), each leading with count AND proportion before any
+# enumeration (FR-060, FR-035, SC-013). `scale_line` is shared with
+# `pipeline.report.coverage` (task T130), which carries the same rule for `summary-coverage.md`.
+"""Two enumerating sub-reports, each of which leads with its scale.
 
 `validation-report.md` §1.3 makes this a rule rather than a style preference: **every category
 states a count and a proportion of the snapshot, not merely an enumeration.** At a few thousand
@@ -17,8 +18,6 @@ reads like a decision.
 """
 
 from __future__ import annotations
-
-from collections.abc import Sequence
 
 from pipeline.models.curated import CuratedDatasheet, CuratedSnapshot
 from pipeline.models.provenance import PricingConfidenceState
@@ -46,7 +45,12 @@ def unverified_datasheets(snapshot: CuratedSnapshot) -> list[CuratedDatasheet]:
     ]
 
 
-def _scale_line(label: str, count: int, total: int) -> list[str]:
+def scale_line(label: str, count: int, total: int) -> list[str]:
+    """A leading count-and-proportion line, per `validation-report.md` §1.3.
+
+    Public (not `_scale_line`) because :mod:`pipeline.report.coverage` reuses it for
+    `summary-coverage.md`, which carries the identical rule (FR-025).
+    """
     return [
         f"**{count}** of {total} {label} — **{_proportion(count, total)}** of the release.",
         "",
@@ -58,7 +62,7 @@ def render_edition_mismatch(snapshot: CuratedSnapshot) -> str:
     hybrids = hybrid_datasheets(snapshot)
     total = len(snapshot.datasheets)
 
-    out = ["# Edition mismatch", "", *_scale_line("datasheets are hybrid", len(hybrids), total)]
+    out = ["# Edition mismatch", "", *scale_line("datasheets are hybrid", len(hybrids), total)]
     if not hybrids:
         out.append("Both sources declare the same edition; no entity is hybrid.")
         return "\n".join(out).rstrip() + "\n"
@@ -80,7 +84,7 @@ def render_unverified_pricing(snapshot: CuratedSnapshot) -> str:
     out = [
         "# Unverified pricing",
         "",
-        *_scale_line("datasheets ship on last-known pricing", len(unverified), total),
+        *scale_line("datasheets ship on last-known pricing", len(unverified), total),
     ]
     if not unverified:
         out.append("Every published price was confirmed by the points source this release.")
@@ -97,37 +101,5 @@ def render_unverified_pricing(snapshot: CuratedSnapshot) -> str:
             f"{confidence.unverified_since_version or '-'} | "
             f"{confidence.consecutive_unverified_releases} | "
             f"{confidence.last_verified_version or '-'} |"
-        )
-    return "\n".join(out).rstrip() + "\n"
-
-
-def render_summary_coverage(snapshot: CuratedSnapshot) -> str:
-    """`summary-coverage.md`: per faction, approved over total, and the named gaps (FR-025)."""
-    approved = {
-        key
-        for key, summary in snapshot.ability_summaries.items()
-        if summary.review_state.value == "approved"
-    }
-
-    per_faction: dict[str, set[str]] = {}
-    for datasheet in snapshot.datasheets:
-        per_faction.setdefault(datasheet.faction_id, set()).update(datasheet.ability_keys)
-
-    total_keys = {key for keys in per_faction.values() for key in keys}
-    out = [
-        "# Summary coverage",
-        "",
-        *_scale_line(
-            "ability keys carry an approved summary", len(total_keys & approved), len(total_keys)
-        ),
-        "| faction | approved / total | outstanding |",
-        "|---|---|---|",
-    ]
-    for faction_id in sorted(per_faction):
-        keys = per_faction[faction_id]
-        outstanding: Sequence[str] = sorted(keys - approved)
-        out.append(
-            f"| `{faction_id}` | {len(keys & approved)} / {len(keys)} | "
-            f"{', '.join(f'`{key}`' for key in outstanding) if outstanding else '—'} |"
         )
     return "\n".join(out).rstrip() + "\n"
