@@ -119,25 +119,5 @@ def test_free_text_composition_is_stripped_before_it_is_parsed() -> None:
     assert result.text == "5 Cinder Wardens"
 
 
-def test_mechanic_digest_is_keyed_and_does_not_reveal_its_input() -> None:
-    from pipeline.normalize.ip_strip import mechanic_digest
-
-    text = "Invented placeholder prose describing one mechanic."
-    digest = mechanic_digest(text, key=b"repository-key")
-
-    assert digest == mechanic_digest(text, key=b"repository-key")
-    assert digest != mechanic_digest(text, key=b"another-key")
-    assert len(digest) == 32  # 128 bits, hex
-    assert "Invented" not in digest
-
-
-def test_mechanic_digest_ignores_presentation_but_not_mechanics() -> None:
-    from pipeline.normalize.ip_strip import mechanic_digest
-
-    key = b"k"
-    assert mechanic_digest("<b>Add 1 to the roll.</b>", key=key) == mechanic_digest(
-        "Add  1  to the roll", key=key
-    )
-    assert mechanic_digest("Add 1 to the roll.", key=key) != mechanic_digest(
-        "Add 2 to the roll.", key=key
-    )
+# `mechanic_digest` and `hard_normalise` moved to `pipeline.normalize.mechanic_digest` (T127);
+# their tests moved with them to `tests/summaries/test_mechanic_digest.py` (T123).

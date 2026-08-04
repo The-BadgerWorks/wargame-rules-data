@@ -26,11 +26,8 @@ it, and FR-013 covers reports and logs as well as data.
 
 from __future__ import annotations
 
-import hashlib
-import hmac
 import html
 import re
-import unicodedata
 from dataclasses import dataclass
 from typing import Final
 
@@ -53,13 +50,6 @@ _HAS_MARKUP: Final = re.compile(r"</?[A-Za-z][A-Za-z0-9]*[\s/>]")
 #: An unresolved scraper placeholder, e.g. `$FAQ$`. Low volume in the observed data, but a live
 #: class: emitting one would publish a token that means nothing to a player.
 _PLACEHOLDER_TOKEN: Final = re.compile(r"\$[A-Za-z_{]")
-
-#: Punctuation removed before a mechanic digest is taken, so re-punctuation is not a change.
-_PUNCTUATION: Final = re.compile(r"[^\w\s]", re.UNICODE)
-
-#: 128 bits, per data-model.md §2. Long enough that a collision is not a practical concern and
-#: short enough to keep the curated tree readable.
-_DIGEST_BITS: Final = 128
 
 
 @dataclass(frozen=True, slots=True)
@@ -108,26 +98,9 @@ def strip_field(raw: str, *, field: str, entity_ref: str | None = None) -> Strip
     return StripResult(text, tuple(findings))
 
 
-def hard_normalise(text: str) -> str:
-    """The presentation-free projection a mechanic digest is taken over.
-
-    Markup gone, entities decoded, `<table>`/`<img>` content dropped, whitespace collapsed,
-    casefolded, punctuation stripped. Two texts that differ only in how they are *written*
-    produce the same projection; two that differ in what they *do* do not.
-    """
-    stripped = strip_field(text, field="mechanic").text
-    folded = unicodedata.normalize("NFKC", stripped).casefold()
-    return _collapse(_PUNCTUATION.sub(" ", folded))
-
-
-def mechanic_digest(text: str, *, key: bytes) -> str:
-    """A keyed, truncated digest of a mechanic. **The text itself is discarded immediately.**
-
-    Keying is the point (C6/R8). An unkeyed hash of a short, publicly known string can be
-    *confirmed* by anyone holding the text — you guess the wording, hash it, and compare. A
-    keyed digest can be neither inverted nor used to verify a guess, which is what makes
-    FR-024's change detection cleanly compatible with FR-013's prohibition on retaining the
-    publisher's wording anywhere, even unpublished.
-    """
-    projection = hard_normalise(text).encode("utf-8")
-    return hmac.new(key, projection, hashlib.sha256).hexdigest()[: _DIGEST_BITS // 4]
+# `hard_normalise` and `mechanic_digest` moved to their own contract path,
+# `pipeline.normalize.mechanic_digest` (task T127), once US5 needed to call them from the
+# curate and validate stages independently of the IP-strip pipeline. They are not re-exported
+# here: importing `strip_field` back into that module (which they depend on) while importing
+# them back into this one would be circular. Import them from
+# `pipeline.normalize.mechanic_digest` directly.
