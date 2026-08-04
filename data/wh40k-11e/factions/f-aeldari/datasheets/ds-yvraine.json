@@ -1,0 +1,117 @@
+{
+  "ability_keys": [
+    "datasheet:herald-of-ynnead",
+    "datasheet:servant-of-the-whispering-god",
+    "datasheet:word-of-the-phoenix-psychic"
+  ],
+  "costs": [
+    {
+      "copy_index_min": 1,
+      "label": "1 model",
+      "model_count": 1,
+      "points": 100,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    }
+  ],
+  "datasheet_id": "ds-yvraine",
+  "faction_id": "f-aeldari",
+  "is_battleline": false,
+  "is_character": true,
+  "is_dedicated_transport": false,
+  "is_epic_hero": true,
+  "is_legends": false,
+  "keywords": [
+    {
+      "is_faction_keyword": false,
+      "keyword": "Aeldari"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Character"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Epic Hero"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Infantry"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Psyker"
+    },
+    {
+      "is_faction_keyword": true,
+      "keyword": "Ynnari"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Yvraine"
+    }
+  ],
+  "leader_pairs": [
+    "ds-corsair-voidreavers",
+    "ds-corsair-voidscarred",
+    "ds-guardian-defenders",
+    "ds-storm-guardians",
+    "ds-ynnari-incubi",
+    "ds-ynnari-kabalite-warriors",
+    "ds-ynnari-wyches"
+  ],
+  "models": [
+    {
+      "base_size": "75 x 42mm",
+      "invuln_save": "4",
+      "leadership": "6+",
+      "line": 1,
+      "movement": "8\"",
+      "name": "Yvraine",
+      "objective_control": 1,
+      "save": "6+",
+      "toughness": 3,
+      "wounds": 4
+    }
+  ],
+  "name": "YVRAINE",
+  "pricing_confidence": {
+    "consecutive_unverified_releases": 0,
+    "last_verified_points_digest": "sha256:58f35ba3ac341406be9f8660d5cb106048687a0c08370852a12b717d0c57ebfa",
+    "last_verified_version": "mfm-2026-08",
+    "state": "verified"
+  },
+  "provenance": {
+    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+    "detail_edition_code": "wh40k-10e",
+    "detail_source": "wahapedia",
+    "is_hybrid_edition": true,
+    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "points_edition_code": "wh40k-11e",
+    "points_source": "mfm"
+  },
+  "role": "Characters",
+  "weapons": [
+    {
+      "armour_penetration": "-2",
+      "attacks": "D6+3",
+      "damage": "1",
+      "is_melee": false,
+      "line": 1,
+      "name": "Storm of Whispers",
+      "range": "12",
+      "skill": "2",
+      "strength": "2"
+    },
+    {
+      "armour_penetration": "-3",
+      "attacks": "5",
+      "damage": "2",
+      "is_melee": true,
+      "line": 2,
+      "name": "Kha-vir",
+      "skill": "2",
+      "strength": "4"
+    }
+  ]
+}

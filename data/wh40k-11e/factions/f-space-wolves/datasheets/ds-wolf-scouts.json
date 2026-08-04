@@ -1,0 +1,226 @@
+{
+  "ability_keys": [
+    "datasheet:deadly-stalkers",
+    "datasheet:haywire-mine",
+    "datasheet:hunting-hounds"
+  ],
+  "costs": [
+    {
+      "copy_index_min": 1,
+      "label": "6 models",
+      "model_count": 6,
+      "points": 90,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    },
+    {
+      "copy_index_min": 1,
+      "label": "12 models",
+      "model_count": 12,
+      "points": 180,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    }
+  ],
+  "datasheet_id": "ds-wolf-scouts",
+  "faction_id": "f-space-wolves",
+  "is_battleline": false,
+  "is_character": false,
+  "is_dedicated_transport": false,
+  "is_epic_hero": false,
+  "is_legends": false,
+  "keywords": [
+    {
+      "is_faction_keyword": true,
+      "keyword": "Adeptus Astartes"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Grenades"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Imperium"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Infantry"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Phobos"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Smoke"
+    },
+    {
+      "is_faction_keyword": true,
+      "keyword": "Space Wolves"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Wolf Scouts"
+    }
+  ],
+  "models": [
+    {
+      "base_size": "32mm",
+      "leadership": "6+",
+      "line": 1,
+      "movement": "7\"",
+      "name": "WOLF SCOUTS",
+      "objective_control": 1,
+      "save": "3+",
+      "toughness": 4,
+      "wounds": 2
+    },
+    {
+      "base_size": "60 x 35.5mm",
+      "leadership": "8+",
+      "line": 2,
+      "movement": "10\"",
+      "name": "HUNTING WOLVES",
+      "objective_control": 0,
+      "save": "6+",
+      "toughness": 4,
+      "wounds": 1
+    }
+  ],
+  "name": "WOLF SCOUTS",
+  "pricing_confidence": {
+    "consecutive_unverified_releases": 0,
+    "last_verified_points_digest": "sha256:a6d4cf2a5cd4282f49d95cb26da44059c64b51456200269875ee08c3e6b8b069",
+    "last_verified_version": "mfm-2026-08",
+    "state": "verified"
+  },
+  "provenance": {
+    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+    "detail_edition_code": "wh40k-10e",
+    "detail_source": "wahapedia",
+    "is_hybrid_edition": true,
+    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "points_edition_code": "wh40k-11e",
+    "points_source": "mfm"
+  },
+  "role": "Other",
+  "weapons": [
+    {
+      "armour_penetration": "0",
+      "attacks": "1",
+      "damage": "1",
+      "is_melee": false,
+      "line": 1,
+      "name": "Bolt pistol",
+      "range": "12",
+      "skill": "3",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "1",
+      "damage": "2",
+      "is_melee": false,
+      "line": 2,
+      "name": "Instigator bolt carbine",
+      "range": "24",
+      "skill": "3",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "1",
+      "damage": "1",
+      "is_melee": false,
+      "line": 3,
+      "name": "Plasma gun – standard",
+      "range": "24",
+      "skill": "3",
+      "strength": "7"
+    },
+    {
+      "armour_penetration": "-3",
+      "attacks": "1",
+      "damage": "2",
+      "is_melee": false,
+      "line": 4,
+      "name": "Plasma gun – supercharge",
+      "range": "24",
+      "skill": "3",
+      "strength": "8"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "1",
+      "damage": "1",
+      "is_melee": false,
+      "line": 5,
+      "name": "Plasma pistol – standard",
+      "range": "12",
+      "skill": "3",
+      "strength": "7"
+    },
+    {
+      "armour_penetration": "-3",
+      "attacks": "1",
+      "damage": "2",
+      "is_melee": false,
+      "line": 6,
+      "name": "Plasma pistol – supercharge",
+      "range": "12",
+      "skill": "3",
+      "strength": "8"
+    },
+    {
+      "armour_penetration": "-1",
+      "attacks": "D3",
+      "damage": "2",
+      "is_melee": false,
+      "line": 7,
+      "name": "Thunderclap",
+      "range": "12",
+      "skill": "3",
+      "strength": "5"
+    },
+    {
+      "armour_penetration": "-1",
+      "attacks": "4",
+      "damage": "1",
+      "is_melee": true,
+      "line": 8,
+      "name": "Combat blade",
+      "skill": "3",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "4",
+      "damage": "1",
+      "is_melee": true,
+      "line": 9,
+      "name": "Power weapon",
+      "skill": "3",
+      "strength": "5"
+    },
+    {
+      "armour_penetration": "-1",
+      "attacks": "3",
+      "damage": "D3",
+      "is_melee": true,
+      "line": 10,
+      "name": "Runic stave",
+      "skill": "3",
+      "strength": "6"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "2",
+      "damage": "1",
+      "is_melee": true,
+      "line": 11,
+      "name": "Teeth and claws",
+      "skill": "4",
+      "strength": "4"
+    }
+  ]
+}

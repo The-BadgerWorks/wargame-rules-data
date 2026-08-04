@@ -1,0 +1,115 @@
+{
+  "ability_keys": [
+    "datasheet:icon-of-obstinacy",
+    "datasheet:inspiring-commander",
+    "datasheet:rampart"
+  ],
+  "costs": [
+    {
+      "copy_index_min": 1,
+      "label": "1 model",
+      "model_count": 1,
+      "points": 100,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    }
+  ],
+  "datasheet_id": "ds-darnath-lysander",
+  "faction_id": "f-space-marines",
+  "is_battleline": false,
+  "is_character": true,
+  "is_dedicated_transport": false,
+  "is_epic_hero": true,
+  "is_legends": false,
+  "keywords": [
+    {
+      "is_faction_keyword": true,
+      "keyword": "Adeptus Astartes"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Captain"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Character"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Darnath Lysander"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Epic Hero"
+    },
+    {
+      "is_faction_keyword": true,
+      "keyword": "Imperial Fists"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Imperium"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Infantry"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Terminator"
+    }
+  ],
+  "leader_pairs": [
+    "ds-deathwatch-terminator-squad",
+    "ds-deathwing-command-squad",
+    "ds-deathwing-knights",
+    "ds-deathwing-terminator-squad",
+    "ds-relic-terminator-squad",
+    "ds-terminator-assault-squad-5",
+    "ds-terminator-squad",
+    "ds-terminator-squad-5"
+  ],
+  "models": [
+    {
+      "base_size": "50mm",
+      "invuln_save": "4",
+      "leadership": "6+",
+      "line": 1,
+      "movement": "5\"",
+      "name": "Darnath Lysander",
+      "objective_control": 1,
+      "save": "2+",
+      "toughness": 5,
+      "wounds": 7
+    }
+  ],
+  "name": "DARNATH LYSANDER",
+  "pricing_confidence": {
+    "consecutive_unverified_releases": 0,
+    "last_verified_points_digest": "sha256:58f35ba3ac341406be9f8660d5cb106048687a0c08370852a12b717d0c57ebfa",
+    "last_verified_version": "mfm-2026-08",
+    "state": "verified"
+  },
+  "provenance": {
+    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+    "detail_edition_code": "wh40k-10e",
+    "detail_source": "wahapedia",
+    "is_hybrid_edition": true,
+    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "points_edition_code": "wh40k-11e",
+    "points_source": "mfm"
+  },
+  "role": "Characters",
+  "weapons": [
+    {
+      "armour_penetration": "-3",
+      "attacks": "5",
+      "damage": "3",
+      "is_melee": true,
+      "line": 1,
+      "name": "Fist of Dorn",
+      "skill": "2",
+      "strength": "10"
+    }
+  ]
+}

@@ -1,0 +1,118 @@
+{
+  "ability_keys": [
+    "datasheet:molten-form",
+    "datasheet:the-bloody-handed-aura"
+  ],
+  "costs": [
+    {
+      "copy_index_min": 1,
+      "label": "1 model",
+      "model_count": 1,
+      "points": 250,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    }
+  ],
+  "damaged_threshold": 5,
+  "datasheet_id": "ds-avatar-of-khaine",
+  "faction_id": "f-aeldari",
+  "is_battleline": false,
+  "is_character": true,
+  "is_dedicated_transport": false,
+  "is_epic_hero": true,
+  "is_legends": false,
+  "keywords": [
+    {
+      "is_faction_keyword": false,
+      "keyword": "Aeldari"
+    },
+    {
+      "is_faction_keyword": true,
+      "keyword": "Asuryani"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Avatar of Khaine"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Character"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Daemon"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Epic Hero"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Monster"
+    }
+  ],
+  "models": [
+    {
+      "base_size": "80mm",
+      "invuln_save": "4",
+      "leadership": "6+",
+      "line": 1,
+      "movement": "10\"",
+      "name": "Avatar of Khaine",
+      "objective_control": 5,
+      "save": "2+",
+      "toughness": 11,
+      "wounds": 14
+    }
+  ],
+  "name": "AVATAR OF KHAINE",
+  "pricing_confidence": {
+    "consecutive_unverified_releases": 0,
+    "last_verified_points_digest": "sha256:881fdb576e9e97b655601879b6119d4ad512c7e9fd8b9b52701a554ade74f4a5",
+    "last_verified_version": "mfm-2026-08",
+    "state": "verified"
+  },
+  "provenance": {
+    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+    "detail_edition_code": "wh40k-10e",
+    "detail_source": "wahapedia",
+    "is_hybrid_edition": true,
+    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "points_edition_code": "wh40k-11e",
+    "points_source": "mfm"
+  },
+  "role": "Characters",
+  "weapons": [
+    {
+      "armour_penetration": "-4",
+      "attacks": "1",
+      "damage": "D6+2",
+      "is_melee": false,
+      "line": 1,
+      "name": "The Wailing Doom",
+      "range": "12",
+      "skill": "2",
+      "strength": "16"
+    },
+    {
+      "armour_penetration": "-4",
+      "attacks": "6",
+      "damage": "D6+2",
+      "is_melee": true,
+      "line": 2,
+      "name": "The Wailing Doom – strike",
+      "skill": "2",
+      "strength": "16"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "12",
+      "damage": "2",
+      "is_melee": true,
+      "line": 3,
+      "name": "The Wailing Doom – sweep",
+      "skill": "2",
+      "strength": "8"
+    }
+  ]
+}

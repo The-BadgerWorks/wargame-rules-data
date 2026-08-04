@@ -1,0 +1,110 @@
+{
+  "ability_keys": [
+    "datasheet:gravitic-pulse"
+  ],
+  "costs": [
+    {
+      "copy_index_min": 1,
+      "label": "1 model",
+      "model_count": 1,
+      "points": 280,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    },
+    {
+      "copy_index_min": 2,
+      "label": "1 model",
+      "model_count": 1,
+      "points": 310,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    }
+  ],
+  "damaged_threshold": 8,
+  "datasheet_id": "ds-obelisk",
+  "faction_id": "f-necrons",
+  "is_battleline": false,
+  "is_character": false,
+  "is_dedicated_transport": false,
+  "is_epic_hero": false,
+  "is_legends": false,
+  "keywords": [
+    {
+      "is_faction_keyword": false,
+      "keyword": "Fly"
+    },
+    {
+      "is_faction_keyword": true,
+      "keyword": "Necrons"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Obelisk"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Titanic"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Towering"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Vehicle"
+    }
+  ],
+  "models": [
+    {
+      "base_size": "120 x 92mm flying base",
+      "leadership": "7+",
+      "line": 1,
+      "movement": "8\"",
+      "name": "Obelisk",
+      "objective_control": 8,
+      "save": "2+",
+      "toughness": 13,
+      "wounds": 24
+    }
+  ],
+  "name": "OBELISK",
+  "pricing_confidence": {
+    "consecutive_unverified_releases": 0,
+    "last_verified_points_digest": "sha256:8bb397be06a220093327c82521ae34fc2751ec2a4aa6d846989a39a3e38b6b57",
+    "last_verified_version": "mfm-2026-08",
+    "state": "verified"
+  },
+  "provenance": {
+    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+    "detail_edition_code": "wh40k-10e",
+    "detail_source": "wahapedia",
+    "is_hybrid_edition": true,
+    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "points_edition_code": "wh40k-11e",
+    "points_source": "mfm"
+  },
+  "role": "Other",
+  "weapons": [
+    {
+      "armour_penetration": "0",
+      "attacks": "6",
+      "damage": "1",
+      "is_melee": false,
+      "line": 1,
+      "name": "Tesla sphere",
+      "range": "24",
+      "skill": "3",
+      "strength": "7"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "6",
+      "damage": "1",
+      "is_melee": true,
+      "line": 2,
+      "name": "Armoured bulk",
+      "skill": "4",
+      "strength": "8"
+    }
+  ]
+}

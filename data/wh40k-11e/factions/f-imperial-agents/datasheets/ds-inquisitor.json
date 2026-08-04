@@ -1,0 +1,185 @@
+{
+  "ability_keys": [
+    "datasheet:authority-of-the-inquisition",
+    "datasheet:blessed-wardings",
+    "datasheet:power-of-the-rosette",
+    "datasheet:psychic-gifts"
+  ],
+  "costs": [
+    {
+      "copy_index_min": 1,
+      "label": "1 model",
+      "model_count": 1,
+      "points": 55,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    },
+    {
+      "copy_index_min": 1,
+      "label": "1 model",
+      "model_count": 1,
+      "points": 65,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    }
+  ],
+  "datasheet_id": "ds-inquisitor",
+  "faction_id": "f-imperial-agents",
+  "is_battleline": false,
+  "is_character": true,
+  "is_dedicated_transport": false,
+  "is_epic_hero": false,
+  "is_legends": false,
+  "keywords": [
+    {
+      "is_faction_keyword": true,
+      "keyword": "Agents of the Imperium"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Character"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Grenades"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Imperium"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Infantry"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Inquisitor"
+    }
+  ],
+  "leader_pairs": [
+    "ds-aquila-kill-team",
+    "ds-assault-intercessor-squad-6",
+    "ds-battle-sisters-squad",
+    "ds-blood-claws",
+    "ds-brotherhood-terminator-squad",
+    "ds-cadian-shock-troops",
+    "ds-cadian-shock-troops-2",
+    "ds-catachan-jungle-fighters",
+    "ds-catachan-jungle-fighters-2",
+    "ds-crusader-squad",
+    "ds-crusader-squad-legendary",
+    "ds-custodian-guard",
+    "ds-death-korps-of-krieg",
+    "ds-death-korps-of-krieg-2",
+    "ds-deathwatch-kill-team",
+    "ds-deathwatch-terminator-squad-2",
+    "ds-deathwatch-veterans",
+    "ds-decimus-kill-team",
+    "ds-exaction-squad",
+    "ds-fortis-kill-team-2",
+    "ds-grey-hunters",
+    "ds-grey-knights-terminator-squad",
+    "ds-heavy-intercessor-squad-6",
+    "ds-imperial-navy-breachers",
+    "ds-inquisitorial-agents",
+    "ds-intercessor-squad-6",
+    "ds-proteus-kill-team",
+    "ds-sanctifiers-2",
+    "ds-sisters-of-battle-squad",
+    "ds-skitarii-rangers",
+    "ds-skitarii-rangers-2",
+    "ds-skitarii-vanguard",
+    "ds-skitarii-vanguard-2",
+    "ds-spectrus-kill-team-2",
+    "ds-strike-squad",
+    "ds-subductor-squad",
+    "ds-tactical-squad-4",
+    "ds-vigilant-squad"
+  ],
+  "models": [
+    {
+      "base_size": "32mm",
+      "invuln_save": "5",
+      "leadership": "6+",
+      "line": 1,
+      "movement": "6\"",
+      "name": "Inquisitor",
+      "objective_control": 1,
+      "save": "4+",
+      "toughness": 3,
+      "wounds": 4
+    }
+  ],
+  "name": "INQUISITOR",
+  "pricing_confidence": {
+    "consecutive_unverified_releases": 0,
+    "last_verified_points_digest": "sha256:f049b4126453528aeccc67876bd3011a6f07cebf0541fc8e26f53454d0b57418",
+    "last_verified_version": "mfm-2026-08",
+    "state": "verified"
+  },
+  "provenance": {
+    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+    "detail_edition_code": "wh40k-10e",
+    "detail_source": "wahapedia",
+    "is_hybrid_edition": true,
+    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "points_edition_code": "wh40k-11e",
+    "points_source": "mfm"
+  },
+  "role": "Characters",
+  "weapons": [
+    {
+      "armour_penetration": "0",
+      "attacks": "1",
+      "damage": "1",
+      "is_melee": false,
+      "line": 1,
+      "name": "Bolt pistol",
+      "range": "12",
+      "skill": "3",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "1",
+      "damage": "1",
+      "is_melee": false,
+      "line": 2,
+      "name": "Combi-weapon",
+      "range": "24",
+      "skill": "3",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "2D6",
+      "damage": "1",
+      "is_melee": false,
+      "line": 3,
+      "name": "Psychic Shock Wave",
+      "range": "18",
+      "skill": "N/A",
+      "strength": "3"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "5",
+      "damage": "1",
+      "is_melee": true,
+      "line": 4,
+      "name": "Inquisitorial melee weapon",
+      "skill": "3",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "4",
+      "damage": "D3",
+      "is_melee": true,
+      "line": 5,
+      "name": "Force weapon",
+      "skill": "3",
+      "strength": "5"
+    }
+  ]
+}

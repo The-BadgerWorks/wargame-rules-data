@@ -1,0 +1,128 @@
+{
+  "ability_keys": [
+    "datasheet:breach-and-clear",
+    "datasheet:ds8-support-turret"
+  ],
+  "costs": [
+    {
+      "copy_index_min": 1,
+      "label": "10 models",
+      "model_count": 10,
+      "points": 90,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    }
+  ],
+  "datasheet_id": "ds-breacher-team",
+  "faction_id": "f-tau-empire",
+  "is_battleline": true,
+  "is_character": false,
+  "is_dedicated_transport": false,
+  "is_epic_hero": false,
+  "is_legends": false,
+  "keywords": [
+    {
+      "is_faction_keyword": false,
+      "keyword": "Battleline"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Breacher Team"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Fire Warrior"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Grenades"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Infantry"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Markerlight"
+    },
+    {
+      "is_faction_keyword": true,
+      "keyword": "T’au Empire"
+    }
+  ],
+  "models": [
+    {
+      "base_size": "25mm",
+      "leadership": "7+",
+      "line": 1,
+      "movement": "6\"",
+      "name": "Breacher Team",
+      "objective_control": 2,
+      "save": "4+",
+      "toughness": 3,
+      "wounds": 1
+    }
+  ],
+  "name": "BREACHER TEAM",
+  "pricing_confidence": {
+    "consecutive_unverified_releases": 0,
+    "last_verified_points_digest": "sha256:37d3ec03de3a41fe8363af0a16a955140ec2e90f64de737d09e879c631b3ca43",
+    "last_verified_version": "mfm-2026-08",
+    "state": "verified"
+  },
+  "provenance": {
+    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+    "detail_edition_code": "wh40k-10e",
+    "detail_source": "wahapedia",
+    "is_hybrid_edition": true,
+    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "points_edition_code": "wh40k-11e",
+    "points_source": "mfm"
+  },
+  "role": "Battleline",
+  "weapons": [
+    {
+      "armour_penetration": "-1",
+      "attacks": "2",
+      "damage": "1",
+      "is_melee": false,
+      "line": 1,
+      "name": "Pulse blaster",
+      "range": "10",
+      "skill": "3",
+      "strength": "6"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "1",
+      "damage": "1",
+      "is_melee": false,
+      "line": 2,
+      "name": "Pulse pistol",
+      "range": "12",
+      "skill": "4",
+      "strength": "5"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "2",
+      "damage": "1",
+      "is_melee": false,
+      "line": 3,
+      "name": "Support turret",
+      "range": "30",
+      "skill": "5",
+      "strength": "5"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "1",
+      "damage": "1",
+      "is_melee": true,
+      "line": 4,
+      "name": "Close combat weapon",
+      "skill": "5",
+      "strength": "3"
+    }
+  ]
+}

@@ -1,0 +1,139 @@
+{
+  "ability_keys": [
+    "datasheet:ferocious-assault"
+  ],
+  "costs": [
+    {
+      "copy_index_min": 1,
+      "label": "1 model",
+      "model_count": 1,
+      "points": 150,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    },
+    {
+      "copy_index_min": 3,
+      "label": "1 model",
+      "model_count": 1,
+      "points": 160,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    }
+  ],
+  "damaged_threshold": 4,
+  "datasheet_id": "ds-gladiator-valiant-2",
+  "faction_id": "f-blood-angels",
+  "is_battleline": false,
+  "is_character": false,
+  "is_dedicated_transport": false,
+  "is_epic_hero": false,
+  "is_legends": false,
+  "keywords": [
+    {
+      "is_faction_keyword": true,
+      "keyword": "Adeptus Astartes"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Gladiator Valiant"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Imperium"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Smoke"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Vehicle"
+    }
+  ],
+  "models": [
+    {
+      "base_size": "100mm",
+      "leadership": "6+",
+      "line": 1,
+      "movement": "10\"",
+      "name": "Gladiator Valiant",
+      "objective_control": 3,
+      "save": "3+",
+      "toughness": 10,
+      "wounds": 12
+    }
+  ],
+  "name": "GLADIATOR VALIANT",
+  "pricing_confidence": {
+    "consecutive_unverified_releases": 0,
+    "last_verified_points_digest": "sha256:ef3dfcbde6a74757dabce338b080e5d4a7fb8ba67210757452434c805bba14de",
+    "last_verified_version": "mfm-2026-08",
+    "state": "verified"
+  },
+  "provenance": {
+    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+    "detail_edition_code": "wh40k-10e",
+    "detail_source": "wahapedia",
+    "is_hybrid_edition": true,
+    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "points_edition_code": "wh40k-11e",
+    "points_source": "mfm"
+  },
+  "role": "Other",
+  "weapons": [
+    {
+      "armour_penetration": "-1",
+      "attacks": "D3",
+      "damage": "2",
+      "is_melee": false,
+      "line": 1,
+      "name": "Icarus rocket pod",
+      "range": "24",
+      "skill": "3",
+      "strength": "8"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "3",
+      "damage": "1",
+      "is_melee": false,
+      "line": 2,
+      "name": "Ironhail heavy stubber",
+      "range": "36",
+      "skill": "3",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "-4",
+      "attacks": "2",
+      "damage": "D6",
+      "is_melee": false,
+      "line": 3,
+      "name": "Multi-melta",
+      "range": "18",
+      "skill": "3",
+      "strength": "9"
+    },
+    {
+      "armour_penetration": "-3",
+      "attacks": "2",
+      "damage": "D6+1",
+      "is_melee": false,
+      "line": 4,
+      "name": "Twin las-talon",
+      "range": "36",
+      "skill": "3",
+      "strength": "10"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "3",
+      "damage": "1",
+      "is_melee": true,
+      "line": 5,
+      "name": "Armoured hull",
+      "skill": "4",
+      "strength": "6"
+    }
+  ]
+}

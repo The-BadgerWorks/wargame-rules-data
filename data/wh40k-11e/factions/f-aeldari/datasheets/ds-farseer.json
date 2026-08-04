@@ -1,0 +1,140 @@
+{
+  "ability_keys": [
+    "datasheet:branching-fates-psychic",
+    "datasheet:guide-psychic"
+  ],
+  "costs": [
+    {
+      "copy_index_min": 1,
+      "label": "1 model",
+      "model_count": 1,
+      "points": 65,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    }
+  ],
+  "datasheet_id": "ds-farseer",
+  "faction_id": "f-aeldari",
+  "is_battleline": false,
+  "is_character": true,
+  "is_dedicated_transport": false,
+  "is_epic_hero": false,
+  "is_legends": false,
+  "keywords": [
+    {
+      "is_faction_keyword": false,
+      "keyword": "Aeldari"
+    },
+    {
+      "is_faction_keyword": true,
+      "keyword": "Asuryani"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Character"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Farseer"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Infantry"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Psyker"
+    }
+  ],
+  "leader_pairs": [
+    "ds-guardian-defenders",
+    "ds-storm-guardians",
+    "ds-warlock-conclave"
+  ],
+  "models": [
+    {
+      "base_size": "25mm",
+      "invuln_save": "4",
+      "leadership": "6+",
+      "line": 1,
+      "movement": "7\"",
+      "name": "Farseer",
+      "objective_control": 1,
+      "save": "6+",
+      "toughness": 3,
+      "wounds": 4
+    }
+  ],
+  "name": "FARSEER",
+  "pricing_confidence": {
+    "consecutive_unverified_releases": 0,
+    "last_verified_points_digest": "sha256:bfdd82562214edaaf8e411cd492d5fde983b9a4d02a86f0f9a51aef986f2be9c",
+    "last_verified_version": "mfm-2026-08",
+    "state": "verified"
+  },
+  "provenance": {
+    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+    "detail_edition_code": "wh40k-10e",
+    "detail_source": "wahapedia",
+    "is_hybrid_edition": true,
+    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "points_edition_code": "wh40k-11e",
+    "points_source": "mfm"
+  },
+  "role": "Characters",
+  "weapons": [
+    {
+      "armour_penetration": "-2",
+      "attacks": "D6",
+      "damage": "D3",
+      "is_melee": false,
+      "line": 1,
+      "name": "Eldritch Storm",
+      "range": "24",
+      "skill": "3",
+      "strength": "6"
+    },
+    {
+      "armour_penetration": "-1",
+      "attacks": "1",
+      "damage": "1",
+      "is_melee": false,
+      "line": 2,
+      "name": "Shuriken pistol",
+      "range": "12",
+      "skill": "2",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "1",
+      "damage": "3",
+      "is_melee": false,
+      "line": 3,
+      "name": "Singing spear",
+      "range": "12",
+      "skill": "2",
+      "strength": "9"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "2",
+      "damage": "3",
+      "is_melee": true,
+      "line": 4,
+      "name": "Singing spear",
+      "skill": "2",
+      "strength": "3"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "2",
+      "damage": "2",
+      "is_melee": true,
+      "line": 5,
+      "name": "Witchblade",
+      "skill": "2",
+      "strength": "3"
+    }
+  ]
+}

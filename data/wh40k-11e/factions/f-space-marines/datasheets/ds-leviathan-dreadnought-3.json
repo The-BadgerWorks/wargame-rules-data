@@ -1,0 +1,196 @@
+{
+  "ability_keys": [
+    "datasheet:duty-eternal",
+    "datasheet:one-shot"
+  ],
+  "costs": [
+    {
+      "copy_index_min": 1,
+      "label": "1 model",
+      "model_count": 1,
+      "points": 160,
+      "pricing_confidence": "unverified",
+      "source_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1"
+    }
+  ],
+  "damaged_threshold": 4,
+  "datasheet_id": "ds-leviathan-dreadnought-3",
+  "faction_id": "f-space-marines",
+  "is_battleline": false,
+  "is_character": false,
+  "is_dedicated_transport": false,
+  "is_epic_hero": false,
+  "is_legends": true,
+  "keywords": [
+    {
+      "is_faction_keyword": true,
+      "keyword": "Adeptus Astartes"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Deathwing"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Dreadnought"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Imperium"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Leviathan Dreadnought"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Smoke"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Vehicle"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Walker"
+    }
+  ],
+  "models": [
+    {
+      "base_size": "80mm",
+      "invuln_save": "5",
+      "leadership": "6+",
+      "line": 1,
+      "movement": "8\"",
+      "name": "Leviathan Dreadnought",
+      "objective_control": 4,
+      "save": "2+",
+      "toughness": 10,
+      "wounds": 12
+    }
+  ],
+  "name": "Leviathan Dreadnought",
+  "pricing_confidence": {
+    "consecutive_unverified_releases": 1,
+    "state": "unverified",
+    "unverified_since_version": "mfm-2026-08"
+  },
+  "provenance": {
+    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+    "detail_edition_code": "wh40k-10e",
+    "detail_source": "wahapedia",
+    "is_hybrid_edition": true,
+    "points_edition_code": "wh40k-11e",
+    "points_source": "none"
+  },
+  "role": "Other",
+  "weapons": [
+    {
+      "armour_penetration": "-4",
+      "attacks": "D6",
+      "damage": "D6",
+      "is_melee": false,
+      "line": 1,
+      "name": "Cyclonic melta lance",
+      "range": "18",
+      "skill": "3",
+      "strength": "9"
+    },
+    {
+      "armour_penetration": "-1",
+      "attacks": "2D3",
+      "damage": "2",
+      "is_melee": false,
+      "line": 2,
+      "name": "Grav-flux bombard",
+      "range": "24",
+      "skill": "3",
+      "strength": "8"
+    },
+    {
+      "armour_penetration": "-1",
+      "attacks": "D6",
+      "damage": "1",
+      "is_melee": false,
+      "line": 3,
+      "name": "Heavy flamer",
+      "range": "12",
+      "skill": "N/A",
+      "strength": "5"
+    },
+    {
+      "armour_penetration": "-3",
+      "attacks": "1",
+      "damage": "D6",
+      "is_melee": false,
+      "line": 4,
+      "name": "Hunter-killer missile",
+      "range": "48",
+      "skill": "2",
+      "strength": "14"
+    },
+    {
+      "armour_penetration": "-4",
+      "attacks": "1",
+      "damage": "D6",
+      "is_melee": false,
+      "line": 5,
+      "name": "Meltagun",
+      "range": "12",
+      "skill": "3",
+      "strength": "9"
+    },
+    {
+      "armour_penetration": "-1",
+      "attacks": "4",
+      "damage": "3",
+      "is_melee": false,
+      "line": 6,
+      "name": "Storm cannon",
+      "range": "36",
+      "skill": "3",
+      "strength": "9"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "2",
+      "damage": "2",
+      "is_melee": false,
+      "line": 7,
+      "name": "Twin volkite caliver",
+      "range": "24",
+      "skill": "3",
+      "strength": "5"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "5",
+      "damage": "1",
+      "is_melee": true,
+      "line": 8,
+      "name": "Armoured feet",
+      "skill": "3",
+      "strength": "6"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "5",
+      "damage": "3",
+      "is_melee": true,
+      "line": 9,
+      "name": "Leviathan siege claw",
+      "skill": "3",
+      "strength": "12"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "4",
+      "damage": "3",
+      "is_melee": true,
+      "line": 10,
+      "name": "Leviathan siege drill",
+      "skill": "3",
+      "strength": "12"
+    }
+  ]
+}

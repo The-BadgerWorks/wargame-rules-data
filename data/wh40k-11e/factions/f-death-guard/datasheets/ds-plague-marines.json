@@ -1,0 +1,251 @@
+{
+  "ability_keys": [
+    "datasheet:icon-of-despair-aura",
+    "datasheet:infused-with-the-blessings-of-nurgle"
+  ],
+  "costs": [
+    {
+      "copy_index_min": 1,
+      "label": "5 models",
+      "model_count": 5,
+      "points": 90,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    },
+    {
+      "copy_index_min": 1,
+      "label": "7 models",
+      "model_count": 7,
+      "points": 125,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    },
+    {
+      "copy_index_min": 1,
+      "label": "10 models",
+      "model_count": 10,
+      "points": 180,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    }
+  ],
+  "datasheet_id": "ds-plague-marines",
+  "faction_id": "f-death-guard",
+  "is_battleline": true,
+  "is_character": false,
+  "is_dedicated_transport": false,
+  "is_epic_hero": false,
+  "is_legends": false,
+  "keywords": [
+    {
+      "is_faction_keyword": false,
+      "keyword": "Battleline"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Chaos"
+    },
+    {
+      "is_faction_keyword": true,
+      "keyword": "Death Guard"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Grenades"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Infantry"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Nurgle"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Plague Marines"
+    }
+  ],
+  "models": [
+    {
+      "base_size": "32mm",
+      "leadership": "6+",
+      "line": 1,
+      "movement": "5\"",
+      "name": "Plague Marines",
+      "objective_control": 2,
+      "save": "3+",
+      "toughness": 6,
+      "wounds": 2
+    }
+  ],
+  "name": "PLAGUE MARINES",
+  "pricing_confidence": {
+    "consecutive_unverified_releases": 0,
+    "last_verified_points_digest": "sha256:c8ea13f7c772c12ccaee56b27cd8c24c1bd88d110743565fbf55da5c8f5cd273",
+    "last_verified_version": "mfm-2026-08",
+    "state": "verified"
+  },
+  "provenance": {
+    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+    "detail_edition_code": "wh40k-10e",
+    "detail_source": "wahapedia",
+    "is_hybrid_edition": true,
+    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "points_edition_code": "wh40k-11e",
+    "points_source": "mfm"
+  },
+  "role": "Battleline",
+  "weapons": [
+    {
+      "armour_penetration": "-1",
+      "attacks": "D3",
+      "damage": "2",
+      "is_melee": false,
+      "line": 1,
+      "name": "Blight launcher",
+      "range": "24",
+      "skill": "3",
+      "strength": "6"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "2",
+      "damage": "1",
+      "is_melee": false,
+      "line": 2,
+      "name": "Boltgun",
+      "range": "24",
+      "skill": "3",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "1",
+      "damage": "1",
+      "is_melee": false,
+      "line": 3,
+      "name": "Bolt pistol",
+      "range": "12",
+      "skill": "3",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "-4",
+      "attacks": "1",
+      "damage": "D6",
+      "is_melee": false,
+      "line": 4,
+      "name": "Meltagun",
+      "range": "12",
+      "skill": "3",
+      "strength": "9"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "D6",
+      "damage": "1",
+      "is_melee": false,
+      "line": 5,
+      "name": "Plague belcher",
+      "range": "12",
+      "skill": "N/A",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "-1",
+      "attacks": "D6",
+      "damage": "1",
+      "is_melee": false,
+      "line": 6,
+      "name": "Plague spewer",
+      "range": "12",
+      "skill": "N/A",
+      "strength": "5"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "1",
+      "damage": "1",
+      "is_melee": false,
+      "line": 7,
+      "name": "Plasma gun – standard",
+      "range": "24",
+      "skill": "3",
+      "strength": "7"
+    },
+    {
+      "armour_penetration": "-3",
+      "attacks": "1",
+      "damage": "2",
+      "is_melee": false,
+      "line": 8,
+      "name": "Plasma gun – supercharge",
+      "range": "24",
+      "skill": "3",
+      "strength": "8"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "1",
+      "damage": "1",
+      "is_melee": false,
+      "line": 9,
+      "name": "Plasma pistol – standard",
+      "range": "12",
+      "skill": "3",
+      "strength": "7"
+    },
+    {
+      "armour_penetration": "-3",
+      "attacks": "1",
+      "damage": "2",
+      "is_melee": false,
+      "line": 10,
+      "name": "Plasma pistol – supercharge",
+      "range": "12",
+      "skill": "3",
+      "strength": "8"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "4",
+      "damage": "1",
+      "is_melee": true,
+      "line": 11,
+      "name": "Bubotic weapons",
+      "skill": "3",
+      "strength": "5"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "3",
+      "damage": "2",
+      "is_melee": true,
+      "line": 12,
+      "name": "Heavy plague weapon",
+      "skill": "4",
+      "strength": "8"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "3",
+      "damage": "1",
+      "is_melee": true,
+      "line": 13,
+      "name": "Plague knives",
+      "skill": "3",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "3",
+      "damage": "2",
+      "is_melee": true,
+      "line": 14,
+      "name": "Power fist",
+      "skill": "3",
+      "strength": "8"
+    }
+  ]
+}

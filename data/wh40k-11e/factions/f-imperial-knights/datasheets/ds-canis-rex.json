@@ -1,0 +1,152 @@
+{
+  "ability_keys": [
+    "datasheet:chainbreaker",
+    "datasheet:legendary-freeblade"
+  ],
+  "costs": [
+    {
+      "copy_index_min": 1,
+      "label": "1 model",
+      "model_count": 1,
+      "points": 415,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    }
+  ],
+  "damaged_threshold": 9,
+  "datasheet_id": "ds-canis-rex",
+  "faction_id": "f-imperial-knights",
+  "is_battleline": false,
+  "is_character": true,
+  "is_dedicated_transport": false,
+  "is_epic_hero": true,
+  "is_legends": false,
+  "keywords": [
+    {
+      "is_faction_keyword": false,
+      "keyword": "Canis Rex"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Character"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Epic Hero"
+    },
+    {
+      "is_faction_keyword": true,
+      "keyword": "Imperial Knights"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Imperium"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Questoris"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Titanic"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Towering"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Vehicle"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Walker"
+    }
+  ],
+  "models": [
+    {
+      "base_size": "170 x 109mm",
+      "invuln_save": "5",
+      "leadership": "6+",
+      "line": 1,
+      "movement": "10\"",
+      "name": "Canis Rex",
+      "objective_control": 10,
+      "save": "3+",
+      "toughness": 11,
+      "wounds": 26
+    }
+  ],
+  "name": "CANIS REX",
+  "pricing_confidence": {
+    "consecutive_unverified_releases": 0,
+    "last_verified_points_digest": "sha256:17e68042270326729e7f06512a8e5f5d6f88c760807a7c7c1bf33e2722268cf5",
+    "last_verified_version": "mfm-2026-08",
+    "state": "verified"
+  },
+  "provenance": {
+    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+    "detail_edition_code": "wh40k-10e",
+    "detail_source": "wahapedia",
+    "is_hybrid_edition": true,
+    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "points_edition_code": "wh40k-11e",
+    "points_source": "mfm"
+  },
+  "role": "Characters",
+  "weapons": [
+    {
+      "armour_penetration": "-3",
+      "attacks": "D6",
+      "damage": "4",
+      "is_melee": false,
+      "line": 1,
+      "name": "Las-impulsor – high intensity",
+      "range": "24",
+      "skill": "2",
+      "strength": "14"
+    },
+    {
+      "armour_penetration": "-1",
+      "attacks": "2D6",
+      "damage": "2",
+      "is_melee": false,
+      "line": 2,
+      "name": "Las-impulsor – low intensity",
+      "range": "36",
+      "skill": "2",
+      "strength": "7"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "4",
+      "damage": "1",
+      "is_melee": false,
+      "line": 3,
+      "name": "Questoris multi-laser",
+      "range": "36",
+      "skill": "2",
+      "strength": "6"
+    },
+    {
+      "armour_penetration": "-3",
+      "attacks": "5",
+      "damage": "9",
+      "is_melee": true,
+      "line": 4,
+      "name": "Freedom’s Hand – strike",
+      "skill": "2",
+      "strength": "20"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "10",
+      "damage": "3",
+      "is_melee": true,
+      "line": 5,
+      "name": "Freedom’s Hand – sweep",
+      "skill": "2",
+      "strength": "10"
+    }
+  ]
+}

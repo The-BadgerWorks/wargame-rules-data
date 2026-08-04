@@ -1,0 +1,181 @@
+{
+  "ability_keys": [
+    "datasheet:cruel-enforcers",
+    "datasheet:kabalite-icon",
+    "datasheet:phantasm-grenade-launcher",
+    "datasheet:sadistic-raiders-pain"
+  ],
+  "costs": [
+    {
+      "copy_index_min": 1,
+      "label": "10 models",
+      "model_count": 10,
+      "points": 110,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    }
+  ],
+  "datasheet_id": "ds-kabalite-warriors",
+  "faction_id": "f-drukhari",
+  "is_battleline": true,
+  "is_character": false,
+  "is_dedicated_transport": false,
+  "is_epic_hero": false,
+  "is_legends": false,
+  "keywords": [
+    {
+      "is_faction_keyword": false,
+      "keyword": "Aeldari"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Battleline"
+    },
+    {
+      "is_faction_keyword": true,
+      "keyword": "Drukhari"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Infantry"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Kabal"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Kabalite Warriors"
+    }
+  ],
+  "models": [
+    {
+      "base_size": "25mm",
+      "invuln_save": "6",
+      "leadership": "7+",
+      "line": 1,
+      "movement": "7\"",
+      "name": "Kabalite Warriors",
+      "objective_control": 2,
+      "save": "4+",
+      "toughness": 3,
+      "wounds": 1
+    }
+  ],
+  "name": "KABALITE WARRIORS",
+  "pricing_confidence": {
+    "consecutive_unverified_releases": 0,
+    "last_verified_points_digest": "sha256:a489ac2754411033876595022ef5dedf21d1c13c432bebc41b9c20b69b9fefba",
+    "last_verified_version": "mfm-2026-08",
+    "state": "verified"
+  },
+  "provenance": {
+    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+    "detail_edition_code": "wh40k-10e",
+    "detail_source": "wahapedia",
+    "is_hybrid_edition": true,
+    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "points_edition_code": "wh40k-11e",
+    "points_source": "mfm"
+  },
+  "role": "Battleline",
+  "weapons": [
+    {
+      "armour_penetration": "-3",
+      "attacks": "1",
+      "damage": "D3",
+      "is_melee": false,
+      "line": 1,
+      "name": "Blast pistol",
+      "range": "6",
+      "skill": "3",
+      "strength": "8"
+    },
+    {
+      "armour_penetration": "-4",
+      "attacks": "1",
+      "damage": "D6+1",
+      "is_melee": false,
+      "line": 2,
+      "name": "Blaster",
+      "range": "18",
+      "skill": "3",
+      "strength": "8"
+    },
+    {
+      "armour_penetration": "-3",
+      "attacks": "1",
+      "damage": "D6+2",
+      "is_melee": false,
+      "line": 3,
+      "name": "Dark lance",
+      "range": "36",
+      "skill": "4",
+      "strength": "12"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "D6",
+      "damage": "1",
+      "is_melee": false,
+      "line": 4,
+      "name": "Shredder",
+      "range": "18",
+      "skill": "N/A",
+      "strength": "6"
+    },
+    {
+      "armour_penetration": "-1",
+      "attacks": "3",
+      "damage": "2",
+      "is_melee": false,
+      "line": 5,
+      "name": "Splinter cannon",
+      "range": "36",
+      "skill": "4",
+      "strength": "3"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "1",
+      "damage": "1",
+      "is_melee": false,
+      "line": 6,
+      "name": "Splinter pistol",
+      "range": "12",
+      "skill": "3",
+      "strength": "2"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "2",
+      "damage": "1",
+      "is_melee": false,
+      "line": 7,
+      "name": "Splinter rifle",
+      "range": "24",
+      "skill": "3",
+      "strength": "2"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "2",
+      "damage": "1",
+      "is_melee": true,
+      "line": 8,
+      "name": "Close combat weapon",
+      "skill": "3",
+      "strength": "3"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "3",
+      "damage": "1",
+      "is_melee": true,
+      "line": 9,
+      "name": "Power weapon",
+      "skill": "3",
+      "strength": "3"
+    }
+  ]
+}

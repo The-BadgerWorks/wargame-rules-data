@@ -1,0 +1,232 @@
+{
+  "ability_keys": [
+    "datasheet:astartes-banner",
+    "datasheet:attached-unit",
+    "datasheet:honour-or-death",
+    "datasheet:narthecium",
+    "datasheet:storm-shield"
+  ],
+  "costs": [
+    {
+      "copy_index_min": 1,
+      "label": "5 models",
+      "model_count": 5,
+      "points": 200,
+      "pricing_confidence": "unverified",
+      "source_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1"
+    },
+    {
+      "copy_index_min": 1,
+      "label": "10 models",
+      "model_count": 10,
+      "points": 400,
+      "pricing_confidence": "unverified",
+      "source_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1"
+    }
+  ],
+  "datasheet_id": "ds-deathwing-command-squad",
+  "faction_id": "f-space-marines",
+  "is_battleline": false,
+  "is_character": false,
+  "is_dedicated_transport": false,
+  "is_epic_hero": false,
+  "is_legends": true,
+  "keywords": [
+    {
+      "is_faction_keyword": true,
+      "keyword": "Adeptus Astartes"
+    },
+    {
+      "is_faction_keyword": true,
+      "keyword": "Dark Angels"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Deathwing"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Deathwing Command Squad"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Imperium"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Infantry"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Terminator"
+    }
+  ],
+  "models": [
+    {
+      "base_size": "40mm",
+      "invuln_save": "4",
+      "leadership": "6+",
+      "line": 1,
+      "movement": "5\"",
+      "name": "Deathwing Command Squad",
+      "objective_control": 1,
+      "save": "2+",
+      "toughness": 5,
+      "wounds": 3
+    }
+  ],
+  "name": "Deathwing Command Squad",
+  "pricing_confidence": {
+    "consecutive_unverified_releases": 1,
+    "state": "unverified",
+    "unverified_since_version": "mfm-2026-08"
+  },
+  "provenance": {
+    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+    "detail_edition_code": "wh40k-10e",
+    "detail_source": "wahapedia",
+    "is_hybrid_edition": true,
+    "points_edition_code": "wh40k-11e",
+    "points_source": "none"
+  },
+  "role": "Other",
+  "weapons": [
+    {
+      "armour_penetration": "0",
+      "attacks": "6",
+      "damage": "1",
+      "is_melee": false,
+      "line": 1,
+      "name": "Assault cannon",
+      "range": "24",
+      "skill": "3",
+      "strength": "6"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "2D6",
+      "damage": "1",
+      "is_melee": false,
+      "line": 2,
+      "name": "Cyclone missile launcher – frag",
+      "range": "36",
+      "skill": "3",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "2",
+      "damage": "D6",
+      "is_melee": false,
+      "line": 3,
+      "name": "Cyclone missile launcher – krak",
+      "range": "36",
+      "skill": "3",
+      "strength": "9"
+    },
+    {
+      "armour_penetration": "-1",
+      "attacks": "D6",
+      "damage": "1",
+      "is_melee": false,
+      "line": 4,
+      "name": "Heavy flamer",
+      "range": "12",
+      "skill": "N/A",
+      "strength": "5"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "D3",
+      "damage": "1",
+      "is_melee": false,
+      "line": 5,
+      "name": "Plasma cannon – standard",
+      "range": "36",
+      "skill": "3",
+      "strength": "7"
+    },
+    {
+      "armour_penetration": "-3",
+      "attacks": "D3",
+      "damage": "2",
+      "is_melee": false,
+      "line": 6,
+      "name": "Plasma cannon – supercharge",
+      "range": "36",
+      "skill": "3",
+      "strength": "8"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "2",
+      "damage": "1",
+      "is_melee": false,
+      "line": 7,
+      "name": "Storm bolter",
+      "range": "24",
+      "skill": "3",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "3",
+      "damage": "2",
+      "is_melee": true,
+      "line": 8,
+      "name": "Chainfist",
+      "skill": "4",
+      "strength": "8"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "5",
+      "damage": "2",
+      "is_melee": true,
+      "line": 9,
+      "name": "Halberd of Caliban",
+      "skill": "3",
+      "strength": "6"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "3",
+      "damage": "2",
+      "is_melee": true,
+      "line": 10,
+      "name": "Power fist",
+      "skill": "3",
+      "strength": "8"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "4",
+      "damage": "1",
+      "is_melee": true,
+      "line": 11,
+      "name": "Power weapon",
+      "skill": "3",
+      "strength": "5"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "3",
+      "damage": "2",
+      "is_melee": true,
+      "line": 12,
+      "name": "Thunder hammer",
+      "skill": "4",
+      "strength": "8"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "5",
+      "damage": "1",
+      "is_melee": true,
+      "line": 13,
+      "name": "Twin lightning claws",
+      "skill": "3",
+      "strength": "5"
+    }
+  ]
+}

@@ -1,0 +1,145 @@
+{
+  "ability_keys": [
+    "datasheet:beguiling-form",
+    "datasheet:daemon-primarch-of-slaanesh",
+    "datasheet:daemonic-poisons",
+    "datasheet:daemonic-speed",
+    "datasheet:enthralling-hypnosis-aura",
+    "datasheet:serpentine",
+    "datasheet:supreme-commander"
+  ],
+  "costs": [
+    {
+      "copy_index_min": 1,
+      "label": "1 model",
+      "model_count": 1,
+      "points": 340,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    }
+  ],
+  "damaged_threshold": 6,
+  "datasheet_id": "ds-fulgrim",
+  "faction_id": "f-emperors-children",
+  "is_battleline": false,
+  "is_character": true,
+  "is_dedicated_transport": false,
+  "is_epic_hero": true,
+  "is_legends": false,
+  "keywords": [
+    {
+      "is_faction_keyword": false,
+      "keyword": "Chaos"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Character"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Daemon"
+    },
+    {
+      "is_faction_keyword": true,
+      "keyword": "Emperor’s Children"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Epic Hero"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Fly"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Fulgrim"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Monster"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Primarch"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Slaanesh"
+    }
+  ],
+  "models": [
+    {
+      "base_size": "130mm",
+      "invuln_save": "4",
+      "leadership": "5+",
+      "line": 1,
+      "movement": "16\"",
+      "name": "Fulgrim",
+      "objective_control": 6,
+      "save": "2+",
+      "toughness": 11,
+      "wounds": 16
+    }
+  ],
+  "name": "FULGRIM",
+  "pricing_confidence": {
+    "consecutive_unverified_releases": 0,
+    "last_verified_points_digest": "sha256:28c8faefbfa987b243ed689abda6fd48815c181a98b3297fb263d2b0aac054f9",
+    "last_verified_version": "mfm-2026-08",
+    "state": "verified"
+  },
+  "provenance": {
+    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+    "detail_edition_code": "wh40k-10e",
+    "detail_source": "wahapedia",
+    "is_hybrid_edition": true,
+    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "points_edition_code": "wh40k-11e",
+    "points_source": "mfm"
+  },
+  "role": "Characters",
+  "weapons": [
+    {
+      "armour_penetration": "-2",
+      "attacks": "6",
+      "damage": "2",
+      "is_melee": false,
+      "line": 1,
+      "name": "Malefic lash",
+      "range": "12",
+      "skill": "2",
+      "strength": "8"
+    },
+    {
+      "armour_penetration": "-3",
+      "attacks": "6",
+      "damage": "D6+1",
+      "is_melee": true,
+      "line": 2,
+      "name": "Daemonic blades – strike",
+      "skill": "2",
+      "strength": "14"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "12",
+      "damage": "2",
+      "is_melee": true,
+      "line": 3,
+      "name": "Daemonic blades – sweep",
+      "skill": "2",
+      "strength": "8"
+    },
+    {
+      "armour_penetration": "-1",
+      "attacks": "6",
+      "damage": "1",
+      "is_melee": true,
+      "line": 4,
+      "name": "Serpentine tail",
+      "skill": "2",
+      "strength": "6"
+    }
+  ]
+}

@@ -1,0 +1,74 @@
+{
+  "ability_keys": [
+    "datasheet:defence-line",
+    "datasheet:deployment",
+    "datasheet:emplacement-platform",
+    "datasheet:fortification",
+    "datasheet:reinforced-cover"
+  ],
+  "costs": [
+    {
+      "copy_index_min": 1,
+      "label": "1 model",
+      "model_count": 1,
+      "points": 145,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    }
+  ],
+  "datasheet_id": "ds-aegis-defence-line",
+  "faction_id": "f-astra-militarum",
+  "is_battleline": false,
+  "is_character": false,
+  "is_dedicated_transport": false,
+  "is_epic_hero": false,
+  "is_legends": false,
+  "keywords": [
+    {
+      "is_faction_keyword": false,
+      "keyword": "Aegis Defence Line"
+    },
+    {
+      "is_faction_keyword": true,
+      "keyword": "Astra Militarum"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Fortification"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Imperium"
+    }
+  ],
+  "models": [
+    {
+      "base_size": "Use model",
+      "leadership": "7+",
+      "line": 1,
+      "movement": "-",
+      "name": "Aegis Defence Line",
+      "objective_control": 0,
+      "save": "2+",
+      "toughness": 12,
+      "wounds": 10
+    }
+  ],
+  "name": "AEGIS DEFENCE LINE",
+  "pricing_confidence": {
+    "consecutive_unverified_releases": 0,
+    "last_verified_points_digest": "sha256:033f9ec170f72da3b42eb882a95f790187feba1a7204977598f0cbd902ec648b",
+    "last_verified_version": "mfm-2026-08",
+    "state": "verified"
+  },
+  "provenance": {
+    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+    "detail_edition_code": "wh40k-10e",
+    "detail_source": "wahapedia",
+    "is_hybrid_edition": true,
+    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "points_edition_code": "wh40k-11e",
+    "points_source": "mfm"
+  },
+  "role": "Fortifications"
+}

@@ -1,0 +1,84 @@
+{
+  "ability_keys": [
+    "datasheet:my-will-be-done",
+    "datasheet:resurrection-orb",
+    "datasheet:translocation-shroud"
+  ],
+  "costs": [
+    {
+      "copy_index_min": 1,
+      "label": "1 model",
+      "model_count": 1,
+      "points": 90,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    }
+  ],
+  "datasheet_id": "ds-overlord-with-translocation-shroud",
+  "faction_id": "f-necrons",
+  "is_battleline": false,
+  "is_character": true,
+  "is_dedicated_transport": false,
+  "is_epic_hero": false,
+  "is_legends": false,
+  "keywords": [
+    {
+      "is_faction_keyword": false,
+      "keyword": "Character"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Infantry"
+    },
+    {
+      "is_faction_keyword": true,
+      "keyword": "Necrons"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Noble"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Overlord"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Overlord with translocation shroud"
+    }
+  ],
+  "leader_pairs": [
+    "ds-immortals",
+    "ds-lychguard",
+    "ds-necron-warriors"
+  ],
+  "name": "OVERLORD WITH TRANSLOCATION SHROUD",
+  "pricing_confidence": {
+    "consecutive_unverified_releases": 0,
+    "last_verified_points_digest": "sha256:e44414db501bb26ca640da94337f11b3d663084e8077e4ba8b901744af55657a",
+    "last_verified_version": "mfm-2026-08",
+    "state": "verified"
+  },
+  "provenance": {
+    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+    "detail_edition_code": "wh40k-10e",
+    "detail_source": "wahapedia",
+    "is_hybrid_edition": true,
+    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "points_edition_code": "wh40k-11e",
+    "points_source": "mfm"
+  },
+  "role": "Characters",
+  "weapons": [
+    {
+      "armour_penetration": "-3",
+      "attacks": "4",
+      "damage": "2",
+      "is_melee": true,
+      "line": 1,
+      "name": "Overlord's blade",
+      "skill": "2",
+      "strength": "8"
+    }
+  ]
+}

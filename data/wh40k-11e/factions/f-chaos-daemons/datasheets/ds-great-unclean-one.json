@@ -1,0 +1,167 @@
+{
+  "ability_keys": [
+    "datasheet:daemon-lord-of-nurgle-aura",
+    "datasheet:greater-daemon-of-nurgle-aura",
+    "datasheet:nurgles-rot-psychic",
+    "datasheet:reverberating-summons"
+  ],
+  "costs": [
+    {
+      "copy_index_min": 1,
+      "label": "1 model",
+      "model_count": 1,
+      "points": 265,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    },
+    {
+      "copy_index_min": 3,
+      "label": "1 model",
+      "model_count": 1,
+      "points": 280,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    }
+  ],
+  "damaged_threshold": 7,
+  "datasheet_id": "ds-great-unclean-one",
+  "faction_id": "f-chaos-daemons",
+  "is_battleline": false,
+  "is_character": true,
+  "is_dedicated_transport": false,
+  "is_epic_hero": false,
+  "is_legends": false,
+  "keywords": [
+    {
+      "is_faction_keyword": false,
+      "keyword": "Chaos"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Character"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Daemon"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Great Unclean One"
+    },
+    {
+      "is_faction_keyword": true,
+      "keyword": "Legiones Daemonica"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Monster"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Nurgle"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Psyker"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Shadow Legion"
+    }
+  ],
+  "models": [
+    {
+      "base_size": "130mm",
+      "invuln_save": "4",
+      "leadership": "6+",
+      "line": 1,
+      "movement": "7\"",
+      "name": "Great Unclean One",
+      "objective_control": 5,
+      "save": "5+",
+      "toughness": 12,
+      "wounds": 20
+    }
+  ],
+  "name": "GREAT UNCLEAN ONE",
+  "pricing_confidence": {
+    "consecutive_unverified_releases": 0,
+    "last_verified_points_digest": "sha256:14383ad7474074bb537bb9937a3ae063762c29ba3cdabcb7684c894adf0303dd",
+    "last_verified_version": "mfm-2026-08",
+    "state": "verified"
+  },
+  "provenance": {
+    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+    "detail_edition_code": "wh40k-10e",
+    "detail_source": "wahapedia",
+    "is_hybrid_edition": true,
+    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "points_edition_code": "wh40k-11e",
+    "points_source": "mfm"
+  },
+  "role": "Characters",
+  "weapons": [
+    {
+      "armour_penetration": "-2",
+      "attacks": "D6+1",
+      "damage": "2",
+      "is_melee": false,
+      "line": 1,
+      "name": "Plague flail",
+      "range": "6",
+      "skill": "3",
+      "strength": "7"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "D6+3",
+      "damage": "1",
+      "is_melee": false,
+      "line": 2,
+      "name": "Putrid vomit",
+      "range": "12",
+      "skill": "N/A",
+      "strength": "5"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "3",
+      "damage": "2",
+      "is_melee": true,
+      "line": 3,
+      "name": "Bileblade",
+      "skill": "2",
+      "strength": "6"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "6",
+      "damage": "D6+1",
+      "is_melee": true,
+      "line": 4,
+      "name": "Bilesword – strike",
+      "skill": "2",
+      "strength": "10"
+    },
+    {
+      "armour_penetration": "-1",
+      "attacks": "12",
+      "damage": "1",
+      "is_melee": true,
+      "line": 5,
+      "name": "Bilesword – sweep",
+      "skill": "2",
+      "strength": "7"
+    },
+    {
+      "armour_penetration": "-1",
+      "attacks": "6",
+      "damage": "2",
+      "is_melee": true,
+      "line": 6,
+      "name": "Doomsday bell",
+      "skill": "2",
+      "strength": "7"
+    }
+  ]
+}

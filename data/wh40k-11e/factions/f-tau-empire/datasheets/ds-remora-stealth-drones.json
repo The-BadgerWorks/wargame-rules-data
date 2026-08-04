@@ -1,0 +1,107 @@
+{
+  "ability_keys": [
+    "datasheet:aerial-disengagement",
+    "datasheet:one-shot"
+  ],
+  "costs": [
+    {
+      "copy_index_min": 1,
+      "label": "2 models",
+      "model_count": 2,
+      "points": 160,
+      "pricing_confidence": "unverified",
+      "source_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1"
+    }
+  ],
+  "datasheet_id": "ds-remora-stealth-drones",
+  "faction_id": "f-tau-empire",
+  "is_battleline": false,
+  "is_character": false,
+  "is_dedicated_transport": false,
+  "is_epic_hero": false,
+  "is_legends": true,
+  "keywords": [
+    {
+      "is_faction_keyword": false,
+      "keyword": "Fly"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Markerlight"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Remora Stealth Drones"
+    },
+    {
+      "is_faction_keyword": true,
+      "keyword": "T’au Empire"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Vehicle"
+    }
+  ],
+  "models": [
+    {
+      "base_size": "60mm flying base",
+      "leadership": "7+",
+      "line": 1,
+      "movement": "16\"",
+      "name": "Remora Stealth Drones",
+      "objective_control": 0,
+      "save": "3+",
+      "toughness": 6,
+      "wounds": 5
+    }
+  ],
+  "name": "Remora Stealth Drones",
+  "pricing_confidence": {
+    "consecutive_unverified_releases": 1,
+    "state": "unverified",
+    "unverified_since_version": "mfm-2026-08"
+  },
+  "provenance": {
+    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+    "detail_edition_code": "wh40k-10e",
+    "detail_source": "wahapedia",
+    "is_hybrid_edition": true,
+    "points_edition_code": "wh40k-11e",
+    "points_source": "none"
+  },
+  "role": "Other",
+  "weapons": [
+    {
+      "armour_penetration": "-3",
+      "attacks": "1",
+      "damage": "D6+1",
+      "is_melee": false,
+      "line": 1,
+      "name": "Remora seeker missile",
+      "range": "48",
+      "skill": "4",
+      "strength": "14"
+    },
+    {
+      "armour_penetration": "-1",
+      "attacks": "4",
+      "damage": "1",
+      "is_melee": false,
+      "line": 2,
+      "name": "Twin long-barrelled burst cannon",
+      "range": "24",
+      "skill": "4",
+      "strength": "6"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "1",
+      "damage": "1",
+      "is_melee": true,
+      "line": 3,
+      "name": "Close combat weapon",
+      "skill": "5",
+      "strength": "4"
+    }
+  ]
+}

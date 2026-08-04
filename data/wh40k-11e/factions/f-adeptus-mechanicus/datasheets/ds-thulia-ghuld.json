@@ -1,0 +1,138 @@
+{
+  "ability_keys": [
+    "datasheet:adaptive-tactics",
+    "datasheet:cybernetic-augmentation",
+    "datasheet:fanatical-devotion",
+    "datasheet:mechanicus-bodyguard",
+    "datasheet:rod-of-the-war-forge",
+    "datasheet:secutor-of-olympus",
+    "datasheet:supreme-commander",
+    "datasheet:the-fires-of-mars"
+  ],
+  "costs": [
+    {
+      "copy_index_min": 1,
+      "label": "1 model",
+      "model_count": 1,
+      "points": 180,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    }
+  ],
+  "datasheet_id": "ds-thulia-ghuld",
+  "faction_id": "f-adeptus-mechanicus",
+  "is_battleline": false,
+  "is_character": true,
+  "is_dedicated_transport": false,
+  "is_epic_hero": true,
+  "is_legends": false,
+  "keywords": [
+    {
+      "is_faction_keyword": true,
+      "keyword": "Adeptus Mechanicus"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Character"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Cult Mechanicus"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Epic Hero"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Imperium"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Monster"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Tech-Priest"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Thulia Ghuld"
+    }
+  ],
+  "models": [
+    {
+      "base_size": "80mm",
+      "invuln_save": "4",
+      "leadership": "6+",
+      "line": 1,
+      "movement": "8\"",
+      "name": "Thulia Ghuld",
+      "objective_control": 3,
+      "save": "2+",
+      "toughness": 8,
+      "wounds": 10
+    }
+  ],
+  "name": "THULIA GHULD",
+  "pricing_confidence": {
+    "consecutive_unverified_releases": 0,
+    "last_verified_points_digest": "sha256:44725c4f41c1ef8b157ae1a69e11b4e98e0be54f4d66a6ece9ff6672891c9867",
+    "last_verified_version": "mfm-2026-08",
+    "state": "verified"
+  },
+  "provenance": {
+    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+    "detail_edition_code": "wh40k-10e",
+    "detail_source": "wahapedia",
+    "is_hybrid_edition": true,
+    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "points_edition_code": "wh40k-11e",
+    "points_source": "mfm"
+  },
+  "role": "Characters",
+  "weapons": [
+    {
+      "armour_penetration": "-3",
+      "attacks": "2",
+      "damage": "D6+2",
+      "is_melee": false,
+      "line": 1,
+      "name": "Jericho-class conversion resonator – titanic impact",
+      "range": "24",
+      "skill": "2",
+      "strength": "12"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "D6+2",
+      "damage": "1",
+      "is_melee": false,
+      "line": 2,
+      "name": "Jericho-class conversion resonator – shockwave",
+      "range": "24",
+      "skill": "2",
+      "strength": "6"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "6",
+      "damage": "3",
+      "is_melee": true,
+      "line": 3,
+      "name": "Rod of the War Forge – strike",
+      "skill": "2",
+      "strength": "10"
+    },
+    {
+      "armour_penetration": "-1",
+      "attacks": "12",
+      "damage": "1",
+      "is_melee": true,
+      "line": 4,
+      "name": "Rod of the War Forge – sweep",
+      "skill": "2",
+      "strength": "6"
+    }
+  ]
+}

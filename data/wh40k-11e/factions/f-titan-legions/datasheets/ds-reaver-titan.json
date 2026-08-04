@@ -1,0 +1,172 @@
+{
+  "ability_keys": [
+    "datasheet:god-machine",
+    "datasheet:striding-colossus"
+  ],
+  "costs": [
+    {
+      "copy_index_min": 1,
+      "label": "1 model",
+      "model_count": 1,
+      "points": 200,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    }
+  ],
+  "damaged_threshold": 20,
+  "datasheet_id": "ds-reaver-titan",
+  "faction_id": "f-titan-legions",
+  "is_battleline": false,
+  "is_character": false,
+  "is_dedicated_transport": false,
+  "is_epic_hero": false,
+  "is_legends": false,
+  "keywords": [
+    {
+      "is_faction_keyword": true,
+      "keyword": "Adeptus Titanicus"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Imperium"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Reaver Titan"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Titanic"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Towering"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Vehicle"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Walker"
+    }
+  ],
+  "models": [
+    {
+      "base_size": "Use model",
+      "invuln_save": "5",
+      "leadership": "6+",
+      "line": 1,
+      "movement": "12\"",
+      "name": "Reaver Titan",
+      "objective_control": 20,
+      "save": "2+",
+      "toughness": 14,
+      "wounds": 60
+    }
+  ],
+  "name": "REAVER TITAN",
+  "pricing_confidence": {
+    "consecutive_unverified_releases": 0,
+    "last_verified_points_digest": "sha256:a5a0b34ea1e2447ebb32fe2d9207fb5dd933824c2a767c0eb33396a1c752a051",
+    "last_verified_version": "mfm-2026-08",
+    "state": "verified"
+  },
+  "provenance": {
+    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+    "detail_edition_code": "wh40k-10e",
+    "detail_source": "wahapedia",
+    "is_hybrid_edition": true,
+    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "points_edition_code": "wh40k-11e",
+    "points_source": "mfm"
+  },
+  "role": "Other",
+  "weapons": [
+    {
+      "armour_penetration": "-1",
+      "attacks": "3D6",
+      "damage": "2",
+      "is_melee": false,
+      "line": 1,
+      "name": "Reaver apocalypse launcher",
+      "range": "200",
+      "skill": "3",
+      "strength": "7"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "12",
+      "damage": "3",
+      "is_melee": false,
+      "line": 2,
+      "name": "Reaver gatling blaster",
+      "range": "72",
+      "skill": "3",
+      "strength": "8"
+    },
+    {
+      "armour_penetration": "-3",
+      "attacks": "8",
+      "damage": "D6+2",
+      "is_melee": false,
+      "line": 3,
+      "name": "Reaver laser blaster",
+      "range": "72",
+      "skill": "3",
+      "strength": "20"
+    },
+    {
+      "armour_penetration": "-4",
+      "attacks": "D6+2",
+      "damage": "6",
+      "is_melee": false,
+      "line": 4,
+      "name": "Reaver melta cannon",
+      "range": "48",
+      "skill": "3",
+      "strength": "13"
+    },
+    {
+      "armour_penetration": "-5",
+      "attacks": "D3+1",
+      "damage": "14",
+      "is_melee": false,
+      "line": 5,
+      "name": "Reaver volcano cannon",
+      "range": "120",
+      "skill": "3",
+      "strength": "24"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "8",
+      "damage": "4",
+      "is_melee": true,
+      "line": 6,
+      "name": "Reaver feet",
+      "skill": "4",
+      "strength": "12"
+    },
+    {
+      "armour_penetration": "-4",
+      "attacks": "6",
+      "damage": "14",
+      "is_melee": true,
+      "line": 7,
+      "name": "Reaver power fist – strike",
+      "skill": "4",
+      "strength": "20"
+    },
+    {
+      "armour_penetration": "-3",
+      "attacks": "12",
+      "damage": "6",
+      "is_melee": true,
+      "line": 8,
+      "name": "Reaver power fist – sweep",
+      "skill": "4",
+      "strength": "12"
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "ability_keys": [
+    "datasheet:inspirational-defiance",
+    "datasheet:martial-warrior"
+  ],
+  "costs": [
+    {
+      "copy_index_min": 1,
+      "label": "1 model",
+      "model_count": 1,
+      "points": 50,
+      "pricing_confidence": "unverified",
+      "source_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1"
+    }
+  ],
+  "datasheet_id": "ds-aunshi",
+  "faction_id": "f-tau-empire",
+  "is_battleline": false,
+  "is_character": true,
+  "is_dedicated_transport": false,
+  "is_epic_hero": true,
+  "is_legends": true,
+  "keywords": [
+    {
+      "is_faction_keyword": false,
+      "keyword": "Aun’Shi"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Character"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Epic Hero"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Ethereal"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Infantry"
+    },
+    {
+      "is_faction_keyword": true,
+      "keyword": "T’au Empire"
+    }
+  ],
+  "leader_pairs": [
+    "ds-breacher-team",
+    "ds-kroot-carnivores",
+    "ds-strike-team"
+  ],
+  "models": [
+    {
+      "base_size": "25mm",
+      "invuln_save": "5",
+      "leadership": "7+",
+      "line": 1,
+      "movement": "6\"",
+      "name": "Aun’shi",
+      "objective_control": 1,
+      "save": "6+",
+      "toughness": 3,
+      "wounds": 3
+    }
+  ],
+  "name": "Aun’shi",
+  "pricing_confidence": {
+    "consecutive_unverified_releases": 1,
+    "state": "unverified",
+    "unverified_since_version": "mfm-2026-08"
+  },
+  "provenance": {
+    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+    "detail_edition_code": "wh40k-10e",
+    "detail_source": "wahapedia",
+    "is_hybrid_edition": true,
+    "points_edition_code": "wh40k-11e",
+    "points_source": "none"
+  },
+  "role": "Characters",
+  "weapons": [
+    {
+      "armour_penetration": "-1",
+      "attacks": "6",
+      "damage": "2",
+      "is_melee": true,
+      "line": 1,
+      "name": "Fidelity",
+      "skill": "3",
+      "strength": "5"
+    }
+  ]
+}

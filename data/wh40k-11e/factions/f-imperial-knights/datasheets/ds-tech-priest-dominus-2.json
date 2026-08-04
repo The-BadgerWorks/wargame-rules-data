@@ -1,0 +1,90 @@
+{
+  "ability_keys": [
+    "datasheet:data-spike",
+    "datasheet:lord-of-the-machine-cult"
+  ],
+  "costs": [
+    {
+      "copy_index_min": 1,
+      "label": "1 model",
+      "model_count": 1,
+      "points": 65,
+      "pricing_confidence": "unverified",
+      "source_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1"
+    }
+  ],
+  "datasheet_id": "ds-tech-priest-dominus-2",
+  "faction_id": "f-imperial-knights",
+  "is_battleline": false,
+  "is_character": true,
+  "is_dedicated_transport": false,
+  "is_epic_hero": false,
+  "is_legends": false,
+  "keywords": [
+    {
+      "is_faction_keyword": true,
+      "keyword": "Adeptus Mechanicus"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Character"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Cult Mechanicus"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Dominus"
+    },
+    {
+      "is_faction_keyword": true,
+      "keyword": "Imperial Knights"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Imperium"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Infantry"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Tech-Priest"
+    }
+  ],
+  "leader_pairs": [
+    "ds-skitarii-rangers-2",
+    "ds-skitarii-vanguard-2"
+  ],
+  "models": [
+    {
+      "base_size": "50mm",
+      "invuln_save": "5",
+      "leadership": "7+",
+      "line": 1,
+      "movement": "6\"",
+      "name": "Tech-priest Dominus",
+      "objective_control": 1,
+      "save": "2+",
+      "toughness": 4,
+      "wounds": 4
+    }
+  ],
+  "name": "Tech-priest Dominus",
+  "pricing_confidence": {
+    "consecutive_unverified_releases": 1,
+    "state": "unverified",
+    "unverified_since_version": "mfm-2026-08"
+  },
+  "provenance": {
+    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+    "detail_edition_code": "wh40k-10e",
+    "detail_source": "wahapedia",
+    "is_hybrid_edition": true,
+    "points_edition_code": "wh40k-11e",
+    "points_source": "none"
+  },
+  "role": "Characters"
+}

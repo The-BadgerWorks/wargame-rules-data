@@ -1,0 +1,149 @@
+{
+  "ability_keys": [
+    "datasheet:impossible-form-psychic",
+    "datasheet:lord-of-the-planet-of-the-sorcerers-psychic",
+    "datasheet:supreme-commander",
+    "datasheet:time-flux-aura-psychic",
+    "datasheet:treason-of-tzeentch-psychic",
+    "datasheet:unearthly-power"
+  ],
+  "costs": [
+    {
+      "copy_index_min": 1,
+      "label": "1 model",
+      "model_count": 1,
+      "points": 455,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    }
+  ],
+  "damaged_threshold": 6,
+  "datasheet_id": "ds-magnus-the-red",
+  "faction_id": "f-thousand-sons",
+  "is_battleline": false,
+  "is_character": true,
+  "is_dedicated_transport": false,
+  "is_epic_hero": true,
+  "is_legends": false,
+  "keywords": [
+    {
+      "is_faction_keyword": false,
+      "keyword": "Chaos"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Character"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Daemon"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Epic Hero"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Fly"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Magnus the Red"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Monster"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Primarch"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Psyker"
+    },
+    {
+      "is_faction_keyword": true,
+      "keyword": "Thousand Sons"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Tzeentch"
+    }
+  ],
+  "models": [
+    {
+      "base_size": "100mm",
+      "invuln_save": "4",
+      "leadership": "5+",
+      "line": 1,
+      "movement": "14\"",
+      "name": "Magnus The Red",
+      "objective_control": 6,
+      "save": "2+",
+      "toughness": 11,
+      "wounds": 16
+    }
+  ],
+  "name": "MAGNUS THE RED",
+  "pricing_confidence": {
+    "consecutive_unverified_releases": 0,
+    "last_verified_points_digest": "sha256:8ed5e86d01a47abf230da5459ef0160c089e3d48cf2e61b2a7e6d10615ed89d5",
+    "last_verified_version": "mfm-2026-08",
+    "state": "verified"
+  },
+  "provenance": {
+    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+    "detail_edition_code": "wh40k-10e",
+    "detail_source": "wahapedia",
+    "is_hybrid_edition": true,
+    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "points_edition_code": "wh40k-11e",
+    "points_source": "mfm"
+  },
+  "role": "Characters",
+  "weapons": [
+    {
+      "armour_penetration": "-2",
+      "attacks": "3D3",
+      "damage": "3",
+      "is_melee": false,
+      "line": 1,
+      "name": "Gaze of Magnus",
+      "range": "24",
+      "skill": "2",
+      "strength": "11"
+    },
+    {
+      "armour_penetration": "-1",
+      "attacks": "D6+3",
+      "damage": "2",
+      "is_melee": false,
+      "line": 2,
+      "name": "Tzeentch’s Firestorm",
+      "range": "24",
+      "skill": "2",
+      "strength": "6"
+    },
+    {
+      "armour_penetration": "-3",
+      "attacks": "7",
+      "damage": "3",
+      "is_melee": true,
+      "line": 3,
+      "name": "Blade of Magnus – strike",
+      "skill": "2",
+      "strength": "16"
+    },
+    {
+      "armour_penetration": "-1",
+      "attacks": "14",
+      "damage": "2",
+      "is_melee": true,
+      "line": 4,
+      "name": "Blade of Magnus – sweep",
+      "skill": "2",
+      "strength": "8"
+    }
+  ]
+}

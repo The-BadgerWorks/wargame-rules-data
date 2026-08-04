@@ -1,0 +1,122 @@
+{
+  "ability_keys": [
+    "datasheet:swift-assault",
+    "datasheet:unbreakable-duty"
+  ],
+  "costs": [
+    {
+      "copy_index_min": 1,
+      "label": "1 model",
+      "model_count": 1,
+      "points": 40,
+      "pricing_confidence": "unverified",
+      "source_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1"
+    }
+  ],
+  "datasheet_id": "ds-imperial-space-marine",
+  "faction_id": "f-space-marines",
+  "is_battleline": false,
+  "is_character": true,
+  "is_dedicated_transport": false,
+  "is_epic_hero": false,
+  "is_legends": true,
+  "keywords": [
+    {
+      "is_faction_keyword": true,
+      "keyword": "Adeptus Astartes"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Character"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Grenades"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Imperial Space Marine"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Imperium"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Infantry"
+    }
+  ],
+  "leader_pairs": [
+    "ds-assault-squad",
+    "ds-command-squad",
+    "ds-crusader-squad-legendary",
+    "ds-devastator-squad-4",
+    "ds-long-fangs",
+    "ds-tactical-squad-4",
+    "ds-vanguard-veteran-squad",
+    "ds-vanguard-veteran-squad-with-jump-packs-6",
+    "ds-wolf-guard"
+  ],
+  "models": [
+    {
+      "base_size": "32mm",
+      "leadership": "6+",
+      "line": 1,
+      "movement": "6\"",
+      "name": "Imperial Space Marine",
+      "objective_control": 1,
+      "save": "3+",
+      "toughness": 4,
+      "wounds": 4
+    }
+  ],
+  "name": "Imperial Space Marine",
+  "pricing_confidence": {
+    "consecutive_unverified_releases": 1,
+    "state": "unverified",
+    "unverified_since_version": "mfm-2026-08"
+  },
+  "provenance": {
+    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+    "detail_edition_code": "wh40k-10e",
+    "detail_source": "wahapedia",
+    "is_hybrid_edition": true,
+    "points_edition_code": "wh40k-11e",
+    "points_source": "none"
+  },
+  "role": "Characters",
+  "weapons": [
+    {
+      "armour_penetration": "-1",
+      "attacks": "1",
+      "damage": "1",
+      "is_melee": false,
+      "line": 1,
+      "name": "Disintegration combi-gun",
+      "range": "24",
+      "skill": "4",
+      "strength": "5"
+    },
+    {
+      "armour_penetration": "-1",
+      "attacks": "1",
+      "damage": "1",
+      "is_melee": false,
+      "line": 2,
+      "name": "Disintegration pistol",
+      "range": "12",
+      "skill": "3",
+      "strength": "5"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "4",
+      "damage": "1",
+      "is_melee": true,
+      "line": 3,
+      "name": "Close combat weapon",
+      "skill": "3",
+      "strength": "4"
+    }
+  ]
+}

@@ -1,0 +1,198 @@
+{
+  "ability_keys": [
+    "datasheet:heroes-of-ultramar",
+    "datasheet:refractor-field",
+    "datasheet:second-company-banner",
+    "datasheet:storm-shield",
+    "datasheet:strategium-command"
+  ],
+  "costs": [
+    {
+      "copy_index_min": 1,
+      "label": "6 models",
+      "model_count": 6,
+      "points": 120,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    }
+  ],
+  "datasheet_id": "ds-wardens-of-ultramar",
+  "faction_id": "f-space-marines",
+  "is_battleline": false,
+  "is_character": false,
+  "is_dedicated_transport": false,
+  "is_epic_hero": true,
+  "is_legends": false,
+  "keywords": [
+    {
+      "is_faction_keyword": true,
+      "keyword": "Adeptus Astartes"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Epic Hero",
+      "model_scope": "ALL MODELS"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Grenades",
+      "model_scope": "ALL MODELS"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Imperium",
+      "model_scope": "ALL MODELS"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Infantry",
+      "model_scope": "ALL MODELS"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Psyker",
+      "model_scope": "DAINAL KORNELIUS"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Tacticus",
+      "model_scope": "ALL MODELS"
+    },
+    {
+      "is_faction_keyword": true,
+      "keyword": "Ultramarines"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Wardens of Ultramar",
+      "model_scope": "ALL MODELS"
+    }
+  ],
+  "models": [
+    {
+      "base_size": "40mm",
+      "leadership": "6+",
+      "line": 1,
+      "movement": "6\"",
+      "name": "Ancient Gadriel, Veteran Sergeant Metaurus",
+      "objective_control": 1,
+      "save": "3+",
+      "toughness": 4,
+      "wounds": 4
+    },
+    {
+      "base_size": "28.5mm",
+      "leadership": "6+",
+      "line": 2,
+      "movement": "6\"",
+      "name": "Gaius Silva, Aemelia Minervas, Dainal Kornelius, Lucia Vestha",
+      "objective_control": 1,
+      "save": "4+",
+      "toughness": 3,
+      "wounds": 3
+    }
+  ],
+  "name": "WARDENS OF ULTRAMAR",
+  "pricing_confidence": {
+    "consecutive_unverified_releases": 0,
+    "last_verified_points_digest": "sha256:5faa92508c3166938885a04664a2952b303e54400998959b87185e262e39767f",
+    "last_verified_version": "mfm-2026-08",
+    "state": "verified"
+  },
+  "provenance": {
+    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+    "detail_edition_code": "wh40k-10e",
+    "detail_source": "wahapedia",
+    "is_hybrid_edition": true,
+    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "points_edition_code": "wh40k-11e",
+    "points_source": "mfm"
+  },
+  "role": "Other",
+  "weapons": [
+    {
+      "armour_penetration": "-1",
+      "attacks": "1",
+      "damage": "1",
+      "is_melee": false,
+      "line": 1,
+      "name": "Archeotech laspistol",
+      "range": "12",
+      "skill": "3",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "-1",
+      "attacks": "D6",
+      "damage": "1",
+      "is_melee": false,
+      "line": 2,
+      "name": "Astropathic Blast",
+      "range": "12",
+      "skill": "3",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "-1",
+      "attacks": "2",
+      "damage": "1",
+      "is_melee": false,
+      "line": 3,
+      "name": "Bolt rifle",
+      "range": "24",
+      "skill": "3",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "-1",
+      "attacks": "1",
+      "damage": "1",
+      "is_melee": false,
+      "line": 4,
+      "name": "Heavy bolt pistol",
+      "range": "18",
+      "skill": "3",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "4",
+      "damage": "1",
+      "is_melee": true,
+      "line": 5,
+      "name": "Close combat weapon",
+      "skill": "2",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "1",
+      "damage": "2",
+      "is_melee": true,
+      "line": 6,
+      "name": "Force stave",
+      "skill": "2",
+      "strength": "5"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "4",
+      "damage": "1",
+      "is_melee": true,
+      "line": 7,
+      "name": "Power weapon",
+      "skill": "2",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "5",
+      "damage": "2",
+      "is_melee": true,
+      "line": 8,
+      "name": "Master-crafted power weapon",
+      "skill": "2",
+      "strength": "5"
+    }
+  ]
+}

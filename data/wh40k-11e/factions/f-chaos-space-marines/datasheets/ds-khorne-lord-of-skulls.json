@@ -1,0 +1,173 @@
+{
+  "ability_keys": [
+    "datasheet:plough-through-the-enemy"
+  ],
+  "costs": [
+    {
+      "copy_index_min": 1,
+      "label": "1 model",
+      "model_count": 1,
+      "points": 450,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    },
+    {
+      "copy_index_min": 2,
+      "label": "1 model",
+      "model_count": 1,
+      "points": 475,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    }
+  ],
+  "damaged_threshold": 8,
+  "datasheet_id": "ds-khorne-lord-of-skulls",
+  "faction_id": "f-chaos-space-marines",
+  "is_battleline": false,
+  "is_character": false,
+  "is_dedicated_transport": false,
+  "is_epic_hero": false,
+  "is_legends": false,
+  "keywords": [
+    {
+      "is_faction_keyword": false,
+      "keyword": "Chaos"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Daemon"
+    },
+    {
+      "is_faction_keyword": true,
+      "keyword": "Heretic Astartes"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Khorne"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Lord of Skulls"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Titanic"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Towering"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Vehicle"
+    }
+  ],
+  "models": [
+    {
+      "base_size": "Use model",
+      "invuln_save": "5",
+      "leadership": "6+",
+      "line": 1,
+      "movement": "8\"",
+      "name": "Khorne Lord Of Skulls",
+      "objective_control": 8,
+      "save": "3+",
+      "toughness": 13,
+      "wounds": 24
+    }
+  ],
+  "name": "KHORNE LORD OF SKULLS",
+  "pricing_confidence": {
+    "consecutive_unverified_releases": 0,
+    "last_verified_points_digest": "sha256:e6e8aba3f7b35dbc5c7d7686762246742bea6a876347f1259c8581d9c7df1bcc",
+    "last_verified_version": "mfm-2026-08",
+    "state": "verified"
+  },
+  "provenance": {
+    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+    "detail_edition_code": "wh40k-10e",
+    "detail_source": "wahapedia",
+    "is_hybrid_edition": true,
+    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "points_edition_code": "wh40k-11e",
+    "points_source": "mfm"
+  },
+  "role": "Other",
+  "weapons": [
+    {
+      "armour_penetration": "-4",
+      "attacks": "D6",
+      "damage": "D6+2",
+      "is_melee": false,
+      "line": 1,
+      "name": "Daemongore cannon",
+      "range": "18",
+      "skill": "3",
+      "strength": "14"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "D6+3",
+      "damage": "3",
+      "is_melee": false,
+      "line": 2,
+      "name": "Gorestorm cannon",
+      "range": "24",
+      "skill": "3",
+      "strength": "10"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "12",
+      "damage": "2",
+      "is_melee": false,
+      "line": 3,
+      "name": "Hades gatling cannon",
+      "range": "48",
+      "skill": "3",
+      "strength": "8"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "2D6",
+      "damage": "2",
+      "is_melee": false,
+      "line": 4,
+      "name": "Ichor cannon",
+      "range": "48",
+      "skill": "3",
+      "strength": "7"
+    },
+    {
+      "armour_penetration": "-3",
+      "attacks": "2D6",
+      "damage": "3",
+      "is_melee": false,
+      "line": 5,
+      "name": "Skullhurler",
+      "range": "60",
+      "skill": "3",
+      "strength": "14"
+    },
+    {
+      "armour_penetration": "-4",
+      "attacks": "5",
+      "damage": "8",
+      "is_melee": true,
+      "line": 6,
+      "name": "Great cleaver of Khorne – strike",
+      "skill": "3",
+      "strength": "16"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "15",
+      "damage": "2",
+      "is_melee": true,
+      "line": 7,
+      "name": "Great cleaver of Khorne – sweep",
+      "skill": "3",
+      "strength": "8"
+    }
+  ]
+}

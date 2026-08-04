@@ -1,0 +1,228 @@
+{
+  "ability_keys": [
+    "datasheet:might-of-heroes-psychic",
+    "datasheet:psychic-hood"
+  ],
+  "costs": [
+    {
+      "copy_index_min": 1,
+      "label": "1 model",
+      "model_count": 1,
+      "points": 75,
+      "pricing_confidence": "unverified",
+      "source_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1"
+    }
+  ],
+  "datasheet_id": "ds-librarian-with-jump-pack",
+  "faction_id": "f-space-marines",
+  "is_battleline": false,
+  "is_character": true,
+  "is_dedicated_transport": false,
+  "is_epic_hero": false,
+  "is_legends": true,
+  "keywords": [
+    {
+      "is_faction_keyword": true,
+      "keyword": "Adeptus Astartes"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Character"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Fly"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Grenades"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Imperium"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Infantry"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Jump Pack"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Librarian"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Psyker"
+    }
+  ],
+  "leader_pairs": [
+    "ds-assault-squad-with-jump-packs",
+    "ds-skyclaws",
+    "ds-vanguard-veteran-squad-with-jump-packs-6",
+    "ds-wolf-guard"
+  ],
+  "models": [
+    {
+      "base_size": "25mm",
+      "leadership": "6+",
+      "line": 1,
+      "movement": "12\"",
+      "name": "Librarian With Jump Pack",
+      "objective_control": 1,
+      "save": "3+",
+      "toughness": 4,
+      "wounds": 4
+    }
+  ],
+  "name": "Librarian with Jump Pack",
+  "pricing_confidence": {
+    "consecutive_unverified_releases": 1,
+    "state": "unverified",
+    "unverified_since_version": "mfm-2026-08"
+  },
+  "provenance": {
+    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+    "detail_edition_code": "wh40k-10e",
+    "detail_source": "wahapedia",
+    "is_hybrid_edition": true,
+    "points_edition_code": "wh40k-11e",
+    "points_source": "none"
+  },
+  "role": "Characters",
+  "weapons": [
+    {
+      "armour_penetration": "0",
+      "attacks": "1",
+      "damage": "1",
+      "is_melee": false,
+      "line": 1,
+      "name": "Bolt pistol",
+      "range": "12",
+      "skill": "3",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "2",
+      "damage": "1",
+      "is_melee": false,
+      "line": 2,
+      "name": "Boltgun",
+      "range": "24",
+      "skill": "3",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "1",
+      "damage": "1",
+      "is_melee": false,
+      "line": 3,
+      "name": "Combi-weapon",
+      "range": "24",
+      "skill": "4",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "-1",
+      "attacks": "1",
+      "damage": "2",
+      "is_melee": false,
+      "line": 4,
+      "name": "Grav-pistol",
+      "range": "12",
+      "skill": "3",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "D6",
+      "damage": "1",
+      "is_melee": false,
+      "line": 5,
+      "name": "Hand flamer",
+      "range": "12",
+      "skill": "N/A",
+      "strength": "3"
+    },
+    {
+      "armour_penetration": "-4",
+      "attacks": "1",
+      "damage": "D3",
+      "is_melee": false,
+      "line": 6,
+      "name": "Inferno pistol",
+      "range": "6",
+      "skill": "3",
+      "strength": "8"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "1",
+      "damage": "1",
+      "is_melee": false,
+      "line": 7,
+      "name": "Plasma pistol – standard",
+      "range": "12",
+      "skill": "3",
+      "strength": "7"
+    },
+    {
+      "armour_penetration": "-3",
+      "attacks": "1",
+      "damage": "2",
+      "is_melee": false,
+      "line": 8,
+      "name": "Plasma pistol – supercharge",
+      "range": "12",
+      "skill": "3",
+      "strength": "8"
+    },
+    {
+      "armour_penetration": "-1",
+      "attacks": "D6",
+      "damage": "D3",
+      "is_melee": false,
+      "line": 9,
+      "name": "Smite – witchfire",
+      "range": "24",
+      "skill": "3",
+      "strength": "5"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "D6",
+      "damage": "D3",
+      "is_melee": false,
+      "line": 10,
+      "name": "Smite – focused witchfire",
+      "range": "24",
+      "skill": "3",
+      "strength": "6"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "2",
+      "damage": "1",
+      "is_melee": false,
+      "line": 11,
+      "name": "Storm bolter",
+      "range": "24",
+      "skill": "3",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "-1",
+      "attacks": "4",
+      "damage": "D3",
+      "is_melee": true,
+      "line": 12,
+      "name": "Force weapon",
+      "skill": "3",
+      "strength": "6"
+    }
+  ]
+}

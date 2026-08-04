@@ -1,0 +1,129 @@
+{
+  "ability_keys": [
+    "datasheet:dark-destiny",
+    "datasheet:lord-of-the-traitor-legions-aura",
+    "datasheet:mark-of-chaos-ascendant-aura",
+    "datasheet:paragon-of-hatred-aura",
+    "datasheet:supreme-commander",
+    "datasheet:the-warmaster"
+  ],
+  "costs": [
+    {
+      "copy_index_min": 1,
+      "label": "1 model",
+      "model_count": 1,
+      "points": 295,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    }
+  ],
+  "datasheet_id": "ds-abaddon-the-despoiler",
+  "faction_id": "f-chaos-space-marines",
+  "is_battleline": false,
+  "is_character": true,
+  "is_dedicated_transport": false,
+  "is_epic_hero": true,
+  "is_legends": false,
+  "keywords": [
+    {
+      "is_faction_keyword": false,
+      "keyword": "Abaddon the Despoiler"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Chaos"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Chaos Undivided"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Character"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Epic Hero"
+    },
+    {
+      "is_faction_keyword": true,
+      "keyword": "Heretic Astartes"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Infantry"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Terminator"
+    }
+  ],
+  "leader_pairs": [
+    "ds-chaos-terminator-squad",
+    "ds-chosen"
+  ],
+  "models": [
+    {
+      "base_size": "60mm",
+      "invuln_save": "4",
+      "leadership": "5+",
+      "line": 1,
+      "movement": "5\"",
+      "name": "Abaddon The Despoiler",
+      "objective_control": 4,
+      "save": "2+",
+      "toughness": 5,
+      "wounds": 9
+    }
+  ],
+  "name": "ABADDON THE DESPOILER",
+  "pricing_confidence": {
+    "consecutive_unverified_releases": 0,
+    "last_verified_points_digest": "sha256:a8ca3c4ac562556b80fbf5c11a78b6fb2b67309a31a4f4a942d1393f8740626a",
+    "last_verified_version": "mfm-2026-08",
+    "state": "verified"
+  },
+  "provenance": {
+    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+    "detail_edition_code": "wh40k-10e",
+    "detail_source": "wahapedia",
+    "is_hybrid_edition": true,
+    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "points_edition_code": "wh40k-11e",
+    "points_source": "mfm"
+  },
+  "role": "Characters",
+  "weapons": [
+    {
+      "armour_penetration": "-1",
+      "attacks": "4",
+      "damage": "2",
+      "is_melee": false,
+      "line": 1,
+      "name": "Talon of Horus",
+      "range": "24",
+      "skill": "2",
+      "strength": "5"
+    },
+    {
+      "armour_penetration": "-4",
+      "attacks": "8",
+      "damage": "3",
+      "is_melee": true,
+      "line": 2,
+      "name": "Drach’nyen",
+      "skill": "2",
+      "strength": "14"
+    },
+    {
+      "armour_penetration": "-3",
+      "attacks": "14",
+      "damage": "1",
+      "is_melee": true,
+      "line": 3,
+      "name": "Talon of Horus",
+      "skill": "2",
+      "strength": "7"
+    }
+  ]
+}

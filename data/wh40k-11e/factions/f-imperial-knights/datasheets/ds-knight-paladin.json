@@ -1,0 +1,209 @@
+{
+  "ability_keys": [
+    "datasheet:paladins-duty-bondsman",
+    "datasheet:seasoned-noble"
+  ],
+  "costs": [
+    {
+      "copy_index_min": 1,
+      "label": "1 model",
+      "model_count": 1,
+      "points": 375,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    },
+    {
+      "copy_index_min": 3,
+      "label": "1 model",
+      "model_count": 1,
+      "points": 390,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    }
+  ],
+  "damaged_threshold": 9,
+  "datasheet_id": "ds-knight-paladin",
+  "faction_id": "f-imperial-knights",
+  "is_battleline": false,
+  "is_character": true,
+  "is_dedicated_transport": false,
+  "is_epic_hero": false,
+  "is_legends": false,
+  "keywords": [
+    {
+      "is_faction_keyword": false,
+      "keyword": "Character"
+    },
+    {
+      "is_faction_keyword": true,
+      "keyword": "Imperial Knights"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Imperium"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Knight Paladin"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Questoris"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Titanic"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Towering"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Vehicle"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Walker"
+    }
+  ],
+  "models": [
+    {
+      "base_size": "170 x 109mm",
+      "invuln_save": "5",
+      "leadership": "6+",
+      "line": 1,
+      "movement": "10\"",
+      "name": "Knight Paladin",
+      "objective_control": 10,
+      "save": "3+",
+      "toughness": 11,
+      "wounds": 26
+    }
+  ],
+  "name": "KNIGHT PALADIN",
+  "pricing_confidence": {
+    "consecutive_unverified_releases": 0,
+    "last_verified_points_digest": "sha256:00c7e100987beb8159e4aea035d046ff553f61f9578f725275afe7ce318ef70c",
+    "last_verified_version": "mfm-2026-08",
+    "state": "verified"
+  },
+  "provenance": {
+    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+    "detail_edition_code": "wh40k-10e",
+    "detail_source": "wahapedia",
+    "is_hybrid_edition": true,
+    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "points_edition_code": "wh40k-11e",
+    "points_source": "mfm"
+  },
+  "role": "Characters",
+  "weapons": [
+    {
+      "armour_penetration": "0",
+      "attacks": "D6+1",
+      "damage": "1",
+      "is_melee": false,
+      "line": 1,
+      "name": "Ironstorm missile pod",
+      "range": "48",
+      "skill": "3",
+      "strength": "5"
+    },
+    {
+      "armour_penetration": "-4",
+      "attacks": "1",
+      "damage": "D6",
+      "is_melee": false,
+      "line": 2,
+      "name": "Meltagun",
+      "range": "12",
+      "skill": "3",
+      "strength": "9"
+    },
+    {
+      "armour_penetration": "-1",
+      "attacks": "3",
+      "damage": "1",
+      "is_melee": false,
+      "line": 3,
+      "name": "Questoris heavy stubber",
+      "range": "36",
+      "skill": "3",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "-1",
+      "attacks": "D6+3",
+      "damage": "3",
+      "is_melee": false,
+      "line": 4,
+      "name": "Rapid-fire battle cannon",
+      "range": "72",
+      "skill": "3",
+      "strength": "10"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "3",
+      "damage": "D6",
+      "is_melee": false,
+      "line": 5,
+      "name": "Stormspear rocket pod",
+      "range": "48",
+      "skill": "3",
+      "strength": "8"
+    },
+    {
+      "armour_penetration": "-1",
+      "attacks": "3",
+      "damage": "2",
+      "is_melee": false,
+      "line": 6,
+      "name": "Twin Icarus autocannon",
+      "range": "48",
+      "skill": "3",
+      "strength": "7"
+    },
+    {
+      "armour_penetration": "-4",
+      "attacks": "4",
+      "damage": "6",
+      "is_melee": true,
+      "line": 7,
+      "name": "Reaper chainsword – strike",
+      "skill": "3",
+      "strength": "14"
+    },
+    {
+      "armour_penetration": "-3",
+      "attacks": "12",
+      "damage": "2",
+      "is_melee": true,
+      "line": 8,
+      "name": "Reaper chainsword – sweep",
+      "skill": "3",
+      "strength": "9"
+    },
+    {
+      "armour_penetration": "-3",
+      "attacks": "4",
+      "damage": "8",
+      "is_melee": true,
+      "line": 9,
+      "name": "Thunderstrike gauntlet – strike",
+      "skill": "3",
+      "strength": "20"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "8",
+      "damage": "3",
+      "is_melee": true,
+      "line": 10,
+      "name": "Thunderstrike gauntlet – sweep",
+      "skill": "3",
+      "strength": "10"
+    }
+  ]
+}

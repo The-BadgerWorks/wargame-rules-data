@@ -1,0 +1,261 @@
+{
+  "ability_keys": [
+    "datasheet:fearsome-aura",
+    "datasheet:terrifying-assault"
+  ],
+  "costs": [
+    {
+      "copy_index_min": 1,
+      "label": "5 models",
+      "model_count": 5,
+      "points": 110,
+      "pricing_confidence": "unverified",
+      "source_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1"
+    },
+    {
+      "copy_index_min": 1,
+      "label": "10 models",
+      "model_count": 10,
+      "points": 210,
+      "pricing_confidence": "unverified",
+      "source_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1"
+    }
+  ],
+  "datasheet_id": "ds-raptors-2",
+  "faction_id": "f-chaos-daemons",
+  "is_battleline": false,
+  "is_character": false,
+  "is_dedicated_transport": false,
+  "is_epic_hero": false,
+  "is_legends": false,
+  "keywords": [
+    {
+      "is_faction_keyword": false,
+      "keyword": "Chaos"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Chaos"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Chaos"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Chaos"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Chaos"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Chaos"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Fly"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Fly"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Fly"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Fly"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Fly"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Fly"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Grenades"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Grenades"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Grenades"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Grenades"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Grenades"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Grenades"
+    },
+    {
+      "is_faction_keyword": true,
+      "keyword": "Heretic Astartes"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Infantry"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Infantry"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Infantry"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Infantry"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Infantry"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Infantry"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Jump Packs"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Jump Packs"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Jump Packs"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Jump Packs"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Jump Packs"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Jump Packs"
+    },
+    {
+      "is_faction_keyword": true,
+      "keyword": "Legiones Daemonica"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Raptors"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Raptors"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Raptors"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Raptors"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Raptors"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Raptors"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Shadow Legion"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Shadow Legion"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Shadow Legion"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Shadow Legion"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Shadow Legion"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Shadow Legion"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Undivided"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Undivided"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Undivided"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Undivided"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Undivided"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Undivided"
+    }
+  ],
+  "models": [
+    {
+      "base_size": "32mm",
+      "leadership": "6+",
+      "line": 1,
+      "movement": "12\"",
+      "name": "Raptors",
+      "objective_control": 1,
+      "save": "3+",
+      "toughness": 4,
+      "wounds": 2
+    }
+  ],
+  "name": "Raptors",
+  "pricing_confidence": {
+    "consecutive_unverified_releases": 1,
+    "state": "unverified",
+    "unverified_since_version": "mfm-2026-08"
+  },
+  "provenance": {
+    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+    "detail_edition_code": "wh40k-10e",
+    "detail_source": "wahapedia",
+    "is_hybrid_edition": true,
+    "points_edition_code": "wh40k-11e",
+    "points_source": "none"
+  },
+  "role": "Other"
+}

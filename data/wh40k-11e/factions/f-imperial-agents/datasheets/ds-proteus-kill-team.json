@@ -1,0 +1,348 @@
+{
+  "ability_keys": [
+    "datasheet:astartes-shield",
+    "datasheet:attached-unit",
+    "datasheet:jump-pack",
+    "datasheet:proteus-doctrines",
+    "datasheet:storm-shield"
+  ],
+  "costs": [
+    {
+      "copy_index_min": 1,
+      "label": "5 models",
+      "model_count": 5,
+      "points": 160,
+      "pricing_confidence": "unverified",
+      "source_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1"
+    },
+    {
+      "copy_index_min": 1,
+      "label": "10 models",
+      "model_count": 10,
+      "points": 320,
+      "pricing_confidence": "unverified",
+      "source_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1"
+    }
+  ],
+  "datasheet_id": "ds-proteus-kill-team",
+  "faction_id": "f-imperial-agents",
+  "is_battleline": false,
+  "is_character": false,
+  "is_dedicated_transport": false,
+  "is_epic_hero": false,
+  "is_legends": true,
+  "keywords": [
+    {
+      "is_faction_keyword": true,
+      "keyword": "Agents of the Imperium"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Deathwatch"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Grenades"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Imperium"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Infantry"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Kill Team"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Ordo Xenos"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Proteus Kill Team"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Retinue"
+    }
+  ],
+  "models": [
+    {
+      "base_size": "32mm",
+      "leadership": "6+",
+      "line": 1,
+      "movement": "6\"",
+      "name": "KILL TEAM VETERANS",
+      "objective_control": 1,
+      "save": "3+",
+      "toughness": 4,
+      "wounds": 2
+    },
+    {
+      "base_size": "75 x 42mm",
+      "leadership": "6+",
+      "line": 2,
+      "movement": "12\"",
+      "name": "KILL TEAM BIKER",
+      "objective_control": 2,
+      "save": "3+",
+      "toughness": 5,
+      "wounds": 3
+    },
+    {
+      "base_size": "40mm",
+      "invuln_save": "4",
+      "leadership": "6+",
+      "line": 3,
+      "movement": "5\"",
+      "name": "KILL TEAM TERMINATOR",
+      "objective_control": 1,
+      "save": "2+",
+      "toughness": 5,
+      "wounds": 3
+    }
+  ],
+  "name": "Proteus Kill Team",
+  "pricing_confidence": {
+    "consecutive_unverified_releases": 1,
+    "state": "unverified",
+    "unverified_since_version": "mfm-2026-08"
+  },
+  "provenance": {
+    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+    "detail_edition_code": "wh40k-10e",
+    "detail_source": "wahapedia",
+    "is_hybrid_edition": true,
+    "points_edition_code": "wh40k-11e",
+    "points_source": "none"
+  },
+  "role": "Other",
+  "weapons": [
+    {
+      "armour_penetration": "0",
+      "attacks": "6",
+      "damage": "1",
+      "is_melee": false,
+      "line": 1,
+      "name": "Assault cannon",
+      "range": "24",
+      "skill": "3",
+      "strength": "6"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "2",
+      "damage": "1",
+      "is_melee": false,
+      "line": 2,
+      "name": "Boltgun",
+      "range": "24",
+      "skill": "3",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "2D6",
+      "damage": "1",
+      "is_melee": false,
+      "line": 3,
+      "name": "Cyclone missile launcher – frag",
+      "range": "36",
+      "skill": "3",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "2",
+      "damage": "D6",
+      "is_melee": false,
+      "line": 3,
+      "name": "Cyclone missile launcher – krak",
+      "range": "36",
+      "skill": "3",
+      "strength": "9"
+    },
+    {
+      "armour_penetration": "-1",
+      "attacks": "D3",
+      "damage": "2",
+      "is_melee": false,
+      "line": 4,
+      "name": "Frag cannon",
+      "range": "18",
+      "skill": "4",
+      "strength": "7"
+    },
+    {
+      "armour_penetration": "-1",
+      "attacks": "D6",
+      "damage": "1",
+      "is_melee": false,
+      "line": 5,
+      "name": "Heavy flamer",
+      "range": "12",
+      "skill": "N/A",
+      "strength": "5"
+    },
+    {
+      "armour_penetration": "-1",
+      "attacks": "3",
+      "damage": "2",
+      "is_melee": false,
+      "line": 6,
+      "name": "Infernus heavy bolter – heavy bolter",
+      "range": "36",
+      "skill": "4",
+      "strength": "5"
+    },
+    {
+      "armour_penetration": "-1",
+      "attacks": "D6",
+      "damage": "1",
+      "is_melee": false,
+      "line": 6,
+      "name": "Infernus heavy bolter – heavy flamer",
+      "range": "12",
+      "skill": "N/A",
+      "strength": "5"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "1",
+      "damage": "1",
+      "is_melee": false,
+      "line": 7,
+      "name": "Long Vigil ranged weapon",
+      "range": "24",
+      "skill": "4",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "D3",
+      "damage": "1",
+      "is_melee": false,
+      "line": 8,
+      "name": "Plasma cannon – standard",
+      "range": "36",
+      "skill": "4",
+      "strength": "7"
+    },
+    {
+      "armour_penetration": "-3",
+      "attacks": "D3",
+      "damage": "2",
+      "is_melee": false,
+      "line": 8,
+      "name": "Plasma cannon – supercharge",
+      "range": "36",
+      "skill": "4",
+      "strength": "8"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "2",
+      "damage": "1",
+      "is_melee": false,
+      "line": 9,
+      "name": "Storm bolter",
+      "range": "24",
+      "skill": "3",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "2",
+      "damage": "1",
+      "is_melee": false,
+      "line": 10,
+      "name": "Twin boltgun",
+      "range": "24",
+      "skill": "3",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "3",
+      "damage": "1",
+      "is_melee": true,
+      "line": 11,
+      "name": "Close combat weapon",
+      "skill": "3",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "3",
+      "damage": "2",
+      "is_melee": true,
+      "line": 12,
+      "name": "Chainfist",
+      "skill": "4",
+      "strength": "8"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "3",
+      "damage": "3",
+      "is_melee": true,
+      "line": 13,
+      "name": "Deathwatch thunder hammer",
+      "skill": "4",
+      "strength": "10"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "3",
+      "damage": "1",
+      "is_melee": true,
+      "line": 14,
+      "name": "Long Vigil melee weapon",
+      "skill": "3",
+      "strength": "5"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "3",
+      "damage": "2",
+      "is_melee": true,
+      "line": 15,
+      "name": "Power fist",
+      "skill": "3",
+      "strength": "8"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "4",
+      "damage": "1",
+      "is_melee": true,
+      "line": 16,
+      "name": "Power weapon",
+      "skill": "3",
+      "strength": "5"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "3",
+      "damage": "2",
+      "is_melee": true,
+      "line": 17,
+      "name": "Terminator thunder hammer",
+      "skill": "3",
+      "strength": "8"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "5",
+      "damage": "1",
+      "is_melee": true,
+      "line": 18,
+      "name": "Twin lightning claws",
+      "skill": "3",
+      "strength": "5"
+    }
+  ]
+}

@@ -1,0 +1,143 @@
+{
+  "ability_keys": [
+    "datasheet:fateskimmer",
+    "datasheet:rider-of-the-immaterial-winds"
+  ],
+  "costs": [
+    {
+      "copy_index_min": 1,
+      "label": "1 model",
+      "model_count": 1,
+      "points": 95,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    }
+  ],
+  "datasheet_id": "ds-fateskimmer",
+  "faction_id": "f-chaos-daemons",
+  "is_battleline": false,
+  "is_character": true,
+  "is_dedicated_transport": false,
+  "is_epic_hero": false,
+  "is_legends": false,
+  "keywords": [
+    {
+      "is_faction_keyword": false,
+      "keyword": "Chaos"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Character"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Daemon"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Fateskimmer"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Fly"
+    },
+    {
+      "is_faction_keyword": true,
+      "keyword": "Legiones Daemonica"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Mounted"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Psyker"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Shadow Legion"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Tzeentch"
+    }
+  ],
+  "leader_pairs": [
+    "ds-screamers"
+  ],
+  "models": [
+    {
+      "base_size": "120 x 92mm",
+      "invuln_save": "4",
+      "leadership": "7+",
+      "line": 1,
+      "movement": "12\"",
+      "name": "Fateskimmer",
+      "objective_control": 3,
+      "save": "6+",
+      "toughness": 7,
+      "wounds": 9
+    }
+  ],
+  "name": "FATESKIMMER",
+  "pricing_confidence": {
+    "consecutive_unverified_releases": 0,
+    "last_verified_points_digest": "sha256:6d8f2f3233fa2f7a2c044afc4bfab4e3f6eb84e8476a86c150be5631877560c6",
+    "last_verified_version": "mfm-2026-08",
+    "state": "verified"
+  },
+  "provenance": {
+    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+    "detail_edition_code": "wh40k-10e",
+    "detail_source": "wahapedia",
+    "is_hybrid_edition": true,
+    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "points_edition_code": "wh40k-11e",
+    "points_source": "mfm"
+  },
+  "role": "Characters",
+  "weapons": [
+    {
+      "armour_penetration": "-1",
+      "attacks": "3",
+      "damage": "D3",
+      "is_melee": false,
+      "line": 1,
+      "name": "Arcane Fireball – witchfire",
+      "range": "18",
+      "skill": "3",
+      "strength": "5"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "3",
+      "damage": "D3",
+      "is_melee": false,
+      "line": 2,
+      "name": "Arcane Fireball – focused witchfire",
+      "range": "18",
+      "skill": "3",
+      "strength": "6"
+    },
+    {
+      "armour_penetration": "-1",
+      "attacks": "3",
+      "damage": "1",
+      "is_melee": true,
+      "line": 3,
+      "name": "Herald combat weapon",
+      "skill": "4",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "6",
+      "damage": "2",
+      "is_melee": true,
+      "line": 4,
+      "name": "Screamer bites",
+      "skill": "3",
+      "strength": "6"
+    }
+  ]
+}

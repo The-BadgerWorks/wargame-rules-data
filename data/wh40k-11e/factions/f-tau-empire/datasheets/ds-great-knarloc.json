@@ -1,0 +1,125 @@
+{
+  "ability_keys": [
+    "datasheet:baggage-harness-aura",
+    "datasheet:hooked",
+    "datasheet:loping-stride"
+  ],
+  "costs": [
+    {
+      "copy_index_min": 1,
+      "label": "1 model",
+      "model_count": 1,
+      "points": 100,
+      "pricing_confidence": "unverified",
+      "source_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1"
+    }
+  ],
+  "datasheet_id": "ds-great-knarloc",
+  "faction_id": "f-tau-empire",
+  "is_battleline": false,
+  "is_character": false,
+  "is_dedicated_transport": false,
+  "is_epic_hero": false,
+  "is_legends": true,
+  "keywords": [
+    {
+      "is_faction_keyword": false,
+      "keyword": "Great Knarloc"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Kroot"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Monster"
+    },
+    {
+      "is_faction_keyword": true,
+      "keyword": "T’au Empire"
+    }
+  ],
+  "models": [
+    {
+      "base_size": "65mm",
+      "leadership": "7+",
+      "line": 1,
+      "movement": "9\"",
+      "name": "Great Knarloc",
+      "objective_control": 3,
+      "save": "4+",
+      "toughness": 8,
+      "wounds": 10
+    }
+  ],
+  "name": "Great Knarloc",
+  "pricing_confidence": {
+    "consecutive_unverified_releases": 1,
+    "state": "unverified",
+    "unverified_since_version": "mfm-2026-08"
+  },
+  "provenance": {
+    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+    "detail_edition_code": "wh40k-10e",
+    "detail_source": "wahapedia",
+    "is_hybrid_edition": true,
+    "points_edition_code": "wh40k-11e",
+    "points_source": "none"
+  },
+  "role": "Other",
+  "weapons": [
+    {
+      "armour_penetration": "-2",
+      "attacks": "1",
+      "damage": "3",
+      "is_melee": false,
+      "line": 1,
+      "name": "Kroot bolt thrower",
+      "range": "12",
+      "skill": "4",
+      "strength": "12"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "1",
+      "damage": "1",
+      "is_melee": false,
+      "line": 2,
+      "name": "Kroot rifle",
+      "range": "24",
+      "skill": "4",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "2",
+      "damage": "2",
+      "is_melee": false,
+      "line": 3,
+      "name": "Twin Kroot gun",
+      "range": "36",
+      "skill": "4",
+      "strength": "7"
+    },
+    {
+      "armour_penetration": "-1",
+      "attacks": "4",
+      "damage": "3",
+      "is_melee": true,
+      "line": 4,
+      "name": "Great Knarloc beak and talons",
+      "skill": "3",
+      "strength": "7"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "2",
+      "damage": "1",
+      "is_melee": true,
+      "line": 5,
+      "name": "Kroot rifle",
+      "skill": "3",
+      "strength": "4"
+    }
+  ]
+}

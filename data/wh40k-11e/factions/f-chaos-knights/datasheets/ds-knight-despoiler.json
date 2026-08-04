@@ -1,0 +1,252 @@
+{
+  "ability_keys": [
+    "datasheet:dread-dominion-aura",
+    "datasheet:seething-hatred"
+  ],
+  "costs": [
+    {
+      "copy_index_min": 1,
+      "label": "1 model",
+      "model_count": 1,
+      "points": 380,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    },
+    {
+      "copy_index_min": 2,
+      "label": "1 model",
+      "model_count": 1,
+      "points": 400,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    }
+  ],
+  "damaged_threshold": 9,
+  "datasheet_id": "ds-knight-despoiler",
+  "faction_id": "f-chaos-knights",
+  "is_battleline": false,
+  "is_character": true,
+  "is_dedicated_transport": false,
+  "is_epic_hero": false,
+  "is_legends": false,
+  "keywords": [
+    {
+      "is_faction_keyword": false,
+      "keyword": "Abhorrent"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Chaos"
+    },
+    {
+      "is_faction_keyword": true,
+      "keyword": "Chaos Knights"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Character"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Knight Despoiler"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Titanic"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Towering"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Vehicle"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Walker"
+    }
+  ],
+  "models": [
+    {
+      "base_size": "170 x 109mm",
+      "invuln_save": "5",
+      "leadership": "6+",
+      "line": 1,
+      "movement": "10\"",
+      "name": "Knight Despoiler",
+      "objective_control": 10,
+      "save": "3+",
+      "toughness": 11,
+      "wounds": 26
+    }
+  ],
+  "name": "KNIGHT DESPOILER",
+  "pricing_confidence": {
+    "consecutive_unverified_releases": 0,
+    "last_verified_points_digest": "sha256:f4a14da7e3119f74c65c7e915124c945609562c72b031561c2dde4b1cc996362",
+    "last_verified_version": "mfm-2026-08",
+    "state": "verified"
+  },
+  "provenance": {
+    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+    "detail_edition_code": "wh40k-10e",
+    "detail_source": "wahapedia",
+    "is_hybrid_edition": true,
+    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "points_edition_code": "wh40k-11e",
+    "points_source": "mfm"
+  },
+  "role": "Characters",
+  "weapons": [
+    {
+      "armour_penetration": "-4",
+      "attacks": "1",
+      "damage": "D6",
+      "is_melee": false,
+      "line": 1,
+      "name": "Daemonbreath meltagun",
+      "range": "12",
+      "skill": "3",
+      "strength": "9"
+    },
+    {
+      "armour_penetration": "-4",
+      "attacks": "2D3",
+      "damage": "D6",
+      "is_melee": false,
+      "line": 2,
+      "name": "Daemonbreath thermal cannon",
+      "range": "24",
+      "skill": "3",
+      "strength": "12"
+    },
+    {
+      "armour_penetration": "-1",
+      "attacks": "D6+3",
+      "damage": "3",
+      "is_melee": false,
+      "line": 3,
+      "name": "Despoiler battle cannon",
+      "range": "72",
+      "skill": "3",
+      "strength": "10"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "18",
+      "damage": "2",
+      "is_melee": false,
+      "line": 4,
+      "name": "Despoiler gatling cannon",
+      "range": "36",
+      "skill": "3",
+      "strength": "6"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "3",
+      "damage": "1",
+      "is_melee": false,
+      "line": 5,
+      "name": "Diabolus heavy stubber",
+      "range": "36",
+      "skill": "3",
+      "strength": "5"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "D6+1",
+      "damage": "1",
+      "is_melee": false,
+      "line": 6,
+      "name": "Havoc missile pod",
+      "range": "48",
+      "skill": "3",
+      "strength": "5"
+    },
+    {
+      "armour_penetration": "-1",
+      "attacks": "D6",
+      "damage": "1",
+      "is_melee": false,
+      "line": 7,
+      "name": "Heavy darkflamer",
+      "range": "12",
+      "skill": "N/A",
+      "strength": "5"
+    },
+    {
+      "armour_penetration": "-1",
+      "attacks": "3",
+      "damage": "2",
+      "is_melee": false,
+      "line": 8,
+      "name": "Hellstorm autocannons",
+      "range": "48",
+      "skill": "3",
+      "strength": "7"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "3",
+      "damage": "D6",
+      "is_melee": false,
+      "line": 9,
+      "name": "Ruinspear rocket pod",
+      "range": "48",
+      "skill": "3",
+      "strength": "8"
+    },
+    {
+      "armour_penetration": "-4",
+      "attacks": "4",
+      "damage": "6",
+      "is_melee": true,
+      "line": 10,
+      "name": "Reaper chainsword – strike",
+      "skill": "3",
+      "strength": "14"
+    },
+    {
+      "armour_penetration": "-3",
+      "attacks": "12",
+      "damage": "2",
+      "is_melee": true,
+      "line": 11,
+      "name": "Reaper chainsword – sweep",
+      "skill": "3",
+      "strength": "9"
+    },
+    {
+      "armour_penetration": "-1",
+      "attacks": "4",
+      "damage": "2",
+      "is_melee": true,
+      "line": 12,
+      "name": "Titanic feet",
+      "skill": "4",
+      "strength": "8"
+    },
+    {
+      "armour_penetration": "-3",
+      "attacks": "4",
+      "damage": "8",
+      "is_melee": true,
+      "line": 13,
+      "name": "Warpstrike claw – strike",
+      "skill": "3",
+      "strength": "20"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "8",
+      "damage": "3",
+      "is_melee": true,
+      "line": 14,
+      "name": "Warpstrike claw – sweep",
+      "skill": "3",
+      "strength": "10"
+    }
+  ]
+}

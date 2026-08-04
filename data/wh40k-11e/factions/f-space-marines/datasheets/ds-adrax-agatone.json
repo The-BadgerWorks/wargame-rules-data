@@ -1,0 +1,137 @@
+{
+  "ability_keys": [
+    "datasheet:lord-of-the-pyroclasts",
+    "datasheet:unto-the-anvil"
+  ],
+  "costs": [
+    {
+      "copy_index_min": 1,
+      "label": "1 model",
+      "model_count": 1,
+      "points": 80,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    }
+  ],
+  "datasheet_id": "ds-adrax-agatone",
+  "faction_id": "f-space-marines",
+  "is_battleline": false,
+  "is_character": true,
+  "is_dedicated_transport": false,
+  "is_epic_hero": true,
+  "is_legends": false,
+  "keywords": [
+    {
+      "is_faction_keyword": true,
+      "keyword": "Adeptus Astartes"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Adrax Agatone"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Captain"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Character"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Epic Hero"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Imperium"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Infantry"
+    },
+    {
+      "is_faction_keyword": true,
+      "keyword": "Salamanders"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Tacticus"
+    }
+  ],
+  "leader_pairs": [
+    "ds-assault-intercessor-squad-6",
+    "ds-assault-squad",
+    "ds-bladeguard-veteran-squad-6",
+    "ds-command-squad",
+    "ds-company-heroes-6",
+    "ds-crusader-squad",
+    "ds-crusader-squad-legendary",
+    "ds-deathwatch-veterans",
+    "ds-decimus-kill-team",
+    "ds-fortis-kill-team",
+    "ds-infernus-squad-6",
+    "ds-inner-circle-companions",
+    "ds-intercessor-squad-6",
+    "ds-sternguard-veteran-squad",
+    "ds-sternguard-veteran-squad-6",
+    "ds-sword-brethren-squad",
+    "ds-tactical-squad-4",
+    "ds-vanguard-veteran-squad",
+    "ds-victrix-honour-guard",
+    "ds-wolf-guard"
+  ],
+  "models": [
+    {
+      "base_size": "40mm",
+      "invuln_save": "4",
+      "leadership": "6+",
+      "line": 1,
+      "movement": "6\"",
+      "name": "Adrax Agatone",
+      "objective_control": 1,
+      "save": "2+",
+      "toughness": 4,
+      "wounds": 5
+    }
+  ],
+  "name": "ADRAX AGATONE",
+  "pricing_confidence": {
+    "consecutive_unverified_releases": 0,
+    "last_verified_points_digest": "sha256:1d28e8ecc53fabf8370677d1207b796a090869ddce53671a84a15b7879bb6f71",
+    "last_verified_version": "mfm-2026-08",
+    "state": "verified"
+  },
+  "provenance": {
+    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+    "detail_edition_code": "wh40k-10e",
+    "detail_source": "wahapedia",
+    "is_hybrid_edition": true,
+    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "points_edition_code": "wh40k-11e",
+    "points_source": "mfm"
+  },
+  "role": "Characters",
+  "weapons": [
+    {
+      "armour_penetration": "-1",
+      "attacks": "D6+3",
+      "damage": "1",
+      "is_melee": false,
+      "line": 1,
+      "name": "Drakkis",
+      "range": "12",
+      "skill": "N/A",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "5",
+      "damage": "3",
+      "is_melee": true,
+      "line": 2,
+      "name": "Malleus Noctum",
+      "skill": "2",
+      "strength": "10"
+    }
+  ]
+}

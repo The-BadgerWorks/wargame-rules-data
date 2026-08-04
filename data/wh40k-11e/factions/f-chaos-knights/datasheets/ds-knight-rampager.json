@@ -1,0 +1,154 @@
+{
+  "ability_keys": [
+    "datasheet:bloodlust",
+    "datasheet:frenzied-rampage-aura"
+  ],
+  "costs": [
+    {
+      "copy_index_min": 1,
+      "label": "1 model",
+      "model_count": 1,
+      "points": 365,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    },
+    {
+      "copy_index_min": 3,
+      "label": "1 model",
+      "model_count": 1,
+      "points": 380,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    }
+  ],
+  "damaged_threshold": 7,
+  "datasheet_id": "ds-knight-rampager",
+  "faction_id": "f-chaos-knights",
+  "is_battleline": false,
+  "is_character": true,
+  "is_dedicated_transport": false,
+  "is_epic_hero": false,
+  "is_legends": false,
+  "keywords": [
+    {
+      "is_faction_keyword": false,
+      "keyword": "Abhorrent"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Chaos"
+    },
+    {
+      "is_faction_keyword": true,
+      "keyword": "Chaos Knights"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Character"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Knight Rampager"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Titanic"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Towering"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Vehicle"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Walker"
+    }
+  ],
+  "models": [
+    {
+      "base_size": "170 x 109mm",
+      "invuln_save": "5",
+      "leadership": "6+",
+      "line": 1,
+      "movement": "12\"",
+      "name": "Knight Rampager",
+      "objective_control": 10,
+      "save": "3+",
+      "toughness": 11,
+      "wounds": 26
+    }
+  ],
+  "name": "KNIGHT RAMPAGER",
+  "pricing_confidence": {
+    "consecutive_unverified_releases": 0,
+    "last_verified_points_digest": "sha256:4b08bbf7bea2908ffd3a84679b0037990408f34bfca75ddf2d25d54b06b54476",
+    "last_verified_version": "mfm-2026-08",
+    "state": "verified"
+  },
+  "provenance": {
+    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+    "detail_edition_code": "wh40k-10e",
+    "detail_source": "wahapedia",
+    "is_hybrid_edition": true,
+    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "points_edition_code": "wh40k-11e",
+    "points_source": "mfm"
+  },
+  "role": "Characters",
+  "weapons": [
+    {
+      "armour_penetration": "0",
+      "attacks": "3",
+      "damage": "1",
+      "is_melee": false,
+      "line": 1,
+      "name": "Diabolus heavy stubber",
+      "range": "36",
+      "skill": "3",
+      "strength": "5"
+    },
+    {
+      "armour_penetration": "-4",
+      "attacks": "6",
+      "damage": "6",
+      "is_melee": true,
+      "line": 2,
+      "name": "Reaper chainsword – strike",
+      "skill": "2",
+      "strength": "14"
+    },
+    {
+      "armour_penetration": "-3",
+      "attacks": "18",
+      "damage": "2",
+      "is_melee": true,
+      "line": 3,
+      "name": "Reaper chainsword – sweep",
+      "skill": "2",
+      "strength": "9"
+    },
+    {
+      "armour_penetration": "-3",
+      "attacks": "6",
+      "damage": "8",
+      "is_melee": true,
+      "line": 4,
+      "name": "Warpstrike claw – strike",
+      "skill": "2",
+      "strength": "20"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "12",
+      "damage": "3",
+      "is_melee": true,
+      "line": 5,
+      "name": "Warpstrike claw – sweep",
+      "skill": "2",
+      "strength": "10"
+    }
+  ]
+}

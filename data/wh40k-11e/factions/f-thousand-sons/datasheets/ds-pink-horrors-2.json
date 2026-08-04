@@ -1,0 +1,189 @@
+{
+  "ability_keys": [
+    "datasheet:daemonic-icon",
+    "datasheet:horrors-are-pink-horrors-are-blue-whereonce-there-was-one-now-there-are-two",
+    "datasheet:instrument-of-chaos",
+    "datasheet:split"
+  ],
+  "costs": [
+    {
+      "copy_index_min": 1,
+      "label": "10 models",
+      "model_count": 10,
+      "points": 115,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    }
+  ],
+  "datasheet_id": "ds-pink-horrors-2",
+  "faction_id": "f-thousand-sons",
+  "is_battleline": true,
+  "is_character": false,
+  "is_dedicated_transport": false,
+  "is_epic_hero": false,
+  "is_legends": false,
+  "keywords": [
+    {
+      "is_faction_keyword": false,
+      "keyword": "Battleline",
+      "model_scope": "ALL MODELS"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Blue",
+      "model_scope": "BLUE HORRORS"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Brimstone",
+      "model_scope": "BRIMSTONE HORRORS"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Chaos",
+      "model_scope": "ALL MODELS"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Daemon",
+      "model_scope": "ALL MODELS"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Horrors",
+      "model_scope": "ALL MODELS"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Infantry",
+      "model_scope": "ALL MODELS"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Pink",
+      "model_scope": "PINK HORRORS"
+    },
+    {
+      "is_faction_keyword": true,
+      "keyword": "Scintillating Legions"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Summoned",
+      "model_scope": "ALL MODELS"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Tzeentch",
+      "model_scope": "ALL MODELS"
+    }
+  ],
+  "models": [
+    {
+      "base_size": "32mm",
+      "invuln_save": "4",
+      "leadership": "7+",
+      "line": 1,
+      "movement": "6\"",
+      "name": "PINK HORROR",
+      "objective_control": 1,
+      "save": "7+",
+      "toughness": 3,
+      "wounds": 1
+    },
+    {
+      "base_size": "25mm",
+      "invuln_save": "4",
+      "leadership": "8+",
+      "line": 2,
+      "movement": "6\"",
+      "name": "BLUE HORROR/BRIMSTONE HORROR",
+      "objective_control": 0,
+      "save": "7+",
+      "toughness": 3,
+      "wounds": 1
+    }
+  ],
+  "name": "PINK HORRORS",
+  "pricing_confidence": {
+    "consecutive_unverified_releases": 0,
+    "last_verified_points_digest": "sha256:d2c9e2e3f18267d9bfdd8cce66b341010375e705cb45581e5f67239064b667ab",
+    "last_verified_version": "mfm-2026-08",
+    "state": "verified"
+  },
+  "provenance": {
+    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+    "detail_edition_code": "wh40k-10e",
+    "detail_source": "wahapedia",
+    "is_hybrid_edition": true,
+    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "points_edition_code": "wh40k-11e",
+    "points_source": "mfm"
+  },
+  "role": "Battleline",
+  "weapons": [
+    {
+      "armour_penetration": "-1",
+      "attacks": "2",
+      "damage": "1",
+      "is_melee": false,
+      "line": 1,
+      "name": "Coruscating blue flames",
+      "range": "18",
+      "skill": "4",
+      "strength": "3"
+    },
+    {
+      "armour_penetration": "-1",
+      "attacks": "2",
+      "damage": "1",
+      "is_melee": false,
+      "line": 2,
+      "name": "Coruscating pink flames",
+      "range": "18",
+      "skill": "3",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "-1",
+      "attacks": "2",
+      "damage": "1",
+      "is_melee": false,
+      "line": 3,
+      "name": "Coruscating yellow flames",
+      "range": "18",
+      "skill": "5",
+      "strength": "2"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "1",
+      "damage": "1",
+      "is_melee": true,
+      "line": 4,
+      "name": "Blue claws",
+      "skill": "5",
+      "strength": "3"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "1",
+      "damage": "1",
+      "is_melee": true,
+      "line": 5,
+      "name": "Pink claws",
+      "skill": "4",
+      "strength": "3"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "2",
+      "damage": "1",
+      "is_melee": true,
+      "line": 6,
+      "name": "Yellow claws",
+      "skill": "5",
+      "strength": "2"
+    }
+  ]
+}

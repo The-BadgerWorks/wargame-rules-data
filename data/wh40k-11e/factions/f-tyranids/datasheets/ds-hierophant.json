@@ -1,0 +1,137 @@
+{
+  "ability_keys": [
+    "datasheet:apex-beast",
+    "datasheet:stalking-forward"
+  ],
+  "costs": [
+    {
+      "copy_index_min": 1,
+      "label": "1 model",
+      "model_count": 1,
+      "points": 810,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    },
+    {
+      "copy_index_min": 2,
+      "label": "1 model",
+      "model_count": 1,
+      "points": 910,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    }
+  ],
+  "damaged_threshold": 10,
+  "datasheet_id": "ds-hierophant",
+  "faction_id": "f-tyranids",
+  "is_battleline": false,
+  "is_character": false,
+  "is_dedicated_transport": false,
+  "is_epic_hero": false,
+  "is_legends": false,
+  "keywords": [
+    {
+      "is_faction_keyword": false,
+      "keyword": "Great Devourer"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Hierophant"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Monster"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Titanic"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Towering"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Transport"
+    },
+    {
+      "is_faction_keyword": true,
+      "keyword": "Tyranids"
+    }
+  ],
+  "models": [
+    {
+      "base_size": "Use model",
+      "invuln_save": "5",
+      "leadership": "8+",
+      "line": 1,
+      "movement": "12\"",
+      "name": "Hierophant",
+      "objective_control": 12,
+      "save": "2+",
+      "toughness": 14,
+      "wounds": 30
+    }
+  ],
+  "name": "HIEROPHANT",
+  "pricing_confidence": {
+    "consecutive_unverified_releases": 0,
+    "last_verified_points_digest": "sha256:ed5036402440cab40bae02f9f83d5986f6dc77401014b7a5e8c675d3f367d320",
+    "last_verified_version": "mfm-2026-08",
+    "state": "verified"
+  },
+  "provenance": {
+    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+    "detail_edition_code": "wh40k-10e",
+    "detail_source": "wahapedia",
+    "is_hybrid_edition": true,
+    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "points_edition_code": "wh40k-11e",
+    "points_source": "mfm"
+  },
+  "role": "Other",
+  "weapons": [
+    {
+      "armour_penetration": "-2",
+      "attacks": "3D6",
+      "damage": "1",
+      "is_melee": false,
+      "line": 1,
+      "name": "Bio-plasma torrent",
+      "range": "12",
+      "skill": "N/A",
+      "strength": "7"
+    },
+    {
+      "armour_penetration": "-3",
+      "attacks": "D6+6",
+      "damage": "3",
+      "is_melee": false,
+      "line": 2,
+      "name": "Dire bio-cannon",
+      "range": "48",
+      "skill": "3",
+      "strength": "10"
+    },
+    {
+      "armour_penetration": "-1",
+      "attacks": "10",
+      "damage": "1",
+      "is_melee": true,
+      "line": 3,
+      "name": "Lashwhip pods",
+      "skill": "3",
+      "strength": "5"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "8",
+      "damage": "D6+1",
+      "is_melee": true,
+      "line": 4,
+      "name": "Titanic scything talons",
+      "skill": "3",
+      "strength": "20"
+    }
+  ]
+}

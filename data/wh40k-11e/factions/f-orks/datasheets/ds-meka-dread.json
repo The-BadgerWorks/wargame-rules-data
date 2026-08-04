@@ -1,0 +1,114 @@
+{
+  "ability_keys": [
+    "datasheet:dead-rippy",
+    "datasheet:mekaniak"
+  ],
+  "costs": [
+    {
+      "copy_index_min": 1,
+      "label": "1 model",
+      "model_count": 1,
+      "points": 210,
+      "pricing_confidence": "unverified",
+      "source_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1"
+    }
+  ],
+  "damaged_threshold": 5,
+  "datasheet_id": "ds-meka-dread",
+  "faction_id": "f-orks",
+  "is_battleline": false,
+  "is_character": false,
+  "is_dedicated_transport": false,
+  "is_epic_hero": false,
+  "is_legends": true,
+  "keywords": [
+    {
+      "is_faction_keyword": false,
+      "keyword": "Meka-Dread"
+    },
+    {
+      "is_faction_keyword": true,
+      "keyword": "Orks"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Vehicle"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Walker"
+    }
+  ],
+  "models": [
+    {
+      "base_size": "Use model",
+      "invuln_save": "6",
+      "leadership": "7+",
+      "line": 1,
+      "movement": "8\"",
+      "name": "Meka-dread",
+      "objective_control": 5,
+      "save": "2+",
+      "toughness": 10,
+      "wounds": 16
+    }
+  ],
+  "name": "Meka-dread",
+  "pricing_confidence": {
+    "consecutive_unverified_releases": 1,
+    "state": "unverified",
+    "unverified_since_version": "mfm-2026-08"
+  },
+  "provenance": {
+    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+    "detail_edition_code": "wh40k-10e",
+    "detail_source": "wahapedia",
+    "is_hybrid_edition": true,
+    "points_edition_code": "wh40k-11e",
+    "points_source": "none"
+  },
+  "role": "Other",
+  "weapons": [
+    {
+      "armour_penetration": "-2",
+      "attacks": "D6+3",
+      "damage": "2",
+      "is_melee": false,
+      "line": 1,
+      "name": "Killkannon",
+      "range": "24",
+      "skill": "5",
+      "strength": "9"
+    },
+    {
+      "armour_penetration": "-3",
+      "attacks": "4",
+      "damage": "4",
+      "is_melee": true,
+      "line": 2,
+      "name": "Dread killsaw",
+      "skill": "3",
+      "strength": "14"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "6",
+      "damage": "3",
+      "is_melee": true,
+      "line": 3,
+      "name": "Dread rippa klaw",
+      "skill": "3",
+      "strength": "12"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "4",
+      "damage": "1",
+      "is_melee": true,
+      "line": 4,
+      "name": "Stompy feet",
+      "skill": "3",
+      "strength": "7"
+    }
+  ]
+}

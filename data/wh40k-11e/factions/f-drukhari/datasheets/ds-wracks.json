@@ -1,0 +1,172 @@
+{
+  "ability_keys": [
+    "datasheet:experimental-enhancements-pain",
+    "datasheet:torturers-craft"
+  ],
+  "costs": [
+    {
+      "copy_index_min": 1,
+      "label": "5 models",
+      "model_count": 5,
+      "points": 60,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    },
+    {
+      "copy_index_min": 1,
+      "label": "8 models",
+      "model_count": 8,
+      "points": 100,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    },
+    {
+      "copy_index_min": 1,
+      "label": "10 models",
+      "model_count": 10,
+      "points": 120,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    }
+  ],
+  "datasheet_id": "ds-wracks",
+  "faction_id": "f-drukhari",
+  "is_battleline": true,
+  "is_character": false,
+  "is_dedicated_transport": false,
+  "is_epic_hero": false,
+  "is_legends": false,
+  "keywords": [
+    {
+      "is_faction_keyword": false,
+      "keyword": "Aeldari"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Battleline"
+    },
+    {
+      "is_faction_keyword": true,
+      "keyword": "Drukhari"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Haemonculus Covens"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Infantry"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Wracks"
+    }
+  ],
+  "models": [
+    {
+      "base_size": "25mm",
+      "invuln_save": "6",
+      "leadership": "7+",
+      "line": 1,
+      "movement": "7\"",
+      "name": "Wracks",
+      "objective_control": 2,
+      "save": "5+",
+      "toughness": 4,
+      "wounds": 2
+    }
+  ],
+  "name": "WRACKS",
+  "pricing_confidence": {
+    "consecutive_unverified_releases": 0,
+    "last_verified_points_digest": "sha256:bb7f834efc4244e173cf9fb020a90ac99ea72bb45f33998632e66f1eb275bcbd",
+    "last_verified_version": "mfm-2026-08",
+    "state": "verified"
+  },
+  "provenance": {
+    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+    "detail_edition_code": "wh40k-10e",
+    "detail_source": "wahapedia",
+    "is_hybrid_edition": true,
+    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "points_edition_code": "wh40k-11e",
+    "points_source": "mfm"
+  },
+  "role": "Battleline",
+  "weapons": [
+    {
+      "armour_penetration": "-2",
+      "attacks": "1",
+      "damage": "3",
+      "is_melee": false,
+      "line": 1,
+      "name": "Hexrifle",
+      "range": "36",
+      "skill": "3",
+      "strength": "8"
+    },
+    {
+      "armour_penetration": "-1",
+      "attacks": "D6",
+      "damage": "1",
+      "is_melee": false,
+      "line": 2,
+      "name": "Liquifier gun",
+      "range": "12",
+      "skill": "N/A",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "1",
+      "damage": "2",
+      "is_melee": false,
+      "line": 3,
+      "name": "Ossefactor",
+      "range": "24",
+      "skill": "3",
+      "strength": "2"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "1",
+      "damage": "1",
+      "is_melee": false,
+      "line": 4,
+      "name": "Stinger pistol",
+      "range": "12",
+      "skill": "3",
+      "strength": "2"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "3",
+      "damage": "1",
+      "is_melee": true,
+      "line": 5,
+      "name": "Power weapon",
+      "skill": "3",
+      "strength": "5"
+    },
+    {
+      "armour_penetration": "-1",
+      "attacks": "2",
+      "damage": "1",
+      "is_melee": true,
+      "line": 6,
+      "name": "Torturer’s tools",
+      "skill": "3",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "-1",
+      "attacks": "2",
+      "damage": "1",
+      "is_melee": true,
+      "line": 7,
+      "name": "Twin torturer’s tools",
+      "skill": "3",
+      "strength": "4"
+    }
+  ]
+}

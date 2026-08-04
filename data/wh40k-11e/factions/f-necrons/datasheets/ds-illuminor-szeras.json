@@ -1,0 +1,114 @@
+{
+  "ability_keys": [
+    "datasheet:atomic-energy-manipulator",
+    "datasheet:illuminor",
+    "datasheet:mechanical-augmentation-aura"
+  ],
+  "costs": [
+    {
+      "copy_index_min": 1,
+      "label": "1 model",
+      "model_count": 1,
+      "points": 175,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    }
+  ],
+  "datasheet_id": "ds-illuminor-szeras",
+  "faction_id": "f-necrons",
+  "is_battleline": false,
+  "is_character": true,
+  "is_dedicated_transport": false,
+  "is_epic_hero": true,
+  "is_legends": false,
+  "keywords": [
+    {
+      "is_faction_keyword": false,
+      "keyword": "Character"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Cryptek"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Epic Hero"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Illuminor Szeras"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Infantry"
+    },
+    {
+      "is_faction_keyword": true,
+      "keyword": "Necrons"
+    }
+  ],
+  "models": [
+    {
+      "base_size": "80mm",
+      "invuln_save": "4",
+      "leadership": "6+",
+      "line": 1,
+      "movement": "8\"",
+      "name": "Illuminor Szeras",
+      "objective_control": 3,
+      "save": "2+",
+      "toughness": 8,
+      "wounds": 9
+    }
+  ],
+  "name": "ILLUMINOR SZERAS",
+  "pricing_confidence": {
+    "consecutive_unverified_releases": 0,
+    "last_verified_points_digest": "sha256:da1be83ce6334b67bd9d9af95c6b7ad8fe943d88ee81fd002f67b4c3ef29ca97",
+    "last_verified_version": "mfm-2026-08",
+    "state": "verified"
+  },
+  "provenance": {
+    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+    "detail_edition_code": "wh40k-10e",
+    "detail_source": "wahapedia",
+    "is_hybrid_edition": true,
+    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "points_edition_code": "wh40k-11e",
+    "points_source": "mfm"
+  },
+  "role": "Characters",
+  "weapons": [
+    {
+      "armour_penetration": "-3",
+      "attacks": "3",
+      "damage": "3",
+      "is_melee": false,
+      "line": 1,
+      "name": "Eldritch lance",
+      "range": "36",
+      "skill": "3",
+      "strength": "9"
+    },
+    {
+      "armour_penetration": "-3",
+      "attacks": "4",
+      "damage": "3",
+      "is_melee": true,
+      "line": 2,
+      "name": "Eldritch lance",
+      "skill": "3",
+      "strength": "9"
+    },
+    {
+      "armour_penetration": "-1",
+      "attacks": "4",
+      "damage": "1",
+      "is_melee": true,
+      "line": 3,
+      "name": "Impaling legs",
+      "skill": "3",
+      "strength": "6"
+    }
+  ]
+}

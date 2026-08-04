@@ -1,0 +1,104 @@
+{
+  "ability_keys": [
+    "datasheet:alpha-leader",
+    "datasheet:unstoppable-monster"
+  ],
+  "costs": [
+    {
+      "copy_index_min": 1,
+      "label": "1 model",
+      "model_count": 1,
+      "points": 140,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    }
+  ],
+  "datasheet_id": "ds-old-one-eye",
+  "faction_id": "f-tyranids",
+  "is_battleline": false,
+  "is_character": true,
+  "is_dedicated_transport": false,
+  "is_epic_hero": true,
+  "is_legends": false,
+  "keywords": [
+    {
+      "is_faction_keyword": false,
+      "keyword": "Character"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Epic Hero"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Great Devourer"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Monster"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Old One Eye"
+    },
+    {
+      "is_faction_keyword": true,
+      "keyword": "Tyranids"
+    }
+  ],
+  "leader_pairs": [
+    "ds-carnifexes"
+  ],
+  "models": [
+    {
+      "base_size": "105 x 70mm",
+      "leadership": "8+",
+      "line": 1,
+      "movement": "8\"",
+      "name": "Old One Eye",
+      "objective_control": 3,
+      "save": "2+",
+      "toughness": 9,
+      "wounds": 9
+    }
+  ],
+  "name": "OLD ONE EYE",
+  "pricing_confidence": {
+    "consecutive_unverified_releases": 0,
+    "last_verified_points_digest": "sha256:b5495ae348683b76325bd1552ec519ee7cedbd275627879f998d6aa5aeaf8ecb",
+    "last_verified_version": "mfm-2026-08",
+    "state": "verified"
+  },
+  "provenance": {
+    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+    "detail_edition_code": "wh40k-10e",
+    "detail_source": "wahapedia",
+    "is_hybrid_edition": true,
+    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "points_edition_code": "wh40k-11e",
+    "points_source": "mfm"
+  },
+  "role": "Characters",
+  "weapons": [
+    {
+      "armour_penetration": "-3",
+      "attacks": "6",
+      "damage": "D6+1",
+      "is_melee": true,
+      "line": 1,
+      "name": "Old One Eye’s claws and talons – strike",
+      "skill": "3",
+      "strength": "14"
+    },
+    {
+      "armour_penetration": "-1",
+      "attacks": "12",
+      "damage": "1",
+      "is_melee": true,
+      "line": 2,
+      "name": "Old One Eye’s claws and talons – sweep",
+      "skill": "3",
+      "strength": "6"
+    }
+  ]
+}

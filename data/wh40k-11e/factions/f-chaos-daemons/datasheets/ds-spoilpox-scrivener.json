@@ -1,0 +1,114 @@
+{
+  "ability_keys": [
+    "datasheet:keep-counting",
+    "datasheet:meet-your-quota"
+  ],
+  "costs": [
+    {
+      "copy_index_min": 1,
+      "label": "1 model",
+      "model_count": 1,
+      "points": 60,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    }
+  ],
+  "datasheet_id": "ds-spoilpox-scrivener",
+  "faction_id": "f-chaos-daemons",
+  "is_battleline": false,
+  "is_character": true,
+  "is_dedicated_transport": false,
+  "is_epic_hero": false,
+  "is_legends": false,
+  "keywords": [
+    {
+      "is_faction_keyword": false,
+      "keyword": "Chaos"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Character"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Daemon"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Infantry"
+    },
+    {
+      "is_faction_keyword": true,
+      "keyword": "Legiones Daemonica"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Nurgle"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Shadow Legion"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Spoilpox Scrivener"
+    }
+  ],
+  "leader_pairs": [
+    "ds-plaguebearers"
+  ],
+  "models": [
+    {
+      "base_size": "40mm",
+      "invuln_save": "5",
+      "leadership": "6+",
+      "line": 1,
+      "movement": "5\"",
+      "name": "Spoilpox Scrivener",
+      "objective_control": 1,
+      "save": "7+",
+      "toughness": 5,
+      "wounds": 5
+    }
+  ],
+  "name": "SPOILPOX SCRIVENER",
+  "pricing_confidence": {
+    "consecutive_unverified_releases": 0,
+    "last_verified_points_digest": "sha256:eddc64f6bdb979921a2a03be4f603fdd0b26ff63fa9b008d853cc940e5f6e0c8",
+    "last_verified_version": "mfm-2026-08",
+    "state": "verified"
+  },
+  "provenance": {
+    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+    "detail_edition_code": "wh40k-10e",
+    "detail_source": "wahapedia",
+    "is_hybrid_edition": true,
+    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "points_edition_code": "wh40k-11e",
+    "points_source": "mfm"
+  },
+  "role": "Characters",
+  "weapons": [
+    {
+      "armour_penetration": "0",
+      "attacks": "D6",
+      "damage": "1",
+      "is_melee": false,
+      "line": 1,
+      "name": "Disgusting sneezes",
+      "range": "6",
+      "skill": "N/A",
+      "strength": "3"
+    },
+    {
+      "armour_penetration": "-1",
+      "attacks": "6",
+      "damage": "1",
+      "is_melee": true,
+      "line": 2,
+      "name": "Plaguesword and distended maw",
+      "skill": "3",
+      "strength": "5"
+    }
+  ]
+}

@@ -1,0 +1,136 @@
+{
+  "ability_keys": [
+    "datasheet:blistering-salvoes",
+    "datasheet:broad-spectrum-data-tether"
+  ],
+  "costs": [
+    {
+      "copy_index_min": 1,
+      "label": "1 model",
+      "model_count": 1,
+      "points": 160,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    }
+  ],
+  "damaged_threshold": 4,
+  "datasheet_id": "ds-skorpius-disintegrator",
+  "faction_id": "f-adeptus-mechanicus",
+  "is_battleline": false,
+  "is_character": false,
+  "is_dedicated_transport": false,
+  "is_epic_hero": false,
+  "is_legends": false,
+  "keywords": [
+    {
+      "is_faction_keyword": true,
+      "keyword": "Adeptus Mechanicus"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Imperium"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Skitarii"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Skorpius Disintegrator"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Smoke"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Vehicle"
+    }
+  ],
+  "models": [
+    {
+      "base_size": "Use model",
+      "leadership": "7+",
+      "line": 1,
+      "movement": "10\"",
+      "name": "Skorpius Disintegrator",
+      "objective_control": 3,
+      "save": "2+",
+      "toughness": 10,
+      "wounds": 12
+    }
+  ],
+  "name": "SKORPIUS DISINTEGRATOR",
+  "pricing_confidence": {
+    "consecutive_unverified_releases": 0,
+    "last_verified_points_digest": "sha256:737a28b1ae11352979200c01aa0693a1a479a14bbe7ee6575fbd65aa6cf8cdf0",
+    "last_verified_version": "mfm-2026-08",
+    "state": "verified"
+  },
+  "provenance": {
+    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+    "detail_edition_code": "wh40k-10e",
+    "detail_source": "wahapedia",
+    "is_hybrid_edition": true,
+    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "points_edition_code": "wh40k-11e",
+    "points_source": "mfm"
+  },
+  "role": "Other",
+  "weapons": [
+    {
+      "armour_penetration": "-2",
+      "attacks": "2D6",
+      "damage": "1",
+      "is_melee": false,
+      "line": 1,
+      "name": "Belleros energy cannon",
+      "range": "36",
+      "skill": "4",
+      "strength": "7"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "3",
+      "damage": "1",
+      "is_melee": false,
+      "line": 2,
+      "name": "Cognis heavy stubber",
+      "range": "36",
+      "skill": "4",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "3",
+      "damage": "D6",
+      "is_melee": false,
+      "line": 3,
+      "name": "Disruptor missile launcher",
+      "range": "36",
+      "skill": "4",
+      "strength": "9"
+    },
+    {
+      "armour_penetration": "-3",
+      "attacks": "3",
+      "damage": "D6+1",
+      "is_melee": false,
+      "line": 4,
+      "name": "Ferrumite cannon",
+      "range": "48",
+      "skill": "4",
+      "strength": "12"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "3",
+      "damage": "1",
+      "is_melee": true,
+      "line": 5,
+      "name": "Armoured hull",
+      "skill": "4",
+      "strength": "6"
+    }
+  ]
+}

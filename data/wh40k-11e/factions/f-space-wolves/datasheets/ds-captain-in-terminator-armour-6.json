@@ -1,0 +1,138 @@
+{
+  "ability_keys": [
+    "datasheet:rites-of-battle",
+    "datasheet:the-imperiums-sword"
+  ],
+  "costs": [
+    {
+      "copy_index_min": 1,
+      "label": "1 model",
+      "model_count": 1,
+      "points": 85,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    }
+  ],
+  "datasheet_id": "ds-captain-in-terminator-armour-6",
+  "faction_id": "f-space-wolves",
+  "is_battleline": false,
+  "is_character": true,
+  "is_dedicated_transport": false,
+  "is_epic_hero": false,
+  "is_legends": false,
+  "keywords": [
+    {
+      "is_faction_keyword": true,
+      "keyword": "Adeptus Astartes"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Captain"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Character"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Deathwing"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Imperium"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Infantry"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Terminator"
+    }
+  ],
+  "leader_pairs": [
+    "ds-deathwatch-terminator-squad",
+    "ds-deathwing-command-squad",
+    "ds-deathwing-knights",
+    "ds-deathwing-terminator-squad",
+    "ds-relic-terminator-squad",
+    "ds-terminator-assault-squad-5",
+    "ds-terminator-squad",
+    "ds-terminator-squad-5"
+  ],
+  "models": [
+    {
+      "base_size": "50mm",
+      "invuln_save": "4",
+      "leadership": "6+",
+      "line": 1,
+      "movement": "5\"",
+      "name": "Captain In Terminator Armour",
+      "objective_control": 1,
+      "save": "2+",
+      "toughness": 5,
+      "wounds": 6
+    }
+  ],
+  "name": "CAPTAIN IN TERMINATOR ARMOUR",
+  "pricing_confidence": {
+    "consecutive_unverified_releases": 0,
+    "last_verified_points_digest": "sha256:3468f846dcc66346762e7fae78871fcd836198f24209c8b99ddfcb5a3edc48ba",
+    "last_verified_version": "mfm-2026-08",
+    "state": "verified"
+  },
+  "provenance": {
+    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+    "detail_edition_code": "wh40k-10e",
+    "detail_source": "wahapedia",
+    "is_hybrid_edition": true,
+    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "points_edition_code": "wh40k-11e",
+    "points_source": "mfm"
+  },
+  "role": "Characters",
+  "weapons": [
+    {
+      "armour_penetration": "0",
+      "attacks": "2",
+      "damage": "1",
+      "is_melee": false,
+      "line": 1,
+      "name": "Storm bolter",
+      "range": "24",
+      "skill": "2",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "1",
+      "damage": "1",
+      "is_melee": false,
+      "line": 2,
+      "name": "Combi-weapon",
+      "range": "24",
+      "skill": "3",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "5",
+      "damage": "2",
+      "is_melee": true,
+      "line": 3,
+      "name": "Relic fist",
+      "skill": "2",
+      "strength": "8"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "6",
+      "damage": "2",
+      "is_melee": true,
+      "line": 4,
+      "name": "Relic weapon",
+      "skill": "2",
+      "strength": "5"
+    }
+  ]
+}

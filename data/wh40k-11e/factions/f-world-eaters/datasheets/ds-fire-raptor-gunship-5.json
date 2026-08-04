@@ -1,0 +1,200 @@
+{
+  "ability_keys": [
+    "datasheet:strafing-run"
+  ],
+  "costs": [
+    {
+      "copy_index_min": 1,
+      "label": "1 model",
+      "model_count": 1,
+      "points": 290,
+      "pricing_confidence": "unverified",
+      "source_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1"
+    }
+  ],
+  "datasheet_id": "ds-fire-raptor-gunship-5",
+  "faction_id": "f-world-eaters",
+  "is_battleline": false,
+  "is_character": false,
+  "is_dedicated_transport": false,
+  "is_epic_hero": false,
+  "is_legends": true,
+  "keywords": [
+    {
+      "is_faction_keyword": false,
+      "keyword": "Aircraft"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Aircraft"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Aircraft"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Aircraft"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Aircraft"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Aircraft"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Chaos"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Chaos"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Chaos"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Chaos"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Chaos"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Chaos"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Fire Raptor Gunship"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Fire Raptor Gunship"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Fire Raptor Gunship"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Fire Raptor Gunship"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Fire Raptor Gunship"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Fire Raptor Gunship"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Fly"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Fly"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Fly"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Fly"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Fly"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Fly"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Khorne"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Khorne"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Khorne"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Khorne"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Khorne"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Khorne"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Vehicle"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Vehicle"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Vehicle"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Vehicle"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Vehicle"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Vehicle"
+    },
+    {
+      "is_faction_keyword": true,
+      "keyword": "World Eaters"
+    }
+  ],
+  "models": [
+    {
+      "base_size": "120 x 92mm flying base",
+      "leadership": "6+",
+      "line": 1,
+      "movement": "20+\"",
+      "name": "Fire Raptor Gunship",
+      "objective_control": 0,
+      "save": "3+",
+      "toughness": 10,
+      "wounds": 18
+    }
+  ],
+  "name": "Fire Raptor Gunship",
+  "pricing_confidence": {
+    "consecutive_unverified_releases": 1,
+    "state": "unverified",
+    "unverified_since_version": "mfm-2026-08"
+  },
+  "provenance": {
+    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+    "detail_edition_code": "wh40k-10e",
+    "detail_source": "wahapedia",
+    "is_hybrid_edition": true,
+    "points_edition_code": "wh40k-11e",
+    "points_source": "none"
+  },
+  "role": "Other"
+}

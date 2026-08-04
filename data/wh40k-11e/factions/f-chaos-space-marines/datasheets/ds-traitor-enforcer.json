@@ -1,0 +1,137 @@
+{
+  "ability_keys": [
+    "datasheet:brutal-example",
+    "datasheet:mutated-bodyguard"
+  ],
+  "costs": [
+    {
+      "copy_index_min": 1,
+      "label": "2 models",
+      "model_count": 2,
+      "points": 70,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    }
+  ],
+  "datasheet_id": "ds-traitor-enforcer",
+  "faction_id": "f-chaos-space-marines",
+  "is_battleline": false,
+  "is_character": true,
+  "is_dedicated_transport": false,
+  "is_epic_hero": false,
+  "is_legends": false,
+  "keywords": [
+    {
+      "is_faction_keyword": false,
+      "keyword": "Chaos",
+      "model_scope": "ALL MODELS"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Character",
+      "model_scope": "TRAITOR ENFORCER ONLY"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Damned",
+      "model_scope": "ALL MODELS"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Grenades",
+      "model_scope": "ALL MODELS"
+    },
+    {
+      "is_faction_keyword": true,
+      "keyword": "Heretic Astartes"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Infantry",
+      "model_scope": "ALL MODELS"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Traitor Enforcer",
+      "model_scope": "TRAITOR ENFORCER ONLY"
+    }
+  ],
+  "leader_pairs": [
+    "ds-traitor-guardsmen-squad"
+  ],
+  "models": [
+    {
+      "base_size": "32mm",
+      "invuln_save": "5",
+      "leadership": "6+",
+      "line": 1,
+      "movement": "6\"",
+      "name": "TRAITOR ENFORCER",
+      "objective_control": 1,
+      "save": "5+",
+      "toughness": 3,
+      "wounds": 3
+    },
+    {
+      "base_size": "40mm",
+      "leadership": "7+",
+      "line": 2,
+      "movement": "6\"",
+      "name": "TRAITOR OGRYN",
+      "objective_control": 1,
+      "save": "5+",
+      "toughness": 6,
+      "wounds": 4
+    }
+  ],
+  "name": "TRAITOR ENFORCER",
+  "pricing_confidence": {
+    "consecutive_unverified_releases": 0,
+    "last_verified_points_digest": "sha256:80b34ba80e1117efc3d312292a34a4c6b82c5551aa385a62d34c1a4884fdbc5c",
+    "last_verified_version": "mfm-2026-08",
+    "state": "verified"
+  },
+  "provenance": {
+    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+    "detail_edition_code": "wh40k-10e",
+    "detail_source": "wahapedia",
+    "is_hybrid_edition": true,
+    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "points_edition_code": "wh40k-11e",
+    "points_source": "mfm"
+  },
+  "role": "Characters",
+  "weapons": [
+    {
+      "armour_penetration": "0",
+      "attacks": "1",
+      "damage": "1",
+      "is_melee": false,
+      "line": 1,
+      "name": "Bolt pistol",
+      "range": "12",
+      "skill": "3",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "-1",
+      "attacks": "5",
+      "damage": "2",
+      "is_melee": true,
+      "line": 2,
+      "name": "Ogryn weapons",
+      "skill": "3",
+      "strength": "7"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "3",
+      "damage": "2",
+      "is_melee": true,
+      "line": 3,
+      "name": "Power fist",
+      "skill": "3",
+      "strength": "6"
+    }
+  ]
+}

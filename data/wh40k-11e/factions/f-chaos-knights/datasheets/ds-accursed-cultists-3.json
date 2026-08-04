@@ -1,0 +1,95 @@
+{
+  "ability_keys": [
+    "datasheet:accursed-horde"
+  ],
+  "costs": [
+    {
+      "copy_index_min": 1,
+      "label": "8 models",
+      "model_count": 8,
+      "points": 90,
+      "pricing_confidence": "unverified",
+      "source_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1"
+    },
+    {
+      "copy_index_min": 1,
+      "label": "16 models",
+      "model_count": 16,
+      "points": 195,
+      "pricing_confidence": "unverified",
+      "source_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1"
+    }
+  ],
+  "datasheet_id": "ds-accursed-cultists-3",
+  "faction_id": "f-chaos-knights",
+  "is_battleline": false,
+  "is_character": false,
+  "is_dedicated_transport": false,
+  "is_epic_hero": false,
+  "is_legends": false,
+  "keywords": [
+    {
+      "is_faction_keyword": false,
+      "keyword": "Accursed Cultists"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Chaos"
+    },
+    {
+      "is_faction_keyword": true,
+      "keyword": "Chaos Knights"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Damned"
+    },
+    {
+      "is_faction_keyword": true,
+      "keyword": "Heretic Astartes"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Infantry"
+    }
+  ],
+  "models": [
+    {
+      "base_size": "25mm",
+      "leadership": "7+",
+      "line": 1,
+      "movement": "6\"",
+      "name": "MUTANT",
+      "objective_control": 1,
+      "save": "6+",
+      "toughness": 4,
+      "wounds": 1
+    },
+    {
+      "base_size": "40mm",
+      "leadership": "7+",
+      "line": 2,
+      "movement": "6\"",
+      "name": "TORMENT",
+      "objective_control": 1,
+      "save": "6+",
+      "toughness": 4,
+      "wounds": 3
+    }
+  ],
+  "name": "Accursed Cultists",
+  "pricing_confidence": {
+    "consecutive_unverified_releases": 1,
+    "state": "unverified",
+    "unverified_since_version": "mfm-2026-08"
+  },
+  "provenance": {
+    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+    "detail_edition_code": "wh40k-10e",
+    "detail_source": "wahapedia",
+    "is_hybrid_edition": true,
+    "points_edition_code": "wh40k-11e",
+    "points_source": "none"
+  },
+  "role": "Other"
+}

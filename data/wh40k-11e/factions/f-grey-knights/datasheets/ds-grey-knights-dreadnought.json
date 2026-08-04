@@ -1,0 +1,233 @@
+{
+  "ability_keys": [
+    "datasheet:wisdom-of-the-ancients-aura"
+  ],
+  "costs": [
+    {
+      "copy_index_min": 1,
+      "label": "1 model",
+      "model_count": 1,
+      "points": 160,
+      "pricing_confidence": "unverified",
+      "source_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1"
+    }
+  ],
+  "datasheet_id": "ds-grey-knights-dreadnought",
+  "faction_id": "f-grey-knights",
+  "is_battleline": false,
+  "is_character": false,
+  "is_dedicated_transport": false,
+  "is_epic_hero": false,
+  "is_legends": true,
+  "keywords": [
+    {
+      "is_faction_keyword": false,
+      "keyword": "Dreadnought"
+    },
+    {
+      "is_faction_keyword": true,
+      "keyword": "Grey Knights"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Imperium"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Psyker"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Smoke"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Vehicle"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Walker"
+    }
+  ],
+  "models": [
+    {
+      "base_size": "60mm",
+      "leadership": "6+",
+      "line": 1,
+      "movement": "6\"",
+      "name": "Grey Knights Dreadnought",
+      "objective_control": 3,
+      "save": "2+",
+      "toughness": 9,
+      "wounds": 8
+    }
+  ],
+  "name": "Grey Knights Dreadnought",
+  "pricing_confidence": {
+    "consecutive_unverified_releases": 1,
+    "state": "unverified",
+    "unverified_since_version": "mfm-2026-08"
+  },
+  "provenance": {
+    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+    "detail_edition_code": "wh40k-10e",
+    "detail_source": "wahapedia",
+    "is_hybrid_edition": true,
+    "points_edition_code": "wh40k-11e",
+    "points_source": "none"
+  },
+  "role": "Other",
+  "weapons": [
+    {
+      "armour_penetration": "0",
+      "attacks": "6",
+      "damage": "1",
+      "is_melee": false,
+      "line": 1,
+      "name": "Assault cannon",
+      "range": "24",
+      "skill": "3",
+      "strength": "6"
+    },
+    {
+      "armour_penetration": "-1",
+      "attacks": "D6",
+      "damage": "1",
+      "is_melee": false,
+      "line": 2,
+      "name": "Heavy flamer",
+      "range": "12",
+      "skill": "N/A",
+      "strength": "5"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "D3",
+      "damage": "2",
+      "is_melee": false,
+      "line": 3,
+      "name": "Heavy plasma cannon – standard",
+      "range": "36",
+      "skill": "3",
+      "strength": "7"
+    },
+    {
+      "armour_penetration": "-3",
+      "attacks": "D3",
+      "damage": "3",
+      "is_melee": false,
+      "line": 4,
+      "name": "Heavy plasma cannon – supercharge",
+      "range": "36",
+      "skill": "3",
+      "strength": "8"
+    },
+    {
+      "armour_penetration": "-1",
+      "attacks": "6",
+      "damage": "3",
+      "is_melee": false,
+      "line": 5,
+      "name": "Heavy psycannon",
+      "range": "24",
+      "skill": "3",
+      "strength": "10"
+    },
+    {
+      "armour_penetration": "-1",
+      "attacks": "D6",
+      "damage": "1",
+      "is_melee": false,
+      "line": 6,
+      "name": "Incinerator",
+      "range": "12",
+      "skill": "N/A",
+      "strength": "6"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "D6",
+      "damage": "1",
+      "is_melee": false,
+      "line": 7,
+      "name": "Missile launcher – frag",
+      "range": "48",
+      "skill": "3",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "1",
+      "damage": "D6",
+      "is_melee": false,
+      "line": 8,
+      "name": "Missile launcher – krak",
+      "range": "48",
+      "skill": "3",
+      "strength": "9"
+    },
+    {
+      "armour_penetration": "-4",
+      "attacks": "2",
+      "damage": "D6",
+      "is_melee": false,
+      "line": 9,
+      "name": "Multi-melta",
+      "range": "18",
+      "skill": "3",
+      "strength": "9"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "2",
+      "damage": "1",
+      "is_melee": false,
+      "line": 10,
+      "name": "Storm bolter",
+      "range": "24",
+      "skill": "3",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "-3",
+      "attacks": "1",
+      "damage": "D6+1",
+      "is_melee": false,
+      "line": 11,
+      "name": "Twin lascannon",
+      "range": "48",
+      "skill": "3",
+      "strength": "12"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "5",
+      "damage": "1",
+      "is_melee": true,
+      "line": 12,
+      "name": "Armoured feet",
+      "skill": "3",
+      "strength": "6"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "5",
+      "damage": "3",
+      "is_melee": true,
+      "line": 13,
+      "name": "Dreadnought combat weapon",
+      "skill": "3",
+      "strength": "12"
+    },
+    {
+      "armour_penetration": "-3",
+      "attacks": "5",
+      "damage": "3",
+      "is_melee": true,
+      "line": 14,
+      "name": "Nemesis doomglaive",
+      "skill": "3",
+      "strength": "14"
+    }
+  ]
+}

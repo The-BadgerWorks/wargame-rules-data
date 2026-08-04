@@ -1,0 +1,202 @@
+{
+  "ability_keys": [
+    "datasheet:executioner"
+  ],
+  "costs": [
+    {
+      "copy_index_min": 1,
+      "label": "1 model",
+      "model_count": 1,
+      "points": 230,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    },
+    {
+      "copy_index_min": 3,
+      "label": "1 model",
+      "model_count": 1,
+      "points": 250,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    }
+  ],
+  "damaged_threshold": 5,
+  "datasheet_id": "ds-repulsor-executioner-2",
+  "faction_id": "f-blood-angels",
+  "is_battleline": false,
+  "is_character": false,
+  "is_dedicated_transport": false,
+  "is_epic_hero": false,
+  "is_legends": false,
+  "keywords": [
+    {
+      "is_faction_keyword": true,
+      "keyword": "Adeptus Astartes"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Deathwing"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Imperium"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Repulsor Executioner"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Smoke"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Transport"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Vehicle"
+    }
+  ],
+  "models": [
+    {
+      "base_size": "100mm",
+      "leadership": "6+",
+      "line": 1,
+      "movement": "10\"",
+      "name": "Repulsor Executioner",
+      "objective_control": 5,
+      "save": "3+",
+      "toughness": 12,
+      "wounds": 16
+    }
+  ],
+  "name": "REPULSOR EXECUTIONER",
+  "pricing_confidence": {
+    "consecutive_unverified_releases": 0,
+    "last_verified_points_digest": "sha256:9d1929f2c01c138699addc97884a15db862b517319c3225cbc424b0c1d045865",
+    "last_verified_version": "mfm-2026-08",
+    "state": "verified"
+  },
+  "provenance": {
+    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+    "detail_edition_code": "wh40k-10e",
+    "detail_source": "wahapedia",
+    "is_hybrid_edition": true,
+    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "points_edition_code": "wh40k-11e",
+    "points_source": "mfm"
+  },
+  "role": "Other",
+  "weapons": [
+    {
+      "armour_penetration": "-4",
+      "attacks": "2",
+      "damage": "D6+4",
+      "is_melee": false,
+      "line": 1,
+      "name": "Heavy laser destroyer",
+      "range": "72",
+      "skill": "3",
+      "strength": "16"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "12",
+      "damage": "1",
+      "is_melee": false,
+      "line": 2,
+      "name": "Heavy onslaught gatling cannon",
+      "range": "24",
+      "skill": "3",
+      "strength": "6"
+    },
+    {
+      "armour_penetration": "-1",
+      "attacks": "D3",
+      "damage": "2",
+      "is_melee": false,
+      "line": 3,
+      "name": "Icarus rocket pod",
+      "range": "24",
+      "skill": "3",
+      "strength": "8"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "3",
+      "damage": "1",
+      "is_melee": false,
+      "line": 4,
+      "name": "Ironhail heavy stubber",
+      "range": "36",
+      "skill": "3",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "-3",
+      "attacks": "D6+1",
+      "damage": "2",
+      "is_melee": false,
+      "line": 5,
+      "name": "Macro plasma incinerator – standard",
+      "range": "36",
+      "skill": "3",
+      "strength": "8"
+    },
+    {
+      "armour_penetration": "-4",
+      "attacks": "D6+1",
+      "damage": "3",
+      "is_melee": false,
+      "line": 6,
+      "name": "Macro plasma incinerator – supercharge",
+      "range": "36",
+      "skill": "3",
+      "strength": "9"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "10",
+      "damage": "1",
+      "is_melee": false,
+      "line": 7,
+      "name": "Repulsor Executioner defensive array",
+      "range": "24",
+      "skill": "3",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "-1",
+      "attacks": "3",
+      "damage": "2",
+      "is_melee": false,
+      "line": 8,
+      "name": "Twin heavy bolter",
+      "range": "36",
+      "skill": "3",
+      "strength": "5"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "3",
+      "damage": "1",
+      "is_melee": false,
+      "line": 9,
+      "name": "Twin Icarus ironhail heavy stubber",
+      "range": "36",
+      "skill": "3",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "6",
+      "damage": "1",
+      "is_melee": true,
+      "line": 10,
+      "name": "Armoured hull",
+      "skill": "4",
+      "strength": "8"
+    }
+  ]
+}

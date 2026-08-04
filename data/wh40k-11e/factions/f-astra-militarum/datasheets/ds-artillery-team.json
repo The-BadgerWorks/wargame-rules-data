@@ -1,0 +1,149 @@
+{
+  "ability_keys": [
+    "datasheet:remorseless-barrage"
+  ],
+  "costs": [
+    {
+      "copy_index_min": 1,
+      "label": "1 model",
+      "model_count": 1,
+      "points": 95,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    }
+  ],
+  "datasheet_id": "ds-artillery-team",
+  "faction_id": "f-astra-militarum",
+  "is_battleline": false,
+  "is_character": false,
+  "is_dedicated_transport": false,
+  "is_epic_hero": false,
+  "is_legends": false,
+  "keywords": [
+    {
+      "is_faction_keyword": false,
+      "keyword": "Artillery"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Artillery Team"
+    },
+    {
+      "is_faction_keyword": true,
+      "keyword": "Astra Militarum"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Grenades"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Imperium"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Infantry"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Regiment"
+    }
+  ],
+  "models": [
+    {
+      "base_size": "130mm",
+      "leadership": "7+",
+      "line": 1,
+      "movement": "3\"",
+      "name": "Artillery Team",
+      "objective_control": 3,
+      "save": "3+",
+      "toughness": 7,
+      "wounds": 10
+    }
+  ],
+  "name": "ARTILLERY TEAM",
+  "pricing_confidence": {
+    "consecutive_unverified_releases": 0,
+    "last_verified_points_digest": "sha256:6d8f2f3233fa2f7a2c044afc4bfab4e3f6eb84e8476a86c150be5631877560c6",
+    "last_verified_version": "mfm-2026-08",
+    "state": "verified"
+  },
+  "provenance": {
+    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+    "detail_edition_code": "wh40k-10e",
+    "detail_source": "wahapedia",
+    "is_hybrid_edition": true,
+    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "points_edition_code": "wh40k-11e",
+    "points_source": "mfm"
+  },
+  "role": "Other",
+  "weapons": [
+    {
+      "armour_penetration": "-1",
+      "attacks": "D6+3",
+      "damage": "2",
+      "is_melee": false,
+      "line": 1,
+      "name": "Heavy mortar",
+      "range": "48",
+      "skill": "5",
+      "strength": "8"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "2D6",
+      "damage": "1",
+      "is_melee": false,
+      "line": 2,
+      "name": "Heavy quad launcher",
+      "range": "48",
+      "skill": "5",
+      "strength": "5"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "1",
+      "damage": "1",
+      "is_melee": false,
+      "line": 3,
+      "name": "Lasgun",
+      "range": "24",
+      "skill": "4",
+      "strength": "3"
+    },
+    {
+      "armour_penetration": "-1",
+      "attacks": "D6+3",
+      "damage": "1",
+      "is_melee": false,
+      "line": 4,
+      "name": "Multiple rocket launcher",
+      "range": "48",
+      "skill": "5",
+      "strength": "2"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "D6",
+      "damage": "3",
+      "is_melee": false,
+      "line": 5,
+      "name": "Siege cannon",
+      "range": "48",
+      "skill": "5",
+      "strength": "12"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "3",
+      "damage": "1",
+      "is_melee": true,
+      "line": 6,
+      "name": "Crew close combat weapons",
+      "skill": "4",
+      "strength": "3"
+    }
+  ]
+}

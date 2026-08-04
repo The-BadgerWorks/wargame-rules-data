@@ -1,0 +1,224 @@
+{
+  "ability_keys": [
+    "datasheet:destroyer-of-futures",
+    "datasheet:scuttling-walker"
+  ],
+  "costs": [
+    {
+      "copy_index_min": 1,
+      "label": "1 model",
+      "model_count": 1,
+      "points": 300,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    },
+    {
+      "copy_index_min": 2,
+      "label": "1 model",
+      "model_count": 1,
+      "points": 340,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    }
+  ],
+  "damaged_threshold": 6,
+  "datasheet_id": "ds-defiler-4",
+  "faction_id": "f-thousand-sons",
+  "is_battleline": false,
+  "is_character": false,
+  "is_dedicated_transport": false,
+  "is_epic_hero": false,
+  "is_legends": false,
+  "keywords": [
+    {
+      "is_faction_keyword": false,
+      "keyword": "Chaos"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Daemon"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Defiler"
+    },
+    {
+      "is_faction_keyword": true,
+      "keyword": "Thousand Sons"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Tzeentch"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Vehicle"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Walker"
+    }
+  ],
+  "models": [
+    {
+      "base_size": "160mm",
+      "invuln_save": "5",
+      "leadership": "6+",
+      "line": 1,
+      "movement": "12\"",
+      "name": "Defiler",
+      "objective_control": 5,
+      "save": "3+",
+      "toughness": 11,
+      "wounds": 18
+    }
+  ],
+  "name": "DEFILER",
+  "pricing_confidence": {
+    "consecutive_unverified_releases": 0,
+    "last_verified_points_digest": "sha256:f58629d8831483cf27090569e20a07b02b3373d6c9bdbef0659e280cf68f61a4",
+    "last_verified_version": "mfm-2026-08",
+    "state": "verified"
+  },
+  "provenance": {
+    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+    "detail_edition_code": "wh40k-10e",
+    "detail_source": "wahapedia",
+    "is_hybrid_edition": true,
+    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "points_edition_code": "wh40k-11e",
+    "points_source": "mfm"
+  },
+  "role": "Other",
+  "weapons": [
+    {
+      "armour_penetration": "-3",
+      "attacks": "D6",
+      "damage": "3",
+      "is_melee": false,
+      "line": 1,
+      "name": "Ectoplasma destructor",
+      "range": "36",
+      "skill": "3",
+      "strength": "12"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "6",
+      "damage": "2",
+      "is_melee": false,
+      "line": 2,
+      "name": "Excruciator cannon",
+      "range": "36",
+      "skill": "3",
+      "strength": "6"
+    },
+    {
+      "armour_penetration": "-1",
+      "attacks": "D6+3",
+      "damage": "3",
+      "is_melee": false,
+      "line": 3,
+      "name": "Hades battle cannon",
+      "range": "48",
+      "skill": "3",
+      "strength": "10"
+    },
+    {
+      "armour_penetration": "-3",
+      "attacks": "2",
+      "damage": "D6+1",
+      "is_melee": false,
+      "line": 4,
+      "name": "Hades lascannon",
+      "range": "48",
+      "skill": "3",
+      "strength": "12"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "D6+3",
+      "damage": "2",
+      "is_melee": false,
+      "line": 5,
+      "name": "Heavy baleflamer",
+      "range": "12",
+      "skill": "N/A",
+      "strength": "7"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "2",
+      "damage": "D6+1",
+      "is_melee": false,
+      "line": 6,
+      "name": "Heavy missile launcher – krak",
+      "range": "48",
+      "skill": "3",
+      "strength": "10"
+    },
+    {
+      "armour_penetration": "-1",
+      "attacks": "2D6",
+      "damage": "1",
+      "is_melee": false,
+      "line": 7,
+      "name": "Heavy missile launcher – frag",
+      "range": "48",
+      "skill": "3",
+      "strength": "5"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "4",
+      "damage": "3",
+      "is_melee": false,
+      "line": 8,
+      "name": "Heavy reaper autocannon",
+      "range": "48",
+      "skill": "3",
+      "strength": "9"
+    },
+    {
+      "armour_penetration": "-4",
+      "attacks": "2",
+      "damage": "D6",
+      "is_melee": false,
+      "line": 9,
+      "name": "Pyraflux magma cutters",
+      "range": "12",
+      "skill": "3",
+      "strength": "10"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "5",
+      "damage": "2",
+      "is_melee": true,
+      "line": 10,
+      "name": "Electroscourge",
+      "skill": "3",
+      "strength": "12"
+    },
+    {
+      "armour_penetration": "-3",
+      "attacks": "5",
+      "damage": "D6+1",
+      "is_melee": true,
+      "line": 11,
+      "name": "Shearing claws – strike",
+      "skill": "3",
+      "strength": "16"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "10",
+      "damage": "1",
+      "is_melee": true,
+      "line": 12,
+      "name": "Shearing claws – sweep",
+      "skill": "3",
+      "strength": "6"
+    }
+  ]
+}

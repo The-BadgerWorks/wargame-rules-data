@@ -1,0 +1,185 @@
+{
+  "ability_keys": [
+    "datasheet:striding-colossus",
+    "datasheet:titanic-fire-support"
+  ],
+  "costs": [
+    {
+      "copy_index_min": 1,
+      "label": "1 model",
+      "model_count": 1,
+      "points": 600,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    }
+  ],
+  "damaged_threshold": 26,
+  "datasheet_id": "ds-warbringer-nemesis-titan",
+  "faction_id": "f-titan-legions",
+  "is_battleline": false,
+  "is_character": false,
+  "is_dedicated_transport": false,
+  "is_epic_hero": false,
+  "is_legends": false,
+  "keywords": [
+    {
+      "is_faction_keyword": true,
+      "keyword": "Adeptus Titanicus"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Imperium"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Titanic"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Towering"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Vehicle"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Walker"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Warbringer Nemesis Titan"
+    }
+  ],
+  "models": [
+    {
+      "base_size": "Use model",
+      "invuln_save": "5",
+      "leadership": "6+",
+      "line": 1,
+      "movement": "12\"",
+      "name": "Warbringer Nemesis Titan",
+      "objective_control": 20,
+      "save": "2+",
+      "toughness": 14,
+      "wounds": 80
+    }
+  ],
+  "name": "WARBRINGER NEMESIS TITAN",
+  "pricing_confidence": {
+    "consecutive_unverified_releases": 0,
+    "last_verified_points_digest": "sha256:7e18180281a61fbf17e69444d9b4c69b75e76ef2c6fbe82cff9403b0fb2f3800",
+    "last_verified_version": "mfm-2026-08",
+    "state": "verified"
+  },
+  "provenance": {
+    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+    "detail_edition_code": "wh40k-10e",
+    "detail_source": "wahapedia",
+    "is_hybrid_edition": true,
+    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "points_edition_code": "wh40k-11e",
+    "points_source": "mfm"
+  },
+  "role": "Other",
+  "weapons": [
+    {
+      "armour_penetration": "-1",
+      "attacks": "8",
+      "damage": "2",
+      "is_melee": false,
+      "line": 1,
+      "name": "Anvillus defence battery",
+      "range": "72",
+      "skill": "3",
+      "strength": "8"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "6",
+      "damage": "2",
+      "is_melee": false,
+      "line": 2,
+      "name": "Ardex-defensor mauler",
+      "range": "36",
+      "skill": "3",
+      "strength": "6"
+    },
+    {
+      "armour_penetration": "-4",
+      "attacks": "D6+6",
+      "damage": "4",
+      "is_melee": false,
+      "line": 3,
+      "name": "Nemesis quake cannon",
+      "range": "480",
+      "skill": "3",
+      "strength": "16"
+    },
+    {
+      "armour_penetration": "-5",
+      "attacks": "D3+3",
+      "damage": "14",
+      "is_melee": false,
+      "line": 4,
+      "name": "Nemesis volcano cannon",
+      "range": "120",
+      "skill": "3",
+      "strength": "24"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "12",
+      "damage": "3",
+      "is_melee": false,
+      "line": 5,
+      "name": "Reaver gatling blaster",
+      "range": "72",
+      "skill": "3",
+      "strength": "8"
+    },
+    {
+      "armour_penetration": "-3",
+      "attacks": "8",
+      "damage": "D6+2",
+      "is_melee": false,
+      "line": 6,
+      "name": "Reaver laser blaster",
+      "range": "72",
+      "skill": "3",
+      "strength": "20"
+    },
+    {
+      "armour_penetration": "-4",
+      "attacks": "D6+2",
+      "damage": "6",
+      "is_melee": false,
+      "line": 7,
+      "name": "Reaver melta cannon",
+      "range": "48",
+      "skill": "3",
+      "strength": "13"
+    },
+    {
+      "armour_penetration": "-5",
+      "attacks": "D3+1",
+      "damage": "14",
+      "is_melee": false,
+      "line": 8,
+      "name": "Reaver volcano cannon",
+      "range": "120",
+      "skill": "3",
+      "strength": "24"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "6",
+      "damage": "4",
+      "is_melee": true,
+      "line": 9,
+      "name": "Nemesis feet",
+      "skill": "4",
+      "strength": "12"
+    }
+  ]
+}
