@@ -1,0 +1,174 @@
+{
+  "detachments": [
+    {
+      "detachment_id": "d-cohort-acquisitus",
+      "detachment_points_cost": 1,
+      "force_disposition": "RECONNAISSANCE",
+      "is_legends": false,
+      "is_unique": false,
+      "name": "COHORT ACQUISITUS",
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_edition_code": "wh40k-10e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": true,
+        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    },
+    {
+      "detachment_id": "d-cohort-cybernetica",
+      "detachment_points_cost": 2,
+      "force_disposition": "TAKE AND HOLD",
+      "is_legends": false,
+      "is_unique": false,
+      "name": "COHORT CYBERNETICA",
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_edition_code": "wh40k-10e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": true,
+        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    },
+    {
+      "detachment_id": "d-data-psalm-conclave",
+      "detachment_points_cost": 2,
+      "force_disposition": "DISRUPTION",
+      "is_legends": false,
+      "is_unique": true,
+      "name": "DATA-PSALM CONCLAVE",
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_edition_code": "wh40k-10e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": true,
+        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    },
+    {
+      "detachment_id": "d-eradication-cohort",
+      "detachment_points_cost": 3,
+      "force_disposition": "PURGE THE FOE",
+      "is_legends": false,
+      "is_unique": false,
+      "name": "ERADICATION COHORT",
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_edition_code": "wh40k-10e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": true,
+        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    },
+    {
+      "detachment_id": "d-explorator-maniple",
+      "detachment_points_cost": 2,
+      "force_disposition": "PRIORITY ASSETS",
+      "is_legends": false,
+      "is_unique": false,
+      "name": "EXPLORATOR MANIPLE",
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_edition_code": "wh40k-10e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": true,
+        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    },
+    {
+      "detachment_id": "d-haloscreed-battle-clade",
+      "detachment_points_cost": 3,
+      "force_disposition": "PRIORITY ASSETS",
+      "is_legends": false,
+      "is_unique": false,
+      "name": "HALOSCREED BATTLE CLADE",
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_edition_code": "wh40k-10e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": true,
+        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    },
+    {
+      "detachment_id": "d-lords-of-the-forge",
+      "detachment_points_cost": 1,
+      "force_disposition": "PRIORITY ASSETS",
+      "is_legends": false,
+      "is_unique": false,
+      "name": "LORDS OF THE FORGE",
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_edition_code": "wh40k-10e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": true,
+        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    },
+    {
+      "detachment_id": "d-luminen-auto-choir",
+      "detachment_points_cost": 1,
+      "force_disposition": "DISRUPTION",
+      "is_legends": false,
+      "is_unique": true,
+      "name": "LUMINEN AUTO-CHOIR",
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_edition_code": "wh40k-10e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": true,
+        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    },
+    {
+      "detachment_id": "d-rad-zone-corps",
+      "detachment_points_cost": 2,
+      "force_disposition": "TAKE AND HOLD",
+      "is_legends": false,
+      "is_unique": false,
+      "name": "RAD-ZONE CORPS",
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_edition_code": "wh40k-10e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": true,
+        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    },
+    {
+      "detachment_id": "d-skitarii-hunter-cohort",
+      "detachment_points_cost": 2,
+      "force_disposition": "RECONNAISSANCE",
+      "is_legends": false,
+      "is_unique": false,
+      "name": "SKITARII HUNTER COHORT",
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_edition_code": "wh40k-10e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": true,
+        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    }
+  ]
+}

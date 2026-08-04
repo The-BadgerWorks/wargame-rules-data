@@ -1,0 +1,161 @@
+{
+  "ability_keys": [
+    "datasheet:healing-tears",
+    "datasheet:lifewards",
+    "datasheet:miraculous-intervention"
+  ],
+  "costs": [
+    {
+      "copy_index_min": 1,
+      "label": "3 models",
+      "model_count": 3,
+      "points": 150,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    }
+  ],
+  "datasheet_id": "ds-saint-celestine",
+  "faction_id": "f-adepta-sororitas",
+  "is_battleline": false,
+  "is_character": true,
+  "is_dedicated_transport": false,
+  "is_epic_hero": true,
+  "is_legends": false,
+  "keywords": [
+    {
+      "is_faction_keyword": true,
+      "keyword": "Adepta Sororitas"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Character",
+      "model_scope": "SAINT CELESTINE"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Epic Hero",
+      "model_scope": "SAINT CELESTINE"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Fly",
+      "model_scope": "ALL MODELS"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Grenades",
+      "model_scope": "ALL MODELS"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Imperium",
+      "model_scope": "ALL MODELS"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Infantry",
+      "model_scope": "ALL MODELS"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Jump Pack",
+      "model_scope": "ALL MODELS"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Saint Celestine",
+      "model_scope": "SAINT CELESTINE"
+    }
+  ],
+  "leader_pairs": [
+    "ds-seraphim-squad",
+    "ds-zephyrim-squad"
+  ],
+  "models": [
+    {
+      "base_size": "40mm",
+      "invuln_save": "4",
+      "leadership": "6+",
+      "line": 1,
+      "movement": "12\"",
+      "name": "CELESTINE",
+      "objective_control": 1,
+      "save": "2+",
+      "toughness": 3,
+      "wounds": 5
+    },
+    {
+      "base_size": "32mm",
+      "invuln_save": "4",
+      "leadership": "7+",
+      "line": 2,
+      "movement": "12\"",
+      "name": "GEMINAE SUPERIA",
+      "objective_control": 1,
+      "save": "2+",
+      "toughness": 3,
+      "wounds": 2
+    }
+  ],
+  "name": "SAINT CELESTINE",
+  "pricing_confidence": {
+    "consecutive_unverified_releases": 0,
+    "last_verified_points_digest": "sha256:cccf222c1838ce5a02bd9c5991172fa2cfe396b58e429a1028e7c9ee394a416a",
+    "last_verified_version": "mfm-2026-08",
+    "state": "verified"
+  },
+  "provenance": {
+    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+    "detail_edition_code": "wh40k-10e",
+    "detail_source": "wahapedia",
+    "is_hybrid_edition": true,
+    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "points_edition_code": "wh40k-11e",
+    "points_source": "mfm"
+  },
+  "role": "Characters",
+  "weapons": [
+    {
+      "armour_penetration": "0",
+      "attacks": "1",
+      "damage": "1",
+      "is_melee": false,
+      "line": 1,
+      "name": "Bolt pistol",
+      "range": "12",
+      "skill": "3",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "D6",
+      "damage": "1",
+      "is_melee": false,
+      "line": 2,
+      "name": "The Ardent Blade",
+      "range": "12",
+      "skill": "N/A",
+      "strength": "6"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "4",
+      "damage": "1",
+      "is_melee": true,
+      "line": 3,
+      "name": "Power weapon",
+      "skill": "3",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "-3",
+      "attacks": "5",
+      "damage": "2",
+      "is_melee": true,
+      "line": 4,
+      "name": "The Ardent Blade",
+      "skill": "2",
+      "strength": "6"
+    }
+  ]
+}

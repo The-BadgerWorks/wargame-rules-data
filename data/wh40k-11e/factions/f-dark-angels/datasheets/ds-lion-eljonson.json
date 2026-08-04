@@ -1,0 +1,137 @@
+{
+  "ability_keys": [
+    "datasheet:dark-angels-bodyguard",
+    "datasheet:martial-exemplar-aura",
+    "datasheet:mist-wreathed-shadow-realms",
+    "datasheet:no-hiding-from-the-watchers-aura",
+    "datasheet:primarch-of-the-first-legion",
+    "datasheet:supreme-commander",
+    "datasheet:the-emperors-shield"
+  ],
+  "costs": [
+    {
+      "copy_index_min": 1,
+      "label": "1 model",
+      "model_count": 1,
+      "points": 265,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    }
+  ],
+  "datasheet_id": "ds-lion-eljonson",
+  "faction_id": "f-dark-angels",
+  "is_battleline": false,
+  "is_character": true,
+  "is_dedicated_transport": false,
+  "is_epic_hero": true,
+  "is_legends": false,
+  "keywords": [
+    {
+      "is_faction_keyword": true,
+      "keyword": "Adeptus Astartes"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Character"
+    },
+    {
+      "is_faction_keyword": true,
+      "keyword": "Dark Angels"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Epic Hero"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Imperium"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Lion El’Jonson"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Monster"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Primarch"
+    }
+  ],
+  "models": [
+    {
+      "base_size": "60mm",
+      "invuln_save": "3",
+      "leadership": "5+",
+      "line": 1,
+      "movement": "8\"",
+      "name": "Lion El’jonson",
+      "objective_control": 4,
+      "save": "2+",
+      "toughness": 9,
+      "wounds": 10
+    }
+  ],
+  "name": "LION EL’JONSON",
+  "pricing_confidence": {
+    "consecutive_unverified_releases": 0,
+    "last_verified_points_digest": "sha256:07b0ae5b8475e61ea03a97b306432b9aad3dc1be6f7698d9f1fe5d6bc9ca80c8",
+    "last_verified_version": "mfm-2026-08",
+    "state": "verified"
+  },
+  "provenance": {
+    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+    "detail_edition_code": "wh40k-10e",
+    "detail_source": "wahapedia",
+    "is_hybrid_edition": true,
+    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "points_edition_code": "wh40k-11e",
+    "points_source": "mfm"
+  },
+  "role": "Characters",
+  "weapons": [
+    {
+      "armour_penetration": "-1",
+      "attacks": "4",
+      "damage": "2",
+      "is_melee": false,
+      "line": 1,
+      "name": "Arma Luminis – bolt",
+      "range": "12",
+      "skill": "2",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "-3",
+      "attacks": "2",
+      "damage": "2",
+      "is_melee": false,
+      "line": 2,
+      "name": "Arma Luminis – plasma",
+      "range": "12",
+      "skill": "2",
+      "strength": "8"
+    },
+    {
+      "armour_penetration": "-4",
+      "attacks": "8",
+      "damage": "4",
+      "is_melee": true,
+      "line": 3,
+      "name": "Fealty – strike",
+      "skill": "2",
+      "strength": "12"
+    },
+    {
+      "armour_penetration": "-3",
+      "attacks": "16",
+      "damage": "2",
+      "is_melee": true,
+      "line": 4,
+      "name": "Fealty – sweep",
+      "skill": "2",
+      "strength": "6"
+    }
+  ]
+}

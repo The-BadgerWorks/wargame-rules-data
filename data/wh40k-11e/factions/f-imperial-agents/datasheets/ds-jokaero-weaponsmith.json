@@ -1,0 +1,112 @@
+{
+  "ability_keys": [
+    "datasheet:a-weaponsmith-not-a-warlord",
+    "datasheet:inconceivable-augmentation",
+    "datasheet:inquisitorial-agent"
+  ],
+  "costs": [
+    {
+      "copy_index_min": 1,
+      "label": "1 model",
+      "model_count": 1,
+      "points": 30,
+      "pricing_confidence": "unverified",
+      "source_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1"
+    }
+  ],
+  "datasheet_id": "ds-jokaero-weaponsmith",
+  "faction_id": "f-imperial-agents",
+  "is_battleline": false,
+  "is_character": true,
+  "is_dedicated_transport": false,
+  "is_epic_hero": false,
+  "is_legends": true,
+  "keywords": [
+    {
+      "is_faction_keyword": true,
+      "keyword": "Agents of the Imperium"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Character"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Imperium"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Infantry"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Jokaero Weaponsmith"
+    }
+  ],
+  "leader_pairs": [
+    "ds-inquisitorial-agents"
+  ],
+  "models": [
+    {
+      "base_size": "25mm",
+      "invuln_save": "4",
+      "leadership": "7+",
+      "line": 1,
+      "movement": "6\"",
+      "name": "Jokaero Weaponsmith",
+      "objective_control": 0,
+      "save": "5+",
+      "toughness": 3,
+      "wounds": 2
+    }
+  ],
+  "name": "Jokaero Weaponsmith",
+  "pricing_confidence": {
+    "consecutive_unverified_releases": 1,
+    "state": "unverified",
+    "unverified_since_version": "mfm-2026-08"
+  },
+  "provenance": {
+    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+    "detail_edition_code": "wh40k-10e",
+    "detail_source": "wahapedia",
+    "is_hybrid_edition": true,
+    "points_edition_code": "wh40k-11e",
+    "points_source": "none"
+  },
+  "role": "Characters",
+  "weapons": [
+    {
+      "armour_penetration": "0",
+      "attacks": "D6",
+      "damage": "1",
+      "is_melee": false,
+      "line": 1,
+      "name": "Jokaero weapons – scattered",
+      "range": "12",
+      "skill": "N/A",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "-1",
+      "attacks": "1",
+      "damage": "3",
+      "is_melee": false,
+      "line": 2,
+      "name": "Jokaero weapons – focused",
+      "range": "24",
+      "skill": "4",
+      "strength": "10"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "2",
+      "damage": "1",
+      "is_melee": true,
+      "line": 3,
+      "name": "Close combat weapon",
+      "skill": "5",
+      "strength": "4"
+    }
+  ]
+}

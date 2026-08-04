@@ -1,0 +1,157 @@
+{
+  "ability_keys": [
+    "datasheet:ogryn-combat-stimms",
+    "datasheet:ogryns"
+  ],
+  "costs": [
+    {
+      "copy_index_min": 1,
+      "label": "3 models",
+      "model_count": 3,
+      "points": 95,
+      "pricing_confidence": "unverified",
+      "source_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1"
+    }
+  ],
+  "datasheet_id": "ds-renegade-ogryn-brutes",
+  "faction_id": "f-chaos-daemons",
+  "is_battleline": false,
+  "is_character": false,
+  "is_dedicated_transport": false,
+  "is_epic_hero": false,
+  "is_legends": true,
+  "keywords": [
+    {
+      "is_faction_keyword": false,
+      "keyword": "Chaos"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Chaos"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Chaos"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Chaos"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Damned"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Damned"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Damned"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Damned"
+    },
+    {
+      "is_faction_keyword": true,
+      "keyword": "Heretic Astartes"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Infantry"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Infantry"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Infantry"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Infantry"
+    },
+    {
+      "is_faction_keyword": true,
+      "keyword": "Legiones Daemonica"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Renegade Ogryn Brutes"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Renegade Ogryn Brutes"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Renegade Ogryn Brutes"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Renegade Ogryn Brutes"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Shadow Legion"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Shadow Legion"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Shadow Legion"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Shadow Legion"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Undivided"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Undivided"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Undivided"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Undivided"
+    }
+  ],
+  "models": [
+    {
+      "base_size": "40mm",
+      "leadership": "7+",
+      "line": 1,
+      "movement": "6\"",
+      "name": "Renegade Ogryn Brutes",
+      "objective_control": 1,
+      "save": "5+",
+      "toughness": 6,
+      "wounds": 3
+    }
+  ],
+  "name": "Renegade Ogryn Brutes",
+  "pricing_confidence": {
+    "consecutive_unverified_releases": 1,
+    "state": "unverified",
+    "unverified_since_version": "mfm-2026-08"
+  },
+  "provenance": {
+    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+    "detail_edition_code": "wh40k-10e",
+    "detail_source": "wahapedia",
+    "is_hybrid_edition": true,
+    "points_edition_code": "wh40k-11e",
+    "points_source": "none"
+  },
+  "role": "Other"
+}

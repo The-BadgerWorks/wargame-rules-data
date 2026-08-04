@@ -1,0 +1,111 @@
+{
+  "ability_keys": [
+    "datasheet:evade-and-survive",
+    "datasheet:last-survivor",
+    "datasheet:priority-objective-identified"
+  ],
+  "costs": [
+    {
+      "copy_index_min": 1,
+      "label": "1 model",
+      "model_count": 1,
+      "points": 95,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    }
+  ],
+  "datasheet_id": "ds-lieutenant-with-combi-weapon-6",
+  "faction_id": "f-space-wolves",
+  "is_battleline": false,
+  "is_character": true,
+  "is_dedicated_transport": false,
+  "is_epic_hero": false,
+  "is_legends": false,
+  "keywords": [
+    {
+      "is_faction_keyword": true,
+      "keyword": "Adeptus Astartes"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Character"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Grenades"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Imperium"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Infantry"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Lieutenant"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Lieutenant with Combi-weapon"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Phobos"
+    }
+  ],
+  "models": [
+    {
+      "base_size": "40mm",
+      "leadership": "6+",
+      "line": 1,
+      "movement": "6\"",
+      "name": "Lieutenant With Combi-weapon",
+      "objective_control": 1,
+      "save": "3+",
+      "toughness": 4,
+      "wounds": 4
+    }
+  ],
+  "name": "LIEUTENANT WITH COMBI-WEAPON",
+  "pricing_confidence": {
+    "consecutive_unverified_releases": 0,
+    "last_verified_points_digest": "sha256:6d8f2f3233fa2f7a2c044afc4bfab4e3f6eb84e8476a86c150be5631877560c6",
+    "last_verified_version": "mfm-2026-08",
+    "state": "verified"
+  },
+  "provenance": {
+    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+    "detail_edition_code": "wh40k-10e",
+    "detail_source": "wahapedia",
+    "is_hybrid_edition": true,
+    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "points_edition_code": "wh40k-11e",
+    "points_source": "mfm"
+  },
+  "role": "Characters",
+  "weapons": [
+    {
+      "armour_penetration": "0",
+      "attacks": "1",
+      "damage": "1",
+      "is_melee": false,
+      "line": 1,
+      "name": "Combi-weapon",
+      "range": "24",
+      "skill": "3",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "-1",
+      "attacks": "5",
+      "damage": "1",
+      "is_melee": true,
+      "line": 2,
+      "name": "Paired combat blades",
+      "skill": "2",
+      "strength": "4"
+    }
+  ]
+}

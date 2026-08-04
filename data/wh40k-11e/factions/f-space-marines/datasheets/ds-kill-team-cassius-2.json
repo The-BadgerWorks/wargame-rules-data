@@ -1,0 +1,463 @@
+{
+  "ability_keys": [
+    "datasheet:cassius",
+    "datasheet:catechism-of-death",
+    "datasheet:jump-pack",
+    "datasheet:psychic-hood",
+    "datasheet:unflinching"
+  ],
+  "costs": [
+    {
+      "copy_index_min": 1,
+      "label": "11 models",
+      "model_count": 11,
+      "points": 220,
+      "pricing_confidence": "unverified",
+      "source_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1"
+    }
+  ],
+  "datasheet_id": "ds-kill-team-cassius-2",
+  "faction_id": "f-space-marines",
+  "is_battleline": false,
+  "is_character": true,
+  "is_dedicated_transport": false,
+  "is_epic_hero": true,
+  "is_legends": true,
+  "keywords": [
+    {
+      "is_faction_keyword": true,
+      "keyword": "Adeptus Astartes"
+    },
+    {
+      "is_faction_keyword": true,
+      "keyword": "Agents of the Imperium"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Character",
+      "model_scope": "CHAPLAIN CASSIUS"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Character",
+      "model_scope": "CHAPLAIN CASSIUS"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Character",
+      "model_scope": "CHAPLAIN CASSIUS"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Character",
+      "model_scope": "CHAPLAIN CASSIUS"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Character",
+      "model_scope": "CHAPLAIN CASSIUS"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Character",
+      "model_scope": "CHAPLAIN CASSIUS"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Character",
+      "model_scope": "CHAPLAIN CASSIUS"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Character",
+      "model_scope": "CHAPLAIN CASSIUS"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Character",
+      "model_scope": "CHAPLAIN CASSIUS"
+    },
+    {
+      "is_faction_keyword": true,
+      "keyword": "Deathwatch"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Epic Hero",
+      "model_scope": "CHAPLAIN CASSIUS"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Epic Hero",
+      "model_scope": "CHAPLAIN CASSIUS"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Epic Hero",
+      "model_scope": "CHAPLAIN CASSIUS"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Epic Hero",
+      "model_scope": "CHAPLAIN CASSIUS"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Epic Hero",
+      "model_scope": "CHAPLAIN CASSIUS"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Epic Hero",
+      "model_scope": "CHAPLAIN CASSIUS"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Epic Hero",
+      "model_scope": "CHAPLAIN CASSIUS"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Epic Hero",
+      "model_scope": "CHAPLAIN CASSIUS"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Epic Hero",
+      "model_scope": "CHAPLAIN CASSIUS"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Grenades",
+      "model_scope": "ALL"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Grenades",
+      "model_scope": "ALL"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Grenades",
+      "model_scope": "ALL"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Grenades",
+      "model_scope": "ALL"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Grenades",
+      "model_scope": "ALL"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Grenades",
+      "model_scope": "ALL"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Grenades",
+      "model_scope": "ALL"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Grenades",
+      "model_scope": "ALL"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Grenades",
+      "model_scope": "ALL"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Imperium",
+      "model_scope": "ALL"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Imperium",
+      "model_scope": "ALL"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Imperium",
+      "model_scope": "ALL"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Imperium",
+      "model_scope": "ALL"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Imperium",
+      "model_scope": "ALL"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Imperium",
+      "model_scope": "ALL"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Imperium",
+      "model_scope": "ALL"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Imperium",
+      "model_scope": "ALL"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Imperium",
+      "model_scope": "ALL"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Infantry",
+      "model_scope": "ALL"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Infantry",
+      "model_scope": "ALL"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Infantry",
+      "model_scope": "ALL"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Infantry",
+      "model_scope": "ALL"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Infantry",
+      "model_scope": "ALL"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Infantry",
+      "model_scope": "ALL"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Infantry",
+      "model_scope": "ALL"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Infantry",
+      "model_scope": "ALL"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Infantry",
+      "model_scope": "ALL"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Kill Team",
+      "model_scope": "ALL"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Kill Team",
+      "model_scope": "ALL"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Kill Team",
+      "model_scope": "ALL"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Kill Team",
+      "model_scope": "ALL"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Kill Team",
+      "model_scope": "ALL"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Kill Team",
+      "model_scope": "ALL"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Kill Team",
+      "model_scope": "ALL"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Kill Team",
+      "model_scope": "ALL"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Kill Team",
+      "model_scope": "ALL"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Kill Team Cassius",
+      "model_scope": "ALL"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Kill Team Cassius",
+      "model_scope": "ALL"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Kill Team Cassius",
+      "model_scope": "ALL"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Kill Team Cassius",
+      "model_scope": "ALL"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Kill Team Cassius",
+      "model_scope": "ALL"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Kill Team Cassius",
+      "model_scope": "ALL"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Kill Team Cassius",
+      "model_scope": "ALL"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Kill Team Cassius",
+      "model_scope": "ALL"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Kill Team Cassius",
+      "model_scope": "ALL"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Ordo Xenos",
+      "model_scope": "ALL"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Ordo Xenos",
+      "model_scope": "ALL"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Ordo Xenos",
+      "model_scope": "ALL"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Ordo Xenos",
+      "model_scope": "ALL"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Ordo Xenos",
+      "model_scope": "ALL"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Ordo Xenos",
+      "model_scope": "ALL"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Ordo Xenos",
+      "model_scope": "ALL"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Ordo Xenos",
+      "model_scope": "ALL"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Ordo Xenos",
+      "model_scope": "ALL"
+    }
+  ],
+  "models": [
+    {
+      "base_size": "32mm",
+      "leadership": "6+",
+      "line": 1,
+      "movement": "6\"",
+      "name": "KILL TEAM VETERAN",
+      "objective_control": 2,
+      "save": "3+",
+      "toughness": 4,
+      "wounds": 2
+    },
+    {
+      "base_size": "75 x 42mm",
+      "leadership": "6+",
+      "line": 2,
+      "movement": "12\"",
+      "name": "KILL TEAM BIKER",
+      "objective_control": 2,
+      "save": "3+",
+      "toughness": 5,
+      "wounds": 3
+    },
+    {
+      "base_size": "32mm",
+      "invuln_save": "4",
+      "leadership": "5+",
+      "line": 3,
+      "movement": "6\"",
+      "name": "CHAPLAIN CASSIUS",
+      "objective_control": 2,
+      "save": "3+",
+      "toughness": 4,
+      "wounds": 4
+    },
+    {
+      "base_size": "40mm",
+      "invuln_save": "4",
+      "leadership": "6+",
+      "line": 4,
+      "movement": "5\"",
+      "name": "KILL TEAM TERMINATOR",
+      "objective_control": 2,
+      "save": "2+",
+      "toughness": 5,
+      "wounds": 3
+    }
+  ],
+  "name": "Kill Team Cassius",
+  "pricing_confidence": {
+    "consecutive_unverified_releases": 1,
+    "state": "unverified",
+    "unverified_since_version": "mfm-2026-08"
+  },
+  "provenance": {
+    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+    "detail_edition_code": "wh40k-10e",
+    "detail_source": "wahapedia",
+    "is_hybrid_edition": true,
+    "points_edition_code": "wh40k-11e",
+    "points_source": "none"
+  },
+  "role": "Characters"
+}

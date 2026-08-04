@@ -1,0 +1,140 @@
+{
+  "detachments": [
+    {
+      "detachment_id": "d-changehost-of-deceit",
+      "detachment_points_cost": 2,
+      "force_disposition": "RECONNAISSANCE",
+      "is_legends": false,
+      "is_unique": false,
+      "name": "CHANGEHOST OF DECEIT",
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_edition_code": "wh40k-10e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": true,
+        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    },
+    {
+      "detachment_id": "d-grand-coven",
+      "detachment_points_cost": 3,
+      "force_disposition": "PRIORITY ASSETS",
+      "is_legends": false,
+      "is_unique": false,
+      "name": "GRAND COVEN",
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_edition_code": "wh40k-10e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": true,
+        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    },
+    {
+      "detachment_id": "d-ritual-of-regeneration",
+      "detachment_points_cost": 1,
+      "force_disposition": "TAKE AND HOLD",
+      "is_legends": false,
+      "is_unique": false,
+      "name": "RITUAL OF REGENERATION",
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_edition_code": "wh40k-10e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": true,
+        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    },
+    {
+      "detachment_id": "d-rubricae-phalanx",
+      "detachment_points_cost": 3,
+      "force_disposition": "TAKE AND HOLD",
+      "is_legends": false,
+      "is_unique": false,
+      "name": "RUBRICAE PHALANX",
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_edition_code": "wh40k-10e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": true,
+        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    },
+    {
+      "detachment_id": "d-sekhetar-cohort",
+      "detachment_points_cost": 1,
+      "force_disposition": "DISRUPTION",
+      "is_legends": false,
+      "is_unique": false,
+      "name": "SEKHETAR COHORT",
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_edition_code": "wh40k-10e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": true,
+        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    },
+    {
+      "detachment_id": "d-servants-of-change",
+      "detachment_points_cost": 1,
+      "force_disposition": "RECONNAISSANCE",
+      "is_legends": false,
+      "is_unique": true,
+      "name": "SERVANTS OF CHANGE",
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_edition_code": "wh40k-10e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": true,
+        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    },
+    {
+      "detachment_id": "d-warpforged-cabal",
+      "detachment_points_cost": 2,
+      "force_disposition": "PRIORITY ASSETS",
+      "is_legends": false,
+      "is_unique": false,
+      "name": "WARPFORGED CABAL",
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_edition_code": "wh40k-10e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": true,
+        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    },
+    {
+      "detachment_id": "d-warpmeld-pact",
+      "detachment_points_cost": 2,
+      "force_disposition": "PURGE THE FOE",
+      "is_legends": false,
+      "is_unique": true,
+      "name": "WARPMELD PACT",
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_edition_code": "wh40k-10e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": true,
+        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    }
+  ]
+}

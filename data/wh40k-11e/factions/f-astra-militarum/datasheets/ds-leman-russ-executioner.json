@@ -1,0 +1,221 @@
+{
+  "ability_keys": [
+    "datasheet:gung-ho-executioners",
+    "datasheet:one-shot"
+  ],
+  "costs": [
+    {
+      "copy_index_min": 1,
+      "label": "1 model",
+      "model_count": 1,
+      "points": 170,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    },
+    {
+      "copy_index_min": 3,
+      "label": "1 model",
+      "model_count": 1,
+      "points": 180,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    }
+  ],
+  "damaged_threshold": 4,
+  "datasheet_id": "ds-leman-russ-executioner",
+  "faction_id": "f-astra-militarum",
+  "is_battleline": false,
+  "is_character": false,
+  "is_dedicated_transport": false,
+  "is_epic_hero": false,
+  "is_legends": false,
+  "keywords": [
+    {
+      "is_faction_keyword": true,
+      "keyword": "Astra Militarum"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Imperium"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Leman Russ Executioner"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Smoke"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Squadron"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Vehicle"
+    }
+  ],
+  "models": [
+    {
+      "base_size": "Use model",
+      "leadership": "7+",
+      "line": 1,
+      "movement": "10\"",
+      "name": "Leman Russ Executioner",
+      "objective_control": 3,
+      "save": "2+",
+      "toughness": 11,
+      "wounds": 13
+    }
+  ],
+  "name": "LEMAN RUSS EXECUTIONER",
+  "pricing_confidence": {
+    "consecutive_unverified_releases": 0,
+    "last_verified_points_digest": "sha256:fcbac9d828fde149561f9015114d29363238ea94c5d89f844a6a1e34adbf9130",
+    "last_verified_version": "mfm-2026-08",
+    "state": "verified"
+  },
+  "provenance": {
+    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+    "detail_edition_code": "wh40k-10e",
+    "detail_source": "wahapedia",
+    "is_hybrid_edition": true,
+    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "points_edition_code": "wh40k-11e",
+    "points_source": "mfm"
+  },
+  "role": "Other",
+  "weapons": [
+    {
+      "armour_penetration": "-2",
+      "attacks": "D6+3",
+      "damage": "2",
+      "is_melee": false,
+      "line": 1,
+      "name": "Executioner plasma cannon – standard",
+      "range": "36",
+      "skill": "4",
+      "strength": "7"
+    },
+    {
+      "armour_penetration": "-3",
+      "attacks": "D6+3",
+      "damage": "3",
+      "is_melee": false,
+      "line": 2,
+      "name": "Executioner plasma cannon – supercharge",
+      "range": "36",
+      "skill": "4",
+      "strength": "8"
+    },
+    {
+      "armour_penetration": "-1",
+      "attacks": "3",
+      "damage": "2",
+      "is_melee": false,
+      "line": 3,
+      "name": "Heavy bolter",
+      "range": "36",
+      "skill": "4",
+      "strength": "5"
+    },
+    {
+      "armour_penetration": "-1",
+      "attacks": "D6",
+      "damage": "1",
+      "is_melee": false,
+      "line": 4,
+      "name": "Heavy flamer",
+      "range": "12",
+      "skill": "N/A",
+      "strength": "5"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "3",
+      "damage": "1",
+      "is_melee": false,
+      "line": 5,
+      "name": "Heavy stubber",
+      "range": "36",
+      "skill": "4",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "-3",
+      "attacks": "1",
+      "damage": "D6",
+      "is_melee": false,
+      "line": 6,
+      "name": "Hunter-killer missile",
+      "range": "48",
+      "skill": "4",
+      "strength": "14"
+    },
+    {
+      "armour_penetration": "-3",
+      "attacks": "1",
+      "damage": "D6+1",
+      "is_melee": false,
+      "line": 7,
+      "name": "Lascannon",
+      "range": "48",
+      "skill": "4",
+      "strength": "12"
+    },
+    {
+      "armour_penetration": "-4",
+      "attacks": "2",
+      "damage": "D6",
+      "is_melee": false,
+      "line": 8,
+      "name": "Multi-melta",
+      "range": "18",
+      "skill": "4",
+      "strength": "9"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "D3",
+      "damage": "1",
+      "is_melee": false,
+      "line": 9,
+      "name": "Plasma cannon – standard",
+      "range": "36",
+      "skill": "4",
+      "strength": "7"
+    },
+    {
+      "armour_penetration": "-3",
+      "attacks": "D3",
+      "damage": "2",
+      "is_melee": false,
+      "line": 10,
+      "name": "Plasma cannon – supercharge",
+      "range": "36",
+      "skill": "4",
+      "strength": "8"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "2",
+      "damage": "1",
+      "is_melee": false,
+      "line": 11,
+      "name": "Storm bolter",
+      "range": "24",
+      "skill": "4",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "6",
+      "damage": "1",
+      "is_melee": true,
+      "line": 12,
+      "name": "Armoured tracks",
+      "skill": "4",
+      "strength": "7"
+    }
+  ]
+}

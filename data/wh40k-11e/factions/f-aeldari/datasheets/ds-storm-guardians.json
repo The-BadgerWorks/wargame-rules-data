@@ -1,0 +1,150 @@
+{
+  "ability_keys": [
+    "datasheet:crewed-platform",
+    "datasheet:serpent-shield",
+    "datasheet:stormblades"
+  ],
+  "costs": [
+    {
+      "copy_index_min": 1,
+      "label": "11 models",
+      "model_count": 11,
+      "points": 110,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    }
+  ],
+  "datasheet_id": "ds-storm-guardians",
+  "faction_id": "f-aeldari",
+  "is_battleline": true,
+  "is_character": false,
+  "is_dedicated_transport": false,
+  "is_epic_hero": false,
+  "is_legends": false,
+  "keywords": [
+    {
+      "is_faction_keyword": false,
+      "keyword": "Aeldari"
+    },
+    {
+      "is_faction_keyword": true,
+      "keyword": "Asuryani"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Battleline"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Grenades"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Guardians"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Infantry"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Storm Guardians"
+    }
+  ],
+  "models": [
+    {
+      "base_size": "28.5mm",
+      "leadership": "7+",
+      "line": 1,
+      "movement": "7\"",
+      "name": "STORM GUARDIAN",
+      "objective_control": 2,
+      "save": "4+",
+      "toughness": 3,
+      "wounds": 1
+    },
+    {
+      "base_size": "40mm",
+      "leadership": "7+",
+      "line": 2,
+      "movement": "7\"",
+      "name": "SERPENT’S SCALE PLATFORM",
+      "objective_control": 0,
+      "save": "4+",
+      "toughness": 3,
+      "wounds": 2
+    }
+  ],
+  "name": "STORM GUARDIANS",
+  "pricing_confidence": {
+    "consecutive_unverified_releases": 0,
+    "last_verified_points_digest": "sha256:a9e9f60cbe931a4025224d0ba16d5746028e4b27b322c89ba09afa1a8ed91b23",
+    "last_verified_version": "mfm-2026-08",
+    "state": "verified"
+  },
+  "provenance": {
+    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+    "detail_edition_code": "wh40k-10e",
+    "detail_source": "wahapedia",
+    "is_hybrid_edition": true,
+    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "points_edition_code": "wh40k-11e",
+    "points_source": "mfm"
+  },
+  "role": "Battleline",
+  "weapons": [
+    {
+      "armour_penetration": "0",
+      "attacks": "D6",
+      "damage": "1",
+      "is_melee": false,
+      "line": 1,
+      "name": "Flamer",
+      "range": "12",
+      "skill": "N/A",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "-4",
+      "attacks": "1",
+      "damage": "D6",
+      "is_melee": false,
+      "line": 2,
+      "name": "Fusion gun",
+      "range": "12",
+      "skill": "3",
+      "strength": "8"
+    },
+    {
+      "armour_penetration": "-1",
+      "attacks": "1",
+      "damage": "1",
+      "is_melee": false,
+      "line": 3,
+      "name": "Shuriken pistol",
+      "range": "12",
+      "skill": "3",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "2",
+      "damage": "1",
+      "is_melee": true,
+      "line": 4,
+      "name": "Close combat weapon",
+      "skill": "3",
+      "strength": "3"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "2",
+      "damage": "1",
+      "is_melee": true,
+      "line": 5,
+      "name": "Power sword",
+      "skill": "3",
+      "strength": "4"
+    }
+  ]
+}

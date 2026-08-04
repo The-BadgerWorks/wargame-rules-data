@@ -1,0 +1,487 @@
+[
+  {
+    "code": "adepta-sororitas",
+    "detail_source_faction_id": "AS",
+    "faction_id": "f-adepta-sororitas",
+    "mfm_slug": "adepta-sororitas",
+    "name": "Adepta Sororitas",
+    "provenance": {
+      "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+      "detail_edition_code": "wh40k-10e",
+      "detail_source": "wahapedia",
+      "is_hybrid_edition": true,
+      "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+      "points_edition_code": "wh40k-11e",
+      "points_source": "mfm"
+    }
+  },
+  {
+    "code": "adeptus-custodes",
+    "detail_source_faction_id": "AC",
+    "faction_id": "f-adeptus-custodes",
+    "mfm_slug": "adeptus-custodes",
+    "name": "Adeptus Custodes",
+    "provenance": {
+      "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+      "detail_edition_code": "wh40k-10e",
+      "detail_source": "wahapedia",
+      "is_hybrid_edition": true,
+      "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+      "points_edition_code": "wh40k-11e",
+      "points_source": "mfm"
+    }
+  },
+  {
+    "code": "adeptus-mechanicus",
+    "detail_source_faction_id": "AdM",
+    "faction_id": "f-adeptus-mechanicus",
+    "mfm_slug": "adeptus-mechanicus",
+    "name": "Adeptus Mechanicus",
+    "provenance": {
+      "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+      "detail_edition_code": "wh40k-10e",
+      "detail_source": "wahapedia",
+      "is_hybrid_edition": true,
+      "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+      "points_edition_code": "wh40k-11e",
+      "points_source": "mfm"
+    }
+  },
+  {
+    "code": "aeldari",
+    "detail_source_faction_id": "AE",
+    "faction_id": "f-aeldari",
+    "mfm_slug": "aeldari",
+    "name": "Aeldari",
+    "provenance": {
+      "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+      "detail_edition_code": "wh40k-10e",
+      "detail_source": "wahapedia",
+      "is_hybrid_edition": true,
+      "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+      "points_edition_code": "wh40k-11e",
+      "points_source": "mfm"
+    }
+  },
+  {
+    "code": "astra-militarum",
+    "detail_source_faction_id": "AM",
+    "faction_id": "f-astra-militarum",
+    "mfm_slug": "astra-militarum",
+    "name": "Astra Militarum",
+    "provenance": {
+      "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+      "detail_edition_code": "wh40k-10e",
+      "detail_source": "wahapedia",
+      "is_hybrid_edition": true,
+      "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+      "points_edition_code": "wh40k-11e",
+      "points_source": "mfm"
+    }
+  },
+  {
+    "code": "black-templars",
+    "detail_source_faction_id": "SM",
+    "faction_id": "f-black-templars",
+    "mfm_slug": "black-templars",
+    "name": "Black Templars",
+    "parent_faction_id": "f-space-marines",
+    "provenance": {
+      "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+      "detail_edition_code": "wh40k-10e",
+      "detail_source": "wahapedia",
+      "is_hybrid_edition": true,
+      "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+      "points_edition_code": "wh40k-11e",
+      "points_source": "mfm"
+    }
+  },
+  {
+    "code": "blood-angels",
+    "detail_source_faction_id": "SM",
+    "faction_id": "f-blood-angels",
+    "mfm_slug": "blood-angels",
+    "name": "Blood Angels",
+    "parent_faction_id": "f-space-marines",
+    "provenance": {
+      "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+      "detail_edition_code": "wh40k-10e",
+      "detail_source": "wahapedia",
+      "is_hybrid_edition": true,
+      "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+      "points_edition_code": "wh40k-11e",
+      "points_source": "mfm"
+    }
+  },
+  {
+    "code": "chaos-daemons",
+    "detail_source_faction_id": "CD",
+    "faction_id": "f-chaos-daemons",
+    "mfm_slug": "chaos-daemons",
+    "name": "Chaos Daemons",
+    "provenance": {
+      "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+      "detail_edition_code": "wh40k-10e",
+      "detail_source": "wahapedia",
+      "is_hybrid_edition": true,
+      "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+      "points_edition_code": "wh40k-11e",
+      "points_source": "mfm"
+    }
+  },
+  {
+    "code": "chaos-knights",
+    "detail_source_faction_id": "QT",
+    "faction_id": "f-chaos-knights",
+    "mfm_slug": "chaos-knights",
+    "name": "Chaos Knights",
+    "provenance": {
+      "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+      "detail_edition_code": "wh40k-10e",
+      "detail_source": "wahapedia",
+      "is_hybrid_edition": true,
+      "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+      "points_edition_code": "wh40k-11e",
+      "points_source": "mfm"
+    }
+  },
+  {
+    "code": "chaos-space-marines",
+    "detail_source_faction_id": "CSM",
+    "faction_id": "f-chaos-space-marines",
+    "mfm_slug": "chaos-space-marines",
+    "name": "Chaos Space Marines",
+    "provenance": {
+      "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+      "detail_edition_code": "wh40k-10e",
+      "detail_source": "wahapedia",
+      "is_hybrid_edition": true,
+      "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+      "points_edition_code": "wh40k-11e",
+      "points_source": "mfm"
+    }
+  },
+  {
+    "code": "chaos-titan-legions",
+    "detail_source_faction_id": "TL",
+    "faction_id": "f-chaos-titan-legions",
+    "mfm_slug": "chaos-titan-legions",
+    "name": "Chaos Titan Legions",
+    "provenance": {
+      "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+      "detail_edition_code": "wh40k-10e",
+      "detail_source": "wahapedia",
+      "is_hybrid_edition": true,
+      "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+      "points_edition_code": "wh40k-11e",
+      "points_source": "mfm"
+    }
+  },
+  {
+    "code": "dark-angels",
+    "detail_source_faction_id": "SM",
+    "faction_id": "f-dark-angels",
+    "mfm_slug": "dark-angels",
+    "name": "Dark Angels",
+    "parent_faction_id": "f-space-marines",
+    "provenance": {
+      "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+      "detail_edition_code": "wh40k-10e",
+      "detail_source": "wahapedia",
+      "is_hybrid_edition": true,
+      "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+      "points_edition_code": "wh40k-11e",
+      "points_source": "mfm"
+    }
+  },
+  {
+    "code": "death-guard",
+    "detail_source_faction_id": "DG",
+    "faction_id": "f-death-guard",
+    "mfm_slug": "death-guard",
+    "name": "Death Guard",
+    "provenance": {
+      "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+      "detail_edition_code": "wh40k-10e",
+      "detail_source": "wahapedia",
+      "is_hybrid_edition": true,
+      "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+      "points_edition_code": "wh40k-11e",
+      "points_source": "mfm"
+    }
+  },
+  {
+    "code": "deathwatch",
+    "detail_source_faction_id": "SM",
+    "faction_id": "f-deathwatch",
+    "mfm_slug": "deathwatch",
+    "name": "Deathwatch",
+    "parent_faction_id": "f-space-marines",
+    "provenance": {
+      "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+      "detail_edition_code": "wh40k-10e",
+      "detail_source": "wahapedia",
+      "is_hybrid_edition": true,
+      "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+      "points_edition_code": "wh40k-11e",
+      "points_source": "mfm"
+    }
+  },
+  {
+    "code": "drukhari",
+    "detail_source_faction_id": "DRU",
+    "faction_id": "f-drukhari",
+    "mfm_slug": "drukhari",
+    "name": "Drukhari",
+    "provenance": {
+      "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+      "detail_edition_code": "wh40k-10e",
+      "detail_source": "wahapedia",
+      "is_hybrid_edition": true,
+      "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+      "points_edition_code": "wh40k-11e",
+      "points_source": "mfm"
+    }
+  },
+  {
+    "code": "emperors-children",
+    "detail_source_faction_id": "EC",
+    "faction_id": "f-emperors-children",
+    "mfm_slug": "emperors-children",
+    "name": "Emperors Children",
+    "provenance": {
+      "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+      "detail_edition_code": "wh40k-10e",
+      "detail_source": "wahapedia",
+      "is_hybrid_edition": true,
+      "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+      "points_edition_code": "wh40k-11e",
+      "points_source": "mfm"
+    }
+  },
+  {
+    "code": "genestealer-cults",
+    "detail_source_faction_id": "GC",
+    "faction_id": "f-genestealer-cults",
+    "mfm_slug": "genestealer-cults",
+    "name": "Genestealer Cults",
+    "provenance": {
+      "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+      "detail_edition_code": "wh40k-10e",
+      "detail_source": "wahapedia",
+      "is_hybrid_edition": true,
+      "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+      "points_edition_code": "wh40k-11e",
+      "points_source": "mfm"
+    }
+  },
+  {
+    "code": "grey-knights",
+    "detail_source_faction_id": "GK",
+    "faction_id": "f-grey-knights",
+    "mfm_slug": "grey-knights",
+    "name": "Grey Knights",
+    "provenance": {
+      "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+      "detail_edition_code": "wh40k-10e",
+      "detail_source": "wahapedia",
+      "is_hybrid_edition": true,
+      "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+      "points_edition_code": "wh40k-11e",
+      "points_source": "mfm"
+    }
+  },
+  {
+    "code": "imperial-agents",
+    "detail_source_faction_id": "AoI",
+    "faction_id": "f-imperial-agents",
+    "mfm_slug": "imperial-agents",
+    "name": "Imperial Agents",
+    "provenance": {
+      "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+      "detail_edition_code": "wh40k-10e",
+      "detail_source": "wahapedia",
+      "is_hybrid_edition": true,
+      "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+      "points_edition_code": "wh40k-11e",
+      "points_source": "mfm"
+    }
+  },
+  {
+    "code": "imperial-knights",
+    "detail_source_faction_id": "QI",
+    "faction_id": "f-imperial-knights",
+    "mfm_slug": "imperial-knights",
+    "name": "Imperial Knights",
+    "provenance": {
+      "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+      "detail_edition_code": "wh40k-10e",
+      "detail_source": "wahapedia",
+      "is_hybrid_edition": true,
+      "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+      "points_edition_code": "wh40k-11e",
+      "points_source": "mfm"
+    }
+  },
+  {
+    "code": "leagues-of-votann",
+    "detail_source_faction_id": "LoV",
+    "faction_id": "f-leagues-of-votann",
+    "mfm_slug": "leagues-of-votann",
+    "name": "Leagues Of Votann",
+    "provenance": {
+      "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+      "detail_edition_code": "wh40k-10e",
+      "detail_source": "wahapedia",
+      "is_hybrid_edition": true,
+      "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+      "points_edition_code": "wh40k-11e",
+      "points_source": "mfm"
+    }
+  },
+  {
+    "code": "necrons",
+    "detail_source_faction_id": "NEC",
+    "faction_id": "f-necrons",
+    "mfm_slug": "necrons",
+    "name": "Necrons",
+    "provenance": {
+      "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+      "detail_edition_code": "wh40k-10e",
+      "detail_source": "wahapedia",
+      "is_hybrid_edition": true,
+      "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+      "points_edition_code": "wh40k-11e",
+      "points_source": "mfm"
+    }
+  },
+  {
+    "code": "orks",
+    "detail_source_faction_id": "ORK",
+    "faction_id": "f-orks",
+    "mfm_slug": "orks",
+    "name": "Orks",
+    "provenance": {
+      "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+      "detail_edition_code": "wh40k-10e",
+      "detail_source": "wahapedia",
+      "is_hybrid_edition": true,
+      "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+      "points_edition_code": "wh40k-11e",
+      "points_source": "mfm"
+    }
+  },
+  {
+    "code": "space-marines",
+    "detail_source_faction_id": "SM",
+    "faction_id": "f-space-marines",
+    "mfm_slug": "space-marines",
+    "name": "Space Marines",
+    "provenance": {
+      "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+      "detail_edition_code": "wh40k-10e",
+      "detail_source": "wahapedia",
+      "is_hybrid_edition": true,
+      "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+      "points_edition_code": "wh40k-11e",
+      "points_source": "mfm"
+    }
+  },
+  {
+    "code": "space-wolves",
+    "detail_source_faction_id": "SM",
+    "faction_id": "f-space-wolves",
+    "mfm_slug": "space-wolves",
+    "name": "Space Wolves",
+    "parent_faction_id": "f-space-marines",
+    "provenance": {
+      "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+      "detail_edition_code": "wh40k-10e",
+      "detail_source": "wahapedia",
+      "is_hybrid_edition": true,
+      "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+      "points_edition_code": "wh40k-11e",
+      "points_source": "mfm"
+    }
+  },
+  {
+    "code": "tau-empire",
+    "detail_source_faction_id": "TAU",
+    "faction_id": "f-tau-empire",
+    "mfm_slug": "tau-empire",
+    "name": "Tau Empire",
+    "provenance": {
+      "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+      "detail_edition_code": "wh40k-10e",
+      "detail_source": "wahapedia",
+      "is_hybrid_edition": true,
+      "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+      "points_edition_code": "wh40k-11e",
+      "points_source": "mfm"
+    }
+  },
+  {
+    "code": "thousand-sons",
+    "detail_source_faction_id": "TS",
+    "faction_id": "f-thousand-sons",
+    "mfm_slug": "thousand-sons",
+    "name": "Thousand Sons",
+    "provenance": {
+      "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+      "detail_edition_code": "wh40k-10e",
+      "detail_source": "wahapedia",
+      "is_hybrid_edition": true,
+      "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+      "points_edition_code": "wh40k-11e",
+      "points_source": "mfm"
+    }
+  },
+  {
+    "code": "titan-legions",
+    "detail_source_faction_id": "TL",
+    "faction_id": "f-titan-legions",
+    "mfm_slug": "titan-legions",
+    "name": "Titan Legions",
+    "provenance": {
+      "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+      "detail_edition_code": "wh40k-10e",
+      "detail_source": "wahapedia",
+      "is_hybrid_edition": true,
+      "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+      "points_edition_code": "wh40k-11e",
+      "points_source": "mfm"
+    }
+  },
+  {
+    "code": "tyranids",
+    "detail_source_faction_id": "TYR",
+    "faction_id": "f-tyranids",
+    "mfm_slug": "tyranids",
+    "name": "Tyranids",
+    "provenance": {
+      "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+      "detail_edition_code": "wh40k-10e",
+      "detail_source": "wahapedia",
+      "is_hybrid_edition": true,
+      "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+      "points_edition_code": "wh40k-11e",
+      "points_source": "mfm"
+    }
+  },
+  {
+    "code": "world-eaters",
+    "detail_source_faction_id": "WE",
+    "faction_id": "f-world-eaters",
+    "mfm_slug": "world-eaters",
+    "name": "World Eaters",
+    "provenance": {
+      "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+      "detail_edition_code": "wh40k-10e",
+      "detail_source": "wahapedia",
+      "is_hybrid_edition": true,
+      "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+      "points_edition_code": "wh40k-11e",
+      "points_source": "mfm"
+    }
+  }
+]

@@ -1,0 +1,302 @@
+{
+  "ability_keys": [
+    "datasheet:alchemyk-counteragents",
+    "datasheet:grim-determination",
+    "datasheet:master-vox",
+    "datasheet:orders",
+    "datasheet:regimental-standard",
+    "datasheet:servo-scribes"
+  ],
+  "costs": [
+    {
+      "copy_index_min": 1,
+      "label": "6 models",
+      "model_count": 6,
+      "points": 60,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    }
+  ],
+  "datasheet_id": "ds-krieg-command-squad",
+  "faction_id": "f-astra-militarum",
+  "is_battleline": false,
+  "is_character": true,
+  "is_dedicated_transport": false,
+  "is_epic_hero": false,
+  "is_legends": false,
+  "keywords": [
+    {
+      "is_faction_keyword": true,
+      "keyword": "Astra Militarum"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Character",
+      "model_scope": "LORD COMMISSAR"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Command Squad",
+      "model_scope": "ALL MODELS"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Grenades",
+      "model_scope": "ALL MODELS"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Imperium",
+      "model_scope": "ALL MODELS"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Infantry",
+      "model_scope": "ALL MODELS"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Krieg",
+      "model_scope": "ALL MODELS"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Officer",
+      "model_scope": "LORD COMMISSAR"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Platoon",
+      "model_scope": "ALL MODELS"
+    }
+  ],
+  "leader_pairs": [
+    "ds-death-korps-of-krieg",
+    "ds-krieg-combat-engineers"
+  ],
+  "models": [
+    {
+      "base_size": "32mm",
+      "leadership": "6+",
+      "line": 1,
+      "movement": "6\"",
+      "name": "LORD COMMISSAR",
+      "objective_control": 1,
+      "save": "5+",
+      "toughness": 3,
+      "wounds": 3
+    },
+    {
+      "base_size": "25mm",
+      "leadership": "7+",
+      "line": 2,
+      "movement": "6\"",
+      "name": "VETERAN GUARDSMAN",
+      "objective_control": 1,
+      "save": "5+",
+      "toughness": 3,
+      "wounds": 1
+    }
+  ],
+  "name": "KRIEG COMMAND SQUAD",
+  "pricing_confidence": {
+    "consecutive_unverified_releases": 0,
+    "last_verified_points_digest": "sha256:771226af43ccd6d089bd43290d8895013c29b13f18d34a2dc982a6821379440a",
+    "last_verified_version": "mfm-2026-08",
+    "state": "verified"
+  },
+  "provenance": {
+    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+    "detail_edition_code": "wh40k-10e",
+    "detail_source": "wahapedia",
+    "is_hybrid_edition": true,
+    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "points_edition_code": "wh40k-11e",
+    "points_source": "mfm"
+  },
+  "role": "Characters",
+  "weapons": [
+    {
+      "armour_penetration": "0",
+      "attacks": "1",
+      "damage": "1",
+      "is_melee": false,
+      "line": 1,
+      "name": "Boltgun",
+      "range": "24",
+      "skill": "4",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "1",
+      "damage": "1",
+      "is_melee": false,
+      "line": 2,
+      "name": "Bolt pistol",
+      "range": "12",
+      "skill": "4",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "D6",
+      "damage": "1",
+      "is_melee": false,
+      "line": 3,
+      "name": "Flamer",
+      "range": "12",
+      "skill": "N/A",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "D3",
+      "damage": "1",
+      "is_melee": false,
+      "line": 4,
+      "name": "Grenade launcher – frag",
+      "range": "24",
+      "skill": "4",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "1",
+      "damage": "D3",
+      "is_melee": false,
+      "line": 5,
+      "name": "Grenade launcher – krak",
+      "range": "24",
+      "skill": "4",
+      "strength": "9"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "1",
+      "damage": "1",
+      "is_melee": false,
+      "line": 6,
+      "name": "Lasgun",
+      "range": "24",
+      "skill": "4",
+      "strength": "3"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "1",
+      "damage": "1",
+      "is_melee": false,
+      "line": 7,
+      "name": "Laspistol",
+      "range": "12",
+      "skill": "4",
+      "strength": "3"
+    },
+    {
+      "armour_penetration": "-4",
+      "attacks": "1",
+      "damage": "D6",
+      "is_melee": false,
+      "line": 8,
+      "name": "Meltagun",
+      "range": "12",
+      "skill": "4",
+      "strength": "9"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "1",
+      "damage": "1",
+      "is_melee": false,
+      "line": 9,
+      "name": "Plasma gun – standard",
+      "range": "24",
+      "skill": "4",
+      "strength": "7"
+    },
+    {
+      "armour_penetration": "-3",
+      "attacks": "1",
+      "damage": "2",
+      "is_melee": false,
+      "line": 10,
+      "name": "Plasma gun – supercharge",
+      "range": "24",
+      "skill": "4",
+      "strength": "8"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "1",
+      "damage": "1",
+      "is_melee": false,
+      "line": 11,
+      "name": "Plasma pistol – standard",
+      "range": "12",
+      "skill": "4",
+      "strength": "7"
+    },
+    {
+      "armour_penetration": "-3",
+      "attacks": "1",
+      "damage": "2",
+      "is_melee": false,
+      "line": 11,
+      "name": "Plasma pistol – supercharge",
+      "range": "12",
+      "skill": "4",
+      "strength": "8"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "4",
+      "damage": "1",
+      "is_melee": true,
+      "line": 12,
+      "name": "Chainsword",
+      "skill": "4",
+      "strength": "3"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "2",
+      "damage": "1",
+      "is_melee": true,
+      "line": 13,
+      "name": "Close combat weapon",
+      "skill": "4",
+      "strength": "3"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "3",
+      "damage": "2",
+      "is_melee": true,
+      "line": 14,
+      "name": "Power fist",
+      "skill": "4",
+      "strength": "6"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "3",
+      "damage": "1",
+      "is_melee": true,
+      "line": 15,
+      "name": "Power weapon",
+      "skill": "4",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "3",
+      "damage": "1",
+      "is_melee": true,
+      "line": 16,
+      "name": "Trench club",
+      "skill": "4",
+      "strength": "4"
+    }
+  ]
+}

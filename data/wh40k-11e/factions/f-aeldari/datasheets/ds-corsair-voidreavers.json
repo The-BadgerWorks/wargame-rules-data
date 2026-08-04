@@ -1,0 +1,190 @@
+{
+  "ability_keys": [
+    "datasheet:mistshield",
+    "datasheet:reavers-of-the-void"
+  ],
+  "costs": [
+    {
+      "copy_index_min": 1,
+      "label": "5 models",
+      "model_count": 5,
+      "points": 65,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    },
+    {
+      "copy_index_min": 1,
+      "label": "10 models",
+      "model_count": 10,
+      "points": 110,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    }
+  ],
+  "datasheet_id": "ds-corsair-voidreavers",
+  "faction_id": "f-aeldari",
+  "is_battleline": true,
+  "is_character": false,
+  "is_dedicated_transport": false,
+  "is_epic_hero": false,
+  "is_legends": false,
+  "keywords": [
+    {
+      "is_faction_keyword": false,
+      "keyword": "Aeldari"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Anhrathe"
+    },
+    {
+      "is_faction_keyword": true,
+      "keyword": "Asuryani"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Battleline"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Corsair Voidreavers"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Grenades"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Infantry"
+    }
+  ],
+  "models": [
+    {
+      "base_size": "28.5mm",
+      "leadership": "7+",
+      "line": 1,
+      "movement": "7\"",
+      "name": "Corsair Voidreavers",
+      "objective_control": 2,
+      "save": "4+",
+      "toughness": 3,
+      "wounds": 1
+    }
+  ],
+  "name": "CORSAIR VOIDREAVERS",
+  "pricing_confidence": {
+    "consecutive_unverified_releases": 0,
+    "last_verified_points_digest": "sha256:db078938d9e4858395ab94d52de20a593f6fa6f7b281b1d6f3fc5ac7f40e12d5",
+    "last_verified_version": "mfm-2026-08",
+    "state": "verified"
+  },
+  "provenance": {
+    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+    "detail_edition_code": "wh40k-10e",
+    "detail_source": "wahapedia",
+    "is_hybrid_edition": true,
+    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "points_edition_code": "wh40k-11e",
+    "points_source": "mfm"
+  },
+  "role": "Battleline",
+  "weapons": [
+    {
+      "armour_penetration": "-4",
+      "attacks": "1",
+      "damage": "D6+1",
+      "is_melee": false,
+      "line": 1,
+      "name": "Blaster",
+      "range": "18",
+      "skill": "3",
+      "strength": "8"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "1",
+      "damage": "1",
+      "is_melee": false,
+      "line": 2,
+      "name": "Neuro disruptor",
+      "range": "12",
+      "skill": "3",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "D6",
+      "damage": "1",
+      "is_melee": false,
+      "line": 3,
+      "name": "Shredder",
+      "range": "18",
+      "skill": "N/A",
+      "strength": "6"
+    },
+    {
+      "armour_penetration": "-1",
+      "attacks": "3",
+      "damage": "2",
+      "is_melee": false,
+      "line": 4,
+      "name": "Shuriken cannon",
+      "range": "24",
+      "skill": "3",
+      "strength": "6"
+    },
+    {
+      "armour_penetration": "-1",
+      "attacks": "1",
+      "damage": "1",
+      "is_melee": false,
+      "line": 5,
+      "name": "Shuriken pistol",
+      "range": "12",
+      "skill": "3",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "-1",
+      "attacks": "1",
+      "damage": "1",
+      "is_melee": false,
+      "line": 6,
+      "name": "Shuriken rifle",
+      "range": "24",
+      "skill": "3",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "-4",
+      "attacks": "1",
+      "damage": "D6+1",
+      "is_melee": false,
+      "line": 7,
+      "name": "Wraithcannon",
+      "range": "18",
+      "skill": "3",
+      "strength": "14"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "2",
+      "damage": "1",
+      "is_melee": true,
+      "line": 8,
+      "name": "Close combat weapon",
+      "skill": "3",
+      "strength": "3"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "2",
+      "damage": "1",
+      "is_melee": true,
+      "line": 9,
+      "name": "Power sword",
+      "skill": "3",
+      "strength": "4"
+    }
+  ]
+}

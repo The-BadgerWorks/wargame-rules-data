@@ -1,0 +1,157 @@
+{
+  "detachments": [
+    {
+      "detachment_id": "d-biosanctic-broodsurge",
+      "detachment_points_cost": 2,
+      "force_disposition": "TAKE AND HOLD",
+      "is_legends": false,
+      "is_unique": true,
+      "name": "BIOSANCTIC BROODSURGE",
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_edition_code": "wh40k-10e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": true,
+        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    },
+    {
+      "detachment_id": "d-brood-brothers-auxilia",
+      "detachment_points_cost": 2,
+      "force_disposition": "TAKE AND HOLD",
+      "is_legends": false,
+      "is_unique": false,
+      "name": "BROOD BROTHERS AUXILIA",
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_edition_code": "wh40k-10e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": true,
+        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    },
+    {
+      "detachment_id": "d-final-day",
+      "detachment_points_cost": 2,
+      "force_disposition": "PURGE THE FOE",
+      "is_legends": false,
+      "is_unique": false,
+      "name": "FINAL DAY",
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_edition_code": "wh40k-10e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": true,
+        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    },
+    {
+      "detachment_id": "d-heroes-of-the-uprising",
+      "detachment_points_cost": 1,
+      "force_disposition": "DISRUPTION",
+      "is_legends": false,
+      "is_unique": false,
+      "name": "HEROES OF THE UPRISING",
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_edition_code": "wh40k-10e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": true,
+        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    },
+    {
+      "detachment_id": "d-host-of-ascension",
+      "detachment_points_cost": 3,
+      "force_disposition": "TAKE AND HOLD",
+      "is_legends": false,
+      "is_unique": true,
+      "name": "HOST OF ASCENSION",
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_edition_code": "wh40k-10e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": true,
+        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    },
+    {
+      "detachment_id": "d-outlander-claw",
+      "detachment_points_cost": 2,
+      "force_disposition": "RECONNAISSANCE",
+      "is_legends": false,
+      "is_unique": false,
+      "name": "OUTLANDER CLAW",
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_edition_code": "wh40k-10e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": true,
+        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    },
+    {
+      "detachment_id": "d-purestrain-broodswarm",
+      "detachment_points_cost": 1,
+      "force_disposition": "PRIORITY ASSETS",
+      "is_legends": false,
+      "is_unique": true,
+      "name": "PURESTRAIN BROODSWARM",
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_edition_code": "wh40k-10e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": true,
+        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    },
+    {
+      "detachment_id": "d-xenocreed-congregation",
+      "detachment_points_cost": 2,
+      "force_disposition": "PRIORITY ASSETS",
+      "is_legends": false,
+      "is_unique": false,
+      "name": "XENOCREED CONGREGATION",
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_edition_code": "wh40k-10e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": true,
+        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    },
+    {
+      "detachment_id": "d-xenocult-masses",
+      "detachment_points_cost": 1,
+      "force_disposition": "RECONNAISSANCE",
+      "is_legends": false,
+      "is_unique": true,
+      "name": "XENOCULT MASSES",
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_edition_code": "wh40k-10e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": true,
+        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    }
+  ]
+}

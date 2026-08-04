@@ -1,0 +1,161 @@
+{
+  "ability_keys": [
+    "datasheet:decisive-destruction",
+    "datasheet:teleport-crest",
+    "datasheet:weavefield-crest"
+  ],
+  "costs": [
+    {
+      "copy_index_min": 1,
+      "label": "5 models",
+      "model_count": 5,
+      "points": 130,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    },
+    {
+      "copy_index_min": 1,
+      "label": "10 models",
+      "model_count": 10,
+      "points": 270,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    },
+    {
+      "copy_index_min": 3,
+      "label": "5 models",
+      "model_count": 5,
+      "points": 140,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    },
+    {
+      "copy_index_min": 3,
+      "label": "10 models",
+      "model_count": 10,
+      "points": 280,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    }
+  ],
+  "datasheet_id": "ds-einhyr-hearthguard",
+  "faction_id": "f-leagues-of-votann",
+  "is_battleline": false,
+  "is_character": false,
+  "is_dedicated_transport": false,
+  "is_epic_hero": false,
+  "is_legends": false,
+  "keywords": [
+    {
+      "is_faction_keyword": false,
+      "keyword": "Einhyr Hearthguard"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Exoarmour"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Infantry"
+    },
+    {
+      "is_faction_keyword": true,
+      "keyword": "Leagues of Votann"
+    }
+  ],
+  "models": [
+    {
+      "base_size": "32mm",
+      "leadership": "7+",
+      "line": 1,
+      "movement": "5\"",
+      "name": "Einhyr Hearthguard",
+      "objective_control": 1,
+      "save": "2+",
+      "toughness": 5,
+      "wounds": 2
+    }
+  ],
+  "name": "EINHYR HEARTHGUARD",
+  "pricing_confidence": {
+    "consecutive_unverified_releases": 0,
+    "last_verified_points_digest": "sha256:ad64f6c00d83de86ec9dde2836abb473a59bcc7bf838eba4b9b581f2f90ee819",
+    "last_verified_version": "mfm-2026-08",
+    "state": "verified"
+  },
+  "provenance": {
+    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+    "detail_edition_code": "wh40k-10e",
+    "detail_source": "wahapedia",
+    "is_hybrid_edition": true,
+    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "points_edition_code": "wh40k-11e",
+    "points_source": "mfm"
+  },
+  "role": "Other",
+  "weapons": [
+    {
+      "armour_penetration": "-3",
+      "attacks": "1",
+      "damage": "2",
+      "is_melee": false,
+      "line": 1,
+      "name": "EtaCarn plasma gun",
+      "range": "24",
+      "skill": "3",
+      "strength": "7"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "D3",
+      "damage": "1",
+      "is_melee": false,
+      "line": 2,
+      "name": "Exoarmour grenade launcher",
+      "range": "24",
+      "skill": "3",
+      "strength": "3"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "3",
+      "damage": "1",
+      "is_melee": false,
+      "line": 3,
+      "name": "Volkanite disintegrator",
+      "range": "24",
+      "skill": "3",
+      "strength": "5"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "2",
+      "damage": "2",
+      "is_melee": true,
+      "line": 4,
+      "name": "Concussion gauntlet",
+      "skill": "3",
+      "strength": "8"
+    },
+    {
+      "armour_penetration": "-1",
+      "attacks": "3",
+      "damage": "3",
+      "is_melee": true,
+      "line": 5,
+      "name": "Graviton hammer",
+      "skill": "4",
+      "strength": "9"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "3",
+      "damage": "1",
+      "is_melee": true,
+      "line": 6,
+      "name": "Plasma blade gauntlet",
+      "skill": "3",
+      "strength": "6"
+    }
+  ]
+}

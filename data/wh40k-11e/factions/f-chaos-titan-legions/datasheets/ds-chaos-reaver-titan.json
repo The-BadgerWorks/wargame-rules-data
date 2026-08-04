@@ -1,0 +1,34 @@
+{
+  "costs": [
+    {
+      "copy_index_min": 1,
+      "label": "1 model",
+      "model_count": 1,
+      "points": 200,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    }
+  ],
+  "datasheet_id": "ds-chaos-reaver-titan",
+  "faction_id": "f-chaos-titan-legions",
+  "is_battleline": false,
+  "is_character": false,
+  "is_dedicated_transport": false,
+  "is_epic_hero": false,
+  "is_legends": false,
+  "name": "CHAOS REAVER TITAN",
+  "pricing_confidence": {
+    "consecutive_unverified_releases": 0,
+    "last_verified_points_digest": "sha256:a5a0b34ea1e2447ebb32fe2d9207fb5dd933824c2a767c0eb33396a1c752a051",
+    "last_verified_version": "mfm-2026-08",
+    "state": "verified"
+  },
+  "provenance": {
+    "detail_edition_code": "wh40k-11e",
+    "detail_source": "none",
+    "is_hybrid_edition": false,
+    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "points_edition_code": "wh40k-11e",
+    "points_source": "mfm"
+  }
+}

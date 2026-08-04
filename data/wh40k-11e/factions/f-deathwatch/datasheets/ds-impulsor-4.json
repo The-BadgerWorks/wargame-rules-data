@@ -1,0 +1,177 @@
+{
+  "ability_keys": [
+    "datasheet:assault-vehicle",
+    "datasheet:orbital-comms-array-aura",
+    "datasheet:shield-dome"
+  ],
+  "costs": [
+    {
+      "copy_index_min": 1,
+      "label": "1 model",
+      "model_count": 1,
+      "points": 70,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    },
+    {
+      "copy_index_min": 4,
+      "label": "1 model",
+      "model_count": 1,
+      "points": 80,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    }
+  ],
+  "datasheet_id": "ds-impulsor-4",
+  "faction_id": "f-deathwatch",
+  "is_battleline": false,
+  "is_character": false,
+  "is_dedicated_transport": true,
+  "is_epic_hero": false,
+  "is_legends": false,
+  "keywords": [
+    {
+      "is_faction_keyword": true,
+      "keyword": "Adeptus Astartes"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Dedicated Transport"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Imperium"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Impulsor"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Transport"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Vehicle"
+    }
+  ],
+  "models": [
+    {
+      "base_size": "100mm",
+      "leadership": "6+",
+      "line": 1,
+      "movement": "12\"",
+      "name": "Impulsor",
+      "objective_control": 2,
+      "save": "3+",
+      "toughness": 9,
+      "wounds": 11
+    }
+  ],
+  "name": "IMPULSOR",
+  "pricing_confidence": {
+    "consecutive_unverified_releases": 0,
+    "last_verified_points_digest": "sha256:8a23184f3d332278333bc165c45d1255c5741131045f307e69e783618884c939",
+    "last_verified_version": "mfm-2026-08",
+    "state": "verified"
+  },
+  "provenance": {
+    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+    "detail_edition_code": "wh40k-10e",
+    "detail_source": "wahapedia",
+    "is_hybrid_edition": true,
+    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "points_edition_code": "wh40k-11e",
+    "points_source": "mfm"
+  },
+  "role": "Dedicated Transports",
+  "weapons": [
+    {
+      "armour_penetration": "0",
+      "attacks": "D6",
+      "damage": "1",
+      "is_melee": false,
+      "line": 1,
+      "name": "Bellicatus missile array – frag",
+      "range": "48",
+      "skill": "3",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "-1",
+      "attacks": "D3",
+      "damage": "2",
+      "is_melee": false,
+      "line": 2,
+      "name": "Bellicatus missile array – Icarus",
+      "range": "48",
+      "skill": "3",
+      "strength": "8"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "1",
+      "damage": "D6",
+      "is_melee": false,
+      "line": 3,
+      "name": "Bellicatus missile array – krak",
+      "range": "48",
+      "skill": "3",
+      "strength": "8"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "D6",
+      "damage": "1",
+      "is_melee": false,
+      "line": 4,
+      "name": "Fragstorm grenade launcher",
+      "range": "18",
+      "skill": "3",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "3",
+      "damage": "1",
+      "is_melee": false,
+      "line": 5,
+      "name": "Ironhail heavy stubber",
+      "range": "36",
+      "skill": "3",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "8",
+      "damage": "1",
+      "is_melee": false,
+      "line": 6,
+      "name": "Ironhail skytalon array",
+      "range": "36",
+      "skill": "3",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "2",
+      "damage": "1",
+      "is_melee": false,
+      "line": 7,
+      "name": "Storm bolter",
+      "range": "24",
+      "skill": "3",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "3",
+      "damage": "1",
+      "is_melee": true,
+      "line": 8,
+      "name": "Armoured hull",
+      "skill": "4",
+      "strength": "6"
+    }
+  ]
+}

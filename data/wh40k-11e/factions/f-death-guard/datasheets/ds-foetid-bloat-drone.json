@@ -1,0 +1,124 @@
+{
+  "ability_keys": [
+    "datasheet:hovering-death"
+  ],
+  "costs": [
+    {
+      "copy_index_min": 1,
+      "label": "1 model",
+      "model_count": 1,
+      "points": 100,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    },
+    {
+      "copy_index_min": 3,
+      "label": "1 model",
+      "model_count": 1,
+      "points": 110,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    }
+  ],
+  "datasheet_id": "ds-foetid-bloat-drone",
+  "faction_id": "f-death-guard",
+  "is_battleline": false,
+  "is_character": false,
+  "is_dedicated_transport": false,
+  "is_epic_hero": false,
+  "is_legends": false,
+  "keywords": [
+    {
+      "is_faction_keyword": false,
+      "keyword": "Chaos"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Daemon"
+    },
+    {
+      "is_faction_keyword": true,
+      "keyword": "Death Guard"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Fly"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Foetid Bloat-drone"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Nurgle"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Vehicle"
+    }
+  ],
+  "models": [
+    {
+      "base_size": "60mm",
+      "invuln_save": "5",
+      "leadership": "6+",
+      "line": 1,
+      "movement": "10\"",
+      "name": "Foetid Bloat-drone",
+      "objective_control": 3,
+      "save": "3+",
+      "toughness": 9,
+      "wounds": 10
+    }
+  ],
+  "name": "FOETID BLOAT-DRONE",
+  "pricing_confidence": {
+    "consecutive_unverified_releases": 0,
+    "last_verified_points_digest": "sha256:7f873cfae7dccc5fa3c099c1ca2bba0213ca8a4b573773ebe9920764f23db95c",
+    "last_verified_version": "mfm-2026-08",
+    "state": "verified"
+  },
+  "provenance": {
+    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+    "detail_edition_code": "wh40k-10e",
+    "detail_source": "wahapedia",
+    "is_hybrid_edition": true,
+    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "points_edition_code": "wh40k-11e",
+    "points_source": "mfm"
+  },
+  "role": "Other",
+  "weapons": [
+    {
+      "armour_penetration": "-1",
+      "attacks": "D6",
+      "damage": "1",
+      "is_melee": false,
+      "line": 1,
+      "name": "Plaguespitter",
+      "range": "12",
+      "skill": "N/A",
+      "strength": "6"
+    },
+    {
+      "armour_penetration": "-1",
+      "attacks": "10",
+      "damage": "2",
+      "is_melee": true,
+      "line": 2,
+      "name": "Fleshmower",
+      "skill": "3",
+      "strength": "7"
+    },
+    {
+      "armour_penetration": "-1",
+      "attacks": "3",
+      "damage": "1",
+      "is_melee": true,
+      "line": 3,
+      "name": "Plague probe",
+      "skill": "3",
+      "strength": "6"
+    }
+  ]
+}

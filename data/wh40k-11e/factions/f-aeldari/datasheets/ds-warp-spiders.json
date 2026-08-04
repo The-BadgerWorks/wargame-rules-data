@@ -1,0 +1,196 @@
+{
+  "ability_keys": [
+    "datasheet:aspect-shrine-token",
+    "datasheet:flickerjump"
+  ],
+  "costs": [
+    {
+      "copy_index_min": 1,
+      "label": "5 models",
+      "model_count": 5,
+      "points": 105,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    },
+    {
+      "copy_index_min": 1,
+      "label": "10 models",
+      "model_count": 10,
+      "points": 200,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    },
+    {
+      "copy_index_min": 3,
+      "label": "5 models",
+      "model_count": 5,
+      "points": 125,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    },
+    {
+      "copy_index_min": 3,
+      "label": "10 models",
+      "model_count": 10,
+      "points": 220,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    }
+  ],
+  "datasheet_id": "ds-warp-spiders",
+  "faction_id": "f-aeldari",
+  "is_battleline": false,
+  "is_character": false,
+  "is_dedicated_transport": false,
+  "is_epic_hero": false,
+  "is_legends": false,
+  "keywords": [
+    {
+      "is_faction_keyword": false,
+      "keyword": "Aeldari"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Aspect Warriors"
+    },
+    {
+      "is_faction_keyword": true,
+      "keyword": "Asuryani"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Fly"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Infantry"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Jump Pack"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Warp Spiders"
+    }
+  ],
+  "models": [
+    {
+      "base_size": "28.5mm",
+      "invuln_save": "5",
+      "leadership": "6+",
+      "line": 1,
+      "movement": "12\"",
+      "name": "WARP SPIDER",
+      "objective_control": 1,
+      "save": "3+",
+      "toughness": 3,
+      "wounds": 1
+    },
+    {
+      "base_size": "28.5mm",
+      "invuln_save": "5",
+      "leadership": "6+",
+      "line": 2,
+      "movement": "12\"",
+      "name": "WARP SPIDER EXARCH",
+      "objective_control": 1,
+      "save": "3+",
+      "toughness": 3,
+      "wounds": 2
+    }
+  ],
+  "name": "WARP SPIDERS",
+  "pricing_confidence": {
+    "consecutive_unverified_releases": 0,
+    "last_verified_points_digest": "sha256:27f74d2dc237885bef76c4fd35097368e82aade2e47006dc18c0af26b396b572",
+    "last_verified_version": "mfm-2026-08",
+    "state": "verified"
+  },
+  "provenance": {
+    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+    "detail_edition_code": "wh40k-10e",
+    "detail_source": "wahapedia",
+    "is_hybrid_edition": true,
+    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "points_edition_code": "wh40k-11e",
+    "points_source": "mfm"
+  },
+  "role": "Other",
+  "weapons": [
+    {
+      "armour_penetration": "-1",
+      "attacks": "D6",
+      "damage": "1",
+      "is_melee": false,
+      "line": 1,
+      "name": "Death spinner",
+      "range": "12",
+      "skill": "N/A",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "-1",
+      "attacks": "D6",
+      "damage": "1",
+      "is_melee": false,
+      "line": 2,
+      "name": "Death weavers",
+      "range": "6",
+      "skill": "N/A",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "D6",
+      "damage": "1",
+      "is_melee": false,
+      "line": 3,
+      "name": "Exarch’s death spinner",
+      "range": "12",
+      "skill": "N/A",
+      "strength": "6"
+    },
+    {
+      "armour_penetration": "-1",
+      "attacks": "D6",
+      "damage": "1",
+      "is_melee": false,
+      "line": 4,
+      "name": "Spinneret rifle",
+      "range": "18",
+      "skill": "N/A",
+      "strength": "5"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "2",
+      "damage": "1",
+      "is_melee": true,
+      "line": 5,
+      "name": "Close combat weapon",
+      "skill": "3",
+      "strength": "3"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "10",
+      "damage": "1",
+      "is_melee": true,
+      "line": 6,
+      "name": "Powerblade array",
+      "skill": "3",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "5",
+      "damage": "1",
+      "is_melee": true,
+      "line": 7,
+      "name": "Powerblades",
+      "skill": "3",
+      "strength": "4"
+    }
+  ]
+}

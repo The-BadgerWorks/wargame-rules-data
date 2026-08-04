@@ -1,0 +1,243 @@
+{
+  "ability_keys": [
+    "datasheet:breaching-team",
+    "datasheet:cat-unit",
+    "datasheet:endurant-shield",
+    "datasheet:gheistskull",
+    "datasheet:one-shot"
+  ],
+  "costs": [
+    {
+      "copy_index_min": 1,
+      "label": "10 models",
+      "model_count": 10,
+      "points": 90,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    },
+    {
+      "copy_index_min": 1,
+      "label": "10 models",
+      "model_count": 10,
+      "points": 90,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    }
+  ],
+  "datasheet_id": "ds-imperial-navy-breachers",
+  "faction_id": "f-imperial-agents",
+  "is_battleline": true,
+  "is_character": false,
+  "is_dedicated_transport": false,
+  "is_epic_hero": false,
+  "is_legends": false,
+  "keywords": [
+    {
+      "is_faction_keyword": true,
+      "keyword": "Agents of the Imperium"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Battleline"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Grenades"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Imperial Navy Breachers"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Imperium"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Infantry"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Retinue"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Smoke"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Voidfarers"
+    }
+  ],
+  "models": [
+    {
+      "base_size": "25mm",
+      "leadership": "7+",
+      "line": 1,
+      "movement": "6\"",
+      "name": "Imperial Navy Breachers",
+      "objective_control": 2,
+      "save": "4+",
+      "toughness": 3,
+      "wounds": 1
+    }
+  ],
+  "name": "IMPERIAL NAVY BREACHERS",
+  "pricing_confidence": {
+    "consecutive_unverified_releases": 0,
+    "last_verified_points_digest": "sha256:d43dfc3c8eecc7a316b3cfd662908c9403ccd3c39ad10e9ea2448123481e4fb6",
+    "last_verified_version": "mfm-2026-08",
+    "state": "verified"
+  },
+  "provenance": {
+    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+    "detail_edition_code": "wh40k-10e",
+    "detail_source": "wahapedia",
+    "is_hybrid_edition": true,
+    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "points_edition_code": "wh40k-11e",
+    "points_source": "mfm"
+  },
+  "role": "Battleline",
+  "weapons": [
+    {
+      "armour_penetration": "0",
+      "attacks": "1",
+      "damage": "1",
+      "is_melee": false,
+      "line": 1,
+      "name": "Autopistol",
+      "range": "12",
+      "skill": "4",
+      "strength": "3"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "1",
+      "damage": "1",
+      "is_melee": false,
+      "line": 2,
+      "name": "Bolt pistol",
+      "range": "12",
+      "skill": "4",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "D6",
+      "damage": "2",
+      "is_melee": false,
+      "line": 3,
+      "name": "Demolition charge",
+      "range": "6",
+      "skill": "5",
+      "strength": "9"
+    },
+    {
+      "armour_penetration": "-4",
+      "attacks": "1",
+      "damage": "D6",
+      "is_melee": false,
+      "line": 4,
+      "name": "Meltagun",
+      "range": "12",
+      "skill": "4",
+      "strength": "9"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "4",
+      "damage": "1",
+      "is_melee": false,
+      "line": 5,
+      "name": "Navis heavy shotgun",
+      "range": "12",
+      "skill": "4",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "4",
+      "damage": "1",
+      "is_melee": false,
+      "line": 6,
+      "name": "Navis las-volley",
+      "range": "18",
+      "skill": "4",
+      "strength": "6"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "2",
+      "damage": "1",
+      "is_melee": false,
+      "line": 7,
+      "name": "Navis shotgun",
+      "range": "12",
+      "skill": "4",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "-1",
+      "attacks": "1",
+      "damage": "1",
+      "is_melee": false,
+      "line": 8,
+      "name": "Plasma gun – standard",
+      "range": "24",
+      "skill": "4",
+      "strength": "7"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "1",
+      "damage": "2",
+      "is_melee": false,
+      "line": 9,
+      "name": "Plasma gun – supercharge",
+      "range": "24",
+      "skill": "4",
+      "strength": "8"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "1",
+      "damage": "2",
+      "is_melee": true,
+      "line": 10,
+      "name": "Chainfist",
+      "skill": "5",
+      "strength": "6"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "3",
+      "damage": "1",
+      "is_melee": true,
+      "line": 11,
+      "name": "Chainsword",
+      "skill": "4",
+      "strength": "3"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "1",
+      "damage": "1",
+      "is_melee": true,
+      "line": 12,
+      "name": "Close combat weapon",
+      "skill": "4",
+      "strength": "3"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "2",
+      "damage": "1",
+      "is_melee": true,
+      "line": 13,
+      "name": "Power weapon",
+      "skill": "4",
+      "strength": "4"
+    }
+  ]
+}

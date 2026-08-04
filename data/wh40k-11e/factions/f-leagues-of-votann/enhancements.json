@@ -1,0 +1,548 @@
+{
+  "enhancements": [
+    {
+      "detachment_id": "d-needgaard-oathband",
+      "enhancement_id": "e-ancestral-crest",
+      "max_per_army": 1,
+      "name": "Ancestral Crest",
+      "points": 15,
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_edition_code": "wh40k-10e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": true,
+        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    },
+    {
+      "detachment_id": "d-mercenary-oathband",
+      "enhancement_id": "e-asset-manipulator",
+      "max_per_army": 1,
+      "name": "Asset Manipulator",
+      "points": 25,
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_edition_code": "wh40k-10e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": true,
+        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    },
+    {
+      "detachment_id": "d-hearthband",
+      "enhancement_id": "e-bastion-shield",
+      "max_per_army": 1,
+      "name": "Bastion Shield",
+      "points": 25,
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_edition_code": "wh40k-10e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": true,
+        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    },
+    {
+      "detachment_id": "d-hearthfyre-arsenal",
+      "enhancement_id": "e-calculated-tenacity",
+      "max_per_army": 1,
+      "name": "Calculated Tenacity",
+      "points": 15,
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_edition_code": "wh40k-10e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": true,
+        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    },
+    {
+      "detachment_id": "d-needgaard-oathband",
+      "enhancement_id": "e-dead-reckoning",
+      "max_per_army": 1,
+      "name": "Dead Reckoning",
+      "points": 10,
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_edition_code": "wh40k-10e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": true,
+        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    },
+    {
+      "detachment_id": "d-delve-assault-shift",
+      "enhancement_id": "e-delvewerke-navigator",
+      "max_per_army": 1,
+      "name": "Dêlvewerke Navigator",
+      "points": 25,
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_edition_code": "wh40k-10e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": true,
+        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    },
+    {
+      "detachment_id": "d-mercenary-oathband",
+      "enhancement_id": "e-etacarn-sb9-targeting-implant",
+      "max_per_army": 1,
+      "name": "Etacarn SB9 Targeting Implant",
+      "points": 15,
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_edition_code": "wh40k-10e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": true,
+        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    },
+    {
+      "detachment_id": "d-persecution-prospect",
+      "enhancement_id": "e-eye-for-weakness",
+      "max_per_army": 1,
+      "name": "Eye for Weakness",
+      "points": 25,
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_edition_code": "wh40k-10e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": true,
+        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    },
+    {
+      "detachment_id": "d-hearthfyre-arsenal",
+      "enhancement_id": "e-farstrydr-node",
+      "max_per_army": 1,
+      "name": "Fârstrydr Node",
+      "points": 20,
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_edition_code": "wh40k-10e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": true,
+        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    },
+    {
+      "detachment_id": "d-hearthfyre-arsenal",
+      "enhancement_id": "e-graviton-vault",
+      "max_per_army": 1,
+      "name": "Graviton Vault",
+      "points": 5,
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_edition_code": "wh40k-10e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": true,
+        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    },
+    {
+      "detachment_id": "d-hearthband",
+      "enhancement_id": "e-high-kahl",
+      "max_per_army": 1,
+      "name": "High Kâhl",
+      "points": 30,
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_edition_code": "wh40k-10e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": true,
+        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    },
+    {
+      "detachment_id": "d-hearthguard-covenant",
+      "enhancement_id": "e-high-kahl-2",
+      "max_per_army": 1,
+      "name": "High Kâhl",
+      "points": 30,
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_edition_code": "wh40k-10e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": true,
+        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    },
+    {
+      "detachment_id": "d-needgaard-oathband",
+      "enhancement_id": "e-iron-ambassador",
+      "max_per_army": 1,
+      "name": "Iron Ambassador",
+      "points": 5,
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_edition_code": "wh40k-10e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": true,
+        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    },
+    {
+      "detachment_id": "d-hearthband",
+      "enhancement_id": "e-ironskein",
+      "max_per_army": 1,
+      "name": "Ironskein",
+      "points": 10,
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_edition_code": "wh40k-10e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": true,
+        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    },
+    {
+      "detachment_id": "d-hearthguard-covenant",
+      "enhancement_id": "e-ironskein-2",
+      "max_per_army": 1,
+      "name": "Ironskein",
+      "points": 10,
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_edition_code": "wh40k-10e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": true,
+        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    },
+    {
+      "detachment_id": "d-hearthfyre-arsenal",
+      "enhancement_id": "e-mantle-of-elders",
+      "max_per_army": 1,
+      "name": "Mantle of Elders",
+      "points": 10,
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_edition_code": "wh40k-10e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": true,
+        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    },
+    {
+      "detachment_id": "d-mercenary-oathband",
+      "enhancement_id": "e-mercenary-prospector",
+      "max_per_army": 1,
+      "name": "Mercenary Prospector",
+      "points": 20,
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_edition_code": "wh40k-10e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": true,
+        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    },
+    {
+      "detachment_id": "d-mercenary-oathband",
+      "enhancement_id": "e-metaphysical-brokerage",
+      "max_per_army": 1,
+      "name": "Metaphysical Brokerage",
+      "points": 20,
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_edition_code": "wh40k-10e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": true,
+        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    },
+    {
+      "detachment_id": "d-delve-assault-shift",
+      "enhancement_id": "e-multiwave-system-jammer",
+      "max_per_army": 1,
+      "name": "Multiwave System Jammer",
+      "points": 10,
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_edition_code": "wh40k-10e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": true,
+        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    },
+    {
+      "detachment_id": "d-persecution-prospect",
+      "enhancement_id": "e-nomad-strategist",
+      "max_per_army": 1,
+      "name": "Nomad Strategist",
+      "points": 20,
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_edition_code": "wh40k-10e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": true,
+        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    },
+    {
+      "detachment_id": "d-needgaard-oathband",
+      "enhancement_id": "e-oathbound-speculator",
+      "max_per_army": 1,
+      "name": "Oathbound Speculator",
+      "points": 30,
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_edition_code": "wh40k-10e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": true,
+        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    },
+    {
+      "detachment_id": "d-armoured-trailblazers",
+      "enhancement_id": "e-optimised-attack-lines-upgrade",
+      "max_per_army": 1,
+      "name": "Optimised Attack Lines (Upgrade)",
+      "points": 15,
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_edition_code": "wh40k-10e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": true,
+        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    },
+    {
+      "detachment_id": "d-farseekers",
+      "enhancement_id": "e-pan-spectral-lockons-upgrade",
+      "max_per_army": 1,
+      "name": "Pan-spectral Lockons (Upgrade)",
+      "points": 10,
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_edition_code": "wh40k-10e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": true,
+        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    },
+    {
+      "detachment_id": "d-delve-assault-shift",
+      "enhancement_id": "e-piledriver",
+      "max_per_army": 1,
+      "name": "Piledriver",
+      "points": 15,
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_edition_code": "wh40k-10e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": true,
+        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    },
+    {
+      "detachment_id": "d-brandfast-oathband",
+      "enhancement_id": "e-precursive-judgement",
+      "max_per_army": 1,
+      "name": "Precursive Judgement",
+      "points": 15,
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_edition_code": "wh40k-10e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": true,
+        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    },
+    {
+      "detachment_id": "d-hearthband",
+      "enhancement_id": "e-quake-multigenerator",
+      "max_per_army": 1,
+      "name": "Quake Multigenerator",
+      "points": 15,
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_edition_code": "wh40k-10e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": true,
+        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    },
+    {
+      "detachment_id": "d-delve-assault-shift",
+      "enhancement_id": "e-quake-supervisor",
+      "max_per_army": 1,
+      "name": "Quake Supervisor",
+      "points": 20,
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_edition_code": "wh40k-10e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": true,
+        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    },
+    {
+      "detachment_id": "d-armoured-trailblazers",
+      "enhancement_id": "e-saturation-rounds-upgrade",
+      "max_per_army": 1,
+      "name": "Saturation Rounds (Upgrade)",
+      "points": 15,
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_edition_code": "wh40k-10e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": true,
+        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    },
+    {
+      "detachment_id": "d-farseekers",
+      "enhancement_id": "e-shroudwerke-talismans-upgrade",
+      "max_per_army": 1,
+      "name": "Shroudwërke Talismans (Upgrade)",
+      "points": 15,
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_edition_code": "wh40k-10e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": true,
+        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    },
+    {
+      "detachment_id": "d-brandfast-oathband",
+      "enhancement_id": "e-signature-restoration",
+      "max_per_army": 1,
+      "name": "Signature Restoration",
+      "points": 5,
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_edition_code": "wh40k-10e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": true,
+        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    },
+    {
+      "detachment_id": "d-persecution-prospect",
+      "enhancement_id": "e-surgical-saboteur",
+      "max_per_army": 1,
+      "name": "Surgical Saboteur",
+      "points": 10,
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_edition_code": "wh40k-10e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": true,
+        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    },
+    {
+      "detachment_id": "d-brandfast-oathband",
+      "enhancement_id": "e-tactical-alchemy",
+      "max_per_army": 1,
+      "name": "Tactical Alchemy",
+      "points": 10,
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_edition_code": "wh40k-10e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": true,
+        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    },
+    {
+      "detachment_id": "d-brandfast-oathband",
+      "enhancement_id": "e-trivarg-cyber-implant",
+      "max_per_army": 1,
+      "name": "Trivärg Cyber Implant",
+      "points": 40,
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_edition_code": "wh40k-10e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": true,
+        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    },
+    {
+      "detachment_id": "d-persecution-prospect",
+      "enhancement_id": "e-writ-of-acquisition",
+      "max_per_army": 1,
+      "name": "Writ of Acquisition",
+      "points": 10,
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_edition_code": "wh40k-10e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": true,
+        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    }
+  ]
+}

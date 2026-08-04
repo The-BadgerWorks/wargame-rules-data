@@ -1,0 +1,170 @@
+{
+  "ability_keys": [
+    "datasheet:death-befitting-an-officer",
+    "datasheet:one-shot",
+    "datasheet:orders",
+    "datasheet:vox-net"
+  ],
+  "costs": [
+    {
+      "copy_index_min": 1,
+      "label": "1 model",
+      "model_count": 1,
+      "points": 235,
+      "pricing_confidence": "unverified",
+      "source_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1"
+    }
+  ],
+  "datasheet_id": "ds-leman-russ-commander-2",
+  "faction_id": "f-genestealer-cults",
+  "is_battleline": false,
+  "is_character": true,
+  "is_dedicated_transport": false,
+  "is_epic_hero": false,
+  "is_legends": false,
+  "keywords": [
+    {
+      "is_faction_keyword": true,
+      "keyword": "Astra Militarum"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Character"
+    },
+    {
+      "is_faction_keyword": true,
+      "keyword": "Genestealer Cults"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Imperium"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Leman Russ Commander"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Officer"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Smoke"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Squadron"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Vehicle"
+    }
+  ],
+  "models": [
+    {
+      "base_size": "Use model",
+      "leadership": "7+",
+      "line": 1,
+      "movement": "10\"",
+      "name": "Leman Russ Commander",
+      "objective_control": 3,
+      "save": "2+",
+      "toughness": 11,
+      "wounds": 13
+    }
+  ],
+  "name": "Leman Russ Commander",
+  "pricing_confidence": {
+    "consecutive_unverified_releases": 1,
+    "state": "unverified",
+    "unverified_since_version": "mfm-2026-08"
+  },
+  "provenance": {
+    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+    "detail_edition_code": "wh40k-10e",
+    "detail_source": "wahapedia",
+    "is_hybrid_edition": true,
+    "points_edition_code": "wh40k-11e",
+    "points_source": "none"
+  },
+  "role": "Characters",
+  "weapons": [
+    {
+      "armour_penetration": "-3",
+      "attacks": "D6+1",
+      "damage": "D6",
+      "is_melee": false,
+      "line": 1,
+      "name": "Demolisher battle cannon",
+      "range": "24",
+      "skill": "4",
+      "strength": "14"
+    },
+    {
+      "armour_penetration": "-1",
+      "attacks": "D3+6",
+      "damage": "2",
+      "is_melee": false,
+      "line": 2,
+      "name": "Eradicator nova cannon",
+      "range": "36",
+      "skill": "4",
+      "strength": "7"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "D6+3",
+      "damage": "2",
+      "is_melee": false,
+      "line": 3,
+      "name": "Executioner plasma cannon – standard",
+      "range": "36",
+      "skill": "4",
+      "strength": "7"
+    },
+    {
+      "armour_penetration": "-3",
+      "attacks": "D6+3",
+      "damage": "3",
+      "is_melee": false,
+      "line": 3,
+      "name": "Executioner plasma cannon – supercharge",
+      "range": "36",
+      "skill": "4",
+      "strength": "8"
+    },
+    {
+      "armour_penetration": "-1",
+      "attacks": "4",
+      "damage": "3",
+      "is_melee": false,
+      "line": 4,
+      "name": "Exterminator autocannon",
+      "range": "48",
+      "skill": "4",
+      "strength": "9"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "20",
+      "damage": "1",
+      "is_melee": false,
+      "line": 5,
+      "name": "Punisher gatling cannon",
+      "range": "24",
+      "skill": "4",
+      "strength": "6"
+    },
+    {
+      "armour_penetration": "-4",
+      "attacks": "1",
+      "damage": "D6+6",
+      "is_melee": false,
+      "line": 15,
+      "name": "Vanquisher battle cannon",
+      "range": "72",
+      "skill": "4",
+      "strength": "18"
+    }
+  ]
+}

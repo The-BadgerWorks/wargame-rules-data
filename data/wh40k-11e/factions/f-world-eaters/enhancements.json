@@ -1,0 +1,420 @@
+{
+  "enhancements": [
+    {
+      "detachment_id": "d-goretrack-onslaught",
+      "enhancement_id": "e-aggressive-deployment",
+      "max_per_army": 1,
+      "name": "Aggressive Deployment",
+      "points": 20,
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_edition_code": "wh40k-10e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": true,
+        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    },
+    {
+      "detachment_id": "d-vessels-of-wrath",
+      "enhancement_id": "e-archslaughterer",
+      "max_per_army": 1,
+      "name": "Archslaughterer",
+      "points": 30,
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_edition_code": "wh40k-10e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": true,
+        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    },
+    {
+      "detachment_id": "d-berzerker-warband",
+      "enhancement_id": "e-battle-lust",
+      "max_per_army": 1,
+      "name": "Battle-lust",
+      "points": 20,
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_edition_code": "wh40k-10e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": true,
+        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    },
+    {
+      "detachment_id": "d-berzerker-warband",
+      "enhancement_id": "e-berzerker-glaive",
+      "max_per_army": 1,
+      "name": "Berzerker Glaive",
+      "points": 35,
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_edition_code": "wh40k-10e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": true,
+        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    },
+    {
+      "detachment_id": "d-khorne-daemonkin",
+      "enhancement_id": "e-blade-of-endless-bloodshed",
+      "max_per_army": 1,
+      "name": "Blade of Endless Bloodshed",
+      "points": 30,
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_edition_code": "wh40k-10e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": true,
+        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    },
+    {
+      "detachment_id": "d-khorne-daemonkin",
+      "enhancement_id": "e-blood-forged-armour",
+      "max_per_army": 1,
+      "name": "Blood-Forged Armour",
+      "points": 20,
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_edition_code": "wh40k-10e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": true,
+        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    },
+    {
+      "detachment_id": "d-cult-of-blood",
+      "enhancement_id": "e-brazen-form",
+      "max_per_army": 1,
+      "name": "Brazen Form",
+      "points": 25,
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_edition_code": "wh40k-10e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": true,
+        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    },
+    {
+      "detachment_id": "d-cult-of-blood",
+      "enhancement_id": "e-butcher-lord",
+      "max_per_army": 1,
+      "name": "Butcher Lord",
+      "points": 10,
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_edition_code": "wh40k-10e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": true,
+        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    },
+    {
+      "detachment_id": "d-cult-of-blood",
+      "enhancement_id": "e-chosen-of-the-blood-god",
+      "max_per_army": 1,
+      "name": "Chosen of the Blood God",
+      "points": 15,
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_edition_code": "wh40k-10e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": true,
+        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    },
+    {
+      "detachment_id": "d-khorne-daemonkin",
+      "enhancement_id": "e-disciple-of-khorne",
+      "max_per_army": 1,
+      "name": "Disciple of Khorne",
+      "points": 15,
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_edition_code": "wh40k-10e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": true,
+        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    },
+    {
+      "detachment_id": "d-berzerker-warband",
+      "enhancement_id": "e-favoured-of-khorne",
+      "max_per_army": 1,
+      "name": "Favoured of Khorne",
+      "points": 20,
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_edition_code": "wh40k-10e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": true,
+        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    },
+    {
+      "detachment_id": "d-possessed-slaughterband",
+      "enhancement_id": "e-frenzied-focus",
+      "max_per_army": 1,
+      "name": "Frenzied Focus",
+      "points": 20,
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_edition_code": "wh40k-10e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": true,
+        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    },
+    {
+      "detachment_id": "d-vessels-of-wrath",
+      "enhancement_id": "e-gateways-to-glory",
+      "max_per_army": 1,
+      "name": "Gateways to Glory",
+      "points": 10,
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_edition_code": "wh40k-10e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": true,
+        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    },
+    {
+      "detachment_id": "d-butchers-of-khorne",
+      "enhancement_id": "e-gore-stained-veterans-upgrade",
+      "max_per_army": 1,
+      "name": "Gore-stained Veterans (Upgrade)",
+      "points": 20,
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_edition_code": "wh40k-10e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": true,
+        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    },
+    {
+      "detachment_id": "d-berzerker-warband",
+      "enhancement_id": "e-helm-of-brazen-ire",
+      "max_per_army": 1,
+      "name": "Helm of Brazen Ire",
+      "points": 30,
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_edition_code": "wh40k-10e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": true,
+        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    },
+    {
+      "detachment_id": "d-khorne-daemonkin",
+      "enhancement_id": "e-icon-of-war",
+      "max_per_army": 1,
+      "name": "Icon of War",
+      "points": 25,
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_edition_code": "wh40k-10e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": true,
+        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    },
+    {
+      "detachment_id": "d-goretrack-onslaught",
+      "enhancement_id": "e-infernal-infusion",
+      "max_per_army": 1,
+      "name": "Infernal Infusion",
+      "points": 25,
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_edition_code": "wh40k-10e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": true,
+        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    },
+    {
+      "detachment_id": "d-possessed-slaughterband",
+      "enhancement_id": "e-killing-clarity",
+      "max_per_army": 1,
+      "name": "Killing Clarity",
+      "points": 15,
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_edition_code": "wh40k-10e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": true,
+        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    },
+    {
+      "detachment_id": "d-possessed-slaughterband",
+      "enhancement_id": "e-malicious-vigour",
+      "max_per_army": 1,
+      "name": "Malicious Vigour",
+      "points": 30,
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_edition_code": "wh40k-10e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": true,
+        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    },
+    {
+      "detachment_id": "d-brazen-engines",
+      "enhancement_id": "e-murder-forged-entity-upgrade",
+      "max_per_army": 1,
+      "name": "Murder-forged Entity (Upgrade)",
+      "points": 15,
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_edition_code": "wh40k-10e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": true,
+        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    },
+    {
+      "detachment_id": "d-goretrack-onslaught",
+      "enhancement_id": "e-murderous-onslaught",
+      "max_per_army": 1,
+      "name": "Murderous Onslaught",
+      "points": 5,
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_edition_code": "wh40k-10e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": true,
+        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    },
+    {
+      "detachment_id": "d-butchers-of-khorne",
+      "enhancement_id": "e-sanctified-in-slaughter-upgrade",
+      "max_per_army": 1,
+      "name": "Sanctified in Slaughter (Upgrade)",
+      "points": 15,
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_edition_code": "wh40k-10e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": true,
+        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    },
+    {
+      "detachment_id": "d-cult-of-blood",
+      "enhancement_id": "e-strategic-slaughter",
+      "max_per_army": 1,
+      "name": "Strategic Slaughter",
+      "points": 20,
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_edition_code": "wh40k-10e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": true,
+        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    },
+    {
+      "detachment_id": "d-brazen-engines",
+      "enhancement_id": "e-talons-of-butchery-upgrade",
+      "max_per_army": 1,
+      "name": "Talons of Butchery (Upgrade)",
+      "points": 20,
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_edition_code": "wh40k-10e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": true,
+        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    },
+    {
+      "detachment_id": "d-goretrack-onslaught",
+      "enhancement_id": "e-unleash-hell",
+      "max_per_army": 1,
+      "name": "Unleash Hell",
+      "points": 10,
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_edition_code": "wh40k-10e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": true,
+        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    },
+    {
+      "detachment_id": "d-possessed-slaughterband",
+      "enhancement_id": "e-violent-demise",
+      "max_per_army": 1,
+      "name": "Violent Demise",
+      "points": 10,
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_edition_code": "wh40k-10e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": true,
+        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    }
+  ]
+}

@@ -1,0 +1,122 @@
+{
+  "ability_keys": [
+    "datasheet:daughters-of-the-abyss",
+    "datasheet:purity-of-execution"
+  ],
+  "costs": [
+    {
+      "copy_index_min": 1,
+      "label": "4 models",
+      "model_count": 4,
+      "points": 45,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    },
+    {
+      "copy_index_min": 1,
+      "label": "5 models",
+      "model_count": 5,
+      "points": 50,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    },
+    {
+      "copy_index_min": 1,
+      "label": "9 models",
+      "model_count": 9,
+      "points": 75,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    },
+    {
+      "copy_index_min": 1,
+      "label": "10 models",
+      "model_count": 10,
+      "points": 85,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    }
+  ],
+  "datasheet_id": "ds-prosecutors",
+  "faction_id": "f-adeptus-custodes",
+  "is_battleline": false,
+  "is_character": false,
+  "is_dedicated_transport": false,
+  "is_epic_hero": false,
+  "is_legends": false,
+  "keywords": [
+    {
+      "is_faction_keyword": true,
+      "keyword": "Adeptus Custodes"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Anathema Psykana"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Imperium"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Infantry"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Prosecutors"
+    }
+  ],
+  "models": [
+    {
+      "base_size": "32mm",
+      "leadership": "6+",
+      "line": 1,
+      "movement": "6\"",
+      "name": "Prosecutors",
+      "objective_control": 2,
+      "save": "3+",
+      "toughness": 3,
+      "wounds": 1
+    }
+  ],
+  "name": "PROSECUTORS",
+  "pricing_confidence": {
+    "consecutive_unverified_releases": 0,
+    "last_verified_points_digest": "sha256:9d1ab55ca1d5bbb5804d9e567ee4fc1f7793b102482ca2602a606199eeeecac2",
+    "last_verified_version": "mfm-2026-08",
+    "state": "verified"
+  },
+  "provenance": {
+    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+    "detail_edition_code": "wh40k-10e",
+    "detail_source": "wahapedia",
+    "is_hybrid_edition": true,
+    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "points_edition_code": "wh40k-11e",
+    "points_source": "mfm"
+  },
+  "role": "Other",
+  "weapons": [
+    {
+      "armour_penetration": "0",
+      "attacks": "1",
+      "damage": "1",
+      "is_melee": false,
+      "line": 1,
+      "name": "Boltgun",
+      "range": "24",
+      "skill": "3",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "2",
+      "damage": "1",
+      "is_melee": true,
+      "line": 2,
+      "name": "Close combat weapon",
+      "skill": "3",
+      "strength": "3"
+    }
+  ]
+}

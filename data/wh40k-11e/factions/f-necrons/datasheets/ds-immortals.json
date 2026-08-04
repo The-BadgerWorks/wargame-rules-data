@@ -1,0 +1,112 @@
+{
+  "ability_keys": [
+    "datasheet:implacable-eradication"
+  ],
+  "costs": [
+    {
+      "copy_index_min": 1,
+      "label": "5 models",
+      "model_count": 5,
+      "points": 70,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    },
+    {
+      "copy_index_min": 1,
+      "label": "10 models",
+      "model_count": 10,
+      "points": 140,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    }
+  ],
+  "datasheet_id": "ds-immortals",
+  "faction_id": "f-necrons",
+  "is_battleline": true,
+  "is_character": false,
+  "is_dedicated_transport": false,
+  "is_epic_hero": false,
+  "is_legends": false,
+  "keywords": [
+    {
+      "is_faction_keyword": false,
+      "keyword": "Battleline"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Immortals"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Infantry"
+    },
+    {
+      "is_faction_keyword": true,
+      "keyword": "Necrons"
+    }
+  ],
+  "models": [
+    {
+      "base_size": "32mm",
+      "leadership": "7+",
+      "line": 1,
+      "movement": "5\"",
+      "name": "Immortals",
+      "objective_control": 2,
+      "save": "3+",
+      "toughness": 5,
+      "wounds": 1
+    }
+  ],
+  "name": "IMMORTALS",
+  "pricing_confidence": {
+    "consecutive_unverified_releases": 0,
+    "last_verified_points_digest": "sha256:461aac1dc4f446a754cc9c63115395ef071baaddf81dd05ebab803cdbbd731ac",
+    "last_verified_version": "mfm-2026-08",
+    "state": "verified"
+  },
+  "provenance": {
+    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+    "detail_edition_code": "wh40k-10e",
+    "detail_source": "wahapedia",
+    "is_hybrid_edition": true,
+    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "points_edition_code": "wh40k-11e",
+    "points_source": "mfm"
+  },
+  "role": "Battleline",
+  "weapons": [
+    {
+      "armour_penetration": "-1",
+      "attacks": "2",
+      "damage": "1",
+      "is_melee": false,
+      "line": 1,
+      "name": "Gauss blaster",
+      "range": "24",
+      "skill": "3",
+      "strength": "5"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "2",
+      "damage": "1",
+      "is_melee": false,
+      "line": 2,
+      "name": "Tesla carbine",
+      "range": "24",
+      "skill": "3",
+      "strength": "5"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "2",
+      "damage": "1",
+      "is_melee": true,
+      "line": 3,
+      "name": "Close combat weapon",
+      "skill": "3",
+      "strength": "4"
+    }
+  ]
+}

@@ -1,0 +1,98 @@
+{
+  "ability_keys": [
+    "datasheet:computational-mastermind",
+    "datasheet:predictive-guidance"
+  ],
+  "costs": [
+    {
+      "copy_index_min": 1,
+      "label": "1 model",
+      "model_count": 1,
+      "points": 45,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    }
+  ],
+  "datasheet_id": "ds-memnyr-strategist",
+  "faction_id": "f-leagues-of-votann",
+  "is_battleline": false,
+  "is_character": true,
+  "is_dedicated_transport": false,
+  "is_epic_hero": false,
+  "is_legends": false,
+  "keywords": [
+    {
+      "is_faction_keyword": false,
+      "keyword": "Character"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Infantry"
+    },
+    {
+      "is_faction_keyword": true,
+      "keyword": "Leagues of Votann"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Memnyr Strategist"
+    }
+  ],
+  "leader_pairs": [
+    "ds-ironkin-steeljacks-with-heavy-volkanite-disintegrators",
+    "ds-ironkin-steeljacks-with-melee-weapons"
+  ],
+  "models": [
+    {
+      "base_size": "32mm",
+      "leadership": "7+",
+      "line": 1,
+      "movement": "5\"",
+      "name": "Memnyr Strategist",
+      "objective_control": 1,
+      "save": "4+",
+      "toughness": 5,
+      "wounds": 4
+    }
+  ],
+  "name": "MEMNYR STRATEGIST",
+  "pricing_confidence": {
+    "consecutive_unverified_releases": 0,
+    "last_verified_points_digest": "sha256:582f2b67f0c1b101fca2f0dc174b802505f8b664f00105a7c51cdd6938081d14",
+    "last_verified_version": "mfm-2026-08",
+    "state": "verified"
+  },
+  "provenance": {
+    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+    "detail_edition_code": "wh40k-10e",
+    "detail_source": "wahapedia",
+    "is_hybrid_edition": true,
+    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "points_edition_code": "wh40k-11e",
+    "points_source": "mfm"
+  },
+  "role": "Characters",
+  "weapons": [
+    {
+      "armour_penetration": "0",
+      "attacks": "1",
+      "damage": "1",
+      "is_melee": false,
+      "line": 1,
+      "name": "Autoch-pattern bolt pistol",
+      "range": "12",
+      "skill": "4",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "1",
+      "damage": "1",
+      "is_melee": true,
+      "line": 2,
+      "name": "Close combat weapon",
+      "skill": "4",
+      "strength": "3"
+    }
+  ]
+}

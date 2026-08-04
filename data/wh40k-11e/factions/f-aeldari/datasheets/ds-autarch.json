@@ -1,0 +1,188 @@
+{
+  "ability_keys": [
+    "datasheet:aspect-training",
+    "datasheet:path-of-command",
+    "datasheet:superlative-strategist"
+  ],
+  "costs": [
+    {
+      "copy_index_min": 1,
+      "label": "1 model",
+      "model_count": 1,
+      "points": 75,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    }
+  ],
+  "datasheet_id": "ds-autarch",
+  "faction_id": "f-aeldari",
+  "is_battleline": false,
+  "is_character": true,
+  "is_dedicated_transport": false,
+  "is_epic_hero": false,
+  "is_legends": false,
+  "keywords": [
+    {
+      "is_faction_keyword": false,
+      "keyword": "Aeldari"
+    },
+    {
+      "is_faction_keyword": true,
+      "keyword": "Asuryani"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Autarch"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Character"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Grenades"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Infantry"
+    }
+  ],
+  "leader_pairs": [
+    "ds-dark-reapers",
+    "ds-dire-avengers",
+    "ds-fire-dragons",
+    "ds-guardian-defenders",
+    "ds-howling-banshees",
+    "ds-storm-guardians",
+    "ds-striking-scorpions"
+  ],
+  "models": [
+    {
+      "base_size": "32mm",
+      "invuln_save": "4",
+      "leadership": "6+",
+      "line": 1,
+      "movement": "7\"",
+      "name": "Autarch",
+      "objective_control": 1,
+      "save": "3+",
+      "toughness": 3,
+      "wounds": 4
+    }
+  ],
+  "name": "AUTARCH",
+  "pricing_confidence": {
+    "consecutive_unverified_releases": 0,
+    "last_verified_points_digest": "sha256:3ef9b0b950694b9c2204fe4c1a14b9688c6bd63b6f2babb06888bc26464b773a",
+    "last_verified_version": "mfm-2026-08",
+    "state": "verified"
+  },
+  "provenance": {
+    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+    "detail_edition_code": "wh40k-10e",
+    "detail_source": "wahapedia",
+    "is_hybrid_edition": true,
+    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "points_edition_code": "wh40k-11e",
+    "points_source": "mfm"
+  },
+  "role": "Characters",
+  "weapons": [
+    {
+      "armour_penetration": "-1",
+      "attacks": "D6",
+      "damage": "1",
+      "is_melee": false,
+      "line": 1,
+      "name": "Death spinner",
+      "range": "12",
+      "skill": "N/A",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "-4",
+      "attacks": "1",
+      "damage": "D6",
+      "is_melee": false,
+      "line": 2,
+      "name": "Dragon fusion gun",
+      "range": "12",
+      "skill": "2",
+      "strength": "9"
+    },
+    {
+      "armour_penetration": "-4",
+      "attacks": "1",
+      "damage": "D6",
+      "is_melee": false,
+      "line": 3,
+      "name": "Dragon fusion pistol",
+      "range": "6",
+      "skill": "2",
+      "strength": "9"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "1",
+      "damage": "3",
+      "is_melee": false,
+      "line": 4,
+      "name": "Reaper launcher – starshot",
+      "range": "48",
+      "skill": "3",
+      "strength": "10"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "2",
+      "damage": "1",
+      "is_melee": false,
+      "line": 5,
+      "name": "Reaper launcher – starswarm",
+      "range": "48",
+      "skill": "3",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "-1",
+      "attacks": "1",
+      "damage": "1",
+      "is_melee": false,
+      "line": 6,
+      "name": "Shuriken pistol",
+      "range": "12",
+      "skill": "2",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "5",
+      "damage": "2",
+      "is_melee": true,
+      "line": 7,
+      "name": "Banshee blade",
+      "skill": "2",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "-1",
+      "attacks": "7",
+      "damage": "1",
+      "is_melee": true,
+      "line": 8,
+      "name": "Scorpion chainsword",
+      "skill": "2",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "-3",
+      "attacks": "4",
+      "damage": "3",
+      "is_melee": true,
+      "line": 9,
+      "name": "Star glaive",
+      "skill": "2",
+      "strength": "6"
+    }
+  ]
+}

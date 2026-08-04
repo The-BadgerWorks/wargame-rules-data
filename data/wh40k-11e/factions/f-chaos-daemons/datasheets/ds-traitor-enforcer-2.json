@@ -1,0 +1,304 @@
+{
+  "ability_keys": [
+    "datasheet:brutal-example",
+    "datasheet:mutated-bodyguard"
+  ],
+  "costs": [
+    {
+      "copy_index_min": 1,
+      "label": "2 models",
+      "model_count": 2,
+      "points": 55,
+      "pricing_confidence": "unverified",
+      "source_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1"
+    }
+  ],
+  "datasheet_id": "ds-traitor-enforcer-2",
+  "faction_id": "f-chaos-daemons",
+  "is_battleline": false,
+  "is_character": true,
+  "is_dedicated_transport": false,
+  "is_epic_hero": false,
+  "is_legends": false,
+  "keywords": [
+    {
+      "is_faction_keyword": false,
+      "keyword": "Chaos",
+      "model_scope": "ALL MODELS"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Chaos",
+      "model_scope": "ALL MODELS"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Chaos",
+      "model_scope": "ALL MODELS"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Chaos",
+      "model_scope": "ALL MODELS"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Chaos",
+      "model_scope": "ALL MODELS"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Chaos",
+      "model_scope": "ALL MODELS"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Character",
+      "model_scope": "TRAITOR ENFORCER ONLY"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Character",
+      "model_scope": "TRAITOR ENFORCER ONLY"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Character",
+      "model_scope": "TRAITOR ENFORCER ONLY"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Character",
+      "model_scope": "TRAITOR ENFORCER ONLY"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Character",
+      "model_scope": "TRAITOR ENFORCER ONLY"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Character",
+      "model_scope": "TRAITOR ENFORCER ONLY"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Damned",
+      "model_scope": "ALL MODELS"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Damned",
+      "model_scope": "ALL MODELS"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Damned",
+      "model_scope": "ALL MODELS"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Damned",
+      "model_scope": "ALL MODELS"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Damned",
+      "model_scope": "ALL MODELS"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Damned",
+      "model_scope": "ALL MODELS"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Grenades",
+      "model_scope": "ALL MODELS"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Grenades",
+      "model_scope": "ALL MODELS"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Grenades",
+      "model_scope": "ALL MODELS"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Grenades",
+      "model_scope": "ALL MODELS"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Grenades",
+      "model_scope": "ALL MODELS"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Grenades",
+      "model_scope": "ALL MODELS"
+    },
+    {
+      "is_faction_keyword": true,
+      "keyword": "Heretic Astartes"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Infantry",
+      "model_scope": "ALL MODELS"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Infantry",
+      "model_scope": "ALL MODELS"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Infantry",
+      "model_scope": "ALL MODELS"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Infantry",
+      "model_scope": "ALL MODELS"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Infantry",
+      "model_scope": "ALL MODELS"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Infantry",
+      "model_scope": "ALL MODELS"
+    },
+    {
+      "is_faction_keyword": true,
+      "keyword": "Legiones Daemonica"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Shadow Legion"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Shadow Legion"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Shadow Legion"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Shadow Legion"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Shadow Legion"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Shadow Legion"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Traitor Enforcer",
+      "model_scope": "TRAITOR ENFORCER ONLY"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Traitor Enforcer",
+      "model_scope": "TRAITOR ENFORCER ONLY"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Traitor Enforcer",
+      "model_scope": "TRAITOR ENFORCER ONLY"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Traitor Enforcer",
+      "model_scope": "TRAITOR ENFORCER ONLY"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Traitor Enforcer",
+      "model_scope": "TRAITOR ENFORCER ONLY"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Traitor Enforcer",
+      "model_scope": "TRAITOR ENFORCER ONLY"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Undivided"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Undivided"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Undivided"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Undivided"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Undivided"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Undivided"
+    }
+  ],
+  "leader_pairs": [
+    "ds-traitor-guardsmen-squad-2"
+  ],
+  "models": [
+    {
+      "base_size": "32mm",
+      "invuln_save": "5",
+      "leadership": "6+",
+      "line": 1,
+      "movement": "6\"",
+      "name": "TRAITOR ENFORCER",
+      "objective_control": 1,
+      "save": "5+",
+      "toughness": 3,
+      "wounds": 3
+    },
+    {
+      "base_size": "40mm",
+      "leadership": "7+",
+      "line": 2,
+      "movement": "6\"",
+      "name": "TRAITOR OGRYN",
+      "objective_control": 1,
+      "save": "5+",
+      "toughness": 6,
+      "wounds": 4
+    }
+  ],
+  "name": "Traitor Enforcer",
+  "pricing_confidence": {
+    "consecutive_unverified_releases": 1,
+    "state": "unverified",
+    "unverified_since_version": "mfm-2026-08"
+  },
+  "provenance": {
+    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+    "detail_edition_code": "wh40k-10e",
+    "detail_source": "wahapedia",
+    "is_hybrid_edition": true,
+    "points_edition_code": "wh40k-11e",
+    "points_source": "none"
+  },
+  "role": "Characters"
+}

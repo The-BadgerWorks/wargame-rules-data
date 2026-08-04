@@ -1,0 +1,178 @@
+{
+  "ability_keys": [
+    "datasheet:chaos-lord",
+    "datasheet:desiccation-conduit-aura"
+  ],
+  "costs": [
+    {
+      "copy_index_min": 1,
+      "label": "1 model",
+      "model_count": 1,
+      "points": 65,
+      "pricing_confidence": "unverified",
+      "source_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1"
+    }
+  ],
+  "datasheet_id": "ds-death-guard-chaos-lord",
+  "faction_id": "f-death-guard",
+  "is_battleline": false,
+  "is_character": true,
+  "is_dedicated_transport": false,
+  "is_epic_hero": false,
+  "is_legends": true,
+  "keywords": [
+    {
+      "is_faction_keyword": false,
+      "keyword": "Chaos"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Chaos Lord"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Character"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Grenades"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Infantry"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Nurgle"
+    }
+  ],
+  "leader_pairs": [
+    "ds-plague-marines"
+  ],
+  "models": [
+    {
+      "base_size": "40mm",
+      "invuln_save": "4",
+      "leadership": "6+",
+      "line": 1,
+      "movement": "5\"",
+      "name": "Death Guard Chaos Lord",
+      "objective_control": 1,
+      "save": "3+",
+      "toughness": 5,
+      "wounds": 5
+    }
+  ],
+  "name": "Death Guard Chaos Lord",
+  "pricing_confidence": {
+    "consecutive_unverified_releases": 1,
+    "state": "unverified",
+    "unverified_since_version": "mfm-2026-08"
+  },
+  "provenance": {
+    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+    "detail_edition_code": "wh40k-10e",
+    "detail_source": "wahapedia",
+    "is_hybrid_edition": true,
+    "points_edition_code": "wh40k-11e",
+    "points_source": "none"
+  },
+  "role": "Characters",
+  "weapons": [
+    {
+      "armour_penetration": "0",
+      "attacks": "1",
+      "damage": "1",
+      "is_melee": false,
+      "line": 1,
+      "name": "Combi-weapon",
+      "range": "24",
+      "skill": "2",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "1",
+      "damage": "1",
+      "is_melee": false,
+      "line": 2,
+      "name": "Plague bolt pistol",
+      "range": "12",
+      "skill": "2",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "2",
+      "damage": "1",
+      "is_melee": false,
+      "line": 3,
+      "name": "Plague combi-bolter",
+      "range": "24",
+      "skill": "2",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "1",
+      "damage": "1",
+      "is_melee": false,
+      "line": 4,
+      "name": "Plasma pistol – standard",
+      "range": "12",
+      "skill": "2",
+      "strength": "7"
+    },
+    {
+      "armour_penetration": "-3",
+      "attacks": "1",
+      "damage": "2",
+      "is_melee": false,
+      "line": 5,
+      "name": "Plasma pistol – supercharge",
+      "range": "12",
+      "skill": "2",
+      "strength": "8"
+    },
+    {
+      "armour_penetration": "-1",
+      "attacks": "7",
+      "damage": "1",
+      "is_melee": true,
+      "line": 6,
+      "name": "Astartes chainsword",
+      "skill": "2",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "5",
+      "damage": "2",
+      "is_melee": true,
+      "line": 7,
+      "name": "Plague fist",
+      "skill": "3",
+      "strength": "8"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "6",
+      "damage": "1",
+      "is_melee": true,
+      "line": 8,
+      "name": "Plague-encrusted exalted weapon",
+      "skill": "2",
+      "strength": "5"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "7",
+      "damage": "1",
+      "is_melee": true,
+      "line": 9,
+      "name": "Twin lightning claws",
+      "skill": "2",
+      "strength": "5"
+    }
+  ]
+}

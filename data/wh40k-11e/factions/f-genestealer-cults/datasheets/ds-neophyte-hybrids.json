@@ -1,0 +1,229 @@
+{
+  "ability_keys": [
+    "datasheet:a-plan-generations-in-the-making",
+    "datasheet:cult-icon"
+  ],
+  "costs": [
+    {
+      "copy_index_min": 1,
+      "label": "10 models",
+      "model_count": 10,
+      "points": 70,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    },
+    {
+      "copy_index_min": 1,
+      "label": "20 models",
+      "model_count": 20,
+      "points": 135,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    }
+  ],
+  "datasheet_id": "ds-neophyte-hybrids",
+  "faction_id": "f-genestealer-cults",
+  "is_battleline": true,
+  "is_character": false,
+  "is_dedicated_transport": false,
+  "is_epic_hero": false,
+  "is_legends": false,
+  "keywords": [
+    {
+      "is_faction_keyword": false,
+      "keyword": "Battleline"
+    },
+    {
+      "is_faction_keyword": true,
+      "keyword": "Genestealer Cults"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Great Devourer"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Grenades"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Infantry"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Neophyte Hybrids"
+    }
+  ],
+  "models": [
+    {
+      "base_size": "25mm",
+      "leadership": "7+",
+      "line": 1,
+      "movement": "6\"",
+      "name": "Neophyte Hybrids",
+      "objective_control": 2,
+      "save": "5+",
+      "toughness": 3,
+      "wounds": 1
+    }
+  ],
+  "name": "NEOPHYTE HYBRIDS",
+  "pricing_confidence": {
+    "consecutive_unverified_releases": 0,
+    "last_verified_points_digest": "sha256:0f329aade0b6123120379dd3700e550cea7146f32eba349abe56a73f086beba2",
+    "last_verified_version": "mfm-2026-08",
+    "state": "verified"
+  },
+  "provenance": {
+    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+    "detail_edition_code": "wh40k-10e",
+    "detail_source": "wahapedia",
+    "is_hybrid_edition": true,
+    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "points_edition_code": "wh40k-11e",
+    "points_source": "mfm"
+  },
+  "role": "Battleline",
+  "weapons": [
+    {
+      "armour_penetration": "0",
+      "attacks": "1",
+      "damage": "1",
+      "is_melee": false,
+      "line": 1,
+      "name": "Anointed pistol",
+      "range": "12",
+      "skill": "4",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "1",
+      "damage": "1",
+      "is_melee": false,
+      "line": 2,
+      "name": "Autopistol",
+      "range": "12",
+      "skill": "4",
+      "strength": "3"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "1",
+      "damage": "1",
+      "is_melee": false,
+      "line": 3,
+      "name": "Hybrid firearm",
+      "range": "24",
+      "skill": "4",
+      "strength": "3"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "D6",
+      "damage": "1",
+      "is_melee": false,
+      "line": 4,
+      "name": "Flamer",
+      "range": "12",
+      "skill": "N/A",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "D3",
+      "damage": "1",
+      "is_melee": false,
+      "line": 5,
+      "name": "Grenade launcher – frag",
+      "range": "24",
+      "skill": "4",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "1",
+      "damage": "D3",
+      "is_melee": false,
+      "line": 6,
+      "name": "Grenade launcher – krak",
+      "range": "24",
+      "skill": "4",
+      "strength": "9"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "3",
+      "damage": "1",
+      "is_melee": false,
+      "line": 7,
+      "name": "Heavy stubber",
+      "range": "36",
+      "skill": "4",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "-3",
+      "attacks": "1",
+      "damage": "D6+1",
+      "is_melee": false,
+      "line": 8,
+      "name": "Mining laser",
+      "range": "24",
+      "skill": "5",
+      "strength": "10"
+    },
+    {
+      "armour_penetration": "-1",
+      "attacks": "2",
+      "damage": "D3",
+      "is_melee": false,
+      "line": 9,
+      "name": "Seismic cannon",
+      "range": "24",
+      "skill": "5",
+      "strength": "6"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "D6",
+      "damage": "1",
+      "is_melee": false,
+      "line": 10,
+      "name": "Webber",
+      "range": "12",
+      "skill": "N/A",
+      "strength": "2"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "2",
+      "damage": "1",
+      "is_melee": true,
+      "line": 11,
+      "name": "Chainsword",
+      "skill": "4",
+      "strength": "3"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "1",
+      "damage": "1",
+      "is_melee": true,
+      "line": 12,
+      "name": "Power weapon",
+      "skill": "4",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "1",
+      "damage": "1",
+      "is_melee": true,
+      "line": 13,
+      "name": "Close combat weapon",
+      "skill": "4",
+      "strength": "3"
+    }
+  ]
+}

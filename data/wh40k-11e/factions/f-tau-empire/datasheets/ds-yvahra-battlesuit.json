@@ -1,0 +1,136 @@
+{
+  "ability_keys": [
+    "datasheet:battlesuit-support-system",
+    "datasheet:nova-burst",
+    "datasheet:weapon-support-system"
+  ],
+  "costs": [
+    {
+      "copy_index_min": 1,
+      "label": "1 model",
+      "model_count": 1,
+      "points": 210,
+      "pricing_confidence": "unverified",
+      "source_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1"
+    }
+  ],
+  "damaged_threshold": 5,
+  "datasheet_id": "ds-yvahra-battlesuit",
+  "faction_id": "f-tau-empire",
+  "is_battleline": false,
+  "is_character": false,
+  "is_dedicated_transport": false,
+  "is_epic_hero": false,
+  "is_legends": true,
+  "keywords": [
+    {
+      "is_faction_keyword": false,
+      "keyword": "Battlesuit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Fly"
+    },
+    {
+      "is_faction_keyword": true,
+      "keyword": "T’au Empire"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Vehicle"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Walker"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Y’vahra"
+    }
+  ],
+  "models": [
+    {
+      "base_size": "120 x 92mm",
+      "invuln_save": "5",
+      "leadership": "7+",
+      "line": 1,
+      "movement": "10\"",
+      "name": "Y’vahra Battlesuit",
+      "objective_control": 4,
+      "save": "2+",
+      "toughness": 9,
+      "wounds": 15
+    }
+  ],
+  "name": "Y’vahra Battlesuit",
+  "pricing_confidence": {
+    "consecutive_unverified_releases": 1,
+    "state": "unverified",
+    "unverified_since_version": "mfm-2026-08"
+  },
+  "provenance": {
+    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+    "detail_edition_code": "wh40k-10e",
+    "detail_source": "wahapedia",
+    "is_hybrid_edition": true,
+    "points_edition_code": "wh40k-11e",
+    "points_source": "none"
+  },
+  "role": "Other",
+  "weapons": [
+    {
+      "armour_penetration": "0",
+      "attacks": "5",
+      "damage": "1",
+      "is_melee": false,
+      "line": 1,
+      "name": "Flechette pod",
+      "range": "12",
+      "skill": "4",
+      "strength": "3"
+    },
+    {
+      "armour_penetration": "-1",
+      "attacks": "D6+1",
+      "damage": "2",
+      "is_melee": false,
+      "line": 2,
+      "name": "Ionic discharge cannon – standard",
+      "range": "18",
+      "skill": "4",
+      "strength": "7"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "D6+1",
+      "damage": "3",
+      "is_melee": false,
+      "line": 3,
+      "name": "Ionic discharge cannon – overcharge",
+      "range": "18",
+      "skill": "4",
+      "strength": "8"
+    },
+    {
+      "armour_penetration": "-1",
+      "attacks": "10",
+      "damage": "1",
+      "is_melee": false,
+      "line": 4,
+      "name": "Phased plasma-flamer",
+      "range": "12",
+      "skill": "N/A",
+      "strength": "6"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "6",
+      "damage": "2",
+      "is_melee": true,
+      "line": 5,
+      "name": "Battlesuit fists",
+      "skill": "5",
+      "strength": "6"
+    }
+  ]
+}

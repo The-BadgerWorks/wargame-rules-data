@@ -1,0 +1,214 @@
+{
+  "ability_keys": [
+    "datasheet:choice-samples",
+    "datasheet:fleet-command",
+    "datasheet:masters-of-the-maelstrom",
+    "datasheet:plunder"
+  ],
+  "costs": [
+    {
+      "copy_index_min": 1,
+      "label": "5 models",
+      "model_count": 5,
+      "points": 145,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    }
+  ],
+  "datasheet_id": "ds-masters-of-the-maelstrom",
+  "faction_id": "f-chaos-space-marines",
+  "is_battleline": false,
+  "is_character": false,
+  "is_dedicated_transport": false,
+  "is_epic_hero": true,
+  "is_legends": false,
+  "keywords": [
+    {
+      "is_faction_keyword": false,
+      "keyword": "Chaos",
+      "model_scope": "OTHER MODELS"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Chaos Undivided",
+      "model_scope": "OTHER MODELS"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Epic Hero",
+      "model_scope": "OTHER MODELS"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Grenades",
+      "model_scope": "OTHER MODELS"
+    },
+    {
+      "is_faction_keyword": true,
+      "keyword": "Heretic Astartes"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Infantry",
+      "model_scope": "OTHER MODELS"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Masters of the Maelstrom",
+      "model_scope": "OTHER MODELS"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Psyker",
+      "model_scope": "GARLON SOULEATER"
+    }
+  ],
+  "models": [
+    {
+      "base_size": "40mm",
+      "leadership": "6+",
+      "line": 1,
+      "movement": "6\"",
+      "name": "GARLON SOULEATER, GARREON THE CORPSEMASTER, KATAR GARRIX",
+      "objective_control": 1,
+      "save": "3+",
+      "toughness": 4,
+      "wounds": 4
+    },
+    {
+      "base_size": "40mm",
+      "leadership": "6+",
+      "line": 2,
+      "movement": "6\"",
+      "name": "CAPTAIN SARGOTTA, THE ENFORCER",
+      "objective_control": 1,
+      "save": "4+",
+      "toughness": 3,
+      "wounds": 3
+    }
+  ],
+  "name": "MASTERS OF THE MAELSTROM",
+  "pricing_confidence": {
+    "consecutive_unverified_releases": 0,
+    "last_verified_points_digest": "sha256:851a76dfbe7f90d1df7f9212cf73f40d1667de17b00857ce415e05fb6e35b4d5",
+    "last_verified_version": "mfm-2026-08",
+    "state": "verified"
+  },
+  "provenance": {
+    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+    "detail_edition_code": "wh40k-10e",
+    "detail_source": "wahapedia",
+    "is_hybrid_edition": true,
+    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "points_edition_code": "wh40k-11e",
+    "points_source": "mfm"
+  },
+  "role": "Other",
+  "weapons": [
+    {
+      "armour_penetration": "-1",
+      "attacks": "1",
+      "damage": "2",
+      "is_melee": false,
+      "line": 1,
+      "name": "Absolvor bolt pistol",
+      "range": "18",
+      "skill": "3",
+      "strength": "5"
+    },
+    {
+      "armour_penetration": "-1",
+      "attacks": "1",
+      "damage": "1",
+      "is_melee": false,
+      "line": 2,
+      "name": "Bolt pistol",
+      "range": "12",
+      "skill": "3",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "-1",
+      "attacks": "1",
+      "damage": "1",
+      "is_melee": false,
+      "line": 3,
+      "name": "Laspistol",
+      "range": "12",
+      "skill": "3",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "-1",
+      "attacks": "3",
+      "damage": "1",
+      "is_melee": false,
+      "line": 4,
+      "name": "Londaxi maimer",
+      "range": "18",
+      "skill": "3",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "1",
+      "damage": "D6+1",
+      "is_melee": false,
+      "line": 5,
+      "name": "Mind Wrench",
+      "range": "12",
+      "skill": "2",
+      "strength": "6"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "6",
+      "damage": "2",
+      "is_melee": true,
+      "line": 6,
+      "name": "Axe of Ending",
+      "skill": "2",
+      "strength": "6"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "1",
+      "damage": "2",
+      "is_melee": true,
+      "line": 7,
+      "name": "Bionic gauntlet",
+      "skill": "2",
+      "strength": "6"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "4",
+      "damage": "2",
+      "is_melee": true,
+      "line": 8,
+      "name": "Force stave",
+      "skill": "2",
+      "strength": "6"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "4",
+      "damage": "1",
+      "is_melee": true,
+      "line": 9,
+      "name": "Power sabre",
+      "skill": "3",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "6",
+      "damage": "1",
+      "is_melee": true,
+      "line": 10,
+      "name": "Reductor array",
+      "skill": "3",
+      "strength": "4"
+    }
+  ]
+}

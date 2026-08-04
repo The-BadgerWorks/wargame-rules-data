@@ -1,0 +1,150 @@
+{
+  "ability_keys": [
+    "datasheet:paroxysm-psychic",
+    "datasheet:will-of-the-hive-mind"
+  ],
+  "costs": [
+    {
+      "copy_index_min": 1,
+      "label": "1 model",
+      "model_count": 1,
+      "points": 185,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    }
+  ],
+  "datasheet_id": "ds-winged-hive-tyrant",
+  "faction_id": "f-tyranids",
+  "is_battleline": false,
+  "is_character": true,
+  "is_dedicated_transport": false,
+  "is_epic_hero": false,
+  "is_legends": false,
+  "keywords": [
+    {
+      "is_faction_keyword": false,
+      "keyword": "Character"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Fly"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Great Devourer"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Hive Tyrant"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Monster"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Psyker"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Synapse"
+    },
+    {
+      "is_faction_keyword": true,
+      "keyword": "Tyranids"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Vanguard Invader"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Winged Hive Tyrant"
+    }
+  ],
+  "models": [
+    {
+      "base_size": "60mm",
+      "invuln_save": "4",
+      "leadership": "7+",
+      "line": 1,
+      "movement": "12\"",
+      "name": "Winged Hive Tyrant",
+      "objective_control": 3,
+      "save": "2+",
+      "toughness": 9,
+      "wounds": 10
+    }
+  ],
+  "name": "WINGED HIVE TYRANT",
+  "pricing_confidence": {
+    "consecutive_unverified_releases": 0,
+    "last_verified_points_digest": "sha256:61188f8c262589d3b95dfb69e5be705fb5dd822ed8058ee52de39dc52307c378",
+    "last_verified_version": "mfm-2026-08",
+    "state": "verified"
+  },
+  "provenance": {
+    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+    "detail_edition_code": "wh40k-10e",
+    "detail_source": "wahapedia",
+    "is_hybrid_edition": true,
+    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "points_edition_code": "wh40k-11e",
+    "points_source": "mfm"
+  },
+  "role": "Characters",
+  "weapons": [
+    {
+      "armour_penetration": "-2",
+      "attacks": "D3",
+      "damage": "3",
+      "is_melee": false,
+      "line": 1,
+      "name": "Heavy venom cannon",
+      "range": "36",
+      "skill": "2",
+      "strength": "9"
+    },
+    {
+      "armour_penetration": "-1",
+      "attacks": "D6+1",
+      "damage": "2",
+      "is_melee": false,
+      "line": 2,
+      "name": "Stranglethorn cannon",
+      "range": "36",
+      "skill": "2",
+      "strength": "7"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "6",
+      "damage": "3",
+      "is_melee": true,
+      "line": 3,
+      "name": "Monstrous bonesword and lash whip",
+      "skill": "2",
+      "strength": "9"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "4",
+      "damage": "2",
+      "is_melee": true,
+      "line": 4,
+      "name": "Monstrous scything talons",
+      "skill": "2",
+      "strength": "7"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "5",
+      "damage": "2",
+      "is_melee": true,
+      "line": 5,
+      "name": "Tyrant talons",
+      "skill": "2",
+      "strength": "7"
+    }
+  ]
+}

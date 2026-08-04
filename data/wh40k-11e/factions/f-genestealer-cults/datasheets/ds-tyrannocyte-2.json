@@ -1,0 +1,88 @@
+{
+  "ability_keys": [
+    "datasheet:aerial-seeding"
+  ],
+  "costs": [
+    {
+      "copy_index_min": 1,
+      "label": "1 model",
+      "model_count": 1,
+      "points": 105,
+      "pricing_confidence": "unverified",
+      "source_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1"
+    }
+  ],
+  "datasheet_id": "ds-tyrannocyte-2",
+  "faction_id": "f-genestealer-cults",
+  "is_battleline": false,
+  "is_character": false,
+  "is_dedicated_transport": true,
+  "is_epic_hero": false,
+  "is_legends": false,
+  "keywords": [
+    {
+      "is_faction_keyword": false,
+      "keyword": "Dedicated Transport"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Fly"
+    },
+    {
+      "is_faction_keyword": true,
+      "keyword": "Genestealer Cults"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Great Devourer"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Monster"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Transport"
+    },
+    {
+      "is_faction_keyword": true,
+      "keyword": "Tyranids"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Tyrannocyte"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Vanguard Invader"
+    }
+  ],
+  "models": [
+    {
+      "base_size": "100mm",
+      "leadership": "8+",
+      "line": 1,
+      "movement": "8\"",
+      "name": "Tyrannocyte",
+      "objective_control": 2,
+      "save": "3+",
+      "toughness": 9,
+      "wounds": 10
+    }
+  ],
+  "name": "Tyrannocyte",
+  "pricing_confidence": {
+    "consecutive_unverified_releases": 1,
+    "state": "unverified",
+    "unverified_since_version": "mfm-2026-08"
+  },
+  "provenance": {
+    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+    "detail_edition_code": "wh40k-10e",
+    "detail_source": "wahapedia",
+    "is_hybrid_edition": true,
+    "points_edition_code": "wh40k-11e",
+    "points_source": "none"
+  },
+  "role": "Dedicated Transports"
+}

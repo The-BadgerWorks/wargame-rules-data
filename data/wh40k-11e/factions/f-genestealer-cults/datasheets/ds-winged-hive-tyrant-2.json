@@ -1,0 +1,98 @@
+{
+  "ability_keys": [
+    "datasheet:paroxysm-psychic",
+    "datasheet:will-of-the-hive-mind"
+  ],
+  "costs": [
+    {
+      "copy_index_min": 1,
+      "label": "1 model",
+      "model_count": 1,
+      "points": 170,
+      "pricing_confidence": "unverified",
+      "source_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1"
+    }
+  ],
+  "datasheet_id": "ds-winged-hive-tyrant-2",
+  "faction_id": "f-genestealer-cults",
+  "is_battleline": false,
+  "is_character": true,
+  "is_dedicated_transport": false,
+  "is_epic_hero": false,
+  "is_legends": false,
+  "keywords": [
+    {
+      "is_faction_keyword": false,
+      "keyword": "Character"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Fly"
+    },
+    {
+      "is_faction_keyword": true,
+      "keyword": "Genestealer Cults"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Great Devourer"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Hive Tyrant"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Monster"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Psyker"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Synapse"
+    },
+    {
+      "is_faction_keyword": true,
+      "keyword": "Tyranids"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Vanguard Invader"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Winged Hive Tyrant"
+    }
+  ],
+  "models": [
+    {
+      "base_size": "60mm",
+      "invuln_save": "4",
+      "leadership": "7+",
+      "line": 1,
+      "movement": "12\"",
+      "name": "Winged Hive Tyrant",
+      "objective_control": 3,
+      "save": "2+",
+      "toughness": 9,
+      "wounds": 10
+    }
+  ],
+  "name": "Winged Hive Tyrant",
+  "pricing_confidence": {
+    "consecutive_unverified_releases": 1,
+    "state": "unverified",
+    "unverified_since_version": "mfm-2026-08"
+  },
+  "provenance": {
+    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+    "detail_edition_code": "wh40k-10e",
+    "detail_source": "wahapedia",
+    "is_hybrid_edition": true,
+    "points_edition_code": "wh40k-11e",
+    "points_source": "none"
+  },
+  "role": "Characters"
+}

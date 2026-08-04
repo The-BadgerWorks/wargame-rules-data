@@ -1,0 +1,150 @@
+{
+  "ability_keys": [
+    "datasheet:delightful-agonies",
+    "datasheet:prince-of-slaanesh"
+  ],
+  "costs": [
+    {
+      "copy_index_min": 1,
+      "label": "1 model",
+      "model_count": 1,
+      "points": 120,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    }
+  ],
+  "datasheet_id": "ds-syllesske",
+  "faction_id": "f-chaos-daemons",
+  "is_battleline": false,
+  "is_character": true,
+  "is_dedicated_transport": false,
+  "is_epic_hero": true,
+  "is_legends": false,
+  "keywords": [
+    {
+      "is_faction_keyword": false,
+      "keyword": "Chaos"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Character"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Daemon"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Epic Hero"
+    },
+    {
+      "is_faction_keyword": true,
+      "keyword": "Legiones Daemonica"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Monster"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Psyker"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Slaanesh"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Syll’Esske"
+    }
+  ],
+  "leader_pairs": [
+    "ds-daemonettes"
+  ],
+  "models": [
+    {
+      "base_size": "50mm",
+      "invuln_save": "4",
+      "leadership": "6+",
+      "line": 1,
+      "movement": "9\"",
+      "name": "Syll’esske",
+      "objective_control": 2,
+      "save": "6+",
+      "toughness": 6,
+      "wounds": 9
+    }
+  ],
+  "name": "SYLL’ESSKE",
+  "pricing_confidence": {
+    "consecutive_unverified_releases": 0,
+    "last_verified_points_digest": "sha256:da8b42b1ec1c41acf97a636feabfaf59800b43f799bbefeac149798689fadcdc",
+    "last_verified_version": "mfm-2026-08",
+    "state": "verified"
+  },
+  "provenance": {
+    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+    "detail_edition_code": "wh40k-10e",
+    "detail_source": "wahapedia",
+    "is_hybrid_edition": true,
+    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "points_edition_code": "wh40k-11e",
+    "points_source": "mfm"
+  },
+  "role": "Characters",
+  "weapons": [
+    {
+      "armour_penetration": "-1",
+      "attacks": "D6",
+      "damage": "1",
+      "is_melee": false,
+      "line": 1,
+      "name": "Cacophonic choir – witchfire",
+      "range": "12",
+      "skill": "N/A",
+      "strength": "6"
+    },
+    {
+      "armour_penetration": "-1",
+      "attacks": "2D6",
+      "damage": "1",
+      "is_melee": false,
+      "line": 2,
+      "name": "Cacophonic choir – focused witchfire",
+      "range": "12",
+      "skill": "N/A",
+      "strength": "6"
+    },
+    {
+      "armour_penetration": "-1",
+      "attacks": "6",
+      "damage": "1",
+      "is_melee": false,
+      "line": 3,
+      "name": "Scourging whip",
+      "range": "9",
+      "skill": "3",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "6",
+      "damage": "3",
+      "is_melee": true,
+      "line": 4,
+      "name": "Axe of Dominion",
+      "skill": "3",
+      "strength": "7"
+    },
+    {
+      "armour_penetration": "-1",
+      "attacks": "6",
+      "damage": "1",
+      "is_melee": true,
+      "line": 5,
+      "name": "Scourging whip",
+      "skill": "2",
+      "strength": "4"
+    }
+  ]
+}

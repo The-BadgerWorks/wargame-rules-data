@@ -1,0 +1,184 @@
+{
+  "ability_keys": [
+    "datasheet:suppression-fire"
+  ],
+  "costs": [
+    {
+      "copy_index_min": 1,
+      "label": "1 model",
+      "model_count": 1,
+      "points": 525,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    },
+    {
+      "copy_index_min": 2,
+      "label": "1 model",
+      "model_count": 1,
+      "points": 575,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    }
+  ],
+  "damaged_threshold": 8,
+  "datasheet_id": "ds-astraeus-3",
+  "faction_id": "f-dark-angels",
+  "is_battleline": false,
+  "is_character": false,
+  "is_dedicated_transport": false,
+  "is_epic_hero": false,
+  "is_legends": false,
+  "keywords": [
+    {
+      "is_faction_keyword": true,
+      "keyword": "Adeptus Astartes"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Astraeus"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Imperium"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Titanic"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Vehicle"
+    }
+  ],
+  "models": [
+    {
+      "base_size": "160mm",
+      "invuln_save": "5",
+      "leadership": "6+",
+      "line": 1,
+      "movement": "10\"",
+      "name": "Astraeus",
+      "objective_control": 8,
+      "save": "2+",
+      "toughness": 12,
+      "wounds": 24
+    }
+  ],
+  "name": "ASTRAEUS",
+  "pricing_confidence": {
+    "consecutive_unverified_releases": 0,
+    "last_verified_points_digest": "sha256:b21fa01dfe1ab445cca2667ba94fe5d79dd8a34b025fdae4e81118cac289e837",
+    "last_verified_version": "mfm-2026-08",
+    "state": "verified"
+  },
+  "provenance": {
+    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+    "detail_edition_code": "wh40k-10e",
+    "detail_source": "wahapedia",
+    "is_hybrid_edition": true,
+    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "points_edition_code": "wh40k-11e",
+    "points_source": "mfm"
+  },
+  "role": "Other",
+  "weapons": [
+    {
+      "armour_penetration": "-3",
+      "attacks": "2",
+      "damage": "D6+1",
+      "is_melee": false,
+      "line": 1,
+      "name": "Astraeus las-ripper",
+      "range": "36",
+      "skill": "3",
+      "strength": "12"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "3",
+      "damage": "1",
+      "is_melee": false,
+      "line": 2,
+      "name": "Ironhail heavy stubber",
+      "range": "36",
+      "skill": "3",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "D6",
+      "damage": "2",
+      "is_melee": false,
+      "line": 3,
+      "name": "Plasma eradicator – standard",
+      "range": "36",
+      "skill": "3",
+      "strength": "7"
+    },
+    {
+      "armour_penetration": "-3",
+      "attacks": "D6",
+      "damage": "3",
+      "is_melee": false,
+      "line": 4,
+      "name": "Plasma eradicator – supercharge",
+      "range": "36",
+      "skill": "3",
+      "strength": "8"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "2",
+      "damage": "1",
+      "is_melee": false,
+      "line": 5,
+      "name": "Storm bolter",
+      "range": "24",
+      "skill": "3",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "-1",
+      "attacks": "3",
+      "damage": "2",
+      "is_melee": false,
+      "line": 6,
+      "name": "Twin heavy bolter",
+      "range": "36",
+      "skill": "3",
+      "strength": "5"
+    },
+    {
+      "armour_penetration": "-3",
+      "attacks": "1",
+      "damage": "D6+1",
+      "is_melee": false,
+      "line": 7,
+      "name": "Twin lascannon",
+      "range": "48",
+      "skill": "3",
+      "strength": "12"
+    },
+    {
+      "armour_penetration": "-1",
+      "attacks": "12",
+      "damage": "3",
+      "is_melee": false,
+      "line": 8,
+      "name": "Twin macro-accelerator cannon",
+      "range": "72",
+      "skill": "3",
+      "strength": "9"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "6",
+      "damage": "1",
+      "is_melee": true,
+      "line": 9,
+      "name": "Armoured hull",
+      "skill": "4",
+      "strength": "8"
+    }
+  ]
+}

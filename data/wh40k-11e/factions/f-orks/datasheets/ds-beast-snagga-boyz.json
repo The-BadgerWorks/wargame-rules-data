@@ -1,0 +1,151 @@
+{
+  "ability_keys": [
+    "datasheet:monster-hunters"
+  ],
+  "costs": [
+    {
+      "copy_index_min": 1,
+      "label": "10 models",
+      "model_count": 10,
+      "points": 90,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    },
+    {
+      "copy_index_min": 1,
+      "label": "20 models",
+      "model_count": 20,
+      "points": 170,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    }
+  ],
+  "datasheet_id": "ds-beast-snagga-boyz",
+  "faction_id": "f-orks",
+  "is_battleline": true,
+  "is_character": false,
+  "is_dedicated_transport": false,
+  "is_epic_hero": false,
+  "is_legends": false,
+  "keywords": [
+    {
+      "is_faction_keyword": false,
+      "keyword": "Battleline"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Beast Snagga"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Beast Snagga Boyz"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Infantry"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Mob"
+    },
+    {
+      "is_faction_keyword": true,
+      "keyword": "Orks"
+    }
+  ],
+  "models": [
+    {
+      "base_size": "32mm",
+      "leadership": "7+",
+      "line": 1,
+      "movement": "6\"",
+      "name": "BEAST SNAGGA BOY",
+      "objective_control": 2,
+      "save": "5+",
+      "toughness": 5,
+      "wounds": 1
+    },
+    {
+      "base_size": "32mm",
+      "leadership": "7+",
+      "line": 2,
+      "movement": "6\"",
+      "name": "BEAST SNAGGA NOB",
+      "objective_control": 2,
+      "save": "5+",
+      "toughness": 5,
+      "wounds": 2
+    }
+  ],
+  "name": "BEAST SNAGGA BOYZ",
+  "pricing_confidence": {
+    "consecutive_unverified_releases": 0,
+    "last_verified_points_digest": "sha256:f9fb426f441e2b69e90463da18f9a41528a32f7c42ae6e83eea1528b05987697",
+    "last_verified_version": "mfm-2026-08",
+    "state": "verified"
+  },
+  "provenance": {
+    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+    "detail_edition_code": "wh40k-10e",
+    "detail_source": "wahapedia",
+    "is_hybrid_edition": true,
+    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "points_edition_code": "wh40k-11e",
+    "points_source": "mfm"
+  },
+  "role": "Battleline",
+  "weapons": [
+    {
+      "armour_penetration": "0",
+      "attacks": "1",
+      "damage": "1",
+      "is_melee": false,
+      "line": 1,
+      "name": "Slugga",
+      "range": "12",
+      "skill": "5",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "D3",
+      "damage": "2",
+      "is_melee": false,
+      "line": 2,
+      "name": "Thump gun",
+      "range": "18",
+      "skill": "5",
+      "strength": "6"
+    },
+    {
+      "armour_penetration": "-1",
+      "attacks": "3",
+      "damage": "1",
+      "is_melee": true,
+      "line": 3,
+      "name": "Choppa",
+      "skill": "3",
+      "strength": "5"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "2",
+      "damage": "1",
+      "is_melee": true,
+      "line": 4,
+      "name": "Close combat weapon",
+      "skill": "3",
+      "strength": "5"
+    },
+    {
+      "armour_penetration": "-1",
+      "attacks": "4",
+      "damage": "2",
+      "is_melee": true,
+      "line": 5,
+      "name": "Power snappa",
+      "skill": "3",
+      "strength": "7"
+    }
+  ]
+}

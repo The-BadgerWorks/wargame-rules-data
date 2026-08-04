@@ -1,0 +1,100 @@
+{
+  "ability_keys": [
+    "datasheet:reckless-abandon"
+  ],
+  "costs": [
+    {
+      "copy_index_min": 1,
+      "label": "3 models",
+      "model_count": 3,
+      "points": 105,
+      "pricing_confidence": "unverified",
+      "source_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1"
+    },
+    {
+      "copy_index_min": 1,
+      "label": "4 models",
+      "model_count": 4,
+      "points": 140,
+      "pricing_confidence": "unverified",
+      "source_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1"
+    },
+    {
+      "copy_index_min": 1,
+      "label": "6 models",
+      "model_count": 6,
+      "points": 210,
+      "pricing_confidence": "unverified",
+      "source_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1"
+    },
+    {
+      "copy_index_min": 1,
+      "label": "7 models",
+      "model_count": 7,
+      "points": 245,
+      "pricing_confidence": "unverified",
+      "source_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1"
+    }
+  ],
+  "datasheet_id": "ds-corsair-cloud-dancer-band-2",
+  "faction_id": "f-drukhari",
+  "is_battleline": false,
+  "is_character": false,
+  "is_dedicated_transport": false,
+  "is_epic_hero": false,
+  "is_legends": true,
+  "keywords": [
+    {
+      "is_faction_keyword": true,
+      "keyword": "Aeldari"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Anhrathe"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Corsair Cloud Dancer Band"
+    },
+    {
+      "is_faction_keyword": true,
+      "keyword": "Drukhari"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Grenades"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Mounted"
+    }
+  ],
+  "models": [
+    {
+      "base_size": "32mm flying base",
+      "leadership": "6+",
+      "line": 1,
+      "movement": "14\"",
+      "name": "Corsair Cloud Dancer Band",
+      "objective_control": 2,
+      "save": "3+",
+      "toughness": 4,
+      "wounds": 2
+    }
+  ],
+  "name": "Corsair Cloud Dancer Band",
+  "pricing_confidence": {
+    "consecutive_unverified_releases": 1,
+    "state": "unverified",
+    "unverified_since_version": "mfm-2026-08"
+  },
+  "provenance": {
+    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+    "detail_edition_code": "wh40k-10e",
+    "detail_source": "wahapedia",
+    "is_hybrid_edition": true,
+    "points_edition_code": "wh40k-11e",
+    "points_source": "none"
+  },
+  "role": "Other"
+}

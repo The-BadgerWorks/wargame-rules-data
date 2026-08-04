@@ -1,0 +1,144 @@
+{
+  "ability_keys": [
+    "datasheet:immaterial-flare-aura",
+    "datasheet:mutating-vortex-aura"
+  ],
+  "costs": [
+    {
+      "copy_index_min": 1,
+      "label": "1 model",
+      "model_count": 1,
+      "points": 170,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    },
+    {
+      "copy_index_min": 3,
+      "label": "1 model",
+      "model_count": 1,
+      "points": 190,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    }
+  ],
+  "damaged_threshold": 4,
+  "datasheet_id": "ds-mutalith-vortex-beast",
+  "faction_id": "f-thousand-sons",
+  "is_battleline": false,
+  "is_character": false,
+  "is_dedicated_transport": false,
+  "is_epic_hero": false,
+  "is_legends": false,
+  "keywords": [
+    {
+      "is_faction_keyword": false,
+      "keyword": "Chaos"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Monster"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Mutalith Vortex Beast"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Mutant"
+    },
+    {
+      "is_faction_keyword": true,
+      "keyword": "Thousand Sons"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Tzeentch"
+    }
+  ],
+  "models": [
+    {
+      "base_size": "120 x 92mm",
+      "invuln_save": "5",
+      "leadership": "6+",
+      "line": 1,
+      "movement": "10\"",
+      "name": "Mutalith Vortex Beast",
+      "objective_control": 4,
+      "save": "4+",
+      "toughness": 10,
+      "wounds": 13
+    }
+  ],
+  "name": "MUTALITH VORTEX BEAST",
+  "pricing_confidence": {
+    "consecutive_unverified_releases": 0,
+    "last_verified_points_digest": "sha256:c6b8a37598f8f13b9ef2eef56d9892584fd6b347e849ef4035e9eab7c76a07da",
+    "last_verified_version": "mfm-2026-08",
+    "state": "verified"
+  },
+  "provenance": {
+    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+    "detail_edition_code": "wh40k-10e",
+    "detail_source": "wahapedia",
+    "is_hybrid_edition": true,
+    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "points_edition_code": "wh40k-11e",
+    "points_source": "mfm"
+  },
+  "role": "Other",
+  "weapons": [
+    {
+      "armour_penetration": "-2",
+      "attacks": "D6+3",
+      "damage": "2",
+      "is_melee": false,
+      "line": 1,
+      "name": "Warp vortex – blast",
+      "range": "24",
+      "skill": "3",
+      "strength": "9"
+    },
+    {
+      "armour_penetration": "-3",
+      "attacks": "1",
+      "damage": "D6+6",
+      "is_melee": false,
+      "line": 2,
+      "name": "Warp vortex – beam",
+      "range": "36",
+      "skill": "3",
+      "strength": "18"
+    },
+    {
+      "armour_penetration": "-1",
+      "attacks": "2D6",
+      "damage": "1",
+      "is_melee": false,
+      "line": 3,
+      "name": "Warp vortex – torrent",
+      "range": "18",
+      "skill": "N/A",
+      "strength": "6"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "15",
+      "damage": "1",
+      "is_melee": true,
+      "line": 4,
+      "name": "Betentacled maw",
+      "skill": "3",
+      "strength": "7"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "5",
+      "damage": "3",
+      "is_melee": true,
+      "line": 5,
+      "name": "Mutalith claws",
+      "skill": "3",
+      "strength": "10"
+    }
+  ]
+}

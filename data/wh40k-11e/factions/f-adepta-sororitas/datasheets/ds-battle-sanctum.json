@@ -1,0 +1,74 @@
+{
+  "ability_keys": [
+    "datasheet:consecrated-ground",
+    "datasheet:fortification",
+    "datasheet:holy-cover"
+  ],
+  "costs": [
+    {
+      "copy_index_min": 1,
+      "label": "1 model",
+      "model_count": 1,
+      "points": 170,
+      "pricing_confidence": "unverified",
+      "source_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1"
+    }
+  ],
+  "datasheet_id": "ds-battle-sanctum",
+  "faction_id": "f-adepta-sororitas",
+  "is_battleline": false,
+  "is_character": false,
+  "is_dedicated_transport": false,
+  "is_epic_hero": false,
+  "is_legends": true,
+  "keywords": [
+    {
+      "is_faction_keyword": true,
+      "keyword": "Adepta Sororitas"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Battle Sanctum"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Fortification"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Imperium"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Towering"
+    }
+  ],
+  "models": [
+    {
+      "base_size": "Use model",
+      "leadership": "7+",
+      "line": 1,
+      "movement": "-",
+      "name": "Battle Sanctum",
+      "objective_control": 0,
+      "save": "3+",
+      "toughness": 11,
+      "wounds": 20
+    }
+  ],
+  "name": "Battle Sanctum",
+  "pricing_confidence": {
+    "consecutive_unverified_releases": 1,
+    "state": "unverified",
+    "unverified_since_version": "mfm-2026-08"
+  },
+  "provenance": {
+    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+    "detail_edition_code": "wh40k-10e",
+    "detail_source": "wahapedia",
+    "is_hybrid_edition": true,
+    "points_edition_code": "wh40k-11e",
+    "points_source": "none"
+  },
+  "role": "Fortifications"
+}

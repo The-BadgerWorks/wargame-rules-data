@@ -1,0 +1,97 @@
+{
+  "ability_keys": [
+    "datasheet:da-boss-iz-watchin",
+    "datasheet:plant-the-waaagh-banner"
+  ],
+  "costs": [
+    {
+      "copy_index_min": 1,
+      "label": "1 model",
+      "model_count": 1,
+      "points": 70,
+      "pricing_confidence": "unverified",
+      "source_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1"
+    }
+  ],
+  "datasheet_id": "ds-nob-with-waaagh-banner",
+  "faction_id": "f-orks",
+  "is_battleline": false,
+  "is_character": true,
+  "is_dedicated_transport": false,
+  "is_epic_hero": false,
+  "is_legends": true,
+  "keywords": [
+    {
+      "is_faction_keyword": false,
+      "keyword": "Character"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Infantry"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Nob with Waaagh! Banner"
+    },
+    {
+      "is_faction_keyword": true,
+      "keyword": "Orks"
+    }
+  ],
+  "leader_pairs": [
+    "ds-boyz",
+    "ds-breaka-boyz",
+    "ds-nobz"
+  ],
+  "models": [
+    {
+      "base_size": "32mm",
+      "leadership": "7+",
+      "line": 1,
+      "movement": "6\"",
+      "name": "Nob With Waaagh! Banner",
+      "objective_control": 1,
+      "save": "4+",
+      "toughness": 5,
+      "wounds": 3
+    }
+  ],
+  "name": "Nob With Waaagh! Banner",
+  "pricing_confidence": {
+    "consecutive_unverified_releases": 1,
+    "state": "unverified",
+    "unverified_since_version": "mfm-2026-08"
+  },
+  "provenance": {
+    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+    "detail_edition_code": "wh40k-10e",
+    "detail_source": "wahapedia",
+    "is_hybrid_edition": true,
+    "points_edition_code": "wh40k-11e",
+    "points_source": "none"
+  },
+  "role": "Characters",
+  "weapons": [
+    {
+      "armour_penetration": "0",
+      "attacks": "4",
+      "damage": "1",
+      "is_melee": false,
+      "line": 1,
+      "name": "Kustom shoota",
+      "range": "18",
+      "skill": "5",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "3",
+      "damage": "2",
+      "is_melee": true,
+      "line": 2,
+      "name": "Waaagh! banner",
+      "skill": "3",
+      "strength": "8"
+    }
+  ]
+}

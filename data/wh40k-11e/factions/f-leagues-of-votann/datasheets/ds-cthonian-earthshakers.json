@@ -1,0 +1,107 @@
+{
+  "ability_keys": [
+    "datasheet:destabilising-quakes",
+    "datasheet:geomantic-hunters"
+  ],
+  "costs": [
+    {
+      "copy_index_min": 1,
+      "label": "2 models",
+      "model_count": 2,
+      "points": 110,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    }
+  ],
+  "datasheet_id": "ds-cthonian-earthshakers",
+  "faction_id": "f-leagues-of-votann",
+  "is_battleline": false,
+  "is_character": false,
+  "is_dedicated_transport": false,
+  "is_epic_hero": false,
+  "is_legends": false,
+  "keywords": [
+    {
+      "is_faction_keyword": false,
+      "keyword": "Artillery"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Cthonian"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Earthshakers"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Infantry"
+    },
+    {
+      "is_faction_keyword": true,
+      "keyword": "Leagues of Votann"
+    }
+  ],
+  "name": "CTHONIAN EARTHSHAKERS",
+  "pricing_confidence": {
+    "consecutive_unverified_releases": 0,
+    "last_verified_points_digest": "sha256:b065251087b142a3a910532bf122fec9a2e3fa8fdc4d3cc530f8efd17e9c912a",
+    "last_verified_version": "mfm-2026-08",
+    "state": "verified"
+  },
+  "provenance": {
+    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+    "detail_edition_code": "wh40k-10e",
+    "detail_source": "wahapedia",
+    "is_hybrid_edition": true,
+    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "points_edition_code": "wh40k-11e",
+    "points_source": "mfm"
+  },
+  "role": "Other",
+  "weapons": [
+    {
+      "armour_penetration": "0",
+      "attacks": "1",
+      "damage": "1",
+      "is_melee": false,
+      "line": 1,
+      "name": "Autoch-pattern bolt pistol",
+      "range": "12",
+      "skill": "4",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "-1",
+      "attacks": "D6+1",
+      "damage": "2",
+      "is_melee": false,
+      "line": 2,
+      "name": "Breacher ordnance",
+      "range": "24",
+      "skill": "5",
+      "strength": "10"
+    },
+    {
+      "armour_penetration": "-1",
+      "attacks": "D6+4",
+      "damage": "1",
+      "is_melee": false,
+      "line": 3,
+      "name": "Tremor shells",
+      "range": "36",
+      "skill": "5",
+      "strength": "6"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "4",
+      "damage": "1",
+      "is_melee": true,
+      "line": 4,
+      "name": "Plasma picks",
+      "skill": "3",
+      "strength": "5"
+    }
+  ]
+}

@@ -1,0 +1,135 @@
+{
+  "ability_keys": [
+    "datasheet:resilient-organism"
+  ],
+  "costs": [
+    {
+      "copy_index_min": 1,
+      "label": "1 model",
+      "model_count": 1,
+      "points": 180,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    },
+    {
+      "copy_index_min": 3,
+      "label": "1 model",
+      "model_count": 1,
+      "points": 190,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    }
+  ],
+  "damaged_threshold": 5,
+  "datasheet_id": "ds-tyrannofex",
+  "faction_id": "f-tyranids",
+  "is_battleline": false,
+  "is_character": false,
+  "is_dedicated_transport": false,
+  "is_epic_hero": false,
+  "is_legends": false,
+  "keywords": [
+    {
+      "is_faction_keyword": false,
+      "keyword": "Great Devourer"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Monster"
+    },
+    {
+      "is_faction_keyword": true,
+      "keyword": "Tyranids"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Tyrannofex"
+    }
+  ],
+  "models": [
+    {
+      "base_size": "120 x 92mm",
+      "leadership": "8+",
+      "line": 1,
+      "movement": "9\"",
+      "name": "Tyrannofex",
+      "objective_control": 5,
+      "save": "2+",
+      "toughness": 12,
+      "wounds": 16
+    }
+  ],
+  "name": "TYRANNOFEX",
+  "pricing_confidence": {
+    "consecutive_unverified_releases": 0,
+    "last_verified_points_digest": "sha256:4a9fdebe93ad93eb4030f1f9505f13628d55165e688af629247b8f78d80aec01",
+    "last_verified_version": "mfm-2026-08",
+    "state": "verified"
+  },
+  "provenance": {
+    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+    "detail_edition_code": "wh40k-10e",
+    "detail_source": "wahapedia",
+    "is_hybrid_edition": true,
+    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "points_edition_code": "wh40k-11e",
+    "points_source": "mfm"
+  },
+  "role": "Other",
+  "weapons": [
+    {
+      "armour_penetration": "-2",
+      "attacks": "D6+6",
+      "damage": "2",
+      "is_melee": false,
+      "line": 1,
+      "name": "Acid spray",
+      "range": "18",
+      "skill": "N/A",
+      "strength": "6"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "20",
+      "damage": "1",
+      "is_melee": false,
+      "line": 2,
+      "name": "Fleshborer hive",
+      "range": "24",
+      "skill": "3",
+      "strength": "5"
+    },
+    {
+      "armour_penetration": "-4",
+      "attacks": "2",
+      "damage": "D6+6",
+      "is_melee": false,
+      "line": 3,
+      "name": "Rupture cannon",
+      "range": "48",
+      "skill": "3",
+      "strength": "18"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "8",
+      "damage": "1",
+      "is_melee": false,
+      "line": 4,
+      "name": "Stinger salvoes",
+      "range": "24",
+      "skill": "3",
+      "strength": "5"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "4",
+      "damage": "2",
+      "is_melee": true,
+      "line": 5,
+      "name": "Powerful limbs",
+      "skill": "3",
+      "strength": "8"
+    }
+  ]
+}

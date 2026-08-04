@@ -1,0 +1,158 @@
+{
+  "ability_keys": [
+    "datasheet:phaeron-of-the-blades-aura",
+    "datasheet:phaeron-of-the-stars-aura",
+    "datasheet:relentless-march-aura",
+    "datasheet:supreme-commander",
+    "datasheet:the-silent-king",
+    "datasheet:triarchal-menhirs",
+    "datasheet:voice-of-the-triarch"
+  ],
+  "costs": [
+    {
+      "copy_index_min": 1,
+      "label": "3 models",
+      "model_count": 3,
+      "points": 420,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    }
+  ],
+  "damaged_threshold": 6,
+  "datasheet_id": "ds-the-silent-king",
+  "faction_id": "f-necrons",
+  "is_battleline": false,
+  "is_character": true,
+  "is_dedicated_transport": false,
+  "is_epic_hero": true,
+  "is_legends": false,
+  "keywords": [
+    {
+      "is_faction_keyword": false,
+      "keyword": "Character",
+      "model_scope": "SZAREKH MODEL"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Epic Hero",
+      "model_scope": "ALL MODELS"
+    },
+    {
+      "is_faction_keyword": true,
+      "keyword": "Necrons"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "The Silent King",
+      "model_scope": "SZAREKH MODEL"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Triarch",
+      "model_scope": "ALL MODELS"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Vehicle",
+      "model_scope": "ALL MODELS"
+    }
+  ],
+  "models": [
+    {
+      "base_size": "100mm",
+      "invuln_save": "4",
+      "leadership": "6+",
+      "line": 1,
+      "movement": "8\"",
+      "name": "SZAREKH",
+      "objective_control": 6,
+      "save": "2+",
+      "toughness": 10,
+      "wounds": 16
+    },
+    {
+      "base_size": "50mm",
+      "invuln_save": "4",
+      "leadership": "6+",
+      "line": 2,
+      "movement": "8\"",
+      "name": "TRIARCHAL MENHIR",
+      "objective_control": 1,
+      "save": "2+",
+      "toughness": 10,
+      "wounds": 5
+    }
+  ],
+  "name": "THE SILENT KING",
+  "pricing_confidence": {
+    "consecutive_unverified_releases": 0,
+    "last_verified_points_digest": "sha256:c5b9f3ad52b97d16c7f5f99bad438cc1238e44610f91aff16cb358498965ae88",
+    "last_verified_version": "mfm-2026-08",
+    "state": "verified"
+  },
+  "provenance": {
+    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+    "detail_edition_code": "wh40k-10e",
+    "detail_source": "wahapedia",
+    "is_hybrid_edition": true,
+    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "points_edition_code": "wh40k-11e",
+    "points_source": "mfm"
+  },
+  "role": "Characters",
+  "weapons": [
+    {
+      "armour_penetration": "-4",
+      "attacks": "1",
+      "damage": "6",
+      "is_melee": false,
+      "line": 1,
+      "name": "Annihilator beam",
+      "range": "24",
+      "skill": "2",
+      "strength": "14"
+    },
+    {
+      "armour_penetration": "-3",
+      "attacks": "2",
+      "damage": "3",
+      "is_melee": false,
+      "line": 2,
+      "name": "Sceptre of Eternal Glory",
+      "range": "24",
+      "skill": "2",
+      "strength": "10"
+    },
+    {
+      "armour_penetration": "-1",
+      "attacks": "12",
+      "damage": "1",
+      "is_melee": false,
+      "line": 3,
+      "name": "Staff of Stars",
+      "range": "24",
+      "skill": "2",
+      "strength": "6"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "1",
+      "damage": "1",
+      "is_melee": true,
+      "line": 4,
+      "name": "Armoured bulk",
+      "skill": "4",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "-3",
+      "attacks": "12",
+      "damage": "2",
+      "is_melee": true,
+      "line": 5,
+      "name": "Weapons of the Final Triarch",
+      "skill": "2",
+      "strength": "8"
+    }
+  ]
+}

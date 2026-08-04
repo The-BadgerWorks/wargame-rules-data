@@ -1,0 +1,145 @@
+{
+  "ability_keys": [
+    "datasheet:tank-hunters"
+  ],
+  "costs": [
+    {
+      "copy_index_min": 1,
+      "label": "1 model",
+      "model_count": 1,
+      "points": 100,
+      "pricing_confidence": "unverified",
+      "source_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1"
+    },
+    {
+      "copy_index_min": 1,
+      "label": "2 models",
+      "model_count": 2,
+      "points": 200,
+      "pricing_confidence": "unverified",
+      "source_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1"
+    }
+  ],
+  "datasheet_id": "ds-myphitic-blight-hauler",
+  "faction_id": "f-death-guard",
+  "is_battleline": false,
+  "is_character": false,
+  "is_dedicated_transport": false,
+  "is_epic_hero": false,
+  "is_legends": false,
+  "keywords": [
+    {
+      "is_faction_keyword": false,
+      "keyword": "Chaos"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Daemon"
+    },
+    {
+      "is_faction_keyword": true,
+      "keyword": "Death Guard"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Myphitic Blight-hauler"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Nurgle"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Smoke"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Vehicle"
+    }
+  ],
+  "models": [
+    {
+      "base_size": "80mm",
+      "invuln_save": "5",
+      "leadership": "6+",
+      "line": 1,
+      "movement": "10\"",
+      "name": "Myphitic Blight-haulers",
+      "objective_control": 3,
+      "save": "3+",
+      "toughness": 9,
+      "wounds": 10
+    }
+  ],
+  "name": "Myphitic Blight-hauler",
+  "pricing_confidence": {
+    "consecutive_unverified_releases": 1,
+    "state": "unverified",
+    "unverified_since_version": "mfm-2026-08"
+  },
+  "provenance": {
+    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+    "detail_edition_code": "wh40k-10e",
+    "detail_source": "wahapedia",
+    "is_hybrid_edition": true,
+    "points_edition_code": "wh40k-11e",
+    "points_source": "none"
+  },
+  "role": "Other",
+  "weapons": [
+    {
+      "armour_penetration": "0",
+      "attacks": "3",
+      "damage": "1",
+      "is_melee": false,
+      "line": 1,
+      "name": "Bile spurt",
+      "range": "12",
+      "skill": "3",
+      "strength": "5"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "D6",
+      "damage": "1",
+      "is_melee": false,
+      "line": 2,
+      "name": "Missile launcher – frag",
+      "range": "48",
+      "skill": "3",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "1",
+      "damage": "D6",
+      "is_melee": false,
+      "line": 3,
+      "name": "Missile launcher – krak",
+      "range": "48",
+      "skill": "3",
+      "strength": "9"
+    },
+    {
+      "armour_penetration": "-4",
+      "attacks": "2",
+      "damage": "D6",
+      "is_melee": false,
+      "line": 4,
+      "name": "Multi-melta",
+      "range": "18",
+      "skill": "3",
+      "strength": "9"
+    },
+    {
+      "armour_penetration": "-1",
+      "attacks": "4",
+      "damage": "1",
+      "is_melee": true,
+      "line": 5,
+      "name": "Gnashing maw",
+      "skill": "3",
+      "strength": "6"
+    }
+  ]
+}

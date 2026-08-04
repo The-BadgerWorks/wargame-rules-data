@@ -1,0 +1,129 @@
+{
+  "ability_keys": [
+    "datasheet:skyhunter"
+  ],
+  "costs": [
+    {
+      "copy_index_min": 1,
+      "label": "1 model",
+      "model_count": 1,
+      "points": 160,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    }
+  ],
+  "damaged_threshold": 4,
+  "datasheet_id": "ds-crimson-hunter",
+  "faction_id": "f-aeldari",
+  "is_battleline": false,
+  "is_character": false,
+  "is_dedicated_transport": false,
+  "is_epic_hero": false,
+  "is_legends": false,
+  "keywords": [
+    {
+      "is_faction_keyword": false,
+      "keyword": "Aeldari"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Aircraft"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Aspect Warrior"
+    },
+    {
+      "is_faction_keyword": true,
+      "keyword": "Asuryani"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Crimson Hunter"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Fly"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Vehicle"
+    }
+  ],
+  "models": [
+    {
+      "base_size": "120 x 92mm flying base",
+      "invuln_save": "5",
+      "leadership": "6+",
+      "line": 1,
+      "movement": "20+\"",
+      "name": "Crimson Hunter",
+      "objective_control": 0,
+      "save": "3+",
+      "toughness": 8,
+      "wounds": 12
+    }
+  ],
+  "name": "CRIMSON HUNTER",
+  "pricing_confidence": {
+    "consecutive_unverified_releases": 0,
+    "last_verified_points_digest": "sha256:737a28b1ae11352979200c01aa0693a1a479a14bbe7ee6575fbd65aa6cf8cdf0",
+    "last_verified_version": "mfm-2026-08",
+    "state": "verified"
+  },
+  "provenance": {
+    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+    "detail_edition_code": "wh40k-10e",
+    "detail_source": "wahapedia",
+    "is_hybrid_edition": true,
+    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "points_edition_code": "wh40k-11e",
+    "points_source": "mfm"
+  },
+  "role": "Other",
+  "weapons": [
+    {
+      "armour_penetration": "-3",
+      "attacks": "1",
+      "damage": "D6+2",
+      "is_melee": false,
+      "line": 1,
+      "name": "Bright lance",
+      "range": "36",
+      "skill": "3",
+      "strength": "12"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "3",
+      "damage": "D6",
+      "is_melee": false,
+      "line": 2,
+      "name": "Pulse laser",
+      "range": "48",
+      "skill": "3",
+      "strength": "9"
+    },
+    {
+      "armour_penetration": "-3",
+      "attacks": "2",
+      "damage": "2",
+      "is_melee": false,
+      "line": 3,
+      "name": "Starcannon",
+      "range": "36",
+      "skill": "3",
+      "strength": "8"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "3",
+      "damage": "1",
+      "is_melee": true,
+      "line": 4,
+      "name": "Wraithbone hull",
+      "skill": "4",
+      "strength": "6"
+    }
+  ]
+}

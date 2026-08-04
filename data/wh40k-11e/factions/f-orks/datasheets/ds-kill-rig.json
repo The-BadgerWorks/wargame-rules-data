@@ -1,0 +1,145 @@
+{
+  "ability_keys": [
+    "datasheet:snagged",
+    "datasheet:spirit-of-gork-psychic"
+  ],
+  "costs": [
+    {
+      "copy_index_min": 1,
+      "label": "1 model",
+      "model_count": 1,
+      "points": 145,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    }
+  ],
+  "damaged_threshold": 5,
+  "datasheet_id": "ds-kill-rig",
+  "faction_id": "f-orks",
+  "is_battleline": false,
+  "is_character": false,
+  "is_dedicated_transport": false,
+  "is_epic_hero": false,
+  "is_legends": false,
+  "keywords": [
+    {
+      "is_faction_keyword": false,
+      "keyword": "Beast Snagga"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Kill Rig"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Monster"
+    },
+    {
+      "is_faction_keyword": true,
+      "keyword": "Orks"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Psyker"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Transport"
+    }
+  ],
+  "models": [
+    {
+      "base_size": "170 x 109mm",
+      "leadership": "7+",
+      "line": 1,
+      "movement": "10\"",
+      "name": "Kill Rig",
+      "objective_control": 5,
+      "save": "3+",
+      "toughness": 10,
+      "wounds": 16
+    }
+  ],
+  "name": "KILL RIG",
+  "pricing_confidence": {
+    "consecutive_unverified_releases": 0,
+    "last_verified_points_digest": "sha256:033f9ec170f72da3b42eb882a95f790187feba1a7204977598f0cbd902ec648b",
+    "last_verified_version": "mfm-2026-08",
+    "state": "verified"
+  },
+  "provenance": {
+    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+    "detail_edition_code": "wh40k-10e",
+    "detail_source": "wahapedia",
+    "is_hybrid_edition": true,
+    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "points_edition_code": "wh40k-11e",
+    "points_source": "mfm"
+  },
+  "role": "Other",
+  "weapons": [
+    {
+      "armour_penetration": "0",
+      "attacks": "D6",
+      "damage": "2",
+      "is_melee": false,
+      "line": 1,
+      "name": "’Eavy lobba",
+      "range": "48",
+      "skill": "5",
+      "strength": "6"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "1",
+      "damage": "3",
+      "is_melee": false,
+      "line": 2,
+      "name": "Stikka kannon",
+      "range": "12",
+      "skill": "5",
+      "strength": "12"
+    },
+    {
+      "armour_penetration": "-3",
+      "attacks": "D3",
+      "damage": "D6",
+      "is_melee": false,
+      "line": 3,
+      "name": "Wurrtower",
+      "range": "24",
+      "skill": "N/A",
+      "strength": "12"
+    },
+    {
+      "armour_penetration": "-1",
+      "attacks": "4",
+      "damage": "1",
+      "is_melee": true,
+      "line": 4,
+      "name": "Butcha boyz",
+      "skill": "3",
+      "strength": "5"
+    },
+    {
+      "armour_penetration": "-1",
+      "attacks": "4",
+      "damage": "3",
+      "is_melee": true,
+      "line": 5,
+      "name": "Savage horns and hooves",
+      "skill": "4",
+      "strength": "8"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "6",
+      "damage": "2",
+      "is_melee": true,
+      "line": 6,
+      "name": "Saw blades",
+      "skill": "3",
+      "strength": "10"
+    }
+  ]
+}

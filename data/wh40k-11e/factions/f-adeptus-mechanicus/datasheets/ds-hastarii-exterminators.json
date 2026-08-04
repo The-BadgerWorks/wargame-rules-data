@@ -1,0 +1,143 @@
+{
+  "ability_keys": [
+    "datasheet:attached-unit",
+    "datasheet:broad-spectrum-targeting-augurs"
+  ],
+  "costs": [
+    {
+      "copy_index_min": 1,
+      "label": "5 models",
+      "model_count": 5,
+      "points": 105,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    },
+    {
+      "copy_index_min": 3,
+      "label": "5 models",
+      "model_count": 5,
+      "points": 120,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    }
+  ],
+  "datasheet_id": "ds-hastarii-exterminators",
+  "faction_id": "f-adeptus-mechanicus",
+  "is_battleline": false,
+  "is_character": false,
+  "is_dedicated_transport": false,
+  "is_epic_hero": false,
+  "is_legends": false,
+  "keywords": [
+    {
+      "is_faction_keyword": true,
+      "keyword": "Adeptus Mechanicus"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Exterminators"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Hastarii"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Imperium"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Infantry"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Skitarii"
+    }
+  ],
+  "models": [
+    {
+      "base_size": "32mm",
+      "invuln_save": "5",
+      "leadership": "7+",
+      "line": 1,
+      "movement": "5\"",
+      "name": "Hastarii Exterminators",
+      "objective_control": 1,
+      "save": "3+",
+      "toughness": 4,
+      "wounds": 2
+    }
+  ],
+  "name": "HASTARII EXTERMINATORS",
+  "pricing_confidence": {
+    "consecutive_unverified_releases": 0,
+    "last_verified_points_digest": "sha256:6e797607ae0c7140b1a4b9fc4e162f8e0279aee40dcd42284782450b2b39b435",
+    "last_verified_version": "mfm-2026-08",
+    "state": "verified"
+  },
+  "provenance": {
+    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+    "detail_edition_code": "wh40k-10e",
+    "detail_source": "wahapedia",
+    "is_hybrid_edition": true,
+    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "points_edition_code": "wh40k-11e",
+    "points_source": "mfm"
+  },
+  "role": "Other",
+  "weapons": [
+    {
+      "armour_penetration": "-1",
+      "attacks": "1",
+      "damage": "2",
+      "is_melee": false,
+      "line": 1,
+      "name": "Hastarii arc blaster",
+      "range": "18",
+      "skill": "4",
+      "strength": "6"
+    },
+    {
+      "armour_penetration": "-1",
+      "attacks": "2",
+      "damage": "2",
+      "is_melee": false,
+      "line": 2,
+      "name": "Eradication caster – dissipated",
+      "range": "30",
+      "skill": "4",
+      "strength": "5"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "2",
+      "damage": "2",
+      "is_melee": false,
+      "line": 3,
+      "name": "Eradication caster – focused",
+      "range": "15",
+      "skill": "4",
+      "strength": "5"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "1",
+      "damage": "1",
+      "is_melee": true,
+      "line": 4,
+      "name": "Close-combat weapon",
+      "skill": "4",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "2",
+      "damage": "1",
+      "is_melee": true,
+      "line": 5,
+      "name": "Power weapon",
+      "skill": "4",
+      "strength": "5"
+    }
+  ]
+}

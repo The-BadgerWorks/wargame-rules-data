@@ -1,0 +1,167 @@
+{
+  "ability_keys": [
+    "datasheet:atrapos-duty-bondsman",
+    "datasheet:macro-extinction-protocols"
+  ],
+  "costs": [
+    {
+      "copy_index_min": 1,
+      "label": "1 model",
+      "model_count": 1,
+      "points": 405,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    },
+    {
+      "copy_index_min": 2,
+      "label": "1 model",
+      "model_count": 1,
+      "points": 425,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    }
+  ],
+  "damaged_threshold": 10,
+  "datasheet_id": "ds-cerastus-knight-atrapos",
+  "faction_id": "f-imperial-knights",
+  "is_battleline": false,
+  "is_character": true,
+  "is_dedicated_transport": false,
+  "is_epic_hero": false,
+  "is_legends": false,
+  "keywords": [
+    {
+      "is_faction_keyword": false,
+      "keyword": "Cerastus"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Character"
+    },
+    {
+      "is_faction_keyword": true,
+      "keyword": "Imperial Knights"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Imperium"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Knight Atrapos"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Titanic"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Towering"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Vehicle"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Walker"
+    }
+  ],
+  "models": [
+    {
+      "base_size": "170 x 109mm",
+      "invuln_save": "5",
+      "leadership": "6+",
+      "line": 1,
+      "movement": "12\"",
+      "name": "Cerastus Knight Atrapos",
+      "objective_control": 10,
+      "save": "3+",
+      "toughness": 11,
+      "wounds": 28
+    }
+  ],
+  "name": "CERASTUS KNIGHT ATRAPOS",
+  "pricing_confidence": {
+    "consecutive_unverified_releases": 0,
+    "last_verified_points_digest": "sha256:32f0906d4875745b99481b4bb5fbaa2e93393efa8a80d1b23c7908c920a45a42",
+    "last_verified_version": "mfm-2026-08",
+    "state": "verified"
+  },
+  "provenance": {
+    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+    "detail_edition_code": "wh40k-10e",
+    "detail_source": "wahapedia",
+    "is_hybrid_edition": true,
+    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "points_edition_code": "wh40k-11e",
+    "points_source": "mfm"
+  },
+  "role": "Characters",
+  "weapons": [
+    {
+      "armour_penetration": "-1",
+      "attacks": "2D6",
+      "damage": "2",
+      "is_melee": false,
+      "line": 1,
+      "name": "Atrapos lascutter – low intensity",
+      "range": "36",
+      "skill": "3",
+      "strength": "7"
+    },
+    {
+      "armour_penetration": "-3",
+      "attacks": "D6",
+      "damage": "4",
+      "is_melee": false,
+      "line": 2,
+      "name": "Atrapos lascutter – high intensity",
+      "range": "24",
+      "skill": "3",
+      "strength": "14"
+    },
+    {
+      "armour_penetration": "-4",
+      "attacks": "D3",
+      "damage": "D6+1",
+      "is_melee": false,
+      "line": 3,
+      "name": "Graviton singularity cannon – contained",
+      "range": "24",
+      "skill": "3",
+      "strength": "16"
+    },
+    {
+      "armour_penetration": "-4",
+      "attacks": "D3",
+      "damage": "D6+1",
+      "is_melee": false,
+      "line": 4,
+      "name": "Graviton singularity cannon – singularity",
+      "range": "24",
+      "skill": "3",
+      "strength": "16"
+    },
+    {
+      "armour_penetration": "-1",
+      "attacks": "12",
+      "damage": "2",
+      "is_melee": true,
+      "line": 5,
+      "name": "Atrapos lascutter – low intensity",
+      "skill": "3",
+      "strength": "7"
+    },
+    {
+      "armour_penetration": "-3",
+      "attacks": "6",
+      "damage": "4",
+      "is_melee": true,
+      "line": 6,
+      "name": "Atrapos lascutter – high intensity",
+      "skill": "3",
+      "strength": "14"
+    }
+  ]
+}

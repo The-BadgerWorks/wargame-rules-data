@@ -1,0 +1,26 @@
+{
+  "edition": {
+    "code": "wh40k-11e",
+    "display_order": 1,
+    "id": "ed-wh40k-11e",
+    "name": "Warhammer 40,000 11th Edition"
+  },
+  "edition_rules": [
+    {
+      "rule_key": "enhancement_limit_per_army",
+      "value": 3
+    },
+    {
+      "rule_key": "legends_allowed_by_default",
+      "value": false
+    },
+    {
+      "rule_key": "max_detachment_repeats",
+      "value": 1
+    },
+    {
+      "rule_key": "warlord_required",
+      "value": true
+    }
+  ]
+}

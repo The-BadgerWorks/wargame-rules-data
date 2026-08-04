@@ -1,0 +1,97 @@
+{
+  "ability_keys": [
+    "datasheet:serpentine-fiend",
+    "datasheet:subterranean-hunter",
+    "datasheet:swallow-whole"
+  ],
+  "costs": [
+    {
+      "copy_index_min": 1,
+      "label": "1 model",
+      "model_count": 1,
+      "points": 130,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    }
+  ],
+  "datasheet_id": "ds-the-red-terror",
+  "faction_id": "f-tyranids",
+  "is_battleline": false,
+  "is_character": true,
+  "is_dedicated_transport": false,
+  "is_epic_hero": true,
+  "is_legends": false,
+  "keywords": [
+    {
+      "is_faction_keyword": false,
+      "keyword": "Burrower"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Character"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Epic Hero"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Great Devourer"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Monster"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "The Red Terror"
+    },
+    {
+      "is_faction_keyword": true,
+      "keyword": "Tyranids"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Vanguard Invader"
+    }
+  ],
+  "name": "THE RED TERROR",
+  "pricing_confidence": {
+    "consecutive_unverified_releases": 0,
+    "last_verified_points_digest": "sha256:258e0e76a7bd79b893fdb17291222e7b8ecb9af7c066b0356efd63f36877ee15",
+    "last_verified_version": "mfm-2026-08",
+    "state": "verified"
+  },
+  "provenance": {
+    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+    "detail_edition_code": "wh40k-10e",
+    "detail_source": "wahapedia",
+    "is_hybrid_edition": true,
+    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "points_edition_code": "wh40k-11e",
+    "points_source": "mfm"
+  },
+  "role": "Characters",
+  "weapons": [
+    {
+      "armour_penetration": "-",
+      "attacks": "1",
+      "damage": "D3+2",
+      "is_melee": true,
+      "line": 1,
+      "name": "Gaping maw",
+      "skill": "2",
+      "strength": "5"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "12",
+      "damage": "2",
+      "is_melee": true,
+      "line": 2,
+      "name": "Scything talons",
+      "skill": "2",
+      "strength": "7"
+    }
+  ]
+}

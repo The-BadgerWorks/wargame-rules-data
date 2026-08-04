@@ -1,0 +1,160 @@
+{
+  "ability_keys": [
+    "datasheet:strafing-run"
+  ],
+  "costs": [
+    {
+      "copy_index_min": 1,
+      "label": "1 model",
+      "model_count": 1,
+      "points": 165,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    }
+  ],
+  "datasheet_id": "ds-stormtalon-gunship-3",
+  "faction_id": "f-dark-angels",
+  "is_battleline": false,
+  "is_character": false,
+  "is_dedicated_transport": false,
+  "is_epic_hero": false,
+  "is_legends": false,
+  "keywords": [
+    {
+      "is_faction_keyword": true,
+      "keyword": "Adeptus Astartes"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Aircraft"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Fly"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Imperium"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Ravenwing"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Stormtalon Gunship"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Vehicle"
+    }
+  ],
+  "models": [
+    {
+      "base_size": "120 x 92mm flying base",
+      "leadership": "6+",
+      "line": 1,
+      "movement": "20+\"",
+      "name": "Stormtalon Gunship",
+      "objective_control": 0,
+      "save": "3+",
+      "toughness": 8,
+      "wounds": 10
+    }
+  ],
+  "name": "STORMTALON GUNSHIP",
+  "pricing_confidence": {
+    "consecutive_unverified_releases": 0,
+    "last_verified_points_digest": "sha256:312359416914a4720d7fdba74eec88461fda35db5ca08e8633772df2d4fa8c67",
+    "last_verified_version": "mfm-2026-08",
+    "state": "verified"
+  },
+  "provenance": {
+    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+    "detail_edition_code": "wh40k-10e",
+    "detail_source": "wahapedia",
+    "is_hybrid_edition": true,
+    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "points_edition_code": "wh40k-11e",
+    "points_source": "mfm"
+  },
+  "role": "Other",
+  "weapons": [
+    {
+      "armour_penetration": "-1",
+      "attacks": "3",
+      "damage": "D3",
+      "is_melee": false,
+      "line": 1,
+      "name": "Skyhammer missile launcher",
+      "range": "48",
+      "skill": "3",
+      "strength": "8"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "6",
+      "damage": "1",
+      "is_melee": false,
+      "line": 2,
+      "name": "Twin assault cannon",
+      "range": "24",
+      "skill": "3",
+      "strength": "6"
+    },
+    {
+      "armour_penetration": "-1",
+      "attacks": "3",
+      "damage": "2",
+      "is_melee": false,
+      "line": 3,
+      "name": "Twin heavy bolter",
+      "range": "36",
+      "skill": "3",
+      "strength": "5"
+    },
+    {
+      "armour_penetration": "-3",
+      "attacks": "1",
+      "damage": "D6+1",
+      "is_melee": false,
+      "line": 4,
+      "name": "Twin lascannon",
+      "range": "48",
+      "skill": "3",
+      "strength": "12"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "2D6",
+      "damage": "1",
+      "is_melee": false,
+      "line": 5,
+      "name": "Typhoon missile launcher – frag",
+      "range": "48",
+      "skill": "3",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "2",
+      "damage": "D6",
+      "is_melee": false,
+      "line": 6,
+      "name": "Typhoon missile launcher – krak",
+      "range": "48",
+      "skill": "3",
+      "strength": "9"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "3",
+      "damage": "1",
+      "is_melee": true,
+      "line": 7,
+      "name": "Armoured hull",
+      "skill": "4",
+      "strength": "6"
+    }
+  ]
+}

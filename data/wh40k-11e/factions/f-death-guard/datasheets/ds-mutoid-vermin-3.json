@@ -1,0 +1,76 @@
+{
+  "ability_keys": [
+    "datasheet:mischief-makers-aura"
+  ],
+  "costs": [
+    {
+      "copy_index_min": 1,
+      "label": "16 models",
+      "model_count": 16,
+      "points": 85,
+      "pricing_confidence": "unverified",
+      "source_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1"
+    }
+  ],
+  "datasheet_id": "ds-mutoid-vermin-3",
+  "faction_id": "f-death-guard",
+  "is_battleline": false,
+  "is_character": false,
+  "is_dedicated_transport": false,
+  "is_epic_hero": false,
+  "is_legends": true,
+  "keywords": [
+    {
+      "is_faction_keyword": false,
+      "keyword": "Chaos"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Damned"
+    },
+    {
+      "is_faction_keyword": true,
+      "keyword": "Death Guard"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Mutoid Vermin"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Nurgle"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Swarm"
+    }
+  ],
+  "models": [
+    {
+      "base_size": "25mm",
+      "leadership": "8+",
+      "line": 1,
+      "movement": "8\"",
+      "name": "Mutoid Vermin",
+      "objective_control": 0,
+      "save": "7+",
+      "toughness": 2,
+      "wounds": 1
+    }
+  ],
+  "name": "Mutoid Vermin",
+  "pricing_confidence": {
+    "consecutive_unverified_releases": 1,
+    "state": "unverified",
+    "unverified_since_version": "mfm-2026-08"
+  },
+  "provenance": {
+    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+    "detail_edition_code": "wh40k-10e",
+    "detail_source": "wahapedia",
+    "is_hybrid_edition": true,
+    "points_edition_code": "wh40k-11e",
+    "points_source": "none"
+  },
+  "role": "Other"
+}

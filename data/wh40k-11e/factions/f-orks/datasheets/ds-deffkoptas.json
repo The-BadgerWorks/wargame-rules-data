@@ -1,0 +1,132 @@
+{
+  "ability_keys": [
+    "datasheet:deff-from-above"
+  ],
+  "costs": [
+    {
+      "copy_index_min": 1,
+      "label": "3 models",
+      "model_count": 3,
+      "points": 75,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    },
+    {
+      "copy_index_min": 1,
+      "label": "6 models",
+      "model_count": 6,
+      "points": 140,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    }
+  ],
+  "datasheet_id": "ds-deffkoptas",
+  "faction_id": "f-orks",
+  "is_battleline": false,
+  "is_character": false,
+  "is_dedicated_transport": false,
+  "is_epic_hero": false,
+  "is_legends": false,
+  "keywords": [
+    {
+      "is_faction_keyword": false,
+      "keyword": "Deffkoptas"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Fly"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Grenades"
+    },
+    {
+      "is_faction_keyword": true,
+      "keyword": "Orks"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Speed Freeks"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Vehicle"
+    }
+  ],
+  "models": [
+    {
+      "base_size": "75 x 42mm",
+      "invuln_save": "6",
+      "leadership": "7+",
+      "line": 1,
+      "movement": "12\"",
+      "name": "Deffkoptas",
+      "objective_control": 2,
+      "save": "4+",
+      "toughness": 6,
+      "wounds": 4
+    }
+  ],
+  "name": "DEFFKOPTAS",
+  "pricing_confidence": {
+    "consecutive_unverified_releases": 0,
+    "last_verified_points_digest": "sha256:e018e21324c4d44d75bb23738f17eaee3fbf85c3f62ddd8ad68f384834abcddc",
+    "last_verified_version": "mfm-2026-08",
+    "state": "verified"
+  },
+  "provenance": {
+    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+    "detail_edition_code": "wh40k-10e",
+    "detail_source": "wahapedia",
+    "is_hybrid_edition": true,
+    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "points_edition_code": "wh40k-11e",
+    "points_source": "mfm"
+  },
+  "role": "Other",
+  "weapons": [
+    {
+      "armour_penetration": "-2",
+      "attacks": "D3",
+      "damage": "3",
+      "is_melee": false,
+      "line": 1,
+      "name": "Kopta rokkits",
+      "range": "24",
+      "skill": "5",
+      "strength": "9"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "3",
+      "damage": "D6",
+      "is_melee": false,
+      "line": 2,
+      "name": "Kustom mega-blasta",
+      "range": "24",
+      "skill": "5",
+      "strength": "9"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "1",
+      "damage": "1",
+      "is_melee": false,
+      "line": 3,
+      "name": "Slugga",
+      "range": "12",
+      "skill": "5",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "6",
+      "damage": "1",
+      "is_melee": true,
+      "line": 4,
+      "name": "Spinnin’ blades",
+      "skill": "3",
+      "strength": "5"
+    }
+  ]
+}

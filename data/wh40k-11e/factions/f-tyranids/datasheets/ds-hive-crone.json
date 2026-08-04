@@ -1,0 +1,138 @@
+{
+  "ability_keys": [
+    "datasheet:airborne-predator"
+  ],
+  "costs": [
+    {
+      "copy_index_min": 1,
+      "label": "1 model",
+      "model_count": 1,
+      "points": 170,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    }
+  ],
+  "damaged_threshold": 4,
+  "datasheet_id": "ds-hive-crone",
+  "faction_id": "f-tyranids",
+  "is_battleline": false,
+  "is_character": false,
+  "is_dedicated_transport": false,
+  "is_epic_hero": false,
+  "is_legends": false,
+  "keywords": [
+    {
+      "is_faction_keyword": false,
+      "keyword": "Aircraft"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Fly"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Great Devourer"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Hive Crone"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Monster"
+    },
+    {
+      "is_faction_keyword": true,
+      "keyword": "Tyranids"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Vanguard Invader"
+    }
+  ],
+  "models": [
+    {
+      "base_size": "120 x 92mm flying base",
+      "leadership": "8+",
+      "line": 1,
+      "movement": "20+\"",
+      "name": "Hive Crone",
+      "objective_control": 0,
+      "save": "3+",
+      "toughness": 9,
+      "wounds": 12
+    }
+  ],
+  "name": "HIVE CRONE",
+  "pricing_confidence": {
+    "consecutive_unverified_releases": 0,
+    "last_verified_points_digest": "sha256:279a8cc4bd646e9b2380858c3231c48ee8aef295ed0d4d28e047c1987cb564e1",
+    "last_verified_version": "mfm-2026-08",
+    "state": "verified"
+  },
+  "provenance": {
+    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+    "detail_edition_code": "wh40k-10e",
+    "detail_source": "wahapedia",
+    "is_hybrid_edition": true,
+    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "points_edition_code": "wh40k-11e",
+    "points_source": "mfm"
+  },
+  "role": "Other",
+  "weapons": [
+    {
+      "armour_penetration": "-1",
+      "attacks": "2D6",
+      "damage": "1",
+      "is_melee": false,
+      "line": 1,
+      "name": "Drool cannon",
+      "range": "12",
+      "skill": "N/A",
+      "strength": "6"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "8",
+      "damage": "1",
+      "is_melee": false,
+      "line": 2,
+      "name": "Stinger salvoes",
+      "range": "24",
+      "skill": "3",
+      "strength": "5"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "4",
+      "damage": "2",
+      "is_melee": false,
+      "line": 3,
+      "name": "Tentaclids",
+      "range": "36",
+      "skill": "3",
+      "strength": "7"
+    },
+    {
+      "armour_penetration": "-1",
+      "attacks": "4",
+      "damage": "2",
+      "is_melee": true,
+      "line": 4,
+      "name": "Scything wings",
+      "skill": "4",
+      "strength": "7"
+    },
+    {
+      "armour_penetration": "-3",
+      "attacks": "1",
+      "damage": "D6",
+      "is_melee": true,
+      "line": 5,
+      "name": "Thorax spur",
+      "skill": "3",
+      "strength": "10"
+    }
+  ]
+}

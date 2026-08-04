@@ -1,0 +1,107 @@
+{
+  "ability_keys": [
+    "datasheet:plasmacyte",
+    "datasheet:whirling-onslaught"
+  ],
+  "costs": [
+    {
+      "copy_index_min": 1,
+      "label": "3 models",
+      "model_count": 3,
+      "points": 85,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    },
+    {
+      "copy_index_min": 1,
+      "label": "6 models",
+      "model_count": 6,
+      "points": 170,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    },
+    {
+      "copy_index_min": 3,
+      "label": "3 models",
+      "model_count": 3,
+      "points": 95,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    },
+    {
+      "copy_index_min": 3,
+      "label": "6 models",
+      "model_count": 6,
+      "points": 180,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    }
+  ],
+  "datasheet_id": "ds-skorpekh-destroyers",
+  "faction_id": "f-necrons",
+  "is_battleline": false,
+  "is_character": false,
+  "is_dedicated_transport": false,
+  "is_epic_hero": false,
+  "is_legends": false,
+  "keywords": [
+    {
+      "is_faction_keyword": false,
+      "keyword": "Destroyer Cult"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Infantry"
+    },
+    {
+      "is_faction_keyword": true,
+      "keyword": "Necrons"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Skorpekh Destroyers"
+    }
+  ],
+  "models": [
+    {
+      "base_size": "50mm",
+      "leadership": "7+",
+      "line": 1,
+      "movement": "8\"",
+      "name": "Skorpekh Destroyers",
+      "objective_control": 2,
+      "save": "3+",
+      "toughness": 6,
+      "wounds": 3
+    }
+  ],
+  "name": "SKORPEKH DESTROYERS",
+  "pricing_confidence": {
+    "consecutive_unverified_releases": 0,
+    "last_verified_points_digest": "sha256:283f987db1dd35c4fe71464fb41aec873b9b3508b997df0f89944b23f17a3d3b",
+    "last_verified_version": "mfm-2026-08",
+    "state": "verified"
+  },
+  "provenance": {
+    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+    "detail_edition_code": "wh40k-10e",
+    "detail_source": "wahapedia",
+    "is_hybrid_edition": true,
+    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "points_edition_code": "wh40k-11e",
+    "points_source": "mfm"
+  },
+  "role": "Other",
+  "weapons": [
+    {
+      "armour_penetration": "-2",
+      "attacks": "4",
+      "damage": "2",
+      "is_melee": true,
+      "line": 1,
+      "name": "Skorpekh hyperphase weapons",
+      "skill": "3",
+      "strength": "7"
+    }
+  ]
+}

@@ -1,0 +1,127 @@
+{
+  "ability_keys": [
+    "datasheet:brood-progenitor-aura-psychic",
+    "datasheet:spawn-termagants"
+  ],
+  "costs": [
+    {
+      "copy_index_min": 1,
+      "label": "1 model",
+      "model_count": 1,
+      "points": 160,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    }
+  ],
+  "damaged_threshold": 5,
+  "datasheet_id": "ds-tervigon",
+  "faction_id": "f-tyranids",
+  "is_battleline": false,
+  "is_character": true,
+  "is_dedicated_transport": false,
+  "is_epic_hero": false,
+  "is_legends": false,
+  "keywords": [
+    {
+      "is_faction_keyword": false,
+      "keyword": "Character"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Great Devourer"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Monster"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Psyker"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Synapse"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Tervigon"
+    },
+    {
+      "is_faction_keyword": true,
+      "keyword": "Tyranids"
+    }
+  ],
+  "models": [
+    {
+      "base_size": "120 x 92mm",
+      "leadership": "7+",
+      "line": 1,
+      "movement": "8\"",
+      "name": "Tervigon",
+      "objective_control": 5,
+      "save": "2+",
+      "toughness": 11,
+      "wounds": 16
+    }
+  ],
+  "name": "TERVIGON",
+  "pricing_confidence": {
+    "consecutive_unverified_releases": 0,
+    "last_verified_points_digest": "sha256:737a28b1ae11352979200c01aa0693a1a479a14bbe7ee6575fbd65aa6cf8cdf0",
+    "last_verified_version": "mfm-2026-08",
+    "state": "verified"
+  },
+  "provenance": {
+    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+    "detail_edition_code": "wh40k-10e",
+    "detail_source": "wahapedia",
+    "is_hybrid_edition": true,
+    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "points_edition_code": "wh40k-11e",
+    "points_source": "mfm"
+  },
+  "role": "Characters",
+  "weapons": [
+    {
+      "armour_penetration": "0",
+      "attacks": "8",
+      "damage": "1",
+      "is_melee": false,
+      "line": 1,
+      "name": "Stinger salvoes",
+      "range": "24",
+      "skill": "3",
+      "strength": "5"
+    },
+    {
+      "armour_penetration": "-3",
+      "attacks": "4",
+      "damage": "D6+1",
+      "is_melee": true,
+      "line": 2,
+      "name": "Massive crushing claws",
+      "skill": "4",
+      "strength": "12"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "4",
+      "damage": "D6",
+      "is_melee": true,
+      "line": 3,
+      "name": "Massive scything talons – strike",
+      "skill": "3",
+      "strength": "9"
+    },
+    {
+      "armour_penetration": "-1",
+      "attacks": "8",
+      "damage": "2",
+      "is_melee": true,
+      "line": 4,
+      "name": "Massive scything talons – sweep",
+      "skill": "3",
+      "strength": "7"
+    }
+  ]
+}

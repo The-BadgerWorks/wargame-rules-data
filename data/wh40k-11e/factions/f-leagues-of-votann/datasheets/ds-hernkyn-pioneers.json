@@ -1,0 +1,172 @@
+{
+  "ability_keys": [
+    "datasheet:multiwave-comms-array",
+    "datasheet:outflanking-mag-riders",
+    "datasheet:panspectral-scanner",
+    "datasheet:rollbar-searchlight"
+  ],
+  "costs": [
+    {
+      "copy_index_min": 1,
+      "label": "3 models",
+      "model_count": 3,
+      "points": 80,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    },
+    {
+      "copy_index_min": 1,
+      "label": "6 models",
+      "model_count": 6,
+      "points": 160,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    },
+    {
+      "copy_index_min": 3,
+      "label": "3 models",
+      "model_count": 3,
+      "points": 90,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    },
+    {
+      "copy_index_min": 3,
+      "label": "6 models",
+      "model_count": 6,
+      "points": 170,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    }
+  ],
+  "datasheet_id": "ds-hernkyn-pioneers",
+  "faction_id": "f-leagues-of-votann",
+  "is_battleline": false,
+  "is_character": false,
+  "is_dedicated_transport": false,
+  "is_epic_hero": false,
+  "is_legends": false,
+  "keywords": [
+    {
+      "is_faction_keyword": false,
+      "keyword": "Fly"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Grenades"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Hernkyn"
+    },
+    {
+      "is_faction_keyword": true,
+      "keyword": "Leagues of Votann"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Mounted"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Pioneers"
+    }
+  ],
+  "models": [
+    {
+      "base_size": "90 x 52mm",
+      "leadership": "7+",
+      "line": 1,
+      "movement": "12\"",
+      "name": "Hernkyn Pioneers",
+      "objective_control": 2,
+      "save": "4+",
+      "toughness": 6,
+      "wounds": 3
+    }
+  ],
+  "name": "HERNKYN PIONEERS",
+  "pricing_confidence": {
+    "consecutive_unverified_releases": 0,
+    "last_verified_points_digest": "sha256:b29ff5bf98e062c83111279cd8739e5b6e8393b84ca4775e8bf886cfdf6dc50c",
+    "last_verified_version": "mfm-2026-08",
+    "state": "verified"
+  },
+  "provenance": {
+    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+    "detail_edition_code": "wh40k-10e",
+    "detail_source": "wahapedia",
+    "is_hybrid_edition": true,
+    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "points_edition_code": "wh40k-11e",
+    "points_source": "mfm"
+  },
+  "role": "Other",
+  "weapons": [
+    {
+      "armour_penetration": "0",
+      "attacks": "1",
+      "damage": "1",
+      "is_melee": false,
+      "line": 1,
+      "name": "Bolt revolver",
+      "range": "12",
+      "skill": "4",
+      "strength": "5"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "2",
+      "damage": "1",
+      "is_melee": false,
+      "line": 2,
+      "name": "Bolt shotgun",
+      "range": "18",
+      "skill": "4",
+      "strength": "5"
+    },
+    {
+      "armour_penetration": "-1",
+      "attacks": "6",
+      "damage": "1",
+      "is_melee": false,
+      "line": 3,
+      "name": "HYLas rotary cannon",
+      "range": "24",
+      "skill": "4",
+      "strength": "6"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "D3+1",
+      "damage": "1",
+      "is_melee": false,
+      "line": 4,
+      "name": "Ion beamer",
+      "range": "18",
+      "skill": "4",
+      "strength": "8"
+    },
+    {
+      "armour_penetration": "-1",
+      "attacks": "3",
+      "damage": "2",
+      "is_melee": false,
+      "line": 5,
+      "name": "Magna-coil autocannon",
+      "range": "24",
+      "skill": "4",
+      "strength": "7"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "2",
+      "damage": "1",
+      "is_melee": true,
+      "line": 6,
+      "name": "Plasma knife",
+      "skill": "4",
+      "strength": "4"
+    }
+  ]
+}

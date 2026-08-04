@@ -1,0 +1,120 @@
+{
+  "ability_keys": [
+    "datasheet:guiding-hand",
+    "datasheet:voice-of-experience"
+  ],
+  "costs": [
+    {
+      "copy_index_min": 1,
+      "label": "1 model",
+      "model_count": 1,
+      "points": 70,
+      "pricing_confidence": "unverified",
+      "source_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1"
+    }
+  ],
+  "datasheet_id": "ds-sergeant-telion",
+  "faction_id": "f-space-marines",
+  "is_battleline": false,
+  "is_character": true,
+  "is_dedicated_transport": false,
+  "is_epic_hero": true,
+  "is_legends": true,
+  "keywords": [
+    {
+      "is_faction_keyword": true,
+      "keyword": "Adeptus Astartes"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Character"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Epic Hero"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Imperium"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Infantry"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Sergeant Telion"
+    },
+    {
+      "is_faction_keyword": true,
+      "keyword": "Ultramarines"
+    }
+  ],
+  "leader_pairs": [
+    "ds-scout-sniper-squad",
+    "ds-scout-squad-5",
+    "ds-wolf-scouts-legendary"
+  ],
+  "models": [
+    {
+      "base_size": "25mm",
+      "leadership": "6+",
+      "line": 1,
+      "movement": "6\"",
+      "name": "Sergeant Telion",
+      "objective_control": 1,
+      "save": "4+",
+      "toughness": 4,
+      "wounds": 3
+    }
+  ],
+  "name": "Sergeant Telion",
+  "pricing_confidence": {
+    "consecutive_unverified_releases": 1,
+    "state": "unverified",
+    "unverified_since_version": "mfm-2026-08"
+  },
+  "provenance": {
+    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+    "detail_edition_code": "wh40k-10e",
+    "detail_source": "wahapedia",
+    "is_hybrid_edition": true,
+    "points_edition_code": "wh40k-11e",
+    "points_source": "none"
+  },
+  "role": "Characters",
+  "weapons": [
+    {
+      "armour_penetration": "0",
+      "attacks": "1",
+      "damage": "1",
+      "is_melee": false,
+      "line": 1,
+      "name": "Bolt pistol",
+      "range": "12",
+      "skill": "2",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "2",
+      "damage": "3",
+      "is_melee": false,
+      "line": 2,
+      "name": "Quietus",
+      "range": "36",
+      "skill": "2",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "4",
+      "damage": "1",
+      "is_melee": true,
+      "line": 3,
+      "name": "Combat knife",
+      "skill": "3",
+      "strength": "4"
+    }
+  ]
+}

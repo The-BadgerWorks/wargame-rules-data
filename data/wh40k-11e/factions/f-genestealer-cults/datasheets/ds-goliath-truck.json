@@ -1,0 +1,131 @@
+{
+  "ability_keys": [
+    "datasheet:fire-support"
+  ],
+  "costs": [
+    {
+      "copy_index_min": 1,
+      "label": "1 model",
+      "model_count": 1,
+      "points": 75,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    },
+    {
+      "copy_index_min": 4,
+      "label": "1 model",
+      "model_count": 1,
+      "points": 85,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    }
+  ],
+  "datasheet_id": "ds-goliath-truck",
+  "faction_id": "f-genestealer-cults",
+  "is_battleline": false,
+  "is_character": false,
+  "is_dedicated_transport": true,
+  "is_epic_hero": false,
+  "is_legends": false,
+  "keywords": [
+    {
+      "is_faction_keyword": false,
+      "keyword": "Dedicated Transport"
+    },
+    {
+      "is_faction_keyword": true,
+      "keyword": "Genestealer Cults"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Goliath Truck"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Great Devourer"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Transport"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Vehicle"
+    }
+  ],
+  "models": [
+    {
+      "base_size": "Use model",
+      "leadership": "7+",
+      "line": 1,
+      "movement": "12\"",
+      "name": "Goliath Truck",
+      "objective_control": 2,
+      "save": "3+",
+      "toughness": 9,
+      "wounds": 10
+    }
+  ],
+  "name": "GOLIATH TRUCK",
+  "pricing_confidence": {
+    "consecutive_unverified_releases": 0,
+    "last_verified_points_digest": "sha256:f2a1e4cc316a66b8fb2c962cc9a31d758ca6c281644afd90eb70006e567ce182",
+    "last_verified_version": "mfm-2026-08",
+    "state": "verified"
+  },
+  "provenance": {
+    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+    "detail_edition_code": "wh40k-10e",
+    "detail_source": "wahapedia",
+    "is_hybrid_edition": true,
+    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "points_edition_code": "wh40k-11e",
+    "points_source": "mfm"
+  },
+  "role": "Dedicated Transports",
+  "weapons": [
+    {
+      "armour_penetration": "-2",
+      "attacks": "D6",
+      "damage": "2",
+      "is_melee": false,
+      "line": 1,
+      "name": "Demolition charge cache",
+      "range": "8",
+      "skill": "5",
+      "strength": "9"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "3",
+      "damage": "1",
+      "is_melee": false,
+      "line": 2,
+      "name": "Heavy stubber",
+      "range": "36",
+      "skill": "4",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "-1",
+      "attacks": "2",
+      "damage": "3",
+      "is_melee": false,
+      "line": 3,
+      "name": "Twin autocannon",
+      "range": "48",
+      "skill": "4",
+      "strength": "9"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "3",
+      "damage": "1",
+      "is_melee": true,
+      "line": 4,
+      "name": "Armoured hull",
+      "skill": "4",
+      "strength": "6"
+    }
+  ]
+}

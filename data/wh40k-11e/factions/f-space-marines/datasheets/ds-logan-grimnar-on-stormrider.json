@@ -1,0 +1,133 @@
+{
+  "ability_keys": [
+    "datasheet:high-king-of-fenris",
+    "datasheet:logan-grimnar",
+    "datasheet:the-great-wolf"
+  ],
+  "costs": [
+    {
+      "copy_index_min": 1,
+      "label": "1 model",
+      "model_count": 1,
+      "points": 180,
+      "pricing_confidence": "unverified",
+      "source_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1"
+    }
+  ],
+  "datasheet_id": "ds-logan-grimnar-on-stormrider",
+  "faction_id": "f-space-marines",
+  "is_battleline": false,
+  "is_character": true,
+  "is_dedicated_transport": false,
+  "is_epic_hero": true,
+  "is_legends": true,
+  "keywords": [
+    {
+      "is_faction_keyword": true,
+      "keyword": "Adeptus Astartes"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Chapter Master"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Character"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Epic Hero"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Imperium"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Logan Grimnar on Stormrider"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Mounted"
+    },
+    {
+      "is_faction_keyword": true,
+      "keyword": "Space Wolves"
+    }
+  ],
+  "leader_pairs": [
+    "ds-thunderwolf-cavalry"
+  ],
+  "models": [
+    {
+      "base_size": "120 x 92mm",
+      "invuln_save": "4",
+      "leadership": "6+",
+      "line": 1,
+      "movement": "10\"",
+      "name": "Logan Grimnar On Stormrider",
+      "objective_control": 4,
+      "save": "2+",
+      "toughness": 6,
+      "wounds": 12
+    }
+  ],
+  "name": "Logan Grimnar On Stormrider",
+  "pricing_confidence": {
+    "consecutive_unverified_releases": 1,
+    "state": "unverified",
+    "unverified_since_version": "mfm-2026-08"
+  },
+  "provenance": {
+    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+    "detail_edition_code": "wh40k-10e",
+    "detail_source": "wahapedia",
+    "is_hybrid_edition": true,
+    "points_edition_code": "wh40k-11e",
+    "points_source": "none"
+  },
+  "role": "Characters",
+  "weapons": [
+    {
+      "armour_penetration": "0",
+      "attacks": "2",
+      "damage": "1",
+      "is_melee": false,
+      "line": 1,
+      "name": "Storm bolter",
+      "range": "24",
+      "skill": "2",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "10",
+      "damage": "1",
+      "is_melee": true,
+      "line": 2,
+      "name": "The Axe Morkai – one-handed",
+      "skill": "2",
+      "strength": "6"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "6",
+      "damage": "3",
+      "is_melee": true,
+      "line": 3,
+      "name": "The Axe Morkai – two-handed",
+      "skill": "2",
+      "strength": "8"
+    },
+    {
+      "armour_penetration": "-1",
+      "attacks": "6",
+      "damage": "1",
+      "is_melee": true,
+      "line": 4,
+      "name": "Flurry of teeth and claws",
+      "skill": "4",
+      "strength": "5"
+    }
+  ]
+}

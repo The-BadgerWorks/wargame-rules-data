@@ -1,0 +1,103 @@
+{
+  "ability_keys": [
+    "datasheet:siege-bombardment"
+  ],
+  "costs": [
+    {
+      "copy_index_min": 1,
+      "label": "1 model",
+      "model_count": 1,
+      "points": 125,
+      "pricing_confidence": "unverified",
+      "source_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1"
+    }
+  ],
+  "datasheet_id": "ds-medusa-carriage-battery",
+  "faction_id": "f-astra-militarum",
+  "is_battleline": false,
+  "is_character": false,
+  "is_dedicated_transport": false,
+  "is_epic_hero": false,
+  "is_legends": true,
+  "keywords": [
+    {
+      "is_faction_keyword": false,
+      "keyword": "Artillery"
+    },
+    {
+      "is_faction_keyword": true,
+      "keyword": "Astra Militarum"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Grenades"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Imperium"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Infantry"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Medusa Carriage Battery"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Regiment"
+    }
+  ],
+  "models": [
+    {
+      "base_size": "Use model",
+      "leadership": "7+",
+      "line": 1,
+      "movement": "4\"",
+      "name": "Medusa Carriage Battery",
+      "objective_control": 2,
+      "save": "4+",
+      "toughness": 7,
+      "wounds": 6
+    }
+  ],
+  "name": "Medusa Carriage Battery",
+  "pricing_confidence": {
+    "consecutive_unverified_releases": 1,
+    "state": "unverified",
+    "unverified_since_version": "mfm-2026-08"
+  },
+  "provenance": {
+    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+    "detail_edition_code": "wh40k-10e",
+    "detail_source": "wahapedia",
+    "is_hybrid_edition": true,
+    "points_edition_code": "wh40k-11e",
+    "points_source": "none"
+  },
+  "role": "Other",
+  "weapons": [
+    {
+      "armour_penetration": "-3",
+      "attacks": "D6",
+      "damage": "3",
+      "is_melee": false,
+      "line": 1,
+      "name": "Medusa siege cannon",
+      "range": "36",
+      "skill": "5",
+      "strength": "10"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "5",
+      "damage": "1",
+      "is_melee": true,
+      "line": 2,
+      "name": "Battery close combat weapons",
+      "skill": "4",
+      "strength": "3"
+    }
+  ]
+}

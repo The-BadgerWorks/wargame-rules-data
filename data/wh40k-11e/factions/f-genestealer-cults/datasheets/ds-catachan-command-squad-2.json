@@ -1,0 +1,175 @@
+{
+  "ability_keys": [
+    "datasheet:gung-ho-command",
+    "datasheet:master-vox",
+    "datasheet:medi-pack",
+    "datasheet:orders",
+    "datasheet:regimental-standard"
+  ],
+  "costs": [
+    {
+      "copy_index_min": 1,
+      "label": "5 models",
+      "model_count": 5,
+      "points": 65,
+      "pricing_confidence": "unverified",
+      "source_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1"
+    }
+  ],
+  "datasheet_id": "ds-catachan-command-squad-2",
+  "faction_id": "f-genestealer-cults",
+  "is_battleline": false,
+  "is_character": true,
+  "is_dedicated_transport": false,
+  "is_epic_hero": false,
+  "is_legends": false,
+  "keywords": [
+    {
+      "is_faction_keyword": true,
+      "keyword": "Astra Militarum"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Catachan",
+      "model_scope": "ALL MODELS"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Character",
+      "model_scope": "CATACHAN COMMANDER"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Command Squad",
+      "model_scope": "ALL MODELS"
+    },
+    {
+      "is_faction_keyword": true,
+      "keyword": "Genestealer Cults"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Grenades",
+      "model_scope": "ALL MODELS"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Imperium",
+      "model_scope": "ALL MODELS"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Infantry",
+      "model_scope": "ALL MODELS"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Officer",
+      "model_scope": "CATACHAN COMMANDER"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Platoon",
+      "model_scope": "ALL MODELS"
+    }
+  ],
+  "leader_pairs": [
+    "ds-catachan-jungle-fighters-2"
+  ],
+  "models": [
+    {
+      "base_size": "25mm",
+      "leadership": "7+",
+      "line": 1,
+      "movement": "6\"",
+      "name": "CATACHAN COMMANDER",
+      "objective_control": 1,
+      "save": "5+",
+      "toughness": 3,
+      "wounds": 3
+    },
+    {
+      "base_size": "25mm",
+      "leadership": "7+",
+      "line": 2,
+      "movement": "6\"",
+      "name": "VETERAN GUARDSMAN",
+      "objective_control": 1,
+      "save": "5+",
+      "toughness": 3,
+      "wounds": 1
+    }
+  ],
+  "name": "Catachan Command Squad",
+  "pricing_confidence": {
+    "consecutive_unverified_releases": 1,
+    "state": "unverified",
+    "unverified_since_version": "mfm-2026-08"
+  },
+  "provenance": {
+    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+    "detail_edition_code": "wh40k-10e",
+    "detail_source": "wahapedia",
+    "is_hybrid_edition": true,
+    "points_edition_code": "wh40k-11e",
+    "points_source": "none"
+  },
+  "role": "Characters",
+  "weapons": [
+    {
+      "armour_penetration": "0",
+      "attacks": "1",
+      "damage": "1",
+      "is_melee": false,
+      "line": 1,
+      "name": "Bolt pistol",
+      "range": "12",
+      "skill": "4",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "1",
+      "damage": "1",
+      "is_melee": false,
+      "line": 2,
+      "name": "Boltgun",
+      "range": "24",
+      "skill": "4",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "1",
+      "damage": "1",
+      "is_melee": false,
+      "line": 12,
+      "name": "Plasma pistol – standard",
+      "range": "12",
+      "skill": "4",
+      "strength": "7"
+    },
+    {
+      "armour_penetration": "-3",
+      "attacks": "1",
+      "damage": "2",
+      "is_melee": false,
+      "line": 12,
+      "name": "Plasma pistol – supercharge",
+      "range": "12",
+      "skill": "4",
+      "strength": "8"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "1",
+      "damage": "2",
+      "is_melee": false,
+      "line": 13,
+      "name": "Sniper rifle",
+      "range": "36",
+      "skill": "4",
+      "strength": "4"
+    }
+  ]
+}

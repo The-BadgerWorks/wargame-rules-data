@@ -1,0 +1,130 @@
+{
+  "ability_keys": [
+    "datasheet:bestial-fury",
+    "datasheet:force-of-untamed-destruction",
+    "datasheet:murder-maker-aura"
+  ],
+  "costs": [
+    {
+      "copy_index_min": 1,
+      "label": "1 model",
+      "model_count": 1,
+      "points": 150,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    }
+  ],
+  "datasheet_id": "ds-murderfang",
+  "faction_id": "f-space-wolves",
+  "is_battleline": false,
+  "is_character": true,
+  "is_dedicated_transport": false,
+  "is_epic_hero": true,
+  "is_legends": false,
+  "keywords": [
+    {
+      "is_faction_keyword": true,
+      "keyword": "Adeptus Astartes"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Character"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Dreadnought"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Epic Hero"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Imperium"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Murderfang"
+    },
+    {
+      "is_faction_keyword": true,
+      "keyword": "Space Wolves"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Vehicle"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Walker"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Wulfen"
+    }
+  ],
+  "models": [
+    {
+      "base_size": "60mm",
+      "leadership": "6+",
+      "line": 1,
+      "movement": "9\"",
+      "name": "Murderfang",
+      "objective_control": 0,
+      "save": "2+",
+      "toughness": 9,
+      "wounds": 8
+    }
+  ],
+  "name": "MURDERFANG",
+  "pricing_confidence": {
+    "consecutive_unverified_releases": 0,
+    "last_verified_points_digest": "sha256:e8e4dfa90476ba7a06d0b4c16f39d0f613a87709c569f8f9f2846f832600153b",
+    "last_verified_version": "mfm-2026-08",
+    "state": "verified"
+  },
+  "provenance": {
+    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+    "detail_edition_code": "wh40k-10e",
+    "detail_source": "wahapedia",
+    "is_hybrid_edition": true,
+    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "points_edition_code": "wh40k-11e",
+    "points_source": "mfm"
+  },
+  "role": "Characters",
+  "weapons": [
+    {
+      "armour_penetration": "-1",
+      "attacks": "D6",
+      "damage": "1",
+      "is_melee": false,
+      "line": 1,
+      "name": "Heavy flamer",
+      "range": "12",
+      "skill": "N/A",
+      "strength": "5"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "2",
+      "damage": "1",
+      "is_melee": false,
+      "line": 2,
+      "name": "Storm bolter",
+      "range": "24",
+      "skill": "3",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "8",
+      "damage": "3",
+      "is_melee": true,
+      "line": 3,
+      "name": "Murderclaws",
+      "skill": "3",
+      "strength": "14"
+    }
+  ]
+}

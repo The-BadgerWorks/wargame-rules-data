@@ -1,0 +1,111 @@
+{
+  "ability_keys": [
+    "datasheet:alpha-invader",
+    "datasheet:hypersensory-array",
+    "faction:shadow-in-the-warp-ravener-prime-only"
+  ],
+  "costs": [
+    {
+      "copy_index_min": 1,
+      "label": "5 models",
+      "model_count": 5,
+      "points": 165,
+      "pricing_confidence": "unverified",
+      "source_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1"
+    }
+  ],
+  "datasheet_id": "ds-hyperadapted-raveners-2",
+  "faction_id": "f-genestealer-cults",
+  "is_battleline": false,
+  "is_character": true,
+  "is_dedicated_transport": false,
+  "is_epic_hero": false,
+  "is_legends": false,
+  "keywords": [
+    {
+      "is_faction_keyword": false,
+      "keyword": "Burrowers",
+      "model_scope": "ALL MODELS"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Character",
+      "model_scope": "RAVENER PRIME"
+    },
+    {
+      "is_faction_keyword": true,
+      "keyword": "Genestealer Cults"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Great Devourer",
+      "model_scope": "ALL MODELS"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Hyperadapted Raveners",
+      "model_scope": "ALL MODELS"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Infantry",
+      "model_scope": "ALL MODELS"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Synapse",
+      "model_scope": "RAVENER PRIME"
+    },
+    {
+      "is_faction_keyword": true,
+      "keyword": "Tyranids"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Vanguard Invader",
+      "model_scope": "ALL MODELS"
+    }
+  ],
+  "leader_pairs": [
+    "ds-raveners-2"
+  ],
+  "models": [
+    {
+      "base_size": "40mm",
+      "leadership": "7+",
+      "line": 1,
+      "movement": "10\"",
+      "name": "Ravener Prime",
+      "objective_control": 1,
+      "save": "4+",
+      "toughness": 5,
+      "wounds": 6
+    },
+    {
+      "base_size": "40mm",
+      "leadership": "8+",
+      "line": 2,
+      "movement": "10\"",
+      "name": "Raveners",
+      "objective_control": 1,
+      "save": "4+",
+      "toughness": 5,
+      "wounds": 3
+    }
+  ],
+  "name": "Hyperadapted Raveners",
+  "pricing_confidence": {
+    "consecutive_unverified_releases": 1,
+    "state": "unverified",
+    "unverified_since_version": "mfm-2026-08"
+  },
+  "provenance": {
+    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+    "detail_edition_code": "wh40k-10e",
+    "detail_source": "wahapedia",
+    "is_hybrid_edition": true,
+    "points_edition_code": "wh40k-11e",
+    "points_source": "none"
+  },
+  "role": "Characters"
+}

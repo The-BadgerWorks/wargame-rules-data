@@ -1,0 +1,128 @@
+{
+  "ability_keys": [
+    "datasheet:agent-of-discord-aura",
+    "datasheet:guns-blazing"
+  ],
+  "costs": [
+    {
+      "copy_index_min": 1,
+      "label": "1 model",
+      "model_count": 1,
+      "points": 90,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    }
+  ],
+  "datasheet_id": "ds-cypher",
+  "faction_id": "f-chaos-space-marines",
+  "is_battleline": false,
+  "is_character": true,
+  "is_dedicated_transport": false,
+  "is_epic_hero": true,
+  "is_legends": false,
+  "keywords": [
+    {
+      "is_faction_keyword": false,
+      "keyword": "Chaos"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Character"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Cypher"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Epic Hero"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Fallen"
+    },
+    {
+      "is_faction_keyword": true,
+      "keyword": "Heretic Astartes"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Infantry"
+    }
+  ],
+  "models": [
+    {
+      "base_size": "32mm",
+      "invuln_save": "4",
+      "leadership": "6+",
+      "line": 1,
+      "movement": "6\"",
+      "name": "Cypher",
+      "objective_control": 1,
+      "save": "3+",
+      "toughness": 4,
+      "wounds": 5
+    }
+  ],
+  "name": "CYPHER",
+  "pricing_confidence": {
+    "consecutive_unverified_releases": 0,
+    "last_verified_points_digest": "sha256:e44414db501bb26ca640da94337f11b3d663084e8077e4ba8b901744af55657a",
+    "last_verified_version": "mfm-2026-08",
+    "state": "verified"
+  },
+  "provenance": {
+    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+    "detail_edition_code": "wh40k-10e",
+    "detail_source": "wahapedia",
+    "is_hybrid_edition": true,
+    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "points_edition_code": "wh40k-11e",
+    "points_source": "mfm"
+  },
+  "role": "Characters",
+  "weapons": [
+    {
+      "armour_penetration": "-1",
+      "attacks": "6",
+      "damage": "1",
+      "is_melee": false,
+      "line": 1,
+      "name": "Cypher’s bolt pistol",
+      "range": "12",
+      "skill": "2",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "-3",
+      "attacks": "3",
+      "damage": "2",
+      "is_melee": false,
+      "line": 2,
+      "name": "Cypher’s plasma pistol",
+      "range": "12",
+      "skill": "2",
+      "strength": "8"
+    },
+    {
+      "armour_penetration": "-1",
+      "attacks": "6",
+      "damage": "1",
+      "is_melee": true,
+      "line": 3,
+      "name": "Cypher’s bolt pistol",
+      "skill": "2",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "-3",
+      "attacks": "3",
+      "damage": "2",
+      "is_melee": true,
+      "line": 4,
+      "name": "Cypher’s plasma pistol",
+      "skill": "2",
+      "strength": "8"
+    }
+  ]
+}

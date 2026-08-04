@@ -1,0 +1,83 @@
+{
+  "ability_keys": [
+    "datasheet:bio-minefield",
+    "datasheet:floating-death"
+  ],
+  "costs": [
+    {
+      "copy_index_min": 1,
+      "label": "3 models",
+      "model_count": 3,
+      "points": 55,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    },
+    {
+      "copy_index_min": 1,
+      "label": "6 models",
+      "model_count": 6,
+      "points": 110,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    }
+  ],
+  "datasheet_id": "ds-spore-mines",
+  "faction_id": "f-tyranids",
+  "is_battleline": false,
+  "is_character": false,
+  "is_dedicated_transport": false,
+  "is_epic_hero": false,
+  "is_legends": false,
+  "keywords": [
+    {
+      "is_faction_keyword": false,
+      "keyword": "Beast"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Fly"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Great Devourer"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Spore Mines"
+    },
+    {
+      "is_faction_keyword": true,
+      "keyword": "Tyranids"
+    }
+  ],
+  "models": [
+    {
+      "base_size": "25mm",
+      "leadership": "8+",
+      "line": 1,
+      "movement": "4\"",
+      "name": "Spore Mines",
+      "objective_control": 0,
+      "save": "7+",
+      "toughness": 1,
+      "wounds": 1
+    }
+  ],
+  "name": "SPORE MINES",
+  "pricing_confidence": {
+    "consecutive_unverified_releases": 0,
+    "last_verified_points_digest": "sha256:253c1676100c5d0ff0d4be0be1607d9f549f8f74f5b440efc77f299189b05410",
+    "last_verified_version": "mfm-2026-08",
+    "state": "verified"
+  },
+  "provenance": {
+    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+    "detail_edition_code": "wh40k-10e",
+    "detail_source": "wahapedia",
+    "is_hybrid_edition": true,
+    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "points_edition_code": "wh40k-11e",
+    "points_source": "mfm"
+  },
+  "role": "Other"
+}

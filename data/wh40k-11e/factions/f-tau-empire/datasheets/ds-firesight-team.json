@@ -1,0 +1,108 @@
+{
+  "ability_keys": [
+    "datasheet:precise-targeting"
+  ],
+  "costs": [
+    {
+      "copy_index_min": 1,
+      "label": "1 model",
+      "model_count": 1,
+      "points": 55,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    }
+  ],
+  "datasheet_id": "ds-firesight-team",
+  "faction_id": "f-tau-empire",
+  "is_battleline": false,
+  "is_character": true,
+  "is_dedicated_transport": false,
+  "is_epic_hero": false,
+  "is_legends": false,
+  "keywords": [
+    {
+      "is_faction_keyword": false,
+      "keyword": "Character"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Firesight Team"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Infantry"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Markerlight"
+    },
+    {
+      "is_faction_keyword": true,
+      "keyword": "T’au Empire"
+    }
+  ],
+  "models": [
+    {
+      "base_size": "40mm",
+      "leadership": "7+",
+      "line": 1,
+      "movement": "6\"",
+      "name": "Firesight Team",
+      "objective_control": 3,
+      "save": "4+",
+      "toughness": 3,
+      "wounds": 4
+    }
+  ],
+  "name": "FIRESIGHT TEAM",
+  "pricing_confidence": {
+    "consecutive_unverified_releases": 0,
+    "last_verified_points_digest": "sha256:9814fdfaeb206bca06716fee9de48a3d268cb6c6010c294e3b37890956383e97",
+    "last_verified_version": "mfm-2026-08",
+    "state": "verified"
+  },
+  "provenance": {
+    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+    "detail_edition_code": "wh40k-10e",
+    "detail_source": "wahapedia",
+    "is_hybrid_edition": true,
+    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "points_edition_code": "wh40k-11e",
+    "points_source": "mfm"
+  },
+  "role": "Characters",
+  "weapons": [
+    {
+      "armour_penetration": "-1",
+      "attacks": "3",
+      "damage": "2",
+      "is_melee": false,
+      "line": 1,
+      "name": "Longshot pulse rifles",
+      "range": "36",
+      "skill": "4",
+      "strength": "5"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "1",
+      "damage": "1",
+      "is_melee": false,
+      "line": 2,
+      "name": "Pulse pistol",
+      "range": "12",
+      "skill": "3",
+      "strength": "5"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "4",
+      "damage": "1",
+      "is_melee": true,
+      "line": 3,
+      "name": "Close combat weapons",
+      "skill": "5",
+      "strength": "3"
+    }
+  ]
+}

@@ -1,0 +1,139 @@
+{
+  "ability_keys": [
+    "datasheet:dark-zealotry",
+    "datasheet:demagogue",
+    "datasheet:malign-sacrifice"
+  ],
+  "costs": [
+    {
+      "copy_index_min": 1,
+      "label": "3 models",
+      "model_count": 3,
+      "points": 65,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    }
+  ],
+  "datasheet_id": "ds-dark-apostle",
+  "faction_id": "f-chaos-space-marines",
+  "is_battleline": false,
+  "is_character": true,
+  "is_dedicated_transport": false,
+  "is_epic_hero": false,
+  "is_legends": false,
+  "keywords": [
+    {
+      "is_faction_keyword": false,
+      "keyword": "Chaos",
+      "model_scope": "ALL MODELS"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Character",
+      "model_scope": "DARK APOSTLE ONLY"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Dark Apostle",
+      "model_scope": "DARK APOSTLE ONLY"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Grenades",
+      "model_scope": "ALL MODELS"
+    },
+    {
+      "is_faction_keyword": true,
+      "keyword": "Heretic Astartes"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Infantry",
+      "model_scope": "ALL MODELS"
+    }
+  ],
+  "leader_pairs": [
+    "ds-accursed-cultists",
+    "ds-chosen",
+    "ds-cultist-mob",
+    "ds-legionaries",
+    "ds-nemesis-claw",
+    "ds-red-corsairs-raiders"
+  ],
+  "models": [
+    {
+      "base_size": "40mm",
+      "invuln_save": "4",
+      "leadership": "5+",
+      "line": 1,
+      "movement": "6\"",
+      "name": "DARK APOSTLE",
+      "objective_control": 1,
+      "save": "3+",
+      "toughness": 4,
+      "wounds": 4
+    },
+    {
+      "base_size": "25mm",
+      "invuln_save": "4",
+      "leadership": "7+",
+      "line": 2,
+      "movement": "6\"",
+      "name": "DARK DISCIPLE",
+      "objective_control": 1,
+      "save": "6+",
+      "toughness": 4,
+      "wounds": 1
+    }
+  ],
+  "name": "DARK APOSTLE",
+  "pricing_confidence": {
+    "consecutive_unverified_releases": 0,
+    "last_verified_points_digest": "sha256:45989ec283632297697ba3f7dae2389a2084cb636a986bb1f2dce2ad2c1c61c4",
+    "last_verified_version": "mfm-2026-08",
+    "state": "verified"
+  },
+  "provenance": {
+    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+    "detail_edition_code": "wh40k-10e",
+    "detail_source": "wahapedia",
+    "is_hybrid_edition": true,
+    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "points_edition_code": "wh40k-11e",
+    "points_source": "mfm"
+  },
+  "role": "Characters",
+  "weapons": [
+    {
+      "armour_penetration": "0",
+      "attacks": "1",
+      "damage": "1",
+      "is_melee": false,
+      "line": 1,
+      "name": "Bolt pistol",
+      "range": "12",
+      "skill": "3",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "-1",
+      "attacks": "5",
+      "damage": "2",
+      "is_melee": true,
+      "line": 2,
+      "name": "Accursed crozius",
+      "skill": "2",
+      "strength": "6"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "1",
+      "damage": "1",
+      "is_melee": true,
+      "line": 3,
+      "name": "Close combat weapon",
+      "skill": "4",
+      "strength": "3"
+    }
+  ]
+}

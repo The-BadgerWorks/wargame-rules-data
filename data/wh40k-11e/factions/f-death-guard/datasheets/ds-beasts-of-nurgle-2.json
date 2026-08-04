@@ -1,0 +1,103 @@
+{
+  "ability_keys": [
+    "datasheet:grotesque-regeneration"
+  ],
+  "costs": [
+    {
+      "copy_index_min": 1,
+      "label": "1 model",
+      "model_count": 1,
+      "points": 70,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    },
+    {
+      "copy_index_min": 1,
+      "label": "2 models",
+      "model_count": 2,
+      "points": 140,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    }
+  ],
+  "datasheet_id": "ds-beasts-of-nurgle-2",
+  "faction_id": "f-death-guard",
+  "is_battleline": false,
+  "is_character": false,
+  "is_dedicated_transport": false,
+  "is_epic_hero": false,
+  "is_legends": false,
+  "keywords": [
+    {
+      "is_faction_keyword": false,
+      "keyword": "Beast"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Beasts of Nurgle"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Chaos"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Daemon"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Nurgle"
+    },
+    {
+      "is_faction_keyword": true,
+      "keyword": "Plague Legions"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Summoned"
+    }
+  ],
+  "models": [
+    {
+      "base_size": "60mm",
+      "invuln_save": "5",
+      "leadership": "7+",
+      "line": 1,
+      "movement": "6\"",
+      "name": "Beasts of Nurgle",
+      "objective_control": 3,
+      "save": "6+",
+      "toughness": 9,
+      "wounds": 7
+    }
+  ],
+  "name": "BEASTS OF NURGLE",
+  "pricing_confidence": {
+    "consecutive_unverified_releases": 0,
+    "last_verified_points_digest": "sha256:3e2f62da9d36ac16977fa082933e2b41cf916e37bd2e88529b8ac7b3d912ee37",
+    "last_verified_version": "mfm-2026-08",
+    "state": "verified"
+  },
+  "provenance": {
+    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+    "detail_edition_code": "wh40k-10e",
+    "detail_source": "wahapedia",
+    "is_hybrid_edition": true,
+    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "points_edition_code": "wh40k-11e",
+    "points_source": "mfm"
+  },
+  "role": "Other",
+  "weapons": [
+    {
+      "armour_penetration": "-1",
+      "attacks": "6",
+      "damage": "2",
+      "is_melee": true,
+      "line": 1,
+      "name": "Putrid appendages",
+      "skill": "4",
+      "strength": "6"
+    }
+  ]
+}

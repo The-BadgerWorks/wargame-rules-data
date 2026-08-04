@@ -1,0 +1,205 @@
+{
+  "ability_keys": [
+    "datasheet:covert-stealth-team",
+    "datasheet:orders",
+    "datasheet:tanith-camo-cloaks"
+  ],
+  "costs": [
+    {
+      "copy_index_min": 1,
+      "label": "6 models",
+      "model_count": 6,
+      "points": 95,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+    }
+  ],
+  "datasheet_id": "ds-gaunts-ghosts",
+  "faction_id": "f-astra-militarum",
+  "is_battleline": false,
+  "is_character": true,
+  "is_dedicated_transport": false,
+  "is_epic_hero": true,
+  "is_legends": false,
+  "keywords": [
+    {
+      "is_faction_keyword": true,
+      "keyword": "Astra Militarum"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Character",
+      "model_scope": "IBRAM GAUNT"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Epic Hero",
+      "model_scope": "IBRAM GAUNT"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Gaunt’s Ghosts",
+      "model_scope": "ALL MODELS"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Grenades",
+      "model_scope": "ALL MODELS"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Imperium",
+      "model_scope": "ALL MODELS"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Infantry",
+      "model_scope": "ALL MODELS"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "Officer",
+      "model_scope": "IBRAM GAUNT"
+    }
+  ],
+  "models": [
+    {
+      "base_size": "28.5mm",
+      "invuln_save": "5",
+      "leadership": "6+",
+      "line": 1,
+      "movement": "6\"",
+      "name": "IBRAM GAUNT",
+      "objective_control": 1,
+      "save": "4+",
+      "toughness": 3,
+      "wounds": 3
+    },
+    {
+      "base_size": "28.5mm",
+      "leadership": "7+",
+      "line": 2,
+      "movement": "6\"",
+      "name": "TANITH GHOST",
+      "objective_control": 1,
+      "save": "5+",
+      "toughness": 3,
+      "wounds": 2
+    }
+  ],
+  "name": "GAUNT’S GHOSTS",
+  "pricing_confidence": {
+    "consecutive_unverified_releases": 0,
+    "last_verified_points_digest": "sha256:408b5828297f6321a2e97cd3b2ebb92e41da2ae72e61bc7fca13ec3ca4ad135f",
+    "last_verified_version": "mfm-2026-08",
+    "state": "verified"
+  },
+  "provenance": {
+    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+    "detail_edition_code": "wh40k-10e",
+    "detail_source": "wahapedia",
+    "is_hybrid_edition": true,
+    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "points_edition_code": "wh40k-11e",
+    "points_source": "mfm"
+  },
+  "role": "Characters",
+  "weapons": [
+    {
+      "armour_penetration": "-1",
+      "attacks": "4",
+      "damage": "3",
+      "is_melee": false,
+      "line": 1,
+      "name": "Bragg’s autocannon",
+      "range": "48",
+      "skill": "5",
+      "strength": "9"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "1",
+      "damage": "1",
+      "is_melee": false,
+      "line": 2,
+      "name": "Bolt pistol",
+      "range": "12",
+      "skill": "2",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "-1",
+      "attacks": "3",
+      "damage": "1",
+      "is_melee": false,
+      "line": 3,
+      "name": "Corbec’s hot-shot lascarbine",
+      "range": "24",
+      "skill": "3",
+      "strength": "3"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "1",
+      "damage": "4",
+      "is_melee": false,
+      "line": 4,
+      "name": "Larkin’s long-las",
+      "range": "36",
+      "skill": "2",
+      "strength": "5"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "3",
+      "damage": "1",
+      "is_melee": false,
+      "line": 5,
+      "name": "Lascarbine",
+      "range": "24",
+      "skill": "3",
+      "strength": "3"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "3",
+      "damage": "1",
+      "is_melee": false,
+      "line": 6,
+      "name": "Rawne’s lascarbine",
+      "range": "24",
+      "skill": "3",
+      "strength": "3"
+    },
+    {
+      "armour_penetration": "-1",
+      "attacks": "5",
+      "damage": "1",
+      "is_melee": true,
+      "line": 7,
+      "name": "Gaunt’s chainsword",
+      "skill": "2",
+      "strength": "3"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "3",
+      "damage": "1",
+      "is_melee": true,
+      "line": 8,
+      "name": "Straight silver knife",
+      "skill": "3",
+      "strength": "3"
+    },
+    {
+      "armour_penetration": "-1",
+      "attacks": "5",
+      "damage": "1",
+      "is_melee": true,
+      "line": 9,
+      "name": "Mkoll’s straight silver knife",
+      "skill": "2",
+      "strength": "3"
+    }
+  ]
+}
