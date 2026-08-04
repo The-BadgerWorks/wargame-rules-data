@@ -1,0 +1,95 @@
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - Authored the daily integrity workflow
+# (task T144): schedule running `rules-pipeline verify`, appending to the ledger and raising the
+# same alert channel as the stale detector, turning "we promise not to edit a release asset"
+# into a monitored control (research D3, SC-007, SC-009).
+name: integrity
+
+# `schedule` plus `workflow_dispatch`, and nothing that could reach `data/` or `curation/` --
+# `verify` is read-only against published assets and writes only its own ledger line.
+on:
+  schedule:
+    - cron: "0 3 * * *"
+  workflow_dispatch: {}
+
+# One sweep in flight at a time. Never cancelled mid-flight, so a partial sweep never leaves the
+# ledger short an entry for a version that was actually checked.
+concurrency:
+  group: integrity
+  cancel-in-progress: false
+
+# `contents: write` for the ledger commit only -- `verify` never touches Releases or Pages, so
+# this workflow carries neither `pages: write` nor `id-token: write` (contract §3's
+# capability-not-policy separation, same discipline as `candidate.yml`).
+permissions:
+  contents: write
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install the pipeline
+        run: python -m pip install --disable-pip-version-check -e .
+
+      # `rules-pipeline verify` (task T143) re-fetches every `fileUrl` in
+      # `state/published-checksums.json` from its public URL and re-hashes it. Exit codes are
+      # read from the stable set (`pipeline-run-interface.md` §2): 0 every checksum still
+      # matches, 50 a checksum moved (tamper or corruption), 40 an asset could not be fetched at
+      # all. `set +e` for the same reason `detect.yml` uses it -- a non-zero exit here is
+      # expected data the steps below act on, not a step failure.
+      - name: Verify every published checksum
+        id: verify
+        run: |
+          set +e
+          rules-pipeline verify 2>&1 | tee verify.log
+          code=${PIPESTATUS[0]}
+          echo "exit_code=$code" >> "$GITHUB_OUTPUT"
+          exit 0
+
+      # `verify`'s only write is one line appended to `state/run-ledger.jsonl` (contract §6),
+      # whatever the outcome -- a clean sweep and a broken one are both recorded, exactly as
+      # `detect.yml` records a no-change check, so a quiet integrity history is distinguishable
+      # from an integrity check that stopped running.
+      - name: Commit the ledger
+        run: |
+          set -euo pipefail
+          git config user.name "wargame-rules-data bot"
+          git config user.email "noreply@users.noreply.github.com"
+          git add state
+          git diff --cached --quiet || git commit -m "Integrity check $(date -u +%Y-%m-%dT%H:%M:%SZ) (exit ${{ steps.verify.outputs.exit_code }})"
+          git push origin HEAD:main
+
+      - name: Alert on a checksum mismatch or an unreachable asset
+        if: steps.verify.outputs.exit_code != '0'
+        env:
+          WGC_NOTIFY_WEBHOOK_URL: ${{ secrets.WGC_NOTIFY_WEBHOOK_URL }}
+        run: |
+          python -m pipeline.observability.notify \
+            --title "Published-checksum integrity check failed" \
+            --message "rules-pipeline verify exited ${{ steps.verify.outputs.exit_code }}; see the workflow run log for which version and fileUrl." \
+            2>&1 | tee -a notify.log
+
+      # The same second, independent check `detect.yml` runs (task T107): a registered secret is
+      # already masked in the raw log view, this asserts the literal value never appeared in
+      # what this job's own notification step produced.
+      - name: Assert the webhook secret never appears in this job's own output
+        if: always() && env.WGC_NOTIFY_WEBHOOK_URL != ''
+        env:
+          WGC_NOTIFY_WEBHOOK_URL: ${{ secrets.WGC_NOTIFY_WEBHOOK_URL }}
+        run: |
+          set -euo pipefail
+          if [ -f notify.log ] && grep -qF "$WGC_NOTIFY_WEBHOOK_URL" notify.log; then
+            echo "::error::the notification webhook secret appeared in this job's own output"
+            exit 1
+          fi
+
+      - name: Fail the job on an integrity failure
+        if: steps.verify.outputs.exit_code != '0'
+        run: |
+          echo "::error::rules-pipeline verify exited ${{ steps.verify.outputs.exit_code }}; see the job log above"
+          exit 1

@@ -1,0 +1,94 @@
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - Authored the withdrawal workflow
+# (task T142): workflow_dispatch only, environment-gated like publish.yml but deliberately not
+# part of the publish job -- manifest-only, no rebuild, no source access, so a defective release
+# is neutralised in under a minute under pressure (FR-044, SC-009, research D7).
+name: withdraw
+
+# `workflow_dispatch` and nothing else -- the same reasoning as `publish.yml`'s own `on:` (FR-038
+# extends to withdrawal too: nothing schedules or pushes its way into editing a live manifest).
+on:
+  workflow_dispatch:
+    inputs:
+      rules_version_id:
+        description: The already-published rulesVersionId to withdraw.
+        required: true
+        type: string
+      reason:
+        description: Short factual reason, shown to a player pinned to this version (FR-044).
+        required: true
+        type: string
+      channel:
+        description: Which channel's manifest carries the version being withdrawn.
+        required: true
+        default: prerelease
+        type: choice
+        options: [prerelease, published]
+
+# One withdrawal per version at a time, and never cancelled mid-flight, for the same reason
+# `publish.yml` never is: an interrupted manifest write is the one case the ordering guarantees
+# in `pipeline.build.manifest.withdraw_entry` stop protecting us from (FR-057).
+concurrency:
+  group: withdraw-${{ inputs.rules_version_id }}
+  cancel-in-progress: false
+
+# The same token budget as `publish.yml`, and for the same reason -- `withdraw` is the other code
+# path (besides `publish`) that may ever write `site/`. No long-lived PAT anywhere (FR-046).
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs:
+  withdraw:
+    runs-on: ubuntu-latest
+
+    # The approval gate. `withdraw.yml` is deliberately its own job rather than a step of
+    # `publish.yml` (contract §4's "deliberately not part of the publish job"), but the control
+    # is identical: the job cannot start until a named reviewer approves in the Actions UI, and
+    # that has nothing to rebuild or re-acquire waiting behind it -- which is what keeps
+    # withdrawal fast under pressure once approved (SC-009).
+    environment: ${{ inputs.channel }}
+
+    env:
+      WGC_DATA_CHANNEL: ${{ inputs.channel }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install the pipeline
+        run: python -m pip install --disable-pip-version-check -e .
+
+      # `pipeline.publish.withdraw.run_withdraw` (task T141) owns everything: it refuses outside
+      # this exact job (this workflow's own `name: withdraw`), refuses an unlisted
+      # `rulesVersionId` or a blank reason, and otherwise only flips `withdrawn`/`withdrawnReason`
+      # on one manifest entry -- no rebuild, no acquisition, no touch of `data/` or `curation/`.
+      - name: Withdraw
+        run: >-
+          rules-pipeline withdraw
+          --channel "${{ inputs.channel }}"
+          --rules-version-id "${{ inputs.rules_version_id }}"
+          --reason "${{ inputs.reason }}"
+
+      # Same reasoning as `publish.yml`'s equivalent step: the manifest `rules-pipeline withdraw`
+      # just rewrote is on disk in `site/` here, whether or not it is committed to `main` yet, and
+      # Pages serves what this workflow uploads as an artifact.
+      - name: Upload the Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v4
+
+      - name: Commit the manifest
+        run: |
+          set -euo pipefail
+          git config user.name "wargame-rules-data bot"
+          git config user.email "noreply@users.noreply.github.com"
+          git add site
+          git diff --cached --quiet || git commit -m "Withdraw ${{ inputs.rules_version_id }} from ${{ inputs.channel }}: ${{ inputs.reason }}"
+          git push origin HEAD:main
