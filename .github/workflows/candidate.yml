@@ -43,6 +43,9 @@ jobs:
     runs-on: ubuntu-latest
     env:
       RULES_VERSION_ID: ${{ inputs.rules_version_id }}
+      # The keyed ability mechanic digest (contract pipeline-run-interface §5, 1.0.1) is part
+      # of every full build; without the key the build refuses with DigestKeyMissingError.
+      WGC_MECHANIC_DIGEST_KEY: ${{ secrets.WGC_MECHANIC_DIGEST_KEY }}
     steps:
       - uses: actions/checkout@v4
         with:

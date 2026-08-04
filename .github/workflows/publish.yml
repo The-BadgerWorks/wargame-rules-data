@@ -72,6 +72,9 @@ jobs:
 
     env:
       WGC_DATA_CHANNEL: ${{ inputs.channel }}
+      # Same keyed digest the candidate build used — the deterministic rebuild must produce
+      # byte-identical digests or the checksum assertion below would fail spuriously.
+      WGC_MECHANIC_DIGEST_KEY: ${{ secrets.WGC_MECHANIC_DIGEST_KEY }}
 
     steps:
       - name: Check out the approved commit
