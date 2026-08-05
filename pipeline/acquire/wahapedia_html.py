@@ -5,6 +5,8 @@
 # sitemap-driven faction-slug enumeration, one polite request per faction datacard page, the
 # FR-004 deny-list guard ahead of every request, and a SourceAcquisition whose shape is the csv
 # arm's exactly (FR-003, FR-004, research D1c-D1d).
+# AI-Assisted: Claude Code (model: claude-opus-5) - Make the unset-source refusal read identically
+# in both arms (004 T075 follow-up).
 """Acquire the datasheet-detail source: the current-edition datacard pages.
 
 One page per faction, and every datacard for that faction is on it — so the sweep is *tens* of
@@ -147,7 +149,9 @@ def acquire_wahapedia_html(
             layout=HTML_DETAIL_LAYOUT,
         )
 
-    base = config.detail_source_url.rstrip("/")
+    # The same refusal the csv arm makes, and for the same reason: the mode selects a parser, so
+    # a configuration mistake must read identically whichever arm it is made against.
+    base = config.require_detail_source().rstrip("/")
     owned = client is None
     active = client or PoliteClient(config, offline=offline)
     try:

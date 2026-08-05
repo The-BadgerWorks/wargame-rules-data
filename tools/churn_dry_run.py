@@ -4,6 +4,10 @@
 # status against the freshly acquired source WITHOUT writing curation/, report the per-faction and
 # total needs_rereview count, and discard the acquired text on exit (research D8, risk R-B,
 # quickstart section 3).
+# AI-Assisted: Claude Code (model: claude-opus-5) - Exit an unconfigured live run as the
+# configuration error it is (004 T075 follow-up): the first real invocation reported an unset
+# WGC_DETAIL_SOURCE_URL as a partial upstream export, which is the wrong fault and the wrong exit
+# code.
 """Measure the re-review wave before anything commits to it.
 
 `004`'s largest risk is editorial, not technical: wholesale edition adoption re-digests every
@@ -15,6 +19,11 @@ summaries flip. **An estimate is not a plan.** This tool turns the estimate into
 
     python tools/churn_dry_run.py                       # against the live current-edition source
     python tools/churn_dry_run.py --fixtures fixtures/minimal --offline   # rehearsal, no network
+
+The live invocation reads the source the configuration names, and nothing here guesses at one:
+``WGC_DETAIL_ACQUISITION_MODE``, ``WGC_DETAIL_EDITION`` and ``WGC_DETAIL_SOURCE_URL`` are set
+together when an edition is adopted, and a live run with any of them unset stops as the
+configuration error it is (exit 60) rather than as a source failure.
 
 What it does, in one sentence: acquires the detail source in the configured mode into an
 **ephemeral** workspace, computes each ability's current mechanic digest there, compares it with
@@ -49,7 +58,7 @@ from typing import Final
 
 from pipeline.acquire.detail_source import acquire_detail, read_detail
 from pipeline.acquire.http import AcquisitionError
-from pipeline.config import PipelineConfig, load_config, repo_root
+from pipeline.config import ConfigError, PipelineConfig, load_config, repo_root
 from pipeline.curate.summaries import SummaryStatus, compute_current_digests, effective_status
 from pipeline.exit_codes import ExitCode
 from pipeline.models.authored import AbilitySummary, ReviewState
@@ -275,15 +284,18 @@ def _parse_args(argv: Sequence[str] | None) -> argparse.Namespace:
 def main(argv: Sequence[str] | None = None) -> int:
     args = _parse_args(argv)
     root = args.repo or repo_root()
-    config = load_config()
 
     try:
+        config = load_config()
         report = measure(
             config, repository_root=root, fixtures_dir=args.fixtures, offline=args.offline
         )
-    except DigestKeyMissingError as exc:
+    except (ConfigError, DigestKeyMissingError) as exc:
         # Named without its value, here as everywhere: the diagnostic says which variable is
-        # unset and never what it would have contained.
+        # unset and never what it would have contained. `ConfigError` joins it because an
+        # unconfigured source and an unconfigured key are the same mistake and must exit the
+        # same way — this tool is run by hand more than any other, so a live invocation with a
+        # variable unset is its most likely failure and has to say so plainly.
         print(f"{PROG}: {exc}", file=sys.stderr)
         return int(ExitCode.CONFIG_ERROR)
     except AcquisitionError as exc:

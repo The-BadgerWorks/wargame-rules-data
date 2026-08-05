@@ -5,6 +5,12 @@
 # Ephemeral raw source -- NEVER committed. Emptied at the start and end of every run.
 work/
 
+# Local operator configuration. It is where WGC_MECHANIC_DIGEST_KEY sits on a curator's machine,
+# and an untracked-but-not-ignored file is one `git add -A` away from being a committed secret.
+.env
+.env.*
+!.env.example
+
 # Python
 .venv/
 __pycache__/

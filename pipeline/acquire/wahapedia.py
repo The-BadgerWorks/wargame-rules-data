@@ -1,6 +1,9 @@
 # AI-Assisted: Claude Code (model: claude-opus-5) - Implemented detail-source acquisition (task
 # T056): retrieval of the CSV export into work/, BOM-aware, with the same SourceAcquisition
 # recording and declared_edition_code from WGC_DETAIL_EDITION (FR-003, FR-005).
+# AI-Assisted: Claude Code (model: claude-opus-5) - Refuse an unset WGC_DETAIL_SOURCE_URL before
+# it is interpreted as a relative path (004 T075 follow-up): an empty location resolved to the
+# working directory and reported the first absent export file as an FR-008 partial export.
 """Acquire the datasheet-detail source: the CSV export, into ``work/``.
 
 Two things are worth stating plainly.
@@ -123,7 +126,9 @@ def acquire_wahapedia(
             fixtures_dir, SourceKey.WAHAPEDIA, config, retrieved_at=retrieved_at
         )
 
-    location = config.detail_source_url
+    # Refused here rather than interpreted: an empty location is a relative path, and a relative
+    # path is the working directory. See `PipelineConfig.require_detail_source`.
+    location = config.require_detail_source()
     directory = _local_directory(location)
     request_count = 0
 

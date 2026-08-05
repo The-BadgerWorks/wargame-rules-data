@@ -5,6 +5,9 @@
 # dispatch (004 task T018): csv routes to the existing export acquirer unchanged, html routes to
 # the datacard acquirer, the two signatures and return shapes agree, and an unrecognised mode is
 # a configuration error (004 research D1d, plan Architecture).
+# AI-Assisted: Claude Code (model: claude-opus-5) - Added the unset-source-URL assertions (004
+# T075 follow-up): both arms refuse the empty default rather than interpreting it, and a fixture
+# run still never reads it.
 """Mode-blindness is a property to be proven, not a comment to be believed.
 
 The design's load-bearing claim is that everything below ``acquire`` cannot tell which mode ran.
@@ -86,6 +89,60 @@ def test_an_unrecognised_mode_is_refused_even_on_a_hand_built_config() -> None:
     smuggled = dataclasses.replace(_config(), detail_acquisition_mode="parquet")  # type: ignore[arg-type]
     with pytest.raises(ConfigError):
         acquire_detail(smuggled, fixtures_dir=FIXTURES, offline=True)
+
+
+# -- the source location: configured, never inferred ----------------------------------------
+
+
+@pytest.mark.parametrize("mode", list(DetailAcquisitionMode))
+@pytest.mark.parametrize("url", ["", "   "])
+def test_a_live_acquisition_without_a_source_url_is_a_configuration_error(
+    mode: DetailAcquisitionMode, url: str
+) -> None:
+    """The defect the first real ``html``-mode invocation found, in both arms.
+
+    ``WGC_DETAIL_SOURCE_URL`` defaults to empty. Under ``csv`` mode that empty string parsed as a
+    *relative path*, a relative path is the process's working directory, and the repository
+    checkout is not an export — so a run that had simply not been configured went looking for the
+    export beside its own source and stopped with an FR-008 partial-export diagnostic naming
+    `Abilities.csv`. Wrong fault, wrong exit code, and it pointed the investigation at a parser
+    that had never run.
+    """
+    config = _config(WGC_DETAIL_ACQUISITION_MODE=mode.value, WGC_DETAIL_SOURCE_URL=url)
+
+    with pytest.raises(ConfigError, match="WGC_DETAIL_SOURCE_URL"):
+        acquire_detail(config, fixtures_dir=None, offline=True)
+
+
+@pytest.mark.parametrize("mode", list(DetailAcquisitionMode))
+def test_the_unset_source_is_never_reported_as_a_partial_export(
+    mode: DetailAcquisitionMode,
+) -> None:
+    """FR-008 is about a source that answered incompletely. This one was never asked."""
+    config = _config(WGC_DETAIL_ACQUISITION_MODE=mode.value, WGC_DETAIL_SOURCE_URL="")
+
+    with pytest.raises(ConfigError) as raised:
+        acquire_detail(config, fixtures_dir=None, offline=True)
+
+    message = str(raised.value)
+    assert "FR-008" not in message
+    assert "Abilities.csv" not in message
+    assert "partial" not in message
+
+
+@pytest.mark.parametrize("mode", list(DetailAcquisitionMode))
+def test_a_fixture_run_never_reads_the_source_url(mode: DetailAcquisitionMode) -> None:
+    """Which is why the fixture path stayed green while the live path could not run at all.
+
+    The refusal must not spread to the rehearsal: a fixture set *is* the source, and every test
+    in this repository — and the whole of CI — would otherwise need a live URL configured.
+    """
+    config = _config(WGC_DETAIL_ACQUISITION_MODE=mode.value, WGC_DETAIL_SOURCE_URL="")
+    fixtures = FIXTURES if mode is DetailAcquisitionMode.CSV else ENRICHMENT
+
+    _acquisition, payloads = acquire_detail(config, fixtures_dir=fixtures, offline=True)
+
+    assert payloads
 
 
 # -- shape parity: the mode-blindness proof -------------------------------------------------

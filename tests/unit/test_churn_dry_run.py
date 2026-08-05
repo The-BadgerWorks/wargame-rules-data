@@ -2,6 +2,9 @@
 # it measures the re-review wave per faction and in total, writes nothing under curation/,
 # discards the acquired text with work/, and puts neither a digest nor the key in its report
 # (research D8, risk R-B, quickstart section 3).
+# AI-Assisted: Claude Code (model: claude-opus-5) - Added the live-path assertions (004 T075
+# follow-up): the tool's un-fixtured invocation, which is the one that met the real source and
+# the one no test exercised.
 """What a measurement tool has to be trusted about is what it does *not* do.
 
 The number this tool produces sizes a blocking campaign, so the counts are asserted. But the
@@ -206,6 +209,46 @@ def test_a_missing_digest_key_is_a_configuration_error(
 
     assert code == int(ExitCode.CONFIG_ERROR)
     assert "WGC_MECHANIC_DIGEST_KEY" in capsys.readouterr().err
+
+
+def test_a_live_run_without_a_source_url_is_a_configuration_error(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch, capsys: pytest.CaptureFixture[str]
+) -> None:
+    """The live path, which every other test here reaches past by passing ``--fixtures``.
+
+    This is the exact invocation that failed the first time the tool was pointed at the real
+    source: no ``--fixtures``, so the configured location is read — and it had never been set.
+    The run must stop as a configuration error naming the variable, not as an FR-008 partial
+    export naming an export file, and it must stop *before* a request is constructed.
+    """
+    for name, value in HTML_ENV.items():
+        monkeypatch.setenv(name, value)
+    monkeypatch.delenv("WGC_DETAIL_SOURCE_URL", raising=False)
+
+    code = main(["--repo", str(tmp_path)])
+
+    assert code == int(ExitCode.CONFIG_ERROR)
+    error = capsys.readouterr().err
+    assert "WGC_DETAIL_SOURCE_URL" in error
+    # The regression, stated as the thing that must not come back: the operator was told the
+    # publisher had served a partial export when the publisher had not been contacted.
+    assert "Abilities.csv" not in error
+    assert "FR-008" not in error
+    assert not (tmp_path / "reports").exists()
+
+
+def test_a_live_run_in_csv_mode_fails_the_same_way(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch, capsys: pytest.CaptureFixture[str]
+) -> None:
+    """`csv` is the default mode, so this is what an operator who set only the key actually got."""
+    monkeypatch.setenv("WGC_MECHANIC_DIGEST_KEY", KEY)
+    monkeypatch.delenv("WGC_DETAIL_ACQUISITION_MODE", raising=False)
+    monkeypatch.delenv("WGC_DETAIL_SOURCE_URL", raising=False)
+
+    code = main(["--repo", str(tmp_path)])
+
+    assert code == int(ExitCode.CONFIG_ERROR)
+    assert "WGC_DETAIL_SOURCE_URL" in capsys.readouterr().err
 
 
 def test_the_report_lands_under_its_own_directory_and_not_beside_a_candidate(

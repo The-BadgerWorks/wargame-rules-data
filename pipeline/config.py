@@ -7,6 +7,10 @@
 # gates, their three length targets, three coverage-collapse ratios, and four ratchet
 # tolerances. Every one non-sensitive and defaulted, per contracts/authored-summary-gates.md
 # sections 2-4 and research D9.
+# AI-Assisted: Claude Code (model: claude-opus-5) - Added require_detail_source (004 T075
+# follow-up): the unset default is refused at the point of use rather than interpreted as a
+# relative path, so a live run that was never configured reports a configuration error instead of
+# an FR-008 partial export.
 """Pipeline configuration.
 
 Every variable in ``contracts/pipeline-run-interface.md`` §5 appears here exactly once, with
@@ -442,6 +446,36 @@ class PipelineConfig:
         log = logger if logger is not None else LOGGER
         for env_name, printable in self.redacted().items():
             log.info("config %s=%s", env_name, printable)
+
+    def require_detail_source(self) -> str:
+        """``detail_source_url``, refusing the unset default before it is interpreted.
+
+        ``WGC_DETAIL_SOURCE_URL`` defaults to empty and has done since `002` shipped, because a
+        fixture build never reads it and a live one must state it deliberately. What was missing
+        was the refusal: under ``csv`` mode an empty location parsed as a *relative path*, which
+        is the process's working directory, so a live run with the variable unset went looking
+        for the export in the repository checkout and reported the first file it did not find
+        there as ``the detail source's export is missing Abilities.csv … (FR-008)``. That
+        diagnostic is true of what the code did and wrong about what happened: it names an
+        upstream partial export when the actual fault is local and configural, and it sent the
+        first real ``html``-mode execution hunting for a bug in a parser that had not run.
+
+        FR-008's rule is untouched — *a partial export is a failed acquisition*. This says only
+        that a source which was never configured is not a partial one, and belongs to
+        ``ExitCode.CONFIG_ERROR`` rather than to ``ExitCode.SOURCE_UNAVAILABLE``.
+
+        Raises:
+            ConfigError: the variable is unset or blank.
+        """
+        location = self.detail_source_url.strip()
+        if not location:
+            raise ConfigError(
+                "WGC_DETAIL_SOURCE_URL is not set, so a live acquisition has no source to read. "
+                f"Set it to the export directory under {DetailAcquisitionMode.CSV.value} mode, "
+                f"or to the current-edition tree under {DetailAcquisitionMode.HTML.value} mode "
+                "(see docs/configuration.md); or run against a fixture set, which never reads it."
+            )
+        return location
 
 
 def repo_root() -> Path:
