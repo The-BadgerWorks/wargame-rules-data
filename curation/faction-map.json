@@ -1,162 +1,162 @@
 [
   {
-    "detail_source_faction_id": "AS",
+    "detail_source_faction_id": "adepta-sororitas",
     "faction_id": "f-adepta-sororitas",
     "mfm_slug": "adepta-sororitas"
   },
   {
-    "detail_source_faction_id": "AC",
+    "detail_source_faction_id": "adeptus-custodes",
     "faction_id": "f-adeptus-custodes",
     "mfm_slug": "adeptus-custodes"
   },
   {
-    "detail_source_faction_id": "AdM",
+    "detail_source_faction_id": "adeptus-mechanicus",
     "faction_id": "f-adeptus-mechanicus",
     "mfm_slug": "adeptus-mechanicus"
   },
   {
-    "detail_source_faction_id": "AE",
+    "detail_source_faction_id": "aeldari",
     "faction_id": "f-aeldari",
     "mfm_slug": "aeldari"
   },
   {
-    "detail_source_faction_id": "AM",
+    "detail_source_faction_id": "astra-militarum",
     "faction_id": "f-astra-militarum",
     "mfm_slug": "astra-militarum"
   },
   {
-    "detail_source_faction_id": "SM",
+    "detail_source_faction_id": "black-templars",
     "detail_source_publication_id": "000000162",
     "faction_id": "f-black-templars",
     "mfm_slug": "black-templars",
     "parent_faction_id": "f-space-marines"
   },
   {
-    "detail_source_faction_id": "SM",
+    "detail_source_faction_id": "blood-angels",
     "detail_source_publication_id": "000000139",
     "faction_id": "f-blood-angels",
     "mfm_slug": "blood-angels",
     "parent_faction_id": "f-space-marines"
   },
   {
-    "detail_source_faction_id": "CD",
+    "detail_source_faction_id": "chaos-daemons",
     "faction_id": "f-chaos-daemons",
     "mfm_slug": "chaos-daemons"
   },
   {
-    "detail_source_faction_id": "QT",
+    "detail_source_faction_id": "chaos-knights",
     "faction_id": "f-chaos-knights",
     "mfm_slug": "chaos-knights"
   },
   {
-    "detail_source_faction_id": "CSM",
+    "detail_source_faction_id": "chaos-space-marines",
     "faction_id": "f-chaos-space-marines",
     "mfm_slug": "chaos-space-marines"
   },
   {
-    "detail_source_faction_id": "TL",
+    "detail_source_faction_id": "chaos-titan-legions",
     "faction_id": "f-chaos-titan-legions",
     "mfm_slug": "chaos-titan-legions"
   },
   {
-    "detail_source_faction_id": "SM",
+    "detail_source_faction_id": "dark-angels",
     "detail_source_publication_id": "000000139",
     "faction_id": "f-dark-angels",
     "mfm_slug": "dark-angels",
     "parent_faction_id": "f-space-marines"
   },
   {
-    "detail_source_faction_id": "DG",
+    "detail_source_faction_id": "death-guard",
     "faction_id": "f-death-guard",
     "mfm_slug": "death-guard"
   },
   {
-    "detail_source_faction_id": "SM",
+    "detail_source_faction_id": "deathwatch",
     "detail_source_publication_id": "000000139",
     "faction_id": "f-deathwatch",
     "mfm_slug": "deathwatch",
     "parent_faction_id": "f-space-marines"
   },
   {
-    "detail_source_faction_id": "DRU",
+    "detail_source_faction_id": "drukhari",
     "faction_id": "f-drukhari",
     "mfm_slug": "drukhari"
   },
   {
-    "detail_source_faction_id": "EC",
+    "detail_source_faction_id": "emperors-children",
     "faction_id": "f-emperors-children",
     "mfm_slug": "emperors-children"
   },
   {
-    "detail_source_faction_id": "GC",
+    "detail_source_faction_id": "genestealer-cults",
     "faction_id": "f-genestealer-cults",
     "mfm_slug": "genestealer-cults"
   },
   {
-    "detail_source_faction_id": "GK",
+    "detail_source_faction_id": "grey-knights",
     "faction_id": "f-grey-knights",
     "mfm_slug": "grey-knights"
   },
   {
-    "detail_source_faction_id": "AoI",
+    "detail_source_faction_id": "imperial-agents",
     "faction_id": "f-imperial-agents",
     "mfm_slug": "imperial-agents"
   },
   {
-    "detail_source_faction_id": "QI",
+    "detail_source_faction_id": "imperial-knights",
     "faction_id": "f-imperial-knights",
     "mfm_slug": "imperial-knights"
   },
   {
-    "detail_source_faction_id": "LoV",
+    "detail_source_faction_id": "leagues-of-votann",
     "faction_id": "f-leagues-of-votann",
     "mfm_slug": "leagues-of-votann"
   },
   {
-    "detail_source_faction_id": "NEC",
+    "detail_source_faction_id": "necrons",
     "faction_id": "f-necrons",
     "mfm_slug": "necrons"
   },
   {
-    "detail_source_faction_id": "ORK",
+    "detail_source_faction_id": "orks",
     "faction_id": "f-orks",
     "mfm_slug": "orks"
   },
   {
-    "detail_source_faction_id": "SM",
+    "detail_source_faction_id": "space-marines",
     "detail_source_publication_id": "000000139",
     "faction_id": "f-space-marines",
     "mfm_slug": "space-marines"
   },
   {
-    "detail_source_faction_id": "SM",
+    "detail_source_faction_id": "space-wolves",
     "detail_source_publication_id": "000000139",
     "faction_id": "f-space-wolves",
     "mfm_slug": "space-wolves",
     "parent_faction_id": "f-space-marines"
   },
   {
-    "detail_source_faction_id": "TAU",
+    "detail_source_faction_id": "tau-empire",
     "faction_id": "f-tau-empire",
     "mfm_slug": "tau-empire"
   },
   {
-    "detail_source_faction_id": "TS",
+    "detail_source_faction_id": "thousand-sons",
     "faction_id": "f-thousand-sons",
     "mfm_slug": "thousand-sons"
   },
   {
-    "detail_source_faction_id": "TL",
+    "detail_source_faction_id": "titan-legions",
     "faction_id": "f-titan-legions",
     "mfm_slug": "titan-legions"
   },
   {
-    "detail_source_faction_id": "TYR",
+    "detail_source_faction_id": "tyranids",
     "faction_id": "f-tyranids",
     "mfm_slug": "tyranids"
   },
   {
-    "detail_source_faction_id": "WE",
+    "detail_source_faction_id": "world-eaters",
     "faction_id": "f-world-eaters",
     "mfm_slug": "world-eaters"
   }
