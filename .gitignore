@@ -37,3 +37,8 @@ fixtures/disagreements/build/
 # The minimal set's committed artifact is the bundle and the curated tree the consuming app
 # ingests; its report is a by-product of regenerating them.
 fixtures/minimal/build/reports/
+
+# `reports/candidate/` is the local scratch-build destination -- a by-product regenerated on
+# every operator run, not a reviewed artifact. Versioned run reports (`reports/<id>/`, e.g.
+# `reports/mfm-2026-08/`) stay tracked; only the `candidate` slug is ignored.
+reports/candidate/
