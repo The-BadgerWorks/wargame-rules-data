@@ -112,6 +112,7 @@ from pipeline.reconcile.findings import apply_resolutions
 from pipeline.reconcile.pricing_confidence import apply_pricing_confidence
 from pipeline.report.change_summary import (
     compute_change_summary,
+    compute_enrichment_changes,
     render_change_summary,
     tier_findings,
 )
@@ -463,6 +464,7 @@ def _reconcile_against_prior(
     authored: AuthoredContent,
     ability_current_digests: Mapping[str, str] | None,
     digest_key: bytes | None,
+    previous_tree: CuratedSnapshot | None = None,
 ) -> tuple[CuratedSnapshot, list[Finding], CoverageOutcome, dict[str, str]]:
     """Everything US2 adds that needs a baseline, in one place.
 
@@ -485,6 +487,10 @@ def _reconcile_against_prior(
     findings.extend(detect_faction_changes(prior, snapshot))
 
     summary = compute_change_summary(prior, snapshot)
+    # The five enrichment categories need the previous **tree**, not `prior`'s cost projection:
+    # composition entries, option groups and their prices, and per-binding keyword classes are
+    # all things that projection deliberately does not carry (FR-037).
+    enrichment_changes = compute_enrichment_changes(previous_tree, snapshot)
     findings.extend(tier_findings(summary))
     findings.extend(crosscheck_deltas(pages, summary, datasheet_ids=datasheet_ids))
 
@@ -511,7 +517,7 @@ def _reconcile_against_prior(
     coverage.figures.update(summary_figures)
 
     sub_reports = {
-        "change_summary": render_change_summary(summary),
+        "change_summary": render_change_summary(summary, enrichment_changes),
         "edition_mismatch": render_edition_mismatch(snapshot),
         "unverified_pricing": render_unverified_pricing(snapshot),
         "summary_coverage": render_summary_coverage(
@@ -633,6 +639,9 @@ def run_build(  # noqa: PLR0913 - the stage boundary is the argument list
     # against the previous pre-release would let coverage erode one candidate at a time without
     # any single run crossing a threshold.
     prior = load_prior(baseline_root, edition_code=EDITION_CODE)
+    # The same checkout `prior` is projected from, read whole: the five enrichment categories
+    # compare structures the cost projection does not carry (FR-037). `None` on a first release.
+    previous_tree = read_curated_tree(baseline_root / "data" / EDITION_CODE)
     snapshot, prior_findings, coverage, sub_reports = _reconcile_against_prior(
         snapshot,
         prior=prior,
@@ -643,6 +652,7 @@ def run_build(  # noqa: PLR0913 - the stage boundary is the argument list
         authored=authored,
         ability_current_digests=ability_current_digests,
         digest_key=resolved_digest_key,
+        previous_tree=previous_tree,
     )
     findings.extend(prior_findings)
 
@@ -810,6 +820,9 @@ def run_validate(
     coverage.figures.update(summary_figures)
 
     summary = compute_change_summary(prior, snapshot)
+    # `validate` re-reads the *current* tree, so there is no distinct previous tree here to diff
+    # against — the enrichment categories are a build-time comparison and stay empty.
+    enrichment_changes = compute_enrichment_changes(None, snapshot)
     resolved = apply_resolutions(findings, authored.resolutions)
 
     report = build_report(
@@ -829,7 +842,7 @@ def run_validate(
             report,
             directory=report_dir(reports_root or root, rules_version_id),
             sub_reports={
-                "change_summary": render_change_summary(summary),
+                "change_summary": render_change_summary(summary, enrichment_changes),
                 "edition_mismatch": render_edition_mismatch(snapshot),
                 "unverified_pricing": render_unverified_pricing(snapshot),
                 "summary_coverage": render_summary_coverage(

@@ -212,6 +212,273 @@ def unaccounted_differences(
     return missing
 
 
+#: ``(datasheet_id, line, was, now)`` where each side is ``"<model name> <min>-<max>"`` or
+#: ``"absent"``. Rendered as a string pair rather than as counts because a composition change is
+#: read by a human deciding whether the squad they can build has changed.
+CompositionChange = tuple[str, int, str, str]
+
+#: ``(datasheet_id, group_id, "added" | "removed")``.
+OptionGroupChange = tuple[str, str, str]
+
+#: ``(datasheet_id, choice_id, "added" | "removed" | "repriced", was, now)`` — the price sides are
+#: ``"unpriced"`` where no ``points_delta`` was published, never ``0`` (FR-013).
+OptionChoiceChange = tuple[str, str, str, str, str]
+
+#: ``(keyword, was, now)`` where each side is a class name or ``"unclassified"``.
+KeywordClassChange = tuple[str, str, str]
+
+#: ``(summary class, summary_key, "added" | "changed" | "flagged")``.
+SummaryChange = tuple[str, str, str]
+
+#: The five categories `004-rules-data-enrichment` adds to the accounting. Named as data because
+#: :func:`unaccounted_enrichment_differences` iterates them, so a sixth category cannot be added
+#: to :class:`EnrichmentChanges` without the omission check learning about it.
+ENRICHMENT_CATEGORIES: Sequence[str] = (
+    "composition_changes",
+    "option_group_changes",
+    "option_choice_changes",
+    "keyword_class_changes",
+    "summary_changes",
+)
+
+
+@dataclass(frozen=True, slots=True)
+class EnrichmentChanges:
+    """What moved in the five things `004-rules-data-enrichment` added (FR-037).
+
+    Separate from :class:`ChangeSummary` rather than folded into it, because the two answer to
+    different sources: that one is derived from :class:`PriorSnapshot`, the narrow projection
+    used for cost comparison, while these need the previous **curated tree** — composition
+    entries, option groups and their prices, and per-binding keyword classes are all things the
+    cost projection deliberately does not carry.
+    """
+
+    composition_changes: tuple[CompositionChange, ...] = ()
+    option_group_changes: tuple[OptionGroupChange, ...] = ()
+    option_choice_changes: tuple[OptionChoiceChange, ...] = ()
+    keyword_class_changes: tuple[KeywordClassChange, ...] = ()
+    summary_changes: tuple[SummaryChange, ...] = ()
+
+    def entries(self, category: str) -> tuple[tuple[object, ...], ...]:
+        """One category's rows, by name — what the omission check iterates."""
+        return getattr(self, category)  # type: ignore[no-any-return]
+
+
+def _composition(snapshot: CuratedSnapshot) -> dict[tuple[str, int], str]:
+    return {
+        (datasheet.datasheet_id, entry.line): (
+            f"{entry.model_name} {entry.min_count}-{entry.max_count}"
+        )
+        for datasheet in snapshot.datasheets
+        for entry in datasheet.composition
+    }
+
+
+def _option_groups(snapshot: CuratedSnapshot) -> dict[tuple[str, str], str]:
+    return {
+        (datasheet.datasheet_id, group.id): group.scope.value
+        for datasheet in snapshot.datasheets
+        for group in datasheet.option_groups
+    }
+
+
+def _option_choices(snapshot: CuratedSnapshot) -> dict[tuple[str, str], str]:
+    """``(datasheet_id, choice_id) -> price``, where an unpriced choice reads ``"unpriced"``.
+
+    Never ``0``: a choice the points source does not price and a choice priced at zero are
+    different facts, and collapsing them here would report a repricing that never happened
+    (FR-013, guarantee 10).
+    """
+    return {
+        (datasheet.datasheet_id, choice.id): (
+            "unpriced" if choice.points_delta is None else str(choice.points_delta)
+        )
+        for datasheet in snapshot.datasheets
+        for choice in datasheet.option_choices
+    }
+
+
+def _keyword_classes(snapshot: CuratedSnapshot) -> dict[str, str]:
+    """``keyword -> class``, over the whole snapshot rather than per datasheet.
+
+    A keyword's class is a property of the keyword, not of the binding — FR-019 guarantees one
+    parent per chapter keyword — so reporting it per datasheet would print the same
+    classification decision once per unit that carries it.
+    """
+    classes: dict[str, str] = {}
+    for datasheet in snapshot.datasheets:
+        for keyword in datasheet.keywords:
+            if keyword.keyword_class is not None:
+                classes.setdefault(keyword.keyword, keyword.keyword_class.value)
+    return classes
+
+
+def _authored_summaries(snapshot: CuratedSnapshot) -> dict[tuple[str, str], tuple[str, str]]:
+    """``(class, summary_key) -> (digest, review_state)`` across all four summary classes."""
+    collected: dict[tuple[str, str], tuple[str, str]] = {}
+    for key, ability in snapshot.ability_summaries.items():
+        collected[("abilities", key)] = (ability.mechanic_digest, ability.review_state.value)
+    for file in snapshot.faction_rules.values():
+        for rule in file.rules:
+            collected[("faction_rules", rule.summary_key)] = (
+                rule.mechanic_digest,
+                rule.review_state.value,
+            )
+    for key, detachment_rule in snapshot.detachment_rules.items():
+        collected[("detachment_rules", key)] = (
+            detachment_rule.mechanic_digest,
+            detachment_rule.review_state.value,
+        )
+    for entry in snapshot.keyword_glossary.values():
+        collected[("glossary", entry.summary_key)] = (
+            entry.mechanic_digest,
+            entry.review_state.value,
+        )
+    return collected
+
+
+def compute_enrichment_changes(
+    previous: CuratedSnapshot | None, snapshot: CuratedSnapshot
+) -> EnrichmentChanges:
+    """Diff the five enrichment categories between two curated versions (FR-037).
+
+    Args:
+        previous: the previously published **curated tree**, as
+            :func:`pipeline.curate.prior.read_curated_tree` reconstructs it. ``None`` — a first
+            release — yields no rows at all rather than reporting the whole snapshot as added,
+            because "everything is new" is not a change summary anyone reads.
+
+    **One honest degradation, stated rather than hidden.** Authored summaries live in
+    ``curation/`` and are *never* written to ``data/`` (FR-017), so a previous snapshot
+    reconstructed from the tree carries none of them. When that is so — every real run today —
+    the summary category reports **nothing** instead of reporting every summary in the data set
+    as newly added. A summary's own history is in the ``curation/`` diff, which is the review
+    surface it belongs on; inventing a bulk "added" list here would bury the four categories
+    that *are* derivable from the tree under thousands of lines that say nothing.
+    """
+    if previous is None:
+        return EnrichmentChanges()
+
+    composition_before, composition_after = _composition(previous), _composition(snapshot)
+    composition = tuple(
+        (
+            datasheet_id,
+            line,
+            composition_before.get(key, "absent"),
+            composition_after.get(key, "absent"),
+        )
+        for key in sorted(set(composition_before) | set(composition_after))
+        for datasheet_id, line in (key,)
+        if composition_before.get(key) != composition_after.get(key)
+    )
+
+    groups_before, groups_after = _option_groups(previous), _option_groups(snapshot)
+    group_changes = tuple(
+        (datasheet_id, group_id, "added" if key in groups_after else "removed")
+        for key in sorted(set(groups_before) ^ set(groups_after))
+        for datasheet_id, group_id in (key,)
+    )
+
+    choices_before, choices_after = _option_choices(previous), _option_choices(snapshot)
+    choice_changes: list[OptionChoiceChange] = []
+    for key in sorted(set(choices_before) | set(choices_after)):
+        datasheet_id, choice_id = key
+        was, now = choices_before.get(key), choices_after.get(key)
+        if was == now:
+            continue
+        if was is None:
+            choice_changes.append((datasheet_id, choice_id, "added", "absent", now or "absent"))
+        elif now is None:
+            choice_changes.append((datasheet_id, choice_id, "removed", was, "absent"))
+        else:
+            choice_changes.append((datasheet_id, choice_id, "repriced", was, now))
+
+    classes_before, classes_after = _keyword_classes(previous), _keyword_classes(snapshot)
+    class_changes = tuple(
+        (
+            keyword,
+            classes_before.get(keyword, "unclassified"),
+            classes_after.get(keyword, "unclassified"),
+        )
+        for keyword in sorted(set(classes_before) | set(classes_after))
+        if classes_before.get(keyword) != classes_after.get(keyword)
+    )
+
+    summaries_before = _authored_summaries(previous)
+    summaries_after = _authored_summaries(snapshot)
+    summary_changes: list[SummaryChange] = []
+    if summaries_before:
+        for key in sorted(summaries_after):
+            summary_class, summary_key = key
+            before = summaries_before.get(key)
+            after = summaries_after[key]
+            if before is None:
+                summary_changes.append((summary_class, summary_key, "added"))
+            elif before[0] != after[0]:
+                summary_changes.append((summary_class, summary_key, "changed"))
+            elif after[1] == "needs_rereview" and before[1] != "needs_rereview":
+                summary_changes.append((summary_class, summary_key, "flagged"))
+
+    return EnrichmentChanges(
+        composition_changes=composition,
+        option_group_changes=group_changes,
+        option_choice_changes=tuple(choice_changes),
+        keyword_class_changes=class_changes,
+        summary_changes=tuple(summary_changes),
+    )
+
+
+def unaccounted_enrichment_differences(
+    changes: EnrichmentChanges, previous: CuratedSnapshot | None, snapshot: CuratedSnapshot
+) -> list[str]:
+    """Re-derive all five categories independently and report whatever ``changes`` omitted.
+
+    The same discipline :func:`unaccounted_differences` applies to costs, and for the same
+    reason: an accounting check that shares its arithmetic with the thing it checks proves
+    nothing. This one re-computes the difference sets from the two snapshots and asks, of each
+    difference, whether ``changes`` mentions its **key** — never its rendered value, so a
+    formatting change here cannot make the check pass or fail on its own.
+    """
+    if previous is None:
+        return []
+
+    accounted: dict[str, set[object]] = {
+        "composition_changes": {(row[0], row[1]) for row in changes.composition_changes},
+        "option_group_changes": {(row[0], row[1]) for row in changes.option_group_changes},
+        "option_choice_changes": {(row[0], row[1]) for row in changes.option_choice_changes},
+        "keyword_class_changes": {row[0] for row in changes.keyword_class_changes},
+        "summary_changes": {(row[0], row[1]) for row in changes.summary_changes},
+    }
+
+    missing: list[str] = []
+
+    def _sweep[K](category: str, before: Mapping[K, str], after: Mapping[K, str]) -> None:
+        for key in sorted(set(before) | set(after), key=str):
+            if before.get(key) != after.get(key) and key not in accounted[category]:
+                missing.append(f"{category}: {key} changed but is not listed")
+
+    _sweep("composition_changes", _composition(previous), _composition(snapshot))
+    _sweep("option_group_changes", _option_groups(previous), _option_groups(snapshot))
+    _sweep("option_choice_changes", _option_choices(previous), _option_choices(snapshot))
+    _sweep("keyword_class_changes", _keyword_classes(previous), _keyword_classes(snapshot))
+
+    summaries_before = _authored_summaries(previous)
+    if summaries_before:
+        summaries_after = _authored_summaries(snapshot)
+        for key in sorted(summaries_after):
+            before_summary = summaries_before.get(key)
+            after_summary = summaries_after[key]
+            moved = (
+                before_summary is None
+                or before_summary[0] != after_summary[0]
+                or (after_summary[1] == "needs_rereview" and before_summary[1] != "needs_rereview")
+            )
+            if moved and key not in accounted["summary_changes"]:
+                missing.append(f"summary_changes: {key} changed but is not listed")
+
+    return missing
+
+
 def tier_findings(summary: ChangeSummary) -> list[Finding]:
     """`PRC-TIER-DETECTED` for each datasheet that gained or lost an escalating price tier.
 
@@ -233,7 +500,9 @@ def _rows(title: str, lines: Sequence[str]) -> list[str]:
     return [f"## {title}", "", *[f"- {line}" for line in lines], ""]
 
 
-def render_change_summary(summary: ChangeSummary) -> str:
+def render_change_summary(
+    summary: ChangeSummary, enrichment: EnrichmentChanges | None = None
+) -> str:
     """`change-summary.md`."""
     out: list[str] = [
         "# Change summary",
@@ -273,5 +542,33 @@ def render_change_summary(summary: ChangeSummary) -> str:
             f"`{ds}`: {'gained' if has else 'lost'} an escalating tier"
             for ds, _had, has in summary.tier_changes
         ],
+    )
+
+    changes = enrichment or EnrichmentChanges()
+    out += _rows(
+        "Unit composition",
+        [
+            f"`{ds}` line {line}: {was} → {now}"
+            for ds, line, was, now in changes.composition_changes
+        ],
+    )
+    out += _rows(
+        "Wargear option groups",
+        [f"`{ds}` `{group}`: {verb}" for ds, group, verb in changes.option_group_changes],
+    )
+    out += _rows(
+        "Wargear option choices",
+        [
+            f"`{ds}` `{choice}`: {verb} ({was} → {now})"
+            for ds, choice, verb, was, now in changes.option_choice_changes
+        ],
+    )
+    out += _rows(
+        "Keyword classification",
+        [f"`{keyword}`: {was} → {now}" for keyword, was, now in changes.keyword_class_changes],
+    )
+    out += _rows(
+        "Authored summaries",
+        [f"`{cls}` `{key}`: {verb}" for cls, key, verb in changes.summary_changes],
     )
     return "\n".join(out).rstrip() + "\n"

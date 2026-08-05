@@ -1,0 +1,443 @@
+{
+  "_comment": "AI-Assisted: Claude Code (model: claude-opus-5) - Authored the published-bundle schema per curated-snapshot-format.md §3-§4 (task T033) against reference-db-schema.md v1.2.0. One array per consumer table, named in lowerCamelCase, each element carrying exactly that table's columns in lowerCamelCase, so the ingestor is a mechanical array-to-table load with no reshaping. Arrays are sorted by their table's primary key, which is what makes the bundle byte-stable and a hand-diff of two bundles meaningful during an incident. Absent optionals are OMITTED (§5) and ingested as SQL NULL; no property here is nullable. datasheetDetachmentEligibility is ALWAYS PRESENT and ALWAYS EMPTY: no upstream datasheet-to-detachment join exists, so the consumer contract's default (absence = legal in any detachment of its faction) applies, which is the correct non-fabricating behaviour under FR-019. additionalProperties is false throughout so an unmapped field is a build failure rather than a silent omission.",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://the-badgerworks.github.io/wargame-rules-data/schemas/bundle.schema.json",
+  "title": "Published snapshot bundle rules-<rulesVersionId>.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "bundleFormatVersion",
+    "snapshotMeta",
+    "editions",
+    "editionRules",
+    "gameSizeRules",
+    "factions",
+    "detachments",
+    "detachmentRestrictions",
+    "enhancements",
+    "enhancementEligibility",
+    "datasheets",
+    "datasheetKeywords",
+    "datasheetModels",
+    "datasheetWeapons",
+    "datasheetAbilities",
+    "datasheetCosts",
+    "datasheetCostTiers",
+    "datasheetWargearOptions",
+    "datasheetLeaderPairs",
+    "datasheetDetachmentEligibility"
+  ],
+  "properties": {
+    "bundleFormatVersion": {
+      "const": 1,
+      "description": "This document's MAJOR. Distinct from snapshotMeta.schemaContractVersion, which is the CONSUMER contract's MAJOR: the first describes how the document is laid out, the second describes what the app must be able to read."
+    },
+    "snapshotMeta": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schemaContractVersion",
+        "restrictionVocabularyVersion",
+        "rulesVersionId",
+        "publishedAt",
+        "sourceNote"
+      ],
+      "properties": {
+        "schemaContractVersion": { "type": "integer", "minimum": 1 },
+        "restrictionVocabularyVersion": { "type": "integer", "minimum": 1 },
+        "rulesVersionId": { "type": "string", "minLength": 1 },
+        "publishedAt": {
+          "type": "string",
+          "minLength": 1,
+          "description": "ISO-8601 UTC. The ONLY timestamp anywhere in the bundle, and an explicit build input rather than 'now' -- that is what makes a rebuild byte-identical (FR-033, SC-006)."
+        },
+        "sourceNote": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 120,
+          "description": "Authored, factual provenance. Carries no endorsement claim (FR-050)."
+        }
+      }
+    },
+    "editions": {
+      "type": "array",
+      "description": "Sorted by id.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "code", "name", "displayOrder"],
+        "properties": {
+          "id": { "type": "string", "minLength": 1 },
+          "code": { "type": "string", "minLength": 1 },
+          "name": { "type": "string", "minLength": 1 },
+          "displayOrder": { "type": "integer" }
+        }
+      }
+    },
+    "editionRules": {
+      "type": "array",
+      "description": "Sorted by (editionId, ruleKey).",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["editionId", "ruleKey", "valueJson"],
+        "properties": {
+          "editionId": { "type": "string", "minLength": 1 },
+          "ruleKey": { "type": "string", "minLength": 1 },
+          "valueJson": {
+            "type": "string",
+            "description": "The rule value serialised with the canonical serialiser, so the emission is byte-stable."
+          }
+        }
+      }
+    },
+    "gameSizeRules": {
+      "type": "array",
+      "description": "Sorted by id. Bands must be contiguous, non-overlapping, and cover reference-db-schema.md §3.4's declared range end to end.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "editionId",
+          "label",
+          "minPoints",
+          "maxPoints",
+          "detachmentPointsBudget",
+          "maxDetachments",
+          "maxEnhancements"
+        ],
+        "properties": {
+          "id": { "type": "string", "minLength": 1 },
+          "editionId": { "type": "string", "minLength": 1 },
+          "label": { "type": "string", "minLength": 1 },
+          "minPoints": { "type": "integer", "minimum": 0 },
+          "maxPoints": { "type": "integer", "minimum": 0 },
+          "detachmentPointsBudget": { "type": "integer", "minimum": 0 },
+          "maxDetachments": { "type": "integer", "minimum": 0 },
+          "maxEnhancements": { "type": "integer", "minimum": 0 }
+        }
+      }
+    },
+    "factions": {
+      "type": "array",
+      "description": "Sorted by id.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "editionId", "code", "name"],
+        "properties": {
+          "id": { "type": "string", "minLength": 1 },
+          "editionId": { "type": "string", "minLength": 1 },
+          "code": { "type": "string", "minLength": 1 },
+          "name": { "type": "string", "minLength": 1 },
+          "parentFactionId": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "detachments": {
+      "type": "array",
+      "description": "Sorted by id.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "editionId", "factionId", "name", "detachmentPointsCost", "isLegends"],
+        "properties": {
+          "id": { "type": "string", "minLength": 1 },
+          "editionId": { "type": "string", "minLength": 1 },
+          "factionId": { "type": "string", "minLength": 1 },
+          "name": { "type": "string", "minLength": 1 },
+          "detachmentPointsCost": { "type": "integer", "minimum": 0 },
+          "isLegends": { "type": "boolean" }
+        }
+      }
+    },
+    "detachmentRestrictions": {
+      "type": "array",
+      "description": "Sorted by id. detachmentId omitted = an edition-wide rule.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "editionId", "restrictionType", "paramsJson", "messageTemplate"],
+        "properties": {
+          "id": { "type": "string", "minLength": 1 },
+          "editionId": { "type": "string", "minLength": 1 },
+          "detachmentId": { "type": "string", "minLength": 1 },
+          "restrictionType": {
+            "enum": [
+              "max_copies_per_datasheet",
+              "max_units_with_keyword",
+              "min_units_with_keyword",
+              "requires_keyword_in_army",
+              "forbids_keyword_in_army",
+              "forbids_datasheet",
+              "legends_allowed",
+              "max_enhancements",
+              "unique_epic_heroes"
+            ]
+          },
+          "paramsJson": { "type": "string" },
+          "messageTemplate": { "type": "string", "minLength": 1, "maxLength": 240 }
+        }
+      }
+    },
+    "enhancements": {
+      "type": "array",
+      "description": "Sorted by id.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "editionId", "detachmentId", "name", "points", "maxPerArmy"],
+        "properties": {
+          "id": { "type": "string", "minLength": 1 },
+          "editionId": { "type": "string", "minLength": 1 },
+          "detachmentId": { "type": "string", "minLength": 1 },
+          "name": { "type": "string", "minLength": 1 },
+          "points": { "type": "integer", "minimum": 0 },
+          "maxPerArmy": { "type": "integer", "minimum": 1 }
+        }
+      }
+    },
+    "enhancementEligibility": {
+      "type": "array",
+      "description": "Sorted by (enhancementId, ruleType, value). No rows for an enhancement = offered to any Character.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["enhancementId", "ruleType", "value"],
+        "properties": {
+          "enhancementId": { "type": "string", "minLength": 1 },
+          "ruleType": { "enum": ["requires_keyword", "forbids_keyword", "datasheet_allowlist"] },
+          "value": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "datasheets": {
+      "type": "array",
+      "description": "Sorted by id.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "editionId",
+          "factionId",
+          "name",
+          "isLegends",
+          "isCharacter",
+          "isEpicHero",
+          "isBattleline",
+          "isDedicatedTransport"
+        ],
+        "properties": {
+          "id": { "type": "string", "minLength": 1 },
+          "editionId": { "type": "string", "minLength": 1 },
+          "factionId": { "type": "string", "minLength": 1 },
+          "name": { "type": "string", "minLength": 1 },
+          "role": { "type": "string", "minLength": 1 },
+          "isLegends": { "type": "boolean" },
+          "isCharacter": { "type": "boolean" },
+          "isEpicHero": { "type": "boolean" },
+          "isBattleline": { "type": "boolean" },
+          "isDedicatedTransport": { "type": "boolean" },
+          "maxCopiesPerArmy": { "type": "integer", "minimum": 1 },
+          "damagedThreshold": { "type": "integer", "minimum": 0 },
+          "detailEditionCode": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Omitted when the detail came from the snapshot's own edition (§5). Present, this makes a hybrid entity self-describing (C5/R4)."
+          }
+        }
+      }
+    },
+    "datasheetKeywords": {
+      "type": "array",
+      "description": "Sorted by (datasheetId, keyword, modelScope).",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["datasheetId", "keyword", "isFactionKeyword"],
+        "properties": {
+          "datasheetId": { "type": "string", "minLength": 1 },
+          "keyword": { "type": "string", "minLength": 1, "maxLength": 64 },
+          "isFactionKeyword": { "type": "boolean" },
+          "modelScope": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "datasheetModels": {
+      "type": "array",
+      "description": "Sorted by (datasheetId, line).",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "datasheetId",
+          "line",
+          "name",
+          "movement",
+          "toughness",
+          "save",
+          "wounds",
+          "leadership",
+          "objectiveControl"
+        ],
+        "properties": {
+          "datasheetId": { "type": "string", "minLength": 1 },
+          "line": { "type": "integer", "minimum": 1 },
+          "name": { "type": "string", "minLength": 1 },
+          "movement": { "type": "string", "minLength": 1 },
+          "toughness": { "type": "integer" },
+          "save": { "type": "string", "minLength": 1 },
+          "invulnSave": { "type": "string", "minLength": 1 },
+          "wounds": { "type": "integer" },
+          "leadership": { "type": "string", "minLength": 1 },
+          "objectiveControl": { "type": "integer" },
+          "baseSize": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "datasheetWeapons": {
+      "type": "array",
+      "description": "Sorted by (datasheetId, line).",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "datasheetId",
+          "line",
+          "name",
+          "isMelee",
+          "attacks",
+          "skill",
+          "strength",
+          "armourPenetration",
+          "damage"
+        ],
+        "properties": {
+          "datasheetId": { "type": "string", "minLength": 1 },
+          "line": { "type": "integer", "minimum": 1 },
+          "name": { "type": "string", "minLength": 1 },
+          "isMelee": { "type": "boolean" },
+          "range": { "type": "string", "minLength": 1 },
+          "attacks": { "type": "string", "minLength": 1 },
+          "skill": { "type": "string", "minLength": 1 },
+          "strength": { "type": "string", "minLength": 1 },
+          "armourPenetration": { "type": "string", "minLength": 1 },
+          "damage": { "type": "string", "minLength": 1 },
+          "abilityKeywords": {
+            "type": "string",
+            "description": "Comma-separated keywords only -- 'lethal hits,rapid fire 1'. Never rules text.",
+            "maxLength": 240
+          }
+        }
+      }
+    },
+    "datasheetAbilities": {
+      "type": "array",
+      "description": "Sorted by (datasheetId, name). Expanded from the curated ability_keys against curation/abilities/**; every summary is non-empty and approved (V7).",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["datasheetId", "name", "abilityType", "summary"],
+        "properties": {
+          "datasheetId": { "type": "string", "minLength": 1 },
+          "name": { "type": "string", "minLength": 1 },
+          "abilityType": { "enum": ["core", "faction", "datasheet"] },
+          "summary": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 400,
+            "description": "An ORIGINAL, MECHANICS-ONLY summary authored for this data set, target <= 240 characters. Never the publisher's rules text and never a light rewording of it (reference-db-schema.md §6.1)."
+          }
+        }
+      }
+    },
+    "datasheetCosts": {
+      "type": "array",
+      "description": "Sorted by (datasheetId, modelCount). Exactly the copy_index_min = 1 projection of datasheetCostTiers -- the redundancy is deliberate and is what lets a v1.1.0 app read this table unchanged (guarantee 7).",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["datasheetId", "modelCount", "points", "label", "pricingConfidence"],
+        "properties": {
+          "datasheetId": { "type": "string", "minLength": 1 },
+          "modelCount": { "type": "integer", "minimum": 1 },
+          "points": { "type": "integer", "minimum": 0 },
+          "label": { "type": "string", "minLength": 1, "maxLength": 64 },
+          "pricingConfidence": { "enum": ["verified", "unverified"] }
+        }
+      }
+    },
+    "datasheetCostTiers": {
+      "type": "array",
+      "description": "Sorted by (datasheetId, modelCount, copyIndexMin). The full copy-indexed set.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "datasheetId",
+          "modelCount",
+          "copyIndexMin",
+          "points",
+          "label",
+          "pricingConfidence"
+        ],
+        "properties": {
+          "datasheetId": { "type": "string", "minLength": 1 },
+          "modelCount": { "type": "integer", "minimum": 1 },
+          "copyIndexMin": { "type": "integer", "minimum": 1 },
+          "points": { "type": "integer", "minimum": 0 },
+          "label": { "type": "string", "minLength": 1, "maxLength": 64 },
+          "pricingConfidence": { "enum": ["verified", "unverified"] }
+        }
+      }
+    },
+    "datasheetWargearOptions": {
+      "type": "array",
+      "description": "Sorted by id. Cost-bearing options only.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "datasheetId", "groupKey", "name", "pointsDelta"],
+        "properties": {
+          "id": { "type": "string", "minLength": 1 },
+          "datasheetId": { "type": "string", "minLength": 1 },
+          "groupKey": { "type": "string", "minLength": 1 },
+          "name": { "type": "string", "minLength": 1 },
+          "pointsDelta": { "type": "integer" },
+          "maxPerUnit": { "type": "integer", "minimum": 1 },
+          "modelsPerInstance": { "type": "integer", "minimum": 1 }
+        }
+      }
+    },
+    "datasheetLeaderPairs": {
+      "type": "array",
+      "description": "Sorted by (leaderDatasheetId, bodyguardDatasheetId).",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["leaderDatasheetId", "bodyguardDatasheetId"],
+        "properties": {
+          "leaderDatasheetId": { "type": "string", "minLength": 1 },
+          "bodyguardDatasheetId": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "datasheetDetachmentEligibility": {
+      "type": "array",
+      "maxItems": 0,
+      "description": "ALWAYS EMPTY. No upstream datasheet-to-detachment join exists, so the consumer contract's default applies: absence of rows = legal in any detachment of its faction.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["datasheetId", "detachmentId", "isAllowed"],
+        "properties": {
+          "datasheetId": { "type": "string", "minLength": 1 },
+          "detachmentId": { "type": "string", "minLength": 1 },
+          "isAllowed": { "type": "boolean" }
+        }
+      }
+    }
+  }
+}

@@ -2,6 +2,9 @@
 # T050): the emitted bundle validates against schemas/bundle.schema.json, carries one array per
 # consumer table in lowerCamelCase sorted by primary key, omits absent optionals rather than
 # emitting null, drops every curated-only field, and fails the build on an unmapped field.
+# AI-Assisted: Claude Code (model: claude-opus-5) - Extended to 004-rules-data-enrichment's
+# seven new arrays (004 task T066): each non-empty, sorted by its stated key, omitting absent
+# optionals, and each of FR-033's three lockstep layers proven to fail on its own.
 """Tests for the published bundle's shape (`curated-snapshot-format.md` §3-§4).
 
 The bundle exists so the app's ingestor is a mechanical array-to-table load with no reshaping.
@@ -20,6 +23,9 @@ The two rules that are easy to break quietly, and are therefore tested hardest:
 
 from __future__ import annotations
 
+from collections.abc import Mapping
+from typing import Final
+
 import pytest
 
 from pipeline.build import bundle_emit
@@ -29,8 +35,9 @@ from pipeline.build.bundle_emit import (
     check_mapping_totality,
     emit_bundle,
 )
-from pipeline.schema_validation import validate_bundle
+from pipeline.schema_validation import SchemaValidationError, validate_bundle
 from tests import factories
+from tests.contract.enrichment_bundle import enriched_snapshot
 
 CONSUMER_ARRAYS = (
     "editions",
@@ -209,3 +216,87 @@ def test_an_unmapped_field_fails_the_build_rather_than_being_dropped_silently(mo
 def test_bundle_format_version_is_distinct_from_the_consumer_contract_version(bundle) -> None:  # type: ignore[no-untyped-def]
     assert bundle["bundleFormatVersion"] == 1
     assert bundle["snapshotMeta"]["schemaContractVersion"] == 1
+
+
+# --- 004-rules-data-enrichment's seven new arrays (004 task T066, contract §2) --------------------
+
+#: array -> the key tuple contract §2 states it is sorted by. Stated as data because the point is
+#: that **every** new array declares one and is checked against it, not that a few of them are.
+NEW_ARRAY_SORT_KEYS: Final[Mapping[str, tuple[str, ...]]] = {
+    "datasheetCompositions": ("datasheetId", "line"),
+    "datasheetOptionGroups": ("id",),
+    "datasheetOptionChoices": ("id",),
+    "chapterKeywords": ("keyword",),
+    "factionRules": ("id",),
+    "detachmentRules": ("id",),
+    "keywordGlossary": ("keywordKey",),
+}
+
+
+@pytest.fixture(scope="module")
+def enriched():  # type: ignore[no-untyped-def]
+    """A bundle in which every one of the seven new arrays is **non-empty**.
+
+    An ingestor ignores an empty array by accident as readily as by design, so the additions are
+    checked against a bundle that actually carries them.
+    """
+    return emit_bundle(enriched_snapshot(), factories.meta())
+
+
+def test_the_enriched_bundle_validates_against_the_schema(enriched) -> None:  # type: ignore[no-untyped-def]
+    validate_bundle(enriched, source="enriched bundle")
+
+
+@pytest.mark.parametrize("array", sorted(NEW_ARRAY_SORT_KEYS))
+def test_every_new_array_carries_rows(array: str, enriched) -> None:  # type: ignore[no-untyped-def]
+    assert enriched[array], f"{array} is empty, so nothing below it is really being tested"
+
+
+@pytest.mark.parametrize(("array", "keys"), sorted(NEW_ARRAY_SORT_KEYS.items()))
+def test_every_new_array_is_sorted_by_its_stated_key(  # type: ignore[no-untyped-def]
+    array: str, keys: tuple[str, ...], enriched
+) -> None:
+    observed = [tuple(row[key] for key in keys) for row in enriched[array]]
+    assert observed == sorted(observed)
+    assert len(set(observed)) == len(observed), f"{array} has a duplicate primary key"
+
+
+@pytest.mark.parametrize("array", sorted(NEW_ARRAY_SORT_KEYS))
+def test_a_new_arrays_absent_optionals_are_omitted_never_null(array: str, enriched) -> None:  # type: ignore[no-untyped-def]
+    for row in enriched[array]:
+        assert all(value is not None for value in row.values()), array
+
+
+def test_an_unpriced_option_choice_carries_no_points_delta_at_all(enriched) -> None:  # type: ignore[no-untyped-def]
+    """Guarantee 10: emitting `0` for an unpriced choice is a contract violation, not a default."""
+    unpriced = next(row for row in enriched["datasheetOptionChoices"] if row["id"].endswith("-2-1"))
+
+    assert "pointsDelta" not in unpriced
+    assert "pricedOptionId" not in unpriced
+
+
+def test_an_unapproved_rule_ships_its_name_and_not_its_summary(enriched) -> None:  # type: ignore[no-untyped-def]
+    draft = next(row for row in enriched["detachmentRules"] if row["name"] == "Sundering Tide")
+    unwritten = next(row for row in enriched["detachmentRules"] if row["name"] == "Fenlight Muster")
+
+    assert "summary" not in draft
+    assert "summary" not in unwritten
+
+
+def test_a_field_the_schema_does_not_describe_fails_the_build(enriched) -> None:  # type: ignore[no-untyped-def]
+    """`additionalProperties: false` on every element type is the third of FR-033's three layers.
+
+    The other two — `FIELD_MAPPING`'s totality and every model's `extra="forbid"` — are checked
+    above. All three must move in lockstep or the build fails, which is the property that stops
+    a new field reaching the app undescribed.
+    """
+    polluted = {**enriched, "detachmentRules": [{**enriched["detachmentRules"][0], "note": "x"}]}
+
+    with pytest.raises(SchemaValidationError, match="note"):
+        validate_bundle(polluted, source="polluted bundle")
+
+
+def test_an_undescribed_array_fails_the_build(enriched) -> None:  # type: ignore[no-untyped-def]
+    """`additionalProperties: false` at the root, too: a new array must be declared to ship."""
+    with pytest.raises(SchemaValidationError, match="datasheetInventions"):
+        validate_bundle({**enriched, "datasheetInventions": []}, source="polluted bundle")

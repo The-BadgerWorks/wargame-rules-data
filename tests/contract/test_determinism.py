@@ -1,6 +1,9 @@
 # AI-Assisted: Claude Code (model: claude-opus-5) - Wrote the determinism tests (task T051): two
 # builds from an identical curated tree produce a byte-identical bundle and an identical sha256,
 # and a wall-clock timestamp outside snapshotMeta.publishedAt fails with exit 50.
+# AI-Assisted: Claude Code (model: claude-opus-5) - Re-proved it against the ENRICHED bundle
+# (004 task T067), whose mapping-shaped inputs are new places iteration order could reach the
+# bytes (004 FR-039, SC-012).
 """Tests for FR-033 / SC-006 determinism.
 
 The manifest's `sha256` is computed over the bundle, so "the same inputs produce the same bytes"
@@ -25,6 +28,7 @@ from pipeline.build.checksum import (
 )
 from pipeline.exit_codes import ExitCode
 from tests import factories
+from tests.contract.enrichment_bundle import enriched_snapshot
 
 
 def _bytes(snapshot=None, meta=None) -> bytes:  # type: ignore[no-untyped-def]
@@ -103,3 +107,57 @@ def test_the_bundle_ends_with_exactly_one_newline() -> None:
     assert payload.endswith(b"\n")
     assert not payload.endswith(b"\n\n")
     assert b"\r\n" not in payload
+
+
+# --- the enriched bundle, which has far more to be non-deterministic about (004 task T067) -------
+
+
+def _enriched_bytes() -> bytes:
+    return encode_bundle(emit_bundle(enriched_snapshot(), factories.meta()))
+
+
+def test_a_rebuild_of_the_enriched_tree_is_byte_identical() -> None:
+    """Seven new arrays, three of them built by walking mappings — the obvious place to lose it.
+
+    Two of the new arrays (`factionRules`, `keywordGlossary`) are emitted from `Mapping`s rather
+    than from sorted sequences, and a third (`detachmentRules`) from a nested walk over
+    detachments. Every one of those is a place iteration order can reach the bytes, which is why
+    determinism is re-proven against the *enriched* bundle rather than inherited from the
+    pre-enrichment one (FR-039, SC-012).
+    """
+    assert _enriched_bytes() == _enriched_bytes()
+
+
+def test_a_rebuild_of_the_enriched_tree_reproduces_an_identical_sha256() -> None:
+    first, second = checksum(_enriched_bytes()), checksum(_enriched_bytes())
+
+    assert first == second
+    assert len(first.sha256) == 64
+    assert first.size_bytes == len(_enriched_bytes())
+    assert_reproducible(_enriched_bytes(), expected_sha256=first.sha256)
+
+
+def test_authored_insertion_order_does_not_reach_the_enriched_bytes() -> None:
+    """The mapping-shaped inputs are the ones a `dict` literal's order could leak through."""
+    snapshot = enriched_snapshot()
+    reversed_glossary = dict(reversed(list(snapshot.keyword_glossary.items())))
+    reversed_rules = dict(reversed(list(snapshot.detachment_rules.items())))
+    shuffled = snapshot.model_copy(
+        update={"keyword_glossary": reversed_glossary, "detachment_rules": reversed_rules}
+    )
+
+    assert encode_bundle(emit_bundle(shuffled, factories.meta())) == _enriched_bytes()
+
+
+def test_the_enriched_bundle_still_carries_no_floats_and_one_timestamp() -> None:
+    def _walk(node: object) -> None:
+        assert not isinstance(node, float)
+        if isinstance(node, dict):
+            for value in node.values():
+                _walk(value)
+        elif isinstance(node, list):
+            for item in node:
+                _walk(item)
+
+    _walk(emit_bundle(enriched_snapshot(), factories.meta()))
+    assert _enriched_bytes().decode("utf-8").count("2026-06-13T00:00:00Z") == 1
