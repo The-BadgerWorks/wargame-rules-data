@@ -11,6 +11,12 @@
 # settings.md` flagged as deferred: the actual `actions/deploy-pages` steps, since
 # `pipeline.publish.pages.deploy_pages` only ever wrote a local marker file and nothing had
 # called the Pages deployment action since the environment was created (task T117).
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - Added the rebuild-notification step to the
+# rules-reference site and its log-scrape check (003-rules-reference-web T043/T045,
+# contracts/rebuild-notification.md §1.5, §3), per the frozen contract with WargameCompanion's
+# 003 spec. Non-interference with publication is by construction: `if: success()`,
+# `continue-on-error: true`, and the `|| echo` fallback keep a failed, refused, timed-out, or
+# unconfigured notification from ever failing this job or altering its outcome.
 name: publish
 
 # `workflow_dispatch` and nothing else. This is the only code path in the repository that can
@@ -149,6 +155,32 @@ jobs:
         id: pages_deployment
         uses: actions/deploy-pages@v4
 
+      # contracts/rebuild-notification.md §3: appended after the Pages deploy step above and
+      # before the bookkeeping commit below, so it runs after every gate this job enforces
+      # (checksum assertion and re-validation inside `rules-pipeline publish`, Release upload
+      # and verification, manifest regeneration, Pages deploy) and cannot influence any of them.
+      # `if: success()` places it strictly downstream of all of those; `continue-on-error: true`
+      # plus the `|| echo` fallback make a failed, refused, timed-out, or unconfigured
+      # notification unable to fail this job, block publication, or alter any consumer-visible
+      # artifact (contract §1.2). Never runs for `prerelease` (contract §1.4). Output is
+      # captured to a file so the log-scrape check after bookkeeping below (contract §1.5,
+      # T045) can assert the secret never appears in it -- the same second, independent check
+      # `detect.yml`/`integrity.yml` already apply to `WGC_NOTIFY_WEBHOOK_URL`.
+      - name: Notify the rules-reference site to rebuild
+        if: ${{ success() && inputs.channel == 'published' }}
+        continue-on-error: true
+        env:
+          WGC_REBUILD_HOOK_URL: ${{ secrets.WGC_REBUILD_HOOK_URL }}
+        run: |
+          if [ -z "${WGC_REBUILD_HOOK_URL:-}" ]; then
+            echo "rebuild hook not configured; skipping (documented no-op)"
+            exit 0
+          fi
+          {
+            curl -fsS -m 10 -o /dev/null -X POST "$WGC_REBUILD_HOOK_URL" \
+              || echo "rebuild notification failed; the site's manifest watch will recover this"
+          } 2>&1 | tee rebuild-notify.log
+
       - name: Empty the workspace
         if: always()
         run: rm -rf work
@@ -174,3 +206,19 @@ jobs:
           git checkout --detach origin/main
           git cherry-pick "$bookkeeping"
           git push origin HEAD:main
+
+      # T045 (contract §1.5): the same second, independent check `detect.yml`/`integrity.yml`
+      # already run for `WGC_NOTIFY_WEBHOOK_URL`, extended to `WGC_REBUILD_HOOK_URL`.
+      # Deliberately placed after bookkeeping rather than immediately after the notify step
+      # above, so a false positive here can never withhold the manifest/ledger commit the
+      # notify step's own contract-mandated placement (§3) is required to precede.
+      - name: Assert the rebuild-hook secret never appears in this job's own output
+        if: always() && env.WGC_REBUILD_HOOK_URL != ''
+        env:
+          WGC_REBUILD_HOOK_URL: ${{ secrets.WGC_REBUILD_HOOK_URL }}
+        run: |
+          set -euo pipefail
+          if [ -f rebuild-notify.log ] && grep -qF "$WGC_REBUILD_HOOK_URL" rebuild-notify.log; then
+            echo "::error::the rebuild hook secret appeared in this job's own output"
+            exit 1
+          fi
