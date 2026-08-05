@@ -1,6 +1,10 @@
 # AI-Assisted: Claude Code (model: claude-opus-5) - Asserts the command set, the option set, and
 # the exit-code mapping match contracts/pipeline-run-interface.md §1-§2 exactly (task T030), so
 # the operator contract cannot drift silently.
+# AI-Assisted: Claude Code (model: claude-opus-5) - Pointed the exit-code smoke test at a
+# throwaway repository root (004 Phase 3 pre-task): `verify` was wired after this test was
+# written, and every suite run was appending a real `verify` row to `state/run-ledger.jsonl` in
+# whatever checkout it ran in.
 """The CLI is the operator contract, and an operator contract that drifts is a broken promise.
 
 Every expectation below is transcribed from ``contracts/pipeline-run-interface.md`` §1-§2
@@ -11,11 +15,13 @@ a change detector.
 from __future__ import annotations
 
 import argparse
+from pathlib import Path
 
 import pytest
 
 from pipeline.cli import COMMAND_OPTIONS, COMMANDS, GLOBAL_OPTIONS, build_parser, main
 from pipeline.exit_codes import STABLE_EXIT_CODES, ExitCode
+from pipeline.observability.ledger import LEDGER_RELATIVE_PATH
 
 CONTRACT_COMMANDS = {
     "detect",
@@ -149,11 +155,33 @@ def test_help_exits_zero() -> None:
 
 
 @pytest.mark.parametrize("command", sorted(CONTRACT_COMMANDS))
-def test_every_command_returns_a_code_from_the_stable_set(command: str) -> None:
+def test_every_command_returns_a_code_from_the_stable_set(
+    command: str, throwaway_repository_root: Path
+) -> None:
     # `--offline` is the contract's own "make no network request" mode (§1), so this stays a
     # smoke test of the exit-code mapping rather than a test that happens to depend on which
     # commands are implemented yet. A wired command with no other input (`detect`) fails
     # cleanly at `OfflineViolation` -> 60; an unimplemented one still falls through to
     # `_pending` -> 60 either way (task T106 wired `detect`; `acquire`/`publish`/`withdraw`/
     # `verify` remain pending stage modules).
+    #
+    # `throwaway_repository_root` is not decoration. `verify` is wired (task T143) and appends
+    # its one ledger line whatever the outcome, so without a redirected root this smoke test
+    # writes a row into the **real** `state/run-ledger.jsonl` on every run — a test polluting
+    # the artifact whose whole value is that nothing but a real run ever appends to it.
+    del throwaway_repository_root  # the redirection is the point; the path itself is not read
     assert main([command, "--offline"]) in STABLE_EXIT_CODES
+
+
+def test_verify_appends_its_ledger_line_to_the_root_it_was_given(
+    throwaway_repository_root: Path,
+) -> None:
+    """The ledger line lands under the redirected root — and never in the repository's own.
+
+    Stated as its own test because the redirection above is invisible when it works: a fixture
+    that silently stopped redirecting would leave the smoke test green and the repository's
+    ledger quietly growing a row per run. The companion guard in ``tests/conftest.py`` proves
+    the negative half for every test in the suite; this proves the positive half once.
+    """
+    assert main(["verify", "--offline"]) in STABLE_EXIT_CODES
+    assert (throwaway_repository_root / LEDGER_RELATIVE_PATH).is_file()

@@ -1,6 +1,9 @@
 # AI-Assisted: Claude Code (model: claude-opus-5) - Shared pytest fixtures (task T038):
 # fixture-set discovery, a run_cli helper asserting exit codes, a temporary-repository factory
 # for publication tests, and a session-wide guard that fails any test which opens a socket.
+# AI-Assisted: Claude Code (model: claude-opus-5) - Added the run-ledger write guard and the
+# `throwaway_repository_root` redirection (004 Phase 3 pre-task), after the suite was found to
+# append a `verify` row to the real state/run-ledger.jsonl on every run.
 """Shared test fixtures.
 
 The socket guard is the important one. The whole suite is supposed to run offline — that is
@@ -19,6 +22,7 @@ import pytest
 
 from pipeline.cli import main as cli_main
 from pipeline.config import PipelineConfig, load_config
+from pipeline.observability.ledger import LEDGER_RELATIVE_PATH
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 FIXTURES_ROOT = REPO_ROOT / "fixtures"
@@ -56,6 +60,59 @@ def _no_sockets() -> Iterator[None]:
     finally:
         socket.socket.connect = real_connect  # type: ignore[method-assign]
         socket.create_connection = real_create_connection  # type: ignore[assignment]
+
+
+@pytest.fixture(autouse=True)
+def _repository_state_is_read_only() -> Iterator[None]:
+    """Fail any test that writes to the repository's own ``state/run-ledger.jsonl``.
+
+    Autouse, like the socket guard, and for the same reason. The ledger's entire value is that
+    a line in it means *a real run happened* — silence is a fault signal (FR-054), so a test
+    that appends to it corrupts the one artifact nobody can reconstruct. The failure mode is
+    quiet: the suite passes, the working tree shows a modified file, and it gets committed
+    alongside a code change by someone who assumes the pipeline wrote it.
+
+    The guard is a comparison, not a permission: a test that legitimately exercises a ledger
+    write points the code at ``tmp_path`` or at :func:`throwaway_repository_root` instead.
+    """
+    ledger = REPO_ROOT / LEDGER_RELATIVE_PATH
+    before = ledger.read_bytes() if ledger.is_file() else None
+    yield
+    after = ledger.read_bytes() if ledger.is_file() else None
+    if after != before:
+        if before is not None:
+            ledger.write_bytes(before)
+        elif after is not None:
+            ledger.unlink()
+        raise AssertionError(
+            f"this test wrote to {LEDGER_RELATIVE_PATH} in the repository itself. The ledger is "
+            "append-only run history; point the code under test at tmp_path or at the "
+            "`throwaway_repository_root` fixture. (The file has been restored.)"
+        )
+
+
+@pytest.fixture
+def throwaway_repository_root(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> Path:
+    """Redirect :func:`pipeline.config.repo_root` at a throwaway tree for the whole CLI.
+
+    ``pipeline.cli`` resolves the repository root once per command and writes the ledger, the
+    detection digest, and the channel manifests beneath it. A test invoking a command through
+    :func:`pipeline.cli.main` therefore writes into the developer's checkout unless the root is
+    redirected — which is exactly the defect this fixture exists to make impossible rather than
+    to remember.
+    """
+    root = tmp_path / "throwaway-repo"
+    for relative in (
+        "data/wh40k-11e/factions",
+        "curation/abilities",
+        "reports",
+        "state",
+        "site/prerelease",
+        "work",
+    ):
+        (root / relative).mkdir(parents=True, exist_ok=True)
+    monkeypatch.setattr("pipeline.cli.repo_root", lambda: root)
+    return root
 
 
 @pytest.fixture
