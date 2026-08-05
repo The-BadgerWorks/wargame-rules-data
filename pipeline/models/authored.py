@@ -219,6 +219,19 @@ class SummaryClass(StrEnum):
         """False for :attr:`ABILITIES` alone, whose gate predates this feature."""
         return self is not SummaryClass.ABILITIES
 
+    @property
+    def key_field(self) -> str:
+        """The record field carrying the key (contract §6's glob-to-key-field table).
+
+        The **only** field-name difference between the four classes: ``ability_key`` on the
+        existing class, ``summary_key`` on the three new ones. Renaming the existing 2 031
+        records to match would be a change-class collision with this feature's pipeline work
+        under ``tools/check_change_classes.py``, so the difference is carried as data here — one
+        table, read by the self-approval guard and by the finding detail alike — rather than
+        being paid for once in a migration and forever in a divergence.
+        """
+        return "ability_key" if self is SummaryClass.ABILITIES else "summary_key"
+
 
 _SUMMARY_CLASS_PREFIXES: Final[Mapping[SummaryClass, str]] = {
     SummaryClass.ABILITIES: "SUM",

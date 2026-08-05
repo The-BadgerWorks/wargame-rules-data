@@ -1,0 +1,25 @@
+{
+  "faction_id": "f-glimmerfen-covenant",
+  "army_rule_state": "present",
+  "rules": [
+    {
+      "summary_key": "faction:f-glimmerfen-covenant:tidewalk",
+      "display_order": 1,
+      "name": "Tidewalk",
+      "summary": "Units of this faction ignore the movement penalty for difficult ground and may end a Normal move within engagement range of no enemy unit.",
+      "review_state": "approved",
+      "mechanic_digest": "a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1a1",
+      "reviewed_by": "second-curator",
+      "reviewed_at": "2026-07-01T00:00:00Z",
+      "authored_against_acquisition": "wahapedia-20260701T000000Z-000000aa"
+    },
+    {
+      "summary_key": "faction:f-glimmerfen-covenant:fenlight-veil",
+      "display_order": 2,
+      "name": "Fenlight Veil",
+      "summary": "Ranged attacks targeting a unit of this faction more than twelve inches away subtract one from the hit roll.",
+      "review_state": "draft",
+      "mechanic_digest": "b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2b2"
+    }
+  ]
+}

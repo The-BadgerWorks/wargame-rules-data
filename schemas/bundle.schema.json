@@ -29,7 +29,8 @@
     "datasheetCompositions",
     "datasheetOptionGroups",
     "datasheetOptionChoices",
-    "chapterKeywords"
+    "chapterKeywords",
+    "factionRules"
   ],
   "properties": {
     "bundleFormatVersion": {
@@ -135,7 +136,27 @@
           "editionId": { "type": "string", "minLength": 1 },
           "code": { "type": "string", "minLength": 1 },
           "name": { "type": "string", "minLength": 1 },
-          "parentFactionId": { "type": "string", "minLength": 1 }
+          "parentFactionId": { "type": "string", "minLength": 1 },
+          "armyRuleState": {
+            "enum": ["present", "none"],
+            "description": "004 additive column. 'none' = this faction genuinely has no army rule, a completed curation decision that contributes nothing to the coverage denominator. OMITTED = not yet curated, which is a DIFFERENT fact (004 FR-021); a consumer that cannot tell the two apart shows the same empty section for both."
+          }
+        }
+      }
+    },
+    "factionRules": {
+      "type": "array",
+      "description": "Sorted by id. One row per army rule, from 004-rules-data-enrichment; a faction may have more than one, which is what displayOrder is for. The NAME is always carried. The `summary` is authored by a human from the mechanic and appears only once approved: an unapproved entry ships with its name alone, because publishing a draft would put wording nobody has signed off in front of every player (004 FR-021, FR-024, contracts/authored-summary-gates.md §3).",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "factionId", "name", "displayOrder"],
+        "properties": {
+          "id": { "type": "string", "minLength": 1 },
+          "factionId": { "type": "string", "minLength": 1 },
+          "name": { "type": "string", "minLength": 1, "maxLength": 120 },
+          "displayOrder": { "type": "integer", "minimum": 1 },
+          "summary": { "type": "string", "minLength": 1, "maxLength": 400 }
         }
       }
     },

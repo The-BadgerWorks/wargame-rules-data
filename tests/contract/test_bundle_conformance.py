@@ -60,6 +60,8 @@ CONSUMER_ARRAYS = (
     # 004 task T040, contract §2.4. Snapshot-level rather than a datasheet child, because a
     # chapter keyword is resolved by keyword and not by the faction it hangs off.
     "chapterKeywords",
+    # 004 task T048, contract §2.5. A faction may own more than one army rule.
+    "factionRules",
 )
 
 

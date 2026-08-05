@@ -1,0 +1,16 @@
+{
+  "faction_id": "f-sedgeward-conclave",
+  "army_rule_state": "present",
+  "rules": [
+    {
+      "summary_key": "faction:f-sedgeward-conclave:rites-of-tally",
+      "display_order": 1,
+      "name": "Rites of Tally",
+      "summary": "Each time a unit of this faction destroys an enemy unit, add one to its Objective Control characteristic for the rest of the battle.",
+      "review_state": "needs_rereview",
+      "mechanic_digest": "d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4",
+      "reviewed_by": "second-curator",
+      "reviewed_at": "2026-06-02T00:00:00Z"
+    }
+  ]
+}

@@ -7,6 +7,8 @@
 # contracts/bundle-schema-delta.md §2.1-§2.3 and §3.
 # AI-Assisted: Claude Code (model: claude-opus-5) - Emitted `chapterKeywords` and the
 # `datasheetKeywords.keywordClass` column (004 task T040, contract §2.4 and §3).
+# AI-Assisted: Claude Code (model: claude-opus-5) - Emitted `factionRules` and the
+# `factions.armyRuleState` column (004 task T048, contract §2.5 and §3).
 """Turn the curated tree into the published bundle. A pure function, and nothing else.
 
 No network, no source re-acquisition, no input the tree does not already contain, and no clock:
@@ -41,6 +43,7 @@ from dataclasses import dataclass, replace
 from typing import Any, Final
 
 from pipeline.build.canonical_json import JsonValue, dumps_bundle, omit_absent
+from pipeline.models.authored import ReviewState
 from pipeline.models.curated import (
     CuratedChapterKeyword,
     CuratedCompositionEntry,
@@ -111,15 +114,14 @@ FIELD_MAPPING: Final[Mapping[type, tuple[set[str], set[str]]]] = {
         },
         set(),
     ),
-    # 004-rules-data-enrichment: `army_rule_state` is still listed as **dropped** here on
-    # purpose. It is emitted by 004 T048, which moves it into the mapped set beside its emitter.
-    # Listing it as dropped in the meantime is the honest state — it genuinely does not reach the
-    # bundle yet — and it is what this partition exists to force: a field nobody has decided
-    # about stops the build. The datasheet's four composition and option fields moved across in
-    # T032, and `CuratedKeyword.keyword_class` in T040, both below.
+    # 004-rules-data-enrichment moved four datasheet fields (T032), `keyword_class` (T040) and
+    # `army_rule_state` (T048) from the dropped set into the mapped one, each beside its emitter.
+    # Listing a field as dropped until its emitter exists is the honest state and is what this
+    # partition is for: a field nobody has decided about stops the build rather than silently
+    # failing to reach the app.
     CuratedFaction: (
-        {"faction_id", "edition_id", "code", "name", "parent_faction_id"},
-        {"mfm_slug", "detail_source_faction_id", "provenance", "army_rule_state"},
+        {"faction_id", "edition_id", "code", "name", "parent_faction_id", "army_rule_state"},
+        {"mfm_slug", "detail_source_faction_id", "provenance"},
     ),
     CuratedDetachment: (
         {
@@ -351,6 +353,15 @@ def _emit_factions(snapshot: CuratedSnapshot) -> list[dict[str, JsonValue]]:
                     "code": faction.code,
                     "name": faction.name,
                     "parentFactionId": faction.parent_faction_id,
+                    # Omitted = not yet curated, which is a third fact distinct from a curated
+                    # `none` (contract §3). This three-state-via-absence is the whole of what
+                    # FR-021 asks for, and a consumer that cannot tell the two apart shows the
+                    # same empty section for a mercenary faction and an unfinished one.
+                    "armyRuleState": (
+                        faction.army_rule_state.value
+                        if faction.army_rule_state is not None
+                        else None
+                    ),
                 }
             )
             for faction in snapshot.factions
@@ -631,6 +642,37 @@ def _emit_datasheets(snapshot: CuratedSnapshot) -> dict[str, list[dict[str, Json
     }
 
 
+def _emit_faction_rules(snapshot: CuratedSnapshot) -> list[dict[str, JsonValue]]:
+    """`factionRules`, sorted by `id` (contract §2.5).
+
+    **The name is always carried; the summary is not.** A rule whose summary is not `approved`
+    ships with its name alone, which is what "the entry ships with its name only" means in
+    contract §3's gates-off row — and it holds in the gated-on state too, where the run is
+    already refused for that entry by a blocking finding. Emitting an unapproved draft would
+    publish, to every player, wording that by definition nobody has signed off.
+
+    `id` is the record's own `summary_key`: stable, curator-visible, and already unique per rule
+    across factions, so nothing has to be minted here and a rule keeps its identity across a
+    rebuild without a registry.
+    """
+    rows: list[dict[str, JsonValue]] = []
+    for faction_id in sorted(snapshot.faction_rules):
+        for rule in snapshot.faction_rules[faction_id].rules:
+            approved = rule.review_state is ReviewState.APPROVED and bool(rule.summary.strip())
+            rows.append(
+                omit_absent(
+                    {
+                        "id": rule.summary_key,
+                        "factionId": faction_id,
+                        "name": rule.name,
+                        "displayOrder": rule.display_order,
+                        "summary": rule.summary if approved else None,
+                    }
+                )
+            )
+    return _rows(rows, "id")
+
+
 def _emit_chapter_keywords(snapshot: CuratedSnapshot) -> list[dict[str, JsonValue]]:
     """`chapterKeywords`, sorted by `keyword` (contract §2.4).
 
@@ -715,6 +757,7 @@ def emit_bundle(snapshot: CuratedSnapshot, meta: BundleMeta) -> dict[str, Any]:
         "enhancementEligibility": eligibility,
         "datasheetAbilities": _emit_abilities(snapshot),
         "chapterKeywords": _emit_chapter_keywords(snapshot),
+        "factionRules": _emit_faction_rules(snapshot),
         **datasheet_arrays,
         # Always present, always empty: no upstream join exists, so the contract's default
         # applies (absence = legal in any detachment of its faction). Fabricating rows would be

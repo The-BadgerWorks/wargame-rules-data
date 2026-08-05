@@ -86,6 +86,8 @@ EMPTY_BUNDLE: dict[str, Any] = {
     # 004 task T040. `chapterKeywords` is always present and empty until a curator classifies
     # something, exactly like every other array here.
     "chapterKeywords": [],
+    # 004 task T048.
+    "factionRules": [],
 }
 
 

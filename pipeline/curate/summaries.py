@@ -2,6 +2,11 @@
 # workflow's computed half (task T128): the current mechanic digest per ability key, joined from
 # the detail source, and the effective review status each key carries once that digest is
 # compared against what a curator most recently approved (FR-020, FR-023, FR-024, research D6).
+# AI-Assisted: Claude Code (model: claude-opus-5) - Generalised the state and digest machinery
+# over all four summary classes (004 task T045): `effective_status` and `summary_statuses` now
+# read the structural :class:`AuthoredSummary`, and `compute_digests` states the digest step
+# apart from the ability-specific join `compute_current_digests` still performs. The abilities
+# code path is behaviourally identical — it is the same function with a wider parameter type.
 """Compare an ability's *current* mechanic against what a curator approved.
 
 Two things this module deliberately does **not** do:
@@ -36,13 +41,40 @@ from __future__ import annotations
 
 from collections.abc import Iterable, Mapping
 from enum import StrEnum
+from typing import Protocol
 
-from pipeline.models.authored import AbilitySummary, ReviewState
+from pipeline.models.authored import ReviewState
 from pipeline.normalize.ability_types import classify
 from pipeline.normalize.ip_strip import strip_field
 from pipeline.normalize.mechanic_digest import mechanic_digest
 from pipeline.parse.wahapedia_csv import CsvReadResult
 from pipeline.reconcile.identity import slugify
+
+
+class AuthoredSummary(Protocol):
+    """What this module needs of an authored record, in **any** of the four classes.
+
+    Structural rather than nominal on purpose. `contracts/authored-summary-gates.md` §1 says the
+    four classes share the review state, the record shape, the digest algorithm, the
+    carry-forward rule and the self-approval refusal *without variation* — so the machinery is
+    written against the shape they share rather than against a common base class the existing
+    :class:`~pipeline.models.authored.AbilitySummary` would have had to be retrofitted into. The
+    one field they genuinely differ on, the key, is never read here: every function below takes
+    the key as its argument or as a mapping key, which is exactly why one code path serves four
+    classes (research D6).
+    """
+
+    @property
+    def name(self) -> str: ...
+
+    @property
+    def summary(self) -> str: ...
+
+    @property
+    def review_state(self) -> ReviewState: ...
+
+    @property
+    def mechanic_digest(self) -> str: ...
 
 
 class SummaryStatus(StrEnum):
@@ -70,6 +102,22 @@ _REVIEW_STATE_TO_STATUS: Mapping[ReviewState, SummaryStatus] = {
     ReviewState.NEEDS_REREVIEW: SummaryStatus.NEEDS_REREVIEW,
     ReviewState.APPROVED: SummaryStatus.APPROVED,
 }
+
+
+def compute_digests(mechanic_texts: Mapping[str, str], *, key: bytes) -> dict[str, str]:
+    """``summary_key -> keyed digest``, for **any** class (contract §1, §5).
+
+    The digest step stated apart from the join that finds the text, because the join is the only
+    part that differs per class: an ability's mechanic comes from the detail source's ability
+    binding, a faction or detachment rule's from its own source row, and a keyword's — where the
+    edition publishes no description at all — from the normalised keyword stem itself (§5.1).
+    Whichever it is, the text reaches this function while it exists only in ephemeral ``work/``
+    and **nothing but the digest comes back** (FR-027, C6/R8).
+    """
+    return {
+        summary_key: mechanic_digest(text, key=key)
+        for summary_key, text in sorted(mechanic_texts.items())
+    }
 
 
 def compute_current_digests(detail: Mapping[str, CsvReadResult], *, key: bytes) -> dict[str, str]:
@@ -121,20 +169,23 @@ def compute_current_digests(detail: Mapping[str, CsvReadResult], *, key: bytes) 
 
 
 def effective_status(
-    ability_key: str,
+    summary_key: str,
     *,
-    authored: Mapping[str, AbilitySummary],
+    authored: Mapping[str, AuthoredSummary],
     current_digest: str | None,
 ) -> SummaryStatus:
-    """The status one ability key carries for this run (see module docstring).
+    """The status one key carries for this run, in any class (see module docstring).
 
     Args:
+        summary_key: the key in that class's own vocabulary — an ``ability_key`` for the
+            existing class, a ``summary_key`` for the three new ones. This function never reads
+            it off the record, only looks it up, which is what makes one path serve four classes.
         current_digest: the digest computed from this run's freshly acquired source, or
             ``None`` when this run has no source text to compare against (a bare `validate`).
             ``None`` never flips an approved summary to needing re-review — there is no
             evidence of drift, only an absence of a fresh check.
     """
-    summary = authored.get(ability_key)
+    summary = authored.get(summary_key)
     if summary is None:
         return SummaryStatus.MISSING
     if summary.review_state is not ReviewState.APPROVED:
@@ -145,9 +196,9 @@ def effective_status(
 
 
 def summary_statuses(
-    ability_keys: Iterable[str],
+    summary_keys: Iterable[str],
     *,
-    authored: Mapping[str, AbilitySummary],
+    authored: Mapping[str, AuthoredSummary],
     current_digests: Mapping[str, str] | None = None,
 ) -> dict[str, SummaryStatus]:
     """:func:`effective_status` over every key the snapshot actually uses, once each.
@@ -159,5 +210,5 @@ def summary_statuses(
     digests = current_digests or {}
     return {
         key: effective_status(key, authored=authored, current_digest=digests.get(key))
-        for key in sorted(set(ability_keys))
+        for key in sorted(set(summary_keys))
     }

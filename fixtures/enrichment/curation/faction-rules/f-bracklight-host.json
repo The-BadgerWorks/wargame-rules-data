@@ -1,0 +1,14 @@
+{
+  "faction_id": "f-bracklight-host",
+  "army_rule_state": "present",
+  "rules": [
+    {
+      "summary_key": "faction:f-bracklight-host:swift-recall",
+      "display_order": 1,
+      "name": "Swift Recall",
+      "summary": "Once per battle round, one unit of this faction that has not moved may make a Normal move of up to six inches at the end of the opponent's turn.",
+      "review_state": "in_review",
+      "mechanic_digest": "c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3"
+    }
+  ]
+}

@@ -1,3 +1,7 @@
+# AI-Assisted: Claude Code (model: claude-opus-5) - Added the FR-030 ratchet's baseline (004
+# tasks T041/T046): the previous release's classified-keyword set from the tree, and its
+# per-class approved-summary percentages from its retained report.json, which is the only place
+# they can come from since authored content never reaches the tree.
 # AI-Assisted: Claude Code (model: claude-opus-5) - Implemented reading the previous curated tree
 # and the previous published version back (task T090), so last-known pricing, rename detection,
 # coverage ratios, and the change summary all have a baseline without re-acquiring anything
@@ -29,7 +33,7 @@ from __future__ import annotations
 
 import json
 from collections.abc import Mapping, Sequence
-from dataclasses import dataclass, field
+from dataclasses import dataclass, field, replace
 from pathlib import Path
 from typing import Any
 
@@ -125,6 +129,18 @@ class PriorSnapshot:
     enhancements: Mapping[str, PriorCostBearer] = field(default_factory=dict)
     classified_keywords: frozenset[str] = frozenset()
     """Distinct keywords the previous release published a ``keyword_class`` for (004 FR-038)."""
+
+    summary_approved_count: Mapping[str, int] = field(default_factory=dict)
+    """``<summary class> -> approved entries``, as the previously published version reported."""
+
+    summary_ratio_percent: Mapping[str, int] = field(default_factory=dict)
+    """``<summary class> -> approved-coverage percent``, the FR-030 ratchet's baseline.
+
+    Read back from the previously published version's retained `report.json` rather than from
+    the curated tree, because authored content is never written to the tree — the tree could not
+    answer this question even in principle (FR-017). The **previously published** version, not
+    the previous candidate, so a rejected candidate cannot move the ratchet (contract §4).
+    """
 
     @property
     def faction_count(self) -> int:
@@ -450,6 +466,42 @@ def previous_published_version(manifest_path: Path) -> str | None:
     return str(latest["rulesVersionId"])
 
 
+#: The `report.json` coverage keys the four summary classes occupy (data-model.md §5).
+SUMMARY_COVERAGE_PREFIX = "summaries."
+
+
+def previous_summary_coverage(
+    root: Path, rules_version_id: str | None
+) -> dict[str, tuple[int, int]]:
+    """``<summary class> -> (approved count, approved percent)`` from a retained report.
+
+    Returns an empty mapping when there is no previous version, no retained report, or no
+    `summaries.*` rows in it — a first release, or a release predating this feature. A class
+    with no previous figure has nothing to fall from and therefore cannot regress, which is what
+    makes the ratchet safe to introduce mid-campaign rather than needing a seeded baseline.
+    """
+    if not rules_version_id:
+        return {}
+    report_path = root / "reports" / rules_version_id / "report.json"
+    if not report_path.is_file():
+        return {}
+    try:
+        document = json.loads(report_path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        # An unreadable baseline must not stop this run: it removes the ratchet's evidence, and
+        # acting on evidence is the ratchet's whole job.
+        return {}
+    coverage = document.get("coverage", {})
+    return {
+        name.removeprefix(SUMMARY_COVERAGE_PREFIX): (
+            int(figure.get("current", 0)),
+            int(figure.get("ratio_percent", 0)),
+        )
+        for name, figure in coverage.items()
+        if name.startswith(SUMMARY_COVERAGE_PREFIX) and isinstance(figure, dict)
+    }
+
+
 def load_prior(
     root: Path, *, edition_code: str, manifest_relative_path: str = "site/manifest.json"
 ) -> PriorSnapshot | None:
@@ -461,6 +513,11 @@ def load_prior(
     snapshot = read_curated_tree(root / "data" / edition_code)
     if snapshot is None:
         return None
-    return prior_from_snapshot(
-        snapshot, rules_version_id=previous_published_version(root / manifest_relative_path)
+    rules_version_id = previous_published_version(root / manifest_relative_path)
+    prior = prior_from_snapshot(snapshot, rules_version_id=rules_version_id)
+    summaries = previous_summary_coverage(root, rules_version_id)
+    return replace(
+        prior,
+        summary_approved_count={name: count for name, (count, _) in summaries.items()},
+        summary_ratio_percent={name: percent for name, (_, percent) in summaries.items()},
     )

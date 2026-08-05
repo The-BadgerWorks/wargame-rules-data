@@ -75,8 +75,9 @@ from pipeline.detect.digest import load_state as load_detection_state
 from pipeline.detect.digest import save_state as save_detection_state
 from pipeline.detect.staleness import is_stale
 from pipeline.exit_codes import ExitCode
+from pipeline.models.authored import SummaryClass
 from pipeline.models.curated import CuratedSnapshot
-from pipeline.models.findings import Finding, Severity, ValidationReport
+from pipeline.models.findings import CoverageFigure, Finding, Severity, ValidationReport
 from pipeline.normalize.mechanic_digest import DigestKeyMissingError, resolve_digest_key
 from pipeline.observability.ledger import (
     LEDGER_RELATIVE_PATH,
@@ -129,9 +130,22 @@ from pipeline.validate.contract_checks import (
     check_snapshot,
 )
 from pipeline.validate.coverage import CoverageOutcome, check_coverage
+from pipeline.validate.gates import (
+    ClassCheck,
+    ClassCoverage,
+    check_summary_gates,
+    check_summary_ratchet,
+    class_coverage,
+    faction_rule_keys,
+    faction_rule_summaries,
+    gate_for,
+    max_chars_for,
+    summary_coverage_figures,
+    tolerance_for,
+    used_ability_keys,
+)
 from pipeline.validate.ip_scan import scan_bundle
 from pipeline.validate.refs import check_authored_references
-from pipeline.validate.summaries import check_summaries
 from pipeline.workspace import workspace
 
 LOGGER: Final = logging.getLogger("pipeline")
@@ -312,6 +326,93 @@ def _verdict(findings: Sequence[Finding], coverage: CoverageOutcome | None = Non
     return ExitCode.ADVISORY_ONLY if findings else ExitCode.SUCCESS
 
 
+#: The summary classes wired into a run so far. `detachment_rules` and `glossary` join it with
+#: their own phases; a class absent here simply contributes no findings and no coverage row,
+#: which is the correct behaviour for a class whose curation tree does not exist yet.
+WIRED_SUMMARY_CLASSES: Final[tuple[SummaryClass, ...]] = (
+    SummaryClass.ABILITIES,
+    SummaryClass.FACTION_RULES,
+)
+
+
+def _summary_class_checks(
+    snapshot: CuratedSnapshot,
+    *,
+    config: PipelineConfig,
+    authored: AuthoredContent,
+    ability_current_digests: Mapping[str, str] | None,
+) -> list[ClassCheck]:
+    """One :class:`ClassCheck` per wired class, each carrying only its own class's state.
+
+    `authored` rather than the snapshot supplies the records for both classes, deliberately: a
+    snapshot reconstructed from `data/` alone — a bare `validate` re-run — never carries authored
+    content, because authored content is never written to the curated tree (FR-017). Reading it
+    from one place is what stops `build` and `validate` disagreeing about a faction's coverage.
+
+    Faction rules pass `current_digests=None` for now: the digest join for that class arrives
+    with its own source in Phase 9, and passing `None` means an approved summary is trusted as-is
+    rather than flipped without evidence — exactly what a run with no source text already does
+    for abilities.
+    """
+    return [
+        ClassCheck(
+            summary_class=SummaryClass.ABILITIES,
+            keys=sorted(used_ability_keys(snapshot)),
+            authored=authored.ability_summaries,
+            current_digests=ability_current_digests,
+            gate=gate_for(SummaryClass.ABILITIES, config),
+            max_chars=max_chars_for(SummaryClass.ABILITIES, config),
+        ),
+        ClassCheck(
+            summary_class=SummaryClass.FACTION_RULES,
+            keys=faction_rule_keys(snapshot, authored.faction_rule_files),
+            authored=faction_rule_summaries(snapshot, authored.faction_rule_files),
+            current_digests=None,
+            gate=gate_for(SummaryClass.FACTION_RULES, config),
+            max_chars=max_chars_for(SummaryClass.FACTION_RULES, config),
+        ),
+    ]
+
+
+def _summary_findings_and_coverage(
+    checks: Sequence[ClassCheck], *, prior: PriorSnapshot | None, config: PipelineConfig
+) -> tuple[list[Finding], list[ClassCoverage], dict[str, CoverageFigure]]:
+    """Every class's gate findings, its coverage, and the ratchet against the last release.
+
+    The ratchet runs **whether or not a class's gate is on** (contract §4). That is what makes
+    the gates-off first release safe: a campaign that has reached 40% cannot quietly fall back to
+    30% just because nothing is blocking on it yet.
+    """
+    coverages = [class_coverage(check) for check in checks]
+    previous_approved = {
+        summary_class: count
+        for summary_class in SummaryClass
+        if (count := (prior.summary_approved_count.get(summary_class.value) if prior else None))
+        is not None
+    }
+    previous_percent = {
+        summary_class: percent
+        for summary_class in SummaryClass
+        if (percent := (prior.summary_ratio_percent.get(summary_class.value) if prior else None))
+        is not None
+    }
+    tolerances = {
+        summary_class: tolerance_for(summary_class, config) for summary_class in SummaryClass
+    }
+
+    findings = check_summary_gates(checks)
+    findings.extend(
+        check_summary_ratchet(coverages, previous_percent=previous_percent, tolerances=tolerances)
+    )
+    figures = summary_coverage_figures(
+        coverages,
+        previous_approved=previous_approved,
+        previous_percent=previous_percent,
+        tolerances=tolerances,
+    )
+    return findings, coverages, figures
+
+
 def _reconcile_against_prior(
     snapshot: CuratedSnapshot,
     *,
@@ -350,14 +451,17 @@ def _reconcile_against_prior(
     coverage = check_coverage(snapshot, prior, config)
     findings.extend(coverage.findings)
 
-    findings.extend(
-        check_summaries(
-            snapshot,
-            authored_summaries=authored.ability_summaries,
-            current_digests=ability_current_digests,
-            summary_max_chars=config.summary_max_chars,
-        )
+    checks = _summary_class_checks(
+        snapshot,
+        config=config,
+        authored=authored,
+        ability_current_digests=ability_current_digests,
     )
+    summary_findings, coverages, summary_figures = _summary_findings_and_coverage(
+        checks, prior=prior, config=config
+    )
+    findings.extend(summary_findings)
+    coverage.figures.update(summary_figures)
 
     sub_reports = {
         "change_summary": render_change_summary(summary),
@@ -367,6 +471,7 @@ def _reconcile_against_prior(
             snapshot,
             authored_summaries=authored.ability_summaries,
             current_digests=ability_current_digests,
+            class_coverages=coverages,
         ),
     }
     return snapshot, findings, coverage, sub_reports
@@ -625,20 +730,24 @@ def run_validate(
         *check_snapshot(snapshot, meta),
         *check_authored_references(snapshot, authored),
         *scan_bundle(emit_bundle(snapshot, meta)),
-        # No source text is ever re-acquired here (contract §1), so this run has no evidence of
-        # digest drift — `current_digests=None` — and trusts each stored `review_state` as-is.
-        # It still catches a key with no summary at all, or one left in `draft`/`in_review`.
-        *check_summaries(
-            snapshot,
-            authored_summaries=authored.ability_summaries,
-            current_digests=None,
-            summary_max_chars=config.summary_max_chars,
-        ),
     ]
 
     prior = load_prior(root, edition_code=EDITION_CODE)
     coverage = check_coverage(snapshot, prior, config)
     findings.extend(coverage.findings)
+
+    # No source text is ever re-acquired here (contract §1), so this run has no evidence of
+    # digest drift — every class passes `current_digests=None` — and trusts each stored
+    # `review_state` as-is. It still catches an entry with no summary at all, or one left in
+    # `draft`/`in_review`, and the ratchet still compares against the previous release.
+    checks = _summary_class_checks(
+        snapshot, config=config, authored=authored, ability_current_digests=None
+    )
+    summary_findings, coverages, summary_figures = _summary_findings_and_coverage(
+        checks, prior=prior, config=config
+    )
+    findings.extend(summary_findings)
+    coverage.figures.update(summary_figures)
 
     summary = compute_change_summary(prior, snapshot)
     resolved = apply_resolutions(findings, authored.resolutions)
@@ -664,7 +773,10 @@ def run_validate(
                 "edition_mismatch": render_edition_mismatch(snapshot),
                 "unverified_pricing": render_unverified_pricing(snapshot),
                 "summary_coverage": render_summary_coverage(
-                    snapshot, authored_summaries=authored.ability_summaries, current_digests=None
+                    snapshot,
+                    authored_summaries=authored.ability_summaries,
+                    current_digests=None,
+                    class_coverages=coverages,
                 ),
                 "trends": render_trends(read_entries(root / LEDGER_RELATIVE_PATH)),
             },

@@ -19,7 +19,7 @@
       "model_count": 1,
       "points": 110,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260805T162957Z-3a7632ef"
+      "source_acquisition_id": "mfm-20260805T173309Z-3a7632ef"
     }
   ],
   "damaged_threshold": 6,
@@ -33,19 +33,23 @@
   "keywords": [
     {
       "is_faction_keyword": true,
-      "keyword": "ASHEN VIGIL"
+      "keyword": "ASHEN VIGIL",
+      "keyword_class": "faction"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "CHARACTER"
+      "keyword": "CHARACTER",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "EPIC HERO"
+      "keyword": "EPIC HERO",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "INFANTRY"
+      "keyword": "INFANTRY",
+      "keyword_class": "unit"
     }
   ],
   "leader_pairs": [
@@ -74,11 +78,11 @@
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260805T162957Z-1ab4c254",
+    "detail_acquisition_id": "wahapedia-20260805T173309Z-1ab4c254",
     "detail_edition_code": "wh40k-10e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": true,
-    "points_acquisition_id": "mfm-20260805T162957Z-3a7632ef",
+    "points_acquisition_id": "mfm-20260805T173309Z-3a7632ef",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
