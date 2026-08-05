@@ -1,0 +1,42 @@
+{
+  "_comment": "AI-Assisted: Claude Code (model: claude-opus-5) - Authored per 004 data-model.md §2.3-§2.4 and contracts/authored-summary-gates.md §5.1 (004 task T014), for curation/glossary.json. One file, a bare array, keyed by keyword_key: 60-100 records diff well in one file and a glossary has no natural faction partition. THE DIGEST LIMITATION, RECORDED RATHER THAN ENGINEERED AROUND: no keyword glossary source exists. Where the current edition publishes a description for a keyword the digest is over that text and the entry behaves exactly like an ability summary; where it does not, the digest is over the normalised keyword stem, which is stable by construction, so such an entry NEVER auto-flags for re-review. The compensating controls are GLS-ORPHANED and a manual reviewer sweep of the digest-less subset -- enumerated in summary-coverage.md -- before WGC_GATE_GLOSSARY is switched on for the first time. The alternatives (digesting the usage set, or digesting nothing) would either churn constantly or hide the gap.",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://the-badgerworks.github.io/wargame-rules-data/schemas/curation/glossary.schema.json",
+  "title": "curation/glossary.json",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "summary_key",
+      "keyword_key",
+      "display_keyword",
+      "name",
+      "summary",
+      "review_state",
+      "mechanic_digest"
+    ],
+    "properties": {
+      "summary_key": { "type": "string", "pattern": "^glossary:[A-Za-z0-9:_ -]+$" },
+      "keyword_key": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 64,
+        "description": "The normalised key of contracts/bundle-schema-delta.md §4. Casing, spacing, punctuation, and numeric-parameter variants of one keyword all collapse to this, so they cannot produce duplicate entries (FR-023)."
+      },
+      "display_keyword": { "type": "string", "minLength": 1, "maxLength": 64 },
+      "has_numeric_parameter": { "type": "boolean" },
+      "name": { "type": "string", "minLength": 1, "maxLength": 120 },
+      "summary": { "type": "string", "minLength": 1, "maxLength": 400 },
+      "review_state": { "enum": ["draft", "in_review", "approved", "needs_rereview"] },
+      "mechanic_digest": {
+        "type": "string",
+        "minLength": 1,
+        "description": "A KEYED, TRUNCATED digest over the hard-normalised mechanic text where one exists, and over the normalised keyword stem where it does not (§5.1)."
+      },
+      "reviewed_by": { "type": "string", "minLength": 1 },
+      "reviewed_at": { "type": "string", "minLength": 1 },
+      "authored_against_acquisition": { "type": "string", "minLength": 1 }
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "_comment": "AI-Assisted: Claude Code (model: claude-opus-5) - Authored per 004 data-model.md §2.2 and contracts/authored-summary-gates.md §1-§2 (004 task T014), for curation/detachment-rules/<faction-id>.json. A bare array, keyed by summary_key on the RULE rather than by detachment_id, because a detachment may own more than one rule (284 detachment abilities over 261 detachments in the measured baseline). Filed per faction rather than per detachment so a diff names the faction and the authoring campaign -- the dominant editorial cost of this feature, roughly 336 records -- can advance faction by faction without holding a release. The rule's NAME is always carried into the bundle from the source (FR-022); only the summary is authored and gated.",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://the-badgerworks.github.io/wargame-rules-data/schemas/curation/detachment-rules.schema.json",
+  "title": "curation/detachment-rules/<faction-id>.json",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "summary_key",
+      "detachment_id",
+      "name",
+      "summary",
+      "review_state",
+      "mechanic_digest"
+    ],
+    "properties": {
+      "summary_key": {
+        "type": "string",
+        "pattern": "^detachment:[A-Za-z0-9:_-]+$",
+        "description": "detachment:<detachment-id>:<slug>. Two detachments in different factions sharing a rule name are distinct keys; a detachment renamed upstream while its rule is unchanged keeps its key AND its digest, so nothing re-reviews; a rule changed while its name is unchanged moves its digest and does re-review -- which is the whole point of digesting the mechanic rather than the name."
+      },
+      "detachment_id": { "type": "string", "pattern": "^d-[a-z0-9-]+$" },
+      "name": { "type": "string", "minLength": 1, "maxLength": 120 },
+      "summary": { "type": "string", "minLength": 1, "maxLength": 400 },
+      "review_state": { "enum": ["draft", "in_review", "approved", "needs_rereview"] },
+      "mechanic_digest": {
+        "type": "string",
+        "minLength": 1,
+        "description": "A KEYED, TRUNCATED digest (HMAC-SHA256 under a repository-held key, 128 bits) over the hard-normalised mechanic text, computed while that text exists only in ephemeral storage and then discarded (C6/R8)."
+      },
+      "reviewed_by": { "type": "string", "minLength": 1 },
+      "reviewed_at": { "type": "string", "minLength": 1 },
+      "authored_against_acquisition": { "type": "string", "minLength": 1 }
+    }
+  }
+}

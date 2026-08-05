@@ -1,4 +1,5 @@
 {
+  "_comment2": "AI-Assisted: Claude Code (model: claude-opus-5) - Extended for 004-rules-data-enrichment (004 task T013): optional composition[], option_groups[], option_choices[], wargear_option_state, and keywords[].keyword_class. Every addition is OPTIONAL and omitted when absent, so a datasheet that acquires none of them is byte-identical to what it is today -- which is what makes the whole delta additive (004 contracts/bundle-schema-delta.md §1).",
   "_comment": "AI-Assisted: Claude Code (model: claude-opus-5) - Authored per curated-snapshot-format.md §2.5 (task T032). Three things this schema enforces that are easy to lose: (1) ability_keys carries KEYS, never text -- summaries live in curation/abilities/<faction-id>.json and are resolved at build time, which is what keeps authored content out of the machine-written tree entirely; (2) an uncurated optional is OMITTED, never null and never a guess (FR-019, §5), so no property here is nullable; (3) costs[] is copy-indexed -- copy_index_min is the 1-based ordinal of a copy within one army counted across all squad sizes, a copy_index_min = 1 row must exist for every model_count (guarantee 7, PRC-TIER-INCOMPLETE), and model_count values are band LOWER bounds (C2/R5).",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://the-badgerworks.github.io/wargame-rules-data/schemas/curated/datasheet.schema.json",
@@ -92,7 +93,7 @@
     },
     "keywords": {
       "type": "array",
-      "description": "Sorted by (keyword, model_scope). model_scope is OMITTED when the keyword applies to the whole unit.",
+      "description": "Sorted by (keyword, model_scope). model_scope is OMITTED when the keyword applies to the whole unit. keyword_class is OMITTED when unclassified, which is what makes an unclassified keyword's row byte-identical to what it was before classification existed (004 FR-020); two faction keywords on one datasheet is the normal shape of a chapter unit and is never an error (004 FR-017).",
       "items": {
         "type": "object",
         "additionalProperties": false,
@@ -100,9 +101,74 @@
         "properties": {
           "keyword": { "type": "string", "minLength": 1, "maxLength": 64 },
           "is_faction_keyword": { "type": "boolean" },
-          "model_scope": { "type": "string", "minLength": 1 }
+          "model_scope": { "type": "string", "minLength": 1 },
+          "keyword_class": { "enum": ["faction", "chapter", "unit"] }
         }
       }
+    },
+    "composition": {
+      "type": "array",
+      "description": "Sorted by line. 004 data-model.md §1.1. ABSENT or EMPTY when the datasheet's composition did not fully resolve: FR-008 publishes a datasheet without composition rather than with a guessed count, so one unresolved line suppresses the whole datasheet's composition and raises the advisory CMP-UNRESOLVED. min_count == max_count is a FIXED count and is the majority shape -- never read it as missing data.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["line", "model_name", "min_count", "max_count"],
+        "properties": {
+          "line": { "type": "integer", "minimum": 1 },
+          "model_name": { "type": "string", "minLength": 1, "maxLength": 120 },
+          "min_count": { "type": "integer", "minimum": 0 },
+          "max_count": { "type": "integer", "minimum": 0 },
+          "model_line": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "OMITTED on zero or two-or-more name matches against models[] -- never guessed."
+          }
+        }
+      }
+    },
+    "option_groups": {
+      "type": "array",
+      "description": "Sorted by id. 004 data-model.md §1.2. id derives from the source's own line ordinal, which is what makes an upstream relabelling surface as a RENAME rather than a removal plus an addition (004 FR-015). scope_n is present exactly when scope is per_n_models.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "line", "scope"],
+        "properties": {
+          "id": { "type": "string", "minLength": 1 },
+          "line": { "type": "integer", "minimum": 1 },
+          "scope": { "enum": ["unit", "model", "per_n_models"] },
+          "scope_n": { "type": "integer", "minimum": 1 },
+          "parent_group_id": { "type": "string", "minLength": 1 },
+          "default_choice_id": { "type": "string", "minLength": 1 },
+          "min_choices": { "type": "integer", "minimum": 0 },
+          "max_choices": { "type": "integer", "minimum": 0 }
+        }
+      }
+    },
+    "option_choices": {
+      "type": "array",
+      "description": "Sorted by id. 004 data-model.md §1.3. A choice is a NAME plus mechanical values -- there is deliberately no description property, which is what stops this class becoming a prose channel. points_delta is OMITTED, never 0, when the points source does not price the choice (004 FR-013, guarantee 10): a consumer sees 'uncosted', never 'free'.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "group_id", "name"],
+        "properties": {
+          "id": { "type": "string", "minLength": 1 },
+          "group_id": { "type": "string", "minLength": 1 },
+          "name": { "type": "string", "minLength": 1, "maxLength": 120 },
+          "count": { "type": "integer", "minimum": 1 },
+          "grants_weapon_line": { "type": "integer", "minimum": 1 },
+          "replaces_weapon_line": { "type": "integer", "minimum": 1 },
+          "is_default": { "type": "boolean" },
+          "is_no_change": { "type": "boolean" },
+          "points_delta": { "type": "integer" },
+          "priced_option_id": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "wargear_option_state": {
+      "enum": ["none", "extracted", "partial"],
+      "description": "OMITTED = the source was not consulted. Distinguishes a datasheet with genuinely NO options from one whose options failed to extract (004 FR-016) -- a consumer that cannot tell them apart shows an empty list for both."
     },
     "ability_keys": {
       "type": "array",

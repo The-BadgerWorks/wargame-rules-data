@@ -1,0 +1,37 @@
+{
+  "_comment": "AI-Assisted: Claude Code (model: claude-opus-5) - Authored per 004 data-model.md §2.3 and contracts/bundle-schema-delta.md §2.7 (004 task T013). This is the BUILD-STAGE COMPUTED collection -- the resolved glossary as it reaches the curated tree and the bundle -- and is deliberately distinct from schemas/curation/glossary.schema.json, the curator's input file. The two differ in exactly the way that matters: the input carries authoring state (review_state, mechanic_digest, reviewer), and this one carries none of it, because a consumer has no business reading whether a definition is still in review. An entry exists here ONLY when authored and approved; an unauthored keyword simply has no row, still appears on its datasheets and weapons unchanged, and is named in the coverage report (004 FR-023).",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://the-badgerworks.github.io/wargame-rules-data/schemas/curated/keyword-glossary.schema.json",
+  "title": "Curated keyword-glossary.json",
+  "description": "Resolved keyword definitions, sorted by keyword_key.",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": ["keyword_key", "display_keyword", "has_numeric_parameter", "summary"],
+    "properties": {
+      "keyword_key": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 64,
+        "description": "PRIMARY KEY. The normalised key of contracts/bundle-schema-delta.md §4: NFKC, casefold, non-alphanumerics to spaces, collapse whitespace, then strip a trailing integer parameter. Both producer and consumer MUST derive it by that exact procedure or a lookup silently fails to resolve."
+      },
+      "display_keyword": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 64,
+        "description": "The keyword as readers see it."
+      },
+      "has_numeric_parameter": {
+        "type": "boolean",
+        "description": "A trailing integer parameter was stripped from the key, so one entry serves the keyword and every numeric variant of it. No placeholder token is introduced -- the parameter is removed, not replaced with a sentinel -- so the IP scan's unresolved-placeholder check needs no allowlist."
+      },
+      "summary": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 400,
+        "description": "AUTHORED by a human from the mechanic, in this data set's own words, and approved by someone other than its author. Machine paraphrase, synonym substitution, and reordering of the publisher's text do not satisfy this and are policy violations, not quality issues (004 FR-024, Principle 4)."
+      }
+    }
+  }
+}

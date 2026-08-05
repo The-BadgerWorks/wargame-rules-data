@@ -1,0 +1,35 @@
+{
+  "_comment": "AI-Assisted: Claude Code (model: claude-opus-5) - Authored per 004 data-model.md §1.5 and contracts/bundle-schema-delta.md §2.4 (004 task T013). Keyed by `keyword` ALONE, deliberately: 004 FR-019 guarantees one parent per chapter keyword, so resolving a chapter to its datasheets stays a plain join against datasheet_keyword.keyword with no composite lookup -- which is the navigational capability US2 exists to unlock. Uniform enumeration (FR-018): a chapter the points source already models as a faction of its own STILL appears here, carrying is_modelled_as_faction = true and its chapter_faction_id, so consumers have one mechanism for every chapter grouping. The flag plus the parent-agreement check (KWD-CHAPTER-PARENT-CONFLICT, blocking) are what prevent double counting.",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://the-badgerworks.github.io/wargame-rules-data/schemas/curated/chapter-keywords.schema.json",
+  "title": "Curated chapter-keywords.json",
+  "description": "The enumerable chapter (sub-faction) vocabulary, sorted by keyword.",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": ["keyword", "parent_faction_id", "is_modelled_as_faction"],
+    "properties": {
+      "keyword": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 64,
+        "description": "PRIMARY KEY. The normalised keyword exactly as it appears on datasheets, so it joins directly against datasheet keyword rows."
+      },
+      "parent_faction_id": {
+        "type": "string",
+        "pattern": "^f-[a-z0-9-]+$",
+        "description": "Required. Must resolve in factions.json; a dangling reference is the blocking AUT-DANGLING-REF."
+      },
+      "chapter_faction_id": {
+        "type": "string",
+        "pattern": "^f-[a-z0-9-]+$",
+        "description": "Present when the points source models this chapter as a faction of its own. That faction's own parent_faction_id MUST equal this row's parent_faction_id (guarantee 9); a contradiction is the blocking KWD-CHAPTER-PARENT-CONFLICT. One side declares, the other is asserted against it -- the same shape as 002's R9 fix for the point range, and for the same reason: two structures describing one hierarchy drift apart unless one answers to the other."
+      },
+      "is_modelled_as_faction": {
+        "type": "boolean",
+        "description": "The FR-018 uniform-enumeration flag. True exactly when chapter_faction_id is present -- a flag without an id tells a consumer nothing it can act on."
+      }
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "_comment": "AI-Assisted: Claude Code (model: claude-opus-5) - Authored per 004 data-model.md §4 and research D7 (004 task T014), for curation/keyword-classes.json. The curator writes only the EXCEPTIONS to a deterministic default: a non-faction keyword is 'unit'; a faction keyword resolving to a faction with no parent is 'faction'; anything else is unclassified and awaits a record here. Of 1 423 distinct keywords in the measured baseline only 46 are faction keywords, so the authoring surface is at most 46 records and realistically about 20 -- the cheapest of this feature's five content gaps by a wide margin. An unclassified keyword ships EXACTLY as it does today, blocks nothing, and raises the advisory KWD-UNCLASSIFIED (FR-020).",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://the-badgerworks.github.io/wargame-rules-data/schemas/curation/keyword-classes.schema.json",
+  "title": "curation/keyword-classes.json",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": ["keyword", "keyword_class"],
+    "properties": {
+      "keyword": { "type": "string", "minLength": 1, "maxLength": 64 },
+      "keyword_class": { "enum": ["faction", "chapter", "unit"] },
+      "parent_faction_id": {
+        "type": "string",
+        "pattern": "^f-[a-z0-9-]+$",
+        "description": "Required when keyword_class is 'chapter'. FR-019 guarantees one parent per chapter keyword, which is what lets chapter-keywords.json key by keyword alone."
+      },
+      "chapter_faction_id": {
+        "type": "string",
+        "pattern": "^f-[a-z0-9-]+$",
+        "description": "Present when the points source models this chapter as a faction of its own. That faction's own parent_faction_id MUST equal this record's parent_faction_id, or the blocking KWD-CHAPTER-PARENT-CONFLICT stops the run (FR-019)."
+      },
+      "note": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 240,
+        "description": "A curator's sentence about MECHANICS OR PROCESS. It must not quote source text."
+      }
+    },
+    "allOf": [
+      {
+        "if": { "properties": { "keyword_class": { "const": "chapter" } }, "required": ["keyword_class"] },
+        "then": { "required": ["parent_faction_id"] }
+      }
+    ]
+  }
+}

@@ -38,6 +38,36 @@ fails fast with a path and a message rather than producing a snapshot with a qui
 | `detachment-restrictions.json` | Machine-evaluable restrictions, likewise unpublished upstream | curator |
 | `abilities/<faction-id>.json` | The authored, mechanics-only ability summaries | curator (US5) |
 | `resolutions.json` | Dated finding resolutions, which lapse when the data moves | curator |
+| `faction-rules/<faction-id>.json` | Each faction's army rule names and authored summaries, plus `army_rule_state` | curator (004 US3) |
+| `detachment-rules/<faction-id>.json` | Authored summaries for each detachment rule, filed per faction | curator (004 US4) |
+| `glossary.json` | One authored definition per keyword in use, keyed by the normalised keyword key | curator (004 US5) |
+| `keyword-classes.json` | The exceptions to the default faction/chapter/unit keyword classification | curator (004 US2) |
+| `composition-overrides.json` | A curator's resolution for a composition line the grammar could not resolve | curator (004 US1) |
+| `option-overrides.json` | A curator's group-and-choice structure for an unparsed option row | curator (004 US1) |
+
+### The six files `004-rules-data-enrichment` adds
+
+Seeded empty (`[]`, or a directory with no files) so the loader validates something before any
+faction is authored. Four points are worth stating here, because the JSON files carry no comment
+syntax of their own:
+
+1. **`faction-rules/` is an object wrapper, not a bare array** — alone among these files. The
+   wrapper exists to make `army_rule_state: "none"` — *this faction genuinely has no army rule* —
+   expressible as a **curated decision**, distinct from the absence of the file, which means
+   *nobody has curated this faction yet*. A bare array cannot carry that difference, and FR-021
+   requires it: a consumer that cannot tell them apart shows the same empty section for both.
+2. **`composition-overrides.json` and `option-overrides.json` are the escape hatch that makes
+   "never guess" affordable.** Without them the ~1.3% composition tail and the ~20% option-link
+   tail would be permanent defects; with them they are a bounded, one-time, carry-forward cost —
+   which is exactly how `002` made ability summaries tractable.
+3. **`option-overrides.json` has nowhere to put a price, deliberately.** Cost comes from the
+   points source and only from there. A curator may supply structure the grammar missed, never a
+   number the publisher did not publish.
+4. **The three new summary classes are gated independently and all three gates start off**
+   (`WGC_GATE_FACTION_RULES`, `WGC_GATE_DETACHMENT_RULES`, `WGC_GATE_GLOSSARY`). While a gate is
+   off, an unauthored entry ships with its **name only**, publication is not blocked, and the
+   entry is named in the coverage report. The authoring regime itself is **not** relaxed for
+   them: authored by a human from the mechanic, reviewed by someone else, bound to a digest.
 
 ## Provenance of the seeded values
 

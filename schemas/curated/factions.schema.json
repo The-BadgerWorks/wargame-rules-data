@@ -1,4 +1,5 @@
 {
+  "_comment2": "AI-Assisted: Claude Code (model: claude-opus-5) - Added the optional army_rule_state for 004-rules-data-enrichment (004 task T013).",
   "_comment": "AI-Assisted: Claude Code (model: claude-opus-5) - Authored per curated-snapshot-format.md §2.3 (task T032). mfm_slug and detail_source_faction_id are CURATED-ONLY provenance keys, dropped at the bundle boundary. parent_faction_id carries the points source's chapter split (C3/R6); the consuming app must include ancestors when querying a faction (reference-db-schema.md §3.5).",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://the-badgerworks.github.io/wargame-rules-data/schemas/curated/factions.schema.json",
@@ -23,6 +24,10 @@
       "parent_faction_id": { "type": "string", "pattern": "^f-[a-z0-9-]+$" },
       "mfm_slug": { "type": "string", "minLength": 1 },
       "detail_source_faction_id": { "type": "string", "minLength": 1 },
+      "army_rule_state": {
+        "enum": ["present", "none"],
+        "description": "004 FR-021. 'none' = the faction genuinely has no army rule. OMITTED = not yet curated. Expressing the third state by absence is what makes the distinction between 'no army rule' and 'nobody has looked yet' available to a consumer at all; a two-valued field would show the same empty section for both."
+      },
       "provenance": { "$ref": "#/$defs/provenance" }
     }
   },

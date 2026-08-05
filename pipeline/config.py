@@ -2,6 +2,11 @@
 # contracts/pipeline-run-interface.md §5 (task T016): every documented variable with its
 # documented default, layered resolution (defaults -> environment -> --config), non-sensitive
 # resolved values logged by name and value, sensitive values never logged.
+# AI-Assisted: Claude Code (model: claude-opus-5) - Added 004-rules-data-enrichment's fourteen
+# variables (004 task T008): the detail-acquisition mode selector, the three per-class summary
+# gates, their three length targets, three coverage-collapse ratios, and four ratchet
+# tolerances. Every one non-sensitive and defaulted, per contracts/authored-summary-gates.md
+# sections 2-4 and research D9.
 """Pipeline configuration.
 
 Every variable in ``contracts/pipeline-run-interface.md`` §5 appears here exactly once, with
@@ -55,7 +60,44 @@ class Channel(StrEnum):
     PUBLISHED = "published"
 
 
-ValueKind = Literal["str", "int", "ratio", "channel"]
+class DetailAcquisitionMode(StrEnum):
+    """Which shape the datasheet-detail source is read in (`004` research D1d).
+
+    A *variable, never a logic branch*: both modes emit the same
+    :class:`~pipeline.models.source.SourceAcquisition` record shape, so every stage below
+    ``parse`` is mode-blind and each grammar, linker, and validator is written once and tested
+    once. The selector exists because the two modes read different **content**, not because
+    they need different downstream code.
+    """
+
+    CSV = "csv"
+    """The bulk export under the permitted current-edition path — previous-edition *content*."""
+
+    HTML = "html"
+    """The current-edition datacard pages — current-edition content (FR-003)."""
+
+
+class Gate(StrEnum):
+    """A per-class publication gate (`contracts/authored-summary-gates.md` §3).
+
+    **A gate selects which finding code is emitted, never a severity.** Severity is a property
+    of the code and is fixed in :mod:`pipeline.report.catalogue`
+    (``validation-report.md`` non-negotiable #1). Off, an entry lacking an approved summary
+    emits its class's advisory ``-OUTSTANDING``; on, it emits the blocking ``-MISSING``,
+    ``-UNAPPROVED``, or ``-NEEDS-REREVIEW``. Implemented carelessly — as a severity switch —
+    this would turn a governance guarantee into a per-run judgement call, which is exactly what
+    the contract's §3 exists to prevent.
+    """
+
+    OFF = "off"
+    ON = "on"
+
+    @property
+    def is_on(self) -> bool:
+        return self is Gate.ON
+
+
+ValueKind = Literal["str", "int", "ratio", "channel", "detail_mode", "gate"]
 
 
 @dataclass(frozen=True, slots=True)
@@ -211,6 +253,125 @@ CONFIG_VARS: Final[tuple[ConfigVar, ...]] = (
         True,
         "SENSITIVE: HMAC key for the keyed mechanic digest (research D6, C6/R8)",
     ),
+    # -- 004-rules-data-enrichment ---------------------------------------------------------
+    # Fourteen variables, every one non-sensitive and defaulted. The digest key above is
+    # **reused** for the three new summary classes rather than a second key being introduced:
+    # one secret, one rotation story (004 plan, Security/configuration gate).
+    ConfigVar(
+        "WGC_DETAIL_ACQUISITION_MODE",
+        "detail_acquisition_mode",
+        "csv",
+        "detail_mode",
+        False,
+        "detail source shape: csv | html (004 research D1d)",
+    ),
+    ConfigVar(
+        "WGC_GATE_FACTION_RULES",
+        "gate_faction_rules",
+        "off",
+        "gate",
+        False,
+        "publication gate, faction rule summaries (FR-029)",
+    ),
+    ConfigVar(
+        "WGC_GATE_DETACHMENT_RULES",
+        "gate_detachment_rules",
+        "off",
+        "gate",
+        False,
+        "publication gate, detachment rule summaries (FR-029)",
+    ),
+    ConfigVar(
+        "WGC_GATE_GLOSSARY",
+        "gate_glossary",
+        "off",
+        "gate",
+        False,
+        "publication gate, keyword glossary (FR-029)",
+    ),
+    ConfigVar(
+        "WGC_FACTION_RULE_MAX_CHARS",
+        "faction_rule_max_chars",
+        "240",
+        "int",
+        False,
+        "summary length target, faction rules; over-length is advisory, never blocking",
+    ),
+    ConfigVar(
+        "WGC_DETACHMENT_RULE_MAX_CHARS",
+        "detachment_rule_max_chars",
+        "240",
+        "int",
+        False,
+        "summary length target, detachment rules",
+    ),
+    ConfigVar(
+        "WGC_GLOSSARY_MAX_CHARS",
+        "glossary_max_chars",
+        "240",
+        "int",
+        False,
+        "summary length target, glossary entries",
+    ),
+    ConfigVar(
+        "WGC_COVERAGE_MIN_COMPOSITION_RATIO",
+        "coverage_min_composition_ratio",
+        "0.90",
+        "ratio",
+        False,
+        "collapse threshold, resolved composition (FR-038)",
+    ),
+    ConfigVar(
+        "WGC_COVERAGE_MIN_OPTION_RATIO",
+        "coverage_min_option_ratio",
+        "0.90",
+        "ratio",
+        False,
+        "collapse threshold, extracted wargear options (FR-038)",
+    ),
+    ConfigVar(
+        "WGC_COVERAGE_MIN_KEYWORD_CLASS_RATIO",
+        "coverage_min_keyword_class_ratio",
+        "0.95",
+        "ratio",
+        False,
+        "collapse threshold, classified keywords (FR-038)",
+    ),
+    # The ratchet's *tolerance* is configuration; its severity is not. COV-SUMMARY-REGRESSION
+    # is one blocking code across all four classes, with the class in its detail — a per-class
+    # code would invite a per-class severity (contracts/authored-summary-gates.md §4).
+    ConfigVar(
+        "WGC_RATCHET_TOLERANCE_ABILITIES",
+        "ratchet_tolerance_abilities",
+        "0.00",
+        "ratio",
+        False,
+        "approved-coverage regression tolerance, abilities (FR-030)",
+    ),
+    ConfigVar(
+        "WGC_RATCHET_TOLERANCE_FACTION_RULES",
+        "ratchet_tolerance_faction_rules",
+        "0.00",
+        "ratio",
+        False,
+        "approved-coverage regression tolerance, faction rules (FR-030)",
+    ),
+    ConfigVar(
+        "WGC_RATCHET_TOLERANCE_DETACHMENT_RULES",
+        "ratchet_tolerance_detachment_rules",
+        "0.00",
+        "ratio",
+        False,
+        "approved-coverage regression tolerance, detachment rules (FR-030)",
+    ),
+    ConfigVar(
+        "WGC_RATCHET_TOLERANCE_GLOSSARY",
+        "ratchet_tolerance_glossary",
+        "0.00",
+        "ratio",
+        False,
+        "approved-coverage regression tolerance, glossary (FR-030)",
+    ),
 )
 
 _BY_ENV_NAME: Final[Mapping[str, ConfigVar]] = {var.env_name: var for var in CONFIG_VARS}
@@ -240,6 +401,20 @@ class PipelineConfig:
     unverified_escalate_releases: int
     notify_webhook_url: str
     mechanic_digest_key: str
+    detail_acquisition_mode: DetailAcquisitionMode
+    gate_faction_rules: Gate
+    gate_detachment_rules: Gate
+    gate_glossary: Gate
+    faction_rule_max_chars: int
+    detachment_rule_max_chars: int
+    glossary_max_chars: int
+    coverage_min_composition_ratio: float
+    coverage_min_option_ratio: float
+    coverage_min_keyword_class_ratio: float
+    ratchet_tolerance_abilities: float
+    ratchet_tolerance_faction_rules: float
+    ratchet_tolerance_detachment_rules: float
+    ratchet_tolerance_glossary: float
 
     @property
     def manifest_path(self) -> str:
@@ -330,6 +505,24 @@ def _as_channel(raw: Mapping[str, str], env_name: str) -> Channel:
         raise ConfigError(f"{env_name} must be one of {allowed}, got {text!r}") from exc
 
 
+def _as_detail_mode(raw: Mapping[str, str], env_name: str) -> DetailAcquisitionMode:
+    text = raw[env_name]
+    try:
+        return DetailAcquisitionMode(text)
+    except ValueError as exc:
+        allowed = ", ".join(mode.value for mode in DetailAcquisitionMode)
+        raise ConfigError(f"{env_name} must be one of {allowed}, got {text!r}") from exc
+
+
+def _as_gate(raw: Mapping[str, str], env_name: str) -> Gate:
+    text = raw[env_name]
+    try:
+        return Gate(text)
+    except ValueError as exc:
+        allowed = ", ".join(gate.value for gate in Gate)
+        raise ConfigError(f"{env_name} must be one of {allowed}, got {text!r}") from exc
+
+
 def load_config(
     env: Mapping[str, str] | None = None,
     config_path: Path | str | None = None,
@@ -375,4 +568,18 @@ def load_config(
         unverified_escalate_releases=_as_int(raw, "WGC_UNVERIFIED_ESCALATE_RELEASES"),
         notify_webhook_url=_as_str(raw, "WGC_NOTIFY_WEBHOOK_URL"),
         mechanic_digest_key=_as_str(raw, "WGC_MECHANIC_DIGEST_KEY"),
+        detail_acquisition_mode=_as_detail_mode(raw, "WGC_DETAIL_ACQUISITION_MODE"),
+        gate_faction_rules=_as_gate(raw, "WGC_GATE_FACTION_RULES"),
+        gate_detachment_rules=_as_gate(raw, "WGC_GATE_DETACHMENT_RULES"),
+        gate_glossary=_as_gate(raw, "WGC_GATE_GLOSSARY"),
+        faction_rule_max_chars=_as_int(raw, "WGC_FACTION_RULE_MAX_CHARS"),
+        detachment_rule_max_chars=_as_int(raw, "WGC_DETACHMENT_RULE_MAX_CHARS"),
+        glossary_max_chars=_as_int(raw, "WGC_GLOSSARY_MAX_CHARS"),
+        coverage_min_composition_ratio=_as_ratio(raw, "WGC_COVERAGE_MIN_COMPOSITION_RATIO"),
+        coverage_min_option_ratio=_as_ratio(raw, "WGC_COVERAGE_MIN_OPTION_RATIO"),
+        coverage_min_keyword_class_ratio=_as_ratio(raw, "WGC_COVERAGE_MIN_KEYWORD_CLASS_RATIO"),
+        ratchet_tolerance_abilities=_as_ratio(raw, "WGC_RATCHET_TOLERANCE_ABILITIES"),
+        ratchet_tolerance_faction_rules=_as_ratio(raw, "WGC_RATCHET_TOLERANCE_FACTION_RULES"),
+        ratchet_tolerance_detachment_rules=_as_ratio(raw, "WGC_RATCHET_TOLERANCE_DETACHMENT_RULES"),
+        ratchet_tolerance_glossary=_as_ratio(raw, "WGC_RATCHET_TOLERANCE_GLOSSARY"),
     )

@@ -1,0 +1,56 @@
+{
+  "_comment": "AI-Assisted: Claude Code (model: claude-opus-5) - Authored per 004 data-model.md §4 (004 task T014), for curation/option-overrides.json. Keyed (datasheet_id, line): a full group-plus-choices structure for an option row the grammar left unparsed. THERE IS DELIBERATELY NO POINTS FIELD ANYWHERE IN THIS SCHEMA. Cost comes from the points source and only from there (C8/R3, 004 FR-013), so a curator may supply the structure that was missed but never a number the publisher did not publish -- and a schema with nowhere to put a price is a stronger control than a review rule saying not to. Likewise there is no description field: a choice is a name plus mechanical values, which is what stops this class becoming a prose channel (FR-016).",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://the-badgerworks.github.io/wargame-rules-data/schemas/curation/option-overrides.schema.json",
+  "title": "curation/option-overrides.json",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": ["datasheet_id", "line", "scope", "choices"],
+    "properties": {
+      "datasheet_id": { "type": "string", "pattern": "^ds-[a-z0-9-]+$" },
+      "line": { "type": "integer", "minimum": 1, "description": "the source row ordinal" },
+      "scope": { "enum": ["unit", "model", "per_n_models"] },
+      "scope_n": {
+        "type": "integer",
+        "minimum": 1,
+        "description": "Present exactly when scope is per_n_models."
+      },
+      "min_choices": { "type": "integer", "minimum": 0 },
+      "max_choices": { "type": "integer", "minimum": 0 },
+      "choices": {
+        "type": "array",
+        "minItems": 1,
+        "items": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["name"],
+          "properties": {
+            "name": { "type": "string", "minLength": 1, "maxLength": 120 },
+            "count": { "type": "integer", "minimum": 1 },
+            "grants_weapon_line": { "type": "integer", "minimum": 1 },
+            "replaces_weapon_line": { "type": "integer", "minimum": 1 },
+            "is_default": { "type": "boolean" },
+            "is_no_change": {
+              "type": "boolean",
+              "description": "An explicit 'no change' alternative. It never carries a price, because publishing one would present 'take nothing' as a purchasable item."
+            }
+          }
+        }
+      },
+      "note": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 240,
+        "description": "A curator's sentence about MECHANICS OR PROCESS. It must not quote source text."
+      }
+    },
+    "allOf": [
+      {
+        "if": { "properties": { "scope": { "const": "per_n_models" } }, "required": ["scope"] },
+        "then": { "required": ["scope_n"] }
+      }
+    ]
+  }
+}

@@ -76,6 +76,40 @@ CONTRACT_SEVERITIES = {
     "CHG-DELTA-DISAGREEMENT": A,
 }
 
+#: Transcribed from 004's contracts/authored-summary-gates.md §3 and §3.1 and from
+#: contracts/bundle-schema-delta.md guarantees 8-10, by hand and independently of
+#: pipeline/report/catalogue.py. The point of writing all fifteen summary codes out rather than
+#: generating them the way the implementation does is that a generator bug in the implementation
+#: cannot be reproduced by the same generator in the test.
+ENRICHMENT_SEVERITIES = {
+    "CMP-UNRESOLVED": A,
+    "OPT-UNPARSED": A,
+    "OPT-LINK-AMBIGUOUS": A,
+    "OPT-PRICED-UNMATCHED": A,
+    "OPT-PROJECTION-DISAGREE": B,
+    "KWD-UNCLASSIFIED": A,
+    "KWD-CHAPTER-PARENT-CONFLICT": B,
+    "FRL-OUTSTANDING": A,
+    "FRL-MISSING": B,
+    "FRL-UNAPPROVED": B,
+    "FRL-NEEDS-REREVIEW": B,
+    "FRL-OVERLENGTH": A,
+    "DRL-OUTSTANDING": A,
+    "DRL-MISSING": B,
+    "DRL-UNAPPROVED": B,
+    "DRL-NEEDS-REREVIEW": B,
+    "DRL-OVERLENGTH": A,
+    "GLS-OUTSTANDING": A,
+    "GLS-MISSING": B,
+    "GLS-UNAPPROVED": B,
+    "GLS-NEEDS-REREVIEW": B,
+    "GLS-OVERLENGTH": A,
+    "GLS-ORPHANED": A,
+    "COV-SUMMARY-REGRESSION": B,
+}
+
+CONTRACT_SEVERITIES.update(ENRICHMENT_SEVERITIES)
+
 
 def test_the_catalogue_is_exactly_the_contract_catalogue() -> None:
     assert set(CATALOGUE) == set(CONTRACT_SEVERITIES)
@@ -152,3 +186,87 @@ def test_finding_detail_accepts_ids_names_numbers_and_codes() -> None:
 def test_only_the_escalated_code_is_marked_escalated() -> None:
     escalated = {spec.code for spec in CATALOGUE.values() if spec.escalated}
     assert escalated == {"PRC-UNVERIFIED-STALE"}
+
+
+# -- 004-rules-data-enrichment (task T012) ------------------------------------------------
+
+
+@pytest.mark.parametrize("prefix", ["FRL", "DRL", "GLS"])
+def test_each_new_summary_class_carries_the_whole_gate_table(prefix: str) -> None:
+    """contracts/authored-summary-gates.md §3: every gate state has a code to emit.
+
+    A missing code here is not a cosmetic gap. If the *off* state had no ``-OUTSTANDING`` code,
+    an unauthored entry would either be silent — invisible to the coverage report the campaign
+    is tracked by — or would have to borrow a blocking code, which is the gate-as-severity
+    mistake §3 exists to prevent.
+    """
+    for suffix in ("OUTSTANDING", "MISSING", "UNAPPROVED", "NEEDS-REREVIEW", "OVERLENGTH"):
+        assert f"{prefix}-{suffix}" in CATALOGUE
+
+
+def test_a_gate_switches_the_code_not_the_severity() -> None:
+    for prefix in ("FRL", "DRL", "GLS"):
+        # Gate off: advisory. Publication is not blocked and the entry ships name-only.
+        assert severity_of(f"{prefix}-OUTSTANDING") is Severity.ADVISORY
+        # Gate on: the same underlying situation, a different code, and that code is blocking.
+        assert severity_of(f"{prefix}-MISSING") is Severity.BLOCKING
+        assert severity_of(f"{prefix}-UNAPPROVED") is Severity.BLOCKING
+        assert severity_of(f"{prefix}-NEEDS-REREVIEW") is Severity.BLOCKING
+        # Over-length is advisory in EITHER state, so a good summary is never refused for a
+        # trailing clause (contract §2 item 3).
+        assert severity_of(f"{prefix}-OVERLENGTH") is Severity.ADVISORY
+
+
+def test_the_abilities_class_gains_no_outstanding_code() -> None:
+    """The ability gate has no switch and remains always-on; FR-001 forbids weakening it.
+
+    ``SUM-OUTSTANDING`` would be the code for an off state that cannot exist, and adding one
+    would be the first step toward giving the pre-existing class a switch.
+    """
+    assert "SUM-OUTSTANDING" not in CATALOGUE
+
+
+def test_the_ratchet_is_one_code_across_all_four_classes() -> None:
+    # A per-class regression code would invite a per-class severity (contract §4).
+    per_class = [c for c in CATALOGUE if c.endswith("-SUMMARY-REGRESSION")]
+    assert per_class == ["COV-SUMMARY-REGRESSION"]
+    assert severity_of("COV-SUMMARY-REGRESSION") is Severity.BLOCKING
+
+
+def test_the_summary_codes_are_classed_as_summaries_and_the_coverage_ones_as_coverage() -> None:
+    for code in ENRICHMENT_SEVERITIES:
+        if code.split("-", 1)[0] in {"FRL", "DRL", "GLS"} and code != "GLS-ORPHANED":
+            assert CATALOGUE[code].finding_class is FindingClass.SUMMARY, code
+    # The contract's §3.1 table assigns these two to `coverage` explicitly.
+    assert CATALOGUE["GLS-ORPHANED"].finding_class is FindingClass.COVERAGE
+    assert CATALOGUE["COV-SUMMARY-REGRESSION"].finding_class is FindingClass.COVERAGE
+
+
+def test_the_two_new_blocking_guarantees_are_contract_findings() -> None:
+    # bundle-schema-delta.md guarantees 8 and 9 are consumer-contract guarantees, so a breach
+    # is a contract finding rather than a reconciliation one.
+    assert CATALOGUE["OPT-PROJECTION-DISAGREE"].finding_class is FindingClass.CONTRACT
+    assert CATALOGUE["KWD-CHAPTER-PARENT-CONFLICT"].finding_class is FindingClass.CONTRACT
+
+
+def test_the_ratchet_detail_reports_percentages_as_integers() -> None:
+    """The ratchet's detail is integer percents, not floats — and this is why.
+
+    ``contracts/authored-summary-gates.md`` §4 describes the detail as carrying
+    ``previous_ratio`` / ``current_ratio`` / ``tolerance``. It cannot carry a float: canonical
+    JSON here excludes floats so a bundle's bytes are reproducible (FR-039, SC-012), and every
+    proportion already in the report is emitted as an integer percent. The requirement is met;
+    the representation is the one that stays deterministic.
+    """
+    finding = build_finding(
+        "COV-SUMMARY-REGRESSION",
+        detail={
+            "summary_class": "glossary",
+            "previous_ratio_percent": 42,
+            "current_ratio_percent": 31,
+            "tolerance_percent": 0,
+        },
+    )
+    assert finding.detail["current_ratio_percent"] == 31
+    with pytest.raises(ValueError, match="dictionary|float|valid"):
+        build_finding("COV-SUMMARY-REGRESSION", detail={"current_ratio": 0.31})

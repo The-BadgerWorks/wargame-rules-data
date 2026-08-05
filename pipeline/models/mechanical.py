@@ -1,6 +1,11 @@
 # AI-Assisted: Claude Code (model: claude-opus-5) - Shared mechanical-string guard backing the
 # "no field typed to hold prose" invariant used by the finding detail (task T025) and the run
 # ledger (task T031); the same quirk classes the IP scan (V8) asserts zero of.
+# AI-Assisted: Claude Code (model: claude-opus-5) - Extended for 004-rules-data-enrichment (004
+# task T011): assert_mechanical_fields() applies the guard across every string field of a whole
+# record, which is how the feature's new models assert the invariant at the model boundary
+# rather than relying on the scan that runs later. The scalar set stays float-free; see the note
+# on MechanicalScalar for why the coverage ratchet reports integer percents instead.
 """The shared guard for "this string carries a mechanical value, not prose".
 
 Downstream of ``normalize`` nothing may hold publisher wording (FR-013). Two independent
@@ -23,6 +28,8 @@ import re
 from collections.abc import Mapping, Sequence
 from typing import Final
 
+from pydantic import BaseModel
+
 #: The length above which a value has stopped being a name, label, or code. Aligned with the
 #: ability-summary target (``WGC_SUMMARY_MAX_CHARS``, FR-022), which is the longest authored
 #: string the contract permits anywhere.
@@ -37,6 +44,16 @@ NON_MECHANICAL_PATTERNS: Final[Mapping[str, re.Pattern[str]]] = {
 }
 
 #: What a mechanical field may hold: ids, names, numbers, enumerated codes, and lists of those.
+#:
+#: **No ``float``, deliberately.** `004`'s coverage ratchet
+#: (``contracts/authored-summary-gates.md`` §4) describes ``COV-SUMMARY-REGRESSION``'s ``detail``
+#: as carrying ``previous_ratio`` / ``current_ratio`` / ``tolerance``, and the obvious reading is
+#: a proportion. It cannot be one: :data:`pipeline.build.canonical_json.JsonValue` excludes
+#: ``float`` so that a bundle's bytes are reproducible (FR-039, SC-012), and a finding's detail
+#: is canonically encoded like everything else. Every proportion already in the report is emitted
+#: as an integer percent (``ratio_percent``, ``proportion_percent``), and the ratchet follows the
+#: same convention. The requirement is satisfied; the representation is the one that stays
+#: deterministic.
 type MechanicalScalar = str | int | bool
 type MechanicalValue = MechanicalScalar | Sequence[MechanicalScalar]
 
@@ -92,3 +109,45 @@ def assert_mechanical_value(
         if isinstance(item, str):
             assert_mechanical_string(item, field=f"{field}[{index}]", max_chars=max_chars)
     return value
+
+
+def assert_mechanical_fields(
+    record: BaseModel,
+    *,
+    max_chars: Mapping[str, int] | None = None,
+    default_max_chars: int = MECHANICAL_STRING_MAX_CHARS,
+) -> None:
+    """Assert every string this record declares is a mechanical value.
+
+    The strongest control over the IP boundary is not the scan that runs at the end of a build —
+    it is that **no field is typed to hold prose** (research D9 control 1). This function is how
+    a record asserts that of itself, at construction, so an offending value never reaches the
+    curated tree, a report, or a log in the first place. It is applied by every model
+    `004-rules-data-enrichment` adds: composition is integers plus a model name, an option choice
+    is a name plus integers plus an enumerated scope, keyword classes and states are enumerated
+    codes, and the three authored ``summary`` fields are human-written under
+    ``contracts/authored-summary-gates.md``.
+
+    Args:
+        record: the model to check. Nested models are skipped — each asserts itself.
+        max_chars: per-field length ceilings, for the authored summary fields whose target is
+            their class's own configured length rather than the name-length default.
+        default_max_chars: the ceiling for every other string field.
+
+    Raises:
+        NonMechanicalValueError: naming the field and the violation *class* — never the
+            offending text, since a diagnostic that quotes source text is itself a leak.
+    """
+    ceilings = max_chars or {}
+    for name in type(record).model_fields:
+        value = getattr(record, name, None)
+        if value is None or isinstance(value, BaseModel):
+            continue
+        limit = ceilings.get(name, default_max_chars)
+        label = f"{type(record).__name__}.{name}"
+        if isinstance(value, str):
+            assert_mechanical_string(value, field=label, max_chars=limit)
+        elif isinstance(value, Sequence):
+            for index, item in enumerate(value):
+                if isinstance(item, str):
+                    assert_mechanical_string(item, field=f"{label}[{index}]", max_chars=limit)

@@ -2,6 +2,10 @@
 # validation-report.md §3 (task T026): every code with its FIXED severity, class, and
 # requirement reference, plus the only sanctioned constructor for a Finding, so severity can
 # never be decided per occurrence (§1.1).
+# AI-Assisted: Claude Code (model: claude-opus-5) - Added 004-rules-data-enrichment's codes (004
+# task T012): composition and option findings, keyword classification findings, the fifteen
+# per-class summary codes generated from contracts/authored-summary-gates.md §3's gate table,
+# the glossary orphan advisory, and the single blocking coverage ratchet code.
 """The finding catalogue.
 
 ``validation-report.md`` §1.1: **severity is a property of the code, not of the occurrence.** A
@@ -173,6 +177,134 @@ _DEFINITIONS: Final[tuple[FindingDefinition, ...]] = (
         _A,
         "FR-032 cross-check",
         "our change summary disagrees with the source's own delta markers",
+    ),
+    # -- 004-rules-data-enrichment ---------------------------------------------------------
+    # Composition and options (004 FR-007..FR-016, data-model.md §1.1-§1.4).
+    _d(
+        "CMP-UNRESOLVED",
+        _DQ,
+        _A,
+        "004 FR-008",
+        "a composition line resolved to neither production; the whole datasheet's composition "
+        "is suppressed rather than published with a guessed count",
+    ),
+    _d(
+        "OPT-UNPARSED",
+        _DQ,
+        _A,
+        "004 FR-010",
+        "an option clause head matched no production; the row is reported, never dropped",
+    ),
+    _d(
+        "OPT-LINK-AMBIGUOUS",
+        _REC,
+        _A,
+        "004 FR-011",
+        "a choice's name matched zero or two-or-more weapon rows; it ships unlinked, never guessed",
+    ),
+    _d(
+        "OPT-PRICED-UNMATCHED",
+        _REC,
+        _A,
+        "004 FR-013",
+        "a priced option matched no extracted choice; the priced row still ships and still "
+        "prices correctly",
+    ),
+    _d(
+        "OPT-PROJECTION-DISAGREE",
+        _CON,
+        _B,
+        "004 FR-014, contract guarantee 8",
+        "a priced option and the choice referencing it disagree on cost or count",
+    ),
+    # Keyword classification (004 FR-017..FR-020, data-model.md §1.5-§1.6).
+    _d(
+        "KWD-UNCLASSIFIED",
+        _COV,
+        _A,
+        "004 FR-020",
+        "a faction keyword resolves to no parentless faction and no curator record classifies "
+        "it; the keyword ships exactly as before, classification omitted",
+    ),
+    _d(
+        "KWD-CHAPTER-PARENT-CONFLICT",
+        _CON,
+        _B,
+        "004 FR-019, contract guarantee 9",
+        "a chapter record's chapter_faction_id names a faction whose own parent_faction_id "
+        "disagrees with the record's",
+    ),
+    # The three new authored summary classes. Every code below is generated from
+    # contracts/authored-summary-gates.md §3's table, whose single most important rule is that
+    # **a gate selects a code, never a severity**: switching WGC_GATE_<CLASS> on does not make
+    # an advisory code blocking, it changes which code is emitted. Severity stays a property of
+    # the code (validation-report.md non-negotiable #1), which is what stops a switchable gate
+    # turning a governance guarantee into a per-run judgement call.
+    *(
+        finding
+        for prefix, requirement in (
+            ("FRL", "004 FR-021, FR-029"),
+            ("DRL", "004 FR-022, FR-029"),
+            ("GLS", "004 FR-023, FR-029"),
+        )
+        for finding in (
+            _d(
+                f"{prefix}-OUTSTANDING",
+                _SUM,
+                _A,
+                requirement,
+                "GATE OFF: the entry has no approved summary; it ships with its NAME only, "
+                "publication is not blocked, and it is named in the coverage report",
+            ),
+            _d(
+                f"{prefix}-MISSING",
+                _SUM,
+                _B,
+                requirement,
+                "GATE ON: no authored record exists for the entry",
+            ),
+            _d(
+                f"{prefix}-UNAPPROVED",
+                _SUM,
+                _B,
+                requirement,
+                "GATE ON: a record exists but its review_state is not approved",
+            ),
+            _d(
+                f"{prefix}-NEEDS-REREVIEW",
+                _SUM,
+                _B,
+                requirement,
+                "GATE ON: the summary is approved but its mechanic_digest moved",
+            ),
+            _d(
+                f"{prefix}-OVERLENGTH",
+                _SUM,
+                _A,
+                "004 FR-024, contract §2 item 3",
+                "an approved summary exceeds its class's configured length target; advisory in "
+                "either gate state, so a good summary is never refused for a trailing clause",
+            ),
+        )
+    ),
+    _d(
+        "GLS-ORPHANED",
+        _COV,
+        _A,
+        "004 FR-023",
+        "a glossary entry's keyword is used by no published datasheet or weapon",
+    ),
+    # Deliberately ONE code across all four classes, with the class in its detail. A per-class
+    # code would invite a per-class severity, which is the failure §3 exists to prevent
+    # (contracts/authored-summary-gates.md §4). The ratchet applies whether or not that class's
+    # gate is on — that is what makes the gates-off first release safe.
+    _d(
+        "COV-SUMMARY-REGRESSION",
+        _COV,
+        _B,
+        "004 FR-030",
+        "a class's approved-summary coverage fell below the previously published version's, "
+        "beyond that class's configured tolerance",
     ),
 )
 

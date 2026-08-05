@@ -1,0 +1,30 @@
+{
+  "_comment": "AI-Assisted: Claude Code (model: claude-opus-5) - Authored per 004 data-model.md §4 (004 task T014), for curation/composition-overrides.json. Keyed (datasheet_id, line). Mirrors curation/resolutions.json's existing pattern: curator-written, carried forward, validated on read, never written by any pipeline stage. An entry naming a datasheet, line, or model that does not exist is the blocking AUT-DANGLING-REF -- 002's authored-reference integrity check extended, not reimplemented. THIS FILE IS THE ESCAPE HATCH THAT MAKES 'NEVER GUESS' AFFORDABLE: without it the 1.3% composition tail would be a permanent defect; with it it is a bounded, one-time, carry-forward cost, which is exactly how 002 made ability summaries tractable.",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://the-badgerworks.github.io/wargame-rules-data/schemas/curation/composition-overrides.schema.json",
+  "title": "curation/composition-overrides.json",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": ["datasheet_id", "line", "model_name", "min_count", "max_count"],
+    "properties": {
+      "datasheet_id": { "type": "string", "pattern": "^ds-[a-z0-9-]+$" },
+      "line": { "type": "integer", "minimum": 1, "description": "the source row ordinal" },
+      "model_name": { "type": "string", "minLength": 1, "maxLength": 120 },
+      "min_count": { "type": "integer", "minimum": 0 },
+      "max_count": {
+        "type": "integer",
+        "minimum": 0,
+        "description": "Equal to min_count for a fixed count, which is the majority shape and is never 'missing data'."
+      },
+      "model_line": { "type": "integer", "minimum": 1 },
+      "note": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 240,
+        "description": "A curator's sentence about MECHANICS OR PROCESS. It must not quote source text."
+      }
+    }
+  }
+}

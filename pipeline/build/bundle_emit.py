@@ -102,9 +102,15 @@ FIELD_MAPPING: Final[Mapping[type, tuple[set[str], set[str]]]] = {
         },
         set(),
     ),
+    # 004-rules-data-enrichment: `army_rule_state`, the datasheet's four new fields, and
+    # `keyword_class` are listed as **dropped** here on purpose. They are populated from Phase 3
+    # onward and emitted by 004 T032/T040/T048, which move each one into the mapped set beside
+    # its emitter. Listing them as dropped in the meantime is the honest state — they genuinely
+    # do not reach the bundle yet — and it is what this partition exists to force: a field
+    # nobody has decided about stops the build.
     CuratedFaction: (
         {"faction_id", "edition_id", "code", "name", "parent_faction_id"},
-        {"mfm_slug", "detail_source_faction_id", "provenance"},
+        {"mfm_slug", "detail_source_faction_id", "provenance", "army_rule_state"},
     ),
     CuratedDetachment: (
         {
@@ -156,7 +162,14 @@ FIELD_MAPPING: Final[Mapping[type, tuple[set[str], set[str]]]] = {
             "wargear_options",
             "costs",
         },
-        {"pricing_confidence", "provenance"},
+        {
+            "pricing_confidence",
+            "provenance",
+            "composition",
+            "option_groups",
+            "option_choices",
+            "wargear_option_state",
+        },
     ),
     CuratedDatasheetCost: (
         {"model_count", "copy_index_min", "points", "label", "pricing_confidence"},
@@ -192,7 +205,7 @@ FIELD_MAPPING: Final[Mapping[type, tuple[set[str], set[str]]]] = {
         },
         set(),
     ),
-    CuratedKeyword: ({"keyword", "is_faction_keyword", "model_scope"}, set()),
+    CuratedKeyword: ({"keyword", "is_faction_keyword", "model_scope"}, {"keyword_class"}),
     CuratedWargearOption: (
         {"id", "group_key", "name", "points_delta", "max_per_unit", "models_per_instance"},
         set(),

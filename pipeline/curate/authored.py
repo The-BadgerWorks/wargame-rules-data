@@ -24,11 +24,17 @@ from typing import Any, Final
 
 from pipeline.models.authored import (
     AbilitySummary,
+    CompositionOverrideEntry,
     CopyLimit,
+    DetachmentRuleSummary,
     EditionRuleValue,
     FactionMapEntry,
+    FactionRuleFile,
     FindingResolution,
     GameSizeBand,
+    GlossaryEntry,
+    KeywordClassEntry,
+    OptionOverrideEntry,
     RestrictionAuthoring,
     UnitAlias,
     UnitMapEntry,
@@ -45,9 +51,16 @@ _FILES: Final[Mapping[str, str]] = {
     "copy-limits": "copy-limits",
     "detachment-restrictions": "detachment-restrictions",
     "resolutions": "resolutions",
+    # 004-rules-data-enrichment. The two per-faction trees are handled apart, below.
+    "glossary": "glossary",
+    "keyword-classes": "keyword-classes",
+    "composition-overrides": "composition-overrides",
+    "option-overrides": "option-overrides",
 }
 
 ABILITIES_DIR: Final = "abilities"
+FACTION_RULES_DIR: Final = "faction-rules"
+DETACHMENT_RULES_DIR: Final = "detachment-rules"
 
 
 class AuthoredWriteAttempt(RuntimeError):
@@ -87,6 +100,17 @@ class AuthoredContent:
     restrictions: tuple[RestrictionAuthoring, ...] = ()
     resolutions: tuple[FindingResolution, ...] = ()
     ability_summaries: Mapping[str, AbilitySummary] = field(default_factory=dict)
+    # -- 004-rules-data-enrichment ---------------------------------------------------------
+    # The three summary maps are keyed by `summary_key` (the glossary's is its `keyword_key`,
+    # which its own summary_key embeds), exactly as `ability_summaries` is keyed by
+    # `ability_key`: the generalised machinery in curate/summaries.py joins on that one field
+    # for all four classes rather than learning a per-class key.
+    faction_rule_files: Mapping[str, FactionRuleFile] = field(default_factory=dict)
+    detachment_rule_summaries: Mapping[str, DetachmentRuleSummary] = field(default_factory=dict)
+    glossary_entries: Mapping[str, GlossaryEntry] = field(default_factory=dict)
+    keyword_classes: tuple[KeywordClassEntry, ...] = ()
+    composition_overrides: tuple[CompositionOverrideEntry, ...] = ()
+    option_overrides: tuple[OptionOverrideEntry, ...] = ()
 
     def faction_for_slug(self, slug: str) -> FactionMapEntry | None:
         return next((entry for entry in self.faction_map if entry.mfm_slug == slug), None)
@@ -94,6 +118,38 @@ class AuthoredContent:
     def copy_limit_for(self, datasheet_id: str) -> int | None:
         entry = next((c for c in self.copy_limits if c.datasheet_id == datasheet_id), None)
         return entry.max_copies_per_army if entry else None
+
+    def army_rule_state_for(self, faction_id: str) -> str | None:
+        """``present``, ``none``, or ``None`` when the faction has no curation file at all.
+
+        The third case is the one worth having a method for: an omitted file means *nobody has
+        curated this faction yet*, which FR-021 requires be distinguishable from a curated
+        ``"none"``. Returning ``None`` rather than defaulting to ``"none"`` is what keeps that
+        distinction alive all the way to the bundle.
+        """
+        entry = self.faction_rule_files.get(faction_id)
+        return entry.army_rule_state if entry is not None else None
+
+    def keyword_class_for(self, keyword: str) -> KeywordClassEntry | None:
+        return next((k for k in self.keyword_classes if k.keyword == keyword), None)
+
+    def composition_override_for(
+        self, datasheet_id: str, line: int
+    ) -> CompositionOverrideEntry | None:
+        return next(
+            (
+                o
+                for o in self.composition_overrides
+                if o.datasheet_id == datasheet_id and o.line == line
+            ),
+            None,
+        )
+
+    def option_override_for(self, datasheet_id: str, line: int) -> OptionOverrideEntry | None:
+        return next(
+            (o for o in self.option_overrides if o.datasheet_id == datasheet_id and o.line == line),
+            None,
+        )
 
 
 def _read_json(path: Path) -> Any:
@@ -135,6 +191,50 @@ def _load_ability_summaries(curation_dir: Path) -> dict[str, AbilitySummary]:
         for record in payload:
             summary = AbilitySummary.model_validate(record)
             summaries[summary.ability_key] = summary
+    return summaries
+
+
+def _load_faction_rule_files(curation_dir: Path) -> dict[str, FactionRuleFile]:
+    """``curation/faction-rules/<faction-id>.json`` — one object wrapper per faction.
+
+    The **absence** of a file is meaningful here in a way it is not for the other trees: it is
+    the "not yet curated" state, distinct from a curated ``army_rule_state: "none"`` (FR-021).
+    So this returns only the files that exist, and a caller asking about a faction with no file
+    gets ``None`` rather than a default.
+    """
+    files: dict[str, FactionRuleFile] = {}
+    directory = curation_dir / FACTION_RULES_DIR
+    if not directory.is_dir():
+        return files
+    for path in sorted(directory.glob("*.json")):
+        payload = _read_json(path)
+        if not payload:
+            continue
+        validate_authored("faction-rules", payload, source=str(path))
+        entry = FactionRuleFile.model_validate(payload)
+        files[entry.faction_id] = entry
+    return files
+
+
+def _load_detachment_rule_summaries(curation_dir: Path) -> dict[str, DetachmentRuleSummary]:
+    """``curation/detachment-rules/<faction-id>.json`` — bare arrays, keyed by ``summary_key``.
+
+    Filed per faction so the ~336-record campaign can advance faction by faction without holding
+    a release, and keyed by the rule rather than the detachment because a detachment may own
+    more than one.
+    """
+    summaries: dict[str, DetachmentRuleSummary] = {}
+    directory = curation_dir / DETACHMENT_RULES_DIR
+    if not directory.is_dir():
+        return summaries
+    for path in sorted(directory.glob("*.json")):
+        payload = _read_json(path)
+        if not payload:
+            continue
+        validate_authored("detachment-rules", payload, source=str(path))
+        for record in payload:
+            summary = DetachmentRuleSummary.model_validate(record)
+            summaries[summary.summary_key] = summary
     return summaries
 
 
@@ -181,6 +281,29 @@ def load_authored(curation_dir: Path) -> AuthoredContent:
             for r in _load_list(curation_dir, "resolutions", _FILES["resolutions"])
         ),
         ability_summaries=_load_ability_summaries(curation_dir),
+        faction_rule_files=_load_faction_rule_files(curation_dir),
+        detachment_rule_summaries=_load_detachment_rule_summaries(curation_dir),
+        glossary_entries={
+            entry.keyword_key: entry
+            for entry in (
+                GlossaryEntry.model_validate(r)
+                for r in _load_list(curation_dir, "glossary", _FILES["glossary"])
+            )
+        },
+        keyword_classes=tuple(
+            KeywordClassEntry.model_validate(r)
+            for r in _load_list(curation_dir, "keyword-classes", _FILES["keyword-classes"])
+        ),
+        composition_overrides=tuple(
+            CompositionOverrideEntry.model_validate(r)
+            for r in _load_list(
+                curation_dir, "composition-overrides", _FILES["composition-overrides"]
+            )
+        ),
+        option_overrides=tuple(
+            OptionOverrideEntry.model_validate(r)
+            for r in _load_list(curation_dir, "option-overrides", _FILES["option-overrides"])
+        ),
     )
 
 
@@ -208,4 +331,27 @@ def authored_entity_refs(content: AuthoredContent) -> Sequence[tuple[str, str, s
             refs.append(
                 ("detachment-restrictions.json", "detachment_id", restriction.detachment_id)
             )
+    # -- 004-rules-data-enrichment. Four new record types join the same check rather than
+    # growing a check of their own: an override naming a datasheet, line, faction, or keyword
+    # that does not exist is the same defect V9 already catches, and it is exactly what a
+    # retired datasheet leaves behind (004 data-model.md §4).
+    for faction_id in sorted(content.faction_rule_files):
+        refs.append((f"faction-rules/{faction_id}.json", "faction_id", faction_id))
+    for detachment_rule in content.detachment_rule_summaries.values():
+        refs.append(("detachment-rules/*.json", "detachment_id", detachment_rule.detachment_id))
+    for keyword_class in content.keyword_classes:
+        if keyword_class.parent_faction_id:
+            refs.append(
+                ("keyword-classes.json", "parent_faction_id", keyword_class.parent_faction_id)
+            )
+        if keyword_class.chapter_faction_id:
+            refs.append(
+                ("keyword-classes.json", "chapter_faction_id", keyword_class.chapter_faction_id)
+            )
+    for composition_override in content.composition_overrides:
+        refs.append(
+            ("composition-overrides.json", "datasheet_id", composition_override.datasheet_id)
+        )
+    for option_override in content.option_overrides:
+        refs.append(("option-overrides.json", "datasheet_id", option_override.datasheet_id))
     return refs

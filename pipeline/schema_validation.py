@@ -1,6 +1,10 @@
 # AI-Assisted: Claude Code (model: claude-opus-5) - Implemented the jsonschema loading and
 # validation helpers used by curate, validate, and build (task T035), with schema files
 # resolved from schemas/ and a cached registry.
+# AI-Assisted: Claude Code (model: claude-opus-5) - Registered 004-rules-data-enrichment's eight
+# new schemas (004 task T015): two curated-tree collections and the six curation/ files. Three
+# further schemas -- datasheet, factions, detachments -- gained optional properties rather than
+# new registrations, since they were already registered.
 """JSON Schema loading and validation.
 
 Three schema sets, one loader:
@@ -43,6 +47,9 @@ CURATED_SCHEMAS: Final[Mapping[str, str]] = {
     "detachments": "curated/detachments.schema.json",
     "enhancements": "curated/enhancements.schema.json",
     "datasheet": "curated/datasheet.schema.json",
+    # 004-rules-data-enrichment
+    "chapter-keywords": "curated/chapter-keywords.schema.json",
+    "keyword-glossary": "curated/keyword-glossary.schema.json",
 }
 
 #: Authored-tree schema files, by the ``curation/`` artifact they validate.
@@ -56,6 +63,15 @@ CURATION_SCHEMAS: Final[Mapping[str, str]] = {
     "copy-limits": "curation/copy-limits.schema.json",
     "detachment-restrictions": "curation/detachment-restrictions.schema.json",
     "resolutions": "curation/resolutions.schema.json",
+    # 004-rules-data-enrichment. `glossary` is the curator's INPUT file and is deliberately a
+    # different schema from `keyword-glossary` above, which is the build-stage computed
+    # collection: the input carries authoring state, the output carries none of it.
+    "faction-rules": "curation/faction-rules.schema.json",
+    "detachment-rules": "curation/detachment-rules.schema.json",
+    "glossary": "curation/glossary.schema.json",
+    "keyword-classes": "curation/keyword-classes.schema.json",
+    "composition-overrides": "curation/composition-overrides.schema.json",
+    "option-overrides": "curation/option-overrides.schema.json",
 }
 
 #: The published bundle schema.
