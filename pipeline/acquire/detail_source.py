@@ -28,7 +28,7 @@ below ``acquire``, the design has been lost.
 
 from __future__ import annotations
 
-from collections.abc import Callable
+from collections.abc import Callable, Sequence
 from datetime import datetime
 from pathlib import Path
 from typing import Final, Protocol
@@ -39,6 +39,8 @@ from pipeline.acquire.wahapedia import acquire_wahapedia
 from pipeline.acquire.wahapedia_html import acquire_wahapedia_html
 from pipeline.config import ConfigError, DetailAcquisitionMode, PipelineConfig
 from pipeline.models.source import SourceAcquisition
+from pipeline.parse.wahapedia_csv import CsvReadResult, read_text
+from pipeline.parse.wahapedia_html_dom import read_datacard_payloads
 
 
 class DetailAcquirer(Protocol):
@@ -60,11 +62,51 @@ class DetailAcquirer(Protocol):
     ) -> tuple[SourceAcquisition, list[FixturePayload]]: ...
 
 
+class DetailReader(Protocol):
+    """The one signature both modes' readers implement.
+
+    The reader is the second — and last — place the mode is visible. Both arms return the same
+    ``file name -> CsvReadResult`` mapping, keyed by the export's own table names, so every stage
+    from ``normalize`` down receives a shape that carries no trace of which source produced it.
+    """
+
+    def __call__(
+        self, payloads: Sequence[FixturePayload], *, edition_code: str = ...
+    ) -> dict[str, CsvReadResult]: ...
+
+
+def read_export_payloads(
+    payloads: Sequence[FixturePayload], *, edition_code: str = ""
+) -> dict[str, CsvReadResult]:
+    """The ``csv``-mode reader: one acquired export file per payload.
+
+    A payload's name is the file name, with or without its suffix — the live adapter carries
+    ``Datasheets.csv`` and the fixture adapter carries the stem — so the suffix is normalised
+    here rather than at each call site. ``edition_code`` is accepted and unused: the signature is
+    shared with the html reader on purpose, since a reader that had to be called differently per
+    mode would put the mode back into every caller.
+    """
+    del edition_code
+    return {
+        (name if (name := payload.name).endswith(".csv") else f"{name}.csv"): read_text(
+            name if name.endswith(".csv") else f"{name}.csv", payload.text
+        )
+        for payload in payloads
+    }
+
+
 #: mode -> acquirer. A table rather than a branch, so adding a mode is adding a row and the
 #: dispatch itself has nothing to get wrong.
 ACQUIRERS: Final[dict[DetailAcquisitionMode, DetailAcquirer]] = {
     DetailAcquisitionMode.CSV: acquire_wahapedia,
     DetailAcquisitionMode.HTML: acquire_wahapedia_html,
+}
+
+#: mode -> reader, the same table discipline. Adding a mode is adding a row to each table and
+#: writing nothing else anywhere.
+READERS: Final[dict[DetailAcquisitionMode, DetailReader]] = {
+    DetailAcquisitionMode.CSV: read_export_payloads,
+    DetailAcquisitionMode.HTML: read_datacard_payloads,
 }
 
 
@@ -80,14 +122,26 @@ def acquirer_for(mode: DetailAcquisitionMode | str) -> DetailAcquirer:
     Raises:
         ConfigError: ``mode`` is not one of the documented values.
     """
+    return ACQUIRERS[_resolved(mode)]
+
+
+def reader_for(mode: DetailAcquisitionMode | str) -> DetailReader:
+    """The reader for ``mode``, validated on the same terms as :func:`acquirer_for`.
+
+    Raises:
+        ConfigError: ``mode`` is not one of the documented values.
+    """
+    return READERS[_resolved(mode)]
+
+
+def _resolved(mode: DetailAcquisitionMode | str) -> DetailAcquisitionMode:
     try:
-        resolved = DetailAcquisitionMode(mode)
+        return DetailAcquisitionMode(mode)
     except ValueError as exc:
         allowed = ", ".join(m.value for m in DetailAcquisitionMode)
         raise ConfigError(
             f"WGC_DETAIL_ACQUISITION_MODE must be one of {allowed}, got {mode!r}"
         ) from exc
-    return ACQUIRERS[resolved]
 
 
 def acquire_detail(
@@ -114,3 +168,15 @@ def acquire_detail(
         retrieved_at=retrieved_at,
         workspace=workspace,
     )
+
+
+def read_detail(
+    config: PipelineConfig, payloads: Sequence[FixturePayload]
+) -> dict[str, CsvReadResult]:
+    """Read what :func:`acquire_detail` returned into the export's own table shape.
+
+    This is the last function in the pipeline that knows a mode exists. What it returns is
+    keyed by the export's table names in both modes, so ``curate``, ``reconcile``, and the two
+    grammars below it are written once and exercised by both.
+    """
+    return reader_for(config.detail_acquisition_mode)(payloads, edition_code=config.detail_edition)

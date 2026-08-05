@@ -1,3 +1,6 @@
+# AI-Assisted: Claude Code (model: claude-opus-5) - Extended the mode-parity assertions to the
+# real html arm and to the reader table (004 task T074): both modes now acquire and both
+# produce the same file-name -> CsvReadResult mapping, which is the whole of mode-blindness.
 # AI-Assisted: Claude Code (model: claude-opus-5) - Asserts the WGC_DETAIL_ACQUISITION_MODE
 # dispatch (004 task T018): csv routes to the existing export acquirer unchanged, html routes to
 # the datacard acquirer, the two signatures and return shapes agree, and an unrecognised mode is
@@ -21,13 +24,23 @@ from pathlib import Path
 
 import pytest
 
-from pipeline.acquire.detail_source import ACQUIRERS, acquire_detail, acquirer_for
+from pipeline.acquire.detail_source import (
+    ACQUIRERS,
+    READERS,
+    acquire_detail,
+    acquirer_for,
+    read_detail,
+    reader_for,
+)
 from pipeline.acquire.wahapedia import acquire_wahapedia
 from pipeline.acquire.wahapedia_html import acquire_wahapedia_html
 from pipeline.config import ConfigError, DetailAcquisitionMode, PipelineConfig, load_config
 from pipeline.models.source import SourceAcquisition, SourceKey
+from pipeline.parse.wahapedia_csv import CsvReadResult
 
 FIXTURES = Path(__file__).resolve().parents[2] / "fixtures" / "minimal"
+#: The html-mode fixture set: the same invented units in the datacard shape (research D1d).
+ENRICHMENT = Path(__file__).resolve().parents[2] / "fixtures" / "enrichment"
 
 
 def _config(**overrides: str) -> PipelineConfig:
@@ -118,12 +131,67 @@ def test_the_dispatch_is_the_same_call_as_the_arm_it_routes_to() -> None:
     assert [p.name for p in dispatch_payloads] == [p.name for p in direct_payloads]
 
 
-def test_html_mode_is_not_implemented_yet_and_says_so() -> None:
+def test_html_mode_produces_the_same_record_shape_through_the_dispatch() -> None:
+    """The parity that matters, now that both arms really acquire (`004` T072).
+
+    Same record type, same source key, same coverage vocabulary: an acquisition record cannot be
+    read to discover which mode produced it, which is what "mode-blind below acquire" means in
+    practice rather than in a comment.
+    """
     config = _config(WGC_DETAIL_ACQUISITION_MODE="html")
     assert config.detail_acquisition_mode is DetailAcquisitionMode.HTML
 
-    with pytest.raises(NotImplementedError, match="T072"):
-        acquire_detail(config, fixtures_dir=FIXTURES, offline=True)
+    acquisition, payloads = acquire_detail(config, fixtures_dir=ENRICHMENT, offline=True)
+
+    assert isinstance(acquisition, SourceAcquisition)
+    assert acquisition.source_key is SourceKey.WAHAPEDIA
+    assert acquisition.declared_edition_code == config.detail_edition
+    assert payloads, "the fixture tree carries a datacard page"
+
+
+def test_both_readers_return_the_same_mapping_shape() -> None:
+    csv_records = read_detail(_config(), acquire_detail(_config(), fixtures_dir=FIXTURES)[1])
+    html_config = _config(WGC_DETAIL_ACQUISITION_MODE="html")
+    html_records = read_detail(html_config, acquire_detail(html_config, fixtures_dir=ENRICHMENT)[1])
+
+    for records in (csv_records, html_records):
+        assert all(name.endswith(".csv") for name in records)
+        assert all(isinstance(result, CsvReadResult) for result in records.values())
+
+    # Every table the assemble stage indexes into by name, both arms carry — that is what lets
+    # `curate` read `detail["Datasheets_options.csv"]` without asking which mode ran.
+    # `Enhancements.csv` is deliberately not among them: it is in the export and no stage has
+    # ever read it, since enhancement pricing comes from the points source (FR-001).
+    consumed = {
+        "Abilities.csv",
+        "Datasheets.csv",
+        "Datasheets_abilities.csv",
+        "Datasheets_keywords.csv",
+        "Datasheets_leader.csv",
+        "Datasheets_models.csv",
+        "Datasheets_models_cost.csv",
+        "Datasheets_options.csv",
+        "Datasheets_unit_composition.csv",
+        "Datasheets_wargear.csv",
+        "Detachments.csv",
+        "Source.csv",
+    }
+    assert consumed <= set(csv_records)
+    assert consumed <= set(html_records)
+
+    # And one the csv export does not publish at all: the detachment rules US4's denominator is
+    # measured against, which only the current-edition source states (004 T072 handoff).
+    assert "Detachment_abilities.csv" in html_records
+
+
+def test_the_reader_table_covers_every_documented_mode() -> None:
+    assert set(READERS) == set(DetailAcquisitionMode)
+
+
+@pytest.mark.parametrize("mode", ["xml", "CSV", "", "html "])
+def test_an_unrecognised_mode_is_a_configuration_error_for_the_reader_too(mode: str) -> None:
+    with pytest.raises(ConfigError, match="WGC_DETAIL_ACQUISITION_MODE"):
+        reader_for(mode)
 
 
 def test_selecting_html_mode_changes_no_other_configured_value() -> None:

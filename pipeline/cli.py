@@ -56,9 +56,9 @@ from datetime import UTC, datetime
 from pathlib import Path
 from typing import Final
 
+from pipeline.acquire.detail_source import acquire_detail, read_detail
 from pipeline.acquire.http import AcquisitionError, PoliteClient
 from pipeline.acquire.mfm import acquire_mfm
-from pipeline.acquire.wahapedia import acquire_wahapedia
 from pipeline.build.bundle_emit import BundleMeta, emit_bundle
 from pipeline.build.canonical_json import encode_bundle, write_bundle
 from pipeline.build.checksum import BundleChecksum, checksum
@@ -92,7 +92,6 @@ from pipeline.observability.ledger import (
 )
 from pipeline.parse.mfm_dom import MfmPage, parse_faction_page
 from pipeline.parse.mfm_swap_replay import StructureChanged, replay
-from pipeline.parse.wahapedia_csv import read_text as read_csv_text
 from pipeline.publish.gate import (
     AlreadyPublishedError,
     GateOutcome,
@@ -582,7 +581,10 @@ def run_build(  # noqa: PLR0913 - the stage boundary is the argument list
         points_acq, points_payloads = acquire_mfm(
             config, fixtures_dir=fixtures_dir, offline=offline
         )
-        detail_acq, detail_payloads = acquire_wahapedia(
+        # The mode selector, and the only place in a run that it is consulted: below this line
+        # nothing can tell whether the detail source was the bulk export or the current-edition
+        # datacard pages, because what it receives is the same shape either way (research D1d).
+        detail_acq, detail_payloads = acquire_detail(
             config, fixtures_dir=fixtures_dir, offline=offline, workspace=work
         )
 
@@ -590,15 +592,7 @@ def run_build(  # noqa: PLR0913 - the stage boundary is the argument list
             parse_faction_page(payload.name, replay(payload.text).html)
             for payload in points_payloads
         ]
-        detail = {
-            f"{payload.name}.csv"
-            if not payload.name.endswith(".csv")
-            else payload.name: read_csv_text(
-                payload.name if payload.name.endswith(".csv") else f"{payload.name}.csv",
-                payload.text,
-            )
-            for payload in detail_payloads
-        }
+        detail = read_detail(config, detail_payloads)
 
         findings: list[Finding] = []
         for result in detail.values():

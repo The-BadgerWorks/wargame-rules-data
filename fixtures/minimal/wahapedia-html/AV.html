@@ -1,0 +1,370 @@
+<!-- AI-Assisted: Claude Code (model: claude-opus-5) - Hand-authored the html-mode twin of this
+     set's detail export (004 task T074), so ONE fixture set builds end to end in BOTH
+     acquisition modes and the two builds can be compared. SYNTHETIC: every name and every line
+     of prose here is invented, exactly as fixtures/minimal/wahapedia/*.csv is (FR-006).
+
+     It carries the same eight Ashen Vigil datasheets as Datasheets.csv, with the same
+     characteristics, the same weapon profiles, the same composition lines, the same keywords,
+     the same abilities and the same Legends marker — restated in the datacard structure
+     docs/verification/html-markup-spike.md recorded, including the Cyrillic homoglyph in the
+     column class names.
+
+     One fixture-only liberty, stated rather than hidden: the page slug is the faction's detail
+     id (`AV`), not a URL-shaped slug, so this set's existing curation/faction-map.json maps both
+     modes without a second copy. On the live source the slug is the faction's own URL segment,
+     and adopting html mode there includes re-pointing `detail_source_faction_id` at those slugs
+     — a curator edit to an authored file, which is where a change of identity belongs. -->
+<html>
+<head><title>Ashen Vigil</title></head>
+<body>
+
+<div class="DetFilterBlock" data-det-group="AV">
+  <div class="DetFilterGrid"><div class="DetFilterCols clFl AVAV">
+    <label class="container DetFilterItem clFl AVAG" data-det-group="AV" data-det-code="AG"
+           data-det-name="Ashen Vanguard" data-dp-base="2">Ashen Vanguard<span class="detDP">2DP</span></label>
+    <label class="container DetFilterItem clFl AVCH" data-det-group="AV" data-det-code="CH"
+           data-det-name="Cinder Host" data-dp-base="2">Cinder Host<span class="detDP">2DP</span></label>
+    <label class="container DetFilterItem clFl AVPC" data-det-group="AV" data-det-code="PC"
+           data-det-name="Pyre Conclave" data-dp-base="3">Pyre Conclave<span class="detDP">3DP</span></label>
+  </div></div>
+</div>
+
+<div class="dsVisChk">
+
+<a name="Ashen-Sentinel"></a>
+<div class="dsOuterFrame datasheet pagebreak clFl AVAV AVAG" style="position:relative">
+  <div class="dsBannerWrap">
+    <div class="dsH2Header"><div>Ashen Sentinel</div><span class="dsModelBase2 dsModelBase2Top ShowBaseSize">32mm</span></div>
+    <div class="dsProfileBaseWrap"><div class="dsProfileWrapLeft"><div class="dsProfileWrap">
+      <div class="dsCharWrap"><div class="dsCharName">M</div><div class="dsCharFrame dsColorBgAV"><div class="dsCharValue dsColorAV">6"</div></div></div>
+      <div class="dsCharWrap"><div class="dsCharName">T</div><div class="dsCharFrame dsColorBgAV"><div class="dsCharValue dsColorAV">5</div></div></div>
+      <div class="dsCharWrap"><div class="dsCharName">SV</div><div class="dsCharFrame dsColorBgAV"><div class="dsCharValue dsColorAV">3+</div></div></div>
+      <div class="dsCharWrap"><div class="dsCharName">W</div><div class="dsCharFrame dsColorBgAV"><div class="dsCharValue dsColorAV">3</div></div></div>
+      <div class="dsCharWrap"><div class="dsCharName">LD</div><div class="dsCharFrame dsColorBgAV"><div class="dsCharValue dsColorAV">6+</div></div></div>
+      <div class="dsCharWrap"><div class="dsCharName">OC</div><div class="dsCharFrame dsColorBgAV"><div class="dsCharValue dsColorAV">2</div></div></div>
+    </div></div><div class="dsProfileWrapRight"></div></div>
+  </div>
+  <div class="ds2col">
+    <div class="dsLeftСol dsColorFrAV">
+      <table class="wTable" width="100%">
+        <tbody><tr><td class="dsHeader dsColorBgAV"><div class="dsMeleeIcon"></div></td>
+          <td class="wTable_WEAPON"><div class="dsHeader dsColorBgAV">MELEE WEAPONS</div></td>
+          <td><div class="ct dsHeader dsColorBgAV">RANGE</div></td><td><div class="ct dsHeader dsColorBgAV">A</div></td>
+          <td><div class="ct dsHeader dsColorBgAV">WS</div></td><td><div class="ct dsHeader dsColorBgAV">S</div></td>
+          <td><div class="ct dsHeader dsColorBgAV">AP</div></td><td><div class="ct dsHeader dsColorBgAV">D</div></td></tr></tbody>
+        <tbody class="bkg"><tr><td></td><td class="wTable2_short pad2626"><span>Ashen Sentinel blade</span></td>
+          <td><div class="ct pad2626">Melee</div></td><td><div class="ct pad2626">3</div></td><td><div class="ct pad2626">3+</div></td>
+          <td><div class="ct pad2626">5</div></td><td><div class="ct pad2626">-1</div></td><td><div class="ct pad2626">2</div></td></tr></tbody>
+      </table>
+    </div>
+    <div class="dsRightСol dsColorFrAV">
+      <div class="dsHeader dsColorBgAV">ABILITIES</div>
+      <div class="dsAbility"><b>Ember Shield:</b>Invented placeholder prose.</div>
+      <div class="dsAbility">CORE:<b><span class="tooltip00001" data-tooltip-content="#tooltip_content00001"><span class="tt kwbu">Deep</span><span class="tt kwbu">Strike</span></span></b></div>
+      <div class="dsHeader dsColorBgAV">UNIT COMPOSITION</div>
+      <div class="dsAbility"><ul class="dsUl"><li>1 Ashen Sentinel</li></ul></div>
+    </div>
+  </div>
+  <div class="ds2colKW dsColorFrAV">
+    <div class="dsLeftСolKW">KEYWORDS: <span class="kwb kwbu">INFANTRY</span>; <span class="kwb kwbu">BATTLELINE</span>;</div>
+    <div class="dsRightСolKW">FACTION KEYWORDS: <span class="kwb kwbu">ASHEN</span><span class="kwb kwbu">VIGIL</span>;</div>
+  </div>
+</div>
+
+<a name="Ashen-Warden"></a>
+<div class="dsOuterFrame datasheet pagebreak clFl AVAV AVCH" style="position:relative">
+  <div class="dsBannerWrap">
+    <div class="dsH2Header"><div>Ashen Warden</div><span class="dsModelBase2 ShowBaseSize">32mm</span></div>
+    <div class="dsProfileBaseWrap"><div class="dsProfileWrapLeft"><div class="dsProfileWrap">
+      <div class="dsCharWrap"><div class="dsCharName">M</div><div class="dsCharFrame dsColorBgAV"><div class="dsCharValue dsColorAV">6"</div></div></div>
+      <div class="dsCharWrap"><div class="dsCharName">T</div><div class="dsCharFrame dsColorBgAV"><div class="dsCharValue dsColorAV">5</div></div></div>
+      <div class="dsCharWrap"><div class="dsCharName">SV</div><div class="dsCharFrame dsColorBgAV"><div class="dsCharValue dsColorAV">3+</div></div></div>
+      <div class="dsCharWrap"><div class="dsCharName">W</div><div class="dsCharFrame dsColorBgAV"><div class="dsCharValue dsColorAV">2</div></div></div>
+      <div class="dsCharWrap"><div class="dsCharName">LD</div><div class="dsCharFrame dsColorBgAV"><div class="dsCharValue dsColorAV">6+</div></div></div>
+      <div class="dsCharWrap"><div class="dsCharName">OC</div><div class="dsCharFrame dsColorBgAV"><div class="dsCharValue dsColorAV">2</div></div></div>
+    </div></div><div class="dsProfileWrapRight"></div></div>
+  </div>
+  <div class="ds2col">
+    <div class="dsLeftСol dsColorFrAV">
+      <table class="wTable" width="100%">
+        <tbody><tr><td class="dsHeader dsColorBgAV"><div class="dsMeleeIcon"></div></td>
+          <td class="wTable_WEAPON"><div class="dsHeader dsColorBgAV">MELEE WEAPONS</div></td>
+          <td><div class="ct dsHeader dsColorBgAV">RANGE</div></td><td><div class="ct dsHeader dsColorBgAV">A</div></td>
+          <td><div class="ct dsHeader dsColorBgAV">WS</div></td><td><div class="ct dsHeader dsColorBgAV">S</div></td>
+          <td><div class="ct dsHeader dsColorBgAV">AP</div></td><td><div class="ct dsHeader dsColorBgAV">D</div></td></tr></tbody>
+        <tbody class="bkg"><tr><td></td><td class="wTable2_short pad2626"><span>Ashen Warden blade</span></td>
+          <td><div class="ct pad2626">Melee</div></td><td><div class="ct pad2626">3</div></td><td><div class="ct pad2626">3+</div></td>
+          <td><div class="ct pad2626">5</div></td><td><div class="ct pad2626">-1</div></td><td><div class="ct pad2626">2</div></td></tr></tbody>
+      </table>
+    </div>
+    <div class="dsRightСol dsColorFrAV">
+      <div class="dsHeader dsColorBgAV">ABILITIES</div>
+      <div class="dsAbility"><b>Slag Wake:</b>Invented placeholder prose.</div>
+      <div class="dsHeader dsColorBgAV">UNIT COMPOSITION</div>
+      <div class="dsAbility"><ul class="dsUl"><li>1 Ashen Warden</li></ul></div>
+    </div>
+  </div>
+  <div class="ds2colKW dsColorFrAV">
+    <div class="dsLeftСolKW">KEYWORDS: <span class="kwb kwbu">INFANTRY</span>;</div>
+    <div class="dsRightСolKW">FACTION KEYWORDS: <span class="kwb kwbu">ASHEN</span><span class="kwb kwbu">VIGIL</span>;</div>
+  </div>
+</div>
+
+<a name="Lord-Ashen"></a>
+<div class="dsOuterFrame datasheet pagebreak clFl AVAV AVPC" style="position:relative">
+  <div class="dsBannerWrap">
+    <div class="dsH2Header"><div>Lord Ashen</div><span class="dsModelBase2 ShowBaseSize">32mm</span></div>
+    <div class="dsProfileBaseWrap"><div class="dsProfileWrapLeft"><div class="dsProfileWrap">
+      <div class="dsCharWrap"><div class="dsCharName">M</div><div class="dsCharFrame dsColorBgAV"><div class="dsCharValue dsColorAV">6"</div></div></div>
+      <div class="dsCharWrap"><div class="dsCharName">T</div><div class="dsCharFrame dsColorBgAV"><div class="dsCharValue dsColorAV">5</div></div></div>
+      <div class="dsCharWrap"><div class="dsCharName">SV</div><div class="dsCharFrame dsColorBgAV"><div class="dsCharValue dsColorAV">3+</div></div></div>
+      <div class="dsCharWrap"><div class="dsCharName">W</div><div class="dsCharFrame dsColorBgAV"><div class="dsCharValue dsColorAV">6</div></div></div>
+      <div class="dsCharWrap"><div class="dsCharName">LD</div><div class="dsCharFrame dsColorBgAV"><div class="dsCharValue dsColorAV">6+</div></div></div>
+      <div class="dsCharWrap"><div class="dsCharName">OC</div><div class="dsCharFrame dsColorBgAV"><div class="dsCharValue dsColorAV">2</div></div></div>
+    </div></div><div class="dsProfileWrapRight"></div></div>
+    <div class="dsInvulWrap"><div class="dsCharInvulText dsColorBgAV">INVUL</div><div class="dsCharInvul dsColorBgAV"><div class="dsCharInvulValue dsColorAV">4+</div></div></div>
+  </div>
+  <div class="ds2col">
+    <div class="dsLeftСol dsColorFrAV">
+      <table class="wTable" width="100%">
+        <tbody><tr><td class="dsHeader dsColorBgAV"><div class="dsMeleeIcon"></div></td>
+          <td class="wTable_WEAPON"><div class="dsHeader dsColorBgAV">MELEE WEAPONS</div></td>
+          <td><div class="ct dsHeader dsColorBgAV">RANGE</div></td><td><div class="ct dsHeader dsColorBgAV">A</div></td>
+          <td><div class="ct dsHeader dsColorBgAV">WS</div></td><td><div class="ct dsHeader dsColorBgAV">S</div></td>
+          <td><div class="ct dsHeader dsColorBgAV">AP</div></td><td><div class="ct dsHeader dsColorBgAV">D</div></td></tr></tbody>
+        <tbody class="bkg"><tr><td></td><td class="wTable2_short pad2626"><span>Lord Ashen blade</span></td>
+          <td><div class="ct pad2626">Melee</div></td><td><div class="ct pad2626">3</div></td><td><div class="ct pad2626">3+</div></td>
+          <td><div class="ct pad2626">5</div></td><td><div class="ct pad2626">-1</div></td><td><div class="ct pad2626">2</div></td></tr></tbody>
+      </table>
+    </div>
+    <div class="dsRightСol dsColorFrAV">
+      <div class="dsHeader dsColorBgAV">ABILITIES</div>
+      <div class="dsAbility"><b>Kindling Surge:</b>Invented placeholder prose.</div>
+      <div class="dsAbility">CORE:<b><span class="tooltip00002" data-tooltip-content="#tooltip_content00002"><span class="tt kwbu">Leader</span></span></b></div>
+      <div class="dsHeader dsColorBgAV">UNIT COMPOSITION</div>
+      <div class="dsAbility"><ul class="dsUl"><li>1 Lord Ashen</li></ul></div>
+      <div class="dsHeader dsColorBgAV">LEADER</div>
+      <div class="dsAbility">This model can be attached to the following units:<ul><li class="clFl AVAV"><a class="kwbOne" href="/wh40k11ed/factions/AV/datasheets.html#Ashen-Sentinel"><span class="kwb kwbo">ASHEN</span><span class="kwb kwbo">SENTINEL</span></a></li></ul></div>
+      <div class="dsHeader dsColorBgAV">DAMAGED: 1-6 WOUNDS REMAINING</div>
+      <div class="dsAbility">Invented placeholder prose.</div>
+    </div>
+  </div>
+  <div class="ds2colKW dsColorFrAV">
+    <div class="dsLeftСolKW">KEYWORDS: <span class="kwb kwbu">INFANTRY</span>; <span class="kwb kwbu">CHARACTER</span>; <span class="kwb kwbu">EPIC</span><span class="kwb kwbu">HERO</span>;</div>
+    <div class="dsRightСolKW">FACTION KEYWORDS: <span class="kwb kwbu">ASHEN</span><span class="kwb kwbu">VIGIL</span>;</div>
+  </div>
+</div>
+
+<a name="Ashen-Captain"></a>
+<div class="dsOuterFrame datasheet pagebreak clFl AVAV AVAG" style="position:relative">
+  <div class="dsBannerWrap">
+    <div class="dsH2Header"><div>Ashen Captain</div><span class="dsModelBase2 ShowBaseSize">32mm</span></div>
+    <div class="dsProfileBaseWrap"><div class="dsProfileWrapLeft"><div class="dsProfileWrap">
+      <div class="dsCharWrap"><div class="dsCharName">M</div><div class="dsCharFrame dsColorBgAV"><div class="dsCharValue dsColorAV">6"</div></div></div>
+      <div class="dsCharWrap"><div class="dsCharName">T</div><div class="dsCharFrame dsColorBgAV"><div class="dsCharValue dsColorAV">5</div></div></div>
+      <div class="dsCharWrap"><div class="dsCharName">SV</div><div class="dsCharFrame dsColorBgAV"><div class="dsCharValue dsColorAV">3+</div></div></div>
+      <div class="dsCharWrap"><div class="dsCharName">W</div><div class="dsCharFrame dsColorBgAV"><div class="dsCharValue dsColorAV">5</div></div></div>
+      <div class="dsCharWrap"><div class="dsCharName">LD</div><div class="dsCharFrame dsColorBgAV"><div class="dsCharValue dsColorAV">6+</div></div></div>
+      <div class="dsCharWrap"><div class="dsCharName">OC</div><div class="dsCharFrame dsColorBgAV"><div class="dsCharValue dsColorAV">2</div></div></div>
+    </div></div><div class="dsProfileWrapRight"></div></div>
+  </div>
+  <div class="ds2col">
+    <div class="dsLeftСol dsColorFrAV">
+      <table class="wTable" width="100%">
+        <tbody><tr><td class="dsHeader dsColorBgAV"><div class="dsMeleeIcon"></div></td>
+          <td class="wTable_WEAPON"><div class="dsHeader dsColorBgAV">MELEE WEAPONS</div></td>
+          <td><div class="ct dsHeader dsColorBgAV">RANGE</div></td><td><div class="ct dsHeader dsColorBgAV">A</div></td>
+          <td><div class="ct dsHeader dsColorBgAV">WS</div></td><td><div class="ct dsHeader dsColorBgAV">S</div></td>
+          <td><div class="ct dsHeader dsColorBgAV">AP</div></td><td><div class="ct dsHeader dsColorBgAV">D</div></td></tr></tbody>
+        <tbody class="bkg"><tr><td></td><td class="wTable2_short pad2626"><span>Ashen Captain blade</span></td>
+          <td><div class="ct pad2626">Melee</div></td><td><div class="ct pad2626">3</div></td><td><div class="ct pad2626">3+</div></td>
+          <td><div class="ct pad2626">5</div></td><td><div class="ct pad2626">-1</div></td><td><div class="ct pad2626">2</div></td></tr></tbody>
+      </table>
+    </div>
+    <div class="dsRightСol dsColorFrAV">
+      <div class="dsHeader dsColorBgAV">ABILITIES</div>
+      <div class="dsAbility">CORE:<b><span class="tooltip00002" data-tooltip-content="#tooltip_content00002"><span class="tt kwbu">Leader</span></span></b></div>
+      <div class="dsHeader dsColorBgAV">UNIT COMPOSITION</div>
+      <div class="dsAbility"><ul class="dsUl"><li>1 Ashen Captain</li></ul></div>
+      <div class="dsHeader dsColorBgAV">LEADER</div>
+      <div class="dsAbility">This model can be attached to the following units:<ul>
+        <li class="clFl AVAV"><a class="kwbOne" href="/wh40k11ed/factions/AV/datasheets.html#Ashen-Sentinel"><span class="kwb kwbo">ASHEN</span><span class="kwb kwbo">SENTINEL</span></a></li>
+        <li class="clFl AVAV"><a class="kwbOne" href="/wh40k11ed/factions/AV/datasheets.html#Ashen-Warden"><span class="kwb kwbo">ASHEN</span><span class="kwb kwbo">WARDEN</span></a></li>
+      </ul></div>
+    </div>
+  </div>
+  <div class="ds2colKW dsColorFrAV">
+    <div class="dsLeftСolKW">KEYWORDS: <span class="kwb kwbu">INFANTRY</span>; <span class="kwb kwbu">CHARACTER</span>;</div>
+    <div class="dsRightСolKW">FACTION KEYWORDS: <span class="kwb kwbu">ASHEN</span><span class="kwb kwbu">VIGIL</span>;</div>
+  </div>
+</div>
+
+<a name="Ashen-Relic-Walker"></a>
+<div class="dsOuterFrame datasheet pagebreak clFl sLegendary AVAV" style="position:relative">
+  <div class="dsBannerWrap">
+    <div class="dsH2Header"><div>Ashen Relic Walker</div><span class="dsModelBase2 ShowBaseSize">32mm</span></div>
+    <div class="dsProfileBaseWrap"><div class="dsProfileWrapLeft"><div class="dsProfileWrap">
+      <div class="dsCharWrap"><div class="dsCharName">M</div><div class="dsCharFrame dsColorBgAV"><div class="dsCharValue dsColorAV">6"</div></div></div>
+      <div class="dsCharWrap"><div class="dsCharName">T</div><div class="dsCharFrame dsColorBgAV"><div class="dsCharValue dsColorAV">5</div></div></div>
+      <div class="dsCharWrap"><div class="dsCharName">SV</div><div class="dsCharFrame dsColorBgAV"><div class="dsCharValue dsColorAV">3+</div></div></div>
+      <div class="dsCharWrap"><div class="dsCharName">W</div><div class="dsCharFrame dsColorBgAV"><div class="dsCharValue dsColorAV">8</div></div></div>
+      <div class="dsCharWrap"><div class="dsCharName">LD</div><div class="dsCharFrame dsColorBgAV"><div class="dsCharValue dsColorAV">6+</div></div></div>
+      <div class="dsCharWrap"><div class="dsCharName">OC</div><div class="dsCharFrame dsColorBgAV"><div class="dsCharValue dsColorAV">2</div></div></div>
+    </div></div><div class="dsProfileWrapRight"></div></div>
+  </div>
+  <div class="ds2col">
+    <div class="dsLeftСol dsColorFrAV">
+      <table class="wTable" width="100%">
+        <tbody><tr><td class="dsHeader dsColorBgAV"><div class="dsMeleeIcon"></div></td>
+          <td class="wTable_WEAPON"><div class="dsHeader dsColorBgAV">MELEE WEAPONS</div></td>
+          <td><div class="ct dsHeader dsColorBgAV">RANGE</div></td><td><div class="ct dsHeader dsColorBgAV">A</div></td>
+          <td><div class="ct dsHeader dsColorBgAV">WS</div></td><td><div class="ct dsHeader dsColorBgAV">S</div></td>
+          <td><div class="ct dsHeader dsColorBgAV">AP</div></td><td><div class="ct dsHeader dsColorBgAV">D</div></td></tr></tbody>
+        <tbody class="bkg"><tr><td></td><td class="wTable2_short pad2626"><span>Ashen Relic Walker blade</span></td>
+          <td><div class="ct pad2626">Melee</div></td><td><div class="ct pad2626">3</div></td><td><div class="ct pad2626">3+</div></td>
+          <td><div class="ct pad2626">5</div></td><td><div class="ct pad2626">-1</div></td><td><div class="ct pad2626">2</div></td></tr></tbody>
+      </table>
+    </div>
+    <div class="dsRightСol dsColorFrAV">
+      <div class="dsHeader dsColorBgAV">ABILITIES</div>
+      <div class="dsAbility"><b>Ember Shield:</b>Invented placeholder prose.</div>
+      <div class="dsHeader dsColorBgAV">UNIT COMPOSITION</div>
+      <div class="dsAbility"><ul class="dsUl"><li>1 Ashen Relic Walker</li></ul></div>
+      <div class="dsHeader dsColorBgAV">DAMAGED: 1-5 WOUNDS REMAINING</div>
+      <div class="dsAbility">Invented placeholder prose.</div>
+    </div>
+  </div>
+  <div class="ds2colKW dsColorFrAV">
+    <div class="dsLeftСolKW">KEYWORDS: <span class="kwb kwbu">VEHICLE</span>;</div>
+    <div class="dsRightСolKW">FACTION KEYWORDS: <span class="kwb kwbu">ASHEN</span><span class="kwb kwbu">VIGIL</span>;</div>
+  </div>
+</div>
+
+<a name="Ashen-Carrier"></a>
+<div class="dsOuterFrame datasheet pagebreak clFl AVAV" style="position:relative">
+  <div class="dsBannerWrap">
+    <div class="dsH2Header"><div>Ashen Carrier</div><span class="dsModelBase2 ShowBaseSize">32mm</span></div>
+    <div class="dsProfileBaseWrap"><div class="dsProfileWrapLeft"><div class="dsProfileWrap">
+      <div class="dsCharWrap"><div class="dsCharName">M</div><div class="dsCharFrame dsColorBgAV"><div class="dsCharValue dsColorAV">6"</div></div></div>
+      <div class="dsCharWrap"><div class="dsCharName">T</div><div class="dsCharFrame dsColorBgAV"><div class="dsCharValue dsColorAV">5</div></div></div>
+      <div class="dsCharWrap"><div class="dsCharName">SV</div><div class="dsCharFrame dsColorBgAV"><div class="dsCharValue dsColorAV">3+</div></div></div>
+      <div class="dsCharWrap"><div class="dsCharName">W</div><div class="dsCharFrame dsColorBgAV"><div class="dsCharValue dsColorAV">10</div></div></div>
+      <div class="dsCharWrap"><div class="dsCharName">LD</div><div class="dsCharFrame dsColorBgAV"><div class="dsCharValue dsColorAV">6+</div></div></div>
+      <div class="dsCharWrap"><div class="dsCharName">OC</div><div class="dsCharFrame dsColorBgAV"><div class="dsCharValue dsColorAV">2</div></div></div>
+    </div></div><div class="dsProfileWrapRight"></div></div>
+  </div>
+  <div class="ds2col">
+    <div class="dsLeftСol dsColorFrAV">
+      <table class="wTable" width="100%">
+        <tbody><tr><td class="dsHeader dsColorBgAV"><div class="dsMeleeIcon"></div></td>
+          <td class="wTable_WEAPON"><div class="dsHeader dsColorBgAV">MELEE WEAPONS</div></td>
+          <td><div class="ct dsHeader dsColorBgAV">RANGE</div></td><td><div class="ct dsHeader dsColorBgAV">A</div></td>
+          <td><div class="ct dsHeader dsColorBgAV">WS</div></td><td><div class="ct dsHeader dsColorBgAV">S</div></td>
+          <td><div class="ct dsHeader dsColorBgAV">AP</div></td><td><div class="ct dsHeader dsColorBgAV">D</div></td></tr></tbody>
+        <tbody class="bkg"><tr><td></td><td class="wTable2_short pad2626"><span>Ashen Carrier blade</span></td>
+          <td><div class="ct pad2626">Melee</div></td><td><div class="ct pad2626">3</div></td><td><div class="ct pad2626">3+</div></td>
+          <td><div class="ct pad2626">5</div></td><td><div class="ct pad2626">-1</div></td><td><div class="ct pad2626">2</div></td></tr></tbody>
+      </table>
+    </div>
+    <div class="dsRightСol dsColorFrAV">
+      <div class="dsHeader dsColorBgAV">ABILITIES</div>
+      <div class="dsAbility">CORE:<b><span class="tooltip00001" data-tooltip-content="#tooltip_content00001"><span class="tt kwbu">Deep</span><span class="tt kwbu">Strike</span></span></b></div>
+      <div class="dsHeader dsColorBgAV">UNIT COMPOSITION</div>
+      <div class="dsAbility"><ul class="dsUl"><li>1 Ashen Carrier</li></ul></div>
+    </div>
+  </div>
+  <div class="ds2colKW dsColorFrAV">
+    <div class="dsLeftСolKW">KEYWORDS: <span class="kwb kwbu">VEHICLE</span>; <span class="kwb kwbu">TRANSPORT</span>; <span class="kwb kwbu">DEDICATED</span><span class="kwb kwbu">TRANSPORT</span>;</div>
+    <div class="dsRightСolKW">FACTION KEYWORDS: <span class="kwb kwbu">ASHEN</span><span class="kwb kwbu">VIGIL</span>;</div>
+  </div>
+</div>
+
+<a name="Ashen-Skirmisher"></a>
+<div class="dsOuterFrame datasheet pagebreak clFl AVAV" style="position:relative">
+  <div class="dsBannerWrap">
+    <div class="dsH2Header"><div>Ashen Skirmisher</div><span class="dsModelBase2 ShowBaseSize">32mm</span></div>
+    <div class="dsProfileBaseWrap"><div class="dsProfileWrapLeft"><div class="dsProfileWrap">
+      <div class="dsCharWrap"><div class="dsCharName">M</div><div class="dsCharFrame dsColorBgAV"><div class="dsCharValue dsColorAV">6"</div></div></div>
+      <div class="dsCharWrap"><div class="dsCharName">T</div><div class="dsCharFrame dsColorBgAV"><div class="dsCharValue dsColorAV">5</div></div></div>
+      <div class="dsCharWrap"><div class="dsCharName">SV</div><div class="dsCharFrame dsColorBgAV"><div class="dsCharValue dsColorAV">3+</div></div></div>
+      <div class="dsCharWrap"><div class="dsCharName">W</div><div class="dsCharFrame dsColorBgAV"><div class="dsCharValue dsColorAV">2</div></div></div>
+      <div class="dsCharWrap"><div class="dsCharName">LD</div><div class="dsCharFrame dsColorBgAV"><div class="dsCharValue dsColorAV">6+</div></div></div>
+      <div class="dsCharWrap"><div class="dsCharName">OC</div><div class="dsCharFrame dsColorBgAV"><div class="dsCharValue dsColorAV">2</div></div></div>
+    </div></div><div class="dsProfileWrapRight"></div></div>
+  </div>
+  <div class="ds2col">
+    <div class="dsLeftСol dsColorFrAV">
+      <table class="wTable" width="100%">
+        <tbody><tr><td class="dsHeader dsColorBgAV"><div class="dsMeleeIcon"></div></td>
+          <td class="wTable_WEAPON"><div class="dsHeader dsColorBgAV">MELEE WEAPONS</div></td>
+          <td><div class="ct dsHeader dsColorBgAV">RANGE</div></td><td><div class="ct dsHeader dsColorBgAV">A</div></td>
+          <td><div class="ct dsHeader dsColorBgAV">WS</div></td><td><div class="ct dsHeader dsColorBgAV">S</div></td>
+          <td><div class="ct dsHeader dsColorBgAV">AP</div></td><td><div class="ct dsHeader dsColorBgAV">D</div></td></tr></tbody>
+        <tbody class="bkg"><tr><td></td><td class="wTable2_short pad2626"><span>Ashen Skirmisher blade</span></td>
+          <td><div class="ct pad2626">Melee</div></td><td><div class="ct pad2626">3</div></td><td><div class="ct pad2626">3+</div></td>
+          <td><div class="ct pad2626">5</div></td><td><div class="ct pad2626">-1</div></td><td><div class="ct pad2626">2</div></td></tr></tbody>
+      </table>
+    </div>
+    <div class="dsRightСol dsColorFrAV">
+      <div class="dsHeader dsColorBgAV">ABILITIES</div>
+      <div class="dsAbility">CORE:<b><span class="tooltip00001" data-tooltip-content="#tooltip_content00001"><span class="tt kwbu">Deep</span><span class="tt kwbu">Strike</span></span></b></div>
+      <div class="dsHeader dsColorBgAV">UNIT COMPOSITION</div>
+      <div class="dsAbility"><ul class="dsUl"><li>1 Ashen Skirmisher</li></ul></div>
+    </div>
+  </div>
+  <div class="ds2colKW dsColorFrAV">
+    <div class="dsLeftСolKW">KEYWORDS: <span class="kwb kwbu">INFANTRY</span>;</div>
+    <div class="dsRightСolKW">FACTION KEYWORDS: <span class="kwb kwbu">ASHEN</span><span class="kwb kwbu">VIGIL</span>;</div>
+  </div>
+</div>
+
+<a name="Ashen-Revenant"></a>
+<div class="dsOuterFrame datasheet pagebreak clFl AVAV" style="position:relative">
+  <div class="dsBannerWrap">
+    <div class="dsH2Header"><div>Ashen Revenant</div><span class="dsModelBase2 ShowBaseSize">32mm</span></div>
+    <div class="dsProfileBaseWrap"><div class="dsProfileWrapLeft"><div class="dsProfileWrap">
+      <div class="dsCharWrap"><div class="dsCharName">M</div><div class="dsCharFrame dsColorBgAV"><div class="dsCharValue dsColorAV">6"</div></div></div>
+      <div class="dsCharWrap"><div class="dsCharName">T</div><div class="dsCharFrame dsColorBgAV"><div class="dsCharValue dsColorAV">5</div></div></div>
+      <div class="dsCharWrap"><div class="dsCharName">SV</div><div class="dsCharFrame dsColorBgAV"><div class="dsCharValue dsColorAV">3+</div></div></div>
+      <div class="dsCharWrap"><div class="dsCharName">W</div><div class="dsCharFrame dsColorBgAV"><div class="dsCharValue dsColorAV">3</div></div></div>
+      <div class="dsCharWrap"><div class="dsCharName">LD</div><div class="dsCharFrame dsColorBgAV"><div class="dsCharValue dsColorAV">6+</div></div></div>
+      <div class="dsCharWrap"><div class="dsCharName">OC</div><div class="dsCharFrame dsColorBgAV"><div class="dsCharValue dsColorAV">2</div></div></div>
+    </div></div><div class="dsProfileWrapRight"></div></div>
+  </div>
+  <div class="ds2col">
+    <div class="dsLeftСol dsColorFrAV">
+      <table class="wTable" width="100%">
+        <tbody><tr><td class="dsHeader dsColorBgAV"><div class="dsMeleeIcon"></div></td>
+          <td class="wTable_WEAPON"><div class="dsHeader dsColorBgAV">MELEE WEAPONS</div></td>
+          <td><div class="ct dsHeader dsColorBgAV">RANGE</div></td><td><div class="ct dsHeader dsColorBgAV">A</div></td>
+          <td><div class="ct dsHeader dsColorBgAV">WS</div></td><td><div class="ct dsHeader dsColorBgAV">S</div></td>
+          <td><div class="ct dsHeader dsColorBgAV">AP</div></td><td><div class="ct dsHeader dsColorBgAV">D</div></td></tr></tbody>
+        <tbody class="bkg"><tr><td></td><td class="wTable2_short pad2626"><span>Ashen Revenant blade</span></td>
+          <td><div class="ct pad2626">Melee</div></td><td><div class="ct pad2626">3</div></td><td><div class="ct pad2626">3+</div></td>
+          <td><div class="ct pad2626">5</div></td><td><div class="ct pad2626">-1</div></td><td><div class="ct pad2626">2</div></td></tr></tbody>
+      </table>
+    </div>
+    <div class="dsRightСol dsColorFrAV">
+      <div class="dsHeader dsColorBgAV">ABILITIES</div>
+      <div class="dsAbility"><b>Ember Shield:</b>Invented placeholder prose.</div>
+      <div class="dsHeader dsColorBgAV">UNIT COMPOSITION</div>
+      <div class="dsAbility"><ul class="dsUl"><li>1 Ashen Revenant</li></ul></div>
+      <div class="dsAbility"><table width="100%" border="0" cellspacing="0" cellpadding="2"><tbody>
+        <tr><td colspan="2" class="dsUnitCostHeader">YOUR UNIT COSTS</td></tr>
+        <tr><td>1 model</td><td><div class="PriceTag">60</div></td></tr>
+      </tbody></table></div>
+    </div>
+  </div>
+  <div class="ds2colKW dsColorFrAV">
+    <div class="dsLeftСolKW">KEYWORDS: <span class="kwb kwbu">INFANTRY</span>;</div>
+    <div class="dsRightСolKW">FACTION KEYWORDS: <span class="kwb kwbu">ASHEN</span><span class="kwb kwbu">VIGIL</span>;</div>
+  </div>
+</div>
+
+</div>
+
+<span id="tooltip_content00001"><div class="abWrap"><div class="abNameWrap"><div class="abName">Deep Strike<span class="h_number">24.01</span></div><div class="abIcon"></div></div><p class="ShowFluff abLegend">Invented placeholder flavour.</p>Invented placeholder prose.</div></span>
+<span id="tooltip_content00002"><div class="abWrap"><div class="abNameWrap"><div class="abName">Leader<span class="h_number">24.02</span></div><div class="abIcon"></div></div><p class="ShowFluff abLegend">Invented placeholder flavour.</p>Invented placeholder prose.</div></span>
+
+</body>
+</html>

@@ -14,7 +14,12 @@ adapter they are reading from.
 Layout (``fixtures/README.md``)::
 
     fixtures/<set>/mfm/<slug>.html
-    fixtures/<set>/wahapedia/<Name>.csv
+    fixtures/<set>/wahapedia/<Name>.csv        # detail source, csv mode
+    fixtures/<set>/wahapedia-html/<slug>.html  # detail source, html mode (004 T072)
+
+A set may carry both detail shapes, describing the *same* invented units. Where it does, a test
+can build it twice and compare — which is how "every stage below ``acquire`` is mode-blind" is
+proven rather than asserted.
 
 Fixtures are **synthetic** — hand-authored structures with invented faction names, invented unit
 names, and invented placeholder prose. Capturing a real page or a real CSV export as a golden
@@ -36,20 +41,32 @@ from pipeline.config import PipelineConfig
 from pipeline.exit_codes import ExitCode
 from pipeline.models.source import AcquisitionOutcome, SourceAcquisition, SourceKey
 
-#: Sub-directory and file suffix per source, matching the documented naming convention.
-_LAYOUT: Final[dict[SourceKey, tuple[str, str, str]]] = {
-    # source_key: (sub-directory, glob, coverage key)
-    SourceKey.MFM: ("mfm", "*.html", "faction_pages"),
-    SourceKey.WAHAPEDIA: ("wahapedia", "*.csv", "csv_files"),
-}
 
+@dataclass(frozen=True, slots=True)
+class FixtureLayout:
+    """Where one source's documents live in a fixture set, and how they are read."""
+
+    subdirectory: str
+    glob: str
+    coverage_key: str
+    encoding: str
+
+
+#: The default layout per source, matching the documented naming convention.
+#:
 #: The detail source's CSVs are UTF-8 **with BOM** (research §0.1); ``utf-8-sig`` strips it, so
 #: a fixture may carry a BOM exactly as the real export does without every parser needing to
 #: know.
-_ENCODING: Final[dict[SourceKey, str]] = {
-    SourceKey.MFM: "utf-8",
-    SourceKey.WAHAPEDIA: "utf-8-sig",
+_LAYOUT: Final[dict[SourceKey, FixtureLayout]] = {
+    SourceKey.MFM: FixtureLayout("mfm", "*.html", "faction_pages", "utf-8"),
+    SourceKey.WAHAPEDIA: FixtureLayout("wahapedia", "*.csv", "csv_files", "utf-8-sig"),
 }
+
+#: The detail source read in ``html`` mode (`004` T072): the same source key — the acquisition
+#: record must not say which mode produced it, or nothing below ``acquire`` would be mode-blind —
+#: read from its own sub-directory, so one fixture set can carry the *same* invented units in
+#: both source shapes and the grammars can be proven mode-blind against them (research D1d).
+HTML_DETAIL_LAYOUT: Final = FixtureLayout("wahapedia-html", "*.html", "faction_pages", "utf-8")
 
 
 class FixtureSetError(AcquisitionError):
@@ -69,28 +86,36 @@ class FixturePayload:
     text: str
 
 
-def fixture_source_dir(fixtures_dir: Path, source_key: SourceKey) -> Path:
+def fixture_source_dir(
+    fixtures_dir: Path, source_key: SourceKey, *, layout: FixtureLayout | None = None
+) -> Path:
     """The per-source sub-directory of a fixture set."""
-    return fixtures_dir / _LAYOUT[source_key][0]
+    return fixtures_dir / (layout or _LAYOUT[source_key]).subdirectory
 
 
-def load_fixture_payloads(fixtures_dir: Path, source_key: SourceKey) -> list[FixturePayload]:
+def load_fixture_payloads(
+    fixtures_dir: Path, source_key: SourceKey, *, layout: FixtureLayout | None = None
+) -> list[FixturePayload]:
     """Read every document of one source from a fixture set, sorted by name.
 
     Sorted because acquisition order must not affect the fingerprint or anything downstream —
     nothing in this pipeline is matched by document order (research D4a).
     """
-    _, glob, _ = _LAYOUT[source_key]
-    directory = fixture_source_dir(fixtures_dir, source_key)
+    resolved = layout or _LAYOUT[source_key]
+    directory = fixture_source_dir(fixtures_dir, source_key, layout=resolved)
     if not directory.is_dir():
-        raise FixtureSetError(f"fixture set has no {source_key.value} directory: {directory}")
+        raise FixtureSetError(
+            f"fixture set has no {resolved.subdirectory}/ directory for the "
+            f"{source_key.value} source: {directory}"
+        )
 
-    paths = sorted(directory.glob(glob))
+    paths = sorted(directory.glob(resolved.glob))
     if not paths:
-        raise FixtureSetError(f"fixture set holds no {glob} files: {directory}")
+        raise FixtureSetError(f"fixture set holds no {resolved.glob} files: {directory}")
 
-    encoding = _ENCODING[source_key]
-    return [FixturePayload(name=p.stem, text=p.read_text(encoding=encoding)) for p in paths]
+    return [
+        FixturePayload(name=p.stem, text=p.read_text(encoding=resolved.encoding)) for p in paths
+    ]
 
 
 def content_fingerprint(payloads: Sequence[FixturePayload]) -> str:
@@ -115,18 +140,20 @@ def acquire_from_fixtures(
     config: PipelineConfig,
     *,
     retrieved_at: datetime | None = None,
+    layout: FixtureLayout | None = None,
 ) -> tuple[SourceAcquisition, list[FixturePayload]]:
     """Acquire one source from a fixture set, with no network access whatsoever.
 
     Returns the acquisition record and its payloads, exactly as the live adapters do.
     """
-    payloads = load_fixture_payloads(fixtures_dir, source_key)
+    resolved = layout or _LAYOUT[source_key]
+    payloads = load_fixture_payloads(fixtures_dir, source_key, layout=resolved)
     fingerprint = content_fingerprint(payloads)
     moment = (retrieved_at or datetime.now(UTC)).astimezone(UTC)
     stamp = moment.strftime("%Y%m%dT%H%M%SZ")
 
     declared_edition = config.mfm_edition if source_key is SourceKey.MFM else config.detail_edition
-    coverage_key = _LAYOUT[source_key][2]
+    coverage_key = resolved.coverage_key
 
     acquisition = SourceAcquisition(
         acquisition_id=f"{source_key.value}-{stamp}-{fingerprint[:8]}",

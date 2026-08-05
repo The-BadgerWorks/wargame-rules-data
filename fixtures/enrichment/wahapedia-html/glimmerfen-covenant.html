@@ -1,0 +1,489 @@
+<!-- AI-Assisted: Claude Code (model: claude-opus-5) - Hand-authored the html-mode detail fixture
+     (004 task T073). SYNTHETIC: every faction, unit, model, weapon, ability, detachment and rule
+     name here is invented, and every line of prose is invented placeholder text. Nothing in this
+     file is a capture, a slice, or a redaction of any acquired page (FR-006, research D10).
+
+     It reproduces the *structure* docs/verification/html-markup-spike.md recorded — datacard
+     frames, label-anchored blocks, the two keyword columns, the weapon table, the profile wraps,
+     the detachment roster and the detachment-ability block — over the SAME invented units as
+     fixtures/enrichment/wahapedia/, so the composition and option grammars can be proven to
+     consume both source shapes unmodified (research D1d).
+
+     Two structural traps from the spike are reproduced deliberately, because a fixture that
+     omits them would prove the defences work against markup nobody publishes:
+       * the four column classes are spelled with U+0421 CYRILLIC CAPITAL LETTER ES
+         (dsLeftСol / dsRightСol / dsLeftСolKW / dsRightСolKW), not ASCII C; and
+       * faction-derived colour and keyword-code class tokens (dsColorBgGF, GFTC, ...) are
+         present on every element that carries them upstream, so a selector that named one would
+         be caught here rather than on the twenty-fifth faction page of a live sweep. -->
+<html>
+<head><title>Glimmerfen Covenant</title></head>
+<body>
+
+<div class="DetFilterBlock" data-det-group="GF">
+  <div class="DetFilterGrid">
+    <div class="DetFilterCols clFl GFTC">
+      <label class="container DetFilterItem clFl GFTC" data-det-group="GF" data-det-code="TC"
+             data-det-name="Thornlight Chorus" data-dp-base="2">Thornlight Chorus<span class="detDP">2DP</span></label>
+      <label class="container DetFilterItem clFl GFBH" data-det-group="GF" data-det-code="BH"
+             data-det-name="Bracklight Host" data-dp-base="3">Bracklight Host<span class="detDP">3DP</span></label>
+    </div>
+  </div>
+</div>
+
+<div class="dsVisChk">
+
+<a name="Glimmerfen-Warden"></a>
+<div class="dsOuterFrame datasheet pagebreak clFl GFGF GFTC GFBH" style="position:relative">
+  <div class="dsBannerWrap">
+    <div class="dsBanner dsColorBanGF"></div>
+    <div class="dsH2Header"><div>Glimmerfen Warden</div><span class="dsModelBase2 dsModelBase2Top ShowBaseSize">(&#8960;32mm)</span></div>
+    <div class="dsProfileBaseWrap">
+      <div class="dsProfileWrapLeft"><div class="dsProfileWrap">
+        <div class="dsCharWrap"><div class="dsCharName">M</div><div class="dsCharFrame dsColorBgGF"><div class="dsCharFrameBack"><div class="dsCharValue dsColorGF">6"</div></div></div></div>
+        <div class="dsCharWrap"><div class="dsCharName">T</div><div class="dsCharFrame dsColorBgGF"><div class="dsCharFrameBack"><div class="dsCharValue dsColorGF">4</div></div></div></div>
+        <div class="dsCharWrap"><div class="dsCharName">SV</div><div class="dsCharFrame dsColorBgGF"><div class="dsCharFrameBack"><div class="dsCharValue dsColorGF">3+</div></div></div></div>
+        <div class="dsCharWrap"><div class="dsCharName">W</div><div class="dsCharFrame dsColorBgGF"><div class="dsCharFrameBack"><div class="dsCharValue dsColorGF">5</div></div></div></div>
+        <div class="dsCharWrap"><div class="dsCharName">LD</div><div class="dsCharFrame dsColorBgGF"><div class="dsCharFrameBack"><div class="dsCharValue dsColorGF">6+</div></div></div></div>
+        <div class="dsCharWrap"><div class="dsCharName">OC</div><div class="dsCharFrame dsColorBgGF"><div class="dsCharFrameBack"><div class="dsCharValue dsColorGF">1</div></div></div></div>
+      </div></div>
+      <div class="dsProfileWrapRight"></div>
+    </div>
+    <div class="dsInvulWrap"><div class="dsCharInvulText dsColorBgGF">INVUL</div><div class="dsCharInvul dsColorBgGF"><div class="dsCharInvulBack"><div class="dsCharInvulValue dsColorGF">4+</div></div></div></div>
+  </div>
+  <div class="ds2col">
+    <div class="dsLeftСol dsColorFrGF">
+      <table class="wTable" width="100%">
+        <tbody><tr>
+          <td class="dsHeader dsColorBgGF"><div class="dsRangedIcon"></div></td>
+          <td class="wTable_WEAPON"><div class="dsHeader dsColorBgGF">RANGED WEAPONS</div></td>
+          <td><div class="ct dsHeader dsColorBgGF">RANGE</div></td><td><div class="ct dsHeader dsColorBgGF">A</div></td>
+          <td><div class="ct dsHeader dsColorBgGF">BS</div></td><td><div class="ct dsHeader dsColorBgGF">S</div></td>
+          <td><div class="ct dsHeader dsColorBgGF">AP</div></td><td><div class="ct dsHeader dsColorBgGF">D</div></td>
+        </tr></tbody>
+        <tbody class="bkg bkg_reset"></tbody>
+        <tbody class="bkg">
+          <tr class="wTable2_long"><td></td><td colspan="6" class="pad2626"><span>Glimmer lantern</span></td></tr>
+          <tr><td></td><td class="wTable2_short pad2626"><span>Glimmer lantern<span class="kwbw dsColorGF"><span class="tt kwbu">blast</span></span></span></td>
+            <td><div class="ct pad2626">12"</div></td><td><div class="ct pad2626">2</div></td><td><div class="ct pad2626">3+</div></td>
+            <td><div class="ct pad2626">4</div></td><td><div class="ct pad2626">-1</div></td><td><div class="ct pad2626">1</div></td></tr>
+        </tbody>
+      </table>
+      <div class="dsLineHor"></div>
+      <div class="dsHeader dsColorBgGF"><span class="dsWargearOptionsIcon"></span>WARGEAR OPTIONS</div>
+      <ul><li>This model can be equipped with 1 glimmer lantern.</li></ul><br>
+    </div>
+    <div class="dsRightСol dsColorFrGF">
+      <div class="dsHeader dsColorBgGF">ABILITIES</div>
+      <div class="dsAbility">CORE:<b><span class="tooltip00001" data-tooltip-content="#tooltip_content00001"><span class="tt kwbu">Deep</span><span class="tt kwbu">Strike</span></span></b></div>
+      <div class="dsAbility"><b>Ember Shield:</b>Invented placeholder mechanic for the fixture: this model has a 4+ invulnerable save.</div>
+      <div class="dsHeader dsColorBgGF">UNIT COMPOSITION</div>
+      <div class="dsAbility"><ul class="dsUl"><li>1 Glimmerfen Warden &#8211;<span class="kwb">EPIC</span><span class="kwb">HERO</span></li></ul><b>Glimmerfen Warden is equipped with:</b>invented placeholder loadout prose.</div>
+      <div class="dsAbility"><table width="100%" border="0" cellspacing="0" cellpadding="2"><tbody>
+        <tr><td colspan="2" class="dsUnitCostHeader">YOUR UNIT COSTS</td></tr>
+        <tr><td>1 model</td><td><div class="PriceTag">80</div></td></tr>
+      </tbody></table></div>
+      <div class="dsHeader dsColorBgGF">LEADER</div>
+      <div class="dsAbility">This model can be attached to the following units:<ul><li class="clFl GFGF"><a class="kwbOne" href="/wh40k11ed/factions/glimmerfen-covenant/datasheets.html#Fenmire-Skirmishers"><span class="kwb kwbo">FENMIRE</span><span class="kwb kwbo">SKIRMISHERS</span></a></li></ul></div>
+    </div>
+  </div>
+  <div class="ds2colKW dsColorFrGF">
+    <div class="dsLeftСolKW">KEYWORDS: <span class="kwb kwbu">INFANTRY</span>;</div>
+    <div class="dsRightСolKW">FACTION KEYWORDS: <span class="kwb kwbu">GLIMMERFEN</span><span class="kwb kwbu">COVENANT</span>; <span class="kwb kwbu">THORNLIGHT</span><span class="kwb kwbu">CHORUS</span>;</div>
+  </div>
+  <div class="ds2col ShowDatasheetFeatures">
+    <div class="dsLeftСol dsColorFrGF"><div class="dsHeader dsColorBgGF">STRATAGEMS</div><div class="dsAbility_noLine"><div class="s10Wrap clFl GFTC"><div class="s10NameWrap"><div class="s10Name">Invented Stratagem</div></div></div></div></div>
+    <div class="dsRightСol dsColorFrGF"><div>
+      <div class="dsHeader dsColorBgGF">DETACHMENT ABILITY</div>
+      <div class="dsAbility">
+        <div class="s10EnhWrap clFl GFGF GFTC"><div><span class="tooltip00050" data-tooltip-content="#tooltip_content00050"><span class="tt kwbu">Chorus</span><span class="tt kwbu">Resonance</span></span></div></div>
+        <div class="s10EnhWrap clFl GFGF GFBH"><div><span class="tooltip00051" data-tooltip-content="#tooltip_content00051"><span class="tt kwbu">Bracklight</span><span class="tt kwbu">Advance</span></span></div></div>
+      </div>
+    </div></div>
+  </div>
+</div>
+
+<a name="Fenmire-Skirmishers"></a>
+<div class="dsOuterFrame datasheet pagebreak clFl GFGF GFBH" style="position:relative">
+  <div class="dsBannerWrap">
+    <div class="dsBanner dsColorBanGF"></div>
+    <div class="dsH2Header"><div>Fenmire Skirmishers</div></div>
+    <div class="dsProfileBaseWrap">
+      <div class="dsProfileWrapLeft"><div class="dsProfileWrap">
+        <div class="dsCharWrap"><div class="dsCharName">M</div><div class="dsCharFrame dsColorBgGF"><div class="dsCharFrameBack"><div class="dsCharValue dsColorGF">6"</div></div></div></div>
+        <div class="dsCharWrap"><div class="dsCharName">T</div><div class="dsCharFrame dsColorBgGF"><div class="dsCharFrameBack"><div class="dsCharValue dsColorGF">3</div></div></div></div>
+        <div class="dsCharWrap"><div class="dsCharName">SV</div><div class="dsCharFrame dsColorBgGF"><div class="dsCharFrameBack"><div class="dsCharValue dsColorGF">4+</div></div></div></div>
+        <div class="dsCharWrap"><div class="dsCharName">W</div><div class="dsCharFrame dsColorBgGF"><div class="dsCharFrameBack"><div class="dsCharValue dsColorGF">1</div></div></div></div>
+        <div class="dsCharWrap"><div class="dsCharName">LD</div><div class="dsCharFrame dsColorBgGF"><div class="dsCharFrameBack"><div class="dsCharValue dsColorGF">7+</div></div></div></div>
+        <div class="dsCharWrap"><div class="dsCharName">OC</div><div class="dsCharFrame dsColorBgGF"><div class="dsCharFrameBack"><div class="dsCharValue dsColorGF">2</div></div></div></div>
+      </div></div>
+      <div class="dsProfileWrapRight"><span class="dsModelName dsModelNameTop">Fenmire Skirmisher</span><span class="dsModelBase dsModelBaseTop ShowBaseSize">(&#8960;25mm)</span></div>
+    </div>
+    <div class="dsProfileBaseWrap">
+      <div class="dsProfileWrapLeft"><div class="dsProfileWrap">
+        <div class="dsCharWrap"><div class="dsCharFrame dsColorBgGF"><div class="dsCharFrameBack"><div class="dsCharValue dsColorGF">6"</div></div></div></div>
+        <div class="dsCharWrap"><div class="dsCharFrame dsColorBgGF"><div class="dsCharFrameBack"><div class="dsCharValue dsColorGF">3</div></div></div></div>
+        <div class="dsCharWrap"><div class="dsCharFrame dsColorBgGF"><div class="dsCharFrameBack"><div class="dsCharValue dsColorGF">4+</div></div></div></div>
+        <div class="dsCharWrap"><div class="dsCharFrame dsColorBgGF"><div class="dsCharFrameBack"><div class="dsCharValue dsColorGF">2</div></div></div></div>
+        <div class="dsCharWrap"><div class="dsCharFrame dsColorBgGF"><div class="dsCharFrameBack"><div class="dsCharValue dsColorGF">7+</div></div></div></div>
+        <div class="dsCharWrap"><div class="dsCharFrame dsColorBgGF"><div class="dsCharFrameBack"><div class="dsCharValue dsColorGF">1</div></div></div></div>
+      </div></div>
+      <div class="dsProfileWrapRight"><span class="dsModelName">Fenmire Marshbearer</span><span class="dsModelBase dsModelBaseNext ShowBaseSize">(&#8960;25mm)</span></div>
+    </div>
+  </div>
+  <div class="ds2col">
+    <div class="dsLeftСol dsColorFrGF">
+      <table class="wTable" width="100%">
+        <tbody><tr>
+          <td class="dsHeader dsColorBgGF"><div class="dsRangedIcon"></div></td>
+          <td class="wTable_WEAPON"><div class="dsHeader dsColorBgGF">RANGED WEAPONS</div></td>
+          <td><div class="ct dsHeader dsColorBgGF">RANGE</div></td><td><div class="ct dsHeader dsColorBgGF">A</div></td>
+          <td><div class="ct dsHeader dsColorBgGF">BS</div></td><td><div class="ct dsHeader dsColorBgGF">S</div></td>
+          <td><div class="ct dsHeader dsColorBgGF">AP</div></td><td><div class="ct dsHeader dsColorBgGF">D</div></td>
+        </tr></tbody>
+        <tbody class="bkg">
+          <tr class="wTable2_long"><td></td><td colspan="6" class="pad2626"><span>Marsh carbine</span></td></tr>
+          <tr><td></td><td class="wTable2_short pad2626"><span>Marsh carbine</span></td>
+            <td><div class="ct pad2626">18"</div></td><td><div class="ct pad2626">2</div></td><td><div class="ct pad2626">4+</div></td>
+            <td><div class="ct pad2626">4</div></td><td><div class="ct pad2626">0</div></td><td><div class="ct pad2626">1</div></td></tr>
+        </tbody>
+        <tbody><tr>
+          <td class="dsHeader dsColorBgGF"><div class="dsMeleeIcon"></div></td>
+          <td class="wTable_WEAPON"><div class="dsHeader dsColorBgGF">MELEE WEAPONS</div></td>
+          <td><div class="ct dsHeader dsColorBgGF">RANGE</div></td><td><div class="ct dsHeader dsColorBgGF">A</div></td>
+          <td><div class="ct dsHeader dsColorBgGF">WS</div></td><td><div class="ct dsHeader dsColorBgGF">S</div></td>
+          <td><div class="ct dsHeader dsColorBgGF">AP</div></td><td><div class="ct dsHeader dsColorBgGF">D</div></td>
+        </tr></tbody>
+        <tbody class="bkg">
+          <tr class="wTable2_long"><td></td><td colspan="6" class="pad2626"><span>Fen blade</span></td></tr>
+          <tr><td></td><td class="wTable2_short pad2626"><span>Fen blade</span></td>
+            <td><div class="ct pad2626">Melee</div></td><td><div class="ct pad2626">2</div></td><td><div class="ct pad2626">4+</div></td>
+            <td><div class="ct pad2626">3</div></td><td><div class="ct pad2626">0</div></td><td><div class="ct pad2626">1</div></td></tr>
+        </tbody>
+      </table>
+      <div class="dsHeader dsColorBgGF">WARGEAR OPTIONS</div>
+      <ul><li>Any number of Fenmire Skirmisher models can be equipped with 1 marsh carbine.</li></ul><br>
+    </div>
+    <div class="dsRightСol dsColorFrGF">
+      <div class="dsHeader dsColorBgGF">ABILITIES</div>
+      <div class="dsAbility">FACTION:<b><span class="tooltip00002" data-tooltip-content="#tooltip_content00002"><span class="tt kwbu">Mirelight</span><span class="tt kwbu">Vigil</span></span></b></div>
+      <div class="dsHeader dsColorBgGF">UNIT COMPOSITION</div>
+      <div class="dsAbility">
+        <ul class="dsUl"><li>5-10 Fenmire Skirmisher</li></ul>
+        <ul class="dsUl"><li>1 Fenmire Marshbearer</li></ul>
+        <b>Every model is equipped with:</b>invented placeholder loadout prose.</div>
+      <div class="dsAbility"><table width="100%" border="0" cellspacing="0" cellpadding="2"><tbody>
+        <tr><td colspan="2" class="dsUnitCostHeader">YOUR UNIT COSTS</td></tr>
+        <tr><td>6 models</td><td><div class="PriceTag">65</div></td></tr>
+        <tr><td>11 models</td><td><div class="PriceTag">130</div></td></tr>
+        <tr><td colspan="2" class="dsUnitCostHeader">YOUR 3RD + UNIT COSTS</td></tr>
+        <tr><td>6 models</td><td><div class="PriceTag">75</div></td></tr>
+      </tbody></table></div>
+      <div class="dsHeader dsColorBgGF">LED BY</div>
+      <div class="dsAbility">This unit can be led by the following units:<ul><li class="clFl GFGF"><a class="kwbOne" href="/wh40k11ed/factions/glimmerfen-covenant/datasheets.html#Glimmerfen-Warden"><span class="kwb kwbo">GLIMMERFEN</span><span class="kwb kwbo">WARDEN</span></a></li></ul></div>
+    </div>
+  </div>
+  <div class="ds2colKW dsColorFrGF">
+    <div class="dsLeftСolKW">KEYWORDS: <span class="kwb kwbu">INFANTRY</span>;</div>
+    <div class="dsRightСolKW">FACTION KEYWORDS: <span class="kwb kwbu">GLIMMERFEN</span><span class="kwb kwbu">COVENANT</span>; <span class="kwb kwbu">BRACKLIGHT</span><span class="kwb kwbu">HOST</span>;</div>
+  </div>
+  <div class="ds2col ShowDatasheetFeatures">
+    <div class="dsLeftСol dsColorFrGF"><div class="dsHeader dsColorBgGF">STRATAGEMS</div><div class="dsAbility_noLine"></div></div>
+    <div class="dsRightСol dsColorFrGF"><div>
+      <div class="dsHeader dsColorBgGF">DETACHMENT ABILITY</div>
+      <div class="dsAbility"><div class="s10EnhWrap clFl GFGF GFBH"><div><span class="tooltip00051" data-tooltip-content="#tooltip_content00051"><span class="tt kwbu">Bracklight</span><span class="tt kwbu">Advance</span></span></div></div></div>
+    </div></div>
+  </div>
+</div>
+
+<a name="Bracklight-Outriders"></a>
+<div class="dsOuterFrame datasheet pagebreak clFl GFGF GFTC GFBH" style="position:relative">
+  <div class="dsBannerWrap">
+    <div class="dsBanner dsColorBanGF"></div>
+    <div class="dsH2Header"><div>Bracklight Outriders</div><span class="dsModelBase2 dsModelBase2Top ShowBaseSize">(&#8960;60 x 35mm)</span></div>
+    <div class="dsProfileBaseWrap">
+      <div class="dsProfileWrapLeft"><div class="dsProfileWrap">
+        <div class="dsCharWrap"><div class="dsCharName">M</div><div class="dsCharFrame dsColorBgGF"><div class="dsCharFrameBack"><div class="dsCharValue dsColorGF">10"</div></div></div></div>
+        <div class="dsCharWrap"><div class="dsCharName">T</div><div class="dsCharFrame dsColorBgGF"><div class="dsCharFrameBack"><div class="dsCharValue dsColorGF">5</div></div></div></div>
+        <div class="dsCharWrap"><div class="dsCharName">SV</div><div class="dsCharFrame dsColorBgGF"><div class="dsCharFrameBack"><div class="dsCharValue dsColorGF">3+</div></div></div></div>
+        <div class="dsCharWrap"><div class="dsCharName">W</div><div class="dsCharFrame dsColorBgGF"><div class="dsCharFrameBack"><div class="dsCharValue dsColorGF">3</div></div></div></div>
+        <div class="dsCharWrap"><div class="dsCharName">LD</div><div class="dsCharFrame dsColorBgGF"><div class="dsCharFrameBack"><div class="dsCharValue dsColorGF">6+</div></div></div></div>
+        <div class="dsCharWrap"><div class="dsCharName">OC</div><div class="dsCharFrame dsColorBgGF"><div class="dsCharFrameBack"><div class="dsCharValue dsColorGF">2</div></div></div></div>
+      </div></div>
+      <div class="dsProfileWrapRight"><span class="dsModelName dsModelNameTop">Bracklight Rider</span></div>
+    </div>
+  </div>
+  <div class="ds2col">
+    <div class="dsLeftСol dsColorFrGF">
+      <table class="wTable" width="100%">
+        <tbody><tr>
+          <td class="dsHeader dsColorBgGF"><div class="dsMeleeIcon"></div></td>
+          <td class="wTable_WEAPON"><div class="dsHeader dsColorBgGF">MELEE WEAPONS</div></td>
+          <td><div class="ct dsHeader dsColorBgGF">RANGE</div></td><td><div class="ct dsHeader dsColorBgGF">A</div></td>
+          <td><div class="ct dsHeader dsColorBgGF">WS</div></td><td><div class="ct dsHeader dsColorBgGF">S</div></td>
+          <td><div class="ct dsHeader dsColorBgGF">AP</div></td><td><div class="ct dsHeader dsColorBgGF">D</div></td>
+        </tr></tbody>
+        <tbody class="bkg">
+          <tr class="wTable2_long"><td></td><td colspan="6" class="pad2626"><span>Tanglelance</span></td></tr>
+          <tr><td></td><td class="wTable2_short pad2626"><span>Tanglelance</span></td>
+            <td><div class="ct pad2626">Melee</div></td><td><div class="ct pad2626">3</div></td><td><div class="ct pad2626">3+</div></td>
+            <td><div class="ct pad2626">6</div></td><td><div class="ct pad2626">-2</div></td><td><div class="ct pad2626">2</div></td></tr>
+        </tbody>
+      </table>
+      <div class="dsHeader dsColorBgGF">WARGEAR OPTIONS</div>
+      <ul><li>For every 3 models in this unit, 1 model can be equipped with 1 tanglelance.</li></ul><br>
+    </div>
+    <div class="dsRightСol dsColorFrGF">
+      <div class="dsHeader dsColorBgGF">ABILITIES</div>
+      <div class="dsAbility"><b>Tanglecharge:</b>Invented placeholder mechanic: this unit may re-roll Advance rolls.<div class="dsLineHor"></div><b>Fenrunner:</b>Invented placeholder mechanic: this unit ignores difficult ground.</div>
+      <div class="dsHeader dsColorBgGF">UNIT COMPOSITION</div>
+      <div class="dsAbility"><ul class="dsUl"><li>3&#8209;6 Bracklight Outrider</li></ul><b>Every model is equipped with:</b>invented placeholder loadout prose.</div>
+      <div class="dsAbility"><table width="100%" border="0" cellspacing="0" cellpadding="2"><tbody>
+        <tr><td colspan="2" class="dsUnitCostHeader">YOUR UNIT COSTS</td></tr>
+        <tr><td>3 models</td><td><div class="PriceTag">90</div></td></tr>
+      </tbody></table></div>
+    </div>
+  </div>
+  <div class="ds2colKW dsColorFrGF">
+    <div class="dsLeftСolKW">KEYWORDS: <span class="kwb kwbu">MOUNTED</span>;</div>
+    <div class="dsRightСolKW">FACTION KEYWORDS: <span class="kwb kwbu">GLIMMERFEN</span><span class="kwb kwbu">COVENANT</span>; <span class="kwb kwbu">THORNLIGHT</span><span class="kwb kwbu">CHORUS</span>; <span class="kwb kwbu">BRACKLIGHT</span><span class="kwb kwbu">HOST</span>;</div>
+  </div>
+  <div class="ds2col ShowDatasheetFeatures">
+    <div class="dsRightСol dsColorFrGF"><div>
+      <div class="dsHeader dsColorBgGF">DETACHMENT ABILITY</div>
+      <div class="dsAbility"><div class="s10EnhWrap clFl GFGF GFTC"><div><span class="tooltip00050" data-tooltip-content="#tooltip_content00050"><span class="tt kwbu">Chorus</span><span class="tt kwbu">Resonance</span></span></div></div></div>
+    </div></div>
+  </div>
+</div>
+
+<a name="Sedgeward-Conclave"></a>
+<div class="dsOuterFrame datasheet pagebreak clFl GFGF GFTC" style="position:relative">
+  <div class="dsBannerWrap">
+    <div class="dsBanner dsColorBanGF"></div>
+    <div class="dsH2Header"><div>Sedgeward Conclave</div></div>
+    <div class="dsProfileBaseWrap">
+      <div class="dsProfileWrapLeft"><div class="dsProfileWrap">
+        <div class="dsCharWrap"><div class="dsCharName">M</div><div class="dsCharFrame dsColorBgGF"><div class="dsCharFrameBack"><div class="dsCharValue dsColorGF">6"</div></div></div></div>
+        <div class="dsCharWrap"><div class="dsCharName">T</div><div class="dsCharFrame dsColorBgGF"><div class="dsCharFrameBack"><div class="dsCharValue dsColorGF">3</div></div></div></div>
+        <div class="dsCharWrap"><div class="dsCharName">SV</div><div class="dsCharFrame dsColorBgGF"><div class="dsCharFrameBack"><div class="dsCharValue dsColorGF">5+</div></div></div></div>
+        <div class="dsCharWrap"><div class="dsCharName">W</div><div class="dsCharFrame dsColorBgGF"><div class="dsCharFrameBack"><div class="dsCharValue dsColorGF">2</div></div></div></div>
+        <div class="dsCharWrap"><div class="dsCharName">LD</div><div class="dsCharFrame dsColorBgGF"><div class="dsCharFrameBack"><div class="dsCharValue dsColorGF">7+</div></div></div></div>
+        <div class="dsCharWrap"><div class="dsCharName">OC</div><div class="dsCharFrame dsColorBgGF"><div class="dsCharFrameBack"><div class="dsCharValue dsColorGF">1</div></div></div></div>
+      </div></div>
+      <div class="dsProfileWrapRight"><span class="dsModelName dsModelNameTop">Sedgeward Adept</span></div>
+    </div>
+    <div class="dsProfileBaseWrap">
+      <div class="dsProfileWrapLeft"><div class="dsProfileWrap">
+        <div class="dsCharWrap"><div class="dsCharFrame dsColorBgGF"><div class="dsCharFrameBack"><div class="dsCharValue dsColorGF">6"</div></div></div></div>
+        <div class="dsCharWrap"><div class="dsCharFrame dsColorBgGF"><div class="dsCharFrameBack"><div class="dsCharValue dsColorGF">3</div></div></div></div>
+        <div class="dsCharWrap"><div class="dsCharFrame dsColorBgGF"><div class="dsCharFrameBack"><div class="dsCharValue dsColorGF">5+</div></div></div></div>
+        <div class="dsCharWrap"><div class="dsCharFrame dsColorBgGF"><div class="dsCharFrameBack"><div class="dsCharValue dsColorGF">1</div></div></div></div>
+        <div class="dsCharWrap"><div class="dsCharFrame dsColorBgGF"><div class="dsCharFrameBack"><div class="dsCharValue dsColorGF">7+</div></div></div></div>
+        <div class="dsCharWrap"><div class="dsCharFrame dsColorBgGF"><div class="dsCharFrameBack"><div class="dsCharValue dsColorGF">1</div></div></div></div>
+      </div></div>
+      <div class="dsProfileWrapRight"><span class="dsModelName">Sedgeward Acolyte</span></div>
+    </div>
+  </div>
+  <div class="ds2col">
+    <div class="dsLeftСol dsColorFrGF">
+      <table class="wTable" width="100%">
+        <tbody><tr>
+          <td class="dsHeader dsColorBgGF"><div class="dsMeleeIcon"></div></td>
+          <td class="wTable_WEAPON"><div class="dsHeader dsColorBgGF">MELEE WEAPONS</div></td>
+          <td><div class="ct dsHeader dsColorBgGF">RANGE</div></td><td><div class="ct dsHeader dsColorBgGF">A</div></td>
+          <td><div class="ct dsHeader dsColorBgGF">WS</div></td><td><div class="ct dsHeader dsColorBgGF">S</div></td>
+          <td><div class="ct dsHeader dsColorBgGF">AP</div></td><td><div class="ct dsHeader dsColorBgGF">D</div></td>
+        </tr></tbody>
+        <tbody class="bkg">
+          <tr class="wTable2_long"><td></td><td colspan="6" class="pad2626"><span>Sedge halberd</span></td></tr>
+          <tr><td></td><td class="wTable2_short pad2626"><span>Sedge halberd</span></td>
+            <td><div class="ct pad2626">Melee</div></td><td><div class="ct pad2626">3</div></td><td><div class="ct pad2626">3+</div></td>
+            <td><div class="ct pad2626">5</div></td><td><div class="ct pad2626">-1</div></td><td><div class="ct pad2626">2</div></td></tr>
+        </tbody>
+        <tbody class="bkg">
+          <tr class="wTable2_long"><td></td><td colspan="6" class="pad2626"><span>Mire censer</span></td></tr>
+          <tr><td></td><td class="wTable2_short pad2626"><span>Mire censer</span></td>
+            <td><div class="ct pad2626">Melee</div></td><td><div class="ct pad2626">4</div></td><td><div class="ct pad2626">4+</div></td>
+            <td><div class="ct pad2626">4</div></td><td><div class="ct pad2626">0</div></td><td><div class="ct pad2626">1</div></td></tr>
+        </tbody>
+      </table>
+      <div class="dsHeader dsColorBgGF">WARGEAR OPTIONS</div>
+      <ul>
+        <li>The Sedgeward Adept can be replaced with one of the following:<ul style="list-style-type:circle"><li>1 sedge halberd</li><li>1 mire censer</li><li>No change</li></ul></li>
+      </ul><br>
+    </div>
+    <div class="dsRightСol dsColorFrGF">
+      <div class="dsHeader dsColorBgGF">ABILITIES</div>
+      <div class="dsAbility">CORE:<b><span class="tooltip00001" data-tooltip-content="#tooltip_content00001"><span class="tt kwbu">Deep</span><span class="tt kwbu">Strike</span></span></b></div>
+      <div class="dsHeader dsColorBgGF">WARGEAR ABILITIES</div>
+      <div class="dsAbility"><b>Mire Censer:</b>Invented placeholder mechanic: subtract 1 from Advance rolls made for enemy units within 6".</div>
+      <div class="dsHeader dsColorBgGF">UNIT COMPOSITION</div>
+      <div class="dsAbility">
+        <ul class="dsUl"><li>1 Sedgeward Adept</li></ul>
+        <ul class="dsUl"><li>4 Sedgeward Acolyte</li></ul>
+        <b>Every model is equipped with:</b>invented placeholder loadout prose.</div>
+      <div class="dsAbility"><table width="100%" border="0" cellspacing="0" cellpadding="2"><tbody>
+        <tr><td colspan="2" class="dsUnitCostHeader">YOUR UNIT COSTS</td></tr>
+        <tr><td>5 models</td><td><div class="PriceTag">70</div></td></tr>
+      </tbody></table></div>
+    </div>
+  </div>
+  <div class="ds2colKW dsColorFrGF">
+    <div class="dsLeftСolKW">KEYWORDS: <span class="kwb kwbu">INFANTRY</span>; <span class="kwb kwbu">CHARACTER</span>;</div>
+    <div class="dsRightСolKW">FACTION KEYWORDS: <span class="kwb kwbu">GLIMMERFEN</span><span class="kwb kwbu">COVENANT</span>;</div>
+  </div>
+  <div class="ds2col ShowDatasheetFeatures">
+    <div class="dsRightСol dsColorFrGF"><div>
+      <div class="dsHeader dsColorBgGF">DETACHMENT ABILITY</div>
+      <div class="dsAbility"><div class="s10EnhWrap clFl GFGF GFTC"><div><span class="tooltip00050" data-tooltip-content="#tooltip_content00050"><span class="tt kwbu">Chorus</span><span class="tt kwbu">Resonance</span></span></div></div></div>
+    </div></div>
+  </div>
+</div>
+
+<a name="Mirefen-Tanglers"></a>
+<div class="dsOuterFrame datasheet pagebreak clFl sLegendary GFGF" style="position:relative">
+  <div class="dsBannerWrap">
+    <div class="dsBanner dsColorBanGF"></div>
+    <div class="dsH2Header"><div>Mirefen Tanglers</div></div>
+    <div class="dsProfileBaseWrap">
+      <div class="dsProfileWrapLeft"><div class="dsProfileWrap">
+        <div class="dsCharWrap"><div class="dsCharName">M</div><div class="dsCharFrame dsColorBgGF"><div class="dsCharFrameBack"><div class="dsCharValue dsColorGF">5"</div></div></div></div>
+        <div class="dsCharWrap"><div class="dsCharName">T</div><div class="dsCharFrame dsColorBgGF"><div class="dsCharFrameBack"><div class="dsCharValue dsColorGF">4</div></div></div></div>
+        <div class="dsCharWrap"><div class="dsCharName">SV</div><div class="dsCharFrame dsColorBgGF"><div class="dsCharFrameBack"><div class="dsCharValue dsColorGF">5+</div></div></div></div>
+        <div class="dsCharWrap"><div class="dsCharName">W</div><div class="dsCharFrame dsColorBgGF"><div class="dsCharFrameBack"><div class="dsCharValue dsColorGF">2</div></div></div></div>
+        <div class="dsCharWrap"><div class="dsCharName">LD</div><div class="dsCharFrame dsColorBgGF"><div class="dsCharFrameBack"><div class="dsCharValue dsColorGF">8+</div></div></div></div>
+        <div class="dsCharWrap"><div class="dsCharName">OC</div><div class="dsCharFrame dsColorBgGF"><div class="dsCharFrameBack"><div class="dsCharValue dsColorGF">1</div></div></div></div>
+      </div></div>
+      <div class="dsProfileWrapRight"><span class="dsModelName dsModelNameTop">Mirefen Tangler</span></div>
+    </div>
+  </div>
+  <div class="ds2col">
+    <div class="dsLeftСol dsColorFrGF">
+      <table class="wTable" width="100%">
+        <tbody><tr>
+          <td class="dsHeader dsColorBgGF"><div class="dsMeleeIcon"></div></td>
+          <td class="wTable_WEAPON"><div class="dsHeader dsColorBgGF">MELEE WEAPONS</div></td>
+          <td><div class="ct dsHeader dsColorBgGF">RANGE</div></td><td><div class="ct dsHeader dsColorBgGF">A</div></td>
+          <td><div class="ct dsHeader dsColorBgGF">WS</div></td><td><div class="ct dsHeader dsColorBgGF">S</div></td>
+          <td><div class="ct dsHeader dsColorBgGF">AP</div></td><td><div class="ct dsHeader dsColorBgGF">D</div></td>
+        </tr></tbody>
+        <tbody class="bkg">
+          <tr class="wTable2_long"><td></td><td colspan="6" class="pad2626"><span>Snare net</span></td></tr>
+          <tr><td></td><td class="wTable2_short pad2626"><span>Snare net</span></td>
+            <td><div class="ct pad2626">Melee</div></td><td><div class="ct pad2626">2</div></td><td><div class="ct pad2626">4+</div></td>
+            <td><div class="ct pad2626">4</div></td><td><div class="ct pad2626">0</div></td><td><div class="ct pad2626">1</div></td></tr>
+        </tbody>
+      </table>
+      <div class="dsHeader dsColorBgGF">WARGEAR OPTIONS</div>
+      <ul><li>Each Mirefen Tangler may take a snare net.</li></ul><br>
+    </div>
+    <div class="dsRightСol dsColorFrGF">
+      <div class="dsHeader dsColorBgGF">ABILITIES</div>
+      <div class="dsAbility"><b>Snarebound:</b>Invented placeholder mechanic: enemy units within 3" cannot Fall Back.</div>
+      <div class="dsHeader dsColorBgGF">UNIT COMPOSITION</div>
+      <div class="dsAbility"><ul class="dsUl"><li>Every model in this unit is equipped with:</li></ul></div>
+      <div class="dsAbility"><table width="100%" border="0" cellspacing="0" cellpadding="2"><tbody>
+        <tr><td colspan="2" class="dsUnitCostHeader">YOUR UNIT COSTS</td></tr>
+        <tr><td>5 models</td><td><div class="PriceTag">60</div></td></tr>
+      </tbody></table></div>
+      <div class="dsHeader dsColorBgGF">DAMAGED: 1-3 WOUNDS REMAINING</div>
+      <div class="dsAbility">While this unit has 1-3 wounds remaining, invented placeholder mechanic prose.</div>
+    </div>
+  </div>
+  <div class="ds2colKW dsColorFrGF">
+    <div class="dsLeftСolKW">KEYWORDS: <span class="kwb kwbu">INFANTRY</span>;</div>
+    <div class="dsRightСolKW">FACTION KEYWORDS: <span class="kwb kwbu">GLIMMERFEN</span><span class="kwb kwbu">COVENANT</span>; <span class="kwb kwbu">MIREFEN</span><span class="kwb kwbu">ENCLAVE</span>;</div>
+  </div>
+  <div class="ds2col ShowDatasheetFeatures">
+    <div class="dsRightСol dsColorFrGF"><div>
+      <div class="dsHeader dsColorBgGF">DETACHMENT ABILITY</div>
+      <div class="dsAbility"><div class="s10EnhWrap clFl GFGF GFBH"><div><span class="tooltip00051" data-tooltip-content="#tooltip_content00051"><span class="tt kwbu">Bracklight</span><span class="tt kwbu">Advance</span></span></div></div></div>
+    </div></div>
+  </div>
+</div>
+
+<a name="Thornlight-Chorus"></a>
+<div class="dsOuterFrame datasheet pagebreak clFl GFGF GFTC" style="position:relative">
+  <div class="dsBannerWrap">
+    <div class="dsBanner dsColorBanGF"></div>
+    <div class="dsH2Header"><div>Thornlight Chorus</div></div>
+    <div class="dsProfileBaseWrap">
+      <div class="dsProfileWrapLeft"><div class="dsProfileWrap">
+        <div class="dsCharWrap"><div class="dsCharName">M</div><div class="dsCharFrame dsColorBgGF"><div class="dsCharFrameBack"><div class="dsCharValue dsColorGF">6"</div></div></div></div>
+        <div class="dsCharWrap"><div class="dsCharName">T</div><div class="dsCharFrame dsColorBgGF"><div class="dsCharFrameBack"><div class="dsCharValue dsColorGF">3</div></div></div></div>
+        <div class="dsCharWrap"><div class="dsCharName">SV</div><div class="dsCharFrame dsColorBgGF"><div class="dsCharFrameBack"><div class="dsCharValue dsColorGF">4+</div></div></div></div>
+        <div class="dsCharWrap"><div class="dsCharName">W</div><div class="dsCharFrame dsColorBgGF"><div class="dsCharFrameBack"><div class="dsCharValue dsColorGF">2</div></div></div></div>
+        <div class="dsCharWrap"><div class="dsCharName">LD</div><div class="dsCharFrame dsColorBgGF"><div class="dsCharFrameBack"><div class="dsCharValue dsColorGF">7+</div></div></div></div>
+        <div class="dsCharWrap"><div class="dsCharName">OC</div><div class="dsCharFrame dsColorBgGF"><div class="dsCharFrameBack"><div class="dsCharValue dsColorGF">1</div></div></div></div>
+      </div></div>
+      <div class="dsProfileWrapRight"><span class="dsModelName dsModelNameTop">Thornlight Chorister Prime</span></div>
+    </div>
+    <div class="dsProfileBaseWrap">
+      <div class="dsProfileWrapLeft"><div class="dsProfileWrap">
+        <div class="dsCharWrap"><div class="dsCharFrame dsColorBgGF"><div class="dsCharFrameBack"><div class="dsCharValue dsColorGF">6"</div></div></div></div>
+        <div class="dsCharWrap"><div class="dsCharFrame dsColorBgGF"><div class="dsCharFrameBack"><div class="dsCharValue dsColorGF">3</div></div></div></div>
+        <div class="dsCharWrap"><div class="dsCharFrame dsColorBgGF"><div class="dsCharFrameBack"><div class="dsCharValue dsColorGF">4+</div></div></div></div>
+        <div class="dsCharWrap"><div class="dsCharFrame dsColorBgGF"><div class="dsCharFrameBack"><div class="dsCharValue dsColorGF">1</div></div></div></div>
+        <div class="dsCharWrap"><div class="dsCharFrame dsColorBgGF"><div class="dsCharFrameBack"><div class="dsCharValue dsColorGF">7+</div></div></div></div>
+        <div class="dsCharWrap"><div class="dsCharFrame dsColorBgGF"><div class="dsCharFrameBack"><div class="dsCharValue dsColorGF">1</div></div></div></div>
+      </div></div>
+      <div class="dsProfileWrapRight"><span class="dsModelName">Thornlight Chorister</span></div>
+    </div>
+  </div>
+  <div class="ds2col">
+    <div class="dsLeftСol dsColorFrGF">
+      <table class="wTable" width="100%">
+        <tbody><tr>
+          <td class="dsHeader dsColorBgGF"><div class="dsMeleeIcon"></div></td>
+          <td class="wTable_WEAPON"><div class="dsHeader dsColorBgGF">MELEE WEAPONS</div></td>
+          <td><div class="ct dsHeader dsColorBgGF">RANGE</div></td><td><div class="ct dsHeader dsColorBgGF">A</div></td>
+          <td><div class="ct dsHeader dsColorBgGF">WS</div></td><td><div class="ct dsHeader dsColorBgGF">S</div></td>
+          <td><div class="ct dsHeader dsColorBgGF">AP</div></td><td><div class="ct dsHeader dsColorBgGF">D</div></td>
+        </tr></tbody>
+        <tbody class="bkg">
+          <tr class="wTable2_long"><td></td><td colspan="6" class="pad2626"><span>Chime flail</span></td></tr>
+          <tr><td></td><td class="wTable2_short pad2626"><span>Chime flail</span></td>
+            <td><div class="ct pad2626">Melee</div></td><td><div class="ct pad2626">3</div></td><td><div class="ct pad2626">4+</div></td>
+            <td><div class="ct pad2626">4</div></td><td><div class="ct pad2626">-1</div></td><td><div class="ct pad2626">1</div></td></tr>
+        </tbody>
+      </table>
+      <div class="dsHeader dsColorBgGF">WARGEAR OPTIONS</div>
+      <ul>
+        <li>3 Thornlight Chorister models can be equipped with<ul style="list-style-type:circle"><li>1 chime flail</li><li>2 resonance shards</li></ul></li>
+      </ul><br>
+    </div>
+    <div class="dsRightСol dsColorFrGF">
+      <div class="dsHeader dsColorBgGF">ABILITIES</div>
+      <div class="dsAbility">CORE:<b><span class="tooltip00001" data-tooltip-content="#tooltip_content00001"><span class="tt kwbu">Deep</span><span class="tt kwbu">Strike</span></span></b></div>
+      <div class="dsHeader dsColorBgGF">UNIT COMPOSITION</div>
+      <div class="dsAbility">
+        <ul class="dsUl"><li>1 Thornlight Chorister Prime</li></ul>
+        <ul class="dsUl"><li>3-9 Thornlight Chorister</li></ul>
+        <b>Every model is equipped with:</b>invented placeholder loadout prose.</div>
+      <div class="dsAbility"><table width="100%" border="0" cellspacing="0" cellpadding="2"><tbody>
+        <tr><td colspan="2" class="dsUnitCostHeader">YOUR UNIT COSTS</td></tr>
+        <tr><td>4 models</td><td><div class="PriceTag">55</div></td></tr>
+      </tbody></table></div>
+    </div>
+  </div>
+  <div class="ds2colKW dsColorFrGF">
+    <div class="dsLeftСolKW">KEYWORDS: <span class="kwb kwbu">INFANTRY</span>;</div>
+    <div class="dsRightСolKW">FACTION KEYWORDS: <span class="kwb kwbu">GLIMMERFEN</span><span class="kwb kwbu">COVENANT</span>;</div>
+  </div>
+  <div class="ds2col ShowDatasheetFeatures">
+    <div class="dsRightСol dsColorFrGF"><div>
+      <div class="dsHeader dsColorBgGF">DETACHMENT ABILITY</div>
+      <div class="dsAbility"><div class="s10EnhWrap clFl GFGF GFTC"><div><span class="tooltip00050" data-tooltip-content="#tooltip_content00050"><span class="tt kwbu">Chorus</span><span class="tt kwbu">Resonance</span></span></div></div></div>
+    </div></div>
+  </div>
+</div>
+
+</div>
+
+<span id="tooltip_content00001"><div class="abWrap BreakInsideAvoid"><div class="abNameWrap"><div class="abName">Deep Strike<span class="h_number">24.01</span></div><div class="abIcon"></div></div><p class="ShowFluff abLegend">Invented placeholder flavour text, which is never digested.</p>Invented placeholder mechanic: during deployment, this unit may be set up in reserves instead.</div></span>
+<span id="tooltip_content00002"><div class="abWrap BreakInsideAvoid"><div class="abNameWrap"><div class="abName">Mirelight Vigil<span class="h_number">24.02</span></div><div class="abIcon"></div></div><p class="ShowFluff abLegend">Invented placeholder flavour text, which is never digested.</p>Invented placeholder mechanic: this unit may re-roll Battle-shock tests.</div></span>
+<span id="tooltip_content00050"><div class="abWrap BreakInsideAvoid"><div class="abNameWrap"><div class="abName">Chorus Resonance<span class="h_number">24.50</span></div><div class="abIcon"></div></div>Invented placeholder mechanic: units from this detachment may re-roll one Hit roll each turn.</div></span>
+<span id="tooltip_content00051"><div class="abWrap BreakInsideAvoid"><div class="abNameWrap"><div class="abName">Bracklight Advance<span class="h_number">24.51</span></div><div class="abIcon"></div></div>Invented placeholder mechanic: units from this detachment may Advance and shoot in the same turn.</div></span>
+
+</body>
+</html>

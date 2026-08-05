@@ -312,7 +312,6 @@ def _detail_datasheet_fields(
     role_key = (role or "").casefold()
 
     fields["role"] = role
-    fields["is_dedicated_transport"] = role_key in _TRANSPORT_ROLES
     fields["is_legends"] = row.fields.get("source_id", "") in legends_sources
     fields["damaged_threshold"] = upper_bound(row.fields.get("damaged_w"), field="damaged_w")
 
@@ -416,6 +415,13 @@ def _detail_datasheet_fields(
     fields["is_epic_hero"] = "epic hero" in keyword_set
     fields["is_character"] = "character" in keyword_set or role_key in _CHARACTER_ROLES
     fields["is_battleline"] = "battleline" in keyword_set or role_key in _BATTLELINE_ROLES
+    # Dedicated transport reads the same way, and it has to: the current-edition source publishes
+    # no role column at all, and `DEDICATED TRANSPORT` is a keyword there exactly as
+    # `EPIC HERO` is. Keeping the role as the second test costs nothing and leaves the previous
+    # edition's reading untouched (`004` T074).
+    fields["is_dedicated_transport"] = (
+        "dedicated transport" in keyword_set or role_key in _TRANSPORT_ROLES
+    )
 
     ability_keys: list[str] = []
     for binding in detail["Datasheets_abilities.csv"].grouped_by("datasheet_id").get(detail_id, []):

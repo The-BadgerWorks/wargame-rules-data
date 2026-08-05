@@ -27,6 +27,25 @@ The set therefore ships its **own** `curation/` tree. It has to: the repository'
 maps the publisher's real faction slugs, and this set's invented slugs would every one of them be
 the blocking `REC-FACTION-UNMAPPED`.
 
+## Both detail-source shapes, over the same nine units
+
+`wahapedia/` carries the export (`WGC_DETAIL_ACQUISITION_MODE=csv`, the default) and
+`wahapedia-html/` carries the current-edition datacard pages (`…=html`, `004` T072). They
+describe the **same** nine invented datasheets, with the same characteristics, weapons,
+composition lines, keywords, abilities and Legends marker, so the set can be built twice and the
+two curated snapshots compared:
+
+```bash
+rules-pipeline build --offline --fixtures fixtures/minimal --rules-version-id fixture-minimal
+WGC_DETAIL_ACQUISITION_MODE=html WGC_DETAIL_EDITION=wh40k-11e \
+  rules-pipeline build --offline --fixtures fixtures/minimal --rules-version-id fixture-minimal-11e
+```
+
+`tests/unit/test_wholesale_adoption.py` does exactly that and asserts the results are identical
+but for the two things that are *supposed* to move: the hybrid-edition markers clear, and
+`ASHEN CARRIER` gains the `DEDICATED TRANSPORT` keyword the current edition publishes where the
+export published a role column. That comparison is the mode-blindness proof (research D1d).
+
 ## What it produces, and why each piece is there
 
 `build/rules-fixture-minimal.json` is the bundle; `build/data/` is the curated tree the same run

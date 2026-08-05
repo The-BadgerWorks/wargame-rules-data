@@ -31,13 +31,19 @@ Synthetic fixtures are therefore not a convenience. They are the only compliant 
 ## Naming
 
 ```text
-fixtures/<set>/mfm/<slug>.html          # one points-source faction page per file
-fixtures/<set>/wahapedia/<Name>.csv     # one detail-source export file per file
+fixtures/<set>/mfm/<slug>.html            # one points-source faction page per file
+fixtures/<set>/wahapedia/<Name>.csv       # detail source, csv mode: one export file per file
+fixtures/<set>/wahapedia-html/<slug>.html # detail source, html mode: one datacard page per faction
 ```
 
 `<slug>` is the invented faction slug; `<Name>` matches the export's own file naming so the
 record-aware reader's per-file expected field count is exercised. Detail-source CSVs are
 pipe-delimited and UTF-8 **with BOM**, because the real export is and the reader must strip it.
+
+`wahapedia-html/` is the same source in the **other** shape (`WGC_DETAIL_ACQUISITION_MODE=html`,
+`004` research D1d). A set may carry both, and where it does the two directories describe the
+*same* invented units — which is what lets a test build the set twice and compare the results,
+proving that everything below `acquire` is mode-blind rather than asserting it.
 
 `--fixtures <dir>` points at one `<set>` directory. Both upstreams are sourced from it with no
 network access at all, producing the same `SourceAcquisition` records the live path does — there

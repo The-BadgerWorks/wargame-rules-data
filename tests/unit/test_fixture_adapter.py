@@ -94,7 +94,7 @@ def test_the_fingerprint_is_order_independent_and_content_sensitive(tmp_path: Pa
 
 
 def test_a_missing_or_empty_fixture_set_is_an_invocation_error(tmp_path: Path) -> None:
-    with pytest.raises(FixtureSetError, match="no mfm directory"):
+    with pytest.raises(FixtureSetError, match="no mfm/ directory"):
         load_fixture_payloads(tmp_path / "absent", SourceKey.MFM)
 
     (tmp_path / "empty" / "mfm").mkdir(parents=True)
