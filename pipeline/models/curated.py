@@ -5,6 +5,10 @@
 # entities (004 task T009): CuratedCompositionEntry, CuratedOptionGroup, CuratedOptionChoice,
 # CuratedChapterKeyword, and the three additive fields datasheet.wargear_option_state,
 # keyword.keyword_class, and faction.army_rule_state (004 data-model.md §1).
+# AI-Assisted: Claude Code (model: claude-opus-5) - Exposed each detachment's rule identities
+# (004 task T053): CuratedDetachmentRule carries a rule's stable key and its name — never its
+# text — so the detachment-rule summary class has a denominator that comes from the source
+# rather than from the curator's own file (004 data-model.md §2.2, FR-022).
 """Curated records — the canonical reviewable state, machine-written into ``data/``.
 
 Every record here maps to a row in the consumer schema; the field-level mapping is
@@ -33,7 +37,7 @@ from typing import Final, Self
 from pydantic import BaseModel, ConfigDict, Field, model_validator
 
 from pipeline.build.canonical_json import JsonValue
-from pipeline.models.authored import AbilitySummary, FactionRuleFile
+from pipeline.models.authored import AbilitySummary, DetachmentRuleSummary, FactionRuleFile
 from pipeline.models.mechanical import assert_mechanical_fields
 from pipeline.models.provenance import EntityProvenance, PricingConfidence, PricingConfidenceState
 
@@ -189,8 +193,26 @@ class CuratedDetachmentRestriction(_Curated):
     )
 
 
+class CuratedDetachmentRule(_CuratedMechanical):
+    """One detachment rule's **identity**: its stable key and its name. Never its text.
+
+    The name comes from the source and is **always carried** into the bundle; only the summary is
+    authored and gated (FR-022). This record exists so the detachment-rule summary class has a
+    denominator — "every published detachment rule" (contract §4.1) — that comes from the source
+    rather than from the curator's own file, which would make coverage measure itself.
+
+    ``summary_key`` is ``detachment:<detachment-id>:<slug of the rule name>``, minted by
+    :func:`pipeline.curate.summaries.detachment_rule_key`. Keying on the detachment **id** rather
+    than its display name is what makes an upstream rename of the detachment leave the rule's key
+    — and therefore its approval — untouched.
+    """
+
+    summary_key: str = Field(min_length=1, description="detachment:<detachment-id>:<slug>")
+    name: str = Field(min_length=1, max_length=120, description="a short mechanical label")
+
+
 class CuratedDetachment(_Curated):
-    """One detachment and its restrictions."""
+    """One detachment, its restrictions, and the identities of the rules it owns."""
 
     detachment_id: str
     edition_id: str
@@ -201,6 +223,12 @@ class CuratedDetachment(_Curated):
     force_disposition: str | None = Field(default=None, description="CURATED-ONLY (C4/R7)")
     is_unique: bool | None = Field(default=None, description="CURATED-ONLY (C4/R7)")
     restrictions: Sequence[CuratedDetachmentRestriction] = ()
+    rules: Sequence[CuratedDetachmentRule] = Field(
+        default=(),
+        description="the rules this detachment publishes, name always carried (004 FR-022). "
+        "One-to-many: the measured baseline carries 284 detachment abilities over 261 "
+        "detachments, which is why the rule rather than the detachment is the key.",
+    )
     provenance: EntityProvenance
 
 
@@ -543,6 +571,14 @@ class CuratedSnapshot(_Curated):
         "for the same reason: the builder expands it into bundle rows at emission time, so it "
         "is never written into the machine-written tree. A faction ABSENT from this mapping is "
         "uncurated, which is a different fact from army_rule_state = none.",
+    )
+    detachment_rules: Mapping[str, DetachmentRuleSummary] = Field(
+        default_factory=dict,
+        description="summary_key -> curation/detachment-rules/<faction-id>.json's record (004 "
+        "FR-022). Authored content travelling with the snapshot exactly as ability_summaries "
+        "and faction_rules do. The rules THEMSELVES live on CuratedDetachment.rules and come "
+        "from the source; this mapping carries only each rule's authored summary, which is why "
+        "a rule with no record here still ships with its name.",
     )
 
     @property

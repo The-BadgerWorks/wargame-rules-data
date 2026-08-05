@@ -1,0 +1,20 @@
+[
+  {
+    "summary_key": "detachment:d-bracklight-charge:veiled-advance",
+    "detachment_id": "d-bracklight-charge",
+    "name": "Veiled Advance",
+    "summary": "Units from this detachment ignore modifiers to their Charge rolls, and add one to those rolls while within range of an objective marker they control.",
+    "review_state": "in_review",
+    "mechanic_digest": "f6f6f6f6f6f6f6f6f6f6f6f6f6f6f6f6"
+  },
+  {
+    "summary_key": "detachment:d-bracklight-charge:sundering-tide",
+    "detachment_id": "d-bracklight-charge",
+    "name": "Sundering Tide",
+    "summary": "Melee weapons of units from this detachment improve their Armour Penetration characteristic by one while the bearer's unit made a Charge move this turn.",
+    "review_state": "needs_rereview",
+    "mechanic_digest": "a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7",
+    "reviewed_by": "second-curator",
+    "reviewed_at": "2026-06-01T00:00:00Z"
+  }
+]

@@ -3,6 +3,9 @@
 # three WGC_GATE_* switches beside the abilities class's switch-less always-on path, §4.1's
 # per-class denominators, and the COV-SUMMARY-REGRESSION ratchet in integer percents
 # (004 FR-029, FR-030).
+# AI-Assisted: Claude Code (model: claude-opus-5) - Added the detachment-rule denominator (004
+# task T054): every published detachment rule, read off the SOURCE-derived
+# CuratedDetachment.rules rather than off the curator's own file.
 """V7, generalised — every authored summary class, one gate mechanism.
 
 **A gate selects a code. It never selects a severity.** That single sentence is why this module
@@ -45,7 +48,7 @@ from dataclasses import dataclass, field
 
 from pipeline.config import Gate, PipelineConfig
 from pipeline.curate.summaries import AuthoredSummary, SummaryStatus, summary_statuses
-from pipeline.models.authored import FactionRuleFile, SummaryClass
+from pipeline.models.authored import DetachmentRuleSummary, FactionRuleFile, SummaryClass
 from pipeline.models.curated import ArmyRuleState, CuratedSnapshot
 from pipeline.models.findings import CoverageFigure, Finding
 from pipeline.report.catalogue import build_finding
@@ -304,6 +307,34 @@ def faction_rule_summaries(
         for file in faction_rule_files(snapshot, authored).values()
         for rule in file.rules
     }
+
+
+def detachment_rule_keys(snapshot: CuratedSnapshot) -> tuple[str, ...]:
+    """§4.1's detachment-rule denominator: **every published detachment rule**.
+
+    Two-valued rather than three, unlike the faction-rule denominator, and deliberately so. A
+    detachment publishes the rules it publishes; there is no "this detachment genuinely has no
+    rule" curation decision to record, because a detachment with no rules simply contributes no
+    keys. The denominator therefore comes from :attr:`CuratedDetachment.rules` — the **source** —
+    and never from the authored file, which would let coverage measure itself and report 100%
+    for a campaign nobody had started.
+    """
+    return tuple(
+        sorted(rule.summary_key for detachment in snapshot.detachments for rule in detachment.rules)
+    )
+
+
+def detachment_rule_summaries(
+    snapshot: CuratedSnapshot, authored: Mapping[str, DetachmentRuleSummary] | None = None
+) -> dict[str, AuthoredSummary]:
+    """Every authored detachment rule, keyed by ``summary_key`` across all factions.
+
+    ``authored`` wins where it is given, for the same reason it does for faction rules: a
+    snapshot reconstructed from ``data/`` alone carries no authored content, so ``build`` and
+    ``validate`` must read it from one place or disagree about a faction's coverage.
+    """
+    records = authored if authored is not None else snapshot.detachment_rules
+    return dict(records)
 
 
 def summary_coverage_figures(

@@ -9,6 +9,8 @@
 # `datasheetKeywords.keywordClass` column (004 task T040, contract §2.4 and §3).
 # AI-Assisted: Claude Code (model: claude-opus-5) - Emitted `factionRules` and the
 # `factions.armyRuleState` column (004 task T048, contract §2.5 and §3).
+# AI-Assisted: Claude Code (model: claude-opus-5) - Emitted `detachmentRules` (004 task T055,
+# contract §2.6): the name always carried from the source, the summary only once approved.
 """Turn the curated tree into the published bundle. A pure function, and nothing else.
 
 No network, no source re-acquisition, no input the tree does not already contain, and no clock:
@@ -51,6 +53,7 @@ from pipeline.models.curated import (
     CuratedDatasheetCost,
     CuratedDetachment,
     CuratedDetachmentRestriction,
+    CuratedDetachmentRule,
     CuratedEdition,
     CuratedEditionRule,
     CuratedEnhancement,
@@ -132,9 +135,11 @@ FIELD_MAPPING: Final[Mapping[type, tuple[set[str], set[str]]]] = {
             "detachment_points_cost",
             "is_legends",
             "restrictions",
+            "rules",
         },
         {"force_disposition", "is_unique", "provenance"},
     ),
+    CuratedDetachmentRule: ({"summary_key", "name"}, set()),
     CuratedDetachmentRestriction: (
         {"id", "edition_id", "detachment_id", "restriction_type", "params", "message_template"},
         set(),
@@ -673,6 +678,42 @@ def _emit_faction_rules(snapshot: CuratedSnapshot) -> list[dict[str, JsonValue]]
     return _rows(rows, "id")
 
 
+def _emit_detachment_rules(snapshot: CuratedSnapshot) -> list[dict[str, JsonValue]]:
+    """`detachmentRules`, sorted by `id` (contract §2.6).
+
+    **The name comes from the source and is always carried; the summary is authored and is not**
+    (FR-022). That asymmetry is the whole shape of this array: the rows exist because a
+    detachment publishes rules, not because a curator has written about them, so a detachment
+    whose campaign has not started still ships every rule it owns — named, unexplained, and
+    counted in the coverage report.
+
+    `id` is the rule's own `summary_key`, minted from the detachment id and the rule name by
+    :func:`pipeline.curate.summaries.detachment_rule_key`. Two detachments in different factions
+    sharing a rule name therefore emit two rows with different ids, which is what a name-keyed
+    array would get wrong.
+    """
+    rows: list[dict[str, JsonValue]] = []
+    for detachment in snapshot.detachments:
+        for rule in detachment.rules:
+            authored = snapshot.detachment_rules.get(rule.summary_key)
+            approved = (
+                authored is not None
+                and authored.review_state is ReviewState.APPROVED
+                and bool(authored.summary.strip())
+            )
+            rows.append(
+                omit_absent(
+                    {
+                        "id": rule.summary_key,
+                        "detachmentId": detachment.detachment_id,
+                        "name": rule.name,
+                        "summary": authored.summary if approved and authored else None,
+                    }
+                )
+            )
+    return _rows(rows, "id")
+
+
 def _emit_chapter_keywords(snapshot: CuratedSnapshot) -> list[dict[str, JsonValue]]:
     """`chapterKeywords`, sorted by `keyword` (contract §2.4).
 
@@ -758,6 +799,7 @@ def emit_bundle(snapshot: CuratedSnapshot, meta: BundleMeta) -> dict[str, Any]:
         "datasheetAbilities": _emit_abilities(snapshot),
         "chapterKeywords": _emit_chapter_keywords(snapshot),
         "factionRules": _emit_faction_rules(snapshot),
+        "detachmentRules": _emit_detachment_rules(snapshot),
         **datasheet_arrays,
         # Always present, always empty: no upstream join exists, so the contract's default
         # applies (absence = legal in any detachment of its faction). Fabricating rows would be

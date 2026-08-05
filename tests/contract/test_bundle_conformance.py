@@ -62,6 +62,9 @@ CONSUMER_ARRAYS = (
     "chapterKeywords",
     # 004 task T048, contract §2.5. A faction may own more than one army rule.
     "factionRules",
+    # 004 task T055, contract §2.6. A detachment may own more than one rule, so the RULE is
+    # the key; the name is always carried and the summary appears only once approved.
+    "detachmentRules",
 )
 
 

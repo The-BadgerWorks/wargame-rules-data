@@ -45,6 +45,7 @@ from pipeline.models.curated import (
     CuratedDatasheetCost,
     CuratedDetachment,
     CuratedDetachmentRestriction,
+    CuratedDetachmentRule,
     CuratedEdition,
     CuratedEditionRule,
     CuratedEnhancement,
@@ -337,6 +338,15 @@ def read_curated_tree(data_dir: Path) -> CuratedSnapshot | None:
                         edition_id=edition.id,
                         detachment_id=detachment_id,
                     ),
+                    # The rule identities the tree recorded: key and name, never a summary. A
+                    # bare `validate` re-run reads its denominator back from here, which is what
+                    # stops it disagreeing with `build` about a class's coverage (004 T054).
+                    rules=[
+                        CuratedDetachmentRule(
+                            summary_key=str(rule["summary_key"]), name=str(rule["name"])
+                        )
+                        for rule in row.get("rules", [])
+                    ],
                     provenance=_provenance(row.get("provenance"), edition_code=edition.code),
                 )
             )

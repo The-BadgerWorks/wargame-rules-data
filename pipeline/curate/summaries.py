@@ -7,6 +7,9 @@
 # read the structural :class:`AuthoredSummary`, and `compute_digests` states the digest step
 # apart from the ability-specific join `compute_current_digests` still performs. The abilities
 # code path is behaviourally identical — it is the same function with a wider parameter type.
+# AI-Assisted: Claude Code (model: claude-opus-5) - Added the two remaining classes' key minting
+# (004 task T053): `detachment_rule_key` and `glossary_key`, so a class's denominator is derived
+# from the source rather than read back out of the curator's own file.
 """Compare an ability's *current* mechanic against what a curator approved.
 
 Two things this module deliberately does **not** do:
@@ -102,6 +105,38 @@ _REVIEW_STATE_TO_STATUS: Mapping[ReviewState, SummaryStatus] = {
     ReviewState.NEEDS_REREVIEW: SummaryStatus.NEEDS_REREVIEW,
     ReviewState.APPROVED: SummaryStatus.APPROVED,
 }
+
+
+def detachment_rule_key(detachment_id: str, name: str) -> str:
+    """``detachment:<detachment-id>:<slug>`` — one detachment rule's stable key (§2.2).
+
+    Keyed on the detachment's **id** and the rule's own name, which is what makes the three edge
+    cases fall out rather than needing special cases:
+
+    * two detachments in **different factions** sharing a rule name get **different** keys,
+      because their detachment ids differ;
+    * a detachment **renamed upstream** keeps its curated id, so its rules keep their keys and
+      their digests, and nothing re-reviews;
+    * a **rule** renamed upstream is a different rule as far as authoring is concerned, and gets
+      a new key — the old one falls out of the denominator and its record is orphaned rather than
+      silently reattached to wording nobody approved.
+
+    What the key deliberately does *not* encode is the rule's text: a rule changed while its name
+    is unchanged keeps this key and moves its **digest**, which is the whole point of digesting
+    the mechanic rather than the name.
+    """
+    return f"detachment:{detachment_id}:{slugify(name)}"
+
+
+def glossary_key(keyword_key: str) -> str:
+    """``glossary:<keyword_key>`` — one keyword definition's key (§2.3).
+
+    The keyword key is already normalised by
+    :func:`pipeline.normalize.keyword_key.normalize_keyword`, so casing, spacing, punctuation and
+    numeric-parameter variants of one keyword have collapsed to one value before they reach here
+    and therefore cannot produce two entries (FR-023).
+    """
+    return f"glossary:{keyword_key}"
 
 
 def compute_digests(mechanic_texts: Mapping[str, str], *, key: bytes) -> dict[str, str]:

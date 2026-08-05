@@ -11,6 +11,8 @@
 # AI-Assisted: Claude Code (model: claude-opus-5) - Set CuratedKeyword.keyword_class per binding
 # and carried the chapter vocabulary onto the snapshot (004 task T039), then set
 # CuratedFaction.army_rule_state and carried the authored faction rules (004 task T047).
+# AI-Assisted: Claude Code (model: claude-opus-5) - Attached each detachment's rule identities and
+# carried the authored detachment-rule records onto the snapshot (004 task T054).
 """Build one :class:`~pipeline.models.curated.CuratedSnapshot` from everything upstream.
 
 This is where the two sources stop being two sources. The **points** source is authoritative for
@@ -40,6 +42,7 @@ from dataclasses import dataclass, field
 from typing import Final
 
 from pipeline.curate.authored import AuthoredContent
+from pipeline.curate.summaries import detachment_rule_key
 from pipeline.models.curated import (
     ArmyRuleState,
     CuratedCompositionEntry,
@@ -47,6 +50,7 @@ from pipeline.models.curated import (
     CuratedDatasheetCost,
     CuratedDetachment,
     CuratedDetachmentRestriction,
+    CuratedDetachmentRule,
     CuratedEdition,
     CuratedEditionRule,
     CuratedEnhancement,
@@ -679,6 +683,7 @@ def assemble(  # noqa: PLR0913 - the stage genuinely needs every upstream input
 
     detail_datasheets = detail["Datasheets.csv"]
     legends_sources = _legends_source_ids(detail)
+    source_detachment_rules = _source_detachment_rules(detail)
     findings.extend(
         report_orphan_detail_factions(
             [row.fields.get("faction_id", "") for row in detail_datasheets.rows], authored
@@ -723,7 +728,15 @@ def assemble(  # noqa: PLR0913 - the stage genuinely needs every upstream input
         )
 
         detachments.extend(
-            _detachments_for(page.detachments, scope.faction_id, edition_id, provenance, registry)
+            _detachments_for(
+                page.detachments,
+                scope.faction_id,
+                edition_id,
+                provenance,
+                registry,
+                source_rules=source_detachment_rules,
+                authored=authored,
+            )
         )
         enhancements.extend(
             _enhancements_for(page.detachments, scope.faction_id, edition_id, provenance, registry)
@@ -864,24 +877,103 @@ def assemble(  # noqa: PLR0913 - the stage genuinely needs every upstream input
         chapter_keywords=classification.chapter_keywords,
         ability_summaries=authored.ability_summaries,
         faction_rules=authored.faction_rule_files,
+        detachment_rules=authored.detachment_rule_summaries,
     )
 
     return AssemblyResult(snapshot=snapshot, findings=findings, datasheet_ids=datasheet_ids)
 
 
-def _detachments_for(
+#: The detail export's detachment-rule file. **Not in `EXPORT_FILES`** — the current-edition
+#: acquisition that brings it lands with Phase 9's own tasks, and adding it to the sweep here
+#: would change acquisition behaviour under a task that is about curation. Until then the file
+#: is simply absent from `detail`, which :func:`_source_detachment_rules` reads as "the source
+#: published no rule names this run" rather than as an error.
+DETACHMENT_ABILITIES_FILE: Final = "Detachment_abilities.csv"
+
+
+def _source_detachment_rules(detail: Mapping[str, CsvReadResult]) -> Mapping[str, tuple[str, ...]]:
+    """``normalised detachment name -> the rule names the source publishes for it``.
+
+    Keyed by the **normalised name** rather than by the detail source's own detachment id,
+    because the curated detachment is minted from the points source's card and the two taxonomies
+    share no id — the same join :func:`_detachments_for` already performs to mint that id, so a
+    detachment matches here exactly when it matches there.
+    """
+    detachments = detail.get("Detachments.csv")
+    abilities = detail.get(DETACHMENT_ABILITIES_FILE)
+    if detachments is None or abilities is None:
+        return {}
+
+    names_by_id = {
+        row.fields.get("id", ""): normalize_name(
+            strip_field(row.fields.get("name", ""), field="detachment.name").text
+        )
+        for row in detachments.rows
+    }
+    grouped: dict[str, list[str]] = {}
+    for row in abilities.rows:
+        detachment = names_by_id.get(row.fields.get("detachment_id", ""))
+        name = strip_field(row.fields.get("name", ""), field="detachment_rule.name").text
+        if not detachment or not name:
+            continue
+        seen = grouped.setdefault(detachment, [])
+        if name not in seen:
+            seen.append(name)
+    return {detachment: tuple(names) for detachment, names in grouped.items()}
+
+
+def _detachment_rules(
+    detachment_id: str,
+    normalised_name: str,
+    *,
+    source_rules: Mapping[str, tuple[str, ...]],
+    authored: AuthoredContent,
+) -> list[CuratedDetachmentRule]:
+    """The rule identities one detachment publishes, name always carried (FR-022).
+
+    The source is authoritative where it speaks. Where it does not — which is every run until the
+    current-edition detail acquisition lands — the authored records for this detachment supply
+    the names instead, exactly as ``curation/faction-rules/`` already does for army rules. That
+    fallback cannot inflate coverage: a rule only appears because a curator wrote a record for
+    it, so the denominator it contributes to is one the same file already answers.
+    """
+    names = source_rules.get(normalised_name)
+    if names is not None:
+        return [
+            CuratedDetachmentRule(summary_key=detachment_rule_key(detachment_id, name), name=name)
+            for name in names
+        ]
+    return [
+        CuratedDetachmentRule(summary_key=record.summary_key, name=record.name)
+        for record in sorted(
+            (
+                record
+                for record in authored.detachment_rule_summaries.values()
+                if record.detachment_id == detachment_id
+            ),
+            key=lambda record: record.summary_key,
+        )
+    ]
+
+
+def _detachments_for(  # noqa: PLR0913 - one argument per upstream input, as the module's style
     cards: Sequence[MfmDetachmentCard],
     faction_id: str,
     edition_id: str,
     provenance: EntityProvenance,
     registry: IdRegistry,
+    *,
+    source_rules: Mapping[str, tuple[str, ...]],
+    authored: AuthoredContent,
 ) -> list[CuratedDetachment]:
     built: list[CuratedDetachment] = []
     for card in cards:
-        key = f"{faction_id}/{normalize_name(card.detachment_name)}"
+        normalised = normalize_name(card.detachment_name)
+        key = f"{faction_id}/{normalised}"
+        detachment_id = registry.mint(EntityKind.DETACHMENT, key, card.detachment_name)
         built.append(
             CuratedDetachment(
-                detachment_id=registry.mint(EntityKind.DETACHMENT, key, card.detachment_name),
+                detachment_id=detachment_id,
                 edition_id=edition_id,
                 faction_id=faction_id,
                 name=card.detachment_name,
@@ -889,6 +981,9 @@ def _detachments_for(
                 is_legends=False,
                 force_disposition=card.force_disposition,
                 is_unique=any(tag.upper().startswith("UNIQUE") for tag in card.tags),
+                rules=_detachment_rules(
+                    detachment_id, normalised, source_rules=source_rules, authored=authored
+                ),
                 provenance=provenance,
             )
         )

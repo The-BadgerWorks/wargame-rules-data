@@ -136,6 +136,8 @@ from pipeline.validate.gates import (
     check_summary_gates,
     check_summary_ratchet,
     class_coverage,
+    detachment_rule_keys,
+    detachment_rule_summaries,
     faction_rule_keys,
     faction_rule_summaries,
     gate_for,
@@ -326,12 +328,13 @@ def _verdict(findings: Sequence[Finding], coverage: CoverageOutcome | None = Non
     return ExitCode.ADVISORY_ONLY if findings else ExitCode.SUCCESS
 
 
-#: The summary classes wired into a run so far. `detachment_rules` and `glossary` join it with
-#: their own phases; a class absent here simply contributes no findings and no coverage row,
-#: which is the correct behaviour for a class whose curation tree does not exist yet.
+#: The summary classes wired into a run so far. `glossary` joins it with its own phase; a class
+#: absent here simply contributes no findings and no coverage row, which is the correct behaviour
+#: for a class whose curation tree does not exist yet.
 WIRED_SUMMARY_CLASSES: Final[tuple[SummaryClass, ...]] = (
     SummaryClass.ABILITIES,
     SummaryClass.FACTION_RULES,
+    SummaryClass.DETACHMENT_RULES,
 )
 
 
@@ -370,6 +373,17 @@ def _summary_class_checks(
             current_digests=None,
             gate=gate_for(SummaryClass.FACTION_RULES, config),
             max_chars=max_chars_for(SummaryClass.FACTION_RULES, config),
+        ),
+        ClassCheck(
+            summary_class=SummaryClass.DETACHMENT_RULES,
+            # The denominator comes off the snapshot's detachments — the SOURCE — while the
+            # records come from `authored`. Reading both from the authored file would let a
+            # campaign nobody had started report 100% coverage.
+            keys=detachment_rule_keys(snapshot),
+            authored=detachment_rule_summaries(snapshot, authored.detachment_rule_summaries),
+            current_digests=None,
+            gate=gate_for(SummaryClass.DETACHMENT_RULES, config),
+            max_chars=max_chars_for(SummaryClass.DETACHMENT_RULES, config),
         ),
     ]
 

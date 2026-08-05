@@ -9,6 +9,7 @@
 # `curation/abilities/` prefix into contracts/authored-summary-gates.md §6's glob-to-key-field
 # table (004 task T049), so one code path covers every authored summary class. The faction-rule
 # row joins here; the detachment-rule and glossary rows join with their own phases.
+# AI-Assisted: Claude Code (model: claude-opus-5) - Added the detachment-rule row (004 task T056).
 """Self-approval guard for every authored summary class.
 
   check_summary_approvals.py diff --base <ref> --head <ref> --actor <login>
@@ -66,6 +67,7 @@ class CurationSource:
 SOURCES: tuple[CurationSource, ...] = (
     CurationSource(ABILITIES_GLOB_PREFIX, "ability_key"),
     CurationSource("curation/faction-rules/", "summary_key", wrapper_key="rules"),
+    CurationSource("curation/detachment-rules/", "summary_key"),
 )
 
 

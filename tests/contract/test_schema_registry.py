@@ -88,6 +88,8 @@ EMPTY_BUNDLE: dict[str, Any] = {
     "chapterKeywords": [],
     # 004 task T048.
     "factionRules": [],
+    # 004 task T055.
+    "detachmentRules": [],
 }
 
 

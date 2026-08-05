@@ -1,0 +1,31 @@
+[
+  {
+    "summary_key": "detachment:d-fenlight-vigil:veiled-advance",
+    "detachment_id": "d-fenlight-vigil",
+    "name": "Veiled Advance",
+    "summary": "Units from this detachment may make a Normal move of up to six inches before the first battle round begins, and may not end that move within nine inches of an enemy unit.",
+    "review_state": "approved",
+    "mechanic_digest": "c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3",
+    "reviewed_by": "second-curator",
+    "reviewed_at": "2026-07-01T00:00:00Z",
+    "authored_against_acquisition": "wahapedia-20260701T000000Z-000000aa"
+  },
+  {
+    "summary_key": "detachment:d-fenlight-vigil:massed-fire",
+    "detachment_id": "d-fenlight-vigil",
+    "name": "Massed Fire",
+    "summary": "Ranged weapons of units from this detachment gain the Sustained Hits 1 ability while targeting a unit contesting an objective marker.",
+    "review_state": "draft",
+    "mechanic_digest": "d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d4"
+  },
+  {
+    "summary_key": "detachment:d-tidewalk-column:veiled-advance",
+    "detachment_id": "d-tidewalk-column",
+    "name": "Veiled Advance",
+    "summary": "Units from this detachment may be set up in Reserves and arrive from any battlefield edge from the second battle round onwards.",
+    "review_state": "approved",
+    "mechanic_digest": "e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5",
+    "reviewed_by": "second-curator",
+    "reviewed_at": "2026-07-01T00:00:00Z"
+  }
+]

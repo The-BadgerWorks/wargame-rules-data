@@ -8,6 +8,8 @@
 # AI-Assisted: Claude Code (model: claude-opus-5) - Wrote chapter-keywords.json, the per-binding
 # keyword_class, and faction.army_rule_state (004 tasks T039/T047), for the same reason: the tree
 # is the baseline a bare `validate` re-run and the coverage ratchet both read back.
+# AI-Assisted: Claude Code (model: claude-opus-5) - Wrote each detachment's rule identities
+# (004 task T054), so the detachment-rule denominator survives a rebuild-free `validate`.
 """Write the curated tree — the artifact a human reviews.
 
 The layout exists for **diff quality**, which FR-016 and FR-037 make a requirement rather than
@@ -143,6 +145,15 @@ def _detachment(detachment: CuratedDetachment) -> dict[str, JsonValue]:
             "is_legends": detachment.is_legends,
             "force_disposition": detachment.force_disposition,
             "is_unique": detachment.is_unique,
+            # The rule's key and name only. Its authored summary lives in
+            # `curation/detachment-rules/<faction-id>.json` and is never written here — the
+            # pipeline writes `data/`, humans write `curation/`, and this file is the boundary
+            # (004 FR-022, FR-017).
+            "rules": [
+                {"summary_key": rule.summary_key, "name": rule.name}
+                for rule in sorted(detachment.rules, key=lambda rule: rule.summary_key)
+            ]
+            or None,
             "restrictions": [
                 _restriction(r) for r in sorted(detachment.restrictions, key=lambda r: r.id)
             ]
