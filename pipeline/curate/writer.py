@@ -2,6 +2,9 @@
 # T065): edition.json, game-sizes.json, factions.json and per faction detachments.json,
 # enhancements.json and datasheets/<id>.json, written through the canonical serialiser with
 # sorted keys and sorted arrays (FR-016, research D3, curated-snapshot-format.md §1-§2).
+# AI-Assisted: Claude Code (model: claude-opus-5) - Wrote 004-rules-data-enrichment's composition,
+# option groups and choices, and wargear_option_state into the datasheet file (004 task T031), so
+# the curated tree carries them and `curate/prior.py` can read them back as a baseline.
 """Write the curated tree — the artifact a human reviews.
 
 The layout exists for **diff quality**, which FR-016 and FR-037 make a requirement rather than
@@ -207,6 +210,61 @@ def _datasheet(datasheet: CuratedDatasheet) -> dict[str, JsonValue]:
                 for k in sorted(datasheet.keywords, key=lambda k: (k.keyword, k.model_scope or ""))
             ]
             or None,
+            # 004-rules-data-enrichment. Composition is written whole or not at all — an empty
+            # sequence means the datasheet publishes *without* composition (FR-008), and writing
+            # `[]` would say the same thing less clearly than omitting the key.
+            "composition": [
+                omit_absent(
+                    {
+                        "line": entry.line,
+                        "model_name": entry.model_name,
+                        "min_count": entry.min_count,
+                        "max_count": entry.max_count,
+                        "model_line": entry.model_line,
+                    }
+                )
+                for entry in sorted(datasheet.composition, key=lambda entry: entry.line)
+            ]
+            or None,
+            "option_groups": [
+                omit_absent(
+                    {
+                        "id": group.id,
+                        "line": group.line,
+                        "scope": group.scope.value,
+                        "scope_n": group.scope_n,
+                        "parent_group_id": group.parent_group_id,
+                        "default_choice_id": group.default_choice_id,
+                        "min_choices": group.min_choices,
+                        "max_choices": group.max_choices,
+                    }
+                )
+                for group in sorted(datasheet.option_groups, key=lambda group: group.id)
+            ]
+            or None,
+            "option_choices": [
+                omit_absent(
+                    {
+                        "id": choice.id,
+                        "group_id": choice.group_id,
+                        "name": choice.name,
+                        "count": choice.count,
+                        "grants_weapon_line": choice.grants_weapon_line,
+                        "replaces_weapon_line": choice.replaces_weapon_line,
+                        "is_default": choice.is_default,
+                        "is_no_change": choice.is_no_change,
+                        "points_delta": choice.points_delta,
+                        "priced_option_id": choice.priced_option_id,
+                    }
+                )
+                for choice in sorted(datasheet.option_choices, key=lambda choice: choice.id)
+            ]
+            or None,
+            "wargear_option_state": (
+                datasheet.wargear_option_state.value
+                if datasheet.wargear_option_state is not None
+                else None
+            ),
             "ability_keys": sorted(datasheet.ability_keys) or None,
             "leader_pairs": sorted(datasheet.leader_pairs) or None,
             "wargear_options": [

@@ -2,6 +2,15 @@
   "ability_keys": [
     "faction:kindling-surge"
   ],
+  "composition": [
+    {
+      "line": 1,
+      "max_count": 1,
+      "min_count": 1,
+      "model_line": 1,
+      "model_name": "Ember Paladin"
+    }
+  ],
   "costs": [
     {
       "copy_index_min": 1,
@@ -9,7 +18,7 @@
       "model_count": 1,
       "points": 95,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260803T190441Z-3a7632ef"
+      "source_acquisition_id": "mfm-20260805T162957Z-3a7632ef"
     }
   ],
   "datasheet_id": "ds-ember-paladin",
@@ -51,15 +60,16 @@
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260803T190441Z-1ab4c254",
+    "detail_acquisition_id": "wahapedia-20260805T162957Z-1ab4c254",
     "detail_edition_code": "wh40k-10e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": true,
-    "points_acquisition_id": "mfm-20260803T190441Z-3a7632ef",
+    "points_acquisition_id": "mfm-20260805T162957Z-3a7632ef",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
   "role": "Other",
+  "wargear_option_state": "none",
   "weapons": [
     {
       "armour_penetration": "-1",

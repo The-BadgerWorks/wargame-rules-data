@@ -80,6 +80,9 @@ EMPTY_BUNDLE: dict[str, Any] = {
     "datasheetWargearOptions": [],
     "datasheetLeaderPairs": [],
     "datasheetDetachmentEligibility": [],
+    "datasheetCompositions": [],
+    "datasheetOptionGroups": [],
+    "datasheetOptionChoices": [],
 }
 
 

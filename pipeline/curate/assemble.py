@@ -4,6 +4,10 @@
 # AI-Assisted: Claude Code (model: claude-sonnet-5) - Built the datasheet_id -> source_id mapping
 # `match_units` needs for its publication-id disambiguation step, alongside the existing
 # `legends_sources` read of the same column, and passed it through as `detail_source_ids`.
+# AI-Assisted: Claude Code (model: claude-opus-5) - Built structured composition and the full
+# wargear option set (004 task T031): the two grammars, the two curator override files, the
+# three-state wargear_option_state, and the replacement of _wargear_options()'s blanket
+# CON-WARGEAR-COST-MISSING with the OPT-PRICED-UNMATCHED / unlinked-choice pair.
 """Build one :class:`~pipeline.models.curated.CuratedSnapshot` from everything upstream.
 
 This is where the two sources stop being two sources. The **points** source is authoritative for
@@ -34,6 +38,7 @@ from typing import Final
 
 from pipeline.curate.authored import AuthoredContent
 from pipeline.models.curated import (
+    CuratedCompositionEntry,
     CuratedDatasheet,
     CuratedDatasheetCost,
     CuratedDetachment,
@@ -45,9 +50,13 @@ from pipeline.models.curated import (
     CuratedGameSizeRule,
     CuratedKeyword,
     CuratedModelLine,
+    CuratedOptionChoice,
+    CuratedOptionGroup,
     CuratedSnapshot,
     CuratedWargearOption,
     CuratedWeaponLine,
+    OptionScope,
+    WargearOptionState,
 )
 from pipeline.models.findings import Finding
 from pipeline.models.provenance import (
@@ -68,9 +77,18 @@ from pipeline.normalize.numerics import (
     to_int,
     upper_bound,
 )
+from pipeline.parse.composition_grammar import link_model_line, parse_entry
 from pipeline.parse.mfm_dom import MfmPage
+from pipeline.parse.options_grammar import (
+    OptionVerb,
+    choice_id,
+    group_id,
+    option_state,
+    parse_row,
+)
 from pipeline.parse.wahapedia_csv import CsvReadResult
 from pipeline.reconcile.bands import reconcile_bands
+from pipeline.reconcile.composition_bands import reconcile_composition_bands
 from pipeline.reconcile.conflicts import resolve_cost_conflict
 from pipeline.reconcile.identity import EntityKind, IdRegistry, slugify
 from pipeline.reconcile.match import (
@@ -81,6 +99,7 @@ from pipeline.reconcile.match import (
     report_orphan_detail_factions,
     resolve_factions,
 )
+from pipeline.reconcile.options_link import link_choice_weapons, project_priced_options
 from pipeline.report.catalogue import build_finding
 
 #: The cost-table label that carries the *later* copies of an escalating price. The publisher
@@ -402,32 +421,220 @@ def _detail_datasheet_fields(
     return fields, findings
 
 
-def _wargear_options(
-    detail_id: str, datasheet_id: str, detail: Mapping[str, CsvReadResult]
-) -> tuple[list[CuratedWargearOption], list[Finding]]:
-    """Wargear options whose **cost** the points source publishes.
+@dataclass(slots=True)
+class _OptionOutcome:
+    """One datasheet's full option set, as `004`'s US1 produces it."""
 
-    The detail source has the structure and no cost column at all (research §0.1), and FR-001
-    was amended so the points source owns the cost (C8/R3). Until an option's cost is matched
-    from the points source, the option is reported rather than emitted as a zero — a free
-    upgrade in a player's list is worse than a missing one.
+    groups: list[CuratedOptionGroup] = field(default_factory=list)
+    choices: list[CuratedOptionChoice] = field(default_factory=list)
+    state: WargearOptionState | None = None
+    findings: list[Finding] = field(default_factory=list)
+
+
+def _row_ordinal(raw: str, *, field_name: str) -> int | None:
+    """The source's own row ordinal, or ``None`` when it is missing or not a positive integer.
+
+    The ordinal *is* the identity of an option group (FR-015) and the display order of a
+    composition entry, so a row without a usable one cannot be published under a stable id and
+    is handed to the residual rather than given a synthesised ordinal that would move between
+    runs.
+
+    Takes the raw *field*, not the source record. ``tests/ip/test_stage_boundary.py`` forbids
+    this module importing ``WahapediaRow`` at all — the one source-side type that carries prose
+    — and the boundary is worth more than the two characters it costs at each call site.
     """
-    findings: list[Finding] = []
-    rows = detail.get("Datasheets_options.csv")
+    try:
+        line = to_int(raw, field=field_name)
+    except NumericParseError:
+        return None
+    return line if line >= 1 else None
+
+
+def _composition_entries(
+    detail_id: str,
+    datasheet_id: str,
+    detail: Mapping[str, CsvReadResult],
+    authored: AuthoredContent,
+    models: Sequence[CuratedModelLine],
+) -> tuple[list[CuratedCompositionEntry], list[Finding]]:
+    """One datasheet's structured composition — **all of it, or none of it** (FR-008).
+
+    A single line the grammar cannot resolve suppresses the whole datasheet's composition. That
+    is deliberate and it is the spec's own wording: "published without composition rather than
+    with a guessed count". A partial composition is the worst of the three states, because it
+    looks complete — a reader sums it, gets a smaller unit than the rules describe, and nothing
+    anywhere says a line is missing.
+
+    A curator resolves the line once in ``curation/composition-overrides.json`` and the finding
+    disappears with it. The pipeline never writes that file.
+    """
+    rows = detail.get("Datasheets_unit_composition.csv")
     if rows is None:
-        return [], findings
-    for option in rows.grouped_by("datasheet_id").get(detail_id, []):
-        findings.append(
-            build_finding(
-                "CON-WARGEAR-COST-MISSING",
-                entity_refs=[datasheet_id],
-                detail={
-                    "datasheet_id": datasheet_id,
-                    "line": to_int(option.fields.get("line", "0"), field="option.line"),
-                },
+        return [], []
+
+    model_names = {model.line: model.name for model in models}
+    entries: list[CuratedCompositionEntry] = []
+    findings: list[Finding] = []
+    unresolved = False
+
+    for row in rows.grouped_by("datasheet_id").get(detail_id, []):
+        line = _row_ordinal(row.fields.get("line", ""), field_name="composition.line")
+        override = authored.composition_override_for(datasheet_id, line) if line else None
+        if line is not None and override is not None:
+            entries.append(
+                CuratedCompositionEntry(
+                    line=line,
+                    model_name=override.model_name,
+                    min_count=override.min_count,
+                    max_count=override.max_count,
+                    model_line=override.model_line,
+                )
+            )
+            continue
+
+        parsed = parse_entry(row.fields.get("description", "")) if line is not None else None
+        if line is None or parsed is None:
+            unresolved = True
+            findings.append(
+                build_finding(
+                    "CMP-UNRESOLVED",
+                    entity_refs=[datasheet_id],
+                    detail={
+                        "datasheet_id": datasheet_id,
+                        "line": line if line is not None else 0,
+                        "file_name": "Datasheets_unit_composition.csv",
+                    },
+                )
+            )
+            continue
+
+        entries.append(
+            CuratedCompositionEntry(
+                line=line,
+                model_name=parsed.model_name,
+                min_count=parsed.min_count,
+                max_count=parsed.max_count,
+                model_line=link_model_line(parsed.model_name, model_names),
             )
         )
-    return [], findings
+
+    if unresolved:
+        return [], findings
+    return sorted(entries, key=lambda entry: entry.line), findings
+
+
+def _option_structure(
+    detail_id: str,
+    datasheet_id: str,
+    detail: Mapping[str, CsvReadResult],
+    authored: AuthoredContent,
+    weapons: Sequence[CuratedWeaponLine],
+    priced: Sequence[CuratedWargearOption],
+) -> _OptionOutcome:
+    """One datasheet's full option set — not only the cost-bearing subset (FR-010).
+
+    This replaces what used to be a blanket ``CON-WARGEAR-COST-MISSING`` per option row: the
+    structure is now extracted, and the two findings that remain say something an approver can
+    act on — ``OPT-UNPARSED`` for a row the grammar did not match, and the
+    ``OPT-PRICED-UNMATCHED`` / unlinked-choice pair from the joins.
+
+    ``priced`` is the untouched output of :func:`_costs`. It is read and never rebuilt, which is
+    what keeps SC-004's byte-identical priced projection a structural property.
+    """
+    rows = detail.get("Datasheets_options.csv")
+    if rows is None:
+        # The source was not consulted at all: the state is **omitted**, which is a different
+        # fact from `none` (FR-016).
+        return _OptionOutcome()
+
+    source_rows = rows.grouped_by("datasheet_id").get(detail_id, [])
+    groups: list[CuratedOptionGroup] = []
+    parsed_choices: list[CuratedOptionChoice] = []
+    authored_choices: list[CuratedOptionChoice] = []
+    verbs: dict[str, OptionVerb] = {}
+    findings: list[Finding] = []
+    unparsed = 0
+
+    for row in source_rows:
+        line = _row_ordinal(row.fields.get("line", ""), field_name="option.line")
+        override = authored.option_override_for(datasheet_id, line) if line else None
+        if line is not None and override is not None:
+            groups.append(
+                CuratedOptionGroup(
+                    id=group_id(datasheet_id, line),
+                    line=line,
+                    scope=OptionScope(override.scope),
+                    scope_n=override.scope_n,
+                    min_choices=override.min_choices,
+                    max_choices=override.max_choices,
+                )
+            )
+            authored_choices.extend(
+                CuratedOptionChoice(
+                    id=choice_id(group_id(datasheet_id, line), index),
+                    group_id=group_id(datasheet_id, line),
+                    name=choice.name,
+                    count=choice.count,
+                    grants_weapon_line=choice.grants_weapon_line,
+                    replaces_weapon_line=choice.replaces_weapon_line,
+                    is_default=choice.is_default,
+                    is_no_change=choice.is_no_change,
+                )
+                for index, choice in enumerate(override.choices, start=1)
+            )
+            continue
+
+        parsed = parse_row(row.fields.get("description", "")) if line is not None else None
+        if line is None or parsed is None:
+            unparsed += 1
+            findings.append(
+                build_finding(
+                    "OPT-UNPARSED",
+                    entity_refs=[datasheet_id],
+                    detail={
+                        "datasheet_id": datasheet_id,
+                        "line": line if line is not None else 0,
+                        "file_name": "Datasheets_options.csv",
+                    },
+                )
+            )
+            continue
+
+        group = group_id(datasheet_id, line)
+        groups.append(
+            CuratedOptionGroup(id=group, line=line, scope=parsed.scope, scope_n=parsed.scope_n)
+        )
+        for index, choice in enumerate(parsed.choices, start=1):
+            identifier = choice_id(group, index)
+            verbs[identifier] = choice.verb
+            parsed_choices.append(
+                CuratedOptionChoice(
+                    id=identifier,
+                    group_id=group,
+                    name=choice.name,
+                    count=choice.count,
+                    is_no_change=choice.is_no_change,
+                )
+            )
+
+    # A curator-authored structure already states its own links, so it is not re-joined: doing
+    # so would let a name match overrule the human who wrote the override.
+    linked, link_findings = link_choice_weapons(
+        datasheet_id=datasheet_id, choices=parsed_choices, verbs=verbs, weapons=weapons
+    )
+    findings.extend(link_findings)
+
+    choices, price_findings = project_priced_options(
+        datasheet_id=datasheet_id, choices=[*linked, *authored_choices], priced=priced
+    )
+    findings.extend(price_findings)
+
+    return _OptionOutcome(
+        groups=sorted(groups, key=lambda group: group.id),
+        choices=sorted(choices, key=lambda choice: choice.id),
+        state=option_state(row_count=len(source_rows), unparsed_count=unparsed),
+        findings=findings,
+    )
 
 
 def assemble(  # noqa: PLR0913 - the stage genuinely needs every upstream input
@@ -701,15 +908,30 @@ def _datasheet_for(  # noqa: PLR0913 - one datasheet needs both sources and the 
     findings.extend(cost_findings)
 
     fields: dict[str, object] = {}
+    composition: list[CuratedCompositionEntry] = []
+    options = _OptionOutcome()
     if match.wahapedia_datasheet_id:
         fields, detail_findings = _detail_datasheet_fields(
             match.wahapedia_datasheet_id, detail, legends_sources
         )
         findings.extend(detail_findings)
-        _, wargear_findings = _wargear_options(
-            match.wahapedia_datasheet_id, match.datasheet_id, detail
+
+        models: Sequence[CuratedModelLine] = fields.get("models", ())  # type: ignore[assignment]
+        weapons: Sequence[CuratedWeaponLine] = fields.get("weapons", ())  # type: ignore[assignment]
+        composition, composition_findings = _composition_entries(
+            match.wahapedia_datasheet_id, match.datasheet_id, detail, authored, models
         )
-        findings.extend(wargear_findings)
+        findings.extend(composition_findings)
+
+        options = _option_structure(
+            match.wahapedia_datasheet_id,
+            match.datasheet_id,
+            detail,
+            authored,
+            weapons,
+            wargear_options,
+        )
+        findings.extend(options.findings)
 
         # Both sources priced it: the points source wins, both values are reported, and the
         # losing value is carried nowhere (FR-028).
@@ -723,9 +945,21 @@ def _datasheet_for(  # noqa: PLR0913 - one datasheet needs both sources and the 
             )
             findings.extend(conflict.findings)
 
-        # Do the points source's size bands fit the unit the detail source describes (FR-027)?
+        # Do the points source's size bands fit the unit the detail source describes (FR-027,
+        # and `004`'s FR-009)? **Exactly one of the two reconciliations runs.** Where the
+        # composition resolved, the structured entries are the better statement of the same
+        # fact; where it did not, the free-text reader still has something to say and its
+        # `REC-COMPOSITION-UNPARSED` is still the right finding. Running both would report one
+        # defect twice, in two categories, to an approver reading the counts as "how much of
+        # this release is wrong".
         findings.extend(
-            reconcile_bands(
+            reconcile_composition_bands(
+                datasheet_id=match.datasheet_id,
+                entries=composition,
+                model_counts=[cost.model_count for cost in costs],
+            )
+            if composition
+            else reconcile_bands(
                 datasheet_id=match.datasheet_id,
                 model_counts=[cost.model_count for cost in costs],
                 composition_lines=_composition_lines(match.wahapedia_datasheet_id, detail),
@@ -768,6 +1002,10 @@ def _datasheet_for(  # noqa: PLR0913 - one datasheet needs both sources and the 
         keywords=fields.get("keywords", ()),  # type: ignore[arg-type]
         ability_keys=fields.get("ability_keys", ()),  # type: ignore[arg-type]
         leader_pairs=(),
+        composition=composition,
+        option_groups=options.groups,
+        option_choices=options.choices,
+        wargear_option_state=options.state,
         wargear_options=wargear_options,
         costs=costs,
         pricing_confidence=PricingConfidence(state=PricingConfidenceState.VERIFIED),
@@ -865,8 +1103,26 @@ def _detail_only_datasheet(  # noqa: PLR0913 - one datasheet needs both trees an
     fields, detail_findings = _detail_datasheet_fields(detail_id, detail, legends_sources)
     findings.extend(detail_findings)
 
+    models: Sequence[CuratedModelLine] = fields.get("models", ())  # type: ignore[assignment]
+    weapons: Sequence[CuratedWeaponLine] = fields.get("weapons", ())  # type: ignore[assignment]
+    composition, composition_findings = _composition_entries(
+        detail_id, datasheet_id, detail, authored, models
+    )
+    findings.extend(composition_findings)
+
+    # No points source priced this datasheet, so there are no priced rows for its choices to
+    # adopt — every one of them ships uncosted, which is exactly what FR-013 asks for.
+    options = _option_structure(detail_id, datasheet_id, detail, authored, weapons, ())
+    findings.extend(options.findings)
+
     findings.extend(
-        reconcile_bands(
+        reconcile_composition_bands(
+            datasheet_id=datasheet_id,
+            entries=composition,
+            model_counts=[cost.model_count for cost in costs],
+        )
+        if composition
+        else reconcile_bands(
             datasheet_id=datasheet_id,
             model_counts=[cost.model_count for cost in costs],
             composition_lines=_composition_lines(detail_id, detail),
@@ -907,6 +1163,10 @@ def _detail_only_datasheet(  # noqa: PLR0913 - one datasheet needs both trees an
         keywords=fields.get("keywords", ()),  # type: ignore[arg-type]
         ability_keys=fields.get("ability_keys", ()),  # type: ignore[arg-type]
         leader_pairs=(),
+        composition=composition,
+        option_groups=options.groups,
+        option_choices=options.choices,
+        wargear_option_state=options.state,
         wargear_options=(),
         costs=costs,
         pricing_confidence=PricingConfidence(state=PricingConfidenceState.UNVERIFIED),

@@ -2,6 +2,9 @@
 # (task T069) per curated-snapshot-format.md §4: the datasheet_cost first-copy projection, the
 # full datasheet_cost_tier emission, pricing_confidence, detail_edition_code, an always-empty
 # datasheetDetachmentEligibility, and a build failure on any unmapped field.
+# AI-Assisted: Claude Code (model: claude-opus-5) - Emitted 004-rules-data-enrichment's first
+# three additive arrays and the wargearOptionState column (004 task T032), per
+# contracts/bundle-schema-delta.md §2.1-§2.3 and §3.
 """Turn the curated tree into the published bundle. A pure function, and nothing else.
 
 No network, no source re-acquisition, no input the tree does not already contain, and no clock:
@@ -37,6 +40,7 @@ from typing import Any, Final
 
 from pipeline.build.canonical_json import JsonValue, dumps_bundle, omit_absent
 from pipeline.models.curated import (
+    CuratedCompositionEntry,
     CuratedDatasheet,
     CuratedDatasheetCost,
     CuratedDetachment,
@@ -48,6 +52,8 @@ from pipeline.models.curated import (
     CuratedGameSizeRule,
     CuratedKeyword,
     CuratedModelLine,
+    CuratedOptionChoice,
+    CuratedOptionGroup,
     CuratedSnapshot,
     CuratedWargearOption,
     CuratedWeaponLine,
@@ -102,12 +108,12 @@ FIELD_MAPPING: Final[Mapping[type, tuple[set[str], set[str]]]] = {
         },
         set(),
     ),
-    # 004-rules-data-enrichment: `army_rule_state`, the datasheet's four new fields, and
-    # `keyword_class` are listed as **dropped** here on purpose. They are populated from Phase 3
-    # onward and emitted by 004 T032/T040/T048, which move each one into the mapped set beside
-    # its emitter. Listing them as dropped in the meantime is the honest state — they genuinely
-    # do not reach the bundle yet — and it is what this partition exists to force: a field
-    # nobody has decided about stops the build.
+    # 004-rules-data-enrichment: `army_rule_state` and `keyword_class` are still listed as
+    # **dropped** here on purpose. They are emitted by 004 T040/T048, which move each one into
+    # the mapped set beside its emitter. Listing them as dropped in the meantime is the honest
+    # state — they genuinely do not reach the bundle yet — and it is what this partition exists
+    # to force: a field nobody has decided about stops the build. The datasheet's four
+    # composition and option fields moved across in T032, below.
     CuratedFaction: (
         {"faction_id", "edition_id", "code", "name", "parent_faction_id"},
         {"mfm_slug", "detail_source_faction_id", "provenance", "army_rule_state"},
@@ -161,15 +167,44 @@ FIELD_MAPPING: Final[Mapping[type, tuple[set[str], set[str]]]] = {
             "leader_pairs",
             "wargear_options",
             "costs",
-        },
-        {
-            "pricing_confidence",
-            "provenance",
             "composition",
             "option_groups",
             "option_choices",
             "wargear_option_state",
         },
+        {"pricing_confidence", "provenance"},
+    ),
+    CuratedCompositionEntry: (
+        {"line", "model_name", "min_count", "max_count", "model_line"},
+        set(),
+    ),
+    CuratedOptionGroup: (
+        {
+            "id",
+            "line",
+            "scope",
+            "scope_n",
+            "parent_group_id",
+            "default_choice_id",
+            "min_choices",
+            "max_choices",
+        },
+        set(),
+    ),
+    CuratedOptionChoice: (
+        {
+            "id",
+            "group_id",
+            "name",
+            "count",
+            "grants_weapon_line",
+            "replaces_weapon_line",
+            "is_default",
+            "is_no_change",
+            "points_delta",
+            "priced_option_id",
+        },
+        set(),
     ),
     CuratedDatasheetCost: (
         {"model_count", "copy_index_min", "points", "label", "pricing_confidence"},
@@ -396,6 +431,9 @@ def _emit_datasheets(snapshot: CuratedSnapshot) -> dict[str, list[dict[str, Json
     tiers: list[dict[str, JsonValue]] = []
     wargear: list[dict[str, JsonValue]] = []
     leader_pairs: list[dict[str, JsonValue]] = []
+    compositions: list[dict[str, JsonValue]] = []
+    option_groups: list[dict[str, JsonValue]] = []
+    option_choices: list[dict[str, JsonValue]] = []
 
     snapshot_edition = snapshot.edition.code
 
@@ -421,8 +459,66 @@ def _emit_datasheets(snapshot: CuratedSnapshot) -> dict[str, list[dict[str, Json
                     "detailEditionCode": (
                         detail_edition if detail_edition != snapshot_edition else None
                     ),
+                    # Omitted = the detail source was not consulted, which is a third fact
+                    # distinct from `none` and from `partial` (004 FR-016, contract §3).
+                    "wargearOptionState": (
+                        datasheet.wargear_option_state.value
+                        if datasheet.wargear_option_state is not None
+                        else None
+                    ),
                 }
             )
+        )
+
+        compositions.extend(
+            omit_absent(
+                {
+                    "datasheetId": datasheet.datasheet_id,
+                    "line": entry.line,
+                    "modelName": entry.model_name,
+                    "minCount": entry.min_count,
+                    "maxCount": entry.max_count,
+                    "modelLine": entry.model_line,
+                }
+            )
+            for entry in datasheet.composition
+        )
+        option_groups.extend(
+            omit_absent(
+                {
+                    "id": group.id,
+                    "datasheetId": datasheet.datasheet_id,
+                    "line": group.line,
+                    "scope": group.scope.value,
+                    "scopeN": group.scope_n,
+                    "parentGroupId": group.parent_group_id,
+                    "defaultChoiceId": group.default_choice_id,
+                    "minChoices": group.min_choices,
+                    "maxChoices": group.max_choices,
+                }
+            )
+            for group in datasheet.option_groups
+        )
+        option_choices.extend(
+            omit_absent(
+                {
+                    "id": choice.id,
+                    "groupId": choice.group_id,
+                    "name": choice.name,
+                    "count": choice.count,
+                    "grantsWeaponLine": choice.grants_weapon_line,
+                    "replacesWeaponLine": choice.replaces_weapon_line,
+                    # Required booleans, so they survive `omit_absent`'s None-only rule and a
+                    # consumer never has to distinguish "false" from "not stated".
+                    "isDefault": choice.is_default,
+                    "isNoChange": choice.is_no_change,
+                    # `pointsDelta` is OMITTED, never 0, when the points source does not price
+                    # the choice (guarantee 10). A published 0 would read as "free".
+                    "pointsDelta": choice.points_delta,
+                    "pricedOptionId": choice.priced_option_id,
+                }
+            )
+            for choice in datasheet.option_choices
         )
 
         keywords.extend(
@@ -516,6 +612,9 @@ def _emit_datasheets(snapshot: CuratedSnapshot) -> dict[str, list[dict[str, Json
         "datasheetCostTiers": _rows(tiers, "datasheetId", "modelCount", "copyIndexMin"),
         "datasheetWargearOptions": _rows(wargear, "id"),
         "datasheetLeaderPairs": _rows(leader_pairs, "leaderDatasheetId", "bodyguardDatasheetId"),
+        "datasheetCompositions": _rows(compositions, "datasheetId", "line"),
+        "datasheetOptionGroups": _rows(option_groups, "id"),
+        "datasheetOptionChoices": _rows(option_choices, "id"),
     }
 
 

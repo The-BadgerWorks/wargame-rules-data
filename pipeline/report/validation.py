@@ -8,6 +8,10 @@
 # AI-Assisted: Claude Code (model: claude-sonnet-5) - Added `trends` to `SUB_REPORT_FILES`
 # (task T149) for `pipeline.report.trends.render_trends`'s unverified/hybrid-count trend, wired
 # in the same way as every other sub-report already listed here.
+# AI-Assisted: Claude Code (model: claude-opus-5) - Added 004-rules-data-enrichment's scale
+# figures (004 task T033, data-model.md §5): composition and wargear-option resolution as a
+# proportion of published datasheets, plus the unparsed-row and unlinked-choice tails, each
+# stated as a count AND a proportion.
 """`reports/<rulesVersionId>/report.json` and `report.md`.
 
 Every run produces this, whether or not it publishes (FR-031), and the report of a run that
@@ -34,7 +38,7 @@ from collections.abc import Mapping, Sequence
 from pathlib import Path
 
 from pipeline.build.canonical_json import JsonValue, omit_absent, write_tree_file
-from pipeline.models.curated import CuratedSnapshot
+from pipeline.models.curated import CuratedSnapshot, WargearOptionState
 from pipeline.models.findings import (
     CoverageFigure,
     Finding,
@@ -86,11 +90,33 @@ def scale_figures(snapshot: CuratedSnapshot, findings: Sequence[Finding]) -> dic
         or snapshot.ability_summaries[key].review_state.value != "approved"
     )
 
+    # 004-rules-data-enrichment (data-model.md §5). `composition` and `wargear_options` also
+    # appear in the *coverage* block, where they carry FR-038's ratio against the previous
+    # release. These two are the other half of the same question and the one SC-001 and SC-002
+    # actually measure: **how much of this release**, not how much of last release's. FR-008
+    # asks for the proportion in terms, because a systematic extraction failure has to be
+    # visible at a glance rather than derivable from a list of a few thousand datasheets.
+    resolved_composition = sum(1 for d in snapshot.datasheets if d.composition)
+    options_resolved = sum(
+        1
+        for d in snapshot.datasheets
+        if d.wargear_option_state in {WargearOptionState.NONE, WargearOptionState.EXTRACTED}
+    )
+    unparsed_option_rows = sum(1 for f in findings if f.finding_code == "OPT-UNPARSED")
+    unlinked_choices = sum(1 for f in findings if f.finding_code == "OPT-LINK-AMBIGUOUS")
+
     return {
         "unverified_pricing": figure(unverified),
         "hybrid_edition": figure(hybrid),
         "escalating_price_datasheets": figure(escalating),
         "summaries_outstanding": figure(outstanding),
+        "composition_resolved": figure(resolved_composition),
+        "wargear_options_resolved": figure(options_resolved),
+        # **Expected to persist.** The residual tail is normal work, budgeted rather than
+        # chased: what matters is that it is measured every release, so a *change* in it is
+        # visible where a standing figure would not be.
+        "unparsed_option_rows": figure(unparsed_option_rows),
+        "unlinked_choices": figure(unlinked_choices),
     }
 
 

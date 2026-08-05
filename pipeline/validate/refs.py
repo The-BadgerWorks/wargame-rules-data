@@ -1,6 +1,9 @@
 # AI-Assisted: Claude Code (model: claude-opus-5) - Implemented V4 intra-snapshot referential
 # integrity and V9 authored-reference integrity (task T068), so a copy limit or restriction
 # pointing at a retired datasheet is the blocking AUT-DANGLING-REF (FR-018).
+# AI-Assisted: Claude Code (model: claude-opus-5) - Extended V9 to 004's two override files (004
+# task T026, 004 data-model.md §4): an override naming a line, model row, or weapon row that no
+# longer exists is the same defect, reported the same way rather than by a check of its own.
 """V4 and V9 — every reference resolves, in both directions.
 
 **V4** is the consumer contract's guarantee 4, checked here rather than discovered at ingestion:
@@ -96,5 +99,68 @@ def check_authored_references(
                 detail={"file_name": file_name, "field": field, "missing_id": value},
             )
         )
+
+    findings.extend(check_override_references(snapshot, authored))
+    return findings
+
+
+def check_override_references(
+    snapshot: CuratedSnapshot, authored: AuthoredContent
+) -> list[Finding]:
+    """V9 for `004`'s two override files, whose references are *rows*, not ids.
+
+    ``authored_entity_refs`` already catches an override naming a datasheet that no longer
+    exists. These are the two references it cannot express: the **line** the override resolves,
+    and the **model or weapon row** it points the resolution at. Both go stale the same way and
+    for the same reason — the publisher restructures a datasheet, the override keeps silently
+    doing nothing, and nobody notices until someone wonders why the composition is still missing.
+
+    **One deliberate carve-out.** A composition override's line is not checked when the
+    datasheet publishes no composition at all, because FR-008 suppresses the *whole* datasheet's
+    composition as soon as any one of its lines is unresolved — so a still-valid override on a
+    datasheet with a second unresolved line would otherwise be reported as dangling, and the
+    curator would be sent to fix the record that is already correct.
+    """
+    findings: list[Finding] = []
+    datasheets = {datasheet.datasheet_id: datasheet for datasheet in snapshot.datasheets}
+
+    def _dangle(file_name: str, field: str, ref: str, missing: str | int) -> None:
+        findings.append(
+            build_finding(
+                "AUT-DANGLING-REF",
+                entity_refs=[f"{file_name}:{ref}"],
+                detail={"file_name": file_name, "field": field, "missing_id": str(missing)},
+            )
+        )
+
+    for override in authored.composition_overrides:
+        datasheet = datasheets.get(override.datasheet_id)
+        if datasheet is None:
+            continue  # already reported by `authored_entity_refs`
+        reference = f"{override.datasheet_id}:{override.line}"
+        if datasheet.composition and override.line not in {
+            entry.line for entry in datasheet.composition
+        }:
+            _dangle("composition-overrides.json", "line", reference, override.line)
+        if override.model_line is not None and override.model_line not in {
+            model.line for model in datasheet.models
+        }:
+            _dangle("composition-overrides.json", "model_line", reference, override.model_line)
+
+    for option_override in authored.option_overrides:
+        datasheet = datasheets.get(option_override.datasheet_id)
+        if datasheet is None:
+            continue
+        reference = f"{option_override.datasheet_id}:{option_override.line}"
+        if option_override.line not in {group.line for group in datasheet.option_groups}:
+            _dangle("option-overrides.json", "line", reference, option_override.line)
+        weapon_lines = {weapon.line for weapon in datasheet.weapons}
+        for choice in option_override.choices:
+            for field, line in (
+                ("grants_weapon_line", choice.grants_weapon_line),
+                ("replaces_weapon_line", choice.replaces_weapon_line),
+            ):
+                if line is not None and line not in weapon_lines:
+                    _dangle("option-overrides.json", field, reference, line)
 
     return findings

@@ -50,7 +50,15 @@ def test_unchanged_coverage_reports_nothing_and_still_states_the_figures() -> No
     assert not outcome.collapsed
     assert outcome.figures["factions"].ratio == 1.0
     assert outcome.figures["datasheets"].previous == 12
-    assert set(outcome.figures) == {"factions", "datasheets", "priced_datasheets"}
+    # `composition` and `wargear_options` joined the set with 004-rules-data-enrichment
+    # (004 FR-038): the same refusal, extended to the two classes that feature added.
+    assert set(outcome.figures) == {
+        "factions",
+        "datasheets",
+        "priced_datasheets",
+        "composition",
+        "wargear_options",
+    }
 
 
 def test_a_small_drop_inside_the_configured_ratios_is_not_a_collapse() -> None:

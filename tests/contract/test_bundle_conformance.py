@@ -51,6 +51,12 @@ CONSUMER_ARRAYS = (
     "datasheetWargearOptions",
     "datasheetLeaderPairs",
     "datasheetDetachmentEligibility",
+    # 004-rules-data-enrichment (004 task T032). Additive: bundleFormatVersion stays 1
+    # because the layout rules are unchanged — one array per consumer table, sorted by
+    # primary key, absent optionals omitted.
+    "datasheetCompositions",
+    "datasheetOptionGroups",
+    "datasheetOptionChoices",
 )
 
 

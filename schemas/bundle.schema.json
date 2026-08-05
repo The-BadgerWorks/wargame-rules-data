@@ -1,5 +1,5 @@
 {
-  "_comment": "AI-Assisted: Claude Code (model: claude-opus-5) - Authored the published-bundle schema per curated-snapshot-format.md §3-§4 (task T033) against reference-db-schema.md v1.2.0. One array per consumer table, named in lowerCamelCase, each element carrying exactly that table's columns in lowerCamelCase, so the ingestor is a mechanical array-to-table load with no reshaping. Arrays are sorted by their table's primary key, which is what makes the bundle byte-stable and a hand-diff of two bundles meaningful during an incident. Absent optionals are OMITTED (§5) and ingested as SQL NULL; no property here is nullable. datasheetDetachmentEligibility is ALWAYS PRESENT and ALWAYS EMPTY: no upstream datasheet-to-detachment join exists, so the consumer contract's default (absence = legal in any detachment of its faction) applies, which is the correct non-fabricating behaviour under FR-019. additionalProperties is false throughout so an unmapped field is a build failure rather than a silent omission.",
+  "_comment": "AI-Assisted: Claude Code (model: claude-opus-5) - Authored the published-bundle schema per curated-snapshot-format.md §3-§4 (task T033) against reference-db-schema.md v1.2.0. One array per consumer table, named in lowerCamelCase, each element carrying exactly that table's columns in lowerCamelCase, so the ingestor is a mechanical array-to-table load with no reshaping. Arrays are sorted by their table's primary key, which is what makes the bundle byte-stable and a hand-diff of two bundles meaningful during an incident. Absent optionals are OMITTED (§5) and ingested as SQL NULL; no property here is nullable. datasheetDetachmentEligibility is ALWAYS PRESENT and ALWAYS EMPTY: no upstream datasheet-to-detachment join exists, so the consumer contract's default (absence = legal in any detachment of its faction) applies, which is the correct non-fabricating behaviour under FR-019. additionalProperties is false throughout so an unmapped field is a build failure rather than a silent omission. 004-rules-data-enrichment (004 task T032) adds datasheetCompositions, datasheetOptionGroups and datasheetOptionChoices, plus the optional wargearOptionState column on datasheets, per contracts/bundle-schema-delta.md. Every one of those is ADDITIVE: bundleFormatVersion stays 1 because the layout rules are unchanged, and an existing row that acquires no new value is byte-identical to what it was.",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://the-badgerworks.github.io/wargame-rules-data/schemas/bundle.schema.json",
   "title": "Published snapshot bundle rules-<rulesVersionId>.json",
@@ -25,7 +25,10 @@
     "datasheetCostTiers",
     "datasheetWargearOptions",
     "datasheetLeaderPairs",
-    "datasheetDetachmentEligibility"
+    "datasheetDetachmentEligibility",
+    "datasheetCompositions",
+    "datasheetOptionGroups",
+    "datasheetOptionChoices"
   ],
   "properties": {
     "bundleFormatVersion": {
@@ -246,6 +249,10 @@
             "type": "string",
             "minLength": 1,
             "description": "Omitted when the detail came from the snapshot's own edition (§5). Present, this makes a hybrid entity self-describing (C5/R4)."
+          },
+          "wargearOptionState": {
+            "enum": ["none", "extracted", "partial"],
+            "description": "004 additive column. Distinguishes a datasheet with genuinely no options from one whose options failed to extract (004 FR-016). OMITTED = the detail source was not consulted, which is a third fact again, and an existing row that acquires no value stays byte-identical to what it is today."
           }
         }
       }
@@ -421,6 +428,76 @@
         "properties": {
           "leaderDatasheetId": { "type": "string", "minLength": 1 },
           "bodyguardDatasheetId": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "datasheetCompositions": {
+      "type": "array",
+      "description": "Sorted by (datasheetId, line). One entry per model line, from 004-rules-data-enrichment. A datasheet whose composition could not be resolved carries NO ROWS AT ALL rather than partial ones (004 FR-008): a partial composition is worse than none, and a guessed count mis-prices a unit. minCount == maxCount is a FIXED count -- the majority shape -- and is never missing data.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["datasheetId", "line", "modelName", "minCount", "maxCount"],
+        "properties": {
+          "datasheetId": { "type": "string", "minLength": 1 },
+          "line": { "type": "integer", "minimum": 1 },
+          "modelName": { "type": "string", "minLength": 1, "maxLength": 120 },
+          "minCount": { "type": "integer", "minimum": 0 },
+          "maxCount": { "type": "integer", "minimum": 0 },
+          "modelLine": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "FK to datasheetModels.line. OMITTED when the name match was not unique -- never guessed."
+          }
+        }
+      }
+    },
+    "datasheetOptionGroups": {
+      "type": "array",
+      "description": "Sorted by id. One group per source option row. id derives from the source's own line ordinal, which is what makes an upstream relabelling surface as a RENAME rather than a removal plus an addition (004 FR-015). scopeN is present exactly when scope is per_n_models.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "datasheetId", "line", "scope"],
+        "properties": {
+          "id": { "type": "string", "minLength": 1 },
+          "datasheetId": { "type": "string", "minLength": 1 },
+          "line": { "type": "integer", "minimum": 1 },
+          "scope": { "enum": ["unit", "model", "per_n_models"] },
+          "scopeN": { "type": "integer", "minimum": 1 },
+          "parentGroupId": { "type": "string", "minLength": 1 },
+          "defaultChoiceId": { "type": "string", "minLength": 1 },
+          "minChoices": { "type": "integer", "minimum": 0 },
+          "maxChoices": { "type": "integer", "minimum": 0 }
+        }
+      }
+    },
+    "datasheetOptionChoices": {
+      "type": "array",
+      "description": "Sorted by id. A choice is a NAME plus mechanical values -- there is deliberately no description property, which is what stops this class becoming a prose channel (004 FR-016). pointsDelta is OMITTED, never 0, when the points source does not price the choice (004 FR-013, guarantee 10): a consumer reads 'uncosted', never 'free'. isNoChange marks an explicit 'no change' alternative, which is never published with a price at all.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "groupId", "name", "isDefault", "isNoChange"],
+        "properties": {
+          "id": { "type": "string", "minLength": 1 },
+          "groupId": { "type": "string", "minLength": 1 },
+          "name": { "type": "string", "minLength": 1, "maxLength": 120 },
+          "count": { "type": "integer", "minimum": 1 },
+          "grantsWeaponLine": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "FK to datasheetWeapons.line. OMITTED when the name match is not unique -- never guessed and never silently attached to the wrong profile (004 FR-011)."
+          },
+          "replacesWeaponLine": { "type": "integer", "minimum": 1 },
+          "isDefault": { "type": "boolean" },
+          "isNoChange": { "type": "boolean" },
+          "pointsDelta": { "type": "integer" },
+          "pricedOptionId": {
+            "type": "string",
+            "minLength": 1,
+            "description": "FK to datasheetWargearOptions.id. OMITTED when the points source does not price this choice."
+          }
         }
       }
     },

@@ -34,6 +34,7 @@ from pathlib import Path
 from typing import Any
 
 from pipeline.models.curated import (
+    CuratedCompositionEntry,
     CuratedDatasheet,
     CuratedDatasheetCost,
     CuratedDetachment,
@@ -46,9 +47,12 @@ from pipeline.models.curated import (
     CuratedGameSizeRule,
     CuratedKeyword,
     CuratedModelLine,
+    CuratedOptionChoice,
+    CuratedOptionGroup,
     CuratedSnapshot,
     CuratedWargearOption,
     CuratedWeaponLine,
+    WargearOptionState,
 )
 from pipeline.models.provenance import (
     DetailSource,
@@ -70,6 +74,25 @@ class PriorDatasheet:
     """``(copy_index_min, model_count) -> points``."""
 
     pricing_confidence: PricingConfidence
+
+    has_composition: bool = False
+    """Did the previous release publish structured composition for this datasheet?"""
+
+    wargear_option_state: WargearOptionState | None = None
+    """Its previous ``none`` | ``extracted`` | ``partial``, or ``None`` when never consulted."""
+
+    @property
+    def options_resolved(self) -> bool:
+        """``none`` and ``extracted`` both count as resolved; ``partial`` and absent do not.
+
+        This is the denominator SC-002 measures: a datasheet the source describes no options for
+        is *finished*, not outstanding, and counting it as a gap would make the figure fall every
+        time a faction of characters shipped.
+        """
+        return self.wargear_option_state in {
+            WargearOptionState.NONE,
+            WargearOptionState.EXTRACTED,
+        }
 
     @property
     def is_priced(self) -> bool:
@@ -110,6 +133,16 @@ class PriorSnapshot:
     @property
     def priced_datasheet_count(self) -> int:
         return sum(1 for datasheet in self.datasheets.values() if datasheet.is_priced)
+
+    @property
+    def composition_datasheet_count(self) -> int:
+        """Datasheets the previous release published composition for (004 FR-038)."""
+        return sum(1 for datasheet in self.datasheets.values() if datasheet.has_composition)
+
+    @property
+    def option_resolved_datasheet_count(self) -> int:
+        """Datasheets whose option set the previous release fully resolved (004 FR-038)."""
+        return sum(1 for datasheet in self.datasheets.values() if datasheet.options_resolved)
 
 
 # --- reading the tree -------------------------------------------------------------------------
@@ -183,6 +216,14 @@ def _datasheet(raw: Mapping[str, Any], *, edition_id: str, edition_code: str) ->
         keywords=[CuratedKeyword(**row) for row in raw.get("keywords", [])],
         ability_keys=list(raw.get("ability_keys", [])),
         leader_pairs=list(raw.get("leader_pairs", [])),
+        composition=[CuratedCompositionEntry(**row) for row in raw.get("composition", [])],
+        option_groups=[CuratedOptionGroup(**row) for row in raw.get("option_groups", [])],
+        option_choices=[CuratedOptionChoice(**row) for row in raw.get("option_choices", [])],
+        wargear_option_state=(
+            WargearOptionState(raw["wargear_option_state"])
+            if raw.get("wargear_option_state")
+            else None
+        ),
         wargear_options=[CuratedWargearOption(**row) for row in raw.get("wargear_options", [])],
         costs=[
             CuratedDatasheetCost(
@@ -326,6 +367,8 @@ def prior_from_snapshot(
                     (cost.copy_index_min, cost.model_count): cost.points for cost in datasheet.costs
                 },
                 pricing_confidence=datasheet.pricing_confidence,
+                has_composition=bool(datasheet.composition),
+                wargear_option_state=datasheet.wargear_option_state,
             )
             for datasheet in snapshot.datasheets
         },

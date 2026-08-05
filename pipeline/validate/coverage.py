@@ -1,6 +1,9 @@
 # AI-Assisted: Claude Code (model: claude-opus-5) - Implemented V10, coverage against the
 # previous published version (task T094): faction, datasheet, and priced-datasheet counts checked
 # against the three configured ratios, exiting 42 on collapse (FR-009).
+# AI-Assisted: Claude Code (model: claude-opus-5) - Extended the refusal to composition and
+# wargear-option coverage (004 task T033, 004 FR-038), so a source that shrinks either one below
+# its configured proportion of the previous release stops the run on the same terms.
 """V10 — did we just publish a fraction of the release without noticing?
 
 This is the check for the failure that looks like success. A partial response, or an error page
@@ -27,7 +30,7 @@ from dataclasses import dataclass, field
 from pipeline.config import PipelineConfig
 from pipeline.curate.prior import PriorSnapshot
 from pipeline.exit_codes import ExitCode
-from pipeline.models.curated import CuratedSnapshot
+from pipeline.models.curated import CuratedSnapshot, WargearOptionState
 from pipeline.models.findings import CoverageFigure, Finding
 from pipeline.report.catalogue import build_finding
 
@@ -69,6 +72,12 @@ def check_coverage(
         return outcome
 
     priced = sum(1 for datasheet in snapshot.datasheets if datasheet.costs)
+    composed = sum(1 for datasheet in snapshot.datasheets if datasheet.composition)
+    options_resolved = sum(
+        1
+        for datasheet in snapshot.datasheets
+        if datasheet.wargear_option_state in {WargearOptionState.NONE, WargearOptionState.EXTRACTED}
+    )
     categories: Mapping[str, tuple[int, int, float]] = {
         "factions": (
             len(snapshot.factions),
@@ -84,6 +93,21 @@ def check_coverage(
             priced,
             prior.priced_datasheet_count,
             config.coverage_min_priced_ratio,
+        ),
+        # 004-rules-data-enrichment (FR-038). The two new classes fail the same way as the
+        # three above and for the same reason: a partial or error response that *parses* leaves
+        # every value correct and simply contains less. A grammar that quietly stops matching
+        # is indistinguishable from a source that quietly stopped publishing, and neither is
+        # visible from inside the snapshot — only against what was published last time.
+        "composition": (
+            composed,
+            prior.composition_datasheet_count,
+            config.coverage_min_composition_ratio,
+        ),
+        "wargear_options": (
+            options_resolved,
+            prior.option_resolved_datasheet_count,
+            config.coverage_min_option_ratio,
         ),
     }
 
