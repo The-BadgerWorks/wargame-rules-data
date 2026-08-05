@@ -9,7 +9,7 @@
       "model_count": 1,
       "points": 250,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1"
+      "source_acquisition_id": "wahapedia-20260805T111705Z-8d3a94e1"
     }
   ],
   "damaged_threshold": 6,
@@ -69,12 +69,12 @@
   ],
   "name": "Storm Eagle Gunship",
   "pricing_confidence": {
-    "consecutive_unverified_releases": 1,
+    "consecutive_unverified_releases": 2,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+    "detail_acquisition_id": "wahapedia-20260805T111705Z-8d3a94e1",
     "detail_edition_code": "wh40k-10e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": true,

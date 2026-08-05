@@ -1,10 +1,13 @@
 # Change summary
 
-Compared against **no previous published version**.
+Compared against **mfm-2026-08**.
 
 ## Added datasheets
 
-None.
+- ds-clanblade
+- ds-dragon-knights
+- ds-leystalker
+- ds-stonesinger
 
 ## Removed datasheets
 
@@ -16,7 +19,14 @@ None.
 
 ## Unit point costs
 
-None.
+- `ds-inceptor-squad` copy 1+, 6 models: absent → 250
+- `ds-inceptor-squad` copy 3+, 6 models: absent → 265
+- `ds-inceptor-squad-3` copy 1+, 6 models: absent → 250
+- `ds-inceptor-squad-3` copy 3+, 6 models: absent → 265
+- `ds-inceptor-squad-4` copy 1+, 6 models: absent → 250
+- `ds-inceptor-squad-4` copy 3+, 6 models: absent → 265
+- `ds-inceptor-squad-6` copy 1+, 6 models: absent → 250
+- `ds-inceptor-squad-6` copy 3+, 6 models: absent → 265
 
 ## Detachment point costs
 

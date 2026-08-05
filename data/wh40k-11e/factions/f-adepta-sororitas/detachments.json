@@ -8,11 +8,28 @@
       "is_unique": false,
       "name": "ARMY OF FAITH",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_acquisition_id": "wahapedia-20260805T111705Z-8d3a94e1",
         "detail_edition_code": "wh40k-10e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_acquisition_id": "mfm-20260805T111630Z-6075ce5c",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    },
+    {
+      "detachment_id": "d-bringers-of-flame",
+      "detachment_points_cost": 2,
+      "force_disposition": "PRIORITY ASSETS",
+      "is_legends": false,
+      "is_unique": false,
+      "name": "BRINGERS OF FLAME",
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20260805T111705Z-8d3a94e1",
+        "detail_edition_code": "wh40k-10e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": true,
+        "points_acquisition_id": "mfm-20260805T111630Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       }
@@ -25,11 +42,11 @@
       "is_unique": true,
       "name": "CHAMPIONS OF FAITH",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_acquisition_id": "wahapedia-20260805T111705Z-8d3a94e1",
         "detail_edition_code": "wh40k-10e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_acquisition_id": "mfm-20260805T111630Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       }
@@ -42,11 +59,11 @@
       "is_unique": false,
       "name": "CHORUS OF CONDEMNATION",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_acquisition_id": "wahapedia-20260805T111705Z-8d3a94e1",
         "detail_edition_code": "wh40k-10e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_acquisition_id": "mfm-20260805T111630Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       }
@@ -59,11 +76,11 @@
       "is_unique": false,
       "name": "HALLOWED MARTYRS",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_acquisition_id": "wahapedia-20260805T111705Z-8d3a94e1",
         "detail_edition_code": "wh40k-10e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_acquisition_id": "mfm-20260805T111630Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       }
@@ -76,11 +93,11 @@
       "is_unique": false,
       "name": "PENITENT HOST",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_acquisition_id": "wahapedia-20260805T111705Z-8d3a94e1",
         "detail_edition_code": "wh40k-10e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_acquisition_id": "mfm-20260805T111630Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       }
@@ -93,11 +110,11 @@
       "is_unique": true,
       "name": "SACRED CHAMPIONS",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_acquisition_id": "wahapedia-20260805T111705Z-8d3a94e1",
         "detail_edition_code": "wh40k-10e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_acquisition_id": "mfm-20260805T111630Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       }
@@ -110,11 +127,11 @@
       "is_unique": false,
       "name": "SANCTIFIED ORATORS",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_acquisition_id": "wahapedia-20260805T111705Z-8d3a94e1",
         "detail_edition_code": "wh40k-10e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_acquisition_id": "mfm-20260805T111630Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       }

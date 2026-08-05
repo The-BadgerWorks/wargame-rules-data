@@ -1,6 +1,6 @@
 # Edition mismatch
 
-**2083** of 2099 datasheets are hybrid — **99.2%** of the release.
+**2083** of 2103 datasheets are hybrid — **99.0%** of the release.
 
 | datasheet | faction | points edition | detail edition |
 |---|---|---|---|

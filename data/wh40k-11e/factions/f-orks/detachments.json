@@ -8,11 +8,11 @@
       "is_unique": true,
       "name": "BLITZ BRIGADE",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_acquisition_id": "wahapedia-20260805T111705Z-8d3a94e1",
         "detail_edition_code": "wh40k-10e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_acquisition_id": "mfm-20260805T111630Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       }
@@ -25,11 +25,11 @@
       "is_unique": false,
       "name": "BULLY BOYZ",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_acquisition_id": "wahapedia-20260805T111705Z-8d3a94e1",
         "detail_edition_code": "wh40k-10e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_acquisition_id": "mfm-20260805T111630Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       }
@@ -42,11 +42,11 @@
       "is_unique": false,
       "name": "DA BIG HUNT",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_acquisition_id": "wahapedia-20260805T111705Z-8d3a94e1",
         "detail_edition_code": "wh40k-10e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_acquisition_id": "mfm-20260805T111630Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       }
@@ -59,11 +59,11 @@
       "is_unique": false,
       "name": "DREAD MOB",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_acquisition_id": "wahapedia-20260805T111705Z-8d3a94e1",
         "detail_edition_code": "wh40k-10e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_acquisition_id": "mfm-20260805T111630Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       }
@@ -76,11 +76,11 @@
       "is_unique": false,
       "name": "EQUATORIAL HORDES",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_acquisition_id": "wahapedia-20260805T111705Z-8d3a94e1",
         "detail_edition_code": "wh40k-10e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_acquisition_id": "mfm-20260805T111630Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       }
@@ -93,11 +93,28 @@
       "is_unique": false,
       "name": "FREEBOOTER KREW",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_acquisition_id": "wahapedia-20260805T111705Z-8d3a94e1",
         "detail_edition_code": "wh40k-10e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_acquisition_id": "mfm-20260805T111630Z-6075ce5c",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    },
+    {
+      "detachment_id": "d-green-tide",
+      "detachment_points_cost": 3,
+      "force_disposition": "TAKE AND HOLD",
+      "is_legends": false,
+      "is_unique": false,
+      "name": "GREEN TIDE",
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20260805T111705Z-8d3a94e1",
+        "detail_edition_code": "wh40k-10e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": true,
+        "points_acquisition_id": "mfm-20260805T111630Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       }
@@ -110,11 +127,11 @@
       "is_unique": false,
       "name": "KULT OF SPEED",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_acquisition_id": "wahapedia-20260805T111705Z-8d3a94e1",
         "detail_edition_code": "wh40k-10e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_acquisition_id": "mfm-20260805T111630Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       }
@@ -127,11 +144,11 @@
       "is_unique": false,
       "name": "MORE DAKKA!",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_acquisition_id": "wahapedia-20260805T111705Z-8d3a94e1",
         "detail_edition_code": "wh40k-10e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_acquisition_id": "mfm-20260805T111630Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       }
@@ -144,11 +161,11 @@
       "is_unique": true,
       "name": "ROLLIN' DEFF",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_acquisition_id": "wahapedia-20260805T111705Z-8d3a94e1",
         "detail_edition_code": "wh40k-10e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_acquisition_id": "mfm-20260805T111630Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       }
@@ -161,11 +178,11 @@
       "is_unique": false,
       "name": "SPEEDWAAAGH!",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_acquisition_id": "wahapedia-20260805T111705Z-8d3a94e1",
         "detail_edition_code": "wh40k-10e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_acquisition_id": "mfm-20260805T111630Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       }
@@ -178,11 +195,11 @@
       "is_unique": false,
       "name": "TAKTIKAL BRIGADE",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_acquisition_id": "wahapedia-20260805T111705Z-8d3a94e1",
         "detail_edition_code": "wh40k-10e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_acquisition_id": "mfm-20260805T111630Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       }
@@ -195,11 +212,11 @@
       "is_unique": false,
       "name": "WAR HORDE",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_acquisition_id": "wahapedia-20260805T111705Z-8d3a94e1",
         "detail_edition_code": "wh40k-10e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_acquisition_id": "mfm-20260805T111630Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       }

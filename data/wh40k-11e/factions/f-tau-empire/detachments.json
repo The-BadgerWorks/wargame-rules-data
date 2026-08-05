@@ -8,11 +8,11 @@
       "is_unique": false,
       "name": "ADVANCED ACQUISITION CADRE",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_acquisition_id": "wahapedia-20260805T111705Z-8d3a94e1",
         "detail_edition_code": "wh40k-10e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_acquisition_id": "mfm-20260805T111630Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       }
@@ -25,11 +25,11 @@
       "is_unique": true,
       "name": "AUXILIARY CADRE",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_acquisition_id": "wahapedia-20260805T111705Z-8d3a94e1",
         "detail_edition_code": "wh40k-10e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_acquisition_id": "mfm-20260805T111630Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       }
@@ -42,11 +42,11 @@
       "is_unique": true,
       "name": "EXPERIMENTAL PROTOTYPE CADRE",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_acquisition_id": "wahapedia-20260805T111705Z-8d3a94e1",
         "detail_edition_code": "wh40k-10e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_acquisition_id": "mfm-20260805T111630Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       }
@@ -59,11 +59,11 @@
       "is_unique": false,
       "name": "KAUYON",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_acquisition_id": "wahapedia-20260805T111705Z-8d3a94e1",
         "detail_edition_code": "wh40k-10e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_acquisition_id": "mfm-20260805T111630Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       }
@@ -76,11 +76,11 @@
       "is_unique": true,
       "name": "KROOT HUNTING PACK",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_acquisition_id": "wahapedia-20260805T111705Z-8d3a94e1",
         "detail_edition_code": "wh40k-10e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_acquisition_id": "mfm-20260805T111630Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       }
@@ -93,11 +93,28 @@
       "is_unique": false,
       "name": "MONT’KA",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_acquisition_id": "wahapedia-20260805T111705Z-8d3a94e1",
         "detail_edition_code": "wh40k-10e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_acquisition_id": "mfm-20260805T111630Z-6075ce5c",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    },
+    {
+      "detachment_id": "d-retaliation-cadre",
+      "detachment_points_cost": 3,
+      "force_disposition": "PURGE THE FOE",
+      "is_legends": false,
+      "is_unique": true,
+      "name": "RETALIATION CADRE",
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20260805T111705Z-8d3a94e1",
+        "detail_edition_code": "wh40k-10e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": true,
+        "points_acquisition_id": "mfm-20260805T111630Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       }

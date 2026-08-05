@@ -1,0 +1,42 @@
+{
+  "costs": [
+    {
+      "copy_index_min": 1,
+      "label": "3 models",
+      "model_count": 3,
+      "points": 90,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260805T111630Z-6075ce5c"
+    },
+    {
+      "copy_index_min": 1,
+      "label": "6 models",
+      "model_count": 6,
+      "points": 180,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260805T111630Z-6075ce5c"
+    }
+  ],
+  "datasheet_id": "ds-dragon-knights",
+  "faction_id": "f-aeldari",
+  "is_battleline": false,
+  "is_character": false,
+  "is_dedicated_transport": false,
+  "is_epic_hero": false,
+  "is_legends": false,
+  "name": "DRAGON KNIGHTS",
+  "pricing_confidence": {
+    "consecutive_unverified_releases": 0,
+    "last_verified_points_digest": "sha256:29e94cdc0f8cd2026f8c94a447d040c9a6f29006956cea8aec6b6624ec02c406",
+    "last_verified_version": "mfm-2026-08",
+    "state": "verified"
+  },
+  "provenance": {
+    "detail_edition_code": "wh40k-11e",
+    "detail_source": "none",
+    "is_hybrid_edition": false,
+    "points_acquisition_id": "mfm-20260805T111630Z-6075ce5c",
+    "points_edition_code": "wh40k-11e",
+    "points_source": "mfm"
+  }
+}

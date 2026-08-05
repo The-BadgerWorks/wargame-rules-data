@@ -1,17 +1,33 @@
 {
   "enhancements": [
     {
+      "detachment_id": "d-hexwarp-thrallband",
+      "enhancement_id": "e-arcane-might",
+      "max_per_army": 1,
+      "name": "Arcane Might",
+      "points": 20,
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20260805T111705Z-8d3a94e1",
+        "detail_edition_code": "wh40k-10e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": true,
+        "points_acquisition_id": "mfm-20260805T111630Z-6075ce5c",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    },
+    {
       "detachment_id": "d-rubricae-phalanx",
       "enhancement_id": "e-arcane-thralls",
       "max_per_army": 1,
       "name": "Arcane Thralls",
       "points": 5,
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_acquisition_id": "wahapedia-20260805T111705Z-8d3a94e1",
         "detail_edition_code": "wh40k-10e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_acquisition_id": "mfm-20260805T111630Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       }
@@ -23,11 +39,11 @@
       "name": "Biomechanical Mutation",
       "points": 15,
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_acquisition_id": "wahapedia-20260805T111705Z-8d3a94e1",
         "detail_edition_code": "wh40k-10e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_acquisition_id": "mfm-20260805T111630Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       }
@@ -39,11 +55,11 @@
       "name": "Bray Lord",
       "points": 15,
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_acquisition_id": "wahapedia-20260805T111705Z-8d3a94e1",
         "detail_edition_code": "wh40k-10e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_acquisition_id": "mfm-20260805T111630Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       }
@@ -55,11 +71,11 @@
       "name": "Curse of Life",
       "points": 20,
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_acquisition_id": "wahapedia-20260805T111705Z-8d3a94e1",
         "detail_edition_code": "wh40k-10e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_acquisition_id": "mfm-20260805T111630Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       }
@@ -71,11 +87,11 @@
       "name": "Diabolic Savant",
       "points": 20,
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_acquisition_id": "wahapedia-20260805T111705Z-8d3a94e1",
         "detail_edition_code": "wh40k-10e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_acquisition_id": "mfm-20260805T111630Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       }
@@ -87,11 +103,11 @@
       "name": "Diamond of Distortion",
       "points": 20,
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_acquisition_id": "wahapedia-20260805T111705Z-8d3a94e1",
         "detail_edition_code": "wh40k-10e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_acquisition_id": "mfm-20260805T111630Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       }
@@ -103,11 +119,11 @@
       "name": "Duplicitous Malediction",
       "points": 15,
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_acquisition_id": "wahapedia-20260805T111705Z-8d3a94e1",
         "detail_edition_code": "wh40k-10e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_acquisition_id": "mfm-20260805T111630Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       }
@@ -119,11 +135,43 @@
       "name": "Eldritch Vortex of E’Taph",
       "points": 35,
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_acquisition_id": "wahapedia-20260805T111705Z-8d3a94e1",
         "detail_edition_code": "wh40k-10e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_acquisition_id": "mfm-20260805T111630Z-6075ce5c",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    },
+    {
+      "detachment_id": "d-hexwarp-thrallband",
+      "enhancement_id": "e-empowered-manifestation",
+      "max_per_army": 1,
+      "name": "Empowered Manifestation",
+      "points": 20,
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20260805T111705Z-8d3a94e1",
+        "detail_edition_code": "wh40k-10e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": true,
+        "points_acquisition_id": "mfm-20260805T111630Z-6075ce5c",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    },
+    {
+      "detachment_id": "d-hexwarp-thrallband",
+      "enhancement_id": "e-empyric-onslaught",
+      "max_per_army": 1,
+      "name": "Empyric Onslaught",
+      "points": 25,
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20260805T111705Z-8d3a94e1",
+        "detail_edition_code": "wh40k-10e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": true,
+        "points_acquisition_id": "mfm-20260805T111630Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       }
@@ -135,11 +183,11 @@
       "name": "Eruption of Vitality",
       "points": 35,
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_acquisition_id": "wahapedia-20260805T111705Z-8d3a94e1",
         "detail_edition_code": "wh40k-10e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_acquisition_id": "mfm-20260805T111630Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       }
@@ -151,11 +199,11 @@
       "name": "Flowing Flesh",
       "points": 10,
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_acquisition_id": "wahapedia-20260805T111705Z-8d3a94e1",
         "detail_edition_code": "wh40k-10e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_acquisition_id": "mfm-20260805T111630Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       }
@@ -167,11 +215,11 @@
       "name": "Incandaeum",
       "points": 15,
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_acquisition_id": "wahapedia-20260805T111705Z-8d3a94e1",
         "detail_edition_code": "wh40k-10e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_acquisition_id": "mfm-20260805T111630Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       }
@@ -183,11 +231,11 @@
       "name": "Lord of Forbidden Lore",
       "points": 20,
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_acquisition_id": "wahapedia-20260805T111705Z-8d3a94e1",
         "detail_edition_code": "wh40k-10e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_acquisition_id": "mfm-20260805T111630Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       }
@@ -199,11 +247,11 @@
       "name": "Lord of the Rubricae",
       "points": 15,
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_acquisition_id": "wahapedia-20260805T111705Z-8d3a94e1",
         "detail_edition_code": "wh40k-10e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_acquisition_id": "mfm-20260805T111630Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       }
@@ -215,11 +263,27 @@
       "name": "Nethershriek Mind-Eater",
       "points": 10,
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_acquisition_id": "wahapedia-20260805T111705Z-8d3a94e1",
         "detail_edition_code": "wh40k-10e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_acquisition_id": "mfm-20260805T111630Z-6075ce5c",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    },
+    {
+      "detachment_id": "d-hexwarp-thrallband",
+      "enhancement_id": "e-noctilith-mantle",
+      "max_per_army": 1,
+      "name": "Noctilith Mantle",
+      "points": 15,
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20260805T111705Z-8d3a94e1",
+        "detail_edition_code": "wh40k-10e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": true,
+        "points_acquisition_id": "mfm-20260805T111630Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       }
@@ -231,11 +295,11 @@
       "name": "Occulus Infernum",
       "points": 20,
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_acquisition_id": "wahapedia-20260805T111705Z-8d3a94e1",
         "detail_edition_code": "wh40k-10e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_acquisition_id": "mfm-20260805T111630Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       }
@@ -247,11 +311,11 @@
       "name": "Perplexing Cloak",
       "points": 20,
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_acquisition_id": "wahapedia-20260805T111705Z-8d3a94e1",
         "detail_edition_code": "wh40k-10e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_acquisition_id": "mfm-20260805T111630Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       }
@@ -263,11 +327,11 @@
       "name": "Risen Rubricae",
       "points": 30,
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_acquisition_id": "wahapedia-20260805T111705Z-8d3a94e1",
         "detail_edition_code": "wh40k-10e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_acquisition_id": "mfm-20260805T111630Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       }
@@ -279,11 +343,11 @@
       "name": "Stave Abominus",
       "points": 20,
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_acquisition_id": "wahapedia-20260805T111705Z-8d3a94e1",
         "detail_edition_code": "wh40k-10e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_acquisition_id": "mfm-20260805T111630Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       }
@@ -295,11 +359,11 @@
       "name": "Thicket of Bladed Bone (Upgrade)",
       "points": 10,
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_acquisition_id": "wahapedia-20260805T111705Z-8d3a94e1",
         "detail_edition_code": "wh40k-10e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_acquisition_id": "mfm-20260805T111630Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       }
@@ -311,11 +375,11 @@
       "name": "Tome of True Names",
       "points": 20,
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_acquisition_id": "wahapedia-20260805T111705Z-8d3a94e1",
         "detail_edition_code": "wh40k-10e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_acquisition_id": "mfm-20260805T111630Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       }
@@ -327,11 +391,11 @@
       "name": "Umbralefic Crystal",
       "points": 20,
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_acquisition_id": "wahapedia-20260805T111705Z-8d3a94e1",
         "detail_edition_code": "wh40k-10e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_acquisition_id": "mfm-20260805T111630Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       }
@@ -343,11 +407,11 @@
       "name": "Unravelled Fates",
       "points": 15,
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_acquisition_id": "wahapedia-20260805T111705Z-8d3a94e1",
         "detail_edition_code": "wh40k-10e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_acquisition_id": "mfm-20260805T111630Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       }
@@ -359,11 +423,11 @@
       "name": "Walking Rampart",
       "points": 30,
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_acquisition_id": "wahapedia-20260805T111705Z-8d3a94e1",
         "detail_edition_code": "wh40k-10e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_acquisition_id": "mfm-20260805T111630Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       }
@@ -375,11 +439,11 @@
       "name": "Warp-Cursed Runemaster",
       "points": 10,
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_acquisition_id": "wahapedia-20260805T111705Z-8d3a94e1",
         "detail_edition_code": "wh40k-10e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_acquisition_id": "mfm-20260805T111630Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       }
@@ -391,11 +455,11 @@
       "name": "Warp Syphon",
       "points": 5,
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_acquisition_id": "wahapedia-20260805T111705Z-8d3a94e1",
         "detail_edition_code": "wh40k-10e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_acquisition_id": "mfm-20260805T111630Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       }
@@ -407,11 +471,11 @@
       "name": "Warpmeld Dagger",
       "points": 10,
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+        "detail_acquisition_id": "wahapedia-20260805T111705Z-8d3a94e1",
         "detail_edition_code": "wh40k-10e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "points_acquisition_id": "mfm-20260805T111630Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       }

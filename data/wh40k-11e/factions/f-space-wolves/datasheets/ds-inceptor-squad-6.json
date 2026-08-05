@@ -9,7 +9,15 @@
       "model_count": 3,
       "points": 125,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+      "source_acquisition_id": "mfm-20260805T111630Z-6075ce5c"
+    },
+    {
+      "copy_index_min": 1,
+      "label": "6 models",
+      "model_count": 6,
+      "points": 250,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260805T111630Z-6075ce5c"
     },
     {
       "copy_index_min": 3,
@@ -17,7 +25,15 @@
       "model_count": 3,
       "points": 140,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+      "source_acquisition_id": "mfm-20260805T111630Z-6075ce5c"
+    },
+    {
+      "copy_index_min": 3,
+      "label": "6 models",
+      "model_count": 6,
+      "points": 265,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260805T111630Z-6075ce5c"
     }
   ],
   "datasheet_id": "ds-inceptor-squad-6",
@@ -73,16 +89,16 @@
   "name": "INCEPTOR SQUAD",
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
-    "last_verified_points_digest": "sha256:c78ce5dceb155c8a2dcab89f54c55fd11b9a88560fae199982e50d62e3fe9b41",
+    "last_verified_points_digest": "sha256:cb487d4d2f5002415de2ab2a251b575dd7f11f92d8c88532b760ee1f00cb5947",
     "last_verified_version": "mfm-2026-08",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
+    "detail_acquisition_id": "wahapedia-20260805T111705Z-8d3a94e1",
     "detail_edition_code": "wh40k-10e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": true,
-    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "points_acquisition_id": "mfm-20260805T111630Z-6075ce5c",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },

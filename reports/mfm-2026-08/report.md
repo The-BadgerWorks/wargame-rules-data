@@ -2,16 +2,24 @@
 
 **ADVISORY ONLY** — eligible for publication pending approval.
 
-Run `local-mfm-2026-08` on the `prerelease` channel, 2026-08-04T00:00:00Z.
+Run `local-mfm-2026-08` on the `prerelease` channel, 2026-08-05T00:00:00Z.
 
 ## Scale
 
 | category | count | proportion of the snapshot |
 |---|---|---|
-| escalating price datasheets | 535 | 25.5% |
-| hybrid edition | 2083 | 99.2% |
+| escalating price datasheets | 535 | 25.4% |
+| hybrid edition | 2083 | 99.1% |
 | summaries outstanding | 0 | 0.0% |
 | unverified pricing | 666 | 31.7% |
+
+## Coverage against the previous published version
+
+| category | current | previous | ratio | threshold |
+|---|---|---|---|---|
+| datasheets | 2103 | 2099 | 100.2% | 90.0% |
+| factions | 30 | 30 | 100.0% | 95.0% |
+| priced datasheets | 2103 | 2099 | 100.2% | 90.0% |
 
 ## Blocking findings
 
@@ -19,7 +27,7 @@ None.
 
 ## All findings
 
-0 blocking, 9639 advisory, 2 suppressed.
+0 blocking, 9193 advisory, 2 suppressed.
 
 <details><summary>contract (2099)</summary>
 
@@ -2127,469 +2135,11 @@ None.
 
 </details>
 
-<details><summary>data_quality (2534)</summary>
+<details><summary>data_quality (2076)</summary>
 
 | code | severity | entities | resolved |
 |---|---|---|---|
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-abaddon-the-despoiler` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-aberrants` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-aberrants` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-aberrants` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-aberrants` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-acolyte-hybrids-with-hand-flamers` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-aggressor-squad` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-aggressor-squad` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-aggressor-squad` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-aggressor-squad` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-aggressor-squad-2` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-aggressor-squad-2` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-aggressor-squad-2` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-aggressor-squad-2` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-aggressor-squad-3` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-aggressor-squad-3` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-aggressor-squad-3` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-aggressor-squad-3` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-aggressor-squad-4` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-aggressor-squad-4` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-aggressor-squad-4` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-aggressor-squad-4` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-aggressor-squad-5` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-aggressor-squad-5` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-aggressor-squad-5` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-aggressor-squad-5` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-aggressor-squad-6` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-aggressor-squad-6` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-aggressor-squad-6` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-aggressor-squad-6` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-aleya` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-anathema-psykana-rhino` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-angron` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-arjac-rockfist` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-atalan-jackals` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-atalan-jackals` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-atalan-jackals` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-atalan-jackals` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-autarch` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-autarch-wayleaper` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-avatar-of-khaine` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-baneblade` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-baneblade` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-banehammer` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-banehammer` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-banesword` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-banesword` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-beasts-of-nurgle` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-berehk-stornbrow` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-big-mek-dakkarig` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-bloodcrushers` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-bloodcrushers` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-bloodcrushers` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-bloodcrushers-2` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-bloodcrushers-2` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-bloodcrushers-2` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-boyz` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-broadside-battlesuits` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-broadside-battlesuits` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-brokhyr-iron-master` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-brotherhood-terminator-squad` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-buri-aegnirssen` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-cadian-command-squad` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-canoptek-reanimator` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-captain-titus` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-cato-sicarius` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-centaur-rsv` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-chaos-lord-with-jump-pack` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-chaos-predator-annihilator` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-chaos-predator-annihilator` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-chaos-predator-annihilator-3` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-chaos-predator-annihilator-3` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-chaos-predator-annihilator-4` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-chaos-predator-annihilator-4` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-chaos-predator-destructor` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-chaos-predator-destructor` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-chaos-predator-destructor-3` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-chaos-predator-destructor-3` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-chaos-predator-destructor-4` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-chaos-predator-destructor-4` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-chaos-rhino` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-chaos-rhino-2` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-chaos-rhino-3` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-chaos-rhino-4` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-chaos-rhino-5` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-chaos-terminator-squad` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-chaos-terminator-squad` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-chaos-terminators-2` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-chaos-terminators-2` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-chaos-terminators-2` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-chaos-terminators-2` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-chaplain-grimaldus` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-chief-librarian-tigurius` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-chimera` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-chosen` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-chosen` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-chronomancer` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-chronomancer` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-commander-farsight` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-commissar-yarrick` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-corsair-skyreavers` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-corsair-skyreavers` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-corsair-voidscarred` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-corsair-voidscarred` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-crusade-ancient` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-custodian-wardens` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-custodian-wardens` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-custodian-wardens` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-custodian-wardens` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-death-jester` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-deathshroud-terminators` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-deathshroud-terminators` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-deathwatch-kill-team` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-defiler` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-defiler-2` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-defiler-2` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-defiler-3` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-defiler-3` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-defiler-4` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-defiler-4` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-defiler-5` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-devilfish` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-dominion-squad` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-dominion-squad` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-doomhammer` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-doomhammer` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-doomsday-ark` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-doomsday-ark` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-drop-pod` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-drop-pod-2` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-drop-pod-3` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-drop-pod-4` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-drop-pod-5` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-drop-pod-6` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-eightbound` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-eightbound` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-eightbound` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-eightbound` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-emperors-champion` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-eradicator-squad-with-heavy-bolters` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-eradicator-squad-with-heavy-bolters-2` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-eradicator-squad-with-heavy-bolters-3` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-eradicator-squad-with-heavy-bolters-4` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-eradicator-squad-with-heavy-bolters-5` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-eradicator-squad-with-heavy-bolters-6` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-eversor-assassin` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-eversor-assassin` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-exalted-eightbound` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-exalted-eightbound` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-exalted-eightbound` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-exalted-eightbound` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-execrator` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-farseer` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-farseer-skyrunner` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-fluxmaster` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-forgefiend-3` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-forgefiend-3` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-fulgrim` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-ghostkeel-battlesuit` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-goliath-truck` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-grand-master-voldus` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-grey-knights-terminator-squad` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-grey-knights-terminator-squad` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-hammerhead-gunship` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-hammerhead-gunship` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-hastarii-exterminators` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-hastarii-exterminators` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-hellhammer` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-hellhammer` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-high-marshal-helbrecht` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-hospitaller` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-hospitaller` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-huron-blackheart` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-hybrid-metamorphs` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-hybrid-metamorphs` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-imagifier` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-immolator` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-immolator` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-imperial-rhino` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-imperial-rhino` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-impulsor` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-impulsor-2` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-impulsor-3` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-impulsor-4` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-impulsor-5` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-impulsor-6` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-inceptor-squad` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-inceptor-squad` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-inceptor-squad-2` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-inceptor-squad-2` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-inceptor-squad-2` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-inceptor-squad-2` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-inceptor-squad-3` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-inceptor-squad-3` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-inceptor-squad-4` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-inceptor-squad-4` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-inceptor-squad-5` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-inceptor-squad-5` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-inceptor-squad-5` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-inceptor-squad-5` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-inceptor-squad-6` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-inceptor-squad-6` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-infernus-squad` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-infernus-squad-2` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-infernus-squad-3` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-infernus-squad-4` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-infernus-squad-5` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-infernus-squad-6` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-inner-circle-companions` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-inner-circle-companions` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-inquisitorial-chimera` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-inquisitorial-chimera` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-intranzia-fraye` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-iron-priest` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-ironstrider-ballistarii` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-ironstrider-ballistarii` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-junith-eruita` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-kairos-fateweaver` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-kairos-fateweaver-2` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-kapricus-carrier` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-kasrkin` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-kasrkin` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-kataphron-breachers` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-kataphron-destroyers` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-khorne-berzerkers` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-khorne-berzerkers` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-knight-castellan` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-knight-castellan` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-krieg-command-squad` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-land-speeder` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-land-speeder-2` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-land-speeder-3` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-land-speeder-4` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-land-speeder-5` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-land-speeder-6` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-land-speeder-vengeance` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-land-speeder-vengeance` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-leman-russ-commander` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-leman-russ-commander` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-leman-russ-demolisher` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-leman-russ-demolisher` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-librarian` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-librarian-2` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-librarian-3` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-librarian-4` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-librarian-5` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-lieutenant-with-combi-weapon` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-lieutenant-with-combi-weapon-2` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-lieutenant-with-combi-weapon-3` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-lieutenant-with-combi-weapon-4` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-lieutenant-with-combi-weapon-5` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-lieutenant-with-combi-weapon-6` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-lion-eljonson` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-logan-grimnar` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-lokhust-destroyers` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-lokhust-destroyers` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-lokhust-heavy-destroyers` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-lokhust-heavy-destroyers` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-lord-invocatus` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-lord-of-change` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-lord-of-change` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-lord-of-change-2` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-lord-of-change-2` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-lord-on-juggernaut` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-lucius-the-eternal` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-maleceptor` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-maleceptor` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-marneus-calgar-in-armour-of-antilochus` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-masters-of-the-maelstrom` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-maulerfiend-2` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-maulerfiend-2` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-maulerfiend-4` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-maulerfiend-4` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-mek` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-mortarion` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-morvenn-vahl` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-mutilators` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-mutilators` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-nekrosor-ammentar` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-nemesis-claw` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-nemesis-claw` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-neophyte-hybrids` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-nephilim-jetfighter` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-neurotyrant` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-njal-stormcaller` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-painboss` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-painboy` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-pathfinder-team` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-plague-marines` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-purestrain-genestealers` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-purestrain-genestealers` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-ragnar-blackmane` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-raider` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-ravager` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-ravenwing-command-squad` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-ravenwing-command-squad` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-ravenwing-darkshroud` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-razorback` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-razorback-2` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-razorback-3` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-razorback-4` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-razorback-5` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-razorback-6` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-razorback-7` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-red-corsairs-reave-captain` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-repentia-squad` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-repentia-squad` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-repulsor-executioner` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-repulsor-executioner` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-repulsor-executioner-5` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-repulsor-executioner-5` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-rhino` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-rhino-2` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-rhino-3` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-rhino-4` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-rhino-5` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-rhino-6` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-rhino-7` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-riptide-battlesuit` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-riptide-battlesuit` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-roboute-guilliman` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-sammael` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-scarab-occult-terminators` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-scarab-occult-terminators` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-sekhetar-robots` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-sekhetar-robots` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-seraphim-squad` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-seraphim-squad` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-seraphim-squad` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-seraphim-squad` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-serberys-raiders` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-serberys-sulphurhounds` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-shadowseer` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-shadowsword` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-shadowsword` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-shalaxi-helbane` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-shalaxi-helbane-2` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-shining-spears` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-shining-spears` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-shroud-runners` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-sisters-novitiate-squad` | — |
 | `CHG-DELTA-DISAGREEMENT` | advisory | `ds-sisters-of-battle-immolator` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-sisters-of-battle-immolator` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-sisters-of-battle-squad` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-skitarii-vanguard` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-skorpius-dunerider` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-skyweavers` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-skyweavers` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-sorcerer-2` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-sororitas-rhino` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-starweaver` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-sternguard-veteran-squad-2` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-sternguard-veteran-squad-3` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-sternguard-veteran-squad-4` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-sternguard-veteran-squad-5` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-sternguard-veteran-squad-6` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-storm-speeder-hammerstrike` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-storm-speeder-hammerstrike` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-storm-speeder-hammerstrike-2` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-storm-speeder-hammerstrike-2` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-storm-speeder-hammerstrike-3` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-storm-speeder-hammerstrike-3` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-storm-speeder-hammerstrike-4` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-storm-speeder-hammerstrike-4` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-storm-speeder-hammerstrike-5` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-storm-speeder-hammerstrike-5` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-storm-speeder-hammerstrike-6` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-storm-speeder-hammerstrike-6` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-stormlord` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-stormlord` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-stormsurge` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-stormsurge` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-stormsword` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-stormsword` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-strike-squad` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-strike-squad` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-suboden-khan` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-suppressor-squad` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-suppressor-squad-2` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-suppressor-squad-3` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-suppressor-squad-4` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-suppressor-squad-5` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-suppressor-squad-6` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-swooping-hawks` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-swooping-hawks` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-taurox` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-taurox-prime` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-tempestus-aquilons` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-tempestus-scions` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-tempestus-scions` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-tesseract-vault` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-tesseract-vault` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-the-silent-king` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-the-twin-lance` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-tiger-shark` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-tiger-shark` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-toxicrene` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-trukk` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-tyrannocyte` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-tzaangor-enlightened` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-tzaangor-shaman` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-uriel-ventris` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-vanguard-veteran-squad-with-jump-packs` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-vanguard-veteran-squad-with-jump-packs` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-vanguard-veteran-squad-with-jump-packs` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-vanguard-veteran-squad-with-jump-packs` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-vanguard-veteran-squad-with-jump-packs-2` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-vanguard-veteran-squad-with-jump-packs-2` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-vanguard-veteran-squad-with-jump-packs-2` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-vanguard-veteran-squad-with-jump-packs-2` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-vanguard-veteran-squad-with-jump-packs-3` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-vanguard-veteran-squad-with-jump-packs-3` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-vanguard-veteran-squad-with-jump-packs-3` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-vanguard-veteran-squad-with-jump-packs-3` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-vanguard-veteran-squad-with-jump-packs-4` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-vanguard-veteran-squad-with-jump-packs-4` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-vanguard-veteran-squad-with-jump-packs-4` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-vanguard-veteran-squad-with-jump-packs-4` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-vanguard-veteran-squad-with-jump-packs-5` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-vanguard-veteran-squad-with-jump-packs-5` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-vanguard-veteran-squad-with-jump-packs-5` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-vanguard-veteran-squad-with-jump-packs-5` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-vanguard-veteran-squad-with-jump-packs-6` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-vanguard-veteran-squad-with-jump-packs-6` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-vanguard-veteran-squad-with-jump-packs-6` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-vanguard-veteran-squad-with-jump-packs-6` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-vashtorr-the-arkifane` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-venatari-custodians` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-venatari-custodians` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-venom` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-venomcrawler` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-venomcrawler` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-victrix-honour-guard` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-victrix-honour-guard` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-von-ryans-leapers` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-von-ryans-leapers` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-war-dog-huntsman` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-war-dog-stalker` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-war-walkers` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-warboss` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-wardens-of-ultramar` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-warlock-skyrunners` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-warp-spiders` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-warp-spiders` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-warp-spiders` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-watch-master-2` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-wave-serpent` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-windriders` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-wolf-scouts` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-wolf-scouts` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-wraithknight` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-wraithknight` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-wraithknight-with-ghostglaive` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-wraithknight-with-ghostglaive` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-ynnari-raider` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-ynnari-venom` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-zephyrim-squad` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-zephyrim-squad` | — |
-| `CHG-DELTA-DISAGREEMENT` | advisory | `ds-zoanthropes` | — |
 | `DQ-MALFORMED-ROW` | advisory | `wahapedia:000000087` | — |
 | `DQ-MALFORMED-ROW` | advisory | `wahapedia:000000087` | — |
 | `DQ-MALFORMED-ROW` | advisory | `wahapedia:000000087` | — |
@@ -6758,7 +6308,7 @@ None.
 
 </details>
 
-<details><summary>reconciliation (2925)</summary>
+<details><summary>reconciliation (2937)</summary>
 
 | code | severity | entities | resolved |
 |---|---|---|---|
@@ -8146,6 +7696,10 @@ None.
 | `REC-UNMATCHED-DETAIL-ONLY` | advisory | `wahapedia:000004204` | — |
 | `REC-UNMATCHED-DETAIL-ONLY` | advisory | `wahapedia:000004222` | — |
 | `REC-UNMATCHED-DETAIL-ONLY` | advisory | `wahapedia:000004223` | — |
+| `REC-UNMATCHED-POINTS-ONLY` | advisory | `mfm:aeldari/clanblade` | — |
+| `REC-UNMATCHED-POINTS-ONLY` | advisory | `mfm:aeldari/dragon knights` | — |
+| `REC-UNMATCHED-POINTS-ONLY` | advisory | `mfm:aeldari/leystalker` | — |
+| `REC-UNMATCHED-POINTS-ONLY` | advisory | `mfm:aeldari/stonesinger` | — |
 | `REC-UNMATCHED-POINTS-ONLY` | advisory | `mfm:aeldari/vyper` | — |
 | `REC-UNMATCHED-POINTS-ONLY` | advisory | `mfm:black-templars/eradicator squad with heavy bolters` | — |
 | `REC-UNMATCHED-POINTS-ONLY` | advisory | `mfm:blood-angels/eradicator squad with heavy bolters` | — |
@@ -8762,18 +8316,26 @@ None.
 | `REC-VALUE-CONFLICT` | advisory | `ds-impulsor-6` | — |
 | `REC-VALUE-CONFLICT` | advisory | `ds-inceptor-squad` | — |
 | `REC-VALUE-CONFLICT` | advisory | `ds-inceptor-squad` | — |
+| `REC-VALUE-CONFLICT` | advisory | `ds-inceptor-squad` | — |
+| `REC-VALUE-CONFLICT` | advisory | `ds-inceptor-squad` | — |
 | `REC-VALUE-CONFLICT` | advisory | `ds-inceptor-squad-2` | — |
 | `REC-VALUE-CONFLICT` | advisory | `ds-inceptor-squad-2` | — |
 | `REC-VALUE-CONFLICT` | advisory | `ds-inceptor-squad-2` | — |
 | `REC-VALUE-CONFLICT` | advisory | `ds-inceptor-squad-2` | — |
 | `REC-VALUE-CONFLICT` | advisory | `ds-inceptor-squad-3` | — |
 | `REC-VALUE-CONFLICT` | advisory | `ds-inceptor-squad-3` | — |
+| `REC-VALUE-CONFLICT` | advisory | `ds-inceptor-squad-3` | — |
+| `REC-VALUE-CONFLICT` | advisory | `ds-inceptor-squad-3` | — |
+| `REC-VALUE-CONFLICT` | advisory | `ds-inceptor-squad-4` | — |
+| `REC-VALUE-CONFLICT` | advisory | `ds-inceptor-squad-4` | — |
 | `REC-VALUE-CONFLICT` | advisory | `ds-inceptor-squad-4` | — |
 | `REC-VALUE-CONFLICT` | advisory | `ds-inceptor-squad-4` | — |
 | `REC-VALUE-CONFLICT` | advisory | `ds-inceptor-squad-5` | — |
 | `REC-VALUE-CONFLICT` | advisory | `ds-inceptor-squad-5` | — |
 | `REC-VALUE-CONFLICT` | advisory | `ds-inceptor-squad-5` | — |
 | `REC-VALUE-CONFLICT` | advisory | `ds-inceptor-squad-5` | — |
+| `REC-VALUE-CONFLICT` | advisory | `ds-inceptor-squad-6` | — |
+| `REC-VALUE-CONFLICT` | advisory | `ds-inceptor-squad-6` | — |
 | `REC-VALUE-CONFLICT` | advisory | `ds-inceptor-squad-6` | — |
 | `REC-VALUE-CONFLICT` | advisory | `ds-inceptor-squad-6` | — |
 | `REC-VALUE-CONFLICT` | advisory | `ds-incubi` | — |

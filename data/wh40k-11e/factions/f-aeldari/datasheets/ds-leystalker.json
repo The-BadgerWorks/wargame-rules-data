@@ -1,0 +1,34 @@
+{
+  "costs": [
+    {
+      "copy_index_min": 1,
+      "label": "1 model",
+      "model_count": 1,
+      "points": 80,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260805T111630Z-6075ce5c"
+    }
+  ],
+  "datasheet_id": "ds-leystalker",
+  "faction_id": "f-aeldari",
+  "is_battleline": false,
+  "is_character": false,
+  "is_dedicated_transport": false,
+  "is_epic_hero": false,
+  "is_legends": false,
+  "name": "LEYSTALKER",
+  "pricing_confidence": {
+    "consecutive_unverified_releases": 0,
+    "last_verified_points_digest": "sha256:1d28e8ecc53fabf8370677d1207b796a090869ddce53671a84a15b7879bb6f71",
+    "last_verified_version": "mfm-2026-08",
+    "state": "verified"
+  },
+  "provenance": {
+    "detail_edition_code": "wh40k-11e",
+    "detail_source": "none",
+    "is_hybrid_edition": false,
+    "points_acquisition_id": "mfm-20260805T111630Z-6075ce5c",
+    "points_edition_code": "wh40k-11e",
+    "points_source": "mfm"
+  }
+}
