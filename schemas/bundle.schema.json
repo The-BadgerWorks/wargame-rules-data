@@ -1,5 +1,5 @@
 {
-  "_comment": "AI-Assisted: Claude Code (model: claude-opus-5) - Authored the published-bundle schema per curated-snapshot-format.md §3-§4 (task T033) against reference-db-schema.md v1.2.0. One array per consumer table, named in lowerCamelCase, each element carrying exactly that table's columns in lowerCamelCase, so the ingestor is a mechanical array-to-table load with no reshaping. Arrays are sorted by their table's primary key, which is what makes the bundle byte-stable and a hand-diff of two bundles meaningful during an incident. Absent optionals are OMITTED (§5) and ingested as SQL NULL; no property here is nullable. datasheetDetachmentEligibility is ALWAYS PRESENT and ALWAYS EMPTY: no upstream datasheet-to-detachment join exists, so the consumer contract's default (absence = legal in any detachment of its faction) applies, which is the correct non-fabricating behaviour under FR-019. additionalProperties is false throughout so an unmapped field is a build failure rather than a silent omission. 004-rules-data-enrichment adds datasheetCompositions, datasheetOptionGroups and datasheetOptionChoices, plus chapterKeywords (T040), factionRules (T048) and detachmentRules (T055), and the optional wargearOptionState, keywordClass and armyRuleState columns, per contracts/bundle-schema-delta.md. Every one of those is ADDITIVE: bundleFormatVersion stays 1 because the layout rules are unchanged, and an existing row that acquires no new value is byte-identical to what it was.",
+  "_comment": "AI-Assisted: Claude Code (model: claude-opus-5) - Authored the published-bundle schema per curated-snapshot-format.md §3-§4 (task T033) against reference-db-schema.md v1.2.0. One array per consumer table, named in lowerCamelCase, each element carrying exactly that table's columns in lowerCamelCase, so the ingestor is a mechanical array-to-table load with no reshaping. Arrays are sorted by their table's primary key, which is what makes the bundle byte-stable and a hand-diff of two bundles meaningful during an incident. Absent optionals are OMITTED (§5) and ingested as SQL NULL; no property here is nullable. datasheetDetachmentEligibility is ALWAYS PRESENT and ALWAYS EMPTY: no upstream datasheet-to-detachment join exists, so the consumer contract's default (absence = legal in any detachment of its faction) applies, which is the correct non-fabricating behaviour under FR-019. additionalProperties is false throughout so an unmapped field is a build failure rather than a silent omission. 004-rules-data-enrichment adds datasheetCompositions, datasheetOptionGroups and datasheetOptionChoices, plus chapterKeywords (T040), factionRules (T048), detachmentRules (T055) and keywordGlossary (T062), and the optional wargearOptionState, keywordClass and armyRuleState columns, per contracts/bundle-schema-delta.md. Every one of those is ADDITIVE: bundleFormatVersion stays 1 because the layout rules are unchanged, and an existing row that acquires no new value is byte-identical to what it was.",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://the-badgerworks.github.io/wargame-rules-data/schemas/bundle.schema.json",
   "title": "Published snapshot bundle rules-<rulesVersionId>.json",
@@ -31,7 +31,8 @@
     "datasheetOptionChoices",
     "chapterKeywords",
     "factionRules",
-    "detachmentRules"
+    "detachmentRules",
+    "keywordGlossary"
   ],
   "properties": {
     "bundleFormatVersion": {
@@ -172,6 +173,21 @@
           "id": { "type": "string", "minLength": 1 },
           "detachmentId": { "type": "string", "minLength": 1 },
           "name": { "type": "string", "minLength": 1, "maxLength": 120 },
+          "summary": { "type": "string", "minLength": 1, "maxLength": 400 }
+        }
+      }
+    },
+    "keywordGlossary": {
+      "type": "array",
+      "description": "Sorted by keywordKey. Authored keyword definitions, from 004-rules-data-enrichment. keywordKey is the NORMATIVE normalised key of contracts/bundle-schema-delta.md §4 -- NFKC, casefold, non-alphanumerics to spaces, collapse whitespace, then strip a trailing integer parameter -- which both producer and consumer MUST derive by that exact procedure or a lookup silently fails to resolve. One entry therefore serves a keyword and every casing, spacing, punctuation and numeric-parameter variant of it. An entry exists ONLY when authored and approved; an unauthored keyword has no row here, still appears on its datasheets and weapons unchanged, and is named in the coverage report (004 FR-023).",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["keywordKey", "displayKeyword", "hasNumericParameter", "summary"],
+        "properties": {
+          "keywordKey": { "type": "string", "minLength": 1, "maxLength": 64 },
+          "displayKeyword": { "type": "string", "minLength": 1, "maxLength": 64 },
+          "hasNumericParameter": { "type": "boolean" },
           "summary": { "type": "string", "minLength": 1, "maxLength": 400 }
         }
       }

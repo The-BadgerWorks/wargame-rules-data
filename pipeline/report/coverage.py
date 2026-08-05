@@ -5,6 +5,9 @@
 # T049): one row per authored summary class with its gate state, above the per-faction ability
 # breakdown that already existed. The gate column is the point — a class's backlog means a
 # different thing depending on whether anything is blocking on it yet.
+# AI-Assisted: Claude Code (model: claude-opus-5) - Enumerated the glossary's digest-less
+# subset (004 task T061), the list contract §7 item 4 requires a reviewer to sweep by hand
+# before WGC_GATE_GLOSSARY is ever switched on.
 """`summary-coverage.md` — the standing editorial backlog, rendered on every run.
 
 Moved out of :mod:`pipeline.report.edition_mismatch` (where it first landed under T097, ahead
@@ -59,12 +62,40 @@ def _class_rows(coverages: Sequence[ClassCoverage]) -> list[str]:
     return rows
 
 
+def _digestless_rows(keyword_keys: Sequence[str]) -> list[str]:
+    """The §5.1 subset, enumerated so a reviewer can sweep it (contract §7 item 4).
+
+    This section exists because of a limitation that is **recorded rather than engineered
+    around**: no keyword glossary source exists, so where the edition publishes no description
+    for a keyword its digest is taken over the normalised keyword stem — which is stable by
+    construction, so such an entry can never auto-flag for re-review. Naming the subset here is
+    what turns "these entries are never re-checked automatically" from a silent property into a
+    reviewable list, and contract §7 requires that sweep before `WGC_GATE_GLOSSARY` is switched
+    on for the first time.
+    """
+    out = [
+        "## Glossary entries with no upstream digest",
+        "",
+        "The source publishes no description for these keywords, so their digest is over the "
+        "**normalised keyword stem** and they will **never auto-flag for re-review** "
+        "(`contracts/authored-summary-gates.md` §5.1). Sweep this list by hand before the "
+        "glossary gate is switched on.",
+        "",
+    ]
+    if not keyword_keys:
+        out.append("None.")
+        return out
+    out.extend(f"- `{key}`" for key in keyword_keys)
+    return out
+
+
 def render_summary_coverage(
     snapshot: CuratedSnapshot,
     *,
     authored_summaries: Mapping[str, AuthoredSummary],
     current_digests: Mapping[str, str] | None = None,
     class_coverages: Sequence[ClassCoverage] = (),
+    digestless_keywords: Sequence[str] = (),
 ) -> str:
     """`summary-coverage.md`: per class, then per faction, and the named gaps (FR-025, FR-028).
 
@@ -110,6 +141,8 @@ def render_summary_coverage(
             "ability keys carry an approved summary", len(total_keys & approved), len(total_keys)
         ),
         *_class_rows(coverages),
+        "",
+        *_digestless_rows(digestless_keywords),
         "",
         "## Abilities, per faction",
         "",

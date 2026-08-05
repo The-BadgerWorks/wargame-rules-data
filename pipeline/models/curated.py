@@ -9,6 +9,8 @@
 # (004 task T053): CuratedDetachmentRule carries a rule's stable key and its name — never its
 # text — so the detachment-rule summary class has a denominator that comes from the source
 # rather than from the curator's own file (004 data-model.md §2.2, FR-022).
+# AI-Assisted: Claude Code (model: claude-opus-5) - Carried the authored keyword glossary on
+# the snapshot (004 task T061), keyed by the normalised keyword key of §2.4.
 """Curated records — the canonical reviewable state, machine-written into ``data/``.
 
 Every record here maps to a row in the consumer schema; the field-level mapping is
@@ -37,7 +39,12 @@ from typing import Final, Self
 from pydantic import BaseModel, ConfigDict, Field, model_validator
 
 from pipeline.build.canonical_json import JsonValue
-from pipeline.models.authored import AbilitySummary, DetachmentRuleSummary, FactionRuleFile
+from pipeline.models.authored import (
+    AbilitySummary,
+    DetachmentRuleSummary,
+    FactionRuleFile,
+    GlossaryEntry,
+)
 from pipeline.models.mechanical import assert_mechanical_fields
 from pipeline.models.provenance import EntityProvenance, PricingConfidence, PricingConfidenceState
 
@@ -579,6 +586,15 @@ class CuratedSnapshot(_Curated):
         "and faction_rules do. The rules THEMSELVES live on CuratedDetachment.rules and come "
         "from the source; this mapping carries only each rule's authored summary, which is why "
         "a rule with no record here still ships with its name.",
+    )
+    keyword_glossary: Mapping[str, GlossaryEntry] = Field(
+        default_factory=dict,
+        description="keyword_key -> curation/glossary.json's entry (004 FR-023). Keyed by the "
+        "NORMALISED key of contracts/bundle-schema-delta.md §4, so casing, spacing, punctuation "
+        "and numeric-parameter variants of one keyword resolve to ONE entry. An unauthored "
+        "keyword simply has no entry: it still appears on its datasheets and weapons unchanged, "
+        "publication is not blocked while the gate is off, and it is named in the coverage "
+        "report.",
     )
 
     @property

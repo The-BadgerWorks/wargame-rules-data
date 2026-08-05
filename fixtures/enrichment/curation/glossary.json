@@ -1,0 +1,73 @@
+[
+  {
+    "summary_key": "glossary:sustained hits",
+    "keyword_key": "sustained hits",
+    "display_keyword": "SUSTAINED HITS",
+    "has_numeric_parameter": true,
+    "name": "Sustained Hits",
+    "summary": "Each critical hit roll with this weapon scores the stated number of additional hits on the target, before any wound roll is made.",
+    "review_state": "approved",
+    "mechanic_digest": "b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1b1",
+    "reviewed_by": "second-curator",
+    "reviewed_at": "2026-07-01T00:00:00Z",
+    "authored_against_acquisition": "wahapedia-20260701T000000Z-000000aa"
+  },
+  {
+    "summary_key": "glossary:lethal hits",
+    "keyword_key": "lethal hits",
+    "display_keyword": "LETHAL HITS",
+    "has_numeric_parameter": false,
+    "name": "Lethal Hits",
+    "summary": "A critical hit roll with this weapon wounds the target automatically, and no wound roll is made for it.",
+    "review_state": "approved",
+    "mechanic_digest": "c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2c2",
+    "reviewed_by": "second-curator",
+    "reviewed_at": "2026-07-01T00:00:00Z"
+  },
+  {
+    "summary_key": "glossary:twin linked",
+    "keyword_key": "twin linked",
+    "display_keyword": "TWIN-LINKED",
+    "has_numeric_parameter": false,
+    "name": "Twin-linked",
+    "summary": "A failed wound roll for this weapon may be re-rolled once.",
+    "review_state": "draft",
+    "mechanic_digest": "d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3"
+  },
+  {
+    "summary_key": "glossary:tidewalk",
+    "keyword_key": "tidewalk",
+    "display_keyword": "TIDEWALK",
+    "has_numeric_parameter": false,
+    "name": "Tidewalk",
+    "summary": "A unit with this ability treats difficult ground as open ground and may move over models it could not otherwise cross.",
+    "review_state": "approved",
+    "mechanic_digest": "e4e4e4e4e4e4e4e4e4e4e4e4e4e4e4e4",
+    "reviewed_by": "second-curator",
+    "reviewed_at": "2026-07-01T00:00:00Z"
+  },
+  {
+    "summary_key": "glossary:fenlight",
+    "keyword_key": "fenlight",
+    "display_keyword": "FENLIGHT",
+    "has_numeric_parameter": false,
+    "name": "Fenlight",
+    "summary": "A unit with this ability may be set up in Reserves and arrives from any battlefield edge from the second battle round onwards.",
+    "review_state": "approved",
+    "mechanic_digest": "0000000000000000000000000000000f",
+    "reviewed_by": "second-curator",
+    "reviewed_at": "2026-07-01T00:00:00Z"
+  },
+  {
+    "summary_key": "glossary:void shrouded",
+    "keyword_key": "void shrouded",
+    "display_keyword": "VOID-SHROUDED",
+    "has_numeric_parameter": false,
+    "name": "Void-shrouded",
+    "summary": "Ranged attacks against a unit with this ability from more than eighteen inches away subtract one from the hit roll.",
+    "review_state": "approved",
+    "mechanic_digest": "f5f5f5f5f5f5f5f5f5f5f5f5f5f5f5f5",
+    "reviewed_by": "second-curator",
+    "reviewed_at": "2026-07-01T00:00:00Z"
+  }
+]

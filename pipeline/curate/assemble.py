@@ -12,7 +12,8 @@
 # and carried the chapter vocabulary onto the snapshot (004 task T039), then set
 # CuratedFaction.army_rule_state and carried the authored faction rules (004 task T047).
 # AI-Assisted: Claude Code (model: claude-opus-5) - Attached each detachment's rule identities and
-# carried the authored detachment-rule records onto the snapshot (004 task T054).
+# carried the authored detachment-rule records onto the snapshot (004 task T054), then the
+# authored keyword glossary (004 task T061).
 """Build one :class:`~pipeline.models.curated.CuratedSnapshot` from everything upstream.
 
 This is where the two sources stop being two sources. The **points** source is authoritative for
@@ -878,6 +879,7 @@ def assemble(  # noqa: PLR0913 - the stage genuinely needs every upstream input
         ability_summaries=authored.ability_summaries,
         faction_rules=authored.faction_rule_files,
         detachment_rules=authored.detachment_rule_summaries,
+        keyword_glossary=authored.glossary_entries,
     )
 
     return AssemblyResult(snapshot=snapshot, findings=findings, datasheet_ids=datasheet_ids)

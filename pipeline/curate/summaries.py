@@ -10,6 +10,9 @@
 # AI-Assisted: Claude Code (model: claude-opus-5) - Added the two remaining classes' key minting
 # (004 task T053): `detachment_rule_key` and `glossary_key`, so a class's denominator is derived
 # from the source rather than read back out of the curator's own file.
+# AI-Assisted: Claude Code (model: claude-opus-5) - Added `glossary_current_digests` (004 task
+# T061): the §5.1 stem-digest fallback for a keyword the edition publishes no description for,
+# and the honest consequence — such an entry never auto-flags for re-review.
 """Compare an ability's *current* mechanic against what a curator approved.
 
 Two things this module deliberately does **not** do:
@@ -153,6 +156,50 @@ def compute_digests(mechanic_texts: Mapping[str, str], *, key: bytes) -> dict[st
         summary_key: mechanic_digest(text, key=key)
         for summary_key, text in sorted(mechanic_texts.items())
     }
+
+
+def glossary_current_digests(
+    keyword_keys: Iterable[str], *, mechanic_texts: Mapping[str, str] | None = None, key: bytes
+) -> dict[str, str]:
+    """``summary_key -> digest`` for every keyword in use, per contract §5.1.
+
+    **The limitation this function embodies, stated plainly rather than engineered around.** No
+    keyword glossary source exists. So:
+
+    * where the edition publishes a core-rule or ability description for the keyword,
+      ``mechanic_texts`` carries it and the digest is over that text — the entry then behaves
+      exactly like an ability summary, flagging for re-review the moment the mechanic moves;
+    * where it does not, the digest is over the **normalised keyword stem itself**. That stem is
+      a pure function of the key, identical on every run forever, so such an entry **never
+      auto-flags for re-review**.
+
+    The compensating controls are elsewhere and are deliberate: ``GLS-ORPHANED`` catches
+    definitions that have fallen out of use, and the digest-less subset is enumerated in
+    ``summary-coverage.md`` (see :func:`digestless_keyword_keys`) so a reviewer can sweep it by
+    hand before the glossary gate is switched on for the first time. Digesting the *usage set*
+    instead would churn on every unrelated datasheet edit; digesting nothing would hide the gap.
+    """
+    texts = mechanic_texts or {}
+    return compute_digests(
+        {
+            glossary_key(keyword_key): texts.get(keyword_key, keyword_key)
+            for keyword_key in keyword_keys
+        },
+        key=key,
+    )
+
+
+def digestless_keyword_keys(
+    keyword_keys: Iterable[str], *, mechanic_texts: Mapping[str, str] | None = None
+) -> tuple[str, ...]:
+    """The keywords whose digest is over the stem rather than over published text (§5.1).
+
+    Enumerable **without the digest key**, because it is a question about which keywords the
+    source describes and not about any digest value — which is what lets the coverage report name
+    the subset for the manual sweep contract §7 item 4 requires.
+    """
+    texts = mechanic_texts or {}
+    return tuple(sorted(key for key in set(keyword_keys) if key not in texts))
 
 
 def compute_current_digests(detail: Mapping[str, CsvReadResult], *, key: bytes) -> dict[str, str]:

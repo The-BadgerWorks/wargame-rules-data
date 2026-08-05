@@ -6,6 +6,8 @@
 # AI-Assisted: Claude Code (model: claude-opus-5) - Added the detachment-rule denominator (004
 # task T054): every published detachment rule, read off the SOURCE-derived
 # CuratedDetachment.rules rather than off the curator's own file.
+# AI-Assisted: Claude Code (model: claude-opus-5) - Added the glossary denominator, its
+# faction/chapter exclusion, and the GLS-ORPHANED advisory (004 task T061, contract §4.1/§5.1).
 """V7, generalised — every authored summary class, one gate mechanism.
 
 **A gate selects a code. It never selects a severity.** That single sentence is why this module
@@ -47,10 +49,21 @@ from collections.abc import Mapping, Sequence
 from dataclasses import dataclass, field
 
 from pipeline.config import Gate, PipelineConfig
-from pipeline.curate.summaries import AuthoredSummary, SummaryStatus, summary_statuses
-from pipeline.models.authored import DetachmentRuleSummary, FactionRuleFile, SummaryClass
-from pipeline.models.curated import ArmyRuleState, CuratedSnapshot
+from pipeline.curate.summaries import (
+    AuthoredSummary,
+    SummaryStatus,
+    glossary_key,
+    summary_statuses,
+)
+from pipeline.models.authored import (
+    DetachmentRuleSummary,
+    FactionRuleFile,
+    GlossaryEntry,
+    SummaryClass,
+)
+from pipeline.models.curated import ArmyRuleState, CuratedSnapshot, KeywordClass
 from pipeline.models.findings import CoverageFigure, Finding
+from pipeline.normalize.keyword_key import keyword_key
 from pipeline.report.catalogue import build_finding
 
 #: The blocking code a gated-on class emits for each reason an entry lacks an approved summary.
@@ -335,6 +348,96 @@ def detachment_rule_summaries(
     """
     records = authored if authored is not None else snapshot.detachment_rules
     return dict(records)
+
+
+def used_keyword_keys(snapshot: CuratedSnapshot) -> tuple[str, ...]:
+    """Every distinct ``keyword_key`` a published datasheet or weapon uses, **excluding**
+    faction and chapter keywords (§4.1, FR-023).
+
+    The exclusion is the interesting half. A faction or chapter keyword is a *label for who the
+    unit belongs to*, not a mechanic anyone could define, so counting it would make the glossary's
+    denominator permanently unreachable and its coverage figure meaningless — which is why the
+    keyword classification of US2 and this class ship in the same feature. Excluded means
+    **excluded, not counted as missing work**: an unclassified keyword is still counted, because
+    "nobody has classified this yet" is not evidence that it needs no definition.
+
+    Weapon ability keywords are counted in full. They are mechanics by construction — a weapon
+    ability is never a faction label — so there is nothing to exclude among them.
+    """
+    keys: set[str] = set()
+    for datasheet in snapshot.datasheets:
+        for keyword in datasheet.keywords:
+            if keyword.keyword_class in (KeywordClass.FACTION, KeywordClass.CHAPTER):
+                continue
+            if resolved := keyword_key(keyword.keyword):
+                keys.add(resolved)
+        for weapon in datasheet.weapons:
+            for ability in weapon.ability_keywords:
+                if resolved := keyword_key(ability):
+                    keys.add(resolved)
+    return tuple(sorted(keys))
+
+
+def glossary_keys(snapshot: CuratedSnapshot) -> tuple[str, ...]:
+    """§4.1's glossary denominator, in the class's own ``summary_key`` vocabulary.
+
+    One entry serves a keyword and **every casing, spacing, punctuation and numeric-parameter
+    variant of it**, because the variants have already collapsed to one ``keyword_key`` before
+    they reach here (FR-023). That is why the denominator counts keys and not usages.
+    """
+    return tuple(glossary_key(key) for key in used_keyword_keys(snapshot))
+
+
+def glossary_summaries(
+    snapshot: CuratedSnapshot, authored: Mapping[str, GlossaryEntry] | None = None
+) -> dict[str, AuthoredSummary]:
+    """Every authored glossary entry, re-keyed by ``summary_key``.
+
+    The authored tree indexes the glossary by ``keyword_key`` because that is its primary key;
+    the gate machinery indexes every class by its ``summary_key`` so that one code path serves
+    four classes. This is the one line where the two meet.
+    """
+    entries = authored if authored is not None else snapshot.keyword_glossary
+    return {glossary_key(keyword): entry for keyword, entry in entries.items()}
+
+
+def check_glossary_orphans(
+    snapshot: CuratedSnapshot, authored: Mapping[str, GlossaryEntry] | None = None
+) -> list[Finding]:
+    """``GLS-ORPHANED`` — a definition no published datasheet or weapon uses (§3.1, FR-023).
+
+    Advisory, and deliberately so: a keyword that has left the edition is not a defect in the
+    candidate, it is editorial debt. But it is debt that accumulates silently — nothing else in
+    the pipeline would ever mention an entry nobody looks up — so the glossary would quietly fill
+    with definitions for keywords that no longer exist. This is also one of the two compensating
+    controls for the digest limitation of §5.1, since a stem-digested entry can never flag for
+    re-review on its own.
+
+    The comparison is against the **unfiltered** keyword vocabulary, not the coverage
+    denominator: an entry a curator wrote for a keyword that turned out to be a faction keyword
+    is defined-but-excluded, which is a different thing from unused, and calling it an orphan
+    would send a curator to delete a correct entry.
+    """
+    entries = authored if authored is not None else snapshot.keyword_glossary
+    in_use = {
+        resolved
+        for datasheet in snapshot.datasheets
+        for source in (
+            (keyword.keyword for keyword in datasheet.keywords),
+            (ability for weapon in datasheet.weapons for ability in weapon.ability_keywords),
+        )
+        for value in source
+        if (resolved := keyword_key(value))
+    }
+    return [
+        build_finding(
+            "GLS-ORPHANED",
+            entity_refs=[glossary_key(keyword)],
+            detail={"summary_key": glossary_key(keyword), "keyword_key": keyword},
+        )
+        for keyword in sorted(entries)
+        if keyword not in in_use
+    ]
 
 
 def summary_coverage_figures(

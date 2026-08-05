@@ -65,6 +65,9 @@ CONSUMER_ARRAYS = (
     # 004 task T055, contract §2.6. A detachment may own more than one rule, so the RULE is
     # the key; the name is always carried and the summary appears only once approved.
     "detachmentRules",
+    # 004 task T062, contract §2.7. An entry exists ONLY when authored and approved: an
+    # unauthored keyword has no row and still appears on its datasheets unchanged.
+    "keywordGlossary",
 )
 
 

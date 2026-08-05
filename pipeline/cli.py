@@ -67,7 +67,11 @@ from pipeline.config import Channel, ConfigError, PipelineConfig, load_config, r
 from pipeline.curate.assemble import assemble
 from pipeline.curate.authored import AuthoredContent, load_authored
 from pipeline.curate.prior import PriorSnapshot, load_prior, read_curated_tree
-from pipeline.curate.summaries import compute_current_digests
+from pipeline.curate.summaries import (
+    compute_current_digests,
+    digestless_keyword_keys,
+    glossary_current_digests,
+)
 from pipeline.curate.writer import write_tree
 from pipeline.detect.digest import DIGEST_STATE_RELATIVE_PATH
 from pipeline.detect.digest import compare as compare_digests
@@ -133,6 +137,7 @@ from pipeline.validate.coverage import CoverageOutcome, check_coverage
 from pipeline.validate.gates import (
     ClassCheck,
     ClassCoverage,
+    check_glossary_orphans,
     check_summary_gates,
     check_summary_ratchet,
     class_coverage,
@@ -141,10 +146,13 @@ from pipeline.validate.gates import (
     faction_rule_keys,
     faction_rule_summaries,
     gate_for,
+    glossary_keys,
+    glossary_summaries,
     max_chars_for,
     summary_coverage_figures,
     tolerance_for,
     used_ability_keys,
+    used_keyword_keys,
 )
 from pipeline.validate.ip_scan import scan_bundle
 from pipeline.validate.refs import check_authored_references
@@ -328,14 +336,10 @@ def _verdict(findings: Sequence[Finding], coverage: CoverageOutcome | None = Non
     return ExitCode.ADVISORY_ONLY if findings else ExitCode.SUCCESS
 
 
-#: The summary classes wired into a run so far. `glossary` joins it with its own phase; a class
-#: absent here simply contributes no findings and no coverage row, which is the correct behaviour
-#: for a class whose curation tree does not exist yet.
-WIRED_SUMMARY_CLASSES: Final[tuple[SummaryClass, ...]] = (
-    SummaryClass.ABILITIES,
-    SummaryClass.FACTION_RULES,
-    SummaryClass.DETACHMENT_RULES,
-)
+#: Every authored summary class is now wired into a run. A class with no curation tree yet simply
+#: contributes an empty numerator against its own denominator and an advisory backlog, which is
+#: the correct state for a campaign that has not started rather than a special case in the code.
+WIRED_SUMMARY_CLASSES: Final[tuple[SummaryClass, ...]] = tuple(SummaryClass)
 
 
 def _summary_class_checks(
@@ -344,18 +348,21 @@ def _summary_class_checks(
     config: PipelineConfig,
     authored: AuthoredContent,
     ability_current_digests: Mapping[str, str] | None,
+    digest_key: bytes | None = None,
 ) -> list[ClassCheck]:
     """One :class:`ClassCheck` per wired class, each carrying only its own class's state.
 
-    `authored` rather than the snapshot supplies the records for both classes, deliberately: a
+    `authored` rather than the snapshot supplies the records for every class, deliberately: a
     snapshot reconstructed from `data/` alone — a bare `validate` re-run — never carries authored
     content, because authored content is never written to the curated tree (FR-017). Reading it
     from one place is what stops `build` and `validate` disagreeing about a faction's coverage.
 
-    Faction rules pass `current_digests=None` for now: the digest join for that class arrives
-    with its own source in Phase 9, and passing `None` means an approved summary is trusted as-is
-    rather than flipped without evidence — exactly what a run with no source text already does
-    for abilities.
+    Faction and detachment rules pass `current_digests=None` for now: the digest join for those
+    classes arrives with its own source in Phase 9, and passing `None` means an approved summary
+    is trusted as-is rather than flipped without evidence — exactly what a run with no source
+    text already does for abilities. The glossary is the exception, and not because it has a
+    source: it has none at all, so **every** entry is stem-digested under contract §5.1 and
+    `digest_key` is all it needs.
     """
     return [
         ClassCheck(
@@ -384,6 +391,24 @@ def _summary_class_checks(
             current_digests=None,
             gate=gate_for(SummaryClass.DETACHMENT_RULES, config),
             max_chars=max_chars_for(SummaryClass.DETACHMENT_RULES, config),
+        ),
+        ClassCheck(
+            summary_class=SummaryClass.GLOSSARY,
+            keys=glossary_keys(snapshot),
+            authored=glossary_summaries(snapshot, authored.glossary_entries),
+            # Every keyword in use is stem-digested this run, because no keyword glossary source
+            # exists to describe any of them yet (contract §5.1). That is stable by construction,
+            # so an approved entry whose curator stored the same stem digest carries forward
+            # forever and NEVER auto-flags — the limitation is real, is recorded, and its
+            # compensating controls are `GLS-ORPHANED` and the manual sweep of the digest-less
+            # subset that `summary-coverage.md` enumerates.
+            current_digests=(
+                glossary_current_digests(used_keyword_keys(snapshot), key=digest_key)
+                if digest_key is not None
+                else None
+            ),
+            gate=gate_for(SummaryClass.GLOSSARY, config),
+            max_chars=max_chars_for(SummaryClass.GLOSSARY, config),
         ),
     ]
 
@@ -437,6 +462,7 @@ def _reconcile_against_prior(
     config: PipelineConfig,
     authored: AuthoredContent,
     ability_current_digests: Mapping[str, str] | None,
+    digest_key: bytes | None,
 ) -> tuple[CuratedSnapshot, list[Finding], CoverageOutcome, dict[str, str]]:
     """Everything US2 adds that needs a baseline, in one place.
 
@@ -470,11 +496,18 @@ def _reconcile_against_prior(
         config=config,
         authored=authored,
         ability_current_digests=ability_current_digests,
+        digest_key=digest_key,
     )
     summary_findings, coverages, summary_figures = _summary_findings_and_coverage(
         checks, prior=prior, config=config
     )
     findings.extend(summary_findings)
+    # Advisory, and it belongs beside the gate findings rather than inside them: an orphan is
+    # a definition nobody looks up, which is editorial debt rather than a defect in this
+    # candidate. It is also one of the two compensating controls for the glossary's digest
+    # limitation, since a stem-digested entry can never flag for re-review on its own
+    # (contract §3.1, §5.1).
+    findings.extend(check_glossary_orphans(snapshot, authored.glossary_entries))
     coverage.figures.update(summary_figures)
 
     sub_reports = {
@@ -486,6 +519,10 @@ def _reconcile_against_prior(
             authored_summaries=authored.ability_summaries,
             current_digests=ability_current_digests,
             class_coverages=coverages,
+            # Every keyword in use, because no keyword glossary source exists at all yet: the
+            # whole vocabulary is stem-digested and the whole vocabulary therefore needs the
+            # manual sweep (contract §5.1, §7 item 4).
+            digestless_keywords=digestless_keyword_keys(used_keyword_keys(snapshot)),
         ),
     }
     return snapshot, findings, coverage, sub_reports
@@ -583,11 +620,13 @@ def run_build(  # noqa: PLR0913 - the stage boundary is the argument list
         # an `approved` summary is trusted as-is for this run, exactly as a bare `validate`
         # re-run (which never has source text either) already must (FR-020, FR-024, C6/R8).
         try:
-            digest_key = resolve_digest_key(config)
+            resolved_digest_key: bytes | None = resolve_digest_key(config)
         except DigestKeyMissingError:
+            resolved_digest_key = None
             ability_current_digests: Mapping[str, str] | None = None
         else:
-            ability_current_digests = compute_current_digests(detail, key=digest_key)
+            assert resolved_digest_key is not None
+            ability_current_digests = compute_current_digests(detail, key=resolved_digest_key)
 
     # Always the **published** manifest, whichever channel this run targets: FR-009 measures a
     # candidate against the last version players actually have, and measuring a pre-release
@@ -603,6 +642,7 @@ def run_build(  # noqa: PLR0913 - the stage boundary is the argument list
         config=config,
         authored=authored,
         ability_current_digests=ability_current_digests,
+        digest_key=resolved_digest_key,
     )
     findings.extend(prior_findings)
 
@@ -761,6 +801,12 @@ def run_validate(
         checks, prior=prior, config=config
     )
     findings.extend(summary_findings)
+    # Advisory, and it belongs beside the gate findings rather than inside them: an orphan is
+    # a definition nobody looks up, which is editorial debt rather than a defect in this
+    # candidate. It is also one of the two compensating controls for the glossary's digest
+    # limitation, since a stem-digested entry can never flag for re-review on its own
+    # (contract §3.1, §5.1).
+    findings.extend(check_glossary_orphans(snapshot, authored.glossary_entries))
     coverage.figures.update(summary_figures)
 
     summary = compute_change_summary(prior, snapshot)

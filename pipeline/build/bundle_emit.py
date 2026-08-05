@@ -11,6 +11,9 @@
 # `factions.armyRuleState` column (004 task T048, contract §2.5 and §3).
 # AI-Assisted: Claude Code (model: claude-opus-5) - Emitted `detachmentRules` (004 task T055,
 # contract §2.6): the name always carried from the source, the summary only once approved.
+# AI-Assisted: Claude Code (model: claude-opus-5) - Emitted `keywordGlossary` (004 task T062,
+# contract §2.7): an entry exists only when authored and approved, and carries none of the
+# authoring state a consumer has no business reading.
 """Turn the curated tree into the published bundle. A pure function, and nothing else.
 
 No network, no source re-acquisition, no input the tree does not already contain, and no clock:
@@ -714,6 +717,36 @@ def _emit_detachment_rules(snapshot: CuratedSnapshot) -> list[dict[str, JsonValu
     return _rows(rows, "id")
 
 
+def _emit_keyword_glossary(snapshot: CuratedSnapshot) -> list[dict[str, JsonValue]]:
+    """`keywordGlossary`, sorted by `keywordKey` (contract §2.7).
+
+    **An entry exists here only when authored and approved.** That is the opposite asymmetry from
+    the two rule arrays, and it is right for the same reason theirs is: a rule has a *name* the
+    source publishes, so it can ship half-stated, while a keyword has nothing to ship but the
+    definition itself. An unauthored keyword therefore simply has **no row** — it still appears
+    on its datasheets and weapons exactly as it does today, blocks nothing while the gate is off,
+    and is named in the coverage report (FR-023).
+
+    Every field of the authoring regime — the review state, the digest, the reviewer — stops at
+    this boundary. A consumer has no business reading whether a definition is still in review.
+    """
+    return _rows(
+        [
+            {
+                "keywordKey": entry.keyword_key,
+                "displayKeyword": entry.display_keyword,
+                # Required, so it survives `omit_absent`: a consumer must never read "absent"
+                # as "false".
+                "hasNumericParameter": entry.has_numeric_parameter,
+                "summary": entry.summary,
+            }
+            for entry in snapshot.keyword_glossary.values()
+            if entry.review_state is ReviewState.APPROVED and entry.summary.strip()
+        ],
+        "keywordKey",
+    )
+
+
 def _emit_chapter_keywords(snapshot: CuratedSnapshot) -> list[dict[str, JsonValue]]:
     """`chapterKeywords`, sorted by `keyword` (contract §2.4).
 
@@ -800,6 +833,7 @@ def emit_bundle(snapshot: CuratedSnapshot, meta: BundleMeta) -> dict[str, Any]:
         "chapterKeywords": _emit_chapter_keywords(snapshot),
         "factionRules": _emit_faction_rules(snapshot),
         "detachmentRules": _emit_detachment_rules(snapshot),
+        "keywordGlossary": _emit_keyword_glossary(snapshot),
         **datasheet_arrays,
         # Always present, always empty: no upstream join exists, so the contract's default
         # applies (absence = legal in any detachment of its faction). Fabricating rows would be

@@ -40,6 +40,25 @@ A rule the source publishes with **no record in either file** is the fifth case 
 has no fixture line, because it is expressed by absence: it still ships with its name, counts as
 outstanding, and is named in the coverage report (FR-022).
 
+## `glossary.json` (US5, task T058)
+
+One file, a bare array, keyed by the **normalised** `keyword_key` of
+`contracts/bundle-schema-delta.md` §4. Sixty to a hundred records diff well in one file and a
+glossary has no natural faction partition.
+
+| Entry | State | Why it is here |
+|---|---|---|
+| `sustained hits` | `approved` | The **numeric-parameter** case. `SUSTAINED HITS 1` and `Sustained Hits 2` both normalise to this one key, which is the difference between a glossary of ~80 entries and one that grows a row per parameter value |
+| `lethal hits` | `approved` | The **casing / spacing / punctuation** case: `LETHAL HITS`, `Lethal-Hits` and `lethal  hits` all resolve here |
+| `twin linked` | `draft` | Defined **only on weapon profiles**, and not signed off — so it proves both that weapon ability keywords reach the denominator and that an unapproved entry reaches no bundle |
+| `tidewalk` | `approved` | Used by datasheets in **more than one faction**, resolving to this single entry — the FR-023 "one definition serves every use" case |
+| `fenlight` | `approved` | The **digest-less** case: nothing upstream describes it, so its digest is over the normalised stem and it can never auto-flag for re-review (contract §5.1) |
+| `void shrouded` | `approved` | The **orphan**: a correct, approved definition for a keyword no datasheet or weapon uses. Raises the advisory `GLS-ORPHANED` rather than being deleted silently |
+
+An **unauthored** keyword is the seventh case and deliberately has no line: it simply has no
+entry, still appears on its datasheets and weapons unchanged, blocks nothing while the gate is
+off, and is named in the coverage report (FR-023).
+
 The digests are invented 32-hex strings. That is enough: what the machinery asserts is that a
 stored digest **equalling** a freshly computed one carries the approval forward and a stored
 digest **differing** from it flags exactly that summary — a property of the comparison, not of
