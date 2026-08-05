@@ -50,14 +50,16 @@ def test_unchanged_coverage_reports_nothing_and_still_states_the_figures() -> No
     assert not outcome.collapsed
     assert outcome.figures["factions"].ratio == 1.0
     assert outcome.figures["datasheets"].previous == 12
-    # `composition` and `wargear_options` joined the set with 004-rules-data-enrichment
-    # (004 FR-038): the same refusal, extended to the two classes that feature added.
+    # `composition`, `wargear_options` and `keyword_classification` joined the set with
+    # 004-rules-data-enrichment (004 FR-038): the same refusal, extended to the three classes
+    # that feature added.
     assert set(outcome.figures) == {
         "factions",
         "datasheets",
         "priced_datasheets",
         "composition",
         "wargear_options",
+        "keyword_classification",
     }
 
 

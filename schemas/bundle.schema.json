@@ -28,7 +28,8 @@
     "datasheetDetachmentEligibility",
     "datasheetCompositions",
     "datasheetOptionGroups",
-    "datasheetOptionChoices"
+    "datasheetOptionChoices",
+    "chapterKeywords"
   ],
   "properties": {
     "bundleFormatVersion": {
@@ -268,7 +269,30 @@
           "datasheetId": { "type": "string", "minLength": 1 },
           "keyword": { "type": "string", "minLength": 1, "maxLength": 64 },
           "isFactionKeyword": { "type": "boolean" },
-          "modelScope": { "type": "string", "minLength": 1 }
+          "modelScope": { "type": "string", "minLength": 1 },
+          "keywordClass": {
+            "enum": ["faction", "chapter", "unit"],
+            "description": "004 additive column. OMITTED = unclassified, which is not a defect and blocks nothing: an unclassified keyword's row is byte-identical to what it is today and KWD-UNCLASSIFIED (advisory) names it in the report (004 FR-020)."
+          }
+        }
+      }
+    },
+    "chapterKeywords": {
+      "type": "array",
+      "description": "Sorted by keyword. The enumerable chapter (sub-faction) vocabulary, from 004-rules-data-enrichment. Keyed by keyword ALONE because 004 FR-019 guarantees one parent per chapter keyword, which is what keeps 'resolve a chapter -> its datasheets' a plain join against datasheetKeywords.keyword. A chapter the points source already models as a faction of its own STILL appears here, flagged (004 FR-018), so consumers have one mechanism for every chapter grouping.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["keyword", "parentFactionId", "isModelledAsFaction"],
+        "properties": {
+          "keyword": { "type": "string", "minLength": 1, "maxLength": 64 },
+          "parentFactionId": { "type": "string", "minLength": 1 },
+          "chapterFactionId": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Present when the points source models this chapter as a faction of its own. That faction's own parentFactionId MUST equal this row's; a contradiction is the blocking KWD-CHAPTER-PARENT-CONFLICT."
+          },
+          "isModelledAsFaction": { "type": "boolean" }
         }
       }
     },

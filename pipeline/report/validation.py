@@ -12,6 +12,8 @@
 # figures (004 task T033, data-model.md §5): composition and wargear-option resolution as a
 # proportion of published datasheets, plus the unparsed-row and unlinked-choice tails, each
 # stated as a count AND a proportion.
+# AI-Assisted: Claude Code (model: claude-opus-5) - Added the `keyword_classification` figure
+# (004 task T041, SC-005), the one figure here carrying its own denominator.
 """`reports/<rulesVersionId>/report.json` and `report.md`.
 
 Every run produces this, whether or not it publishes (FR-031), and the report of a run that
@@ -105,6 +107,19 @@ def scale_figures(snapshot: CuratedSnapshot, findings: Sequence[Finding]) -> dic
     unparsed_option_rows = sum(1 for f in findings if f.finding_code == "OPT-UNPARSED")
     unlinked_choices = sum(1 for f in findings if f.finding_code == "OPT-LINK-AMBIGUOUS")
 
+    # `keyword_classification` is the one figure here whose denominator is **not** the datasheet
+    # count: SC-005 asks what proportion of the *keywords in use* carry a class, and dividing a
+    # keyword count by a datasheet count would produce a number that means nothing and moves
+    # whenever either changes. Stated with its own denominator rather than approximated with the
+    # shared one (data-model.md §5).
+    keywords_in_use = {keyword.keyword for d in snapshot.datasheets for keyword in d.keywords}
+    classified = {
+        keyword.keyword
+        for d in snapshot.datasheets
+        for keyword in d.keywords
+        if keyword.keyword_class is not None
+    }
+
     return {
         "unverified_pricing": figure(unverified),
         "hybrid_edition": figure(hybrid),
@@ -117,6 +132,12 @@ def scale_figures(snapshot: CuratedSnapshot, findings: Sequence[Finding]) -> dic
         # visible where a standing figure would not be.
         "unparsed_option_rows": figure(unparsed_option_rows),
         "unlinked_choices": figure(unlinked_choices),
+        "keyword_classification": ScaleFigure(
+            count=len(classified),
+            proportion=(
+                round(len(classified) / len(keywords_in_use), 4) if keywords_in_use else 0.0
+            ),
+        ),
     }
 
 

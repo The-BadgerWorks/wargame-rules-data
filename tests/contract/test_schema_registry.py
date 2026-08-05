@@ -83,6 +83,9 @@ EMPTY_BUNDLE: dict[str, Any] = {
     "datasheetCompositions": [],
     "datasheetOptionGroups": [],
     "datasheetOptionChoices": [],
+    # 004 task T040. `chapterKeywords` is always present and empty until a curator classifies
+    # something, exactly like every other array here.
+    "chapterKeywords": [],
 }
 
 

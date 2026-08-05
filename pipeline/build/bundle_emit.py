@@ -5,6 +5,8 @@
 # AI-Assisted: Claude Code (model: claude-opus-5) - Emitted 004-rules-data-enrichment's first
 # three additive arrays and the wargearOptionState column (004 task T032), per
 # contracts/bundle-schema-delta.md §2.1-§2.3 and §3.
+# AI-Assisted: Claude Code (model: claude-opus-5) - Emitted `chapterKeywords` and the
+# `datasheetKeywords.keywordClass` column (004 task T040, contract §2.4 and §3).
 """Turn the curated tree into the published bundle. A pure function, and nothing else.
 
 No network, no source re-acquisition, no input the tree does not already contain, and no clock:
@@ -40,6 +42,7 @@ from typing import Any, Final
 
 from pipeline.build.canonical_json import JsonValue, dumps_bundle, omit_absent
 from pipeline.models.curated import (
+    CuratedChapterKeyword,
     CuratedCompositionEntry,
     CuratedDatasheet,
     CuratedDatasheetCost,
@@ -108,12 +111,12 @@ FIELD_MAPPING: Final[Mapping[type, tuple[set[str], set[str]]]] = {
         },
         set(),
     ),
-    # 004-rules-data-enrichment: `army_rule_state` and `keyword_class` are still listed as
-    # **dropped** here on purpose. They are emitted by 004 T040/T048, which move each one into
-    # the mapped set beside its emitter. Listing them as dropped in the meantime is the honest
-    # state — they genuinely do not reach the bundle yet — and it is what this partition exists
-    # to force: a field nobody has decided about stops the build. The datasheet's four
-    # composition and option fields moved across in T032, below.
+    # 004-rules-data-enrichment: `army_rule_state` is still listed as **dropped** here on
+    # purpose. It is emitted by 004 T048, which moves it into the mapped set beside its emitter.
+    # Listing it as dropped in the meantime is the honest state — it genuinely does not reach the
+    # bundle yet — and it is what this partition exists to force: a field nobody has decided
+    # about stops the build. The datasheet's four composition and option fields moved across in
+    # T032, and `CuratedKeyword.keyword_class` in T040, both below.
     CuratedFaction: (
         {"faction_id", "edition_id", "code", "name", "parent_faction_id"},
         {"mfm_slug", "detail_source_faction_id", "provenance", "army_rule_state"},
@@ -240,7 +243,11 @@ FIELD_MAPPING: Final[Mapping[type, tuple[set[str], set[str]]]] = {
         },
         set(),
     ),
-    CuratedKeyword: ({"keyword", "is_faction_keyword", "model_scope"}, {"keyword_class"}),
+    CuratedKeyword: ({"keyword", "is_faction_keyword", "model_scope", "keyword_class"}, set()),
+    CuratedChapterKeyword: (
+        {"keyword", "parent_faction_id", "chapter_faction_id", "is_modelled_as_faction"},
+        set(),
+    ),
     CuratedWargearOption: (
         {"id", "group_key", "name", "points_delta", "max_per_unit", "models_per_instance"},
         set(),
@@ -528,6 +535,12 @@ def _emit_datasheets(snapshot: CuratedSnapshot) -> dict[str, list[dict[str, Json
                     "keyword": keyword.keyword,
                     "isFactionKeyword": keyword.is_faction_keyword,
                     "modelScope": keyword.model_scope,
+                    # Omitted = unclassified (contract §3). An unclassified keyword's row is
+                    # therefore byte-identical to what it was before classification existed,
+                    # which is the whole of FR-020's guarantee.
+                    "keywordClass": (
+                        keyword.keyword_class.value if keyword.keyword_class is not None else None
+                    ),
                 }
             )
             for keyword in datasheet.keywords
@@ -618,6 +631,35 @@ def _emit_datasheets(snapshot: CuratedSnapshot) -> dict[str, list[dict[str, Json
     }
 
 
+def _emit_chapter_keywords(snapshot: CuratedSnapshot) -> list[dict[str, JsonValue]]:
+    """`chapterKeywords`, sorted by `keyword` (contract §2.4).
+
+    Keyed by `keyword` alone: FR-019 guarantees one parent per chapter keyword, so resolving a
+    chapter to its datasheets stays a plain join against `datasheetKeywords.keyword` with no
+    composite lookup — the navigational capability US2 exists to unlock.
+
+    A chapter the points source already models as a faction of its own **still appears here**,
+    flagged (FR-018). One mechanism for every chapter grouping; the flag plus the blocking
+    parent-agreement check are what stop the two representations double counting.
+    """
+    return _rows(
+        [
+            omit_absent(
+                {
+                    "keyword": chapter.keyword,
+                    "parentFactionId": chapter.parent_faction_id,
+                    "chapterFactionId": chapter.chapter_faction_id,
+                    # Required, so it survives `omit_absent`'s None-only rule: a consumer must
+                    # never have to read "absent" as "false".
+                    "isModelledAsFaction": chapter.is_modelled_as_faction,
+                }
+            )
+            for chapter in snapshot.chapter_keywords
+        ],
+        "keyword",
+    )
+
+
 def _emit_abilities(snapshot: CuratedSnapshot) -> list[dict[str, JsonValue]]:
     """Expand each datasheet's `ability_keys` against the authored summaries.
 
@@ -672,6 +714,7 @@ def emit_bundle(snapshot: CuratedSnapshot, meta: BundleMeta) -> dict[str, Any]:
         "enhancements": enhancements,
         "enhancementEligibility": eligibility,
         "datasheetAbilities": _emit_abilities(snapshot),
+        "chapterKeywords": _emit_chapter_keywords(snapshot),
         **datasheet_arrays,
         # Always present, always empty: no upstream join exists, so the contract's default
         # applies (absence = legal in any detachment of its faction). Fabricating rows would be

@@ -5,6 +5,9 @@
 # AI-Assisted: Claude Code (model: claude-opus-5) - Wrote 004-rules-data-enrichment's composition,
 # option groups and choices, and wargear_option_state into the datasheet file (004 task T031), so
 # the curated tree carries them and `curate/prior.py` can read them back as a baseline.
+# AI-Assisted: Claude Code (model: claude-opus-5) - Wrote chapter-keywords.json, the per-binding
+# keyword_class, and faction.army_rule_state (004 tasks T039/T047), for the same reason: the tree
+# is the baseline a bare `validate` re-run and the coverage ratchet both read back.
 """Write the curated tree — the artifact a human reviews.
 
 The layout exists for **diff quality**, which FR-016 and FR-037 make a requirement rather than
@@ -31,6 +34,7 @@ from pathlib import Path
 from pipeline.build.canonical_json import JsonValue, omit_absent, write_tree_file
 from pipeline.curate.authored import assert_not_authored
 from pipeline.models.curated import (
+    CuratedChapterKeyword,
     CuratedDatasheet,
     CuratedDatasheetCost,
     CuratedDetachment,
@@ -106,9 +110,26 @@ def _faction(faction: CuratedFaction) -> dict[str, JsonValue]:
             "code": faction.code,
             "name": faction.name,
             "parent_faction_id": faction.parent_faction_id,
+            # Omitted = not yet curated, which is a different fact from a curated "none"
+            # (004 FR-021). The tree is where that distinction has to survive a rebuild.
+            "army_rule_state": (
+                faction.army_rule_state.value if faction.army_rule_state is not None else None
+            ),
             "mfm_slug": faction.mfm_slug,
             "detail_source_faction_id": faction.detail_source_faction_id,
             "provenance": _provenance(faction.provenance),
+        }
+    )
+
+
+def _chapter_keyword(chapter: CuratedChapterKeyword) -> dict[str, JsonValue]:
+    """One row of ``data/<edition>/chapter-keywords.json`` (004 data-model.md §1.5)."""
+    return omit_absent(
+        {
+            "keyword": chapter.keyword,
+            "parent_faction_id": chapter.parent_faction_id,
+            "chapter_faction_id": chapter.chapter_faction_id,
+            "is_modelled_as_faction": chapter.is_modelled_as_faction,
         }
     )
 
@@ -205,6 +226,13 @@ def _datasheet(datasheet: CuratedDatasheet) -> dict[str, JsonValue]:
                         "keyword": k.keyword,
                         "is_faction_keyword": k.is_faction_keyword,
                         "model_scope": k.model_scope,
+                        # Omitted when unclassified, so an unclassified keyword's line in the
+                        # tree is byte-identical to what it was before 004 (004 FR-020) — which
+                        # is what keeps the diff of a release that changes no classification
+                        # free of classification noise.
+                        "keyword_class": (
+                            k.keyword_class.value if k.keyword_class is not None else None
+                        ),
                     }
                 )
                 for k in sorted(datasheet.keywords, key=lambda k: (k.keyword, k.model_scope or ""))
@@ -369,6 +397,16 @@ def write_tree(snapshot: CuratedSnapshot, *, data_dir: Path, curation_dir: Path)
     _write(
         data_dir / "factions.json",
         [_faction(f) for f in sorted(snapshot.factions, key=lambda f: f.faction_id)],
+    )
+
+    # 004-rules-data-enrichment. Snapshot-level rather than per-faction, exactly as the curated
+    # model is: a chapter keyword is resolved *by keyword*, not by the faction it happens to hang
+    # off, and filing it under a faction would reintroduce the composite lookup FR-019's
+    # one-parent guarantee exists to avoid. Written even when empty, so a release that classifies
+    # nothing still states that fact rather than leaving the file's absence ambiguous.
+    _write(
+        data_dir / "chapter-keywords.json",
+        [_chapter_keyword(c) for c in sorted(snapshot.chapter_keywords, key=lambda c: c.keyword)],
     )
 
     by_detachment, by_enhancement, by_datasheet = _group_by_faction(snapshot)

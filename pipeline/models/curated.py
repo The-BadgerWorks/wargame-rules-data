@@ -33,7 +33,7 @@ from typing import Final, Self
 from pydantic import BaseModel, ConfigDict, Field, model_validator
 
 from pipeline.build.canonical_json import JsonValue
-from pipeline.models.authored import AbilitySummary
+from pipeline.models.authored import AbilitySummary, FactionRuleFile
 from pipeline.models.mechanical import assert_mechanical_fields
 from pipeline.models.provenance import EntityProvenance, PricingConfidence, PricingConfidenceState
 
@@ -535,6 +535,14 @@ class CuratedSnapshot(_Curated):
     )
     ability_summaries: Mapping[str, AbilitySummary] = Field(
         default_factory=dict, description="ability_key -> approved summary (FR-020)"
+    )
+    faction_rules: Mapping[str, FactionRuleFile] = Field(
+        default_factory=dict,
+        description="faction_id -> curation/faction-rules/<faction-id>.json (004 FR-021). "
+        "Authored content travelling with the snapshot exactly as ability_summaries does, and "
+        "for the same reason: the builder expands it into bundle rows at emission time, so it "
+        "is never written into the machine-written tree. A faction ABSENT from this mapping is "
+        "uncurated, which is a different fact from army_rule_state = none.",
     )
 
     @property

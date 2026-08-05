@@ -34,6 +34,8 @@ from pathlib import Path
 from typing import Any
 
 from pipeline.models.curated import (
+    ArmyRuleState,
+    CuratedChapterKeyword,
     CuratedCompositionEntry,
     CuratedDatasheet,
     CuratedDatasheetCost,
@@ -121,6 +123,8 @@ class PriorSnapshot:
     datasheets: Mapping[str, PriorDatasheet] = field(default_factory=dict)
     detachments: Mapping[str, PriorCostBearer] = field(default_factory=dict)
     enhancements: Mapping[str, PriorCostBearer] = field(default_factory=dict)
+    classified_keywords: frozenset[str] = frozenset()
+    """Distinct keywords the previous release published a ``keyword_class`` for (004 FR-038)."""
 
     @property
     def faction_count(self) -> int:
@@ -143,6 +147,11 @@ class PriorSnapshot:
     def option_resolved_datasheet_count(self) -> int:
         """Datasheets whose option set the previous release fully resolved (004 FR-038)."""
         return sum(1 for datasheet in self.datasheets.values() if datasheet.options_resolved)
+
+    @property
+    def classified_keyword_count(self) -> int:
+        """Distinct classified keywords last time — the FR-038 collapse baseline (SC-005)."""
+        return len(self.classified_keywords)
 
 
 # --- reading the tree -------------------------------------------------------------------------
@@ -281,6 +290,9 @@ def read_curated_tree(data_dir: Path) -> CuratedSnapshot | None:
                 code=str(raw["code"]),
                 name=str(raw["name"]),
                 parent_faction_id=raw.get("parent_faction_id"),
+                army_rule_state=(
+                    ArmyRuleState(raw["army_rule_state"]) if raw.get("army_rule_state") else None
+                ),
                 mfm_slug=str(raw.get("mfm_slug", "")),
                 detail_source_faction_id=str(raw.get("detail_source_faction_id", "")),
                 provenance=_provenance(raw.get("provenance"), edition_code=edition.code),
@@ -334,8 +346,16 @@ def read_curated_tree(data_dir: Path) -> CuratedSnapshot | None:
                 _datasheet(_read(path), edition_id=edition.id, edition_code=edition.code)
             )
 
+    chapter_keywords_file = data_dir / "chapter-keywords.json"
+    chapter_keywords = (
+        [CuratedChapterKeyword(**row) for row in _read(chapter_keywords_file)]
+        if chapter_keywords_file.is_file()
+        else []
+    )
+
     return CuratedSnapshot(
         edition=edition,
+        chapter_keywords=chapter_keywords,
         edition_rules=[
             CuratedEditionRule(rule_key=str(rule["rule_key"]), value=rule["value"])
             for rule in edition_doc.get("edition_rules", [])
@@ -388,6 +408,22 @@ def prior_from_snapshot(
             )
             for enhancement in snapshot.enhancements
         },
+        classified_keywords=classified_keywords(snapshot),
+    )
+
+
+def classified_keywords(snapshot: CuratedSnapshot) -> frozenset[str]:
+    """The distinct keywords carrying a class, over every datasheet (004 SC-005).
+
+    Distinct rather than per binding, because the class is a property of the keyword: counting
+    bindings would make the figure move whenever a common keyword gained or lost a datasheet,
+    which is a change in the roster and not in the classification.
+    """
+    return frozenset(
+        keyword.keyword
+        for datasheet in snapshot.datasheets
+        for keyword in datasheet.keywords
+        if keyword.keyword_class is not None
     )
 
 

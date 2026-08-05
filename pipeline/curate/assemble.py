@@ -8,6 +8,9 @@
 # wargear option set (004 task T031): the two grammars, the two curator override files, the
 # three-state wargear_option_state, and the replacement of _wargear_options()'s blanket
 # CON-WARGEAR-COST-MISSING with the OPT-PRICED-UNMATCHED / unlinked-choice pair.
+# AI-Assisted: Claude Code (model: claude-opus-5) - Set CuratedKeyword.keyword_class per binding
+# and carried the chapter vocabulary onto the snapshot (004 task T039), then set
+# CuratedFaction.army_rule_state and carried the authored faction rules (004 task T047).
 """Build one :class:`~pipeline.models.curated.CuratedSnapshot` from everything upstream.
 
 This is where the two sources stop being two sources. The **points** source is authoritative for
@@ -38,6 +41,7 @@ from typing import Final
 
 from pipeline.curate.authored import AuthoredContent
 from pipeline.models.curated import (
+    ArmyRuleState,
     CuratedCompositionEntry,
     CuratedDatasheet,
     CuratedDatasheetCost,
@@ -88,6 +92,11 @@ from pipeline.parse.options_grammar import (
 )
 from pipeline.parse.wahapedia_csv import CsvReadResult
 from pipeline.reconcile.bands import reconcile_bands
+from pipeline.reconcile.chapters import (
+    apply_keyword_classes,
+    classify_keywords,
+    observed_keywords,
+)
 from pipeline.reconcile.composition_bands import reconcile_composition_bands
 from pipeline.reconcile.conflicts import resolve_cost_conflict
 from pipeline.reconcile.identity import EntityKind, IdRegistry, slugify
@@ -637,6 +646,17 @@ def _option_structure(
     )
 
 
+def _army_rule_state(authored: AuthoredContent, faction_id: str) -> ArmyRuleState | None:
+    """``present`` | ``none`` | ``None`` — the third state being the **absence** of a file.
+
+    Three facts, not two (004 FR-021): a faction with no army rule, a faction nobody has curated
+    yet, and a faction with rules. A consumer that cannot tell the first two apart shows the same
+    empty section for both, so the absent file stays absent all the way to the bundle.
+    """
+    state = authored.army_rule_state_for(faction_id)
+    return ArmyRuleState(state) if state is not None else None
+
+
 def assemble(  # noqa: PLR0913 - the stage genuinely needs every upstream input
     *,
     pages: Sequence[MfmPage],
@@ -693,6 +713,11 @@ def assemble(  # noqa: PLR0913 - the stage genuinely needs every upstream input
                 parent_faction_id=scope.entry.parent_faction_id,
                 mfm_slug=scope.entry.mfm_slug,
                 detail_source_faction_id=scope.entry.detail_source_faction_id,
+                # `None` when the faction has no curation file at all — *not yet curated*, which
+                # FR-021 requires be distinguishable from a curated "no army rule". Defaulting
+                # the absent file to `none` here would spend the distinction the object wrapper
+                # in `curation/faction-rules/` exists to buy.
+                army_rule_state=_army_rule_state(authored, scope.faction_id),
                 provenance=provenance,
             )
         )
@@ -788,6 +813,18 @@ def assemble(  # noqa: PLR0913 - the stage genuinely needs every upstream input
 
     datasheets = _attach_leader_pairs(datasheets, detail, detail_to_curated)
 
+    # Classification runs **after** every faction and every datasheet exists, not inside the
+    # loop, for the same reason the detail-only pass does: a keyword's class is a property of the
+    # keyword across the whole snapshot, and the faction tree it is resolved against is not
+    # complete until the last page has been assembled (004 FR-017..FR-020, research D7).
+    classification = classify_keywords(
+        observed=observed_keywords(datasheets),
+        factions=factions,
+        authored=authored.keyword_classes,
+    )
+    findings.extend(classification.findings)
+    datasheets = apply_keyword_classes(datasheets, classification.classes)
+
     snapshot = CuratedSnapshot(
         edition=CuratedEdition(
             id=edition_id, code=edition_code, name=edition_name, display_order=1
@@ -824,7 +861,9 @@ def assemble(  # noqa: PLR0913 - the stage genuinely needs every upstream input
             )
             for restriction in authored.restrictions
         ],
+        chapter_keywords=classification.chapter_keywords,
         ability_summaries=authored.ability_summaries,
+        faction_rules=authored.faction_rule_files,
     )
 
     return AssemblyResult(snapshot=snapshot, findings=findings, datasheet_ids=datasheet_ids)

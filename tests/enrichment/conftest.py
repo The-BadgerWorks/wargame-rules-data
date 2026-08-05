@@ -1,6 +1,10 @@
 # AI-Assisted: Claude Code (model: claude-opus-5) - Fixtures for the 004 enrichment tests (004
 # tasks T019-T026): the two synthetic detail-source exports, read through the ordinary CSV
 # reader so the tests exercise the same path a run does.
+# AI-Assisted: Claude Code (model: claude-opus-5) - Added the keyword-classification fixture
+# access for US2 (004 task T034): the keyword export, the curated faction tree the fixture
+# implies, and the curator's keyword-class records, all in one place because the classification
+# cases are a property of the THREE together and stating them apart makes each one illegible.
 """Shared access to ``fixtures/enrichment/``.
 
 Every row these fixtures carry is invented — invented faction, invented units, invented model
@@ -20,8 +24,15 @@ from pathlib import Path
 
 import pytest
 
-from pipeline.models.curated import CuratedModelLine, CuratedWeaponLine
+from pipeline.models.authored import KeywordClassEntry
+from pipeline.models.curated import (
+    CuratedFaction,
+    CuratedKeyword,
+    CuratedModelLine,
+    CuratedWeaponLine,
+)
 from pipeline.parse.wahapedia_csv import CsvReadResult, read_file
+from tests.factories import faction
 
 ENRICHMENT = Path(__file__).resolve().parents[2] / "fixtures" / "enrichment" / "wahapedia"
 
@@ -91,6 +102,63 @@ def curated_models(datasheet_id: str) -> list[CuratedModelLine]:
             objective_control=1,
         )
         for line, name in sorted(MODEL_LINES[datasheet_id].items())
+    ]
+
+
+#: The curated faction tree ``fixtures/enrichment/wahapedia/Factions.csv`` implies once
+#: ``curation/faction-map.json`` has mapped it. Two parentless factions and one chapter the
+#: points source models as a faction of its own — which is the FR-018 case, and the only reason
+#: `f-sedgeward-conclave` is here is so the parent-agreement check has a *wrong* parent available
+#: to be asserted against (T037).
+CHAPTER_FACTIONS: tuple[CuratedFaction, ...] = (
+    faction("f-glimmerfen-covenant"),
+    faction("f-sedgeward-conclave"),
+    faction("f-bracklight-host", parent="f-glimmerfen-covenant"),
+)
+
+#: What the curator writes in ``curation/keyword-classes.json`` for this fixture: **only the
+#: exceptions**. `GLIMMERFEN COVENANT` needs no record — it resolves to a parentless faction and
+#: defaults to `faction` — and `MIREFEN ENCLAVE` deliberately has none, which is the
+#: unclassified case (`KWD-UNCLASSIFIED`, advisory).
+KEYWORD_CLASS_RECORDS: tuple[KeywordClassEntry, ...] = (
+    KeywordClassEntry(
+        keyword="THORNLIGHT CHORUS",
+        keyword_class="chapter",
+        parent_faction_id="f-glimmerfen-covenant",
+        note="A chapter the points source does not model as a faction of its own.",
+    ),
+    KeywordClassEntry(
+        keyword="BRACKLIGHT HOST",
+        keyword_class="chapter",
+        parent_faction_id="f-glimmerfen-covenant",
+        chapter_faction_id="f-bracklight-host",
+        note="Modelled as a faction as well; enumerated uniformly and flagged (FR-018).",
+    ),
+)
+
+
+@pytest.fixture(scope="session")
+def keyword_rows() -> Mapping[str, list[tuple[str, bool, str | None]]]:
+    """``detail datasheet id -> [(keyword, is_faction_keyword, model_scope)]``."""
+    grouped: dict[str, list[tuple[str, bool, str | None]]] = {}
+    for row in _read("Datasheets_keywords.csv").rows:
+        grouped.setdefault(row.fields["datasheet_id"], []).append(
+            (
+                row.fields["keyword"],
+                row.fields.get("is_faction_keyword", "").strip().casefold() == "true",
+                row.fields.get("model") or None,
+            )
+        )
+    return grouped
+
+
+def curated_keywords(
+    rows: Mapping[str, list[tuple[str, bool, str | None]]], datasheet_id: str
+) -> list[CuratedKeyword]:
+    """The fixture's keyword rows for one datasheet, as the curated records assemble builds."""
+    return [
+        CuratedKeyword(keyword=keyword, is_faction_keyword=is_faction, model_scope=scope)
+        for keyword, is_faction, scope in rows[datasheet_id]
     ]
 
 

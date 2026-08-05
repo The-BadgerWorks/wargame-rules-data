@@ -4,6 +4,8 @@
 # AI-Assisted: Claude Code (model: claude-opus-5) - Extended the refusal to composition and
 # wargear-option coverage (004 task T033, 004 FR-038), so a source that shrinks either one below
 # its configured proportion of the previous release stops the run on the same terms.
+# AI-Assisted: Claude Code (model: claude-opus-5) - Extended it again to keyword classification
+# (004 task T041, WGC_COVERAGE_MIN_KEYWORD_CLASS_RATIO).
 """V10 — did we just publish a fraction of the release without noticing?
 
 This is the check for the failure that looks like success. A partial response, or an error page
@@ -28,7 +30,7 @@ from collections.abc import Mapping
 from dataclasses import dataclass, field
 
 from pipeline.config import PipelineConfig
-from pipeline.curate.prior import PriorSnapshot
+from pipeline.curate.prior import PriorSnapshot, classified_keywords
 from pipeline.exit_codes import ExitCode
 from pipeline.models.curated import CuratedSnapshot, WargearOptionState
 from pipeline.models.findings import CoverageFigure, Finding
@@ -108,6 +110,15 @@ def check_coverage(
             options_resolved,
             prior.option_resolved_datasheet_count,
             config.coverage_min_option_ratio,
+        ),
+        # Keyword classification collapses the same way and is worth its own ratio: the class is
+        # authored per keyword against a *derived* default, so a faction-map change that quietly
+        # stops resolving a keyword to its parentless faction moves several dozen keywords from
+        # `faction` to unclassified at once, with every remaining value still correct.
+        "keyword_classification": (
+            len(classified_keywords(snapshot)),
+            prior.classified_keyword_count,
+            config.coverage_min_keyword_class_ratio,
         ),
     }
 
