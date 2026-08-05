@@ -23,8 +23,20 @@
 /data/      @adhoxx
 
 # Class 3: the human-authored tree
-/curation/            @adhoxx
-/curation/abilities/  @adhoxx
+#
+# The four trees 004 adds are listed explicitly beside curation/abilities/ rather than left to
+# the /curation/ catch-all above. They are the same change class and the same review rule -- a
+# non-author reviewer on every authored summary (contracts/authored-summary-gates.md section 2
+# item 4) -- and naming each one means a new authored class cannot arrive without someone
+# deciding, in this file, which class it belongs to.
+/curation/                          @adhoxx
+/curation/abilities/                @adhoxx
+/curation/faction-rules/            @adhoxx
+/curation/detachment-rules/         @adhoxx
+/curation/glossary.json             @adhoxx
+/curation/keyword-classes.json      @adhoxx
+/curation/composition-overrides.json  @adhoxx
+/curation/option-overrides.json       @adhoxx
 
 # Class 4: infrastructure -- workflows, Pages source, and the declared repo-settings doc
 /.github/                 @adhoxx

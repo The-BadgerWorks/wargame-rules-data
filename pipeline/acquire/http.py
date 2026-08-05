@@ -2,6 +2,10 @@
 # (task T027): per-host rate limiting with jitter, a retry ceiling that never escalates on
 # refusal, robots.txt fetch-and-honour, a browser User-Agent with Accept-Language: en, and an
 # --offline mode that raises rather than opening a socket (FR-007, research D4a).
+# AI-Assisted: Claude Code (model: claude-opus-5) - Wired pipeline.acquire.robots' pre-request
+# deny-list ahead of both the --offline check and the robots.txt fetch-and-honour check, so a
+# disallowed path issues zero requests and cannot be reopened by a permissive or unreachable
+# robots.txt (004 task T005, FR-004).
 """The polite HTTP client.
 
 FR-007 is not a performance setting, it is a behaviour contract: request politely, honour
@@ -14,6 +18,11 @@ from that.
   latches the client closed so no further request is made against that host. Retrying a refusal
   is the definition of evading one. Transient transport failures and ``5xx`` responses are
   retried up to ``WGC_MAX_RETRIES``, at the same polite interval — never faster.
+* **A closed deny-list of paths is refused before a request is constructed.** The detail
+  source's published rules forbid two trees outright (`004` research D1a), and the check for
+  them runs ahead of everything else here — including the ``robots.txt`` fetch — so no
+  permissive edit, truncated response, or unreachable ``robots.txt`` can reopen them
+  (FR-004). See :mod:`pipeline.acquire.robots`.
 * **``robots.txt`` is fetched once per host and honoured.** A disallowed path stops the sweep
   with a named diagnostic rather than being skipped quietly. (The points source's
   ``robots.txt`` is ``Allow: /`` — research §0.2 records that as the evidence for automated
@@ -105,6 +114,20 @@ class OfflineViolation(AcquisitionError):
 def _host_of(url: str) -> str:
     parsed = urlparse(url)
     return f"{parsed.scheme}://{parsed.netloc}"
+
+
+def _assert_path_permitted(url: str) -> None:
+    """Refuse a deny-listed path before a request is constructed (FR-004).
+
+    The import is deferred rather than module-level because
+    :class:`pipeline.acquire.robots.DisallowedPath` subclasses this module's
+    :class:`AcquisitionError` — so that the CLI's single ``except AcquisitionError`` maps it to
+    an exit code like every other retrieval failure — and a module-level import here would
+    close the cycle. The lookup is a ``sys.modules`` hit; the guard performs no I/O.
+    """
+    from pipeline.acquire.robots import assert_path_permitted
+
+    assert_path_permitted(url)
 
 
 class PoliteClient:
@@ -221,6 +244,11 @@ class PoliteClient:
     # -- requests ----------------------------------------------------------------------
 
     def _request_once(self, url: str, *, host: str, check_robots: bool) -> httpx.Response:
+        # FR-004, ahead of the robots.txt honouring check and unconditional on `check_robots`:
+        # the deny-list must not be bypassable by a permissive or unreachable robots.txt, and
+        # this is the one funnel every request in this client passes through — including the
+        # robots.txt fetch itself, which reaches here with `check_robots=False`.
+        _assert_path_permitted(url)
         if check_robots:
             self._check_robots(url, host)
         self._throttle(host)
@@ -245,7 +273,13 @@ class PoliteClient:
             SourceRefused: the host refused or throttled, now or earlier in this run.
             RobotsDisallowed: ``robots.txt`` disallows the path.
             SourceUnreachable: the retry ceiling was reached without a usable response.
+            DisallowedPath: the source's published rules forbid this path (FR-004).
         """
+        # First of all, and ahead of the offline check: a disallowed path is disallowed in
+        # every mode, and an offline run must report the policy violation it actually made
+        # rather than the network access it incidentally also attempted.
+        _assert_path_permitted(url)
+
         if self._offline:
             raise OfflineViolation(
                 f"--offline forbids network access; refusing to request {url}. "
