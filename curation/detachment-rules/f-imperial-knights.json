@@ -1,0 +1,66 @@
+[
+  {
+    "summary_key": "detachment:d-dominus-foebreakers:rain-of-devastation",
+    "detachment_id": "d-dominus-foebreakers",
+    "name": "Rain of Devastation",
+    "summary": "Imperial Knights Dominus units get +1 to hit rolls when attacking a unit in a terrain area.",
+    "review_state": "in_review",
+    "mechanic_digest": "deea8f094b8370dc60481f579fe83055"
+  },
+  {
+    "summary_key": "detachment:d-freeblade-company:knights-of-legend",
+    "detachment_id": "d-freeblade-company",
+    "name": "Knights of Legend",
+    "summary": "Imperial Knights models gain Feel No Pain 6+ and heal 1 lost wound each Command phase.",
+    "review_state": "in_review",
+    "mechanic_digest": "e07c906472e5396cca92f6b204b43b71"
+  },
+  {
+    "summary_key": "detachment:d-gate-warden-lance:dauntless-defenders",
+    "detachment_id": "d-gate-warden-lance",
+    "name": "Dauntless Defenders",
+    "summary": "Mark two objectives as foundations at battle start; the line between them is your defensive line. Imperial Knights units on it ignore Hit roll modifiers and gain Sustained Hits 1 when attacking a visible enemy unit.",
+    "review_state": "in_review",
+    "mechanic_digest": "5e3dcd2a2d96c43554527062b9a6edaf"
+  },
+  {
+    "summary_key": "detachment:d-questor-forgepact:cogbound-alliance",
+    "detachment_id": "d-questor-forgepact",
+    "name": "Cogbound Alliance",
+    "summary": "Imperial Knights grant +1 BS and Heavy to a nearby Adeptus Mechanicus unit's ranged attacks; Tech-Priests can heal D3 wounds on a nearby Knight each Command phase. Allows up to 500pts of allied Adeptus Mechanicus Tech-Priest/Ranger units.",
+    "review_state": "in_review",
+    "mechanic_digest": "1d6138a9c78f491a202e2dac1202095e"
+  },
+  {
+    "summary_key": "detachment:d-questoris-companions:heroes-of-legend",
+    "detachment_id": "d-questoris-companions",
+    "name": "Heroes of Legend",
+    "summary": "Once your Oath is fulfilled, determine an extra Oath each turn using an unused Deed/Quality; earlier Qualities stay active, and completing the extra Deed grants 1CP instead of the normal reward.",
+    "review_state": "in_review",
+    "mechanic_digest": "4138af14ba7cf6d996bbbb26b156c80b"
+  },
+  {
+    "summary_key": "detachment:d-questoris-companions:valours-reward",
+    "detachment_id": "d-questoris-companions",
+    "name": "Valour’s Reward",
+    "summary": "Listed Enhancements can be marked expended and unusable; fulfilling your Oath un-expends them all.",
+    "review_state": "in_review",
+    "mechanic_digest": "cb6300216e93c5c19e566e965d39f206"
+  },
+  {
+    "summary_key": "detachment:d-throne-bonded-outriders:driven-from-their-lairs",
+    "detachment_id": "d-throne-bonded-outriders",
+    "name": "Driven from Their Lairs",
+    "summary": "While a Bondsman ability affects a friendly Armiger unit, that unit's ranged attacks gain Ignores Cover. Exclusive Armigers-tagged detachment.",
+    "review_state": "in_review",
+    "mechanic_digest": "0804bd3013517d6b5a34b253f3806b6a"
+  },
+  {
+    "summary_key": "detachment:d-valourstrike-lance:bold-gallantry",
+    "detachment_id": "d-valourstrike-lance",
+    "name": "Bold Gallantry",
+    "summary": "When an Imperial Knights unit Advances, Imperial Knights ranged weapons gain Assault until end of turn.",
+    "review_state": "in_review",
+    "mechanic_digest": "9b097f4791d302b8f711961ecf84572f"
+  }
+]
