@@ -1,5 +1,103 @@
 [
   {
+    "ability_key": "core:deadly-demise-1",
+    "mechanic_digest": "687ffc1b1f643f9a8bf384cb7ee385f8",
+    "name": "Deadly Demise 1",
+    "review_state": "in_review",
+    "summary": "Deadly Demise X: each time a model in this unit is destroyed, roll one D6; on a 6, units within 6\" suffer X mortal wounds (here 1)."
+  },
+  {
+    "ability_key": "core:deadly-demise-d3",
+    "mechanic_digest": "687ffc1b1f643f9a8bf384cb7ee385f8",
+    "name": "Deadly Demise D3",
+    "review_state": "in_review",
+    "summary": "Deadly Demise X: each time a model in this unit is destroyed, roll one D6; on a 6, units within 6\" suffer X mortal wounds (here D3)."
+  },
+  {
+    "ability_key": "core:deadly-demise-d6",
+    "mechanic_digest": "687ffc1b1f643f9a8bf384cb7ee385f8",
+    "name": "Deadly Demise D6",
+    "review_state": "in_review",
+    "summary": "Deadly Demise X: each time a model in this unit is destroyed, roll one D6; on a 6, units within 6\" suffer X mortal wounds (here D6)."
+  },
+  {
+    "ability_key": "core:deep-strike",
+    "mechanic_digest": "53b08af2ea17585b8b795b1d44cd4380",
+    "name": "Deep Strike",
+    "review_state": "in_review",
+    "summary": "Deep Strike: if every model in this unit has this ability, it can arrive via ingress move anywhere more than 8\" from all enemy units, even in the opponent's deployment zone."
+  },
+  {
+    "ability_key": "core:feel-no-pain-5",
+    "mechanic_digest": "c5709cdfa1f6cd485617f50d593cdc12",
+    "name": "Feel No Pain 5+",
+    "review_state": "in_review",
+    "summary": "Feel No Pain X+: each time a model with this ability would lose a wound, roll one D6; on an X+ (here 5+), that wound is not lost."
+  },
+  {
+    "ability_key": "core:feel-no-pain-6",
+    "mechanic_digest": "c5709cdfa1f6cd485617f50d593cdc12",
+    "name": "Feel No Pain 6+",
+    "review_state": "in_review",
+    "summary": "Feel No Pain X+: each time a model with this ability would lose a wound, roll one D6; on an X+ (here 6+), that wound is not lost."
+  },
+  {
+    "ability_key": "core:fights-first",
+    "mechanic_digest": "3c6b4551f40173a1e94755d9a679f92c",
+    "name": "Fights First",
+    "review_state": "in_review",
+    "summary": "While every model in a unit has this ability, that unit fights first, resolving its attacks before other units in the Fight phase."
+  },
+  {
+    "ability_key": "core:firing-deck-2",
+    "mechanic_digest": "bf3b4618b0621cdc4bf5eb5bb8fa1c3b",
+    "name": "Firing Deck 2",
+    "review_state": "in_review",
+    "summary": "Firing Deck X: in your Shooting phase, when this TRANSPORT is selected to shoot, up to X (here 2) embarked models each lend it one of their ranged weapons (not one-shot) for its attacks; those models' units cannot shoot again this phase."
+  },
+  {
+    "ability_key": "core:firing-deck-6",
+    "mechanic_digest": "bf3b4618b0621cdc4bf5eb5bb8fa1c3b",
+    "name": "Firing Deck 6",
+    "review_state": "in_review",
+    "summary": "Firing Deck X: in your Shooting phase, when this TRANSPORT is selected to shoot, up to X (here 6) embarked models each lend it one of their ranged weapons (not one-shot) for its attacks; those models' units cannot shoot again this phase."
+  },
+  {
+    "ability_key": "core:infiltrators",
+    "mechanic_digest": "8366080ff39a8e1a74ada07e94df47dd",
+    "name": "Infiltrators",
+    "review_state": "in_review",
+    "summary": "Infiltrators: during deployment, if every model in a unit has this ability, it can be set up anywhere more than 8\" from the opponent's deployment zone and all enemy units."
+  },
+  {
+    "ability_key": "core:leader",
+    "mechanic_digest": "a821c2c1d608d5fa009862418d5f73af",
+    "name": "Leader",
+    "review_state": "in_review",
+    "summary": "Before the battle, you can attach one friendly Leader (and one Support) unit to a bodyguard unit it can lead, forming an attached unit for the battle."
+  },
+  {
+    "ability_key": "core:lone-operative",
+    "mechanic_digest": "b49afc94744953114745442e8dc56fb0",
+    "name": "Lone Operative",
+    "review_state": "in_review",
+    "summary": "Unless part of an attached unit, this unit is not visible to enemies beyond 12\" and cannot be targeted by Indirect Fire weapons from beyond 12\" (or the ability's stated distance)."
+  },
+  {
+    "ability_key": "core:scouts-6",
+    "mechanic_digest": "48b523bacc85908043ae18fd81528974",
+    "name": "Scouts 6\"",
+    "review_state": "in_review",
+    "summary": "Scouts X: before the battle, a unit wholly with this ability can set up anywhere in your deployment zone from reserves, or make a scout move of up to X\" (here 6\") ending more than 8\" from all enemy units."
+  },
+  {
+    "ability_key": "core:support",
+    "mechanic_digest": "a821c2c1d608d5fa009862418d5f73af",
+    "name": "Support",
+    "review_state": "in_review",
+    "summary": "Before the battle, you can attach one friendly Support (and one Leader) unit to a bodyguard unit it can lead, forming an attached unit for the battle."
+  },
+  {
     "ability_key": "datasheet:abbess-sanctorum",
     "mechanic_digest": "84deda66446d5b027eaa27ba06f276eb",
     "name": "Abbess Sanctorum",
@@ -334,12 +432,10 @@
   },
   {
     "ability_key": "datasheet:ministorum-sermon",
-    "mechanic_digest": "dc7d448fad2a84d6759abdf273b0a0b6",
+    "mechanic_digest": "55f997d32dcd70f6ccd926245fc17320",
     "name": "Ministorum Sermon",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "While this unit includes its named priest model, its melee attacks add 1 to the Wound roll and its melee weapons gain the Sustained Hits 1 ability."
+    "review_state": "in_review",
+    "summary": "While this unit contains a MINISTORUM PRIEST, its models' melee weapons gain the Sustained Hits 1 ability."
   },
   {
     "ability_key": "datasheet:miraculous-intervention",
@@ -352,12 +448,10 @@
   },
   {
     "ability_key": "datasheet:mysterious-saviours",
-    "mechanic_digest": "ef7b15e515e41ac8112db2ddcf18c045",
+    "mechanic_digest": "31aa48f474ff1a71515e7df13fc11560",
     "name": "Mysterious Saviours",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "This unit may be targeted by the Heroic Intervention Stratagem for 0CP, even if another unit has already been targeted with it that phase."
+    "review_state": "in_review",
+    "summary": "You can target this unit with Heroic Intervention for -1 CP, regardless of other uses of that stratagem this phase; it does not prevent other units from also using it."
   },
   {
     "ability_key": "datasheet:null-rod",
@@ -433,12 +527,10 @@
   },
   {
     "ability_key": "datasheet:righteous-awareness",
-    "mechanic_digest": "1c05bdeb68335f1b96a1b58f0f83bbad",
+    "mechanic_digest": "67c13ddc2d83a91426a82b07bdab5c4e",
     "name": "Righteous Awareness",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "Once per turn, when an enemy unit ends a Normal, Advance or Fall Back move within 9\" of this unit and it is not in Engagement Range, this unit may make a Normal move of up to D6\"."
+    "review_state": "in_review",
+    "summary": "In your opponent's Movement phase, if an enemy unit ends a move within 8\" of this unit and it is not in Engagement Range, it can make a Normal move of up to D6\"."
   },
   {
     "ability_key": "datasheet:righteous-denunciation",
@@ -541,12 +633,10 @@
   },
   {
     "ability_key": "datasheet:self-repair",
-    "mechanic_digest": "0b276e1c1880dabb9e297756e4f3b3b8",
+    "mechanic_digest": "be69460d2c83b6af97a619be10de2a22",
     "name": "Self Repair",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "In your Command phase, this model regains 1 lost wound; whether that happens at the start or the end of the phase varies by model."
+    "review_state": "in_review",
+    "summary": "At the start of your Command phase, this model regains 1 lost wound."
   },
   {
     "ability_key": "datasheet:simulacrum-imperialis",
@@ -613,12 +703,10 @@
   },
   {
     "ability_key": "datasheet:storm-of-retribution",
-    "mechanic_digest": "b44468e9765ae825fc6c0cc931ffe8b0",
+    "mechanic_digest": "69911e89e5fdc39e7331465d95818f26",
     "name": "Storm of Retribution",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "When a model in this unit makes a ranged attack, re-roll a Hit roll of 1 and a Wound roll of 1; add 1 to both rolls instead if the target has destroyed a friendly unit of the bearer's faction this battle."
+    "review_state": "in_review",
+    "summary": "This unit's ranged attacks can re-roll a Hit roll of 1 and a Wound roll of 1; against an enemy unit that has destroyed a friendly ADEPTA SORORITAS unit this battle, add 1 to the Hit roll and add 1 to the Wound roll instead."
   },
   {
     "ability_key": "datasheet:supreme-commander",
@@ -658,12 +746,10 @@
   },
   {
     "ability_key": "datasheet:the-pulpit-of-saint-hollines-basilica",
-    "mechanic_digest": "5b74fd201c7cfc3ae009e342b73acd98",
-    "name": "The Pulpit of Saint Holline’s Basilica",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "While this model leads a unit, attacks against that unit subtract 1 from the Hit roll."
+    "mechanic_digest": "724c872dc09e0e52e66675045f3ab2ef",
+    "name": "The Pulpit of Saint Holline's Basilica",
+    "review_state": "in_review",
+    "summary": "This unit has Stealth, and melee attacks that target it take -1 to hit."
   },
   {
     "ability_key": "datasheet:unflinching-determination",
@@ -691,5 +777,12 @@
     "reviewed_at": "2026-08-04T00:00:00Z",
     "reviewed_by": "claude-reviewer-opus",
     "summary": "Once per battle, in the Fight phase, this model can improve its melee weapons' Strength and Attacks characteristics by 3 until the end of the phase."
+  },
+  {
+    "ability_key": "faction:acts-of-faith",
+    "mechanic_digest": "b49afc94744953114745442e8dc56fb0",
+    "name": "Acts of Faith",
+    "review_state": "in_review",
+    "summary": "ADEPTA SORORITAS units gain Miracle dice (1 per battle round, plus 1 whenever an ADEPTA SORORITAS unit is destroyed) to substitute for one dice in an Advance, Charge, Battle-shock, Hit, Wound, Save, or Damage roll."
   }
 ]
