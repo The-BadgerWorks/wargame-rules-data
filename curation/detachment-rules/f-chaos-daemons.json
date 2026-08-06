@@ -16,6 +16,14 @@
     "mechanic_digest": "69dc85ad83385a3becd6d2e537a70909"
   },
   {
+    "summary_key": "detachment:d-cavalcade-of-chaos:unholy-avalanche",
+    "detachment_id": "d-cavalcade-of-chaos",
+    "name": "Unholy Avalanche",
+    "summary": "A friendly Legiones Daemonica Mounted unit that fell back this turn can still shoot and declare a charge as normal.",
+    "review_state": "in_review",
+    "mechanic_digest": "41f57e11347663cee6c3ec984a6e47c6"
+  },
+  {
     "summary_key": "detachment:d-daemonic-incursion:unnatural-energies",
     "detachment_id": "d-daemonic-incursion",
     "name": "Unnatural Energies",
@@ -48,11 +56,51 @@
     "mechanic_digest": "108fc7a6fd769e690cae23a287f6eb01"
   },
   {
+    "summary_key": "detachment:d-lords-of-the-warp:loci-of-power",
+    "detachment_id": "d-lords-of-the-warp",
+    "name": "Loci of Power",
+    "summary": "Friendly Legiones Daemonica Character models (excluding Monsters) get +1 Leadership and +1 Objective Control.",
+    "review_state": "in_review",
+    "mechanic_digest": "7ab2f0523952227e82597129345290c0"
+  },
+  {
     "summary_key": "detachment:d-plague-legion:melancholic-miasma",
     "detachment_id": "d-plague-legion",
     "name": "Melancholic Miasma",
     "summary": "Enemy units within 9\" of a Legiones Daemonica Nurgle unit count as in your Shadow of Chaos. Each player's Command phase, one enemy unit there must take a Battle-shock test.",
     "review_state": "in_review",
     "mechanic_digest": "26ee6cb056d941260ef6bc57ba8475d6"
+  },
+  {
+    "summary_key": "detachment:d-scintillating-legion:fates-in-flux",
+    "detachment_id": "d-scintillating-legion",
+    "name": "Fates in Flux",
+    "summary": "Start with 3 Flux tokens. Spend one to re-roll an Advance, Hit, Wound, Damage, save or Hazardous roll for a Tzeentch Legiones Daemonica unit, giving your opponent a token; they can do the same back to you.",
+    "review_state": "in_review",
+    "mechanic_digest": "72a068f5a295505c0f5e8e84116abde2"
+  },
+  {
+    "summary_key": "detachment:d-shadow-legion:first-prince-of-chaos",
+    "detachment_id": "d-shadow-legion",
+    "name": "First Prince of Chaos",
+    "summary": "Grants a god-specific bonus to Shadow Legion units: shoot/charge after advancing, Stealth with -1 to be hit in melee, -1 to wound if hit by higher Strength, immunity to snap shots, or Dark Pacts and Deep Strike.",
+    "review_state": "in_review",
+    "mechanic_digest": "36a595381b794916b4ef581a74d0bdab"
+  },
+  {
+    "summary_key": "detachment:d-shadow-legion:thralls-of-the-first-prince",
+    "detachment_id": "d-shadow-legion",
+    "name": "Thralls of the First Prince",
+    "summary": "Bars Daemon Princes and Epic Heroes (except Be'lakor) from your army, but allows a points-capped list of Heretic Astartes units instead; those units gain the Shadow Legion keyword.",
+    "review_state": "in_review",
+    "mechanic_digest": "e1d2c0bd8ee95cc4a0e96a9b0c4ee04d"
+  },
+  {
+    "summary_key": "detachment:d-warptide:shudderblink",
+    "detachment_id": "d-warptide",
+    "name": "Shudderblink",
+    "summary": "A friendly Legiones Daemonica Battleline unit that advances gains Assault on its ranged weapons for the turn and remains eligible to declare a charge.",
+    "review_state": "in_review",
+    "mechanic_digest": "88ec3fe7013ae29e6c8f416749e67697"
   }
 ]

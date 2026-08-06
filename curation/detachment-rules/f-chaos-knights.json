@@ -1,11 +1,43 @@
 [
   {
+    "summary_key": "detachment:d-bastions-of-tyranny:annihilate-the-unworthy",
+    "detachment_id": "d-bastions-of-tyranny",
+    "name": "Annihilate the Unworthy",
+    "summary": "Friendly Knight Tyrant attacks get +1 to hit when targeting a Battle-shocked unit.",
+    "review_state": "in_review",
+    "mechanic_digest": "d09d8b4e05a21921358fd4e6af84c81d"
+  },
+  {
+    "summary_key": "detachment:d-helhunt-lance:masters-of-the-pack",
+    "detachment_id": "d-helhunt-lance",
+    "name": "Masters of the Pack",
+    "summary": "If 2 or more friendly War Dog models are within range of a Titanic Chaos Knights unit's own Aura ability that affects War Dogs, that Titanic unit benefits from its own aura too.",
+    "review_state": "in_review",
+    "mechanic_digest": "4af3a9a811a75073cea06fb22f24faaf"
+  },
+  {
+    "summary_key": "detachment:d-houndpack-lance:marked-prey",
+    "detachment_id": "d-houndpack-lance",
+    "name": "Marked Prey",
+    "summary": "Each Command phase, mark an enemy unit: visible War Dog attacks against it gain Sustained Hits 1 until your next Command phase. Requires 3+ War Dog units, which gain Battleline; three of them gain Character.",
+    "review_state": "in_review",
+    "mechanic_digest": "f4b1b9d5d8e406ab5c06aade318095c8"
+  },
+  {
     "summary_key": "detachment:d-hunting-warpack:scenting-fear",
     "detachment_id": "d-hunting-warpack",
     "name": "Scenting Fear",
     "summary": "Once per battle round, in your Shooting phase, pick a visible enemy unit within 12\" of a friendly War Dog unit: it gets +6\" detection range.",
     "review_state": "in_review",
     "mechanic_digest": "3594e5e521e2894bc09908f3bf4a8679"
+  },
+  {
+    "summary_key": "detachment:d-iconoclast-fiefdom:wretched-thralls",
+    "detachment_id": "d-iconoclast-fiefdom",
+    "name": "Wretched Thralls",
+    "summary": "Allows including Damned units up to 500 points; friendly Damned units can re-roll Leadership tests.",
+    "review_state": "in_review",
+    "mechanic_digest": "59e08d55b2ed27bf877f31143585cbff"
   },
   {
     "summary_key": "detachment:d-infernal-lance:malefic-surge",
