@@ -186,8 +186,10 @@
     "has_numeric_parameter": false,
     "name": "Beast",
     "summary": "Unit-type keyword, the singular of Beasts. Its models move through dense terrain, get benefit of cover inside a terrain area, and are hidden in one holding dense terrain if their unit made no ranged attacks this turn or last turn.",
-    "review_state": "in_review",
-    "mechanic_digest": "3d34a72871cb7a5a77357e65d6bd6adb"
+    "review_state": "approved",
+    "mechanic_digest": "3d34a72871cb7a5a77357e65d6bd6adb",
+    "reviewed_by": "adhoxx",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "glossary:beasts",
@@ -388,8 +390,10 @@
     "has_numeric_parameter": false,
     "name": "Grenades",
     "summary": "Unit keyword. Makes its unit eligible for the Explosives core stratagem: an unengaged unit that can shoot and did not advance picks an unengaged enemy unit within 8in of and visible to one of its models; roll six D6, 1 mortal wound per 4+.",
-    "review_state": "in_review",
-    "mechanic_digest": "37908fe73d52ec65d563452a2a08fe80"
+    "review_state": "approved",
+    "mechanic_digest": "37908fe73d52ec65d563452a2a08fe80",
+    "reviewed_by": "adhoxx",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "glossary:harpooned",
