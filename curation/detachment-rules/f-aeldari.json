@@ -8,12 +8,68 @@
     "mechanic_digest": "6c82eb4d306ad2651da458515ab2bccd"
   },
   {
+    "summary_key": "detachment:d-aspect-host:path-of-the-warrior",
+    "detachment_id": "d-aspect-host",
+    "name": "Path of the Warrior",
+    "summary": "When an Aspect Warriors or Avatar of Khaine unit is selected to shoot or fight, choose for that phase: re-roll Hit rolls of 1, or re-roll Wound rolls of 1, for that unit's attacks.",
+    "review_state": "in_review",
+    "mechanic_digest": "01fbd927e8470342a0c3389439c2e4e6"
+  },
+  {
+    "summary_key": "detachment:d-corsair-coterie:relentless-raiders",
+    "detachment_id": "d-corsair-coterie",
+    "name": "Relentless Raiders",
+    "summary": "While you control an objective, an enemy unit ending a move within range takes D3 mortal wounds on a 2+. An Anhrathe unit in range keeps you in control until the opponent's control level there exceeds yours.",
+    "review_state": "in_review",
+    "mechanic_digest": "8eecab1bf31faed37e9f62c31c6625d9"
+  },
+  {
+    "summary_key": "detachment:d-corsair-coterie:veterans-of-the-void",
+    "detachment_id": "d-corsair-coterie",
+    "name": "Veterans of the Void",
+    "summary": "Each Anhrathe unit added to your army can take one unique Corsair Enhancement, paying its points cost; you cannot include a unit whose Enhancement would push your army over the points limit.",
+    "review_state": "in_review",
+    "mechanic_digest": "0d44f8cf634cf069c85a513b7f843bc4"
+  },
+  {
     "summary_key": "detachment:d-devoted-of-ynnead:strength-from-death",
     "detachment_id": "d-devoted-of-ynnead",
     "name": "Strength from Death",
     "summary": "Ynnari may join despite lacking the faction keyword, led by Yvraine and/or The Yncarne; Asuryani units gain the Ynnari keyword. Grants bonus moves on a Ynnari death, a Fade Back, or an enemy Fall Back, plus Fights First for a battered unit.",
     "review_state": "in_review",
     "mechanic_digest": "840b30a4fd8308a1402c85aeea3ccab1"
+  },
+  {
+    "summary_key": "detachment:d-eldritch-raiders:veterans-of-the-void",
+    "detachment_id": "d-eldritch-raiders",
+    "name": "Veterans of the Void",
+    "summary": "Each Anhrathe unit added to your army can take one unique Corsair Enhancement, paying its points cost; you cannot include a unit whose Enhancement would push your army over the points limit.",
+    "review_state": "in_review",
+    "mechanic_digest": "0d44f8cf634cf069c85a513b7f843bc4"
+  },
+  {
+    "summary_key": "detachment:d-eldritch-raiders:yriels-own",
+    "detachment_id": "d-eldritch-raiders",
+    "name": "Yriel’s Own",
+    "summary": "Aeldari units can declare a charge in a turn they advanced. Anhrathe, Rangers and Shroud Runners units can re-roll their Advance roll.",
+    "review_state": "in_review",
+    "mechanic_digest": "89d0e8a386f44965c508565f8c09bdd0"
+  },
+  {
+    "summary_key": "detachment:d-fateful-performance:acrobatic-onslaught",
+    "detachment_id": "d-fateful-performance",
+    "name": "Acrobatic Onslaught",
+    "summary": "A charging Harlequins unit can move through enemy models. This detachment carries the Acrobatic tag and cannot be combined with another Acrobatic detachment.",
+    "review_state": "in_review",
+    "mechanic_digest": "09f6bfbca7b84d5471df795b4ba62e08"
+  },
+  {
+    "summary_key": "detachment:d-ghosts-of-the-webway:acrobatic-onslaught",
+    "detachment_id": "d-ghosts-of-the-webway",
+    "name": "Acrobatic Onslaught",
+    "summary": "A charging Harlequins model can move through enemy models. Travelling Players Troupe units gain Battleline and Objective Control 2; field up to three each of Death Jester, Shadowseer and Troupe Master.",
+    "review_state": "in_review",
+    "mechanic_digest": "441e8d8b1ecb71c173ecf54ade55cf6b"
   },
   {
     "summary_key": "detachment:d-guardian-battlehost:defend-at-all-costs",
@@ -40,12 +96,36 @@
     "mechanic_digest": "49797f19fefbf112d2c807cb70c372dd"
   },
   {
+    "summary_key": "detachment:d-serpents-brood:boons-of-the-brood",
+    "detachment_id": "d-serpents-brood",
+    "name": "Boons of the Brood",
+    "summary": "Harlequins Mounted/Vehicle weapons get Sustained Hits 1; a disembarking Harlequins unit's weapons gain it that turn. Travelling Players Troupe gain Battleline and OC 2; field up to three each of Death Jester, Shadowseer and Troupe Master.",
+    "review_state": "in_review",
+    "mechanic_digest": "d51a256d0370d7e51a4014f7bd8c7201"
+  },
+  {
+    "summary_key": "detachment:d-spirit-conclave:shepherds-of-the-dead",
+    "detachment_id": "d-spirit-conclave",
+    "name": "Shepherds of the Dead",
+    "summary": "Destroying an Asuryani Psyker gives the killer a Vengeful Dead token; Wraith Construct attacks on it get +1 to hit/wound. A Psyker's aura gives nearby Wraithblades/Wraithguard/Wraithlord Battle Focus; the first two also gain Battleline.",
+    "review_state": "in_review",
+    "mechanic_digest": "816bdf2d01a0667da74ea1cc56a629e7"
+  },
+  {
     "summary_key": "detachment:d-twilight-flickers:dance-of-distortion",
     "detachment_id": "d-twilight-flickers",
     "name": "Dance of Distortion",
     "summary": "Friendly Harlequins units gain Stealth. This detachment carries the exclusive Acrobatic tag.",
     "review_state": "in_review",
     "mechanic_digest": "807e877b4a382e8ae037169be01cc63e"
+  },
+  {
+    "summary_key": "detachment:d-warhost:martial-grace",
+    "detachment_id": "d-warhost",
+    "name": "Martial Grace",
+    "summary": "Each battle round you get one extra Battle Focus token. The Swift as the Wind Agile Manoeuvre grants an extra 1\" Move, and any Agile Manoeuvre D6 roll gets +1.",
+    "review_state": "in_review",
+    "mechanic_digest": "b495db83b78ef4427e19a39ee4ac127e"
   },
   {
     "summary_key": "detachment:d-windrider-host:ride-the-wind",
