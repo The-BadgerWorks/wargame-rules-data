@@ -3,7 +3,9 @@
     "ability_key": "core:hover",
     "mechanic_digest": "f634266020b7943d196b3d6a95eaa60b",
     "name": "Hover",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
     "summary": "When this unit takes to the skies, it does not subtract 2\" from its maximum move distance."
   },
   {
@@ -82,7 +84,9 @@
     "ability_key": "datasheet:daughters-of-the-abyss",
     "mechanic_digest": "66f160a3042b0cc701c288be383995ab",
     "name": "Daughters of the Abyss",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
     "summary": "This model has Feel No Pain 3+ against Psychic Attacks and mortal wounds."
   },
   {
@@ -99,7 +103,7 @@
     "mechanic_digest": "349dc8689484a930bbb6bf77ae7e0613",
     "name": "Devoted to Destruction",
     "review_state": "in_review",
-    "summary": "If this model is equipped with two Telemon caestus weapons in addition to its armoured feet weapon, add 2 to the Attacks characteristic of those Telemon caestus weapons."
+    "summary": "Add 2 to the Attacks of this model's Telemon caestus weapons, but only while it carries two of them alongside its armoured feet weapon."
   },
   {
     "ability_key": "datasheet:disintegration-beams",
@@ -196,7 +200,7 @@
     "mechanic_digest": "aec99e78e32a4106c0716f4fea71ef15",
     "name": "Infernus Firebombs",
     "review_state": "in_review",
-    "summary": "At the end of your Movement phase, target one visible enemy unit (not AIRCRAFT/Lone Operative) within 24\": it loses cover until your next Shooting phase, and suffers 1 mortal wound per 6 rolled, one D6 per model in that unit."
+    "summary": "At the end of your Movement phase, pick one visible enemy unit within 24\" of this unit (no Aircraft or Lone Operative): it gets no cover through the end of your next Shooting phase; roll a D6 per model in it, each 6 dealing 1 mortal wound."
   },
   {
     "ability_key": "datasheet:jetbike-outriders",
@@ -445,7 +449,9 @@
     "ability_key": "datasheet:turbo-boost",
     "mechanic_digest": "ec4b826ec11c93bf894cf1ad52ce8172",
     "name": "Turbo-boost",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
     "summary": "Each time this unit Advances, skip the Advance roll and instead add 6\" to the Move characteristic of models in this unit until the end of the phase."
   },
   {
@@ -470,7 +476,9 @@
     "ability_key": "faction:martial-katah",
     "mechanic_digest": "00678a44c076f8e513d172b41bb8b2aa",
     "name": "Martial Ka'tah",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
     "summary": "Before this unit fights, choose a Ka'tah Stance for that activation: Dacatarai grants its melee weapons Sustained Hits 1; Rendax grants its melee weapons Lethal Hits."
   }
 ]
