@@ -6,7 +6,7 @@
       "summary_key": "faction:f-tau-empire:for-the-greater-good",
       "display_order": 1,
       "name": "For the Greater Good",
-      "summary": "In your Shooting phase, non-shooting eligible units can become Observers, marking one visible enemy each as Spotted. Units then targeting a Spotted enemy become Guided: +1 BS, plus Ignores Cover if marked by a Markerlight Observer.",
+      "summary": "Pick Observers at the start of your Shooting phase. Each that can still shoot marks one visible enemy as Spotted, once per unit. Your other units with this ability get +1 BS vs Spotted targets, and Ignores Cover if a Markerlight marked it.",
       "review_state": "in_review",
       "mechanic_digest": "f7afe49ec76c4207b78e5d0d7942e7d3"
     }
