@@ -94,7 +94,7 @@
     "mechanic_digest": "707c9c25c7e1080635204b1909bc2c6e",
     "name": "Guardians of the Machine",
     "review_state": "in_review",
-    "summary": "When an enemy unit ends a charge move engaged with a friendly GREY KNIGHTS VEHICLE unit within 6\" of this unit, you can target this unit with Heroic Intervention for -1 CP, regardless of other uses of that stratagem this phase."
+    "summary": "When an enemy unit ends a charge move both engaged with a friendly Grey Knights Vehicle unit and within 6\" of this unit, you can use Heroic Intervention on this unit at -1 CP; it neither blocks nor is blocked by other uses this phase."
   },
   {
     "ability_key": "datasheet:guidance-of-the-ancients-psychic",
@@ -235,7 +235,9 @@
     "ability_key": "datasheet:sanctuary-psychic",
     "mechanic_digest": "724c872dc09e0e52e66675045f3ab2ef",
     "name": "Sanctuary (Psychic)",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
     "summary": "This unit has the Stealth ability, and melee attacks that target it take -1 to hit."
   },
   {
@@ -296,7 +298,9 @@
     "ability_key": "faction:gate-of-infinity",
     "mechanic_digest": "57afbfbca97cdaabc0f79d7e007800b6",
     "name": "Gate of Infinity",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
     "summary": "At the end of your opponent's Fight phase, move a battle-size-dependent number of units with this ability (2-4, none in Engagement Range) into strategic reserves; they can make an ingress move next Movement phase, including turn one."
   }
 ]
