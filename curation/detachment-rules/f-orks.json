@@ -4,79 +4,99 @@
     "detachment_id": "d-blitz-brigade",
     "name": "Eager for the Fight",
     "summary": "After disembarking from a Transport, an Orks unit can re-roll Advance and Charge rolls for the rest of the turn.",
-    "review_state": "in_review",
-    "mechanic_digest": "e50bb93bdde4db77c9cb4134666f563f"
+    "review_state": "approved",
+    "mechanic_digest": "e50bb93bdde4db77c9cb4134666f563f",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-bully-boyz:da-boss-is-watchin",
     "detachment_id": "d-bully-boyz",
     "name": "Da Boss Is Watchin’",
     "summary": "If you have a Warboss on or transported within the battlefield and have not called a Waaagh! this turn, you may call a second Waaagh! this battle, affecting only Warboss, Nobz and Meganobz units.",
-    "review_state": "in_review",
-    "mechanic_digest": "d2835998ef4b0a678bcfccbc50ae25a3"
+    "review_state": "approved",
+    "mechanic_digest": "d2835998ef4b0a678bcfccbc50ae25a3",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-da-big-hunt:da-hunt-is-on",
     "detachment_id": "d-da-big-hunt",
     "name": "Da Hunt Is On",
     "summary": "Each Command phase, mark one enemy Monster, Vehicle, or Character as Prey. A charging Beast Snagga unit within 12\" of it can re-roll the charge and must end engaged with it; attacks against Prey get +1 Armour Penetration.",
-    "review_state": "in_review",
-    "mechanic_digest": "613621f53e610ff1ed334a913420f153"
+    "review_state": "approved",
+    "mechanic_digest": "613621f53e610ff1ed334a913420f153",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-dread-mob:try-dat-button",
     "detachment_id": "d-dread-mob",
     "name": "Try Dat Button!",
     "summary": "When a Mek, Orks Walker, or Grots Vehicle unit shoots or fights, roll (or pick) a D6 result granting its weapons Sustained Hits 1, Lethal Hits, or +2 Armour Penetration on a Critical Wound; picking instead of rolling also adds Hazardous.",
-    "review_state": "in_review",
-    "mechanic_digest": "c547f80998b8b410a1815e277f2b605c"
+    "review_state": "approved",
+    "mechanic_digest": "c547f80998b8b410a1815e277f2b605c",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-freebooter-krew:here-be-loot",
     "detachment_id": "d-freebooter-krew",
     "name": "Here Be Loot",
     "summary": "Each Command phase, mark one objective as your loot objective. Orks Infantry, Mounted, or Walker attacks gain Sustained Hits 1 when their unit or the target is within range of it.",
-    "review_state": "in_review",
-    "mechanic_digest": "d7a9171798ba78fe8013ca8bb514efe6"
+    "review_state": "approved",
+    "mechanic_digest": "d7a9171798ba78fe8013ca8bb514efe6",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-kult-of-speed:adrenaline-junkies",
     "detachment_id": "d-kult-of-speed",
     "name": "Adrenaline Junkies",
     "summary": "Speed Freeks units can shoot and declare a charge in a turn they Advanced or Fell Back.",
-    "review_state": "in_review",
-    "mechanic_digest": "29e101cae5bfb0b5782c890f14d77cd3"
+    "review_state": "approved",
+    "mechanic_digest": "29e101cae5bfb0b5782c890f14d77cd3",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-more-dakka:dakka-dakka-dakka",
     "detachment_id": "d-more-dakka",
     "name": "Dakka! Dakka! Dakka!",
     "summary": "Orks Infantry ranged attacks gain Assault; while your Waaagh! is active, they also gain Sustained Hits 1 in the Shooting phase.",
-    "review_state": "in_review",
-    "mechanic_digest": "13422392216d4c018418037ed122e1d8"
+    "review_state": "approved",
+    "mechanic_digest": "13422392216d4c018418037ed122e1d8",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-rollin-deff:thundering-wagons",
     "detachment_id": "d-rollin-deff",
     "name": "Thundering Wagons",
     "summary": "Friendly Battlewagon, Hunta Rig, and Kill Rig units gain the Wagon keyword; Wagon units re-roll charge rolls and can treat Advance rolls as a 6. Exclusive Wagons-tagged detachment.",
-    "review_state": "in_review",
-    "mechanic_digest": "4393643832a5674c0884a67fcba29cb0"
+    "review_state": "approved",
+    "mechanic_digest": "4393643832a5674c0884a67fcba29cb0",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-speedwaaagh:turbo-boostas",
     "detachment_id": "d-speedwaaagh",
     "name": "Turbo Boostas",
     "summary": "A Speed Freeks or Trukk unit (non-Aircraft) can turbo-boost on an Advance instead of rolling: it moves a straight 24\" and its ranged weapons gain Assault for the turn, but it cannot charge that turn.",
-    "review_state": "in_review",
-    "mechanic_digest": "63fb93e9873c62c2a587fb8b172a9d94"
+    "review_state": "approved",
+    "mechanic_digest": "63fb93e9873c62c2a587fb8b172a9d94",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-war-horde:get-stuck-in",
     "detachment_id": "d-war-horde",
     "name": "Get Stuck In",
     "summary": "Orks melee weapons gain Sustained Hits 1.",
-    "review_state": "in_review",
-    "mechanic_digest": "aa6012aa2619aecc4a3c2d7770b97c07"
+    "review_state": "approved",
+    "mechanic_digest": "aa6012aa2619aecc4a3c2d7770b97c07",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   }
 ]
