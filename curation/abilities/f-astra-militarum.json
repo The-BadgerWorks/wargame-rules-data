@@ -1,5 +1,12 @@
 [
   {
+    "ability_key": "core:firing-deck-12",
+    "mechanic_digest": "bf3b4618b0621cdc4bf5eb5bb8fa1c3b",
+    "name": "Firing Deck 12",
+    "review_state": "in_review",
+    "summary": "Firing Deck X: in your Shooting phase, when this TRANSPORT is selected to shoot, up to X (here 12) embarked models each lend it one of their ranged weapons (not one-shot) for its attacks; those models' units cannot shoot again this phase."
+  },
+  {
     "ability_key": "datasheet:a-hearty-pick-me-up",
     "mechanic_digest": "34cbddfe3ad5f63547a266791274e81c",
     "name": "A Hearty ‘Pick Me Up’",
@@ -217,12 +224,10 @@
   },
   {
     "ability_key": "datasheet:brutal-disciplinarian",
-    "mechanic_digest": "a1dbaa707e458e3fa8d0ee07641a7394",
+    "mechanic_digest": "446d3bebe2a4760481782f1f25ece2de",
     "name": "Brutal Disciplinarian",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "Once per turn, at the start of any phase, target one Battle-shocked friendly multi-model Astra Militarum Infantry unit within range and visible to this model: destroy one model in it and remove its Battle-shock."
+    "review_state": "in_review",
+    "summary": "Once per turn, select one Battle-shocked friendly ASTRA MILITARUM INFANTRY unit (more than 1 model) within 12\": destroy one model in it and it is no longer Battle-shocked."
   },
   {
     "ability_key": "datasheet:brute-shield",
@@ -235,12 +240,10 @@
   },
   {
     "ability_key": "datasheet:cadia-stands",
-    "mechanic_digest": "42e79ad2a746529e3f812faed1519af8",
+    "mechanic_digest": "83ddf8cd4cbec0b2ce0d898d3b5375b8",
     "name": "Cadia Stands!",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "While this unit includes an Officer and is within range of an objective marker you control, ranged attacks against it are treated as though it has the Benefit of Cover."
+    "review_state": "in_review",
+    "summary": "While this unit contains an OFFICER and is within range of an objective, it can re-roll Battle-shock rolls."
   },
   {
     "ability_key": "datasheet:called-shots",
@@ -343,12 +346,10 @@
   },
   {
     "ability_key": "datasheet:covert-stealth-team",
-    "mechanic_digest": "f81bf60717eafbc855f43715c962939f",
+    "mechanic_digest": "b6da8e85b7c4e1245dbc52082bbafaf3",
     "name": "Covert Stealth Team",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "At the end of the opponent's turn, if outside Engagement Range of all enemies, remove this unit and redeploy it more than 9\" from all enemy models in your next Movement phase."
+    "review_state": "in_review",
+    "summary": "At the end of your opponent's turn, if unengaged, this unit can enter strategic reserves with Deep Strike (until your next Shooting phase) and must make an ingress move next Movement phase (including turn one)."
   },
   {
     "ability_key": "datasheet:daring-recon",
@@ -361,12 +362,10 @@
   },
   {
     "ability_key": "datasheet:death-befitting-an-officer",
-    "mechanic_digest": "892e91bec90090d6ef1659a74cbfd8e2",
+    "mechanic_digest": "30acad70fa33a49af0a88038908cc517",
     "name": "Death Befitting An Officer",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "When this model is destroyed, roll a D6: on a 2+, before being removed it can shoot as if at full wounds after the attacker finishes, in your Shooting phase."
+    "review_state": "in_review",
+    "summary": "When this unit is destroyed by shooting, before its deadly demise roll, roll one D6: on a 2+ it is not removed yet and can shoot back at the attacker; it is then removed after shooting (or end of phase) once its deadly demise roll resolves."
   },
   {
     "ability_key": "datasheet:death-korps-medi-pack",
@@ -550,12 +549,10 @@
   },
   {
     "ability_key": "datasheet:grenadiers",
-    "mechanic_digest": "dafbcf44ce361cc0caedb7b4774effa7",
+    "mechanic_digest": "081d5150df244e70651598d56a98a274",
     "name": "Grenadiers",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "Once per turn, this unit can be targeted with the Grenade Stratagem for 0CP."
+    "review_state": "in_review",
+    "summary": "Once per turn, you can target this unit with the Explosives Stratagem for 0CP."
   },
   {
     "ability_key": "datasheet:grim-demeanour",
@@ -802,12 +799,10 @@
   },
   {
     "ability_key": "datasheet:medi-pack",
-    "mechanic_digest": "4d23b797a84ad5cbee2cf802c2d3d95b",
+    "mechanic_digest": "b132e3abefea1cf7fdf0adbf852dba98",
     "name": "Medi-pack",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "At the start of your Command phase, if the bearer's unit is below Starting Strength, return up to D3 destroyed non-Character models to it."
+    "review_state": "in_review",
+    "summary": "At the start of your Command phase, if the bearer's unit is below Starting Strength, return up to D3 destroyed non-CHARACTER Platoon models to it."
   },
   {
     "ability_key": "datasheet:medicae-medi-packs",
@@ -829,12 +824,10 @@
   },
   {
     "ability_key": "datasheet:meteoric-descent",
-    "mechanic_digest": "f074d3fb01c88d249c26bac5f86e5fcf",
+    "mechanic_digest": "40dd8642b6beffdd2cb222091344f9fd",
     "name": "Meteoric Descent",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "When this unit arrives via Deep Strike, it may set up more than 6\" (or 3\" for some models) from all enemies instead of the normal minimum, but cannot declare a charge that turn."
+    "review_state": "in_review",
+    "summary": "When this model uses Deep Strike, it can set up more than 6\" (rather than 8\") from all enemies, but cannot charge that turn."
   },
   {
     "ability_key": "datasheet:mobile-command-vehicle",
@@ -910,12 +903,10 @@
   },
   {
     "ability_key": "datasheet:outflank",
-    "mechanic_digest": "dbd62f065060570b2eb45f82bf2a1bdc",
+    "mechanic_digest": "6ca30225f5fc67c7abe1f5c419a362f3",
     "name": "Outflank",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "When this unit arrives from Strategic Reserves, it can be set up within the opponent's deployment zone, subject to other normal restrictions."
+    "review_state": "in_review",
+    "summary": "When this model arrives from Strategic Reserves, it can be set up within the opponent's deployment zone (other restrictions still apply)."
   },
   {
     "ability_key": "datasheet:overwhelming-short-range-firepower",
@@ -964,12 +955,10 @@
   },
   {
     "ability_key": "datasheet:political-overwatch",
-    "mechanic_digest": "2aaf8caf15d446c1d9f09ec4066bbfc8",
+    "mechanic_digest": "7876b64b7226b33de9c20cebf09b4e51",
     "name": "Political Overwatch",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "While another Officer model is in the same unit as this model, that unit's Battle-shock tests can be re-rolled."
+    "review_state": "in_review",
+    "summary": "While another OFFICER model is in this model's unit, you can re-roll Battle-shock tests for that unit."
   },
   {
     "ability_key": "datasheet:power-overload",
@@ -982,12 +971,10 @@
   },
   {
     "ability_key": "datasheet:powerful-volley",
-    "mechanic_digest": "a599ca878adc22d2da9c556cc21b1768",
+    "mechanic_digest": "06999c8cfa8cd8bda16af2b2cccf602a",
     "name": "Powerful Volley",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "If this model or unit Remained Stationary this turn (and is affected by an Order, for some variants), its Heavy weapons gain the Lethal Hits ability."
+    "review_state": "in_review",
+    "summary": "While affected by an Order and having Remained Stationary this turn, this unit's Heavy weapons gain Lethal Hits."
   },
   {
     "ability_key": "datasheet:powerlifter-charge",
@@ -1009,12 +996,10 @@
   },
   {
     "ability_key": "datasheet:primed-and-ready",
-    "mechanic_digest": "38b8dec7d97b24f95fcbfa9814050543",
+    "mechanic_digest": "8b6c893a8bcbb078af2891a77826b1b4",
     "name": "Primed and Ready",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "In your Shooting phase, you can target one unit or model with this ability using the Grenade Stratagem for 0CP, even reusing that Stratagem this phase, provided it hasn't already been the target."
+    "review_state": "in_review",
+    "summary": "In your Shooting phase, target an eligible unit with this ability with the Explosives Stratagem for 0CP (even a second time this phase), if not already targeted by it."
   },
   {
     "ability_key": "datasheet:psychic-barrier-psychic",
@@ -1027,12 +1012,10 @@
   },
   {
     "ability_key": "datasheet:rapid-deployment",
-    "mechanic_digest": "e3c2cf855a5782dfce9e2ebcd0c1c328",
+    "mechanic_digest": "702372615671b724501dab84319fb054",
     "name": "Rapid Deployment",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "Units may disembark from this Transport after it Advances; they count as having made a Normal move and cannot declare a charge that turn."
+    "review_state": "in_review",
+    "summary": "Units can disembark from this TRANSPORT after it Advances; they count as having made a Normal move and cannot charge that turn, but otherwise act normally."
   },
   {
     "ability_key": "datasheet:rapid-strike-vehicle",
@@ -1054,12 +1037,10 @@
   },
   {
     "ability_key": "datasheet:rearm-reload-fire",
-    "mechanic_digest": "72a8dab9979b35ed712edaa9a0e62bdb",
+    "mechanic_digest": "a8d174b349aeee618898fb9da42c923e",
     "name": "Rearm, Reload, Fire",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "If this model or unit is affected by an Order and Remained Stationary this turn, its Heavy weapons gain the Sustained Hits 1 ability."
+    "review_state": "in_review",
+    "summary": "While affected by an Order and having Remained Stationary this turn, this unit's Heavy weapons gain Sustained Hits 1."
   },
   {
     "ability_key": "datasheet:recovery-vehicle",
@@ -1135,12 +1116,10 @@
   },
   {
     "ability_key": "datasheet:screening-line",
-    "mechanic_digest": "6fd1d8f08f8be1b3fca578248178c14e",
+    "mechanic_digest": "37197083aae38e1b296d7b06e19db5ef",
     "name": "Screening Line",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "Once per turn, when an enemy unit ends a Normal, Advance or Fall Back move within 9\" of this unit while it is outside Engagement Range of all enemies, this unit can make a Normal move of up to 6\"."
+    "review_state": "in_review",
+    "summary": "In your opponent's Movement phase, if an enemy unit ends a move within 8\" of this unit and it is not in Engagement Range, it can make a Normal move of up to 6\"."
   },
   {
     "ability_key": "datasheet:senior-officer",
@@ -1153,12 +1132,10 @@
   },
   {
     "ability_key": "datasheet:sentry-programming",
-    "mechanic_digest": "a040775d5addedec9fb02134216dcf5e",
+    "mechanic_digest": "79a95337fb955da34b5241aa0278ce57",
     "name": "Sentry Programming",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "This unit or model can be targeted with the Fire Overwatch Stratagem for 0CP, even if a different unit was already targeted with it this phase; some variants limit this to once per turn."
+    "review_state": "in_review",
+    "summary": "You can target this unit with Fire Overwatch for 0CP, even if already used on a different unit this phase."
   },
   {
     "ability_key": "datasheet:servo-scribes",
@@ -1189,12 +1166,10 @@
   },
   {
     "ability_key": "datasheet:shoot-sharp-and-scarper",
-    "mechanic_digest": "00aed3bc02a236f6854e553181f22eb2",
+    "mechanic_digest": "7887ed191b95c872b62d4815c61622ed",
     "name": "Shoot Sharp and Scarper",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "After this unit shoots, if outside Engagement Range of all enemies, it can make a Normal move as if in the Movement phase; if it does, it cannot declare a charge for the rest of the turn."
+    "review_state": "in_review",
+    "summary": "After this unit shoots, if not in Engagement Range, it can make a Normal move; if it does, it cannot charge this turn."
   },
   {
     "ability_key": "datasheet:siege-bombardment",
@@ -1207,12 +1182,10 @@
   },
   {
     "ability_key": "datasheet:slabshield",
-    "mechanic_digest": "990aca7befcb602399e8fa3097c9dbd2",
+    "mechanic_digest": "b120be506f16f66eb6752569b03accfe",
     "name": "Slabshield",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "The bearer's Wounds characteristic is increased to a fixed value (4 or 7, depending on the model)."
+    "review_state": "in_review",
+    "summary": "The bearer has a Wounds characteristic of 7."
   },
   {
     "ability_key": "datasheet:sniper-teams",
@@ -1234,12 +1207,10 @@
   },
   {
     "ability_key": "datasheet:subterranean-assault",
-    "mechanic_digest": "aa28cd943987ef78573f59b36b3098f4",
+    "mechanic_digest": "2fd26f379815d6ec296b21a3702be3ee",
     "name": "Subterranean Assault",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "When this model arrives via Deep Strike, you can bring one friendly Astra Militarum Infantry unit from Strategic Reserves and set it up wholly within 9\" of this model and more than 9\" from all enemies."
+    "review_state": "in_review",
+    "summary": "Each time this model uses Deep Strike, you can also set up one friendly ASTRA MILITARUM INFANTRY unit from Strategic Reserves wholly within 9\" of this model and more than 8\" from all enemies."
   },
   {
     "ability_key": "datasheet:summary-execution",
@@ -1288,12 +1259,10 @@
   },
   {
     "ability_key": "datasheet:tank-hunter",
-    "mechanic_digest": "f1ff0ddaa79ce922fcea4819708e066f",
+    "mechanic_digest": "b3ffcac716145a31af90df7a8584cc18",
     "name": "Tank Hunter",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "This model's attacks against Vehicle (or Monster/Vehicle) units either get +1 to the Wound roll or can re-roll the Hit roll, depending on the model."
+    "review_state": "in_review",
+    "summary": "Each time this model's Macharius twin vanquisher cannon attacks a MONSTER or VEHICLE unit, you can re-roll the Hit roll."
   },
   {
     "ability_key": "datasheet:tank-killer",
@@ -1360,12 +1329,10 @@
   },
   {
     "ability_key": "datasheet:titan-killer",
-    "mechanic_digest": "1152327b67fc6e0c340cb034c3663181",
+    "mechanic_digest": "e339a82a409da0e3e8fba98adf5ffc0d",
     "name": "Titan-killer",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "This model's attacks against Titanic, Towering, Monster, or Vehicle units either re-roll the Hit roll or gain Devastating Wounds, depending on the model."
+    "review_state": "in_review",
+    "summary": "Each time this model's volcano cannon attacks a MONSTER or VEHICLE unit, that attack gains the Devastating Wounds ability."
   },
   {
     "ability_key": "datasheet:tough-to-kill",
@@ -1510,5 +1477,12 @@
     "reviewed_at": "2026-08-04T00:00:00Z",
     "reviewed_by": "claude-reviewer-opus",
     "summary": "After this model shoots, mark one hit enemy unit (once per phase): friendly Astra Militarum attacks against it gain +1 Armour Penetration for the rest of the phase."
+  },
+  {
+    "ability_key": "faction:voice-of-command",
+    "mechanic_digest": "d8c26e9ad0c50ef919463405259ab050",
+    "name": "Voice of Command",
+    "review_state": "in_review",
+    "summary": "OFFICER models can issue one Order per Command phase (or after disembarking/deploying) to a unit within 6\" until your next Command phase: +3\" Move, +1 WS, +1 BS, +1 Rapid Fire Attacks, +1 Save, or +1 Leadership/OC."
   }
 ]
