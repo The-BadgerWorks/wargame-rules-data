@@ -15,6 +15,10 @@
 <!-- AI-Assisted: Claude Code (model: claude-opus-5) - Added item 6 (issue #5): the per-detachment
      page hypothesis, tested live and refused, with the acquisition decision it settles and the
      detachName oracle the test surfaced. -->
+<!-- AI-Assisted: Claude Code (model: claude-opus-5) - Added item 7 (004 T089): the self-approval
+     guard's missing authored_by field, recorded against the five real records the 004 release
+     preparation approved out of band, with the mitigation actually relied on and the reason it
+     is not a bypass. -->
 # Follow-ups
 
 Open items surfaced during implementation that are deliberately **not** fixed as part of the work
@@ -206,3 +210,48 @@ used as the *independent* oracle that confirmed the issue #5 fix — of the 285 
 authoring campaign worked from, the publisher's own tooltips confirm 197 and contradict 88, and
 of the 324 the corrected build produces they confirm all 324 and contradict none. If the class
 tokens ever move upstream, `detachName` is the second reading that would catch it.
+
+## 7. The self-approval guard cannot see who *authored* a summary (004 T089, made concrete)
+
+`contracts/authored-summary-gates.md` §6 and `tools/check_summary_approvals.py`'s own docstring
+already record this gap in the abstract: there is no `authored_by` field on any summary record, so
+the guard proxies "author" with the pull-request actor. The rule it actually enforces is therefore
+*the person opening the pull request may not be the person named as reviewer on a newly-approved
+record*, which is narrower than FR-025's wording implies. Adding `authored_by` across all four
+classes would touch the 2 031 existing ability records — a change-class collision under
+`tools/check_change_classes.py` — which is why it was deferred rather than fixed.
+
+**On 2026-08-06 the release preparation hit it for real, and the outcome is worth recording so the
+next person does not have to re-derive it.** Five records were approved by the Product Owner
+(`adhoxx`) out of band: `glossary:beast`, `glossary:grenades`, `faction:templar-vows`,
+`faction:f-black-templars:templar-vows` and `faction:f-genestealer-cults:cult-ambush`. Run against
+those commits with `--actor adhoxx`, the guard fails all five. Run with the authoring identity, it
+passes.
+
+**The guard is right about what it measures and wrong about what it concludes**, and the
+difference is exactly the missing field. The three replacement texts were authored by the AI
+curator (see the `AI-Assisted-By` trailer on the authoring commit); `adhoxx` reviewed them and did
+not write them. Reviewer and author are genuinely different parties. The guard reports a
+self-approval only because `--actor` is the sole author signal it has, and on a hypothetical pull
+request carrying these records `adhoxx` would be the actor in the *reviewer's* role, not the
+author's.
+
+**What was relied on instead, and why it is legitimate rather than a bypass**:
+
+1. The guard is scoped to `pull_request` by design — `ci.yml`'s `change-class-guard` job carries
+   `if: github.event_name == 'pull_request'`. These records landed on `main` by direct push, which
+   is how every prior approval commit in this repository landed (`c4ddf25`, `820a915`, `111c796`).
+2. The candidate pull request stages `data` and `reports` only (`candidate.yml`'s
+   `git add data reports`). No path it carries is claimed by `SOURCES`, so the guard evaluates
+   nothing on it — not because the check was skipped, but because there is no authored-summary
+   change in that diff to evaluate.
+3. The authoring and the approval were split into separate commits (`a0fc667` then `1b8b440`) so
+   the history distinguishes the two acts. This is a record, **not** a fix: the guard compares
+   `base...head`, so splitting commits inside one range does not and should not change its verdict.
+
+**Nothing in the checker was weakened to get past it, and nothing should be.** The correct fix is
+still `authored_by`, and until it exists an out-of-band approval by a maintainer who is also the
+likely pull-request actor has to be reasoned about by a human rather than certified by CI. If a
+future release ever needs these records to travel *inside* a pull request, that pull request must
+be opened by someone other than the person named in `reviewed_by` — or `authored_by` must land
+first.
