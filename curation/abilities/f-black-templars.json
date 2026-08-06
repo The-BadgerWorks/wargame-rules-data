@@ -19,12 +19,10 @@
   },
   {
     "ability_key": "datasheet:annihilator",
-    "mechanic_digest": "6d1d280ef416034185e1b8dea5864d97",
+    "mechanic_digest": "155171709f6f4c7a3640343cab826848",
     "name": "Annihilator",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "This model re-rolls Damage rolls of 1 on ranged attacks against Monster or Vehicle targets."
+    "review_state": "in_review",
+    "summary": "Each time this model's ranged attack is allocated to a MONSTER or VEHICLE model, you can re-roll the Damage roll."
   },
   {
     "ability_key": "datasheet:annihilator-protocols",
@@ -46,12 +44,10 @@
   },
   {
     "ability_key": "datasheet:armorium-cherub",
-    "mechanic_digest": "276ee23797ad0af18f7f8986c367cf2d",
+    "mechanic_digest": "1403ff0a5aab8c75dfb459f572e34eea",
     "name": "Armorium Cherub",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "Once per battle, change one Hit roll made for a model in this unit to an unmodified 6."
+    "review_state": "in_review",
+    "summary": "Once per battle, after a Hit roll for a model in this unit, you can change that roll to an unmodified 6."
   },
   {
     "ability_key": "datasheet:armour-of-faith",
@@ -73,21 +69,17 @@
   },
   {
     "ability_key": "datasheet:assault-vehicle",
-    "mechanic_digest": "25d508d8df5c8f70ac45e432913738b3",
+    "mechanic_digest": "702372615671b724501dab84319fb054",
     "name": "Assault Vehicle",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "Units may disembark from this Transport after it Advances; they count as having made a Normal move and cannot declare a charge that turn."
+    "review_state": "in_review",
+    "summary": "Units can disembark from this TRANSPORT after it Advances; they count as having made a Normal move and cannot charge that turn."
   },
   {
     "ability_key": "datasheet:astartes-banner",
-    "mechanic_digest": "2d552dfd7b6c050848c10c0b4bb8bd0d",
+    "mechanic_digest": "3ed4cf5b6d6bc414f4c86842a87299aa",
     "name": "Astartes Banner",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "While this unit includes an Ancient-type model, add 1 to the Objective Control characteristic of models in it."
+    "review_state": "in_review",
+    "summary": "While this model leads a unit, add 1 to the Objective Control characteristic of models in that unit."
   },
   {
     "ability_key": "datasheet:ballistus-strike",
@@ -109,21 +101,17 @@
   },
   {
     "ability_key": "datasheet:bladeguard",
-    "mechanic_digest": "b65b6e9317c615be88c43f7f04ab0d5f",
+    "mechanic_digest": "631adee63ac2adbecaf328b86efd3db1",
     "name": "Bladeguard",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "At the start of the Fight phase, choose one bonus for this unit until the end of the phase: melee attacks re-roll Hit rolls of 1, or invulnerable saves re-roll rolls of 1."
+    "review_state": "in_review",
+    "summary": "Once per turn per unit, when this unit fights or is targeted, choose: its melee attacks get +1 to hit, or attacks against it get -1 to hit."
   },
   {
     "ability_key": "datasheet:blessing-of-the-omnissiah",
-    "mechanic_digest": "2c7ff949d067777d42877c76a3013781",
+    "mechanic_digest": "8967a3dd5ff315f2d240bad42a5efdc3",
     "name": "Blessing of the Omnissiah",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "In your Command phase, pick one friendly Vehicle within 3\": it regains D3 wounds and its attacks get +1 to Hit until your next Command phase. Once per model per turn."
+    "review_state": "in_review",
+    "summary": "In your Command phase, select one friendly ADEPTUS ASTARTES VEHICLE within 3\": it regains up to D3 wounds and its attacks get +1 to hit until your next Command phase; each model usable once per turn."
   },
   {
     "ability_key": "datasheet:brutalis-charge",
@@ -298,12 +286,10 @@
   },
   {
     "ability_key": "datasheet:designers-note",
-    "mechanic_digest": "c1616aec5d7c30820488c3795bf92bd5",
-    "name": "Designer’s Note",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "A datasheet-specific clarification of how another rule on that datasheet is applied: which parts of the model count as its hull for placement, that an ability still triggers on a Hazardous test, or which token tracks its use."
+    "mechanic_digest": "169b7b06155bad1bf4bae906ebe56d9e",
+    "name": "Designer's Note",
+    "review_state": "in_review",
+    "summary": "Place an Armorium Cherub token next to the unit, removed once the Armorium Cherub ability is used."
   },
   {
     "ability_key": "datasheet:destructor",
@@ -316,12 +302,10 @@
   },
   {
     "ability_key": "datasheet:drop-pod-assault",
-    "mechanic_digest": "46b5b75450c0ed17c53662f9020963a9",
+    "mechanic_digest": "401431260ca8488207bd1216dd608508",
     "name": "Drop Pod Assault",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "This model starts in Reserves and can arrive in the first, second, or third Movement phase regardless of mission rules; embarked units must disembark immediately, more than 9\" from all enemy models."
+    "review_state": "in_review",
+    "summary": "This model starts in Reserves and can arrive in your first, second, or third Movement phase; embarked units must disembark more than 8\" from all enemies immediately."
   },
   {
     "ability_key": "datasheet:duty-eternal",
@@ -334,12 +318,10 @@
   },
   {
     "ability_key": "datasheet:evade-and-survive",
-    "mechanic_digest": "e67d3281e5fceaec857f1965f30e6f15",
+    "mechanic_digest": "c923a71f9c5826d95f32ca5d3194c729",
     "name": "Evade and Survive",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "Once per turn, when an enemy ends a Normal, Advance or Fall Back move within 9\" of this unit while it is outside Engagement Range of all enemies, this unit can make a Normal move."
+    "review_state": "in_review",
+    "summary": "In your opponent's Movement phase, if an enemy unit ends a move within 8\" of this unit and it is not in Engagement Range, it can make a Normal move of up to 6\"."
   },
   {
     "ability_key": "datasheet:exhortation-of-rage",
@@ -361,12 +343,10 @@
   },
   {
     "ability_key": "datasheet:fearsome-assault",
-    "mechanic_digest": "0fd447d42a7de85cb0bbf3844ac88e6d",
+    "mechanic_digest": "ae29de14ae7e91354a774af339cff2fb",
     "name": "Fearsome Assault",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "Each enemy unit within Engagement Range of a unit with this ability must take a Battle-shock test at the start of the Fight phase; some variants apply -1 to that test."
+    "review_state": "in_review",
+    "summary": "At the start of the Fight phase, enemy units within Engagement Range of a unit with this ability must take a Battle-shock test at -1."
   },
   {
     "ability_key": "datasheet:finest-hour",
@@ -424,12 +404,10 @@
   },
   {
     "ability_key": "datasheet:hammer-of-wrath",
-    "mechanic_digest": "9e20cbba470f3e2877f3045b0a45ca38",
+    "mechanic_digest": "6db54089235747c8095d269da5378134",
     "name": "Hammer of Wrath",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "After this unit ends a Charge move, roll a D6 per eligible model against one enemy unit within Engagement Range: each 4+ deals 1 mortal wound."
+    "review_state": "in_review",
+    "summary": "Each time this unit ends a Charge move, select one enemy unit it is engaged with and roll one D6 per engaged model in this unit: each 4+ deals that enemy 1 mortal wound."
   },
   {
     "ability_key": "datasheet:hammerstrike",
@@ -586,12 +564,10 @@
   },
   {
     "ability_key": "datasheet:narthecium",
-    "mechanic_digest": "cf3a91262209af7797dd29213cf1ecfe",
+    "mechanic_digest": "e8045a24f734e128e3d3acd603ec3d30",
     "name": "Narthecium",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "While this model leads a unit, or its unit includes an Apothecary-type model, return one destroyed non-Character model to that unit each Command phase."
+    "review_state": "in_review",
+    "summary": "While this model leads a unit, in your Command phase you can return 1 destroyed non-CHARACTER model to that unit."
   },
   {
     "ability_key": "datasheet:objective-secured",
@@ -730,12 +706,10 @@
   },
   {
     "ability_key": "datasheet:righteous-zeal",
-    "mechanic_digest": "c5a33ef1d00d43838e2ed9ba4ef2dfa7",
+    "mechanic_digest": "9d96bbf7110ad249e9339cc9cff2ea5e",
     "name": "Righteous Zeal",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "If this unit loses models to enemy shooting, once per phase it may move D6+2\" toward the nearest non-Aircraft enemy, into Engagement Range if needed; not while Battle-shocked or engaged. Some variants re-roll Advance/Charge instead."
+    "review_state": "in_review",
+    "summary": "In your opponent's Shooting phase, if any models in this unit were destroyed by an enemy unit's attacks, this unit can make a surge move of up to D6+2\"."
   },
   {
     "ability_key": "datasheet:rites-of-battle",
@@ -784,12 +758,10 @@
   },
   {
     "ability_key": "datasheet:sigismunds-heir",
-    "mechanic_digest": "32a3602121b4c60e9ea60eb3c0ebe1c5",
-    "name": "Sigismund’s Heir",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "This model's unit gets +2 to the Charge roll when a target has the Character keyword; once per battle, while engaged with an enemy Character, this model's melee weapons can gain Devastating Wounds for the phase."
+    "mechanic_digest": "ce3c6ddf665796222e767af081bb4b4f",
+    "name": "Sigismund's Heir",
+    "review_state": "in_review",
+    "summary": "When charging an enemy CHARACTER within 12\", this unit can re-roll the charge roll but must end engaged with it. Once per battle, while fighting a CHARACTER it is engaged with, this unit's melee attacks gain Devastating Wounds."
   },
   {
     "ability_key": "datasheet:signum",
@@ -865,12 +837,10 @@
   },
   {
     "ability_key": "datasheet:tactical-precision",
-    "mechanic_digest": "0f8fb069c32e6e211c45ed1329fee1bf",
+    "mechanic_digest": "12e87fe25987f213165113cf413204f4",
     "name": "Tactical Precision",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "While leading a unit, weapons equipped by models in that unit gain the Lethal Hits ability."
+    "review_state": "in_review",
+    "summary": "While this model leads a unit, that unit's weapons gain the Lethal Hits ability."
   },
   {
     "ability_key": "datasheet:target-elimination",
@@ -910,21 +880,17 @@
   },
   {
     "ability_key": "datasheet:techmarine",
-    "mechanic_digest": "d7acecafc877783087eb7a2ef5bfefc9",
+    "mechanic_digest": "8599af86f9f02f4c89f50d7696ca5f4f",
     "name": "Techmarine",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "While within 3\" of a friendly Vehicle unit, this model has the Lone Operative ability."
+    "review_state": "in_review",
+    "summary": "While within 3\" of a friendly ADEPTUS ASTARTES VEHICLE unit, this model has the Lone Operative ability."
   },
   {
     "ability_key": "datasheet:teleport-homer",
-    "mechanic_digest": "aba146d4fad286315c685199d839e1cc",
+    "mechanic_digest": "7083778b8fef1692a94f3520d2e524d5",
     "name": "Teleport Homer",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "At the start of the battle, place a token outside the enemy deployment zone; once per battle, use it for the Rapid Ingress Stratagem at 0CP, deploying this unit within 3\" of the token and 9\" from enemies, then remove the token."
+    "review_state": "in_review",
+    "summary": "At the start of the battle, place a token for this unit outside the opponent's deployment zone; once per battle, use Rapid Ingress for 0CP to set this unit up within 3\" of that token (outside 8\" of enemies), then remove the token."
   },
   {
     "ability_key": "datasheet:temple-relics",
@@ -955,12 +921,10 @@
   },
   {
     "ability_key": "datasheet:terminatus-assault",
-    "mechanic_digest": "ece0e67684b250504d2e33ecb7d19009",
+    "mechanic_digest": "d206a8656460e7838dca5dbef0187bd7",
     "name": "Terminatus Assault",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "Each enemy unit within this unit's Engagement Range must Battle-shock test at the Fight phase's start or after a Charge move; some variants re-roll Charge rolls and apply -1 for non-Imperium/Chaos targets."
+    "review_state": "in_review",
+    "summary": "At the start of the Fight phase, enemy units within Engagement Range of this unit must take a Battle-shock test."
   },
   {
     "ability_key": "datasheet:terror-troops-aura",
@@ -1099,11 +1063,9 @@
   },
   {
     "ability_key": "datasheet:wisdom-of-the-ancients-aura",
-    "mechanic_digest": "faea712917efc64e0c7883e474435749",
+    "mechanic_digest": "a8220b619dcac151a44555fffb339c3e",
     "name": "Wisdom of the Ancients (Aura)",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "While a friendly Infantry unit is within 6\" of this model, its attacks re-roll Hit rolls of 1 (some variants also re-roll Wound rolls of 1)."
+    "review_state": "in_review",
+    "summary": "Friendly ADEPTUS ASTARTES INFANTRY units within 6\" of this model can re-roll a Hit roll of 1."
   }
 ]
