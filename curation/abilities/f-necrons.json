@@ -1051,7 +1051,7 @@
   },
   {
     "ability_key": "faction:reanimation-protocols",
-    "mechanic_digest": "687ffc1b1f643f9a8bf384cb7ee385f8",
+    "mechanic_digest": "ecd9628f44a7160e24b133498a5e6657",
     "name": "Reanimation Protocols",
     "review_state": "in_review",
     "summary": "At the end of your Command phase, each friendly unit with this ability on the battlefield heals D3 wounds, restoring lost models before topping up survivors."

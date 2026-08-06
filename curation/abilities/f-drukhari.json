@@ -633,7 +633,7 @@
   },
   {
     "ability_key": "faction:power-from-pain",
-    "mechanic_digest": "e378d165c0b35d936fd25c7adf2d6b48",
+    "mechanic_digest": "9487f8d40f9f92a905d0943e8c15f572",
     "name": "Power from Pain",
     "review_state": "in_review",
     "summary": "DRUKHARI units gain Pain tokens (1 per Command phase, plus 1 each time an enemy unit is destroyed or fails Battle-shock); spend tokens to Empower a unit, activating its Pain-tagged abilities until end of phase."

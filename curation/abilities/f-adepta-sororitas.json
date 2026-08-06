@@ -780,7 +780,7 @@
   },
   {
     "ability_key": "faction:acts-of-faith",
-    "mechanic_digest": "b49afc94744953114745442e8dc56fb0",
+    "mechanic_digest": "e06b49edb26cf873aa37dd81ac0466c1",
     "name": "Acts of Faith",
     "review_state": "in_review",
     "summary": "ADEPTA SORORITAS units gain Miracle dice (1 per battle round, plus 1 whenever an ADEPTA SORORITAS unit is destroyed) to substitute for one dice in an Advance, Charge, Battle-shock, Hit, Wound, Save, or Damage roll."

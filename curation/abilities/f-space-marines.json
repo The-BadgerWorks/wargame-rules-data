@@ -1116,28 +1116,28 @@
   },
   {
     "ability_key": "faction:curse-of-the-wulfen",
-    "mechanic_digest": "e378d165c0b35d936fd25c7adf2d6b48",
+    "mechanic_digest": "634607bff9c743cf883c573fd1f0f1c9",
     "name": "Curse of the Wulfen",
     "review_state": "in_review",
     "summary": "While within 6\" of a friendly SPACE WOLVES CHARACTER (not WULFEN) or 12\" of a WOLF PRIEST, and not Battle-shocked, this unit's Infantry models get +1 Objective Control and Vehicle models get +3."
   },
   {
     "ability_key": "faction:mission-tactics",
-    "mechanic_digest": "3c6b4551f40173a1e94755d9a679f92c",
+    "mechanic_digest": "470775e7655341f3e1f05f043c814870",
     "name": "Mission Tactics",
     "review_state": "in_review",
     "summary": "Once per battle, at the start of a Command phase, select a Mission Tactic active until your next Command phase for ADEPTUS ASTARTES units: Sustained Hits 1, Lethal Hits, or Precision on Critical Hits."
   },
   {
     "ability_key": "faction:oath-of-moment",
-    "mechanic_digest": "53b08af2ea17585b8b795b1d44cd4380",
+    "mechanic_digest": "41a7b10b6475a03f4fd384c5285e86ac",
     "name": "Oath of Moment",
     "review_state": "in_review",
     "summary": "At the start of your Command phase, select an enemy unit as your Oath of Moment target: attacks against it can re-roll the Hit roll (and add 1 to the Wound roll too, for a Space Marines Detachment without Chapter-specific units)."
   },
   {
     "ability_key": "faction:templar-vows",
-    "mechanic_digest": "e378d165c0b35d936fd25c7adf2d6b48",
+    "mechanic_digest": "3774319316556f0026861676b9cdb109",
     "name": "Templar Vows",
     "review_state": "in_review",
     "summary": "At the start of the battle, select one Vow active for your ADEPTUS ASTARTES units all battle: bonus vs PSYKERS, bonus Wound rolls vs tougher targets, charge-after-Fall-Back with free Pile-in, or improved objective control/Actions."

@@ -613,7 +613,7 @@
   },
   {
     "ability_key": "faction:doctrina-imperatives",
-    "mechanic_digest": "e378d165c0b35d936fd25c7adf2d6b48",
+    "mechanic_digest": "a465e2c290a71fbd18a1cab8f9533931",
     "name": "Doctrina Imperatives",
     "review_state": "in_review",
     "summary": "Each battle round, pick a Doctrina Imperative: Protector gives ranged weapons Heavy, +1 BS, and -1 to enemy melee Hit rolls near Battleline; Conqueror gives ranged Assault, +1 WS, +1 AP near Battleline."

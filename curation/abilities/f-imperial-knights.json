@@ -262,7 +262,7 @@
   },
   {
     "ability_key": "faction:code-chivalric",
-    "mechanic_digest": "e378d165c0b35d936fd25c7adf2d6b48",
+    "mechanic_digest": "ef3c61d567bd6fb693f574cc88a94f17",
     "name": "Code Chivalric",
     "review_state": "in_review",
     "summary": "At the start of the battle, select or randomly roll one Deed and one Quality (your Oath). Your Quality's effect applies all battle; completing your Deed makes your army Honoured and gains 2CP (3CP if either was rolled randomly)."

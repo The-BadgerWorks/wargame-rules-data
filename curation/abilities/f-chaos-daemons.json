@@ -1563,14 +1563,14 @@
   },
   {
     "ability_key": "faction:dark-pacts",
-    "mechanic_digest": "e378d165c0b35d936fd25c7adf2d6b48",
+    "mechanic_digest": "6a8cdc1f184493270e2194d176548eb2",
     "name": "Dark Pacts",
     "review_state": "in_review",
     "summary": "When a HERETIC ASTARTES unit with this ability is selected to shoot or fight, it can make a Dark Pact: take a Leadership test (D3 mortal wounds on a fail), then choose Lethal Hits or Sustained Hits 1 for its weapons until end of phase."
   },
   {
     "ability_key": "faction:the-shadow-of-chaos",
-    "mechanic_digest": "687ffc1b1f643f9a8bf384cb7ee385f8",
+    "mechanic_digest": "536bf9fc4a03f34e6bce620d619972da",
     "name": "The Shadow of Chaos",
     "review_state": "in_review",
     "summary": "Your deployment zone (plus contested No Man's Land/enemy zone) is your Shadow of Chaos: LEGIONES DAEMONICA units there get better Battle-shock rolls and healing; enemies near key Daemon units get worse Battle-shock, risking mortal wounds."

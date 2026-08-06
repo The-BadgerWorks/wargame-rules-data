@@ -362,28 +362,28 @@
   },
   {
     "ability_key": "faction:cabal-of-sorcerers",
-    "mechanic_digest": "e378d165c0b35d936fd25c7adf2d6b48",
+    "mechanic_digest": "c8722c0ac1850d81456cddc43116d107",
     "name": "Cabal of Sorcerers",
     "review_state": "in_review",
     "summary": "At the start of your Shooting phase, one eligible model can attempt a Ritual by rolling 2D6 (optionally Channelling the Warp, risking D3 mortal wounds for a higher result); meeting the Ritual's Warp Charge manifests its effect."
   },
   {
     "ability_key": "faction:cabal-of-sorcerers-1",
-    "mechanic_digest": "e378d165c0b35d936fd25c7adf2d6b48",
+    "mechanic_digest": "c8722c0ac1850d81456cddc43116d107",
     "name": "Cabal of Sorcerers",
     "review_state": "in_review",
     "summary": "At the start of your Shooting phase, one eligible model can attempt a Ritual by rolling 2D6 (optionally Channelling the Warp, risking D3 mortal wounds for a higher result); meeting the Ritual's Warp Charge manifests its effect."
   },
   {
     "ability_key": "faction:cabal-of-sorcerers-scarab-occult-sorcerer-only",
-    "mechanic_digest": "e378d165c0b35d936fd25c7adf2d6b48",
+    "mechanic_digest": "c8722c0ac1850d81456cddc43116d107",
     "name": "Cabal of Sorcerers (Scarab Occult Sorcerer only)",
     "review_state": "in_review",
     "summary": "At the start of your Shooting phase, one eligible model can attempt a Ritual by rolling 2D6 (optionally Channelling the Warp, risking D3 mortal wounds for a higher result); meeting the Ritual's Warp Charge manifests its effect."
   },
   {
     "ability_key": "faction:pact-of-sorcery",
-    "mechanic_digest": "e378d165c0b35d936fd25c7adf2d6b48",
+    "mechanic_digest": "6001572b0eba334d3cbef40aa2ea8cd9",
     "name": "Pact of Sorcery",
     "review_state": "in_review",
     "summary": "When building your army, your Army Faction cannot be Scintillating Legions."

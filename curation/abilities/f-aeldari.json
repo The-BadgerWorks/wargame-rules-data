@@ -1391,14 +1391,14 @@
   },
   {
     "ability_key": "faction:battle-focus",
-    "mechanic_digest": "e378d165c0b35d936fd25c7adf2d6b48",
+    "mechanic_digest": "1ec1694b59aaac9ca6cd32795d2ac8a7",
     "name": "Battle Focus",
     "review_state": "in_review",
     "summary": "Gain Battle Focus tokens by battle size (2/4/6/round) to trigger Agile Manoeuvres on ASURYANI units: bonus Move, Fire Overwatch immunity, ranged Assault on Advance, bigger Pile-in, or bonus reactive moves."
   },
   {
     "ability_key": "faction:disparate-paths",
-    "mechanic_digest": "e378d165c0b35d936fd25c7adf2d6b48",
+    "mechanic_digest": "bd5bd0468f9c5bee32847233bb638cd7",
     "name": "Disparate Paths",
     "review_state": "in_review",
     "summary": "HARLEQUINS units can be included in your army despite lacking the ASURYANI Faction keyword; your Army Faction still cannot be Harlequins or Ynnari unless stated otherwise."

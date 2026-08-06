@@ -826,7 +826,7 @@
   },
   {
     "ability_key": "faction:for-the-greater-good",
-    "mechanic_digest": "e378d165c0b35d936fd25c7adf2d6b48",
+    "mechanic_digest": "f7afe49ec76c4207b78e5d0d7942e7d3",
     "name": "For the Greater Good",
     "review_state": "in_review",
     "summary": "At the start of your Shooting phase, designate eligible units as Observers to mark enemy units as Spotted. Other T'AU EMPIRE units targeting a Spotted unit become Guided: +1 BS, and Ignores Cover if spotted by a MARKERLIGHT unit."

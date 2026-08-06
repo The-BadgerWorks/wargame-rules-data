@@ -1,7 +1,7 @@
 [
   {
     "ability_key": "core:super-heavy-walker",
-    "mechanic_digest": "c93cde4192a5eaee225e18f40fdf99b2",
+    "mechanic_digest": "805e77dca9ef8cfd7ec4908a17562bbe",
     "name": "Super-heavy Walker",
     "review_state": "in_review",
     "summary": "A unit with this ability can move through models (including MONSTER/VEHICLE, not TITANIC) and terrain 4\" or less tall; you can grant it MOBILE for that move, risking Battle-shock on a D6 roll of 1 when it ends."
@@ -737,28 +737,28 @@
   },
   {
     "ability_key": "faction:blessings-of-khorne",
-    "mechanic_digest": "e378d165c0b35d936fd25c7adf2d6b48",
+    "mechanic_digest": "c8d28de8713368a2a676e1caca51093d",
     "name": "Blessings of Khorne",
     "review_state": "in_review",
     "summary": "At the start of the battle round, roll 8D6 to activate up to two Blessings of Khorne (each needs matching dice) for WORLD EATERS units until round end, each granting a combat bonus (e.g. bonus charge, Sustained Hits, Devastating Wounds)."
   },
   {
     "ability_key": "faction:cabal-of-sorcerers-aspiring-sorcerer-only",
-    "mechanic_digest": "e378d165c0b35d936fd25c7adf2d6b48",
+    "mechanic_digest": "c8722c0ac1850d81456cddc43116d107",
     "name": "Cabal of Sorcerers (Aspiring Sorcerer only)",
     "review_state": "in_review",
     "summary": "At the start of your Shooting phase, one eligible model can attempt a Ritual by rolling 2D6 (optionally Channelling the Warp, risking D3 mortal wounds for a higher result); meeting the Ritual's Warp Charge manifests its effect."
   },
   {
     "ability_key": "faction:nurgles-gift-aura",
-    "mechanic_digest": "e378d165c0b35d936fd25c7adf2d6b48",
+    "mechanic_digest": "ad8887300cfa858c72e53e84cabb7cbd",
     "name": "Nurgle's Gift (Aura)",
     "review_state": "in_review",
     "summary": "Enemy units within Contagion Range (up to 12\") of DEATH GUARD models are Afflicted: -1 Toughness plus your chosen Plague's effect (worse Hit rolls, worse Save, or worse Move/Leadership/OC), fixed at deployment."
   },
   {
     "ability_key": "faction:thrill-seekers",
-    "mechanic_digest": "687ffc1b1f643f9a8bf384cb7ee385f8",
+    "mechanic_digest": "e8b7d94d00733c5b22fc60c21b688e90",
     "name": "Thrill Seekers",
     "review_state": "in_review",
     "summary": "This EMPEROR'S CHILDREN unit can shoot and charge after Advancing or Falling Back, but cannot target a unit it started the turn engaged with, or one already targeted by another charge/attack this phase."

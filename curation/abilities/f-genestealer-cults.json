@@ -564,28 +564,28 @@
   },
   {
     "ability_key": "faction:cult-ambush",
-    "mechanic_digest": "687ffc1b1f643f9a8bf384cb7ee385f8",
+    "mechanic_digest": "dbe125b14ad4b836005144391613872b",
     "name": "Cult Ambush",
     "review_state": "in_review",
     "summary": "Destroyed units made entirely of models with this ability can return via Cult Ambush by spending Resurgence points (by battle size, cost by unit size); a marker is placed, letting units ingress near it, removed if an enemy nears within 8\"."
   },
   {
     "ability_key": "faction:shadow-in-the-warp",
-    "mechanic_digest": "e378d165c0b35d936fd25c7adf2d6b48",
+    "mechanic_digest": "a51a703853b33a27322f6c1783879c9a",
     "name": "Shadow in the Warp",
     "review_state": "in_review",
     "summary": "Once per battle, in either player's Command phase, if your Army Faction is Tyranids and a unit with this ability is on the battlefield, force every enemy unit to take a Battle-shock test, at -1 within 6\" of a friendly SYNAPSE unit."
   },
   {
     "ability_key": "faction:shadow-in-the-warp-ravener-prime-only",
-    "mechanic_digest": "e378d165c0b35d936fd25c7adf2d6b48",
+    "mechanic_digest": "a51a703853b33a27322f6c1783879c9a",
     "name": "Shadow In The Warp (Ravener Prime only)",
     "review_state": "in_review",
     "summary": "Once per battle, in either player's Command phase, if your Army Faction is Tyranids and a unit with this ability is on the battlefield, force every enemy unit to take a Battle-shock test, at -1 within 6\" of a friendly SYNAPSE unit."
   },
   {
     "ability_key": "faction:synapse",
-    "mechanic_digest": "687ffc1b1f643f9a8bf384cb7ee385f8",
+    "mechanic_digest": "cc1b41cf8e0cb12ece33a76869438494",
     "name": "Synapse",
     "review_state": "in_review",
     "summary": "If your Army Faction is Tyranids, a Tyranids unit within 6\" of a friendly SYNAPSE model is in Synapse Range: it takes Battle-shock tests on 3D6 instead of 2D6, and its melee attacks get +1 Strength."

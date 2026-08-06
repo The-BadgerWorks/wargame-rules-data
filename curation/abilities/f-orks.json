@@ -1147,7 +1147,7 @@
   },
   {
     "ability_key": "faction:waaagh",
-    "mechanic_digest": "e378d165c0b35d936fd25c7adf2d6b48",
+    "mechanic_digest": "61a7ac1e5609a282d0e0fc353e4ef9aa",
     "name": "Waaagh!",
     "review_state": "in_review",
     "summary": "Once per battle, at the start of your Command phase, call a Waaagh!: until your next Command phase, ORKS units with this ability can charge after Advancing, get +1 melee Strength and Attacks, and gain a 5+ invulnerable save."

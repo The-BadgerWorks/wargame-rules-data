@@ -1480,7 +1480,7 @@
   },
   {
     "ability_key": "faction:voice-of-command",
-    "mechanic_digest": "d8c26e9ad0c50ef919463405259ab050",
+    "mechanic_digest": "00a0ed0a0660ffb124f7edd3f08210f5",
     "name": "Voice of Command",
     "review_state": "in_review",
     "summary": "OFFICER models can issue one Order per Command phase (or after disembarking/deploying) to a unit within 6\" until your next Command phase: +3\" Move, +1 WS, +1 BS, +1 Rapid Fire Attacks, +1 Save, or +1 Leadership/OC."

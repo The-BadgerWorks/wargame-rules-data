@@ -389,7 +389,7 @@
   },
   {
     "ability_key": "faction:prioritised-efficiency",
-    "mechanic_digest": "c93cde4192a5eaee225e18f40fdf99b2",
+    "mechanic_digest": "6588ccac82a3fdd0297fd8d0c440a0b9",
     "name": "Prioritised Efficiency",
     "review_state": "in_review",
     "summary": "LEAGUES OF VOTANN units gain Hostile Acquisition (hit bonus near objectives, re-roll Advance/Charge) below 7 Yield Points, or Fortify Takeover (hit bonus, -1 enemy Wound rolls vs non-Vehicles) at 7+; YP comes from objectives."
