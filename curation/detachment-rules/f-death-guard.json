@@ -1,0 +1,18 @@
+[
+  {
+    "summary_key": "detachment:d-death-lords-chosen:deadly-vectors",
+    "detachment_id": "d-death-lords-chosen",
+    "name": "Deadly Vectors",
+    "summary": "In your opponent's Command phase, roll 2D6 for each Afflicted enemy unit (-1 if it's Below Half-strength): on 6 or less, it suffers D3 mortal wounds.",
+    "review_state": "in_review",
+    "mechanic_digest": "c810b85527db7dad9e39e0e2757c6679"
+  },
+  {
+    "summary_key": "detachment:d-virulent-vectorium:worldblight",
+    "detachment_id": "d-virulent-vectorium",
+    "name": "Worldblight",
+    "summary": "At the end of your Command phase, an objective a Death Guard unit controls becomes secured. While an enemy unit is within range of that objective, it is Afflicted.",
+    "review_state": "in_review",
+    "mechanic_digest": "ada9f3784ef57964517792b5ba44e3bb"
+  }
+]
