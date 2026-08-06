@@ -7,8 +7,10 @@
       "display_order": 1,
       "name": "Power from Pain",
       "summary": "Gain Pain tokens each Command phase and whenever an enemy unit is destroyed or fails Battle-shock. Spend one to Empower a unit for the phase, activating its Pain-tagged abilities and its attached Leader/Bodyguard Pain abilities for free.",
-      "review_state": "in_review",
-      "mechanic_digest": "9487f8d40f9f92a905d0943e8c15f572"
+      "review_state": "approved",
+      "mechanic_digest": "9487f8d40f9f92a905d0943e8c15f572",
+      "reviewed_by": "claude-opus-5-adversarial-reviewer",
+      "reviewed_at": "2026-08-06T00:00:00Z"
     }
   ]
 }
