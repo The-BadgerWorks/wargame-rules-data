@@ -1,0 +1,58 @@
+[
+  {
+    "summary_key": "detachment:d-blood-legion:blood-tainted",
+    "detachment_id": "d-blood-legion",
+    "name": "Blood Tainted",
+    "summary": "After a Legiones Daemonica Khorne unit destroys an enemy unit near an objective it controls more strongly than the enemy, it keeps control of that objective until the opponent's Level of Control there is higher at a phase's end.",
+    "review_state": "in_review",
+    "mechanic_digest": "b28a9c444283d439e1f43506d497654f"
+  },
+  {
+    "summary_key": "detachment:d-blood-legion:murdercall",
+    "detachment_id": "d-blood-legion",
+    "name": "Murdercall",
+    "summary": "In your opponent's Movement phase, when an enemy unit ends a move within 8\" of a Legiones Daemonica Khorne unit, that unit can make a surge move of up to D6\".",
+    "review_state": "in_review",
+    "mechanic_digest": "69dc85ad83385a3becd6d2e537a70909"
+  },
+  {
+    "summary_key": "detachment:d-daemonic-incursion:unnatural-energies",
+    "detachment_id": "d-daemonic-incursion",
+    "name": "Unnatural Energies",
+    "summary": "After Advancing or Falling Back, a Legiones Daemonica unit can perform a Tactical Manoeuvre: Secure Site, Set to Defend, or Set Overwatch.",
+    "review_state": "in_review",
+    "mechanic_digest": "d03ff875c901b8c1416427bc5c5caea5"
+  },
+  {
+    "summary_key": "detachment:d-daemonic-incursion:warp-rifts",
+    "detachment_id": "d-daemonic-incursion",
+    "name": "Warp Rifts",
+    "summary": "A Legiones Daemonica unit deep striking wholly within your Shadow of Chaos, or within 6\" of a matching-god Greater Daemon, can set up more than 6\" from enemies instead of 8\".",
+    "review_state": "in_review",
+    "mechanic_digest": "6c8a3ea8bf34d3f7469165576e02b34b"
+  },
+  {
+    "summary_key": "detachment:d-legion-of-excess:beguiling-aura",
+    "detachment_id": "d-legion-of-excess",
+    "name": "Beguiling Aura",
+    "summary": "Legiones Daemonica Slaanesh units can declare a charge in a turn they Fell Back.",
+    "review_state": "in_review",
+    "mechanic_digest": "422f4e5de49c3db04c1bf12796abd894"
+  },
+  {
+    "summary_key": "detachment:d-legion-of-excess:seductive-gambit",
+    "detachment_id": "d-legion-of-excess",
+    "name": "Seductive Gambit",
+    "summary": "After a Charge move, a Legiones Daemonica Slaanesh unit can trade Fights First for the rest of the turn to instead re-roll Hit rolls and Wound rolls of 1 when it fights.",
+    "review_state": "in_review",
+    "mechanic_digest": "108fc7a6fd769e690cae23a287f6eb01"
+  },
+  {
+    "summary_key": "detachment:d-plague-legion:melancholic-miasma",
+    "detachment_id": "d-plague-legion",
+    "name": "Melancholic Miasma",
+    "summary": "Enemy units within 9\" of a Legiones Daemonica Nurgle unit count as in your Shadow of Chaos. Each player's Command phase, one enemy unit there must take a Battle-shock test.",
+    "review_state": "in_review",
+    "mechanic_digest": "26ee6cb056d941260ef6bc57ba8475d6"
+  }
+]
