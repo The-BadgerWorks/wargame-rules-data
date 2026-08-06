@@ -198,8 +198,10 @@
     "has_numeric_parameter": false,
     "name": "Blast",
     "summary": "Weapon ability. Gather one extra attack die for every five models the target unit contained when targets were chosen, rounding down.",
-    "review_state": "in_review",
-    "mechanic_digest": "7b02a90682f582ad53980cfcf72ac75b"
+    "review_state": "approved",
+    "mechanic_digest": "7b02a90682f582ad53980cfcf72ac75b",
+    "reviewed_by": "claude-opus-5-second-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "glossary:bubblechukka",
@@ -208,8 +210,10 @@
     "has_numeric_parameter": false,
     "name": "Bubblechukka",
     "summary": "Weapon ability for a weapon with several random profiles. Before targets are chosen for the models carrying it, roll one D6 and use the profile the datasheet pairs with that result.",
-    "review_state": "in_review",
-    "mechanic_digest": "88ce229a6223fda1eda2d316bc092b7f"
+    "review_state": "approved",
+    "mechanic_digest": "88ce229a6223fda1eda2d316bc092b7f",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "glossary:c tan power",
@@ -218,8 +222,10 @@
     "has_numeric_parameter": false,
     "name": "C'tan Power",
     "summary": "Weapon marker. A weapon carrying it cannot simply be fired: the bearer's own datasheet ability picks a limited number of these weapons each Shooting phase, and only the picked ones may attack that phase.",
-    "review_state": "in_review",
-    "mechanic_digest": "a648dac34c3e26c6e4c92d8b0e940d74"
+    "review_state": "approved",
+    "mechanic_digest": "a648dac34c3e26c6e4c92d8b0e940d74",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "glossary:character",
@@ -227,7 +233,7 @@
     "display_keyword": "Character",
     "has_numeric_parameter": false,
     "name": "Character",
-    "summary": "Unit-type keyword. Only a Character model may be nominated Warlord or a unit's Leader, and normally only Character units may be given an Enhancement, limited to one per unit.",
+    "summary": "Unit-type keyword. Your Warlord is one Character model in a Character unit that has your army faction keyword. Unless a rule says otherwise, only Character units may be given an enhancement, and each enhancement goes to a different unit.",
     "review_state": "in_review",
     "mechanic_digest": "5f3c74ee2cb0d5b940830f1ac088d0e6"
   },
@@ -250,8 +256,10 @@
     "has_numeric_parameter": false,
     "name": "Close-Quarters",
     "summary": "Weapon ability. Its unit may use close-quarters shooting while engaged, targeting units it is engaged with. Under any other shooting mode a model that is not a Monster or Vehicle fires either these or its other ranged weapons.",
-    "review_state": "in_review",
-    "mechanic_digest": "3359193078d86644e44dcbcea3341d9e"
+    "review_state": "approved",
+    "mechanic_digest": "3359193078d86644e44dcbcea3341d9e",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "glossary:conversion",
@@ -260,8 +268,10 @@
     "has_numeric_parameter": false,
     "name": "Conversion",
     "summary": "Weapon ability rewarding distance. Beyond the range its datasheet prints, an unmodified successful hit roll of 4 or more counts as a critical hit. The distance varies by weapon.",
-    "review_state": "in_review",
-    "mechanic_digest": "085d4e0f75ac02c0dc5a792267f930bc"
+    "review_state": "approved",
+    "mechanic_digest": "085d4e0f75ac02c0dc5a792267f930bc",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "glossary:dead choppy",
@@ -270,8 +280,10 @@
     "has_numeric_parameter": false,
     "name": "Dead Choppy",
     "summary": "Weapon ability. The weapon's Attacks characteristic rises by 1 for each further copy of the same weapon the bearer is equipped with.",
-    "review_state": "in_review",
-    "mechanic_digest": "efc75de4ef03e92e8a2d19eef7b4a270"
+    "review_state": "approved",
+    "mechanic_digest": "efc75de4ef03e92e8a2d19eef7b4a270",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "glossary:dedicated transport",
@@ -280,8 +292,10 @@
     "has_numeric_parameter": false,
     "name": "Dedicated Transport",
     "summary": "Unit-type keyword. Each Dedicated Transport must have a unit embarked by the end of Declare Battle Formations or it is destroyed, without triggering on-destroyed rules. It shares the doubled per-datasheet limit Battleline units have.",
-    "review_state": "in_review",
-    "mechanic_digest": "23b9e6ecfb19411939f560d2cd15a1bb"
+    "review_state": "approved",
+    "mechanic_digest": "23b9e6ecfb19411939f560d2cd15a1bb",
+    "reviewed_by": "claude-opus-5-second-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "glossary:devastating wounds",
@@ -290,8 +304,10 @@
     "has_numeric_parameter": false,
     "name": "Devastating Wounds",
     "summary": "Weapon ability. A critical wound ends that attack's sequence and inflicts mortal wounds equal to the weapon's Damage, applied after normal damage. At most one model may be destroyed per critical wound; the remainder is lost.",
-    "review_state": "in_review",
-    "mechanic_digest": "9cb34796e8af1189f3fe7f54902270e0"
+    "review_state": "approved",
+    "mechanic_digest": "9cb34796e8af1189f3fe7f54902270e0",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "glossary:devastating wounds monster vehicle",
@@ -300,8 +316,10 @@
     "has_numeric_parameter": false,
     "name": "Devastating Wounds: Monster/Vehicle",
     "summary": "Target-restricted form of Devastating Wounds. The ability applies only while the target unit carries the MONSTER or VEHICLE keyword; against any other target the weapon resolves with no such effect.",
-    "review_state": "in_review",
-    "mechanic_digest": "963721a18704797e0d4e22fc428e8cfa"
+    "review_state": "approved",
+    "mechanic_digest": "963721a18704797e0d4e22fc428e8cfa",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "glossary:epic hero",
@@ -310,8 +328,10 @@
     "has_numeric_parameter": false,
     "name": "Epic Hero",
     "summary": "Datasheet-role keyword. A model with this keyword cannot be given an Enhancement, and an army is limited to one unit bearing this keyword per datasheet, regardless of battle size.",
-    "review_state": "in_review",
-    "mechanic_digest": "11c130f42d6d8254a0b7fd818a94e69e"
+    "review_state": "approved",
+    "mechanic_digest": "11c130f42d6d8254a0b7fd818a94e69e",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "glossary:extra attacks",
@@ -320,8 +340,10 @@
     "has_numeric_parameter": false,
     "name": "Extra Attacks",
     "summary": "Weapon ability. Its attacks are made on top of the model's other melee attacks, and a model may attack with its extra-attacks weapons without also selecting any melee weapon that lacks the ability.",
-    "review_state": "in_review",
-    "mechanic_digest": "8644ad76b7de35535f764d0810e3cccb"
+    "review_state": "approved",
+    "mechanic_digest": "8644ad76b7de35535f764d0810e3cccb",
+    "reviewed_by": "claude-opus-5-second-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "glossary:fly",
@@ -330,8 +352,10 @@
     "has_numeric_parameter": false,
     "name": "Fly",
     "summary": "Movement keyword. A unit can take to the skies: its maximum move distance is reduced by 2\", but it then ignores vertical distance and can move through any model and any terrain feature.",
-    "review_state": "in_review",
-    "mechanic_digest": "7b926f31f794a4139f3bcffdd313a1ed"
+    "review_state": "approved",
+    "mechanic_digest": "7b926f31f794a4139f3bcffdd313a1ed",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "glossary:fortification",
@@ -340,8 +364,10 @@
     "has_numeric_parameter": false,
     "name": "Fortification",
     "summary": "Unit-type keyword. Fortification units cannot start actions, and are excluded when friendly units are placed into strategic reserves before the battle begins.",
-    "review_state": "in_review",
-    "mechanic_digest": "8bf40ac7372e37a29fe035ad07747b38"
+    "review_state": "approved",
+    "mechanic_digest": "8bf40ac7372e37a29fe035ad07747b38",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "glossary:grenades",
