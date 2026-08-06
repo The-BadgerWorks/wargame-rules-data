@@ -6,7 +6,7 @@
       "summary_key": "faction:f-adepta-sororitas:acts-of-faith",
       "display_order": 1,
       "name": "Acts of Faith",
-      "summary": "Gain one Miracle dice each battle round and whenever an Adepta Sororitas unit is destroyed. Before an advance, charge, hit, wound, save, damage, or Battle-shock roll, spend one to use its value instead of rolling.",
+      "summary": "Gain a Miracle dice at the start of each battle round and each time one of your units is destroyed; roll a D6 for its value. Once per phase a unit with this ability can substitute a Miracle dice for one dice of a roll it is about to make.",
       "review_state": "in_review",
       "mechanic_digest": "e06b49edb26cf873aa37dd81ac0466c1"
     }
