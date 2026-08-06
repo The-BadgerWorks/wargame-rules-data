@@ -6,7 +6,7 @@
       "summary_key": "faction:f-aeldari:battle-focus",
       "display_order": 1,
       "name": "Battle Focus",
-      "summary": "Each battle round you gain Battle Focus tokens (more at larger sizes). Spend one to grant an eligible unit an Agile Manoeuvre on its trigger: bonus move distance, Overwatch immunity, Assault weapons, faster pile-in, or a reactive move.",
+      "summary": "Gain Battle Focus tokens each battle round by battle size; unspent ones lapse. On a trigger, spend one so a unit that has not used one this phase gains an Agile Manoeuvre: extra move, no Overwatch, Assault, 6in pile-in, or a reactive move.",
       "review_state": "in_review",
       "mechanic_digest": "0ac577a77e07876ebb6dfde5a953b9b4"
     }
