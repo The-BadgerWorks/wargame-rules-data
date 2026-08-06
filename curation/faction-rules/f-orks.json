@@ -1,0 +1,14 @@
+{
+  "faction_id": "f-orks",
+  "army_rule_state": "present",
+  "rules": [
+    {
+      "summary_key": "faction:f-orks:waaagh",
+      "display_order": 1,
+      "name": "Waaagh!",
+      "summary": "Once per battle, call a Waaagh! at the start of your Command phase: until your next Command phase, units with this ability can charge after Advancing, get +1 Strength and +1 Attacks on melee weapons, and gain a 5+ invulnerable save.",
+      "review_state": "in_review",
+      "mechanic_digest": "61a7ac1e5609a282d0e0fc353e4ef9aa"
+    }
+  ]
+}
