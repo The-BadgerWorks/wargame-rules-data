@@ -1,0 +1,114 @@
+[
+  {
+    "summary_key": "detachment:d-1st-company-task-force-5:extremis-level-threat",
+    "detachment_id": "d-1st-company-task-force-5",
+    "name": "Extremis-level Threat",
+    "summary": "Once per battle in your Command phase: until your next Command phase, models with Oath of Moment also re-roll the Wound roll (not just the Hit roll) against your Oath of Moment target.",
+    "review_state": "in_review",
+    "mechanic_digest": "468e9d318fdcd0a56a4691ed01e3dc72"
+  },
+  {
+    "summary_key": "detachment:d-champions-of-fenris:the-great-wolf-watches",
+    "detachment_id": "d-champions-of-fenris",
+    "name": "The Great Wolf Watches",
+    "summary": "Once per battle round per unit, an Adeptus Astartes Infantry Character unit can be targeted by Heroic Intervention regardless of other uses that phase, without blocking other units from using it too. Army: Space Wolves only.",
+    "review_state": "in_review",
+    "mechanic_digest": "6454a998c553204f4f50063592b8166d"
+  },
+  {
+    "summary_key": "detachment:d-firestorm-assault-force-6:close-range-eradication",
+    "detachment_id": "d-firestorm-assault-force-6",
+    "name": "Close-range Eradication",
+    "summary": "Adeptus Astartes ranged weapons gain Assault, and get +1 Strength when their attack targets a unit within 12 inches.",
+    "review_state": "in_review",
+    "mechanic_digest": "b9469e205b56fcb5f52d42f023763fb8"
+  },
+  {
+    "summary_key": "detachment:d-fulguris-task-force-6:skystrike",
+    "detachment_id": "d-fulguris-task-force-6",
+    "name": "Skystrike",
+    "summary": "Land Speeder and Storm Speeder Hailstrike/Hammerstrike/Thunderstrike units count as Speeder; in your first Movement phase, friendly Speeder units can make an ingress move.",
+    "review_state": "in_review",
+    "mechanic_digest": "dd17f424a97d1bb0e2dbc0bde5757be8"
+  },
+  {
+    "summary_key": "detachment:d-legends-of-saga-and-song:loping-charge",
+    "detachment_id": "d-legends-of-saga-and-song",
+    "name": "Loping Charge",
+    "summary": "Adeptus Astartes Terminator units get +1 to Charge rolls. Army can include Space Wolves units only, no other Chapter's Adeptus Astartes units.",
+    "review_state": "in_review",
+    "mechanic_digest": "5ab35e05127946947af07a1f6b440239"
+  },
+  {
+    "summary_key": "detachment:d-librarius-conclave-5:psychic-disciplines",
+    "detachment_id": "d-librarius-conclave-5",
+    "name": "Psychic Disciplines",
+    "summary": "Each battle round, pick a Discipline for friendly Astartes Psyker units until round end: Biomancy +2in M; Divination re-roll hit/wound 1s; Pyromancy +1 AP within 12in; Telekinesis -1 S vs ranged; Telepathy ignores BS/WS/hit modifiers.",
+    "review_state": "in_review",
+    "mechanic_digest": "c3f6a5e40afc086266ea59760f84a11e"
+  },
+  {
+    "summary_key": "detachment:d-orbital-assault-force-6:rapid-drop-deployment",
+    "detachment_id": "d-orbital-assault-force-6",
+    "name": "Rapid-drop Deployment",
+    "summary": "At deployment, a battle-size-scaled number of non-Titanic Adeptus Astartes units gain Deep Strike. A unit set up this turn re-rolls a Wound roll of 1; one that disembarked from a Drop Pod this turn also re-rolls a Hit roll of 1.",
+    "review_state": "in_review",
+    "mechanic_digest": "6d9de3902ef6028b32da8580eada69a9"
+  },
+  {
+    "summary_key": "detachment:d-saga-of-the-bold:heroes-all",
+    "detachment_id": "d-saga-of-the-bold",
+    "name": "Heroes All",
+    "summary": "When an Adeptus Astartes unit shoots or fights: if your Saga is complete, re-roll one Hit, Wound and Damage roll; else a Space Wolves Character unit re-rolls one such roll. Saga completes at 3+ Boasts by Space Wolves Characters.",
+    "review_state": "in_review",
+    "mechanic_digest": "21a9d39e2bd0ec679a0c7b449bab2414"
+  },
+  {
+    "summary_key": "detachment:d-saga-of-the-great-wolf:howling-onslaught",
+    "detachment_id": "d-saga-of-the-great-wolf",
+    "name": "Howling Onslaught",
+    "summary": "Once per battle, if Logan Grimnar is on the battlefield, you can re-select an already-used Hunting Pack when choosing one for the Master of Wolves ability.",
+    "review_state": "in_review",
+    "mechanic_digest": "4c5026e44977e2611aaa2d6bbfcd10e4"
+  },
+  {
+    "summary_key": "detachment:d-saga-of-the-great-wolf:master-of-wolves",
+    "detachment_id": "d-saga-of-the-great-wolf",
+    "name": "Master of Wolves",
+    "summary": "Each Command phase, pick one Hunting Pack for Adeptus Astartes units until your next Command phase: re-roll Advance/Charge, +1 to ranged Hit rolls, or Lethal Hits/Sustained Hits 1 in the Fight phase (once per battle each).",
+    "review_state": "in_review",
+    "mechanic_digest": "f63af44117822a544bec407531e4c1d4"
+  },
+  {
+    "summary_key": "detachment:d-stormlance-task-force-6:lightning-assault",
+    "detachment_id": "d-stormlance-task-force-6",
+    "name": "Lightning Assault",
+    "summary": "Adeptus Astartes units can declare a charge in a turn in which they Advanced or Fell Back.",
+    "review_state": "in_review",
+    "mechanic_digest": "6cac692ade2f72f445085835ff0f6c25"
+  },
+  {
+    "summary_key": "detachment:d-vanguard-spearhead-6:shadow-masters",
+    "detachment_id": "d-vanguard-spearhead-6",
+    "name": "Shadow Masters",
+    "summary": "A ranged attack against an Adeptus Astartes unit from beyond 12 inches gives that unit Benefit of Cover.",
+    "review_state": "in_review",
+    "mechanic_digest": "20a1368afd53ae398ce9777f1e9d0ee7"
+  },
+  {
+    "summary_key": "detachment:d-vengeful-hosts-6:imperator-unleashed",
+    "detachment_id": "d-vengeful-hosts-6",
+    "name": "Imperator Unleashed",
+    "summary": "After a Fly Infantry unit makes an ingress or charge move this turn, its attacks can re-roll hit rolls of 1.",
+    "review_state": "in_review",
+    "mechanic_digest": "455871c6b816df4cd30143b4a77a0dad"
+  },
+  {
+    "summary_key": "detachment:d-veterans-of-the-fang:old-greymanes",
+    "detachment_id": "d-veterans-of-the-fang",
+    "name": "Old Greymanes",
+    "summary": "A Grey Hunter unit starting an action stays eligible to shoot. At deployment, you can split a Grey Hunters unit into two 5-model units. Army can include Space Wolves units only, no other Chapter's Adeptus Astartes units.",
+    "review_state": "in_review",
+    "mechanic_digest": "2cfa4a4549c28e3385fea82ecd292a83"
+  }
+]

@@ -1,0 +1,14 @@
+{
+  "faction_id": "f-space-wolves",
+  "army_rule_state": "present",
+  "rules": [
+    {
+      "summary_key": "faction:f-space-wolves:oath-of-moment",
+      "display_order": 1,
+      "name": "Oath of Moment",
+      "summary": "Each Command phase, pick one enemy unit as your Oath of Moment target until your next Command phase: attacks against it from models with this ability can re-roll the Hit roll.",
+      "review_state": "in_review",
+      "mechanic_digest": "41a7b10b6475a03f4fd384c5285e86ac"
+    }
+  ]
+}
