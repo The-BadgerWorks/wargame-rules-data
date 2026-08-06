@@ -4,30 +4,36 @@
     "detachment_id": "d-berzerker-warband",
     "name": "Relentless Rage",
     "summary": "When a World Eaters unit makes a Charge move, until end of turn its melee weapons get +1 Attacks and +2 Strength.",
-    "review_state": "in_review",
-    "mechanic_digest": "91391c1c010ff2616d36900152a07d7e"
+    "review_state": "approved",
+    "mechanic_digest": "91391c1c010ff2616d36900152a07d7e",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-brazen-engines:rampaging-terrors",
     "detachment_id": "d-brazen-engines",
     "name": "Rampaging Terrors",
     "summary": "Friendly Daemon Vehicle units can, in the Fight phase, force one engaged enemy unit to take a Battle-shock test at -1, once per unit per phase. Cannot combine with another Onslaught-tagged detachment.",
-    "review_state": "in_review",
-    "mechanic_digest": "f3bf45d4d7f7427113f738081d938d92"
+    "review_state": "approved",
+    "mechanic_digest": "f3bf45d4d7f7427113f738081d938d92",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-butchers-of-khorne:adamantine-avalanche",
     "detachment_id": "d-butchers-of-khorne",
     "name": "Adamantine Avalanche",
     "summary": "When a friendly Terminator Squad unit is engaged in the Fight phase, roll for and activate one Blessing of Khorne for Terminator Squad units this phase, stacking with any other currently active Blessing.",
-    "review_state": "in_review",
-    "mechanic_digest": "705e77f99afa5a8b4a359d4acf683ab0"
+    "review_state": "approved",
+    "mechanic_digest": "705e77f99afa5a8b4a359d4acf683ab0",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-cult-of-blood:idols-of-khorne",
     "detachment_id": "d-cult-of-blood",
     "name": "Idols of Khorne",
-    "summary": "Each Command phase, pick one Idol of Khorne aura for World Eaters Titanic/Monster units until your next Command phase: +1 Hit/Wound, +1 Move and Advance/Charge, or 4+ invulnerable save to nearby Jakhals/Goremongers (also Battleline).",
+    "summary": "Each Command phase pick an Idol of Khorne, once each per battle: Jakhals and Goremongers within 6\" of a World Eaters Monster (9\" if Titanic) get +1 Hit and Wound, or +1\" Move and +1 Advance/Charge, or a 4+ invuln. Both are Battleline.",
     "review_state": "in_review",
     "mechanic_digest": "994692a94e5596ae0c120866ee003432"
   },
@@ -36,14 +42,16 @@
     "detachment_id": "d-goretrack-onslaught",
     "name": "Rush to the Fray",
     "summary": "When a World Eaters unit disembarks from a Transport, until end of turn it gets +1 to Charge rolls and its melee weapons gain Lance.",
-    "review_state": "in_review",
-    "mechanic_digest": "8a860b6cea7dcfdb25e6c7d1d9bce482"
+    "review_state": "approved",
+    "mechanic_digest": "8a860b6cea7dcfdb25e6c7d1d9bce482",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-khorne-daemonkin:blood-tithe",
     "detachment_id": "d-khorne-daemonkin",
     "name": "Blood Tithe",
-    "summary": "Destroying an enemy unit with a Blood Legions/World Eaters unit earns a Blood Tithe point on a 3+. Spend points each Command phase for a buff (Feel No Pain, Lance, invuln, Blessings of Khorne); unlocks a capped Blood Legions contingent.",
+    "summary": "Destroying an enemy with a Blood Legions or World Eaters unit gains 1 Blood Tithe point on a 3+. In a Command phase spend for the battle: 2 Feel No Pain 5+ vs Psychic/mortals, 3 Lance, 4 a 4+ invulnerable, 5 Blessings. Allies 500/1000/1500.",
     "review_state": "in_review",
     "mechanic_digest": "0bf095a9a648664b4941e5468bae28b9"
   },
@@ -52,15 +60,19 @@
     "detachment_id": "d-possessed-slaughterband",
     "name": "Brazen Fury",
     "summary": "World Eaters Possessed units that lose a model to enemy shooting can make a D6 inch surge move in the opponent's Shooting phase.",
-    "review_state": "in_review",
-    "mechanic_digest": "c0d3e6f62a28326c4348083fc2909f2b"
+    "review_state": "approved",
+    "mechanic_digest": "c0d3e6f62a28326c4348083fc2909f2b",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-vessels-of-wrath:wrath-of-khorne",
     "detachment_id": "d-vessels-of-wrath",
     "name": "Wrath of Khorne",
     "summary": "When a World Eaters Character unit (non-Epic Hero) fights, its Character models' melee attacks gain Cleave 1 or +1 AP (your choice).",
-    "review_state": "in_review",
-    "mechanic_digest": "dd5dbd0a68633524912584f976a11477"
+    "review_state": "approved",
+    "mechanic_digest": "dd5dbd0a68633524912584f976a11477",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   }
 ]

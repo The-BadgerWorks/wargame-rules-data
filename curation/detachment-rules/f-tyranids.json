@@ -4,14 +4,16 @@
     "detachment_id": "d-ambush-predators",
     "name": "Mindhunger",
     "summary": "Deathleaper/Lictor/Neurolictor units gain Deep Strike. Lictor/Neurolictor attacks against a Character unit can re-roll hit rolls of 1.",
-    "review_state": "in_review",
-    "mechanic_digest": "8eb71116d05b9d203456b3434e2250f6"
+    "review_state": "approved",
+    "mechanic_digest": "8eb71116d05b9d203456b3434e2250f6",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-assimilation-swarm:feed-the-swarm",
     "detachment_id": "d-assimilation-swarm",
     "name": "Feed the Swarm",
-    "summary": "Each Command phase, every Harvester unit can regenerate one nearby (6in) friendly Tyranids unit once per phase: heal D3+1 wounds on a model, or return one destroyed Infantry model (up to 3 for an Endless Multitude unit).",
+    "summary": "In your Command phase each Harvester unit can Regenerate one friendly Tyranids unit within 6\", once per unit per phase: heal D3+1 wounds on one model, or return one destroyed non-Character Infantry model (3 for an Endless Multitude unit).",
     "review_state": "in_review",
     "mechanic_digest": "b8dc7bad1f7f3620a850fa75bfff7f25"
   },
@@ -20,22 +22,26 @@
     "detachment_id": "d-crusher-stampede",
     "name": "Enraged Behemoths",
     "summary": "A Tyranids Monster below Starting Strength gets +1 to Hit; if also Below Half-strength, +1 to Wound too. A non-Battle-shocked Monster unit at full strength gets +2 Objective Control.",
-    "review_state": "in_review",
-    "mechanic_digest": "6327d0379e0641eed6b8d24288393625"
+    "review_state": "approved",
+    "mechanic_digest": "6327d0379e0641eed6b8d24288393625",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-invasion-fleet:hyper-adaptations",
     "detachment_id": "d-invasion-fleet",
     "name": "Hyper-adaptations",
     "summary": "On battle round 1, pick one Hyper-adaptation for the whole battle: Sustained Hits 1 vs Infantry/Swarm, Lethal Hits vs Monster/Vehicle, or Precision on a Critical Hit vs Character.",
-    "review_state": "in_review",
-    "mechanic_digest": "db834f8d89a8ace4814eb8527e38a0f6"
+    "review_state": "approved",
+    "mechanic_digest": "db834f8d89a8ace4814eb8527e38a0f6",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-subterranean-assault:surprise-assault",
     "detachment_id": "d-subterranean-assault",
     "name": "Surprise Assault",
-    "summary": "Tyranids re-roll a Hit roll of 1. Burrower units (Mawloc/Trygon) arriving from Reserves place a Tunnel Marker; later Reserves can deep-set near it. Up to 2 Trygons can be made Characters (Warlord-eligible).",
+    "summary": "Tyranids re-roll a Hit roll of 1. A Burrower (Mawloc/Trygon) arriving from Reserves drops a Tunnel Marker; later Reserves can arrive wholly within 9\" of one and over 6\" from enemies. Up to 2 Trygons can gain Character.",
     "review_state": "in_review",
     "mechanic_digest": "a93e04032b0cd06c40d0431d09e37317"
   },
@@ -43,7 +49,7 @@
     "summary_key": "detachment:d-synaptic-nexus:synaptic-imperatives",
     "detachment_id": "d-synaptic-nexus",
     "name": "Synaptic Imperatives",
-    "summary": "Each battle round, pick one Synaptic Imperative for units in Synapse Range: a 5+ invulnerable save, +1 to Advance/Charge rolls, or +1 to melee Hit rolls, active until round end.",
+    "summary": "At the start of each battle round pick one Synaptic Imperative, each once per battle, active until round end for units within your Synapse Range: a 5+ invulnerable save, +1 to Advance and Charge rolls, or +1 to melee Hit rolls.",
     "review_state": "in_review",
     "mechanic_digest": "38c6c46c3c8f5bef8e452e1a387f17cd"
   },
@@ -52,23 +58,29 @@
     "detachment_id": "d-talons-of-the-norn-queen",
     "name": "Higher Imperatives",
     "summary": "Once per battle per unit, in your Command phase, a Norn Emissary/Norn Assimilator can re-select its Singular Purpose ability, replacing its previous choice.",
-    "review_state": "in_review",
-    "mechanic_digest": "e323740ac288beb7adac6963d336da05"
+    "review_state": "approved",
+    "mechanic_digest": "e323740ac288beb7adac6963d336da05",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-vanguard-onslaught:questing-tendrils",
     "detachment_id": "d-vanguard-onslaught",
     "name": "Questing Tendrils",
     "summary": "Tyranids with this ability can charge after falling back; Vanguard Invader units with it can also charge after advancing.",
-    "review_state": "in_review",
-    "mechanic_digest": "56e4769be7274ddfced21f407890ae59"
+    "review_state": "approved",
+    "mechanic_digest": "56e4769be7274ddfced21f407890ae59",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-warrior-bioform-onslaught:leader-beasts",
     "detachment_id": "d-warrior-bioform-onslaught",
     "name": "Leader-beasts",
     "summary": "Ranged/melee Tyranid Warriors gain the Tyranid Warriors and Battleline keywords. Tyranid Warriors/Prime with Lash Whip, and Winged Prime, get a 5+ invulnerable save.",
-    "review_state": "in_review",
-    "mechanic_digest": "0c5648ec0dfb20004203e30c4c6a4df3"
+    "review_state": "approved",
+    "mechanic_digest": "0c5648ec0dfb20004203e30c4c6a4df3",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   }
 ]
