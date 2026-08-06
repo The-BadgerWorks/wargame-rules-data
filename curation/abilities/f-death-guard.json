@@ -75,7 +75,9 @@
     "ability_key": "datasheet:death-approaches",
     "mechanic_digest": "4cac21565f57ffb8211c9975462172a2",
     "name": "Death Approaches",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
     "summary": "When this unit is set up on the battlefield using Deep Strike, it can be placed anywhere more than 6\" from Afflicted enemy units and more than 8\" from all other enemy units."
   },
   {
@@ -415,7 +417,9 @@
     "ability_key": "datasheet:tank-hunters",
     "mechanic_digest": "974e414f4284b8b3c9540e53e985702c",
     "name": "Tank Hunters",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
     "summary": "In your Shooting phase, each time a model in this unit attacks a Monster or Vehicle unit, add 1 to the Hit roll and add 1 to the Wound roll."
   },
   {
@@ -476,7 +480,9 @@
     "ability_key": "faction:pact-of-decay",
     "mechanic_digest": "fdc92559eddae010d521f550eeb66ffa",
     "name": "Pact of Decay",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
     "summary": "When building your army, your Army Faction cannot be Plague Legions."
   }
 ]
