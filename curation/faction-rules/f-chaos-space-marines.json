@@ -7,8 +7,10 @@
       "display_order": 1,
       "name": "Dark Pacts",
       "summary": "When selected to shoot or fight, a unit can make a Dark Pact: take a Leadership test, suffering D3 mortal wounds on a failure, then pick Lethal Hits or Sustained Hits 1 for its weapons until the end of the phase, pass or fail.",
-      "review_state": "in_review",
-      "mechanic_digest": "6a8cdc1f184493270e2194d176548eb2"
+      "review_state": "approved",
+      "mechanic_digest": "6a8cdc1f184493270e2194d176548eb2",
+      "reviewed_by": "claude-opus-5-second-reviewer",
+      "reviewed_at": "2026-08-06T00:00:00Z"
     }
   ]
 }

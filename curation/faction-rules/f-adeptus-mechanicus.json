@@ -6,9 +6,11 @@
       "summary_key": "faction:f-adeptus-mechanicus:doctrina-imperatives",
       "display_order": 1,
       "name": "Doctrina Imperatives",
-      "summary": "Optionally activate one Imperative each battle round. Protector: ranged weapons gain Heavy and +1 BS. Conqueror: ranged weapons gain Assault, melee +1 WS. Battleline units and those within 6in of one also get -1 enemy melee Hit, or +1 AP.",
-      "review_state": "in_review",
-      "mechanic_digest": "a465e2c290a71fbd18a1cab8f9533931"
+      "summary": "Optionally activate one Imperative each round. Protector: ranged weapons gain Heavy and improved BS. Conqueror: ranged gain Assault, melee improved WS. Battleline units, and units within 6in of one, also get -1 enemy melee Hit, or +1 AP.",
+      "review_state": "approved",
+      "mechanic_digest": "a465e2c290a71fbd18a1cab8f9533931",
+      "reviewed_by": "claude-opus-5-second-reviewer",
+      "reviewed_at": "2026-08-06T00:00:00Z"
     }
   ]
 }

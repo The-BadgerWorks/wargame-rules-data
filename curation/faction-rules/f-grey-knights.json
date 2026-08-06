@@ -7,8 +7,10 @@
       "display_order": 1,
       "name": "Gate of Infinity",
       "summary": "At the end of your opponent's Fight phase, place up to 2, 3 or 4 units by battle size into Strategic Reserves, if every model in them has this ability and none is in Engagement Range. They can ingress next Movement phase, even turn one.",
-      "review_state": "in_review",
-      "mechanic_digest": "57afbfbca97cdaabc0f79d7e007800b6"
+      "review_state": "approved",
+      "mechanic_digest": "57afbfbca97cdaabc0f79d7e007800b6",
+      "reviewed_by": "claude-opus-5-second-reviewer",
+      "reviewed_at": "2026-08-06T00:00:00Z"
     }
   ]
 }

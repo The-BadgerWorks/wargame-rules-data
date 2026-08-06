@@ -6,7 +6,7 @@
       "summary_key": "faction:f-leagues-of-votann:prioritised-efficiency",
       "display_order": 1,
       "name": "Prioritised Efficiency",
-      "summary": "Yield Points accrue each Command phase. Under 7YP: Hostile Acquisition, +1 Hit vs targets near an objective, re-roll Advance/Charge. At 7YP+: Fortify Takeover, +1 Hit while holding an objective, -1 enemy Wound on non-Vehicles when S tops T.",
+      "summary": "Set at your Command phase end: under 7 Yield Points units have Hostile Acquisition (+1 Hit vs targets on an objective, re-roll Advance/Charge); 7+ gives Fortify Takeover (+1 Hit on an objective you hold, -1 Wound vs higher S, non-Vehicle).",
       "review_state": "in_review",
       "mechanic_digest": "6588ccac82a3fdd0297fd8d0c440a0b9"
     }

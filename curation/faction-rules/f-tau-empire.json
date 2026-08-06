@@ -6,9 +6,11 @@
       "summary_key": "faction:f-tau-empire:for-the-greater-good",
       "display_order": 1,
       "name": "For the Greater Good",
-      "summary": "Pick Observers at the start of your Shooting phase. Each that can still shoot marks one visible enemy as Spotted, once per unit. Your other units with this ability get +1 BS vs Spotted targets, and Ignores Cover if a Markerlight marked it.",
-      "review_state": "in_review",
-      "mechanic_digest": "f7afe49ec76c4207b78e5d0d7942e7d3"
+      "summary": "Pick Observers at the start of your Shooting phase. Each that can still shoot marks one visible enemy Spotted, once per enemy unit. Others with this ability get improved BS vs Spotted targets, plus Ignores Cover if a Markerlight marked it.",
+      "review_state": "approved",
+      "mechanic_digest": "f7afe49ec76c4207b78e5d0d7942e7d3",
+      "reviewed_by": "claude-opus-5-second-reviewer",
+      "reviewed_at": "2026-08-06T00:00:00Z"
     }
   ]
 }

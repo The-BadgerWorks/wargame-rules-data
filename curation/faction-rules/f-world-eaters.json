@@ -7,8 +7,10 @@
       "display_order": 1,
       "name": "Blessings of Khorne",
       "summary": "At the start of a battle round you may roll 8D6 and spend them to activate up to two Blessings of Khorne, each requiring a double or triple at or above its listed value. They apply to your units with this ability until the round ends.",
-      "review_state": "in_review",
-      "mechanic_digest": "77cbb1111344fd6bd76fa3c090770fe6"
+      "review_state": "approved",
+      "mechanic_digest": "77cbb1111344fd6bd76fa3c090770fe6",
+      "reviewed_by": "claude-opus-5-second-reviewer",
+      "reviewed_at": "2026-08-06T00:00:00Z"
     }
   ]
 }

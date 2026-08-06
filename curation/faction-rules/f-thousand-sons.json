@@ -7,8 +7,10 @@
       "display_order": 1,
       "name": "Cabal of Sorcerers",
       "summary": "Start of your Shooting phase: each model with this ability may attempt one Ritual not yet tried this turn. Psychic test on 2D6; any double or triple deals D3 mortal wounds to its unit; meeting the Warp Charge manifests the Ritual's effect.",
-      "review_state": "in_review",
-      "mechanic_digest": "c8722c0ac1850d81456cddc43116d107"
+      "review_state": "approved",
+      "mechanic_digest": "c8722c0ac1850d81456cddc43116d107",
+      "reviewed_by": "claude-opus-5-second-reviewer",
+      "reviewed_at": "2026-08-06T00:00:00Z"
     }
   ]
 }
