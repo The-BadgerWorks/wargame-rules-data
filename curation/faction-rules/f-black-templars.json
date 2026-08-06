@@ -6,7 +6,7 @@
       "summary_key": "faction:f-black-templars:templar-vows",
       "display_order": 1,
       "name": "Templar Vows",
-      "summary": "Round 1: pick one Vow, active all battle for Adeptus Astartes units: Precision and charge re-rolls vs Psykers; +1 to Wound if S does not exceed T; charge after Falling Back, freer Pile-ins; or Infantry objective lock and Actions on Advance.",
+      "summary": "Round 1: pick one Vow, active all battle for Adeptus Astartes units: melee Precision, charge re-rolls vs Psykers; melee +1 Wound if S does not exceed T; charge after Falling Back, freer Pile-ins; or Infantry objective lock, Advance Actions.",
       "review_state": "in_review",
       "mechanic_digest": "f525f15cfbc6ed571aa602982d56c37e"
     }
