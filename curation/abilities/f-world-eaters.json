@@ -147,7 +147,9 @@
     "ability_key": "datasheet:loping-speed",
     "mechanic_digest": "ca6bb9d1652bb91976f8fd303cf9a215",
     "name": "Loping Speed",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-second-reviewer",
     "summary": "In your opponent's Movement phase, when an enemy unit ends any move within 8\" of this unit, this unit can make a Normal move of up to D6\", provided it is not within Engagement Range of any enemy unit."
   },
   {
@@ -172,7 +174,9 @@
     "ability_key": "datasheet:meet-any-challenge",
     "mechanic_digest": "0ebfec9224d9e21b0308cd5649de56eb",
     "name": "Meet Any Challenge",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-second-reviewer",
     "summary": "In your opponent's Movement phase, each time an enemy unit is set up or ends a Normal, Advance or Fall Back move within 8\" of this model, any units embarked within this model can disembark."
   },
   {

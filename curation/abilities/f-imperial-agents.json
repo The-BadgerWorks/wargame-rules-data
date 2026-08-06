@@ -642,7 +642,9 @@
     "ability_key": "faction:assigned-agents",
     "mechanic_digest": "8ac6461e0ff979e49995257029683bb5",
     "name": "Assigned Agents",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-second-reviewer",
     "summary": "If every model in your army has Imperium, you can include Agents of the Imperium units lacking your Faction keyword: retinue/character/requisitioned caps are 1/1/1 at Incursion, 2/2/1 at Strike Force, 3/3/2 at Onslaught."
   },
   {
