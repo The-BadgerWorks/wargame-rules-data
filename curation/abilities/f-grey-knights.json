@@ -91,12 +91,10 @@
   },
   {
     "ability_key": "datasheet:guardians-of-the-machine",
-    "mechanic_digest": "728563f7edeaefd9b595fd79a0196226",
+    "mechanic_digest": "707c9c25c7e1080635204b1909bc2c6e",
     "name": "Guardians of the Machine",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "When an enemy ends a charge within Engagement Range of a friendly Vehicle and within 6\" of this unit, this unit may be targeted by the Heroic Intervention Stratagem for 0CP, even if another unit was already targeted this phase."
+    "review_state": "in_review",
+    "summary": "When an enemy unit ends a charge move engaged with a friendly GREY KNIGHTS VEHICLE unit within 6\" of this unit, you can target this unit with Heroic Intervention for -1 CP, regardless of other uses of that stratagem this phase."
   },
   {
     "ability_key": "datasheet:guidance-of-the-ancients-psychic",
@@ -235,12 +233,10 @@
   },
   {
     "ability_key": "datasheet:sanctuary-psychic",
-    "mechanic_digest": "5b74fd201c7cfc3ae009e342b73acd98",
+    "mechanic_digest": "724c872dc09e0e52e66675045f3ab2ef",
     "name": "Sanctuary (Psychic)",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "While this model leads a unit, attacks against that unit subtract 1 from the Hit roll."
+    "review_state": "in_review",
+    "summary": "This unit has the Stealth ability, and melee attacks that target it take -1 to hit."
   },
   {
     "ability_key": "datasheet:strands-of-fate-psychic",
@@ -295,5 +291,12 @@
     "reviewed_at": "2026-08-04T00:00:00Z",
     "reviewed_by": "claude-reviewer-opus",
     "summary": "While this model leads a unit, Charge rolls made for that unit can be re-rolled."
+  },
+  {
+    "ability_key": "faction:gate-of-infinity",
+    "mechanic_digest": "8366080ff39a8e1a74ada07e94df47dd",
+    "name": "Gate of Infinity",
+    "review_state": "in_review",
+    "summary": "At the end of your opponent's Fight phase, move a battle-size-dependent number of units with this ability (2-4, none in Engagement Range) into strategic reserves; they can make an ingress move next Movement phase, including turn one."
   }
 ]
