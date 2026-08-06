@@ -3,7 +3,9 @@
     "ability_key": "core:scouts-9",
     "mechanic_digest": "48b523bacc85908043ae18fd81528974",
     "name": "Scouts 9\"",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-second-reviewer",
     "summary": "Scouts X: in the pre-battle step, a unit whose models all have this ability can deploy from Strategic Reserves wholly within your deployment zone, or make a scout move of up to X\" (here 9\") ending more than 8\" horizontally from enemies."
   },
   {
@@ -577,8 +579,10 @@
     "ability_key": "datasheet:tactica-obliqua",
     "mechanic_digest": "d6edb429badb78afd362303a4326d3ea",
     "name": "Tactica Obliqua",
-    "review_state": "in_review",
-    "summary": "In your opponent's Movement phase, when an enemy unit ends a move within 8\" of this unit, if outside Engagement Range it can make a Normal move of up to D6\", or 6\" if it ends wholly within 6\" of friendly Adeptus Mechanicus Battleline."
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-second-reviewer",
+    "summary": "Opponent's Movement phase: when an enemy unit ends a move within 8\" of this unit, this unit, if outside Engagement Range, can make a Normal move of up to D6\", or of 6\" ending wholly within 6\" of friendly Adeptus Mechanicus Battleline."
   },
   {
     "ability_key": "datasheet:termite-assault",
@@ -629,7 +633,9 @@
     "ability_key": "faction:doctrina-imperatives",
     "mechanic_digest": "a465e2c290a71fbd18a1cab8f9533931",
     "name": "Doctrina Imperatives",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-second-reviewer",
     "summary": "Pick an Imperative each round. Protector: ranged Heavy, improved Ballistic Skill, -1 to enemy melee Hit rolls. Conqueror: ranged Assault, improved melee Weapon Skill, +1 Armour Penetration. Last effects need Battleline, or one within 6\"."
   }
 ]

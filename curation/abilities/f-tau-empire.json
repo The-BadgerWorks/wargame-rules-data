@@ -30,7 +30,9 @@
     "ability_key": "datasheet:aerial-disengagement",
     "mechanic_digest": "63e17d06ae556113173e4626ab7a95d4",
     "name": "Aerial Disengagement",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-second-reviewer",
     "summary": "In your opponent's Movement phase, when an enemy unit ends a Normal, Advance or Fall Back move within 8\" of this unit, this unit can make a Normal move of up to 6\", provided it is not within Engagement Range of any enemy unit."
   },
   {
@@ -352,7 +354,9 @@
     "ability_key": "datasheet:homing-beacon",
     "mechanic_digest": "2456faf2dd3b1aca7c6c0bcc40321588",
     "name": "Homing Beacon",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-second-reviewer",
     "summary": "Once per battle you can use the Rapid Ingress Stratagem for 0CP; the unit it brings on must be set up within 3\" of the bearer's unit and more than 8\" from all enemy units."
   },
   {
@@ -755,7 +759,9 @@
     "ability_key": "datasheet:trail-finding",
     "mechanic_digest": "ca6bb9d1652bb91976f8fd303cf9a215",
     "name": "Trail Finding",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-second-reviewer",
     "summary": "In your opponent's Movement phase, when an enemy unit ends any move within 8\" of this unit, this unit can make a Normal move of up to D6\", provided it is not within Engagement Range of any enemy unit."
   },
   {
@@ -834,7 +840,9 @@
     "ability_key": "faction:for-the-greater-good",
     "mechanic_digest": "f7afe49ec76c4207b78e5d0d7942e7d3",
     "name": "For the Greater Good",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-second-reviewer",
     "summary": "At the start of your Shooting phase pick Observers; each that has not yet shot marks a visible enemy Spotted. Your other units with this ability improve Ballistic Skill by 1 vs Spotted units, plus Ignores Cover from Markerlight Observers."
   }
 ]
