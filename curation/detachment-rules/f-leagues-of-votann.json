@@ -4,30 +4,36 @@
     "detachment_id": "d-armoured-trailblazers",
     "name": "Sagitaur Spearhead",
     "summary": "Friendly Sagitaur units gain Scouts 6\".",
-    "review_state": "in_review",
-    "mechanic_digest": "d60a8c1a17fba999afad3428835d927a"
+    "review_state": "approved",
+    "mechanic_digest": "d60a8c1a17fba999afad3428835d927a",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-brandfast-oathband:mobile-sensor-relays",
     "detachment_id": "d-brandfast-oathband",
     "name": "Mobile Sensor Relays",
     "summary": "Leagues of Votann Transports grant Sustained Hits 1 to a friendly Infantry unit's ranged weapons while that unit is wholly within 6\" of the Transport.",
-    "review_state": "in_review",
-    "mechanic_digest": "6fa2b4d99282480398af90b97cb8cca4"
+    "review_state": "approved",
+    "mechanic_digest": "6fa2b4d99282480398af90b97cb8cca4",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-farseekers:eye-of-the-hunt",
     "detachment_id": "d-farseekers",
     "name": "Eye of the Hunt",
     "summary": "Hernkyn units' ranged attacks against targets within 12\" gain +1 to hit rolls.",
-    "review_state": "in_review",
-    "mechanic_digest": "32539337620b77d47313094a59d65393"
+    "review_state": "approved",
+    "mechanic_digest": "32539337620b77d47313094a59d65393",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-hearthband:methodical-annihilation",
     "detachment_id": "d-hearthband",
     "name": "Methodical Annihilation",
-    "summary": "Attacks against the closest eligible target, or an engaged enemy, re-roll a Wound roll of 1; Kâhl, Einhyr Hearthguard, or Úthar units also get +1 Armour Penetration on those attacks.",
+    "summary": "A Leagues of Votann model attacking the closest eligible target, or one within its unit's Engagement Range, re-rolls a Wound roll of 1; if its unit is Kahl, Einhyr Hearthguard or Uthar the Destined, that attack gets +1 Armour Penetration.",
     "review_state": "in_review",
     "mechanic_digest": "6b6021e37b10e328e5a2f09c46816108"
   },
@@ -35,7 +41,7 @@
     "summary_key": "detachment:d-hearthfyre-arsenal:optimal-application",
     "detachment_id": "d-hearthfyre-arsenal",
     "name": "Optimal Application",
-    "summary": "Gain up to 2YP per turn for objectives outside your deployment zone held near an Iron-Master or Memnyr Strategist. Spend 1YP when a Brokhyr, Ironkin Steeljacks or Arkanyst Evaluator unit shoots to re-roll hit rolls of 1 that phase.",
+    "summary": "End of your Command phase, gain 1YP per objective held outside your deployment zone within range of an Iron-Master or Memnyr Strategist, max 2YP. Spend 1YP when a Brokhyr, Ironkin Steeljacks or Arkanyst Evaluator shoots to re-roll Hit 1s.",
     "review_state": "in_review",
     "mechanic_digest": "9bdd1a856a1a5041b14a0673f34b52ec"
   },
@@ -44,30 +50,36 @@
     "detachment_id": "d-hearthguard-covenant",
     "name": "Avatars of the Ancestors",
     "summary": "Kahl, Einhyr Champion, Einhyr Hearthguard and Uthar the Destined units re-roll wound rolls of 1 on ranged attacks against targets within 9\". Cannot be combined with another Hearthguard detachment.",
-    "review_state": "in_review",
-    "mechanic_digest": "c1866357297c667fa46a34d137dc63eb"
+    "review_state": "approved",
+    "mechanic_digest": "c1866357297c667fa46a34d137dc63eb",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-mercenary-oathband:ruthless-reinvestment",
     "detachment_id": "d-mercenary-oathband",
     "name": "Ruthless Reinvestment",
     "summary": "Replaces the army rule's automatic switching: units start the battle with Hostile Acquisition, and each Command phase you can spend 3YP to swap all your units between Hostile Acquisition and Fortify Takeover.",
-    "review_state": "in_review",
-    "mechanic_digest": "12230f63ac15579dde8a26517513b037"
+    "review_state": "approved",
+    "mechanic_digest": "12230f63ac15579dde8a26517513b037",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-needgaard-oathband:martial-leverage",
     "detachment_id": "d-needgaard-oathband",
     "name": "Martial Leverage",
     "summary": "Gain 1 Yield Point each time an enemy unit is destroyed.",
-    "review_state": "in_review",
-    "mechanic_digest": "243433b925bd8889ad11d05b5e4beb28"
+    "review_state": "approved",
+    "mechanic_digest": "243433b925bd8889ad11d05b5e4beb28",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-persecution-prospect:assailed-from-every-angle",
     "detachment_id": "d-persecution-prospect",
     "name": "Assailed From Every Angle",
-    "summary": "After shooting, a unit can restrict itself to one non-Monster/Vehicle target for the rest of the phase; a hit marks that enemy assailed until your next Shooting phase, or pinned (-2\" Move, -2 Charge) if it was already assailed.",
+    "summary": "When selected to shoot, a unit can name one enemy unit (not Monster/Vehicle) as its only target that phase; if any attack hits, that enemy is assailed until your next Shooting phase, or also pinned (-2\" Move, -2 Charge) if already assailed.",
     "review_state": "in_review",
     "mechanic_digest": "436d6a65a9be30f5cc1f22a98949d489"
   }
