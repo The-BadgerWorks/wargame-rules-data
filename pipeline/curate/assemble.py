@@ -14,6 +14,10 @@
 # AI-Assisted: Claude Code (model: claude-opus-5) - Attached each detachment's rule identities and
 # carried the authored detachment-rule records onto the snapshot (004 task T054), then the
 # authored keyword glossary (004 task T061).
+# AI-Assisted: Claude Code (model: claude-opus-5) - Built the datasheet_id -> faction-keyword view
+# `match_units` needs for its chapter-keyword disambiguation step (docs/follow-ups.md item 4),
+# read through the same IP strip the curated keyword rows go through so a curator's
+# keyword-classes.json record means the same token in both places.
 """Build one :class:`~pipeline.models.curated.CuratedSnapshot` from everything upstream.
 
 This is where the two sources stop being two sources. The **points** source is authoritative for
@@ -292,6 +296,30 @@ def _legends_source_ids(detail: Mapping[str, CsvReadResult]) -> frozenset[str]:
         if _LEGENDS_SOURCE
         in f"{row.fields.get('name', '')} {row.fields.get('type', '')}".casefold()
     )
+
+
+def _faction_keywords_by_datasheet(
+    detail: Mapping[str, CsvReadResult],
+) -> dict[str, frozenset[str]]:
+    """``datasheet_id -> the faction keywords it carries``, for the match ladder's rung 3.
+
+    Only the *faction* keywords, because only those can name a chapter — a unit keyword shared by
+    two datasheets says nothing about which faction may field either. Read through the same
+    ``strip_field`` the curated keyword rows go through, so the token a curator writes in
+    ``curation/keyword-classes.json`` means one thing across both files rather than two.
+    """
+    keywords = detail.get("Datasheets_keywords.csv")
+    if keywords is None:
+        return {}
+    by_datasheet: dict[str, set[str]] = {}
+    for row in keywords.rows:
+        if row.fields.get("is_faction_keyword", "").strip().casefold() != "true":
+            continue
+        text = strip_field(row.fields.get("keyword", ""), field="keyword").text
+        if not text:
+            continue
+        by_datasheet.setdefault(row.fields.get("datasheet_id", ""), set()).add(text)
+    return {datasheet_id: frozenset(values) for datasheet_id, values in by_datasheet.items()}
 
 
 def _detail_datasheet_fields(
@@ -690,6 +718,7 @@ def assemble(  # noqa: PLR0913 - the stage genuinely needs every upstream input
 
     detail_datasheets = detail["Datasheets.csv"]
     legends_sources = _legends_source_ids(detail)
+    detail_faction_keywords = _faction_keywords_by_datasheet(detail)
     source_detachment_rules = _source_detachment_rules(detail)
     findings.extend(
         report_orphan_detail_factions(
@@ -779,6 +808,7 @@ def assemble(  # noqa: PLR0913 - the stage genuinely needs every upstream input
             detail_names=in_scope,
             detail_is_legends=legends,
             detail_source_ids=detail_source_ids,
+            detail_faction_keywords=detail_faction_keywords,
             authored=authored,
             registry=registry,
         )

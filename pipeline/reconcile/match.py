@@ -10,6 +10,10 @@
 # ambiguous-match finding if that narrowing does not resolve to exactly one candidate. Fixes the
 # real Black Templars case, where its supplement republishes core-codex datasheets under
 # colliding names and neither copy is Legends.
+# AI-Assisted: Claude Code (model: claude-opus-5) - Added chapter-keyword narrowing after it
+# (docs/follow-ups.md item 4): html mode carries no publication id, so the publication-id step is
+# inert there and the same collision resurfaced. The signal html mode does carry is the card's own
+# faction keywords, read against curation/keyword-classes.json's curator-authored chapter records.
 """Pair the points source's units with the detail source's datasheets, deterministically.
 
 The ladder, and the reason each rung exists (research D5):
@@ -29,10 +33,26 @@ addition and breaking every saved army that names the unit.
 for chapter sub-factions because the points source lists a chapter unit the detail source files
 under its parent. When that scoping still leaves two or more same-named candidates — as it does
 for the five Space Marine chapters, which share the parent's detail-source faction id outright —
-the Legends flag is tried first, and then, if the mapping names its own
-``detail_source_publication_id`` (a chapter whose own supplement republishes a core-codex
-datasheet under a colliding name), candidates are narrowed to that publication before either
-resolving to the one candidate it leaves or falling through to ``REC-AMBIGUOUS-MATCH`` unchanged.
+three narrowing signals are consulted in turn, and each is consulted **only** because the one
+before it failed:
+
+1. **the Legends flag**, since two datasheets differing only in Legends status are two datasheets;
+2. **``detail_source_publication_id``**, when the mapping names its own — a chapter whose own
+   supplement republishes a core-codex datasheet under a colliding name;
+3. **the candidates' own faction keywords**, read against the chapter records in
+   ``curation/keyword-classes.json``. A datasheet carrying a chapter's faction keyword can be
+   fielded by that chapter and by nobody else, so the faction being matched discards every
+   candidate claimed by a chapter it is not, and then prefers a candidate claimed by the chapter
+   it *is*.
+
+Every one of the three resolves the pair only when it leaves **exactly one** candidate; otherwise
+the ladder falls through to ``REC-AMBIGUOUS-MATCH`` unchanged. Rung 3 exists because rung 2 is
+inert under ``html`` mode: a datacard page states Legends as a class token and never states which
+publication a datasheet came from, so the whole page is one publication and there is nothing to
+prefer with (``docs/follow-ups.md`` item 4). It is not a fuzzy match by another name — the chapter
+records it reads are authored by a curator and asserted against the faction tree (FR-019), so what
+narrows the candidates is a **declaration**, exactly as in rungs 1 and 2. Nothing here infers a
+chapter from a keyword's spelling.
 
 **Stage 3 — authored aliases**, for spellings a curator has confirmed once.
 
@@ -52,13 +72,14 @@ FR-014 violation that resolves a saved army to the wrong unit.
 
 from __future__ import annotations
 
-from collections.abc import Mapping, Sequence
+from collections.abc import Mapping, Sequence, Set
 from dataclasses import dataclass, field
 from difflib import SequenceMatcher
 from typing import Final
 
 from pipeline.curate.authored import AuthoredContent
-from pipeline.models.authored import FactionMapEntry
+from pipeline.models.authored import FactionMapEntry, KeywordClassEntry
+from pipeline.models.curated import KeywordClass
 from pipeline.models.findings import Finding, Suggestion
 from pipeline.normalize.names import normalize_name
 from pipeline.reconcile.identity import EntityKind, IdRegistry
@@ -80,6 +101,22 @@ class FactionScope:
     entry: FactionMapEntry
     detail_faction_ids: tuple[str, ...]
     """The faction's own detail id first, then its ancestors' — the parent fallback (C3/R6)."""
+
+    own_chapter_keywords: frozenset[str] = frozenset()
+    """The faction keywords a curator has declared name **this** faction as a chapter.
+
+    Normally empty or a single keyword; a set because nothing stops a chapter being reached by
+    two spellings and nothing needs to.
+    """
+
+    foreign_chapter_keywords: frozenset[str] = frozenset()
+    """The faction keywords naming a *different* chapter within this faction's own lineage.
+
+    A datasheet carrying one of these can be fielded by that chapter and by nobody else, so it is
+    not this faction's to take. Scoped to the lineage on purpose: a chapter record hanging off an
+    unrelated parent must never change what this faction matches, or authoring one faction would
+    quietly move another.
+    """
 
 
 @dataclass(frozen=True, slots=True)
@@ -150,6 +187,15 @@ def resolve_factions(slugs: Sequence[str], authored: AuthoredContent) -> MatchOu
     """
     outcome = MatchOutcome()
     by_faction = {entry.faction_id: entry for entry in authored.faction_map}
+    # Only a chapter the points source models as its own faction can claim a datasheet away from
+    # anyone: a chapter with no `chapter_faction_id` is priced on its parent's page, so its
+    # datasheets are the parent's to field and discarding them would lose the parent a unit.
+    chapters = tuple(
+        record
+        for record in authored.keyword_classes
+        if record.keyword_class == KeywordClass.CHAPTER.value
+        and record.chapter_faction_id is not None
+    )
 
     for slug in sorted(slugs):
         entry = authored.faction_for_slug(slug)
@@ -175,13 +221,37 @@ def resolve_factions(slugs: Sequence[str], authored: AuthoredContent) -> MatchOu
                 detail_ids.append(parent.detail_source_faction_id)
             ancestor = parent.parent_faction_id
 
+        own, foreign = _chapter_keywords_for(entry.faction_id, lineage=seen, chapters=chapters)
         outcome.scopes.append(
             FactionScope(
-                faction_id=entry.faction_id, entry=entry, detail_faction_ids=tuple(detail_ids)
+                faction_id=entry.faction_id,
+                entry=entry,
+                detail_faction_ids=tuple(detail_ids),
+                own_chapter_keywords=own,
+                foreign_chapter_keywords=foreign,
             )
         )
 
     return outcome
+
+
+def _chapter_keywords_for(
+    faction_id: str, *, lineage: Set[str], chapters: Sequence[KeywordClassEntry]
+) -> tuple[frozenset[str], frozenset[str]]:
+    """Split the authored chapter keywords into this faction's own and its lineage's others.
+
+    ``lineage`` is the faction plus its ancestors — the same walk the detail-id fallback makes,
+    reused rather than repeated so the two can never disagree about who a faction's parent is.
+    """
+    own = frozenset(
+        record.keyword for record in chapters if record.chapter_faction_id == faction_id
+    )
+    foreign = frozenset(
+        record.keyword
+        for record in chapters
+        if record.chapter_faction_id != faction_id and record.parent_faction_id in lineage
+    )
+    return own, foreign
 
 
 def report_orphan_detail_factions(
@@ -199,6 +269,45 @@ def report_orphan_detail_factions(
     ]
 
 
+def _narrow_by_chapter_keyword(
+    candidates: Sequence[str],
+    scope: FactionScope,
+    detail_faction_keywords: Mapping[str, Set[str]],
+) -> list[str] | None:
+    """The one candidate the faction's chapter keywords leave, or ``None`` for still-ambiguous.
+
+    Two questions, asked in that order and for different reasons:
+
+    1. **Which of these is claimed by the chapter I am?** A datasheet carrying this faction's own
+       chapter keyword is this faction's copy; the other is somebody else's.
+    2. **Which of these is claimed by a chapter I am not?** Those are not this faction's to field
+       at all, so they are discarded — which is what lets the *parent* faction, whose own chapter
+       keyword set is empty, still resolve to the copy no chapter has claimed.
+
+    ``None`` for every other outcome. Narrowing that leaves nothing, or that leaves two, is not a
+    resolution — it is the same ambiguity, and stage 4's refusal is the correct answer to it.
+    """
+    if not scope.own_chapter_keywords and not scope.foreign_chapter_keywords:
+        return None
+
+    own = [
+        candidate
+        for candidate in candidates
+        if detail_faction_keywords.get(candidate, frozenset()) & scope.own_chapter_keywords
+    ]
+    if own:
+        return own if len(own) == 1 else None
+
+    unclaimed = [
+        candidate
+        for candidate in candidates
+        if not (
+            detail_faction_keywords.get(candidate, frozenset()) & scope.foreign_chapter_keywords
+        )
+    ]
+    return unclaimed if len(unclaimed) == 1 else None
+
+
 def match_units(
     scope: FactionScope,
     *,
@@ -206,6 +315,7 @@ def match_units(
     detail_names: Mapping[str, str],
     detail_is_legends: Mapping[str, bool],
     detail_source_ids: Mapping[str, str],
+    detail_faction_keywords: Mapping[str, Set[str]],
     authored: AuthoredContent,
     registry: IdRegistry,
 ) -> MatchOutcome:
@@ -221,6 +331,12 @@ def match_units(
             ambiguous stage-2 match and the scope's ``FactionMapEntry`` names its own
             ``detail_source_publication_id`` — never to accept a fuzzy match, only to prefer a
             chapter's own supplement over a same-named core-codex twin (see module docstring).
+        detail_faction_keywords: the **faction** keywords each detail datasheet carries. Consulted
+            last of the three narrowing signals, and only against the chapter keywords the scope
+            resolved from ``curation/keyword-classes.json``; a faction with no chapter records in
+            its lineage never reaches it. Required rather than defaulted: it is the only signal
+            ``html`` mode carries for this collision, and a caller that forgot it would get a
+            silently blocking run rather than an error.
     """
     outcome = MatchOutcome()
 
@@ -297,6 +413,14 @@ def match_units(
             by_publication = [c for c in candidates if detail_source_ids.get(c) == publication_id]
             if len(by_publication) == 1:
                 candidates = by_publication
+
+        # Chapter-keyword narrowing, the last of the three signals and the only one `html` mode
+        # carries (module docstring, rung 3). Inert for a faction with no chapter records in its
+        # lineage, which is every faction outside a chapter tree.
+        if len(candidates) > 1:
+            by_chapter = _narrow_by_chapter_keyword(candidates, scope, detail_faction_keywords)
+            if by_chapter is not None:
+                candidates = by_chapter
 
         if len(candidates) > 1:
             outcome.findings.append(

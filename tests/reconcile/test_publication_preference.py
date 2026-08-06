@@ -2,6 +2,9 @@
 # disambiguation step added to D5 stage 2 (pipeline/reconcile/match.py): the real Black Templars
 # case, where a chapter's own supplement republishes a core-codex datasheet under a colliding
 # name and neither copy is Legends, so the existing Legends-flag narrowing cannot separate them.
+# AI-Assisted: Claude Code (model: claude-opus-5) - Passed detail_faction_keywords={} at every
+# call site here when the chapter-keyword narrowing step made that parameter required; an empty
+# view keeps these cases about the publication id alone, which is what they are for.
 """The publication-id narrowing step, ahead of ``REC-AMBIGUOUS-MATCH`` (D5 stage 2, extended).
 
 Mirrors ``tests/reconcile/test_match_ladder.py``'s fixture-construction style with fictional
@@ -68,6 +71,7 @@ def test_publication_id_narrows_an_otherwise_ambiguous_pair_to_the_chapters_own_
         detail_names={"EL04": "Ember Chaplain", "EL09": "Ember Chaplain"},
         detail_is_legends={},
         detail_source_ids={"EL04": "000000139", "EL09": "000000162"},
+        detail_faction_keywords={},
         authored=content,
         registry=IdRegistry(),
     )
@@ -90,6 +94,7 @@ def test_unset_publication_id_leaves_the_existing_ambiguous_match_behaviour_unch
         detail_names={"EL04": "Ember Chaplain", "EL09": "Ember Chaplain"},
         detail_is_legends={},
         detail_source_ids={"EL04": "000000139", "EL09": "000000162"},
+        detail_faction_keywords={},
         authored=content,
         registry=IdRegistry(),
     )
@@ -109,6 +114,7 @@ def test_a_publication_id_matching_no_candidate_still_blocks_rather_than_mis_res
         # Neither candidate carries the chapter's authored publication id (000000162) — a stale
         # or typo'd value. This must still raise REC-AMBIGUOUS-MATCH, never guess.
         detail_source_ids={"EL04": "000000139", "EL09": "000000140"},
+        detail_faction_keywords={},
         authored=content,
         registry=IdRegistry(),
     )
@@ -131,6 +137,7 @@ def test_a_publication_id_matching_every_candidate_still_blocks() -> None:
         # Both candidates carry the chapter's publication id — narrowing leaves 2, not 1, so it
         # is still ambiguous.
         detail_source_ids={"EL04": "000000162", "EL09": "000000162"},
+        detail_faction_keywords={},
         authored=content,
         registry=IdRegistry(),
     )
