@@ -3,15 +3,17 @@
     "ability_key": "core:feel-no-pain-4",
     "mechanic_digest": "c5709cdfa1f6cd485617f50d593cdc12",
     "name": "Feel No Pain 4+",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
     "summary": "Feel No Pain X+: each time a model with this ability would lose a wound, roll one D6; on an X+ (here 4+), that wound is not lost."
   },
   {
     "ability_key": "core:firing-deck-16",
-    "mechanic_digest": "b49afc94744953114745442e8dc56fb0",
+    "mechanic_digest": "bf3b4618b0621cdc4bf5eb5bb8fa1c3b",
     "name": "Firing Deck 16",
     "review_state": "in_review",
-    "summary": "Firing Deck X: in your Shooting phase, when this TRANSPORT is selected to shoot, up to X embarked models each lend it one of their ranged weapons (not one-shot) for its attacks; those models' units cannot shoot again this phase."
+    "summary": "Firing Deck X: in your Shooting phase, when this Transport shoots, up to X (here 16) embarked models whose units have not yet shot each lend it one ranged weapon (no one-shot); no unit embarked in it can shoot for the rest of the turn."
   },
   {
     "ability_key": "datasheet:acrobatic-gladiators-pain",
@@ -26,7 +28,9 @@
     "ability_key": "datasheet:aerialists",
     "mechanic_digest": "3cdaeace8e9dc59924df363deb560f48",
     "name": "Aerialists",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
     "summary": "At the end of the Fight phase, if this TRANSPORT has no embarked models, one friendly DRUKHARI INFANTRY unit of 6 or fewer models (not FLY-capable) wholly within 6\" and outside Engagement Range can embark, even the turn it disembarked."
   },
   {
@@ -348,7 +352,9 @@
     "ability_key": "datasheet:mind-like-a-steel-trap-aura",
     "mechanic_digest": "ccf26bc7446eaaf3b64b69bcd33166fc",
     "name": "Mind Like a Steel Trap (Aura)",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
     "summary": "Once per turn, when your opponent targets a unit within 12\" of this model with a Stratagem, you can increase that Stratagem's CP cost by 1."
   },
   {
@@ -500,7 +506,7 @@
     "mechanic_digest": "013b64fbadc9e0b78ed003a2c2b554b3",
     "name": "Shadowfield",
     "review_state": "in_review",
-    "summary": "While this model has an invulnerable save, it cannot re-roll save rolls; the first time it loses a wound (not from mortal wounds), it loses its invulnerable save for the rest of the battle."
+    "summary": "While this model has an invulnerable save, this unit cannot re-roll save rolls; the first time this model loses a wound other than a mortal wound, it has no invulnerable save for the rest of the battle."
   },
   {
     "ability_key": "datasheet:shredding-fire-pain",
@@ -525,7 +531,7 @@
     "mechanic_digest": "ca6bb9d1652bb91976f8fd303cf9a215",
     "name": "Skyboard Evasion",
     "review_state": "in_review",
-    "summary": "In your opponent's Movement phase, if an enemy unit ends a move within 8\" of this unit and it is not in Engagement Range, it can make a Normal move of up to D6\"."
+    "summary": "In your opponent's Movement phase, when an enemy unit ends any move within 8\" of this unit, this unit can make a Normal move of up to D6\", provided it is not within Engagement Range of any enemy unit."
   },
   {
     "ability_key": "datasheet:soul-trap",
@@ -568,7 +574,7 @@
     "mechanic_digest": "68d9876f36fdb17a705d183944bad822",
     "name": "Swooping Descent (Pain)",
     "review_state": "in_review",
-    "summary": "In your Movement phase, spend 1 Pain token to Empower this unit: models set up via Deep Strike need only be more than 6\" from enemies; if set up within 8\" of an enemy, this unit cannot charge this turn."
+    "summary": "In your Movement phase, spend 1 Pain token to Empower this unit: models set up by Deep Strike need only be more than 6\" horizontally from enemy units; if the unit arrives within 8\" of an enemy, it cannot declare a charge this turn."
   },
   {
     "ability_key": "datasheet:thrilling-spectacle",
@@ -620,7 +626,7 @@
     "mechanic_digest": "ef7d43543e6468470483b61d75aadf9e",
     "name": "Void Mine",
     "review_state": "in_review",
-    "summary": "At the end of your opponent's Fight phase, target one visible enemy model (not Lone Operative) within 24\": roll one D6 per enemy unit within D6\" of it, each suffering D6 mortal wounds per 4+ rolled."
+    "summary": "At the end of your opponent's Fight phase, pick one visible enemy model (not Lone Operative) within 24\" of this unit, then roll one D6 for each enemy unit within D6\" of that model: on a 4+ that unit suffers D6 mortal wounds."
   },
   {
     "ability_key": "datasheet:winged-strike-pain",
@@ -636,6 +642,6 @@
     "mechanic_digest": "9487f8d40f9f92a905d0943e8c15f572",
     "name": "Power from Pain",
     "review_state": "in_review",
-    "summary": "DRUKHARI units gain Pain tokens (1 per Command phase, plus 1 each time an enemy unit is destroyed or fails Battle-shock); spend tokens to Empower a unit, activating its Pain-tagged abilities until end of phase."
+    "summary": "You gain 1 Pain token at the start of your Command phase and 1 whenever an enemy unit is destroyed or fails a Battle-shock test. Spend them as a unit's Pain ability directs to Empower it: all its Pain abilities take effect that phase."
   }
 ]
