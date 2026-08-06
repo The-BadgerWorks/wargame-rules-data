@@ -1,0 +1,114 @@
+[
+  {
+    "summary_key": "detachment:d-1st-company-task-force:extremis-level-threat",
+    "detachment_id": "d-1st-company-task-force",
+    "name": "Extremis-level Threat",
+    "summary": "Once per battle in your Command phase: until your next Command phase, models with Oath of Moment also re-roll the Wound roll (not just the Hit roll) against your Oath of Moment target.",
+    "review_state": "in_review",
+    "mechanic_digest": "468e9d318fdcd0a56a4691ed01e3dc72"
+  },
+  {
+    "summary_key": "detachment:d-angelic-inheritors:legacy-of-the-angel",
+    "detachment_id": "d-angelic-inheritors",
+    "name": "Legacy of the Angel",
+    "summary": "On battle round 1, pick two of three Angelic Legacy abilities for Adeptus Astartes Characters, active for the battle: shoot/charge after falling back, re-roll a Hit/Wound roll of 1, or re-roll Advance/Charge. Army: Blood Angels only.",
+    "review_state": "in_review",
+    "mechanic_digest": "73cfba24d6ba2898bd8e9e995991a9af"
+  },
+  {
+    "summary_key": "detachment:d-firestorm-assault-force-2:close-range-eradication",
+    "detachment_id": "d-firestorm-assault-force-2",
+    "name": "Close-range Eradication",
+    "summary": "Adeptus Astartes ranged weapons gain Assault, and get +1 Strength when their attack targets a unit within 12 inches.",
+    "review_state": "in_review",
+    "mechanic_digest": "b9469e205b56fcb5f52d42f023763fb8"
+  },
+  {
+    "summary_key": "detachment:d-fulguris-task-force-2:skystrike",
+    "detachment_id": "d-fulguris-task-force-2",
+    "name": "Skystrike",
+    "summary": "Land Speeder and Storm Speeder Hailstrike/Hammerstrike/Thunderstrike units count as Speeder; in your first Movement phase, friendly Speeder units can make an ingress move.",
+    "review_state": "in_review",
+    "mechanic_digest": "dd17f424a97d1bb0e2dbc0bde5757be8"
+  },
+  {
+    "summary_key": "detachment:d-legacy-of-grace:legacy-of-the-angel",
+    "detachment_id": "d-legacy-of-grace",
+    "name": "Legacy of the Angel",
+    "summary": "Blood Angels Infantry Character units (except Commander Dante) get +1 to Advance and Charge rolls. Cannot combine with another Grace-tagged detachment. Army: Blood Angels only.",
+    "review_state": "in_review",
+    "mechanic_digest": "304159ef6a0490513e6dce73aea90528"
+  },
+  {
+    "summary_key": "detachment:d-liberator-assault-group:red-thirst",
+    "detachment_id": "d-liberator-assault-group",
+    "name": "Red Thirst",
+    "summary": "An Adeptus Astartes unit that Charged this turn gets +1 Attacks and +2 Strength on its melee weapons when it fights this phase. Army: Blood Angels only.",
+    "review_state": "in_review",
+    "mechanic_digest": "9be63b0b2820510a064ec3b58d8727f6"
+  },
+  {
+    "summary_key": "detachment:d-librarius-conclave:psychic-disciplines",
+    "detachment_id": "d-librarius-conclave",
+    "name": "Psychic Disciplines",
+    "summary": "Each battle round, pick a Discipline for friendly Astartes Psyker units until round end: Biomancy +2in M; Divination re-roll hit/wound 1s; Pyromancy +1 AP within 12in; Telekinesis -1 S vs ranged; Telepathy ignores BS/WS/hit modifiers.",
+    "review_state": "in_review",
+    "mechanic_digest": "c3f6a5e40afc086266ea59760f84a11e"
+  },
+  {
+    "summary_key": "detachment:d-orbital-assault-force-2:rapid-drop-deployment",
+    "detachment_id": "d-orbital-assault-force-2",
+    "name": "Rapid-drop Deployment",
+    "summary": "At deployment, a battle-size-scaled number of non-Titanic Adeptus Astartes units gain Deep Strike. A unit set up this turn re-rolls a Wound roll of 1; one that disembarked from a Drop Pod this turn also re-rolls a Hit roll of 1.",
+    "review_state": "in_review",
+    "mechanic_digest": "6d9de3902ef6028b32da8580eada69a9"
+  },
+  {
+    "summary_key": "detachment:d-rage-cursed-onslaught:maddened-ferocity",
+    "detachment_id": "d-rage-cursed-onslaught",
+    "name": "Maddened Ferocity",
+    "summary": "Adeptus Astartes melee attacks re-roll a Wound roll of 1. A unit that Charged this turn gets +1 melee Attacks when it fights (+2 instead if Battle-shocked). Army: Blood Angels only.",
+    "review_state": "in_review",
+    "mechanic_digest": "1136c395af8da5d89b62d30d683b9b08"
+  },
+  {
+    "summary_key": "detachment:d-stormlance-task-force-2:lightning-assault",
+    "detachment_id": "d-stormlance-task-force-2",
+    "name": "Lightning Assault",
+    "summary": "Adeptus Astartes units can declare a charge in a turn in which they Advanced or Fell Back.",
+    "review_state": "in_review",
+    "mechanic_digest": "6cac692ade2f72f445085835ff0f6c25"
+  },
+  {
+    "summary_key": "detachment:d-the-angelic-host:upon-wings-of-fire",
+    "detachment_id": "d-the-angelic-host",
+    "name": "Upon Wings of Fire",
+    "summary": "At the end of your opponent's turn, remove a battle-size-scaled number of non-engaged Adeptus Astartes Jump Pack units into Strategic Reserves; they Deep Strike back in during your next Movement phase. Army: Blood Angels only.",
+    "review_state": "in_review",
+    "mechanic_digest": "b76027d6cf6d553e24a6486ac9ad64e4"
+  },
+  {
+    "summary_key": "detachment:d-the-lost-brethren:a-noble-death-in-combat",
+    "detachment_id": "d-the-lost-brethren",
+    "name": "A Noble Death in Combat",
+    "summary": "A Death Company melee attack re-rolls a Wound roll of 1 if its unit is below Starting Strength (any Wound roll if Below Half-strength). Death Company Marines (with/without Bolt Rifles) gain Battleline. Army: Blood Angels only.",
+    "review_state": "in_review",
+    "mechanic_digest": "a0abd2777facfd03843537e6ae79526b"
+  },
+  {
+    "summary_key": "detachment:d-vanguard-spearhead-2:shadow-masters",
+    "detachment_id": "d-vanguard-spearhead-2",
+    "name": "Shadow Masters",
+    "summary": "A ranged attack against an Adeptus Astartes unit from beyond 12 inches gives that unit Benefit of Cover.",
+    "review_state": "in_review",
+    "mechanic_digest": "20a1368afd53ae398ce9777f1e9d0ee7"
+  },
+  {
+    "summary_key": "detachment:d-vengeful-hosts-2:imperator-unleashed",
+    "detachment_id": "d-vengeful-hosts-2",
+    "name": "Imperator Unleashed",
+    "summary": "After a Fly Infantry unit makes an ingress or charge move this turn, its attacks can re-roll hit rolls of 1.",
+    "review_state": "in_review",
+    "mechanic_digest": "455871c6b816df4cd30143b4a77a0dad"
+  }
+]
