@@ -4,38 +4,46 @@
     "detachment_id": "d-armoured-warhost",
     "name": "Skilled Crews",
     "summary": "Friendly Aeldari Vehicle units' ranged weapons gain the Assault ability.",
-    "review_state": "in_review",
-    "mechanic_digest": "6c82eb4d306ad2651da458515ab2bccd"
+    "review_state": "approved",
+    "mechanic_digest": "6c82eb4d306ad2651da458515ab2bccd",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-aspect-host:path-of-the-warrior",
     "detachment_id": "d-aspect-host",
     "name": "Path of the Warrior",
     "summary": "When an Aspect Warriors or Avatar of Khaine unit is selected to shoot or fight, choose for that phase: re-roll Hit rolls of 1, or re-roll Wound rolls of 1, for that unit's attacks.",
-    "review_state": "in_review",
-    "mechanic_digest": "01fbd927e8470342a0c3389439c2e4e6"
+    "review_state": "approved",
+    "mechanic_digest": "01fbd927e8470342a0c3389439c2e4e6",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-corsair-coterie:relentless-raiders",
     "detachment_id": "d-corsair-coterie",
     "name": "Relentless Raiders",
     "summary": "While you control an objective, an enemy unit ending a move within range takes D3 mortal wounds on a 2+. An Anhrathe unit in range keeps you in control until the opponent's control level there exceeds yours.",
-    "review_state": "in_review",
-    "mechanic_digest": "8eecab1bf31faed37e9f62c31c6625d9"
+    "review_state": "approved",
+    "mechanic_digest": "8eecab1bf31faed37e9f62c31c6625d9",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-corsair-coterie:veterans-of-the-void",
     "detachment_id": "d-corsair-coterie",
     "name": "Veterans of the Void",
     "summary": "Each Anhrathe unit added to your army can take one unique Corsair Enhancement, paying its points cost; you cannot include a unit whose Enhancement would push your army over the points limit.",
-    "review_state": "in_review",
-    "mechanic_digest": "0d44f8cf634cf069c85a513b7f843bc4"
+    "review_state": "approved",
+    "mechanic_digest": "0d44f8cf634cf069c85a513b7f843bc4",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-devoted-of-ynnead:strength-from-death",
     "detachment_id": "d-devoted-of-ynnead",
     "name": "Strength from Death",
-    "summary": "Ynnari may join despite lacking the faction keyword, led by Yvraine and/or The Yncarne; Asuryani units gain the Ynnari keyword. Grants bonus moves on a Ynnari death, a Fade Back, or an enemy Fall Back, plus Fights First for a battered unit.",
+    "summary": "Include Ynnari despite the missing Asuryani keyword; non-Epic-Hero Asuryani gain Ynnari; Yvraine and/or The Yncarne must be taken, one as Warlord. Ynnari get a D6+1\" move after a shooting loss or a Fade Back, and Fights First when depleted.",
     "review_state": "in_review",
     "mechanic_digest": "840b30a4fd8308a1402c85aeea3ccab1"
   },
@@ -44,54 +52,66 @@
     "detachment_id": "d-eldritch-raiders",
     "name": "Veterans of the Void",
     "summary": "Each Anhrathe unit added to your army can take one unique Corsair Enhancement, paying its points cost; you cannot include a unit whose Enhancement would push your army over the points limit.",
-    "review_state": "in_review",
-    "mechanic_digest": "0d44f8cf634cf069c85a513b7f843bc4"
+    "review_state": "approved",
+    "mechanic_digest": "0d44f8cf634cf069c85a513b7f843bc4",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-eldritch-raiders:yriels-own",
     "detachment_id": "d-eldritch-raiders",
     "name": "Yriel’s Own",
     "summary": "Aeldari units can declare a charge in a turn they advanced. Anhrathe, Rangers and Shroud Runners units can re-roll their Advance roll.",
-    "review_state": "in_review",
-    "mechanic_digest": "89d0e8a386f44965c508565f8c09bdd0"
+    "review_state": "approved",
+    "mechanic_digest": "89d0e8a386f44965c508565f8c09bdd0",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-fateful-performance:acrobatic-onslaught",
     "detachment_id": "d-fateful-performance",
     "name": "Acrobatic Onslaught",
     "summary": "A charging Harlequins unit can move through enemy models. This detachment carries the Acrobatic tag and cannot be combined with another Acrobatic detachment.",
-    "review_state": "in_review",
-    "mechanic_digest": "09f6bfbca7b84d5471df795b4ba62e08"
+    "review_state": "approved",
+    "mechanic_digest": "09f6bfbca7b84d5471df795b4ba62e08",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-ghosts-of-the-webway:acrobatic-onslaught",
     "detachment_id": "d-ghosts-of-the-webway",
     "name": "Acrobatic Onslaught",
     "summary": "A charging Harlequins model can move through enemy models. Travelling Players Troupe units gain Battleline and Objective Control 2; field up to three each of Death Jester, Shadowseer and Troupe Master.",
-    "review_state": "in_review",
-    "mechanic_digest": "441e8d8b1ecb71c173ecf54ade55cf6b"
+    "review_state": "approved",
+    "mechanic_digest": "441e8d8b1ecb71c173ecf54ade55cf6b",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-guardian-battlehost:defend-at-all-costs",
     "detachment_id": "d-guardian-battlehost",
     "name": "Defend at All Costs",
     "summary": "Dire Avenger, Guardian, Support Weapon, and War Walker attacks get +1 to hit when the attacker or its target is within range of an objective marker.",
-    "review_state": "in_review",
-    "mechanic_digest": "f3fcd3cfae3569ef50484427ad929926"
+    "review_state": "approved",
+    "mechanic_digest": "f3fcd3cfae3569ef50484427ad929926",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-path-of-the-outcast:far-reaching-doom",
     "detachment_id": "d-path-of-the-outcast",
     "name": "Far-Reaching Doom",
     "summary": "While a Rangers or Shroud Runners unit is shooting, enemy detection range against it is increased by 6\" until it finishes shooting.",
-    "review_state": "in_review",
-    "mechanic_digest": "26e0591cf023f397acbd01fe221980a1"
+    "review_state": "approved",
+    "mechanic_digest": "26e0591cf023f397acbd01fe221980a1",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-seer-council:strands-of-fate",
     "detachment_id": "d-seer-council",
     "name": "Strands of Fate",
-    "summary": "Roll a pool of Fate dice at the start of the battle (more at larger battle sizes). Discard a die matching a specific Stratagem's value to cut that use's cost by 1CP.",
+    "summary": "Roll a Fate dice pool at the start of the battle: 3 D6 at Incursion, 6 at Strike Force, 9 at Onslaught. Discard a die showing a listed Stratagem's value to cut that use of it by 1CP.",
     "review_state": "in_review",
     "mechanic_digest": "49797f19fefbf112d2c807cb70c372dd"
   },
@@ -100,14 +120,16 @@
     "detachment_id": "d-serpents-brood",
     "name": "Boons of the Brood",
     "summary": "Harlequins Mounted/Vehicle weapons get Sustained Hits 1; a disembarking Harlequins unit's weapons gain it that turn. Travelling Players Troupe gain Battleline and OC 2; field up to three each of Death Jester, Shadowseer and Troupe Master.",
-    "review_state": "in_review",
-    "mechanic_digest": "d51a256d0370d7e51a4014f7bd8c7201"
+    "review_state": "approved",
+    "mechanic_digest": "d51a256d0370d7e51a4014f7bd8c7201",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-spirit-conclave:shepherds-of-the-dead",
     "detachment_id": "d-spirit-conclave",
     "name": "Shepherds of the Dead",
-    "summary": "Destroying an Asuryani Psyker gives the killer a Vengeful Dead token; Wraith Construct attacks on it get +1 to hit/wound. A Psyker's aura gives nearby Wraithblades/Wraithguard/Wraithlord Battle Focus; the first two also gain Battleline.",
+    "summary": "Destroying an Asuryani Psyker gives the killer a Vengeful Dead token; Wraith Construct attacks on it get +1 to hit/wound. Asuryani Psykers give Wraithblades/Wraithguard/Wraithlord within 12\" Battle Focus; the first two also gain Battleline.",
     "review_state": "in_review",
     "mechanic_digest": "816bdf2d01a0667da74ea1cc56a629e7"
   },
@@ -116,22 +138,26 @@
     "detachment_id": "d-twilight-flickers",
     "name": "Dance of Distortion",
     "summary": "Friendly Harlequins units gain Stealth. This detachment carries the exclusive Acrobatic tag.",
-    "review_state": "in_review",
-    "mechanic_digest": "807e877b4a382e8ae037169be01cc63e"
+    "review_state": "approved",
+    "mechanic_digest": "807e877b4a382e8ae037169be01cc63e",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-warhost:martial-grace",
     "detachment_id": "d-warhost",
     "name": "Martial Grace",
     "summary": "Each battle round you get one extra Battle Focus token. The Swift as the Wind Agile Manoeuvre grants an extra 1\" Move, and any Agile Manoeuvre D6 roll gets +1.",
-    "review_state": "in_review",
-    "mechanic_digest": "b495db83b78ef4427e19a39ee4ac127e"
+    "review_state": "approved",
+    "mechanic_digest": "b495db83b78ef4427e19a39ee4ac127e",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-windrider-host:ride-the-wind",
     "detachment_id": "d-windrider-host",
     "name": "Ride the Wind",
-    "summary": "Aeldari Mounted and Vyper units can start in, or return late to, Strategic Reserves and arrive a battle round early, up to a battle-size-limited count. Windriders units gain the Battleline keyword.",
+    "summary": "Asuryani Mounted and Vyper units may start in Reserves and arrive as if the battle round were one higher. At the end of your opponent's turn you can return 1/2/3 of them (by battle size) to Strategic Reserves. Windriders gain Battleline.",
     "review_state": "in_review",
     "mechanic_digest": "77fdeb24ab2788a36b55568c6630825a"
   }
