@@ -1,0 +1,26 @@
+[
+  {
+    "summary_key": "detachment:d-ordo-hereticus-purgation-force:root-out-heresy",
+    "detachment_id": "d-ordo-hereticus-purgation-force",
+    "name": "Root out Heresy",
+    "summary": "Adeptus Arbites, Inquisitor, Inquisitorial Agents and Ordo Hereticus models get Ignores Cover on ranged weapons, and Sustained Hits 1 when attacking a Chaos unit of 5 or more models.",
+    "review_state": "in_review",
+    "mechanic_digest": "acd8b9f672e840bb88051bf403225f8e"
+  },
+  {
+    "summary_key": "detachment:d-ordo-malleus-daemon-hunters:destroy-the-daemonic",
+    "detachment_id": "d-ordo-malleus-daemon-hunters",
+    "name": "Destroy the Daemonic",
+    "summary": "Inquisitor, Inquisitorial Agents and Ordo Malleus models re-roll a Hit roll of 1 on every attack, and a Wound roll of 1 when the target is a Daemon unit.",
+    "review_state": "in_review",
+    "mechanic_digest": "c4653887634a0b3d9b1efbb6844ebcbf"
+  },
+  {
+    "summary_key": "detachment:d-veiled-blade-elimination-force:extremis-sanction",
+    "detachment_id": "d-veiled-blade-elimination-force",
+    "name": "Extremis Sanction",
+    "summary": "Officio Assassinorum units can use their signature ability (Overkill, Soulless Horror, or Shieldbreaker) twice per battle instead of once, never twice in one round. Each gains its Extremis ability for a mandatory points increase.",
+    "review_state": "in_review",
+    "mechanic_digest": "49929ff91ed5974e9adc0c8ebc50fd45"
+  }
+]
