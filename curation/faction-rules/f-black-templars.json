@@ -7,8 +7,10 @@
       "display_order": 1,
       "name": "Templar Vows",
       "summary": "Pick one Vow in round 1; it applies to Adeptus Astartes units all battle. Abhor the Witch: melee attacks on Psykers gain Precision; charges declared with an enemy Psyker within 12in may re-roll, but must end engaged with one. Accept Any Challenge: +1 to melee Wound rolls when attack S does not exceed target T. Suffer Not the Unclean: may charge after Falling Back; Pile-in/Consolidate moves need only end as close as possible to the nearest enemy unit. Uphold the Honour: Infantry on your objective at the end of your Command phase hold it until the opponent out-controls you, and may start Actions after Advancing.",
-      "review_state": "in_review",
-      "mechanic_digest": "f525f15cfbc6ed571aa602982d56c37e"
+      "review_state": "approved",
+      "mechanic_digest": "f525f15cfbc6ed571aa602982d56c37e",
+      "reviewed_by": "adhoxx",
+      "reviewed_at": "2026-08-06T00:00:00Z"
     }
   ]
 }
