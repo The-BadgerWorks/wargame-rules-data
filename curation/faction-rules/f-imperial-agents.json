@@ -7,8 +7,10 @@
       "display_order": 1,
       "name": "Assigned Agents",
       "summary": "An all-Imperium army can include Agents of the Imperium units lacking your Faction keyword: retinue/character/requisitioned caps are 1/1/1, 2/2/1 and 3/3/2 by battle size. Their Dedicated Transports must deploy with a unit aboard.",
-      "review_state": "in_review",
-      "mechanic_digest": "8ac6461e0ff979e49995257029683bb5"
+      "review_state": "approved",
+      "mechanic_digest": "8ac6461e0ff979e49995257029683bb5",
+      "reviewed_by": "claude-opus-5-final-reviewer",
+      "reviewed_at": "2026-08-06T00:00:00Z"
     }
   ]
 }
