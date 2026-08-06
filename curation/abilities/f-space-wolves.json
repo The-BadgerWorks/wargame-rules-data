@@ -46,12 +46,10 @@
   },
   {
     "ability_key": "datasheet:bestial-rage",
-    "mechanic_digest": "e1a582d857c44b4e2b8a2e909f172711",
+    "mechanic_digest": "2e55a357efcee1e23b3de828109cd495",
     "name": "Bestial Rage",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "Each time an enemy unit shoots and this model loses one or more wounds from it, this model can move D6+2\" toward the closest non-Aircraft enemy unit, potentially into Engagement Range, once per phase."
+    "review_state": "in_review",
+    "summary": "In your opponent's Shooting phase, if this model lost a wound from an enemy unit's attacks, this unit can make a surge move of up to D6+2\"."
   },
   {
     "ability_key": "datasheet:blizzard-shield",
@@ -136,12 +134,10 @@
   },
   {
     "ability_key": "datasheet:guile-of-the-wolf-aura",
-    "mechanic_digest": "c8b5d1283cb8fb0ef7541436c3e7ba5b",
+    "mechanic_digest": "ccf26bc7446eaaf3b64b69bcd33166fc",
     "name": "Guile of the Wolf (Aura)",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "Each time the opponent targets a unit within 12\" of this model with a Stratagem, that Stratagem's cost increases by 1CP, not cumulative with similar effects."
+    "review_state": "in_review",
+    "summary": "Once per turn, when your opponent targets a unit within 12\" of this model with a Stratagem, you can increase that Stratagem's CP cost by 1."
   },
   {
     "ability_key": "datasheet:hammer-blow",
@@ -235,12 +231,10 @@
   },
   {
     "ability_key": "datasheet:predatory-instinct",
-    "mechanic_digest": "d4808bf5a94ef83ef9ee93b82f836a07",
+    "mechanic_digest": "ca6bb9d1652bb91976f8fd303cf9a215",
     "name": "Predatory Instinct",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "Once per turn, when an enemy unit ends a Normal, Advance, or Fall Back move within 9\" of this unit, it can make a Normal move of up to D6\"."
+    "review_state": "in_review",
+    "summary": "In your opponent's Movement phase, if an enemy unit ends a move within 8\" of this unit and this unit is not within Engagement Range, it can make a Normal move of up to D6\"."
   },
   {
     "ability_key": "datasheet:rugged-resilience",
