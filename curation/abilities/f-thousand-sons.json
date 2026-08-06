@@ -84,7 +84,9 @@
     "ability_key": "datasheet:destroyer-of-futures-once-per-phase-per-unit",
     "mechanic_digest": "bd4d442ad9914cee4455ce7800f0f9e6",
     "name": "Destroyer of Futures (Once per phase, per unit)",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
     "summary": "You can target this unit with the Counter-offensive Stratagem for -1 CP, regardless of other uses of that stratagem this phase; it does not prevent other units from also using it."
   },
   {
@@ -209,7 +211,7 @@
     "mechanic_digest": "ca6bb9d1652bb91976f8fd303cf9a215",
     "name": "Malign Trickery",
     "review_state": "in_review",
-    "summary": "In your opponent's Movement phase, if an enemy unit ends a move within 8\" of this unit and this unit is not within Engagement Range, it can make a Normal move of up to D6\"."
+    "summary": "In your opponent's Movement phase, when an enemy unit ends any move within 8\" of this unit, this unit can make a Normal move of up to D6\", provided it is not within Engagement Range of any enemy unit."
   },
   {
     "ability_key": "datasheet:marked-by-fate-psychic",
@@ -242,7 +244,9 @@
     "ability_key": "datasheet:prophetic-sentinels",
     "mechanic_digest": "6b9b3d1ebcffddd7a83e15f6ea882dab",
     "name": "Prophetic Sentinels",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
     "summary": "Once per turn, when this unit is targeted with Fire Overwatch or Heroic Intervention, that use of the stratagem costs -1 CP."
   },
   {
@@ -304,7 +308,7 @@
     "mechanic_digest": "bb9e6c61bb53eabd28f63d38d526a4ff",
     "name": "Snarling Protector",
     "review_state": "in_review",
-    "summary": "You can target this unit with Heroic Intervention for -1 CP, without stopping other uses this phase. If it charges with a friendly engaged PSYKER within 12\", it can re-roll the charge roll but must end engaged with an enemy of that Psyker."
+    "summary": "Heroic Intervention can target this unit at -1 CP; it neither blocks nor is blocked by other uses this phase. When it charges with a friendly engaged Psyker within 12\", re-roll its charge roll but end engaged with an enemy of that Psyker."
   },
   {
     "ability_key": "datasheet:sorcerous-support",
@@ -365,27 +369,29 @@
     "mechanic_digest": "c8722c0ac1850d81456cddc43116d107",
     "name": "Cabal of Sorcerers",
     "review_state": "in_review",
-    "summary": "At the start of your Shooting phase, one eligible model can attempt a Ritual by rolling 2D6 (optionally Channelling the Warp, risking D3 mortal wounds for a higher result); meeting the Ritual's Warp Charge manifests its effect."
+    "summary": "At the start of your Shooting phase each model with this ability may attempt a Ritual (each once per turn): roll 2D6, optionally Channelling the Warp; a double or triple costs its unit D3 mortal wounds; the total must meet the Warp Charge."
   },
   {
     "ability_key": "faction:cabal-of-sorcerers-1",
     "mechanic_digest": "c8722c0ac1850d81456cddc43116d107",
     "name": "Cabal of Sorcerers",
     "review_state": "in_review",
-    "summary": "At the start of your Shooting phase, one eligible model can attempt a Ritual by rolling 2D6 (optionally Channelling the Warp, risking D3 mortal wounds for a higher result); meeting the Ritual's Warp Charge manifests its effect."
+    "summary": "At the start of your Shooting phase each model with this ability may attempt a Ritual (each once per turn): roll 2D6, optionally Channelling the Warp; a double or triple costs its unit D3 mortal wounds; the total must meet the Warp Charge."
   },
   {
     "ability_key": "faction:cabal-of-sorcerers-scarab-occult-sorcerer-only",
     "mechanic_digest": "c8722c0ac1850d81456cddc43116d107",
     "name": "Cabal of Sorcerers (Scarab Occult Sorcerer only)",
     "review_state": "in_review",
-    "summary": "At the start of your Shooting phase, one eligible model can attempt a Ritual by rolling 2D6 (optionally Channelling the Warp, risking D3 mortal wounds for a higher result); meeting the Ritual's Warp Charge manifests its effect."
+    "summary": "At the start of your Shooting phase each model with this ability may attempt a Ritual (each once per turn): roll 2D6, optionally Channelling the Warp; a double or triple costs its unit D3 mortal wounds; the total must meet the Warp Charge."
   },
   {
     "ability_key": "faction:pact-of-sorcery",
     "mechanic_digest": "6001572b0eba334d3cbef40aa2ea8cd9",
     "name": "Pact of Sorcery",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
     "summary": "When building your army, your Army Faction cannot be Scintillating Legions."
   }
 ]
