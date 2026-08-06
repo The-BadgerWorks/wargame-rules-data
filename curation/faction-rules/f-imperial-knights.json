@@ -6,7 +6,7 @@
       "summary_key": "faction:f-imperial-knights:code-chivalric",
       "display_order": 1,
       "name": "Code Chivalric",
-      "summary": "Before battle, pick (or roll) a Deed and a Quality as your Oath. The Quality's buff applies army-wide until the Deed completes, then you become Honoured and gain 2CP (3CP if rolled).",
+      "summary": "Before deployment, set an Oath of one Deed and one Quality, each chosen or rolled. The Quality applies to models with this ability all battle; completing the Deed makes the army Honoured and gains 2CP, or 3CP if either part was rolled.",
       "review_state": "in_review",
       "mechanic_digest": "be4ceade044e0cab3a04f173a4a86975"
     }
