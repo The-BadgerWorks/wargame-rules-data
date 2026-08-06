@@ -3,7 +3,9 @@
     "ability_key": "core:firing-deck-12",
     "mechanic_digest": "bf3b4618b0621cdc4bf5eb5bb8fa1c3b",
     "name": "Firing Deck 12",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-second-reviewer",
     "summary": "Firing Deck X: in your Shooting phase, when this Transport shoots, up to X (here 12) embarked models whose units have not yet shot each lend it one ranged weapon (no one-shot); no unit embarked in it can shoot for the rest of the turn."
   },
   {
@@ -226,7 +228,9 @@
     "ability_key": "datasheet:brutal-disciplinarian",
     "mechanic_digest": "446d3bebe2a4760481782f1f25ece2de",
     "name": "Brutal Disciplinarian",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-second-reviewer",
     "summary": "Once per turn, at the start of any phase, select one Battle-shocked friendly Astra Militarum Infantry unit of more than one model within 12\" of this model: one model in it is destroyed and it is no longer Battle-shocked."
   },
   {
@@ -836,7 +840,9 @@
     "ability_key": "datasheet:meteoric-descent",
     "mechanic_digest": "40dd8642b6beffdd2cb222091344f9fd",
     "name": "Meteoric Descent",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-second-reviewer",
     "summary": "When this model is set up by Deep Strike, it can be placed more than 6\" horizontally from all enemy units instead of 8\", but cannot declare a charge that turn."
   },
   {
@@ -1140,7 +1146,9 @@
     "ability_key": "datasheet:screening-line",
     "mechanic_digest": "37197083aae38e1b296d7b06e19db5ef",
     "name": "Screening Line",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-second-reviewer",
     "summary": "In your opponent's Movement phase, when an enemy unit ends any move within 8\" of this unit, this unit can make a Normal move of up to 6\", provided it is not within Engagement Range of any enemy unit."
   },
   {
@@ -1516,7 +1524,9 @@
     "ability_key": "faction:voice-of-command",
     "mechanic_digest": "00a0ed0a0660ffb124f7edd3f08210f5",
     "name": "Voice of Command",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-second-reviewer",
     "summary": "Officers issue Orders (count per datasheet) in your Command phase or on arrival/disembark, to a unit within 6\" until your next Command phase: +3\" Move, improved Weapon Skill, Ballistic Skill, Rapid Fire Attacks, Save, or Leadership and OC."
   }
 ]

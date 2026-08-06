@@ -3,7 +3,9 @@
     "ability_key": "core:super-heavy-walker",
     "mechanic_digest": "805e77dca9ef8cfd7ec4908a17562bbe",
     "name": "Super-heavy Walker",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-second-reviewer",
     "summary": "When this unit makes a Normal, Advance or Fall Back move, its models can move through models (not Titanic) and horizontally through terrain up to 4\" tall. You can give them Mobile for it; roll a D6 at the end, battle-shocked on a 1."
   },
   {
@@ -145,7 +147,9 @@
     "ability_key": "datasheet:daemonforge",
     "mechanic_digest": "1538add560f702606148ba2dc8481a04",
     "name": "Daemonforge",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-second-reviewer",
     "summary": "Each time this unit makes a Dark Pact, until the end of the phase this model's attacks re-roll Wound rolls of 1."
   },
   {
@@ -296,7 +300,9 @@
     "ability_key": "datasheet:hamadryas-knowledge-psychic",
     "mechanic_digest": "6a3523198a49716a76cf2c23331f8d5b",
     "name": "Hamadrya's Knowledge (Psychic)",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-second-reviewer",
     "summary": "Once per battle round, when an enemy unit ends a Normal, Advance or Fall Back move within 8\" of this model's unit, that unit can make a Normal move of up to D3+3\", provided it is not within Engagement Range of any enemy unit."
   },
   {
@@ -762,21 +768,27 @@
     "ability_key": "faction:cabal-of-sorcerers-aspiring-sorcerer-only",
     "mechanic_digest": "c8722c0ac1850d81456cddc43116d107",
     "name": "Cabal of Sorcerers (Aspiring Sorcerer only)",
-    "review_state": "in_review",
-    "summary": "At the start of your Shooting phase each model with this ability may attempt a Ritual (each once per turn): roll 2D6, optionally Channelling the Warp; a double or triple costs its unit D3 mortal wounds; the total must meet the Warp Charge."
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-second-reviewer",
+    "summary": "Shooting phase start: each model with this ability may attempt one Ritual per turn, each Ritual once per turn. Roll 2D6, optionally Channelling the Warp; any double or triple costs its unit D3 mortal wounds; total must meet the Warp Charge."
   },
   {
     "ability_key": "faction:nurgles-gift-aura",
     "mechanic_digest": "ad8887300cfa858c72e53e84cabb7cbd",
     "name": "Nurgle's Gift (Aura)",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-second-reviewer",
     "summary": "Enemy units within Contagion Range (max 12\") of your Death Guard models are Afflicted: -1 Toughness, plus the Plague you chose at deployment - -1 to their melee Hit rolls, or -1 Save, or -1 Move, Leadership and Objective Control."
   },
   {
     "ability_key": "faction:thrill-seekers",
     "mechanic_digest": "e8b7d94d00733c5b22fc60c21b688e90",
     "name": "Thrill Seekers",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-second-reviewer",
     "summary": "If your Army Faction is Emperor's Children, this unit can shoot and charge in a turn it Advanced or Fell Back, but cannot target a unit it was engaged with at the start of the turn, or one another unit has charged or attacked this phase."
   }
 ]
