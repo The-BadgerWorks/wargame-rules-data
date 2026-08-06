@@ -120,7 +120,9 @@
     "ability_key": "datasheet:creeping-shadow",
     "mechanic_digest": "702cca5aca2e440da57de40e521d07b0",
     "name": "Creeping Shadow",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-second-reviewer",
     "summary": "While equipped with a cult sniper rifle, in your opponent's Movement phase, when an enemy unit ends a move within 8\" of this unit, this unit can make a Normal move of up to 6\", provided it is not within Engagement Range of any enemy unit."
   },
   {
@@ -263,13 +265,15 @@
     "mechanic_digest": "23ff5e152bae91db0957131161bcd1c9",
     "name": "Hypersensory Abilities",
     "review_state": "in_review",
-    "summary": "Once per turn in your opponent's Movement phase, when an enemy unit ends a move within 8\" of this model, if outside Engagement Range it can shoot that unit as if in your Shooting phase, then make a Normal move of up to D6\" (no embarking)."
+    "summary": "Once per turn in your opponent's Movement phase, when an enemy unit ends a Normal, Advance or Fall Back move within 8\" of this model, this model, if outside Engagement Range, can shoot it and then make a D6\" Normal move (no embarking)."
   },
   {
     "ability_key": "datasheet:hypersensory-array",
     "mechanic_digest": "d3765d0a1551dce2c17249af9049a046",
     "name": "Hypersensory Array",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-second-reviewer",
     "summary": "Once per battle round you can target this unit with Rapid Ingress or Heroic Intervention at -1 CP; that use neither blocks nor is blocked by other uses of that Stratagem this phase."
   },
   {
@@ -384,8 +388,10 @@
     "ability_key": "datasheet:planted-explosives",
     "mechanic_digest": "5986f99d5c537246f0f16579540e61f0",
     "name": "Planted Explosives",
-    "review_state": "in_review",
-    "summary": "Once per battle, when an enemy unit ends a Normal, Advance or Fall Back move within 8\" of this model, it can use its Reductus mine: roll one D6; on a 2+ that unit suffers D3+3 mortal wounds. One model in your army per battle round."
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-second-reviewer",
+    "summary": "Once per battle, when an enemy unit ends a Normal, Advance or Fall Back move within 8\" of this model, this model can use its Reductus mine: roll one D6; on a 2+ that unit takes D3+3 mortal wounds. One model in your army per battle round."
   },
   {
     "ability_key": "datasheet:priority-target",
@@ -481,7 +487,9 @@
     "ability_key": "datasheet:summon-the-cult",
     "mechanic_digest": "d5669db9f6ab01f69c158866ce3b56f4",
     "name": "Summon the Cult",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-second-reviewer",
     "summary": "Once per battle, when a Cult Ambush marker would be removed for enemy proximity, you can instead place it within 12\" of a model with this ability and more than 8\" horizontally from all enemy units; if impossible, it is removed."
   },
   {
@@ -542,7 +550,9 @@
     "ability_key": "datasheet:underground-egress",
     "mechanic_digest": "a7d0401521e23a2241ec837c5fdf1525",
     "name": "Underground Egress",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-second-reviewer",
     "summary": "Each time one of your Cult Ambush markers would be removed for an enemy ending a move within 8\" of it, you can instead move it wholly within 8\" of this Fortification and more than 8\" horizontally from all enemy units, if possible."
   },
   {

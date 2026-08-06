@@ -39,7 +39,9 @@
     "ability_key": "datasheet:beast-handler",
     "mechanic_digest": "4e9e73f2651ff3b578774460c03ea896",
     "name": "Beast Handler",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-second-reviewer",
     "summary": "While this model leads a unit, you can re-roll Charge rolls for that unit. Once per battle you can target this unit with Heroic Intervention at -1 CP; that use neither blocks nor is blocked by other uses this phase."
   },
   {
@@ -1072,14 +1074,18 @@
     "ability_key": "datasheet:one-head-looks-back",
     "mechanic_digest": "ab41b3ea4b2c840b817cd23afdb60245",
     "name": "One Head Looks Back",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-second-reviewer",
     "summary": "Once per turn, when your opponent targets a unit within 12\" of this model with a Stratagem, you can increase that Stratagem's CP cost by 1."
   },
   {
     "ability_key": "datasheet:one-head-looks-back-aura",
     "mechanic_digest": "c158784d903bfeda4563253325d86bc1",
     "name": "One Head Looks Back (Aura)",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-second-reviewer",
     "summary": "Each time your opponent targets a unit within 12\" of this model with a Stratagem, that use costs 1 CP more."
   },
   {
@@ -1581,7 +1587,9 @@
     "ability_key": "faction:dark-pacts",
     "mechanic_digest": "6a8cdc1f184493270e2194d176548eb2",
     "name": "Dark Pacts",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-second-reviewer",
     "summary": "If your Army Faction is Heretic Astartes, a unit with this ability that shoots or fights can make a Dark Pact: take a Leadership test (D3 mortal wounds if failed), then give its weapons Lethal Hits or Sustained Hits 1 until end of phase."
   },
   {
@@ -1589,6 +1597,6 @@
     "mechanic_digest": "536bf9fc4a03f34e6bce620d619972da",
     "name": "The Shadow of Chaos",
     "review_state": "in_review",
-    "summary": "Your Shadow of Chaos: your deployment zone, plus No Man's Land or the enemy zone if you hold half its objectives. Daemons there get +1 Battle-shock, healing D3 on a pass; enemies there or near a greater Daemon get -1, D3 mortals if failed."
+    "summary": "Shadow of Chaos: your deployment zone, plus No Man's Land or the enemy zone while you hold half its objectives. Daemons inside: +1 Battle-shock, heal D3 on a pass; enemies inside or within 6\" of a Greater Daemon: -1, D3 mortals if failed."
   }
 ]
