@@ -1,0 +1,26 @@
+[
+  {
+    "summary_key": "detachment:d-banishers:channelled-force",
+    "detachment_id": "d-banishers",
+    "name": "Channelled Force",
+    "summary": "When a Grey Knights unit fights, it can pass a Leadership test to give its Psychic melee weapons Sustained Hits 1 or Lethal Hits until the end of the phase.",
+    "review_state": "in_review",
+    "mechanic_digest": "b5ea1eb031f360529883bfcfde86f401"
+  },
+  {
+    "summary_key": "detachment:d-brotherhood-strike:fury-of-titan",
+    "detachment_id": "d-brotherhood-strike",
+    "name": "Fury of Titan",
+    "summary": "A unit set up via Deep Strike re-rolls a Hit roll of 1 and a Wound roll of 1 on its attacks for the rest of the turn.",
+    "review_state": "in_review",
+    "mechanic_digest": "cabe3b7dea390d35dbf15d17bb5bf80f"
+  },
+  {
+    "summary_key": "detachment:d-warpbane-task-force:hallowed-ground",
+    "detachment_id": "d-warpbane-task-force",
+    "name": "Hallowed Ground",
+    "summary": "Your deployment zone, area near Purifier Squads, and (conditionally) No Man's Land or the enemy zone count as Hallowed Ground. Grey Knights re-roll a Hit roll of 1 each attack; Purifiers or units wholly inside re-roll the Hit roll instead.",
+    "review_state": "in_review",
+    "mechanic_digest": "d83c30e14cbdc9f799978907218b69ec"
+  }
+]
