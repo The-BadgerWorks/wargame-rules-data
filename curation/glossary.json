@@ -180,6 +180,16 @@
     "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
+    "summary_key": "glossary:beast",
+    "keyword_key": "beast",
+    "display_keyword": "Beast",
+    "has_numeric_parameter": false,
+    "name": "Beast",
+    "summary": "Unit-type keyword, the singular form of Beasts and identical to it in use. Its models move through dense terrain, get benefit of cover inside a terrain area, and are hidden there if their unit made no ranged attacks this turn or last turn.",
+    "review_state": "in_review",
+    "mechanic_digest": "3d34a72871cb7a5a77357e65d6bd6adb"
+  },
+  {
     "summary_key": "glossary:beasts",
     "keyword_key": "beasts",
     "display_keyword": "Beasts",
@@ -683,7 +693,7 @@
     "display_keyword": "Snagged",
     "has_numeric_parameter": false,
     "name": "Snagged",
-    "summary": "Weapon ability. A hit on a Monster or Vehicle unit gives the bearer 2 on charge rolls against it until the turn ends, and stops enemies answering that charge with the Fire Overwatch stratagem.",
+    "summary": "Weapon ability. Each time it scores a hit on a Monster or Vehicle unit, until the end of the turn, add 2 to charge rolls the bearer makes against that unit and enemies cannot use the Fire Overwatch stratagem against the bearer.",
     "review_state": "in_review",
     "mechanic_digest": "83f6a1ec2d86e23e97d376f419061c3c"
   },
@@ -694,8 +704,10 @@
     "has_numeric_parameter": true,
     "name": "Sustained Hits X",
     "summary": "Weapon ability written Sustained Hits X. A critical hit scores X further hits on the target, on top of the hit it already scored.",
-    "review_state": "in_review",
-    "mechanic_digest": "2b6b95dc0c9813634ae4c1f7742b194d"
+    "review_state": "approved",
+    "mechanic_digest": "2b6b95dc0c9813634ae4c1f7742b194d",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "glossary:sustained hits d3",
@@ -704,8 +716,10 @@
     "has_numeric_parameter": false,
     "name": "Sustained Hits D3",
     "summary": "Sustained Hits with a rolled parameter rather than a fixed one: a critical hit scores a D3 rolled number of further hits. Keyed apart from Sustained Hits X because the parameter is not a number.",
-    "review_state": "in_review",
-    "mechanic_digest": "155d7971bde7b9c036f15cc13adc0011"
+    "review_state": "approved",
+    "mechanic_digest": "155d7971bde7b9c036f15cc13adc0011",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "glossary:swarm",
@@ -714,8 +728,10 @@
     "has_numeric_parameter": false,
     "name": "Swarm",
     "summary": "Unit-type keyword. Swarm models move through dense terrain, get benefit of cover inside a terrain area, and are hidden in a terrain area holding dense terrain if their unit made no ranged attacks this turn or last turn.",
-    "review_state": "in_review",
-    "mechanic_digest": "8a4d5d5c0a4debe9bdaba200945b6f92"
+    "review_state": "approved",
+    "mechanic_digest": "8a4d5d5c0a4debe9bdaba200945b6f92",
+    "reviewed_by": "claude-opus-5-second-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "glossary:titanic",
@@ -724,8 +740,10 @@
     "has_numeric_parameter": false,
     "name": "Titanic",
     "summary": "Size keyword. Titanic units ignore being engaged when starting actions or when checking if they may shoot after acting, and cannot be moved through by Super-Heavy Walker units.",
-    "review_state": "in_review",
-    "mechanic_digest": "3091cb98773daa1dcceb6868ec04da14"
+    "review_state": "approved",
+    "mechanic_digest": "3091cb98773daa1dcceb6868ec04da14",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "glossary:torrent",
@@ -734,8 +752,10 @@
     "has_numeric_parameter": false,
     "name": "Torrent",
     "summary": "Weapon ability. Its attacks hit automatically and no hit roll is made. A torrent weapon cannot also carry Indirect Fire or Precision.",
-    "review_state": "in_review",
-    "mechanic_digest": "48386b6955d772a756527bd42fd14411"
+    "review_state": "approved",
+    "mechanic_digest": "48386b6955d772a756527bd42fd14411",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "glossary:towering",
@@ -756,8 +776,10 @@
     "has_numeric_parameter": false,
     "name": "Transport",
     "summary": "Unit-type keyword. Its datasheet sets which models may embark and how many; several units can share one Transport. Units may start embarked before the battle or embark during a move, and disembark in a later Movement phase.",
-    "review_state": "in_review",
-    "mechanic_digest": "c183bce3b871a3f2fd3f315535136194"
+    "review_state": "approved",
+    "mechanic_digest": "c183bce3b871a3f2fd3f315535136194",
+    "reviewed_by": "claude-opus-5-second-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "glossary:twin linked",
@@ -766,8 +788,10 @@
     "has_numeric_parameter": false,
     "name": "Twin-linked",
     "summary": "Weapon ability. Its wound rolls may be re-rolled.",
-    "review_state": "in_review",
-    "mechanic_digest": "d1a39fdb07c49ddf3ea8fc69ccbfb464"
+    "review_state": "approved",
+    "mechanic_digest": "d1a39fdb07c49ddf3ea8fc69ccbfb464",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "glossary:vehicle",
@@ -775,7 +799,7 @@
     "display_keyword": "Vehicle",
     "has_numeric_parameter": false,
     "name": "Vehicle",
-    "summary": "Unit-type keyword. Vehicle models can move through other models except Monsters and Vehicles. They cross dense terrain only where every section they pass through is 2in or less high; otherwise they must climb it.",
+    "summary": "Unit-type keyword. In a normal or advance move Vehicle models move through other models except Monsters and Vehicles, and their unit may use close-quarters shooting. They cross dense terrain only where each section is 2in or less high.",
     "review_state": "in_review",
     "mechanic_digest": "014b0b243c2cb24091e99cb6bc40aaef"
   },
@@ -785,7 +809,7 @@
     "display_keyword": "Walker",
     "has_numeric_parameter": false,
     "name": "Walker",
-    "summary": "Unit-type keyword, combined with Vehicle or Monster. It is a targeting condition for some rules, such as which Vehicle units may be selected for a Character/Walker-restricted core stratagem.",
+    "summary": "Unit-type keyword carried alongside Vehicle or Monster. A Vehicle unit may be picked for the Heroic Intervention core stratagem only if it is a Character or Walker, and a destroyed Walker that has a base is measured to from that base.",
     "review_state": "in_review",
     "mechanic_digest": "a0ad4d7b4b672d4e86336d329a5448a8"
   }
