@@ -521,7 +521,7 @@
     "display_keyword": "Monster",
     "has_numeric_parameter": false,
     "name": "Monster",
-    "summary": "Unit-type keyword. Monster models can move through other models except Monsters and Vehicles. They cross dense terrain only where every section they pass through is 2in or less high; otherwise they must climb it.",
+    "summary": "Unit-type keyword. In a normal or advance move Monster models move through other models except Monsters and Vehicles, and their unit may use close-quarters shooting. They cross dense terrain only where each section is 2in or less high.",
     "review_state": "in_review",
     "mechanic_digest": "9f0f132fc5ca1dc84125a7fdbaf2b5ee"
   },
@@ -532,8 +532,10 @@
     "has_numeric_parameter": false,
     "name": "One Shot",
     "summary": "Weapon ability. The weapon may be selected to attack with only once in the whole battle. A destroyed model returned to its unit does not regain the use of one already fired.",
-    "review_state": "in_review",
-    "mechanic_digest": "80faaf4c5244ef81fb0507cf4ab6536f"
+    "review_state": "approved",
+    "mechanic_digest": "80faaf4c5244ef81fb0507cf4ab6536f",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "glossary:overcharge",
@@ -542,8 +544,10 @@
     "has_numeric_parameter": false,
     "name": "Overcharge",
     "summary": "Weapon ability. Subtract 2 from the result of every hazard roll the bearer makes for this weapon profile, making its hazardous risk worse.",
-    "review_state": "in_review",
-    "mechanic_digest": "46ab043b442ba2c908895c43c2c79599"
+    "review_state": "approved",
+    "mechanic_digest": "46ab043b442ba2c908895c43c2c79599",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "glossary:pistol",
@@ -551,7 +555,7 @@
     "display_keyword": "Pistol",
     "has_numeric_parameter": false,
     "name": "Pistol",
-    "summary": "Weapon ability, identical in effect to Close-Quarters and superseded by it: the unit may use close-quarters shooting, and under other modes a model fires either its pistols or its other ranged weapons.",
+    "summary": "Weapon ability, identical to Close-Quarters in every respect. Its unit may use close-quarters shooting while engaged, and under any other shooting mode a model that is not a Monster or Vehicle fires either its pistols or its other guns.",
     "review_state": "in_review",
     "mechanic_digest": "b916096cde1cd483a86041fa47492d39"
   },
@@ -561,7 +565,7 @@
     "display_keyword": "Plasma Warhead",
     "has_numeric_parameter": false,
     "name": "Plasma Warhead",
-    "summary": "Weapon ability. The bearer may fire it only in your Shooting phase, only after remaining stationary, and no target is chosen: the attacks are resolved separately against each unit near the bearer's marked target point.",
+    "summary": "Weapon ability. Fired only in your Shooting phase, only after remaining stationary and only if its target-marker ability went unused this phase. No target is picked: attacks resolve on each unit within 6in of the marked point.",
     "review_state": "in_review",
     "mechanic_digest": "7d7e30cce22fee243026b47f19101d43"
   },
@@ -572,8 +576,10 @@
     "has_numeric_parameter": false,
     "name": "Precision",
     "summary": "Weapon ability. While allocating its attacks, if a Character model in the target unit is visible the attacker may direct them at that Character's allocation group until those attacks end or that group is destroyed.",
-    "review_state": "in_review",
-    "mechanic_digest": "301763d2c1e40d75132b40e74cdcdea8"
+    "review_state": "approved",
+    "mechanic_digest": "301763d2c1e40d75132b40e74cdcdea8",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "glossary:psychic",
@@ -582,8 +588,10 @@
     "has_numeric_parameter": false,
     "name": "Psychic",
     "summary": "Weapon ability. Its attacks may ignore any or all modifiers to the attacker's ballistic or weapon skill and to the hit roll, and they count as psychic attacks wherever another rule cares about those.",
-    "review_state": "in_review",
-    "mechanic_digest": "35601f0a09a1d807caea271fac9e2bd5"
+    "review_state": "approved",
+    "mechanic_digest": "35601f0a09a1d807caea271fac9e2bd5",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "glossary:psychic assassin",
@@ -592,8 +600,10 @@
     "has_numeric_parameter": false,
     "name": "Psychic Assassin",
     "summary": "Weapon ability. While a Psyker unit is the chosen target, the weapon's Attacks characteristic becomes 6 until those attacks are resolved.",
-    "review_state": "in_review",
-    "mechanic_digest": "659842daca6b42696e4bfd1abc97e95a"
+    "review_state": "approved",
+    "mechanic_digest": "659842daca6b42696e4bfd1abc97e95a",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "glossary:psyker",
@@ -602,8 +612,10 @@
     "has_numeric_parameter": false,
     "name": "Psyker",
     "summary": "Unit-type keyword. A unit counts as a Psyker while any of its models has the keyword, an attached Leader included, and rules keyed to Psyker units - Anti-Psyker weapons among them - apply for as long as that holds.",
-    "review_state": "in_review",
-    "mechanic_digest": "3ab9eea6547be8112dc032588938b33c"
+    "review_state": "approved",
+    "mechanic_digest": "3ab9eea6547be8112dc032588938b33c",
+    "reviewed_by": "claude-opus-5-second-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "glossary:rapid fire",
@@ -612,8 +624,10 @@
     "has_numeric_parameter": true,
     "name": "Rapid Fire X",
     "summary": "Weapon ability written Rapid Fire X. Gather X extra attack dice if the target unit was within half the weapon's range at the moment targets were chosen.",
-    "review_state": "in_review",
-    "mechanic_digest": "e80fc8eee2d0b4fca2ac3fd437fe2594"
+    "review_state": "approved",
+    "mechanic_digest": "e80fc8eee2d0b4fca2ac3fd437fe2594",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "glossary:rapid fire d3",
@@ -622,8 +636,10 @@
     "has_numeric_parameter": false,
     "name": "Rapid Fire D3",
     "summary": "Rapid Fire with a rolled parameter rather than a fixed one: roll a D3 for the number of extra attack dice gathered when the target was within half range. Keyed apart from Rapid Fire X because the parameter is not a number.",
-    "review_state": "in_review",
-    "mechanic_digest": "dc115b1dabc09f13df353ef0fd3c3f95"
+    "review_state": "approved",
+    "mechanic_digest": "dc115b1dabc09f13df353ef0fd3c3f95",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "glossary:rapid fire d6",
@@ -632,8 +648,10 @@
     "has_numeric_parameter": false,
     "name": "Rapid Fire D6",
     "summary": "Rapid Fire with a rolled parameter rather than a fixed one: roll a D6 for the number of extra attack dice gathered when the target was within half range. Keyed apart from Rapid Fire X because the parameter is not a number.",
-    "review_state": "in_review",
-    "mechanic_digest": "b6dd7f6320f1553282e6d90b83981935"
+    "review_state": "approved",
+    "mechanic_digest": "b6dd7f6320f1553282e6d90b83981935",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "glossary:reverberating summons",
@@ -642,8 +660,10 @@
     "has_numeric_parameter": false,
     "name": "Reverberating Summons",
     "summary": "Weapon ability. Each model it destroys lets you return one destroyed model to a friendly unit of the type the datasheet names within 12 inches of the bearer.",
-    "review_state": "in_review",
-    "mechanic_digest": "d3a99ea408ff546c10f593c557172630"
+    "review_state": "approved",
+    "mechanic_digest": "d3a99ea408ff546c10f593c557172630",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "glossary:smoke",
@@ -652,8 +672,10 @@
     "has_numeric_parameter": false,
     "name": "Smoke",
     "summary": "Unit keyword. It is the eligibility condition for the Smokescreen core stratagem, which for one phase gives the unit - and units it obscures - the benefit of cover against attacks.",
-    "review_state": "in_review",
-    "mechanic_digest": "0a98ccf3d62b189addd19b60ff5bdb2c"
+    "review_state": "approved",
+    "mechanic_digest": "0a98ccf3d62b189addd19b60ff5bdb2c",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "glossary:snagged",
