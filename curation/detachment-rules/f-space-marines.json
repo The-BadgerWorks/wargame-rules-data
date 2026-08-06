@@ -24,8 +24,10 @@
     "detachment_id": "d-armoured-speartip-5",
     "name": "Rapid Deployment",
     "summary": "An Adeptus Astartes unit disembarking from a non-Fly Transport that made a Normal or Advance move this phase, and did not arrive from Strategic Reserves, can make a D6\" Normal move, or D3+3\" from a 14+ Wound Heavy Transport.",
-    "review_state": "in_review",
-    "mechanic_digest": "0c6a9f6984e0a145495b6897be924d1a"
+    "review_state": "approved",
+    "mechanic_digest": "0c6a9f6984e0a145495b6897be924d1a",
+    "reviewed_by": "claude-opus-5-second-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-blade-of-ultramar:mastered-doctrines",
@@ -102,16 +104,20 @@
     "detachment_id": "d-hammer-of-avernii",
     "name": "Recalculating",
     "summary": "Once per battle round, after your Oath of Moment target is destroyed, if a Caanok Var model is on the battlefield, one enemy unit visible to it becomes your Oath of Moment target until you pick a new one.",
-    "review_state": "in_review",
-    "mechanic_digest": "121dc40e938e8f6da5a8497ced2fd638"
+    "review_state": "approved",
+    "mechanic_digest": "121dc40e938e8f6da5a8497ced2fd638",
+    "reviewed_by": "claude-opus-5-second-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-headhunter-task-force-5:target-sighted",
     "detachment_id": "d-headhunter-task-force-5",
     "name": "Target Sighted",
     "summary": "Tank Ace units - Adeptus Astartes Vehicles other than Fortifications, Drop Pods, Walkers and Fly - skip the Advance roll for a flat +6\" Move, and re-roll Damage when shooting if they did not Advance. Up to three may gain Character.",
-    "review_state": "in_review",
-    "mechanic_digest": "bc46cc142d681a090b361fc92b3e8454"
+    "review_state": "approved",
+    "mechanic_digest": "bc46cc142d681a090b361fc92b3e8454",
+    "reviewed_by": "claude-opus-5-second-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-ironstorm-spearhead-5:armoured-wrath",
@@ -128,24 +134,30 @@
     "detachment_id": "d-librarius-conclave-4",
     "name": "Psychic Disciplines",
     "summary": "Each battle round pick a Discipline for Adeptus Astartes Psykers until round end: Biomancy +2\" M; Divination re-roll Hit/Wound 1s; Pyromancy ranged +1 AP within 12\"; Telekinesis -1 S vs ranged; Telepathy ignores BS/WS/hit modifiers.",
-    "review_state": "in_review",
-    "mechanic_digest": "c3f6a5e40afc086266ea59760f84a11e"
+    "review_state": "approved",
+    "mechanic_digest": "c3f6a5e40afc086266ea59760f84a11e",
+    "reviewed_by": "claude-opus-5-second-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-orbital-assault-force-5:rapid-drop-deployment",
     "detachment_id": "d-orbital-assault-force-5",
     "name": "Rapid-drop Deployment",
     "summary": "At deployment, 2/3/4 non-Titanic Adeptus Astartes units by battle size gain Deep Strike. A model set up this turn re-rolls a Wound roll of 1; if it disembarked from a Drop Pod this turn it re-rolls a Hit roll of 1 as well.",
-    "review_state": "in_review",
-    "mechanic_digest": "6d9de3902ef6028b32da8580eada69a9"
+    "review_state": "approved",
+    "mechanic_digest": "6d9de3902ef6028b32da8580eada69a9",
+    "reviewed_by": "claude-opus-5-second-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-reclamation-force:oath-of-reclamation",
     "detachment_id": "d-reclamation-force",
     "name": "Oath of Reclamation",
     "summary": "Adeptus Astartes melee attacks get +1 AP on units within range of an objective. Your unit within range of a marker you controlled at the phase start takes -1 to Wound from stronger attacks, or all attacks with Titus. Ultramarines only.",
-    "review_state": "in_review",
-    "mechanic_digest": "0bcfa5986353e1cbc6a2fab69325cd66"
+    "review_state": "approved",
+    "mechanic_digest": "0bcfa5986353e1cbc6a2fab69325cd66",
+    "reviewed_by": "claude-opus-5-second-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-shadowmark-talon:masters-of-shadow",
@@ -222,7 +234,9 @@
     "detachment_id": "d-vengeful-hosts-5",
     "name": "Imperator Unleashed",
     "summary": "After an Adeptus Astartes Fly Infantry unit makes an ingress or charge move this turn, its attacks can re-roll Hit rolls of 1.",
-    "review_state": "in_review",
-    "mechanic_digest": "455871c6b816df4cd30143b4a77a0dad"
+    "review_state": "approved",
+    "mechanic_digest": "455871c6b816df4cd30143b4a77a0dad",
+    "reviewed_by": "claude-opus-5-second-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   }
 ]
