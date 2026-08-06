@@ -30,7 +30,9 @@
     "ability_key": "datasheet:striding-colossus",
     "mechanic_digest": "2a0aefab8f11424e3107b87578aac050",
     "name": "Striding Colossus",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
     "summary": "Whenever you target this model with a Stratagem, you pay triple its CP cost."
   },
   {
