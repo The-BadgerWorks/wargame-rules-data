@@ -7,8 +7,10 @@
       "display_order": 1,
       "name": "Synapse",
       "summary": "Tyranids units within 6in of a friendly Synapse model are in Synapse Range: they take Battle-shock tests on 3D6 instead of 2D6, and their melee attacks get +1 Strength.",
-      "review_state": "in_review",
-      "mechanic_digest": "17632ffb7a500ac984411eb3dfaa884d"
+      "review_state": "approved",
+      "mechanic_digest": "17632ffb7a500ac984411eb3dfaa884d",
+      "reviewed_by": "claude-opus-5-adversarial-reviewer",
+      "reviewed_at": "2026-08-06T00:00:00Z"
     }
   ]
 }
