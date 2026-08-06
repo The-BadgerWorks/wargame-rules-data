@@ -11,6 +11,10 @@
 # follow-up): the unset default is refused at the point of use rather than interpreted as a
 # relative path, so a live run that was never configured reports a configuration error instead of
 # an FR-008 partial export.
+# AI-Assisted: Claude Code (model: claude-opus-5) - Strip a dotenv value's own quoting as the
+# environment is read (004 T076 follow-up): a `.env.local` secret loaded by a hand-rolled
+# `KEY=VALUE` split keyed the mechanic digest on a quoted string, which silently re-reviewed
+# every approved ability summary rather than failing anything (see `unquote_env_value`).
 """Pipeline configuration.
 
 Every variable in ``contracts/pipeline-run-interface.md`` §5 appears here exactly once, with
@@ -507,6 +511,29 @@ def _read_config_file(path: Path) -> dict[str, str]:
     return values
 
 
+def unquote_env_value(value: str) -> str:
+    """Drop one matched pair of surrounding quotes, as every ``.env`` reader does.
+
+    **Why this exists, in one incident.** A local run is configured from a ``.env.local`` file
+    whose secret is written ``WGC_MECHANIC_DIGEST_KEY="…"``, because that is how a secret is
+    written in a dotenv file. A hand-rolled ``KEY=VALUE`` loader that splits on the first ``=``
+    and stops there puts the **quotes into the value**, so the process keyed its HMAC on a
+    64-character secret wrapped in two double quotes — a different key. Nothing failed. Every
+    mechanic digest simply came out different from the one the curation was authored under, and
+    a build reported that *every single* approved ability summary needed re-review: a phantom
+    1 703-record campaign that was very nearly scheduled (see
+    ``reports/churn-dry-run/2026-08-05.md``, whose 203 is the real figure).
+
+    Quoting is part of the dotenv convention rather than part of the value, and a configuration
+    value that begins and ends with the same quote character has never once meant to carry it.
+    Stripping it here — where the environment is read, once, for every variable — is what makes
+    the two ways of loading the same file produce the same run.
+    """
+    if len(value) >= 2 and value[0] == value[-1] and value[0] in "\"'":
+        return value[1:-1]
+    return value
+
+
 def _as_str(raw: Mapping[str, str], env_name: str) -> str:
     return raw[env_name]
 
@@ -575,7 +602,12 @@ def load_config(
     raw: dict[str, str] = {var.env_name: var.default for var in CONFIG_VARS}
     for var in CONFIG_VARS:
         if var.env_name in environ:
-            raw[var.env_name] = environ[var.env_name]
+            # Unquoted here rather than per-variable: a dotenv artefact is a property of *how the
+            # environment was loaded*, not of which variable it reached, and a quoted `"5000"`
+            # would fail `_as_int` while a quoted secret would fail nothing at all (see
+            # `unquote_env_value`). The `--config` file needs no equivalent — JSON has already
+            # resolved its own quoting by the time `_read_config_file` returns.
+            raw[var.env_name] = unquote_env_value(environ[var.env_name])
     if config_path is not None:
         raw.update(_read_config_file(Path(config_path)))
     if channel_override is not None:

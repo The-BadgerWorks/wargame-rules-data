@@ -255,3 +255,43 @@ def test_an_unknown_config_file_key_still_fails_beside_the_new_ones(tmp_path: Pa
     )
     with pytest.raises(ConfigError, match="unknown configuration key"):
         load_config(env={}, config_path=path)
+
+
+# --- dotenv quoting: a value's own quotes are not part of the value ---------------------------
+
+
+def test_a_dotenv_quoted_value_loses_its_quotes() -> None:
+    """`.env.local` writes a secret quoted; a hand-rolled `KEY=VALUE` loader does not unquote it.
+
+    This is the whole of the 2026-08-05 incident. The digest key reached the process wrapped in
+    two double quotes, the HMAC keyed on a string two characters longer than the one the
+    curation was authored under, every mechanic digest came out different, and the run reported
+    that all 1 703 approved ability summaries used by the snapshot needed re-review. Nothing
+    failed; a phantom campaign was very nearly scheduled off it.
+    """
+    quoted = load_config(env={"WGC_MECHANIC_DIGEST_KEY": '"s3cret"'})
+    single = load_config(env={"WGC_MECHANIC_DIGEST_KEY": "'s3cret'"})
+    bare = load_config(env={"WGC_MECHANIC_DIGEST_KEY": "s3cret"})
+
+    assert quoted.mechanic_digest_key == bare.mechanic_digest_key
+    assert single.mechanic_digest_key == bare.mechanic_digest_key
+
+
+def test_quoting_is_stripped_before_a_value_is_parsed_as_anything_but_a_string() -> None:
+    """The same trap on a typed variable fails loudly rather than silently — but it still fails,
+    so the unquoting happens where the environment is read and not per variable."""
+    assert load_config(env={"WGC_REQUEST_INTERVAL_MS": '"5000"'}).request_interval_ms == 5000
+    assert load_config(env={"WGC_DATA_CHANNEL": '"published"'}).data_channel is Channel.PUBLISHED
+    assert (
+        load_config(env={"WGC_DETAIL_ACQUISITION_MODE": "'html'"}).detail_acquisition_mode
+        is DetailAcquisitionMode.HTML
+    )
+
+
+@pytest.mark.parametrize("value", ['"unbalanced', "'mixed\"", '""', 'a"b', "\"'"])
+def test_only_a_matched_surrounding_pair_is_ever_removed(value: str) -> None:
+    """One pair, matched, at both ends — nothing else. A value that merely contains a quote, or
+    is quoted on one side, is passed through exactly as the operator set it: guessing further
+    would start editing values rather than undoing a loader's omission."""
+    expected = "" if value == '""' else value
+    assert load_config(env={"WGC_DETECT_CRON": value}).detect_cron == expected

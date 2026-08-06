@@ -54,7 +54,7 @@
     "mfm_slug": "chaos-space-marines"
   },
   {
-    "detail_source_faction_id": "chaos-titan-legions",
+    "detail_source_faction_id": "adeptus-titanicus",
     "faction_id": "f-chaos-titan-legions",
     "mfm_slug": "chaos-titan-legions"
   },
@@ -83,7 +83,7 @@
     "mfm_slug": "drukhari"
   },
   {
-    "detail_source_faction_id": "emperors-children",
+    "detail_source_faction_id": "emperor-s-children",
     "faction_id": "f-emperors-children",
     "mfm_slug": "emperors-children"
   },
@@ -136,7 +136,7 @@
     "parent_faction_id": "f-space-marines"
   },
   {
-    "detail_source_faction_id": "tau-empire",
+    "detail_source_faction_id": "t-au-empire",
     "faction_id": "f-tau-empire",
     "mfm_slug": "tau-empire"
   },
@@ -146,7 +146,7 @@
     "mfm_slug": "thousand-sons"
   },
   {
-    "detail_source_faction_id": "titan-legions",
+    "detail_source_faction_id": "adeptus-titanicus",
     "faction_id": "f-titan-legions",
     "mfm_slug": "titan-legions"
   },

@@ -43,6 +43,17 @@ WARDENS = FactionMapEntry(
 QUILL = FactionMapEntry(
     mfm_slug="quill-covenant", faction_id="f-quill-covenant", detail_source_faction_id="QC"
 )
+#: Two *sibling* curated factions the detail source publishes on one page — the Titan Legions
+#: shape, and not the chapter shape: neither is the other's parent, so nothing about the
+#: parent fallback applies and each names the shared id outright.
+FORGE_LOYAL = FactionMapEntry(
+    mfm_slug="forgewrights", faction_id="f-forgewrights", detail_source_faction_id="FORGE"
+)
+FORGE_FALLEN = FactionMapEntry(
+    mfm_slug="fallen-forgewrights",
+    faction_id="f-fallen-forgewrights",
+    detail_source_faction_id="FORGE",
+)
 
 
 def authored(**overrides: object) -> AuthoredContent:
@@ -74,6 +85,63 @@ def test_detail_faction_referenced_by_no_mapping_is_advisory() -> None:
 
     assert [f.finding_code for f in findings] == ["REC-DETAIL-FACTION-ORPHAN"]
     assert findings[0].severity is Severity.ADVISORY
+
+
+def test_two_sibling_factions_may_share_one_detail_source_faction_id() -> None:
+    """The Titan Legions shape: one detail-source page, two curated factions (C3/R6).
+
+    The taxonomies genuinely disagree in both directions — the chapters split one detail id
+    across five curated factions *via the parent fallback*, and the Titan Legions split one
+    across two curated factions that are **not** related. `detail_source_faction_id` is the
+    publisher's own identifier for the page a faction's datasheets are read from, so two records
+    naming the same page is a statement of fact about the source rather than a collision to be
+    de-duplicated: the split between them comes from the points source, which prices each
+    faction's own units on its own page.
+
+    Live consequence, and the reason this test exists: pointing either record at an id the
+    source does not publish (`titan-legions`, `chaos-titan-legions`) silently drops **both**
+    factions' datasheets and raises `REC-DETAIL-FACTION-ORPHAN` for the page nobody claimed.
+    """
+    content = authored(faction_map=(FORGE_LOYAL, FORGE_FALLEN))
+    outcome = resolve_factions(["forgewrights", "fallen-forgewrights"], content)
+
+    assert not outcome.findings
+    assert {scope.faction_id: scope.detail_faction_ids for scope in outcome.scopes} == {
+        "f-forgewrights": ("FORGE",),
+        "f-fallen-forgewrights": ("FORGE",),
+    }
+    # The shared page is claimed, so it is nobody's orphan.
+    assert report_orphan_detail_factions(["FORGE"], content) == []
+
+    # And the datasheets divide by what the points source prices where: each faction matches the
+    # units listed on its own points page out of the one shared detail pool, and gets its own
+    # curated id for a name they both publish.
+    registry = IdRegistry()
+    detail_names = {"FR01": "Forge Colossus", "FR02": "Fallen Colossus"}
+    by_id = {scope.faction_id: scope for scope in outcome.scopes}
+    loyal = match_units(
+        by_id["f-forgewrights"],
+        display_names=["FORGE COLOSSUS"],
+        detail_names=detail_names,
+        detail_is_legends={},
+        detail_source_ids={},
+        authored=content,
+        registry=registry,
+    )
+    fallen = match_units(
+        by_id["f-fallen-forgewrights"],
+        display_names=["FALLEN COLOSSUS"],
+        detail_names=detail_names,
+        detail_is_legends={},
+        detail_source_ids={},
+        authored=content,
+        registry=registry,
+    )
+
+    assert not loyal.findings and not fallen.findings
+    assert loyal.matches[0].wahapedia_datasheet_id == "FR01"
+    assert fallen.matches[0].wahapedia_datasheet_id == "FR02"
+    assert loyal.matches[0].datasheet_id != fallen.matches[0].datasheet_id
 
 
 def test_a_chapter_scope_falls_back_to_its_parent_faction() -> None:

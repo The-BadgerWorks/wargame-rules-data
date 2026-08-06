@@ -1,7 +1,9 @@
 <!-- AI-Assisted: Claude Code (model: claude-sonnet-5) - Documented every variable in
      pipeline/config.py's CONFIG_VARS table (task T146): default, effect, and the requirement it
      serves, cross-referencing the `purpose` string already in the code and the module
-     docstring's FR references, per contracts/pipeline-run-interface.md §5. -->
+     docstring's FR references, per contracts/pipeline-run-interface.md §5.
+     AI-Assisted: Claude Code (model: claude-opus-5) - Recorded the dotenv-quoting rule beside
+     the resolution order (004 T076 follow-up), with the incident that made it a rule. -->
 # Configuration
 
 Every variable the pipeline reads is declared exactly once, in `pipeline/config.py`'s
@@ -21,6 +23,16 @@ module docstring):
 
 The CLI's `--channel` option, when given, overrides `WGC_DATA_CHANNEL` last, because it is the
 most specific input of all.
+
+**A value's own quoting is not part of the value.** A variable read from the environment loses
+one matched pair of surrounding quotes (`pipeline.config.unquote_env_value`), because that is
+what a `.env` file's quoting means and because a local run is configured from one. The reason it
+is written down here rather than left as an implementation detail: on 2026-08-05 a `.env.local`
+loaded by a hand-rolled `KEY=VALUE` split put the quotes *into* `WGC_MECHANIC_DIGEST_KEY`, so
+every mechanic digest was computed under a key two characters longer than the one the curation
+was authored under. Nothing failed. The run simply reported that all 1 703 approved ability
+summaries in the snapshot needed re-review — a phantom campaign eight times the real figure of
+203, and indistinguishable from an editorial one until the key was checked.
 
 Every **non-sensitive** resolved name and value is logged (`PipelineConfig.log_resolved`).
 Sensitive values are never logged, printed, or included in an exception message — only whether

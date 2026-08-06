@@ -11,6 +11,10 @@
      that are not Black Templars, and the two dated REC-NEVER-PRICED exclusions seeded into
      curation/resolutions.json. Both JSON files admit no comment syntax of their own, so their
      rationale lives here. -->
+<!-- AI-Assisted: Claude Code (model: claude-opus-5) - Recorded the html-mode detail-slug
+     correction (004 T076 follow-up): three of the re-pointed detail_source_faction_id values
+     did not name a page the current-edition source publishes, and two curated factions now
+     share one. faction-map.json admits no comment syntax of its own. -->
 # `curation/` — the authored tree
 
 **Humans write this directory. The pipeline never does.** The pipeline writes `data/` and never
@@ -80,6 +84,36 @@ points-source pages whose datasheet detail is filed under the parent, so each ca
 makes a chapter army see its parent's units. Two detail-source faction ids (`UN`, `UA`) are
 referenced by no mapping and are reported as `REC-DETAIL-FACTION-ORPHAN`, which is advisory: a
 faction the points source does not publish is not one a player can field.
+
+**Under `html` mode a `detail_source_faction_id` is the source's own page slug, and three of
+them are not the points source's spelling.** Adopting the current-edition datacard pages
+(`WGC_DETAIL_ACQUISITION_MODE=html`) replaced the export's two-letter faction codes with the
+slug each faction page is published at, and the mapping was re-pointed wholesale at each
+record's `mfm_slug` on the assumption that the two agree. They do not, in three places, and the
+live sweep named every one of them as `REC-DETAIL-FACTION-ORPHAN`:
+
+| Curated faction | `mfm_slug` | The page the source actually publishes |
+|---|---|---|
+| `f-tau-empire` | `tau-empire` | `t-au-empire` |
+| `f-emperors-children` | `emperors-children` | `emperor-s-children` |
+| `f-titan-legions` | `titan-legions` | `adeptus-titanicus` |
+| `f-chaos-titan-legions` | `chaos-titan-legions` | `adeptus-titanicus` |
+
+**Both Titan Legions entries name one page, and that is correct rather than a duplicate to be
+resolved.** The source publishes the loyalist and traitor titans together; the points source
+prices them on two separate faction pages, and it is the points source that divides them —
+each faction matches the units its own page lists out of the one shared detail pool
+(`pipeline/reconcile/match.py`'s `resolve_factions`, and `_owning_factions` for anything the
+points source did not price). This is the same sharing the five Space Marine chapters already
+rely on, reached by naming the id outright instead of through the parent fallback, and
+`pipeline/models/authored.py`'s `FactionMapEntry` docstring is where the rule is written down.
+
+The cost of getting it wrong is quiet, which is why it is recorded here: a record pointing at a
+page the source does not publish ships that faction with **no datasheets at all**. The three
+above were worth 19 datasheets and ~1.0 percentage point of the datasheet-coverage figure, and
+the run reported the fault only in two halves that had to be joined by hand — one
+`REC-DETAIL-FACTION-ORPHAN` for the page nobody claimed, and one `REC-UNMATCHED-POINTS-ONLY`
+for each of that faction's priced units.
 
 **Black Templars alone also carries `detail_source_publication_id: "000000162"`.** All five
 Space Marine chapters share the detail source's `SM` faction id with the core codex, so stage 2

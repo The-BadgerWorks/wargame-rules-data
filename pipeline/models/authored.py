@@ -9,6 +9,9 @@
 # records (004 task T010): FactionRuleSummary's object wrapper, DetachmentRuleSummary,
 # GlossaryEntry, and the three curator resolution records KeywordClassEntry,
 # CompositionOverrideEntry, and OptionOverrideEntry (004 data-model.md §2 and §4).
+# AI-Assisted: Claude Code (model: claude-opus-5) - Wrote down what detail_source_faction_id is
+# (004 T076 follow-up), after it was re-pointed wholesale at mfm_slug: it is the source's own
+# slug, three factions spell it differently, and two curated factions legitimately share one.
 """Authored records — human-written, under ``curation/``.
 
 **Invariant:** the pipeline reads these and never writes them; humans write these and never
@@ -84,6 +87,24 @@ class FactionMapEntry(_Authored):
     Faction mapping is **authored, not derived**: the taxonomies genuinely disagree — 30 points
     slugs against 26 detail ids, chapters split one way and Titan Legions the other (C3/R6). An
     unmapped slug is the blocking ``REC-FACTION-UNMAPPED``.
+
+    ``detail_source_faction_id`` is **the detail source's own identifier, verbatim** — under
+    ``html`` mode, the faction page's slug. It is *not* derivable from ``mfm_slug``, and the two
+    disagree in both of the ways a curator will assume they cannot:
+
+    * the same faction, spelled differently by each source (``tau-empire`` against
+      ``t-au-empire``, ``emperors-children`` against ``emperor-s-children``); and
+    * **two** curated factions the detail source publishes on **one** page — the Titan Legions,
+      loyalist and traitor, both read from ``adeptus-titanicus``. Sharing an id is supported and
+      correct: the scope resolution keeps each faction's datasheets apart by what the *points*
+      source prices on each faction's own page (see
+      :func:`pipeline.reconcile.match.resolve_factions` and ``_owning_factions``), exactly as
+      five Space Marine chapters already share their parent's id through the parent fallback.
+
+    Copying ``mfm_slug`` into this field therefore ships those factions with **no datasheets at
+    all** — quietly enough to read as an upstream coverage collapse. It is reported, in two
+    halves that have to be joined by hand: ``REC-DETAIL-FACTION-ORPHAN`` names the source page
+    nobody claimed, and one ``REC-UNMATCHED-POINTS-ONLY`` names each of that faction's units.
 
     ``detail_source_publication_id`` is an optional, narrowly-scoped disambiguation signal for
     D5 stage 2 (:func:`pipeline.reconcile.match.match_units`). When a chapter-scoped mapping's

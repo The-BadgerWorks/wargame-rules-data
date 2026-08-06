@@ -8,6 +8,10 @@
 # configuration error it is (004 T075 follow-up): the first real invocation reported an unset
 # WGC_DETAIL_SOURCE_URL as a partial upstream export, which is the wrong fault and the wrong exit
 # code.
+# AI-Assisted: Claude Code (model: claude-opus-5) - Name the one reading that is a configuration
+# mistake rather than a measurement (004 T076 follow-up): a wave that moves EVERY approved
+# summary the source still publishes is the signature of a digest key that is not the authoring
+# key, which is what produced the phantom 1 703-record campaign this tool was asked to explain.
 """Measure the re-review wave before anything commits to it.
 
 `004`'s largest risk is editorial, not technical: wholesale edition adoption re-digests every
@@ -84,6 +88,8 @@ class FactionChurn:
     needs_rereview: int
     unapproved: int
     absent_from_source: int
+    comparable: int = 0
+    """Approved records the current source *does* publish — the ones a digest can move for."""
 
     @property
     def ratio(self) -> float:
@@ -118,8 +124,30 @@ class ChurnReport:
         return sum(faction.absent_from_source for faction in self.factions)
 
     @property
+    def comparable(self) -> int:
+        return sum(faction.comparable for faction in self.factions)
+
+    @property
     def ratio(self) -> float:
         return self.needs_rereview / self.approved if self.approved else 0.0
+
+    @property
+    def every_comparable_record_moved(self) -> bool:
+        """**The signature of a wrong digest key**, and not of an edition move.
+
+        A new edition re-words most of a faction pack, so a large wave is expected and research
+        D8 estimates 85-100% of it. What an edition never does is move *every single* mechanic
+        it still publishes — some abilities always survive verbatim. A digest computed under a
+        key other than the one the curation was authored under moves all of them, exactly, every
+        time, and is otherwise indistinguishable from an editorial wave.
+
+        This measurement sizes a blocking campaign, so the one confusion it must not permit is
+        "the source changed" for "the key changed" (it has already permitted it once: a 1 703-
+        record wave that was two quote characters in a ``.env`` value, see
+        :func:`pipeline.config.unquote_env_value`). Reported, never enforced: this is a tool that
+        counts, and a genuine 100% is still possible.
+        """
+        return self.comparable > 0 and self.needs_rereview == self.comparable
 
 
 def _load_faction_files(curation_dir: Path) -> dict[str, list[AbilitySummary]]:
@@ -197,6 +225,11 @@ def measure(
                 absent_from_source=sum(
                     1 for record in records if record.ability_key not in current
                 ),
+                comparable=sum(
+                    1
+                    for record in records
+                    if record.review_state is ReviewState.APPROVED and record.ability_key in current
+                ),
             )
         )
 
@@ -258,6 +291,10 @@ def render(report: ChurnReport) -> str:
         "the current edition no longer publishes. Those are retired, not re-reviewed.",
         "- No digest appears here, in either direction. The comparison happened where the "
         "source text existed and nothing but these counts came back.",
+        "- If **every** approved record the source still publishes were to flip, the figure "
+        "would be measuring the digest key rather than the source: a new edition always leaves "
+        "some mechanics untouched, and a key that is not the one the curation was authored "
+        "under moves all of them. Check the key before scheduling a campaign that size.",
         "",
     ]
     return "\n".join(lines)
@@ -315,6 +352,18 @@ def main(argv: Sequence[str] | None = None) -> int:
         f"{PROG}: {report.needs_rereview} of {report.approved} approved ability summaries "
         f"would need re-review ({report.ratio:.1%}) across {len(report.factions)} faction files"
     )
+    if report.every_comparable_record_moved:
+        # stderr, and not an exit code: the measurement is still a measurement. But it is read
+        # by whoever is about to schedule the campaign, and this is the one reading that is far
+        # more likely to be a configuration mistake than a finding (see the property's docstring).
+        print(
+            f"{PROG}: every one of the {report.comparable} approved summaries the source still "
+            "publishes moved. An edition move never reaches all of them; a mechanic digest key "
+            "that differs from the one the curation was authored under always does. Verify "
+            "WGC_MECHANIC_DIGEST_KEY reached this process unquoted before sizing anything off "
+            "this run.",
+            file=sys.stderr,
+        )
     return int(ExitCode.SUCCESS)
 
 

@@ -3,6 +3,9 @@
      (T148) depends on but cannot perform itself, one pre-existing test-hygiene defect the T161
      stage-boundary audit exposed, and the stage-boundary exception T161 documented but did not
      resolve. None of these block acceptance; all three are named here so they are not lost. -->
+<!-- AI-Assisted: Claude Code (model: claude-opus-5) - Added item 4 (004 T076 follow-up): the
+     datasheet-coverage shortfall that survives the faction-map slug correction, and the
+     chapter-disambiguation signal html mode does not carry. -->
 # Follow-ups
 
 Open items surfaced during implementation that are deliberately **not** fixed as part of the work
@@ -74,3 +77,35 @@ values `assemble.py` actually reads from them, so `curate` can consume that proj
 the source-side types themselves. That removes the exception entirely rather than merely fencing
 it. Left as follow-up because it touches the `normalize` → `curate` boundary contract internally
 and deserved its own review rather than riding along inside T161's cleanup pass.
+
+## 4. `html` mode carries no publication id, so five chapters cannot be disambiguated (`004` T076)
+
+The live `html`-mode build of 2026-08-05 exits `42` on datasheet coverage: **1 888 datasheets
+against the published `mfm-2026-08` baseline's 2 099 — 89.95%, under the 90% floor**, on both
+`datasheets` and `priced_datasheets`. Correcting the three faction-map detail slugs (see
+`curation/README.md`) recovered 19 datasheets and moved the figure from 89.04% to 89.95%: real,
+and 0.05 percentage points short of clearing the gate.
+
+The largest identifiable recoverable component is **53 blocking `REC-AMBIGUOUS-MATCH` findings,
+every one of them in a Space Marine faction** (9 each for Black Templars, Blood Angels, Dark
+Angels, Space Wolves and the parent, 8 for Deathwatch). Each is a points-priced unit whose
+normalised name matches two datasheets on the shared `space-marines` page, neither Legends. That
+is the same collision `curation/README.md`'s provenance section already documents — and the field
+that resolves it, `detail_source_publication_id`, **cannot resolve it under `html` mode**:
+`pipeline/parse/wahapedia_html_dom.py` emits a `Source.csv` of exactly two rows and a `source_id`
+of `current` or `legends`, because a datacard page states Legends as a class token on the card
+and never states which publication a datasheet came from. So the five entries naming
+`000000139`/`000000162` are inert, stage 2 has nothing to prefer with, and it correctly refuses
+rather than guessing. Recovering those 53 would put datasheet coverage at roughly 92.5%.
+
+**Not fixed here**, because it is a design question rather than a defect: the signal html mode
+*does* carry is the card's own faction keywords, and preferring a chapter's datasheet by keyword
+is a new rung on the D5 ladder — it needs its own contract wording, its own "never auto-apply a
+fuzzy match" argument, and its own tests. The alternative, a `unit-map.json` entry per collision,
+is stage 1 and already outranks everything below it: 53 curator-confirmed pairings would clear
+the whole set today without any code change.
+
+The remainder of the shortfall is not recoverable and should not be treated as a fault: 11th
+edition publishes fewer datasheets than 10th, so a coverage ratio measured against a
+previous-edition baseline is comparing two different editions' catalogues. That is the case for a
+dated `curation/resolutions.json` entry when this candidate is raised, not for a threshold change.
