@@ -16,12 +16,36 @@
     "mechanic_digest": "6fa2b4d99282480398af90b97cb8cca4"
   },
   {
+    "summary_key": "detachment:d-farseekers:eye-of-the-hunt",
+    "detachment_id": "d-farseekers",
+    "name": "Eye of the Hunt",
+    "summary": "Hernkyn units' ranged attacks against targets within 12\" gain +1 to hit rolls.",
+    "review_state": "in_review",
+    "mechanic_digest": "32539337620b77d47313094a59d65393"
+  },
+  {
     "summary_key": "detachment:d-hearthband:methodical-annihilation",
     "detachment_id": "d-hearthband",
     "name": "Methodical Annihilation",
     "summary": "Attacks against the closest eligible target, or an engaged enemy, re-roll a Wound roll of 1; Kâhl, Einhyr Hearthguard, or Úthar units also get +1 Armour Penetration on those attacks.",
     "review_state": "in_review",
     "mechanic_digest": "6b6021e37b10e328e5a2f09c46816108"
+  },
+  {
+    "summary_key": "detachment:d-hearthfyre-arsenal:optimal-application",
+    "detachment_id": "d-hearthfyre-arsenal",
+    "name": "Optimal Application",
+    "summary": "Gain up to 2YP per turn for objectives outside your deployment zone held near an Iron-Master or Memnyr Strategist. Spend 1YP when a Brokhyr, Ironkin Steeljacks or Arkanyst Evaluator unit shoots to re-roll hit rolls of 1 that phase.",
+    "review_state": "in_review",
+    "mechanic_digest": "9bdd1a856a1a5041b14a0673f34b52ec"
+  },
+  {
+    "summary_key": "detachment:d-hearthguard-covenant:avatars-of-the-ancestors",
+    "detachment_id": "d-hearthguard-covenant",
+    "name": "Avatars of the Ancestors",
+    "summary": "Kahl, Einhyr Champion, Einhyr Hearthguard and Uthar the Destined units re-roll wound rolls of 1 on ranged attacks against targets within 9\". Cannot be combined with another Hearthguard detachment.",
+    "review_state": "in_review",
+    "mechanic_digest": "c1866357297c667fa46a34d137dc63eb"
   },
   {
     "summary_key": "detachment:d-mercenary-oathband:ruthless-reinvestment",
