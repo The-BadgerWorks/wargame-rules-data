@@ -1,5 +1,12 @@
 [
   {
+    "ability_key": "core:deadly-demise-2d6-6",
+    "mechanic_digest": "687ffc1b1f643f9a8bf384cb7ee385f8",
+    "name": "Deadly Demise 2D6+6",
+    "review_state": "in_review",
+    "summary": "When a model in this unit is destroyed, roll one D6; on a 6 it suffers a deadly demise and each unit within 6\" takes 2D6+6 mortal wounds, rolled separately per affected unit."
+  },
+  {
     "ability_key": "datasheet:flank-speed",
     "mechanic_digest": "db74c46d16b529d9016f9331c735968e",
     "name": "Flank Speed",
@@ -19,12 +26,10 @@
   },
   {
     "ability_key": "datasheet:striding-colossus",
-    "mechanic_digest": "1edf5aa201a847e0982c313800c18d50",
+    "mechanic_digest": "2a0aefab8f11424e3107b87578aac050",
     "name": "Striding Colossus",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "Stratagems used against this model cost extra Command Points beyond their stated cost, with the surcharge scaling by this model's titan class."
+    "review_state": "in_review",
+    "summary": "Each time an opponent targets this model with a Stratagem, they must pay three times that Stratagem's normal Command Point cost."
   },
   {
     "ability_key": "datasheet:titanic-fire-support",
