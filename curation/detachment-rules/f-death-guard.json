@@ -4,30 +4,36 @@
     "detachment_id": "d-champions-of-contagion",
     "name": "Manifold Maladies",
     "summary": "At the start of each battle round, you may swap your chosen Nurgle's Gift Plague for a different one.",
-    "review_state": "in_review",
-    "mechanic_digest": "edbd217e9d05a8c193960eed0d0075d2"
+    "review_state": "approved",
+    "mechanic_digest": "edbd217e9d05a8c193960eed0d0075d2",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-contagion-engines:warped-and-rusted-animus",
     "detachment_id": "d-contagion-engines",
     "name": "Warped and Rusted Animus",
     "summary": "Foetid Bloat-drones, Helbrutes and Myphitic Blight-haulers gain Contagion Engine and Assault on their ranged weapons. This detachment cannot be combined with another Engines-tagged detachment.",
-    "review_state": "in_review",
-    "mechanic_digest": "3973c921a7e627e7fcc85ecfb2ff5f5a"
+    "review_state": "approved",
+    "mechanic_digest": "3973c921a7e627e7fcc85ecfb2ff5f5a",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-death-lords-chosen:deadly-vectors",
     "detachment_id": "d-death-lords-chosen",
     "name": "Deadly Vectors",
     "summary": "In your opponent's Command phase, roll 2D6 for each Afflicted enemy unit (-1 if it's Below Half-strength): on 6 or less, it suffers D3 mortal wounds.",
-    "review_state": "in_review",
-    "mechanic_digest": "c810b85527db7dad9e39e0e2757c6679"
+    "review_state": "approved",
+    "mechanic_digest": "c810b85527db7dad9e39e0e2757c6679",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-mortarions-hammer:miasmic-bombardment",
     "detachment_id": "d-mortarions-hammer",
     "name": "Miasmic Bombardment",
-    "summary": "At the start of each battle round, mark up to 1-3 (by battle size) enemy units more than 12\" from your models as Afflicted until the end of the round.",
+    "summary": "At the start of each battle round, mark 1/2/3 enemy units at Incursion/Strike Force/Onslaught, each more than 12\" from every model of yours on the battlefield, as Afflicted until the round ends.",
     "review_state": "in_review",
     "mechanic_digest": "62999a7c178df8838f66e1e9d5e21fb8"
   },
@@ -36,14 +42,16 @@
     "detachment_id": "d-paragons-of-putrescence",
     "name": "Hypervirulent Strains",
     "summary": "Friendly Death Guard Character units get +3\" Contagion Range, to a maximum of 12\".",
-    "review_state": "in_review",
-    "mechanic_digest": "8586ab549b6eb4b85b15c19a14922852"
+    "review_state": "approved",
+    "mechanic_digest": "8586ab549b6eb4b85b15c19a14922852",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-shamblerot-vectorium:numberless-horde",
     "detachment_id": "d-shamblerot-vectorium",
     "name": "Numberless Horde",
-    "summary": "In your Command phase of set battle rounds (by battle size), add a fresh 10-model Poxwalkers unit to Strategic Reserves; Poxwalkers gain Battleline.",
+    "summary": "In your Command phase in battle rounds 2-3 at Incursion, 2-4 at Strike Force or 2-5 at Onslaught, add a new Poxwalkers unit of 10 models to your army in Strategic Reserves. Poxwalkers gain Battleline.",
     "review_state": "in_review",
     "mechanic_digest": "07d09d7fe614c302416c64a145fe176b"
   },
@@ -51,7 +59,7 @@
     "summary_key": "detachment:d-tallyband-summoners:reverberant-rancidity",
     "detachment_id": "d-tallyband-summoners",
     "name": "Reverberant Rancidity",
-    "summary": "Plague Legions units within 7\" of a Death Guard unit gain Nurgle's Gift; Death Guard units within 7\" of a Plague Legions unit get +3\" Contagion Range. Allows points-capped Plague Legions units, which cannot be Warlord.",
+    "summary": "Plague Legions units within 7\" of a Death Guard unit gain Nurgle's Gift; Death Guard within 7\" of a Plague Legions unit get +3\" Contagion Range. You may take up to 500/1000/1500 pts of Plague Legions, none of which can be Warlord.",
     "review_state": "in_review",
     "mechanic_digest": "f4b62bb44fd05ce3bc8a47cfab2aefba"
   },
@@ -59,7 +67,7 @@
     "summary_key": "detachment:d-virulent-vectorium:worldblight",
     "detachment_id": "d-virulent-vectorium",
     "name": "Worldblight",
-    "summary": "At the end of your Command phase, an objective a Death Guard unit controls becomes secured. While an enemy unit is within range of that objective, it is Afflicted.",
+    "summary": "At the end of your Command phase, an objective marker a Death Guard unit controls is secured; until you lose control of it, enemy units within range of that objective are Afflicted.",
     "review_state": "in_review",
     "mechanic_digest": "ada9f3784ef57964517792b5ba44e3bb"
   }
