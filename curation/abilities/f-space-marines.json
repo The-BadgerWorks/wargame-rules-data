@@ -1,12 +1,10 @@
 [
   {
     "ability_key": "datasheet:aggressive-hunter",
-    "mechanic_digest": "7c5ed71c3d373a2bac07b4477ad059ae",
+    "mechanic_digest": "1fee68d7c9456929dd5bd374aa7e6a59",
     "name": "Aggressive Hunter",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "Once per battle, after an enemy finishes attacking this model's unit in the opponent's Shooting phase, this unit can make a D6\" Normal move ending as close as possible to the nearest enemy, even into Engagement Range."
+    "review_state": "in_review",
+    "summary": "In your opponent's Shooting phase, if a model in this unit was destroyed by an enemy unit's attacks, this unit can make a surge move of up to D6\"."
   },
   {
     "ability_key": "datasheet:alpha-hunter",
@@ -73,12 +71,10 @@
   },
   {
     "ability_key": "datasheet:blackwing-mantle",
-    "mechanic_digest": "104a06cec4f3a25ffe8190dc1224584a",
+    "mechanic_digest": "71dd4e8b40486bfd3acf8482026d3ccd",
     "name": "Blackwing Mantle",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "This model's unit may be targeted by the Rapid Ingress or Heroic Intervention Stratagems for 0CP, even if another unit was already targeted with that Stratagem this phase."
+    "review_state": "in_review",
+    "summary": "You can target this unit with Rapid Ingress or Heroic Intervention for -1 CP, regardless of other uses of that stratagem this phase; it does not prevent other units from also using it."
   },
   {
     "ability_key": "datasheet:born-of-wolves",
@@ -289,12 +285,10 @@
   },
   {
     "ability_key": "datasheet:frenzied-reprisal",
-    "mechanic_digest": "24d5b745ba825cef7c33840457413926",
+    "mechanic_digest": "9f3425f7dc1b7aef467fac0e4613ca89",
     "name": "Frenzied Reprisal",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "When an enemy unit targets this model, after that unit finishes its attacks, this model may immediately shoot or fight as if it were the relevant phase."
+    "review_state": "in_review",
+    "summary": "Once per turn, after an enemy unit that targeted this unit in the Fight phase finishes attacking, this unit becomes eligible to fight again and must be selected to fight next."
   },
   {
     "ability_key": "datasheet:frozen-prey",
@@ -316,12 +310,10 @@
   },
   {
     "ability_key": "datasheet:glory-of-ultramar",
-    "mechanic_digest": "a188fc0e99cc54daaa1a0b7215154650",
+    "mechanic_digest": "ceaee40c2babad34e7d946ce129bd1e4",
     "name": "Glory of Ultramar",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "In the opponent's Shooting phase, if this unit lost models to enemy attacks, it may make a D6\" Surge move toward the nearest non-Aircraft enemy, even into Engagement Range; not usable while Battle-shocked or already in Engagement Range."
+    "review_state": "in_review",
+    "summary": "In your opponent's Shooting phase, if a model in this unit was destroyed by an enemy unit's attacks, this unit can make a surge move of up to D6\"."
   },
   {
     "ability_key": "datasheet:grenade-harness",
@@ -340,6 +332,13 @@
     "reviewed_at": "2026-08-04T00:00:00Z",
     "reviewed_by": "claude-reviewer-opus",
     "summary": "While this model leads a unit that is selected to shoot or fight, choose Lethal Hits, Precision, or Sustained Hits 1 to apply to its weapons until the end of the phase."
+  },
+  {
+    "ability_key": "datasheet:hail-of-bolts",
+    "mechanic_digest": "0b6277a77cf4ca516aaa8cb467b7633f",
+    "name": "Hail of Bolts",
+    "review_state": "in_review",
+    "summary": "When this unit shoots, select one visible enemy unit: its Bolt Rifle attacks against that unit get +2 Attacks."
   },
   {
     "ability_key": "datasheet:headstrong",
@@ -460,12 +459,10 @@
   },
   {
     "ability_key": "datasheet:inspiring-leader",
-    "mechanic_digest": "6b04c01db5e64307bcb815fdef573f1c",
+    "mechanic_digest": "51490e33f6966463f5f4f215720a96e4",
     "name": "Inspiring Leader",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "Effect varies by model: either once per battle a Battle-shock test taken for the led unit can be re-rolled, or that unit is eligible to shoot and declare a charge in a turn in which it Advanced or Fell Back."
+    "review_state": "in_review",
+    "summary": "This unit is eligible to shoot and to declare a charge in a turn during which it Advanced or Fell Back."
   },
   {
     "ability_key": "datasheet:iron-father",
@@ -505,12 +502,10 @@
   },
   {
     "ability_key": "datasheet:knight-champion-of-macragge",
-    "mechanic_digest": "2dc2c70672997e8fd65b973ca37b3c81",
+    "mechanic_digest": "37197083aae38e1b296d7b06e19db5ef",
     "name": "Knight Champion of Macragge",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "Once per turn, when an enemy ends a Normal, Advance or Fall Back move within 9\" of this model's unit and it is not in Engagement Range, it can make a 6\" Normal move."
+    "review_state": "in_review",
+    "summary": "In your opponent's Movement phase, if an enemy unit ends a move within 8\" of this unit and it is not in Engagement Range, it can make a Normal move of up to 6\"."
   },
   {
     "ability_key": "datasheet:last-laugh",
@@ -559,12 +554,10 @@
   },
   {
     "ability_key": "datasheet:magna-grapple",
-    "mechanic_digest": "d1f094fd400e1e70f2781b3c7b25087b",
+    "mechanic_digest": "00712638ce6871a659ac456d3c574ff4",
     "name": "Magna-grapple",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "Add 2 to Charge rolls made for the bearer when one or more targets of that charge is a Monster or Vehicle unit; on one model the bearer also loses the Smoke keyword."
+    "review_state": "in_review",
+    "summary": "Add 2 to Charge rolls made for this model if any target of that charge is a MONSTER or VEHICLE unit."
   },
   {
     "ability_key": "datasheet:mantle-of-the-troll-king",
@@ -595,12 +588,10 @@
   },
   {
     "ability_key": "datasheet:master-of-manoeuvre",
-    "mechanic_digest": "231d5df210b4b27d9c365934f7f9265c",
+    "mechanic_digest": "9bd4f575adfed09f630a60bd131dfd08",
     "name": "Master of Manoeuvre",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "Once per turn, when an enemy ends a Normal, Advance or Fall Back move within 9\" of this model and it is not in Engagement Range, this model can make a 6\" Normal move."
+    "review_state": "in_review",
+    "summary": "In your opponent's Movement phase, if an enemy unit ends a Normal, Advance, or Fall Back move within 8\" of this model and it is not in Engagement Range, it can make a Normal move of up to 6\"."
   },
   {
     "ability_key": "datasheet:master-of-mischief",
@@ -613,12 +604,10 @@
   },
   {
     "ability_key": "datasheet:master-of-prescience-psychic",
-    "mechanic_digest": "743d31a86346038b58a2d05e3ef2c79d",
+    "mechanic_digest": "08b73d08fc79ea44779ac8cf3042e489",
     "name": "Master of Prescience (Psychic)",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "While this model leads a unit, attacks against that unit subtract 1 from the Hit roll; once per battle round you can also target that unit with a listed Stratagem for 0CP."
+    "review_state": "in_review",
+    "summary": "This unit has Stealth, and melee attacks that target it take -1 to hit. Once per battle round army-wide, when it is targeted with Counter-offensive, Fire Overwatch, or Heroic Intervention, that use costs -1 CP."
   },
   {
     "ability_key": "datasheet:master-of-rites",
@@ -711,6 +700,13 @@
     "summary": "Once per battle, at the start of either Command phase, this model can add 1 to the Attacks characteristic of weapons equipped by models in its unit until the end of the turn."
   },
   {
+    "ability_key": "datasheet:overlapping-detonations",
+    "mechanic_digest": "4c4b42f248c60a91aa3bc3a58e2c448e",
+    "name": "Overlapping Detonations",
+    "review_state": "in_review",
+    "summary": "When this unit shoots, select one visible non-MONSTER/VEHICLE enemy unit: its Heavy Bolter attacks against that unit gain Blast 1."
+  },
+  {
     "ability_key": "datasheet:pelt-of-the-doppegangrel",
     "mechanic_digest": "5b74fd201c7cfc3ae009e342b73acd98",
     "name": "Pelt of the Doppegangrel",
@@ -736,6 +732,13 @@
     "reviewed_at": "2026-08-04T00:00:00Z",
     "reviewed_by": "claude-reviewer-opus",
     "summary": "While a friendly unit is within 6\" of this model, add 1 to its Objective Control characteristic and Battle-shock and Leadership tests for it can be re-rolled."
+  },
+  {
+    "ability_key": "datasheet:purgation-run",
+    "mechanic_digest": "11fd403907965e61ae8f6a0a17ef1b90",
+    "name": "Purgation Run",
+    "review_state": "in_review",
+    "summary": "After this unit shoots, it can make a Normal move of up to D6\"; if it does, it cannot declare a charge this turn."
   },
   {
     "ability_key": "datasheet:rampart",
@@ -1027,12 +1030,10 @@
   },
   {
     "ability_key": "datasheet:unorthodox-strategist-aura",
-    "mechanic_digest": "be38b6bcae1a66ef4a268b44ef3a9dc9",
+    "mechanic_digest": "5d5b2f549facc5d882e0e07b851f4bb7",
     "name": "Unorthodox Strategist (Aura)",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "Each time the opponent targets a unit within 12\" of this model with a Stratagem, increase that Stratagem's CP cost by 1 (not cumulative with similar effects)."
+    "review_state": "in_review",
+    "summary": "Once per turn, when your opponent targets a unit within 12\" of this model with a Stratagem, you can increase that Stratagem's CP cost by 1."
   },
   {
     "ability_key": "datasheet:unrelenting-and-uncompromising",
@@ -1081,12 +1082,10 @@
   },
   {
     "ability_key": "datasheet:wings-of-sanguinius-psychic",
-    "mechanic_digest": "829e73643796ac35a75ef5b69920e181",
+    "mechanic_digest": "4b082098a7ef1a9882bd9ce7d4bc9a81",
     "name": "Wings of Sanguinius (Psychic)",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "Once per turn, at the end of your Movement phase, one psyker with this ability may roll a D6: on 1 it suffers D3 mortal wounds; on 2+, redeploy a friendly Infantry unit within 12\" anywhere more than 9\" from all enemy models."
+    "review_state": "in_review",
+    "summary": "Once per turn, at the end of your Movement phase, one PSYKER with this ability can roll one D6: on a 1 it suffers D3 mortal wounds; on a 2+, redeploy a friendly ADEPTUS ASTARTES INFANTRY unit within 12\" more than 8\" from all enemies."
   },
   {
     "ability_key": "datasheet:wolfkin",
@@ -1114,5 +1113,33 @@
     "reviewed_at": "2026-08-04T00:00:00Z",
     "reviewed_by": "claude-reviewer-opus",
     "summary": "This model's unit remains eligible to declare a charge in a turn in which it Fell Back."
+  },
+  {
+    "ability_key": "faction:curse-of-the-wulfen",
+    "mechanic_digest": "e378d165c0b35d936fd25c7adf2d6b48",
+    "name": "Curse of the Wulfen",
+    "review_state": "in_review",
+    "summary": "While within 6\" of a friendly SPACE WOLVES CHARACTER (not WULFEN) or 12\" of a WOLF PRIEST, and not Battle-shocked, this unit's Infantry models get +1 Objective Control and Vehicle models get +3."
+  },
+  {
+    "ability_key": "faction:mission-tactics",
+    "mechanic_digest": "3c6b4551f40173a1e94755d9a679f92c",
+    "name": "Mission Tactics",
+    "review_state": "in_review",
+    "summary": "Once per battle, at the start of a Command phase, select a Mission Tactic active until your next Command phase for ADEPTUS ASTARTES units: Sustained Hits 1, Lethal Hits, or Precision on Critical Hits."
+  },
+  {
+    "ability_key": "faction:oath-of-moment",
+    "mechanic_digest": "53b08af2ea17585b8b795b1d44cd4380",
+    "name": "Oath of Moment",
+    "review_state": "in_review",
+    "summary": "At the start of your Command phase, select an enemy unit as your Oath of Moment target: attacks against it can re-roll the Hit roll (and add 1 to the Wound roll too, for a Space Marines Detachment without Chapter-specific units)."
+  },
+  {
+    "ability_key": "faction:templar-vows",
+    "mechanic_digest": "e378d165c0b35d936fd25c7adf2d6b48",
+    "name": "Templar Vows",
+    "review_state": "in_review",
+    "summary": "At the start of the battle, select one Vow active for your ADEPTUS ASTARTES units all battle: bonus vs PSYKERS, bonus Wound rolls vs tougher targets, charge-after-Fall-Back with free Pile-in, or improved objective control/Actions."
   }
 ]
