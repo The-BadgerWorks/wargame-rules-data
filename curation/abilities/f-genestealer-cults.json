@@ -12,7 +12,9 @@
     "ability_key": "datasheet:aerial-seeding",
     "mechanic_digest": "9a4c38e302d1c4da332851d1e37720e3",
     "name": "Aerial Seeding",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
     "summary": "This model starts in Reserves (not counted against reserve limits) and can arrive in your first, second, or third Movement phase; embarked units must disembark more than 8\" from enemies immediately, and no unit can embark afterward."
   },
   {
@@ -73,14 +75,18 @@
     "ability_key": "datasheet:bodyguard",
     "mechanic_digest": "345dd6b0e6904265c6a94620faf8b2c7",
     "name": "BODYGUARD",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
     "summary": "While this model leads a unit, other CHARACTER models attached to that unit have the Feel No Pain 4+ ability."
   },
   {
     "ability_key": "datasheet:brood-surge",
     "mechanic_digest": "1fee68d7c9456929dd5bd374aa7e6a59",
     "name": "Brood Surge",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
     "summary": "In your opponent's Shooting phase, if a model in this unit was destroyed by an enemy unit's attacks, this unit can make a surge move of up to D6\"."
   },
   {
@@ -96,7 +102,9 @@
     "ability_key": "datasheet:cloaked-assassin",
     "mechanic_digest": "c90ebd9e9caf76fc867f1e66758e4b61",
     "name": "Cloaked Assassin",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
     "summary": "Enemy units cannot target this unit with snap-shooting attacks."
   },
   {
@@ -113,7 +121,7 @@
     "mechanic_digest": "702cca5aca2e440da57de40e521d07b0",
     "name": "Creeping Shadow",
     "review_state": "in_review",
-    "summary": "If equipped with a cult sniper rifle: in your opponent's Movement phase, if an enemy unit ends within 8\" of this unit and it is not in Engagement Range, it can make a Normal move of up to 6\"."
+    "summary": "While equipped with a cult sniper rifle, in your opponent's Movement phase, when an enemy unit ends a move within 8\" of this unit, this unit can make a Normal move of up to 6\", provided it is not within Engagement Range of any enemy unit."
   },
   {
     "ability_key": "datasheet:crossfire",
@@ -255,14 +263,14 @@
     "mechanic_digest": "23ff5e152bae91db0957131161bcd1c9",
     "name": "Hypersensory Abilities",
     "review_state": "in_review",
-    "summary": "Once per turn, when an enemy unit ends a move within 8\" of this model and it is not in Engagement Range, it can shoot that enemy unit as if in your Shooting phase, then make a Normal move of up to D6\" (not embarking)."
+    "summary": "Once per turn in your opponent's Movement phase, when an enemy unit ends a move within 8\" of this model, if outside Engagement Range it can shoot that unit as if in your Shooting phase, then make a Normal move of up to D6\" (no embarking)."
   },
   {
     "ability_key": "datasheet:hypersensory-array",
     "mechanic_digest": "d3765d0a1551dce2c17249af9049a046",
     "name": "Hypersensory Array",
     "review_state": "in_review",
-    "summary": "Once per battle round, target this unit with Rapid Ingress or Heroic Intervention for -1 CP, regardless of other uses of that stratagem this phase."
+    "summary": "Once per battle round you can target this unit with Rapid Ingress or Heroic Intervention at -1 CP; that use neither blocks nor is blocked by other uses of that Stratagem this phase."
   },
   {
     "ability_key": "datasheet:industrialised-destruction",
@@ -377,7 +385,7 @@
     "mechanic_digest": "5986f99d5c537246f0f16579540e61f0",
     "name": "Planted Explosives",
     "review_state": "in_review",
-    "summary": "Once per battle, when an enemy unit ends within 8\" of this model, it can detonate its Reductus mine: roll one D6, on a 2+ that enemy unit suffers D3+3 mortal wounds. Only one model army-wide can use this per battle round."
+    "summary": "Once per battle, when an enemy unit ends a Normal, Advance or Fall Back move within 8\" of this model, it can use its Reductus mine: roll one D6; on a 2+ that unit suffers D3+3 mortal wounds. One model in your army per battle round."
   },
   {
     "ability_key": "datasheet:priority-target",
@@ -401,7 +409,9 @@
     "ability_key": "datasheet:psychic-familiar",
     "mechanic_digest": "faff50e42cc439b18f1ddd988f919c4c",
     "name": "Psychic Familiar",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
     "summary": "Once per battle, at the start of your opponent's Shooting phase, this model can add 6\" to the range of its Mind Control ability until the end of the phase."
   },
   {
@@ -472,7 +482,7 @@
     "mechanic_digest": "d5669db9f6ab01f69c158866ce3b56f4",
     "name": "Summon the Cult",
     "review_state": "in_review",
-    "summary": "Once per battle, when a Cult Ambush marker would be removed due to enemy proximity, you can instead relocate it within 12\" of an eligible model and more than 8\" from enemies, if possible."
+    "summary": "Once per battle, when a Cult Ambush marker would be removed for enemy proximity, you can instead place it within 12\" of a model with this ability and more than 8\" horizontally from all enemy units; if impossible, it is removed."
   },
   {
     "ability_key": "datasheet:survey-augur",
@@ -533,7 +543,7 @@
     "mechanic_digest": "a7d0401521e23a2241ec837c5fdf1525",
     "name": "Underground Egress",
     "review_state": "in_review",
-    "summary": "Each time a Cult Ambush marker would be removed by enemy proximity, you can instead move it to within 8\" of this FORTIFICATION and more than 8\" from enemies, if possible."
+    "summary": "Each time one of your Cult Ambush markers would be removed for an enemy ending a move within 8\" of it, you can instead move it wholly within 8\" of this Fortification and more than 8\" horizontally from all enemy units, if possible."
   },
   {
     "ability_key": "datasheet:voice-of-new-truths",
@@ -566,28 +576,36 @@
     "ability_key": "faction:cult-ambush",
     "mechanic_digest": "dbe125b14ad4b836005144391613872b",
     "name": "Cult Ambush",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
     "summary": "Destroyed units made entirely of models with this ability can return via Cult Ambush by spending Resurgence points (by battle size, cost by unit size); a marker is placed, letting units ingress near it, removed if an enemy nears within 8\"."
   },
   {
     "ability_key": "faction:shadow-in-the-warp",
     "mechanic_digest": "a51a703853b33a27322f6c1783879c9a",
     "name": "Shadow in the Warp",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
     "summary": "Once per battle, in either player's Command phase, if your Army Faction is Tyranids and a unit with this ability is on the battlefield, force every enemy unit to take a Battle-shock test, at -1 within 6\" of a friendly SYNAPSE unit."
   },
   {
     "ability_key": "faction:shadow-in-the-warp-ravener-prime-only",
     "mechanic_digest": "a51a703853b33a27322f6c1783879c9a",
     "name": "Shadow In The Warp (Ravener Prime only)",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
     "summary": "Once per battle, in either player's Command phase, if your Army Faction is Tyranids and a unit with this ability is on the battlefield, force every enemy unit to take a Battle-shock test, at -1 within 6\" of a friendly SYNAPSE unit."
   },
   {
     "ability_key": "faction:synapse",
     "mechanic_digest": "cc1b41cf8e0cb12ece33a76869438494",
     "name": "Synapse",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
     "summary": "If your Army Faction is Tyranids, a Tyranids unit within 6\" of a friendly SYNAPSE model is in Synapse Range: it takes Battle-shock tests on 3D6 instead of 2D6, and its melee attacks get +1 Strength."
   }
 ]
