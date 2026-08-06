@@ -3,7 +3,7 @@
     "summary_key": "detachment:d-blood-legion:blood-tainted",
     "detachment_id": "d-blood-legion",
     "name": "Blood Tainted",
-    "summary": "After a Legiones Daemonica Khorne unit destroys an enemy unit near an objective it controls more strongly than the enemy, it keeps control of that objective until the opponent's Level of Control there is higher at a phase's end.",
+    "summary": "At the end of a phase in which a Legiones Daemonica Khorne unit destroyed an enemy unit that began the phase within range of an objective marker, if your unit's Level of Control there is higher, you hold it until the enemy's exceeds yours.",
     "review_state": "in_review",
     "mechanic_digest": "b28a9c444283d439e1f43506d497654f"
   },
@@ -11,7 +11,7 @@
     "summary_key": "detachment:d-blood-legion:murdercall",
     "detachment_id": "d-blood-legion",
     "name": "Murdercall",
-    "summary": "In your opponent's Movement phase, when an enemy unit ends a move within 8\" of a Legiones Daemonica Khorne unit, that unit can make a surge move of up to D6\".",
+    "summary": "In your opponent's Movement phase, each time an enemy unit that is not an Aircraft ends a move within 8\" of your Legiones Daemonica Khorne units, one of those units can make a surge move of up to D6\".",
     "review_state": "in_review",
     "mechanic_digest": "69dc85ad83385a3becd6d2e537a70909"
   },
@@ -20,22 +20,26 @@
     "detachment_id": "d-cavalcade-of-chaos",
     "name": "Unholy Avalanche",
     "summary": "A friendly Legiones Daemonica Mounted unit that fell back this turn can still shoot and declare a charge as normal.",
-    "review_state": "in_review",
-    "mechanic_digest": "41f57e11347663cee6c3ec984a6e47c6"
+    "review_state": "approved",
+    "mechanic_digest": "41f57e11347663cee6c3ec984a6e47c6",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-daemonic-incursion:unnatural-energies",
     "detachment_id": "d-daemonic-incursion",
     "name": "Unnatural Energies",
     "summary": "After Advancing or Falling Back, a Legiones Daemonica unit can perform a Tactical Manoeuvre: Secure Site, Set to Defend, or Set Overwatch.",
-    "review_state": "in_review",
-    "mechanic_digest": "d03ff875c901b8c1416427bc5c5caea5"
+    "review_state": "approved",
+    "mechanic_digest": "d03ff875c901b8c1416427bc5c5caea5",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-daemonic-incursion:warp-rifts",
     "detachment_id": "d-daemonic-incursion",
     "name": "Warp Rifts",
-    "summary": "A Legiones Daemonica unit deep striking wholly within your Shadow of Chaos, or within 6\" of a matching-god Greater Daemon, can set up more than 6\" from enemies instead of 8\".",
+    "summary": "A Legiones Daemonica unit arriving by Deep Strike wholly within your Shadow of Chaos, and/or wholly within 6\" of a friendly Greater Daemon sharing its god keyword, can be set up over 6\" horizontally from enemy models instead of over 8\".",
     "review_state": "in_review",
     "mechanic_digest": "6c8a3ea8bf34d3f7469165576e02b34b"
   },
@@ -44,14 +48,16 @@
     "detachment_id": "d-legion-of-excess",
     "name": "Beguiling Aura",
     "summary": "Legiones Daemonica Slaanesh units can declare a charge in a turn they Fell Back.",
-    "review_state": "in_review",
-    "mechanic_digest": "422f4e5de49c3db04c1bf12796abd894"
+    "review_state": "approved",
+    "mechanic_digest": "422f4e5de49c3db04c1bf12796abd894",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-legion-of-excess:seductive-gambit",
     "detachment_id": "d-legion-of-excess",
     "name": "Seductive Gambit",
-    "summary": "After a Charge move, a Legiones Daemonica Slaanesh unit can trade Fights First for the rest of the turn to instead re-roll Hit rolls and Wound rolls of 1 when it fights.",
+    "summary": "After ending a Charge move, a Legiones Daemonica Slaanesh unit can declare a Seductive Gambit: until the end of the turn it loses Fights First, but each of its attacks can re-roll the Hit roll and can re-roll a Wound roll of 1.",
     "review_state": "in_review",
     "mechanic_digest": "108fc7a6fd769e690cae23a287f6eb01"
   },
@@ -60,22 +66,26 @@
     "detachment_id": "d-lords-of-the-warp",
     "name": "Loci of Power",
     "summary": "Friendly Legiones Daemonica Character models (excluding Monsters) get +1 Leadership and +1 Objective Control.",
-    "review_state": "in_review",
-    "mechanic_digest": "7ab2f0523952227e82597129345290c0"
+    "review_state": "approved",
+    "mechanic_digest": "7ab2f0523952227e82597129345290c0",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-plague-legion:melancholic-miasma",
     "detachment_id": "d-plague-legion",
     "name": "Melancholic Miasma",
     "summary": "Enemy units within 9\" of a Legiones Daemonica Nurgle unit count as in your Shadow of Chaos. Each player's Command phase, one enemy unit there must take a Battle-shock test.",
-    "review_state": "in_review",
-    "mechanic_digest": "26ee6cb056d941260ef6bc57ba8475d6"
+    "review_state": "approved",
+    "mechanic_digest": "26ee6cb056d941260ef6bc57ba8475d6",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-scintillating-legion:fates-in-flux",
     "detachment_id": "d-scintillating-legion",
     "name": "Fates in Flux",
-    "summary": "Start with 3 Flux tokens. Spend one to re-roll an Advance, Hit, Wound, Damage, save or Hazardous roll for a Tzeentch Legiones Daemonica unit, giving your opponent a token; they can do the same back to you.",
+    "summary": "Start with 3 Flux tokens; spend one on your Tzeentch models to re-roll an Advance, Hit, Wound, Damage, save or Hazardous roll. It passes to your opponent, who may re-roll all but Damage/Hazardous; regain one per Command phase they hold any.",
     "review_state": "in_review",
     "mechanic_digest": "72a068f5a295505c0f5e8e84116abde2"
   },
@@ -83,7 +93,7 @@
     "summary_key": "detachment:d-shadow-legion:first-prince-of-chaos",
     "detachment_id": "d-shadow-legion",
     "name": "First Prince of Chaos",
-    "summary": "Grants a god-specific bonus to Shadow Legion units: shoot/charge after advancing, Stealth with -1 to be hit in melee, -1 to wound if hit by higher Strength, immunity to snap shots, or Dark Pacts and Deep Strike.",
+    "summary": "Shadow Legion god bonuses: Khorne shoot and charge after Advancing; Tzeentch Stealth, -1 to be hit in melee; Nurgle -1 to Wound from Strength over Toughness; Slaanesh no snap shots; Undivided Dark Pacts, Heretic Astartes Deep Strike.",
     "review_state": "in_review",
     "mechanic_digest": "36a595381b794916b4ef581a74d0bdab"
   },
@@ -91,7 +101,7 @@
     "summary_key": "detachment:d-shadow-legion:thralls-of-the-first-prince",
     "detachment_id": "d-shadow-legion",
     "name": "Thralls of the First Prince",
-    "summary": "Bars Daemon Princes and Epic Heroes (except Be'lakor) from your army, but allows a points-capped list of Heretic Astartes units instead; those units gain the Shadow Legion keyword.",
+    "summary": "No Daemon Princes or Epic Heroes except Be'lakor; instead take listed Heretic Astartes units up to 500/1000/1500 pts at Incursion/Strike Force/Onslaught. They gain Shadow Legion and Undivided; your daemons gain Shadow Legion.",
     "review_state": "in_review",
     "mechanic_digest": "e1d2c0bd8ee95cc4a0e96a9b0c4ee04d"
   },
@@ -100,7 +110,9 @@
     "detachment_id": "d-warptide",
     "name": "Shudderblink",
     "summary": "A friendly Legiones Daemonica Battleline unit that advances gains Assault on its ranged weapons for the turn and remains eligible to declare a charge.",
-    "review_state": "in_review",
-    "mechanic_digest": "88ec3fe7013ae29e6c8f416749e67697"
+    "review_state": "approved",
+    "mechanic_digest": "88ec3fe7013ae29e6c8f416749e67697",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   }
 ]
