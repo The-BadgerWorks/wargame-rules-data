@@ -4,7 +4,7 @@
     "mechanic_digest": "bf3b4618b0621cdc4bf5eb5bb8fa1c3b",
     "name": "Firing Deck 5",
     "review_state": "in_review",
-    "summary": "Firing Deck X: in your Shooting phase, when this Transport shoots, up to X models embarked in it whose units have not yet shot each lend it one ranged weapon (no one-shot); no unit embarked in it can shoot for the rest of the turn."
+    "summary": "Firing Deck X: in your Shooting phase, when this Transport shoots, up to X (here 5) embarked models whose units have not yet shot each lend it one ranged weapon (no one-shot); no unit embarked in it can shoot for the rest of the turn."
   },
   {
     "ability_key": "datasheet:ancestral-fortune",
@@ -398,6 +398,6 @@
     "mechanic_digest": "6588ccac82a3fdd0297fd8d0c440a0b9",
     "name": "Prioritised Efficiency",
     "review_state": "in_review",
-    "summary": "Leagues of Votann units have Hostile Acquisition below 7 Yield Points (+1 Hit near objectives, re-roll Advance/Charge) or Fortify Takeover at 7+ (+1 Hit on an objective you hold, -1 to Wound vs non-Vehicles when Strength beats Toughness)."
+    "summary": "Under 7 Yield Points your units have Hostile Acquisition (+1 Hit vs targets on an objective, re-roll Advance/Charge); at 7+ Fortify Takeover instead (+1 Hit while on an objective you hold, -1 to Wound vs non-Vehicles from higher Strength)."
   }
 ]
