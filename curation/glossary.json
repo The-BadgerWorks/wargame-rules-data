@@ -612,6 +612,16 @@
     "mechanic_digest": "155d7971bde7b9c036f15cc13adc0011"
   },
   {
+    "summary_key": "glossary:swarm",
+    "keyword_key": "swarm",
+    "display_keyword": "Swarm",
+    "has_numeric_parameter": false,
+    "name": "Swarm",
+    "summary": "Unit-type keyword. Swarm models move through dense terrain, get benefit of cover inside a terrain area, and are hidden in a terrain area holding dense terrain if their unit made no ranged attacks this turn or last turn.",
+    "review_state": "in_review",
+    "mechanic_digest": "8a4d5d5c0a4debe9bdaba200945b6f92"
+  },
+  {
     "summary_key": "glossary:titanic",
     "keyword_key": "titanic",
     "display_keyword": "Titanic",
