@@ -102,7 +102,9 @@
     "ability_key": "datasheet:devoted-to-destruction",
     "mechanic_digest": "349dc8689484a930bbb6bf77ae7e0613",
     "name": "Devoted to Destruction",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
     "summary": "Add 2 to the Attacks of this model's Telemon caestus weapons, but only while it carries two of them alongside its armoured feet weapon."
   },
   {
@@ -199,7 +201,9 @@
     "ability_key": "datasheet:infernus-firebombs",
     "mechanic_digest": "aec99e78e32a4106c0716f4fea71ef15",
     "name": "Infernus Firebombs",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
     "summary": "At the end of your Movement phase, pick one visible enemy unit within 24\" of this unit (no Aircraft or Lone Operative): it gets no cover through the end of your next Shooting phase; roll a D6 per model in it, each 6 dealing 1 mortal wound."
   },
   {
