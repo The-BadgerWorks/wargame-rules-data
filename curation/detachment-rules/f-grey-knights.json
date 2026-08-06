@@ -1,5 +1,13 @@
 [
   {
+    "summary_key": "detachment:d-augurium-task-force:prescient-redeployment",
+    "detachment_id": "d-augurium-task-force",
+    "name": "Prescient Redeployment",
+    "summary": "From round 2, if you did not use your full Gate of Infinity allowance last opponent's turn, you may pull one eligible Grey Knights unit into Strategic Reserves at the start of your Movement phase.",
+    "review_state": "in_review",
+    "mechanic_digest": "c715e2a1013ab832eb03a9ac501a8278"
+  },
+  {
     "summary_key": "detachment:d-banishers:channelled-force",
     "detachment_id": "d-banishers",
     "name": "Channelled Force",
@@ -14,6 +22,22 @@
     "summary": "A unit set up via Deep Strike re-rolls a Hit roll of 1 and a Wound roll of 1 on its attacks for the rest of the turn.",
     "review_state": "in_review",
     "mechanic_digest": "cabe3b7dea390d35dbf15d17bb5bf80f"
+  },
+  {
+    "summary_key": "detachment:d-hallowed-conclave:duty-before-all",
+    "detachment_id": "d-hallowed-conclave",
+    "name": "Duty Before All",
+    "summary": "Grey Knights Terminator units may still shoot and declare charges in a turn they Fell Back.",
+    "review_state": "in_review",
+    "mechanic_digest": "ce07e95b355831e53ac5dcb4d72071e9"
+  },
+  {
+    "summary_key": "detachment:d-sanctic-spearhead:mailed-fist",
+    "detachment_id": "d-sanctic-spearhead",
+    "name": "Mailed Fist",
+    "summary": "Grey Knights Vehicle units that Advance skip the roll, gaining a flat +6\" Move that phase, and their ranged weapons gain Assault until end of turn.",
+    "review_state": "in_review",
+    "mechanic_digest": "43de88425c6bab6da2218640f234a24d"
   },
   {
     "summary_key": "detachment:d-warpbane-task-force:hallowed-ground",

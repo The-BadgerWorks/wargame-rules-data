@@ -1,5 +1,13 @@
 [
   {
+    "summary_key": "detachment:d-biosanctic-broodsurge:hypermorphic-fury",
+    "detachment_id": "d-biosanctic-broodsurge",
+    "name": "Hypermorphic Fury",
+    "summary": "Aberrants, Biophagus and Purestrain Genestealers units get +1 to Charge rolls; if such a unit charged this turn, its melee weapons get +1 Attacks when it fights.",
+    "review_state": "in_review",
+    "mechanic_digest": "cae3fd64fbb220ce127a31a5024cb1b2"
+  },
+  {
     "summary_key": "detachment:d-final-day:psionic-parasitism",
     "detachment_id": "d-final-day",
     "name": "Psionic Parasitism",
@@ -14,6 +22,14 @@
     "summary": "Friendly Kelermorph, Locus, Reductus Saboteur and Sanctus models gain the Killer keyword. Killer models can re-roll Hit rolls of 1 and Wound rolls of 1.",
     "review_state": "in_review",
     "mechanic_digest": "64dc96e68edfac5a2352449c2c0fc377"
+  },
+  {
+    "summary_key": "detachment:d-host-of-ascension:a-perfect-ambush",
+    "detachment_id": "d-host-of-ascension",
+    "name": "A Perfect Ambush",
+    "summary": "A Genestealer Cults unit arriving as Reinforcements has Sustained Hits 1 and Ignores Cover on its weapons until the end of your next Fight phase.",
+    "review_state": "in_review",
+    "mechanic_digest": "8e8bba06baac5a9e27031ddab998610c"
   },
   {
     "summary_key": "detachment:d-outlander-claw:rapid-takeover",
