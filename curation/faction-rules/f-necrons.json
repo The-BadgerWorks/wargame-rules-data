@@ -1,0 +1,14 @@
+{
+  "faction_id": "f-necrons",
+  "army_rule_state": "present",
+  "rules": [
+    {
+      "summary_key": "faction:f-necrons:reanimation-protocols",
+      "display_order": 1,
+      "name": "Reanimation Protocols",
+      "summary": "At the end of your Command phase, each friendly on-battlefield unit with this ability heals D3 wounds, reviving destroyed models once enough wounds accumulate.",
+      "review_state": "in_review",
+      "mechanic_digest": "ecd9628f44a7160e24b133498a5e6657"
+    }
+  ]
+}

@@ -1,0 +1,66 @@
+[
+  {
+    "summary_key": "detachment:d-annihilation-legion:annihilation-protocol",
+    "detachment_id": "d-annihilation-legion",
+    "name": "Annihilation Protocol",
+    "summary": "Destroyer Cult or Flayed Ones units re-roll charge rolls, gaining +1 as well against half-strength targets; Destroyer Cult ranged attacks on the closest eligible target get +1 Armour Penetration.",
+    "review_state": "in_review",
+    "mechanic_digest": "0fe97ba213d5044be9c74dd20054f4bf"
+  },
+  {
+    "summary_key": "detachment:d-awakened-dynasty:command-protocols",
+    "detachment_id": "d-awakened-dynasty",
+    "name": "Command Protocols",
+    "summary": "While led by a Necrons Character, a unit's attacks get +1 to hit.",
+    "review_state": "in_review",
+    "mechanic_digest": "6da8f9a03bc2e0b9656bcd1d13c51b67"
+  },
+  {
+    "summary_key": "detachment:d-cryptek-conclave:technosorcerous-augmentations",
+    "detachment_id": "d-cryptek-conclave",
+    "name": "Technosorcerous Augmentations",
+    "summary": "Cryptek ranged weapons gain Assault. When a Cryptek unit shoots, pick one of Anti-Infantry 3+, Anti-Mounted 4+, Assault, Heavy, or Ignores Cover for its weapons that phase.",
+    "review_state": "in_review",
+    "mechanic_digest": "436abfe1481927346832b20bc52a93b7"
+  },
+  {
+    "summary_key": "detachment:d-cursed-legion:cold-fervour",
+    "detachment_id": "d-cursed-legion",
+    "name": "Cold Fervour",
+    "summary": "Destroyer Cult weapons get +2 Strength. The first time each turn a Destroyer Cult unit destroys or reduces a unit below half-strength, other Necrons models (excluding Destroyer Cult, Monster, Titanic) also get +2 Strength for the turn.",
+    "review_state": "in_review",
+    "mechanic_digest": "7f90e8f24e907b0f3afb234381ec96d1"
+  },
+  {
+    "summary_key": "detachment:d-hypercrypt-legion:hyperphasing",
+    "detachment_id": "d-hypercrypt-legion",
+    "name": "Hyperphasing",
+    "summary": "At the end of your opponent's turn, remove a battle-size-limited number of unengaged Necrons units from the battlefield into Strategic Reserves.",
+    "review_state": "in_review",
+    "mechanic_digest": "b1fffa2be5fcbf3aee16e184548042fb"
+  },
+  {
+    "summary_key": "detachment:d-obeisance-phalanx:worthy-foes",
+    "detachment_id": "d-obeisance-phalanx",
+    "name": "Worthy Foes",
+    "summary": "Each Command phase, mark one enemy unit; Noble, Lychguard, and Triarch attacks against it get +1 to wound until your next Command phase.",
+    "review_state": "in_review",
+    "mechanic_digest": "9c4915471c746801ec41b50992583749"
+  },
+  {
+    "summary_key": "detachment:d-pantheon-of-woe:cosmic-distortion",
+    "detachment_id": "d-pantheon-of-woe",
+    "name": "Cosmic Distortion",
+    "summary": "Necrons Monster units give enemies within 6\" +1 Armour Penetration taken against them; a Monster can suffer 3 mortal wounds to extend that range to 9\" for the phase. Each such Monster costs extra points for this ability.",
+    "review_state": "in_review",
+    "mechanic_digest": "6132215767f47c7e3650a94c80a33449"
+  },
+  {
+    "summary_key": "detachment:d-the-phaerons-armoury:empowered-engines",
+    "detachment_id": "d-the-phaerons-armoury",
+    "name": "Empowered Engines",
+    "summary": "Friendly Necrons Titanic Fly units get +6\" Move. Exclusive Hypercrypt-tagged detachment.",
+    "review_state": "in_review",
+    "mechanic_digest": "599e911a45c01ad4a390da871d54a482"
+  }
+]
