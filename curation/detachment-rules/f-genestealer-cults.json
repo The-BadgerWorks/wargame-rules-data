@@ -4,14 +4,16 @@
     "detachment_id": "d-biosanctic-broodsurge",
     "name": "Hypermorphic Fury",
     "summary": "Aberrants, Biophagus and Purestrain Genestealers units get +1 to Charge rolls; if such a unit charged this turn, its melee weapons get +1 Attacks when it fights.",
-    "review_state": "in_review",
-    "mechanic_digest": "cae3fd64fbb220ce127a31a5024cb1b2"
+    "review_state": "approved",
+    "mechanic_digest": "cae3fd64fbb220ce127a31a5024cb1b2",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-final-day:psionic-parasitism",
     "detachment_id": "d-final-day",
     "name": "Psionic Parasitism",
-    "summary": "Once per phase per Synapse unit, sacrifice D3+1 wounds from a Cults unit to heal and buff a nearby Tyranids unit (+1 to Hit). Tyranids units grant nearby Cults attacks +1 to Hit, and let you field points-capped Vanguard Invader units.",
+    "summary": "Each Movement phase end, per Tyranids Synapse unit: a Cults unit within 9\" takes D3+1 mortal wounds; a Tyranids unit heals as much and gains +1 to Hit for a turn. Cults hit enemies within 6\" of Tyranids at +1. Invaders capped 500/1000/1500.",
     "review_state": "in_review",
     "mechanic_digest": "cf051475e1f80795d7b362ee9ff6d021"
   },
@@ -20,22 +22,26 @@
     "detachment_id": "d-heroes-of-the-uprising",
     "name": "Killer Reputation",
     "summary": "Friendly Kelermorph, Locus, Reductus Saboteur and Sanctus models gain the Killer keyword. Killer models can re-roll Hit rolls of 1 and Wound rolls of 1.",
-    "review_state": "in_review",
-    "mechanic_digest": "64dc96e68edfac5a2352449c2c0fc377"
+    "review_state": "approved",
+    "mechanic_digest": "64dc96e68edfac5a2352449c2c0fc377",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-host-of-ascension:a-perfect-ambush",
     "detachment_id": "d-host-of-ascension",
     "name": "A Perfect Ambush",
     "summary": "A Genestealer Cults unit arriving as Reinforcements has Sustained Hits 1 and Ignores Cover on its weapons until the end of your next Fight phase.",
-    "review_state": "in_review",
-    "mechanic_digest": "8e8bba06baac5a9e27031ddab998610c"
+    "review_state": "approved",
+    "mechanic_digest": "8e8bba06baac5a9e27031ddab998610c",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-outlander-claw:rapid-takeover",
     "detachment_id": "d-outlander-claw",
     "name": "Rapid Takeover",
-    "summary": "Genestealer Cults Mounted/Vehicle models that aren't battle-shocked get +1 Objective Control. An objective stays under your control while an Atalan Jackals unit is in range, until the opponent's Level of Control is higher at a phase's end.",
+    "summary": "Cults Mounted/Vehicle models not Battle-shocked get +1 Objective Control. At the end of your Command phase, an objective you control with Atalan Jackals in range stays yours until the enemy's Level of Control there is higher at a phase end.",
     "review_state": "in_review",
     "mechanic_digest": "832a1074e151c66925dff4e8b19f0965"
   }

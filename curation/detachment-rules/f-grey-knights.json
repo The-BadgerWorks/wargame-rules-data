@@ -4,46 +4,56 @@
     "detachment_id": "d-augurium-task-force",
     "name": "Prescient Redeployment",
     "summary": "From round 2, if you did not use your full Gate of Infinity allowance last opponent's turn, you may pull one eligible Grey Knights unit into Strategic Reserves at the start of your Movement phase.",
-    "review_state": "in_review",
-    "mechanic_digest": "c715e2a1013ab832eb03a9ac501a8278"
+    "review_state": "approved",
+    "mechanic_digest": "c715e2a1013ab832eb03a9ac501a8278",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-banishers:channelled-force",
     "detachment_id": "d-banishers",
     "name": "Channelled Force",
     "summary": "When a Grey Knights unit fights, it can pass a Leadership test to give its Psychic melee weapons Sustained Hits 1 or Lethal Hits until the end of the phase.",
-    "review_state": "in_review",
-    "mechanic_digest": "b5ea1eb031f360529883bfcfde86f401"
+    "review_state": "approved",
+    "mechanic_digest": "b5ea1eb031f360529883bfcfde86f401",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-brotherhood-strike:fury-of-titan",
     "detachment_id": "d-brotherhood-strike",
     "name": "Fury of Titan",
     "summary": "A unit set up via Deep Strike re-rolls a Hit roll of 1 and a Wound roll of 1 on its attacks for the rest of the turn.",
-    "review_state": "in_review",
-    "mechanic_digest": "cabe3b7dea390d35dbf15d17bb5bf80f"
+    "review_state": "approved",
+    "mechanic_digest": "cabe3b7dea390d35dbf15d17bb5bf80f",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-hallowed-conclave:duty-before-all",
     "detachment_id": "d-hallowed-conclave",
     "name": "Duty Before All",
     "summary": "Grey Knights Terminator units may still shoot and declare charges in a turn they Fell Back.",
-    "review_state": "in_review",
-    "mechanic_digest": "ce07e95b355831e53ac5dcb4d72071e9"
+    "review_state": "approved",
+    "mechanic_digest": "ce07e95b355831e53ac5dcb4d72071e9",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-sanctic-spearhead:mailed-fist",
     "detachment_id": "d-sanctic-spearhead",
     "name": "Mailed Fist",
     "summary": "Grey Knights Vehicle units that Advance skip the roll, gaining a flat +6\" Move that phase, and their ranged weapons gain Assault until end of turn.",
-    "review_state": "in_review",
-    "mechanic_digest": "43de88425c6bab6da2218640f234a24d"
+    "review_state": "approved",
+    "mechanic_digest": "43de88425c6bab6da2218640f234a24d",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-warpbane-task-force:hallowed-ground",
     "detachment_id": "d-warpbane-task-force",
     "name": "Hallowed Ground",
-    "summary": "Your deployment zone, area near Purifier Squads, and (conditionally) No Man's Land or the enemy zone count as Hallowed Ground. Grey Knights re-roll a Hit roll of 1 each attack; Purifiers or units wholly inside re-roll the Hit roll instead.",
+    "summary": "Hallowed Ground: your deployment zone, 6\" around Purifier Squads, plus No Man's Land or the enemy zone while holding half its objectives. Grey Knights re-roll Hit 1s (melee/visible ranged); Purifiers or units wholly inside re-roll all Hits.",
     "review_state": "in_review",
     "mechanic_digest": "d83c30e14cbdc9f799978907218b69ec"
   }
