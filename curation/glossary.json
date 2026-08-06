@@ -155,7 +155,7 @@
     "display_keyword": "Beasts",
     "has_numeric_parameter": false,
     "name": "Beasts",
-    "summary": "Unit-type keyword. Beasts models can move through dense terrain, gain benefit of cover while in a terrain area, and can become hidden there if their unit made no ranged attacks last turn.",
+    "summary": "Unit-type keyword. Beasts models move through dense terrain, get benefit of cover inside a terrain area, and are hidden in a terrain area holding dense terrain if their unit made no ranged attacks this turn or last turn.",
     "review_state": "in_review",
     "mechanic_digest": "86108a13f46494c61052c7753e4408cd"
   },
@@ -247,7 +247,7 @@
     "display_keyword": "Dedicated Transport",
     "has_numeric_parameter": false,
     "name": "Dedicated Transport",
-    "summary": "Unit-type keyword. A Dedicated Transport must have a unit embarked in it by the end of army set-up or it is destroyed, and it shares the doubled per-datasheet unit limit that Battleline units have.",
+    "summary": "Unit-type keyword. Each Dedicated Transport must have a unit embarked by the end of Declare Battle Formations or it is destroyed, without triggering on-destroyed rules. It shares the doubled per-datasheet limit Battleline units have.",
     "review_state": "in_review",
     "mechanic_digest": "23b9e6ecfb19411939f560d2cd15a1bb"
   },
@@ -397,7 +397,7 @@
     "display_keyword": "Infantry",
     "has_numeric_parameter": false,
     "name": "Infantry",
-    "summary": "Unit-type keyword. Infantry models can move through dense terrain, gain benefit of cover while in a terrain area, and can become hidden there if their unit made no ranged attacks last turn.",
+    "summary": "Unit-type keyword. Infantry models move through dense terrain, get benefit of cover inside a terrain area, and are hidden in a terrain area holding dense terrain if their unit made no ranged attacks this turn or last turn.",
     "review_state": "in_review",
     "mechanic_digest": "f024d7b1825f7f6d4b4af204bff5ae07"
   },
@@ -447,7 +447,7 @@
     "display_keyword": "Monster",
     "has_numeric_parameter": false,
     "name": "Monster",
-    "summary": "Unit-type keyword. Monster models can move through other models except other Monster/Vehicle models, cannot move through dense terrain, and are the intended target of Anti-Monster weapon abilities.",
+    "summary": "Unit-type keyword. Monster models can move through other models except Monsters and Vehicles. They cross dense terrain only where every section they pass through is 2in or less high; otherwise they must climb it.",
     "review_state": "in_review",
     "mechanic_digest": "9f0f132fc5ca1dc84125a7fdbaf2b5ee"
   },
@@ -649,7 +649,7 @@
     "display_keyword": "Transport",
     "has_numeric_parameter": false,
     "name": "Transport",
-    "summary": "Unit-type keyword. A Transport has a stated capacity and friendly units can embark within it before the battle or during a move, then disembark from it in a later Movement phase.",
+    "summary": "Unit-type keyword. Its datasheet sets which models may embark and how many; several units can share one Transport. Units may start embarked before the battle or embark during a move, and disembark in a later Movement phase.",
     "review_state": "in_review",
     "mechanic_digest": "c183bce3b871a3f2fd3f315535136194"
   },
@@ -669,7 +669,7 @@
     "display_keyword": "Vehicle",
     "has_numeric_parameter": false,
     "name": "Vehicle",
-    "summary": "Unit-type keyword. Vehicle models can move through other models except other Monster/Vehicle models, cannot move through dense terrain, and are the intended target of Anti-Vehicle weapon abilities.",
+    "summary": "Unit-type keyword. Vehicle models can move through other models except Monsters and Vehicles. They cross dense terrain only where every section they pass through is 2in or less high; otherwise they must climb it.",
     "review_state": "in_review",
     "mechanic_digest": "014b0b243c2cb24091e99cb6bc40aaef"
   },
