@@ -66,7 +66,9 @@
     "ability_key": "datasheet:driven-by-fury",
     "mechanic_digest": "2e55a357efcee1e23b3de828109cd495",
     "name": "Driven by Fury",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
     "summary": "In your opponent's Shooting phase, if this model lost a wound from an enemy unit's attacks, this unit can make a surge move of up to D6+2\"."
   },
   {
@@ -100,7 +102,9 @@
     "ability_key": "datasheet:fury-of-the-first",
     "mechanic_digest": "3df0495d5e89d514e2055904ff18de06",
     "name": "Fury of the First",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
     "summary": "Each time a model in this unit attacks your Oath of Moment target, add 1 to the Hit roll."
   },
   {
@@ -161,7 +165,9 @@
     "ability_key": "datasheet:miraculous-saviour",
     "mechanic_digest": "4c437fcbc4945743d316a94cb87ad40b",
     "name": "Miraculous Saviour",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
     "summary": "Once per battle army-wide, after your opponent's Charge phase (not turn one), select one enemy unit that charged; this unit can make an ingress move and must end that move engaged with that enemy unit."
   },
   {
@@ -177,7 +183,9 @@
     "ability_key": "datasheet:psychic-hood",
     "mechanic_digest": "b10494618f41ca2d12a8b46f41f34219",
     "name": "Psychic Hood",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
     "summary": "While this model is leading a unit, models in that unit have Feel No Pain 4+ against Psychic Attacks."
   },
   {
@@ -274,7 +282,9 @@
     "ability_key": "datasheet:visions-of-heresy",
     "mechanic_digest": "55896807ac7e4f06ce48114922087540",
     "name": "Visions of Heresy",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
     "summary": "This unit can re-roll Charge rolls. When it is targeted with Fire Overwatch or Heroic Intervention, that use of the stratagem costs -1 CP."
   },
   {
