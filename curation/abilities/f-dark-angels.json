@@ -192,7 +192,9 @@
     "ability_key": "datasheet:stasis-bomb",
     "mechanic_digest": "15c25a8c8a2da6dfa1b7d6961c1887b5",
     "name": "Stasis Bomb",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
     "summary": "At the end of your opponent's Fight phase, pick one visible enemy unit within 24\" (no Aircraft or Lone Operative). If it does not stay still in their next Movement phase, roll a D6: 1-4, D3 mortal wounds and -2\" Move; 5-6, 2D3 and -3\"."
   },
   {
