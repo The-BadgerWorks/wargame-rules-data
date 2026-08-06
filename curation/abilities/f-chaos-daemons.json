@@ -12,7 +12,9 @@
     "ability_key": "datasheet:accursed-horde",
     "mechanic_digest": "b76781d4a1bdcaad906e55909fdac933",
     "name": "Accursed Horde",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
     "summary": "In your opponent's Shooting phase, if a model in this unit was destroyed by an enemy unit's attacks, this unit can make a surge move of up to D6\"."
   },
   {
@@ -38,13 +40,15 @@
     "mechanic_digest": "4e9e73f2651ff3b578774460c03ea896",
     "name": "Beast Handler",
     "review_state": "in_review",
-    "summary": "While this model leads a unit, you can re-roll Charge rolls for that unit; once per battle, you can also target this unit with Heroic Intervention for -1 CP, without stopping other uses this phase."
+    "summary": "While this model leads a unit, you can re-roll Charge rolls for that unit. Once per battle you can target this unit with Heroic Intervention at -1 CP; that use neither blocks nor is blocked by other uses this phase."
   },
   {
     "ability_key": "datasheet:beastmaster",
     "mechanic_digest": "6f189d0455df29412ff1f67619601f35",
     "name": "Beastmaster",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
     "summary": "While this unit contains an Ogryn Pack Master, you can re-roll Charge rolls for it, and each Chaos Mauler Hound model's attacks can re-roll a Hit roll of 1."
   },
   {
@@ -645,14 +649,18 @@
     "ability_key": "datasheet:flames-of-change-psychic",
     "mechanic_digest": "191d22d249d73a97c4c43a0171c22925",
     "name": "Flames of Change (Psychic)",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
     "summary": "After this model shoots, select one hit enemy unit (not MONSTER/VEHICLE) and roll one D6; on a 4+, it is aflame until your opponent's next turn ends, suffering -2\" Move and -2 to Advance/Charge rolls."
   },
   {
     "ability_key": "datasheet:fluxmaster",
     "mechanic_digest": "724c872dc09e0e52e66675045f3ab2ef",
     "name": "Fluxmaster",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
     "summary": "This unit has Stealth, and melee attacks that target it take -1 to hit."
   },
   {
@@ -821,7 +829,9 @@
     "ability_key": "datasheet:hysterical-frenzy-psychic",
     "mechanic_digest": "0b5a71f675372b6996b3d150991885b6",
     "name": "Hysterical Frenzy (Psychic)",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
     "summary": "Each time a model in this unit is destroyed before fighting this phase, it is not removed immediately: it fights after the attacking unit finishes its attacks, then is removed."
   },
   {
@@ -945,7 +955,9 @@
     "ability_key": "datasheet:master-of-magicks-psychic",
     "mechanic_digest": "b61a7d6b5811b1117a20fe50cc9a4acd",
     "name": "Master of Magicks (Psychic)",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
     "summary": "In your Shooting phase, choose Ignores Cover, Lethal Hits, or Sustained Hits D3 for this model's ranged weapon until the end of the phase."
   },
   {
@@ -1061,14 +1073,14 @@
     "mechanic_digest": "ab41b3ea4b2c840b817cd23afdb60245",
     "name": "One Head Looks Back",
     "review_state": "in_review",
-    "summary": "Each time your opponent targets a unit within 12\" of this model with a Stratagem, you can increase that Stratagem's CP cost by 1."
+    "summary": "Once per turn, when your opponent targets a unit within 12\" of this model with a Stratagem, you can increase that Stratagem's CP cost by 1."
   },
   {
     "ability_key": "datasheet:one-head-looks-back-aura",
     "mechanic_digest": "c158784d903bfeda4563253325d86bc1",
     "name": "One Head Looks Back (Aura)",
     "review_state": "in_review",
-    "summary": "Once per turn, when your opponent targets a unit within 12\" of this model with a Stratagem, you can increase that Stratagem's CP cost by 1."
+    "summary": "Each time your opponent targets a unit within 12\" of this model with a Stratagem, that use costs 1 CP more."
   },
   {
     "ability_key": "datasheet:one-head-looks-forward",
@@ -1101,7 +1113,9 @@
     "ability_key": "datasheet:pouncing-leap",
     "mechanic_digest": "31aa48f474ff1a71515e7df13fc11560",
     "name": "Pouncing Leap",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
     "summary": "You can target this unit with Heroic Intervention for -1 CP, regardless of other uses of that stratagem this phase; it does not prevent other units from also using it."
   },
   {
@@ -1459,7 +1473,9 @@
     "ability_key": "datasheet:twisted-defence-force",
     "mechanic_digest": "d462a69f5cd42fecb4a3d46c7179d4da",
     "name": "Twisted Defence Force",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
     "summary": "While this unit is within range of an objective marker, it has +1 to its Save characteristic against ranged attacks."
   },
   {
@@ -1566,13 +1582,13 @@
     "mechanic_digest": "6a8cdc1f184493270e2194d176548eb2",
     "name": "Dark Pacts",
     "review_state": "in_review",
-    "summary": "When a HERETIC ASTARTES unit with this ability is selected to shoot or fight, it can make a Dark Pact: take a Leadership test (D3 mortal wounds on a fail), then choose Lethal Hits or Sustained Hits 1 for its weapons until end of phase."
+    "summary": "If your Army Faction is Heretic Astartes, a unit with this ability that shoots or fights can make a Dark Pact: take a Leadership test (D3 mortal wounds if failed), then give its weapons Lethal Hits or Sustained Hits 1 until end of phase."
   },
   {
     "ability_key": "faction:the-shadow-of-chaos",
     "mechanic_digest": "536bf9fc4a03f34e6bce620d619972da",
     "name": "The Shadow of Chaos",
     "review_state": "in_review",
-    "summary": "Your deployment zone (plus contested No Man's Land/enemy zone) is your Shadow of Chaos: LEGIONES DAEMONICA units there get better Battle-shock rolls and healing; enemies near key Daemon units get worse Battle-shock, risking mortal wounds."
+    "summary": "Your Shadow of Chaos: your deployment zone, plus No Man's Land or the enemy zone if you hold half its objectives. Daemons there get +1 Battle-shock, healing D3 on a pass; enemies there or near a greater Daemon get -1, D3 mortals if failed."
   }
 ]
