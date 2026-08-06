@@ -28,7 +28,16 @@
      name, including one split across adjacent line-break spans and one target-parameterised; and
      Sedgeward-Conclave's melee section with its header row and its weapon rows in ONE tbody,
      which is how most melee sections are actually printed and which cost 19% of live weapon rows
-     until the section reader stopped treating a header in a group as "no rows in this group". -->
+     until the section reader stopped treating a header in a group as "no rows in this group".
+
+     AI-Assisted: Claude Code (model: claude-opus-5) - Added the OTHER shared-ability tooltip
+     template (issue #7). A faction army rule is not published in the div.abName template an
+     ordinary ability uses: it is headed by div.tooltip_header, may state its owning detachment
+     in div.detachName, marks its flavour paragraph p.ShowFluff legend2 rather than abLegend, and
+     sometimes embeds a whole div.abWrap ability card inside its own body. Three tooltips here
+     now carry that family — 00002 plain, 00003 with an owner line, 00004 with an embedded card
+     — and the body of each is written as a <p> directly inside the <span>, which is the
+     mis-nesting the live templates carry and the reason an earlier DOM attempt read nothing. -->
 <html>
 <head><title>Glimmerfen Covenant</title></head>
 <body>
@@ -327,6 +336,7 @@
     <div class="dsRightСol dsColorFrGF">
       <div class="dsHeader dsColorBgGF">ABILITIES</div>
       <div class="dsAbility">CORE:<b><span class="tooltip00001" data-tooltip-content="#tooltip_content00001"><span class="tt kwbu">Deep</span><span class="tt kwbu">Strike</span></span></b></div>
+      <div class="dsAbility">FACTION:<b><span class="tooltip00003" data-tooltip-content="#tooltip_content00003"><span class="tt kwbu">Fenwatch</span><span class="tt kwbu">Litany</span></span></b></div>
       <div class="dsHeader dsColorBgGF">WARGEAR ABILITIES</div>
       <div class="dsAbility"><b>Mire Censer:</b>Invented placeholder mechanic: subtract 1 from Advance rolls made for enemy units within 6".</div>
       <div class="dsHeader dsColorBgGF">UNIT COMPOSITION</div>
@@ -391,6 +401,7 @@
     </div>
     <div class="dsRightСol dsColorFrGF">
       <div class="dsHeader dsColorBgGF">ABILITIES</div>
+      <div class="dsAbility">FACTION:<b><span class="tooltip00004" data-tooltip-content="#tooltip_content00004"><span class="tt kwbu">Gloamtide</span><span class="tt kwbu">Surge</span></span></b></div>
       <div class="dsAbility"><b>Snarebound:</b>Invented placeholder mechanic: enemy units within 3" cannot Fall Back.</div>
       <div class="dsHeader dsColorBgGF">UNIT COMPOSITION</div>
       <div class="dsAbility"><ul class="dsUl"><li>Every model in this unit is equipped with:</li></ul></div>
@@ -494,7 +505,9 @@
 </div>
 
 <span id="tooltip_content00001"><div class="abWrap BreakInsideAvoid"><div class="abNameWrap"><div class="abName">Deep Strike<span class="h_number">24.01</span></div><div class="abIcon"></div></div><p class="ShowFluff abLegend">Invented placeholder flavour text, which is never digested.</p>Invented placeholder mechanic: during deployment, this unit may be set up in reserves instead.</div></span>
-<span id="tooltip_content00002"><div class="abWrap BreakInsideAvoid"><div class="abNameWrap"><div class="abName">Mirelight Vigil<span class="h_number">24.02</span></div><div class="abIcon"></div></div><p class="ShowFluff abLegend">Invented placeholder flavour text, which is never digested.</p>Invented placeholder mechanic: this unit may re-roll Battle-shock tests.</div></span>
+<span id="tooltip_content00002"><div class="tooltip_header">Mirelight Vigil</div><a href="/wh40k11ed/factions/glimmerfen-covenant/rules.html#Mirelight-Vigil"><div class="tooltip_link"></div></a><div></div><p class="ShowFluff legend2">Invented placeholder flavour text, which is never digested.</p>Invented placeholder mechanic: this unit may re-roll Battle-shock tests.</span>
+<span id="tooltip_content00003"><div class="tooltip_header">Fenwatch Litany</div><a href="/wh40k11ed/factions/glimmerfen-covenant/rules.html#Fenwatch-Litany"><div class="tooltip_link"></div></a><div></div><div class="detachName">Thornlight Chorus</div><p class="ShowFluff legend2">Invented placeholder flavour text, which is never digested.</p>Invented placeholder mechanic: each model in this unit may ignore one point of Damage each phase.</span>
+<span id="tooltip_content00004"><div class="tooltip_header">Gloamtide Surge</div><a href="/wh40k11ed/factions/glimmerfen-covenant/rules.html#Gloamtide-Surge"><div class="tooltip_link"></div></a><div></div><p class="ShowFluff legend2">Invented placeholder flavour text, which is never digested.</p>Invented placeholder mechanic: while the tide is rising, add 1 to this unit's Move characteristic.<div class="abWrap BreakInsideAvoid"><div class="abNameWrap"><div class="abName">Gloamtide Bearer<span class="h_number">24.04</span></div><div class="abIcon"></div></div><p class="ShowFluff abLegend">Invented placeholder flavour text, which is never digested.</p>Invented placeholder mechanic: one model in this unit may be given the Gloamtide Bearer role.</div></span>
 <span id="tooltip_content00050"><div class="abWrap BreakInsideAvoid"><div class="abNameWrap"><div class="abName">Chorus Resonance<span class="h_number">24.50</span></div><div class="abIcon"></div></div>Invented placeholder mechanic: units from this detachment may re-roll one Hit roll each turn.</div></span>
 <span id="tooltip_content00051"><div class="abWrap BreakInsideAvoid"><div class="abNameWrap"><div class="abName">Bracklight Advance<span class="h_number">24.51</span></div><div class="abIcon"></div></div>Invented placeholder mechanic: units from this detachment may Advance and shoot in the same turn.</div></span>
 

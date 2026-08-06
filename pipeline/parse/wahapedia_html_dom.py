@@ -14,6 +14,10 @@
 # (issue #5): `data-det-code` is unique on its own page and nowhere else — 71 of the 208 codes on
 # the live sweep are published by more than one faction — so emitting it bare made one faction's
 # detachment rules land in another faction's denominator.
+# AI-Assisted: Claude Code (model: claude-opus-5) - Read the army-rule tooltip template as well as
+# the ability one (issue #7): a faction army rule is headed by `div.tooltip_header` and carries no
+# `div.abName`, so it produced no `Abilities.csv` row and 38 ability keys — one per faction —
+# digested over the empty string and could never flag for re-review.
 """Extract the current-edition datacard pages into the **same record shape** ``csv`` mode reads.
 
 This module is the whole of the difference between the two detail-acquisition modes. Above it,
@@ -152,6 +156,20 @@ _KEYWORD_QUALIFIER: Final = re.compile(r"\s*[–—-]\s*")
 
 #: ``#tooltip_content00079`` -> ``00079``.
 _TOOLTIP_ID: Final = re.compile(r"#?tooltip_content(\w+)$")
+
+#: Everything inside an **ordinary ability**'s tooltip that is not its mechanic: the heading, the
+#: heading's icon, and the flavour paragraph the ability template marks ``abLegend``.
+_ABILITY_CHROME: Final[tuple[str, ...]] = ("abNameWrap", "abLegend", "abIcon")
+
+#: The same, for the **army-rule** template (issue #7, :func:`_tooltip_text`): its own heading,
+#: the permalink chrome beside it, the owning-detachment attribution, and the flavour paragraph —
+#: named by the ``ShowFluff`` token both templates spell it with rather than by either suffix.
+_RULE_CHROME: Final[tuple[str, ...]] = (
+    "tooltip_header",
+    "tooltip_link",
+    "detachName",
+    "ShowFluff",
+)
 
 #: The source ids the emitted ``Source.csv`` carries. Two rows, because the only fact the
 #: assemble stage reads out of that table is "which publication makes a datasheet Legends", and
@@ -885,13 +903,61 @@ def _ability_texts(tree: LexborHTMLParser, wanted: Iterable[str]) -> dict[str, t
         node = tree.css_first(f"#tooltip_content{identifier}")
         if node is None:
             continue
-        heading = node.css_first("div.abName")
-        if heading is None:
-            continue
-        name = _text_without(heading, "h_number")
-        mechanic = _text_without(node, "abNameWrap", "abLegend", "abIcon")
-        texts[identifier] = (name, mechanic)
+        extracted = _tooltip_text(node)
+        if extracted is not None:
+            texts[identifier] = extracted
     return texts
+
+
+def _tooltip_text(tooltip: LexborNode) -> tuple[str, str] | None:
+    """``(name, mechanic text)`` for one tooltip, in **whichever of the two templates** it uses.
+
+    A shared ability is published in one of two templates, and reading only the first of them was
+    issue #7:
+
+    * an ordinary ability is headed by ``div.abName`` inside a ``div.abNameWrap``; but
+    * a **faction army rule** is headed by ``div.tooltip_header`` — the same element the
+      detachment-rule, enhancement and stratagem templates use — and carries no ``abName`` at all.
+
+    Emitting a row only for the first shape left the second with no ``Abilities.csv`` row, so
+    :func:`pipeline.curate.summaries.compute_current_digests` fell through to the empty string and
+    **38 ability keys on the 2026-08-05 live sweep digested over ``""``** — essentially one per
+    faction, since a faction's army rule is exactly the thing published in this template. All 38
+    shared one digest value, so no mechanic changing upstream could ever move one of them to
+    ``needs_rereview``: every faction's army rule was exempt from FR-024 change detection.
+
+    Three properties of the rule template decide the shape of this function:
+
+    * **The heading nearest the tooltip wins.** Four of the live sweep's referenced tooltips carry
+      *both* headings, because a rule may print a whole ``div.abWrap`` ability card inside its own
+      body. The outer ``div.tooltip_header`` is the tooltip's title; the inner ``div.abName``
+      names something the rule grants. So the rule shape is recognised from a **direct child**
+      rather than from a descendant query, and an embedded card stays body text.
+    * **The owner line is an attribution, not a mechanic.** ``div.detachName`` states which
+      detachment publishes the rule. Digesting it would make a rule that was reattached upstream
+      read as a rule whose mechanic changed.
+    * **The flavour paragraph is marked differently here** — ``p.ShowFluff legend2`` rather than
+      the ability template's ``p.ShowFluff abLegend`` — so the class stripped is the ``ShowFluff``
+      the two spellings share, and both templates' prose is dropped by one name.
+
+    The template is **mis-nested upstream**, writing a ``<p>`` directly inside the tooltip's
+    ``<span>``. A conforming parser is entitled to re-parent a body out of a span it cannot
+    contain, which is what an earlier attempt on this markup ran into; ``selectolax``'s does not,
+    and the fixture reproduces the mis-nesting so the day that changes is a failing test rather
+    than a silently empty digest.
+
+    Returns ``None`` when the tooltip carries neither heading — it is not an ability template at
+    all, and inventing a row for it would digest page furniture.
+    """
+    heading = next(
+        (child for child in _children(tooltip) if _has_class(child, "tooltip_header")), None
+    )
+    if heading is not None:
+        return _text(heading), _text_without(tooltip, *_RULE_CHROME)
+    heading = tooltip.css_first("div.abName")
+    if heading is None:
+        return None
+    return _text_without(heading, "h_number"), _text_without(tooltip, *_ABILITY_CHROME)
 
 
 def parse_faction_page(slug: str, html: str) -> DatacardPage:

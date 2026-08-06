@@ -14,6 +14,9 @@
 # detachments and keep each one's rules on its own page.
 # AI-Assisted: Claude Code (model: claude-opus-5) - Added the colliding-tooltip-id cases
 # (issue #6): the same shape one layer over, on the ids the ability digest join resolves.
+# AI-Assisted: Claude Code (model: claude-opus-5) - Added the army-rule tooltip template cases
+# (issue #7): the div.tooltip_header family an ordinary ability's div.abName reader emitted
+# nothing for, including the owner line, the embedded ability card and the digest-join guard.
 """The mode-blindness proof, stated as tests rather than as a design note.
 
 `004`'s architecture rests on one claim: the composition and option grammars, measured once
@@ -626,6 +629,79 @@ def test_a_card_that_prints_its_own_ability_names_no_tooltip() -> None:
     tables = emit_records([page], edition_code="wh40k-11e")
 
     assert [row.fields["ability_id"] for row in tables["Datasheets_abilities.csv"].rows] == [""]
+
+
+# -- issue #7: an army rule's tooltip is not shaped like an ability's -------------------------
+
+
+def test_a_faction_army_rules_tooltip_is_read_from_its_own_heading(page) -> None:  # type: ignore[no-untyped-def]
+    """The whole of issue #7: a faction army rule is published in the *other* tooltip template.
+
+    ``_ability_texts`` emitted a row only for a tooltip carrying ``div.abName``, so a rule headed
+    by ``div.tooltip_header`` produced no ``Abilities.csv`` row at all, the digest join fell
+    through to the empty string, and every faction's army rule was exempt from FR-024 change
+    detection — 38 keys on the 2026-08-05 live sweep, essentially one per faction.
+    """
+    name, mechanic = page.ability_texts["00002"]
+
+    assert name == "Mirelight Vigil"
+    assert mechanic, "the rule's mechanic is what the digest is taken over"
+    assert "flavour" not in mechanic, "the ShowFluff paragraph is not a mechanic and is dropped"
+    assert name not in mechanic, "the heading is the name, not part of the mechanic"
+
+
+def test_the_rule_tooltips_owner_line_is_not_part_of_its_mechanic(page) -> None:  # type: ignore[no-untyped-def]
+    """``div.detachName`` states which detachment publishes the rule — an attribution, not a
+    mechanic, and a rule reattached upstream must not read as a rule that changed."""
+    name, mechanic = page.ability_texts["00003"]
+
+    assert name == "Fenwatch Litany"
+    assert "Thornlight Chorus" not in mechanic
+    assert "flavour" not in mechanic
+    assert "ignore one point of Damage" in mechanic
+
+
+def test_a_rule_tooltip_that_embeds_an_ability_card_is_named_by_the_rule(page) -> None:  # type: ignore[no-untyped-def]
+    """Both headings occur in one tooltip on four of the live sweep's referenced ids.
+
+    The outer ``div.tooltip_header`` is the tooltip's own title and the inner ``div.abName`` is a
+    card printed *inside* the rule, so the heading nearest the tooltip wins — reading the inner
+    one named the rule after the ability it grants.
+    """
+    name, mechanic = page.ability_texts["00004"]
+
+    assert name == "Gloamtide Surge"
+    assert "Gloamtide Bearer" in mechanic, "the embedded card is body text of the rule"
+    assert "flavour" not in mechanic, "including the embedded card's own flavour paragraph"
+
+
+def test_the_rule_body_is_read_despite_the_upstream_mis_nesting(page) -> None:  # type: ignore[no-untyped-def]
+    """The templates put a ``<p>`` directly inside a ``<span>``, which is why an earlier DOM
+    attempt read nothing. The fixture reproduces it rather than tidying it away."""
+    markup = FIXTURE.read_text(encoding="utf-8")
+    opened = markup.index('<span id="tooltip_content00002">')
+    assert markup[opened:].index("<p class=") < markup[opened:].index("</span>")
+
+    assert "re-roll Battle-shock tests" in page.ability_texts["00002"][1]
+
+
+def test_every_referenced_ability_reaches_the_digest_join_with_text(page) -> None:  # type: ignore[no-untyped-def]
+    """The regression guard in the join's own terms (`compute_current_digests`).
+
+    A binding that names a tooltip and resolves to no ``Abilities.csv`` row digests over ``""``,
+    and every key that does shares one digest value — so ``effective_status`` can never move any
+    of them to ``needs_rereview``. The failure is silent in every other assertion here.
+    """
+    tables = emit_records([page], edition_code="wh40k-11e")
+    texts = {row.fields["id"]: row.fields["description"] for row in tables["Abilities.csv"].rows}
+
+    named = [
+        row.fields["ability_id"]
+        for row in tables["Datasheets_abilities.csv"].rows
+        if row.fields["ability_id"]
+    ]
+    assert named, "the fixture's cards refer to shared abilities"
+    assert all(texts.get(identifier, "").strip() for identifier in named)
 
 
 # -- the emitted tables ------------------------------------------------------------------------
