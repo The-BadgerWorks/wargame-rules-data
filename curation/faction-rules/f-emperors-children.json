@@ -7,8 +7,10 @@
       "display_order": 1,
       "name": "Thrill Seekers",
       "summary": "This unit can shoot and charge in a turn it Advanced or Fell Back, but cannot target a unit it started the turn within Engagement Range of, or one already targeted by another unit's charge or attack this phase.",
-      "review_state": "in_review",
-      "mechanic_digest": "e8b7d94d00733c5b22fc60c21b688e90"
+      "review_state": "approved",
+      "mechanic_digest": "e8b7d94d00733c5b22fc60c21b688e90",
+      "reviewed_by": "claude-opus-5-adversarial-reviewer",
+      "reviewed_at": "2026-08-06T00:00:00Z"
     }
   ]
 }
