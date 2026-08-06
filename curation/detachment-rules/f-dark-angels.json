@@ -1,0 +1,122 @@
+[
+  {
+    "summary_key": "detachment:d-1st-company-task-force-2:extremis-level-threat",
+    "detachment_id": "d-1st-company-task-force-2",
+    "name": "Extremis-level Threat",
+    "summary": "Once per battle in your Command phase: until your next Command phase, models with Oath of Moment also re-roll the Wound roll (not just the Hit roll) against your Oath of Moment target.",
+    "review_state": "in_review",
+    "mechanic_digest": "468e9d318fdcd0a56a4691ed01e3dc72"
+  },
+  {
+    "summary_key": "detachment:d-company-of-hunters:masters-of-manoeuvre",
+    "detachment_id": "d-company-of-hunters",
+    "name": "Masters of Manoeuvre",
+    "summary": "Adeptus Astartes units' ranged attacks gain Assault and stay shooting-eligible after falling back; Mounted units also stay charge-eligible after Advancing/Falling Back. Army: Dark Angels only. Outrider Squad gains Battleline.",
+    "review_state": "in_review",
+    "mechanic_digest": "2da1bcfc59e071fa1ab0205b3d3b5fb0"
+  },
+  {
+    "summary_key": "detachment:d-dark-age-arsenal:invocations-of-ancient-fury",
+    "detachment_id": "d-dark-age-arsenal",
+    "name": "Invocations of Ancient Fury",
+    "summary": "Adeptus Astartes weapon profiles named with 'Plasma' get +1 Strength. Army can include Dark Angels units only, no other Chapter's Adeptus Astartes units.",
+    "review_state": "in_review",
+    "mechanic_digest": "113cd3d1118140f9f78541a3857fb219"
+  },
+  {
+    "summary_key": "detachment:d-darkflight-pursuit:black-winged-vigilance",
+    "detachment_id": "d-darkflight-pursuit",
+    "name": "Black-winged Vigilance",
+    "summary": "Ravenwing Fly units' ranged attacks gain Ignores Cover. Army can include Dark Angels units only, no other Chapter's Adeptus Astartes units.",
+    "review_state": "in_review",
+    "mechanic_digest": "8e4a26af87381688128a8e9ff48f4616"
+  },
+  {
+    "summary_key": "detachment:d-firestorm-assault-force-3:close-range-eradication",
+    "detachment_id": "d-firestorm-assault-force-3",
+    "name": "Close-range Eradication",
+    "summary": "Adeptus Astartes ranged weapons gain Assault, and get +1 Strength when their attack targets a unit within 12 inches.",
+    "review_state": "in_review",
+    "mechanic_digest": "b9469e205b56fcb5f52d42f023763fb8"
+  },
+  {
+    "summary_key": "detachment:d-fulguris-task-force-3:skystrike",
+    "detachment_id": "d-fulguris-task-force-3",
+    "name": "Skystrike",
+    "summary": "Land Speeder and Storm Speeder Hailstrike/Hammerstrike/Thunderstrike units count as Speeder; in your first Movement phase, friendly Speeder units can make an ingress move.",
+    "review_state": "in_review",
+    "mechanic_digest": "dd17f424a97d1bb0e2dbc0bde5757be8"
+  },
+  {
+    "summary_key": "detachment:d-interrogation-conclave:dread-catechism",
+    "detachment_id": "d-interrogation-conclave",
+    "name": "Dread Catechism",
+    "summary": "When a Chaplain destroys an enemy unit in the Fight phase, enemy units within 6in Battle-shock test. Chaplains also worsen Leadership by 1 for enemy units within 6in (aura). Army: Dark Angels only.",
+    "review_state": "in_review",
+    "mechanic_digest": "0ed975cdd05a13e367d2b5142806c83a"
+  },
+  {
+    "summary_key": "detachment:d-librarius-conclave-2:psychic-disciplines",
+    "detachment_id": "d-librarius-conclave-2",
+    "name": "Psychic Disciplines",
+    "summary": "Each battle round, pick a Discipline for friendly Astartes Psyker units until round end: Biomancy +2in M; Divination re-roll hit/wound 1s; Pyromancy +1 AP within 12in; Telekinesis -1 S vs ranged; Telepathy ignores BS/WS/hit modifiers.",
+    "review_state": "in_review",
+    "mechanic_digest": "c3f6a5e40afc086266ea59760f84a11e"
+  },
+  {
+    "summary_key": "detachment:d-lions-blade-task-force:in-the-lions-claws",
+    "detachment_id": "d-lions-blade-task-force",
+    "name": "In The Lion's Claws",
+    "summary": "An enemy unit (non-Monster/Vehicle) falling back within Engagement Range of a Ravenwing unit takes a Desperate Escape test, at -1 if Battle-shocked. A Deathwing charge into that range gets +2 to the Charge roll.",
+    "review_state": "in_review",
+    "mechanic_digest": "9bd2b847cc2b3a9108d7b58dcb14ddc8"
+  },
+  {
+    "summary_key": "detachment:d-orbital-assault-force-3:rapid-drop-deployment",
+    "detachment_id": "d-orbital-assault-force-3",
+    "name": "Rapid-drop Deployment",
+    "summary": "At deployment, a battle-size-scaled number of non-Titanic Adeptus Astartes units gain Deep Strike. A unit set up this turn re-rolls a Wound roll of 1; one that disembarked from a Drop Pod this turn also re-rolls a Hit roll of 1.",
+    "review_state": "in_review",
+    "mechanic_digest": "6d9de3902ef6028b32da8580eada69a9"
+  },
+  {
+    "summary_key": "detachment:d-stormlance-task-force-3:lightning-assault",
+    "detachment_id": "d-stormlance-task-force-3",
+    "name": "Lightning Assault",
+    "summary": "Adeptus Astartes units can declare a charge in a turn in which they Advanced or Fell Back.",
+    "review_state": "in_review",
+    "mechanic_digest": "6cac692ade2f72f445085835ff0f6c25"
+  },
+  {
+    "summary_key": "detachment:d-unforgiven-task-force:grim-resolve",
+    "detachment_id": "d-unforgiven-task-force",
+    "name": "Grim Resolve",
+    "summary": "Battle-shocked Adeptus Astartes units still count Objective Control as 1 (not 0). Each Command phase, pick one Adeptus Astartes unit to get +1 Objective Control until your next Command phase. Army: Dark Angels only.",
+    "review_state": "in_review",
+    "mechanic_digest": "61127d7aca6f3797b5041e4535a451eb"
+  },
+  {
+    "summary_key": "detachment:d-vanguard-spearhead-3:shadow-masters",
+    "detachment_id": "d-vanguard-spearhead-3",
+    "name": "Shadow Masters",
+    "summary": "A ranged attack against an Adeptus Astartes unit from beyond 12 inches gives that unit Benefit of Cover.",
+    "review_state": "in_review",
+    "mechanic_digest": "20a1368afd53ae398ce9777f1e9d0ee7"
+  },
+  {
+    "summary_key": "detachment:d-vengeful-hosts-3:imperator-unleashed",
+    "detachment_id": "d-vengeful-hosts-3",
+    "name": "Imperator Unleashed",
+    "summary": "After a Fly Infantry unit makes an ingress or charge move this turn, its attacks can re-roll hit rolls of 1.",
+    "review_state": "in_review",
+    "mechanic_digest": "455871c6b816df4cd30143b4a77a0dad"
+  },
+  {
+    "summary_key": "detachment:d-wrath-of-the-rock:dutiful-tenacity",
+    "detachment_id": "d-wrath-of-the-rock",
+    "name": "Dutiful Tenacity",
+    "summary": "Attacks stronger than an Adeptus Astartes Infantry or Mounted unit's Toughness get -1 to the Wound roll.",
+    "review_state": "in_review",
+    "mechanic_digest": "41f53e9c4ec193ca8352b8c1fd760f34"
+  }
+]
