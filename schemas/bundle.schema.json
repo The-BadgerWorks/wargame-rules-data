@@ -158,7 +158,7 @@
           "factionId": { "type": "string", "minLength": 1 },
           "name": { "type": "string", "minLength": 1, "maxLength": 120 },
           "displayOrder": { "type": "integer", "minimum": 1 },
-          "summary": { "type": "string", "minLength": 1, "maxLength": 400 }
+          "summary": { "type": "string", "minLength": 1, "maxLength": 1000 }
         }
       }
     },
@@ -173,7 +173,7 @@
           "id": { "type": "string", "minLength": 1 },
           "detachmentId": { "type": "string", "minLength": 1 },
           "name": { "type": "string", "minLength": 1, "maxLength": 120 },
-          "summary": { "type": "string", "minLength": 1, "maxLength": 400 }
+          "summary": { "type": "string", "minLength": 1, "maxLength": 1000 }
         }
       }
     },
@@ -188,7 +188,7 @@
           "keywordKey": { "type": "string", "minLength": 1, "maxLength": 64 },
           "displayKeyword": { "type": "string", "minLength": 1, "maxLength": 64 },
           "hasNumericParameter": { "type": "boolean" },
-          "summary": { "type": "string", "minLength": 1, "maxLength": 400 }
+          "summary": { "type": "string", "minLength": 1, "maxLength": 1000 }
         }
       }
     },
@@ -431,8 +431,8 @@
           "summary": {
             "type": "string",
             "minLength": 1,
-            "maxLength": 400,
-            "description": "An ORIGINAL, MECHANICS-ONLY summary authored for this data set, target <= 240 characters. Never the publisher's rules text and never a light rewording of it (reference-db-schema.md §6.1)."
+            "maxLength": 1000,
+            "description": "An ORIGINAL, MECHANICS-ONLY summary authored for this data set, target <= 1000 characters. Never the publisher's rules text and never a light rewording of it (reference-db-schema.md §6.1)."
           }
         }
       }

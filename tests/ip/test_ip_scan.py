@@ -19,7 +19,12 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
-from pipeline.validate.ip_scan import SCANNED_DIRECTORIES, scan_bundle, scan_repository
+from pipeline.validate.ip_scan import (
+    IP_SCAN_MAX_CHARS,
+    SCANNED_DIRECTORIES,
+    scan_bundle,
+    scan_repository,
+)
 
 
 def _write(root: Path, relative: str, payload: object) -> None:
@@ -79,7 +84,10 @@ def test_each_violation_class_is_detected(temp_repo) -> None:  # type: ignore[no
         "html_entity": "a &amp; b",
         "placeholder_token": "adds $BONUS$ to it",
         "cyrillic": "Special (правая колонка)",
-        "over_length": "x" * 401,
+        # Pinned to the constant, not to a literal: the ceiling moved 400 -> 1 000 with the
+        # Product Owner's 2026-08-06 summary-length decision, and a hard-coded 401 silently
+        # stopped exercising this branch rather than failing.
+        "over_length": "x" * (IP_SCAN_MAX_CHARS + 1),
     }
     for violation, payload in cases.items():
         root = temp_repo()

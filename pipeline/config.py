@@ -232,7 +232,7 @@ CONFIG_VARS: Final[tuple[ConfigVar, ...]] = (
     ConfigVar(
         "WGC_SUMMARY_MAX_CHARS",
         "summary_max_chars",
-        "240",
+        "1000",
         "int",
         False,
         "summary length target (FR-022)",
@@ -300,7 +300,7 @@ CONFIG_VARS: Final[tuple[ConfigVar, ...]] = (
     ConfigVar(
         "WGC_FACTION_RULE_MAX_CHARS",
         "faction_rule_max_chars",
-        "240",
+        "1000",
         "int",
         False,
         "summary length target, faction rules; over-length is advisory, never blocking",
@@ -308,7 +308,7 @@ CONFIG_VARS: Final[tuple[ConfigVar, ...]] = (
     ConfigVar(
         "WGC_DETACHMENT_RULE_MAX_CHARS",
         "detachment_rule_max_chars",
-        "240",
+        "1000",
         "int",
         False,
         "summary length target, detachment rules",
@@ -316,7 +316,7 @@ CONFIG_VARS: Final[tuple[ConfigVar, ...]] = (
     ConfigVar(
         "WGC_GLOSSARY_MAX_CHARS",
         "glossary_max_chars",
-        "240",
+        "1000",
         "int",
         False,
         "summary length target, glossary entries",

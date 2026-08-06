@@ -42,7 +42,7 @@ CONTRACT_DEFAULTS = {
     "WGC_PRERELEASE_MANIFEST_PATH": "prerelease/manifest.json",
     "WGC_SCHEMA_CONTRACT_VERSION": "1",
     "WGC_RESTRICTION_VOCABULARY_VERSION": "1",
-    "WGC_SUMMARY_MAX_CHARS": "240",
+    "WGC_SUMMARY_MAX_CHARS": "1000",
     "WGC_UNVERIFIED_ESCALATE_RELEASES": "2",
 }
 
@@ -54,9 +54,9 @@ ENRICHMENT_DEFAULTS = {
     "WGC_GATE_FACTION_RULES": "off",
     "WGC_GATE_DETACHMENT_RULES": "off",
     "WGC_GATE_GLOSSARY": "off",
-    "WGC_FACTION_RULE_MAX_CHARS": "240",
-    "WGC_DETACHMENT_RULE_MAX_CHARS": "240",
-    "WGC_GLOSSARY_MAX_CHARS": "240",
+    "WGC_FACTION_RULE_MAX_CHARS": "1000",
+    "WGC_DETACHMENT_RULE_MAX_CHARS": "1000",
+    "WGC_GLOSSARY_MAX_CHARS": "1000",
     "WGC_COVERAGE_MIN_COMPOSITION_RATIO": "0.90",
     "WGC_COVERAGE_MIN_OPTION_RATIO": "0.90",
     "WGC_COVERAGE_MIN_KEYWORD_CLASS_RATIO": "0.95",
@@ -192,9 +192,9 @@ def test_the_enrichment_variables_all_resolve_without_any_environment() -> None:
     assert config.gate_glossary is Gate.OFF
     assert not config.gate_faction_rules.is_on
 
-    assert config.faction_rule_max_chars == 240
-    assert config.detachment_rule_max_chars == 240
-    assert config.glossary_max_chars == 240
+    assert config.faction_rule_max_chars == 1000
+    assert config.detachment_rule_max_chars == 1000
+    assert config.glossary_max_chars == 1000
 
     assert config.coverage_min_composition_ratio == pytest.approx(0.90)
     assert config.coverage_min_option_ratio == pytest.approx(0.90)

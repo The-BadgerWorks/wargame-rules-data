@@ -11,7 +11,7 @@
     "properties": {
       "ability_key": { "type": "string", "pattern": "^(core|faction|datasheet):[A-Za-z0-9:_-]+$" },
       "name": { "type": "string", "minLength": 1, "maxLength": 120 },
-      "summary": { "type": "string", "minLength": 1, "maxLength": 400 },
+      "summary": { "type": "string", "minLength": 1, "maxLength": 1000 },
       "review_state": { "enum": ["draft", "in_review", "approved", "needs_rereview"] },
       "mechanic_digest": {
         "type": "string",

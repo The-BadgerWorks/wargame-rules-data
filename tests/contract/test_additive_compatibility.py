@@ -86,16 +86,29 @@ def _arrays(schema: dict[str, Any]) -> dict[str, Any]:
     }
 
 
-def _shape(items: dict[str, Any], *, ignore: str | None = None) -> dict[str, Any]:
+#: Keys excluded from the compared shape. ``description`` is prose for humans and changes freely.
+#: ``maxLength`` is excluded because **widening** it cannot invalidate a document that was already
+#: valid, so it is additive in exactly the sense contract §1 means — but narrowing it very much
+#: can, which is why it is not merely dropped: :func:`_max_lengths` asserts the direction
+#: separately. See ``test_no_existing_field_had_its_length_ceiling_narrowed``.
+_UNCOMPARED_KEYS: frozenset[str] = frozenset({"description", "maxLength"})
+
+
+def _shape(
+    items: dict[str, Any], *, ignore: str | None = None, strict: bool = False
+) -> dict[str, Any]:
     """One element type's comparable shape: ordered properties, ordered required, strictness.
 
-    Descriptions are excluded — they are prose for humans and change freely. Everything a
-    consumer's ingestor can observe is included, and **order is included**, because
-    `curated-snapshot-format.md` §3 makes the column order part of the layout an array-to-table
-    load depends on.
+    Descriptions and length ceilings are excluded — see :data:`_UNCOMPARED_KEYS` for why each is,
+    and what checks it instead. Everything else a consumer's ingestor can observe is included, and
+    **order is included**, because `curated-snapshot-format.md` §3 makes the column order part of
+    the layout an array-to-table load depends on.
+
+    ``strict=True`` compares length ceilings too, for the objects where no widening is expected.
     """
+    dropped = frozenset({"description"}) if strict else _UNCOMPARED_KEYS
     properties = {
-        name: {key: value for key, value in node.items() if key != "description"}
+        name: {key: value for key, value in node.items() if key not in dropped}
         for name, node in items.get("properties", {}).items()
         if name != ignore
     }
@@ -104,6 +117,15 @@ def _shape(items: dict[str, Any], *, ignore: str | None = None) -> dict[str, Any
         "property_order": [name for name in properties],
         "required": list(items.get("required", [])),
         "additionalProperties": items.get("additionalProperties"),
+    }
+
+
+def _max_lengths(items: dict[str, Any]) -> dict[str, int]:
+    """Each property's declared length ceiling, for the properties that declare one."""
+    return {
+        name: node["maxLength"]
+        for name, node in items.get("properties", {}).items()
+        if isinstance(node, dict) and "maxLength" in node
     }
 
 
@@ -131,8 +153,8 @@ def test_the_consumer_contract_major_is_unchanged() -> None:
 
 def test_snapshot_meta_is_untouched(baseline: dict[str, Any], enriched: dict[str, Any]) -> None:
     """`003` asserts on this object at fetch time; a change here is a site release."""
-    assert _shape(enriched["properties"]["snapshotMeta"]) == _shape(
-        baseline["properties"]["snapshotMeta"]
+    assert _shape(enriched["properties"]["snapshotMeta"], strict=True) == _shape(
+        baseline["properties"]["snapshotMeta"], strict=True
     )
 
 
@@ -171,6 +193,41 @@ def test_an_existing_class_is_identical_but_for_its_permitted_new_column(
 
     added = NEW_COLUMNS.get(array)
     assert _shape(after_node["items"], ignore=added) == _shape(before_node["items"])
+
+
+@pytest.mark.parametrize(
+    "array",
+    sorted(_schema(BASELINE_PATH)["properties"]),
+)
+def test_no_existing_field_had_its_length_ceiling_narrowed(
+    array: str, baseline: dict[str, Any], enriched: dict[str, Any]
+) -> None:
+    """The one relaxation §1 permits, and the direction it is only ever permitted in.
+
+    A **widened** ``maxLength`` is additive by construction: every document the released
+    consumers could already ingest still validates, so nothing has to be released to read it.
+    A **narrowed** one is a breaking change wearing the same clothes — it invalidates documents
+    that were legal a version ago — and dropping ``maxLength`` from :func:`_shape` outright would
+    have let that through silently. Hence a comparison by direction rather than by equality.
+
+    Live instance: the Product Owner raised the authored-summary ceiling from 400 to 1 000 on
+    2026-08-06 (``WGC_SUMMARY_MAX_CHARS`` 240 → 1 000) so a multi-clause mechanic can be stated
+    completely. ``datasheetAbilities.summary`` is the existing field that moved.
+    """
+    before_node = baseline["properties"][array]
+    after_node = enriched["properties"][array]
+    if before_node.get("type") != "array":
+        pytest.skip(f"{array} is not an array")
+
+    before = _max_lengths(before_node["items"])
+    after = _max_lengths(after_node["items"])
+
+    for name, ceiling in before.items():
+        assert name in after, f"{array}.{name} lost its length ceiling entirely"
+        assert after[name] >= ceiling, (
+            f"{array}.{name} narrowed its length ceiling {ceiling} -> {after[name]}, "
+            "which invalidates documents the released consumers can already ingest"
+        )
 
 
 @pytest.mark.parametrize(("array", "column"), sorted(NEW_COLUMNS.items()))

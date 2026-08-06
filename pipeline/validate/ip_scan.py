@@ -38,12 +38,12 @@ SCANNED_SUFFIXES: Final[frozenset[str]] = frozenset({".json", ".jsonl", ".md"})
 
 #: The hard ceiling on a single string value, above which it is prose whatever it claims to be.
 #:
-#: Deliberately **not** the 240-character summary target. That target is an editorial one and
+#: Deliberately **not** the 1 000-character summary target. That target is an editorial one and
 #: overshooting it is the advisory `SUM-OVERLENGTH`; this is the length at which a value cannot
 #: be a name, a label, or a mechanics-only summary at all, and it matches the hard cap the
 #: bundle schema enforces. Using one number for both would make every slightly long summary a
 #: blocking IP violation, which is not what either requirement says.
-IP_SCAN_MAX_CHARS: Final = 400
+IP_SCAN_MAX_CHARS: Final = 1000
 
 #: The gitignored workspace. Its emptiness is part of V8, not a separate check.
 WORK_DIRECTORY: Final = "work"

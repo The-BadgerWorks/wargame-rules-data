@@ -95,7 +95,7 @@ class ClassCheck:
     """This run's freshly computed digests, or ``None`` when it acquired no source text."""
 
     gate: Gate = Gate.ON
-    max_chars: int = 240
+    max_chars: int = 1000
 
 
 @dataclass(frozen=True, slots=True)

@@ -30,9 +30,10 @@ from typing import Final
 
 from pydantic import BaseModel
 
-#: The length above which a value has stopped being a name, label, or code. Aligned with the
-#: ability-summary target (``WGC_SUMMARY_MAX_CHARS``, FR-022), which is the longest authored
-#: string the contract permits anywhere.
+#: The length above which a value has stopped being a name, label, or code. This governs
+#: finding *detail* values, which stay terse; it is deliberately **not** the authored-summary
+#: target (``WGC_SUMMARY_MAX_CHARS``, FR-022), which the Product Owner raised to 1 000 on
+#: 2026-08-06 so a summary may carry a full multi-clause mechanic.
 MECHANICAL_STRING_MAX_CHARS: Final = 240
 
 #: reason -> pattern. Every one of these is a class observed in a real source (research §0.1).

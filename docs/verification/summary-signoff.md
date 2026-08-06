@@ -40,7 +40,8 @@ defeat the purpose of the requirement rather than satisfy it, so no row is fille
    first-time full-faction pass), apply the fixed checklist from `docs/authoring-summaries.md`
    verbatim:
    - [ ] Mechanics only -- no lore, no flavour, no narrative framing.
-   - [ ] Length at or under `WGC_SUMMARY_MAX_CHARS` (240 by default).
+   - [ ] Length at or under `WGC_SUMMARY_MAX_CHARS` (1000 by default, raised from 240 by
+         Product Owner decision on 2026-08-06).
    - [ ] Not a rewording of the publisher's text (a policy check, not a quality one -- see
      `docs/authoring-summaries.md`'s "What 'authored from the mechanic' means").
    - [ ] No lore, no tone.

@@ -55,9 +55,11 @@ Every summary, before it may be marked `approved`, is checked against exactly th
 - [ ] **Mechanics only.** What the ability does in play. No lore, no flavour text, no narrative
   framing, no publisher adjectives that do not change a die roll (`reference-db-schema.md`
   §6.1(4)).
-- [ ] **≤ `WGC_SUMMARY_MAX_CHARS`** (240 by default, `contracts/pipeline-run-interface.md` §5).
-  Short enough to read on a phone. `SUM-OVERLENGTH` is the advisory finding when an otherwise
-  approved summary exceeds it — fix it before it accumulates.
+- [ ] **≤ `WGC_SUMMARY_MAX_CHARS`** (1000 by default, `contracts/pipeline-run-interface.md` §5).
+  Long enough to state a multi-clause mechanic completely — the Product Owner raised this from
+  240 on 2026-08-06 on the principle that full fidelity beats brevity. It is still a ceiling and
+  not a target: say the mechanic and stop. `SUM-OVERLENGTH` is the advisory finding when an
+  otherwise approved summary exceeds it — fix it before it accumulates.
 - [ ] **Not a rewording of the publisher's text.** See the next section — this is the one item on
   this list that is a policy question, not a quality one.
 - [ ] **No lore, no tone.** A summary reads like a rules reference, not like the publisher's
