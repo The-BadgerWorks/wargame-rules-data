@@ -14,16 +14,20 @@
     "detachment_id": "d-chaos-cult",
     "name": "Desperate Devotion",
     "summary": "A Damned unit with Dark Pacts that did not arrive from Reserves this turn can make a Desperate Pact when it moves, Advances or charges: +2 Move and +2 to Charge rolls that phase, taking D3 mortal wounds on a failed Leadership test.",
-    "review_state": "in_review",
-    "mechanic_digest": "eeb4facd9713a1fe98051a8b75b99b60"
+    "review_state": "approved",
+    "mechanic_digest": "eeb4facd9713a1fe98051a8b75b99b60",
+    "reviewed_by": "claude-opus-5-second-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-creations-of-bile:experimental-augmentations",
     "detachment_id": "d-creations-of-bile",
     "name": "Experimental Augmentations",
     "summary": "At the start of the battle, take one augmentation for your Heretic Astartes Infantry (excluding Damned) or roll 2D6 for two, duplicates wasted: +1 melee Attacks, +2\" Move, +1 melee WS, +1 Toughness, +1 melee Strength or +1 ranged BS.",
-    "review_state": "in_review",
-    "mechanic_digest": "b12a5350a01d3f92d879979c1e82c8f2"
+    "review_state": "approved",
+    "mechanic_digest": "b12a5350a01d3f92d879979c1e82c8f2",
+    "reviewed_by": "claude-opus-5-second-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-cult-of-the-arkifane:soul-forge-boons",
@@ -40,16 +44,20 @@
     "detachment_id": "d-deceptors",
     "name": "Masters of Misdirection",
     "summary": "In the Declare Battle Formations step, up to 2/3/4 Legionaries and as many Cultist Mob units at Incursion/Strike Force/Onslaught, plus any non-Epic Hero Characters attached to them, gain Infiltrators for the battle.",
-    "review_state": "in_review",
-    "mechanic_digest": "cbd9578ed6b54b802e4ed4dcac2c7863"
+    "review_state": "approved",
+    "mechanic_digest": "cbd9578ed6b54b802e4ed4dcac2c7863",
+    "reviewed_by": "claude-opus-5-second-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-dread-talons:terror-descends-aura",
     "detachment_id": "d-dread-talons",
     "name": "Terror Descends (Aura)",
     "summary": "In your opponent's Battle-shock step, enemy units below Starting Strength within 12\" of your Heretic Astartes must take a Battle-shock test. Any enemy unit testing within 12\" has -1 to the result and takes no other test that phase.",
-    "review_state": "in_review",
-    "mechanic_digest": "a859660ff781419ac269c8ee73a084bf"
+    "review_state": "approved",
+    "mechanic_digest": "a859660ff781419ac269c8ee73a084bf",
+    "reviewed_by": "claude-opus-5-second-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-fellhammer-siege-host:iron-fortitude",
@@ -86,16 +94,20 @@
     "detachment_id": "d-nightmare-hunt",
     "name": "Terror Made Manifest",
     "summary": "Enemies below Starting Strength within 12\" of your Heretic Astartes take one Battle-shock test at -1 in their Command phase. Your attacks get +1 to hit half-strength, +1 to wound Battle-shocked; Battle-shocked attackers get -1 to hit you.",
-    "review_state": "in_review",
-    "mechanic_digest": "5243c433fe1eb55b82c46ca6f3c8a08a"
+    "review_state": "approved",
+    "mechanic_digest": "5243c433fe1eb55b82c46ca6f3c8a08a",
+    "reviewed_by": "claude-opus-5-second-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-pactbound-zealots:marks-of-chaos",
     "detachment_id": "d-pactbound-zealots",
     "name": "Marks of Chaos",
     "summary": "Heretic Astartes bar Epic Heroes take a god keyword (no Khorne Psykers); attach/embark need a match. A Dark Pact granting Lethal/Sustained Hits 1 crits on unmodified 5+: melee Khorne/Slaanesh, ranged Tzeentch/Nurgle, Undivided re-roll 1s.",
-    "review_state": "in_review",
-    "mechanic_digest": "2d781c425a9e5b90fd3f59ed399e38f5"
+    "review_state": "approved",
+    "mechanic_digest": "2d781c425a9e5b90fd3f59ed399e38f5",
+    "reviewed_by": "claude-opus-5-second-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-renegade-raiders:raiders-and-reavers",
@@ -162,7 +174,9 @@
     "detachment_id": "d-warpstrike-champions",
     "name": "Warp Portals",
     "summary": "At the end of your opponent's turn, remove up to 1/2/3 Heretic Astartes Terminator, Obliterators or Mutilators units at Incursion/Strike Force/Onslaught, none within Engagement Range, and place them into Strategic Reserves.",
-    "review_state": "in_review",
-    "mechanic_digest": "c5d61719dda8b9bb0ccc5610b7c4fe7f"
+    "review_state": "approved",
+    "mechanic_digest": "c5d61719dda8b9bb0ccc5610b7c4fe7f",
+    "reviewed_by": "claude-opus-5-second-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   }
 ]
