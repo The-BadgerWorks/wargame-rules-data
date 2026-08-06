@@ -10,12 +10,10 @@
   },
   {
     "ability_key": "datasheet:braziers-of-judgement",
-    "mechanic_digest": "bb9c4a4da2cd1f34cfd956ad2bb0247b",
+    "mechanic_digest": "724c872dc09e0e52e66675045f3ab2ef",
     "name": "Braziers of Judgement",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "While a Character leads this unit, attacks targeting this unit suffer -1 to the Hit roll."
+    "review_state": "in_review",
+    "summary": "This unit has Stealth, and melee attacks that target it take -1 to hit."
   },
   {
     "ability_key": "datasheet:dark-angels-bodyguard",
@@ -82,30 +80,24 @@
   },
   {
     "ability_key": "datasheet:grand-master-of-the-ravenwing",
-    "mechanic_digest": "a44537ecd9af313f11e1b4edbe601b81",
+    "mechanic_digest": "3a07b325dbc5b16e53d88a8f11ed742e",
     "name": "Grand Master of the Ravenwing",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "While leading a unit, that unit can shoot and charge in a turn it Advanced; if already able to do so, add 1 to its Advance and Charge rolls instead."
+    "review_state": "in_review",
+    "summary": "This unit's ranged attacks have Assault, its Advance move does not stop it charging, and it has the Mobile ability."
   },
   {
     "ability_key": "datasheet:honour-or-death",
-    "mechanic_digest": "75f638c8d24adefeddf4b39e86e1da14",
+    "mechanic_digest": "31aa48f474ff1a71515e7df13fc11560",
     "name": "Honour or Death",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "While this unit includes a Champion-type model, add 1 to its Advance and Charge rolls, and it can be targeted with the Heroic Intervention Stratagem for 0CP, sometimes even after that Stratagem was already used this phase."
+    "review_state": "in_review",
+    "summary": "You can target this unit with Heroic Intervention for -1 CP, regardless of other uses of that stratagem this phase; it does not prevent other units from also using it."
   },
   {
     "ability_key": "datasheet:icon-of-old-caliban-aura",
-    "mechanic_digest": "bc10a1547ef9c4f7630d915fb33f25f8",
+    "mechanic_digest": "a9144cb7dd7d59ee991e7ac747e08588",
     "name": "Icon of Old Caliban (Aura)",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "While a friendly Adeptus Astartes unit is within 6\" of this model, it has the Stealth ability and Benefit of Cover against ranged attacks."
+    "review_state": "in_review",
+    "summary": "Friendly ADEPTUS ASTARTES units within 6\" of this unit have the Stealth ability."
   },
   {
     "ability_key": "datasheet:inner-circle",
@@ -136,12 +128,10 @@
   },
   {
     "ability_key": "datasheet:lightning-fast-manoeuvres",
-    "mechanic_digest": "580ee3677b56202a456e00ffa86b3eb5",
+    "mechanic_digest": "f921c86023e2bfeb000260c14b18fc0e",
     "name": "Lightning-fast Manoeuvres",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "Ranged attacks targeting this model suffer -1 to the Hit roll, and a further -1 to the Wound roll if made by a model that can Fly."
+    "review_state": "in_review",
+    "summary": "Ranged attacks that target this unit take -1 to wound."
   },
   {
     "ability_key": "datasheet:martial-exemplar-aura",
@@ -190,12 +180,10 @@
   },
   {
     "ability_key": "datasheet:stasis-bomb",
-    "mechanic_digest": "66ad106b7de7aae2f6d368e45ab72273",
+    "mechanic_digest": "15c25a8c8a2da6dfa1b7d6961c1887b5",
     "name": "Stasis Bomb",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "Once per battle, after a Normal move, target one enemy unit (not Aircraft) moved over: it suffers D3 mortal wounds, then on a D6 either cannot Advance/Fall Back or must Remain Stationary next opponent Movement phase."
+    "review_state": "in_review",
+    "summary": "At the end of your opponent's Fight phase, target one visible enemy unit within 24\" (not AIRCRAFT/Lone Operative): it is slowed until their next Movement phase -- moving risks D3 wounds/-2\" Move on 1-4, or 2D3 wounds/-3\" Move on 5-6."
   },
   {
     "ability_key": "datasheet:storm-of-vengeance",
