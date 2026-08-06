@@ -34,8 +34,10 @@
     "detachment_id": "d-mortarions-hammer",
     "name": "Miasmic Bombardment",
     "summary": "At the start of each battle round, mark 1/2/3 enemy units at Incursion/Strike Force/Onslaught, each more than 12\" from every model of yours on the battlefield, as Afflicted until the round ends.",
-    "review_state": "in_review",
-    "mechanic_digest": "62999a7c178df8838f66e1e9d5e21fb8"
+    "review_state": "approved",
+    "mechanic_digest": "62999a7c178df8838f66e1e9d5e21fb8",
+    "reviewed_by": "claude-opus-5-second-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-paragons-of-putrescence:hypervirulent-strains",
@@ -52,23 +54,29 @@
     "detachment_id": "d-shamblerot-vectorium",
     "name": "Numberless Horde",
     "summary": "In your Command phase in battle rounds 2-3 at Incursion, 2-4 at Strike Force or 2-5 at Onslaught, add a new Poxwalkers unit of 10 models to your army in Strategic Reserves. Poxwalkers gain Battleline.",
-    "review_state": "in_review",
-    "mechanic_digest": "07d09d7fe614c302416c64a145fe176b"
+    "review_state": "approved",
+    "mechanic_digest": "07d09d7fe614c302416c64a145fe176b",
+    "reviewed_by": "claude-opus-5-second-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-tallyband-summoners:reverberant-rancidity",
     "detachment_id": "d-tallyband-summoners",
     "name": "Reverberant Rancidity",
     "summary": "Plague Legions units within 7\" of a Death Guard unit gain Nurgle's Gift; Death Guard within 7\" of a Plague Legions unit get +3\" Contagion Range. You may take up to 500/1000/1500 pts of Plague Legions, none of which can be Warlord.",
-    "review_state": "in_review",
-    "mechanic_digest": "f4b62bb44fd05ce3bc8a47cfab2aefba"
+    "review_state": "approved",
+    "mechanic_digest": "f4b62bb44fd05ce3bc8a47cfab2aefba",
+    "reviewed_by": "claude-opus-5-second-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-virulent-vectorium:worldblight",
     "detachment_id": "d-virulent-vectorium",
     "name": "Worldblight",
     "summary": "At the end of your Command phase, an objective marker a Death Guard unit controls is secured; until you lose control of it, enemy units within range of that objective are Afflicted.",
-    "review_state": "in_review",
-    "mechanic_digest": "ada9f3784ef57964517792b5ba44e3bb"
+    "review_state": "approved",
+    "mechanic_digest": "ada9f3784ef57964517792b5ba44e3bb",
+    "reviewed_by": "claude-opus-5-second-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   }
 ]

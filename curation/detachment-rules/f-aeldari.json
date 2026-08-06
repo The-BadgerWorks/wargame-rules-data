@@ -44,8 +44,10 @@
     "detachment_id": "d-devoted-of-ynnead",
     "name": "Strength from Death",
     "summary": "Include Ynnari despite the missing Asuryani keyword; non-Epic-Hero Asuryani gain Ynnari; Yvraine and/or The Yncarne must be taken, one as Warlord. Ynnari get a D6+1\" move after a shooting loss or a Fade Back, and Fights First when depleted.",
-    "review_state": "in_review",
-    "mechanic_digest": "840b30a4fd8308a1402c85aeea3ccab1"
+    "review_state": "approved",
+    "mechanic_digest": "840b30a4fd8308a1402c85aeea3ccab1",
+    "reviewed_by": "claude-opus-5-second-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-eldritch-raiders:veterans-of-the-void",
@@ -112,8 +114,10 @@
     "detachment_id": "d-seer-council",
     "name": "Strands of Fate",
     "summary": "Roll a Fate dice pool at the start of the battle: 3 D6 at Incursion, 6 at Strike Force, 9 at Onslaught. Discard a die showing a listed Stratagem's value to cut that use of it by 1CP.",
-    "review_state": "in_review",
-    "mechanic_digest": "49797f19fefbf112d2c807cb70c372dd"
+    "review_state": "approved",
+    "mechanic_digest": "49797f19fefbf112d2c807cb70c372dd",
+    "reviewed_by": "claude-opus-5-second-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-serpents-brood:boons-of-the-brood",
@@ -130,8 +134,10 @@
     "detachment_id": "d-spirit-conclave",
     "name": "Shepherds of the Dead",
     "summary": "Destroying an Asuryani Psyker gives the killer a Vengeful Dead token; Wraith Construct attacks on it get +1 to hit/wound. Asuryani Psykers give Wraithblades/Wraithguard/Wraithlord within 12\" Battle Focus; the first two also gain Battleline.",
-    "review_state": "in_review",
-    "mechanic_digest": "816bdf2d01a0667da74ea1cc56a629e7"
+    "review_state": "approved",
+    "mechanic_digest": "816bdf2d01a0667da74ea1cc56a629e7",
+    "reviewed_by": "claude-opus-5-second-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-twilight-flickers:dance-of-distortion",
@@ -158,7 +164,9 @@
     "detachment_id": "d-windrider-host",
     "name": "Ride the Wind",
     "summary": "Asuryani Mounted and Vyper units may start in Reserves and arrive as if the battle round were one higher. At the end of your opponent's turn you can return 1/2/3 of them (by battle size) to Strategic Reserves. Windriders gain Battleline.",
-    "review_state": "in_review",
-    "mechanic_digest": "77fdeb24ab2788a36b55568c6630825a"
+    "review_state": "approved",
+    "mechanic_digest": "77fdeb24ab2788a36b55568c6630825a",
+    "reviewed_by": "claude-opus-5-second-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   }
 ]

@@ -14,8 +14,10 @@
     "detachment_id": "d-armoured-infantry",
     "name": "Squadron Command",
     "summary": "Officers can order Squadron units too, and gain an Order: an Armoured Skirmisher unit makes a D6\" move when an enemy ends a Normal/Advance move within 8\", once per turn. Non-Artillery Squadron units under 13 Wounds gain Armoured Skirmisher.",
-    "review_state": "in_review",
-    "mechanic_digest": "97725dc5994748f51c87622ff0d948a6"
+    "review_state": "approved",
+    "mechanic_digest": "97725dc5994748f51c87622ff0d948a6",
+    "reviewed_by": "claude-opus-5-second-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-bridgehead-strike:fire-zone-purge",
@@ -32,8 +34,10 @@
     "detachment_id": "d-combined-arms",
     "name": "Born Soldiers",
     "summary": "A Regiment unit's ranged attacks against visible non-Monster, non-Vehicle targets get Lethal Hits. A Squadron unit's ranged attacks against visible Monster or Vehicle targets get Lethal Hits.",
-    "review_state": "in_review",
-    "mechanic_digest": "351c641e9876a76d7f08c5b5564824bd"
+    "review_state": "approved",
+    "mechanic_digest": "351c641e9876a76d7f08c5b5564824bd",
+    "reviewed_by": "claude-opus-5-second-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-designation-force:designated-targets",
@@ -90,15 +94,19 @@
     "detachment_id": "d-siege-regiment",
     "name": "Artillery Support",
     "summary": "Each battle round pick one, affecting up to 2/3/4 units by battle size: enemy units over 12\" from all your models are shaken on a 5+ (-2\" Move, -2 Charge); or such units are scattered (no Benefit of Cover); or your units gain Stealth.",
-    "review_state": "in_review",
-    "mechanic_digest": "594cf1ea480f57df5b55fc40f7e81eab"
+    "review_state": "approved",
+    "mechanic_digest": "594cf1ea480f57df5b55fc40f7e81eab",
+    "reviewed_by": "claude-opus-5-second-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-steel-hammer:ceaseless-cannonade",
     "detachment_id": "d-steel-hammer",
     "name": "Ceaseless Cannonade",
     "summary": "Astra Militarum Titanic and Squadron units can shoot enemies within Engagement Range, Blast included, if no other friendly unit is engaged there, ignoring the Engagement Range hit penalty bar Indirect Fire. Titanic units may gain Character.",
-    "review_state": "in_review",
-    "mechanic_digest": "b2b8d0ac0301d35469dbf89d13805f3b"
+    "review_state": "approved",
+    "mechanic_digest": "b2b8d0ac0301d35469dbf89d13805f3b",
+    "reviewed_by": "claude-opus-5-second-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   }
 ]
