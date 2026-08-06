@@ -14,8 +14,10 @@
     "detachment_id": "d-armoured-speartip",
     "name": "Rapid Deployment",
     "summary": "An Adeptus Astartes unit disembarking from a non-Fly Transport that made a Normal or Advance move this phase, and did not arrive from Strategic Reserves, can make a D6\" Normal move, or D3+3\" from a 14+ Wound Heavy Transport.",
-    "review_state": "in_review",
-    "mechanic_digest": "0c6a9f6984e0a145495b6897be924d1a"
+    "review_state": "approved",
+    "mechanic_digest": "0c6a9f6984e0a145495b6897be924d1a",
+    "reviewed_by": "claude-opus-5-second-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-ceramite-sentinels:adaptive-defence",
@@ -72,8 +74,10 @@
     "detachment_id": "d-headhunter-task-force",
     "name": "Target Sighted",
     "summary": "Tank Ace units - Adeptus Astartes Vehicles other than Fortifications, Drop Pods, Walkers and Fly - skip the Advance roll for a flat +6\" Move, and re-roll Damage when shooting if they did not Advance. Up to three may gain Character.",
-    "review_state": "in_review",
-    "mechanic_digest": "bc46cc142d681a090b361fc92b3e8454"
+    "review_state": "approved",
+    "mechanic_digest": "bc46cc142d681a090b361fc92b3e8454",
+    "reviewed_by": "claude-opus-5-second-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-ironstorm-spearhead:armoured-wrath",
@@ -100,8 +104,10 @@
     "detachment_id": "d-orbital-assault-force",
     "name": "Rapid-drop Deployment",
     "summary": "At deployment, 2/3/4 non-Titanic Adeptus Astartes units by battle size gain Deep Strike. A model set up this turn re-rolls a Wound roll of 1; if it disembarked from a Drop Pod this turn it re-rolls a Hit roll of 1 as well.",
-    "review_state": "in_review",
-    "mechanic_digest": "6d9de3902ef6028b32da8580eada69a9"
+    "review_state": "approved",
+    "mechanic_digest": "6d9de3902ef6028b32da8580eada69a9",
+    "reviewed_by": "claude-opus-5-second-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-stormlance-task-force:lightning-assault",
@@ -128,8 +134,10 @@
     "detachment_id": "d-the-living-miracle",
     "name": "Anointed Champion",
     "summary": "When an Emperor's Champion is selected to fight, its melee attacks can re-roll one Hit roll and one Wound roll. This detachment's Enhancements don't count against your army's limit. Black Templars only, no other Chapter.",
-    "review_state": "in_review",
-    "mechanic_digest": "2550e1635a055adc8559c2e1acc6d518"
+    "review_state": "approved",
+    "mechanic_digest": "2550e1635a055adc8559c2e1acc6d518",
+    "reviewed_by": "claude-opus-5-second-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-vanguard-spearhead:shadow-masters",
@@ -146,16 +154,20 @@
     "detachment_id": "d-vengeful-hosts",
     "name": "Imperator Unleashed",
     "summary": "After an Adeptus Astartes Fly Infantry unit makes an ingress or charge move this turn, its attacks can re-roll Hit rolls of 1.",
-    "review_state": "in_review",
-    "mechanic_digest": "455871c6b816df4cd30143b4a77a0dad"
+    "review_state": "approved",
+    "mechanic_digest": "455871c6b816df4cd30143b4a77a0dad",
+    "reviewed_by": "claude-opus-5-second-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-vindication-task-force:purge-and-sanctify",
     "detachment_id": "d-vindication-task-force",
     "name": "Purge and Sanctify",
     "summary": "An attack on an Ancient unit within range of an objective marker, with Strength above that unit's Toughness, gets -1 to Wound. A Crusader Squad may surge toward the closest objective instead of a surge target. Black Templars only.",
-    "review_state": "in_review",
-    "mechanic_digest": "fb6ed3773ada8767adaa0b941dad080a"
+    "review_state": "approved",
+    "mechanic_digest": "fb6ed3773ada8767adaa0b941dad080a",
+    "reviewed_by": "claude-opus-5-second-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-wrathful-procession:chant-of-deathless-devotion",
