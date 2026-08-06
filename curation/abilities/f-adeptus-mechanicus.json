@@ -1,5 +1,19 @@
 [
   {
+    "ability_key": "core:scouts-9",
+    "mechanic_digest": "48b523bacc85908043ae18fd81528974",
+    "name": "Scouts 9\"",
+    "review_state": "in_review",
+    "summary": "Scouts X: before the battle, a unit wholly with this ability can set up anywhere in your deployment zone from reserves, or make a scout move of up to X\" ending more than 8\" from all enemy units."
+  },
+  {
+    "ability_key": "core:stealth",
+    "mechanic_digest": "d8c26e9ad0c50ef919463405259ab050",
+    "name": "Stealth",
+    "review_state": "in_review",
+    "summary": "If every model in a unit has Stealth, that unit has the benefit of cover against ranged attacks that target it."
+  },
+  {
     "ability_key": "datasheet:achillan-eye",
     "mechanic_digest": "af8306283f3a3d214acddaf8a9c1ddd4",
     "name": "Achillan Eye",
@@ -19,12 +33,10 @@
   },
   {
     "ability_key": "datasheet:aerial-deployment",
-    "mechanic_digest": "00a3838cffd9631792b5fe6c6a282141",
+    "mechanic_digest": "4747ce1e277f5ae77df9bf6dcea2787d",
     "name": "Aerial Deployment",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "If this model starts the battle in Hover mode and in Strategic Reserves, it can be set up in the Reinforcements step of your first, second, or third Movement phase regardless of mission rules."
+    "review_state": "in_review",
+    "summary": "In your first Movement phase, this unit can make an ingress move."
   },
   {
     "ability_key": "datasheet:battle-protocols",
@@ -55,12 +67,10 @@
   },
   {
     "ability_key": "datasheet:bomb-rack",
-    "mechanic_digest": "1ad49daa10cc84ed0e44d1015d7ab32c",
+    "mechanic_digest": "fbe7a96ef524681cb0f0ded173edae6e",
     "name": "Bomb Rack",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "Each time this model ends a Normal move, it can target one enemy unit it moved across: roll six D6, and that unit suffers 1 mortal wound for each result of 4+."
+    "review_state": "in_review",
+    "summary": "At the end of your opponent's Fight phase, target one visible enemy unit (not Lone Operative) within 24\" and roll six D6: for each 4+, that unit suffers 1 mortal wound."
   },
   {
     "ability_key": "datasheet:bound-creation",
@@ -151,6 +161,13 @@
     "reviewed_at": "2026-08-04T00:00:00Z",
     "reviewed_by": "claude-reviewer-opus",
     "summary": "This model can move through terrain features (but not end its move inside one) and can be set up or end a move on any floor level of Ruins, provided its base does not overhang a non-ground floor."
+  },
+  {
+    "ability_key": "datasheet:data-severed",
+    "mechanic_digest": "d7d785bece33d282a16450f4e4eef4a6",
+    "name": "Data-severed",
+    "review_state": "in_review",
+    "summary": "If this unit has no KASTELAN ROBOT models, it loses the Vehicle keyword and gains Infantry."
   },
   {
     "ability_key": "datasheet:data-spike",
@@ -316,12 +333,10 @@
   },
   {
     "ability_key": "datasheet:mindlock",
-    "mechanic_digest": "cf49751f1afd65d2b34a45b22c65598e",
+    "mechanic_digest": "43d27c21d6680609d2899376ce297171",
     "name": "Mindlock",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "While the specified leader model is with this unit, the Ballistic Skill and Weapon Skill of weapons equipped by its Servitor-type models are improved by 1; which leader and which weapons vary by datasheet."
+    "review_state": "in_review",
+    "summary": "While a TECH-PRIEST model leads this model's unit, improve this model's weapons' Ballistic Skill and Weapon Skill by 1."
   },
   {
     "ability_key": "datasheet:monocular-targeting-helms",
@@ -397,12 +412,10 @@
   },
   {
     "ability_key": "datasheet:repulsor-grid",
-    "mechanic_digest": "78b2fc378443afe5496a7b506669b8f7",
+    "mechanic_digest": "067c11328027f1ced08fb7c49282f0d4",
     "name": "Repulsor Grid",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "Each time a ranged attack is allocated to a Kastelan Robot model in this unit, an unmodified saving throw of 6 deals the attacking unit 1 mortal wound after it finishes attacking."
+    "review_state": "in_review",
+    "summary": "When an enemy unit shoots this unit, an unmodified 6 on a save roll deals that enemy unit 1 mortal wound after it finishes shooting."
   },
   {
     "ability_key": "datasheet:ride-the-thermals",
@@ -532,12 +545,10 @@
   },
   {
     "ability_key": "datasheet:strafing-run",
-    "mechanic_digest": "afe1b3dda3b805ec741c224945e9f7c1",
+    "mechanic_digest": "5ae7a8b70525bffd7afa504a89bea07a",
     "name": "Strafing Run",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "Usually: this model's ranged attacks against an enemy unit that cannot Fly get +1 to the Hit roll. On one model, a non-Fly unit hit by its shooting must instead take a Battle-shock test."
+    "review_state": "in_review",
+    "summary": "Each time this model attacks a non-FLY enemy unit with a ranged attack, add 1 to the Hit roll."
   },
   {
     "ability_key": "datasheet:sydonian-sentinel",
@@ -550,12 +561,10 @@
   },
   {
     "ability_key": "datasheet:tactica-obliqua",
-    "mechanic_digest": "aeb824ca4aea8b603c9f86edc190f8b8",
+    "mechanic_digest": "d6edb429badb78afd362303a4326d3ea",
     "name": "Tactica Obliqua",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "Once per turn, when an enemy unit ends a Normal, Advance or Fall Back move within 9\" of this unit and it is not in Engagement Range, it can move up to D6\", or 6\" if it ends wholly within 6\" of a friendly Adeptus Mechanicus Battleline unit."
+    "review_state": "in_review",
+    "summary": "In your opponent's Movement phase, if an enemy unit ends within 8\" of this unit and it is not in Engagement Range, it can move up to D6\", or up to 6\" if every model ends wholly within 6\" of a friendly ADEPTUS MECHANICUS BATTLELINE unit."
   },
   {
     "ability_key": "datasheet:termite-assault",
@@ -601,5 +610,12 @@
     "reviewed_at": "2026-08-04T00:00:00Z",
     "reviewed_by": "claude-reviewer-opus",
     "summary": "At the start of the Fight phase, each enemy unit within Engagement Range of a unit with this ability must take a Battle-shock test."
+  },
+  {
+    "ability_key": "faction:doctrina-imperatives",
+    "mechanic_digest": "e378d165c0b35d936fd25c7adf2d6b48",
+    "name": "Doctrina Imperatives",
+    "review_state": "in_review",
+    "summary": "Each battle round, pick a Doctrina Imperative: Protector gives ranged weapons Heavy, +1 BS, and -1 to enemy melee Hit rolls near Battleline; Conqueror gives ranged Assault, +1 WS, +1 AP near Battleline."
   }
 ]
