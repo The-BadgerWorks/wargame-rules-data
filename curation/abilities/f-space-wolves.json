@@ -48,7 +48,9 @@
     "ability_key": "datasheet:bestial-rage",
     "mechanic_digest": "2e55a357efcee1e23b3de828109cd495",
     "name": "Bestial Rage",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
     "summary": "In your opponent's Shooting phase, if this model lost a wound from an enemy unit's attacks, this unit can make a surge move of up to D6+2\"."
   },
   {
@@ -137,7 +139,7 @@
     "mechanic_digest": "ccf26bc7446eaaf3b64b69bcd33166fc",
     "name": "Guile of the Wolf (Aura)",
     "review_state": "in_review",
-    "summary": "Once per turn, when your opponent targets a unit within 12\" of this model with a Stratagem, you can increase that Stratagem's CP cost by 1."
+    "summary": "Once per turn, when your opponent targets one of their own units within 12\" of this model with a Stratagem, you can add 1 CP to that Stratagem cost."
   },
   {
     "ability_key": "datasheet:hammer-blow",
@@ -233,7 +235,9 @@
     "ability_key": "datasheet:predatory-instinct",
     "mechanic_digest": "ca6bb9d1652bb91976f8fd303cf9a215",
     "name": "Predatory Instinct",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
     "summary": "In your opponent's Movement phase, if an enemy unit ends a move within 8\" of this unit and this unit is not within Engagement Range, it can make a Normal move of up to D6\"."
   },
   {
