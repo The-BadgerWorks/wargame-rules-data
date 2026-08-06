@@ -1,0 +1,10 @@
+[
+  {
+    "summary_key": "detachment:d-mechanised-assault:armoured-fist",
+    "detachment_id": "d-mechanised-assault",
+    "name": "Armoured Fist",
+    "summary": "Astra Militarum models add 1 to the Wound roll of a ranged attack made in a turn they disembarked from a Transport.",
+    "review_state": "in_review",
+    "mechanic_digest": "aa2e7b968e24dbb06f9986ccae219c27"
+  }
+]

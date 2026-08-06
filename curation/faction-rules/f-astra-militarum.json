@@ -1,0 +1,14 @@
+{
+  "faction_id": "f-astra-militarum",
+  "army_rule_state": "present",
+  "rules": [
+    {
+      "summary_key": "faction:f-astra-militarum:voice-of-command",
+      "display_order": 1,
+      "name": "Voice of Command",
+      "summary": "Officer models issue one Order per activation to a unit within 6\": +3\" Move, +1 WS, +1 BS, +1 Attack (Rapid Fire), +1 Save, or +1 Ld/OC. A unit holds one Order at a time; none while Battle-shocked.",
+      "review_state": "in_review",
+      "mechanic_digest": "00a0ed0a0660ffb124f7edd3f08210f5"
+    }
+  ]
+}
