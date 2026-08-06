@@ -55,12 +55,10 @@
   },
   {
     "ability_key": "datasheet:bloody-fury",
-    "mechanic_digest": "90b1f0eaa95b21f07ad643ec0abf466c",
+    "mechanic_digest": "819fbe150a8b2633bf5d7d074b9215cb",
     "name": "Bloody Fury",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "This unit re-rolls Hit rolls on ranged attacks against the closest enemy unit, and re-rolls the Charge roll when charging the closest eligible enemy unit."
+    "review_state": "in_review",
+    "summary": "This unit's ranged attacks against its closest eligible target can re-roll Hit rolls. When it charges, it can re-roll the charge roll but must end engaged with its closest charge target."
   },
   {
     "ability_key": "datasheet:crush-all-who-stand-before-us",
@@ -109,12 +107,10 @@
   },
   {
     "ability_key": "datasheet:frenzy",
-    "mechanic_digest": "f7697a3b16084cb5c8b0ccbd108c733b",
+    "mechanic_digest": "674f37c48220831710a0057880a9d10e",
     "name": "Frenzy",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "When an enemy unit finishes attacking this model without destroying it, this model can immediately retaliate (fighting, or shooting/fighting depending on the model), targeting only that enemy unit."
+    "review_state": "in_review",
+    "summary": "Once per turn per unit, after an enemy unit that targeted this unit in the Fight phase finishes attacking, this unit becomes eligible to fight again and must be selected to fight next."
   },
   {
     "ability_key": "datasheet:furious-onslaught",
@@ -145,12 +141,10 @@
   },
   {
     "ability_key": "datasheet:loping-speed",
-    "mechanic_digest": "1c05bdeb68335f1b96a1b58f0f83bbad",
+    "mechanic_digest": "ca6bb9d1652bb91976f8fd303cf9a215",
     "name": "Loping Speed",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "Once per turn, when an enemy unit ends a Normal, Advance or Fall Back move within 9\" of this unit, if this unit is outside Engagement Range of all enemies, it can make a Normal move of up to D6\"."
+    "review_state": "in_review",
+    "summary": "In your opponent's Movement phase, if an enemy unit ends a move within 8\" of this unit and it is not in Engagement Range, it can make a Normal move of up to D6\"."
   },
   {
     "ability_key": "datasheet:lord-of-murder",
@@ -172,12 +166,10 @@
   },
   {
     "ability_key": "datasheet:meet-any-challenge",
-    "mechanic_digest": "7a07a430b1b0a4047f573ee7c6ff7ddb",
+    "mechanic_digest": "0ebfec9224d9e21b0308cd5649de56eb",
     "name": "Meet Any Challenge",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "In the opponent's Movement phase, each time an enemy unit is set up or moves within 9\" of this model, any units embarked within it may disembark."
+    "review_state": "in_review",
+    "summary": "In your opponent's Movement phase, each time an enemy unit is set up or ends a Normal, Advance, or Fall Back move within 8\" of this model, units embarked within it can disembark."
   },
   {
     "ability_key": "datasheet:objective-ravaged",
@@ -289,12 +281,10 @@
   },
   {
     "ability_key": "datasheet:the-scent-of-blood",
-    "mechanic_digest": "de5ee1d38646adab978d08fc055953f6",
+    "mechanic_digest": "5bee5ce534ffe6d9cc91a55f1b7529e9",
     "name": "The Scent of Blood",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "When this model charges a target below Starting Strength, add 1 to the Charge roll (add 2 instead if a target is Below Half-strength)."
+    "review_state": "in_review",
+    "summary": "When this unit declares a charge, it gets +1 to the charge roll if an enemy unit below Starting Strength is within 9\", or +2 instead if that enemy is Below Half-strength."
   },
   {
     "ability_key": "datasheet:to-slake-its-rage",
@@ -307,12 +297,10 @@
   },
   {
     "ability_key": "datasheet:unleash-wrath",
-    "mechanic_digest": "e4b3749adf979e4fe36d0f26ecbcbb6a",
+    "mechanic_digest": "7ccf1a18956b5a11d287fa06ac848896",
     "name": "Unleash Wrath",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "At the end of the opponent's Movement phase, this model can shoot at or charge one enemy unit that arrived within 12\" of it this phase (a successful charge this way grants no Charge bonus)."
+    "review_state": "in_review",
+    "summary": "At the end of your opponent's Movement phase, select one enemy unit set up within 12\" of this model this phase: this model can shoot it if eligible, or declare a charge and must end engaged with it (no Charge bonus)."
   },
   {
     "ability_key": "datasheet:wrathful-presence",
@@ -322,5 +310,12 @@
     "reviewed_at": "2026-08-04T00:00:00Z",
     "reviewed_by": "claude-reviewer-opus",
     "summary": "At the start of the battle round, choose one Wrathful Presence ability for this model to have until the next battle round begins."
+  },
+  {
+    "ability_key": "faction:pact-of-blood",
+    "mechanic_digest": "687ffc1b1f643f9a8bf384cb7ee385f8",
+    "name": "Pact of Blood",
+    "review_state": "in_review",
+    "summary": "When building your army, your Army Faction cannot be Blood Legions."
   }
 ]
