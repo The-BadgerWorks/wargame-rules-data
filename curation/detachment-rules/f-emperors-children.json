@@ -1,0 +1,18 @@
+[
+  {
+    "summary_key": "detachment:d-court-of-the-phoenician:master-of-the-pageant",
+    "detachment_id": "d-court-of-the-phoenician",
+    "name": "Master of the Pageant",
+    "summary": "Once per battle round, reduce the CP cost of the Sinuous Breach or Prideful Superiority Stratagem by 1 when used on a Fulgrim unit.",
+    "review_state": "in_review",
+    "mechanic_digest": "a2965b529165b08f6cb87ad754d610f5"
+  },
+  {
+    "summary_key": "detachment:d-court-of-the-phoenician:sensational-performance",
+    "detachment_id": "d-court-of-the-phoenician",
+    "name": "Sensational Performance",
+    "summary": "After a Charge move, an Emperor's Children unit that fights can restrict its targets like Thrill Seekers and gain +1 Strength and Armour Penetration on its melee weapons for the phase.",
+    "review_state": "in_review",
+    "mechanic_digest": "8ba0f6d35226fbc63acd6afc54f8a5a5"
+  }
+]
