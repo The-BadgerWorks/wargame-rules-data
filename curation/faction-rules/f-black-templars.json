@@ -6,7 +6,7 @@
       "summary_key": "faction:f-black-templars:templar-vows",
       "display_order": 1,
       "name": "Templar Vows",
-      "summary": "On battle round 1, pick one Vow for Adeptus Astartes units, active until battle end: grants Precision vs Psykers, +1 Wound vs tougher targets, freer charge/pile-in after falling back, or stronger objective control.",
+      "summary": "Battle round 1: pick one Vow, active for the battle for your Adeptus Astartes units. Precision and charge re-rolls vs Psykers; +1 to Wound when S is at most T; charge after Falling Back plus free Pile-in; or Infantry sticky objectives.",
       "review_state": "in_review",
       "mechanic_digest": "f525f15cfbc6ed571aa602982d56c37e"
     }
