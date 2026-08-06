@@ -1,5 +1,33 @@
 [
   {
+    "ability_key": "core:deadly-demise-3d6",
+    "mechanic_digest": "687ffc1b1f643f9a8bf384cb7ee385f8",
+    "name": "Deadly Demise 3D6",
+    "review_state": "in_review",
+    "summary": "Deadly Demise X: each time a model in this unit is destroyed, roll one D6; on a 6, units within 6\" suffer X mortal wounds (here 3D6)."
+  },
+  {
+    "ability_key": "core:deadly-demise-d6-3",
+    "mechanic_digest": "687ffc1b1f643f9a8bf384cb7ee385f8",
+    "name": "Deadly Demise D6+3",
+    "review_state": "in_review",
+    "summary": "Deadly Demise X: each time a model in this unit is destroyed, roll one D6; on a 6, units within 6\" suffer X mortal wounds (here D6+3)."
+  },
+  {
+    "ability_key": "core:deadly-demise-d6-3-szarekh-model-only",
+    "mechanic_digest": "687ffc1b1f643f9a8bf384cb7ee385f8",
+    "name": "Deadly Demise D6+3 (Szarekh model only)",
+    "review_state": "in_review",
+    "summary": "Deadly Demise X: each time a model in this unit is destroyed, roll one D6; on a 6, units within 6\" suffer X mortal wounds (here D6+3, Szarekh model only)."
+  },
+  {
+    "ability_key": "core:scouts-8",
+    "mechanic_digest": "48b523bacc85908043ae18fd81528974",
+    "name": "Scouts 8\"",
+    "review_state": "in_review",
+    "summary": "Scouts X: before the battle, a unit wholly with this ability can set up anywhere in your deployment zone from reserves, or make a scout move of up to X\" (here 8\") ending more than 8\" from all enemy units."
+  },
+  {
     "ability_key": "datasheet:accelerator-mandible",
     "mechanic_digest": "0fe3dabfe74dd34032b29813b4590ed4",
     "name": "Accelerator Mandible",
@@ -117,6 +145,13 @@
     "summary": "After this model's unit shoots, if not in Engagement Range, it can make a Normal move of up to 5\" as in the Movement phase, but cannot then charge that turn."
   },
   {
+    "ability_key": "datasheet:counter-tactics",
+    "mechanic_digest": "4e673e2c1e63ec191660a3f7f926d603",
+    "name": "Counter-tactics",
+    "review_state": "in_review",
+    "summary": "Once per battle, after your opponent uses a Stratagem while this model is on the battlefield, that Stratagem costs your opponent 1 extra CP for the rest of the battle."
+  },
+  {
     "ability_key": "datasheet:crimson-harvest",
     "mechanic_digest": "73697965ec3a980f8754dbf745ec81e0",
     "name": "Crimson Harvest",
@@ -217,12 +252,10 @@
   },
   {
     "ability_key": "datasheet:eternity-gate",
-    "mechanic_digest": "a1d63a2e0cf9335474350b6b237bde91",
+    "mechanic_digest": "8f867490aac0b9d63296c4c64b615d66",
     "name": "Eternity Gate",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "In the Reinforcements step of your Movement phase, bring a Necrons Infantry unit from Reserves, or redeploy one already on the battlefield, to set up wholly within 6\" of this model and outside Engagement Range; it cannot charge this turn."
+    "review_state": "in_review",
+    "summary": "In your Movement phase (not turn one), select one friendly NECRONS INFANTRY unit (in reserves or moved there from the battlefield) to ingress within 6\" of this unit, outside Engagement Range; it cannot charge this turn."
   },
   {
     "ability_key": "datasheet:evasion-engrams",
@@ -262,12 +295,10 @@
   },
   {
     "ability_key": "datasheet:gloom-prism-aura",
-    "mechanic_digest": "5c2de2148ef88ac42716790a163fb8b9",
+    "mechanic_digest": "60eb15094ed63d608a440293b592f126",
     "name": "Gloom Prism (Aura)",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "While a friendly Necrons unit is within 6\" of the bearer, models in that unit gain Feel No Pain against mortal wounds and Psychic Attacks."
+    "review_state": "in_review",
+    "summary": "Friendly NECRONS units within 6\" of the bearer have Feel No Pain 4+ against Psychic Attacks."
   },
   {
     "ability_key": "datasheet:grand-illusion",
@@ -405,6 +436,13 @@
     "summary": "While a friendly non-Monster, non-Titanic Necrons unit is within 6\", attacks its Destroyer Cult models make, or attacks any of its models make against the closest eligible target, gain the Sustained Hits 1 ability."
   },
   {
+    "ability_key": "datasheet:invasion-beams",
+    "mechanic_digest": "1693e9b3a8d600210ae0ecf12a350163",
+    "name": "Invasion Beams",
+    "review_state": "in_review",
+    "summary": "At the end of the Fight phase, if this TRANSPORT has no embarked models, one friendly NECRONS INFANTRY unit wholly within 6\" and outside Engagement Range can embark."
+  },
+  {
     "ability_key": "datasheet:living-lightning",
     "mechanic_digest": "c68e70ea0e846d6a4658e994da7095e0",
     "name": "Living Lightning",
@@ -514,12 +552,10 @@
   },
   {
     "ability_key": "datasheet:nanoscarab-reanimation-beam-aura",
-    "mechanic_digest": "b901a5ef818fa69d353336ecf15458f5",
+    "mechanic_digest": "61a1192ac0c4d7f4dfae69b62c191a83",
     "name": "Nanoscarab Reanimation Beam (Aura)",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "While a friendly Necrons unit is within 3\" of this model, its Reanimation Protocols reanimate an additional D3 wounds when activated."
+    "review_state": "in_review",
+    "summary": "Friendly NECRONS units within 3\" of this model heal an extra D3 wounds whenever their Reanimation Protocols activate."
   },
   {
     "ability_key": "datasheet:nebuloscope",
@@ -721,12 +757,10 @@
   },
   {
     "ability_key": "datasheet:resurrection-orb",
-    "mechanic_digest": "7b082af304c0fa80c56312e57e2f8a92",
+    "mechanic_digest": "f386e8eac096cac204e2c01ee35e9af5",
     "name": "Resurrection Orb",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "Once per battle, at the end of any phase, resurrect a friendly Necrons unit on the battlefield by activating its Reanimation Protocols to reanimate D6 wounds instead of D3; only one unit per turn."
+    "review_state": "in_review",
+    "summary": "Once per battle per unit, at the end of any phase, this unit's Reanimation Protocols activate, healing D6 wounds instead of D3; only one unit can resurrect per turn."
   },
   {
     "ability_key": "datasheet:rites-of-reanimation",
@@ -775,12 +809,10 @@
   },
   {
     "ability_key": "datasheet:snaking-ambush",
-    "mechanic_digest": "0915b6daad339340428a03c95512ecdc",
+    "mechanic_digest": "31aa48f474ff1a71515e7df13fc11560",
     "name": "Snaking Ambush",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "Target this unit with the Heroic Intervention Stratagem for 0 Command Points, even if another unit was already targeted this phase."
+    "review_state": "in_review",
+    "summary": "You can target this unit with Heroic Intervention for -1 CP, regardless of other uses of that stratagem this phase; it does not prevent other units from also using it."
   },
   {
     "ability_key": "datasheet:surrogate-hosts",
@@ -829,12 +861,10 @@
   },
   {
     "ability_key": "datasheet:teleportation-matrix",
-    "mechanic_digest": "7558623ce8a6ea9c70d2b1e49fe49ed3",
+    "mechanic_digest": "ec8d3165d844aa64fb02484df7e68943",
     "name": "Teleportation Matrix",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "Once per battle, if not in Engagement Range at the end of the opponent's turn, remove this Fortification and redeploy it over 9\" from all enemies next Movement phase; it is destroyed if the battle ends while off the battlefield."
+    "review_state": "in_review",
+    "summary": "Once per battle, at the end of your opponent's turn, if not in Engagement Range, remove this FORTIFICATION and redeploy it more than 8\" from all enemies next Movement phase; it is destroyed if the battle ends while off the battlefield."
   },
   {
     "ability_key": "datasheet:terrifying-monstrosity",
@@ -892,12 +922,10 @@
   },
   {
     "ability_key": "datasheet:timesplinter-mantle",
-    "mechanic_digest": "5b74fd201c7cfc3ae009e342b73acd98",
+    "mechanic_digest": "724c872dc09e0e52e66675045f3ab2ef",
     "name": "Timesplinter Mantle",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "While this model leads a unit, attacks that target that unit suffer -1 to the Hit roll."
+    "review_state": "in_review",
+    "summary": "This unit has Stealth, and melee attacks that target it take -1 to hit."
   },
   {
     "ability_key": "datasheet:titanic-walker",
@@ -910,12 +938,10 @@
   },
   {
     "ability_key": "datasheet:transdimensional-displacement",
-    "mechanic_digest": "6b6b3c13c2fdba0f56e9ed33e0ab382b",
+    "mechanic_digest": "6cb2088b298ed0771bae372ee5d9bfa0",
     "name": "Transdimensional Displacement",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "When this model would Advance, you may instead remove it and set it up anywhere more than 9\" from all enemy units."
+    "review_state": "in_review",
+    "summary": "When this unit Advances, it can move through any model (including enemies and MONSTER/VEHICLE) with no maximum distance, ending more than 8\" from all enemy units."
   },
   {
     "ability_key": "datasheet:transient-madness",
@@ -955,12 +981,10 @@
   },
   {
     "ability_key": "datasheet:tunnelling-horrors",
-    "mechanic_digest": "f81bf60717eafbc855f43715c962939f",
+    "mechanic_digest": "76f92981f23240f7e0130e4f416e998e",
     "name": "Tunnelling Horrors",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "At the end of the opponent's turn, if not in Engagement Range, remove this unit and redeploy it more than 9\" from all enemies in your next Movement phase."
+    "review_state": "in_review",
+    "summary": "At the end of your opponent's turn, if this unit is unengaged, it can enter strategic reserves and must make an ingress move next Movement phase (including turn one)."
   },
   {
     "ability_key": "datasheet:united-in-destruction",
@@ -1024,5 +1048,12 @@
     "reviewed_at": "2026-08-04T00:00:00Z",
     "reviewed_by": "claude-reviewer-opus",
     "summary": "One friendly named Fortification-family model can start the battle atop this Fortification's platform, gaining the Heavy ability on its ranged weapons while there; any friendly model can move onto its ramps or platform sections."
+  },
+  {
+    "ability_key": "faction:reanimation-protocols",
+    "mechanic_digest": "687ffc1b1f643f9a8bf384cb7ee385f8",
+    "name": "Reanimation Protocols",
+    "review_state": "in_review",
+    "summary": "At the end of your Command phase, each friendly unit with this ability on the battlefield heals D3 wounds, restoring lost models before topping up survivors."
   }
 ]
