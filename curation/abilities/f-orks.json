@@ -1,12 +1,31 @@
 [
   {
+    "ability_key": "core:firing-deck-10",
+    "mechanic_digest": "bf3b4618b0621cdc4bf5eb5bb8fa1c3b",
+    "name": "Firing Deck 10",
+    "review_state": "in_review",
+    "summary": "Firing Deck X: in your Shooting phase, when this TRANSPORT is selected to shoot, up to X (here 10) embarked models each lend it one of their ranged weapons (not one-shot) for its attacks; those models' units cannot shoot again this phase."
+  },
+  {
+    "ability_key": "core:firing-deck-20",
+    "mechanic_digest": "bf3b4618b0621cdc4bf5eb5bb8fa1c3b",
+    "name": "Firing Deck 20",
+    "review_state": "in_review",
+    "summary": "Firing Deck X: in your Shooting phase, when this TRANSPORT is selected to shoot, up to X (here 20) embarked models each lend it one of their ranged weapons (not one-shot) for its attacks; those models' units cannot shoot again this phase."
+  },
+  {
+    "ability_key": "core:firing-deck-22",
+    "mechanic_digest": "bf3b4618b0621cdc4bf5eb5bb8fa1c3b",
+    "name": "Firing Deck 22",
+    "review_state": "in_review",
+    "summary": "Firing Deck X: in your Shooting phase, when this TRANSPORT is selected to shoot, up to X (here 22) embarked models each lend it one of their ranged weapons (not one-shot) for its attacks; those models' units cannot shoot again this phase."
+  },
+  {
     "ability_key": "datasheet:ammo-runt",
-    "mechanic_digest": "f413ba5c8d9e53a3911423b97b5091cb",
+    "mechanic_digest": "931b6dcd80c3f0295098512c1c563912",
     "name": "Ammo Runt",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "Once per battle for each Ammo Runt token this unit has, its ranged weapons can gain the Lethal Hits ability until the end of the phase when it is selected to shoot."
+    "review_state": "in_review",
+    "summary": "Once per battle, when this unit shoots, its ranged weapons gain Lethal Hits until end of phase."
   },
   {
     "ability_key": "datasheet:ard-case",
@@ -118,12 +137,17 @@
   },
   {
     "ability_key": "datasheet:boom-bomb",
-    "mechanic_digest": "075d56e70413749a4e79053362849824",
+    "mechanic_digest": "3f11db6502c1ca1541c895c7aa1d61ae",
     "name": "Boom Bomb",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "After this model moves over an enemy unit, on a 4+ roll that unit suffers D6 mortal wounds."
+    "review_state": "in_review",
+    "summary": "At the end of your opponent's Fight phase, target one visible enemy unit (not Lone Operative) within 24\" and roll one D6: on a 4+, it suffers D6 mortal wounds."
+  },
+  {
+    "ability_key": "datasheet:breakin-heads",
+    "mechanic_digest": "523aa905d6cd684c04eebd75615131de",
+    "name": "Breakin' Heads",
+    "review_state": "in_review",
+    "summary": "This unit's melee weapons have the Sustained Hits 1 ability."
   },
   {
     "ability_key": "datasheet:bubblechukka",
@@ -136,12 +160,10 @@
   },
   {
     "ability_key": "datasheet:burna-bomb",
-    "mechanic_digest": "33e710883f635fd88b861172114a41e1",
+    "mechanic_digest": "5ae3a620aefbe3778a49bb52441d4f75",
     "name": "Burna Bomb",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "After this model moves over an enemy unit, that unit loses the Benefit of Cover until the end of the turn and suffers 1 mortal wound for each 6 rolled, one die per model in the unit."
+    "review_state": "in_review",
+    "summary": "At the end of your opponent's Fight phase, target one visible enemy unit (not Lone Operative) within 24\": friendly ORKS ranged attacks vs it gain Ignores Cover until your next turn, and it suffers 1 mortal wound per 6 rolled (one D6/model)."
   },
   {
     "ability_key": "datasheet:buzzer-squigs",
@@ -217,12 +239,10 @@
   },
   {
     "ability_key": "datasheet:da-jump-psychic",
-    "mechanic_digest": "0207f733b4837c4b21dc46521336d5a0",
+    "mechanic_digest": "6fb7a7b6988fb2020a3e50fdcca6291c",
     "name": "Da Jump (Psychic)",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "Once per turn, at the end of your Movement phase, a Weirdboy can teleport its unit anywhere more than 9\" from enemy models; on a roll of 1, the unit instead suffers D6 mortal wounds."
+    "review_state": "in_review",
+    "summary": "Once per turn, at the end of your Movement phase, one WEIRDBOY can roll one D6: on a 1 its unit suffers D6 mortal wounds; on a 2+, redeploy that unit more than 8\" from all enemies."
   },
   {
     "ability_key": "datasheet:da-revolushun",
@@ -232,6 +252,13 @@
     "reviewed_at": "2026-08-04T00:00:00Z",
     "reviewed_by": "claude-reviewer-opus",
     "summary": "While attached to a unit, models in that unit gain +1 to their Hit rolls."
+  },
+  {
+    "ability_key": "datasheet:dakkablitz",
+    "mechanic_digest": "cbed779b71d905ca80880d2a14074d26",
+    "name": "Dakkablitz",
+    "review_state": "in_review",
+    "summary": "In your Shooting phase, if this unit's blitzkannon targets a non-MONSTER/VEHICLE unit, that weapon gets +6 Attacks."
   },
   {
     "ability_key": "datasheet:dakkastorm",
@@ -361,12 +388,10 @@
   },
   {
     "ability_key": "datasheet:dust-trails-aura",
-    "mechanic_digest": "92948d5f1915b769194682bf764bafdb",
+    "mechanic_digest": "b8dba4f8e88e5c47663b00f7a60b94bc",
     "name": "Dust Trails (Aura)",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "Enemy units, excluding Monsters and Vehicles, within 6\" of this model have -1 to their Hit rolls when they attack."
+    "review_state": "in_review",
+    "summary": "While a non-MONSTER/VEHICLE enemy unit is within 6\" of this unit, its targets have the benefit of cover while it shoots."
   },
   {
     "ability_key": "datasheet:fix-dat-armour-up",
@@ -505,12 +530,10 @@
   },
   {
     "ability_key": "datasheet:has-yoo-been-a-good-little-grot-this-year",
-    "mechanic_digest": "aee1eecc63ae714bf8aa9a6e9108a64d",
+    "mechanic_digest": "e60e0625d956ec87d4b7bcc3d9338339",
     "name": "Has Yoo Been a Good Little Grot This Year?",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "Once per battle, this unit can be targeted with the Grenade Stratagem for 0CP, even if that Stratagem has already been used on a different unit this phase."
+    "review_state": "in_review",
+    "summary": "Once per battle, in your Shooting phase, target this model's unit with the Explosives Stratagem for 0CP, even if already used on a different unit this phase."
   },
   {
     "ability_key": "datasheet:high-octane-fuel",
@@ -531,6 +554,13 @@
     "summary": "When this model's signature melee weapon scores a Critical Wound against a non-Vehicle unit, that unit suffers D6 mortal wounds."
   },
   {
+    "ability_key": "datasheet:indiscriminate-detonations",
+    "mechanic_digest": "1112438840b75861183698222ad3508f",
+    "name": "Indiscriminate Detonations",
+    "review_state": "in_review",
+    "summary": "After this unit's attacks resolve in your Shooting phase, select one hit enemy unit: it is suppressed (-1 to hit) until the start of your next Command phase."
+  },
+  {
     "ability_key": "datasheet:krumpin-time",
     "mechanic_digest": "bdc8248483192d090a948514ba56160e",
     "name": "Krumpin’ Time",
@@ -547,6 +577,13 @@
     "reviewed_at": "2026-08-04T00:00:00Z",
     "reviewed_by": "claude-reviewer-opus",
     "summary": "Once per battle, instead of a Normal move, this model's unit can be removed and redeployed anywhere more than 9\" from all enemy models."
+  },
+  {
+    "ability_key": "datasheet:kunnin-infiltrator-once-per-battle-per-army",
+    "mechanic_digest": "40098a20bcdb5af7d6a0812324b93563",
+    "name": "Kunnin' Infiltrator (Once per battle, per army)",
+    "review_state": "in_review",
+    "summary": "In your Movement phase, if this unit is unengaged, it can enter strategic reserves with Deep Strike and must make an ingress move this phase (including turn one)."
   },
   {
     "ability_key": "datasheet:kustom-force-field",
@@ -739,21 +776,17 @@
   },
   {
     "ability_key": "datasheet:red-skull-kommandos",
-    "mechanic_digest": "954444c66d84f0d1a6c9601b970a2a3a",
+    "mechanic_digest": "5bec28cee0cceecc7cde66c39cf53580",
     "name": "Red Skull Kommandos",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "While attached to a unit, models in that unit have the Benefit of Cover."
+    "review_state": "in_review",
+    "summary": "This unit has +1 to its Save characteristic against ranged attacks."
   },
   {
     "ability_key": "datasheet:redistributin-da-gifts",
-    "mechanic_digest": "fbc32ede98d6e22b2cbf752374e4e5d9",
-    "name": "Redistributin’ da Gifts",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "Once in each of your Shooting phases, this unit can be targeted with the Grenade Stratagem for 0CP, even if that Stratagem has already been used on a different unit this phase."
+    "mechanic_digest": "af296810dab0c275b1ed3967f09700ed",
+    "name": "Redistributin' da Gifts",
+    "review_state": "in_review",
+    "summary": "Once per Shooting phase, target this unit with the Explosives Stratagem for 0CP, even if already used on a different unit this phase."
   },
   {
     "ability_key": "datasheet:rivetin-dakka",
@@ -793,12 +826,10 @@
   },
   {
     "ability_key": "datasheet:scatter",
-    "mechanic_digest": "6fd1d8f08f8be1b3fca578248178c14e",
+    "mechanic_digest": "63e17d06ae556113173e4626ab7a95d4",
     "name": "Scatter!",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "Once per turn, if an enemy unit ends a Normal, Advance or Fall Back move within 9\" of this unit while it is not engaged, this unit can make a Normal move of up to 6\"."
+    "review_state": "in_review",
+    "summary": "In your opponent's Movement phase, if an enemy unit ends a Normal, Advance, or Fall Back move within 8\" of this unit and it is not in Engagement Range, it can make a Normal move of up to 6\"."
   },
   {
     "ability_key": "datasheet:shokk-attack-engine",
@@ -820,12 +851,10 @@
   },
   {
     "ability_key": "datasheet:shokk-tunnel",
-    "mechanic_digest": "9ae818c3d37f9029a8a24c804f0e1726",
+    "mechanic_digest": "92930fa2ab768d2aaf633c856acd1298",
     "name": "Shokk Tunnel",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "Instead of making an Advance move, this model can be removed and set up again anywhere more than 9\" from all enemy models, still counting as having Advanced."
+    "review_state": "in_review",
+    "summary": "When this unit Advances, it can move through any model (including enemies and MONSTER/VEHICLE) with no maximum distance, ending more than 8\" from all enemy units."
   },
   {
     "ability_key": "datasheet:shooty-power-trip",
@@ -847,12 +876,10 @@
   },
   {
     "ability_key": "datasheet:single-minded-predator",
-    "mechanic_digest": "926519da623043e128448bed78de61f3",
+    "mechanic_digest": "31aa48f474ff1a71515e7df13fc11560",
     "name": "Single-minded Predator",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "This unit can be targeted with the Heroic Intervention Stratagem for 0CP, even if that Stratagem has already been used on a different unit this phase."
+    "review_state": "in_review",
+    "summary": "You can target this unit with Heroic Intervention for -1 CP, regardless of other uses of that stratagem this phase; it does not prevent other units from also using it."
   },
   {
     "ability_key": "datasheet:small-bomms",
@@ -874,12 +901,17 @@
   },
   {
     "ability_key": "datasheet:sneaky-surprise",
-    "mechanic_digest": "121de6a17df5097aa73f6c5a60c6d954",
+    "mechanic_digest": "c90ebd9e9caf76fc867f1e66758e4b61",
     "name": "Sneaky Surprise",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "Enemy units cannot use the Fire Overwatch Stratagem to shoot at this unit."
+    "review_state": "in_review",
+    "summary": "Enemy units cannot target this unit with snap-shooting attacks."
+  },
+  {
+    "ability_key": "datasheet:somethin-to-prove",
+    "mechanic_digest": "42a9ab19a48e8e797bcb4e8b67503b62",
+    "name": "Somethin' to Prove",
+    "review_state": "in_review",
+    "summary": "This unit has +1 to Charge rolls."
   },
   {
     "ability_key": "datasheet:special-dose",
@@ -1044,6 +1076,13 @@
     "summary": "While attached to a unit, this model's signature weapon gains +2 Attacks for every 5 models in that unit, rounding down, but gains the Hazardous ability once the unit has 10 or more models."
   },
   {
+    "ability_key": "datasheet:waaagh-banner",
+    "mechanic_digest": "b90bfdff56297deb4981284e03220bda",
+    "name": "Waaagh! Banner",
+    "review_state": "in_review",
+    "summary": "This unit has a 5+ invulnerable save, and +1 Toughness while the Waaagh! is active for it."
+  },
+  {
     "ability_key": "datasheet:waaagh-effigy-aura",
     "mechanic_digest": "0bef9140ca1bcaa8d5b6630fb365c8ce",
     "name": "Waaagh! Effigy (Aura)",
@@ -1105,5 +1144,12 @@
     "reviewed_at": "2026-08-04T00:00:00Z",
     "reviewed_by": "claude-reviewer-opus",
     "summary": "Parts of this fortification must be set up within 1\" of each other; at the end of your Movement phase, each friendly Orks Vehicle within 12\" can regain up to D3 lost wounds, once per model per turn."
+  },
+  {
+    "ability_key": "faction:waaagh",
+    "mechanic_digest": "e378d165c0b35d936fd25c7adf2d6b48",
+    "name": "Waaagh!",
+    "review_state": "in_review",
+    "summary": "Once per battle, at the start of your Command phase, call a Waaagh!: until your next Command phase, ORKS units with this ability can charge after Advancing, get +1 melee Strength and Attacks, and gain a 5+ invulnerable save."
   }
 ]
