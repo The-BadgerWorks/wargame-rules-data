@@ -7,8 +7,10 @@
       "display_order": 1,
       "name": "Battle Focus",
       "summary": "Each battle round you get 2/4/6 Battle Focus tokens by battle size; unspent ones are lost. Spend one for an Agile Manoeuvre (one per unit per phase): +2\" Move, no Overwatch, Assault on Advance, 6\" Pile-in, or a D6+1\" move.",
-      "review_state": "in_review",
-      "mechanic_digest": "0ac577a77e07876ebb6dfde5a953b9b4"
+      "review_state": "approved",
+      "mechanic_digest": "0ac577a77e07876ebb6dfde5a953b9b4",
+      "reviewed_by": "claude-opus-5-final-reviewer",
+      "reviewed_at": "2026-08-06T00:00:00Z"
     }
   ]
 }
