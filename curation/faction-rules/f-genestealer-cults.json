@@ -6,7 +6,7 @@
       "summary_key": "faction:f-genestealer-cults:cult-ambush",
       "display_order": 1,
       "name": "Cult Ambush",
-      "summary": "Start with Resurgence points by battle size. If every non-Character model in a destroyed unit has this ability, spend points set by its Starting Strength to return an identical undamaged unit in Cult Ambush, and a marker over 9in from enemies.",
+      "summary": "Start with Resurgence points by battle size. If every non-Character model in a destroyed unit has this ability, spend points by its Starting Strength to return an identical undamaged unit in Cult Ambush, and a marker over 9in from enemies.",
       "review_state": "in_review",
       "mechanic_digest": "dbe125b14ad4b836005144391613872b"
     }
