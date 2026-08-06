@@ -1,0 +1,14 @@
+{
+  "faction_id": "f-chaos-space-marines",
+  "army_rule_state": "present",
+  "rules": [
+    {
+      "summary_key": "faction:f-chaos-space-marines:dark-pacts",
+      "display_order": 1,
+      "name": "Dark Pacts",
+      "summary": "Before shooting or fighting, a unit can attempt a Dark Pact: take a Leadership test (D3 mortal wounds on a fail) to grant its weapons Lethal Hits or Sustained Hits 1 until the end of the phase.",
+      "review_state": "in_review",
+      "mechanic_digest": "6a8cdc1f184493270e2194d176548eb2"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+[
+  {
+    "summary_key": "detachment:d-cult-of-the-arkifane:soul-forge-boons",
+    "detachment_id": "d-cult-of-the-arkifane",
+    "name": "Soul Forge Boons",
+    "summary": "Heretic Astartes Vehicle units gain the Daemon keyword. Vehicles, Lord Discordant, and Vashtorr also gain the Soul Forge keyword and a 5+ invulnerable save.",
+    "review_state": "in_review",
+    "mechanic_digest": "33efcdee12edcb9397cff49857fb3b20"
+  },
+  {
+    "summary_key": "detachment:d-deceptors:masters-of-misdirection",
+    "detachment_id": "d-deceptors",
+    "name": "Masters of Misdirection",
+    "summary": "At deployment, grant Infiltrators for the whole battle to a battle-size-limited number of Legionaries and Cultist Mob units (and their attached non-Epic-Hero Characters).",
+    "review_state": "in_review",
+    "mechanic_digest": "cbd9578ed6b54b802e4ed4dcac2c7863"
+  },
+  {
+    "summary_key": "detachment:d-hurons-marauders:tyrannical-motivation",
+    "detachment_id": "d-hurons-marauders",
+    "name": "Tyrannical Motivation",
+    "summary": "Each Command phase, grant all Heretic Astartes Infantry either +1 to hit or Fall Back and still shoot/charge until your next Command phase; units visible to Huron Blackheart get both for the phase.",
+    "review_state": "in_review",
+    "mechanic_digest": "0ed2023cc7944281af851afb421bc74a"
+  },
+  {
+    "summary_key": "detachment:d-murdertalon-raiders:prey-on-the-weak",
+    "detachment_id": "d-murdertalon-raiders",
+    "name": "Prey on the Weak",
+    "summary": "Heretic Astartes Infantry Fly units re-roll Hit rolls of 1 against battle-shocked or half-strength targets, and get -1 to be hit by such targets. Exclusive Nightmare-tagged detachment.",
+    "review_state": "in_review",
+    "mechanic_digest": "d9dd7272e5aea78ac7d29784910a42b7"
+  },
+  {
+    "summary_key": "detachment:d-nightmare-hunt:terror-made-manifest",
+    "detachment_id": "d-nightmare-hunt",
+    "name": "Terror Made Manifest",
+    "summary": "Under-strength enemies within 12\" take one penalised Battle-shock test in the opponent's Command phase. Your attacks get +1 to hit half-strength targets and +1 to wound battle-shocked ones; being battle-shocked gives -1 to hit you.",
+    "review_state": "in_review",
+    "mechanic_digest": "5243c433fe1eb55b82c46ca6f3c8a08a"
+  },
+  {
+    "summary_key": "detachment:d-pactbound-zealots:marks-of-chaos",
+    "detachment_id": "d-pactbound-zealots",
+    "name": "Marks of Chaos",
+    "summary": "Non-Epic-Hero Heretic Astartes units must be given a Chaos god keyword. On a successful Dark Pact, a unit's Lethal Hits or Sustained Hits 1 gain is upgraded per its god; Characters and Transports can only pair with matching keywords.",
+    "review_state": "in_review",
+    "mechanic_digest": "2d781c425a9e5b90fd3f59ed399e38f5"
+  },
+  {
+    "summary_key": "detachment:d-veterans-of-the-long-war:focus-of-hatred",
+    "detachment_id": "d-veterans-of-the-long-war",
+    "name": "Focus of Hatred",
+    "summary": "Each Command phase, name one enemy unit as your focus of hatred; Heretic Astartes (excluding Damned) attacks against it can re-roll the Hit roll until your next Command phase.",
+    "review_state": "in_review",
+    "mechanic_digest": "2f774b8ba707721b0f7e3270b33f2692"
+  }
+]
