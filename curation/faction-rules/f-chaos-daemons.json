@@ -6,7 +6,7 @@
       "summary_key": "faction:f-chaos-daemons:the-shadow-of-chaos",
       "display_order": 1,
       "name": "The Shadow of Chaos",
-      "summary": "Your deployment zone is always in your Shadow of Chaos; No Man's Land or the enemy zone joins it while you hold half its objectives. Friendly units inside get +1 Battle-shock, healing on a pass; enemies get -1 and D3 mortal wounds on a fail.",
+      "summary": "Your deployment zone is always in your Shadow of Chaos; No Man's Land or the enemy zone joins it while you hold half its objectives. Friendly units there get +1 Battle-shock and heal on a pass; enemies get -1 and D3 mortal wounds on a fail.",
       "review_state": "in_review",
       "mechanic_digest": "536bf9fc4a03f34e6bce620d619972da"
     }
