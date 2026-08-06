@@ -6,7 +6,7 @@
       "summary_key": "faction:f-thousand-sons:cabal-of-sorcerers",
       "display_order": 1,
       "name": "Cabal of Sorcerers",
-      "summary": "Each Shooting phase, one model per Ritual can attempt to manifest it via a 2D6 Psychic test (doubles/triples cause D3 mortal wounds); beating its Warp Charge triggers the effect: a re-roll aura, a bonus move, mortal wounds, or bonus AP.",
+      "summary": "Start of your Shooting phase: each model with this ability may attempt one Ritual not yet tried this turn. Psychic test on 2D6; any double or triple deals D3 mortal wounds to its unit; meeting the Warp Charge manifests the Ritual's effect.",
       "review_state": "in_review",
       "mechanic_digest": "c8722c0ac1850d81456cddc43116d107"
     }
