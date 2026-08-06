@@ -185,7 +185,7 @@
     "display_keyword": "Beast",
     "has_numeric_parameter": false,
     "name": "Beast",
-    "summary": "Unit-type keyword, the singular form of Beasts and identical to it in use. Its models move through dense terrain, get benefit of cover inside a terrain area, and are hidden there if their unit made no ranged attacks this turn or last turn.",
+    "summary": "Unit-type keyword, the singular of Beasts. Its models move through dense terrain, get benefit of cover inside a terrain area, and are hidden in one holding dense terrain if their unit made no ranged attacks this turn or last turn.",
     "review_state": "in_review",
     "mechanic_digest": "3d34a72871cb7a5a77357e65d6bd6adb"
   },
@@ -244,8 +244,10 @@
     "has_numeric_parameter": false,
     "name": "Character",
     "summary": "Unit-type keyword. Your Warlord is one Character model in a Character unit that has your army faction keyword. Unless a rule says otherwise, only Character units may be given an enhancement, and each enhancement goes to a different unit.",
-    "review_state": "in_review",
-    "mechanic_digest": "5f3c74ee2cb0d5b940830f1ac088d0e6"
+    "review_state": "approved",
+    "mechanic_digest": "5f3c74ee2cb0d5b940830f1ac088d0e6",
+    "reviewed_by": "claude-opus-5-final-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "glossary:cleave",
@@ -385,7 +387,7 @@
     "display_keyword": "Grenades",
     "has_numeric_parameter": false,
     "name": "Grenades",
-    "summary": "Unit keyword. It makes a unit eligible for the Explosives core stratagem: an unengaged unit that can shoot and did not advance picks an enemy unit within 8in of one of its models and rolls six D6, one mortal wound per 4 or more.",
+    "summary": "Unit keyword. Makes its unit eligible for the Explosives core stratagem: an unengaged unit that can shoot and did not advance picks an unengaged enemy unit within 8in of and visible to one of its models; roll six D6, 1 mortal wound per 4+.",
     "review_state": "in_review",
     "mechanic_digest": "37908fe73d52ec65d563452a2a08fe80"
   },
@@ -396,8 +398,10 @@
     "has_numeric_parameter": false,
     "name": "Harpooned",
     "summary": "Weapon ability. After the bearer shoots with it, select one enemy Monster or Vehicle unit hit by those attacks; until the end of the turn, add 2 to charge rolls the bearer makes against that unit.",
-    "review_state": "in_review",
-    "mechanic_digest": "735920ee077ab1251cc00f066c638d19"
+    "review_state": "approved",
+    "mechanic_digest": "735920ee077ab1251cc00f066c638d19",
+    "reviewed_by": "claude-opus-5-final-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "glossary:hazardous",
@@ -430,8 +434,10 @@
     "has_numeric_parameter": false,
     "name": "Hooked",
     "summary": "Weapon ability. Each time it scores a hit on a Monster or Vehicle unit, until the end of the turn, add 2 to charge rolls the bearer makes against that unit and enemies cannot use the Fire Overwatch stratagem against the bearer.",
-    "review_state": "in_review",
-    "mechanic_digest": "8b2e239c33acb098be96adbb584a5a22"
+    "review_state": "approved",
+    "mechanic_digest": "8b2e239c33acb098be96adbb584a5a22",
+    "reviewed_by": "claude-opus-5-final-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "glossary:ignores cover",
@@ -452,8 +458,10 @@
     "has_numeric_parameter": false,
     "name": "Impaled",
     "summary": "Weapon ability. Each time it scores a hit on an enemy Monster or Vehicle unit, until the end of the turn, add 2 to charge rolls the bearer makes against that unit. It places no restriction on Fire Overwatch.",
-    "review_state": "in_review",
-    "mechanic_digest": "4ca2d346bd2ba9c9eb62f8674751c732"
+    "review_state": "approved",
+    "mechanic_digest": "4ca2d346bd2ba9c9eb62f8674751c732",
+    "reviewed_by": "claude-opus-5-final-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "glossary:indirect fire",
@@ -462,8 +470,10 @@
     "has_numeric_parameter": false,
     "name": "Indirect Fire",
     "summary": "Weapon ability. Its unit may use indirect shooting, firing at units it cannot see. Those attacks give the target cover, cannot re-roll hit rolls, and hit only on an unmodified 6 - or a 4+ if the unit stayed still and a friend sees it.",
-    "review_state": "in_review",
-    "mechanic_digest": "6429ade30bdaa764f9edbf489e4ae5eb"
+    "review_state": "approved",
+    "mechanic_digest": "6429ade30bdaa764f9edbf489e4ae5eb",
+    "reviewed_by": "claude-opus-5-final-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "glossary:infantry",
@@ -532,8 +542,10 @@
     "has_numeric_parameter": false,
     "name": "Monster",
     "summary": "Unit-type keyword. In a normal or advance move Monster models move through other models except Monsters and Vehicles, and their unit may use close-quarters shooting. They cross dense terrain only where each section is 2in or less high.",
-    "review_state": "in_review",
-    "mechanic_digest": "9f0f132fc5ca1dc84125a7fdbaf2b5ee"
+    "review_state": "approved",
+    "mechanic_digest": "9f0f132fc5ca1dc84125a7fdbaf2b5ee",
+    "reviewed_by": "claude-opus-5-final-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "glossary:one shot",
@@ -566,8 +578,10 @@
     "has_numeric_parameter": false,
     "name": "Pistol",
     "summary": "Weapon ability, identical to Close-Quarters in every respect. Its unit may use close-quarters shooting while engaged, and under any other shooting mode a model that is not a Monster or Vehicle fires either its pistols or its other guns.",
-    "review_state": "in_review",
-    "mechanic_digest": "b916096cde1cd483a86041fa47492d39"
+    "review_state": "approved",
+    "mechanic_digest": "b916096cde1cd483a86041fa47492d39",
+    "reviewed_by": "claude-opus-5-final-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "glossary:plasma warhead",
@@ -576,8 +590,10 @@
     "has_numeric_parameter": false,
     "name": "Plasma Warhead",
     "summary": "Weapon ability. Fired only in your Shooting phase, only after remaining stationary and only if its target-marker ability went unused this phase. No target is picked: attacks resolve on each unit within 6in of the marked point.",
-    "review_state": "in_review",
-    "mechanic_digest": "7d7e30cce22fee243026b47f19101d43"
+    "review_state": "approved",
+    "mechanic_digest": "7d7e30cce22fee243026b47f19101d43",
+    "reviewed_by": "claude-opus-5-final-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "glossary:precision",
@@ -694,8 +710,10 @@
     "has_numeric_parameter": false,
     "name": "Snagged",
     "summary": "Weapon ability. Each time it scores a hit on a Monster or Vehicle unit, until the end of the turn, add 2 to charge rolls the bearer makes against that unit and enemies cannot use the Fire Overwatch stratagem against the bearer.",
-    "review_state": "in_review",
-    "mechanic_digest": "83f6a1ec2d86e23e97d376f419061c3c"
+    "review_state": "approved",
+    "mechanic_digest": "83f6a1ec2d86e23e97d376f419061c3c",
+    "reviewed_by": "claude-opus-5-final-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "glossary:sustained hits",
@@ -800,8 +818,10 @@
     "has_numeric_parameter": false,
     "name": "Vehicle",
     "summary": "Unit-type keyword. In a normal or advance move Vehicle models move through other models except Monsters and Vehicles, and their unit may use close-quarters shooting. They cross dense terrain only where each section is 2in or less high.",
-    "review_state": "in_review",
-    "mechanic_digest": "014b0b243c2cb24091e99cb6bc40aaef"
+    "review_state": "approved",
+    "mechanic_digest": "014b0b243c2cb24091e99cb6bc40aaef",
+    "reviewed_by": "claude-opus-5-final-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "glossary:walker",
@@ -810,7 +830,9 @@
     "has_numeric_parameter": false,
     "name": "Walker",
     "summary": "Unit-type keyword carried alongside Vehicle or Monster. A Vehicle unit may be picked for the Heroic Intervention core stratagem only if it is a Character or Walker, and a destroyed Walker that has a base is measured to from that base.",
-    "review_state": "in_review",
-    "mechanic_digest": "a0ad4d7b4b672d4e86336d329a5448a8"
+    "review_state": "approved",
+    "mechanic_digest": "a0ad4d7b4b672d4e86336d329a5448a8",
+    "reviewed_by": "claude-opus-5-final-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   }
 ]
