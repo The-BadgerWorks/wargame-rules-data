@@ -1,0 +1,14 @@
+{
+  "faction_id": "f-world-eaters",
+  "army_rule_state": "present",
+  "rules": [
+    {
+      "summary_key": "faction:f-world-eaters:blessings-of-khorne",
+      "display_order": 1,
+      "name": "Blessings of Khorne",
+      "summary": "Each battle round, roll 8D6 to activate up to two Blessings of Khorne (each needs a matching double or triple) from a table of melee and charge buffs, applying to your army until the round ends.",
+      "review_state": "in_review",
+      "mechanic_digest": "77cbb1111344fd6bd76fa3c090770fe6"
+    }
+  ]
+}
