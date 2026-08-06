@@ -6,7 +6,7 @@
       "summary_key": "faction:f-imperial-agents:assigned-agents",
       "display_order": 1,
       "name": "Assigned Agents",
-      "summary": "An all-Imperium army can include a battle-size-limited number of Agents units (retinue, character, one requisitioned) without a matching Faction keyword. An Agents Dedicated Transport must start with an embarked unit or counts destroyed.",
+      "summary": "An all-Imperium army can take Agents of the Imperium units without the matching Faction keyword, under battle-size caps per retinue, character and requisitioned unit. Its Dedicated Transports must deploy with a unit aboard or count destroyed.",
       "review_state": "in_review",
       "mechanic_digest": "8ac6461e0ff979e49995257029683bb5"
     }
