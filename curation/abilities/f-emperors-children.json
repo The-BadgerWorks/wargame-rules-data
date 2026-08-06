@@ -138,7 +138,9 @@
     "ability_key": "datasheet:lethal-obsession",
     "mechanic_digest": "5f36d009cacbe773c29f593e1aae844c",
     "name": "Lethal Obsession",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
     "summary": "Optional after this unit shoots: pick one enemy unit hit by those attacks. Until end of turn, any charge this unit declares may have its Charge roll re-rolled, and that charge move must end with this unit engaged with the picked unit."
   },
   {
