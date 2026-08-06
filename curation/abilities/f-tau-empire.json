@@ -28,12 +28,10 @@
   },
   {
     "ability_key": "datasheet:aerial-disengagement",
-    "mechanic_digest": "6fd1d8f08f8be1b3fca578248178c14e",
+    "mechanic_digest": "63e17d06ae556113173e4626ab7a95d4",
     "name": "Aerial Disengagement",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "Once per turn, if an enemy unit ends a Normal, Advance or Fall Back move within 9\" of this unit while it is not engaged, this unit can make a Normal move of up to 6\"."
+    "review_state": "in_review",
+    "summary": "In your opponent's Movement phase, if an enemy unit ends a Normal, Advance, or Fall Back move within 8\" of this unit and it is not in Engagement Range, it can make a Normal move of up to 6\"."
   },
   {
     "ability_key": "datasheet:aggressive-deployment",
@@ -352,12 +350,10 @@
   },
   {
     "ability_key": "datasheet:homing-beacon",
-    "mechanic_digest": "53568a2a6b44890a9a8ec540fd273f1d",
+    "mechanic_digest": "2456faf2dd3b1aca7c6c0bcc40321588",
     "name": "Homing Beacon",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "Once per battle, this unit can use the Rapid Ingress Stratagem for 0CP, arriving within 3\" of it and more than 9\" from all enemy units."
+    "review_state": "in_review",
+    "summary": "Once per battle, use Rapid Ingress for 0CP; the arriving unit must be set up within 3\" of this unit's bearer and more than 8\" from all enemy units."
   },
   {
     "ability_key": "datasheet:hooked",
@@ -487,12 +483,10 @@
   },
   {
     "ability_key": "datasheet:neocapacitor-shields",
-    "mechanic_digest": "fd9545568a8f2c2e3972a86c092e99a2",
+    "mechanic_digest": "effd742880e871ef89e9cd2ca2fc085b",
     "name": "Neocapacitor Shields",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "At the start of your opponent's Charge phase, target a non-Monster, non-Vehicle enemy unit within 12\": it must take a Battle-shock test and suffers -1 to Charge rolls until the end of the turn."
+    "review_state": "in_review",
+    "summary": "At the start of your opponent's Charge phase, target one visible enemy unit (not MONSTER/VEHICLE) within 12\": it must take a Battle-shock test and subtracts 1 from Charge rolls this turn."
   },
   {
     "ability_key": "datasheet:nova-burst",
@@ -577,12 +571,10 @@
   },
   {
     "ability_key": "datasheet:pulse-bombs",
-    "mechanic_digest": "3a52a800156ab8983a34d1eb505a047b",
+    "mechanic_digest": "fbe7a96ef524681cb0f0ded173edae6e",
     "name": "Pulse Bombs",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "Once per battle, after this model moves over an enemy unit, roll six dice: each 4+ deals that unit 1 mortal wound."
+    "review_state": "in_review",
+    "summary": "At the end of your opponent's Fight phase, target one visible enemy unit (not Lone Operative) within 24\" and roll six D6: for each 4+, that unit suffers 1 mortal wound."
   },
   {
     "ability_key": "datasheet:puretides-teachings",
@@ -721,12 +713,10 @@
   },
   {
     "ability_key": "datasheet:targeting-array",
-    "mechanic_digest": "326887b4464d5c3c62be16a4f4f19372",
+    "mechanic_digest": "70f50b717d8da03d36a6069c676f42d1",
     "name": "Targeting Array",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "When this model or unit is selected to shoot, one Hit roll or one Wound roll made for its attacks can be re-rolled."
+    "review_state": "in_review",
+    "summary": "Each time this model shoots, you can re-roll one Hit roll or one Wound roll."
   },
   {
     "ability_key": "datasheet:thunderous-pounce",
@@ -757,12 +747,10 @@
   },
   {
     "ability_key": "datasheet:trail-finding",
-    "mechanic_digest": "e84b34e704fb96fe2bec41bc4a16e760",
+    "mechanic_digest": "ca6bb9d1652bb91976f8fd303cf9a215",
     "name": "Trail Finding",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "Once per turn, if an enemy unit ends a Normal, Advance or Fall Back move within 9\" of this model's unit while it is not engaged, that unit can make a Normal move of up to D6\"."
+    "review_state": "in_review",
+    "summary": "In your opponent's Movement phase, if an enemy unit ends a move within 8\" of this unit and it is not in Engagement Range, it can make a Normal move of up to D6\"."
   },
   {
     "ability_key": "datasheet:transport-bay",
@@ -835,5 +823,12 @@
     "reviewed_at": "2026-08-04T00:00:00Z",
     "reviewed_by": "claude-reviewer-opus",
     "summary": "In your Command phase, one friendly Hammerhead Gunship unit within 12\" gains the Lethal Hits ability on its ranged weapons until your next Command phase."
+  },
+  {
+    "ability_key": "faction:for-the-greater-good",
+    "mechanic_digest": "e378d165c0b35d936fd25c7adf2d6b48",
+    "name": "For the Greater Good",
+    "review_state": "in_review",
+    "summary": "At the start of your Shooting phase, designate eligible units as Observers to mark enemy units as Spotted. Other T'AU EMPIRE units targeting a Spotted unit become Guided: +1 BS, and Ignores Cover if spotted by a MARKERLIGHT unit."
   }
 ]
