@@ -3,7 +3,7 @@
     "summary_key": "detachment:d-carnival-of-excess:daemonic-empowerment",
     "detachment_id": "d-carnival-of-excess",
     "name": "Daemonic Empowerment",
-    "summary": "Emperor's Children and Legions of Excess units within 6\" of each other become Empowered, gaining Sustained Hits 1 (or Critical Hits on a 5+ if already sustained). Allows points-capped Legions of Excess, which cannot be Warlord.",
+    "summary": "Emperor's Children and Legions of Excess units within 6\" of each other are Empowered: their weapons gain Sustained Hits 1, or crit on unmodified 5+ if they already had it. Take up to 500/1000/1500 pts of Legions of Excess, never Warlord.",
     "review_state": "in_review",
     "mechanic_digest": "19b5f9e57cef59e43f7c0790c7adae61"
   },
@@ -11,7 +11,7 @@
     "summary_key": "detachment:d-coterie-of-the-conceited:pledges-to-the-dark-prince",
     "detachment_id": "d-coterie-of-the-conceited",
     "name": "Pledges to the Dark Prince",
-    "summary": "Pledge a kill count each battle round; meeting it grants Pact points (failing costs your Warlord D3 mortal wounds). Cumulative Pact point thresholds grant re-rolls of 1s, then Lethal/Sustained Hits, then Critical Hits on a 5+.",
+    "summary": "Each battle round your Warlord pledges a count of enemy units to destroy; meet it for that many Pact points, else it takes D3 mortal wounds. Cumulative: 1+ re-roll Hit 1s, 3+ Wound 1s, 5+ melee Lethal and Sustained Hits 1, 7+ crit on 5+.",
     "review_state": "in_review",
     "mechanic_digest": "077567072683d52c1786ccfb087d9c5b"
   },
@@ -20,14 +20,16 @@
     "detachment_id": "d-court-of-the-phoenician",
     "name": "Master of the Pageant",
     "summary": "Once per battle round, reduce the CP cost of the Sinuous Breach or Prideful Superiority Stratagem by 1 when used on a Fulgrim unit.",
-    "review_state": "in_review",
-    "mechanic_digest": "a2965b529165b08f6cb87ad754d610f5"
+    "review_state": "approved",
+    "mechanic_digest": "a2965b529165b08f6cb87ad754d610f5",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-court-of-the-phoenician:sensational-performance",
     "detachment_id": "d-court-of-the-phoenician",
     "name": "Sensational Performance",
-    "summary": "After a Charge move, an Emperor's Children unit that fights can restrict its targets like Thrill Seekers and gain +1 Strength and Armour Penetration on its melee weapons for the phase.",
+    "summary": "An Emperor's Children unit that made a Charge move can, when it fights, give its melee weapons +1 Strength and AP for the phase if it targets neither a unit it started the turn in Engagement Range of nor one already attacked this phase.",
     "review_state": "in_review",
     "mechanic_digest": "8ba0f6d35226fbc63acd6afc54f8a5a5"
   },
@@ -36,31 +38,39 @@
     "detachment_id": "d-mercurial-host",
     "name": "Quicksilver Grace",
     "summary": "Friendly Emperor's Children units can re-roll Advance rolls.",
-    "review_state": "in_review",
-    "mechanic_digest": "f11e7e66bb74d491e54ddba40de93a41"
+    "review_state": "approved",
+    "mechanic_digest": "f11e7e66bb74d491e54ddba40de93a41",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-peerless-bladesmen:exquisite-swordsmanship",
     "detachment_id": "d-peerless-bladesmen",
     "name": "Exquisite Swordsmanship",
     "summary": "An Emperor's Children unit that charged this turn chooses Lethal Hits or Sustained Hits 1 for its melee weapons when it fights.",
-    "review_state": "in_review",
-    "mechanic_digest": "cf3927aa6363a52424ad91d08b8425da"
+    "review_state": "approved",
+    "mechanic_digest": "cf3927aa6363a52424ad91d08b8425da",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-rapid-evisceration:mechanised-murder",
     "detachment_id": "d-rapid-evisceration",
     "name": "Mechanised Murder",
     "summary": "An Emperor's Children Transport model, or one that disembarked this turn, re-rolls a Hit roll of 1 and a Wound roll of 1 on its attacks.",
-    "review_state": "in_review",
-    "mechanic_digest": "b2dc74f6073e2b0ec695fb8660ad9334"
+    "review_state": "approved",
+    "mechanic_digest": "b2dc74f6073e2b0ec695fb8660ad9334",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-slaaneshs-chosen:internal-rivalries",
     "detachment_id": "d-slaaneshs-chosen",
     "name": "Internal Rivalries",
     "summary": "Emperor's Children Character units ignore Move, Advance and Charge modifiers. Your Warlord's unit starts as Favoured Champions, replaced by the first Character unit to destroy an enemy each turn; it re-rolls wound rolls.",
-    "review_state": "in_review",
-    "mechanic_digest": "f57d1cea64d268618bf700597186d3ca"
+    "review_state": "approved",
+    "mechanic_digest": "f57d1cea64d268618bf700597186d3ca",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   }
 ]
