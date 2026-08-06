@@ -4,7 +4,7 @@
     "mechanic_digest": "bf3b4618b0621cdc4bf5eb5bb8fa1c3b",
     "name": "Firing Deck 5",
     "review_state": "in_review",
-    "summary": "Firing Deck X: in your Shooting phase, when this TRANSPORT is selected to shoot, up to X embarked models each lend it one of their ranged weapons (not one-shot) for its attacks; those models' units cannot shoot again this phase."
+    "summary": "Firing Deck X: in your Shooting phase, when this Transport shoots, up to X models embarked in it whose units have not yet shot each lend it one ranged weapon (no one-shot); no unit embarked in it can shoot for the rest of the turn."
   },
   {
     "ability_key": "datasheet:ancestral-fortune",
@@ -253,7 +253,9 @@
     "ability_key": "datasheet:pragmatic-hunters",
     "mechanic_digest": "ca6bb9d1652bb91976f8fd303cf9a215",
     "name": "Pragmatic Hunters",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
     "summary": "In your opponent's Movement phase, if an enemy unit ends a move within 8\" of this unit and this unit is not within Engagement Range, it can make a Normal move of up to D6\"."
   },
   {
@@ -296,7 +298,9 @@
     "ability_key": "datasheet:relentless-avalanche",
     "mechanic_digest": "31aa48f474ff1a71515e7df13fc11560",
     "name": "Relentless Avalanche",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
     "summary": "You can target this unit with Heroic Intervention for -1 CP, regardless of other uses of that stratagem this phase; it does not prevent other units from also using it."
   },
   {
@@ -375,7 +379,9 @@
     "ability_key": "datasheet:unhinged-vengeance",
     "mechanic_digest": "bb2e748af6cf4f74dd7be44f2b0accb0",
     "name": "Unhinged Vengeance",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
     "summary": "In your opponent's Shooting phase, if this model lost one or more wounds from an enemy unit's attacks, this unit can make a surge move of up to D6+2\"."
   },
   {
@@ -392,6 +398,6 @@
     "mechanic_digest": "6588ccac82a3fdd0297fd8d0c440a0b9",
     "name": "Prioritised Efficiency",
     "review_state": "in_review",
-    "summary": "LEAGUES OF VOTANN units gain Hostile Acquisition (hit bonus near objectives, re-roll Advance/Charge) below 7 Yield Points, or Fortify Takeover (hit bonus, -1 enemy Wound rolls vs non-Vehicles) at 7+; YP comes from objectives."
+    "summary": "Leagues of Votann units have Hostile Acquisition below 7 Yield Points (+1 Hit near objectives, re-roll Advance/Charge) or Fortify Takeover at 7+ (+1 Hit on an objective you hold, -1 to Wound vs non-Vehicles when Strength beats Toughness)."
   }
 ]
