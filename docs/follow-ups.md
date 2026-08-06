@@ -12,6 +12,9 @@
 <!-- AI-Assisted: Claude Code (model: claude-opus-5) - Added item 5 (issue #4): the finding code
      the weapon-ability-keyword fix needed, implemented ahead of the additive row a frozen
      contract may not be given as a side effect of a bug fix. -->
+<!-- AI-Assisted: Claude Code (model: claude-opus-5) - Added item 6 (issue #5): the per-detachment
+     page hypothesis, tested live and refused, with the acquisition decision it settles and the
+     detachName oracle the test surfaced. -->
 # Follow-ups
 
 Open items surfaced during implementation that are deliberately **not** fixed as part of the work
@@ -169,3 +172,37 @@ the row exists, move the entry out of `PENDING_CONTRACT_SEVERITIES` into the mai
 The `weapon_ability_keywords` scale figure added alongside it needs no contract change:
 `validation-report.md` §1.3 requires every scale category to state a count and a proportion and
 does not enumerate the categories.
+
+## 6. Per-detachment pages do not exist: acquisition should not sweep for them (issue #5)
+
+While diagnosing issue #5 the campaign notes carried a second, untested hypothesis: that the
+publisher serves a separate page per detachment — `/factions/<slug>/<detachment-slug>` — carrying
+rule text the faction datacard page omits, and that acquisition should therefore sweep those
+pages too.
+
+**Tested on 2026-08-06 and refused.** Eight polite requests through the pipeline's own
+`PoliteClient` (robots, deny-list and the 2 000 ms interval unchanged):
+
+* the publisher's `SiteMap.xml` enumerates **1 442 URLs, and not one is deeper than
+  `factions/<slug>/<Datasheet-Anchor>`** — 39 at depth three (24 faction index pages, 15
+  rules pages) and 1 403 datasheet anchors, so a per-detachment page is not published anywhere
+  the publisher lists;
+* six direct probes for the hypothesised shapes — `factions/t-au-empire/Starfire-Cadre`,
+  its lower-case form, `factions/space-marines/Anvil-Siege-Force`,
+  `factions/space-marines/detachments.html`, `factions/space-marines/detachments`, and
+  `factions/thousand-sons/Sekhetar-Cohort` — **all responded 404**; and
+* the faction datacard pages carry no link of that shape either: every in-tree `href` on a page
+  is a faction index or a datasheet anchor.
+
+**Decision: acquisition stays as it is.** The sweep remains one aggregate page per faction, and
+the FR-004 politeness budget stays the order of magnitude the design argued for. There is nothing
+to recover from such pages, because every detachment rule's text is already on the faction page —
+in a `tooltip_content` template whose own `div.detachName` names the detachment that owns it.
+
+That `detachName` is worth recording as an available signal, though it is deliberately **not**
+used by the parser today: the class-token read in `_detachment_rules` is what attaches a rule to
+its detachment, and it is correct now that the emitted id is faction-qualified. `detachName` was
+used as the *independent* oracle that confirmed the issue #5 fix — of the 285 entries the first
+authoring campaign worked from, the publisher's own tooltips confirm 197 and contradict 88, and
+of the 324 the corrected build produces they confirm all 324 and contradict none. If the class
+tokens ever move upstream, `detachName` is the second reading that would catch it.
