@@ -22,6 +22,10 @@
 # into CuratedWeaponLine (issue #4). They were stated by both detail modes and read by neither,
 # so all 9,305 published weapon lines shipped with an empty keyword list and the glossary
 # denominator never saw the one keyword class that is a mechanic by construction.
+# AI-Assisted: Claude Code (model: claude-opus-5) - Made the detachment-rule join drop a detachment
+# id the detail source publishes under two different names instead of resolving it to whichever
+# row was read last (issue #5), so an ambiguous id costs a missing rule rather than a rule
+# attributed to a detachment in another faction.
 """Build one :class:`~pipeline.models.curated.CuratedSnapshot` from everything upstream.
 
 This is where the two sources stop being two sources. The **points** source is authoritative for
@@ -952,18 +956,28 @@ def _source_detachment_rules(detail: Mapping[str, CsvReadResult]) -> Mapping[str
     because the curated detachment is minted from the points source's card and the two taxonomies
     share no id — the same join :func:`_detachments_for` already performs to mint that id, so a
     detachment matches here exactly when it matches there.
+
+    An id the source publishes for two differently-named detachments names neither of them, so it
+    is dropped rather than resolved to whichever row happened to be read last (issue #5). A rule
+    that goes missing is one outstanding entry a curator sees; a rule attributed to the wrong
+    detachment is a wrong summary approved against a rule it does not describe, and the second is
+    not a milder form of the first.
     """
     detachments = detail.get("Detachments.csv")
     abilities = detail.get(DETACHMENT_ABILITIES_FILE)
     if detachments is None or abilities is None:
         return {}
 
-    names_by_id = {
-        row.fields.get("id", ""): normalize_name(
-            strip_field(row.fields.get("name", ""), field="detachment.name").text
-        )
-        for row in detachments.rows
-    }
+    names_by_id: dict[str, str] = {}
+    ambiguous: set[str] = set()
+    for row in detachments.rows:
+        identifier = row.fields.get("id", "")
+        name = normalize_name(strip_field(row.fields.get("name", ""), field="detachment.name").text)
+        if identifier in names_by_id and names_by_id[identifier] != name:
+            ambiguous.add(identifier)
+        names_by_id[identifier] = name
+    for identifier in ambiguous:
+        del names_by_id[identifier]
     grouped: dict[str, list[str]] = {}
     for row in abilities.rows:
         detachment = names_by_id.get(row.fields.get("detachment_id", ""))

@@ -10,6 +10,10 @@
 # extractor removes (issue #4): one span.kwbw is one keyword, the element boundary is the
 # separator the card prints nothing for, and they leave here in the export's own `description`
 # column so both detail modes reach pipeline/curate/assemble.py by one path.
+# AI-Assisted: Claude Code (model: claude-opus-5) - Faction-qualified the emitted detachment id
+# (issue #5): `data-det-code` is unique on its own page and nowhere else — 71 of the 208 codes on
+# the live sweep are published by more than one faction — so emitting it bare made one faction's
+# detachment rules land in another faction's denominator.
 """Extract the current-edition datacard pages into the **same record shape** ``csv`` mode reads.
 
 This module is the whole of the difference between the two detail-acquisition modes. Above it,
@@ -820,6 +824,21 @@ def detail_id(slug: str, anchor: str) -> str:
     return f"{slug}:{anchor}"
 
 
+def detachment_id(slug: str, code: str) -> str:
+    """``<faction slug>:<det code>`` — one detachment's identity under this mode.
+
+    Faction-qualified for the same reason :func:`detail_id` is, and more urgently. The page's own
+    ``data-det-code`` is a two-letter token scoped to the filter widget it appears in: on the
+    2026-08-05 live sweep, 71 of the 208 distinct codes were published by more than one faction
+    (``SC`` alone is Starfire Cadre, Sekhetar Cohort, Scintillating Legion and Ceramite
+    Sentinels). Emitting it bare gave the curate stage's ``id -> name`` map one entry per code
+    across *all* pages, so the last page read silently took ownership of every colliding code and
+    every other faction's rules for it were attributed to that page's detachment instead — while
+    the detachments that lost the collision reported no rules at all.
+    """
+    return f"{slug}:{code}"
+
+
 # -- page extraction -------------------------------------------------------------------------
 
 
@@ -1007,7 +1026,7 @@ def emit_records(
         for detachment in page.detachments:
             tables["Detachments.csv"].append(
                 {
-                    "id": detachment.code,
+                    "id": detachment_id(page.faction_slug, detachment.code),
                     "faction_id": page.faction_slug,
                     "name": detachment.name,
                     "legend": "",
@@ -1032,10 +1051,11 @@ def emit_records(
                 if (code, rule_name) in rules_seen:
                     continue
                 rules_seen.add((code, rule_name))
+                owner = detachment_id(page.faction_slug, code)
                 tables["Detachment_abilities.csv"].append(
                     {
-                        "id": f"{code}-{_slug_fallback(rule_name).lower()}",
-                        "detachment_id": code,
+                        "id": f"{owner}-{_slug_fallback(rule_name).lower()}",
+                        "detachment_id": owner,
                         "name": rule_name,
                         "legend": "",
                         "description": "",

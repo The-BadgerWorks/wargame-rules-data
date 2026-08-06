@@ -9,6 +9,9 @@
 # #4): the keywords the name extractor removes are now read rather than discarded, including the
 # adjacent-element split and the parameterised forms, and they leave html mode in the export's
 # own `description` column.
+# AI-Assisted: Claude Code (model: claude-opus-5) - Added the colliding-`data-det-code` cases
+# (issue #5): two invented factions publishing the same two-letter code must emit two
+# detachments and keep each one's rules on its own page.
 """The mode-blindness proof, stated as tests rather than as a design note.
 
 `004`'s architecture rests on one claim: the composition and option grammars, measured once
@@ -38,8 +41,12 @@ from pipeline.parse.composition_grammar import link_model_line, parse_entry
 from pipeline.parse.options_grammar import choice_names, parse_row, split_sublist
 from pipeline.parse.wahapedia_html_dom import (
     CHARACTERISTIC_NAMES,
+    Datacard,
+    DatacardPage,
+    Detachment,
     HtmlStructureError,
     blocks_of,
+    detail_id,
     emit_records,
     parse_faction_page,
     read_datacard_payloads,
@@ -459,9 +466,79 @@ def test_the_emitted_detachment_tables_are_what_the_curate_stage_joins_on(page) 
         (row.fields["detachment_id"], row.fields["name"])
         for row in tables["Detachment_abilities.csv"].rows
     ]
-    assert detachments == {"TC": "Thornlight Chorus", "BH": "Bracklight Host"}
+    assert detachments == {
+        f"{SLUG}:TC": "Thornlight Chorus",
+        f"{SLUG}:BH": "Bracklight Host",
+    }
     # De-duplicated across the cards that each print the same rule.
-    assert sorted(rules) == [("BH", "Bracklight Advance"), ("TC", "Chorus Resonance")]
+    assert sorted(rules) == [
+        (f"{SLUG}:BH", "Bracklight Advance"),
+        (f"{SLUG}:TC", "Chorus Resonance"),
+    ]
+
+
+# -- issue #5: `data-det-code` is unique on its page and nowhere else -------------------------
+
+
+def _synthetic_page(slug: str, code: str, detachment: str, rule: str) -> DatacardPage:
+    """One invented faction publishing one invented detachment and one invented rule.
+
+    Built from the module's own dataclasses rather than from markup: what is under test is the
+    identity the emission mints, and a second html fixture would say nothing more about it.
+    """
+    return DatacardPage(
+        faction_slug=slug,
+        faction_name=slug,
+        detachments=(Detachment(code=code, name=detachment),),
+        cards=(
+            Datacard(
+                detail_id=detail_id(slug, "Invented-Card"),
+                name="Invented Card",
+                faction_id=slug,
+                detachment_rules=((code, rule),),
+            ),
+        ),
+    )
+
+
+def test_two_factions_publishing_the_same_det_code_get_two_detachments() -> None:
+    """71 of the 208 codes on the 2026-08-05 live sweep were published by more than one faction.
+
+    A bare code therefore names a *page position*, not a detachment, and emitting it as the id
+    made the curate stage's ``id -> name`` map one entry per code across every page read.
+    """
+    tables = emit_records(
+        [
+            _synthetic_page("ashenreach", "SC", "Sable Cohort", "Sable Advance"),
+            _synthetic_page("thornmoor", "SC", "Sedge Column", "Sedge Volley"),
+        ],
+        edition_code="wh40k-11e",
+    )
+
+    detachments = {row.fields["id"]: row.fields["name"] for row in tables["Detachments.csv"].rows}
+    assert detachments == {
+        "ashenreach:SC": "Sable Cohort",
+        "thornmoor:SC": "Sedge Column",
+    }
+
+
+def test_a_rule_is_emitted_against_the_detachment_on_its_own_page() -> None:
+    """The failure this replaces: the last page read took every colliding code's rules."""
+    tables = emit_records(
+        [
+            _synthetic_page("ashenreach", "SC", "Sable Cohort", "Sable Advance"),
+            _synthetic_page("thornmoor", "SC", "Sedge Column", "Sedge Volley"),
+        ],
+        edition_code="wh40k-11e",
+    )
+
+    rules = tables["Detachment_abilities.csv"].rows
+    assert {(row.fields["detachment_id"], row.fields["name"]) for row in rules} == {
+        ("ashenreach:SC", "Sable Advance"),
+        ("thornmoor:SC", "Sedge Volley"),
+    }
+    # And the rule rows' own ids stay distinct, so neither overwrites the other downstream.
+    assert len({row.fields["id"] for row in rules}) == 2
 
 
 # -- the emitted tables ------------------------------------------------------------------------
