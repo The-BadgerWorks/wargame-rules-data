@@ -22,13 +22,15 @@
     "mechanic_digest": "87514911f1c8dfd7e002a5b74c388d45",
     "name": "Adaptive Instincts (Once per turn, per unit)",
     "review_state": "in_review",
-    "summary": "When this unit is selected to fight, or is targeted by an enemy, choose one: its melee attacks get +1 Strength, or it gets +1 Toughness."
+    "summary": "In the Fight phase, when this unit is selected to fight or an enemy unit targets it, choose one: its melee attacks get +1 Strength, or the unit gets +1 Toughness."
   },
   {
     "ability_key": "datasheet:aggressive-leader-beast",
     "mechanic_digest": "ceaee40c2babad34e7d946ce129bd1e4",
     "name": "Aggressive Leader-beast",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
     "summary": "In your opponent's Shooting phase, if a model in this unit was destroyed by an enemy unit's attacks, this unit can make a surge move of up to D6\"."
   },
   {
@@ -71,7 +73,9 @@
     "ability_key": "datasheet:blistering-assault",
     "mechanic_digest": "a527c6cdc0592d3f2c34d28b5a50f9a0",
     "name": "Blistering Assault",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
     "summary": "In your opponent's Shooting phase, if a model in this unit lost a wound from an enemy unit's attacks, this unit can make a surge move of up to D6+2\"."
   },
   {
@@ -204,7 +208,9 @@
     "ability_key": "datasheet:foul-spores-aura",
     "mechanic_digest": "acf580dbaf5318b95645bf3253ddc880",
     "name": "Foul Spores (Aura)",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
     "summary": "Friendly TYRANIDS units within 6\" of this unit have the Stealth ability."
   },
   {
@@ -392,14 +398,14 @@
     "mechanic_digest": "99127bf7c6c47fed28e4a8ba7b89853a",
     "name": "Seed Mucolids",
     "review_state": "in_review",
-    "summary": "Once per turn, instead of shooting, this unit can add a new 1-model MUCOLID SPORES unit to your army, set up wholly within 18\" of this model and more than 8\" from all enemy units."
+    "summary": "Once per turn, in your Shooting phase, one unit with this ability can forgo shooting to add a new one-model MUCOLID SPORES unit to your army, set up wholly within 18\" of this model and more than 8\" horizontally from all enemy units."
   },
   {
     "ability_key": "datasheet:seed-spore-mines",
     "mechanic_digest": "d37eb107b38dad3a5060969b498c8bd9",
     "name": "Seed Spore Mines",
     "review_state": "in_review",
-    "summary": "Once per turn, instead of shooting, this unit can add a new SPORE MINES unit (1 model per model in this unit) to your army, set up wholly within 48\" of this unit and more than 8\" from all enemy units."
+    "summary": "Once per turn, in your Shooting phase, one unit with this ability can forgo shooting to add a new SPORE MINES unit (1 model per model in this unit), set up wholly within 48\" of this unit and more than 8\" horizontally from enemies."
   },
   {
     "ability_key": "datasheet:serpentine-fiend",
@@ -424,7 +430,7 @@
     "mechanic_digest": "ca6bb9d1652bb91976f8fd303cf9a215",
     "name": "Skulking Horrors",
     "review_state": "in_review",
-    "summary": "In your opponent's Movement phase, if an enemy unit ends a move within 8\" of this unit and it is not in Engagement Range, it can make a Normal move of up to D6\"."
+    "summary": "In your opponent's Movement phase, when an enemy unit ends any move within 8\" of this unit, this unit can make a Normal move of up to D6\", provided it is not within Engagement Range of any enemy unit."
   },
   {
     "ability_key": "datasheet:spawn-termagants",
@@ -449,7 +455,7 @@
     "mechanic_digest": "c953a8d9e6fef17885e8a3cebfd92ceb",
     "name": "Spore Mine Cysts",
     "review_state": "in_review",
-    "summary": "At the end of your opponent's Fight phase: target one visible enemy unit (not Lone Operative) within 24\" and roll six D6 (1 mortal wound per 3+), or add a D3-model SPORE MINES unit within 6\" and 8\"+ from enemies; only one model per turn."
+    "summary": "At the end of your opponent's Fight phase, either roll six D6 at a visible enemy unit (not Lone Operative) within 24\" for 1 mortal wound per 3+, or (one model/turn) add a D3-model SPORE MINES unit within 6\", 8\"+ horizontally from enemies."
   },
   {
     "ability_key": "datasheet:stalking-forward",
