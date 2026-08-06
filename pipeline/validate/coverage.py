@@ -6,6 +6,9 @@
 # its configured proportion of the previous release stops the run on the same terms.
 # AI-Assisted: Claude Code (model: claude-opus-5) - Extended it again to keyword classification
 # (004 task T041, WGC_COVERAGE_MIN_KEYWORD_CLASS_RATIO).
+# AI-Assisted: Claude Code (model: claude-opus-5) - Added check_weapon_ability_keywords (issue
+# #4): the within-snapshot half of the same question, for the class whose emptiness the
+# previous-release comparison cannot see because the previous release was empty too.
 """V10 — did we just publish a fraction of the release without noticing?
 
 This is the check for the failure that looks like success. A partial response, or an error page
@@ -63,6 +66,51 @@ def _ratio(current: int, previous: int) -> float:
     if previous <= 0:
         return 1.0
     return current / previous
+
+
+def check_weapon_ability_keywords(snapshot: CuratedSnapshot) -> list[Finding]:
+    """``COV-WEAPON-ABILITIES-EMPTY`` — weapon lines ship, and none states an ability keyword.
+
+    The comparison above answers "is this all of it?" by looking at the previous release. That
+    only works while the previous release had the thing. Issue #4 is the case where it did not:
+    ``CuratedWeaponLine.ability_keywords`` was empty on all 9,305 published weapon lines, every
+    release, so the ratio was a stable 1.0 and every other check was satisfied — the rows were
+    present, the characteristics were right, the bundle reproduced byte for byte.
+
+    So this one asks the question from *inside* the snapshot, where it can be asked at all: a
+    release that publishes weapons and not one weapon ability keyword is not a plausible edition,
+    it is an extraction that stopped. **Advisory**, deliberately: the reading is a judgement about
+    plausibility rather than a violated guarantee, and refusing to publish a release over it would
+    be refusing over a heuristic. It appears in the report and in the scale block beside it, which
+    is all it needs to do — this defect survived because nothing said anything, not because
+    somebody read a warning and shipped anyway.
+
+    Deliberately **not** a proportional threshold. A partial recovery is a normal shape — most
+    weapons state no ability keyword at all — and any floor picked for it would be invented. Zero
+    is the one figure that means something on its own.
+
+    Kept out of :class:`CoverageOutcome` because that type's ``collapsed`` property drives exit
+    code 42: an advisory placed in it would refuse publication, which is precisely the severity
+    override the catalogue exists to make impossible.
+    """
+    weapon_lines = sum(len(datasheet.weapons) for datasheet in snapshot.datasheets)
+    if not weapon_lines:
+        return []
+    carrying = sum(
+        1
+        for datasheet in snapshot.datasheets
+        for weapon in datasheet.weapons
+        if weapon.ability_keywords
+    )
+    if carrying:
+        return []
+    return [
+        build_finding(
+            "COV-WEAPON-ABILITIES-EMPTY",
+            entity_refs=["coverage:weapon_ability_keywords"],
+            detail={"weapon_lines": weapon_lines, "weapon_lines_with_keywords": 0},
+        )
+    ]
 
 
 def check_coverage(

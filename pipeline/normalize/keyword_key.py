@@ -58,6 +58,20 @@ class KeywordKey(NamedTuple):
     has_numeric_parameter: bool
 
 
+def collapse_variant(value: str) -> str:
+    """Steps 1-4 only: the printed form reduced to a comparable shape, **parameter intact**.
+
+    Exists for the one caller that has to tell ``MARSHBIND 1`` from ``MARSHBIND 3`` while still
+    treating ``Marshbind 2`` and ``MARSHBIND-2`` as the same printed value — deduplicating a
+    weapon row's own keyword list (:mod:`pipeline.normalize.weapon_abilities`), where the key
+    would merge two genuinely different parameters. Not a sixth normalisation: it is the first
+    four steps of the one procedure below, shared rather than re-implemented.
+    """
+    composed = unicodedata.normalize("NFKC", value).casefold()
+    kept = "".join(ch if (ch.isalnum() or ch.isspace()) else " " for ch in composed)
+    return _WHITESPACE_RUN.sub(" ", kept).strip()
+
+
 def normalize_keyword(value: str) -> KeywordKey:
     """Return ``value``'s glossary key and whether a numeric parameter was stripped.
 
@@ -73,10 +87,7 @@ def normalize_keyword(value: str) -> KeywordKey:
     if not value:
         return KeywordKey("", False)
 
-    composed = unicodedata.normalize("NFKC", value).casefold()
-    kept = "".join(ch if (ch.isalnum() or ch.isspace()) else " " for ch in composed)
-    collapsed = _WHITESPACE_RUN.sub(" ", kept).strip()
-
+    collapsed = collapse_variant(value)
     stripped = _TRAILING_PARAMETER.sub("", collapsed)
     return KeywordKey(stripped, stripped != collapsed)
 

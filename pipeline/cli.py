@@ -133,7 +133,11 @@ from pipeline.validate.contract_checks import (
     SCHEMA_CONTRACT_VERSION,
     check_snapshot,
 )
-from pipeline.validate.coverage import CoverageOutcome, check_coverage
+from pipeline.validate.coverage import (
+    CoverageOutcome,
+    check_coverage,
+    check_weapon_ability_keywords,
+)
 from pipeline.validate.gates import (
     ClassCheck,
     ClassCoverage,
@@ -495,6 +499,10 @@ def _reconcile_against_prior(
 
     coverage = check_coverage(snapshot, prior, config)
     findings.extend(coverage.findings)
+    # Advisory, and outside `coverage.findings` on purpose: anything in there refuses
+    # publication with exit 42, and this reading is a plausibility judgement rather than a
+    # violated guarantee (issue #4, pipeline/validate/coverage.py).
+    findings.extend(check_weapon_ability_keywords(snapshot))
 
     checks = _summary_class_checks(
         snapshot,
@@ -793,6 +801,10 @@ def run_validate(
     prior = load_prior(root, edition_code=EDITION_CODE)
     coverage = check_coverage(snapshot, prior, config)
     findings.extend(coverage.findings)
+    # Advisory, and outside `coverage.findings` on purpose: anything in there refuses
+    # publication with exit 42, and this reading is a plausibility judgement rather than a
+    # violated guarantee (issue #4, pipeline/validate/coverage.py).
+    findings.extend(check_weapon_ability_keywords(snapshot))
 
     # No source text is ever re-acquired here (contract §1), so this run has no evidence of
     # digest drift — every class passes `current_digests=None` — and trusts each stored

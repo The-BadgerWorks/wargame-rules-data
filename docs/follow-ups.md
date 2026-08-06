@@ -9,6 +9,9 @@
 <!-- AI-Assisted: Claude Code (model: claude-opus-5) - Closed item 4: the chapter-keyword rung
      landed, and the coverage shortfall it attributed to an edition-boundary artefact turned out
      to be a cost-table parsing defect. The original text is kept beneath the resolution. -->
+<!-- AI-Assisted: Claude Code (model: claude-opus-5) - Added item 5 (issue #4): the finding code
+     the weapon-ability-keyword fix needed, implemented ahead of the additive row a frozen
+     contract may not be given as a side effect of a bug fix. -->
 # Follow-ups
 
 Open items surfaced during implementation that are deliberately **not** fixed as part of the work
@@ -137,3 +140,32 @@ The remainder of the shortfall is not recoverable and should not be treated as a
 edition publishes fewer datasheets than 10th, so a coverage ratio measured against a
 previous-edition baseline is comparing two different editions' catalogues. That is the case for a
 dated `curation/resolutions.json` entry when this candidate is raised, not for a threshold change.
+
+## 5. `COV-WEAPON-ABILITIES-EMPTY` is implemented ahead of its contract row (issue #4)
+
+`pipeline/report/catalogue.py` now carries `COV-WEAPON-ABILITIES-EMPTY` (class `coverage`,
+**advisory**), raised when a snapshot publishes weapon lines and not one of them states an
+ability keyword. It exists because that is exactly the state every release shipped in until
+issue #4: `CuratedWeaponLine.ability_keywords` was empty on all 9,305 published weapon lines,
+every value present was correct, and no finding and no figure said anything.
+
+The code is **not yet in `validation-report.md` §3.4**, which is the catalogue's source of truth.
+That contract is Frozen (`002-rules-data-pipeline` accepted 2026-08-04) and its own changelog
+states that any further change to it is a cross-feature versioning exercise (Principle 10) — so a
+bug fix may not edit it as a side effect, and did not. `tests/unit/test_finding_catalogue.py`
+keeps the code in a separate `PENDING_CONTRACT_SEVERITIES` block for the same reason: the
+transcribed tables above it must stay a faithful copy of what the contracts actually say.
+
+**Action needed**: an additive row in `WargameCompanion:specs/002-rules-data-pipeline/contracts/
+validation-report.md` §3.4 —
+
+| `COV-WEAPON-ABILITIES-EMPTY` | advisory | The snapshot publishes weapon lines and none states an ability keyword | issue #4 |
+
+— with a changelog entry, made by whoever owns the 002 contracts. Adding a code is additive and
+backward-compatible: no existing code's meaning or severity moves, `report_contract_version`
+stays `1.0.0`, and a consumer that does not know the code treats it as any other advisory. Once
+the row exists, move the entry out of `PENDING_CONTRACT_SEVERITIES` into the main transcription.
+
+The `weapon_ability_keywords` scale figure added alongside it needs no contract change:
+`validation-report.md` §1.3 requires every scale category to state a count and a proportion and
+does not enumerate the categories.

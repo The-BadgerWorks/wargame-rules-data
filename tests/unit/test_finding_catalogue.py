@@ -108,7 +108,18 @@ ENRICHMENT_SEVERITIES = {
     "COV-SUMMARY-REGRESSION": B,
 }
 
+#: Implemented **ahead of** its contract row, and kept in its own block so the transcription
+#: above stays a faithful copy of what the contracts actually say. `validation-report.md` is
+#: Frozen (002 accepted 2026-08-04) and states that any further change to it is a cross-feature
+#: versioning exercise, so a bug fix may not edit it as a side effect — see `docs/follow-ups.md`
+#: item 5 for the additive §3.4 row this code needs. Severity is asserted here exactly as it is
+#: for every catalogued code, so the drift protection is unchanged; only the paperwork is owed.
+PENDING_CONTRACT_SEVERITIES = {
+    "COV-WEAPON-ABILITIES-EMPTY": A,
+}
+
 CONTRACT_SEVERITIES.update(ENRICHMENT_SEVERITIES)
+CONTRACT_SEVERITIES.update(PENDING_CONTRACT_SEVERITIES)
 
 
 def test_the_catalogue_is_exactly_the_contract_catalogue() -> None:

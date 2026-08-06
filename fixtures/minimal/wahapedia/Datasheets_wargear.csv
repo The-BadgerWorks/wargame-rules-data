@@ -1,8 +1,8 @@
 ﻿datasheet_id|line|line_in_wargear|dice|name|description|range|type|A|BS_WS|S|AP|D|
-AV01|1|1||Ashen Sentinel blade||Melee|Melee|3|3+|5|-1|2|
-AV02|1|1||Ashen Warden blade||Melee|Melee|3|3+|5|-1|2|
-AV03|1|1||Lord Ashen blade||Melee|Melee|3|3+|5|-1|2|
-AV04|1|1||Ashen Captain blade||Melee|Melee|3|3+|5|-1|2|
+AV01|1|1||Ashen Sentinel blade|[GLIMMERBURST]|Melee|Melee|3|3+|5|-1|2|
+AV02|1|1||Ashen Warden blade|[MARSHBIND 2, GLIMMERBURST]|Melee|Melee|3|3+|5|-1|2|
+AV03|1|1||Lord Ashen blade|[FENLOCK 4+]|Melee|Melee|3|3+|5|-1|2|
+AV04|1|1||Ashen Captain blade|[Marshbind 1]|Melee|Melee|3|3+|5|-1|2|
 AV05|1|1||Ashen Relic Walker blade||Melee|Melee|3|3+|5|-1|2|
 AV06|1|1||Ashen Carrier blade||Melee|Melee|3|3+|5|-1|2|
 AV07|1|1||Ashen Skirmisher blade||Melee|Melee|3|3+|5|-1|2|

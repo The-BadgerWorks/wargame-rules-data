@@ -18,6 +18,10 @@
 # `match_units` needs for its chapter-keyword disambiguation step (docs/follow-ups.md item 4),
 # read through the same IP strip the curated keyword rows go through so a curator's
 # keyword-classes.json record means the same token in both places.
+# AI-Assisted: Claude Code (model: claude-opus-5) - Carried each weapon line's ability keywords
+# into CuratedWeaponLine (issue #4). They were stated by both detail modes and read by neither,
+# so all 9,305 published weapon lines shipped with an empty keyword list and the glossary
+# denominator never saw the one keyword class that is a mechanic by construction.
 """Build one :class:`~pipeline.models.curated.CuratedSnapshot` from everything upstream.
 
 This is where the two sources stop being two sources. The **points** source is authoritative for
@@ -90,6 +94,7 @@ from pipeline.normalize.numerics import (
     to_int,
     upper_bound,
 )
+from pipeline.normalize.weapon_abilities import parse_weapon_ability_keywords
 from pipeline.parse.composition_grammar import link_model_line, parse_entry
 from pipeline.parse.mfm_dom import MfmPage
 from pipeline.parse.options_grammar import (
@@ -407,6 +412,17 @@ def _detail_datasheet_fields(
                     strength=weapon.fields["S"].strip() or "-",
                     armour_penetration=weapon.fields["AP"].strip() or "0",
                     damage=weapon.fields["D"].strip() or "-",
+                    # Issue #4. The keywords are stated in the export's `description` column,
+                    # which also carries free prose — so the field is IP-stripped first and then
+                    # read by the bracketed-group rule, which takes the keyword list and nothing
+                    # else. Both detail modes reach this line: html mode re-emits the keywords
+                    # its cards print into the same column, in the same shape.
+                    ability_keywords=parse_weapon_ability_keywords(
+                        strip_field(
+                            weapon.fields.get("description", ""),
+                            field="weapon.ability_keywords",
+                        ).text
+                    ),
                 )
             )
         except (NumericParseError, KeyError):

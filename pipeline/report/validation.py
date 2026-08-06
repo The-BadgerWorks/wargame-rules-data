@@ -14,6 +14,9 @@
 # stated as a count AND a proportion.
 # AI-Assisted: Claude Code (model: claude-opus-5) - Added the `keyword_classification` figure
 # (004 task T041, SC-005), the one figure here carrying its own denominator.
+# AI-Assisted: Claude Code (model: claude-opus-5) - Added the `weapon_ability_keywords` figure
+# (issue #4), the second one carrying its own denominator, so a weapon-ability class that is
+# empty on every published weapon line is a number an approver reads rather than a silence.
 """`reports/<rulesVersionId>/report.json` and `report.md`.
 
 Every run produces this, whether or not it publishes (FR-031), and the report of a run that
@@ -112,6 +115,19 @@ def scale_figures(snapshot: CuratedSnapshot, findings: Sequence[Finding]) -> dic
     # keyword count by a datasheet count would produce a number that means nothing and moves
     # whenever either changes. Stated with its own denominator rather than approximated with the
     # shared one (data-model.md §5).
+    # `weapon_ability_keywords` is the second figure with its own denominator, and for the same
+    # reason: the question is what proportion of *weapon lines* state an ability keyword, and a
+    # datasheet count is not that. It exists because the class was empty on every published
+    # weapon line for the life of the project (issue #4) and no figure here would have shown it —
+    # the emptiness is per-record correct, so only a count of the class itself makes it visible.
+    weapon_lines = sum(len(datasheet.weapons) for datasheet in snapshot.datasheets)
+    weapons_with_keywords = sum(
+        1
+        for datasheet in snapshot.datasheets
+        for weapon in datasheet.weapons
+        if weapon.ability_keywords
+    )
+
     keywords_in_use = {keyword.keyword for d in snapshot.datasheets for keyword in d.keywords}
     classified = {
         keyword.keyword
@@ -137,6 +153,10 @@ def scale_figures(snapshot: CuratedSnapshot, findings: Sequence[Finding]) -> dic
             proportion=(
                 round(len(classified) / len(keywords_in_use), 4) if keywords_in_use else 0.0
             ),
+        ),
+        "weapon_ability_keywords": ScaleFigure(
+            count=weapons_with_keywords,
+            proportion=(round(weapons_with_keywords / weapon_lines, 4) if weapon_lines else 0.0),
         ),
     }
 

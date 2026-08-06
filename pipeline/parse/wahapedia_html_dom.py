@@ -6,6 +6,10 @@
 # AI-Assisted: Claude Code (model: claude-opus-5) - Fixed the cost-table tier boundary: a repeated
 # header row before any price is the same heading, not the next tier. Reading it as the next tier
 # ended the read with nothing and left 160 live datasheets priced by no source at all.
+# AI-Assisted: Claude Code (model: claude-opus-5) - Kept the weapon-ability keywords the name
+# extractor removes (issue #4): one span.kwbw is one keyword, the element boundary is the
+# separator the card prints nothing for, and they leave here in the export's own `description`
+# column so both detail modes reach pipeline/curate/assemble.py by one path.
 """Extract the current-edition datacard pages into the **same record shape** ``csv`` mode reads.
 
 This module is the whole of the difference between the two detail-acquisition modes. Above it,
@@ -76,6 +80,7 @@ from selectolax.lexbor import LexborHTMLParser, LexborNode
 from pipeline.acquire.fixtures import FixturePayload
 from pipeline.models.source import WahapediaRow
 from pipeline.normalize.homoglyphs import fold_homoglyphs
+from pipeline.normalize.weapon_abilities import format_ability_keywords
 from pipeline.parse.wahapedia_csv import CsvReadResult
 
 #: The datacard root. Both tokens, because ``dsOuterFrame`` alone is also used for other frames.
@@ -176,6 +181,11 @@ EMITTED_TABLES: Final[Mapping[str, tuple[str, ...]]] = {
         "datasheet_id",
         "line",
         "name",
+        # The column the export states a weapon's ability keywords in, carrying the same
+        # bracketed list the export prints (issue #4). It is the *only* thing written here:
+        # the export's own `description` also holds free prose on some rows, and this
+        # repository retains no publisher wording anywhere (Constitution Principle 4).
+        "description",
         "type",
         "range",
         "A",
@@ -357,6 +367,8 @@ class WeaponProfile:
     name: str
     is_melee: bool
     statistics: tuple[str, ...]
+    ability_keywords: tuple[str, ...] = ()
+    """The keywords printed after the name — ``Rapid Fire N``, ``Lethal Hits``, ``Anti-X N+``."""
 
 
 @dataclass(frozen=True, slots=True)
@@ -497,7 +509,17 @@ def _invuln_after(wrap: LexborNode) -> str | None:
 
 
 def _weapon_profiles(card: LexborNode) -> tuple[WeaponProfile, ...]:
-    """Every weapon profile, taking its section from the header row that introduces it."""
+    """Every weapon profile, taking its section from the header row that introduces it.
+
+    The section header and the rows it introduces are **sometimes in the same ``tbody`` and
+    sometimes not**, and the page uses both shapes on one card — a ranged section is usually
+    split across its own groups while a melee section commonly carries its header and its rows
+    together. So the header sets the section and the group is then read *anyway*; skipping the
+    group on finding a header in it discarded every weapon printed beneath that header, which
+    measured 1,729 of 9,020 weapon rows (19%) across the live faction pages, almost all of them
+    melee. The header row itself carries no ``wTable2_short`` cell, so it needs no skipping —
+    the row loop below already ignores it.
+    """
     weapons: list[WeaponProfile] = []
     line = 0
     for table in card.css("table.wTable"):
@@ -508,7 +530,6 @@ def _weapon_profiles(card: LexborNode) -> tuple[WeaponProfile, ...]:
             heading = _text(group.css_first("td.wTable_WEAPON")).upper()
             if heading in {_RANGED_SECTION, _MELEE_SECTION}:
                 is_melee = heading == _MELEE_SECTION
-                continue
             for row in group.css("tr"):
                 cells = [cell for cell in _children(row) if cell.tag == "td"]
                 named = next(
@@ -534,9 +555,48 @@ def _weapon_profiles(card: LexborNode) -> tuple[WeaponProfile, ...]:
                         name=_text_without(cells[named], "kwbw"),
                         is_melee=is_melee,
                         statistics=statistics,
+                        ability_keywords=_ability_keywords(cells[named]),
                     )
                 )
     return tuple(weapons)
+
+
+def _ability_keywords(cell: LexborNode) -> tuple[str, ...]:
+    """The weapon-ability keywords printed in one name cell, in the order the card prints them.
+
+    The other half of the name extractor above: what that one removes, this one keeps. Issue #4
+    was exactly the gap between the two — the keywords were correctly excluded from the name and
+    then dropped, so every weapon line in curated data carried an empty keyword list.
+
+    Two properties of the markup decide the shape of this function:
+
+    * **One ``span.kwbw`` is one keyword.** Nothing is printed between two of them — no comma,
+      no bracket — so the element boundary *is* the separator and splitting on printed
+      punctuation would merge every multi-keyword weapon into one keyword.
+    * **A keyword's words are split across adjacent elements inside it**, the same line-break
+      opportunities ``_keywords`` deals with in the keyword block. :func:`_text` inserts the
+      element boundary as a space, so ``Rapid Fire`` arrives as two words rather than one.
+
+    Nested ``kwbw`` elements are read once, at the outermost one, so a keyword wrapped in a
+    tooltip inside another keyword's element cannot be counted twice.
+    """
+    keywords: list[str] = []
+    for node in cell.css("*"):
+        if not _has_class(node, "kwbw"):
+            continue
+        if any(_has_class(ancestor, "kwbw") for ancestor in _ancestors_within(node, cell)):
+            continue
+        if text := _text(node):
+            keywords.append(text)
+    return tuple(keywords)
+
+
+def _ancestors_within(node: LexborNode, boundary: LexborNode) -> Iterator[LexborNode]:
+    """Every ancestor of ``node`` up to but excluding ``boundary``."""
+    parent = node.parent
+    while parent is not None and parent is not boundary:
+        yield parent
+        parent = parent.parent
 
 
 def _keywords(card: LexborNode) -> tuple[tuple[str, str, bool], ...]:
@@ -1020,6 +1080,7 @@ def _emit_card(card: Datacard, tables: dict[str, list[dict[str, str]]]) -> None:
             "datasheet_id": card.detail_id,
             "line": str(weapon.line),
             "name": weapon.name,
+            "description": format_ability_keywords(weapon.ability_keywords),
             "type": "Melee" if weapon.is_melee else "Ranged",
         }
         row.update(dict(zip(_WEAPON_FIELDS, weapon.statistics, strict=True)))

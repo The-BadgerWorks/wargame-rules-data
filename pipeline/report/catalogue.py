@@ -6,6 +6,9 @@
 # task T012): composition and option findings, keyword classification findings, the fifteen
 # per-class summary codes generated from contracts/authored-summary-gates.md §3's gate table,
 # the glossary orphan advisory, and the single blocking coverage ratchet code.
+# AI-Assisted: Claude Code (model: claude-opus-5) - Added COV-WEAPON-ABILITIES-EMPTY (issue #4):
+# the advisory that makes a whole extracted class going empty visible, which is the one shape of
+# defect every other code here is blind to because nothing about it is wrong per record.
 """The finding catalogue.
 
 ``validation-report.md`` §1.1: **severity is a property of the code, not of the occurrence.** A
@@ -141,6 +144,14 @@ _DEFINITIONS: Final[tuple[FindingDefinition, ...]] = (
     _d("SRC-REFUSED", _COV, _B, "FR-007", "a source refused or throttled; the run stops"),
     _d("SRC-STRUCTURE-CHANGED", _COV, _B, "FR-008", "values can no longer be extracted reliably"),
     _d("COV-COLLAPSE", _COV, _B, "FR-009", "coverage fell below the configured proportion"),
+    _d(
+        "COV-WEAPON-ABILITIES-EMPTY",
+        _COV,
+        _A,
+        "issue #4",
+        "the snapshot publishes weapon lines and not one of them states an ability keyword; "
+        "every value present is still correct, which is why nothing else would notice",
+    ),
     # §3.5 Contract, authored content, summaries, edition
     _d("CON-NO-COST", _CON, _B, "FR-030", "a datasheet has no cost row"),
     _d("CON-ORPHAN-ENHANCEMENT", _CON, _B, "FR-030", "an enhancement's detachment is absent"),

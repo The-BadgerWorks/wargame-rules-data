@@ -5,6 +5,10 @@
 # (risk R-A, research D1c-D1d, docs/verification/html-markup-spike.md).
 # AI-Assisted: Claude Code (model: claude-opus-5) - Added the repeated-cost-header case, the other
 # half of the tier rule, against the trap now reproduced on the Thornlight-Chorus fixture card.
+# AI-Assisted: Claude Code (model: claude-opus-5) - Added the weapon-ability-keyword cases (issue
+# #4): the keywords the name extractor removes are now read rather than discarded, including the
+# adjacent-element split and the parameterised forms, and they leave html mode in the export's
+# own `description` column.
 """The mode-blindness proof, stated as tests rather than as a design note.
 
 `004`'s architecture rests on one claim: the composition and option grammars, measured once
@@ -29,6 +33,7 @@ import pytest
 from selectolax.lexbor import LexborHTMLParser, LexborNode
 
 from pipeline.acquire.fixtures import FixturePayload
+from pipeline.normalize.weapon_abilities import parse_weapon_ability_keywords
 from pipeline.parse.composition_grammar import link_model_line, parse_entry
 from pipeline.parse.options_grammar import choice_names, parse_row, split_sublist
 from pipeline.parse.wahapedia_html_dom import (
@@ -302,6 +307,71 @@ def test_weapon_profiles_take_their_section_from_the_header_that_introduces_them
 def test_a_weapons_own_ability_keywords_are_not_part_of_its_name(page) -> None:  # type: ignore[no-untyped-def]
     warden = _card(page, "Glimmerfen-Warden")
     assert [weapon.name for weapon in warden.weapons] == ["Glimmer lantern"]
+
+
+def test_a_weapons_ability_keywords_are_read_rather_than_discarded(page) -> None:  # type: ignore[no-untyped-def]
+    """Issue #4: the keywords removed from the name have to *go* somewhere.
+
+    Three shapes in one cell, because the card prints all three: a keyword in a single element,
+    a keyword whose words are split across adjacent elements (they are line-break opportunities,
+    not tokens — concatenating them would yield ``marshbind2``), and a target-parameterised one.
+    """
+    warden = _card(page, "Glimmerfen-Warden")
+
+    assert warden.weapons[0].ability_keywords == ("blast", "marshbind 2", "fenlock 4+")
+
+
+def test_each_sibling_keyword_element_is_its_own_keyword(page) -> None:  # type: ignore[no-untyped-def]
+    """Nothing is printed between two keywords, so the element boundary is the separator."""
+    warden = _card(page, "Glimmerfen-Warden")
+
+    assert len(warden.weapons[0].ability_keywords) == 3
+
+
+def test_a_section_whose_header_shares_a_tbody_with_its_rows_still_yields_them(page) -> None:  # type: ignore[no-untyped-def]
+    """The shape that silently dropped 19% of live weapon rows, almost all of them melee.
+
+    The page groups a section's header and its rows into one ``tbody`` on some cards and into
+    separate ones on others — both shapes appear on the same page. Treating "this group has a
+    header" as "this group has no rows" discarded every weapon printed beneath such a header.
+    """
+    conclave = _card(page, "Sedgeward-Conclave")
+
+    assert [(w.name, w.is_melee) for w in conclave.weapons] == [
+        ("Sedge halberd", True),
+        ("Mire censer", True),
+    ]
+    assert conclave.weapons[0].ability_keywords == ("bracklight bound",)
+
+
+def test_a_weapon_the_card_prints_no_keyword_for_carries_none(page) -> None:  # type: ignore[no-untyped-def]
+    skirmishers = _card(page, "Fenmire-Skirmishers")
+
+    assert [weapon.ability_keywords for weapon in skirmishers.weapons] == [(), ()]
+
+
+def test_the_emitted_wargear_table_carries_the_keywords_in_the_exports_own_field(page) -> None:  # type: ignore[no-untyped-def]
+    """Mode-blindness: the keywords leave html mode in the column the csv export puts them in.
+
+    Asserted through :func:`pipeline.normalize.weapon_abilities.parse_weapon_ability_keywords`
+    — the reader ``pipeline.curate.assemble`` uses — rather than against a literal string, so
+    the test states the property the two modes share instead of one mode's formatting.
+    """
+    tables = emit_records([page])
+    rows = {
+        (row.fields["datasheet_id"], row.fields["line"]): row
+        for row in tables["Datasheets_wargear.csv"].rows
+    }
+    warden = rows[(f"{SLUG}:Glimmerfen-Warden", "1")]
+    carbine = rows[(f"{SLUG}:Fenmire-Skirmishers", "1")]
+
+    assert "description" in tables["Datasheets_wargear.csv"].field_names
+    assert parse_weapon_ability_keywords(warden.fields["description"]) == (
+        "blast",
+        "marshbind 2",
+        "fenlock 4+",
+    )
+    assert parse_weapon_ability_keywords(carbine.fields["description"]) == ()
 
 
 def test_only_the_first_cost_tier_is_read(page) -> None:  # type: ignore[no-untyped-def]
