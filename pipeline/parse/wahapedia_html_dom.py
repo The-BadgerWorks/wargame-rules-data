@@ -3,6 +3,9 @@
 # identity, homoglyph-folded class comparison, and export-shaped records so the composition and
 # option grammars, the keyword split, and the ability join are reused unmodified under html mode
 # (risk R-A, research D1c-D1d, docs/verification/html-markup-spike.md).
+# AI-Assisted: Claude Code (model: claude-opus-5) - Fixed the cost-table tier boundary: a repeated
+# header row before any price is the same heading, not the next tier. Reading it as the next tier
+# ended the read with nothing and left 160 live datasheets priced by no source at all.
 """Extract the current-edition datacard pages into the **same record shape** ``csv`` mode reads.
 
 This module is the whole of the difference between the two detail-acquisition modes. Above it,
@@ -640,10 +643,17 @@ def _composition_and_costs(block: Block) -> tuple[tuple[str, ...], tuple[tuple[s
     ``1 <model> – EPIC HERO`` where the export publishes only the count and the name, and leaving
     the marker in would make it part of the model name the grammar resolves.
 
-    Only the **first** cost table is read. A datasheet priced in two tiers prints two, and both
+    Only the **first** cost tier is read. A datasheet priced in two tiers prints two, and both
     are keyed by model count — so reading the second would overwrite the base price with the
     requisition-threshold one. The points source is the pricing authority regardless; these rows
     exist to price a datasheet it did not publish and to notice a disagreement about one it did.
+
+    **A tier boundary is a header row that follows a cost row, not merely a second header row.**
+    Some cards repeat the heading one or more times before printing anything, and treating the
+    repeat as the next tier ends the read before a single price has been taken — which is not a
+    misread price but no price at all, and a datasheet with no price anywhere is the blocking
+    ``REC-NEVER-PRICED``. That is what it did: of the 170 raised by the 2026-08-05 live html
+    sweep, 160 were against cards whose cost table was sitting right there.
     """
     lines: list[str] = []
     costs: list[tuple[str, str]] = []
@@ -657,14 +667,12 @@ def _composition_and_costs(block: Block) -> tuple[tuple[str, ...], tuple[tuple[s
         for table in node.css("table"):
             if table.css_first("td.dsUnitCostHeader") is None:
                 continue
-            seen_header = False
             for row in table.css("tr"):
                 cells = [cell for cell in _children(row) if cell.tag == "td"]
                 if any(_has_class(cell, "dsUnitCostHeader") for cell in cells):
-                    if seen_header:
-                        break  # the second tier; see the docstring
-                    seen_header = True
-                    continue
+                    if costs:
+                        break  # the next tier begins; see the docstring
+                    continue  # the heading, or a repeat of it before any price
                 if len(cells) >= 2:
                     costs.append((_text(cells[0]), _text(cells[1])))
             break

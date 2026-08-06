@@ -3,6 +3,8 @@
 # keyword split, and — the point of the whole design — that the extracted composition and option
 # lists feed pipeline.parse.composition_grammar and pipeline.parse.options_grammar UNMODIFIED
 # (risk R-A, research D1c-D1d, docs/verification/html-markup-spike.md).
+# AI-Assisted: Claude Code (model: claude-opus-5) - Added the repeated-cost-header case, the other
+# half of the tier rule, against the trap now reproduced on the Thornlight-Chorus fixture card.
 """The mode-blindness proof, stated as tests rather than as a design note.
 
 `004`'s architecture rests on one claim: the composition and option grammars, measured once
@@ -306,6 +308,18 @@ def test_only_the_first_cost_tier_is_read(page) -> None:  # type: ignore[no-unty
     """Both tiers are keyed by model count, so reading the second would overwrite the base."""
     skirmishers = _card(page, "Fenmire-Skirmishers")
     assert skirmishers.costs == (("6 models", "65"), ("11 models", "130"))
+
+
+def test_a_repeated_cost_header_before_any_price_is_the_same_heading(page) -> None:  # type: ignore[no-untyped-def]
+    """The other half of the tier rule, and the half that cost 160 live datasheets their price.
+
+    A tier boundary is a header row that follows a *cost* row. A header row that follows another
+    header row, with nothing priced in between, is the same heading printed twice — and ending
+    the read there yields no cost at all, which is the blocking ``REC-NEVER-PRICED`` rather than
+    a merely wrong number.
+    """
+    chorus = _card(page, "Thornlight-Chorus")
+    assert chorus.costs == (("4 models", "55"),)
 
 
 def test_the_legends_marker_is_read_from_the_cards_own_class(page) -> None:  # type: ignore[no-untyped-def]

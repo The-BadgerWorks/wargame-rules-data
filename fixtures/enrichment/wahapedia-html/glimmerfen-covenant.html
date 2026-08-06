@@ -15,7 +15,13 @@
          (dsLeftСol / dsRightСol / dsLeftСolKW / dsRightСolKW), not ASCII C; and
        * faction-derived colour and keyword-code class tokens (dsColorBgGF, GFTC, ...) are
          present on every element that carries them upstream, so a selector that named one would
-         be caught here rather than on the twenty-fifth faction page of a live sweep. -->
+         be caught here rather than on the twenty-fifth faction page of a live sweep.
+
+     AI-Assisted: Claude Code (model: claude-opus-5) - Added a third trap, observed live on the
+     2026-08-05 html sweep and not by the spike: Thornlight-Chorus's cost table repeats its
+     header row BEFORE any cost row. Reading a repeated header as a second pricing tier dropped
+     the whole table and left 160 datasheets with no cost anywhere. Fenmire-Skirmishers keeps the
+     genuine two-tier shape (a header AFTER a cost row), so both readings are pinned here. -->
 <html>
 <head><title>Glimmerfen Covenant</title></head>
 <body>
@@ -461,6 +467,7 @@
         <ul class="dsUl"><li>3-9 Thornlight Chorister</li></ul>
         <b>Every model is equipped with:</b>invented placeholder loadout prose.</div>
       <div class="dsAbility"><table width="100%" border="0" cellspacing="0" cellpadding="2"><tbody>
+        <tr><td colspan="2" class="dsUnitCostHeader">YOUR UNIT COSTS</td></tr>
         <tr><td colspan="2" class="dsUnitCostHeader">YOUR UNIT COSTS</td></tr>
         <tr><td>4 models</td><td><div class="PriceTag">55</div></td></tr>
       </tbody></table></div>
