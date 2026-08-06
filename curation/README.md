@@ -15,6 +15,11 @@
      correction (004 T076 follow-up): three of the re-pointed detail_source_faction_id values
      did not name a page the current-edition source publishes, and two curated factions now
      share one. faction-map.json admits no comment syntax of its own. -->
+<!-- AI-Assisted: Claude Code (model: claude-opus-5) - Recorded the 2026-08-06 curation round:
+     the five Space Marine chapter records seeded into keyword-classes.json (which the match
+     ladder's new chapter-keyword rung reads), and the eight html-mode REC-NEVER-PRICED
+     exclusions added to resolutions.json plus the two deliberately left blocking. Neither JSON
+     file admits comment syntax of its own. -->
 # `curation/` — the authored tree
 
 **Humans write this directory. The pipeline never does.** The pipeline writes `data/` and never
@@ -153,6 +158,35 @@ the right one. That case does not exist in the data today and the check for it i
 `SM` faction's duplicate normalised names, grouped by publication. When it does appear, the fix
 is a `unit-map.json` entry, which is stage 1 and outranks every rung below it.
 
+**`detail_source_publication_id` is inert under `html` mode, and `keyword-classes.json` is what
+replaces it.** A datacard page states Legends as a class token on the card and never states which
+publication a datasheet came from, so the whole page reads as one publication (`current`) and
+stage 2 has nothing to prefer with. The collision itself did not go away: the current-edition
+`space-marines` page publishes **ten** pairs of datasheets sharing a normalised name — nine of
+them a core datacard beside a Black Templars one, one beside a Space Wolves one — and the live
+2026-08-05 sweep raised 53 blocking `REC-AMBIGUOUS-MATCH` findings across all six Space Marine
+factions because of them.
+
+What the page *does* carry, on every card, is the card's own faction keywords: the chapter's copy
+carries the chapter's keyword and the core copy does not. So `curation/keyword-classes.json` is
+now seeded with one `chapter` record per Space Marine chapter — the five the points source already
+publishes as their own faction pages — and the match ladder's third narrowing signal reads them:
+a faction discards every candidate claimed by a chapter it is not, then prefers one claimed by the
+chapter it is. That resolves all 53 and is the same discipline as the two signals before it, since
+what narrows the candidates is a curator's **declaration**, asserted against the faction tree by
+FR-019, and never an inference from a keyword's spelling.
+
+Two things follow that are worth stating rather than discovering:
+
+* **The five `detail_source_publication_id` values are left in place.** They cost nothing while
+  html mode makes them inert, and they are the correct answer again the day anything reads the
+  bulk export. Deleting them would be throwing away a curator's finding to tidy a field.
+* **The other 18 unclassified faction keywords are deliberately still unclassified.** Only the
+  chapters that were causing a blocking ambiguity were authored. `KWD-UNCLASSIFIED` is advisory
+  and an unclassified keyword ships byte-identically (FR-020), so classifying the rest is
+  editorial work with its own judgement calls — several of them are not chapters at all — and it
+  belongs in its own round rather than riding along inside a matching fix.
+
 **`resolutions.json` is seeded with two `REC-NEVER-PRICED` exclusions, and nothing else.** Both
 came off the same first `mfm-2026-08` candidate build, and both are the honest answer to "no
 source has ever published a price for this", which is what that finding says and why it blocks:
@@ -174,6 +208,31 @@ button: it is bound to the finding's `data_digest`, so if either row ever gains 
 cost, or a faction, the digest moves, the resolution lapses, and the finding blocks again with
 nobody having to remember to look. Both stay visible in every report as suppressed, with the
 explanation above, so an approver can see what was waved through and why.
+
+**Under `html` mode both of those two are inert, and eight more were added.** A resolution is
+bound to `(finding_code, entity_ref, data_digest)`, and an html-mode detail id is the page anchor
+(`wahapedia:imperial-knights:Sir-Hekhtur`) where a csv-mode one was an export id
+(`wahapedia:000002770`). The two seeded entries above therefore match nothing while the pipeline
+reads the datacard pages; they are kept rather than deleted, because they are still the correct
+answer the day anything reads the export again. The eight added on 2026-08-06 are the same
+finding re-raised under the new identity, and they fall into exactly two classes:
+
+* **Seven Legends datasheets whose datacard prints no unit-cost table at all.** Nothing else can
+  price them: the points source prices **no** Legends datasheet in this release — every one of the
+  529 Legends datasheets in the snapshot carries `pricing_confidence: unverified`, which is to say
+  its price came off its own card and never from the pricing authority — and each of the seven
+  faction pages involved leaves no unmatched points entry that a rename could be argued from.
+* **`Sir-Hekhtur`**, which is the *same datasheet* as the approved `wahapedia:000002770` entry
+  above, re-identified. Its reasoning is carried forward, not re-derived.
+
+**Two are deliberately left blocking**: `space-marines:Chaplain-Kastiel` and
+`space-marines:Judiciar-Xacharus`. Both are **current**-edition (not Legends) Epic Hero characters
+whose card prints no cost table, and both carry a chapter faction keyword that no `faction-map.json`
+entry names and that the points source publishes no page for. That is a class this repository has
+no policy for — an unpriced current-edition unit is exactly what `REC-NEVER-PRICED` blocks *for*,
+and the honest reading is that either the points source has not priced them yet or they are not
+army-list units. Guessing which, by writing a resolution, would be the fabrication the finding
+exists to prevent. They stay blocking until a maintainer decides.
 
 **`game-sizes.json` and `edition-rules.json` are authored, not extracted.** No upstream source
 publishes a machine-readable band table or construction-rule set — that gap is recorded in

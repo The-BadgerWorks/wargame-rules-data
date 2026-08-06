@@ -6,6 +6,9 @@
 <!-- AI-Assisted: Claude Code (model: claude-opus-5) - Added item 4 (004 T076 follow-up): the
      datasheet-coverage shortfall that survives the faction-map slug correction, and the
      chapter-disambiguation signal html mode does not carry. -->
+<!-- AI-Assisted: Claude Code (model: claude-opus-5) - Closed item 4: the chapter-keyword rung
+     landed, and the coverage shortfall it attributed to an edition-boundary artefact turned out
+     to be a cost-table parsing defect. The original text is kept beneath the resolution. -->
 # Follow-ups
 
 Open items surfaced during implementation that are deliberately **not** fixed as part of the work
@@ -78,7 +81,32 @@ the source-side types themselves. That removes the exception entirely rather tha
 it. Left as follow-up because it touches the `normalize` → `curate` boundary contract internally
 and deserved its own review rather than riding along inside T161's cleanup pass.
 
-## 4. `html` mode carries no publication id, so five chapters cannot be disambiguated (`004` T076)
+## 4. ~~`html` mode carries no publication id, so five chapters cannot be disambiguated~~ — **closed 2026-08-06**
+
+**Resolved.** The rung this item described as "a design question rather than a defect" was
+implemented as sketched, driven by `curation/keyword-classes.json`'s curator-authored chapter
+records rather than by any inference from a keyword's spelling — see `pipeline/reconcile/match.py`'s
+module docstring (rung 3) and `tests/reconcile/test_chapter_keyword_preference.py`. All 53
+`REC-AMBIGUOUS-MATCH` findings cleared. The `unit-map.json` alternative this item offered as the
+cheaper option turned out not to be available: `unit-map.json` is keyed by
+`mfm_display_name` alone, with no faction column, so one entry would resolve `Impulsor` identically
+in all six Space Marine factions — which is the one thing the collision needs it not to do.
+
+The item was also wrong about the size of the shortfall, and the correction is the more useful
+half of it. Clearing the 53 raised datasheet coverage to 92.4%, not the ~92.5% estimated — but the
+remaining gap was **not** the "not recoverable, two different editions' catalogues" this item
+concluded it was. It was a second, unrelated defect in the same live run: the html cost-table
+reader treated a repeated cost header as the start of the next pricing tier, so 160 datasheets
+whose cost table was sitting on the card were read as priced by nobody. Coverage with both fixed
+is **2 083 / 2 099 = 99.2%**, and no dated `resolutions.json` entry for a threshold shortfall is
+needed after all. The lesson worth keeping: a coverage figure short of its floor was blamed on the
+baseline being a different edition, and the baseline was almost right.
+
+The original item follows, unedited.
+
+### Original text
+
+**`html` mode carries no publication id, so five chapters cannot be disambiguated (`004` T076)**
 
 The live `html`-mode build of 2026-08-05 exits `42` on datasheet coverage: **1 888 datasheets
 against the published `mfm-2026-08` baseline's 2 099 — 89.95%, under the 90% floor**, on both

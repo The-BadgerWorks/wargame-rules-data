@@ -14,5 +14,69 @@
     "finding_code": "REC-NEVER-PRICED",
     "resolved_at": "2026-08-04T00:00:00Z",
     "resolved_by": "adhoxx"
+  },
+  {
+    "data_digest": "sha256:8f6fb50cefb621078bc54cc90b3ce13fe52e5e069de5bfb458f8ddd87ccf4495",
+    "entity_ref": "wahapedia:chaos-daemons:Exalted-Seeker-Chariot",
+    "explanation": "A Legends datacard that prints no unit-cost table. Nothing else can price it: the points source prices no Legends datasheet at all this release, and this faction's page leaves no unmatched unit that a rename could be argued from. Excluded rather than shipped at zero; the digest lapses the moment either source prices it.",
+    "finding_code": "REC-NEVER-PRICED",
+    "resolved_at": "2026-08-06T00:00:00Z",
+    "resolved_by": "adhoxx"
+  },
+  {
+    "data_digest": "sha256:f9e0e9f366c15621fd499208a32bd6a3fe08aaafcdda6a2495c6c47d2aa78d17",
+    "entity_ref": "wahapedia:chaos-daemons:Hellflayer",
+    "explanation": "A Legends datacard that prints no unit-cost table. Nothing else can price it: the points source prices no Legends datasheet at all this release, and this faction's page leaves no unmatched unit that a rename could be argued from. Excluded rather than shipped at zero; the digest lapses the moment either source prices it.",
+    "finding_code": "REC-NEVER-PRICED",
+    "resolved_at": "2026-08-06T00:00:00Z",
+    "resolved_by": "adhoxx"
+  },
+  {
+    "data_digest": "sha256:1d5b99a744dfcfcf9ad4cca3e13a443b9928e34ca8bd7e116f9dd209c8a63a78",
+    "entity_ref": "wahapedia:chaos-daemons:Seeker-Chariot",
+    "explanation": "A Legends datacard that prints no unit-cost table. Nothing else can price it: the points source prices no Legends datasheet at all this release, and this faction's page leaves no unmatched unit that a rename could be argued from. Excluded rather than shipped at zero; the digest lapses the moment either source prices it.",
+    "finding_code": "REC-NEVER-PRICED",
+    "resolved_at": "2026-08-06T00:00:00Z",
+    "resolved_by": "adhoxx"
+  },
+  {
+    "data_digest": "sha256:e456e086e58b6e2a81630fc7db61ed3f9088276afd9be17af9132474147daefa",
+    "entity_ref": "wahapedia:chaos-daemons:Tormentbringer-On-Exalted-Seeker-Chariot",
+    "explanation": "A Legends datacard that prints no unit-cost table. Nothing else can price it: the points source prices no Legends datasheet at all this release, and this faction's page leaves no unmatched unit that a rename could be argued from. Excluded rather than shipped at zero; the digest lapses the moment either source prices it.",
+    "finding_code": "REC-NEVER-PRICED",
+    "resolved_at": "2026-08-06T00:00:00Z",
+    "resolved_by": "adhoxx"
+  },
+  {
+    "data_digest": "sha256:fef3f790f332ea66acc7b988c01bbdfc830ff6058f75273ad0ed71de1fd09c44",
+    "entity_ref": "wahapedia:imperial-knights:Sir-Hekhtur",
+    "explanation": "The same datasheet the approved wahapedia:000002770 resolution already covers, re-identified under html mode where a detail id is the page anchor rather than an export id: an Epic Hero INFANTRY character in the knightly faction, no unit-cost table on its card, and no points entry on a faction page that leaves no unmatched unit at all. Carried forward unchanged in reasoning.",
+    "finding_code": "REC-NEVER-PRICED",
+    "resolved_at": "2026-08-06T00:00:00Z",
+    "resolved_by": "adhoxx"
+  },
+  {
+    "data_digest": "sha256:b546eff0381a566ab7d738b9a5ec75710496231a2ea50dfe78b44f71a3952092",
+    "entity_ref": "wahapedia:orks:Da-Red-Gobbo-s-Tinboy",
+    "explanation": "A Legends datacard that prints no unit-cost table. Nothing else can price it: the points source prices no Legends datasheet at all this release, and this faction's page leaves no unmatched unit that a rename could be argued from. Excluded rather than shipped at zero; the digest lapses the moment either source prices it.",
+    "finding_code": "REC-NEVER-PRICED",
+    "resolved_at": "2026-08-06T00:00:00Z",
+    "resolved_by": "adhoxx"
+  },
+  {
+    "data_digest": "sha256:a420270ebb22016dfddef33a1e7c287779fb8a196b69cf61d1bdbedd001073d7",
+    "entity_ref": "wahapedia:space-marines:Sanguinary-Priest-on-Bike",
+    "explanation": "A Legends datacard that prints no unit-cost table. Nothing else can price it: the points source prices no Legends datasheet at all this release, and this faction's page leaves no unmatched unit that a rename could be argued from. Excluded rather than shipped at zero; the digest lapses the moment either source prices it.",
+    "finding_code": "REC-NEVER-PRICED",
+    "resolved_at": "2026-08-06T00:00:00Z",
+    "resolved_by": "adhoxx"
+  },
+  {
+    "data_digest": "sha256:ddac534a24982acaff58b8187a08e4c3c35f0db19264e7ae5334719248462bae",
+    "entity_ref": "wahapedia:t-au-empire:Tactical-Drones",
+    "explanation": "A Legends datacard that prints no unit-cost table. Nothing else can price it: the points source prices no Legends datasheet at all this release, and this faction's page leaves no unmatched unit that a rename could be argued from. Excluded rather than shipped at zero; the digest lapses the moment either source prices it.",
+    "finding_code": "REC-NEVER-PRICED",
+    "resolved_at": "2026-08-06T00:00:00Z",
+    "resolved_by": "adhoxx"
   }
 ]

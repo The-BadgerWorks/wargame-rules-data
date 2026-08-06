@@ -1,1 +1,37 @@
-[]
+[
+  {
+    "chapter_faction_id": "f-black-templars",
+    "keyword": "BLACK TEMPLARS",
+    "keyword_class": "chapter",
+    "note": "The points source prices this chapter on its own faction page, and the detail source publishes its copies of shared datasheets on the parent's page carrying this keyword.",
+    "parent_faction_id": "f-space-marines"
+  },
+  {
+    "chapter_faction_id": "f-blood-angels",
+    "keyword": "BLOOD ANGELS",
+    "keyword_class": "chapter",
+    "note": "The points source prices this chapter on its own faction page, and the detail source publishes its copies of shared datasheets on the parent's page carrying this keyword.",
+    "parent_faction_id": "f-space-marines"
+  },
+  {
+    "chapter_faction_id": "f-dark-angels",
+    "keyword": "DARK ANGELS",
+    "keyword_class": "chapter",
+    "note": "The points source prices this chapter on its own faction page, and the detail source publishes its copies of shared datasheets on the parent's page carrying this keyword.",
+    "parent_faction_id": "f-space-marines"
+  },
+  {
+    "chapter_faction_id": "f-deathwatch",
+    "keyword": "DEATHWATCH",
+    "keyword_class": "chapter",
+    "note": "The points source prices this chapter on its own faction page, and the detail source publishes its copies of shared datasheets on the parent's page carrying this keyword.",
+    "parent_faction_id": "f-space-marines"
+  },
+  {
+    "chapter_faction_id": "f-space-wolves",
+    "keyword": "SPACE WOLVES",
+    "keyword_class": "chapter",
+    "note": "The points source prices this chapter on its own faction page, and the detail source publishes its copies of shared datasheets on the parent's page carrying this keyword.",
+    "parent_faction_id": "f-space-marines"
+  }
+]
