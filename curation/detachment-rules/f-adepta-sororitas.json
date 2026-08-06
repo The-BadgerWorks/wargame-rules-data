@@ -6,5 +6,53 @@
     "summary": "Each Adepta Sororitas unit in this detachment can perform up to two Acts of Faith per phase instead of one.",
     "review_state": "in_review",
     "mechanic_digest": "59c31f237e37c233e4d5088044ea7fab"
+  },
+  {
+    "summary_key": "detachment:d-bringers-of-flame:fervent-purgation",
+    "detachment_id": "d-bringers-of-flame",
+    "name": "Fervent Purgation",
+    "summary": "Ranged weapons on Adepta Sororitas models gain the Assault ability, and attacks against a target within 6\" get +1 Strength.",
+    "review_state": "in_review",
+    "mechanic_digest": "6461f0ba3ba719025d0603241ac5df15"
+  },
+  {
+    "summary_key": "detachment:d-champions-of-faith:righteous-purpose",
+    "detachment_id": "d-champions-of-faith",
+    "name": "Righteous Purpose",
+    "summary": "Up to 3 Adepta Sororitas units become Righteous until your next Command phase: +1\" Move, +1 Leadership; Battle Sisters Squad/Celestian Sacresants/Paragon Warsuits weapons gain +1 WS/BS; unshocked Celestian Sacresants also gain +1 OC.",
+    "review_state": "in_review",
+    "mechanic_digest": "e0b058dd5b47cfea29feee0d35594d85"
+  },
+  {
+    "summary_key": "detachment:d-chorus-of-condemnation:angelic-judgement",
+    "detachment_id": "d-chorus-of-condemnation",
+    "name": "Angelic Judgement",
+    "summary": "In your Shooting phase, a friendly Infantry Fly unit can mark one visible enemy unit within 12\" as condemned; a condemned unit gets +3\" detection range.",
+    "review_state": "in_review",
+    "mechanic_digest": "2d1c18f48514239d8ce1b78ba733361c"
+  },
+  {
+    "summary_key": "detachment:d-hallowed-martyrs:the-blood-of-martyrs",
+    "detachment_id": "d-hallowed-martyrs",
+    "name": "The Blood of Martyrs",
+    "summary": "Attacks by an Adepta Sororitas model get +1 to hit if its unit is below starting strength, and also +1 to wound if that unit is below half-strength.",
+    "review_state": "in_review",
+    "mechanic_digest": "12ce40469786a4b0cddff29d92fda3b5"
+  },
+  {
+    "summary_key": "detachment:d-penitent-host:desperate-for-redemption",
+    "detachment_id": "d-penitent-host",
+    "name": "Desperate for Redemption",
+    "summary": "Each round, pick one unused Vow of Atonement until the next round: Penitent models get +3\" Move; charging units' Penitent melee weapons get +1 Attacks/Strength; or a destroyed Penitent model fights back on a 2+ before removal.",
+    "review_state": "in_review",
+    "mechanic_digest": "af01fad6fe9d2f893bd1fea5cfcab364"
+  },
+  {
+    "summary_key": "detachment:d-sanctified-orators:hymns-of-battle",
+    "detachment_id": "d-sanctified-orators",
+    "name": "Hymns of Battle",
+    "summary": "This detachment's Enhancements don't count toward your army's enhancement limit, and Adepta Sororitas Character units get +1 Leadership.",
+    "review_state": "in_review",
+    "mechanic_digest": "54c1c1ba634b18a9e346a727357c7dfd"
   }
 ]

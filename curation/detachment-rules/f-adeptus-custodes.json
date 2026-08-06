@@ -1,5 +1,21 @@
 [
   {
+    "summary_key": "detachment:d-auric-champions:assemblage-of-might",
+    "detachment_id": "d-auric-champions",
+    "name": "Assemblage of Might",
+    "summary": "At the start of your Command phase, pick an enemy unit; until your next Command phase, Adeptus Custodes Character units get +1 to wound against it.",
+    "review_state": "in_review",
+    "mechanic_digest": "05c68d9d6874aaa2d012bdb151234a4b"
+  },
+  {
+    "summary_key": "detachment:d-lions-of-the-emperor:against-all-odds",
+    "detachment_id": "d-lions-of-the-emperor",
+    "name": "Against All Odds",
+    "summary": "An Adeptus Custodes non-Vehicle unit's attacks get +1 to hit and +1 to wound whenever no other friendly unit is within 6\" of it.",
+    "review_state": "in_review",
+    "mechanic_digest": "53c93c291cfd6d6ef0902625955bdfa9"
+  },
+  {
     "summary_key": "detachment:d-might-of-the-moritoi:march-of-the-honoured-dead",
     "detachment_id": "d-might-of-the-moritoi",
     "name": "March of the Honoured Dead",
@@ -14,6 +30,30 @@
     "summary": "During your opponent's Battle-shock step, enemy Psyker units or units below their starting strength within 12\" of an Anathema Psykana model must take a Battle-shock test; units below half-strength subtract 1 from it instead.",
     "review_state": "in_review",
     "mechanic_digest": "e6585a83d135da06b5804f3d59466826"
+  },
+  {
+    "summary_key": "detachment:d-shield-host:martial-mastery",
+    "detachment_id": "d-shield-host",
+    "name": "Martial Mastery",
+    "summary": "At the start of the battle round, choose one effect until the next round for Adeptus Custodes models with Martial Ka'tah: melee Critical Hits trigger on an unmodified 5+, or their melee weapons get +1 Armour Penetration.",
+    "review_state": "in_review",
+    "mechanic_digest": "17709e33fdc686c497d84b4e6b0a88ea"
+  },
+  {
+    "summary_key": "detachment:d-silent-hunters:skin-crawling-disorientation",
+    "detachment_id": "d-silent-hunters",
+    "name": "Skin-Crawling Disorientation",
+    "summary": "An Anathema Psykana unit that advances can still start an action that turn. In your Shooting phase, it can mark a visible enemy unit within 12\" as nulled, giving that unit +3\" detection range.",
+    "review_state": "in_review",
+    "mechanic_digest": "6773ba1e419b0e8b70f0618a89f5e9c2"
+  },
+  {
+    "summary_key": "detachment:d-solar-spearhead:auric-armour",
+    "detachment_id": "d-solar-spearhead",
+    "name": "Auric Armour",
+    "summary": "Unshocked Custodes Vehicles (non-Aircraft) at full strength get +2 OC; below full strength, re-roll Hit rolls of 1; below half strength also re-roll Wound rolls of 1. Walkers get +2\" Move, +1 Advance/Charge; up to 2 can become Characters.",
+    "review_state": "in_review",
+    "mechanic_digest": "5db4f4e4f78770eaf1d8fd14bdccd8d9"
   },
   {
     "summary_key": "detachment:d-talons-of-the-emperor:revered-companions",

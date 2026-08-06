@@ -1,5 +1,21 @@
 [
   {
+    "summary_key": "detachment:d-cohort-acquisitus:noospheric-recon",
+    "detachment_id": "d-cohort-acquisitus",
+    "name": "Noospheric Recon",
+    "summary": "Pteraxii, Infiltrators, Rangers, Serberys Raiders and Serberys Sulphurhounds units gain Recon Augury. In your Shooting phase, a Recon Augury unit can mark a visible enemy unit within 12\" as analysed, giving it +3\" detection range.",
+    "review_state": "in_review",
+    "mechanic_digest": "bc3ba9d77a9b0ee54703f547054d1cb0"
+  },
+  {
+    "summary_key": "detachment:d-cohort-cybernetica:cyber-psalm-programming",
+    "detachment_id": "d-cohort-cybernetica",
+    "name": "Cyber-Psalm Programming",
+    "summary": "Legio Cybernetica units get +2\" Move, and +1 Objective Control while not Battle-shocked.",
+    "review_state": "in_review",
+    "mechanic_digest": "2c5211905a1d27bd7e6981cb56184f06"
+  },
+  {
     "summary_key": "detachment:d-data-psalm-conclave:benedictions-of-the-omnissiah",
     "detachment_id": "d-data-psalm-conclave",
     "name": "Benedictions Of The Omnissiah",
@@ -46,5 +62,13 @@
     "summary": "Round 1: enemy units in the opponent's deployment zone that stand firm take D3 mortal wounds on 3+; ones taking cover are battle-shocked and take D3 on 5+. Rounds 2-5: each such unit rolls 3+ to take 1 mortal wound and a Battle-shock test.",
     "review_state": "in_review",
     "mechanic_digest": "1bf8a96600780364de741398142cf79a"
+  },
+  {
+    "summary_key": "detachment:d-skitarii-hunter-cohort:stealth-optimisation",
+    "detachment_id": "d-skitarii-hunter-cohort",
+    "name": "Stealth Optimisation",
+    "summary": "Skitarii Infantry, Skitarii Mounted and Ironstrider Ballistarii units gain the Stealth ability.",
+    "review_state": "in_review",
+    "mechanic_digest": "364321287b09f425220e2ba9e130768e"
   }
 ]
