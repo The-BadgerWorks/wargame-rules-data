@@ -527,7 +527,7 @@
     "display_keyword": "Psyker",
     "has_numeric_parameter": false,
     "name": "Psyker",
-    "summary": "Unit-type keyword. It is the targeting condition for Anti-Psyker weapon abilities, and a unit led by a Psyker leader model counts as having this keyword itself while that leader remains attached.",
+    "summary": "Unit-type keyword. A unit counts as a Psyker while any of its models has the keyword, an attached Leader included, and rules keyed to Psyker units - Anti-Psyker weapons among them - apply for as long as that holds.",
     "review_state": "in_review",
     "mechanic_digest": "3ab9eea6547be8112dc032588938b33c"
   },
