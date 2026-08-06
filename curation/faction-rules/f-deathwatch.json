@@ -1,0 +1,14 @@
+{
+  "faction_id": "f-deathwatch",
+  "army_rule_state": "present",
+  "rules": [
+    {
+      "summary_key": "faction:f-deathwatch:mission-tactics",
+      "display_order": 1,
+      "name": "Mission Tactics",
+      "summary": "Each Command phase, pick one unused Mission Tactic to apply until your next Command phase: Furor grants Sustained Hits 1, Malleus grants Lethal Hits, or Purgatus grants Precision on Critical Hits.",
+      "review_state": "in_review",
+      "mechanic_digest": "470775e7655341f3e1f05f043c814870"
+    }
+  ]
+}
