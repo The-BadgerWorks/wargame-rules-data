@@ -3,7 +3,7 @@
     "summary_key": "detachment:d-imperialis-fleet:at-all-costs",
     "detachment_id": "d-imperialis-fleet",
     "name": "At all Costs",
-    "summary": "Each Command phase, choose one: mark an enemy unit so your Agents of the Imperium gain +1 to hit it, or mark an objective so nearby friendly units gain +1 Leadership, +1 Objective Control and a 5+ invulnerable save.",
+    "summary": "Each Command phase, until your next, mark either an enemy unit your Agents of the Imperium then hit at +1, or an objective marker where your Agents within range gain +1 Leadership, +1 Objective Control and a 5+ invulnerable save.",
     "review_state": "in_review",
     "mechanic_digest": "223f0249491b1c7d2da050ce66ab9403"
   },
@@ -12,31 +12,39 @@
     "detachment_id": "d-ordo-hereticus-purgation-force",
     "name": "Root out Heresy",
     "summary": "Adeptus Arbites, Inquisitor, Inquisitorial Agents and Ordo Hereticus models get Ignores Cover on ranged weapons, and Sustained Hits 1 when attacking a Chaos unit of 5 or more models.",
-    "review_state": "in_review",
-    "mechanic_digest": "acd8b9f672e840bb88051bf403225f8e"
+    "review_state": "approved",
+    "mechanic_digest": "acd8b9f672e840bb88051bf403225f8e",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-ordo-malleus-daemon-hunters:destroy-the-daemonic",
     "detachment_id": "d-ordo-malleus-daemon-hunters",
     "name": "Destroy the Daemonic",
     "summary": "Inquisitor, Inquisitorial Agents and Ordo Malleus models re-roll a Hit roll of 1 on every attack, and a Wound roll of 1 when the target is a Daemon unit.",
-    "review_state": "in_review",
-    "mechanic_digest": "c4653887634a0b3d9b1efbb6844ebcbf"
+    "review_state": "approved",
+    "mechanic_digest": "c4653887634a0b3d9b1efbb6844ebcbf",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-ordo-xenos-alien-hunters:deathwatch-mission-tactics",
     "detachment_id": "d-ordo-xenos-alien-hunters",
     "name": "Deathwatch Mission Tactics",
     "summary": "Each Command phase, select one once-per-battle Mission Tactic for your Deathwatch units, active until your next Command phase: Sustained Hits 1, Lethal Hits, or Precision on Critical Wounds.",
-    "review_state": "in_review",
-    "mechanic_digest": "9a2c50a54a9ef0aa4012d87168422ffa"
+    "review_state": "approved",
+    "mechanic_digest": "9a2c50a54a9ef0aa4012d87168422ffa",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-veiled-blade-elimination-force:extremis-sanction",
     "detachment_id": "d-veiled-blade-elimination-force",
     "name": "Extremis Sanction",
     "summary": "Officio Assassinorum units can use their signature ability (Overkill, Soulless Horror, or Shieldbreaker) twice per battle instead of once, never twice in one round. Each gains its Extremis ability for a mandatory points increase.",
-    "review_state": "in_review",
-    "mechanic_digest": "49929ff91ed5974e9adc0c8ebc50fd45"
+    "review_state": "approved",
+    "mechanic_digest": "49929ff91ed5974e9adc0c8ebc50fd45",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   }
 ]
