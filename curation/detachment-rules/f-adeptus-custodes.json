@@ -1,0 +1,34 @@
+[
+  {
+    "summary_key": "detachment:d-might-of-the-moritoi:march-of-the-honoured-dead",
+    "detachment_id": "d-might-of-the-moritoi",
+    "name": "March of the Honoured Dead",
+    "summary": "Friendly Adeptus Custodes Walker units get +2\" Move and +1 to Advance and Charge rolls.",
+    "review_state": "in_review",
+    "mechanic_digest": "3b4171fa5cedd2cac859e239f10b1e30"
+  },
+  {
+    "summary_key": "detachment:d-null-maiden-vigil:creeping-dread-aura",
+    "detachment_id": "d-null-maiden-vigil",
+    "name": "Creeping Dread (Aura)",
+    "summary": "During your opponent's Battle-shock step, enemy Psyker units or units below their starting strength within 12\" of an Anathema Psykana model must take a Battle-shock test; units below half-strength subtract 1 from it instead.",
+    "review_state": "in_review",
+    "mechanic_digest": "e6585a83d135da06b5804f3d59466826"
+  },
+  {
+    "summary_key": "detachment:d-talons-of-the-emperor:revered-companions",
+    "detachment_id": "d-talons-of-the-emperor",
+    "name": "Revered Companions",
+    "summary": "Anathema Psykana units gain an aura giving nearby Custodes Feel No Pain 5+ against Psychic Attacks and mortal wounds; other Custodes units gain an aura adding 1 to the Hit roll of nearby Anathema Psykana attacks.",
+    "review_state": "in_review",
+    "mechanic_digest": "9829ebb9008fefdb38aa956971dcfb0f"
+  },
+  {
+    "summary_key": "detachment:d-tharanatoi-hammerblow:the-hammer-falls",
+    "detachment_id": "d-tharanatoi-hammerblow",
+    "name": "The Hammer Falls",
+    "summary": "A friendly Adeptus Custodes Terminator unit that made an ingress move this turn can re-roll its charge roll.",
+    "review_state": "in_review",
+    "mechanic_digest": "5aea87090d46e26481247f7ff2e4d0fd"
+  }
+]

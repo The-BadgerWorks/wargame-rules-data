@@ -1,0 +1,14 @@
+{
+  "faction_id": "f-adeptus-custodes",
+  "army_rule_state": "present",
+  "rules": [
+    {
+      "summary_key": "faction:f-adeptus-custodes:martial-katah",
+      "display_order": 1,
+      "name": "Martial Ka'tah",
+      "summary": "Before a unit fights, choose a Ka'tah Stance until it finishes attacking: Dacatarai gives its melee weapons Sustained Hits 1; Rendax gives them Lethal Hits.",
+      "review_state": "in_review",
+      "mechanic_digest": "00678a44c076f8e513d172b41bb8b2aa"
+    }
+  ]
+}
