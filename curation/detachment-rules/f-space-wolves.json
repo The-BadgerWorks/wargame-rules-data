@@ -4,22 +4,26 @@
     "detachment_id": "d-1st-company-task-force-5",
     "name": "Extremis-level Threat",
     "summary": "Once per battle in your Command phase: until your next Command phase, models with Oath of Moment also re-roll the Wound roll (not just the Hit roll) against your Oath of Moment target.",
-    "review_state": "in_review",
-    "mechanic_digest": "468e9d318fdcd0a56a4691ed01e3dc72"
+    "review_state": "approved",
+    "mechanic_digest": "468e9d318fdcd0a56a4691ed01e3dc72",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-anvil-siege-force-6:shield-of-the-imperium",
     "detachment_id": "d-anvil-siege-force-6",
     "name": "Shield of the Imperium",
     "summary": "Adeptus Astartes ranged weapons gain the Heavy ability; those that already had Heavy add 1 to the Wound roll when the firing unit Remained Stationary this turn.",
-    "review_state": "in_review",
-    "mechanic_digest": "54d3de413e515733de5f983a348c71db"
+    "review_state": "approved",
+    "mechanic_digest": "54d3de413e515733de5f983a348c71db",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-armoured-speartip-6:rapid-deployment",
     "detachment_id": "d-armoured-speartip-6",
     "name": "Rapid Deployment",
-    "summary": "An Adeptus Astartes unit disembarking from a Transport that moved this phase can make a bonus Normal move: D6\", or D3+3\" if that Transport has 14+ Wounds (a Heavy Transport).",
+    "summary": "An Adeptus Astartes unit disembarking from a non-Fly Transport that made a Normal or Advance move this phase, and did not arrive from Strategic Reserves, can make a D6\" Normal move, or D3+3\" from a 14+ Wound Heavy Transport.",
     "review_state": "in_review",
     "mechanic_digest": "0c6a9f6984e0a145495b6897be924d1a"
   },
@@ -28,38 +32,46 @@
     "detachment_id": "d-ceramite-sentinels-6",
     "name": "Adaptive Defence",
     "summary": "Adeptus Astartes models in a terrain feature re-roll Hit and Wound rolls of 1. Units also gain Entrenched while in terrain, not set up that turn, and having moved 3\" or less this turn.",
-    "review_state": "in_review",
-    "mechanic_digest": "baaf7422ec0d14aaf6e17fcbaa987c9a"
+    "review_state": "approved",
+    "mechanic_digest": "baaf7422ec0d14aaf6e17fcbaa987c9a",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-champions-of-fenris:the-great-wolf-watches",
     "detachment_id": "d-champions-of-fenris",
     "name": "The Great Wolf Watches",
     "summary": "Once per battle round per unit, an Adeptus Astartes Infantry Character unit can be targeted by Heroic Intervention regardless of other uses that phase, without blocking other units from using it too. Army: Space Wolves only.",
-    "review_state": "in_review",
-    "mechanic_digest": "6454a998c553204f4f50063592b8166d"
+    "review_state": "approved",
+    "mechanic_digest": "6454a998c553204f4f50063592b8166d",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-firestorm-assault-force-6:close-range-eradication",
     "detachment_id": "d-firestorm-assault-force-6",
     "name": "Close-range Eradication",
     "summary": "Adeptus Astartes ranged weapons gain Assault, and get +1 Strength when their attack targets a unit within 12 inches.",
-    "review_state": "in_review",
-    "mechanic_digest": "b9469e205b56fcb5f52d42f023763fb8"
+    "review_state": "approved",
+    "mechanic_digest": "b9469e205b56fcb5f52d42f023763fb8",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-fulguris-task-force-6:skystrike",
     "detachment_id": "d-fulguris-task-force-6",
     "name": "Skystrike",
     "summary": "Land Speeder and Storm Speeder Hailstrike/Hammerstrike/Thunderstrike units count as Speeder; in your first Movement phase, friendly Speeder units can make an ingress move.",
-    "review_state": "in_review",
-    "mechanic_digest": "dd17f424a97d1bb0e2dbc0bde5757be8"
+    "review_state": "approved",
+    "mechanic_digest": "dd17f424a97d1bb0e2dbc0bde5757be8",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-headhunter-task-force-6:target-sighted",
     "detachment_id": "d-headhunter-task-force-6",
     "name": "Target Sighted",
-    "summary": "Adeptus Astartes vehicles (Tank Ace) automatically gain +6\" Move instead of rolling to Advance, and re-roll Damage rolls when shooting if they did not Advance. Up to three may gain the Character keyword.",
+    "summary": "Tank Ace units - Adeptus Astartes Vehicles other than Fortifications, Drop Pods, Walkers and Fly - skip the Advance roll for a flat +6\" Move, and re-roll Damage when shooting if they did not Advance. Up to three may gain Character.",
     "review_state": "in_review",
     "mechanic_digest": "bc46cc142d681a090b361fc92b3e8454"
   },
@@ -68,22 +80,26 @@
     "detachment_id": "d-ironstorm-spearhead-6",
     "name": "Armoured Wrath",
     "summary": "Once per phase, each Adeptus Astartes unit in your army may re-roll one Hit roll, one Wound roll or one Damage roll made for a model in that unit.",
-    "review_state": "in_review",
-    "mechanic_digest": "8cf805dd763b86d1e0fd41db8c770094"
+    "review_state": "approved",
+    "mechanic_digest": "8cf805dd763b86d1e0fd41db8c770094",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-legends-of-saga-and-song:loping-charge",
     "detachment_id": "d-legends-of-saga-and-song",
     "name": "Loping Charge",
     "summary": "Adeptus Astartes Terminator units get +1 to Charge rolls. Army can include Space Wolves units only, no other Chapter's Adeptus Astartes units.",
-    "review_state": "in_review",
-    "mechanic_digest": "5ab35e05127946947af07a1f6b440239"
+    "review_state": "approved",
+    "mechanic_digest": "5ab35e05127946947af07a1f6b440239",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-librarius-conclave-5:psychic-disciplines",
     "detachment_id": "d-librarius-conclave-5",
     "name": "Psychic Disciplines",
-    "summary": "Each battle round, pick a Discipline for friendly Astartes Psyker units until round end: Biomancy +2in M; Divination re-roll hit/wound 1s; Pyromancy +1 AP within 12in; Telekinesis -1 S vs ranged; Telepathy ignores BS/WS/hit modifiers.",
+    "summary": "Each battle round pick a Discipline for Adeptus Astartes Psykers until round end: Biomancy +2\" M; Divination re-roll Hit/Wound 1s; Pyromancy ranged +1 AP within 12\"; Telekinesis -1 S vs ranged; Telepathy ignores BS/WS/hit modifiers.",
     "review_state": "in_review",
     "mechanic_digest": "c3f6a5e40afc086266ea59760f84a11e"
   },
@@ -91,7 +107,7 @@
     "summary_key": "detachment:d-orbital-assault-force-6:rapid-drop-deployment",
     "detachment_id": "d-orbital-assault-force-6",
     "name": "Rapid-drop Deployment",
-    "summary": "At deployment, a battle-size-scaled number of non-Titanic Adeptus Astartes units gain Deep Strike. A unit set up this turn re-rolls a Wound roll of 1; one that disembarked from a Drop Pod this turn also re-rolls a Hit roll of 1.",
+    "summary": "At deployment, 2/3/4 non-Titanic Adeptus Astartes units by battle size gain Deep Strike. A model set up this turn re-rolls a Wound roll of 1; if it disembarked from a Drop Pod this turn it re-rolls a Hit roll of 1 as well.",
     "review_state": "in_review",
     "mechanic_digest": "6d9de3902ef6028b32da8580eada69a9"
   },
@@ -99,7 +115,7 @@
     "summary_key": "detachment:d-saga-of-the-beastslayer:legendary-slayers",
     "detachment_id": "d-saga-of-the-beastslayer",
     "name": "Legendary Slayers",
-    "summary": "Attacks by Adeptus Astartes models against Character, Monster or Vehicle units gain Lethal Hits; once enough such enemy units are destroyed to complete your Saga, all your attacks gain Lethal Hits.",
+    "summary": "Adeptus Astartes attacks on Character, Monster or Vehicle units have Lethal Hits; once you have destroyed half the enemy's such units (rounding up), your Saga completes and all your attacks have Lethal Hits.",
     "review_state": "in_review",
     "mechanic_digest": "9038eb0a529e6726caedb46516d345a9"
   },
@@ -107,7 +123,7 @@
     "summary_key": "detachment:d-saga-of-the-bold:heroes-all",
     "detachment_id": "d-saga-of-the-bold",
     "name": "Heroes All",
-    "summary": "When an Adeptus Astartes unit shoots or fights: if your Saga is complete, re-roll one Hit, Wound and Damage roll; else a Space Wolves Character unit re-rolls one such roll. Saga completes at 3+ Boasts by Space Wolves Characters.",
+    "summary": "When an Adeptus Astartes unit shoots or fights: if your Saga is complete, re-roll one Hit, Wound and Damage roll; else a Space Wolves Character unit re-rolls one such roll. Saga completes at 3+ different Boasts by Space Wolves Characters.",
     "review_state": "in_review",
     "mechanic_digest": "21a9d39e2bd0ec679a0c7b449bab2414"
   },
@@ -116,22 +132,26 @@
     "detachment_id": "d-saga-of-the-great-wolf",
     "name": "Howling Onslaught",
     "summary": "Once per battle, if Logan Grimnar is on the battlefield, you can re-select an already-used Hunting Pack when choosing one for the Master of Wolves ability.",
-    "review_state": "in_review",
-    "mechanic_digest": "4c5026e44977e2611aaa2d6bbfcd10e4"
+    "review_state": "approved",
+    "mechanic_digest": "4c5026e44977e2611aaa2d6bbfcd10e4",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-saga-of-the-great-wolf:master-of-wolves",
     "detachment_id": "d-saga-of-the-great-wolf",
     "name": "Master of Wolves",
     "summary": "Each Command phase, pick one Hunting Pack for Adeptus Astartes units until your next Command phase: re-roll Advance/Charge, +1 to ranged Hit rolls, or Lethal Hits/Sustained Hits 1 in the Fight phase (once per battle each).",
-    "review_state": "in_review",
-    "mechanic_digest": "f63af44117822a544bec407531e4c1d4"
+    "review_state": "approved",
+    "mechanic_digest": "f63af44117822a544bec407531e4c1d4",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-saga-of-the-hunter:packs-quarry",
     "detachment_id": "d-saga-of-the-hunter",
     "name": "Pack’s Quarry",
-    "summary": "Space Wolves melee attacks against a unit engaged by another Adeptus Astartes unit, or that they outnumber, add 1 to the Hit roll, plus 1 to the Wound roll once your Saga is completed.",
+    "summary": "Space Wolves melee attacks on an enemy engaged by another Adeptus Astartes unit, or outnumbered by the attacking unit, get +1 to Hit, and +1 to Wound once your Saga completes at 2/3/4 kills by battle size.",
     "review_state": "in_review",
     "mechanic_digest": "e48170406ff0a8b77febe63aea9e7538"
   },
@@ -140,30 +160,36 @@
     "detachment_id": "d-stormlance-task-force-6",
     "name": "Lightning Assault",
     "summary": "Adeptus Astartes units can declare a charge in a turn in which they Advanced or Fell Back.",
-    "review_state": "in_review",
-    "mechanic_digest": "6cac692ade2f72f445085835ff0f6c25"
+    "review_state": "approved",
+    "mechanic_digest": "6cac692ade2f72f445085835ff0f6c25",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-subversion-assets-6:nowhere-to-hide",
     "detachment_id": "d-subversion-assets-6",
     "name": "Nowhere to Hide",
     "summary": "Friendly Phobos/Scout Squad units can mark a visible enemy unit within 12\" as detected during your Shooting phase; a detected unit's detection range is increased by 3\".",
-    "review_state": "in_review",
-    "mechanic_digest": "059767f99da0e3490eb301c034b52cef"
+    "review_state": "approved",
+    "mechanic_digest": "059767f99da0e3490eb301c034b52cef",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-vanguard-spearhead-6:shadow-masters",
     "detachment_id": "d-vanguard-spearhead-6",
     "name": "Shadow Masters",
     "summary": "A ranged attack against an Adeptus Astartes unit from beyond 12 inches gives that unit Benefit of Cover.",
-    "review_state": "in_review",
-    "mechanic_digest": "20a1368afd53ae398ce9777f1e9d0ee7"
+    "review_state": "approved",
+    "mechanic_digest": "20a1368afd53ae398ce9777f1e9d0ee7",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-vengeful-hosts-6:imperator-unleashed",
     "detachment_id": "d-vengeful-hosts-6",
     "name": "Imperator Unleashed",
-    "summary": "After a Fly Infantry unit makes an ingress or charge move this turn, its attacks can re-roll hit rolls of 1.",
+    "summary": "After an Adeptus Astartes Fly Infantry unit makes an ingress or charge move this turn, its attacks can re-roll Hit rolls of 1.",
     "review_state": "in_review",
     "mechanic_digest": "455871c6b816df4cd30143b4a77a0dad"
   },
@@ -172,7 +198,9 @@
     "detachment_id": "d-veterans-of-the-fang",
     "name": "Old Greymanes",
     "summary": "A Grey Hunter unit starting an action stays eligible to shoot. At deployment, you can split a Grey Hunters unit into two 5-model units. Army can include Space Wolves units only, no other Chapter's Adeptus Astartes units.",
-    "review_state": "in_review",
-    "mechanic_digest": "2cfa4a4549c28e3385fea82ecd292a83"
+    "review_state": "approved",
+    "mechanic_digest": "2cfa4a4549c28e3385fea82ecd292a83",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   }
 ]
