@@ -111,7 +111,9 @@
     "ability_key": "datasheet:bladeguard",
     "mechanic_digest": "631adee63ac2adbecaf328b86efd3db1",
     "name": "Bladeguard",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-second-reviewer",
     "summary": "Once per turn, in the Fight phase, when this unit is selected to fight or an enemy unit targets it, choose one: its melee attacks get +1 to hit, or attacks that target it get -1 to hit."
   },
   {
@@ -334,7 +336,9 @@
     "ability_key": "datasheet:evade-and-survive",
     "mechanic_digest": "c923a71f9c5826d95f32ca5d3194c729",
     "name": "Evade and Survive",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-second-reviewer",
     "summary": "In your opponent's Movement phase, when an enemy unit ends any move within 8\" of this unit, this unit can make a Normal move of up to 6\", provided it is not within Engagement Range of any enemy unit."
   },
   {
@@ -422,7 +426,9 @@
     "ability_key": "datasheet:hammer-of-wrath",
     "mechanic_digest": "6db54089235747c8095d269da5378134",
     "name": "Hammer of Wrath",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-second-reviewer",
     "summary": "Each time this unit ends a Charge move, select one enemy unit within Engagement Range of it, then roll one D6 for each model in this unit within Engagement Range of that enemy unit: each 4+ deals 1 mortal wound."
   },
   {
@@ -780,7 +786,9 @@
     "ability_key": "datasheet:sigismunds-heir",
     "mechanic_digest": "ce3c6ddf665796222e767af081bb4b4f",
     "name": "Sigismund's Heir",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-second-reviewer",
     "summary": "When charging an enemy CHARACTER within 12\", this unit can re-roll the charge roll but must end engaged with it. Once per battle army-wide, while fighting a CHARACTER it is engaged with, this unit's melee attacks gain Devastating Wounds."
   },
   {
@@ -913,8 +921,10 @@
     "ability_key": "datasheet:teleport-homer",
     "mechanic_digest": "7083778b8fef1692a94f3520d2e524d5",
     "name": "Teleport Homer",
-    "review_state": "in_review",
-    "summary": "At the start of the battle, place a token for this unit outside your opponent's deployment zone; once per battle you can use Rapid Ingress for 0CP to set this unit up within 3\" horizontally of it, over 8\" from enemy models, then remove it."
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-second-reviewer",
+    "summary": "Battle start: place a token for this unit outside your opponent's deployment zone. Once per battle, Rapid Ingress costs 0CP and sets this unit up within 3\" horizontally of it, over 8\" horizontally from enemy models; then remove the token."
   },
   {
     "ability_key": "datasheet:temple-relics",
@@ -1091,7 +1101,9 @@
     "ability_key": "datasheet:wisdom-of-the-ancients-aura",
     "mechanic_digest": "a8220b619dcac151a44555fffb339c3e",
     "name": "Wisdom of the Ancients (Aura)",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-second-reviewer",
     "summary": "Friendly ADEPTUS ASTARTES INFANTRY units within 6\" of this model re-roll Hit rolls of 1."
   }
 ]

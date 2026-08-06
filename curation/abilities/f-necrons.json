@@ -3,28 +3,36 @@
     "ability_key": "core:deadly-demise-3d6",
     "mechanic_digest": "687ffc1b1f643f9a8bf384cb7ee385f8",
     "name": "Deadly Demise 3D6",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-second-reviewer",
     "summary": "Deadly Demise X: each time a model in this unit is destroyed, roll one D6; on a 6 each unit within 6\" suffers X mortal wounds (here 3D6), rolled separately for each unit."
   },
   {
     "ability_key": "core:deadly-demise-d6-3",
     "mechanic_digest": "687ffc1b1f643f9a8bf384cb7ee385f8",
     "name": "Deadly Demise D6+3",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-second-reviewer",
     "summary": "Deadly Demise X: each time a model in this unit is destroyed, roll one D6; on a 6 each unit within 6\" suffers X mortal wounds (here D6+3), rolled separately for each unit."
   },
   {
     "ability_key": "core:deadly-demise-d6-3-szarekh-model-only",
     "mechanic_digest": "687ffc1b1f643f9a8bf384cb7ee385f8",
     "name": "Deadly Demise D6+3 (Szarekh model only)",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-second-reviewer",
     "summary": "Deadly Demise X: each time a model in this unit is destroyed, roll one D6; on a 6 each unit within 6\" suffers X mortal wounds (here D6+3, Szarekh model only), rolled separately for each unit."
   },
   {
     "ability_key": "core:scouts-8",
     "mechanic_digest": "48b523bacc85908043ae18fd81528974",
     "name": "Scouts 8\"",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-second-reviewer",
     "summary": "Scouts X: in the pre-battle step, a unit whose models all have this ability can deploy from Strategic Reserves wholly within your deployment zone, or make a scout move of up to X\" (here 8\") ending more than 8\" horizontally from enemies."
   },
   {
@@ -256,7 +264,9 @@
     "ability_key": "datasheet:eternity-gate",
     "mechanic_digest": "8f867490aac0b9d63296c4c64b615d66",
     "name": "Eternity Gate",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-second-reviewer",
     "summary": "In your Movement phase (not the first battle round), one friendly Necrons Infantry unit in Strategic Reserves, or moved there from the battlefield, can ingress wholly within 6\" of this unit and unengaged; it cannot charge this turn."
   },
   {
@@ -875,7 +885,9 @@
     "ability_key": "datasheet:teleportation-matrix",
     "mechanic_digest": "ec8d3165d844aa64fb02484df7e68943",
     "name": "Teleportation Matrix",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-second-reviewer",
     "summary": "Once per battle, at the end of your opponent's turn, if unengaged this Fortification can be removed, then set up next Movement phase more than 8\" horizontally from all enemy models. If the battle ends while it is off, it is destroyed."
   },
   {
@@ -954,7 +966,9 @@
     "ability_key": "datasheet:transdimensional-displacement",
     "mechanic_digest": "6cb2088b298ed0771bae372ee5d9bfa0",
     "name": "Transdimensional Displacement",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-second-reviewer",
     "summary": "When this unit Advances, it can move through any model (including enemies and MONSTER/VEHICLE) with no maximum distance, ending more than 8\" horizontally from all enemy units."
   },
   {
@@ -1069,7 +1083,9 @@
     "ability_key": "faction:reanimation-protocols",
     "mechanic_digest": "ecd9628f44a7160e24b133498a5e6657",
     "name": "Reanimation Protocols",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-second-reviewer",
     "summary": "If your Army Faction is Necrons, at the end of your Command phase each unit with this ability on the battlefield heals D3 wounds: wounded models are restored first, then destroyed ones return with what is left."
   }
 ]
