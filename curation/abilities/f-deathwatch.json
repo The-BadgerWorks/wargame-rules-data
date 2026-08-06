@@ -37,21 +37,17 @@
   },
   {
     "ability_key": "datasheet:fortis-doctrines",
-    "mechanic_digest": "6524a028dded85921decda580cb458e2",
+    "mechanic_digest": "fdec1ce91dff4db75f50656dc9435414",
     "name": "Fortis Doctrines",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "This unit's attacks gain +1 to the Hit roll against a weakened target; on some datasheets that applies only while the target is Below Half-strength, and on others a Below Half-strength target also gives +1 to the Wound roll."
+    "review_state": "in_review",
+    "summary": "Each time a model in this unit attacks a unit below its Starting Strength, add 1 to the Hit roll; if the target is also Below Half-strength, add 1 to the Hit roll and add 1 to the Wound roll instead."
   },
   {
     "ability_key": "datasheet:indomitor-doctrines",
-    "mechanic_digest": "ff18f06cabb9def2880dccbfdeda77c1",
+    "mechanic_digest": "33eff4846d2c545c756ee5fee12308c3",
     "name": "Indomitor Doctrines",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "This unit's attacks gain a bonus that varies by datasheet: either +2 Strength when shooting the closest eligible target or fighting after a Charge move, or +1 to Hit below Starting Strength and +1 to Wound Below Half-strength."
+    "review_state": "in_review",
+    "summary": "Each time a model in this unit makes a ranged attack against the closest eligible target, or a melee attack in a turn it made a Charge move, improve that attack's Strength by 2."
   },
   {
     "ability_key": "datasheet:infernum-halo-launcher",
