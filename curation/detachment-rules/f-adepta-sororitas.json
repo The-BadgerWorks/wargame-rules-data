@@ -1,0 +1,10 @@
+[
+  {
+    "summary_key": "detachment:d-army-of-faith:sacred-rites",
+    "detachment_id": "d-army-of-faith",
+    "name": "Sacred Rites",
+    "summary": "Each Adepta Sororitas unit in this detachment can perform up to two Acts of Faith per phase instead of one.",
+    "review_state": "in_review",
+    "mechanic_digest": "59c31f237e37c233e4d5088044ea7fab"
+  }
+]
