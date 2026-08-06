@@ -64,12 +64,10 @@
   },
   {
     "ability_key": "datasheet:driven-by-fury",
-    "mechanic_digest": "2b7d075e7cf1e65cc4b956f0f562757c",
+    "mechanic_digest": "2e55a357efcee1e23b3de828109cd495",
     "name": "Driven by Fury",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "If this model is hit by enemy shooting, once per phase it can move D6+2\" toward the nearest enemy, possibly into Engagement Range, unless Battle-shocked or already engaged."
+    "review_state": "in_review",
+    "summary": "In your opponent's Shooting phase, if this model lost a wound from an enemy unit's attacks, this unit can make a surge move of up to D6+2\"."
   },
   {
     "ability_key": "datasheet:executioner",
@@ -100,12 +98,10 @@
   },
   {
     "ability_key": "datasheet:fury-of-the-first",
-    "mechanic_digest": "77204a4c98fb9edabed325d9b8b3250c",
+    "mechanic_digest": "3df0495d5e89d514e2055904ff18de06",
     "name": "Fury of the First",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "Attacks from this unit ignore modifiers to their Hit roll or relevant skill characteristic, and gain +1 to Hit against this turn's Oath of Moment target."
+    "review_state": "in_review",
+    "summary": "Each time a model in this unit attacks your Oath of Moment target, add 1 to the Hit roll."
   },
   {
     "ability_key": "datasheet:fury-unbound",
@@ -163,12 +159,10 @@
   },
   {
     "ability_key": "datasheet:miraculous-saviour",
-    "mechanic_digest": "6b64c248e7f99228679e6436a12103f8",
+    "mechanic_digest": "4c437fcbc4945743d316a94cb87ad40b",
     "name": "Miraculous Saviour",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "Once per battle, at the end of your opponent's Charge phase, if this model is still in Reserves, it can be set up within Engagement Range of an enemy unit that charged this phase."
+    "review_state": "in_review",
+    "summary": "Once per battle army-wide, after your opponent's Charge phase (not turn one), select one enemy unit that charged; this unit can make an ingress move and must end that move engaged with that enemy unit."
   },
   {
     "ability_key": "datasheet:overcharged-engines",
@@ -181,12 +175,10 @@
   },
   {
     "ability_key": "datasheet:psychic-hood",
-    "mechanic_digest": "791248b1d94f2cb29ac7636afb33f1cb",
+    "mechanic_digest": "b10494618f41ca2d12a8b46f41f34219",
     "name": "Psychic Hood",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "While attached to a unit, models in that unit gain the Feel No Pain 4+ ability against Psychic Attacks."
+    "review_state": "in_review",
+    "summary": "While this model is leading a unit, models in that unit have Feel No Pain 4+ against Psychic Attacks."
   },
   {
     "ability_key": "datasheet:redeemer-of-the-lost",
@@ -280,12 +272,10 @@
   },
   {
     "ability_key": "datasheet:visions-of-heresy",
-    "mechanic_digest": "77ab78797eab193579ce3ecb4b62b21f",
+    "mechanic_digest": "55896807ac7e4f06ce48114922087540",
     "name": "Visions of Heresy",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "Once per turn, this unit can be targeted with the Fire Overwatch or Heroic Intervention Stratagem for 0CP, with its ranged Hit rolls or Charge roll re-rollable while resolving it."
+    "review_state": "in_review",
+    "summary": "This unit can re-roll Charge rolls. When it is targeted with Fire Overwatch or Heroic Intervention, that use of the stratagem costs -1 CP."
   },
   {
     "ability_key": "datasheet:warden-of-the-imperium-nihilus",
