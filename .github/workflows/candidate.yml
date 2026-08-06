@@ -49,6 +49,23 @@ jobs:
       # Where the detail-source CSV export lives (empty default refuses live acquisition);
       # a repository variable so a curator can repoint it without a workflow change.
       WGC_DETAIL_SOURCE_URL: ${{ vars.WGC_DETAIL_SOURCE_URL }}
+      # The build-shaping variables the byte-identical rebuild depends on, all repository
+      # variables for the same reason WGC_DETAIL_SOURCE_URL is one: they describe *this data
+      # set's* current release posture, not the pipeline's behaviour, and a curator must be able
+      # to change them without a workflow edit. They are deliberately NOT library defaults --
+      # a default reaches every fixture build in the test suite, where an un-curated fixture is
+      # the expected state and a switched-on gate would block it.
+      #
+      # WGC_DETAIL_ACQUISITION_MODE / WGC_DETAIL_EDITION: html + wh40k-11e is the wholesale
+      # adoption the O1 Ruling requires (004 T074). Absent these, a CI rebuild would acquire in
+      # csv mode against wh40k-10e and could not reproduce a candidate built in html mode.
+      # WGC_GATE_*: on, the three campaigns having completed (004 T050, T057, T064).
+      WGC_DETAIL_ACQUISITION_MODE: ${{ vars.WGC_DETAIL_ACQUISITION_MODE }}
+      WGC_DETAIL_EDITION: ${{ vars.WGC_DETAIL_EDITION }}
+      WGC_GATE_FACTION_RULES: ${{ vars.WGC_GATE_FACTION_RULES }}
+      WGC_GATE_DETACHMENT_RULES: ${{ vars.WGC_GATE_DETACHMENT_RULES }}
+      WGC_GATE_GLOSSARY: ${{ vars.WGC_GATE_GLOSSARY }}
+
     steps:
       - uses: actions/checkout@v4
         with:
@@ -60,6 +77,27 @@ jobs:
 
       - name: Install the pipeline
         run: python -m pip install --disable-pip-version-check -e .
+
+      # An unset repository variable arrives as an EMPTY STRING, not as "absent", so the
+      # library default never applies here. Two of the five then fail loudly inside load_config
+      # and one (WGC_DETAIL_EDITION) would sail through as "" and stamp an empty edition code on
+      # every entity. Checked together, up front, so the diagnostic names the variable rather
+      # than the symptom.
+      - name: Require the build-shaping repository variables
+        run: |
+          set -euo pipefail
+          missing=""
+          names="WGC_DETAIL_SOURCE_URL WGC_DETAIL_ACQUISITION_MODE WGC_DETAIL_EDITION"
+          names="$names WGC_GATE_FACTION_RULES WGC_GATE_DETACHMENT_RULES WGC_GATE_GLOSSARY"
+          for name in $names; do
+            eval "value=\${$name:-}"
+            if [ -z "$value" ]; then missing="$missing $name"; fi
+          done
+          if [ -n "$missing" ]; then
+            echo "::error::unset repository variable(s):$missing -- set them with 'gh variable set'" >&2
+            exit 1
+          fi
+          echo "build-shaping variables present"
 
       # The full run, prerelease channel: acquire -> parse -> normalize -> reconcile -> curate ->
       # validate -> build (contract §1). This never publishes -- there is no publish step in this
