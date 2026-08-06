@@ -6,7 +6,7 @@
       "summary_key": "faction:f-genestealer-cults:cult-ambush",
       "display_order": 1,
       "name": "Cult Ambush",
-      "summary": "Start with 6/10/14 Resurgence points by battle size. When every non-Character model in a destroyed unit has it, spend points by its Starting Strength to return it intact in Cult Ambush, with a marker over 9in horizontally from all enemies.",
+      "summary": "Genestealer Cults armies start with 6/10/14 Resurgence points (Incursion/Strike Force/Onslaught). When a destroyed unit's every non-Character model has this ability, pay its cost by unit and Starting Strength — Aberrants 4/8 (5/10 models), Acolyte Hybrids (either loadout) and Hybrid Metamorphs 2/4 (5/10), Atalan Jackals 2/6 (5/10), Neophyte Hybrids 3/6 (10/20), Purestrain Genestealers 2/6 (5/10) — to add an identical full-strength copy (One Shot weapons restored) to Cult Ambush, placing a 32mm marker more than 9in horizontally from every enemy unit (no marker if impossible). Cult Ambush is Strategic Reserves that ignores Rapid Ingress and survives past round 3. A non-Aircraft enemy ending any move within 8in of a marker removes it; at the end of your opponent's Movement phase, each surviving marker lets one Cult Ambush unit set up touching it, wholly within 3in — from round 1 onward.",
       "review_state": "in_review",
       "mechanic_digest": "dbe125b14ad4b836005144391613872b"
     }
