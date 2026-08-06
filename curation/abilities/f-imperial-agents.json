@@ -21,7 +21,9 @@
     "ability_key": "datasheet:acrobatic-escape",
     "mechanic_digest": "14163b6e6b54fb44525561a8792b5637",
     "name": "Acrobatic Escape",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
     "summary": "At the end of the Fight phase, if engaged, this unit can Fall Back up to D6\". If more than 3\" from enemies at the end of your opponent's turn, it can enter strategic reserves and must ingress next Movement phase (incl. turn one)."
   },
   {
@@ -100,14 +102,18 @@
     "ability_key": "datasheet:catechism-of-death",
     "mechanic_digest": "7618d447322c244bdafae0e1311a6392",
     "name": "Catechism of Death",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
     "summary": "While this unit contains Chaplain Cassius, its models' melee weapons gain the Devastating Wounds ability."
   },
   {
     "ability_key": "datasheet:deadshot",
     "mechanic_digest": "6a22b1fd14511e5ae48cc3d3fe0de720",
     "name": "Deadshot",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
     "summary": "While this unit is shooting, enemy units lose Lone Operative and hidden enemy units gain +15\" detection range."
   },
   {
@@ -168,7 +174,9 @@
     "ability_key": "datasheet:gheistskull",
     "mechanic_digest": "49972dd2c6de4485e8fc2529e3743a1a",
     "name": "Gheistskull",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
     "summary": "Once per battle, when targeting this unit with the Explosives Stratagem, you can select an enemy unit within 18\" (rather than 8\") that is visible and not in Engagement Range of your units."
   },
   {
@@ -454,7 +462,9 @@
     "ability_key": "datasheet:reign-of-confusion",
     "mechanic_digest": "5d5b2f549facc5d882e0e07b851f4bb7",
     "name": "Reign of Confusion",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
     "summary": "Once per turn, when your opponent targets a unit within 12\" of this model with a Stratagem, you can increase that Stratagem's CP cost by 1."
   },
   {
@@ -614,7 +624,9 @@
     "ability_key": "datasheet:warrant-of-trade",
     "mechanic_digest": "b65a2c8a02292ee52a59af31461f95bc",
     "name": "Warrant of Trade",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
     "summary": "If your army includes a unit with this ability, after deployment, select up to D3 IMPERIUM BATTLELINE units and redeploy them, optionally into Strategic Reserves regardless of the normal limit."
   },
   {
@@ -631,13 +643,15 @@
     "mechanic_digest": "8ac6461e0ff979e49995257029683bb5",
     "name": "Assigned Agents",
     "review_state": "in_review",
-    "summary": "If every model in your army has IMPERIUM (even without your Army Faction), you can include a battle-size-limited number of AGENTS OF THE IMPERIUM retinue, character, and requisitioned units."
+    "summary": "If every model in your army has Imperium, you can include Agents of the Imperium units lacking your Faction keyword: retinue/character/requisitioned caps are 1/1/1 at Incursion, 2/2/1 at Strike Force, 3/3/2 at Onslaught."
   },
   {
     "ability_key": "faction:kill-team",
     "mechanic_digest": "ceec50e3b54b9b6ad1b4dcd8b014361e",
     "name": "Kill Team",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
     "summary": "When this unit (containing mixed-Toughness models) is attacked, wound rolls use the majority (or highest-tied) Toughness in the unit; larger models each count as 2 for transport capacity, and all models count as Infantry for terrain."
   }
 ]
