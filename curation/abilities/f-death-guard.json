@@ -73,12 +73,10 @@
   },
   {
     "ability_key": "datasheet:death-approaches",
-    "mechanic_digest": "63f41c6a922d4f33f562c6a0d928505e",
+    "mechanic_digest": "4cac21565f57ffb8211c9975462172a2",
     "name": "Death Approaches",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "When this unit arrives via Deep Strike, it can be set up more than 6\" from Afflicted enemy units and more than 9\" from all other enemy units."
+    "review_state": "in_review",
+    "summary": "When this unit is set up on the battlefield using Deep Strike, it can be placed anywhere more than 6\" from Afflicted enemy units and more than 8\" from all other enemy units."
   },
   {
     "ability_key": "datasheet:death-guard-defenders",
@@ -415,12 +413,10 @@
   },
   {
     "ability_key": "datasheet:tank-hunters",
-    "mechanic_digest": "0a1448f705586d432c904fe7119bd8ac",
+    "mechanic_digest": "974e414f4284b8b3c9540e53e985702c",
     "name": "Tank Hunters",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "When a model in this unit attacks a Monster or Vehicle unit, add 1 to the Hit roll and add 1 to the Wound roll."
+    "review_state": "in_review",
+    "summary": "In your Shooting phase, each time a model in this unit attacks a Monster or Vehicle unit, add 1 to the Hit roll and add 1 to the Wound roll."
   },
   {
     "ability_key": "datasheet:the-destroyer-hive",
@@ -475,5 +471,12 @@
     "reviewed_at": "2026-08-04T00:00:00Z",
     "reviewed_by": "claude-reviewer-opus",
     "summary": "While this model leads a unit, models in that unit can re-roll the Wound roll when they make a ranged attack."
+  },
+  {
+    "ability_key": "faction:pact-of-decay",
+    "mechanic_digest": "e378d165c0b35d936fd25c7adf2d6b48",
+    "name": "Pact of Decay",
+    "review_state": "in_review",
+    "summary": "When building your army, your Army Faction cannot be Plague Legions."
   }
 ]
