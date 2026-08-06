@@ -16,6 +16,30 @@
     "mechanic_digest": "73cfba24d6ba2898bd8e9e995991a9af"
   },
   {
+    "summary_key": "detachment:d-anvil-siege-force-2:shield-of-the-imperium",
+    "detachment_id": "d-anvil-siege-force-2",
+    "name": "Shield of the Imperium",
+    "summary": "Adeptus Astartes ranged weapons gain the Heavy ability; those that already had Heavy add 1 to the Wound roll when the firing unit Remained Stationary this turn.",
+    "review_state": "in_review",
+    "mechanic_digest": "54d3de413e515733de5f983a348c71db"
+  },
+  {
+    "summary_key": "detachment:d-armoured-speartip-2:rapid-deployment",
+    "detachment_id": "d-armoured-speartip-2",
+    "name": "Rapid Deployment",
+    "summary": "An Adeptus Astartes unit disembarking from a Transport that moved this phase can make a bonus Normal move: D6\", or D3+3\" if that Transport has 14+ Wounds (a Heavy Transport).",
+    "review_state": "in_review",
+    "mechanic_digest": "0c6a9f6984e0a145495b6897be924d1a"
+  },
+  {
+    "summary_key": "detachment:d-ceramite-sentinels-2:adaptive-defence",
+    "detachment_id": "d-ceramite-sentinels-2",
+    "name": "Adaptive Defence",
+    "summary": "Adeptus Astartes models in a terrain feature re-roll Hit and Wound rolls of 1. Units also gain Entrenched while in terrain, not set up that turn, and having moved 3\" or less this turn.",
+    "review_state": "in_review",
+    "mechanic_digest": "baaf7422ec0d14aaf6e17fcbaa987c9a"
+  },
+  {
     "summary_key": "detachment:d-firestorm-assault-force-2:close-range-eradication",
     "detachment_id": "d-firestorm-assault-force-2",
     "name": "Close-range Eradication",
@@ -30,6 +54,22 @@
     "summary": "Land Speeder and Storm Speeder Hailstrike/Hammerstrike/Thunderstrike units count as Speeder; in your first Movement phase, friendly Speeder units can make an ingress move.",
     "review_state": "in_review",
     "mechanic_digest": "dd17f424a97d1bb0e2dbc0bde5757be8"
+  },
+  {
+    "summary_key": "detachment:d-headhunter-task-force-2:target-sighted",
+    "detachment_id": "d-headhunter-task-force-2",
+    "name": "Target Sighted",
+    "summary": "Adeptus Astartes vehicles (Tank Ace) automatically gain +6\" Move instead of rolling to Advance, and re-roll Damage rolls when shooting if they did not Advance. Up to three may gain the Character keyword.",
+    "review_state": "in_review",
+    "mechanic_digest": "bc46cc142d681a090b361fc92b3e8454"
+  },
+  {
+    "summary_key": "detachment:d-ironstorm-spearhead-2:armoured-wrath",
+    "detachment_id": "d-ironstorm-spearhead-2",
+    "name": "Armoured Wrath",
+    "summary": "Once per phase, each Adeptus Astartes unit in your army may re-roll one Hit roll, one Wound roll or one Damage roll made for a model in that unit.",
+    "review_state": "in_review",
+    "mechanic_digest": "8cf805dd763b86d1e0fd41db8c770094"
   },
   {
     "summary_key": "detachment:d-legacy-of-grace:legacy-of-the-angel",
@@ -78,6 +118,14 @@
     "summary": "Adeptus Astartes units can declare a charge in a turn in which they Advanced or Fell Back.",
     "review_state": "in_review",
     "mechanic_digest": "6cac692ade2f72f445085835ff0f6c25"
+  },
+  {
+    "summary_key": "detachment:d-subversion-assets-2:nowhere-to-hide",
+    "detachment_id": "d-subversion-assets-2",
+    "name": "Nowhere to Hide",
+    "summary": "Friendly Phobos/Scout Squad units can mark a visible enemy unit within 12\" as detected during your Shooting phase; a detected unit's detection range is increased by 3\".",
+    "review_state": "in_review",
+    "mechanic_digest": "059767f99da0e3490eb301c034b52cef"
   },
   {
     "summary_key": "detachment:d-the-angelic-host:upon-wings-of-fire",
