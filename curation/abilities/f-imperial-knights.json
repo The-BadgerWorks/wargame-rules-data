@@ -259,5 +259,12 @@
     "reviewed_at": "2026-08-04T00:00:00Z",
     "reviewed_by": "claude-reviewer-opus",
     "summary": "While bonded, this model's weapons gain the Sustained Hits 1 ability, and its ranged weapons also gain Ignores Cover."
+  },
+  {
+    "ability_key": "faction:code-chivalric",
+    "mechanic_digest": "e378d165c0b35d936fd25c7adf2d6b48",
+    "name": "Code Chivalric",
+    "review_state": "in_review",
+    "summary": "At the start of the battle, select or randomly roll one Deed and one Quality (your Oath). Your Quality's effect applies all battle; completing your Deed makes your army Honoured and gains 2CP (3CP if either was rolled randomly)."
   }
 ]
