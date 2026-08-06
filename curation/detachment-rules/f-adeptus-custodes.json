@@ -4,22 +4,26 @@
     "detachment_id": "d-auric-champions",
     "name": "Assemblage of Might",
     "summary": "At the start of your Command phase, pick an enemy unit; until your next Command phase, Adeptus Custodes Character units get +1 to wound against it.",
-    "review_state": "in_review",
-    "mechanic_digest": "05c68d9d6874aaa2d012bdb151234a4b"
+    "review_state": "approved",
+    "mechanic_digest": "05c68d9d6874aaa2d012bdb151234a4b",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-lions-of-the-emperor:against-all-odds",
     "detachment_id": "d-lions-of-the-emperor",
     "name": "Against All Odds",
     "summary": "An Adeptus Custodes non-Vehicle unit's attacks get +1 to hit and +1 to wound whenever no other friendly unit is within 6\" of it.",
-    "review_state": "in_review",
-    "mechanic_digest": "53c93c291cfd6d6ef0902625955bdfa9"
+    "review_state": "approved",
+    "mechanic_digest": "53c93c291cfd6d6ef0902625955bdfa9",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-might-of-the-moritoi:march-of-the-honoured-dead",
     "detachment_id": "d-might-of-the-moritoi",
     "name": "March of the Honoured Dead",
-    "summary": "Friendly Adeptus Custodes Walker units get +2\" Move and +1 to Advance and Charge rolls.",
+    "summary": "Friendly Adeptus Custodes Walker units get +2\" Move and +1 to Advance and Charge rolls. Exclusive Armoury-tagged detachment.",
     "review_state": "in_review",
     "mechanic_digest": "3b4171fa5cedd2cac859e239f10b1e30"
   },
@@ -28,38 +32,46 @@
     "detachment_id": "d-null-maiden-vigil",
     "name": "Creeping Dread (Aura)",
     "summary": "During your opponent's Battle-shock step, enemy Psyker units or units below their starting strength within 12\" of an Anathema Psykana model must take a Battle-shock test; units below half-strength subtract 1 from it instead.",
-    "review_state": "in_review",
-    "mechanic_digest": "e6585a83d135da06b5804f3d59466826"
+    "review_state": "approved",
+    "mechanic_digest": "e6585a83d135da06b5804f3d59466826",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-shield-host:martial-mastery",
     "detachment_id": "d-shield-host",
     "name": "Martial Mastery",
     "summary": "At the start of the battle round, choose one effect until the next round for Adeptus Custodes models with Martial Ka'tah: melee Critical Hits trigger on an unmodified 5+, or their melee weapons get +1 Armour Penetration.",
-    "review_state": "in_review",
-    "mechanic_digest": "17709e33fdc686c497d84b4e6b0a88ea"
+    "review_state": "approved",
+    "mechanic_digest": "17709e33fdc686c497d84b4e6b0a88ea",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-silent-hunters:skin-crawling-disorientation",
     "detachment_id": "d-silent-hunters",
     "name": "Skin-Crawling Disorientation",
     "summary": "An Anathema Psykana unit that advances can still start an action that turn. In your Shooting phase, it can mark a visible enemy unit within 12\" as nulled, giving that unit +3\" detection range.",
-    "review_state": "in_review",
-    "mechanic_digest": "6773ba1e419b0e8b70f0618a89f5e9c2"
+    "review_state": "approved",
+    "mechanic_digest": "6773ba1e419b0e8b70f0618a89f5e9c2",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-solar-spearhead:auric-armour",
     "detachment_id": "d-solar-spearhead",
     "name": "Auric Armour",
     "summary": "Unshocked Custodes Vehicles (non-Aircraft) at full strength get +2 OC; below full strength, re-roll Hit rolls of 1; below half strength also re-roll Wound rolls of 1. Walkers get +2\" Move, +1 Advance/Charge; up to 2 can become Characters.",
-    "review_state": "in_review",
-    "mechanic_digest": "5db4f4e4f78770eaf1d8fd14bdccd8d9"
+    "review_state": "approved",
+    "mechanic_digest": "5db4f4e4f78770eaf1d8fd14bdccd8d9",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-talons-of-the-emperor:revered-companions",
     "detachment_id": "d-talons-of-the-emperor",
     "name": "Revered Companions",
-    "summary": "Anathema Psykana units gain an aura giving nearby Custodes Feel No Pain 5+ against Psychic Attacks and mortal wounds; other Custodes units gain an aura adding 1 to the Hit roll of nearby Anathema Psykana attacks.",
+    "summary": "Anathema Psykana units gain an aura: Adeptus Custodes units within 6\" get Feel No Pain 5+ against Psychic Attacks and mortal wounds. Every other Adeptus Custodes unit gains an aura: Anathema Psykana units within 6\" get +1 to hit.",
     "review_state": "in_review",
     "mechanic_digest": "9829ebb9008fefdb38aa956971dcfb0f"
   },
@@ -67,7 +79,7 @@
     "summary_key": "detachment:d-tharanatoi-hammerblow:the-hammer-falls",
     "detachment_id": "d-tharanatoi-hammerblow",
     "name": "The Hammer Falls",
-    "summary": "A friendly Adeptus Custodes Terminator unit that made an ingress move this turn can re-roll its charge roll.",
+    "summary": "A friendly Adeptus Custodes Terminator unit that made an ingress move this turn can re-roll its charge roll. Exclusive Lions-tagged detachment.",
     "review_state": "in_review",
     "mechanic_digest": "5aea87090d46e26481247f7ff2e4d0fd"
   }
