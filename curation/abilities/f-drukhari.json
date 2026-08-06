@@ -12,7 +12,9 @@
     "ability_key": "core:firing-deck-16",
     "mechanic_digest": "bf3b4618b0621cdc4bf5eb5bb8fa1c3b",
     "name": "Firing Deck 16",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-second-reviewer",
     "summary": "Firing Deck X: in your Shooting phase, when this Transport shoots, up to X (here 16) embarked models whose units have not yet shot each lend it one ranged weapon (no one-shot); no unit embarked in it can shoot for the rest of the turn."
   },
   {
@@ -505,7 +507,9 @@
     "ability_key": "datasheet:shadowfield",
     "mechanic_digest": "013b64fbadc9e0b78ed003a2c2b554b3",
     "name": "Shadowfield",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-second-reviewer",
     "summary": "While this model has an invulnerable save, this unit cannot re-roll save rolls; the first time this model loses a wound other than a mortal wound, it has no invulnerable save for the rest of the battle."
   },
   {
@@ -530,7 +534,9 @@
     "ability_key": "datasheet:skyboard-evasion",
     "mechanic_digest": "ca6bb9d1652bb91976f8fd303cf9a215",
     "name": "Skyboard Evasion",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-second-reviewer",
     "summary": "In your opponent's Movement phase, when an enemy unit ends any move within 8\" of this unit, this unit can make a Normal move of up to D6\", provided it is not within Engagement Range of any enemy unit."
   },
   {
@@ -573,7 +579,9 @@
     "ability_key": "datasheet:swooping-descent-pain",
     "mechanic_digest": "68d9876f36fdb17a705d183944bad822",
     "name": "Swooping Descent (Pain)",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-second-reviewer",
     "summary": "In your Movement phase, spend 1 Pain token to Empower this unit: models set up by Deep Strike need only be more than 6\" horizontally from enemy units; if the unit arrives within 8\" of an enemy, it cannot declare a charge this turn."
   },
   {
@@ -625,7 +633,9 @@
     "ability_key": "datasheet:void-mine",
     "mechanic_digest": "ef7d43543e6468470483b61d75aadf9e",
     "name": "Void Mine",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-second-reviewer",
     "summary": "At the end of your opponent's Fight phase, pick one visible enemy model (not Lone Operative) within 24\" of this unit, then roll one D6 for each enemy unit within D6\" of that model: on a 4+ that unit suffers D6 mortal wounds."
   },
   {
@@ -641,7 +651,9 @@
     "ability_key": "faction:power-from-pain",
     "mechanic_digest": "9487f8d40f9f92a905d0943e8c15f572",
     "name": "Power from Pain",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-second-reviewer",
     "summary": "You gain 1 Pain token at the start of your Command phase and 1 whenever an enemy unit is destroyed or fails a Battle-shock test. Spend them as a unit's Pain ability directs to Empower it: all its Pain abilities take effect that phase."
   }
 ]
