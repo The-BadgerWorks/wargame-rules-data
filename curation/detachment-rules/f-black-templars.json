@@ -1,0 +1,90 @@
+[
+  {
+    "summary_key": "detachment:d-companions-of-vehemence:righteous-fervour",
+    "detachment_id": "d-companions-of-vehemence",
+    "name": "Righteous Fervour",
+    "summary": "Re-roll Advance and Charge rolls for Adeptus Astartes units. Army can include Black Templars units only, no other Chapter's Adeptus Astartes units.",
+    "review_state": "in_review",
+    "mechanic_digest": "ac3fe3af3573035dff9cd59a26a0ac26"
+  },
+  {
+    "summary_key": "detachment:d-firestorm-assault-force:close-range-eradication",
+    "detachment_id": "d-firestorm-assault-force",
+    "name": "Close-range Eradication",
+    "summary": "Adeptus Astartes ranged weapons gain Assault, and get +1 Strength when their attack targets a unit within 12 inches.",
+    "review_state": "in_review",
+    "mechanic_digest": "b9469e205b56fcb5f52d42f023763fb8"
+  },
+  {
+    "summary_key": "detachment:d-fulguris-task-force:skystrike",
+    "detachment_id": "d-fulguris-task-force",
+    "name": "Skystrike",
+    "summary": "Land Speeder and Storm Speeder Hailstrike/Hammerstrike/Thunderstrike units count as Speeder; in your first Movement phase, friendly Speeder units can make an ingress move.",
+    "review_state": "in_review",
+    "mechanic_digest": "dd17f424a97d1bb0e2dbc0bde5757be8"
+  },
+  {
+    "summary_key": "detachment:d-godhammer-assault-force:shock-and-awe",
+    "detachment_id": "d-godhammer-assault-force",
+    "name": "Shock and Awe",
+    "summary": "An Adeptus Astartes unit that disembarked this turn forces one charge target to Battle-shock test, and gets +1 to Hit in melee. Army: Black Templars only, no other Chapter's Adeptus Astartes units.",
+    "review_state": "in_review",
+    "mechanic_digest": "7a303f24704d49cc955f190356abe272"
+  },
+  {
+    "summary_key": "detachment:d-marshals-household:faith-fuelled-resolve",
+    "detachment_id": "d-marshals-household",
+    "name": "Faith-fuelled Resolve",
+    "summary": "Sword Brethren Squad units get +1 Objective Control. Army can include Black Templars units only, no other Chapter's Adeptus Astartes units.",
+    "review_state": "in_review",
+    "mechanic_digest": "83f48e34fad8b8b90f6c0e88c9f469f1"
+  },
+  {
+    "summary_key": "detachment:d-orbital-assault-force:rapid-drop-deployment",
+    "detachment_id": "d-orbital-assault-force",
+    "name": "Rapid-drop Deployment",
+    "summary": "At deployment, a battle-size-scaled number of non-Titanic Adeptus Astartes units gain Deep Strike. A unit set up this turn re-rolls a Wound roll of 1; one that disembarked from a Drop Pod this turn also re-rolls a Hit roll of 1.",
+    "review_state": "in_review",
+    "mechanic_digest": "6d9de3902ef6028b32da8580eada69a9"
+  },
+  {
+    "summary_key": "detachment:d-stormlance-task-force:lightning-assault",
+    "detachment_id": "d-stormlance-task-force",
+    "name": "Lightning Assault",
+    "summary": "Adeptus Astartes units can declare a charge in a turn in which they Advanced or Fell Back.",
+    "review_state": "in_review",
+    "mechanic_digest": "6cac692ade2f72f445085835ff0f6c25"
+  },
+  {
+    "summary_key": "detachment:d-the-living-miracle:anointed-champion",
+    "detachment_id": "d-the-living-miracle",
+    "name": "Anointed Champion",
+    "summary": "When an Emperor's Champion unit fights, its melee attacks can re-roll one Hit roll and one Wound roll. Enhancements from this detachment don't count toward the army's enhancement limit.",
+    "review_state": "in_review",
+    "mechanic_digest": "2550e1635a055adc8559c2e1acc6d518"
+  },
+  {
+    "summary_key": "detachment:d-vanguard-spearhead:shadow-masters",
+    "detachment_id": "d-vanguard-spearhead",
+    "name": "Shadow Masters",
+    "summary": "A ranged attack against an Adeptus Astartes unit from beyond 12 inches gives that unit Benefit of Cover.",
+    "review_state": "in_review",
+    "mechanic_digest": "20a1368afd53ae398ce9777f1e9d0ee7"
+  },
+  {
+    "summary_key": "detachment:d-vengeful-hosts:imperator-unleashed",
+    "detachment_id": "d-vengeful-hosts",
+    "name": "Imperator Unleashed",
+    "summary": "After a Fly Infantry unit makes an ingress or charge move this turn, its attacks can re-roll hit rolls of 1.",
+    "review_state": "in_review",
+    "mechanic_digest": "455871c6b816df4cd30143b4a77a0dad"
+  },
+  {
+    "summary_key": "detachment:d-vindication-task-force:purge-and-sanctify",
+    "detachment_id": "d-vindication-task-force",
+    "name": "Purge and Sanctify",
+    "summary": "Attacks stronger than an objective-holding Ancient's Toughness get -1 to Wound. A Crusader Squad's surge move can target the nearest objective instead. Army: Black Templars only, no other Chapter's units.",
+    "review_state": "in_review",
+    "mechanic_digest": "fb6ed3773ada8767adaa0b941dad080a"
+  }
+]
