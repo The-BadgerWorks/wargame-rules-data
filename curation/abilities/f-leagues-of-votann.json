@@ -1,5 +1,12 @@
 [
   {
+    "ability_key": "core:firing-deck-5",
+    "mechanic_digest": "bf3b4618b0621cdc4bf5eb5bb8fa1c3b",
+    "name": "Firing Deck 5",
+    "review_state": "in_review",
+    "summary": "Firing Deck X: in your Shooting phase, when this TRANSPORT is selected to shoot, up to X embarked models each lend it one of their ranged weapons (not one-shot) for its attacks; those models' units cannot shoot again this phase."
+  },
+  {
     "ability_key": "datasheet:ancestral-fortune",
     "mechanic_digest": "b35b6d6cd6bd277cc2b6b6cb77f566b3",
     "name": "Ancestral Fortune",
@@ -244,12 +251,10 @@
   },
   {
     "ability_key": "datasheet:pragmatic-hunters",
-    "mechanic_digest": "d4808bf5a94ef83ef9ee93b82f836a07",
+    "mechanic_digest": "ca6bb9d1652bb91976f8fd303cf9a215",
     "name": "Pragmatic Hunters",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "Once per turn, when an enemy unit ends a Normal, Advance, or Fall Back move within 9\" of this unit, this unit can make a Normal move of up to D6\"."
+    "review_state": "in_review",
+    "summary": "In your opponent's Movement phase, if an enemy unit ends a move within 8\" of this unit and this unit is not within Engagement Range, it can make a Normal move of up to D6\"."
   },
   {
     "ability_key": "datasheet:predictive-guidance",
@@ -289,12 +294,10 @@
   },
   {
     "ability_key": "datasheet:relentless-avalanche",
-    "mechanic_digest": "926519da623043e128448bed78de61f3",
+    "mechanic_digest": "31aa48f474ff1a71515e7df13fc11560",
     "name": "Relentless Avalanche",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "This model's unit can be targeted with the Heroic Intervention Stratagem for 0CP, even if a different unit was already targeted with it this phase."
+    "review_state": "in_review",
+    "summary": "You can target this unit with Heroic Intervention for -1 CP, regardless of other uses of that stratagem this phase; it does not prevent other units from also using it."
   },
   {
     "ability_key": "datasheet:resource-transmutation",
@@ -370,12 +373,10 @@
   },
   {
     "ability_key": "datasheet:unhinged-vengeance",
-    "mechanic_digest": "c12d9be591b6d50d542191da302dc26b",
+    "mechanic_digest": "bb2e748af6cf4f74dd7be44f2b0accb0",
     "name": "Unhinged Vengeance",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "In the opponent's Shooting phase, if this model loses wounds, it may move D6+2\" toward the nearest non-Aircraft enemy, possibly into Engagement Range; not while Battle-shocked, engaged, or more than once per phase."
+    "review_state": "in_review",
+    "summary": "In your opponent's Shooting phase, if this model lost one or more wounds from an enemy unit's attacks, this unit can make a surge move of up to D6+2\"."
   },
   {
     "ability_key": "datasheet:weavefield-crest",
@@ -385,5 +386,12 @@
     "reviewed_at": "2026-08-04T00:00:00Z",
     "reviewed_by": "claude-reviewer-opus",
     "summary": "Grants an invulnerable save: 4+ for the bearer alone, or 5+ for every model in the bearer's unit, depending on which model carries it."
+  },
+  {
+    "ability_key": "faction:prioritised-efficiency",
+    "mechanic_digest": "c93cde4192a5eaee225e18f40fdf99b2",
+    "name": "Prioritised Efficiency",
+    "review_state": "in_review",
+    "summary": "LEAGUES OF VOTANN units gain Hostile Acquisition (hit bonus near objectives, re-roll Advance/Charge) below 7 Yield Points, or Fortify Takeover (hit bonus, -1 enemy Wound rolls vs non-Vehicles) at 7+; YP comes from objectives."
   }
 ]
