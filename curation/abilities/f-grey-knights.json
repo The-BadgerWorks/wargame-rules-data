@@ -93,7 +93,9 @@
     "ability_key": "datasheet:guardians-of-the-machine",
     "mechanic_digest": "707c9c25c7e1080635204b1909bc2c6e",
     "name": "Guardians of the Machine",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
     "summary": "When an enemy unit ends a charge move both engaged with a friendly Grey Knights Vehicle unit and within 6\" of this unit, you can use Heroic Intervention on this unit at -1 CP; it neither blocks nor is blocked by other uses this phase."
   },
   {
