@@ -48,6 +48,14 @@
     "mechanic_digest": "cb6300216e93c5c19e566e965d39f206"
   },
   {
+    "summary_key": "detachment:d-spearhead-at-arms:knightly-teachings",
+    "detachment_id": "d-spearhead-at-arms",
+    "name": "Knightly Teachings",
+    "summary": "The first model to use its Bondsman ability each turn can extend it to up to three Armiger models within 12\" (15\" while Honoured) instead of one. Armiger models gain the Battleline keyword.",
+    "review_state": "in_review",
+    "mechanic_digest": "5bda5a9843ccaff4c5e5eccfadc367da"
+  },
+  {
     "summary_key": "detachment:d-throne-bonded-outriders:driven-from-their-lairs",
     "detachment_id": "d-throne-bonded-outriders",
     "name": "Driven from Their Lairs",

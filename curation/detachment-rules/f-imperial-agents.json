@@ -1,5 +1,13 @@
 [
   {
+    "summary_key": "detachment:d-imperialis-fleet:at-all-costs",
+    "detachment_id": "d-imperialis-fleet",
+    "name": "At all Costs",
+    "summary": "Each Command phase, choose one: mark an enemy unit so your Agents of the Imperium gain +1 to hit it, or mark an objective so nearby friendly units gain +1 Leadership, +1 Objective Control and a 5+ invulnerable save.",
+    "review_state": "in_review",
+    "mechanic_digest": "223f0249491b1c7d2da050ce66ab9403"
+  },
+  {
     "summary_key": "detachment:d-ordo-hereticus-purgation-force:root-out-heresy",
     "detachment_id": "d-ordo-hereticus-purgation-force",
     "name": "Root out Heresy",
@@ -14,6 +22,14 @@
     "summary": "Inquisitor, Inquisitorial Agents and Ordo Malleus models re-roll a Hit roll of 1 on every attack, and a Wound roll of 1 when the target is a Daemon unit.",
     "review_state": "in_review",
     "mechanic_digest": "c4653887634a0b3d9b1efbb6844ebcbf"
+  },
+  {
+    "summary_key": "detachment:d-ordo-xenos-alien-hunters:deathwatch-mission-tactics",
+    "detachment_id": "d-ordo-xenos-alien-hunters",
+    "name": "Deathwatch Mission Tactics",
+    "summary": "Each Command phase, select one once-per-battle Mission Tactic for your Deathwatch units, active until your next Command phase: Sustained Hits 1, Lethal Hits, or Precision on Critical Wounds.",
+    "review_state": "in_review",
+    "mechanic_digest": "9a2c50a54a9ef0aa4012d87168422ffa"
   },
   {
     "summary_key": "detachment:d-veiled-blade-elimination-force:extremis-sanction",
