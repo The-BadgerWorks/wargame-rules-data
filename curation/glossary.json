@@ -165,7 +165,7 @@
     "display_keyword": "Blast",
     "has_numeric_parameter": false,
     "name": "Blast",
-    "summary": "Weapon ability. Gather one extra attack die for every five models the target unit held when targets were chosen, rounding down. A printed number multiplies that, giving N extra dice per five models.",
+    "summary": "Weapon ability. Gather one extra attack die for every five models the target unit contained when targets were chosen, rounding down.",
     "review_state": "in_review",
     "mechanic_digest": "7b02a90682f582ad53980cfcf72ac75b"
   },
@@ -206,8 +206,10 @@
     "has_numeric_parameter": true,
     "name": "Cleave X",
     "summary": "Weapon ability written Cleave X. If every one of the weapon's attacks is aimed at a single target, gather X extra attack dice for every five models that unit held when targets were chosen, rounding down.",
-    "review_state": "in_review",
-    "mechanic_digest": "d1ebb2ce0ea4744839ef92aa52b96676"
+    "review_state": "approved",
+    "mechanic_digest": "d1ebb2ce0ea4744839ef92aa52b96676",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "glossary:close quarters",
@@ -285,7 +287,7 @@
     "display_keyword": "Extra Attacks",
     "has_numeric_parameter": false,
     "name": "Extra Attacks",
-    "summary": "Weapon ability. Its attacks are made on top of the model's other melee attacks: when weapons are selected, the model takes every extra-attacks weapon it holds plus one of its other melee weapons where it has one.",
+    "summary": "Weapon ability. Its attacks are made on top of the model's other melee attacks, and a model may attack with its extra-attacks weapons without also selecting any melee weapon that lacks the ability.",
     "review_state": "in_review",
     "mechanic_digest": "8644ad76b7de35535f764d0810e3cccb"
   },
@@ -335,7 +337,7 @@
     "display_keyword": "Hazardous",
     "has_numeric_parameter": false,
     "name": "Hazardous",
-    "summary": "Weapon ability. Once the unit has resolved all of its attacks, it makes one hazard roll for each hazardous weapon that was selected to attack with.",
+    "summary": "Weapon ability. Once its unit has finished attacking, make one hazard roll for each hazardous weapon that attacked, all at once; each roll of 1-2 costs the unit 1 mortal wound, or 3 if every model in it is a Monster or Vehicle.",
     "review_state": "in_review",
     "mechanic_digest": "fc17882f20339b2bc1a519b46930a4b2"
   },
@@ -636,8 +638,10 @@
     "has_numeric_parameter": false,
     "name": "Towering",
     "summary": "Size keyword. A model with this keyword grants Plunging Fire, improving the attacking model's Ballistic Skill by 1, against a visible target with ground-level models within 12\", without needing elevated terrain.",
-    "review_state": "in_review",
-    "mechanic_digest": "355d9f81a5058449b521cdccbb8adf61"
+    "review_state": "approved",
+    "mechanic_digest": "355d9f81a5058449b521cdccbb8adf61",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "glossary:transport",
