@@ -264,8 +264,10 @@
     "ability_key": "datasheet:hypersensory-abilities",
     "mechanic_digest": "23ff5e152bae91db0957131161bcd1c9",
     "name": "Hypersensory Abilities",
-    "review_state": "in_review",
-    "summary": "Once per turn in your opponent's Movement phase, when an enemy unit ends a Normal, Advance or Fall Back move within 8\" of this model, this model, if outside Engagement Range, can shoot it and then make a D6\" Normal move (no embarking)."
+    "review_state": "approved",
+    "summary": "Once per turn in your opponent's Movement phase, when an enemy unit ends a Normal, Advance or Fall Back move within 8\" of this model, this model, if outside Engagement Range, can shoot it and then make a D6\" Normal move (no embarking).",
+    "reviewed_by": "claude-opus-5-final-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "ability_key": "datasheet:hypersensory-array",
