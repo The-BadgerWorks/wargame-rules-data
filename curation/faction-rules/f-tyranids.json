@@ -1,0 +1,14 @@
+{
+  "faction_id": "f-tyranids",
+  "army_rule_state": "present",
+  "rules": [
+    {
+      "summary_key": "faction:f-tyranids:synapse",
+      "display_order": 1,
+      "name": "Synapse",
+      "summary": "Tyranids units within 6in of a friendly Synapse model are in Synapse Range: they take Battle-shock tests on 3D6 instead of 2D6, and their melee attacks get +1 Strength.",
+      "review_state": "in_review",
+      "mechanic_digest": "17632ffb7a500ac984411eb3dfaa884d"
+    }
+  ]
+}
