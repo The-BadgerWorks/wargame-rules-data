@@ -210,7 +210,9 @@
     "ability_key": "datasheet:malign-trickery",
     "mechanic_digest": "ca6bb9d1652bb91976f8fd303cf9a215",
     "name": "Malign Trickery",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-second-reviewer",
     "summary": "In your opponent's Movement phase, when an enemy unit ends any move within 8\" of this unit, this unit can make a Normal move of up to D6\", provided it is not within Engagement Range of any enemy unit."
   },
   {
@@ -307,8 +309,10 @@
     "ability_key": "datasheet:snarling-protector",
     "mechanic_digest": "bb9e6c61bb53eabd28f63d38d526a4ff",
     "name": "Snarling Protector",
-    "review_state": "in_review",
-    "summary": "Heroic Intervention can target this unit at -1 CP; it neither blocks nor is blocked by other uses this phase. When it charges with a friendly engaged Psyker within 12\", re-roll its charge roll but end engaged with an enemy of that Psyker."
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-second-reviewer",
+    "summary": "Heroic Intervention can target this unit at -1CP, neither blocking nor blocked by other uses this phase. If a friendly engaged Psyker is within 12\" when this unit charges, re-roll that roll but end engaged with an enemy of that Psyker."
   },
   {
     "ability_key": "datasheet:sorcerous-support",
@@ -368,22 +372,28 @@
     "ability_key": "faction:cabal-of-sorcerers",
     "mechanic_digest": "c8722c0ac1850d81456cddc43116d107",
     "name": "Cabal of Sorcerers",
-    "review_state": "in_review",
-    "summary": "At the start of your Shooting phase each model with this ability may attempt a Ritual (each once per turn): roll 2D6, optionally Channelling the Warp; a double or triple costs its unit D3 mortal wounds; the total must meet the Warp Charge."
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-second-reviewer",
+    "summary": "Shooting phase start: each model with this ability may attempt one Ritual per turn, each Ritual once per turn. Roll 2D6, optionally Channelling the Warp; any double or triple costs its unit D3 mortal wounds; total must meet the Warp Charge."
   },
   {
     "ability_key": "faction:cabal-of-sorcerers-1",
     "mechanic_digest": "c8722c0ac1850d81456cddc43116d107",
     "name": "Cabal of Sorcerers",
-    "review_state": "in_review",
-    "summary": "At the start of your Shooting phase each model with this ability may attempt a Ritual (each once per turn): roll 2D6, optionally Channelling the Warp; a double or triple costs its unit D3 mortal wounds; the total must meet the Warp Charge."
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-second-reviewer",
+    "summary": "Shooting phase start: each model with this ability may attempt one Ritual per turn, each Ritual once per turn. Roll 2D6, optionally Channelling the Warp; any double or triple costs its unit D3 mortal wounds; total must meet the Warp Charge."
   },
   {
     "ability_key": "faction:cabal-of-sorcerers-scarab-occult-sorcerer-only",
     "mechanic_digest": "c8722c0ac1850d81456cddc43116d107",
     "name": "Cabal of Sorcerers (Scarab Occult Sorcerer only)",
-    "review_state": "in_review",
-    "summary": "At the start of your Shooting phase each model with this ability may attempt a Ritual (each once per turn): roll 2D6, optionally Channelling the Warp; a double or triple costs its unit D3 mortal wounds; the total must meet the Warp Charge."
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-second-reviewer",
+    "summary": "Shooting phase start: each model with this ability may attempt one Ritual per turn, each Ritual once per turn. Roll 2D6, optionally Channelling the Warp; any double or triple costs its unit D3 mortal wounds; total must meet the Warp Charge."
   },
   {
     "ability_key": "faction:pact-of-sorcery",
