@@ -138,7 +138,9 @@
     "ability_key": "datasheet:guile-of-the-wolf-aura",
     "mechanic_digest": "ccf26bc7446eaaf3b64b69bcd33166fc",
     "name": "Guile of the Wolf (Aura)",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
     "summary": "Once per turn, when your opponent targets one of their own units within 12\" of this model with a Stratagem, you can add 1 CP to that Stratagem cost."
   },
   {
