@@ -6,7 +6,7 @@
       "summary_key": "faction:f-death-guard:nurgles-gift-aura",
       "display_order": 1,
       "name": "Nurgle's Gift (Aura)",
-      "summary": "Enemy units within Contagion Range (up to 12\") of a Death Guard model are Afflicted: -1 Toughness, plus your chosen Plague's effect (worse melee Hit rolls, worse Save, or worse Move/Leadership/Objective Control).",
+      "summary": "Enemy units within Contagion Range of a Death Guard model are Afflicted. Range varies by battle round, capped at 12in. Afflicted: -1 Toughness plus the Plague you picked at deployment - worse melee Hit, worse Save, or worse Move, Ld and OC.",
       "review_state": "in_review",
       "mechanic_digest": "ad8887300cfa858c72e53e84cabb7cbd"
     }
