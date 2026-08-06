@@ -7,8 +7,10 @@
       "display_order": 1,
       "name": "Voice of Command",
       "summary": "Officers issue Orders (count per datasheet) in your Command phase or on arrival/disembark, to an eligible unit within 6in until your next Command phase: +3in Move, improved WS, BS, Rapid Fire Attacks or Save (max 3+), or +1 Ld and OC.",
-      "review_state": "in_review",
-      "mechanic_digest": "00a0ed0a0660ffb124f7edd3f08210f5"
+      "review_state": "approved",
+      "mechanic_digest": "00a0ed0a0660ffb124f7edd3f08210f5",
+      "reviewed_by": "claude-opus-5-final-reviewer",
+      "reviewed_at": "2026-08-06T00:00:00Z"
     }
   ]
 }
