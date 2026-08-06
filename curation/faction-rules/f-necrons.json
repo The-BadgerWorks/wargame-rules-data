@@ -7,8 +7,10 @@
       "display_order": 1,
       "name": "Reanimation Protocols",
       "summary": "At the end of your Command phase, each friendly on-battlefield unit with this ability heals D3 wounds, reviving destroyed models once enough wounds accumulate.",
-      "review_state": "in_review",
-      "mechanic_digest": "ecd9628f44a7160e24b133498a5e6657"
+      "review_state": "approved",
+      "mechanic_digest": "ecd9628f44a7160e24b133498a5e6657",
+      "reviewed_by": "claude-opus-5-adversarial-reviewer",
+      "reviewed_at": "2026-08-06T00:00:00Z"
     }
   ]
 }
