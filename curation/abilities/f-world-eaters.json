@@ -57,7 +57,9 @@
     "ability_key": "datasheet:bloody-fury",
     "mechanic_digest": "819fbe150a8b2633bf5d7d074b9215cb",
     "name": "Bloody Fury",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
     "summary": "This unit's ranged attacks against its closest eligible target can re-roll Hit rolls. When it charges, it can re-roll the charge roll but must end engaged with its closest charge target."
   },
   {
@@ -109,7 +111,9 @@
     "ability_key": "datasheet:frenzy",
     "mechanic_digest": "674f37c48220831710a0057880a9d10e",
     "name": "Frenzy",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
     "summary": "Once per turn per unit, after an enemy unit that targeted this unit in the Fight phase finishes attacking, this unit becomes eligible to fight again and must be selected to fight next."
   },
   {
@@ -144,7 +148,7 @@
     "mechanic_digest": "ca6bb9d1652bb91976f8fd303cf9a215",
     "name": "Loping Speed",
     "review_state": "in_review",
-    "summary": "In your opponent's Movement phase, if an enemy unit ends a move within 8\" of this unit and it is not in Engagement Range, it can make a Normal move of up to D6\"."
+    "summary": "In your opponent's Movement phase, when an enemy unit ends any move within 8\" of this unit, this unit can make a Normal move of up to D6\", provided it is not within Engagement Range of any enemy unit."
   },
   {
     "ability_key": "datasheet:lord-of-murder",
@@ -169,7 +173,7 @@
     "mechanic_digest": "0ebfec9224d9e21b0308cd5649de56eb",
     "name": "Meet Any Challenge",
     "review_state": "in_review",
-    "summary": "In your opponent's Movement phase, each time an enemy unit is set up or ends a Normal, Advance, or Fall Back move within 8\" of this model, units embarked within it can disembark."
+    "summary": "In your opponent's Movement phase, each time an enemy unit is set up or ends a Normal, Advance or Fall Back move within 8\" of this model, any units embarked within this model can disembark."
   },
   {
     "ability_key": "datasheet:objective-ravaged",
@@ -283,7 +287,9 @@
     "ability_key": "datasheet:the-scent-of-blood",
     "mechanic_digest": "5bee5ce534ffe6d9cc91a55f1b7529e9",
     "name": "The Scent of Blood",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
     "summary": "When this unit declares a charge, it gets +1 to the charge roll if an enemy unit below Starting Strength is within 9\", or +2 instead if that enemy is Below Half-strength."
   },
   {
@@ -299,7 +305,9 @@
     "ability_key": "datasheet:unleash-wrath",
     "mechanic_digest": "7ccf1a18956b5a11d287fa06ac848896",
     "name": "Unleash Wrath",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
     "summary": "At the end of your opponent's Movement phase, select one enemy unit set up within 12\" of this model this phase: this model can shoot it if eligible, or declare a charge and must end engaged with it (no Charge bonus)."
   },
   {
@@ -315,7 +323,9 @@
     "ability_key": "faction:pact-of-blood",
     "mechanic_digest": "310095a0032ef91f587ca6d1a4097f42",
     "name": "Pact of Blood",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
     "summary": "When building your army, your Army Faction cannot be Blood Legions."
   }
 ]
