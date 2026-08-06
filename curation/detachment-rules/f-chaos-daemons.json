@@ -4,16 +4,20 @@
     "detachment_id": "d-blood-legion",
     "name": "Blood Tainted",
     "summary": "At the end of a phase in which a Legiones Daemonica Khorne unit destroyed an enemy unit that began the phase within range of an objective marker, if your unit's Level of Control there is higher, you hold it until the enemy's exceeds yours.",
-    "review_state": "in_review",
-    "mechanic_digest": "b28a9c444283d439e1f43506d497654f"
+    "review_state": "approved",
+    "mechanic_digest": "b28a9c444283d439e1f43506d497654f",
+    "reviewed_by": "claude-opus-5-second-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-blood-legion:murdercall",
     "detachment_id": "d-blood-legion",
     "name": "Murdercall",
     "summary": "In your opponent's Movement phase, each time an enemy unit that is not an Aircraft ends a move within 8\" of your Legiones Daemonica Khorne units, one of those units can make a surge move of up to D6\".",
-    "review_state": "in_review",
-    "mechanic_digest": "69dc85ad83385a3becd6d2e537a70909"
+    "review_state": "approved",
+    "mechanic_digest": "69dc85ad83385a3becd6d2e537a70909",
+    "reviewed_by": "claude-opus-5-second-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-cavalcade-of-chaos:unholy-avalanche",
@@ -40,8 +44,10 @@
     "detachment_id": "d-daemonic-incursion",
     "name": "Warp Rifts",
     "summary": "A Legiones Daemonica unit arriving by Deep Strike wholly within your Shadow of Chaos, and/or wholly within 6\" of a friendly Greater Daemon sharing its god keyword, can be set up over 6\" horizontally from enemy models instead of over 8\".",
-    "review_state": "in_review",
-    "mechanic_digest": "6c8a3ea8bf34d3f7469165576e02b34b"
+    "review_state": "approved",
+    "mechanic_digest": "6c8a3ea8bf34d3f7469165576e02b34b",
+    "reviewed_by": "claude-opus-5-second-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-legion-of-excess:beguiling-aura",
@@ -58,8 +64,10 @@
     "detachment_id": "d-legion-of-excess",
     "name": "Seductive Gambit",
     "summary": "After ending a Charge move, a Legiones Daemonica Slaanesh unit can declare a Seductive Gambit: until the end of the turn it loses Fights First, but each of its attacks can re-roll the Hit roll and can re-roll a Wound roll of 1.",
-    "review_state": "in_review",
-    "mechanic_digest": "108fc7a6fd769e690cae23a287f6eb01"
+    "review_state": "approved",
+    "mechanic_digest": "108fc7a6fd769e690cae23a287f6eb01",
+    "reviewed_by": "claude-opus-5-second-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-lords-of-the-warp:loci-of-power",
@@ -86,24 +94,30 @@
     "detachment_id": "d-scintillating-legion",
     "name": "Fates in Flux",
     "summary": "Start with 3 Flux tokens; spend one on your Tzeentch models to re-roll an Advance, Hit, Wound, Damage, save or Hazardous roll. It passes to your opponent, who may re-roll all but Damage/Hazardous; regain one per Command phase they hold any.",
-    "review_state": "in_review",
-    "mechanic_digest": "72a068f5a295505c0f5e8e84116abde2"
+    "review_state": "approved",
+    "mechanic_digest": "72a068f5a295505c0f5e8e84116abde2",
+    "reviewed_by": "claude-opus-5-second-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-shadow-legion:first-prince-of-chaos",
     "detachment_id": "d-shadow-legion",
     "name": "First Prince of Chaos",
     "summary": "Shadow Legion god bonuses: Khorne shoot and charge after Advancing; Tzeentch Stealth, -1 to be hit in melee; Nurgle -1 to Wound from Strength over Toughness; Slaanesh no snap shots; Undivided Dark Pacts, Heretic Astartes Deep Strike.",
-    "review_state": "in_review",
-    "mechanic_digest": "36a595381b794916b4ef581a74d0bdab"
+    "review_state": "approved",
+    "mechanic_digest": "36a595381b794916b4ef581a74d0bdab",
+    "reviewed_by": "claude-opus-5-second-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-shadow-legion:thralls-of-the-first-prince",
     "detachment_id": "d-shadow-legion",
     "name": "Thralls of the First Prince",
     "summary": "No Daemon Princes or Epic Heroes except Be'lakor; instead take listed Heretic Astartes units up to 500/1000/1500 pts at Incursion/Strike Force/Onslaught. They gain Shadow Legion and Undivided; your daemons gain Shadow Legion.",
-    "review_state": "in_review",
-    "mechanic_digest": "e1d2c0bd8ee95cc4a0e96a9b0c4ee04d"
+    "review_state": "approved",
+    "mechanic_digest": "e1d2c0bd8ee95cc4a0e96a9b0c4ee04d",
+    "reviewed_by": "claude-opus-5-second-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-warptide:shudderblink",
