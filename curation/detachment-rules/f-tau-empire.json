@@ -4,14 +4,16 @@
     "detachment_id": "d-advanced-acquisition-cadre",
     "name": "Expert Fieldcraft",
     "summary": "Pathfinder Team and Stealth Battlesuits units keep Hidden status even after shooting.",
-    "review_state": "in_review",
-    "mechanic_digest": "b6644b47f56f016c704b162dd753e6e8"
+    "review_state": "approved",
+    "mechanic_digest": "b6644b47f56f016c704b162dd753e6e8",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-auxiliary-cadre:integrated-command-structure",
     "detachment_id": "d-auxiliary-cadre",
     "name": "Integrated Command Structure",
-    "summary": "Kroot and Vespid Stingwings can prey-mark a visible enemy for +3\" detection range against it; a nearby Ghostkeel or Stealth Battlesuits unit keeps a Kroot/Vespid unit Hidden after it shoots. Exclusive Auxiliaries-tagged detachment.",
+    "summary": "In your Shooting phase a Kroot or Vespid Stingwings unit can prey-mark one visible enemy within 12\" for +3\" detection range; within 6\" of a Ghostkeel or Stealth Battlesuits unit, shooting keeps it hidden. Exclusive Auxiliaries detachment.",
     "review_state": "in_review",
     "mechanic_digest": "9c9e2fcdd1e1cb53f134381ebfdfdfc9"
   },
@@ -20,47 +22,59 @@
     "detachment_id": "d-experimental-prototype-cadre",
     "name": "Superior Craftsmanship",
     "summary": "Battlesuit Character ranged attacks get +6\" range. Exclusive Battlesuit-tagged detachment.",
-    "review_state": "in_review",
-    "mechanic_digest": "3fafee7c5bb43ed4fb30bf6103f545af"
+    "review_state": "approved",
+    "mechanic_digest": "3fafee7c5bb43ed4fb30bf6103f545af",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-kauyon:patient-hunter",
     "detachment_id": "d-kauyon",
     "name": "Patient Hunter",
     "summary": "In battle rounds 3-5, T'au Empire ranged weapons gain Sustained Hits 1; a Guided unit attacking a Spotted target that round also ignores BS and Hit roll modifiers.",
-    "review_state": "in_review",
-    "mechanic_digest": "f8d8b437a172f6fdfa2fbd1742c0bb34"
+    "review_state": "approved",
+    "mechanic_digest": "f8d8b437a172f6fdfa2fbd1742c0bb34",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-kroot-hunting-pack:hunters-instincts",
     "detachment_id": "d-kroot-hunting-pack",
     "name": "Hunter’s Instincts",
     "summary": "Kroot attacks get +1 to hit under-strength targets, and +1 to wound as well against half-strength targets.",
-    "review_state": "in_review",
-    "mechanic_digest": "91b7dea0f9d87ebeea556d88fbad524c"
+    "review_state": "approved",
+    "mechanic_digest": "91b7dea0f9d87ebeea556d88fbad524c",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-kroot-hunting-pack:skirmish-fighters",
     "detachment_id": "d-kroot-hunting-pack",
     "name": "Skirmish Fighters",
     "summary": "Kroot models gain a 6+ invulnerable save against melee and a 5+ invulnerable save against ranged attacks.",
-    "review_state": "in_review",
-    "mechanic_digest": "7f32e804157ad65845a2aae3f5138d47"
+    "review_state": "approved",
+    "mechanic_digest": "7f32e804157ad65845a2aae3f5138d47",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-montka:killing-blow",
     "detachment_id": "d-montka",
     "name": "Killing Blow",
     "summary": "In battle rounds 1-3, T'au Empire ranged weapons gain Assault; a Guided unit's ranged weapons also gain Lethal Hits that round.",
-    "review_state": "in_review",
-    "mechanic_digest": "d7361b25e557cca66b93396ce46ec194"
+    "review_state": "approved",
+    "mechanic_digest": "d7361b25e557cca66b93396ce46ec194",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-retaliation-cadre:bonded-heroes",
     "detachment_id": "d-retaliation-cadre",
     "name": "Bonded Heroes",
     "summary": "T'au Empire Battlesuit ranged attacks within 12\" get +1 Strength, plus +1 Armour Penetration as well within 9\".",
-    "review_state": "in_review",
-    "mechanic_digest": "bbbad29752b0a4456eafaa1e72aca88b"
+    "review_state": "approved",
+    "mechanic_digest": "bbbad29752b0a4456eafaa1e72aca88b",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   }
 ]

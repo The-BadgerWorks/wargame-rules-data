@@ -3,7 +3,7 @@
     "summary_key": "detachment:d-changehost-of-deceit:infernal-pacts",
     "detachment_id": "d-changehost-of-deceit",
     "name": "Infernal Pacts",
-    "summary": "Scintillating Legions gain a 4+ invulnerable save near a Thousand Sons Psyker; a nearby Scintillating Legions Psyker gains Cabal of Sorcerers. Allows including Scintillating Legions, points-capped; they cannot be Warlord.",
+    "summary": "Scintillating Legions models within 6\" of and visible to a Thousand Sons Psyker get a 4+ invulnerable save versus ranged attacks; such a Psyker unit as near a Thousand Sons unit gains Cabal of Sorcerers. Cap 500/1000/1500, never Warlord.",
     "review_state": "in_review",
     "mechanic_digest": "4b7f0337e5b48e0171ebc79c52a95ef5"
   },
@@ -12,14 +12,16 @@
     "detachment_id": "d-grand-coven",
     "name": "Kindred Sorcery",
     "summary": "Each Command phase, pick one of three one-per-battle army buffs until your next Command phase: +6\" Psychic weapon range, +1 to wound with Psychic weapons, or Devastating Wounds on Psychic weapons.",
-    "review_state": "in_review",
-    "mechanic_digest": "a0f6bd66b8e3b8cff38d7072b1b92d81"
+    "review_state": "approved",
+    "mechanic_digest": "a0f6bd66b8e3b8cff38d7072b1b92d81",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-hexwarp-thrallband:flow-of-magic",
     "detachment_id": "d-hexwarp-thrallband",
     "name": "Flow of Magic",
-    "summary": "Your deployment zone, and contested No Man's Land or enemy deployment zone you mostly control, count as your Flow of Magic. Thousand Sons Psychic Attacks re-roll a Wound roll of 1, or get +1 to wound instead while wholly within it.",
+    "summary": "Your Flow of Magic is your deployment zone, plus No Man's Land or the enemy zone in any phase you control at least half its objectives. Thousand Sons Psychic Attacks re-roll a Wound roll of 1, or add 1 instead while wholly within it.",
     "review_state": "in_review",
     "mechanic_digest": "9e7659fc58b9b3c4c6457f7ed9b2f7ed"
   },
@@ -28,14 +30,16 @@
     "detachment_id": "d-ritual-of-regeneration",
     "name": "Sorcerous Invigoration",
     "summary": "Once per turn per unit, a Thousand Sons Psyker unit (excluding Monster) heals D3 wounds after successfully manifesting a Ritual.",
-    "review_state": "in_review",
-    "mechanic_digest": "f7817ea45f3aff0c1a800ae5399a539f"
+    "review_state": "approved",
+    "mechanic_digest": "f7817ea45f3aff0c1a800ae5399a539f",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-sekhetar-cohort:ensorcelled-animus",
     "detachment_id": "d-sekhetar-cohort",
     "name": "Ensorcelled Animus",
-    "summary": "Sekhetar Robots attacks gain Psychic; a Thousand Sons Psyker unit gets +1 WS in melee while within 12\" of a friendly Sekhetar Robots unit.",
+    "summary": "Sekhetar Robots attacks have Psychic. A Sekhetar Robots unit within 12\" of a friendly Thousand Sons Psyker unit gets +1 WS on its melee attacks.",
     "review_state": "in_review",
     "mechanic_digest": "c164aa281c943ae91365e5d4577cfdb5"
   },
@@ -44,23 +48,29 @@
     "detachment_id": "d-servants-of-change",
     "name": "All-Seeing Mutant Hordes",
     "summary": "Tzaangors gain Battleline; while a Mutant unit shoots, enemies get +6\" detection range. Exclusive Mutant-tagged detachment.",
-    "review_state": "in_review",
-    "mechanic_digest": "f9cd33b990a3224ac67b32426ce7f9d1"
+    "review_state": "approved",
+    "mechanic_digest": "f9cd33b990a3224ac67b32426ce7f9d1",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-warpforged-cabal:warpfire-infusion",
     "detachment_id": "d-warpforged-cabal",
     "name": "Warpfire Infusion",
     "summary": "Thousand Sons Vehicle attacks re-roll a Hit, Wound, and Damage roll if within 6\" of a friendly Psyker (only one of the three otherwise); their Deadly Demise also triggers on a 5+ instead of only a 6 near a Psyker.",
-    "review_state": "in_review",
-    "mechanic_digest": "935df21199d53957875e0e57e6eb8c9f"
+    "review_state": "approved",
+    "mechanic_digest": "935df21199d53957875e0e57e6eb8c9f",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-warpmeld-pact:warpmeld-sacrifice",
     "detachment_id": "d-warpmeld-pact",
     "name": "Warpmeld Sacrifice",
     "summary": "A targeted Tzeentch Mutant Infantry/Mounted unit can sacrifice for -1 to be wounded, or an attacking one for +1 to wound, each costing D3 mortal wounds at phase end. Tzaangors gain Battleline and +1 OC while not battle-shocked.",
-    "review_state": "in_review",
-    "mechanic_digest": "85e510036cf00a10884ee7267f7e021f"
+    "review_state": "approved",
+    "mechanic_digest": "85e510036cf00a10884ee7267f7e021f",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   }
 ]
