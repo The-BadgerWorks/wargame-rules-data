@@ -4,16 +4,20 @@
     "detachment_id": "d-carnival-of-excess",
     "name": "Daemonic Empowerment",
     "summary": "Emperor's Children and Legions of Excess units within 6\" of each other are Empowered: their weapons gain Sustained Hits 1, or crit on unmodified 5+ if they already had it. Take up to 500/1000/1500 pts of Legions of Excess, never Warlord.",
-    "review_state": "in_review",
-    "mechanic_digest": "19b5f9e57cef59e43f7c0790c7adae61"
+    "review_state": "approved",
+    "mechanic_digest": "19b5f9e57cef59e43f7c0790c7adae61",
+    "reviewed_by": "claude-opus-5-second-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-coterie-of-the-conceited:pledges-to-the-dark-prince",
     "detachment_id": "d-coterie-of-the-conceited",
     "name": "Pledges to the Dark Prince",
     "summary": "Each battle round your Warlord pledges a count of enemy units to destroy; meet it for that many Pact points, else it takes D3 mortal wounds. Cumulative: 1+ re-roll Hit 1s, 3+ Wound 1s, 5+ melee Lethal and Sustained Hits 1, 7+ crit on 5+.",
-    "review_state": "in_review",
-    "mechanic_digest": "077567072683d52c1786ccfb087d9c5b"
+    "review_state": "approved",
+    "mechanic_digest": "077567072683d52c1786ccfb087d9c5b",
+    "reviewed_by": "claude-opus-5-second-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-court-of-the-phoenician:master-of-the-pageant",
@@ -30,8 +34,10 @@
     "detachment_id": "d-court-of-the-phoenician",
     "name": "Sensational Performance",
     "summary": "An Emperor's Children unit that made a Charge move can, when it fights, give its melee weapons +1 Strength and AP for the phase if it targets neither a unit it started the turn in Engagement Range of nor one already attacked this phase.",
-    "review_state": "in_review",
-    "mechanic_digest": "8ba0f6d35226fbc63acd6afc54f8a5a5"
+    "review_state": "approved",
+    "mechanic_digest": "8ba0f6d35226fbc63acd6afc54f8a5a5",
+    "reviewed_by": "claude-opus-5-second-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-mercurial-host:quicksilver-grace",

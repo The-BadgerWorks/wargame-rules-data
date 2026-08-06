@@ -14,8 +14,10 @@
     "detachment_id": "d-assimilation-swarm",
     "name": "Feed the Swarm",
     "summary": "In your Command phase each Harvester unit can Regenerate one friendly Tyranids unit within 6\", once per unit per phase: heal D3+1 wounds on one model, or return one destroyed non-Character Infantry model (3 for an Endless Multitude unit).",
-    "review_state": "in_review",
-    "mechanic_digest": "b8dc7bad1f7f3620a850fa75bfff7f25"
+    "review_state": "approved",
+    "mechanic_digest": "b8dc7bad1f7f3620a850fa75bfff7f25",
+    "reviewed_by": "claude-opus-5-second-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-crusher-stampede:enraged-behemoths",
@@ -41,17 +43,21 @@
     "summary_key": "detachment:d-subterranean-assault:surprise-assault",
     "detachment_id": "d-subterranean-assault",
     "name": "Surprise Assault",
-    "summary": "Tyranids re-roll a Hit roll of 1. A Burrower (Mawloc/Trygon) arriving from Reserves drops a Tunnel Marker; later Reserves can arrive wholly within 9\" of one and over 6\" from enemies. Up to 2 Trygons can gain Character.",
-    "review_state": "in_review",
-    "mechanic_digest": "a93e04032b0cd06c40d0431d09e37317"
+    "summary": "Tyranids re-roll a Hit roll of 1. A Burrower (Mawloc/Trygon) arriving from Reserves drops a Tunnel Marker; later Reserves can arrive wholly within 9\" of one and over 6\" horizontally from enemies. Up to 2 Trygons can gain Character.",
+    "review_state": "approved",
+    "mechanic_digest": "a93e04032b0cd06c40d0431d09e37317",
+    "reviewed_by": "claude-opus-5-second-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-synaptic-nexus:synaptic-imperatives",
     "detachment_id": "d-synaptic-nexus",
     "name": "Synaptic Imperatives",
     "summary": "At the start of each battle round pick one Synaptic Imperative, each once per battle, active until round end for units within your Synapse Range: a 5+ invulnerable save, +1 to Advance and Charge rolls, or +1 to melee Hit rolls.",
-    "review_state": "in_review",
-    "mechanic_digest": "38c6c46c3c8f5bef8e452e1a387f17cd"
+    "review_state": "approved",
+    "mechanic_digest": "38c6c46c3c8f5bef8e452e1a387f17cd",
+    "reviewed_by": "claude-opus-5-second-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-talons-of-the-norn-queen:higher-imperatives",

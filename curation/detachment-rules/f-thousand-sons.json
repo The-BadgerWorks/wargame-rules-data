@@ -3,7 +3,7 @@
     "summary_key": "detachment:d-changehost-of-deceit:infernal-pacts",
     "detachment_id": "d-changehost-of-deceit",
     "name": "Infernal Pacts",
-    "summary": "Scintillating Legions models within 6\" of and visible to a Thousand Sons Psyker get a 4+ invulnerable save versus ranged attacks; such a Psyker unit as near a Thousand Sons unit gains Cabal of Sorcerers. Cap 500/1000/1500, never Warlord.",
+    "summary": "Thousand Sons Psykers within 6\" of and visible to a Scintillating Legions unit have a 4+ invuln vs ranged attacks; a Scintillating Legions Psyker as near a Thousand Sons unit gains Cabal of Sorcerers. Cap 500/1000/1500, never Warlord.",
     "review_state": "in_review",
     "mechanic_digest": "4b7f0337e5b48e0171ebc79c52a95ef5"
   },
@@ -22,8 +22,10 @@
     "detachment_id": "d-hexwarp-thrallband",
     "name": "Flow of Magic",
     "summary": "Your Flow of Magic is your deployment zone, plus No Man's Land or the enemy zone in any phase you control at least half its objectives. Thousand Sons Psychic Attacks re-roll a Wound roll of 1, or add 1 instead while wholly within it.",
-    "review_state": "in_review",
-    "mechanic_digest": "9e7659fc58b9b3c4c6457f7ed9b2f7ed"
+    "review_state": "approved",
+    "mechanic_digest": "9e7659fc58b9b3c4c6457f7ed9b2f7ed",
+    "reviewed_by": "claude-opus-5-second-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-ritual-of-regeneration:sorcerous-invigoration",
@@ -40,8 +42,10 @@
     "detachment_id": "d-sekhetar-cohort",
     "name": "Ensorcelled Animus",
     "summary": "Sekhetar Robots attacks have Psychic. A Sekhetar Robots unit within 12\" of a friendly Thousand Sons Psyker unit gets +1 WS on its melee attacks.",
-    "review_state": "in_review",
-    "mechanic_digest": "c164aa281c943ae91365e5d4577cfdb5"
+    "review_state": "approved",
+    "mechanic_digest": "c164aa281c943ae91365e5d4577cfdb5",
+    "reviewed_by": "claude-opus-5-second-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-servants-of-change:all-seeing-mutant-hordes",

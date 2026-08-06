@@ -34,8 +34,10 @@
     "detachment_id": "d-questor-forgepact",
     "name": "Cogbound Alliance",
     "summary": "Imperial Knights give Adeptus Mechanicus units within 6\" +1 BS and Heavy on ranged attacks. In your Command phase each Tech-Priest heals D3 wounds on one Knight within 3\". Up to 500 pts of Tech-Priests, Marshals, Rangers and Vanguard.",
-    "review_state": "in_review",
-    "mechanic_digest": "1d6138a9c78f491a202e2dac1202095e"
+    "review_state": "approved",
+    "mechanic_digest": "1d6138a9c78f491a202e2dac1202095e",
+    "reviewed_by": "claude-opus-5-second-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-questoris-companions:heroes-of-legend",
@@ -62,8 +64,10 @@
     "detachment_id": "d-spearhead-at-arms",
     "name": "Knightly Teachings",
     "summary": "For each Bondsman ability, the first model to use it that turn can affect up to three friendly Armiger models within 12\" (15\" while Honoured) instead of one, none already affected, until your next Command phase. Armigers gain Battleline.",
-    "review_state": "in_review",
-    "mechanic_digest": "5bda5a9843ccaff4c5e5eccfadc367da"
+    "review_state": "approved",
+    "mechanic_digest": "5bda5a9843ccaff4c5e5eccfadc367da",
+    "reviewed_by": "claude-opus-5-second-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-throne-bonded-outriders:driven-from-their-lairs",

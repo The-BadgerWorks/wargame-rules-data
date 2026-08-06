@@ -34,8 +34,10 @@
     "detachment_id": "d-kabalite-cartel",
     "name": "Murderous Agenda",
     "summary": "At the start of battle pick a Contract and a matching enemy unit: Kabal and Blades for Hire get Precision on it, or Sustained Hits 1 versus all Infantry/Mounted, or Lethal Hits versus all Monsters/Vehicles. Killing it pays 3 Pain tokens.",
-    "review_state": "in_review",
-    "mechanic_digest": "76884b94554df67cd86a80d1300e0e6b"
+    "review_state": "approved",
+    "mechanic_digest": "76884b94554df67cd86a80d1300e0e6b",
+    "reviewed_by": "claude-opus-5-second-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-realspace-raiders:alliance-of-agony",
@@ -52,8 +54,10 @@
     "detachment_id": "d-reapers-wager",
     "name": "Callous Competition",
     "summary": "Drukhari start winning the wager; each kill flips it to the killer. Winners re-roll Hit rolls of 1, losers re-roll Hit and Wound rolls of 1. Take up to 500/1000/1500 pts of Harlequins, never Warlord; no Corsairs and Travelling Players.",
-    "review_state": "in_review",
-    "mechanic_digest": "edc8771548a5d3a17d8ebd533d3a387d"
+    "review_state": "approved",
+    "mechanic_digest": "edc8771548a5d3a17d8ebd533d3a387d",
+    "reviewed_by": "claude-opus-5-second-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-skysplinter-assault:rain-of-cruelty",
@@ -70,8 +74,10 @@
     "detachment_id": "d-spectacle-of-spite",
     "name": "Combat Drugs",
     "summary": "At the start of your Command phase take one Combat Drug, no repeats, or roll 2D6 for two; until your next Command phase Wych Cult models get +1 melee Attacks, +2\" Move, +1 melee WS, +1 Toughness, +1 melee Strength, or +1 Ld and ranged BS.",
-    "review_state": "in_review",
-    "mechanic_digest": "a2889e27e39f1fc22c21af2c3c98a602"
+    "review_state": "approved",
+    "mechanic_digest": "a2889e27e39f1fc22c21af2c3c98a602",
+    "reviewed_by": "claude-opus-5-second-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-tools-of-torment:darkest-artifice",

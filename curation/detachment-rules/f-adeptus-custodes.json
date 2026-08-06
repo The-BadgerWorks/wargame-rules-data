@@ -24,8 +24,10 @@
     "detachment_id": "d-might-of-the-moritoi",
     "name": "March of the Honoured Dead",
     "summary": "Friendly Adeptus Custodes Walker units get +2\" Move and +1 to Advance and Charge rolls. Exclusive Armoury-tagged detachment.",
-    "review_state": "in_review",
-    "mechanic_digest": "3b4171fa5cedd2cac859e239f10b1e30"
+    "review_state": "approved",
+    "mechanic_digest": "3b4171fa5cedd2cac859e239f10b1e30",
+    "reviewed_by": "claude-opus-5-second-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-null-maiden-vigil:creeping-dread-aura",
@@ -72,15 +74,19 @@
     "detachment_id": "d-talons-of-the-emperor",
     "name": "Revered Companions",
     "summary": "Anathema Psykana units gain an aura: Adeptus Custodes units within 6\" get Feel No Pain 5+ against Psychic Attacks and mortal wounds. Every other Adeptus Custodes unit gains an aura: Anathema Psykana units within 6\" get +1 to hit.",
-    "review_state": "in_review",
-    "mechanic_digest": "9829ebb9008fefdb38aa956971dcfb0f"
+    "review_state": "approved",
+    "mechanic_digest": "9829ebb9008fefdb38aa956971dcfb0f",
+    "reviewed_by": "claude-opus-5-second-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-tharanatoi-hammerblow:the-hammer-falls",
     "detachment_id": "d-tharanatoi-hammerblow",
     "name": "The Hammer Falls",
     "summary": "A friendly Adeptus Custodes Terminator unit that made an ingress move this turn can re-roll its charge roll. Exclusive Lions-tagged detachment.",
-    "review_state": "in_review",
-    "mechanic_digest": "5aea87090d46e26481247f7ff2e4d0fd"
+    "review_state": "approved",
+    "mechanic_digest": "5aea87090d46e26481247f7ff2e4d0fd",
+    "reviewed_by": "claude-opus-5-second-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   }
 ]

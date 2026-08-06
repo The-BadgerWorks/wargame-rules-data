@@ -34,16 +34,20 @@
     "detachment_id": "d-hearthband",
     "name": "Methodical Annihilation",
     "summary": "A Leagues of Votann model attacking the closest eligible target, or one within its unit's Engagement Range, re-rolls a Wound roll of 1; if its unit is Kahl, Einhyr Hearthguard or Uthar the Destined, that attack gets +1 Armour Penetration.",
-    "review_state": "in_review",
-    "mechanic_digest": "6b6021e37b10e328e5a2f09c46816108"
+    "review_state": "approved",
+    "mechanic_digest": "6b6021e37b10e328e5a2f09c46816108",
+    "reviewed_by": "claude-opus-5-second-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-hearthfyre-arsenal:optimal-application",
     "detachment_id": "d-hearthfyre-arsenal",
     "name": "Optimal Application",
     "summary": "End of your Command phase, gain 1YP per objective held outside your deployment zone within range of an Iron-Master or Memnyr Strategist, max 2YP. Spend 1YP when a Brokhyr, Ironkin Steeljacks or Arkanyst Evaluator shoots to re-roll Hit 1s.",
-    "review_state": "in_review",
-    "mechanic_digest": "9bdd1a856a1a5041b14a0673f34b52ec"
+    "review_state": "approved",
+    "mechanic_digest": "9bdd1a856a1a5041b14a0673f34b52ec",
+    "reviewed_by": "claude-opus-5-second-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-hearthguard-covenant:avatars-of-the-ancestors",
@@ -80,7 +84,9 @@
     "detachment_id": "d-persecution-prospect",
     "name": "Assailed From Every Angle",
     "summary": "When selected to shoot, a unit can name one enemy unit (not Monster/Vehicle) as its only target that phase; if any attack hits, that enemy is assailed until your next Shooting phase, or also pinned (-2\" Move, -2 Charge) if already assailed.",
-    "review_state": "in_review",
-    "mechanic_digest": "436d6a65a9be30f5cc1f22a98949d489"
+    "review_state": "approved",
+    "mechanic_digest": "436d6a65a9be30f5cc1f22a98949d489",
+    "reviewed_by": "claude-opus-5-second-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   }
 ]

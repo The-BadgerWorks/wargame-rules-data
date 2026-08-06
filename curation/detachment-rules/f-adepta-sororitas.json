@@ -24,16 +24,20 @@
     "detachment_id": "d-champions-of-faith",
     "name": "Righteous Purpose",
     "summary": "Up to 3 Adepta Sororitas units become Righteous each Command phase: +1\" Move, +1 Ld, and +1 WS/BS on Battle Sisters Squad, Celestian Sacresants and Paragon Warsuits weapons. Separately, unshocked Celestian Sacresants have +1 OC.",
-    "review_state": "in_review",
-    "mechanic_digest": "e0b058dd5b47cfea29feee0d35594d85"
+    "review_state": "approved",
+    "mechanic_digest": "e0b058dd5b47cfea29feee0d35594d85",
+    "reviewed_by": "claude-opus-5-second-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-chorus-of-condemnation:angelic-judgement",
     "detachment_id": "d-chorus-of-condemnation",
     "name": "Angelic Judgement",
     "summary": "Adepta Sororitas Infantry Fly units gain: in your Shooting phase, mark one visible enemy unit within 12\" as condemned, giving that unit +3\" detection range.",
-    "review_state": "in_review",
-    "mechanic_digest": "2d1c18f48514239d8ce1b78ba733361c"
+    "review_state": "approved",
+    "mechanic_digest": "2d1c18f48514239d8ce1b78ba733361c",
+    "reviewed_by": "claude-opus-5-second-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-hallowed-martyrs:the-blood-of-martyrs",
@@ -50,8 +54,10 @@
     "detachment_id": "d-penitent-host",
     "name": "Desperate for Redemption",
     "summary": "Each battle round pick one unused Vow of Atonement: Penitent models get +3\" Move; or Penitent melee weapons get +1 Attacks/Strength in a unit that charged; or a Penitent destroyed in melee before fighting strikes back on 2+.",
-    "review_state": "in_review",
-    "mechanic_digest": "af01fad6fe9d2f893bd1fea5cfcab364"
+    "review_state": "approved",
+    "mechanic_digest": "af01fad6fe9d2f893bd1fea5cfcab364",
+    "reviewed_by": "claude-opus-5-second-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-sanctified-orators:hymns-of-battle",
