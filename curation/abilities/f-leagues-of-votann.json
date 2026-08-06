@@ -399,7 +399,9 @@
     "ability_key": "faction:prioritised-efficiency",
     "mechanic_digest": "6588ccac82a3fdd0297fd8d0c440a0b9",
     "name": "Prioritised Efficiency",
-    "review_state": "in_review",
-    "summary": "Set at your Command phase end: under 7 Yield Points units have Hostile Acquisition (+1 Hit vs targets on an objective, re-roll Advance/Charge); 7+ gives Fortify Takeover (+1 Hit on an objective you hold, -1 Wound vs higher S, non-Vehicle)."
+    "review_state": "approved",
+    "summary": "Set at your Command phase end: under 7 Yield Points units have Hostile Acquisition (+1 Hit vs targets on an objective, re-roll Advance/Charge); 7+ gives Fortify Takeover (+1 Hit on an objective you hold, -1 Wound vs higher S, non-Vehicle).",
+    "reviewed_by": "claude-opus-5-final-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   }
 ]
