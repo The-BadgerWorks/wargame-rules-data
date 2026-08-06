@@ -139,7 +139,7 @@
     "mechanic_digest": "5f36d009cacbe773c29f593e1aae844c",
     "name": "Lethal Obsession",
     "review_state": "in_review",
-    "summary": "After this unit shoots, select one enemy unit it hit; if this unit then declares a charge against that unit this turn, it can re-roll the charge roll but must end that move engaged with that unit."
+    "summary": "Optional after this unit shoots: pick one enemy unit hit by those attacks. Until end of turn, any charge this unit declares may have its Charge roll re-rolled, and that charge move must end with this unit engaged with the picked unit."
   },
   {
     "ability_key": "datasheet:lord-of-excess",
@@ -199,7 +199,9 @@
     "ability_key": "datasheet:scuttling-horrors",
     "mechanic_digest": "37197083aae38e1b296d7b06e19db5ef",
     "name": "Scuttling Horrors",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
     "summary": "In your opponent's Movement phase, if an enemy unit ends a move within 8\" of this unit and this unit is not within Engagement Range, it can make a Normal move of up to 6\"."
   },
   {
@@ -242,7 +244,9 @@
     "ability_key": "faction:pact-of-excess",
     "mechanic_digest": "15f2247a684865f6507feace66738f5e",
     "name": "Pact of Excess",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
     "summary": "When building your army, your Army Faction cannot be Legions of Excess."
   }
 ]
