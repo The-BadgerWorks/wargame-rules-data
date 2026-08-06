@@ -3,35 +3,45 @@
     "ability_key": "core:deadly-demise-2d6",
     "mechanic_digest": "687ffc1b1f643f9a8bf384cb7ee385f8",
     "name": "Deadly Demise 2D6",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-second-reviewer",
     "summary": "Deadly Demise X: each time a model in this unit is destroyed, roll one D6; on a 6 each unit within 6\" suffers X mortal wounds (here 2D6), rolled separately for each unit."
   },
   {
     "ability_key": "core:deadly-demise-d6-2",
     "mechanic_digest": "687ffc1b1f643f9a8bf384cb7ee385f8",
     "name": "Deadly Demise D6+2",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-second-reviewer",
     "summary": "Deadly Demise X: each time a model in this unit is destroyed, roll one D6; on a 6 each unit within 6\" suffers X mortal wounds (here D6+2), rolled separately for each unit."
   },
   {
     "ability_key": "core:deadly-demise-d6-6",
     "mechanic_digest": "687ffc1b1f643f9a8bf384cb7ee385f8",
     "name": "Deadly Demise D6+6",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-second-reviewer",
     "summary": "Deadly Demise X: each time a model in this unit is destroyed, roll one D6; on a 6 each unit within 6\" suffers X mortal wounds (here D6+6), rolled separately for each unit."
   },
   {
     "ability_key": "core:firing-deck-11",
     "mechanic_digest": "bf3b4618b0621cdc4bf5eb5bb8fa1c3b",
     "name": "Firing Deck 11",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-second-reviewer",
     "summary": "Firing Deck X: in your Shooting phase, when this Transport shoots, up to X (here 11) embarked models whose units have not yet shot each lend it one ranged weapon (no one-shot); no unit embarked in it can shoot for the rest of the turn."
   },
   {
     "ability_key": "core:scouts-7",
     "mechanic_digest": "48b523bacc85908043ae18fd81528974",
     "name": "Scouts 7\"",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-second-reviewer",
     "summary": "Scouts X: in the pre-battle step, a unit whose models all have this ability can deploy from Strategic Reserves wholly within your deployment zone, or make a scout move of up to X\" (here 7\") ending more than 8\" horizontally from enemies."
   },
   {
@@ -506,7 +516,9 @@
     "ability_key": "datasheet:grenade-pack-flyover",
     "mechanic_digest": "105046d44b6633d3343882a918809221",
     "name": "Grenade Pack Flyover",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-second-reviewer",
     "summary": "Once per turn in your Movement phase, when this unit arrives or ends a move, pick a visible enemy within 8\": roll a D6 per Swooping Hawks model, 1 mortal wound per 4+, max 6. This unit cannot then be targeted with Explosives that turn."
   },
   {
@@ -756,7 +768,9 @@
     "ability_key": "datasheet:overlord",
     "mechanic_digest": "93d5d7c630dda7f0672f731fb18b471c",
     "name": "Overlord",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-second-reviewer",
     "summary": "While this model leads a unit, that unit's attacks re-roll Wound rolls of 1; while the unit is below its Starting Strength, they can re-roll any Wound roll instead."
   },
   {
@@ -781,7 +795,9 @@
     "ability_key": "datasheet:path-of-the-outcast",
     "mechanic_digest": "86949b569f3082ac91a649822f010c0f",
     "name": "Path of the Outcast",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-second-reviewer",
     "summary": "In your opponent's Movement phase, when an enemy unit ends a Normal, Advance or Fall Back move within 8\" of this model, this model can make a Normal move of up to D6\", provided it is not within Engagement Range of any enemy unit."
   },
   {
@@ -905,7 +921,9 @@
     "ability_key": "datasheet:reaver-band",
     "mechanic_digest": "85de33f1a9879909eecf88ce43199775",
     "name": "Reaver Band",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-second-reviewer",
     "summary": "In your opponent's Movement phase, when an enemy unit ends a Normal, Advance or Fall Back move within 8\" of this unit, this unit can make a Normal move of up to D6\", provided it is not within Engagement Range of any enemy unit."
   },
   {
@@ -1299,7 +1317,9 @@
     "ability_key": "datasheet:towering-wraith-construct",
     "mechanic_digest": "2a0aefab8f11424e3107b87578aac050",
     "name": "Towering Wraith Construct",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-second-reviewer",
     "summary": "Each time you target this model with a Stratagem, you must spend three times that Stratagem's stated CP cost."
   },
   {
@@ -1423,7 +1443,9 @@
     "ability_key": "faction:battle-focus",
     "mechanic_digest": "1ec1694b59aaac9ca6cd32795d2ac8a7",
     "name": "Battle Focus",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-second-reviewer",
     "summary": "Each battle round you get 2/4/6 Battle Focus tokens by battle size; unspent ones are lost. Spend one for an Agile Manoeuvre (one per unit per phase): +2\" Move, no Overwatch, Assault on Advance, 6\" Pile-in, or a D6+1\" move."
   },
   {
