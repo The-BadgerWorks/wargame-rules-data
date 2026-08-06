@@ -7,8 +7,10 @@
       "display_order": 1,
       "name": "Mission Tactics",
       "summary": "Each Command phase, pick one unused Mission Tactic to apply until your next Command phase: Furor grants Sustained Hits 1, Malleus grants Lethal Hits, or Purgatus grants Precision on Critical Hits.",
-      "review_state": "in_review",
-      "mechanic_digest": "470775e7655341f3e1f05f043c814870"
+      "review_state": "approved",
+      "mechanic_digest": "470775e7655341f3e1f05f043c814870",
+      "reviewed_by": "claude-opus-5-adversarial-reviewer",
+      "reviewed_at": "2026-08-06T00:00:00Z"
     }
   ]
 }
