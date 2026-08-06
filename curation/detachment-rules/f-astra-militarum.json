@@ -4,14 +4,16 @@
     "detachment_id": "d-abhuman-auxiliaries",
     "name": "Absolutist Principles",
     "summary": "Bullgryn Squad, Ogryn Squad and Ratlings units gain the Abhuman keyword. Commissar models can issue the Take Aim! Order plus one Order to a friendly Abhuman unit. Exclusive Abhuman-tagged detachment.",
-    "review_state": "in_review",
-    "mechanic_digest": "80732b27202c1c9764b7d51630916e45"
+    "review_state": "approved",
+    "mechanic_digest": "80732b27202c1c9764b7d51630916e45",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-armoured-infantry:squadron-command",
     "detachment_id": "d-armoured-infantry",
     "name": "Squadron Command",
-    "summary": "Officers can issue Orders to Squadron units. New Order 'On My Signal' lets an Armoured Skirmisher unit move D6\" when an enemy ends a move within 8\" of it (once per turn). Most Squadron units gain the Armoured Skirmisher keyword.",
+    "summary": "Officers can order Squadron units too, and gain an Order: an Armoured Skirmisher unit makes a D6\" move when an enemy ends a Normal/Advance move within 8\", once per turn. Non-Artillery Squadron units under 13 Wounds gain Armoured Skirmisher.",
     "review_state": "in_review",
     "mechanic_digest": "97725dc5994748f51c87622ff0d948a6"
   },
@@ -20,14 +22,16 @@
     "detachment_id": "d-bridgehead-strike",
     "name": "Fire Zone Purge",
     "summary": "If your Warlord is a Militarum Tempestus Officer, Tempestus Scions units gain Battleline and +1 Objective Control. A Militarum Tempestus unit set up that turn gets +1 to hit with ranged attacks when it shoots.",
-    "review_state": "in_review",
-    "mechanic_digest": "c0f61879805f7361e46278d07c0925ca"
+    "review_state": "approved",
+    "mechanic_digest": "c0f61879805f7361e46278d07c0925ca",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-combined-arms:born-soldiers",
     "detachment_id": "d-combined-arms",
     "name": "Born Soldiers",
-    "summary": "A Regiment unit's ranged attacks against non-Monster, non-Vehicle targets get Lethal Hits. A Squadron unit's ranged attacks against Monster or Vehicle targets get Lethal Hits.",
+    "summary": "A Regiment unit's ranged attacks against visible non-Monster, non-Vehicle targets get Lethal Hits. A Squadron unit's ranged attacks against visible Monster or Vehicle targets get Lethal Hits.",
     "review_state": "in_review",
     "mechanic_digest": "351c641e9876a76d7f08c5b5564824bd"
   },
@@ -36,46 +40,56 @@
     "detachment_id": "d-designation-force",
     "name": "Designated Targets",
     "summary": "In your Shooting phase, a Scout Sentinel or Smoke-keyword Infantry unit can mark a visible enemy unit within 12\" as designated, giving it +3\" detection range. Exclusive Recon-tagged detachment.",
-    "review_state": "in_review",
-    "mechanic_digest": "934a803c871a5cc55da972b3de848471"
+    "review_state": "approved",
+    "mechanic_digest": "934a803c871a5cc55da972b3de848471",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-grizzled-company:ruthless-discipline",
     "detachment_id": "d-grizzled-company",
     "name": "Ruthless Discipline",
     "summary": "Astra Militarum Officer models can issue one extra Order beyond their datasheet total. A unit currently affected by an Order re-rolls Hit rolls of 1.",
-    "review_state": "in_review",
-    "mechanic_digest": "65f10edc0541a418687a9edd12740762"
+    "review_state": "approved",
+    "mechanic_digest": "65f10edc0541a418687a9edd12740762",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-hammer-of-the-emperor:iron-tread",
     "detachment_id": "d-hammer-of-the-emperor",
     "name": "Iron Tread",
     "summary": "A Squadron unit that Advances skips the Advance roll and instead gets a flat +6\" Move for the phase; it can move through Engagement Range but cannot end its move there.",
-    "review_state": "in_review",
-    "mechanic_digest": "aebd03eda4ff7ee6ca731d6cc9c34d1f"
+    "review_state": "approved",
+    "mechanic_digest": "aebd03eda4ff7ee6ca731d6cc9c34d1f",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-mechanised-assault:armoured-fist",
     "detachment_id": "d-mechanised-assault",
     "name": "Armoured Fist",
     "summary": "Astra Militarum models add 1 to the Wound roll of a ranged attack made in a turn they disembarked from a Transport.",
-    "review_state": "in_review",
-    "mechanic_digest": "aa2e7b968e24dbb06f9986ccae219c27"
+    "review_state": "approved",
+    "mechanic_digest": "aa2e7b968e24dbb06f9986ccae219c27",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-recon-element:masters-of-camouflage",
     "detachment_id": "d-recon-element",
     "name": "Masters of Camouflage",
     "summary": "Astra Militarum Walker and Regiment units get Benefit of Cover. If such a unit already has Benefit of Cover from another source, its Save improves by 1, to a maximum of 3+.",
-    "review_state": "in_review",
-    "mechanic_digest": "75a137eb732c69e7ee661a035d564299"
+    "review_state": "approved",
+    "mechanic_digest": "75a137eb732c69e7ee661a035d564299",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-siege-regiment:artillery-support",
     "detachment_id": "d-siege-regiment",
     "name": "Artillery Support",
-    "summary": "At the start of the battle round, choose one: shake distant enemy units on a 5+ (-2\" Move, -2 Charge); mark distant enemies scattered (lose Benefit of Cover); or give some of your units Stealth. Capped counts scale with battle size.",
+    "summary": "Each battle round pick one, affecting up to 2/3/4 units by battle size: enemy units over 12\" from all your models are shaken on a 5+ (-2\" Move, -2 Charge); or such units are scattered (no Benefit of Cover); or your units gain Stealth.",
     "review_state": "in_review",
     "mechanic_digest": "594cf1ea480f57df5b55fc40f7e81eab"
   },
@@ -83,7 +97,7 @@
     "summary_key": "detachment:d-steel-hammer:ceaseless-cannonade",
     "detachment_id": "d-steel-hammer",
     "name": "Ceaseless Cannonade",
-    "summary": "An Astra Militarum Titanic or Squadron unit in Engagement Range can shoot that enemy, even with Blast weapons, without the Engagement Range hit penalty, if no other friendly unit also engages it. Titanic units can be made Characters.",
+    "summary": "Astra Militarum Titanic and Squadron units can shoot enemies within Engagement Range, Blast included, if no other friendly unit is engaged there, ignoring the Engagement Range hit penalty bar Indirect Fire. Titanic units may gain Character.",
     "review_state": "in_review",
     "mechanic_digest": "b2b8d0ac0301d35469dbf89d13805f3b"
   }
