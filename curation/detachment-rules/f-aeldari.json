@@ -1,0 +1,58 @@
+[
+  {
+    "summary_key": "detachment:d-armoured-warhost:skilled-crews",
+    "detachment_id": "d-armoured-warhost",
+    "name": "Skilled Crews",
+    "summary": "Friendly Aeldari Vehicle units' ranged weapons gain the Assault ability.",
+    "review_state": "in_review",
+    "mechanic_digest": "6c82eb4d306ad2651da458515ab2bccd"
+  },
+  {
+    "summary_key": "detachment:d-devoted-of-ynnead:strength-from-death",
+    "detachment_id": "d-devoted-of-ynnead",
+    "name": "Strength from Death",
+    "summary": "Ynnari may join despite lacking the faction keyword, led by Yvraine and/or The Yncarne; Asuryani units gain the Ynnari keyword. Grants bonus moves on a Ynnari death, a Fade Back, or an enemy Fall Back, plus Fights First for a battered unit.",
+    "review_state": "in_review",
+    "mechanic_digest": "840b30a4fd8308a1402c85aeea3ccab1"
+  },
+  {
+    "summary_key": "detachment:d-guardian-battlehost:defend-at-all-costs",
+    "detachment_id": "d-guardian-battlehost",
+    "name": "Defend at All Costs",
+    "summary": "Dire Avenger, Guardian, Support Weapon, and War Walker attacks get +1 to hit when the attacker or its target is within range of an objective marker.",
+    "review_state": "in_review",
+    "mechanic_digest": "f3fcd3cfae3569ef50484427ad929926"
+  },
+  {
+    "summary_key": "detachment:d-path-of-the-outcast:far-reaching-doom",
+    "detachment_id": "d-path-of-the-outcast",
+    "name": "Far-Reaching Doom",
+    "summary": "While a Rangers or Shroud Runners unit is shooting, enemy detection range against it is increased by 6\" until it finishes shooting.",
+    "review_state": "in_review",
+    "mechanic_digest": "26e0591cf023f397acbd01fe221980a1"
+  },
+  {
+    "summary_key": "detachment:d-seer-council:strands-of-fate",
+    "detachment_id": "d-seer-council",
+    "name": "Strands of Fate",
+    "summary": "Roll a pool of Fate dice at the start of the battle (more at larger battle sizes). Discard a die matching a specific Stratagem's value to cut that use's cost by 1CP.",
+    "review_state": "in_review",
+    "mechanic_digest": "49797f19fefbf112d2c807cb70c372dd"
+  },
+  {
+    "summary_key": "detachment:d-twilight-flickers:dance-of-distortion",
+    "detachment_id": "d-twilight-flickers",
+    "name": "Dance of Distortion",
+    "summary": "Friendly Harlequins units gain Stealth. This detachment carries the exclusive Acrobatic tag.",
+    "review_state": "in_review",
+    "mechanic_digest": "807e877b4a382e8ae037169be01cc63e"
+  },
+  {
+    "summary_key": "detachment:d-windrider-host:ride-the-wind",
+    "detachment_id": "d-windrider-host",
+    "name": "Ride the Wind",
+    "summary": "Aeldari Mounted and Vyper units can start in, or return late to, Strategic Reserves and arrive a battle round early, up to a battle-size-limited count. Windriders units gain the Battleline keyword.",
+    "review_state": "in_review",
+    "mechanic_digest": "77fdeb24ab2788a36b55568c6630825a"
+  }
+]
