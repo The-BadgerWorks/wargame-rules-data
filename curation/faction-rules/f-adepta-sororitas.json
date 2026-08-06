@@ -7,8 +7,10 @@
       "display_order": 1,
       "name": "Acts of Faith",
       "summary": "Gain a Miracle dice each battle round and when one of your units is destroyed, rolling a D6 for its value. Once per phase a unit with this ability can substitute one into an Advance, Charge, Battle-shock, Hit, Wound, Save or Damage roll.",
-      "review_state": "in_review",
-      "mechanic_digest": "e06b49edb26cf873aa37dd81ac0466c1"
+      "review_state": "approved",
+      "mechanic_digest": "e06b49edb26cf873aa37dd81ac0466c1",
+      "reviewed_by": "claude-opus-5-final-reviewer",
+      "reviewed_at": "2026-08-06T00:00:00Z"
     }
   ]
 }
