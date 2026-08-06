@@ -19,12 +19,10 @@
   },
   {
     "ability_key": "datasheet:acrobatic-escape",
-    "mechanic_digest": "e036d6e832966b1f04bd7c73281284df",
+    "mechanic_digest": "14163b6e6b54fb44525561a8792b5637",
     "name": "Acrobatic Escape",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "At the end of the Fight phase this model can Fall Back up to D6\" if engaged; if clear of enemies at the end of your opponent's turn it can vanish and redeploy more than 9\" from enemies next Movement phase."
+    "review_state": "in_review",
+    "summary": "At the end of the Fight phase, if engaged, this unit can Fall Back up to D6\". If more than 3\" from enemies at the end of your opponent's turn, it can enter strategic reserves and must ingress next Movement phase (incl. turn one)."
   },
   {
     "ability_key": "datasheet:arbites-medi-kit",
@@ -100,21 +98,17 @@
   },
   {
     "ability_key": "datasheet:catechism-of-death",
-    "mechanic_digest": "730b7563c6ccf1c9644771470abe6041",
+    "mechanic_digest": "7618d447322c244bdafae0e1311a6392",
     "name": "Catechism of Death",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "While attached to a unit, or while this unit contains its named character, melee weapons of models in that unit gain the Devastating Wounds ability."
+    "review_state": "in_review",
+    "summary": "While this unit contains Chaplain Cassius, its models' melee weapons gain the Devastating Wounds ability."
   },
   {
     "ability_key": "datasheet:deadshot",
-    "mechanic_digest": "9ee86e8cc3b53e2418336398a62aff20",
+    "mechanic_digest": "6a22b1fd14511e5ae48cc3d3fe0de720",
     "name": "Deadshot",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "This model's ranged attacks can ignore the Lone Operative ability when selecting targets."
+    "review_state": "in_review",
+    "summary": "While this unit is shooting, enemy units lose Lone Operative and hidden enemy units gain +15\" detection range."
   },
   {
     "ability_key": "datasheet:dedication-to-duty",
@@ -172,12 +166,10 @@
   },
   {
     "ability_key": "datasheet:gheistskull",
-    "mechanic_digest": "30252bec42800ba92b4e1827a80f6d56",
+    "mechanic_digest": "49972dd2c6de4485e8fc2529e3743a1a",
     "name": "Gheistskull",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "Once per battle, when this unit is targeted by the Grenade Stratagem, it can target a visible unengaged enemy unit within 18\" instead of the usual 8\"."
+    "review_state": "in_review",
+    "summary": "Once per battle, when targeting this unit with the Explosives Stratagem, you can select an enemy unit within 18\" (rather than 8\") that is visible and not in Engagement Range of your units."
   },
   {
     "ability_key": "datasheet:glovodan-psyber-eagle",
@@ -459,6 +451,13 @@
     "summary": "While attached to a unit, ranged weapons of models in that unit gain the Anti-Psyker 4+ ability."
   },
   {
+    "ability_key": "datasheet:reign-of-confusion",
+    "mechanic_digest": "5d5b2f549facc5d882e0e07b851f4bb7",
+    "name": "Reign of Confusion",
+    "review_state": "in_review",
+    "summary": "Once per turn, when your opponent targets a unit within 12\" of this model with a Stratagem, you can increase that Stratagem's CP cost by 1."
+  },
+  {
     "ability_key": "datasheet:rites-of-teleportation",
     "mechanic_digest": "0946a3ad3fff4755afd6ccaf3779f1ec",
     "name": "Rites of Teleportation",
@@ -613,12 +612,10 @@
   },
   {
     "ability_key": "datasheet:warrant-of-trade",
-    "mechanic_digest": "f96ee7a0fab86e8b789fac95b6e723ea",
+    "mechanic_digest": "b65a2c8a02292ee52a59af31461f95bc",
     "name": "Warrant of Trade",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "If your army includes a unit with this ability, after deployment you can redeploy up to D3 friendly Imperium Battleline units, including into Strategic Reserves regardless of reserve limits."
+    "review_state": "in_review",
+    "summary": "If your army includes a unit with this ability, after deployment, select up to D3 IMPERIUM BATTLELINE units and redeploy them, optionally into Strategic Reserves regardless of the normal limit."
   },
   {
     "ability_key": "datasheet:xenos-hunter",
@@ -628,5 +625,19 @@
     "reviewed_at": "2026-08-04T00:00:00Z",
     "reviewed_by": "claude-reviewer-opus",
     "summary": "While attached to a unit, attacks made by models in that unit against a target without the Imperium or Chaos keywords gain +1 to the Hit roll."
+  },
+  {
+    "ability_key": "faction:assigned-agents",
+    "mechanic_digest": "e378d165c0b35d936fd25c7adf2d6b48",
+    "name": "Assigned Agents",
+    "review_state": "in_review",
+    "summary": "If every model in your army has IMPERIUM (even without your Army Faction), you can include a battle-size-limited number of AGENTS OF THE IMPERIUM retinue, character, and requisitioned units."
+  },
+  {
+    "ability_key": "faction:kill-team",
+    "mechanic_digest": "e378d165c0b35d936fd25c7adf2d6b48",
+    "name": "Kill Team",
+    "review_state": "in_review",
+    "summary": "When this unit (containing mixed-Toughness models) is attacked, wound rolls use the majority (or highest-tied) Toughness in the unit; larger models each count as 2 for transport capacity, and all models count as Infantry for terrain."
   }
 ]
