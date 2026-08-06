@@ -10,6 +10,136 @@
     "mechanic_digest": "ad3d69db766ff4d01535e572add4f247"
   },
   {
+    "summary_key": "glossary:anti chaos",
+    "keyword_key": "anti chaos",
+    "display_keyword": "Anti-Chaos",
+    "has_numeric_parameter": true,
+    "name": "Anti-Chaos X+",
+    "summary": "Weapon ability written Anti-Chaos X+. While the target unit carries the CHAOS keyword, an unmodified wound roll of X or more counts as a critical wound. Each weapon prints its own X.",
+    "review_state": "in_review",
+    "mechanic_digest": "8446d4c01b0ccb18aba45d9a8336e941"
+  },
+  {
+    "summary_key": "glossary:anti character",
+    "keyword_key": "anti character",
+    "display_keyword": "Anti-Character",
+    "has_numeric_parameter": true,
+    "name": "Anti-Character X+",
+    "summary": "Weapon ability written Anti-Character X+. While the target unit carries the CHARACTER keyword, an unmodified wound roll of X or more counts as a critical wound. Each weapon prints its own X.",
+    "review_state": "in_review",
+    "mechanic_digest": "b13430d29ea629600e0af30607208521"
+  },
+  {
+    "summary_key": "glossary:anti daemon",
+    "keyword_key": "anti daemon",
+    "display_keyword": "Anti-Daemon",
+    "has_numeric_parameter": true,
+    "name": "Anti-Daemon X+",
+    "summary": "Weapon ability written Anti-Daemon X+. While the target unit carries the DAEMON keyword, an unmodified wound roll of X or more counts as a critical wound. Each weapon prints its own X.",
+    "review_state": "in_review",
+    "mechanic_digest": "15bfa9d95b847933afa8f467f397d778"
+  },
+  {
+    "summary_key": "glossary:anti epic hero",
+    "keyword_key": "anti epic hero",
+    "display_keyword": "Anti-Epic Hero",
+    "has_numeric_parameter": true,
+    "name": "Anti-Epic Hero X+",
+    "summary": "Weapon ability written Anti-Epic Hero X+. While the target unit carries the EPIC HERO keyword, an unmodified wound roll of X or more counts as a critical wound. Each weapon prints its own X.",
+    "review_state": "in_review",
+    "mechanic_digest": "f6c9f905b2dbd792f35dbdd714edde25"
+  },
+  {
+    "summary_key": "glossary:anti fly",
+    "keyword_key": "anti fly",
+    "display_keyword": "Anti-Fly",
+    "has_numeric_parameter": true,
+    "name": "Anti-Fly X+",
+    "summary": "Weapon ability written Anti-Fly X+. While the target unit carries the FLY keyword, an unmodified wound roll of X or more counts as a critical wound. Each weapon prints its own X.",
+    "review_state": "in_review",
+    "mechanic_digest": "e56f9a9ed86d4eb952c5163455fa4d1e"
+  },
+  {
+    "summary_key": "glossary:anti infantry",
+    "keyword_key": "anti infantry",
+    "display_keyword": "Anti-Infantry",
+    "has_numeric_parameter": true,
+    "name": "Anti-Infantry X+",
+    "summary": "Weapon ability written Anti-Infantry X+. While the target unit carries the INFANTRY keyword, an unmodified wound roll of X or more counts as a critical wound. Each weapon prints its own X.",
+    "review_state": "in_review",
+    "mechanic_digest": "c7823b38aecb8fb77a9d5212c16d65bd"
+  },
+  {
+    "summary_key": "glossary:anti monster",
+    "keyword_key": "anti monster",
+    "display_keyword": "Anti-Monster",
+    "has_numeric_parameter": true,
+    "name": "Anti-Monster X+",
+    "summary": "Weapon ability written Anti-Monster X+. While the target unit carries the MONSTER keyword, an unmodified wound roll of X or more counts as a critical wound. Each weapon prints its own X.",
+    "review_state": "in_review",
+    "mechanic_digest": "a167abbdacd635bb8da6ef076948167c"
+  },
+  {
+    "summary_key": "glossary:anti psyker",
+    "keyword_key": "anti psyker",
+    "display_keyword": "Anti-Psyker",
+    "has_numeric_parameter": true,
+    "name": "Anti-Psyker X+",
+    "summary": "Weapon ability written Anti-Psyker X+. While the target unit carries the PSYKER keyword, an unmodified wound roll of X or more counts as a critical wound. Each weapon prints its own X.",
+    "review_state": "in_review",
+    "mechanic_digest": "9f1a8b26120e558da28f3a224c9977ee"
+  },
+  {
+    "summary_key": "glossary:anti titanic",
+    "keyword_key": "anti titanic",
+    "display_keyword": "Anti-Titanic",
+    "has_numeric_parameter": true,
+    "name": "Anti-Titanic X+",
+    "summary": "Weapon ability written Anti-Titanic X+. While the target unit carries the TITANIC keyword, an unmodified wound roll of X or more counts as a critical wound. Each weapon prints its own X.",
+    "review_state": "in_review",
+    "mechanic_digest": "887913ac03ed424c46465257b050c311"
+  },
+  {
+    "summary_key": "glossary:anti tyranids",
+    "keyword_key": "anti tyranids",
+    "display_keyword": "Anti-Tyranids",
+    "has_numeric_parameter": true,
+    "name": "Anti-Tyranids X+",
+    "summary": "Weapon ability written Anti-Tyranids X+. While the target unit carries the TYRANIDS keyword, an unmodified wound roll of X or more counts as a critical wound. Each weapon prints its own X.",
+    "review_state": "in_review",
+    "mechanic_digest": "62522751f20e299fdd5db8d7eeb0be86"
+  },
+  {
+    "summary_key": "glossary:anti vehicle",
+    "keyword_key": "anti vehicle",
+    "display_keyword": "Anti-Vehicle",
+    "has_numeric_parameter": true,
+    "name": "Anti-Vehicle X+",
+    "summary": "Weapon ability written Anti-Vehicle X+. While the target unit carries the VEHICLE keyword, an unmodified wound roll of X or more counts as a critical wound. Each weapon prints its own X.",
+    "review_state": "in_review",
+    "mechanic_digest": "ec7af966da849aee2d04842f123c4728"
+  },
+  {
+    "summary_key": "glossary:anti walker",
+    "keyword_key": "anti walker",
+    "display_keyword": "Anti-Walker",
+    "has_numeric_parameter": true,
+    "name": "Anti-Walker X+",
+    "summary": "Weapon ability written Anti-Walker X+. While the target unit carries the WALKER keyword, an unmodified wound roll of X or more counts as a critical wound. Each weapon prints its own X.",
+    "review_state": "in_review",
+    "mechanic_digest": "50eea230fdb81874f15542b219a5667e"
+  },
+  {
+    "summary_key": "glossary:assault",
+    "keyword_key": "assault",
+    "display_keyword": "Assault",
+    "has_numeric_parameter": false,
+    "name": "Assault",
+    "summary": "Weapon ability. A unit holding one or more of these may shoot after advancing, using the assault shooting mode - in which only assault weapons may be fired and the unit cannot begin an action afterwards.",
+    "review_state": "in_review",
+    "mechanic_digest": "c1e89acbf0d5afc3e5867e2dc23d6508"
+  },
+  {
     "summary_key": "glossary:battleline",
     "keyword_key": "battleline",
     "display_keyword": "Battleline",
@@ -30,6 +160,36 @@
     "mechanic_digest": "86108a13f46494c61052c7753e4408cd"
   },
   {
+    "summary_key": "glossary:blast",
+    "keyword_key": "blast",
+    "display_keyword": "Blast",
+    "has_numeric_parameter": false,
+    "name": "Blast",
+    "summary": "Weapon ability. Gather one extra attack die for every five models the target unit held when targets were chosen, rounding down. A printed number multiplies that, giving N extra dice per five models.",
+    "review_state": "in_review",
+    "mechanic_digest": "7b02a90682f582ad53980cfcf72ac75b"
+  },
+  {
+    "summary_key": "glossary:bubblechukka",
+    "keyword_key": "bubblechukka",
+    "display_keyword": "Bubblechukka",
+    "has_numeric_parameter": false,
+    "name": "Bubblechukka",
+    "summary": "Weapon ability for a weapon with several random profiles. Before targets are chosen for the models carrying it, roll one D6 and use the profile the datasheet pairs with that result.",
+    "review_state": "in_review",
+    "mechanic_digest": "88ce229a6223fda1eda2d316bc092b7f"
+  },
+  {
+    "summary_key": "glossary:c tan power",
+    "keyword_key": "c tan power",
+    "display_keyword": "C'tan Power",
+    "has_numeric_parameter": false,
+    "name": "C'tan Power",
+    "summary": "Weapon marker. A weapon carrying it cannot simply be fired: the bearer's own datasheet ability picks a limited number of these weapons each Shooting phase, and only the picked ones may attack that phase.",
+    "review_state": "in_review",
+    "mechanic_digest": "a648dac34c3e26c6e4c92d8b0e940d74"
+  },
+  {
     "summary_key": "glossary:character",
     "keyword_key": "character",
     "display_keyword": "Character",
@@ -38,6 +198,46 @@
     "summary": "Unit-type keyword. Only a Character model may be nominated Warlord or a unit's Leader, and normally only Character units may be given an Enhancement, limited to one per unit.",
     "review_state": "in_review",
     "mechanic_digest": "5f3c74ee2cb0d5b940830f1ac088d0e6"
+  },
+  {
+    "summary_key": "glossary:cleave",
+    "keyword_key": "cleave",
+    "display_keyword": "Cleave",
+    "has_numeric_parameter": true,
+    "name": "Cleave X",
+    "summary": "Weapon ability written Cleave X. If every one of the weapon's attacks is aimed at a single target, gather X extra attack dice for every five models that unit held when targets were chosen, rounding down.",
+    "review_state": "in_review",
+    "mechanic_digest": "d1ebb2ce0ea4744839ef92aa52b96676"
+  },
+  {
+    "summary_key": "glossary:close quarters",
+    "keyword_key": "close quarters",
+    "display_keyword": "Close-Quarters",
+    "has_numeric_parameter": false,
+    "name": "Close-Quarters",
+    "summary": "Weapon ability. Its unit may use close-quarters shooting while engaged, targeting units it is engaged with. Under any other shooting mode a model that is not a Monster or Vehicle fires either these or its other ranged weapons.",
+    "review_state": "in_review",
+    "mechanic_digest": "3359193078d86644e44dcbcea3341d9e"
+  },
+  {
+    "summary_key": "glossary:conversion",
+    "keyword_key": "conversion",
+    "display_keyword": "Conversion",
+    "has_numeric_parameter": false,
+    "name": "Conversion",
+    "summary": "Weapon ability rewarding distance. Beyond the range its datasheet prints, an unmodified successful hit roll of 4 or more counts as a critical hit. The distance varies by weapon.",
+    "review_state": "in_review",
+    "mechanic_digest": "085d4e0f75ac02c0dc5a792267f930bc"
+  },
+  {
+    "summary_key": "glossary:dead choppy",
+    "keyword_key": "dead choppy",
+    "display_keyword": "Dead Choppy",
+    "has_numeric_parameter": false,
+    "name": "Dead Choppy",
+    "summary": "Weapon ability. The weapon's Attacks characteristic rises by 1 for each further copy of the same weapon the bearer is equipped with.",
+    "review_state": "in_review",
+    "mechanic_digest": "efc75de4ef03e92e8a2d19eef7b4a270"
   },
   {
     "summary_key": "glossary:dedicated transport",
@@ -50,6 +250,26 @@
     "mechanic_digest": "23b9e6ecfb19411939f560d2cd15a1bb"
   },
   {
+    "summary_key": "glossary:devastating wounds",
+    "keyword_key": "devastating wounds",
+    "display_keyword": "Devastating Wounds",
+    "has_numeric_parameter": false,
+    "name": "Devastating Wounds",
+    "summary": "Weapon ability. A critical wound ends that attack's sequence and inflicts mortal wounds equal to the weapon's Damage, applied after normal damage. At most one model may be destroyed per critical wound; the remainder is lost.",
+    "review_state": "in_review",
+    "mechanic_digest": "9cb34796e8af1189f3fe7f54902270e0"
+  },
+  {
+    "summary_key": "glossary:devastating wounds monster vehicle",
+    "keyword_key": "devastating wounds monster vehicle",
+    "display_keyword": "Devastating Wounds: Monster/Vehicle",
+    "has_numeric_parameter": false,
+    "name": "Devastating Wounds: Monster/Vehicle",
+    "summary": "Target-restricted form of Devastating Wounds. The ability applies only while the target unit carries the MONSTER or VEHICLE keyword; against any other target the weapon resolves with no such effect.",
+    "review_state": "in_review",
+    "mechanic_digest": "963721a18704797e0d4e22fc428e8cfa"
+  },
+  {
     "summary_key": "glossary:epic hero",
     "keyword_key": "epic hero",
     "display_keyword": "Epic Hero",
@@ -58,6 +278,16 @@
     "summary": "Datasheet-role keyword. A model with this keyword cannot be given an Enhancement, and an army is limited to one unit bearing this keyword per datasheet, regardless of battle size.",
     "review_state": "in_review",
     "mechanic_digest": "11c130f42d6d8254a0b7fd818a94e69e"
+  },
+  {
+    "summary_key": "glossary:extra attacks",
+    "keyword_key": "extra attacks",
+    "display_keyword": "Extra Attacks",
+    "has_numeric_parameter": false,
+    "name": "Extra Attacks",
+    "summary": "Weapon ability. Its attacks are made on top of the model's other melee attacks: when weapons are selected, the model takes every extra-attacks weapon it holds plus one of its other melee weapons where it has one.",
+    "review_state": "in_review",
+    "mechanic_digest": "8644ad76b7de35535f764d0810e3cccb"
   },
   {
     "summary_key": "glossary:fly",
@@ -80,6 +310,86 @@
     "mechanic_digest": "8bf40ac7372e37a29fe035ad07747b38"
   },
   {
+    "summary_key": "glossary:grenades",
+    "keyword_key": "grenades",
+    "display_keyword": "Grenades",
+    "has_numeric_parameter": false,
+    "name": "Grenades",
+    "summary": "Unit keyword. It is the eligibility condition for the Explosives core stratagem: an unengaged unit carrying it that is eligible to shoot and has not advanced may hurl explosives at a nearby enemy for mortal wounds.",
+    "review_state": "in_review",
+    "mechanic_digest": "37908fe73d52ec65d563452a2a08fe80"
+  },
+  {
+    "summary_key": "glossary:harpooned",
+    "keyword_key": "harpooned",
+    "display_keyword": "Harpooned",
+    "has_numeric_parameter": false,
+    "name": "Harpooned",
+    "summary": "Weapon ability. After the bearer shoots, pick one enemy Monster or Vehicle unit its attacks hit. Until the turn ends, charge rolls the bearer makes against that unit gain 2.",
+    "review_state": "in_review",
+    "mechanic_digest": "735920ee077ab1251cc00f066c638d19"
+  },
+  {
+    "summary_key": "glossary:hazardous",
+    "keyword_key": "hazardous",
+    "display_keyword": "Hazardous",
+    "has_numeric_parameter": false,
+    "name": "Hazardous",
+    "summary": "Weapon ability. Once the unit has resolved all of its attacks, it makes one hazard roll for each hazardous weapon that was selected to attack with.",
+    "review_state": "in_review",
+    "mechanic_digest": "fc17882f20339b2bc1a519b46930a4b2"
+  },
+  {
+    "summary_key": "glossary:heavy",
+    "keyword_key": "heavy",
+    "display_keyword": "Heavy",
+    "has_numeric_parameter": false,
+    "name": "Heavy",
+    "summary": "Weapon ability. In your own Shooting phase add 1 to its hit rolls, provided the firing unit is unengaged, was not set up this turn, and has no model that moved more than 3 inches this turn.",
+    "review_state": "in_review",
+    "mechanic_digest": "e35f6fdc5749ec44835e6c498937df52"
+  },
+  {
+    "summary_key": "glossary:hooked",
+    "keyword_key": "hooked",
+    "display_keyword": "Hooked",
+    "has_numeric_parameter": false,
+    "name": "Hooked",
+    "summary": "Weapon ability. A hit on an enemy Monster or Vehicle unit gives the bearer 2 on charge rolls against it until the turn ends, and stops enemies answering that charge with the Fire Overwatch stratagem.",
+    "review_state": "in_review",
+    "mechanic_digest": "8b2e239c33acb098be96adbb584a5a22"
+  },
+  {
+    "summary_key": "glossary:ignores cover",
+    "keyword_key": "ignores cover",
+    "display_keyword": "Ignores Cover",
+    "has_numeric_parameter": false,
+    "name": "Ignores Cover",
+    "summary": "Weapon ability. The target cannot have the benefit of cover against its attacks - including benefit granted by a rule rather than by a terrain feature.",
+    "review_state": "in_review",
+    "mechanic_digest": "f58dc19cb4fd0ece723578bf9c4425a4"
+  },
+  {
+    "summary_key": "glossary:impaled",
+    "keyword_key": "impaled",
+    "display_keyword": "Impaled",
+    "has_numeric_parameter": false,
+    "name": "Impaled",
+    "summary": "Weapon ability. A hit on an enemy Monster or Vehicle unit gives the bearer 2 on charge rolls made against that unit until the end of the turn.",
+    "review_state": "in_review",
+    "mechanic_digest": "4ca2d346bd2ba9c9eb62f8674751c732"
+  },
+  {
+    "summary_key": "glossary:indirect fire",
+    "keyword_key": "indirect fire",
+    "display_keyword": "Indirect Fire",
+    "has_numeric_parameter": false,
+    "name": "Indirect Fire",
+    "summary": "Weapon ability. Its unit may use indirect shooting, firing at units the attacker cannot see. Such attacks give the target the benefit of cover, cannot re-roll hit rolls, and hit only on a high unmodified roll.",
+    "review_state": "in_review",
+    "mechanic_digest": "6429ade30bdaa764f9edbf489e4ae5eb"
+  },
+  {
     "summary_key": "glossary:infantry",
     "keyword_key": "infantry",
     "display_keyword": "Infantry",
@@ -88,6 +398,46 @@
     "summary": "Unit-type keyword. Infantry models can move through dense terrain, gain benefit of cover while in a terrain area, and can become hidden there if their unit made no ranged attacks last turn.",
     "review_state": "in_review",
     "mechanic_digest": "f024d7b1825f7f6d4b4af204bff5ae07"
+  },
+  {
+    "summary_key": "glossary:lance",
+    "keyword_key": "lance",
+    "display_keyword": "Lance",
+    "has_numeric_parameter": false,
+    "name": "Lance",
+    "summary": "Weapon ability. Add 1 to its wound rolls while the attacking model's unit made a charge move in the same turn.",
+    "review_state": "in_review",
+    "mechanic_digest": "047b1e32ef16f15b69b2601f50de4eeb"
+  },
+  {
+    "summary_key": "glossary:lethal hits",
+    "keyword_key": "lethal hits",
+    "display_keyword": "Lethal Hits",
+    "has_numeric_parameter": false,
+    "name": "Lethal Hits",
+    "summary": "Weapon ability. On a critical hit you may choose to wound automatically, making no wound roll. Choosing it forgoes any critical wound, so anything that triggers on one does not trigger.",
+    "review_state": "in_review",
+    "mechanic_digest": "cec7c6e2cd077cb3aabfd22b4397b719"
+  },
+  {
+    "summary_key": "glossary:linked fire",
+    "keyword_key": "linked fire",
+    "display_keyword": "Linked Fire",
+    "has_numeric_parameter": false,
+    "name": "Linked Fire",
+    "summary": "Weapon ability. Range and visibility may be measured from another friendly model of the type the datasheet names that the bearer can see. Firing this way sets the weapon's Attacks characteristic to 1.",
+    "review_state": "in_review",
+    "mechanic_digest": "55686bd0008c71ef69c3446332f2c427"
+  },
+  {
+    "summary_key": "glossary:melta",
+    "keyword_key": "melta",
+    "display_keyword": "Melta",
+    "has_numeric_parameter": true,
+    "name": "Melta X",
+    "summary": "Weapon ability written Melta X. If the target unit was within half the weapon's range when targets were chosen, add X to the weapon's Damage until the attacking unit's attacks are resolved.",
+    "review_state": "in_review",
+    "mechanic_digest": "20bd564386c468c06747e1ddc787f8e2"
   },
   {
     "summary_key": "glossary:monster",
@@ -100,6 +450,76 @@
     "mechanic_digest": "9f0f132fc5ca1dc84125a7fdbaf2b5ee"
   },
   {
+    "summary_key": "glossary:one shot",
+    "keyword_key": "one shot",
+    "display_keyword": "One Shot",
+    "has_numeric_parameter": false,
+    "name": "One Shot",
+    "summary": "Weapon ability. The weapon may be selected to attack with only once in the whole battle. A destroyed model returned to its unit does not regain the use of one already fired.",
+    "review_state": "in_review",
+    "mechanic_digest": "80faaf4c5244ef81fb0507cf4ab6536f"
+  },
+  {
+    "summary_key": "glossary:overcharge",
+    "keyword_key": "overcharge",
+    "display_keyword": "Overcharge",
+    "has_numeric_parameter": false,
+    "name": "Overcharge",
+    "summary": "Weapon ability. Subtract 2 from the result of every hazard roll the bearer makes for this weapon profile, making its hazardous risk worse.",
+    "review_state": "in_review",
+    "mechanic_digest": "46ab043b442ba2c908895c43c2c79599"
+  },
+  {
+    "summary_key": "glossary:pistol",
+    "keyword_key": "pistol",
+    "display_keyword": "Pistol",
+    "has_numeric_parameter": false,
+    "name": "Pistol",
+    "summary": "Weapon ability, identical in effect to Close-Quarters and superseded by it: the unit may use close-quarters shooting, and under other modes a model fires either its pistols or its other ranged weapons.",
+    "review_state": "in_review",
+    "mechanic_digest": "b916096cde1cd483a86041fa47492d39"
+  },
+  {
+    "summary_key": "glossary:plasma warhead",
+    "keyword_key": "plasma warhead",
+    "display_keyword": "Plasma Warhead",
+    "has_numeric_parameter": false,
+    "name": "Plasma Warhead",
+    "summary": "Weapon ability. The bearer may fire it only in your Shooting phase, only after remaining stationary, and no target is chosen: the attacks are resolved separately against each unit near the bearer's marked target point.",
+    "review_state": "in_review",
+    "mechanic_digest": "7d7e30cce22fee243026b47f19101d43"
+  },
+  {
+    "summary_key": "glossary:precision",
+    "keyword_key": "precision",
+    "display_keyword": "Precision",
+    "has_numeric_parameter": false,
+    "name": "Precision",
+    "summary": "Weapon ability. While allocating its attacks, if a Character model in the target unit is visible the attacker may direct them at that Character's allocation group until those attacks end or that group is destroyed.",
+    "review_state": "in_review",
+    "mechanic_digest": "301763d2c1e40d75132b40e74cdcdea8"
+  },
+  {
+    "summary_key": "glossary:psychic",
+    "keyword_key": "psychic",
+    "display_keyword": "Psychic",
+    "has_numeric_parameter": false,
+    "name": "Psychic",
+    "summary": "Weapon ability. Its attacks may ignore any or all modifiers to the attacker's ballistic or weapon skill and to the hit roll, and they count as psychic attacks wherever another rule cares about those.",
+    "review_state": "in_review",
+    "mechanic_digest": "35601f0a09a1d807caea271fac9e2bd5"
+  },
+  {
+    "summary_key": "glossary:psychic assassin",
+    "keyword_key": "psychic assassin",
+    "display_keyword": "Psychic Assassin",
+    "has_numeric_parameter": false,
+    "name": "Psychic Assassin",
+    "summary": "Weapon ability. While a Psyker unit is the chosen target, the weapon's Attacks characteristic becomes 6 until those attacks are resolved.",
+    "review_state": "in_review",
+    "mechanic_digest": "659842daca6b42696e4bfd1abc97e95a"
+  },
+  {
     "summary_key": "glossary:psyker",
     "keyword_key": "psyker",
     "display_keyword": "Psyker",
@@ -110,6 +530,86 @@
     "mechanic_digest": "3ab9eea6547be8112dc032588938b33c"
   },
   {
+    "summary_key": "glossary:rapid fire",
+    "keyword_key": "rapid fire",
+    "display_keyword": "Rapid Fire",
+    "has_numeric_parameter": true,
+    "name": "Rapid Fire X",
+    "summary": "Weapon ability written Rapid Fire X. Gather X extra attack dice if the target unit was within half the weapon's range at the moment targets were chosen.",
+    "review_state": "in_review",
+    "mechanic_digest": "e80fc8eee2d0b4fca2ac3fd437fe2594"
+  },
+  {
+    "summary_key": "glossary:rapid fire d3",
+    "keyword_key": "rapid fire d3",
+    "display_keyword": "Rapid Fire D3",
+    "has_numeric_parameter": false,
+    "name": "Rapid Fire D3",
+    "summary": "Rapid Fire with a rolled parameter rather than a fixed one: roll a D3 for the number of extra attack dice gathered when the target was within half range. Keyed apart from Rapid Fire X because the parameter is not a number.",
+    "review_state": "in_review",
+    "mechanic_digest": "dc115b1dabc09f13df353ef0fd3c3f95"
+  },
+  {
+    "summary_key": "glossary:rapid fire d6",
+    "keyword_key": "rapid fire d6",
+    "display_keyword": "Rapid Fire D6",
+    "has_numeric_parameter": false,
+    "name": "Rapid Fire D6",
+    "summary": "Rapid Fire with a rolled parameter rather than a fixed one: roll a D6 for the number of extra attack dice gathered when the target was within half range. Keyed apart from Rapid Fire X because the parameter is not a number.",
+    "review_state": "in_review",
+    "mechanic_digest": "b6dd7f6320f1553282e6d90b83981935"
+  },
+  {
+    "summary_key": "glossary:reverberating summons",
+    "keyword_key": "reverberating summons",
+    "display_keyword": "Reverberating Summons",
+    "has_numeric_parameter": false,
+    "name": "Reverberating Summons",
+    "summary": "Weapon ability. Each model it destroys lets you return one destroyed model to a friendly unit of the type the datasheet names within 12 inches of the bearer.",
+    "review_state": "in_review",
+    "mechanic_digest": "d3a99ea408ff546c10f593c557172630"
+  },
+  {
+    "summary_key": "glossary:smoke",
+    "keyword_key": "smoke",
+    "display_keyword": "Smoke",
+    "has_numeric_parameter": false,
+    "name": "Smoke",
+    "summary": "Unit keyword. It is the eligibility condition for the Smokescreen core stratagem, which for one phase gives the unit - and units it obscures - the benefit of cover against attacks.",
+    "review_state": "in_review",
+    "mechanic_digest": "0a98ccf3d62b189addd19b60ff5bdb2c"
+  },
+  {
+    "summary_key": "glossary:snagged",
+    "keyword_key": "snagged",
+    "display_keyword": "Snagged",
+    "has_numeric_parameter": false,
+    "name": "Snagged",
+    "summary": "Weapon ability. A hit on a Monster or Vehicle unit gives the bearer 2 on charge rolls against it until the turn ends, and stops enemies answering that charge with the Fire Overwatch stratagem.",
+    "review_state": "in_review",
+    "mechanic_digest": "83f6a1ec2d86e23e97d376f419061c3c"
+  },
+  {
+    "summary_key": "glossary:sustained hits",
+    "keyword_key": "sustained hits",
+    "display_keyword": "Sustained Hits",
+    "has_numeric_parameter": true,
+    "name": "Sustained Hits X",
+    "summary": "Weapon ability written Sustained Hits X. A critical hit scores X further hits on the target, on top of the hit it already scored.",
+    "review_state": "in_review",
+    "mechanic_digest": "2b6b95dc0c9813634ae4c1f7742b194d"
+  },
+  {
+    "summary_key": "glossary:sustained hits d3",
+    "keyword_key": "sustained hits d3",
+    "display_keyword": "Sustained Hits D3",
+    "has_numeric_parameter": false,
+    "name": "Sustained Hits D3",
+    "summary": "Sustained Hits with a rolled parameter rather than a fixed one: a critical hit scores a D3 rolled number of further hits. Keyed apart from Sustained Hits X because the parameter is not a number.",
+    "review_state": "in_review",
+    "mechanic_digest": "155d7971bde7b9c036f15cc13adc0011"
+  },
+  {
     "summary_key": "glossary:titanic",
     "keyword_key": "titanic",
     "display_keyword": "Titanic",
@@ -118,6 +618,16 @@
     "summary": "Size keyword. Titanic units ignore being engaged when starting actions or when checking if they may shoot after acting, and cannot be moved through by Super-Heavy Walker units.",
     "review_state": "in_review",
     "mechanic_digest": "3091cb98773daa1dcceb6868ec04da14"
+  },
+  {
+    "summary_key": "glossary:torrent",
+    "keyword_key": "torrent",
+    "display_keyword": "Torrent",
+    "has_numeric_parameter": false,
+    "name": "Torrent",
+    "summary": "Weapon ability. Its attacks hit automatically and no hit roll is made. A torrent weapon cannot also carry Indirect Fire or Precision.",
+    "review_state": "in_review",
+    "mechanic_digest": "48386b6955d772a756527bd42fd14411"
   },
   {
     "summary_key": "glossary:towering",
@@ -138,6 +648,16 @@
     "summary": "Unit-type keyword. A Transport has a stated capacity and friendly units can embark within it before the battle or during a move, then disembark from it in a later Movement phase.",
     "review_state": "in_review",
     "mechanic_digest": "c183bce3b871a3f2fd3f315535136194"
+  },
+  {
+    "summary_key": "glossary:twin linked",
+    "keyword_key": "twin linked",
+    "display_keyword": "Twin-linked",
+    "has_numeric_parameter": false,
+    "name": "Twin-linked",
+    "summary": "Weapon ability. Its wound rolls may be re-rolled.",
+    "review_state": "in_review",
+    "mechanic_digest": "d1a39fdb07c49ddf3ea8fc69ccbfb464"
   },
   {
     "summary_key": "glossary:vehicle",
