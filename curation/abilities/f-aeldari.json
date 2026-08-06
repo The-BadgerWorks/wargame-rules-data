@@ -1,5 +1,40 @@
 [
   {
+    "ability_key": "core:deadly-demise-2d6",
+    "mechanic_digest": "687ffc1b1f643f9a8bf384cb7ee385f8",
+    "name": "Deadly Demise 2D6",
+    "review_state": "in_review",
+    "summary": "Deadly Demise X: each time a model in this unit is destroyed, roll one D6; on a 6, units within 6\" suffer X mortal wounds (here 2D6)."
+  },
+  {
+    "ability_key": "core:deadly-demise-d6-2",
+    "mechanic_digest": "687ffc1b1f643f9a8bf384cb7ee385f8",
+    "name": "Deadly Demise D6+2",
+    "review_state": "in_review",
+    "summary": "Deadly Demise X: each time a model in this unit is destroyed, roll one D6; on a 6, units within 6\" suffer X mortal wounds (here D6+2)."
+  },
+  {
+    "ability_key": "core:deadly-demise-d6-6",
+    "mechanic_digest": "687ffc1b1f643f9a8bf384cb7ee385f8",
+    "name": "Deadly Demise D6+6",
+    "review_state": "in_review",
+    "summary": "Deadly Demise X: each time a model in this unit is destroyed, roll one D6; on a 6, units within 6\" suffer X mortal wounds (here D6+6)."
+  },
+  {
+    "ability_key": "core:firing-deck-11",
+    "mechanic_digest": "bf3b4618b0621cdc4bf5eb5bb8fa1c3b",
+    "name": "Firing Deck 11",
+    "review_state": "in_review",
+    "summary": "Firing Deck X: in your Shooting phase, when this TRANSPORT is selected to shoot, up to X (here 11) embarked models each lend it one of their ranged weapons (not one-shot) for its attacks; those models' units cannot shoot again this phase."
+  },
+  {
+    "ability_key": "core:scouts-7",
+    "mechanic_digest": "48b523bacc85908043ae18fd81528974",
+    "name": "Scouts 7\"",
+    "review_state": "in_review",
+    "summary": "Scouts X: before the battle, a unit wholly with this ability can set up anywhere in your deployment zone from reserves, or make a scout move of up to X\" (here 7\") ending more than 8\" from all enemy units."
+  },
+  {
     "ability_key": "datasheet:acrobatic",
     "mechanic_digest": "eb4a787b3e16c9f663a5abda3d20332a",
     "name": "Acrobatic",
@@ -10,21 +45,17 @@
   },
   {
     "ability_key": "datasheet:acrobatic-grace",
-    "mechanic_digest": "cc87d2acdd7923dd3ef8a76d03068906",
+    "mechanic_digest": "724c872dc09e0e52e66675045f3ab2ef",
     "name": "Acrobatic Grace",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "Attacks that target this unit suffer -1 to the Hit roll."
+    "review_state": "in_review",
+    "summary": "This unit has Stealth, and melee attacks that target it take -1 to hit."
   },
   {
     "ability_key": "datasheet:aethersails",
-    "mechanic_digest": "312a34f761f32b8ba86dfd2baa4799af",
+    "mechanic_digest": "0148caab9a7643247599225dc2ba8e14",
     "name": "Aethersails",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "Effect varies by model: either Advance and Charge rolls for this model can be re-rolled while a Drukhari unit is embarked, or it skips the Advance roll and adds 6\" to its Move characteristic until the end of the phase."
+    "review_state": "in_review",
+    "summary": "Each time this model Advances, skip the Advance roll and instead add 6\" to its Move characteristic until the end of the phase."
   },
   {
     "ability_key": "datasheet:aethersense-psychic",
@@ -199,12 +230,10 @@
   },
   {
     "ability_key": "datasheet:cluster-caltrops",
-    "mechanic_digest": "cd8bc6ec4ef48a4e4fdae90d8995b33d",
+    "mechanic_digest": "ef7ef0d1db52aec3f62bbe46e2a4f3bf",
     "name": "Cluster Caltrops",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "Re-roll a D6 rolled for the bearer's unit while resolving its fly-by mortal wound ability."
+    "review_state": "in_review",
+    "summary": "Each time you roll a D6 for the bearer while resolving this unit's Eviscerating Fly-by ability, you can re-roll it."
   },
   {
     "ability_key": "datasheet:corsairs",
@@ -352,12 +381,10 @@
   },
   {
     "ability_key": "datasheet:eviscerating-fly-by",
-    "mechanic_digest": "14321068aaa95344c8be3ae5a36a0e78",
+    "mechanic_digest": "b2c8a41beeb964c11961cbed8ee470fc",
     "name": "Eviscerating Fly-by",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "After this unit's Normal move, pick a non-Monster, non-Vehicle enemy unit it moved over and roll a D6 per model in this unit; each 4+ deals 1 mortal wound."
+    "review_state": "in_review",
+    "summary": "Each time this unit ends a Normal move, select one non-MONSTER/VEHICLE enemy unit it moved over: roll one D6 per model in this unit, each 4+ dealing that enemy 1 mortal wound."
   },
   {
     "ability_key": "datasheet:extreme-mobility",
@@ -460,21 +487,17 @@
   },
   {
     "ability_key": "datasheet:grav-talon",
-    "mechanic_digest": "04b3f478a4c84d2eaead47fb3e5f8544",
+    "mechanic_digest": "92cb511675f5638429a6ff1e1c60edce",
     "name": "Grav-talon",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "The bearer's melee weapons gain the Lance ability."
+    "review_state": "in_review",
+    "summary": "The bearer's melee weapons have the Lance ability."
   },
   {
     "ability_key": "datasheet:grenade-pack-flyover",
-    "mechanic_digest": "c867728307a0d86728bac06c783e4c9e",
+    "mechanic_digest": "105046d44b6633d3343882a918809221",
     "name": "Grenade Pack Flyover",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "Once per turn, when this unit is set up or ends a move, pick a visible enemy unit within 8\" and roll a D6 per model in this unit; each 4+ deals 1 mortal wound, up to 6, and this unit cannot be targeted by the Grenade Stratagem this turn."
+    "review_state": "in_review",
+    "summary": "Once per turn, when this unit deploys or ends a Normal/Advance/Fall Back move, target a visible enemy within 8\": roll one D6 per SWOOPING HAWKS model (max 6 wounds), 1 mortal wound per 4+; blocks Explosives Stratagem on this unit that turn."
   },
   {
     "ability_key": "datasheet:guide-psychic",
@@ -577,12 +600,10 @@
   },
   {
     "ability_key": "datasheet:inevitable-death",
-    "mechanic_digest": "f980c4dbe37c966c7d26020b0bbeafeb",
+    "mechanic_digest": "1e92ae0614ca1f9bd7d71559a6fb6bac",
     "name": "Inevitable Death",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "Once per opponent's turn, when a friendly Aeldari unit is destroyed while this model is on the battlefield, you may remove this model and set it up near the destroyed unit, outside Engagement Range."
+    "review_state": "in_review",
+    "summary": "Once per opponent's turn, when a friendly AELDARI unit is destroyed while this model is on the battlefield, relocate this model near that unit's last model, outside Engagement Range, keeping its move eligibility."
   },
   {
     "ability_key": "datasheet:interceptor",
@@ -631,12 +652,10 @@
   },
   {
     "ability_key": "datasheet:lithe-embarkation",
-    "mechanic_digest": "7e816aa6362011c5ab754b5fb6819846",
+    "mechanic_digest": "1b49256deaa48f55c63babcf0860ebf4",
     "name": "Lithe Embarkation",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "At the end of the Fight phase, if empty, a small friendly matching Infantry unit wholly within 6\" of this transport and not in Engagement Range may embark within it."
+    "review_state": "in_review",
+    "summary": "At the end of the Fight phase, if this TRANSPORT has no embarked models, one eligible friendly YNNARI INFANTRY unit of 6 or fewer models wholly within 6\" and outside Engagement Range can embark, even the turn it disembarked."
   },
   {
     "ability_key": "datasheet:malevolent-souls",
@@ -712,21 +731,17 @@
   },
   {
     "ability_key": "datasheet:no-escape",
-    "mechanic_digest": "497390ea4fd75340efd15c24dad59649",
+    "mechanic_digest": "6ec1046e8d6dd5006cdc0c75e3373b21",
     "name": "No Escape",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "When a non-Monster, non-Vehicle enemy unit within this unit's Engagement Range Falls Back, its models take a Desperate Escape test, with -1 if that unit is Battle-shocked."
+    "review_state": "in_review",
+    "summary": "Each time a non-MONSTER/VEHICLE enemy unit within Engagement Range of a unit with this ability Falls Back, it must take a Desperate Escape test, at -1 if Battle-shocked."
   },
   {
     "ability_key": "datasheet:overlord",
-    "mechanic_digest": "6ee97b0753796ab4268276942a20af09",
+    "mechanic_digest": "93d5d7c630dda7f0672f731fb18b471c",
     "name": "Overlord",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "Effect varies by model: either once per battle a Battle-shocked friendly unit within 12\" stops being Battle-shocked, or the led unit's attacks re-roll a Wound roll of 1, or the whole roll while it is below Starting Strength."
+    "review_state": "in_review",
+    "summary": "While this model leads a unit, its attacks can re-roll a Wound roll of 1; if that unit is below Starting Strength, it can re-roll any Wound roll instead."
   },
   {
     "ability_key": "datasheet:path-of-command",
@@ -748,21 +763,17 @@
   },
   {
     "ability_key": "datasheet:path-of-the-outcast",
-    "mechanic_digest": "d4808bf5a94ef83ef9ee93b82f836a07",
+    "mechanic_digest": "86949b569f3082ac91a649822f010c0f",
     "name": "Path of the Outcast",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "Once per turn, when an enemy unit ends a Normal, Advance or Fall Back move within 9\" and this unit or model is not in Engagement Range, it can make a Normal move of up to D6\"."
+    "review_state": "in_review",
+    "summary": "In your opponent's Movement phase, if an enemy unit ends a move within 8\" of this model and it is not in Engagement Range, it can make a Normal move of up to D6\"."
   },
   {
     "ability_key": "datasheet:phantasm-grenade-launcher",
-    "mechanic_digest": "60ddcf135e8318e4d9d62e736ce39ad0",
+    "mechanic_digest": "dba570433c113e9fc2990689cbc2dc5f",
     "name": "Phantasm Grenade Launcher",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "The bearer's unit gains the Grenades keyword, the Smoke keyword, or both, depending on the model."
+    "review_state": "in_review",
+    "summary": "The bearer's unit gains the Grenades keyword."
   },
   {
     "ability_key": "datasheet:piratical-hero",
@@ -802,12 +813,10 @@
   },
   {
     "ability_key": "datasheet:prince-of-corsairs",
-    "mechanic_digest": "975b4bac47de27c66dee32da8d4c26fe",
+    "mechanic_digest": "aeb85238c36eaff175ec62886a84f97a",
     "name": "Prince of Corsairs",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "After deployment, redeploy up to three Aeldari units, optionally placing them in Strategic Reserves regardless of the normal Strategic Reserves limit."
+    "review_state": "in_review",
+    "summary": "After deployment, if this unit (or its TRANSPORT) is on the battlefield, select up to three AELDARI units and redeploy them, optionally into Strategic Reserves regardless of the normal limit."
   },
   {
     "ability_key": "datasheet:protect-psychic",
@@ -820,12 +829,10 @@
   },
   {
     "ability_key": "datasheet:psychic-communion-psychic",
-    "mechanic_digest": "afe9382555e23a8e29da89d974fa2872",
+    "mechanic_digest": "9f4aeed4e07ba2a8369ebcc8bfd7f8b1",
     "name": "Psychic Communion (Psychic)",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "When this unit shoots, each Warlock's Destructor weapon gets +1 Attacks and +1 Strength for each other friendly Aeldari Psyker within 6\", to a maximum of +2."
+    "review_state": "in_review",
+    "summary": "Each time this model shoots, its Destructor weapon gets +1 Attacks and +1 Strength per other friendly AELDARI PSYKER within 6\" (max +2), until end of phase."
   },
   {
     "ability_key": "datasheet:psychic-guidance",
@@ -856,12 +863,10 @@
   },
   {
     "ability_key": "datasheet:rapid-embarkation",
-    "mechanic_digest": "379ab38b23c8c904956506e4393490d1",
+    "mechanic_digest": "40ce87df57e4086d525b458d119adf04",
     "name": "Rapid Embarkation",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "At the end of the Fight phase, if empty, a small friendly matching Infantry unit wholly within 6\" of this transport and not in Engagement Range may embark within it."
+    "review_state": "in_review",
+    "summary": "At the end of the Fight phase, if this TRANSPORT has no embarked models, one friendly HARLEQUINS INFANTRY unit of 6 or fewer models wholly within 6\" and outside Engagement Range can embark, even the turn it disembarked."
   },
   {
     "ability_key": "datasheet:reaper-of-souls",
@@ -874,12 +879,10 @@
   },
   {
     "ability_key": "datasheet:reaver-band",
-    "mechanic_digest": "1c05bdeb68335f1b96a1b58f0f83bbad",
+    "mechanic_digest": "85de33f1a9879909eecf88ce43199775",
     "name": "Reaver Band",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "Once per turn, when an enemy unit ends a Normal, Advance or Fall Back move within 9\" and this unit is not in Engagement Range, it can make a Normal move of up to D6\"."
+    "review_state": "in_review",
+    "summary": "In your opponent's Movement phase, if an enemy unit ends a Normal, Advance, or Fall Back move within 8\" of this unit and it is not in Engagement Range, it can make a Normal move of up to D6\"."
   },
   {
     "ability_key": "datasheet:reavers-of-the-void",
@@ -901,12 +904,10 @@
   },
   {
     "ability_key": "datasheet:reckless-abandon",
-    "mechanic_digest": "0915b6daad339340428a03c95512ecdc",
+    "mechanic_digest": "31aa48f474ff1a71515e7df13fc11560",
     "name": "Reckless Abandon",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "Target this unit with the Heroic Intervention Stratagem for 0 Command Points, even if another unit was already targeted this phase."
+    "review_state": "in_review",
+    "summary": "You can target this unit with Heroic Intervention for -1 CP, regardless of other uses of that stratagem this phase; it does not prevent other units from also using it."
   },
   {
     "ability_key": "datasheet:revenant-jet-pack",
@@ -1225,12 +1226,10 @@
   },
   {
     "ability_key": "datasheet:titan-hunter",
-    "mechanic_digest": "e663effbbf39bb37d8e88799ec59fe4e",
+    "mechanic_digest": "08373f549d1176642bcc893f96cc53a8",
     "name": "Titan Hunter",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "This model's ranged attacks gain a bonus against heavy targets that varies by model: either a re-roll of the Damage roll (or of a Damage roll of 1) against Monster and Vehicle models, or Anti-Titanic 3+ within half range."
+    "review_state": "in_review",
+    "summary": "Each time this model's ranged attack is allocated to a MONSTER or VEHICLE model, re-roll a Damage roll of 1."
   },
   {
     "ability_key": "datasheet:titanic-advance",
@@ -1261,21 +1260,17 @@
   },
   {
     "ability_key": "datasheet:tormentors",
-    "mechanic_digest": "3e9167f7ec0e43f60a83c236d1d68290",
+    "mechanic_digest": "86c8b899b4b886dca1a6450c5684c2c4",
     "name": "Tormentors",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "At the start of the Fight phase, each enemy unit within Engagement Range of a unit with this ability must take a Battle-shock test."
+    "review_state": "in_review",
+    "summary": "At the start of the Fight phase, enemy units within Engagement Range of a unit with this ability must take a Battle-shock test."
   },
   {
     "ability_key": "datasheet:towering-wraith-construct",
-    "mechanic_digest": "1edf5aa201a847e0982c313800c18d50",
+    "mechanic_digest": "2a0aefab8f11424e3107b87578aac050",
     "name": "Towering Wraith Construct",
-    "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "Stratagems used against this model cost extra Command Points beyond their stated cost, with the surcharge scaling by this model's class."
+    "review_state": "in_review",
+    "summary": "Each time an opponent targets this model with a Stratagem, they must pay three times that Stratagem's normal Command Point cost."
   },
   {
     "ability_key": "datasheet:travelling-players",
@@ -1393,5 +1388,19 @@
     "reviewed_at": "2026-08-04T00:00:00Z",
     "reviewed_by": "claude-reviewer-opus",
     "summary": "While this model leads a unit, other Character models attached to that unit have the Feel No Pain 4+ ability."
+  },
+  {
+    "ability_key": "faction:battle-focus",
+    "mechanic_digest": "e378d165c0b35d936fd25c7adf2d6b48",
+    "name": "Battle Focus",
+    "review_state": "in_review",
+    "summary": "Gain Battle Focus tokens by battle size (2/4/6/round) to trigger Agile Manoeuvres on ASURYANI units: bonus Move, Fire Overwatch immunity, ranged Assault on Advance, bigger Pile-in, or bonus reactive moves."
+  },
+  {
+    "ability_key": "faction:disparate-paths",
+    "mechanic_digest": "e378d165c0b35d936fd25c7adf2d6b48",
+    "name": "Disparate Paths",
+    "review_state": "in_review",
+    "summary": "HARLEQUINS units can be included in your army despite lacking the ASURYANI Faction keyword; your Army Faction still cannot be Harlequins or Ynnari unless stated otherwise."
   }
 ]
