@@ -14,8 +14,10 @@
     "detachment_id": "d-auxiliary-cadre",
     "name": "Integrated Command Structure",
     "summary": "In your Shooting phase a Kroot or Vespid Stingwings unit can prey-mark one visible enemy within 12\" for +3\" detection range; within 6\" of a Ghostkeel or Stealth Battlesuits unit, shooting keeps it hidden. Exclusive Auxiliaries detachment.",
-    "review_state": "in_review",
-    "mechanic_digest": "9c9e2fcdd1e1cb53f134381ebfdfdfc9"
+    "review_state": "approved",
+    "mechanic_digest": "9c9e2fcdd1e1cb53f134381ebfdfdfc9",
+    "reviewed_by": "claude-opus-5-second-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-experimental-prototype-cadre:superior-craftsmanship",

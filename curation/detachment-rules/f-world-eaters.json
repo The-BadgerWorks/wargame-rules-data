@@ -34,8 +34,10 @@
     "detachment_id": "d-cult-of-blood",
     "name": "Idols of Khorne",
     "summary": "Each Command phase pick an Idol of Khorne, once each per battle: Jakhals and Goremongers within 6\" of a World Eaters Monster (9\" if Titanic) get +1 Hit and Wound, or +1\" Move and +1 Advance/Charge, or a 4+ invuln. Both are Battleline.",
-    "review_state": "in_review",
-    "mechanic_digest": "994692a94e5596ae0c120866ee003432"
+    "review_state": "approved",
+    "mechanic_digest": "994692a94e5596ae0c120866ee003432",
+    "reviewed_by": "claude-opus-5-second-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-goretrack-onslaught:rush-to-the-fray",
@@ -52,8 +54,10 @@
     "detachment_id": "d-khorne-daemonkin",
     "name": "Blood Tithe",
     "summary": "Destroying an enemy with a Blood Legions or World Eaters unit gains 1 Blood Tithe point on a 3+. In a Command phase spend for the battle: 2 Feel No Pain 5+ vs Psychic/mortals, 3 Lance, 4 a 4+ invulnerable, 5 Blessings. Allies 500/1000/1500.",
-    "review_state": "in_review",
-    "mechanic_digest": "0bf095a9a648664b4941e5468bae28b9"
+    "review_state": "approved",
+    "mechanic_digest": "0bf095a9a648664b4941e5468bae28b9",
+    "reviewed_by": "claude-opus-5-second-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-possessed-slaughterband:brazen-fury",

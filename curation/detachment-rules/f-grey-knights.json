@@ -54,7 +54,9 @@
     "detachment_id": "d-warpbane-task-force",
     "name": "Hallowed Ground",
     "summary": "Hallowed Ground: your deployment zone, 6\" around Purifier Squads, plus No Man's Land or the enemy zone while holding half its objectives. Grey Knights re-roll Hit 1s (melee/visible ranged); Purifiers or units wholly inside re-roll all Hits.",
-    "review_state": "in_review",
-    "mechanic_digest": "d83c30e14cbdc9f799978907218b69ec"
+    "review_state": "approved",
+    "mechanic_digest": "d83c30e14cbdc9f799978907218b69ec",
+    "reviewed_by": "claude-opus-5-second-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   }
 ]

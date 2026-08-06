@@ -4,8 +4,10 @@
     "detachment_id": "d-imperialis-fleet",
     "name": "At all Costs",
     "summary": "Each Command phase, until your next, mark either an enemy unit your Agents of the Imperium then hit at +1, or an objective marker where your Agents within range gain +1 Leadership, +1 Objective Control and a 5+ invulnerable save.",
-    "review_state": "in_review",
-    "mechanic_digest": "223f0249491b1c7d2da050ce66ab9403"
+    "review_state": "approved",
+    "mechanic_digest": "223f0249491b1c7d2da050ce66ab9403",
+    "reviewed_by": "claude-opus-5-second-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-ordo-hereticus-purgation-force:root-out-heresy",

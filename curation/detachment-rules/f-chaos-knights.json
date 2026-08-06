@@ -34,8 +34,10 @@
     "detachment_id": "d-hunting-warpack",
     "name": "Scenting Fear",
     "summary": "Once per battle round, in your Shooting phase, select one visible enemy unit within 12\" of a friendly War Dog unit; it has +6\" detection range. This detachment carries the War Dogs tag and cannot be taken with another War Dogs detachment.",
-    "review_state": "in_review",
-    "mechanic_digest": "3594e5e521e2894bc09908f3bf4a8679"
+    "review_state": "approved",
+    "mechanic_digest": "3594e5e521e2894bc09908f3bf4a8679",
+    "reviewed_by": "claude-opus-5-second-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-iconoclast-fiefdom:wretched-thralls",
@@ -52,8 +54,10 @@
     "detachment_id": "d-infernal-lance",
     "name": "Malefic Surge",
     "summary": "In your Command phase, a Chaos Knights unit may take a Leadership test, D3 mortal wounds on a fail, to be Empowered until your next Command phase; spend it for +3\" Move, Lethal Hits, Sustained Hits 1, 5+ invulnerable or Feel No Pain 6+.",
-    "review_state": "in_review",
-    "mechanic_digest": "cb2795f7c6407af6d79a797fbcc13505"
+    "review_state": "approved",
+    "mechanic_digest": "cb2795f7c6407af6d79a797fbcc13505",
+    "reviewed_by": "claude-opus-5-second-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-lords-of-dread:tyrannical-court",

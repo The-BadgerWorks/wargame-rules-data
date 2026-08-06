@@ -54,8 +54,10 @@
     "detachment_id": "d-hypercrypt-legion",
     "name": "Hyperphasing",
     "summary": "At the end of your opponent's turn, remove up to 1/2/3 Necrons units at Incursion/Strike Force/Onslaught, none within Engagement Range, from the battlefield into Strategic Reserves.",
-    "review_state": "in_review",
-    "mechanic_digest": "b1fffa2be5fcbf3aee16e184548042fb"
+    "review_state": "approved",
+    "mechanic_digest": "b1fffa2be5fcbf3aee16e184548042fb",
+    "reviewed_by": "claude-opus-5-second-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-obeisance-phalanx:worthy-foes",
@@ -72,8 +74,10 @@
     "detachment_id": "d-pantheon-of-woe",
     "name": "Cosmic Distortion",
     "summary": "Enemy units within 6\" of a Necrons Monster are unravelling: attacks against them get +1 Armour Penetration. At the start of any phase a Monster can suffer 3 mortal wounds to extend its aura to 9\" that phase. Each Monster costs extra points.",
-    "review_state": "in_review",
-    "mechanic_digest": "6132215767f47c7e3650a94c80a33449"
+    "review_state": "approved",
+    "mechanic_digest": "6132215767f47c7e3650a94c80a33449",
+    "reviewed_by": "claude-opus-5-second-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-skyshroud-spearhead:transdimensional-deployment",

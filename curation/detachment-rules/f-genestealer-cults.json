@@ -14,8 +14,10 @@
     "detachment_id": "d-final-day",
     "name": "Psionic Parasitism",
     "summary": "Each Movement phase end, per Tyranids Synapse unit: a Cults unit within 9\" takes D3+1 mortal wounds; a Tyranids unit heals as much and gains +1 to Hit for a turn. Cults hit enemies within 6\" of Tyranids at +1. Invaders capped 500/1000/1500.",
-    "review_state": "in_review",
-    "mechanic_digest": "cf051475e1f80795d7b362ee9ff6d021"
+    "review_state": "approved",
+    "mechanic_digest": "cf051475e1f80795d7b362ee9ff6d021",
+    "reviewed_by": "claude-opus-5-second-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-heroes-of-the-uprising:killer-reputation",
@@ -42,7 +44,9 @@
     "detachment_id": "d-outlander-claw",
     "name": "Rapid Takeover",
     "summary": "Cults Mounted/Vehicle models not Battle-shocked get +1 Objective Control. At the end of your Command phase, an objective you control with Atalan Jackals in range stays yours until the enemy's Level of Control there is higher at a phase end.",
-    "review_state": "in_review",
-    "mechanic_digest": "832a1074e151c66925dff4e8b19f0965"
+    "review_state": "approved",
+    "mechanic_digest": "832a1074e151c66925dff4e8b19f0965",
+    "reviewed_by": "claude-opus-5-second-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   }
 ]

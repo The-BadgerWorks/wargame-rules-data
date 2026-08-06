@@ -44,8 +44,10 @@
     "detachment_id": "d-explorator-maniple",
     "name": "Acquisition At Any Cost",
     "summary": "Each Command phase, mark one objective marker as your Acquisition marker until your next Command phase. Adeptus Mechanicus attacks made within range of it, or against a target within range of it, re-roll a Wound roll of 1.",
-    "review_state": "in_review",
-    "mechanic_digest": "1a753f7eb3690fedd00478efcb89b2c7"
+    "review_state": "approved",
+    "mechanic_digest": "1a753f7eb3690fedd00478efcb89b2c7",
+    "reviewed_by": "claude-opus-5-second-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-haloscreed-battle-clade:noospheric-transference",
@@ -62,8 +64,10 @@
     "detachment_id": "d-lords-of-the-forge",
     "name": "War-Form Mantles",
     "summary": "Tech-Priest models get a 4+ invulnerable save and Feel No Pain 5+. Unshocked, when selected to shoot they roll a D6; on 2+ either force a battle-shock roll at -1 on an enemy Vehicle within 12\", once per turn, or stay Hidden after shooting.",
-    "review_state": "in_review",
-    "mechanic_digest": "f85b553183e1a6b05cfd3a23bf88a29a"
+    "review_state": "approved",
+    "mechanic_digest": "f85b553183e1a6b05cfd3a23bf88a29a",
+    "reviewed_by": "claude-opus-5-second-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-rad-zone-corps:rad-bombardment",
