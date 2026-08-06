@@ -21,7 +21,9 @@
     "ability_key": "datasheet:bloodlust",
     "mechanic_digest": "373dd0eca5e618561169b3c90554776b",
     "name": "Bloodlust",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
     "summary": "Each time this model makes a Charge move, its melee weapons gain the Devastating Wounds ability until the end of the turn."
   },
   {
@@ -154,7 +156,9 @@
     "ability_key": "datasheet:obsessive-ruthlessness",
     "mechanic_digest": "d08547b0793db26b932a364a388ea193",
     "name": "Obsessive Ruthlessness",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
     "summary": "This unit's ranged attacks against MONSTER/VEHICLE units can ignore modifiers to this unit's BS and to Hit and Wound rolls."
   },
   {
@@ -179,7 +183,9 @@
     "ability_key": "datasheet:protection-protocols",
     "mechanic_digest": "31aa48f474ff1a71515e7df13fc11560",
     "name": "Protection Protocols",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
     "summary": "You can target this unit with Heroic Intervention for -1 CP, regardless of other uses of that stratagem this phase; it does not prevent other units from also using it."
   },
   {
@@ -213,7 +219,9 @@
     "ability_key": "datasheet:shock-charge",
     "mechanic_digest": "393c11ff5de25ab317f164c9251f920c",
     "name": "Shock Charge",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
     "summary": "You can target this model with the Crushing Impact Stratagem for 0CP, even if you already used that Stratagem on a different unit this phase."
   },
   {
@@ -238,7 +246,9 @@
     "ability_key": "datasheet:sunderer-of-fortresses",
     "mechanic_digest": "062468c46ecc4e2961f82318189ee631",
     "name": "Sunderer of Fortresses",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
     "summary": "Each time this model attacks a VEHICLE, improve that attack's Strength and Damage by 1 (by 2 instead if the target is a FORTIFICATION)."
   },
   {
@@ -282,13 +292,15 @@
     "mechanic_digest": "95b2cab3f7d68c37938c077491dd7c63",
     "name": "Harbingers of Dread",
     "review_state": "in_review",
-    "summary": "At the start of battle rounds 1, 3, and 5, select or randomly gain more Dread abilities for CHAOS KNIGHTS units (Deathly Terror always active): worsen enemy Leadership, force Battle-shock, bonus Wound rolls, Stealth, or +3\" Aura range."
+    "summary": "Chaos Knights units always have Deathly Terror: enemy units within 9\" get -1 Leadership. At the start of battle rounds 1, 3 and 5, add one chosen Dread ability or two rolled at random; each lasts the battle and duplicates do nothing."
   },
   {
     "ability_key": "faction:super-heavy-walker",
     "mechanic_digest": "d26baa2e94bdb69893e9e4d953e837e5",
     "name": "Super-heavy Walker",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
     "summary": "When this model makes a Normal, Advance, or Fall Back move, it can move through non-TITANIC models and terrain up to 4\" tall (ending outside Engagement Range), or through taller terrain risking Battle-shock on a D6 roll of 1."
   }
 ]
