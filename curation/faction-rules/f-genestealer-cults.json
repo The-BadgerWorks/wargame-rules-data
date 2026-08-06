@@ -1,0 +1,14 @@
+{
+  "faction_id": "f-genestealer-cults",
+  "army_rule_state": "present",
+  "rules": [
+    {
+      "summary_key": "faction:f-genestealer-cults:cult-ambush",
+      "display_order": 1,
+      "name": "Cult Ambush",
+      "summary": "Start with a pool of Resurgence points (by battle size). When a full-strength non-Character unit is destroyed, spend its listed cost to place a marker and later return an identical, full-strength unit via an ingress move.",
+      "review_state": "in_review",
+      "mechanic_digest": "dbe125b14ad4b836005144391613872b"
+    }
+  ]
+}

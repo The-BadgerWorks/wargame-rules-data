@@ -1,0 +1,26 @@
+[
+  {
+    "summary_key": "detachment:d-final-day:psionic-parasitism",
+    "detachment_id": "d-final-day",
+    "name": "Psionic Parasitism",
+    "summary": "Once per phase per Synapse unit, sacrifice D3+1 wounds from a Cults unit to heal and buff a nearby Tyranids unit (+1 to Hit). Tyranids units grant nearby Cults attacks +1 to Hit, and let you field points-capped Vanguard Invader units.",
+    "review_state": "in_review",
+    "mechanic_digest": "cf051475e1f80795d7b362ee9ff6d021"
+  },
+  {
+    "summary_key": "detachment:d-heroes-of-the-uprising:killer-reputation",
+    "detachment_id": "d-heroes-of-the-uprising",
+    "name": "Killer Reputation",
+    "summary": "Friendly Kelermorph, Locus, Reductus Saboteur and Sanctus models gain the Killer keyword. Killer models can re-roll Hit rolls of 1 and Wound rolls of 1.",
+    "review_state": "in_review",
+    "mechanic_digest": "64dc96e68edfac5a2352449c2c0fc377"
+  },
+  {
+    "summary_key": "detachment:d-outlander-claw:rapid-takeover",
+    "detachment_id": "d-outlander-claw",
+    "name": "Rapid Takeover",
+    "summary": "Genestealer Cults Mounted/Vehicle models that aren't battle-shocked get +1 Objective Control. An objective stays under your control while an Atalan Jackals unit is in range, until the opponent's Level of Control is higher at a phase's end.",
+    "review_state": "in_review",
+    "mechanic_digest": "832a1074e151c66925dff4e8b19f0965"
+  }
+]
