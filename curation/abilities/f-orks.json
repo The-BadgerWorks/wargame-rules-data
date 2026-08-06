@@ -3,21 +3,27 @@
     "ability_key": "core:firing-deck-10",
     "mechanic_digest": "bf3b4618b0621cdc4bf5eb5bb8fa1c3b",
     "name": "Firing Deck 10",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-second-reviewer",
     "summary": "Firing Deck X: in your Shooting phase, when this Transport shoots, up to X (here 10) embarked models whose units have not yet shot each lend it one ranged weapon (no one-shot); no unit embarked in it can shoot for the rest of the turn."
   },
   {
     "ability_key": "core:firing-deck-20",
     "mechanic_digest": "bf3b4618b0621cdc4bf5eb5bb8fa1c3b",
     "name": "Firing Deck 20",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-second-reviewer",
     "summary": "Firing Deck X: in your Shooting phase, when this Transport shoots, up to X (here 20) embarked models whose units have not yet shot each lend it one ranged weapon (no one-shot); no unit embarked in it can shoot for the rest of the turn."
   },
   {
     "ability_key": "core:firing-deck-22",
     "mechanic_digest": "bf3b4618b0621cdc4bf5eb5bb8fa1c3b",
     "name": "Firing Deck 22",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-second-reviewer",
     "summary": "Firing Deck X: in your Shooting phase, when this Transport shoots, up to X (here 22) embarked models whose units have not yet shot each lend it one ranged weapon (no one-shot); no unit embarked in it can shoot for the rest of the turn."
   },
   {
@@ -168,7 +174,9 @@
     "ability_key": "datasheet:burna-bomb",
     "mechanic_digest": "5ae3a620aefbe3778a49bb52441d4f75",
     "name": "Burna Bomb",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-second-reviewer",
     "summary": "At the end of your opponent's Fight phase, pick one visible enemy unit (not Lone Operative) within 24\": Orks ranged attacks at it gain Ignores Cover until the end of your next turn; roll a D6 per model in it, 1 mortal wound per 6."
   },
   {
@@ -247,7 +255,9 @@
     "ability_key": "datasheet:da-jump-psychic",
     "mechanic_digest": "6fb7a7b6988fb2020a3e50fdcca6291c",
     "name": "Da Jump (Psychic)",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-second-reviewer",
     "summary": "Once per turn, at the end of your Movement phase, one Weirdboy can roll one D6: on a 1 its unit suffers D6 mortal wounds; on a 2+ redeploy that unit more than 8\" horizontally from all enemy models."
   },
   {
@@ -848,7 +858,9 @@
     "ability_key": "datasheet:scatter",
     "mechanic_digest": "63e17d06ae556113173e4626ab7a95d4",
     "name": "Scatter!",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-second-reviewer",
     "summary": "In your opponent's Movement phase, when an enemy unit ends a Normal, Advance or Fall Back move within 8\" of this unit, this unit can make a Normal move of up to 6\", provided it is not within Engagement Range of any enemy unit."
   },
   {
@@ -873,7 +885,9 @@
     "ability_key": "datasheet:shokk-tunnel",
     "mechanic_digest": "92930fa2ab768d2aaf633c856acd1298",
     "name": "Shokk Tunnel",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-second-reviewer",
     "summary": "When this unit Advances, it can move through any model (including enemies and MONSTER/VEHICLE) with no maximum distance, ending more than 8\" horizontally from all enemy units."
   },
   {
