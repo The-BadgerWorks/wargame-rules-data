@@ -1,0 +1,14 @@
+{
+  "faction_id": "f-chaos-knights",
+  "army_rule_state": "present",
+  "rules": [
+    {
+      "summary_key": "faction:f-chaos-knights:harbingers-of-dread",
+      "display_order": 1,
+      "name": "Harbingers of Dread",
+      "summary": "From the start, models with this ability worsen enemy Leadership by 1 within 9\" (Deathly Terror). At battle rounds 1, 3 and 5, add one more Dread ability (or two at random) from a table of aura and attack buffs for the rest of the battle.",
+      "review_state": "in_review",
+      "mechanic_digest": "95b2cab3f7d68c37938c077491dd7c63"
+    }
+  ]
+}

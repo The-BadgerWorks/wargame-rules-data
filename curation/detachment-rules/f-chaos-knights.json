@@ -1,0 +1,34 @@
+[
+  {
+    "summary_key": "detachment:d-hunting-warpack:scenting-fear",
+    "detachment_id": "d-hunting-warpack",
+    "name": "Scenting Fear",
+    "summary": "Once per battle round, in your Shooting phase, pick a visible enemy unit within 12\" of a friendly War Dog unit: it gets +6\" detection range.",
+    "review_state": "in_review",
+    "mechanic_digest": "3594e5e521e2894bc09908f3bf4a8679"
+  },
+  {
+    "summary_key": "detachment:d-infernal-lance:malefic-surge",
+    "detachment_id": "d-infernal-lance",
+    "name": "Malefic Surge",
+    "summary": "In your Command phase, a Chaos Knights unit can test Leadership (or take D3 mortal wounds) to become Empowered until your next Command phase, then once use: +3\" Move, Lethal Hits, Sustained Hits 1, a 5+ invuln save, or Feel No Pain 6+.",
+    "review_state": "in_review",
+    "mechanic_digest": "cb2795f7c6407af6d79a797fbcc13505"
+  },
+  {
+    "summary_key": "detachment:d-lords-of-dread:tyrannical-court",
+    "detachment_id": "d-lords-of-dread",
+    "name": "Tyrannical Court",
+    "summary": "Chaos Knights Character models get +2 Objective Control. Once per battle round, while your Warlord is on the battlefield, use the Claimed for the Dark Gods Stratagem for 0CP.",
+    "review_state": "in_review",
+    "mechanic_digest": "d1b94732c75c414ec69a8a73e3a495c0"
+  },
+  {
+    "summary_key": "detachment:d-traitoris-lance:paragons-of-terror",
+    "detachment_id": "d-traitoris-lance",
+    "name": "Paragons of Terror",
+    "summary": "At the first battle round, after selecting your army's Dread abilities, add one further Dread ability of your choice (not randomly selected).",
+    "review_state": "in_review",
+    "mechanic_digest": "31fa5e3568f184bcce43095ad268d2a0"
+  }
+]
