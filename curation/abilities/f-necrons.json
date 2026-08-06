@@ -4,28 +4,28 @@
     "mechanic_digest": "687ffc1b1f643f9a8bf384cb7ee385f8",
     "name": "Deadly Demise 3D6",
     "review_state": "in_review",
-    "summary": "Deadly Demise X: each time a model in this unit is destroyed, roll one D6; on a 6, units within 6\" suffer X mortal wounds (here 3D6)."
+    "summary": "Deadly Demise X: each time a model in this unit is destroyed, roll one D6; on a 6 each unit within 6\" suffers X mortal wounds (here 3D6), rolled separately for each unit."
   },
   {
     "ability_key": "core:deadly-demise-d6-3",
     "mechanic_digest": "687ffc1b1f643f9a8bf384cb7ee385f8",
     "name": "Deadly Demise D6+3",
     "review_state": "in_review",
-    "summary": "Deadly Demise X: each time a model in this unit is destroyed, roll one D6; on a 6, units within 6\" suffer X mortal wounds (here D6+3)."
+    "summary": "Deadly Demise X: each time a model in this unit is destroyed, roll one D6; on a 6 each unit within 6\" suffers X mortal wounds (here D6+3), rolled separately for each unit."
   },
   {
     "ability_key": "core:deadly-demise-d6-3-szarekh-model-only",
     "mechanic_digest": "687ffc1b1f643f9a8bf384cb7ee385f8",
     "name": "Deadly Demise D6+3 (Szarekh model only)",
     "review_state": "in_review",
-    "summary": "Deadly Demise X: each time a model in this unit is destroyed, roll one D6; on a 6, units within 6\" suffer X mortal wounds (here D6+3, Szarekh model only)."
+    "summary": "Deadly Demise X: each time a model in this unit is destroyed, roll one D6; on a 6 each unit within 6\" suffers X mortal wounds (here D6+3, Szarekh model only), rolled separately for each unit."
   },
   {
     "ability_key": "core:scouts-8",
     "mechanic_digest": "48b523bacc85908043ae18fd81528974",
     "name": "Scouts 8\"",
     "review_state": "in_review",
-    "summary": "Scouts X: before the battle, a unit wholly with this ability can set up anywhere in your deployment zone from reserves, or make a scout move of up to X\" (here 8\") ending more than 8\" from all enemy units."
+    "summary": "Scouts X: in the pre-battle step, a unit whose models all have this ability can deploy from Strategic Reserves wholly within your deployment zone, or make a scout move of up to X\" (here 8\") ending more than 8\" horizontally from enemies."
   },
   {
     "ability_key": "datasheet:accelerator-mandible",
@@ -148,7 +148,9 @@
     "ability_key": "datasheet:counter-tactics",
     "mechanic_digest": "4e673e2c1e63ec191660a3f7f926d603",
     "name": "Counter-tactics",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
     "summary": "Once per battle, after your opponent uses a Stratagem while this model is on the battlefield, that Stratagem costs your opponent 1 extra CP for the rest of the battle."
   },
   {
@@ -255,7 +257,7 @@
     "mechanic_digest": "8f867490aac0b9d63296c4c64b615d66",
     "name": "Eternity Gate",
     "review_state": "in_review",
-    "summary": "In your Movement phase (not turn one), select one friendly NECRONS INFANTRY unit (in reserves or moved there from the battlefield) to ingress within 6\" of this unit, outside Engagement Range; it cannot charge this turn."
+    "summary": "In your Movement phase (not the first battle round), one friendly Necrons Infantry unit in Strategic Reserves, or moved there from the battlefield, can ingress wholly within 6\" of this unit and unengaged; it cannot charge this turn."
   },
   {
     "ability_key": "datasheet:evasion-engrams",
@@ -297,7 +299,9 @@
     "ability_key": "datasheet:gloom-prism-aura",
     "mechanic_digest": "60eb15094ed63d608a440293b592f126",
     "name": "Gloom Prism (Aura)",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
     "summary": "Friendly NECRONS units within 6\" of the bearer have Feel No Pain 4+ against Psychic Attacks."
   },
   {
@@ -439,7 +443,9 @@
     "ability_key": "datasheet:invasion-beams",
     "mechanic_digest": "1693e9b3a8d600210ae0ecf12a350163",
     "name": "Invasion Beams",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
     "summary": "At the end of the Fight phase, if this TRANSPORT has no embarked models, one friendly NECRONS INFANTRY unit wholly within 6\" and outside Engagement Range can embark."
   },
   {
@@ -554,7 +560,9 @@
     "ability_key": "datasheet:nanoscarab-reanimation-beam-aura",
     "mechanic_digest": "61a1192ac0c4d7f4dfae69b62c191a83",
     "name": "Nanoscarab Reanimation Beam (Aura)",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
     "summary": "Friendly NECRONS units within 3\" of this model heal an extra D3 wounds whenever their Reanimation Protocols activate."
   },
   {
@@ -759,7 +767,9 @@
     "ability_key": "datasheet:resurrection-orb",
     "mechanic_digest": "f386e8eac096cac204e2c01ee35e9af5",
     "name": "Resurrection Orb",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
     "summary": "Once per battle per unit, at the end of any phase, this unit's Reanimation Protocols activate, healing D6 wounds instead of D3; only one unit can resurrect per turn."
   },
   {
@@ -811,7 +821,9 @@
     "ability_key": "datasheet:snaking-ambush",
     "mechanic_digest": "31aa48f474ff1a71515e7df13fc11560",
     "name": "Snaking Ambush",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
     "summary": "You can target this unit with Heroic Intervention for -1 CP, regardless of other uses of that stratagem this phase; it does not prevent other units from also using it."
   },
   {
@@ -864,7 +876,7 @@
     "mechanic_digest": "ec8d3165d844aa64fb02484df7e68943",
     "name": "Teleportation Matrix",
     "review_state": "in_review",
-    "summary": "Once per battle, at the end of your opponent's turn, if not in Engagement Range, remove this FORTIFICATION and redeploy it more than 8\" from all enemies next Movement phase; it is destroyed if the battle ends while off the battlefield."
+    "summary": "Once per battle, at the end of your opponent's turn, if unengaged this Fortification can be removed, then set up next Movement phase more than 8\" horizontally from all enemy models. If the battle ends while it is off, it is destroyed."
   },
   {
     "ability_key": "datasheet:terrifying-monstrosity",
@@ -924,7 +936,9 @@
     "ability_key": "datasheet:timesplinter-mantle",
     "mechanic_digest": "724c872dc09e0e52e66675045f3ab2ef",
     "name": "Timesplinter Mantle",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
     "summary": "This unit has Stealth, and melee attacks that target it take -1 to hit."
   },
   {
@@ -941,7 +955,7 @@
     "mechanic_digest": "6cb2088b298ed0771bae372ee5d9bfa0",
     "name": "Transdimensional Displacement",
     "review_state": "in_review",
-    "summary": "When this unit Advances, it can move through any model (including enemies and MONSTER/VEHICLE) with no maximum distance, ending more than 8\" from all enemy units."
+    "summary": "When this unit Advances, it can move through any model (including enemies and MONSTER/VEHICLE) with no maximum distance, ending more than 8\" horizontally from all enemy units."
   },
   {
     "ability_key": "datasheet:transient-madness",
@@ -983,7 +997,9 @@
     "ability_key": "datasheet:tunnelling-horrors",
     "mechanic_digest": "76f92981f23240f7e0130e4f416e998e",
     "name": "Tunnelling Horrors",
-    "review_state": "in_review",
+    "review_state": "approved",
+    "reviewed_at": "2026-08-06T00:00:00Z",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
     "summary": "At the end of your opponent's turn, if this unit is unengaged, it can enter strategic reserves and must make an ingress move next Movement phase (including turn one)."
   },
   {
@@ -1054,6 +1070,6 @@
     "mechanic_digest": "ecd9628f44a7160e24b133498a5e6657",
     "name": "Reanimation Protocols",
     "review_state": "in_review",
-    "summary": "At the end of your Command phase, each friendly unit with this ability on the battlefield heals D3 wounds, restoring lost models before topping up survivors."
+    "summary": "If your Army Faction is Necrons, at the end of your Command phase each unit with this ability on the battlefield heals D3 wounds: wounded models are restored first, then destroyed ones return with what is left."
   }
 ]
