@@ -4,8 +4,10 @@
     "detachment_id": "d-changehost-of-deceit",
     "name": "Infernal Pacts",
     "summary": "Thousand Sons Psykers within 6\" of and visible to a Scintillating Legions unit have a 4+ invuln vs ranged attacks; a Scintillating Legions Psyker as near a Thousand Sons unit gains Cabal of Sorcerers. Cap 500/1000/1500, never Warlord.",
-    "review_state": "in_review",
-    "mechanic_digest": "4b7f0337e5b48e0171ebc79c52a95ef5"
+    "review_state": "approved",
+    "mechanic_digest": "4b7f0337e5b48e0171ebc79c52a95ef5",
+    "reviewed_by": "claude-opus-5-final-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "detachment:d-grand-coven:kindred-sorcery",
