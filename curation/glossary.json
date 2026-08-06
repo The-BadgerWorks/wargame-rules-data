@@ -6,8 +6,10 @@
     "has_numeric_parameter": false,
     "name": "Aircraft",
     "summary": "Unit-type keyword. Aircraft deploy to and must return to strategic reserves each turn, can only arrive by an ingress move, cannot declare charges, and can only be charged or fought by units that can Fly.",
-    "review_state": "in_review",
-    "mechanic_digest": "ad3d69db766ff4d01535e572add4f247"
+    "review_state": "approved",
+    "mechanic_digest": "ad3d69db766ff4d01535e572add4f247",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "glossary:anti chaos",
@@ -16,8 +18,10 @@
     "has_numeric_parameter": true,
     "name": "Anti-Chaos X+",
     "summary": "Weapon ability written Anti-Chaos X+. While the target unit carries the CHAOS keyword, an unmodified wound roll of X or more counts as a critical wound. Each weapon prints its own X.",
-    "review_state": "in_review",
-    "mechanic_digest": "8446d4c01b0ccb18aba45d9a8336e941"
+    "review_state": "approved",
+    "mechanic_digest": "8446d4c01b0ccb18aba45d9a8336e941",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "glossary:anti character",
@@ -26,8 +30,10 @@
     "has_numeric_parameter": true,
     "name": "Anti-Character X+",
     "summary": "Weapon ability written Anti-Character X+. While the target unit carries the CHARACTER keyword, an unmodified wound roll of X or more counts as a critical wound. Each weapon prints its own X.",
-    "review_state": "in_review",
-    "mechanic_digest": "b13430d29ea629600e0af30607208521"
+    "review_state": "approved",
+    "mechanic_digest": "b13430d29ea629600e0af30607208521",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "glossary:anti daemon",
@@ -36,8 +42,10 @@
     "has_numeric_parameter": true,
     "name": "Anti-Daemon X+",
     "summary": "Weapon ability written Anti-Daemon X+. While the target unit carries the DAEMON keyword, an unmodified wound roll of X or more counts as a critical wound. Each weapon prints its own X.",
-    "review_state": "in_review",
-    "mechanic_digest": "15bfa9d95b847933afa8f467f397d778"
+    "review_state": "approved",
+    "mechanic_digest": "15bfa9d95b847933afa8f467f397d778",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "glossary:anti epic hero",
@@ -46,8 +54,10 @@
     "has_numeric_parameter": true,
     "name": "Anti-Epic Hero X+",
     "summary": "Weapon ability written Anti-Epic Hero X+. While the target unit carries the EPIC HERO keyword, an unmodified wound roll of X or more counts as a critical wound. Each weapon prints its own X.",
-    "review_state": "in_review",
-    "mechanic_digest": "f6c9f905b2dbd792f35dbdd714edde25"
+    "review_state": "approved",
+    "mechanic_digest": "f6c9f905b2dbd792f35dbdd714edde25",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "glossary:anti fly",
@@ -56,8 +66,10 @@
     "has_numeric_parameter": true,
     "name": "Anti-Fly X+",
     "summary": "Weapon ability written Anti-Fly X+. While the target unit carries the FLY keyword, an unmodified wound roll of X or more counts as a critical wound. Each weapon prints its own X.",
-    "review_state": "in_review",
-    "mechanic_digest": "e56f9a9ed86d4eb952c5163455fa4d1e"
+    "review_state": "approved",
+    "mechanic_digest": "e56f9a9ed86d4eb952c5163455fa4d1e",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "glossary:anti infantry",
@@ -66,8 +78,10 @@
     "has_numeric_parameter": true,
     "name": "Anti-Infantry X+",
     "summary": "Weapon ability written Anti-Infantry X+. While the target unit carries the INFANTRY keyword, an unmodified wound roll of X or more counts as a critical wound. Each weapon prints its own X.",
-    "review_state": "in_review",
-    "mechanic_digest": "c7823b38aecb8fb77a9d5212c16d65bd"
+    "review_state": "approved",
+    "mechanic_digest": "c7823b38aecb8fb77a9d5212c16d65bd",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "glossary:anti monster",
@@ -76,8 +90,10 @@
     "has_numeric_parameter": true,
     "name": "Anti-Monster X+",
     "summary": "Weapon ability written Anti-Monster X+. While the target unit carries the MONSTER keyword, an unmodified wound roll of X or more counts as a critical wound. Each weapon prints its own X.",
-    "review_state": "in_review",
-    "mechanic_digest": "a167abbdacd635bb8da6ef076948167c"
+    "review_state": "approved",
+    "mechanic_digest": "a167abbdacd635bb8da6ef076948167c",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "glossary:anti psyker",
@@ -86,8 +102,10 @@
     "has_numeric_parameter": true,
     "name": "Anti-Psyker X+",
     "summary": "Weapon ability written Anti-Psyker X+. While the target unit carries the PSYKER keyword, an unmodified wound roll of X or more counts as a critical wound. Each weapon prints its own X.",
-    "review_state": "in_review",
-    "mechanic_digest": "9f1a8b26120e558da28f3a224c9977ee"
+    "review_state": "approved",
+    "mechanic_digest": "9f1a8b26120e558da28f3a224c9977ee",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "glossary:anti titanic",
@@ -96,8 +114,10 @@
     "has_numeric_parameter": true,
     "name": "Anti-Titanic X+",
     "summary": "Weapon ability written Anti-Titanic X+. While the target unit carries the TITANIC keyword, an unmodified wound roll of X or more counts as a critical wound. Each weapon prints its own X.",
-    "review_state": "in_review",
-    "mechanic_digest": "887913ac03ed424c46465257b050c311"
+    "review_state": "approved",
+    "mechanic_digest": "887913ac03ed424c46465257b050c311",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "glossary:anti tyranids",
@@ -106,8 +126,10 @@
     "has_numeric_parameter": true,
     "name": "Anti-Tyranids X+",
     "summary": "Weapon ability written Anti-Tyranids X+. While the target unit carries the TYRANIDS keyword, an unmodified wound roll of X or more counts as a critical wound. Each weapon prints its own X.",
-    "review_state": "in_review",
-    "mechanic_digest": "62522751f20e299fdd5db8d7eeb0be86"
+    "review_state": "approved",
+    "mechanic_digest": "62522751f20e299fdd5db8d7eeb0be86",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "glossary:anti vehicle",
@@ -116,8 +138,10 @@
     "has_numeric_parameter": true,
     "name": "Anti-Vehicle X+",
     "summary": "Weapon ability written Anti-Vehicle X+. While the target unit carries the VEHICLE keyword, an unmodified wound roll of X or more counts as a critical wound. Each weapon prints its own X.",
-    "review_state": "in_review",
-    "mechanic_digest": "ec7af966da849aee2d04842f123c4728"
+    "review_state": "approved",
+    "mechanic_digest": "ec7af966da849aee2d04842f123c4728",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "glossary:anti walker",
@@ -126,8 +150,10 @@
     "has_numeric_parameter": true,
     "name": "Anti-Walker X+",
     "summary": "Weapon ability written Anti-Walker X+. While the target unit carries the WALKER keyword, an unmodified wound roll of X or more counts as a critical wound. Each weapon prints its own X.",
-    "review_state": "in_review",
-    "mechanic_digest": "50eea230fdb81874f15542b219a5667e"
+    "review_state": "approved",
+    "mechanic_digest": "50eea230fdb81874f15542b219a5667e",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "glossary:assault",
@@ -136,8 +162,10 @@
     "has_numeric_parameter": false,
     "name": "Assault",
     "summary": "Weapon ability. A unit holding one or more of these may shoot after advancing, using the assault shooting mode - in which only assault weapons may be fired and the unit cannot begin an action afterwards.",
-    "review_state": "in_review",
-    "mechanic_digest": "c1e89acbf0d5afc3e5867e2dc23d6508"
+    "review_state": "approved",
+    "mechanic_digest": "c1e89acbf0d5afc3e5867e2dc23d6508",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "glossary:battleline",
@@ -146,8 +174,10 @@
     "has_numeric_parameter": false,
     "name": "Battleline",
     "summary": "Force-organisation keyword. An army's per-datasheet unit limit is doubled for units with this keyword, letting more of them be fielded than other unit types at a given battle size.",
-    "review_state": "in_review",
-    "mechanic_digest": "3cc30959d786789e78186f52bf47308e"
+    "review_state": "approved",
+    "mechanic_digest": "3cc30959d786789e78186f52bf47308e",
+    "reviewed_by": "claude-opus-5-adversarial-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "glossary:beasts",
@@ -156,8 +186,10 @@
     "has_numeric_parameter": false,
     "name": "Beasts",
     "summary": "Unit-type keyword. Beasts models move through dense terrain, get benefit of cover inside a terrain area, and are hidden in a terrain area holding dense terrain if their unit made no ranged attacks this turn or last turn.",
-    "review_state": "in_review",
-    "mechanic_digest": "86108a13f46494c61052c7753e4408cd"
+    "review_state": "approved",
+    "mechanic_digest": "86108a13f46494c61052c7753e4408cd",
+    "reviewed_by": "claude-opus-5-second-reviewer",
+    "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
     "summary_key": "glossary:blast",
