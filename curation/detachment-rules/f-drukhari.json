@@ -1,5 +1,21 @@
 [
   {
+    "summary_key": "detachment:d-covenite-coterie:stitchflesh-abominations",
+    "detachment_id": "d-covenite-coterie",
+    "name": "Stitchflesh Abominations",
+    "summary": "Attacks against your Haemonculus Covens units suffer -1 to the wound roll whenever the attacker's Strength exceeds that unit's Toughness.",
+    "review_state": "in_review",
+    "mechanic_digest": "5bf7e6847aee0930b5ee86d5414aed5b"
+  },
+  {
+    "summary_key": "detachment:d-exhibition-of-slaughter:exacting-cruelty",
+    "detachment_id": "d-exhibition-of-slaughter",
+    "name": "Exacting Cruelty",
+    "summary": "Wych Cult units' melee attacks gain Lethal Hits against non-Monster, non-Vehicle targets. This detachment cannot be combined with another Wych Cult detachment.",
+    "review_state": "in_review",
+    "mechanic_digest": "a88608eed1dd68f8aa7471bf7420e936"
+  },
+  {
     "summary_key": "detachment:d-kabalite-agonysts:contracted-harvest",
     "detachment_id": "d-kabalite-agonysts",
     "name": "Contracted Harvest",
@@ -16,12 +32,36 @@
     "mechanic_digest": "76884b94554df67cd86a80d1300e0e6b"
   },
   {
+    "summary_key": "detachment:d-realspace-raiders:alliance-of-agony",
+    "detachment_id": "d-realspace-raiders",
+    "name": "Alliance of Agony",
+    "summary": "At battle start, gain 2 Pain tokens for each qualifying character-and-unit-type pairing in your army (Archon/Kabalite Warriors, Succubus/Wyches, Haemonculus/Wracks), stacking up to 6.",
+    "review_state": "in_review",
+    "mechanic_digest": "52c74dc4f06826867b84995f2eb18d0a"
+  },
+  {
     "summary_key": "detachment:d-reapers-wager:callous-competition",
     "detachment_id": "d-reapers-wager",
     "name": "Callous Competition",
     "summary": "Drukhari and Harlequins alternate 'winning the wager' by scoring kills; the winning side re-rolls Hit rolls of 1, the losing side also re-rolls Wound rolls of 1. Lets Harlequins join, points-capped by battle size; they cannot be Warlord.",
     "review_state": "in_review",
     "mechanic_digest": "edc8771548a5d3a17d8ebd533d3a387d"
+  },
+  {
+    "summary_key": "detachment:d-skysplinter-assault:rain-of-cruelty",
+    "detachment_id": "d-skysplinter-assault",
+    "name": "Rain Of Cruelty",
+    "summary": "Whenever a Drukhari unit disembarks from a Transport, its ranged weapons gain Ignores Cover and its melee weapons gain Lance until end of turn.",
+    "review_state": "in_review",
+    "mechanic_digest": "bbedff71f84a8da8f148d97bddda8414"
+  },
+  {
+    "summary_key": "detachment:d-spectacle-of-spite:combat-drugs",
+    "detachment_id": "d-spectacle-of-spite",
+    "name": "Combat Drugs",
+    "summary": "Each Command phase, pick or randomly roll one Combat Drug buff for your Wych Cult models until your next Command phase: bonus Attacks, Move, Weapon Skill, Toughness, Strength, or Leadership/Ballistic Skill.",
+    "review_state": "in_review",
+    "mechanic_digest": "a2889e27e39f1fc22c21af2c3c98a602"
   },
   {
     "summary_key": "detachment:d-tools-of-torment:darkest-artifice",
