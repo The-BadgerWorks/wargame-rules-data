@@ -8,6 +8,14 @@
     "mechanic_digest": "e50bb93bdde4db77c9cb4134666f563f"
   },
   {
+    "summary_key": "detachment:d-bully-boyz:da-boss-is-watchin",
+    "detachment_id": "d-bully-boyz",
+    "name": "Da Boss Is Watchin’",
+    "summary": "If you have a Warboss on or transported within the battlefield and have not called a Waaagh! this turn, you may call a second Waaagh! this battle, affecting only Warboss, Nobz and Meganobz units.",
+    "review_state": "in_review",
+    "mechanic_digest": "d2835998ef4b0a678bcfccbc50ae25a3"
+  },
+  {
     "summary_key": "detachment:d-da-big-hunt:da-hunt-is-on",
     "detachment_id": "d-da-big-hunt",
     "name": "Da Hunt Is On",

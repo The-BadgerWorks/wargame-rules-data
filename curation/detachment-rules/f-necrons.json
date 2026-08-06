@@ -16,6 +16,14 @@
     "mechanic_digest": "6da8f9a03bc2e0b9656bcd1d13c51b67"
   },
   {
+    "summary_key": "detachment:d-canoptek-court:power-matrix",
+    "detachment_id": "d-canoptek-court",
+    "name": "Power Matrix",
+    "summary": "Your deployment zone, and No Man's Land or your opponent's deployment zone when you hold half its objectives, form your Power Matrix. Crypteks and Canoptek units re-roll hit rolls of 1, or any hit roll while wholly within it.",
+    "review_state": "in_review",
+    "mechanic_digest": "76f444848a1c85f21dcd452c958db975"
+  },
+  {
     "summary_key": "detachment:d-cryptek-conclave:technosorcerous-augmentations",
     "detachment_id": "d-cryptek-conclave",
     "name": "Technosorcerous Augmentations",
@@ -54,6 +62,22 @@
     "summary": "Necrons Monster units give enemies within 6\" +1 Armour Penetration taken against them; a Monster can suffer 3 mortal wounds to extend that range to 9\" for the phase. Each such Monster costs extra points for this ability.",
     "review_state": "in_review",
     "mechanic_digest": "6132215767f47c7e3650a94c80a33449"
+  },
+  {
+    "summary_key": "detachment:d-skyshroud-spearhead:transdimensional-deployment",
+    "detachment_id": "d-skyshroud-spearhead",
+    "name": "Transdimensional Deployment",
+    "summary": "Tomb Blades units gain Deep Strike. A Tomb Blades unit that made an ingress move this turn gets +1 to hit on its ranged attacks when it shoots.",
+    "review_state": "in_review",
+    "mechanic_digest": "c40333ba940f30d2ed74f784ea7868c0"
+  },
+  {
+    "summary_key": "detachment:d-starshatter-arsenal:relentless-onslaught",
+    "detachment_id": "d-starshatter-arsenal",
+    "name": "Relentless Onslaught",
+    "summary": "Necrons models except Monsters get +1 to hit when attacking a unit within range of an objective marker. Necrons Vehicle and Mounted models except Titanic have Assault on their ranged weapons.",
+    "review_state": "in_review",
+    "mechanic_digest": "10b3811f5429d3f00a3097ec19f7fd01"
   },
   {
     "summary_key": "detachment:d-the-phaerons-armoury:empowered-engines",
