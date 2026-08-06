@@ -839,6 +839,22 @@ def detachment_id(slug: str, code: str) -> str:
     return f"{slug}:{code}"
 
 
+def ability_ref(slug: str, tooltip_id: str) -> str:
+    """``<faction slug>:<tooltip id>`` — one shared ability's identity under this mode.
+
+    The page's ``tooltip_contentNNNNN`` ids are assigned per page, from the same low numbers on
+    every one: on the 2026-08-05 live sweep 569 of the 1 169 ids appeared on more than one page
+    and 350 of those named a *different* thing on each. Emitted bare, the digest join's
+    ``ability_id -> mechanic text`` map merged all 24 pages into one and the first page read
+    answered for every collision — so 39 ability keys were digested against another faction's
+    ability, and a mechanic that changed under one of them would not have re-reviewed.
+
+    An empty ``tooltip_id`` stays empty: the card printed the ability rather than referring to a
+    shared one, and there is no tooltip to name.
+    """
+    return f"{slug}:{tooltip_id}" if tooltip_id else ""
+
+
 # -- page extraction -------------------------------------------------------------------------
 
 
@@ -1036,7 +1052,7 @@ def emit_records(
         for identifier, (name, description) in sorted(page.ability_texts.items()):
             tables["Abilities.csv"].append(
                 {
-                    "id": identifier,
+                    "id": ability_ref(page.faction_slug, identifier),
                     "name": name,
                     "legend": "",
                     "faction_id": page.faction_slug,
@@ -1119,7 +1135,7 @@ def _emit_card(card: Datacard, tables: dict[str, list[dict[str, str]]]) -> None:
             {
                 "datasheet_id": card.detail_id,
                 "line": str(line),
-                "ability_id": ability.ability_id,
+                "ability_id": ability_ref(card.faction_id, ability.ability_id),
                 "model": "",
                 "name": ability.name,
                 "description": ability.description,

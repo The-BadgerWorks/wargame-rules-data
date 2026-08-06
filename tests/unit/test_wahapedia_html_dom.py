@@ -12,6 +12,8 @@
 # AI-Assisted: Claude Code (model: claude-opus-5) - Added the colliding-`data-det-code` cases
 # (issue #5): two invented factions publishing the same two-letter code must emit two
 # detachments and keep each one's rules on its own page.
+# AI-Assisted: Claude Code (model: claude-opus-5) - Added the colliding-tooltip-id cases
+# (issue #6): the same shape one layer over, on the ids the ability digest join resolves.
 """The mode-blindness proof, stated as tests rather than as a design note.
 
 `004`'s architecture rests on one claim: the composition and option grammars, measured once
@@ -41,6 +43,7 @@ from pipeline.parse.composition_grammar import link_model_line, parse_entry
 from pipeline.parse.options_grammar import choice_names, parse_row, split_sublist
 from pipeline.parse.wahapedia_html_dom import (
     CHARACTERISTIC_NAMES,
+    AbilityReference,
     Datacard,
     DatacardPage,
     Detachment,
@@ -539,6 +542,90 @@ def test_a_rule_is_emitted_against_the_detachment_on_its_own_page() -> None:
     }
     # And the rule rows' own ids stay distinct, so neither overwrites the other downstream.
     assert len({row.fields["id"] for row in rules}) == 2
+
+
+# -- issue #6: nor is a tooltip id ------------------------------------------------------------
+
+
+def _ability_page(slug: str, tooltip: str, name: str, mechanic: str) -> DatacardPage:
+    """One invented faction whose one card refers to one invented shared ability."""
+    return DatacardPage(
+        faction_slug=slug,
+        faction_name=slug,
+        cards=(
+            Datacard(
+                detail_id=detail_id(slug, "Invented-Card"),
+                name="Invented Card",
+                faction_id=slug,
+                abilities=(
+                    AbilityReference(name=name, ability_type="Faction", ability_id=tooltip),
+                ),
+            ),
+        ),
+        ability_texts={tooltip: (name, mechanic)},
+    )
+
+
+def test_two_factions_sharing_a_tooltip_id_get_two_abilities() -> None:
+    """569 of the 1 169 tooltip ids on the 2026-08-05 sweep were on more than one page, and 350
+    of those named a different thing on each — the ids are assigned per page, from 1."""
+    tables = emit_records(
+        [
+            _ability_page("ashenreach", "00003", "Sable Resolve", "Invented mechanic one."),
+            _ability_page("thornmoor", "00003", "Sedge Cunning", "Invented mechanic two."),
+        ],
+        edition_code="wh40k-11e",
+    )
+
+    assert {row.fields["id"]: row.fields["name"] for row in tables["Abilities.csv"].rows} == {
+        "ashenreach:00003": "Sable Resolve",
+        "thornmoor:00003": "Sedge Cunning",
+    }
+
+
+def test_a_binding_names_the_ability_tooltip_on_its_own_page() -> None:
+    """The digest join resolves ``ability_id`` against ``Abilities.csv``; a bare id let the first
+    page read answer for every other page's ability of the same number."""
+    tables = emit_records(
+        [
+            _ability_page("ashenreach", "00003", "Sable Resolve", "Invented mechanic one."),
+            _ability_page("thornmoor", "00003", "Sedge Cunning", "Invented mechanic two."),
+        ],
+        edition_code="wh40k-11e",
+    )
+    texts = {row.fields["id"]: row.fields["description"] for row in tables["Abilities.csv"].rows}
+
+    for row in tables["Datasheets_abilities.csv"].rows:
+        slug = row.fields["datasheet_id"].split(":")[0]
+        assert row.fields["ability_id"] == f"{slug}:00003"
+        assert texts[row.fields["ability_id"]].endswith("one." if slug == "ashenreach" else "two.")
+
+
+def test_a_card_that_prints_its_own_ability_names_no_tooltip() -> None:
+    """An empty id must stay empty rather than become a bare faction slug that resolves to
+    whatever ``Abilities.csv`` row happens to carry an empty-suffixed id."""
+    page = DatacardPage(
+        faction_slug="ashenreach",
+        faction_name="ashenreach",
+        cards=(
+            Datacard(
+                detail_id=detail_id("ashenreach", "Invented-Card"),
+                name="Invented Card",
+                faction_id="ashenreach",
+                abilities=(
+                    AbilityReference(
+                        name="Printed In Full",
+                        ability_type="Other",
+                        description="Invented mechanic printed on the card itself.",
+                    ),
+                ),
+            ),
+        ),
+    )
+
+    tables = emit_records([page], edition_code="wh40k-11e")
+
+    assert [row.fields["ability_id"] for row in tables["Datasheets_abilities.csv"].rows] == [""]
 
 
 # -- the emitted tables ------------------------------------------------------------------------
