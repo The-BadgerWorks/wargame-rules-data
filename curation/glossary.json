@@ -1,1 +1,162 @@
-[]
+[
+  {
+    "summary_key": "glossary:aircraft",
+    "keyword_key": "aircraft",
+    "display_keyword": "Aircraft",
+    "has_numeric_parameter": false,
+    "name": "Aircraft",
+    "summary": "Unit-type keyword. Aircraft deploy to and must return to strategic reserves each turn, can only arrive by an ingress move, cannot declare charges, and can only be charged or fought by units that can Fly.",
+    "review_state": "in_review",
+    "mechanic_digest": "ad3d69db766ff4d01535e572add4f247"
+  },
+  {
+    "summary_key": "glossary:battleline",
+    "keyword_key": "battleline",
+    "display_keyword": "Battleline",
+    "has_numeric_parameter": false,
+    "name": "Battleline",
+    "summary": "Force-organisation keyword. An army's per-datasheet unit limit is doubled for units with this keyword, letting more of them be fielded than other unit types at a given battle size.",
+    "review_state": "in_review",
+    "mechanic_digest": "3cc30959d786789e78186f52bf47308e"
+  },
+  {
+    "summary_key": "glossary:beasts",
+    "keyword_key": "beasts",
+    "display_keyword": "Beasts",
+    "has_numeric_parameter": false,
+    "name": "Beasts",
+    "summary": "Unit-type keyword. Beasts models can move through dense terrain, gain benefit of cover while in a terrain area, and can become hidden there if their unit made no ranged attacks last turn.",
+    "review_state": "in_review",
+    "mechanic_digest": "86108a13f46494c61052c7753e4408cd"
+  },
+  {
+    "summary_key": "glossary:character",
+    "keyword_key": "character",
+    "display_keyword": "Character",
+    "has_numeric_parameter": false,
+    "name": "Character",
+    "summary": "Unit-type keyword. Only a Character model may be nominated Warlord or a unit's Leader, and normally only Character units may be given an Enhancement, limited to one per unit.",
+    "review_state": "in_review",
+    "mechanic_digest": "5f3c74ee2cb0d5b940830f1ac088d0e6"
+  },
+  {
+    "summary_key": "glossary:dedicated transport",
+    "keyword_key": "dedicated transport",
+    "display_keyword": "Dedicated Transport",
+    "has_numeric_parameter": false,
+    "name": "Dedicated Transport",
+    "summary": "Unit-type keyword. A Dedicated Transport must have a unit embarked in it by the end of army set-up or it is destroyed, and it shares the doubled per-datasheet unit limit that Battleline units have.",
+    "review_state": "in_review",
+    "mechanic_digest": "23b9e6ecfb19411939f560d2cd15a1bb"
+  },
+  {
+    "summary_key": "glossary:epic hero",
+    "keyword_key": "epic hero",
+    "display_keyword": "Epic Hero",
+    "has_numeric_parameter": false,
+    "name": "Epic Hero",
+    "summary": "Datasheet-role keyword. A model with this keyword cannot be given an Enhancement, and an army is limited to one unit bearing this keyword per datasheet, regardless of battle size.",
+    "review_state": "in_review",
+    "mechanic_digest": "11c130f42d6d8254a0b7fd818a94e69e"
+  },
+  {
+    "summary_key": "glossary:fly",
+    "keyword_key": "fly",
+    "display_keyword": "Fly",
+    "has_numeric_parameter": false,
+    "name": "Fly",
+    "summary": "Movement keyword. A unit can take to the skies: its maximum move distance is reduced by 2\", but it then ignores vertical distance and can move through any model and any terrain feature.",
+    "review_state": "in_review",
+    "mechanic_digest": "7b926f31f794a4139f3bcffdd313a1ed"
+  },
+  {
+    "summary_key": "glossary:fortification",
+    "keyword_key": "fortification",
+    "display_keyword": "Fortification",
+    "has_numeric_parameter": false,
+    "name": "Fortification",
+    "summary": "Unit-type keyword. Fortification units cannot start actions, and are excluded when friendly units are placed into strategic reserves before the battle begins.",
+    "review_state": "in_review",
+    "mechanic_digest": "8bf40ac7372e37a29fe035ad07747b38"
+  },
+  {
+    "summary_key": "glossary:infantry",
+    "keyword_key": "infantry",
+    "display_keyword": "Infantry",
+    "has_numeric_parameter": false,
+    "name": "Infantry",
+    "summary": "Unit-type keyword. Infantry models can move through dense terrain, gain benefit of cover while in a terrain area, and can become hidden there if their unit made no ranged attacks last turn.",
+    "review_state": "in_review",
+    "mechanic_digest": "f024d7b1825f7f6d4b4af204bff5ae07"
+  },
+  {
+    "summary_key": "glossary:monster",
+    "keyword_key": "monster",
+    "display_keyword": "Monster",
+    "has_numeric_parameter": false,
+    "name": "Monster",
+    "summary": "Unit-type keyword. Monster models can move through other models except other Monster/Vehicle models, cannot move through dense terrain, and are the intended target of Anti-Monster weapon abilities.",
+    "review_state": "in_review",
+    "mechanic_digest": "9f0f132fc5ca1dc84125a7fdbaf2b5ee"
+  },
+  {
+    "summary_key": "glossary:psyker",
+    "keyword_key": "psyker",
+    "display_keyword": "Psyker",
+    "has_numeric_parameter": false,
+    "name": "Psyker",
+    "summary": "Unit-type keyword. It is the targeting condition for Anti-Psyker weapon abilities, and a unit led by a Psyker leader model counts as having this keyword itself while that leader remains attached.",
+    "review_state": "in_review",
+    "mechanic_digest": "3ab9eea6547be8112dc032588938b33c"
+  },
+  {
+    "summary_key": "glossary:titanic",
+    "keyword_key": "titanic",
+    "display_keyword": "Titanic",
+    "has_numeric_parameter": false,
+    "name": "Titanic",
+    "summary": "Size keyword. Titanic units ignore being engaged when starting actions or when checking if they may shoot after acting, and cannot be moved through by Super-Heavy Walker units.",
+    "review_state": "in_review",
+    "mechanic_digest": "3091cb98773daa1dcceb6868ec04da14"
+  },
+  {
+    "summary_key": "glossary:towering",
+    "keyword_key": "towering",
+    "display_keyword": "Towering",
+    "has_numeric_parameter": false,
+    "name": "Towering",
+    "summary": "Size keyword. A model with this keyword grants Plunging Fire, improving the attacking model's Ballistic Skill by 1, against a visible target with ground-level models within 12\", without needing elevated terrain.",
+    "review_state": "in_review",
+    "mechanic_digest": "355d9f81a5058449b521cdccbb8adf61"
+  },
+  {
+    "summary_key": "glossary:transport",
+    "keyword_key": "transport",
+    "display_keyword": "Transport",
+    "has_numeric_parameter": false,
+    "name": "Transport",
+    "summary": "Unit-type keyword. A Transport has a stated capacity and friendly units can embark within it before the battle or during a move, then disembark from it in a later Movement phase.",
+    "review_state": "in_review",
+    "mechanic_digest": "c183bce3b871a3f2fd3f315535136194"
+  },
+  {
+    "summary_key": "glossary:vehicle",
+    "keyword_key": "vehicle",
+    "display_keyword": "Vehicle",
+    "has_numeric_parameter": false,
+    "name": "Vehicle",
+    "summary": "Unit-type keyword. Vehicle models can move through other models except other Monster/Vehicle models, cannot move through dense terrain, and are the intended target of Anti-Vehicle weapon abilities.",
+    "review_state": "in_review",
+    "mechanic_digest": "014b0b243c2cb24091e99cb6bc40aaef"
+  },
+  {
+    "summary_key": "glossary:walker",
+    "keyword_key": "walker",
+    "display_keyword": "Walker",
+    "has_numeric_parameter": false,
+    "name": "Walker",
+    "summary": "Unit-type keyword, combined with Vehicle or Monster. It is a targeting condition for some rules, such as which Vehicle units may be selected for a Character/Walker-restricted core stratagem.",
+    "review_state": "in_review",
+    "mechanic_digest": "a0ad4d7b4b672d4e86336d329a5448a8"
+  }
+]
