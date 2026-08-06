@@ -6,7 +6,7 @@
       "summary_key": "faction:f-grey-knights:gate-of-infinity",
       "display_order": 1,
       "name": "Gate of Infinity",
-      "summary": "At the end of your opponent's Fight phase, place 2-4 units (by battle size) not within Engagement Range into Strategic Reserves; they can make an ingress move next Movement phase, including turn one.",
+      "summary": "At the end of your opponent's Fight phase, place up to 2, 3 or 4 units by battle size into Strategic Reserves, if every model in them has this ability and none is in Engagement Range. They can ingress next Movement phase, even turn one.",
       "review_state": "in_review",
       "mechanic_digest": "57afbfbca97cdaabc0f79d7e007800b6"
     }
