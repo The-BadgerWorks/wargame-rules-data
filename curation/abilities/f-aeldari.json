@@ -90,6 +90,13 @@
     "summary": "When this model makes a Normal, Advance, or Fall Back move, it can move over other non-Titanic models and terrain 4\" or less in height as if they were not there."
   },
   {
+    "ability_key": "datasheet:agile-reach",
+    "mechanic_digest": "2a7b8ef16fcda4b3ea5a5e7f715cda16",
+    "name": "Agile Reach",
+    "review_state": "in_review",
+    "summary": "When this unit is selected to fight, its unengaged models within 3\" of an enemy unit engaged with this unit can direct their melee weapons at that enemy unit."
+  },
+  {
     "ability_key": "datasheet:arcane-cover",
     "mechanic_digest": "a36651fb50ac2cd42924bd84995caf4b",
     "name": "Arcane Cover",
@@ -133,6 +140,13 @@
     "reviewed_at": "2026-08-04T00:00:00Z",
     "reviewed_by": "claude-reviewer-opus",
     "summary": "If your army includes this model, it cannot also include any Epic Hero units excluding Ynnari, and vice versa."
+  },
+  {
+    "ability_key": "datasheet:blade-of-the-clans",
+    "mechanic_digest": "1a7bcae3ae101fab33fe0643a8aca4de",
+    "name": "Blade of the Clans",
+    "review_state": "in_review",
+    "summary": "This unit's melee weapons have the Sustained Hits 1 ability."
   },
   {
     "ability_key": "datasheet:bladestorm",
@@ -252,6 +266,13 @@
     "summary": "Each time you roll a D6 for the bearer while resolving this unit's Eviscerating Fly-by ability, you can re-roll it."
   },
   {
+    "ability_key": "datasheet:cornered-prey",
+    "mechanic_digest": "14085db3b2bcb92b6310c2ec83583736",
+    "name": "Cornered Prey",
+    "review_state": "in_review",
+    "summary": "When an enemy unit engaged with this unit is selected to Fall Back, it must take Desperate Escape tests for that move; if it is Battle-shocked, those tests suffer -1."
+  },
+  {
     "ability_key": "datasheet:corsairs",
     "mechanic_digest": "fb30925964638953ba51141d19a5cbe2",
     "name": "CORSAIRS",
@@ -367,6 +388,20 @@
     "reviewed_at": "2026-08-04T00:00:00Z",
     "reviewed_by": "claude-reviewer-opus",
     "summary": "At the end of your Movement phase, pick a visible enemy unit within 18\"; until your next Command phase, friendly Aeldari attacks against it get +1 to the Wound roll."
+  },
+  {
+    "ability_key": "datasheet:drakolithe-once-per-battle-per-token",
+    "mechanic_digest": "9d6c1e0c8b00fa4077410a7607f4c300",
+    "name": "Drakolithe (Once per battle, per token)",
+    "review_state": "in_review",
+    "summary": "Once per Drakolithe token this unit is equipped with (one token placed per Drakolithe, removed each time this ability is used), when an enemy unit ends a move within 8\" of this unit and either this unit is unengaged or that enemy unit ended the move engaged with this unit, you can roll one D6: on a 3+ that enemy unit suffers 1 mortal wound."
+  },
+  {
+    "ability_key": "datasheet:elemental-ensnarement",
+    "mechanic_digest": "086505c5c5eed8345887e69e0d7be64a",
+    "name": "Elemental Ensnarement",
+    "review_state": "in_review",
+    "summary": "At the end of your Fight phase, if this unit is not Battle-shocked, you can roll one D6 (this unit becomes Battle-shocked on a 1) and select one visible enemy Monster or Vehicle unit, excluding Titanic units, within 18\": until the start of your next turn that unit is Ensnared, subtracting 2\" from its Move characteristic and preventing it from being Pinned."
   },
   {
     "ability_key": "datasheet:empowered-by-death",
@@ -765,6 +800,13 @@
     "summary": "Each time a non-MONSTER/VEHICLE enemy unit within Engagement Range of a unit with this ability Falls Back, it must take a Desperate Escape test, at -1 if Battle-shocked."
   },
   {
+    "ability_key": "datasheet:on-the-hunt",
+    "mechanic_digest": "71489afb51f4523e576481d15ddfc00c",
+    "name": "On the Hunt",
+    "review_state": "in_review",
+    "summary": "This unit is eligible to shoot and to declare a charge in a turn in which it Fell Back."
+  },
+  {
     "ability_key": "datasheet:overlord",
     "mechanic_digest": "93d5d7c630dda7f0672f731fb18b471c",
     "name": "Overlord",
@@ -772,6 +814,13 @@
     "reviewed_at": "2026-08-06T00:00:00Z",
     "reviewed_by": "claude-opus-5-second-reviewer",
     "summary": "While this model leads a unit, that unit's attacks re-roll Wound rolls of 1; while the unit is below its Starting Strength, they can re-roll any Wound roll instead."
+  },
+  {
+    "ability_key": "datasheet:panicked-quarry",
+    "mechanic_digest": "5d1844363257301aa0fd76616c148b0a",
+    "name": "Panicked Quarry",
+    "review_state": "in_review",
+    "summary": "After this unit shoots, select one enemy unit, excluding Monster and Vehicle units, that was hit by those attacks: it must take a Battle-shock test with -1 to the result."
   },
   {
     "ability_key": "datasheet:path-of-command",
