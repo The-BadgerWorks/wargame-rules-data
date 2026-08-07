@@ -14,6 +14,9 @@
 # AI-Assisted: Claude Code (model: claude-opus-5) - Emitted `keywordGlossary` (004 task T062,
 # contract §2.7): an entry exists only when authored and approved, and carries none of the
 # authoring state a consumer has no business reading.
+# AI-Assisted: Claude Code (model: claude-opus-5) - Gave `datasheetAbilities` a scope precedence:
+# where a datasheet-scoped and a core-scoped authored record collide on the consumer key, the
+# datasheet-scoped one wins for that datasheet and the core one keeps serving every other.
 # AI-Assisted: Claude Code (model: claude-opus-5) - Emitted `datasheetCostContexts`: the prices
 # the points source states a condition for, kept out of `datasheetCosts` / `datasheetCostTiers`
 # so those two arrays are unchanged for a consumer that does not read the new one.
@@ -857,6 +860,20 @@ def _emit_abilities(snapshot: CuratedSnapshot) -> list[dict[str, JsonValue]]:
     A key with no summary is not emitted as an empty string: `SUM-MISSING` is a blocking finding
     of its own (V7, US5), and a blank summary would satisfy the schema while telling a player
     nothing.
+
+    **The narrower record wins a name it shares.** The consumer's key is `(datasheet_id, name)`
+    and excludes `ability_type` on purpose (`reference-db-schema.md` §3.8), so a datasheet that
+    binds both `core:super-heavy-walker` and `datasheet:super-heavy-walker` — four Chaos
+    datasheets do — offers two rows for one key with two different authored summaries. Where one
+    of them is scoped more narrowly than the others, that one is what the datasheet carries: an
+    author who wrote a record *for this datasheet* was answering the question this row asks, and
+    the core record was answering a more general one. The core record is untouched and keeps
+    serving every other datasheet bound to it.
+
+    Deliberately not a tie-break of last resort. Precedence resolves a collision only when the
+    narrowest scope holds exactly **one** record; two datasheet-scoped records of one name, or
+    two core-scoped ones, are a question about the data and both still ship, so
+    `check_bundle_primary_keys` blocks the release rather than the emitter choosing (V20).
     """
     rows: list[dict[str, JsonValue]] = []
     for datasheet in snapshot.datasheets:
@@ -872,7 +889,31 @@ def _emit_abilities(snapshot: CuratedSnapshot) -> list[dict[str, JsonValue]]:
                     "summary": summary.summary,
                 }
             )
-    return _rows(rows, "datasheetId", "name")
+    return _rows(_narrowest_scope_wins(rows), "datasheetId", "name")
+
+
+#: How narrowly an `ability_type` is scoped. Higher is narrower, and the narrowest record that
+#: is *alone* at its scope wins the consumer key it shares (§3.8).
+_ABILITY_SCOPE: Final[Mapping[str, int]] = {"core": 0, "faction": 1, "datasheet": 2}
+
+
+def _narrowest_scope_wins(rows: Sequence[dict[str, JsonValue]]) -> list[dict[str, JsonValue]]:
+    """Resolve `(datasheetId, name)` collisions by scope, or leave them for V20 to block."""
+    grouped: dict[tuple[JsonValue, JsonValue], list[dict[str, JsonValue]]] = {}
+    for row in rows:
+        grouped.setdefault((row["datasheetId"], row["name"]), []).append(row)
+
+    resolved: list[dict[str, JsonValue]] = []
+    for group in grouped.values():
+        if len(group) == 1:
+            resolved.extend(group)
+            continue
+        narrowest = max(_ABILITY_SCOPE.get(str(row["abilityType"]), -1) for row in group)
+        winners = [
+            row for row in group if _ABILITY_SCOPE.get(str(row["abilityType"]), -1) == narrowest
+        ]
+        resolved.extend(winners if len(winners) == 1 else group)
+    return resolved
 
 
 def emit_bundle(snapshot: CuratedSnapshot, meta: BundleMeta) -> dict[str, Any]:

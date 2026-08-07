@@ -30,6 +30,7 @@ from typing import Any
 
 from pipeline.build.bundle_emit import emit_bundle
 from pipeline.models.curated import CuratedDatasheetCost, CuratedKeyword, PricingConfidenceState
+from pipeline.models.findings import Severity
 from pipeline.report.catalogue import severity_of
 from pipeline.validate.contract_checks import (
     CONSUMER_PRIMARY_KEYS,
@@ -112,30 +113,79 @@ def test_a_disagreeing_collision_blocks_in_both_projections_of_the_price() -> No
     assert all(f.detail["row_count"] == 2 for f in findings)
 
 
-def test_one_ability_classified_twice_collides_on_name_alone() -> None:
-    """The candidate's own case, in miniature (`docs/follow-ups.md` item 8, class 2c).
-
-    `datasheet_ability`'s key is `(datasheet_id, name)` and carries no `ability_type`, so a card
-    that prints one ability under two classifications is two rows the app cannot hold. It is a
-    collision the tree cannot show, because the tree keys abilities per *ability* and the
-    expansion into per-binding rows happens at emission.
-    """
-    keys = ("core:ember-stride", "datasheet:ember-stride")
-    datasheet = factories.datasheet().model_copy(update={"ability_keys": list(keys)})
+def _collision_bundle(keys: tuple[str, ...], *, datasheet_ids: tuple[str, ...] = ("ds-a",)) -> Any:
+    """Every named datasheet binds every named ability key, and all of them share one name."""
     summaries = factories.summaries(keys)
     for key, summary in summaries.items():
         summaries[key] = summary.model_copy(
             update={"name": "Ember Stride", "summary": f"Invented summary for {key}."}
         )
-    bundle = emit_bundle(
-        factories.snapshot(datasheets=[datasheet], ability_summaries=summaries),
+    return emit_bundle(
+        factories.snapshot(
+            datasheets=[
+                factories.datasheet(datasheet_id=ds, ability_keys=keys) for ds in datasheet_ids
+            ],
+            ability_summaries=summaries,
+        ),
         factories.meta(),
     )
 
-    assert len(bundle["datasheetAbilities"]) == 2
 
+def test_one_ability_classified_twice_resolves_to_the_narrower_record() -> None:
+    """The candidate's own case, in miniature (`docs/follow-ups.md` item 8, class 2c).
+
+    `datasheet_ability`'s key is `(datasheet_id, name)` and carries no `ability_type`, so a card
+    that prints one ability under two classifications offers two rows the app cannot hold. It is
+    a collision the tree cannot show, because the tree keys abilities per *ability* and the
+    expansion into per-binding rows happens at emission.
+
+    The Product Owner's 2026-08-06 ruling is that the narrower record wins: an author who wrote
+    a record for *this datasheet* was answering the question this row asks.
+    """
+    bundle = _collision_bundle(("core:ember-stride", "datasheet:ember-stride"))
+
+    rows = bundle["datasheetAbilities"]
+    assert [(row["abilityType"], row["summary"]) for row in rows] == [
+        ("datasheet", "Invented summary for datasheet:ember-stride.")
+    ]
+    assert check_bundle_primary_keys(bundle) == []
+
+
+def test_the_core_record_still_serves_every_datasheet_that_did_not_override_it() -> None:
+    """Precedence is per datasheet. The core record is not edited, dropped, or narrowed."""
+    bundle = emit_bundle(
+        factories.snapshot(
+            datasheets=[
+                factories.datasheet(
+                    datasheet_id="ds-a",
+                    ability_keys=("core:ember-stride", "datasheet:ember-stride"),
+                ),
+                factories.datasheet(datasheet_id="ds-b", ability_keys=("core:ember-stride",)),
+            ],
+            ability_summaries={
+                key: summary.model_copy(update={"name": "Ember Stride", "summary": f"For {key}."})
+                for key, summary in factories.summaries(
+                    ("core:ember-stride", "datasheet:ember-stride")
+                ).items()
+            },
+        ),
+        factories.meta(),
+    )
+
+    assert {(row["datasheetId"], row["abilityType"]) for row in bundle["datasheetAbilities"]} == {
+        ("ds-a", "datasheet"),
+        ("ds-b", "core"),
+    }
+
+
+def test_a_collision_with_no_single_narrowest_record_still_blocks() -> None:
+    """Precedence resolves a disagreement *between* scopes, never one inside a single scope."""
+    bundle = _collision_bundle(("datasheet:ember-stride", "datasheet:ash-stride"))
+
+    assert len(bundle["datasheetAbilities"]) == 2
     (finding,) = check_bundle_primary_keys(bundle)
     assert finding.detail["array"] == "datasheetAbilities"
+    assert severity_of(finding.finding_code) is Severity.BLOCKING
 
 
 def test_a_clean_bundle_raises_nothing() -> None:
