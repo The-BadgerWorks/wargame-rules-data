@@ -78,5 +78,21 @@
     "finding_code": "REC-NEVER-PRICED",
     "resolved_at": "2026-08-06T00:00:00Z",
     "resolved_by": "adhoxx"
+  },
+  {
+    "data_digest": "sha256:59271b46f70b33d49ce172a0a994bf9141e21c678533852545b161446b353c56",
+    "entity_ref": "wahapedia:space-marines:Chaplain-Kastiel",
+    "explanation": "A chapter-specific named character datacard that prints no unit-cost table, and which the points source does not carry at all -- it also raises REC-UNMATCHED-DETAIL-ONLY, so no unmatched points entry exists that a rename could be argued from. No source prices it. Excluded rather than shipped at zero; the digest lapses the moment either source prices it.",
+    "finding_code": "REC-NEVER-PRICED",
+    "resolved_at": "2026-08-06T00:00:00Z",
+    "resolved_by": "adhoxx"
+  },
+  {
+    "data_digest": "sha256:194e14a4c3fa55c62da2c402bc29ae2da88ac1e2e90f6bd1a63b2a6422097b5e",
+    "entity_ref": "wahapedia:space-marines:Judiciar-Xacharus",
+    "explanation": "A chapter-specific named character datacard that prints no unit-cost table, and which the points source does not carry at all -- it also raises REC-UNMATCHED-DETAIL-ONLY, so no unmatched points entry exists that a rename could be argued from. No source prices it. Excluded rather than shipped at zero; the digest lapses the moment either source prices it.",
+    "finding_code": "REC-NEVER-PRICED",
+    "resolved_at": "2026-08-06T00:00:00Z",
+    "resolved_by": "adhoxx"
   }
 ]
