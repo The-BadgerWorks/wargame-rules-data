@@ -60,3 +60,52 @@ def test_the_reports_directory_defaults_to_the_rules_version_id() -> None:
 def test_a_custom_reports_directory_is_honoured() -> None:
     body = render_pr_body(_report_json(), reports_relative_dir="fixtures/minimal/build/reports")
     assert "fixtures/minimal/build/reports/change-summary.md" in body
+
+
+# --- 004 T084: the four classes' coverage, and the churn dry-run reference ----------------------
+
+
+def _coverage_json():  # type: ignore[no-untyped-def]
+    return _report_json(
+        coverage={
+            "datasheets": {"current": 10, "previous": 10, "ratio_percent": 100},
+            "summaries.abilities": {"current": 1934, "previous": 1900, "ratio_percent": 100},
+            "summaries.detachment_rules": {"current": 324, "previous": 0, "ratio_percent": 100},
+            "summaries.faction_rules": {"current": 28, "previous": 0, "ratio_percent": 100},
+            "summaries.glossary": {"current": 70, "previous": 0, "ratio_percent": 5},
+        }
+    )
+
+
+def test_all_four_summary_classes_get_their_own_row() -> None:
+    body = render_pr_body(_coverage_json())
+
+    assert "## Authored summary coverage" in body
+    for name in ("abilities", "detachment_rules", "faction_rules", "glossary"):
+        assert f"`{name}`" in body
+
+
+def test_a_short_class_shows_its_figure_rather_than_being_rounded_away() -> None:
+    """The glossary at 5% is the whole reason this table exists — it must be legible as 5%."""
+    body = render_pr_body(_coverage_json())
+
+    assert "| `glossary` | 70 | 0 | 5% |" in body
+
+
+def test_a_non_summary_coverage_figure_stays_out_of_this_table() -> None:
+    """`datasheets` belongs to Scale's question, not this one."""
+    body = render_pr_body(_coverage_json())
+    table = body.split("## Authored summary coverage", 1)[1].split("##", 1)[0]
+
+    assert "datasheets" not in table
+
+
+def test_the_body_points_at_the_churn_dry_run() -> None:
+    body = render_pr_body(_coverage_json())
+    assert "reports/churn-dry-run" in body
+
+
+def test_a_report_carrying_no_summary_coverage_omits_the_table_entirely() -> None:
+    """An empty table reads as "no summaries", a different claim from "not measured"."""
+    body = render_pr_body(_report_json(coverage={}))
+    assert "## Authored summary coverage" not in body
