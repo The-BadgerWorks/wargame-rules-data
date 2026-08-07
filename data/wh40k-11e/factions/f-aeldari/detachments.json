@@ -8,14 +8,20 @@
       "is_unique": false,
       "name": "ARMOURED WARHOST",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-        "detail_edition_code": "wh40k-10e",
+        "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+        "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
-        "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
-      }
+      },
+      "rules": [
+        {
+          "name": "Skilled Crews",
+          "summary_key": "detachment:d-armoured-warhost:skilled-crews"
+        }
+      ]
     },
     {
       "detachment_id": "d-aspect-host",
@@ -25,14 +31,20 @@
       "is_unique": false,
       "name": "ASPECT HOST",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-        "detail_edition_code": "wh40k-10e",
+        "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+        "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
-        "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
-      }
+      },
+      "rules": [
+        {
+          "name": "Path of the Warrior",
+          "summary_key": "detachment:d-aspect-host:path-of-the-warrior"
+        }
+      ]
     },
     {
       "detachment_id": "d-corsair-coterie",
@@ -42,14 +54,24 @@
       "is_unique": false,
       "name": "CORSAIR COTERIE",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-        "detail_edition_code": "wh40k-10e",
+        "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+        "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
-        "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
-      }
+      },
+      "rules": [
+        {
+          "name": "Relentless Raiders",
+          "summary_key": "detachment:d-corsair-coterie:relentless-raiders"
+        },
+        {
+          "name": "Veterans of the Void",
+          "summary_key": "detachment:d-corsair-coterie:veterans-of-the-void"
+        }
+      ]
     },
     {
       "detachment_id": "d-devoted-of-ynnead",
@@ -59,14 +81,20 @@
       "is_unique": false,
       "name": "DEVOTED OF YNNEAD",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-        "detail_edition_code": "wh40k-10e",
+        "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+        "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
-        "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
-      }
+      },
+      "rules": [
+        {
+          "name": "Strength from Death",
+          "summary_key": "detachment:d-devoted-of-ynnead:strength-from-death"
+        }
+      ]
     },
     {
       "detachment_id": "d-eldritch-raiders",
@@ -76,14 +104,24 @@
       "is_unique": false,
       "name": "ELDRITCH RAIDERS",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-        "detail_edition_code": "wh40k-10e",
+        "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+        "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
-        "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
-      }
+      },
+      "rules": [
+        {
+          "name": "Veterans of the Void",
+          "summary_key": "detachment:d-eldritch-raiders:veterans-of-the-void"
+        },
+        {
+          "name": "Yriel’s Own",
+          "summary_key": "detachment:d-eldritch-raiders:yriels-own"
+        }
+      ]
     },
     {
       "detachment_id": "d-fateful-performance",
@@ -93,14 +131,20 @@
       "is_unique": true,
       "name": "FATEFUL PERFORMANCE",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-        "detail_edition_code": "wh40k-10e",
+        "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+        "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
-        "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
-      }
+      },
+      "rules": [
+        {
+          "name": "Acrobatic Onslaught",
+          "summary_key": "detachment:d-fateful-performance:acrobatic-onslaught"
+        }
+      ]
     },
     {
       "detachment_id": "d-ghosts-of-the-webway",
@@ -110,14 +154,20 @@
       "is_unique": true,
       "name": "GHOSTS OF THE WEBWAY",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-        "detail_edition_code": "wh40k-10e",
+        "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+        "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
-        "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
-      }
+      },
+      "rules": [
+        {
+          "name": "Acrobatic Onslaught",
+          "summary_key": "detachment:d-ghosts-of-the-webway:acrobatic-onslaught"
+        }
+      ]
     },
     {
       "detachment_id": "d-guardian-battlehost",
@@ -127,14 +177,20 @@
       "is_unique": false,
       "name": "GUARDIAN BATTLEHOST",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-        "detail_edition_code": "wh40k-10e",
+        "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+        "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
-        "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
-      }
+      },
+      "rules": [
+        {
+          "name": "Defend at All Costs",
+          "summary_key": "detachment:d-guardian-battlehost:defend-at-all-costs"
+        }
+      ]
     },
     {
       "detachment_id": "d-path-of-the-outcast",
@@ -144,14 +200,20 @@
       "is_unique": false,
       "name": "PATH OF THE OUTCAST",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-        "detail_edition_code": "wh40k-10e",
+        "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+        "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
-        "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
-      }
+      },
+      "rules": [
+        {
+          "name": "Far-Reaching Doom",
+          "summary_key": "detachment:d-path-of-the-outcast:far-reaching-doom"
+        }
+      ]
     },
     {
       "detachment_id": "d-seer-council",
@@ -161,14 +223,20 @@
       "is_unique": false,
       "name": "SEER COUNCIL",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-        "detail_edition_code": "wh40k-10e",
+        "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+        "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
-        "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
-      }
+      },
+      "rules": [
+        {
+          "name": "Strands of Fate",
+          "summary_key": "detachment:d-seer-council:strands-of-fate"
+        }
+      ]
     },
     {
       "detachment_id": "d-serpents-brood",
@@ -178,14 +246,20 @@
       "is_unique": true,
       "name": "SERPENT’S BROOD",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-        "detail_edition_code": "wh40k-10e",
+        "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+        "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
-        "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
-      }
+      },
+      "rules": [
+        {
+          "name": "Boons of the Brood",
+          "summary_key": "detachment:d-serpents-brood:boons-of-the-brood"
+        }
+      ]
     },
     {
       "detachment_id": "d-spirit-conclave",
@@ -195,14 +269,20 @@
       "is_unique": false,
       "name": "SPIRIT CONCLAVE",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-        "detail_edition_code": "wh40k-10e",
+        "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+        "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
-        "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
-      }
+      },
+      "rules": [
+        {
+          "name": "Shepherds of the Dead",
+          "summary_key": "detachment:d-spirit-conclave:shepherds-of-the-dead"
+        }
+      ]
     },
     {
       "detachment_id": "d-twilight-flickers",
@@ -212,14 +292,20 @@
       "is_unique": true,
       "name": "TWILIGHT FLICKERS",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-        "detail_edition_code": "wh40k-10e",
+        "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+        "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
-        "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
-      }
+      },
+      "rules": [
+        {
+          "name": "Dance of Distortion",
+          "summary_key": "detachment:d-twilight-flickers:dance-of-distortion"
+        }
+      ]
     },
     {
       "detachment_id": "d-warhost",
@@ -229,14 +315,20 @@
       "is_unique": false,
       "name": "WARHOST",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-        "detail_edition_code": "wh40k-10e",
+        "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+        "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
-        "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
-      }
+      },
+      "rules": [
+        {
+          "name": "Martial Grace",
+          "summary_key": "detachment:d-warhost:martial-grace"
+        }
+      ]
     },
     {
       "detachment_id": "d-windrider-host",
@@ -246,14 +338,20 @@
       "is_unique": false,
       "name": "WINDRIDER HOST",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-        "detail_edition_code": "wh40k-10e",
+        "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+        "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
-        "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
-      }
+      },
+      "rules": [
+        {
+          "name": "Ride the Wind",
+          "summary_key": "detachment:d-windrider-host:ride-the-wind"
+        }
+      ]
     }
   ]
 }

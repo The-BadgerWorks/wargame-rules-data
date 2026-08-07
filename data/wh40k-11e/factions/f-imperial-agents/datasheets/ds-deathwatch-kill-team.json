@@ -1,7 +1,22 @@
 {
   "ability_keys": [
     "datasheet:astartes-shield",
-    "datasheet:death-to-the-alien"
+    "datasheet:death-to-the-alien",
+    "faction:assigned-agents"
+  ],
+  "composition": [
+    {
+      "line": 1,
+      "max_count": 1,
+      "min_count": 1,
+      "model_name": "Watch Sergeant"
+    },
+    {
+      "line": 2,
+      "max_count": 9,
+      "min_count": 4,
+      "model_name": "Deathwatch Veterans"
+    }
   ],
   "costs": [
     {
@@ -10,7 +25,15 @@
       "model_count": 5,
       "points": 100,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
+    },
+    {
+      "copy_index_min": 1,
+      "label": "10 models",
+      "model_count": 10,
+      "points": 190,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
     },
     {
       "copy_index_min": 1,
@@ -18,7 +41,8 @@
       "model_count": 5,
       "points": 100,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+      "pricing_context": "every-model-has-imperium",
+      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
     },
     {
       "copy_index_min": 1,
@@ -26,15 +50,8 @@
       "model_count": 10,
       "points": 190,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
-    },
-    {
-      "copy_index_min": 1,
-      "label": "10 models",
-      "model_count": 10,
-      "points": 190,
-      "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+      "pricing_context": "every-model-has-imperium",
+      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
     }
   ],
   "datasheet_id": "ds-deathwatch-kill-team",
@@ -47,48 +64,56 @@
   "keywords": [
     {
       "is_faction_keyword": true,
-      "keyword": "Agents of the Imperium"
+      "keyword": "AGENTS OF THE IMPERIUM"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Battleline"
+      "keyword": "BATTLELINE",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Deathwatch"
+      "keyword": "DEATHWATCH",
+      "keyword_class": "chapter"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Grenades"
+      "keyword": "GRENADES",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Imperium"
+      "keyword": "IMPERIUM",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Infantry"
+      "keyword": "INFANTRY",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Kill Team"
+      "keyword": "KILL TEAM",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Ordo Xenos"
+      "keyword": "ORDO XENOS",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Retinue"
+      "keyword": "RETINUE",
+      "keyword_class": "unit"
     }
   ],
   "models": [
     {
-      "base_size": "32mm",
+      "base_size": "(⌀32mm)",
       "leadership": "6+",
       "line": 1,
       "movement": "6\"",
-      "name": "Deathwatch Veterans",
+      "name": "Deathwatch Kill Team",
       "objective_control": 2,
       "save": "3+",
       "toughness": 4,
@@ -96,22 +121,54 @@
     }
   ],
   "name": "DEATHWATCH KILL TEAM",
+  "option_choices": [
+    {
+      "count": 1,
+      "group_id": "og-deathwatch-kill-team-8",
+      "id": "oc-deathwatch-kill-team-8-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "xenophase blade",
+      "replaces_weapon_line": 12
+    },
+    {
+      "count": 1,
+      "group_id": "og-deathwatch-kill-team-9",
+      "id": "oc-deathwatch-kill-team-9-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "combi-weapon",
+      "replaces_weapon_line": 5
+    }
+  ],
+  "option_groups": [
+    {
+      "id": "og-deathwatch-kill-team-8",
+      "line": 8,
+      "scope": "unit"
+    },
+    {
+      "id": "og-deathwatch-kill-team-9",
+      "line": 9,
+      "scope": "unit"
+    }
+  ],
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:efd5e3aa4a1c592a6c530badb0ae16189b40f5329e003aa50a28bd0d7227f721",
-    "last_verified_version": "mfm-2026-08",
+    "last_verified_version": "wh40k-11e-2026-08",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-    "detail_edition_code": "wh40k-10e",
+    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
-    "is_hybrid_edition": true,
-    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "is_hybrid_edition": false,
+    "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
-  "role": "Battleline",
+  "wargear_option_state": "partial",
   "weapons": [
     {
       "armour_penetration": "0",
@@ -120,84 +177,111 @@
       "is_melee": false,
       "line": 1,
       "name": "Boltgun",
-      "range": "24",
-      "skill": "3",
+      "range": "24\"",
+      "skill": "3+",
       "strength": "4"
     },
     {
+      "ability_keywords": [
+        "blast",
+        "heavy",
+        "rapid fire d3"
+      ],
       "armour_penetration": "-1",
       "attacks": "D3",
       "damage": "2",
       "is_melee": false,
       "line": 2,
       "name": "Frag cannon",
-      "range": "18",
-      "skill": "4",
+      "range": "18\"",
+      "skill": "4+",
       "strength": "7"
     },
     {
+      "ability_keywords": [
+        "heavy",
+        "sustained hits 1"
+      ],
       "armour_penetration": "-1",
       "attacks": "3",
       "damage": "2",
       "is_melee": false,
       "line": 3,
       "name": "Infernus heavy bolter – heavy bolter",
-      "range": "36",
-      "skill": "4",
+      "range": "36\"",
+      "skill": "4+",
       "strength": "5"
     },
     {
+      "ability_keywords": [
+        "ignores cover",
+        "torrent"
+      ],
       "armour_penetration": "-1",
       "attacks": "D6",
       "damage": "1",
       "is_melee": false,
       "line": 4,
       "name": "Infernus heavy bolter – heavy flamer",
-      "range": "12",
+      "range": "12\"",
       "skill": "N/A",
       "strength": "5"
     },
     {
+      "ability_keywords": [
+        "anti-infantry 4+",
+        "devastating wounds",
+        "rapid fire 1"
+      ],
       "armour_penetration": "0",
       "attacks": "1",
       "damage": "1",
       "is_melee": false,
       "line": 5,
       "name": "Combi-weapon",
-      "range": "24",
-      "skill": "4",
+      "range": "24\"",
+      "skill": "4+",
       "strength": "4"
     },
     {
+      "ability_keywords": [
+        "HEAVY",
+        "PRECISION"
+      ],
       "armour_penetration": "-1",
       "attacks": "1",
       "damage": "2",
       "is_melee": false,
       "line": 6,
       "name": "Stalker-pattern boltgun",
-      "range": "24",
-      "skill": "3",
+      "range": "24\"",
+      "skill": "3+",
       "strength": "4"
     },
     {
+      "ability_keywords": [
+        "ASSAULT"
+      ],
       "armour_penetration": "0",
       "attacks": "2",
       "damage": "2",
-      "is_melee": false,
+      "is_melee": true,
       "line": 7,
       "name": "Deathwatch shotgun",
-      "range": "18",
-      "skill": "3",
+      "skill": "3+",
       "strength": "4"
     },
     {
+      "ability_keywords": [
+        "TwIN-lINkED"
+      ],
       "armour_penetration": "-2",
       "attacks": "4",
       "damage": "1",
       "is_melee": true,
       "line": 8,
       "name": "Black Shield blades",
-      "skill": "3",
+      "skill": "3+",
       "strength": "5"
     },
     {
@@ -207,17 +291,20 @@
       "is_melee": true,
       "line": 9,
       "name": "Close combat weapon",
-      "skill": "3",
+      "skill": "3+",
       "strength": "4"
     },
     {
+      "ability_keywords": [
+        "devastating wounds"
+      ],
       "armour_penetration": "-2",
       "attacks": "3",
       "damage": "3",
       "is_melee": true,
       "line": 10,
       "name": "Deathwatch thunder hammer",
-      "skill": "4",
+      "skill": "4+",
       "strength": "10"
     },
     {
@@ -227,17 +314,20 @@
       "is_melee": true,
       "line": 11,
       "name": "Power weapon",
-      "skill": "3",
+      "skill": "3+",
       "strength": "5"
     },
     {
+      "ability_keywords": [
+        "devastating wounds"
+      ],
       "armour_penetration": "-2",
       "attacks": "4",
       "damage": "1",
       "is_melee": true,
       "line": 12,
       "name": "Xenophase blade",
-      "skill": "3",
+      "skill": "3+",
       "strength": "5"
     }
   ]

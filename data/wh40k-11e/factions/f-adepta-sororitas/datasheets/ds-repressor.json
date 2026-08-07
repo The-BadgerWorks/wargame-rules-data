@@ -1,7 +1,18 @@
 {
   "ability_keys": [
+    "core:deadly-demise-d3",
+    "core:firing-deck-6",
     "datasheet:emergency-combat-embarkation",
-    "datasheet:one-shot"
+    "faction:acts-of-faith"
+  ],
+  "composition": [
+    {
+      "line": 1,
+      "max_count": 1,
+      "min_count": 1,
+      "model_line": 1,
+      "model_name": "Repressor"
+    }
   ],
   "costs": [
     {
@@ -10,7 +21,7 @@
       "model_count": 1,
       "points": 130,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1"
+      "source_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9"
     }
   ],
   "damaged_threshold": 4,
@@ -24,37 +35,44 @@
   "keywords": [
     {
       "is_faction_keyword": true,
-      "keyword": "Adepta Sororitas"
+      "keyword": "ADEPTA SORORITAS",
+      "keyword_class": "faction"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Dedicated Transport"
+      "keyword": "DEDICATED TRANSPORT",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Imperium"
+      "keyword": "IMPERIUM",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Repressor"
+      "keyword": "REPRESSOR",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Smoke"
+      "keyword": "SMOKE",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Transport"
+      "keyword": "TRANSPORT",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Vehicle"
+      "keyword": "VEHICLE",
+      "keyword_class": "unit"
     }
   ],
   "models": [
     {
-      "base_size": "Use model",
-      "invuln_save": "6",
+      "base_size": "(⌀Use model)",
+      "invuln_save": "6+",
       "leadership": "7+",
       "line": 1,
       "movement": "12\"",
@@ -66,63 +84,118 @@
     }
   ],
   "name": "Repressor",
+  "option_choices": [
+    {
+      "count": 1,
+      "grants_weapon_line": 2,
+      "group_id": "og-repressor-1",
+      "id": "oc-repressor-1-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "hunter-killer missile"
+    },
+    {
+      "count": 1,
+      "grants_weapon_line": 1,
+      "group_id": "og-repressor-2",
+      "id": "oc-repressor-2-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "heavy flamer"
+    },
+    {
+      "count": 1,
+      "grants_weapon_line": 4,
+      "group_id": "og-repressor-2",
+      "id": "oc-repressor-2-2",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "storm bolter"
+    }
+  ],
+  "option_groups": [
+    {
+      "id": "og-repressor-1",
+      "line": 1,
+      "scope": "model"
+    },
+    {
+      "id": "og-repressor-2",
+      "line": 2,
+      "scope": "model"
+    }
+  ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 1,
+    "consecutive_unverified_releases": 2,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-    "detail_edition_code": "wh40k-10e",
+    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
-    "is_hybrid_edition": true,
+    "is_hybrid_edition": false,
     "points_edition_code": "wh40k-11e",
     "points_source": "none"
   },
-  "role": "Dedicated Transports",
+  "wargear_option_state": "extracted",
   "weapons": [
     {
+      "ability_keywords": [
+        "ignores cover",
+        "torrent"
+      ],
       "armour_penetration": "-1",
       "attacks": "D6",
       "damage": "1",
       "is_melee": false,
       "line": 1,
       "name": "Heavy flamer",
-      "range": "12",
+      "range": "12\"",
       "skill": "N/A",
       "strength": "6"
     },
     {
+      "ability_keywords": [
+        "one shot"
+      ],
       "armour_penetration": "-3",
       "attacks": "1",
       "damage": "D6",
       "is_melee": false,
       "line": 2,
       "name": "Hunter-killer missile",
-      "range": "48",
-      "skill": "2",
+      "range": "48\"",
+      "skill": "2+",
       "strength": "14"
     },
     {
+      "ability_keywords": [
+        "ignores cover",
+        "torrent",
+        "twin-linked"
+      ],
       "armour_penetration": "-1",
       "attacks": "D6",
       "damage": "1",
       "is_melee": false,
       "line": 3,
       "name": "Repressor twin heavy flamer",
-      "range": "12",
+      "range": "12\"",
       "skill": "N/A",
       "strength": "6"
     },
     {
+      "ability_keywords": [
+        "rapid fire 2"
+      ],
       "armour_penetration": "0",
       "attacks": "2",
       "damage": "1",
-      "is_melee": false,
+      "is_melee": true,
       "line": 4,
       "name": "Storm bolter",
-      "range": "24",
-      "skill": "3",
+      "skill": "3+",
       "strength": "4"
     },
     {
@@ -132,7 +205,7 @@
       "is_melee": true,
       "line": 5,
       "name": "Dozer ram",
-      "skill": "4",
+      "skill": "4+",
       "strength": "7"
     }
   ]

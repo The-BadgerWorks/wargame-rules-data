@@ -1,7 +1,24 @@
 {
   "ability_keys": [
     "datasheet:chaos-icon",
-    "datasheet:unholy-bloodshed"
+    "datasheet:unholy-bloodshed",
+    "faction:dark-pacts"
+  ],
+  "composition": [
+    {
+      "line": 1,
+      "max_count": 1,
+      "min_count": 1,
+      "model_line": 1,
+      "model_name": "Possessed Champion"
+    },
+    {
+      "line": 2,
+      "max_count": 9,
+      "min_count": 4,
+      "model_line": 1,
+      "model_name": "Possessed"
+    }
   ],
   "costs": [
     {
@@ -10,15 +27,15 @@
       "model_count": 5,
       "points": 120,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1"
+      "source_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9"
     },
     {
       "copy_index_min": 1,
       "label": "10 models",
       "model_count": 10,
-      "points": 240,
+      "points": 250,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1"
+      "source_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9"
     }
   ],
   "datasheet_id": "ds-possessed-2",
@@ -31,113 +48,33 @@
   "keywords": [
     {
       "is_faction_keyword": false,
-      "keyword": "Chaos"
+      "keyword": "CHAOS",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Chaos"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Chaos"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Chaos"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Daemon"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Daemon"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Daemon"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Daemon"
+      "keyword": "DAEMON",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": true,
-      "keyword": "Heretic Astartes"
+      "keyword": "HERETIC ASTARTES"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Infantry"
+      "keyword": "INFANTRY",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Infantry"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Infantry"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Infantry"
-    },
-    {
-      "is_faction_keyword": true,
-      "keyword": "Legiones Daemonica"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Possessed"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Possessed"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Possessed"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Possessed"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Shadow Legion"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Shadow Legion"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Shadow Legion"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Shadow Legion"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Undivided"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Undivided"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Undivided"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Undivided"
+      "keyword": "POSSESSED , UNDIVIDED , SHADOW LEGION",
+      "keyword_class": "unit"
     }
   ],
   "models": [
     {
-      "base_size": "40mm",
-      "invuln_save": "5",
+      "base_size": "(⌀40mm)",
+      "invuln_save": "5+",
       "leadership": "6+",
       "line": 1,
       "movement": "9\"",
@@ -149,18 +86,47 @@
     }
   ],
   "name": "Possessed",
+  "option_choices": [
+    {
+      "count": 1,
+      "group_id": "og-possessed-2-1",
+      "id": "oc-possessed-2-1-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "Chaos icon"
+    }
+  ],
+  "option_groups": [
+    {
+      "id": "og-possessed-2-1",
+      "line": 1,
+      "scope": "unit"
+    }
+  ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 1,
+    "consecutive_unverified_releases": 2,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-    "detail_edition_code": "wh40k-10e",
+    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
-    "is_hybrid_edition": true,
+    "is_hybrid_edition": false,
     "points_edition_code": "wh40k-11e",
     "points_source": "none"
   },
-  "role": "Other"
+  "wargear_option_state": "extracted",
+  "weapons": [
+    {
+      "armour_penetration": "-1",
+      "attacks": "4",
+      "damage": "2",
+      "is_melee": true,
+      "line": 1,
+      "name": "Hideous mutations",
+      "skill": "3+",
+      "strength": "5"
+    }
+  ]
 }

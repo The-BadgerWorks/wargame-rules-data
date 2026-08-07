@@ -1,6 +1,15 @@
 {
   "ability_keys": [
+    "core:deadly-demise-d6",
     "datasheet:agile-dogfighter"
+  ],
+  "composition": [
+    {
+      "line": 1,
+      "max_count": 1,
+      "min_count": 1,
+      "model_name": "Voss-pattern Lightning"
+    }
   ],
   "costs": [
     {
@@ -9,7 +18,7 @@
       "model_count": 1,
       "points": 130,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1"
+      "source_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9"
     }
   ],
   "damaged_threshold": 5,
@@ -23,57 +32,73 @@
   "keywords": [
     {
       "is_faction_keyword": false,
-      "keyword": "Aircraft"
+      "keyword": "AIRCRAFT",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": true,
-      "keyword": "Astra Militarum"
+      "keyword": "ASTRA MILITARUM",
+      "keyword_class": "faction"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Fly"
+      "keyword": "FLY",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Imperium"
+      "keyword": "FRAME",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Vehicle"
+      "keyword": "IMPERIUM",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Voss-pattern Lightning"
-    }
-  ],
-  "models": [
+      "keyword": "VEHICLE",
+      "keyword_class": "unit"
+    },
     {
-      "base_size": "120 x 92mm flying base",
-      "leadership": "7+",
-      "line": 1,
-      "movement": "20+\"",
-      "name": "Voss-pattern Lightning",
-      "objective_control": 0,
-      "save": "3+",
-      "toughness": 9,
-      "wounds": 14
+      "is_faction_keyword": false,
+      "keyword": "VOSS-PATTERN LIGHTNING",
+      "keyword_class": "unit"
     }
   ],
   "name": "Voss-pattern Lightning",
+  "option_choices": [
+    {
+      "count": 1,
+      "grants_weapon_line": 2,
+      "group_id": "og-voss-pattern-lightning-1",
+      "id": "oc-voss-pattern-lightning-1-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "Lightning hellstrike rack"
+    }
+  ],
+  "option_groups": [
+    {
+      "id": "og-voss-pattern-lightning-1",
+      "line": 1,
+      "scope": "model"
+    }
+  ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 1,
+    "consecutive_unverified_releases": 2,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-    "detail_edition_code": "wh40k-10e",
+    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
-    "is_hybrid_edition": true,
+    "is_hybrid_edition": false,
     "points_edition_code": "wh40k-11e",
     "points_source": "none"
   },
-  "role": "Other",
+  "wargear_option_state": "extracted",
   "weapons": [
     {
       "armour_penetration": "-3",
@@ -82,19 +107,21 @@
       "is_melee": false,
       "line": 1,
       "name": "Lascannon",
-      "range": "48",
-      "skill": "4",
+      "range": "48\"",
+      "skill": "4+",
       "strength": "12"
     },
     {
+      "ability_keywords": [
+        "anti-fly 2+"
+      ],
       "armour_penetration": "-3",
       "attacks": "2",
       "damage": "D6",
-      "is_melee": false,
+      "is_melee": true,
       "line": 2,
       "name": "Lightning hellstrike rack",
-      "range": "48",
-      "skill": "4",
+      "skill": "4+",
       "strength": "10"
     },
     {
@@ -104,7 +131,7 @@
       "is_melee": true,
       "line": 3,
       "name": "Armoured hull",
-      "skill": "4",
+      "skill": "4+",
       "strength": "8"
     }
   ]

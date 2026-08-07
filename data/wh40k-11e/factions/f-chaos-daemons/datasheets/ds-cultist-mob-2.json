@@ -1,6 +1,21 @@
 {
   "ability_keys": [
-    "datasheet:for-the-dark-gods"
+    "datasheet:for-the-dark-gods",
+    "faction:dark-pacts"
+  ],
+  "composition": [
+    {
+      "line": 1,
+      "max_count": 1,
+      "min_count": 1,
+      "model_name": "Cultist Champion"
+    },
+    {
+      "line": 2,
+      "max_count": 19,
+      "min_count": 9,
+      "model_name": "Chaos Cultists"
+    }
   ],
   "costs": [
     {
@@ -9,15 +24,15 @@
       "model_count": 10,
       "points": 50,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1"
+      "source_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9"
     },
     {
       "copy_index_min": 1,
       "label": "20 models",
       "model_count": 20,
-      "points": 100,
+      "points": 90,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1"
+      "source_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9"
     }
   ],
   "datasheet_id": "ds-cultist-mob-2",
@@ -30,208 +45,42 @@
   "keywords": [
     {
       "is_faction_keyword": false,
-      "keyword": "Battleline"
+      "keyword": "BATTLELINE",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Battleline"
+      "keyword": "CHAOS",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Battleline"
+      "keyword": "CULTIST MOB , UNDIVIDED , SHADOW LEGION",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Battleline"
+      "keyword": "DAMNED",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Battleline"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Battleline"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Chaos"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Chaos"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Chaos"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Chaos"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Chaos"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Chaos"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Cultist Mob"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Cultist Mob"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Cultist Mob"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Cultist Mob"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Cultist Mob"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Cultist Mob"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Damned"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Damned"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Damned"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Damned"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Damned"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Damned"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Grenades"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Grenades"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Grenades"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Grenades"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Grenades"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Grenades"
+      "keyword": "GRENADES",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": true,
-      "keyword": "Heretic Astartes"
+      "keyword": "HERETIC ASTARTES"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Infantry"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Infantry"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Infantry"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Infantry"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Infantry"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Infantry"
-    },
-    {
-      "is_faction_keyword": true,
-      "keyword": "Legiones Daemonica"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Shadow Legion"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Shadow Legion"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Shadow Legion"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Shadow Legion"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Shadow Legion"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Shadow Legion"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Undivided"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Undivided"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Undivided"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Undivided"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Undivided"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Undivided"
+      "keyword": "INFANTRY",
+      "keyword_class": "unit"
     }
   ],
   "models": [
     {
-      "base_size": "25mm",
+      "base_size": "(⌀25mm)",
       "leadership": "7+",
       "line": 1,
       "movement": "6\"",
@@ -243,18 +92,75 @@
     }
   ],
   "name": "Cultist Mob",
+  "option_choices": [
+    {
+      "count": 1,
+      "group_id": "og-cultist-mob-2-1",
+      "id": "oc-cultist-mob-2-1-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "bolt pistol",
+      "replaces_weapon_line": 2
+    }
+  ],
+  "option_groups": [
+    {
+      "id": "og-cultist-mob-2-1",
+      "line": 1,
+      "scope": "unit"
+    }
+  ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 1,
+    "consecutive_unverified_releases": 2,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-    "detail_edition_code": "wh40k-10e",
+    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
-    "is_hybrid_edition": true,
+    "is_hybrid_edition": false,
     "points_edition_code": "wh40k-11e",
     "points_source": "none"
   },
-  "role": "Battleline"
+  "wargear_option_state": "extracted",
+  "weapons": [
+    {
+      "ability_keywords": [
+        "pistol"
+      ],
+      "armour_penetration": "0",
+      "attacks": "1",
+      "damage": "1",
+      "is_melee": false,
+      "line": 1,
+      "name": "Autopistol",
+      "range": "12\"",
+      "skill": "4+",
+      "strength": "3"
+    },
+    {
+      "ability_keywords": [
+        "pistol"
+      ],
+      "armour_penetration": "0",
+      "attacks": "1",
+      "damage": "1",
+      "is_melee": true,
+      "line": 2,
+      "name": "Bolt pistol",
+      "skill": "4+",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "2",
+      "damage": "1",
+      "is_melee": true,
+      "line": 3,
+      "name": "Brutal assault weapon",
+      "skill": "4+",
+      "strength": "3"
+    }
+  ]
 }

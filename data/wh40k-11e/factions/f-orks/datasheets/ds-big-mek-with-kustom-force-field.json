@@ -1,8 +1,19 @@
 {
   "ability_keys": [
+    "core:leader",
     "datasheet:grot-helper",
     "datasheet:kustom-force-field",
-    "datasheet:more-dakka"
+    "datasheet:more-dakka",
+    "faction:waaagh"
+  ],
+  "composition": [
+    {
+      "line": 1,
+      "max_count": 1,
+      "min_count": 1,
+      "model_line": 1,
+      "model_name": "Big Mek with Kustom Force Field"
+    }
   ],
   "costs": [
     {
@@ -11,7 +22,7 @@
       "model_count": 1,
       "points": 55,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1"
+      "source_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9"
     }
   ],
   "datasheet_id": "ds-big-mek-with-kustom-force-field",
@@ -24,31 +35,38 @@
   "keywords": [
     {
       "is_faction_keyword": false,
-      "keyword": "Big Mek"
+      "keyword": "BIG MEK",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Big Mek with Kustom Force Field"
+      "keyword": "BIG MEK WITH KUSTOM FORCE FIELD",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Character"
+      "keyword": "CHARACTER",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Grenades"
+      "keyword": "GRENADES",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Infantry"
+      "keyword": "INFANTRY",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Mek"
+      "keyword": "MEK",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": true,
-      "keyword": "Orks"
+      "keyword": "ORKS",
+      "keyword_class": "faction"
     }
   ],
   "leader_pairs": [
@@ -61,7 +79,7 @@
   ],
   "models": [
     {
-      "base_size": "40mm",
+      "base_size": "(⌀40mm)",
       "leadership": "7+",
       "line": 1,
       "movement": "6\"",
@@ -73,30 +91,49 @@
     }
   ],
   "name": "Big Mek With Kustom Force Field",
+  "option_choices": [
+    {
+      "count": 1,
+      "group_id": "og-big-mek-with-kustom-force-field-1",
+      "id": "oc-big-mek-with-kustom-force-field-1-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "grot helper"
+    }
+  ],
+  "option_groups": [
+    {
+      "id": "og-big-mek-with-kustom-force-field-1",
+      "line": 1,
+      "scope": "model"
+    }
+  ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 1,
+    "consecutive_unverified_releases": 2,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-    "detail_edition_code": "wh40k-10e",
+    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
-    "is_hybrid_edition": true,
+    "is_hybrid_edition": false,
     "points_edition_code": "wh40k-11e",
     "points_source": "none"
   },
-  "role": "Characters",
+  "wargear_option_state": "extracted",
   "weapons": [
     {
+      "ability_keywords": [
+        "pistol"
+      ],
       "armour_penetration": "0",
       "attacks": "1",
       "damage": "1",
-      "is_melee": false,
+      "is_melee": true,
       "line": 1,
       "name": "Slugga",
-      "range": "12",
-      "skill": "5",
+      "skill": "5+",
       "strength": "4"
     },
     {
@@ -106,7 +143,7 @@
       "is_melee": true,
       "line": 2,
       "name": "Choppa",
-      "skill": "3",
+      "skill": "3+",
       "strength": "5"
     }
   ]

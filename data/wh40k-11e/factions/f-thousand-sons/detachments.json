@@ -8,14 +8,20 @@
       "is_unique": false,
       "name": "CHANGEHOST OF DECEIT",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-        "detail_edition_code": "wh40k-10e",
+        "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+        "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
-        "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
-      }
+      },
+      "rules": [
+        {
+          "name": "Infernal Pacts",
+          "summary_key": "detachment:d-changehost-of-deceit:infernal-pacts"
+        }
+      ]
     },
     {
       "detachment_id": "d-grand-coven",
@@ -25,14 +31,43 @@
       "is_unique": false,
       "name": "GRAND COVEN",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-        "detail_edition_code": "wh40k-10e",
+        "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+        "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
-        "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
-      }
+      },
+      "rules": [
+        {
+          "name": "Kindred Sorcery",
+          "summary_key": "detachment:d-grand-coven:kindred-sorcery"
+        }
+      ]
+    },
+    {
+      "detachment_id": "d-hexwarp-thrallband",
+      "detachment_points_cost": 3,
+      "force_disposition": "TAKE AND HOLD",
+      "is_legends": false,
+      "is_unique": false,
+      "name": "HEXWARP THRALLBAND",
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+        "detail_edition_code": "wh40k-11e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      },
+      "rules": [
+        {
+          "name": "Flow of Magic",
+          "summary_key": "detachment:d-hexwarp-thrallband:flow-of-magic"
+        }
+      ]
     },
     {
       "detachment_id": "d-ritual-of-regeneration",
@@ -42,14 +77,20 @@
       "is_unique": false,
       "name": "RITUAL OF REGENERATION",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-        "detail_edition_code": "wh40k-10e",
+        "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+        "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
-        "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
-      }
+      },
+      "rules": [
+        {
+          "name": "Sorcerous Invigoration",
+          "summary_key": "detachment:d-ritual-of-regeneration:sorcerous-invigoration"
+        }
+      ]
     },
     {
       "detachment_id": "d-rubricae-phalanx",
@@ -59,11 +100,11 @@
       "is_unique": false,
       "name": "RUBRICAE PHALANX",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-        "detail_edition_code": "wh40k-10e",
+        "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+        "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
-        "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       }
@@ -76,14 +117,20 @@
       "is_unique": false,
       "name": "SEKHETAR COHORT",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-        "detail_edition_code": "wh40k-10e",
+        "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+        "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
-        "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
-      }
+      },
+      "rules": [
+        {
+          "name": "Ensorcelled Animus",
+          "summary_key": "detachment:d-sekhetar-cohort:ensorcelled-animus"
+        }
+      ]
     },
     {
       "detachment_id": "d-servants-of-change",
@@ -93,14 +140,20 @@
       "is_unique": true,
       "name": "SERVANTS OF CHANGE",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-        "detail_edition_code": "wh40k-10e",
+        "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+        "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
-        "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
-      }
+      },
+      "rules": [
+        {
+          "name": "All-Seeing Mutant Hordes",
+          "summary_key": "detachment:d-servants-of-change:all-seeing-mutant-hordes"
+        }
+      ]
     },
     {
       "detachment_id": "d-warpforged-cabal",
@@ -110,14 +163,20 @@
       "is_unique": false,
       "name": "WARPFORGED CABAL",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-        "detail_edition_code": "wh40k-10e",
+        "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+        "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
-        "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
-      }
+      },
+      "rules": [
+        {
+          "name": "Warpfire Infusion",
+          "summary_key": "detachment:d-warpforged-cabal:warpfire-infusion"
+        }
+      ]
     },
     {
       "detachment_id": "d-warpmeld-pact",
@@ -127,14 +186,20 @@
       "is_unique": true,
       "name": "WARPMELD PACT",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-        "detail_edition_code": "wh40k-10e",
+        "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+        "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
-        "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
-      }
+      },
+      "rules": [
+        {
+          "name": "Warpmeld Sacrifice",
+          "summary_key": "detachment:d-warpmeld-pact:warpmeld-sacrifice"
+        }
+      ]
     }
   ]
 }

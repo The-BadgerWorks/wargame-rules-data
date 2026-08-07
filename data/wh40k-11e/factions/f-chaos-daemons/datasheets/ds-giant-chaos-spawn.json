@@ -1,11 +1,18 @@
 {
   "ability_keys": [
-    "datasheet:creature-of-khorne",
-    "datasheet:creature-of-nurgle",
-    "datasheet:creature-of-slaanesh",
-    "datasheet:creature-of-tzeentch",
-    "datasheet:daemonic-allegiance",
-    "datasheet:regenerating-monstrosity"
+    "core:deep-strike",
+    "core:feel-no-pain-5",
+    "datasheet:regenerating-monstrosity",
+    "faction:the-shadow-of-chaos"
+  ],
+  "composition": [
+    {
+      "line": 1,
+      "max_count": 1,
+      "min_count": 1,
+      "model_line": 1,
+      "model_name": "Giant Chaos Spawn"
+    }
   ],
   "costs": [
     {
@@ -14,7 +21,7 @@
       "model_count": 1,
       "points": 130,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1"
+      "source_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9"
     }
   ],
   "datasheet_id": "ds-giant-chaos-spawn",
@@ -27,29 +34,28 @@
   "keywords": [
     {
       "is_faction_keyword": false,
-      "keyword": "Chaos"
+      "keyword": "CHAOS",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Giant Chaos Spawn"
+      "keyword": "GIANT CHAOS SPAWN , SHADOW LEGION",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": true,
-      "keyword": "Legiones Daemonica"
+      "keyword": "LEGIONES DAEMONICA"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Monster"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Shadow Legion"
+      "keyword": "MONSTER",
+      "keyword_class": "unit"
     }
   ],
   "models": [
     {
-      "base_size": "100mm",
-      "invuln_save": "5",
+      "base_size": "(⌀100mm)",
+      "invuln_save": "5+",
       "leadership": "7+",
       "line": 1,
       "movement": "10\"",
@@ -62,19 +68,19 @@
   ],
   "name": "Giant Chaos Spawn",
   "pricing_confidence": {
-    "consecutive_unverified_releases": 1,
+    "consecutive_unverified_releases": 2,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-    "detail_edition_code": "wh40k-10e",
+    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
-    "is_hybrid_edition": true,
+    "is_hybrid_edition": false,
     "points_edition_code": "wh40k-11e",
     "points_source": "none"
   },
-  "role": "Other",
+  "wargear_option_state": "none",
   "weapons": [
     {
       "armour_penetration": "-1",
@@ -83,7 +89,7 @@
       "is_melee": true,
       "line": 1,
       "name": "Churning fangs and claws",
-      "skill": "3",
+      "skill": "3+",
       "strength": "10"
     }
   ]

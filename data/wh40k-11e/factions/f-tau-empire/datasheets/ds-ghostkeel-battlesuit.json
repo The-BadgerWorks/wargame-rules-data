@@ -1,7 +1,21 @@
 {
   "ability_keys": [
+    "core:deadly-demise-d3",
+    "core:infiltrators",
+    "core:lone-operative",
+    "core:stealth",
     "datasheet:battlesuit-support-system",
-    "datasheet:stealth-drones"
+    "datasheet:stealth-drones",
+    "faction:for-the-greater-good"
+  ],
+  "composition": [
+    {
+      "line": 1,
+      "max_count": 1,
+      "min_count": 1,
+      "model_line": 1,
+      "model_name": "Ghostkeel Battlesuit"
+    }
   ],
   "costs": [
     {
@@ -10,7 +24,7 @@
       "model_count": 1,
       "points": 150,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
     },
     {
       "copy_index_min": 3,
@@ -18,7 +32,7 @@
       "model_count": 1,
       "points": 165,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
     }
   ],
   "damaged_threshold": 4,
@@ -32,36 +46,43 @@
   "keywords": [
     {
       "is_faction_keyword": false,
-      "keyword": "Battlesuit"
+      "keyword": "BATTLESUIT",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Fly"
+      "keyword": "FLY",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Ghostkeel"
+      "keyword": "GHOSTKEEL",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Smoke"
+      "keyword": "SMOKE",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": true,
-      "keyword": "T’au Empire"
+      "keyword": "T’AU EMPIRE",
+      "keyword_class": "faction"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Vehicle"
+      "keyword": "VEHICLE",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Walker"
+      "keyword": "WALKER",
+      "keyword_class": "unit"
     }
   ],
   "models": [
     {
-      "base_size": "105 x 70mm",
+      "base_size": "(⌀105 x 70mm)",
       "leadership": "7+",
       "line": 1,
       "movement": "10\"",
@@ -73,22 +94,74 @@
     }
   ],
   "name": "GHOSTKEEL BATTLESUIT",
+  "option_choices": [
+    {
+      "count": 1,
+      "group_id": "og-ghostkeel-battlesuit-1",
+      "id": "oc-ghostkeel-battlesuit-1-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "cyclic ion raker"
+    },
+    {
+      "count": 1,
+      "group_id": "og-ghostkeel-battlesuit-2",
+      "id": "oc-ghostkeel-battlesuit-2-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "twin fusion blaster",
+      "replaces_weapon_line": 5
+    },
+    {
+      "count": 1,
+      "group_id": "og-ghostkeel-battlesuit-2",
+      "id": "oc-ghostkeel-battlesuit-2-2",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "twin burst cannon",
+      "replaces_weapon_line": 4
+    },
+    {
+      "group_id": "og-ghostkeel-battlesuit-3",
+      "id": "oc-ghostkeel-battlesuit-3-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "one battlesuit support system"
+    }
+  ],
+  "option_groups": [
+    {
+      "id": "og-ghostkeel-battlesuit-1",
+      "line": 1,
+      "scope": "model"
+    },
+    {
+      "id": "og-ghostkeel-battlesuit-2",
+      "line": 2,
+      "scope": "model"
+    },
+    {
+      "id": "og-ghostkeel-battlesuit-3",
+      "line": 3,
+      "scope": "model"
+    }
+  ],
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:23a2033985488804871d9f9a1c11ade55d66a51b258b9dafb8601e990676cbef",
-    "last_verified_version": "mfm-2026-08",
+    "last_verified_version": "wh40k-11e-2026-08",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-    "detail_edition_code": "wh40k-10e",
+    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
-    "is_hybrid_edition": true,
-    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "is_hybrid_edition": false,
+    "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
-  "role": "Other",
+  "wargear_option_state": "extracted",
   "weapons": [
     {
       "armour_penetration": "-1",
@@ -97,62 +170,79 @@
       "is_melee": false,
       "line": 1,
       "name": "Cyclic ion raker – standard",
-      "range": "36",
-      "skill": "4",
+      "range": "36\"",
+      "skill": "4+",
       "strength": "7"
     },
     {
+      "ability_keywords": [
+        "hazardous"
+      ],
       "armour_penetration": "-2",
       "attacks": "6",
       "damage": "3",
       "is_melee": false,
       "line": 2,
       "name": "Cyclic ion raker – overcharge",
-      "range": "36",
-      "skill": "4",
+      "range": "36\"",
+      "skill": "4+",
       "strength": "8"
     },
     {
+      "ability_keywords": [
+        "melta 2"
+      ],
       "armour_penetration": "-4",
       "attacks": "2",
       "damage": "D6",
       "is_melee": false,
       "line": 3,
       "name": "Fusion collider",
-      "range": "18",
-      "skill": "4",
+      "range": "18\"",
+      "skill": "4+",
       "strength": "12"
     },
     {
+      "ability_keywords": [
+        "twin-linked"
+      ],
       "armour_penetration": "0",
       "attacks": "4",
       "damage": "1",
       "is_melee": false,
       "line": 4,
       "name": "Twin burst cannon",
-      "range": "18",
-      "skill": "4",
+      "range": "18\"",
+      "skill": "4+",
       "strength": "5"
     },
     {
+      "ability_keywords": [
+        "melta 2",
+        "twin-linked"
+      ],
       "armour_penetration": "-4",
       "attacks": "1",
       "damage": "D6",
       "is_melee": false,
       "line": 5,
       "name": "Twin fusion blaster",
-      "range": "12",
-      "skill": "4",
+      "range": "12\"",
+      "skill": "4+",
       "strength": "9"
     },
     {
+      "ability_keywords": [
+        "ignores cover",
+        "torrent",
+        "twin-linked"
+      ],
       "armour_penetration": "0",
       "attacks": "D6",
       "damage": "1",
-      "is_melee": false,
+      "is_melee": true,
       "line": 6,
       "name": "Twin T’au flamer",
-      "range": "12",
       "skill": "N/A",
       "strength": "4"
     },
@@ -163,7 +253,7 @@
       "is_melee": true,
       "line": 7,
       "name": "Ghostkeel fists",
-      "skill": "5",
+      "skill": "5+",
       "strength": "6"
     }
   ]

@@ -1,7 +1,18 @@
 {
   "ability_keys": [
+    "core:leader",
     "datasheet:lord-of-chaos",
-    "datasheet:revolting-regeneration"
+    "datasheet:revolting-regeneration",
+    "faction:dark-pacts"
+  ],
+  "composition": [
+    {
+      "line": 1,
+      "max_count": 1,
+      "min_count": 1,
+      "model_line": 1,
+      "model_name": "Chaos Lord on Palanquin of Nurgle"
+    }
   ],
   "costs": [
     {
@@ -10,7 +21,7 @@
       "model_count": 1,
       "points": 90,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1"
+      "source_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9"
     }
   ],
   "datasheet_id": "ds-chaos-lord-on-palanquin-of-nurgle",
@@ -23,263 +34,42 @@
   "keywords": [
     {
       "is_faction_keyword": false,
-      "keyword": "Chaos"
+      "keyword": "CHAOS",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Chaos"
+      "keyword": "CHAOS LORD",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Chaos"
+      "keyword": "CHARACTER",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Chaos"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Chaos"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Chaos"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Chaos"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Chaos Lord"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Chaos Lord"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Chaos Lord"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Chaos Lord"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Chaos Lord"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Chaos Lord"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Chaos Lord"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Character"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Character"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Character"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Character"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Character"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Character"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Character"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Grenades"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Grenades"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Grenades"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Grenades"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Grenades"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Grenades"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Grenades"
+      "keyword": "GRENADES",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": true,
-      "keyword": "Heretic Astartes"
+      "keyword": "HERETIC ASTARTES"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Infantry"
+      "keyword": "INFANTRY",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Infantry"
+      "keyword": "NURGLE",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Infantry"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Infantry"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Infantry"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Infantry"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Infantry"
-    },
-    {
-      "is_faction_keyword": true,
-      "keyword": "Legiones Daemonica"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Nurgle"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Nurgle"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Nurgle"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Nurgle"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Nurgle"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Nurgle"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Nurgle"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Palanquin of Nurgle"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Palanquin of Nurgle"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Palanquin of Nurgle"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Palanquin of Nurgle"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Palanquin of Nurgle"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Palanquin of Nurgle"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Palanquin of Nurgle"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Shadow Legion"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Shadow Legion"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Shadow Legion"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Shadow Legion"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Shadow Legion"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Shadow Legion"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Shadow Legion"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Undivided"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Undivided"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Undivided"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Undivided"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Undivided"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Undivided"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Undivided"
+      "keyword": "PALANQUIN OF NURGLE , UNDIVIDED , SHADOW LEGION",
+      "keyword_class": "unit"
     }
   ],
   "leader_pairs": [
@@ -288,8 +78,8 @@
   ],
   "models": [
     {
-      "base_size": "60mm",
-      "invuln_save": "4",
+      "base_size": "(⌀60mm)",
+      "invuln_save": "4+",
       "leadership": "6+",
       "line": 1,
       "movement": "5\"",
@@ -301,18 +91,265 @@
     }
   ],
   "name": "Chaos Lord On Palanquin Of Nurgle",
+  "option_choices": [
+    {
+      "count": 1,
+      "group_id": "og-chaos-lord-on-palanquin-of-nurgle-1",
+      "id": "oc-chaos-lord-on-palanquin-of-nurgle-1-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "plasma pistol"
+    },
+    {
+      "count": 1,
+      "group_id": "og-chaos-lord-on-palanquin-of-nurgle-1",
+      "id": "oc-chaos-lord-on-palanquin-of-nurgle-1-2",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "combi-bolter",
+      "replaces_weapon_line": 2
+    },
+    {
+      "count": 1,
+      "group_id": "og-chaos-lord-on-palanquin-of-nurgle-1",
+      "id": "oc-chaos-lord-on-palanquin-of-nurgle-1-3",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "combi-weapon",
+      "replaces_weapon_line": 3
+    },
+    {
+      "count": 1,
+      "group_id": "og-chaos-lord-on-palanquin-of-nurgle-1",
+      "id": "oc-chaos-lord-on-palanquin-of-nurgle-1-4",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "accursed weapon",
+      "replaces_weapon_line": 6
+    },
+    {
+      "count": 1,
+      "group_id": "og-chaos-lord-on-palanquin-of-nurgle-1",
+      "id": "oc-chaos-lord-on-palanquin-of-nurgle-1-5",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "power fist",
+      "replaces_weapon_line": 11
+    },
+    {
+      "count": 1,
+      "group_id": "og-chaos-lord-on-palanquin-of-nurgle-2",
+      "id": "oc-chaos-lord-on-palanquin-of-nurgle-2-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "bolt pistol",
+      "replaces_weapon_line": 1
+    },
+    {
+      "count": 1,
+      "group_id": "og-chaos-lord-on-palanquin-of-nurgle-2",
+      "id": "oc-chaos-lord-on-palanquin-of-nurgle-2-2",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "plasma pistol"
+    },
+    {
+      "count": 1,
+      "group_id": "og-chaos-lord-on-palanquin-of-nurgle-2",
+      "id": "oc-chaos-lord-on-palanquin-of-nurgle-2-3",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "accursed weapon",
+      "replaces_weapon_line": 6
+    },
+    {
+      "count": 1,
+      "group_id": "og-chaos-lord-on-palanquin-of-nurgle-2",
+      "id": "oc-chaos-lord-on-palanquin-of-nurgle-2-4",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "power fist",
+      "replaces_weapon_line": 11
+    },
+    {
+      "count": 1,
+      "group_id": "og-chaos-lord-on-palanquin-of-nurgle-3",
+      "id": "oc-chaos-lord-on-palanquin-of-nurgle-3-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "paired accursed weapons",
+      "replaces_weapon_line": 10
+    }
+  ],
+  "option_groups": [
+    {
+      "id": "og-chaos-lord-on-palanquin-of-nurgle-1",
+      "line": 1,
+      "scope": "model"
+    },
+    {
+      "id": "og-chaos-lord-on-palanquin-of-nurgle-2",
+      "line": 2,
+      "scope": "model"
+    },
+    {
+      "id": "og-chaos-lord-on-palanquin-of-nurgle-3",
+      "line": 3,
+      "scope": "model"
+    }
+  ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 1,
+    "consecutive_unverified_releases": 2,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-    "detail_edition_code": "wh40k-10e",
+    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
-    "is_hybrid_edition": true,
+    "is_hybrid_edition": false,
     "points_edition_code": "wh40k-11e",
     "points_source": "none"
   },
-  "role": "Characters"
+  "wargear_option_state": "extracted",
+  "weapons": [
+    {
+      "ability_keywords": [
+        "pistol"
+      ],
+      "armour_penetration": "0",
+      "attacks": "1",
+      "damage": "1",
+      "is_melee": false,
+      "line": 1,
+      "name": "Bolt pistol",
+      "range": "12\"",
+      "skill": "2+",
+      "strength": "4"
+    },
+    {
+      "ability_keywords": [
+        "rapid fire 2"
+      ],
+      "armour_penetration": "0",
+      "attacks": "2",
+      "damage": "1",
+      "is_melee": false,
+      "line": 2,
+      "name": "Combi-bolter",
+      "range": "24\"",
+      "skill": "2+",
+      "strength": "4"
+    },
+    {
+      "ability_keywords": [
+        "anti-infantry 4+",
+        "devastating wounds",
+        "rapid fire 1"
+      ],
+      "armour_penetration": "0",
+      "attacks": "1",
+      "damage": "1",
+      "is_melee": false,
+      "line": 3,
+      "name": "Combi-weapon",
+      "range": "24\"",
+      "skill": "4+",
+      "strength": "4"
+    },
+    {
+      "ability_keywords": [
+        "pistol"
+      ],
+      "armour_penetration": "-2",
+      "attacks": "1",
+      "damage": "1",
+      "is_melee": true,
+      "line": 4,
+      "name": "Plasma pistol – standard",
+      "skill": "2+",
+      "strength": "7"
+    },
+    {
+      "ability_keywords": [
+        "hazardous",
+        "pistol"
+      ],
+      "armour_penetration": "-3",
+      "attacks": "1",
+      "damage": "2",
+      "is_melee": true,
+      "line": 5,
+      "name": "Plasma pistol – supercharge",
+      "skill": "2+",
+      "strength": "8"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "6",
+      "damage": "1",
+      "is_melee": true,
+      "line": 6,
+      "name": "Accursed weapon",
+      "skill": "2+",
+      "strength": "5"
+    },
+    {
+      "armour_penetration": "-1",
+      "attacks": "7",
+      "damage": "1",
+      "is_melee": true,
+      "line": 7,
+      "name": "Astartes chainsword",
+      "skill": "2+",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "6",
+      "damage": "1",
+      "is_melee": true,
+      "line": 8,
+      "name": "Close combat weapon",
+      "skill": "2+",
+      "strength": "4"
+    },
+    {
+      "ability_keywords": [
+        "extra attacks",
+        "lethal hits"
+      ],
+      "armour_penetration": "0",
+      "attacks": "4",
+      "damage": "1",
+      "is_melee": true,
+      "line": 9,
+      "name": "Nurgling’s claws and teeth",
+      "skill": "5+",
+      "strength": "2"
+    },
+    {
+      "ability_keywords": [
+        "twin-linked"
+      ],
+      "armour_penetration": "-1",
+      "attacks": "7",
+      "damage": "1",
+      "is_melee": true,
+      "line": 10,
+      "name": "Paired accursed weapons",
+      "skill": "2+",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "5",
+      "damage": "2",
+      "is_melee": true,
+      "line": 11,
+      "name": "Power fist",
+      "skill": "2+",
+      "strength": "8"
+    }
+  ]
 }

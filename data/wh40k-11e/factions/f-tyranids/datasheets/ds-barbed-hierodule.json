@@ -1,6 +1,17 @@
 {
   "ability_keys": [
-    "datasheet:overgrown-barbs"
+    "core:deadly-demise-d6",
+    "datasheet:overgrown-barbs",
+    "faction:synapse"
+  ],
+  "composition": [
+    {
+      "line": 1,
+      "max_count": 1,
+      "min_count": 1,
+      "model_line": 1,
+      "model_name": "Barbed Hierodule"
+    }
   ],
   "costs": [
     {
@@ -9,7 +20,7 @@
       "model_count": 1,
       "points": 340,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1"
+      "source_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9"
     }
   ],
   "damaged_threshold": 6,
@@ -23,24 +34,33 @@
   "keywords": [
     {
       "is_faction_keyword": false,
-      "keyword": "Barbed Hierodule"
+      "keyword": "BARBED HIERODULE",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Great Devourer"
+      "keyword": "FRAME",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Monster"
+      "keyword": "GREAT DEVOURER",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "MONSTER",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": true,
-      "keyword": "Tyranids"
+      "keyword": "TYRANIDS",
+      "keyword_class": "faction"
     }
   ],
   "models": [
     {
-      "base_size": "127mm",
+      "base_size": "(⌀127mm)",
       "leadership": "8+",
       "line": 1,
       "movement": "8\"",
@@ -53,29 +73,31 @@
   ],
   "name": "Barbed Hierodule",
   "pricing_confidence": {
-    "consecutive_unverified_releases": 1,
+    "consecutive_unverified_releases": 2,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-    "detail_edition_code": "wh40k-10e",
+    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
-    "is_hybrid_edition": true,
+    "is_hybrid_edition": false,
     "points_edition_code": "wh40k-11e",
     "points_source": "none"
   },
-  "role": "Other",
+  "wargear_option_state": "none",
   "weapons": [
     {
+      "ability_keywords": [
+        "blast"
+      ],
       "armour_penetration": "-2",
       "attacks": "D6+3",
       "damage": "2",
-      "is_melee": false,
+      "is_melee": true,
       "line": 1,
       "name": "Bio-cannon",
-      "range": "48",
-      "skill": "3",
+      "skill": "3+",
       "strength": "9"
     },
     {
@@ -85,7 +107,7 @@
       "is_melee": true,
       "line": 2,
       "name": "Hierodule scything talons",
-      "skill": "3",
+      "skill": "3+",
       "strength": "14"
     }
   ]

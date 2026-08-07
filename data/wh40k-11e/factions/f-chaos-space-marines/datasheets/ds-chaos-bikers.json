@@ -1,7 +1,23 @@
 {
   "ability_keys": [
     "datasheet:chaos-icon",
-    "datasheet:outmanoeuvre"
+    "datasheet:outmanoeuvre",
+    "faction:dark-pacts"
+  ],
+  "composition": [
+    {
+      "line": 1,
+      "max_count": 1,
+      "min_count": 1,
+      "model_name": "Biker Champion"
+    },
+    {
+      "line": 2,
+      "max_count": 5,
+      "min_count": 2,
+      "model_line": 1,
+      "model_name": "Chaos Bikers"
+    }
   ],
   "costs": [
     {
@@ -10,7 +26,7 @@
       "model_count": 3,
       "points": 70,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
     },
     {
       "copy_index_min": 1,
@@ -18,7 +34,7 @@
       "model_count": 6,
       "points": 130,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
     }
   ],
   "datasheet_id": "ds-chaos-bikers",
@@ -31,28 +47,32 @@
   "keywords": [
     {
       "is_faction_keyword": false,
-      "keyword": "Chaos"
+      "keyword": "CHAOS",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Chaos Bikers"
+      "keyword": "CHAOS BIKERS",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Grenades"
+      "keyword": "GRENADES",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": true,
-      "keyword": "Heretic Astartes"
+      "keyword": "HERETIC ASTARTES"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Mounted"
+      "keyword": "MOUNTED",
+      "keyword_class": "unit"
     }
   ],
   "models": [
     {
-      "base_size": "75 x 42mm",
+      "base_size": "(⌀75 x 42mm)",
       "leadership": "6+",
       "line": 1,
       "movement": "12\"",
@@ -64,120 +84,207 @@
     }
   ],
   "name": "CHAOS BIKERS",
+  "option_choices": [
+    {
+      "count": 1,
+      "group_id": "og-chaos-bikers-1",
+      "id": "oc-chaos-bikers-1-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "plasma pistol"
+    },
+    {
+      "count": 1,
+      "group_id": "og-chaos-bikers-1",
+      "id": "oc-chaos-bikers-1-2",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "accursed weapon",
+      "replaces_weapon_line": 11
+    },
+    {
+      "count": 1,
+      "group_id": "og-chaos-bikers-1",
+      "id": "oc-chaos-bikers-1-3",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "Astartes chainsword",
+      "replaces_weapon_line": 12
+    },
+    {
+      "count": 1,
+      "group_id": "og-chaos-bikers-1",
+      "id": "oc-chaos-bikers-1-4",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "power fist",
+      "replaces_weapon_line": 13
+    },
+    {
+      "count": 1,
+      "group_id": "og-chaos-bikers-4",
+      "id": "oc-chaos-bikers-4-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "Chaos icon"
+    }
+  ],
+  "option_groups": [
+    {
+      "id": "og-chaos-bikers-1",
+      "line": 1,
+      "scope": "unit"
+    },
+    {
+      "id": "og-chaos-bikers-4",
+      "line": 4,
+      "scope": "unit"
+    }
+  ],
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:6e7ec8cdf47b4802e12b07a1bd9247858dc9d78323d43a1634cae602bc19e99e",
-    "last_verified_version": "mfm-2026-08",
+    "last_verified_version": "wh40k-11e-2026-08",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-    "detail_edition_code": "wh40k-10e",
+    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
-    "is_hybrid_edition": true,
-    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "is_hybrid_edition": false,
+    "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
-  "role": "Other",
+  "wargear_option_state": "partial",
   "weapons": [
     {
+      "ability_keywords": [
+        "pistol"
+      ],
       "armour_penetration": "0",
       "attacks": "1",
       "damage": "1",
       "is_melee": false,
       "line": 1,
       "name": "Bolt pistol",
-      "range": "12",
-      "skill": "3",
+      "range": "12\"",
+      "skill": "3+",
       "strength": "4"
     },
     {
+      "ability_keywords": [
+        "rapid fire 2"
+      ],
       "armour_penetration": "0",
       "attacks": "2",
       "damage": "1",
       "is_melee": false,
       "line": 2,
       "name": "Combi-bolter",
-      "range": "24",
-      "skill": "3",
+      "range": "24\"",
+      "skill": "3+",
       "strength": "4"
     },
     {
+      "ability_keywords": [
+        "anti-infantry 4+",
+        "devastating wounds",
+        "rapid fire 1"
+      ],
       "armour_penetration": "0",
       "attacks": "1",
       "damage": "1",
       "is_melee": false,
       "line": 3,
       "name": "Combi-weapon",
-      "range": "24",
-      "skill": "4",
+      "range": "24\"",
+      "skill": "4+",
       "strength": "4"
     },
     {
+      "ability_keywords": [
+        "ignores cover",
+        "torrent"
+      ],
       "armour_penetration": "0",
       "attacks": "D6",
       "damage": "1",
       "is_melee": false,
       "line": 4,
       "name": "Flamer",
-      "range": "12",
+      "range": "12\"",
       "skill": "N/A",
       "strength": "4"
     },
     {
+      "ability_keywords": [
+        "melta 2"
+      ],
       "armour_penetration": "-4",
       "attacks": "1",
       "damage": "D6",
       "is_melee": false,
       "line": 5,
       "name": "Meltagun",
-      "range": "12",
-      "skill": "3",
+      "range": "12\"",
+      "skill": "3+",
       "strength": "9"
     },
     {
+      "ability_keywords": [
+        "rapid fire 1"
+      ],
       "armour_penetration": "-2",
       "attacks": "1",
       "damage": "1",
       "is_melee": false,
       "line": 6,
       "name": "Plasma gun – standard",
-      "range": "24",
-      "skill": "3",
+      "range": "24\"",
+      "skill": "3+",
       "strength": "7"
     },
     {
+      "ability_keywords": [
+        "hazardous",
+        "rapid fire 1"
+      ],
       "armour_penetration": "-3",
       "attacks": "1",
       "damage": "2",
       "is_melee": false,
       "line": 7,
       "name": "Plasma gun – supercharge",
-      "range": "24",
-      "skill": "3",
+      "range": "24\"",
+      "skill": "3+",
       "strength": "8"
     },
     {
+      "ability_keywords": [
+        "pistol"
+      ],
       "armour_penetration": "-2",
       "attacks": "1",
       "damage": "1",
-      "is_melee": false,
+      "is_melee": true,
       "line": 8,
       "name": "Plasma pistol – standard",
-      "range": "12",
-      "skill": "3",
+      "skill": "3+",
       "strength": "7"
     },
     {
+      "ability_keywords": [
+        "hazardous",
+        "pistol"
+      ],
       "armour_penetration": "-3",
       "attacks": "1",
       "damage": "2",
-      "is_melee": false,
+      "is_melee": true,
       "line": 9,
       "name": "Plasma pistol – supercharge",
-      "range": "12",
-      "skill": "3",
+      "skill": "3+",
       "strength": "8"
     },
     {
@@ -187,7 +294,7 @@
       "is_melee": true,
       "line": 10,
       "name": "Close combat weapon",
-      "skill": "3",
+      "skill": "3+",
       "strength": "4"
     },
     {
@@ -197,7 +304,7 @@
       "is_melee": true,
       "line": 11,
       "name": "Accursed weapon",
-      "skill": "3",
+      "skill": "3+",
       "strength": "5"
     },
     {
@@ -207,7 +314,7 @@
       "is_melee": true,
       "line": 12,
       "name": "Astartes chainsword",
-      "skill": "3",
+      "skill": "3+",
       "strength": "4"
     },
     {
@@ -217,7 +324,7 @@
       "is_melee": true,
       "line": 13,
       "name": "Power fist",
-      "skill": "3",
+      "skill": "3+",
       "strength": "8"
     }
   ]

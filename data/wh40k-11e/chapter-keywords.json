@@ -1,0 +1,32 @@
+[
+  {
+    "chapter_faction_id": "f-black-templars",
+    "is_modelled_as_faction": true,
+    "keyword": "BLACK TEMPLARS",
+    "parent_faction_id": "f-space-marines"
+  },
+  {
+    "chapter_faction_id": "f-blood-angels",
+    "is_modelled_as_faction": true,
+    "keyword": "BLOOD ANGELS",
+    "parent_faction_id": "f-space-marines"
+  },
+  {
+    "chapter_faction_id": "f-dark-angels",
+    "is_modelled_as_faction": true,
+    "keyword": "DARK ANGELS",
+    "parent_faction_id": "f-space-marines"
+  },
+  {
+    "chapter_faction_id": "f-deathwatch",
+    "is_modelled_as_faction": true,
+    "keyword": "DEATHWATCH",
+    "parent_faction_id": "f-space-marines"
+  },
+  {
+    "chapter_faction_id": "f-space-wolves",
+    "is_modelled_as_faction": true,
+    "keyword": "SPACE WOLVES",
+    "parent_faction_id": "f-space-marines"
+  }
+]

@@ -1,17 +1,26 @@
 {
   "ability_keys": [
-    "datasheet:compact",
+    "core:deadly-demise-1",
     "datasheet:demolition-charges",
     "datasheet:unstable-payload"
+  ],
+  "composition": [
+    {
+      "line": 1,
+      "max_count": 1,
+      "min_count": 1,
+      "model_line": 1,
+      "model_name": "Cyclops Demolition Vehicle"
+    }
   ],
   "costs": [
     {
       "copy_index_min": 1,
       "label": "1 model",
       "model_count": 1,
-      "points": 25,
+      "points": 40,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1"
+      "source_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9"
     }
   ],
   "datasheet_id": "ds-cyclops-demolition-vehicle-2",
@@ -24,28 +33,33 @@
   "keywords": [
     {
       "is_faction_keyword": true,
-      "keyword": "Astra Militarum"
+      "keyword": "ASTRA MILITARUM",
+      "keyword_class": "faction"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Cyclops Demolition Vehicle"
-    },
-    {
-      "is_faction_keyword": true,
-      "keyword": "Genestealer Cults"
+      "keyword": "CYCLOPS DEMOLITION VEHICLE",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Imperium"
+      "keyword": "FRAME",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Vehicle"
+      "keyword": "IMPERIUM",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "VEHICLE",
+      "keyword_class": "unit"
     }
   ],
   "models": [
     {
-      "base_size": "Use model",
+      "base_size": "(⌀Use model)",
       "leadership": "8+",
       "line": 1,
       "movement": "8\"",
@@ -58,17 +72,17 @@
   ],
   "name": "Cyclops Demolition Vehicle",
   "pricing_confidence": {
-    "consecutive_unverified_releases": 1,
+    "consecutive_unverified_releases": 2,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-    "detail_edition_code": "wh40k-10e",
+    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
-    "is_hybrid_edition": true,
+    "is_hybrid_edition": false,
     "points_edition_code": "wh40k-11e",
     "points_source": "none"
   },
-  "role": "Other"
+  "wargear_option_state": "none"
 }

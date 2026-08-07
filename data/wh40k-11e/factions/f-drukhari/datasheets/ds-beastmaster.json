@@ -1,7 +1,39 @@
 {
   "ability_keys": [
+    "core:scouts-9",
     "datasheet:beastmaster",
-    "datasheet:goaded-savagery-pain"
+    "datasheet:goaded-savagery-pain",
+    "faction:power-from-pain"
+  ],
+  "composition": [
+    {
+      "line": 1,
+      "max_count": 1,
+      "min_count": 1,
+      "model_line": 1,
+      "model_name": "Beastmaster"
+    },
+    {
+      "line": 2,
+      "max_count": 1,
+      "min_count": 1,
+      "model_line": 2,
+      "model_name": "Clawed Fiends"
+    },
+    {
+      "line": 3,
+      "max_count": 2,
+      "min_count": 2,
+      "model_line": 3,
+      "model_name": "Khymerae"
+    },
+    {
+      "line": 4,
+      "max_count": 3,
+      "min_count": 3,
+      "model_line": 4,
+      "model_name": "Razorwing Flocks"
+    }
   ],
   "costs": [
     {
@@ -10,7 +42,7 @@
       "model_count": 7,
       "points": 135,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1"
+      "source_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9"
     }
   ],
   "datasheet_id": "ds-beastmaster",
@@ -23,48 +55,56 @@
   "keywords": [
     {
       "is_faction_keyword": false,
-      "keyword": "Aeldari",
+      "keyword": "AELDARI",
+      "keyword_class": "faction",
       "model_scope": "ALL MODELS"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Beastmaster",
+      "keyword": "BEASTMASTER",
+      "keyword_class": "unit",
       "model_scope": "BEASTMASTER"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Beasts",
+      "keyword": "BEASTS",
+      "keyword_class": "unit",
       "model_scope": "ALL MODELS"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Character",
+      "keyword": "CHARACTER",
+      "keyword_class": "unit",
       "model_scope": "BEASTMASTER"
     },
     {
       "is_faction_keyword": true,
-      "keyword": "Drukhari"
+      "keyword": "DRUKHARI",
+      "keyword_class": "faction"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Fly",
+      "keyword": "FLY",
+      "keyword_class": "unit",
       "model_scope": "BEASTMASTER"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Fly",
+      "keyword": "FLY",
+      "keyword_class": "unit",
       "model_scope": "RAZORWING FLOCKS"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Mounted",
+      "keyword": "MOUNTED",
+      "keyword_class": "unit",
       "model_scope": "BEASTMASTER"
     }
   ],
   "models": [
     {
-      "base_size": "32mm flying base",
-      "invuln_save": "6",
+      "base_size": "(⌀32mm flying base)",
+      "invuln_save": "6+",
       "leadership": "7+",
       "line": 1,
       "movement": "12\"",
@@ -75,8 +115,8 @@
       "wounds": 3
     },
     {
-      "base_size": "40mm",
-      "invuln_save": "6",
+      "base_size": "(⌀40mm)",
+      "invuln_save": "6+",
       "leadership": "8+",
       "line": 2,
       "movement": "12\"",
@@ -87,8 +127,8 @@
       "wounds": 5
     },
     {
-      "base_size": "40mm",
-      "invuln_save": "6",
+      "base_size": "(⌀40mm)",
+      "invuln_save": "6+",
       "leadership": "8+",
       "line": 3,
       "movement": "12\"",
@@ -99,8 +139,8 @@
       "wounds": 2
     },
     {
-      "base_size": "40mm",
-      "invuln_save": "6",
+      "base_size": "(⌀40mm)",
+      "invuln_save": "6+",
       "leadership": "8+",
       "line": 4,
       "movement": "12\"",
@@ -113,69 +153,85 @@
   ],
   "name": "Beastmaster",
   "pricing_confidence": {
-    "consecutive_unverified_releases": 1,
+    "consecutive_unverified_releases": 2,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-    "detail_edition_code": "wh40k-10e",
+    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
-    "is_hybrid_edition": true,
+    "is_hybrid_edition": false,
     "points_edition_code": "wh40k-11e",
     "points_source": "none"
   },
-  "role": "Characters",
+  "wargear_option_state": "none",
   "weapons": [
     {
+      "ability_keywords": [
+        "anti-infantry 3+",
+        "assault",
+        "twin-linked"
+      ],
       "armour_penetration": "0",
       "attacks": "2",
       "damage": "1",
-      "is_melee": false,
+      "is_melee": true,
       "line": 1,
       "name": "Splinter pods",
-      "range": "18",
-      "skill": "3",
+      "skill": "3+",
       "strength": "2"
     },
     {
+      "ability_keywords": [
+        "anti-infantry 3+"
+      ],
       "armour_penetration": "-2",
       "attacks": "3",
       "damage": "1",
       "is_melee": true,
       "line": 2,
       "name": "Agoniser",
-      "skill": "3",
+      "skill": "3+",
       "strength": "3"
     },
     {
+      "ability_keywords": [
+        "devastating wounds"
+      ],
       "armour_penetration": "-2",
       "attacks": "5",
       "damage": "2",
       "is_melee": true,
       "line": 3,
       "name": "Clawed Fiend fists",
-      "skill": "4",
+      "skill": "4+",
       "strength": "5"
     },
     {
+      "ability_keywords": [
+        "lethal hits"
+      ],
       "armour_penetration": "-1",
       "attacks": "4",
       "damage": "1",
       "is_melee": true,
       "line": 4,
       "name": "Khymerae talons",
-      "skill": "4",
+      "skill": "4+",
       "strength": "5"
     },
     {
+      "ability_keywords": [
+        "sustained hits 1"
+      ],
       "armour_penetration": "0",
       "attacks": "6",
       "damage": "1",
       "is_melee": true,
       "line": 5,
       "name": "Razorwing feathers",
-      "skill": "4",
+      "skill": "4+",
       "strength": "3"
     }
   ]

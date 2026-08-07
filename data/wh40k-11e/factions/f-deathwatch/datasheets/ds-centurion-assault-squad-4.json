@@ -1,7 +1,22 @@
 {
   "ability_keys": [
     "datasheet:annihilator-protocols",
-    "datasheet:centurion-assault-launcher"
+    "datasheet:centurion-assault-launcher",
+    "faction:oath-of-moment"
+  ],
+  "composition": [
+    {
+      "line": 1,
+      "max_count": 1,
+      "min_count": 1,
+      "model_name": "Assault Centurion Sergeant"
+    },
+    {
+      "line": 2,
+      "max_count": 5,
+      "min_count": 2,
+      "model_name": "Assault Centurions"
+    }
   ],
   "costs": [
     {
@@ -10,7 +25,7 @@
       "model_count": 3,
       "points": 150,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
     },
     {
       "copy_index_min": 1,
@@ -18,7 +33,7 @@
       "model_count": 6,
       "points": 300,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
     }
   ],
   "datasheet_id": "ds-centurion-assault-squad-4",
@@ -31,28 +46,32 @@
   "keywords": [
     {
       "is_faction_keyword": true,
-      "keyword": "Adeptus Astartes"
+      "keyword": "ADEPTUS ASTARTES"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Centurion"
+      "keyword": "CENTURION",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Centurion Assault Squad"
+      "keyword": "CENTURION ASSAULT SQUAD",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Imperium"
+      "keyword": "IMPERIUM",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Infantry"
+      "keyword": "INFANTRY",
+      "keyword_class": "unit"
     }
   ],
   "models": [
     {
-      "base_size": "50mm",
+      "base_size": "(⌀50mm)",
       "leadership": "6+",
       "line": 1,
       "movement": "4\"",
@@ -67,61 +86,76 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:260cddf19d2bebeff3dd89369441374bc7c5739158ec7c25bd97e7c527429108",
-    "last_verified_version": "mfm-2026-08",
+    "last_verified_version": "wh40k-11e-2026-08",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-    "detail_edition_code": "wh40k-10e",
+    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
-    "is_hybrid_edition": true,
-    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "is_hybrid_edition": false,
+    "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
-  "role": "Other",
+  "wargear_option_state": "partial",
   "weapons": [
     {
+      "ability_keywords": [
+        "rapid fire 3",
+        "twin-linked"
+      ],
       "armour_penetration": "0",
       "attacks": "3",
       "damage": "1",
       "is_melee": false,
       "line": 1,
       "name": "Centurion bolters",
-      "range": "24",
-      "skill": "3",
+      "range": "24\"",
+      "skill": "3+",
       "strength": "4"
     },
     {
+      "ability_keywords": [
+        "ignores cover",
+        "torrent",
+        "twin-linked"
+      ],
       "armour_penetration": "0",
       "attacks": "D6",
       "damage": "1",
       "is_melee": false,
       "line": 2,
       "name": "Twin flamer",
-      "range": "12",
+      "range": "12\"",
       "skill": "N/A",
       "strength": "4"
     },
     {
+      "ability_keywords": [
+        "melta 2",
+        "twin-linked"
+      ],
       "armour_penetration": "-4",
       "attacks": "1",
       "damage": "D6",
-      "is_melee": false,
+      "is_melee": true,
       "line": 3,
       "name": "Twin meltagun",
-      "range": "12",
-      "skill": "3",
+      "skill": "3+",
       "strength": "9"
     },
     {
+      "ability_keywords": [
+        "twin-linked"
+      ],
       "armour_penetration": "-2",
       "attacks": "3",
       "damage": "3",
       "is_melee": true,
       "line": 4,
       "name": "Siege drills",
-      "skill": "3",
+      "skill": "3+",
       "strength": "10"
     }
   ]

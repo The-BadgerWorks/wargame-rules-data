@@ -1,7 +1,22 @@
 {
   "ability_keys": [
     "datasheet:ds8-support-turret",
-    "datasheet:suppression-volley"
+    "datasheet:suppression-volley",
+    "faction:for-the-greater-good"
+  ],
+  "composition": [
+    {
+      "line": 1,
+      "max_count": 1,
+      "min_count": 1,
+      "model_name": "Fire Warrior Shas’ui"
+    },
+    {
+      "line": 2,
+      "max_count": 9,
+      "min_count": 9,
+      "model_name": "Fire Warriors"
+    }
   ],
   "costs": [
     {
@@ -10,7 +25,7 @@
       "model_count": 10,
       "points": 70,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
     }
   ],
   "datasheet_id": "ds-strike-team",
@@ -23,36 +38,43 @@
   "keywords": [
     {
       "is_faction_keyword": false,
-      "keyword": "Battleline"
+      "keyword": "BATTLELINE",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Fire Warrior"
+      "keyword": "FIRE WARRIOR",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Grenades"
+      "keyword": "GRENADES",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Infantry"
+      "keyword": "INFANTRY",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Markerlight"
+      "keyword": "MARKERLIGHT",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Strike Team"
+      "keyword": "STRIKE TEAM",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": true,
-      "keyword": "T’au Empire"
+      "keyword": "T’AU EMPIRE",
+      "keyword_class": "faction"
     }
   ],
   "models": [
     {
-      "base_size": "25mm",
+      "base_size": "(⌀25mm)",
       "leadership": "7+",
       "line": 1,
       "movement": "6\"",
@@ -64,22 +86,63 @@
     }
   ],
   "name": "STRIKE TEAM",
+  "option_choices": [
+    {
+      "count": 1,
+      "group_id": "og-strike-team-1",
+      "id": "oc-strike-team-1-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "guardian drone (it cannot take duplicates of this piece of wargear)"
+    },
+    {
+      "count": 1,
+      "group_id": "og-strike-team-1",
+      "id": "oc-strike-team-1-2",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "gun drone"
+    },
+    {
+      "count": 1,
+      "group_id": "og-strike-team-1",
+      "id": "oc-strike-team-1-3",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "marker drone"
+    },
+    {
+      "count": 1,
+      "group_id": "og-strike-team-1",
+      "id": "oc-strike-team-1-4",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "shield drone"
+    }
+  ],
+  "option_groups": [
+    {
+      "id": "og-strike-team-1",
+      "line": 1,
+      "scope": "unit"
+    }
+  ],
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:f716a508ea160b8b096dfeaf63fb22a552c4966dcaccf2bc6e4bc2e4e2d71bbf",
-    "last_verified_version": "mfm-2026-08",
+    "last_verified_version": "wh40k-11e-2026-08",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-    "detail_edition_code": "wh40k-10e",
+    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
-    "is_hybrid_edition": true,
-    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "is_hybrid_edition": false,
+    "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
-  "role": "Battleline",
+  "wargear_option_state": "partial",
   "weapons": [
     {
       "armour_penetration": "0",
@@ -88,41 +151,50 @@
       "is_melee": false,
       "line": 1,
       "name": "Pulse carbine",
-      "range": "20",
-      "skill": "4",
+      "range": "20\"",
+      "skill": "4+",
       "strength": "5"
     },
     {
+      "ability_keywords": [
+        "pistol"
+      ],
       "armour_penetration": "0",
       "attacks": "1",
       "damage": "1",
       "is_melee": false,
       "line": 2,
       "name": "Pulse pistol",
-      "range": "12",
-      "skill": "4",
+      "range": "12\"",
+      "skill": "4+",
       "strength": "5"
     },
     {
+      "ability_keywords": [
+        "rapid fire 1"
+      ],
       "armour_penetration": "0",
       "attacks": "1",
       "damage": "1",
       "is_melee": false,
       "line": 3,
       "name": "Pulse rifle",
-      "range": "30",
-      "skill": "4",
+      "range": "30\"",
+      "skill": "4+",
       "strength": "5"
     },
     {
+      "ability_keywords": [
+        "indirect fire",
+        "twin-linked"
+      ],
       "armour_penetration": "0",
       "attacks": "2",
       "damage": "1",
-      "is_melee": false,
+      "is_melee": true,
       "line": 4,
       "name": "Support turret",
-      "range": "30",
-      "skill": "5",
+      "skill": "5+",
       "strength": "5"
     },
     {
@@ -132,7 +204,7 @@
       "is_melee": true,
       "line": 5,
       "name": "Close combat weapon",
-      "skill": "5",
+      "skill": "5+",
       "strength": "3"
     }
   ]

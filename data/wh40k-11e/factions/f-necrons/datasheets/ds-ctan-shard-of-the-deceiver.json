@@ -1,8 +1,21 @@
 {
   "ability_keys": [
-    "datasheet:enslaved-star-god",
+    "core:deadly-demise-d6",
+    "core:deep-strike",
+    "core:feel-no-pain-5",
+    "core:stealth",
     "datasheet:grand-illusion",
-    "datasheet:necrodermis"
+    "datasheet:necrodermis",
+    "faction:reanimation-protocols"
+  ],
+  "composition": [
+    {
+      "line": 1,
+      "max_count": 1,
+      "min_count": 1,
+      "model_line": 1,
+      "model_name": "C’tan Shard of the Deceiver"
+    }
   ],
   "costs": [
     {
@@ -11,7 +24,7 @@
       "model_count": 1,
       "points": 330,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
     }
   ],
   "datasheet_id": "ds-ctan-shard-of-the-deceiver",
@@ -24,33 +37,39 @@
   "keywords": [
     {
       "is_faction_keyword": false,
-      "keyword": "Character"
+      "keyword": "CHARACTER",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "C’tan Shard of the Deceiver"
+      "keyword": "C’TAN SHARD OF THE DECEIVER",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Epic Hero"
+      "keyword": "EPIC HERO",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Fly"
+      "keyword": "FLY",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Monster"
+      "keyword": "MONSTER",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": true,
-      "keyword": "Necrons"
+      "keyword": "NECRONS",
+      "keyword_class": "faction"
     }
   ],
   "models": [
     {
-      "base_size": "40mm",
-      "invuln_save": "4",
+      "base_size": "(⌀40mm)",
+      "invuln_save": "4+",
       "leadership": "6+",
       "line": 1,
       "movement": "8\"",
@@ -65,29 +84,33 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:54175cfe0ec95677626a2ccddd53f19e564b45590cda7f9a2d286b4ebc52a2ca",
-    "last_verified_version": "mfm-2026-08",
+    "last_verified_version": "wh40k-11e-2026-08",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-    "detail_edition_code": "wh40k-10e",
+    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
-    "is_hybrid_edition": true,
-    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "is_hybrid_edition": false,
+    "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
-  "role": "Characters",
+  "wargear_option_state": "none",
   "weapons": [
     {
+      "ability_keywords": [
+        "anti-character 4+",
+        "devastating wounds",
+        "precision"
+      ],
       "armour_penetration": "-2",
       "attacks": "6",
       "damage": "2",
-      "is_melee": false,
+      "is_melee": true,
       "line": 1,
       "name": "Cosmic insanity",
-      "range": "18",
-      "skill": "2",
+      "skill": "2+",
       "strength": "6"
     },
     {
@@ -97,7 +120,7 @@
       "is_melee": true,
       "line": 2,
       "name": "Golden fists",
-      "skill": "2",
+      "skill": "2+",
       "strength": "10"
     }
   ]

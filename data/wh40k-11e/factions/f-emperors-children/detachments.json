@@ -8,14 +8,20 @@
       "is_unique": false,
       "name": "CARNIVAL OF EXCESS",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-        "detail_edition_code": "wh40k-10e",
+        "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+        "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
-        "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
-      }
+      },
+      "rules": [
+        {
+          "name": "Daemonic Empowerment",
+          "summary_key": "detachment:d-carnival-of-excess:daemonic-empowerment"
+        }
+      ]
     },
     {
       "detachment_id": "d-coterie-of-the-conceited",
@@ -25,14 +31,20 @@
       "is_unique": false,
       "name": "COTERIE OF THE CONCEITED",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-        "detail_edition_code": "wh40k-10e",
+        "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+        "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
-        "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
-      }
+      },
+      "rules": [
+        {
+          "name": "Pledges to the Dark Prince",
+          "summary_key": "detachment:d-coterie-of-the-conceited:pledges-to-the-dark-prince"
+        }
+      ]
     },
     {
       "detachment_id": "d-court-of-the-phoenician",
@@ -42,14 +54,24 @@
       "is_unique": false,
       "name": "COURT OF THE PHOENICIAN",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-        "detail_edition_code": "wh40k-10e",
+        "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+        "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
-        "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
-      }
+      },
+      "rules": [
+        {
+          "name": "Master of the Pageant",
+          "summary_key": "detachment:d-court-of-the-phoenician:master-of-the-pageant"
+        },
+        {
+          "name": "Sensational Performance",
+          "summary_key": "detachment:d-court-of-the-phoenician:sensational-performance"
+        }
+      ]
     },
     {
       "detachment_id": "d-elegant-brutes",
@@ -59,11 +81,11 @@
       "is_unique": false,
       "name": "ELEGANT BRUTES",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-        "detail_edition_code": "wh40k-10e",
+        "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+        "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
-        "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       }
@@ -76,11 +98,11 @@
       "is_unique": false,
       "name": "FRENZIED HOST",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-        "detail_edition_code": "wh40k-10e",
+        "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+        "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
-        "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       }
@@ -93,14 +115,20 @@
       "is_unique": false,
       "name": "MERCURIAL HOST",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-        "detail_edition_code": "wh40k-10e",
+        "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+        "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
-        "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
-      }
+      },
+      "rules": [
+        {
+          "name": "Quicksilver Grace",
+          "summary_key": "detachment:d-mercurial-host:quicksilver-grace"
+        }
+      ]
     },
     {
       "detachment_id": "d-peerless-bladesmen",
@@ -110,14 +138,20 @@
       "is_unique": false,
       "name": "PEERLESS BLADESMEN",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-        "detail_edition_code": "wh40k-10e",
+        "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+        "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
-        "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
-      }
+      },
+      "rules": [
+        {
+          "name": "Exquisite Swordsmanship",
+          "summary_key": "detachment:d-peerless-bladesmen:exquisite-swordsmanship"
+        }
+      ]
     },
     {
       "detachment_id": "d-rapid-evisceration",
@@ -127,14 +161,20 @@
       "is_unique": false,
       "name": "RAPID EVISCERATION",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-        "detail_edition_code": "wh40k-10e",
+        "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+        "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
-        "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
-      }
+      },
+      "rules": [
+        {
+          "name": "Mechanised Murder",
+          "summary_key": "detachment:d-rapid-evisceration:mechanised-murder"
+        }
+      ]
     },
     {
       "detachment_id": "d-slaaneshs-chosen",
@@ -144,14 +184,20 @@
       "is_unique": false,
       "name": "SLAANESH’S CHOSEN",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-        "detail_edition_code": "wh40k-10e",
+        "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+        "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
-        "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
-      }
+      },
+      "rules": [
+        {
+          "name": "Internal Rivalries",
+          "summary_key": "detachment:d-slaaneshs-chosen:internal-rivalries"
+        }
+      ]
     },
     {
       "detachment_id": "d-spectacle-of-slaughter",
@@ -161,11 +207,11 @@
       "is_unique": false,
       "name": "SPECTACLE OF SLAUGHTER",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-        "detail_edition_code": "wh40k-10e",
+        "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+        "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
-        "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       }

@@ -1,7 +1,22 @@
 {
   "ability_keys": [
+    "datasheet:hail-of-bolts",
     "datasheet:objective-secured",
-    "datasheet:target-elimination"
+    "faction:oath-of-moment"
+  ],
+  "composition": [
+    {
+      "line": 1,
+      "max_count": 1,
+      "min_count": 1,
+      "model_name": "Intercessor Sergeant"
+    },
+    {
+      "line": 2,
+      "max_count": 9,
+      "min_count": 4,
+      "model_name": "Intercessors"
+    }
   ],
   "costs": [
     {
@@ -10,7 +25,7 @@
       "model_count": 5,
       "points": 80,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
     },
     {
       "copy_index_min": 1,
@@ -18,7 +33,7 @@
       "model_count": 10,
       "points": 150,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
     }
   ],
   "datasheet_id": "ds-intercessor-squad-4",
@@ -31,36 +46,42 @@
   "keywords": [
     {
       "is_faction_keyword": true,
-      "keyword": "Adeptus Astartes"
+      "keyword": "ADEPTUS ASTARTES"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Battleline"
+      "keyword": "BATTLELINE",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Grenades"
+      "keyword": "GRENADES",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Imperium"
+      "keyword": "IMPERIUM",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Infantry"
+      "keyword": "INFANTRY",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Intercessor Squad"
+      "keyword": "INTERCESSOR SQUAD",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Tacticus"
+      "keyword": "TACTICUS",
+      "keyword_class": "unit"
     }
   ],
   "models": [
     {
-      "base_size": "32mm",
+      "base_size": "(⌀32mm)",
       "leadership": "6+",
       "line": 1,
       "movement": "6\"",
@@ -72,32 +93,134 @@
     }
   ],
   "name": "INTERCESSOR SQUAD",
+  "option_choices": [
+    {
+      "count": 1,
+      "group_id": "og-intercessor-squad-4-1",
+      "id": "oc-intercessor-squad-4-1-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "Astartes chainsword",
+      "replaces_weapon_line": 8
+    },
+    {
+      "count": 1,
+      "group_id": "og-intercessor-squad-4-1",
+      "id": "oc-intercessor-squad-4-1-2",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "hand flamer",
+      "replaces_weapon_line": 5
+    },
+    {
+      "count": 1,
+      "group_id": "og-intercessor-squad-4-1",
+      "id": "oc-intercessor-squad-4-1-3",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "plasma pistol"
+    },
+    {
+      "count": 1,
+      "group_id": "og-intercessor-squad-4-1",
+      "id": "oc-intercessor-squad-4-1-4",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "power weapon",
+      "replaces_weapon_line": 11
+    },
+    {
+      "count": 1,
+      "group_id": "og-intercessor-squad-4-2",
+      "id": "oc-intercessor-squad-4-2-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "Astartes chainsword",
+      "replaces_weapon_line": 8
+    },
+    {
+      "count": 1,
+      "group_id": "og-intercessor-squad-4-2",
+      "id": "oc-intercessor-squad-4-2-2",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "power fist",
+      "replaces_weapon_line": 10
+    },
+    {
+      "count": 1,
+      "group_id": "og-intercessor-squad-4-2",
+      "id": "oc-intercessor-squad-4-2-3",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "power weapon",
+      "replaces_weapon_line": 11
+    },
+    {
+      "count": 1,
+      "group_id": "og-intercessor-squad-4-2",
+      "id": "oc-intercessor-squad-4-2-4",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "thunder hammer",
+      "replaces_weapon_line": 12
+    },
+    {
+      "count": 1,
+      "group_id": "og-intercessor-squad-4-3",
+      "id": "oc-intercessor-squad-4-3-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "Astartes grenade launcher"
+    }
+  ],
+  "option_groups": [
+    {
+      "id": "og-intercessor-squad-4-1",
+      "line": 1,
+      "scope": "unit"
+    },
+    {
+      "id": "og-intercessor-squad-4-2",
+      "line": 2,
+      "scope": "unit"
+    },
+    {
+      "id": "og-intercessor-squad-4-3",
+      "line": 3,
+      "scope": "per_n_models",
+      "scope_n": 5
+    }
+  ],
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:3c70fec523920697c7e695af5c52ea5e95a1b5b47851de641f9298e346b6f762",
-    "last_verified_version": "mfm-2026-08",
+    "last_verified_version": "wh40k-11e-2026-08",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-    "detail_edition_code": "wh40k-10e",
+    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
-    "is_hybrid_edition": true,
-    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "is_hybrid_edition": false,
+    "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
-  "role": "Battleline",
+  "wargear_option_state": "extracted",
   "weapons": [
     {
+      "ability_keywords": [
+        "blast"
+      ],
       "armour_penetration": "0",
       "attacks": "D3",
       "damage": "1",
       "is_melee": false,
       "line": 1,
       "name": "Astartes grenade launcher – frag",
-      "range": "24",
-      "skill": "3",
+      "range": "24\"",
+      "skill": "3+",
       "strength": "4"
     },
     {
@@ -107,63 +230,80 @@
       "is_melee": false,
       "line": 2,
       "name": "Astartes grenade launcher – krak",
-      "range": "24",
-      "skill": "3",
+      "range": "24\"",
+      "skill": "3+",
       "strength": "9"
     },
     {
+      "ability_keywords": [
+        "pistol"
+      ],
       "armour_penetration": "0",
       "attacks": "1",
       "damage": "1",
       "is_melee": false,
       "line": 3,
       "name": "Bolt pistol",
-      "range": "12",
-      "skill": "3",
+      "range": "12\"",
+      "skill": "3+",
       "strength": "4"
     },
     {
+      "ability_keywords": [
+        "assault",
+        "heavy"
+      ],
       "armour_penetration": "-1",
       "attacks": "2",
       "damage": "1",
       "is_melee": false,
       "line": 4,
       "name": "Bolt rifle",
-      "range": "24",
-      "skill": "3",
+      "range": "24\"",
+      "skill": "3+",
       "strength": "4"
     },
     {
+      "ability_keywords": [
+        "ignores cover",
+        "pistol",
+        "torrent"
+      ],
       "armour_penetration": "0",
       "attacks": "D6",
       "damage": "1",
       "is_melee": false,
       "line": 5,
       "name": "Hand flamer",
-      "range": "12",
+      "range": "12\"",
       "skill": "N/A",
       "strength": "3"
     },
     {
+      "ability_keywords": [
+        "pistol"
+      ],
       "armour_penetration": "-2",
       "attacks": "1",
       "damage": "1",
-      "is_melee": false,
+      "is_melee": true,
       "line": 6,
       "name": "Plasma pistol – standard",
-      "range": "12",
-      "skill": "3",
+      "skill": "3+",
       "strength": "7"
     },
     {
+      "ability_keywords": [
+        "hazardous",
+        "pistol"
+      ],
       "armour_penetration": "-3",
       "attacks": "1",
       "damage": "2",
-      "is_melee": false,
+      "is_melee": true,
       "line": 7,
       "name": "Plasma pistol – supercharge",
-      "range": "12",
-      "skill": "3",
+      "skill": "3+",
       "strength": "8"
     },
     {
@@ -173,7 +313,7 @@
       "is_melee": true,
       "line": 8,
       "name": "Astartes chainsword",
-      "skill": "3",
+      "skill": "3+",
       "strength": "4"
     },
     {
@@ -183,7 +323,7 @@
       "is_melee": true,
       "line": 9,
       "name": "Close combat weapon",
-      "skill": "3",
+      "skill": "3+",
       "strength": "4"
     },
     {
@@ -193,7 +333,7 @@
       "is_melee": true,
       "line": 10,
       "name": "Power fist",
-      "skill": "3",
+      "skill": "3+",
       "strength": "8"
     },
     {
@@ -203,17 +343,20 @@
       "is_melee": true,
       "line": 11,
       "name": "Power weapon",
-      "skill": "3",
+      "skill": "3+",
       "strength": "5"
     },
     {
+      "ability_keywords": [
+        "devastating wounds"
+      ],
       "armour_penetration": "-2",
       "attacks": "3",
       "damage": "2",
       "is_melee": true,
       "line": 12,
       "name": "Thunder hammer",
-      "skill": "4",
+      "skill": "4+",
       "strength": "8"
     }
   ]

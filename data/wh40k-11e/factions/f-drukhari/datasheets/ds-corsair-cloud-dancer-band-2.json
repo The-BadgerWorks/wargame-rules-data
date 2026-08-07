@@ -1,23 +1,38 @@
 {
   "ability_keys": [
+    "core:scouts-7",
     "datasheet:reckless-abandon"
+  ],
+  "composition": [
+    {
+      "line": 1,
+      "max_count": 1,
+      "min_count": 0,
+      "model_name": "Cloud Dancer Felarch"
+    },
+    {
+      "line": 2,
+      "max_count": 6,
+      "min_count": 3,
+      "model_name": "Corsair Cloud Dancers"
+    }
   ],
   "costs": [
     {
       "copy_index_min": 1,
       "label": "3 models",
       "model_count": 3,
-      "points": 105,
+      "points": 125,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1"
+      "source_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9"
     },
     {
       "copy_index_min": 1,
       "label": "4 models",
       "model_count": 4,
-      "points": 140,
+      "points": 150,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1"
+      "source_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9"
     },
     {
       "copy_index_min": 1,
@@ -25,7 +40,7 @@
       "model_count": 6,
       "points": 210,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1"
+      "source_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9"
     },
     {
       "copy_index_min": 1,
@@ -33,7 +48,7 @@
       "model_count": 7,
       "points": 245,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1"
+      "source_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9"
     }
   ],
   "datasheet_id": "ds-corsair-cloud-dancer-band-2",
@@ -45,33 +60,48 @@
   "is_legends": true,
   "keywords": [
     {
-      "is_faction_keyword": true,
-      "keyword": "Aeldari"
+      "is_faction_keyword": false,
+      "keyword": "AELDARI",
+      "keyword_class": "faction"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Anhrathe"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Corsair Cloud Dancer Band"
+      "keyword": "ANHRATHE",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": true,
-      "keyword": "Drukhari"
+      "keyword": "ASURYANI"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Grenades"
+      "keyword": "CORSAIR CLOUD DANCER BAND",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": true,
+      "keyword": "DRUKHARI",
+      "keyword_class": "faction"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Mounted"
+      "keyword": "FRAME",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "GRENADES",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "MOUNTED",
+      "keyword_class": "unit"
     }
   ],
   "models": [
     {
-      "base_size": "32mm flying base",
+      "base_size": "(⌀32mm flying base)",
       "leadership": "6+",
       "line": 1,
       "movement": "14\"",
@@ -83,18 +113,176 @@
     }
   ],
   "name": "Corsair Cloud Dancer Band",
+  "option_choices": [
+    {
+      "count": 1,
+      "grants_weapon_line": 4,
+      "group_id": "og-corsair-cloud-dancer-band-2-2",
+      "id": "oc-corsair-cloud-dancer-band-2-2-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "dissonance pistol"
+    },
+    {
+      "count": 1,
+      "grants_weapon_line": 10,
+      "group_id": "og-corsair-cloud-dancer-band-2-2",
+      "id": "oc-corsair-cloud-dancer-band-2-2-2",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "void sabre"
+    }
+  ],
+  "option_groups": [
+    {
+      "id": "og-corsair-cloud-dancer-band-2-2",
+      "line": 2,
+      "scope": "unit"
+    }
+  ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 1,
+    "consecutive_unverified_releases": 2,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-    "detail_edition_code": "wh40k-10e",
+    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
-    "is_hybrid_edition": true,
+    "is_hybrid_edition": false,
     "points_edition_code": "wh40k-11e",
     "points_source": "none"
   },
-  "role": "Other"
+  "wargear_option_state": "partial",
+  "weapons": [
+    {
+      "ability_keywords": [
+        "assault",
+        "pistol"
+      ],
+      "armour_penetration": "0",
+      "attacks": "2",
+      "damage": "1",
+      "is_melee": false,
+      "line": 1,
+      "name": "Brace of pistols",
+      "range": "12\"",
+      "skill": "3+",
+      "strength": "3"
+    },
+    {
+      "armour_penetration": "-3",
+      "attacks": "1",
+      "damage": "D6+2",
+      "is_melee": false,
+      "line": 2,
+      "name": "Dark lance",
+      "range": "36\"",
+      "skill": "3+",
+      "strength": "12"
+    },
+    {
+      "ability_keywords": [
+        "devastating wounds"
+      ],
+      "armour_penetration": "-1",
+      "attacks": "3",
+      "damage": "2",
+      "is_melee": false,
+      "line": 3,
+      "name": "Dissonance cannon",
+      "range": "24\"",
+      "skill": "3+",
+      "strength": "6"
+    },
+    {
+      "ability_keywords": [
+        "devastating wounds",
+        "pistol"
+      ],
+      "armour_penetration": "-1",
+      "attacks": "1",
+      "damage": "1",
+      "is_melee": false,
+      "line": 4,
+      "name": "Dissonance pistol",
+      "range": "12\"",
+      "skill": "3+",
+      "strength": "6"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "6",
+      "damage": "1",
+      "is_melee": false,
+      "line": 5,
+      "name": "Scatter laser",
+      "range": "36\"",
+      "skill": "3+",
+      "strength": "5"
+    },
+    {
+      "ability_keywords": [
+        "sustained hits 1"
+      ],
+      "armour_penetration": "-1",
+      "attacks": "3",
+      "damage": "2",
+      "is_melee": false,
+      "line": 6,
+      "name": "Shuriken cannon",
+      "range": "24\"",
+      "skill": "3+",
+      "strength": "6"
+    },
+    {
+      "ability_keywords": [
+        "anti-infantry 3+",
+        "sustained hits 1"
+      ],
+      "armour_penetration": "-1",
+      "attacks": "3",
+      "damage": "2",
+      "is_melee": false,
+      "line": 7,
+      "name": "Splinter cannon",
+      "range": "36\"",
+      "skill": "3+",
+      "strength": "3"
+    },
+    {
+      "ability_keywords": [
+        "assault",
+        "twin-linked"
+      ],
+      "armour_penetration": "-3",
+      "attacks": "2",
+      "damage": "1",
+      "is_melee": true,
+      "line": 8,
+      "name": "Twin shuriken catapult",
+      "skill": "3+",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "2",
+      "damage": "1",
+      "is_melee": true,
+      "line": 9,
+      "name": "Close combat weapon",
+      "skill": "3+",
+      "strength": "3"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "3",
+      "damage": "1",
+      "is_melee": true,
+      "line": 10,
+      "name": "Void sabre",
+      "skill": "3+",
+      "strength": "4"
+    }
+  ]
 }

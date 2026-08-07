@@ -8,14 +8,20 @@
       "is_unique": false,
       "name": "1ST COMPANY TASK FORCE",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-        "detail_edition_code": "wh40k-10e",
+        "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+        "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
-        "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
-      }
+      },
+      "rules": [
+        {
+          "name": "Extremis-level Threat",
+          "summary_key": "detachment:d-1st-company-task-force-2:extremis-level-threat"
+        }
+      ]
     },
     {
       "detachment_id": "d-anvil-siege-force-3",
@@ -25,14 +31,20 @@
       "is_unique": false,
       "name": "ANVIL SIEGE FORCE",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-        "detail_edition_code": "wh40k-10e",
+        "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+        "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
-        "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
-      }
+      },
+      "rules": [
+        {
+          "name": "Shield of the Imperium",
+          "summary_key": "detachment:d-anvil-siege-force-3:shield-of-the-imperium"
+        }
+      ]
     },
     {
       "detachment_id": "d-armoured-speartip-3",
@@ -42,14 +54,20 @@
       "is_unique": false,
       "name": "ARMOURED SPEARTIP",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-        "detail_edition_code": "wh40k-10e",
+        "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+        "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
-        "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
-      }
+      },
+      "rules": [
+        {
+          "name": "Rapid Deployment",
+          "summary_key": "detachment:d-armoured-speartip-3:rapid-deployment"
+        }
+      ]
     },
     {
       "detachment_id": "d-bastion-task-force-3",
@@ -59,11 +77,11 @@
       "is_unique": false,
       "name": "BASTION TASK FORCE",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-        "detail_edition_code": "wh40k-10e",
+        "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+        "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
-        "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       }
@@ -76,14 +94,20 @@
       "is_unique": false,
       "name": "CERAMITE SENTINELS",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-        "detail_edition_code": "wh40k-10e",
+        "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+        "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
-        "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
-      }
+      },
+      "rules": [
+        {
+          "name": "Adaptive Defence",
+          "summary_key": "detachment:d-ceramite-sentinels-3:adaptive-defence"
+        }
+      ]
     },
     {
       "detachment_id": "d-company-of-hunters",
@@ -93,14 +117,20 @@
       "is_unique": false,
       "name": "COMPANY OF HUNTERS",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-        "detail_edition_code": "wh40k-10e",
+        "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+        "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
-        "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
-      }
+      },
+      "rules": [
+        {
+          "name": "Masters of Manoeuvre",
+          "summary_key": "detachment:d-company-of-hunters:masters-of-manoeuvre"
+        }
+      ]
     },
     {
       "detachment_id": "d-dark-age-arsenal",
@@ -110,14 +140,20 @@
       "is_unique": false,
       "name": "DARK AGE ARSENAL",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-        "detail_edition_code": "wh40k-10e",
+        "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+        "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
-        "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
-      }
+      },
+      "rules": [
+        {
+          "name": "Invocations of Ancient Fury",
+          "summary_key": "detachment:d-dark-age-arsenal:invocations-of-ancient-fury"
+        }
+      ]
     },
     {
       "detachment_id": "d-darkflight-pursuit",
@@ -127,14 +163,20 @@
       "is_unique": false,
       "name": "DARKFLIGHT PURSUIT",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-        "detail_edition_code": "wh40k-10e",
+        "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+        "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
-        "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
-      }
+      },
+      "rules": [
+        {
+          "name": "Black-winged Vigilance",
+          "summary_key": "detachment:d-darkflight-pursuit:black-winged-vigilance"
+        }
+      ]
     },
     {
       "detachment_id": "d-firestorm-assault-force-3",
@@ -144,14 +186,20 @@
       "is_unique": false,
       "name": "FIRESTORM ASSAULT FORCE",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-        "detail_edition_code": "wh40k-10e",
+        "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+        "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
-        "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
-      }
+      },
+      "rules": [
+        {
+          "name": "Close-range Eradication",
+          "summary_key": "detachment:d-firestorm-assault-force-3:close-range-eradication"
+        }
+      ]
     },
     {
       "detachment_id": "d-fulguris-task-force-3",
@@ -161,14 +209,20 @@
       "is_unique": false,
       "name": "FULGURIS TASK FORCE",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-        "detail_edition_code": "wh40k-10e",
+        "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+        "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
-        "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
-      }
+      },
+      "rules": [
+        {
+          "name": "Skystrike",
+          "summary_key": "detachment:d-fulguris-task-force-3:skystrike"
+        }
+      ]
     },
     {
       "detachment_id": "d-gladius-task-force-3",
@@ -178,11 +232,11 @@
       "is_unique": false,
       "name": "GLADIUS TASK FORCE",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-        "detail_edition_code": "wh40k-10e",
+        "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+        "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
-        "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       }
@@ -195,14 +249,20 @@
       "is_unique": false,
       "name": "HEADHUNTER TASK FORCE",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-        "detail_edition_code": "wh40k-10e",
+        "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+        "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
-        "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
-      }
+      },
+      "rules": [
+        {
+          "name": "Target Sighted",
+          "summary_key": "detachment:d-headhunter-task-force-3:target-sighted"
+        }
+      ]
     },
     {
       "detachment_id": "d-inner-circle-task-force",
@@ -212,11 +272,11 @@
       "is_unique": false,
       "name": "INNER CIRCLE TASK FORCE",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-        "detail_edition_code": "wh40k-10e",
+        "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+        "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
-        "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       }
@@ -229,14 +289,20 @@
       "is_unique": false,
       "name": "INTERROGATION CONCLAVE",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-        "detail_edition_code": "wh40k-10e",
+        "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+        "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
-        "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
-      }
+      },
+      "rules": [
+        {
+          "name": "Dread Catechism",
+          "summary_key": "detachment:d-interrogation-conclave:dread-catechism"
+        }
+      ]
     },
     {
       "detachment_id": "d-ironstorm-spearhead-3",
@@ -246,14 +312,20 @@
       "is_unique": false,
       "name": "IRONSTORM SPEARHEAD",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-        "detail_edition_code": "wh40k-10e",
+        "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+        "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
-        "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
-      }
+      },
+      "rules": [
+        {
+          "name": "Armoured Wrath",
+          "summary_key": "detachment:d-ironstorm-spearhead-3:armoured-wrath"
+        }
+      ]
     },
     {
       "detachment_id": "d-librarius-conclave-2",
@@ -263,14 +335,20 @@
       "is_unique": false,
       "name": "LIBRARIUS CONCLAVE",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-        "detail_edition_code": "wh40k-10e",
+        "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+        "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
-        "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
-      }
+      },
+      "rules": [
+        {
+          "name": "Psychic Disciplines",
+          "summary_key": "detachment:d-librarius-conclave-2:psychic-disciplines"
+        }
+      ]
     },
     {
       "detachment_id": "d-lions-blade-task-force",
@@ -280,14 +358,20 @@
       "is_unique": false,
       "name": "LION’S BLADE TASK FORCE",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-        "detail_edition_code": "wh40k-10e",
+        "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+        "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
-        "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
-      }
+      },
+      "rules": [
+        {
+          "name": "In The Lion’s Claws",
+          "summary_key": "detachment:d-lions-blade-task-force:in-the-lions-claws"
+        }
+      ]
     },
     {
       "detachment_id": "d-orbital-assault-force-3",
@@ -297,14 +381,20 @@
       "is_unique": false,
       "name": "ORBITAL ASSAULT FORCE",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-        "detail_edition_code": "wh40k-10e",
+        "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+        "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
-        "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
-      }
+      },
+      "rules": [
+        {
+          "name": "Rapid-drop Deployment",
+          "summary_key": "detachment:d-orbital-assault-force-3:rapid-drop-deployment"
+        }
+      ]
     },
     {
       "detachment_id": "d-stormlance-task-force-3",
@@ -314,14 +404,20 @@
       "is_unique": false,
       "name": "STORMLANCE TASK FORCE",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-        "detail_edition_code": "wh40k-10e",
+        "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+        "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
-        "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
-      }
+      },
+      "rules": [
+        {
+          "name": "Lightning Assault",
+          "summary_key": "detachment:d-stormlance-task-force-3:lightning-assault"
+        }
+      ]
     },
     {
       "detachment_id": "d-subversion-assets-3",
@@ -331,14 +427,20 @@
       "is_unique": false,
       "name": "SUBVERSION ASSETS",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-        "detail_edition_code": "wh40k-10e",
+        "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+        "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
-        "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
-      }
+      },
+      "rules": [
+        {
+          "name": "Nowhere to Hide",
+          "summary_key": "detachment:d-subversion-assets-3:nowhere-to-hide"
+        }
+      ]
     },
     {
       "detachment_id": "d-unforgiven-task-force",
@@ -348,14 +450,20 @@
       "is_unique": false,
       "name": "UNFORGIVEN TASK FORCE",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-        "detail_edition_code": "wh40k-10e",
+        "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+        "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
-        "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
-      }
+      },
+      "rules": [
+        {
+          "name": "Grim Resolve",
+          "summary_key": "detachment:d-unforgiven-task-force:grim-resolve"
+        }
+      ]
     },
     {
       "detachment_id": "d-vanguard-spearhead-3",
@@ -365,14 +473,20 @@
       "is_unique": false,
       "name": "VANGUARD SPEARHEAD",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-        "detail_edition_code": "wh40k-10e",
+        "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+        "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
-        "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
-      }
+      },
+      "rules": [
+        {
+          "name": "Shadow Masters",
+          "summary_key": "detachment:d-vanguard-spearhead-3:shadow-masters"
+        }
+      ]
     },
     {
       "detachment_id": "d-vengeful-hosts-3",
@@ -382,14 +496,20 @@
       "is_unique": false,
       "name": "VENGEFUL HOSTS",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-        "detail_edition_code": "wh40k-10e",
+        "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+        "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
-        "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
-      }
+      },
+      "rules": [
+        {
+          "name": "Imperator Unleashed",
+          "summary_key": "detachment:d-vengeful-hosts-3:imperator-unleashed"
+        }
+      ]
     },
     {
       "detachment_id": "d-wrath-of-the-rock",
@@ -399,14 +519,20 @@
       "is_unique": false,
       "name": "WRATH OF THE ROCK",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-        "detail_edition_code": "wh40k-10e",
+        "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+        "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
-        "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
-      }
+      },
+      "rules": [
+        {
+          "name": "Dutiful Tenacity",
+          "summary_key": "detachment:d-wrath-of-the-rock:dutiful-tenacity"
+        }
+      ]
     }
   ]
 }

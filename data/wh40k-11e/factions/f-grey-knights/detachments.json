@@ -8,11 +8,11 @@
       "is_unique": false,
       "name": "ARGENT ASSAULT",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-        "detail_edition_code": "wh40k-10e",
+        "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+        "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
-        "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       }
@@ -25,14 +25,20 @@
       "is_unique": false,
       "name": "AUGURIUM TASK FORCE",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-        "detail_edition_code": "wh40k-10e",
+        "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+        "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
-        "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
-      }
+      },
+      "rules": [
+        {
+          "name": "Prescient Redeployment",
+          "summary_key": "detachment:d-augurium-task-force:prescient-redeployment"
+        }
+      ]
     },
     {
       "detachment_id": "d-banishers",
@@ -42,14 +48,20 @@
       "is_unique": false,
       "name": "BANISHERS",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-        "detail_edition_code": "wh40k-10e",
+        "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+        "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
-        "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
-      }
+      },
+      "rules": [
+        {
+          "name": "Channelled Force",
+          "summary_key": "detachment:d-banishers:channelled-force"
+        }
+      ]
     },
     {
       "detachment_id": "d-brotherhood-strike",
@@ -59,14 +71,20 @@
       "is_unique": false,
       "name": "BROTHERHOOD STRIKE",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-        "detail_edition_code": "wh40k-10e",
+        "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+        "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
-        "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
-      }
+      },
+      "rules": [
+        {
+          "name": "Fury of Titan",
+          "summary_key": "detachment:d-brotherhood-strike:fury-of-titan"
+        }
+      ]
     },
     {
       "detachment_id": "d-fires-of-purgation",
@@ -76,11 +94,11 @@
       "is_unique": false,
       "name": "FIRES OF PURGATION",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-        "detail_edition_code": "wh40k-10e",
+        "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+        "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
-        "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       }
@@ -93,14 +111,20 @@
       "is_unique": false,
       "name": "HALLOWED CONCLAVE",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-        "detail_edition_code": "wh40k-10e",
+        "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+        "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
-        "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
-      }
+      },
+      "rules": [
+        {
+          "name": "Duty Before All",
+          "summary_key": "detachment:d-hallowed-conclave:duty-before-all"
+        }
+      ]
     },
     {
       "detachment_id": "d-immaterial-interdiction",
@@ -110,11 +134,11 @@
       "is_unique": false,
       "name": "IMMATERIAL INTERDICTION",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-        "detail_edition_code": "wh40k-10e",
+        "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+        "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
-        "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       }
@@ -127,14 +151,20 @@
       "is_unique": false,
       "name": "SANCTIC SPEARHEAD",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-        "detail_edition_code": "wh40k-10e",
+        "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+        "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
-        "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
-      }
+      },
+      "rules": [
+        {
+          "name": "Mailed Fist",
+          "summary_key": "detachment:d-sanctic-spearhead:mailed-fist"
+        }
+      ]
     },
     {
       "detachment_id": "d-warpbane-task-force",
@@ -144,14 +174,20 @@
       "is_unique": false,
       "name": "WARPBANE TASK FORCE",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-        "detail_edition_code": "wh40k-10e",
+        "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+        "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
-        "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
-      }
+      },
+      "rules": [
+        {
+          "name": "Hallowed Ground",
+          "summary_key": "detachment:d-warpbane-task-force:hallowed-ground"
+        }
+      ]
     }
   ]
 }

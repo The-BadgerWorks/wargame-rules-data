@@ -1,6 +1,17 @@
 {
   "ability_keys": [
-    "datasheet:duty-eternal"
+    "core:deadly-demise-d3",
+    "datasheet:duty-eternal",
+    "faction:oath-of-moment"
+  ],
+  "composition": [
+    {
+      "line": 1,
+      "max_count": 1,
+      "min_count": 1,
+      "model_line": 1,
+      "model_name": "Redemptor Dreadnought"
+    }
   ],
   "costs": [
     {
@@ -9,7 +20,7 @@
       "model_count": 1,
       "points": 195,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
     },
     {
       "copy_index_min": 3,
@@ -17,7 +28,7 @@
       "model_count": 1,
       "points": 210,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
     }
   ],
   "damaged_threshold": 4,
@@ -31,36 +42,37 @@
   "keywords": [
     {
       "is_faction_keyword": true,
-      "keyword": "Adeptus Astartes"
+      "keyword": "ADEPTUS ASTARTES"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Deathwing"
+      "keyword": "DREADNOUGHT",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Dreadnought"
+      "keyword": "IMPERIUM",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Imperium"
+      "keyword": "REDEMPTOR DREADNOUGHT , DEATHWING",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Redemptor Dreadnought"
+      "keyword": "VEHICLE",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Vehicle"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Walker"
+      "keyword": "WALKER",
+      "keyword_class": "unit"
     }
   ],
   "models": [
     {
-      "base_size": "90mm",
+      "base_size": "(⌀90mm)",
       "leadership": "6+",
       "line": 1,
       "movement": "8\"",
@@ -72,109 +84,195 @@
     }
   ],
   "name": "REDEMPTOR DREADNOUGHT",
+  "option_choices": [
+    {
+      "count": 1,
+      "grants_weapon_line": 3,
+      "group_id": "og-redemptor-dreadnought-3-1",
+      "id": "oc-redemptor-dreadnought-3-1-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "Icarus rocket pod"
+    },
+    {
+      "count": 1,
+      "group_id": "og-redemptor-dreadnought-3-2",
+      "id": "oc-redemptor-dreadnought-3-2-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "onslaught gatling cannon",
+      "replaces_weapon_line": 6
+    },
+    {
+      "count": 1,
+      "group_id": "og-redemptor-dreadnought-3-3",
+      "id": "oc-redemptor-dreadnought-3-3-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "macro plasma incinerator"
+    },
+    {
+      "count": 1,
+      "group_id": "og-redemptor-dreadnought-3-4",
+      "id": "oc-redemptor-dreadnought-3-4-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "twin storm bolter",
+      "replaces_weapon_line": 8
+    }
+  ],
+  "option_groups": [
+    {
+      "id": "og-redemptor-dreadnought-3-1",
+      "line": 1,
+      "scope": "model"
+    },
+    {
+      "id": "og-redemptor-dreadnought-3-2",
+      "line": 2,
+      "scope": "model"
+    },
+    {
+      "id": "og-redemptor-dreadnought-3-3",
+      "line": 3,
+      "scope": "model"
+    },
+    {
+      "id": "og-redemptor-dreadnought-3-4",
+      "line": 4,
+      "scope": "model"
+    }
+  ],
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:5fc654ee742ffe667f6439d9f0614d260badb9ffdd64f4b0aa93db70c91b5277",
-    "last_verified_version": "mfm-2026-08",
+    "last_verified_version": "wh40k-11e-2026-08",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-    "detail_edition_code": "wh40k-10e",
+    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
-    "is_hybrid_edition": true,
-    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "is_hybrid_edition": false,
+    "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
-  "role": "Other",
+  "wargear_option_state": "extracted",
   "weapons": [
     {
+      "ability_keywords": [
+        "ignores cover",
+        "torrent"
+      ],
       "armour_penetration": "-1",
       "attacks": "D6",
       "damage": "1",
       "is_melee": false,
       "line": 1,
       "name": "Heavy flamer",
-      "range": "12",
+      "range": "12\"",
       "skill": "N/A",
       "strength": "5"
     },
     {
+      "ability_keywords": [
+        "devastating wounds"
+      ],
       "armour_penetration": "0",
       "attacks": "12",
       "damage": "1",
       "is_melee": false,
       "line": 2,
       "name": "Heavy onslaught gatling cannon",
-      "range": "24",
-      "skill": "3",
+      "range": "24\"",
+      "skill": "3+",
       "strength": "6"
     },
     {
+      "ability_keywords": [
+        "anti-fly 2+"
+      ],
       "armour_penetration": "-1",
       "attacks": "D3",
       "damage": "2",
       "is_melee": false,
       "line": 3,
       "name": "Icarus rocket pod",
-      "range": "24",
-      "skill": "3",
+      "range": "24\"",
+      "skill": "3+",
       "strength": "8"
     },
     {
+      "ability_keywords": [
+        "blast"
+      ],
       "armour_penetration": "-3",
       "attacks": "D6+1",
       "damage": "2",
       "is_melee": false,
       "line": 4,
       "name": "Macro plasma incinerator – standard",
-      "range": "36",
-      "skill": "3",
+      "range": "36\"",
+      "skill": "3+",
       "strength": "8"
     },
     {
+      "ability_keywords": [
+        "blast",
+        "hazardous"
+      ],
       "armour_penetration": "-4",
       "attacks": "D6+1",
       "damage": "3",
       "is_melee": false,
       "line": 5,
       "name": "Macro plasma incinerator – supercharge",
-      "range": "36",
-      "skill": "3",
+      "range": "36\"",
+      "skill": "3+",
       "strength": "9"
     },
     {
+      "ability_keywords": [
+        "devastating wounds"
+      ],
       "armour_penetration": "0",
       "attacks": "8",
       "damage": "1",
       "is_melee": false,
       "line": 6,
       "name": "Onslaught gatling cannon",
-      "range": "24",
-      "skill": "3",
+      "range": "24\"",
+      "skill": "3+",
       "strength": "5"
     },
     {
+      "ability_keywords": [
+        "blast",
+        "twin-linked"
+      ],
       "armour_penetration": "0",
       "attacks": "D6",
       "damage": "1",
       "is_melee": false,
       "line": 7,
       "name": "Twin fragstorm grenade launcher",
-      "range": "18",
-      "skill": "3",
+      "range": "18\"",
+      "skill": "3+",
       "strength": "4"
     },
     {
+      "ability_keywords": [
+        "rapid fire 2",
+        "twin-linked"
+      ],
       "armour_penetration": "0",
       "attacks": "2",
       "damage": "1",
-      "is_melee": false,
+      "is_melee": true,
       "line": 8,
       "name": "Twin storm bolter",
-      "range": "24",
-      "skill": "3",
+      "skill": "3+",
       "strength": "4"
     },
     {
@@ -184,7 +282,7 @@
       "is_melee": true,
       "line": 9,
       "name": "Redemptor fist",
-      "skill": "3",
+      "skill": "3+",
       "strength": "12"
     }
   ]

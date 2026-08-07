@@ -8,14 +8,20 @@
       "is_unique": false,
       "name": "DOMINUS FOEBREAKERS",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-        "detail_edition_code": "wh40k-10e",
+        "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+        "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
-        "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
-      }
+      },
+      "rules": [
+        {
+          "name": "Rain of Devastation",
+          "summary_key": "detachment:d-dominus-foebreakers:rain-of-devastation"
+        }
+      ]
     },
     {
       "detachment_id": "d-freeblade-company",
@@ -25,14 +31,20 @@
       "is_unique": false,
       "name": "FREEBLADE COMPANY",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-        "detail_edition_code": "wh40k-10e",
+        "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+        "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
-        "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
-      }
+      },
+      "rules": [
+        {
+          "name": "Knights of Legend",
+          "summary_key": "detachment:d-freeblade-company:knights-of-legend"
+        }
+      ]
     },
     {
       "detachment_id": "d-gate-warden-lance",
@@ -42,14 +54,20 @@
       "is_unique": false,
       "name": "GATE WARDEN LANCE",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-        "detail_edition_code": "wh40k-10e",
+        "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+        "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
-        "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
-      }
+      },
+      "rules": [
+        {
+          "name": "Dauntless Defenders",
+          "summary_key": "detachment:d-gate-warden-lance:dauntless-defenders"
+        }
+      ]
     },
     {
       "detachment_id": "d-questor-forgepact",
@@ -59,14 +77,20 @@
       "is_unique": false,
       "name": "QUESTOR FORGEPACT",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-        "detail_edition_code": "wh40k-10e",
+        "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+        "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
-        "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
-      }
+      },
+      "rules": [
+        {
+          "name": "Cogbound Alliance",
+          "summary_key": "detachment:d-questor-forgepact:cogbound-alliance"
+        }
+      ]
     },
     {
       "detachment_id": "d-questoris-companions",
@@ -76,14 +100,24 @@
       "is_unique": false,
       "name": "QUESTORIS COMPANIONS",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-        "detail_edition_code": "wh40k-10e",
+        "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+        "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
-        "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
-      }
+      },
+      "rules": [
+        {
+          "name": "Heroes of Legend",
+          "summary_key": "detachment:d-questoris-companions:heroes-of-legend"
+        },
+        {
+          "name": "Valour’s Reward",
+          "summary_key": "detachment:d-questoris-companions:valours-reward"
+        }
+      ]
     },
     {
       "detachment_id": "d-spearhead-at-arms",
@@ -93,14 +127,20 @@
       "is_unique": true,
       "name": "SPEARHEAD-AT-ARMS",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-        "detail_edition_code": "wh40k-10e",
+        "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+        "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
-        "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
-      }
+      },
+      "rules": [
+        {
+          "name": "Knightly Teachings",
+          "summary_key": "detachment:d-spearhead-at-arms:knightly-teachings"
+        }
+      ]
     },
     {
       "detachment_id": "d-throne-bonded-outriders",
@@ -110,14 +150,20 @@
       "is_unique": true,
       "name": "THRONE-BONDED OUTRIDERS",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-        "detail_edition_code": "wh40k-10e",
+        "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+        "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
-        "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
-      }
+      },
+      "rules": [
+        {
+          "name": "Driven from Their Lairs",
+          "summary_key": "detachment:d-throne-bonded-outriders:driven-from-their-lairs"
+        }
+      ]
     },
     {
       "detachment_id": "d-valourstrike-lance",
@@ -127,14 +173,20 @@
       "is_unique": false,
       "name": "VALOURSTRIKE LANCE",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-        "detail_edition_code": "wh40k-10e",
+        "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+        "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
-        "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
-      }
+      },
+      "rules": [
+        {
+          "name": "Bold Gallantry",
+          "summary_key": "detachment:d-valourstrike-lance:bold-gallantry"
+        }
+      ]
     }
   ]
 }

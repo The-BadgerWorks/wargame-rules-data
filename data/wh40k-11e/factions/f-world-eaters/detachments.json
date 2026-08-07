@@ -8,31 +8,43 @@
       "is_unique": false,
       "name": "BERZERKER WARBAND",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-        "detail_edition_code": "wh40k-10e",
+        "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+        "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
-        "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
-      }
+      },
+      "rules": [
+        {
+          "name": "Relentless Rage",
+          "summary_key": "detachment:d-berzerker-warband:relentless-rage"
+        }
+      ]
     },
     {
       "detachment_id": "d-brazen-engines",
       "detachment_points_cost": 1,
       "force_disposition": "DISRUPTION",
       "is_legends": false,
-      "is_unique": true,
+      "is_unique": false,
       "name": "BRAZEN ENGINES",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-        "detail_edition_code": "wh40k-10e",
+        "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+        "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
-        "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
-      }
+      },
+      "rules": [
+        {
+          "name": "Rampaging Terrors",
+          "summary_key": "detachment:d-brazen-engines:rampaging-terrors"
+        }
+      ]
     },
     {
       "detachment_id": "d-butchers-of-khorne",
@@ -42,14 +54,20 @@
       "is_unique": false,
       "name": "BUTCHERS OF KHORNE",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-        "detail_edition_code": "wh40k-10e",
+        "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+        "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
-        "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
-      }
+      },
+      "rules": [
+        {
+          "name": "Adamantine Avalanche",
+          "summary_key": "detachment:d-butchers-of-khorne:adamantine-avalanche"
+        }
+      ]
     },
     {
       "detachment_id": "d-cult-of-blood",
@@ -59,31 +77,43 @@
       "is_unique": false,
       "name": "CULT OF BLOOD",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-        "detail_edition_code": "wh40k-10e",
+        "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+        "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
-        "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
-      }
+      },
+      "rules": [
+        {
+          "name": "Idols of Khorne",
+          "summary_key": "detachment:d-cult-of-blood:idols-of-khorne"
+        }
+      ]
     },
     {
       "detachment_id": "d-goretrack-onslaught",
       "detachment_points_cost": 2,
       "force_disposition": "TAKE AND HOLD",
       "is_legends": false,
-      "is_unique": true,
+      "is_unique": false,
       "name": "GORETRACK ONSLAUGHT",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-        "detail_edition_code": "wh40k-10e",
+        "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+        "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
-        "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
-      }
+      },
+      "rules": [
+        {
+          "name": "Rush to the Fray",
+          "summary_key": "detachment:d-goretrack-onslaught:rush-to-the-fray"
+        }
+      ]
     },
     {
       "detachment_id": "d-khorne-daemonkin",
@@ -93,14 +123,20 @@
       "is_unique": false,
       "name": "KHORNE DAEMONKIN",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-        "detail_edition_code": "wh40k-10e",
+        "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+        "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
-        "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
-      }
+      },
+      "rules": [
+        {
+          "name": "Blood Tithe",
+          "summary_key": "detachment:d-khorne-daemonkin:blood-tithe"
+        }
+      ]
     },
     {
       "detachment_id": "d-possessed-slaughterband",
@@ -110,14 +146,20 @@
       "is_unique": false,
       "name": "POSSESSED SLAUGHTERBAND",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-        "detail_edition_code": "wh40k-10e",
+        "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+        "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
-        "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
-      }
+      },
+      "rules": [
+        {
+          "name": "Brazen Fury",
+          "summary_key": "detachment:d-possessed-slaughterband:brazen-fury"
+        }
+      ]
     },
     {
       "detachment_id": "d-vessels-of-wrath",
@@ -127,14 +169,20 @@
       "is_unique": false,
       "name": "VESSELS OF WRATH",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-        "detail_edition_code": "wh40k-10e",
+        "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+        "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
-        "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
-      }
+      },
+      "rules": [
+        {
+          "name": "Wrath of Khorne",
+          "summary_key": "detachment:d-vessels-of-wrath:wrath-of-khorne"
+        }
+      ]
     }
   ]
 }

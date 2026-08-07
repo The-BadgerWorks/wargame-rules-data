@@ -8,14 +8,20 @@
       "is_unique": true,
       "name": "ABHUMAN AUXILIARIES",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-        "detail_edition_code": "wh40k-10e",
+        "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+        "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
-        "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
-      }
+      },
+      "rules": [
+        {
+          "name": "Absolutist Principles",
+          "summary_key": "detachment:d-abhuman-auxiliaries:absolutist-principles"
+        }
+      ]
     },
     {
       "detachment_id": "d-armoured-infantry",
@@ -25,14 +31,20 @@
       "is_unique": false,
       "name": "ARMOURED INFANTRY",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-        "detail_edition_code": "wh40k-10e",
+        "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+        "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
-        "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
-      }
+      },
+      "rules": [
+        {
+          "name": "Squadron Command",
+          "summary_key": "detachment:d-armoured-infantry:squadron-command"
+        }
+      ]
     },
     {
       "detachment_id": "d-bridgehead-strike",
@@ -42,14 +54,43 @@
       "is_unique": false,
       "name": "BRIDGEHEAD STRIKE",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-        "detail_edition_code": "wh40k-10e",
+        "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+        "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
-        "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
-      }
+      },
+      "rules": [
+        {
+          "name": "Fire Zone Purge",
+          "summary_key": "detachment:d-bridgehead-strike:fire-zone-purge"
+        }
+      ]
+    },
+    {
+      "detachment_id": "d-combined-arms",
+      "detachment_points_cost": 2,
+      "force_disposition": "TAKE AND HOLD",
+      "is_legends": false,
+      "is_unique": false,
+      "name": "COMBINED ARMS",
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+        "detail_edition_code": "wh40k-11e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      },
+      "rules": [
+        {
+          "name": "Born Soldiers",
+          "summary_key": "detachment:d-combined-arms:born-soldiers"
+        }
+      ]
     },
     {
       "detachment_id": "d-designation-force",
@@ -59,14 +100,20 @@
       "is_unique": true,
       "name": "DESIGNATION FORCE",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-        "detail_edition_code": "wh40k-10e",
+        "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+        "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
-        "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
-      }
+      },
+      "rules": [
+        {
+          "name": "Designated Targets",
+          "summary_key": "detachment:d-designation-force:designated-targets"
+        }
+      ]
     },
     {
       "detachment_id": "d-grizzled-company",
@@ -76,14 +123,20 @@
       "is_unique": true,
       "name": "GRIZZLED COMPANY",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-        "detail_edition_code": "wh40k-10e",
+        "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+        "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
-        "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
-      }
+      },
+      "rules": [
+        {
+          "name": "Ruthless Discipline",
+          "summary_key": "detachment:d-grizzled-company:ruthless-discipline"
+        }
+      ]
     },
     {
       "detachment_id": "d-hammer-of-the-emperor",
@@ -93,14 +146,20 @@
       "is_unique": false,
       "name": "HAMMER OF THE EMPEROR",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-        "detail_edition_code": "wh40k-10e",
+        "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+        "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
-        "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
-      }
+      },
+      "rules": [
+        {
+          "name": "Iron Tread",
+          "summary_key": "detachment:d-hammer-of-the-emperor:iron-tread"
+        }
+      ]
     },
     {
       "detachment_id": "d-mechanised-assault",
@@ -110,14 +169,20 @@
       "is_unique": false,
       "name": "MECHANISED ASSAULT",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-        "detail_edition_code": "wh40k-10e",
+        "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+        "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
-        "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
-      }
+      },
+      "rules": [
+        {
+          "name": "Armoured Fist",
+          "summary_key": "detachment:d-mechanised-assault:armoured-fist"
+        }
+      ]
     },
     {
       "detachment_id": "d-recon-element",
@@ -127,14 +192,20 @@
       "is_unique": true,
       "name": "RECON ELEMENT",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-        "detail_edition_code": "wh40k-10e",
+        "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+        "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
-        "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
-      }
+      },
+      "rules": [
+        {
+          "name": "Masters of Camouflage",
+          "summary_key": "detachment:d-recon-element:masters-of-camouflage"
+        }
+      ]
     },
     {
       "detachment_id": "d-siege-regiment",
@@ -144,14 +215,20 @@
       "is_unique": false,
       "name": "SIEGE REGIMENT",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-        "detail_edition_code": "wh40k-10e",
+        "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+        "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
-        "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
-      }
+      },
+      "rules": [
+        {
+          "name": "Artillery Support",
+          "summary_key": "detachment:d-siege-regiment:artillery-support"
+        }
+      ]
     },
     {
       "detachment_id": "d-steel-hammer",
@@ -161,14 +238,20 @@
       "is_unique": false,
       "name": "STEEL HAMMER",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-        "detail_edition_code": "wh40k-10e",
+        "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+        "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
-        "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
-      }
+      },
+      "rules": [
+        {
+          "name": "Ceaseless Cannonade",
+          "summary_key": "detachment:d-steel-hammer:ceaseless-cannonade"
+        }
+      ]
     }
   ]
 }

@@ -1,8 +1,22 @@
 {
   "ability_keys": [
-    "datasheet:command-squad-bodyguard",
     "datasheet:storm-shield",
-    "datasheet:vanguard-assault"
+    "datasheet:vanguard-assault",
+    "faction:oath-of-moment"
+  ],
+  "composition": [
+    {
+      "line": 1,
+      "max_count": 1,
+      "min_count": 1,
+      "model_name": "Veteran Biker Sergeant"
+    },
+    {
+      "line": 2,
+      "max_count": 4,
+      "min_count": 1,
+      "model_name": "Veteran Bikers"
+    }
   ],
   "costs": [
     {
@@ -11,7 +25,7 @@
       "model_count": 2,
       "points": 110,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1"
+      "source_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9"
     },
     {
       "copy_index_min": 1,
@@ -19,7 +33,7 @@
       "model_count": 5,
       "points": 275,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1"
+      "source_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9"
     }
   ],
   "datasheet_id": "ds-company-veterans-on-bikes",
@@ -32,32 +46,32 @@
   "keywords": [
     {
       "is_faction_keyword": true,
-      "keyword": "Adeptus Astartes"
+      "keyword": "ADEPTUS ASTARTES"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Company Veterans"
+      "keyword": "COMPANY VETERANS , RAVENWING",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Grenades"
+      "keyword": "GRENADES",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Imperium"
+      "keyword": "IMPERIUM",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Mounted"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Ravenwing"
+      "keyword": "MOUNTED",
+      "keyword_class": "unit"
     }
   ],
   "models": [
     {
-      "base_size": "75 x 25mm",
+      "base_size": "(⌀75 x 25mm)",
       "leadership": "6+",
       "line": 1,
       "movement": "12\"",
@@ -69,30 +83,118 @@
     }
   ],
   "name": "Company Veterans On Bikes",
+  "option_choices": [
+    {
+      "count": 1,
+      "group_id": "og-company-veterans-on-bikes-1",
+      "id": "oc-company-veterans-on-bikes-1-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "boltgun",
+      "replaces_weapon_line": 2
+    },
+    {
+      "count": 1,
+      "group_id": "og-company-veterans-on-bikes-1",
+      "id": "oc-company-veterans-on-bikes-1-2",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "combi-weapon",
+      "replaces_weapon_line": 3
+    },
+    {
+      "count": 1,
+      "group_id": "og-company-veterans-on-bikes-1",
+      "id": "oc-company-veterans-on-bikes-1-3",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "grav-pistol",
+      "replaces_weapon_line": 6
+    },
+    {
+      "count": 1,
+      "group_id": "og-company-veterans-on-bikes-1",
+      "id": "oc-company-veterans-on-bikes-1-4",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "plasma pistol"
+    },
+    {
+      "count": 1,
+      "group_id": "og-company-veterans-on-bikes-1",
+      "id": "oc-company-veterans-on-bikes-1-5",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "storm bolter",
+      "replaces_weapon_line": 12
+    },
+    {
+      "count": 1,
+      "group_id": "og-company-veterans-on-bikes-2",
+      "id": "oc-company-veterans-on-bikes-2-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "power fist",
+      "replaces_weapon_line": 15
+    },
+    {
+      "count": 1,
+      "group_id": "og-company-veterans-on-bikes-2",
+      "id": "oc-company-veterans-on-bikes-2-2",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "power weapon",
+      "replaces_weapon_line": 16
+    },
+    {
+      "count": 1,
+      "group_id": "og-company-veterans-on-bikes-2",
+      "id": "oc-company-veterans-on-bikes-2-3",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "thunder hammer",
+      "replaces_weapon_line": 17
+    }
+  ],
+  "option_groups": [
+    {
+      "id": "og-company-veterans-on-bikes-1",
+      "line": 1,
+      "scope": "unit"
+    },
+    {
+      "id": "og-company-veterans-on-bikes-2",
+      "line": 2,
+      "scope": "unit"
+    }
+  ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 1,
+    "consecutive_unverified_releases": 2,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-    "detail_edition_code": "wh40k-10e",
+    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
-    "is_hybrid_edition": true,
+    "is_hybrid_edition": false,
     "points_edition_code": "wh40k-11e",
     "points_source": "none"
   },
-  "role": "Other",
+  "wargear_option_state": "partial",
   "weapons": [
     {
+      "ability_keywords": [
+        "pistol"
+      ],
       "armour_penetration": "0",
       "attacks": "1",
       "damage": "1",
       "is_melee": false,
       "line": 1,
       "name": "Bolt pistol",
-      "range": "12",
-      "skill": "3",
+      "range": "12\"",
+      "skill": "3+",
       "strength": "4"
     },
     {
@@ -102,129 +204,167 @@
       "is_melee": false,
       "line": 2,
       "name": "Boltgun",
-      "range": "24",
-      "skill": "3",
+      "range": "24\"",
+      "skill": "3+",
       "strength": "4"
     },
     {
+      "ability_keywords": [
+        "anti-infantry 4+",
+        "devastating wounds",
+        "rapid fire 1"
+      ],
       "armour_penetration": "0",
       "attacks": "1",
       "damage": "1",
       "is_melee": false,
       "line": 3,
       "name": "Combi-weapon",
-      "range": "24",
-      "skill": "4",
+      "range": "24\"",
+      "skill": "4+",
       "strength": "4"
     },
     {
+      "ability_keywords": [
+        "ignores cover",
+        "torrent"
+      ],
       "armour_penetration": "0",
       "attacks": "D6",
       "damage": "1",
       "is_melee": false,
       "line": 4,
       "name": "Flamer",
-      "range": "12",
+      "range": "12\"",
       "skill": "N/A",
       "strength": "4"
     },
     {
+      "ability_keywords": [
+        "anti-vehicle 2+"
+      ],
       "armour_penetration": "-1",
       "attacks": "2",
       "damage": "1",
       "is_melee": false,
       "line": 5,
       "name": "Grav-gun",
-      "range": "18",
-      "skill": "3",
+      "range": "18\"",
+      "skill": "3+",
       "strength": "5"
     },
     {
+      "ability_keywords": [
+        "anti-vehicle 2+",
+        "pistol"
+      ],
       "armour_penetration": "-1",
       "attacks": "1",
       "damage": "2",
       "is_melee": false,
       "line": 6,
       "name": "Grav-pistol",
-      "range": "12",
-      "skill": "3",
+      "range": "12\"",
+      "skill": "3+",
       "strength": "4"
     },
     {
+      "ability_keywords": [
+        "melta 2"
+      ],
       "armour_penetration": "-4",
       "attacks": "1",
       "damage": "D6",
       "is_melee": false,
       "line": 7,
       "name": "Meltagun",
-      "range": "12",
-      "skill": "3",
+      "range": "12\"",
+      "skill": "3+",
       "strength": "9"
     },
     {
+      "ability_keywords": [
+        "RAPID FIRE 1"
+      ],
       "armour_penetration": "-2",
       "attacks": "1",
       "damage": "1",
       "is_melee": false,
       "line": 8,
       "name": "Plasma gun – standard",
-      "range": "24",
-      "skill": "3",
+      "range": "24\"",
+      "skill": "3+",
       "strength": "7"
     },
     {
+      "ability_keywords": [
+        "HAZARDOUS",
+        "RAPID FIRE 1"
+      ],
       "armour_penetration": "-3",
       "attacks": "1",
       "damage": "2",
       "is_melee": false,
       "line": 9,
       "name": "Plasma gun – supercharge",
-      "range": "24",
-      "skill": "3",
+      "range": "24\"",
+      "skill": "3+",
       "strength": "8"
     },
     {
+      "ability_keywords": [
+        "PISTOL"
+      ],
       "armour_penetration": "-2",
       "attacks": "1",
       "damage": "1",
       "is_melee": false,
       "line": 10,
       "name": "Plasma pistol – standard",
-      "range": "12",
-      "skill": "3",
+      "range": "12\"",
+      "skill": "3+",
       "strength": "7"
     },
     {
+      "ability_keywords": [
+        "HAZARDOUS",
+        "PISTOL"
+      ],
       "armour_penetration": "-3",
       "attacks": "1",
       "damage": "2",
       "is_melee": false,
       "line": 11,
       "name": "Plasma pistol – supercharge",
-      "range": "12",
-      "skill": "3",
+      "range": "12\"",
+      "skill": "3+",
       "strength": "8"
     },
     {
+      "ability_keywords": [
+        "rapid fire 2"
+      ],
       "armour_penetration": "0",
       "attacks": "2",
       "damage": "1",
       "is_melee": false,
       "line": 12,
       "name": "Storm bolter",
-      "range": "24",
-      "skill": "3",
+      "range": "24\"",
+      "skill": "3+",
       "strength": "4"
     },
     {
+      "ability_keywords": [
+        "twin-linked"
+      ],
       "armour_penetration": "0",
       "attacks": "2",
       "damage": "1",
-      "is_melee": false,
+      "is_melee": true,
       "line": 13,
       "name": "Twin boltgun",
-      "range": "24",
-      "skill": "3",
+      "skill": "3+",
       "strength": "4"
     },
     {
@@ -234,7 +374,7 @@
       "is_melee": true,
       "line": 14,
       "name": "Astartes chainsword",
-      "skill": "3",
+      "skill": "3+",
       "strength": "4"
     },
     {
@@ -244,7 +384,7 @@
       "is_melee": true,
       "line": 15,
       "name": "Power fist",
-      "skill": "3",
+      "skill": "3+",
       "strength": "8"
     },
     {
@@ -254,17 +394,20 @@
       "is_melee": true,
       "line": 16,
       "name": "Power weapon",
-      "skill": "3",
+      "skill": "3+",
       "strength": "5"
     },
     {
+      "ability_keywords": [
+        "devastating wounds"
+      ],
       "armour_penetration": "-2",
       "attacks": "2",
       "damage": "2",
       "is_melee": true,
       "line": 17,
       "name": "Thunder hammer",
-      "skill": "4",
+      "skill": "4+",
       "strength": "8"
     }
   ]

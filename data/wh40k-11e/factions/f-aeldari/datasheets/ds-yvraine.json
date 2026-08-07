@@ -1,8 +1,19 @@
 {
   "ability_keys": [
+    "core:leader",
     "datasheet:herald-of-ynnead",
-    "datasheet:servant-of-the-whispering-god",
-    "datasheet:word-of-the-phoenix-psychic"
+    "datasheet:word-of-the-phoenix-psychic",
+    "faction:battle-focus",
+    "faction:disparate-paths"
+  ],
+  "composition": [
+    {
+      "line": 1,
+      "max_count": 1,
+      "min_count": 1,
+      "model_line": 1,
+      "model_name": "Yvraine"
+    }
   ],
   "costs": [
     {
@@ -11,7 +22,7 @@
       "model_count": 1,
       "points": 100,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
     }
   ],
   "datasheet_id": "ds-yvraine",
@@ -24,34 +35,41 @@
   "keywords": [
     {
       "is_faction_keyword": false,
-      "keyword": "Aeldari"
+      "keyword": "AELDARI",
+      "keyword_class": "faction"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Character"
+      "keyword": "CHARACTER",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Epic Hero"
+      "keyword": "EPIC HERO",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Infantry"
+      "keyword": "INFANTRY",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Psyker"
+      "keyword": "PSYKER",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": true,
-      "keyword": "Ynnari"
+      "keyword": "YNNARI"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Yvraine"
+      "keyword": "YVRAINE",
+      "keyword_class": "unit"
     }
   ],
   "leader_pairs": [
+    "ds-corsair-reaver-band",
     "ds-corsair-voidreavers",
     "ds-corsair-voidscarred",
     "ds-guardian-defenders",
@@ -62,8 +80,8 @@
   ],
   "models": [
     {
-      "base_size": "75 x 42mm",
-      "invuln_save": "4",
+      "base_size": "(⌀75 x 42mm)",
+      "invuln_save": "4+",
       "leadership": "6+",
       "line": 1,
       "movement": "8\"",
@@ -78,39 +96,46 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:58f35ba3ac341406be9f8660d5cb106048687a0c08370852a12b717d0c57ebfa",
-    "last_verified_version": "mfm-2026-08",
+    "last_verified_version": "wh40k-11e-2026-08",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-    "detail_edition_code": "wh40k-10e",
+    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
-    "is_hybrid_edition": true,
-    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "is_hybrid_edition": false,
+    "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
-  "role": "Characters",
+  "wargear_option_state": "none",
   "weapons": [
     {
+      "ability_keywords": [
+        "anti-infantry 2+",
+        "devastating wounds",
+        "psychic"
+      ],
       "armour_penetration": "-2",
       "attacks": "D6+3",
       "damage": "1",
-      "is_melee": false,
+      "is_melee": true,
       "line": 1,
       "name": "Storm of Whispers",
-      "range": "12",
-      "skill": "2",
+      "skill": "2+",
       "strength": "2"
     },
     {
+      "ability_keywords": [
+        "devastating wounds"
+      ],
       "armour_penetration": "-3",
       "attacks": "5",
       "damage": "2",
       "is_melee": true,
       "line": 2,
       "name": "Kha-vir",
-      "skill": "2",
+      "skill": "2+",
       "strength": "4"
     }
   ]

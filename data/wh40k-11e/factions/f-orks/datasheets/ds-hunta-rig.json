@@ -1,7 +1,19 @@
 {
   "ability_keys": [
+    "core:deadly-demise-d6",
+    "core:feel-no-pain-6",
+    "core:firing-deck-11",
     "datasheet:on-da-hunt",
-    "datasheet:snagged"
+    "faction:waaagh"
+  ],
+  "composition": [
+    {
+      "line": 1,
+      "max_count": 1,
+      "min_count": 1,
+      "model_line": 1,
+      "model_name": "Hunta Rig"
+    }
   ],
   "costs": [
     {
@@ -10,7 +22,7 @@
       "model_count": 1,
       "points": 125,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
     }
   ],
   "damaged_threshold": 5,
@@ -24,28 +36,33 @@
   "keywords": [
     {
       "is_faction_keyword": false,
-      "keyword": "Beast Snagga"
+      "keyword": "BEAST SNAGGA",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Hunta Rig"
+      "keyword": "HUNTA RIG",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Monster"
+      "keyword": "MONSTER",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": true,
-      "keyword": "Orks"
+      "keyword": "ORKS",
+      "keyword_class": "faction"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Transport"
+      "keyword": "TRANSPORT",
+      "keyword_class": "unit"
     }
   ],
   "models": [
     {
-      "base_size": "170 x 109mm",
+      "base_size": "(⌀170 x 109mm)",
       "leadership": "7+",
       "line": 1,
       "movement": "10\"",
@@ -60,60 +77,77 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:386c0f9820ea18176ab08168e114d432ebe7ef5ce9d7400d4f57ea3e5f410e04",
-    "last_verified_version": "mfm-2026-08",
+    "last_verified_version": "wh40k-11e-2026-08",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-    "detail_edition_code": "wh40k-10e",
+    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
-    "is_hybrid_edition": true,
-    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "is_hybrid_edition": false,
+    "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
-  "role": "Other",
+  "wargear_option_state": "none",
   "weapons": [
     {
+      "ability_keywords": [
+        "blast",
+        "indirect fire"
+      ],
       "armour_penetration": "0",
       "attacks": "D6",
       "damage": "2",
       "is_melee": false,
       "line": 1,
       "name": "’Eavy lobba",
-      "range": "48",
-      "skill": "5",
+      "range": "48\"",
+      "skill": "5+",
       "strength": "6"
     },
     {
+      "ability_keywords": [
+        "anti-monster 2+",
+        "anti-vehicle 2+",
+        "snagged"
+      ],
       "armour_penetration": "-2",
       "attacks": "1",
       "damage": "3",
-      "is_melee": false,
+      "is_melee": true,
       "line": 2,
       "name": "Stikka kannon",
-      "range": "12",
-      "skill": "5",
+      "skill": "5+",
       "strength": "12"
     },
     {
+      "ability_keywords": [
+        "anti-monster 4+",
+        "anti-vehicle 4+",
+        "extra attacks"
+      ],
       "armour_penetration": "-1",
       "attacks": "4",
       "damage": "1",
       "is_melee": true,
       "line": 3,
       "name": "Butcha boyz",
-      "skill": "3",
+      "skill": "3+",
       "strength": "5"
     },
     {
+      "ability_keywords": [
+        "extra attacks",
+        "lance"
+      ],
       "armour_penetration": "-1",
       "attacks": "4",
       "damage": "3",
       "is_melee": true,
       "line": 4,
       "name": "Savage horns and hooves",
-      "skill": "4",
+      "skill": "4+",
       "strength": "8"
     },
     {
@@ -123,7 +157,7 @@
       "is_melee": true,
       "line": 5,
       "name": "Saw blades",
-      "skill": "3",
+      "skill": "3+",
       "strength": "10"
     }
   ]

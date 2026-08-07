@@ -1,8 +1,26 @@
 {
   "ability_keys": [
+    "core:leader",
     "datasheet:dark-zealotry",
     "datasheet:demagogue",
-    "datasheet:malign-sacrifice"
+    "datasheet:malign-sacrifice",
+    "faction:dark-pacts"
+  ],
+  "composition": [
+    {
+      "line": 1,
+      "max_count": 1,
+      "min_count": 1,
+      "model_line": 1,
+      "model_name": "Dark Apostle"
+    },
+    {
+      "line": 2,
+      "max_count": 2,
+      "min_count": 2,
+      "model_line": 2,
+      "model_name": "Dark Disciples"
+    }
   ],
   "costs": [
     {
@@ -11,7 +29,7 @@
       "model_count": 3,
       "points": 65,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1"
+      "source_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9"
     }
   ],
   "datasheet_id": "ds-dark-apostle-2",
@@ -24,188 +42,51 @@
   "keywords": [
     {
       "is_faction_keyword": false,
-      "keyword": "Chaos",
+      "keyword": "CHAOS",
+      "keyword_class": "unit",
       "model_scope": "ALL MODELS"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Chaos",
-      "model_scope": "ALL MODELS"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Chaos",
-      "model_scope": "ALL MODELS"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Chaos",
-      "model_scope": "ALL MODELS"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Chaos",
-      "model_scope": "ALL MODELS"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Character",
+      "keyword": "CHARACTER",
+      "keyword_class": "unit",
       "model_scope": "DARK APOSTLE ONLY"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Character",
+      "keyword": "DARK APOSTLE : UNDIVIDED , SHADOW LEGION",
+      "keyword_class": "unit",
       "model_scope": "DARK APOSTLE ONLY"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Character",
-      "model_scope": "DARK APOSTLE ONLY"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Character",
-      "model_scope": "DARK APOSTLE ONLY"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Character",
-      "model_scope": "DARK APOSTLE ONLY"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Dark Apostle",
-      "model_scope": "DARK APOSTLE ONLY"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Dark Apostle",
-      "model_scope": "DARK APOSTLE ONLY"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Dark Apostle",
-      "model_scope": "DARK APOSTLE ONLY"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Dark Apostle",
-      "model_scope": "DARK APOSTLE ONLY"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Dark Apostle",
-      "model_scope": "DARK APOSTLE ONLY"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Grenades",
-      "model_scope": "ALL MODELS"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Grenades",
-      "model_scope": "ALL MODELS"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Grenades",
-      "model_scope": "ALL MODELS"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Grenades",
-      "model_scope": "ALL MODELS"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Grenades",
+      "keyword": "GRENADES",
+      "keyword_class": "unit",
       "model_scope": "ALL MODELS"
     },
     {
       "is_faction_keyword": true,
-      "keyword": "Heretic Astartes"
+      "keyword": "HERETIC ASTARTES"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Infantry",
+      "keyword": "INFANTRY",
+      "keyword_class": "unit",
       "model_scope": "ALL MODELS"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Infantry",
-      "model_scope": "ALL MODELS"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Infantry",
-      "model_scope": "ALL MODELS"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Infantry",
-      "model_scope": "ALL MODELS"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Infantry",
-      "model_scope": "ALL MODELS"
-    },
-    {
-      "is_faction_keyword": true,
-      "keyword": "Legiones Daemonica"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Shadow Legion"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Shadow Legion"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Shadow Legion"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Shadow Legion"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Shadow Legion"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Undivided"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Undivided"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Undivided"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Undivided"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Undivided"
     }
   ],
   "leader_pairs": [
     "ds-accursed-cultists-2",
     "ds-chosen-2",
     "ds-cultist-mob-2",
-    "ds-legionaries-2"
+    "ds-cultist-mob-with-firearms",
+    "ds-legionaries-2",
+    "ds-negavolt-cultists"
   ],
   "models": [
     {
-      "base_size": "40mm",
-      "invuln_save": "4",
+      "base_size": "(⌀40mm)",
+      "invuln_save": "4+",
       "leadership": "5+",
       "line": 1,
       "movement": "6\"",
@@ -216,8 +97,8 @@
       "wounds": 4
     },
     {
-      "base_size": "25mm",
-      "invuln_save": "4",
+      "base_size": "(⌀25mm)",
+      "invuln_save": "4+",
       "leadership": "7+",
       "line": 2,
       "movement": "6\"",
@@ -230,17 +111,52 @@
   ],
   "name": "Dark Apostle",
   "pricing_confidence": {
-    "consecutive_unverified_releases": 1,
+    "consecutive_unverified_releases": 2,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-    "detail_edition_code": "wh40k-10e",
+    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
-    "is_hybrid_edition": true,
+    "is_hybrid_edition": false,
     "points_edition_code": "wh40k-11e",
     "points_source": "none"
   },
-  "role": "Characters"
+  "wargear_option_state": "none",
+  "weapons": [
+    {
+      "ability_keywords": [
+        "pistol"
+      ],
+      "armour_penetration": "0",
+      "attacks": "1",
+      "damage": "1",
+      "is_melee": true,
+      "line": 1,
+      "name": "Bolt pistol",
+      "skill": "3+",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "-1",
+      "attacks": "5",
+      "damage": "2",
+      "is_melee": true,
+      "line": 2,
+      "name": "Accursed crozius",
+      "skill": "2+",
+      "strength": "6"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "1",
+      "damage": "1",
+      "is_melee": true,
+      "line": 3,
+      "name": "Close combat weapon",
+      "skill": "4+",
+      "strength": "3"
+    }
+  ]
 }

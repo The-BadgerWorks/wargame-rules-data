@@ -1,7 +1,18 @@
 {
   "ability_keys": [
+    "core:deadly-demise-d6-2",
+    "core:super-heavy-walker",
     "datasheet:terrifying-monstrosity",
-    "datasheet:titanic-walker"
+    "faction:reanimation-protocols"
+  ],
+  "composition": [
+    {
+      "line": 1,
+      "max_count": 1,
+      "min_count": 1,
+      "model_line": 1,
+      "model_name": "Seraptek Heavy Construct"
+    }
   ],
   "costs": [
     {
@@ -10,7 +21,7 @@
       "model_count": 1,
       "points": 540,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
     },
     {
       "copy_index_min": 2,
@@ -18,7 +29,7 @@
       "model_count": 1,
       "points": 570,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
     }
   ],
   "damaged_threshold": 9,
@@ -32,33 +43,39 @@
   "keywords": [
     {
       "is_faction_keyword": true,
-      "keyword": "Necrons"
+      "keyword": "NECRONS",
+      "keyword_class": "faction"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Seraptek Heavy Construct"
+      "keyword": "SERAPTEK HEAVY CONSTRUCT",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Titanic"
+      "keyword": "TITANIC",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Towering"
+      "keyword": "TOWERING",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Vehicle"
+      "keyword": "VEHICLE",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Walker"
+      "keyword": "WALKER",
+      "keyword_class": "unit"
     }
   ],
   "models": [
     {
-      "base_size": "Use model",
-      "invuln_save": "5",
+      "base_size": "(⌀Use model)",
+      "invuln_save": "5+",
       "leadership": "7+",
       "line": 1,
       "movement": "10\"",
@@ -70,54 +87,77 @@
     }
   ],
   "name": "SERAPTEK HEAVY CONSTRUCT",
+  "option_choices": [
+    {
+      "count": 2,
+      "group_id": "og-seraptek-heavy-construct-1",
+      "id": "oc-seraptek-heavy-construct-1-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "synaptic obliterators and 2 transdimensional projectors"
+    }
+  ],
+  "option_groups": [
+    {
+      "id": "og-seraptek-heavy-construct-1",
+      "line": 1,
+      "scope": "model"
+    }
+  ],
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:f615000ddf1b478d41f47cdceca9fe9b8c9051f01d3d03738193a2de6073a6f2",
-    "last_verified_version": "mfm-2026-08",
+    "last_verified_version": "wh40k-11e-2026-08",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-    "detail_edition_code": "wh40k-10e",
+    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
-    "is_hybrid_edition": true,
-    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "is_hybrid_edition": false,
+    "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
-  "role": "Other",
+  "wargear_option_state": "extracted",
   "weapons": [
     {
+      "ability_keywords": [
+        "blast",
+        "devastating wounds"
+      ],
       "armour_penetration": "-3",
       "attacks": "2D6",
       "damage": "4",
       "is_melee": false,
       "line": 1,
       "name": "Singularity generator",
-      "range": "36",
-      "skill": "3",
+      "range": "36\"",
+      "skill": "3+",
       "strength": "10"
     },
     {
+      "ability_keywords": [
+        "sustained hits 2"
+      ],
       "armour_penetration": "-1",
       "attacks": "8",
       "damage": "2",
       "is_melee": false,
       "line": 2,
       "name": "Synaptic obliterator",
-      "range": "48",
-      "skill": "3",
+      "range": "48\"",
+      "skill": "3+",
       "strength": "5"
     },
     {
       "armour_penetration": "-4",
       "attacks": "2",
       "damage": "D6+4",
-      "is_melee": false,
+      "is_melee": true,
       "line": 3,
       "name": "Transdimensional projector",
-      "range": "48",
-      "skill": "3",
+      "skill": "3+",
       "strength": "24"
     },
     {
@@ -127,7 +167,7 @@
       "is_melee": true,
       "line": 4,
       "name": "Titanic forelimbs – strike",
-      "skill": "3",
+      "skill": "3+",
       "strength": "14"
     },
     {
@@ -137,7 +177,7 @@
       "is_melee": true,
       "line": 5,
       "name": "Titanic forelimbs – sweep",
-      "skill": "3",
+      "skill": "3+",
       "strength": "8"
     }
   ]

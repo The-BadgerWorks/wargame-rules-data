@@ -1,6 +1,17 @@
 {
   "ability_keys": [
-    "datasheet:powers-of-the-ctan"
+    "core:deadly-demise-d6-3",
+    "datasheet:powers-of-the-ctan",
+    "faction:reanimation-protocols"
+  ],
+  "composition": [
+    {
+      "line": 1,
+      "max_count": 1,
+      "min_count": 1,
+      "model_line": 1,
+      "model_name": "Tesseract Vault"
+    }
   ],
   "costs": [
     {
@@ -9,7 +20,7 @@
       "model_count": 1,
       "points": 465,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
     },
     {
       "copy_index_min": 2,
@@ -17,7 +28,7 @@
       "model_count": 1,
       "points": 485,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
     }
   ],
   "damaged_threshold": 8,
@@ -31,33 +42,44 @@
   "keywords": [
     {
       "is_faction_keyword": false,
-      "keyword": "Fly"
+      "keyword": "FLY",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "FRAME",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": true,
-      "keyword": "Necrons"
+      "keyword": "NECRONS",
+      "keyword_class": "faction"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Tesseract Vault"
+      "keyword": "TESSERACT VAULT",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Titanic"
+      "keyword": "TITANIC",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Towering"
+      "keyword": "TOWERING",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Vehicle"
+      "keyword": "VEHICLE",
+      "keyword_class": "unit"
     }
   ],
   "models": [
     {
-      "base_size": "120 x 92mm flying base",
-      "invuln_save": "4",
+      "base_size": "(⌀120 x 92mm flying base)",
+      "invuln_save": "4+",
       "leadership": "7+",
       "line": 1,
       "movement": "8\"",
@@ -72,62 +94,82 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:71799c165099ab0590d4d398986eb8aba96e3d9b7b5e3ad00de35684e4b894ae",
-    "last_verified_version": "mfm-2026-08",
+    "last_verified_version": "wh40k-11e-2026-08",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-    "detail_edition_code": "wh40k-10e",
+    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
-    "is_hybrid_edition": true,
-    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "is_hybrid_edition": false,
+    "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
-  "role": "Other",
+  "wargear_option_state": "none",
   "weapons": [
     {
+      "ability_keywords": [
+        "sustained hits 2"
+      ],
       "armour_penetration": "0",
       "attacks": "6",
       "damage": "1",
       "is_melee": false,
       "line": 1,
       "name": "Tesla spheres",
-      "range": "24",
-      "skill": "3",
+      "range": "24\"",
+      "skill": "3+",
       "strength": "7"
     },
     {
+      "ability_keywords": [
+        "blast",
+        "c'tan power",
+        "devastating wounds",
+        "indirect fire"
+      ],
       "armour_penetration": "-3",
       "attacks": "D6+3",
       "damage": "3",
       "is_melee": false,
       "line": 2,
       "name": "Antimatter Meteor",
-      "range": "24",
-      "skill": "3",
+      "range": "24\"",
+      "skill": "3+",
       "strength": "10"
     },
     {
+      "ability_keywords": [
+        "c'tan power",
+        "devastating wounds",
+        "ignores cover",
+        "torrent"
+      ],
       "armour_penetration": "-2",
       "attacks": "3D6",
       "damage": "1",
       "is_melee": false,
       "line": 3,
       "name": "Cosmic Fire",
-      "range": "18",
+      "range": "18\"",
       "skill": "N/A",
       "strength": "6"
     },
     {
+      "ability_keywords": [
+        "anti-character 4+",
+        "c'tan power",
+        "devastating wounds",
+        "precision"
+      ],
       "armour_penetration": "-2",
       "attacks": "1",
       "damage": "6",
-      "is_melee": false,
+      "is_melee": true,
       "line": 4,
       "name": "Time’s Arrow",
-      "range": "24",
-      "skill": "2",
+      "skill": "2+",
       "strength": "3"
     },
     {
@@ -137,7 +179,7 @@
       "is_melee": true,
       "line": 5,
       "name": "Armoured bulk",
-      "skill": "4",
+      "skill": "4+",
       "strength": "8"
     }
   ]

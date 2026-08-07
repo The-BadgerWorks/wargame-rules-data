@@ -1,8 +1,19 @@
 {
   "ability_keys": [
+    "core:deadly-demise-d6",
     "datasheet:ceramite-cover",
     "datasheet:defensive-array",
-    "datasheet:fortification"
+    "datasheet:fortification",
+    "faction:oath-of-moment"
+  ],
+  "composition": [
+    {
+      "line": 1,
+      "max_count": 1,
+      "min_count": 1,
+      "model_line": 1,
+      "model_name": "Hammerfall Bunker"
+    }
   ],
   "costs": [
     {
@@ -11,7 +22,7 @@
       "model_count": 1,
       "points": 175,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
     }
   ],
   "damaged_threshold": 5,
@@ -25,28 +36,37 @@
   "keywords": [
     {
       "is_faction_keyword": true,
-      "keyword": "Adeptus Astartes"
+      "keyword": "ADEPTUS ASTARTES"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Fortification"
+      "keyword": "FORTIFICATION",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Hammerfall Bunker"
+      "keyword": "FRAME",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Imperium"
+      "keyword": "HAMMERFALL BUNKER",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Vehicle"
+      "keyword": "IMPERIUM",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "VEHICLE",
+      "keyword_class": "unit"
     }
   ],
   "models": [
     {
-      "base_size": "Use model",
+      "base_size": "(⌀Use model)",
       "leadership": "6+",
       "line": 1,
       "movement": "-",
@@ -58,54 +78,84 @@
     }
   ],
   "name": "HAMMERFALL BUNKER",
+  "option_choices": [
+    {
+      "count": 1,
+      "group_id": "og-hammerfall-bunker-3-1",
+      "id": "oc-hammerfall-bunker-3-1-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "Hammerfall heavy flamer array",
+      "replaces_weapon_line": 2
+    }
+  ],
+  "option_groups": [
+    {
+      "id": "og-hammerfall-bunker-3-1",
+      "line": 1,
+      "scope": "model"
+    }
+  ],
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:da1be83ce6334b67bd9d9af95c6b7ad8fe943d88ee81fd002f67b4c3ef29ca97",
-    "last_verified_version": "mfm-2026-08",
+    "last_verified_version": "wh40k-11e-2026-08",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-    "detail_edition_code": "wh40k-10e",
+    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
-    "is_hybrid_edition": true,
-    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "is_hybrid_edition": false,
+    "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
-  "role": "Fortifications",
+  "wargear_option_state": "extracted",
   "weapons": [
     {
+      "ability_keywords": [
+        "sustained hits 1",
+        "twin-linked"
+      ],
       "armour_penetration": "-1",
       "attacks": "6",
       "damage": "2",
       "is_melee": false,
       "line": 1,
       "name": "Hammerfall heavy bolter array",
-      "range": "36",
-      "skill": "4",
+      "range": "36\"",
+      "skill": "4+",
       "strength": "5"
     },
     {
+      "ability_keywords": [
+        "ignores cover",
+        "torrent",
+        "twin-linked"
+      ],
       "armour_penetration": "-1",
       "attacks": "2D6",
       "damage": "1",
       "is_melee": false,
       "line": 2,
       "name": "Hammerfall heavy flamer array",
-      "range": "12",
+      "range": "12\"",
       "skill": "N/A",
       "strength": "5"
     },
     {
+      "ability_keywords": [
+        "blast"
+      ],
       "armour_penetration": "0",
       "attacks": "2D6+2",
       "damage": "1",
       "is_melee": false,
       "line": 3,
       "name": "Hammerfall missile launcher – superfrag",
-      "range": "48",
-      "skill": "4",
+      "range": "48\"",
+      "skill": "4+",
       "strength": "5"
     },
     {
@@ -115,8 +165,8 @@
       "is_melee": false,
       "line": 4,
       "name": "Hammerfall missile launcher – superkrak",
-      "range": "48",
-      "skill": "4",
+      "range": "48\"",
+      "skill": "4+",
       "strength": "10"
     }
   ]

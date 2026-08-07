@@ -1,6 +1,18 @@
 {
   "ability_keys": [
-    "datasheet:assault-vehicle"
+    "core:deadly-demise-d3",
+    "core:firing-deck-2",
+    "datasheet:assault-vehicle",
+    "faction:thrill-seekers"
+  ],
+  "composition": [
+    {
+      "line": 1,
+      "max_count": 1,
+      "min_count": 1,
+      "model_line": 1,
+      "model_name": "Chaos Rhino"
+    }
   ],
   "costs": [
     {
@@ -9,7 +21,7 @@
       "model_count": 1,
       "points": 70,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
     },
     {
       "copy_index_min": 4,
@@ -17,7 +29,7 @@
       "model_count": 1,
       "points": 80,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
     }
   ],
   "datasheet_id": "ds-chaos-rhino-3",
@@ -30,40 +42,53 @@
   "keywords": [
     {
       "is_faction_keyword": false,
-      "keyword": "Chaos"
+      "keyword": "CHAOS",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Dedicated Transport"
+      "keyword": "DEDICATED TRANSPORT",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": true,
-      "keyword": "Emperor’s Children"
+      "keyword": "EMPEROR’S CHILDREN",
+      "keyword_class": "faction"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Rhino"
+      "keyword": "FRAME",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Slaanesh"
+      "keyword": "RHINO",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Smoke"
+      "keyword": "SLAANESH",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Transport"
+      "keyword": "SMOKE",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Vehicle"
+      "keyword": "TRANSPORT",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "VEHICLE",
+      "keyword_class": "unit"
     }
   ],
   "models": [
     {
-      "base_size": "Use model",
+      "base_size": "(⌀Use model)",
       "leadership": "6+",
       "line": 1,
       "movement": "12\"",
@@ -75,54 +100,104 @@
     }
   ],
   "name": "CHAOS RHINO",
+  "option_choices": [
+    {
+      "count": 1,
+      "grants_weapon_line": 1,
+      "group_id": "og-chaos-rhino-3-1",
+      "id": "oc-chaos-rhino-3-1-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "combi-bolter"
+    },
+    {
+      "count": 1,
+      "grants_weapon_line": 2,
+      "group_id": "og-chaos-rhino-3-1",
+      "id": "oc-chaos-rhino-3-1-2",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "combi-weapon"
+    },
+    {
+      "count": 1,
+      "group_id": "og-chaos-rhino-3-2",
+      "id": "oc-chaos-rhino-3-2-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "havoc launcher or can replace 1 combi-bolter with 1 havoc launcher"
+    }
+  ],
+  "option_groups": [
+    {
+      "id": "og-chaos-rhino-3-1",
+      "line": 1,
+      "scope": "model"
+    },
+    {
+      "id": "og-chaos-rhino-3-2",
+      "line": 2,
+      "scope": "model"
+    }
+  ],
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:8a23184f3d332278333bc165c45d1255c5741131045f307e69e783618884c939",
-    "last_verified_version": "mfm-2026-08",
+    "last_verified_version": "wh40k-11e-2026-08",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-    "detail_edition_code": "wh40k-10e",
+    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
-    "is_hybrid_edition": true,
-    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "is_hybrid_edition": false,
+    "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
-  "role": "Dedicated Transports",
+  "wargear_option_state": "extracted",
   "weapons": [
     {
+      "ability_keywords": [
+        "rapid fire 2"
+      ],
       "armour_penetration": "0",
       "attacks": "2",
       "damage": "1",
       "is_melee": false,
       "line": 1,
       "name": "Combi-bolter",
-      "range": "24",
-      "skill": "3",
+      "range": "24\"",
+      "skill": "3+",
       "strength": "4"
     },
     {
+      "ability_keywords": [
+        "anti-infantry 4+",
+        "devastating wounds",
+        "rapid fire 1"
+      ],
       "armour_penetration": "0",
       "attacks": "1",
       "damage": "1",
       "is_melee": false,
       "line": 2,
       "name": "Combi-weapon",
-      "range": "24",
-      "skill": "4",
+      "range": "24\"",
+      "skill": "4+",
       "strength": "4"
     },
     {
+      "ability_keywords": [
+        "blast"
+      ],
       "armour_penetration": "0",
       "attacks": "D6",
       "damage": "1",
-      "is_melee": false,
+      "is_melee": true,
       "line": 3,
       "name": "Havoc launcher",
-      "range": "48",
-      "skill": "3",
+      "skill": "3+",
       "strength": "5"
     },
     {
@@ -132,7 +207,7 @@
       "is_melee": true,
       "line": 4,
       "name": "Armoured tracks",
-      "skill": "4",
+      "skill": "4+",
       "strength": "6"
     }
   ]

@@ -1,7 +1,24 @@
 {
   "ability_keys": [
+    "core:infiltrators",
+    "core:stealth",
     "datasheet:mark-the-target",
-    "datasheet:reposition-under-covering-fire"
+    "datasheet:reposition-under-covering-fire",
+    "faction:oath-of-moment"
+  ],
+  "composition": [
+    {
+      "line": 1,
+      "max_count": 1,
+      "min_count": 1,
+      "model_name": "Eliminator Sergeant"
+    },
+    {
+      "line": 2,
+      "max_count": 2,
+      "min_count": 2,
+      "model_name": "Eliminators"
+    }
   ],
   "costs": [
     {
@@ -10,7 +27,7 @@
       "model_count": 3,
       "points": 75,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
     }
   ],
   "datasheet_id": "ds-eliminator-squad-2",
@@ -23,32 +40,37 @@
   "keywords": [
     {
       "is_faction_keyword": true,
-      "keyword": "Adeptus Astartes"
+      "keyword": "ADEPTUS ASTARTES"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Eliminator Squad"
+      "keyword": "ELIMINATOR SQUAD",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Grenades"
+      "keyword": "GRENADES",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Imperium"
+      "keyword": "IMPERIUM",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Infantry"
+      "keyword": "INFANTRY",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Phobos"
+      "keyword": "PHOBOS",
+      "keyword_class": "unit"
     }
   ],
   "models": [
     {
-      "base_size": "40mm",
+      "base_size": "(⌀40mm)",
       "leadership": "6+",
       "line": 1,
       "movement": "6\"",
@@ -60,65 +82,104 @@
     }
   ],
   "name": "ELIMINATOR SQUAD",
+  "option_choices": [
+    {
+      "count": 1,
+      "group_id": "og-eliminator-squad-2-1",
+      "id": "oc-eliminator-squad-2-1-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "instigator bolt carbine",
+      "replaces_weapon_line": 3
+    },
+    {
+      "count": 1,
+      "group_id": "og-eliminator-squad-2-1",
+      "id": "oc-eliminator-squad-2-1-2",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "las fusil",
+      "replaces_weapon_line": 4
+    }
+  ],
+  "option_groups": [
+    {
+      "id": "og-eliminator-squad-2-1",
+      "line": 1,
+      "scope": "unit"
+    }
+  ],
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:07ed25d3559eb1c107272a9c6dc99231580ecb3c7496d152bb77c14ae18661ec",
-    "last_verified_version": "mfm-2026-08",
+    "last_verified_version": "wh40k-11e-2026-08",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-    "detail_edition_code": "wh40k-10e",
+    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
-    "is_hybrid_edition": true,
-    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "is_hybrid_edition": false,
+    "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
-  "role": "Other",
+  "wargear_option_state": "partial",
   "weapons": [
     {
+      "ability_keywords": [
+        "pistol"
+      ],
       "armour_penetration": "0",
       "attacks": "1",
       "damage": "1",
       "is_melee": false,
       "line": 1,
       "name": "Bolt pistol",
-      "range": "12",
-      "skill": "3",
+      "range": "12\"",
+      "skill": "3+",
       "strength": "4"
     },
     {
+      "ability_keywords": [
+        "heavy",
+        "precision"
+      ],
       "armour_penetration": "-2",
       "attacks": "1",
       "damage": "3",
       "is_melee": false,
       "line": 2,
       "name": "Bolt sniper rifle",
-      "range": "36",
-      "skill": "3",
+      "range": "36\"",
+      "skill": "3+",
       "strength": "5"
     },
     {
+      "ability_keywords": [
+        "precision"
+      ],
       "armour_penetration": "-2",
       "attacks": "1",
       "damage": "2",
       "is_melee": false,
       "line": 3,
       "name": "Instigator bolt carbine",
-      "range": "24",
-      "skill": "3",
+      "range": "24\"",
+      "skill": "3+",
       "strength": "4"
     },
     {
+      "ability_keywords": [
+        "heavy"
+      ],
       "armour_penetration": "-3",
       "attacks": "1",
       "damage": "D6",
-      "is_melee": false,
+      "is_melee": true,
       "line": 4,
       "name": "Las fusil",
-      "range": "36",
-      "skill": "3",
+      "skill": "3+",
       "strength": "9"
     },
     {
@@ -128,7 +189,7 @@
       "is_melee": true,
       "line": 5,
       "name": "Close combat weapon",
-      "skill": "3",
+      "skill": "3+",
       "strength": "4"
     }
   ]

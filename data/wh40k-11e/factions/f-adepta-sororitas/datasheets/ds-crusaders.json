@@ -1,7 +1,16 @@
 {
   "ability_keys": [
-    "datasheet:attached-unit",
-    "datasheet:spiritual-fortitude"
+    "datasheet:spiritual-fortitude",
+    "faction:acts-of-faith"
+  ],
+  "composition": [
+    {
+      "line": 1,
+      "max_count": 4,
+      "min_count": 2,
+      "model_line": 1,
+      "model_name": "Crusaders"
+    }
   ],
   "costs": [
     {
@@ -10,7 +19,7 @@
       "model_count": 2,
       "points": 40,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1"
+      "source_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9"
     },
     {
       "copy_index_min": 1,
@@ -18,7 +27,7 @@
       "model_count": 4,
       "points": 80,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1"
+      "source_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9"
     }
   ],
   "datasheet_id": "ds-crusaders",
@@ -31,25 +40,29 @@
   "keywords": [
     {
       "is_faction_keyword": true,
-      "keyword": "Adepta Sororitas"
+      "keyword": "ADEPTA SORORITAS",
+      "keyword_class": "faction"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Crusaders"
+      "keyword": "CRUSADERS",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Imperium"
+      "keyword": "IMPERIUM",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Infantry"
+      "keyword": "INFANTRY",
+      "keyword_class": "unit"
     }
   ],
   "models": [
     {
-      "base_size": "25mm",
-      "invuln_save": "4",
+      "base_size": "(⌀25mm)",
+      "invuln_save": "4+",
       "leadership": "7+",
       "line": 1,
       "movement": "6\"",
@@ -62,19 +75,19 @@
   ],
   "name": "Crusaders",
   "pricing_confidence": {
-    "consecutive_unverified_releases": 1,
+    "consecutive_unverified_releases": 2,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-    "detail_edition_code": "wh40k-10e",
+    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
-    "is_hybrid_edition": true,
+    "is_hybrid_edition": false,
     "points_edition_code": "wh40k-11e",
     "points_source": "none"
   },
-  "role": "Other",
+  "wargear_option_state": "none",
   "weapons": [
     {
       "armour_penetration": "-2",
@@ -83,7 +96,7 @@
       "is_melee": true,
       "line": 1,
       "name": "Power weapon",
-      "skill": "3",
+      "skill": "3+",
       "strength": "4"
     }
   ]

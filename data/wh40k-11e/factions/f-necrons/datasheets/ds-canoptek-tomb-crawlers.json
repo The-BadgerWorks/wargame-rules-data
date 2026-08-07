@@ -1,7 +1,16 @@
 {
   "ability_keys": [
-    "datasheet:canoptek-retinue",
-    "datasheet:weapon-sentinels"
+    "datasheet:weapon-sentinels",
+    "faction:reanimation-protocols"
+  ],
+  "composition": [
+    {
+      "line": 1,
+      "max_count": 2,
+      "min_count": 2,
+      "model_line": 1,
+      "model_name": "Canoptek Tomb Crawlers"
+    }
   ],
   "costs": [
     {
@@ -10,7 +19,7 @@
       "model_count": 2,
       "points": 50,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
     }
   ],
   "datasheet_id": "ds-canoptek-tomb-crawlers",
@@ -23,24 +32,28 @@
   "keywords": [
     {
       "is_faction_keyword": false,
-      "keyword": "Beasts"
+      "keyword": "BEASTS",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Canoptek"
+      "keyword": "CANOPTEK",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": true,
-      "keyword": "Necrons"
+      "keyword": "NECRONS",
+      "keyword_class": "faction"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Tomb Crawlers"
+      "keyword": "TOMB CRAWLERS",
+      "keyword_class": "unit"
     }
   ],
   "models": [
     {
-      "base_size": "50mm",
+      "base_size": "(⌀50mm)",
       "leadership": "8+",
       "line": 1,
       "movement": "5\"",
@@ -52,22 +65,40 @@
     }
   ],
   "name": "CANOPTEK TOMB CRAWLERS",
+  "option_choices": [
+    {
+      "count": 1,
+      "group_id": "og-canoptek-tomb-crawlers-1",
+      "id": "oc-canoptek-tomb-crawlers-1-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "transdimensional isolator",
+      "replaces_weapon_line": 1
+    }
+  ],
+  "option_groups": [
+    {
+      "id": "og-canoptek-tomb-crawlers-1",
+      "line": 1,
+      "scope": "unit"
+    }
+  ],
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:da427ea437fbcc5b2f073878629c2d07fda5bebcbf9a076d085a1b7010616122",
-    "last_verified_version": "mfm-2026-08",
+    "last_verified_version": "wh40k-11e-2026-08",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-    "detail_edition_code": "wh40k-10e",
+    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
-    "is_hybrid_edition": true,
-    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "is_hybrid_edition": false,
+    "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
-  "role": "Other",
+  "wargear_option_state": "extracted",
   "weapons": [
     {
       "armour_penetration": "-2",
@@ -76,19 +107,22 @@
       "is_melee": false,
       "line": 1,
       "name": "Transdimensional isolator",
-      "range": "12",
-      "skill": "4",
+      "range": "12\"",
+      "skill": "4+",
       "strength": "4"
     },
     {
+      "ability_keywords": [
+        "lethal hits",
+        "twin-linked"
+      ],
       "armour_penetration": "-1",
       "attacks": "2",
       "damage": "1",
-      "is_melee": false,
+      "is_melee": true,
       "line": 2,
       "name": "Twin gauss reaper",
-      "range": "12",
-      "skill": "4",
+      "skill": "4+",
       "strength": "4"
     },
     {
@@ -98,7 +132,7 @@
       "is_melee": true,
       "line": 3,
       "name": "Claws",
-      "skill": "4",
+      "skill": "4+",
       "strength": "6"
     }
   ]

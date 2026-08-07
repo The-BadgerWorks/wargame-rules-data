@@ -1,15 +1,27 @@
 {
   "ability_keys": [
-    "datasheet:aerial-seeding"
+    "core:deadly-demise-d3",
+    "core:deep-strike",
+    "datasheet:aerial-seeding",
+    "faction:synapse"
+  ],
+  "composition": [
+    {
+      "line": 1,
+      "max_count": 1,
+      "min_count": 1,
+      "model_line": 1,
+      "model_name": "Tyrannocyte"
+    }
   ],
   "costs": [
     {
       "copy_index_min": 1,
       "label": "1 model",
       "model_count": 1,
-      "points": 105,
+      "points": 80,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1"
+      "source_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9"
     }
   ],
   "datasheet_id": "ds-tyrannocyte-2",
@@ -22,44 +34,53 @@
   "keywords": [
     {
       "is_faction_keyword": false,
-      "keyword": "Dedicated Transport"
+      "keyword": "DEDICATED TRANSPORT",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Fly"
+      "keyword": "FLY",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "FRAME",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "GREAT DEVOURER",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "MONSTER",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "TRANSPORT",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": true,
-      "keyword": "Genestealer Cults"
+      "keyword": "TYRANIDS",
+      "keyword_class": "faction"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Great Devourer"
+      "keyword": "TYRANNOCYTE",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Monster"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Transport"
-    },
-    {
-      "is_faction_keyword": true,
-      "keyword": "Tyranids"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Tyrannocyte"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Vanguard Invader"
+      "keyword": "VANGUARD INVADER",
+      "keyword_class": "unit"
     }
   ],
   "models": [
     {
-      "base_size": "100mm",
+      "base_size": "(⌀100mm)",
       "leadership": "8+",
       "line": 1,
       "movement": "8\"",
@@ -72,17 +93,39 @@
   ],
   "name": "Tyrannocyte",
   "pricing_confidence": {
-    "consecutive_unverified_releases": 1,
+    "consecutive_unverified_releases": 2,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-    "detail_edition_code": "wh40k-10e",
+    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
-    "is_hybrid_edition": true,
+    "is_hybrid_edition": false,
     "points_edition_code": "wh40k-11e",
     "points_source": "none"
   },
-  "role": "Dedicated Transports"
+  "wargear_option_state": "none",
+  "weapons": [
+    {
+      "armour_penetration": "-1",
+      "attacks": "5",
+      "damage": "2",
+      "is_melee": true,
+      "line": 1,
+      "name": "Tyrannocyte bio-weapons",
+      "skill": "4+",
+      "strength": "5"
+    },
+    {
+      "armour_penetration": "-1",
+      "attacks": "6",
+      "damage": "2",
+      "is_melee": true,
+      "line": 2,
+      "name": "Flensing whips",
+      "skill": "4+",
+      "strength": "7"
+    }
+  ]
 }

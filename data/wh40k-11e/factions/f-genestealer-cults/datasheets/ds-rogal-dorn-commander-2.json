@@ -1,8 +1,16 @@
 {
   "ability_keys": [
+    "core:deadly-demise-d6",
     "datasheet:called-shots",
-    "datasheet:orders",
     "datasheet:vox-net"
+  ],
+  "composition": [
+    {
+      "line": 1,
+      "max_count": 1,
+      "min_count": 1,
+      "model_name": "Rogal Dorn Tank Commander"
+    }
   ],
   "costs": [
     {
@@ -11,9 +19,10 @@
       "model_count": 1,
       "points": 290,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1"
+      "source_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9"
     }
   ],
+  "damaged_threshold": 6,
   "datasheet_id": "ds-rogal-dorn-commander-2",
   "faction_id": "f-genestealer-cults",
   "is_battleline": false,
@@ -24,48 +33,57 @@
   "keywords": [
     {
       "is_faction_keyword": true,
-      "keyword": "Astra Militarum"
+      "keyword": "ASTRA MILITARUM",
+      "keyword_class": "faction"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Character"
-    },
-    {
-      "is_faction_keyword": true,
-      "keyword": "Genestealer Cults"
+      "keyword": "CHARACTER",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Imperium"
+      "keyword": "FRAME",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Officer"
+      "keyword": "IMPERIUM",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Rogal Dorn Commander"
+      "keyword": "OFFICER",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Smoke"
+      "keyword": "ROGAL DORN COMMANDER",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Squadron"
+      "keyword": "SMOKE",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Vehicle"
+      "keyword": "SQUADRON",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "VEHICLE",
+      "keyword_class": "unit"
     }
   ],
   "models": [
     {
-      "base_size": "Use model",
+      "base_size": "(⌀Use model)",
       "leadership": "7+",
       "line": 1,
       "movement": "10\"",
-      "name": "Rogal Dorn Tank Commander",
+      "name": "Rogal Dorn Commander",
       "objective_control": 5,
       "save": "2+",
       "toughness": 12,
@@ -73,18 +91,223 @@
     }
   ],
   "name": "Rogal Dorn Commander",
+  "option_choices": [
+    {
+      "count": 1,
+      "group_id": "og-rogal-dorn-commander-2-1",
+      "id": "oc-rogal-dorn-commander-2-1-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "oppressor cannon and 1 coaxial autocannon"
+    },
+    {
+      "count": 1,
+      "group_id": "og-rogal-dorn-commander-2-2",
+      "id": "oc-rogal-dorn-commander-2-2-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "pulveriser cannon",
+      "replaces_weapon_line": 8
+    },
+    {
+      "count": 2,
+      "group_id": "og-rogal-dorn-commander-2-3",
+      "id": "oc-rogal-dorn-commander-2-3-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "meltaguns"
+    },
+    {
+      "count": 2,
+      "group_id": "og-rogal-dorn-commander-2-3",
+      "id": "oc-rogal-dorn-commander-2-3-2",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "additional heavy stubbers"
+    },
+    {
+      "count": 2,
+      "group_id": "og-rogal-dorn-commander-2-4",
+      "id": "oc-rogal-dorn-commander-2-4-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "heavy bolters"
+    },
+    {
+      "count": 2,
+      "group_id": "og-rogal-dorn-commander-2-4",
+      "id": "oc-rogal-dorn-commander-2-4-2",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "multi-meltas"
+    }
+  ],
+  "option_groups": [
+    {
+      "id": "og-rogal-dorn-commander-2-1",
+      "line": 1,
+      "scope": "model"
+    },
+    {
+      "id": "og-rogal-dorn-commander-2-2",
+      "line": 2,
+      "scope": "model"
+    },
+    {
+      "id": "og-rogal-dorn-commander-2-3",
+      "line": 3,
+      "scope": "model"
+    },
+    {
+      "id": "og-rogal-dorn-commander-2-4",
+      "line": 4,
+      "scope": "model"
+    }
+  ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 1,
+    "consecutive_unverified_releases": 2,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-    "detail_edition_code": "wh40k-10e",
+    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
-    "is_hybrid_edition": true,
+    "is_hybrid_edition": false,
     "points_edition_code": "wh40k-11e",
     "points_source": "none"
   },
-  "role": "Characters"
+  "wargear_option_state": "extracted",
+  "weapons": [
+    {
+      "armour_penetration": "0",
+      "attacks": "12",
+      "damage": "1",
+      "is_melee": false,
+      "line": 1,
+      "name": "Castigator gatling cannon",
+      "range": "24\"",
+      "skill": "4+",
+      "strength": "5"
+    },
+    {
+      "armour_penetration": "-1",
+      "attacks": "2",
+      "damage": "3",
+      "is_melee": false,
+      "line": 2,
+      "name": "Coaxial autocannon",
+      "range": "48\"",
+      "skill": "4+",
+      "strength": "9"
+    },
+    {
+      "ability_keywords": [
+        "sustained hits 1"
+      ],
+      "armour_penetration": "-1",
+      "attacks": "3",
+      "damage": "2",
+      "is_melee": false,
+      "line": 3,
+      "name": "Heavy bolter",
+      "range": "36\"",
+      "skill": "4+",
+      "strength": "5"
+    },
+    {
+      "ability_keywords": [
+        "rapid fire 3"
+      ],
+      "armour_penetration": "0",
+      "attacks": "3",
+      "damage": "1",
+      "is_melee": false,
+      "line": 4,
+      "name": "Heavy stubber",
+      "range": "36\"",
+      "skill": "4+",
+      "strength": "4"
+    },
+    {
+      "ability_keywords": [
+        "melta 2"
+      ],
+      "armour_penetration": "-4",
+      "attacks": "1",
+      "damage": "D6",
+      "is_melee": false,
+      "line": 5,
+      "name": "Meltagun",
+      "range": "12\"",
+      "skill": "4+",
+      "strength": "9"
+    },
+    {
+      "ability_keywords": [
+        "melta 2"
+      ],
+      "armour_penetration": "-4",
+      "attacks": "2",
+      "damage": "D6",
+      "is_melee": false,
+      "line": 6,
+      "name": "Multi-melta",
+      "range": "18\"",
+      "skill": "4+",
+      "strength": "9"
+    },
+    {
+      "ability_keywords": [
+        "blast"
+      ],
+      "armour_penetration": "-2",
+      "attacks": "D6+3",
+      "damage": "3",
+      "is_melee": false,
+      "line": 7,
+      "name": "Oppressor cannon",
+      "range": "72\"",
+      "skill": "4+",
+      "strength": "12"
+    },
+    {
+      "ability_keywords": [
+        "blast"
+      ],
+      "armour_penetration": "-3",
+      "attacks": "D6",
+      "damage": "3",
+      "is_melee": false,
+      "line": 8,
+      "name": "Pulveriser cannon",
+      "range": "24\"",
+      "skill": "4+",
+      "strength": "9"
+    },
+    {
+      "ability_keywords": [
+        "blast",
+        "twin-linked"
+      ],
+      "armour_penetration": "-1",
+      "attacks": "D6+3",
+      "damage": "3",
+      "is_melee": true,
+      "line": 9,
+      "name": "Twin battle cannon",
+      "skill": "4+",
+      "strength": "10"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "6",
+      "damage": "1",
+      "is_melee": true,
+      "line": 10,
+      "name": "Armoured tracks",
+      "skill": "4+",
+      "strength": "7"
+    }
+  ]
 }

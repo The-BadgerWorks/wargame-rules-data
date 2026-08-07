@@ -1,9 +1,28 @@
 {
   "ability_keys": [
+    "core:feel-no-pain-4",
+    "core:leader",
     "datasheet:authority-of-the-inquisition",
     "datasheet:vox-cast-proclamations-aura",
     "datasheet:vox-skull",
-    "datasheet:ward-against-the-malefic-arts"
+    "datasheet:ward-against-the-malefic-arts",
+    "faction:assigned-agents"
+  ],
+  "composition": [
+    {
+      "line": 1,
+      "max_count": 1,
+      "min_count": 1,
+      "model_line": 1,
+      "model_name": "Inquisitor Ostromandeus"
+    },
+    {
+      "line": 2,
+      "max_count": 1,
+      "min_count": 1,
+      "model_line": 2,
+      "model_name": "Stentor-I-52"
+    }
   ],
   "costs": [
     {
@@ -12,7 +31,7 @@
       "model_count": 2,
       "points": 65,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1"
+      "source_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9"
     }
   ],
   "datasheet_id": "ds-inquisitor-ostromandeus",
@@ -25,75 +44,51 @@
   "keywords": [
     {
       "is_faction_keyword": true,
-      "keyword": "Agents of the Imperium"
+      "keyword": "AGENTS OF THE IMPERIUM"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Character"
+      "keyword": "CHARACTER",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Epic Hero"
+      "keyword": "EPIC HERO",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Grenades"
+      "keyword": "GRENADES",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Imperium"
+      "keyword": "IMPERIUM",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Infantry"
+      "keyword": "INFANTRY",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Inquisitor Ostromandeus"
+      "keyword": "INQUISITOR OSTROMANDEUS",
+      "keyword_class": "unit"
     }
   ],
   "leader_pairs": [
-    "ds-aquila-kill-team",
-    "ds-assault-intercessor-squad-6",
-    "ds-battle-sisters-squad",
-    "ds-blood-claws",
-    "ds-brotherhood-terminator-squad",
-    "ds-cadian-shock-troops",
-    "ds-cadian-shock-troops-2",
-    "ds-catachan-jungle-fighters",
-    "ds-catachan-jungle-fighters-2",
-    "ds-crusader-squad",
-    "ds-crusader-squad-legendary",
-    "ds-custodian-guard",
-    "ds-death-korps-of-krieg",
-    "ds-death-korps-of-krieg-2",
-    "ds-deathwatch-kill-team",
-    "ds-deathwatch-terminator-squad-2",
-    "ds-deathwatch-veterans",
-    "ds-decimus-kill-team",
     "ds-exaction-squad",
-    "ds-fortis-kill-team-2",
-    "ds-grey-hunters",
-    "ds-heavy-intercessor-squad-6",
     "ds-imperial-navy-breachers",
     "ds-inquisitorial-agents",
-    "ds-intercessor-squad-6",
-    "ds-proteus-kill-team",
     "ds-sisters-of-battle-squad",
-    "ds-skitarii-rangers",
-    "ds-skitarii-rangers-2",
-    "ds-skitarii-vanguard",
-    "ds-skitarii-vanguard-2",
-    "ds-spectrus-kill-team-2",
-    "ds-strike-squad",
     "ds-subductor-squad",
-    "ds-tactical-squad-4",
     "ds-vigilant-squad"
   ],
   "models": [
     {
-      "base_size": "32mm",
-      "invuln_save": "5",
+      "base_size": "(⌀32mm)",
+      "invuln_save": "5+",
       "leadership": "6+",
       "line": 1,
       "movement": "6\"",
@@ -104,7 +99,7 @@
       "wounds": 4
     },
     {
-      "base_size": "28.5mm",
+      "base_size": "(⌀28.5mm)",
       "leadership": "8+",
       "line": 2,
       "movement": "6\"",
@@ -117,29 +112,32 @@
   ],
   "name": "Inquisitor Ostromandeus",
   "pricing_confidence": {
-    "consecutive_unverified_releases": 1,
+    "consecutive_unverified_releases": 2,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-    "detail_edition_code": "wh40k-10e",
+    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
-    "is_hybrid_edition": true,
+    "is_hybrid_edition": false,
     "points_edition_code": "wh40k-11e",
     "points_source": "none"
   },
-  "role": "Characters",
+  "wargear_option_state": "none",
   "weapons": [
     {
+      "ability_keywords": [
+        "melta 2",
+        "pistol"
+      ],
       "armour_penetration": "-4",
       "attacks": "1",
       "damage": "D3",
-      "is_melee": false,
+      "is_melee": true,
       "line": 1,
       "name": "Inferno pistol",
-      "range": "6",
-      "skill": "3",
+      "skill": "3+",
       "strength": "8"
     },
     {
@@ -149,7 +147,7 @@
       "is_melee": true,
       "line": 2,
       "name": "Hydraulic vox-ram",
-      "skill": "4",
+      "skill": "4+",
       "strength": "6"
     },
     {
@@ -159,7 +157,7 @@
       "is_melee": true,
       "line": 3,
       "name": "Power sword",
-      "skill": "3",
+      "skill": "3+",
       "strength": "4"
     }
   ]

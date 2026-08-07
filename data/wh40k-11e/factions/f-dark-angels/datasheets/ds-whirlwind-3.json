@@ -1,7 +1,17 @@
 {
   "ability_keys": [
-    "datasheet:one-shot",
-    "datasheet:pinning-bombardment"
+    "core:deadly-demise-d3",
+    "datasheet:pinning-bombardment",
+    "faction:oath-of-moment"
+  ],
+  "composition": [
+    {
+      "line": 1,
+      "max_count": 1,
+      "min_count": 1,
+      "model_line": 1,
+      "model_name": "Whirlwind"
+    }
   ],
   "costs": [
     {
@@ -10,7 +20,7 @@
       "model_count": 1,
       "points": 175,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
     },
     {
       "copy_index_min": 2,
@@ -18,7 +28,7 @@
       "model_count": 1,
       "points": 195,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
     }
   ],
   "damaged_threshold": 4,
@@ -32,28 +42,37 @@
   "keywords": [
     {
       "is_faction_keyword": true,
-      "keyword": "Adeptus Astartes"
+      "keyword": "ADEPTUS ASTARTES"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Imperium"
+      "keyword": "FRAME",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Smoke"
+      "keyword": "IMPERIUM",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Vehicle"
+      "keyword": "SMOKE",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Whirlwind"
+      "keyword": "VEHICLE",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "WHIRLWIND",
+      "keyword_class": "unit"
     }
   ],
   "models": [
     {
-      "base_size": "Use model",
+      "base_size": "(⌀Use model)",
       "leadership": "6+",
       "line": 1,
       "movement": "10\"",
@@ -65,54 +84,95 @@
     }
   ],
   "name": "WHIRLWIND",
+  "option_choices": [
+    {
+      "count": 1,
+      "grants_weapon_line": 1,
+      "group_id": "og-whirlwind-3-1",
+      "id": "oc-whirlwind-3-1-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "hunter-killer missile"
+    },
+    {
+      "count": 1,
+      "grants_weapon_line": 2,
+      "group_id": "og-whirlwind-3-2",
+      "id": "oc-whirlwind-3-2-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "storm bolter"
+    }
+  ],
+  "option_groups": [
+    {
+      "id": "og-whirlwind-3-1",
+      "line": 1,
+      "scope": "model"
+    },
+    {
+      "id": "og-whirlwind-3-2",
+      "line": 2,
+      "scope": "model"
+    }
+  ],
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:508ccbdd8a22548f6135833d5e460c6d1e6bbe30734b0d2c7e6df202b5fd4cb3",
-    "last_verified_version": "mfm-2026-08",
+    "last_verified_version": "wh40k-11e-2026-08",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-    "detail_edition_code": "wh40k-10e",
+    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
-    "is_hybrid_edition": true,
-    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "is_hybrid_edition": false,
+    "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
-  "role": "Other",
+  "wargear_option_state": "extracted",
   "weapons": [
     {
+      "ability_keywords": [
+        "one shot"
+      ],
       "armour_penetration": "-3",
       "attacks": "1",
       "damage": "D6",
       "is_melee": false,
       "line": 1,
       "name": "Hunter-killer missile",
-      "range": "48",
-      "skill": "2",
+      "range": "48\"",
+      "skill": "2+",
       "strength": "14"
     },
     {
+      "ability_keywords": [
+        "rapid fire 2"
+      ],
       "armour_penetration": "0",
       "attacks": "2",
       "damage": "1",
       "is_melee": false,
       "line": 2,
       "name": "Storm bolter",
-      "range": "24",
-      "skill": "3",
+      "range": "24\"",
+      "skill": "3+",
       "strength": "4"
     },
     {
+      "ability_keywords": [
+        "blast",
+        "indirect fire"
+      ],
       "armour_penetration": "-2",
       "attacks": "D6+3",
       "damage": "2",
-      "is_melee": false,
+      "is_melee": true,
       "line": 3,
       "name": "Whirlwind vengeance launcher",
-      "range": "72",
-      "skill": "3",
+      "skill": "3+",
       "strength": "8"
     },
     {
@@ -122,7 +182,7 @@
       "is_melee": true,
       "line": 4,
       "name": "Armoured tracks",
-      "skill": "4",
+      "skill": "4+",
       "strength": "6"
     }
   ]

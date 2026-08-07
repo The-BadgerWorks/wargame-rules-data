@@ -4,7 +4,21 @@
     "datasheet:cat-unit",
     "datasheet:endurant-shield",
     "datasheet:gheistskull",
-    "datasheet:one-shot"
+    "faction:assigned-agents"
+  ],
+  "composition": [
+    {
+      "line": 1,
+      "max_count": 1,
+      "min_count": 1,
+      "model_name": "Navis Sergeant-at-Arms"
+    },
+    {
+      "line": 2,
+      "max_count": 9,
+      "min_count": 9,
+      "model_name": "Navis Armsmen"
+    }
   ],
   "costs": [
     {
@@ -13,7 +27,7 @@
       "model_count": 10,
       "points": 90,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
     },
     {
       "copy_index_min": 1,
@@ -21,7 +35,8 @@
       "model_count": 10,
       "points": 90,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+      "pricing_context": "every-model-has-imperium",
+      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
     }
   ],
   "datasheet_id": "ds-imperial-navy-breachers",
@@ -34,44 +49,52 @@
   "keywords": [
     {
       "is_faction_keyword": true,
-      "keyword": "Agents of the Imperium"
+      "keyword": "AGENTS OF THE IMPERIUM"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Battleline"
+      "keyword": "BATTLELINE",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Grenades"
+      "keyword": "GRENADES",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Imperial Navy Breachers"
+      "keyword": "IMPERIAL NAVY BREACHERS",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Imperium"
+      "keyword": "IMPERIUM",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Infantry"
+      "keyword": "INFANTRY",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Retinue"
+      "keyword": "RETINUE",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Smoke"
+      "keyword": "SMOKE",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Voidfarers"
+      "keyword": "VOIDFARERS",
+      "keyword_class": "unit"
     }
   ],
   "models": [
     {
-      "base_size": "25mm",
+      "base_size": "(⌀25mm Navis Armsman 28mm if armed with meltagun or plasmagun )",
       "leadership": "7+",
       "line": 1,
       "movement": "6\"",
@@ -83,76 +106,181 @@
     }
   ],
   "name": "IMPERIAL NAVY BREACHERS",
+  "option_choices": [
+    {
+      "count": 1,
+      "group_id": "og-imperial-navy-breachers-1",
+      "id": "oc-imperial-navy-breachers-1-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "autopistol and 1 chainsword"
+    },
+    {
+      "count": 1,
+      "group_id": "og-imperial-navy-breachers-1",
+      "id": "oc-imperial-navy-breachers-1-2",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "bolt pistol and 1 power weapon"
+    },
+    {
+      "count": 1,
+      "group_id": "og-imperial-navy-breachers-2",
+      "id": "oc-imperial-navy-breachers-2-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "meltagun",
+      "replaces_weapon_line": 4
+    },
+    {
+      "count": 1,
+      "group_id": "og-imperial-navy-breachers-2",
+      "id": "oc-imperial-navy-breachers-2-2",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "plasma gun"
+    },
+    {
+      "count": 1,
+      "group_id": "og-imperial-navy-breachers-3",
+      "id": "oc-imperial-navy-breachers-3-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "autopistol and 1 power weapon"
+    },
+    {
+      "count": 1,
+      "group_id": "og-imperial-navy-breachers-4",
+      "id": "oc-imperial-navy-breachers-4-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "autopistol and 1 chainfist"
+    },
+    {
+      "count": 1,
+      "grants_weapon_line": 3,
+      "group_id": "og-imperial-navy-breachers-5",
+      "id": "oc-imperial-navy-breachers-5-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "demolition charge"
+    }
+  ],
+  "option_groups": [
+    {
+      "id": "og-imperial-navy-breachers-1",
+      "line": 1,
+      "scope": "unit"
+    },
+    {
+      "id": "og-imperial-navy-breachers-2",
+      "line": 2,
+      "scope": "unit"
+    },
+    {
+      "id": "og-imperial-navy-breachers-3",
+      "line": 3,
+      "scope": "unit"
+    },
+    {
+      "id": "og-imperial-navy-breachers-4",
+      "line": 4,
+      "scope": "unit"
+    },
+    {
+      "id": "og-imperial-navy-breachers-5",
+      "line": 5,
+      "scope": "unit"
+    }
+  ],
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:d43dfc3c8eecc7a316b3cfd662908c9403ccd3c39ad10e9ea2448123481e4fb6",
-    "last_verified_version": "mfm-2026-08",
+    "last_verified_version": "wh40k-11e-2026-08",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-    "detail_edition_code": "wh40k-10e",
+    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
-    "is_hybrid_edition": true,
-    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "is_hybrid_edition": false,
+    "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
-  "role": "Battleline",
+  "wargear_option_state": "extracted",
   "weapons": [
     {
+      "ability_keywords": [
+        "pistol"
+      ],
       "armour_penetration": "0",
       "attacks": "1",
       "damage": "1",
       "is_melee": false,
       "line": 1,
       "name": "Autopistol",
-      "range": "12",
-      "skill": "4",
+      "range": "12\"",
+      "skill": "4+",
       "strength": "3"
     },
     {
+      "ability_keywords": [
+        "pistol"
+      ],
       "armour_penetration": "0",
       "attacks": "1",
       "damage": "1",
       "is_melee": false,
       "line": 2,
       "name": "Bolt pistol",
-      "range": "12",
-      "skill": "4",
+      "range": "12\"",
+      "skill": "4+",
       "strength": "4"
     },
     {
+      "ability_keywords": [
+        "assault",
+        "blast",
+        "hazardous",
+        "one shot"
+      ],
       "armour_penetration": "-2",
       "attacks": "D6",
       "damage": "2",
       "is_melee": false,
       "line": 3,
       "name": "Demolition charge",
-      "range": "6",
-      "skill": "5",
+      "range": "6\"",
+      "skill": "5+",
       "strength": "9"
     },
     {
+      "ability_keywords": [
+        "melta 2"
+      ],
       "armour_penetration": "-4",
       "attacks": "1",
       "damage": "D6",
       "is_melee": false,
       "line": 4,
       "name": "Meltagun",
-      "range": "12",
-      "skill": "4",
+      "range": "12\"",
+      "skill": "4+",
       "strength": "9"
     },
     {
+      "ability_keywords": [
+        "assault"
+      ],
       "armour_penetration": "0",
       "attacks": "4",
       "damage": "1",
       "is_melee": false,
       "line": 5,
       "name": "Navis heavy shotgun",
-      "range": "12",
-      "skill": "4",
+      "range": "12\"",
+      "skill": "4+",
       "strength": "4"
     },
     {
@@ -162,51 +290,62 @@
       "is_melee": false,
       "line": 6,
       "name": "Navis las-volley",
-      "range": "18",
-      "skill": "4",
+      "range": "18\"",
+      "skill": "4+",
       "strength": "6"
     },
     {
+      "ability_keywords": [
+        "assault"
+      ],
       "armour_penetration": "0",
       "attacks": "2",
       "damage": "1",
       "is_melee": false,
       "line": 7,
       "name": "Navis shotgun",
-      "range": "12",
-      "skill": "4",
+      "range": "12\"",
+      "skill": "4+",
       "strength": "4"
     },
     {
+      "ability_keywords": [
+        "rapid fire 1"
+      ],
       "armour_penetration": "-1",
       "attacks": "1",
       "damage": "1",
-      "is_melee": false,
+      "is_melee": true,
       "line": 8,
       "name": "Plasma gun – standard",
-      "range": "24",
-      "skill": "4",
+      "skill": "4+",
       "strength": "7"
     },
     {
+      "ability_keywords": [
+        "hazardous",
+        "rapid fire 1"
+      ],
       "armour_penetration": "-2",
       "attacks": "1",
       "damage": "2",
-      "is_melee": false,
+      "is_melee": true,
       "line": 9,
       "name": "Plasma gun – supercharge",
-      "range": "24",
-      "skill": "4",
+      "skill": "4+",
       "strength": "8"
     },
     {
+      "ability_keywords": [
+        "anti-vehicle 3+"
+      ],
       "armour_penetration": "-2",
       "attacks": "1",
       "damage": "2",
       "is_melee": true,
       "line": 10,
       "name": "Chainfist",
-      "skill": "5",
+      "skill": "5+",
       "strength": "6"
     },
     {
@@ -216,7 +355,7 @@
       "is_melee": true,
       "line": 11,
       "name": "Chainsword",
-      "skill": "4",
+      "skill": "4+",
       "strength": "3"
     },
     {
@@ -226,7 +365,7 @@
       "is_melee": true,
       "line": 12,
       "name": "Close combat weapon",
-      "skill": "4",
+      "skill": "4+",
       "strength": "3"
     },
     {
@@ -236,7 +375,7 @@
       "is_melee": true,
       "line": 13,
       "name": "Power weapon",
-      "skill": "4",
+      "skill": "4+",
       "strength": "4"
     }
   ]

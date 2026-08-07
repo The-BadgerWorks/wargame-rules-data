@@ -1,9 +1,18 @@
 {
   "ability_keys": [
-    "datasheet:orders",
-    "datasheet:supreme-commander",
+    "core:leader",
     "datasheet:the-collegiate-astrolex",
-    "datasheet:the-lord-solar"
+    "datasheet:the-lord-solar",
+    "faction:voice-of-command"
+  ],
+  "composition": [
+    {
+      "line": 1,
+      "max_count": 1,
+      "min_count": 1,
+      "model_line": 1,
+      "model_name": "Lord Solar Leontus"
+    }
   ],
   "costs": [
     {
@@ -12,7 +21,7 @@
       "model_count": 1,
       "points": 130,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
     }
   ],
   "datasheet_id": "ds-lord-solar-leontus",
@@ -25,37 +34,45 @@
   "keywords": [
     {
       "is_faction_keyword": true,
-      "keyword": "Astra Militarum"
+      "keyword": "ASTRA MILITARUM",
+      "keyword_class": "faction"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Character"
+      "keyword": "CHARACTER",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Epic Hero"
+      "keyword": "EPIC HERO",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Imperium"
+      "keyword": "IMPERIUM",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Lord Solar Leontus"
+      "keyword": "LORD SOLAR LEONTUS",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Mounted"
+      "keyword": "MOUNTED",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Officer"
+      "keyword": "OFFICER",
+      "keyword_class": "unit"
     }
   ],
   "leader_pairs": [
     "ds-attilan-rough-riders",
     "ds-cadian-shock-troops",
     "ds-catachan-jungle-fighters",
+    "ds-death-korps-grenadier-squad",
     "ds-death-korps-of-krieg",
     "ds-death-riders",
     "ds-kasrkin",
@@ -63,8 +80,8 @@
   ],
   "models": [
     {
-      "base_size": "80mm",
-      "invuln_save": "4",
+      "base_size": "(⌀80mm)",
+      "invuln_save": "4+",
       "leadership": "6+",
       "line": 1,
       "movement": "12\"",
@@ -79,29 +96,31 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:258e0e76a7bd79b893fdb17291222e7b8ecb9af7c066b0356efd63f36877ee15",
-    "last_verified_version": "mfm-2026-08",
+    "last_verified_version": "wh40k-11e-2026-08",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-    "detail_edition_code": "wh40k-10e",
+    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
-    "is_hybrid_edition": true,
-    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "is_hybrid_edition": false,
+    "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
-  "role": "Characters",
+  "wargear_option_state": "none",
   "weapons": [
     {
+      "ability_keywords": [
+        "pistol"
+      ],
       "armour_penetration": "-2",
       "attacks": "2",
       "damage": "2",
-      "is_melee": false,
+      "is_melee": true,
       "line": 1,
       "name": "Sol’s Righteous Gaze",
-      "range": "12",
-      "skill": "2",
+      "skill": "2+",
       "strength": "8"
     },
     {
@@ -111,17 +130,20 @@
       "is_melee": true,
       "line": 2,
       "name": "Conquest",
-      "skill": "2",
+      "skill": "2+",
       "strength": "6"
     },
     {
+      "ability_keywords": [
+        "extra attacks"
+      ],
       "armour_penetration": "0",
       "attacks": "2",
       "damage": "1",
       "is_melee": true,
       "line": 3,
       "name": "Konstantin’s hooves",
-      "skill": "4",
+      "skill": "4+",
       "strength": "4"
     }
   ]

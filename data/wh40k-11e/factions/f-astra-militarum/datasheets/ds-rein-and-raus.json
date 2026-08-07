@@ -1,8 +1,24 @@
 {
   "ability_keys": [
-    "datasheet:one-shot",
+    "core:infiltrators",
+    "core:lone-operative",
+    "core:stealth",
     "datasheet:shoot-sharp-and-scarper",
     "datasheet:the-ratling-twins"
+  ],
+  "composition": [
+    {
+      "line": 1,
+      "max_count": 1,
+      "min_count": 1,
+      "model_name": "Rein"
+    },
+    {
+      "line": 2,
+      "max_count": 1,
+      "min_count": 1,
+      "model_name": "Raus"
+    }
   ],
   "costs": [
     {
@@ -11,7 +27,7 @@
       "model_count": 2,
       "points": 50,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1"
+      "source_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9"
     }
   ],
   "datasheet_id": "ds-rein-and-raus",
@@ -24,32 +40,38 @@
   "keywords": [
     {
       "is_faction_keyword": true,
-      "keyword": "Astra Militarum"
+      "keyword": "ASTRA MILITARUM",
+      "keyword_class": "faction"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Character"
+      "keyword": "CHARACTER",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Epic Hero"
+      "keyword": "EPIC HERO",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Imperium"
+      "keyword": "IMPERIUM",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Infantry"
+      "keyword": "INFANTRY",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Rein and Raus"
+      "keyword": "REIN AND RAUS",
+      "keyword_class": "unit"
     }
   ],
   "models": [
     {
-      "base_size": "25mm",
+      "base_size": "(⌀25mm)",
       "leadership": "8+",
       "line": 1,
       "movement": "6\"",
@@ -62,51 +84,62 @@
   ],
   "name": "Rein And Raus",
   "pricing_confidence": {
-    "consecutive_unverified_releases": 1,
+    "consecutive_unverified_releases": 2,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-    "detail_edition_code": "wh40k-10e",
+    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
-    "is_hybrid_edition": true,
+    "is_hybrid_edition": false,
     "points_edition_code": "wh40k-11e",
     "points_source": "none"
   },
-  "role": "Characters",
+  "wargear_option_state": "none",
   "weapons": [
     {
+      "ability_keywords": [
+        "blast",
+        "hazardous",
+        "one shot"
+      ],
       "armour_penetration": "-2",
       "attacks": "D6+3",
       "damage": "2",
       "is_melee": false,
       "line": 1,
       "name": "Demolition charge",
-      "range": "6",
-      "skill": "4",
+      "range": "6\"",
+      "skill": "4+",
       "strength": "12"
     },
     {
+      "ability_keywords": [
+        "heavy",
+        "precision"
+      ],
       "armour_penetration": "-2",
       "attacks": "1",
       "damage": "2",
       "is_melee": false,
       "line": 2,
       "name": "Sniper rifle",
-      "range": "36",
-      "skill": "3",
+      "range": "36\"",
+      "skill": "3+",
       "strength": "4"
     },
     {
+      "ability_keywords": [
+        "pistol"
+      ],
       "armour_penetration": "0",
       "attacks": "1",
       "damage": "1",
-      "is_melee": false,
+      "is_melee": true,
       "line": 3,
       "name": "Stub pistol",
-      "range": "12",
-      "skill": "3",
+      "skill": "3+",
       "strength": "4"
     },
     {
@@ -116,7 +149,7 @@
       "is_melee": true,
       "line": 4,
       "name": "Close combat weapon",
-      "skill": "5",
+      "skill": "5+",
       "strength": "2"
     }
   ]

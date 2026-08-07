@@ -1,7 +1,18 @@
 {
   "ability_keys": [
+    "core:deadly-demise-d6-6",
     "datasheet:god-machine",
-    "datasheet:striding-colossus"
+    "datasheet:striding-colossus",
+    "faction:super-heavy-walker"
+  ],
+  "composition": [
+    {
+      "line": 1,
+      "max_count": 1,
+      "min_count": 1,
+      "model_line": 1,
+      "model_name": "Reaver Titan"
+    }
   ],
   "costs": [
     {
@@ -10,7 +21,7 @@
       "model_count": 1,
       "points": 200,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
     }
   ],
   "damaged_threshold": 20,
@@ -24,37 +35,48 @@
   "keywords": [
     {
       "is_faction_keyword": true,
-      "keyword": "Adeptus Titanicus"
+      "keyword": "ADEPTUS TITANICUS"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Imperium"
+      "keyword": "FRAME",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Reaver Titan"
+      "keyword": "IMPERIUM",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Titanic"
+      "keyword": "REAVER TITAN",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Towering"
+      "keyword": "TITANIC",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Vehicle"
+      "keyword": "TOWERING",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Walker"
+      "keyword": "VEHICLE",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "WALKER",
+      "keyword_class": "unit"
     }
   ],
   "models": [
     {
-      "base_size": "Use model",
-      "invuln_save": "5",
+      "base_size": "(⌀Use model)",
+      "invuln_save": "5+",
       "leadership": "6+",
       "line": 1,
       "movement": "12\"",
@@ -66,76 +88,169 @@
     }
   ],
   "name": "REAVER TITAN",
+  "option_choices": [
+    {
+      "count": 1,
+      "group_id": "og-reaver-titan-1",
+      "id": "oc-reaver-titan-1-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "Reaver laser blaster",
+      "replaces_weapon_line": 3
+    },
+    {
+      "count": 1,
+      "group_id": "og-reaver-titan-1",
+      "id": "oc-reaver-titan-1-2",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "Reaver melta cannon",
+      "replaces_weapon_line": 4
+    },
+    {
+      "count": 1,
+      "group_id": "og-reaver-titan-1",
+      "id": "oc-reaver-titan-1-3",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "Reaver volcano cannon",
+      "replaces_weapon_line": 5
+    },
+    {
+      "count": 1,
+      "group_id": "og-reaver-titan-1",
+      "id": "oc-reaver-titan-1-4",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "Reaver power fist"
+    },
+    {
+      "count": 1,
+      "group_id": "og-reaver-titan-2",
+      "id": "oc-reaver-titan-2-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "Reaver gatling blaster",
+      "replaces_weapon_line": 2
+    },
+    {
+      "count": 1,
+      "group_id": "og-reaver-titan-2",
+      "id": "oc-reaver-titan-2-2",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "Reaver melta cannon",
+      "replaces_weapon_line": 4
+    },
+    {
+      "count": 1,
+      "group_id": "og-reaver-titan-2",
+      "id": "oc-reaver-titan-2-3",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "Reaver volcano cannon",
+      "replaces_weapon_line": 5
+    }
+  ],
+  "option_groups": [
+    {
+      "id": "og-reaver-titan-1",
+      "line": 1,
+      "scope": "model"
+    },
+    {
+      "id": "og-reaver-titan-2",
+      "line": 2,
+      "scope": "model"
+    }
+  ],
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:a5a0b34ea1e2447ebb32fe2d9207fb5dd933824c2a767c0eb33396a1c752a051",
-    "last_verified_version": "mfm-2026-08",
+    "last_verified_version": "wh40k-11e-2026-08",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-    "detail_edition_code": "wh40k-10e",
+    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
-    "is_hybrid_edition": true,
-    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "is_hybrid_edition": false,
+    "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
-  "role": "Other",
+  "wargear_option_state": "extracted",
   "weapons": [
     {
+      "ability_keywords": [
+        "blast",
+        "indirect fire"
+      ],
       "armour_penetration": "-1",
       "attacks": "3D6",
       "damage": "2",
       "is_melee": false,
       "line": 1,
       "name": "Reaver apocalypse launcher",
-      "range": "200",
-      "skill": "3",
+      "range": "200\"",
+      "skill": "3+",
       "strength": "7"
     },
     {
+      "ability_keywords": [
+        "sustained hits 1"
+      ],
       "armour_penetration": "-2",
       "attacks": "12",
       "damage": "3",
       "is_melee": false,
       "line": 2,
       "name": "Reaver gatling blaster",
-      "range": "72",
-      "skill": "3",
+      "range": "72\"",
+      "skill": "3+",
       "strength": "8"
     },
     {
+      "ability_keywords": [
+        "blast"
+      ],
       "armour_penetration": "-3",
       "attacks": "8",
       "damage": "D6+2",
       "is_melee": false,
       "line": 3,
       "name": "Reaver laser blaster",
-      "range": "72",
-      "skill": "3",
+      "range": "72\"",
+      "skill": "3+",
       "strength": "20"
     },
     {
+      "ability_keywords": [
+        "blast",
+        "melta 4"
+      ],
       "armour_penetration": "-4",
       "attacks": "D6+2",
       "damage": "6",
       "is_melee": false,
       "line": 4,
       "name": "Reaver melta cannon",
-      "range": "48",
-      "skill": "3",
+      "range": "48\"",
+      "skill": "3+",
       "strength": "13"
     },
     {
+      "ability_keywords": [
+        "blast",
+        "heavy"
+      ],
       "armour_penetration": "-5",
       "attacks": "D3+1",
       "damage": "14",
-      "is_melee": false,
+      "is_melee": true,
       "line": 5,
       "name": "Reaver volcano cannon",
-      "range": "120",
-      "skill": "3",
+      "skill": "3+",
       "strength": "24"
     },
     {
@@ -145,7 +260,7 @@
       "is_melee": true,
       "line": 6,
       "name": "Reaver feet",
-      "skill": "4",
+      "skill": "4+",
       "strength": "12"
     },
     {
@@ -155,7 +270,7 @@
       "is_melee": true,
       "line": 7,
       "name": "Reaver power fist – strike",
-      "skill": "4",
+      "skill": "4+",
       "strength": "20"
     },
     {
@@ -165,7 +280,7 @@
       "is_melee": true,
       "line": 8,
       "name": "Reaver power fist – sweep",
-      "skill": "4",
+      "skill": "4+",
       "strength": "12"
     }
   ]

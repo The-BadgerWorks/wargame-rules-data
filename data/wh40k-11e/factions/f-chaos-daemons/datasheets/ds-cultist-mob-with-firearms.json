@@ -1,6 +1,21 @@
 {
   "ability_keys": [
-    "datasheet:for-the-dark-gods"
+    "datasheet:for-the-dark-gods",
+    "faction:dark-pacts"
+  ],
+  "composition": [
+    {
+      "line": 1,
+      "max_count": 1,
+      "min_count": 1,
+      "model_name": "Cultist Champion"
+    },
+    {
+      "line": 2,
+      "max_count": 19,
+      "min_count": 9,
+      "model_name": "Chaos Cultists"
+    }
   ],
   "costs": [
     {
@@ -9,7 +24,7 @@
       "model_count": 10,
       "points": 50,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1"
+      "source_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9"
     },
     {
       "copy_index_min": 1,
@@ -17,7 +32,7 @@
       "model_count": 20,
       "points": 100,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1"
+      "source_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9"
     }
   ],
   "datasheet_id": "ds-cultist-mob-with-firearms",
@@ -30,208 +45,42 @@
   "keywords": [
     {
       "is_faction_keyword": false,
-      "keyword": "Battleline"
+      "keyword": "BATTLELINE",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Battleline"
+      "keyword": "CHAOS",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Battleline"
+      "keyword": "CULTIST MOB WITH FIREARMS , UNDIVIDED , SHADOW LEGION",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Battleline"
+      "keyword": "DAMNED",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Battleline"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Battleline"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Chaos"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Chaos"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Chaos"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Chaos"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Chaos"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Chaos"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Cultist Mob with Firearms"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Cultist Mob with Firearms"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Cultist Mob with Firearms"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Cultist Mob with Firearms"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Cultist Mob with Firearms"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Cultist Mob with Firearms"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Damned"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Damned"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Damned"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Damned"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Damned"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Damned"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Grenades"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Grenades"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Grenades"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Grenades"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Grenades"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Grenades"
+      "keyword": "GRENADES",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": true,
-      "keyword": "Heretic Astartes"
+      "keyword": "HERETIC ASTARTES"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Infantry"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Infantry"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Infantry"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Infantry"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Infantry"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Infantry"
-    },
-    {
-      "is_faction_keyword": true,
-      "keyword": "Legiones Daemonica"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Shadow Legion"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Shadow Legion"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Shadow Legion"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Shadow Legion"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Shadow Legion"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Shadow Legion"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Undivided"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Undivided"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Undivided"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Undivided"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Undivided"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Undivided"
+      "keyword": "INFANTRY",
+      "keyword_class": "unit"
     }
   ],
   "models": [
     {
-      "base_size": "25mm",
+      "base_size": "(⌀25mm)",
       "leadership": "7+",
       "line": 1,
       "movement": "6\"",
@@ -243,18 +92,198 @@
     }
   ],
   "name": "Cultist Mob with Firearms",
+  "option_choices": [
+    {
+      "count": 1,
+      "group_id": "og-cultist-mob-with-firearms-1",
+      "id": "oc-cultist-mob-with-firearms-1-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "bolt pistol",
+      "replaces_weapon_line": 3
+    },
+    {
+      "count": 1,
+      "group_id": "og-cultist-mob-with-firearms-3",
+      "id": "oc-cultist-mob-with-firearms-3-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "flamer",
+      "replaces_weapon_line": 4
+    },
+    {
+      "count": 1,
+      "group_id": "og-cultist-mob-with-firearms-4",
+      "id": "oc-cultist-mob-with-firearms-4-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "heavy stubber",
+      "replaces_weapon_line": 7
+    },
+    {
+      "count": 1,
+      "group_id": "og-cultist-mob-with-firearms-5",
+      "id": "oc-cultist-mob-with-firearms-5-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "grenade launcher"
+    }
+  ],
+  "option_groups": [
+    {
+      "id": "og-cultist-mob-with-firearms-1",
+      "line": 1,
+      "scope": "unit"
+    },
+    {
+      "id": "og-cultist-mob-with-firearms-3",
+      "line": 3,
+      "scope": "per_n_models",
+      "scope_n": 10
+    },
+    {
+      "id": "og-cultist-mob-with-firearms-4",
+      "line": 4,
+      "scope": "per_n_models",
+      "scope_n": 10
+    },
+    {
+      "id": "og-cultist-mob-with-firearms-5",
+      "line": 5,
+      "scope": "per_n_models",
+      "scope_n": 10
+    }
+  ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 1,
+    "consecutive_unverified_releases": 2,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-    "detail_edition_code": "wh40k-10e",
+    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
-    "is_hybrid_edition": true,
+    "is_hybrid_edition": false,
     "points_edition_code": "wh40k-11e",
     "points_source": "none"
   },
-  "role": "Battleline"
+  "wargear_option_state": "partial",
+  "weapons": [
+    {
+      "ability_keywords": [
+        "rapid fire 1"
+      ],
+      "armour_penetration": "0",
+      "attacks": "1",
+      "damage": "1",
+      "is_melee": false,
+      "line": 1,
+      "name": "Autogun",
+      "range": "24\"",
+      "skill": "4+",
+      "strength": "3"
+    },
+    {
+      "ability_keywords": [
+        "pistol"
+      ],
+      "armour_penetration": "0",
+      "attacks": "1",
+      "damage": "1",
+      "is_melee": false,
+      "line": 2,
+      "name": "Autopistol",
+      "range": "12\"",
+      "skill": "4+",
+      "strength": "3"
+    },
+    {
+      "ability_keywords": [
+        "pistol"
+      ],
+      "armour_penetration": "0",
+      "attacks": "1",
+      "damage": "1",
+      "is_melee": false,
+      "line": 3,
+      "name": "Bolt pistol",
+      "range": "12\"",
+      "skill": "4+",
+      "strength": "4"
+    },
+    {
+      "ability_keywords": [
+        "ignores cover",
+        "torrent"
+      ],
+      "armour_penetration": "0",
+      "attacks": "D6",
+      "damage": "1",
+      "is_melee": false,
+      "line": 4,
+      "name": "Flamer",
+      "range": "12\"",
+      "skill": "N/A",
+      "strength": "4"
+    },
+    {
+      "ability_keywords": [
+        "blast"
+      ],
+      "armour_penetration": "0",
+      "attacks": "D3",
+      "damage": "1",
+      "is_melee": false,
+      "line": 5,
+      "name": "Grenade launcher – frag",
+      "range": "24\"",
+      "skill": "4+",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "1",
+      "damage": "D3",
+      "is_melee": false,
+      "line": 6,
+      "name": "Grenade launcher – krak",
+      "range": "24\"",
+      "skill": "4+",
+      "strength": "9"
+    },
+    {
+      "ability_keywords": [
+        "heavy",
+        "rapid fire 3"
+      ],
+      "armour_penetration": "0",
+      "attacks": "4",
+      "damage": "1",
+      "is_melee": true,
+      "line": 7,
+      "name": "Heavy stubber",
+      "skill": "5+",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "2",
+      "damage": "1",
+      "is_melee": true,
+      "line": 8,
+      "name": "Brutal assault weapon",
+      "skill": "4+",
+      "strength": "3"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "1",
+      "damage": "1",
+      "is_melee": true,
+      "line": 9,
+      "name": "Close combat weapon",
+      "skill": "4+",
+      "strength": "3"
+    }
+  ]
 }

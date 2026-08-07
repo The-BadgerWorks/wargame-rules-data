@@ -1,8 +1,19 @@
 {
   "ability_keys": [
+    "core:deadly-demise-d6",
     "datasheet:harpoon-barbs",
-    "datasheet:harpooned",
-    "datasheet:singular-purpose"
+    "datasheet:singular-purpose",
+    "faction:shadow-in-the-warp",
+    "faction:synapse"
+  ],
+  "composition": [
+    {
+      "line": 1,
+      "max_count": 1,
+      "min_count": 1,
+      "model_line": 1,
+      "model_name": "Norn Assimilator"
+    }
   ],
   "costs": [
     {
@@ -11,7 +22,7 @@
       "model_count": 1,
       "points": 250,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
     },
     {
       "copy_index_min": 2,
@@ -19,7 +30,7 @@
       "model_count": 1,
       "points": 270,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
     }
   ],
   "damaged_threshold": 5,
@@ -33,32 +44,38 @@
   "keywords": [
     {
       "is_faction_keyword": false,
-      "keyword": "Great Devourer"
+      "keyword": "GREAT DEVOURER",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Harvester"
+      "keyword": "HARVESTER",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Monster"
+      "keyword": "MONSTER",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Norn Assimilator"
+      "keyword": "NORN ASSIMILATOR",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Synapse"
+      "keyword": "SYNAPSE",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": true,
-      "keyword": "Tyranids"
+      "keyword": "TYRANIDS",
+      "keyword_class": "faction"
     }
   ],
   "models": [
     {
-      "base_size": "100mm",
+      "base_size": "(⌀100mm)",
       "leadership": "7+",
       "line": 1,
       "movement": "10\"",
@@ -73,29 +90,31 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:8bb1005067116ffc0fc9c8cf8a89d9dd23347d1f4c86b9ddebed9c0d8cf0dde9",
-    "last_verified_version": "mfm-2026-08",
+    "last_verified_version": "wh40k-11e-2026-08",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-    "detail_edition_code": "wh40k-10e",
+    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
-    "is_hybrid_edition": true,
-    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "is_hybrid_edition": false,
+    "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
-  "role": "Other",
+  "wargear_option_state": "none",
   "weapons": [
     {
+      "ability_keywords": [
+        "harpooned"
+      ],
       "armour_penetration": "-3",
       "attacks": "2",
       "damage": "D6+1",
-      "is_melee": false,
+      "is_melee": true,
       "line": 1,
       "name": "Toxinjector Harpoon",
-      "range": "12",
-      "skill": "2",
+      "skill": "2+",
       "strength": "12"
     },
     {
@@ -105,17 +124,20 @@
       "is_melee": true,
       "line": 2,
       "name": "Monstrous scything talons",
-      "skill": "2",
+      "skill": "2+",
       "strength": "9"
     },
     {
+      "ability_keywords": [
+        "extra attacks"
+      ],
       "armour_penetration": "-3",
       "attacks": "4",
       "damage": "D6+1",
       "is_melee": true,
       "line": 3,
       "name": "Toxinjector harpoon",
-      "skill": "2",
+      "skill": "2+",
       "strength": "12"
     }
   ]

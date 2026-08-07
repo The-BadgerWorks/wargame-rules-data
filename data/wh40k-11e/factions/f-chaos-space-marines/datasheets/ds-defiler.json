@@ -1,7 +1,18 @@
 {
   "ability_keys": [
+    "core:deadly-demise-d6",
     "datasheet:daemonforge",
-    "datasheet:scuttling-walker"
+    "datasheet:scuttling-walker",
+    "faction:dark-pacts"
+  ],
+  "composition": [
+    {
+      "line": 1,
+      "max_count": 1,
+      "min_count": 1,
+      "model_line": 1,
+      "model_name": "Defiler"
+    }
   ],
   "costs": [
     {
@@ -10,7 +21,7 @@
       "model_count": 1,
       "points": 300,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
     },
     {
       "copy_index_min": 2,
@@ -18,7 +29,7 @@
       "model_count": 1,
       "points": 340,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
     }
   ],
   "damaged_threshold": 6,
@@ -32,33 +43,38 @@
   "keywords": [
     {
       "is_faction_keyword": false,
-      "keyword": "Chaos"
+      "keyword": "CHAOS",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Daemon"
+      "keyword": "DAEMON",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Defiler"
+      "keyword": "DEFILER",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": true,
-      "keyword": "Heretic Astartes"
+      "keyword": "HERETIC ASTARTES"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Vehicle"
+      "keyword": "VEHICLE",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Walker"
+      "keyword": "WALKER",
+      "keyword_class": "unit"
     }
   ],
   "models": [
     {
-      "base_size": "160mm",
-      "invuln_save": "5",
+      "base_size": "(⌀160mm)",
+      "invuln_save": "5+",
       "leadership": "6+",
       "line": 1,
       "movement": "12\"",
@@ -70,43 +86,143 @@
     }
   ],
   "name": "DEFILER",
+  "option_choices": [
+    {
+      "count": 1,
+      "group_id": "og-defiler-1",
+      "id": "oc-defiler-1-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "ectoplasma destructor",
+      "replaces_weapon_line": 2
+    },
+    {
+      "count": 2,
+      "group_id": "og-defiler-2",
+      "id": "oc-defiler-2-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "magma cutters",
+      "replaces_weapon_line": 4
+    },
+    {
+      "count": 1,
+      "group_id": "og-defiler-3",
+      "id": "oc-defiler-3-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "Hades lascannon",
+      "replaces_weapon_line": 6
+    },
+    {
+      "count": 1,
+      "group_id": "og-defiler-3",
+      "id": "oc-defiler-3-2",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "heavy reaper autocannon",
+      "replaces_weapon_line": 7
+    },
+    {
+      "count": 1,
+      "group_id": "og-defiler-3",
+      "id": "oc-defiler-3-3",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "electroscourge (a model cannot be equipped with more than one electroscourge)"
+    },
+    {
+      "count": 1,
+      "group_id": "og-defiler-4",
+      "id": "oc-defiler-4-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "Hades lascannon",
+      "replaces_weapon_line": 6
+    },
+    {
+      "count": 1,
+      "group_id": "og-defiler-4",
+      "id": "oc-defiler-4-2",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "heavy reaper autocannon",
+      "replaces_weapon_line": 7
+    },
+    {
+      "count": 1,
+      "group_id": "og-defiler-4",
+      "id": "oc-defiler-4-3",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "electroscourge (a model cannot be equipped with more than one electroscourge)"
+    }
+  ],
+  "option_groups": [
+    {
+      "id": "og-defiler-1",
+      "line": 1,
+      "scope": "model"
+    },
+    {
+      "id": "og-defiler-2",
+      "line": 2,
+      "scope": "model"
+    },
+    {
+      "id": "og-defiler-3",
+      "line": 3,
+      "scope": "model"
+    },
+    {
+      "id": "og-defiler-4",
+      "line": 4,
+      "scope": "model"
+    }
+  ],
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:f58629d8831483cf27090569e20a07b02b3373d6c9bdbef0659e280cf68f61a4",
-    "last_verified_version": "mfm-2026-08",
+    "last_verified_version": "wh40k-11e-2026-08",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-    "detail_edition_code": "wh40k-10e",
+    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
-    "is_hybrid_edition": true,
-    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "is_hybrid_edition": false,
+    "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
-  "role": "Other",
+  "wargear_option_state": "extracted",
   "weapons": [
     {
+      "ability_keywords": [
+        "blast"
+      ],
       "armour_penetration": "-1",
       "attacks": "D6+3",
       "damage": "3",
       "is_melee": false,
       "line": 1,
       "name": "Hades battle cannon",
-      "range": "48",
-      "skill": "3",
+      "range": "48\"",
+      "skill": "3+",
       "strength": "10"
     },
     {
+      "ability_keywords": [
+        "blast"
+      ],
       "armour_penetration": "-3",
       "attacks": "D6",
       "damage": "3",
       "is_melee": false,
       "line": 2,
       "name": "Ectoplasma destructor",
-      "range": "36",
-      "skill": "3",
+      "range": "36\"",
+      "skill": "3+",
       "strength": "12"
     },
     {
@@ -116,29 +232,36 @@
       "is_melee": false,
       "line": 3,
       "name": "Excruciator cannon",
-      "range": "36",
-      "skill": "3",
+      "range": "36\"",
+      "skill": "3+",
       "strength": "6"
     },
     {
+      "ability_keywords": [
+        "melta 2"
+      ],
       "armour_penetration": "-4",
       "attacks": "2",
       "damage": "D6",
       "is_melee": false,
       "line": 4,
       "name": "Magma cutters",
-      "range": "12",
-      "skill": "3",
+      "range": "12\"",
+      "skill": "3+",
       "strength": "9"
     },
     {
+      "ability_keywords": [
+        "ignores cover",
+        "torrent"
+      ],
       "armour_penetration": "-2",
       "attacks": "D6+3",
       "damage": "2",
       "is_melee": false,
       "line": 5,
       "name": "Heavy baleflamer",
-      "range": "12",
+      "range": "12\"",
       "skill": "N/A",
       "strength": "7"
     },
@@ -149,41 +272,46 @@
       "is_melee": false,
       "line": 6,
       "name": "Hades lascannon",
-      "range": "48",
-      "skill": "3",
+      "range": "48\"",
+      "skill": "3+",
       "strength": "12"
     },
     {
+      "ability_keywords": [
+        "devastating wounds",
+        "sustained hits 1"
+      ],
       "armour_penetration": "-1",
       "attacks": "4",
       "damage": "3",
       "is_melee": false,
       "line": 7,
       "name": "Heavy reaper autocannon",
-      "range": "48",
-      "skill": "3",
+      "range": "48\"",
+      "skill": "3+",
       "strength": "9"
     },
     {
       "armour_penetration": "-2",
       "attacks": "2",
       "damage": "D6+1",
-      "is_melee": false,
+      "is_melee": true,
       "line": 8,
       "name": "Heavy missile launcher – krak",
-      "range": "48",
-      "skill": "3",
+      "skill": "3+",
       "strength": "10"
     },
     {
+      "ability_keywords": [
+        "blast"
+      ],
       "armour_penetration": "-1",
       "attacks": "2D6",
       "damage": "1",
-      "is_melee": false,
+      "is_melee": true,
       "line": 9,
       "name": "Heavy missile launcher – frag",
-      "range": "48",
-      "skill": "3",
+      "skill": "3+",
       "strength": "5"
     },
     {
@@ -193,7 +321,7 @@
       "is_melee": true,
       "line": 10,
       "name": "Shearing claws – strike",
-      "skill": "3",
+      "skill": "3+",
       "strength": "16"
     },
     {
@@ -203,17 +331,21 @@
       "is_melee": true,
       "line": 11,
       "name": "Shearing claws – sweep",
-      "skill": "3",
+      "skill": "3+",
       "strength": "6"
     },
     {
+      "ability_keywords": [
+        "extra attacks",
+        "sustained hits 2"
+      ],
       "armour_penetration": "-2",
       "attacks": "5",
       "damage": "2",
       "is_melee": true,
       "line": 12,
       "name": "Electroscourge",
-      "skill": "3",
+      "skill": "3+",
       "strength": "12"
     }
   ]

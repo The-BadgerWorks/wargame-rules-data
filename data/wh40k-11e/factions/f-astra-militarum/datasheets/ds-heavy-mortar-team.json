@@ -1,7 +1,15 @@
 {
   "ability_keys": [
-    "datasheet:artillery-team",
     "datasheet:rearm-reload-fire"
+  ],
+  "composition": [
+    {
+      "line": 1,
+      "max_count": 1,
+      "min_count": 1,
+      "model_line": 1,
+      "model_name": "Heavy Mortar Team"
+    }
   ],
   "costs": [
     {
@@ -10,7 +18,7 @@
       "model_count": 1,
       "points": 50,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1"
+      "source_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9"
     }
   ],
   "datasheet_id": "ds-heavy-mortar-team",
@@ -23,36 +31,43 @@
   "keywords": [
     {
       "is_faction_keyword": false,
-      "keyword": "Artillery"
+      "keyword": "ARTILLERY",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": true,
-      "keyword": "Astra Militarum"
+      "keyword": "ASTRA MILITARUM",
+      "keyword_class": "faction"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Grenades"
+      "keyword": "GRENADES",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Heavy Mortar Team"
+      "keyword": "HEAVY MORTAR TEAM",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Imperium"
+      "keyword": "IMPERIUM",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Infantry"
+      "keyword": "INFANTRY",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Regiment"
+      "keyword": "REGIMENT",
+      "keyword_class": "unit"
     }
   ],
   "models": [
     {
-      "base_size": "Use model",
+      "base_size": "(⌀Use model)",
       "leadership": "7+",
       "line": 1,
       "movement": "4\"",
@@ -65,29 +80,33 @@
   ],
   "name": "Heavy Mortar Team",
   "pricing_confidence": {
-    "consecutive_unverified_releases": 1,
+    "consecutive_unverified_releases": 2,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-    "detail_edition_code": "wh40k-10e",
+    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
-    "is_hybrid_edition": true,
+    "is_hybrid_edition": false,
     "points_edition_code": "wh40k-11e",
     "points_source": "none"
   },
-  "role": "Other",
+  "wargear_option_state": "none",
   "weapons": [
     {
+      "ability_keywords": [
+        "blast",
+        "heavy",
+        "indirect fire"
+      ],
       "armour_penetration": "-1",
       "attacks": "D6",
       "damage": "2",
-      "is_melee": false,
+      "is_melee": true,
       "line": 1,
       "name": "Heavy mortar",
-      "range": "48",
-      "skill": "5",
+      "skill": "5+",
       "strength": "6"
     },
     {
@@ -97,7 +116,7 @@
       "is_melee": true,
       "line": 2,
       "name": "Close combat weapons",
-      "skill": "4",
+      "skill": "4+",
       "strength": "3"
     }
   ]

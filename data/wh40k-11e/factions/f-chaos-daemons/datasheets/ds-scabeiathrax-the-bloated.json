@@ -1,7 +1,20 @@
 {
   "ability_keys": [
+    "core:deadly-demise-d6",
+    "core:deep-strike",
+    "core:feel-no-pain-6",
     "datasheet:emissary-of-the-plague-god-aura",
-    "datasheet:nurgles-rot-psychic"
+    "datasheet:nurgles-rot-psychic",
+    "faction:the-shadow-of-chaos"
+  ],
+  "composition": [
+    {
+      "line": 1,
+      "max_count": 1,
+      "min_count": 1,
+      "model_line": 1,
+      "model_name": "Scabeiathrax the Bloated"
+    }
   ],
   "costs": [
     {
@@ -10,7 +23,7 @@
       "model_count": 1,
       "points": 275,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1"
+      "source_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9"
     }
   ],
   "damaged_threshold": 7,
@@ -24,45 +37,53 @@
   "keywords": [
     {
       "is_faction_keyword": false,
-      "keyword": "Chaos"
+      "keyword": "CHAOS",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Character"
+      "keyword": "CHARACTER",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Daemon"
+      "keyword": "DAEMON",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Epic Hero"
+      "keyword": "EPIC HERO",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": true,
-      "keyword": "Legiones Daemonica"
+      "keyword": "LEGIONES DAEMONICA"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Monster"
+      "keyword": "MONSTER",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Nurgle"
+      "keyword": "NURGLE",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Psyker"
+      "keyword": "PSYKER",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Scabeiathrax the Bloated"
+      "keyword": "SCABEIATHRAX THE BLOATED",
+      "keyword_class": "unit"
     }
   ],
   "models": [
     {
-      "base_size": "Use model",
-      "invuln_save": "4",
+      "base_size": "(⌀Use model)",
+      "invuln_save": "4+",
       "leadership": "6+",
       "line": 1,
       "movement": "7\"",
@@ -75,49 +96,58 @@
   ],
   "name": "Scabeiathrax The Bloated",
   "pricing_confidence": {
-    "consecutive_unverified_releases": 1,
+    "consecutive_unverified_releases": 2,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-    "detail_edition_code": "wh40k-10e",
+    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
-    "is_hybrid_edition": true,
+    "is_hybrid_edition": false,
     "points_edition_code": "wh40k-11e",
     "points_source": "none"
   },
-  "role": "Characters",
+  "wargear_option_state": "none",
   "weapons": [
     {
+      "ability_keywords": [
+        "ignores cover",
+        "torrent"
+      ],
       "armour_penetration": "-2",
       "attacks": "D6+3",
       "damage": "1",
-      "is_melee": false,
+      "is_melee": true,
       "line": 1,
       "name": "Putrid vomit",
-      "range": "6",
       "skill": "N/A",
       "strength": "5"
     },
     {
+      "ability_keywords": [
+        "lethal hits"
+      ],
       "armour_penetration": "-2",
       "attacks": "7",
       "damage": "D6",
       "is_melee": true,
       "line": 2,
       "name": "Blade of decay – Strike",
-      "skill": "2",
+      "skill": "2+",
       "strength": "9"
     },
     {
+      "ability_keywords": [
+        "lethal hits"
+      ],
       "armour_penetration": "-1",
       "attacks": "14",
       "damage": "1",
       "is_melee": true,
       "line": 3,
       "name": "Blade of decay – Sweep",
-      "skill": "2",
+      "skill": "2+",
       "strength": "7"
     }
   ]

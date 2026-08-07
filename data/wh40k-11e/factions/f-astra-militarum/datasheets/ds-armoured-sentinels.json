@@ -1,7 +1,16 @@
 {
   "ability_keys": [
-    "datasheet:mobile-hunter-killers",
-    "datasheet:one-shot"
+    "core:deadly-demise-1",
+    "datasheet:mobile-hunter-killers"
+  ],
+  "composition": [
+    {
+      "line": 1,
+      "max_count": 2,
+      "min_count": 1,
+      "model_line": 1,
+      "model_name": "Armoured Sentinels"
+    }
   ],
   "costs": [
     {
@@ -10,7 +19,7 @@
       "model_count": 1,
       "points": 65,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
     },
     {
       "copy_index_min": 1,
@@ -18,7 +27,7 @@
       "model_count": 2,
       "points": 120,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
     }
   ],
   "datasheet_id": "ds-armoured-sentinels",
@@ -31,40 +40,48 @@
   "keywords": [
     {
       "is_faction_keyword": false,
-      "keyword": "Armoured Sentinels"
+      "keyword": "ARMOURED SENTINELS",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": true,
-      "keyword": "Astra Militarum"
+      "keyword": "ASTRA MILITARUM",
+      "keyword_class": "faction"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Imperium"
+      "keyword": "IMPERIUM",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Regiment"
+      "keyword": "REGIMENT",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Smoke"
+      "keyword": "SMOKE",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Squadron"
+      "keyword": "SQUADRON",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Vehicle"
+      "keyword": "VEHICLE",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Walker"
+      "keyword": "WALKER",
+      "keyword_class": "unit"
     }
   ],
   "models": [
     {
-      "base_size": "80mm",
+      "base_size": "(⌀80mm)",
       "leadership": "7+",
       "line": 1,
       "movement": "8\"",
@@ -79,19 +96,19 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:fb26c71a8c6e4a43ca83973771887defbe09e3612a13f1fe037a740dcc4ada6a",
-    "last_verified_version": "mfm-2026-08",
+    "last_verified_version": "wh40k-11e-2026-08",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-    "detail_edition_code": "wh40k-10e",
+    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
-    "is_hybrid_edition": true,
-    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "is_hybrid_edition": false,
+    "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
-  "role": "Other",
+  "wargear_option_state": "partial",
   "weapons": [
     {
       "armour_penetration": "-1",
@@ -100,30 +117,37 @@
       "is_melee": false,
       "line": 1,
       "name": "Autocannon",
-      "range": "48",
-      "skill": "4",
+      "range": "48\"",
+      "skill": "4+",
       "strength": "9"
     },
     {
+      "ability_keywords": [
+        "ignores cover",
+        "torrent"
+      ],
       "armour_penetration": "-1",
       "attacks": "D6",
       "damage": "1",
       "is_melee": false,
       "line": 2,
       "name": "Heavy flamer",
-      "range": "12",
+      "range": "12\"",
       "skill": "N/A",
       "strength": "5"
     },
     {
+      "ability_keywords": [
+        "one shot"
+      ],
       "armour_penetration": "-3",
       "attacks": "1",
       "damage": "D6",
       "is_melee": false,
       "line": 3,
       "name": "Hunter-killer missile",
-      "range": "48",
-      "skill": "4",
+      "range": "48\"",
+      "skill": "4+",
       "strength": "14"
     },
     {
@@ -133,8 +157,8 @@
       "is_melee": false,
       "line": 4,
       "name": "Lascannon",
-      "range": "48",
-      "skill": "4",
+      "range": "48\"",
+      "skill": "4+",
       "strength": "12"
     },
     {
@@ -144,52 +168,64 @@
       "is_melee": false,
       "line": 5,
       "name": "Multi-laser",
-      "range": "36",
-      "skill": "4",
+      "range": "36\"",
+      "skill": "4+",
       "strength": "6"
     },
     {
+      "ability_keywords": [
+        "blast",
+        "heavy"
+      ],
       "armour_penetration": "0",
       "attacks": "D6",
       "damage": "1",
       "is_melee": false,
       "line": 6,
       "name": "Missile launcher – frag",
-      "range": "48",
-      "skill": "4",
+      "range": "48\"",
+      "skill": "4+",
       "strength": "4"
     },
     {
+      "ability_keywords": [
+        "heavy"
+      ],
       "armour_penetration": "-2",
       "attacks": "1",
       "damage": "D6",
       "is_melee": false,
       "line": 7,
       "name": "Missile launcher – krak",
-      "range": "48",
-      "skill": "4",
+      "range": "48\"",
+      "skill": "4+",
       "strength": "9"
     },
     {
+      "ability_keywords": [
+        "blast"
+      ],
       "armour_penetration": "-2",
       "attacks": "D3",
       "damage": "1",
-      "is_melee": false,
+      "is_melee": true,
       "line": 8,
       "name": "Plasma cannon – standard",
-      "range": "36",
-      "skill": "4",
+      "skill": "4+",
       "strength": "7"
     },
     {
+      "ability_keywords": [
+        "blast",
+        "hazardous"
+      ],
       "armour_penetration": "-3",
       "attacks": "D3",
       "damage": "2",
-      "is_melee": false,
+      "is_melee": true,
       "line": 9,
       "name": "Plasma cannon – supercharge",
-      "range": "36",
-      "skill": "4",
+      "skill": "4+",
       "strength": "8"
     },
     {
@@ -199,7 +235,7 @@
       "is_melee": true,
       "line": 10,
       "name": "Close combat weapon",
-      "skill": "4",
+      "skill": "4+",
       "strength": "6"
     },
     {
@@ -209,7 +245,7 @@
       "is_melee": true,
       "line": 11,
       "name": "Sentinel chainsaw",
-      "skill": "4",
+      "skill": "4+",
       "strength": "6"
     }
   ]

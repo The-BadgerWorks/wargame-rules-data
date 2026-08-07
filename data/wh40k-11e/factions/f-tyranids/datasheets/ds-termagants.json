@@ -1,6 +1,16 @@
 {
   "ability_keys": [
-    "datasheet:skulking-horrors"
+    "datasheet:skulking-horrors",
+    "faction:synapse"
+  ],
+  "composition": [
+    {
+      "line": 1,
+      "max_count": 20,
+      "min_count": 10,
+      "model_line": 1,
+      "model_name": "Termagants"
+    }
   ],
   "costs": [
     {
@@ -9,7 +19,7 @@
       "model_count": 10,
       "points": 60,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
     },
     {
       "copy_index_min": 1,
@@ -17,7 +27,7 @@
       "model_count": 20,
       "points": 110,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
     }
   ],
   "datasheet_id": "ds-termagants",
@@ -30,32 +40,38 @@
   "keywords": [
     {
       "is_faction_keyword": false,
-      "keyword": "Battleline"
+      "keyword": "BATTLELINE",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Endless Multitude"
+      "keyword": "ENDLESS MULTITUDE",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Great Devourer"
+      "keyword": "GREAT DEVOURER",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Infantry"
+      "keyword": "INFANTRY",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Termagants"
+      "keyword": "TERMAGANTS",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": true,
-      "keyword": "Tyranids"
+      "keyword": "TYRANIDS",
+      "keyword_class": "faction"
     }
   ],
   "models": [
     {
-      "base_size": "28.5mm",
+      "base_size": "(⌀28.5mm)",
       "leadership": "8+",
       "line": 1,
       "movement": "6\"",
@@ -67,64 +83,128 @@
     }
   ],
   "name": "TERMAGANTS",
+  "option_choices": [
+    {
+      "count": 1,
+      "group_id": "og-termagants-3",
+      "id": "oc-termagants-3-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "shardlauncher",
+      "replaces_weapon_line": 2
+    },
+    {
+      "count": 1,
+      "group_id": "og-termagants-4",
+      "id": "oc-termagants-4-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "spike rifle",
+      "replaces_weapon_line": 3
+    },
+    {
+      "count": 1,
+      "group_id": "og-termagants-5",
+      "id": "oc-termagants-5-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "strangleweb",
+      "replaces_weapon_line": 4
+    }
+  ],
+  "option_groups": [
+    {
+      "id": "og-termagants-3",
+      "line": 3,
+      "scope": "per_n_models",
+      "scope_n": 10
+    },
+    {
+      "id": "og-termagants-4",
+      "line": 4,
+      "scope": "per_n_models",
+      "scope_n": 10
+    },
+    {
+      "id": "og-termagants-5",
+      "line": 5,
+      "scope": "per_n_models",
+      "scope_n": 10
+    }
+  ],
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:bb84b90b63f757e236383a51a48746c08afda1949b32fd90bab328c1dd82dc22",
-    "last_verified_version": "mfm-2026-08",
+    "last_verified_version": "wh40k-11e-2026-08",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-    "detail_edition_code": "wh40k-10e",
+    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
-    "is_hybrid_edition": true,
-    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "is_hybrid_edition": false,
+    "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
-  "role": "Battleline",
+  "wargear_option_state": "partial",
   "weapons": [
     {
+      "ability_keywords": [
+        "assault"
+      ],
       "armour_penetration": "0",
       "attacks": "1",
       "damage": "1",
       "is_melee": false,
       "line": 1,
       "name": "Fleshborer",
-      "range": "18",
-      "skill": "4",
+      "range": "18\"",
+      "skill": "4+",
       "strength": "5"
     },
     {
+      "ability_keywords": [
+        "blast",
+        "heavy"
+      ],
       "armour_penetration": "0",
       "attacks": "D3",
       "damage": "1",
       "is_melee": false,
       "line": 2,
       "name": "Shardlauncher",
-      "range": "18",
-      "skill": "4",
+      "range": "18\"",
+      "skill": "4+",
       "strength": "5"
     },
     {
+      "ability_keywords": [
+        "heavy"
+      ],
       "armour_penetration": "-1",
       "attacks": "1",
       "damage": "1",
       "is_melee": false,
       "line": 3,
       "name": "Spike rifle",
-      "range": "24",
-      "skill": "4",
+      "range": "24\"",
+      "skill": "4+",
       "strength": "4"
     },
     {
+      "ability_keywords": [
+        "assault",
+        "devastating wounds",
+        "torrent"
+      ],
       "armour_penetration": "0",
       "attacks": "D6",
       "damage": "1",
       "is_melee": false,
       "line": 4,
       "name": "Strangleweb",
-      "range": "18",
+      "range": "18\"",
       "skill": "N/A",
       "strength": "2"
     },
@@ -135,19 +215,23 @@
       "is_melee": false,
       "line": 5,
       "name": "Termagant devourer",
-      "range": "18",
-      "skill": "4",
+      "range": "18\"",
+      "skill": "4+",
       "strength": "4"
     },
     {
+      "ability_keywords": [
+        "assault",
+        "pistol",
+        "twin-linked"
+      ],
       "armour_penetration": "0",
       "attacks": "2",
       "damage": "1",
-      "is_melee": false,
+      "is_melee": true,
       "line": 6,
       "name": "Termagant spinefists",
-      "range": "12",
-      "skill": "4",
+      "skill": "4+",
       "strength": "3"
     },
     {
@@ -157,7 +241,7 @@
       "is_melee": true,
       "line": 7,
       "name": "Chitinous claws and teeth",
-      "skill": "4",
+      "skill": "4+",
       "strength": "3"
     }
   ]

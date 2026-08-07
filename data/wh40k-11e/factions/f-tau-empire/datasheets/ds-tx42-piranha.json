@@ -1,6 +1,18 @@
 {
   "ability_keys": [
-    "datasheet:outflank"
+    "core:deadly-demise-1",
+    "core:scouts-9",
+    "datasheet:outflank",
+    "faction:for-the-greater-good"
+  ],
+  "composition": [
+    {
+      "line": 1,
+      "max_count": 1,
+      "min_count": 1,
+      "model_line": 1,
+      "model_name": "TX42 Piranha"
+    }
   ],
   "costs": [
     {
@@ -9,7 +21,7 @@
       "model_count": 1,
       "points": 60,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1"
+      "source_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9"
     }
   ],
   "datasheet_id": "ds-tx42-piranha",
@@ -22,24 +34,33 @@
   "keywords": [
     {
       "is_faction_keyword": false,
-      "keyword": "Fly"
+      "keyword": "FLY",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "TX42 Piranha"
+      "keyword": "FRAME",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "TX42 PIRANHA",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": true,
-      "keyword": "T’au Empire"
+      "keyword": "T’AU EMPIRE",
+      "keyword_class": "faction"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Vehicle"
+      "keyword": "VEHICLE",
+      "keyword_class": "unit"
     }
   ],
   "models": [
     {
-      "base_size": "60mm flying base",
+      "base_size": "(⌀60mm flying base)",
       "leadership": "7+",
       "line": 1,
       "movement": "14\"",
@@ -51,30 +72,66 @@
     }
   ],
   "name": "Tx42 Piranha",
+  "option_choices": [
+    {
+      "count": 2,
+      "group_id": "og-tx42-piranha-1",
+      "id": "oc-tx42-piranha-1-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "fusion blasters"
+    },
+    {
+      "count": 2,
+      "group_id": "og-tx42-piranha-1",
+      "id": "oc-tx42-piranha-1-2",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "missile pods"
+    },
+    {
+      "count": 2,
+      "group_id": "og-tx42-piranha-1",
+      "id": "oc-tx42-piranha-1-3",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "rail rifles"
+    }
+  ],
+  "option_groups": [
+    {
+      "id": "og-tx42-piranha-1",
+      "line": 1,
+      "scope": "model"
+    }
+  ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 1,
+    "consecutive_unverified_releases": 2,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-    "detail_edition_code": "wh40k-10e",
+    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
-    "is_hybrid_edition": true,
+    "is_hybrid_edition": false,
     "points_edition_code": "wh40k-11e",
     "points_source": "none"
   },
-  "role": "Other",
+  "wargear_option_state": "extracted",
   "weapons": [
     {
+      "ability_keywords": [
+        "melta 2"
+      ],
       "armour_penetration": "-4",
       "attacks": "1",
       "damage": "D6",
       "is_melee": false,
       "line": 1,
       "name": "Fusion blaster",
-      "range": "12",
-      "skill": "4",
+      "range": "12\"",
+      "skill": "4+",
       "strength": "9"
     },
     {
@@ -84,8 +141,8 @@
       "is_melee": false,
       "line": 2,
       "name": "Missile pod",
-      "range": "30",
-      "skill": "4",
+      "range": "30\"",
+      "skill": "4+",
       "strength": "7"
     },
     {
@@ -95,19 +152,21 @@
       "is_melee": false,
       "line": 3,
       "name": "Plasma rifle",
-      "range": "24",
-      "skill": "4",
+      "range": "24\"",
+      "skill": "4+",
       "strength": "8"
     },
     {
+      "ability_keywords": [
+        "devastating wounds"
+      ],
       "armour_penetration": "-4",
       "attacks": "1",
       "damage": "3",
-      "is_melee": false,
+      "is_melee": true,
       "line": 4,
       "name": "Rail rifle",
-      "range": "30",
-      "skill": "4",
+      "skill": "4+",
       "strength": "10"
     },
     {
@@ -117,7 +176,7 @@
       "is_melee": true,
       "line": 5,
       "name": "Armoured hull",
-      "skill": "5",
+      "skill": "5+",
       "strength": "4"
     }
   ]

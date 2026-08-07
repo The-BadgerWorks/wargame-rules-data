@@ -1,6 +1,17 @@
 {
   "ability_keys": [
-    "datasheet:plough-through-the-enemy"
+    "core:deadly-demise-d6-2",
+    "datasheet:plough-through-the-enemy",
+    "faction:dark-pacts"
+  ],
+  "composition": [
+    {
+      "line": 1,
+      "max_count": 1,
+      "min_count": 1,
+      "model_line": 1,
+      "model_name": "Khorne Lord of Skulls"
+    }
   ],
   "costs": [
     {
@@ -9,7 +20,7 @@
       "model_count": 1,
       "points": 450,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
     },
     {
       "copy_index_min": 2,
@@ -17,7 +28,7 @@
       "model_count": 1,
       "points": 475,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
     }
   ],
   "damaged_threshold": 8,
@@ -31,41 +42,53 @@
   "keywords": [
     {
       "is_faction_keyword": false,
-      "keyword": "Chaos"
+      "keyword": "CHAOS",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Daemon"
+      "keyword": "DAEMON",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "FRAME",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": true,
-      "keyword": "Heretic Astartes"
+      "keyword": "HERETIC ASTARTES"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Khorne"
+      "keyword": "KHORNE",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Lord of Skulls"
+      "keyword": "LORD OF SKULLS",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Titanic"
+      "keyword": "TITANIC",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Towering"
+      "keyword": "TOWERING",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Vehicle"
+      "keyword": "VEHICLE",
+      "keyword_class": "unit"
     }
   ],
   "models": [
     {
-      "base_size": "Use model",
-      "invuln_save": "5",
+      "base_size": "(⌀Use model)",
+      "invuln_save": "5+",
       "leadership": "6+",
       "line": 1,
       "movement": "8\"",
@@ -77,76 +100,128 @@
     }
   ],
   "name": "KHORNE LORD OF SKULLS",
+  "option_choices": [
+    {
+      "count": 1,
+      "group_id": "og-khorne-lord-of-skulls-1",
+      "id": "oc-khorne-lord-of-skulls-1-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "daemongore cannon",
+      "replaces_weapon_line": 1
+    },
+    {
+      "count": 1,
+      "group_id": "og-khorne-lord-of-skulls-1",
+      "id": "oc-khorne-lord-of-skulls-1-2",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "ichor cannon",
+      "replaces_weapon_line": 4
+    },
+    {
+      "count": 1,
+      "group_id": "og-khorne-lord-of-skulls-2",
+      "id": "oc-khorne-lord-of-skulls-2-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "skullhurler",
+      "replaces_weapon_line": 5
+    }
+  ],
+  "option_groups": [
+    {
+      "id": "og-khorne-lord-of-skulls-1",
+      "line": 1,
+      "scope": "model"
+    },
+    {
+      "id": "og-khorne-lord-of-skulls-2",
+      "line": 2,
+      "scope": "model"
+    }
+  ],
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:e6e8aba3f7b35dbc5c7d7686762246742bea6a876347f1259c8581d9c7df1bcc",
-    "last_verified_version": "mfm-2026-08",
+    "last_verified_version": "wh40k-11e-2026-08",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-    "detail_edition_code": "wh40k-10e",
+    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
-    "is_hybrid_edition": true,
-    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "is_hybrid_edition": false,
+    "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
-  "role": "Other",
+  "wargear_option_state": "extracted",
   "weapons": [
     {
+      "ability_keywords": [
+        "blast"
+      ],
       "armour_penetration": "-4",
       "attacks": "D6",
       "damage": "D6+2",
       "is_melee": false,
       "line": 1,
       "name": "Daemongore cannon",
-      "range": "18",
-      "skill": "3",
+      "range": "18\"",
+      "skill": "3+",
       "strength": "14"
     },
     {
+      "ability_keywords": [
+        "blast"
+      ],
       "armour_penetration": "-2",
       "attacks": "D6+3",
       "damage": "3",
       "is_melee": false,
       "line": 2,
       "name": "Gorestorm cannon",
-      "range": "24",
-      "skill": "3",
+      "range": "24\"",
+      "skill": "3+",
       "strength": "10"
     },
     {
+      "ability_keywords": [
+        "sustained hits 1"
+      ],
       "armour_penetration": "-2",
       "attacks": "12",
       "damage": "2",
       "is_melee": false,
       "line": 3,
       "name": "Hades gatling cannon",
-      "range": "48",
-      "skill": "3",
+      "range": "48\"",
+      "skill": "3+",
       "strength": "8"
     },
     {
+      "ability_keywords": [
+        "blast"
+      ],
       "armour_penetration": "-2",
       "attacks": "2D6",
       "damage": "2",
       "is_melee": false,
       "line": 4,
       "name": "Ichor cannon",
-      "range": "48",
-      "skill": "3",
+      "range": "48\"",
+      "skill": "3+",
       "strength": "7"
     },
     {
       "armour_penetration": "-3",
       "attacks": "2D6",
       "damage": "3",
-      "is_melee": false,
+      "is_melee": true,
       "line": 5,
       "name": "Skullhurler",
-      "range": "60",
-      "skill": "3",
+      "skill": "3+",
       "strength": "14"
     },
     {
@@ -156,7 +231,7 @@
       "is_melee": true,
       "line": 6,
       "name": "Great cleaver of Khorne – strike",
-      "skill": "3",
+      "skill": "3+",
       "strength": "16"
     },
     {
@@ -166,7 +241,7 @@
       "is_melee": true,
       "line": 7,
       "name": "Great cleaver of Khorne – sweep",
-      "skill": "3",
+      "skill": "3+",
       "strength": "8"
     }
   ]

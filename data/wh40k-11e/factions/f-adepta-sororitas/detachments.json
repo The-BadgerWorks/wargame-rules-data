@@ -8,14 +8,43 @@
       "is_unique": false,
       "name": "ARMY OF FAITH",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-        "detail_edition_code": "wh40k-10e",
+        "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+        "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
-        "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
-      }
+      },
+      "rules": [
+        {
+          "name": "Sacred Rites",
+          "summary_key": "detachment:d-army-of-faith:sacred-rites"
+        }
+      ]
+    },
+    {
+      "detachment_id": "d-bringers-of-flame",
+      "detachment_points_cost": 2,
+      "force_disposition": "PRIORITY ASSETS",
+      "is_legends": false,
+      "is_unique": false,
+      "name": "BRINGERS OF FLAME",
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+        "detail_edition_code": "wh40k-11e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      },
+      "rules": [
+        {
+          "name": "Fervent Purgation",
+          "summary_key": "detachment:d-bringers-of-flame:fervent-purgation"
+        }
+      ]
     },
     {
       "detachment_id": "d-champions-of-faith",
@@ -25,14 +54,20 @@
       "is_unique": true,
       "name": "CHAMPIONS OF FAITH",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-        "detail_edition_code": "wh40k-10e",
+        "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+        "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
-        "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
-      }
+      },
+      "rules": [
+        {
+          "name": "Righteous Purpose",
+          "summary_key": "detachment:d-champions-of-faith:righteous-purpose"
+        }
+      ]
     },
     {
       "detachment_id": "d-chorus-of-condemnation",
@@ -42,14 +77,20 @@
       "is_unique": false,
       "name": "CHORUS OF CONDEMNATION",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-        "detail_edition_code": "wh40k-10e",
+        "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+        "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
-        "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
-      }
+      },
+      "rules": [
+        {
+          "name": "Angelic Judgement",
+          "summary_key": "detachment:d-chorus-of-condemnation:angelic-judgement"
+        }
+      ]
     },
     {
       "detachment_id": "d-hallowed-martyrs",
@@ -59,14 +100,20 @@
       "is_unique": false,
       "name": "HALLOWED MARTYRS",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-        "detail_edition_code": "wh40k-10e",
+        "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+        "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
-        "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
-      }
+      },
+      "rules": [
+        {
+          "name": "The Blood of Martyrs",
+          "summary_key": "detachment:d-hallowed-martyrs:the-blood-of-martyrs"
+        }
+      ]
     },
     {
       "detachment_id": "d-penitent-host",
@@ -76,14 +123,20 @@
       "is_unique": false,
       "name": "PENITENT HOST",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-        "detail_edition_code": "wh40k-10e",
+        "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+        "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
-        "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
-      }
+      },
+      "rules": [
+        {
+          "name": "Desperate for Redemption",
+          "summary_key": "detachment:d-penitent-host:desperate-for-redemption"
+        }
+      ]
     },
     {
       "detachment_id": "d-sacred-champions",
@@ -93,11 +146,11 @@
       "is_unique": true,
       "name": "SACRED CHAMPIONS",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-        "detail_edition_code": "wh40k-10e",
+        "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+        "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
-        "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       }
@@ -110,14 +163,20 @@
       "is_unique": false,
       "name": "SANCTIFIED ORATORS",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-        "detail_edition_code": "wh40k-10e",
+        "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+        "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
-        "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
-      }
+      },
+      "rules": [
+        {
+          "name": "Hymns of Battle",
+          "summary_key": "detachment:d-sanctified-orators:hymns-of-battle"
+        }
+      ]
     }
   ]
 }

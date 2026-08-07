@@ -1,7 +1,18 @@
 {
   "ability_keys": [
+    "core:deadly-demise-d6",
+    "core:feel-no-pain-5",
     "datasheet:immaterial-flare-aura",
     "datasheet:mutating-vortex-aura"
+  ],
+  "composition": [
+    {
+      "line": 1,
+      "max_count": 1,
+      "min_count": 1,
+      "model_line": 1,
+      "model_name": "Mutalith Vortex Beast"
+    }
   ],
   "costs": [
     {
@@ -10,7 +21,7 @@
       "model_count": 1,
       "points": 170,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
     },
     {
       "copy_index_min": 3,
@@ -18,7 +29,7 @@
       "model_count": 1,
       "points": 190,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
     }
   ],
   "damaged_threshold": 4,
@@ -32,33 +43,39 @@
   "keywords": [
     {
       "is_faction_keyword": false,
-      "keyword": "Chaos"
+      "keyword": "CHAOS",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Monster"
+      "keyword": "MONSTER",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Mutalith Vortex Beast"
+      "keyword": "MUTALITH VORTEX BEAST",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Mutant"
+      "keyword": "MUTANT",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": true,
-      "keyword": "Thousand Sons"
+      "keyword": "THOUSAND SONS",
+      "keyword_class": "faction"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Tzeentch"
+      "keyword": "TZEENTCH",
+      "keyword_class": "unit"
     }
   ],
   "models": [
     {
-      "base_size": "120 x 92mm",
-      "invuln_save": "5",
+      "base_size": "(⌀120 x 92mm)",
+      "invuln_save": "5+",
       "leadership": "6+",
       "line": 1,
       "movement": "10\"",
@@ -73,50 +90,57 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:c6b8a37598f8f13b9ef2eef56d9892584fd6b347e849ef4035e9eab7c76a07da",
-    "last_verified_version": "mfm-2026-08",
+    "last_verified_version": "wh40k-11e-2026-08",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-    "detail_edition_code": "wh40k-10e",
+    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
-    "is_hybrid_edition": true,
-    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "is_hybrid_edition": false,
+    "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
-  "role": "Other",
+  "wargear_option_state": "none",
   "weapons": [
     {
+      "ability_keywords": [
+        "blast"
+      ],
       "armour_penetration": "-2",
       "attacks": "D6+3",
       "damage": "2",
-      "is_melee": false,
+      "is_melee": true,
       "line": 1,
       "name": "Warp vortex – blast",
-      "range": "24",
-      "skill": "3",
+      "skill": "3+",
       "strength": "9"
     },
     {
+      "ability_keywords": [
+        "devastating wounds"
+      ],
       "armour_penetration": "-3",
       "attacks": "1",
       "damage": "D6+6",
-      "is_melee": false,
+      "is_melee": true,
       "line": 2,
       "name": "Warp vortex – beam",
-      "range": "36",
-      "skill": "3",
+      "skill": "3+",
       "strength": "18"
     },
     {
+      "ability_keywords": [
+        "ignores cover",
+        "torrent"
+      ],
       "armour_penetration": "-1",
       "attacks": "2D6",
       "damage": "1",
-      "is_melee": false,
+      "is_melee": true,
       "line": 3,
       "name": "Warp vortex – torrent",
-      "range": "18",
       "skill": "N/A",
       "strength": "6"
     },
@@ -127,7 +151,7 @@
       "is_melee": true,
       "line": 4,
       "name": "Betentacled maw",
-      "skill": "3",
+      "skill": "3+",
       "strength": "7"
     },
     {
@@ -137,7 +161,7 @@
       "is_melee": true,
       "line": 5,
       "name": "Mutalith claws",
-      "skill": "3",
+      "skill": "3+",
       "strength": "10"
     }
   ]

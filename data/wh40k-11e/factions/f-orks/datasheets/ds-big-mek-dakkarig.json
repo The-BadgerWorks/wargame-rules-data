@@ -1,4 +1,17 @@
 {
+  "ability_keys": [
+    "datasheet:dakkablitz",
+    "faction:waaagh"
+  ],
+  "composition": [
+    {
+      "line": 1,
+      "max_count": 1,
+      "min_count": 1,
+      "model_line": 1,
+      "model_name": "Big Mek Dakkarig"
+    }
+  ],
   "costs": [
     {
       "copy_index_min": 1,
@@ -6,7 +19,7 @@
       "model_count": 1,
       "points": 115,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
     }
   ],
   "datasheet_id": "ds-big-mek-dakkarig",
@@ -16,19 +29,101 @@
   "is_dedicated_transport": false,
   "is_epic_hero": false,
   "is_legends": false,
+  "keywords": [
+    {
+      "is_faction_keyword": false,
+      "keyword": "BIG MEK",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "DAKKARIG",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": true,
+      "keyword": "ORKS",
+      "keyword_class": "faction"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "VEHICLE",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "WALKER",
+      "keyword_class": "unit"
+    }
+  ],
+  "models": [
+    {
+      "invuln_save": "5+",
+      "leadership": "7+",
+      "line": 1,
+      "movement": "8\"",
+      "name": "Big Mek Dakkarig",
+      "objective_control": 3,
+      "save": "3+",
+      "toughness": 8,
+      "wounds": 11
+    }
+  ],
   "name": "BIG MEK DAKKARIG",
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:9e91cd3e2c6c33d1ce006a3fc9b04e64021c0d0554ffb517f277a9dacd729344",
-    "last_verified_version": "mfm-2026-08",
+    "last_verified_version": "wh40k-11e-2026-08",
     "state": "verified"
   },
   "provenance": {
+    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
     "detail_edition_code": "wh40k-11e",
-    "detail_source": "none",
+    "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
-  }
+  },
+  "wargear_option_state": "none",
+  "weapons": [
+    {
+      "ability_keywords": [
+        "HEAVY",
+        "SUSTAINED HITS 1"
+      ],
+      "armour_penetration": "-2",
+      "attacks": "8",
+      "damage": "2",
+      "is_melee": false,
+      "line": 1,
+      "name": "Blitzkannon",
+      "range": "24\"",
+      "skill": "5+",
+      "strength": "7"
+    },
+    {
+      "ability_keywords": [
+        "HEAVY"
+      ],
+      "armour_penetration": "-2",
+      "attacks": "6",
+      "damage": "3",
+      "is_melee": true,
+      "line": 2,
+      "name": "Rokkit launcha",
+      "skill": "5+",
+      "strength": "10"
+    },
+    {
+      "armour_penetration": "-1",
+      "attacks": "4",
+      "damage": "1",
+      "is_melee": true,
+      "line": 3,
+      "name": "Stompy feet",
+      "skill": "3+",
+      "strength": "6"
+    }
+  ]
 }

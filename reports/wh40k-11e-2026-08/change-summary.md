@@ -1,0 +1,11020 @@
+# Change summary
+
+Compared against **mfm-2026-08**.
+
+## Added datasheets
+
+- ds-clanblade
+- ds-dragon-knights
+- ds-hellflayers-2
+- ds-leystalker
+- ds-stonesinger
+- ds-the-red-terror-2
+- ds-venerable-dreadnought-3
+
+## Removed datasheets
+
+- ds-chaplain-kastiel
+- ds-corsair-skyreaver-band
+- ds-corsair-skyreaver-band-2
+- ds-crusader-squad-legendary
+- ds-da-red-gobbos-tinboy
+- ds-exalted-seeker-chariot
+- ds-hellflayer
+- ds-iron-priest-on-thunderwolf
+- ds-judiciar-xacharus
+- ds-karanak-2
+- ds-mutilators-legendary
+- ds-nob-with-waaagh-banner
+- ds-prince-yriel-legendary
+- ds-sanguinary-priest-on-bike
+- ds-seeker-chariot
+- ds-servitors-2
+- ds-tactical-drones
+- ds-tormentbringer-on-exalted-seeker-chariot
+- ds-ultramarines-honour-guard
+- ds-venerable-dreadnought-legendary
+- ds-wartrakks
+- ds-wolf-scouts-legendary
+
+## Renamed datasheets
+
+- `ds-ancient-on-bike`: Ancient on Bike → Ancient On Bike
+- `ds-apothecary-on-bike`: Apothecary on Bike → Apothecary On Bike
+- `ds-assault-squad-with-jump-packs`: Assault Squad with Jump Packs → Assault Squad With Jump Packs
+- `ds-captain-on-bike`: Captain on Bike → Captain On Bike
+- `ds-librarian-on-bike`: Librarian on Bike → Librarian On Bike
+- `ds-librarian-with-jump-pack`: Librarian with Jump Pack → Librarian With Jump Pack
+- `ds-techmarine-on-bike`: Techmarine on Bike → Techmarine On Bike
+
+## Unit point costs
+
+- `ds-aquila-kill-team` copy 1+, 5 models (every-model-has-imperium): absent → 100
+- `ds-aquila-kill-team` copy 1+, 10 models (every-model-has-imperium): absent → 200
+- `ds-armoured-sentinels-2` copy 1+, 2 models: 130 → 120
+- `ds-baneblade-2` copy 1+, 1 models: 450 → 415
+- `ds-banehammer-2` copy 1+, 1 models: 420 → 385
+- `ds-banesword-2` copy 1+, 1 models: 450 → 415
+- `ds-basilisk-2` copy 1+, 1 models: 140 → 115
+- `ds-bike-squad` copy 1+, 1 models: absent → 55
+- `ds-cadian-command-squad-2` copy 1+, 5 models: 65 → 60
+- `ds-cadian-shock-troops-2` copy 1+, 10 models: 65 → 75
+- `ds-cadian-shock-troops-2` copy 1+, 20 models: 120 → 145
+- `ds-callidus-assassin` copy 1+, 1 models (every-model-has-imperium): absent → 100
+- `ds-catachan-command-squad-2` copy 1+, 5 models: 65 → 60
+- `ds-catachan-jungle-fighters-2` copy 1+, 10 models: 65 → 75
+- `ds-catachan-jungle-fighters-2` copy 1+, 20 models: 120 → 145
+- `ds-centaur-rsv-2` copy 1+, 1 models: 85 → 65
+- `ds-chaos-terminator-squad-2` copy 1+, 5 models: 180 → 175
+- `ds-chaos-terminator-squad-2` copy 1+, 10 models: 360 → 350
+- `ds-chimera-2` copy 1+, 1 models: 85 → 75
+- `ds-chosen-2` copy 1+, 5 models: 125 → 135
+- `ds-chosen-2` copy 1+, 10 models: 250 → 270
+- `ds-corsair-cloud-dancer-band` copy 1+, 3 models: 105 → 125
+- `ds-corsair-cloud-dancer-band` copy 1+, 4 models: 140 → 150
+- `ds-corsair-cloud-dancer-band-2` copy 1+, 3 models: 105 → 125
+- `ds-corsair-cloud-dancer-band-2` copy 1+, 4 models: 140 → 150
+- `ds-corsair-skyreavers-2` copy 1+, 10 models: 150 → 140
+- `ds-corsair-voidscarred-2` copy 1+, 5 models: 80 → 70
+- `ds-corsair-voidscarred-2` copy 1+, 10 models: 160 → 140
+- `ds-corvus-blackstar-2` copy 1+, 1 models (every-model-has-imperium): absent → 180
+- `ds-crusader-squad` copy 1+, 1 models: 290 → absent
+- `ds-crusader-squad` copy 1+, 10 models: absent → 150
+- `ds-crusader-squad` copy 1+, 20 models: absent → 290
+- `ds-culexus-assassin` copy 1+, 1 models (every-model-has-imperium): absent → 85
+- `ds-cultist-mob-2` copy 1+, 20 models: 100 → 90
+- `ds-cultist-mob-3` copy 1+, 20 models: 100 → 90
+- `ds-cyclops-demolition-vehicle-2` copy 1+, 1 models: 25 → 40
+- `ds-death-jester-2` copy 1+, 1 models: 90 → 70
+- `ds-death-korps-of-krieg-2` copy 1+, 10 models: 65 → 75
+- `ds-death-riders-2` copy 1+, 10 models: 120 → 110
+- `ds-deathstrike-2` copy 1+, 1 models: 145 → 125
+- `ds-deathwatch-kill-team` copy 1+, 5 models (every-model-has-imperium): absent → 100
+- `ds-deathwatch-kill-team` copy 1+, 10 models (every-model-has-imperium): absent → 190
+- `ds-doomhammer-2` copy 1+, 1 models: 415 → 380
+- `ds-eversor-assassin` copy 1+, 1 models: 110 → 100
+- `ds-eversor-assassin` copy 1+, 1 models (every-model-has-imperium): absent → 110
+- `ds-exaction-squad` copy 1+, 11 models: 85 → 90
+- `ds-exaction-squad` copy 1+, 11 models (every-model-has-imperium): absent → 85
+- `ds-fellgor-beastmen-2` copy 1+, 10 models: 70 → 60
+- `ds-fellgor-beastmen-3` copy 1+, 10 models: 70 → 60
+- `ds-field-ordnance-battery-2` copy 1+, 2 models: 110 → 90
+- `ds-gargoyles-2` copy 1+, 10 models: 85 → 80
+- `ds-gargoyles-2` copy 1+, 20 models: 170 → 155
+- `ds-gretchin` copy 1+, 1 models: 85 → absent
+- `ds-gretchin` copy 1+, 2 models: 90 → absent
+- `ds-gretchin` copy 1+, 11 models: absent → 45
+- `ds-gretchin` copy 1+, 21 models: absent → 85
+- `ds-gretchin` copy 1+, 22 models: absent → 90
+- `ds-grey-knights-terminator-squad` copy 1+, 5 models: 190 → 175
+- `ds-grey-knights-terminator-squad` copy 1+, 5 models (every-model-has-imperium): absent → 190
+- `ds-hellhammer-2` copy 1+, 1 models: 420 → 385
+- `ds-hounds-of-morkai` copy 1+, 5 models: 80 → 95
+- `ds-hounds-of-morkai` copy 1+, 10 models: 160 → 190
+- `ds-hydra-2` copy 1+, 1 models: 95 → 90
+- `ds-imperial-navy-breachers` copy 1+, 10 models (every-model-has-imperium): absent → 90
+- `ds-imperial-rhino` copy 1+, 1 models (every-model-has-imperium): absent → 65
+- `ds-imperial-rhino` copy 4+, 1 models (every-model-has-imperium): absent → 75
+- `ds-inceptor-squad` copy 1+, 6 models: absent → 250
+- `ds-inceptor-squad` copy 3+, 6 models: absent → 265
+- `ds-inceptor-squad-3` copy 1+, 6 models: absent → 250
+- `ds-inceptor-squad-3` copy 3+, 6 models: absent → 265
+- `ds-inceptor-squad-4` copy 1+, 6 models: absent → 250
+- `ds-inceptor-squad-4` copy 3+, 6 models: absent → 265
+- `ds-inceptor-squad-6` copy 1+, 6 models: absent → 250
+- `ds-inceptor-squad-6` copy 3+, 6 models: absent → 265
+- `ds-inquisitor` copy 1+, 1 models: 65 → 55
+- `ds-inquisitor` copy 1+, 1 models (every-model-has-imperium): absent → 65
+- `ds-inquisitor-coteaz` copy 1+, 1 models: 95 → 75
+- `ds-inquisitor-coteaz` copy 1+, 1 models (every-model-has-imperium): absent → 95
+- `ds-inquisitor-draxus` copy 1+, 1 models: 110 → 75
+- `ds-inquisitor-draxus` copy 1+, 1 models (every-model-has-imperium): absent → 110
+- `ds-inquisitor-greyfax` copy 1+, 1 models (every-model-has-imperium): absent → 65
+- `ds-inquisitor-kroyle` copy 1+, 1 models (every-model-has-imperium): absent → 100
+- `ds-inquisitorial-agents` copy 1+, 6 models: 60 → 50
+- `ds-inquisitorial-agents` copy 1+, 6 models (every-model-has-imperium): absent → 60
+- `ds-inquisitorial-agents` copy 1+, 12 models: 120 → 100
+- `ds-inquisitorial-agents` copy 1+, 12 models (every-model-has-imperium): absent → 120
+- `ds-inquisitorial-chimera` copy 1+, 1 models (every-model-has-imperium): absent → 60
+- `ds-inquisitorial-chimera` copy 4+, 1 models (every-model-has-imperium): absent → 70
+- `ds-kasrkin-2` copy 1+, 10 models: 110 → 105
+- `ds-kharseth-2` copy 1+, 1 models: 95 → 85
+- `ds-khorne-berzerkers-2` copy 1+, 10 models: 180 → 170
+- `ds-khorne-berzerkers-2` copy 1+, 20 models: 360 → 330
+- `ds-krieg-combat-engineers-2` copy 1+, 5 models: 60 → 65
+- `ds-krieg-command-squad-2` copy 1+, 6 models: 65 → 60
+- `ds-krieg-heavy-weapons-squad-2` copy 1+, 4 models: 75 → 60
+- `ds-leman-russ-commander-2` copy 1+, 1 models: 235 → 215
+- `ds-leman-russ-demolisher-2` copy 1+, 1 models: 190 → 180
+- `ds-leman-russ-vanquisher-2` copy 1+, 1 models: 145 → 150
+- `ds-manticore-2` copy 1+, 1 models: 165 → 150
+- `ds-ministorum-priest-3` copy 1+, 1 models (every-model-has-imperium): absent → 40
+- `ds-navigator` copy 1+, 1 models: 75 → 60
+- `ds-navigator` copy 1+, 1 models (every-model-has-imperium): absent → 75
+- `ds-neurolictor-2` copy 1+, 1 models: 70 → 80
+- `ds-parasite-of-mortrex-2` copy 1+, 1 models: 80 → 70
+- `ds-plague-marines-2` copy 1+, 5 models: 95 → 90
+- `ds-plague-marines-2` copy 1+, 7 models: 130 → 125
+- `ds-plague-marines-2` copy 1+, 10 models: 190 → 180
+- `ds-possessed-2` copy 1+, 10 models: 240 → 250
+- `ds-rogue-trader-entourage` copy 1+, 4 models: 105 → 75
+- `ds-rogue-trader-entourage` copy 1+, 4 models (every-model-has-imperium): absent → 105
+- `ds-sanctifiers-2` copy 1+, 9 models (every-model-has-imperium): absent → 100
+- `ds-scout-sentinels-2` copy 1+, 2 models: 110 → 100
+- `ds-servitors` copy 1+, 4 models: 50 → 60
+- `ds-shadow-spectres` copy 1+, 1 models: absent → 30
+- `ds-shadowseer-2` copy 1+, 1 models: 60 → 50
+- `ds-shadowsword-2` copy 1+, 1 models: 410 → 375
+- `ds-sisters-of-battle-immolator` copy 1+, 1 models: 105 → 90
+- `ds-sisters-of-battle-immolator` copy 1+, 1 models (every-model-has-imperium): absent → 105
+- `ds-sisters-of-battle-immolator` copy 4+, 1 models: 115 → 100
+- `ds-sisters-of-battle-immolator` copy 4+, 1 models (every-model-has-imperium): absent → 115
+- `ds-sisters-of-battle-squad` copy 1+, 10 models: 110 → 100
+- `ds-sisters-of-battle-squad` copy 1+, 10 models (every-model-has-imperium): absent → 110
+- `ds-skitarii-vanguard-2` copy 1+, 10 models: 95 → 85
+- `ds-starfangs-2` copy 1+, 1 models: 75 → 70
+- `ds-starfangs-2` copy 1+, 2 models: 150 → 140
+- `ds-starweaver-2` copy 1+, 1 models: 80 → 70
+- `ds-stormlord-2` copy 1+, 1 models: 430 → 395
+- `ds-stormsword-2` copy 1+, 1 models: 465 → 430
+- `ds-subductor-squad` copy 1+, 11 models: 100 → 85
+- `ds-subductor-squad` copy 1+, 11 models (every-model-has-imperium): absent → 100
+- `ds-taurox-2` copy 1+, 1 models: 75 → 65
+- `ds-taurox-prime-2` copy 1+, 1 models: 90 → 75
+- `ds-tomb-citadel-walls` copy 1+, 1 models: 920 → 180
+- `ds-traitor-enforcer-2` copy 1+, 2 models: 55 → 70
+- `ds-traitor-enforcer-3` copy 1+, 2 models: 55 → 70
+- `ds-tyrannocyte-2` copy 1+, 1 models: 105 → 80
+- `ds-vigilant-squad` copy 1+, 11 models (every-model-has-imperium): absent → 85
+- `ds-vindicare-assassin` copy 1+, 1 models: 125 → 110
+- `ds-vindicare-assassin` copy 1+, 1 models (every-model-has-imperium): absent → 125
+- `ds-voidsmen-at-arms` copy 1+, 6 models: 70 → 50
+- `ds-voidsmen-at-arms` copy 1+, 6 models (every-model-has-imperium): absent → 70
+- `ds-voidweaver-2` copy 1+, 1 models: 125 → 115
+- `ds-von-ryans-leapers-2` copy 1+, 3 models: 70 → 55
+- `ds-von-ryans-leapers-2` copy 1+, 6 models: 140 → 105
+- `ds-vypers` copy 1+, 2 models: 150 → 140
+- `ds-warp-talons-2` copy 1+, 10 models: 270 → 280
+- `ds-watch-captain-artemis-2` copy 1+, 1 models (every-model-has-imperium): absent → 65
+- `ds-watch-master-2` copy 1+, 1 models (every-model-has-imperium): absent → 95
+- `ds-winged-hive-tyrant-2` copy 1+, 1 models: 170 → 185
+- `ds-wolf-guard-headtakers` copy 1+, 3 models: 115 → 85
+- `ds-wolf-guard-headtakers` copy 1+, 6 models: 230 → 170
+- `ds-wolf-guard-headtakers` copy 1+, 6 models (with-hunting-wolves): absent → 115
+- `ds-wolf-guard-headtakers` copy 1+, 12 models (with-hunting-wolves): absent → 230
+- `ds-wolf-guard-headtakers` copy 3+, 3 models: 125 → 95
+- `ds-wolf-guard-headtakers` copy 3+, 6 models: 240 → 180
+- `ds-wolf-guard-headtakers` copy 3+, 6 models (with-hunting-wolves): absent → 125
+- `ds-wolf-guard-headtakers` copy 3+, 12 models (with-hunting-wolves): absent → 240
+- `ds-wyvern-2` copy 1+, 1 models: 110 → 95
+
+## Detachment point costs
+
+None.
+
+## Enhancement costs
+
+None.
+
+## Pricing-confidence transitions
+
+None.
+
+## Escalating price tiers
+
+None.
+
+## Unit composition
+
+- `ds-abaddon-the-despoiler` line 1: absent → Abaddon the Despoiler 1-1
+- `ds-aberrants` line 1: absent → Aberrant Hypermorph 1-1
+- `ds-aberrants` line 2: absent → Aberrants 4-9
+- `ds-abominant` line 1: absent → Abominant 1-1
+- `ds-acastus-knight-asterius` line 1: absent → Acastus Knight Asterius 1-1
+- `ds-acastus-knight-porphyrion` line 1: absent → Acastus Knight Porphyrion 1-1
+- `ds-accursed-cultists` line 1: absent → Torments 3-6
+- `ds-accursed-cultists` line 2: absent → Mutants 5-10
+- `ds-accursed-cultists-2` line 1: absent → Torments 3-6
+- `ds-accursed-cultists-2` line 2: absent → Mutants 5-10
+- `ds-accursed-cultists-3` line 1: absent → Torments 3-6
+- `ds-accursed-cultists-3` line 2: absent → Mutants 5-10
+- `ds-achilles-ridgerunners` line 1: absent → Achilles Ridgerunners 1-2
+- `ds-acolyte-hybrids-with-autopistols` line 1: absent → Acolyte Leader 1-1
+- `ds-acolyte-hybrids-with-autopistols` line 2: absent → Acolyte Hybrids 4-9
+- `ds-acolyte-hybrids-with-hand-flamers` line 1: absent → Acolyte Leader 1-1
+- `ds-acolyte-hybrids-with-hand-flamers` line 2: absent → Acolyte Hybrids 4-9
+- `ds-acolyte-iconward` line 1: absent → Acolyte Iconward 1-1
+- `ds-adrax-agatone` line 1: absent → Adrax Agatone 1-1
+- `ds-aegis-defence-line` line 1: absent → Aegis Defence Line 1-1
+- `ds-aegis-defence-line-2` line 1: absent → Aegis Defence Line 1-1
+- `ds-aestred-thurga-and-agathae-dolan` line 1: absent → Aestred Thurga 1-1
+- `ds-aestred-thurga-and-agathae-dolan` line 2: absent → Agathae Dolan 1-1
+- `ds-aetaosraukeres` line 1: absent → Aetaos'rau'keres 1-1
+- `ds-aethon-shaan` line 1: absent → Aethon Shaan 1-1
+- `ds-agamatus-custodians` line 1: absent → Agamatus Custodians 3-6
+- `ds-aggressor-squad` line 1: absent → Aggressor Sergeant 1-1
+- `ds-aggressor-squad` line 2: absent → Aggressors 2-5
+- `ds-aggressor-squad-2` line 1: absent → Aggressor Sergeant 1-1
+- `ds-aggressor-squad-2` line 2: absent → Aggressors 2-5
+- `ds-aggressor-squad-3` line 1: absent → Aggressor Sergeant 1-1
+- `ds-aggressor-squad-3` line 2: absent → Aggressors 2-5
+- `ds-aggressor-squad-4` line 1: absent → Aggressor Sergeant 1-1
+- `ds-aggressor-squad-4` line 2: absent → Aggressors 2-5
+- `ds-aggressor-squad-5` line 1: absent → Aggressor Sergeant 1-1
+- `ds-aggressor-squad-5` line 2: absent → Aggressors 2-5
+- `ds-aggressor-squad-6` line 1: absent → Aggressor Sergeant 1-1
+- `ds-aggressor-squad-6` line 2: absent → Aggressors 2-5
+- `ds-ahriman` line 1: absent → Ahriman 1-1
+- `ds-aleya` line 1: absent → Aleya 1-1
+- `ds-allarus-custodians` line 1: absent → Allarus Custodians 2-6
+- `ds-amallyn-shadowguide` line 1: absent → Amallyn Shadowguide 1-1
+- `ds-anathema-psykana-rhino` line 1: absent → Anathema Psykana Rhino 1-1
+- `ds-ancient` line 1: absent → Ancient 1-1
+- `ds-ancient-2` line 1: absent → Ancient 1-1
+- `ds-ancient-3` line 1: absent → Ancient 1-1
+- `ds-ancient-4` line 1: absent → Ancient 1-1
+- `ds-ancient-5` line 1: absent → Ancient 1-1
+- `ds-ancient-6` line 1: absent → Ancient 1-1
+- `ds-ancient-in-terminator-armour` line 1: absent → Ancient in Terminator Armour 1-1
+- `ds-ancient-in-terminator-armour-2` line 1: absent → Ancient in Terminator Armour 1-1
+- `ds-ancient-in-terminator-armour-3` line 1: absent → Ancient in Terminator Armour 1-1
+- `ds-ancient-in-terminator-armour-4` line 1: absent → Ancient in Terminator Armour 1-1
+- `ds-ancient-in-terminator-armour-5` line 1: absent → Ancient in Terminator Armour 1-1
+- `ds-ancient-in-terminator-armour-6` line 1: absent → Ancient in Terminator Armour 1-1
+- `ds-ancient-on-bike` line 1: absent → Ancient on Bike 1-1
+- `ds-anggrath-the-unbound` line 1: absent → An'ggrath the Unbound 1-1
+- `ds-angron` line 1: absent → Angron 1-1
+- `ds-annihilation-barge` line 1: absent → Annihilation Barge 1-1
+- `ds-anrakyr-the-traveller` line 1: absent → Anrakyr the Traveller 1-1
+- `ds-apothecary` line 1: absent → Apothecary 1-1
+- `ds-apothecary-2` line 1: absent → Apothecary 1-1
+- `ds-apothecary-3` line 1: absent → Apothecary 1-1
+- `ds-apothecary-4` line 1: absent → Apothecary 1-1
+- `ds-apothecary-5` line 1: absent → Apothecary 1-1
+- `ds-apothecary-biologis` line 1: absent → Apothecary Biologis 1-1
+- `ds-apothecary-biologis-2` line 1: absent → Apothecary Biologis 1-1
+- `ds-apothecary-biologis-3` line 1: absent → Apothecary Biologis 1-1
+- `ds-apothecary-biologis-4` line 1: absent → Apothecary Biologis 1-1
+- `ds-apothecary-biologis-5` line 1: absent → Apothecary Biologis 1-1
+- `ds-apothecary-on-bike` line 1: absent → Apothecary on Bike 1-1
+- `ds-aquila-kill-team` line 1: absent → Kill Team Sergeant 1-1
+- `ds-aquila-kill-team` line 2: absent → Gravis Veteran 1-1
+- `ds-aquila-kill-team` line 3: absent → Deathwatch Veterans 3-3
+- `ds-aquila-kill-team` line 4: absent → Kill Team Sergeant 1-1
+- `ds-aquila-kill-team` line 5: absent → Gravis Veterans 2-2
+- `ds-aquila-kill-team` line 6: absent → Deathwatch Veterans 7-7
+- `ds-aquila-lander` line 1: absent → Aquila Lander 1-1
+- `ds-aquilon-custodians` line 1: absent → Aquilon Custodians 3-6
+- `ds-archaeopter-fusilave` line 1: absent → Archaeopter Fusilave 1-1
+- `ds-archaeopter-stratoraptor` line 1: absent → Archaeopter Stratoraptor 1-1
+- `ds-archaeopter-transvector` line 1: absent → Archaeopter Transvector 1-1
+- `ds-archon` line 1: absent → Archon 1-1
+- `ds-arco-flagellants` line 1: absent → Arco-flagellants 3-10
+- `ds-ares-gunship` line 1: absent → Ares Gunship 1-1
+- `ds-arjac-rockfist` line 1: absent → Arjac Rockfist 1-1
+- `ds-arkanyst-evaluator` line 1: absent → Arkanyst Evaluator 1-1
+- `ds-arkurian-stormhammer` line 1: absent → Arkurian Stormhammer 1-1
+- `ds-arkurian-stormhammer-2` line 1: absent → Arkurian Stormhammer 1-1
+- `ds-armageddon-pattern-medusa` line 1: absent → Armageddon-pattern Medusa 1-1
+- `ds-armageddon-pattern-medusa-2` line 1: absent → Armageddon-pattern Medusa 1-1
+- `ds-armiger-helverin` line 1: absent → Armiger Helverin 1-1
+- `ds-armiger-moirax` line 1: absent → Armiger Moirax 1-1
+- `ds-armiger-warglaive` line 1: absent → Armiger Warglaive 1-1
+- `ds-armoured-sentinels` line 1: absent → Armoured Sentinels 1-2
+- `ds-armoured-sentinels-2` line 1: absent → Armoured Sentinels 1-2
+- `ds-artillery-team` line 1: absent → Artillery Team 1-1
+- `ds-artillery-team-2` line 1: absent → Artillery Team 1-1
+- `ds-arvus-lighter` line 1: absent → Arvus Lighter 1-1
+- `ds-asmodai` line 1: absent → Asmodai 1-1
+- `ds-assault-intercessor-squad` line 1: absent → Assault Intercessor Sergeant 1-1
+- `ds-assault-intercessor-squad` line 2: absent → Assault Intercessors 4-9
+- `ds-assault-intercessor-squad-2` line 1: absent → Assault Intercessor Sergeant 1-1
+- `ds-assault-intercessor-squad-2` line 2: absent → Assault Intercessors 4-9
+- `ds-assault-intercessor-squad-3` line 1: absent → Assault Intercessor Sergeant 1-1
+- `ds-assault-intercessor-squad-3` line 2: absent → Assault Intercessors 4-9
+- `ds-assault-intercessor-squad-4` line 1: absent → Assault Intercessor Sergeant 1-1
+- `ds-assault-intercessor-squad-4` line 2: absent → Assault Intercessors 4-9
+- `ds-assault-intercessor-squad-5` line 1: absent → Assault Intercessor Sergeant 1-1
+- `ds-assault-intercessor-squad-5` line 2: absent → Assault Intercessors 4-9
+- `ds-assault-intercessor-squad-6` line 1: absent → Assault Intercessor Sergeant 1-1
+- `ds-assault-intercessor-squad-6` line 2: absent → Assault Intercessors 4-9
+- `ds-assault-intercessors-with-jump-packs` line 1: absent → Assault Intercessor Sergeant with Jump Pack 1-1
+- `ds-assault-intercessors-with-jump-packs` line 2: absent → Assault Intercessors with Jump Packs 4-9
+- `ds-assault-intercessors-with-jump-packs-2` line 1: absent → Assault Intercessor Sergeant with Jump Pack 1-1
+- `ds-assault-intercessors-with-jump-packs-2` line 2: absent → Assault Intercessors with Jump Packs 4-9
+- `ds-assault-intercessors-with-jump-packs-3` line 1: absent → Assault Intercessor Sergeant with Jump Pack 1-1
+- `ds-assault-intercessors-with-jump-packs-3` line 2: absent → Assault Intercessors with Jump Packs 4-9
+- `ds-assault-intercessors-with-jump-packs-4` line 1: absent → Assault Intercessor Sergeant with Jump Pack 1-1
+- `ds-assault-intercessors-with-jump-packs-4` line 2: absent → Assault Intercessors with Jump Packs 4-9
+- `ds-assault-intercessors-with-jump-packs-5` line 1: absent → Assault Intercessor Sergeant with Jump Pack 1-1
+- `ds-assault-intercessors-with-jump-packs-5` line 2: absent → Assault Intercessors with Jump Packs 4-9
+- `ds-assault-intercessors-with-jump-packs-6` line 1: absent → Assault Intercessor Sergeant with Jump Pack 1-1
+- `ds-assault-intercessors-with-jump-packs-6` line 2: absent → Assault Intercessors with Jump Packs 4-9
+- `ds-assault-squad` line 1: absent → Assault Sergeant 1-1
+- `ds-assault-squad` line 2: absent → Assault Marines 4-9
+- `ds-assault-squad-with-jump-packs` line 1: absent → Assault Sergeant with Jump Pack 1-1
+- `ds-assault-squad-with-jump-packs` line 2: absent → Assault Marines with Jump Packs 4-9
+- `ds-astartes-servitors` line 1: absent → Astartes Servitors 4-4
+- `ds-astorath` line 1: absent → Astorath 1-1
+- `ds-astraeus` line 1: absent → Astraeus 1-1
+- `ds-astraeus-2` line 1: absent → Astraeus 1-1
+- `ds-astraeus-3` line 1: absent → Astraeus 1-1
+- `ds-astraeus-4` line 1: absent → Astraeus 1-1
+- `ds-astraeus-5` line 1: absent → Astraeus 1-1
+- `ds-astraeus-6` line 1: absent → Astraeus 1-1
+- `ds-asurmen` line 1: absent → Asurmen 1-1
+- `ds-atalan-jackals` line 1: absent → Atalan Jackals 4-8
+- `ds-atalan-jackals` line 2: absent → Atalan Wolfquads* 1-2
+- `ds-atlas-recovery-vehicle` line 1: absent → Atlas Recovery Vehicle 1-1
+- `ds-atlas-recovery-vehicle-2` line 1: absent → Atlas Recovery Vehicle 1-1
+- `ds-attack-bike-squad` line 1: absent → Attack Bikes 1-3
+- `ds-attack-fighta` line 1: absent → Attack Fighta 1-1
+- `ds-attilan-rough-riders` line 1: absent → Rough Rider Sergeant 1-1
+- `ds-attilan-rough-riders` line 2: absent → Rough Riders 4-9
+- `ds-attilan-rough-riders-2` line 1: absent → Rough Rider Sergeant 1-1
+- `ds-attilan-rough-riders-2` line 2: absent → Rough Riders 4-9
+- `ds-aunshi` line 1: absent → Aun’Shi 1-1
+- `ds-aunva` line 1: absent → Aun’Va 1-1
+- `ds-aunva` line 2: absent → Ethereal Guards 2-2
+- `ds-autarch` line 1: absent → Autarch 1-1
+- `ds-autarch-skyrunner` line 1: absent → Autarch Skyrunner 1-1
+- `ds-autarch-wayleaper` line 1: absent → Autarch Wayleaper 1-1
+- `ds-avatar-of-khaine` line 1: absent → Avatar of Khaine 1-1
+- `ds-avenger-strike-fighter` line 1: absent → Avenger Strike Fighter 1-1
+- `ds-ax-1-0-tiger-shark` line 1: absent → AX-1-0 Tiger Shark 1-1
+- `ds-azrael` line 1: absent → Azrael 1-1
+- `ds-baal-predator` line 1: absent → Baal Predator 1-1
+- `ds-baharroth` line 1: absent → Baharroth 1-1
+- `ds-ballistus-dreadnought` line 1: absent → Ballistus Dreadnought 1-1
+- `ds-ballistus-dreadnought-2` line 1: absent → Ballistus Dreadnought 1-1
+- `ds-ballistus-dreadnought-3` line 1: absent → Ballistus Dreadnought 1-1
+- `ds-ballistus-dreadnought-4` line 1: absent → Ballistus Dreadnought 1-1
+- `ds-ballistus-dreadnought-5` line 1: absent → Ballistus Dreadnought 1-1
+- `ds-ballistus-dreadnought-6` line 1: absent → Ballistus Dreadnought 1-1
+- `ds-baneblade` line 1: absent → Baneblade 1-1
+- `ds-baneblade-2` line 1: absent → Baneblade 1-1
+- `ds-banehammer` line 1: absent → Banehammer 1-1
+- `ds-banehammer-2` line 1: absent → Banehammer 1-1
+- `ds-banesword` line 1: absent → Banesword 1-1
+- `ds-banesword-2` line 1: absent → Banesword 1-1
+- `ds-bannernob` line 1: absent → Bannernob 1-1
+- `ds-barbed-hierodule` line 1: absent → Barbed Hierodule 1-1
+- `ds-barbgaunts` line 1: absent → Barbgaunts 5-10
+- `ds-barracuda` line 1: absent → Barracuda 1-1
+- `ds-basilisk` line 1: absent → Basilisk 1-1
+- `ds-basilisk-2` line 1: absent → Basilisk 1-1
+- `ds-battle-sanctum` line 1: absent → Battle Sanctum 1-1
+- `ds-battle-sisters-squad` line 1: absent → Sister Superior 1-1
+- `ds-battle-sisters-squad` line 2: absent → Battle Sisters 9-9
+- `ds-battlewagon` line 1: absent → Battlewagon 1-1
+- `ds-beast-snagga-boyz` line 1: absent → Beast Snagga Nob 1-1
+- `ds-beast-snagga-boyz` line 2: absent → Beast Snagga Boyz 9-19
+- `ds-beastboss` line 1: absent → Beastboss 1-1
+- `ds-beastboss-on-squigosaur` line 1: absent → Beastboss on Squigosaur 1-1
+- `ds-beastmaster` line 1: absent → Beastmaster 1-1
+- `ds-beastmaster` line 2: absent → Clawed Fiends 1-1
+- `ds-beastmaster` line 3: absent → Khymerae 2-2
+- `ds-beastmaster` line 4: absent → Razorwing Flocks 3-3
+- `ds-beasts-of-nurgle` line 1: absent → Beasts of Nurgle 1-2
+- `ds-beasts-of-nurgle-2` line 1: absent → Beasts of Nurgle 1-2
+- `ds-belakor` line 1: absent → Be’lakor 1-1
+- `ds-belial` line 1: absent → Belial 1-1
+- `ds-belisarius-cawl` line 1: absent → Belisarius Cawl 1-1
+- `ds-benefictus` line 1: absent → Benefictus 1-1
+- `ds-berehk-stornbrow` line 1: absent → Berehk Stornbröw 1-1
+- `ds-big-gunz` line 1: absent → Big Gunz 1-2
+- `ds-big-mek` line 1: absent → Big Mek 1-1
+- `ds-big-mek-dakkarig` line 1: absent → Big Mek Dakkarig 1-1
+- `ds-big-mek-in-mega-armour` line 1: absent → Big Mek in Mega Armour 1-1
+- `ds-big-mek-on-warbike` line 1: absent → Big Mek on Warbike 1-1
+- `ds-big-mek-with-kustom-force-field` line 1: absent → Big Mek with Kustom Force Field 1-1
+- `ds-big-mek-with-shokk-attack-gun` line 1: absent → Big Mek with Shokk Attack Gun 1-1
+- `ds-big-trakk` line 1: absent → Big Trakk 1-1
+- `ds-bigboss` line 1: absent → Bigboss 1-1
+- `ds-biged-bossbunka` line 1: absent → Big’ed Bossbunka 1-1
+- `ds-bike-squad` line 1: absent → Biker Sergeant 1-1
+- `ds-bike-squad` line 2: absent → Space Marine Bikers 2-5
+- `ds-bike-squad` line 3: absent → Attack Bike 0-1
+- `ds-biologus-putrifier` line 1: absent → Biologus Putrifier 1-1
+- `ds-biophagus` line 1: absent → Biophagus 1-1
+- `ds-biovores` line 1: absent → Biovores 1-3
+- `ds-bjorn-the-fell-handed` line 1: absent → Bjorn the Fell-Handed 1-1
+- `ds-blade-champion` line 1: absent → Blade Champion 1-1
+- `ds-bladeguard-ancient` line 1: absent → Bladeguard Ancient 1-1
+- `ds-bladeguard-ancient-2` line 1: absent → Bladeguard Ancient 1-1
+- `ds-bladeguard-ancient-3` line 1: absent → Bladeguard Ancient 1-1
+- `ds-bladeguard-ancient-4` line 1: absent → Bladeguard Ancient 1-1
+- `ds-bladeguard-ancient-5` line 1: absent → Bladeguard Ancient 1-1
+- `ds-bladeguard-ancient-6` line 1: absent → Bladeguard Ancient 1-1
+- `ds-bladeguard-veteran-squad` line 1: absent → Bladeguard Veteran Sergeant 1-1
+- `ds-bladeguard-veteran-squad` line 2: absent → Bladeguard Veterans 2-5
+- `ds-bladeguard-veteran-squad-2` line 1: absent → Bladeguard Veteran Sergeant 1-1
+- `ds-bladeguard-veteran-squad-2` line 2: absent → Bladeguard Veterans 2-5
+- `ds-bladeguard-veteran-squad-3` line 1: absent → Bladeguard Veteran Sergeant 1-1
+- `ds-bladeguard-veteran-squad-3` line 2: absent → Bladeguard Veterans 2-5
+- `ds-bladeguard-veteran-squad-4` line 1: absent → Bladeguard Veteran Sergeant 1-1
+- `ds-bladeguard-veteran-squad-4` line 2: absent → Bladeguard Veterans 2-5
+- `ds-bladeguard-veteran-squad-5` line 1: absent → Bladeguard Veteran Sergeant 1-1
+- `ds-bladeguard-veteran-squad-5` line 2: absent → Bladeguard Veterans 2-5
+- `ds-bladeguard-veteran-squad-6` line 1: absent → Bladeguard Veteran Sergeant 1-1
+- `ds-bladeguard-veteran-squad-6` line 2: absent → Bladeguard Veterans 2-5
+- `ds-blightlord-terminators` line 1: absent → Blightlord Champion 1-1
+- `ds-blightlord-terminators` line 2: absent → Blightlord Terminators 2-9
+- `ds-blitza-bommer` line 1: absent → Blitza-bommer 1-1
+- `ds-blood-angels-captain` line 1: absent → Blood Angels Captain 1-1
+- `ds-blood-claws` line 1: absent → Blood Claw Pack Leader 1-1
+- `ds-blood-claws` line 2: absent → Blood Claws 9-19
+- `ds-blood-slaughterer` line 1: absent → Blood Slaughterer 1-1
+- `ds-blood-slaughterer-2` line 1: absent → Blood Slaughterer 1-1
+- `ds-bloodcrushers` line 1: absent → Bloodhunter 1-1
+- `ds-bloodcrushers` line 2: absent → Bloodcrushers 2-5
+- `ds-bloodcrushers-2` line 1: absent → Bloodhunter 1-1
+- `ds-bloodcrushers-2` line 2: absent → Bloodcrushers 2-5
+- `ds-bloodletters` line 1: absent → Bloodreaper 1-1
+- `ds-bloodletters` line 2: absent → Bloodletters 9-9
+- `ds-bloodletters-2` line 1: absent → Bloodreaper 1-1
+- `ds-bloodletters-2` line 2: absent → Bloodletters 9-9
+- `ds-bloodmaster` line 1: absent → Bloodmaster 1-1
+- `ds-bloodthirster` line 1: absent → Bloodthirster 1-1
+- `ds-bloodthirster-2` line 1: absent → Bloodthirster 1-1
+- `ds-blue-horrors` line 1: absent → Blue Horrors 10-10
+- `ds-blue-horrors-2` line 1: absent → Blue Horrors 10-10
+- `ds-bonesinger` line 1: absent → Bonesinger 1-1
+- `ds-boomdakka-snazzwagon` line 1: absent → Boomdakka Snazzwagon 1-1
+- `ds-boss-snikrot` line 1: absent → Boss Snikrot 1-1
+- `ds-boss-zagstruk` line 1: absent → Boss Zagstruk 1-1
+- `ds-boyz` line 1: absent → Boss Nob 1-1
+- `ds-boyz` line 2: absent → Boyz 9-19
+- `ds-breacher-team` line 1: absent → Breacher Fire Warrior Shas’ui 1-1
+- `ds-breacher-team` line 2: absent → Breacher Fire Warriors 9-9
+- `ds-breaka-boyz` line 1: absent → Boss Nob 1-1
+- `ds-breaka-boyz` line 2: absent → Breaka Boyz 5-5
+- `ds-broadside-battlesuits` line 1: absent → Broadside Shas’vre 1-1
+- `ds-broadside-battlesuits` line 2: absent → Broadside Shas’ui 0-2
+- `ds-brokhyr-iron-master` line 1: absent → Brôkhyr Iron-master 1-1
+- `ds-brokhyr-iron-master` line 2: absent → Ironkin Assistant 1-1
+- `ds-brokhyr-iron-master` line 3: absent → E-COGs* 3-3
+- `ds-brokhyr-thunderkyn` line 1: absent → Brôkhyr Thunderkyn 3-6
+- `ds-broodlord` line 1: absent → Broodlord 1-1
+- `ds-brother-captain` line 1: absent → Brother-Captain 1-1
+- `ds-brother-captain-stern` line 1: absent → Brother-Captain Stern 1-1
+- `ds-brother-corbulo` line 1: absent → Brother Corbulo 1-1
+- `ds-brotherhood-champion` line 1: absent → Brotherhood Champion 1-1
+- `ds-brotherhood-chaplain` line 1: absent → Brotherhood Chaplain 1-1
+- `ds-brotherhood-librarian` line 1: absent → Brotherhood Librarian 1-1
+- `ds-brotherhood-techmarine` line 1: absent → Brotherhood Techmarine 1-1
+- `ds-brotherhood-terminator-squad` line 1: absent → Justicar 1-1
+- `ds-brotherhood-terminator-squad` line 2: absent → Terminators 3-9
+- `ds-brutalis-dreadnought` line 1: absent → Brutalis Dreadnought 1-1
+- `ds-brutalis-dreadnought-2` line 1: absent → Brutalis Dreadnought 1-1
+- `ds-brutalis-dreadnought-3` line 1: absent → Brutalis Dreadnought 1-1
+- `ds-brutalis-dreadnought-4` line 1: absent → Brutalis Dreadnought 1-1
+- `ds-brutalis-dreadnought-5` line 1: absent → Brutalis Dreadnought 1-1
+- `ds-brutalis-dreadnought-6` line 1: absent → Brutalis Dreadnought 1-1
+- `ds-bullgryn-squad` line 1: absent → Bullgryn Bone ‘ead 1-1
+- `ds-bullgryn-squad` line 2: absent → Bullgryns 2-5
+- `ds-buri-aegnirssen` line 1: absent → Buri Aegnirssen 1-1
+- `ds-burna-bommer` line 1: absent → Burna-bommer 1-1
+- `ds-burna-boyz` line 1: absent → Spanners 1-2
+- `ds-burna-boyz` line 2: absent → Burna Boyz 4-8
+- `ds-burning-chariot` line 1: absent → Burning Chariot 1-1
+- `ds-caanok-var` line 1: absent → Caanok Var 1-1
+- `ds-cadian-castellan` line 1: absent → Cadian Castellan 1-1
+- `ds-cadian-castellan-2` line 1: absent → Cadian Castellan 1-1
+- `ds-cadian-command-squad` line 1: absent → Cadian Commander 1-1
+- `ds-cadian-command-squad` line 2: absent → Cadian Veteran Guardsmen 4-4
+- `ds-cadian-command-squad-2` line 1: absent → Cadian Commander 1-1
+- `ds-cadian-command-squad-2` line 2: absent → Cadian Veteran Guardsmen 4-4
+- `ds-cadian-heavy-weapons-squad` line 1: absent → Heavy Weapons Teams 3-3
+- `ds-cadian-heavy-weapons-squad-2` line 1: absent → Heavy Weapons Teams 3-3
+- `ds-cadian-recon-squad` line 1: absent → Recon Sergeant model 1-1
+- `ds-cadian-recon-squad` line 2: absent → Recon Trooper models 9-9
+- `ds-cadre-fireblade` line 1: absent → Cadre Fireblade 1-1
+- `ds-caestus-assault-ram` line 1: absent → Caestus Assault Ram 1-1
+- `ds-caladius-grav-tank` line 1: absent → Caladius Grav-tank 1-1
+- `ds-callidus-assassin` line 1: absent → Callidus Assassin 1-1
+- `ds-canis-rex` line 1: absent → Canis Rex 1-1
+- `ds-canis-wolfborn` line 1: absent → Canis Wolfborn 1-1
+- `ds-canoness` line 1: absent → Canoness 1-1
+- `ds-canoness-with-jump-pack` line 1: absent → Canoness With Jump Pack 1-1
+- `ds-canoptek-acanthrites` line 1: absent → Canoptek Acanthrites 3-6
+- `ds-canoptek-doomstalker` line 1: absent → Canoptek Doomstalker 1-1
+- `ds-canoptek-macrocytes` line 1: absent → Canoptek Macrocytes 5-5
+- `ds-canoptek-reanimator` line 1: absent → Canoptek Reanimator 1-1
+- `ds-canoptek-scarab-swarms` line 1: absent → Canoptek Scarab Swarms 3-6
+- `ds-canoptek-spyders` line 1: absent → Canoptek Spyders 1-2
+- `ds-canoptek-tomb-crawlers` line 1: absent → Canoptek Tomb Crawlers 2-2
+- `ds-canoptek-tomb-sentinel` line 1: absent → Canoptek Tomb Sentinel 1-1
+- `ds-canoptek-tomb-stalker` line 1: absent → Canoptek Tomb Stalker 1-1
+- `ds-canoptek-wraiths` line 1: absent → Canoptek Wraiths 3-6
+- `ds-captain` line 1: absent → Captain 1-1
+- `ds-captain-2` line 1: absent → Captain 1-1
+- `ds-captain-3` line 1: absent → Captain 1-1
+- `ds-captain-4` line 1: absent → Captain 1-1
+- `ds-captain-5` line 1: absent → Captain 1-1
+- `ds-captain-6` line 1: absent → Captain 1-1
+- `ds-captain-in-gravis-armour` line 1: absent → Captain in Gravis Armour 1-1
+- `ds-captain-in-gravis-armour-2` line 1: absent → Captain in Gravis Armour 1-1
+- `ds-captain-in-gravis-armour-3` line 1: absent → Captain in Gravis Armour 1-1
+- `ds-captain-in-gravis-armour-4` line 1: absent → Captain in Gravis Armour 1-1
+- `ds-captain-in-gravis-armour-5` line 1: absent → Captain in Gravis Armour 1-1
+- `ds-captain-in-gravis-armour-6` line 1: absent → Captain in Gravis Armour 1-1
+- `ds-captain-in-phobos-armour` line 1: absent → Captain in Phobos Armour 1-1
+- `ds-captain-in-phobos-armour-2` line 1: absent → Captain in Phobos Armour 1-1
+- `ds-captain-in-phobos-armour-3` line 1: absent → Captain in Phobos Armour 1-1
+- `ds-captain-in-phobos-armour-4` line 1: absent → Captain in Phobos Armour 1-1
+- `ds-captain-in-phobos-armour-5` line 1: absent → Captain in Phobos Armour 1-1
+- `ds-captain-in-phobos-armour-6` line 1: absent → Captain in Phobos Armour 1-1
+- `ds-captain-in-terminator-armour` line 1: absent → Captain in Terminator Armour 1-1
+- `ds-captain-in-terminator-armour-2` line 1: absent → Captain in Terminator Armour 1-1
+- `ds-captain-in-terminator-armour-3` line 1: absent → Captain in Terminator Armour 1-1
+- `ds-captain-in-terminator-armour-4` line 1: absent → Captain in Terminator Armour 1-1
+- `ds-captain-in-terminator-armour-5` line 1: absent → Captain in Terminator Armour 1-1
+- `ds-captain-in-terminator-armour-6` line 1: absent → Captain in Terminator Armour 1-1
+- `ds-captain-on-bike` line 1: absent → Captain on Bike 1-1
+- `ds-captain-titus` line 1: absent → Captain Titus 1-1
+- `ds-captain-tycho` line 1: absent → Captain Tycho 1-1
+- `ds-captain-with-jump-pack` line 1: absent → Captain with Jump Pack 1-1
+- `ds-captain-with-jump-pack-2` line 1: absent → Captain with Jump Pack 1-1
+- `ds-captain-with-jump-pack-3` line 1: absent → Captain with Jump Pack 1-1
+- `ds-captain-with-jump-pack-4` line 1: absent → Captain with Jump Pack 1-1
+- `ds-captain-with-jump-pack-5` line 1: absent → Captain with Jump Pack 1-1
+- `ds-captain-with-jump-pack-6` line 1: absent → Captain with Jump Pack 1-1
+- `ds-carab-culln-the-risen` line 1: absent → Carab Culln the Risen 1-1
+- `ds-carnifexes` line 1: absent → Carnifexes 1-2
+- `ds-carnodon` line 1: absent → Carnodon 1-1
+- `ds-carnodon-2` line 1: absent → Carnodon 1-1
+- `ds-castellan` line 1: absent → Castellan 1-1
+- `ds-castellan-crowe` line 1: absent → Castellan Crowe 1-1
+- `ds-castigator` line 1: absent → Castigator 1-1
+- `ds-catachan-command-squad` line 1: absent → Catachan Commander 1-1
+- `ds-catachan-command-squad` line 2: absent → Veteran Guardsmen 4-4
+- `ds-catachan-command-squad-2` line 1: absent → Catachan Commander 1-1
+- `ds-catachan-command-squad-2` line 2: absent → Veteran Guardsmen 4-4
+- `ds-catachan-heavy-weapons-squad` line 1: absent → Heavy Weapons Teams 3-3
+- `ds-catachan-heavy-weapons-squad-2` line 1: absent → Heavy Weapons Teams 3-3
+- `ds-catacomb-command-barge` line 1: absent → Catacomb Command Barge 1-1
+- `ds-cato-sicarius` line 1: absent → Cato Sicarius 1-1
+- `ds-celestian-insidiants` line 1: absent → Celestian Insidiant Superior 1-1
+- `ds-celestian-insidiants` line 2: absent → Celestian Insidiants 9-9
+- `ds-celestian-sacresant-aveline` line 1: absent → Celestian Sacresant Aveline 1-1
+- `ds-celestian-sacresants` line 1: absent → Sacresant Superior 1-1
+- `ds-celestian-sacresants` line 2: absent → Celestian Sacresants 4-9
+- `ds-centaur-light-carrier` line 1: absent → Centaur Light Carrier 1-1
+- `ds-centaur-light-carrier-2` line 1: absent → Centaur Light Carrier 1-1
+- `ds-centaur-rsv` line 1: absent → Centaur RSV 1-1
+- `ds-centaur-rsv-2` line 1: absent → Centaur RSV 1-1
+- `ds-centurion-assault-squad` line 1: absent → Assault Centurion Sergeant 1-1
+- `ds-centurion-assault-squad` line 2: absent → Assault Centurions 2-5
+- `ds-centurion-assault-squad-2` line 1: absent → Assault Centurion Sergeant 1-1
+- `ds-centurion-assault-squad-2` line 2: absent → Assault Centurions 2-5
+- `ds-centurion-assault-squad-3` line 1: absent → Assault Centurion Sergeant 1-1
+- `ds-centurion-assault-squad-3` line 2: absent → Assault Centurions 2-5
+- `ds-centurion-assault-squad-4` line 1: absent → Assault Centurion Sergeant 1-1
+- `ds-centurion-assault-squad-4` line 2: absent → Assault Centurions 2-5
+- `ds-centurion-assault-squad-5` line 1: absent → Assault Centurion Sergeant 1-1
+- `ds-centurion-assault-squad-5` line 2: absent → Assault Centurions 2-5
+- `ds-centurion-assault-squad-6` line 1: absent → Assault Centurion Sergeant 1-1
+- `ds-centurion-assault-squad-6` line 2: absent → Assault Centurions 2-5
+- `ds-centurion-devastator-squad` line 1: absent → Devastator Centurion Sergeant 1-1
+- `ds-centurion-devastator-squad` line 2: absent → Devastator Centurions 2-5
+- `ds-centurion-devastator-squad-2` line 1: absent → Devastator Centurion Sergeant 1-1
+- `ds-centurion-devastator-squad-2` line 2: absent → Devastator Centurions 2-5
+- `ds-centurion-devastator-squad-3` line 1: absent → Devastator Centurion Sergeant 1-1
+- `ds-centurion-devastator-squad-3` line 2: absent → Devastator Centurions 2-5
+- `ds-centurion-devastator-squad-4` line 1: absent → Devastator Centurion Sergeant 1-1
+- `ds-centurion-devastator-squad-4` line 2: absent → Devastator Centurions 2-5
+- `ds-centurion-devastator-squad-5` line 1: absent → Devastator Centurion Sergeant 1-1
+- `ds-centurion-devastator-squad-5` line 2: absent → Devastator Centurions 2-5
+- `ds-centurion-devastator-squad-6` line 1: absent → Devastator Centurion Sergeant 1-1
+- `ds-centurion-devastator-squad-6` line 2: absent → Devastator Centurions 2-5
+- `ds-cerastus-knight-acheron` line 1: absent → Cerastus Knight Acheron 1-1
+- `ds-cerastus-knight-atrapos` line 1: absent → Cerastus Knight Atrapos 1-1
+- `ds-cerastus-knight-castigator` line 1: absent → Cerastus Knight Castigator 1-1
+- `ds-cerastus-knight-lancer` line 1: absent → Cerastus Knight Lancer 1-1
+- `ds-cerberus` line 1: absent → Cerberus 1-1
+- `ds-cerberus-2` line 1: absent → Cerberus 1-1
+- `ds-cerberus-3` line 1: absent → Cerberus 1-1
+- `ds-cerberus-4` line 1: absent → Cerberus 1-1
+- `ds-cerberus-5` line 1: absent → Cerberus 1-1
+- `ds-changecaster` line 1: absent → Changecaster 1-1
+- `ds-chaos-acastus-knight-asterius` line 1: absent → Chaos Acastus Knight Asterius 1-1
+- `ds-chaos-acastus-knight-porphyrion` line 1: absent → Chaos Acastus Knight Porphyrion 1-1
+- `ds-chaos-bikers` line 1: absent → Biker Champion 1-1
+- `ds-chaos-bikers` line 2: absent → Chaos Bikers 2-5
+- `ds-chaos-cerastus-knight-acheron` line 1: absent → Chaos Cerastus Knight Acheron 1-1
+- `ds-chaos-cerastus-knight-atrapos` line 1: absent → Chaos Cerastus Knight Atrapos 1-1
+- `ds-chaos-cerastus-knight-castigator` line 1: absent → Chaos Cerastus Knight Castigator 1-1
+- `ds-chaos-cerastus-knight-lancer` line 1: absent → Chaos Cerastus Knight Lancer 1-1
+- `ds-chaos-deimos-predator` line 1: absent → Chaos Deimos Predator 1-1
+- `ds-chaos-land-raider` line 1: absent → Chaos Land Raider 1-1
+- `ds-chaos-land-raider-2` line 1: absent → Chaos Land Raider 1-1
+- `ds-chaos-land-raider-3` line 1: absent → Chaos Land Raider 1-1
+- `ds-chaos-land-raider-4` line 1: absent → Chaos Land Raider 1-1
+- `ds-chaos-land-raider-5` line 1: absent → Chaos Land Raider 1-1
+- `ds-chaos-lord` line 1: absent → Chaos Lord 1-1
+- `ds-chaos-lord-2` line 1: absent → Chaos Lord 1-1
+- `ds-chaos-lord-in-terminator-armour` line 1: absent → Chaos Lord in Terminator Armour 1-1
+- `ds-chaos-lord-in-terminator-armour-2` line 1: absent → Chaos Lord in Terminator Armour 1-1
+- `ds-chaos-lord-on-bike` line 1: absent → Chaos Lord on Bike 1-1
+- `ds-chaos-lord-on-disc-of-tzeentch` line 1: absent → Chaos Lord on Disc of Tzeentch 1-1
+- `ds-chaos-lord-on-disc-of-tzeentch-2` line 1: absent → Chaos Lord on Disc of Tzeentch 1-1
+- `ds-chaos-lord-on-disc-of-tzeentch-3` line 1: absent → Chaos Lord on Disc of Tzeentch 1-1
+- `ds-chaos-lord-on-juggernaut` line 1: absent → Chaos Lord on Juggernaut 1-1
+- `ds-chaos-lord-on-juggernaut-2` line 1: absent → Chaos Lord on Juggernaut 1-1
+- `ds-chaos-lord-on-palanquin-of-nurgle` line 1: absent → Chaos Lord on Palanquin of Nurgle 1-1
+- `ds-chaos-lord-on-palanquin-of-nurgle-2` line 1: absent → Chaos Lord on Palanquin of Nurgle 1-1
+- `ds-chaos-lord-on-palanquin-of-nurgle-3` line 1: absent → Chaos Lord on Palanquin of Nurgle 1-1
+- `ds-chaos-lord-on-steed-of-slaanesh` line 1: absent → Chaos Lord on Steed of Slaanesh 1-1
+- `ds-chaos-lord-on-steed-of-slaanesh-2` line 1: absent → Chaos Lord on Steed of Slaanesh 1-1
+- `ds-chaos-lord-with-jump-pack` line 1: absent → Chaos Lord 1-1
+- `ds-chaos-lord-with-jump-pack-2` line 1: absent → Chaos Lord 1-1
+- `ds-chaos-predator-annihilator` line 1: absent → Chaos Predator Annihilator 1-1
+- `ds-chaos-predator-annihilator-2` line 1: absent → Chaos Predator Annihilator 1-1
+- `ds-chaos-predator-annihilator-3` line 1: absent → Chaos Predator Annihilator 1-1
+- `ds-chaos-predator-annihilator-4` line 1: absent → Chaos Predator Annihilator 1-1
+- `ds-chaos-predator-destructor` line 1: absent → Chaos Predator Destructor 1-1
+- `ds-chaos-predator-destructor-2` line 1: absent → Chaos Predator Destructor 1-1
+- `ds-chaos-predator-destructor-3` line 1: absent → Chaos Predator Destructor 1-1
+- `ds-chaos-predator-destructor-4` line 1: absent → Chaos Predator Destructor 1-1
+- `ds-chaos-questoris-knight-magaera` line 1: absent → Chaos Questoris Knight Magaera 1-1
+- `ds-chaos-questoris-knight-styrix` line 1: absent → Chaos Questoris Knight Styrix 1-1
+- `ds-chaos-rhino` line 1: absent → Chaos Rhino 1-1
+- `ds-chaos-rhino-2` line 1: absent → Chaos Rhino 1-1
+- `ds-chaos-rhino-3` line 1: absent → Chaos Rhino 1-1
+- `ds-chaos-rhino-4` line 1: absent → Chaos Rhino 1-1
+- `ds-chaos-rhino-5` line 1: absent → Chaos Rhino 1-1
+- `ds-chaos-spawn` line 1: absent → Chaos Spawn 2-2
+- `ds-chaos-spawn-2` line 1: absent → Chaos Spawn 2-2
+- `ds-chaos-spawn-3` line 1: absent → Chaos Spawn 2-2
+- `ds-chaos-spawn-4` line 1: absent → Chaos Spawn 2-2
+- `ds-chaos-spawn-5` line 1: absent → Chaos Spawn 2-2
+- `ds-chaos-terminator-squad` line 1: absent → Terminator Champion 1-1
+- `ds-chaos-terminator-squad` line 2: absent → Chaos Terminators 4-9
+- `ds-chaos-terminator-squad-2` line 1: absent → Terminator Champion 1-1
+- `ds-chaos-terminator-squad-2` line 2: absent → Chaos Terminators 4-9
+- `ds-chaos-terminators` line 1: absent → Terminator Champion 1-1
+- `ds-chaos-terminators` line 2: absent → Chaos Terminators 4-4
+- `ds-chaos-terminators-2` line 1: absent → Terminator Champion 1-1
+- `ds-chaos-terminators-2` line 2: absent → Chaos Terminators 4-9
+- `ds-chaos-thunderhawk` line 1: absent → Chaos Thunderhawk 1-1
+- `ds-chaos-thunderhawk-2` line 1: absent → Chaos Thunderhawk 1-1
+- `ds-chaos-thunderhawk-3` line 1: absent → Chaos Thunderhawk 1-1
+- `ds-chaos-thunderhawk-4` line 1: absent → Chaos Thunderhawk 1-1
+- `ds-chaos-vindicator` line 1: absent → Chaos Vindicator 1-1
+- `ds-chaos-vindicator-2` line 1: absent → Chaos Vindicator 1-1
+- `ds-chaplain` line 1: absent → Chaplain 1-1
+- `ds-chaplain-2` line 1: absent → Chaplain 1-1
+- `ds-chaplain-3` line 1: absent → Chaplain 1-1
+- `ds-chaplain-4` line 1: absent → Chaplain 1-1
+- `ds-chaplain-5` line 1: absent → Chaplain 1-1
+- `ds-chaplain-6` line 1: absent → Chaplain 1-1
+- `ds-chaplain-cassius` line 1: absent → Chaplain Cassius 1-1
+- `ds-chaplain-grimaldus` line 1: absent → Chaplain Grimaldus 1-1
+- `ds-chaplain-grimaldus` line 2: absent → Cenobyte Servitors* 3-3
+- `ds-chaplain-in-terminator-armour` line 1: absent → Chaplain in Terminator Armour 1-1
+- `ds-chaplain-in-terminator-armour-2` line 1: absent → Chaplain in Terminator Armour 1-1
+- `ds-chaplain-in-terminator-armour-3` line 1: absent → Chaplain in Terminator Armour 1-1
+- `ds-chaplain-in-terminator-armour-4` line 1: absent → Chaplain in Terminator Armour 1-1
+- `ds-chaplain-in-terminator-armour-5` line 1: absent → Chaplain in Terminator Armour 1-1
+- `ds-chaplain-in-terminator-armour-6` line 1: absent → Chaplain in Terminator Armour 1-1
+- `ds-chaplain-on-bike` line 1: absent → Chaplain on Bike 1-1
+- `ds-chaplain-on-bike-2` line 1: absent → Chaplain on Bike 1-1
+- `ds-chaplain-on-bike-3` line 1: absent → Chaplain on Bike 1-1
+- `ds-chaplain-on-bike-4` line 1: absent → Chaplain on Bike 1-1
+- `ds-chaplain-on-bike-5` line 1: absent → Chaplain on Bike 1-1
+- `ds-chaplain-on-bike-6` line 1: absent → Chaplain on Bike 1-1
+- `ds-chaplain-venerable-dreadnought` line 1: absent → Chaplain Venerable Dreadnought 1-1
+- `ds-chaplain-with-jump-pack` line 1: absent → Chaplain with Jump Pack 1-1
+- `ds-chaplain-with-jump-pack-2` line 1: absent → Chaplain with Jump Pack 1-1
+- `ds-chaplain-with-jump-pack-3` line 1: absent → Chaplain with Jump Pack 1-1
+- `ds-chaplain-with-jump-pack-4` line 1: absent → Chaplain with Jump Pack 1-1
+- `ds-chaplain-with-jump-pack-5` line 1: absent → Chaplain with Jump Pack 1-1
+- `ds-chaplain-with-jump-pack-6` line 1: absent → Chaplain with Jump Pack 1-1
+- `ds-chief-librarian-mephiston` line 1: absent → Chief Librarian Mephiston 1-1
+- `ds-chief-librarian-tigurius` line 1: absent → Chief Librarian Tigurius 1-1
+- `ds-chimera` line 1: absent → Chimera 1-1
+- `ds-chimera-2` line 1: absent → Chimera 1-1
+- `ds-chinork-warkopta` line 1: absent → Chinork Warkopta 1-1
+- `ds-chosen` line 1: absent → Chosen Champion 1-1
+- `ds-chosen` line 2: absent → Chosen 4-9
+- `ds-chosen-2` line 1: absent → Chosen Champion 1-1
+- `ds-chosen-2` line 2: absent → Chosen 4-9
+- `ds-chronomancer` line 1: absent → Chronomancer 1-1
+- `ds-clamavus` line 1: absent → Clamavus 1-1
+- `ds-clanblade` line 1: absent → Clanblade model 1-1
+- `ds-cobra` line 1: absent → Cobra 1-1
+- `ds-colossus` line 1: absent → Colossus 1-1
+- `ds-colossus-2` line 1: absent → Colossus 1-1
+- `ds-command-squad` line 1: absent → Apothecary 1-1
+- `ds-command-squad` line 2: absent → Company Ancient 1-1
+- `ds-command-squad` line 3: absent → Company Champion 1-1
+- `ds-command-squad` line 4: absent → Company Veterans 2-2
+- `ds-commander-dante` line 1: absent → Commander Dante 1-1
+- `ds-commander-farsight` line 1: absent → Commander Farsight 1-1
+- `ds-commander-in-coldstar-battlesuit` line 1: absent → Commander in Coldstar Battlesuit 1-1
+- `ds-commander-in-crisis-battlesuit` line 1: absent → Commander in Crisis Battlesuit 1-1
+- `ds-commander-in-enforcer-battlesuit` line 1: absent → Commander in Enforcer Battlesuit 1-1
+- `ds-commander-shadowsun` line 1: absent → Commander Shadowsun 1-1
+- `ds-commissar` line 1: absent → Commissar 1-1
+- `ds-commissar-graves` line 1: absent → Commissar Graves 1-1
+- `ds-commissar-graves-on-foot` line 1: absent → Commissar Graves on Foot 1-1
+- `ds-commissar-yarrick` line 1: absent → Commissar Yarrick 1-1
+- `ds-company-champion-on-bike` line 1: absent → Company Champion on Bike 1-1
+- `ds-company-heroes` line 1: absent → Ancient 1-1
+- `ds-company-heroes` line 2: absent → Company Champion 1-1
+- `ds-company-heroes` line 3: absent → Company Veterans 2-2
+- `ds-company-heroes-2` line 1: absent → Ancient 1-1
+- `ds-company-heroes-2` line 2: absent → Company Champion 1-1
+- `ds-company-heroes-2` line 3: absent → Company Veterans 2-2
+- `ds-company-heroes-3` line 1: absent → Ancient 1-1
+- `ds-company-heroes-3` line 2: absent → Company Champion 1-1
+- `ds-company-heroes-3` line 3: absent → Company Veterans 2-2
+- `ds-company-heroes-4` line 1: absent → Ancient 1-1
+- `ds-company-heroes-4` line 2: absent → Company Champion 1-1
+- `ds-company-heroes-4` line 3: absent → Company Veterans 2-2
+- `ds-company-heroes-5` line 1: absent → Ancient 1-1
+- `ds-company-heroes-5` line 2: absent → Company Champion 1-1
+- `ds-company-heroes-5` line 3: absent → Company Veterans 2-2
+- `ds-company-heroes-6` line 1: absent → Ancient 1-1
+- `ds-company-heroes-6` line 2: absent → Company Champion 1-1
+- `ds-company-heroes-6` line 3: absent → Company Veterans 2-2
+- `ds-company-veterans-on-bikes` line 1: absent → Veteran Biker Sergeant 1-1
+- `ds-company-veterans-on-bikes` line 2: absent → Veteran Bikers 1-4
+- `ds-contemptor-achillus-dreadnought` line 1: absent → Contemptor-Achillus Dreadnought 1-1
+- `ds-contemptor-galatus-dreadnought` line 1: absent → Contemptor-Galatus Dreadnought 1-1
+- `ds-contorted-epitome` line 1: absent → Contorted Epitome 1-1
+- `ds-convergence-of-dominion` line 1: absent → Convergence of Dominion Starsteles 1-3
+- `ds-coronus-grav-carrier` line 1: absent → Coronus Grav-carrier 1-1
+- `ds-corpuscarii-electro-priests` line 1: absent → Corpuscarii Electro-Priests 5-10
+- `ds-corsair-cloud-dancer-band` line 1: absent → Cloud Dancer Felarch 0-1
+- `ds-corsair-cloud-dancer-band` line 2: absent → Corsair Cloud Dancers 3-6
+- `ds-corsair-cloud-dancer-band-2` line 1: absent → Cloud Dancer Felarch 0-1
+- `ds-corsair-cloud-dancer-band-2` line 2: absent → Corsair Cloud Dancers 3-6
+- `ds-corsair-reaver-band` line 1: absent → Corsair Reaver Felarch 0-1
+- `ds-corsair-reaver-band` line 2: absent → Corsair Reavers 5-10
+- `ds-corsair-reaver-band-2` line 1: absent → Corsair Reaver Felarch 0-1
+- `ds-corsair-reaver-band-2` line 2: absent → Corsair Reavers 5-10
+- `ds-corsair-skyreavers` line 1: absent → Skyreaver Felarch 1-1
+- `ds-corsair-skyreavers` line 2: absent → Skyreavers 4-9
+- `ds-corsair-skyreavers-2` line 1: absent → Skyreaver Felarch 1-1
+- `ds-corsair-skyreavers-2` line 2: absent → Skyreavers 4-9
+- `ds-corsair-voidreavers` line 1: absent → Voidreaver Felarch 1-1
+- `ds-corsair-voidreavers` line 2: absent → Corsair Voidreavers 4-9
+- `ds-corsair-voidreavers-2` line 1: absent → Voidreaver Felarch 1-1
+- `ds-corsair-voidreavers-2` line 2: absent → Corsair Voidreavers 4-9
+- `ds-corsair-voidscarred` line 1: absent → Voidscarred Felarch 1-1
+- `ds-corsair-voidscarred` line 2: absent → Corsair Voidscarred 4-9
+- `ds-corsair-voidscarred` line 3: absent → Shade Runner 0-1
+- `ds-corsair-voidscarred` line 4: absent → Soul Weaver 0-1
+- `ds-corsair-voidscarred` line 5: absent → Way Seeker 0-1
+- `ds-corsair-voidscarred-2` line 1: absent → Voidscarred Felarch 1-1
+- `ds-corsair-voidscarred-2` line 2: absent → Corsair Voidscarred 4-9
+- `ds-corsair-voidscarred-2` line 3: absent → Shade Runner 0-1
+- `ds-corsair-voidscarred-2` line 4: absent → Soul Weaver 0-1
+- `ds-corsair-voidscarred-2` line 5: absent → Way Seeker 0-1
+- `ds-corvus-blackstar` line 1: absent → Corvus Blackstar 1-1
+- `ds-corvus-blackstar-2` line 1: absent → Corvus Blackstar 1-1
+- `ds-court-of-the-archon` line 1: absent → Lhamaean 1-1
+- `ds-court-of-the-archon` line 2: absent → Medusae 1-1
+- `ds-court-of-the-archon` line 3: absent → Sslyth 1-1
+- `ds-court-of-the-archon` line 4: absent → Ur-ghul 1-1
+- `ds-crassus` line 1: absent → Crassus 1-1
+- `ds-crassus-2` line 1: absent → Crassus 1-1
+- `ds-crimson-hunter` line 1: absent → Crimson Hunter 1-1
+- `ds-crisis-battlesuits` line 1: absent → Crisis Shas’vre 1-1
+- `ds-crisis-battlesuits` line 2: absent → Crisis Shas’ui 2-5
+- `ds-crisis-fireknife-battlesuits` line 1: absent → Crisis Fireknife Shas’vre 1-1
+- `ds-crisis-fireknife-battlesuits` line 2: absent → Crisis Fireknife Shas’ui 2-2
+- `ds-crisis-starscythe-battlesuits` line 1: absent → Crisis Starscythe Shas’vre 1-1
+- `ds-crisis-starscythe-battlesuits` line 2: absent → Crisis Starscythe Shas’ui 2-2
+- `ds-crisis-sunforge-battlesuits` line 1: absent → Crisis Sunforge Shas’vre 1-1
+- `ds-crisis-sunforge-battlesuits` line 2: absent → Crisis Sunforge Shas’ui 2-2
+- `ds-cronos` line 1: absent → Cronos 1-2
+- `ds-crusade-ancient` line 1: absent → Crusade Ancient 1-1
+- `ds-crusader-squad` line 1: absent → Sword Brother 1-1
+- `ds-crusader-squad` line 2: absent → Initiates 5-11
+- `ds-crusader-squad` line 3: absent → Neophytes 4-8
+- `ds-crusaders` line 1: absent → Crusaders 2-4
+- `ds-cryptothralls` line 1: absent → Cryptothralls 2-2
+- `ds-ctan-shard-of-the-deceiver` line 1: absent → C’tan Shard of the Deceiver 1-1
+- `ds-ctan-shard-of-the-nightbringer` line 1: absent → C’tan Shard of the Nightbringer 1-1
+- `ds-ctan-shard-of-the-void-dragon` line 1: absent → C’tan Shard of the Void Dragon 1-1
+- `ds-cthonian-beserks` line 1: absent → Cthonian Beserks 5-10
+- `ds-cthonian-earthshakers` line 1: absent → Cthonian Earthshakers 2-2
+- `ds-culexus-assassin` line 1: absent → Culexus Assassin 1-1
+- `ds-cultist-firebrand` line 1: absent → Cultist Firebrand 1-1
+- `ds-cultist-firebrand-2` line 1: absent → Cultist Firebrand 1-1
+- `ds-cultist-firebrand-3` line 1: absent → Cultist Firebrand 1-1
+- `ds-cultist-mob` line 1: absent → Cultist Champion 1-1
+- `ds-cultist-mob` line 2: absent → Chaos Cultists 9-19
+- `ds-cultist-mob-2` line 1: absent → Cultist Champion 1-1
+- `ds-cultist-mob-2` line 2: absent → Chaos Cultists 9-19
+- `ds-cultist-mob-3` line 1: absent → Cultist Champion 1-1
+- `ds-cultist-mob-3` line 2: absent → Chaos Cultists 9-19
+- `ds-cultist-mob-with-firearms` line 1: absent → Cultist Champion 1-1
+- `ds-cultist-mob-with-firearms` line 2: absent → Chaos Cultists 9-19
+- `ds-cultist-mob-with-firearms-2` line 1: absent → Cultist Champion 1-1
+- `ds-cultist-mob-with-firearms-2` line 2: absent → Chaos Cultists 9-19
+- `ds-cultist-mob-with-firearms-3` line 1: absent → Cultist Champion 1-1
+- `ds-cultist-mob-with-firearms-3` line 2: absent → Chaos Cultists 9-19
+- `ds-custodian-guard` line 1: absent → Custodian Guard 4-5
+- `ds-custodian-guard-with-adrasite-and-pyrithite-spears` line 1: absent → Custodian Guard with Adrasite and Pyrithite Spears 5-5
+- `ds-custodian-wardens` line 1: absent → Custodian Wardens 4-5
+- `ds-cybernetica-datasmith` line 1: absent → Cybernetica Datasmith 1-1
+- `ds-cyberwolf` line 1: absent → Cyberwolf 1-1
+- `ds-cyclops-demolition-vehicle` line 1: absent → Cyclops Demolition Vehicle 1-1
+- `ds-cyclops-demolition-vehicle-2` line 1: absent → Cyclops Demolition Vehicle 1-1
+- `ds-cypher` line 1: absent → Cypher 1-1
+- `ds-d-cannon-platform` line 1: absent → D-cannon Platform 1-1
+- `ds-da-red-gobbo` line 1: absent → Da Red Gobbo 1-1
+- `ds-daemon-prince-of-chaos` line 1: absent → Daemon Prince of Chaos 1-1
+- `ds-daemon-prince-of-chaos-with-wings` line 1: absent → Daemon Prince of Chaos with Wings 1-1
+- `ds-daemon-prince-of-khorne` line 1: absent → Daemon Prince of Khorne 1-1
+- `ds-daemon-prince-of-khorne-with-wings` line 1: absent → Daemon Prince of Khorne with Wings 1-1
+- `ds-daemon-prince-of-nurgle` line 1: absent → Daemon Prince of Nurgle 1-1
+- `ds-daemon-prince-of-nurgle-with-wings` line 1: absent → Daemon Prince of Nurgle with Wings 1-1
+- `ds-daemon-prince-of-slaanesh` line 1: absent → Daemon Prince of Slaanesh 1-1
+- `ds-daemon-prince-of-slaanesh-with-wings` line 1: absent → Daemon Prince of Slaanesh with Wings 1-1
+- `ds-daemon-prince-of-tzeentch` line 1: absent → Daemon Prince of Tzeentch 1-1
+- `ds-daemon-prince-of-tzeentch-with-wings` line 1: absent → Daemon Prince of Tzeentch with Wings 1-1
+- `ds-daemonettes` line 1: absent → Alluress 1-1
+- `ds-daemonettes` line 2: absent → Daemonettes 9-9
+- `ds-daemonettes-2` line 1: absent → Alluress 1-1
+- `ds-daemonettes-2` line 2: absent → Daemonettes 9-9
+- `ds-daemonhost` line 1: absent → Daemonhosts 1-2
+- `ds-daemonifuge` line 1: absent → Ephrael Stern 1-1
+- `ds-daemonifuge` line 2: absent → Kyganil of the Bloody Tears 1-1
+- `ds-dakkajet` line 1: absent → Dakkajet 1-1
+- `ds-damned-legionnaires` line 1: absent → Legionnaire Sergeant 1-1
+- `ds-damned-legionnaires` line 2: absent → Legionnaires 4-9
+- `ds-dark-apostle` line 1: absent → Dark Apostle 1-1
+- `ds-dark-apostle` line 2: absent → Dark Disciples 2-2
+- `ds-dark-apostle-2` line 1: absent → Dark Apostle 1-1
+- `ds-dark-apostle-2` line 2: absent → Dark Disciples 2-2
+- `ds-dark-commune` line 1: absent → Cult Demagogue 1-1
+- `ds-dark-commune` line 2: absent → Mindwitch 1-1
+- `ds-dark-commune` line 3: absent → Iconarch 1-1
+- `ds-dark-commune` line 4: absent → Blessed Blades 2-2
+- `ds-dark-commune-2` line 1: absent → Cult Demagogue 1-1
+- `ds-dark-commune-2` line 2: absent → Mindwitch 1-1
+- `ds-dark-commune-2` line 3: absent → Iconarch 1-1
+- `ds-dark-commune-2` line 4: absent → Blessed Blades 2-2
+- `ds-dark-commune-3` line 1: absent → Cult Demagogue 1-1
+- `ds-dark-commune-3` line 2: absent → Mindwitch 1-1
+- `ds-dark-commune-3` line 3: absent → Iconarch 1-1
+- `ds-dark-commune-3` line 4: absent → Blessed Blades 2-2
+- `ds-dark-reapers` line 1: absent → Dark Reaper Exarch 1-1
+- `ds-dark-reapers` line 2: absent → Dark Reapers 4-9
+- `ds-darkstrider` line 1: absent → Darkstrider 1-1
+- `ds-darnath-lysander` line 1: absent → Darnath Lysander 1-1
+- `ds-death-company-captain` line 1: absent → Death Company Captain 1-1
+- `ds-death-company-captain-with-jump-pack` line 1: absent → Death Company Captain with Jump Pack 1-1
+- `ds-death-company-dreadnought` line 1: absent → Death Company Dreadnought 1-1
+- `ds-death-company-dreadnought-with-magna-grapple` line 1: absent → Death Company Dreadnought 1-1
+- `ds-death-company-marines` line 1: absent → Death Company Marines 5-10
+- `ds-death-company-marines-with-bolt-rifles` line 1: absent → Death Company Marines with Bolt Rifles 5-10
+- `ds-death-company-marines-with-boltguns` line 1: absent → Death Company Marines 5-10
+- `ds-death-company-marines-with-boltguns-and-jump-packs` line 1: absent → Death Company Marines with Jump Packs 5-10
+- `ds-death-company-marines-with-jump-packs` line 1: absent → Death Company Marines with Jump Packs 5-10
+- `ds-death-cult-assassins` line 1: absent → Death Cult Assassins 2-4
+- `ds-death-guard-chaos-lord` line 1: absent → Death Guard Chaos Lord 1-1
+- `ds-death-guard-chaos-lord-in-terminator-armour` line 1: absent → Death Guard Chaos Lord in Terminator Armour 1-1
+- `ds-death-guard-cultists` line 1: absent → Death Guard Cultist Champion 1-1
+- `ds-death-guard-cultists` line 2: absent → Death Guard Cultists 9-19
+- `ds-death-guard-possessed` line 1: absent → Possessed Champion 1-1
+- `ds-death-guard-possessed` line 2: absent → Possessed 4-9
+- `ds-death-guard-sorcerer-in-terminator-armour` line 1: absent → Death Guard Sorcerer in Terminator Armour 1-1
+- `ds-death-jester` line 1: absent → Death Jester 1-1
+- `ds-death-jester-2` line 1: absent → Death Jester 1-1
+- `ds-death-rider-commissar` line 1: absent → Death Rider Commissar 1-1
+- `ds-death-rider-commissar-2` line 1: absent → Death Rider Commissar 1-1
+- `ds-death-riders` line 1: absent → Ridemaster 1-1
+- `ds-death-riders` line 2: absent → Death Riders 4-9
+- `ds-death-riders-2` line 1: absent → Ridemaster 1-1
+- `ds-death-riders-2` line 2: absent → Death Riders 4-9
+- `ds-deathleaper` line 1: absent → Deathleaper 1-1
+- `ds-deathleaper-2` line 1: absent → Deathleaper 1-1
+- `ds-deathmarks` line 1: absent → Deathmarks 5-10
+- `ds-deathshroud-terminators` line 1: absent → Deathshroud Champion 1-1
+- `ds-deathshroud-terminators` line 2: absent → Deathshroud Terminators 2-5
+- `ds-deathstorm-drop-pod` line 1: absent → Deathstorm Drop Pod 1-1
+- `ds-deathstrike` line 1: absent → Deathstrike 1-1
+- `ds-deathstrike-2` line 1: absent → Deathstrike 1-1
+- `ds-deathwatch-kill-team` line 1: absent → Watch Sergeant 1-1
+- `ds-deathwatch-kill-team` line 2: absent → Deathwatch Veterans 4-9
+- `ds-deathwatch-terminator-squad` line 1: absent → Deathwatch Terminator Sergeant 1-1
+- `ds-deathwatch-terminator-squad` line 2: absent → Deathwatch Terminators 4-9
+- `ds-deathwatch-terminator-squad-2` line 1: absent → Deathwatch Terminator Sergeant 1-1
+- `ds-deathwatch-terminator-squad-2` line 2: absent → Deathwatch Terminators 4-9
+- `ds-deathwatch-veterans` line 1: absent → Watch Sergeant 1-1
+- `ds-deathwatch-veterans` line 2: absent → Deathwatch Veterans 4-9
+- `ds-deathwing-command-squad` line 1: absent → Deathwing Ancient 1-1
+- `ds-deathwing-command-squad` line 2: absent → Deathwing Apothecary 1-1
+- `ds-deathwing-command-squad` line 3: absent → Deathwing Champion 1-1
+- `ds-deathwing-command-squad` line 4: absent → Deathwing Command Terminators 2-7
+- `ds-deathwing-knights` line 1: absent → Knight Master 1-1
+- `ds-deathwing-knights` line 2: absent → Deathwing Knights 4-4
+- `ds-deathwing-strikemaster` line 1: absent → Deathwing Strikemaster 1-1
+- `ds-deathwing-terminator-squad` line 1: absent → Deathwing Sergeant 1-1
+- `ds-deathwing-terminator-squad` line 2: absent → Deathwing Terminators 4-9
+- `ds-decimator` line 1: absent → Decimator 1-1
+- `ds-decimus-kill-team` line 1: absent → Kill Team Sergeant 1-1
+- `ds-decimus-kill-team` line 2: absent → Gravis Veteran 1-1
+- `ds-decimus-kill-team` line 3: absent → Deathwatch Veterans 3-3
+- `ds-decimus-kill-team` line 4: absent → Kill Team Sergeant 1-1
+- `ds-decimus-kill-team` line 5: absent → Gravis Veterans 2-2
+- `ds-decimus-kill-team` line 6: absent → Deathwatch Veterans 7-7
+- `ds-deff-dread` line 1: absent → Deff Dread 1-1
+- `ds-deff-rolla-battle-fortress` line 1: absent → Deff Rolla Battle Fortress 1-1
+- `ds-deffkilla-wartrike` line 1: absent → Defkilla Wartrike 1-1
+- `ds-deffkoptas` line 1: absent → Deffkoptas 3-6
+- `ds-deffkoptas-with-big-shootas` line 1: absent → Deffkoptas with Big Shootas 3-3
+- `ds-defiler` line 1: absent → Defiler 1-1
+- `ds-defiler-2` line 1: absent → Defiler 1-1
+- `ds-defiler-3` line 1: absent → Defiler 1-1
+- `ds-defiler-4` line 1: absent → Defiler 1-1
+- `ds-defiler-5` line 1: absent → Defiler 1-1
+- `ds-deimos-predator` line 1: absent → Deimos Predator 1-1
+- `ds-deredeo-dreadnought` line 1: absent → Deredeo Dreadnought 1-1
+- `ds-deredeo-dreadnought-2` line 1: absent → Deredeo Dreadnought 1-1
+- `ds-deredeo-dreadnought-3` line 1: absent → Deredeo Dreadnought 1-1
+- `ds-deredeo-dreadnought-4` line 1: absent → Deredeo Dreadnought 1-1
+- `ds-deredeo-dreadnought-5` line 1: absent → Deredeo Dreadnought 1-1
+- `ds-desolation-squad` line 1: absent → Desolation Sergeant 1-1
+- `ds-desolation-squad` line 2: absent → Desolation Marines 4-4
+- `ds-desolation-squad-2` line 1: absent → Desolation Sergeant 1-1
+- `ds-desolation-squad-2` line 2: absent → Desolation Marines 4-4
+- `ds-desolation-squad-3` line 1: absent → Desolation Sergeant 1-1
+- `ds-desolation-squad-3` line 2: absent → Desolation Marines 4-4
+- `ds-desolation-squad-4` line 1: absent → Desolation Sergeant 1-1
+- `ds-desolation-squad-4` line 2: absent → Desolation Marines 4-4
+- `ds-desolation-squad-5` line 1: absent → Desolation Sergeant 1-1
+- `ds-desolation-squad-5` line 2: absent → Desolation Marines 4-4
+- `ds-desolation-squad-6` line 1: absent → Desolation Sergeant 1-1
+- `ds-desolation-squad-6` line 2: absent → Desolation Marines 4-4
+- `ds-devastator-squad` line 1: absent → Devastator Sergeant 1-1
+- `ds-devastator-squad` line 2: absent → Devastator Marines 4-9
+- `ds-devastator-squad-2` line 1: absent → Devastator Sergeant 1-1
+- `ds-devastator-squad-2` line 2: absent → Devastator Marines 4-9
+- `ds-devastator-squad-3` line 1: absent → Devastator Sergeant 1-1
+- `ds-devastator-squad-3` line 2: absent → Devastator Marines 4-9
+- `ds-devastator-squad-4` line 1: absent → Devastator Sergeant 1-1
+- `ds-devastator-squad-4` line 2: absent → Devastator Marines 4-9
+- `ds-devilfish` line 1: absent → Devilfish 1-1
+- `ds-dialogus` line 1: absent → Dialogus 1-1
+- `ds-dimachaeron` line 1: absent → Dimachaeron 1-1
+- `ds-dire-avengers` line 1: absent → Dire Avenger Exarch 1-1
+- `ds-dire-avengers` line 2: absent → Dire Avengers 4-9
+- `ds-dogmata` line 1: absent → Dogmata 1-1
+- `ds-dominion-squad` line 1: absent → Dominion Superior 1-1
+- `ds-dominion-squad` line 2: absent → Dominions 9-9
+- `ds-dominus-armoured-siege-bombard` line 1: absent → Dominus Armoured Siege Bombard 1-1
+- `ds-dominus-armoured-siege-bombard-2` line 1: absent → Dominus Armoured Siege Bombard 1-1
+- `ds-doom-scythe` line 1: absent → Doom Scythe 1-1
+- `ds-doomhammer` line 1: absent → Doomhammer 1-1
+- `ds-doomhammer-2` line 1: absent → Doomhammer 1-1
+- `ds-doomsday-ark` line 1: absent → Doomsday Ark 1-1
+- `ds-dragon-knights` line 1: absent → Dragon Knight Leader model 1-1
+- `ds-dragon-knights` line 2: absent → Dragon Knights models 2-5
+- `ds-drazhar` line 1: absent → Drazhar 1-1
+- `ds-dreadclaw-drop-pod` line 1: absent → Dreadclaw Drop Pod 1-1
+- `ds-dreadnought` line 1: absent → Dreadnought 1-1
+- `ds-dreadnought-2` line 1: absent → Dreadnought 1-1
+- `ds-dreadnought-3` line 1: absent → Dreadnought 1-1
+- `ds-dreadnought-4` line 1: absent → Dreadnought 1-1
+- `ds-dreadnought-5` line 1: absent → Dreadnought 1-1
+- `ds-dreadnought-6` line 1: absent → Dreadnought 1-1
+- `ds-dreadnought-drop-pod` line 1: absent → Dreadnought Drop Pod 1-1
+- `ds-drone-sentry-turret` line 1: absent → Drone Sentry Turret 1-1
+- `ds-drop-pod` line 1: absent → Drop Pod 1-1
+- `ds-drop-pod-2` line 1: absent → Drop Pod 1-1
+- `ds-drop-pod-3` line 1: absent → Drop Pod 1-1
+- `ds-drop-pod-4` line 1: absent → Drop Pod 1-1
+- `ds-drop-pod-5` line 1: absent → Drop Pod 1-1
+- `ds-drop-pod-6` line 1: absent → Drop Pod 1-1
+- `ds-earthshaker-carriage-battery` line 1: absent → Earthshaker Carriage 1-1
+- `ds-earthshaker-carriage-battery-2` line 1: absent → Earthshaker Carriage 1-1
+- `ds-earthshaker-platform` line 1: absent → Earthshaker Platform 1-1
+- `ds-earthshaker-platform-2` line 1: absent → Earthshaker Platform 1-1
+- `ds-eightbound` line 1: absent → Eightbound Champion 1-1
+- `ds-eightbound` line 2: absent → Eightbound 2-5
+- `ds-einhyr-champion` line 1: absent → Einhyr Champion 1-1
+- `ds-einhyr-hearthguard` line 1: absent → Hesyr 1-1
+- `ds-einhyr-hearthguard` line 2: absent → Hearthguard 4-9
+- `ds-eldrad-ulthran` line 1: absent → Eldrad Ulthran 1-1
+- `ds-eliminator-squad` line 1: absent → Eliminator Sergeant 1-1
+- `ds-eliminator-squad` line 2: absent → Eliminators 2-2
+- `ds-eliminator-squad-2` line 1: absent → Eliminator Sergeant 1-1
+- `ds-eliminator-squad-2` line 2: absent → Eliminators 2-2
+- `ds-eliminator-squad-3` line 1: absent → Eliminator Sergeant 1-1
+- `ds-eliminator-squad-3` line 2: absent → Eliminators 2-2
+- `ds-eliminator-squad-4` line 1: absent → Eliminator Sergeant 1-1
+- `ds-eliminator-squad-4` line 2: absent → Eliminators 2-2
+- `ds-eliminator-squad-5` line 1: absent → Eliminator Sergeant 1-1
+- `ds-eliminator-squad-5` line 2: absent → Eliminators 2-2
+- `ds-eliminator-squad-6` line 1: absent → Eliminator Sergeant 1-1
+- `ds-eliminator-squad-6` line 2: absent → Eliminators 2-2
+- `ds-elysian-drop-sentinel` line 1: absent → Elysian Drop Sentinel 1-1
+- `ds-elysian-drop-sentinel-2` line 1: absent → Elysian Drop Sentinel 1-1
+- `ds-elysian-sniper-squad` line 1: absent → Elysian Sniper Teams 3-3
+- `ds-elysian-sniper-squad-2` line 1: absent → Elysian Sniper Teams 3-3
+- `ds-emperors-champion` line 1: absent → Emperor’s Champion 1-1
+- `ds-epidemius` line 1: absent → Epidemius 1-1
+- `ds-eradicator-squad` line 1: absent → Eradicator Sergeant 1-1
+- `ds-eradicator-squad` line 2: absent → Eradicators 2-5
+- `ds-eradicator-squad-2` line 1: absent → Eradicator Sergeant 1-1
+- `ds-eradicator-squad-2` line 2: absent → Eradicators 2-5
+- `ds-eradicator-squad-3` line 1: absent → Eradicator Sergeant 1-1
+- `ds-eradicator-squad-3` line 2: absent → Eradicators 2-5
+- `ds-eradicator-squad-4` line 1: absent → Eradicator Sergeant 1-1
+- `ds-eradicator-squad-4` line 2: absent → Eradicators 2-5
+- `ds-eradicator-squad-5` line 1: absent → Eradicator Sergeant 1-1
+- `ds-eradicator-squad-5` line 2: absent → Eradicators 2-5
+- `ds-eradicator-squad-6` line 1: absent → Eradicator Sergeant 1-1
+- `ds-eradicator-squad-6` line 2: absent → Eradicators 2-5
+- `ds-eradicator-squad-with-heavy-bolters` line 1: absent → Eradicator Sergeant 1-1
+- `ds-eradicator-squad-with-heavy-bolters` line 2: absent → Eradicators 2-2
+- `ds-eradicator-squad-with-heavy-bolters-2` line 1: absent → Eradicator Sergeant 1-1
+- `ds-eradicator-squad-with-heavy-bolters-2` line 2: absent → Eradicators 2-2
+- `ds-eradicator-squad-with-heavy-bolters-3` line 1: absent → Eradicator Sergeant 1-1
+- `ds-eradicator-squad-with-heavy-bolters-3` line 2: absent → Eradicators 2-2
+- `ds-eradicator-squad-with-heavy-bolters-4` line 1: absent → Eradicator Sergeant 1-1
+- `ds-eradicator-squad-with-heavy-bolters-4` line 2: absent → Eradicators 2-2
+- `ds-eradicator-squad-with-heavy-bolters-5` line 1: absent → Eradicator Sergeant 1-1
+- `ds-eradicator-squad-with-heavy-bolters-5` line 2: absent → Eradicators 2-2
+- `ds-eradicator-squad-with-heavy-bolters-6` line 1: absent → Eradicator Sergeant 1-1
+- `ds-eradicator-squad-with-heavy-bolters-6` line 2: absent → Eradicators 2-2
+- `ds-ethereal` line 1: absent → Ethereal 1-1
+- `ds-eversor-assassin` line 1: absent → Eversor Assassin 1-1
+- `ds-exaction-squad` line 1: absent → Proctor-Exactant 1-1
+- `ds-exaction-squad` line 2: absent → Exaction Vigilants 9-9
+- `ds-exaction-squad` line 3: absent → Cyber-mastiff 1-1
+- `ds-exalted-champion` line 1: absent → Exalted Champion 1-1
+- `ds-exalted-eightbound` line 1: absent → Exalted Eightbound Champion 1-1
+- `ds-exalted-eightbound` line 2: absent → Exalted Eightbound 2-5
+- `ds-exalted-flamer` line 1: absent → Exalted Flamer 1-1
+- `ds-exalted-sorcerer` line 1: absent → Exalted Sorcerer 1-1
+- `ds-exalted-sorcerer-on-disc-of-tzeentch` line 1: absent → Exalted Sorcerer 1-1
+- `ds-execrator` line 1: absent → Execrator 1-1
+- `ds-exocrine` line 1: absent → Exocrine 1-1
+- `ds-exorcist` line 1: absent → Exorcist 1-1
+- `ds-ezekiel` line 1: absent → Ezekiel 1-1
+- `ds-fabius-bile` line 1: absent → Fabius Bile 1-1
+- `ds-fabius-bile` line 2: absent → Surgeon Acolyte 1-1
+- `ds-falchion` line 1: absent → Falchion 1-1
+- `ds-falchion-2` line 1: absent → Falchion 1-1
+- `ds-falchion-3` line 1: absent → Falchion 1-1
+- `ds-falchion-4` line 1: absent → Falchion 1-1
+- `ds-falchion-5` line 1: absent → Falchion 1-1
+- `ds-falcon` line 1: absent → Falcon 1-1
+- `ds-farseer` line 1: absent → Farseer 1-1
+- `ds-farseer-skyrunner` line 1: absent → Farseer Skyrunner 1-1
+- `ds-fateskimmer` line 1: absent → Fateskimmer 1-1
+- `ds-feculent-gnarlmaw` line 1: absent → Feculent Gnarlmaw 1-1
+- `ds-fellblade` line 1: absent → Fellblade 1-1
+- `ds-fellblade-2` line 1: absent → Fellblade 1-1
+- `ds-fellblade-3` line 1: absent → Fellblade 1-1
+- `ds-fellblade-4` line 1: absent → Fellblade 1-1
+- `ds-fellblade-5` line 1: absent → Fellblade 1-1
+- `ds-fellgor-beastmen` line 1: absent → Fellgor Champion 1-1
+- `ds-fellgor-beastmen` line 2: absent → Fellgor Beastmen 9-9
+- `ds-fellgor-beastmen-2` line 1: absent → Fellgor Champion 1-1
+- `ds-fellgor-beastmen-2` line 2: absent → Fellgor Beastmen 9-9
+- `ds-fellgor-beastmen-3` line 1: absent → Fellgor Champion 1-1
+- `ds-fellgor-beastmen-3` line 2: absent → Fellgor Beastmen 9-9
+- `ds-fenrisian-wolves` line 1: absent → Fenrisian Wolves 5-10
+- `ds-ferren-areios` line 1: absent → Ferren Areios 1-1
+- `ds-field-ordnance-battery` line 1: absent → Ordnance Teams 2-2
+- `ds-field-ordnance-battery-2` line 1: absent → Ordnance Teams 2-2
+- `ds-fiends` line 1: absent → Blissbringer 1-1
+- `ds-fiends` line 2: absent → Fiends 2-5
+- `ds-fiends-2` line 1: absent → Blissbringer 1-1
+- `ds-fiends-2` line 2: absent → Fiends 2-5
+- `ds-fighta-bommer` line 1: absent → Fighta-Bommer 1-1
+- `ds-fire-dragons` line 1: absent → Fire Dragon Exarch 1-1
+- `ds-fire-dragons` line 2: absent → Fire Dragons 4-9
+- `ds-fire-prism` line 1: absent → Fire Prism 1-1
+- `ds-fire-raptor-gunship` line 1: absent → Fire Raptor Gunship 1-1
+- `ds-fire-raptor-gunship-2` line 1: absent → Fire Raptor Gunship 1-1
+- `ds-fire-raptor-gunship-3` line 1: absent → Fire Raptor Gunship 1-1
+- `ds-fire-raptor-gunship-4` line 1: absent → Fire Raptor Gunship 1-1
+- `ds-fire-raptor-gunship-5` line 1: absent → Fire Raptor Gunship 1-1
+- `ds-firesight-team` line 1: absent → Firesight Marksman 1-1
+- `ds-firestorm` line 1: absent → Firestorm 1-1
+- `ds-firestrike-servo-turrets` line 1: absent → Firestrike Servo-turrets 1-2
+- `ds-firestrike-servo-turrets-2` line 1: absent → Firestrike Servo-turrets 1-2
+- `ds-firestrike-servo-turrets-3` line 1: absent → Firestrike Servo-turrets 1-2
+- `ds-firestrike-servo-turrets-4` line 1: absent → Firestrike Servo-turrets 1-2
+- `ds-firestrike-servo-turrets-5` line 1: absent → Firestrike Servo-turrets 1-2
+- `ds-firestrike-servo-turrets-6` line 1: absent → Firestrike Servo-turrets 1-2
+- `ds-flamers` line 1: absent → Pyrocaster 1-1
+- `ds-flamers` line 2: absent → Flamers 2-5
+- `ds-flamers-2` line 1: absent → Pyrocaster 1-1
+- `ds-flamers-2` line 2: absent → Flamers 2-5
+- `ds-flash-gitz` line 1: absent → Kaptin 1-1
+- `ds-flash-gitz` line 2: absent → Flash Gitz 4-9
+- `ds-flawless-blades` line 1: absent → Flawless Blades 3-6
+- `ds-flayed-ones` line 1: absent → Flayed Ones 5-10
+- `ds-flesh-hounds` line 1: absent → Gore Hound 1-1
+- `ds-flesh-hounds` line 2: absent → Flesh Hounds 4-9
+- `ds-flesh-hounds-2` line 1: absent → Gore Hound 1-1
+- `ds-flesh-hounds-2` line 2: absent → Flesh Hounds 4-9
+- `ds-fluxmaster` line 1: absent → Fluxmaster 1-1
+- `ds-foetid-bloat-drone` line 1: absent → Foetid Bloat-drone 1-1
+- `ds-foetid-bloat-drone-with-heavy-blight-launcher` line 1: absent → Foetid Bloat-drone 1-1
+- `ds-forgefiend` line 1: absent → Forgefiend 1-1
+- `ds-forgefiend-2` line 1: absent → Forgefiend 1-1
+- `ds-forgefiend-3` line 1: absent → Forgefiend 1-1
+- `ds-fortis-kill-team` line 1: absent → MODELS MAXIMUM 10-10
+- `ds-fortis-kill-team` line 2: absent → Kill Team Sergeant 1-1
+- `ds-fortis-kill-team` line 3: absent → Kill Team Intercessors 2-9
+- `ds-fortis-kill-team` line 4: absent → Kill Team Intercessors with plasma incinerators 0-4
+- `ds-fortis-kill-team` line 5: absent → Kill Team Intercessors with heavy bolt pistols 0-4
+- `ds-fortis-kill-team` line 6: absent → Kill Team Intercessors with pyreblasters 0-4
+- `ds-fortis-kill-team` line 7: absent → Kill Team Intercessors with superfrag rocket launchers 0-2
+- `ds-fortis-kill-team-2` line 1: absent → MODELS MAXIMUM 10-10
+- `ds-fortis-kill-team-2` line 2: absent → Kill Team Intercessors 5-10
+- `ds-fortis-kill-team-2` line 3: absent → Kill Team Intercessors with plasma incinerators 0-4
+- `ds-fortis-kill-team-2` line 4: absent → Kill Team Intercessors with heavy bolt pistols 0-4
+- `ds-fortis-kill-team-2` line 5: absent → Kill Team Outriders 0-2
+- `ds-foul-blightspawn` line 1: absent → Foul Blightspawn 1-1
+- `ds-fuegan` line 1: absent → Fuegan 1-1
+- `ds-fulgrim` line 1: absent → Fulgrim 1-1
+- `ds-fulgurite-electro-priests` line 1: absent → Fulgurite Electro-Priests 5-10
+- `ds-furies` line 1: absent → Furies 5-10
+- `ds-furioso-dreadnought` line 1: absent → Furioso Dreadnought 1-1
+- `ds-gabriel-seth` line 1: absent → Gabriel Seth 1-1
+- `ds-gargantuan-squiggoth` line 1: absent → Gargantuan Squiggoth 1-1
+- `ds-gargoyles` line 1: absent → Gargoyles 10-20
+- `ds-gargoyles-2` line 1: absent → Gargoyles 10-20
+- `ds-gaunts-ghosts` line 1: absent → Ibram Gaunt 1-1
+- `ds-gaunts-ghosts` line 2: absent → Tanith Ghosts 5-5
+- `ds-gauss-pylon` line 1: absent → Gauss Pylon 1-1
+- `ds-gellerpox-infected` line 1: absent → Nightmare Hulks 4-4
+- `ds-gellerpox-infected` line 2: absent → Gellerpox Mutants 3-3
+- `ds-gellerpox-infected-2` line 1: absent → Nightmare Hulks 4-4
+- `ds-gellerpox-infected-2` line 2: absent → Gellerpox Mutants 3-3
+- `ds-gellerpox-infected-3` line 1: absent → Nightmare Hulks 4-4
+- `ds-gellerpox-infected-3` line 2: absent → Gellerpox Mutants 3-3
+- `ds-gellerpox-infected-4` line 1: absent → Nightmare Hulks 4-4
+- `ds-gellerpox-infected-4` line 2: absent → Gellerpox Mutants 3-3
+- `ds-genestealers` line 1: absent → Genestealers 5-10
+- `ds-geomancer` line 1: absent → Geomancer 1-1
+- `ds-ghazghkull-thraka` line 1: absent → Ghazghkull Thraka 1-1
+- `ds-ghazghkull-thraka` line 2: absent → Makari 1-1
+- `ds-ghost-ark` line 1: absent → Ghost Ark 1-1
+- `ds-ghostkeel-battlesuit` line 1: absent → Ghostkeel Battlesuit 1-1
+- `ds-giant-chaos-spawn` line 1: absent → Giant Chaos Spawn 1-1
+- `ds-gladiator-lancer` line 1: absent → Gladiator Lancer 1-1
+- `ds-gladiator-lancer-2` line 1: absent → Gladiator Lancer 1-1
+- `ds-gladiator-lancer-3` line 1: absent → Gladiator Lancer 1-1
+- `ds-gladiator-lancer-4` line 1: absent → Gladiator Lancer 1-1
+- `ds-gladiator-lancer-5` line 1: absent → Gladiator Lancer 1-1
+- `ds-gladiator-lancer-6` line 1: absent → Gladiator Lancer 1-1
+- `ds-gladiator-reaper` line 1: absent → Gladiator Reaper 1-1
+- `ds-gladiator-reaper-2` line 1: absent → Gladiator Reaper 1-1
+- `ds-gladiator-reaper-3` line 1: absent → Gladiator Reaper 1-1
+- `ds-gladiator-reaper-4` line 1: absent → Gladiator Reaper 1-1
+- `ds-gladiator-reaper-5` line 1: absent → Gladiator Reaper 1-1
+- `ds-gladiator-reaper-6` line 1: absent → Gladiator Reaper 1-1
+- `ds-gladiator-valiant` line 1: absent → Gladiator Valiant 1-1
+- `ds-gladiator-valiant-2` line 1: absent → Gladiator Valiant 1-1
+- `ds-gladiator-valiant-3` line 1: absent → Gladiator Valiant 1-1
+- `ds-gladiator-valiant-4` line 1: absent → Gladiator Valiant 1-1
+- `ds-gladiator-valiant-5` line 1: absent → Gladiator Valiant 1-1
+- `ds-gladiator-valiant-6` line 1: absent → Gladiator Valiant 1-1
+- `ds-goliath-rockgrinder` line 1: absent → Goliath Rockgrinder 1-1
+- `ds-goliath-truck` line 1: absent → Goliath Truck 1-1
+- `ds-goremongers` line 1: absent → Blood Herald 1-1
+- `ds-goremongers` line 2: absent → Goremongers 7-7
+- `ds-gorgon-heavy-transport` line 1: absent → Gorgon Heavy Transport 1-1
+- `ds-gorgon-heavy-transport-2` line 1: absent → Gorgon Heavy Transport 1-1
+- `ds-gorkanaut` line 1: absent → Gorkanaut 1-1
+- `ds-grand-master` line 1: absent → Grand Master 1-1
+- `ds-grand-master-in-nemesis-dreadknight` line 1: absent → Grand Master in Nemesis Dreadknight 1-1
+- `ds-grand-master-voldus` line 1: absent → Grand Master Voldus 1-1
+- `ds-great-knarloc` line 1: absent → Great Knarloc 1-1
+- `ds-great-unclean-one` line 1: absent → Great Unclean One 1-1
+- `ds-great-unclean-one-2` line 1: absent → Great Unclean One 1-1
+- `ds-greater-blight-drone` line 1: absent → Greater Blight Drone 1-1
+- `ds-greater-blight-drone-2` line 1: absent → Greater Blight Drone 1-1
+- `ds-greater-brass-scorpion` line 1: absent → Greater Brass Scorpion 1-1
+- `ds-greater-brass-scorpion-2` line 1: absent → Greater Brass Scorpion 1-1
+- `ds-grey-hunters` line 1: absent → Grey Hunter Pack Leader 1-1
+- `ds-grey-hunters` line 2: absent → Grey Hunters 9-9
+- `ds-grey-knights-dreadnought` line 1: absent → Grey Knights Dreadnought 1-1
+- `ds-grey-knights-relic-razorback` line 1: absent → Grey Knights Relic Razorback 1-1
+- `ds-grey-knights-terminator-squad` line 1: absent → Terminator Justicar 1-1
+- `ds-grey-knights-terminator-squad` line 2: absent → Grey Knights Terminators 4-4
+- `ds-grey-knights-thunderhawk-gunship` line 1: absent → Grey Knights Thunderhawk Gunship 1-1
+- `ds-griffon-mortar-carrier` line 1: absent → Griffon Mortar Carrier 1-1
+- `ds-griffon-mortar-carrier-2` line 1: absent → Griffon Mortar Carrier 1-1
+- `ds-grimnyr` line 1: absent → Grimnyr 1-1
+- `ds-grimnyr` line 2: absent → CORVs* 2-2
+- `ds-grot-bomm-launcha` line 1: absent → Grot Bomm Launcha 1-1
+- `ds-grot-mega-tank` line 1: absent → Grot Mega-Tank 1-1
+- `ds-grot-tanks` line 1: absent → Grot Tanks 4-8
+- `ds-grotesques` line 1: absent → Grotesques 3-6
+- `ds-guardian-defenders` line 1: absent → Guardian Defenders 10-10
+- `ds-guardian-defenders` line 2: absent → Heavy Weapon Platform 1-1
+- `ds-haarken-worldclaimer` line 1: absent → Haarken Worldclaimer 1-1
+- `ds-hades-breaching-drill` line 1: absent → Hades Breaching Drill 1-1
+- `ds-hades-breaching-drill-2` line 1: absent → Hades Breaching Drill 1-1
+- `ds-haemonculus` line 1: absent → Haemonculus 1-1
+- `ds-hammerfall-bunker` line 1: absent → Hammerfall Bunker 1-1
+- `ds-hammerfall-bunker-2` line 1: absent → Hammerfall Bunker 1-1
+- `ds-hammerfall-bunker-3` line 1: absent → Hammerfall Bunker 1-1
+- `ds-hammerfall-bunker-4` line 1: absent → Hammerfall Bunker 1-1
+- `ds-hammerfall-bunker-5` line 1: absent → Hammerfall Bunker 1-1
+- `ds-hammerfall-bunker-6` line 1: absent → Hammerfall Bunker 1-1
+- `ds-hammerhead-gunship` line 1: absent → Hammerhead Gunship 1-1
+- `ds-hand-of-the-archon` line 1: absent → Kabalite Archsybarite 1-1
+- `ds-hand-of-the-archon` line 2: absent → Kabalite Agents 9-9
+- `ds-harald-deathwolf` line 1: absent → Harald Deathwolf 1-1
+- `ds-harpy` line 1: absent → Harpy 1-1
+- `ds-harridan` line 1: absent → Harridan 1-1
+- `ds-haruspex` line 1: absent → Haruspex 1-1
+- `ds-hastarii-exterminators` line 1: absent → Hastarii Exterminator Alpha 1-1
+- `ds-hastarii-exterminators` line 2: absent → Hastarii Exterminators 4-4
+- `ds-hastarii-fusiliers` line 1: absent → Hastarii Fusilier Alpha 1-1
+- `ds-hastarii-fusiliers` line 2: absent → Hastarii Fusiliers 4-4
+- `ds-havocs` line 1: absent → Havoc Champion 1-1
+- `ds-havocs` line 2: absent → Havocs 4-4
+- `ds-havocs-2` line 1: absent → Havoc Champion 1-1
+- `ds-havocs-2` line 2: absent → Havocs 4-4
+- `ds-hearthkyn-warriors` line 1: absent → Theyn 1-1
+- `ds-hearthkyn-warriors` line 2: absent → Hearthkyn Warriors 9-9
+- `ds-heavy-gun-drones` line 1: absent → Heavy Gun Drones 2-2
+- `ds-heavy-intercessor-squad` line 1: absent → Heavy Intercessor Sergeant 1-1
+- `ds-heavy-intercessor-squad` line 2: absent → Heavy Intercessors 4-9
+- `ds-heavy-intercessor-squad-2` line 1: absent → Heavy Intercessor Sergeant 1-1
+- `ds-heavy-intercessor-squad-2` line 2: absent → Heavy Intercessors 4-9
+- `ds-heavy-intercessor-squad-3` line 1: absent → Heavy Intercessor Sergeant 1-1
+- `ds-heavy-intercessor-squad-3` line 2: absent → Heavy Intercessors 4-9
+- `ds-heavy-intercessor-squad-4` line 1: absent → Heavy Intercessor Sergeant 1-1
+- `ds-heavy-intercessor-squad-4` line 2: absent → Heavy Intercessors 4-9
+- `ds-heavy-intercessor-squad-5` line 1: absent → Heavy Intercessor Sergeant 1-1
+- `ds-heavy-intercessor-squad-5` line 2: absent → Heavy Intercessors 4-9
+- `ds-heavy-intercessor-squad-6` line 1: absent → Heavy Intercessor Sergeant 1-1
+- `ds-heavy-intercessor-squad-6` line 2: absent → Heavy Intercessors 4-9
+- `ds-heavy-mortar-team` line 1: absent → Heavy Mortar Team 1-1
+- `ds-heavy-mortar-team-2` line 1: absent → Heavy Mortar Team 1-1
+- `ds-heavy-quad-launcher-team` line 1: absent → Heavy Quad Launcher Team 1-1
+- `ds-heavy-quad-launcher-team-2` line 1: absent → Heavy Quad Launcher Team 1-1
+- `ds-hekaton-land-fortress` line 1: absent → Hekaton Land Fortress 1-1
+- `ds-helbrute` line 1: absent → Helbrute 1-1
+- `ds-helbrute-2` line 1: absent → Helbrute 1-1
+- `ds-helbrute-3` line 1: absent → Helbrute 1-1
+- `ds-helbrute-4` line 1: absent → Helbrute 1-1
+- `ds-heldrake` line 1: absent → Heldrake 1-1
+- `ds-heldrake-2` line 1: absent → Heldrake 1-1
+- `ds-heldrake-3` line 1: absent → Heldrake 1-1
+- `ds-heldrake-4` line 1: absent → Heldrake 1-1
+- `ds-hell-blade` line 1: absent → Hell Blade 1-1
+- `ds-hell-blade-2` line 1: absent → Hell Blade 1-1
+- `ds-hell-blade-3` line 1: absent → Hell Blade 1-1
+- `ds-hell-blade-4` line 1: absent → Hell Blade 1-1
+- `ds-hell-talon` line 1: absent → Hell Talon 1-1
+- `ds-hell-talon-2` line 1: absent → Hell Talon 1-1
+- `ds-hell-talon-3` line 1: absent → Hell Talon 1-1
+- `ds-hell-talon-4` line 1: absent → Hell Talon 1-1
+- `ds-hellblaster-squad` line 1: absent → Hellblaster Sergeant 1-1
+- `ds-hellblaster-squad` line 2: absent → Hellblasters 4-9
+- `ds-hellblaster-squad-2` line 1: absent → Hellblaster Sergeant 1-1
+- `ds-hellblaster-squad-2` line 2: absent → Hellblasters 4-9
+- `ds-hellblaster-squad-3` line 1: absent → Hellblaster Sergeant 1-1
+- `ds-hellblaster-squad-3` line 2: absent → Hellblasters 4-9
+- `ds-hellblaster-squad-4` line 1: absent → Hellblaster Sergeant 1-1
+- `ds-hellblaster-squad-4` line 2: absent → Hellblasters 4-9
+- `ds-hellblaster-squad-5` line 1: absent → Hellblaster Sergeant 1-1
+- `ds-hellblaster-squad-5` line 2: absent → Hellblasters 4-9
+- `ds-hellblaster-squad-6` line 1: absent → Hellblaster Sergeant 1-1
+- `ds-hellblaster-squad-6` line 2: absent → Hellblasters 4-9
+- `ds-hellflayers` line 1: absent → Hellflayers 1-2
+- `ds-hellflayers-2` line 1: absent → Hellflayers 1-2
+- `ds-hellhammer` line 1: absent → Hellhammer 1-1
+- `ds-hellhammer-2` line 1: absent → Hellhammer 1-1
+- `ds-hellhound` line 1: absent → Hellhound 1-1
+- `ds-hellhound-2` line 1: absent → Hellhound 1-1
+- `ds-hellions` line 1: absent → Helliarch 1-1
+- `ds-hellions` line 2: absent → Hellions 4-9
+- `ds-hells-last` line 1: absent → Minka Lesk 1-1
+- `ds-hells-last` line 2: absent → Lesk’s Heroes 4-4
+- `ds-hells-last-2` line 1: absent → Minka Lesk 1-1
+- `ds-hells-last-2` line 2: absent → Lesk’s Heroes 4-4
+- `ds-hemlock-wraithfighter` line 1: absent → Hemlock Wraithfighter 1-1
+- `ds-herald-of-slaanesh-on-steed-of-slaanesh` line 1: absent → Herald of Slaanesh on Steed of Slaanesh 1-1
+- `ds-heretic-astartes-daemon-prince` line 1: absent → Heretic Astartes Daemon Prince 1-1
+- `ds-heretic-astartes-daemon-prince-with-wings` line 1: absent → Heretic Astartes Daemon Prince with Wings 1-1
+- `ds-hernkyn-pioneers` line 1: absent → Hernkyn Pioneers 3-6
+- `ds-hernkyn-yaegirs` line 1: absent → Yaegir Theyn 1-1
+- `ds-hernkyn-yaegirs` line 2: absent → Hernkyn Yaegirs 9-9
+- `ds-hexmark-destroyer` line 1: absent → Hexmark Destroyer 1-1
+- `ds-hierophant` line 1: absent → Hierophant 1-1
+- `ds-high-marshal-helbrecht` line 1: absent → High Marshal Helbrecht 1-1
+- `ds-hippogriff-afv` line 1: absent → Hippogriff AFV 1-2
+- `ds-hippogriff-afv-2` line 1: absent → Hippogriff AFV 1-2
+- `ds-hive-crone` line 1: absent → Hive Crone 1-1
+- `ds-hive-guard` line 1: absent → Hive Guard 3-6
+- `ds-hive-tyrant` line 1: absent → Hive Tyrant 1-1
+- `ds-hormagaunts` line 1: absent → Hormagaunts 10-20
+- `ds-hornet` line 1: absent → Hornet 1-1
+- `ds-horticulous-slimux` line 1: absent → Horticulous Slimux 1-1
+- `ds-hospitaller` line 1: absent → Hospitaller 1-1
+- `ds-hounds-of-morkai` line 1: absent → Hound of Morkai Pack Leader 1-1
+- `ds-hounds-of-morkai` line 2: absent → Hound of Morkai 4-9
+- `ds-howling-banshees` line 1: absent → Howling Banshee Exarch 1-1
+- `ds-howling-banshees` line 2: absent → Howling Banshees 4-9
+- `ds-hunta-rig` line 1: absent → Hunta Rig 1-1
+- `ds-hunter` line 1: absent → Hunter 1-1
+- `ds-huron-blackheart` line 1: absent → Huron Blackheart 1-1
+- `ds-hybrid-metamorphs` line 1: absent → Metamorph Leader 1-1
+- `ds-hybrid-metamorphs` line 2: absent → Hybrid Metamorphs 4-9
+- `ds-hydra` line 1: absent → Hydra 1-1
+- `ds-hydra-2` line 1: absent → Hydra 1-1
+- `ds-hydra-platform` line 1: absent → Hydra Platform 1-1
+- `ds-hydra-platform-2` line 1: absent → Hydra Platform 1-1
+- `ds-hyperadapted-raveners` line 1: absent → Ravener Prime 1-1
+- `ds-hyperadapted-raveners` line 2: absent → Raveners 4-4
+- `ds-hyperadapted-raveners-2` line 1: absent → Ravener Prime 1-1
+- `ds-hyperadapted-raveners-2` line 2: absent → Raveners 4-4
+- `ds-icon-bearer` line 1: absent → Icon Bearer 1-1
+- `ds-illic-nightspear` line 1: absent → Illic Nightspear 1-1
+- `ds-illuminor-szeras` line 1: absent → Illuminor Szeras 1-1
+- `ds-imagifier` line 1: absent → Imagifier 1-1
+- `ds-immolator` line 1: absent → Immolator 1-1
+- `ds-immortals` line 1: absent → Immortals 5-10
+- `ds-imotekh-the-stormlord` line 1: absent → Imotekh the Stormlord 1-1
+- `ds-imperial-navy-breachers` line 1: absent → Navis Sergeant-at-Arms 1-1
+- `ds-imperial-navy-breachers` line 2: absent → Navis Armsmen 9-9
+- `ds-imperial-rhino` line 1: absent → Imperial Rhino 1-1
+- `ds-imperial-space-marine` line 1: absent → Imperial Space Marine 1-1
+- `ds-impulsor` line 1: absent → Impulsor 1-1
+- `ds-impulsor-2` line 1: absent → Impulsor 1-1
+- `ds-impulsor-3` line 1: absent → Impulsor 1-1
+- `ds-impulsor-4` line 1: absent → Impulsor 1-1
+- `ds-impulsor-5` line 1: absent → Impulsor 1-1
+- `ds-impulsor-6` line 1: absent → Impulsor 1-1
+- `ds-inceptor-squad` line 1: absent → Inceptor Sergeant 1-1
+- `ds-inceptor-squad` line 2: absent → Inceptors 2-5
+- `ds-inceptor-squad-2` line 1: absent → Inceptor Sergeant 1-1
+- `ds-inceptor-squad-2` line 2: absent → Inceptors 2-5
+- `ds-inceptor-squad-3` line 1: absent → Inceptor Sergeant 1-1
+- `ds-inceptor-squad-3` line 2: absent → Inceptors 2-5
+- `ds-inceptor-squad-4` line 1: absent → Inceptor Sergeant 1-1
+- `ds-inceptor-squad-4` line 2: absent → Inceptors 2-5
+- `ds-inceptor-squad-5` line 1: absent → Inceptor Sergeant 1-1
+- `ds-inceptor-squad-5` line 2: absent → Inceptors 2-5
+- `ds-inceptor-squad-6` line 1: absent → Inceptor Sergeant 1-1
+- `ds-inceptor-squad-6` line 2: absent → Inceptors 2-5
+- `ds-incubi` line 1: absent → Klaivex 1-1
+- `ds-incubi` line 2: absent → Incubi 4-9
+- `ds-incursor-squad` line 1: absent → Incursor Sergeant 1-1
+- `ds-incursor-squad` line 2: absent → Incursors 4-9
+- `ds-incursor-squad-2` line 1: absent → Incursor Sergeant 1-1
+- `ds-incursor-squad-2` line 2: absent → Incursors 4-9
+- `ds-incursor-squad-3` line 1: absent → Incursor Sergeant 1-1
+- `ds-incursor-squad-3` line 2: absent → Incursors 4-9
+- `ds-incursor-squad-4` line 1: absent → Incursor Sergeant 1-1
+- `ds-incursor-squad-4` line 2: absent → Incursors 4-9
+- `ds-incursor-squad-5` line 1: absent → Incursor Sergeant 1-1
+- `ds-incursor-squad-5` line 2: absent → Incursors 4-9
+- `ds-incursor-squad-6` line 1: absent → Incursor Sergeant 1-1
+- `ds-incursor-squad-6` line 2: absent → Incursors 4-9
+- `ds-indomitor-kill-team` line 1: absent → MODELS MAXIMUM 10-10
+- `ds-indomitor-kill-team` line 2: absent → Kill Team Heavy Intercessors 3-10
+- `ds-indomitor-kill-team` line 3: absent → Kill Team Heavy Intercessors with power fists 0-3
+- `ds-indomitor-kill-team` line 4: absent → Kill Team Heavy Intercessors with melta rifles 0-3
+- `ds-indomitor-kill-team-2` line 1: absent → MODELS MAXIMUM 10-10
+- `ds-indomitor-kill-team-2` line 2: absent → Kill Team Heavy Intercessors 5-10
+- `ds-indomitor-kill-team-2` line 3: absent → Kill Team Heavy Intercessors with power fists 0-2
+- `ds-indomitor-kill-team-2` line 4: absent → Kill Team Heavy Intercessors with melta rifles 0-2
+- `ds-indomitor-kill-team-2` line 5: absent → Kill Team Heavy Intercessors with jump packs 0-2
+- `ds-infernal-enrapturess` line 1: absent → Infernal Enrapturess 1-1
+- `ds-infernal-master` line 1: absent → Infernal Master 1-1
+- `ds-infernus-squad` line 1: absent → Infernus Sergeant 1-1
+- `ds-infernus-squad` line 2: absent → Infernus Marines 4-9
+- `ds-infernus-squad-2` line 1: absent → Infernus Sergeant 1-1
+- `ds-infernus-squad-2` line 2: absent → Infernus Marines 4-9
+- `ds-infernus-squad-3` line 1: absent → Infernus Sergeant 1-1
+- `ds-infernus-squad-3` line 2: absent → Infernus Marines 4-9
+- `ds-infernus-squad-4` line 1: absent → Infernus Sergeant 1-1
+- `ds-infernus-squad-4` line 2: absent → Infernus Marines 4-9
+- `ds-infernus-squad-5` line 1: absent → Infernus Sergeant 1-1
+- `ds-infernus-squad-5` line 2: absent → Infernus Marines 4-9
+- `ds-infernus-squad-6` line 1: absent → Infernus Sergeant 1-1
+- `ds-infernus-squad-6` line 2: absent → Infernus Marines 4-9
+- `ds-infiltrator-squad` line 1: absent → Infiltrator Sergeant 1-1
+- `ds-infiltrator-squad` line 2: absent → Infiltrators 4-9
+- `ds-infiltrator-squad-2` line 1: absent → Infiltrator Sergeant 1-1
+- `ds-infiltrator-squad-2` line 2: absent → Infiltrators 4-9
+- `ds-infiltrator-squad-3` line 1: absent → Infiltrator Sergeant 1-1
+- `ds-infiltrator-squad-3` line 2: absent → Infiltrators 4-9
+- `ds-infiltrator-squad-4` line 1: absent → Infiltrator Sergeant 1-1
+- `ds-infiltrator-squad-4` line 2: absent → Infiltrators 4-9
+- `ds-infiltrator-squad-5` line 1: absent → Infiltrator Sergeant 1-1
+- `ds-infiltrator-squad-5` line 2: absent → Infiltrators 4-9
+- `ds-infiltrator-squad-6` line 1: absent → Infiltrator Sergeant 1-1
+- `ds-infiltrator-squad-6` line 2: absent → Infiltrators 4-9
+- `ds-infractors` line 1: absent → Obsessionist 1-1
+- `ds-infractors` line 2: absent → Infractors 4-9
+- `ds-inner-circle-companions` line 1: absent → Inner Circle Companions 3-6
+- `ds-inquisitor` line 1: absent → Inquisitor 1-1
+- `ds-inquisitor-coteaz` line 1: absent → Inquisitor Coteaz 1-1
+- `ds-inquisitor-draxus` line 1: absent → Inquisitor Draxus 1-1
+- `ds-inquisitor-eisenhorn` line 1: absent → Inquisitor Eisenhorn 1-1
+- `ds-inquisitor-greyfax` line 1: absent → Inquisitor Greyfax 1-1
+- `ds-inquisitor-in-terminator-armour` line 1: absent → Inquisitor in Terminator Armour 1-1
+- `ds-inquisitor-karamazov` line 1: absent → Inquisitor Karamazov 1-1
+- `ds-inquisitor-kroyle` line 1: absent → Inquisitor Kroyle 1-1
+- `ds-inquisitor-ostromandeus` line 1: absent → Inquisitor Ostromandeus 1-1
+- `ds-inquisitor-ostromandeus` line 2: absent → Stentor-I-52 1-1
+- `ds-inquisitorial-agents` line 1: absent → Inquisitorial Agents 5-10
+- `ds-inquisitorial-agents` line 2: absent → Gun Servitors* 1-2
+- `ds-inquisitorial-chimera` line 1: absent → Inquisitorial Chimera 1-1
+- `ds-interceptor-squad` line 1: absent → Interceptor Justicar 1-1
+- `ds-interceptor-squad` line 2: absent → Interceptors 4-9
+- `ds-intercessor-squad` line 1: absent → Intercessor Sergeant 1-1
+- `ds-intercessor-squad` line 2: absent → Intercessors 4-9
+- `ds-intercessor-squad-2` line 1: absent → Intercessor Sergeant 1-1
+- `ds-intercessor-squad-2` line 2: absent → Intercessors 4-9
+- `ds-intercessor-squad-3` line 1: absent → Intercessor Sergeant 1-1
+- `ds-intercessor-squad-3` line 2: absent → Intercessors 4-9
+- `ds-intercessor-squad-4` line 1: absent → Intercessor Sergeant 1-1
+- `ds-intercessor-squad-4` line 2: absent → Intercessors 4-9
+- `ds-intercessor-squad-5` line 1: absent → Intercessor Sergeant 1-1
+- `ds-intercessor-squad-5` line 2: absent → Intercessors 4-9
+- `ds-intercessor-squad-6` line 1: absent → Intercessor Sergeant 1-1
+- `ds-intercessor-squad-6` line 2: absent → Intercessors 4-9
+- `ds-intranzia-fraye` line 1: absent → Intranzia Fraye 1-1
+- `ds-invader-atv` line 1: absent → Invader ATV 1-1
+- `ds-invader-atv-2` line 1: absent → Invader ATV 1-1
+- `ds-invader-atv-3` line 1: absent → Invader ATV 1-1
+- `ds-invader-atv-4` line 1: absent → Invader ATV 1-1
+- `ds-invader-atv-5` line 1: absent → Invader ATV 1-1
+- `ds-invader-atv-6` line 1: absent → Invader ATV 1-1
+- `ds-invictor-tactical-warsuit` line 1: absent → Invictor Tactical Warsuit 1-1
+- `ds-invictor-tactical-warsuit-2` line 1: absent → Invictor Tactical Warsuit 1-1
+- `ds-invictor-tactical-warsuit-3` line 1: absent → Invictor Tactical Warsuit 1-1
+- `ds-invictor-tactical-warsuit-4` line 1: absent → Invictor Tactical Warsuit 1-1
+- `ds-invictor-tactical-warsuit-5` line 1: absent → Invictor Tactical Warsuit 1-1
+- `ds-invictor-tactical-warsuit-6` line 1: absent → Invictor Tactical Warsuit 1-1
+- `ds-irillyth` line 1: absent → Irillyth 1-1
+- `ds-iron-father-feirros` line 1: absent → Iron Father Feirros 1-1
+- `ds-iron-hand-straken` line 1: absent → ‘Iron Hand’ Straken 1-1
+- `ds-iron-priest` line 1: absent → Iron Priest 1-1
+- `ds-ironclad-dreadnought` line 1: absent → Ironclad Dreadnought 1-1
+- `ds-ironkin-steeljacks-with-heavy-volkanite-disintegrators` line 1: absent → Steeljack Theyn 1-1
+- `ds-ironkin-steeljacks-with-heavy-volkanite-disintegrators` line 2: absent → Ironkin Steeljacks 2-5
+- `ds-ironkin-steeljacks-with-melee-weapons` line 1: absent → Steeljack Theyn 1-1
+- `ds-ironkin-steeljacks-with-melee-weapons` line 2: absent → Ironkin Steeljacks 2-5
+- `ds-ironstrider-ballistarii` line 1: absent → Ironstrider Ballistarii 1-3
+- `ds-jackal-alphus` line 1: absent → Jackal Alphus 1-1
+- `ds-jain-zar` line 1: absent → Jain Zar 1-1
+- `ds-janus-draik` line 1: absent → Janus Draik 1-1
+- `ds-javelin-attack-speeder` line 1: absent → Javelin Attack Speeder 1-1
+- `ds-jokaero-weaponsmith` line 1: absent → Jokaero Weaponsmith 1-1
+- `ds-judiciar` line 1: absent → Judiciar 1-1
+- `ds-judiciar-2` line 1: absent → Judiciar 1-1
+- `ds-judiciar-3` line 1: absent → Judiciar 1-1
+- `ds-judiciar-4` line 1: absent → Judiciar 1-1
+- `ds-judiciar-5` line 1: absent → Judiciar 1-1
+- `ds-judiciar-6` line 1: absent → Judiciar 1-1
+- `ds-junith-eruita` line 1: absent → Junith Eruita 1-1
+- `ds-kabalite-warriors` line 1: absent → Sybarite 1-1
+- `ds-kabalite-warriors` line 2: absent → Kabalite Warriors 9-9
+- `ds-kahl` line 1: absent → Kâhl 1-1
+- `ds-kairos-fateweaver` line 1: absent → Kairos Fateweaver 1-1
+- `ds-kairos-fateweaver-2` line 1: absent → Kairos Fateweaver 1-1
+- `ds-kaldor-draigo` line 1: absent → Kaldor Draigo 1-1
+- `ds-kannonwagon` line 1: absent → Kannonwagon 1-1
+- `ds-kapricus-carrier` line 1: absent → Kapricus Carrier 1-1
+- `ds-kapricus-defenders` line 1: absent → Kapricus Defenders 1-2
+- `ds-kaptin-badrukk` line 1: absent → Kaptin Badrukk 1-1
+- `ds-karanak` line 1: absent → Karanak 1-1
+- `ds-karandras` line 1: absent → Karandras 1-1
+- `ds-kasrkin` line 1: absent → Kasrkin Sergeant 1-1
+- `ds-kasrkin` line 2: absent → Kasrkin Troopers 9-9
+- `ds-kasrkin-2` line 1: absent → Kasrkin Sergeant 1-1
+- `ds-kasrkin-2` line 2: absent → Kasrkin Troopers 9-9
+- `ds-kastelan-robots` line 1: absent → Kastelan Robots 2-4
+- `ds-kataphron-breachers` line 1: absent → Kataphron Breachers 3-6
+- `ds-kataphron-destroyers` line 1: absent → Kataphron Destroyers 3-6
+- `ds-kayvaan-shrike` line 1: absent → Kayvaan Shrike 1-1
+- `ds-keeper-of-secrets` line 1: absent → Keeper of Secrets 1-1
+- `ds-keeper-of-secrets-2` line 1: absent → Keeper of Secrets 1-1
+- `ds-kelermorph` line 1: absent → Kelermorph 1-1
+- `ds-kharn-the-betrayer` line 1: absent → Khârn the Betrayer 1-1
+- `ds-kharseth` line 1: absent → Kharseth 1-1
+- `ds-kharseth-2` line 1: absent → Kharseth 1-1
+- `ds-kharybdis-assault-claw` line 1: absent → Kharybdis Assault Claw 1-1
+- `ds-khorne-berzerkers` line 1: absent → Khorne Berzerker Champion 1-1
+- `ds-khorne-berzerkers` line 2: absent → Khorne Berzerkers 9-19
+- `ds-khorne-berzerkers-2` line 1: absent → Khorne Berzerker Champion 1-1
+- `ds-khorne-berzerkers-2` line 2: absent → Khorne Berzerkers 9-19
+- `ds-khorne-lord-of-skulls` line 1: absent → Khorne Lord of Skulls 1-1
+- `ds-khorne-lord-of-skulls-2` line 1: absent → Khorne Lord of Skulls 1-1
+- `ds-kill-krusha` line 1: absent → Kill Krusha 1-1
+- `ds-kill-rig` line 1: absent → Kill Rig 1-1
+- `ds-kill-tank` line 1: absent → Kill Tank 1-1
+- `ds-killa-kans` line 1: absent → Killa Kans 3-6
+- `ds-knarloc-riders` line 1: absent → Knarloc Riders 3-3
+- `ds-knight-abominant` line 1: absent → Knight Abominant 1-1
+- `ds-knight-castellan` line 1: absent → Knight Castellan 1-1
+- `ds-knight-centura` line 1: absent → Knight-Centura 1-1
+- `ds-knight-crusader` line 1: absent → Knight Crusader 1-1
+- `ds-knight-defender` line 1: absent → Knight Defender 1-1
+- `ds-knight-desecrator` line 1: absent → Knight Desecrator 1-1
+- `ds-knight-despoiler` line 1: absent → Knight Despoiler 1-1
+- `ds-knight-destrier` line 1: absent → Knight Defender 1-1
+- `ds-knight-errant` line 1: absent → Knight Errant 1-1
+- `ds-knight-gallant` line 1: absent → Knight Gallant 1-1
+- `ds-knight-paladin` line 1: absent → Knight Paladin 1-1
+- `ds-knight-preceptor` line 1: absent → Knight Preceptor 1-1
+- `ds-knight-rampager` line 1: absent → Knight Rampager 1-1
+- `ds-knight-ruinator` line 1: absent → Knight Ruinator 1-1
+- `ds-knight-tyrant` line 1: absent → Knight Tyrant 1-1
+- `ds-knight-valiant` line 1: absent → Knight Valiant 1-1
+- `ds-knight-warden` line 1: absent → Knight Warden 1-1
+- `ds-kommandos` line 1: absent → Boss Nob 1-1
+- `ds-kommandos` line 2: absent → Kommandos 9-9
+- `ds-korsarro-khan` line 1: absent → Kor’sarro Khan 1-1
+- `ds-kratos` line 1: absent → Kratos 1-1
+- `ds-kratos-2` line 1: absent → Kratos 1-1
+- `ds-kratos-3` line 1: absent → Kratos 1-1
+- `ds-kratos-4` line 1: absent → Kratos 1-1
+- `ds-kratos-5` line 1: absent → Kratos 1-1
+- `ds-kravek-morne` line 1: absent → Kravek Morne 1-1
+- `ds-krieg-combat-engineers` line 1: absent → Krieg Engineer Watchmaster 1-1
+- `ds-krieg-combat-engineers` line 2: absent → Krieg Combat Engineers 4-9
+- `ds-krieg-combat-engineers-2` line 1: absent → Krieg Engineer Watchmaster 1-1
+- `ds-krieg-combat-engineers-2` line 2: absent → Krieg Combat Engineers 4-9
+- `ds-krieg-command-squad` line 1: absent → Lord Commissar 1-1
+- `ds-krieg-command-squad` line 2: absent → Veteran Guardsmen 5-5
+- `ds-krieg-command-squad-2` line 1: absent → Lord Commissar 1-1
+- `ds-krieg-command-squad-2` line 2: absent → Veteran Guardsmen 5-5
+- `ds-krieg-heavy-weapons-squad` line 1: absent → Heavy Weapons Gunners 3-3
+- `ds-krieg-heavy-weapons-squad` line 2: absent → Fire Coordinator 1-1
+- `ds-krieg-heavy-weapons-squad-2` line 1: absent → Heavy Weapons Gunners 3-3
+- `ds-krieg-heavy-weapons-squad-2` line 2: absent → Fire Coordinator 1-1
+- `ds-krom-dragongaze` line 1: absent → Krom Dragongaze 1-1
+- `ds-kroot-carnivores` line 1: absent → Long-quill 1-1
+- `ds-kroot-carnivores` line 2: absent → Kroot Carnivores 9-19
+- `ds-kroot-farstalkers` line 1: absent → Kroot Kill-broker 1-1
+- `ds-kroot-farstalkers` line 2: absent → Kroot Farstalkers 9-9
+- `ds-kroot-farstalkers` line 3: absent → Kroot Hounds 2-2
+- `ds-kroot-flesh-shaper` line 1: absent → Kroot Flesh Shaper 1-1
+- `ds-kroot-hounds` line 1: absent → Kroot Hounds 5-10
+- `ds-kroot-lone-spear` line 1: absent → Kroot Lone-Spear 1-1
+- `ds-kroot-trail-shaper` line 1: absent → Kroot Trail Shaper 1-1
+- `ds-kroot-war-shaper` line 1: absent → Kroot War Shaper 1-1
+- `ds-krootox-rampagers` line 1: absent → Krootox Rampagers 3-6
+- `ds-krootox-riders` line 1: absent → Krootox Riders 1-3
+- `ds-kustom-boosta-blasta` line 1: absent → Kustom Boosta-blasta 1-1
+- `ds-kytan-ravager` line 1: absent → Kytan Ravager 1-1
+- `ds-kytan-ravager-2` line 1: absent → Kytan Ravager 1-1
+- `ds-lady-malys` line 1: absent → Lady Malys 1-1
+- `ds-land-raider` line 1: absent → Land Raider 1-1
+- `ds-land-raider-2` line 1: absent → Land Raider 1-1
+- `ds-land-raider-3` line 1: absent → Land Raider 1-1
+- `ds-land-raider-4` line 1: absent → Land Raider 1-1
+- `ds-land-raider-5` line 1: absent → Land Raider 1-1
+- `ds-land-raider-6` line 1: absent → Land Raider 1-1
+- `ds-land-raider-7` line 1: absent → Land Raider 1-1
+- `ds-land-raider-achilles` line 1: absent → Land Raider Achilles 1-1
+- `ds-land-raider-achilles-2` line 1: absent → Land Raider Achilles 1-1
+- `ds-land-raider-achilles-3` line 1: absent → Land Raider Achilles 1-1
+- `ds-land-raider-achilles-4` line 1: absent → Land Raider Achilles 1-1
+- `ds-land-raider-achilles-5` line 1: absent → Land Raider Achilles 1-1
+- `ds-land-raider-crusader` line 1: absent → Land Raider Crusader 1-1
+- `ds-land-raider-crusader-2` line 1: absent → Land Raider Crusader 1-1
+- `ds-land-raider-crusader-3` line 1: absent → Land Raider Crusader 1-1
+- `ds-land-raider-crusader-4` line 1: absent → Land Raider Crusader 1-1
+- `ds-land-raider-crusader-5` line 1: absent → Land Raider Crusader 1-1
+- `ds-land-raider-crusader-6` line 1: absent → Land Raider Crusader 1-1
+- `ds-land-raider-crusader-7` line 1: absent → Land Raider Crusader 1-1
+- `ds-land-raider-excelsior` line 1: absent → Land Raider Excelsior 1-1
+- `ds-land-raider-helios` line 1: absent → Land Raider Helios 1-1
+- `ds-land-raider-prometheus` line 1: absent → Land Raider Prometheus 1-1
+- `ds-land-raider-proteus` line 1: absent → Land Raider Proteus 1-1
+- `ds-land-raider-proteus-2` line 1: absent → Land Raider Proteus 1-1
+- `ds-land-raider-proteus-3` line 1: absent → Land Raider Proteus 1-1
+- `ds-land-raider-proteus-4` line 1: absent → Land Raider Proteus 1-1
+- `ds-land-raider-proteus-5` line 1: absent → Land Raider Proteus 1-1
+- `ds-land-raider-redeemer` line 1: absent → Land Raider Redeemer 1-1
+- `ds-land-raider-redeemer-2` line 1: absent → Land Raider Redeemer 1-1
+- `ds-land-raider-redeemer-3` line 1: absent → Land Raider Redeemer 1-1
+- `ds-land-raider-redeemer-4` line 1: absent → Land Raider Redeemer 1-1
+- `ds-land-raider-redeemer-5` line 1: absent → Land Raider Redeemer 1-1
+- `ds-land-raider-redeemer-6` line 1: absent → Land Raider Redeemer 1-1
+- `ds-land-raider-redeemer-7` line 1: absent → Land Raider Redeemer 1-1
+- `ds-land-speeder` line 1: absent → Land Speeder 1-1
+- `ds-land-speeder-2` line 1: absent → Land Speeder 1-1
+- `ds-land-speeder-3` line 1: absent → Land Speeder 1-1
+- `ds-land-speeder-4` line 1: absent → Land Speeder 1-1
+- `ds-land-speeder-5` line 1: absent → Land Speeder 1-1
+- `ds-land-speeder-6` line 1: absent → Land Speeder 1-1
+- `ds-land-speeder-storm` line 1: absent → Land Speeder Storm 1-1
+- `ds-land-speeder-tempest` line 1: absent → Land Speeder Tempest 1-1
+- `ds-land-speeder-tornado` line 1: absent → Land Speeder Tornado 1-1
+- `ds-land-speeder-typhoon` line 1: absent → Land Speeder Typhoon 1-1
+- `ds-land-speeder-vengeance` line 1: absent → Land Speeder Vengeance 1-1
+- `ds-lazarus` line 1: absent → Lazarus 1-1
+- `ds-legionaries` line 1: absent → Aspiring Champion 1-1
+- `ds-legionaries` line 2: absent → Legionaries 4-9
+- `ds-legionaries-2` line 1: absent → Aspiring Champion 1-1
+- `ds-legionaries-2` line 2: absent → Legionaries 4-9
+- `ds-lelith-hesperax` line 1: absent → Lelith Hesperax 1-1
+- `ds-leman-russ-battle-tank` line 1: absent → Leman Russ Battle Tank 1-1
+- `ds-leman-russ-battle-tank-2` line 1: absent → Leman Russ Battle Tank 1-1
+- `ds-leman-russ-commander` line 1: absent → Leman Russ Commander 1-1
+- `ds-leman-russ-commander-2` line 1: absent → Leman Russ Commander 1-1
+- `ds-leman-russ-demolisher` line 1: absent → Leman Russ Demolisher 1-1
+- `ds-leman-russ-demolisher-2` line 1: absent → Leman Russ Demolisher 1-1
+- `ds-leman-russ-eradicator` line 1: absent → Leman Russ Eradicator 1-1
+- `ds-leman-russ-eradicator-2` line 1: absent → Leman Russ Eradicator 1-1
+- `ds-leman-russ-executioner` line 1: absent → Leman Russ Executioner 1-1
+- `ds-leman-russ-executioner-2` line 1: absent → Leman Russ Executioner 1-1
+- `ds-leman-russ-exterminator` line 1: absent → Leman Russ Exterminator 1-1
+- `ds-leman-russ-exterminator-2` line 1: absent → Leman Russ Exterminator 1-1
+- `ds-leman-russ-punisher` line 1: absent → Leman Russ Punisher 1-1
+- `ds-leman-russ-punisher-2` line 1: absent → Leman Russ Punisher 1-1
+- `ds-leman-russ-vanquisher` line 1: absent → Leman Russ Vanquisher 1-1
+- `ds-leman-russ-vanquisher-2` line 1: absent → Leman Russ Vanquisher 1-1
+- `ds-lemartes` line 1: absent → Lemartes 1-1
+- `ds-leviathan-dreadnought` line 1: absent → Leviathan Dreadnought 1-1
+- `ds-leviathan-dreadnought-2` line 1: absent → Leviathan Dreadnought 1-1
+- `ds-leviathan-dreadnought-3` line 1: absent → Leviathan Dreadnought 1-1
+- `ds-leviathan-dreadnought-4` line 1: absent → Leviathan Dreadnought 1-1
+- `ds-leviathan-dreadnought-5` line 1: absent → Leviathan Dreadnought 1-1
+- `ds-leystalker` line 1: absent → Leystalker model 1-1
+- `ds-lhykhis` line 1: absent → Lhykhis 1-1
+- `ds-librarian` line 1: absent → Librarian 1-1
+- `ds-librarian-2` line 1: absent → Librarian 1-1
+- `ds-librarian-3` line 1: absent → Librarian 1-1
+- `ds-librarian-4` line 1: absent → Librarian 1-1
+- `ds-librarian-5` line 1: absent → Librarian 1-1
+- `ds-librarian-dreadnought` line 1: absent → Librarian Dreadnought 1-1
+- `ds-librarian-in-phobos-armour` line 1: absent → Librarian in Phobos Armour 1-1
+- `ds-librarian-in-phobos-armour-2` line 1: absent → Librarian in Phobos Armour 1-1
+- `ds-librarian-in-phobos-armour-3` line 1: absent → Librarian in Phobos Armour 1-1
+- `ds-librarian-in-phobos-armour-4` line 1: absent → Librarian in Phobos Armour 1-1
+- `ds-librarian-in-phobos-armour-5` line 1: absent → Librarian in Phobos Armour 1-1
+- `ds-librarian-in-terminator-armour` line 1: absent → Librarian in Terminator Armour 1-1
+- `ds-librarian-in-terminator-armour-2` line 1: absent → Librarian in Terminator Armour 1-1
+- `ds-librarian-in-terminator-armour-3` line 1: absent → Librarian in Terminator Armour 1-1
+- `ds-librarian-in-terminator-armour-4` line 1: absent → Librarian in Terminator Armour 1-1
+- `ds-librarian-in-terminator-armour-5` line 1: absent → Librarian in Terminator Armour 1-1
+- `ds-librarian-on-bike` line 1: absent → Librarian on Bike 1-1
+- `ds-librarian-with-jump-pack` line 1: absent → Librarian with Jump Pack 1-1
+- `ds-lictor` line 1: absent → Lictor 1-1
+- `ds-lictor-2` line 1: absent → Lictor 1-1
+- `ds-lieutenant` line 1: absent → Lieutenant 1-1
+- `ds-lieutenant-2` line 1: absent → Lieutenant 1-1
+- `ds-lieutenant-3` line 1: absent → Lieutenant 1-1
+- `ds-lieutenant-4` line 1: absent → Lieutenant 1-1
+- `ds-lieutenant-5` line 1: absent → Lieutenant 1-1
+- `ds-lieutenant-6` line 1: absent → Lieutenant 1-1
+- `ds-lieutenant-in-phobos-armour` line 1: absent → Lieutenant in Phobos Armour 1-1
+- `ds-lieutenant-in-phobos-armour-2` line 1: absent → Lieutenant in Phobos Armour 1-1
+- `ds-lieutenant-in-phobos-armour-3` line 1: absent → Lieutenant in Phobos Armour 1-1
+- `ds-lieutenant-in-phobos-armour-4` line 1: absent → Lieutenant in Phobos Armour 1-1
+- `ds-lieutenant-in-phobos-armour-5` line 1: absent → Lieutenant in Phobos Armour 1-1
+- `ds-lieutenant-in-phobos-armour-6` line 1: absent → Lieutenant in Phobos Armour 1-1
+- `ds-lieutenant-in-reiver-armour` line 1: absent → Lieutenant in Reiver Armour 1-1
+- `ds-lieutenant-in-reiver-armour-2` line 1: absent → Lieutenant in Reiver Armour 1-1
+- `ds-lieutenant-in-reiver-armour-3` line 1: absent → Lieutenant in Reiver Armour 1-1
+- `ds-lieutenant-in-reiver-armour-4` line 1: absent → Lieutenant in Reiver Armour 1-1
+- `ds-lieutenant-in-reiver-armour-5` line 1: absent → Lieutenant in Reiver Armour 1-1
+- `ds-lieutenant-in-reiver-armour-6` line 1: absent → Lieutenant in Reiver Armour 1-1
+- `ds-lieutenant-with-combi-weapon` line 1: absent → Lieutenant with Combi-weapon 1-1
+- `ds-lieutenant-with-combi-weapon-2` line 1: absent → Lieutenant with Combi-weapon 1-1
+- `ds-lieutenant-with-combi-weapon-3` line 1: absent → Lieutenant with Combi-weapon 1-1
+- `ds-lieutenant-with-combi-weapon-4` line 1: absent → Lieutenant with Combi-weapon 1-1
+- `ds-lieutenant-with-combi-weapon-5` line 1: absent → Lieutenant with Combi-weapon 1-1
+- `ds-lieutenant-with-combi-weapon-6` line 1: absent → Lieutenant with Combi-weapon 1-1
+- `ds-lifta-wagon` line 1: absent → Lifta Wagon 1-1
+- `ds-lion-eljonson` line 1: absent → Lion El’Jonson 1-1
+- `ds-locus` line 1: absent → Locus 1-1
+- `ds-logan-grimnar` line 1: absent → Logan Grimnar 1-1
+- `ds-logan-grimnar-on-stormrider` line 1: absent → Logan Grimnar on Stormrider 1-1
+- `ds-lokhust-destroyers` line 1: absent → Lokhust Destroyers 1-6
+- `ds-lokhust-heavy-destroyers` line 1: absent → Lokhust Heavy Destroyers 1-3
+- `ds-lokhust-lord` line 1: absent → Lokhust Lord 1-1
+- `ds-long-fangs` line 1: absent → Long Fang Pack Leader 1-1
+- `ds-long-fangs` line 2: absent → Long Fangs 4-5
+- `ds-longstrike` line 1: absent → Longstrike 1-1
+- `ds-lootas` line 1: absent → Spanners 1-2
+- `ds-lootas` line 2: absent → Lootas 4-8
+- `ds-lord` line 1: absent → Lord 1-1
+- `ds-lord-discordant-on-helstalker` line 1: absent → Lord Discordant on Helstalker 1-1
+- `ds-lord-exultant` line 1: absent → Lord Exultant 1-1
+- `ds-lord-invocatus` line 1: absent → Lord Invocatus 1-1
+- `ds-lord-kakophonist` line 1: absent → Lord Kakophonist 1-1
+- `ds-lord-marshal-dreir` line 1: absent → Lord Marshal Dreir 1-1
+- `ds-lord-of-change` line 1: absent → Lord of Change 1-1
+- `ds-lord-of-change-2` line 1: absent → Lord of Change 1-1
+- `ds-lord-of-contagion` line 1: absent → Lord of Contagion 1-1
+- `ds-lord-of-poxes` line 1: absent → Lord of Poxes 1-1
+- `ds-lord-of-virulence` line 1: absent → Lord of Virulence 1-1
+- `ds-lord-on-juggernaut` line 1: absent → Lord on Juggernaut 1-1
+- `ds-lord-solar-leontus` line 1: absent → Lord Solar Leontus 1-1
+- `ds-lucius-the-eternal` line 1: absent → Lucius the Eternal 1-1
+- `ds-lukas-the-trickster` line 1: absent → Lukas the Trickster 1-1
+- `ds-lychguard` line 1: absent → Lychguard 5-10
+- `ds-lynx` line 1: absent → Lynx 1-1
+- `ds-macharius` line 1: absent → Macharius 1-1
+- `ds-macharius-2` line 1: absent → Macharius 1-1
+- `ds-macharius-omega` line 1: absent → Macharius Omega 1-1
+- `ds-macharius-omega-2` line 1: absent → Macharius Omega 1-1
+- `ds-macharius-vanquisher` line 1: absent → Macharius Vanquisher 1-1
+- `ds-macharius-vanquisher-2` line 1: absent → Macharius Vanquisher 1-1
+- `ds-macharius-vulcan` line 1: absent → Macharius Vulcan 1-1
+- `ds-macharius-vulcan-2` line 1: absent → Macharius Vulcan 1-1
+- `ds-mad-dok-grotsnik` line 1: absent → Mad Dok Grotsnik 1-1
+- `ds-magnus-the-red` line 1: absent → Magnus the Red 1-1
+- `ds-magus` line 1: absent → Magus 1-1
+- `ds-malanthrope` line 1: absent → Malanthrope 1-1
+- `ds-malcador` line 1: absent → Malcador 1-1
+- `ds-malcador-2` line 1: absent → Malcador 1-1
+- `ds-malcador-annihilator` line 1: absent → Malcador Annihilator 1-1
+- `ds-malcador-annihilator-2` line 1: absent → Malcador Annihilator 1-1
+- `ds-malcador-defender` line 1: absent → Malcador Defender 1-1
+- `ds-malcador-defender-2` line 1: absent → Malcador Defender 1-1
+- `ds-malcador-infernus` line 1: absent → Malcador Infernus 1-1
+- `ds-malcador-infernus-2` line 1: absent → Malcador Infernus 1-1
+- `ds-maleceptor` line 1: absent → Maleceptor 1-1
+- `ds-malignant-plaguecaster` line 1: absent → Malignant Plaguecaster 1-1
+- `ds-mandrakes` line 1: absent → Nightfiend 1-1
+- `ds-mandrakes` line 2: absent → Mandrakes 4-9
+- `ds-manta` line 1: absent → Manta 1-1
+- `ds-manticore` line 1: absent → Manticore 1-1
+- `ds-manticore-2` line 1: absent → Manticore 1-1
+- `ds-manticore-platform` line 1: absent → Manticore Platform 1-1
+- `ds-manticore-platform-2` line 1: absent → Manticore Platform 1-1
+- `ds-marauder-bomber` line 1: absent → Marauder Bomber 1-1
+- `ds-marauder-destroyer` line 1: absent → Marauder Destroyer 1-1
+- `ds-marneus-calgar-in-armour-of-antilochus` line 1: absent → Marneus Calgar in Armour of Antilochus 1-1
+- `ds-marshal` line 1: absent → Marshal 1-1
+- `ds-master-of-executions` line 1: absent → Master of Executions 1-1
+- `ds-master-of-executions-2` line 1: absent → Master of Executions 1-1
+- `ds-master-of-possession` line 1: absent → Master of Possession 1-1
+- `ds-master-of-possession-2` line 1: absent → Master of Possession 1-1
+- `ds-masters-of-the-maelstrom` line 1: absent → Garreon the Corpsemaster 1-1
+- `ds-masters-of-the-maelstrom` line 2: absent → Garlon Souleater 1-1
+- `ds-masters-of-the-maelstrom` line 3: absent → Katar Garrix 1-1
+- `ds-masters-of-the-maelstrom` line 4: absent → Captain Sargotta 1-1
+- `ds-masters-of-the-maelstrom` line 5: absent → The Enforcer 1-1
+- `ds-mastodon` line 1: absent → Mastodon 1-1
+- `ds-mastodon-2` line 1: absent → Mastodon 1-1
+- `ds-mastodon-3` line 1: absent → Mastodon 1-1
+- `ds-mastodon-4` line 1: absent → Mastodon 1-1
+- `ds-mastodon-5` line 1: absent → Mastodon 1-1
+- `ds-maugan-ra` line 1: absent → Maugan Ra 1-1
+- `ds-maulerfiend` line 1: absent → Maulerfiend 1-1
+- `ds-maulerfiend-2` line 1: absent → Maulerfiend 1-1
+- `ds-maulerfiend-3` line 1: absent → Maulerfiend 1-1
+- `ds-maulerfiend-4` line 1: absent → Maulerfiend 1-1
+- `ds-mawloc` line 1: absent → Mawloc 1-1
+- `ds-mawloc-2` line 1: absent → Mawloc 1-1
+- `ds-medusa-carriage-battery` line 1: absent → Medusa Carriage 1-1
+- `ds-medusa-carriage-battery-2` line 1: absent → Medusa Carriage 1-1
+- `ds-mega-dread` line 1: absent → Mega Dread 1-1
+- `ds-meganobz` line 1: absent → Meganobz 2-6
+- `ds-megatrakk-scrapjet` line 1: absent → Megatrakk Scrapjet 1-1
+- `ds-mek` line 1: absent → Mek 1-1
+- `ds-mek-gunz` line 1: absent → Mek Gunz 1-3
+- `ds-meka-dread` line 1: absent → Meka-Dread 1-1
+- `ds-mekboy-workshop` line 1: absent → Mekboy Workshop 1-1
+- `ds-memnyr-strategist` line 1: absent → Memnyr Strategist 1-1
+- `ds-miasmic-malignifier` line 1: absent → Miasmic Malignifier 1-1
+- `ds-militarum-tempestus-command-squad` line 1: absent → Tempestor Prime 1-1
+- `ds-militarum-tempestus-command-squad` line 2: absent → Tempestus Scions 4-4
+- `ds-ministorum-priest` line 1: absent → Preacher 1-1
+- `ds-ministorum-priest-2` line 1: absent → Ministorum Priest 1-1
+- `ds-ministorum-priest-3` line 1: absent → Ministorum Priest 1-1
+- `ds-minotaur` line 1: absent → Minotaur 1-1
+- `ds-minotaur-2` line 1: absent → Minotaur 1-1
+- `ds-monolith` line 1: absent → Monolith 1-1
+- `ds-morkanaut` line 1: absent → Morkanaut 1-1
+- `ds-mortarion` line 1: absent → Mortarion 1-1
+- `ds-mortifiers` line 1: absent → Mortifiers 1-2
+- `ds-mortis-dreadnought` line 1: absent → Mortis Dreadnought 1-1
+- `ds-morvenn-vahl` line 1: absent → Morvenn Vahl 1-1
+- `ds-mozrog-skragbad` line 1: absent → Mozrog Skragbad 1-1
+- `ds-mucolid-spores` line 1: absent → Mucolid Spores 1-2
+- `ds-mukaali-riders` line 1: absent → Mukaali Rider Sergeant 1-1
+- `ds-mukaali-riders` line 2: absent → Mukaali Riders 2-2
+- `ds-mukaali-riders-2` line 1: absent → Mukaali Rider Sergeant 1-1
+- `ds-mukaali-riders-2` line 2: absent → Mukaali Riders 2-2
+- `ds-munitorum-servitors` line 1: absent → Munitorum Servitors 4-4
+- `ds-munitorum-servitors-2` line 1: absent → Munitorum Servitors 4-4
+- `ds-murderfang` line 1: absent → Murderfang 1-1
+- `ds-mutalith-vortex-beast` line 1: absent → Mutalith Vortex Beast 1-1
+- `ds-mutilators` line 1: absent → Mutilators 3-3
+- `ds-mutoid-vermin` line 1: absent → Mutoid Vermin 16-16
+- `ds-mutoid-vermin-2` line 1: absent → Mutoid Vermin 16-16
+- `ds-mutoid-vermin-3` line 1: absent → Mutoid Vermin 16-16
+- `ds-mutoid-vermin-4` line 1: absent → Mutoid Vermin 16-16
+- `ds-myphitic-blight-hauler` line 1: absent → Myphitic Blight-hulers 1-2
+- `ds-navigator` line 1: absent → Navigator 1-1
+- `ds-necron-warriors` line 1: absent → Necron Warriors 10-20
+- `ds-negavolt-cultists` line 1: absent → Negavolt Cultists 4-4
+- `ds-negavolt-cultists-2` line 1: absent → Negavolt Cultists 4-4
+- `ds-negavolt-cultists-3` line 1: absent → Negavolt Cultists 4-4
+- `ds-nekrosor-ammentar` line 1: absent → Nekrosor Ammentar 1-1
+- `ds-nemesis-claw` line 1: absent → Visionary 1-1
+- `ds-nemesis-claw` line 2: absent → Legionaries 4-9
+- `ds-nemesis-dreadknight` line 1: absent → Nemesis Dreadknight 1-1
+- `ds-nemesor-zahndrekh` line 1: absent → Nemesor Zahndrekh 1-1
+- `ds-neophyte-hybrids` line 1: absent → Neophyte Leader 1-1
+- `ds-neophyte-hybrids` line 2: absent → Neophyte Hybrids 9-19
+- `ds-nephilim-jetfighter` line 1: absent → Nephilim Jetfighter 1-1
+- `ds-neurogaunts` line 1: absent → Neurogaunt Nodebeasts* 1-2
+- `ds-neurogaunts` line 2: absent → Neurogaunts 10-20
+- `ds-neurolictor` line 1: absent → Neurolictor 1-1
+- `ds-neurolictor-2` line 1: absent → Neurolictor 1-1
+- `ds-neurotyrant` line 1: absent → Neurotyrant 1-1
+- `ds-nexos` line 1: absent → Nexos 1-1
+- `ds-neyam-shai-murad` line 1: absent → Neyam Shai Murad 1-1
+- `ds-night-scythe` line 1: absent → Night Scythe 1-1
+- `ds-night-shroud` line 1: absent → Night Shroud 1-1
+- `ds-night-spinner` line 1: absent → Night Spinner 1-1
+- `ds-nightwing` line 1: absent → Nightwing 1-1
+- `ds-njal-stormcaller` line 1: absent → Njal Stormcaller 1-1
+- `ds-nobz` line 1: absent → Boss Nob 1-1
+- `ds-nobz` line 2: absent → Nobz 4-9
+- `ds-nobz-on-warbikes` line 1: absent → Nobz on Warbikes 3-3
+- `ds-noctilith-crown` line 1: absent → Noctilith Crown 1-1
+- `ds-noise-marines` line 1: absent → Disharmonist 1-1
+- `ds-noise-marines` line 2: absent → Noise Marines 5-5
+- `ds-noise-marines-2` line 1: absent → Disharmonist 1-1
+- `ds-noise-marines-2` line 2: absent → Noise Marines 5-5
+- `ds-nork-deddog` line 1: absent → Nork Deddog 1-1
+- `ds-norn-assimilator` line 1: absent → Norn Assimilator 1-1
+- `ds-norn-emissary` line 1: absent → Norn Emissary 1-1
+- `ds-noxious-blightbringer` line 1: absent → Noxious Blightbringer 1-1
+- `ds-nurglings` line 1: absent → Nurgling Swarms 3-6
+- `ds-nurglings-2` line 1: absent → Nurgling Swarms 3-6
+- `ds-obelisk` line 1: absent → Obelisk 1-1
+- `ds-obliterators` line 1: absent → Obliterators 2-2
+- `ds-ogryn-bodyguard` line 1: absent → Ogryn Bodyguard 1-1
+- `ds-ogryn-squad` line 1: absent → Ogryn Bone ‘ead 1-1
+- `ds-ogryn-squad` line 2: absent → Ogryns 2-5
+- `ds-old-one-eye` line 1: absent → Old One Eye 1-1
+- `ds-onager-dunecrawler` line 1: absent → Onager Dunecrawler 1-1
+- `ds-ophydian-destroyers` line 1: absent → Ophydian Destroyers 3-6
+- `ds-orca-dropship` line 1: absent → Orca Dropship 1-1
+- `ds-orikan-the-diviner` line 1: absent → Orikan the Diviner 1-1
+- `ds-orion-assault-dropship` line 1: absent → Orion Assault Dropship 1-1
+- `ds-outrider-squad` line 1: absent → Outrider Sergeant 1-1
+- `ds-outrider-squad` line 2: absent → Outriders 2-5
+- `ds-outrider-squad` line 3: absent → Invader ATV 0-1
+- `ds-outrider-squad-2` line 1: absent → Outrider Sergeant 1-1
+- `ds-outrider-squad-2` line 2: absent → Outriders 2-5
+- `ds-outrider-squad-2` line 3: absent → Invader ATV 0-1
+- `ds-outrider-squad-3` line 1: absent → Outrider Sergeant 1-1
+- `ds-outrider-squad-3` line 2: absent → Outriders 2-5
+- `ds-outrider-squad-3` line 3: absent → Invader ATV 0-1
+- `ds-outrider-squad-4` line 1: absent → Outrider Sergeant 1-1
+- `ds-outrider-squad-4` line 2: absent → Outriders 2-5
+- `ds-outrider-squad-4` line 3: absent → Invader ATV 0-1
+- `ds-outrider-squad-5` line 1: absent → Outrider Sergeant 1-1
+- `ds-outrider-squad-5` line 2: absent → Outriders 2-5
+- `ds-outrider-squad-5` line 3: absent → Invader ATV 0-1
+- `ds-outrider-squad-6` line 1: absent → Outrider Sergeant 1-1
+- `ds-outrider-squad-6` line 2: absent → Outriders 2-5
+- `ds-outrider-squad-6` line 3: absent → Invader ATV 0-1
+- `ds-overlord` line 1: absent → Overlord 1-1
+- `ds-overlord-with-translocation-shroud` line 1: absent → Overlord with Translocation Shroud 1-1
+- `ds-painboss` line 1: absent → Painboss 1-1
+- `ds-painboy` line 1: absent → Painboy 1-1
+- `ds-painboy-on-warbike` line 1: absent → Painboy on Warbike 1-1
+- `ds-paladin-squad` line 1: absent → Paragon 1-1
+- `ds-paladin-squad` line 2: absent → Paladins 3-9
+- `ds-palatine` line 1: absent → Palatine 1-1
+- `ds-pallas-grav-attack` line 1: absent → Pallas Grav-attack 1-1
+- `ds-paragon-warsuits` line 1: absent → Paragon Superior 1-1
+- `ds-paragon-warsuits` line 2: absent → Paragons 2-2
+- `ds-parasite-of-mortrex` line 1: absent → Parasite of Mortrex 1-1
+- `ds-parasite-of-mortrex-2` line 1: absent → Parasite of Mortrex 1-1
+- `ds-pathfinder-team` line 1: absent → Pathfinder Shas’ui 1-1
+- `ds-pathfinder-team` line 2: absent → Pathfinders 9-9
+- `ds-patriarch` line 1: absent → Patriarch 1-1
+- `ds-pedro-kantor` line 1: absent → Pedro Kantor 1-1
+- `ds-penitent-engines` line 1: absent → Penitent Engines 1-2
+- `ds-phantom-titan` line 1: absent → Phantom Titan 1-1
+- `ds-phoenix` line 1: absent → Phoenix 1-1
+- `ds-pink-horrors` line 1: absent → Pink Horrors 10-10
+- `ds-pink-horrors-2` line 1: absent → Pink Horrors 10-10
+- `ds-piranhas` line 1: absent → Piranhas 1-3
+- `ds-plague-drones` line 1: absent → Plaguebringer 1-1
+- `ds-plague-drones` line 2: absent → Plague Drones 2-5
+- `ds-plague-drones-2` line 1: absent → Plaguebringer 1-1
+- `ds-plague-drones-2` line 2: absent → Plague Drones 2-5
+- `ds-plague-marines` line 1: absent → Plague Champion 1-1
+- `ds-plague-marines` line 2: absent → Plague Marines 4-9
+- `ds-plague-marines-2` line 1: absent → Plague Champion 1-1
+- `ds-plague-marines-2` line 2: absent → Plague Marines 4-9
+- `ds-plague-surgeon` line 1: absent → Plague Surgeon 1-1
+- `ds-plague-toads` line 1: absent → Plague Toads 3-3
+- `ds-plaguebearers` line 1: absent → Plagueridden 1-1
+- `ds-plaguebearers` line 2: absent → Plaguebearers 9-9
+- `ds-plaguebearers-2` line 1: absent → Plagueridden 1-1
+- `ds-plaguebearers-2` line 2: absent → Plaguebearers 9-9
+- `ds-plagueburst-crawler` line 1: absent → Plagueburst Crawler 1-1
+- `ds-plasmancer` line 1: absent → Plasmancer 1-1
+- `ds-possessed` line 1: absent → Possessed Champion 1-1
+- `ds-possessed` line 2: absent → Possessed 4-9
+- `ds-possessed-2` line 1: absent → Possessed Champion 1-1
+- `ds-possessed-2` line 2: absent → Possessed 4-9
+- `ds-pox-riders` line 1: absent → Pox Riders 3-3
+- `ds-poxbringer` line 1: absent → Poxbringer 1-1
+- `ds-poxwalkers` line 1: absent → Poxwalkers 10-20
+- `ds-praetor` line 1: absent → Praetor 1-1
+- `ds-praetor-2` line 1: absent → Praetor 1-1
+- `ds-predator-annihilator` line 1: absent → Predator Annihilator 1-1
+- `ds-predator-annihilator-2` line 1: absent → Predator Annihilator 1-1
+- `ds-predator-annihilator-3` line 1: absent → Predator Annihilator 1-1
+- `ds-predator-annihilator-4` line 1: absent → Predator Annihilator 1-1
+- `ds-predator-annihilator-5` line 1: absent → Predator Annihilator 1-1
+- `ds-predator-annihilator-6` line 1: absent → Predator Annihilator 1-1
+- `ds-predator-destructor` line 1: absent → Predator Destructor 1-1
+- `ds-predator-destructor-2` line 1: absent → Predator Destructor 1-1
+- `ds-predator-destructor-3` line 1: absent → Predator Destructor 1-1
+- `ds-predator-destructor-4` line 1: absent → Predator Destructor 1-1
+- `ds-predator-destructor-5` line 1: absent → Predator Destructor 1-1
+- `ds-predator-destructor-6` line 1: absent → Predator Destructor 1-1
+- `ds-primaris-company-champion` line 1: absent → Primaris Company Champion 1-1
+- `ds-primaris-psyker` line 1: absent → Primaris Psyker 1-1
+- `ds-primaris-psyker-2` line 1: absent → Primaris Psyker 1-1
+- `ds-primus` line 1: absent → Primus 1-1
+- `ds-prince-yriel` line 1: absent → Prince Yriel 1-1
+- `ds-prince-yriel-2` line 1: absent → Prince Yriel 1-1
+- `ds-prosecutors` line 1: absent → Prosecutor Sister Superior 1-1
+- `ds-prosecutors` line 2: absent → Prosecutors 3-9
+- `ds-proteus-kill-team` line 1: absent → MODELS MAXIMUM 10-10
+- `ds-proteus-kill-team` line 2: absent → Kill Team Veterans 5-10
+- `ds-proteus-kill-team` line 3: absent → Kill Team Veterans with Jump Packs 0-4
+- `ds-proteus-kill-team` line 4: absent → Kill Team Bikers 0-2
+- `ds-proteus-kill-team` line 5: absent → Kill Team Terminators 0-4
+- `ds-provisionally-prepared` line 1: absent → Provisionally Prepared 1-1
+- `ds-psychomancer` line 1: absent → Psychomancer 1-1
+- `ds-psychophage` line 1: absent → Psychophage 1-1
+- `ds-pteraxii-skystalkers` line 1: absent → Pteraxii Skystalker Alpha 1-1
+- `ds-pteraxii-skystalkers` line 2: absent → Pteraxii Skystalkers 4-9
+- `ds-pteraxii-sterylizors` line 1: absent → Pteraxii Sterylizor Alpha 1-1
+- `ds-pteraxii-sterylizors` line 2: absent → Pteraxii Sterylizors 4-9
+- `ds-purestrain-genestealers` line 1: absent → Purestrain Genestealers 5-10
+- `ds-purgation-squad` line 1: absent → Purgator Justicar 1-1
+- `ds-purgation-squad` line 2: absent → Purgators 4-9
+- `ds-purifier-squad` line 1: absent → Knight of the Flame 1-1
+- `ds-purifier-squad` line 2: absent → Purifiers 4-9
+- `ds-pyrovores` line 1: absent → Pyrovores 1-3
+- `ds-quartermaster-cadre-squad` line 1: absent → Quartermaster Revenant 1-1
+- `ds-quartermaster-cadre-squad` line 2: absent → Medicae Servitors 4-4
+- `ds-quartermaster-cadre-squad-2` line 1: absent → Quartermaster Revenant 1-1
+- `ds-quartermaster-cadre-squad-2` line 2: absent → Medicae Servitors 4-4
+- `ds-questoris-knight-magaera` line 1: absent → Questoris Knight Magaera 1-1
+- `ds-questoris-knight-styrix` line 1: absent → Questoris Knight Styrix 1-1
+- `ds-ragnar-blackmane` line 1: absent → Ragnar Blackmane 1-1
+- `ds-raider` line 1: absent → Raider 1-1
+- `ds-rangers` line 1: absent → Rangers 5-10
+- `ds-rapier-carrier` line 1: absent → Rapier Carrier 1-1
+- `ds-rapier-carrier-2` line 1: absent → Rapier Carrier 1-1
+- `ds-rapier-carrier-3` line 1: absent → Rapier Carrier 1-1
+- `ds-rapier-carrier-4` line 1: absent → Rapier Carrier 1-1
+- `ds-rapier-carrier-5` line 1: absent → Rapier Carrier 1-1
+- `ds-rapier-laser-destroyer-battery` line 1: absent → Rapier Laser Destroyers 1-3
+- `ds-rapier-laser-destroyer-battery-2` line 1: absent → Rapier Laser Destroyers 1-3
+- `ds-raptors` line 1: absent → Raptor Champion 1-1
+- `ds-raptors` line 2: absent → Raptors 4-9
+- `ds-raptors-2` line 1: absent → Raptor Champion 1-1
+- `ds-raptors-2` line 2: absent → Raptors 4-9
+- `ds-ratlings` line 1: absent → Ratlings 5-10
+- `ds-ravager` line 1: absent → Ravager 1-1
+- `ds-raven-strike-fighter` line 1: absent → Raven Strike Fighter 1-1
+- `ds-raveners` line 1: absent → Raveners 5-5
+- `ds-raveners-2` line 1: absent → Raveners 5-5
+- `ds-ravenwing-black-knights` line 1: absent → Ravenwing Huntmaster 1-1
+- `ds-ravenwing-black-knights` line 2: absent → Ravenwing Black Knights 2-5
+- `ds-ravenwing-command-squad` line 1: absent → Ravenwing Champion 1-1
+- `ds-ravenwing-command-squad` line 2: absent → Ravenwing Apothecary 1-1
+- `ds-ravenwing-command-squad` line 3: absent → Ravenwing Ancient 1-1
+- `ds-ravenwing-dark-talon` line 1: absent → Ravenwing Dark Talon 1-1
+- `ds-ravenwing-darkshroud` line 1: absent → Ravenwing Darkshroud 1-1
+- `ds-ravenwing-talonmaster` line 1: absent → Ravenwing Talonmaster 1-1
+- `ds-razorback` line 1: absent → Razorback 1-1
+- `ds-razorback-2` line 1: absent → Razorback 1-1
+- `ds-razorback-3` line 1: absent → Razorback 1-1
+- `ds-razorback-4` line 1: absent → Razorback 1-1
+- `ds-razorback-5` line 1: absent → Razorback 1-1
+- `ds-razorback-6` line 1: absent → Razorback 1-1
+- `ds-razorback-7` line 1: absent → Razorback 1-1
+- `ds-razorshark-strike-fighter` line 1: absent → Razorshark Strike Fighter 1-1
+- `ds-razorwing-jetfighter` line 1: absent → Razorwing Jetfighter 1-1
+- `ds-reaper` line 1: absent → Reaper 1-1
+- `ds-reaver-titan` line 1: absent → Reaver Titan 1-1
+- `ds-reavers` line 1: absent → Arena Champion 1-1
+- `ds-reavers` line 2: absent → Reavers 2-5
+- `ds-red-corsairs-raiders` line 1: absent → Red Corsairs Raider Champion 1-1
+- `ds-red-corsairs-raiders` line 2: absent → Red Corsairs Raiders 4-9
+- `ds-red-corsairs-reave-captain` line 1: absent → Red Corsairs Reave-Captain 1-1
+- `ds-redemptor-dreadnought` line 1: absent → Redemptor Dreadnought 1-1
+- `ds-redemptor-dreadnought-2` line 1: absent → Redemptor Dreadnought 1-1
+- `ds-redemptor-dreadnought-3` line 1: absent → Redemptor Dreadnought 1-1
+- `ds-redemptor-dreadnought-4` line 1: absent → Redemptor Dreadnought 1-1
+- `ds-redemptor-dreadnought-5` line 1: absent → Redemptor Dreadnought 1-1
+- `ds-redemptor-dreadnought-6` line 1: absent → Redemptor Dreadnought 1-1
+- `ds-reductus-saboteur` line 1: absent → Reductus Saboteur 1-1
+- `ds-rein-and-raus` line 1: absent → Rein 1-1
+- `ds-rein-and-raus` line 2: absent → Raus 1-1
+- `ds-reiver-squad` line 1: absent → Reiver Sergeant 1-1
+- `ds-reiver-squad` line 2: absent → Reivers 4-9
+- `ds-reiver-squad-2` line 1: absent → Reiver Sergeant 1-1
+- `ds-reiver-squad-2` line 2: absent → Reivers 4-9
+- `ds-reiver-squad-3` line 1: absent → Reiver Sergeant 1-1
+- `ds-reiver-squad-3` line 2: absent → Reivers 4-9
+- `ds-reiver-squad-4` line 1: absent → Reiver Sergeant 1-1
+- `ds-reiver-squad-4` line 2: absent → Reivers 4-9
+- `ds-reiver-squad-5` line 1: absent → Reiver Sergeant 1-1
+- `ds-reiver-squad-5` line 2: absent → Reivers 4-9
+- `ds-reiver-squad-6` line 1: absent → Reiver Sergeant 1-1
+- `ds-reiver-squad-6` line 2: absent → Reivers 4-9
+- `ds-relic-contemptor-dreadnought` line 1: absent → Relic Contemptor Dreadnought 1-1
+- `ds-relic-contemptor-dreadnought-2` line 1: absent → Relic Contemptor Dreadnought 1-1
+- `ds-relic-contemptor-dreadnought-3` line 1: absent → Relic Contemptor Dreadnought 1-1
+- `ds-relic-contemptor-dreadnought-4` line 1: absent → Relic Contemptor Dreadnought 1-1
+- `ds-relic-contemptor-dreadnought-5` line 1: absent → Relic Contemptor Dreadnought 1-1
+- `ds-relic-razorback` line 1: absent → Relic Razorback 1-1
+- `ds-relic-terminator-squad` line 1: absent → Relic Terminator Sergeant 1-1
+- `ds-relic-terminator-squad` line 2: absent → Relic Terminators 4-9
+- `ds-remora-stealth-drones` line 1: absent → Remora Stealth Drones 2-2
+- `ds-remote-sensor-tower` line 1: absent → Remote Sensor Tower 1-1
+- `ds-rendmaster-on-blood-throne` line 1: absent → Rendmaster on Blood Throne 1-1
+- `ds-renegade-enforcer` line 1: absent → Renegade Enforcer 1-1
+- `ds-renegade-enforcer-2` line 1: absent → Renegade Enforcer 1-1
+- `ds-renegade-enforcer-3` line 1: absent → Renegade Enforcer 1-1
+- `ds-renegade-heavy-weapons-squad` line 1: absent → Renegade Heavy Weapons Teams 3-3
+- `ds-renegade-heavy-weapons-squad-2` line 1: absent → Renegade Heavy Weapons Teams 3-3
+- `ds-renegade-heavy-weapons-squad-3` line 1: absent → Renegade Heavy Weapons Teams 3-3
+- `ds-renegade-ogryn-beast-handler` line 1: absent → Ogryn Pack Master 1-1
+- `ds-renegade-ogryn-beast-handler` line 2: absent → Chaos Mauler Hounds 3-3
+- `ds-renegade-ogryn-beast-handler-2` line 1: absent → Ogryn Pack Master 1-1
+- `ds-renegade-ogryn-beast-handler-2` line 2: absent → Chaos Mauler Hounds 3-3
+- `ds-renegade-ogryn-beast-handler-3` line 1: absent → Ogryn Pack Master 1-1
+- `ds-renegade-ogryn-beast-handler-3` line 2: absent → Chaos Mauler Hounds 3-3
+- `ds-renegade-ogryn-brutes` line 1: absent → Renegade Ogryn Brutes 3-3
+- `ds-renegade-ogryn-brutes-2` line 1: absent → Renegade Ogryn Brutes 3-3
+- `ds-renegade-ogryn-brutes-3` line 1: absent → Renegade Ogryn Brutes 3-3
+- `ds-renegade-plague-ogryns` line 1: absent → Renegade Plague Ogryns 3-3
+- `ds-renegade-plague-ogryns-2` line 1: absent → Renegade Plague Ogryns 3-3
+- `ds-renegade-plague-ogryns-3` line 1: absent → Renegade Plague Ogryns 3-3
+- `ds-repentia-squad` line 1: absent → Repentia Superior 1-1
+- `ds-repentia-squad` line 2: absent → Sisters Repentia 4-9
+- `ds-repressor` line 1: absent → Repressor 1-1
+- `ds-repulsor` line 1: absent → Repulsor 1-1
+- `ds-repulsor-2` line 1: absent → Repulsor 1-1
+- `ds-repulsor-3` line 1: absent → Repulsor 1-1
+- `ds-repulsor-4` line 1: absent → Repulsor 1-1
+- `ds-repulsor-5` line 1: absent → Repulsor 1-1
+- `ds-repulsor-6` line 1: absent → Repulsor 1-1
+- `ds-repulsor-executioner` line 1: absent → Repulsor Executioner 1-1
+- `ds-repulsor-executioner-2` line 1: absent → Repulsor Executioner 1-1
+- `ds-repulsor-executioner-3` line 1: absent → Repulsor Executioner 1-1
+- `ds-repulsor-executioner-4` line 1: absent → Repulsor Executioner 1-1
+- `ds-repulsor-executioner-5` line 1: absent → Repulsor Executioner 1-1
+- `ds-repulsor-executioner-6` line 1: absent → Repulsor Executioner 1-1
+- `ds-retributor-squad` line 1: absent → Retributor Superior 1-1
+- `ds-retributor-squad` line 2: absent → Retributors 4-4
+- `ds-revenant-titan` line 1: absent → Revenant Titan 1-1
+- `ds-rhino` line 1: absent → Rhino 1-1
+- `ds-rhino-2` line 1: absent → Rhino 1-1
+- `ds-rhino-3` line 1: absent → Rhino 1-1
+- `ds-rhino-4` line 1: absent → Rhino 1-1
+- `ds-rhino-5` line 1: absent → Rhino 1-1
+- `ds-rhino-6` line 1: absent → Rhino 1-1
+- `ds-rhino-7` line 1: absent → Rhino 1-1
+- `ds-rhino-primaris` line 1: absent → Rhino Primaris 1-1
+- `ds-ripper-swarms` line 1: absent → Ripper Swarms 1-3
+- `ds-riptide-battlesuit` line 1: absent → Riptide Battlesuit 1-1
+- `ds-roboute-guilliman` line 1: absent → Roboute Guilliman 1-1
+- `ds-rogal-dorn-battle-tank` line 1: absent → Rogal Dorn Battle Tank 1-1
+- `ds-rogal-dorn-battle-tank-2` line 1: absent → Rogal Dorn Battle Tank 1-1
+- `ds-rogal-dorn-commander` line 1: absent → Rogal Dorn Tank Commander 1-1
+- `ds-rogal-dorn-commander-2` line 1: absent → Rogal Dorn Tank Commander 1-1
+- `ds-rogue-psyker` line 1: absent → Rogue Psyker 1-1
+- `ds-rogue-psyker-2` line 1: absent → Rogue Psyker 1-1
+- `ds-rogue-psyker-3` line 1: absent → Rogue Psyker 1-1
+- `ds-rogue-trader-entourage` line 1: absent → Rogue Trader 1-1
+- `ds-rogue-trader-entourage` line 2: absent → Death Cult Assassin 1-1
+- `ds-rogue-trader-entourage` line 3: absent → Lectro-Maester 1-1
+- `ds-rogue-trader-entourage` line 4: absent → Rejuvenat Adept 1-1
+- `ds-rotigus` line 1: absent → Rotigus 1-1
+- `ds-rotigus-2` line 1: absent → Rotigus 1-1
+- `ds-royal-warden` line 1: absent → Royal Warden 1-1
+- `ds-rubric-marines` line 1: absent → Aspiring Sorcerer 1-1
+- `ds-rubric-marines` line 2: absent → Rubric Marines 4-9
+- `ds-rubric-marines-2` line 1: absent → Aspiring Sorcerer 1-1
+- `ds-rubric-marines-2` line 2: absent → Rubric Marines 4-9
+- `ds-rukkatrukk-squigbuggy` line 1: absent → Rukkatrukk Squigbuggy 1-1
+- `ds-rvarna-battlesuit` line 1: absent → R’varna Battlesuit 1-1
+- `ds-sabre-weapons-battery` line 1: absent → Sabre Gun Platforms 1-2
+- `ds-sabre-weapons-battery-2` line 1: absent → Sabre Gun Platforms 1-2
+- `ds-sagitaur` line 1: absent → Sagitaur 1-1
+- `ds-sagittarum-custodians` line 1: absent → Sagittarum Custodians 5-5
+- `ds-saint-celestine` line 1: absent → Celestine 1-1
+- `ds-saint-celestine` line 2: absent → Geminae Superia 2-2
+- `ds-salamander-command-vehicle` line 1: absent → Salamander Command Vehicle 1-1
+- `ds-salamander-command-vehicle-2` line 1: absent → Salamander Command Vehicle 1-1
+- `ds-salamander-scout-vehicle` line 1: absent → Salamander Scout Vehicle 1-1
+- `ds-salamander-scout-vehicle-2` line 1: absent → Salamander Scout Vehicle 1-1
+- `ds-sammael` line 1: absent → Sammael 1-1
+- `ds-sanctifiers` line 1: absent → Miraculist 1-1
+- `ds-sanctifiers` line 2: absent → Salvationist 1-1
+- `ds-sanctifiers` line 3: absent → Death Cult Assassin 1-1
+- `ds-sanctifiers` line 4: absent → Missionaries 2-2
+- `ds-sanctifiers` line 5: absent → Sanctifiers 4-4
+- `ds-sanctifiers-2` line 1: absent → Miraculist 1-1
+- `ds-sanctifiers-2` line 2: absent → Salvationist 1-1
+- `ds-sanctifiers-2` line 3: absent → Death Cult Assassin 1-1
+- `ds-sanctifiers-2` line 4: absent → Missionaries 2-2
+- `ds-sanctifiers-2` line 5: absent → Sanctifiers 4-4
+- `ds-sanctus` line 1: absent → Sanctus 1-1
+- `ds-sanguinary-guard` line 1: absent → Sanguinary Guard 3-6
+- `ds-sanguinary-priest` line 1: absent → Sanguinary Priest 1-1
+- `ds-sanguinary-priest-with-jump-pack` line 1: absent → Sanguinary Priest 1-1
+- `ds-scabeiathrax-the-bloated` line 1: absent → Scabeiathrax the Bloated 1-1
+- `ds-scarab-occult-terminators` line 1: absent → Scarab Occult Sorcerer 1-1
+- `ds-scarab-occult-terminators` line 2: absent → Scarab Occult Terminators 4-9
+- `ds-scorpion` line 1: absent → Scorpion 1-1
+- `ds-scourges-with-heavy-weapons` line 1: absent → Solarite 1-1
+- `ds-scourges-with-heavy-weapons` line 2: absent → Scourges 4-4
+- `ds-scourges-with-shardcarbines` line 1: absent → Solarite 1-1
+- `ds-scourges-with-shardcarbines` line 2: absent → Scourges 4-4
+- `ds-scout-bike-squad` line 1: absent → Scout Biker Sergeant 1-1
+- `ds-scout-bike-squad` line 2: absent → Scout Bikers 2-5
+- `ds-scout-sentinels` line 1: absent → Scout Sentinels 1-2
+- `ds-scout-sentinels-2` line 1: absent → Scout Sentinels 1-2
+- `ds-scout-sniper-squad` line 1: absent → Scout Sniper Sergeant 1-1
+- `ds-scout-sniper-squad` line 2: absent → Scout Snipers 4-9
+- `ds-scout-squad` line 1: absent → Scout Sergeant 1-1
+- `ds-scout-squad` line 2: absent → Scouts 4-9
+- `ds-scout-squad-2` line 1: absent → Scout Sergeant 1-1
+- `ds-scout-squad-2` line 2: absent → Scouts 4-9
+- `ds-scout-squad-3` line 1: absent → Scout Sergeant 1-1
+- `ds-scout-squad-3` line 2: absent → Scouts 4-9
+- `ds-scout-squad-4` line 1: absent → Scout Sergeant 1-1
+- `ds-scout-squad-4` line 2: absent → Scouts 4-9
+- `ds-scout-squad-5` line 1: absent → Scout Sergeant 1-1
+- `ds-scout-squad-5` line 2: absent → Scouts 4-9
+- `ds-screamer-killer` line 1: absent → Screamer-Killer 1-1
+- `ds-screamers` line 1: absent → Screamers 3-6
+- `ds-screamers-2` line 1: absent → Screamers 3-6
+- `ds-scythed-hierodule` line 1: absent → Scythed Hierodule 1-1
+- `ds-secutarii-hoplites` line 1: absent → Hoplite Alpha 1-1
+- `ds-secutarii-hoplites` line 2: absent → Secutarii Hoplites 4-9
+- `ds-secutarii-peltasts` line 1: absent → Peltast Alpha 1-1
+- `ds-secutarii-peltasts` line 2: absent → Secutarii Peltasts 4-9
+- `ds-seekers` line 1: absent → Heartseeker 1-1
+- `ds-seekers` line 2: absent → Seekers 4-9
+- `ds-seekers-2` line 1: absent → Heartseeker 1-1
+- `ds-seekers-2` line 2: absent → Seekers 4-9
+- `ds-sekhetar-robots` line 1: absent → Sekhetar Robots 2-4
+- `ds-sentinel-powerlifter` line 1: absent → Sentinel Powerlifter 1-1
+- `ds-sentinel-powerlifter-2` line 1: absent → Sentinel Powerlifter 1-1
+- `ds-sentry-pylon` line 1: absent → Sentry Pylon 1-1
+- `ds-seraphim-squad` line 1: absent → Seraphim Superior 1-1
+- `ds-seraphim-squad` line 2: absent → Seraphim 4-9
+- `ds-seraptek-heavy-construct` line 1: absent → Seraptek Heavy Construct 1-1
+- `ds-serberys-raiders` line 1: absent → Serberys Raider Alpha 1-1
+- `ds-serberys-raiders` line 2: absent → Serberys Raiders 2-5
+- `ds-serberys-sulphurhounds` line 1: absent → Serberys Sulphurhound Alpha 1-1
+- `ds-serberys-sulphurhounds` line 2: absent → Serberys Sulphurhounds 2-5
+- `ds-sergeant-chronus` line 1: absent → Sergeant Chronus 1-1
+- `ds-sergeant-harker` line 1: absent → Sergeant Harker 1-1
+- `ds-sergeant-telion` line 1: absent → Sergeant Telion 1-1
+- `ds-servitor-battleclade` line 1: absent → Servitor Underseer 1-1
+- `ds-servitor-battleclade` line 2: absent → Gun Servitors 2-2
+- `ds-servitor-battleclade` line 3: absent → Combat Servitors 6-6
+- `ds-servitors` line 1: absent → Servitors 4-4
+- `ds-shadow-spectres` line 1: absent → Shadow Spectre Exarch 0-1
+- `ds-shadow-spectres` line 2: absent → Shadow Spectres 5-10
+- `ds-shadow-weaver-platform` line 1: absent → Shadow Weaver Platform 1-1
+- `ds-shadowseer` line 1: absent → Shadowseer 1-1
+- `ds-shadowseer-2` line 1: absent → Shadowseer 1-1
+- `ds-shadowsword` line 1: absent → Shadowsword 1-1
+- `ds-shadowsword-2` line 1: absent → Shadowsword 1-1
+- `ds-shalaxi-helbane` line 1: absent → Shalaxi Helbane 1-1
+- `ds-shalaxi-helbane-2` line 1: absent → Shalaxi Helbane 1-1
+- `ds-shaso-ralai` line 1: absent → Shas'o R'alai 1-1
+- `ds-shield-captain` line 1: absent → Shield-Captain 1-1
+- `ds-shield-captain-in-allarus-terminator-armour` line 1: absent → Shield-Captain in Allarus Terminator Armour 1-1
+- `ds-shield-captain-on-dawneagle-jetbike` line 1: absent → Shield-Captain on Dawneagle Jetbike 1-1
+- `ds-shining-spears` line 1: absent → Shining Spear Exarch 1-1
+- `ds-shining-spears` line 2: absent → Shining Spears 2-5
+- `ds-shokkjump-dragsta` line 1: absent → Shokkjump Dragsta 1-1
+- `ds-shroud-runners` line 1: absent → Shroud Runners 3-6
+- `ds-sicaran-arcus` line 1: absent → Sicaran Arcus 1-1
+- `ds-sicaran-battle-tank` line 1: absent → Sicaran Battle Tank 1-1
+- `ds-sicaran-battle-tank-2` line 1: absent → Sicaran Battle Tank 1-1
+- `ds-sicaran-battle-tank-3` line 1: absent → Sicaran Battle Tank 1-1
+- `ds-sicaran-battle-tank-4` line 1: absent → Sicaran Battle Tank 1-1
+- `ds-sicaran-battle-tank-5` line 1: absent → Sicaran Battle Tank 1-1
+- `ds-sicaran-omega` line 1: absent → Sicaran Omega 1-1
+- `ds-sicaran-punisher` line 1: absent → Sicaran Punisher 1-1
+- `ds-sicaran-punisher-2` line 1: absent → Sicaran Punisher 1-1
+- `ds-sicaran-punisher-3` line 1: absent → Sicaran Punisher 1-1
+- `ds-sicaran-punisher-4` line 1: absent → Sicaran Punisher 1-1
+- `ds-sicaran-punisher-5` line 1: absent → Sicaran Punisher 1-1
+- `ds-sicaran-venator` line 1: absent → Sicaran Venator 1-1
+- `ds-sicaran-venator-2` line 1: absent → Sicaran Venator 1-1
+- `ds-sicaran-venator-3` line 1: absent → Sicaran Venator 1-1
+- `ds-sicaran-venator-4` line 1: absent → Sicaran Venator 1-1
+- `ds-sicaran-venator-5` line 1: absent → Sicaran Venator 1-1
+- `ds-sicarian-infiltrators` line 1: absent → Sicarian Infiltrator Princeps 1-1
+- `ds-sicarian-infiltrators` line 2: absent → Sicarian Infiltrators 4-9
+- `ds-sicarian-ruststalkers` line 1: absent → Sicarian Ruststalker Princeps 1-1
+- `ds-sicarian-ruststalkers` line 2: absent → Sicarian Ruststalkers 4-9
+- `ds-sisters-novitiate-squad` line 1: absent → Novitiate Superior 1-1
+- `ds-sisters-novitiate-squad` line 2: absent → Sisters Novitiate 9-9
+- `ds-sisters-of-battle-immolator` line 1: absent → Immolator 1-1
+- `ds-sisters-of-battle-squad` line 1: absent → Sister Superior 1-1
+- `ds-sisters-of-battle-squad` line 2: absent → Battle Sisters 9-9
+- `ds-skarbrand` line 1: absent → Skarbrand 1-1
+- `ds-skarbrand-2` line 1: absent → Skarbrand 1-1
+- `ds-skathach-wraithknight` line 1: absent → Skathach Wraithknight 1-1
+- `ds-skitarii-marshal` line 1: absent → Skitarii Marshal 1-1
+- `ds-skitarii-marshal-2` line 1: absent → Skitarii Marshal 1-1
+- `ds-skitarii-rangers` line 1: absent → Skitarii Ranger Alpha 1-1
+- `ds-skitarii-rangers` line 2: absent → Skitarii Rangers 9-9
+- `ds-skitarii-rangers-2` line 1: absent → Skitarii Ranger Alpha 1-1
+- `ds-skitarii-rangers-2` line 2: absent → Skitarii Rangers 9-9
+- `ds-skitarii-vanguard` line 1: absent → Skitarii Vanguard Alpha 1-1
+- `ds-skitarii-vanguard` line 2: absent → Skitarii Vanguard 9-9
+- `ds-skitarii-vanguard-2` line 1: absent → Skitarii Vanguard Alpha 1-1
+- `ds-skitarii-vanguard-2` line 2: absent → Skitarii Vanguard 9-9
+- `ds-skorchas` line 1: absent → Skorchas 1-2
+- `ds-skorpekh-destroyers` line 1: absent → Skorpekh Destroyers 3-6
+- `ds-skorpekh-lord` line 1: absent → Skorpekh Lord 1-1
+- `ds-skorpius-disintegrator` line 1: absent → Skorpius Disintegrator 1-1
+- `ds-skorpius-dunerider` line 1: absent → Skorpius Dunerider 1-1
+- `ds-skull-altar` line 1: absent → Skull Altar 1-1
+- `ds-skull-cannon` line 1: absent → Skull Cannon 1-1
+- `ds-skullmaster` line 1: absent → Skullmaster 1-1
+- `ds-skulltaker` line 1: absent → Skulltaker 1-1
+- `ds-sky-ray-gunship` line 1: absent → Sky Ray Gunship 1-1
+- `ds-sky-slasher-swarms` line 1: absent → Sky-slasher Swarms 3-3
+- `ds-skyclaws` line 1: absent → Skyclaw Pack Leader 1-1
+- `ds-skyclaws` line 2: absent → Skyclaws 4-14
+- `ds-skyweavers` line 1: absent → Skyweavers 2-4
+- `ds-skyweavers-2` line 1: absent → Skyweavers 2-4
+- `ds-slaughterbound` line 1: absent → Slaughterbound 1-1
+- `ds-sloppity-bilepiper` line 1: absent → Sloppity Bilepiper 1-1
+- `ds-sly-marbo` line 1: absent → Sly Marbo 1-1
+- `ds-sokar-pattern-stormbird` line 1: absent → Sokar-pattern Stormbird 1-1
+- `ds-sokar-pattern-stormbird-2` line 1: absent → Sokar-pattern Stormbird 1-1
+- `ds-sokar-pattern-stormbird-3` line 1: absent → Sokar-pattern Stormbird 1-1
+- `ds-sokar-pattern-stormbird-4` line 1: absent → Sokar-pattern Stormbird 1-1
+- `ds-sokar-pattern-stormbird-5` line 1: absent → Sokar-pattern Stormbird 1-1
+- `ds-solitaire` line 1: absent → Solitaire 1-1
+- `ds-solitaire-2` line 1: absent → Solitaire 1-1
+- `ds-sorcerer` line 1: absent → Sorcerer 1-1
+- `ds-sorcerer-2` line 1: absent → Sorcerer 1-1
+- `ds-sorcerer-3` line 1: absent → Sorcerer 1-1
+- `ds-sorcerer-4` line 1: absent → Sorcerer 1-1
+- `ds-sorcerer-in-terminator-armour` line 1: absent → Sorcerer in Terminator Armour 1-1
+- `ds-sorcerer-in-terminator-armour-2` line 1: absent → Sorcerer In Terminator Armour 1-1
+- `ds-sorcerer-in-terminator-armour-3` line 1: absent → Sorcerer in Terminator Armour 1-1
+- `ds-sorcerer-on-bike` line 1: absent → Sorcerer on Bike 1-1
+- `ds-sorcerer-on-disc-of-tzeentch` line 1: absent → Sorcerer on Disc of Tzeentch 1-1
+- `ds-sorcerer-on-disc-of-tzeentch-2` line 1: absent → Sorcerer on Disc of Tzeentch 1-1
+- `ds-sorcerer-on-palanquin-of-nurgle` line 1: absent → Sorcerer on Palanquin of Nurgle 1-1
+- `ds-sorcerer-on-palanquin-of-nurgle-2` line 1: absent → Sorcerer on Palanquin of Nurgle 1-1
+- `ds-sorcerer-on-palanquin-of-nurgle-3` line 1: absent → Sorcerer on Palanquin of Nurgle 1-1
+- `ds-sorcerer-on-steed-of-slaanesh` line 1: absent → Sorcerer on Steed of Slaanesh 1-1
+- `ds-sorcerer-on-steed-of-slaanesh-2` line 1: absent → Sorcerer on Steed of Slaanesh 1-1
+- `ds-sororitas-rhino` line 1: absent → Sororitas Rhino 1-1
+- `ds-soul-grinder` line 1: absent → Soul Grinder 1-1
+- `ds-spartan` line 1: absent → Spartan 1-1
+- `ds-spartan-2` line 1: absent → Spartan 1-1
+- `ds-spartan-3` line 1: absent → Spartan 1-1
+- `ds-spartan-4` line 1: absent → Spartan 1-1
+- `ds-spartan-5` line 1: absent → Spartan 1-1
+- `ds-spectrus-kill-team` line 1: absent → MODELS MAXIMUM 10-10
+- `ds-spectrus-kill-team` line 2: absent → Kill Team Infiltrators 3-10
+- `ds-spectrus-kill-team` line 3: absent → Kill Team Infiltrators with bolt sniper rifles 0-3
+- `ds-spectrus-kill-team` line 4: absent → Kill Team Infiltrators with Deathwatch occulus bolt carbines 0-4
+- `ds-spectrus-kill-team` line 5: absent → Kill Team Infiltrators with combat knives 0-4
+- `ds-spectrus-kill-team-2` line 1: absent → MODELS MAXIMUM 10-10
+- `ds-spectrus-kill-team-2` line 2: absent → Kill Team Infiltrators 5-10
+- `ds-spectrus-kill-team-2` line 3: absent → Kill Team Infiltrators with bolt sniper rifles 0-2
+- `ds-spectrus-kill-team-2` line 4: absent → Kill Team Infiltrators with jump packs 0-2
+- `ds-spectrus-kill-team-2` line 5: absent → Kill Team Infiltrators with occulus bolt carbines 0-4
+- `ds-spectrus-kill-team-2` line 6: absent → Kill Team Infiltrators with combat knives 0-4
+- `ds-spined-chaos-beast` line 1: absent → Spined Chaos Beast 1-1
+- `ds-spiritseer` line 1: absent → Spiritseer 1-1
+- `ds-spoilpox-scrivener` line 1: absent → Spoilpox Scrivener 1-1
+- `ds-spore-mines` line 1: absent → Spore Mines 3-6
+- `ds-sporocyst` line 1: absent → Sporocyst 1-1
+- `ds-squiggoth` line 1: absent → Squiggoth 1-1
+- `ds-squighog-boyz` line 1: absent → Nob On Smasha Squig 1-2
+- `ds-squighog-boyz` line 2: absent → Squighog Boyz 3-6
+- `ds-stalker` line 1: absent → Stalker 1-1
+- `ds-starfangs` line 1: absent → Starfangs 1-2
+- `ds-starfangs-2` line 1: absent → Starfangs 1-2
+- `ds-starweaver` line 1: absent → Starweaver 1-1
+- `ds-starweaver-2` line 1: absent → Starweaver 1-1
+- `ds-stealth-battlesuits` line 1: absent → Stealth Shas’vre 1-1
+- `ds-stealth-battlesuits` line 2: absent → Stealth Shas’ui 4-4
+- `ds-sternguard-veteran-squad` line 1: absent → Sternguard Veteran Squad Leader 1-1
+- `ds-sternguard-veteran-squad` line 2: absent → Sternguard Veterans 4-9
+- `ds-sternguard-veteran-squad-2` line 1: absent → Sternguard Veteran Sergeant 1-1
+- `ds-sternguard-veteran-squad-2` line 2: absent → Sternguard Veterans 4-9
+- `ds-sternguard-veteran-squad-3` line 1: absent → Sternguard Veteran Sergeant 1-1
+- `ds-sternguard-veteran-squad-3` line 2: absent → Sternguard Veterans 4-9
+- `ds-sternguard-veteran-squad-4` line 1: absent → Sternguard Veteran Sergeant 1-1
+- `ds-sternguard-veteran-squad-4` line 2: absent → Sternguard Veterans 4-9
+- `ds-sternguard-veteran-squad-5` line 1: absent → Sternguard Veteran Sergeant 1-1
+- `ds-sternguard-veteran-squad-5` line 2: absent → Sternguard Veterans 4-9
+- `ds-sternguard-veteran-squad-6` line 1: absent → Sternguard Veteran Sergeant 1-1
+- `ds-sternguard-veteran-squad-6` line 2: absent → Sternguard Veterans 4-9
+- `ds-stompa` line 1: absent → Stompa 1-1
+- `ds-stonesinger` line 1: absent → Stonesinger model 1-1
+- `ds-storm-chimera` line 1: absent → Storm Chimera 1-1
+- `ds-storm-chimera-2` line 1: absent → Storm Chimera 1-1
+- `ds-storm-eagle-gunship` line 1: absent → Storm Eagle Gunship 1-1
+- `ds-storm-eagle-gunship-2` line 1: absent → Storm Eagle Gunship 1-1
+- `ds-storm-eagle-gunship-3` line 1: absent → Storm Eagle Gunship 1-1
+- `ds-storm-eagle-gunship-4` line 1: absent → Storm Eagle Gunship 1-1
+- `ds-storm-eagle-gunship-5` line 1: absent → Storm Eagle Gunship 1-1
+- `ds-storm-guardians` line 1: absent → Storm Guardians 10-10
+- `ds-storm-guardians` line 2: absent → Serpent’s Scale Platform 1-1
+- `ds-storm-speeder-hailstrike` line 1: absent → Storm Speeder Hailstrike 1-1
+- `ds-storm-speeder-hailstrike-2` line 1: absent → Storm Speeder Hailstrike 1-1
+- `ds-storm-speeder-hailstrike-3` line 1: absent → Storm Speeder Hailstrike 1-1
+- `ds-storm-speeder-hailstrike-4` line 1: absent → Storm Speeder Hailstrike 1-1
+- `ds-storm-speeder-hailstrike-5` line 1: absent → Storm Speeder Hailstrike 1-1
+- `ds-storm-speeder-hailstrike-6` line 1: absent → Storm Speeder Hailstrike 1-1
+- `ds-storm-speeder-hammerstrike` line 1: absent → Storm Speeder Hammerstrike 1-1
+- `ds-storm-speeder-hammerstrike-2` line 1: absent → Storm Speeder Hammerstrike 1-1
+- `ds-storm-speeder-hammerstrike-3` line 1: absent → Storm Speeder Hammerstrike 1-1
+- `ds-storm-speeder-hammerstrike-4` line 1: absent → Storm Speeder Hammerstrike 1-1
+- `ds-storm-speeder-hammerstrike-5` line 1: absent → Storm Speeder Hammerstrike 1-1
+- `ds-storm-speeder-hammerstrike-6` line 1: absent → Storm Speeder Hammerstrike 1-1
+- `ds-storm-speeder-thunderstrike` line 1: absent → Storm Speeder Thunderstrike 1-1
+- `ds-storm-speeder-thunderstrike-2` line 1: absent → Storm Speeder Thunderstrike 1-1
+- `ds-storm-speeder-thunderstrike-3` line 1: absent → Storm Speeder Thunderstrike 1-1
+- `ds-storm-speeder-thunderstrike-4` line 1: absent → Storm Speeder Thunderstrike 1-1
+- `ds-storm-speeder-thunderstrike-5` line 1: absent → Storm Speeder Thunderstrike 1-1
+- `ds-storm-speeder-thunderstrike-6` line 1: absent → Storm Speeder Thunderstrike 1-1
+- `ds-stormblade` line 1: absent → Stormblade 1-1
+- `ds-stormblade-2` line 1: absent → Stormblade 1-1
+- `ds-stormboyz` line 1: absent → Boss Nob 1-1
+- `ds-stormboyz` line 2: absent → Stormboyz 4-9
+- `ds-stormfang-gunship` line 1: absent → Stormfang Gunship 1-1
+- `ds-stormhawk-interceptor` line 1: absent → Stormhawk Interceptor 1-1
+- `ds-stormhawk-interceptor-2` line 1: absent → Stormhawk Interceptor 1-1
+- `ds-stormhawk-interceptor-3` line 1: absent → Stormhawk Interceptor 1-1
+- `ds-stormhawk-interceptor-4` line 1: absent → Stormhawk Interceptor 1-1
+- `ds-stormhawk-interceptor-5` line 1: absent → Stormhawk Interceptor 1-1
+- `ds-stormhawk-interceptor-6` line 1: absent → Stormhawk Interceptor 1-1
+- `ds-stormhawk-interceptor-7` line 1: absent → Stormhawk Interceptor 1-1
+- `ds-stormlord` line 1: absent → Stormlord 1-1
+- `ds-stormlord-2` line 1: absent → Stormlord 1-1
+- `ds-stormraven-gunship` line 1: absent → Stormraven Gunship 1-1
+- `ds-stormraven-gunship-2` line 1: absent → Stormraven Gunship 1-1
+- `ds-stormraven-gunship-3` line 1: absent → Stormraven Gunship 1-1
+- `ds-stormraven-gunship-4` line 1: absent → Stormraven Gunship 1-1
+- `ds-stormraven-gunship-5` line 1: absent → Stormraven Gunship 1-1
+- `ds-stormraven-gunship-6` line 1: absent → Stormraven Gunship 1-1
+- `ds-stormraven-gunship-7` line 1: absent → Stormraven Gunship 1-1
+- `ds-stormsurge` line 1: absent → Stormsurge 1-1
+- `ds-stormsword` line 1: absent → Stormsword 1-1
+- `ds-stormsword-2` line 1: absent → Stormsword 1-1
+- `ds-stormtalon-gunship` line 1: absent → Stormtalon Gunship 1-1
+- `ds-stormtalon-gunship-2` line 1: absent → Stormtalon Gunship 1-1
+- `ds-stormtalon-gunship-3` line 1: absent → Stormtalon Gunship 1-1
+- `ds-stormtalon-gunship-4` line 1: absent → Stormtalon Gunship 1-1
+- `ds-stormtalon-gunship-5` line 1: absent → Stormtalon Gunship 1-1
+- `ds-stormtalon-gunship-6` line 1: absent → Stormtalon Gunship 1-1
+- `ds-stormtalon-gunship-7` line 1: absent → Stormtalon Gunship 1-1
+- `ds-stormwolf` line 1: absent → Stormwolf 1-1
+- `ds-strike-squad` line 1: absent → Justicar 1-1
+- `ds-strike-squad` line 2: absent → Grey Knights 4-9
+- `ds-strike-team` line 1: absent → Fire Warrior Shas’ui 1-1
+- `ds-strike-team` line 2: absent → Fire Warriors 9-9
+- `ds-striking-scorpions` line 1: absent → Striking Scorpion Exarch 1-1
+- `ds-striking-scorpions` line 2: absent → Striking Scorpions 4-9
+- `ds-stygies-destroyer-tank-hunter` line 1: absent → Stygies Destroyer Tank Hunter 1-1
+- `ds-stygies-destroyer-tank-hunter-2` line 1: absent → Stygies Destroyer Tank Hunter 1-1
+- `ds-subductor-squad` line 1: absent → Proctor-Subductor 1-1
+- `ds-subductor-squad` line 2: absent → Subductors 9-9
+- `ds-subductor-squad` line 3: absent → Cyber-mastiff 1-1
+- `ds-suboden-khan` line 1: absent → Suboden Khan 1-1
+- `ds-succubus` line 1: absent → Succubus 1-1
+- `ds-sun-shark-bomber` line 1: absent → Sun Shark Bomber 1-1
+- `ds-suppressor-squad` line 1: absent → Suppressor Sergeant 1-1
+- `ds-suppressor-squad` line 2: absent → Suppressors 2-2
+- `ds-suppressor-squad-2` line 1: absent → Suppressor Sergeant 1-1
+- `ds-suppressor-squad-2` line 2: absent → Suppressors 2-2
+- `ds-suppressor-squad-3` line 1: absent → Suppressor Sergeant 1-1
+- `ds-suppressor-squad-3` line 2: absent → Suppressors 2-2
+- `ds-suppressor-squad-4` line 1: absent → Suppressor Sergeant 1-1
+- `ds-suppressor-squad-4` line 2: absent → Suppressors 2-2
+- `ds-suppressor-squad-5` line 1: absent → Suppressor Sergeant 1-1
+- `ds-suppressor-squad-5` line 2: absent → Suppressors 2-2
+- `ds-suppressor-squad-6` line 1: absent → Suppressor Sergeant 1-1
+- `ds-suppressor-squad-6` line 2: absent → Suppressors 2-2
+- `ds-swooping-hawks` line 1: absent → Swooping Hawk Exarch 1-1
+- `ds-swooping-hawks` line 2: absent → Swooping Hawks 4-9
+- `ds-sword-brethren-squad` line 1: absent → Sword Brothers 4-10
+- `ds-sydonian-dragoons-with-radium-jezzails` line 1: absent → Sydonian Dragoons 1-3
+- `ds-sydonian-dragoons-with-taser-lances` line 1: absent → Sydonian Dragoons 1-3
+- `ds-sydonian-skatros` line 1: absent → Sydonian Skatros 1-1
+- `ds-syllesske` line 1: absent → Syll’Esske 1-1
+- `ds-tactical-squad` line 1: absent → Tactical Sergeant 1-1
+- `ds-tactical-squad` line 2: absent → Tactical Marines 9-9
+- `ds-tactical-squad-2` line 1: absent → Tactical Sergeant 1-1
+- `ds-tactical-squad-2` line 2: absent → Tactical Marines 9-9
+- `ds-tactical-squad-3` line 1: absent → Tactical Sergeant 1-1
+- `ds-tactical-squad-3` line 2: absent → Tactical Marines 9-9
+- `ds-tactical-squad-4` line 1: absent → Tactical Sergeant 1-1
+- `ds-tactical-squad-4` line 2: absent → Tactical Marines 9-9
+- `ds-tallyman` line 1: absent → Tallyman 1-1
+- `ds-talonstrike-kill-team` line 1: absent → MODELS MAXIMUM 10-10
+- `ds-talonstrike-kill-team` line 2: absent → Kill Team Sergeant with Jump Pack 1-1
+- `ds-talonstrike-kill-team` line 3: absent → Kill Team Intercessors with Jump Packs 2-9
+- `ds-talonstrike-kill-team` line 4: absent → Kill Team Heavy Intercessors with Jump Packs 0-5
+- `ds-talos` line 1: absent → Talos 1-2
+- `ds-tankbustas` line 1: absent → Boss Nob 1-1
+- `ds-tankbustas` line 2: absent → Tankbustas 5-5
+- `ds-tantalus` line 1: absent → Tantalus 1-1
+- `ds-tarantula-air-defence-battery` line 1: absent → Tarantula Air Defence Battery 1-1
+- `ds-tarantula-battery` line 1: absent → Tarantula Sentry Guns 1-3
+- `ds-tarantula-battery-2` line 1: absent → Tarantula Sentry Guns 1-3
+- `ds-tarantula-sentry-battery` line 1: absent → Tarantula Sentry Battery 1-1
+- `ds-taunar-supremacy-armour` line 1: absent → Ta’unar Supremacy Armour 1-1
+- `ds-tauros-assault-vehicle` line 1: absent → Tauros Assault Vehicle 1-1
+- `ds-tauros-assault-vehicle-2` line 1: absent → Tauros Assault Vehicle 1-1
+- `ds-tauros-venator` line 1: absent → Tauros Venator 1-1
+- `ds-tauros-venator-2` line 1: absent → Tauros Venator 1-1
+- `ds-taurox` line 1: absent → Taurox 1-1
+- `ds-taurox-2` line 1: absent → Taurox 1-1
+- `ds-taurox-prime` line 1: absent → Taurox Prime 1-1
+- `ds-taurox-prime-2` line 1: absent → Taurox Prime 1-1
+- `ds-tech-priest-dominus` line 1: absent → Tech-Priest Dominus 1-1
+- `ds-tech-priest-dominus-2` line 1: absent → Tech-Priest Dominus 1-1
+- `ds-tech-priest-enginseer` line 1: absent → Tech-Priest Enginseer 1-1
+- `ds-tech-priest-enginseer-2` line 1: absent → Tech-Priest Enginseer 1-1
+- `ds-tech-priest-manipulus` line 1: absent → Tech-Priest Manipulus 1-1
+- `ds-tech-priest-manipulus-2` line 1: absent → Tech-Priest Manipulus 1-1
+- `ds-techmarine` line 1: absent → Techmarine 1-1
+- `ds-techmarine-2` line 1: absent → Techmarine 1-1
+- `ds-techmarine-3` line 1: absent → Techmarine 1-1
+- `ds-techmarine-4` line 1: absent → Techmarine 1-1
+- `ds-techmarine-5` line 1: absent → Techmarine 1-1
+- `ds-techmarine-6` line 1: absent → Techmarine 1-1
+- `ds-techmarine-on-bike` line 1: absent → Techmarine on Bike 1-1
+- `ds-technoarcheologist` line 1: absent → Technoarcheologist 1-1
+- `ds-technomancer` line 1: absent → Technomancer 1-1
+- `ds-tectonic-fragdrill` line 1: absent → Tectonic Fragdrill 1-1
+- `ds-telemon-heavy-dreadnought` line 1: absent → Telemon Heavy Dreadnought 1-1
+- `ds-tempestus-aquilons` line 1: absent → Tempestor Aquilon 1-1
+- `ds-tempestus-aquilons` line 2: absent → Tempestus Aquilons 9-9
+- `ds-tempestus-scions` line 1: absent → Tempestor 1-1
+- `ds-tempestus-scions` line 2: absent → Tempestus Scions 4-9
+- `ds-termagants` line 1: absent → Termagants 10-20
+- `ds-terminator-assault-squad` line 1: absent → Assault Terminator Sergeant 1-1
+- `ds-terminator-assault-squad` line 2: absent → Assault Terminators 4-9
+- `ds-terminator-assault-squad-2` line 1: absent → Assault Terminator Sergeant 1-1
+- `ds-terminator-assault-squad-2` line 2: absent → Assault Terminators 4-9
+- `ds-terminator-assault-squad-3` line 1: absent → Assault Terminator Sergeant 1-1
+- `ds-terminator-assault-squad-3` line 2: absent → Assault Terminators 4-9
+- `ds-terminator-assault-squad-4` line 1: absent → Assault Terminator Sergeant 1-1
+- `ds-terminator-assault-squad-4` line 2: absent → Assault Terminators 4-9
+- `ds-terminator-assault-squad-5` line 1: absent → Assault Terminator Sergeant 1-1
+- `ds-terminator-assault-squad-5` line 2: absent → Assault Terminators 4-9
+- `ds-terminator-squad` line 1: absent → Terminator Squad Leader 1-1
+- `ds-terminator-squad` line 2: absent → Terminators 4-9
+- `ds-terminator-squad-2` line 1: absent → Terminator Sergeant 1-1
+- `ds-terminator-squad-2` line 2: absent → Terminators 4-9
+- `ds-terminator-squad-3` line 1: absent → Terminator Sergeant 1-1
+- `ds-terminator-squad-3` line 2: absent → Terminators 4-9
+- `ds-terminator-squad-4` line 1: absent → Terminator Sergeant 1-1
+- `ds-terminator-squad-4` line 2: absent → Terminators 4-9
+- `ds-terminator-squad-5` line 1: absent → Terminator Sergeant 1-1
+- `ds-terminator-squad-5` line 2: absent → Terminators 4-9
+- `ds-terminus-ultra` line 1: absent → Terminus Ultra 1-1
+- `ds-terrax-pattern-termite` line 1: absent → Terrax-pattern Termite 1-1
+- `ds-terrax-pattern-termite-2` line 1: absent → Terrax-pattern Termite 1-1
+- `ds-terrax-pattern-termite-3` line 1: absent → Terrax-pattern Termite 1-1
+- `ds-terrax-pattern-termite-4` line 1: absent → Terrax-pattern Termite 1-1
+- `ds-terrax-pattern-termite-5` line 1: absent → Terrax-pattern Termite 1-1
+- `ds-terrax-pattern-termite-6` line 1: absent → Terrax-pattern Termite 1-1
+- `ds-tervigon` line 1: absent → Tervigon 1-1
+- `ds-tesseract-ark` line 1: absent → Tesseract Ark 1-1
+- `ds-tesseract-vault` line 1: absent → Tesseract Vault 1-1
+- `ds-tetras` line 1: absent → Tetras 2-4
+- `ds-the-blue-scribes` line 1: absent → The Blue Scribes 1-1
+- `ds-the-changeling` line 1: absent → The Changeling 1-1
+- `ds-the-masque-of-slaanesh` line 1: absent → The Masque of Slaanesh 1-1
+- `ds-the-red-terror` line 1: absent → The Red Terror 1-1
+- `ds-the-red-terror-2` line 1: absent → The Red Terror 1-1
+- `ds-the-sanguinor` line 1: absent → The Sanguinor 1-1
+- `ds-the-silent-king` line 1: absent → Szarekh 1-1
+- `ds-the-silent-king` line 2: absent → Triarchal Menhirs 2-2
+- `ds-the-swarmlord` line 1: absent → Swarmlord 1-1
+- `ds-the-twin-lance` line 1: absent → Ri’Lantar 1-1
+- `ds-the-twin-lance` line 2: absent → Ri’Locai 1-1
+- `ds-the-visarch` line 1: absent → Visarch 1-1
+- `ds-the-yncarne` line 1: absent → Yncarne 1-1
+- `ds-thulia-ghuld` line 1: absent → Archmagos Terminus Thulia Ghuld 1-1
+- `ds-thunderfire-cannon` line 1: absent → Techmarine Gunner 1-1
+- `ds-thunderfire-cannon` line 2: absent → Thunderfire Cannon 1-1
+- `ds-thunderhawk-gunship` line 1: absent → Thunderhawk Gunship 1-1
+- `ds-thunderhawk-gunship-2` line 1: absent → Thunderhawk Gunship 1-1
+- `ds-thunderhawk-gunship-3` line 1: absent → Thunderhawk Gunship 1-1
+- `ds-thunderhawk-gunship-4` line 1: absent → Thunderhawk Gunship 1-1
+- `ds-thunderhawk-gunship-5` line 1: absent → Thunderhawk Gunship 1-1
+- `ds-thunderhawk-gunship-6` line 1: absent → Thunderhawk Gunship 1-1
+- `ds-thunderhawk-transporter` line 1: absent → Thunderhawk Transporter 1-1
+- `ds-thunderwolf-cavalry` line 1: absent → Thunderwolf Cavalry Pack Leader 1-1
+- `ds-thunderwolf-cavalry` line 2: absent → Thunderwolf Cavalry 2-5
+- `ds-tidewall-droneport` line 1: absent → Tidewall Droneport 1-1
+- `ds-tidewall-gunrig` line 1: absent → Tidewall Gunrig 1-1
+- `ds-tidewall-shieldline` line 1: absent → Tidewall Shieldline 1-1
+- `ds-tiger-shark` line 1: absent → Tiger Shark 1-1
+- `ds-tomb-blades` line 1: absent → Tomb Blades 3-6
+- `ds-tomb-citadel-walls` line 1: absent → Tomb Citadel 1-1
+- `ds-tor-garadon` line 1: absent → Tor Garadon 1-1
+- `ds-tormentbringer` line 1: absent → Tormentbringer 1-1
+- `ds-tormentors` line 1: absent → Obsessionist 1-1
+- `ds-tormentors` line 2: absent → Tormentors 4-9
+- `ds-toxicrene` line 1: absent → Toxicrene 1-1
+- `ds-traitor-enforcer` line 1: absent → Traitor Enforcer 1-1
+- `ds-traitor-enforcer` line 2: absent → Traitor Ogryn 1-1
+- `ds-traitor-enforcer-2` line 1: absent → Traitor Enforcer 1-1
+- `ds-traitor-enforcer-2` line 2: absent → Traitor Ogryn 1-1
+- `ds-traitor-enforcer-3` line 1: absent → Traitor Enforcer 1-1
+- `ds-traitor-enforcer-3` line 2: absent → Traitor Ogryn 1-1
+- `ds-traitor-guardsmen-squad` line 1: absent → Traitor Sergeant 1-1
+- `ds-traitor-guardsmen-squad` line 2: absent → Traitor Guardsmen 9-9
+- `ds-traitor-guardsmen-squad-2` line 1: absent → Traitor Sergeant 1-1
+- `ds-traitor-guardsmen-squad-2` line 2: absent → Traitor Guardsmen 9-9
+- `ds-traitor-guardsmen-squad-3` line 1: absent → Traitor Sergeant 1-1
+- `ds-traitor-guardsmen-squad-3` line 2: absent → Traitor Guardsmen 9-9
+- `ds-trajann-valoris` line 1: absent → Trajann Valoris 1-1
+- `ds-tranceweaver` line 1: absent → Tranceweaver 1-1
+- `ds-transcendent-ctan` line 1: absent → Transcendent C’tan 1-1
+- `ds-trazyn-the-infinite` line 1: absent → Trazyn the Infinite 1-1
+- `ds-triarch-praetorians` line 1: absent → Triarch Praetorians 5-10
+- `ds-triarch-stalker` line 1: absent → Triarch Stalker 1-1
+- `ds-triumph-of-saint-katherine` line 1: absent → Triumph of Saint Katherine 1-1
+- `ds-trojan-support-vehicle` line 1: absent → Trojan Support Vehicle 1-1
+- `ds-trojan-support-vehicle-2` line 1: absent → Trojan Support Vehicle 1-1
+- `ds-troupe` line 1: absent → Lead Player 1-1
+- `ds-troupe` line 2: absent → Players 4-11
+- `ds-troupe-2` line 1: absent → Lead Player 1-1
+- `ds-troupe-2` line 2: absent → Players 4-11
+- `ds-troupe-master` line 1: absent → Troupe Master 1-1
+- `ds-troupe-master-2` line 1: absent → Troupe Master 1-1
+- `ds-trukk` line 1: absent → Trukk 1-1
+- `ds-trygon` line 1: absent → Trygon 1-1
+- `ds-trygon-2` line 1: absent → Trygon 1-1
+- `ds-tx42-piranha` line 1: absent → TX42 Piranha 1-1
+- `ds-tycho-the-lost` line 1: absent → Tycho the Lost 1-1
+- `ds-typhon` line 1: absent → Typhon 1-1
+- `ds-typhon-2` line 1: absent → Typhon 1-1
+- `ds-typhon-3` line 1: absent → Typhon 1-1
+- `ds-typhon-4` line 1: absent → Typhon 1-1
+- `ds-typhon-5` line 1: absent → Typhon 1-1
+- `ds-typhus` line 1: absent → Typhus 1-1
+- `ds-tyranid-prime-with-lash-whip` line 1: absent → Tyranid Prime with Lash Whip 1-1
+- `ds-tyranid-warriors-with-melee-bio-weapons` line 1: absent → Tyranid Prime 1-1
+- `ds-tyranid-warriors-with-melee-bio-weapons` line 2: absent → Tyranid Warriors 2-5
+- `ds-tyranid-warriors-with-ranged-bio-weapons` line 1: absent → Tyranid Prime 1-1
+- `ds-tyranid-warriors-with-ranged-bio-weapons` line 2: absent → Tyranid Warriors 2-5
+- `ds-tyrannic-war-veterans` line 1: absent → Veteran Sergeant 1-1
+- `ds-tyrannic-war-veterans` line 2: absent → Tyrannic War Veterans 4-4
+- `ds-tyrannocyte` line 1: absent → Tyrannocyte 1-1
+- `ds-tyrannocyte-2` line 1: absent → Tyrannocyte 1-1
+- `ds-tyrannofex` line 1: absent → Tyrannofex 1-1
+- `ds-tyrant-guard` line 1: absent → Tyrant Guard 3-6
+- `ds-tzaangor-enlightened` line 1: absent → Aviarch 1-1
+- `ds-tzaangor-enlightened` line 2: absent → Enlightened 2-5
+- `ds-tzaangor-enlightened-with-fatecaster-greatbows` line 1: absent → Aviarch 1-1
+- `ds-tzaangor-enlightened-with-fatecaster-greatbows` line 2: absent → Enlightened 2-5
+- `ds-tzaangor-shaman` line 1: absent → Tzaangor Shaman 1-1
+- `ds-tzaangors` line 1: absent → Twistbray 1-1
+- `ds-tzaangors` line 2: absent → Tzaangors 9-19
+- `ds-ufthak-blackhawk` line 1: absent → Ufthak Blackhawk 1-1
+- `ds-ulrik-the-slayer` line 1: absent → Ulrik the Slayer 1-1
+- `ds-ur-025` line 1: absent → UR-025 1-1
+- `ds-uriel-ventris` line 1: absent → Uriel Ventris 1-1
+- `ds-urien-rakarth` line 1: absent → Urien Rakarth 1-1
+- `ds-ursula-creed` line 1: absent → Ursula Creed 1-1
+- `ds-uthar-the-destined` line 1: absent → Ûthar the Destined 1-1
+- `ds-valdor` line 1: absent → Valdor 1-1
+- `ds-valdor-2` line 1: absent → Valdor 1-1
+- `ds-valerian` line 1: absent → Valerian 1-1
+- `ds-valkyrie` line 1: absent → Valkyrie 1-1
+- `ds-valkyrie-sky-talon` line 1: absent → Valkyrie Sky Talon 1-1
+- `ds-vampire-hunter` line 1: absent → Vampire Hunter 1-1
+- `ds-vampire-raider` line 1: absent → Vampire Raider 1-1
+- `ds-vanguard-veteran-squad` line 1: absent → Vanguard Veteran Sergeant 1-1
+- `ds-vanguard-veteran-squad` line 2: absent → Vanguard Veterans 4-9
+- `ds-vanguard-veteran-squad-with-jump-packs` line 1: absent → Vanguard Veteran Sergeant with Jump Pack 1-1
+- `ds-vanguard-veteran-squad-with-jump-packs` line 2: absent → Vanguard Veterans with Jump Packs 4-9
+- `ds-vanguard-veteran-squad-with-jump-packs-2` line 1: absent → Vanguard Veteran Sergeant with Jump Pack 1-1
+- `ds-vanguard-veteran-squad-with-jump-packs-2` line 2: absent → Vanguard Veterans with Jump Packs 4-9
+- `ds-vanguard-veteran-squad-with-jump-packs-3` line 1: absent → Vanguard Veteran Sergeant with Jump Pack 1-1
+- `ds-vanguard-veteran-squad-with-jump-packs-3` line 2: absent → Vanguard Veterans with Jump Packs 4-9
+- `ds-vanguard-veteran-squad-with-jump-packs-4` line 1: absent → Vanguard Veteran Sergeant with Jump Pack 1-1
+- `ds-vanguard-veteran-squad-with-jump-packs-4` line 2: absent → Vanguard Veterans with Jump Packs 4-9
+- `ds-vanguard-veteran-squad-with-jump-packs-5` line 1: absent → Vanguard Veteran Sergeant with Jump Pack 1-1
+- `ds-vanguard-veteran-squad-with-jump-packs-5` line 2: absent → Vanguard Veterans with Jump Packs 4-9
+- `ds-vanguard-veteran-squad-with-jump-packs-6` line 1: absent → Vanguard Veteran Sergeant with Jump Pack 1-1
+- `ds-vanguard-veteran-squad-with-jump-packs-6` line 2: absent → Vanguard Veterans with Jump Packs 4-9
+- `ds-vargard-obyron` line 1: absent → Vargard Obyron 1-1
+- `ds-vashtorr-the-arkifane` line 1: absent → Vashtorr the Arkifane 1-1
+- `ds-venatari-custodians` line 1: absent → Venatari Custodians 3-6
+- `ds-vendetta-gunship` line 1: absent → Vendetta Gunship 1-1
+- `ds-venerable-contemptor-dreadnought` line 1: absent → Venerable Contemptor Dreadnought 1-1
+- `ds-venerable-dreadnought` line 1: absent → Venerable Dreadnought 1-1
+- `ds-venerable-dreadnought-2` line 1: absent → Venerable Dreadnought 1-1
+- `ds-venerable-dreadnought-3` line 1: absent → Venerable Dreadnought 1-1
+- `ds-venerable-land-raider` line 1: absent → Venerable Land Raider 1-1
+- `ds-venom` line 1: absent → Venom 1-1
+- `ds-venomcrawler` line 1: absent → Venomcrawler 1-1
+- `ds-venomthropes` line 1: absent → Venomthropes 3-6
+- `ds-vertus-praetors` line 1: absent → Vertus Praetors 2-3
+- `ds-vespid-stingwings` line 1: absent → Vespid Strain Leader 1-1
+- `ds-vespid-stingwings` line 2: absent → Vespid Stingwings 4-9
+- `ds-veteran-bike-squad` line 1: absent → Veteran Biker Sergeant 1-1
+- `ds-veteran-bike-squad` line 2: absent → Veteran Bikers 2-5
+- `ds-vibro-cannon-platform` line 1: absent → Vibro Cannon Platform 1-1
+- `ds-victrix-honour-guard` line 1: absent → Chapter Ancient 0-1
+- `ds-victrix-honour-guard` line 2: absent → Chapter Champion 0-1
+- `ds-victrix-honour-guard` line 3: absent → Victrix Honour Guard 1-6
+- `ds-vigilant-squad` line 1: absent → Proctor-Vigilant 1-1
+- `ds-vigilant-squad` line 2: absent → Vigilants 9-9
+- `ds-vigilant-squad` line 3: absent → Cyber-mastiff 1-1
+- `ds-vigilators` line 1: absent → Vigilator Sister Superior 1-1
+- `ds-vigilators` line 2: absent → Vigilators 3-9
+- `ds-vindicare-assassin` line 1: absent → Vindicare Assassin 1-1
+- `ds-vindicator` line 1: absent → Vindicator 1-1
+- `ds-vindicator-2` line 1: absent → Vindicator 1-1
+- `ds-vindicator-3` line 1: absent → Vindicator 1-1
+- `ds-vindicator-4` line 1: absent → Vindicator 1-1
+- `ds-vindicator-5` line 1: absent → Vindicator 1-1
+- `ds-vindicator-6` line 1: absent → Vindicator 1-1
+- `ds-vindicator-laser-destroyer` line 1: absent → Vindicator Laser Destroyer 1-1
+- `ds-voidraven-bomber` line 1: absent → Voidraven Bomber 1-1
+- `ds-voidsmen-at-arms` line 1: absent → Voidmaster 1-1
+- `ds-voidsmen-at-arms` line 2: absent → Voidsmen 4-4
+- `ds-voidsmen-at-arms` line 3: absent → Canid 1-1
+- `ds-voidweaver` line 1: absent → Voidweaver 1-1
+- `ds-voidweaver-2` line 1: absent → Voidweaver 1-1
+- `ds-von-ryans-leapers` line 1: absent → Von Ryan’s Leapers 3-6
+- `ds-von-ryans-leapers-2` line 1: absent → Von Ryan’s Leapers 3-6
+- `ds-voss-pattern-lightning` line 1: absent → Voss-pattern Lightning 1-1
+- `ds-vulkan-hestan` line 1: absent → Vulkan He’stan 1-1
+- `ds-vulture-gunship` line 1: absent → Vulture Gunship 1-1
+- `ds-vypers` line 1: absent → Vypers 1-2
+- `ds-war-dog-brigand` line 1: absent → War Dog Brigand 1-1
+- `ds-war-dog-executioner` line 1: absent → War Dog Executioner 1-1
+- `ds-war-dog-huntsman` line 1: absent → War Dog Huntsman 1-1
+- `ds-war-dog-karnivore` line 1: absent → War Dog Karnivore 1-1
+- `ds-war-dog-moirax` line 1: absent → War Dog Moirax 1-1
+- `ds-war-dog-stalker` line 1: absent → War Dog Stalker 1-1
+- `ds-war-walkers` line 1: absent → War Walkers 1-2
+- `ds-warbikers` line 1: absent → Boss Nob on Warbike 1-1
+- `ds-warbikers` line 2: absent → Warbikers 2-5
+- `ds-warboss` line 1: absent → Warboss 1-1
+- `ds-warboss-in-mega-armour` line 1: absent → Warboss in Mega Armour 1-1
+- `ds-warboss-on-warbike` line 1: absent → Warboss on Warbike 1-1
+- `ds-warbringer-nemesis-titan` line 1: absent → Warbringer Nemesis Titan 1-1
+- `ds-warbuggies` line 1: absent → Warbuggies 1-2
+- `ds-wardens-of-ultramar` line 1: absent → Ancient Gadriel 1-1
+- `ds-wardens-of-ultramar` line 2: absent → Veteran Sergeant Metaurus 1-1
+- `ds-wardens-of-ultramar` line 3: absent → Gaius Silva 1-1
+- `ds-wardens-of-ultramar` line 4: absent → Aemelia Minervas 1-1
+- `ds-wardens-of-ultramar` line 5: absent → Dainal Kornelius 1-1
+- `ds-wardens-of-ultramar` line 6: absent → Lucia Vestha 1-1
+- `ds-warhound-titan` line 1: absent → Warhound Titan 1-1
+- `ds-warlock` line 1: absent → Warlock 1-1
+- `ds-warlock-conclave` line 1: absent → Warlocks 2-4
+- `ds-warlock-skyrunners` line 1: absent → Warlock Skyrunners 1-2
+- `ds-warlord-titan` line 1: absent → Warlord Titan 1-1
+- `ds-warp-hunter` line 1: absent → Warp Hunter 1-1
+- `ds-warp-spiders` line 1: absent → Warp Spider Exarch 1-1
+- `ds-warp-spiders` line 2: absent → Warp Spiders 4-9
+- `ds-warp-talons` line 1: absent → Warp Talon Champion 1-1
+- `ds-warp-talons` line 2: absent → Warp Talons 4-9
+- `ds-warp-talons-2` line 1: absent → Warp Talon Champion 1-1
+- `ds-warp-talons-2` line 2: absent → Warp Talons 4-9
+- `ds-warpsmith` line 1: absent → Warpsmith 1-1
+- `ds-wartrakk` line 1: absent → Wartrakk 1-1
+- `ds-wasp-assault-walker` line 1: absent → Wasp Assault Walker 1-1
+- `ds-watch-captain-artemis` line 1: absent → Watch Captain Artemis 1-1
+- `ds-watch-captain-artemis-2` line 1: absent → Watch Captain Artemis 1-1
+- `ds-watch-master` line 1: absent → Watch Master 1-1
+- `ds-watch-master-2` line 1: absent → Watch Master 1-1
+- `ds-wave-serpent` line 1: absent → Wave Serpent 1-1
+- `ds-wazbom-blastajet` line 1: absent → Wazbom Blastajet 1-1
+- `ds-wazdakka-gutsmek` line 1: absent → Wazdakka Gutsmek 1-1
+- `ds-webway-gate` line 1: absent → Wraithbone Arches 2-2
+- `ds-weirdboy` line 1: absent → Weirdboy 1-1
+- `ds-whirlwind` line 1: absent → Whirlwind 1-1
+- `ds-whirlwind-2` line 1: absent → Whirlwind 1-1
+- `ds-whirlwind-3` line 1: absent → Whirlwind 1-1
+- `ds-whirlwind-4` line 1: absent → Whirlwind 1-1
+- `ds-whirlwind-5` line 1: absent → Whirlwind 1-1
+- `ds-whirlwind-6` line 1: absent → Whirlwind 1-1
+- `ds-whirlwind-scorpius` line 1: absent → Whirlwind Scorpius 1-1
+- `ds-whirlwind-scorpius-2` line 1: absent → Whirlwind Scorpius 1-1
+- `ds-whirlwind-scorpius-3` line 1: absent → Whirlwind Scorpius 1-1
+- `ds-whirlwind-scorpius-4` line 1: absent → Whirlwind Scorpius 1-1
+- `ds-whirlwind-scorpius-5` line 1: absent → Whirlwind Scorpius 1-1
+- `ds-windriders` line 1: absent → Windriders 3-6
+- `ds-winged-hive-tyrant` line 1: absent → Winged Hive Tyrant 1-1
+- `ds-winged-hive-tyrant-2` line 1: absent → Winged Hive Tyrant 1-1
+- `ds-winged-tyranid-prime` line 1: absent → Winged Tyranid Prime 1-1
+- `ds-winged-tyranid-prime-2` line 1: absent → Winged Tyranid Prime 1-1
+- `ds-witchseekers` line 1: absent → Witchseeker Sister Superior 1-1
+- `ds-witchseekers` line 2: absent → Witchseekers 3-9
+- `ds-wolf-guard` line 1: absent → Wolf Guard Pack Leader 1-1
+- `ds-wolf-guard` line 2: absent → Wolf Guard 4-9
+- `ds-wolf-guard-battle-leader` line 1: absent → Wolf Guard Battle Leader 1-1
+- `ds-wolf-guard-battle-leader-in-terminator-armour` line 1: absent → Wolf Guard Battle Leader in Terminator Armour 1-1
+- `ds-wolf-guard-battle-leader-on-thunderwolf` line 1: absent → Wolf Guard Battle Leader on Thunderworlf 1-1
+- `ds-wolf-guard-headtakers` line 1: absent → Wolf Guard Headtakers 3-6
+- `ds-wolf-guard-headtakers` line 2: absent → Hunting Wolves 0-6
+- `ds-wolf-guard-pack-leader` line 1: absent → Wolf Guard Pack Leader 1-1
+- `ds-wolf-guard-pack-leader-in-terminator-armour` line 1: absent → Wolf Guard Pack Leader in Terminator Armour 1-1
+- `ds-wolf-guard-pack-leader-with-jump-pack` line 1: absent → Wolf Guard Pack Leader with Jump Pack 1-1
+- `ds-wolf-guard-terminators` line 1: absent → Wolf Guard Terminator Pack Leader 1-1
+- `ds-wolf-guard-terminators` line 2: absent → Wolf Guard Terminators 4-9
+- `ds-wolf-lord-on-thunderwolf` line 1: absent → Wolf Lord on Thunderwolf 1-1
+- `ds-wolf-priest` line 1: absent → Wolf Priest 1-1
+- `ds-wolf-scouts` line 1: absent → Wolf Scout Pack Leader 1-1
+- `ds-wolf-scouts` line 2: absent → Wolf Scouts 4-4
+- `ds-wolf-scouts` line 3: absent → Hunting Wolf 1-1
+- `ds-wolf-scouts` line 4: absent → Wolf Scout Pack Leader 1-1
+- `ds-wolf-scouts` line 5: absent → Wolf Scouts 9-9
+- `ds-wolf-scouts` line 6: absent → Hunting Wolves 2-2
+- `ds-wracks` line 1: absent → Acothyst 1-1
+- `ds-wracks` line 2: absent → Wracks 4-9
+- `ds-wraithblades` line 1: absent → Wraithblades 5-5
+- `ds-wraithguard` line 1: absent → Wraithguard 5-5
+- `ds-wraithknight` line 1: absent → Wraithknight 1-1
+- `ds-wraithknight-with-ghostglaive` line 1: absent → Wraithknight with Ghostglaive 1-1
+- `ds-wraithlord` line 1: absent → Wraithlord 1-1
+- `ds-wraithseer` line 1: absent → Wraithseer 1-1
+- `ds-wulfen` line 1: absent → Wulfen 5-10
+- `ds-wulfen-dreadnought` line 1: absent → Wulfen Dreadnought 1-1
+- `ds-wulfen-with-storm-shields` line 1: absent → Wulfen 5-10
+- `ds-wurrboy` line 1: absent → Wurrboy 1-1
+- `ds-wyches` line 1: absent → Hekatrix 1-1
+- `ds-wyches` line 2: absent → Wyches 9-9
+- `ds-wyvern` line 1: absent → Wyvern 1-1
+- `ds-wyvern-2` line 1: absent → Wyvern 1-1
+- `ds-x-101` line 1: absent → X-101 1-1
+- `ds-xiphon-interceptor` line 1: absent → Xiphon Interceptor 1-1
+- `ds-xiphon-interceptor-2` line 1: absent → Xiphon Interceptor 1-1
+- `ds-xiphon-interceptor-3` line 1: absent → Xiphon Interceptor 1-1
+- `ds-xiphon-interceptor-4` line 1: absent → Xiphon Interceptor 1-1
+- `ds-xiphon-interceptor-5` line 1: absent → Xiphon Interceptor 1-1
+- `ds-xv9-hazard-battlesuits` line 1: absent → XV9 Hazard Battlesuits 1-2
+- `ds-ynnari-archon` line 1: absent → Archon 1-1
+- `ds-ynnari-incubi` line 1: absent → Klaivex 1-1
+- `ds-ynnari-incubi` line 2: absent → Incubi 4-9
+- `ds-ynnari-kabalite-warriors` line 1: absent → Sybarite 1-1
+- `ds-ynnari-kabalite-warriors` line 2: absent → Kabalite Warriors 9-9
+- `ds-ynnari-raider` line 1: absent → Raider 1-1
+- `ds-ynnari-reavers` line 1: absent → Arena Champion 1-1
+- `ds-ynnari-reavers` line 2: absent → Reavers 2-5
+- `ds-ynnari-succubus` line 1: absent → Succubus 1-1
+- `ds-ynnari-venom` line 1: absent → Venom 1-1
+- `ds-ynnari-wyches` line 1: absent → Hekatrix 1-1
+- `ds-ynnari-wyches` line 2: absent → Wyches 9-9
+- `ds-yvahra-battlesuit` line 1: absent → Y’vahra Battlesuit 1-1
+- `ds-yvraine` line 1: absent → Yvraine 1-1
+- `ds-zarakynel` line 1: absent → Zarakynel 1-1
+- `ds-zephyrim-squad` line 1: absent → Zephyrim Superior 1-1
+- `ds-zephyrim-squad` line 2: absent → Zephyrim 4-9
+- `ds-zoanthropes` line 1: absent → Neurothrope 1-1
+- `ds-zoanthropes` line 2: absent → Zoanthropes 2-5
+- `ds-zodgrod-wortsnagga` line 1: absent → Zodgrod Wortsnagga 1-1
+
+## Wargear option groups
+
+- `ds-acastus-knight-porphyrion` `og-acastus-knight-porphyrion-1`: added
+- `ds-acastus-knight-porphyrion` `og-acastus-knight-porphyrion-2`: added
+- `ds-acolyte-hybrids-with-autopistols` `og-acolyte-hybrids-with-autopistols-3`: added
+- `ds-acolyte-hybrids-with-hand-flamers` `og-acolyte-hybrids-with-hand-flamers-3`: added
+- `ds-allarus-custodians` `og-allarus-custodians-2`: added
+- `ds-anathema-psykana-rhino` `og-anathema-psykana-rhino-1`: added
+- `ds-ancient` `og-ancient-1`: added
+- `ds-ancient-2` `og-ancient-2-1`: added
+- `ds-ancient-3` `og-ancient-3-1`: added
+- `ds-ancient-4` `og-ancient-4-1`: added
+- `ds-ancient-5` `og-ancient-5-1`: added
+- `ds-ancient-6` `og-ancient-6-1`: added
+- `ds-ancient-in-terminator-armour` `og-ancient-in-terminator-armour-1`: added
+- `ds-ancient-in-terminator-armour` `og-ancient-in-terminator-armour-2`: added
+- `ds-ancient-in-terminator-armour-2` `og-ancient-in-terminator-armour-2-1`: added
+- `ds-ancient-in-terminator-armour-2` `og-ancient-in-terminator-armour-2-2`: added
+- `ds-ancient-in-terminator-armour-3` `og-ancient-in-terminator-armour-3-1`: added
+- `ds-ancient-in-terminator-armour-3` `og-ancient-in-terminator-armour-3-2`: added
+- `ds-ancient-in-terminator-armour-4` `og-ancient-in-terminator-armour-4-1`: added
+- `ds-ancient-in-terminator-armour-4` `og-ancient-in-terminator-armour-4-2`: added
+- `ds-ancient-in-terminator-armour-5` `og-ancient-in-terminator-armour-5-1`: added
+- `ds-ancient-in-terminator-armour-5` `og-ancient-in-terminator-armour-5-2`: added
+- `ds-ancient-in-terminator-armour-6` `og-ancient-in-terminator-armour-6-1`: added
+- `ds-ancient-in-terminator-armour-6` `og-ancient-in-terminator-armour-6-2`: added
+- `ds-ancient-on-bike` `og-ancient-on-bike-1`: added
+- `ds-annihilation-barge` `og-annihilation-barge-1`: added
+- `ds-aquila-kill-team` `og-aquila-kill-team-1`: added
+- `ds-aquila-kill-team` `og-aquila-kill-team-2`: added
+- `ds-aquila-kill-team` `og-aquila-kill-team-3`: added
+- `ds-aquila-kill-team` `og-aquila-kill-team-4`: added
+- `ds-aquila-lander` `og-aquila-lander-1`: added
+- `ds-archaeopter-fusilave` `og-archaeopter-fusilave-1`: added
+- `ds-archaeopter-stratoraptor` `og-archaeopter-stratoraptor-1`: added
+- `ds-archaeopter-transvector` `og-archaeopter-transvector-1`: added
+- `ds-archon` `og-archon-1`: added
+- `ds-archon` `og-archon-2`: added
+- `ds-arkurian-stormhammer` `og-arkurian-stormhammer-1`: added
+- `ds-arkurian-stormhammer` `og-arkurian-stormhammer-2`: added
+- `ds-arkurian-stormhammer` `og-arkurian-stormhammer-3`: added
+- `ds-arkurian-stormhammer-2` `og-arkurian-stormhammer-2-1`: added
+- `ds-arkurian-stormhammer-2` `og-arkurian-stormhammer-2-2`: added
+- `ds-arkurian-stormhammer-2` `og-arkurian-stormhammer-2-3`: added
+- `ds-armageddon-pattern-medusa` `og-armageddon-pattern-medusa-1`: added
+- `ds-armageddon-pattern-medusa` `og-armageddon-pattern-medusa-2`: added
+- `ds-armageddon-pattern-medusa` `og-armageddon-pattern-medusa-3`: added
+- `ds-armageddon-pattern-medusa-2` `og-armageddon-pattern-medusa-2-1`: added
+- `ds-armageddon-pattern-medusa-2` `og-armageddon-pattern-medusa-2-2`: added
+- `ds-armageddon-pattern-medusa-2` `og-armageddon-pattern-medusa-2-3`: added
+- `ds-armiger-helverin` `og-armiger-helverin-1`: added
+- `ds-armiger-moirax` `og-armiger-moirax-1`: added
+- `ds-armiger-moirax` `og-armiger-moirax-2`: added
+- `ds-armiger-warglaive` `og-armiger-warglaive-1`: added
+- `ds-artillery-team` `og-artillery-team-1`: added
+- `ds-artillery-team-2` `og-artillery-team-2-1`: added
+- `ds-assault-intercessor-squad` `og-assault-intercessor-squad-1`: added
+- `ds-assault-intercessor-squad` `og-assault-intercessor-squad-2`: added
+- `ds-assault-intercessor-squad-2` `og-assault-intercessor-squad-2-1`: added
+- `ds-assault-intercessor-squad-2` `og-assault-intercessor-squad-2-2`: added
+- `ds-assault-intercessor-squad-3` `og-assault-intercessor-squad-3-1`: added
+- `ds-assault-intercessor-squad-3` `og-assault-intercessor-squad-3-2`: added
+- `ds-assault-intercessor-squad-4` `og-assault-intercessor-squad-4-1`: added
+- `ds-assault-intercessor-squad-4` `og-assault-intercessor-squad-4-2`: added
+- `ds-assault-intercessor-squad-5` `og-assault-intercessor-squad-5-1`: added
+- `ds-assault-intercessor-squad-5` `og-assault-intercessor-squad-5-2`: added
+- `ds-assault-intercessor-squad-6` `og-assault-intercessor-squad-6-1`: added
+- `ds-assault-intercessor-squad-6` `og-assault-intercessor-squad-6-2`: added
+- `ds-assault-intercessors-with-jump-packs` `og-assault-intercessors-with-jump-packs-1`: added
+- `ds-assault-intercessors-with-jump-packs` `og-assault-intercessors-with-jump-packs-2`: added
+- `ds-assault-intercessors-with-jump-packs` `og-assault-intercessors-with-jump-packs-3`: added
+- `ds-assault-intercessors-with-jump-packs-2` `og-assault-intercessors-with-jump-packs-2-1`: added
+- `ds-assault-intercessors-with-jump-packs-2` `og-assault-intercessors-with-jump-packs-2-2`: added
+- `ds-assault-intercessors-with-jump-packs-2` `og-assault-intercessors-with-jump-packs-2-3`: added
+- `ds-assault-intercessors-with-jump-packs-3` `og-assault-intercessors-with-jump-packs-3-1`: added
+- `ds-assault-intercessors-with-jump-packs-3` `og-assault-intercessors-with-jump-packs-3-2`: added
+- `ds-assault-intercessors-with-jump-packs-3` `og-assault-intercessors-with-jump-packs-3-3`: added
+- `ds-assault-intercessors-with-jump-packs-4` `og-assault-intercessors-with-jump-packs-4-1`: added
+- `ds-assault-intercessors-with-jump-packs-4` `og-assault-intercessors-with-jump-packs-4-2`: added
+- `ds-assault-intercessors-with-jump-packs-4` `og-assault-intercessors-with-jump-packs-4-3`: added
+- `ds-assault-intercessors-with-jump-packs-5` `og-assault-intercessors-with-jump-packs-5-1`: added
+- `ds-assault-intercessors-with-jump-packs-5` `og-assault-intercessors-with-jump-packs-5-2`: added
+- `ds-assault-intercessors-with-jump-packs-5` `og-assault-intercessors-with-jump-packs-5-3`: added
+- `ds-assault-intercessors-with-jump-packs-6` `og-assault-intercessors-with-jump-packs-6-1`: added
+- `ds-assault-intercessors-with-jump-packs-6` `og-assault-intercessors-with-jump-packs-6-2`: added
+- `ds-assault-intercessors-with-jump-packs-6` `og-assault-intercessors-with-jump-packs-6-3`: added
+- `ds-assault-squad` `og-assault-squad-1`: added
+- `ds-assault-squad` `og-assault-squad-2`: added
+- `ds-assault-squad` `og-assault-squad-5`: added
+- `ds-assault-squad-with-jump-packs` `og-assault-squad-with-jump-packs-1`: added
+- `ds-assault-squad-with-jump-packs` `og-assault-squad-with-jump-packs-2`: added
+- `ds-assault-squad-with-jump-packs` `og-assault-squad-with-jump-packs-5`: added
+- `ds-astraeus` `og-astraeus-1`: added
+- `ds-astraeus` `og-astraeus-2`: added
+- `ds-astraeus` `og-astraeus-3`: added
+- `ds-astraeus-2` `og-astraeus-2-1`: added
+- `ds-astraeus-2` `og-astraeus-2-2`: added
+- `ds-astraeus-2` `og-astraeus-2-3`: added
+- `ds-astraeus-3` `og-astraeus-3-1`: added
+- `ds-astraeus-3` `og-astraeus-3-2`: added
+- `ds-astraeus-3` `og-astraeus-3-3`: added
+- `ds-astraeus-4` `og-astraeus-4-1`: added
+- `ds-astraeus-4` `og-astraeus-4-2`: added
+- `ds-astraeus-4` `og-astraeus-4-3`: added
+- `ds-astraeus-5` `og-astraeus-5-1`: added
+- `ds-astraeus-5` `og-astraeus-5-2`: added
+- `ds-astraeus-5` `og-astraeus-5-3`: added
+- `ds-astraeus-6` `og-astraeus-6-1`: added
+- `ds-astraeus-6` `og-astraeus-6-2`: added
+- `ds-astraeus-6` `og-astraeus-6-3`: added
+- `ds-atlas-recovery-vehicle` `og-atlas-recovery-vehicle-1`: added
+- `ds-atlas-recovery-vehicle` `og-atlas-recovery-vehicle-2`: added
+- `ds-atlas-recovery-vehicle-2` `og-atlas-recovery-vehicle-2-1`: added
+- `ds-atlas-recovery-vehicle-2` `og-atlas-recovery-vehicle-2-2`: added
+- `ds-attack-fighta` `og-attack-fighta-1`: added
+- `ds-attilan-rough-riders` `og-attilan-rough-riders-1`: added
+- `ds-attilan-rough-riders` `og-attilan-rough-riders-2`: added
+- `ds-attilan-rough-riders-2` `og-attilan-rough-riders-2-1`: added
+- `ds-attilan-rough-riders-2` `og-attilan-rough-riders-2-2`: added
+- `ds-autarch` `og-autarch-1`: added
+- `ds-autarch` `og-autarch-2`: added
+- `ds-autarch-skyrunner` `og-autarch-skyrunner-1`: added
+- `ds-autarch-wayleaper` `og-autarch-wayleaper-1`: added
+- `ds-autarch-wayleaper` `og-autarch-wayleaper-2`: added
+- `ds-ax-1-0-tiger-shark` `og-ax-1-0-tiger-shark-1`: added
+- `ds-ax-1-0-tiger-shark` `og-ax-1-0-tiger-shark-2`: added
+- `ds-baal-predator` `og-baal-predator-1`: added
+- `ds-baal-predator` `og-baal-predator-2`: added
+- `ds-baal-predator` `og-baal-predator-3`: added
+- `ds-baal-predator` `og-baal-predator-4`: added
+- `ds-baneblade` `og-baneblade-1`: added
+- `ds-baneblade` `og-baneblade-2`: added
+- `ds-baneblade-2` `og-baneblade-2-1`: added
+- `ds-baneblade-2` `og-baneblade-2-2`: added
+- `ds-banehammer` `og-banehammer-1`: added
+- `ds-banehammer` `og-banehammer-2`: added
+- `ds-banehammer-2` `og-banehammer-2-1`: added
+- `ds-banehammer-2` `og-banehammer-2-2`: added
+- `ds-banesword` `og-banesword-1`: added
+- `ds-banesword` `og-banesword-2`: added
+- `ds-banesword-2` `og-banesword-2-1`: added
+- `ds-banesword-2` `og-banesword-2-2`: added
+- `ds-barracuda` `og-barracuda-1`: added
+- `ds-barracuda` `og-barracuda-2`: added
+- `ds-barracuda` `og-barracuda-3`: added
+- `ds-basilisk` `og-basilisk-1`: added
+- `ds-basilisk` `og-basilisk-2`: added
+- `ds-basilisk-2` `og-basilisk-2-1`: added
+- `ds-basilisk-2` `og-basilisk-2-2`: added
+- `ds-battle-sisters-squad` `og-battle-sisters-squad-1`: added
+- `ds-battle-sisters-squad` `og-battle-sisters-squad-2`: added
+- `ds-battle-sisters-squad` `og-battle-sisters-squad-3`: added
+- `ds-battle-sisters-squad` `og-battle-sisters-squad-4`: added
+- `ds-battle-sisters-squad` `og-battle-sisters-squad-5`: added
+- `ds-battlewagon` `og-battlewagon-1`: added
+- `ds-battlewagon` `og-battlewagon-2`: added
+- `ds-battlewagon` `og-battlewagon-3`: added
+- `ds-battlewagon` `og-battlewagon-4`: added
+- `ds-battlewagon` `og-battlewagon-5`: added
+- `ds-beast-snagga-boyz` `og-beast-snagga-boyz-1`: added
+- `ds-beastboss-on-squigosaur` `og-beastboss-on-squigosaur-1`: added
+- `ds-big-mek` `og-big-mek-1`: added
+- `ds-big-mek` `og-big-mek-2`: added
+- `ds-big-mek-in-mega-armour` `og-big-mek-in-mega-armour-1`: added
+- `ds-big-mek-in-mega-armour` `og-big-mek-in-mega-armour-2`: added
+- `ds-big-mek-in-mega-armour` `og-big-mek-in-mega-armour-3`: added
+- `ds-big-mek-on-warbike` `og-big-mek-on-warbike-1`: added
+- `ds-big-mek-on-warbike` `og-big-mek-on-warbike-2`: added
+- `ds-big-mek-with-kustom-force-field` `og-big-mek-with-kustom-force-field-1`: added
+- `ds-big-mek-with-shokk-attack-gun` `og-big-mek-with-shokk-attack-gun-1`: added
+- `ds-big-trakk` `og-big-trakk-1`: added
+- `ds-biged-bossbunka` `og-biged-bossbunka-1`: added
+- `ds-bike-squad` `og-bike-squad-1`: added
+- `ds-bjorn-the-fell-handed` `og-bjorn-the-fell-handed-1`: added
+- `ds-bladeguard-veteran-squad` `og-bladeguard-veteran-squad-1`: added
+- `ds-bladeguard-veteran-squad-2` `og-bladeguard-veteran-squad-2-1`: added
+- `ds-bladeguard-veteran-squad-3` `og-bladeguard-veteran-squad-3-1`: added
+- `ds-bladeguard-veteran-squad-4` `og-bladeguard-veteran-squad-4-1`: added
+- `ds-bladeguard-veteran-squad-5` `og-bladeguard-veteran-squad-5-1`: added
+- `ds-bladeguard-veteran-squad-6` `og-bladeguard-veteran-squad-6-1`: added
+- `ds-blightlord-terminators` `og-blightlord-terminators-2`: added
+- `ds-blightlord-terminators` `og-blightlord-terminators-3`: added
+- `ds-blightlord-terminators` `og-blightlord-terminators-4`: added
+- `ds-blightlord-terminators` `og-blightlord-terminators-5`: added
+- `ds-blood-angels-captain` `og-blood-angels-captain-1`: added
+- `ds-blood-angels-captain` `og-blood-angels-captain-2`: added
+- `ds-blood-claws` `og-blood-claws-1`: added
+- `ds-blood-claws` `og-blood-claws-2`: added
+- `ds-blood-slaughterer` `og-blood-slaughterer-1`: added
+- `ds-blood-slaughterer-2` `og-blood-slaughterer-2-1`: added
+- `ds-bloodcrushers` `og-bloodcrushers-1`: added
+- `ds-bloodcrushers` `og-bloodcrushers-2`: added
+- `ds-bloodcrushers-2` `og-bloodcrushers-2-1`: added
+- `ds-bloodcrushers-2` `og-bloodcrushers-2-2`: added
+- `ds-bloodletters` `og-bloodletters-1`: added
+- `ds-bloodletters` `og-bloodletters-2`: added
+- `ds-bloodletters-2` `og-bloodletters-2-1`: added
+- `ds-bloodletters-2` `og-bloodletters-2-2`: added
+- `ds-bloodthirster` `og-bloodthirster-1`: added
+- `ds-bloodthirster-2` `og-bloodthirster-2-1`: added
+- `ds-boyz` `og-boyz-1`: added
+- `ds-breacher-team` `og-breacher-team-1`: added
+- `ds-breaka-boyz` `og-breaka-boyz-1`: added
+- `ds-brother-captain` `og-brother-captain-1`: added
+- `ds-brotherhood-librarian` `og-brotherhood-librarian-1`: added
+- `ds-brotherhood-terminator-squad` `og-brotherhood-terminator-squad-1`: added
+- `ds-brotherhood-terminator-squad` `og-brotherhood-terminator-squad-3`: added
+- `ds-brutalis-dreadnought` `og-brutalis-dreadnought-1`: added
+- `ds-brutalis-dreadnought` `og-brutalis-dreadnought-2`: added
+- `ds-brutalis-dreadnought-2` `og-brutalis-dreadnought-2-1`: added
+- `ds-brutalis-dreadnought-2` `og-brutalis-dreadnought-2-2`: added
+- `ds-brutalis-dreadnought-3` `og-brutalis-dreadnought-3-1`: added
+- `ds-brutalis-dreadnought-3` `og-brutalis-dreadnought-3-2`: added
+- `ds-brutalis-dreadnought-4` `og-brutalis-dreadnought-4-1`: added
+- `ds-brutalis-dreadnought-4` `og-brutalis-dreadnought-4-2`: added
+- `ds-brutalis-dreadnought-5` `og-brutalis-dreadnought-5-1`: added
+- `ds-brutalis-dreadnought-5` `og-brutalis-dreadnought-5-2`: added
+- `ds-brutalis-dreadnought-6` `og-brutalis-dreadnought-6-1`: added
+- `ds-brutalis-dreadnought-6` `og-brutalis-dreadnought-6-2`: added
+- `ds-burna-bommer` `og-burna-bommer-1`: added
+- `ds-cadian-castellan` `og-cadian-castellan-1`: added
+- `ds-cadian-castellan` `og-cadian-castellan-2`: added
+- `ds-cadian-castellan-2` `og-cadian-castellan-2-1`: added
+- `ds-cadian-castellan-2` `og-cadian-castellan-2-2`: added
+- `ds-cadian-command-squad` `og-cadian-command-squad-1`: added
+- `ds-cadian-command-squad` `og-cadian-command-squad-2`: added
+- `ds-cadian-command-squad` `og-cadian-command-squad-3`: added
+- `ds-cadian-command-squad` `og-cadian-command-squad-4`: added
+- `ds-cadian-command-squad` `og-cadian-command-squad-5`: added
+- `ds-cadian-command-squad-2` `og-cadian-command-squad-2-1`: added
+- `ds-cadian-command-squad-2` `og-cadian-command-squad-2-2`: added
+- `ds-cadian-command-squad-2` `og-cadian-command-squad-2-3`: added
+- `ds-cadian-command-squad-2` `og-cadian-command-squad-2-4`: added
+- `ds-cadian-command-squad-2` `og-cadian-command-squad-2-5`: added
+- `ds-cadian-shock-troops` `og-cadian-shock-troops-2`: added
+- `ds-cadian-shock-troops-2` `og-cadian-shock-troops-2-2`: added
+- `ds-cadre-fireblade` `og-cadre-fireblade-1`: added
+- `ds-caladius-grav-tank` `og-caladius-grav-tank-1`: added
+- `ds-canoness` `og-canoness-1`: added
+- `ds-canoness` `og-canoness-2`: added
+- `ds-canoness-with-jump-pack` `og-canoness-with-jump-pack-1`: added
+- `ds-canoptek-macrocytes` `og-canoptek-macrocytes-2`: added
+- `ds-canoptek-macrocytes` `og-canoptek-macrocytes-3`: added
+- `ds-canoptek-tomb-crawlers` `og-canoptek-tomb-crawlers-1`: added
+- `ds-captain` `og-captain-1`: added
+- `ds-captain` `og-captain-2`: added
+- `ds-captain-2` `og-captain-2-1`: added
+- `ds-captain-2` `og-captain-2-2`: added
+- `ds-captain-3` `og-captain-3-1`: added
+- `ds-captain-3` `og-captain-3-2`: added
+- `ds-captain-4` `og-captain-4-1`: added
+- `ds-captain-4` `og-captain-4-2`: added
+- `ds-captain-5` `og-captain-5-1`: added
+- `ds-captain-5` `og-captain-5-2`: added
+- `ds-captain-6` `og-captain-6-1`: added
+- `ds-captain-6` `og-captain-6-2`: added
+- `ds-captain-in-gravis-armour` `og-captain-in-gravis-armour-1`: added
+- `ds-captain-in-gravis-armour-2` `og-captain-in-gravis-armour-2-1`: added
+- `ds-captain-in-gravis-armour-3` `og-captain-in-gravis-armour-3-1`: added
+- `ds-captain-in-gravis-armour-4` `og-captain-in-gravis-armour-4-1`: added
+- `ds-captain-in-gravis-armour-5` `og-captain-in-gravis-armour-5-1`: added
+- `ds-captain-in-gravis-armour-6` `og-captain-in-gravis-armour-6-1`: added
+- `ds-captain-in-terminator-armour` `og-captain-in-terminator-armour-1`: added
+- `ds-captain-in-terminator-armour` `og-captain-in-terminator-armour-2`: added
+- `ds-captain-in-terminator-armour-2` `og-captain-in-terminator-armour-2-1`: added
+- `ds-captain-in-terminator-armour-2` `og-captain-in-terminator-armour-2-2`: added
+- `ds-captain-in-terminator-armour-3` `og-captain-in-terminator-armour-3-1`: added
+- `ds-captain-in-terminator-armour-3` `og-captain-in-terminator-armour-3-2`: added
+- `ds-captain-in-terminator-armour-4` `og-captain-in-terminator-armour-4-1`: added
+- `ds-captain-in-terminator-armour-4` `og-captain-in-terminator-armour-4-2`: added
+- `ds-captain-in-terminator-armour-5` `og-captain-in-terminator-armour-5-1`: added
+- `ds-captain-in-terminator-armour-5` `og-captain-in-terminator-armour-5-2`: added
+- `ds-captain-in-terminator-armour-6` `og-captain-in-terminator-armour-6-1`: added
+- `ds-captain-in-terminator-armour-6` `og-captain-in-terminator-armour-6-2`: added
+- `ds-captain-on-bike` `og-captain-on-bike-1`: added
+- `ds-captain-on-bike` `og-captain-on-bike-2`: added
+- `ds-captain-on-bike` `og-captain-on-bike-3`: added
+- `ds-captain-with-jump-pack` `og-captain-with-jump-pack-1`: added
+- `ds-captain-with-jump-pack` `og-captain-with-jump-pack-2`: added
+- `ds-captain-with-jump-pack` `og-captain-with-jump-pack-3`: added
+- `ds-captain-with-jump-pack-2` `og-captain-with-jump-pack-2-1`: added
+- `ds-captain-with-jump-pack-2` `og-captain-with-jump-pack-2-2`: added
+- `ds-captain-with-jump-pack-2` `og-captain-with-jump-pack-2-3`: added
+- `ds-captain-with-jump-pack-3` `og-captain-with-jump-pack-3-1`: added
+- `ds-captain-with-jump-pack-3` `og-captain-with-jump-pack-3-2`: added
+- `ds-captain-with-jump-pack-3` `og-captain-with-jump-pack-3-3`: added
+- `ds-captain-with-jump-pack-4` `og-captain-with-jump-pack-4-1`: added
+- `ds-captain-with-jump-pack-4` `og-captain-with-jump-pack-4-2`: added
+- `ds-captain-with-jump-pack-4` `og-captain-with-jump-pack-4-3`: added
+- `ds-captain-with-jump-pack-5` `og-captain-with-jump-pack-5-1`: added
+- `ds-captain-with-jump-pack-5` `og-captain-with-jump-pack-5-2`: added
+- `ds-captain-with-jump-pack-5` `og-captain-with-jump-pack-5-3`: added
+- `ds-captain-with-jump-pack-6` `og-captain-with-jump-pack-6-1`: added
+- `ds-captain-with-jump-pack-6` `og-captain-with-jump-pack-6-2`: added
+- `ds-captain-with-jump-pack-6` `og-captain-with-jump-pack-6-3`: added
+- `ds-carnodon` `og-carnodon-1`: added
+- `ds-carnodon` `og-carnodon-2`: added
+- `ds-carnodon` `og-carnodon-3`: added
+- `ds-carnodon-2` `og-carnodon-2-1`: added
+- `ds-carnodon-2` `og-carnodon-2-2`: added
+- `ds-carnodon-2` `og-carnodon-2-3`: added
+- `ds-castellan` `og-castellan-1`: added
+- `ds-castellan` `og-castellan-2`: added
+- `ds-castigator` `og-castigator-1`: added
+- `ds-castigator` `og-castigator-2`: added
+- `ds-castigator` `og-castigator-3`: added
+- `ds-catachan-command-squad` `og-catachan-command-squad-4`: added
+- `ds-catachan-command-squad` `og-catachan-command-squad-5`: added
+- `ds-catachan-command-squad` `og-catachan-command-squad-6`: added
+- `ds-catachan-command-squad-2` `og-catachan-command-squad-2-4`: added
+- `ds-catachan-command-squad-2` `og-catachan-command-squad-2-5`: added
+- `ds-catachan-command-squad-2` `og-catachan-command-squad-2-6`: added
+- `ds-catachan-jungle-fighters` `og-catachan-jungle-fighters-1`: added
+- `ds-catachan-jungle-fighters` `og-catachan-jungle-fighters-2`: added
+- `ds-catachan-jungle-fighters-2` `og-catachan-jungle-fighters-2-1`: added
+- `ds-catachan-jungle-fighters-2` `og-catachan-jungle-fighters-2-2`: added
+- `ds-catacomb-command-barge` `og-catacomb-command-barge-1`: added
+- `ds-catacomb-command-barge` `og-catacomb-command-barge-2`: added
+- `ds-catacomb-command-barge` `og-catacomb-command-barge-3`: added
+- `ds-celestian-insidiants` `og-celestian-insidiants-1`: added
+- `ds-celestian-sacresants` `og-celestian-sacresants-2`: added
+- `ds-celestian-sacresants` `og-celestian-sacresants-3`: added
+- `ds-centaur-light-carrier` `og-centaur-light-carrier-1`: added
+- `ds-centaur-light-carrier-2` `og-centaur-light-carrier-2-1`: added
+- `ds-cerberus` `og-cerberus-1`: added
+- `ds-cerberus` `og-cerberus-2`: added
+- `ds-cerberus-2` `og-cerberus-2-1`: added
+- `ds-cerberus-2` `og-cerberus-2-2`: added
+- `ds-cerberus-3` `og-cerberus-3-1`: added
+- `ds-cerberus-3` `og-cerberus-3-2`: added
+- `ds-cerberus-4` `og-cerberus-4-1`: added
+- `ds-cerberus-4` `og-cerberus-4-2`: added
+- `ds-cerberus-5` `og-cerberus-5-1`: added
+- `ds-cerberus-5` `og-cerberus-5-2`: added
+- `ds-chaos-acastus-knight-porphyrion` `og-chaos-acastus-knight-porphyrion-2`: added
+- `ds-chaos-bikers` `og-chaos-bikers-1`: added
+- `ds-chaos-bikers` `og-chaos-bikers-4`: added
+- `ds-chaos-deimos-predator` `og-chaos-deimos-predator-1`: added
+- `ds-chaos-deimos-predator` `og-chaos-deimos-predator-2`: added
+- `ds-chaos-deimos-predator` `og-chaos-deimos-predator-3`: added
+- `ds-chaos-deimos-predator` `og-chaos-deimos-predator-4`: added
+- `ds-chaos-land-raider` `og-chaos-land-raider-1`: added
+- `ds-chaos-land-raider` `og-chaos-land-raider-2`: added
+- `ds-chaos-land-raider-2` `og-chaos-land-raider-2-1`: added
+- `ds-chaos-land-raider-2` `og-chaos-land-raider-2-2`: added
+- `ds-chaos-land-raider-3` `og-chaos-land-raider-3-1`: added
+- `ds-chaos-land-raider-3` `og-chaos-land-raider-3-2`: added
+- `ds-chaos-land-raider-4` `og-chaos-land-raider-4-1`: added
+- `ds-chaos-land-raider-4` `og-chaos-land-raider-4-2`: added
+- `ds-chaos-land-raider-5` `og-chaos-land-raider-5-1`: added
+- `ds-chaos-land-raider-5` `og-chaos-land-raider-5-2`: added
+- `ds-chaos-lord` `og-chaos-lord-1`: added
+- `ds-chaos-lord` `og-chaos-lord-2`: added
+- `ds-chaos-lord-2` `og-chaos-lord-2-1`: added
+- `ds-chaos-lord-2` `og-chaos-lord-2-2`: added
+- `ds-chaos-lord-in-terminator-armour` `og-chaos-lord-in-terminator-armour-1`: added
+- `ds-chaos-lord-in-terminator-armour` `og-chaos-lord-in-terminator-armour-2`: added
+- `ds-chaos-lord-in-terminator-armour` `og-chaos-lord-in-terminator-armour-3`: added
+- `ds-chaos-lord-in-terminator-armour-2` `og-chaos-lord-in-terminator-armour-2-1`: added
+- `ds-chaos-lord-in-terminator-armour-2` `og-chaos-lord-in-terminator-armour-2-2`: added
+- `ds-chaos-lord-in-terminator-armour-2` `og-chaos-lord-in-terminator-armour-2-3`: added
+- `ds-chaos-lord-on-bike` `og-chaos-lord-on-bike-1`: added
+- `ds-chaos-lord-on-bike` `og-chaos-lord-on-bike-2`: added
+- `ds-chaos-lord-on-bike` `og-chaos-lord-on-bike-3`: added
+- `ds-chaos-lord-on-disc-of-tzeentch` `og-chaos-lord-on-disc-of-tzeentch-1`: added
+- `ds-chaos-lord-on-disc-of-tzeentch` `og-chaos-lord-on-disc-of-tzeentch-2`: added
+- `ds-chaos-lord-on-disc-of-tzeentch` `og-chaos-lord-on-disc-of-tzeentch-3`: added
+- `ds-chaos-lord-on-disc-of-tzeentch-2` `og-chaos-lord-on-disc-of-tzeentch-2-1`: added
+- `ds-chaos-lord-on-disc-of-tzeentch-2` `og-chaos-lord-on-disc-of-tzeentch-2-2`: added
+- `ds-chaos-lord-on-disc-of-tzeentch-2` `og-chaos-lord-on-disc-of-tzeentch-2-3`: added
+- `ds-chaos-lord-on-disc-of-tzeentch-3` `og-chaos-lord-on-disc-of-tzeentch-3-1`: added
+- `ds-chaos-lord-on-disc-of-tzeentch-3` `og-chaos-lord-on-disc-of-tzeentch-3-2`: added
+- `ds-chaos-lord-on-disc-of-tzeentch-3` `og-chaos-lord-on-disc-of-tzeentch-3-3`: added
+- `ds-chaos-lord-on-juggernaut` `og-chaos-lord-on-juggernaut-1`: added
+- `ds-chaos-lord-on-juggernaut` `og-chaos-lord-on-juggernaut-2`: added
+- `ds-chaos-lord-on-juggernaut` `og-chaos-lord-on-juggernaut-3`: added
+- `ds-chaos-lord-on-juggernaut-2` `og-chaos-lord-on-juggernaut-2-1`: added
+- `ds-chaos-lord-on-juggernaut-2` `og-chaos-lord-on-juggernaut-2-2`: added
+- `ds-chaos-lord-on-juggernaut-2` `og-chaos-lord-on-juggernaut-2-3`: added
+- `ds-chaos-lord-on-palanquin-of-nurgle` `og-chaos-lord-on-palanquin-of-nurgle-1`: added
+- `ds-chaos-lord-on-palanquin-of-nurgle` `og-chaos-lord-on-palanquin-of-nurgle-2`: added
+- `ds-chaos-lord-on-palanquin-of-nurgle` `og-chaos-lord-on-palanquin-of-nurgle-3`: added
+- `ds-chaos-lord-on-palanquin-of-nurgle-2` `og-chaos-lord-on-palanquin-of-nurgle-2-1`: added
+- `ds-chaos-lord-on-palanquin-of-nurgle-2` `og-chaos-lord-on-palanquin-of-nurgle-2-2`: added
+- `ds-chaos-lord-on-palanquin-of-nurgle-2` `og-chaos-lord-on-palanquin-of-nurgle-2-3`: added
+- `ds-chaos-lord-on-palanquin-of-nurgle-3` `og-chaos-lord-on-palanquin-of-nurgle-3-1`: added
+- `ds-chaos-lord-on-palanquin-of-nurgle-3` `og-chaos-lord-on-palanquin-of-nurgle-3-2`: added
+- `ds-chaos-lord-on-palanquin-of-nurgle-3` `og-chaos-lord-on-palanquin-of-nurgle-3-3`: added
+- `ds-chaos-lord-on-steed-of-slaanesh` `og-chaos-lord-on-steed-of-slaanesh-1`: added
+- `ds-chaos-lord-on-steed-of-slaanesh` `og-chaos-lord-on-steed-of-slaanesh-2`: added
+- `ds-chaos-lord-on-steed-of-slaanesh` `og-chaos-lord-on-steed-of-slaanesh-3`: added
+- `ds-chaos-lord-on-steed-of-slaanesh-2` `og-chaos-lord-on-steed-of-slaanesh-2-1`: added
+- `ds-chaos-lord-on-steed-of-slaanesh-2` `og-chaos-lord-on-steed-of-slaanesh-2-2`: added
+- `ds-chaos-lord-on-steed-of-slaanesh-2` `og-chaos-lord-on-steed-of-slaanesh-2-3`: added
+- `ds-chaos-lord-with-jump-pack` `og-chaos-lord-with-jump-pack-1`: added
+- `ds-chaos-lord-with-jump-pack` `og-chaos-lord-with-jump-pack-2`: added
+- `ds-chaos-lord-with-jump-pack` `og-chaos-lord-with-jump-pack-3`: added
+- `ds-chaos-lord-with-jump-pack-2` `og-chaos-lord-with-jump-pack-2-1`: added
+- `ds-chaos-lord-with-jump-pack-2` `og-chaos-lord-with-jump-pack-2-2`: added
+- `ds-chaos-lord-with-jump-pack-2` `og-chaos-lord-with-jump-pack-2-3`: added
+- `ds-chaos-predator-annihilator` `og-chaos-predator-annihilator-1`: added
+- `ds-chaos-predator-annihilator` `og-chaos-predator-annihilator-2`: added
+- `ds-chaos-predator-annihilator` `og-chaos-predator-annihilator-3`: added
+- `ds-chaos-predator-annihilator-2` `og-chaos-predator-annihilator-2-1`: added
+- `ds-chaos-predator-annihilator-2` `og-chaos-predator-annihilator-2-2`: added
+- `ds-chaos-predator-annihilator-2` `og-chaos-predator-annihilator-2-3`: added
+- `ds-chaos-predator-annihilator-3` `og-chaos-predator-annihilator-3-1`: added
+- `ds-chaos-predator-annihilator-3` `og-chaos-predator-annihilator-3-2`: added
+- `ds-chaos-predator-annihilator-3` `og-chaos-predator-annihilator-3-3`: added
+- `ds-chaos-predator-annihilator-4` `og-chaos-predator-annihilator-4-1`: added
+- `ds-chaos-predator-annihilator-4` `og-chaos-predator-annihilator-4-2`: added
+- `ds-chaos-predator-annihilator-4` `og-chaos-predator-annihilator-4-3`: added
+- `ds-chaos-predator-destructor` `og-chaos-predator-destructor-1`: added
+- `ds-chaos-predator-destructor` `og-chaos-predator-destructor-2`: added
+- `ds-chaos-predator-destructor` `og-chaos-predator-destructor-3`: added
+- `ds-chaos-predator-destructor-2` `og-chaos-predator-destructor-2-1`: added
+- `ds-chaos-predator-destructor-2` `og-chaos-predator-destructor-2-2`: added
+- `ds-chaos-predator-destructor-2` `og-chaos-predator-destructor-2-3`: added
+- `ds-chaos-predator-destructor-3` `og-chaos-predator-destructor-3-1`: added
+- `ds-chaos-predator-destructor-3` `og-chaos-predator-destructor-3-2`: added
+- `ds-chaos-predator-destructor-3` `og-chaos-predator-destructor-3-3`: added
+- `ds-chaos-predator-destructor-4` `og-chaos-predator-destructor-4-1`: added
+- `ds-chaos-predator-destructor-4` `og-chaos-predator-destructor-4-2`: added
+- `ds-chaos-predator-destructor-4` `og-chaos-predator-destructor-4-3`: added
+- `ds-chaos-questoris-knight-magaera` `og-chaos-questoris-knight-magaera-1`: added
+- `ds-chaos-questoris-knight-styrix` `og-chaos-questoris-knight-styrix-1`: added
+- `ds-chaos-rhino` `og-chaos-rhino-1`: added
+- `ds-chaos-rhino` `og-chaos-rhino-2`: added
+- `ds-chaos-rhino-2` `og-chaos-rhino-2-1`: added
+- `ds-chaos-rhino-2` `og-chaos-rhino-2-2`: added
+- `ds-chaos-rhino-3` `og-chaos-rhino-3-1`: added
+- `ds-chaos-rhino-3` `og-chaos-rhino-3-2`: added
+- `ds-chaos-rhino-4` `og-chaos-rhino-4-1`: added
+- `ds-chaos-rhino-4` `og-chaos-rhino-4-2`: added
+- `ds-chaos-rhino-5` `og-chaos-rhino-5-1`: added
+- `ds-chaos-rhino-5` `og-chaos-rhino-5-2`: added
+- `ds-chaos-terminator-squad` `og-chaos-terminator-squad-1`: added
+- `ds-chaos-terminator-squad` `og-chaos-terminator-squad-3`: added
+- `ds-chaos-terminator-squad` `og-chaos-terminator-squad-5`: added
+- `ds-chaos-terminator-squad-2` `og-chaos-terminator-squad-2-1`: added
+- `ds-chaos-terminator-squad-2` `og-chaos-terminator-squad-2-3`: added
+- `ds-chaos-terminator-squad-2` `og-chaos-terminator-squad-2-5`: added
+- `ds-chaos-terminators` `og-chaos-terminators-1`: added
+- `ds-chaos-terminators` `og-chaos-terminators-3`: added
+- `ds-chaos-terminators` `og-chaos-terminators-5`: added
+- `ds-chaos-terminators-2` `og-chaos-terminators-2-1`: added
+- `ds-chaos-terminators-2` `og-chaos-terminators-2-3`: added
+- `ds-chaos-terminators-2` `og-chaos-terminators-2-5`: added
+- `ds-chaos-thunderhawk` `og-chaos-thunderhawk-1`: added
+- `ds-chaos-thunderhawk` `og-chaos-thunderhawk-2`: added
+- `ds-chaos-thunderhawk-2` `og-chaos-thunderhawk-2-1`: added
+- `ds-chaos-thunderhawk-2` `og-chaos-thunderhawk-2-2`: added
+- `ds-chaos-thunderhawk-3` `og-chaos-thunderhawk-3-1`: added
+- `ds-chaos-thunderhawk-3` `og-chaos-thunderhawk-3-2`: added
+- `ds-chaos-thunderhawk-4` `og-chaos-thunderhawk-4-1`: added
+- `ds-chaos-thunderhawk-4` `og-chaos-thunderhawk-4-2`: added
+- `ds-chaos-vindicator` `og-chaos-vindicator-1`: added
+- `ds-chaos-vindicator` `og-chaos-vindicator-2`: added
+- `ds-chaos-vindicator-2` `og-chaos-vindicator-2-1`: added
+- `ds-chaos-vindicator-2` `og-chaos-vindicator-2-2`: added
+- `ds-chaplain-in-terminator-armour` `og-chaplain-in-terminator-armour-1`: added
+- `ds-chaplain-in-terminator-armour-2` `og-chaplain-in-terminator-armour-2-1`: added
+- `ds-chaplain-in-terminator-armour-3` `og-chaplain-in-terminator-armour-3-1`: added
+- `ds-chaplain-in-terminator-armour-4` `og-chaplain-in-terminator-armour-4-1`: added
+- `ds-chaplain-in-terminator-armour-5` `og-chaplain-in-terminator-armour-5-1`: added
+- `ds-chaplain-in-terminator-armour-6` `og-chaplain-in-terminator-armour-6-1`: added
+- `ds-chaplain-venerable-dreadnought` `og-chaplain-venerable-dreadnought-1`: added
+- `ds-chaplain-venerable-dreadnought` `og-chaplain-venerable-dreadnought-2`: added
+- `ds-chaplain-with-jump-pack` `og-chaplain-with-jump-pack-1`: added
+- `ds-chaplain-with-jump-pack-2` `og-chaplain-with-jump-pack-2-1`: added
+- `ds-chaplain-with-jump-pack-3` `og-chaplain-with-jump-pack-3-1`: added
+- `ds-chaplain-with-jump-pack-4` `og-chaplain-with-jump-pack-4-1`: added
+- `ds-chaplain-with-jump-pack-5` `og-chaplain-with-jump-pack-5-1`: added
+- `ds-chaplain-with-jump-pack-6` `og-chaplain-with-jump-pack-6-1`: added
+- `ds-chimera` `og-chimera-1`: added
+- `ds-chimera` `og-chimera-2`: added
+- `ds-chimera` `og-chimera-3`: added
+- `ds-chimera` `og-chimera-4`: added
+- `ds-chimera-2` `og-chimera-2-1`: added
+- `ds-chimera-2` `og-chimera-2-2`: added
+- `ds-chimera-2` `og-chimera-2-3`: added
+- `ds-chimera-2` `og-chimera-2-4`: added
+- `ds-chinork-warkopta` `og-chinork-warkopta-1`: added
+- `ds-chinork-warkopta` `og-chinork-warkopta-2`: added
+- `ds-chinork-warkopta` `og-chinork-warkopta-3`: added
+- `ds-chosen` `og-chosen-3`: added
+- `ds-chosen` `og-chosen-5`: added
+- `ds-chosen-2` `og-chosen-2-3`: added
+- `ds-chosen-2` `og-chosen-2-5`: added
+- `ds-cobra` `og-cobra-1`: added
+- `ds-colossus` `og-colossus-1`: added
+- `ds-colossus` `og-colossus-2`: added
+- `ds-colossus-2` `og-colossus-2-1`: added
+- `ds-colossus-2` `og-colossus-2-2`: added
+- `ds-command-squad` `og-command-squad-4`: added
+- `ds-commander-in-coldstar-battlesuit` `og-commander-in-coldstar-battlesuit-1`: added
+- `ds-commander-in-coldstar-battlesuit` `og-commander-in-coldstar-battlesuit-2`: added
+- `ds-commander-in-coldstar-battlesuit` `og-commander-in-coldstar-battlesuit-3`: added
+- `ds-commander-in-crisis-battlesuit` `og-commander-in-crisis-battlesuit-1`: added
+- `ds-commander-in-crisis-battlesuit` `og-commander-in-crisis-battlesuit-2`: added
+- `ds-commander-in-crisis-battlesuit` `og-commander-in-crisis-battlesuit-3`: added
+- `ds-commander-in-enforcer-battlesuit` `og-commander-in-enforcer-battlesuit-1`: added
+- `ds-commander-in-enforcer-battlesuit` `og-commander-in-enforcer-battlesuit-2`: added
+- `ds-commander-in-enforcer-battlesuit` `og-commander-in-enforcer-battlesuit-3`: added
+- `ds-commissar` `og-commissar-1`: added
+- `ds-commissar` `og-commissar-2`: added
+- `ds-company-veterans-on-bikes` `og-company-veterans-on-bikes-1`: added
+- `ds-company-veterans-on-bikes` `og-company-veterans-on-bikes-2`: added
+- `ds-contemptor-achillus-dreadnought` `og-contemptor-achillus-dreadnought-1`: added
+- `ds-corsair-cloud-dancer-band` `og-corsair-cloud-dancer-band-2`: added
+- `ds-corsair-cloud-dancer-band-2` `og-corsair-cloud-dancer-band-2-2`: added
+- `ds-corsair-reaver-band` `og-corsair-reaver-band-2`: added
+- `ds-corsair-reaver-band` `og-corsair-reaver-band-3`: added
+- `ds-corsair-reaver-band-2` `og-corsair-reaver-band-2-2`: added
+- `ds-corsair-reaver-band-2` `og-corsair-reaver-band-2-3`: added
+- `ds-corsair-voidreavers` `og-corsair-voidreavers-1`: added
+- `ds-corsair-voidreavers` `og-corsair-voidreavers-2`: added
+- `ds-corsair-voidreavers` `og-corsair-voidreavers-4`: added
+- `ds-corsair-voidreavers-2` `og-corsair-voidreavers-2-1`: added
+- `ds-corsair-voidreavers-2` `og-corsair-voidreavers-2-2`: added
+- `ds-corsair-voidreavers-2` `og-corsair-voidreavers-2-4`: added
+- `ds-corsair-voidscarred` `og-corsair-voidscarred-2`: added
+- `ds-corsair-voidscarred` `og-corsair-voidscarred-3`: added
+- `ds-corsair-voidscarred` `og-corsair-voidscarred-4`: added
+- `ds-corsair-voidscarred` `og-corsair-voidscarred-8`: added
+- `ds-corsair-voidscarred-2` `og-corsair-voidscarred-2-2`: added
+- `ds-corsair-voidscarred-2` `og-corsair-voidscarred-2-3`: added
+- `ds-corsair-voidscarred-2` `og-corsair-voidscarred-2-4`: added
+- `ds-corsair-voidscarred-2` `og-corsair-voidscarred-2-8`: added
+- `ds-corvus-blackstar` `og-corvus-blackstar-1`: added
+- `ds-corvus-blackstar` `og-corvus-blackstar-2`: added
+- `ds-corvus-blackstar` `og-corvus-blackstar-3`: added
+- `ds-corvus-blackstar` `og-corvus-blackstar-4`: added
+- `ds-corvus-blackstar-2` `og-corvus-blackstar-2-1`: added
+- `ds-corvus-blackstar-2` `og-corvus-blackstar-2-2`: added
+- `ds-corvus-blackstar-2` `og-corvus-blackstar-2-3`: added
+- `ds-corvus-blackstar-2` `og-corvus-blackstar-2-4`: added
+- `ds-crassus` `og-crassus-1`: added
+- `ds-crassus-2` `og-crassus-2-1`: added
+- `ds-crimson-hunter` `og-crimson-hunter-1`: added
+- `ds-crisis-battlesuits` `og-crisis-battlesuits-2`: added
+- `ds-crisis-fireknife-battlesuits` `og-crisis-fireknife-battlesuits-3`: added
+- `ds-crisis-starscythe-battlesuits` `og-crisis-starscythe-battlesuits-3`: added
+- `ds-crisis-sunforge-battlesuits` `og-crisis-sunforge-battlesuits-1`: added
+- `ds-crusader-squad` `og-crusader-squad-1`: added
+- `ds-cthonian-beserks` `og-cthonian-beserks-3`: added
+- `ds-cultist-mob` `og-cultist-mob-1`: added
+- `ds-cultist-mob-2` `og-cultist-mob-2-1`: added
+- `ds-cultist-mob-3` `og-cultist-mob-3-1`: added
+- `ds-cultist-mob-with-firearms` `og-cultist-mob-with-firearms-1`: added
+- `ds-cultist-mob-with-firearms` `og-cultist-mob-with-firearms-3`: added
+- `ds-cultist-mob-with-firearms` `og-cultist-mob-with-firearms-4`: added
+- `ds-cultist-mob-with-firearms` `og-cultist-mob-with-firearms-5`: added
+- `ds-cultist-mob-with-firearms-2` `og-cultist-mob-with-firearms-2-1`: added
+- `ds-cultist-mob-with-firearms-2` `og-cultist-mob-with-firearms-2-3`: added
+- `ds-cultist-mob-with-firearms-2` `og-cultist-mob-with-firearms-2-4`: added
+- `ds-cultist-mob-with-firearms-2` `og-cultist-mob-with-firearms-2-5`: added
+- `ds-cultist-mob-with-firearms-3` `og-cultist-mob-with-firearms-3-1`: added
+- `ds-cultist-mob-with-firearms-3` `og-cultist-mob-with-firearms-3-3`: added
+- `ds-cultist-mob-with-firearms-3` `og-cultist-mob-with-firearms-3-4`: added
+- `ds-cultist-mob-with-firearms-3` `og-cultist-mob-with-firearms-3-5`: added
+- `ds-custodian-guard` `og-custodian-guard-2`: added
+- `ds-custodian-wardens` `og-custodian-wardens-2`: added
+- `ds-daemonettes` `og-daemonettes-1`: added
+- `ds-daemonettes` `og-daemonettes-2`: added
+- `ds-daemonettes-2` `og-daemonettes-2-1`: added
+- `ds-daemonettes-2` `og-daemonettes-2-2`: added
+- `ds-dakkajet` `og-dakkajet-1`: added
+- `ds-damned-legionnaires` `og-damned-legionnaires-1`: added
+- `ds-dark-reapers` `og-dark-reapers-1`: added
+- `ds-death-company-captain` `og-death-company-captain-1`: added
+- `ds-death-company-captain` `og-death-company-captain-2`: added
+- `ds-death-company-captain-with-jump-pack` `og-death-company-captain-with-jump-pack-1`: added
+- `ds-death-company-captain-with-jump-pack` `og-death-company-captain-with-jump-pack-2`: added
+- `ds-death-company-dreadnought` `og-death-company-dreadnought-1`: added
+- `ds-death-company-dreadnought` `og-death-company-dreadnought-2`: added
+- `ds-death-company-dreadnought-with-magna-grapple` `og-death-company-dreadnought-with-magna-grapple-1`: added
+- `ds-death-company-dreadnought-with-magna-grapple` `og-death-company-dreadnought-with-magna-grapple-2`: added
+- `ds-death-company-dreadnought-with-magna-grapple` `og-death-company-dreadnought-with-magna-grapple-3`: added
+- `ds-death-company-dreadnought-with-magna-grapple` `og-death-company-dreadnought-with-magna-grapple-4`: added
+- `ds-death-company-marines` `og-death-company-marines-1`: added
+- `ds-death-company-marines` `og-death-company-marines-2`: added
+- `ds-death-company-marines` `og-death-company-marines-3`: added
+- `ds-death-company-marines-with-bolt-rifles` `og-death-company-marines-with-bolt-rifles-1`: added
+- `ds-death-company-marines-with-bolt-rifles` `og-death-company-marines-with-bolt-rifles-2`: added
+- `ds-death-company-marines-with-bolt-rifles` `og-death-company-marines-with-bolt-rifles-3`: added
+- `ds-death-company-marines-with-bolt-rifles` `og-death-company-marines-with-bolt-rifles-4`: added
+- `ds-death-company-marines-with-jump-packs` `og-death-company-marines-with-jump-packs-1`: added
+- `ds-death-company-marines-with-jump-packs` `og-death-company-marines-with-jump-packs-2`: added
+- `ds-death-company-marines-with-jump-packs` `og-death-company-marines-with-jump-packs-3`: added
+- `ds-death-company-marines-with-jump-packs` `og-death-company-marines-with-jump-packs-4`: added
+- `ds-death-guard-chaos-lord` `og-death-guard-chaos-lord-1`: added
+- `ds-death-guard-chaos-lord` `og-death-guard-chaos-lord-2`: added
+- `ds-death-guard-chaos-lord` `og-death-guard-chaos-lord-3`: added
+- `ds-death-guard-chaos-lord-in-terminator-armour` `og-death-guard-chaos-lord-in-terminator-armour-1`: added
+- `ds-death-guard-chaos-lord-in-terminator-armour` `og-death-guard-chaos-lord-in-terminator-armour-2`: added
+- `ds-death-guard-chaos-lord-in-terminator-armour` `og-death-guard-chaos-lord-in-terminator-armour-3`: added
+- `ds-death-guard-cultists` `og-death-guard-cultists-1`: added
+- `ds-death-guard-cultists` `og-death-guard-cultists-2`: added
+- `ds-death-guard-cultists` `og-death-guard-cultists-3`: added
+- `ds-death-guard-possessed` `og-death-guard-possessed-1`: added
+- `ds-death-guard-sorcerer-in-terminator-armour` `og-death-guard-sorcerer-in-terminator-armour-1`: added
+- `ds-death-guard-sorcerer-in-terminator-armour` `og-death-guard-sorcerer-in-terminator-armour-2`: added
+- `ds-death-guard-sorcerer-in-terminator-armour` `og-death-guard-sorcerer-in-terminator-armour-3`: added
+- `ds-death-korps-of-krieg` `og-death-korps-of-krieg-2`: added
+- `ds-death-korps-of-krieg` `og-death-korps-of-krieg-3`: added
+- `ds-death-korps-of-krieg-2` `og-death-korps-of-krieg-2-2`: added
+- `ds-death-korps-of-krieg-2` `og-death-korps-of-krieg-2-3`: added
+- `ds-deathshroud-terminators` `og-deathshroud-terminators-1`: added
+- `ds-deathshroud-terminators` `og-deathshroud-terminators-2`: added
+- `ds-deathstorm-drop-pod` `og-deathstorm-drop-pod-1`: added
+- `ds-deathstrike` `og-deathstrike-1`: added
+- `ds-deathstrike` `og-deathstrike-2`: added
+- `ds-deathstrike-2` `og-deathstrike-2-1`: added
+- `ds-deathstrike-2` `og-deathstrike-2-2`: added
+- `ds-deathwatch-kill-team` `og-deathwatch-kill-team-8`: added
+- `ds-deathwatch-kill-team` `og-deathwatch-kill-team-9`: added
+- `ds-deathwatch-veterans` `og-deathwatch-veterans-7`: added
+- `ds-deathwatch-veterans` `og-deathwatch-veterans-8`: added
+- `ds-deathwatch-veterans` `og-deathwatch-veterans-9`: added
+- `ds-deathwing-command-squad` `og-deathwing-command-squad-3`: added
+- `ds-deathwing-knights` `og-deathwing-knights-1`: added
+- `ds-deathwing-strikemaster` `og-deathwing-strikemaster-1`: added
+- `ds-decimus-kill-team` `og-decimus-kill-team-1`: added
+- `ds-decimus-kill-team` `og-decimus-kill-team-2`: added
+- `ds-decimus-kill-team` `og-decimus-kill-team-3`: added
+- `ds-decimus-kill-team` `og-decimus-kill-team-4`: added
+- `ds-deff-rolla-battle-fortress` `og-deff-rolla-battle-fortress-1`: added
+- `ds-deff-rolla-battle-fortress` `og-deff-rolla-battle-fortress-3`: added
+- `ds-defiler` `og-defiler-1`: added
+- `ds-defiler` `og-defiler-2`: added
+- `ds-defiler` `og-defiler-3`: added
+- `ds-defiler` `og-defiler-4`: added
+- `ds-defiler-2` `og-defiler-2-1`: added
+- `ds-defiler-2` `og-defiler-2-2`: added
+- `ds-defiler-2` `og-defiler-2-3`: added
+- `ds-defiler-2` `og-defiler-2-4`: added
+- `ds-defiler-3` `og-defiler-3-1`: added
+- `ds-defiler-3` `og-defiler-3-2`: added
+- `ds-defiler-3` `og-defiler-3-3`: added
+- `ds-defiler-3` `og-defiler-3-4`: added
+- `ds-defiler-4` `og-defiler-4-1`: added
+- `ds-defiler-4` `og-defiler-4-2`: added
+- `ds-defiler-4` `og-defiler-4-3`: added
+- `ds-defiler-4` `og-defiler-4-4`: added
+- `ds-defiler-5` `og-defiler-5-1`: added
+- `ds-defiler-5` `og-defiler-5-2`: added
+- `ds-defiler-5` `og-defiler-5-3`: added
+- `ds-defiler-5` `og-defiler-5-4`: added
+- `ds-deimos-predator` `og-deimos-predator-1`: added
+- `ds-deimos-predator` `og-deimos-predator-2`: added
+- `ds-deimos-predator` `og-deimos-predator-3`: added
+- `ds-deimos-predator` `og-deimos-predator-4`: added
+- `ds-deredeo-dreadnought` `og-deredeo-dreadnought-1`: added
+- `ds-deredeo-dreadnought` `og-deredeo-dreadnought-2`: added
+- `ds-deredeo-dreadnought` `og-deredeo-dreadnought-3`: added
+- `ds-deredeo-dreadnought-2` `og-deredeo-dreadnought-2-1`: added
+- `ds-deredeo-dreadnought-2` `og-deredeo-dreadnought-2-2`: added
+- `ds-deredeo-dreadnought-2` `og-deredeo-dreadnought-2-3`: added
+- `ds-deredeo-dreadnought-3` `og-deredeo-dreadnought-3-1`: added
+- `ds-deredeo-dreadnought-3` `og-deredeo-dreadnought-3-2`: added
+- `ds-deredeo-dreadnought-3` `og-deredeo-dreadnought-3-3`: added
+- `ds-deredeo-dreadnought-4` `og-deredeo-dreadnought-4-1`: added
+- `ds-deredeo-dreadnought-4` `og-deredeo-dreadnought-4-2`: added
+- `ds-deredeo-dreadnought-4` `og-deredeo-dreadnought-4-3`: added
+- `ds-deredeo-dreadnought-5` `og-deredeo-dreadnought-5-1`: added
+- `ds-deredeo-dreadnought-5` `og-deredeo-dreadnought-5-2`: added
+- `ds-deredeo-dreadnought-5` `og-deredeo-dreadnought-5-3`: added
+- `ds-desolation-squad` `og-desolation-squad-2`: added
+- `ds-desolation-squad-2` `og-desolation-squad-2-2`: added
+- `ds-desolation-squad-3` `og-desolation-squad-3-2`: added
+- `ds-desolation-squad-4` `og-desolation-squad-4-2`: added
+- `ds-desolation-squad-5` `og-desolation-squad-5-2`: added
+- `ds-desolation-squad-6` `og-desolation-squad-6-2`: added
+- `ds-devastator-squad` `og-devastator-squad-2`: added
+- `ds-devastator-squad-2` `og-devastator-squad-2-2`: added
+- `ds-devastator-squad-3` `og-devastator-squad-3-2`: added
+- `ds-devastator-squad-4` `og-devastator-squad-4-2`: added
+- `ds-devilfish` `og-devilfish-1`: added
+- `ds-devilfish` `og-devilfish-2`: added
+- `ds-dire-avengers` `og-dire-avengers-1`: added
+- `ds-dire-avengers` `og-dire-avengers-3`: added
+- `ds-dominion-squad` `og-dominion-squad-1`: added
+- `ds-dominion-squad` `og-dominion-squad-2`: added
+- `ds-dominion-squad` `og-dominion-squad-4`: added
+- `ds-dominus-armoured-siege-bombard` `og-dominus-armoured-siege-bombard-1`: added
+- `ds-dominus-armoured-siege-bombard` `og-dominus-armoured-siege-bombard-2`: added
+- `ds-dominus-armoured-siege-bombard` `og-dominus-armoured-siege-bombard-3`: added
+- `ds-dominus-armoured-siege-bombard-2` `og-dominus-armoured-siege-bombard-2-1`: added
+- `ds-dominus-armoured-siege-bombard-2` `og-dominus-armoured-siege-bombard-2-2`: added
+- `ds-dominus-armoured-siege-bombard-2` `og-dominus-armoured-siege-bombard-2-3`: added
+- `ds-doomhammer` `og-doomhammer-1`: added
+- `ds-doomhammer` `og-doomhammer-2`: added
+- `ds-doomhammer-2` `og-doomhammer-2-1`: added
+- `ds-doomhammer-2` `og-doomhammer-2-2`: added
+- `ds-dragon-knights` `og-dragon-knights-1`: added
+- `ds-dreadnought` `og-dreadnought-1`: added
+- `ds-dreadnought` `og-dreadnought-2`: added
+- `ds-dreadnought-2` `og-dreadnought-2-1`: added
+- `ds-dreadnought-2` `og-dreadnought-2-2`: added
+- `ds-dreadnought-3` `og-dreadnought-3-1`: added
+- `ds-dreadnought-3` `og-dreadnought-3-2`: added
+- `ds-dreadnought-4` `og-dreadnought-4-1`: added
+- `ds-dreadnought-4` `og-dreadnought-4-2`: added
+- `ds-dreadnought-5` `og-dreadnought-5-1`: added
+- `ds-dreadnought-5` `og-dreadnought-5-2`: added
+- `ds-dreadnought-6` `og-dreadnought-6-1`: added
+- `ds-dreadnought-6` `og-dreadnought-6-2`: added
+- `ds-drone-sentry-turret` `og-drone-sentry-turret-1`: added
+- `ds-einhyr-champion` `og-einhyr-champion-1`: added
+- `ds-einhyr-champion` `og-einhyr-champion-2`: added
+- `ds-einhyr-hearthguard` `og-einhyr-hearthguard-3`: added
+- `ds-einhyr-hearthguard` `og-einhyr-hearthguard-4`: added
+- `ds-eliminator-squad` `og-eliminator-squad-1`: added
+- `ds-eliminator-squad-2` `og-eliminator-squad-2-1`: added
+- `ds-eliminator-squad-3` `og-eliminator-squad-3-1`: added
+- `ds-eliminator-squad-4` `og-eliminator-squad-4-1`: added
+- `ds-eliminator-squad-5` `og-eliminator-squad-5-1`: added
+- `ds-eliminator-squad-6` `og-eliminator-squad-6-1`: added
+- `ds-elysian-drop-sentinel` `og-elysian-drop-sentinel-1`: added
+- `ds-elysian-drop-sentinel` `og-elysian-drop-sentinel-2`: added
+- `ds-elysian-drop-sentinel-2` `og-elysian-drop-sentinel-2-1`: added
+- `ds-elysian-drop-sentinel-2` `og-elysian-drop-sentinel-2-2`: added
+- `ds-eradicator-squad` `og-eradicator-squad-1`: added
+- `ds-eradicator-squad-2` `og-eradicator-squad-2-1`: added
+- `ds-eradicator-squad-3` `og-eradicator-squad-3-1`: added
+- `ds-eradicator-squad-4` `og-eradicator-squad-4-1`: added
+- `ds-eradicator-squad-5` `og-eradicator-squad-5-1`: added
+- `ds-eradicator-squad-6` `og-eradicator-squad-6-1`: added
+- `ds-ethereal` `og-ethereal-1`: added
+- `ds-ethereal` `og-ethereal-2`: added
+- `ds-exaction-squad` `og-exaction-squad-2`: added
+- `ds-exaction-squad` `og-exaction-squad-3`: added
+- `ds-exaction-squad` `og-exaction-squad-4`: added
+- `ds-exaction-squad` `og-exaction-squad-5`: added
+- `ds-exalted-sorcerer` `og-exalted-sorcerer-1`: added
+- `ds-exalted-sorcerer-on-disc-of-tzeentch` `og-exalted-sorcerer-on-disc-of-tzeentch-1`: added
+- `ds-execrator` `og-execrator-1`: added
+- `ds-exorcist` `og-exorcist-1`: added
+- `ds-exorcist` `og-exorcist-2`: added
+- `ds-falchion` `og-falchion-1`: added
+- `ds-falchion` `og-falchion-2`: added
+- `ds-falchion` `og-falchion-3`: added
+- `ds-falchion-2` `og-falchion-2-1`: added
+- `ds-falchion-2` `og-falchion-2-2`: added
+- `ds-falchion-2` `og-falchion-2-3`: added
+- `ds-falchion-3` `og-falchion-3-1`: added
+- `ds-falchion-3` `og-falchion-3-2`: added
+- `ds-falchion-3` `og-falchion-3-3`: added
+- `ds-falchion-4` `og-falchion-4-1`: added
+- `ds-falchion-4` `og-falchion-4-2`: added
+- `ds-falchion-4` `og-falchion-4-3`: added
+- `ds-falchion-5` `og-falchion-5-1`: added
+- `ds-falchion-5` `og-falchion-5-2`: added
+- `ds-falchion-5` `og-falchion-5-3`: added
+- `ds-falcon` `og-falcon-1`: added
+- `ds-falcon` `og-falcon-2`: added
+- `ds-farseer` `og-farseer-1`: added
+- `ds-farseer-skyrunner` `og-farseer-skyrunner-1`: added
+- `ds-fellblade` `og-fellblade-1`: added
+- `ds-fellblade` `og-fellblade-2`: added
+- `ds-fellblade` `og-fellblade-3`: added
+- `ds-fellblade` `og-fellblade-4`: added
+- `ds-fellblade-2` `og-fellblade-2-1`: added
+- `ds-fellblade-2` `og-fellblade-2-2`: added
+- `ds-fellblade-2` `og-fellblade-2-3`: added
+- `ds-fellblade-2` `og-fellblade-2-4`: added
+- `ds-fellblade-3` `og-fellblade-3-1`: added
+- `ds-fellblade-3` `og-fellblade-3-2`: added
+- `ds-fellblade-3` `og-fellblade-3-3`: added
+- `ds-fellblade-3` `og-fellblade-3-4`: added
+- `ds-fellblade-4` `og-fellblade-4-1`: added
+- `ds-fellblade-4` `og-fellblade-4-2`: added
+- `ds-fellblade-4` `og-fellblade-4-3`: added
+- `ds-fellblade-4` `og-fellblade-4-4`: added
+- `ds-fellblade-5` `og-fellblade-5-1`: added
+- `ds-fellblade-5` `og-fellblade-5-2`: added
+- `ds-fellblade-5` `og-fellblade-5-3`: added
+- `ds-fellblade-5` `og-fellblade-5-4`: added
+- `ds-fellgor-beastmen` `og-fellgor-beastmen-1`: added
+- `ds-fellgor-beastmen` `og-fellgor-beastmen-2`: added
+- `ds-fellgor-beastmen` `og-fellgor-beastmen-3`: added
+- `ds-fellgor-beastmen-2` `og-fellgor-beastmen-2-1`: added
+- `ds-fellgor-beastmen-2` `og-fellgor-beastmen-2-2`: added
+- `ds-fellgor-beastmen-2` `og-fellgor-beastmen-2-3`: added
+- `ds-fellgor-beastmen-3` `og-fellgor-beastmen-3-1`: added
+- `ds-fellgor-beastmen-3` `og-fellgor-beastmen-3-2`: added
+- `ds-fellgor-beastmen-3` `og-fellgor-beastmen-3-3`: added
+- `ds-fighta-bommer` `og-fighta-bommer-1`: added
+- `ds-fire-dragons` `og-fire-dragons-1`: added
+- `ds-fire-prism` `og-fire-prism-1`: added
+- `ds-fire-raptor-gunship` `og-fire-raptor-gunship-1`: added
+- `ds-fire-raptor-gunship` `og-fire-raptor-gunship-2`: added
+- `ds-fire-raptor-gunship-2` `og-fire-raptor-gunship-2-1`: added
+- `ds-fire-raptor-gunship-2` `og-fire-raptor-gunship-2-2`: added
+- `ds-fire-raptor-gunship-3` `og-fire-raptor-gunship-3-1`: added
+- `ds-fire-raptor-gunship-3` `og-fire-raptor-gunship-3-2`: added
+- `ds-fire-raptor-gunship-4` `og-fire-raptor-gunship-4-1`: added
+- `ds-fire-raptor-gunship-4` `og-fire-raptor-gunship-4-2`: added
+- `ds-fire-raptor-gunship-5` `og-fire-raptor-gunship-5-1`: added
+- `ds-fire-raptor-gunship-5` `og-fire-raptor-gunship-5-2`: added
+- `ds-firestorm` `og-firestorm-1`: added
+- `ds-foetid-bloat-drone` `og-foetid-bloat-drone-1`: added
+- `ds-forgefiend` `og-forgefiend-1`: added
+- `ds-forgefiend` `og-forgefiend-2`: added
+- `ds-forgefiend-2` `og-forgefiend-2-1`: added
+- `ds-forgefiend-2` `og-forgefiend-2-2`: added
+- `ds-forgefiend-3` `og-forgefiend-3-1`: added
+- `ds-forgefiend-3` `og-forgefiend-3-2`: added
+- `ds-fortis-kill-team` `og-fortis-kill-team-3`: added
+- `ds-fortis-kill-team-2` `og-fortis-kill-team-2-1`: added
+- `ds-fortis-kill-team-2` `og-fortis-kill-team-2-3`: added
+- `ds-furioso-dreadnought` `og-furioso-dreadnought-1`: added
+- `ds-furioso-dreadnought` `og-furioso-dreadnought-2`: added
+- `ds-furioso-dreadnought` `og-furioso-dreadnought-3`: added
+- `ds-furioso-dreadnought` `og-furioso-dreadnought-4`: added
+- `ds-gargantuan-squiggoth` `og-gargantuan-squiggoth-1`: added
+- `ds-ghostkeel-battlesuit` `og-ghostkeel-battlesuit-1`: added
+- `ds-ghostkeel-battlesuit` `og-ghostkeel-battlesuit-2`: added
+- `ds-ghostkeel-battlesuit` `og-ghostkeel-battlesuit-3`: added
+- `ds-gladiator-lancer` `og-gladiator-lancer-1`: added
+- `ds-gladiator-lancer` `og-gladiator-lancer-2`: added
+- `ds-gladiator-lancer` `og-gladiator-lancer-3`: added
+- `ds-gladiator-lancer-2` `og-gladiator-lancer-2-1`: added
+- `ds-gladiator-lancer-2` `og-gladiator-lancer-2-2`: added
+- `ds-gladiator-lancer-2` `og-gladiator-lancer-2-3`: added
+- `ds-gladiator-lancer-3` `og-gladiator-lancer-3-1`: added
+- `ds-gladiator-lancer-3` `og-gladiator-lancer-3-2`: added
+- `ds-gladiator-lancer-3` `og-gladiator-lancer-3-3`: added
+- `ds-gladiator-lancer-4` `og-gladiator-lancer-4-1`: added
+- `ds-gladiator-lancer-4` `og-gladiator-lancer-4-2`: added
+- `ds-gladiator-lancer-4` `og-gladiator-lancer-4-3`: added
+- `ds-gladiator-lancer-5` `og-gladiator-lancer-5-1`: added
+- `ds-gladiator-lancer-5` `og-gladiator-lancer-5-2`: added
+- `ds-gladiator-lancer-5` `og-gladiator-lancer-5-3`: added
+- `ds-gladiator-lancer-6` `og-gladiator-lancer-6-1`: added
+- `ds-gladiator-lancer-6` `og-gladiator-lancer-6-2`: added
+- `ds-gladiator-lancer-6` `og-gladiator-lancer-6-3`: added
+- `ds-gladiator-reaper` `og-gladiator-reaper-1`: added
+- `ds-gladiator-reaper` `og-gladiator-reaper-2`: added
+- `ds-gladiator-reaper-2` `og-gladiator-reaper-2-1`: added
+- `ds-gladiator-reaper-2` `og-gladiator-reaper-2-2`: added
+- `ds-gladiator-reaper-3` `og-gladiator-reaper-3-1`: added
+- `ds-gladiator-reaper-3` `og-gladiator-reaper-3-2`: added
+- `ds-gladiator-reaper-4` `og-gladiator-reaper-4-1`: added
+- `ds-gladiator-reaper-4` `og-gladiator-reaper-4-2`: added
+- `ds-gladiator-reaper-5` `og-gladiator-reaper-5-1`: added
+- `ds-gladiator-reaper-5` `og-gladiator-reaper-5-2`: added
+- `ds-gladiator-reaper-6` `og-gladiator-reaper-6-1`: added
+- `ds-gladiator-reaper-6` `og-gladiator-reaper-6-2`: added
+- `ds-gladiator-valiant` `og-gladiator-valiant-1`: added
+- `ds-gladiator-valiant` `og-gladiator-valiant-2`: added
+- `ds-gladiator-valiant-2` `og-gladiator-valiant-2-1`: added
+- `ds-gladiator-valiant-2` `og-gladiator-valiant-2-2`: added
+- `ds-gladiator-valiant-3` `og-gladiator-valiant-3-1`: added
+- `ds-gladiator-valiant-3` `og-gladiator-valiant-3-2`: added
+- `ds-gladiator-valiant-4` `og-gladiator-valiant-4-1`: added
+- `ds-gladiator-valiant-4` `og-gladiator-valiant-4-2`: added
+- `ds-gladiator-valiant-5` `og-gladiator-valiant-5-1`: added
+- `ds-gladiator-valiant-5` `og-gladiator-valiant-5-2`: added
+- `ds-gladiator-valiant-6` `og-gladiator-valiant-6-1`: added
+- `ds-gladiator-valiant-6` `og-gladiator-valiant-6-2`: added
+- `ds-goliath-rockgrinder` `og-goliath-rockgrinder-1`: added
+- `ds-goremongers` `og-goremongers-1`: added
+- `ds-goremongers` `og-goremongers-2`: added
+- `ds-gorgon-heavy-transport` `og-gorgon-heavy-transport-1`: added
+- `ds-gorgon-heavy-transport` `og-gorgon-heavy-transport-2`: added
+- `ds-gorgon-heavy-transport-2` `og-gorgon-heavy-transport-2-1`: added
+- `ds-gorgon-heavy-transport-2` `og-gorgon-heavy-transport-2-2`: added
+- `ds-grand-master` `og-grand-master-1`: added
+- `ds-grand-master-in-nemesis-dreadknight` `og-grand-master-in-nemesis-dreadknight-1`: added
+- `ds-grand-master-in-nemesis-dreadknight` `og-grand-master-in-nemesis-dreadknight-2`: added
+- `ds-grand-master-in-nemesis-dreadknight` `og-grand-master-in-nemesis-dreadknight-3`: added
+- `ds-great-knarloc` `og-great-knarloc-1`: added
+- `ds-great-unclean-one` `og-great-unclean-one-1`: added
+- `ds-great-unclean-one` `og-great-unclean-one-2`: added
+- `ds-great-unclean-one-2` `og-great-unclean-one-2-1`: added
+- `ds-great-unclean-one-2` `og-great-unclean-one-2-2`: added
+- `ds-grey-hunters` `og-grey-hunters-1`: added
+- `ds-grey-hunters` `og-grey-hunters-2`: added
+- `ds-grey-knights-dreadnought` `og-grey-knights-dreadnought-1`: added
+- `ds-grey-knights-dreadnought` `og-grey-knights-dreadnought-2`: added
+- `ds-grey-knights-dreadnought` `og-grey-knights-dreadnought-3`: added
+- `ds-grey-knights-relic-razorback` `og-grey-knights-relic-razorback-1`: added
+- `ds-grey-knights-relic-razorback` `og-grey-knights-relic-razorback-2`: added
+- `ds-grey-knights-relic-razorback` `og-grey-knights-relic-razorback-3`: added
+- `ds-grey-knights-terminator-squad` `og-grey-knights-terminator-squad-1`: added
+- `ds-grey-knights-terminator-squad` `og-grey-knights-terminator-squad-2`: added
+- `ds-grey-knights-thunderhawk-gunship` `og-grey-knights-thunderhawk-gunship-1`: added
+- `ds-grey-knights-thunderhawk-gunship` `og-grey-knights-thunderhawk-gunship-2`: added
+- `ds-griffon-mortar-carrier` `og-griffon-mortar-carrier-1`: added
+- `ds-griffon-mortar-carrier-2` `og-griffon-mortar-carrier-2-1`: added
+- `ds-grot-mega-tank` `og-grot-mega-tank-1`: added
+- `ds-grot-mega-tank` `og-grot-mega-tank-2`: added
+- `ds-guardian-defenders` `og-guardian-defenders-1`: added
+- `ds-hammerfall-bunker` `og-hammerfall-bunker-1`: added
+- `ds-hammerfall-bunker-2` `og-hammerfall-bunker-2-1`: added
+- `ds-hammerfall-bunker-3` `og-hammerfall-bunker-3-1`: added
+- `ds-hammerfall-bunker-4` `og-hammerfall-bunker-4-1`: added
+- `ds-hammerfall-bunker-5` `og-hammerfall-bunker-5-1`: added
+- `ds-hammerfall-bunker-6` `og-hammerfall-bunker-6-1`: added
+- `ds-hammerhead-gunship` `og-hammerhead-gunship-1`: added
+- `ds-hammerhead-gunship` `og-hammerhead-gunship-2`: added
+- `ds-hammerhead-gunship` `og-hammerhead-gunship-3`: added
+- `ds-hand-of-the-archon` `og-hand-of-the-archon-1`: added
+- `ds-hand-of-the-archon` `og-hand-of-the-archon-10`: added
+- `ds-hand-of-the-archon` `og-hand-of-the-archon-2`: added
+- `ds-hand-of-the-archon` `og-hand-of-the-archon-3`: added
+- `ds-hand-of-the-archon` `og-hand-of-the-archon-4`: added
+- `ds-hand-of-the-archon` `og-hand-of-the-archon-5`: added
+- `ds-hand-of-the-archon` `og-hand-of-the-archon-6`: added
+- `ds-hand-of-the-archon` `og-hand-of-the-archon-7`: added
+- `ds-hand-of-the-archon` `og-hand-of-the-archon-8`: added
+- `ds-hand-of-the-archon` `og-hand-of-the-archon-9`: added
+- `ds-harpy` `og-harpy-1`: added
+- `ds-havocs` `og-havocs-1`: added
+- `ds-havocs` `og-havocs-2`: added
+- `ds-havocs-2` `og-havocs-2-1`: added
+- `ds-havocs-2` `og-havocs-2-2`: added
+- `ds-hearthkyn-warriors` `og-hearthkyn-warriors-4`: added
+- `ds-hearthkyn-warriors` `og-hearthkyn-warriors-5`: added
+- `ds-heavy-intercessor-squad` `og-heavy-intercessor-squad-1`: added
+- `ds-heavy-intercessor-squad-2` `og-heavy-intercessor-squad-2-1`: added
+- `ds-heavy-intercessor-squad-3` `og-heavy-intercessor-squad-3-1`: added
+- `ds-heavy-intercessor-squad-4` `og-heavy-intercessor-squad-4-1`: added
+- `ds-heavy-intercessor-squad-5` `og-heavy-intercessor-squad-5-1`: added
+- `ds-heavy-intercessor-squad-6` `og-heavy-intercessor-squad-6-1`: added
+- `ds-hekaton-land-fortress` `og-hekaton-land-fortress-1`: added
+- `ds-hekaton-land-fortress` `og-hekaton-land-fortress-2`: added
+- `ds-hekaton-land-fortress` `og-hekaton-land-fortress-3`: added
+- `ds-helbrute` `og-helbrute-1`: added
+- `ds-helbrute` `og-helbrute-2`: added
+- `ds-helbrute-2` `og-helbrute-2-1`: added
+- `ds-helbrute-2` `og-helbrute-2-2`: added
+- `ds-helbrute-2` `og-helbrute-2-3`: added
+- `ds-helbrute-3` `og-helbrute-3-1`: added
+- `ds-helbrute-3` `og-helbrute-3-2`: added
+- `ds-helbrute-4` `og-helbrute-4-1`: added
+- `ds-helbrute-4` `og-helbrute-4-2`: added
+- `ds-heldrake` `og-heldrake-1`: added
+- `ds-heldrake-2` `og-heldrake-2-1`: added
+- `ds-heldrake-3` `og-heldrake-3-1`: added
+- `ds-heldrake-4` `og-heldrake-4-1`: added
+- `ds-hell-blade` `og-hell-blade-1`: added
+- `ds-hell-blade-2` `og-hell-blade-2-1`: added
+- `ds-hell-blade-3` `og-hell-blade-3-1`: added
+- `ds-hell-blade-4` `og-hell-blade-4-1`: added
+- `ds-hell-talon` `og-hell-talon-1`: added
+- `ds-hell-talon-2` `og-hell-talon-2-1`: added
+- `ds-hell-talon-3` `og-hell-talon-3-1`: added
+- `ds-hell-talon-4` `og-hell-talon-4-1`: added
+- `ds-hellblaster-squad` `og-hellblaster-squad-1`: added
+- `ds-hellblaster-squad-2` `og-hellblaster-squad-2-1`: added
+- `ds-hellblaster-squad-3` `og-hellblaster-squad-3-1`: added
+- `ds-hellblaster-squad-4` `og-hellblaster-squad-4-1`: added
+- `ds-hellblaster-squad-5` `og-hellblaster-squad-5-1`: added
+- `ds-hellblaster-squad-6` `og-hellblaster-squad-6-1`: added
+- `ds-hellhammer` `og-hellhammer-1`: added
+- `ds-hellhammer` `og-hellhammer-2`: added
+- `ds-hellhammer-2` `og-hellhammer-2-1`: added
+- `ds-hellhammer-2` `og-hellhammer-2-2`: added
+- `ds-hellhound` `og-hellhound-1`: added
+- `ds-hellhound` `og-hellhound-2`: added
+- `ds-hellhound` `og-hellhound-3`: added
+- `ds-hellhound-2` `og-hellhound-2-1`: added
+- `ds-hellhound-2` `og-hellhound-2-2`: added
+- `ds-hellhound-2` `og-hellhound-2-3`: added
+- `ds-hellions` `og-hellions-1`: added
+- `ds-hellions` `og-hellions-2`: added
+- `ds-hernkyn-pioneers` `og-hernkyn-pioneers-1`: added
+- `ds-hernkyn-pioneers` `og-hernkyn-pioneers-2`: added
+- `ds-hernkyn-pioneers` `og-hernkyn-pioneers-3`: added
+- `ds-hernkyn-pioneers` `og-hernkyn-pioneers-4`: added
+- `ds-hive-tyrant` `og-hive-tyrant-1`: added
+- `ds-hive-tyrant` `og-hive-tyrant-2`: added
+- `ds-howling-banshees` `og-howling-banshees-1`: added
+- `ds-howling-banshees` `og-howling-banshees-2`: added
+- `ds-hunter` `og-hunter-1`: added
+- `ds-hunter` `og-hunter-2`: added
+- `ds-hydra` `og-hydra-1`: added
+- `ds-hydra` `og-hydra-2`: added
+- `ds-hydra-2` `og-hydra-2-1`: added
+- `ds-hydra-2` `og-hydra-2-2`: added
+- `ds-immolator` `og-immolator-1`: added
+- `ds-immolator` `og-immolator-2`: added
+- `ds-imperial-navy-breachers` `og-imperial-navy-breachers-1`: added
+- `ds-imperial-navy-breachers` `og-imperial-navy-breachers-2`: added
+- `ds-imperial-navy-breachers` `og-imperial-navy-breachers-3`: added
+- `ds-imperial-navy-breachers` `og-imperial-navy-breachers-4`: added
+- `ds-imperial-navy-breachers` `og-imperial-navy-breachers-5`: added
+- `ds-imperial-rhino` `og-imperial-rhino-1`: added
+- `ds-impulsor` `og-impulsor-1`: added
+- `ds-impulsor` `og-impulsor-2`: added
+- `ds-impulsor` `og-impulsor-3`: added
+- `ds-impulsor-2` `og-impulsor-2-1`: added
+- `ds-impulsor-2` `og-impulsor-2-2`: added
+- `ds-impulsor-2` `og-impulsor-2-3`: added
+- `ds-impulsor-3` `og-impulsor-3-1`: added
+- `ds-impulsor-3` `og-impulsor-3-2`: added
+- `ds-impulsor-3` `og-impulsor-3-3`: added
+- `ds-impulsor-4` `og-impulsor-4-1`: added
+- `ds-impulsor-4` `og-impulsor-4-2`: added
+- `ds-impulsor-4` `og-impulsor-4-3`: added
+- `ds-impulsor-5` `og-impulsor-5-1`: added
+- `ds-impulsor-5` `og-impulsor-5-2`: added
+- `ds-impulsor-5` `og-impulsor-5-3`: added
+- `ds-impulsor-6` `og-impulsor-6-1`: added
+- `ds-impulsor-6` `og-impulsor-6-2`: added
+- `ds-impulsor-6` `og-impulsor-6-3`: added
+- `ds-incubi` `og-incubi-1`: added
+- `ds-incubi` `og-incubi-2`: added
+- `ds-infiltrator-squad` `og-infiltrator-squad-1`: added
+- `ds-infiltrator-squad` `og-infiltrator-squad-2`: added
+- `ds-infiltrator-squad-2` `og-infiltrator-squad-2-1`: added
+- `ds-infiltrator-squad-2` `og-infiltrator-squad-2-2`: added
+- `ds-infiltrator-squad-3` `og-infiltrator-squad-3-1`: added
+- `ds-infiltrator-squad-3` `og-infiltrator-squad-3-2`: added
+- `ds-infiltrator-squad-4` `og-infiltrator-squad-4-1`: added
+- `ds-infiltrator-squad-4` `og-infiltrator-squad-4-2`: added
+- `ds-infiltrator-squad-5` `og-infiltrator-squad-5-1`: added
+- `ds-infiltrator-squad-5` `og-infiltrator-squad-5-2`: added
+- `ds-infiltrator-squad-6` `og-infiltrator-squad-6-1`: added
+- `ds-infiltrator-squad-6` `og-infiltrator-squad-6-2`: added
+- `ds-infractors` `og-infractors-1`: added
+- `ds-infractors` `og-infractors-2`: added
+- `ds-infractors` `og-infractors-3`: added
+- `ds-inquisitor` `og-inquisitor-1`: added
+- `ds-inquisitor` `og-inquisitor-2`: added
+- `ds-inquisitor-in-terminator-armour` `og-inquisitor-in-terminator-armour-1`: added
+- `ds-inquisitor-in-terminator-armour` `og-inquisitor-in-terminator-armour-2`: added
+- `ds-inquisitorial-chimera` `og-inquisitorial-chimera-1`: added
+- `ds-inquisitorial-chimera` `og-inquisitorial-chimera-2`: added
+- `ds-inquisitorial-chimera` `og-inquisitorial-chimera-3`: added
+- `ds-inquisitorial-chimera` `og-inquisitorial-chimera-4`: added
+- `ds-interceptor-squad` `og-interceptor-squad-1`: added
+- `ds-intercessor-squad` `og-intercessor-squad-1`: added
+- `ds-intercessor-squad` `og-intercessor-squad-2`: added
+- `ds-intercessor-squad` `og-intercessor-squad-3`: added
+- `ds-intercessor-squad-2` `og-intercessor-squad-2-1`: added
+- `ds-intercessor-squad-2` `og-intercessor-squad-2-2`: added
+- `ds-intercessor-squad-2` `og-intercessor-squad-2-3`: added
+- `ds-intercessor-squad-3` `og-intercessor-squad-3-1`: added
+- `ds-intercessor-squad-3` `og-intercessor-squad-3-2`: added
+- `ds-intercessor-squad-3` `og-intercessor-squad-3-3`: added
+- `ds-intercessor-squad-4` `og-intercessor-squad-4-1`: added
+- `ds-intercessor-squad-4` `og-intercessor-squad-4-2`: added
+- `ds-intercessor-squad-4` `og-intercessor-squad-4-3`: added
+- `ds-intercessor-squad-5` `og-intercessor-squad-5-1`: added
+- `ds-intercessor-squad-5` `og-intercessor-squad-5-2`: added
+- `ds-intercessor-squad-5` `og-intercessor-squad-5-3`: added
+- `ds-intercessor-squad-6` `og-intercessor-squad-6-1`: added
+- `ds-intercessor-squad-6` `og-intercessor-squad-6-2`: added
+- `ds-intercessor-squad-6` `og-intercessor-squad-6-3`: added
+- `ds-invader-atv` `og-invader-atv-1`: added
+- `ds-invader-atv-2` `og-invader-atv-2-1`: added
+- `ds-invader-atv-3` `og-invader-atv-3-1`: added
+- `ds-invader-atv-4` `og-invader-atv-4-1`: added
+- `ds-invader-atv-5` `og-invader-atv-5-1`: added
+- `ds-invader-atv-6` `og-invader-atv-6-1`: added
+- `ds-invictor-tactical-warsuit` `og-invictor-tactical-warsuit-1`: added
+- `ds-invictor-tactical-warsuit-2` `og-invictor-tactical-warsuit-2-1`: added
+- `ds-invictor-tactical-warsuit-3` `og-invictor-tactical-warsuit-3-1`: added
+- `ds-invictor-tactical-warsuit-4` `og-invictor-tactical-warsuit-4-1`: added
+- `ds-invictor-tactical-warsuit-5` `og-invictor-tactical-warsuit-5-1`: added
+- `ds-invictor-tactical-warsuit-6` `og-invictor-tactical-warsuit-6-1`: added
+- `ds-ironclad-dreadnought` `og-ironclad-dreadnought-1`: added
+- `ds-ironclad-dreadnought` `og-ironclad-dreadnought-2`: added
+- `ds-ironclad-dreadnought` `og-ironclad-dreadnought-3`: added
+- `ds-ironclad-dreadnought` `og-ironclad-dreadnought-4`: added
+- `ds-ironclad-dreadnought` `og-ironclad-dreadnought-5`: added
+- `ds-ironclad-dreadnought` `og-ironclad-dreadnought-6`: added
+- `ds-ironkin-steeljacks-with-heavy-volkanite-disintegrators` `og-ironkin-steeljacks-with-heavy-volkanite-disintegrators-1`: added
+- `ds-jakhals` `og-jakhals-1`: added
+- `ds-jakhals` `og-jakhals-3`: added
+- `ds-javelin-attack-speeder` `og-javelin-attack-speeder-1`: added
+- `ds-javelin-attack-speeder` `og-javelin-attack-speeder-2`: added
+- `ds-javelin-attack-speeder` `og-javelin-attack-speeder-3`: added
+- `ds-kabalite-warriors` `og-kabalite-warriors-1`: added
+- `ds-kabalite-warriors` `og-kabalite-warriors-2`: added
+- `ds-kabalite-warriors` `og-kabalite-warriors-3`: added
+- `ds-kabalite-warriors` `og-kabalite-warriors-4`: added
+- `ds-kabalite-warriors` `og-kabalite-warriors-5`: added
+- `ds-kabalite-warriors` `og-kabalite-warriors-6`: added
+- `ds-kabalite-warriors` `og-kabalite-warriors-7`: added
+- `ds-kahl` `og-kahl-1`: added
+- `ds-kahl` `og-kahl-2`: added
+- `ds-kahl` `og-kahl-3`: added
+- `ds-kannonwagon` `og-kannonwagon-1`: added
+- `ds-kapricus-carrier` `og-kapricus-carrier-1`: added
+- `ds-kasrkin` `og-kasrkin-2`: added
+- `ds-kasrkin` `og-kasrkin-3`: added
+- `ds-kasrkin` `og-kasrkin-4`: added
+- `ds-kasrkin` `og-kasrkin-5`: added
+- `ds-kasrkin` `og-kasrkin-6`: added
+- `ds-kasrkin-2` `og-kasrkin-2-2`: added
+- `ds-kasrkin-2` `og-kasrkin-2-3`: added
+- `ds-kasrkin-2` `og-kasrkin-2-4`: added
+- `ds-kasrkin-2` `og-kasrkin-2-5`: added
+- `ds-kasrkin-2` `og-kasrkin-2-6`: added
+- `ds-keeper-of-secrets` `og-keeper-of-secrets-1`: added
+- `ds-keeper-of-secrets-2` `og-keeper-of-secrets-2-1`: added
+- `ds-khorne-berzerkers` `og-khorne-berzerkers-1`: added
+- `ds-khorne-berzerkers` `og-khorne-berzerkers-2`: added
+- `ds-khorne-berzerkers` `og-khorne-berzerkers-3`: added
+- `ds-khorne-berzerkers` `og-khorne-berzerkers-4`: added
+- `ds-khorne-berzerkers-2` `og-khorne-berzerkers-2-1`: added
+- `ds-khorne-berzerkers-2` `og-khorne-berzerkers-2-2`: added
+- `ds-khorne-berzerkers-2` `og-khorne-berzerkers-2-3`: added
+- `ds-khorne-berzerkers-2` `og-khorne-berzerkers-2-4`: added
+- `ds-khorne-lord-of-skulls` `og-khorne-lord-of-skulls-1`: added
+- `ds-khorne-lord-of-skulls` `og-khorne-lord-of-skulls-2`: added
+- `ds-khorne-lord-of-skulls-2` `og-khorne-lord-of-skulls-2-1`: added
+- `ds-khorne-lord-of-skulls-2` `og-khorne-lord-of-skulls-2-2`: added
+- `ds-kill-krusha` `og-kill-krusha-1`: added
+- `ds-kill-krusha` `og-kill-krusha-2`: added
+- `ds-kill-tank` `og-kill-tank-1`: added
+- `ds-knight-castellan` `og-knight-castellan-1`: added
+- `ds-knight-centura` `og-knight-centura-1`: added
+- `ds-knight-crusader` `og-knight-crusader-1`: added
+- `ds-knight-crusader` `og-knight-crusader-2`: added
+- `ds-knight-crusader` `og-knight-crusader-3`: added
+- `ds-knight-desecrator` `og-knight-desecrator-1`: added
+- `ds-knight-despoiler` `og-knight-despoiler-1`: added
+- `ds-knight-despoiler` `og-knight-despoiler-2`: added
+- `ds-knight-despoiler` `og-knight-despoiler-3`: added
+- `ds-knight-despoiler` `og-knight-despoiler-4`: added
+- `ds-knight-destrier` `og-knight-destrier-1`: added
+- `ds-knight-destrier` `og-knight-destrier-2`: added
+- `ds-knight-errant` `og-knight-errant-1`: added
+- `ds-knight-errant` `og-knight-errant-2`: added
+- `ds-knight-errant` `og-knight-errant-3`: added
+- `ds-knight-gallant` `og-knight-gallant-1`: added
+- `ds-knight-gallant` `og-knight-gallant-2`: added
+- `ds-knight-paladin` `og-knight-paladin-1`: added
+- `ds-knight-paladin` `og-knight-paladin-2`: added
+- `ds-knight-paladin` `og-knight-paladin-3`: added
+- `ds-knight-preceptor` `og-knight-preceptor-1`: added
+- `ds-knight-preceptor` `og-knight-preceptor-2`: added
+- `ds-knight-preceptor` `og-knight-preceptor-3`: added
+- `ds-knight-tyrant` `og-knight-tyrant-1`: added
+- `ds-knight-tyrant` `og-knight-tyrant-2`: added
+- `ds-knight-valiant` `og-knight-valiant-1`: added
+- `ds-knight-warden` `og-knight-warden-1`: added
+- `ds-knight-warden` `og-knight-warden-2`: added
+- `ds-knight-warden` `og-knight-warden-3`: added
+- `ds-kommandos` `og-kommandos-1`: added
+- `ds-kommandos` `og-kommandos-3`: added
+- `ds-kommandos` `og-kommandos-4`: added
+- `ds-kommandos` `og-kommandos-5`: added
+- `ds-kratos` `og-kratos-1`: added
+- `ds-kratos` `og-kratos-2`: added
+- `ds-kratos` `og-kratos-3`: added
+- `ds-kratos` `og-kratos-4`: added
+- `ds-kratos` `og-kratos-5`: added
+- `ds-kratos-2` `og-kratos-2-1`: added
+- `ds-kratos-2` `og-kratos-2-2`: added
+- `ds-kratos-2` `og-kratos-2-3`: added
+- `ds-kratos-2` `og-kratos-2-4`: added
+- `ds-kratos-2` `og-kratos-2-5`: added
+- `ds-kratos-3` `og-kratos-3-1`: added
+- `ds-kratos-3` `og-kratos-3-2`: added
+- `ds-kratos-3` `og-kratos-3-3`: added
+- `ds-kratos-3` `og-kratos-3-4`: added
+- `ds-kratos-3` `og-kratos-3-5`: added
+- `ds-kratos-4` `og-kratos-4-1`: added
+- `ds-kratos-4` `og-kratos-4-2`: added
+- `ds-kratos-4` `og-kratos-4-3`: added
+- `ds-kratos-4` `og-kratos-4-4`: added
+- `ds-kratos-4` `og-kratos-4-5`: added
+- `ds-kratos-5` `og-kratos-5-1`: added
+- `ds-kratos-5` `og-kratos-5-2`: added
+- `ds-kratos-5` `og-kratos-5-3`: added
+- `ds-kratos-5` `og-kratos-5-4`: added
+- `ds-kratos-5` `og-kratos-5-5`: added
+- `ds-krieg-combat-engineers` `og-krieg-combat-engineers-1`: added
+- `ds-krieg-combat-engineers` `og-krieg-combat-engineers-2`: added
+- `ds-krieg-combat-engineers` `og-krieg-combat-engineers-4`: added
+- `ds-krieg-combat-engineers` `og-krieg-combat-engineers-5`: added
+- `ds-krieg-combat-engineers-2` `og-krieg-combat-engineers-2-1`: added
+- `ds-krieg-combat-engineers-2` `og-krieg-combat-engineers-2-2`: added
+- `ds-krieg-combat-engineers-2` `og-krieg-combat-engineers-2-4`: added
+- `ds-krieg-combat-engineers-2` `og-krieg-combat-engineers-2-5`: added
+- `ds-krieg-command-squad` `og-krieg-command-squad-1`: added
+- `ds-krieg-command-squad` `og-krieg-command-squad-2`: added
+- `ds-krieg-command-squad` `og-krieg-command-squad-3`: added
+- `ds-krieg-command-squad` `og-krieg-command-squad-4`: added
+- `ds-krieg-command-squad-2` `og-krieg-command-squad-2-1`: added
+- `ds-krieg-command-squad-2` `og-krieg-command-squad-2-2`: added
+- `ds-krieg-command-squad-2` `og-krieg-command-squad-2-3`: added
+- `ds-krieg-command-squad-2` `og-krieg-command-squad-2-4`: added
+- `ds-kroot-carnivores` `og-kroot-carnivores-1`: added
+- `ds-kroot-carnivores` `og-kroot-carnivores-2`: added
+- `ds-kroot-farstalkers` `og-kroot-farstalkers-1`: added
+- `ds-kroot-farstalkers` `og-kroot-farstalkers-2`: added
+- `ds-kroot-farstalkers` `og-kroot-farstalkers-3`: added
+- `ds-kroot-lone-spear` `og-kroot-lone-spear-1`: added
+- `ds-kroot-war-shaper` `og-kroot-war-shaper-1`: added
+- `ds-land-raider` `og-land-raider-1`: added
+- `ds-land-raider` `og-land-raider-2`: added
+- `ds-land-raider` `og-land-raider-3`: added
+- `ds-land-raider-2` `og-land-raider-2-1`: added
+- `ds-land-raider-2` `og-land-raider-2-2`: added
+- `ds-land-raider-2` `og-land-raider-2-3`: added
+- `ds-land-raider-3` `og-land-raider-3-1`: added
+- `ds-land-raider-3` `og-land-raider-3-2`: added
+- `ds-land-raider-3` `og-land-raider-3-3`: added
+- `ds-land-raider-4` `og-land-raider-4-1`: added
+- `ds-land-raider-4` `og-land-raider-4-2`: added
+- `ds-land-raider-4` `og-land-raider-4-3`: added
+- `ds-land-raider-5` `og-land-raider-5-1`: added
+- `ds-land-raider-5` `og-land-raider-5-2`: added
+- `ds-land-raider-5` `og-land-raider-5-3`: added
+- `ds-land-raider-6` `og-land-raider-6-1`: added
+- `ds-land-raider-6` `og-land-raider-6-2`: added
+- `ds-land-raider-6` `og-land-raider-6-3`: added
+- `ds-land-raider-7` `og-land-raider-7-1`: added
+- `ds-land-raider-7` `og-land-raider-7-2`: added
+- `ds-land-raider-7` `og-land-raider-7-3`: added
+- `ds-land-raider-achilles` `og-land-raider-achilles-1`: added
+- `ds-land-raider-achilles` `og-land-raider-achilles-2`: added
+- `ds-land-raider-achilles` `og-land-raider-achilles-3`: added
+- `ds-land-raider-achilles-2` `og-land-raider-achilles-2-1`: added
+- `ds-land-raider-achilles-2` `og-land-raider-achilles-2-2`: added
+- `ds-land-raider-achilles-2` `og-land-raider-achilles-2-3`: added
+- `ds-land-raider-achilles-3` `og-land-raider-achilles-3-1`: added
+- `ds-land-raider-achilles-3` `og-land-raider-achilles-3-2`: added
+- `ds-land-raider-achilles-3` `og-land-raider-achilles-3-3`: added
+- `ds-land-raider-achilles-4` `og-land-raider-achilles-4-1`: added
+- `ds-land-raider-achilles-4` `og-land-raider-achilles-4-2`: added
+- `ds-land-raider-achilles-4` `og-land-raider-achilles-4-3`: added
+- `ds-land-raider-achilles-5` `og-land-raider-achilles-5-1`: added
+- `ds-land-raider-achilles-5` `og-land-raider-achilles-5-2`: added
+- `ds-land-raider-achilles-5` `og-land-raider-achilles-5-3`: added
+- `ds-land-raider-crusader` `og-land-raider-crusader-1`: added
+- `ds-land-raider-crusader` `og-land-raider-crusader-2`: added
+- `ds-land-raider-crusader` `og-land-raider-crusader-3`: added
+- `ds-land-raider-crusader-2` `og-land-raider-crusader-2-1`: added
+- `ds-land-raider-crusader-2` `og-land-raider-crusader-2-2`: added
+- `ds-land-raider-crusader-2` `og-land-raider-crusader-2-3`: added
+- `ds-land-raider-crusader-3` `og-land-raider-crusader-3-1`: added
+- `ds-land-raider-crusader-3` `og-land-raider-crusader-3-2`: added
+- `ds-land-raider-crusader-3` `og-land-raider-crusader-3-3`: added
+- `ds-land-raider-crusader-4` `og-land-raider-crusader-4-1`: added
+- `ds-land-raider-crusader-4` `og-land-raider-crusader-4-2`: added
+- `ds-land-raider-crusader-4` `og-land-raider-crusader-4-3`: added
+- `ds-land-raider-crusader-5` `og-land-raider-crusader-5-1`: added
+- `ds-land-raider-crusader-5` `og-land-raider-crusader-5-2`: added
+- `ds-land-raider-crusader-5` `og-land-raider-crusader-5-3`: added
+- `ds-land-raider-crusader-6` `og-land-raider-crusader-6-1`: added
+- `ds-land-raider-crusader-6` `og-land-raider-crusader-6-2`: added
+- `ds-land-raider-crusader-6` `og-land-raider-crusader-6-3`: added
+- `ds-land-raider-crusader-7` `og-land-raider-crusader-7-1`: added
+- `ds-land-raider-crusader-7` `og-land-raider-crusader-7-2`: added
+- `ds-land-raider-crusader-7` `og-land-raider-crusader-7-3`: added
+- `ds-land-raider-excelsior` `og-land-raider-excelsior-1`: added
+- `ds-land-raider-excelsior` `og-land-raider-excelsior-2`: added
+- `ds-land-raider-excelsior` `og-land-raider-excelsior-3`: added
+- `ds-land-raider-excelsior` `og-land-raider-excelsior-4`: added
+- `ds-land-raider-helios` `og-land-raider-helios-1`: added
+- `ds-land-raider-helios` `og-land-raider-helios-2`: added
+- `ds-land-raider-prometheus` `og-land-raider-prometheus-1`: added
+- `ds-land-raider-prometheus` `og-land-raider-prometheus-2`: added
+- `ds-land-raider-prometheus` `og-land-raider-prometheus-3`: added
+- `ds-land-raider-proteus` `og-land-raider-proteus-1`: added
+- `ds-land-raider-proteus` `og-land-raider-proteus-2`: added
+- `ds-land-raider-proteus` `og-land-raider-proteus-3`: added
+- `ds-land-raider-proteus` `og-land-raider-proteus-4`: added
+- `ds-land-raider-proteus-2` `og-land-raider-proteus-2-1`: added
+- `ds-land-raider-proteus-2` `og-land-raider-proteus-2-2`: added
+- `ds-land-raider-proteus-2` `og-land-raider-proteus-2-3`: added
+- `ds-land-raider-proteus-2` `og-land-raider-proteus-2-4`: added
+- `ds-land-raider-proteus-3` `og-land-raider-proteus-3-1`: added
+- `ds-land-raider-proteus-3` `og-land-raider-proteus-3-2`: added
+- `ds-land-raider-proteus-3` `og-land-raider-proteus-3-3`: added
+- `ds-land-raider-proteus-3` `og-land-raider-proteus-3-4`: added
+- `ds-land-raider-proteus-4` `og-land-raider-proteus-4-1`: added
+- `ds-land-raider-proteus-4` `og-land-raider-proteus-4-2`: added
+- `ds-land-raider-proteus-4` `og-land-raider-proteus-4-3`: added
+- `ds-land-raider-proteus-4` `og-land-raider-proteus-4-4`: added
+- `ds-land-raider-proteus-5` `og-land-raider-proteus-5-1`: added
+- `ds-land-raider-proteus-5` `og-land-raider-proteus-5-2`: added
+- `ds-land-raider-proteus-5` `og-land-raider-proteus-5-3`: added
+- `ds-land-raider-proteus-5` `og-land-raider-proteus-5-4`: added
+- `ds-land-raider-redeemer` `og-land-raider-redeemer-1`: added
+- `ds-land-raider-redeemer` `og-land-raider-redeemer-2`: added
+- `ds-land-raider-redeemer` `og-land-raider-redeemer-3`: added
+- `ds-land-raider-redeemer-2` `og-land-raider-redeemer-2-1`: added
+- `ds-land-raider-redeemer-2` `og-land-raider-redeemer-2-2`: added
+- `ds-land-raider-redeemer-2` `og-land-raider-redeemer-2-3`: added
+- `ds-land-raider-redeemer-3` `og-land-raider-redeemer-3-1`: added
+- `ds-land-raider-redeemer-3` `og-land-raider-redeemer-3-2`: added
+- `ds-land-raider-redeemer-3` `og-land-raider-redeemer-3-3`: added
+- `ds-land-raider-redeemer-4` `og-land-raider-redeemer-4-1`: added
+- `ds-land-raider-redeemer-4` `og-land-raider-redeemer-4-2`: added
+- `ds-land-raider-redeemer-4` `og-land-raider-redeemer-4-3`: added
+- `ds-land-raider-redeemer-5` `og-land-raider-redeemer-5-1`: added
+- `ds-land-raider-redeemer-5` `og-land-raider-redeemer-5-2`: added
+- `ds-land-raider-redeemer-5` `og-land-raider-redeemer-5-3`: added
+- `ds-land-raider-redeemer-6` `og-land-raider-redeemer-6-1`: added
+- `ds-land-raider-redeemer-6` `og-land-raider-redeemer-6-2`: added
+- `ds-land-raider-redeemer-6` `og-land-raider-redeemer-6-3`: added
+- `ds-land-raider-redeemer-7` `og-land-raider-redeemer-7-1`: added
+- `ds-land-raider-redeemer-7` `og-land-raider-redeemer-7-2`: added
+- `ds-land-raider-redeemer-7` `og-land-raider-redeemer-7-3`: added
+- `ds-land-speeder-tornado` `og-land-speeder-tornado-1`: added
+- `ds-land-speeder-tornado` `og-land-speeder-tornado-2`: added
+- `ds-land-speeder-typhoon` `og-land-speeder-typhoon-1`: added
+- `ds-land-speeder-vengeance` `og-land-speeder-vengeance-1`: added
+- `ds-legionaries` `og-legionaries-1`: added
+- `ds-legionaries` `og-legionaries-2`: added
+- `ds-legionaries` `og-legionaries-3`: added
+- `ds-legionaries` `og-legionaries-7`: added
+- `ds-legionaries-2` `og-legionaries-2-1`: added
+- `ds-legionaries-2` `og-legionaries-2-2`: added
+- `ds-legionaries-2` `og-legionaries-2-3`: added
+- `ds-legionaries-2` `og-legionaries-2-7`: added
+- `ds-leman-russ-battle-tank` `og-leman-russ-battle-tank-1`: added
+- `ds-leman-russ-battle-tank` `og-leman-russ-battle-tank-2`: added
+- `ds-leman-russ-battle-tank` `og-leman-russ-battle-tank-3`: added
+- `ds-leman-russ-battle-tank` `og-leman-russ-battle-tank-4`: added
+- `ds-leman-russ-battle-tank-2` `og-leman-russ-battle-tank-2-1`: added
+- `ds-leman-russ-battle-tank-2` `og-leman-russ-battle-tank-2-2`: added
+- `ds-leman-russ-battle-tank-2` `og-leman-russ-battle-tank-2-3`: added
+- `ds-leman-russ-battle-tank-2` `og-leman-russ-battle-tank-2-4`: added
+- `ds-leman-russ-commander` `og-leman-russ-commander-1`: added
+- `ds-leman-russ-commander` `og-leman-russ-commander-2`: added
+- `ds-leman-russ-commander` `og-leman-russ-commander-3`: added
+- `ds-leman-russ-commander` `og-leman-russ-commander-4`: added
+- `ds-leman-russ-commander` `og-leman-russ-commander-5`: added
+- `ds-leman-russ-commander-2` `og-leman-russ-commander-2-1`: added
+- `ds-leman-russ-commander-2` `og-leman-russ-commander-2-2`: added
+- `ds-leman-russ-commander-2` `og-leman-russ-commander-2-3`: added
+- `ds-leman-russ-commander-2` `og-leman-russ-commander-2-4`: added
+- `ds-leman-russ-commander-2` `og-leman-russ-commander-2-5`: added
+- `ds-leman-russ-demolisher` `og-leman-russ-demolisher-1`: added
+- `ds-leman-russ-demolisher` `og-leman-russ-demolisher-2`: added
+- `ds-leman-russ-demolisher` `og-leman-russ-demolisher-3`: added
+- `ds-leman-russ-demolisher` `og-leman-russ-demolisher-4`: added
+- `ds-leman-russ-demolisher-2` `og-leman-russ-demolisher-2-1`: added
+- `ds-leman-russ-demolisher-2` `og-leman-russ-demolisher-2-2`: added
+- `ds-leman-russ-demolisher-2` `og-leman-russ-demolisher-2-3`: added
+- `ds-leman-russ-demolisher-2` `og-leman-russ-demolisher-2-4`: added
+- `ds-leman-russ-eradicator` `og-leman-russ-eradicator-1`: added
+- `ds-leman-russ-eradicator` `og-leman-russ-eradicator-2`: added
+- `ds-leman-russ-eradicator` `og-leman-russ-eradicator-3`: added
+- `ds-leman-russ-eradicator` `og-leman-russ-eradicator-4`: added
+- `ds-leman-russ-eradicator-2` `og-leman-russ-eradicator-2-1`: added
+- `ds-leman-russ-eradicator-2` `og-leman-russ-eradicator-2-2`: added
+- `ds-leman-russ-eradicator-2` `og-leman-russ-eradicator-2-3`: added
+- `ds-leman-russ-eradicator-2` `og-leman-russ-eradicator-2-4`: added
+- `ds-leman-russ-executioner` `og-leman-russ-executioner-1`: added
+- `ds-leman-russ-executioner` `og-leman-russ-executioner-2`: added
+- `ds-leman-russ-executioner` `og-leman-russ-executioner-3`: added
+- `ds-leman-russ-executioner` `og-leman-russ-executioner-4`: added
+- `ds-leman-russ-executioner-2` `og-leman-russ-executioner-2-1`: added
+- `ds-leman-russ-executioner-2` `og-leman-russ-executioner-2-2`: added
+- `ds-leman-russ-executioner-2` `og-leman-russ-executioner-2-3`: added
+- `ds-leman-russ-executioner-2` `og-leman-russ-executioner-2-4`: added
+- `ds-leman-russ-exterminator` `og-leman-russ-exterminator-1`: added
+- `ds-leman-russ-exterminator` `og-leman-russ-exterminator-2`: added
+- `ds-leman-russ-exterminator` `og-leman-russ-exterminator-3`: added
+- `ds-leman-russ-exterminator` `og-leman-russ-exterminator-4`: added
+- `ds-leman-russ-exterminator-2` `og-leman-russ-exterminator-2-1`: added
+- `ds-leman-russ-exterminator-2` `og-leman-russ-exterminator-2-2`: added
+- `ds-leman-russ-exterminator-2` `og-leman-russ-exterminator-2-3`: added
+- `ds-leman-russ-exterminator-2` `og-leman-russ-exterminator-2-4`: added
+- `ds-leman-russ-punisher` `og-leman-russ-punisher-1`: added
+- `ds-leman-russ-punisher` `og-leman-russ-punisher-2`: added
+- `ds-leman-russ-punisher` `og-leman-russ-punisher-3`: added
+- `ds-leman-russ-punisher` `og-leman-russ-punisher-4`: added
+- `ds-leman-russ-punisher-2` `og-leman-russ-punisher-2-1`: added
+- `ds-leman-russ-punisher-2` `og-leman-russ-punisher-2-2`: added
+- `ds-leman-russ-punisher-2` `og-leman-russ-punisher-2-3`: added
+- `ds-leman-russ-punisher-2` `og-leman-russ-punisher-2-4`: added
+- `ds-leman-russ-vanquisher` `og-leman-russ-vanquisher-1`: added
+- `ds-leman-russ-vanquisher` `og-leman-russ-vanquisher-2`: added
+- `ds-leman-russ-vanquisher` `og-leman-russ-vanquisher-3`: added
+- `ds-leman-russ-vanquisher` `og-leman-russ-vanquisher-4`: added
+- `ds-leman-russ-vanquisher-2` `og-leman-russ-vanquisher-2-1`: added
+- `ds-leman-russ-vanquisher-2` `og-leman-russ-vanquisher-2-2`: added
+- `ds-leman-russ-vanquisher-2` `og-leman-russ-vanquisher-2-3`: added
+- `ds-leman-russ-vanquisher-2` `og-leman-russ-vanquisher-2-4`: added
+- `ds-leviathan-dreadnought` `og-leviathan-dreadnought-2`: added
+- `ds-leviathan-dreadnought` `og-leviathan-dreadnought-3`: added
+- `ds-leviathan-dreadnought-2` `og-leviathan-dreadnought-2-2`: added
+- `ds-leviathan-dreadnought-2` `og-leviathan-dreadnought-2-3`: added
+- `ds-leviathan-dreadnought-3` `og-leviathan-dreadnought-3-2`: added
+- `ds-leviathan-dreadnought-3` `og-leviathan-dreadnought-3-3`: added
+- `ds-leviathan-dreadnought-4` `og-leviathan-dreadnought-4-2`: added
+- `ds-leviathan-dreadnought-4` `og-leviathan-dreadnought-4-3`: added
+- `ds-leviathan-dreadnought-5` `og-leviathan-dreadnought-5-2`: added
+- `ds-leviathan-dreadnought-5` `og-leviathan-dreadnought-5-3`: added
+- `ds-librarian-dreadnought` `og-librarian-dreadnought-1`: added
+- `ds-librarian-in-terminator-armour` `og-librarian-in-terminator-armour-1`: added
+- `ds-librarian-in-terminator-armour-2` `og-librarian-in-terminator-armour-2-1`: added
+- `ds-librarian-in-terminator-armour-3` `og-librarian-in-terminator-armour-3-1`: added
+- `ds-librarian-in-terminator-armour-4` `og-librarian-in-terminator-armour-4-1`: added
+- `ds-librarian-in-terminator-armour-5` `og-librarian-in-terminator-armour-5-1`: added
+- `ds-librarian-on-bike` `og-librarian-on-bike-1`: added
+- `ds-librarian-with-jump-pack` `og-librarian-with-jump-pack-1`: added
+- `ds-lieutenant` `og-lieutenant-1`: added
+- `ds-lieutenant` `og-lieutenant-2`: added
+- `ds-lieutenant` `og-lieutenant-3`: added
+- `ds-lieutenant` `og-lieutenant-4`: added
+- `ds-lieutenant-2` `og-lieutenant-2-1`: added
+- `ds-lieutenant-2` `og-lieutenant-2-2`: added
+- `ds-lieutenant-2` `og-lieutenant-2-3`: added
+- `ds-lieutenant-2` `og-lieutenant-2-4`: added
+- `ds-lieutenant-3` `og-lieutenant-3-1`: added
+- `ds-lieutenant-3` `og-lieutenant-3-2`: added
+- `ds-lieutenant-3` `og-lieutenant-3-3`: added
+- `ds-lieutenant-3` `og-lieutenant-3-4`: added
+- `ds-lieutenant-4` `og-lieutenant-4-1`: added
+- `ds-lieutenant-4` `og-lieutenant-4-2`: added
+- `ds-lieutenant-4` `og-lieutenant-4-3`: added
+- `ds-lieutenant-4` `og-lieutenant-4-4`: added
+- `ds-lieutenant-5` `og-lieutenant-5-1`: added
+- `ds-lieutenant-5` `og-lieutenant-5-2`: added
+- `ds-lieutenant-5` `og-lieutenant-5-3`: added
+- `ds-lieutenant-5` `og-lieutenant-5-4`: added
+- `ds-lieutenant-6` `og-lieutenant-6-1`: added
+- `ds-lieutenant-6` `og-lieutenant-6-2`: added
+- `ds-lieutenant-6` `og-lieutenant-6-3`: added
+- `ds-lieutenant-6` `og-lieutenant-6-4`: added
+- `ds-lifta-wagon` `og-lifta-wagon-1`: added
+- `ds-lifta-wagon` `og-lifta-wagon-2`: added
+- `ds-lifta-wagon` `og-lifta-wagon-3`: added
+- `ds-lifta-wagon` `og-lifta-wagon-4`: added
+- `ds-lokhust-lord` `og-lokhust-lord-1`: added
+- `ds-lokhust-lord` `og-lokhust-lord-2`: added
+- `ds-long-fangs` `og-long-fangs-3`: added
+- `ds-longstrike` `og-longstrike-1`: added
+- `ds-longstrike` `og-longstrike-2`: added
+- `ds-longstrike` `og-longstrike-3`: added
+- `ds-lord` `og-lord-1`: added
+- `ds-lord` `og-lord-2`: added
+- `ds-lord-discordant-on-helstalker` `og-lord-discordant-on-helstalker-1`: added
+- `ds-lord-discordant-on-helstalker` `og-lord-discordant-on-helstalker-2`: added
+- `ds-lord-exultant` `og-lord-exultant-1`: added
+- `ds-lord-exultant` `og-lord-exultant-2`: added
+- `ds-lord-kakophonist` `og-lord-kakophonist-1`: added
+- `ds-lord-of-change` `og-lord-of-change-1`: added
+- `ds-lord-of-change-2` `og-lord-of-change-2-1`: added
+- `ds-lynx` `og-lynx-1`: added
+- `ds-macharius` `og-macharius-1`: added
+- `ds-macharius` `og-macharius-2`: added
+- `ds-macharius` `og-macharius-3`: added
+- `ds-macharius-2` `og-macharius-2-1`: added
+- `ds-macharius-2` `og-macharius-2-2`: added
+- `ds-macharius-2` `og-macharius-2-3`: added
+- `ds-macharius-omega` `og-macharius-omega-1`: added
+- `ds-macharius-omega` `og-macharius-omega-2`: added
+- `ds-macharius-omega` `og-macharius-omega-3`: added
+- `ds-macharius-omega-2` `og-macharius-omega-2-1`: added
+- `ds-macharius-omega-2` `og-macharius-omega-2-2`: added
+- `ds-macharius-omega-2` `og-macharius-omega-2-3`: added
+- `ds-macharius-vanquisher` `og-macharius-vanquisher-1`: added
+- `ds-macharius-vanquisher` `og-macharius-vanquisher-2`: added
+- `ds-macharius-vanquisher` `og-macharius-vanquisher-3`: added
+- `ds-macharius-vanquisher-2` `og-macharius-vanquisher-2-1`: added
+- `ds-macharius-vanquisher-2` `og-macharius-vanquisher-2-2`: added
+- `ds-macharius-vanquisher-2` `og-macharius-vanquisher-2-3`: added
+- `ds-macharius-vulcan` `og-macharius-vulcan-1`: added
+- `ds-macharius-vulcan` `og-macharius-vulcan-2`: added
+- `ds-macharius-vulcan` `og-macharius-vulcan-3`: added
+- `ds-macharius-vulcan-2` `og-macharius-vulcan-2-1`: added
+- `ds-macharius-vulcan-2` `og-macharius-vulcan-2-2`: added
+- `ds-macharius-vulcan-2` `og-macharius-vulcan-2-3`: added
+- `ds-malcador` `og-malcador-1`: added
+- `ds-malcador` `og-malcador-2`: added
+- `ds-malcador` `og-malcador-3`: added
+- `ds-malcador` `og-malcador-4`: added
+- `ds-malcador-2` `og-malcador-2-1`: added
+- `ds-malcador-2` `og-malcador-2-2`: added
+- `ds-malcador-2` `og-malcador-2-3`: added
+- `ds-malcador-2` `og-malcador-2-4`: added
+- `ds-malcador-annihilator` `og-malcador-annihilator-1`: added
+- `ds-malcador-annihilator` `og-malcador-annihilator-2`: added
+- `ds-malcador-annihilator` `og-malcador-annihilator-3`: added
+- `ds-malcador-annihilator-2` `og-malcador-annihilator-2-1`: added
+- `ds-malcador-annihilator-2` `og-malcador-annihilator-2-2`: added
+- `ds-malcador-annihilator-2` `og-malcador-annihilator-2-3`: added
+- `ds-malcador-defender` `og-malcador-defender-1`: added
+- `ds-malcador-defender` `og-malcador-defender-2`: added
+- `ds-malcador-defender` `og-malcador-defender-3`: added
+- `ds-malcador-defender-2` `og-malcador-defender-2-1`: added
+- `ds-malcador-defender-2` `og-malcador-defender-2-2`: added
+- `ds-malcador-defender-2` `og-malcador-defender-2-3`: added
+- `ds-malcador-infernus` `og-malcador-infernus-1`: added
+- `ds-malcador-infernus` `og-malcador-infernus-2`: added
+- `ds-malcador-infernus` `og-malcador-infernus-3`: added
+- `ds-malcador-infernus-2` `og-malcador-infernus-2-1`: added
+- `ds-malcador-infernus-2` `og-malcador-infernus-2-2`: added
+- `ds-malcador-infernus-2` `og-malcador-infernus-2-3`: added
+- `ds-manticore` `og-manticore-1`: added
+- `ds-manticore` `og-manticore-2`: added
+- `ds-manticore-2` `og-manticore-2-1`: added
+- `ds-manticore-2` `og-manticore-2-2`: added
+- `ds-marauder-bomber` `og-marauder-bomber-1`: added
+- `ds-marauder-destroyer` `og-marauder-destroyer-1`: added
+- `ds-marshal` `og-marshal-1`: added
+- `ds-mastodon` `og-mastodon-1`: added
+- `ds-mastodon` `og-mastodon-2`: added
+- `ds-mastodon-2` `og-mastodon-2-1`: added
+- `ds-mastodon-2` `og-mastodon-2-2`: added
+- `ds-mastodon-3` `og-mastodon-3-1`: added
+- `ds-mastodon-3` `og-mastodon-3-2`: added
+- `ds-mastodon-4` `og-mastodon-4-1`: added
+- `ds-mastodon-4` `og-mastodon-4-2`: added
+- `ds-mastodon-5` `og-mastodon-5-1`: added
+- `ds-mastodon-5` `og-mastodon-5-2`: added
+- `ds-maulerfiend` `og-maulerfiend-1`: added
+- `ds-maulerfiend-2` `og-maulerfiend-2-1`: added
+- `ds-maulerfiend-3` `og-maulerfiend-3-1`: added
+- `ds-maulerfiend-4` `og-maulerfiend-4-1`: added
+- `ds-mega-dread` `og-mega-dread-1`: added
+- `ds-mega-dread` `og-mega-dread-2`: added
+- `ds-mek` `og-mek-1`: added
+- `ds-meka-dread` `og-meka-dread-1`: added
+- `ds-meka-dread` `og-meka-dread-2`: added
+- `ds-militarum-tempestus-command-squad` `og-militarum-tempestus-command-squad-2`: added
+- `ds-militarum-tempestus-command-squad` `og-militarum-tempestus-command-squad-3`: added
+- `ds-militarum-tempestus-command-squad` `og-militarum-tempestus-command-squad-4`: added
+- `ds-militarum-tempestus-command-squad` `og-militarum-tempestus-command-squad-5`: added
+- `ds-ministorum-priest` `og-ministorum-priest-1`: added
+- `ds-ministorum-priest-2` `og-ministorum-priest-2-1`: added
+- `ds-ministorum-priest-3` `og-ministorum-priest-3-1`: added
+- `ds-monolith` `og-monolith-1`: added
+- `ds-mortifiers` `og-mortifiers-1`: added
+- `ds-mortis-dreadnought` `og-mortis-dreadnought-1`: added
+- `ds-mukaali-riders` `og-mukaali-riders-1`: added
+- `ds-mukaali-riders` `og-mukaali-riders-2`: added
+- `ds-mukaali-riders-2` `og-mukaali-riders-2-1`: added
+- `ds-mukaali-riders-2` `og-mukaali-riders-2-2`: added
+- `ds-nemesis-claw` `og-nemesis-claw-1`: added
+- `ds-nemesis-claw` `og-nemesis-claw-2`: added
+- `ds-nemesis-dreadknight` `og-nemesis-dreadknight-1`: added
+- `ds-nemesis-dreadknight` `og-nemesis-dreadknight-2`: added
+- `ds-neophyte-hybrids` `og-neophyte-hybrids-4`: added
+- `ds-nephilim-jetfighter` `og-nephilim-jetfighter-1`: added
+- `ds-night-spinner` `og-night-spinner-1`: added
+- `ds-nobz` `og-nobz-3`: added
+- `ds-noise-marines` `og-noise-marines-1`: added
+- `ds-noise-marines-2` `og-noise-marines-2-1`: added
+- `ds-ogryn-bodyguard` `og-ogryn-bodyguard-1`: added
+- `ds-ogryn-bodyguard` `og-ogryn-bodyguard-2`: added
+- `ds-onager-dunecrawler` `og-onager-dunecrawler-1`: added
+- `ds-onager-dunecrawler` `og-onager-dunecrawler-2`: added
+- `ds-onager-dunecrawler` `og-onager-dunecrawler-3`: added
+- `ds-overlord` `og-overlord-1`: added
+- `ds-painboss` `og-painboss-1`: added
+- `ds-painboy` `og-painboy-1`: added
+- `ds-painboy-on-warbike` `og-painboy-on-warbike-1`: added
+- `ds-paladin-squad` `og-paladin-squad-3`: added
+- `ds-palatine` `og-palatine-1`: added
+- `ds-pathfinder-team` `og-pathfinder-team-1`: added
+- `ds-pathfinder-team` `og-pathfinder-team-2`: added
+- `ds-pathfinder-team` `og-pathfinder-team-4`: added
+- `ds-phantom-titan` `og-phantom-titan-1`: added
+- `ds-phantom-titan` `og-phantom-titan-2`: added
+- `ds-phantom-titan` `og-phantom-titan-3`: added
+- `ds-pink-horrors` `og-pink-horrors-1`: added
+- `ds-pink-horrors` `og-pink-horrors-2`: added
+- `ds-pink-horrors-2` `og-pink-horrors-2-1`: added
+- `ds-pink-horrors-2` `og-pink-horrors-2-2`: added
+- `ds-piranhas` `og-piranhas-1`: added
+- `ds-plague-drones` `og-plague-drones-1`: added
+- `ds-plague-drones` `og-plague-drones-2`: added
+- `ds-plague-drones-2` `og-plague-drones-2-1`: added
+- `ds-plague-drones-2` `og-plague-drones-2-2`: added
+- `ds-plague-marines` `og-plague-marines-1`: added
+- `ds-plague-marines` `og-plague-marines-2`: added
+- `ds-plague-marines` `og-plague-marines-3`: added
+- `ds-plague-marines` `og-plague-marines-4`: added
+- `ds-plague-marines` `og-plague-marines-5`: added
+- `ds-plague-marines-2` `og-plague-marines-2-1`: added
+- `ds-plague-marines-2` `og-plague-marines-2-2`: added
+- `ds-plague-marines-2` `og-plague-marines-2-3`: added
+- `ds-plague-marines-2` `og-plague-marines-2-4`: added
+- `ds-plague-marines-2` `og-plague-marines-2-5`: added
+- `ds-plaguebearers` `og-plaguebearers-1`: added
+- `ds-plaguebearers` `og-plaguebearers-2`: added
+- `ds-plaguebearers-2` `og-plaguebearers-2-1`: added
+- `ds-plaguebearers-2` `og-plaguebearers-2-2`: added
+- `ds-plagueburst-crawler` `og-plagueburst-crawler-1`: added
+- `ds-plagueburst-crawler` `og-plagueburst-crawler-2`: added
+- `ds-possessed` `og-possessed-1`: added
+- `ds-possessed-2` `og-possessed-2-1`: added
+- `ds-pox-riders` `og-pox-riders-1`: added
+- `ds-pox-riders` `og-pox-riders-2`: added
+- `ds-praetor` `og-praetor-1`: added
+- `ds-praetor-2` `og-praetor-2-1`: added
+- `ds-predator-annihilator` `og-predator-annihilator-1`: added
+- `ds-predator-annihilator` `og-predator-annihilator-2`: added
+- `ds-predator-annihilator` `og-predator-annihilator-3`: added
+- `ds-predator-annihilator-2` `og-predator-annihilator-2-1`: added
+- `ds-predator-annihilator-2` `og-predator-annihilator-2-2`: added
+- `ds-predator-annihilator-2` `og-predator-annihilator-2-3`: added
+- `ds-predator-annihilator-3` `og-predator-annihilator-3-1`: added
+- `ds-predator-annihilator-3` `og-predator-annihilator-3-2`: added
+- `ds-predator-annihilator-3` `og-predator-annihilator-3-3`: added
+- `ds-predator-annihilator-4` `og-predator-annihilator-4-1`: added
+- `ds-predator-annihilator-4` `og-predator-annihilator-4-2`: added
+- `ds-predator-annihilator-4` `og-predator-annihilator-4-3`: added
+- `ds-predator-annihilator-5` `og-predator-annihilator-5-1`: added
+- `ds-predator-annihilator-5` `og-predator-annihilator-5-2`: added
+- `ds-predator-annihilator-5` `og-predator-annihilator-5-3`: added
+- `ds-predator-annihilator-6` `og-predator-annihilator-6-1`: added
+- `ds-predator-annihilator-6` `og-predator-annihilator-6-2`: added
+- `ds-predator-annihilator-6` `og-predator-annihilator-6-3`: added
+- `ds-predator-destructor` `og-predator-destructor-1`: added
+- `ds-predator-destructor` `og-predator-destructor-2`: added
+- `ds-predator-destructor` `og-predator-destructor-3`: added
+- `ds-predator-destructor-2` `og-predator-destructor-2-1`: added
+- `ds-predator-destructor-2` `og-predator-destructor-2-2`: added
+- `ds-predator-destructor-2` `og-predator-destructor-2-3`: added
+- `ds-predator-destructor-3` `og-predator-destructor-3-1`: added
+- `ds-predator-destructor-3` `og-predator-destructor-3-2`: added
+- `ds-predator-destructor-3` `og-predator-destructor-3-3`: added
+- `ds-predator-destructor-4` `og-predator-destructor-4-1`: added
+- `ds-predator-destructor-4` `og-predator-destructor-4-2`: added
+- `ds-predator-destructor-4` `og-predator-destructor-4-3`: added
+- `ds-predator-destructor-5` `og-predator-destructor-5-1`: added
+- `ds-predator-destructor-5` `og-predator-destructor-5-2`: added
+- `ds-predator-destructor-5` `og-predator-destructor-5-3`: added
+- `ds-predator-destructor-6` `og-predator-destructor-6-1`: added
+- `ds-predator-destructor-6` `og-predator-destructor-6-2`: added
+- `ds-predator-destructor-6` `og-predator-destructor-6-3`: added
+- `ds-proteus-kill-team` `og-proteus-kill-team-4`: added
+- `ds-questoris-knight-magaera` `og-questoris-knight-magaera-1`: added
+- `ds-questoris-knight-styrix` `og-questoris-knight-styrix-1`: added
+- `ds-raider` `og-raider-1`: added
+- `ds-rapier-carrier` `og-rapier-carrier-1`: added
+- `ds-rapier-carrier-2` `og-rapier-carrier-2-1`: added
+- `ds-rapier-carrier-3` `og-rapier-carrier-3-1`: added
+- `ds-rapier-carrier-4` `og-rapier-carrier-4-1`: added
+- `ds-rapier-carrier-5` `og-rapier-carrier-5-1`: added
+- `ds-raptors` `og-raptors-1`: added
+- `ds-raptors` `og-raptors-2`: added
+- `ds-raptors-2` `og-raptors-2-1`: added
+- `ds-raptors-2` `og-raptors-2-2`: added
+- `ds-ravenwing-command-squad` `og-ravenwing-command-squad-1`: added
+- `ds-ravenwing-darkshroud` `og-ravenwing-darkshroud-1`: added
+- `ds-razorback` `og-razorback-1`: added
+- `ds-razorback` `og-razorback-2`: added
+- `ds-razorback` `og-razorback-3`: added
+- `ds-razorback-2` `og-razorback-2-1`: added
+- `ds-razorback-2` `og-razorback-2-2`: added
+- `ds-razorback-2` `og-razorback-2-3`: added
+- `ds-razorback-3` `og-razorback-3-1`: added
+- `ds-razorback-3` `og-razorback-3-2`: added
+- `ds-razorback-3` `og-razorback-3-3`: added
+- `ds-razorback-4` `og-razorback-4-1`: added
+- `ds-razorback-4` `og-razorback-4-2`: added
+- `ds-razorback-4` `og-razorback-4-3`: added
+- `ds-razorback-5` `og-razorback-5-1`: added
+- `ds-razorback-5` `og-razorback-5-2`: added
+- `ds-razorback-5` `og-razorback-5-3`: added
+- `ds-razorback-6` `og-razorback-6-1`: added
+- `ds-razorback-6` `og-razorback-6-2`: added
+- `ds-razorback-6` `og-razorback-6-3`: added
+- `ds-razorback-7` `og-razorback-7-1`: added
+- `ds-razorback-7` `og-razorback-7-2`: added
+- `ds-razorback-7` `og-razorback-7-3`: added
+- `ds-razorshark-strike-fighter` `og-razorshark-strike-fighter-1`: added
+- `ds-razorwing-jetfighter` `og-razorwing-jetfighter-1`: added
+- `ds-razorwing-jetfighter` `og-razorwing-jetfighter-2`: added
+- `ds-reaver-titan` `og-reaver-titan-1`: added
+- `ds-reaver-titan` `og-reaver-titan-2`: added
+- `ds-reavers` `og-reavers-1`: added
+- `ds-reavers` `og-reavers-2`: added
+- `ds-red-corsairs-raiders` `og-red-corsairs-raiders-1`: added
+- `ds-red-corsairs-reave-captain` `og-red-corsairs-reave-captain-1`: added
+- `ds-red-corsairs-reave-captain` `og-red-corsairs-reave-captain-2`: added
+- `ds-redemptor-dreadnought` `og-redemptor-dreadnought-1`: added
+- `ds-redemptor-dreadnought` `og-redemptor-dreadnought-2`: added
+- `ds-redemptor-dreadnought` `og-redemptor-dreadnought-3`: added
+- `ds-redemptor-dreadnought` `og-redemptor-dreadnought-4`: added
+- `ds-redemptor-dreadnought-2` `og-redemptor-dreadnought-2-1`: added
+- `ds-redemptor-dreadnought-2` `og-redemptor-dreadnought-2-2`: added
+- `ds-redemptor-dreadnought-2` `og-redemptor-dreadnought-2-3`: added
+- `ds-redemptor-dreadnought-2` `og-redemptor-dreadnought-2-4`: added
+- `ds-redemptor-dreadnought-3` `og-redemptor-dreadnought-3-1`: added
+- `ds-redemptor-dreadnought-3` `og-redemptor-dreadnought-3-2`: added
+- `ds-redemptor-dreadnought-3` `og-redemptor-dreadnought-3-3`: added
+- `ds-redemptor-dreadnought-3` `og-redemptor-dreadnought-3-4`: added
+- `ds-redemptor-dreadnought-4` `og-redemptor-dreadnought-4-1`: added
+- `ds-redemptor-dreadnought-4` `og-redemptor-dreadnought-4-2`: added
+- `ds-redemptor-dreadnought-4` `og-redemptor-dreadnought-4-3`: added
+- `ds-redemptor-dreadnought-4` `og-redemptor-dreadnought-4-4`: added
+- `ds-redemptor-dreadnought-5` `og-redemptor-dreadnought-5-1`: added
+- `ds-redemptor-dreadnought-5` `og-redemptor-dreadnought-5-2`: added
+- `ds-redemptor-dreadnought-5` `og-redemptor-dreadnought-5-3`: added
+- `ds-redemptor-dreadnought-5` `og-redemptor-dreadnought-5-4`: added
+- `ds-redemptor-dreadnought-6` `og-redemptor-dreadnought-6-1`: added
+- `ds-redemptor-dreadnought-6` `og-redemptor-dreadnought-6-2`: added
+- `ds-redemptor-dreadnought-6` `og-redemptor-dreadnought-6-3`: added
+- `ds-redemptor-dreadnought-6` `og-redemptor-dreadnought-6-4`: added
+- `ds-relic-contemptor-dreadnought` `og-relic-contemptor-dreadnought-3`: added
+- `ds-relic-contemptor-dreadnought-2` `og-relic-contemptor-dreadnought-2-3`: added
+- `ds-relic-contemptor-dreadnought-3` `og-relic-contemptor-dreadnought-3-3`: added
+- `ds-relic-contemptor-dreadnought-4` `og-relic-contemptor-dreadnought-4-3`: added
+- `ds-relic-contemptor-dreadnought-5` `og-relic-contemptor-dreadnought-5-3`: added
+- `ds-relic-razorback` `og-relic-razorback-1`: added
+- `ds-relic-razorback` `og-relic-razorback-2`: added
+- `ds-relic-razorback` `og-relic-razorback-3`: added
+- `ds-relic-terminator-squad` `og-relic-terminator-squad-1`: added
+- `ds-relic-terminator-squad` `og-relic-terminator-squad-2`: added
+- `ds-relic-terminator-squad` `og-relic-terminator-squad-3`: added
+- `ds-renegade-enforcer` `og-renegade-enforcer-1`: added
+- `ds-renegade-enforcer` `og-renegade-enforcer-2`: added
+- `ds-renegade-enforcer-2` `og-renegade-enforcer-2-1`: added
+- `ds-renegade-enforcer-2` `og-renegade-enforcer-2-2`: added
+- `ds-renegade-enforcer-3` `og-renegade-enforcer-3-1`: added
+- `ds-renegade-enforcer-3` `og-renegade-enforcer-3-2`: added
+- `ds-repressor` `og-repressor-1`: added
+- `ds-repressor` `og-repressor-2`: added
+- `ds-repulsor` `og-repulsor-1`: added
+- `ds-repulsor` `og-repulsor-2`: added
+- `ds-repulsor` `og-repulsor-3`: added
+- `ds-repulsor-2` `og-repulsor-2-1`: added
+- `ds-repulsor-2` `og-repulsor-2-2`: added
+- `ds-repulsor-3` `og-repulsor-3-1`: added
+- `ds-repulsor-3` `og-repulsor-3-2`: added
+- `ds-repulsor-4` `og-repulsor-4-1`: added
+- `ds-repulsor-4` `og-repulsor-4-2`: added
+- `ds-repulsor-5` `og-repulsor-5-1`: added
+- `ds-repulsor-5` `og-repulsor-5-2`: added
+- `ds-repulsor-6` `og-repulsor-6-1`: added
+- `ds-repulsor-6` `og-repulsor-6-2`: added
+- `ds-repulsor-executioner` `og-repulsor-executioner-1`: added
+- `ds-repulsor-executioner` `og-repulsor-executioner-2`: added
+- `ds-repulsor-executioner` `og-repulsor-executioner-3`: added
+- `ds-repulsor-executioner-2` `og-repulsor-executioner-2-1`: added
+- `ds-repulsor-executioner-2` `og-repulsor-executioner-2-2`: added
+- `ds-repulsor-executioner-2` `og-repulsor-executioner-2-3`: added
+- `ds-repulsor-executioner-3` `og-repulsor-executioner-3-1`: added
+- `ds-repulsor-executioner-3` `og-repulsor-executioner-3-2`: added
+- `ds-repulsor-executioner-3` `og-repulsor-executioner-3-3`: added
+- `ds-repulsor-executioner-4` `og-repulsor-executioner-4-1`: added
+- `ds-repulsor-executioner-4` `og-repulsor-executioner-4-2`: added
+- `ds-repulsor-executioner-4` `og-repulsor-executioner-4-3`: added
+- `ds-repulsor-executioner-5` `og-repulsor-executioner-5-1`: added
+- `ds-repulsor-executioner-5` `og-repulsor-executioner-5-2`: added
+- `ds-repulsor-executioner-5` `og-repulsor-executioner-5-3`: added
+- `ds-repulsor-executioner-6` `og-repulsor-executioner-6-1`: added
+- `ds-repulsor-executioner-6` `og-repulsor-executioner-6-2`: added
+- `ds-repulsor-executioner-6` `og-repulsor-executioner-6-3`: added
+- `ds-retributor-squad` `og-retributor-squad-1`: added
+- `ds-retributor-squad` `og-retributor-squad-2`: added
+- `ds-revenant-titan` `og-revenant-titan-1`: added
+- `ds-revenant-titan` `og-revenant-titan-2`: added
+- `ds-rhino` `og-rhino-1`: added
+- `ds-rhino-2` `og-rhino-2-1`: added
+- `ds-rhino-3` `og-rhino-3-1`: added
+- `ds-rhino-4` `og-rhino-4-1`: added
+- `ds-rhino-5` `og-rhino-5-1`: added
+- `ds-rhino-5` `og-rhino-5-2`: added
+- `ds-rhino-6` `og-rhino-6-1`: added
+- `ds-rhino-7` `og-rhino-7-1`: added
+- `ds-rhino-primaris` `og-rhino-primaris-1`: added
+- `ds-riptide-battlesuit` `og-riptide-battlesuit-1`: added
+- `ds-riptide-battlesuit` `og-riptide-battlesuit-2`: added
+- `ds-riptide-battlesuit` `og-riptide-battlesuit-3`: added
+- `ds-rogal-dorn-battle-tank` `og-rogal-dorn-battle-tank-1`: added
+- `ds-rogal-dorn-battle-tank` `og-rogal-dorn-battle-tank-2`: added
+- `ds-rogal-dorn-battle-tank` `og-rogal-dorn-battle-tank-3`: added
+- `ds-rogal-dorn-battle-tank` `og-rogal-dorn-battle-tank-4`: added
+- `ds-rogal-dorn-battle-tank-2` `og-rogal-dorn-battle-tank-2-1`: added
+- `ds-rogal-dorn-battle-tank-2` `og-rogal-dorn-battle-tank-2-2`: added
+- `ds-rogal-dorn-battle-tank-2` `og-rogal-dorn-battle-tank-2-3`: added
+- `ds-rogal-dorn-battle-tank-2` `og-rogal-dorn-battle-tank-2-4`: added
+- `ds-rogal-dorn-commander` `og-rogal-dorn-commander-1`: added
+- `ds-rogal-dorn-commander` `og-rogal-dorn-commander-2`: added
+- `ds-rogal-dorn-commander` `og-rogal-dorn-commander-3`: added
+- `ds-rogal-dorn-commander` `og-rogal-dorn-commander-4`: added
+- `ds-rogal-dorn-commander-2` `og-rogal-dorn-commander-2-1`: added
+- `ds-rogal-dorn-commander-2` `og-rogal-dorn-commander-2-2`: added
+- `ds-rogal-dorn-commander-2` `og-rogal-dorn-commander-2-3`: added
+- `ds-rogal-dorn-commander-2` `og-rogal-dorn-commander-2-4`: added
+- `ds-rubric-marines` `og-rubric-marines-1`: added
+- `ds-rubric-marines` `og-rubric-marines-2`: added
+- `ds-rubric-marines` `og-rubric-marines-4`: added
+- `ds-rubric-marines-2` `og-rubric-marines-2-1`: added
+- `ds-rubric-marines-2` `og-rubric-marines-2-2`: added
+- `ds-rubric-marines-2` `og-rubric-marines-2-4`: added
+- `ds-rvarna-battlesuit` `og-rvarna-battlesuit-1`: added
+- `ds-sagitaur` `og-sagitaur-1`: added
+- `ds-salamander-command-vehicle` `og-salamander-command-vehicle-1`: added
+- `ds-salamander-command-vehicle` `og-salamander-command-vehicle-2`: added
+- `ds-salamander-command-vehicle-2` `og-salamander-command-vehicle-2-1`: added
+- `ds-salamander-command-vehicle-2` `og-salamander-command-vehicle-2-2`: added
+- `ds-salamander-scout-vehicle` `og-salamander-scout-vehicle-1`: added
+- `ds-salamander-scout-vehicle` `og-salamander-scout-vehicle-2`: added
+- `ds-salamander-scout-vehicle-2` `og-salamander-scout-vehicle-2-1`: added
+- `ds-salamander-scout-vehicle-2` `og-salamander-scout-vehicle-2-2`: added
+- `ds-sanctifiers` `og-sanctifiers-2`: added
+- `ds-sanctifiers-2` `og-sanctifiers-2-2`: added
+- `ds-sanctus` `og-sanctus-1`: added
+- `ds-sanguinary-guard` `og-sanguinary-guard-2`: added
+- `ds-scarab-occult-terminators` `og-scarab-occult-terminators-1`: added
+- `ds-scarab-occult-terminators` `og-scarab-occult-terminators-2`: added
+- `ds-scarab-occult-terminators` `og-scarab-occult-terminators-3`: added
+- `ds-scorpion` `og-scorpion-1`: added
+- `ds-scourges-with-heavy-weapons` `og-scourges-with-heavy-weapons-1`: added
+- `ds-scourges-with-shardcarbines` `og-scourges-with-shardcarbines-1`: added
+- `ds-scourges-with-shardcarbines` `og-scourges-with-shardcarbines-2`: added
+- `ds-scout-bike-squad` `og-scout-bike-squad-1`: added
+- `ds-scout-sniper-squad` `og-scout-sniper-squad-1`: added
+- `ds-scout-squad` `og-scout-squad-1`: added
+- `ds-scout-squad` `og-scout-squad-3`: added
+- `ds-scout-squad` `og-scout-squad-4`: added
+- `ds-scout-squad-2` `og-scout-squad-2-1`: added
+- `ds-scout-squad-2` `og-scout-squad-2-3`: added
+- `ds-scout-squad-2` `og-scout-squad-2-4`: added
+- `ds-scout-squad-3` `og-scout-squad-3-1`: added
+- `ds-scout-squad-3` `og-scout-squad-3-3`: added
+- `ds-scout-squad-3` `og-scout-squad-3-4`: added
+- `ds-scout-squad-4` `og-scout-squad-4-1`: added
+- `ds-scout-squad-4` `og-scout-squad-4-3`: added
+- `ds-scout-squad-4` `og-scout-squad-4-4`: added
+- `ds-scout-squad-5` `og-scout-squad-5-1`: added
+- `ds-scout-squad-5` `og-scout-squad-5-3`: added
+- `ds-scout-squad-5` `og-scout-squad-5-4`: added
+- `ds-secutarii-hoplites` `og-secutarii-hoplites-1`: added
+- `ds-secutarii-hoplites` `og-secutarii-hoplites-2`: added
+- `ds-secutarii-hoplites` `og-secutarii-hoplites-3`: added
+- `ds-secutarii-peltasts` `og-secutarii-peltasts-1`: added
+- `ds-secutarii-peltasts` `og-secutarii-peltasts-2`: added
+- `ds-secutarii-peltasts` `og-secutarii-peltasts-3`: added
+- `ds-seekers` `og-seekers-1`: added
+- `ds-seekers` `og-seekers-2`: added
+- `ds-seekers-2` `og-seekers-2-1`: added
+- `ds-seekers-2` `og-seekers-2-2`: added
+- `ds-sentry-pylon` `og-sentry-pylon-1`: added
+- `ds-seraphim-squad` `og-seraphim-squad-2`: added
+- `ds-seraptek-heavy-construct` `og-seraptek-heavy-construct-1`: added
+- `ds-serberys-raiders` `og-serberys-raiders-1`: added
+- `ds-serberys-sulphurhounds` `og-serberys-sulphurhounds-1`: added
+- `ds-shadowseer` `og-shadowseer-1`: added
+- `ds-shadowseer-2` `og-shadowseer-2-1`: added
+- `ds-shadowsword` `og-shadowsword-1`: added
+- `ds-shadowsword` `og-shadowsword-2`: added
+- `ds-shadowsword-2` `og-shadowsword-2-1`: added
+- `ds-shadowsword-2` `og-shadowsword-2-2`: added
+- `ds-shield-captain` `og-shield-captain-1`: added
+- `ds-shield-captain-in-allarus-terminator-armour` `og-shield-captain-in-allarus-terminator-armour-1`: added
+- `ds-shield-captain-on-dawneagle-jetbike` `og-shield-captain-on-dawneagle-jetbike-1`: added
+- `ds-shining-spears` `og-shining-spears-1`: added
+- `ds-shining-spears` `og-shining-spears-2`: added
+- `ds-shining-spears` `og-shining-spears-3`: added
+- `ds-sicaran-arcus` `og-sicaran-arcus-1`: added
+- `ds-sicaran-arcus` `og-sicaran-arcus-2`: added
+- `ds-sicaran-arcus` `og-sicaran-arcus-3`: added
+- `ds-sicaran-battle-tank` `og-sicaran-battle-tank-1`: added
+- `ds-sicaran-battle-tank` `og-sicaran-battle-tank-2`: added
+- `ds-sicaran-battle-tank` `og-sicaran-battle-tank-3`: added
+- `ds-sicaran-battle-tank-2` `og-sicaran-battle-tank-2-1`: added
+- `ds-sicaran-battle-tank-2` `og-sicaran-battle-tank-2-2`: added
+- `ds-sicaran-battle-tank-2` `og-sicaran-battle-tank-2-3`: added
+- `ds-sicaran-battle-tank-3` `og-sicaran-battle-tank-3-1`: added
+- `ds-sicaran-battle-tank-3` `og-sicaran-battle-tank-3-2`: added
+- `ds-sicaran-battle-tank-3` `og-sicaran-battle-tank-3-3`: added
+- `ds-sicaran-battle-tank-4` `og-sicaran-battle-tank-4-1`: added
+- `ds-sicaran-battle-tank-4` `og-sicaran-battle-tank-4-2`: added
+- `ds-sicaran-battle-tank-4` `og-sicaran-battle-tank-4-3`: added
+- `ds-sicaran-battle-tank-5` `og-sicaran-battle-tank-5-1`: added
+- `ds-sicaran-battle-tank-5` `og-sicaran-battle-tank-5-2`: added
+- `ds-sicaran-battle-tank-5` `og-sicaran-battle-tank-5-3`: added
+- `ds-sicaran-omega` `og-sicaran-omega-1`: added
+- `ds-sicaran-omega` `og-sicaran-omega-2`: added
+- `ds-sicaran-omega` `og-sicaran-omega-3`: added
+- `ds-sicaran-punisher` `og-sicaran-punisher-1`: added
+- `ds-sicaran-punisher` `og-sicaran-punisher-2`: added
+- `ds-sicaran-punisher` `og-sicaran-punisher-3`: added
+- `ds-sicaran-punisher-2` `og-sicaran-punisher-2-1`: added
+- `ds-sicaran-punisher-2` `og-sicaran-punisher-2-2`: added
+- `ds-sicaran-punisher-2` `og-sicaran-punisher-2-3`: added
+- `ds-sicaran-punisher-3` `og-sicaran-punisher-3-1`: added
+- `ds-sicaran-punisher-3` `og-sicaran-punisher-3-2`: added
+- `ds-sicaran-punisher-3` `og-sicaran-punisher-3-3`: added
+- `ds-sicaran-punisher-4` `og-sicaran-punisher-4-1`: added
+- `ds-sicaran-punisher-4` `og-sicaran-punisher-4-2`: added
+- `ds-sicaran-punisher-4` `og-sicaran-punisher-4-3`: added
+- `ds-sicaran-punisher-5` `og-sicaran-punisher-5-1`: added
+- `ds-sicaran-punisher-5` `og-sicaran-punisher-5-2`: added
+- `ds-sicaran-punisher-5` `og-sicaran-punisher-5-3`: added
+- `ds-sicaran-venator` `og-sicaran-venator-1`: added
+- `ds-sicaran-venator` `og-sicaran-venator-2`: added
+- `ds-sicaran-venator` `og-sicaran-venator-3`: added
+- `ds-sicaran-venator-2` `og-sicaran-venator-2-1`: added
+- `ds-sicaran-venator-2` `og-sicaran-venator-2-2`: added
+- `ds-sicaran-venator-2` `og-sicaran-venator-2-3`: added
+- `ds-sicaran-venator-3` `og-sicaran-venator-3-1`: added
+- `ds-sicaran-venator-3` `og-sicaran-venator-3-2`: added
+- `ds-sicaran-venator-3` `og-sicaran-venator-3-3`: added
+- `ds-sicaran-venator-4` `og-sicaran-venator-4-1`: added
+- `ds-sicaran-venator-4` `og-sicaran-venator-4-2`: added
+- `ds-sicaran-venator-4` `og-sicaran-venator-4-3`: added
+- `ds-sicaran-venator-5` `og-sicaran-venator-5-1`: added
+- `ds-sicaran-venator-5` `og-sicaran-venator-5-2`: added
+- `ds-sicaran-venator-5` `og-sicaran-venator-5-3`: added
+- `ds-sicarian-ruststalkers` `og-sicarian-ruststalkers-2`: added
+- `ds-sisters-novitiate-squad` `og-sisters-novitiate-squad-1`: added
+- `ds-sisters-novitiate-squad` `og-sisters-novitiate-squad-2`: added
+- `ds-sisters-novitiate-squad` `og-sisters-novitiate-squad-3`: added
+- `ds-sisters-of-battle-immolator` `og-sisters-of-battle-immolator-1`: added
+- `ds-sisters-of-battle-immolator` `og-sisters-of-battle-immolator-2`: added
+- `ds-sisters-of-battle-squad` `og-sisters-of-battle-squad-1`: added
+- `ds-sisters-of-battle-squad` `og-sisters-of-battle-squad-2`: added
+- `ds-sisters-of-battle-squad` `og-sisters-of-battle-squad-3`: added
+- `ds-sisters-of-battle-squad` `og-sisters-of-battle-squad-4`: added
+- `ds-sisters-of-battle-squad` `og-sisters-of-battle-squad-5`: added
+- `ds-skathach-wraithknight` `og-skathach-wraithknight-1`: added
+- `ds-skathach-wraithknight` `og-skathach-wraithknight-2`: added
+- `ds-skathach-wraithknight` `og-skathach-wraithknight-3`: added
+- `ds-skitarii-rangers` `og-skitarii-rangers-1`: added
+- `ds-skitarii-rangers` `og-skitarii-rangers-2`: added
+- `ds-skitarii-rangers` `og-skitarii-rangers-3`: added
+- `ds-skitarii-rangers` `og-skitarii-rangers-4`: added
+- `ds-skitarii-rangers` `og-skitarii-rangers-5`: added
+- `ds-skitarii-rangers` `og-skitarii-rangers-6`: added
+- `ds-skitarii-rangers-2` `og-skitarii-rangers-2-1`: added
+- `ds-skitarii-rangers-2` `og-skitarii-rangers-2-2`: added
+- `ds-skitarii-rangers-2` `og-skitarii-rangers-2-3`: added
+- `ds-skitarii-rangers-2` `og-skitarii-rangers-2-4`: added
+- `ds-skitarii-rangers-2` `og-skitarii-rangers-2-5`: added
+- `ds-skitarii-rangers-2` `og-skitarii-rangers-2-6`: added
+- `ds-skitarii-vanguard` `og-skitarii-vanguard-1`: added
+- `ds-skitarii-vanguard` `og-skitarii-vanguard-2`: added
+- `ds-skitarii-vanguard` `og-skitarii-vanguard-3`: added
+- `ds-skitarii-vanguard` `og-skitarii-vanguard-4`: added
+- `ds-skitarii-vanguard` `og-skitarii-vanguard-5`: added
+- `ds-skitarii-vanguard` `og-skitarii-vanguard-6`: added
+- `ds-skitarii-vanguard-2` `og-skitarii-vanguard-2-1`: added
+- `ds-skitarii-vanguard-2` `og-skitarii-vanguard-2-2`: added
+- `ds-skitarii-vanguard-2` `og-skitarii-vanguard-2-3`: added
+- `ds-skitarii-vanguard-2` `og-skitarii-vanguard-2-4`: added
+- `ds-skitarii-vanguard-2` `og-skitarii-vanguard-2-5`: added
+- `ds-skitarii-vanguard-2` `og-skitarii-vanguard-2-6`: added
+- `ds-skorpius-disintegrator` `og-skorpius-disintegrator-1`: added
+- `ds-sky-ray-gunship` `og-sky-ray-gunship-1`: added
+- `ds-skyclaws` `og-skyclaws-1`: added
+- `ds-skyclaws` `og-skyclaws-2`: added
+- `ds-sorcerer-3` `og-sorcerer-3-1`: added
+- `ds-sorcerer-in-terminator-armour` `og-sorcerer-in-terminator-armour-1`: added
+- `ds-sorcerer-in-terminator-armour` `og-sorcerer-in-terminator-armour-2`: added
+- `ds-sorcerer-in-terminator-armour-2` `og-sorcerer-in-terminator-armour-2-1`: added
+- `ds-sorcerer-in-terminator-armour-3` `og-sorcerer-in-terminator-armour-3-1`: added
+- `ds-sorcerer-in-terminator-armour-3` `og-sorcerer-in-terminator-armour-3-2`: added
+- `ds-sorcerer-on-bike` `og-sorcerer-on-bike-1`: added
+- `ds-sorcerer-on-disc-of-tzeentch` `og-sorcerer-on-disc-of-tzeentch-1`: added
+- `ds-sorcerer-on-disc-of-tzeentch-2` `og-sorcerer-on-disc-of-tzeentch-2-1`: added
+- `ds-sorcerer-on-palanquin-of-nurgle` `og-sorcerer-on-palanquin-of-nurgle-1`: added
+- `ds-sorcerer-on-palanquin-of-nurgle-2` `og-sorcerer-on-palanquin-of-nurgle-2-1`: added
+- `ds-sorcerer-on-palanquin-of-nurgle-3` `og-sorcerer-on-palanquin-of-nurgle-3-1`: added
+- `ds-sorcerer-on-steed-of-slaanesh` `og-sorcerer-on-steed-of-slaanesh-1`: added
+- `ds-sorcerer-on-steed-of-slaanesh-2` `og-sorcerer-on-steed-of-slaanesh-2-1`: added
+- `ds-sororitas-rhino` `og-sororitas-rhino-1`: added
+- `ds-soul-grinder` `og-soul-grinder-1`: added
+- `ds-spartan` `og-spartan-1`: added
+- `ds-spartan` `og-spartan-2`: added
+- `ds-spartan` `og-spartan-3`: added
+- `ds-spartan-2` `og-spartan-2-1`: added
+- `ds-spartan-2` `og-spartan-2-2`: added
+- `ds-spartan-2` `og-spartan-2-3`: added
+- `ds-spartan-3` `og-spartan-3-1`: added
+- `ds-spartan-3` `og-spartan-3-2`: added
+- `ds-spartan-3` `og-spartan-3-3`: added
+- `ds-spartan-4` `og-spartan-4-1`: added
+- `ds-spartan-4` `og-spartan-4-2`: added
+- `ds-spartan-4` `og-spartan-4-3`: added
+- `ds-spartan-5` `og-spartan-5-1`: added
+- `ds-spartan-5` `og-spartan-5-2`: added
+- `ds-spartan-5` `og-spartan-5-3`: added
+- `ds-squiggoth` `og-squiggoth-1`: added
+- `ds-squighog-boyz` `og-squighog-boyz-1`: added
+- `ds-stalker` `og-stalker-1`: added
+- `ds-stalker` `og-stalker-2`: added
+- `ds-stealth-battlesuits` `og-stealth-battlesuits-1`: added
+- `ds-stealth-battlesuits` `og-stealth-battlesuits-2`: added
+- `ds-stealth-battlesuits` `og-stealth-battlesuits-3`: added
+- `ds-stealth-battlesuits` `og-stealth-battlesuits-4`: added
+- `ds-sternguard-veteran-squad` `og-sternguard-veteran-squad-1`: added
+- `ds-sternguard-veteran-squad` `og-sternguard-veteran-squad-3`: added
+- `ds-sternguard-veteran-squad-2` `og-sternguard-veteran-squad-2-1`: added
+- `ds-sternguard-veteran-squad-2` `og-sternguard-veteran-squad-2-3`: added
+- `ds-sternguard-veteran-squad-3` `og-sternguard-veteran-squad-3-1`: added
+- `ds-sternguard-veteran-squad-3` `og-sternguard-veteran-squad-3-3`: added
+- `ds-sternguard-veteran-squad-4` `og-sternguard-veteran-squad-4-1`: added
+- `ds-sternguard-veteran-squad-4` `og-sternguard-veteran-squad-4-3`: added
+- `ds-sternguard-veteran-squad-5` `og-sternguard-veteran-squad-5-1`: added
+- `ds-sternguard-veteran-squad-5` `og-sternguard-veteran-squad-5-3`: added
+- `ds-sternguard-veteran-squad-6` `og-sternguard-veteran-squad-6-1`: added
+- `ds-sternguard-veteran-squad-6` `og-sternguard-veteran-squad-6-3`: added
+- `ds-storm-chimera` `og-storm-chimera-1`: added
+- `ds-storm-chimera` `og-storm-chimera-2`: added
+- `ds-storm-chimera` `og-storm-chimera-3`: added
+- `ds-storm-chimera-2` `og-storm-chimera-2-1`: added
+- `ds-storm-chimera-2` `og-storm-chimera-2-2`: added
+- `ds-storm-chimera-2` `og-storm-chimera-2-3`: added
+- `ds-storm-eagle-gunship` `og-storm-eagle-gunship-1`: added
+- `ds-storm-eagle-gunship` `og-storm-eagle-gunship-2`: added
+- `ds-storm-eagle-gunship-2` `og-storm-eagle-gunship-2-1`: added
+- `ds-storm-eagle-gunship-2` `og-storm-eagle-gunship-2-2`: added
+- `ds-storm-eagle-gunship-3` `og-storm-eagle-gunship-3-1`: added
+- `ds-storm-eagle-gunship-3` `og-storm-eagle-gunship-3-2`: added
+- `ds-storm-eagle-gunship-4` `og-storm-eagle-gunship-4-1`: added
+- `ds-storm-eagle-gunship-4` `og-storm-eagle-gunship-4-2`: added
+- `ds-storm-eagle-gunship-5` `og-storm-eagle-gunship-5-1`: added
+- `ds-storm-eagle-gunship-5` `og-storm-eagle-gunship-5-2`: added
+- `ds-stormblade` `og-stormblade-1`: added
+- `ds-stormblade` `og-stormblade-2`: added
+- `ds-stormblade` `og-stormblade-3`: added
+- `ds-stormblade` `og-stormblade-4`: added
+- `ds-stormblade-2` `og-stormblade-2-1`: added
+- `ds-stormblade-2` `og-stormblade-2-2`: added
+- `ds-stormblade-2` `og-stormblade-2-3`: added
+- `ds-stormblade-2` `og-stormblade-2-4`: added
+- `ds-stormboyz` `og-stormboyz-1`: added
+- `ds-stormfang-gunship` `og-stormfang-gunship-1`: added
+- `ds-stormfang-gunship` `og-stormfang-gunship-2`: added
+- `ds-stormhawk-interceptor` `og-stormhawk-interceptor-1`: added
+- `ds-stormhawk-interceptor` `og-stormhawk-interceptor-2`: added
+- `ds-stormhawk-interceptor-2` `og-stormhawk-interceptor-2-1`: added
+- `ds-stormhawk-interceptor-2` `og-stormhawk-interceptor-2-2`: added
+- `ds-stormhawk-interceptor-3` `og-stormhawk-interceptor-3-1`: added
+- `ds-stormhawk-interceptor-3` `og-stormhawk-interceptor-3-2`: added
+- `ds-stormhawk-interceptor-4` `og-stormhawk-interceptor-4-1`: added
+- `ds-stormhawk-interceptor-4` `og-stormhawk-interceptor-4-2`: added
+- `ds-stormhawk-interceptor-5` `og-stormhawk-interceptor-5-1`: added
+- `ds-stormhawk-interceptor-5` `og-stormhawk-interceptor-5-2`: added
+- `ds-stormhawk-interceptor-6` `og-stormhawk-interceptor-6-1`: added
+- `ds-stormhawk-interceptor-6` `og-stormhawk-interceptor-6-2`: added
+- `ds-stormhawk-interceptor-7` `og-stormhawk-interceptor-7-1`: added
+- `ds-stormhawk-interceptor-7` `og-stormhawk-interceptor-7-2`: added
+- `ds-stormlord` `og-stormlord-1`: added
+- `ds-stormlord` `og-stormlord-2`: added
+- `ds-stormlord-2` `og-stormlord-2-1`: added
+- `ds-stormlord-2` `og-stormlord-2-2`: added
+- `ds-stormraven-gunship` `og-stormraven-gunship-1`: added
+- `ds-stormraven-gunship` `og-stormraven-gunship-2`: added
+- `ds-stormraven-gunship` `og-stormraven-gunship-3`: added
+- `ds-stormraven-gunship-2` `og-stormraven-gunship-2-1`: added
+- `ds-stormraven-gunship-2` `og-stormraven-gunship-2-2`: added
+- `ds-stormraven-gunship-2` `og-stormraven-gunship-2-3`: added
+- `ds-stormraven-gunship-3` `og-stormraven-gunship-3-1`: added
+- `ds-stormraven-gunship-3` `og-stormraven-gunship-3-2`: added
+- `ds-stormraven-gunship-3` `og-stormraven-gunship-3-3`: added
+- `ds-stormraven-gunship-4` `og-stormraven-gunship-4-1`: added
+- `ds-stormraven-gunship-4` `og-stormraven-gunship-4-2`: added
+- `ds-stormraven-gunship-4` `og-stormraven-gunship-4-3`: added
+- `ds-stormraven-gunship-5` `og-stormraven-gunship-5-1`: added
+- `ds-stormraven-gunship-5` `og-stormraven-gunship-5-2`: added
+- `ds-stormraven-gunship-5` `og-stormraven-gunship-5-3`: added
+- `ds-stormraven-gunship-6` `og-stormraven-gunship-6-1`: added
+- `ds-stormraven-gunship-6` `og-stormraven-gunship-6-2`: added
+- `ds-stormraven-gunship-6` `og-stormraven-gunship-6-3`: added
+- `ds-stormraven-gunship-7` `og-stormraven-gunship-7-1`: added
+- `ds-stormraven-gunship-7` `og-stormraven-gunship-7-2`: added
+- `ds-stormraven-gunship-7` `og-stormraven-gunship-7-3`: added
+- `ds-stormsurge` `og-stormsurge-1`: added
+- `ds-stormsurge` `og-stormsurge-2`: added
+- `ds-stormsword` `og-stormsword-1`: added
+- `ds-stormsword` `og-stormsword-2`: added
+- `ds-stormsword-2` `og-stormsword-2-1`: added
+- `ds-stormsword-2` `og-stormsword-2-2`: added
+- `ds-stormtalon-gunship` `og-stormtalon-gunship-1`: added
+- `ds-stormtalon-gunship-2` `og-stormtalon-gunship-2-1`: added
+- `ds-stormtalon-gunship-3` `og-stormtalon-gunship-3-1`: added
+- `ds-stormtalon-gunship-4` `og-stormtalon-gunship-4-1`: added
+- `ds-stormtalon-gunship-5` `og-stormtalon-gunship-5-1`: added
+- `ds-stormtalon-gunship-6` `og-stormtalon-gunship-6-1`: added
+- `ds-stormtalon-gunship-7` `og-stormtalon-gunship-7-1`: added
+- `ds-strike-squad` `og-strike-squad-1`: added
+- `ds-strike-team` `og-strike-team-1`: added
+- `ds-striking-scorpions` `og-striking-scorpions-1`: added
+- `ds-stygies-destroyer-tank-hunter` `og-stygies-destroyer-tank-hunter-1`: added
+- `ds-stygies-destroyer-tank-hunter` `og-stygies-destroyer-tank-hunter-2`: added
+- `ds-stygies-destroyer-tank-hunter-2` `og-stygies-destroyer-tank-hunter-2-1`: added
+- `ds-stygies-destroyer-tank-hunter-2` `og-stygies-destroyer-tank-hunter-2-2`: added
+- `ds-subductor-squad` `og-subductor-squad-1`: added
+- `ds-sun-shark-bomber` `og-sun-shark-bomber-1`: added
+- `ds-swooping-hawks` `og-swooping-hawks-1`: added
+- `ds-sword-brethren-squad` `og-sword-brethren-squad-2`: added
+- `ds-sword-brethren-squad` `og-sword-brethren-squad-3`: added
+- `ds-sword-brethren-squad` `og-sword-brethren-squad-5`: added
+- `ds-sydonian-skatros` `og-sydonian-skatros-1`: added
+- `ds-tactical-squad` `og-tactical-squad-1`: added
+- `ds-tactical-squad` `og-tactical-squad-2`: added
+- `ds-tactical-squad` `og-tactical-squad-3`: added
+- `ds-tactical-squad-2` `og-tactical-squad-2-1`: added
+- `ds-tactical-squad-2` `og-tactical-squad-2-2`: added
+- `ds-tactical-squad-2` `og-tactical-squad-2-3`: added
+- `ds-tactical-squad-3` `og-tactical-squad-3-1`: added
+- `ds-tactical-squad-3` `og-tactical-squad-3-2`: added
+- `ds-tactical-squad-3` `og-tactical-squad-3-3`: added
+- `ds-tactical-squad-4` `og-tactical-squad-4-1`: added
+- `ds-tactical-squad-4` `og-tactical-squad-4-2`: added
+- `ds-tactical-squad-4` `og-tactical-squad-4-3`: added
+- `ds-tankbustas` `og-tankbustas-1`: added
+- `ds-taunar-supremacy-armour` `og-taunar-supremacy-armour-1`: added
+- `ds-taunar-supremacy-armour` `og-taunar-supremacy-armour-2`: added
+- `ds-taunar-supremacy-armour` `og-taunar-supremacy-armour-3`: added
+- `ds-tauros-assault-vehicle` `og-tauros-assault-vehicle-1`: added
+- `ds-tauros-assault-vehicle` `og-tauros-assault-vehicle-2`: added
+- `ds-tauros-assault-vehicle-2` `og-tauros-assault-vehicle-2-1`: added
+- `ds-tauros-assault-vehicle-2` `og-tauros-assault-vehicle-2-2`: added
+- `ds-tauros-venator` `og-tauros-venator-1`: added
+- `ds-tauros-venator` `og-tauros-venator-2`: added
+- `ds-tauros-venator-2` `og-tauros-venator-2-1`: added
+- `ds-tauros-venator-2` `og-tauros-venator-2-2`: added
+- `ds-taurox` `og-taurox-1`: added
+- `ds-taurox-2` `og-taurox-2-1`: added
+- `ds-taurox-prime` `og-taurox-prime-1`: added
+- `ds-taurox-prime` `og-taurox-prime-2`: added
+- `ds-taurox-prime` `og-taurox-prime-3`: added
+- `ds-taurox-prime-2` `og-taurox-prime-2-1`: added
+- `ds-taurox-prime-2` `og-taurox-prime-2-2`: added
+- `ds-taurox-prime-2` `og-taurox-prime-2-3`: added
+- `ds-tech-priest-dominus` `og-tech-priest-dominus-1`: added
+- `ds-tech-priest-dominus` `og-tech-priest-dominus-2`: added
+- `ds-tech-priest-dominus-2` `og-tech-priest-dominus-2-1`: added
+- `ds-tech-priest-dominus-2` `og-tech-priest-dominus-2-2`: added
+- `ds-tech-priest-manipulus` `og-tech-priest-manipulus-1`: added
+- `ds-tech-priest-manipulus-2` `og-tech-priest-manipulus-2-1`: added
+- `ds-techmarine-on-bike` `og-techmarine-on-bike-1`: added
+- `ds-techmarine-on-bike` `og-techmarine-on-bike-2`: added
+- `ds-telemon-heavy-dreadnought` `og-telemon-heavy-dreadnought-1`: added
+- `ds-tempestus-aquilons` `og-tempestus-aquilons-1`: added
+- `ds-tempestus-aquilons` `og-tempestus-aquilons-2`: added
+- `ds-tempestus-aquilons` `og-tempestus-aquilons-3`: added
+- `ds-tempestus-scions` `og-tempestus-scions-2`: added
+- `ds-tempestus-scions` `og-tempestus-scions-3`: added
+- `ds-tempestus-scions` `og-tempestus-scions-4`: added
+- `ds-termagants` `og-termagants-3`: added
+- `ds-termagants` `og-termagants-4`: added
+- `ds-termagants` `og-termagants-5`: added
+- `ds-terminator-squad` `og-terminator-squad-1`: added
+- `ds-terminator-squad` `og-terminator-squad-3`: added
+- `ds-terminator-squad-2` `og-terminator-squad-2-1`: added
+- `ds-terminator-squad-2` `og-terminator-squad-2-3`: added
+- `ds-terminator-squad-3` `og-terminator-squad-3-1`: added
+- `ds-terminator-squad-3` `og-terminator-squad-3-3`: added
+- `ds-terminator-squad-4` `og-terminator-squad-4-1`: added
+- `ds-terminator-squad-4` `og-terminator-squad-4-3`: added
+- `ds-terminator-squad-5` `og-terminator-squad-5-1`: added
+- `ds-terminator-squad-5` `og-terminator-squad-5-3`: added
+- `ds-terminus-ultra` `og-terminus-ultra-1`: added
+- `ds-terminus-ultra` `og-terminus-ultra-2`: added
+- `ds-terminus-ultra` `og-terminus-ultra-3`: added
+- `ds-terrax-pattern-termite` `og-terrax-pattern-termite-1`: added
+- `ds-terrax-pattern-termite-2` `og-terrax-pattern-termite-2-1`: added
+- `ds-terrax-pattern-termite-3` `og-terrax-pattern-termite-3-1`: added
+- `ds-terrax-pattern-termite-4` `og-terrax-pattern-termite-4-1`: added
+- `ds-terrax-pattern-termite-5` `og-terrax-pattern-termite-5-1`: added
+- `ds-terrax-pattern-termite-6` `og-terrax-pattern-termite-6-1`: added
+- `ds-tervigon` `og-tervigon-1`: added
+- `ds-tesseract-ark` `og-tesseract-ark-1`: added
+- `ds-thunderhawk-gunship` `og-thunderhawk-gunship-1`: added
+- `ds-thunderhawk-gunship` `og-thunderhawk-gunship-2`: added
+- `ds-thunderhawk-gunship-2` `og-thunderhawk-gunship-2-1`: added
+- `ds-thunderhawk-gunship-2` `og-thunderhawk-gunship-2-2`: added
+- `ds-thunderhawk-gunship-3` `og-thunderhawk-gunship-3-1`: added
+- `ds-thunderhawk-gunship-3` `og-thunderhawk-gunship-3-2`: added
+- `ds-thunderhawk-gunship-4` `og-thunderhawk-gunship-4-1`: added
+- `ds-thunderhawk-gunship-4` `og-thunderhawk-gunship-4-2`: added
+- `ds-thunderhawk-gunship-5` `og-thunderhawk-gunship-5-1`: added
+- `ds-thunderhawk-gunship-5` `og-thunderhawk-gunship-5-2`: added
+- `ds-thunderhawk-gunship-6` `og-thunderhawk-gunship-6-1`: added
+- `ds-thunderhawk-gunship-6` `og-thunderhawk-gunship-6-2`: added
+- `ds-thunderwolf-cavalry` `og-thunderwolf-cavalry-2`: added
+- `ds-tidewall-shieldline` `og-tidewall-shieldline-1`: added
+- `ds-tiger-shark` `og-tiger-shark-1`: added
+- `ds-tiger-shark` `og-tiger-shark-2`: added
+- `ds-tiger-shark` `og-tiger-shark-3`: added
+- `ds-tiger-shark` `og-tiger-shark-4`: added
+- `ds-tormentors` `og-tormentors-1`: added
+- `ds-tormentors` `og-tormentors-2`: added
+- `ds-tormentors` `og-tormentors-3`: added
+- `ds-tormentors` `og-tormentors-4`: added
+- `ds-tormentors` `og-tormentors-5`: added
+- `ds-traitor-guardsmen-squad` `og-traitor-guardsmen-squad-2`: added
+- `ds-traitor-guardsmen-squad` `og-traitor-guardsmen-squad-3`: added
+- `ds-traitor-guardsmen-squad-2` `og-traitor-guardsmen-squad-2-2`: added
+- `ds-traitor-guardsmen-squad-2` `og-traitor-guardsmen-squad-2-3`: added
+- `ds-traitor-guardsmen-squad-3` `og-traitor-guardsmen-squad-3-2`: added
+- `ds-traitor-guardsmen-squad-3` `og-traitor-guardsmen-squad-3-3`: added
+- `ds-triarch-stalker` `og-triarch-stalker-1`: added
+- `ds-trojan-support-vehicle` `og-trojan-support-vehicle-1`: added
+- `ds-trojan-support-vehicle` `og-trojan-support-vehicle-2`: added
+- `ds-trojan-support-vehicle-2` `og-trojan-support-vehicle-2-1`: added
+- `ds-trojan-support-vehicle-2` `og-trojan-support-vehicle-2-2`: added
+- `ds-troupe` `og-troupe-2`: added
+- `ds-troupe-2` `og-troupe-2-2`: added
+- `ds-troupe-master` `og-troupe-master-1`: added
+- `ds-troupe-master` `og-troupe-master-2`: added
+- `ds-troupe-master-2` `og-troupe-master-2-1`: added
+- `ds-troupe-master-2` `og-troupe-master-2-2`: added
+- `ds-trukk` `og-trukk-1`: added
+- `ds-tx42-piranha` `og-tx42-piranha-1`: added
+- `ds-typhon` `og-typhon-1`: added
+- `ds-typhon` `og-typhon-2`: added
+- `ds-typhon-2` `og-typhon-2-1`: added
+- `ds-typhon-2` `og-typhon-2-2`: added
+- `ds-typhon-3` `og-typhon-3-1`: added
+- `ds-typhon-3` `og-typhon-3-2`: added
+- `ds-typhon-4` `og-typhon-4-1`: added
+- `ds-typhon-4` `og-typhon-4-2`: added
+- `ds-typhon-5` `og-typhon-5-1`: added
+- `ds-typhon-5` `og-typhon-5-2`: added
+- `ds-tyranid-warriors-with-ranged-bio-weapons` `og-tyranid-warriors-with-ranged-bio-weapons-2`: added
+- `ds-tyranid-warriors-with-ranged-bio-weapons` `og-tyranid-warriors-with-ranged-bio-weapons-3`: added
+- `ds-tyrannofex` `og-tyrannofex-1`: added
+- `ds-tzaangors` `og-tzaangors-2`: added
+- `ds-tzaangors` `og-tzaangors-3`: added
+- `ds-valdor` `og-valdor-1`: added
+- `ds-valdor` `og-valdor-2`: added
+- `ds-valdor` `og-valdor-3`: added
+- `ds-valdor-2` `og-valdor-2-1`: added
+- `ds-valdor-2` `og-valdor-2-2`: added
+- `ds-valdor-2` `og-valdor-2-3`: added
+- `ds-valkyrie` `og-valkyrie-1`: added
+- `ds-valkyrie` `og-valkyrie-2`: added
+- `ds-valkyrie` `og-valkyrie-3`: added
+- `ds-valkyrie-sky-talon` `og-valkyrie-sky-talon-1`: added
+- `ds-vendetta-gunship` `og-vendetta-gunship-1`: added
+- `ds-vendetta-gunship` `og-vendetta-gunship-2`: added
+- `ds-venerable-contemptor-dreadnought` `og-venerable-contemptor-dreadnought-1`: added
+- `ds-venerable-dreadnought` `og-venerable-dreadnought-1`: added
+- `ds-venerable-dreadnought` `og-venerable-dreadnought-2`: added
+- `ds-venerable-dreadnought-2` `og-venerable-dreadnought-2-1`: added
+- `ds-venerable-dreadnought-2` `og-venerable-dreadnought-2-2`: added
+- `ds-venerable-dreadnought-2` `og-venerable-dreadnought-2-3`: added
+- `ds-venerable-dreadnought-3` `og-venerable-dreadnought-3-1`: added
+- `ds-venerable-dreadnought-3` `og-venerable-dreadnought-3-2`: added
+- `ds-venerable-land-raider` `og-venerable-land-raider-1`: added
+- `ds-venerable-land-raider` `og-venerable-land-raider-2`: added
+- `ds-venom` `og-venom-1`: added
+- `ds-veteran-bike-squad` `og-veteran-bike-squad-1`: added
+- `ds-vigilant-squad` `og-vigilant-squad-2`: added
+- `ds-vindicator` `og-vindicator-1`: added
+- `ds-vindicator` `og-vindicator-2`: added
+- `ds-vindicator-2` `og-vindicator-2-1`: added
+- `ds-vindicator-2` `og-vindicator-2-2`: added
+- `ds-vindicator-3` `og-vindicator-3-1`: added
+- `ds-vindicator-3` `og-vindicator-3-2`: added
+- `ds-vindicator-4` `og-vindicator-4-1`: added
+- `ds-vindicator-4` `og-vindicator-4-2`: added
+- `ds-vindicator-5` `og-vindicator-5-1`: added
+- `ds-vindicator-5` `og-vindicator-5-2`: added
+- `ds-vindicator-6` `og-vindicator-6-1`: added
+- `ds-vindicator-6` `og-vindicator-6-2`: added
+- `ds-vindicator-laser-destroyer` `og-vindicator-laser-destroyer-1`: added
+- `ds-voidraven-bomber` `og-voidraven-bomber-1`: added
+- `ds-voidraven-bomber` `og-voidraven-bomber-2`: added
+- `ds-voidweaver` `og-voidweaver-1`: added
+- `ds-voidweaver-2` `og-voidweaver-2-1`: added
+- `ds-voss-pattern-lightning` `og-voss-pattern-lightning-1`: added
+- `ds-vulture-gunship` `og-vulture-gunship-1`: added
+- `ds-war-dog-brigand` `og-war-dog-brigand-1`: added
+- `ds-war-dog-executioner` `og-war-dog-executioner-1`: added
+- `ds-war-dog-huntsman` `og-war-dog-huntsman-1`: added
+- `ds-war-dog-karnivore` `og-war-dog-karnivore-1`: added
+- `ds-war-dog-moirax` `og-war-dog-moirax-1`: added
+- `ds-war-dog-moirax` `og-war-dog-moirax-2`: added
+- `ds-war-dog-stalker` `og-war-dog-stalker-1`: added
+- `ds-war-dog-stalker` `og-war-dog-stalker-2`: added
+- `ds-war-dog-stalker` `og-war-dog-stalker-3`: added
+- `ds-warbikers` `og-warbikers-2`: added
+- `ds-warboss` `og-warboss-1`: added
+- `ds-warboss` `og-warboss-2`: added
+- `ds-warboss-on-warbike` `og-warboss-on-warbike-1`: added
+- `ds-warbringer-nemesis-titan` `og-warbringer-nemesis-titan-1`: added
+- `ds-warbringer-nemesis-titan` `og-warbringer-nemesis-titan-2`: added
+- `ds-warbringer-nemesis-titan` `og-warbringer-nemesis-titan-3`: added
+- `ds-warhound-titan` `og-warhound-titan-1`: added
+- `ds-warhound-titan` `og-warhound-titan-2`: added
+- `ds-warlock` `og-warlock-1`: added
+- `ds-warlord-titan` `og-warlord-titan-1`: added
+- `ds-warlord-titan` `og-warlord-titan-2`: added
+- `ds-warlord-titan` `og-warlord-titan-3`: added
+- `ds-warp-hunter` `og-warp-hunter-1`: added
+- `ds-warp-spiders` `og-warp-spiders-1`: added
+- `ds-wasp-assault-walker` `og-wasp-assault-walker-1`: added
+- `ds-wasp-assault-walker` `og-wasp-assault-walker-2`: added
+- `ds-wave-serpent` `og-wave-serpent-1`: added
+- `ds-wave-serpent` `og-wave-serpent-2`: added
+- `ds-wazbom-blastajet` `og-wazbom-blastajet-1`: added
+- `ds-wazbom-blastajet` `og-wazbom-blastajet-2`: added
+- `ds-wazbom-blastajet` `og-wazbom-blastajet-3`: added
+- `ds-whirlwind` `og-whirlwind-1`: added
+- `ds-whirlwind` `og-whirlwind-2`: added
+- `ds-whirlwind-2` `og-whirlwind-2-1`: added
+- `ds-whirlwind-2` `og-whirlwind-2-2`: added
+- `ds-whirlwind-3` `og-whirlwind-3-1`: added
+- `ds-whirlwind-3` `og-whirlwind-3-2`: added
+- `ds-whirlwind-4` `og-whirlwind-4-1`: added
+- `ds-whirlwind-4` `og-whirlwind-4-2`: added
+- `ds-whirlwind-5` `og-whirlwind-5-1`: added
+- `ds-whirlwind-5` `og-whirlwind-5-2`: added
+- `ds-whirlwind-6` `og-whirlwind-6-1`: added
+- `ds-whirlwind-6` `og-whirlwind-6-2`: added
+- `ds-whirlwind-scorpius` `og-whirlwind-scorpius-1`: added
+- `ds-whirlwind-scorpius` `og-whirlwind-scorpius-2`: added
+- `ds-whirlwind-scorpius-2` `og-whirlwind-scorpius-2-1`: added
+- `ds-whirlwind-scorpius-2` `og-whirlwind-scorpius-2-2`: added
+- `ds-whirlwind-scorpius-3` `og-whirlwind-scorpius-3-1`: added
+- `ds-whirlwind-scorpius-3` `og-whirlwind-scorpius-3-2`: added
+- `ds-whirlwind-scorpius-4` `og-whirlwind-scorpius-4-1`: added
+- `ds-whirlwind-scorpius-4` `og-whirlwind-scorpius-4-2`: added
+- `ds-whirlwind-scorpius-5` `og-whirlwind-scorpius-5-1`: added
+- `ds-whirlwind-scorpius-5` `og-whirlwind-scorpius-5-2`: added
+- `ds-winged-hive-tyrant` `og-winged-hive-tyrant-1`: added
+- `ds-winged-hive-tyrant-2` `og-winged-hive-tyrant-2-1`: added
+- `ds-wolf-guard-battle-leader` `og-wolf-guard-battle-leader-1`: added
+- `ds-wolf-guard-battle-leader` `og-wolf-guard-battle-leader-2`: added
+- `ds-wolf-guard-battle-leader-in-terminator-armour` `og-wolf-guard-battle-leader-in-terminator-armour-1`: added
+- `ds-wolf-guard-battle-leader-in-terminator-armour` `og-wolf-guard-battle-leader-in-terminator-armour-2`: added
+- `ds-wolf-guard-battle-leader-in-terminator-armour` `og-wolf-guard-battle-leader-in-terminator-armour-3`: added
+- `ds-wolf-guard-battle-leader-on-thunderwolf` `og-wolf-guard-battle-leader-on-thunderwolf-1`: added
+- `ds-wolf-guard-battle-leader-on-thunderwolf` `og-wolf-guard-battle-leader-on-thunderwolf-2`: added
+- `ds-wolf-guard-battle-leader-on-thunderwolf` `og-wolf-guard-battle-leader-on-thunderwolf-3`: added
+- `ds-wolf-guard-pack-leader` `og-wolf-guard-pack-leader-1`: added
+- `ds-wolf-guard-pack-leader` `og-wolf-guard-pack-leader-2`: added
+- `ds-wolf-guard-pack-leader-in-terminator-armour` `og-wolf-guard-pack-leader-in-terminator-armour-1`: added
+- `ds-wolf-guard-pack-leader-in-terminator-armour` `og-wolf-guard-pack-leader-in-terminator-armour-2`: added
+- `ds-wolf-guard-pack-leader-in-terminator-armour` `og-wolf-guard-pack-leader-in-terminator-armour-3`: added
+- `ds-wolf-guard-pack-leader-with-jump-pack` `og-wolf-guard-pack-leader-with-jump-pack-1`: added
+- `ds-wolf-guard-pack-leader-with-jump-pack` `og-wolf-guard-pack-leader-with-jump-pack-2`: added
+- `ds-wolf-guard-terminators` `og-wolf-guard-terminators-3`: added
+- `ds-wolf-lord-on-thunderwolf` `og-wolf-lord-on-thunderwolf-1`: added
+- `ds-wolf-lord-on-thunderwolf` `og-wolf-lord-on-thunderwolf-2`: added
+- `ds-wolf-lord-on-thunderwolf` `og-wolf-lord-on-thunderwolf-3`: added
+- `ds-wolf-scouts` `og-wolf-scouts-1`: added
+- `ds-wolf-scouts` `og-wolf-scouts-2`: added
+- `ds-wolf-scouts` `og-wolf-scouts-3`: added
+- `ds-wracks` `og-wracks-2`: added
+- `ds-wraithknight` `og-wraithknight-1`: added
+- `ds-wraithknight` `og-wraithknight-2`: added
+- `ds-wraithknight` `og-wraithknight-3`: added
+- `ds-wraithknight-with-ghostglaive` `og-wraithknight-with-ghostglaive-1`: added
+- `ds-wraithknight-with-ghostglaive` `og-wraithknight-with-ghostglaive-2`: added
+- `ds-wraithlord` `og-wraithlord-2`: added
+- `ds-wraithlord` `og-wraithlord-3`: added
+- `ds-wraithseer` `og-wraithseer-1`: added
+- `ds-wulfen-dreadnought` `og-wulfen-dreadnought-1`: added
+- `ds-wyches` `og-wyches-1`: added
+- `ds-wyches` `og-wyches-2`: added
+- `ds-wyvern` `og-wyvern-1`: added
+- `ds-wyvern` `og-wyvern-2`: added
+- `ds-wyvern-2` `og-wyvern-2-1`: added
+- `ds-wyvern-2` `og-wyvern-2-2`: added
+- `ds-ynnari-archon` `og-ynnari-archon-1`: added
+- `ds-ynnari-incubi` `og-ynnari-incubi-1`: added
+- `ds-ynnari-kabalite-warriors` `og-ynnari-kabalite-warriors-1`: added
+- `ds-ynnari-kabalite-warriors` `og-ynnari-kabalite-warriors-2`: added
+- `ds-ynnari-kabalite-warriors` `og-ynnari-kabalite-warriors-3`: added
+- `ds-ynnari-kabalite-warriors` `og-ynnari-kabalite-warriors-4`: added
+- `ds-ynnari-kabalite-warriors` `og-ynnari-kabalite-warriors-5`: added
+- `ds-ynnari-kabalite-warriors` `og-ynnari-kabalite-warriors-6`: added
+- `ds-ynnari-kabalite-warriors` `og-ynnari-kabalite-warriors-7`: added
+- `ds-ynnari-raider` `og-ynnari-raider-1`: added
+- `ds-ynnari-reavers` `og-ynnari-reavers-1`: added
+- `ds-ynnari-reavers` `og-ynnari-reavers-2`: added
+- `ds-ynnari-reavers` `og-ynnari-reavers-3`: added
+- `ds-ynnari-succubus` `og-ynnari-succubus-1`: added
+- `ds-ynnari-venom` `og-ynnari-venom-1`: added
+- `ds-ynnari-wyches` `og-ynnari-wyches-1`: added
+- `ds-yvahra-battlesuit` `og-yvahra-battlesuit-1`: added
+- `ds-zephyrim-squad` `og-zephyrim-squad-1`: added
+- `ds-zephyrim-squad` `og-zephyrim-squad-2`: added
+
+## Wargear option choices
+
+- `ds-acastus-knight-porphyrion` `oc-acastus-knight-porphyrion-1-1`: added (absent → unpriced)
+- `ds-acastus-knight-porphyrion` `oc-acastus-knight-porphyrion-1-2`: added (absent → unpriced)
+- `ds-acastus-knight-porphyrion` `oc-acastus-knight-porphyrion-2-1`: added (absent → unpriced)
+- `ds-acolyte-hybrids-with-autopistols` `oc-acolyte-hybrids-with-autopistols-3-1`: added (absent → unpriced)
+- `ds-acolyte-hybrids-with-hand-flamers` `oc-acolyte-hybrids-with-hand-flamers-3-1`: added (absent → unpriced)
+- `ds-allarus-custodians` `oc-allarus-custodians-2-1`: added (absent → unpriced)
+- `ds-anathema-psykana-rhino` `oc-anathema-psykana-rhino-1-1`: added (absent → unpriced)
+- `ds-ancient` `oc-ancient-1-1`: added (absent → unpriced)
+- `ds-ancient-2` `oc-ancient-2-1-1`: added (absent → unpriced)
+- `ds-ancient-3` `oc-ancient-3-1-1`: added (absent → unpriced)
+- `ds-ancient-4` `oc-ancient-4-1-1`: added (absent → unpriced)
+- `ds-ancient-5` `oc-ancient-5-1-1`: added (absent → unpriced)
+- `ds-ancient-6` `oc-ancient-6-1-1`: added (absent → unpriced)
+- `ds-ancient-in-terminator-armour` `oc-ancient-in-terminator-armour-1-1`: added (absent → unpriced)
+- `ds-ancient-in-terminator-armour` `oc-ancient-in-terminator-armour-1-2`: added (absent → unpriced)
+- `ds-ancient-in-terminator-armour` `oc-ancient-in-terminator-armour-1-3`: added (absent → unpriced)
+- `ds-ancient-in-terminator-armour` `oc-ancient-in-terminator-armour-1-4`: added (absent → unpriced)
+- `ds-ancient-in-terminator-armour` `oc-ancient-in-terminator-armour-2-1`: added (absent → unpriced)
+- `ds-ancient-in-terminator-armour` `oc-ancient-in-terminator-armour-2-2`: added (absent → unpriced)
+- `ds-ancient-in-terminator-armour-2` `oc-ancient-in-terminator-armour-2-1-1`: added (absent → unpriced)
+- `ds-ancient-in-terminator-armour-2` `oc-ancient-in-terminator-armour-2-1-2`: added (absent → unpriced)
+- `ds-ancient-in-terminator-armour-2` `oc-ancient-in-terminator-armour-2-1-3`: added (absent → unpriced)
+- `ds-ancient-in-terminator-armour-2` `oc-ancient-in-terminator-armour-2-1-4`: added (absent → unpriced)
+- `ds-ancient-in-terminator-armour-2` `oc-ancient-in-terminator-armour-2-2-1`: added (absent → unpriced)
+- `ds-ancient-in-terminator-armour-2` `oc-ancient-in-terminator-armour-2-2-2`: added (absent → unpriced)
+- `ds-ancient-in-terminator-armour-3` `oc-ancient-in-terminator-armour-3-1-1`: added (absent → unpriced)
+- `ds-ancient-in-terminator-armour-3` `oc-ancient-in-terminator-armour-3-1-2`: added (absent → unpriced)
+- `ds-ancient-in-terminator-armour-3` `oc-ancient-in-terminator-armour-3-1-3`: added (absent → unpriced)
+- `ds-ancient-in-terminator-armour-3` `oc-ancient-in-terminator-armour-3-1-4`: added (absent → unpriced)
+- `ds-ancient-in-terminator-armour-3` `oc-ancient-in-terminator-armour-3-2-1`: added (absent → unpriced)
+- `ds-ancient-in-terminator-armour-3` `oc-ancient-in-terminator-armour-3-2-2`: added (absent → unpriced)
+- `ds-ancient-in-terminator-armour-4` `oc-ancient-in-terminator-armour-4-1-1`: added (absent → unpriced)
+- `ds-ancient-in-terminator-armour-4` `oc-ancient-in-terminator-armour-4-1-2`: added (absent → unpriced)
+- `ds-ancient-in-terminator-armour-4` `oc-ancient-in-terminator-armour-4-1-3`: added (absent → unpriced)
+- `ds-ancient-in-terminator-armour-4` `oc-ancient-in-terminator-armour-4-1-4`: added (absent → unpriced)
+- `ds-ancient-in-terminator-armour-4` `oc-ancient-in-terminator-armour-4-2-1`: added (absent → unpriced)
+- `ds-ancient-in-terminator-armour-4` `oc-ancient-in-terminator-armour-4-2-2`: added (absent → unpriced)
+- `ds-ancient-in-terminator-armour-5` `oc-ancient-in-terminator-armour-5-1-1`: added (absent → unpriced)
+- `ds-ancient-in-terminator-armour-5` `oc-ancient-in-terminator-armour-5-1-2`: added (absent → unpriced)
+- `ds-ancient-in-terminator-armour-5` `oc-ancient-in-terminator-armour-5-1-3`: added (absent → unpriced)
+- `ds-ancient-in-terminator-armour-5` `oc-ancient-in-terminator-armour-5-1-4`: added (absent → unpriced)
+- `ds-ancient-in-terminator-armour-5` `oc-ancient-in-terminator-armour-5-2-1`: added (absent → unpriced)
+- `ds-ancient-in-terminator-armour-5` `oc-ancient-in-terminator-armour-5-2-2`: added (absent → unpriced)
+- `ds-ancient-in-terminator-armour-6` `oc-ancient-in-terminator-armour-6-1-1`: added (absent → unpriced)
+- `ds-ancient-in-terminator-armour-6` `oc-ancient-in-terminator-armour-6-1-2`: added (absent → unpriced)
+- `ds-ancient-in-terminator-armour-6` `oc-ancient-in-terminator-armour-6-1-3`: added (absent → unpriced)
+- `ds-ancient-in-terminator-armour-6` `oc-ancient-in-terminator-armour-6-1-4`: added (absent → unpriced)
+- `ds-ancient-in-terminator-armour-6` `oc-ancient-in-terminator-armour-6-2-1`: added (absent → unpriced)
+- `ds-ancient-in-terminator-armour-6` `oc-ancient-in-terminator-armour-6-2-2`: added (absent → unpriced)
+- `ds-ancient-on-bike` `oc-ancient-on-bike-1-1`: added (absent → unpriced)
+- `ds-ancient-on-bike` `oc-ancient-on-bike-1-2`: added (absent → unpriced)
+- `ds-ancient-on-bike` `oc-ancient-on-bike-1-3`: added (absent → unpriced)
+- `ds-ancient-on-bike` `oc-ancient-on-bike-1-4`: added (absent → unpriced)
+- `ds-ancient-on-bike` `oc-ancient-on-bike-1-5`: added (absent → unpriced)
+- `ds-ancient-on-bike` `oc-ancient-on-bike-1-6`: added (absent → unpriced)
+- `ds-ancient-on-bike` `oc-ancient-on-bike-1-7`: added (absent → unpriced)
+- `ds-ancient-on-bike` `oc-ancient-on-bike-1-8`: added (absent → unpriced)
+- `ds-annihilation-barge` `oc-annihilation-barge-1-1`: added (absent → unpriced)
+- `ds-aquila-kill-team` `oc-aquila-kill-team-1-1`: added (absent → unpriced)
+- `ds-aquila-kill-team` `oc-aquila-kill-team-1-2`: added (absent → unpriced)
+- `ds-aquila-kill-team` `oc-aquila-kill-team-2-1`: added (absent → unpriced)
+- `ds-aquila-kill-team` `oc-aquila-kill-team-3-1`: added (absent → unpriced)
+- `ds-aquila-kill-team` `oc-aquila-kill-team-4-1`: added (absent → unpriced)
+- `ds-aquila-lander` `oc-aquila-lander-1-1`: added (absent → unpriced)
+- `ds-aquila-lander` `oc-aquila-lander-1-2`: added (absent → unpriced)
+- `ds-archaeopter-fusilave` `oc-archaeopter-fusilave-1-1`: added (absent → unpriced)
+- `ds-archaeopter-stratoraptor` `oc-archaeopter-stratoraptor-1-1`: added (absent → unpriced)
+- `ds-archaeopter-transvector` `oc-archaeopter-transvector-1-1`: added (absent → unpriced)
+- `ds-archon` `oc-archon-1-1`: added (absent → unpriced)
+- `ds-archon` `oc-archon-1-2`: added (absent → unpriced)
+- `ds-archon` `oc-archon-2-1`: added (absent → unpriced)
+- `ds-archon` `oc-archon-2-2`: added (absent → unpriced)
+- `ds-arkurian-stormhammer` `oc-arkurian-stormhammer-1-1`: added (absent → unpriced)
+- `ds-arkurian-stormhammer` `oc-arkurian-stormhammer-1-2`: added (absent → unpriced)
+- `ds-arkurian-stormhammer` `oc-arkurian-stormhammer-1-3`: added (absent → unpriced)
+- `ds-arkurian-stormhammer` `oc-arkurian-stormhammer-2-1`: added (absent → unpriced)
+- `ds-arkurian-stormhammer` `oc-arkurian-stormhammer-3-1`: added (absent → unpriced)
+- `ds-arkurian-stormhammer` `oc-arkurian-stormhammer-3-2`: added (absent → unpriced)
+- `ds-arkurian-stormhammer-2` `oc-arkurian-stormhammer-2-1-1`: added (absent → unpriced)
+- `ds-arkurian-stormhammer-2` `oc-arkurian-stormhammer-2-1-2`: added (absent → unpriced)
+- `ds-arkurian-stormhammer-2` `oc-arkurian-stormhammer-2-1-3`: added (absent → unpriced)
+- `ds-arkurian-stormhammer-2` `oc-arkurian-stormhammer-2-2-1`: added (absent → unpriced)
+- `ds-arkurian-stormhammer-2` `oc-arkurian-stormhammer-2-3-1`: added (absent → unpriced)
+- `ds-arkurian-stormhammer-2` `oc-arkurian-stormhammer-2-3-2`: added (absent → unpriced)
+- `ds-armageddon-pattern-medusa` `oc-armageddon-pattern-medusa-1-1`: added (absent → unpriced)
+- `ds-armageddon-pattern-medusa` `oc-armageddon-pattern-medusa-2-1`: added (absent → unpriced)
+- `ds-armageddon-pattern-medusa` `oc-armageddon-pattern-medusa-3-1`: added (absent → unpriced)
+- `ds-armageddon-pattern-medusa` `oc-armageddon-pattern-medusa-3-2`: added (absent → unpriced)
+- `ds-armageddon-pattern-medusa-2` `oc-armageddon-pattern-medusa-2-1-1`: added (absent → unpriced)
+- `ds-armageddon-pattern-medusa-2` `oc-armageddon-pattern-medusa-2-2-1`: added (absent → unpriced)
+- `ds-armageddon-pattern-medusa-2` `oc-armageddon-pattern-medusa-2-3-1`: added (absent → unpriced)
+- `ds-armageddon-pattern-medusa-2` `oc-armageddon-pattern-medusa-2-3-2`: added (absent → unpriced)
+- `ds-armiger-helverin` `oc-armiger-helverin-1-1`: added (absent → unpriced)
+- `ds-armiger-moirax` `oc-armiger-moirax-1-1`: added (absent → unpriced)
+- `ds-armiger-moirax` `oc-armiger-moirax-1-2`: added (absent → unpriced)
+- `ds-armiger-moirax` `oc-armiger-moirax-1-3`: added (absent → unpriced)
+- `ds-armiger-moirax` `oc-armiger-moirax-1-4`: added (absent → unpriced)
+- `ds-armiger-moirax` `oc-armiger-moirax-2-1`: added (absent → unpriced)
+- `ds-armiger-moirax` `oc-armiger-moirax-2-2`: added (absent → unpriced)
+- `ds-armiger-moirax` `oc-armiger-moirax-2-3`: added (absent → unpriced)
+- `ds-armiger-moirax` `oc-armiger-moirax-2-4`: added (absent → unpriced)
+- `ds-armiger-warglaive` `oc-armiger-warglaive-1-1`: added (absent → unpriced)
+- `ds-artillery-team` `oc-artillery-team-1-1`: added (absent → unpriced)
+- `ds-artillery-team` `oc-artillery-team-1-2`: added (absent → unpriced)
+- `ds-artillery-team` `oc-artillery-team-1-3`: added (absent → unpriced)
+- `ds-artillery-team-2` `oc-artillery-team-2-1-1`: added (absent → unpriced)
+- `ds-artillery-team-2` `oc-artillery-team-2-1-2`: added (absent → unpriced)
+- `ds-artillery-team-2` `oc-artillery-team-2-1-3`: added (absent → unpriced)
+- `ds-assault-intercessor-squad` `oc-assault-intercessor-squad-1-1`: added (absent → unpriced)
+- `ds-assault-intercessor-squad` `oc-assault-intercessor-squad-1-2`: added (absent → unpriced)
+- `ds-assault-intercessor-squad` `oc-assault-intercessor-squad-2-1`: added (absent → unpriced)
+- `ds-assault-intercessor-squad` `oc-assault-intercessor-squad-2-2`: added (absent → unpriced)
+- `ds-assault-intercessor-squad` `oc-assault-intercessor-squad-2-3`: added (absent → unpriced)
+- `ds-assault-intercessor-squad-2` `oc-assault-intercessor-squad-2-1-1`: added (absent → unpriced)
+- `ds-assault-intercessor-squad-2` `oc-assault-intercessor-squad-2-1-2`: added (absent → unpriced)
+- `ds-assault-intercessor-squad-2` `oc-assault-intercessor-squad-2-2-1`: added (absent → unpriced)
+- `ds-assault-intercessor-squad-2` `oc-assault-intercessor-squad-2-2-2`: added (absent → unpriced)
+- `ds-assault-intercessor-squad-2` `oc-assault-intercessor-squad-2-2-3`: added (absent → unpriced)
+- `ds-assault-intercessor-squad-3` `oc-assault-intercessor-squad-3-1-1`: added (absent → unpriced)
+- `ds-assault-intercessor-squad-3` `oc-assault-intercessor-squad-3-1-2`: added (absent → unpriced)
+- `ds-assault-intercessor-squad-3` `oc-assault-intercessor-squad-3-2-1`: added (absent → unpriced)
+- `ds-assault-intercessor-squad-3` `oc-assault-intercessor-squad-3-2-2`: added (absent → unpriced)
+- `ds-assault-intercessor-squad-3` `oc-assault-intercessor-squad-3-2-3`: added (absent → unpriced)
+- `ds-assault-intercessor-squad-4` `oc-assault-intercessor-squad-4-1-1`: added (absent → unpriced)
+- `ds-assault-intercessor-squad-4` `oc-assault-intercessor-squad-4-1-2`: added (absent → unpriced)
+- `ds-assault-intercessor-squad-4` `oc-assault-intercessor-squad-4-2-1`: added (absent → unpriced)
+- `ds-assault-intercessor-squad-4` `oc-assault-intercessor-squad-4-2-2`: added (absent → unpriced)
+- `ds-assault-intercessor-squad-4` `oc-assault-intercessor-squad-4-2-3`: added (absent → unpriced)
+- `ds-assault-intercessor-squad-5` `oc-assault-intercessor-squad-5-1-1`: added (absent → unpriced)
+- `ds-assault-intercessor-squad-5` `oc-assault-intercessor-squad-5-1-2`: added (absent → unpriced)
+- `ds-assault-intercessor-squad-5` `oc-assault-intercessor-squad-5-2-1`: added (absent → unpriced)
+- `ds-assault-intercessor-squad-5` `oc-assault-intercessor-squad-5-2-2`: added (absent → unpriced)
+- `ds-assault-intercessor-squad-5` `oc-assault-intercessor-squad-5-2-3`: added (absent → unpriced)
+- `ds-assault-intercessor-squad-6` `oc-assault-intercessor-squad-6-1-1`: added (absent → unpriced)
+- `ds-assault-intercessor-squad-6` `oc-assault-intercessor-squad-6-1-2`: added (absent → unpriced)
+- `ds-assault-intercessor-squad-6` `oc-assault-intercessor-squad-6-2-1`: added (absent → unpriced)
+- `ds-assault-intercessor-squad-6` `oc-assault-intercessor-squad-6-2-2`: added (absent → unpriced)
+- `ds-assault-intercessor-squad-6` `oc-assault-intercessor-squad-6-2-3`: added (absent → unpriced)
+- `ds-assault-intercessors-with-jump-packs` `oc-assault-intercessors-with-jump-packs-1-1`: added (absent → unpriced)
+- `ds-assault-intercessors-with-jump-packs` `oc-assault-intercessors-with-jump-packs-2-1`: added (absent → unpriced)
+- `ds-assault-intercessors-with-jump-packs` `oc-assault-intercessors-with-jump-packs-2-2`: added (absent → unpriced)
+- `ds-assault-intercessors-with-jump-packs` `oc-assault-intercessors-with-jump-packs-3-1`: added (absent → unpriced)
+- `ds-assault-intercessors-with-jump-packs` `oc-assault-intercessors-with-jump-packs-3-2`: added (absent → unpriced)
+- `ds-assault-intercessors-with-jump-packs-2` `oc-assault-intercessors-with-jump-packs-2-1-1`: added (absent → unpriced)
+- `ds-assault-intercessors-with-jump-packs-2` `oc-assault-intercessors-with-jump-packs-2-2-1`: added (absent → unpriced)
+- `ds-assault-intercessors-with-jump-packs-2` `oc-assault-intercessors-with-jump-packs-2-2-2`: added (absent → unpriced)
+- `ds-assault-intercessors-with-jump-packs-2` `oc-assault-intercessors-with-jump-packs-2-3-1`: added (absent → unpriced)
+- `ds-assault-intercessors-with-jump-packs-2` `oc-assault-intercessors-with-jump-packs-2-3-2`: added (absent → unpriced)
+- `ds-assault-intercessors-with-jump-packs-3` `oc-assault-intercessors-with-jump-packs-3-1-1`: added (absent → unpriced)
+- `ds-assault-intercessors-with-jump-packs-3` `oc-assault-intercessors-with-jump-packs-3-2-1`: added (absent → unpriced)
+- `ds-assault-intercessors-with-jump-packs-3` `oc-assault-intercessors-with-jump-packs-3-2-2`: added (absent → unpriced)
+- `ds-assault-intercessors-with-jump-packs-3` `oc-assault-intercessors-with-jump-packs-3-3-1`: added (absent → unpriced)
+- `ds-assault-intercessors-with-jump-packs-3` `oc-assault-intercessors-with-jump-packs-3-3-2`: added (absent → unpriced)
+- `ds-assault-intercessors-with-jump-packs-4` `oc-assault-intercessors-with-jump-packs-4-1-1`: added (absent → unpriced)
+- `ds-assault-intercessors-with-jump-packs-4` `oc-assault-intercessors-with-jump-packs-4-2-1`: added (absent → unpriced)
+- `ds-assault-intercessors-with-jump-packs-4` `oc-assault-intercessors-with-jump-packs-4-2-2`: added (absent → unpriced)
+- `ds-assault-intercessors-with-jump-packs-4` `oc-assault-intercessors-with-jump-packs-4-3-1`: added (absent → unpriced)
+- `ds-assault-intercessors-with-jump-packs-4` `oc-assault-intercessors-with-jump-packs-4-3-2`: added (absent → unpriced)
+- `ds-assault-intercessors-with-jump-packs-5` `oc-assault-intercessors-with-jump-packs-5-1-1`: added (absent → unpriced)
+- `ds-assault-intercessors-with-jump-packs-5` `oc-assault-intercessors-with-jump-packs-5-2-1`: added (absent → unpriced)
+- `ds-assault-intercessors-with-jump-packs-5` `oc-assault-intercessors-with-jump-packs-5-2-2`: added (absent → unpriced)
+- `ds-assault-intercessors-with-jump-packs-5` `oc-assault-intercessors-with-jump-packs-5-3-1`: added (absent → unpriced)
+- `ds-assault-intercessors-with-jump-packs-5` `oc-assault-intercessors-with-jump-packs-5-3-2`: added (absent → unpriced)
+- `ds-assault-intercessors-with-jump-packs-6` `oc-assault-intercessors-with-jump-packs-6-1-1`: added (absent → unpriced)
+- `ds-assault-intercessors-with-jump-packs-6` `oc-assault-intercessors-with-jump-packs-6-2-1`: added (absent → unpriced)
+- `ds-assault-intercessors-with-jump-packs-6` `oc-assault-intercessors-with-jump-packs-6-2-2`: added (absent → unpriced)
+- `ds-assault-intercessors-with-jump-packs-6` `oc-assault-intercessors-with-jump-packs-6-3-1`: added (absent → unpriced)
+- `ds-assault-intercessors-with-jump-packs-6` `oc-assault-intercessors-with-jump-packs-6-3-2`: added (absent → unpriced)
+- `ds-assault-squad` `oc-assault-squad-1-1`: added (absent → unpriced)
+- `ds-assault-squad` `oc-assault-squad-1-2`: added (absent → unpriced)
+- `ds-assault-squad` `oc-assault-squad-1-3`: added (absent → unpriced)
+- `ds-assault-squad` `oc-assault-squad-1-4`: added (absent → unpriced)
+- `ds-assault-squad` `oc-assault-squad-2-1`: added (absent → unpriced)
+- `ds-assault-squad` `oc-assault-squad-2-2`: added (absent → unpriced)
+- `ds-assault-squad` `oc-assault-squad-2-3`: added (absent → unpriced)
+- `ds-assault-squad` `oc-assault-squad-5-1`: added (absent → unpriced)
+- `ds-assault-squad-with-jump-packs` `oc-assault-squad-with-jump-packs-1-1`: added (absent → unpriced)
+- `ds-assault-squad-with-jump-packs` `oc-assault-squad-with-jump-packs-1-2`: added (absent → unpriced)
+- `ds-assault-squad-with-jump-packs` `oc-assault-squad-with-jump-packs-1-3`: added (absent → unpriced)
+- `ds-assault-squad-with-jump-packs` `oc-assault-squad-with-jump-packs-1-4`: added (absent → unpriced)
+- `ds-assault-squad-with-jump-packs` `oc-assault-squad-with-jump-packs-2-1`: added (absent → unpriced)
+- `ds-assault-squad-with-jump-packs` `oc-assault-squad-with-jump-packs-2-2`: added (absent → unpriced)
+- `ds-assault-squad-with-jump-packs` `oc-assault-squad-with-jump-packs-2-3`: added (absent → unpriced)
+- `ds-assault-squad-with-jump-packs` `oc-assault-squad-with-jump-packs-5-1`: added (absent → unpriced)
+- `ds-astraeus` `oc-astraeus-1-1`: added (absent → unpriced)
+- `ds-astraeus` `oc-astraeus-2-1`: added (absent → unpriced)
+- `ds-astraeus` `oc-astraeus-3-1`: added (absent → unpriced)
+- `ds-astraeus-2` `oc-astraeus-2-1-1`: added (absent → unpriced)
+- `ds-astraeus-2` `oc-astraeus-2-2-1`: added (absent → unpriced)
+- `ds-astraeus-2` `oc-astraeus-2-3-1`: added (absent → unpriced)
+- `ds-astraeus-3` `oc-astraeus-3-1-1`: added (absent → unpriced)
+- `ds-astraeus-3` `oc-astraeus-3-2-1`: added (absent → unpriced)
+- `ds-astraeus-3` `oc-astraeus-3-3-1`: added (absent → unpriced)
+- `ds-astraeus-4` `oc-astraeus-4-1-1`: added (absent → unpriced)
+- `ds-astraeus-4` `oc-astraeus-4-2-1`: added (absent → unpriced)
+- `ds-astraeus-4` `oc-astraeus-4-3-1`: added (absent → unpriced)
+- `ds-astraeus-5` `oc-astraeus-5-1-1`: added (absent → unpriced)
+- `ds-astraeus-5` `oc-astraeus-5-2-1`: added (absent → unpriced)
+- `ds-astraeus-5` `oc-astraeus-5-3-1`: added (absent → unpriced)
+- `ds-astraeus-6` `oc-astraeus-6-1-1`: added (absent → unpriced)
+- `ds-astraeus-6` `oc-astraeus-6-2-1`: added (absent → unpriced)
+- `ds-astraeus-6` `oc-astraeus-6-3-1`: added (absent → unpriced)
+- `ds-atlas-recovery-vehicle` `oc-atlas-recovery-vehicle-1-1`: added (absent → unpriced)
+- `ds-atlas-recovery-vehicle` `oc-atlas-recovery-vehicle-2-1`: added (absent → unpriced)
+- `ds-atlas-recovery-vehicle` `oc-atlas-recovery-vehicle-2-2`: added (absent → unpriced)
+- `ds-atlas-recovery-vehicle-2` `oc-atlas-recovery-vehicle-2-1-1`: added (absent → unpriced)
+- `ds-atlas-recovery-vehicle-2` `oc-atlas-recovery-vehicle-2-2-1`: added (absent → unpriced)
+- `ds-atlas-recovery-vehicle-2` `oc-atlas-recovery-vehicle-2-2-2`: added (absent → unpriced)
+- `ds-attack-fighta` `oc-attack-fighta-1-1`: added (absent → unpriced)
+- `ds-attilan-rough-riders` `oc-attilan-rough-riders-1-1`: added (absent → unpriced)
+- `ds-attilan-rough-riders` `oc-attilan-rough-riders-2-1`: added (absent → unpriced)
+- `ds-attilan-rough-riders-2` `oc-attilan-rough-riders-2-1-1`: added (absent → unpriced)
+- `ds-attilan-rough-riders-2` `oc-attilan-rough-riders-2-2-1`: added (absent → unpriced)
+- `ds-autarch` `oc-autarch-1-1`: added (absent → unpriced)
+- `ds-autarch` `oc-autarch-1-2`: added (absent → unpriced)
+- `ds-autarch` `oc-autarch-1-3`: added (absent → unpriced)
+- `ds-autarch` `oc-autarch-1-4`: added (absent → unpriced)
+- `ds-autarch` `oc-autarch-2-1`: added (absent → unpriced)
+- `ds-autarch` `oc-autarch-2-2`: added (absent → unpriced)
+- `ds-autarch-skyrunner` `oc-autarch-skyrunner-1-1`: added (absent → unpriced)
+- `ds-autarch-skyrunner` `oc-autarch-skyrunner-1-2`: added (absent → unpriced)
+- `ds-autarch-wayleaper` `oc-autarch-wayleaper-1-1`: added (absent → unpriced)
+- `ds-autarch-wayleaper` `oc-autarch-wayleaper-1-2`: added (absent → unpriced)
+- `ds-autarch-wayleaper` `oc-autarch-wayleaper-1-3`: added (absent → unpriced)
+- `ds-autarch-wayleaper` `oc-autarch-wayleaper-1-4`: added (absent → unpriced)
+- `ds-autarch-wayleaper` `oc-autarch-wayleaper-2-1`: added (absent → unpriced)
+- `ds-autarch-wayleaper` `oc-autarch-wayleaper-2-2`: added (absent → unpriced)
+- `ds-ax-1-0-tiger-shark` `oc-ax-1-0-tiger-shark-1-1`: added (absent → unpriced)
+- `ds-ax-1-0-tiger-shark` `oc-ax-1-0-tiger-shark-2-1`: added (absent → unpriced)
+- `ds-baal-predator` `oc-baal-predator-1-1`: added (absent → unpriced)
+- `ds-baal-predator` `oc-baal-predator-2-1`: added (absent → unpriced)
+- `ds-baal-predator` `oc-baal-predator-3-1`: added (absent → unpriced)
+- `ds-baal-predator` `oc-baal-predator-4-1`: added (absent → unpriced)
+- `ds-baal-predator` `oc-baal-predator-4-2`: added (absent → unpriced)
+- `ds-baneblade` `oc-baneblade-1-1`: added (absent → unpriced)
+- `ds-baneblade` `oc-baneblade-2-1`: added (absent → unpriced)
+- `ds-baneblade` `oc-baneblade-2-2`: added (absent → unpriced)
+- `ds-baneblade-2` `oc-baneblade-2-1-1`: added (absent → unpriced)
+- `ds-baneblade-2` `oc-baneblade-2-2-1`: added (absent → unpriced)
+- `ds-baneblade-2` `oc-baneblade-2-2-2`: added (absent → unpriced)
+- `ds-banehammer` `oc-banehammer-1-1`: added (absent → unpriced)
+- `ds-banehammer` `oc-banehammer-2-1`: added (absent → unpriced)
+- `ds-banehammer` `oc-banehammer-2-2`: added (absent → unpriced)
+- `ds-banehammer-2` `oc-banehammer-2-1-1`: added (absent → unpriced)
+- `ds-banehammer-2` `oc-banehammer-2-2-1`: added (absent → unpriced)
+- `ds-banehammer-2` `oc-banehammer-2-2-2`: added (absent → unpriced)
+- `ds-banesword` `oc-banesword-1-1`: added (absent → unpriced)
+- `ds-banesword` `oc-banesword-2-1`: added (absent → unpriced)
+- `ds-banesword` `oc-banesword-2-2`: added (absent → unpriced)
+- `ds-banesword-2` `oc-banesword-2-1-1`: added (absent → unpriced)
+- `ds-banesword-2` `oc-banesword-2-2-1`: added (absent → unpriced)
+- `ds-banesword-2` `oc-banesword-2-2-2`: added (absent → unpriced)
+- `ds-barracuda` `oc-barracuda-1-1`: added (absent → unpriced)
+- `ds-barracuda` `oc-barracuda-2-1`: added (absent → unpriced)
+- `ds-barracuda` `oc-barracuda-2-2`: added (absent → unpriced)
+- `ds-barracuda` `oc-barracuda-3-1`: added (absent → unpriced)
+- `ds-basilisk` `oc-basilisk-1-1`: added (absent → unpriced)
+- `ds-basilisk` `oc-basilisk-2-1`: added (absent → unpriced)
+- `ds-basilisk-2` `oc-basilisk-2-1-1`: added (absent → unpriced)
+- `ds-basilisk-2` `oc-basilisk-2-2-1`: added (absent → unpriced)
+- `ds-battle-sisters-squad` `oc-battle-sisters-squad-1-1`: added (absent → unpriced)
+- `ds-battle-sisters-squad` `oc-battle-sisters-squad-1-2`: added (absent → unpriced)
+- `ds-battle-sisters-squad` `oc-battle-sisters-squad-1-3`: added (absent → unpriced)
+- `ds-battle-sisters-squad` `oc-battle-sisters-squad-1-4`: added (absent → unpriced)
+- `ds-battle-sisters-squad` `oc-battle-sisters-squad-1-5`: added (absent → unpriced)
+- `ds-battle-sisters-squad` `oc-battle-sisters-squad-1-6`: added (absent → unpriced)
+- `ds-battle-sisters-squad` `oc-battle-sisters-squad-2-1`: added (absent → unpriced)
+- `ds-battle-sisters-squad` `oc-battle-sisters-squad-2-2`: added (absent → unpriced)
+- `ds-battle-sisters-squad` `oc-battle-sisters-squad-3-1`: added (absent → unpriced)
+- `ds-battle-sisters-squad` `oc-battle-sisters-squad-3-2`: added (absent → unpriced)
+- `ds-battle-sisters-squad` `oc-battle-sisters-squad-3-3`: added (absent → unpriced)
+- `ds-battle-sisters-squad` `oc-battle-sisters-squad-4-1`: added (absent → unpriced)
+- `ds-battle-sisters-squad` `oc-battle-sisters-squad-4-2`: added (absent → unpriced)
+- `ds-battle-sisters-squad` `oc-battle-sisters-squad-4-3`: added (absent → unpriced)
+- `ds-battle-sisters-squad` `oc-battle-sisters-squad-4-4`: added (absent → unpriced)
+- `ds-battle-sisters-squad` `oc-battle-sisters-squad-4-5`: added (absent → unpriced)
+- `ds-battle-sisters-squad` `oc-battle-sisters-squad-4-6`: added (absent → unpriced)
+- `ds-battle-sisters-squad` `oc-battle-sisters-squad-5-1`: added (absent → unpriced)
+- `ds-battlewagon` `oc-battlewagon-1-1`: added (absent → unpriced)
+- `ds-battlewagon` `oc-battlewagon-1-2`: added (absent → unpriced)
+- `ds-battlewagon` `oc-battlewagon-1-3`: added (absent → unpriced)
+- `ds-battlewagon` `oc-battlewagon-2-1`: added (absent → unpriced)
+- `ds-battlewagon` `oc-battlewagon-3-1`: added (absent → unpriced)
+- `ds-battlewagon` `oc-battlewagon-4-1`: added (absent → unpriced)
+- `ds-battlewagon` `oc-battlewagon-5-1`: added (absent → unpriced)
+- `ds-battlewagon` `oc-battlewagon-5-2`: added (absent → unpriced)
+- `ds-battlewagon` `oc-battlewagon-5-3`: added (absent → unpriced)
+- `ds-beast-snagga-boyz` `oc-beast-snagga-boyz-1-1`: added (absent → unpriced)
+- `ds-beastboss-on-squigosaur` `oc-beastboss-on-squigosaur-1-1`: added (absent → unpriced)
+- `ds-big-mek` `oc-big-mek-1-1`: added (absent → unpriced)
+- `ds-big-mek` `oc-big-mek-2-1`: added (absent → unpriced)
+- `ds-big-mek-in-mega-armour` `oc-big-mek-in-mega-armour-1-1`: added (absent → unpriced)
+- `ds-big-mek-in-mega-armour` `oc-big-mek-in-mega-armour-1-2`: added (absent → unpriced)
+- `ds-big-mek-in-mega-armour` `oc-big-mek-in-mega-armour-1-3`: added (absent → unpriced)
+- `ds-big-mek-in-mega-armour` `oc-big-mek-in-mega-armour-2-1`: added (absent → unpriced)
+- `ds-big-mek-in-mega-armour` `oc-big-mek-in-mega-armour-2-2`: added (absent → unpriced)
+- `ds-big-mek-in-mega-armour` `oc-big-mek-in-mega-armour-3-1`: added (absent → unpriced)
+- `ds-big-mek-on-warbike` `oc-big-mek-on-warbike-1-1`: added (absent → unpriced)
+- `ds-big-mek-on-warbike` `oc-big-mek-on-warbike-1-2`: added (absent → unpriced)
+- `ds-big-mek-on-warbike` `oc-big-mek-on-warbike-1-3`: added (absent → unpriced)
+- `ds-big-mek-on-warbike` `oc-big-mek-on-warbike-1-4`: added (absent → unpriced)
+- `ds-big-mek-on-warbike` `oc-big-mek-on-warbike-1-5`: added (absent → unpriced)
+- `ds-big-mek-on-warbike` `oc-big-mek-on-warbike-1-6`: added (absent → unpriced)
+- `ds-big-mek-on-warbike` `oc-big-mek-on-warbike-1-7`: added (absent → unpriced)
+- `ds-big-mek-on-warbike` `oc-big-mek-on-warbike-1-8`: added (absent → unpriced)
+- `ds-big-mek-on-warbike` `oc-big-mek-on-warbike-2-1`: added (absent → unpriced)
+- `ds-big-mek-on-warbike` `oc-big-mek-on-warbike-2-2`: added (absent → unpriced)
+- `ds-big-mek-on-warbike` `oc-big-mek-on-warbike-2-3`: added (absent → unpriced)
+- `ds-big-mek-on-warbike` `oc-big-mek-on-warbike-2-4`: added (absent → unpriced)
+- `ds-big-mek-on-warbike` `oc-big-mek-on-warbike-2-5`: added (absent → unpriced)
+- `ds-big-mek-on-warbike` `oc-big-mek-on-warbike-2-6`: added (absent → unpriced)
+- `ds-big-mek-on-warbike` `oc-big-mek-on-warbike-2-7`: added (absent → unpriced)
+- `ds-big-mek-with-kustom-force-field` `oc-big-mek-with-kustom-force-field-1-1`: added (absent → unpriced)
+- `ds-big-mek-with-shokk-attack-gun` `oc-big-mek-with-shokk-attack-gun-1-1`: added (absent → unpriced)
+- `ds-big-trakk` `oc-big-trakk-1-1`: added (absent → unpriced)
+- `ds-big-trakk` `oc-big-trakk-1-2`: added (absent → unpriced)
+- `ds-biged-bossbunka` `oc-biged-bossbunka-1-1`: added (absent → unpriced)
+- `ds-bike-squad` `oc-bike-squad-1-1`: added (absent → unpriced)
+- `ds-bike-squad` `oc-bike-squad-1-10`: added (absent → unpriced)
+- `ds-bike-squad` `oc-bike-squad-1-11`: added (absent → unpriced)
+- `ds-bike-squad` `oc-bike-squad-1-2`: added (absent → unpriced)
+- `ds-bike-squad` `oc-bike-squad-1-3`: added (absent → unpriced)
+- `ds-bike-squad` `oc-bike-squad-1-4`: added (absent → unpriced)
+- `ds-bike-squad` `oc-bike-squad-1-5`: added (absent → unpriced)
+- `ds-bike-squad` `oc-bike-squad-1-6`: added (absent → unpriced)
+- `ds-bike-squad` `oc-bike-squad-1-7`: added (absent → unpriced)
+- `ds-bike-squad` `oc-bike-squad-1-8`: added (absent → unpriced)
+- `ds-bike-squad` `oc-bike-squad-1-9`: added (absent → unpriced)
+- `ds-bjorn-the-fell-handed` `oc-bjorn-the-fell-handed-1-1`: added (absent → unpriced)
+- `ds-bjorn-the-fell-handed` `oc-bjorn-the-fell-handed-1-2`: added (absent → unpriced)
+- `ds-bladeguard-veteran-squad` `oc-bladeguard-veteran-squad-1-1`: added (absent → unpriced)
+- `ds-bladeguard-veteran-squad` `oc-bladeguard-veteran-squad-1-2`: added (absent → unpriced)
+- `ds-bladeguard-veteran-squad-2` `oc-bladeguard-veteran-squad-2-1-1`: added (absent → unpriced)
+- `ds-bladeguard-veteran-squad-2` `oc-bladeguard-veteran-squad-2-1-2`: added (absent → unpriced)
+- `ds-bladeguard-veteran-squad-3` `oc-bladeguard-veteran-squad-3-1-1`: added (absent → unpriced)
+- `ds-bladeguard-veteran-squad-3` `oc-bladeguard-veteran-squad-3-1-2`: added (absent → unpriced)
+- `ds-bladeguard-veteran-squad-4` `oc-bladeguard-veteran-squad-4-1-1`: added (absent → unpriced)
+- `ds-bladeguard-veteran-squad-4` `oc-bladeguard-veteran-squad-4-1-2`: added (absent → unpriced)
+- `ds-bladeguard-veteran-squad-5` `oc-bladeguard-veteran-squad-5-1-1`: added (absent → unpriced)
+- `ds-bladeguard-veteran-squad-5` `oc-bladeguard-veteran-squad-5-1-2`: added (absent → unpriced)
+- `ds-bladeguard-veteran-squad-6` `oc-bladeguard-veteran-squad-6-1-1`: added (absent → unpriced)
+- `ds-bladeguard-veteran-squad-6` `oc-bladeguard-veteran-squad-6-1-2`: added (absent → unpriced)
+- `ds-blightlord-terminators` `oc-blightlord-terminators-2-1`: added (absent → unpriced)
+- `ds-blightlord-terminators` `oc-blightlord-terminators-3-1`: added (absent → unpriced)
+- `ds-blightlord-terminators` `oc-blightlord-terminators-4-1`: added (absent → unpriced)
+- `ds-blightlord-terminators` `oc-blightlord-terminators-5-1`: added (absent → unpriced)
+- `ds-blood-angels-captain` `oc-blood-angels-captain-1-1`: added (absent → unpriced)
+- `ds-blood-angels-captain` `oc-blood-angels-captain-2-1`: added (absent → unpriced)
+- `ds-blood-angels-captain` `oc-blood-angels-captain-2-2`: added (absent → unpriced)
+- `ds-blood-claws` `oc-blood-claws-1-1`: added (absent → unpriced)
+- `ds-blood-claws` `oc-blood-claws-2-1`: added (absent → unpriced)
+- `ds-blood-slaughterer` `oc-blood-slaughterer-1-1`: added (absent → unpriced)
+- `ds-blood-slaughterer-2` `oc-blood-slaughterer-2-1-1`: added (absent → unpriced)
+- `ds-bloodcrushers` `oc-bloodcrushers-1-1`: added (absent → unpriced)
+- `ds-bloodcrushers` `oc-bloodcrushers-2-1`: added (absent → unpriced)
+- `ds-bloodcrushers-2` `oc-bloodcrushers-2-1-1`: added (absent → unpriced)
+- `ds-bloodcrushers-2` `oc-bloodcrushers-2-2-1`: added (absent → unpriced)
+- `ds-bloodletters` `oc-bloodletters-1-1`: added (absent → unpriced)
+- `ds-bloodletters` `oc-bloodletters-2-1`: added (absent → unpriced)
+- `ds-bloodletters-2` `oc-bloodletters-2-1-1`: added (absent → unpriced)
+- `ds-bloodletters-2` `oc-bloodletters-2-2-1`: added (absent → unpriced)
+- `ds-bloodthirster` `oc-bloodthirster-1-1`: added (absent → unpriced)
+- `ds-bloodthirster` `oc-bloodthirster-1-2`: added (absent → unpriced)
+- `ds-bloodthirster-2` `oc-bloodthirster-2-1-1`: added (absent → unpriced)
+- `ds-bloodthirster-2` `oc-bloodthirster-2-1-2`: added (absent → unpriced)
+- `ds-boyz` `oc-boyz-1-1`: added (absent → unpriced)
+- `ds-breacher-team` `oc-breacher-team-1-1`: added (absent → unpriced)
+- `ds-breacher-team` `oc-breacher-team-1-2`: added (absent → unpriced)
+- `ds-breacher-team` `oc-breacher-team-1-3`: added (absent → unpriced)
+- `ds-breacher-team` `oc-breacher-team-1-4`: added (absent → unpriced)
+- `ds-breaka-boyz` `oc-breaka-boyz-1-1`: added (absent → unpriced)
+- `ds-brother-captain` `oc-brother-captain-1-1`: added (absent → unpriced)
+- `ds-brother-captain` `oc-brother-captain-1-2`: added (absent → unpriced)
+- `ds-brother-captain` `oc-brother-captain-1-3`: added (absent → unpriced)
+- `ds-brotherhood-librarian` `oc-brotherhood-librarian-1-1`: added (absent → unpriced)
+- `ds-brotherhood-librarian` `oc-brotherhood-librarian-1-2`: added (absent → unpriced)
+- `ds-brotherhood-terminator-squad` `oc-brotherhood-terminator-squad-1-1`: added (absent → unpriced)
+- `ds-brotherhood-terminator-squad` `oc-brotherhood-terminator-squad-1-2`: added (absent → unpriced)
+- `ds-brotherhood-terminator-squad` `oc-brotherhood-terminator-squad-1-3`: added (absent → unpriced)
+- `ds-brotherhood-terminator-squad` `oc-brotherhood-terminator-squad-3-1`: added (absent → unpriced)
+- `ds-brotherhood-terminator-squad` `oc-brotherhood-terminator-squad-3-2`: added (absent → unpriced)
+- `ds-brotherhood-terminator-squad` `oc-brotherhood-terminator-squad-3-3`: added (absent → unpriced)
+- `ds-brotherhood-terminator-squad` `oc-brotherhood-terminator-squad-3-4`: added (absent → unpriced)
+- `ds-brutalis-dreadnought` `oc-brutalis-dreadnought-1-1`: added (absent → unpriced)
+- `ds-brutalis-dreadnought` `oc-brutalis-dreadnought-2-1`: added (absent → unpriced)
+- `ds-brutalis-dreadnought-2` `oc-brutalis-dreadnought-2-1-1`: added (absent → unpriced)
+- `ds-brutalis-dreadnought-2` `oc-brutalis-dreadnought-2-2-1`: added (absent → unpriced)
+- `ds-brutalis-dreadnought-3` `oc-brutalis-dreadnought-3-1-1`: added (absent → unpriced)
+- `ds-brutalis-dreadnought-3` `oc-brutalis-dreadnought-3-2-1`: added (absent → unpriced)
+- `ds-brutalis-dreadnought-4` `oc-brutalis-dreadnought-4-1-1`: added (absent → unpriced)
+- `ds-brutalis-dreadnought-4` `oc-brutalis-dreadnought-4-2-1`: added (absent → unpriced)
+- `ds-brutalis-dreadnought-5` `oc-brutalis-dreadnought-5-1-1`: added (absent → unpriced)
+- `ds-brutalis-dreadnought-5` `oc-brutalis-dreadnought-5-2-1`: added (absent → unpriced)
+- `ds-brutalis-dreadnought-6` `oc-brutalis-dreadnought-6-1-1`: added (absent → unpriced)
+- `ds-brutalis-dreadnought-6` `oc-brutalis-dreadnought-6-2-1`: added (absent → unpriced)
+- `ds-burna-bommer` `oc-burna-bommer-1-1`: added (absent → unpriced)
+- `ds-cadian-castellan` `oc-cadian-castellan-1-1`: added (absent → unpriced)
+- `ds-cadian-castellan` `oc-cadian-castellan-1-2`: added (absent → unpriced)
+- `ds-cadian-castellan` `oc-cadian-castellan-1-3`: added (absent → unpriced)
+- `ds-cadian-castellan` `oc-cadian-castellan-2-1`: added (absent → unpriced)
+- `ds-cadian-castellan` `oc-cadian-castellan-2-2`: added (absent → unpriced)
+- `ds-cadian-castellan-2` `oc-cadian-castellan-2-1-1`: added (absent → unpriced)
+- `ds-cadian-castellan-2` `oc-cadian-castellan-2-1-2`: added (absent → unpriced)
+- `ds-cadian-castellan-2` `oc-cadian-castellan-2-1-3`: added (absent → unpriced)
+- `ds-cadian-castellan-2` `oc-cadian-castellan-2-2-1`: added (absent → unpriced)
+- `ds-cadian-castellan-2` `oc-cadian-castellan-2-2-2`: added (absent → unpriced)
+- `ds-cadian-command-squad` `oc-cadian-command-squad-1-1`: added (absent → unpriced)
+- `ds-cadian-command-squad` `oc-cadian-command-squad-1-2`: added (absent → unpriced)
+- `ds-cadian-command-squad` `oc-cadian-command-squad-1-3`: added (absent → unpriced)
+- `ds-cadian-command-squad` `oc-cadian-command-squad-1-4`: added (absent → unpriced)
+- `ds-cadian-command-squad` `oc-cadian-command-squad-2-1`: added (absent → unpriced)
+- `ds-cadian-command-squad` `oc-cadian-command-squad-2-2`: added (absent → unpriced)
+- `ds-cadian-command-squad` `oc-cadian-command-squad-3-1`: added (absent → unpriced)
+- `ds-cadian-command-squad` `oc-cadian-command-squad-3-2`: added (absent → unpriced)
+- `ds-cadian-command-squad` `oc-cadian-command-squad-4-1`: added (absent → unpriced)
+- `ds-cadian-command-squad` `oc-cadian-command-squad-4-2`: added (absent → unpriced)
+- `ds-cadian-command-squad` `oc-cadian-command-squad-4-3`: added (absent → unpriced)
+- `ds-cadian-command-squad` `oc-cadian-command-squad-4-4`: added (absent → unpriced)
+- `ds-cadian-command-squad` `oc-cadian-command-squad-4-5`: added (absent → unpriced)
+- `ds-cadian-command-squad` `oc-cadian-command-squad-4-6`: added (absent → unpriced)
+- `ds-cadian-command-squad` `oc-cadian-command-squad-5-1`: added (absent → unpriced)
+- `ds-cadian-command-squad` `oc-cadian-command-squad-5-2`: added (absent → unpriced)
+- `ds-cadian-command-squad-2` `oc-cadian-command-squad-2-1-1`: added (absent → unpriced)
+- `ds-cadian-command-squad-2` `oc-cadian-command-squad-2-1-2`: added (absent → unpriced)
+- `ds-cadian-command-squad-2` `oc-cadian-command-squad-2-1-3`: added (absent → unpriced)
+- `ds-cadian-command-squad-2` `oc-cadian-command-squad-2-1-4`: added (absent → unpriced)
+- `ds-cadian-command-squad-2` `oc-cadian-command-squad-2-2-1`: added (absent → unpriced)
+- `ds-cadian-command-squad-2` `oc-cadian-command-squad-2-2-2`: added (absent → unpriced)
+- `ds-cadian-command-squad-2` `oc-cadian-command-squad-2-3-1`: added (absent → unpriced)
+- `ds-cadian-command-squad-2` `oc-cadian-command-squad-2-3-2`: added (absent → unpriced)
+- `ds-cadian-command-squad-2` `oc-cadian-command-squad-2-4-1`: added (absent → unpriced)
+- `ds-cadian-command-squad-2` `oc-cadian-command-squad-2-4-2`: added (absent → unpriced)
+- `ds-cadian-command-squad-2` `oc-cadian-command-squad-2-4-3`: added (absent → unpriced)
+- `ds-cadian-command-squad-2` `oc-cadian-command-squad-2-4-4`: added (absent → unpriced)
+- `ds-cadian-command-squad-2` `oc-cadian-command-squad-2-4-5`: added (absent → unpriced)
+- `ds-cadian-command-squad-2` `oc-cadian-command-squad-2-4-6`: added (absent → unpriced)
+- `ds-cadian-command-squad-2` `oc-cadian-command-squad-2-5-1`: added (absent → unpriced)
+- `ds-cadian-command-squad-2` `oc-cadian-command-squad-2-5-2`: added (absent → unpriced)
+- `ds-cadian-shock-troops` `oc-cadian-shock-troops-2-1`: added (absent → unpriced)
+- `ds-cadian-shock-troops-2` `oc-cadian-shock-troops-2-2-1`: added (absent → unpriced)
+- `ds-cadre-fireblade` `oc-cadre-fireblade-1-1`: added (absent → unpriced)
+- `ds-cadre-fireblade` `oc-cadre-fireblade-1-2`: added (absent → unpriced)
+- `ds-cadre-fireblade` `oc-cadre-fireblade-1-3`: added (absent → unpriced)
+- `ds-caladius-grav-tank` `oc-caladius-grav-tank-1-1`: added (absent → unpriced)
+- `ds-canoness` `oc-canoness-1-1`: added (absent → unpriced)
+- `ds-canoness` `oc-canoness-1-2`: added (absent → unpriced)
+- `ds-canoness` `oc-canoness-1-3`: added (absent → unpriced)
+- `ds-canoness` `oc-canoness-2-1`: added (absent → unpriced)
+- `ds-canoness` `oc-canoness-2-2`: added (absent → unpriced)
+- `ds-canoness-with-jump-pack` `oc-canoness-with-jump-pack-1-1`: added (absent → unpriced)
+- `ds-canoness-with-jump-pack` `oc-canoness-with-jump-pack-1-2`: added (absent → unpriced)
+- `ds-canoptek-macrocytes` `oc-canoptek-macrocytes-2-1`: added (absent → unpriced)
+- `ds-canoptek-macrocytes` `oc-canoptek-macrocytes-3-1`: added (absent → unpriced)
+- `ds-canoptek-tomb-crawlers` `oc-canoptek-tomb-crawlers-1-1`: added (absent → unpriced)
+- `ds-captain` `oc-captain-1-1`: added (absent → unpriced)
+- `ds-captain` `oc-captain-1-2`: added (absent → unpriced)
+- `ds-captain` `oc-captain-1-3`: added (absent → unpriced)
+- `ds-captain` `oc-captain-1-4`: added (absent → unpriced)
+- `ds-captain` `oc-captain-1-5`: added (absent → unpriced)
+- `ds-captain` `oc-captain-1-6`: added (absent → unpriced)
+- `ds-captain` `oc-captain-1-7`: added (absent → unpriced)
+- `ds-captain` `oc-captain-2-1`: added (absent → unpriced)
+- `ds-captain` `oc-captain-2-2`: added (absent → unpriced)
+- `ds-captain-2` `oc-captain-2-1-1`: added (absent → unpriced)
+- `ds-captain-2` `oc-captain-2-1-2`: added (absent → unpriced)
+- `ds-captain-2` `oc-captain-2-1-3`: added (absent → unpriced)
+- `ds-captain-2` `oc-captain-2-1-4`: added (absent → unpriced)
+- `ds-captain-2` `oc-captain-2-1-5`: added (absent → unpriced)
+- `ds-captain-2` `oc-captain-2-1-6`: added (absent → unpriced)
+- `ds-captain-2` `oc-captain-2-1-7`: added (absent → unpriced)
+- `ds-captain-2` `oc-captain-2-2-1`: added (absent → unpriced)
+- `ds-captain-2` `oc-captain-2-2-2`: added (absent → unpriced)
+- `ds-captain-3` `oc-captain-3-1-1`: added (absent → unpriced)
+- `ds-captain-3` `oc-captain-3-1-2`: added (absent → unpriced)
+- `ds-captain-3` `oc-captain-3-1-3`: added (absent → unpriced)
+- `ds-captain-3` `oc-captain-3-1-4`: added (absent → unpriced)
+- `ds-captain-3` `oc-captain-3-1-5`: added (absent → unpriced)
+- `ds-captain-3` `oc-captain-3-1-6`: added (absent → unpriced)
+- `ds-captain-3` `oc-captain-3-1-7`: added (absent → unpriced)
+- `ds-captain-3` `oc-captain-3-2-1`: added (absent → unpriced)
+- `ds-captain-3` `oc-captain-3-2-2`: added (absent → unpriced)
+- `ds-captain-4` `oc-captain-4-1-1`: added (absent → unpriced)
+- `ds-captain-4` `oc-captain-4-1-2`: added (absent → unpriced)
+- `ds-captain-4` `oc-captain-4-1-3`: added (absent → unpriced)
+- `ds-captain-4` `oc-captain-4-1-4`: added (absent → unpriced)
+- `ds-captain-4` `oc-captain-4-1-5`: added (absent → unpriced)
+- `ds-captain-4` `oc-captain-4-1-6`: added (absent → unpriced)
+- `ds-captain-4` `oc-captain-4-1-7`: added (absent → unpriced)
+- `ds-captain-4` `oc-captain-4-2-1`: added (absent → unpriced)
+- `ds-captain-4` `oc-captain-4-2-2`: added (absent → unpriced)
+- `ds-captain-5` `oc-captain-5-1-1`: added (absent → unpriced)
+- `ds-captain-5` `oc-captain-5-1-2`: added (absent → unpriced)
+- `ds-captain-5` `oc-captain-5-1-3`: added (absent → unpriced)
+- `ds-captain-5` `oc-captain-5-1-4`: added (absent → unpriced)
+- `ds-captain-5` `oc-captain-5-1-5`: added (absent → unpriced)
+- `ds-captain-5` `oc-captain-5-1-6`: added (absent → unpriced)
+- `ds-captain-5` `oc-captain-5-1-7`: added (absent → unpriced)
+- `ds-captain-5` `oc-captain-5-2-1`: added (absent → unpriced)
+- `ds-captain-5` `oc-captain-5-2-2`: added (absent → unpriced)
+- `ds-captain-6` `oc-captain-6-1-1`: added (absent → unpriced)
+- `ds-captain-6` `oc-captain-6-1-2`: added (absent → unpriced)
+- `ds-captain-6` `oc-captain-6-1-3`: added (absent → unpriced)
+- `ds-captain-6` `oc-captain-6-1-4`: added (absent → unpriced)
+- `ds-captain-6` `oc-captain-6-1-5`: added (absent → unpriced)
+- `ds-captain-6` `oc-captain-6-1-6`: added (absent → unpriced)
+- `ds-captain-6` `oc-captain-6-1-7`: added (absent → unpriced)
+- `ds-captain-6` `oc-captain-6-2-1`: added (absent → unpriced)
+- `ds-captain-6` `oc-captain-6-2-2`: added (absent → unpriced)
+- `ds-captain-in-gravis-armour` `oc-captain-in-gravis-armour-1-1`: added (absent → unpriced)
+- `ds-captain-in-gravis-armour` `oc-captain-in-gravis-armour-1-2`: added (absent → unpriced)
+- `ds-captain-in-gravis-armour` `oc-captain-in-gravis-armour-1-3`: added (absent → unpriced)
+- `ds-captain-in-gravis-armour-2` `oc-captain-in-gravis-armour-2-1-1`: added (absent → unpriced)
+- `ds-captain-in-gravis-armour-2` `oc-captain-in-gravis-armour-2-1-2`: added (absent → unpriced)
+- `ds-captain-in-gravis-armour-2` `oc-captain-in-gravis-armour-2-1-3`: added (absent → unpriced)
+- `ds-captain-in-gravis-armour-3` `oc-captain-in-gravis-armour-3-1-1`: added (absent → unpriced)
+- `ds-captain-in-gravis-armour-3` `oc-captain-in-gravis-armour-3-1-2`: added (absent → unpriced)
+- `ds-captain-in-gravis-armour-3` `oc-captain-in-gravis-armour-3-1-3`: added (absent → unpriced)
+- `ds-captain-in-gravis-armour-4` `oc-captain-in-gravis-armour-4-1-1`: added (absent → unpriced)
+- `ds-captain-in-gravis-armour-4` `oc-captain-in-gravis-armour-4-1-2`: added (absent → unpriced)
+- `ds-captain-in-gravis-armour-4` `oc-captain-in-gravis-armour-4-1-3`: added (absent → unpriced)
+- `ds-captain-in-gravis-armour-5` `oc-captain-in-gravis-armour-5-1-1`: added (absent → unpriced)
+- `ds-captain-in-gravis-armour-5` `oc-captain-in-gravis-armour-5-1-2`: added (absent → unpriced)
+- `ds-captain-in-gravis-armour-5` `oc-captain-in-gravis-armour-5-1-3`: added (absent → unpriced)
+- `ds-captain-in-gravis-armour-6` `oc-captain-in-gravis-armour-6-1-1`: added (absent → unpriced)
+- `ds-captain-in-gravis-armour-6` `oc-captain-in-gravis-armour-6-1-2`: added (absent → unpriced)
+- `ds-captain-in-gravis-armour-6` `oc-captain-in-gravis-armour-6-1-3`: added (absent → unpriced)
+- `ds-captain-in-terminator-armour` `oc-captain-in-terminator-armour-1-1`: added (absent → unpriced)
+- `ds-captain-in-terminator-armour` `oc-captain-in-terminator-armour-2-1`: added (absent → unpriced)
+- `ds-captain-in-terminator-armour-2` `oc-captain-in-terminator-armour-2-1-1`: added (absent → unpriced)
+- `ds-captain-in-terminator-armour-2` `oc-captain-in-terminator-armour-2-2-1`: added (absent → unpriced)
+- `ds-captain-in-terminator-armour-3` `oc-captain-in-terminator-armour-3-1-1`: added (absent → unpriced)
+- `ds-captain-in-terminator-armour-3` `oc-captain-in-terminator-armour-3-2-1`: added (absent → unpriced)
+- `ds-captain-in-terminator-armour-4` `oc-captain-in-terminator-armour-4-1-1`: added (absent → unpriced)
+- `ds-captain-in-terminator-armour-4` `oc-captain-in-terminator-armour-4-2-1`: added (absent → unpriced)
+- `ds-captain-in-terminator-armour-5` `oc-captain-in-terminator-armour-5-1-1`: added (absent → unpriced)
+- `ds-captain-in-terminator-armour-5` `oc-captain-in-terminator-armour-5-2-1`: added (absent → unpriced)
+- `ds-captain-in-terminator-armour-6` `oc-captain-in-terminator-armour-6-1-1`: added (absent → unpriced)
+- `ds-captain-in-terminator-armour-6` `oc-captain-in-terminator-armour-6-2-1`: added (absent → unpriced)
+- `ds-captain-on-bike` `oc-captain-on-bike-1-1`: added (absent → unpriced)
+- `ds-captain-on-bike` `oc-captain-on-bike-1-10`: added (absent → unpriced)
+- `ds-captain-on-bike` `oc-captain-on-bike-1-2`: added (absent → unpriced)
+- `ds-captain-on-bike` `oc-captain-on-bike-1-3`: added (absent → unpriced)
+- `ds-captain-on-bike` `oc-captain-on-bike-1-4`: added (absent → unpriced)
+- `ds-captain-on-bike` `oc-captain-on-bike-1-5`: added (absent → unpriced)
+- `ds-captain-on-bike` `oc-captain-on-bike-1-6`: added (absent → unpriced)
+- `ds-captain-on-bike` `oc-captain-on-bike-1-7`: added (absent → unpriced)
+- `ds-captain-on-bike` `oc-captain-on-bike-1-8`: added (absent → unpriced)
+- `ds-captain-on-bike` `oc-captain-on-bike-1-9`: added (absent → unpriced)
+- `ds-captain-on-bike` `oc-captain-on-bike-2-1`: added (absent → unpriced)
+- `ds-captain-on-bike` `oc-captain-on-bike-2-2`: added (absent → unpriced)
+- `ds-captain-on-bike` `oc-captain-on-bike-2-3`: added (absent → unpriced)
+- `ds-captain-on-bike` `oc-captain-on-bike-3-1`: added (absent → unpriced)
+- `ds-captain-with-jump-pack` `oc-captain-with-jump-pack-1-1`: added (absent → unpriced)
+- `ds-captain-with-jump-pack` `oc-captain-with-jump-pack-1-2`: added (absent → unpriced)
+- `ds-captain-with-jump-pack` `oc-captain-with-jump-pack-2-1`: added (absent → unpriced)
+- `ds-captain-with-jump-pack` `oc-captain-with-jump-pack-2-2`: added (absent → unpriced)
+- `ds-captain-with-jump-pack` `oc-captain-with-jump-pack-3-1`: added (absent → unpriced)
+- `ds-captain-with-jump-pack-2` `oc-captain-with-jump-pack-2-1-1`: added (absent → unpriced)
+- `ds-captain-with-jump-pack-2` `oc-captain-with-jump-pack-2-1-2`: added (absent → unpriced)
+- `ds-captain-with-jump-pack-2` `oc-captain-with-jump-pack-2-2-1`: added (absent → unpriced)
+- `ds-captain-with-jump-pack-2` `oc-captain-with-jump-pack-2-2-2`: added (absent → unpriced)
+- `ds-captain-with-jump-pack-2` `oc-captain-with-jump-pack-2-3-1`: added (absent → unpriced)
+- `ds-captain-with-jump-pack-3` `oc-captain-with-jump-pack-3-1-1`: added (absent → unpriced)
+- `ds-captain-with-jump-pack-3` `oc-captain-with-jump-pack-3-1-2`: added (absent → unpriced)
+- `ds-captain-with-jump-pack-3` `oc-captain-with-jump-pack-3-2-1`: added (absent → unpriced)
+- `ds-captain-with-jump-pack-3` `oc-captain-with-jump-pack-3-2-2`: added (absent → unpriced)
+- `ds-captain-with-jump-pack-3` `oc-captain-with-jump-pack-3-3-1`: added (absent → unpriced)
+- `ds-captain-with-jump-pack-4` `oc-captain-with-jump-pack-4-1-1`: added (absent → unpriced)
+- `ds-captain-with-jump-pack-4` `oc-captain-with-jump-pack-4-1-2`: added (absent → unpriced)
+- `ds-captain-with-jump-pack-4` `oc-captain-with-jump-pack-4-2-1`: added (absent → unpriced)
+- `ds-captain-with-jump-pack-4` `oc-captain-with-jump-pack-4-2-2`: added (absent → unpriced)
+- `ds-captain-with-jump-pack-4` `oc-captain-with-jump-pack-4-3-1`: added (absent → unpriced)
+- `ds-captain-with-jump-pack-5` `oc-captain-with-jump-pack-5-1-1`: added (absent → unpriced)
+- `ds-captain-with-jump-pack-5` `oc-captain-with-jump-pack-5-1-2`: added (absent → unpriced)
+- `ds-captain-with-jump-pack-5` `oc-captain-with-jump-pack-5-2-1`: added (absent → unpriced)
+- `ds-captain-with-jump-pack-5` `oc-captain-with-jump-pack-5-2-2`: added (absent → unpriced)
+- `ds-captain-with-jump-pack-5` `oc-captain-with-jump-pack-5-3-1`: added (absent → unpriced)
+- `ds-captain-with-jump-pack-6` `oc-captain-with-jump-pack-6-1-1`: added (absent → unpriced)
+- `ds-captain-with-jump-pack-6` `oc-captain-with-jump-pack-6-1-2`: added (absent → unpriced)
+- `ds-captain-with-jump-pack-6` `oc-captain-with-jump-pack-6-2-1`: added (absent → unpriced)
+- `ds-captain-with-jump-pack-6` `oc-captain-with-jump-pack-6-2-2`: added (absent → unpriced)
+- `ds-captain-with-jump-pack-6` `oc-captain-with-jump-pack-6-3-1`: added (absent → unpriced)
+- `ds-carnodon` `oc-carnodon-1-1`: added (absent → unpriced)
+- `ds-carnodon` `oc-carnodon-1-2`: added (absent → unpriced)
+- `ds-carnodon` `oc-carnodon-1-3`: added (absent → unpriced)
+- `ds-carnodon` `oc-carnodon-2-1`: added (absent → unpriced)
+- `ds-carnodon` `oc-carnodon-2-2`: added (absent → unpriced)
+- `ds-carnodon` `oc-carnodon-2-3`: added (absent → unpriced)
+- `ds-carnodon` `oc-carnodon-2-4`: added (absent → unpriced)
+- `ds-carnodon` `oc-carnodon-2-5`: added (absent → unpriced)
+- `ds-carnodon` `oc-carnodon-3-1`: added (absent → unpriced)
+- `ds-carnodon-2` `oc-carnodon-2-1-1`: added (absent → unpriced)
+- `ds-carnodon-2` `oc-carnodon-2-1-2`: added (absent → unpriced)
+- `ds-carnodon-2` `oc-carnodon-2-1-3`: added (absent → unpriced)
+- `ds-carnodon-2` `oc-carnodon-2-2-1`: added (absent → unpriced)
+- `ds-carnodon-2` `oc-carnodon-2-2-2`: added (absent → unpriced)
+- `ds-carnodon-2` `oc-carnodon-2-2-3`: added (absent → unpriced)
+- `ds-carnodon-2` `oc-carnodon-2-2-4`: added (absent → unpriced)
+- `ds-carnodon-2` `oc-carnodon-2-2-5`: added (absent → unpriced)
+- `ds-carnodon-2` `oc-carnodon-2-3-1`: added (absent → unpriced)
+- `ds-castellan` `oc-castellan-1-1`: added (absent → unpriced)
+- `ds-castellan` `oc-castellan-2-1`: added (absent → unpriced)
+- `ds-castigator` `oc-castigator-1-1`: added (absent → unpriced)
+- `ds-castigator` `oc-castigator-2-1`: added (absent → unpriced)
+- `ds-castigator` `oc-castigator-3-1`: added (absent → unpriced)
+- `ds-catachan-command-squad` `oc-catachan-command-squad-4-1`: added (absent → unpriced)
+- `ds-catachan-command-squad` `oc-catachan-command-squad-5-1`: added (absent → unpriced)
+- `ds-catachan-command-squad` `oc-catachan-command-squad-5-2`: added (absent → unpriced)
+- `ds-catachan-command-squad` `oc-catachan-command-squad-6-1`: added (absent → unpriced)
+- `ds-catachan-command-squad` `oc-catachan-command-squad-6-2`: added (absent → unpriced)
+- `ds-catachan-command-squad` `oc-catachan-command-squad-6-3`: added (absent → unpriced)
+- `ds-catachan-command-squad` `oc-catachan-command-squad-6-4`: added (absent → unpriced)
+- `ds-catachan-command-squad-2` `oc-catachan-command-squad-2-4-1`: added (absent → unpriced)
+- `ds-catachan-command-squad-2` `oc-catachan-command-squad-2-5-1`: added (absent → unpriced)
+- `ds-catachan-command-squad-2` `oc-catachan-command-squad-2-5-2`: added (absent → unpriced)
+- `ds-catachan-command-squad-2` `oc-catachan-command-squad-2-6-1`: added (absent → unpriced)
+- `ds-catachan-command-squad-2` `oc-catachan-command-squad-2-6-2`: added (absent → unpriced)
+- `ds-catachan-command-squad-2` `oc-catachan-command-squad-2-6-3`: added (absent → unpriced)
+- `ds-catachan-command-squad-2` `oc-catachan-command-squad-2-6-4`: added (absent → unpriced)
+- `ds-catachan-jungle-fighters` `oc-catachan-jungle-fighters-1-1`: added (absent → unpriced)
+- `ds-catachan-jungle-fighters` `oc-catachan-jungle-fighters-2-1`: added (absent → unpriced)
+- `ds-catachan-jungle-fighters-2` `oc-catachan-jungle-fighters-2-1-1`: added (absent → unpriced)
+- `ds-catachan-jungle-fighters-2` `oc-catachan-jungle-fighters-2-2-1`: added (absent → unpriced)
+- `ds-catacomb-command-barge` `oc-catacomb-command-barge-1-1`: added (absent → unpriced)
+- `ds-catacomb-command-barge` `oc-catacomb-command-barge-2-1`: added (absent → unpriced)
+- `ds-catacomb-command-barge` `oc-catacomb-command-barge-3-1`: added (absent → unpriced)
+- `ds-celestian-insidiants` `oc-celestian-insidiants-1-1`: added (absent → unpriced)
+- `ds-celestian-sacresants` `oc-celestian-sacresants-2-1`: added (absent → unpriced)
+- `ds-celestian-sacresants` `oc-celestian-sacresants-2-2`: added (absent → unpriced)
+- `ds-celestian-sacresants` `oc-celestian-sacresants-2-3`: added (absent → unpriced)
+- `ds-celestian-sacresants` `oc-celestian-sacresants-3-1`: added (absent → unpriced)
+- `ds-centaur-light-carrier` `oc-centaur-light-carrier-1-1`: added (absent → unpriced)
+- `ds-centaur-light-carrier-2` `oc-centaur-light-carrier-2-1-1`: added (absent → unpriced)
+- `ds-cerberus` `oc-cerberus-1-1`: added (absent → unpriced)
+- `ds-cerberus` `oc-cerberus-1-2`: added (absent → unpriced)
+- `ds-cerberus` `oc-cerberus-2-1`: added (absent → unpriced)
+- `ds-cerberus` `oc-cerberus-2-2`: added (absent → unpriced)
+- `ds-cerberus` `oc-cerberus-2-3`: added (absent → unpriced)
+- `ds-cerberus` `oc-cerberus-2-4`: added (absent → unpriced)
+- `ds-cerberus-2` `oc-cerberus-2-1-1`: added (absent → unpriced)
+- `ds-cerberus-2` `oc-cerberus-2-1-2`: added (absent → unpriced)
+- `ds-cerberus-2` `oc-cerberus-2-2-1`: added (absent → unpriced)
+- `ds-cerberus-2` `oc-cerberus-2-2-2`: added (absent → unpriced)
+- `ds-cerberus-2` `oc-cerberus-2-2-3`: added (absent → unpriced)
+- `ds-cerberus-2` `oc-cerberus-2-2-4`: added (absent → unpriced)
+- `ds-cerberus-3` `oc-cerberus-3-1-1`: added (absent → unpriced)
+- `ds-cerberus-3` `oc-cerberus-3-1-2`: added (absent → unpriced)
+- `ds-cerberus-3` `oc-cerberus-3-2-1`: added (absent → unpriced)
+- `ds-cerberus-3` `oc-cerberus-3-2-2`: added (absent → unpriced)
+- `ds-cerberus-3` `oc-cerberus-3-2-3`: added (absent → unpriced)
+- `ds-cerberus-3` `oc-cerberus-3-2-4`: added (absent → unpriced)
+- `ds-cerberus-4` `oc-cerberus-4-1-1`: added (absent → unpriced)
+- `ds-cerberus-4` `oc-cerberus-4-1-2`: added (absent → unpriced)
+- `ds-cerberus-4` `oc-cerberus-4-2-1`: added (absent → unpriced)
+- `ds-cerberus-4` `oc-cerberus-4-2-2`: added (absent → unpriced)
+- `ds-cerberus-4` `oc-cerberus-4-2-3`: added (absent → unpriced)
+- `ds-cerberus-4` `oc-cerberus-4-2-4`: added (absent → unpriced)
+- `ds-cerberus-5` `oc-cerberus-5-1-1`: added (absent → unpriced)
+- `ds-cerberus-5` `oc-cerberus-5-1-2`: added (absent → unpriced)
+- `ds-cerberus-5` `oc-cerberus-5-2-1`: added (absent → unpriced)
+- `ds-cerberus-5` `oc-cerberus-5-2-2`: added (absent → unpriced)
+- `ds-cerberus-5` `oc-cerberus-5-2-3`: added (absent → unpriced)
+- `ds-cerberus-5` `oc-cerberus-5-2-4`: added (absent → unpriced)
+- `ds-chaos-acastus-knight-porphyrion` `oc-chaos-acastus-knight-porphyrion-2-1`: added (absent → unpriced)
+- `ds-chaos-bikers` `oc-chaos-bikers-1-1`: added (absent → unpriced)
+- `ds-chaos-bikers` `oc-chaos-bikers-1-2`: added (absent → unpriced)
+- `ds-chaos-bikers` `oc-chaos-bikers-1-3`: added (absent → unpriced)
+- `ds-chaos-bikers` `oc-chaos-bikers-1-4`: added (absent → unpriced)
+- `ds-chaos-bikers` `oc-chaos-bikers-4-1`: added (absent → unpriced)
+- `ds-chaos-deimos-predator` `oc-chaos-deimos-predator-1-1`: added (absent → unpriced)
+- `ds-chaos-deimos-predator` `oc-chaos-deimos-predator-1-2`: added (absent → unpriced)
+- `ds-chaos-deimos-predator` `oc-chaos-deimos-predator-1-3`: added (absent → unpriced)
+- `ds-chaos-deimos-predator` `oc-chaos-deimos-predator-2-1`: added (absent → unpriced)
+- `ds-chaos-deimos-predator` `oc-chaos-deimos-predator-2-2`: added (absent → unpriced)
+- `ds-chaos-deimos-predator` `oc-chaos-deimos-predator-2-3`: added (absent → unpriced)
+- `ds-chaos-deimos-predator` `oc-chaos-deimos-predator-3-1`: added (absent → unpriced)
+- `ds-chaos-deimos-predator` `oc-chaos-deimos-predator-4-1`: added (absent → unpriced)
+- `ds-chaos-land-raider` `oc-chaos-land-raider-1-1`: added (absent → unpriced)
+- `ds-chaos-land-raider` `oc-chaos-land-raider-1-2`: added (absent → unpriced)
+- `ds-chaos-land-raider` `oc-chaos-land-raider-2-1`: added (absent → unpriced)
+- `ds-chaos-land-raider-2` `oc-chaos-land-raider-2-1-1`: added (absent → unpriced)
+- `ds-chaos-land-raider-2` `oc-chaos-land-raider-2-1-2`: added (absent → unpriced)
+- `ds-chaos-land-raider-2` `oc-chaos-land-raider-2-2-1`: added (absent → unpriced)
+- `ds-chaos-land-raider-3` `oc-chaos-land-raider-3-1-1`: added (absent → unpriced)
+- `ds-chaos-land-raider-3` `oc-chaos-land-raider-3-1-2`: added (absent → unpriced)
+- `ds-chaos-land-raider-3` `oc-chaos-land-raider-3-2-1`: added (absent → unpriced)
+- `ds-chaos-land-raider-4` `oc-chaos-land-raider-4-1-1`: added (absent → unpriced)
+- `ds-chaos-land-raider-4` `oc-chaos-land-raider-4-1-2`: added (absent → unpriced)
+- `ds-chaos-land-raider-4` `oc-chaos-land-raider-4-2-1`: added (absent → unpriced)
+- `ds-chaos-land-raider-5` `oc-chaos-land-raider-5-1-1`: added (absent → unpriced)
+- `ds-chaos-land-raider-5` `oc-chaos-land-raider-5-1-2`: added (absent → unpriced)
+- `ds-chaos-land-raider-5` `oc-chaos-land-raider-5-2-1`: added (absent → unpriced)
+- `ds-chaos-lord` `oc-chaos-lord-1-1`: added (absent → unpriced)
+- `ds-chaos-lord` `oc-chaos-lord-1-2`: added (absent → unpriced)
+- `ds-chaos-lord` `oc-chaos-lord-2-1`: added (absent → unpriced)
+- `ds-chaos-lord-2` `oc-chaos-lord-2-1-1`: added (absent → unpriced)
+- `ds-chaos-lord-2` `oc-chaos-lord-2-1-2`: added (absent → unpriced)
+- `ds-chaos-lord-2` `oc-chaos-lord-2-2-1`: added (absent → unpriced)
+- `ds-chaos-lord-in-terminator-armour` `oc-chaos-lord-in-terminator-armour-1-1`: added (absent → unpriced)
+- `ds-chaos-lord-in-terminator-armour` `oc-chaos-lord-in-terminator-armour-2-1`: added (absent → unpriced)
+- `ds-chaos-lord-in-terminator-armour` `oc-chaos-lord-in-terminator-armour-2-2`: added (absent → unpriced)
+- `ds-chaos-lord-in-terminator-armour` `oc-chaos-lord-in-terminator-armour-3-1`: added (absent → unpriced)
+- `ds-chaos-lord-in-terminator-armour-2` `oc-chaos-lord-in-terminator-armour-2-1-1`: added (absent → unpriced)
+- `ds-chaos-lord-in-terminator-armour-2` `oc-chaos-lord-in-terminator-armour-2-2-1`: added (absent → unpriced)
+- `ds-chaos-lord-in-terminator-armour-2` `oc-chaos-lord-in-terminator-armour-2-2-2`: added (absent → unpriced)
+- `ds-chaos-lord-in-terminator-armour-2` `oc-chaos-lord-in-terminator-armour-2-3-1`: added (absent → unpriced)
+- `ds-chaos-lord-on-bike` `oc-chaos-lord-on-bike-1-1`: added (absent → unpriced)
+- `ds-chaos-lord-on-bike` `oc-chaos-lord-on-bike-1-2`: added (absent → unpriced)
+- `ds-chaos-lord-on-bike` `oc-chaos-lord-on-bike-1-3`: added (absent → unpriced)
+- `ds-chaos-lord-on-bike` `oc-chaos-lord-on-bike-1-4`: added (absent → unpriced)
+- `ds-chaos-lord-on-bike` `oc-chaos-lord-on-bike-2-1`: added (absent → unpriced)
+- `ds-chaos-lord-on-bike` `oc-chaos-lord-on-bike-2-2`: added (absent → unpriced)
+- `ds-chaos-lord-on-bike` `oc-chaos-lord-on-bike-2-3`: added (absent → unpriced)
+- `ds-chaos-lord-on-bike` `oc-chaos-lord-on-bike-2-4`: added (absent → unpriced)
+- `ds-chaos-lord-on-bike` `oc-chaos-lord-on-bike-3-1`: added (absent → unpriced)
+- `ds-chaos-lord-on-disc-of-tzeentch` `oc-chaos-lord-on-disc-of-tzeentch-1-1`: added (absent → unpriced)
+- `ds-chaos-lord-on-disc-of-tzeentch` `oc-chaos-lord-on-disc-of-tzeentch-1-2`: added (absent → unpriced)
+- `ds-chaos-lord-on-disc-of-tzeentch` `oc-chaos-lord-on-disc-of-tzeentch-1-3`: added (absent → unpriced)
+- `ds-chaos-lord-on-disc-of-tzeentch` `oc-chaos-lord-on-disc-of-tzeentch-1-4`: added (absent → unpriced)
+- `ds-chaos-lord-on-disc-of-tzeentch` `oc-chaos-lord-on-disc-of-tzeentch-1-5`: added (absent → unpriced)
+- `ds-chaos-lord-on-disc-of-tzeentch` `oc-chaos-lord-on-disc-of-tzeentch-2-1`: added (absent → unpriced)
+- `ds-chaos-lord-on-disc-of-tzeentch` `oc-chaos-lord-on-disc-of-tzeentch-2-2`: added (absent → unpriced)
+- `ds-chaos-lord-on-disc-of-tzeentch` `oc-chaos-lord-on-disc-of-tzeentch-2-3`: added (absent → unpriced)
+- `ds-chaos-lord-on-disc-of-tzeentch` `oc-chaos-lord-on-disc-of-tzeentch-2-4`: added (absent → unpriced)
+- `ds-chaos-lord-on-disc-of-tzeentch` `oc-chaos-lord-on-disc-of-tzeentch-3-1`: added (absent → unpriced)
+- `ds-chaos-lord-on-disc-of-tzeentch-2` `oc-chaos-lord-on-disc-of-tzeentch-2-1-1`: added (absent → unpriced)
+- `ds-chaos-lord-on-disc-of-tzeentch-2` `oc-chaos-lord-on-disc-of-tzeentch-2-1-2`: added (absent → unpriced)
+- `ds-chaos-lord-on-disc-of-tzeentch-2` `oc-chaos-lord-on-disc-of-tzeentch-2-1-3`: added (absent → unpriced)
+- `ds-chaos-lord-on-disc-of-tzeentch-2` `oc-chaos-lord-on-disc-of-tzeentch-2-1-4`: added (absent → unpriced)
+- `ds-chaos-lord-on-disc-of-tzeentch-2` `oc-chaos-lord-on-disc-of-tzeentch-2-1-5`: added (absent → unpriced)
+- `ds-chaos-lord-on-disc-of-tzeentch-2` `oc-chaos-lord-on-disc-of-tzeentch-2-2-1`: added (absent → unpriced)
+- `ds-chaos-lord-on-disc-of-tzeentch-2` `oc-chaos-lord-on-disc-of-tzeentch-2-2-2`: added (absent → unpriced)
+- `ds-chaos-lord-on-disc-of-tzeentch-2` `oc-chaos-lord-on-disc-of-tzeentch-2-2-3`: added (absent → unpriced)
+- `ds-chaos-lord-on-disc-of-tzeentch-2` `oc-chaos-lord-on-disc-of-tzeentch-2-2-4`: added (absent → unpriced)
+- `ds-chaos-lord-on-disc-of-tzeentch-2` `oc-chaos-lord-on-disc-of-tzeentch-2-3-1`: added (absent → unpriced)
+- `ds-chaos-lord-on-disc-of-tzeentch-3` `oc-chaos-lord-on-disc-of-tzeentch-3-1-1`: added (absent → unpriced)
+- `ds-chaos-lord-on-disc-of-tzeentch-3` `oc-chaos-lord-on-disc-of-tzeentch-3-1-2`: added (absent → unpriced)
+- `ds-chaos-lord-on-disc-of-tzeentch-3` `oc-chaos-lord-on-disc-of-tzeentch-3-1-3`: added (absent → unpriced)
+- `ds-chaos-lord-on-disc-of-tzeentch-3` `oc-chaos-lord-on-disc-of-tzeentch-3-1-4`: added (absent → unpriced)
+- `ds-chaos-lord-on-disc-of-tzeentch-3` `oc-chaos-lord-on-disc-of-tzeentch-3-1-5`: added (absent → unpriced)
+- `ds-chaos-lord-on-disc-of-tzeentch-3` `oc-chaos-lord-on-disc-of-tzeentch-3-2-1`: added (absent → unpriced)
+- `ds-chaos-lord-on-disc-of-tzeentch-3` `oc-chaos-lord-on-disc-of-tzeentch-3-2-2`: added (absent → unpriced)
+- `ds-chaos-lord-on-disc-of-tzeentch-3` `oc-chaos-lord-on-disc-of-tzeentch-3-2-3`: added (absent → unpriced)
+- `ds-chaos-lord-on-disc-of-tzeentch-3` `oc-chaos-lord-on-disc-of-tzeentch-3-2-4`: added (absent → unpriced)
+- `ds-chaos-lord-on-disc-of-tzeentch-3` `oc-chaos-lord-on-disc-of-tzeentch-3-3-1`: added (absent → unpriced)
+- `ds-chaos-lord-on-juggernaut` `oc-chaos-lord-on-juggernaut-1-1`: added (absent → unpriced)
+- `ds-chaos-lord-on-juggernaut` `oc-chaos-lord-on-juggernaut-1-2`: added (absent → unpriced)
+- `ds-chaos-lord-on-juggernaut` `oc-chaos-lord-on-juggernaut-1-3`: added (absent → unpriced)
+- `ds-chaos-lord-on-juggernaut` `oc-chaos-lord-on-juggernaut-1-4`: added (absent → unpriced)
+- `ds-chaos-lord-on-juggernaut` `oc-chaos-lord-on-juggernaut-1-5`: added (absent → unpriced)
+- `ds-chaos-lord-on-juggernaut` `oc-chaos-lord-on-juggernaut-2-1`: added (absent → unpriced)
+- `ds-chaos-lord-on-juggernaut` `oc-chaos-lord-on-juggernaut-2-2`: added (absent → unpriced)
+- `ds-chaos-lord-on-juggernaut` `oc-chaos-lord-on-juggernaut-2-3`: added (absent → unpriced)
+- `ds-chaos-lord-on-juggernaut` `oc-chaos-lord-on-juggernaut-2-4`: added (absent → unpriced)
+- `ds-chaos-lord-on-juggernaut` `oc-chaos-lord-on-juggernaut-3-1`: added (absent → unpriced)
+- `ds-chaos-lord-on-juggernaut-2` `oc-chaos-lord-on-juggernaut-2-1-1`: added (absent → unpriced)
+- `ds-chaos-lord-on-juggernaut-2` `oc-chaos-lord-on-juggernaut-2-1-2`: added (absent → unpriced)
+- `ds-chaos-lord-on-juggernaut-2` `oc-chaos-lord-on-juggernaut-2-1-3`: added (absent → unpriced)
+- `ds-chaos-lord-on-juggernaut-2` `oc-chaos-lord-on-juggernaut-2-1-4`: added (absent → unpriced)
+- `ds-chaos-lord-on-juggernaut-2` `oc-chaos-lord-on-juggernaut-2-1-5`: added (absent → unpriced)
+- `ds-chaos-lord-on-juggernaut-2` `oc-chaos-lord-on-juggernaut-2-2-1`: added (absent → unpriced)
+- `ds-chaos-lord-on-juggernaut-2` `oc-chaos-lord-on-juggernaut-2-2-2`: added (absent → unpriced)
+- `ds-chaos-lord-on-juggernaut-2` `oc-chaos-lord-on-juggernaut-2-2-3`: added (absent → unpriced)
+- `ds-chaos-lord-on-juggernaut-2` `oc-chaos-lord-on-juggernaut-2-2-4`: added (absent → unpriced)
+- `ds-chaos-lord-on-juggernaut-2` `oc-chaos-lord-on-juggernaut-2-3-1`: added (absent → unpriced)
+- `ds-chaos-lord-on-palanquin-of-nurgle` `oc-chaos-lord-on-palanquin-of-nurgle-1-1`: added (absent → unpriced)
+- `ds-chaos-lord-on-palanquin-of-nurgle` `oc-chaos-lord-on-palanquin-of-nurgle-1-2`: added (absent → unpriced)
+- `ds-chaos-lord-on-palanquin-of-nurgle` `oc-chaos-lord-on-palanquin-of-nurgle-1-3`: added (absent → unpriced)
+- `ds-chaos-lord-on-palanquin-of-nurgle` `oc-chaos-lord-on-palanquin-of-nurgle-1-4`: added (absent → unpriced)
+- `ds-chaos-lord-on-palanquin-of-nurgle` `oc-chaos-lord-on-palanquin-of-nurgle-1-5`: added (absent → unpriced)
+- `ds-chaos-lord-on-palanquin-of-nurgle` `oc-chaos-lord-on-palanquin-of-nurgle-2-1`: added (absent → unpriced)
+- `ds-chaos-lord-on-palanquin-of-nurgle` `oc-chaos-lord-on-palanquin-of-nurgle-2-2`: added (absent → unpriced)
+- `ds-chaos-lord-on-palanquin-of-nurgle` `oc-chaos-lord-on-palanquin-of-nurgle-2-3`: added (absent → unpriced)
+- `ds-chaos-lord-on-palanquin-of-nurgle` `oc-chaos-lord-on-palanquin-of-nurgle-2-4`: added (absent → unpriced)
+- `ds-chaos-lord-on-palanquin-of-nurgle` `oc-chaos-lord-on-palanquin-of-nurgle-3-1`: added (absent → unpriced)
+- `ds-chaos-lord-on-palanquin-of-nurgle-2` `oc-chaos-lord-on-palanquin-of-nurgle-2-1-1`: added (absent → unpriced)
+- `ds-chaos-lord-on-palanquin-of-nurgle-2` `oc-chaos-lord-on-palanquin-of-nurgle-2-1-2`: added (absent → unpriced)
+- `ds-chaos-lord-on-palanquin-of-nurgle-2` `oc-chaos-lord-on-palanquin-of-nurgle-2-1-3`: added (absent → unpriced)
+- `ds-chaos-lord-on-palanquin-of-nurgle-2` `oc-chaos-lord-on-palanquin-of-nurgle-2-1-4`: added (absent → unpriced)
+- `ds-chaos-lord-on-palanquin-of-nurgle-2` `oc-chaos-lord-on-palanquin-of-nurgle-2-1-5`: added (absent → unpriced)
+- `ds-chaos-lord-on-palanquin-of-nurgle-2` `oc-chaos-lord-on-palanquin-of-nurgle-2-2-1`: added (absent → unpriced)
+- `ds-chaos-lord-on-palanquin-of-nurgle-2` `oc-chaos-lord-on-palanquin-of-nurgle-2-2-2`: added (absent → unpriced)
+- `ds-chaos-lord-on-palanquin-of-nurgle-2` `oc-chaos-lord-on-palanquin-of-nurgle-2-2-3`: added (absent → unpriced)
+- `ds-chaos-lord-on-palanquin-of-nurgle-2` `oc-chaos-lord-on-palanquin-of-nurgle-2-2-4`: added (absent → unpriced)
+- `ds-chaos-lord-on-palanquin-of-nurgle-2` `oc-chaos-lord-on-palanquin-of-nurgle-2-3-1`: added (absent → unpriced)
+- `ds-chaos-lord-on-palanquin-of-nurgle-3` `oc-chaos-lord-on-palanquin-of-nurgle-3-1-1`: added (absent → unpriced)
+- `ds-chaos-lord-on-palanquin-of-nurgle-3` `oc-chaos-lord-on-palanquin-of-nurgle-3-1-2`: added (absent → unpriced)
+- `ds-chaos-lord-on-palanquin-of-nurgle-3` `oc-chaos-lord-on-palanquin-of-nurgle-3-1-3`: added (absent → unpriced)
+- `ds-chaos-lord-on-palanquin-of-nurgle-3` `oc-chaos-lord-on-palanquin-of-nurgle-3-1-4`: added (absent → unpriced)
+- `ds-chaos-lord-on-palanquin-of-nurgle-3` `oc-chaos-lord-on-palanquin-of-nurgle-3-1-5`: added (absent → unpriced)
+- `ds-chaos-lord-on-palanquin-of-nurgle-3` `oc-chaos-lord-on-palanquin-of-nurgle-3-2-1`: added (absent → unpriced)
+- `ds-chaos-lord-on-palanquin-of-nurgle-3` `oc-chaos-lord-on-palanquin-of-nurgle-3-2-2`: added (absent → unpriced)
+- `ds-chaos-lord-on-palanquin-of-nurgle-3` `oc-chaos-lord-on-palanquin-of-nurgle-3-2-3`: added (absent → unpriced)
+- `ds-chaos-lord-on-palanquin-of-nurgle-3` `oc-chaos-lord-on-palanquin-of-nurgle-3-2-4`: added (absent → unpriced)
+- `ds-chaos-lord-on-palanquin-of-nurgle-3` `oc-chaos-lord-on-palanquin-of-nurgle-3-3-1`: added (absent → unpriced)
+- `ds-chaos-lord-on-steed-of-slaanesh` `oc-chaos-lord-on-steed-of-slaanesh-1-1`: added (absent → unpriced)
+- `ds-chaos-lord-on-steed-of-slaanesh` `oc-chaos-lord-on-steed-of-slaanesh-1-2`: added (absent → unpriced)
+- `ds-chaos-lord-on-steed-of-slaanesh` `oc-chaos-lord-on-steed-of-slaanesh-1-3`: added (absent → unpriced)
+- `ds-chaos-lord-on-steed-of-slaanesh` `oc-chaos-lord-on-steed-of-slaanesh-1-4`: added (absent → unpriced)
+- `ds-chaos-lord-on-steed-of-slaanesh` `oc-chaos-lord-on-steed-of-slaanesh-1-5`: added (absent → unpriced)
+- `ds-chaos-lord-on-steed-of-slaanesh` `oc-chaos-lord-on-steed-of-slaanesh-2-1`: added (absent → unpriced)
+- `ds-chaos-lord-on-steed-of-slaanesh` `oc-chaos-lord-on-steed-of-slaanesh-2-2`: added (absent → unpriced)
+- `ds-chaos-lord-on-steed-of-slaanesh` `oc-chaos-lord-on-steed-of-slaanesh-2-3`: added (absent → unpriced)
+- `ds-chaos-lord-on-steed-of-slaanesh` `oc-chaos-lord-on-steed-of-slaanesh-2-4`: added (absent → unpriced)
+- `ds-chaos-lord-on-steed-of-slaanesh` `oc-chaos-lord-on-steed-of-slaanesh-3-1`: added (absent → unpriced)
+- `ds-chaos-lord-on-steed-of-slaanesh-2` `oc-chaos-lord-on-steed-of-slaanesh-2-1-1`: added (absent → unpriced)
+- `ds-chaos-lord-on-steed-of-slaanesh-2` `oc-chaos-lord-on-steed-of-slaanesh-2-1-2`: added (absent → unpriced)
+- `ds-chaos-lord-on-steed-of-slaanesh-2` `oc-chaos-lord-on-steed-of-slaanesh-2-1-3`: added (absent → unpriced)
+- `ds-chaos-lord-on-steed-of-slaanesh-2` `oc-chaos-lord-on-steed-of-slaanesh-2-1-4`: added (absent → unpriced)
+- `ds-chaos-lord-on-steed-of-slaanesh-2` `oc-chaos-lord-on-steed-of-slaanesh-2-1-5`: added (absent → unpriced)
+- `ds-chaos-lord-on-steed-of-slaanesh-2` `oc-chaos-lord-on-steed-of-slaanesh-2-2-1`: added (absent → unpriced)
+- `ds-chaos-lord-on-steed-of-slaanesh-2` `oc-chaos-lord-on-steed-of-slaanesh-2-2-2`: added (absent → unpriced)
+- `ds-chaos-lord-on-steed-of-slaanesh-2` `oc-chaos-lord-on-steed-of-slaanesh-2-2-3`: added (absent → unpriced)
+- `ds-chaos-lord-on-steed-of-slaanesh-2` `oc-chaos-lord-on-steed-of-slaanesh-2-2-4`: added (absent → unpriced)
+- `ds-chaos-lord-on-steed-of-slaanesh-2` `oc-chaos-lord-on-steed-of-slaanesh-2-3-1`: added (absent → unpriced)
+- `ds-chaos-lord-with-jump-pack` `oc-chaos-lord-with-jump-pack-1-1`: added (absent → unpriced)
+- `ds-chaos-lord-with-jump-pack` `oc-chaos-lord-with-jump-pack-2-1`: added (absent → unpriced)
+- `ds-chaos-lord-with-jump-pack` `oc-chaos-lord-with-jump-pack-3-1`: added (absent → unpriced)
+- `ds-chaos-lord-with-jump-pack-2` `oc-chaos-lord-with-jump-pack-2-1-1`: added (absent → unpriced)
+- `ds-chaos-lord-with-jump-pack-2` `oc-chaos-lord-with-jump-pack-2-2-1`: added (absent → unpriced)
+- `ds-chaos-lord-with-jump-pack-2` `oc-chaos-lord-with-jump-pack-2-3-1`: added (absent → unpriced)
+- `ds-chaos-predator-annihilator` `oc-chaos-predator-annihilator-1-1`: added (absent → unpriced)
+- `ds-chaos-predator-annihilator` `oc-chaos-predator-annihilator-1-2`: added (absent → unpriced)
+- `ds-chaos-predator-annihilator` `oc-chaos-predator-annihilator-2-1`: added (absent → unpriced)
+- `ds-chaos-predator-annihilator` `oc-chaos-predator-annihilator-2-2`: added (absent → unpriced)
+- `ds-chaos-predator-annihilator` `oc-chaos-predator-annihilator-3-1`: added (absent → unpriced)
+- `ds-chaos-predator-annihilator-2` `oc-chaos-predator-annihilator-2-1-1`: added (absent → unpriced)
+- `ds-chaos-predator-annihilator-2` `oc-chaos-predator-annihilator-2-1-2`: added (absent → unpriced)
+- `ds-chaos-predator-annihilator-2` `oc-chaos-predator-annihilator-2-2-1`: added (absent → unpriced)
+- `ds-chaos-predator-annihilator-2` `oc-chaos-predator-annihilator-2-2-2`: added (absent → unpriced)
+- `ds-chaos-predator-annihilator-2` `oc-chaos-predator-annihilator-2-3-1`: added (absent → unpriced)
+- `ds-chaos-predator-annihilator-3` `oc-chaos-predator-annihilator-3-1-1`: added (absent → unpriced)
+- `ds-chaos-predator-annihilator-3` `oc-chaos-predator-annihilator-3-1-2`: added (absent → unpriced)
+- `ds-chaos-predator-annihilator-3` `oc-chaos-predator-annihilator-3-2-1`: added (absent → unpriced)
+- `ds-chaos-predator-annihilator-3` `oc-chaos-predator-annihilator-3-2-2`: added (absent → unpriced)
+- `ds-chaos-predator-annihilator-3` `oc-chaos-predator-annihilator-3-3-1`: added (absent → unpriced)
+- `ds-chaos-predator-annihilator-4` `oc-chaos-predator-annihilator-4-1-1`: added (absent → unpriced)
+- `ds-chaos-predator-annihilator-4` `oc-chaos-predator-annihilator-4-1-2`: added (absent → unpriced)
+- `ds-chaos-predator-annihilator-4` `oc-chaos-predator-annihilator-4-2-1`: added (absent → unpriced)
+- `ds-chaos-predator-annihilator-4` `oc-chaos-predator-annihilator-4-3-1`: added (absent → unpriced)
+- `ds-chaos-predator-annihilator-4` `oc-chaos-predator-annihilator-4-3-2`: added (absent → unpriced)
+- `ds-chaos-predator-destructor` `oc-chaos-predator-destructor-1-1`: added (absent → unpriced)
+- `ds-chaos-predator-destructor` `oc-chaos-predator-destructor-1-2`: added (absent → unpriced)
+- `ds-chaos-predator-destructor` `oc-chaos-predator-destructor-2-1`: added (absent → unpriced)
+- `ds-chaos-predator-destructor` `oc-chaos-predator-destructor-2-2`: added (absent → unpriced)
+- `ds-chaos-predator-destructor` `oc-chaos-predator-destructor-3-1`: added (absent → unpriced)
+- `ds-chaos-predator-destructor-2` `oc-chaos-predator-destructor-2-1-1`: added (absent → unpriced)
+- `ds-chaos-predator-destructor-2` `oc-chaos-predator-destructor-2-1-2`: added (absent → unpriced)
+- `ds-chaos-predator-destructor-2` `oc-chaos-predator-destructor-2-2-1`: added (absent → unpriced)
+- `ds-chaos-predator-destructor-2` `oc-chaos-predator-destructor-2-2-2`: added (absent → unpriced)
+- `ds-chaos-predator-destructor-2` `oc-chaos-predator-destructor-2-3-1`: added (absent → unpriced)
+- `ds-chaos-predator-destructor-3` `oc-chaos-predator-destructor-3-1-1`: added (absent → unpriced)
+- `ds-chaos-predator-destructor-3` `oc-chaos-predator-destructor-3-1-2`: added (absent → unpriced)
+- `ds-chaos-predator-destructor-3` `oc-chaos-predator-destructor-3-2-1`: added (absent → unpriced)
+- `ds-chaos-predator-destructor-3` `oc-chaos-predator-destructor-3-2-2`: added (absent → unpriced)
+- `ds-chaos-predator-destructor-3` `oc-chaos-predator-destructor-3-3-1`: added (absent → unpriced)
+- `ds-chaos-predator-destructor-4` `oc-chaos-predator-destructor-4-1-1`: added (absent → unpriced)
+- `ds-chaos-predator-destructor-4` `oc-chaos-predator-destructor-4-1-2`: added (absent → unpriced)
+- `ds-chaos-predator-destructor-4` `oc-chaos-predator-destructor-4-2-1`: added (absent → unpriced)
+- `ds-chaos-predator-destructor-4` `oc-chaos-predator-destructor-4-3-1`: added (absent → unpriced)
+- `ds-chaos-predator-destructor-4` `oc-chaos-predator-destructor-4-3-2`: added (absent → unpriced)
+- `ds-chaos-questoris-knight-magaera` `oc-chaos-questoris-knight-magaera-1-1`: added (absent → unpriced)
+- `ds-chaos-questoris-knight-styrix` `oc-chaos-questoris-knight-styrix-1-1`: added (absent → unpriced)
+- `ds-chaos-rhino` `oc-chaos-rhino-1-1`: added (absent → unpriced)
+- `ds-chaos-rhino` `oc-chaos-rhino-1-2`: added (absent → unpriced)
+- `ds-chaos-rhino` `oc-chaos-rhino-2-1`: added (absent → unpriced)
+- `ds-chaos-rhino-2` `oc-chaos-rhino-2-1-1`: added (absent → unpriced)
+- `ds-chaos-rhino-2` `oc-chaos-rhino-2-1-2`: added (absent → unpriced)
+- `ds-chaos-rhino-2` `oc-chaos-rhino-2-2-1`: added (absent → unpriced)
+- `ds-chaos-rhino-3` `oc-chaos-rhino-3-1-1`: added (absent → unpriced)
+- `ds-chaos-rhino-3` `oc-chaos-rhino-3-1-2`: added (absent → unpriced)
+- `ds-chaos-rhino-3` `oc-chaos-rhino-3-2-1`: added (absent → unpriced)
+- `ds-chaos-rhino-4` `oc-chaos-rhino-4-1-1`: added (absent → unpriced)
+- `ds-chaos-rhino-4` `oc-chaos-rhino-4-1-2`: added (absent → unpriced)
+- `ds-chaos-rhino-4` `oc-chaos-rhino-4-2-1`: added (absent → unpriced)
+- `ds-chaos-rhino-5` `oc-chaos-rhino-5-1-1`: added (absent → unpriced)
+- `ds-chaos-rhino-5` `oc-chaos-rhino-5-1-2`: added (absent → unpriced)
+- `ds-chaos-rhino-5` `oc-chaos-rhino-5-2-1`: added (absent → unpriced)
+- `ds-chaos-terminator-squad` `oc-chaos-terminator-squad-1-1`: added (absent → unpriced)
+- `ds-chaos-terminator-squad` `oc-chaos-terminator-squad-1-2`: added (absent → unpriced)
+- `ds-chaos-terminator-squad` `oc-chaos-terminator-squad-3-1`: added (absent → unpriced)
+- `ds-chaos-terminator-squad` `oc-chaos-terminator-squad-5-1`: added (absent → unpriced)
+- `ds-chaos-terminator-squad-2` `oc-chaos-terminator-squad-2-1-1`: added (absent → unpriced)
+- `ds-chaos-terminator-squad-2` `oc-chaos-terminator-squad-2-1-2`: added (absent → unpriced)
+- `ds-chaos-terminator-squad-2` `oc-chaos-terminator-squad-2-3-1`: added (absent → unpriced)
+- `ds-chaos-terminator-squad-2` `oc-chaos-terminator-squad-2-5-1`: added (absent → unpriced)
+- `ds-chaos-terminators` `oc-chaos-terminators-1-1`: added (absent → unpriced)
+- `ds-chaos-terminators` `oc-chaos-terminators-1-2`: added (absent → unpriced)
+- `ds-chaos-terminators` `oc-chaos-terminators-3-1`: added (absent → unpriced)
+- `ds-chaos-terminators` `oc-chaos-terminators-5-1`: added (absent → unpriced)
+- `ds-chaos-terminators-2` `oc-chaos-terminators-2-1-1`: added (absent → unpriced)
+- `ds-chaos-terminators-2` `oc-chaos-terminators-2-1-2`: added (absent → unpriced)
+- `ds-chaos-terminators-2` `oc-chaos-terminators-2-3-1`: added (absent → unpriced)
+- `ds-chaos-terminators-2` `oc-chaos-terminators-2-5-1`: added (absent → unpriced)
+- `ds-chaos-thunderhawk` `oc-chaos-thunderhawk-1-1`: added (absent → unpriced)
+- `ds-chaos-thunderhawk` `oc-chaos-thunderhawk-2-1`: added (absent → unpriced)
+- `ds-chaos-thunderhawk-2` `oc-chaos-thunderhawk-2-1-1`: added (absent → unpriced)
+- `ds-chaos-thunderhawk-2` `oc-chaos-thunderhawk-2-2-1`: added (absent → unpriced)
+- `ds-chaos-thunderhawk-3` `oc-chaos-thunderhawk-3-1-1`: added (absent → unpriced)
+- `ds-chaos-thunderhawk-3` `oc-chaos-thunderhawk-3-2-1`: added (absent → unpriced)
+- `ds-chaos-thunderhawk-4` `oc-chaos-thunderhawk-4-1-1`: added (absent → unpriced)
+- `ds-chaos-thunderhawk-4` `oc-chaos-thunderhawk-4-2-1`: added (absent → unpriced)
+- `ds-chaos-vindicator` `oc-chaos-vindicator-1-1`: added (absent → unpriced)
+- `ds-chaos-vindicator` `oc-chaos-vindicator-1-2`: added (absent → unpriced)
+- `ds-chaos-vindicator` `oc-chaos-vindicator-2-1`: added (absent → unpriced)
+- `ds-chaos-vindicator-2` `oc-chaos-vindicator-2-1-1`: added (absent → unpriced)
+- `ds-chaos-vindicator-2` `oc-chaos-vindicator-2-1-2`: added (absent → unpriced)
+- `ds-chaos-vindicator-2` `oc-chaos-vindicator-2-2-1`: added (absent → unpriced)
+- `ds-chaplain-in-terminator-armour` `oc-chaplain-in-terminator-armour-1-1`: added (absent → unpriced)
+- `ds-chaplain-in-terminator-armour-2` `oc-chaplain-in-terminator-armour-2-1-1`: added (absent → unpriced)
+- `ds-chaplain-in-terminator-armour-3` `oc-chaplain-in-terminator-armour-3-1-1`: added (absent → unpriced)
+- `ds-chaplain-in-terminator-armour-4` `oc-chaplain-in-terminator-armour-4-1-1`: added (absent → unpriced)
+- `ds-chaplain-in-terminator-armour-5` `oc-chaplain-in-terminator-armour-5-1-1`: added (absent → unpriced)
+- `ds-chaplain-in-terminator-armour-6` `oc-chaplain-in-terminator-armour-6-1-1`: added (absent → unpriced)
+- `ds-chaplain-venerable-dreadnought` `oc-chaplain-venerable-dreadnought-1-1`: added (absent → unpriced)
+- `ds-chaplain-venerable-dreadnought` `oc-chaplain-venerable-dreadnought-1-2`: added (absent → unpriced)
+- `ds-chaplain-venerable-dreadnought` `oc-chaplain-venerable-dreadnought-1-3`: added (absent → unpriced)
+- `ds-chaplain-venerable-dreadnought` `oc-chaplain-venerable-dreadnought-1-4`: added (absent → unpriced)
+- `ds-chaplain-venerable-dreadnought` `oc-chaplain-venerable-dreadnought-1-5`: added (absent → unpriced)
+- `ds-chaplain-venerable-dreadnought` `oc-chaplain-venerable-dreadnought-1-6`: added (absent → unpriced)
+- `ds-chaplain-venerable-dreadnought` `oc-chaplain-venerable-dreadnought-2-1`: added (absent → unpriced)
+- `ds-chaplain-venerable-dreadnought` `oc-chaplain-venerable-dreadnought-2-2`: added (absent → unpriced)
+- `ds-chaplain-venerable-dreadnought` `oc-chaplain-venerable-dreadnought-2-3`: added (absent → unpriced)
+- `ds-chaplain-venerable-dreadnought` `oc-chaplain-venerable-dreadnought-2-4`: added (absent → unpriced)
+- `ds-chaplain-venerable-dreadnought` `oc-chaplain-venerable-dreadnought-2-5`: added (absent → unpriced)
+- `ds-chaplain-venerable-dreadnought` `oc-chaplain-venerable-dreadnought-2-6`: added (absent → unpriced)
+- `ds-chaplain-with-jump-pack` `oc-chaplain-with-jump-pack-1-1`: added (absent → unpriced)
+- `ds-chaplain-with-jump-pack` `oc-chaplain-with-jump-pack-1-2`: added (absent → unpriced)
+- `ds-chaplain-with-jump-pack` `oc-chaplain-with-jump-pack-1-3`: added (absent → unpriced)
+- `ds-chaplain-with-jump-pack` `oc-chaplain-with-jump-pack-1-4`: added (absent → unpriced)
+- `ds-chaplain-with-jump-pack` `oc-chaplain-with-jump-pack-1-5`: added (absent → unpriced)
+- `ds-chaplain-with-jump-pack` `oc-chaplain-with-jump-pack-1-6`: added (absent → unpriced)
+- `ds-chaplain-with-jump-pack` `oc-chaplain-with-jump-pack-1-7`: added (absent → unpriced)
+- `ds-chaplain-with-jump-pack` `oc-chaplain-with-jump-pack-1-8`: added (absent → unpriced)
+- `ds-chaplain-with-jump-pack` `oc-chaplain-with-jump-pack-1-9`: added (absent → unpriced)
+- `ds-chaplain-with-jump-pack-2` `oc-chaplain-with-jump-pack-2-1-1`: added (absent → unpriced)
+- `ds-chaplain-with-jump-pack-2` `oc-chaplain-with-jump-pack-2-1-2`: added (absent → unpriced)
+- `ds-chaplain-with-jump-pack-2` `oc-chaplain-with-jump-pack-2-1-3`: added (absent → unpriced)
+- `ds-chaplain-with-jump-pack-2` `oc-chaplain-with-jump-pack-2-1-4`: added (absent → unpriced)
+- `ds-chaplain-with-jump-pack-2` `oc-chaplain-with-jump-pack-2-1-5`: added (absent → unpriced)
+- `ds-chaplain-with-jump-pack-2` `oc-chaplain-with-jump-pack-2-1-6`: added (absent → unpriced)
+- `ds-chaplain-with-jump-pack-2` `oc-chaplain-with-jump-pack-2-1-7`: added (absent → unpriced)
+- `ds-chaplain-with-jump-pack-2` `oc-chaplain-with-jump-pack-2-1-8`: added (absent → unpriced)
+- `ds-chaplain-with-jump-pack-2` `oc-chaplain-with-jump-pack-2-1-9`: added (absent → unpriced)
+- `ds-chaplain-with-jump-pack-3` `oc-chaplain-with-jump-pack-3-1-1`: added (absent → unpriced)
+- `ds-chaplain-with-jump-pack-3` `oc-chaplain-with-jump-pack-3-1-2`: added (absent → unpriced)
+- `ds-chaplain-with-jump-pack-3` `oc-chaplain-with-jump-pack-3-1-3`: added (absent → unpriced)
+- `ds-chaplain-with-jump-pack-3` `oc-chaplain-with-jump-pack-3-1-4`: added (absent → unpriced)
+- `ds-chaplain-with-jump-pack-3` `oc-chaplain-with-jump-pack-3-1-5`: added (absent → unpriced)
+- `ds-chaplain-with-jump-pack-3` `oc-chaplain-with-jump-pack-3-1-6`: added (absent → unpriced)
+- `ds-chaplain-with-jump-pack-3` `oc-chaplain-with-jump-pack-3-1-7`: added (absent → unpriced)
+- `ds-chaplain-with-jump-pack-3` `oc-chaplain-with-jump-pack-3-1-8`: added (absent → unpriced)
+- `ds-chaplain-with-jump-pack-3` `oc-chaplain-with-jump-pack-3-1-9`: added (absent → unpriced)
+- `ds-chaplain-with-jump-pack-4` `oc-chaplain-with-jump-pack-4-1-1`: added (absent → unpriced)
+- `ds-chaplain-with-jump-pack-4` `oc-chaplain-with-jump-pack-4-1-2`: added (absent → unpriced)
+- `ds-chaplain-with-jump-pack-4` `oc-chaplain-with-jump-pack-4-1-3`: added (absent → unpriced)
+- `ds-chaplain-with-jump-pack-4` `oc-chaplain-with-jump-pack-4-1-4`: added (absent → unpriced)
+- `ds-chaplain-with-jump-pack-4` `oc-chaplain-with-jump-pack-4-1-5`: added (absent → unpriced)
+- `ds-chaplain-with-jump-pack-4` `oc-chaplain-with-jump-pack-4-1-6`: added (absent → unpriced)
+- `ds-chaplain-with-jump-pack-4` `oc-chaplain-with-jump-pack-4-1-7`: added (absent → unpriced)
+- `ds-chaplain-with-jump-pack-4` `oc-chaplain-with-jump-pack-4-1-8`: added (absent → unpriced)
+- `ds-chaplain-with-jump-pack-4` `oc-chaplain-with-jump-pack-4-1-9`: added (absent → unpriced)
+- `ds-chaplain-with-jump-pack-5` `oc-chaplain-with-jump-pack-5-1-1`: added (absent → unpriced)
+- `ds-chaplain-with-jump-pack-5` `oc-chaplain-with-jump-pack-5-1-2`: added (absent → unpriced)
+- `ds-chaplain-with-jump-pack-5` `oc-chaplain-with-jump-pack-5-1-3`: added (absent → unpriced)
+- `ds-chaplain-with-jump-pack-5` `oc-chaplain-with-jump-pack-5-1-4`: added (absent → unpriced)
+- `ds-chaplain-with-jump-pack-5` `oc-chaplain-with-jump-pack-5-1-5`: added (absent → unpriced)
+- `ds-chaplain-with-jump-pack-5` `oc-chaplain-with-jump-pack-5-1-6`: added (absent → unpriced)
+- `ds-chaplain-with-jump-pack-5` `oc-chaplain-with-jump-pack-5-1-7`: added (absent → unpriced)
+- `ds-chaplain-with-jump-pack-5` `oc-chaplain-with-jump-pack-5-1-8`: added (absent → unpriced)
+- `ds-chaplain-with-jump-pack-5` `oc-chaplain-with-jump-pack-5-1-9`: added (absent → unpriced)
+- `ds-chaplain-with-jump-pack-6` `oc-chaplain-with-jump-pack-6-1-1`: added (absent → unpriced)
+- `ds-chaplain-with-jump-pack-6` `oc-chaplain-with-jump-pack-6-1-2`: added (absent → unpriced)
+- `ds-chaplain-with-jump-pack-6` `oc-chaplain-with-jump-pack-6-1-3`: added (absent → unpriced)
+- `ds-chaplain-with-jump-pack-6` `oc-chaplain-with-jump-pack-6-1-4`: added (absent → unpriced)
+- `ds-chaplain-with-jump-pack-6` `oc-chaplain-with-jump-pack-6-1-5`: added (absent → unpriced)
+- `ds-chaplain-with-jump-pack-6` `oc-chaplain-with-jump-pack-6-1-6`: added (absent → unpriced)
+- `ds-chaplain-with-jump-pack-6` `oc-chaplain-with-jump-pack-6-1-7`: added (absent → unpriced)
+- `ds-chaplain-with-jump-pack-6` `oc-chaplain-with-jump-pack-6-1-8`: added (absent → unpriced)
+- `ds-chaplain-with-jump-pack-6` `oc-chaplain-with-jump-pack-6-1-9`: added (absent → unpriced)
+- `ds-chimera` `oc-chimera-1-1`: added (absent → unpriced)
+- `ds-chimera` `oc-chimera-2-1`: added (absent → unpriced)
+- `ds-chimera` `oc-chimera-2-2`: added (absent → unpriced)
+- `ds-chimera` `oc-chimera-3-1`: added (absent → unpriced)
+- `ds-chimera` `oc-chimera-3-2`: added (absent → unpriced)
+- `ds-chimera` `oc-chimera-4-1`: added (absent → unpriced)
+- `ds-chimera-2` `oc-chimera-2-1-1`: added (absent → unpriced)
+- `ds-chimera-2` `oc-chimera-2-2-1`: added (absent → unpriced)
+- `ds-chimera-2` `oc-chimera-2-2-2`: added (absent → unpriced)
+- `ds-chimera-2` `oc-chimera-2-3-1`: added (absent → unpriced)
+- `ds-chimera-2` `oc-chimera-2-3-2`: added (absent → unpriced)
+- `ds-chimera-2` `oc-chimera-2-4-1`: added (absent → unpriced)
+- `ds-chinork-warkopta` `oc-chinork-warkopta-1-1`: added (absent → unpriced)
+- `ds-chinork-warkopta` `oc-chinork-warkopta-2-1`: added (absent → unpriced)
+- `ds-chinork-warkopta` `oc-chinork-warkopta-2-2`: added (absent → unpriced)
+- `ds-chinork-warkopta` `oc-chinork-warkopta-2-3`: added (absent → unpriced)
+- `ds-chinork-warkopta` `oc-chinork-warkopta-3-1`: added (absent → unpriced)
+- `ds-chosen` `oc-chosen-3-1`: added (absent → unpriced)
+- `ds-chosen` `oc-chosen-5-1`: added (absent → unpriced)
+- `ds-chosen-2` `oc-chosen-2-3-1`: added (absent → unpriced)
+- `ds-chosen-2` `oc-chosen-2-5-1`: added (absent → unpriced)
+- `ds-cobra` `oc-cobra-1-1`: added (absent → unpriced)
+- `ds-cobra` `oc-cobra-1-2`: added (absent → unpriced)
+- `ds-cobra` `oc-cobra-1-3`: added (absent → unpriced)
+- `ds-cobra` `oc-cobra-1-4`: added (absent → unpriced)
+- `ds-colossus` `oc-colossus-1-1`: added (absent → unpriced)
+- `ds-colossus` `oc-colossus-2-1`: added (absent → unpriced)
+- `ds-colossus` `oc-colossus-2-2`: added (absent → unpriced)
+- `ds-colossus-2` `oc-colossus-2-1-1`: added (absent → unpriced)
+- `ds-colossus-2` `oc-colossus-2-2-1`: added (absent → unpriced)
+- `ds-colossus-2` `oc-colossus-2-2-2`: added (absent → unpriced)
+- `ds-command-squad` `oc-command-squad-4-1`: added (absent → unpriced)
+- `ds-command-squad` `oc-command-squad-4-2`: added (absent → unpriced)
+- `ds-commander-in-coldstar-battlesuit` `oc-commander-in-coldstar-battlesuit-1-1`: added (absent → unpriced)
+- `ds-commander-in-coldstar-battlesuit` `oc-commander-in-coldstar-battlesuit-1-10`: added (absent → unpriced)
+- `ds-commander-in-coldstar-battlesuit` `oc-commander-in-coldstar-battlesuit-1-2`: added (absent → unpriced)
+- `ds-commander-in-coldstar-battlesuit` `oc-commander-in-coldstar-battlesuit-1-3`: added (absent → unpriced)
+- `ds-commander-in-coldstar-battlesuit` `oc-commander-in-coldstar-battlesuit-1-4`: added (absent → unpriced)
+- `ds-commander-in-coldstar-battlesuit` `oc-commander-in-coldstar-battlesuit-1-5`: added (absent → unpriced)
+- `ds-commander-in-coldstar-battlesuit` `oc-commander-in-coldstar-battlesuit-1-6`: added (absent → unpriced)
+- `ds-commander-in-coldstar-battlesuit` `oc-commander-in-coldstar-battlesuit-1-7`: added (absent → unpriced)
+- `ds-commander-in-coldstar-battlesuit` `oc-commander-in-coldstar-battlesuit-1-8`: added (absent → unpriced)
+- `ds-commander-in-coldstar-battlesuit` `oc-commander-in-coldstar-battlesuit-1-9`: added (absent → unpriced)
+- `ds-commander-in-coldstar-battlesuit` `oc-commander-in-coldstar-battlesuit-2-1`: added (absent → unpriced)
+- `ds-commander-in-coldstar-battlesuit` `oc-commander-in-coldstar-battlesuit-2-2`: added (absent → unpriced)
+- `ds-commander-in-coldstar-battlesuit` `oc-commander-in-coldstar-battlesuit-2-3`: added (absent → unpriced)
+- `ds-commander-in-coldstar-battlesuit` `oc-commander-in-coldstar-battlesuit-3-1`: added (absent → unpriced)
+- `ds-commander-in-coldstar-battlesuit` `oc-commander-in-coldstar-battlesuit-3-10`: added (absent → unpriced)
+- `ds-commander-in-coldstar-battlesuit` `oc-commander-in-coldstar-battlesuit-3-2`: added (absent → unpriced)
+- `ds-commander-in-coldstar-battlesuit` `oc-commander-in-coldstar-battlesuit-3-3`: added (absent → unpriced)
+- `ds-commander-in-coldstar-battlesuit` `oc-commander-in-coldstar-battlesuit-3-4`: added (absent → unpriced)
+- `ds-commander-in-coldstar-battlesuit` `oc-commander-in-coldstar-battlesuit-3-5`: added (absent → unpriced)
+- `ds-commander-in-coldstar-battlesuit` `oc-commander-in-coldstar-battlesuit-3-6`: added (absent → unpriced)
+- `ds-commander-in-coldstar-battlesuit` `oc-commander-in-coldstar-battlesuit-3-7`: added (absent → unpriced)
+- `ds-commander-in-coldstar-battlesuit` `oc-commander-in-coldstar-battlesuit-3-8`: added (absent → unpriced)
+- `ds-commander-in-coldstar-battlesuit` `oc-commander-in-coldstar-battlesuit-3-9`: added (absent → unpriced)
+- `ds-commander-in-crisis-battlesuit` `oc-commander-in-crisis-battlesuit-1-1`: added (absent → unpriced)
+- `ds-commander-in-crisis-battlesuit` `oc-commander-in-crisis-battlesuit-1-2`: added (absent → unpriced)
+- `ds-commander-in-crisis-battlesuit` `oc-commander-in-crisis-battlesuit-1-3`: added (absent → unpriced)
+- `ds-commander-in-crisis-battlesuit` `oc-commander-in-crisis-battlesuit-1-4`: added (absent → unpriced)
+- `ds-commander-in-crisis-battlesuit` `oc-commander-in-crisis-battlesuit-1-5`: added (absent → unpriced)
+- `ds-commander-in-crisis-battlesuit` `oc-commander-in-crisis-battlesuit-1-6`: added (absent → unpriced)
+- `ds-commander-in-crisis-battlesuit` `oc-commander-in-crisis-battlesuit-1-7`: added (absent → unpriced)
+- `ds-commander-in-crisis-battlesuit` `oc-commander-in-crisis-battlesuit-1-8`: added (absent → unpriced)
+- `ds-commander-in-crisis-battlesuit` `oc-commander-in-crisis-battlesuit-1-9`: added (absent → unpriced)
+- `ds-commander-in-crisis-battlesuit` `oc-commander-in-crisis-battlesuit-2-1`: added (absent → unpriced)
+- `ds-commander-in-crisis-battlesuit` `oc-commander-in-crisis-battlesuit-2-2`: added (absent → unpriced)
+- `ds-commander-in-crisis-battlesuit` `oc-commander-in-crisis-battlesuit-2-3`: added (absent → unpriced)
+- `ds-commander-in-crisis-battlesuit` `oc-commander-in-crisis-battlesuit-3-1`: added (absent → unpriced)
+- `ds-commander-in-crisis-battlesuit` `oc-commander-in-crisis-battlesuit-3-10`: added (absent → unpriced)
+- `ds-commander-in-crisis-battlesuit` `oc-commander-in-crisis-battlesuit-3-2`: added (absent → unpriced)
+- `ds-commander-in-crisis-battlesuit` `oc-commander-in-crisis-battlesuit-3-3`: added (absent → unpriced)
+- `ds-commander-in-crisis-battlesuit` `oc-commander-in-crisis-battlesuit-3-4`: added (absent → unpriced)
+- `ds-commander-in-crisis-battlesuit` `oc-commander-in-crisis-battlesuit-3-5`: added (absent → unpriced)
+- `ds-commander-in-crisis-battlesuit` `oc-commander-in-crisis-battlesuit-3-6`: added (absent → unpriced)
+- `ds-commander-in-crisis-battlesuit` `oc-commander-in-crisis-battlesuit-3-7`: added (absent → unpriced)
+- `ds-commander-in-crisis-battlesuit` `oc-commander-in-crisis-battlesuit-3-8`: added (absent → unpriced)
+- `ds-commander-in-crisis-battlesuit` `oc-commander-in-crisis-battlesuit-3-9`: added (absent → unpriced)
+- `ds-commander-in-enforcer-battlesuit` `oc-commander-in-enforcer-battlesuit-1-1`: added (absent → unpriced)
+- `ds-commander-in-enforcer-battlesuit` `oc-commander-in-enforcer-battlesuit-1-2`: added (absent → unpriced)
+- `ds-commander-in-enforcer-battlesuit` `oc-commander-in-enforcer-battlesuit-1-3`: added (absent → unpriced)
+- `ds-commander-in-enforcer-battlesuit` `oc-commander-in-enforcer-battlesuit-1-4`: added (absent → unpriced)
+- `ds-commander-in-enforcer-battlesuit` `oc-commander-in-enforcer-battlesuit-1-5`: added (absent → unpriced)
+- `ds-commander-in-enforcer-battlesuit` `oc-commander-in-enforcer-battlesuit-1-6`: added (absent → unpriced)
+- `ds-commander-in-enforcer-battlesuit` `oc-commander-in-enforcer-battlesuit-1-7`: added (absent → unpriced)
+- `ds-commander-in-enforcer-battlesuit` `oc-commander-in-enforcer-battlesuit-1-8`: added (absent → unpriced)
+- `ds-commander-in-enforcer-battlesuit` `oc-commander-in-enforcer-battlesuit-1-9`: added (absent → unpriced)
+- `ds-commander-in-enforcer-battlesuit` `oc-commander-in-enforcer-battlesuit-2-1`: added (absent → unpriced)
+- `ds-commander-in-enforcer-battlesuit` `oc-commander-in-enforcer-battlesuit-2-2`: added (absent → unpriced)
+- `ds-commander-in-enforcer-battlesuit` `oc-commander-in-enforcer-battlesuit-2-3`: added (absent → unpriced)
+- `ds-commander-in-enforcer-battlesuit` `oc-commander-in-enforcer-battlesuit-3-1`: added (absent → unpriced)
+- `ds-commander-in-enforcer-battlesuit` `oc-commander-in-enforcer-battlesuit-3-10`: added (absent → unpriced)
+- `ds-commander-in-enforcer-battlesuit` `oc-commander-in-enforcer-battlesuit-3-2`: added (absent → unpriced)
+- `ds-commander-in-enforcer-battlesuit` `oc-commander-in-enforcer-battlesuit-3-3`: added (absent → unpriced)
+- `ds-commander-in-enforcer-battlesuit` `oc-commander-in-enforcer-battlesuit-3-4`: added (absent → unpriced)
+- `ds-commander-in-enforcer-battlesuit` `oc-commander-in-enforcer-battlesuit-3-5`: added (absent → unpriced)
+- `ds-commander-in-enforcer-battlesuit` `oc-commander-in-enforcer-battlesuit-3-6`: added (absent → unpriced)
+- `ds-commander-in-enforcer-battlesuit` `oc-commander-in-enforcer-battlesuit-3-7`: added (absent → unpriced)
+- `ds-commander-in-enforcer-battlesuit` `oc-commander-in-enforcer-battlesuit-3-8`: added (absent → unpriced)
+- `ds-commander-in-enforcer-battlesuit` `oc-commander-in-enforcer-battlesuit-3-9`: added (absent → unpriced)
+- `ds-commissar` `oc-commissar-1-1`: added (absent → unpriced)
+- `ds-commissar` `oc-commissar-2-1`: added (absent → unpriced)
+- `ds-company-veterans-on-bikes` `oc-company-veterans-on-bikes-1-1`: added (absent → unpriced)
+- `ds-company-veterans-on-bikes` `oc-company-veterans-on-bikes-1-2`: added (absent → unpriced)
+- `ds-company-veterans-on-bikes` `oc-company-veterans-on-bikes-1-3`: added (absent → unpriced)
+- `ds-company-veterans-on-bikes` `oc-company-veterans-on-bikes-1-4`: added (absent → unpriced)
+- `ds-company-veterans-on-bikes` `oc-company-veterans-on-bikes-1-5`: added (absent → unpriced)
+- `ds-company-veterans-on-bikes` `oc-company-veterans-on-bikes-2-1`: added (absent → unpriced)
+- `ds-company-veterans-on-bikes` `oc-company-veterans-on-bikes-2-2`: added (absent → unpriced)
+- `ds-company-veterans-on-bikes` `oc-company-veterans-on-bikes-2-3`: added (absent → unpriced)
+- `ds-contemptor-achillus-dreadnought` `oc-contemptor-achillus-dreadnought-1-1`: added (absent → unpriced)
+- `ds-contemptor-achillus-dreadnought` `oc-contemptor-achillus-dreadnought-1-2`: added (absent → unpriced)
+- `ds-contemptor-achillus-dreadnought` `oc-contemptor-achillus-dreadnought-1-3`: added (absent → unpriced)
+- `ds-contemptor-achillus-dreadnought` `oc-contemptor-achillus-dreadnought-1-4`: added (absent → unpriced)
+- `ds-contemptor-achillus-dreadnought` `oc-contemptor-achillus-dreadnought-1-5`: added (absent → unpriced)
+- `ds-corsair-cloud-dancer-band` `oc-corsair-cloud-dancer-band-2-1`: added (absent → unpriced)
+- `ds-corsair-cloud-dancer-band` `oc-corsair-cloud-dancer-band-2-2`: added (absent → unpriced)
+- `ds-corsair-cloud-dancer-band-2` `oc-corsair-cloud-dancer-band-2-2-1`: added (absent → unpriced)
+- `ds-corsair-cloud-dancer-band-2` `oc-corsair-cloud-dancer-band-2-2-2`: added (absent → unpriced)
+- `ds-corsair-reaver-band` `oc-corsair-reaver-band-2-1`: added (absent → unpriced)
+- `ds-corsair-reaver-band` `oc-corsair-reaver-band-2-2`: added (absent → unpriced)
+- `ds-corsair-reaver-band` `oc-corsair-reaver-band-2-3`: added (absent → unpriced)
+- `ds-corsair-reaver-band` `oc-corsair-reaver-band-2-4`: added (absent → unpriced)
+- `ds-corsair-reaver-band` `oc-corsair-reaver-band-2-5`: added (absent → unpriced)
+- `ds-corsair-reaver-band` `oc-corsair-reaver-band-2-6`: added (absent → unpriced)
+- `ds-corsair-reaver-band` `oc-corsair-reaver-band-2-7`: added (absent → unpriced)
+- `ds-corsair-reaver-band` `oc-corsair-reaver-band-2-8`: added (absent → unpriced)
+- `ds-corsair-reaver-band` `oc-corsair-reaver-band-3-1`: added (absent → unpriced)
+- `ds-corsair-reaver-band` `oc-corsair-reaver-band-3-2`: added (absent → unpriced)
+- `ds-corsair-reaver-band-2` `oc-corsair-reaver-band-2-2-1`: added (absent → unpriced)
+- `ds-corsair-reaver-band-2` `oc-corsair-reaver-band-2-2-2`: added (absent → unpriced)
+- `ds-corsair-reaver-band-2` `oc-corsair-reaver-band-2-2-3`: added (absent → unpriced)
+- `ds-corsair-reaver-band-2` `oc-corsair-reaver-band-2-2-4`: added (absent → unpriced)
+- `ds-corsair-reaver-band-2` `oc-corsair-reaver-band-2-2-5`: added (absent → unpriced)
+- `ds-corsair-reaver-band-2` `oc-corsair-reaver-band-2-2-6`: added (absent → unpriced)
+- `ds-corsair-reaver-band-2` `oc-corsair-reaver-band-2-2-7`: added (absent → unpriced)
+- `ds-corsair-reaver-band-2` `oc-corsair-reaver-band-2-2-8`: added (absent → unpriced)
+- `ds-corsair-reaver-band-2` `oc-corsair-reaver-band-2-3-1`: added (absent → unpriced)
+- `ds-corsair-reaver-band-2` `oc-corsair-reaver-band-2-3-2`: added (absent → unpriced)
+- `ds-corsair-voidreavers` `oc-corsair-voidreavers-1-1`: added (absent → unpriced)
+- `ds-corsair-voidreavers` `oc-corsair-voidreavers-1-2`: added (absent → unpriced)
+- `ds-corsair-voidreavers` `oc-corsair-voidreavers-2-1`: added (absent → unpriced)
+- `ds-corsair-voidreavers` `oc-corsair-voidreavers-4-1`: added (absent → unpriced)
+- `ds-corsair-voidreavers` `oc-corsair-voidreavers-4-2`: added (absent → unpriced)
+- `ds-corsair-voidreavers-2` `oc-corsair-voidreavers-2-1-1`: added (absent → unpriced)
+- `ds-corsair-voidreavers-2` `oc-corsair-voidreavers-2-1-2`: added (absent → unpriced)
+- `ds-corsair-voidreavers-2` `oc-corsair-voidreavers-2-2-1`: added (absent → unpriced)
+- `ds-corsair-voidreavers-2` `oc-corsair-voidreavers-2-4-1`: added (absent → unpriced)
+- `ds-corsair-voidreavers-2` `oc-corsair-voidreavers-2-4-2`: added (absent → unpriced)
+- `ds-corsair-voidscarred` `oc-corsair-voidscarred-2-1`: added (absent → unpriced)
+- `ds-corsair-voidscarred` `oc-corsair-voidscarred-2-2`: added (absent → unpriced)
+- `ds-corsair-voidscarred` `oc-corsair-voidscarred-3-1`: added (absent → unpriced)
+- `ds-corsair-voidscarred` `oc-corsair-voidscarred-4-1`: added (absent → unpriced)
+- `ds-corsair-voidscarred` `oc-corsair-voidscarred-4-2`: added (absent → unpriced)
+- `ds-corsair-voidscarred` `oc-corsair-voidscarred-8-1`: added (absent → unpriced)
+- `ds-corsair-voidscarred-2` `oc-corsair-voidscarred-2-2-1`: added (absent → unpriced)
+- `ds-corsair-voidscarred-2` `oc-corsair-voidscarred-2-2-2`: added (absent → unpriced)
+- `ds-corsair-voidscarred-2` `oc-corsair-voidscarred-2-3-1`: added (absent → unpriced)
+- `ds-corsair-voidscarred-2` `oc-corsair-voidscarred-2-4-1`: added (absent → unpriced)
+- `ds-corsair-voidscarred-2` `oc-corsair-voidscarred-2-4-2`: added (absent → unpriced)
+- `ds-corsair-voidscarred-2` `oc-corsair-voidscarred-2-8-1`: added (absent → unpriced)
+- `ds-corvus-blackstar` `oc-corvus-blackstar-1-1`: added (absent → unpriced)
+- `ds-corvus-blackstar` `oc-corvus-blackstar-2-1`: added (absent → unpriced)
+- `ds-corvus-blackstar` `oc-corvus-blackstar-3-1`: added (absent → unpriced)
+- `ds-corvus-blackstar` `oc-corvus-blackstar-4-1`: added (absent → unpriced)
+- `ds-corvus-blackstar` `oc-corvus-blackstar-4-2`: added (absent → unpriced)
+- `ds-corvus-blackstar-2` `oc-corvus-blackstar-2-1-1`: added (absent → unpriced)
+- `ds-corvus-blackstar-2` `oc-corvus-blackstar-2-2-1`: added (absent → unpriced)
+- `ds-corvus-blackstar-2` `oc-corvus-blackstar-2-3-1`: added (absent → unpriced)
+- `ds-corvus-blackstar-2` `oc-corvus-blackstar-2-4-1`: added (absent → unpriced)
+- `ds-corvus-blackstar-2` `oc-corvus-blackstar-2-4-2`: added (absent → unpriced)
+- `ds-crassus` `oc-crassus-1-1`: added (absent → unpriced)
+- `ds-crassus` `oc-crassus-1-2`: added (absent → unpriced)
+- `ds-crassus-2` `oc-crassus-2-1-1`: added (absent → unpriced)
+- `ds-crassus-2` `oc-crassus-2-1-2`: added (absent → unpriced)
+- `ds-crimson-hunter` `oc-crimson-hunter-1-1`: added (absent → unpriced)
+- `ds-crisis-battlesuits` `oc-crisis-battlesuits-2-1`: added (absent → unpriced)
+- `ds-crisis-battlesuits` `oc-crisis-battlesuits-2-2`: added (absent → unpriced)
+- `ds-crisis-battlesuits` `oc-crisis-battlesuits-2-3`: added (absent → unpriced)
+- `ds-crisis-fireknife-battlesuits` `oc-crisis-fireknife-battlesuits-3-1`: added (absent → unpriced)
+- `ds-crisis-fireknife-battlesuits` `oc-crisis-fireknife-battlesuits-3-2`: added (absent → unpriced)
+- `ds-crisis-fireknife-battlesuits` `oc-crisis-fireknife-battlesuits-3-3`: added (absent → unpriced)
+- `ds-crisis-starscythe-battlesuits` `oc-crisis-starscythe-battlesuits-3-1`: added (absent → unpriced)
+- `ds-crisis-starscythe-battlesuits` `oc-crisis-starscythe-battlesuits-3-2`: added (absent → unpriced)
+- `ds-crisis-starscythe-battlesuits` `oc-crisis-starscythe-battlesuits-3-3`: added (absent → unpriced)
+- `ds-crisis-sunforge-battlesuits` `oc-crisis-sunforge-battlesuits-1-1`: added (absent → unpriced)
+- `ds-crisis-sunforge-battlesuits` `oc-crisis-sunforge-battlesuits-1-2`: added (absent → unpriced)
+- `ds-crisis-sunforge-battlesuits` `oc-crisis-sunforge-battlesuits-1-3`: added (absent → unpriced)
+- `ds-crusader-squad` `oc-crusader-squad-1-1`: added (absent → unpriced)
+- `ds-cthonian-beserks` `oc-cthonian-beserks-3-1`: added (absent → unpriced)
+- `ds-cultist-mob` `oc-cultist-mob-1-1`: added (absent → unpriced)
+- `ds-cultist-mob-2` `oc-cultist-mob-2-1-1`: added (absent → unpriced)
+- `ds-cultist-mob-3` `oc-cultist-mob-3-1-1`: added (absent → unpriced)
+- `ds-cultist-mob-with-firearms` `oc-cultist-mob-with-firearms-1-1`: added (absent → unpriced)
+- `ds-cultist-mob-with-firearms` `oc-cultist-mob-with-firearms-3-1`: added (absent → unpriced)
+- `ds-cultist-mob-with-firearms` `oc-cultist-mob-with-firearms-4-1`: added (absent → unpriced)
+- `ds-cultist-mob-with-firearms` `oc-cultist-mob-with-firearms-5-1`: added (absent → unpriced)
+- `ds-cultist-mob-with-firearms-2` `oc-cultist-mob-with-firearms-2-1-1`: added (absent → unpriced)
+- `ds-cultist-mob-with-firearms-2` `oc-cultist-mob-with-firearms-2-3-1`: added (absent → unpriced)
+- `ds-cultist-mob-with-firearms-2` `oc-cultist-mob-with-firearms-2-4-1`: added (absent → unpriced)
+- `ds-cultist-mob-with-firearms-2` `oc-cultist-mob-with-firearms-2-5-1`: added (absent → unpriced)
+- `ds-cultist-mob-with-firearms-3` `oc-cultist-mob-with-firearms-3-1-1`: added (absent → unpriced)
+- `ds-cultist-mob-with-firearms-3` `oc-cultist-mob-with-firearms-3-3-1`: added (absent → unpriced)
+- `ds-cultist-mob-with-firearms-3` `oc-cultist-mob-with-firearms-3-4-1`: added (absent → unpriced)
+- `ds-cultist-mob-with-firearms-3` `oc-cultist-mob-with-firearms-3-5-1`: added (absent → unpriced)
+- `ds-custodian-guard` `oc-custodian-guard-2-1`: added (absent → unpriced)
+- `ds-custodian-guard` `oc-custodian-guard-2-2`: added (absent → unpriced)
+- `ds-custodian-wardens` `oc-custodian-wardens-2-1`: added (absent → unpriced)
+- `ds-daemonettes` `oc-daemonettes-1-1`: added (absent → unpriced)
+- `ds-daemonettes` `oc-daemonettes-2-1`: added (absent → unpriced)
+- `ds-daemonettes-2` `oc-daemonettes-2-1-1`: added (absent → unpriced)
+- `ds-daemonettes-2` `oc-daemonettes-2-2-1`: added (absent → unpriced)
+- `ds-dakkajet` `oc-dakkajet-1-1`: added (absent → unpriced)
+- `ds-damned-legionnaires` `oc-damned-legionnaires-1-1`: added (absent → unpriced)
+- `ds-damned-legionnaires` `oc-damned-legionnaires-1-2`: added (absent → unpriced)
+- `ds-damned-legionnaires` `oc-damned-legionnaires-1-3`: added (absent → unpriced)
+- `ds-damned-legionnaires` `oc-damned-legionnaires-1-4`: added (absent → unpriced)
+- `ds-dark-reapers` `oc-dark-reapers-1-1`: added (absent → unpriced)
+- `ds-dark-reapers` `oc-dark-reapers-1-2`: added (absent → unpriced)
+- `ds-dark-reapers` `oc-dark-reapers-1-3`: added (absent → unpriced)
+- `ds-death-company-captain` `oc-death-company-captain-1-1`: added (absent → unpriced)
+- `ds-death-company-captain` `oc-death-company-captain-2-1`: added (absent → unpriced)
+- `ds-death-company-captain` `oc-death-company-captain-2-2`: added (absent → unpriced)
+- `ds-death-company-captain-with-jump-pack` `oc-death-company-captain-with-jump-pack-1-1`: added (absent → unpriced)
+- `ds-death-company-captain-with-jump-pack` `oc-death-company-captain-with-jump-pack-1-2`: added (absent → unpriced)
+- `ds-death-company-captain-with-jump-pack` `oc-death-company-captain-with-jump-pack-2-1`: added (absent → unpriced)
+- `ds-death-company-captain-with-jump-pack` `oc-death-company-captain-with-jump-pack-2-2`: added (absent → unpriced)
+- `ds-death-company-dreadnought` `oc-death-company-dreadnought-1-1`: added (absent → unpriced)
+- `ds-death-company-dreadnought` `oc-death-company-dreadnought-2-1`: added (absent → unpriced)
+- `ds-death-company-dreadnought-with-magna-grapple` `oc-death-company-dreadnought-with-magna-grapple-1-1`: added (absent → unpriced)
+- `ds-death-company-dreadnought-with-magna-grapple` `oc-death-company-dreadnought-with-magna-grapple-2-1`: added (absent → unpriced)
+- `ds-death-company-dreadnought-with-magna-grapple` `oc-death-company-dreadnought-with-magna-grapple-3-1`: added (absent → unpriced)
+- `ds-death-company-dreadnought-with-magna-grapple` `oc-death-company-dreadnought-with-magna-grapple-4-1`: added (absent → unpriced)
+- `ds-death-company-marines` `oc-death-company-marines-1-1`: added (absent → unpriced)
+- `ds-death-company-marines` `oc-death-company-marines-1-2`: added (absent → unpriced)
+- `ds-death-company-marines` `oc-death-company-marines-1-3`: added (absent → unpriced)
+- `ds-death-company-marines` `oc-death-company-marines-2-1`: added (absent → unpriced)
+- `ds-death-company-marines` `oc-death-company-marines-3-1`: added (absent → unpriced)
+- `ds-death-company-marines` `oc-death-company-marines-3-2`: added (absent → unpriced)
+- `ds-death-company-marines` `oc-death-company-marines-3-3`: added (absent → unpriced)
+- `ds-death-company-marines-with-bolt-rifles` `oc-death-company-marines-with-bolt-rifles-1-1`: added (absent → unpriced)
+- `ds-death-company-marines-with-bolt-rifles` `oc-death-company-marines-with-bolt-rifles-1-2`: added (absent → unpriced)
+- `ds-death-company-marines-with-bolt-rifles` `oc-death-company-marines-with-bolt-rifles-1-3`: added (absent → unpriced)
+- `ds-death-company-marines-with-bolt-rifles` `oc-death-company-marines-with-bolt-rifles-1-4`: added (absent → unpriced)
+- `ds-death-company-marines-with-bolt-rifles` `oc-death-company-marines-with-bolt-rifles-2-1`: added (absent → unpriced)
+- `ds-death-company-marines-with-bolt-rifles` `oc-death-company-marines-with-bolt-rifles-3-1`: added (absent → unpriced)
+- `ds-death-company-marines-with-bolt-rifles` `oc-death-company-marines-with-bolt-rifles-4-1`: added (absent → unpriced)
+- `ds-death-company-marines-with-bolt-rifles` `oc-death-company-marines-with-bolt-rifles-4-2`: added (absent → unpriced)
+- `ds-death-company-marines-with-bolt-rifles` `oc-death-company-marines-with-bolt-rifles-4-3`: added (absent → unpriced)
+- `ds-death-company-marines-with-bolt-rifles` `oc-death-company-marines-with-bolt-rifles-4-4`: added (absent → unpriced)
+- `ds-death-company-marines-with-jump-packs` `oc-death-company-marines-with-jump-packs-1-1`: added (absent → unpriced)
+- `ds-death-company-marines-with-jump-packs` `oc-death-company-marines-with-jump-packs-2-1`: added (absent → unpriced)
+- `ds-death-company-marines-with-jump-packs` `oc-death-company-marines-with-jump-packs-3-1`: added (absent → unpriced)
+- `ds-death-company-marines-with-jump-packs` `oc-death-company-marines-with-jump-packs-3-2`: added (absent → unpriced)
+- `ds-death-company-marines-with-jump-packs` `oc-death-company-marines-with-jump-packs-4-1`: added (absent → unpriced)
+- `ds-death-company-marines-with-jump-packs` `oc-death-company-marines-with-jump-packs-4-10`: added (absent → unpriced)
+- `ds-death-company-marines-with-jump-packs` `oc-death-company-marines-with-jump-packs-4-11`: added (absent → unpriced)
+- `ds-death-company-marines-with-jump-packs` `oc-death-company-marines-with-jump-packs-4-2`: added (absent → unpriced)
+- `ds-death-company-marines-with-jump-packs` `oc-death-company-marines-with-jump-packs-4-3`: added (absent → unpriced)
+- `ds-death-company-marines-with-jump-packs` `oc-death-company-marines-with-jump-packs-4-4`: added (absent → unpriced)
+- `ds-death-company-marines-with-jump-packs` `oc-death-company-marines-with-jump-packs-4-5`: added (absent → unpriced)
+- `ds-death-company-marines-with-jump-packs` `oc-death-company-marines-with-jump-packs-4-6`: added (absent → unpriced)
+- `ds-death-company-marines-with-jump-packs` `oc-death-company-marines-with-jump-packs-4-7`: added (absent → unpriced)
+- `ds-death-company-marines-with-jump-packs` `oc-death-company-marines-with-jump-packs-4-8`: added (absent → unpriced)
+- `ds-death-company-marines-with-jump-packs` `oc-death-company-marines-with-jump-packs-4-9`: added (absent → unpriced)
+- `ds-death-guard-chaos-lord` `oc-death-guard-chaos-lord-1-1`: added (absent → unpriced)
+- `ds-death-guard-chaos-lord` `oc-death-guard-chaos-lord-1-2`: added (absent → unpriced)
+- `ds-death-guard-chaos-lord` `oc-death-guard-chaos-lord-1-3`: added (absent → unpriced)
+- `ds-death-guard-chaos-lord` `oc-death-guard-chaos-lord-1-4`: added (absent → unpriced)
+- `ds-death-guard-chaos-lord` `oc-death-guard-chaos-lord-1-5`: added (absent → unpriced)
+- `ds-death-guard-chaos-lord` `oc-death-guard-chaos-lord-2-1`: added (absent → unpriced)
+- `ds-death-guard-chaos-lord` `oc-death-guard-chaos-lord-2-2`: added (absent → unpriced)
+- `ds-death-guard-chaos-lord` `oc-death-guard-chaos-lord-3-1`: added (absent → unpriced)
+- `ds-death-guard-chaos-lord-in-terminator-armour` `oc-death-guard-chaos-lord-in-terminator-armour-1-1`: added (absent → unpriced)
+- `ds-death-guard-chaos-lord-in-terminator-armour` `oc-death-guard-chaos-lord-in-terminator-armour-1-2`: added (absent → unpriced)
+- `ds-death-guard-chaos-lord-in-terminator-armour` `oc-death-guard-chaos-lord-in-terminator-armour-2-1`: added (absent → unpriced)
+- `ds-death-guard-chaos-lord-in-terminator-armour` `oc-death-guard-chaos-lord-in-terminator-armour-2-2`: added (absent → unpriced)
+- `ds-death-guard-chaos-lord-in-terminator-armour` `oc-death-guard-chaos-lord-in-terminator-armour-3-1`: added (absent → unpriced)
+- `ds-death-guard-cultists` `oc-death-guard-cultists-1-1`: added (absent → unpriced)
+- `ds-death-guard-cultists` `oc-death-guard-cultists-2-1`: added (absent → unpriced)
+- `ds-death-guard-cultists` `oc-death-guard-cultists-3-1`: added (absent → unpriced)
+- `ds-death-guard-possessed` `oc-death-guard-possessed-1-1`: added (absent → unpriced)
+- `ds-death-guard-sorcerer-in-terminator-armour` `oc-death-guard-sorcerer-in-terminator-armour-1-1`: added (absent → unpriced)
+- `ds-death-guard-sorcerer-in-terminator-armour` `oc-death-guard-sorcerer-in-terminator-armour-1-2`: added (absent → unpriced)
+- `ds-death-guard-sorcerer-in-terminator-armour` `oc-death-guard-sorcerer-in-terminator-armour-2-1`: added (absent → unpriced)
+- `ds-death-guard-sorcerer-in-terminator-armour` `oc-death-guard-sorcerer-in-terminator-armour-2-2`: added (absent → unpriced)
+- `ds-death-guard-sorcerer-in-terminator-armour` `oc-death-guard-sorcerer-in-terminator-armour-2-3`: added (absent → unpriced)
+- `ds-death-guard-sorcerer-in-terminator-armour` `oc-death-guard-sorcerer-in-terminator-armour-3-1`: added (absent → unpriced)
+- `ds-death-korps-of-krieg` `oc-death-korps-of-krieg-2-1`: added (absent → unpriced)
+- `ds-death-korps-of-krieg` `oc-death-korps-of-krieg-3-1`: added (absent → unpriced)
+- `ds-death-korps-of-krieg-2` `oc-death-korps-of-krieg-2-2-1`: added (absent → unpriced)
+- `ds-death-korps-of-krieg-2` `oc-death-korps-of-krieg-2-3-1`: added (absent → unpriced)
+- `ds-deathshroud-terminators` `oc-deathshroud-terminators-1-1`: added (absent → unpriced)
+- `ds-deathshroud-terminators` `oc-deathshroud-terminators-2-1`: added (absent → unpriced)
+- `ds-deathstorm-drop-pod` `oc-deathstorm-drop-pod-1-1`: added (absent → unpriced)
+- `ds-deathstrike` `oc-deathstrike-1-1`: added (absent → unpriced)
+- `ds-deathstrike` `oc-deathstrike-2-1`: added (absent → unpriced)
+- `ds-deathstrike-2` `oc-deathstrike-2-1-1`: added (absent → unpriced)
+- `ds-deathstrike-2` `oc-deathstrike-2-2-1`: added (absent → unpriced)
+- `ds-deathwatch-kill-team` `oc-deathwatch-kill-team-8-1`: added (absent → unpriced)
+- `ds-deathwatch-kill-team` `oc-deathwatch-kill-team-9-1`: added (absent → unpriced)
+- `ds-deathwatch-veterans` `oc-deathwatch-veterans-7-1`: added (absent → unpriced)
+- `ds-deathwatch-veterans` `oc-deathwatch-veterans-8-1`: added (absent → unpriced)
+- `ds-deathwatch-veterans` `oc-deathwatch-veterans-9-1`: added (absent → unpriced)
+- `ds-deathwing-command-squad` `oc-deathwing-command-squad-3-1`: added (absent → unpriced)
+- `ds-deathwing-knights` `oc-deathwing-knights-1-1`: added (absent → unpriced)
+- `ds-deathwing-strikemaster` `oc-deathwing-strikemaster-1-1`: added (absent → unpriced)
+- `ds-deathwing-strikemaster` `oc-deathwing-strikemaster-1-2`: added (absent → unpriced)
+- `ds-deathwing-strikemaster` `oc-deathwing-strikemaster-1-3`: added (absent → unpriced)
+- `ds-deathwing-strikemaster` `oc-deathwing-strikemaster-1-4`: added (absent → unpriced)
+- `ds-deathwing-strikemaster` `oc-deathwing-strikemaster-1-5`: added (absent → unpriced)
+- `ds-deathwing-strikemaster` `oc-deathwing-strikemaster-1-6`: added (absent → unpriced)
+- `ds-decimus-kill-team` `oc-decimus-kill-team-1-1`: added (absent → unpriced)
+- `ds-decimus-kill-team` `oc-decimus-kill-team-1-2`: added (absent → unpriced)
+- `ds-decimus-kill-team` `oc-decimus-kill-team-2-1`: added (absent → unpriced)
+- `ds-decimus-kill-team` `oc-decimus-kill-team-3-1`: added (absent → unpriced)
+- `ds-decimus-kill-team` `oc-decimus-kill-team-4-1`: added (absent → unpriced)
+- `ds-deff-rolla-battle-fortress` `oc-deff-rolla-battle-fortress-1-1`: added (absent → unpriced)
+- `ds-deff-rolla-battle-fortress` `oc-deff-rolla-battle-fortress-3-1`: added (absent → unpriced)
+- `ds-deff-rolla-battle-fortress` `oc-deff-rolla-battle-fortress-3-2`: added (absent → unpriced)
+- `ds-defiler` `oc-defiler-1-1`: added (absent → unpriced)
+- `ds-defiler` `oc-defiler-2-1`: added (absent → unpriced)
+- `ds-defiler` `oc-defiler-3-1`: added (absent → unpriced)
+- `ds-defiler` `oc-defiler-3-2`: added (absent → unpriced)
+- `ds-defiler` `oc-defiler-3-3`: added (absent → unpriced)
+- `ds-defiler` `oc-defiler-4-1`: added (absent → unpriced)
+- `ds-defiler` `oc-defiler-4-2`: added (absent → unpriced)
+- `ds-defiler` `oc-defiler-4-3`: added (absent → unpriced)
+- `ds-defiler-2` `oc-defiler-2-1-1`: added (absent → unpriced)
+- `ds-defiler-2` `oc-defiler-2-2-1`: added (absent → unpriced)
+- `ds-defiler-2` `oc-defiler-2-3-1`: added (absent → unpriced)
+- `ds-defiler-2` `oc-defiler-2-3-2`: added (absent → unpriced)
+- `ds-defiler-2` `oc-defiler-2-3-3`: added (absent → unpriced)
+- `ds-defiler-2` `oc-defiler-2-4-1`: added (absent → unpriced)
+- `ds-defiler-2` `oc-defiler-2-4-2`: added (absent → unpriced)
+- `ds-defiler-2` `oc-defiler-2-4-3`: added (absent → unpriced)
+- `ds-defiler-3` `oc-defiler-3-1-1`: added (absent → unpriced)
+- `ds-defiler-3` `oc-defiler-3-2-1`: added (absent → unpriced)
+- `ds-defiler-3` `oc-defiler-3-3-1`: added (absent → unpriced)
+- `ds-defiler-3` `oc-defiler-3-3-2`: added (absent → unpriced)
+- `ds-defiler-3` `oc-defiler-3-3-3`: added (absent → unpriced)
+- `ds-defiler-3` `oc-defiler-3-4-1`: added (absent → unpriced)
+- `ds-defiler-3` `oc-defiler-3-4-2`: added (absent → unpriced)
+- `ds-defiler-3` `oc-defiler-3-4-3`: added (absent → unpriced)
+- `ds-defiler-4` `oc-defiler-4-1-1`: added (absent → unpriced)
+- `ds-defiler-4` `oc-defiler-4-2-1`: added (absent → unpriced)
+- `ds-defiler-4` `oc-defiler-4-3-1`: added (absent → unpriced)
+- `ds-defiler-4` `oc-defiler-4-3-2`: added (absent → unpriced)
+- `ds-defiler-4` `oc-defiler-4-3-3`: added (absent → unpriced)
+- `ds-defiler-4` `oc-defiler-4-4-1`: added (absent → unpriced)
+- `ds-defiler-4` `oc-defiler-4-4-2`: added (absent → unpriced)
+- `ds-defiler-4` `oc-defiler-4-4-3`: added (absent → unpriced)
+- `ds-defiler-5` `oc-defiler-5-1-1`: added (absent → unpriced)
+- `ds-defiler-5` `oc-defiler-5-2-1`: added (absent → unpriced)
+- `ds-defiler-5` `oc-defiler-5-3-1`: added (absent → unpriced)
+- `ds-defiler-5` `oc-defiler-5-3-2`: added (absent → unpriced)
+- `ds-defiler-5` `oc-defiler-5-3-3`: added (absent → unpriced)
+- `ds-defiler-5` `oc-defiler-5-4-1`: added (absent → unpriced)
+- `ds-defiler-5` `oc-defiler-5-4-2`: added (absent → unpriced)
+- `ds-defiler-5` `oc-defiler-5-4-3`: added (absent → unpriced)
+- `ds-deimos-predator` `oc-deimos-predator-1-1`: added (absent → unpriced)
+- `ds-deimos-predator` `oc-deimos-predator-1-2`: added (absent → unpriced)
+- `ds-deimos-predator` `oc-deimos-predator-1-3`: added (absent → unpriced)
+- `ds-deimos-predator` `oc-deimos-predator-2-1`: added (absent → unpriced)
+- `ds-deimos-predator` `oc-deimos-predator-2-2`: added (absent → unpriced)
+- `ds-deimos-predator` `oc-deimos-predator-2-3`: added (absent → unpriced)
+- `ds-deimos-predator` `oc-deimos-predator-3-1`: added (absent → unpriced)
+- `ds-deimos-predator` `oc-deimos-predator-4-1`: added (absent → unpriced)
+- `ds-deredeo-dreadnought` `oc-deredeo-dreadnought-1-1`: added (absent → unpriced)
+- `ds-deredeo-dreadnought` `oc-deredeo-dreadnought-1-2`: added (absent → unpriced)
+- `ds-deredeo-dreadnought` `oc-deredeo-dreadnought-1-3`: added (absent → unpriced)
+- `ds-deredeo-dreadnought` `oc-deredeo-dreadnought-2-1`: added (absent → unpriced)
+- `ds-deredeo-dreadnought` `oc-deredeo-dreadnought-3-1`: added (absent → unpriced)
+- `ds-deredeo-dreadnought` `oc-deredeo-dreadnought-3-2`: added (absent → unpriced)
+- `ds-deredeo-dreadnought-2` `oc-deredeo-dreadnought-2-1-1`: added (absent → unpriced)
+- `ds-deredeo-dreadnought-2` `oc-deredeo-dreadnought-2-1-2`: added (absent → unpriced)
+- `ds-deredeo-dreadnought-2` `oc-deredeo-dreadnought-2-1-3`: added (absent → unpriced)
+- `ds-deredeo-dreadnought-2` `oc-deredeo-dreadnought-2-2-1`: added (absent → unpriced)
+- `ds-deredeo-dreadnought-2` `oc-deredeo-dreadnought-2-3-1`: added (absent → unpriced)
+- `ds-deredeo-dreadnought-2` `oc-deredeo-dreadnought-2-3-2`: added (absent → unpriced)
+- `ds-deredeo-dreadnought-3` `oc-deredeo-dreadnought-3-1-1`: added (absent → unpriced)
+- `ds-deredeo-dreadnought-3` `oc-deredeo-dreadnought-3-1-2`: added (absent → unpriced)
+- `ds-deredeo-dreadnought-3` `oc-deredeo-dreadnought-3-1-3`: added (absent → unpriced)
+- `ds-deredeo-dreadnought-3` `oc-deredeo-dreadnought-3-2-1`: added (absent → unpriced)
+- `ds-deredeo-dreadnought-3` `oc-deredeo-dreadnought-3-3-1`: added (absent → unpriced)
+- `ds-deredeo-dreadnought-3` `oc-deredeo-dreadnought-3-3-2`: added (absent → unpriced)
+- `ds-deredeo-dreadnought-4` `oc-deredeo-dreadnought-4-1-1`: added (absent → unpriced)
+- `ds-deredeo-dreadnought-4` `oc-deredeo-dreadnought-4-1-2`: added (absent → unpriced)
+- `ds-deredeo-dreadnought-4` `oc-deredeo-dreadnought-4-1-3`: added (absent → unpriced)
+- `ds-deredeo-dreadnought-4` `oc-deredeo-dreadnought-4-2-1`: added (absent → unpriced)
+- `ds-deredeo-dreadnought-4` `oc-deredeo-dreadnought-4-3-1`: added (absent → unpriced)
+- `ds-deredeo-dreadnought-4` `oc-deredeo-dreadnought-4-3-2`: added (absent → unpriced)
+- `ds-deredeo-dreadnought-5` `oc-deredeo-dreadnought-5-1-1`: added (absent → unpriced)
+- `ds-deredeo-dreadnought-5` `oc-deredeo-dreadnought-5-1-2`: added (absent → unpriced)
+- `ds-deredeo-dreadnought-5` `oc-deredeo-dreadnought-5-1-3`: added (absent → unpriced)
+- `ds-deredeo-dreadnought-5` `oc-deredeo-dreadnought-5-2-1`: added (absent → unpriced)
+- `ds-deredeo-dreadnought-5` `oc-deredeo-dreadnought-5-3-1`: added (absent → unpriced)
+- `ds-deredeo-dreadnought-5` `oc-deredeo-dreadnought-5-3-2`: added (absent → unpriced)
+- `ds-desolation-squad` `oc-desolation-squad-2-1`: added (absent → unpriced)
+- `ds-desolation-squad-2` `oc-desolation-squad-2-2-1`: added (absent → unpriced)
+- `ds-desolation-squad-3` `oc-desolation-squad-3-2-1`: added (absent → unpriced)
+- `ds-desolation-squad-4` `oc-desolation-squad-4-2-1`: added (absent → unpriced)
+- `ds-desolation-squad-5` `oc-desolation-squad-5-2-1`: added (absent → unpriced)
+- `ds-desolation-squad-6` `oc-desolation-squad-6-2-1`: added (absent → unpriced)
+- `ds-devastator-squad` `oc-devastator-squad-2-1`: added (absent → unpriced)
+- `ds-devastator-squad` `oc-devastator-squad-2-2`: added (absent → unpriced)
+- `ds-devastator-squad` `oc-devastator-squad-2-3`: added (absent → unpriced)
+- `ds-devastator-squad` `oc-devastator-squad-2-4`: added (absent → unpriced)
+- `ds-devastator-squad` `oc-devastator-squad-2-5`: added (absent → unpriced)
+- `ds-devastator-squad` `oc-devastator-squad-2-6`: added (absent → unpriced)
+- `ds-devastator-squad` `oc-devastator-squad-2-7`: added (absent → unpriced)
+- `ds-devastator-squad` `oc-devastator-squad-2-8`: added (absent → unpriced)
+- `ds-devastator-squad` `oc-devastator-squad-2-9`: added (absent → unpriced)
+- `ds-devastator-squad-2` `oc-devastator-squad-2-2-1`: added (absent → unpriced)
+- `ds-devastator-squad-2` `oc-devastator-squad-2-2-2`: added (absent → unpriced)
+- `ds-devastator-squad-2` `oc-devastator-squad-2-2-3`: added (absent → unpriced)
+- `ds-devastator-squad-2` `oc-devastator-squad-2-2-4`: added (absent → unpriced)
+- `ds-devastator-squad-2` `oc-devastator-squad-2-2-5`: added (absent → unpriced)
+- `ds-devastator-squad-2` `oc-devastator-squad-2-2-6`: added (absent → unpriced)
+- `ds-devastator-squad-2` `oc-devastator-squad-2-2-7`: added (absent → unpriced)
+- `ds-devastator-squad-2` `oc-devastator-squad-2-2-8`: added (absent → unpriced)
+- `ds-devastator-squad-2` `oc-devastator-squad-2-2-9`: added (absent → unpriced)
+- `ds-devastator-squad-3` `oc-devastator-squad-3-2-1`: added (absent → unpriced)
+- `ds-devastator-squad-3` `oc-devastator-squad-3-2-2`: added (absent → unpriced)
+- `ds-devastator-squad-3` `oc-devastator-squad-3-2-3`: added (absent → unpriced)
+- `ds-devastator-squad-3` `oc-devastator-squad-3-2-4`: added (absent → unpriced)
+- `ds-devastator-squad-3` `oc-devastator-squad-3-2-5`: added (absent → unpriced)
+- `ds-devastator-squad-3` `oc-devastator-squad-3-2-6`: added (absent → unpriced)
+- `ds-devastator-squad-3` `oc-devastator-squad-3-2-7`: added (absent → unpriced)
+- `ds-devastator-squad-3` `oc-devastator-squad-3-2-8`: added (absent → unpriced)
+- `ds-devastator-squad-3` `oc-devastator-squad-3-2-9`: added (absent → unpriced)
+- `ds-devastator-squad-4` `oc-devastator-squad-4-2-1`: added (absent → unpriced)
+- `ds-devastator-squad-4` `oc-devastator-squad-4-2-2`: added (absent → unpriced)
+- `ds-devastator-squad-4` `oc-devastator-squad-4-2-3`: added (absent → unpriced)
+- `ds-devastator-squad-4` `oc-devastator-squad-4-2-4`: added (absent → unpriced)
+- `ds-devastator-squad-4` `oc-devastator-squad-4-2-5`: added (absent → unpriced)
+- `ds-devastator-squad-4` `oc-devastator-squad-4-2-6`: added (absent → unpriced)
+- `ds-devastator-squad-4` `oc-devastator-squad-4-2-7`: added (absent → unpriced)
+- `ds-devastator-squad-4` `oc-devastator-squad-4-2-8`: added (absent → unpriced)
+- `ds-devastator-squad-4` `oc-devastator-squad-4-2-9`: added (absent → unpriced)
+- `ds-devilfish` `oc-devilfish-1-1`: added (absent → unpriced)
+- `ds-devilfish` `oc-devilfish-2-1`: added (absent → unpriced)
+- `ds-dire-avengers` `oc-dire-avengers-1-1`: added (absent → unpriced)
+- `ds-dire-avengers` `oc-dire-avengers-1-2`: added (absent → unpriced)
+- `ds-dire-avengers` `oc-dire-avengers-3-1`: added (absent → unpriced)
+- `ds-dominion-squad` `oc-dominion-squad-1-1`: added (absent → unpriced)
+- `ds-dominion-squad` `oc-dominion-squad-1-2`: added (absent → unpriced)
+- `ds-dominion-squad` `oc-dominion-squad-1-3`: added (absent → unpriced)
+- `ds-dominion-squad` `oc-dominion-squad-1-4`: added (absent → unpriced)
+- `ds-dominion-squad` `oc-dominion-squad-1-5`: added (absent → unpriced)
+- `ds-dominion-squad` `oc-dominion-squad-1-6`: added (absent → unpriced)
+- `ds-dominion-squad` `oc-dominion-squad-2-1`: added (absent → unpriced)
+- `ds-dominion-squad` `oc-dominion-squad-2-2`: added (absent → unpriced)
+- `ds-dominion-squad` `oc-dominion-squad-4-1`: added (absent → unpriced)
+- `ds-dominus-armoured-siege-bombard` `oc-dominus-armoured-siege-bombard-1-1`: added (absent → unpriced)
+- `ds-dominus-armoured-siege-bombard` `oc-dominus-armoured-siege-bombard-1-2`: added (absent → unpriced)
+- `ds-dominus-armoured-siege-bombard` `oc-dominus-armoured-siege-bombard-1-3`: added (absent → unpriced)
+- `ds-dominus-armoured-siege-bombard` `oc-dominus-armoured-siege-bombard-2-1`: added (absent → unpriced)
+- `ds-dominus-armoured-siege-bombard` `oc-dominus-armoured-siege-bombard-3-1`: added (absent → unpriced)
+- `ds-dominus-armoured-siege-bombard` `oc-dominus-armoured-siege-bombard-3-2`: added (absent → unpriced)
+- `ds-dominus-armoured-siege-bombard-2` `oc-dominus-armoured-siege-bombard-2-1-1`: added (absent → unpriced)
+- `ds-dominus-armoured-siege-bombard-2` `oc-dominus-armoured-siege-bombard-2-1-2`: added (absent → unpriced)
+- `ds-dominus-armoured-siege-bombard-2` `oc-dominus-armoured-siege-bombard-2-1-3`: added (absent → unpriced)
+- `ds-dominus-armoured-siege-bombard-2` `oc-dominus-armoured-siege-bombard-2-2-1`: added (absent → unpriced)
+- `ds-dominus-armoured-siege-bombard-2` `oc-dominus-armoured-siege-bombard-2-3-1`: added (absent → unpriced)
+- `ds-dominus-armoured-siege-bombard-2` `oc-dominus-armoured-siege-bombard-2-3-2`: added (absent → unpriced)
+- `ds-doomhammer` `oc-doomhammer-1-1`: added (absent → unpriced)
+- `ds-doomhammer` `oc-doomhammer-2-1`: added (absent → unpriced)
+- `ds-doomhammer` `oc-doomhammer-2-2`: added (absent → unpriced)
+- `ds-doomhammer-2` `oc-doomhammer-2-1-1`: added (absent → unpriced)
+- `ds-doomhammer-2` `oc-doomhammer-2-2-1`: added (absent → unpriced)
+- `ds-doomhammer-2` `oc-doomhammer-2-2-2`: added (absent → unpriced)
+- `ds-dragon-knights` `oc-dragon-knights-1-1`: added (absent → unpriced)
+- `ds-dreadnought` `oc-dreadnought-1-1`: added (absent → unpriced)
+- `ds-dreadnought` `oc-dreadnought-1-2`: added (absent → unpriced)
+- `ds-dreadnought` `oc-dreadnought-1-3`: added (absent → unpriced)
+- `ds-dreadnought` `oc-dreadnought-2-1`: added (absent → unpriced)
+- `ds-dreadnought` `oc-dreadnought-2-2`: added (absent → unpriced)
+- `ds-dreadnought-2` `oc-dreadnought-2-1-1`: added (absent → unpriced)
+- `ds-dreadnought-2` `oc-dreadnought-2-1-2`: added (absent → unpriced)
+- `ds-dreadnought-2` `oc-dreadnought-2-1-3`: added (absent → unpriced)
+- `ds-dreadnought-2` `oc-dreadnought-2-2-1`: added (absent → unpriced)
+- `ds-dreadnought-2` `oc-dreadnought-2-2-2`: added (absent → unpriced)
+- `ds-dreadnought-3` `oc-dreadnought-3-1-1`: added (absent → unpriced)
+- `ds-dreadnought-3` `oc-dreadnought-3-1-2`: added (absent → unpriced)
+- `ds-dreadnought-3` `oc-dreadnought-3-1-3`: added (absent → unpriced)
+- `ds-dreadnought-3` `oc-dreadnought-3-2-1`: added (absent → unpriced)
+- `ds-dreadnought-3` `oc-dreadnought-3-2-2`: added (absent → unpriced)
+- `ds-dreadnought-4` `oc-dreadnought-4-1-1`: added (absent → unpriced)
+- `ds-dreadnought-4` `oc-dreadnought-4-1-2`: added (absent → unpriced)
+- `ds-dreadnought-4` `oc-dreadnought-4-1-3`: added (absent → unpriced)
+- `ds-dreadnought-4` `oc-dreadnought-4-2-1`: added (absent → unpriced)
+- `ds-dreadnought-4` `oc-dreadnought-4-2-2`: added (absent → unpriced)
+- `ds-dreadnought-5` `oc-dreadnought-5-1-1`: added (absent → unpriced)
+- `ds-dreadnought-5` `oc-dreadnought-5-1-2`: added (absent → unpriced)
+- `ds-dreadnought-5` `oc-dreadnought-5-1-3`: added (absent → unpriced)
+- `ds-dreadnought-5` `oc-dreadnought-5-2-1`: added (absent → unpriced)
+- `ds-dreadnought-5` `oc-dreadnought-5-2-2`: added (absent → unpriced)
+- `ds-dreadnought-6` `oc-dreadnought-6-1-1`: added (absent → unpriced)
+- `ds-dreadnought-6` `oc-dreadnought-6-1-2`: added (absent → unpriced)
+- `ds-dreadnought-6` `oc-dreadnought-6-1-3`: added (absent → unpriced)
+- `ds-dreadnought-6` `oc-dreadnought-6-2-1`: added (absent → unpriced)
+- `ds-dreadnought-6` `oc-dreadnought-6-2-2`: added (absent → unpriced)
+- `ds-drone-sentry-turret` `oc-drone-sentry-turret-1-1`: added (absent → unpriced)
+- `ds-drone-sentry-turret` `oc-drone-sentry-turret-1-2`: added (absent → unpriced)
+- `ds-drone-sentry-turret` `oc-drone-sentry-turret-1-3`: added (absent → unpriced)
+- `ds-einhyr-champion` `oc-einhyr-champion-1-1`: added (absent → unpriced)
+- `ds-einhyr-champion` `oc-einhyr-champion-2-1`: added (absent → unpriced)
+- `ds-einhyr-hearthguard` `oc-einhyr-hearthguard-3-1`: added (absent → unpriced)
+- `ds-einhyr-hearthguard` `oc-einhyr-hearthguard-4-1`: added (absent → unpriced)
+- `ds-eliminator-squad` `oc-eliminator-squad-1-1`: added (absent → unpriced)
+- `ds-eliminator-squad` `oc-eliminator-squad-1-2`: added (absent → unpriced)
+- `ds-eliminator-squad-2` `oc-eliminator-squad-2-1-1`: added (absent → unpriced)
+- `ds-eliminator-squad-2` `oc-eliminator-squad-2-1-2`: added (absent → unpriced)
+- `ds-eliminator-squad-3` `oc-eliminator-squad-3-1-1`: added (absent → unpriced)
+- `ds-eliminator-squad-3` `oc-eliminator-squad-3-1-2`: added (absent → unpriced)
+- `ds-eliminator-squad-4` `oc-eliminator-squad-4-1-1`: added (absent → unpriced)
+- `ds-eliminator-squad-4` `oc-eliminator-squad-4-1-2`: added (absent → unpriced)
+- `ds-eliminator-squad-5` `oc-eliminator-squad-5-1-1`: added (absent → unpriced)
+- `ds-eliminator-squad-5` `oc-eliminator-squad-5-1-2`: added (absent → unpriced)
+- `ds-eliminator-squad-6` `oc-eliminator-squad-6-1-1`: added (absent → unpriced)
+- `ds-eliminator-squad-6` `oc-eliminator-squad-6-1-2`: added (absent → unpriced)
+- `ds-elysian-drop-sentinel` `oc-elysian-drop-sentinel-1-1`: added (absent → unpriced)
+- `ds-elysian-drop-sentinel` `oc-elysian-drop-sentinel-2-1`: added (absent → unpriced)
+- `ds-elysian-drop-sentinel` `oc-elysian-drop-sentinel-2-2`: added (absent → unpriced)
+- `ds-elysian-drop-sentinel-2` `oc-elysian-drop-sentinel-2-1-1`: added (absent → unpriced)
+- `ds-elysian-drop-sentinel-2` `oc-elysian-drop-sentinel-2-2-1`: added (absent → unpriced)
+- `ds-elysian-drop-sentinel-2` `oc-elysian-drop-sentinel-2-2-2`: added (absent → unpriced)
+- `ds-eradicator-squad` `oc-eradicator-squad-1-1`: added (absent → unpriced)
+- `ds-eradicator-squad-2` `oc-eradicator-squad-2-1-1`: added (absent → unpriced)
+- `ds-eradicator-squad-3` `oc-eradicator-squad-3-1-1`: added (absent → unpriced)
+- `ds-eradicator-squad-4` `oc-eradicator-squad-4-1-1`: added (absent → unpriced)
+- `ds-eradicator-squad-5` `oc-eradicator-squad-5-1-1`: added (absent → unpriced)
+- `ds-eradicator-squad-6` `oc-eradicator-squad-6-1-1`: added (absent → unpriced)
+- `ds-ethereal` `oc-ethereal-1-1`: added (absent → unpriced)
+- `ds-ethereal` `oc-ethereal-2-1`: added (absent → unpriced)
+- `ds-ethereal` `oc-ethereal-2-2`: added (absent → unpriced)
+- `ds-ethereal` `oc-ethereal-2-3`: added (absent → unpriced)
+- `ds-exaction-squad` `oc-exaction-squad-2-1`: added (absent → unpriced)
+- `ds-exaction-squad` `oc-exaction-squad-3-1`: added (absent → unpriced)
+- `ds-exaction-squad` `oc-exaction-squad-4-1`: added (absent → unpriced)
+- `ds-exaction-squad` `oc-exaction-squad-5-1`: added (absent → unpriced)
+- `ds-exalted-sorcerer` `oc-exalted-sorcerer-1-1`: added (absent → unpriced)
+- `ds-exalted-sorcerer-on-disc-of-tzeentch` `oc-exalted-sorcerer-on-disc-of-tzeentch-1-1`: added (absent → unpriced)
+- `ds-execrator` `oc-execrator-1-1`: added (absent → unpriced)
+- `ds-exorcist` `oc-exorcist-1-1`: added (absent → unpriced)
+- `ds-exorcist` `oc-exorcist-2-1`: added (absent → unpriced)
+- `ds-falchion` `oc-falchion-1-1`: added (absent → unpriced)
+- `ds-falchion` `oc-falchion-2-1`: added (absent → unpriced)
+- `ds-falchion` `oc-falchion-3-1`: added (absent → unpriced)
+- `ds-falchion` `oc-falchion-3-2`: added (absent → unpriced)
+- `ds-falchion` `oc-falchion-3-3`: added (absent → unpriced)
+- `ds-falchion` `oc-falchion-3-4`: added (absent → unpriced)
+- `ds-falchion-2` `oc-falchion-2-1-1`: added (absent → unpriced)
+- `ds-falchion-2` `oc-falchion-2-2-1`: added (absent → unpriced)
+- `ds-falchion-2` `oc-falchion-2-3-1`: added (absent → unpriced)
+- `ds-falchion-2` `oc-falchion-2-3-2`: added (absent → unpriced)
+- `ds-falchion-2` `oc-falchion-2-3-3`: added (absent → unpriced)
+- `ds-falchion-2` `oc-falchion-2-3-4`: added (absent → unpriced)
+- `ds-falchion-3` `oc-falchion-3-1-1`: added (absent → unpriced)
+- `ds-falchion-3` `oc-falchion-3-2-1`: added (absent → unpriced)
+- `ds-falchion-3` `oc-falchion-3-3-1`: added (absent → unpriced)
+- `ds-falchion-3` `oc-falchion-3-3-2`: added (absent → unpriced)
+- `ds-falchion-3` `oc-falchion-3-3-3`: added (absent → unpriced)
+- `ds-falchion-3` `oc-falchion-3-3-4`: added (absent → unpriced)
+- `ds-falchion-4` `oc-falchion-4-1-1`: added (absent → unpriced)
+- `ds-falchion-4` `oc-falchion-4-2-1`: added (absent → unpriced)
+- `ds-falchion-4` `oc-falchion-4-3-1`: added (absent → unpriced)
+- `ds-falchion-4` `oc-falchion-4-3-2`: added (absent → unpriced)
+- `ds-falchion-4` `oc-falchion-4-3-3`: added (absent → unpriced)
+- `ds-falchion-4` `oc-falchion-4-3-4`: added (absent → unpriced)
+- `ds-falchion-5` `oc-falchion-5-1-1`: added (absent → unpriced)
+- `ds-falchion-5` `oc-falchion-5-2-1`: added (absent → unpriced)
+- `ds-falchion-5` `oc-falchion-5-3-1`: added (absent → unpriced)
+- `ds-falchion-5` `oc-falchion-5-3-2`: added (absent → unpriced)
+- `ds-falchion-5` `oc-falchion-5-3-3`: added (absent → unpriced)
+- `ds-falchion-5` `oc-falchion-5-3-4`: added (absent → unpriced)
+- `ds-falcon` `oc-falcon-1-1`: added (absent → unpriced)
+- `ds-falcon` `oc-falcon-1-2`: added (absent → unpriced)
+- `ds-falcon` `oc-falcon-1-3`: added (absent → unpriced)
+- `ds-falcon` `oc-falcon-1-4`: added (absent → unpriced)
+- `ds-falcon` `oc-falcon-2-1`: added (absent → unpriced)
+- `ds-farseer` `oc-farseer-1-1`: added (absent → unpriced)
+- `ds-farseer-skyrunner` `oc-farseer-skyrunner-1-1`: added (absent → unpriced)
+- `ds-fellblade` `oc-fellblade-1-1`: added (absent → unpriced)
+- `ds-fellblade` `oc-fellblade-1-2`: added (absent → unpriced)
+- `ds-fellblade` `oc-fellblade-2-1`: added (absent → unpriced)
+- `ds-fellblade` `oc-fellblade-3-1`: added (absent → unpriced)
+- `ds-fellblade` `oc-fellblade-4-1`: added (absent → unpriced)
+- `ds-fellblade` `oc-fellblade-4-2`: added (absent → unpriced)
+- `ds-fellblade` `oc-fellblade-4-3`: added (absent → unpriced)
+- `ds-fellblade` `oc-fellblade-4-4`: added (absent → unpriced)
+- `ds-fellblade` `oc-fellblade-4-5`: added (absent → unpriced)
+- `ds-fellblade-2` `oc-fellblade-2-1-1`: added (absent → unpriced)
+- `ds-fellblade-2` `oc-fellblade-2-1-2`: added (absent → unpriced)
+- `ds-fellblade-2` `oc-fellblade-2-2-1`: added (absent → unpriced)
+- `ds-fellblade-2` `oc-fellblade-2-3-1`: added (absent → unpriced)
+- `ds-fellblade-2` `oc-fellblade-2-4-1`: added (absent → unpriced)
+- `ds-fellblade-2` `oc-fellblade-2-4-2`: added (absent → unpriced)
+- `ds-fellblade-2` `oc-fellblade-2-4-3`: added (absent → unpriced)
+- `ds-fellblade-2` `oc-fellblade-2-4-4`: added (absent → unpriced)
+- `ds-fellblade-2` `oc-fellblade-2-4-5`: added (absent → unpriced)
+- `ds-fellblade-3` `oc-fellblade-3-1-1`: added (absent → unpriced)
+- `ds-fellblade-3` `oc-fellblade-3-1-2`: added (absent → unpriced)
+- `ds-fellblade-3` `oc-fellblade-3-2-1`: added (absent → unpriced)
+- `ds-fellblade-3` `oc-fellblade-3-3-1`: added (absent → unpriced)
+- `ds-fellblade-3` `oc-fellblade-3-4-1`: added (absent → unpriced)
+- `ds-fellblade-3` `oc-fellblade-3-4-2`: added (absent → unpriced)
+- `ds-fellblade-3` `oc-fellblade-3-4-3`: added (absent → unpriced)
+- `ds-fellblade-3` `oc-fellblade-3-4-4`: added (absent → unpriced)
+- `ds-fellblade-3` `oc-fellblade-3-4-5`: added (absent → unpriced)
+- `ds-fellblade-4` `oc-fellblade-4-1-1`: added (absent → unpriced)
+- `ds-fellblade-4` `oc-fellblade-4-1-2`: added (absent → unpriced)
+- `ds-fellblade-4` `oc-fellblade-4-2-1`: added (absent → unpriced)
+- `ds-fellblade-4` `oc-fellblade-4-3-1`: added (absent → unpriced)
+- `ds-fellblade-4` `oc-fellblade-4-4-1`: added (absent → unpriced)
+- `ds-fellblade-4` `oc-fellblade-4-4-2`: added (absent → unpriced)
+- `ds-fellblade-4` `oc-fellblade-4-4-3`: added (absent → unpriced)
+- `ds-fellblade-4` `oc-fellblade-4-4-4`: added (absent → unpriced)
+- `ds-fellblade-4` `oc-fellblade-4-4-5`: added (absent → unpriced)
+- `ds-fellblade-5` `oc-fellblade-5-1-1`: added (absent → unpriced)
+- `ds-fellblade-5` `oc-fellblade-5-1-2`: added (absent → unpriced)
+- `ds-fellblade-5` `oc-fellblade-5-2-1`: added (absent → unpriced)
+- `ds-fellblade-5` `oc-fellblade-5-3-1`: added (absent → unpriced)
+- `ds-fellblade-5` `oc-fellblade-5-4-1`: added (absent → unpriced)
+- `ds-fellblade-5` `oc-fellblade-5-4-2`: added (absent → unpriced)
+- `ds-fellblade-5` `oc-fellblade-5-4-3`: added (absent → unpriced)
+- `ds-fellblade-5` `oc-fellblade-5-4-4`: added (absent → unpriced)
+- `ds-fellblade-5` `oc-fellblade-5-4-5`: added (absent → unpriced)
+- `ds-fellgor-beastmen` `oc-fellgor-beastmen-1-1`: added (absent → unpriced)
+- `ds-fellgor-beastmen` `oc-fellgor-beastmen-2-1`: added (absent → unpriced)
+- `ds-fellgor-beastmen` `oc-fellgor-beastmen-3-1`: added (absent → unpriced)
+- `ds-fellgor-beastmen-2` `oc-fellgor-beastmen-2-1-1`: added (absent → unpriced)
+- `ds-fellgor-beastmen-2` `oc-fellgor-beastmen-2-2-1`: added (absent → unpriced)
+- `ds-fellgor-beastmen-2` `oc-fellgor-beastmen-2-3-1`: added (absent → unpriced)
+- `ds-fellgor-beastmen-3` `oc-fellgor-beastmen-3-1-1`: added (absent → unpriced)
+- `ds-fellgor-beastmen-3` `oc-fellgor-beastmen-3-2-1`: added (absent → unpriced)
+- `ds-fellgor-beastmen-3` `oc-fellgor-beastmen-3-3-1`: added (absent → unpriced)
+- `ds-fighta-bommer` `oc-fighta-bommer-1-1`: added (absent → unpriced)
+- `ds-fighta-bommer` `oc-fighta-bommer-1-2`: added (absent → unpriced)
+- `ds-fighta-bommer` `oc-fighta-bommer-1-3`: added (absent → unpriced)
+- `ds-fire-dragons` `oc-fire-dragons-1-1`: added (absent → unpriced)
+- `ds-fire-dragons` `oc-fire-dragons-1-2`: added (absent → unpriced)
+- `ds-fire-dragons` `oc-fire-dragons-1-3`: added (absent → unpriced)
+- `ds-fire-prism` `oc-fire-prism-1-1`: added (absent → unpriced)
+- `ds-fire-raptor-gunship` `oc-fire-raptor-gunship-1-1`: added (absent → unpriced)
+- `ds-fire-raptor-gunship` `oc-fire-raptor-gunship-2-1`: added (absent → unpriced)
+- `ds-fire-raptor-gunship-2` `oc-fire-raptor-gunship-2-1-1`: added (absent → unpriced)
+- `ds-fire-raptor-gunship-2` `oc-fire-raptor-gunship-2-2-1`: added (absent → unpriced)
+- `ds-fire-raptor-gunship-3` `oc-fire-raptor-gunship-3-1-1`: added (absent → unpriced)
+- `ds-fire-raptor-gunship-3` `oc-fire-raptor-gunship-3-2-1`: added (absent → unpriced)
+- `ds-fire-raptor-gunship-4` `oc-fire-raptor-gunship-4-1-1`: added (absent → unpriced)
+- `ds-fire-raptor-gunship-4` `oc-fire-raptor-gunship-4-2-1`: added (absent → unpriced)
+- `ds-fire-raptor-gunship-5` `oc-fire-raptor-gunship-5-1-1`: added (absent → unpriced)
+- `ds-fire-raptor-gunship-5` `oc-fire-raptor-gunship-5-2-1`: added (absent → unpriced)
+- `ds-firestorm` `oc-firestorm-1-1`: added (absent → unpriced)
+- `ds-foetid-bloat-drone` `oc-foetid-bloat-drone-1-1`: added (absent → unpriced)
+- `ds-forgefiend` `oc-forgefiend-1-1`: added (absent → unpriced)
+- `ds-forgefiend` `oc-forgefiend-2-1`: added (absent → unpriced)
+- `ds-forgefiend-2` `oc-forgefiend-2-1-1`: added (absent → unpriced)
+- `ds-forgefiend-2` `oc-forgefiend-2-2-1`: added (absent → unpriced)
+- `ds-forgefiend-3` `oc-forgefiend-3-1-1`: added (absent → unpriced)
+- `ds-forgefiend-3` `oc-forgefiend-3-2-1`: added (absent → unpriced)
+- `ds-fortis-kill-team` `oc-fortis-kill-team-3-1`: added (absent → unpriced)
+- `ds-fortis-kill-team-2` `oc-fortis-kill-team-2-1-1`: added (absent → unpriced)
+- `ds-fortis-kill-team-2` `oc-fortis-kill-team-2-1-2`: added (absent → unpriced)
+- `ds-fortis-kill-team-2` `oc-fortis-kill-team-2-1-3`: added (absent → unpriced)
+- `ds-fortis-kill-team-2` `oc-fortis-kill-team-2-1-4`: added (absent → unpriced)
+- `ds-fortis-kill-team-2` `oc-fortis-kill-team-2-3-1`: added (absent → unpriced)
+- `ds-furioso-dreadnought` `oc-furioso-dreadnought-1-1`: added (absent → unpriced)
+- `ds-furioso-dreadnought` `oc-furioso-dreadnought-1-2`: added (absent → unpriced)
+- `ds-furioso-dreadnought` `oc-furioso-dreadnought-2-1`: added (absent → unpriced)
+- `ds-furioso-dreadnought` `oc-furioso-dreadnought-3-1`: added (absent → unpriced)
+- `ds-furioso-dreadnought` `oc-furioso-dreadnought-4-1`: added (absent → unpriced)
+- `ds-gargantuan-squiggoth` `oc-gargantuan-squiggoth-1-1`: added (absent → unpriced)
+- `ds-gargantuan-squiggoth` `oc-gargantuan-squiggoth-1-2`: added (absent → unpriced)
+- `ds-ghostkeel-battlesuit` `oc-ghostkeel-battlesuit-1-1`: added (absent → unpriced)
+- `ds-ghostkeel-battlesuit` `oc-ghostkeel-battlesuit-2-1`: added (absent → unpriced)
+- `ds-ghostkeel-battlesuit` `oc-ghostkeel-battlesuit-2-2`: added (absent → unpriced)
+- `ds-ghostkeel-battlesuit` `oc-ghostkeel-battlesuit-3-1`: added (absent → unpriced)
+- `ds-gladiator-lancer` `oc-gladiator-lancer-1-1`: added (absent → unpriced)
+- `ds-gladiator-lancer` `oc-gladiator-lancer-2-1`: added (absent → unpriced)
+- `ds-gladiator-lancer` `oc-gladiator-lancer-2-2`: added (absent → unpriced)
+- `ds-gladiator-lancer` `oc-gladiator-lancer-3-1`: added (absent → unpriced)
+- `ds-gladiator-lancer-2` `oc-gladiator-lancer-2-1-1`: added (absent → unpriced)
+- `ds-gladiator-lancer-2` `oc-gladiator-lancer-2-2-1`: added (absent → unpriced)
+- `ds-gladiator-lancer-2` `oc-gladiator-lancer-2-3-1`: added (absent → unpriced)
+- `ds-gladiator-lancer-3` `oc-gladiator-lancer-3-1-1`: added (absent → unpriced)
+- `ds-gladiator-lancer-3` `oc-gladiator-lancer-3-2-1`: added (absent → unpriced)
+- `ds-gladiator-lancer-3` `oc-gladiator-lancer-3-3-1`: added (absent → unpriced)
+- `ds-gladiator-lancer-4` `oc-gladiator-lancer-4-1-1`: added (absent → unpriced)
+- `ds-gladiator-lancer-4` `oc-gladiator-lancer-4-2-1`: added (absent → unpriced)
+- `ds-gladiator-lancer-4` `oc-gladiator-lancer-4-3-1`: added (absent → unpriced)
+- `ds-gladiator-lancer-5` `oc-gladiator-lancer-5-1-1`: added (absent → unpriced)
+- `ds-gladiator-lancer-5` `oc-gladiator-lancer-5-2-1`: added (absent → unpriced)
+- `ds-gladiator-lancer-5` `oc-gladiator-lancer-5-3-1`: added (absent → unpriced)
+- `ds-gladiator-lancer-6` `oc-gladiator-lancer-6-1-1`: added (absent → unpriced)
+- `ds-gladiator-lancer-6` `oc-gladiator-lancer-6-2-1`: added (absent → unpriced)
+- `ds-gladiator-lancer-6` `oc-gladiator-lancer-6-3-1`: added (absent → unpriced)
+- `ds-gladiator-reaper` `oc-gladiator-reaper-1-1`: added (absent → unpriced)
+- `ds-gladiator-reaper` `oc-gladiator-reaper-1-2`: added (absent → unpriced)
+- `ds-gladiator-reaper` `oc-gladiator-reaper-2-1`: added (absent → unpriced)
+- `ds-gladiator-reaper-2` `oc-gladiator-reaper-2-1-1`: added (absent → unpriced)
+- `ds-gladiator-reaper-2` `oc-gladiator-reaper-2-2-1`: added (absent → unpriced)
+- `ds-gladiator-reaper-3` `oc-gladiator-reaper-3-1-1`: added (absent → unpriced)
+- `ds-gladiator-reaper-3` `oc-gladiator-reaper-3-2-1`: added (absent → unpriced)
+- `ds-gladiator-reaper-4` `oc-gladiator-reaper-4-1-1`: added (absent → unpriced)
+- `ds-gladiator-reaper-4` `oc-gladiator-reaper-4-2-1`: added (absent → unpriced)
+- `ds-gladiator-reaper-5` `oc-gladiator-reaper-5-1-1`: added (absent → unpriced)
+- `ds-gladiator-reaper-5` `oc-gladiator-reaper-5-2-1`: added (absent → unpriced)
+- `ds-gladiator-reaper-6` `oc-gladiator-reaper-6-1-1`: added (absent → unpriced)
+- `ds-gladiator-reaper-6` `oc-gladiator-reaper-6-2-1`: added (absent → unpriced)
+- `ds-gladiator-valiant` `oc-gladiator-valiant-1-1`: added (absent → unpriced)
+- `ds-gladiator-valiant` `oc-gladiator-valiant-1-2`: added (absent → unpriced)
+- `ds-gladiator-valiant` `oc-gladiator-valiant-2-1`: added (absent → unpriced)
+- `ds-gladiator-valiant-2` `oc-gladiator-valiant-2-1-1`: added (absent → unpriced)
+- `ds-gladiator-valiant-2` `oc-gladiator-valiant-2-2-1`: added (absent → unpriced)
+- `ds-gladiator-valiant-3` `oc-gladiator-valiant-3-1-1`: added (absent → unpriced)
+- `ds-gladiator-valiant-3` `oc-gladiator-valiant-3-2-1`: added (absent → unpriced)
+- `ds-gladiator-valiant-4` `oc-gladiator-valiant-4-1-1`: added (absent → unpriced)
+- `ds-gladiator-valiant-4` `oc-gladiator-valiant-4-2-1`: added (absent → unpriced)
+- `ds-gladiator-valiant-5` `oc-gladiator-valiant-5-1-1`: added (absent → unpriced)
+- `ds-gladiator-valiant-5` `oc-gladiator-valiant-5-2-1`: added (absent → unpriced)
+- `ds-gladiator-valiant-6` `oc-gladiator-valiant-6-1-1`: added (absent → unpriced)
+- `ds-gladiator-valiant-6` `oc-gladiator-valiant-6-2-1`: added (absent → unpriced)
+- `ds-goliath-rockgrinder` `oc-goliath-rockgrinder-1-1`: added (absent → unpriced)
+- `ds-goliath-rockgrinder` `oc-goliath-rockgrinder-1-2`: added (absent → unpriced)
+- `ds-goremongers` `oc-goremongers-1-1`: added (absent → unpriced)
+- `ds-goremongers` `oc-goremongers-2-1`: added (absent → unpriced)
+- `ds-gorgon-heavy-transport` `oc-gorgon-heavy-transport-1-1`: added (absent → unpriced)
+- `ds-gorgon-heavy-transport` `oc-gorgon-heavy-transport-1-2`: added (absent → unpriced)
+- `ds-gorgon-heavy-transport` `oc-gorgon-heavy-transport-1-3`: added (absent → unpriced)
+- `ds-gorgon-heavy-transport` `oc-gorgon-heavy-transport-2-1`: added (absent → unpriced)
+- `ds-gorgon-heavy-transport-2` `oc-gorgon-heavy-transport-2-1-1`: added (absent → unpriced)
+- `ds-gorgon-heavy-transport-2` `oc-gorgon-heavy-transport-2-1-2`: added (absent → unpriced)
+- `ds-gorgon-heavy-transport-2` `oc-gorgon-heavy-transport-2-1-3`: added (absent → unpriced)
+- `ds-gorgon-heavy-transport-2` `oc-gorgon-heavy-transport-2-2-1`: added (absent → unpriced)
+- `ds-grand-master` `oc-grand-master-1-1`: added (absent → unpriced)
+- `ds-grand-master` `oc-grand-master-1-2`: added (absent → unpriced)
+- `ds-grand-master` `oc-grand-master-1-3`: added (absent → unpriced)
+- `ds-grand-master-in-nemesis-dreadknight` `oc-grand-master-in-nemesis-dreadknight-1-1`: added (absent → unpriced)
+- `ds-grand-master-in-nemesis-dreadknight` `oc-grand-master-in-nemesis-dreadknight-1-2`: added (absent → unpriced)
+- `ds-grand-master-in-nemesis-dreadknight` `oc-grand-master-in-nemesis-dreadknight-1-3`: added (absent → unpriced)
+- `ds-grand-master-in-nemesis-dreadknight` `oc-grand-master-in-nemesis-dreadknight-1-4`: added (absent → unpriced)
+- `ds-grand-master-in-nemesis-dreadknight` `oc-grand-master-in-nemesis-dreadknight-2-1`: added (absent → unpriced)
+- `ds-grand-master-in-nemesis-dreadknight` `oc-grand-master-in-nemesis-dreadknight-2-2`: added (absent → unpriced)
+- `ds-grand-master-in-nemesis-dreadknight` `oc-grand-master-in-nemesis-dreadknight-2-3`: added (absent → unpriced)
+- `ds-grand-master-in-nemesis-dreadknight` `oc-grand-master-in-nemesis-dreadknight-2-4`: added (absent → unpriced)
+- `ds-grand-master-in-nemesis-dreadknight` `oc-grand-master-in-nemesis-dreadknight-3-1`: added (absent → unpriced)
+- `ds-great-knarloc` `oc-great-knarloc-1-1`: added (absent → unpriced)
+- `ds-great-knarloc` `oc-great-knarloc-1-2`: added (absent → unpriced)
+- `ds-great-knarloc` `oc-great-knarloc-1-3`: added (absent → unpriced)
+- `ds-great-unclean-one` `oc-great-unclean-one-1-1`: added (absent → unpriced)
+- `ds-great-unclean-one` `oc-great-unclean-one-2-1`: added (absent → unpriced)
+- `ds-great-unclean-one-2` `oc-great-unclean-one-2-1-1`: added (absent → unpriced)
+- `ds-great-unclean-one-2` `oc-great-unclean-one-2-2-1`: added (absent → unpriced)
+- `ds-grey-hunters` `oc-grey-hunters-1-1`: added (absent → unpriced)
+- `ds-grey-hunters` `oc-grey-hunters-2-1`: added (absent → unpriced)
+- `ds-grey-hunters` `oc-grey-hunters-2-2`: added (absent → unpriced)
+- `ds-grey-knights-dreadnought` `oc-grey-knights-dreadnought-1-1`: added (absent → unpriced)
+- `ds-grey-knights-dreadnought` `oc-grey-knights-dreadnought-1-2`: added (absent → unpriced)
+- `ds-grey-knights-dreadnought` `oc-grey-knights-dreadnought-1-3`: added (absent → unpriced)
+- `ds-grey-knights-dreadnought` `oc-grey-knights-dreadnought-2-1`: added (absent → unpriced)
+- `ds-grey-knights-dreadnought` `oc-grey-knights-dreadnought-2-2`: added (absent → unpriced)
+- `ds-grey-knights-dreadnought` `oc-grey-knights-dreadnought-3-1`: added (absent → unpriced)
+- `ds-grey-knights-dreadnought` `oc-grey-knights-dreadnought-3-2`: added (absent → unpriced)
+- `ds-grey-knights-relic-razorback` `oc-grey-knights-relic-razorback-1-1`: added (absent → unpriced)
+- `ds-grey-knights-relic-razorback` `oc-grey-knights-relic-razorback-2-1`: added (absent → unpriced)
+- `ds-grey-knights-relic-razorback` `oc-grey-knights-relic-razorback-3-1`: added (absent → unpriced)
+- `ds-grey-knights-relic-razorback` `oc-grey-knights-relic-razorback-3-2`: added (absent → unpriced)
+- `ds-grey-knights-relic-razorback` `oc-grey-knights-relic-razorback-3-3`: added (absent → unpriced)
+- `ds-grey-knights-relic-razorback` `oc-grey-knights-relic-razorback-3-4`: added (absent → unpriced)
+- `ds-grey-knights-terminator-squad` `oc-grey-knights-terminator-squad-1-1`: added (absent → unpriced)
+- `ds-grey-knights-terminator-squad` `oc-grey-knights-terminator-squad-1-2`: added (absent → unpriced)
+- `ds-grey-knights-terminator-squad` `oc-grey-knights-terminator-squad-1-3`: added (absent → unpriced)
+- `ds-grey-knights-terminator-squad` `oc-grey-knights-terminator-squad-2-1`: added (absent → unpriced)
+- `ds-grey-knights-thunderhawk-gunship` `oc-grey-knights-thunderhawk-gunship-1-1`: added (absent → unpriced)
+- `ds-grey-knights-thunderhawk-gunship` `oc-grey-knights-thunderhawk-gunship-2-1`: added (absent → unpriced)
+- `ds-griffon-mortar-carrier` `oc-griffon-mortar-carrier-1-1`: added (absent → unpriced)
+- `ds-griffon-mortar-carrier-2` `oc-griffon-mortar-carrier-2-1-1`: added (absent → unpriced)
+- `ds-grot-mega-tank` `oc-grot-mega-tank-1-1`: added (absent → unpriced)
+- `ds-grot-mega-tank` `oc-grot-mega-tank-1-2`: added (absent → unpriced)
+- `ds-grot-mega-tank` `oc-grot-mega-tank-1-3`: added (absent → unpriced)
+- `ds-grot-mega-tank` `oc-grot-mega-tank-1-4`: added (absent → unpriced)
+- `ds-grot-mega-tank` `oc-grot-mega-tank-2-1`: added (absent → unpriced)
+- `ds-grot-mega-tank` `oc-grot-mega-tank-2-2`: added (absent → unpriced)
+- `ds-grot-mega-tank` `oc-grot-mega-tank-2-3`: added (absent → unpriced)
+- `ds-grot-mega-tank` `oc-grot-mega-tank-2-4`: added (absent → unpriced)
+- `ds-guardian-defenders` `oc-guardian-defenders-1-1`: added (absent → unpriced)
+- `ds-guardian-defenders` `oc-guardian-defenders-1-2`: added (absent → unpriced)
+- `ds-guardian-defenders` `oc-guardian-defenders-1-3`: added (absent → unpriced)
+- `ds-guardian-defenders` `oc-guardian-defenders-1-4`: added (absent → unpriced)
+- `ds-hammerfall-bunker` `oc-hammerfall-bunker-1-1`: added (absent → unpriced)
+- `ds-hammerfall-bunker-2` `oc-hammerfall-bunker-2-1-1`: added (absent → unpriced)
+- `ds-hammerfall-bunker-3` `oc-hammerfall-bunker-3-1-1`: added (absent → unpriced)
+- `ds-hammerfall-bunker-4` `oc-hammerfall-bunker-4-1-1`: added (absent → unpriced)
+- `ds-hammerfall-bunker-5` `oc-hammerfall-bunker-5-1-1`: added (absent → unpriced)
+- `ds-hammerfall-bunker-6` `oc-hammerfall-bunker-6-1-1`: added (absent → unpriced)
+- `ds-hammerhead-gunship` `oc-hammerhead-gunship-1-1`: added (absent → unpriced)
+- `ds-hammerhead-gunship` `oc-hammerhead-gunship-2-1`: added (absent → unpriced)
+- `ds-hammerhead-gunship` `oc-hammerhead-gunship-2-2`: added (absent → unpriced)
+- `ds-hammerhead-gunship` `oc-hammerhead-gunship-3-1`: added (absent → unpriced)
+- `ds-hand-of-the-archon` `oc-hand-of-the-archon-1-1`: added (absent → unpriced)
+- `ds-hand-of-the-archon` `oc-hand-of-the-archon-10-1`: added (absent → unpriced)
+- `ds-hand-of-the-archon` `oc-hand-of-the-archon-2-1`: added (absent → unpriced)
+- `ds-hand-of-the-archon` `oc-hand-of-the-archon-2-2`: added (absent → unpriced)
+- `ds-hand-of-the-archon` `oc-hand-of-the-archon-3-1`: added (absent → unpriced)
+- `ds-hand-of-the-archon` `oc-hand-of-the-archon-3-2`: added (absent → unpriced)
+- `ds-hand-of-the-archon` `oc-hand-of-the-archon-4-1`: added (absent → unpriced)
+- `ds-hand-of-the-archon` `oc-hand-of-the-archon-4-2`: added (absent → unpriced)
+- `ds-hand-of-the-archon` `oc-hand-of-the-archon-5-1`: added (absent → unpriced)
+- `ds-hand-of-the-archon` `oc-hand-of-the-archon-5-2`: added (absent → unpriced)
+- `ds-hand-of-the-archon` `oc-hand-of-the-archon-6-1`: added (absent → unpriced)
+- `ds-hand-of-the-archon` `oc-hand-of-the-archon-7-1`: added (absent → unpriced)
+- `ds-hand-of-the-archon` `oc-hand-of-the-archon-8-1`: added (absent → unpriced)
+- `ds-hand-of-the-archon` `oc-hand-of-the-archon-9-1`: added (absent → unpriced)
+- `ds-harpy` `oc-harpy-1-1`: added (absent → unpriced)
+- `ds-havocs` `oc-havocs-1-1`: added (absent → unpriced)
+- `ds-havocs` `oc-havocs-1-2`: added (absent → unpriced)
+- `ds-havocs` `oc-havocs-2-1`: added (absent → unpriced)
+- `ds-havocs` `oc-havocs-2-2`: added (absent → unpriced)
+- `ds-havocs` `oc-havocs-2-3`: added (absent → unpriced)
+- `ds-havocs` `oc-havocs-2-4`: added (absent → unpriced)
+- `ds-havocs` `oc-havocs-2-5`: added (absent → unpriced)
+- `ds-havocs` `oc-havocs-2-6`: added (absent → unpriced)
+- `ds-havocs-2` `oc-havocs-2-1-1`: added (absent → unpriced)
+- `ds-havocs-2` `oc-havocs-2-1-2`: added (absent → unpriced)
+- `ds-havocs-2` `oc-havocs-2-2-1`: added (absent → unpriced)
+- `ds-havocs-2` `oc-havocs-2-2-2`: added (absent → unpriced)
+- `ds-havocs-2` `oc-havocs-2-2-3`: added (absent → unpriced)
+- `ds-havocs-2` `oc-havocs-2-2-4`: added (absent → unpriced)
+- `ds-havocs-2` `oc-havocs-2-2-5`: added (absent → unpriced)
+- `ds-havocs-2` `oc-havocs-2-2-6`: added (absent → unpriced)
+- `ds-hearthkyn-warriors` `oc-hearthkyn-warriors-4-1`: added (absent → unpriced)
+- `ds-hearthkyn-warriors` `oc-hearthkyn-warriors-4-2`: added (absent → unpriced)
+- `ds-hearthkyn-warriors` `oc-hearthkyn-warriors-5-1`: added (absent → unpriced)
+- `ds-heavy-intercessor-squad` `oc-heavy-intercessor-squad-1-1`: added (absent → unpriced)
+- `ds-heavy-intercessor-squad-2` `oc-heavy-intercessor-squad-2-1-1`: added (absent → unpriced)
+- `ds-heavy-intercessor-squad-3` `oc-heavy-intercessor-squad-3-1-1`: added (absent → unpriced)
+- `ds-heavy-intercessor-squad-4` `oc-heavy-intercessor-squad-4-1-1`: added (absent → unpriced)
+- `ds-heavy-intercessor-squad-5` `oc-heavy-intercessor-squad-5-1-1`: added (absent → unpriced)
+- `ds-heavy-intercessor-squad-6` `oc-heavy-intercessor-squad-6-1-1`: added (absent → unpriced)
+- `ds-hekaton-land-fortress` `oc-hekaton-land-fortress-1-1`: added (absent → unpriced)
+- `ds-hekaton-land-fortress` `oc-hekaton-land-fortress-1-2`: added (absent → unpriced)
+- `ds-hekaton-land-fortress` `oc-hekaton-land-fortress-2-1`: added (absent → unpriced)
+- `ds-hekaton-land-fortress` `oc-hekaton-land-fortress-2-2`: added (absent → unpriced)
+- `ds-hekaton-land-fortress` `oc-hekaton-land-fortress-3-1`: added (absent → unpriced)
+- `ds-helbrute` `oc-helbrute-1-1`: added (absent → unpriced)
+- `ds-helbrute` `oc-helbrute-1-2`: added (absent → unpriced)
+- `ds-helbrute` `oc-helbrute-1-3`: added (absent → unpriced)
+- `ds-helbrute` `oc-helbrute-1-4`: added (absent → unpriced)
+- `ds-helbrute` `oc-helbrute-1-5`: added (absent → unpriced)
+- `ds-helbrute` `oc-helbrute-2-1`: added (absent → unpriced)
+- `ds-helbrute` `oc-helbrute-2-2`: added (absent → unpriced)
+- `ds-helbrute` `oc-helbrute-2-3`: added (absent → unpriced)
+- `ds-helbrute-2` `oc-helbrute-2-1-1`: added (absent → unpriced)
+- `ds-helbrute-2` `oc-helbrute-2-1-2`: added (absent → unpriced)
+- `ds-helbrute-2` `oc-helbrute-2-1-3`: added (absent → unpriced)
+- `ds-helbrute-2` `oc-helbrute-2-1-4`: added (absent → unpriced)
+- `ds-helbrute-2` `oc-helbrute-2-1-5`: added (absent → unpriced)
+- `ds-helbrute-2` `oc-helbrute-2-2-1`: added (absent → unpriced)
+- `ds-helbrute-2` `oc-helbrute-2-3-1`: added (absent → unpriced)
+- `ds-helbrute-2` `oc-helbrute-2-3-2`: added (absent → unpriced)
+- `ds-helbrute-3` `oc-helbrute-3-1-1`: added (absent → unpriced)
+- `ds-helbrute-3` `oc-helbrute-3-1-2`: added (absent → unpriced)
+- `ds-helbrute-3` `oc-helbrute-3-1-3`: added (absent → unpriced)
+- `ds-helbrute-3` `oc-helbrute-3-1-4`: added (absent → unpriced)
+- `ds-helbrute-3` `oc-helbrute-3-1-5`: added (absent → unpriced)
+- `ds-helbrute-3` `oc-helbrute-3-2-1`: added (absent → unpriced)
+- `ds-helbrute-3` `oc-helbrute-3-2-2`: added (absent → unpriced)
+- `ds-helbrute-3` `oc-helbrute-3-2-3`: added (absent → unpriced)
+- `ds-helbrute-4` `oc-helbrute-4-1-1`: added (absent → unpriced)
+- `ds-helbrute-4` `oc-helbrute-4-1-2`: added (absent → unpriced)
+- `ds-helbrute-4` `oc-helbrute-4-1-3`: added (absent → unpriced)
+- `ds-helbrute-4` `oc-helbrute-4-1-4`: added (absent → unpriced)
+- `ds-helbrute-4` `oc-helbrute-4-1-5`: added (absent → unpriced)
+- `ds-helbrute-4` `oc-helbrute-4-2-1`: added (absent → unpriced)
+- `ds-helbrute-4` `oc-helbrute-4-2-2`: added (absent → unpriced)
+- `ds-helbrute-4` `oc-helbrute-4-2-3`: added (absent → unpriced)
+- `ds-heldrake` `oc-heldrake-1-1`: added (absent → unpriced)
+- `ds-heldrake-2` `oc-heldrake-2-1-1`: added (absent → unpriced)
+- `ds-heldrake-3` `oc-heldrake-3-1-1`: added (absent → unpriced)
+- `ds-heldrake-4` `oc-heldrake-4-1-1`: added (absent → unpriced)
+- `ds-hell-blade` `oc-hell-blade-1-1`: added (absent → unpriced)
+- `ds-hell-blade-2` `oc-hell-blade-2-1-1`: added (absent → unpriced)
+- `ds-hell-blade-3` `oc-hell-blade-3-1-1`: added (absent → unpriced)
+- `ds-hell-blade-4` `oc-hell-blade-4-1-1`: added (absent → unpriced)
+- `ds-hell-talon` `oc-hell-talon-1-1`: added (absent → unpriced)
+- `ds-hell-talon-2` `oc-hell-talon-2-1-1`: added (absent → unpriced)
+- `ds-hell-talon-3` `oc-hell-talon-3-1-1`: added (absent → unpriced)
+- `ds-hell-talon-4` `oc-hell-talon-4-1-1`: added (absent → unpriced)
+- `ds-hellblaster-squad` `oc-hellblaster-squad-1-1`: added (absent → unpriced)
+- `ds-hellblaster-squad-2` `oc-hellblaster-squad-2-1-1`: added (absent → unpriced)
+- `ds-hellblaster-squad-3` `oc-hellblaster-squad-3-1-1`: added (absent → unpriced)
+- `ds-hellblaster-squad-4` `oc-hellblaster-squad-4-1-1`: added (absent → unpriced)
+- `ds-hellblaster-squad-5` `oc-hellblaster-squad-5-1-1`: added (absent → unpriced)
+- `ds-hellblaster-squad-6` `oc-hellblaster-squad-6-1-1`: added (absent → unpriced)
+- `ds-hellhammer` `oc-hellhammer-1-1`: added (absent → unpriced)
+- `ds-hellhammer` `oc-hellhammer-2-1`: added (absent → unpriced)
+- `ds-hellhammer` `oc-hellhammer-2-2`: added (absent → unpriced)
+- `ds-hellhammer-2` `oc-hellhammer-2-1-1`: added (absent → unpriced)
+- `ds-hellhammer-2` `oc-hellhammer-2-2-1`: added (absent → unpriced)
+- `ds-hellhammer-2` `oc-hellhammer-2-2-2`: added (absent → unpriced)
+- `ds-hellhound` `oc-hellhound-1-1`: added (absent → unpriced)
+- `ds-hellhound` `oc-hellhound-1-2`: added (absent → unpriced)
+- `ds-hellhound` `oc-hellhound-2-1`: added (absent → unpriced)
+- `ds-hellhound` `oc-hellhound-2-2`: added (absent → unpriced)
+- `ds-hellhound` `oc-hellhound-3-1`: added (absent → unpriced)
+- `ds-hellhound-2` `oc-hellhound-2-1-1`: added (absent → unpriced)
+- `ds-hellhound-2` `oc-hellhound-2-1-2`: added (absent → unpriced)
+- `ds-hellhound-2` `oc-hellhound-2-2-1`: added (absent → unpriced)
+- `ds-hellhound-2` `oc-hellhound-2-2-2`: added (absent → unpriced)
+- `ds-hellhound-2` `oc-hellhound-2-3-1`: added (absent → unpriced)
+- `ds-hellions` `oc-hellions-1-1`: added (absent → unpriced)
+- `ds-hellions` `oc-hellions-2-1`: added (absent → unpriced)
+- `ds-hellions` `oc-hellions-2-2`: added (absent → unpriced)
+- `ds-hernkyn-pioneers` `oc-hernkyn-pioneers-1-1`: added (absent → unpriced)
+- `ds-hernkyn-pioneers` `oc-hernkyn-pioneers-1-2`: added (absent → unpriced)
+- `ds-hernkyn-pioneers` `oc-hernkyn-pioneers-2-1`: added (absent → unpriced)
+- `ds-hernkyn-pioneers` `oc-hernkyn-pioneers-3-1`: added (absent → unpriced)
+- `ds-hernkyn-pioneers` `oc-hernkyn-pioneers-4-1`: added (absent → unpriced)
+- `ds-hive-tyrant` `oc-hive-tyrant-1-1`: added (absent → unpriced)
+- `ds-hive-tyrant` `oc-hive-tyrant-1-2`: added (absent → unpriced)
+- `ds-hive-tyrant` `oc-hive-tyrant-1-3`: added (absent → unpriced)
+- `ds-hive-tyrant` `oc-hive-tyrant-2-1`: added (absent → unpriced)
+- `ds-hive-tyrant` `oc-hive-tyrant-2-2`: added (absent → unpriced)
+- `ds-howling-banshees` `oc-howling-banshees-1-1`: added (absent → unpriced)
+- `ds-howling-banshees` `oc-howling-banshees-1-2`: added (absent → unpriced)
+- `ds-howling-banshees` `oc-howling-banshees-2-1`: added (absent → unpriced)
+- `ds-hunter` `oc-hunter-1-1`: added (absent → unpriced)
+- `ds-hunter` `oc-hunter-2-1`: added (absent → unpriced)
+- `ds-hydra` `oc-hydra-1-1`: added (absent → unpriced)
+- `ds-hydra` `oc-hydra-2-1`: added (absent → unpriced)
+- `ds-hydra-2` `oc-hydra-2-1-1`: added (absent → unpriced)
+- `ds-hydra-2` `oc-hydra-2-2-1`: added (absent → unpriced)
+- `ds-immolator` `oc-immolator-1-1`: added (absent → unpriced)
+- `ds-immolator` `oc-immolator-2-1`: added (absent → unpriced)
+- `ds-immolator` `oc-immolator-2-2`: added (absent → unpriced)
+- `ds-imperial-navy-breachers` `oc-imperial-navy-breachers-1-1`: added (absent → unpriced)
+- `ds-imperial-navy-breachers` `oc-imperial-navy-breachers-1-2`: added (absent → unpriced)
+- `ds-imperial-navy-breachers` `oc-imperial-navy-breachers-2-1`: added (absent → unpriced)
+- `ds-imperial-navy-breachers` `oc-imperial-navy-breachers-2-2`: added (absent → unpriced)
+- `ds-imperial-navy-breachers` `oc-imperial-navy-breachers-3-1`: added (absent → unpriced)
+- `ds-imperial-navy-breachers` `oc-imperial-navy-breachers-4-1`: added (absent → unpriced)
+- `ds-imperial-navy-breachers` `oc-imperial-navy-breachers-5-1`: added (absent → unpriced)
+- `ds-imperial-rhino` `oc-imperial-rhino-1-1`: added (absent → unpriced)
+- `ds-impulsor` `oc-impulsor-1-1`: added (absent → unpriced)
+- `ds-impulsor` `oc-impulsor-1-2`: added (absent → unpriced)
+- `ds-impulsor` `oc-impulsor-2-1`: added (absent → unpriced)
+- `ds-impulsor` `oc-impulsor-3-1`: added (absent → unpriced)
+- `ds-impulsor` `oc-impulsor-3-2`: added (absent → unpriced)
+- `ds-impulsor` `oc-impulsor-3-3`: added (absent → unpriced)
+- `ds-impulsor` `oc-impulsor-3-4`: added (absent → unpriced)
+- `ds-impulsor-2` `oc-impulsor-2-1-1`: added (absent → unpriced)
+- `ds-impulsor-2` `oc-impulsor-2-2-1`: added (absent → unpriced)
+- `ds-impulsor-2` `oc-impulsor-2-3-1`: added (absent → unpriced)
+- `ds-impulsor-2` `oc-impulsor-2-3-2`: added (absent → unpriced)
+- `ds-impulsor-2` `oc-impulsor-2-3-3`: added (absent → unpriced)
+- `ds-impulsor-2` `oc-impulsor-2-3-4`: added (absent → unpriced)
+- `ds-impulsor-3` `oc-impulsor-3-1-1`: added (absent → unpriced)
+- `ds-impulsor-3` `oc-impulsor-3-2-1`: added (absent → unpriced)
+- `ds-impulsor-3` `oc-impulsor-3-3-1`: added (absent → unpriced)
+- `ds-impulsor-3` `oc-impulsor-3-3-2`: added (absent → unpriced)
+- `ds-impulsor-3` `oc-impulsor-3-3-3`: added (absent → unpriced)
+- `ds-impulsor-3` `oc-impulsor-3-3-4`: added (absent → unpriced)
+- `ds-impulsor-4` `oc-impulsor-4-1-1`: added (absent → unpriced)
+- `ds-impulsor-4` `oc-impulsor-4-2-1`: added (absent → unpriced)
+- `ds-impulsor-4` `oc-impulsor-4-3-1`: added (absent → unpriced)
+- `ds-impulsor-4` `oc-impulsor-4-3-2`: added (absent → unpriced)
+- `ds-impulsor-4` `oc-impulsor-4-3-3`: added (absent → unpriced)
+- `ds-impulsor-4` `oc-impulsor-4-3-4`: added (absent → unpriced)
+- `ds-impulsor-5` `oc-impulsor-5-1-1`: added (absent → unpriced)
+- `ds-impulsor-5` `oc-impulsor-5-2-1`: added (absent → unpriced)
+- `ds-impulsor-5` `oc-impulsor-5-3-1`: added (absent → unpriced)
+- `ds-impulsor-5` `oc-impulsor-5-3-2`: added (absent → unpriced)
+- `ds-impulsor-5` `oc-impulsor-5-3-3`: added (absent → unpriced)
+- `ds-impulsor-5` `oc-impulsor-5-3-4`: added (absent → unpriced)
+- `ds-impulsor-6` `oc-impulsor-6-1-1`: added (absent → unpriced)
+- `ds-impulsor-6` `oc-impulsor-6-2-1`: added (absent → unpriced)
+- `ds-impulsor-6` `oc-impulsor-6-3-1`: added (absent → unpriced)
+- `ds-impulsor-6` `oc-impulsor-6-3-2`: added (absent → unpriced)
+- `ds-impulsor-6` `oc-impulsor-6-3-3`: added (absent → unpriced)
+- `ds-impulsor-6` `oc-impulsor-6-3-4`: added (absent → unpriced)
+- `ds-incubi` `oc-incubi-1-1`: added (absent → unpriced)
+- `ds-incubi` `oc-incubi-2-1`: added (absent → unpriced)
+- `ds-infiltrator-squad` `oc-infiltrator-squad-1-1`: added (absent → unpriced)
+- `ds-infiltrator-squad` `oc-infiltrator-squad-2-1`: added (absent → unpriced)
+- `ds-infiltrator-squad-2` `oc-infiltrator-squad-2-1-1`: added (absent → unpriced)
+- `ds-infiltrator-squad-2` `oc-infiltrator-squad-2-2-1`: added (absent → unpriced)
+- `ds-infiltrator-squad-3` `oc-infiltrator-squad-3-1-1`: added (absent → unpriced)
+- `ds-infiltrator-squad-3` `oc-infiltrator-squad-3-2-1`: added (absent → unpriced)
+- `ds-infiltrator-squad-4` `oc-infiltrator-squad-4-1-1`: added (absent → unpriced)
+- `ds-infiltrator-squad-4` `oc-infiltrator-squad-4-2-1`: added (absent → unpriced)
+- `ds-infiltrator-squad-5` `oc-infiltrator-squad-5-1-1`: added (absent → unpriced)
+- `ds-infiltrator-squad-5` `oc-infiltrator-squad-5-2-1`: added (absent → unpriced)
+- `ds-infiltrator-squad-6` `oc-infiltrator-squad-6-1-1`: added (absent → unpriced)
+- `ds-infiltrator-squad-6` `oc-infiltrator-squad-6-2-1`: added (absent → unpriced)
+- `ds-infractors` `oc-infractors-1-1`: added (absent → unpriced)
+- `ds-infractors` `oc-infractors-2-1`: added (absent → unpriced)
+- `ds-infractors` `oc-infractors-3-1`: added (absent → unpriced)
+- `ds-inquisitor` `oc-inquisitor-1-1`: added (absent → unpriced)
+- `ds-inquisitor` `oc-inquisitor-2-1`: added (absent → unpriced)
+- `ds-inquisitor-in-terminator-armour` `oc-inquisitor-in-terminator-armour-1-1`: added (absent → unpriced)
+- `ds-inquisitor-in-terminator-armour` `oc-inquisitor-in-terminator-armour-2-1`: added (absent → unpriced)
+- `ds-inquisitorial-chimera` `oc-inquisitorial-chimera-1-1`: added (absent → unpriced)
+- `ds-inquisitorial-chimera` `oc-inquisitorial-chimera-2-1`: added (absent → unpriced)
+- `ds-inquisitorial-chimera` `oc-inquisitorial-chimera-2-2`: added (absent → unpriced)
+- `ds-inquisitorial-chimera` `oc-inquisitorial-chimera-3-1`: added (absent → unpriced)
+- `ds-inquisitorial-chimera` `oc-inquisitorial-chimera-3-2`: added (absent → unpriced)
+- `ds-inquisitorial-chimera` `oc-inquisitorial-chimera-4-1`: added (absent → unpriced)
+- `ds-interceptor-squad` `oc-interceptor-squad-1-1`: added (absent → unpriced)
+- `ds-interceptor-squad` `oc-interceptor-squad-1-2`: added (absent → unpriced)
+- `ds-interceptor-squad` `oc-interceptor-squad-1-3`: added (absent → unpriced)
+- `ds-intercessor-squad` `oc-intercessor-squad-1-1`: added (absent → unpriced)
+- `ds-intercessor-squad` `oc-intercessor-squad-1-2`: added (absent → unpriced)
+- `ds-intercessor-squad` `oc-intercessor-squad-1-3`: added (absent → unpriced)
+- `ds-intercessor-squad` `oc-intercessor-squad-1-4`: added (absent → unpriced)
+- `ds-intercessor-squad` `oc-intercessor-squad-2-1`: added (absent → unpriced)
+- `ds-intercessor-squad` `oc-intercessor-squad-2-2`: added (absent → unpriced)
+- `ds-intercessor-squad` `oc-intercessor-squad-2-3`: added (absent → unpriced)
+- `ds-intercessor-squad` `oc-intercessor-squad-2-4`: added (absent → unpriced)
+- `ds-intercessor-squad` `oc-intercessor-squad-3-1`: added (absent → unpriced)
+- `ds-intercessor-squad-2` `oc-intercessor-squad-2-1-1`: added (absent → unpriced)
+- `ds-intercessor-squad-2` `oc-intercessor-squad-2-1-2`: added (absent → unpriced)
+- `ds-intercessor-squad-2` `oc-intercessor-squad-2-1-3`: added (absent → unpriced)
+- `ds-intercessor-squad-2` `oc-intercessor-squad-2-1-4`: added (absent → unpriced)
+- `ds-intercessor-squad-2` `oc-intercessor-squad-2-2-1`: added (absent → unpriced)
+- `ds-intercessor-squad-2` `oc-intercessor-squad-2-2-2`: added (absent → unpriced)
+- `ds-intercessor-squad-2` `oc-intercessor-squad-2-2-3`: added (absent → unpriced)
+- `ds-intercessor-squad-2` `oc-intercessor-squad-2-2-4`: added (absent → unpriced)
+- `ds-intercessor-squad-2` `oc-intercessor-squad-2-3-1`: added (absent → unpriced)
+- `ds-intercessor-squad-3` `oc-intercessor-squad-3-1-1`: added (absent → unpriced)
+- `ds-intercessor-squad-3` `oc-intercessor-squad-3-1-2`: added (absent → unpriced)
+- `ds-intercessor-squad-3` `oc-intercessor-squad-3-1-3`: added (absent → unpriced)
+- `ds-intercessor-squad-3` `oc-intercessor-squad-3-1-4`: added (absent → unpriced)
+- `ds-intercessor-squad-3` `oc-intercessor-squad-3-2-1`: added (absent → unpriced)
+- `ds-intercessor-squad-3` `oc-intercessor-squad-3-2-2`: added (absent → unpriced)
+- `ds-intercessor-squad-3` `oc-intercessor-squad-3-2-3`: added (absent → unpriced)
+- `ds-intercessor-squad-3` `oc-intercessor-squad-3-2-4`: added (absent → unpriced)
+- `ds-intercessor-squad-3` `oc-intercessor-squad-3-3-1`: added (absent → unpriced)
+- `ds-intercessor-squad-4` `oc-intercessor-squad-4-1-1`: added (absent → unpriced)
+- `ds-intercessor-squad-4` `oc-intercessor-squad-4-1-2`: added (absent → unpriced)
+- `ds-intercessor-squad-4` `oc-intercessor-squad-4-1-3`: added (absent → unpriced)
+- `ds-intercessor-squad-4` `oc-intercessor-squad-4-1-4`: added (absent → unpriced)
+- `ds-intercessor-squad-4` `oc-intercessor-squad-4-2-1`: added (absent → unpriced)
+- `ds-intercessor-squad-4` `oc-intercessor-squad-4-2-2`: added (absent → unpriced)
+- `ds-intercessor-squad-4` `oc-intercessor-squad-4-2-3`: added (absent → unpriced)
+- `ds-intercessor-squad-4` `oc-intercessor-squad-4-2-4`: added (absent → unpriced)
+- `ds-intercessor-squad-4` `oc-intercessor-squad-4-3-1`: added (absent → unpriced)
+- `ds-intercessor-squad-5` `oc-intercessor-squad-5-1-1`: added (absent → unpriced)
+- `ds-intercessor-squad-5` `oc-intercessor-squad-5-1-2`: added (absent → unpriced)
+- `ds-intercessor-squad-5` `oc-intercessor-squad-5-1-3`: added (absent → unpriced)
+- `ds-intercessor-squad-5` `oc-intercessor-squad-5-1-4`: added (absent → unpriced)
+- `ds-intercessor-squad-5` `oc-intercessor-squad-5-2-1`: added (absent → unpriced)
+- `ds-intercessor-squad-5` `oc-intercessor-squad-5-2-2`: added (absent → unpriced)
+- `ds-intercessor-squad-5` `oc-intercessor-squad-5-2-3`: added (absent → unpriced)
+- `ds-intercessor-squad-5` `oc-intercessor-squad-5-2-4`: added (absent → unpriced)
+- `ds-intercessor-squad-5` `oc-intercessor-squad-5-3-1`: added (absent → unpriced)
+- `ds-intercessor-squad-6` `oc-intercessor-squad-6-1-1`: added (absent → unpriced)
+- `ds-intercessor-squad-6` `oc-intercessor-squad-6-1-2`: added (absent → unpriced)
+- `ds-intercessor-squad-6` `oc-intercessor-squad-6-1-3`: added (absent → unpriced)
+- `ds-intercessor-squad-6` `oc-intercessor-squad-6-1-4`: added (absent → unpriced)
+- `ds-intercessor-squad-6` `oc-intercessor-squad-6-2-1`: added (absent → unpriced)
+- `ds-intercessor-squad-6` `oc-intercessor-squad-6-2-2`: added (absent → unpriced)
+- `ds-intercessor-squad-6` `oc-intercessor-squad-6-2-3`: added (absent → unpriced)
+- `ds-intercessor-squad-6` `oc-intercessor-squad-6-2-4`: added (absent → unpriced)
+- `ds-intercessor-squad-6` `oc-intercessor-squad-6-3-1`: added (absent → unpriced)
+- `ds-invader-atv` `oc-invader-atv-1-1`: added (absent → unpriced)
+- `ds-invader-atv-2` `oc-invader-atv-2-1-1`: added (absent → unpriced)
+- `ds-invader-atv-3` `oc-invader-atv-3-1-1`: added (absent → unpriced)
+- `ds-invader-atv-4` `oc-invader-atv-4-1-1`: added (absent → unpriced)
+- `ds-invader-atv-5` `oc-invader-atv-5-1-1`: added (absent → unpriced)
+- `ds-invader-atv-6` `oc-invader-atv-6-1-1`: added (absent → unpriced)
+- `ds-invictor-tactical-warsuit` `oc-invictor-tactical-warsuit-1-1`: added (absent → unpriced)
+- `ds-invictor-tactical-warsuit-2` `oc-invictor-tactical-warsuit-2-1-1`: added (absent → unpriced)
+- `ds-invictor-tactical-warsuit-3` `oc-invictor-tactical-warsuit-3-1-1`: added (absent → unpriced)
+- `ds-invictor-tactical-warsuit-4` `oc-invictor-tactical-warsuit-4-1-1`: added (absent → unpriced)
+- `ds-invictor-tactical-warsuit-5` `oc-invictor-tactical-warsuit-5-1-1`: added (absent → unpriced)
+- `ds-invictor-tactical-warsuit-6` `oc-invictor-tactical-warsuit-6-1-1`: added (absent → unpriced)
+- `ds-ironclad-dreadnought` `oc-ironclad-dreadnought-1-1`: added (absent → unpriced)
+- `ds-ironclad-dreadnought` `oc-ironclad-dreadnought-2-1`: added (absent → unpriced)
+- `ds-ironclad-dreadnought` `oc-ironclad-dreadnought-3-1`: added (absent → unpriced)
+- `ds-ironclad-dreadnought` `oc-ironclad-dreadnought-4-1`: added (absent → unpriced)
+- `ds-ironclad-dreadnought` `oc-ironclad-dreadnought-5-1`: added (absent → unpriced)
+- `ds-ironclad-dreadnought` `oc-ironclad-dreadnought-6-1`: added (absent → unpriced)
+- `ds-ironkin-steeljacks-with-heavy-volkanite-disintegrators` `oc-ironkin-steeljacks-with-heavy-volkanite-disintegrators-1-1`: added (absent → unpriced)
+- `ds-jakhals` `oc-jakhals-1-1`: added (absent → unpriced)
+- `ds-jakhals` `oc-jakhals-3-1`: added (absent → unpriced)
+- `ds-javelin-attack-speeder` `oc-javelin-attack-speeder-1-1`: added (absent → unpriced)
+- `ds-javelin-attack-speeder` `oc-javelin-attack-speeder-2-1`: added (absent → unpriced)
+- `ds-javelin-attack-speeder` `oc-javelin-attack-speeder-3-1`: added (absent → unpriced)
+- `ds-kabalite-warriors` `oc-kabalite-warriors-1-1`: added (absent → unpriced)
+- `ds-kabalite-warriors` `oc-kabalite-warriors-2-1`: added (absent → unpriced)
+- `ds-kabalite-warriors` `oc-kabalite-warriors-2-2`: added (absent → unpriced)
+- `ds-kabalite-warriors` `oc-kabalite-warriors-3-1`: added (absent → unpriced)
+- `ds-kabalite-warriors` `oc-kabalite-warriors-3-2`: added (absent → unpriced)
+- `ds-kabalite-warriors` `oc-kabalite-warriors-4-1`: added (absent → unpriced)
+- `ds-kabalite-warriors` `oc-kabalite-warriors-5-1`: added (absent → unpriced)
+- `ds-kabalite-warriors` `oc-kabalite-warriors-6-1`: added (absent → unpriced)
+- `ds-kabalite-warriors` `oc-kabalite-warriors-7-1`: added (absent → unpriced)
+- `ds-kahl` `oc-kahl-1-1`: added (absent → unpriced)
+- `ds-kahl` `oc-kahl-2-1`: added (absent → unpriced)
+- `ds-kahl` `oc-kahl-3-1`: added (absent → unpriced)
+- `ds-kannonwagon` `oc-kannonwagon-1-1`: added (absent → unpriced)
+- `ds-kapricus-carrier` `oc-kapricus-carrier-1-1`: added (absent → unpriced)
+- `ds-kasrkin` `oc-kasrkin-2-1`: added (absent → unpriced)
+- `ds-kasrkin` `oc-kasrkin-3-1`: added (absent → unpriced)
+- `ds-kasrkin` `oc-kasrkin-4-1`: added (absent → unpriced)
+- `ds-kasrkin` `oc-kasrkin-5-1`: added (absent → unpriced)
+- `ds-kasrkin` `oc-kasrkin-6-1`: added (absent → unpriced)
+- `ds-kasrkin` `oc-kasrkin-6-2`: added (absent → unpriced)
+- `ds-kasrkin-2` `oc-kasrkin-2-2-1`: added (absent → unpriced)
+- `ds-kasrkin-2` `oc-kasrkin-2-3-1`: added (absent → unpriced)
+- `ds-kasrkin-2` `oc-kasrkin-2-4-1`: added (absent → unpriced)
+- `ds-kasrkin-2` `oc-kasrkin-2-5-1`: added (absent → unpriced)
+- `ds-kasrkin-2` `oc-kasrkin-2-6-1`: added (absent → unpriced)
+- `ds-kasrkin-2` `oc-kasrkin-2-6-2`: added (absent → unpriced)
+- `ds-keeper-of-secrets` `oc-keeper-of-secrets-1-1`: added (absent → unpriced)
+- `ds-keeper-of-secrets` `oc-keeper-of-secrets-1-2`: added (absent → unpriced)
+- `ds-keeper-of-secrets` `oc-keeper-of-secrets-1-3`: added (absent → unpriced)
+- `ds-keeper-of-secrets-2` `oc-keeper-of-secrets-2-1-1`: added (absent → unpriced)
+- `ds-keeper-of-secrets-2` `oc-keeper-of-secrets-2-1-2`: added (absent → unpriced)
+- `ds-keeper-of-secrets-2` `oc-keeper-of-secrets-2-1-3`: added (absent → unpriced)
+- `ds-khorne-berzerkers` `oc-khorne-berzerkers-1-1`: added (absent → unpriced)
+- `ds-khorne-berzerkers` `oc-khorne-berzerkers-2-1`: added (absent → unpriced)
+- `ds-khorne-berzerkers` `oc-khorne-berzerkers-3-1`: added (absent → unpriced)
+- `ds-khorne-berzerkers` `oc-khorne-berzerkers-4-1`: added (absent → unpriced)
+- `ds-khorne-berzerkers-2` `oc-khorne-berzerkers-2-1-1`: added (absent → unpriced)
+- `ds-khorne-berzerkers-2` `oc-khorne-berzerkers-2-2-1`: added (absent → unpriced)
+- `ds-khorne-berzerkers-2` `oc-khorne-berzerkers-2-3-1`: added (absent → unpriced)
+- `ds-khorne-berzerkers-2` `oc-khorne-berzerkers-2-4-1`: added (absent → unpriced)
+- `ds-khorne-lord-of-skulls` `oc-khorne-lord-of-skulls-1-1`: added (absent → unpriced)
+- `ds-khorne-lord-of-skulls` `oc-khorne-lord-of-skulls-1-2`: added (absent → unpriced)
+- `ds-khorne-lord-of-skulls` `oc-khorne-lord-of-skulls-2-1`: added (absent → unpriced)
+- `ds-khorne-lord-of-skulls-2` `oc-khorne-lord-of-skulls-2-1-1`: added (absent → unpriced)
+- `ds-khorne-lord-of-skulls-2` `oc-khorne-lord-of-skulls-2-1-2`: added (absent → unpriced)
+- `ds-khorne-lord-of-skulls-2` `oc-khorne-lord-of-skulls-2-2-1`: added (absent → unpriced)
+- `ds-kill-krusha` `oc-kill-krusha-1-1`: added (absent → unpriced)
+- `ds-kill-krusha` `oc-kill-krusha-1-2`: added (absent → unpriced)
+- `ds-kill-krusha` `oc-kill-krusha-1-3`: added (absent → unpriced)
+- `ds-kill-krusha` `oc-kill-krusha-2-1`: added (absent → unpriced)
+- `ds-kill-krusha` `oc-kill-krusha-2-2`: added (absent → unpriced)
+- `ds-kill-krusha` `oc-kill-krusha-2-3`: added (absent → unpriced)
+- `ds-kill-tank` `oc-kill-tank-1-1`: added (absent → unpriced)
+- `ds-knight-castellan` `oc-knight-castellan-1-1`: added (absent → unpriced)
+- `ds-knight-centura` `oc-knight-centura-1-1`: added (absent → unpriced)
+- `ds-knight-centura` `oc-knight-centura-1-2`: added (absent → unpriced)
+- `ds-knight-crusader` `oc-knight-crusader-1-1`: added (absent → unpriced)
+- `ds-knight-crusader` `oc-knight-crusader-2-1`: added (absent → unpriced)
+- `ds-knight-crusader` `oc-knight-crusader-3-1`: added (absent → unpriced)
+- `ds-knight-crusader` `oc-knight-crusader-3-2`: added (absent → unpriced)
+- `ds-knight-crusader` `oc-knight-crusader-3-3`: added (absent → unpriced)
+- `ds-knight-desecrator` `oc-knight-desecrator-1-1`: added (absent → unpriced)
+- `ds-knight-despoiler` `oc-knight-despoiler-1-1`: added (absent → unpriced)
+- `ds-knight-despoiler` `oc-knight-despoiler-2-1`: added (absent → unpriced)
+- `ds-knight-despoiler` `oc-knight-despoiler-2-2`: added (absent → unpriced)
+- `ds-knight-despoiler` `oc-knight-despoiler-2-3`: added (absent → unpriced)
+- `ds-knight-despoiler` `oc-knight-despoiler-3-1`: added (absent → unpriced)
+- `ds-knight-despoiler` `oc-knight-despoiler-3-2`: added (absent → unpriced)
+- `ds-knight-despoiler` `oc-knight-despoiler-3-3`: added (absent → unpriced)
+- `ds-knight-despoiler` `oc-knight-despoiler-4-1`: added (absent → unpriced)
+- `ds-knight-despoiler` `oc-knight-despoiler-4-2`: added (absent → unpriced)
+- `ds-knight-despoiler` `oc-knight-despoiler-4-3`: added (absent → unpriced)
+- `ds-knight-destrier` `oc-knight-destrier-1-1`: added (absent → unpriced)
+- `ds-knight-destrier` `oc-knight-destrier-1-2`: added (absent → unpriced)
+- `ds-knight-destrier` `oc-knight-destrier-2-1`: added (absent → unpriced)
+- `ds-knight-destrier` `oc-knight-destrier-2-2`: added (absent → unpriced)
+- `ds-knight-errant` `oc-knight-errant-1-1`: added (absent → unpriced)
+- `ds-knight-errant` `oc-knight-errant-2-1`: added (absent → unpriced)
+- `ds-knight-errant` `oc-knight-errant-3-1`: added (absent → unpriced)
+- `ds-knight-errant` `oc-knight-errant-3-2`: added (absent → unpriced)
+- `ds-knight-errant` `oc-knight-errant-3-3`: added (absent → unpriced)
+- `ds-knight-gallant` `oc-knight-gallant-1-1`: added (absent → unpriced)
+- `ds-knight-gallant` `oc-knight-gallant-2-1`: added (absent → unpriced)
+- `ds-knight-gallant` `oc-knight-gallant-2-2`: added (absent → unpriced)
+- `ds-knight-gallant` `oc-knight-gallant-2-3`: added (absent → unpriced)
+- `ds-knight-paladin` `oc-knight-paladin-1-1`: added (absent → unpriced)
+- `ds-knight-paladin` `oc-knight-paladin-2-1`: added (absent → unpriced)
+- `ds-knight-paladin` `oc-knight-paladin-3-1`: added (absent → unpriced)
+- `ds-knight-paladin` `oc-knight-paladin-3-2`: added (absent → unpriced)
+- `ds-knight-paladin` `oc-knight-paladin-3-3`: added (absent → unpriced)
+- `ds-knight-preceptor` `oc-knight-preceptor-1-1`: added (absent → unpriced)
+- `ds-knight-preceptor` `oc-knight-preceptor-1-2`: added (absent → unpriced)
+- `ds-knight-preceptor` `oc-knight-preceptor-2-1`: added (absent → unpriced)
+- `ds-knight-preceptor` `oc-knight-preceptor-3-1`: added (absent → unpriced)
+- `ds-knight-preceptor` `oc-knight-preceptor-3-2`: added (absent → unpriced)
+- `ds-knight-preceptor` `oc-knight-preceptor-3-3`: added (absent → unpriced)
+- `ds-knight-tyrant` `oc-knight-tyrant-1-1`: added (absent → unpriced)
+- `ds-knight-tyrant` `oc-knight-tyrant-2-1`: added (absent → unpriced)
+- `ds-knight-valiant` `oc-knight-valiant-1-1`: added (absent → unpriced)
+- `ds-knight-warden` `oc-knight-warden-1-1`: added (absent → unpriced)
+- `ds-knight-warden` `oc-knight-warden-2-1`: added (absent → unpriced)
+- `ds-knight-warden` `oc-knight-warden-3-1`: added (absent → unpriced)
+- `ds-knight-warden` `oc-knight-warden-3-2`: added (absent → unpriced)
+- `ds-knight-warden` `oc-knight-warden-3-3`: added (absent → unpriced)
+- `ds-kommandos` `oc-kommandos-1-1`: added (absent → unpriced)
+- `ds-kommandos` `oc-kommandos-1-2`: added (absent → unpriced)
+- `ds-kommandos` `oc-kommandos-3-1`: added (absent → unpriced)
+- `ds-kommandos` `oc-kommandos-4-1`: added (absent → unpriced)
+- `ds-kommandos` `oc-kommandos-5-1`: added (absent → unpriced)
+- `ds-kratos` `oc-kratos-1-1`: added (absent → unpriced)
+- `ds-kratos` `oc-kratos-1-2`: added (absent → unpriced)
+- `ds-kratos` `oc-kratos-2-1`: added (absent → unpriced)
+- `ds-kratos` `oc-kratos-2-2`: added (absent → unpriced)
+- `ds-kratos` `oc-kratos-2-3`: added (absent → unpriced)
+- `ds-kratos` `oc-kratos-3-1`: added (absent → unpriced)
+- `ds-kratos` `oc-kratos-3-2`: added (absent → unpriced)
+- `ds-kratos` `oc-kratos-3-3`: added (absent → unpriced)
+- `ds-kratos` `oc-kratos-4-1`: added (absent → unpriced)
+- `ds-kratos` `oc-kratos-4-2`: added (absent → unpriced)
+- `ds-kratos` `oc-kratos-4-3`: added (absent → unpriced)
+- `ds-kratos` `oc-kratos-4-4`: added (absent → unpriced)
+- `ds-kratos` `oc-kratos-4-5`: added (absent → unpriced)
+- `ds-kratos` `oc-kratos-4-6`: added (absent → unpriced)
+- `ds-kratos` `oc-kratos-5-1`: added (absent → unpriced)
+- `ds-kratos-2` `oc-kratos-2-1-1`: added (absent → unpriced)
+- `ds-kratos-2` `oc-kratos-2-1-2`: added (absent → unpriced)
+- `ds-kratos-2` `oc-kratos-2-2-1`: added (absent → unpriced)
+- `ds-kratos-2` `oc-kratos-2-2-2`: added (absent → unpriced)
+- `ds-kratos-2` `oc-kratos-2-2-3`: added (absent → unpriced)
+- `ds-kratos-2` `oc-kratos-2-3-1`: added (absent → unpriced)
+- `ds-kratos-2` `oc-kratos-2-3-2`: added (absent → unpriced)
+- `ds-kratos-2` `oc-kratos-2-3-3`: added (absent → unpriced)
+- `ds-kratos-2` `oc-kratos-2-4-1`: added (absent → unpriced)
+- `ds-kratos-2` `oc-kratos-2-4-2`: added (absent → unpriced)
+- `ds-kratos-2` `oc-kratos-2-4-3`: added (absent → unpriced)
+- `ds-kratos-2` `oc-kratos-2-4-4`: added (absent → unpriced)
+- `ds-kratos-2` `oc-kratos-2-4-5`: added (absent → unpriced)
+- `ds-kratos-2` `oc-kratos-2-4-6`: added (absent → unpriced)
+- `ds-kratos-2` `oc-kratos-2-5-1`: added (absent → unpriced)
+- `ds-kratos-3` `oc-kratos-3-1-1`: added (absent → unpriced)
+- `ds-kratos-3` `oc-kratos-3-1-2`: added (absent → unpriced)
+- `ds-kratos-3` `oc-kratos-3-2-1`: added (absent → unpriced)
+- `ds-kratos-3` `oc-kratos-3-2-2`: added (absent → unpriced)
+- `ds-kratos-3` `oc-kratos-3-2-3`: added (absent → unpriced)
+- `ds-kratos-3` `oc-kratos-3-3-1`: added (absent → unpriced)
+- `ds-kratos-3` `oc-kratos-3-3-2`: added (absent → unpriced)
+- `ds-kratos-3` `oc-kratos-3-3-3`: added (absent → unpriced)
+- `ds-kratos-3` `oc-kratos-3-4-1`: added (absent → unpriced)
+- `ds-kratos-3` `oc-kratos-3-4-2`: added (absent → unpriced)
+- `ds-kratos-3` `oc-kratos-3-4-3`: added (absent → unpriced)
+- `ds-kratos-3` `oc-kratos-3-4-4`: added (absent → unpriced)
+- `ds-kratos-3` `oc-kratos-3-4-5`: added (absent → unpriced)
+- `ds-kratos-3` `oc-kratos-3-4-6`: added (absent → unpriced)
+- `ds-kratos-3` `oc-kratos-3-5-1`: added (absent → unpriced)
+- `ds-kratos-4` `oc-kratos-4-1-1`: added (absent → unpriced)
+- `ds-kratos-4` `oc-kratos-4-1-2`: added (absent → unpriced)
+- `ds-kratos-4` `oc-kratos-4-2-1`: added (absent → unpriced)
+- `ds-kratos-4` `oc-kratos-4-2-2`: added (absent → unpriced)
+- `ds-kratos-4` `oc-kratos-4-2-3`: added (absent → unpriced)
+- `ds-kratos-4` `oc-kratos-4-3-1`: added (absent → unpriced)
+- `ds-kratos-4` `oc-kratos-4-3-2`: added (absent → unpriced)
+- `ds-kratos-4` `oc-kratos-4-3-3`: added (absent → unpriced)
+- `ds-kratos-4` `oc-kratos-4-4-1`: added (absent → unpriced)
+- `ds-kratos-4` `oc-kratos-4-4-2`: added (absent → unpriced)
+- `ds-kratos-4` `oc-kratos-4-4-3`: added (absent → unpriced)
+- `ds-kratos-4` `oc-kratos-4-4-4`: added (absent → unpriced)
+- `ds-kratos-4` `oc-kratos-4-4-5`: added (absent → unpriced)
+- `ds-kratos-4` `oc-kratos-4-4-6`: added (absent → unpriced)
+- `ds-kratos-4` `oc-kratos-4-5-1`: added (absent → unpriced)
+- `ds-kratos-5` `oc-kratos-5-1-1`: added (absent → unpriced)
+- `ds-kratos-5` `oc-kratos-5-1-2`: added (absent → unpriced)
+- `ds-kratos-5` `oc-kratos-5-2-1`: added (absent → unpriced)
+- `ds-kratos-5` `oc-kratos-5-2-2`: added (absent → unpriced)
+- `ds-kratos-5` `oc-kratos-5-2-3`: added (absent → unpriced)
+- `ds-kratos-5` `oc-kratos-5-3-1`: added (absent → unpriced)
+- `ds-kratos-5` `oc-kratos-5-3-2`: added (absent → unpriced)
+- `ds-kratos-5` `oc-kratos-5-3-3`: added (absent → unpriced)
+- `ds-kratos-5` `oc-kratos-5-4-1`: added (absent → unpriced)
+- `ds-kratos-5` `oc-kratos-5-4-2`: added (absent → unpriced)
+- `ds-kratos-5` `oc-kratos-5-4-3`: added (absent → unpriced)
+- `ds-kratos-5` `oc-kratos-5-4-4`: added (absent → unpriced)
+- `ds-kratos-5` `oc-kratos-5-4-5`: added (absent → unpriced)
+- `ds-kratos-5` `oc-kratos-5-4-6`: added (absent → unpriced)
+- `ds-kratos-5` `oc-kratos-5-5-1`: added (absent → unpriced)
+- `ds-krieg-combat-engineers` `oc-krieg-combat-engineers-1-1`: added (absent → unpriced)
+- `ds-krieg-combat-engineers` `oc-krieg-combat-engineers-2-1`: added (absent → unpriced)
+- `ds-krieg-combat-engineers` `oc-krieg-combat-engineers-4-1`: added (absent → unpriced)
+- `ds-krieg-combat-engineers` `oc-krieg-combat-engineers-4-2`: added (absent → unpriced)
+- `ds-krieg-combat-engineers` `oc-krieg-combat-engineers-4-3`: added (absent → unpriced)
+- `ds-krieg-combat-engineers` `oc-krieg-combat-engineers-5-1`: added (absent → unpriced)
+- `ds-krieg-combat-engineers` `oc-krieg-combat-engineers-5-2`: added (absent → unpriced)
+- `ds-krieg-combat-engineers-2` `oc-krieg-combat-engineers-2-1-1`: added (absent → unpriced)
+- `ds-krieg-combat-engineers-2` `oc-krieg-combat-engineers-2-2-1`: added (absent → unpriced)
+- `ds-krieg-combat-engineers-2` `oc-krieg-combat-engineers-2-4-1`: added (absent → unpriced)
+- `ds-krieg-combat-engineers-2` `oc-krieg-combat-engineers-2-4-2`: added (absent → unpriced)
+- `ds-krieg-combat-engineers-2` `oc-krieg-combat-engineers-2-4-3`: added (absent → unpriced)
+- `ds-krieg-combat-engineers-2` `oc-krieg-combat-engineers-2-5-1`: added (absent → unpriced)
+- `ds-krieg-combat-engineers-2` `oc-krieg-combat-engineers-2-5-2`: added (absent → unpriced)
+- `ds-krieg-command-squad` `oc-krieg-command-squad-1-1`: added (absent → unpriced)
+- `ds-krieg-command-squad` `oc-krieg-command-squad-1-2`: added (absent → unpriced)
+- `ds-krieg-command-squad` `oc-krieg-command-squad-1-3`: added (absent → unpriced)
+- `ds-krieg-command-squad` `oc-krieg-command-squad-1-4`: added (absent → unpriced)
+- `ds-krieg-command-squad` `oc-krieg-command-squad-2-1`: added (absent → unpriced)
+- `ds-krieg-command-squad` `oc-krieg-command-squad-3-1`: added (absent → unpriced)
+- `ds-krieg-command-squad` `oc-krieg-command-squad-4-1`: added (absent → unpriced)
+- `ds-krieg-command-squad` `oc-krieg-command-squad-4-2`: added (absent → unpriced)
+- `ds-krieg-command-squad-2` `oc-krieg-command-squad-2-1-1`: added (absent → unpriced)
+- `ds-krieg-command-squad-2` `oc-krieg-command-squad-2-1-2`: added (absent → unpriced)
+- `ds-krieg-command-squad-2` `oc-krieg-command-squad-2-1-3`: added (absent → unpriced)
+- `ds-krieg-command-squad-2` `oc-krieg-command-squad-2-1-4`: added (absent → unpriced)
+- `ds-krieg-command-squad-2` `oc-krieg-command-squad-2-2-1`: added (absent → unpriced)
+- `ds-krieg-command-squad-2` `oc-krieg-command-squad-2-3-1`: added (absent → unpriced)
+- `ds-krieg-command-squad-2` `oc-krieg-command-squad-2-4-1`: added (absent → unpriced)
+- `ds-krieg-command-squad-2` `oc-krieg-command-squad-2-4-2`: added (absent → unpriced)
+- `ds-kroot-carnivores` `oc-kroot-carnivores-1-1`: added (absent → unpriced)
+- `ds-kroot-carnivores` `oc-kroot-carnivores-2-1`: added (absent → unpriced)
+- `ds-kroot-farstalkers` `oc-kroot-farstalkers-1-1`: added (absent → unpriced)
+- `ds-kroot-farstalkers` `oc-kroot-farstalkers-2-1`: added (absent → unpriced)
+- `ds-kroot-farstalkers` `oc-kroot-farstalkers-2-2`: added (absent → unpriced)
+- `ds-kroot-farstalkers` `oc-kroot-farstalkers-3-1`: added (absent → unpriced)
+- `ds-kroot-lone-spear` `oc-kroot-lone-spear-1-1`: added (absent → unpriced)
+- `ds-kroot-war-shaper` `oc-kroot-war-shaper-1-1`: added (absent → unpriced)
+- `ds-land-raider` `oc-land-raider-1-1`: added (absent → unpriced)
+- `ds-land-raider` `oc-land-raider-2-1`: added (absent → unpriced)
+- `ds-land-raider` `oc-land-raider-3-1`: added (absent → unpriced)
+- `ds-land-raider-2` `oc-land-raider-2-1-1`: added (absent → unpriced)
+- `ds-land-raider-2` `oc-land-raider-2-2-1`: added (absent → unpriced)
+- `ds-land-raider-2` `oc-land-raider-2-3-1`: added (absent → unpriced)
+- `ds-land-raider-3` `oc-land-raider-3-1-1`: added (absent → unpriced)
+- `ds-land-raider-3` `oc-land-raider-3-2-1`: added (absent → unpriced)
+- `ds-land-raider-3` `oc-land-raider-3-3-1`: added (absent → unpriced)
+- `ds-land-raider-4` `oc-land-raider-4-1-1`: added (absent → unpriced)
+- `ds-land-raider-4` `oc-land-raider-4-2-1`: added (absent → unpriced)
+- `ds-land-raider-4` `oc-land-raider-4-3-1`: added (absent → unpriced)
+- `ds-land-raider-5` `oc-land-raider-5-1-1`: added (absent → unpriced)
+- `ds-land-raider-5` `oc-land-raider-5-2-1`: added (absent → unpriced)
+- `ds-land-raider-5` `oc-land-raider-5-3-1`: added (absent → unpriced)
+- `ds-land-raider-6` `oc-land-raider-6-1-1`: added (absent → unpriced)
+- `ds-land-raider-6` `oc-land-raider-6-2-1`: added (absent → unpriced)
+- `ds-land-raider-6` `oc-land-raider-6-3-1`: added (absent → unpriced)
+- `ds-land-raider-7` `oc-land-raider-7-1-1`: added (absent → unpriced)
+- `ds-land-raider-7` `oc-land-raider-7-2-1`: added (absent → unpriced)
+- `ds-land-raider-7` `oc-land-raider-7-3-1`: added (absent → unpriced)
+- `ds-land-raider-achilles` `oc-land-raider-achilles-1-1`: added (absent → unpriced)
+- `ds-land-raider-achilles` `oc-land-raider-achilles-2-1`: added (absent → unpriced)
+- `ds-land-raider-achilles` `oc-land-raider-achilles-3-1`: added (absent → unpriced)
+- `ds-land-raider-achilles-2` `oc-land-raider-achilles-2-1-1`: added (absent → unpriced)
+- `ds-land-raider-achilles-2` `oc-land-raider-achilles-2-2-1`: added (absent → unpriced)
+- `ds-land-raider-achilles-2` `oc-land-raider-achilles-2-3-1`: added (absent → unpriced)
+- `ds-land-raider-achilles-3` `oc-land-raider-achilles-3-1-1`: added (absent → unpriced)
+- `ds-land-raider-achilles-3` `oc-land-raider-achilles-3-2-1`: added (absent → unpriced)
+- `ds-land-raider-achilles-3` `oc-land-raider-achilles-3-3-1`: added (absent → unpriced)
+- `ds-land-raider-achilles-4` `oc-land-raider-achilles-4-1-1`: added (absent → unpriced)
+- `ds-land-raider-achilles-4` `oc-land-raider-achilles-4-2-1`: added (absent → unpriced)
+- `ds-land-raider-achilles-4` `oc-land-raider-achilles-4-3-1`: added (absent → unpriced)
+- `ds-land-raider-achilles-5` `oc-land-raider-achilles-5-1-1`: added (absent → unpriced)
+- `ds-land-raider-achilles-5` `oc-land-raider-achilles-5-2-1`: added (absent → unpriced)
+- `ds-land-raider-achilles-5` `oc-land-raider-achilles-5-3-1`: added (absent → unpriced)
+- `ds-land-raider-crusader` `oc-land-raider-crusader-1-1`: added (absent → unpriced)
+- `ds-land-raider-crusader` `oc-land-raider-crusader-2-1`: added (absent → unpriced)
+- `ds-land-raider-crusader` `oc-land-raider-crusader-3-1`: added (absent → unpriced)
+- `ds-land-raider-crusader-2` `oc-land-raider-crusader-2-1-1`: added (absent → unpriced)
+- `ds-land-raider-crusader-2` `oc-land-raider-crusader-2-2-1`: added (absent → unpriced)
+- `ds-land-raider-crusader-2` `oc-land-raider-crusader-2-3-1`: added (absent → unpriced)
+- `ds-land-raider-crusader-3` `oc-land-raider-crusader-3-1-1`: added (absent → unpriced)
+- `ds-land-raider-crusader-3` `oc-land-raider-crusader-3-2-1`: added (absent → unpriced)
+- `ds-land-raider-crusader-3` `oc-land-raider-crusader-3-3-1`: added (absent → unpriced)
+- `ds-land-raider-crusader-4` `oc-land-raider-crusader-4-1-1`: added (absent → unpriced)
+- `ds-land-raider-crusader-4` `oc-land-raider-crusader-4-2-1`: added (absent → unpriced)
+- `ds-land-raider-crusader-4` `oc-land-raider-crusader-4-3-1`: added (absent → unpriced)
+- `ds-land-raider-crusader-5` `oc-land-raider-crusader-5-1-1`: added (absent → unpriced)
+- `ds-land-raider-crusader-5` `oc-land-raider-crusader-5-2-1`: added (absent → unpriced)
+- `ds-land-raider-crusader-5` `oc-land-raider-crusader-5-3-1`: added (absent → unpriced)
+- `ds-land-raider-crusader-6` `oc-land-raider-crusader-6-1-1`: added (absent → unpriced)
+- `ds-land-raider-crusader-6` `oc-land-raider-crusader-6-2-1`: added (absent → unpriced)
+- `ds-land-raider-crusader-6` `oc-land-raider-crusader-6-3-1`: added (absent → unpriced)
+- `ds-land-raider-crusader-7` `oc-land-raider-crusader-7-1-1`: added (absent → unpriced)
+- `ds-land-raider-crusader-7` `oc-land-raider-crusader-7-2-1`: added (absent → unpriced)
+- `ds-land-raider-crusader-7` `oc-land-raider-crusader-7-3-1`: added (absent → unpriced)
+- `ds-land-raider-excelsior` `oc-land-raider-excelsior-1-1`: added (absent → unpriced)
+- `ds-land-raider-excelsior` `oc-land-raider-excelsior-2-1`: added (absent → unpriced)
+- `ds-land-raider-excelsior` `oc-land-raider-excelsior-3-1`: added (absent → unpriced)
+- `ds-land-raider-excelsior` `oc-land-raider-excelsior-4-1`: added (absent → unpriced)
+- `ds-land-raider-helios` `oc-land-raider-helios-1-1`: added (absent → unpriced)
+- `ds-land-raider-helios` `oc-land-raider-helios-2-1`: added (absent → unpriced)
+- `ds-land-raider-prometheus` `oc-land-raider-prometheus-1-1`: added (absent → unpriced)
+- `ds-land-raider-prometheus` `oc-land-raider-prometheus-2-1`: added (absent → unpriced)
+- `ds-land-raider-prometheus` `oc-land-raider-prometheus-3-1`: added (absent → unpriced)
+- `ds-land-raider-proteus` `oc-land-raider-proteus-1-1`: added (absent → unpriced)
+- `ds-land-raider-proteus` `oc-land-raider-proteus-1-2`: added (absent → unpriced)
+- `ds-land-raider-proteus` `oc-land-raider-proteus-1-3`: added (absent → unpriced)
+- `ds-land-raider-proteus` `oc-land-raider-proteus-1-4`: added (absent → unpriced)
+- `ds-land-raider-proteus` `oc-land-raider-proteus-2-1`: added (absent → unpriced)
+- `ds-land-raider-proteus` `oc-land-raider-proteus-3-1`: added (absent → unpriced)
+- `ds-land-raider-proteus` `oc-land-raider-proteus-4-1`: added (absent → unpriced)
+- `ds-land-raider-proteus-2` `oc-land-raider-proteus-2-1-1`: added (absent → unpriced)
+- `ds-land-raider-proteus-2` `oc-land-raider-proteus-2-1-2`: added (absent → unpriced)
+- `ds-land-raider-proteus-2` `oc-land-raider-proteus-2-1-3`: added (absent → unpriced)
+- `ds-land-raider-proteus-2` `oc-land-raider-proteus-2-1-4`: added (absent → unpriced)
+- `ds-land-raider-proteus-2` `oc-land-raider-proteus-2-2-1`: added (absent → unpriced)
+- `ds-land-raider-proteus-2` `oc-land-raider-proteus-2-3-1`: added (absent → unpriced)
+- `ds-land-raider-proteus-2` `oc-land-raider-proteus-2-4-1`: added (absent → unpriced)
+- `ds-land-raider-proteus-3` `oc-land-raider-proteus-3-1-1`: added (absent → unpriced)
+- `ds-land-raider-proteus-3` `oc-land-raider-proteus-3-1-2`: added (absent → unpriced)
+- `ds-land-raider-proteus-3` `oc-land-raider-proteus-3-1-3`: added (absent → unpriced)
+- `ds-land-raider-proteus-3` `oc-land-raider-proteus-3-1-4`: added (absent → unpriced)
+- `ds-land-raider-proteus-3` `oc-land-raider-proteus-3-2-1`: added (absent → unpriced)
+- `ds-land-raider-proteus-3` `oc-land-raider-proteus-3-3-1`: added (absent → unpriced)
+- `ds-land-raider-proteus-3` `oc-land-raider-proteus-3-4-1`: added (absent → unpriced)
+- `ds-land-raider-proteus-4` `oc-land-raider-proteus-4-1-1`: added (absent → unpriced)
+- `ds-land-raider-proteus-4` `oc-land-raider-proteus-4-1-2`: added (absent → unpriced)
+- `ds-land-raider-proteus-4` `oc-land-raider-proteus-4-1-3`: added (absent → unpriced)
+- `ds-land-raider-proteus-4` `oc-land-raider-proteus-4-1-4`: added (absent → unpriced)
+- `ds-land-raider-proteus-4` `oc-land-raider-proteus-4-2-1`: added (absent → unpriced)
+- `ds-land-raider-proteus-4` `oc-land-raider-proteus-4-3-1`: added (absent → unpriced)
+- `ds-land-raider-proteus-4` `oc-land-raider-proteus-4-4-1`: added (absent → unpriced)
+- `ds-land-raider-proteus-5` `oc-land-raider-proteus-5-1-1`: added (absent → unpriced)
+- `ds-land-raider-proteus-5` `oc-land-raider-proteus-5-1-2`: added (absent → unpriced)
+- `ds-land-raider-proteus-5` `oc-land-raider-proteus-5-1-3`: added (absent → unpriced)
+- `ds-land-raider-proteus-5` `oc-land-raider-proteus-5-1-4`: added (absent → unpriced)
+- `ds-land-raider-proteus-5` `oc-land-raider-proteus-5-2-1`: added (absent → unpriced)
+- `ds-land-raider-proteus-5` `oc-land-raider-proteus-5-3-1`: added (absent → unpriced)
+- `ds-land-raider-proteus-5` `oc-land-raider-proteus-5-4-1`: added (absent → unpriced)
+- `ds-land-raider-redeemer` `oc-land-raider-redeemer-1-1`: added (absent → unpriced)
+- `ds-land-raider-redeemer` `oc-land-raider-redeemer-2-1`: added (absent → unpriced)
+- `ds-land-raider-redeemer` `oc-land-raider-redeemer-3-1`: added (absent → unpriced)
+- `ds-land-raider-redeemer-2` `oc-land-raider-redeemer-2-1-1`: added (absent → unpriced)
+- `ds-land-raider-redeemer-2` `oc-land-raider-redeemer-2-2-1`: added (absent → unpriced)
+- `ds-land-raider-redeemer-2` `oc-land-raider-redeemer-2-3-1`: added (absent → unpriced)
+- `ds-land-raider-redeemer-3` `oc-land-raider-redeemer-3-1-1`: added (absent → unpriced)
+- `ds-land-raider-redeemer-3` `oc-land-raider-redeemer-3-2-1`: added (absent → unpriced)
+- `ds-land-raider-redeemer-3` `oc-land-raider-redeemer-3-3-1`: added (absent → unpriced)
+- `ds-land-raider-redeemer-4` `oc-land-raider-redeemer-4-1-1`: added (absent → unpriced)
+- `ds-land-raider-redeemer-4` `oc-land-raider-redeemer-4-2-1`: added (absent → unpriced)
+- `ds-land-raider-redeemer-4` `oc-land-raider-redeemer-4-3-1`: added (absent → unpriced)
+- `ds-land-raider-redeemer-5` `oc-land-raider-redeemer-5-1-1`: added (absent → unpriced)
+- `ds-land-raider-redeemer-5` `oc-land-raider-redeemer-5-2-1`: added (absent → unpriced)
+- `ds-land-raider-redeemer-5` `oc-land-raider-redeemer-5-3-1`: added (absent → unpriced)
+- `ds-land-raider-redeemer-6` `oc-land-raider-redeemer-6-1-1`: added (absent → unpriced)
+- `ds-land-raider-redeemer-6` `oc-land-raider-redeemer-6-2-1`: added (absent → unpriced)
+- `ds-land-raider-redeemer-6` `oc-land-raider-redeemer-6-3-1`: added (absent → unpriced)
+- `ds-land-raider-redeemer-7` `oc-land-raider-redeemer-7-1-1`: added (absent → unpriced)
+- `ds-land-raider-redeemer-7` `oc-land-raider-redeemer-7-2-1`: added (absent → unpriced)
+- `ds-land-raider-redeemer-7` `oc-land-raider-redeemer-7-3-1`: added (absent → unpriced)
+- `ds-land-speeder-tornado` `oc-land-speeder-tornado-1-1`: added (absent → unpriced)
+- `ds-land-speeder-tornado` `oc-land-speeder-tornado-2-1`: added (absent → unpriced)
+- `ds-land-speeder-typhoon` `oc-land-speeder-typhoon-1-1`: added (absent → unpriced)
+- `ds-land-speeder-vengeance` `oc-land-speeder-vengeance-1-1`: added (absent → unpriced)
+- `ds-legionaries` `oc-legionaries-1-1`: added (absent → unpriced)
+- `ds-legionaries` `oc-legionaries-1-2`: added (absent → unpriced)
+- `ds-legionaries` `oc-legionaries-1-3`: added (absent → unpriced)
+- `ds-legionaries` `oc-legionaries-1-4`: added (absent → unpriced)
+- `ds-legionaries` `oc-legionaries-2-1`: added (absent → unpriced)
+- `ds-legionaries` `oc-legionaries-2-2`: added (absent → unpriced)
+- `ds-legionaries` `oc-legionaries-2-3`: added (absent → unpriced)
+- `ds-legionaries` `oc-legionaries-2-4`: added (absent → unpriced)
+- `ds-legionaries` `oc-legionaries-3-1`: added (absent → unpriced)
+- `ds-legionaries` `oc-legionaries-7-1`: added (absent → unpriced)
+- `ds-legionaries` `oc-legionaries-7-2`: added (absent → unpriced)
+- `ds-legionaries` `oc-legionaries-7-3`: added (absent → unpriced)
+- `ds-legionaries` `oc-legionaries-7-4`: added (absent → unpriced)
+- `ds-legionaries` `oc-legionaries-7-5`: added (absent → unpriced)
+- `ds-legionaries` `oc-legionaries-7-6`: added (absent → unpriced)
+- `ds-legionaries` `oc-legionaries-7-7`: added (absent → unpriced)
+- `ds-legionaries` `oc-legionaries-7-8`: added (absent → unpriced)
+- `ds-legionaries` `oc-legionaries-7-9`: added (absent → unpriced)
+- `ds-legionaries-2` `oc-legionaries-2-1-1`: added (absent → unpriced)
+- `ds-legionaries-2` `oc-legionaries-2-1-2`: added (absent → unpriced)
+- `ds-legionaries-2` `oc-legionaries-2-1-3`: added (absent → unpriced)
+- `ds-legionaries-2` `oc-legionaries-2-1-4`: added (absent → unpriced)
+- `ds-legionaries-2` `oc-legionaries-2-2-1`: added (absent → unpriced)
+- `ds-legionaries-2` `oc-legionaries-2-2-2`: added (absent → unpriced)
+- `ds-legionaries-2` `oc-legionaries-2-2-3`: added (absent → unpriced)
+- `ds-legionaries-2` `oc-legionaries-2-2-4`: added (absent → unpriced)
+- `ds-legionaries-2` `oc-legionaries-2-3-1`: added (absent → unpriced)
+- `ds-legionaries-2` `oc-legionaries-2-7-1`: added (absent → unpriced)
+- `ds-legionaries-2` `oc-legionaries-2-7-2`: added (absent → unpriced)
+- `ds-legionaries-2` `oc-legionaries-2-7-3`: added (absent → unpriced)
+- `ds-legionaries-2` `oc-legionaries-2-7-4`: added (absent → unpriced)
+- `ds-legionaries-2` `oc-legionaries-2-7-5`: added (absent → unpriced)
+- `ds-legionaries-2` `oc-legionaries-2-7-6`: added (absent → unpriced)
+- `ds-legionaries-2` `oc-legionaries-2-7-7`: added (absent → unpriced)
+- `ds-legionaries-2` `oc-legionaries-2-7-8`: added (absent → unpriced)
+- `ds-legionaries-2` `oc-legionaries-2-7-9`: added (absent → unpriced)
+- `ds-leman-russ-battle-tank` `oc-leman-russ-battle-tank-1-1`: added (absent → unpriced)
+- `ds-leman-russ-battle-tank` `oc-leman-russ-battle-tank-1-2`: added (absent → unpriced)
+- `ds-leman-russ-battle-tank` `oc-leman-russ-battle-tank-2-1`: added (absent → unpriced)
+- `ds-leman-russ-battle-tank` `oc-leman-russ-battle-tank-2-2`: added (absent → unpriced)
+- `ds-leman-russ-battle-tank` `oc-leman-russ-battle-tank-2-3`: added (absent → unpriced)
+- `ds-leman-russ-battle-tank` `oc-leman-russ-battle-tank-2-4`: added (absent → unpriced)
+- `ds-leman-russ-battle-tank` `oc-leman-russ-battle-tank-3-1`: added (absent → unpriced)
+- `ds-leman-russ-battle-tank` `oc-leman-russ-battle-tank-3-2`: added (absent → unpriced)
+- `ds-leman-russ-battle-tank` `oc-leman-russ-battle-tank-4-1`: added (absent → unpriced)
+- `ds-leman-russ-battle-tank-2` `oc-leman-russ-battle-tank-2-1-1`: added (absent → unpriced)
+- `ds-leman-russ-battle-tank-2` `oc-leman-russ-battle-tank-2-1-2`: added (absent → unpriced)
+- `ds-leman-russ-battle-tank-2` `oc-leman-russ-battle-tank-2-2-1`: added (absent → unpriced)
+- `ds-leman-russ-battle-tank-2` `oc-leman-russ-battle-tank-2-2-2`: added (absent → unpriced)
+- `ds-leman-russ-battle-tank-2` `oc-leman-russ-battle-tank-2-2-3`: added (absent → unpriced)
+- `ds-leman-russ-battle-tank-2` `oc-leman-russ-battle-tank-2-2-4`: added (absent → unpriced)
+- `ds-leman-russ-battle-tank-2` `oc-leman-russ-battle-tank-2-3-1`: added (absent → unpriced)
+- `ds-leman-russ-battle-tank-2` `oc-leman-russ-battle-tank-2-3-2`: added (absent → unpriced)
+- `ds-leman-russ-battle-tank-2` `oc-leman-russ-battle-tank-2-4-1`: added (absent → unpriced)
+- `ds-leman-russ-commander` `oc-leman-russ-commander-1-1`: added (absent → unpriced)
+- `ds-leman-russ-commander` `oc-leman-russ-commander-1-2`: added (absent → unpriced)
+- `ds-leman-russ-commander` `oc-leman-russ-commander-1-3`: added (absent → unpriced)
+- `ds-leman-russ-commander` `oc-leman-russ-commander-1-4`: added (absent → unpriced)
+- `ds-leman-russ-commander` `oc-leman-russ-commander-1-5`: added (absent → unpriced)
+- `ds-leman-russ-commander` `oc-leman-russ-commander-1-6`: added (absent → unpriced)
+- `ds-leman-russ-commander` `oc-leman-russ-commander-2-1`: added (absent → unpriced)
+- `ds-leman-russ-commander` `oc-leman-russ-commander-2-2`: added (absent → unpriced)
+- `ds-leman-russ-commander` `oc-leman-russ-commander-3-1`: added (absent → unpriced)
+- `ds-leman-russ-commander` `oc-leman-russ-commander-3-2`: added (absent → unpriced)
+- `ds-leman-russ-commander` `oc-leman-russ-commander-3-3`: added (absent → unpriced)
+- `ds-leman-russ-commander` `oc-leman-russ-commander-3-4`: added (absent → unpriced)
+- `ds-leman-russ-commander` `oc-leman-russ-commander-4-1`: added (absent → unpriced)
+- `ds-leman-russ-commander` `oc-leman-russ-commander-4-2`: added (absent → unpriced)
+- `ds-leman-russ-commander` `oc-leman-russ-commander-5-1`: added (absent → unpriced)
+- `ds-leman-russ-commander-2` `oc-leman-russ-commander-2-1-1`: added (absent → unpriced)
+- `ds-leman-russ-commander-2` `oc-leman-russ-commander-2-1-2`: added (absent → unpriced)
+- `ds-leman-russ-commander-2` `oc-leman-russ-commander-2-1-3`: added (absent → unpriced)
+- `ds-leman-russ-commander-2` `oc-leman-russ-commander-2-1-4`: added (absent → unpriced)
+- `ds-leman-russ-commander-2` `oc-leman-russ-commander-2-1-5`: added (absent → unpriced)
+- `ds-leman-russ-commander-2` `oc-leman-russ-commander-2-1-6`: added (absent → unpriced)
+- `ds-leman-russ-commander-2` `oc-leman-russ-commander-2-2-1`: added (absent → unpriced)
+- `ds-leman-russ-commander-2` `oc-leman-russ-commander-2-2-2`: added (absent → unpriced)
+- `ds-leman-russ-commander-2` `oc-leman-russ-commander-2-3-1`: added (absent → unpriced)
+- `ds-leman-russ-commander-2` `oc-leman-russ-commander-2-3-2`: added (absent → unpriced)
+- `ds-leman-russ-commander-2` `oc-leman-russ-commander-2-3-3`: added (absent → unpriced)
+- `ds-leman-russ-commander-2` `oc-leman-russ-commander-2-3-4`: added (absent → unpriced)
+- `ds-leman-russ-commander-2` `oc-leman-russ-commander-2-4-1`: added (absent → unpriced)
+- `ds-leman-russ-commander-2` `oc-leman-russ-commander-2-4-2`: added (absent → unpriced)
+- `ds-leman-russ-commander-2` `oc-leman-russ-commander-2-5-1`: added (absent → unpriced)
+- `ds-leman-russ-demolisher` `oc-leman-russ-demolisher-1-1`: added (absent → unpriced)
+- `ds-leman-russ-demolisher` `oc-leman-russ-demolisher-1-2`: added (absent → unpriced)
+- `ds-leman-russ-demolisher` `oc-leman-russ-demolisher-2-1`: added (absent → unpriced)
+- `ds-leman-russ-demolisher` `oc-leman-russ-demolisher-2-2`: added (absent → unpriced)
+- `ds-leman-russ-demolisher` `oc-leman-russ-demolisher-2-3`: added (absent → unpriced)
+- `ds-leman-russ-demolisher` `oc-leman-russ-demolisher-2-4`: added (absent → unpriced)
+- `ds-leman-russ-demolisher` `oc-leman-russ-demolisher-3-1`: added (absent → unpriced)
+- `ds-leman-russ-demolisher` `oc-leman-russ-demolisher-3-2`: added (absent → unpriced)
+- `ds-leman-russ-demolisher` `oc-leman-russ-demolisher-4-1`: added (absent → unpriced)
+- `ds-leman-russ-demolisher-2` `oc-leman-russ-demolisher-2-1-1`: added (absent → unpriced)
+- `ds-leman-russ-demolisher-2` `oc-leman-russ-demolisher-2-1-2`: added (absent → unpriced)
+- `ds-leman-russ-demolisher-2` `oc-leman-russ-demolisher-2-2-1`: added (absent → unpriced)
+- `ds-leman-russ-demolisher-2` `oc-leman-russ-demolisher-2-2-2`: added (absent → unpriced)
+- `ds-leman-russ-demolisher-2` `oc-leman-russ-demolisher-2-2-3`: added (absent → unpriced)
+- `ds-leman-russ-demolisher-2` `oc-leman-russ-demolisher-2-2-4`: added (absent → unpriced)
+- `ds-leman-russ-demolisher-2` `oc-leman-russ-demolisher-2-3-1`: added (absent → unpriced)
+- `ds-leman-russ-demolisher-2` `oc-leman-russ-demolisher-2-3-2`: added (absent → unpriced)
+- `ds-leman-russ-demolisher-2` `oc-leman-russ-demolisher-2-4-1`: added (absent → unpriced)
+- `ds-leman-russ-eradicator` `oc-leman-russ-eradicator-1-1`: added (absent → unpriced)
+- `ds-leman-russ-eradicator` `oc-leman-russ-eradicator-1-2`: added (absent → unpriced)
+- `ds-leman-russ-eradicator` `oc-leman-russ-eradicator-2-1`: added (absent → unpriced)
+- `ds-leman-russ-eradicator` `oc-leman-russ-eradicator-2-2`: added (absent → unpriced)
+- `ds-leman-russ-eradicator` `oc-leman-russ-eradicator-2-3`: added (absent → unpriced)
+- `ds-leman-russ-eradicator` `oc-leman-russ-eradicator-2-4`: added (absent → unpriced)
+- `ds-leman-russ-eradicator` `oc-leman-russ-eradicator-3-1`: added (absent → unpriced)
+- `ds-leman-russ-eradicator` `oc-leman-russ-eradicator-3-2`: added (absent → unpriced)
+- `ds-leman-russ-eradicator` `oc-leman-russ-eradicator-4-1`: added (absent → unpriced)
+- `ds-leman-russ-eradicator-2` `oc-leman-russ-eradicator-2-1-1`: added (absent → unpriced)
+- `ds-leman-russ-eradicator-2` `oc-leman-russ-eradicator-2-1-2`: added (absent → unpriced)
+- `ds-leman-russ-eradicator-2` `oc-leman-russ-eradicator-2-2-1`: added (absent → unpriced)
+- `ds-leman-russ-eradicator-2` `oc-leman-russ-eradicator-2-2-2`: added (absent → unpriced)
+- `ds-leman-russ-eradicator-2` `oc-leman-russ-eradicator-2-2-3`: added (absent → unpriced)
+- `ds-leman-russ-eradicator-2` `oc-leman-russ-eradicator-2-2-4`: added (absent → unpriced)
+- `ds-leman-russ-eradicator-2` `oc-leman-russ-eradicator-2-3-1`: added (absent → unpriced)
+- `ds-leman-russ-eradicator-2` `oc-leman-russ-eradicator-2-3-2`: added (absent → unpriced)
+- `ds-leman-russ-eradicator-2` `oc-leman-russ-eradicator-2-4-1`: added (absent → unpriced)
+- `ds-leman-russ-executioner` `oc-leman-russ-executioner-1-1`: added (absent → unpriced)
+- `ds-leman-russ-executioner` `oc-leman-russ-executioner-1-2`: added (absent → unpriced)
+- `ds-leman-russ-executioner` `oc-leman-russ-executioner-2-1`: added (absent → unpriced)
+- `ds-leman-russ-executioner` `oc-leman-russ-executioner-2-2`: added (absent → unpriced)
+- `ds-leman-russ-executioner` `oc-leman-russ-executioner-2-3`: added (absent → unpriced)
+- `ds-leman-russ-executioner` `oc-leman-russ-executioner-2-4`: added (absent → unpriced)
+- `ds-leman-russ-executioner` `oc-leman-russ-executioner-3-1`: added (absent → unpriced)
+- `ds-leman-russ-executioner` `oc-leman-russ-executioner-3-2`: added (absent → unpriced)
+- `ds-leman-russ-executioner` `oc-leman-russ-executioner-4-1`: added (absent → unpriced)
+- `ds-leman-russ-executioner-2` `oc-leman-russ-executioner-2-1-1`: added (absent → unpriced)
+- `ds-leman-russ-executioner-2` `oc-leman-russ-executioner-2-1-2`: added (absent → unpriced)
+- `ds-leman-russ-executioner-2` `oc-leman-russ-executioner-2-2-1`: added (absent → unpriced)
+- `ds-leman-russ-executioner-2` `oc-leman-russ-executioner-2-2-2`: added (absent → unpriced)
+- `ds-leman-russ-executioner-2` `oc-leman-russ-executioner-2-2-3`: added (absent → unpriced)
+- `ds-leman-russ-executioner-2` `oc-leman-russ-executioner-2-2-4`: added (absent → unpriced)
+- `ds-leman-russ-executioner-2` `oc-leman-russ-executioner-2-3-1`: added (absent → unpriced)
+- `ds-leman-russ-executioner-2` `oc-leman-russ-executioner-2-3-2`: added (absent → unpriced)
+- `ds-leman-russ-executioner-2` `oc-leman-russ-executioner-2-4-1`: added (absent → unpriced)
+- `ds-leman-russ-exterminator` `oc-leman-russ-exterminator-1-1`: added (absent → unpriced)
+- `ds-leman-russ-exterminator` `oc-leman-russ-exterminator-1-2`: added (absent → unpriced)
+- `ds-leman-russ-exterminator` `oc-leman-russ-exterminator-2-1`: added (absent → unpriced)
+- `ds-leman-russ-exterminator` `oc-leman-russ-exterminator-2-2`: added (absent → unpriced)
+- `ds-leman-russ-exterminator` `oc-leman-russ-exterminator-2-3`: added (absent → unpriced)
+- `ds-leman-russ-exterminator` `oc-leman-russ-exterminator-2-4`: added (absent → unpriced)
+- `ds-leman-russ-exterminator` `oc-leman-russ-exterminator-3-1`: added (absent → unpriced)
+- `ds-leman-russ-exterminator` `oc-leman-russ-exterminator-3-2`: added (absent → unpriced)
+- `ds-leman-russ-exterminator` `oc-leman-russ-exterminator-4-1`: added (absent → unpriced)
+- `ds-leman-russ-exterminator-2` `oc-leman-russ-exterminator-2-1-1`: added (absent → unpriced)
+- `ds-leman-russ-exterminator-2` `oc-leman-russ-exterminator-2-1-2`: added (absent → unpriced)
+- `ds-leman-russ-exterminator-2` `oc-leman-russ-exterminator-2-2-1`: added (absent → unpriced)
+- `ds-leman-russ-exterminator-2` `oc-leman-russ-exterminator-2-2-2`: added (absent → unpriced)
+- `ds-leman-russ-exterminator-2` `oc-leman-russ-exterminator-2-2-3`: added (absent → unpriced)
+- `ds-leman-russ-exterminator-2` `oc-leman-russ-exterminator-2-2-4`: added (absent → unpriced)
+- `ds-leman-russ-exterminator-2` `oc-leman-russ-exterminator-2-3-1`: added (absent → unpriced)
+- `ds-leman-russ-exterminator-2` `oc-leman-russ-exterminator-2-3-2`: added (absent → unpriced)
+- `ds-leman-russ-exterminator-2` `oc-leman-russ-exterminator-2-4-1`: added (absent → unpriced)
+- `ds-leman-russ-punisher` `oc-leman-russ-punisher-1-1`: added (absent → unpriced)
+- `ds-leman-russ-punisher` `oc-leman-russ-punisher-1-2`: added (absent → unpriced)
+- `ds-leman-russ-punisher` `oc-leman-russ-punisher-2-1`: added (absent → unpriced)
+- `ds-leman-russ-punisher` `oc-leman-russ-punisher-2-2`: added (absent → unpriced)
+- `ds-leman-russ-punisher` `oc-leman-russ-punisher-2-3`: added (absent → unpriced)
+- `ds-leman-russ-punisher` `oc-leman-russ-punisher-2-4`: added (absent → unpriced)
+- `ds-leman-russ-punisher` `oc-leman-russ-punisher-3-1`: added (absent → unpriced)
+- `ds-leman-russ-punisher` `oc-leman-russ-punisher-3-2`: added (absent → unpriced)
+- `ds-leman-russ-punisher` `oc-leman-russ-punisher-4-1`: added (absent → unpriced)
+- `ds-leman-russ-punisher-2` `oc-leman-russ-punisher-2-1-1`: added (absent → unpriced)
+- `ds-leman-russ-punisher-2` `oc-leman-russ-punisher-2-1-2`: added (absent → unpriced)
+- `ds-leman-russ-punisher-2` `oc-leman-russ-punisher-2-2-1`: added (absent → unpriced)
+- `ds-leman-russ-punisher-2` `oc-leman-russ-punisher-2-2-2`: added (absent → unpriced)
+- `ds-leman-russ-punisher-2` `oc-leman-russ-punisher-2-2-3`: added (absent → unpriced)
+- `ds-leman-russ-punisher-2` `oc-leman-russ-punisher-2-2-4`: added (absent → unpriced)
+- `ds-leman-russ-punisher-2` `oc-leman-russ-punisher-2-3-1`: added (absent → unpriced)
+- `ds-leman-russ-punisher-2` `oc-leman-russ-punisher-2-3-2`: added (absent → unpriced)
+- `ds-leman-russ-punisher-2` `oc-leman-russ-punisher-2-4-1`: added (absent → unpriced)
+- `ds-leman-russ-vanquisher` `oc-leman-russ-vanquisher-1-1`: added (absent → unpriced)
+- `ds-leman-russ-vanquisher` `oc-leman-russ-vanquisher-1-2`: added (absent → unpriced)
+- `ds-leman-russ-vanquisher` `oc-leman-russ-vanquisher-2-1`: added (absent → unpriced)
+- `ds-leman-russ-vanquisher` `oc-leman-russ-vanquisher-2-2`: added (absent → unpriced)
+- `ds-leman-russ-vanquisher` `oc-leman-russ-vanquisher-2-3`: added (absent → unpriced)
+- `ds-leman-russ-vanquisher` `oc-leman-russ-vanquisher-2-4`: added (absent → unpriced)
+- `ds-leman-russ-vanquisher` `oc-leman-russ-vanquisher-3-1`: added (absent → unpriced)
+- `ds-leman-russ-vanquisher` `oc-leman-russ-vanquisher-3-2`: added (absent → unpriced)
+- `ds-leman-russ-vanquisher` `oc-leman-russ-vanquisher-4-1`: added (absent → unpriced)
+- `ds-leman-russ-vanquisher-2` `oc-leman-russ-vanquisher-2-1-1`: added (absent → unpriced)
+- `ds-leman-russ-vanquisher-2` `oc-leman-russ-vanquisher-2-1-2`: added (absent → unpriced)
+- `ds-leman-russ-vanquisher-2` `oc-leman-russ-vanquisher-2-2-1`: added (absent → unpriced)
+- `ds-leman-russ-vanquisher-2` `oc-leman-russ-vanquisher-2-2-2`: added (absent → unpriced)
+- `ds-leman-russ-vanquisher-2` `oc-leman-russ-vanquisher-2-2-3`: added (absent → unpriced)
+- `ds-leman-russ-vanquisher-2` `oc-leman-russ-vanquisher-2-2-4`: added (absent → unpriced)
+- `ds-leman-russ-vanquisher-2` `oc-leman-russ-vanquisher-2-3-1`: added (absent → unpriced)
+- `ds-leman-russ-vanquisher-2` `oc-leman-russ-vanquisher-2-3-2`: added (absent → unpriced)
+- `ds-leman-russ-vanquisher-2` `oc-leman-russ-vanquisher-2-4-1`: added (absent → unpriced)
+- `ds-leviathan-dreadnought` `oc-leviathan-dreadnought-2-1`: added (absent → unpriced)
+- `ds-leviathan-dreadnought` `oc-leviathan-dreadnought-3-1`: added (absent → unpriced)
+- `ds-leviathan-dreadnought-2` `oc-leviathan-dreadnought-2-2-1`: added (absent → unpriced)
+- `ds-leviathan-dreadnought-2` `oc-leviathan-dreadnought-2-3-1`: added (absent → unpriced)
+- `ds-leviathan-dreadnought-3` `oc-leviathan-dreadnought-3-2-1`: added (absent → unpriced)
+- `ds-leviathan-dreadnought-3` `oc-leviathan-dreadnought-3-3-1`: added (absent → unpriced)
+- `ds-leviathan-dreadnought-4` `oc-leviathan-dreadnought-4-2-1`: added (absent → unpriced)
+- `ds-leviathan-dreadnought-4` `oc-leviathan-dreadnought-4-3-1`: added (absent → unpriced)
+- `ds-leviathan-dreadnought-5` `oc-leviathan-dreadnought-5-2-1`: added (absent → unpriced)
+- `ds-leviathan-dreadnought-5` `oc-leviathan-dreadnought-5-3-1`: added (absent → unpriced)
+- `ds-librarian-dreadnought` `oc-librarian-dreadnought-1-1`: added (absent → unpriced)
+- `ds-librarian-dreadnought` `oc-librarian-dreadnought-1-2`: added (absent → unpriced)
+- `ds-librarian-in-terminator-armour` `oc-librarian-in-terminator-armour-1-1`: added (absent → unpriced)
+- `ds-librarian-in-terminator-armour` `oc-librarian-in-terminator-armour-1-2`: added (absent → unpriced)
+- `ds-librarian-in-terminator-armour-2` `oc-librarian-in-terminator-armour-2-1-1`: added (absent → unpriced)
+- `ds-librarian-in-terminator-armour-2` `oc-librarian-in-terminator-armour-2-1-2`: added (absent → unpriced)
+- `ds-librarian-in-terminator-armour-3` `oc-librarian-in-terminator-armour-3-1-1`: added (absent → unpriced)
+- `ds-librarian-in-terminator-armour-3` `oc-librarian-in-terminator-armour-3-1-2`: added (absent → unpriced)
+- `ds-librarian-in-terminator-armour-4` `oc-librarian-in-terminator-armour-4-1-1`: added (absent → unpriced)
+- `ds-librarian-in-terminator-armour-4` `oc-librarian-in-terminator-armour-4-1-2`: added (absent → unpriced)
+- `ds-librarian-in-terminator-armour-5` `oc-librarian-in-terminator-armour-5-1-1`: added (absent → unpriced)
+- `ds-librarian-in-terminator-armour-5` `oc-librarian-in-terminator-armour-5-1-2`: added (absent → unpriced)
+- `ds-librarian-on-bike` `oc-librarian-on-bike-1-1`: added (absent → unpriced)
+- `ds-librarian-on-bike` `oc-librarian-on-bike-1-2`: added (absent → unpriced)
+- `ds-librarian-on-bike` `oc-librarian-on-bike-1-3`: added (absent → unpriced)
+- `ds-librarian-on-bike` `oc-librarian-on-bike-1-4`: added (absent → unpriced)
+- `ds-librarian-on-bike` `oc-librarian-on-bike-1-5`: added (absent → unpriced)
+- `ds-librarian-with-jump-pack` `oc-librarian-with-jump-pack-1-1`: added (absent → unpriced)
+- `ds-librarian-with-jump-pack` `oc-librarian-with-jump-pack-1-2`: added (absent → unpriced)
+- `ds-librarian-with-jump-pack` `oc-librarian-with-jump-pack-1-3`: added (absent → unpriced)
+- `ds-librarian-with-jump-pack` `oc-librarian-with-jump-pack-1-4`: added (absent → unpriced)
+- `ds-librarian-with-jump-pack` `oc-librarian-with-jump-pack-1-5`: added (absent → unpriced)
+- `ds-librarian-with-jump-pack` `oc-librarian-with-jump-pack-1-6`: added (absent → unpriced)
+- `ds-librarian-with-jump-pack` `oc-librarian-with-jump-pack-1-7`: added (absent → unpriced)
+- `ds-lieutenant` `oc-lieutenant-1-1`: added (absent → unpriced)
+- `ds-lieutenant` `oc-lieutenant-1-2`: added (absent → unpriced)
+- `ds-lieutenant` `oc-lieutenant-1-3`: added (absent → unpriced)
+- `ds-lieutenant` `oc-lieutenant-2-1`: added (absent → unpriced)
+- `ds-lieutenant` `oc-lieutenant-3-1`: added (absent → unpriced)
+- `ds-lieutenant` `oc-lieutenant-4-1`: added (absent → unpriced)
+- `ds-lieutenant` `oc-lieutenant-4-2`: added (absent → unpriced)
+- `ds-lieutenant-2` `oc-lieutenant-2-1-1`: added (absent → unpriced)
+- `ds-lieutenant-2` `oc-lieutenant-2-1-2`: added (absent → unpriced)
+- `ds-lieutenant-2` `oc-lieutenant-2-1-3`: added (absent → unpriced)
+- `ds-lieutenant-2` `oc-lieutenant-2-2-1`: added (absent → unpriced)
+- `ds-lieutenant-2` `oc-lieutenant-2-3-1`: added (absent → unpriced)
+- `ds-lieutenant-2` `oc-lieutenant-2-4-1`: added (absent → unpriced)
+- `ds-lieutenant-2` `oc-lieutenant-2-4-2`: added (absent → unpriced)
+- `ds-lieutenant-3` `oc-lieutenant-3-1-1`: added (absent → unpriced)
+- `ds-lieutenant-3` `oc-lieutenant-3-1-2`: added (absent → unpriced)
+- `ds-lieutenant-3` `oc-lieutenant-3-1-3`: added (absent → unpriced)
+- `ds-lieutenant-3` `oc-lieutenant-3-2-1`: added (absent → unpriced)
+- `ds-lieutenant-3` `oc-lieutenant-3-3-1`: added (absent → unpriced)
+- `ds-lieutenant-3` `oc-lieutenant-3-4-1`: added (absent → unpriced)
+- `ds-lieutenant-3` `oc-lieutenant-3-4-2`: added (absent → unpriced)
+- `ds-lieutenant-4` `oc-lieutenant-4-1-1`: added (absent → unpriced)
+- `ds-lieutenant-4` `oc-lieutenant-4-1-2`: added (absent → unpriced)
+- `ds-lieutenant-4` `oc-lieutenant-4-1-3`: added (absent → unpriced)
+- `ds-lieutenant-4` `oc-lieutenant-4-2-1`: added (absent → unpriced)
+- `ds-lieutenant-4` `oc-lieutenant-4-3-1`: added (absent → unpriced)
+- `ds-lieutenant-4` `oc-lieutenant-4-4-1`: added (absent → unpriced)
+- `ds-lieutenant-4` `oc-lieutenant-4-4-2`: added (absent → unpriced)
+- `ds-lieutenant-5` `oc-lieutenant-5-1-1`: added (absent → unpriced)
+- `ds-lieutenant-5` `oc-lieutenant-5-1-2`: added (absent → unpriced)
+- `ds-lieutenant-5` `oc-lieutenant-5-1-3`: added (absent → unpriced)
+- `ds-lieutenant-5` `oc-lieutenant-5-2-1`: added (absent → unpriced)
+- `ds-lieutenant-5` `oc-lieutenant-5-3-1`: added (absent → unpriced)
+- `ds-lieutenant-5` `oc-lieutenant-5-4-1`: added (absent → unpriced)
+- `ds-lieutenant-5` `oc-lieutenant-5-4-2`: added (absent → unpriced)
+- `ds-lieutenant-6` `oc-lieutenant-6-1-1`: added (absent → unpriced)
+- `ds-lieutenant-6` `oc-lieutenant-6-1-2`: added (absent → unpriced)
+- `ds-lieutenant-6` `oc-lieutenant-6-1-3`: added (absent → unpriced)
+- `ds-lieutenant-6` `oc-lieutenant-6-2-1`: added (absent → unpriced)
+- `ds-lieutenant-6` `oc-lieutenant-6-3-1`: added (absent → unpriced)
+- `ds-lieutenant-6` `oc-lieutenant-6-4-1`: added (absent → unpriced)
+- `ds-lieutenant-6` `oc-lieutenant-6-4-2`: added (absent → unpriced)
+- `ds-lifta-wagon` `oc-lifta-wagon-1-1`: added (absent → unpriced)
+- `ds-lifta-wagon` `oc-lifta-wagon-2-1`: added (absent → unpriced)
+- `ds-lifta-wagon` `oc-lifta-wagon-3-1`: added (absent → unpriced)
+- `ds-lifta-wagon` `oc-lifta-wagon-4-1`: added (absent → unpriced)
+- `ds-lifta-wagon` `oc-lifta-wagon-4-2`: added (absent → unpriced)
+- `ds-lifta-wagon` `oc-lifta-wagon-4-3`: added (absent → unpriced)
+- `ds-lifta-wagon` `oc-lifta-wagon-4-4`: added (absent → unpriced)
+- `ds-lifta-wagon` `oc-lifta-wagon-4-5`: added (absent → unpriced)
+- `ds-lokhust-lord` `oc-lokhust-lord-1-1`: added (absent → unpriced)
+- `ds-lokhust-lord` `oc-lokhust-lord-2-1`: added (absent → unpriced)
+- `ds-lokhust-lord` `oc-lokhust-lord-2-2`: added (absent → unpriced)
+- `ds-long-fangs` `oc-long-fangs-3-1`: added (absent → unpriced)
+- `ds-long-fangs` `oc-long-fangs-3-2`: added (absent → unpriced)
+- `ds-long-fangs` `oc-long-fangs-3-3`: added (absent → unpriced)
+- `ds-longstrike` `oc-longstrike-1-1`: added (absent → unpriced)
+- `ds-longstrike` `oc-longstrike-2-1`: added (absent → unpriced)
+- `ds-longstrike` `oc-longstrike-2-2`: added (absent → unpriced)
+- `ds-longstrike` `oc-longstrike-3-1`: added (absent → unpriced)
+- `ds-lord` `oc-lord-1-1`: added (absent → unpriced)
+- `ds-lord` `oc-lord-2-1`: added (absent → unpriced)
+- `ds-lord-discordant-on-helstalker` `oc-lord-discordant-on-helstalker-1-1`: added (absent → unpriced)
+- `ds-lord-discordant-on-helstalker` `oc-lord-discordant-on-helstalker-2-1`: added (absent → unpriced)
+- `ds-lord-exultant` `oc-lord-exultant-1-1`: added (absent → unpriced)
+- `ds-lord-exultant` `oc-lord-exultant-1-2`: added (absent → unpriced)
+- `ds-lord-exultant` `oc-lord-exultant-2-1`: added (absent → unpriced)
+- `ds-lord-exultant` `oc-lord-exultant-2-2`: added (absent → unpriced)
+- `ds-lord-kakophonist` `oc-lord-kakophonist-1-1`: added (absent → unpriced)
+- `ds-lord-of-change` `oc-lord-of-change-1-1`: added (absent → unpriced)
+- `ds-lord-of-change` `oc-lord-of-change-1-2`: added (absent → unpriced)
+- `ds-lord-of-change-2` `oc-lord-of-change-2-1-1`: added (absent → unpriced)
+- `ds-lord-of-change-2` `oc-lord-of-change-2-1-2`: added (absent → unpriced)
+- `ds-lynx` `oc-lynx-1-1`: added (absent → unpriced)
+- `ds-lynx` `oc-lynx-1-2`: added (absent → unpriced)
+- `ds-lynx` `oc-lynx-1-3`: added (absent → unpriced)
+- `ds-lynx` `oc-lynx-1-4`: added (absent → unpriced)
+- `ds-macharius` `oc-macharius-1-1`: added (absent → unpriced)
+- `ds-macharius` `oc-macharius-1-2`: added (absent → unpriced)
+- `ds-macharius` `oc-macharius-2-1`: added (absent → unpriced)
+- `ds-macharius` `oc-macharius-3-1`: added (absent → unpriced)
+- `ds-macharius` `oc-macharius-3-2`: added (absent → unpriced)
+- `ds-macharius-2` `oc-macharius-2-1-1`: added (absent → unpriced)
+- `ds-macharius-2` `oc-macharius-2-1-2`: added (absent → unpriced)
+- `ds-macharius-2` `oc-macharius-2-2-1`: added (absent → unpriced)
+- `ds-macharius-2` `oc-macharius-2-3-1`: added (absent → unpriced)
+- `ds-macharius-2` `oc-macharius-2-3-2`: added (absent → unpriced)
+- `ds-macharius-omega` `oc-macharius-omega-1-1`: added (absent → unpriced)
+- `ds-macharius-omega` `oc-macharius-omega-1-2`: added (absent → unpriced)
+- `ds-macharius-omega` `oc-macharius-omega-1-3`: added (absent → unpriced)
+- `ds-macharius-omega` `oc-macharius-omega-2-1`: added (absent → unpriced)
+- `ds-macharius-omega` `oc-macharius-omega-3-1`: added (absent → unpriced)
+- `ds-macharius-omega` `oc-macharius-omega-3-2`: added (absent → unpriced)
+- `ds-macharius-omega-2` `oc-macharius-omega-2-1-1`: added (absent → unpriced)
+- `ds-macharius-omega-2` `oc-macharius-omega-2-1-2`: added (absent → unpriced)
+- `ds-macharius-omega-2` `oc-macharius-omega-2-1-3`: added (absent → unpriced)
+- `ds-macharius-omega-2` `oc-macharius-omega-2-2-1`: added (absent → unpriced)
+- `ds-macharius-omega-2` `oc-macharius-omega-2-3-1`: added (absent → unpriced)
+- `ds-macharius-omega-2` `oc-macharius-omega-2-3-2`: added (absent → unpriced)
+- `ds-macharius-vanquisher` `oc-macharius-vanquisher-1-1`: added (absent → unpriced)
+- `ds-macharius-vanquisher` `oc-macharius-vanquisher-1-2`: added (absent → unpriced)
+- `ds-macharius-vanquisher` `oc-macharius-vanquisher-2-1`: added (absent → unpriced)
+- `ds-macharius-vanquisher` `oc-macharius-vanquisher-3-1`: added (absent → unpriced)
+- `ds-macharius-vanquisher` `oc-macharius-vanquisher-3-2`: added (absent → unpriced)
+- `ds-macharius-vanquisher-2` `oc-macharius-vanquisher-2-1-1`: added (absent → unpriced)
+- `ds-macharius-vanquisher-2` `oc-macharius-vanquisher-2-1-2`: added (absent → unpriced)
+- `ds-macharius-vanquisher-2` `oc-macharius-vanquisher-2-2-1`: added (absent → unpriced)
+- `ds-macharius-vanquisher-2` `oc-macharius-vanquisher-2-3-1`: added (absent → unpriced)
+- `ds-macharius-vanquisher-2` `oc-macharius-vanquisher-2-3-2`: added (absent → unpriced)
+- `ds-macharius-vulcan` `oc-macharius-vulcan-1-1`: added (absent → unpriced)
+- `ds-macharius-vulcan` `oc-macharius-vulcan-1-2`: added (absent → unpriced)
+- `ds-macharius-vulcan` `oc-macharius-vulcan-2-1`: added (absent → unpriced)
+- `ds-macharius-vulcan` `oc-macharius-vulcan-3-1`: added (absent → unpriced)
+- `ds-macharius-vulcan` `oc-macharius-vulcan-3-2`: added (absent → unpriced)
+- `ds-macharius-vulcan-2` `oc-macharius-vulcan-2-1-1`: added (absent → unpriced)
+- `ds-macharius-vulcan-2` `oc-macharius-vulcan-2-1-2`: added (absent → unpriced)
+- `ds-macharius-vulcan-2` `oc-macharius-vulcan-2-2-1`: added (absent → unpriced)
+- `ds-macharius-vulcan-2` `oc-macharius-vulcan-2-3-1`: added (absent → unpriced)
+- `ds-macharius-vulcan-2` `oc-macharius-vulcan-2-3-2`: added (absent → unpriced)
+- `ds-malcador` `oc-malcador-1-1`: added (absent → unpriced)
+- `ds-malcador` `oc-malcador-1-2`: added (absent → unpriced)
+- `ds-malcador` `oc-malcador-2-1`: added (absent → unpriced)
+- `ds-malcador` `oc-malcador-2-2`: added (absent → unpriced)
+- `ds-malcador` `oc-malcador-3-1`: added (absent → unpriced)
+- `ds-malcador` `oc-malcador-4-1`: added (absent → unpriced)
+- `ds-malcador` `oc-malcador-4-2`: added (absent → unpriced)
+- `ds-malcador-2` `oc-malcador-2-1-1`: added (absent → unpriced)
+- `ds-malcador-2` `oc-malcador-2-1-2`: added (absent → unpriced)
+- `ds-malcador-2` `oc-malcador-2-2-1`: added (absent → unpriced)
+- `ds-malcador-2` `oc-malcador-2-2-2`: added (absent → unpriced)
+- `ds-malcador-2` `oc-malcador-2-3-1`: added (absent → unpriced)
+- `ds-malcador-2` `oc-malcador-2-4-1`: added (absent → unpriced)
+- `ds-malcador-2` `oc-malcador-2-4-2`: added (absent → unpriced)
+- `ds-malcador-annihilator` `oc-malcador-annihilator-1-1`: added (absent → unpriced)
+- `ds-malcador-annihilator` `oc-malcador-annihilator-1-2`: added (absent → unpriced)
+- `ds-malcador-annihilator` `oc-malcador-annihilator-2-1`: added (absent → unpriced)
+- `ds-malcador-annihilator` `oc-malcador-annihilator-3-1`: added (absent → unpriced)
+- `ds-malcador-annihilator` `oc-malcador-annihilator-3-2`: added (absent → unpriced)
+- `ds-malcador-annihilator-2` `oc-malcador-annihilator-2-1-1`: added (absent → unpriced)
+- `ds-malcador-annihilator-2` `oc-malcador-annihilator-2-1-2`: added (absent → unpriced)
+- `ds-malcador-annihilator-2` `oc-malcador-annihilator-2-2-1`: added (absent → unpriced)
+- `ds-malcador-annihilator-2` `oc-malcador-annihilator-2-3-1`: added (absent → unpriced)
+- `ds-malcador-annihilator-2` `oc-malcador-annihilator-2-3-2`: added (absent → unpriced)
+- `ds-malcador-defender` `oc-malcador-defender-1-1`: added (absent → unpriced)
+- `ds-malcador-defender` `oc-malcador-defender-1-2`: added (absent → unpriced)
+- `ds-malcador-defender` `oc-malcador-defender-2-1`: added (absent → unpriced)
+- `ds-malcador-defender` `oc-malcador-defender-3-1`: added (absent → unpriced)
+- `ds-malcador-defender` `oc-malcador-defender-3-2`: added (absent → unpriced)
+- `ds-malcador-defender-2` `oc-malcador-defender-2-1-1`: added (absent → unpriced)
+- `ds-malcador-defender-2` `oc-malcador-defender-2-1-2`: added (absent → unpriced)
+- `ds-malcador-defender-2` `oc-malcador-defender-2-2-1`: added (absent → unpriced)
+- `ds-malcador-defender-2` `oc-malcador-defender-2-3-1`: added (absent → unpriced)
+- `ds-malcador-defender-2` `oc-malcador-defender-2-3-2`: added (absent → unpriced)
+- `ds-malcador-infernus` `oc-malcador-infernus-1-1`: added (absent → unpriced)
+- `ds-malcador-infernus` `oc-malcador-infernus-1-2`: added (absent → unpriced)
+- `ds-malcador-infernus` `oc-malcador-infernus-1-3`: added (absent → unpriced)
+- `ds-malcador-infernus` `oc-malcador-infernus-1-4`: added (absent → unpriced)
+- `ds-malcador-infernus` `oc-malcador-infernus-2-1`: added (absent → unpriced)
+- `ds-malcador-infernus` `oc-malcador-infernus-3-1`: added (absent → unpriced)
+- `ds-malcador-infernus` `oc-malcador-infernus-3-2`: added (absent → unpriced)
+- `ds-malcador-infernus-2` `oc-malcador-infernus-2-1-1`: added (absent → unpriced)
+- `ds-malcador-infernus-2` `oc-malcador-infernus-2-1-2`: added (absent → unpriced)
+- `ds-malcador-infernus-2` `oc-malcador-infernus-2-1-3`: added (absent → unpriced)
+- `ds-malcador-infernus-2` `oc-malcador-infernus-2-1-4`: added (absent → unpriced)
+- `ds-malcador-infernus-2` `oc-malcador-infernus-2-2-1`: added (absent → unpriced)
+- `ds-malcador-infernus-2` `oc-malcador-infernus-2-3-1`: added (absent → unpriced)
+- `ds-malcador-infernus-2` `oc-malcador-infernus-2-3-2`: added (absent → unpriced)
+- `ds-manticore` `oc-manticore-1-1`: added (absent → unpriced)
+- `ds-manticore` `oc-manticore-2-1`: added (absent → unpriced)
+- `ds-manticore-2` `oc-manticore-2-1-1`: added (absent → unpriced)
+- `ds-manticore-2` `oc-manticore-2-2-1`: added (absent → unpriced)
+- `ds-marauder-bomber` `oc-marauder-bomber-1-1`: added (absent → unpriced)
+- `ds-marauder-destroyer` `oc-marauder-destroyer-1-1`: added (absent → unpriced)
+- `ds-marshal` `oc-marshal-1-1`: added (absent → unpriced)
+- `ds-mastodon` `oc-mastodon-1-1`: added (absent → unpriced)
+- `ds-mastodon` `oc-mastodon-1-2`: added (absent → unpriced)
+- `ds-mastodon` `oc-mastodon-1-3`: added (absent → unpriced)
+- `ds-mastodon` `oc-mastodon-2-1`: added (absent → unpriced)
+- `ds-mastodon` `oc-mastodon-2-2`: added (absent → unpriced)
+- `ds-mastodon` `oc-mastodon-2-3`: added (absent → unpriced)
+- `ds-mastodon-2` `oc-mastodon-2-1-1`: added (absent → unpriced)
+- `ds-mastodon-2` `oc-mastodon-2-1-2`: added (absent → unpriced)
+- `ds-mastodon-2` `oc-mastodon-2-1-3`: added (absent → unpriced)
+- `ds-mastodon-2` `oc-mastodon-2-2-1`: added (absent → unpriced)
+- `ds-mastodon-2` `oc-mastodon-2-2-2`: added (absent → unpriced)
+- `ds-mastodon-2` `oc-mastodon-2-2-3`: added (absent → unpriced)
+- `ds-mastodon-3` `oc-mastodon-3-1-1`: added (absent → unpriced)
+- `ds-mastodon-3` `oc-mastodon-3-1-2`: added (absent → unpriced)
+- `ds-mastodon-3` `oc-mastodon-3-1-3`: added (absent → unpriced)
+- `ds-mastodon-3` `oc-mastodon-3-2-1`: added (absent → unpriced)
+- `ds-mastodon-3` `oc-mastodon-3-2-2`: added (absent → unpriced)
+- `ds-mastodon-3` `oc-mastodon-3-2-3`: added (absent → unpriced)
+- `ds-mastodon-4` `oc-mastodon-4-1-1`: added (absent → unpriced)
+- `ds-mastodon-4` `oc-mastodon-4-1-2`: added (absent → unpriced)
+- `ds-mastodon-4` `oc-mastodon-4-1-3`: added (absent → unpriced)
+- `ds-mastodon-4` `oc-mastodon-4-2-1`: added (absent → unpriced)
+- `ds-mastodon-4` `oc-mastodon-4-2-2`: added (absent → unpriced)
+- `ds-mastodon-4` `oc-mastodon-4-2-3`: added (absent → unpriced)
+- `ds-mastodon-5` `oc-mastodon-5-1-1`: added (absent → unpriced)
+- `ds-mastodon-5` `oc-mastodon-5-1-2`: added (absent → unpriced)
+- `ds-mastodon-5` `oc-mastodon-5-1-3`: added (absent → unpriced)
+- `ds-mastodon-5` `oc-mastodon-5-2-1`: added (absent → unpriced)
+- `ds-mastodon-5` `oc-mastodon-5-2-2`: added (absent → unpriced)
+- `ds-mastodon-5` `oc-mastodon-5-2-3`: added (absent → unpriced)
+- `ds-maulerfiend` `oc-maulerfiend-1-1`: added (absent → unpriced)
+- `ds-maulerfiend-2` `oc-maulerfiend-2-1-1`: added (absent → unpriced)
+- `ds-maulerfiend-3` `oc-maulerfiend-3-1-1`: added (absent → unpriced)
+- `ds-maulerfiend-4` `oc-maulerfiend-4-1-1`: added (absent → unpriced)
+- `ds-mega-dread` `oc-mega-dread-1-1`: added (absent → unpriced)
+- `ds-mega-dread` `oc-mega-dread-1-2`: added (absent → unpriced)
+- `ds-mega-dread` `oc-mega-dread-2-1`: added (absent → unpriced)
+- `ds-mega-dread` `oc-mega-dread-2-2`: added (absent → unpriced)
+- `ds-mek` `oc-mek-1-1`: added (absent → unpriced)
+- `ds-meka-dread` `oc-meka-dread-1-1`: added (absent → unpriced)
+- `ds-meka-dread` `oc-meka-dread-1-2`: added (absent → unpriced)
+- `ds-meka-dread` `oc-meka-dread-2-1`: added (absent → unpriced)
+- `ds-meka-dread` `oc-meka-dread-2-2`: added (absent → unpriced)
+- `ds-militarum-tempestus-command-squad` `oc-militarum-tempestus-command-squad-2-1`: added (absent → unpriced)
+- `ds-militarum-tempestus-command-squad` `oc-militarum-tempestus-command-squad-3-1`: added (absent → unpriced)
+- `ds-militarum-tempestus-command-squad` `oc-militarum-tempestus-command-squad-4-1`: added (absent → unpriced)
+- `ds-militarum-tempestus-command-squad` `oc-militarum-tempestus-command-squad-4-2`: added (absent → unpriced)
+- `ds-militarum-tempestus-command-squad` `oc-militarum-tempestus-command-squad-5-1`: added (absent → unpriced)
+- `ds-militarum-tempestus-command-squad` `oc-militarum-tempestus-command-squad-5-2`: added (absent → unpriced)
+- `ds-ministorum-priest` `oc-ministorum-priest-1-1`: added (absent → unpriced)
+- `ds-ministorum-priest-2` `oc-ministorum-priest-2-1-1`: added (absent → unpriced)
+- `ds-ministorum-priest-3` `oc-ministorum-priest-3-1-1`: added (absent → unpriced)
+- `ds-monolith` `oc-monolith-1-1`: added (absent → unpriced)
+- `ds-mortifiers` `oc-mortifiers-1-1`: added (absent → unpriced)
+- `ds-mortis-dreadnought` `oc-mortis-dreadnought-1-1`: added (absent → unpriced)
+- `ds-mortis-dreadnought` `oc-mortis-dreadnought-1-2`: added (absent → unpriced)
+- `ds-mortis-dreadnought` `oc-mortis-dreadnought-1-3`: added (absent → unpriced)
+- `ds-mortis-dreadnought` `oc-mortis-dreadnought-1-4`: added (absent → unpriced)
+- `ds-mortis-dreadnought` `oc-mortis-dreadnought-1-5`: added (absent → unpriced)
+- `ds-mortis-dreadnought` `oc-mortis-dreadnought-1-6`: added (absent → unpriced)
+- `ds-mortis-dreadnought` `oc-mortis-dreadnought-1-7`: added (absent → unpriced)
+- `ds-mukaali-riders` `oc-mukaali-riders-1-1`: added (absent → unpriced)
+- `ds-mukaali-riders` `oc-mukaali-riders-2-1`: added (absent → unpriced)
+- `ds-mukaali-riders` `oc-mukaali-riders-2-2`: added (absent → unpriced)
+- `ds-mukaali-riders-2` `oc-mukaali-riders-2-1-1`: added (absent → unpriced)
+- `ds-mukaali-riders-2` `oc-mukaali-riders-2-2-1`: added (absent → unpriced)
+- `ds-mukaali-riders-2` `oc-mukaali-riders-2-2-2`: added (absent → unpriced)
+- `ds-nemesis-claw` `oc-nemesis-claw-1-1`: added (absent → unpriced)
+- `ds-nemesis-claw` `oc-nemesis-claw-2-1`: added (absent → unpriced)
+- `ds-nemesis-claw` `oc-nemesis-claw-2-2`: added (absent → unpriced)
+- `ds-nemesis-dreadknight` `oc-nemesis-dreadknight-1-1`: added (absent → unpriced)
+- `ds-nemesis-dreadknight` `oc-nemesis-dreadknight-1-2`: added (absent → unpriced)
+- `ds-nemesis-dreadknight` `oc-nemesis-dreadknight-2-1`: added (absent → unpriced)
+- `ds-nemesis-dreadknight` `oc-nemesis-dreadknight-2-2`: added (absent → unpriced)
+- `ds-nemesis-dreadknight` `oc-nemesis-dreadknight-2-3`: added (absent → unpriced)
+- `ds-neophyte-hybrids` `oc-neophyte-hybrids-4-1`: added (absent → unpriced)
+- `ds-neophyte-hybrids` `oc-neophyte-hybrids-4-2`: added (absent → unpriced)
+- `ds-nephilim-jetfighter` `oc-nephilim-jetfighter-1-1`: added (absent → unpriced)
+- `ds-night-spinner` `oc-night-spinner-1-1`: added (absent → unpriced)
+- `ds-nobz` `oc-nobz-3-1`: added (absent → unpriced)
+- `ds-noise-marines` `oc-noise-marines-1-1`: added (absent → unpriced)
+- `ds-noise-marines-2` `oc-noise-marines-2-1-1`: added (absent → unpriced)
+- `ds-ogryn-bodyguard` `oc-ogryn-bodyguard-1-1`: added (absent → unpriced)
+- `ds-ogryn-bodyguard` `oc-ogryn-bodyguard-1-2`: added (absent → unpriced)
+- `ds-ogryn-bodyguard` `oc-ogryn-bodyguard-2-1`: added (absent → unpriced)
+- `ds-ogryn-bodyguard` `oc-ogryn-bodyguard-2-2`: added (absent → unpriced)
+- `ds-onager-dunecrawler` `oc-onager-dunecrawler-1-1`: added (absent → unpriced)
+- `ds-onager-dunecrawler` `oc-onager-dunecrawler-1-2`: added (absent → unpriced)
+- `ds-onager-dunecrawler` `oc-onager-dunecrawler-1-3`: added (absent → unpriced)
+- `ds-onager-dunecrawler` `oc-onager-dunecrawler-2-1`: added (absent → unpriced)
+- `ds-onager-dunecrawler` `oc-onager-dunecrawler-3-1`: added (absent → unpriced)
+- `ds-overlord` `oc-overlord-1-1`: added (absent → unpriced)
+- `ds-overlord` `oc-overlord-1-2`: added (absent → unpriced)
+- `ds-painboss` `oc-painboss-1-1`: added (absent → unpriced)
+- `ds-painboy` `oc-painboy-1-1`: added (absent → unpriced)
+- `ds-painboy-on-warbike` `oc-painboy-on-warbike-1-1`: added (absent → unpriced)
+- `ds-paladin-squad` `oc-paladin-squad-3-1`: added (absent → unpriced)
+- `ds-paladin-squad` `oc-paladin-squad-3-2`: added (absent → unpriced)
+- `ds-paladin-squad` `oc-paladin-squad-3-3`: added (absent → unpriced)
+- `ds-paladin-squad` `oc-paladin-squad-3-4`: added (absent → unpriced)
+- `ds-palatine` `oc-palatine-1-1`: added (absent → unpriced)
+- `ds-pathfinder-team` `oc-pathfinder-team-1-1`: added (absent → unpriced)
+- `ds-pathfinder-team` `oc-pathfinder-team-1-2`: added (absent → unpriced)
+- `ds-pathfinder-team` `oc-pathfinder-team-1-3`: added (absent → unpriced)
+- `ds-pathfinder-team` `oc-pathfinder-team-2-1`: added (absent → unpriced)
+- `ds-pathfinder-team` `oc-pathfinder-team-2-2`: added (absent → unpriced)
+- `ds-pathfinder-team` `oc-pathfinder-team-2-3`: added (absent → unpriced)
+- `ds-pathfinder-team` `oc-pathfinder-team-4-1`: added (absent → unpriced)
+- `ds-phantom-titan` `oc-phantom-titan-1-1`: added (absent → unpriced)
+- `ds-phantom-titan` `oc-phantom-titan-1-2`: added (absent → unpriced)
+- `ds-phantom-titan` `oc-phantom-titan-1-3`: added (absent → unpriced)
+- `ds-phantom-titan` `oc-phantom-titan-1-4`: added (absent → unpriced)
+- `ds-phantom-titan` `oc-phantom-titan-2-1`: added (absent → unpriced)
+- `ds-phantom-titan` `oc-phantom-titan-2-2`: added (absent → unpriced)
+- `ds-phantom-titan` `oc-phantom-titan-2-3`: added (absent → unpriced)
+- `ds-phantom-titan` `oc-phantom-titan-2-4`: added (absent → unpriced)
+- `ds-phantom-titan` `oc-phantom-titan-3-1`: added (absent → unpriced)
+- `ds-pink-horrors` `oc-pink-horrors-1-1`: added (absent → unpriced)
+- `ds-pink-horrors` `oc-pink-horrors-2-1`: added (absent → unpriced)
+- `ds-pink-horrors-2` `oc-pink-horrors-2-1-1`: added (absent → unpriced)
+- `ds-pink-horrors-2` `oc-pink-horrors-2-2-1`: added (absent → unpriced)
+- `ds-piranhas` `oc-piranhas-1-1`: added (absent → unpriced)
+- `ds-plague-drones` `oc-plague-drones-1-1`: added (absent → unpriced)
+- `ds-plague-drones` `oc-plague-drones-2-1`: added (absent → unpriced)
+- `ds-plague-drones-2` `oc-plague-drones-2-1-1`: added (absent → unpriced)
+- `ds-plague-drones-2` `oc-plague-drones-2-2-1`: added (absent → unpriced)
+- `ds-plague-marines` `oc-plague-marines-1-1`: added (absent → unpriced)
+- `ds-plague-marines` `oc-plague-marines-1-2`: added (absent → unpriced)
+- `ds-plague-marines` `oc-plague-marines-1-3`: added (absent → unpriced)
+- `ds-plague-marines` `oc-plague-marines-2-1`: added (absent → unpriced)
+- `ds-plague-marines` `oc-plague-marines-2-2`: added (absent → unpriced)
+- `ds-plague-marines` `oc-plague-marines-3-1`: added (absent → unpriced)
+- `ds-plague-marines` `oc-plague-marines-4-1`: added (absent → unpriced)
+- `ds-plague-marines` `oc-plague-marines-5-1`: added (absent → unpriced)
+- `ds-plague-marines` `oc-plague-marines-5-2`: added (absent → unpriced)
+- `ds-plague-marines` `oc-plague-marines-5-3`: added (absent → unpriced)
+- `ds-plague-marines-2` `oc-plague-marines-2-1-1`: added (absent → unpriced)
+- `ds-plague-marines-2` `oc-plague-marines-2-1-2`: added (absent → unpriced)
+- `ds-plague-marines-2` `oc-plague-marines-2-1-3`: added (absent → unpriced)
+- `ds-plague-marines-2` `oc-plague-marines-2-2-1`: added (absent → unpriced)
+- `ds-plague-marines-2` `oc-plague-marines-2-2-2`: added (absent → unpriced)
+- `ds-plague-marines-2` `oc-plague-marines-2-3-1`: added (absent → unpriced)
+- `ds-plague-marines-2` `oc-plague-marines-2-4-1`: added (absent → unpriced)
+- `ds-plague-marines-2` `oc-plague-marines-2-5-1`: added (absent → unpriced)
+- `ds-plague-marines-2` `oc-plague-marines-2-5-2`: added (absent → unpriced)
+- `ds-plague-marines-2` `oc-plague-marines-2-5-3`: added (absent → unpriced)
+- `ds-plaguebearers` `oc-plaguebearers-1-1`: added (absent → unpriced)
+- `ds-plaguebearers` `oc-plaguebearers-2-1`: added (absent → unpriced)
+- `ds-plaguebearers-2` `oc-plaguebearers-2-1-1`: added (absent → unpriced)
+- `ds-plaguebearers-2` `oc-plaguebearers-2-2-1`: added (absent → unpriced)
+- `ds-plagueburst-crawler` `oc-plagueburst-crawler-1-1`: added (absent → unpriced)
+- `ds-plagueburst-crawler` `oc-plagueburst-crawler-2-1`: added (absent → unpriced)
+- `ds-possessed` `oc-possessed-1-1`: added (absent → unpriced)
+- `ds-possessed-2` `oc-possessed-2-1-1`: added (absent → unpriced)
+- `ds-pox-riders` `oc-pox-riders-1-1`: added (absent → unpriced)
+- `ds-pox-riders` `oc-pox-riders-2-1`: added (absent → unpriced)
+- `ds-praetor` `oc-praetor-1-1`: added (absent → unpriced)
+- `ds-praetor` `oc-praetor-1-2`: added (absent → unpriced)
+- `ds-praetor-2` `oc-praetor-2-1-1`: added (absent → unpriced)
+- `ds-praetor-2` `oc-praetor-2-1-2`: added (absent → unpriced)
+- `ds-predator-annihilator` `oc-predator-annihilator-1-1`: added (absent → unpriced)
+- `ds-predator-annihilator` `oc-predator-annihilator-1-2`: added (absent → unpriced)
+- `ds-predator-annihilator` `oc-predator-annihilator-2-1`: added (absent → unpriced)
+- `ds-predator-annihilator` `oc-predator-annihilator-3-1`: added (absent → unpriced)
+- `ds-predator-annihilator-2` `oc-predator-annihilator-2-1-1`: added (absent → unpriced)
+- `ds-predator-annihilator-2` `oc-predator-annihilator-2-1-2`: added (absent → unpriced)
+- `ds-predator-annihilator-2` `oc-predator-annihilator-2-2-1`: added (absent → unpriced)
+- `ds-predator-annihilator-2` `oc-predator-annihilator-2-3-1`: added (absent → unpriced)
+- `ds-predator-annihilator-3` `oc-predator-annihilator-3-1-1`: added (absent → unpriced)
+- `ds-predator-annihilator-3` `oc-predator-annihilator-3-1-2`: added (absent → unpriced)
+- `ds-predator-annihilator-3` `oc-predator-annihilator-3-2-1`: added (absent → unpriced)
+- `ds-predator-annihilator-3` `oc-predator-annihilator-3-3-1`: added (absent → unpriced)
+- `ds-predator-annihilator-4` `oc-predator-annihilator-4-1-1`: added (absent → unpriced)
+- `ds-predator-annihilator-4` `oc-predator-annihilator-4-1-2`: added (absent → unpriced)
+- `ds-predator-annihilator-4` `oc-predator-annihilator-4-2-1`: added (absent → unpriced)
+- `ds-predator-annihilator-4` `oc-predator-annihilator-4-3-1`: added (absent → unpriced)
+- `ds-predator-annihilator-5` `oc-predator-annihilator-5-1-1`: added (absent → unpriced)
+- `ds-predator-annihilator-5` `oc-predator-annihilator-5-1-2`: added (absent → unpriced)
+- `ds-predator-annihilator-5` `oc-predator-annihilator-5-2-1`: added (absent → unpriced)
+- `ds-predator-annihilator-5` `oc-predator-annihilator-5-3-1`: added (absent → unpriced)
+- `ds-predator-annihilator-6` `oc-predator-annihilator-6-1-1`: added (absent → unpriced)
+- `ds-predator-annihilator-6` `oc-predator-annihilator-6-1-2`: added (absent → unpriced)
+- `ds-predator-annihilator-6` `oc-predator-annihilator-6-2-1`: added (absent → unpriced)
+- `ds-predator-annihilator-6` `oc-predator-annihilator-6-3-1`: added (absent → unpriced)
+- `ds-predator-destructor` `oc-predator-destructor-1-1`: added (absent → unpriced)
+- `ds-predator-destructor` `oc-predator-destructor-1-2`: added (absent → unpriced)
+- `ds-predator-destructor` `oc-predator-destructor-2-1`: added (absent → unpriced)
+- `ds-predator-destructor` `oc-predator-destructor-3-1`: added (absent → unpriced)
+- `ds-predator-destructor-2` `oc-predator-destructor-2-1-1`: added (absent → unpriced)
+- `ds-predator-destructor-2` `oc-predator-destructor-2-1-2`: added (absent → unpriced)
+- `ds-predator-destructor-2` `oc-predator-destructor-2-2-1`: added (absent → unpriced)
+- `ds-predator-destructor-2` `oc-predator-destructor-2-3-1`: added (absent → unpriced)
+- `ds-predator-destructor-3` `oc-predator-destructor-3-1-1`: added (absent → unpriced)
+- `ds-predator-destructor-3` `oc-predator-destructor-3-1-2`: added (absent → unpriced)
+- `ds-predator-destructor-3` `oc-predator-destructor-3-2-1`: added (absent → unpriced)
+- `ds-predator-destructor-3` `oc-predator-destructor-3-3-1`: added (absent → unpriced)
+- `ds-predator-destructor-4` `oc-predator-destructor-4-1-1`: added (absent → unpriced)
+- `ds-predator-destructor-4` `oc-predator-destructor-4-1-2`: added (absent → unpriced)
+- `ds-predator-destructor-4` `oc-predator-destructor-4-2-1`: added (absent → unpriced)
+- `ds-predator-destructor-4` `oc-predator-destructor-4-3-1`: added (absent → unpriced)
+- `ds-predator-destructor-5` `oc-predator-destructor-5-1-1`: added (absent → unpriced)
+- `ds-predator-destructor-5` `oc-predator-destructor-5-1-2`: added (absent → unpriced)
+- `ds-predator-destructor-5` `oc-predator-destructor-5-2-1`: added (absent → unpriced)
+- `ds-predator-destructor-5` `oc-predator-destructor-5-3-1`: added (absent → unpriced)
+- `ds-predator-destructor-6` `oc-predator-destructor-6-1-1`: added (absent → unpriced)
+- `ds-predator-destructor-6` `oc-predator-destructor-6-1-2`: added (absent → unpriced)
+- `ds-predator-destructor-6` `oc-predator-destructor-6-2-1`: added (absent → unpriced)
+- `ds-predator-destructor-6` `oc-predator-destructor-6-3-1`: added (absent → unpriced)
+- `ds-proteus-kill-team` `oc-proteus-kill-team-4-1`: added (absent → unpriced)
+- `ds-proteus-kill-team` `oc-proteus-kill-team-4-2`: added (absent → unpriced)
+- `ds-questoris-knight-magaera` `oc-questoris-knight-magaera-1-1`: added (absent → unpriced)
+- `ds-questoris-knight-styrix` `oc-questoris-knight-styrix-1-1`: added (absent → unpriced)
+- `ds-raider` `oc-raider-1-1`: added (absent → unpriced)
+- `ds-rapier-carrier` `oc-rapier-carrier-1-1`: added (absent → unpriced)
+- `ds-rapier-carrier` `oc-rapier-carrier-1-2`: added (absent → unpriced)
+- `ds-rapier-carrier` `oc-rapier-carrier-1-3`: added (absent → unpriced)
+- `ds-rapier-carrier-2` `oc-rapier-carrier-2-1-1`: added (absent → unpriced)
+- `ds-rapier-carrier-2` `oc-rapier-carrier-2-1-2`: added (absent → unpriced)
+- `ds-rapier-carrier-2` `oc-rapier-carrier-2-1-3`: added (absent → unpriced)
+- `ds-rapier-carrier-3` `oc-rapier-carrier-3-1-1`: added (absent → unpriced)
+- `ds-rapier-carrier-3` `oc-rapier-carrier-3-1-2`: added (absent → unpriced)
+- `ds-rapier-carrier-3` `oc-rapier-carrier-3-1-3`: added (absent → unpriced)
+- `ds-rapier-carrier-4` `oc-rapier-carrier-4-1-1`: added (absent → unpriced)
+- `ds-rapier-carrier-4` `oc-rapier-carrier-4-1-2`: added (absent → unpriced)
+- `ds-rapier-carrier-4` `oc-rapier-carrier-4-1-3`: added (absent → unpriced)
+- `ds-rapier-carrier-5` `oc-rapier-carrier-5-1-1`: added (absent → unpriced)
+- `ds-rapier-carrier-5` `oc-rapier-carrier-5-1-2`: added (absent → unpriced)
+- `ds-rapier-carrier-5` `oc-rapier-carrier-5-1-3`: added (absent → unpriced)
+- `ds-raptors` `oc-raptors-1-1`: added (absent → unpriced)
+- `ds-raptors` `oc-raptors-2-1`: added (absent → unpriced)
+- `ds-raptors` `oc-raptors-2-2`: added (absent → unpriced)
+- `ds-raptors-2` `oc-raptors-2-1-1`: added (absent → unpriced)
+- `ds-raptors-2` `oc-raptors-2-2-1`: added (absent → unpriced)
+- `ds-raptors-2` `oc-raptors-2-2-2`: added (absent → unpriced)
+- `ds-ravenwing-command-squad` `oc-ravenwing-command-squad-1-1`: added (absent → unpriced)
+- `ds-ravenwing-darkshroud` `oc-ravenwing-darkshroud-1-1`: added (absent → unpriced)
+- `ds-razorback` `oc-razorback-1-1`: added (absent → unpriced)
+- `ds-razorback` `oc-razorback-2-1`: added (absent → unpriced)
+- `ds-razorback` `oc-razorback-3-1`: added (absent → unpriced)
+- `ds-razorback-2` `oc-razorback-2-1-1`: added (absent → unpriced)
+- `ds-razorback-2` `oc-razorback-2-2-1`: added (absent → unpriced)
+- `ds-razorback-2` `oc-razorback-2-3-1`: added (absent → unpriced)
+- `ds-razorback-3` `oc-razorback-3-1-1`: added (absent → unpriced)
+- `ds-razorback-3` `oc-razorback-3-2-1`: added (absent → unpriced)
+- `ds-razorback-3` `oc-razorback-3-3-1`: added (absent → unpriced)
+- `ds-razorback-4` `oc-razorback-4-1-1`: added (absent → unpriced)
+- `ds-razorback-4` `oc-razorback-4-2-1`: added (absent → unpriced)
+- `ds-razorback-4` `oc-razorback-4-3-1`: added (absent → unpriced)
+- `ds-razorback-5` `oc-razorback-5-1-1`: added (absent → unpriced)
+- `ds-razorback-5` `oc-razorback-5-2-1`: added (absent → unpriced)
+- `ds-razorback-5` `oc-razorback-5-3-1`: added (absent → unpriced)
+- `ds-razorback-6` `oc-razorback-6-1-1`: added (absent → unpriced)
+- `ds-razorback-6` `oc-razorback-6-2-1`: added (absent → unpriced)
+- `ds-razorback-6` `oc-razorback-6-3-1`: added (absent → unpriced)
+- `ds-razorback-7` `oc-razorback-7-1-1`: added (absent → unpriced)
+- `ds-razorback-7` `oc-razorback-7-2-1`: added (absent → unpriced)
+- `ds-razorback-7` `oc-razorback-7-3-1`: added (absent → unpriced)
+- `ds-razorshark-strike-fighter` `oc-razorshark-strike-fighter-1-1`: added (absent → unpriced)
+- `ds-razorwing-jetfighter` `oc-razorwing-jetfighter-1-1`: added (absent → unpriced)
+- `ds-razorwing-jetfighter` `oc-razorwing-jetfighter-2-1`: added (absent → unpriced)
+- `ds-reaver-titan` `oc-reaver-titan-1-1`: added (absent → unpriced)
+- `ds-reaver-titan` `oc-reaver-titan-1-2`: added (absent → unpriced)
+- `ds-reaver-titan` `oc-reaver-titan-1-3`: added (absent → unpriced)
+- `ds-reaver-titan` `oc-reaver-titan-1-4`: added (absent → unpriced)
+- `ds-reaver-titan` `oc-reaver-titan-2-1`: added (absent → unpriced)
+- `ds-reaver-titan` `oc-reaver-titan-2-2`: added (absent → unpriced)
+- `ds-reaver-titan` `oc-reaver-titan-2-3`: added (absent → unpriced)
+- `ds-reavers` `oc-reavers-1-1`: added (absent → unpriced)
+- `ds-reavers` `oc-reavers-1-2`: added (absent → unpriced)
+- `ds-reavers` `oc-reavers-2-1`: added (absent → unpriced)
+- `ds-reavers` `oc-reavers-2-2`: added (absent → unpriced)
+- `ds-red-corsairs-raiders` `oc-red-corsairs-raiders-1-1`: added (absent → unpriced)
+- `ds-red-corsairs-reave-captain` `oc-red-corsairs-reave-captain-1-1`: added (absent → unpriced)
+- `ds-red-corsairs-reave-captain` `oc-red-corsairs-reave-captain-2-1`: added (absent → unpriced)
+- `ds-redemptor-dreadnought` `oc-redemptor-dreadnought-1-1`: added (absent → unpriced)
+- `ds-redemptor-dreadnought` `oc-redemptor-dreadnought-2-1`: added (absent → unpriced)
+- `ds-redemptor-dreadnought` `oc-redemptor-dreadnought-3-1`: added (absent → unpriced)
+- `ds-redemptor-dreadnought` `oc-redemptor-dreadnought-4-1`: added (absent → unpriced)
+- `ds-redemptor-dreadnought-2` `oc-redemptor-dreadnought-2-1-1`: added (absent → unpriced)
+- `ds-redemptor-dreadnought-2` `oc-redemptor-dreadnought-2-2-1`: added (absent → unpriced)
+- `ds-redemptor-dreadnought-2` `oc-redemptor-dreadnought-2-3-1`: added (absent → unpriced)
+- `ds-redemptor-dreadnought-2` `oc-redemptor-dreadnought-2-4-1`: added (absent → unpriced)
+- `ds-redemptor-dreadnought-3` `oc-redemptor-dreadnought-3-1-1`: added (absent → unpriced)
+- `ds-redemptor-dreadnought-3` `oc-redemptor-dreadnought-3-2-1`: added (absent → unpriced)
+- `ds-redemptor-dreadnought-3` `oc-redemptor-dreadnought-3-3-1`: added (absent → unpriced)
+- `ds-redemptor-dreadnought-3` `oc-redemptor-dreadnought-3-4-1`: added (absent → unpriced)
+- `ds-redemptor-dreadnought-4` `oc-redemptor-dreadnought-4-1-1`: added (absent → unpriced)
+- `ds-redemptor-dreadnought-4` `oc-redemptor-dreadnought-4-2-1`: added (absent → unpriced)
+- `ds-redemptor-dreadnought-4` `oc-redemptor-dreadnought-4-3-1`: added (absent → unpriced)
+- `ds-redemptor-dreadnought-4` `oc-redemptor-dreadnought-4-4-1`: added (absent → unpriced)
+- `ds-redemptor-dreadnought-5` `oc-redemptor-dreadnought-5-1-1`: added (absent → unpriced)
+- `ds-redemptor-dreadnought-5` `oc-redemptor-dreadnought-5-2-1`: added (absent → unpriced)
+- `ds-redemptor-dreadnought-5` `oc-redemptor-dreadnought-5-3-1`: added (absent → unpriced)
+- `ds-redemptor-dreadnought-5` `oc-redemptor-dreadnought-5-4-1`: added (absent → unpriced)
+- `ds-redemptor-dreadnought-6` `oc-redemptor-dreadnought-6-1-1`: added (absent → unpriced)
+- `ds-redemptor-dreadnought-6` `oc-redemptor-dreadnought-6-2-1`: added (absent → unpriced)
+- `ds-redemptor-dreadnought-6` `oc-redemptor-dreadnought-6-3-1`: added (absent → unpriced)
+- `ds-redemptor-dreadnought-6` `oc-redemptor-dreadnought-6-4-1`: added (absent → unpriced)
+- `ds-relic-contemptor-dreadnought` `oc-relic-contemptor-dreadnought-3-1`: added (absent → unpriced)
+- `ds-relic-contemptor-dreadnought-2` `oc-relic-contemptor-dreadnought-2-3-1`: added (absent → unpriced)
+- `ds-relic-contemptor-dreadnought-3` `oc-relic-contemptor-dreadnought-3-3-1`: added (absent → unpriced)
+- `ds-relic-contemptor-dreadnought-4` `oc-relic-contemptor-dreadnought-4-3-1`: added (absent → unpriced)
+- `ds-relic-contemptor-dreadnought-5` `oc-relic-contemptor-dreadnought-5-3-1`: added (absent → unpriced)
+- `ds-relic-razorback` `oc-relic-razorback-1-1`: added (absent → unpriced)
+- `ds-relic-razorback` `oc-relic-razorback-1-2`: added (absent → unpriced)
+- `ds-relic-razorback` `oc-relic-razorback-1-3`: added (absent → unpriced)
+- `ds-relic-razorback` `oc-relic-razorback-2-1`: added (absent → unpriced)
+- `ds-relic-razorback` `oc-relic-razorback-3-1`: added (absent → unpriced)
+- `ds-relic-terminator-squad` `oc-relic-terminator-squad-1-1`: added (absent → unpriced)
+- `ds-relic-terminator-squad` `oc-relic-terminator-squad-1-2`: added (absent → unpriced)
+- `ds-relic-terminator-squad` `oc-relic-terminator-squad-2-1`: added (absent → unpriced)
+- `ds-relic-terminator-squad` `oc-relic-terminator-squad-2-2`: added (absent → unpriced)
+- `ds-relic-terminator-squad` `oc-relic-terminator-squad-3-1`: added (absent → unpriced)
+- `ds-renegade-enforcer` `oc-renegade-enforcer-1-1`: added (absent → unpriced)
+- `ds-renegade-enforcer` `oc-renegade-enforcer-1-2`: added (absent → unpriced)
+- `ds-renegade-enforcer` `oc-renegade-enforcer-1-3`: added (absent → unpriced)
+- `ds-renegade-enforcer` `oc-renegade-enforcer-2-1`: added (absent → unpriced)
+- `ds-renegade-enforcer` `oc-renegade-enforcer-2-2`: added (absent → unpriced)
+- `ds-renegade-enforcer-2` `oc-renegade-enforcer-2-1-1`: added (absent → unpriced)
+- `ds-renegade-enforcer-2` `oc-renegade-enforcer-2-1-2`: added (absent → unpriced)
+- `ds-renegade-enforcer-2` `oc-renegade-enforcer-2-1-3`: added (absent → unpriced)
+- `ds-renegade-enforcer-2` `oc-renegade-enforcer-2-2-1`: added (absent → unpriced)
+- `ds-renegade-enforcer-2` `oc-renegade-enforcer-2-2-2`: added (absent → unpriced)
+- `ds-renegade-enforcer-3` `oc-renegade-enforcer-3-1-1`: added (absent → unpriced)
+- `ds-renegade-enforcer-3` `oc-renegade-enforcer-3-1-2`: added (absent → unpriced)
+- `ds-renegade-enforcer-3` `oc-renegade-enforcer-3-1-3`: added (absent → unpriced)
+- `ds-renegade-enforcer-3` `oc-renegade-enforcer-3-2-1`: added (absent → unpriced)
+- `ds-renegade-enforcer-3` `oc-renegade-enforcer-3-2-2`: added (absent → unpriced)
+- `ds-repressor` `oc-repressor-1-1`: added (absent → unpriced)
+- `ds-repressor` `oc-repressor-2-1`: added (absent → unpriced)
+- `ds-repressor` `oc-repressor-2-2`: added (absent → unpriced)
+- `ds-repulsor` `oc-repulsor-1-1`: added (absent → unpriced)
+- `ds-repulsor` `oc-repulsor-2-1`: added (absent → unpriced)
+- `ds-repulsor` `oc-repulsor-3-1`: added (absent → unpriced)
+- `ds-repulsor-2` `oc-repulsor-2-1-1`: added (absent → unpriced)
+- `ds-repulsor-2` `oc-repulsor-2-2-1`: added (absent → unpriced)
+- `ds-repulsor-3` `oc-repulsor-3-1-1`: added (absent → unpriced)
+- `ds-repulsor-3` `oc-repulsor-3-2-1`: added (absent → unpriced)
+- `ds-repulsor-4` `oc-repulsor-4-1-1`: added (absent → unpriced)
+- `ds-repulsor-4` `oc-repulsor-4-2-1`: added (absent → unpriced)
+- `ds-repulsor-5` `oc-repulsor-5-1-1`: added (absent → unpriced)
+- `ds-repulsor-5` `oc-repulsor-5-2-1`: added (absent → unpriced)
+- `ds-repulsor-6` `oc-repulsor-6-1-1`: added (absent → unpriced)
+- `ds-repulsor-6` `oc-repulsor-6-2-1`: added (absent → unpriced)
+- `ds-repulsor-executioner` `oc-repulsor-executioner-1-1`: added (absent → unpriced)
+- `ds-repulsor-executioner` `oc-repulsor-executioner-2-1`: added (absent → unpriced)
+- `ds-repulsor-executioner` `oc-repulsor-executioner-2-2`: added (absent → unpriced)
+- `ds-repulsor-executioner` `oc-repulsor-executioner-3-1`: added (absent → unpriced)
+- `ds-repulsor-executioner-2` `oc-repulsor-executioner-2-1-1`: added (absent → unpriced)
+- `ds-repulsor-executioner-2` `oc-repulsor-executioner-2-2-1`: added (absent → unpriced)
+- `ds-repulsor-executioner-2` `oc-repulsor-executioner-2-3-1`: added (absent → unpriced)
+- `ds-repulsor-executioner-3` `oc-repulsor-executioner-3-1-1`: added (absent → unpriced)
+- `ds-repulsor-executioner-3` `oc-repulsor-executioner-3-2-1`: added (absent → unpriced)
+- `ds-repulsor-executioner-3` `oc-repulsor-executioner-3-3-1`: added (absent → unpriced)
+- `ds-repulsor-executioner-4` `oc-repulsor-executioner-4-1-1`: added (absent → unpriced)
+- `ds-repulsor-executioner-4` `oc-repulsor-executioner-4-2-1`: added (absent → unpriced)
+- `ds-repulsor-executioner-4` `oc-repulsor-executioner-4-3-1`: added (absent → unpriced)
+- `ds-repulsor-executioner-5` `oc-repulsor-executioner-5-1-1`: added (absent → unpriced)
+- `ds-repulsor-executioner-5` `oc-repulsor-executioner-5-2-1`: added (absent → unpriced)
+- `ds-repulsor-executioner-5` `oc-repulsor-executioner-5-3-1`: added (absent → unpriced)
+- `ds-repulsor-executioner-6` `oc-repulsor-executioner-6-1-1`: added (absent → unpriced)
+- `ds-repulsor-executioner-6` `oc-repulsor-executioner-6-2-1`: added (absent → unpriced)
+- `ds-repulsor-executioner-6` `oc-repulsor-executioner-6-3-1`: added (absent → unpriced)
+- `ds-retributor-squad` `oc-retributor-squad-1-1`: added (absent → unpriced)
+- `ds-retributor-squad` `oc-retributor-squad-1-2`: added (absent → unpriced)
+- `ds-retributor-squad` `oc-retributor-squad-1-3`: added (absent → unpriced)
+- `ds-retributor-squad` `oc-retributor-squad-1-4`: added (absent → unpriced)
+- `ds-retributor-squad` `oc-retributor-squad-1-5`: added (absent → unpriced)
+- `ds-retributor-squad` `oc-retributor-squad-1-6`: added (absent → unpriced)
+- `ds-retributor-squad` `oc-retributor-squad-2-1`: added (absent → unpriced)
+- `ds-retributor-squad` `oc-retributor-squad-2-2`: added (absent → unpriced)
+- `ds-revenant-titan` `oc-revenant-titan-1-1`: added (absent → unpriced)
+- `ds-revenant-titan` `oc-revenant-titan-2-1`: added (absent → unpriced)
+- `ds-rhino` `oc-rhino-1-1`: added (absent → unpriced)
+- `ds-rhino-2` `oc-rhino-2-1-1`: added (absent → unpriced)
+- `ds-rhino-3` `oc-rhino-3-1-1`: added (absent → unpriced)
+- `ds-rhino-4` `oc-rhino-4-1-1`: added (absent → unpriced)
+- `ds-rhino-5` `oc-rhino-5-1-1`: added (absent → unpriced)
+- `ds-rhino-5` `oc-rhino-5-2-1`: added (absent → unpriced)
+- `ds-rhino-6` `oc-rhino-6-1-1`: added (absent → unpriced)
+- `ds-rhino-7` `oc-rhino-7-1-1`: added (absent → unpriced)
+- `ds-rhino-primaris` `oc-rhino-primaris-1-1`: added (absent → unpriced)
+- `ds-riptide-battlesuit` `oc-riptide-battlesuit-1-1`: added (absent → unpriced)
+- `ds-riptide-battlesuit` `oc-riptide-battlesuit-2-1`: added (absent → unpriced)
+- `ds-riptide-battlesuit` `oc-riptide-battlesuit-2-2`: added (absent → unpriced)
+- `ds-riptide-battlesuit` `oc-riptide-battlesuit-3-1`: added (absent → unpriced)
+- `ds-rogal-dorn-battle-tank` `oc-rogal-dorn-battle-tank-1-1`: added (absent → unpriced)
+- `ds-rogal-dorn-battle-tank` `oc-rogal-dorn-battle-tank-2-1`: added (absent → unpriced)
+- `ds-rogal-dorn-battle-tank` `oc-rogal-dorn-battle-tank-3-1`: added (absent → unpriced)
+- `ds-rogal-dorn-battle-tank` `oc-rogal-dorn-battle-tank-3-2`: added (absent → unpriced)
+- `ds-rogal-dorn-battle-tank` `oc-rogal-dorn-battle-tank-4-1`: added (absent → unpriced)
+- `ds-rogal-dorn-battle-tank` `oc-rogal-dorn-battle-tank-4-2`: added (absent → unpriced)
+- `ds-rogal-dorn-battle-tank-2` `oc-rogal-dorn-battle-tank-2-1-1`: added (absent → unpriced)
+- `ds-rogal-dorn-battle-tank-2` `oc-rogal-dorn-battle-tank-2-2-1`: added (absent → unpriced)
+- `ds-rogal-dorn-battle-tank-2` `oc-rogal-dorn-battle-tank-2-3-1`: added (absent → unpriced)
+- `ds-rogal-dorn-battle-tank-2` `oc-rogal-dorn-battle-tank-2-3-2`: added (absent → unpriced)
+- `ds-rogal-dorn-battle-tank-2` `oc-rogal-dorn-battle-tank-2-4-1`: added (absent → unpriced)
+- `ds-rogal-dorn-battle-tank-2` `oc-rogal-dorn-battle-tank-2-4-2`: added (absent → unpriced)
+- `ds-rogal-dorn-commander` `oc-rogal-dorn-commander-1-1`: added (absent → unpriced)
+- `ds-rogal-dorn-commander` `oc-rogal-dorn-commander-2-1`: added (absent → unpriced)
+- `ds-rogal-dorn-commander` `oc-rogal-dorn-commander-3-1`: added (absent → unpriced)
+- `ds-rogal-dorn-commander` `oc-rogal-dorn-commander-3-2`: added (absent → unpriced)
+- `ds-rogal-dorn-commander` `oc-rogal-dorn-commander-4-1`: added (absent → unpriced)
+- `ds-rogal-dorn-commander` `oc-rogal-dorn-commander-4-2`: added (absent → unpriced)
+- `ds-rogal-dorn-commander-2` `oc-rogal-dorn-commander-2-1-1`: added (absent → unpriced)
+- `ds-rogal-dorn-commander-2` `oc-rogal-dorn-commander-2-2-1`: added (absent → unpriced)
+- `ds-rogal-dorn-commander-2` `oc-rogal-dorn-commander-2-3-1`: added (absent → unpriced)
+- `ds-rogal-dorn-commander-2` `oc-rogal-dorn-commander-2-3-2`: added (absent → unpriced)
+- `ds-rogal-dorn-commander-2` `oc-rogal-dorn-commander-2-4-1`: added (absent → unpriced)
+- `ds-rogal-dorn-commander-2` `oc-rogal-dorn-commander-2-4-2`: added (absent → unpriced)
+- `ds-rubric-marines` `oc-rubric-marines-1-1`: added (absent → unpriced)
+- `ds-rubric-marines` `oc-rubric-marines-2-1`: added (absent → unpriced)
+- `ds-rubric-marines` `oc-rubric-marines-4-1`: added (absent → unpriced)
+- `ds-rubric-marines-2` `oc-rubric-marines-2-1-1`: added (absent → unpriced)
+- `ds-rubric-marines-2` `oc-rubric-marines-2-2-1`: added (absent → unpriced)
+- `ds-rubric-marines-2` `oc-rubric-marines-2-4-1`: added (absent → unpriced)
+- `ds-rvarna-battlesuit` `oc-rvarna-battlesuit-1-1`: added (absent → unpriced)
+- `ds-sagitaur` `oc-sagitaur-1-1`: added (absent → unpriced)
+- `ds-sagitaur` `oc-sagitaur-1-2`: added (absent → unpriced)
+- `ds-salamander-command-vehicle` `oc-salamander-command-vehicle-1-1`: added (absent → unpriced)
+- `ds-salamander-command-vehicle` `oc-salamander-command-vehicle-2-1`: added (absent → unpriced)
+- `ds-salamander-command-vehicle` `oc-salamander-command-vehicle-2-2`: added (absent → unpriced)
+- `ds-salamander-command-vehicle-2` `oc-salamander-command-vehicle-2-1-1`: added (absent → unpriced)
+- `ds-salamander-command-vehicle-2` `oc-salamander-command-vehicle-2-2-1`: added (absent → unpriced)
+- `ds-salamander-command-vehicle-2` `oc-salamander-command-vehicle-2-2-2`: added (absent → unpriced)
+- `ds-salamander-scout-vehicle` `oc-salamander-scout-vehicle-1-1`: added (absent → unpriced)
+- `ds-salamander-scout-vehicle` `oc-salamander-scout-vehicle-2-1`: added (absent → unpriced)
+- `ds-salamander-scout-vehicle` `oc-salamander-scout-vehicle-2-2`: added (absent → unpriced)
+- `ds-salamander-scout-vehicle-2` `oc-salamander-scout-vehicle-2-1-1`: added (absent → unpriced)
+- `ds-salamander-scout-vehicle-2` `oc-salamander-scout-vehicle-2-2-1`: added (absent → unpriced)
+- `ds-salamander-scout-vehicle-2` `oc-salamander-scout-vehicle-2-2-2`: added (absent → unpriced)
+- `ds-sanctifiers` `oc-sanctifiers-2-1`: added (absent → unpriced)
+- `ds-sanctifiers-2` `oc-sanctifiers-2-2-1`: added (absent → unpriced)
+- `ds-sanctus` `oc-sanctus-1-1`: added (absent → unpriced)
+- `ds-sanguinary-guard` `oc-sanguinary-guard-2-1`: added (absent → unpriced)
+- `ds-scarab-occult-terminators` `oc-scarab-occult-terminators-1-1`: added (absent → unpriced)
+- `ds-scarab-occult-terminators` `oc-scarab-occult-terminators-2-1`: added (absent → unpriced)
+- `ds-scarab-occult-terminators` `oc-scarab-occult-terminators-2-2`: added (absent → unpriced)
+- `ds-scarab-occult-terminators` `oc-scarab-occult-terminators-3-1`: added (absent → unpriced)
+- `ds-scorpion` `oc-scorpion-1-1`: added (absent → unpriced)
+- `ds-scorpion` `oc-scorpion-1-2`: added (absent → unpriced)
+- `ds-scorpion` `oc-scorpion-1-3`: added (absent → unpriced)
+- `ds-scorpion` `oc-scorpion-1-4`: added (absent → unpriced)
+- `ds-scourges-with-heavy-weapons` `oc-scourges-with-heavy-weapons-1-1`: added (absent → unpriced)
+- `ds-scourges-with-heavy-weapons` `oc-scourges-with-heavy-weapons-1-2`: added (absent → unpriced)
+- `ds-scourges-with-shardcarbines` `oc-scourges-with-shardcarbines-1-1`: added (absent → unpriced)
+- `ds-scourges-with-shardcarbines` `oc-scourges-with-shardcarbines-1-2`: added (absent → unpriced)
+- `ds-scourges-with-shardcarbines` `oc-scourges-with-shardcarbines-2-1`: added (absent → unpriced)
+- `ds-scourges-with-shardcarbines` `oc-scourges-with-shardcarbines-2-2`: added (absent → unpriced)
+- `ds-scout-bike-squad` `oc-scout-bike-squad-1-1`: added (absent → unpriced)
+- `ds-scout-bike-squad` `oc-scout-bike-squad-1-10`: added (absent → unpriced)
+- `ds-scout-bike-squad` `oc-scout-bike-squad-1-11`: added (absent → unpriced)
+- `ds-scout-bike-squad` `oc-scout-bike-squad-1-2`: added (absent → unpriced)
+- `ds-scout-bike-squad` `oc-scout-bike-squad-1-3`: added (absent → unpriced)
+- `ds-scout-bike-squad` `oc-scout-bike-squad-1-4`: added (absent → unpriced)
+- `ds-scout-bike-squad` `oc-scout-bike-squad-1-5`: added (absent → unpriced)
+- `ds-scout-bike-squad` `oc-scout-bike-squad-1-6`: added (absent → unpriced)
+- `ds-scout-bike-squad` `oc-scout-bike-squad-1-7`: added (absent → unpriced)
+- `ds-scout-bike-squad` `oc-scout-bike-squad-1-8`: added (absent → unpriced)
+- `ds-scout-bike-squad` `oc-scout-bike-squad-1-9`: added (absent → unpriced)
+- `ds-scout-sniper-squad` `oc-scout-sniper-squad-1-1`: added (absent → unpriced)
+- `ds-scout-squad` `oc-scout-squad-1-1`: added (absent → unpriced)
+- `ds-scout-squad` `oc-scout-squad-3-1`: added (absent → unpriced)
+- `ds-scout-squad` `oc-scout-squad-4-1`: added (absent → unpriced)
+- `ds-scout-squad` `oc-scout-squad-4-2`: added (absent → unpriced)
+- `ds-scout-squad-2` `oc-scout-squad-2-1-1`: added (absent → unpriced)
+- `ds-scout-squad-2` `oc-scout-squad-2-3-1`: added (absent → unpriced)
+- `ds-scout-squad-2` `oc-scout-squad-2-4-1`: added (absent → unpriced)
+- `ds-scout-squad-2` `oc-scout-squad-2-4-2`: added (absent → unpriced)
+- `ds-scout-squad-3` `oc-scout-squad-3-1-1`: added (absent → unpriced)
+- `ds-scout-squad-3` `oc-scout-squad-3-3-1`: added (absent → unpriced)
+- `ds-scout-squad-3` `oc-scout-squad-3-4-1`: added (absent → unpriced)
+- `ds-scout-squad-3` `oc-scout-squad-3-4-2`: added (absent → unpriced)
+- `ds-scout-squad-4` `oc-scout-squad-4-1-1`: added (absent → unpriced)
+- `ds-scout-squad-4` `oc-scout-squad-4-3-1`: added (absent → unpriced)
+- `ds-scout-squad-4` `oc-scout-squad-4-4-1`: added (absent → unpriced)
+- `ds-scout-squad-4` `oc-scout-squad-4-4-2`: added (absent → unpriced)
+- `ds-scout-squad-5` `oc-scout-squad-5-1-1`: added (absent → unpriced)
+- `ds-scout-squad-5` `oc-scout-squad-5-3-1`: added (absent → unpriced)
+- `ds-scout-squad-5` `oc-scout-squad-5-4-1`: added (absent → unpriced)
+- `ds-scout-squad-5` `oc-scout-squad-5-4-2`: added (absent → unpriced)
+- `ds-secutarii-hoplites` `oc-secutarii-hoplites-1-1`: added (absent → unpriced)
+- `ds-secutarii-hoplites` `oc-secutarii-hoplites-2-1`: added (absent → unpriced)
+- `ds-secutarii-hoplites` `oc-secutarii-hoplites-3-1`: added (absent → unpriced)
+- `ds-secutarii-hoplites` `oc-secutarii-hoplites-3-2`: added (absent → unpriced)
+- `ds-secutarii-peltasts` `oc-secutarii-peltasts-1-1`: added (absent → unpriced)
+- `ds-secutarii-peltasts` `oc-secutarii-peltasts-2-1`: added (absent → unpriced)
+- `ds-secutarii-peltasts` `oc-secutarii-peltasts-3-1`: added (absent → unpriced)
+- `ds-secutarii-peltasts` `oc-secutarii-peltasts-3-2`: added (absent → unpriced)
+- `ds-seekers` `oc-seekers-1-1`: added (absent → unpriced)
+- `ds-seekers` `oc-seekers-2-1`: added (absent → unpriced)
+- `ds-seekers-2` `oc-seekers-2-1-1`: added (absent → unpriced)
+- `ds-seekers-2` `oc-seekers-2-2-1`: added (absent → unpriced)
+- `ds-sentry-pylon` `oc-sentry-pylon-1-1`: added (absent → unpriced)
+- `ds-sentry-pylon` `oc-sentry-pylon-1-2`: added (absent → unpriced)
+- `ds-seraphim-squad` `oc-seraphim-squad-2-1`: added (absent → unpriced)
+- `ds-seraphim-squad` `oc-seraphim-squad-2-2`: added (absent → unpriced)
+- `ds-seraphim-squad` `oc-seraphim-squad-2-3`: added (absent → unpriced)
+- `ds-seraphim-squad` `oc-seraphim-squad-2-4`: added (absent → unpriced)
+- `ds-seraphim-squad` `oc-seraphim-squad-2-5`: added (absent → unpriced)
+- `ds-seraptek-heavy-construct` `oc-seraptek-heavy-construct-1-1`: added (absent → unpriced)
+- `ds-serberys-raiders` `oc-serberys-raiders-1-1`: added (absent → unpriced)
+- `ds-serberys-sulphurhounds` `oc-serberys-sulphurhounds-1-1`: added (absent → unpriced)
+- `ds-shadowseer` `oc-shadowseer-1-1`: added (absent → unpriced)
+- `ds-shadowseer-2` `oc-shadowseer-2-1-1`: added (absent → unpriced)
+- `ds-shadowsword` `oc-shadowsword-1-1`: added (absent → unpriced)
+- `ds-shadowsword` `oc-shadowsword-2-1`: added (absent → unpriced)
+- `ds-shadowsword` `oc-shadowsword-2-2`: added (absent → unpriced)
+- `ds-shadowsword-2` `oc-shadowsword-2-1-1`: added (absent → unpriced)
+- `ds-shadowsword-2` `oc-shadowsword-2-2-1`: added (absent → unpriced)
+- `ds-shadowsword-2` `oc-shadowsword-2-2-2`: added (absent → unpriced)
+- `ds-shield-captain` `oc-shield-captain-1-1`: added (absent → unpriced)
+- `ds-shield-captain` `oc-shield-captain-1-2`: added (absent → unpriced)
+- `ds-shield-captain` `oc-shield-captain-1-3`: added (absent → unpriced)
+- `ds-shield-captain` `oc-shield-captain-1-4`: added (absent → unpriced)
+- `ds-shield-captain-in-allarus-terminator-armour` `oc-shield-captain-in-allarus-terminator-armour-1-1`: added (absent → unpriced)
+- `ds-shield-captain-on-dawneagle-jetbike` `oc-shield-captain-on-dawneagle-jetbike-1-1`: added (absent → unpriced)
+- `ds-shining-spears` `oc-shining-spears-1-1`: added (absent → unpriced)
+- `ds-shining-spears` `oc-shining-spears-1-2`: added (absent → unpriced)
+- `ds-shining-spears` `oc-shining-spears-2-1`: added (absent → unpriced)
+- `ds-shining-spears` `oc-shining-spears-3-1`: added (absent → unpriced)
+- `ds-sicaran-arcus` `oc-sicaran-arcus-1-1`: added (absent → unpriced)
+- `ds-sicaran-arcus` `oc-sicaran-arcus-1-2`: added (absent → unpriced)
+- `ds-sicaran-arcus` `oc-sicaran-arcus-2-1`: added (absent → unpriced)
+- `ds-sicaran-arcus` `oc-sicaran-arcus-3-1`: added (absent → unpriced)
+- `ds-sicaran-battle-tank` `oc-sicaran-battle-tank-1-1`: added (absent → unpriced)
+- `ds-sicaran-battle-tank` `oc-sicaran-battle-tank-1-2`: added (absent → unpriced)
+- `ds-sicaran-battle-tank` `oc-sicaran-battle-tank-2-1`: added (absent → unpriced)
+- `ds-sicaran-battle-tank` `oc-sicaran-battle-tank-3-1`: added (absent → unpriced)
+- `ds-sicaran-battle-tank-2` `oc-sicaran-battle-tank-2-1-1`: added (absent → unpriced)
+- `ds-sicaran-battle-tank-2` `oc-sicaran-battle-tank-2-1-2`: added (absent → unpriced)
+- `ds-sicaran-battle-tank-2` `oc-sicaran-battle-tank-2-2-1`: added (absent → unpriced)
+- `ds-sicaran-battle-tank-2` `oc-sicaran-battle-tank-2-3-1`: added (absent → unpriced)
+- `ds-sicaran-battle-tank-3` `oc-sicaran-battle-tank-3-1-1`: added (absent → unpriced)
+- `ds-sicaran-battle-tank-3` `oc-sicaran-battle-tank-3-1-2`: added (absent → unpriced)
+- `ds-sicaran-battle-tank-3` `oc-sicaran-battle-tank-3-2-1`: added (absent → unpriced)
+- `ds-sicaran-battle-tank-3` `oc-sicaran-battle-tank-3-3-1`: added (absent → unpriced)
+- `ds-sicaran-battle-tank-4` `oc-sicaran-battle-tank-4-1-1`: added (absent → unpriced)
+- `ds-sicaran-battle-tank-4` `oc-sicaran-battle-tank-4-1-2`: added (absent → unpriced)
+- `ds-sicaran-battle-tank-4` `oc-sicaran-battle-tank-4-2-1`: added (absent → unpriced)
+- `ds-sicaran-battle-tank-4` `oc-sicaran-battle-tank-4-3-1`: added (absent → unpriced)
+- `ds-sicaran-battle-tank-5` `oc-sicaran-battle-tank-5-1-1`: added (absent → unpriced)
+- `ds-sicaran-battle-tank-5` `oc-sicaran-battle-tank-5-1-2`: added (absent → unpriced)
+- `ds-sicaran-battle-tank-5` `oc-sicaran-battle-tank-5-2-1`: added (absent → unpriced)
+- `ds-sicaran-battle-tank-5` `oc-sicaran-battle-tank-5-3-1`: added (absent → unpriced)
+- `ds-sicaran-omega` `oc-sicaran-omega-1-1`: added (absent → unpriced)
+- `ds-sicaran-omega` `oc-sicaran-omega-1-2`: added (absent → unpriced)
+- `ds-sicaran-omega` `oc-sicaran-omega-2-1`: added (absent → unpriced)
+- `ds-sicaran-omega` `oc-sicaran-omega-3-1`: added (absent → unpriced)
+- `ds-sicaran-punisher` `oc-sicaran-punisher-1-1`: added (absent → unpriced)
+- `ds-sicaran-punisher` `oc-sicaran-punisher-1-2`: added (absent → unpriced)
+- `ds-sicaran-punisher` `oc-sicaran-punisher-2-1`: added (absent → unpriced)
+- `ds-sicaran-punisher` `oc-sicaran-punisher-3-1`: added (absent → unpriced)
+- `ds-sicaran-punisher-2` `oc-sicaran-punisher-2-1-1`: added (absent → unpriced)
+- `ds-sicaran-punisher-2` `oc-sicaran-punisher-2-1-2`: added (absent → unpriced)
+- `ds-sicaran-punisher-2` `oc-sicaran-punisher-2-2-1`: added (absent → unpriced)
+- `ds-sicaran-punisher-2` `oc-sicaran-punisher-2-3-1`: added (absent → unpriced)
+- `ds-sicaran-punisher-3` `oc-sicaran-punisher-3-1-1`: added (absent → unpriced)
+- `ds-sicaran-punisher-3` `oc-sicaran-punisher-3-1-2`: added (absent → unpriced)
+- `ds-sicaran-punisher-3` `oc-sicaran-punisher-3-2-1`: added (absent → unpriced)
+- `ds-sicaran-punisher-3` `oc-sicaran-punisher-3-3-1`: added (absent → unpriced)
+- `ds-sicaran-punisher-4` `oc-sicaran-punisher-4-1-1`: added (absent → unpriced)
+- `ds-sicaran-punisher-4` `oc-sicaran-punisher-4-1-2`: added (absent → unpriced)
+- `ds-sicaran-punisher-4` `oc-sicaran-punisher-4-2-1`: added (absent → unpriced)
+- `ds-sicaran-punisher-4` `oc-sicaran-punisher-4-3-1`: added (absent → unpriced)
+- `ds-sicaran-punisher-5` `oc-sicaran-punisher-5-1-1`: added (absent → unpriced)
+- `ds-sicaran-punisher-5` `oc-sicaran-punisher-5-1-2`: added (absent → unpriced)
+- `ds-sicaran-punisher-5` `oc-sicaran-punisher-5-2-1`: added (absent → unpriced)
+- `ds-sicaran-punisher-5` `oc-sicaran-punisher-5-3-1`: added (absent → unpriced)
+- `ds-sicaran-venator` `oc-sicaran-venator-1-1`: added (absent → unpriced)
+- `ds-sicaran-venator` `oc-sicaran-venator-1-2`: added (absent → unpriced)
+- `ds-sicaran-venator` `oc-sicaran-venator-2-1`: added (absent → unpriced)
+- `ds-sicaran-venator` `oc-sicaran-venator-3-1`: added (absent → unpriced)
+- `ds-sicaran-venator-2` `oc-sicaran-venator-2-1-1`: added (absent → unpriced)
+- `ds-sicaran-venator-2` `oc-sicaran-venator-2-1-2`: added (absent → unpriced)
+- `ds-sicaran-venator-2` `oc-sicaran-venator-2-2-1`: added (absent → unpriced)
+- `ds-sicaran-venator-2` `oc-sicaran-venator-2-3-1`: added (absent → unpriced)
+- `ds-sicaran-venator-3` `oc-sicaran-venator-3-1-1`: added (absent → unpriced)
+- `ds-sicaran-venator-3` `oc-sicaran-venator-3-1-2`: added (absent → unpriced)
+- `ds-sicaran-venator-3` `oc-sicaran-venator-3-2-1`: added (absent → unpriced)
+- `ds-sicaran-venator-3` `oc-sicaran-venator-3-3-1`: added (absent → unpriced)
+- `ds-sicaran-venator-4` `oc-sicaran-venator-4-1-1`: added (absent → unpriced)
+- `ds-sicaran-venator-4` `oc-sicaran-venator-4-1-2`: added (absent → unpriced)
+- `ds-sicaran-venator-4` `oc-sicaran-venator-4-2-1`: added (absent → unpriced)
+- `ds-sicaran-venator-4` `oc-sicaran-venator-4-3-1`: added (absent → unpriced)
+- `ds-sicaran-venator-5` `oc-sicaran-venator-5-1-1`: added (absent → unpriced)
+- `ds-sicaran-venator-5` `oc-sicaran-venator-5-1-2`: added (absent → unpriced)
+- `ds-sicaran-venator-5` `oc-sicaran-venator-5-2-1`: added (absent → unpriced)
+- `ds-sicaran-venator-5` `oc-sicaran-venator-5-3-1`: added (absent → unpriced)
+- `ds-sicarian-ruststalkers` `oc-sicarian-ruststalkers-2-1`: added (absent → unpriced)
+- `ds-sisters-novitiate-squad` `oc-sisters-novitiate-squad-1-1`: added (absent → unpriced)
+- `ds-sisters-novitiate-squad` `oc-sisters-novitiate-squad-1-2`: added (absent → unpriced)
+- `ds-sisters-novitiate-squad` `oc-sisters-novitiate-squad-2-1`: added (absent → unpriced)
+- `ds-sisters-novitiate-squad` `oc-sisters-novitiate-squad-3-1`: added (absent → unpriced)
+- `ds-sisters-of-battle-immolator` `oc-sisters-of-battle-immolator-1-1`: added (absent → unpriced)
+- `ds-sisters-of-battle-immolator` `oc-sisters-of-battle-immolator-1-2`: added (absent → unpriced)
+- `ds-sisters-of-battle-immolator` `oc-sisters-of-battle-immolator-2-1`: added (absent → unpriced)
+- `ds-sisters-of-battle-squad` `oc-sisters-of-battle-squad-1-1`: added (absent → unpriced)
+- `ds-sisters-of-battle-squad` `oc-sisters-of-battle-squad-1-2`: added (absent → unpriced)
+- `ds-sisters-of-battle-squad` `oc-sisters-of-battle-squad-1-3`: added (absent → unpriced)
+- `ds-sisters-of-battle-squad` `oc-sisters-of-battle-squad-1-4`: added (absent → unpriced)
+- `ds-sisters-of-battle-squad` `oc-sisters-of-battle-squad-1-5`: added (absent → unpriced)
+- `ds-sisters-of-battle-squad` `oc-sisters-of-battle-squad-1-6`: added (absent → unpriced)
+- `ds-sisters-of-battle-squad` `oc-sisters-of-battle-squad-2-1`: added (absent → unpriced)
+- `ds-sisters-of-battle-squad` `oc-sisters-of-battle-squad-2-2`: added (absent → unpriced)
+- `ds-sisters-of-battle-squad` `oc-sisters-of-battle-squad-3-1`: added (absent → unpriced)
+- `ds-sisters-of-battle-squad` `oc-sisters-of-battle-squad-3-2`: added (absent → unpriced)
+- `ds-sisters-of-battle-squad` `oc-sisters-of-battle-squad-3-3`: added (absent → unpriced)
+- `ds-sisters-of-battle-squad` `oc-sisters-of-battle-squad-4-1`: added (absent → unpriced)
+- `ds-sisters-of-battle-squad` `oc-sisters-of-battle-squad-4-2`: added (absent → unpriced)
+- `ds-sisters-of-battle-squad` `oc-sisters-of-battle-squad-4-3`: added (absent → unpriced)
+- `ds-sisters-of-battle-squad` `oc-sisters-of-battle-squad-4-4`: added (absent → unpriced)
+- `ds-sisters-of-battle-squad` `oc-sisters-of-battle-squad-4-5`: added (absent → unpriced)
+- `ds-sisters-of-battle-squad` `oc-sisters-of-battle-squad-4-6`: added (absent → unpriced)
+- `ds-sisters-of-battle-squad` `oc-sisters-of-battle-squad-5-1`: added (absent → unpriced)
+- `ds-skathach-wraithknight` `oc-skathach-wraithknight-1-1`: added (absent → unpriced)
+- `ds-skathach-wraithknight` `oc-skathach-wraithknight-1-2`: added (absent → unpriced)
+- `ds-skathach-wraithknight` `oc-skathach-wraithknight-1-3`: added (absent → unpriced)
+- `ds-skathach-wraithknight` `oc-skathach-wraithknight-2-1`: added (absent → unpriced)
+- `ds-skathach-wraithknight` `oc-skathach-wraithknight-3-1`: added (absent → unpriced)
+- `ds-skathach-wraithknight` `oc-skathach-wraithknight-3-2`: added (absent → unpriced)
+- `ds-skitarii-rangers` `oc-skitarii-rangers-1-1`: added (absent → unpriced)
+- `ds-skitarii-rangers` `oc-skitarii-rangers-2-1`: added (absent → unpriced)
+- `ds-skitarii-rangers` `oc-skitarii-rangers-3-1`: added (absent → unpriced)
+- `ds-skitarii-rangers` `oc-skitarii-rangers-4-1`: added (absent → unpriced)
+- `ds-skitarii-rangers` `oc-skitarii-rangers-5-1`: added (absent → unpriced)
+- `ds-skitarii-rangers` `oc-skitarii-rangers-6-1`: added (absent → unpriced)
+- `ds-skitarii-rangers` `oc-skitarii-rangers-6-2`: added (absent → unpriced)
+- `ds-skitarii-rangers-2` `oc-skitarii-rangers-2-1-1`: added (absent → unpriced)
+- `ds-skitarii-rangers-2` `oc-skitarii-rangers-2-2-1`: added (absent → unpriced)
+- `ds-skitarii-rangers-2` `oc-skitarii-rangers-2-3-1`: added (absent → unpriced)
+- `ds-skitarii-rangers-2` `oc-skitarii-rangers-2-4-1`: added (absent → unpriced)
+- `ds-skitarii-rangers-2` `oc-skitarii-rangers-2-5-1`: added (absent → unpriced)
+- `ds-skitarii-rangers-2` `oc-skitarii-rangers-2-6-1`: added (absent → unpriced)
+- `ds-skitarii-rangers-2` `oc-skitarii-rangers-2-6-2`: added (absent → unpriced)
+- `ds-skitarii-vanguard` `oc-skitarii-vanguard-1-1`: added (absent → unpriced)
+- `ds-skitarii-vanguard` `oc-skitarii-vanguard-2-1`: added (absent → unpriced)
+- `ds-skitarii-vanguard` `oc-skitarii-vanguard-3-1`: added (absent → unpriced)
+- `ds-skitarii-vanguard` `oc-skitarii-vanguard-4-1`: added (absent → unpriced)
+- `ds-skitarii-vanguard` `oc-skitarii-vanguard-5-1`: added (absent → unpriced)
+- `ds-skitarii-vanguard` `oc-skitarii-vanguard-6-1`: added (absent → unpriced)
+- `ds-skitarii-vanguard` `oc-skitarii-vanguard-6-2`: added (absent → unpriced)
+- `ds-skitarii-vanguard-2` `oc-skitarii-vanguard-2-1-1`: added (absent → unpriced)
+- `ds-skitarii-vanguard-2` `oc-skitarii-vanguard-2-2-1`: added (absent → unpriced)
+- `ds-skitarii-vanguard-2` `oc-skitarii-vanguard-2-3-1`: added (absent → unpriced)
+- `ds-skitarii-vanguard-2` `oc-skitarii-vanguard-2-4-1`: added (absent → unpriced)
+- `ds-skitarii-vanguard-2` `oc-skitarii-vanguard-2-5-1`: added (absent → unpriced)
+- `ds-skitarii-vanguard-2` `oc-skitarii-vanguard-2-6-1`: added (absent → unpriced)
+- `ds-skitarii-vanguard-2` `oc-skitarii-vanguard-2-6-2`: added (absent → unpriced)
+- `ds-skorpius-disintegrator` `oc-skorpius-disintegrator-1-1`: added (absent → unpriced)
+- `ds-sky-ray-gunship` `oc-sky-ray-gunship-1-1`: added (absent → unpriced)
+- `ds-sky-ray-gunship` `oc-sky-ray-gunship-1-2`: added (absent → unpriced)
+- `ds-skyclaws` `oc-skyclaws-1-1`: added (absent → unpriced)
+- `ds-skyclaws` `oc-skyclaws-1-2`: added (absent → unpriced)
+- `ds-skyclaws` `oc-skyclaws-2-1`: added (absent → unpriced)
+- `ds-sorcerer-3` `oc-sorcerer-3-1-1`: added (absent → unpriced)
+- `ds-sorcerer-in-terminator-armour` `oc-sorcerer-in-terminator-armour-1-1`: added (absent → unpriced)
+- `ds-sorcerer-in-terminator-armour` `oc-sorcerer-in-terminator-armour-2-1`: added (absent → unpriced)
+- `ds-sorcerer-in-terminator-armour-2` `oc-sorcerer-in-terminator-armour-2-1-1`: added (absent → unpriced)
+- `ds-sorcerer-in-terminator-armour-3` `oc-sorcerer-in-terminator-armour-3-1-1`: added (absent → unpriced)
+- `ds-sorcerer-in-terminator-armour-3` `oc-sorcerer-in-terminator-armour-3-2-1`: added (absent → unpriced)
+- `ds-sorcerer-on-bike` `oc-sorcerer-on-bike-1-1`: added (absent → unpriced)
+- `ds-sorcerer-on-bike` `oc-sorcerer-on-bike-1-2`: added (absent → unpriced)
+- `ds-sorcerer-on-bike` `oc-sorcerer-on-bike-1-3`: added (absent → unpriced)
+- `ds-sorcerer-on-bike` `oc-sorcerer-on-bike-1-4`: added (absent → unpriced)
+- `ds-sorcerer-on-bike` `oc-sorcerer-on-bike-1-5`: added (absent → unpriced)
+- `ds-sorcerer-on-bike` `oc-sorcerer-on-bike-1-6`: added (absent → unpriced)
+- `ds-sorcerer-on-disc-of-tzeentch` `oc-sorcerer-on-disc-of-tzeentch-1-1`: added (absent → unpriced)
+- `ds-sorcerer-on-disc-of-tzeentch` `oc-sorcerer-on-disc-of-tzeentch-1-2`: added (absent → unpriced)
+- `ds-sorcerer-on-disc-of-tzeentch` `oc-sorcerer-on-disc-of-tzeentch-1-3`: added (absent → unpriced)
+- `ds-sorcerer-on-disc-of-tzeentch` `oc-sorcerer-on-disc-of-tzeentch-1-4`: added (absent → unpriced)
+- `ds-sorcerer-on-disc-of-tzeentch` `oc-sorcerer-on-disc-of-tzeentch-1-5`: added (absent → unpriced)
+- `ds-sorcerer-on-disc-of-tzeentch` `oc-sorcerer-on-disc-of-tzeentch-1-6`: added (absent → unpriced)
+- `ds-sorcerer-on-disc-of-tzeentch-2` `oc-sorcerer-on-disc-of-tzeentch-2-1-1`: added (absent → unpriced)
+- `ds-sorcerer-on-disc-of-tzeentch-2` `oc-sorcerer-on-disc-of-tzeentch-2-1-2`: added (absent → unpriced)
+- `ds-sorcerer-on-disc-of-tzeentch-2` `oc-sorcerer-on-disc-of-tzeentch-2-1-3`: added (absent → unpriced)
+- `ds-sorcerer-on-disc-of-tzeentch-2` `oc-sorcerer-on-disc-of-tzeentch-2-1-4`: added (absent → unpriced)
+- `ds-sorcerer-on-disc-of-tzeentch-2` `oc-sorcerer-on-disc-of-tzeentch-2-1-5`: added (absent → unpriced)
+- `ds-sorcerer-on-disc-of-tzeentch-2` `oc-sorcerer-on-disc-of-tzeentch-2-1-6`: added (absent → unpriced)
+- `ds-sorcerer-on-palanquin-of-nurgle` `oc-sorcerer-on-palanquin-of-nurgle-1-1`: added (absent → unpriced)
+- `ds-sorcerer-on-palanquin-of-nurgle` `oc-sorcerer-on-palanquin-of-nurgle-1-2`: added (absent → unpriced)
+- `ds-sorcerer-on-palanquin-of-nurgle` `oc-sorcerer-on-palanquin-of-nurgle-1-3`: added (absent → unpriced)
+- `ds-sorcerer-on-palanquin-of-nurgle` `oc-sorcerer-on-palanquin-of-nurgle-1-4`: added (absent → unpriced)
+- `ds-sorcerer-on-palanquin-of-nurgle` `oc-sorcerer-on-palanquin-of-nurgle-1-5`: added (absent → unpriced)
+- `ds-sorcerer-on-palanquin-of-nurgle` `oc-sorcerer-on-palanquin-of-nurgle-1-6`: added (absent → unpriced)
+- `ds-sorcerer-on-palanquin-of-nurgle-2` `oc-sorcerer-on-palanquin-of-nurgle-2-1-1`: added (absent → unpriced)
+- `ds-sorcerer-on-palanquin-of-nurgle-2` `oc-sorcerer-on-palanquin-of-nurgle-2-1-2`: added (absent → unpriced)
+- `ds-sorcerer-on-palanquin-of-nurgle-2` `oc-sorcerer-on-palanquin-of-nurgle-2-1-3`: added (absent → unpriced)
+- `ds-sorcerer-on-palanquin-of-nurgle-2` `oc-sorcerer-on-palanquin-of-nurgle-2-1-4`: added (absent → unpriced)
+- `ds-sorcerer-on-palanquin-of-nurgle-2` `oc-sorcerer-on-palanquin-of-nurgle-2-1-5`: added (absent → unpriced)
+- `ds-sorcerer-on-palanquin-of-nurgle-2` `oc-sorcerer-on-palanquin-of-nurgle-2-1-6`: added (absent → unpriced)
+- `ds-sorcerer-on-palanquin-of-nurgle-3` `oc-sorcerer-on-palanquin-of-nurgle-3-1-1`: added (absent → unpriced)
+- `ds-sorcerer-on-palanquin-of-nurgle-3` `oc-sorcerer-on-palanquin-of-nurgle-3-1-2`: added (absent → unpriced)
+- `ds-sorcerer-on-palanquin-of-nurgle-3` `oc-sorcerer-on-palanquin-of-nurgle-3-1-3`: added (absent → unpriced)
+- `ds-sorcerer-on-palanquin-of-nurgle-3` `oc-sorcerer-on-palanquin-of-nurgle-3-1-4`: added (absent → unpriced)
+- `ds-sorcerer-on-palanquin-of-nurgle-3` `oc-sorcerer-on-palanquin-of-nurgle-3-1-5`: added (absent → unpriced)
+- `ds-sorcerer-on-palanquin-of-nurgle-3` `oc-sorcerer-on-palanquin-of-nurgle-3-1-6`: added (absent → unpriced)
+- `ds-sorcerer-on-steed-of-slaanesh` `oc-sorcerer-on-steed-of-slaanesh-1-1`: added (absent → unpriced)
+- `ds-sorcerer-on-steed-of-slaanesh` `oc-sorcerer-on-steed-of-slaanesh-1-2`: added (absent → unpriced)
+- `ds-sorcerer-on-steed-of-slaanesh` `oc-sorcerer-on-steed-of-slaanesh-1-3`: added (absent → unpriced)
+- `ds-sorcerer-on-steed-of-slaanesh` `oc-sorcerer-on-steed-of-slaanesh-1-4`: added (absent → unpriced)
+- `ds-sorcerer-on-steed-of-slaanesh` `oc-sorcerer-on-steed-of-slaanesh-1-5`: added (absent → unpriced)
+- `ds-sorcerer-on-steed-of-slaanesh` `oc-sorcerer-on-steed-of-slaanesh-1-6`: added (absent → unpriced)
+- `ds-sorcerer-on-steed-of-slaanesh-2` `oc-sorcerer-on-steed-of-slaanesh-2-1-1`: added (absent → unpriced)
+- `ds-sorcerer-on-steed-of-slaanesh-2` `oc-sorcerer-on-steed-of-slaanesh-2-1-2`: added (absent → unpriced)
+- `ds-sorcerer-on-steed-of-slaanesh-2` `oc-sorcerer-on-steed-of-slaanesh-2-1-3`: added (absent → unpriced)
+- `ds-sorcerer-on-steed-of-slaanesh-2` `oc-sorcerer-on-steed-of-slaanesh-2-1-4`: added (absent → unpriced)
+- `ds-sorcerer-on-steed-of-slaanesh-2` `oc-sorcerer-on-steed-of-slaanesh-2-1-5`: added (absent → unpriced)
+- `ds-sorcerer-on-steed-of-slaanesh-2` `oc-sorcerer-on-steed-of-slaanesh-2-1-6`: added (absent → unpriced)
+- `ds-sororitas-rhino` `oc-sororitas-rhino-1-1`: added (absent → unpriced)
+- `ds-soul-grinder` `oc-soul-grinder-1-1`: added (absent → unpriced)
+- `ds-spartan` `oc-spartan-1-1`: added (absent → unpriced)
+- `ds-spartan` `oc-spartan-2-1`: added (absent → unpriced)
+- `ds-spartan` `oc-spartan-3-1`: added (absent → unpriced)
+- `ds-spartan` `oc-spartan-3-2`: added (absent → unpriced)
+- `ds-spartan` `oc-spartan-3-3`: added (absent → unpriced)
+- `ds-spartan` `oc-spartan-3-4`: added (absent → unpriced)
+- `ds-spartan-2` `oc-spartan-2-1-1`: added (absent → unpriced)
+- `ds-spartan-2` `oc-spartan-2-2-1`: added (absent → unpriced)
+- `ds-spartan-2` `oc-spartan-2-3-1`: added (absent → unpriced)
+- `ds-spartan-2` `oc-spartan-2-3-2`: added (absent → unpriced)
+- `ds-spartan-2` `oc-spartan-2-3-3`: added (absent → unpriced)
+- `ds-spartan-2` `oc-spartan-2-3-4`: added (absent → unpriced)
+- `ds-spartan-3` `oc-spartan-3-1-1`: added (absent → unpriced)
+- `ds-spartan-3` `oc-spartan-3-2-1`: added (absent → unpriced)
+- `ds-spartan-3` `oc-spartan-3-3-1`: added (absent → unpriced)
+- `ds-spartan-3` `oc-spartan-3-3-2`: added (absent → unpriced)
+- `ds-spartan-3` `oc-spartan-3-3-3`: added (absent → unpriced)
+- `ds-spartan-3` `oc-spartan-3-3-4`: added (absent → unpriced)
+- `ds-spartan-4` `oc-spartan-4-1-1`: added (absent → unpriced)
+- `ds-spartan-4` `oc-spartan-4-2-1`: added (absent → unpriced)
+- `ds-spartan-4` `oc-spartan-4-3-1`: added (absent → unpriced)
+- `ds-spartan-4` `oc-spartan-4-3-2`: added (absent → unpriced)
+- `ds-spartan-4` `oc-spartan-4-3-3`: added (absent → unpriced)
+- `ds-spartan-4` `oc-spartan-4-3-4`: added (absent → unpriced)
+- `ds-spartan-5` `oc-spartan-5-1-1`: added (absent → unpriced)
+- `ds-spartan-5` `oc-spartan-5-2-1`: added (absent → unpriced)
+- `ds-spartan-5` `oc-spartan-5-3-1`: added (absent → unpriced)
+- `ds-spartan-5` `oc-spartan-5-3-2`: added (absent → unpriced)
+- `ds-spartan-5` `oc-spartan-5-3-3`: added (absent → unpriced)
+- `ds-spartan-5` `oc-spartan-5-3-4`: added (absent → unpriced)
+- `ds-squiggoth` `oc-squiggoth-1-1`: added (absent → unpriced)
+- `ds-squighog-boyz` `oc-squighog-boyz-1-1`: added (absent → unpriced)
+- `ds-stalker` `oc-stalker-1-1`: added (absent → unpriced)
+- `ds-stalker` `oc-stalker-2-1`: added (absent → unpriced)
+- `ds-stealth-battlesuits` `oc-stealth-battlesuits-1-1`: added (absent → unpriced)
+- `ds-stealth-battlesuits` `oc-stealth-battlesuits-2-1`: added (absent → unpriced)
+- `ds-stealth-battlesuits` `oc-stealth-battlesuits-3-1`: added (absent → unpriced)
+- `ds-stealth-battlesuits` `oc-stealth-battlesuits-4-1`: added (absent → unpriced)
+- `ds-sternguard-veteran-squad` `oc-sternguard-veteran-squad-1-1`: added (absent → unpriced)
+- `ds-sternguard-veteran-squad` `oc-sternguard-veteran-squad-1-2`: added (absent → unpriced)
+- `ds-sternguard-veteran-squad` `oc-sternguard-veteran-squad-1-3`: added (absent → unpriced)
+- `ds-sternguard-veteran-squad` `oc-sternguard-veteran-squad-1-4`: added (absent → unpriced)
+- `ds-sternguard-veteran-squad` `oc-sternguard-veteran-squad-1-5`: added (absent → unpriced)
+- `ds-sternguard-veteran-squad` `oc-sternguard-veteran-squad-1-6`: added (absent → unpriced)
+- `ds-sternguard-veteran-squad` `oc-sternguard-veteran-squad-1-7`: added (absent → unpriced)
+- `ds-sternguard-veteran-squad` `oc-sternguard-veteran-squad-3-1`: added (absent → unpriced)
+- `ds-sternguard-veteran-squad` `oc-sternguard-veteran-squad-3-2`: added (absent → unpriced)
+- `ds-sternguard-veteran-squad-2` `oc-sternguard-veteran-squad-2-1-1`: added (absent → unpriced)
+- `ds-sternguard-veteran-squad-2` `oc-sternguard-veteran-squad-2-1-2`: added (absent → unpriced)
+- `ds-sternguard-veteran-squad-2` `oc-sternguard-veteran-squad-2-1-3`: added (absent → unpriced)
+- `ds-sternguard-veteran-squad-2` `oc-sternguard-veteran-squad-2-1-4`: added (absent → unpriced)
+- `ds-sternguard-veteran-squad-2` `oc-sternguard-veteran-squad-2-1-5`: added (absent → unpriced)
+- `ds-sternguard-veteran-squad-2` `oc-sternguard-veteran-squad-2-1-6`: added (absent → unpriced)
+- `ds-sternguard-veteran-squad-2` `oc-sternguard-veteran-squad-2-1-7`: added (absent → unpriced)
+- `ds-sternguard-veteran-squad-2` `oc-sternguard-veteran-squad-2-3-1`: added (absent → unpriced)
+- `ds-sternguard-veteran-squad-2` `oc-sternguard-veteran-squad-2-3-2`: added (absent → unpriced)
+- `ds-sternguard-veteran-squad-3` `oc-sternguard-veteran-squad-3-1-1`: added (absent → unpriced)
+- `ds-sternguard-veteran-squad-3` `oc-sternguard-veteran-squad-3-1-2`: added (absent → unpriced)
+- `ds-sternguard-veteran-squad-3` `oc-sternguard-veteran-squad-3-1-3`: added (absent → unpriced)
+- `ds-sternguard-veteran-squad-3` `oc-sternguard-veteran-squad-3-1-4`: added (absent → unpriced)
+- `ds-sternguard-veteran-squad-3` `oc-sternguard-veteran-squad-3-1-5`: added (absent → unpriced)
+- `ds-sternguard-veteran-squad-3` `oc-sternguard-veteran-squad-3-1-6`: added (absent → unpriced)
+- `ds-sternguard-veteran-squad-3` `oc-sternguard-veteran-squad-3-1-7`: added (absent → unpriced)
+- `ds-sternguard-veteran-squad-3` `oc-sternguard-veteran-squad-3-3-1`: added (absent → unpriced)
+- `ds-sternguard-veteran-squad-3` `oc-sternguard-veteran-squad-3-3-2`: added (absent → unpriced)
+- `ds-sternguard-veteran-squad-4` `oc-sternguard-veteran-squad-4-1-1`: added (absent → unpriced)
+- `ds-sternguard-veteran-squad-4` `oc-sternguard-veteran-squad-4-1-2`: added (absent → unpriced)
+- `ds-sternguard-veteran-squad-4` `oc-sternguard-veteran-squad-4-1-3`: added (absent → unpriced)
+- `ds-sternguard-veteran-squad-4` `oc-sternguard-veteran-squad-4-1-4`: added (absent → unpriced)
+- `ds-sternguard-veteran-squad-4` `oc-sternguard-veteran-squad-4-1-5`: added (absent → unpriced)
+- `ds-sternguard-veteran-squad-4` `oc-sternguard-veteran-squad-4-1-6`: added (absent → unpriced)
+- `ds-sternguard-veteran-squad-4` `oc-sternguard-veteran-squad-4-1-7`: added (absent → unpriced)
+- `ds-sternguard-veteran-squad-4` `oc-sternguard-veteran-squad-4-3-1`: added (absent → unpriced)
+- `ds-sternguard-veteran-squad-4` `oc-sternguard-veteran-squad-4-3-2`: added (absent → unpriced)
+- `ds-sternguard-veteran-squad-5` `oc-sternguard-veteran-squad-5-1-1`: added (absent → unpriced)
+- `ds-sternguard-veteran-squad-5` `oc-sternguard-veteran-squad-5-1-2`: added (absent → unpriced)
+- `ds-sternguard-veteran-squad-5` `oc-sternguard-veteran-squad-5-1-3`: added (absent → unpriced)
+- `ds-sternguard-veteran-squad-5` `oc-sternguard-veteran-squad-5-1-4`: added (absent → unpriced)
+- `ds-sternguard-veteran-squad-5` `oc-sternguard-veteran-squad-5-1-5`: added (absent → unpriced)
+- `ds-sternguard-veteran-squad-5` `oc-sternguard-veteran-squad-5-1-6`: added (absent → unpriced)
+- `ds-sternguard-veteran-squad-5` `oc-sternguard-veteran-squad-5-1-7`: added (absent → unpriced)
+- `ds-sternguard-veteran-squad-5` `oc-sternguard-veteran-squad-5-3-1`: added (absent → unpriced)
+- `ds-sternguard-veteran-squad-5` `oc-sternguard-veteran-squad-5-3-2`: added (absent → unpriced)
+- `ds-sternguard-veteran-squad-6` `oc-sternguard-veteran-squad-6-1-1`: added (absent → unpriced)
+- `ds-sternguard-veteran-squad-6` `oc-sternguard-veteran-squad-6-1-2`: added (absent → unpriced)
+- `ds-sternguard-veteran-squad-6` `oc-sternguard-veteran-squad-6-1-3`: added (absent → unpriced)
+- `ds-sternguard-veteran-squad-6` `oc-sternguard-veteran-squad-6-1-4`: added (absent → unpriced)
+- `ds-sternguard-veteran-squad-6` `oc-sternguard-veteran-squad-6-1-5`: added (absent → unpriced)
+- `ds-sternguard-veteran-squad-6` `oc-sternguard-veteran-squad-6-1-6`: added (absent → unpriced)
+- `ds-sternguard-veteran-squad-6` `oc-sternguard-veteran-squad-6-1-7`: added (absent → unpriced)
+- `ds-sternguard-veteran-squad-6` `oc-sternguard-veteran-squad-6-3-1`: added (absent → unpriced)
+- `ds-sternguard-veteran-squad-6` `oc-sternguard-veteran-squad-6-3-2`: added (absent → unpriced)
+- `ds-storm-chimera` `oc-storm-chimera-1-1`: added (absent → unpriced)
+- `ds-storm-chimera` `oc-storm-chimera-2-1`: added (absent → unpriced)
+- `ds-storm-chimera` `oc-storm-chimera-3-1`: added (absent → unpriced)
+- `ds-storm-chimera` `oc-storm-chimera-3-2`: added (absent → unpriced)
+- `ds-storm-chimera-2` `oc-storm-chimera-2-1-1`: added (absent → unpriced)
+- `ds-storm-chimera-2` `oc-storm-chimera-2-2-1`: added (absent → unpriced)
+- `ds-storm-chimera-2` `oc-storm-chimera-2-3-1`: added (absent → unpriced)
+- `ds-storm-chimera-2` `oc-storm-chimera-2-3-2`: added (absent → unpriced)
+- `ds-storm-eagle-gunship` `oc-storm-eagle-gunship-1-1`: added (absent → unpriced)
+- `ds-storm-eagle-gunship` `oc-storm-eagle-gunship-1-2`: added (absent → unpriced)
+- `ds-storm-eagle-gunship` `oc-storm-eagle-gunship-2-1`: added (absent → unpriced)
+- `ds-storm-eagle-gunship-2` `oc-storm-eagle-gunship-2-1-1`: added (absent → unpriced)
+- `ds-storm-eagle-gunship-2` `oc-storm-eagle-gunship-2-1-2`: added (absent → unpriced)
+- `ds-storm-eagle-gunship-2` `oc-storm-eagle-gunship-2-2-1`: added (absent → unpriced)
+- `ds-storm-eagle-gunship-3` `oc-storm-eagle-gunship-3-1-1`: added (absent → unpriced)
+- `ds-storm-eagle-gunship-3` `oc-storm-eagle-gunship-3-1-2`: added (absent → unpriced)
+- `ds-storm-eagle-gunship-3` `oc-storm-eagle-gunship-3-2-1`: added (absent → unpriced)
+- `ds-storm-eagle-gunship-4` `oc-storm-eagle-gunship-4-1-1`: added (absent → unpriced)
+- `ds-storm-eagle-gunship-4` `oc-storm-eagle-gunship-4-1-2`: added (absent → unpriced)
+- `ds-storm-eagle-gunship-4` `oc-storm-eagle-gunship-4-2-1`: added (absent → unpriced)
+- `ds-storm-eagle-gunship-5` `oc-storm-eagle-gunship-5-1-1`: added (absent → unpriced)
+- `ds-storm-eagle-gunship-5` `oc-storm-eagle-gunship-5-1-2`: added (absent → unpriced)
+- `ds-storm-eagle-gunship-5` `oc-storm-eagle-gunship-5-2-1`: added (absent → unpriced)
+- `ds-stormblade` `oc-stormblade-1-1`: added (absent → unpriced)
+- `ds-stormblade` `oc-stormblade-2-1`: added (absent → unpriced)
+- `ds-stormblade` `oc-stormblade-3-1`: added (absent → unpriced)
+- `ds-stormblade` `oc-stormblade-3-2`: added (absent → unpriced)
+- `ds-stormblade` `oc-stormblade-4-1`: added (absent → unpriced)
+- `ds-stormblade` `oc-stormblade-4-2`: added (absent → unpriced)
+- `ds-stormblade-2` `oc-stormblade-2-1-1`: added (absent → unpriced)
+- `ds-stormblade-2` `oc-stormblade-2-2-1`: added (absent → unpriced)
+- `ds-stormblade-2` `oc-stormblade-2-3-1`: added (absent → unpriced)
+- `ds-stormblade-2` `oc-stormblade-2-3-2`: added (absent → unpriced)
+- `ds-stormblade-2` `oc-stormblade-2-4-1`: added (absent → unpriced)
+- `ds-stormblade-2` `oc-stormblade-2-4-2`: added (absent → unpriced)
+- `ds-stormboyz` `oc-stormboyz-1-1`: added (absent → unpriced)
+- `ds-stormfang-gunship` `oc-stormfang-gunship-1-1`: added (absent → unpriced)
+- `ds-stormfang-gunship` `oc-stormfang-gunship-1-2`: added (absent → unpriced)
+- `ds-stormfang-gunship` `oc-stormfang-gunship-2-1`: added (absent → unpriced)
+- `ds-stormhawk-interceptor` `oc-stormhawk-interceptor-1-1`: added (absent → unpriced)
+- `ds-stormhawk-interceptor` `oc-stormhawk-interceptor-1-2`: added (absent → unpriced)
+- `ds-stormhawk-interceptor` `oc-stormhawk-interceptor-2-1`: added (absent → unpriced)
+- `ds-stormhawk-interceptor-2` `oc-stormhawk-interceptor-2-1-1`: added (absent → unpriced)
+- `ds-stormhawk-interceptor-2` `oc-stormhawk-interceptor-2-1-2`: added (absent → unpriced)
+- `ds-stormhawk-interceptor-2` `oc-stormhawk-interceptor-2-2-1`: added (absent → unpriced)
+- `ds-stormhawk-interceptor-3` `oc-stormhawk-interceptor-3-1-1`: added (absent → unpriced)
+- `ds-stormhawk-interceptor-3` `oc-stormhawk-interceptor-3-1-2`: added (absent → unpriced)
+- `ds-stormhawk-interceptor-3` `oc-stormhawk-interceptor-3-2-1`: added (absent → unpriced)
+- `ds-stormhawk-interceptor-4` `oc-stormhawk-interceptor-4-1-1`: added (absent → unpriced)
+- `ds-stormhawk-interceptor-4` `oc-stormhawk-interceptor-4-1-2`: added (absent → unpriced)
+- `ds-stormhawk-interceptor-4` `oc-stormhawk-interceptor-4-2-1`: added (absent → unpriced)
+- `ds-stormhawk-interceptor-5` `oc-stormhawk-interceptor-5-1-1`: added (absent → unpriced)
+- `ds-stormhawk-interceptor-5` `oc-stormhawk-interceptor-5-2-1`: added (absent → unpriced)
+- `ds-stormhawk-interceptor-5` `oc-stormhawk-interceptor-5-2-2`: added (absent → unpriced)
+- `ds-stormhawk-interceptor-6` `oc-stormhawk-interceptor-6-1-1`: added (absent → unpriced)
+- `ds-stormhawk-interceptor-6` `oc-stormhawk-interceptor-6-1-2`: added (absent → unpriced)
+- `ds-stormhawk-interceptor-6` `oc-stormhawk-interceptor-6-2-1`: added (absent → unpriced)
+- `ds-stormhawk-interceptor-7` `oc-stormhawk-interceptor-7-1-1`: added (absent → unpriced)
+- `ds-stormhawk-interceptor-7` `oc-stormhawk-interceptor-7-1-2`: added (absent → unpriced)
+- `ds-stormhawk-interceptor-7` `oc-stormhawk-interceptor-7-2-1`: added (absent → unpriced)
+- `ds-stormlord` `oc-stormlord-1-1`: added (absent → unpriced)
+- `ds-stormlord` `oc-stormlord-2-1`: added (absent → unpriced)
+- `ds-stormlord` `oc-stormlord-2-2`: added (absent → unpriced)
+- `ds-stormlord-2` `oc-stormlord-2-1-1`: added (absent → unpriced)
+- `ds-stormlord-2` `oc-stormlord-2-2-1`: added (absent → unpriced)
+- `ds-stormlord-2` `oc-stormlord-2-2-2`: added (absent → unpriced)
+- `ds-stormraven-gunship` `oc-stormraven-gunship-1-1`: added (absent → unpriced)
+- `ds-stormraven-gunship` `oc-stormraven-gunship-1-2`: added (absent → unpriced)
+- `ds-stormraven-gunship` `oc-stormraven-gunship-2-1`: added (absent → unpriced)
+- `ds-stormraven-gunship` `oc-stormraven-gunship-2-2`: added (absent → unpriced)
+- `ds-stormraven-gunship` `oc-stormraven-gunship-3-1`: added (absent → unpriced)
+- `ds-stormraven-gunship-2` `oc-stormraven-gunship-2-1-1`: added (absent → unpriced)
+- `ds-stormraven-gunship-2` `oc-stormraven-gunship-2-1-2`: added (absent → unpriced)
+- `ds-stormraven-gunship-2` `oc-stormraven-gunship-2-2-1`: added (absent → unpriced)
+- `ds-stormraven-gunship-2` `oc-stormraven-gunship-2-2-2`: added (absent → unpriced)
+- `ds-stormraven-gunship-2` `oc-stormraven-gunship-2-3-1`: added (absent → unpriced)
+- `ds-stormraven-gunship-3` `oc-stormraven-gunship-3-1-1`: added (absent → unpriced)
+- `ds-stormraven-gunship-3` `oc-stormraven-gunship-3-1-2`: added (absent → unpriced)
+- `ds-stormraven-gunship-3` `oc-stormraven-gunship-3-2-1`: added (absent → unpriced)
+- `ds-stormraven-gunship-3` `oc-stormraven-gunship-3-2-2`: added (absent → unpriced)
+- `ds-stormraven-gunship-3` `oc-stormraven-gunship-3-3-1`: added (absent → unpriced)
+- `ds-stormraven-gunship-4` `oc-stormraven-gunship-4-1-1`: added (absent → unpriced)
+- `ds-stormraven-gunship-4` `oc-stormraven-gunship-4-1-2`: added (absent → unpriced)
+- `ds-stormraven-gunship-4` `oc-stormraven-gunship-4-2-1`: added (absent → unpriced)
+- `ds-stormraven-gunship-4` `oc-stormraven-gunship-4-2-2`: added (absent → unpriced)
+- `ds-stormraven-gunship-4` `oc-stormraven-gunship-4-3-1`: added (absent → unpriced)
+- `ds-stormraven-gunship-5` `oc-stormraven-gunship-5-1-1`: added (absent → unpriced)
+- `ds-stormraven-gunship-5` `oc-stormraven-gunship-5-2-1`: added (absent → unpriced)
+- `ds-stormraven-gunship-5` `oc-stormraven-gunship-5-2-2`: added (absent → unpriced)
+- `ds-stormraven-gunship-5` `oc-stormraven-gunship-5-3-1`: added (absent → unpriced)
+- `ds-stormraven-gunship-5` `oc-stormraven-gunship-5-3-2`: added (absent → unpriced)
+- `ds-stormraven-gunship-6` `oc-stormraven-gunship-6-1-1`: added (absent → unpriced)
+- `ds-stormraven-gunship-6` `oc-stormraven-gunship-6-1-2`: added (absent → unpriced)
+- `ds-stormraven-gunship-6` `oc-stormraven-gunship-6-2-1`: added (absent → unpriced)
+- `ds-stormraven-gunship-6` `oc-stormraven-gunship-6-2-2`: added (absent → unpriced)
+- `ds-stormraven-gunship-6` `oc-stormraven-gunship-6-3-1`: added (absent → unpriced)
+- `ds-stormraven-gunship-7` `oc-stormraven-gunship-7-1-1`: added (absent → unpriced)
+- `ds-stormraven-gunship-7` `oc-stormraven-gunship-7-1-2`: added (absent → unpriced)
+- `ds-stormraven-gunship-7` `oc-stormraven-gunship-7-2-1`: added (absent → unpriced)
+- `ds-stormraven-gunship-7` `oc-stormraven-gunship-7-2-2`: added (absent → unpriced)
+- `ds-stormraven-gunship-7` `oc-stormraven-gunship-7-3-1`: added (absent → unpriced)
+- `ds-stormsurge` `oc-stormsurge-1-1`: added (absent → unpriced)
+- `ds-stormsurge` `oc-stormsurge-2-1`: added (absent → unpriced)
+- `ds-stormsurge` `oc-stormsurge-2-2`: added (absent → unpriced)
+- `ds-stormsword` `oc-stormsword-1-1`: added (absent → unpriced)
+- `ds-stormsword` `oc-stormsword-2-1`: added (absent → unpriced)
+- `ds-stormsword` `oc-stormsword-2-2`: added (absent → unpriced)
+- `ds-stormsword-2` `oc-stormsword-2-1-1`: added (absent → unpriced)
+- `ds-stormsword-2` `oc-stormsword-2-2-1`: added (absent → unpriced)
+- `ds-stormsword-2` `oc-stormsword-2-2-2`: added (absent → unpriced)
+- `ds-stormtalon-gunship` `oc-stormtalon-gunship-1-1`: added (absent → unpriced)
+- `ds-stormtalon-gunship` `oc-stormtalon-gunship-1-2`: added (absent → unpriced)
+- `ds-stormtalon-gunship` `oc-stormtalon-gunship-1-3`: added (absent → unpriced)
+- `ds-stormtalon-gunship-2` `oc-stormtalon-gunship-2-1-1`: added (absent → unpriced)
+- `ds-stormtalon-gunship-2` `oc-stormtalon-gunship-2-1-2`: added (absent → unpriced)
+- `ds-stormtalon-gunship-2` `oc-stormtalon-gunship-2-1-3`: added (absent → unpriced)
+- `ds-stormtalon-gunship-3` `oc-stormtalon-gunship-3-1-1`: added (absent → unpriced)
+- `ds-stormtalon-gunship-3` `oc-stormtalon-gunship-3-1-2`: added (absent → unpriced)
+- `ds-stormtalon-gunship-3` `oc-stormtalon-gunship-3-1-3`: added (absent → unpriced)
+- `ds-stormtalon-gunship-4` `oc-stormtalon-gunship-4-1-1`: added (absent → unpriced)
+- `ds-stormtalon-gunship-4` `oc-stormtalon-gunship-4-1-2`: added (absent → unpriced)
+- `ds-stormtalon-gunship-4` `oc-stormtalon-gunship-4-1-3`: added (absent → unpriced)
+- `ds-stormtalon-gunship-5` `oc-stormtalon-gunship-5-1-1`: added (absent → unpriced)
+- `ds-stormtalon-gunship-5` `oc-stormtalon-gunship-5-1-2`: added (absent → unpriced)
+- `ds-stormtalon-gunship-5` `oc-stormtalon-gunship-5-1-3`: added (absent → unpriced)
+- `ds-stormtalon-gunship-6` `oc-stormtalon-gunship-6-1-1`: added (absent → unpriced)
+- `ds-stormtalon-gunship-6` `oc-stormtalon-gunship-6-1-2`: added (absent → unpriced)
+- `ds-stormtalon-gunship-6` `oc-stormtalon-gunship-6-1-3`: added (absent → unpriced)
+- `ds-stormtalon-gunship-7` `oc-stormtalon-gunship-7-1-1`: added (absent → unpriced)
+- `ds-stormtalon-gunship-7` `oc-stormtalon-gunship-7-1-2`: added (absent → unpriced)
+- `ds-stormtalon-gunship-7` `oc-stormtalon-gunship-7-1-3`: added (absent → unpriced)
+- `ds-strike-squad` `oc-strike-squad-1-1`: added (absent → unpriced)
+- `ds-strike-squad` `oc-strike-squad-1-2`: added (absent → unpriced)
+- `ds-strike-squad` `oc-strike-squad-1-3`: added (absent → unpriced)
+- `ds-strike-team` `oc-strike-team-1-1`: added (absent → unpriced)
+- `ds-strike-team` `oc-strike-team-1-2`: added (absent → unpriced)
+- `ds-strike-team` `oc-strike-team-1-3`: added (absent → unpriced)
+- `ds-strike-team` `oc-strike-team-1-4`: added (absent → unpriced)
+- `ds-striking-scorpions` `oc-striking-scorpions-1-1`: added (absent → unpriced)
+- `ds-striking-scorpions` `oc-striking-scorpions-1-2`: added (absent → unpriced)
+- `ds-stygies-destroyer-tank-hunter` `oc-stygies-destroyer-tank-hunter-1-1`: added (absent → unpriced)
+- `ds-stygies-destroyer-tank-hunter` `oc-stygies-destroyer-tank-hunter-2-1`: added (absent → unpriced)
+- `ds-stygies-destroyer-tank-hunter` `oc-stygies-destroyer-tank-hunter-2-2`: added (absent → unpriced)
+- `ds-stygies-destroyer-tank-hunter-2` `oc-stygies-destroyer-tank-hunter-2-1-1`: added (absent → unpriced)
+- `ds-stygies-destroyer-tank-hunter-2` `oc-stygies-destroyer-tank-hunter-2-2-1`: added (absent → unpriced)
+- `ds-stygies-destroyer-tank-hunter-2` `oc-stygies-destroyer-tank-hunter-2-2-2`: added (absent → unpriced)
+- `ds-subductor-squad` `oc-subductor-squad-1-1`: added (absent → unpriced)
+- `ds-sun-shark-bomber` `oc-sun-shark-bomber-1-1`: added (absent → unpriced)
+- `ds-swooping-hawks` `oc-swooping-hawks-1-1`: added (absent → unpriced)
+- `ds-swooping-hawks` `oc-swooping-hawks-1-2`: added (absent → unpriced)
+- `ds-swooping-hawks` `oc-swooping-hawks-1-3`: added (absent → unpriced)
+- `ds-sword-brethren-squad` `oc-sword-brethren-squad-2-1`: added (absent → unpriced)
+- `ds-sword-brethren-squad` `oc-sword-brethren-squad-3-1`: added (absent → unpriced)
+- `ds-sword-brethren-squad` `oc-sword-brethren-squad-5-1`: added (absent → unpriced)
+- `ds-sydonian-skatros` `oc-sydonian-skatros-1-1`: added (absent → unpriced)
+- `ds-tactical-squad` `oc-tactical-squad-1-1`: added (absent → unpriced)
+- `ds-tactical-squad` `oc-tactical-squad-1-10`: added (absent → unpriced)
+- `ds-tactical-squad` `oc-tactical-squad-1-2`: added (absent → unpriced)
+- `ds-tactical-squad` `oc-tactical-squad-1-3`: added (absent → unpriced)
+- `ds-tactical-squad` `oc-tactical-squad-1-4`: added (absent → unpriced)
+- `ds-tactical-squad` `oc-tactical-squad-1-5`: added (absent → unpriced)
+- `ds-tactical-squad` `oc-tactical-squad-1-6`: added (absent → unpriced)
+- `ds-tactical-squad` `oc-tactical-squad-1-7`: added (absent → unpriced)
+- `ds-tactical-squad` `oc-tactical-squad-1-8`: added (absent → unpriced)
+- `ds-tactical-squad` `oc-tactical-squad-1-9`: added (absent → unpriced)
+- `ds-tactical-squad` `oc-tactical-squad-2-1`: added (absent → unpriced)
+- `ds-tactical-squad` `oc-tactical-squad-2-2`: added (absent → unpriced)
+- `ds-tactical-squad` `oc-tactical-squad-2-3`: added (absent → unpriced)
+- `ds-tactical-squad` `oc-tactical-squad-2-4`: added (absent → unpriced)
+- `ds-tactical-squad` `oc-tactical-squad-3-1`: added (absent → unpriced)
+- `ds-tactical-squad` `oc-tactical-squad-3-10`: added (absent → unpriced)
+- `ds-tactical-squad` `oc-tactical-squad-3-2`: added (absent → unpriced)
+- `ds-tactical-squad` `oc-tactical-squad-3-3`: added (absent → unpriced)
+- `ds-tactical-squad` `oc-tactical-squad-3-4`: added (absent → unpriced)
+- `ds-tactical-squad` `oc-tactical-squad-3-5`: added (absent → unpriced)
+- `ds-tactical-squad` `oc-tactical-squad-3-6`: added (absent → unpriced)
+- `ds-tactical-squad` `oc-tactical-squad-3-7`: added (absent → unpriced)
+- `ds-tactical-squad` `oc-tactical-squad-3-8`: added (absent → unpriced)
+- `ds-tactical-squad` `oc-tactical-squad-3-9`: added (absent → unpriced)
+- `ds-tactical-squad-2` `oc-tactical-squad-2-1-1`: added (absent → unpriced)
+- `ds-tactical-squad-2` `oc-tactical-squad-2-1-10`: added (absent → unpriced)
+- `ds-tactical-squad-2` `oc-tactical-squad-2-1-2`: added (absent → unpriced)
+- `ds-tactical-squad-2` `oc-tactical-squad-2-1-3`: added (absent → unpriced)
+- `ds-tactical-squad-2` `oc-tactical-squad-2-1-4`: added (absent → unpriced)
+- `ds-tactical-squad-2` `oc-tactical-squad-2-1-5`: added (absent → unpriced)
+- `ds-tactical-squad-2` `oc-tactical-squad-2-1-6`: added (absent → unpriced)
+- `ds-tactical-squad-2` `oc-tactical-squad-2-1-7`: added (absent → unpriced)
+- `ds-tactical-squad-2` `oc-tactical-squad-2-1-8`: added (absent → unpriced)
+- `ds-tactical-squad-2` `oc-tactical-squad-2-1-9`: added (absent → unpriced)
+- `ds-tactical-squad-2` `oc-tactical-squad-2-2-1`: added (absent → unpriced)
+- `ds-tactical-squad-2` `oc-tactical-squad-2-2-2`: added (absent → unpriced)
+- `ds-tactical-squad-2` `oc-tactical-squad-2-2-3`: added (absent → unpriced)
+- `ds-tactical-squad-2` `oc-tactical-squad-2-2-4`: added (absent → unpriced)
+- `ds-tactical-squad-2` `oc-tactical-squad-2-3-1`: added (absent → unpriced)
+- `ds-tactical-squad-2` `oc-tactical-squad-2-3-10`: added (absent → unpriced)
+- `ds-tactical-squad-2` `oc-tactical-squad-2-3-2`: added (absent → unpriced)
+- `ds-tactical-squad-2` `oc-tactical-squad-2-3-3`: added (absent → unpriced)
+- `ds-tactical-squad-2` `oc-tactical-squad-2-3-4`: added (absent → unpriced)
+- `ds-tactical-squad-2` `oc-tactical-squad-2-3-5`: added (absent → unpriced)
+- `ds-tactical-squad-2` `oc-tactical-squad-2-3-6`: added (absent → unpriced)
+- `ds-tactical-squad-2` `oc-tactical-squad-2-3-7`: added (absent → unpriced)
+- `ds-tactical-squad-2` `oc-tactical-squad-2-3-8`: added (absent → unpriced)
+- `ds-tactical-squad-2` `oc-tactical-squad-2-3-9`: added (absent → unpriced)
+- `ds-tactical-squad-3` `oc-tactical-squad-3-1-1`: added (absent → unpriced)
+- `ds-tactical-squad-3` `oc-tactical-squad-3-1-10`: added (absent → unpriced)
+- `ds-tactical-squad-3` `oc-tactical-squad-3-1-2`: added (absent → unpriced)
+- `ds-tactical-squad-3` `oc-tactical-squad-3-1-3`: added (absent → unpriced)
+- `ds-tactical-squad-3` `oc-tactical-squad-3-1-4`: added (absent → unpriced)
+- `ds-tactical-squad-3` `oc-tactical-squad-3-1-5`: added (absent → unpriced)
+- `ds-tactical-squad-3` `oc-tactical-squad-3-1-6`: added (absent → unpriced)
+- `ds-tactical-squad-3` `oc-tactical-squad-3-1-7`: added (absent → unpriced)
+- `ds-tactical-squad-3` `oc-tactical-squad-3-1-8`: added (absent → unpriced)
+- `ds-tactical-squad-3` `oc-tactical-squad-3-1-9`: added (absent → unpriced)
+- `ds-tactical-squad-3` `oc-tactical-squad-3-2-1`: added (absent → unpriced)
+- `ds-tactical-squad-3` `oc-tactical-squad-3-2-2`: added (absent → unpriced)
+- `ds-tactical-squad-3` `oc-tactical-squad-3-2-3`: added (absent → unpriced)
+- `ds-tactical-squad-3` `oc-tactical-squad-3-2-4`: added (absent → unpriced)
+- `ds-tactical-squad-3` `oc-tactical-squad-3-3-1`: added (absent → unpriced)
+- `ds-tactical-squad-3` `oc-tactical-squad-3-3-10`: added (absent → unpriced)
+- `ds-tactical-squad-3` `oc-tactical-squad-3-3-2`: added (absent → unpriced)
+- `ds-tactical-squad-3` `oc-tactical-squad-3-3-3`: added (absent → unpriced)
+- `ds-tactical-squad-3` `oc-tactical-squad-3-3-4`: added (absent → unpriced)
+- `ds-tactical-squad-3` `oc-tactical-squad-3-3-5`: added (absent → unpriced)
+- `ds-tactical-squad-3` `oc-tactical-squad-3-3-6`: added (absent → unpriced)
+- `ds-tactical-squad-3` `oc-tactical-squad-3-3-7`: added (absent → unpriced)
+- `ds-tactical-squad-3` `oc-tactical-squad-3-3-8`: added (absent → unpriced)
+- `ds-tactical-squad-3` `oc-tactical-squad-3-3-9`: added (absent → unpriced)
+- `ds-tactical-squad-4` `oc-tactical-squad-4-1-1`: added (absent → unpriced)
+- `ds-tactical-squad-4` `oc-tactical-squad-4-1-10`: added (absent → unpriced)
+- `ds-tactical-squad-4` `oc-tactical-squad-4-1-2`: added (absent → unpriced)
+- `ds-tactical-squad-4` `oc-tactical-squad-4-1-3`: added (absent → unpriced)
+- `ds-tactical-squad-4` `oc-tactical-squad-4-1-4`: added (absent → unpriced)
+- `ds-tactical-squad-4` `oc-tactical-squad-4-1-5`: added (absent → unpriced)
+- `ds-tactical-squad-4` `oc-tactical-squad-4-1-6`: added (absent → unpriced)
+- `ds-tactical-squad-4` `oc-tactical-squad-4-1-7`: added (absent → unpriced)
+- `ds-tactical-squad-4` `oc-tactical-squad-4-1-8`: added (absent → unpriced)
+- `ds-tactical-squad-4` `oc-tactical-squad-4-1-9`: added (absent → unpriced)
+- `ds-tactical-squad-4` `oc-tactical-squad-4-2-1`: added (absent → unpriced)
+- `ds-tactical-squad-4` `oc-tactical-squad-4-2-2`: added (absent → unpriced)
+- `ds-tactical-squad-4` `oc-tactical-squad-4-2-3`: added (absent → unpriced)
+- `ds-tactical-squad-4` `oc-tactical-squad-4-2-4`: added (absent → unpriced)
+- `ds-tactical-squad-4` `oc-tactical-squad-4-3-1`: added (absent → unpriced)
+- `ds-tactical-squad-4` `oc-tactical-squad-4-3-10`: added (absent → unpriced)
+- `ds-tactical-squad-4` `oc-tactical-squad-4-3-2`: added (absent → unpriced)
+- `ds-tactical-squad-4` `oc-tactical-squad-4-3-3`: added (absent → unpriced)
+- `ds-tactical-squad-4` `oc-tactical-squad-4-3-4`: added (absent → unpriced)
+- `ds-tactical-squad-4` `oc-tactical-squad-4-3-5`: added (absent → unpriced)
+- `ds-tactical-squad-4` `oc-tactical-squad-4-3-6`: added (absent → unpriced)
+- `ds-tactical-squad-4` `oc-tactical-squad-4-3-7`: added (absent → unpriced)
+- `ds-tactical-squad-4` `oc-tactical-squad-4-3-8`: added (absent → unpriced)
+- `ds-tactical-squad-4` `oc-tactical-squad-4-3-9`: added (absent → unpriced)
+- `ds-tankbustas` `oc-tankbustas-1-1`: added (absent → unpriced)
+- `ds-taunar-supremacy-armour` `oc-taunar-supremacy-armour-1-1`: added (absent → unpriced)
+- `ds-taunar-supremacy-armour` `oc-taunar-supremacy-armour-2-1`: added (absent → unpriced)
+- `ds-taunar-supremacy-armour` `oc-taunar-supremacy-armour-3-1`: added (absent → unpriced)
+- `ds-taunar-supremacy-armour` `oc-taunar-supremacy-armour-3-2`: added (absent → unpriced)
+- `ds-tauros-assault-vehicle` `oc-tauros-assault-vehicle-1-1`: added (absent → unpriced)
+- `ds-tauros-assault-vehicle` `oc-tauros-assault-vehicle-2-1`: added (absent → unpriced)
+- `ds-tauros-assault-vehicle-2` `oc-tauros-assault-vehicle-2-1-1`: added (absent → unpriced)
+- `ds-tauros-assault-vehicle-2` `oc-tauros-assault-vehicle-2-2-1`: added (absent → unpriced)
+- `ds-tauros-venator` `oc-tauros-venator-1-1`: added (absent → unpriced)
+- `ds-tauros-venator` `oc-tauros-venator-2-1`: added (absent → unpriced)
+- `ds-tauros-venator-2` `oc-tauros-venator-2-1-1`: added (absent → unpriced)
+- `ds-tauros-venator-2` `oc-tauros-venator-2-2-1`: added (absent → unpriced)
+- `ds-taurox` `oc-taurox-1-1`: added (absent → unpriced)
+- `ds-taurox-2` `oc-taurox-2-1-1`: added (absent → unpriced)
+- `ds-taurox-prime` `oc-taurox-prime-1-1`: added (absent → unpriced)
+- `ds-taurox-prime` `oc-taurox-prime-1-2`: added (absent → unpriced)
+- `ds-taurox-prime` `oc-taurox-prime-2-1`: added (absent → unpriced)
+- `ds-taurox-prime` `oc-taurox-prime-3-1`: added (absent → unpriced)
+- `ds-taurox-prime-2` `oc-taurox-prime-2-1-1`: added (absent → unpriced)
+- `ds-taurox-prime-2` `oc-taurox-prime-2-1-2`: added (absent → unpriced)
+- `ds-taurox-prime-2` `oc-taurox-prime-2-2-1`: added (absent → unpriced)
+- `ds-taurox-prime-2` `oc-taurox-prime-2-3-1`: added (absent → unpriced)
+- `ds-tech-priest-dominus` `oc-tech-priest-dominus-1-1`: added (absent → unpriced)
+- `ds-tech-priest-dominus` `oc-tech-priest-dominus-2-1`: added (absent → unpriced)
+- `ds-tech-priest-dominus-2` `oc-tech-priest-dominus-2-1-1`: added (absent → unpriced)
+- `ds-tech-priest-dominus-2` `oc-tech-priest-dominus-2-2-1`: added (absent → unpriced)
+- `ds-tech-priest-manipulus` `oc-tech-priest-manipulus-1-1`: added (absent → unpriced)
+- `ds-tech-priest-manipulus-2` `oc-tech-priest-manipulus-2-1-1`: added (absent → unpriced)
+- `ds-techmarine-on-bike` `oc-techmarine-on-bike-1-1`: added (absent → unpriced)
+- `ds-techmarine-on-bike` `oc-techmarine-on-bike-1-2`: added (absent → unpriced)
+- `ds-techmarine-on-bike` `oc-techmarine-on-bike-1-3`: added (absent → unpriced)
+- `ds-techmarine-on-bike` `oc-techmarine-on-bike-1-4`: added (absent → unpriced)
+- `ds-techmarine-on-bike` `oc-techmarine-on-bike-1-5`: added (absent → unpriced)
+- `ds-techmarine-on-bike` `oc-techmarine-on-bike-2-1`: added (absent → unpriced)
+- `ds-techmarine-on-bike` `oc-techmarine-on-bike-2-2`: added (absent → unpriced)
+- `ds-techmarine-on-bike` `oc-techmarine-on-bike-2-3`: added (absent → unpriced)
+- `ds-telemon-heavy-dreadnought` `oc-telemon-heavy-dreadnought-1-1`: added (absent → unpriced)
+- `ds-telemon-heavy-dreadnought` `oc-telemon-heavy-dreadnought-1-2`: added (absent → unpriced)
+- `ds-telemon-heavy-dreadnought` `oc-telemon-heavy-dreadnought-1-3`: added (absent → unpriced)
+- `ds-telemon-heavy-dreadnought` `oc-telemon-heavy-dreadnought-1-4`: added (absent → unpriced)
+- `ds-telemon-heavy-dreadnought` `oc-telemon-heavy-dreadnought-1-5`: added (absent → unpriced)
+- `ds-tempestus-aquilons` `oc-tempestus-aquilons-1-1`: added (absent → unpriced)
+- `ds-tempestus-aquilons` `oc-tempestus-aquilons-1-2`: added (absent → unpriced)
+- `ds-tempestus-aquilons` `oc-tempestus-aquilons-2-1`: added (absent → unpriced)
+- `ds-tempestus-aquilons` `oc-tempestus-aquilons-2-2`: added (absent → unpriced)
+- `ds-tempestus-aquilons` `oc-tempestus-aquilons-2-3`: added (absent → unpriced)
+- `ds-tempestus-aquilons` `oc-tempestus-aquilons-3-1`: added (absent → unpriced)
+- `ds-tempestus-aquilons` `oc-tempestus-aquilons-3-2`: added (absent → unpriced)
+- `ds-tempestus-scions` `oc-tempestus-scions-2-1`: added (absent → unpriced)
+- `ds-tempestus-scions` `oc-tempestus-scions-3-1`: added (absent → unpriced)
+- `ds-tempestus-scions` `oc-tempestus-scions-3-2`: added (absent → unpriced)
+- `ds-tempestus-scions` `oc-tempestus-scions-4-1`: added (absent → unpriced)
+- `ds-tempestus-scions` `oc-tempestus-scions-4-2`: added (absent → unpriced)
+- `ds-termagants` `oc-termagants-3-1`: added (absent → unpriced)
+- `ds-termagants` `oc-termagants-4-1`: added (absent → unpriced)
+- `ds-termagants` `oc-termagants-5-1`: added (absent → unpriced)
+- `ds-terminator-squad` `oc-terminator-squad-1-1`: added (absent → unpriced)
+- `ds-terminator-squad` `oc-terminator-squad-1-2`: added (absent → unpriced)
+- `ds-terminator-squad` `oc-terminator-squad-1-3`: added (absent → unpriced)
+- `ds-terminator-squad` `oc-terminator-squad-3-1`: added (absent → unpriced)
+- `ds-terminator-squad-2` `oc-terminator-squad-2-1-1`: added (absent → unpriced)
+- `ds-terminator-squad-2` `oc-terminator-squad-2-1-2`: added (absent → unpriced)
+- `ds-terminator-squad-2` `oc-terminator-squad-2-1-3`: added (absent → unpriced)
+- `ds-terminator-squad-2` `oc-terminator-squad-2-3-1`: added (absent → unpriced)
+- `ds-terminator-squad-3` `oc-terminator-squad-3-1-1`: added (absent → unpriced)
+- `ds-terminator-squad-3` `oc-terminator-squad-3-1-2`: added (absent → unpriced)
+- `ds-terminator-squad-3` `oc-terminator-squad-3-1-3`: added (absent → unpriced)
+- `ds-terminator-squad-3` `oc-terminator-squad-3-3-1`: added (absent → unpriced)
+- `ds-terminator-squad-4` `oc-terminator-squad-4-1-1`: added (absent → unpriced)
+- `ds-terminator-squad-4` `oc-terminator-squad-4-1-2`: added (absent → unpriced)
+- `ds-terminator-squad-4` `oc-terminator-squad-4-1-3`: added (absent → unpriced)
+- `ds-terminator-squad-4` `oc-terminator-squad-4-3-1`: added (absent → unpriced)
+- `ds-terminator-squad-5` `oc-terminator-squad-5-1-1`: added (absent → unpriced)
+- `ds-terminator-squad-5` `oc-terminator-squad-5-1-2`: added (absent → unpriced)
+- `ds-terminator-squad-5` `oc-terminator-squad-5-1-3`: added (absent → unpriced)
+- `ds-terminator-squad-5` `oc-terminator-squad-5-3-1`: added (absent → unpriced)
+- `ds-terminus-ultra` `oc-terminus-ultra-1-1`: added (absent → unpriced)
+- `ds-terminus-ultra` `oc-terminus-ultra-2-1`: added (absent → unpriced)
+- `ds-terminus-ultra` `oc-terminus-ultra-3-1`: added (absent → unpriced)
+- `ds-terrax-pattern-termite` `oc-terrax-pattern-termite-1-1`: added (absent → unpriced)
+- `ds-terrax-pattern-termite` `oc-terrax-pattern-termite-1-2`: added (absent → unpriced)
+- `ds-terrax-pattern-termite-2` `oc-terrax-pattern-termite-2-1-1`: added (absent → unpriced)
+- `ds-terrax-pattern-termite-2` `oc-terrax-pattern-termite-2-1-2`: added (absent → unpriced)
+- `ds-terrax-pattern-termite-3` `oc-terrax-pattern-termite-3-1-1`: added (absent → unpriced)
+- `ds-terrax-pattern-termite-3` `oc-terrax-pattern-termite-3-1-2`: added (absent → unpriced)
+- `ds-terrax-pattern-termite-4` `oc-terrax-pattern-termite-4-1-1`: added (absent → unpriced)
+- `ds-terrax-pattern-termite-4` `oc-terrax-pattern-termite-4-1-2`: added (absent → unpriced)
+- `ds-terrax-pattern-termite-5` `oc-terrax-pattern-termite-5-1-1`: added (absent → unpriced)
+- `ds-terrax-pattern-termite-5` `oc-terrax-pattern-termite-5-1-2`: added (absent → unpriced)
+- `ds-terrax-pattern-termite-6` `oc-terrax-pattern-termite-6-1-1`: added (absent → unpriced)
+- `ds-terrax-pattern-termite-6` `oc-terrax-pattern-termite-6-1-2`: added (absent → unpriced)
+- `ds-tervigon` `oc-tervigon-1-1`: added (absent → unpriced)
+- `ds-tesseract-ark` `oc-tesseract-ark-1-1`: added (absent → unpriced)
+- `ds-tesseract-ark` `oc-tesseract-ark-1-2`: added (absent → unpriced)
+- `ds-thunderhawk-gunship` `oc-thunderhawk-gunship-1-1`: added (absent → unpriced)
+- `ds-thunderhawk-gunship` `oc-thunderhawk-gunship-2-1`: added (absent → unpriced)
+- `ds-thunderhawk-gunship-2` `oc-thunderhawk-gunship-2-1-1`: added (absent → unpriced)
+- `ds-thunderhawk-gunship-2` `oc-thunderhawk-gunship-2-2-1`: added (absent → unpriced)
+- `ds-thunderhawk-gunship-3` `oc-thunderhawk-gunship-3-1-1`: added (absent → unpriced)
+- `ds-thunderhawk-gunship-3` `oc-thunderhawk-gunship-3-2-1`: added (absent → unpriced)
+- `ds-thunderhawk-gunship-4` `oc-thunderhawk-gunship-4-1-1`: added (absent → unpriced)
+- `ds-thunderhawk-gunship-4` `oc-thunderhawk-gunship-4-2-1`: added (absent → unpriced)
+- `ds-thunderhawk-gunship-5` `oc-thunderhawk-gunship-5-1-1`: added (absent → unpriced)
+- `ds-thunderhawk-gunship-5` `oc-thunderhawk-gunship-5-2-1`: added (absent → unpriced)
+- `ds-thunderhawk-gunship-6` `oc-thunderhawk-gunship-6-1-1`: added (absent → unpriced)
+- `ds-thunderhawk-gunship-6` `oc-thunderhawk-gunship-6-2-1`: added (absent → unpriced)
+- `ds-thunderwolf-cavalry` `oc-thunderwolf-cavalry-2-1`: added (absent → unpriced)
+- `ds-tidewall-shieldline` `oc-tidewall-shieldline-1-1`: added (absent → 20)
+- `ds-tiger-shark` `oc-tiger-shark-1-1`: added (absent → unpriced)
+- `ds-tiger-shark` `oc-tiger-shark-2-1`: added (absent → unpriced)
+- `ds-tiger-shark` `oc-tiger-shark-2-2`: added (absent → unpriced)
+- `ds-tiger-shark` `oc-tiger-shark-3-1`: added (absent → unpriced)
+- `ds-tiger-shark` `oc-tiger-shark-4-1`: added (absent → unpriced)
+- `ds-tormentors` `oc-tormentors-1-1`: added (absent → unpriced)
+- `ds-tormentors` `oc-tormentors-2-1`: added (absent → unpriced)
+- `ds-tormentors` `oc-tormentors-3-1`: added (absent → unpriced)
+- `ds-tormentors` `oc-tormentors-4-1`: added (absent → unpriced)
+- `ds-tormentors` `oc-tormentors-5-1`: added (absent → unpriced)
+- `ds-traitor-guardsmen-squad` `oc-traitor-guardsmen-squad-2-1`: added (absent → unpriced)
+- `ds-traitor-guardsmen-squad` `oc-traitor-guardsmen-squad-2-2`: added (absent → unpriced)
+- `ds-traitor-guardsmen-squad` `oc-traitor-guardsmen-squad-3-1`: added (absent → unpriced)
+- `ds-traitor-guardsmen-squad-2` `oc-traitor-guardsmen-squad-2-2-1`: added (absent → unpriced)
+- `ds-traitor-guardsmen-squad-2` `oc-traitor-guardsmen-squad-2-2-2`: added (absent → unpriced)
+- `ds-traitor-guardsmen-squad-2` `oc-traitor-guardsmen-squad-2-3-1`: added (absent → unpriced)
+- `ds-traitor-guardsmen-squad-3` `oc-traitor-guardsmen-squad-3-2-1`: added (absent → unpriced)
+- `ds-traitor-guardsmen-squad-3` `oc-traitor-guardsmen-squad-3-2-2`: added (absent → unpriced)
+- `ds-traitor-guardsmen-squad-3` `oc-traitor-guardsmen-squad-3-3-1`: added (absent → unpriced)
+- `ds-triarch-stalker` `oc-triarch-stalker-1-1`: added (absent → unpriced)
+- `ds-triarch-stalker` `oc-triarch-stalker-1-2`: added (absent → unpriced)
+- `ds-trojan-support-vehicle` `oc-trojan-support-vehicle-1-1`: added (absent → unpriced)
+- `ds-trojan-support-vehicle` `oc-trojan-support-vehicle-2-1`: added (absent → unpriced)
+- `ds-trojan-support-vehicle-2` `oc-trojan-support-vehicle-2-1-1`: added (absent → unpriced)
+- `ds-trojan-support-vehicle-2` `oc-trojan-support-vehicle-2-2-1`: added (absent → unpriced)
+- `ds-troupe` `oc-troupe-2-1`: added (absent → unpriced)
+- `ds-troupe-2` `oc-troupe-2-2-1`: added (absent → unpriced)
+- `ds-troupe-master` `oc-troupe-master-1-1`: added (absent → unpriced)
+- `ds-troupe-master` `oc-troupe-master-1-2`: added (absent → unpriced)
+- `ds-troupe-master` `oc-troupe-master-2-1`: added (absent → unpriced)
+- `ds-troupe-master-2` `oc-troupe-master-2-1-1`: added (absent → unpriced)
+- `ds-troupe-master-2` `oc-troupe-master-2-1-2`: added (absent → unpriced)
+- `ds-troupe-master-2` `oc-troupe-master-2-2-1`: added (absent → unpriced)
+- `ds-trukk` `oc-trukk-1-1`: added (absent → unpriced)
+- `ds-tx42-piranha` `oc-tx42-piranha-1-1`: added (absent → unpriced)
+- `ds-tx42-piranha` `oc-tx42-piranha-1-2`: added (absent → unpriced)
+- `ds-tx42-piranha` `oc-tx42-piranha-1-3`: added (absent → unpriced)
+- `ds-typhon` `oc-typhon-1-1`: added (absent → unpriced)
+- `ds-typhon` `oc-typhon-1-2`: added (absent → unpriced)
+- `ds-typhon` `oc-typhon-2-1`: added (absent → unpriced)
+- `ds-typhon` `oc-typhon-2-2`: added (absent → unpriced)
+- `ds-typhon` `oc-typhon-2-3`: added (absent → unpriced)
+- `ds-typhon` `oc-typhon-2-4`: added (absent → unpriced)
+- `ds-typhon-2` `oc-typhon-2-1-1`: added (absent → unpriced)
+- `ds-typhon-2` `oc-typhon-2-1-2`: added (absent → unpriced)
+- `ds-typhon-2` `oc-typhon-2-2-1`: added (absent → unpriced)
+- `ds-typhon-2` `oc-typhon-2-2-2`: added (absent → unpriced)
+- `ds-typhon-2` `oc-typhon-2-2-3`: added (absent → unpriced)
+- `ds-typhon-2` `oc-typhon-2-2-4`: added (absent → unpriced)
+- `ds-typhon-3` `oc-typhon-3-1-1`: added (absent → unpriced)
+- `ds-typhon-3` `oc-typhon-3-1-2`: added (absent → unpriced)
+- `ds-typhon-3` `oc-typhon-3-2-1`: added (absent → unpriced)
+- `ds-typhon-3` `oc-typhon-3-2-2`: added (absent → unpriced)
+- `ds-typhon-3` `oc-typhon-3-2-3`: added (absent → unpriced)
+- `ds-typhon-3` `oc-typhon-3-2-4`: added (absent → unpriced)
+- `ds-typhon-4` `oc-typhon-4-1-1`: added (absent → unpriced)
+- `ds-typhon-4` `oc-typhon-4-1-2`: added (absent → unpriced)
+- `ds-typhon-4` `oc-typhon-4-2-1`: added (absent → unpriced)
+- `ds-typhon-4` `oc-typhon-4-2-2`: added (absent → unpriced)
+- `ds-typhon-4` `oc-typhon-4-2-3`: added (absent → unpriced)
+- `ds-typhon-4` `oc-typhon-4-2-4`: added (absent → unpriced)
+- `ds-typhon-5` `oc-typhon-5-1-1`: added (absent → unpriced)
+- `ds-typhon-5` `oc-typhon-5-1-2`: added (absent → unpriced)
+- `ds-typhon-5` `oc-typhon-5-2-1`: added (absent → unpriced)
+- `ds-typhon-5` `oc-typhon-5-2-2`: added (absent → unpriced)
+- `ds-typhon-5` `oc-typhon-5-2-3`: added (absent → unpriced)
+- `ds-typhon-5` `oc-typhon-5-2-4`: added (absent → unpriced)
+- `ds-tyranid-warriors-with-ranged-bio-weapons` `oc-tyranid-warriors-with-ranged-bio-weapons-2-1`: added (absent → unpriced)
+- `ds-tyranid-warriors-with-ranged-bio-weapons` `oc-tyranid-warriors-with-ranged-bio-weapons-3-1`: added (absent → unpriced)
+- `ds-tyrannofex` `oc-tyrannofex-1-1`: added (absent → unpriced)
+- `ds-tyrannofex` `oc-tyrannofex-1-2`: added (absent → unpriced)
+- `ds-tzaangors` `oc-tzaangors-2-1`: added (absent → unpriced)
+- `ds-tzaangors` `oc-tzaangors-3-1`: added (absent → unpriced)
+- `ds-valdor` `oc-valdor-1-1`: added (absent → unpriced)
+- `ds-valdor` `oc-valdor-1-2`: added (absent → unpriced)
+- `ds-valdor` `oc-valdor-1-3`: added (absent → unpriced)
+- `ds-valdor` `oc-valdor-2-1`: added (absent → unpriced)
+- `ds-valdor` `oc-valdor-3-1`: added (absent → unpriced)
+- `ds-valdor` `oc-valdor-3-2`: added (absent → unpriced)
+- `ds-valdor-2` `oc-valdor-2-1-1`: added (absent → unpriced)
+- `ds-valdor-2` `oc-valdor-2-1-2`: added (absent → unpriced)
+- `ds-valdor-2` `oc-valdor-2-1-3`: added (absent → unpriced)
+- `ds-valdor-2` `oc-valdor-2-2-1`: added (absent → unpriced)
+- `ds-valdor-2` `oc-valdor-2-3-1`: added (absent → unpriced)
+- `ds-valdor-2` `oc-valdor-2-3-2`: added (absent → unpriced)
+- `ds-valkyrie` `oc-valkyrie-1-1`: added (absent → unpriced)
+- `ds-valkyrie` `oc-valkyrie-2-1`: added (absent → unpriced)
+- `ds-valkyrie` `oc-valkyrie-3-1`: added (absent → unpriced)
+- `ds-valkyrie-sky-talon` `oc-valkyrie-sky-talon-1-1`: added (absent → unpriced)
+- `ds-vendetta-gunship` `oc-vendetta-gunship-1-1`: added (absent → unpriced)
+- `ds-vendetta-gunship` `oc-vendetta-gunship-2-1`: added (absent → unpriced)
+- `ds-venerable-contemptor-dreadnought` `oc-venerable-contemptor-dreadnought-1-1`: added (absent → unpriced)
+- `ds-venerable-dreadnought` `oc-venerable-dreadnought-1-1`: added (absent → unpriced)
+- `ds-venerable-dreadnought` `oc-venerable-dreadnought-1-2`: added (absent → unpriced)
+- `ds-venerable-dreadnought` `oc-venerable-dreadnought-2-1`: added (absent → unpriced)
+- `ds-venerable-dreadnought-2` `oc-venerable-dreadnought-2-1-1`: added (absent → unpriced)
+- `ds-venerable-dreadnought-2` `oc-venerable-dreadnought-2-1-2`: added (absent → unpriced)
+- `ds-venerable-dreadnought-2` `oc-venerable-dreadnought-2-2-1`: added (absent → unpriced)
+- `ds-venerable-dreadnought-2` `oc-venerable-dreadnought-2-3-1`: added (absent → unpriced)
+- `ds-venerable-dreadnought-2` `oc-venerable-dreadnought-2-3-2`: added (absent → unpriced)
+- `ds-venerable-dreadnought-3` `oc-venerable-dreadnought-3-1-1`: added (absent → unpriced)
+- `ds-venerable-dreadnought-3` `oc-venerable-dreadnought-3-1-2`: added (absent → unpriced)
+- `ds-venerable-dreadnought-3` `oc-venerable-dreadnought-3-1-3`: added (absent → unpriced)
+- `ds-venerable-dreadnought-3` `oc-venerable-dreadnought-3-1-4`: added (absent → unpriced)
+- `ds-venerable-dreadnought-3` `oc-venerable-dreadnought-3-1-5`: added (absent → unpriced)
+- `ds-venerable-dreadnought-3` `oc-venerable-dreadnought-3-1-6`: added (absent → unpriced)
+- `ds-venerable-dreadnought-3` `oc-venerable-dreadnought-3-1-7`: added (absent → unpriced)
+- `ds-venerable-dreadnought-3` `oc-venerable-dreadnought-3-2-1`: added (absent → unpriced)
+- `ds-venerable-dreadnought-3` `oc-venerable-dreadnought-3-2-2`: added (absent → unpriced)
+- `ds-venerable-dreadnought-3` `oc-venerable-dreadnought-3-2-3`: added (absent → unpriced)
+- `ds-venerable-land-raider` `oc-venerable-land-raider-1-1`: added (absent → unpriced)
+- `ds-venerable-land-raider` `oc-venerable-land-raider-2-1`: added (absent → unpriced)
+- `ds-venom` `oc-venom-1-1`: added (absent → unpriced)
+- `ds-veteran-bike-squad` `oc-veteran-bike-squad-1-1`: added (absent → unpriced)
+- `ds-veteran-bike-squad` `oc-veteran-bike-squad-1-2`: added (absent → unpriced)
+- `ds-veteran-bike-squad` `oc-veteran-bike-squad-1-3`: added (absent → unpriced)
+- `ds-veteran-bike-squad` `oc-veteran-bike-squad-1-4`: added (absent → unpriced)
+- `ds-vigilant-squad` `oc-vigilant-squad-2-1`: added (absent → unpriced)
+- `ds-vindicator` `oc-vindicator-1-1`: added (absent → unpriced)
+- `ds-vindicator` `oc-vindicator-2-1`: added (absent → unpriced)
+- `ds-vindicator-2` `oc-vindicator-2-1-1`: added (absent → unpriced)
+- `ds-vindicator-2` `oc-vindicator-2-2-1`: added (absent → unpriced)
+- `ds-vindicator-3` `oc-vindicator-3-1-1`: added (absent → unpriced)
+- `ds-vindicator-3` `oc-vindicator-3-2-1`: added (absent → unpriced)
+- `ds-vindicator-4` `oc-vindicator-4-1-1`: added (absent → unpriced)
+- `ds-vindicator-4` `oc-vindicator-4-2-1`: added (absent → unpriced)
+- `ds-vindicator-5` `oc-vindicator-5-1-1`: added (absent → unpriced)
+- `ds-vindicator-5` `oc-vindicator-5-2-1`: added (absent → unpriced)
+- `ds-vindicator-6` `oc-vindicator-6-1-1`: added (absent → unpriced)
+- `ds-vindicator-6` `oc-vindicator-6-2-1`: added (absent → unpriced)
+- `ds-vindicator-laser-destroyer` `oc-vindicator-laser-destroyer-1-1`: added (absent → unpriced)
+- `ds-voidraven-bomber` `oc-voidraven-bomber-1-1`: added (absent → unpriced)
+- `ds-voidraven-bomber` `oc-voidraven-bomber-2-1`: added (absent → unpriced)
+- `ds-voidweaver` `oc-voidweaver-1-1`: added (absent → unpriced)
+- `ds-voidweaver-2` `oc-voidweaver-2-1-1`: added (absent → unpriced)
+- `ds-voss-pattern-lightning` `oc-voss-pattern-lightning-1-1`: added (absent → unpriced)
+- `ds-vulture-gunship` `oc-vulture-gunship-1-1`: added (absent → unpriced)
+- `ds-war-dog-brigand` `oc-war-dog-brigand-1-1`: added (absent → unpriced)
+- `ds-war-dog-executioner` `oc-war-dog-executioner-1-1`: added (absent → unpriced)
+- `ds-war-dog-huntsman` `oc-war-dog-huntsman-1-1`: added (absent → unpriced)
+- `ds-war-dog-karnivore` `oc-war-dog-karnivore-1-1`: added (absent → unpriced)
+- `ds-war-dog-moirax` `oc-war-dog-moirax-1-1`: added (absent → unpriced)
+- `ds-war-dog-moirax` `oc-war-dog-moirax-1-2`: added (absent → unpriced)
+- `ds-war-dog-moirax` `oc-war-dog-moirax-1-3`: added (absent → unpriced)
+- `ds-war-dog-moirax` `oc-war-dog-moirax-1-4`: added (absent → unpriced)
+- `ds-war-dog-moirax` `oc-war-dog-moirax-2-1`: added (absent → unpriced)
+- `ds-war-dog-moirax` `oc-war-dog-moirax-2-2`: added (absent → unpriced)
+- `ds-war-dog-moirax` `oc-war-dog-moirax-2-3`: added (absent → unpriced)
+- `ds-war-dog-moirax` `oc-war-dog-moirax-2-4`: added (absent → unpriced)
+- `ds-war-dog-stalker` `oc-war-dog-stalker-1-1`: added (absent → unpriced)
+- `ds-war-dog-stalker` `oc-war-dog-stalker-2-1`: added (absent → unpriced)
+- `ds-war-dog-stalker` `oc-war-dog-stalker-3-1`: added (absent → unpriced)
+- `ds-warbikers` `oc-warbikers-2-1`: added (absent → unpriced)
+- `ds-warbikers` `oc-warbikers-2-2`: added (absent → unpriced)
+- `ds-warbikers` `oc-warbikers-2-3`: added (absent → unpriced)
+- `ds-warboss` `oc-warboss-1-1`: added (absent → unpriced)
+- `ds-warboss` `oc-warboss-2-1`: added (absent → unpriced)
+- `ds-warboss-on-warbike` `oc-warboss-on-warbike-1-1`: added (absent → unpriced)
+- `ds-warboss-on-warbike` `oc-warboss-on-warbike-1-2`: added (absent → unpriced)
+- `ds-warbringer-nemesis-titan` `oc-warbringer-nemesis-titan-1-1`: added (absent → unpriced)
+- `ds-warbringer-nemesis-titan` `oc-warbringer-nemesis-titan-2-1`: added (absent → unpriced)
+- `ds-warbringer-nemesis-titan` `oc-warbringer-nemesis-titan-2-2`: added (absent → unpriced)
+- `ds-warbringer-nemesis-titan` `oc-warbringer-nemesis-titan-2-3`: added (absent → unpriced)
+- `ds-warbringer-nemesis-titan` `oc-warbringer-nemesis-titan-3-1`: added (absent → unpriced)
+- `ds-warbringer-nemesis-titan` `oc-warbringer-nemesis-titan-3-2`: added (absent → unpriced)
+- `ds-warbringer-nemesis-titan` `oc-warbringer-nemesis-titan-3-3`: added (absent → unpriced)
+- `ds-warhound-titan` `oc-warhound-titan-1-1`: added (absent → unpriced)
+- `ds-warhound-titan` `oc-warhound-titan-1-2`: added (absent → unpriced)
+- `ds-warhound-titan` `oc-warhound-titan-1-3`: added (absent → unpriced)
+- `ds-warhound-titan` `oc-warhound-titan-2-1`: added (absent → unpriced)
+- `ds-warhound-titan` `oc-warhound-titan-2-2`: added (absent → unpriced)
+- `ds-warhound-titan` `oc-warhound-titan-2-3`: added (absent → unpriced)
+- `ds-warlock` `oc-warlock-1-1`: added (absent → unpriced)
+- `ds-warlord-titan` `oc-warlord-titan-1-1`: added (absent → unpriced)
+- `ds-warlord-titan` `oc-warlord-titan-2-1`: added (absent → unpriced)
+- `ds-warlord-titan` `oc-warlord-titan-2-2`: added (absent → unpriced)
+- `ds-warlord-titan` `oc-warlord-titan-2-3`: added (absent → unpriced)
+- `ds-warlord-titan` `oc-warlord-titan-2-4`: added (absent → unpriced)
+- `ds-warlord-titan` `oc-warlord-titan-3-1`: added (absent → unpriced)
+- `ds-warlord-titan` `oc-warlord-titan-3-2`: added (absent → unpriced)
+- `ds-warlord-titan` `oc-warlord-titan-3-3`: added (absent → unpriced)
+- `ds-warlord-titan` `oc-warlord-titan-3-4`: added (absent → unpriced)
+- `ds-warp-hunter` `oc-warp-hunter-1-1`: added (absent → unpriced)
+- `ds-warp-spiders` `oc-warp-spiders-1-1`: added (absent → unpriced)
+- `ds-warp-spiders` `oc-warp-spiders-1-2`: added (absent → unpriced)
+- `ds-warp-spiders` `oc-warp-spiders-1-3`: added (absent → unpriced)
+- `ds-wasp-assault-walker` `oc-wasp-assault-walker-1-1`: added (absent → unpriced)
+- `ds-wasp-assault-walker` `oc-wasp-assault-walker-1-2`: added (absent → unpriced)
+- `ds-wasp-assault-walker` `oc-wasp-assault-walker-1-3`: added (absent → unpriced)
+- `ds-wasp-assault-walker` `oc-wasp-assault-walker-1-4`: added (absent → unpriced)
+- `ds-wasp-assault-walker` `oc-wasp-assault-walker-2-1`: added (absent → unpriced)
+- `ds-wasp-assault-walker` `oc-wasp-assault-walker-2-2`: added (absent → unpriced)
+- `ds-wasp-assault-walker` `oc-wasp-assault-walker-2-3`: added (absent → unpriced)
+- `ds-wasp-assault-walker` `oc-wasp-assault-walker-2-4`: added (absent → unpriced)
+- `ds-wave-serpent` `oc-wave-serpent-1-1`: added (absent → unpriced)
+- `ds-wave-serpent` `oc-wave-serpent-1-2`: added (absent → unpriced)
+- `ds-wave-serpent` `oc-wave-serpent-1-3`: added (absent → unpriced)
+- `ds-wave-serpent` `oc-wave-serpent-1-4`: added (absent → unpriced)
+- `ds-wave-serpent` `oc-wave-serpent-2-1`: added (absent → unpriced)
+- `ds-wazbom-blastajet` `oc-wazbom-blastajet-1-1`: added (absent → unpriced)
+- `ds-wazbom-blastajet` `oc-wazbom-blastajet-2-1`: added (absent → unpriced)
+- `ds-wazbom-blastajet` `oc-wazbom-blastajet-3-1`: added (absent → unpriced)
+- `ds-whirlwind` `oc-whirlwind-1-1`: added (absent → unpriced)
+- `ds-whirlwind` `oc-whirlwind-2-1`: added (absent → unpriced)
+- `ds-whirlwind-2` `oc-whirlwind-2-1-1`: added (absent → unpriced)
+- `ds-whirlwind-2` `oc-whirlwind-2-2-1`: added (absent → unpriced)
+- `ds-whirlwind-3` `oc-whirlwind-3-1-1`: added (absent → unpriced)
+- `ds-whirlwind-3` `oc-whirlwind-3-2-1`: added (absent → unpriced)
+- `ds-whirlwind-4` `oc-whirlwind-4-1-1`: added (absent → unpriced)
+- `ds-whirlwind-4` `oc-whirlwind-4-2-1`: added (absent → unpriced)
+- `ds-whirlwind-5` `oc-whirlwind-5-1-1`: added (absent → unpriced)
+- `ds-whirlwind-5` `oc-whirlwind-5-2-1`: added (absent → unpriced)
+- `ds-whirlwind-6` `oc-whirlwind-6-1-1`: added (absent → unpriced)
+- `ds-whirlwind-6` `oc-whirlwind-6-2-1`: added (absent → unpriced)
+- `ds-whirlwind-scorpius` `oc-whirlwind-scorpius-1-1`: added (absent → unpriced)
+- `ds-whirlwind-scorpius` `oc-whirlwind-scorpius-2-1`: added (absent → unpriced)
+- `ds-whirlwind-scorpius-2` `oc-whirlwind-scorpius-2-1-1`: added (absent → unpriced)
+- `ds-whirlwind-scorpius-2` `oc-whirlwind-scorpius-2-2-1`: added (absent → unpriced)
+- `ds-whirlwind-scorpius-3` `oc-whirlwind-scorpius-3-1-1`: added (absent → unpriced)
+- `ds-whirlwind-scorpius-3` `oc-whirlwind-scorpius-3-2-1`: added (absent → unpriced)
+- `ds-whirlwind-scorpius-4` `oc-whirlwind-scorpius-4-1-1`: added (absent → unpriced)
+- `ds-whirlwind-scorpius-4` `oc-whirlwind-scorpius-4-2-1`: added (absent → unpriced)
+- `ds-whirlwind-scorpius-5` `oc-whirlwind-scorpius-5-1-1`: added (absent → unpriced)
+- `ds-whirlwind-scorpius-5` `oc-whirlwind-scorpius-5-2-1`: added (absent → unpriced)
+- `ds-winged-hive-tyrant` `oc-winged-hive-tyrant-1-1`: added (absent → unpriced)
+- `ds-winged-hive-tyrant` `oc-winged-hive-tyrant-1-2`: added (absent → unpriced)
+- `ds-winged-hive-tyrant` `oc-winged-hive-tyrant-1-3`: added (absent → unpriced)
+- `ds-winged-hive-tyrant-2` `oc-winged-hive-tyrant-2-1-1`: added (absent → unpriced)
+- `ds-winged-hive-tyrant-2` `oc-winged-hive-tyrant-2-1-2`: added (absent → unpriced)
+- `ds-winged-hive-tyrant-2` `oc-winged-hive-tyrant-2-1-3`: added (absent → unpriced)
+- `ds-wolf-guard-battle-leader` `oc-wolf-guard-battle-leader-1-1`: added (absent → unpriced)
+- `ds-wolf-guard-battle-leader` `oc-wolf-guard-battle-leader-2-1`: added (absent → unpriced)
+- `ds-wolf-guard-battle-leader` `oc-wolf-guard-battle-leader-2-2`: added (absent → unpriced)
+- `ds-wolf-guard-battle-leader` `oc-wolf-guard-battle-leader-2-3`: added (absent → unpriced)
+- `ds-wolf-guard-battle-leader-in-terminator-armour` `oc-wolf-guard-battle-leader-in-terminator-armour-1-1`: added (absent → unpriced)
+- `ds-wolf-guard-battle-leader-in-terminator-armour` `oc-wolf-guard-battle-leader-in-terminator-armour-1-2`: added (absent → unpriced)
+- `ds-wolf-guard-battle-leader-in-terminator-armour` `oc-wolf-guard-battle-leader-in-terminator-armour-1-3`: added (absent → unpriced)
+- `ds-wolf-guard-battle-leader-in-terminator-armour` `oc-wolf-guard-battle-leader-in-terminator-armour-1-4`: added (absent → unpriced)
+- `ds-wolf-guard-battle-leader-in-terminator-armour` `oc-wolf-guard-battle-leader-in-terminator-armour-2-1`: added (absent → unpriced)
+- `ds-wolf-guard-battle-leader-in-terminator-armour` `oc-wolf-guard-battle-leader-in-terminator-armour-3-1`: added (absent → unpriced)
+- `ds-wolf-guard-battle-leader-in-terminator-armour` `oc-wolf-guard-battle-leader-in-terminator-armour-3-2`: added (absent → unpriced)
+- `ds-wolf-guard-battle-leader-in-terminator-armour` `oc-wolf-guard-battle-leader-in-terminator-armour-3-3`: added (absent → unpriced)
+- `ds-wolf-guard-battle-leader-in-terminator-armour` `oc-wolf-guard-battle-leader-in-terminator-armour-3-4`: added (absent → unpriced)
+- `ds-wolf-guard-battle-leader-in-terminator-armour` `oc-wolf-guard-battle-leader-in-terminator-armour-3-5`: added (absent → unpriced)
+- `ds-wolf-guard-battle-leader-on-thunderwolf` `oc-wolf-guard-battle-leader-on-thunderwolf-1-1`: added (absent → unpriced)
+- `ds-wolf-guard-battle-leader-on-thunderwolf` `oc-wolf-guard-battle-leader-on-thunderwolf-2-1`: added (absent → unpriced)
+- `ds-wolf-guard-battle-leader-on-thunderwolf` `oc-wolf-guard-battle-leader-on-thunderwolf-2-2`: added (absent → unpriced)
+- `ds-wolf-guard-battle-leader-on-thunderwolf` `oc-wolf-guard-battle-leader-on-thunderwolf-2-3`: added (absent → unpriced)
+- `ds-wolf-guard-battle-leader-on-thunderwolf` `oc-wolf-guard-battle-leader-on-thunderwolf-2-4`: added (absent → unpriced)
+- `ds-wolf-guard-battle-leader-on-thunderwolf` `oc-wolf-guard-battle-leader-on-thunderwolf-2-5`: added (absent → unpriced)
+- `ds-wolf-guard-battle-leader-on-thunderwolf` `oc-wolf-guard-battle-leader-on-thunderwolf-2-6`: added (absent → unpriced)
+- `ds-wolf-guard-battle-leader-on-thunderwolf` `oc-wolf-guard-battle-leader-on-thunderwolf-2-7`: added (absent → unpriced)
+- `ds-wolf-guard-battle-leader-on-thunderwolf` `oc-wolf-guard-battle-leader-on-thunderwolf-3-1`: added (absent → unpriced)
+- `ds-wolf-guard-battle-leader-on-thunderwolf` `oc-wolf-guard-battle-leader-on-thunderwolf-3-2`: added (absent → unpriced)
+- `ds-wolf-guard-battle-leader-on-thunderwolf` `oc-wolf-guard-battle-leader-on-thunderwolf-3-3`: added (absent → unpriced)
+- `ds-wolf-guard-battle-leader-on-thunderwolf` `oc-wolf-guard-battle-leader-on-thunderwolf-3-4`: added (absent → unpriced)
+- `ds-wolf-guard-pack-leader` `oc-wolf-guard-pack-leader-1-1`: added (absent → unpriced)
+- `ds-wolf-guard-pack-leader` `oc-wolf-guard-pack-leader-2-1`: added (absent → unpriced)
+- `ds-wolf-guard-pack-leader` `oc-wolf-guard-pack-leader-2-10`: added (absent → unpriced)
+- `ds-wolf-guard-pack-leader` `oc-wolf-guard-pack-leader-2-2`: added (absent → unpriced)
+- `ds-wolf-guard-pack-leader` `oc-wolf-guard-pack-leader-2-3`: added (absent → unpriced)
+- `ds-wolf-guard-pack-leader` `oc-wolf-guard-pack-leader-2-4`: added (absent → unpriced)
+- `ds-wolf-guard-pack-leader` `oc-wolf-guard-pack-leader-2-5`: added (absent → unpriced)
+- `ds-wolf-guard-pack-leader` `oc-wolf-guard-pack-leader-2-6`: added (absent → unpriced)
+- `ds-wolf-guard-pack-leader` `oc-wolf-guard-pack-leader-2-7`: added (absent → unpriced)
+- `ds-wolf-guard-pack-leader` `oc-wolf-guard-pack-leader-2-8`: added (absent → unpriced)
+- `ds-wolf-guard-pack-leader` `oc-wolf-guard-pack-leader-2-9`: added (absent → unpriced)
+- `ds-wolf-guard-pack-leader-in-terminator-armour` `oc-wolf-guard-pack-leader-in-terminator-armour-1-1`: added (absent → unpriced)
+- `ds-wolf-guard-pack-leader-in-terminator-armour` `oc-wolf-guard-pack-leader-in-terminator-armour-2-1`: added (absent → unpriced)
+- `ds-wolf-guard-pack-leader-in-terminator-armour` `oc-wolf-guard-pack-leader-in-terminator-armour-2-2`: added (absent → unpriced)
+- `ds-wolf-guard-pack-leader-in-terminator-armour` `oc-wolf-guard-pack-leader-in-terminator-armour-2-3`: added (absent → unpriced)
+- `ds-wolf-guard-pack-leader-in-terminator-armour` `oc-wolf-guard-pack-leader-in-terminator-armour-2-4`: added (absent → unpriced)
+- `ds-wolf-guard-pack-leader-in-terminator-armour` `oc-wolf-guard-pack-leader-in-terminator-armour-2-5`: added (absent → unpriced)
+- `ds-wolf-guard-pack-leader-in-terminator-armour` `oc-wolf-guard-pack-leader-in-terminator-armour-2-6`: added (absent → unpriced)
+- `ds-wolf-guard-pack-leader-in-terminator-armour` `oc-wolf-guard-pack-leader-in-terminator-armour-2-7`: added (absent → unpriced)
+- `ds-wolf-guard-pack-leader-in-terminator-armour` `oc-wolf-guard-pack-leader-in-terminator-armour-2-8`: added (absent → unpriced)
+- `ds-wolf-guard-pack-leader-in-terminator-armour` `oc-wolf-guard-pack-leader-in-terminator-armour-3-1`: added (absent → unpriced)
+- `ds-wolf-guard-pack-leader-with-jump-pack` `oc-wolf-guard-pack-leader-with-jump-pack-1-1`: added (absent → unpriced)
+- `ds-wolf-guard-pack-leader-with-jump-pack` `oc-wolf-guard-pack-leader-with-jump-pack-2-1`: added (absent → unpriced)
+- `ds-wolf-guard-pack-leader-with-jump-pack` `oc-wolf-guard-pack-leader-with-jump-pack-2-2`: added (absent → unpriced)
+- `ds-wolf-guard-pack-leader-with-jump-pack` `oc-wolf-guard-pack-leader-with-jump-pack-2-3`: added (absent → unpriced)
+- `ds-wolf-guard-pack-leader-with-jump-pack` `oc-wolf-guard-pack-leader-with-jump-pack-2-4`: added (absent → unpriced)
+- `ds-wolf-guard-pack-leader-with-jump-pack` `oc-wolf-guard-pack-leader-with-jump-pack-2-5`: added (absent → unpriced)
+- `ds-wolf-guard-pack-leader-with-jump-pack` `oc-wolf-guard-pack-leader-with-jump-pack-2-6`: added (absent → unpriced)
+- `ds-wolf-guard-pack-leader-with-jump-pack` `oc-wolf-guard-pack-leader-with-jump-pack-2-7`: added (absent → unpriced)
+- `ds-wolf-guard-pack-leader-with-jump-pack` `oc-wolf-guard-pack-leader-with-jump-pack-2-8`: added (absent → unpriced)
+- `ds-wolf-guard-pack-leader-with-jump-pack` `oc-wolf-guard-pack-leader-with-jump-pack-2-9`: added (absent → unpriced)
+- `ds-wolf-guard-terminators` `oc-wolf-guard-terminators-3-1`: added (absent → unpriced)
+- `ds-wolf-guard-terminators` `oc-wolf-guard-terminators-3-2`: added (absent → unpriced)
+- `ds-wolf-lord-on-thunderwolf` `oc-wolf-lord-on-thunderwolf-1-1`: added (absent → unpriced)
+- `ds-wolf-lord-on-thunderwolf` `oc-wolf-lord-on-thunderwolf-1-2`: added (absent → unpriced)
+- `ds-wolf-lord-on-thunderwolf` `oc-wolf-lord-on-thunderwolf-1-3`: added (absent → unpriced)
+- `ds-wolf-lord-on-thunderwolf` `oc-wolf-lord-on-thunderwolf-1-4`: added (absent → unpriced)
+- `ds-wolf-lord-on-thunderwolf` `oc-wolf-lord-on-thunderwolf-1-5`: added (absent → unpriced)
+- `ds-wolf-lord-on-thunderwolf` `oc-wolf-lord-on-thunderwolf-1-6`: added (absent → unpriced)
+- `ds-wolf-lord-on-thunderwolf` `oc-wolf-lord-on-thunderwolf-1-7`: added (absent → unpriced)
+- `ds-wolf-lord-on-thunderwolf` `oc-wolf-lord-on-thunderwolf-2-1`: added (absent → unpriced)
+- `ds-wolf-lord-on-thunderwolf` `oc-wolf-lord-on-thunderwolf-2-2`: added (absent → unpriced)
+- `ds-wolf-lord-on-thunderwolf` `oc-wolf-lord-on-thunderwolf-2-3`: added (absent → unpriced)
+- `ds-wolf-lord-on-thunderwolf` `oc-wolf-lord-on-thunderwolf-2-4`: added (absent → unpriced)
+- `ds-wolf-lord-on-thunderwolf` `oc-wolf-lord-on-thunderwolf-3-1`: added (absent → unpriced)
+- `ds-wolf-scouts` `oc-wolf-scouts-1-1`: added (absent → unpriced)
+- `ds-wolf-scouts` `oc-wolf-scouts-2-1`: added (absent → unpriced)
+- `ds-wolf-scouts` `oc-wolf-scouts-3-1`: added (absent → unpriced)
+- `ds-wracks` `oc-wracks-2-1`: added (absent → unpriced)
+- `ds-wraithknight` `oc-wraithknight-1-1`: added (absent → unpriced)
+- `ds-wraithknight` `oc-wraithknight-2-1`: added (absent → unpriced)
+- `ds-wraithknight` `oc-wraithknight-3-1`: added (absent → unpriced)
+- `ds-wraithknight` `oc-wraithknight-3-2`: added (absent → unpriced)
+- `ds-wraithknight` `oc-wraithknight-3-3`: added (absent → unpriced)
+- `ds-wraithknight-with-ghostglaive` `oc-wraithknight-with-ghostglaive-1-1`: added (absent → unpriced)
+- `ds-wraithknight-with-ghostglaive` `oc-wraithknight-with-ghostglaive-2-1`: added (absent → unpriced)
+- `ds-wraithknight-with-ghostglaive` `oc-wraithknight-with-ghostglaive-2-2`: added (absent → unpriced)
+- `ds-wraithknight-with-ghostglaive` `oc-wraithknight-with-ghostglaive-2-3`: added (absent → unpriced)
+- `ds-wraithlord` `oc-wraithlord-2-1`: added (absent → unpriced)
+- `ds-wraithlord` `oc-wraithlord-3-1`: added (absent → unpriced)
+- `ds-wraithlord` `oc-wraithlord-3-2`: added (absent → unpriced)
+- `ds-wraithlord` `oc-wraithlord-3-3`: added (absent → unpriced)
+- `ds-wraithlord` `oc-wraithlord-3-4`: added (absent → unpriced)
+- `ds-wraithlord` `oc-wraithlord-3-5`: added (absent → unpriced)
+- `ds-wraithseer` `oc-wraithseer-1-1`: added (absent → unpriced)
+- `ds-wraithseer` `oc-wraithseer-1-2`: added (absent → unpriced)
+- `ds-wraithseer` `oc-wraithseer-1-3`: added (absent → unpriced)
+- `ds-wraithseer` `oc-wraithseer-1-4`: added (absent → unpriced)
+- `ds-wraithseer` `oc-wraithseer-1-5`: added (absent → unpriced)
+- `ds-wraithseer` `oc-wraithseer-1-6`: added (absent → unpriced)
+- `ds-wulfen-dreadnought` `oc-wulfen-dreadnought-1-1`: added (absent → unpriced)
+- `ds-wyches` `oc-wyches-1-1`: added (absent → unpriced)
+- `ds-wyches` `oc-wyches-2-1`: added (absent → unpriced)
+- `ds-wyvern` `oc-wyvern-1-1`: added (absent → unpriced)
+- `ds-wyvern` `oc-wyvern-2-1`: added (absent → unpriced)
+- `ds-wyvern-2` `oc-wyvern-2-1-1`: added (absent → unpriced)
+- `ds-wyvern-2` `oc-wyvern-2-2-1`: added (absent → unpriced)
+- `ds-ynnari-archon` `oc-ynnari-archon-1-1`: added (absent → unpriced)
+- `ds-ynnari-incubi` `oc-ynnari-incubi-1-1`: added (absent → unpriced)
+- `ds-ynnari-kabalite-warriors` `oc-ynnari-kabalite-warriors-1-1`: added (absent → unpriced)
+- `ds-ynnari-kabalite-warriors` `oc-ynnari-kabalite-warriors-2-1`: added (absent → unpriced)
+- `ds-ynnari-kabalite-warriors` `oc-ynnari-kabalite-warriors-3-1`: added (absent → unpriced)
+- `ds-ynnari-kabalite-warriors` `oc-ynnari-kabalite-warriors-3-2`: added (absent → unpriced)
+- `ds-ynnari-kabalite-warriors` `oc-ynnari-kabalite-warriors-4-1`: added (absent → unpriced)
+- `ds-ynnari-kabalite-warriors` `oc-ynnari-kabalite-warriors-5-1`: added (absent → unpriced)
+- `ds-ynnari-kabalite-warriors` `oc-ynnari-kabalite-warriors-6-1`: added (absent → unpriced)
+- `ds-ynnari-kabalite-warriors` `oc-ynnari-kabalite-warriors-7-1`: added (absent → unpriced)
+- `ds-ynnari-raider` `oc-ynnari-raider-1-1`: added (absent → unpriced)
+- `ds-ynnari-reavers` `oc-ynnari-reavers-1-1`: added (absent → unpriced)
+- `ds-ynnari-reavers` `oc-ynnari-reavers-2-1`: added (absent → unpriced)
+- `ds-ynnari-reavers` `oc-ynnari-reavers-2-2`: added (absent → unpriced)
+- `ds-ynnari-reavers` `oc-ynnari-reavers-3-1`: added (absent → unpriced)
+- `ds-ynnari-reavers` `oc-ynnari-reavers-3-2`: added (absent → unpriced)
+- `ds-ynnari-succubus` `oc-ynnari-succubus-1-1`: added (absent → unpriced)
+- `ds-ynnari-succubus` `oc-ynnari-succubus-1-2`: added (absent → unpriced)
+- `ds-ynnari-venom` `oc-ynnari-venom-1-1`: added (absent → unpriced)
+- `ds-ynnari-wyches` `oc-ynnari-wyches-1-1`: added (absent → unpriced)
+- `ds-yvahra-battlesuit` `oc-yvahra-battlesuit-1-1`: added (absent → unpriced)
+- `ds-zephyrim-squad` `oc-zephyrim-squad-1-1`: added (absent → unpriced)
+- `ds-zephyrim-squad` `oc-zephyrim-squad-2-1`: added (absent → unpriced)
+
+## Keyword classification
+
+- `ABADDON THE DESPOILER`: unclassified → unit
+- `ABERRANTS`: unclassified → unit
+- `ABHORRENT`: unclassified → unit
+- `ABOMINANT`: unclassified → unit
+- `ACANTHRITES`: unclassified → unit
+- `ACASTUS`: unclassified → unit
+- `ACCURSED CULTISTS`: unclassified → unit
+- `ACCURSED CULTISTS , UNDIVIDED , SHADOW LEGION`: unclassified → unit
+- `ACHILLES RIDGERUNNERS`: unclassified → unit
+- `ACOLYTE HYBRIDS`: unclassified → unit
+- `ACOLYTE HYBRIDS WITH AUTOPISTOLS`: unclassified → unit
+- `ACOLYTE HYBRIDS WITH HAND FLAMERS`: unclassified → unit
+- `ACOLYTE ICONWARD`: unclassified → unit
+- `ADEPTA SORORITAS`: unclassified → faction
+- `ADEPTUS ARBITES`: unclassified → unit
+- `ADEPTUS CUSTODES`: unclassified → faction
+- `ADEPTUS MECHANICUS`: unclassified → faction
+- `ADRAX AGATONE`: unclassified → unit
+- `AEGIS DEFENCE LINE`: unclassified → unit
+- `AELDARI`: unclassified → faction
+- `AESTRED THURGA`: unclassified → unit
+- `AETAOS'RAU'KERES`: unclassified → unit
+- `AETHON SHAAN`: unclassified → unit
+- `AGAMATUS CUSTODIANS`: unclassified → unit
+- `AGATHAE DOLAN`: unclassified → unit
+- `AGGRESSOR SQUAD`: unclassified → unit
+- `AHRIMAN`: unclassified → unit
+- `AIRCRAFT`: unclassified → unit
+- `ALEYA`: unclassified → unit
+- `ALLARUS CUSTODIANS`: unclassified → unit
+- `AMALLYN SHADOWGUIDE`: unclassified → unit
+- `AN'GGRATH THE UNBOUND`: unclassified → unit
+- `ANATHEMA PSYKANA`: unclassified → unit
+- `ANCIENT`: unclassified → unit
+- `ANCIENT , DEATHWING`: unclassified → unit
+- `ANCIENT , RAVENWING`: unclassified → unit
+- `ANGRON`: unclassified → unit
+- `ANHRATHE`: unclassified → unit
+- `ANNIHILATION BARGE`: unclassified → unit
+- `ANRAKYR THE TRAVELLER`: unclassified → unit
+- `APOTHECARY`: unclassified → unit
+- `APOTHECARY , RAVENWING`: unclassified → unit
+- `AQUILA KILL TEAM`: unclassified → unit
+- `AQUILA LANDER`: unclassified → unit
+- `AQUILON CUSTODIANS`: unclassified → unit
+- `ARCHAEOPTER FUSILAVE`: unclassified → unit
+- `ARCHAEOPTER STRATORAPTOR`: unclassified → unit
+- `ARCHAEOPTER TRANSVECTOR`: unclassified → unit
+- `ARCHON`: unclassified → unit
+- `ARCO-FLAGELLANTS`: unclassified → unit
+- `ARES GUNSHIP`: unclassified → unit
+- `ARJAC ROCKFIST`: unclassified → unit
+- `ARKANYST EVALUATOR`: unclassified → unit
+- `ARKURIAN STORMHAMMER`: unclassified → unit
+- `ARMAGEDDON-PATTERN MEDUSA`: unclassified → unit
+- `ARMIGER`: unclassified → unit
+- `ARMOURED SENTINELS`: unclassified → unit
+- `ARTILLERY`: unclassified → unit
+- `ARTILLERY TEAM`: unclassified → unit
+- `ARVUS LIGHTER`: unclassified → unit
+- `ASMODAI`: unclassified → unit
+- `ASPECT WARRIOR`: unclassified → unit
+- `ASPECT WARRIORS`: unclassified → unit
+- `ASSAULT INTERCESSOR SQUAD`: unclassified → unit
+- `ASSAULT INTERCESSORS WITH JUMP PACKS`: unclassified → unit
+- `ASSAULT SQUAD`: unclassified → unit
+- `ASSAULT SQUAD WITH JUMP PACKS`: unclassified → unit
+- `ASTARTES SERVITORS`: unclassified → unit
+- `ASTORATH`: unclassified → unit
+- `ASTRA MILITARUM`: unclassified → faction
+- `ASTRAEUS`: unclassified → unit
+- `ASURMEN`: unclassified → unit
+- `ATALAN JACKALS`: unclassified → unit
+- `ATLAS RECOVERY VEHICLE`: unclassified → unit
+- `ATTACK BIKE SQUAD , RAVENWING`: unclassified → unit
+- `ATTACK FIGHTA`: unclassified → unit
+- `ATTILAN ROUGH RIDERS`: unclassified → unit
+- `AUN’SHI`: unclassified → unit
+- `AUN’VA`: unclassified → unit
+- `AUTARCH`: unclassified → unit
+- `AUTARCH SKYRUNNER`: unclassified → unit
+- `AUTARCH WAYLEAPER`: unclassified → unit
+- `AVATAR OF KHAINE`: unclassified → unit
+- `AVENGER STRIKE FIGHTER`: unclassified → unit
+- `AX-1-0 TIGER SHARK`: unclassified → unit
+- `AZRAEL`: unclassified → unit
+- `BAAL PREDATOR`: unclassified → unit
+- `BAHARROTH`: unclassified → unit
+- `BALLISTUS DREADNOUGHT , DEATHWING`: unclassified → unit
+- `BANEBLADE`: unclassified → unit
+- `BANEHAMMER`: unclassified → unit
+- `BANESWORD`: unclassified → unit
+- `BANNERNOB`: unclassified → unit
+- `BARBED HIERODULE`: unclassified → unit
+- `BARBGAUNTS`: unclassified → unit
+- `BARRACUDA`: unclassified → unit
+- `BASILISK`: unclassified → unit
+- `BATTLE LEADER`: unclassified → unit
+- `BATTLE SANCTUM`: unclassified → unit
+- `BATTLE SISTERS SQUAD`: unclassified → unit
+- `BATTLELINE`: unclassified → unit
+- `BATTLESUIT`: unclassified → unit
+- `BATTLEWAGON`: unclassified → unit
+- `BEAST`: unclassified → unit
+- `BEAST SNAGGA`: unclassified → unit
+- `BEAST SNAGGA BOYZ`: unclassified → unit
+- `BEASTBOSS`: unclassified → unit
+- `BEASTBOSS ON SQUIGOSAUR`: unclassified → unit
+- `BEASTMASTER`: unclassified → unit
+- `BEASTS`: unclassified → unit
+- `BEASTS OF NURGLE`: unclassified → unit
+- `BEASTS OF NURGLE , SHADOW LEGION`: unclassified → unit
+- `BELIAL`: unclassified → unit
+- `BELISARIUS CAWL`: unclassified → unit
+- `BELLATUS`: unclassified → unit
+- `BENEFICTUS`: unclassified → unit
+- `BEREHK STORNBRÖW`: unclassified → unit
+- `BERZERKERS`: unclassified → unit
+- `BESERKS`: unclassified → unit
+- `BE’LAKOR , SHADOW LEGION`: unclassified → unit
+- `BIG GUNZ`: unclassified → unit
+- `BIG MEK`: unclassified → unit
+- `BIG MEK IN MEGA ARMOUR`: unclassified → unit
+- `BIG MEK ON WARBIKE`: unclassified → unit
+- `BIG MEK WITH KUSTOM FORCE FIELD`: unclassified → unit
+- `BIG MEK WITH SHOKK ATTACK GUN`: unclassified → unit
+- `BIG TRAKK`: unclassified → unit
+- `BIGBOSS`: unclassified → unit
+- `BIG’ED BOSSBUNKA`: unclassified → unit
+- `BIKE SQUAD , RAVENWING`: unclassified → unit
+- `BIOLOGIS`: unclassified → unit
+- `BIOLOGUS PUTRIFIER`: unclassified → unit
+- `BIOPHAGUS`: unclassified → unit
+- `BIOVORES`: unclassified → unit
+- `BJORN THE FELL-HANDED`: unclassified → unit
+- `BLACK TEMPLARS`: unclassified → chapter
+- `BLADE CHAMPION`: unclassified → unit
+- `BLADEGUARD ANCIENT , DEATHWING`: unclassified → unit
+- `BLADEGUARD VETERAN SQUAD , DEATHWING`: unclassified → unit
+- `BLADES FOR HIRE`: unclassified → unit
+- `BLIGHTLORD TERMINATORS`: unclassified → unit
+- `BLITZA-BOMMER`: unclassified → unit
+- `BLOOD ANGELS`: unclassified → chapter
+- `BLOOD CLAWS`: unclassified → unit
+- `BLOOD SLAUGHTERER`: unclassified → unit
+- `BLOODCRUSHERS`: unclassified → unit
+- `BLOODCRUSHERS , SHADOW LEGION`: unclassified → unit
+- `BLOODLETTERS`: unclassified → unit
+- `BLOODLETTERS , SHADOW LEGION`: unclassified → unit
+- `BLOODMASTER , SHADOW LEGION`: unclassified → unit
+- `BLOODTHIRSTER`: unclassified → unit
+- `BLOODTHIRSTER , SHADOW LEGION`: unclassified → unit
+- `BLUE`: unclassified → unit
+- `BODYGUARD`: unclassified → unit
+- `BONESINGER`: unclassified → unit
+- `BOOMDAKKA SNAZZWAGON`: unclassified → unit
+- `BOSS SNIKROT`: unclassified → unit
+- `BOSS ZAGSTRUK`: unclassified → unit
+- `BOYZ`: unclassified → unit
+- `BREACHER TEAM`: unclassified → unit
+- `BREACHERS`: unclassified → unit
+- `BREAKA BOYZ`: unclassified → unit
+- `BRIGAND`: unclassified → unit
+- `BRIMSTONE`: unclassified → unit
+- `BRIMSTONE : SHADOW LEGION`: unclassified → unit
+- `BROADSIDE`: unclassified → unit
+- `BROODLORD`: unclassified → unit
+- `BROTHER CORBULO`: unclassified → unit
+- `BROTHER-CAPTAIN`: unclassified → unit
+- `BROTHER-CAPTAIN STERN`: unclassified → unit
+- `BROTHERHOOD CHAMPION`: unclassified → unit
+- `BROTHERHOOD CHAPLAIN`: unclassified → unit
+- `BROTHERHOOD LIBRARIAN`: unclassified → unit
+- `BROTHERHOOD TECHMARINE`: unclassified → unit
+- `BROTHERHOOD TERMINATOR SQUAD`: unclassified → unit
+- `BRUTALIS DREADNOUGHT , DEATHWING`: unclassified → unit
+- `BRÔKHYR`: unclassified → unit
+- `BULLGRYN SQUAD`: unclassified → unit
+- `BURI AEGNIRSSEN`: unclassified → unit
+- `BURNA BOYZ`: unclassified → unit
+- `BURNA-BOMMER`: unclassified → unit
+- `BURNING CHARIOT , SHADOW LEGION`: unclassified → unit
+- `BURROWER`: unclassified → unit
+- `BURROWERS`: unclassified → unit
+- `CAANOK VAR`: unclassified → unit
+- `CADIAN`: unclassified → unit
+- `CADIAN CASTELLAN`: unclassified → unit
+- `CADIAN HEAVY WEAPONS SQUAD`: unclassified → unit
+- `CADIAN RECON SQUAD`: unclassified → unit
+- `CADIAN SHOCK TROOPS`: unclassified → unit
+- `CADRE FIREBLADE`: unclassified → unit
+- `CAESTUS ASSAULT RAM , RAVENWING`: unclassified → unit
+- `CALADIUS GRAV-TANK`: unclassified → unit
+- `CALLIDUS ASSASSIN`: unclassified → unit
+- `CANIS REX`: unclassified → unit
+- `CANIS WOLFBORN`: unclassified → unit
+- `CANONESS`: unclassified → unit
+- `CANOPTEK`: unclassified → unit
+- `CAPTAIN`: unclassified → unit
+- `CAPTAIN , DEATHWING`: unclassified → unit
+- `CAPTAIN , RAVENWING`: unclassified → unit
+- `CARAB CULLN THE RISEN , DEATHWING`: unclassified → unit
+- `CARNIFEXES`: unclassified → unit
+- `CARNIVORES`: unclassified → unit
+- `CARNODON`: unclassified → unit
+- `CARRIER`: unclassified → unit
+- `CASTELLAN`: unclassified → unit
+- `CASTELLAN CROWE`: unclassified → unit
+- `CASTIGATOR`: unclassified → unit
+- `CATACHAN`: unclassified → unit
+- `CATACHAN HEAVY WEAPONS SQUAD`: unclassified → unit
+- `CATACHAN JUNGLE FIGHTERS`: unclassified → unit
+- `CATACOMB COMMAND BARGE`: unclassified → unit
+- `CATO`: unclassified → unit
+- `CELESTIAN INSIDIANTS`: unclassified → unit
+- `CELESTIAN SACRESANT AVELINE`: unclassified → unit
+- `CELESTIAN SACRESANTS`: unclassified → unit
+- `CENTAUR LIGHT CARRIER`: unclassified → unit
+- `CENTAUR RSV`: unclassified → unit
+- `CENTURION`: unclassified → unit
+- `CENTURION ASSAULT SQUAD`: unclassified → unit
+- `CENTURION DEVASTATOR SQUAD`: unclassified → unit
+- `CERASTUS`: unclassified → unit
+- `CERBERUS`: unclassified → unit
+- `CHAMPION`: unclassified → unit
+- `CHANGECASTER , SHADOW LEGION`: unclassified → unit
+- `CHAOS`: unclassified → unit
+- `CHAOS BIKERS`: unclassified → unit
+- `CHAOS KNIGHTS`: unclassified → faction
+- `CHAOS LORD`: unclassified → unit
+- `CHAOS LORD , UNDIVIDED , SHADOW LEGION`: unclassified → unit
+- `CHAOS LORD IN TERMINATOR ARMOUR`: unclassified → unit
+- `CHAOS LORD IN TERMINATOR ARMOUR , UNDIVIDED , SHADOW LEGION`: unclassified → unit
+- `CHAOS LORD ON BIKE`: unclassified → unit
+- `CHAOS SPAWN`: unclassified → unit
+- `CHAOS TERMINATOR SQUAD`: unclassified → unit
+- `CHAOS TERMINATOR SQUAD , UNDIVIDED , SHADOW LEGION`: unclassified → unit
+- `CHAOS UNDIVIDED`: unclassified → unit
+- `CHAPLAIN`: unclassified → unit
+- `CHAPLAIN , DEATHWING`: unclassified → unit
+- `CHAPLAIN , RAVENWING`: unclassified → unit
+- `CHAPLAIN CASSIUS`: unclassified → unit
+- `CHAPLAIN GRIMALDUS`: unclassified → unit
+- `CHAPLAIN VENERABLE DREADNOUGHT , DEATHWING`: unclassified → unit
+- `CHAPTER MASTER`: unclassified → unit
+- `CHARACTER`: unclassified → unit
+- `CHIEF LIBRARIAN MEPHISTON`: unclassified → unit
+- `CHIEF LIBRARIAN TIGURIUS`: unclassified → unit
+- `CHIMERA`: unclassified → unit
+- `CHINORK WARKOPTA`: unclassified → unit
+- `CHOSEN`: unclassified → unit
+- `CHOSEN , UNDIVIDED , SHADOW LEGION`: unclassified → unit
+- `CHRONOMANCER`: unclassified → unit
+- `CLAMAVUS`: unclassified → unit
+- `COBRA`: unclassified → unit
+- `COLOSSUS`: unclassified → unit
+- `COMMAND SQUAD`: unclassified → unit
+- `COMMANDER DANTE`: unclassified → unit
+- `COMMANDER FARSIGHT`: unclassified → unit
+- `COMMANDER IN COLDSTAR BATTLESUIT`: unclassified → unit
+- `COMMANDER IN CRISIS BATTLESUIT`: unclassified → unit
+- `COMMANDER IN ENFORCER BATTLESUIT`: unclassified → unit
+- `COMMANDER SHADOWSUN`: unclassified → unit
+- `COMMISSAR`: unclassified → unit
+- `COMMISSAR GRAVES`: unclassified → unit
+- `COMMISSAR GRAVES ON FOOT`: unclassified → unit
+- `COMMISSAR YARRICK`: unclassified → unit
+- `COMPANY CHAMPION , RAVENWING`: unclassified → unit
+- `COMPANY HEROES`: unclassified → unit
+- `COMPANY VETERANS , RAVENWING`: unclassified → unit
+- `CONTEMPTOR-ACHILLUS DREADNOUGHT`: unclassified → unit
+- `CONTEMPTOR-GALATUS DREADNOUGHT`: unclassified → unit
+- `CONTORTED EPITOME , SHADOW LEGION`: unclassified → unit
+- `CONVERGENCE OF DOMINION`: unclassified → unit
+- `CORONUS GRAV-CARRIER`: unclassified → unit
+- `CORPUSCARII`: unclassified → unit
+- `CORSAIR CLOUD DANCER BAND`: unclassified → unit
+- `CORSAIR REAVER BAND`: unclassified → unit
+- `CORSAIR SKYREAVERS`: unclassified → unit
+- `CORSAIR VOIDREAVERS`: unclassified → unit
+- `CORSAIR VOIDSCARRED`: unclassified → unit
+- `CORVUS BLACKSTAR`: unclassified → unit
+- `COTEAZ`: unclassified → unit
+- `COURT OF THE ARCHON`: unclassified → unit
+- `CRASSUS`: unclassified → unit
+- `CRIMSON HUNTER`: unclassified → unit
+- `CRISIS`: unclassified → unit
+- `CRONOS`: unclassified → unit
+- `CRUSADE ANCIENT`: unclassified → unit
+- `CRUSADER`: unclassified → unit
+- `CRUSADER SQUAD`: unclassified → unit
+- `CRUSADERS`: unclassified → unit
+- `CRYPTEK`: unclassified → unit
+- `CRYPTOTHRALLS`: unclassified → unit
+- `CTHONIAN`: unclassified → unit
+- `CULEXUS ASSASSIN`: unclassified → unit
+- `CULT DEMAGOGUE`: unclassified → unit
+- `CULT DEMAGOGUE : UNDIVIDED , SHADOW LEGION`: unclassified → unit
+- `CULT MECHANICUS`: unclassified → unit
+- `CULTIST FIREBRAND`: unclassified → unit
+- `CULTIST FIREBRAND , UNDIVIDED , SHADOW LEGION`: unclassified → unit
+- `CULTIST MOB`: unclassified → unit
+- `CULTIST MOB , UNDIVIDED , SHADOW LEGION`: unclassified → unit
+- `CULTIST MOB WITH FIREARMS`: unclassified → unit
+- `CULTIST MOB WITH FIREARMS , UNDIVIDED , SHADOW LEGION`: unclassified → unit
+- `CULTISTS`: unclassified → unit
+- `CUSTODIAN GUARD`: unclassified → unit
+- `CUSTODIAN GUARD WITH ADRASITE AND PYRITHITE SPEARS`: unclassified → unit
+- `CUSTODIAN WARDENS`: unclassified → unit
+- `CYBERNETICA DATASMITH`: unclassified → unit
+- `CYBERWOLF`: unclassified → unit
+- `CYCLOPS DEMOLITION VEHICLE`: unclassified → unit
+- `CYPHER`: unclassified → unit
+- `C’TAN SHARD OF THE DECEIVER`: unclassified → unit
+- `C’TAN SHARD OF THE NIGHTBRINGER`: unclassified → unit
+- `C’TAN SHARD OF THE VOID DRAGON`: unclassified → unit
+- `D-CANNON PLATFORM`: unclassified → unit
+- `DA RED GOBBO`: unclassified → unit
+- `DAEMON`: unclassified → unit
+- `DAEMON PRINCE`: unclassified → unit
+- `DAEMON PRINCE OF CHAOS , SHADOW LEGION`: unclassified → unit
+- `DAEMON PRINCE OF CHAOS WITH WINGS , SHADOW LEGION`: unclassified → unit
+- `DAEMON PRINCE WITH WINGS`: unclassified → unit
+- `DAEMONETTES`: unclassified → unit
+- `DAEMONETTES , SHADOW LEGION`: unclassified → unit
+- `DAEMONHOST`: unclassified → unit
+- `DAEMONIFUGE`: unclassified → unit
+- `DAKKAJET`: unclassified → unit
+- `DAKKARIG`: unclassified → unit
+- `DAMNED`: unclassified → unit
+- `DAMNED LEGIONNAIRES`: unclassified → unit
+- `DARK ANGELS`: unclassified → chapter
+- `DARK APOSTLE`: unclassified → unit
+- `DARK APOSTLE : UNDIVIDED , SHADOW LEGION`: unclassified → unit
+- `DARK COMMUNE`: unclassified → unit
+- `DARK REAPERS`: unclassified → unit
+- `DARK TALON`: unclassified → unit
+- `DARKSTRIDER`: unclassified → unit
+- `DARNATH LYSANDER`: unclassified → unit
+- `DAWNEAGLE JETBIKE`: unclassified → unit
+- `DEATH COMPANY`: unclassified → unit
+- `DEATH COMPANY DREADNOUGHT`: unclassified → unit
+- `DEATH COMPANY MARINES`: unclassified → unit
+- `DEATH COMPANY MARINES WITH BOLT RIFLES`: unclassified → unit
+- `DEATH COMPANY MARINES WITH BOLTGUNS`: unclassified → unit
+- `DEATH COMPANY MARINES WITH BOLTGUNS AND JUMP PACKS`: unclassified → unit
+- `DEATH COMPANY MARINES WITH JUMP PACKS`: unclassified → unit
+- `DEATH CULT ASSASSINS`: unclassified → unit
+- `DEATH GUARD`: unclassified → faction
+- `DEATH JESTER`: unclassified → unit
+- `DEATH KORPS GRENADIER SQUAD`: unclassified → unit
+- `DEATH KORPS OF KRIEG`: unclassified → unit
+- `DEATH RIDER COMMISSAR`: unclassified → unit
+- `DEATH RIDERS`: unclassified → unit
+- `DEATHLEAPER`: unclassified → unit
+- `DEATHMARKS`: unclassified → unit
+- `DEATHSHROUD TERMINATORS`: unclassified → unit
+- `DEATHSTORM DROP POD`: unclassified → unit
+- `DEATHSTRIKE`: unclassified → unit
+- `DEATHWATCH`: unclassified → chapter
+- `DEATHWATCH TERMINATOR SQUAD`: unclassified → unit
+- `DEATHWATCH VETERANS`: unclassified → unit
+- `DEATHWING`: unclassified → unit
+- `DEATHWING COMMAND SQUAD , DEATHWING`: unclassified → unit
+- `DEATHWING KNIGHTS`: unclassified → unit
+- `DEATHWING STRIKEMASTER , DEATHWING`: unclassified → unit
+- `DEATHWING TERMINATOR SQUAD`: unclassified → unit
+- `DECIMATOR`: unclassified → unit
+- `DECIMUS KILL TEAM`: unclassified → unit
+- `DEDICATED TRANSPORT`: unclassified → unit
+- `DEFENDERS`: unclassified → unit
+- `DEFF DREAD`: unclassified → unit
+- `DEFF ROLLA BATTLE FORTRESS`: unclassified → unit
+- `DEFFKILLA WARTRIKE`: unclassified → unit
+- `DEFFKOPTAS`: unclassified → unit
+- `DEFFKOPTAS WITH BIG SHOOTAS`: unclassified → unit
+- `DEFILER`: unclassified → unit
+- `DEIMOS PREDATOR`: unclassified → unit
+- `DEREDEO DREADNOUGHT`: unclassified → unit
+- `DEREDEO DREADNOUGHT , DEATHWING`: unclassified → unit
+- `DESOLATION SQUAD`: unclassified → unit
+- `DESTROYER CULT`: unclassified → unit
+- `DESTROYERS`: unclassified → unit
+- `DEVASTATOR SQUAD`: unclassified → unit
+- `DEVILFISH`: unclassified → unit
+- `DIALOGUS`: unclassified → unit
+- `DIMACHAERON`: unclassified → unit
+- `DIRE AVENGERS`: unclassified → unit
+- `DISC OF TZEENTCH`: unclassified → unit
+- `DISC OF TZEENTCH , UNDIVIDED , SHADOW LEGION`: unclassified → unit
+- `DOGMATA`: unclassified → unit
+- `DOMINION SQUAD`: unclassified → unit
+- `DOMINUS`: unclassified → unit
+- `DOMINUS ARMOURED SIEGE BOMBARD`: unclassified → unit
+- `DOOM SCYTHE`: unclassified → unit
+- `DOOMHAMMER`: unclassified → unit
+- `DOOMSDAY ARK`: unclassified → unit
+- `DOOMSTALKER`: unclassified → unit
+- `DRAGOONS WITH RADIUM JEZZAILS`: unclassified → unit
+- `DRAGOONS WITH TASER LANCES`: unclassified → unit
+- `DRAXUS`: unclassified → unit
+- `DRAZHAR`: unclassified → unit
+- `DREADCLAW DROP POD`: unclassified → unit
+- `DREADNOUGHT`: unclassified → unit
+- `DREADNOUGHT , DEATHWING`: unclassified → unit
+- `DREADNOUGHT DROP POD`: unclassified → unit
+- `DRONE SENTRY TURRET`: unclassified → unit
+- `DROP POD`: unclassified → unit
+- `DRUKHARI`: unclassified → faction
+- `EARTHSHAKER CARRIAGE BATTERY`: unclassified → unit
+- `EARTHSHAKER PLATFORM`: unclassified → unit
+- `EARTHSHAKERS`: unclassified → unit
+- `EIGHTBOUND`: unclassified → unit
+- `EINHYR CHAMPION`: unclassified → unit
+- `EINHYR HEARTHGUARD`: unclassified → unit
+- `EISENHORN`: unclassified → unit
+- `ELDRAD ULTHRAN`: unclassified → unit
+- `ELECTRO-PRIESTS`: unclassified → unit
+- `ELIMINATOR SQUAD`: unclassified → unit
+- `ELYSIAN DROP SENTINEL`: unclassified → unit
+- `ELYSIAN SNIPER SQUAD`: unclassified → unit
+- `EMPEROR’S CHAMPION`: unclassified → unit
+- `EMPEROR’S CHILDREN`: unclassified → faction
+- `ENDLESS MULTITUDE`: unclassified → unit
+- `ENGINSEER`: unclassified → unit
+- `EPIC HERO`: unclassified → unit
+- `EPIDEMIUS`: unclassified → unit
+- `ERADICATOR SQUAD`: unclassified → unit
+- `ERADICATOR SQUAD WITH HEAVY BOLTERS`: unclassified → unit
+- `ETHEREAL`: unclassified → unit
+- `EVERSOR ASSASSIN`: unclassified → unit
+- `EXACTION SQUAD`: unclassified → unit
+- `EXALTED CHAMPION`: unclassified → unit
+- `EXALTED EIGHTBOUND`: unclassified → unit
+- `EXALTED FLAMER , SHADOW LEGION`: unclassified → unit
+- `EXALTED SORCERER`: unclassified → unit
+- `EXECRATOR`: unclassified → unit
+- `EXECUTIONER`: unclassified → unit
+- `EXOARMOUR`: unclassified → unit
+- `EXOCRINE`: unclassified → unit
+- `EXODITE`: unclassified → unit
+- `EXOFRAME`: unclassified → unit
+- `EXORCIST`: unclassified → unit
+- `EXTERMINATORS`: unclassified → unit
+- `EZEKIEL`: unclassified → unit
+- `FABIUS BILE`: unclassified → unit
+- `FALCHION`: unclassified → unit
+- `FALCON`: unclassified → unit
+- `FALLEN`: unclassified → unit
+- `FARSEER`: unclassified → unit
+- `FARSEER SKYRUNNER`: unclassified → unit
+- `FARSTALKERS`: unclassified → unit
+- `FATESKIMMER , SHADOW LEGION`: unclassified → unit
+- `FECULENT GNARLMAW , SHADOW LEGION`: unclassified → unit
+- `FELLBLADE`: unclassified → unit
+- `FELLGOR BEASTMEN`: unclassified → unit
+- `FELLGOR BEASTMEN , UNDIVIDED , SHADOW LEGION`: unclassified → unit
+- `FENRISIAN WOLVES`: unclassified → unit
+- `FERREN AREIOS`: unclassified → unit
+- `FIELD ORDNANCE BATTERY`: unclassified → unit
+- `FIENDS`: unclassified → unit
+- `FIENDS , SHADOW LEGION`: unclassified → unit
+- `FIGHTA-BOMMER`: unclassified → unit
+- `FIRE DRAGONS`: unclassified → unit
+- `FIRE PRISM`: unclassified → unit
+- `FIRE RAPTOR GUNSHIP`: unclassified → unit
+- `FIRE RAPTOR GUNSHIP , RAVENWING`: unclassified → unit
+- `FIRE WARRIOR`: unclassified → unit
+- `FIREKNIFE`: unclassified → unit
+- `FIRESIGHT TEAM`: unclassified → unit
+- `FIRESTORM`: unclassified → unit
+- `FIRESTRIKE SERVO-TURRETS`: unclassified → unit
+- `FLAMERS`: unclassified → unit
+- `FLAMERS , SHADOW LEGION`: unclassified → unit
+- `FLASH GITZ`: unclassified → unit
+- `FLAWLESS BLADES`: unclassified → unit
+- `FLAYED ONES`: unclassified → unit
+- `FLESH HOUNDS`: unclassified → unit
+- `FLESH HOUNDS , SHADOW LEGION`: unclassified → unit
+- `FLESH SHAPER`: unclassified → unit
+- `FLUXMASTER , SHADOW LEGION`: unclassified → unit
+- `FLY`: unclassified → unit
+- `FOETID BLOAT-DRONE`: unclassified → unit
+- `FOETID BLOAT-DRONE WITH HEAVY BLIGHT LAUNCHER`: unclassified → unit
+- `FORGEFIEND`: unclassified → unit
+- `FORTIFICATION`: unclassified → unit
+- `FORTIS KILL TEAM`: unclassified → unit
+- `FOUL BLIGHTSPAWN`: unclassified → unit
+- `FRAME`: unclassified → unit
+- `FUEGAN`: unclassified → unit
+- `FULGRIM`: unclassified → unit
+- `FULGURITE`: unclassified → unit
+- `FURIES , SHADOW LEGION`: unclassified → unit
+- `FURIOSO DREADNOUGHT`: unclassified → unit
+- `FUSILIERS`: unclassified → unit
+- `GABRIEL SETH`: unclassified → unit
+- `GARGANTUAN SQUIGGOTH`: unclassified → unit
+- `GARGOYLES`: unclassified → unit
+- `GAUNT’S GHOSTS`: unclassified → unit
+- `GAUSS PYLON`: unclassified → unit
+- `GELLERPOX INFECTED`: unclassified → unit
+- `GELLERPOX INFECTED , UNDIVIDED , SHADOW LEGION`: unclassified → unit
+- `GENESTEALER CULTS`: unclassified → faction
+- `GENESTEALERS`: unclassified → unit
+- `GEOMANCER`: unclassified → unit
+- `GHAZGHKULL THRAKA`: unclassified → unit
+- `GHOST ARK`: unclassified → unit
+- `GHOSTKEEL`: unclassified → unit
+- `GIANT CHAOS SPAWN , SHADOW LEGION`: unclassified → unit
+- `GLADIATOR LANCER`: unclassified → unit
+- `GLADIATOR REAPER`: unclassified → unit
+- `GLADIATOR VALIANT`: unclassified → unit
+- `GOLIATH ROCKGRINDER`: unclassified → unit
+- `GOLIATH TRUCK`: unclassified → unit
+- `GOREMONGERS`: unclassified → unit
+- `GORGON HEAVY TRANSPORT`: unclassified → unit
+- `GORKANAUT`: unclassified → unit
+- `GRAND MASTER`: unclassified → unit
+- `GRAND MASTER IN NEMESIS DREADKNIGHT`: unclassified → unit
+- `GRAND MASTER VOLDUS`: unclassified → unit
+- `GRAVIS`: unclassified → unit
+- `GREAT DEVOURER`: unclassified → unit
+- `GREAT KNARLOC`: unclassified → unit
+- `GREAT UNCLEAN ONE`: unclassified → unit
+- `GREAT UNCLEAN ONE , SHADOW LEGION`: unclassified → unit
+- `GREATER BLIGHT DRONE`: unclassified → unit
+- `GREATER BRASS SCORPION`: unclassified → unit
+- `GRENADES`: unclassified → unit
+- `GRETCHIN`: unclassified → unit
+- `GREY HUNTERS`: unclassified → unit
+- `GREY KNIGHTS`: unclassified → faction
+- `GREY KNIGHTS TERMINATOR SQUAD`: unclassified → unit
+- `GREYFAX`: unclassified → unit
+- `GRIFFON MORTAR CARRIER`: unclassified → unit
+- `GRIMNYR`: unclassified → unit
+- `GROT BOMM LAUNCHA`: unclassified → unit
+- `GROT MEGA-TANK`: unclassified → unit
+- `GROT TANKS`: unclassified → unit
+- `GROTESQUES`: unclassified → unit
+- `GROTS`: unclassified → unit
+- `GUARDIAN DEFENDERS`: unclassified → unit
+- `GUARDIANS`: unclassified → unit
+- `HAARKEN WORLDCLAIMER`: unclassified → unit
+- `HADES BREACHING DRILL`: unclassified → unit
+- `HAEMONCULUS`: unclassified → unit
+- `HAEMONCULUS COVENS`: unclassified → unit
+- `HAMMERFALL BUNKER`: unclassified → unit
+- `HAMMERHEAD GUNSHIP`: unclassified → unit
+- `HAND OF THE ARCHON`: unclassified → unit
+- `HARALD DEATHWOLF`: unclassified → unit
+- `HARPY`: unclassified → unit
+- `HARRIDAN`: unclassified → unit
+- `HARUSPEX`: unclassified → unit
+- `HARVESTER`: unclassified → unit
+- `HASTARII`: unclassified → unit
+- `HAVOCS`: unclassified → unit
+- `HAVOCS , UNDIVIDED , SHADOW LEGION`: unclassified → unit
+- `HEADTAKERS`: unclassified → unit
+- `HEARTHKYN WARRIORS`: unclassified → unit
+- `HEAVY GUN DRONES`: unclassified → unit
+- `HEAVY INTERCESSOR SQUAD`: unclassified → unit
+- `HEAVY MORTAR TEAM`: unclassified → unit
+- `HEAVY QUAD LAUNCHER TEAM`: unclassified → unit
+- `HEKATON LAND FORTRESS`: unclassified → unit
+- `HELBRUTE`: unclassified → unit
+- `HELDRAKE`: unclassified → unit
+- `HELL BLADE`: unclassified → unit
+- `HELL TALON`: unclassified → unit
+- `HELLBLASTER SQUAD`: unclassified → unit
+- `HELLFLAYER , SHADOW LEGION`: unclassified → unit
+- `HELLFLAYERS , SHADOW LEGION`: unclassified → unit
+- `HELLHAMMER`: unclassified → unit
+- `HELLHOUND`: unclassified → unit
+- `HELLIONS`: unclassified → unit
+- `HELL’S LAST`: unclassified → unit
+- `HELVERIN`: unclassified → unit
+- `HEMLOCK WRAITHFIGHTER`: unclassified → unit
+- `HERALD OF SLAANESH , SHADOW LEGION`: unclassified → unit
+- `HERNKYN`: unclassified → unit
+- `HEXMARK DESTROYER`: unclassified → unit
+- `HIEROPHANT`: unclassified → unit
+- `HIGH MARSHAL HELBRECHT`: unclassified → unit
+- `HIPPOGRIFF AFV`: unclassified → unit
+- `HIVE CRONE`: unclassified → unit
+- `HIVE GUARD`: unclassified → unit
+- `HIVE TYRANT`: unclassified → unit
+- `HORMAGAUNTS`: unclassified → unit
+- `HORNET`: unclassified → unit
+- `HORRORS`: unclassified → unit
+- `HORTICULOUS SLIMUX`: unclassified → unit
+- `HOSPITALLER`: unclassified → unit
+- `HOUNDS`: unclassified → unit
+- `HOUNDS OF MORKAI`: unclassified → unit
+- `HOWLING BANSHEES`: unclassified → unit
+- `HUNTA RIG`: unclassified → unit
+- `HUNTER`: unclassified → unit
+- `HUNTING WOLVES`: unclassified → unit
+- `HUNTSMAN`: unclassified → unit
+- `HURON BLACKHEART`: unclassified → unit
+- `HYBRID METAMORPHS`: unclassified → unit
+- `HYDRA`: unclassified → unit
+- `HYDRA PLATFORM`: unclassified → unit
+- `HYPERADAPTED RAVENERS`: unclassified → unit
+- `ICON BEARER`: unclassified → unit
+- `ILLIC NIGHTSPEAR`: unclassified → unit
+- `ILLUMINOR SZERAS`: unclassified → unit
+- `IMAGIFIER`: unclassified → unit
+- `IMMOLATOR`: unclassified → unit
+- `IMMORTALS`: unclassified → unit
+- `IMOTEKH THE STORMLORD`: unclassified → unit
+- `IMPERIAL KNIGHTS`: unclassified → faction
+- `IMPERIAL NAVY BREACHERS`: unclassified → unit
+- `IMPERIAL RHINO`: unclassified → unit
+- `IMPERIAL SPACE MARINE`: unclassified → unit
+- `IMPERIUM`: unclassified → unit
+- `IMPULSOR`: unclassified → unit
+- `INCEPTOR SQUAD`: unclassified → unit
+- `INCUBI`: unclassified → unit
+- `INCURSOR SQUAD`: unclassified → unit
+- `INDOMITOR KILL TEAM`: unclassified → unit
+- `INFANTRY`: unclassified → unit
+- `INFERNAL ENRAPTURESS , SHADOW LEGION`: unclassified → unit
+- `INFERNAL MASTER`: unclassified → unit
+- `INFERNUS SQUAD`: unclassified → unit
+- `INFILTRATOR SQUAD`: unclassified → unit
+- `INFILTRATORS`: unclassified → unit
+- `INFRACTORS`: unclassified → unit
+- `INNER CIRCLE COMPANIONS`: unclassified → unit
+- `INQUISITOR`: unclassified → unit
+- `INQUISITOR OSTROMANDEUS`: unclassified → unit
+- `INQUISITORIAL AGENTS`: unclassified → unit
+- `INQUISITORIAL CHIMERA`: unclassified → unit
+- `INTERCEPTOR SQUAD`: unclassified → unit
+- `INTERCESSOR SQUAD`: unclassified → unit
+- `INTRANZIA FRAYE`: unclassified → unit
+- `INVADER ATV , RAVENWING`: unclassified → unit
+- `INVICTOR TACTICAL WARSUIT`: unclassified → unit
+- `IRILLYTH`: unclassified → unit
+- `IRON FATHER FEIRROS`: unclassified → unit
+- `IRON PRIEST`: unclassified → unit
+- `IRON-MASTER`: unclassified → unit
+- `IRONCLAD DREADNOUGHT , DEATHWING`: unclassified → unit
+- `IRONKIN STEELJACKS`: unclassified → unit
+- `IRONKIN STEELJACKS WITH HEAVY VOLKANITE DISINTEGRATORS`: unclassified → unit
+- `IRONKIN STEELJACKS WITH MELEE WEAPONS`: unclassified → unit
+- `IRONSTRIDER BALLISTARII`: unclassified → unit
+- `JACKAL ALPHUS`: unclassified → unit
+- `JAIN ZAR`: unclassified → unit
+- `JAKHALS`: unclassified → unit
+- `JANUS DRAIK`: unclassified → unit
+- `JAVELIN ATTACK SPEEDER , RAVENWING`: unclassified → unit
+- `JOKAERO WEAPONSMITH`: unclassified → unit
+- `JUDICIAR`: unclassified → unit
+- `JUGGERNAUT`: unclassified → unit
+- `JUGGERNAUT , UNDIVIDED , SHADOW LEGION`: unclassified → unit
+- `JUMP PACK`: unclassified → unit
+- `JUMP PACKS`: unclassified → unit
+- `JUNITH ERUITA`: unclassified → unit
+- `KABAL`: unclassified → unit
+- `KABALITE WARRIORS`: unclassified → unit
+- `KAIROS FATEWEAVER`: unclassified → unit
+- `KALDOR DRAIGO`: unclassified → unit
+- `KANNONWAGON`: unclassified → unit
+- `KAPRICUS`: unclassified → unit
+- `KAPTIN BADRUKK`: unclassified → unit
+- `KARAMAZOV`: unclassified → unit
+- `KARANAK`: unclassified → unit
+- `KARANDRAS`: unclassified → unit
+- `KARNIVORE`: unclassified → unit
+- `KASRKIN`: unclassified → unit
+- `KASTELAN ROBOTS`: unclassified → unit
+- `KATAPHRON`: unclassified → unit
+- `KAYVAAN SHRIKE`: unclassified → unit
+- `KEEPER OF SECRETS`: unclassified → unit
+- `KEEPER OF SECRETS , SHADOW LEGION`: unclassified → unit
+- `KELERMORPH`: unclassified → unit
+- `KHARSETH`: unclassified → unit
+- `KHARYBDIS ASSAULT CLAW`: unclassified → unit
+- `KHORNE`: unclassified → unit
+- `KHÂRN THE BETRAYER`: unclassified → unit
+- `KILL KRUSHA`: unclassified → unit
+- `KILL RIG`: unclassified → unit
+- `KILL TANK`: unclassified → unit
+- `KILL TEAM`: unclassified → unit
+- `KILL TEAM CASSIUS`: unclassified → unit
+- `KILLA KANS`: unclassified → unit
+- `KNARLOC RIDERS`: unclassified → unit
+- `KNIGHT ABOMINANT`: unclassified → unit
+- `KNIGHT ACHERON`: unclassified → unit
+- `KNIGHT ASTERIUS`: unclassified → unit
+- `KNIGHT ATRAPOS`: unclassified → unit
+- `KNIGHT CASTELLAN`: unclassified → unit
+- `KNIGHT CASTIGATOR`: unclassified → unit
+- `KNIGHT CRUSADER`: unclassified → unit
+- `KNIGHT DEFENDER`: unclassified → unit
+- `KNIGHT DESECRATOR`: unclassified → unit
+- `KNIGHT DESPOILER`: unclassified → unit
+- `KNIGHT DESTRIER`: unclassified → unit
+- `KNIGHT ERRANT`: unclassified → unit
+- `KNIGHT GALLANT`: unclassified → unit
+- `KNIGHT LANCER`: unclassified → unit
+- `KNIGHT MAGAERA`: unclassified → unit
+- `KNIGHT PALADIN`: unclassified → unit
+- `KNIGHT PORPHYRION`: unclassified → unit
+- `KNIGHT PRECEPTOR`: unclassified → unit
+- `KNIGHT RAMPAGER`: unclassified → unit
+- `KNIGHT RUINATOR`: unclassified → unit
+- `KNIGHT STYRIX`: unclassified → unit
+- `KNIGHT TYRANT`: unclassified → unit
+- `KNIGHT VALIANT`: unclassified → unit
+- `KNIGHT WARDEN`: unclassified → unit
+- `KNIGHT-CENTURA`: unclassified → unit
+- `KOMMANDOS`: unclassified → unit
+- `KOR’SARRO KHAN`: unclassified → unit
+- `KRATOS`: unclassified → unit
+- `KRAVEK MORNE`: unclassified → unit
+- `KRIEG`: unclassified → unit
+- `KRIEG COMBAT ENGINEERS`: unclassified → unit
+- `KRIEG HEAVY WEAPONS SQUAD`: unclassified → unit
+- `KROM DRAGONGAZE`: unclassified → unit
+- `KROOT`: unclassified → unit
+- `KROOTOX RAMPAGERS`: unclassified → unit
+- `KROOTOX RIDERS`: unclassified → unit
+- `KROYLE`: unclassified → unit
+- `KUSTOM BOOSTA-BLASTA`: unclassified → unit
+- `KYTAN RAVAGER`: unclassified → unit
+- `KÂHL`: unclassified → unit
+- `LADY MALYS`: unclassified → unit
+- `LAND RAIDER`: unclassified → unit
+- `LAND RAIDER , DEATHWING`: unclassified → unit
+- `LAND RAIDER ACHILLES`: unclassified → unit
+- `LAND RAIDER CRUSADER`: unclassified → unit
+- `LAND RAIDER CRUSADER , DEATHWING`: unclassified → unit
+- `LAND RAIDER EXCELSIOR`: unclassified → unit
+- `LAND RAIDER HELIOS`: unclassified → unit
+- `LAND RAIDER PROMETHEUS`: unclassified → unit
+- `LAND RAIDER PROTEUS`: unclassified → unit
+- `LAND RAIDER REDEEMER , DEATHWING`: unclassified → unit
+- `LAND SPEEDER , RAVENWING`: unclassified → unit
+- `LAND SPEEDER STORM , RAVENWING`: unclassified → unit
+- `LAND SPEEDER TEMPEST , RAVENWING`: unclassified → unit
+- `LAND SPEEDER TORNADO , RAVENWING`: unclassified → unit
+- `LAND SPEEDER TYPHOON , RAVENWING`: unclassified → unit
+- `LAND SPEEDER VENGEANCE`: unclassified → unit
+- `LAZARUS`: unclassified → unit
+- `LEAGUES OF VOTANN`: unclassified → faction
+- `LEGIO CYBERNETICA`: unclassified → unit
+- `LEGIONARIES`: unclassified → unit
+- `LEGIONARIES , UNDIVIDED , SHADOW LEGION`: unclassified → unit
+- `LELITH HESPERAX`: unclassified → unit
+- `LEMAN RUSS BATTLE TANK`: unclassified → unit
+- `LEMAN RUSS COMMANDER`: unclassified → unit
+- `LEMAN RUSS DEMOLISHER`: unclassified → unit
+- `LEMAN RUSS ERADICATOR`: unclassified → unit
+- `LEMAN RUSS EXECUTIONER`: unclassified → unit
+- `LEMAN RUSS EXTERMINATOR`: unclassified → unit
+- `LEMAN RUSS PUNISHER`: unclassified → unit
+- `LEMAN RUSS VANQUISHER`: unclassified → unit
+- `LEMARTES`: unclassified → unit
+- `LEVIATHAN DREADNOUGHT`: unclassified → unit
+- `LEVIATHAN DREADNOUGHT , DEATHWING`: unclassified → unit
+- `LHYKHIS`: unclassified → unit
+- `LIBRARIAN`: unclassified → unit
+- `LIBRARIAN , DEATHWING`: unclassified → unit
+- `LIBRARIAN , RAVENWING`: unclassified → unit
+- `LIBRARIAN DREADNOUGHT`: unclassified → unit
+- `LICTOR`: unclassified → unit
+- `LIEUTENANT`: unclassified → unit
+- `LIEUTENANT IN REIVER ARMOUR`: unclassified → unit
+- `LIEUTENANT WITH COMBI-WEAPON`: unclassified → unit
+- `LIFTA WAGON`: unclassified → unit
+- `LION EL’JONSON`: unclassified → unit
+- `LOCUS`: unclassified → unit
+- `LOGAN GRIMNAR`: unclassified → unit
+- `LOGAN GRIMNAR ON STORMRIDER`: unclassified → unit
+- `LOKHUST DESTROYERS`: unclassified → unit
+- `LOKHUST HEAVY DESTROYERS`: unclassified → unit
+- `LOKHUST LORD`: unclassified → unit
+- `LONE-SPEAR`: unclassified → unit
+- `LONG FANGS`: unclassified → unit
+- `LONGSTRIKE`: unclassified → unit
+- `LOOTAS`: unclassified → unit
+- `LORD`: unclassified → unit
+- `LORD DISCORDANT`: unclassified → unit
+- `LORD EXULTANT`: unclassified → unit
+- `LORD INVOCATUS`: unclassified → unit
+- `LORD KAKOPHONIST`: unclassified → unit
+- `LORD MARSHAL DREIR`: unclassified → unit
+- `LORD OF CHANGE`: unclassified → unit
+- `LORD OF CHANGE , SHADOW LEGION`: unclassified → unit
+- `LORD OF CONTAGION`: unclassified → unit
+- `LORD OF POXES`: unclassified → unit
+- `LORD OF SKULLS`: unclassified → unit
+- `LORD OF VIRULENCE`: unclassified → unit
+- `LORD ON JUGGERNAUT`: unclassified → unit
+- `LORD SOLAR LEONTUS`: unclassified → unit
+- `LOYAL PROTECTOR`: unclassified → unit
+- `LUCIUS THE ETERNAL`: unclassified → unit
+- `LUKAS THE TRICKSTER`: unclassified → unit
+- `LYCHGUARD`: unclassified → unit
+- `LYNX`: unclassified → unit
+- `MACHARIUS`: unclassified → unit
+- `MACHARIUS OMEGA`: unclassified → unit
+- `MACHARIUS VANQUISHER`: unclassified → unit
+- `MACHARIUS VULCAN`: unclassified → unit
+- `MACROCYTES`: unclassified → unit
+- `MAD DOK GROTSNIK`: unclassified → unit
+- `MAGNUS THE RED`: unclassified → unit
+- `MAGUS`: unclassified → unit
+- `MALANTHROPE`: unclassified → unit
+- `MALCADOR`: unclassified → unit
+- `MALCADOR ANNIHILATOR`: unclassified → unit
+- `MALCADOR DEFENDER`: unclassified → unit
+- `MALCADOR INFERNUS`: unclassified → unit
+- `MALECEPTOR`: unclassified → unit
+- `MALIGNANT PLAGUECASTER`: unclassified → unit
+- `MANDRAKES`: unclassified → unit
+- `MANIPULUS`: unclassified → unit
+- `MANTA`: unclassified → unit
+- `MANTICORE`: unclassified → unit
+- `MANTICORE PLATFORM`: unclassified → unit
+- `MARAUDER BOMBER`: unclassified → unit
+- `MARAUDER DESTROYER`: unclassified → unit
+- `MARKERLIGHT`: unclassified → unit
+- `MARNEUS CALGAR`: unclassified → unit
+- `MARSHAL`: unclassified → unit
+- `MASTER OF EXECUTIONS`: unclassified → unit
+- `MASTER OF POSSESSION`: unclassified → unit
+- `MASTER OF POSSESSION , UNDIVIDED , SHADOW LEGION`: unclassified → unit
+- `MASTERS OF THE MAELSTROM`: unclassified → unit
+- `MASTODON`: unclassified → unit
+- `MAUGAN RA`: unclassified → unit
+- `MAULERFIEND`: unclassified → unit
+- `MAWLOC`: unclassified → unit
+- `MEDUSA CARRIAGE BATTERY`: unclassified → unit
+- `MEGA ARMOUR`: unclassified → unit
+- `MEGA DREAD`: unclassified → unit
+- `MEGANOBZ`: unclassified → unit
+- `MEGATRAKK SCRAPJET`: unclassified → unit
+- `MEK`: unclassified → unit
+- `MEK GUNZ`: unclassified → unit
+- `MEKA-DREAD`: unclassified → unit
+- `MEKBOY WORKSHOP`: unclassified → unit
+- `MEMNYR STRATEGIST`: unclassified → unit
+- `MIASMIC MALIGNIFIER`: unclassified → unit
+- `MILITARUM TEMPESTUS`: unclassified → unit
+- `MINISTORUM PRIEST`: unclassified → unit
+- `MINOTAUR`: unclassified → unit
+- `MOB`: unclassified → unit
+- `MOBILE`: unclassified → unit
+- `MOIRAX`: unclassified → unit
+- `MONOLITH`: unclassified → unit
+- `MONSTER`: unclassified → unit
+- `MORKANAUT`: unclassified → unit
+- `MORTARION`: unclassified → unit
+- `MORTIFIERS`: unclassified → unit
+- `MORTIS DREADNOUGHT , DEATHWING`: unclassified → unit
+- `MORVENN VAHL`: unclassified → unit
+- `MOUNTED`: unclassified → unit
+- `MOZROG SKRAGBAD`: unclassified → unit
+- `MUCOLID SPORES`: unclassified → unit
+- `MUKAALI RIDERS`: unclassified → unit
+- `MUNITORUM SERVITORS`: unclassified → unit
+- `MURDERFANG`: unclassified → unit
+- `MUTALITH VORTEX BEAST`: unclassified → unit
+- `MUTANT`: unclassified → unit
+- `MUTILATORS`: unclassified → unit
+- `MUTOID VERMIN`: unclassified → unit
+- `MUTOID VERMIN , UNDIVIDED , SHADOW LEGION`: unclassified → unit
+- `MYPHITIC BLIGHT-HAULER`: unclassified → unit
+- `NAVIGATOR`: unclassified → unit
+- `NECRON WARRIORS`: unclassified → unit
+- `NECRONS`: unclassified → faction
+- `NEGAVOLT CULTISTS`: unclassified → unit
+- `NEGAVOLT CULTISTS , UNDIVIDED , SHADOW LEGION`: unclassified → unit
+- `NEKROSOR AMMENTAR`: unclassified → unit
+- `NEMESIS CLAW`: unclassified → unit
+- `NEMESIS DREADKNIGHT`: unclassified → unit
+- `NEMESOR ZAHNDREKH`: unclassified → unit
+- `NEOPHYTE HYBRIDS`: unclassified → unit
+- `NEPHILIM JETFIGHTER`: unclassified → unit
+- `NEUROGAUNTS`: unclassified → unit
+- `NEUROLICTOR`: unclassified → unit
+- `NEUROTYRANT`: unclassified → unit
+- `NEXOS`: unclassified → unit
+- `NEYAM SHAI MURAD`: unclassified → unit
+- `NIGHT SCYTHE`: unclassified → unit
+- `NIGHT SHROUD`: unclassified → unit
+- `NIGHT SPINNER`: unclassified → unit
+- `NIGHTWING`: unclassified → unit
+- `NJAL STORMCALLER`: unclassified → unit
+- `NOBLE`: unclassified → unit
+- `NOBZ`: unclassified → unit
+- `NOBZ ON WARBIKES`: unclassified → unit
+- `NOCTILITH CROWN`: unclassified → unit
+- `NOISE MARINES`: unclassified → unit
+- `NORK DEDDOG`: unclassified → unit
+- `NORN ASSIMILATOR`: unclassified → unit
+- `NORN EMISSARY`: unclassified → unit
+- `NOXIOUS BLIGHTBRINGER`: unclassified → unit
+- `NURGLE`: unclassified → unit
+- `NURGLINGS`: unclassified → unit
+- `NURGLINGS , SHADOW LEGION`: unclassified → unit
+- `OBELISK`: unclassified → unit
+- `OBLITERATORS`: unclassified → unit
+- `OFFICER`: unclassified → unit
+- `OFFICIO ASSASSINORUM`: unclassified → unit
+- `OGRYN`: unclassified → unit
+- `OGRYN SQUAD`: unclassified → unit
+- `OLD ONE EYE`: unclassified → unit
+- `ONAGER DUNECRAWLER`: unclassified → unit
+- `OPHYDIAN DESTROYERS`: unclassified → unit
+- `ORCA DROPSHIP`: unclassified → unit
+- `ORDO HERETICUS`: unclassified → unit
+- `ORDO MALLEUS`: unclassified → unit
+- `ORDO XENOS`: unclassified → unit
+- `ORIKAN THE DIVINER`: unclassified → unit
+- `ORION ASSAULT DROPSHIP`: unclassified → unit
+- `ORKS`: unclassified → faction
+- `OUTRIDER SQUAD , RAVENWING`: unclassified → unit
+- `OVERLORD`: unclassified → unit
+- `OVERLORD WITH TRANSLOCATION SHROUD`: unclassified → unit
+- `PACK LEADER`: unclassified → unit
+- `PAINBOSS`: unclassified → unit
+- `PAINBOY`: unclassified → unit
+- `PAINBOY ON WARBIKE`: unclassified → unit
+- `PALADIN SQUAD`: unclassified → unit
+- `PALANQUIN OF NURGLE`: unclassified → unit
+- `PALANQUIN OF NURGLE , UNDIVIDED , SHADOW LEGION`: unclassified → unit
+- `PALATINE`: unclassified → unit
+- `PALLAS GRAV-ATTACK`: unclassified → unit
+- `PARAGON WARSUITS`: unclassified → unit
+- `PARASITE OF MORTREX`: unclassified → unit
+- `PATHFINDER TEAM`: unclassified → unit
+- `PATRIARCH`: unclassified → unit
+- `PEDRO KANTOR`: unclassified → unit
+- `PENITENT`: unclassified → unit
+- `PENITENT ENGINES`: unclassified → unit
+- `PHANTOM TITAN`: unclassified → unit
+- `PHOBOS`: unclassified → unit
+- `PHOENIX`: unclassified → unit
+- `PHOENIX LORD`: unclassified → unit
+- `PINK`: unclassified → unit
+- `PIONEERS`: unclassified → unit
+- `PIRANHAS`: unclassified → unit
+- `PLAGUE DRONES`: unclassified → unit
+- `PLAGUE DRONES , SHADOW LEGION`: unclassified → unit
+- `PLAGUE MARINES`: unclassified → unit
+- `PLAGUE SURGEON`: unclassified → unit
+- `PLAGUE TOADS , SHADOW LEGION`: unclassified → unit
+- `PLAGUEBEARERS`: unclassified → unit
+- `PLAGUEBEARERS , SHADOW LEGION`: unclassified → unit
+- `PLAGUEBURST CRAWLER`: unclassified → unit
+- `PLASMANCER`: unclassified → unit
+- `PLATOON`: unclassified → unit
+- `POSSESSED`: unclassified → unit
+- `POSSESSED , UNDIVIDED , SHADOW LEGION`: unclassified → unit
+- `POX RIDERS , SHADOW LEGION`: unclassified → unit
+- `POXBRINGER , SHADOW LEGION`: unclassified → unit
+- `POXWALKERS`: unclassified → unit
+- `PRAETOR`: unclassified → unit
+- `PRAETORIANS`: unclassified → unit
+- `PREDATOR ANNIHILATOR`: unclassified → unit
+- `PREDATOR DESTRUCTOR`: unclassified → unit
+- `PRIMARCH`: unclassified → unit
+- `PRIMARIS COMPANY CHAMPION`: unclassified → unit
+- `PRIMARIS PSYKER`: unclassified → unit
+- `PRIMUS`: unclassified → unit
+- `PRINCE YRIEL`: unclassified → unit
+- `PROSECUTORS`: unclassified → unit
+- `PROTEUS KILL TEAM`: unclassified → unit
+- `PROVISIONALLY PREPARED`: unclassified → unit
+- `PSYCHOMANCER`: unclassified → unit
+- `PSYCHOPHAGE`: unclassified → unit
+- `PSYKER`: unclassified → unit
+- `PTERAXII`: unclassified → unit
+- `PURESTRAIN GENESTEALERS`: unclassified → unit
+- `PURGATION SQUAD`: unclassified → unit
+- `PURIFIER SQUAD`: unclassified → unit
+- `PYROVORES`: unclassified → unit
+- `QUARTERMASTER CADRE SQUAD`: unclassified → unit
+- `QUESTORIS`: unclassified → unit
+- `RAGNAR BLACKMANE`: unclassified → unit
+- `RAIDER`: unclassified → unit
+- `RANGERS`: unclassified → unit
+- `RAPIER CARRIER`: unclassified → unit
+- `RAPIER LASER DESTROYER BATTERY`: unclassified → unit
+- `RAPTORS`: unclassified → unit
+- `RAPTORS , UNDIVIDED , SHADOW LEGION`: unclassified → unit
+- `RATLINGS`: unclassified → unit
+- `RAVAGER`: unclassified → unit
+- `RAVEN STRIKE FIGHTER`: unclassified → unit
+- `RAVENERS`: unclassified → unit
+- `RAVENWING`: unclassified → unit
+- `RAVENWING BLACK KNIGHTS`: unclassified → unit
+- `RAVENWING COMMAND SQUAD`: unclassified → unit
+- `RAVENWING DARKSHROUD`: unclassified → unit
+- `RAVENWING TALONMASTER , RAVENWING`: unclassified → unit
+- `RAZORBACK`: unclassified → unit
+- `RAZORSHARK STRIKE FIGHTER`: unclassified → unit
+- `RAZORWING JETFIGHTER`: unclassified → unit
+- `REANIMATOR`: unclassified → unit
+- `REAPER`: unclassified → unit
+- `REAVER TITAN`: unclassified → unit
+- `REAVERS`: unclassified → unit
+- `RED CORSAIRS RAIDERS`: unclassified → unit
+- `RED CORSAIRS REAVE-CAPTAIN`: unclassified → unit
+- `REDEEMER`: unclassified → unit
+- `REDEMPTOR DREADNOUGHT , DEATHWING`: unclassified → unit
+- `REDUCTUS SABOTEUR`: unclassified → unit
+- `REGIMENT`: unclassified → unit
+- `REGIMENTAL ATTACHÉS`: unclassified → unit
+- `REIN AND RAUS`: unclassified → unit
+- `REIVER SQUAD`: unclassified → unit
+- `RELIC CONTEMPTOR DREADNOUGHT`: unclassified → unit
+- `RELIC CONTEMPTOR DREADNOUGHT , DEATHWING`: unclassified → unit
+- `RELIC RAZORBACK`: unclassified → unit
+- `RELIC TERMINATOR SQUAD , DEATHWING`: unclassified → unit
+- `REMORA STEALTH DRONES`: unclassified → unit
+- `REMOTE SENSOR TOWER`: unclassified → unit
+- `RENDMASTER ON BLOOD THRONE , SHADOW LEGION`: unclassified → unit
+- `RENEGADE ENFORCER`: unclassified → unit
+- `RENEGADE ENFORCER , UNDIVIDED , SHADOW LEGION`: unclassified → unit
+- `RENEGADE HEAVY WEAPONS SQUAD`: unclassified → unit
+- `RENEGADE HEAVY WEAPONS SQUAD , UNDIVIDED , SHADOW LEGION`: unclassified → unit
+- `RENEGADE OGRYN BEAST HANDLER`: unclassified → unit
+- `RENEGADE OGRYN BEAST HANDLER , UNDIVIDED , SHADOW LEGION`: unclassified → unit
+- `RENEGADE OGRYN BRUTES`: unclassified → unit
+- `RENEGADE OGRYN BRUTES , UNDIVIDED , SHADOW LEGION`: unclassified → unit
+- `RENEGADE PLAGUE OGRYNS`: unclassified → unit
+- `RENEGADE PLAGUE OGRYNS , UNDIVIDED , SHADOW LEGION`: unclassified → unit
+- `REPENTIA SQUAD`: unclassified → unit
+- `REPRESSOR`: unclassified → unit
+- `REPULSOR`: unclassified → unit
+- `REPULSOR , DEATHWING`: unclassified → unit
+- `REPULSOR EXECUTIONER`: unclassified → unit
+- `REPULSOR EXECUTIONER , DEATHWING`: unclassified → unit
+- `REQUISITIONED`: unclassified → unit
+- `RETINUE`: unclassified → unit
+- `RETRIBUTOR SQUAD`: unclassified → unit
+- `REVENANT TITAN`: unclassified → unit
+- `RHINO`: unclassified → unit
+- `RHINO PRIMARIS`: unclassified → unit
+- `RIPPER SWARMS`: unclassified → unit
+- `RIPTIDE`: unclassified → unit
+- `ROBOUTE GUILLIMAN`: unclassified → unit
+- `ROGAL DORN BATTLE TANK`: unclassified → unit
+- `ROGAL DORN COMMANDER`: unclassified → unit
+- `ROGUE PSYKER`: unclassified → unit
+- `ROGUE PSYKER , UNDIVIDED , SHADOW LEGION`: unclassified → unit
+- `ROGUE TRADER ENTOURAGE`: unclassified → unit
+- `ROTIGUS`: unclassified → unit
+- `ROYAL WARDEN`: unclassified → unit
+- `RUBRIC MARINES`: unclassified → unit
+- `RUBRICAE`: unclassified → unit
+- `RUKKATRUKK SQUIGBUGGY`: unclassified → unit
+- `RUSTSTALKERS`: unclassified → unit
+- `R’VARNA`: unclassified → unit
+- `SABRE WEAPONS BATTERY`: unclassified → unit
+- `SAGITAUR`: unclassified → unit
+- `SAGITTARUM CUSTODIANS`: unclassified → unit
+- `SAINT CELESTINE`: unclassified → unit
+- `SALAMANDER COMMAND VEHICLE`: unclassified → unit
+- `SALAMANDER SCOUT VEHICLE`: unclassified → unit
+- `SAMMAEL`: unclassified → unit
+- `SANCTIFIERS`: unclassified → unit
+- `SANCTUS`: unclassified → unit
+- `SANGUINARY GUARD`: unclassified → unit
+- `SANGUINARY PRIEST`: unclassified → unit
+- `SCABEIATHRAX THE BLOATED`: unclassified → unit
+- `SCARAB OCCULT`: unclassified → unit
+- `SCARAB SWARMS`: unclassified → unit
+- `SCORPION`: unclassified → unit
+- `SCOURGES`: unclassified → unit
+- `SCOURGES WITH HEAVY WEAPONS`: unclassified → unit
+- `SCOURGES WITH SHARDCARBINES`: unclassified → unit
+- `SCOUT BIKE SQUAD , RAVENWING`: unclassified → unit
+- `SCOUT SENTINELS`: unclassified → unit
+- `SCOUT SNIPER SQUAD`: unclassified → unit
+- `SCOUT SQUAD`: unclassified → unit
+- `SCREAMER-KILLER`: unclassified → unit
+- `SCREAMERS`: unclassified → unit
+- `SCREAMERS , SHADOW LEGION`: unclassified → unit
+- `SCYTHED HIERODULE`: unclassified → unit
+- `SECUTARII HOPLITES`: unclassified → unit
+- `SECUTARII PELTASTS`: unclassified → unit
+- `SEEKERS`: unclassified → unit
+- `SEEKERS , SHADOW LEGION`: unclassified → unit
+- `SEKHETAR ROBOTS`: unclassified → unit
+- `SENTINEL POWERLIFTER`: unclassified → unit
+- `SENTRY PYLON`: unclassified → unit
+- `SERAPHIM SQUAD`: unclassified → unit
+- `SERAPTEK HEAVY CONSTRUCT`: unclassified → unit
+- `SERBERYS RAIDERS`: unclassified → unit
+- `SERBERYS SULPHURHOUNDS`: unclassified → unit
+- `SERGEANT CHRONUS`: unclassified → unit
+- `SERGEANT HARKER`: unclassified → unit
+- `SERGEANT TELION`: unclassified → unit
+- `SERVITOR BATTLECLADE`: unclassified → unit
+- `SERVITORS`: unclassified → unit
+- `SHADOW SPECTRES`: unclassified → unit
+- `SHADOW WEAVER PLATFORM`: unclassified → unit
+- `SHADOWSEER`: unclassified → unit
+- `SHADOWSWORD`: unclassified → unit
+- `SHALAXI HELBANE`: unclassified → unit
+- `SHAPER`: unclassified → unit
+- `SHAS'O R'ALAI`: unclassified → unit
+- `SHIELD-CAPTAIN`: unclassified → unit
+- `SHINING SPEARS`: unclassified → unit
+- `SHOKKJUMP DRAGSTA`: unclassified → unit
+- `SHROUD RUNNERS`: unclassified → unit
+- `SICARAN ARCUS`: unclassified → unit
+- `SICARAN BATTLE TANK`: unclassified → unit
+- `SICARAN OMEGA`: unclassified → unit
+- `SICARAN PUNISHER`: unclassified → unit
+- `SICARAN VENATOR`: unclassified → unit
+- `SICARIAN`: unclassified → unit
+- `SICARIUS`: unclassified → unit
+- `SISTERS NOVITIATE SQUAD`: unclassified → unit
+- `SISTERS OF BATTLE SQUAD`: unclassified → unit
+- `SKARBRAND`: unclassified → unit
+- `SKATHACH WRAITHKNIGHT`: unclassified → unit
+- `SKATROS`: unclassified → unit
+- `SKITARII`: unclassified → unit
+- `SKORCHAS`: unclassified → unit
+- `SKORPEKH DESTROYERS`: unclassified → unit
+- `SKORPEKH LORD`: unclassified → unit
+- `SKORPIUS DISINTEGRATOR`: unclassified → unit
+- `SKORPIUS DUNERIDER`: unclassified → unit
+- `SKULL ALTAR , SHADOW LEGION`: unclassified → unit
+- `SKULL CANNON , SHADOW LEGION`: unclassified → unit
+- `SKULLMASTER , SHADOW LEGION`: unclassified → unit
+- `SKULLTAKER`: unclassified → unit
+- `SKY RAY GUNSHIP`: unclassified → unit
+- `SKY-SLASHER SWARMS`: unclassified → unit
+- `SKYCLAWS`: unclassified → unit
+- `SKYSTALKERS`: unclassified → unit
+- `SKYWEAVERS`: unclassified → unit
+- `SLAANESH`: unclassified → unit
+- `SLAUGHTERBOUND`: unclassified → unit
+- `SLOPPITY BILEPIPER , SHADOW LEGION`: unclassified → unit
+- `SLY MARBO`: unclassified → unit
+- `SMOKE`: unclassified → unit
+- `SOKAR-PATTERN STORMBIRD`: unclassified → unit
+- `SOKAR-PATTERN STORMBIRD , RAVENWING`: unclassified → unit
+- `SOLITAIRE`: unclassified → unit
+- `SORCERER`: unclassified → unit
+- `SORCERER , UNDIVIDED , SHADOW LEGION`: unclassified → unit
+- `SORCERER IN TERMINATOR ARMOUR`: unclassified → unit
+- `SORCERER IN TERMINATOR ARMOUR , UNDIVIDED , SHADOW LEGION`: unclassified → unit
+- `SORCERER ON BIKE`: unclassified → unit
+- `SORORITAS RHINO`: unclassified → unit
+- `SOUL GRINDER , SHADOW LEGION`: unclassified → unit
+- `SPACE WOLVES`: unclassified → chapter
+- `SPARTAN`: unclassified → unit
+- `SPAWN`: unclassified → unit
+- `SPECTRUS KILL TEAM`: unclassified → unit
+- `SPEED FREEKS`: unclassified → unit
+- `SPINED CHAOS BEAST , SHADOW LEGION`: unclassified → unit
+- `SPIRITSEER`: unclassified → unit
+- `SPOILPOX SCRIVENER , SHADOW LEGION`: unclassified → unit
+- `SPORE MINES`: unclassified → unit
+- `SPOROCYST`: unclassified → unit
+- `SPYDERS`: unclassified → unit
+- `SQUADRON`: unclassified → unit
+- `SQUIGGOTH`: unclassified → unit
+- `SQUIGHOG BOYZ`: unclassified → unit
+- `STALKER`: unclassified → unit
+- `STARFANGS`: unclassified → unit
+- `STARSCYTHE`: unclassified → unit
+- `STARWEAVER`: unclassified → unit
+- `STEALTH`: unclassified → unit
+- `STEED OF SLAANESH`: unclassified → unit
+- `STEED OF SLAANESH , UNDIVIDED , SHADOW LEGION`: unclassified → unit
+- `STERNGUARD VETERAN SQUAD`: unclassified → unit
+- `STERNGUARD VETERAN SQUAD , DEATHWING`: unclassified → unit
+- `STERYLIZORS`: unclassified → unit
+- `STOMPA`: unclassified → unit
+- `STORM CHIMERA`: unclassified → unit
+- `STORM EAGLE GUNSHIP`: unclassified → unit
+- `STORM EAGLE GUNSHIP , RAVENWING`: unclassified → unit
+- `STORM GUARDIANS`: unclassified → unit
+- `STORM SPEEDER HAILSTRIKE , RAVENWING`: unclassified → unit
+- `STORM SPEEDER HAMMERSTRIKE , RAVENWING`: unclassified → unit
+- `STORM SPEEDER THUNDERSTRIKE , RAVENWING`: unclassified → unit
+- `STORMBLADE`: unclassified → unit
+- `STORMBOYZ`: unclassified → unit
+- `STORMFANG GUNSHIP`: unclassified → unit
+- `STORMHAWK INTERCEPTOR`: unclassified → unit
+- `STORMHAWK INTERCEPTOR , RAVENWING`: unclassified → unit
+- `STORMLORD`: unclassified → unit
+- `STORMRAVEN GUNSHIP`: unclassified → unit
+- `STORMRAVEN GUNSHIP , RAVENWING`: unclassified → unit
+- `STORMSURGE`: unclassified → unit
+- `STORMSWORD`: unclassified → unit
+- `STORMTALON GUNSHIP`: unclassified → unit
+- `STORMTALON GUNSHIP , RAVENWING`: unclassified → unit
+- `STORMWOLF`: unclassified → unit
+- `STRIKE SQUAD`: unclassified → unit
+- `STRIKE TEAM`: unclassified → unit
+- `STRIKING SCORPIONS`: unclassified → unit
+- `STYGIES DESTROYER TANK HUNTER`: unclassified → unit
+- `SUBDUCTOR SQUAD`: unclassified → unit
+- `SUBODEN KHAN`: unclassified → unit
+- `SUCCUBUS`: unclassified → unit
+- `SUMMONED`: unclassified → unit
+- `SUN SHARK BOMBER`: unclassified → unit
+- `SUNFORGE`: unclassified → unit
+- `SUPPORT WEAPON`: unclassified → unit
+- `SUPPRESSOR SQUAD`: unclassified → unit
+- `SWARM`: unclassified → unit
+- `SWOOPING HAWKS`: unclassified → unit
+- `SWORD BRETHREN SQUAD`: unclassified → unit
+- `SYDONIAN`: unclassified → unit
+- `SYLL’ESSKE`: unclassified → unit
+- `SYNAPSE`: unclassified → unit
+- `TACTICAL SQUAD`: unclassified → unit
+- `TACTICUS`: unclassified → unit
+- `TALLYMAN`: unclassified → unit
+- `TALONSTRIKE KILL TEAM`: unclassified → unit
+- `TALOS`: unclassified → unit
+- `TANKBUSTAS`: unclassified → unit
+- `TANTALUS`: unclassified → unit
+- `TARANTULA AIR DEFENCE BATTERY`: unclassified → unit
+- `TARANTULA BATTERY`: unclassified → unit
+- `TARANTULA SENTRY BATTERY`: unclassified → unit
+- `TAUROS`: unclassified → unit
+- `TAUROS ASSAULT VEHICLE`: unclassified → unit
+- `TAUROS VENATOR`: unclassified → unit
+- `TAUROX`: unclassified → unit
+- `TAUROX PRIME`: unclassified → unit
+- `TA’UNAR SUPREMACY ARMOUR`: unclassified → unit
+- `TECH-PRIEST`: unclassified → unit
+- `TECH-PRIEST ENGINSEER`: unclassified → unit
+- `TECHMARINE`: unclassified → unit
+- `TECHMARINE , RAVENWING`: unclassified → unit
+- `TECHNOARCHEOLOGIST`: unclassified → unit
+- `TECHNOMANCER`: unclassified → unit
+- `TECTONIC FRAGDRILL`: unclassified → unit
+- `TELEMON HEAVY DREADNOUGHT`: unclassified → unit
+- `TEMPESTUS AQUILONS`: unclassified → unit
+- `TEMPESTUS SCIONS`: unclassified → unit
+- `TERMAGANTS`: unclassified → unit
+- `TERMINATOR`: unclassified → unit
+- `TERMINATOR ASSAULT SQUAD , DEATHWING`: unclassified → unit
+- `TERMINATOR SQUAD`: unclassified → unit
+- `TERMINATOR SQUAD , DEATHWING`: unclassified → unit
+- `TERMINATORS`: unclassified → unit
+- `TERMINUS ULTRA`: unclassified → unit
+- `TERRAX-PATTERN TERMITE`: unclassified → unit
+- `TERVIGON`: unclassified → unit
+- `TESSERACT ARK`: unclassified → unit
+- `TESSERACT VAULT`: unclassified → unit
+- `TETRAS`: unclassified → unit
+- `THE BLUE SCRIBES`: unclassified → unit
+- `THE CHANGELING`: unclassified → unit
+- `THE MASQUE OF SLAANESH`: unclassified → unit
+- `THE RED TERROR`: unclassified → unit
+- `THE SANGUINOR`: unclassified → unit
+- `THE SILENT KING`: unclassified → unit
+- `THE SWARMLORD`: unclassified → unit
+- `THE TWIN LANCE`: unclassified → unit
+- `THE VISARCH`: unclassified → unit
+- `THE YNCARNE`: unclassified → unit
+- `THOUSAND SONS`: unclassified → faction
+- `THULIA GHULD`: unclassified → unit
+- `THUNDERFIRE CANNON`: unclassified → unit
+- `THUNDERHAWK`: unclassified → unit
+- `THUNDERHAWK GUNSHIP`: unclassified → unit
+- `THUNDERHAWK GUNSHIP , RAVENWING`: unclassified → unit
+- `THUNDERHAWK TRANSPORTER , RAVENWING`: unclassified → unit
+- `THUNDERKYN`: unclassified → unit
+- `THUNDERWOLF CAVALRY`: unclassified → unit
+- `TIDEWALL DRONEPORT`: unclassified → unit
+- `TIDEWALL GUNRIG`: unclassified → unit
+- `TIDEWALL SHIELDLINE`: unclassified → unit
+- `TIGER SHARK`: unclassified → unit
+- `TITANIC`: unclassified → unit
+- `TITUS`: unclassified → unit
+- `TOMB BLADES`: unclassified → unit
+- `TOMB CITADEL`: unclassified → unit
+- `TOMB CRAWLERS`: unclassified → unit
+- `TOMB SENTINEL`: unclassified → unit
+- `TOMB STALKER`: unclassified → unit
+- `TOR GARADON`: unclassified → unit
+- `TORMENTBRINGER , SHADOW LEGION`: unclassified → unit
+- `TORMENTORS`: unclassified → unit
+- `TOWERING`: unclassified → unit
+- `TOXICRENE`: unclassified → unit
+- `TRAIL SHAPER`: unclassified → unit
+- `TRAITOR ENFORCER`: unclassified → unit
+- `TRAITOR ENFORCER : UNDIVIDED , SHADOW LEGION`: unclassified → unit
+- `TRAITOR GUARDSMEN SQUAD`: unclassified → unit
+- `TRAITOR GUARDSMEN SQUAD , UNDIVIDED , SHADOW LEGION`: unclassified → unit
+- `TRAJANN VALORIS`: unclassified → unit
+- `TRANCEWEAVER , SHADOW LEGION`: unclassified → unit
+- `TRANSCENDENT C’TAN`: unclassified → unit
+- `TRANSPORT`: unclassified → unit
+- `TRAZYN THE INFINITE`: unclassified → unit
+- `TRIARCH`: unclassified → unit
+- `TRIUMPH OF SAINT KATHERINE`: unclassified → unit
+- `TROJAN SUPPORT VEHICLE`: unclassified → unit
+- `TROUPE`: unclassified → unit
+- `TROUPE MASTER`: unclassified → unit
+- `TRUKK`: unclassified → unit
+- `TRYGON`: unclassified → unit
+- `TX42 PIRANHA`: unclassified → unit
+- `TYCHO`: unclassified → unit
+- `TYCHO THE LOST`: unclassified → unit
+- `TYPHON`: unclassified → unit
+- `TYPHUS`: unclassified → unit
+- `TYRANID PRIME WITH LASH WHIP`: unclassified → unit
+- `TYRANID WARRIORS WITH MELEE BIO-WEAPONS`: unclassified → unit
+- `TYRANID WARRIORS WITH RANGED BIO-WEAPONS`: unclassified → unit
+- `TYRANIDS`: unclassified → faction
+- `TYRANNIC WAR VETERANS`: unclassified → unit
+- `TYRANNOCYTE`: unclassified → unit
+- `TYRANNOFEX`: unclassified → unit
+- `TYRANT GUARD`: unclassified → unit
+- `TZAANGOR ENLIGHTENED`: unclassified → unit
+- `TZAANGOR ENLIGHTENED WITH FATECASTER GREATBOWS`: unclassified → unit
+- `TZAANGOR SHAMAN`: unclassified → unit
+- `TZAANGORS`: unclassified → unit
+- `TZEENTCH`: unclassified → unit
+- `T’AU EMPIRE`: unclassified → faction
+- `UFTHAK BLACKHAWK`: unclassified → unit
+- `ULRIK THE SLAYER`: unclassified → unit
+- `UR-025`: unclassified → unit
+- `URIEL VENTRIS`: unclassified → unit
+- `URIEN RAKARTH`: unclassified → unit
+- `URSULA CREED`: unclassified → unit
+- `VALDOR`: unclassified → unit
+- `VALERIAN`: unclassified → unit
+- `VALKYRIE`: unclassified → unit
+- `VALKYRIE SKY TALON`: unclassified → unit
+- `VAMPIRE HUNTER`: unclassified → unit
+- `VAMPIRE RAIDER`: unclassified → unit
+- `VANGUARD`: unclassified → unit
+- `VANGUARD INVADER`: unclassified → unit
+- `VANGUARD INVADER , BURROWER`: unclassified → unit
+- `VANGUARD VETERAN SQUAD`: unclassified → unit
+- `VANGUARD VETERAN SQUAD WITH JUMP PACKS , DEATHWING`: unclassified → unit
+- `VARGARD OBYRON`: unclassified → unit
+- `VASHTORR THE ARKIFANE`: unclassified → unit
+- `VEHICLE`: unclassified → unit
+- `VENATARI CUSTODIANS`: unclassified → unit
+- `VENDETTA GUNSHIP`: unclassified → unit
+- `VENERABLE`: unclassified → unit
+- `VENERABLE CONTEMPTOR DREADNOUGHT`: unclassified → unit
+- `VENERABLE DREADNOUGHT`: unclassified → unit
+- `VENERABLE LAND RAIDER`: unclassified → unit
+- `VENOM`: unclassified → unit
+- `VENOMCRAWLER`: unclassified → unit
+- `VENOMTHROPES`: unclassified → unit
+- `VERTUS PRAETORS`: unclassified → unit
+- `VESPID STINGWINGS`: unclassified → unit
+- `VETERAN BIKE SQUAD`: unclassified → unit
+- `VIBRO CANNON PLATFORM`: unclassified → unit
+- `VICTRIX HONOUR GUARD`: unclassified → unit
+- `VIGILANT SQUAD`: unclassified → unit
+- `VIGILATORS`: unclassified → unit
+- `VINDICARE ASSASSIN`: unclassified → unit
+- `VINDICATOR`: unclassified → unit
+- `VINDICATOR LASER DESTROYER`: unclassified → unit
+- `VOIDFARERS`: unclassified → unit
+- `VOIDRAVEN BOMBER`: unclassified → unit
+- `VOIDSMEN-AT-ARMS`: unclassified → unit
+- `VOIDWEAVER`: unclassified → unit
+- `VON RYAN’S LEAPERS`: unclassified → unit
+- `VOSS-PATTERN LIGHTNING`: unclassified → unit
+- `VULKAN HE’STAN`: unclassified → unit
+- `VULTURE GUNSHIP`: unclassified → unit
+- `VYPERS`: unclassified → unit
+- `WALKER`: unclassified → unit
+- `WAR DOG`: unclassified → unit
+- `WAR SHAPER`: unclassified → unit
+- `WAR WALKERS`: unclassified → unit
+- `WARBIKERS`: unclassified → unit
+- `WARBOSS`: unclassified → unit
+- `WARBOSS IN MEGA ARMOUR`: unclassified → unit
+- `WARBRINGER NEMESIS TITAN`: unclassified → unit
+- `WARBUGGIES`: unclassified → unit
+- `WARDENS OF ULTRAMAR`: unclassified → unit
+- `WARGLAIVE`: unclassified → unit
+- `WARHOUND TITAN`: unclassified → unit
+- `WARLOCK`: unclassified → unit
+- `WARLOCK CONCLAVE`: unclassified → unit
+- `WARLOCK SKYRUNNERS`: unclassified → unit
+- `WARLOCKS`: unclassified → unit
+- `WARLORD TITAN`: unclassified → unit
+- `WARP HUNTER`: unclassified → unit
+- `WARP SPIDERS`: unclassified → unit
+- `WARP TALONS`: unclassified → unit
+- `WARP TALONS , UNDIVIDED , SHADOW LEGION`: unclassified → unit
+- `WARPSMITH`: unclassified → unit
+- `WARTRAKK`: unclassified → unit
+- `WASP ASSAULT WALKER`: unclassified → unit
+- `WATCH CAPTAIN ARTEMIS`: unclassified → unit
+- `WATCH MASTER`: unclassified → unit
+- `WAVE SERPENT`: unclassified → unit
+- `WAZBOM BLASTAJET`: unclassified → unit
+- `WAZDAKKA GUTSMEK`: unclassified → unit
+- `WEBWAY GATE`: unclassified → unit
+- `WEIRDBOY`: unclassified → unit
+- `WHIRLWIND`: unclassified → unit
+- `WHIRLWIND SCORPIUS`: unclassified → unit
+- `WINDRIDERS`: unclassified → unit
+- `WINGED HIVE TYRANT`: unclassified → unit
+- `WINGED TYRANID PRIME`: unclassified → unit
+- `WITCHSEEKERS`: unclassified → unit
+- `WOLF GUARD`: unclassified → unit
+- `WOLF GUARD BATTLE LEADER IN TERMINATOR ARMOUR`: unclassified → unit
+- `WOLF GUARD BATTLE LEADER ON THUNDERWOLF`: unclassified → unit
+- `WOLF GUARD PACK LEADER`: unclassified → unit
+- `WOLF GUARD PACK LEADER IN TERMINATOR ARMOUR`: unclassified → unit
+- `WOLF GUARD PACK LEADER WITH JUMP PACK`: unclassified → unit
+- `WOLF GUARD TERMINATORS`: unclassified → unit
+- `WOLF LORD ON THUNDERWOLF`: unclassified → unit
+- `WOLF PRIEST`: unclassified → unit
+- `WOLF SCOUTS`: unclassified → unit
+- `WORLD EATERS`: unclassified → faction
+- `WRACKS`: unclassified → unit
+- `WRAITH CONSTRUCT`: unclassified → unit
+- `WRAITHBLADES`: unclassified → unit
+- `WRAITHGUARD`: unclassified → unit
+- `WRAITHKNIGHT`: unclassified → unit
+- `WRAITHKNIGHT WITH GHOSTGLAIVE`: unclassified → unit
+- `WRAITHLORD`: unclassified → unit
+- `WRAITHS`: unclassified → unit
+- `WRAITHSEER`: unclassified → unit
+- `WULFEN`: unclassified → unit
+- `WULFEN WITH STORM SHIELDS`: unclassified → unit
+- `WURRBOY`: unclassified → unit
+- `WYCH CULT`: unclassified → unit
+- `WYCHES`: unclassified → unit
+- `WYVERN`: unclassified → unit
+- `X-101`: unclassified → unit
+- `XIPHON INTERCEPTOR`: unclassified → unit
+- `XIPHON INTERCEPTOR , RAVENWING`: unclassified → unit
+- `XV9 HAZARD`: unclassified → unit
+- `YAEGIRS`: unclassified → unit
+- `YVRAINE`: unclassified → unit
+- `Y’VAHRA`: unclassified → unit
+- `ZARAKYNEL`: unclassified → unit
+- `ZEPHYRIM SQUAD`: unclassified → unit
+- `ZOANTHROPES`: unclassified → unit
+- `ZODGROD WORTSNAGGA`: unclassified → unit
+- `ÛTHAR THE DESTINED`: unclassified → unit
+- `‘IRON HAND’ STRAKEN`: unclassified → unit
+
+## Authored summaries
+
+None.

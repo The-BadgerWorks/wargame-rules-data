@@ -1,8 +1,19 @@
 {
   "ability_keys": [
+    "core:deadly-demise-d6-6",
     "datasheet:flawless-poise",
     "datasheet:titanic-advance",
-    "datasheet:towering-wraith-construct"
+    "datasheet:towering-wraith-construct",
+    "faction:battle-focus"
+  ],
+  "composition": [
+    {
+      "line": 1,
+      "max_count": 1,
+      "min_count": 1,
+      "model_line": 1,
+      "model_name": "Phantom Titan"
+    }
   ],
   "costs": [
     {
@@ -11,7 +22,7 @@
       "model_count": 1,
       "points": 100,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
     }
   ],
   "damaged_threshold": 16,
@@ -25,41 +36,48 @@
   "keywords": [
     {
       "is_faction_keyword": false,
-      "keyword": "Aeldari"
+      "keyword": "AELDARI",
+      "keyword_class": "faction"
     },
     {
       "is_faction_keyword": true,
-      "keyword": "Asuryani"
+      "keyword": "ASURYANI"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Monster"
+      "keyword": "MONSTER",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Phantom Titan"
+      "keyword": "PHANTOM TITAN",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Titanic"
+      "keyword": "TITANIC",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Towering"
+      "keyword": "TOWERING",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Walker"
+      "keyword": "WALKER",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Wraith Construct"
+      "keyword": "WRAITH CONSTRUCT",
+      "keyword_class": "unit"
     }
   ],
   "models": [
     {
-      "base_size": "Use model",
-      "invuln_save": "4",
+      "base_size": "(⌀Use model)",
+      "invuln_save": "4+",
       "leadership": "6+",
       "line": 1,
       "movement": "14\"",
@@ -71,32 +89,130 @@
     }
   ],
   "name": "PHANTOM TITAN",
+  "option_choices": [
+    {
+      "count": 2,
+      "group_id": "og-phantom-titan-1",
+      "id": "oc-phantom-titan-1-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "Phantom starcannons and 1 wraith glaive"
+    },
+    {
+      "count": 1,
+      "group_id": "og-phantom-titan-1",
+      "id": "oc-phantom-titan-1-2",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "Phantom starcannon, 1 pulse laser and 1 wraith glaive"
+    },
+    {
+      "count": 2,
+      "group_id": "og-phantom-titan-1",
+      "id": "oc-phantom-titan-1-3",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "pulse lasers and 1 wraith glaive"
+    },
+    {
+      "count": 1,
+      "group_id": "og-phantom-titan-1",
+      "id": "oc-phantom-titan-1-4",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "Phantom pulsar",
+      "replaces_weapon_line": 2
+    },
+    {
+      "count": 1,
+      "group_id": "og-phantom-titan-2",
+      "id": "oc-phantom-titan-2-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "D-bombard",
+      "replaces_weapon_line": 1
+    },
+    {
+      "count": 2,
+      "group_id": "og-phantom-titan-2",
+      "id": "oc-phantom-titan-2-2",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "Phantom starcannons and 1 wraith glaive"
+    },
+    {
+      "count": 1,
+      "group_id": "og-phantom-titan-2",
+      "id": "oc-phantom-titan-2-3",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "Phantom starcannon, 1 pulse laser and 1 wraith glaive"
+    },
+    {
+      "count": 2,
+      "group_id": "og-phantom-titan-2",
+      "id": "oc-phantom-titan-2-4",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "pulse lasers and 1 wraith glaive"
+    },
+    {
+      "count": 1,
+      "group_id": "og-phantom-titan-3",
+      "id": "oc-phantom-titan-3-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "pulse laser",
+      "replaces_weapon_line": 4
+    }
+  ],
+  "option_groups": [
+    {
+      "id": "og-phantom-titan-1",
+      "line": 1,
+      "scope": "model"
+    },
+    {
+      "id": "og-phantom-titan-2",
+      "line": 2,
+      "scope": "model"
+    },
+    {
+      "id": "og-phantom-titan-3",
+      "line": 3,
+      "scope": "model"
+    }
+  ],
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:58f35ba3ac341406be9f8660d5cb106048687a0c08370852a12b717d0c57ebfa",
-    "last_verified_version": "mfm-2026-08",
+    "last_verified_version": "wh40k-11e-2026-08",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-    "detail_edition_code": "wh40k-10e",
+    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
-    "is_hybrid_edition": true,
-    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "is_hybrid_edition": false,
+    "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
-  "role": "Other",
+  "wargear_option_state": "extracted",
   "weapons": [
     {
+      "ability_keywords": [
+        "blast",
+        "devastating wounds"
+      ],
       "armour_penetration": "-4",
       "attacks": "D6",
       "damage": "2D6",
       "is_melee": false,
       "line": 1,
       "name": "D-bombard",
-      "range": "72",
-      "skill": "3",
+      "range": "72\"",
+      "skill": "3+",
       "strength": "20"
     },
     {
@@ -106,8 +222,8 @@
       "is_melee": false,
       "line": 2,
       "name": "Phantom pulsar",
-      "range": "120",
-      "skill": "3",
+      "range": "120\"",
+      "skill": "3+",
       "strength": "18"
     },
     {
@@ -117,8 +233,8 @@
       "is_melee": false,
       "line": 3,
       "name": "Phantom starcannon",
-      "range": "36",
-      "skill": "3",
+      "range": "36\"",
+      "skill": "3+",
       "strength": "8"
     },
     {
@@ -128,19 +244,18 @@
       "is_melee": false,
       "line": 4,
       "name": "Pulse laser",
-      "range": "48",
-      "skill": "3",
+      "range": "48\"",
+      "skill": "3+",
       "strength": "9"
     },
     {
       "armour_penetration": "-3",
       "attacks": "2D6",
       "damage": "2",
-      "is_melee": false,
+      "is_melee": true,
       "line": 5,
       "name": "Voidstorm missile launcher",
-      "range": "48",
-      "skill": "3",
+      "skill": "3+",
       "strength": "8"
     },
     {
@@ -150,7 +265,7 @@
       "is_melee": true,
       "line": 6,
       "name": "Phantom feet",
-      "skill": "3",
+      "skill": "3+",
       "strength": "12"
     },
     {
@@ -160,7 +275,7 @@
       "is_melee": true,
       "line": 7,
       "name": "Wraith glaive – strike",
-      "skill": "3",
+      "skill": "3+",
       "strength": "18"
     },
     {
@@ -170,7 +285,7 @@
       "is_melee": true,
       "line": 8,
       "name": "Wraith glaive – sweep",
-      "skill": "3",
+      "skill": "3+",
       "strength": "8"
     }
   ]

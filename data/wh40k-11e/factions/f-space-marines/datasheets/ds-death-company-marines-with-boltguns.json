@@ -1,8 +1,17 @@
 {
   "ability_keys": [
+    "core:feel-no-pain-6",
     "datasheet:an-honourable-death-in-combat",
     "datasheet:black-rage",
-    "datasheet:death-company"
+    "faction:oath-of-moment"
+  ],
+  "composition": [
+    {
+      "line": 1,
+      "max_count": 10,
+      "min_count": 5,
+      "model_name": "Death Company Marines"
+    }
   ],
   "costs": [
     {
@@ -11,7 +20,7 @@
       "model_count": 5,
       "points": 125,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1"
+      "source_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9"
     },
     {
       "copy_index_min": 1,
@@ -19,7 +28,7 @@
       "model_count": 10,
       "points": 250,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1"
+      "source_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9"
     }
   ],
   "datasheet_id": "ds-death-company-marines-with-boltguns",
@@ -32,36 +41,42 @@
   "keywords": [
     {
       "is_faction_keyword": true,
-      "keyword": "Adeptus Astartes"
+      "keyword": "ADEPTUS ASTARTES"
     },
     {
       "is_faction_keyword": true,
-      "keyword": "Blood Angels"
+      "keyword": "BLOOD ANGELS",
+      "keyword_class": "chapter"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Death Company"
+      "keyword": "DEATH COMPANY",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Death Company Marines with Boltguns"
+      "keyword": "DEATH COMPANY MARINES WITH BOLTGUNS",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Grenades"
+      "keyword": "GRENADES",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Imperium"
+      "keyword": "IMPERIUM",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Infantry"
+      "keyword": "INFANTRY",
+      "keyword_class": "unit"
     }
   ],
   "models": [
     {
-      "base_size": "32mm",
+      "base_size": "(⌀32mm)",
       "leadership": "6+",
       "line": 1,
       "movement": "6\"",
@@ -74,29 +89,32 @@
   ],
   "name": "Death Company Marines with Boltguns",
   "pricing_confidence": {
-    "consecutive_unverified_releases": 1,
+    "consecutive_unverified_releases": 2,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-    "detail_edition_code": "wh40k-10e",
+    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
-    "is_hybrid_edition": true,
+    "is_hybrid_edition": false,
     "points_edition_code": "wh40k-11e",
     "points_source": "none"
   },
-  "role": "Other",
+  "wargear_option_state": "partial",
   "weapons": [
     {
+      "ability_keywords": [
+        "pistol"
+      ],
       "armour_penetration": "0",
       "attacks": "1",
       "damage": "1",
       "is_melee": false,
       "line": 1,
       "name": "Bolt pistol",
-      "range": "12",
-      "skill": "3",
+      "range": "12\"",
+      "skill": "3+",
       "strength": "4"
     },
     {
@@ -106,52 +124,66 @@
       "is_melee": false,
       "line": 2,
       "name": "Boltgun",
-      "range": "24",
-      "skill": "3",
+      "range": "24\"",
+      "skill": "3+",
       "strength": "4"
     },
     {
+      "ability_keywords": [
+        "ignores cover",
+        "pistol",
+        "torrent"
+      ],
       "armour_penetration": "0",
       "attacks": "D6",
       "damage": "1",
       "is_melee": false,
       "line": 3,
       "name": "Hand flamer",
-      "range": "12",
+      "range": "12\"",
       "skill": "N/A",
       "strength": "3"
     },
     {
+      "ability_keywords": [
+        "melta 2",
+        "pistol"
+      ],
       "armour_penetration": "-4",
       "attacks": "1",
       "damage": "D3",
       "is_melee": false,
       "line": 4,
       "name": "Inferno pistol",
-      "range": "6",
-      "skill": "3",
+      "range": "6\"",
+      "skill": "3+",
       "strength": "8"
     },
     {
+      "ability_keywords": [
+        "pistol"
+      ],
       "armour_penetration": "-2",
       "attacks": "1",
       "damage": "1",
-      "is_melee": false,
+      "is_melee": true,
       "line": 5,
       "name": "Plasma pistol – standard",
-      "range": "12",
-      "skill": "3",
+      "skill": "3+",
       "strength": "7"
     },
     {
+      "ability_keywords": [
+        "hazardous",
+        "pistol"
+      ],
       "armour_penetration": "-3",
       "attacks": "1",
       "damage": "2",
-      "is_melee": false,
+      "is_melee": true,
       "line": 6,
       "name": "Plasma pistol – supercharge",
-      "range": "12",
-      "skill": "3",
+      "skill": "3+",
       "strength": "8"
     },
     {
@@ -161,7 +193,7 @@
       "is_melee": true,
       "line": 7,
       "name": "Astartes chainsword",
-      "skill": "3",
+      "skill": "3+",
       "strength": "4"
     },
     {
@@ -171,7 +203,7 @@
       "is_melee": true,
       "line": 8,
       "name": "Close combat weapon",
-      "skill": "3",
+      "skill": "3+",
       "strength": "4"
     },
     {
@@ -181,7 +213,7 @@
       "is_melee": true,
       "line": 9,
       "name": "Power fist",
-      "skill": "3",
+      "skill": "3+",
       "strength": "8"
     },
     {
@@ -191,17 +223,20 @@
       "is_melee": true,
       "line": 10,
       "name": "Power weapon",
-      "skill": "3",
+      "skill": "3+",
       "strength": "5"
     },
     {
+      "ability_keywords": [
+        "devastating wounds"
+      ],
       "armour_penetration": "-2",
       "attacks": "3",
       "damage": "2",
       "is_melee": true,
       "line": 11,
       "name": "Thunder hammer",
-      "skill": "4",
+      "skill": "4+",
       "strength": "8"
     }
   ]

@@ -1,7 +1,24 @@
 {
   "ability_keys": [
+    "core:deep-strike",
     "datasheet:aspect-shrine-token",
-    "datasheet:flickerjump"
+    "datasheet:flickerjump",
+    "faction:battle-focus"
+  ],
+  "composition": [
+    {
+      "line": 1,
+      "max_count": 1,
+      "min_count": 1,
+      "model_name": "Warp Spider Exarch"
+    },
+    {
+      "line": 2,
+      "max_count": 9,
+      "min_count": 4,
+      "model_line": 1,
+      "model_name": "Warp Spiders"
+    }
   ],
   "costs": [
     {
@@ -10,7 +27,7 @@
       "model_count": 5,
       "points": 105,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
     },
     {
       "copy_index_min": 1,
@@ -18,7 +35,7 @@
       "model_count": 10,
       "points": 200,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
     },
     {
       "copy_index_min": 3,
@@ -26,7 +43,7 @@
       "model_count": 5,
       "points": 125,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
     },
     {
       "copy_index_min": 3,
@@ -34,7 +51,7 @@
       "model_count": 10,
       "points": 220,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
     }
   ],
   "datasheet_id": "ds-warp-spiders",
@@ -47,37 +64,43 @@
   "keywords": [
     {
       "is_faction_keyword": false,
-      "keyword": "Aeldari"
+      "keyword": "AELDARI",
+      "keyword_class": "faction"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Aspect Warriors"
+      "keyword": "ASPECT WARRIORS",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": true,
-      "keyword": "Asuryani"
+      "keyword": "ASURYANI"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Fly"
+      "keyword": "FLY",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Infantry"
+      "keyword": "INFANTRY",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Jump Pack"
+      "keyword": "JUMP PACK",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Warp Spiders"
+      "keyword": "WARP SPIDERS",
+      "keyword_class": "unit"
     }
   ],
   "models": [
     {
-      "base_size": "28.5mm",
-      "invuln_save": "5",
+      "base_size": "(⌀28.5mm)",
+      "invuln_save": "5+",
       "leadership": "6+",
       "line": 1,
       "movement": "12\"",
@@ -88,8 +111,8 @@
       "wounds": 1
     },
     {
-      "base_size": "28.5mm",
-      "invuln_save": "5",
+      "base_size": "(⌀28.5mm)",
+      "invuln_save": "5+",
       "leadership": "6+",
       "line": 2,
       "movement": "12\"",
@@ -101,64 +124,114 @@
     }
   ],
   "name": "WARP SPIDERS",
+  "option_choices": [
+    {
+      "count": 1,
+      "group_id": "og-warp-spiders-1",
+      "id": "oc-warp-spiders-1-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "spinneret rifle and 1 death weavers"
+    },
+    {
+      "count": 1,
+      "group_id": "og-warp-spiders-1",
+      "id": "oc-warp-spiders-1-2",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "powerblades and 1 death weavers"
+    },
+    {
+      "count": 1,
+      "group_id": "og-warp-spiders-1",
+      "id": "oc-warp-spiders-1-3",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "powerblade array",
+      "replaces_weapon_line": 6
+    }
+  ],
+  "option_groups": [
+    {
+      "id": "og-warp-spiders-1",
+      "line": 1,
+      "scope": "unit"
+    }
+  ],
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:27f74d2dc237885bef76c4fd35097368e82aade2e47006dc18c0af26b396b572",
-    "last_verified_version": "mfm-2026-08",
+    "last_verified_version": "wh40k-11e-2026-08",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-    "detail_edition_code": "wh40k-10e",
+    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
-    "is_hybrid_edition": true,
-    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "is_hybrid_edition": false,
+    "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
-  "role": "Other",
+  "wargear_option_state": "partial",
   "weapons": [
     {
+      "ability_keywords": [
+        "ignores cover",
+        "torrent"
+      ],
       "armour_penetration": "-1",
       "attacks": "D6",
       "damage": "1",
       "is_melee": false,
       "line": 1,
       "name": "Death spinner",
-      "range": "12",
+      "range": "12\"",
       "skill": "N/A",
       "strength": "4"
     },
     {
+      "ability_keywords": [
+        "ignores cover",
+        "torrent",
+        "twin-linked"
+      ],
       "armour_penetration": "-1",
       "attacks": "D6",
       "damage": "1",
       "is_melee": false,
       "line": 2,
       "name": "Death weavers",
-      "range": "6",
+      "range": "6\"",
       "skill": "N/A",
       "strength": "4"
     },
     {
+      "ability_keywords": [
+        "ignores cover",
+        "torrent"
+      ],
       "armour_penetration": "-2",
       "attacks": "D6",
       "damage": "1",
       "is_melee": false,
       "line": 3,
       "name": "Exarch’s death spinner",
-      "range": "12",
+      "range": "12\"",
       "skill": "N/A",
       "strength": "6"
     },
     {
+      "ability_keywords": [
+        "ignores cover",
+        "torrent"
+      ],
       "armour_penetration": "-1",
       "attacks": "D6",
       "damage": "1",
-      "is_melee": false,
+      "is_melee": true,
       "line": 4,
       "name": "Spinneret rifle",
-      "range": "18",
       "skill": "N/A",
       "strength": "5"
     },
@@ -169,27 +242,35 @@
       "is_melee": true,
       "line": 5,
       "name": "Close combat weapon",
-      "skill": "3",
+      "skill": "3+",
       "strength": "3"
     },
     {
+      "ability_keywords": [
+        "lethal hits",
+        "twin-linked"
+      ],
       "armour_penetration": "-2",
       "attacks": "10",
       "damage": "1",
       "is_melee": true,
       "line": 6,
       "name": "Powerblade array",
-      "skill": "3",
+      "skill": "3+",
       "strength": "4"
     },
     {
+      "ability_keywords": [
+        "lethal hits",
+        "twin-linked"
+      ],
       "armour_penetration": "-2",
       "attacks": "5",
       "damage": "1",
       "is_melee": true,
       "line": 7,
       "name": "Powerblades",
-      "skill": "3",
+      "skill": "3+",
       "strength": "4"
     }
   ]

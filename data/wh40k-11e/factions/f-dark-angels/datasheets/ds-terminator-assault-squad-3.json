@@ -1,8 +1,24 @@
 {
   "ability_keys": [
+    "core:deep-strike",
     "datasheet:storm-shield",
     "datasheet:teleport-homer",
-    "datasheet:terminatus-assault"
+    "datasheet:terminatus-assault",
+    "faction:oath-of-moment"
+  ],
+  "composition": [
+    {
+      "line": 1,
+      "max_count": 1,
+      "min_count": 1,
+      "model_name": "Assault Terminator Sergeant"
+    },
+    {
+      "line": 2,
+      "max_count": 9,
+      "min_count": 4,
+      "model_name": "Assault Terminators"
+    }
   ],
   "costs": [
     {
@@ -11,7 +27,7 @@
       "model_count": 5,
       "points": 155,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
     },
     {
       "copy_index_min": 1,
@@ -19,7 +35,7 @@
       "model_count": 10,
       "points": 310,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
     }
   ],
   "datasheet_id": "ds-terminator-assault-squad-3",
@@ -32,33 +48,33 @@
   "keywords": [
     {
       "is_faction_keyword": true,
-      "keyword": "Adeptus Astartes"
+      "keyword": "ADEPTUS ASTARTES"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Deathwing"
+      "keyword": "IMPERIUM",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Imperium"
+      "keyword": "INFANTRY",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Infantry"
+      "keyword": "TERMINATOR ASSAULT SQUAD , DEATHWING",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Terminator Assault Squad"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Terminators"
+      "keyword": "TERMINATORS",
+      "keyword_class": "unit"
     }
   ],
   "models": [
     {
-      "base_size": "40mm",
-      "invuln_save": "4",
+      "base_size": "(⌀40mm)",
+      "invuln_save": "4+",
       "leadership": "6+",
       "line": 1,
       "movement": "5\"",
@@ -73,38 +89,44 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:403cf3ec15641285b5fa3d296a16afe29ba79c1e1c886595abd88bdb62ee5250",
-    "last_verified_version": "mfm-2026-08",
+    "last_verified_version": "wh40k-11e-2026-08",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-    "detail_edition_code": "wh40k-10e",
+    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
-    "is_hybrid_edition": true,
-    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "is_hybrid_edition": false,
+    "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
-  "role": "Other",
+  "wargear_option_state": "partial",
   "weapons": [
     {
+      "ability_keywords": [
+        "devastating wounds"
+      ],
       "armour_penetration": "-2",
       "attacks": "3",
       "damage": "2",
       "is_melee": true,
       "line": 1,
       "name": "Thunder hammer",
-      "skill": "3",
+      "skill": "3+",
       "strength": "8"
     },
     {
+      "ability_keywords": [
+        "twin-linked"
+      ],
       "armour_penetration": "-2",
       "attacks": "6",
       "damage": "1",
       "is_melee": true,
       "line": 2,
       "name": "Twin lightning claws",
-      "skill": "3",
+      "skill": "3+",
       "strength": "5"
     }
   ]

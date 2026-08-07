@@ -1,24 +1,45 @@
 {
   "ability_keys": [
-    "datasheet:attached-unit",
-    "datasheet:righteous-zeal"
+    "datasheet:righteous-zeal",
+    "faction:templar-vows"
+  ],
+  "composition": [
+    {
+      "line": 1,
+      "max_count": 1,
+      "min_count": 1,
+      "model_name": "Sword Brother"
+    },
+    {
+      "line": 2,
+      "max_count": 11,
+      "min_count": 5,
+      "model_name": "Initiates"
+    },
+    {
+      "line": 3,
+      "max_count": 8,
+      "min_count": 4,
+      "model_line": 1,
+      "model_name": "Neophytes"
+    }
   ],
   "costs": [
     {
       "copy_index_min": 1,
       "label": "1 Sword Brother, 4 Neophytes, 5 Initiates",
-      "model_count": 1,
+      "model_count": 10,
       "points": 150,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
     },
     {
       "copy_index_min": 1,
       "label": "1 Sword Brother, 8 Neophytes, 11 Initiates",
-      "model_count": 1,
+      "model_count": 20,
       "points": 290,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
     }
   ],
   "datasheet_id": "ds-crusader-squad",
@@ -31,40 +52,47 @@
   "keywords": [
     {
       "is_faction_keyword": true,
-      "keyword": "Adeptus Astartes"
+      "keyword": "ADEPTUS ASTARTES"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Battleline"
+      "keyword": "BATTLELINE",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": true,
-      "keyword": "Black Templars"
+      "keyword": "BLACK TEMPLARS",
+      "keyword_class": "chapter"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Crusader Squad"
+      "keyword": "CRUSADER SQUAD",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Grenades"
+      "keyword": "GRENADES",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Imperium"
+      "keyword": "IMPERIUM",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Infantry"
+      "keyword": "INFANTRY",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Tacticus"
+      "keyword": "TACTICUS",
+      "keyword_class": "unit"
     }
   ],
   "models": [
     {
-      "base_size": "28.5mm",
+      "base_size": "(⌀28.5mm)",
       "leadership": "6+",
       "line": 1,
       "movement": "6\"",
@@ -75,7 +103,7 @@
       "wounds": 2
     },
     {
-      "base_size": "32mm",
+      "base_size": "(⌀32mm Sword Brother 40mm )",
       "leadership": "6+",
       "line": 2,
       "movement": "6\"",
@@ -87,97 +115,139 @@
     }
   ],
   "name": "CRUSADER SQUAD",
+  "option_choices": [
+    {
+      "count": 1,
+      "group_id": "og-crusader-squad-1",
+      "id": "oc-crusader-squad-1-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "pyre pistol",
+      "replaces_weapon_line": 5
+    }
+  ],
+  "option_groups": [
+    {
+      "id": "og-crusader-squad-1",
+      "line": 1,
+      "scope": "unit"
+    }
+  ],
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
-    "last_verified_points_digest": "sha256:83cec333ad1286897766be40e9ae4617cc6c1c74535258892a7caae9f2eee4e6",
-    "last_verified_version": "mfm-2026-08",
+    "last_verified_points_digest": "sha256:23409788361d3b92c4ba1305d795b9af6e927654a6ab42fcf3c4b0a5ca1b5b00",
+    "last_verified_version": "wh40k-11e-2026-08",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-    "detail_edition_code": "wh40k-10e",
+    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
-    "is_hybrid_edition": true,
-    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "is_hybrid_edition": false,
+    "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
-  "role": "Battleline",
+  "wargear_option_state": "partial",
   "weapons": [
     {
+      "ability_keywords": [
+        "pistol"
+      ],
       "armour_penetration": "0",
       "attacks": "1",
       "damage": "1",
       "is_melee": false,
       "line": 1,
       "name": "Bolt pistol",
-      "range": "12",
-      "skill": "3",
+      "range": "12\"",
+      "skill": "3+",
       "strength": "4"
     },
     {
+      "ability_keywords": [
+        "assault",
+        "heavy"
+      ],
       "armour_penetration": "-1",
       "attacks": "2",
       "damage": "1",
       "is_melee": false,
       "line": 2,
       "name": "Bolt rifle",
-      "range": "24",
-      "skill": "3",
+      "range": "24\"",
+      "skill": "3+",
       "strength": "4"
     },
     {
+      "ability_keywords": [
+        "pistol"
+      ],
       "armour_penetration": "-1",
       "attacks": "1",
       "damage": "1",
       "is_melee": false,
       "line": 3,
       "name": "Heavy bolt pistol",
-      "range": "18",
-      "skill": "3",
+      "range": "18\"",
+      "skill": "3+",
       "strength": "4"
     },
     {
+      "ability_keywords": [
+        "assault"
+      ],
       "armour_penetration": "0",
       "attacks": "2",
       "damage": "1",
       "is_melee": false,
       "line": 4,
       "name": "Neophyte firearm",
-      "range": "18",
-      "skill": "3",
+      "range": "18\"",
+      "skill": "3+",
       "strength": "4"
     },
     {
+      "ability_keywords": [
+        "ignores cover",
+        "pistol",
+        "torrent"
+      ],
       "armour_penetration": "0",
       "attacks": "D6",
       "damage": "1",
       "is_melee": false,
       "line": 5,
       "name": "Pyre pistol",
-      "range": "12",
+      "range": "12\"",
       "skill": "N/A",
       "strength": "4"
     },
     {
+      "ability_keywords": [
+        "ignores cover",
+        "torrent"
+      ],
       "armour_penetration": "0",
       "attacks": "D6",
       "damage": "1",
-      "is_melee": false,
+      "is_melee": true,
       "line": 6,
       "name": "Pyreblaster",
-      "range": "12",
       "skill": "N/A",
       "strength": "5"
     },
     {
+      "ability_keywords": [
+        "sustained hits 1"
+      ],
       "armour_penetration": "-1",
       "attacks": "4",
       "damage": "1",
       "is_melee": true,
       "line": 7,
       "name": "Astartes chainsword",
-      "skill": "3",
+      "skill": "3+",
       "strength": "4"
     },
     {
@@ -187,17 +257,20 @@
       "is_melee": true,
       "line": 8,
       "name": "Close combat weapon",
-      "skill": "3",
+      "skill": "3+",
       "strength": "4"
     },
     {
+      "ability_keywords": [
+        "lethal hits"
+      ],
       "armour_penetration": "-2",
       "attacks": "3",
       "damage": "2",
       "is_melee": true,
       "line": 9,
       "name": "Master-crafted power weapon",
-      "skill": "2",
+      "skill": "2+",
       "strength": "5"
     },
     {
@@ -207,7 +280,7 @@
       "is_melee": true,
       "line": 10,
       "name": "Power fist",
-      "skill": "3",
+      "skill": "3+",
       "strength": "8"
     }
   ]

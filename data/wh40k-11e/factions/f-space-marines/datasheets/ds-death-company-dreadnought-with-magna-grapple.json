@@ -1,9 +1,20 @@
 {
   "ability_keys": [
+    "core:deadly-demise-1",
+    "core:feel-no-pain-6",
     "datasheet:black-rage",
     "datasheet:frenzied-reprisal",
     "datasheet:magna-grapple",
-    "datasheet:smoke-launchers"
+    "datasheet:smoke-launchers",
+    "faction:oath-of-moment"
+  ],
+  "composition": [
+    {
+      "line": 1,
+      "max_count": 1,
+      "min_count": 1,
+      "model_name": "Death Company Dreadnought"
+    }
   ],
   "costs": [
     {
@@ -12,7 +23,7 @@
       "model_count": 1,
       "points": 145,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1"
+      "source_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9"
     }
   ],
   "datasheet_id": "ds-death-company-dreadnought-with-magna-grapple",
@@ -25,36 +36,42 @@
   "keywords": [
     {
       "is_faction_keyword": true,
-      "keyword": "Adeptus Astartes"
+      "keyword": "ADEPTUS ASTARTES"
     },
     {
       "is_faction_keyword": true,
-      "keyword": "Blood Angels"
+      "keyword": "BLOOD ANGELS",
+      "keyword_class": "chapter"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Death Company Dreadnought"
+      "keyword": "DEATH COMPANY DREADNOUGHT",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Dreadnought"
+      "keyword": "DREADNOUGHT",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Imperium"
+      "keyword": "IMPERIUM",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Vehicle"
+      "keyword": "VEHICLE",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Walker"
+      "keyword": "WALKER",
+      "keyword_class": "unit"
     }
   ],
   "models": [
     {
-      "base_size": "90mm",
+      "base_size": "(⌀90mm)",
       "leadership": "6+",
       "line": 1,
       "movement": "8\"",
@@ -66,72 +83,146 @@
     }
   ],
   "name": "Death Company Dreadnought with Magna-grapple",
+  "option_choices": [
+    {
+      "count": 1,
+      "group_id": "og-death-company-dreadnought-with-magna-grapple-1",
+      "id": "oc-death-company-dreadnought-with-magna-grapple-1-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "heavy flamer",
+      "replaces_weapon_line": 1
+    },
+    {
+      "count": 1,
+      "group_id": "og-death-company-dreadnought-with-magna-grapple-2",
+      "id": "oc-death-company-dreadnought-with-magna-grapple-2-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "heavy flamer",
+      "replaces_weapon_line": 1
+    },
+    {
+      "count": 1,
+      "group_id": "og-death-company-dreadnought-with-magna-grapple-3",
+      "id": "oc-death-company-dreadnought-with-magna-grapple-3-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "blood talons",
+      "replaces_weapon_line": 4
+    },
+    {
+      "count": 1,
+      "group_id": "og-death-company-dreadnought-with-magna-grapple-4",
+      "id": "oc-death-company-dreadnought-with-magna-grapple-4-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "smoke launchers"
+    }
+  ],
+  "option_groups": [
+    {
+      "id": "og-death-company-dreadnought-with-magna-grapple-1",
+      "line": 1,
+      "scope": "model"
+    },
+    {
+      "id": "og-death-company-dreadnought-with-magna-grapple-2",
+      "line": 2,
+      "scope": "model"
+    },
+    {
+      "id": "og-death-company-dreadnought-with-magna-grapple-3",
+      "line": 3,
+      "scope": "model"
+    },
+    {
+      "id": "og-death-company-dreadnought-with-magna-grapple-4",
+      "line": 4,
+      "scope": "model"
+    }
+  ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 1,
+    "consecutive_unverified_releases": 2,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-    "detail_edition_code": "wh40k-10e",
+    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
-    "is_hybrid_edition": true,
+    "is_hybrid_edition": false,
     "points_edition_code": "wh40k-11e",
     "points_source": "none"
   },
-  "role": "Other",
+  "wargear_option_state": "extracted",
   "weapons": [
     {
+      "ability_keywords": [
+        "ignores cover",
+        "torrent"
+      ],
       "armour_penetration": "-1",
       "attacks": "D6",
       "damage": "1",
       "is_melee": false,
       "line": 1,
       "name": "Heavy flamer",
-      "range": "12",
+      "range": "12\"",
       "skill": "N/A",
       "strength": "5"
     },
     {
+      "ability_keywords": [
+        "melta 2"
+      ],
       "armour_penetration": "-4",
       "attacks": "1",
       "damage": "D6",
       "is_melee": false,
       "line": 2,
       "name": "Meltagun",
-      "range": "12",
-      "skill": "3",
+      "range": "12\"",
+      "skill": "3+",
       "strength": "9"
     },
     {
+      "ability_keywords": [
+        "rapid fire 2"
+      ],
       "armour_penetration": "0",
       "attacks": "2",
       "damage": "1",
-      "is_melee": false,
+      "is_melee": true,
       "line": 3,
       "name": "Storm bolter",
-      "range": "24",
-      "skill": "3",
+      "skill": "3+",
       "strength": "4"
     },
     {
+      "ability_keywords": [
+        "twin-linked"
+      ],
       "armour_penetration": "-2",
       "attacks": "7",
       "damage": "3",
       "is_melee": true,
       "line": 4,
       "name": "Blood talons",
-      "skill": "3",
+      "skill": "3+",
       "strength": "8"
     },
     {
+      "ability_keywords": [
+        "twin-linked"
+      ],
       "armour_penetration": "-3",
       "attacks": "5",
       "damage": "3",
       "is_melee": true,
       "line": 5,
       "name": "Twin Furioso fists",
-      "skill": "3",
+      "skill": "3+",
       "strength": "12"
     }
   ]

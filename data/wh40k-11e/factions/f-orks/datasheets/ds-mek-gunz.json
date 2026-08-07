@@ -1,7 +1,16 @@
 {
   "ability_keys": [
-    "datasheet:bubblechukka",
-    "datasheet:splat"
+    "datasheet:splat",
+    "faction:waaagh"
+  ],
+  "composition": [
+    {
+      "line": 1,
+      "max_count": 3,
+      "min_count": 1,
+      "model_line": 1,
+      "model_name": "Mek Gunz"
+    }
   ],
   "costs": [
     {
@@ -10,7 +19,7 @@
       "model_count": 1,
       "points": 45,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
     },
     {
       "copy_index_min": 1,
@@ -18,7 +27,7 @@
       "model_count": 2,
       "points": 90,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
     },
     {
       "copy_index_min": 1,
@@ -26,7 +35,7 @@
       "model_count": 3,
       "points": 135,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
     },
     {
       "copy_index_min": 3,
@@ -34,7 +43,7 @@
       "model_count": 1,
       "points": 55,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
     },
     {
       "copy_index_min": 3,
@@ -42,7 +51,7 @@
       "model_count": 2,
       "points": 100,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
     },
     {
       "copy_index_min": 3,
@@ -50,7 +59,7 @@
       "model_count": 3,
       "points": 145,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
     }
   ],
   "datasheet_id": "ds-mek-gunz",
@@ -63,25 +72,29 @@
   "keywords": [
     {
       "is_faction_keyword": false,
-      "keyword": "Grots"
+      "keyword": "GROTS",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Mek Gunz"
+      "keyword": "MEK GUNZ",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": true,
-      "keyword": "Orks"
+      "keyword": "ORKS",
+      "keyword_class": "faction"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Vehicle"
+      "keyword": "VEHICLE",
+      "keyword_class": "unit"
     }
   ],
   "models": [
     {
-      "base_size": "Use model",
-      "invuln_save": "6",
+      "base_size": "(⌀Use model)",
+      "invuln_save": "6+",
       "leadership": "8+",
       "line": 1,
       "movement": "3\"",
@@ -96,84 +109,106 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:059348092c93a42eaacd2fa948067f81f6d8764d5f79acab11f15658e0151af3",
-    "last_verified_version": "mfm-2026-08",
+    "last_verified_version": "wh40k-11e-2026-08",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-    "detail_edition_code": "wh40k-10e",
+    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
-    "is_hybrid_edition": true,
-    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "is_hybrid_edition": false,
+    "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
-  "role": "Other",
+  "wargear_option_state": "partial",
   "weapons": [
     {
+      "ability_keywords": [
+        "blast",
+        "bubblechukka"
+      ],
       "armour_penetration": "-1",
       "attacks": "2D6",
       "damage": "1",
       "is_melee": false,
       "line": 1,
       "name": "Bubblechukka – big bubble",
-      "range": "48",
-      "skill": "4",
+      "range": "48\"",
+      "skill": "4+",
       "strength": "6"
     },
     {
+      "ability_keywords": [
+        "blast",
+        "bubblechukka"
+      ],
       "armour_penetration": "-2",
       "attacks": "D6",
       "damage": "3",
       "is_melee": false,
       "line": 2,
       "name": "Bubblechukka – wobbly bubble",
-      "range": "48",
-      "skill": "4",
+      "range": "48\"",
+      "skill": "4+",
       "strength": "9"
     },
     {
+      "ability_keywords": [
+        "blast",
+        "bubblechukka"
+      ],
       "armour_penetration": "-3",
       "attacks": "D3",
       "damage": "D6+3",
       "is_melee": false,
       "line": 3,
       "name": "Bubblechukka – dense bubble",
-      "range": "48",
-      "skill": "4",
+      "range": "48\"",
+      "skill": "4+",
       "strength": "12"
     },
     {
+      "ability_keywords": [
+        "BLAST",
+        "HAZARDOUS"
+      ],
       "armour_penetration": "-1",
       "attacks": "D6",
       "damage": "D6",
       "is_melee": false,
       "line": 4,
       "name": "Kustom mega-kannon",
-      "range": "36",
-      "skill": "4",
+      "range": "36\"",
+      "skill": "4+",
       "strength": "12"
     },
     {
+      "ability_keywords": [
+        "BLAST"
+      ],
       "armour_penetration": "-3",
       "attacks": "D3+1",
       "damage": "3",
       "is_melee": false,
       "line": 5,
       "name": "Smasha gun",
-      "range": "48",
-      "skill": "4",
+      "range": "48\"",
+      "skill": "4+",
       "strength": "9"
     },
     {
+      "ability_keywords": [
+        "ANTI-FLY 2+",
+        "DEVASTATING WOUNDS"
+      ],
       "armour_penetration": "-2",
       "attacks": "1",
       "damage": "D6+1",
-      "is_melee": false,
+      "is_melee": true,
       "line": 6,
       "name": "Traktor kannon",
-      "range": "48",
-      "skill": "4",
+      "skill": "4+",
       "strength": "10"
     },
     {
@@ -183,7 +218,7 @@
       "is_melee": true,
       "line": 7,
       "name": "Grot crew",
-      "skill": "5",
+      "skill": "5+",
       "strength": "2"
     }
   ]

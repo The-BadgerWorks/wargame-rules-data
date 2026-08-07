@@ -1,7 +1,18 @@
 {
   "ability_keys": [
+    "core:deep-strike",
     "datasheet:plasmacyte",
-    "datasheet:tunnelling-horrors"
+    "datasheet:tunnelling-horrors",
+    "faction:reanimation-protocols"
+  ],
+  "composition": [
+    {
+      "line": 1,
+      "max_count": 6,
+      "min_count": 3,
+      "model_line": 1,
+      "model_name": "Ophydian Destroyers"
+    }
   ],
   "costs": [
     {
@@ -10,7 +21,7 @@
       "model_count": 3,
       "points": 80,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
     },
     {
       "copy_index_min": 1,
@@ -18,7 +29,7 @@
       "model_count": 6,
       "points": 145,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
     },
     {
       "copy_index_min": 3,
@@ -26,7 +37,7 @@
       "model_count": 3,
       "points": 90,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
     },
     {
       "copy_index_min": 3,
@@ -34,7 +45,7 @@
       "model_count": 6,
       "points": 155,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
     }
   ],
   "datasheet_id": "ds-ophydian-destroyers",
@@ -47,24 +58,28 @@
   "keywords": [
     {
       "is_faction_keyword": false,
-      "keyword": "Destroyer Cult"
+      "keyword": "DESTROYER CULT",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Infantry"
+      "keyword": "INFANTRY",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": true,
-      "keyword": "Necrons"
+      "keyword": "NECRONS",
+      "keyword_class": "faction"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Ophydian Destroyers"
+      "keyword": "OPHYDIAN DESTROYERS",
+      "keyword_class": "unit"
     }
   ],
   "models": [
     {
-      "base_size": "50mm",
+      "base_size": "(⌀50mm)",
       "leadership": "7+",
       "line": 1,
       "movement": "10\"",
@@ -79,19 +94,19 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:ae77dfe83da8bd6bd2d972213f9944a24993d0c1c6cedb16615d94dfbe985091",
-    "last_verified_version": "mfm-2026-08",
+    "last_verified_version": "wh40k-11e-2026-08",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-    "detail_edition_code": "wh40k-10e",
+    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
-    "is_hybrid_edition": true,
-    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "is_hybrid_edition": false,
+    "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
-  "role": "Other",
+  "wargear_option_state": "partial",
   "weapons": [
     {
       "armour_penetration": "-2",
@@ -100,7 +115,7 @@
       "is_melee": true,
       "line": 1,
       "name": "Ophydian hyperphase weapons",
-      "skill": "3",
+      "skill": "3+",
       "strength": "4"
     }
   ]

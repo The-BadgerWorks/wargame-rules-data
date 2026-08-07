@@ -1,7 +1,18 @@
 {
   "ability_keys": [
-    "datasheet:one-shot",
-    "datasheet:self-repair"
+    "core:deadly-demise-d3",
+    "core:firing-deck-2",
+    "datasheet:self-repair",
+    "faction:assigned-agents"
+  ],
+  "composition": [
+    {
+      "line": 1,
+      "max_count": 1,
+      "min_count": 1,
+      "model_line": 1,
+      "model_name": "Imperial Rhino"
+    }
   ],
   "costs": [
     {
@@ -10,7 +21,15 @@
       "model_count": 1,
       "points": 65,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
+    },
+    {
+      "copy_index_min": 4,
+      "label": "1 model",
+      "model_count": 1,
+      "points": 75,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
     },
     {
       "copy_index_min": 1,
@@ -18,7 +37,8 @@
       "model_count": 1,
       "points": 65,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+      "pricing_context": "every-model-has-imperium",
+      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
     },
     {
       "copy_index_min": 4,
@@ -26,15 +46,8 @@
       "model_count": 1,
       "points": 75,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
-    },
-    {
-      "copy_index_min": 4,
-      "label": "1 model",
-      "model_count": 1,
-      "points": 75,
-      "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+      "pricing_context": "every-model-has-imperium",
+      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
     }
   ],
   "datasheet_id": "ds-imperial-rhino",
@@ -47,36 +60,47 @@
   "keywords": [
     {
       "is_faction_keyword": true,
-      "keyword": "Agents of the Imperium"
+      "keyword": "AGENTS OF THE IMPERIUM"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Dedicated Transport"
+      "keyword": "DEDICATED TRANSPORT",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Imperial Rhino"
+      "keyword": "FRAME",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Imperium"
+      "keyword": "IMPERIAL RHINO",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Smoke"
+      "keyword": "IMPERIUM",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Transport"
+      "keyword": "SMOKE",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Vehicle"
+      "keyword": "TRANSPORT",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "VEHICLE",
+      "keyword_class": "unit"
     }
   ],
   "models": [
     {
-      "base_size": "Use model",
+      "base_size": "(⌀Use model)",
       "leadership": "6+",
       "line": 1,
       "movement": "12\"",
@@ -88,43 +112,66 @@
     }
   ],
   "name": "IMPERIAL RHINO",
+  "option_choices": [
+    {
+      "count": 1,
+      "grants_weapon_line": 1,
+      "group_id": "og-imperial-rhino-1",
+      "id": "oc-imperial-rhino-1-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "hunter-killer missile"
+    }
+  ],
+  "option_groups": [
+    {
+      "id": "og-imperial-rhino-1",
+      "line": 1,
+      "scope": "model"
+    }
+  ],
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:7afcc5a232261e7e14d1b9c73ed71403d474998a90e664b218e5b53a4fe73f0b",
-    "last_verified_version": "mfm-2026-08",
+    "last_verified_version": "wh40k-11e-2026-08",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-    "detail_edition_code": "wh40k-10e",
+    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
-    "is_hybrid_edition": true,
-    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "is_hybrid_edition": false,
+    "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
-  "role": "Dedicated Transports",
+  "wargear_option_state": "extracted",
   "weapons": [
     {
+      "ability_keywords": [
+        "one shot"
+      ],
       "armour_penetration": "-3",
       "attacks": "1",
       "damage": "D6",
       "is_melee": false,
       "line": 1,
       "name": "Hunter-killer missile",
-      "range": "48",
-      "skill": "2",
+      "range": "48\"",
+      "skill": "2+",
       "strength": "14"
     },
     {
+      "ability_keywords": [
+        "rapid fire 2"
+      ],
       "armour_penetration": "0",
       "attacks": "2",
       "damage": "1",
-      "is_melee": false,
+      "is_melee": true,
       "line": 2,
       "name": "Storm bolter",
-      "range": "24",
-      "skill": "3",
+      "skill": "3+",
       "strength": "4"
     },
     {
@@ -134,7 +181,7 @@
       "is_melee": true,
       "line": 3,
       "name": "Armoured tracks",
-      "skill": "4",
+      "skill": "4+",
       "strength": "6"
     }
   ]

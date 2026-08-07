@@ -1,7 +1,17 @@
 {
   "ability_keys": [
     "datasheet:chittering-swarm",
-    "datasheet:self-destruction"
+    "datasheet:self-destruction",
+    "faction:reanimation-protocols"
+  ],
+  "composition": [
+    {
+      "line": 1,
+      "max_count": 6,
+      "min_count": 3,
+      "model_line": 1,
+      "model_name": "Canoptek Scarab Swarms"
+    }
   ],
   "costs": [
     {
@@ -10,7 +20,7 @@
       "model_count": 3,
       "points": 40,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
     },
     {
       "copy_index_min": 1,
@@ -18,7 +28,7 @@
       "model_count": 6,
       "points": 80,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
     }
   ],
   "datasheet_id": "ds-canoptek-scarab-swarms",
@@ -31,28 +41,33 @@
   "keywords": [
     {
       "is_faction_keyword": false,
-      "keyword": "Canoptek"
+      "keyword": "CANOPTEK",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Fly"
+      "keyword": "FLY",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": true,
-      "keyword": "Necrons"
+      "keyword": "NECRONS",
+      "keyword_class": "faction"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Scarab Swarms"
+      "keyword": "SCARAB SWARMS",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Swarm"
+      "keyword": "SWARM",
+      "keyword_class": "unit"
     }
   ],
   "models": [
     {
-      "base_size": "40mm",
+      "base_size": "(⌀40mm)",
       "leadership": "8+",
       "line": 1,
       "movement": "10\"",
@@ -67,28 +82,31 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:4aab43fa127140ee8c3c1628a4942a25f9563b320cbbd62890b4a193f41c28e3",
-    "last_verified_version": "mfm-2026-08",
+    "last_verified_version": "wh40k-11e-2026-08",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-    "detail_edition_code": "wh40k-10e",
+    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
-    "is_hybrid_edition": true,
-    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "is_hybrid_edition": false,
+    "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
-  "role": "Other",
+  "wargear_option_state": "none",
   "weapons": [
     {
+      "ability_keywords": [
+        "lethal hits"
+      ],
       "armour_penetration": "0",
       "attacks": "6",
       "damage": "1",
       "is_melee": true,
       "line": 1,
       "name": "Feeder mandibles",
-      "skill": "5",
+      "skill": "5+",
       "strength": "2"
     }
   ]

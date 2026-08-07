@@ -1,8 +1,25 @@
 {
   "ability_keys": [
+    "core:deep-strike",
     "datasheet:daemonic-icon",
     "datasheet:deaths-heads",
-    "datasheet:instrument-of-chaos"
+    "datasheet:instrument-of-chaos",
+    "faction:the-shadow-of-chaos"
+  ],
+  "composition": [
+    {
+      "line": 1,
+      "max_count": 1,
+      "min_count": 1,
+      "model_name": "Plaguebringer"
+    },
+    {
+      "line": 2,
+      "max_count": 5,
+      "min_count": 2,
+      "model_line": 1,
+      "model_name": "Plague Drones"
+    }
   ],
   "costs": [
     {
@@ -11,7 +28,7 @@
       "model_count": 3,
       "points": 110,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
     },
     {
       "copy_index_min": 1,
@@ -19,7 +36,7 @@
       "model_count": 6,
       "points": 220,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
     }
   ],
   "datasheet_id": "ds-plague-drones",
@@ -32,41 +49,43 @@
   "keywords": [
     {
       "is_faction_keyword": false,
-      "keyword": "Chaos"
+      "keyword": "CHAOS",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Daemon"
+      "keyword": "DAEMON",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Fly"
+      "keyword": "FLY",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": true,
-      "keyword": "Legiones Daemonica"
+      "keyword": "LEGIONES DAEMONICA"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Mounted"
+      "keyword": "MOUNTED",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Nurgle"
+      "keyword": "NURGLE",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Plague Drones"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Shadow Legion"
+      "keyword": "PLAGUE DRONES , SHADOW LEGION",
+      "keyword_class": "unit"
     }
   ],
   "models": [
     {
-      "base_size": "60mm",
-      "invuln_save": "5",
+      "base_size": "(⌀60mm)",
+      "invuln_save": "5+",
       "leadership": "7+",
       "line": 1,
       "movement": "10\"",
@@ -78,52 +97,92 @@
     }
   ],
   "name": "PLAGUE DRONES",
+  "option_choices": [
+    {
+      "count": 1,
+      "group_id": "og-plague-drones-1",
+      "id": "oc-plague-drones-1-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "instrument of Chaos"
+    },
+    {
+      "count": 1,
+      "group_id": "og-plague-drones-2",
+      "id": "oc-plague-drones-2-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "daemonic icon"
+    }
+  ],
+  "option_groups": [
+    {
+      "id": "og-plague-drones-1",
+      "line": 1,
+      "scope": "unit"
+    },
+    {
+      "id": "og-plague-drones-2",
+      "line": 2,
+      "scope": "unit"
+    }
+  ],
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:867e54385c046d4252611800eae3eceeb10653d8db73a8e19eb5ec4a4bc49108",
-    "last_verified_version": "mfm-2026-08",
+    "last_verified_version": "wh40k-11e-2026-08",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-    "detail_edition_code": "wh40k-10e",
+    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
-    "is_hybrid_edition": true,
-    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "is_hybrid_edition": false,
+    "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
-  "role": "Other",
+  "wargear_option_state": "extracted",
   "weapons": [
     {
+      "ability_keywords": [
+        "blast",
+        "lethal hits"
+      ],
       "armour_penetration": "0",
       "attacks": "D3",
       "damage": "1",
-      "is_melee": false,
+      "is_melee": true,
       "line": 1,
       "name": "Death’s heads",
-      "range": "12",
-      "skill": "4",
+      "skill": "4+",
       "strength": "4"
     },
     {
+      "ability_keywords": [
+        "extra attacks",
+        "lethal hits"
+      ],
       "armour_penetration": "-1",
       "attacks": "2",
       "damage": "2",
       "is_melee": true,
       "line": 2,
       "name": "Foul mouthparts",
-      "skill": "4",
+      "skill": "4+",
       "strength": "5"
     },
     {
+      "ability_keywords": [
+        "lethal hits"
+      ],
       "armour_penetration": "-1",
       "attacks": "2",
       "damage": "1",
       "is_melee": true,
       "line": 3,
       "name": "Plaguesword",
-      "skill": "3",
+      "skill": "3+",
       "strength": "4"
     }
   ]

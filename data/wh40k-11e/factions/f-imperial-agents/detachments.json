@@ -1,3 +1,119 @@
 {
-  "detachments": []
+  "detachments": [
+    {
+      "detachment_id": "d-imperialis-fleet",
+      "detachment_points_cost": 2,
+      "force_disposition": "RECONNAISSANCE",
+      "is_legends": false,
+      "is_unique": false,
+      "name": "IMPERIALIS FLEET",
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+        "detail_edition_code": "wh40k-11e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      },
+      "rules": [
+        {
+          "name": "At all Costs",
+          "summary_key": "detachment:d-imperialis-fleet:at-all-costs"
+        }
+      ]
+    },
+    {
+      "detachment_id": "d-ordo-hereticus-purgation-force",
+      "detachment_points_cost": 2,
+      "force_disposition": "TAKE AND HOLD",
+      "is_legends": false,
+      "is_unique": false,
+      "name": "ORDO HERETICUS, PURGATION FORCE",
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+        "detail_edition_code": "wh40k-11e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      },
+      "rules": [
+        {
+          "name": "Root out Heresy",
+          "summary_key": "detachment:d-ordo-hereticus-purgation-force:root-out-heresy"
+        }
+      ]
+    },
+    {
+      "detachment_id": "d-ordo-malleus-daemon-hunters",
+      "detachment_points_cost": 2,
+      "force_disposition": "PRIORITY ASSETS",
+      "is_legends": false,
+      "is_unique": false,
+      "name": "ORDO MALLEUS, DAEMON HUNTERS",
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+        "detail_edition_code": "wh40k-11e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      },
+      "rules": [
+        {
+          "name": "Destroy the Daemonic",
+          "summary_key": "detachment:d-ordo-malleus-daemon-hunters:destroy-the-daemonic"
+        }
+      ]
+    },
+    {
+      "detachment_id": "d-ordo-xenos-alien-hunters",
+      "detachment_points_cost": 2,
+      "force_disposition": "PURGE THE FOE",
+      "is_legends": false,
+      "is_unique": false,
+      "name": "ORDO XENOS, ALIEN HUNTERS",
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+        "detail_edition_code": "wh40k-11e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      },
+      "rules": [
+        {
+          "name": "Deathwatch Mission Tactics",
+          "summary_key": "detachment:d-ordo-xenos-alien-hunters:deathwatch-mission-tactics"
+        }
+      ]
+    },
+    {
+      "detachment_id": "d-veiled-blade-elimination-force",
+      "detachment_points_cost": 1,
+      "force_disposition": "DISRUPTION",
+      "is_legends": false,
+      "is_unique": false,
+      "name": "VEILED BLADE ELIMINATION FORCE",
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+        "detail_edition_code": "wh40k-11e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      },
+      "rules": [
+        {
+          "name": "Extremis Sanction",
+          "summary_key": "detachment:d-veiled-blade-elimination-force:extremis-sanction"
+        }
+      ]
+    }
+  ]
 }

@@ -1,6 +1,17 @@
 {
   "ability_keys": [
-    "datasheet:strafing-run"
+    "core:deadly-demise-d6",
+    "core:hover",
+    "datasheet:strafing-run",
+    "faction:dark-pacts"
+  ],
+  "composition": [
+    {
+      "line": 1,
+      "max_count": 1,
+      "min_count": 1,
+      "model_name": "Fire Raptor Gunship"
+    }
   ],
   "costs": [
     {
@@ -9,9 +20,10 @@
       "model_count": 1,
       "points": 290,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1"
+      "source_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9"
     }
   ],
+  "damaged_threshold": 6,
   "datasheet_id": "ds-fire-raptor-gunship",
   "faction_id": "f-chaos-space-marines",
   "is_battleline": false,
@@ -22,155 +34,160 @@
   "keywords": [
     {
       "is_faction_keyword": false,
-      "keyword": "Aircraft"
+      "keyword": "AIRCRAFT",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Aircraft"
+      "keyword": "CHAOS",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Aircraft"
+      "keyword": "FIRE RAPTOR GUNSHIP",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Aircraft"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Aircraft"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Aircraft"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Chaos"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Chaos"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Chaos"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Chaos"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Chaos"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Chaos"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Fire Raptor Gunship"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Fire Raptor Gunship"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Fire Raptor Gunship"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Fire Raptor Gunship"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Fire Raptor Gunship"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Fire Raptor Gunship"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Fly"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Fly"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Fly"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Fly"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Fly"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Fly"
+      "keyword": "FLY",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": true,
-      "keyword": "Heretic Astartes"
+      "keyword": "HERETIC ASTARTES"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Vehicle"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Vehicle"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Vehicle"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Vehicle"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Vehicle"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Vehicle"
-    }
-  ],
-  "models": [
-    {
-      "base_size": "120 x 92mm flying base",
-      "leadership": "6+",
-      "line": 1,
-      "movement": "20+\"",
-      "name": "Fire Raptor Gunship",
-      "objective_control": 0,
-      "save": "3+",
-      "toughness": 10,
-      "wounds": 18
+      "keyword": "VEHICLE",
+      "keyword_class": "unit"
     }
   ],
   "name": "Fire Raptor Gunship",
+  "option_choices": [
+    {
+      "count": 2,
+      "group_id": "og-fire-raptor-gunship-1",
+      "id": "oc-fire-raptor-gunship-1-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "twin lascannons"
+    },
+    {
+      "count": 2,
+      "group_id": "og-fire-raptor-gunship-2",
+      "id": "oc-fire-raptor-gunship-2-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "quad heavy bolters"
+    }
+  ],
+  "option_groups": [
+    {
+      "id": "og-fire-raptor-gunship-1",
+      "line": 1,
+      "scope": "model"
+    },
+    {
+      "id": "og-fire-raptor-gunship-2",
+      "line": 2,
+      "scope": "model"
+    }
+  ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 1,
+    "consecutive_unverified_releases": 2,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-    "detail_edition_code": "wh40k-10e",
+    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
-    "is_hybrid_edition": true,
+    "is_hybrid_edition": false,
     "points_edition_code": "wh40k-11e",
     "points_source": "none"
   },
-  "role": "Other"
+  "wargear_option_state": "extracted",
+  "weapons": [
+    {
+      "ability_keywords": [
+        "sustained hits 1",
+        "twin-linked"
+      ],
+      "armour_penetration": "-1",
+      "attacks": "6",
+      "damage": "2",
+      "is_melee": false,
+      "line": 1,
+      "name": "Quad heavy bolter",
+      "range": "36\"",
+      "skill": "3+",
+      "strength": "5"
+    },
+    {
+      "ability_keywords": [
+        "twin-linked"
+      ],
+      "armour_penetration": "-1",
+      "attacks": "2",
+      "damage": "3",
+      "is_melee": false,
+      "line": 2,
+      "name": "Twin autocannon",
+      "range": "48\"",
+      "skill": "3+",
+      "strength": "9"
+    },
+    {
+      "ability_keywords": [
+        "twin-linked"
+      ],
+      "armour_penetration": "-1",
+      "attacks": "10",
+      "damage": "2",
+      "is_melee": false,
+      "line": 3,
+      "name": "Twin avenger bolt cannon",
+      "range": "36\"",
+      "skill": "3+",
+      "strength": "6"
+    },
+    {
+      "ability_keywords": [
+        "anti-fly 2+",
+        "twin-linked"
+      ],
+      "armour_penetration": "-3",
+      "attacks": "2",
+      "damage": "D6",
+      "is_melee": false,
+      "line": 4,
+      "name": "Twin hellstrike launcher",
+      "range": "72\"",
+      "skill": "3+",
+      "strength": "10"
+    },
+    {
+      "ability_keywords": [
+        "twin-linked"
+      ],
+      "armour_penetration": "-3",
+      "attacks": "1",
+      "damage": "D6+1",
+      "is_melee": true,
+      "line": 5,
+      "name": "Twin lascannon",
+      "skill": "3+",
+      "strength": "12"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "6",
+      "damage": "1",
+      "is_melee": true,
+      "line": 6,
+      "name": "Armoured hull",
+      "skill": "4+",
+      "strength": "8"
+    }
+  ]
 }

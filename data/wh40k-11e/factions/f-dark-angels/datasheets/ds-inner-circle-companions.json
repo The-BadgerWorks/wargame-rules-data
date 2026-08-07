@@ -1,8 +1,17 @@
 {
   "ability_keys": [
-    "datasheet:attached-unit",
     "datasheet:braziers-of-judgement",
-    "datasheet:enmity-for-the-unworthy"
+    "datasheet:enmity-for-the-unworthy",
+    "faction:oath-of-moment"
+  ],
+  "composition": [
+    {
+      "line": 1,
+      "max_count": 6,
+      "min_count": 3,
+      "model_line": 1,
+      "model_name": "Inner Circle Companions"
+    }
   ],
   "costs": [
     {
@@ -11,7 +20,7 @@
       "model_count": 3,
       "points": 80,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
     },
     {
       "copy_index_min": 1,
@@ -19,7 +28,7 @@
       "model_count": 6,
       "points": 160,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
     },
     {
       "copy_index_min": 3,
@@ -27,7 +36,7 @@
       "model_count": 3,
       "points": 90,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
     },
     {
       "copy_index_min": 3,
@@ -35,7 +44,7 @@
       "model_count": 6,
       "points": 170,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
     }
   ],
   "datasheet_id": "ds-inner-circle-companions",
@@ -48,36 +57,42 @@
   "keywords": [
     {
       "is_faction_keyword": true,
-      "keyword": "Adeptus Astartes"
+      "keyword": "ADEPTUS ASTARTES"
     },
     {
       "is_faction_keyword": true,
-      "keyword": "Dark Angels"
+      "keyword": "DARK ANGELS",
+      "keyword_class": "chapter"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Deathwing"
+      "keyword": "DEATHWING",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Imperium"
+      "keyword": "IMPERIUM",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Infantry"
+      "keyword": "INFANTRY",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Inner Circle Companions"
+      "keyword": "INNER CIRCLE COMPANIONS",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Tacticus"
+      "keyword": "TACTICUS",
+      "keyword_class": "unit"
     }
   ],
   "models": [
     {
-      "base_size": "40mm",
+      "base_size": "(⌀40mm)",
       "leadership": "6+",
       "line": 1,
       "movement": "6\"",
@@ -92,49 +107,57 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:b29ff5bf98e062c83111279cd8739e5b6e8393b84ca4775e8bf886cfdf6dc50c",
-    "last_verified_version": "mfm-2026-08",
+    "last_verified_version": "wh40k-11e-2026-08",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-    "detail_edition_code": "wh40k-10e",
+    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
-    "is_hybrid_edition": true,
-    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "is_hybrid_edition": false,
+    "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
-  "role": "Other",
+  "wargear_option_state": "none",
   "weapons": [
     {
+      "ability_keywords": [
+        "Pistol"
+      ],
       "armour_penetration": "-1",
       "attacks": "1",
       "damage": "1",
-      "is_melee": false,
+      "is_melee": true,
       "line": 1,
       "name": "Heavy bolt pistol",
-      "range": "18",
-      "skill": "3",
+      "skill": "3+",
       "strength": "4"
     },
     {
+      "ability_keywords": [
+        "lethal hits"
+      ],
       "armour_penetration": "-2",
       "attacks": "4",
       "damage": "2",
       "is_melee": true,
       "line": 2,
       "name": "Calibanite greatsword - strike",
-      "skill": "3",
+      "skill": "3+",
       "strength": "6"
     },
     {
+      "ability_keywords": [
+        "sustained hits 2"
+      ],
       "armour_penetration": "-2",
       "attacks": "5",
       "damage": "1",
       "is_melee": true,
       "line": 3,
       "name": "Calibanite greatsword - sweep",
-      "skill": "3",
+      "skill": "3+",
       "strength": "6"
     }
   ]

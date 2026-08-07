@@ -1,8 +1,20 @@
 {
   "ability_keys": [
+    "core:deadly-demise-d6",
+    "core:deep-strike",
     "datasheet:daemon-lord-of-khorne-aura",
     "datasheet:greater-daemon-of-khorne-aura",
-    "datasheet:relentless-carnage"
+    "datasheet:relentless-carnage",
+    "faction:the-shadow-of-chaos"
+  ],
+  "composition": [
+    {
+      "line": 1,
+      "max_count": 1,
+      "min_count": 1,
+      "model_line": 1,
+      "model_name": "Bloodthirster"
+    }
   ],
   "costs": [
     {
@@ -11,7 +23,7 @@
       "model_count": 1,
       "points": 320,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
     },
     {
       "copy_index_min": 3,
@@ -19,7 +31,7 @@
       "model_count": 1,
       "points": 335,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
     }
   ],
   "damaged_threshold": 6,
@@ -33,45 +45,48 @@
   "keywords": [
     {
       "is_faction_keyword": false,
-      "keyword": "Bloodthirster"
+      "keyword": "BLOODTHIRSTER , SHADOW LEGION",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Chaos"
+      "keyword": "CHAOS",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Character"
+      "keyword": "CHARACTER",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Daemon"
+      "keyword": "DAEMON",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Fly"
+      "keyword": "FLY",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Khorne"
+      "keyword": "KHORNE",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": true,
-      "keyword": "Legiones Daemonica"
+      "keyword": "LEGIONES DAEMONICA"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Monster"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Shadow Legion"
+      "keyword": "MONSTER",
+      "keyword_class": "unit"
     }
   ],
   "models": [
     {
-      "base_size": "120 x 92mm",
-      "invuln_save": "4",
+      "base_size": "(⌀120 x 92mm)",
+      "invuln_save": "4+",
       "leadership": "6+",
       "line": 1,
       "movement": "12\"",
@@ -83,42 +98,76 @@
     }
   ],
   "name": "BLOODTHIRSTER",
+  "option_choices": [
+    {
+      "count": 1,
+      "group_id": "og-bloodthirster-1",
+      "id": "oc-bloodthirster-1-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "bloodflail",
+      "replaces_weapon_line": 1
+    },
+    {
+      "count": 1,
+      "group_id": "og-bloodthirster-1",
+      "id": "oc-bloodthirster-1-2",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "lash of Khorne",
+      "replaces_weapon_line": 3
+    }
+  ],
+  "option_groups": [
+    {
+      "id": "og-bloodthirster-1",
+      "line": 1,
+      "scope": "model"
+    }
+  ],
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:b744f3043000b2b0deadb779a792f53f4a69675c834852c5878bed3ad9d09e8c",
-    "last_verified_version": "mfm-2026-08",
+    "last_verified_version": "wh40k-11e-2026-08",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-    "detail_edition_code": "wh40k-10e",
+    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
-    "is_hybrid_edition": true,
-    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "is_hybrid_edition": false,
+    "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
-  "role": "Characters",
+  "wargear_option_state": "extracted",
   "weapons": [
     {
+      "ability_keywords": [
+        "devastating wounds"
+      ],
       "armour_penetration": "-3",
       "attacks": "1",
       "damage": "D6+1",
       "is_melee": false,
       "line": 1,
       "name": "Bloodflail",
-      "range": "12",
-      "skill": "2",
+      "range": "12\"",
+      "skill": "2+",
       "strength": "16"
     },
     {
+      "ability_keywords": [
+        "ignores cover",
+        "torrent"
+      ],
       "armour_penetration": "-1",
       "attacks": "D6",
       "damage": "1",
       "is_melee": false,
       "line": 2,
       "name": "Hellfire breath",
-      "range": "12",
+      "range": "12\"",
       "skill": "N/A",
       "strength": "5"
     },
@@ -126,11 +175,10 @@
       "armour_penetration": "-1",
       "attacks": "6",
       "damage": "2",
-      "is_melee": false,
+      "is_melee": true,
       "line": 3,
       "name": "Lash of Khorne",
-      "range": "12",
-      "skill": "2",
+      "skill": "2+",
       "strength": "8"
     },
     {
@@ -140,7 +188,7 @@
       "is_melee": true,
       "line": 4,
       "name": "Axe of Khorne – strike",
-      "skill": "2",
+      "skill": "2+",
       "strength": "14"
     },
     {
@@ -150,7 +198,7 @@
       "is_melee": true,
       "line": 5,
       "name": "Axe of Khorne – sweep",
-      "skill": "2",
+      "skill": "2+",
       "strength": "8"
     },
     {
@@ -160,7 +208,7 @@
       "is_melee": true,
       "line": 6,
       "name": "Great axe of Khorne – strike",
-      "skill": "2",
+      "skill": "2+",
       "strength": "16"
     },
     {
@@ -170,7 +218,7 @@
       "is_melee": true,
       "line": 7,
       "name": "Great axe of Khorne – sweep",
-      "skill": "2",
+      "skill": "2+",
       "strength": "10"
     }
   ]

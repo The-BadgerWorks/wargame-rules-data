@@ -1,7 +1,17 @@
 {
   "ability_keys": [
+    "core:leader",
     "datasheet:protect-psychic",
-    "datasheet:psychic-communion-psychic"
+    "datasheet:psychic-communion-psychic",
+    "faction:battle-focus"
+  ],
+  "composition": [
+    {
+      "line": 1,
+      "max_count": 4,
+      "min_count": 2,
+      "model_name": "Warlocks"
+    }
   ],
   "costs": [
     {
@@ -10,7 +20,7 @@
       "model_count": 2,
       "points": 55,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
     },
     {
       "copy_index_min": 1,
@@ -18,7 +28,7 @@
       "model_count": 4,
       "points": 120,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
     }
   ],
   "datasheet_id": "ds-warlock-conclave",
@@ -31,33 +41,42 @@
   "keywords": [
     {
       "is_faction_keyword": false,
-      "keyword": "Aeldari"
+      "keyword": "AELDARI",
+      "keyword_class": "faction"
     },
     {
       "is_faction_keyword": true,
-      "keyword": "Asuryani"
+      "keyword": "ASURYANI"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Infantry"
+      "keyword": "INFANTRY",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Psyker"
+      "keyword": "PSYKER",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Warlock Conclave"
+      "keyword": "WARLOCK CONCLAVE",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Warlocks"
+      "keyword": "WARLOCKS",
+      "keyword_class": "unit"
     }
+  ],
+  "leader_pairs": [
+    "ds-guardian-defenders",
+    "ds-storm-guardians"
   ],
   "models": [
     {
-      "base_size": "32mm",
-      "invuln_save": "4",
+      "base_size": "(⌀32mm)",
+      "invuln_save": "4+",
       "leadership": "6+",
       "line": 1,
       "movement": "7\"",
@@ -72,71 +91,89 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:2cebb1209af8339483d44ead441e1c529937f3af884df1fa58bfbb1a6b48dde7",
-    "last_verified_version": "mfm-2026-08",
+    "last_verified_version": "wh40k-11e-2026-08",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-    "detail_edition_code": "wh40k-10e",
+    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
-    "is_hybrid_edition": true,
-    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "is_hybrid_edition": false,
+    "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
-  "role": "Other",
+  "wargear_option_state": "partial",
   "weapons": [
     {
+      "ability_keywords": [
+        "psychic",
+        "torrent"
+      ],
       "armour_penetration": "-1",
       "attacks": "D6",
       "damage": "1",
       "is_melee": false,
       "line": 1,
       "name": "Destructor",
-      "range": "12",
+      "range": "12\"",
       "skill": "N/A",
       "strength": "5"
     },
     {
+      "ability_keywords": [
+        "assault",
+        "pistol"
+      ],
       "armour_penetration": "-1",
       "attacks": "1",
       "damage": "1",
       "is_melee": false,
       "line": 2,
       "name": "Shuriken pistol",
-      "range": "12",
-      "skill": "3",
+      "range": "12\"",
+      "skill": "3+",
       "strength": "4"
     },
     {
+      "ability_keywords": [
+        "assault",
+        "psychic"
+      ],
       "armour_penetration": "0",
       "attacks": "1",
       "damage": "3",
-      "is_melee": false,
+      "is_melee": true,
       "line": 3,
       "name": "Singing spear",
-      "range": "12",
-      "skill": "3",
+      "skill": "3+",
       "strength": "9"
     },
     {
+      "ability_keywords": [
+        "psychic"
+      ],
       "armour_penetration": "0",
       "attacks": "2",
       "damage": "3",
       "is_melee": true,
       "line": 4,
       "name": "Singing spear",
-      "skill": "3",
+      "skill": "3+",
       "strength": "3"
     },
     {
+      "ability_keywords": [
+        "anti-infantry 2+",
+        "psychic"
+      ],
       "armour_penetration": "0",
       "attacks": "2",
       "damage": "2",
       "is_melee": true,
       "line": 5,
       "name": "Witchblade",
-      "skill": "3",
+      "skill": "3+",
       "strength": "3"
     }
   ]

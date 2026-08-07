@@ -1,7 +1,52 @@
 {
   "ability_keys": [
-    "datasheet:attached-unit",
-    "datasheet:fortis-doctrines"
+    "datasheet:fortis-doctrines",
+    "faction:mission-tactics",
+    "faction:oath-of-moment"
+  ],
+  "composition": [
+    {
+      "line": 1,
+      "max_count": 10,
+      "min_count": 10,
+      "model_name": "MODELS MAXIMUM"
+    },
+    {
+      "line": 2,
+      "max_count": 1,
+      "min_count": 1,
+      "model_name": "Kill Team Sergeant"
+    },
+    {
+      "line": 3,
+      "max_count": 9,
+      "min_count": 2,
+      "model_name": "Kill Team Intercessors"
+    },
+    {
+      "line": 4,
+      "max_count": 4,
+      "min_count": 0,
+      "model_name": "Kill Team Intercessors with plasma incinerators"
+    },
+    {
+      "line": 5,
+      "max_count": 4,
+      "min_count": 0,
+      "model_name": "Kill Team Intercessors with heavy bolt pistols"
+    },
+    {
+      "line": 6,
+      "max_count": 4,
+      "min_count": 0,
+      "model_name": "Kill Team Intercessors with pyreblasters"
+    },
+    {
+      "line": 7,
+      "max_count": 2,
+      "min_count": 0,
+      "model_name": "Kill Team Intercessors with superfrag rocket launchers"
+    }
   ],
   "costs": [
     {
@@ -10,7 +55,7 @@
       "model_count": 10,
       "points": 195,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
     },
     {
       "copy_index_min": 3,
@@ -18,7 +63,7 @@
       "model_count": 10,
       "points": 210,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
     }
   ],
   "datasheet_id": "ds-fortis-kill-team",
@@ -31,40 +76,47 @@
   "keywords": [
     {
       "is_faction_keyword": true,
-      "keyword": "Adeptus Astartes"
+      "keyword": "ADEPTUS ASTARTES"
     },
     {
       "is_faction_keyword": true,
-      "keyword": "Deathwatch"
+      "keyword": "DEATHWATCH",
+      "keyword_class": "chapter"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Fortis Kill Team"
+      "keyword": "FORTIS KILL TEAM",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Grenades"
+      "keyword": "GRENADES",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Imperium"
+      "keyword": "IMPERIUM",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Infantry"
+      "keyword": "INFANTRY",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Kill Team"
+      "keyword": "KILL TEAM",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Tacticus"
+      "keyword": "TACTICUS",
+      "keyword_class": "unit"
     }
   ],
   "models": [
     {
-      "base_size": "32mm",
+      "base_size": "(⌀32mm)",
       "leadership": "6+",
       "line": 1,
       "movement": "6\"",
@@ -76,32 +128,53 @@
     }
   ],
   "name": "FORTIS KILL TEAM",
+  "option_choices": [
+    {
+      "count": 1,
+      "group_id": "og-fortis-kill-team-3",
+      "id": "oc-fortis-kill-team-3-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "Astartes grenade launcher"
+    }
+  ],
+  "option_groups": [
+    {
+      "id": "og-fortis-kill-team-3",
+      "line": 3,
+      "scope": "per_n_models",
+      "scope_n": 5
+    }
+  ],
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:0f247543af4f5a4dfdb3982d97e909b4a41aad67987dd8d54297fbc33918d6b8",
-    "last_verified_version": "mfm-2026-08",
+    "last_verified_version": "wh40k-11e-2026-08",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-    "detail_edition_code": "wh40k-10e",
+    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
-    "is_hybrid_edition": true,
-    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "is_hybrid_edition": false,
+    "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
-  "role": "Other",
+  "wargear_option_state": "partial",
   "weapons": [
     {
+      "ability_keywords": [
+        "blast"
+      ],
       "armour_penetration": "0",
       "attacks": "D3",
       "damage": "1",
       "is_melee": false,
       "line": 1,
       "name": "Astartes grenade launcher – frag",
-      "range": "24",
-      "skill": "3",
+      "range": "24\"",
+      "skill": "3+",
       "strength": "4"
     },
     {
@@ -109,153 +182,203 @@
       "attacks": "1",
       "damage": "D3",
       "is_melee": false,
-      "line": 1,
+      "line": 2,
       "name": "Astartes grenade launcher – krak",
-      "range": "24",
-      "skill": "3",
+      "range": "24\"",
+      "skill": "3+",
       "strength": "9"
     },
     {
+      "ability_keywords": [
+        "pistol"
+      ],
       "armour_penetration": "0",
       "attacks": "1",
       "damage": "1",
       "is_melee": false,
-      "line": 2,
+      "line": 3,
       "name": "Bolt pistol",
-      "range": "12",
-      "skill": "3",
+      "range": "12\"",
+      "skill": "3+",
       "strength": "4"
     },
     {
+      "ability_keywords": [
+        "blast",
+        "indirect fire"
+      ],
       "armour_penetration": "0",
       "attacks": "D3",
       "damage": "1",
       "is_melee": false,
-      "line": 3,
+      "line": 4,
       "name": "Castellan launcher",
-      "range": "36",
-      "skill": "3",
+      "range": "36\"",
+      "skill": "3+",
       "strength": "4"
     },
     {
+      "ability_keywords": [
+        "assault",
+        "heavy",
+        "lethal hits"
+      ],
       "armour_penetration": "-2",
       "attacks": "2",
       "damage": "1",
       "is_melee": false,
-      "line": 4,
+      "line": 5,
       "name": "Deathwatch bolt rifle",
-      "range": "24",
-      "skill": "3",
+      "range": "24\"",
+      "skill": "3+",
       "strength": "5"
     },
     {
+      "ability_keywords": [
+        "ignores cover",
+        "pistol",
+        "torrent"
+      ],
       "armour_penetration": "0",
       "attacks": "D6",
       "damage": "1",
       "is_melee": false,
-      "line": 5,
+      "line": 6,
       "name": "Hand flamer",
-      "range": "12",
+      "range": "12\"",
       "skill": "N/A",
       "strength": "3"
     },
     {
+      "ability_keywords": [
+        "pistol"
+      ],
       "armour_penetration": "-1",
       "attacks": "1",
       "damage": "1",
       "is_melee": false,
-      "line": 6,
+      "line": 7,
       "name": "Heavy bolt pistol",
-      "range": "18",
-      "skill": "3",
+      "range": "18\"",
+      "skill": "3+",
       "strength": "4"
     },
     {
+      "ability_keywords": [
+        "assault",
+        "heavy"
+      ],
       "armour_penetration": "-2",
       "attacks": "2",
       "damage": "1",
-      "is_melee": false,
-      "line": 7,
-      "name": "Plasma incinerator – standard",
-      "range": "24",
-      "skill": "3",
-      "strength": "7"
-    },
-    {
-      "armour_penetration": "-3",
-      "attacks": "2",
-      "damage": "2",
       "is_melee": false,
       "line": 8,
+      "name": "Plasma incinerator – standard",
+      "range": "24\"",
+      "skill": "3+",
+      "strength": "7"
+    },
+    {
+      "ability_keywords": [
+        "assault",
+        "hazardous",
+        "heavy"
+      ],
+      "armour_penetration": "-3",
+      "attacks": "2",
+      "damage": "2",
+      "is_melee": false,
+      "line": 9,
       "name": "Plasma incinerator – supercharge",
-      "range": "24",
-      "skill": "3",
+      "range": "24\"",
+      "skill": "3+",
       "strength": "8"
     },
     {
+      "ability_keywords": [
+        "PISTOL"
+      ],
       "armour_penetration": "-2",
       "attacks": "1",
       "damage": "1",
       "is_melee": false,
-      "line": 9,
+      "line": 10,
       "name": "Plasma pistol - standard",
-      "range": "12",
-      "skill": "3",
+      "range": "12\"",
+      "skill": "3+",
       "strength": "7"
     },
     {
+      "ability_keywords": [
+        "HAZARDOUS",
+        "PISTOL"
+      ],
       "armour_penetration": "-3",
       "attacks": "1",
       "damage": "2",
       "is_melee": false,
-      "line": 9,
+      "line": 11,
       "name": "Plasma pistol - supercharge",
-      "range": "12",
-      "skill": "3",
+      "range": "12\"",
+      "skill": "3+",
       "strength": "8"
     },
     {
+      "ability_keywords": [
+        "ignores cover",
+        "torrent"
+      ],
       "armour_penetration": "0",
       "attacks": "D6",
       "damage": "1",
       "is_melee": false,
-      "line": 10,
+      "line": 12,
       "name": "Pyreblaster",
-      "range": "12",
+      "range": "12\"",
       "skill": "N/A",
       "strength": "5"
     },
     {
+      "ability_keywords": [
+        "blast",
+        "heavy"
+      ],
       "armour_penetration": "0",
       "attacks": "D6+1",
       "damage": "1",
       "is_melee": false,
-      "line": 11,
+      "line": 13,
       "name": "Superfrag rocket launcher",
-      "range": "48",
-      "skill": "4",
+      "range": "48\"",
+      "skill": "4+",
       "strength": "5"
     },
     {
+      "ability_keywords": [
+        "heavy"
+      ],
       "armour_penetration": "-2",
       "attacks": "1",
       "damage": "D6+1",
       "is_melee": false,
-      "line": 12,
+      "line": 14,
       "name": "Superkrak rocket launcher",
-      "range": "48",
-      "skill": "4",
+      "range": "48\"",
+      "skill": "4+",
       "strength": "10"
     },
     {
+      "ability_keywords": [
+        "blast",
+        "indirect fire"
+      ],
       "armour_penetration": "-1",
       "attacks": "D6",
       "damage": "2",
-      "is_melee": false,
-      "line": 13,
+      "is_melee": true,
+      "line": 15,
       "name": "Vengor launcher",
-      "range": "48",
-      "skill": "2",
+      "skill": "2+",
       "strength": "7"
     },
     {
@@ -263,9 +386,9 @@
       "attacks": "4",
       "damage": "1",
       "is_melee": true,
-      "line": 14,
+      "line": 16,
       "name": "Astartes chainsword",
-      "skill": "3",
+      "skill": "3+",
       "strength": "4"
     },
     {
@@ -273,30 +396,10 @@
       "attacks": "3",
       "damage": "1",
       "is_melee": true,
-      "line": 15,
-      "name": "Close combat weapon",
-      "skill": "3",
-      "strength": "4"
-    },
-    {
-      "armour_penetration": "-2",
-      "attacks": "3",
-      "damage": "2",
-      "is_melee": true,
-      "line": 16,
-      "name": "Power fist",
-      "skill": "3",
-      "strength": "8"
-    },
-    {
-      "armour_penetration": "-2",
-      "attacks": "4",
-      "damage": "1",
-      "is_melee": true,
       "line": 17,
-      "name": "Power weapon",
-      "skill": "3",
-      "strength": "5"
+      "name": "Close combat weapon",
+      "skill": "3+",
+      "strength": "4"
     },
     {
       "armour_penetration": "-2",
@@ -304,8 +407,31 @@
       "damage": "2",
       "is_melee": true,
       "line": 18,
+      "name": "Power fist",
+      "skill": "3+",
+      "strength": "8"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "4",
+      "damage": "1",
+      "is_melee": true,
+      "line": 19,
+      "name": "Power weapon",
+      "skill": "3+",
+      "strength": "5"
+    },
+    {
+      "ability_keywords": [
+        "devastating wounds"
+      ],
+      "armour_penetration": "-2",
+      "attacks": "3",
+      "damage": "2",
+      "is_melee": true,
+      "line": 20,
       "name": "Thunder hammer",
-      "skill": "4",
+      "skill": "4+",
       "strength": "8"
     }
   ]

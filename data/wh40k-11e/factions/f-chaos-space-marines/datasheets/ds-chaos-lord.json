@@ -1,7 +1,18 @@
 {
   "ability_keys": [
+    "core:leader",
     "datasheet:chance-for-glory",
-    "datasheet:lord-of-chaos"
+    "datasheet:lord-of-chaos",
+    "faction:dark-pacts"
+  ],
+  "composition": [
+    {
+      "line": 1,
+      "max_count": 1,
+      "min_count": 1,
+      "model_line": 1,
+      "model_name": "Chaos Lord"
+    }
   ],
   "costs": [
     {
@@ -10,7 +21,7 @@
       "model_count": 1,
       "points": 90,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
     }
   ],
   "datasheet_id": "ds-chaos-lord",
@@ -23,27 +34,32 @@
   "keywords": [
     {
       "is_faction_keyword": false,
-      "keyword": "Chaos"
+      "keyword": "CHAOS",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Chaos Lord"
+      "keyword": "CHAOS LORD",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Character"
+      "keyword": "CHARACTER",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Grenades"
+      "keyword": "GRENADES",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": true,
-      "keyword": "Heretic Astartes"
+      "keyword": "HERETIC ASTARTES"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Infantry"
+      "keyword": "INFANTRY",
+      "keyword_class": "unit"
     }
   ],
   "leader_pairs": [
@@ -54,8 +70,8 @@
   ],
   "models": [
     {
-      "base_size": "40mm",
-      "invuln_save": "4",
+      "base_size": "(⌀40mm)",
+      "invuln_save": "4+",
       "leadership": "6+",
       "line": 1,
       "movement": "6\"",
@@ -67,43 +83,88 @@
     }
   ],
   "name": "CHAOS LORD",
+  "option_choices": [
+    {
+      "count": 1,
+      "group_id": "og-chaos-lord-1",
+      "id": "oc-chaos-lord-1-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "accursed weapon",
+      "replaces_weapon_line": 3
+    },
+    {
+      "count": 1,
+      "group_id": "og-chaos-lord-1",
+      "id": "oc-chaos-lord-1-2",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "Astartes chainsword"
+    },
+    {
+      "count": 1,
+      "group_id": "og-chaos-lord-2",
+      "id": "oc-chaos-lord-2-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "power fist",
+      "replaces_weapon_line": 6
+    }
+  ],
+  "option_groups": [
+    {
+      "id": "og-chaos-lord-1",
+      "line": 1,
+      "scope": "model"
+    },
+    {
+      "id": "og-chaos-lord-2",
+      "line": 2,
+      "scope": "model"
+    }
+  ],
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:e44414db501bb26ca640da94337f11b3d663084e8077e4ba8b901744af55657a",
-    "last_verified_version": "mfm-2026-08",
+    "last_verified_version": "wh40k-11e-2026-08",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-    "detail_edition_code": "wh40k-10e",
+    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
-    "is_hybrid_edition": true,
-    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "is_hybrid_edition": false,
+    "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
-  "role": "Characters",
+  "wargear_option_state": "extracted",
   "weapons": [
     {
+      "ability_keywords": [
+        "pistol"
+      ],
       "armour_penetration": "-2",
       "attacks": "1",
       "damage": "1",
-      "is_melee": false,
+      "is_melee": true,
       "line": 1,
       "name": "Plasma pistol – standard",
-      "range": "12",
-      "skill": "2",
+      "skill": "2+",
       "strength": "7"
     },
     {
+      "ability_keywords": [
+        "hazardous",
+        "pistol"
+      ],
       "armour_penetration": "-3",
       "attacks": "1",
       "damage": "2",
-      "is_melee": false,
+      "is_melee": true,
       "line": 2,
       "name": "Plasma pistol – supercharge",
-      "range": "12",
-      "skill": "2",
+      "skill": "2+",
       "strength": "8"
     },
     {
@@ -113,7 +174,7 @@
       "is_melee": true,
       "line": 3,
       "name": "Accursed weapon",
-      "skill": "2",
+      "skill": "2+",
       "strength": "5"
     },
     {
@@ -123,17 +184,20 @@
       "is_melee": true,
       "line": 4,
       "name": "Astartes chainblade",
-      "skill": "2",
+      "skill": "2+",
       "strength": "4"
     },
     {
+      "ability_keywords": [
+        "devastating wounds"
+      ],
       "armour_penetration": "-2",
       "attacks": "5",
       "damage": "2",
       "is_melee": true,
       "line": 5,
       "name": "Daemon hammer",
-      "skill": "3",
+      "skill": "3+",
       "strength": "8"
     },
     {
@@ -143,7 +207,7 @@
       "is_melee": true,
       "line": 6,
       "name": "Power fist",
-      "skill": "2",
+      "skill": "2+",
       "strength": "8"
     }
   ]

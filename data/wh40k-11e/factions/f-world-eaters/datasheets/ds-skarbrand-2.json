@@ -1,7 +1,19 @@
 {
   "ability_keys": [
+    "core:deadly-demise-d6",
+    "core:deep-strike",
     "datasheet:murderlust",
-    "datasheet:rage-embodied-aura"
+    "datasheet:rage-embodied-aura",
+    "faction:pact-of-blood"
+  ],
+  "composition": [
+    {
+      "line": 1,
+      "max_count": 1,
+      "min_count": 1,
+      "model_line": 1,
+      "model_name": "Skarbrand"
+    }
   ],
   "costs": [
     {
@@ -10,7 +22,7 @@
       "model_count": 1,
       "points": 315,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
     }
   ],
   "damaged_threshold": 7,
@@ -24,45 +36,53 @@
   "keywords": [
     {
       "is_faction_keyword": true,
-      "keyword": "Blood Legions"
+      "keyword": "BLOOD LEGIONS"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Chaos"
+      "keyword": "CHAOS",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Character"
+      "keyword": "CHARACTER",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Daemon"
+      "keyword": "DAEMON",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Epic Hero"
+      "keyword": "EPIC HERO",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Khorne"
+      "keyword": "KHORNE",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Monster"
+      "keyword": "MONSTER",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Skarbrand"
+      "keyword": "SKARBRAND",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Summoned"
+      "keyword": "SUMMONED",
+      "keyword_class": "unit"
     }
   ],
   "models": [
     {
-      "base_size": "100mm",
-      "invuln_save": "4",
+      "base_size": "(⌀100mm)",
+      "invuln_save": "4+",
       "leadership": "6+",
       "line": 1,
       "movement": "10\"",
@@ -77,28 +97,31 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:83dfaf2437d0663360f2cc29378c46a7bcc19936f97f3ae8e63e0671c1b8431f",
-    "last_verified_version": "mfm-2026-08",
+    "last_verified_version": "wh40k-11e-2026-08",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-    "detail_edition_code": "wh40k-10e",
+    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
-    "is_hybrid_edition": true,
-    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "is_hybrid_edition": false,
+    "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
-  "role": "Characters",
+  "wargear_option_state": "none",
   "weapons": [
     {
+      "ability_keywords": [
+        "ignores cover",
+        "torrent"
+      ],
       "armour_penetration": "-1",
       "attacks": "2D6",
       "damage": "1",
-      "is_melee": false,
+      "is_melee": true,
       "line": 1,
       "name": "Bellow of endless fury",
-      "range": "12",
       "skill": "N/A",
       "strength": "8"
     },
@@ -109,7 +132,7 @@
       "is_melee": true,
       "line": 2,
       "name": "Slaughter and Carnage – strike",
-      "skill": "2",
+      "skill": "2+",
       "strength": "16"
     },
     {
@@ -119,7 +142,7 @@
       "is_melee": true,
       "line": 3,
       "name": "Slaughter and Carnage – sweep",
-      "skill": "2",
+      "skill": "2+",
       "strength": "8"
     }
   ]

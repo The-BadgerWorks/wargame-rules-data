@@ -8,17 +8,17 @@
       "copy_index_min": 1,
       "label": "10 models",
       "model_count": 10,
-      "points": 65,
+      "points": 75,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1"
+      "source_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9"
     },
     {
       "copy_index_min": 1,
       "label": "20 models",
       "model_count": 20,
-      "points": 120,
+      "points": 145,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1"
+      "source_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9"
     }
   ],
   "datasheet_id": "ds-cadian-shock-troops-2",
@@ -31,48 +31,53 @@
   "keywords": [
     {
       "is_faction_keyword": true,
-      "keyword": "Astra Militarum"
+      "keyword": "ASTRA MILITARUM",
+      "keyword_class": "faction"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Battleline"
+      "keyword": "BATTLELINE",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Cadian"
+      "keyword": "CADIAN",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Cadian Shock Troops"
-    },
-    {
-      "is_faction_keyword": true,
-      "keyword": "Genestealer Cults"
+      "keyword": "CADIAN SHOCK TROOPS",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Grenades"
+      "keyword": "GRENADES",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Imperium"
+      "keyword": "IMPERIUM",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Infantry"
+      "keyword": "INFANTRY",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Platoon"
+      "keyword": "PLATOON",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Regiment"
+      "keyword": "REGIMENT",
+      "keyword_class": "unit"
     }
   ],
   "models": [
     {
-      "base_size": "25mm",
+      "base_size": "(⌀25mm)",
       "leadership": "7+",
       "line": 1,
       "movement": "6\"",
@@ -84,18 +89,193 @@
     }
   ],
   "name": "Cadian Shock Troops",
+  "option_choices": [
+    {
+      "count": 1,
+      "group_id": "og-cadian-shock-troops-2-2",
+      "id": "oc-cadian-shock-troops-2-2-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "vox-caster (that model’s lasgun cannot be replaced)"
+    }
+  ],
+  "option_groups": [
+    {
+      "id": "og-cadian-shock-troops-2-2",
+      "line": 2,
+      "scope": "per_n_models",
+      "scope_n": 10
+    }
+  ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 1,
+    "consecutive_unverified_releases": 2,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-    "detail_edition_code": "wh40k-10e",
+    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
-    "is_hybrid_edition": true,
+    "is_hybrid_edition": false,
     "points_edition_code": "wh40k-11e",
     "points_source": "none"
   },
-  "role": "Battleline"
+  "wargear_option_state": "partial",
+  "weapons": [
+    {
+      "ability_keywords": [
+        "pistol"
+      ],
+      "armour_penetration": "0",
+      "attacks": "1",
+      "damage": "1",
+      "is_melee": false,
+      "line": 1,
+      "name": "Bolt pistol",
+      "range": "12\"",
+      "skill": "4+",
+      "strength": "4"
+    },
+    {
+      "ability_keywords": [
+        "ignores cover",
+        "torrent"
+      ],
+      "armour_penetration": "0",
+      "attacks": "D6",
+      "damage": "1",
+      "is_melee": false,
+      "line": 2,
+      "name": "Flamer",
+      "range": "12\"",
+      "skill": "N/A",
+      "strength": "4"
+    },
+    {
+      "ability_keywords": [
+        "blast"
+      ],
+      "armour_penetration": "0",
+      "attacks": "D3",
+      "damage": "1",
+      "is_melee": false,
+      "line": 3,
+      "name": "Grenade launcher – frag",
+      "range": "24\"",
+      "skill": "4+",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "1",
+      "damage": "D3",
+      "is_melee": false,
+      "line": 4,
+      "name": "Grenade launcher – krak",
+      "range": "24\"",
+      "skill": "4+",
+      "strength": "9"
+    },
+    {
+      "ability_keywords": [
+        "rapid fire 1"
+      ],
+      "armour_penetration": "0",
+      "attacks": "1",
+      "damage": "1",
+      "is_melee": false,
+      "line": 5,
+      "name": "Lasgun",
+      "range": "24\"",
+      "skill": "4+",
+      "strength": "3"
+    },
+    {
+      "ability_keywords": [
+        "pistol"
+      ],
+      "armour_penetration": "0",
+      "attacks": "1",
+      "damage": "1",
+      "is_melee": false,
+      "line": 6,
+      "name": "Laspistol",
+      "range": "12\"",
+      "skill": "4+",
+      "strength": "3"
+    },
+    {
+      "ability_keywords": [
+        "melta 2"
+      ],
+      "armour_penetration": "-4",
+      "attacks": "1",
+      "damage": "D6",
+      "is_melee": false,
+      "line": 7,
+      "name": "Meltagun",
+      "range": "12\"",
+      "skill": "4+",
+      "strength": "9"
+    },
+    {
+      "ability_keywords": [
+        "rapid fire 1"
+      ],
+      "armour_penetration": "-2",
+      "attacks": "1",
+      "damage": "1",
+      "is_melee": false,
+      "line": 8,
+      "name": "Plasma gun – standard",
+      "range": "24\"",
+      "skill": "4+",
+      "strength": "7"
+    },
+    {
+      "ability_keywords": [
+        "hazardous",
+        "rapid fire 1"
+      ],
+      "armour_penetration": "-3",
+      "attacks": "1",
+      "damage": "2",
+      "is_melee": false,
+      "line": 9,
+      "name": "Plasma gun – supercharge",
+      "range": "24\"",
+      "skill": "4+",
+      "strength": "8"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "2",
+      "damage": "1",
+      "is_melee": true,
+      "line": 10,
+      "name": "Sergeant's autogun",
+      "skill": "4+",
+      "strength": "3"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "3",
+      "damage": "1",
+      "is_melee": true,
+      "line": 11,
+      "name": "Chainsword",
+      "skill": "4+",
+      "strength": "3"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "1",
+      "damage": "1",
+      "is_melee": true,
+      "line": 12,
+      "name": "Close combat weapon",
+      "skill": "4+",
+      "strength": "3"
+    }
+  ]
 }

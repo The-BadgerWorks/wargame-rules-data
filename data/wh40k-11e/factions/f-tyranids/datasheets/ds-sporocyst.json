@@ -1,7 +1,18 @@
 {
   "ability_keys": [
+    "core:deadly-demise-d3",
     "datasheet:hive-defences",
-    "datasheet:seed-mucolids"
+    "datasheet:seed-mucolids",
+    "faction:synapse"
+  ],
+  "composition": [
+    {
+      "line": 1,
+      "max_count": 1,
+      "min_count": 1,
+      "model_line": 1,
+      "model_name": "Sporocyst"
+    }
   ],
   "costs": [
     {
@@ -10,7 +21,7 @@
       "model_count": 1,
       "points": 145,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
     }
   ],
   "datasheet_id": "ds-sporocyst",
@@ -23,24 +34,28 @@
   "keywords": [
     {
       "is_faction_keyword": false,
-      "keyword": "Great Devourer"
+      "keyword": "GREAT DEVOURER",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Monster"
+      "keyword": "MONSTER",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Sporocyst"
+      "keyword": "SPOROCYST",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": true,
-      "keyword": "Tyranids"
+      "keyword": "TYRANIDS",
+      "keyword_class": "faction"
     }
   ],
   "models": [
     {
-      "base_size": "100mm",
+      "base_size": "(⌀100mm)",
       "leadership": "8+",
       "line": 1,
       "movement": "-",
@@ -55,29 +70,28 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:033f9ec170f72da3b42eb882a95f790187feba1a7204977598f0cbd902ec648b",
-    "last_verified_version": "mfm-2026-08",
+    "last_verified_version": "wh40k-11e-2026-08",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-    "detail_edition_code": "wh40k-10e",
+    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
-    "is_hybrid_edition": true,
-    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "is_hybrid_edition": false,
+    "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
-  "role": "Other",
+  "wargear_option_state": "none",
   "weapons": [
     {
       "armour_penetration": "-1",
       "attacks": "10",
       "damage": "2",
-      "is_melee": false,
+      "is_melee": true,
       "line": 1,
       "name": "Sporocyst bio-weapons",
-      "range": "24",
-      "skill": "4",
+      "skill": "4+",
       "strength": "5"
     },
     {
@@ -87,7 +101,7 @@
       "is_melee": true,
       "line": 2,
       "name": "Flensing whips",
-      "skill": "4",
+      "skill": "4+",
       "strength": "7"
     }
   ]

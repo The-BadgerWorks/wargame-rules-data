@@ -1,13 +1,18 @@
 {
   "ability_keys": [
-    "datasheet:censer-of-the-sacred-rose-aura",
-    "datasheet:icon-of-the-valorous-heart-aura",
-    "datasheet:petals-of-the-bloody-rose-aura",
+    "core:leader",
     "datasheet:relics-of-the-matriarchs",
-    "datasheet:simulacrum-of-the-argent-shroud-aura",
-    "datasheet:simulacrum-of-the-ebon-chalice-aura",
     "datasheet:solemn-procession",
-    "datasheet:the-fiery-heart-aura"
+    "faction:acts-of-faith"
+  ],
+  "composition": [
+    {
+      "line": 1,
+      "max_count": 1,
+      "min_count": 1,
+      "model_line": 1,
+      "model_name": "Triumph of Saint Katherine"
+    }
   ],
   "costs": [
     {
@@ -16,7 +21,7 @@
       "model_count": 1,
       "points": 245,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
     }
   ],
   "damaged_threshold": 6,
@@ -30,31 +35,38 @@
   "keywords": [
     {
       "is_faction_keyword": true,
-      "keyword": "Adepta Sororitas"
+      "keyword": "ADEPTA SORORITAS",
+      "keyword_class": "faction"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Character"
+      "keyword": "CHARACTER",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Epic Hero"
+      "keyword": "EPIC HERO",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Grenades"
+      "keyword": "GRENADES",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Imperium"
+      "keyword": "IMPERIUM",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Infantry"
+      "keyword": "INFANTRY",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Triumph of Saint Katherine"
+      "keyword": "TRIUMPH OF SAINT KATHERINE",
+      "keyword_class": "unit"
     }
   ],
   "leader_pairs": [
@@ -63,8 +75,8 @@
   ],
   "models": [
     {
-      "base_size": "120 x 92mm",
-      "invuln_save": "4",
+      "base_size": "(⌀120 x 92mm)",
+      "invuln_save": "4+",
       "leadership": "6+",
       "line": 1,
       "movement": "6\"",
@@ -79,29 +91,31 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:03c6bd2df145ff2855779629b79cf2e073d3f5b9870d4d3da0b2eda97939f0d5",
-    "last_verified_version": "mfm-2026-08",
+    "last_verified_version": "wh40k-11e-2026-08",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-    "detail_edition_code": "wh40k-10e",
+    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
-    "is_hybrid_edition": true,
-    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "is_hybrid_edition": false,
+    "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
-  "role": "Characters",
+  "wargear_option_state": "none",
   "weapons": [
     {
+      "ability_keywords": [
+        "pistol"
+      ],
       "armour_penetration": "0",
       "attacks": "6",
       "damage": "1",
-      "is_melee": false,
+      "is_melee": true,
       "line": 1,
       "name": "Bolt pistols",
-      "range": "12",
-      "skill": "2",
+      "skill": "2+",
       "strength": "4"
     },
     {
@@ -111,7 +125,7 @@
       "is_melee": true,
       "line": 2,
       "name": "Relic weapons",
-      "skill": "2",
+      "skill": "2+",
       "strength": "5"
     }
   ]
