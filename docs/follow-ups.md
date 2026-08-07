@@ -434,3 +434,36 @@ the design provides for: names ship, publication is not blocked, gaps stay named
 Two smaller observations from the same rehearsal, also unfixed: several keyword keys arrive
 comma-joined (`ancient , deathwing`) rather than split, and one arrives mojibaked
 (`Ûthar the Destined`).
+
+## 10. The detail source moved mid-candidate, and seven abilities now have no summary
+
+Between the `wh40k-11e-2026-08` candidate's acquisition at **2026-08-07T00:10Z** and a rebuild at
+**02:56Z the same day**, the detail source's content fingerprint moved `658187f0` → `8356e6d9`.
+The points source did **not** move (`6075ce5c` both times), so no price changed. What changed is
+that four datasheets gained a detail match and one was added — `detail_source: none` fell from 10
+to 6. `ds-clanblade` was priced but detail-less at 00:10Z and carries a full datacard now.
+
+Those datacards bring **seven `datasheet:` abilities with no authored summary**, so the build
+raises seven blocking `SUM-MISSING` and the candidate cannot be re-authored:
+
+`agile-reach` · `blade-of-the-clans` · `cornered-prey` ·
+`drakolithe-once-per-battle-per-token` · `elemental-ensnarement` · `on-the-hunt` ·
+`panicked-quarry`
+
+They are the **only** unresolved blocker on that build — every `REC-NEVER-PRICED` in the same
+report carries an approved resolution and is suppressed. The pipeline fixes for follow-up item 8
+are already on `main` and were verified against this very build: **zero `CON-DUPLICATE-KEY`**,
+`tools/consumer_compat.py` clean, the unmodified `003` site green at 2 462 pages, and CI run
+`31143570263` reproducing the local bundle byte for byte
+(`918465496b0d98968287fc8e1e206a288676ef3ef01da12143cdc6944b299bd6`).
+
+**Not a defect, and deliberately not fixed here.** Authoring a summary from the mechanic is a
+human act; machine paraphrase of the publisher's text is a policy violation rather than a
+shortcut, which is exactly the rule that makes these seven a gate. Two ways forward, both the
+Product Owner's: author the seven summaries, or record dated resolutions accepting that those
+Aeldari datasheets ship without those abilities this release. Either way, re-run `candidate.yml`.
+
+**The general point is worth keeping even after these seven are cleared.** A candidate is built
+against a source that keeps moving — the 11th-edition detail source is actively being populated —
+so any candidate left open long enough will acquire new editorial work before it is approved. The
+release flow has no answer to that yet beyond re-running and re-reviewing.
