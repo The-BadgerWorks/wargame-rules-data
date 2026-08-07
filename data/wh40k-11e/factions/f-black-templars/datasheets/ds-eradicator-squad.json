@@ -1,6 +1,21 @@
 {
   "ability_keys": [
-    "datasheet:total-obliteration"
+    "datasheet:total-obliteration",
+    "faction:oath-of-moment"
+  ],
+  "composition": [
+    {
+      "line": 1,
+      "max_count": 1,
+      "min_count": 1,
+      "model_name": "Eradicator Sergeant"
+    },
+    {
+      "line": 2,
+      "max_count": 5,
+      "min_count": 2,
+      "model_name": "Eradicators"
+    }
   ],
   "costs": [
     {
@@ -9,7 +24,7 @@
       "model_count": 3,
       "points": 90,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
     },
     {
       "copy_index_min": 1,
@@ -17,7 +32,7 @@
       "model_count": 6,
       "points": 180,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
     },
     {
       "copy_index_min": 3,
@@ -25,7 +40,7 @@
       "model_count": 3,
       "points": 100,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
     },
     {
       "copy_index_min": 3,
@@ -33,7 +48,7 @@
       "model_count": 6,
       "points": 190,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
     }
   ],
   "datasheet_id": "ds-eradicator-squad",
@@ -46,32 +61,37 @@
   "keywords": [
     {
       "is_faction_keyword": true,
-      "keyword": "Adeptus Astartes"
+      "keyword": "ADEPTUS ASTARTES"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Eradicator Squad"
+      "keyword": "ERADICATOR SQUAD",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Gravis"
+      "keyword": "GRAVIS",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Grenades"
+      "keyword": "GRENADES",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Imperium"
+      "keyword": "IMPERIUM",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Infantry"
+      "keyword": "INFANTRY",
+      "keyword_class": "unit"
     }
   ],
   "models": [
     {
-      "base_size": "40mm",
+      "base_size": "(⌀40mm)",
       "leadership": "6+",
       "line": 1,
       "movement": "5\"",
@@ -83,54 +103,83 @@
     }
   ],
   "name": "ERADICATOR SQUAD",
+  "option_choices": [
+    {
+      "count": 1,
+      "group_id": "og-eradicator-squad-1",
+      "id": "oc-eradicator-squad-1-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "multi-melta",
+      "replaces_weapon_line": 3
+    }
+  ],
+  "option_groups": [
+    {
+      "id": "og-eradicator-squad-1",
+      "line": 1,
+      "scope": "per_n_models",
+      "scope_n": 3
+    }
+  ],
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:b6e63f7ff9ddd9a9053d8cdf02b695e185ec5149fe5fccd07650c33bfd028594",
-    "last_verified_version": "mfm-2026-08",
+    "last_verified_version": "wh40k-11e-2026-08",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-    "detail_edition_code": "wh40k-10e",
+    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
-    "is_hybrid_edition": true,
-    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "is_hybrid_edition": false,
+    "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
-  "role": "Other",
+  "wargear_option_state": "extracted",
   "weapons": [
     {
+      "ability_keywords": [
+        "pistol"
+      ],
       "armour_penetration": "0",
       "attacks": "1",
       "damage": "1",
       "is_melee": false,
       "line": 1,
       "name": "Bolt pistol",
-      "range": "12",
-      "skill": "3",
+      "range": "12\"",
+      "skill": "3+",
       "strength": "4"
     },
     {
+      "ability_keywords": [
+        "heavy",
+        "melta 2"
+      ],
       "armour_penetration": "-4",
       "attacks": "1",
       "damage": "D6",
       "is_melee": false,
       "line": 2,
       "name": "Melta rifle",
-      "range": "18",
-      "skill": "3",
+      "range": "18\"",
+      "skill": "3+",
       "strength": "9"
     },
     {
+      "ability_keywords": [
+        "heavy",
+        "melta 2"
+      ],
       "armour_penetration": "-4",
       "attacks": "2",
       "damage": "D6",
-      "is_melee": false,
+      "is_melee": true,
       "line": 3,
       "name": "Multi-melta",
-      "range": "18",
-      "skill": "4",
+      "skill": "4+",
       "strength": "9"
     },
     {
@@ -140,7 +189,7 @@
       "is_melee": true,
       "line": 4,
       "name": "Close combat weapon",
-      "skill": "3",
+      "skill": "3+",
       "strength": "4"
     }
   ]

@@ -1,6 +1,22 @@
 {
   "ability_keys": [
-    "datasheet:outflank"
+    "core:scouts-9",
+    "datasheet:outflank",
+    "faction:oath-of-moment"
+  ],
+  "composition": [
+    {
+      "line": 1,
+      "max_count": 1,
+      "min_count": 1,
+      "model_name": "Scout Biker Sergeant"
+    },
+    {
+      "line": 2,
+      "max_count": 5,
+      "min_count": 2,
+      "model_name": "Scout Bikers"
+    }
   ],
   "costs": [
     {
@@ -9,7 +25,7 @@
       "model_count": 3,
       "points": 75,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1"
+      "source_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9"
     },
     {
       "copy_index_min": 1,
@@ -17,7 +33,7 @@
       "model_count": 6,
       "points": 150,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1"
+      "source_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9"
     }
   ],
   "datasheet_id": "ds-scout-bike-squad",
@@ -30,36 +46,37 @@
   "keywords": [
     {
       "is_faction_keyword": true,
-      "keyword": "Adeptus Astartes"
+      "keyword": "ADEPTUS ASTARTES"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Grenades"
+      "keyword": "GRENADES",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Imperium"
+      "keyword": "IMPERIUM",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Mounted"
+      "keyword": "MOUNTED",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Ravenwing"
+      "keyword": "SCOUT BIKE SQUAD , RAVENWING",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Scout Bike Squad"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Smoke"
+      "keyword": "SMOKE",
+      "keyword_class": "unit"
     }
   ],
   "models": [
     {
-      "base_size": "75 x 25mm",
+      "base_size": "(⌀75 x 25mm)",
       "leadership": "6+",
       "line": 1,
       "movement": "12\"",
@@ -71,30 +88,140 @@
     }
   ],
   "name": "Scout Bike Squad",
+  "option_choices": [
+    {
+      "count": 1,
+      "group_id": "og-scout-bike-squad-1",
+      "id": "oc-scout-bike-squad-1-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "Astartes chainsword",
+      "replaces_weapon_line": 14
+    },
+    {
+      "count": 1,
+      "group_id": "og-scout-bike-squad-1",
+      "id": "oc-scout-bike-squad-1-10",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "power weapon",
+      "replaces_weapon_line": 17
+    },
+    {
+      "count": 1,
+      "group_id": "og-scout-bike-squad-1",
+      "id": "oc-scout-bike-squad-1-11",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "thunder hammer",
+      "replaces_weapon_line": 18
+    },
+    {
+      "count": 1,
+      "group_id": "og-scout-bike-squad-1",
+      "id": "oc-scout-bike-squad-1-2",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "boltgun",
+      "replaces_weapon_line": 4
+    },
+    {
+      "count": 1,
+      "group_id": "og-scout-bike-squad-1",
+      "id": "oc-scout-bike-squad-1-3",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "combi-weapon",
+      "replaces_weapon_line": 6
+    },
+    {
+      "count": 1,
+      "group_id": "og-scout-bike-squad-1",
+      "id": "oc-scout-bike-squad-1-4",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "hand flamer",
+      "replaces_weapon_line": 8
+    },
+    {
+      "count": 1,
+      "group_id": "og-scout-bike-squad-1",
+      "id": "oc-scout-bike-squad-1-5",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "grav-pistol",
+      "replaces_weapon_line": 7
+    },
+    {
+      "count": 1,
+      "group_id": "og-scout-bike-squad-1",
+      "id": "oc-scout-bike-squad-1-6",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "inferno pistol",
+      "replaces_weapon_line": 9
+    },
+    {
+      "count": 1,
+      "group_id": "og-scout-bike-squad-1",
+      "id": "oc-scout-bike-squad-1-7",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "plasma pistol"
+    },
+    {
+      "count": 1,
+      "group_id": "og-scout-bike-squad-1",
+      "id": "oc-scout-bike-squad-1-8",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "storm bolter",
+      "replaces_weapon_line": 12
+    },
+    {
+      "count": 1,
+      "group_id": "og-scout-bike-squad-1",
+      "id": "oc-scout-bike-squad-1-9",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "power fist",
+      "replaces_weapon_line": 16
+    }
+  ],
+  "option_groups": [
+    {
+      "id": "og-scout-bike-squad-1",
+      "line": 1,
+      "scope": "unit"
+    }
+  ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 1,
+    "consecutive_unverified_releases": 2,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-    "detail_edition_code": "wh40k-10e",
+    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
-    "is_hybrid_edition": true,
+    "is_hybrid_edition": false,
     "points_edition_code": "wh40k-11e",
     "points_source": "none"
   },
-  "role": "Other",
+  "wargear_option_state": "partial",
   "weapons": [
     {
+      "ability_keywords": [
+        "blast"
+      ],
       "armour_penetration": "0",
       "attacks": "D3",
       "damage": "1",
       "is_melee": false,
       "line": 1,
       "name": "Astartes grenade launcher – frag",
-      "range": "24",
-      "skill": "3",
+      "range": "24\"",
+      "skill": "3+",
       "strength": "4"
     },
     {
@@ -104,19 +231,22 @@
       "is_melee": false,
       "line": 2,
       "name": "Astartes grenade launcher – krak",
-      "range": "24",
-      "skill": "3",
+      "range": "24\"",
+      "skill": "3+",
       "strength": "9"
     },
     {
+      "ability_keywords": [
+        "assault"
+      ],
       "armour_penetration": "0",
       "attacks": "2",
       "damage": "1",
       "is_melee": false,
       "line": 3,
       "name": "Astartes shotgun",
-      "range": "18",
-      "skill": "3",
+      "range": "18\"",
+      "skill": "3+",
       "strength": "4"
     },
     {
@@ -126,107 +256,140 @@
       "is_melee": false,
       "line": 4,
       "name": "Boltgun",
-      "range": "24",
-      "skill": "3",
+      "range": "24\"",
+      "skill": "3+",
       "strength": "4"
     },
     {
+      "ability_keywords": [
+        "pistol"
+      ],
       "armour_penetration": "0",
       "attacks": "1",
       "damage": "1",
       "is_melee": false,
       "line": 5,
       "name": "Bolt pistol",
-      "range": "12",
-      "skill": "3",
+      "range": "12\"",
+      "skill": "3+",
       "strength": "4"
     },
     {
+      "ability_keywords": [
+        "ANTI-INFANTRY 4+",
+        "DEVASTATING WOUNDS",
+        "RAPID FIRE 1"
+      ],
       "armour_penetration": "0",
       "attacks": "1",
       "damage": "1",
       "is_melee": false,
       "line": 6,
       "name": "Combi-weapon",
-      "range": "24",
-      "skill": "4",
+      "range": "24\"",
+      "skill": "4+",
       "strength": "4"
     },
     {
+      "ability_keywords": [
+        "ANTI-VEHICLE 2+",
+        "PISTOL"
+      ],
       "armour_penetration": "-1",
       "attacks": "1",
       "damage": "2",
       "is_melee": false,
       "line": 7,
       "name": "Grav-pistol",
-      "range": "12",
-      "skill": "3",
+      "range": "12\"",
+      "skill": "3+",
       "strength": "4"
     },
     {
+      "ability_keywords": [
+        "ignores cover",
+        "pistol",
+        "torrent"
+      ],
       "armour_penetration": "0",
       "attacks": "D6",
       "damage": "1",
       "is_melee": false,
       "line": 8,
       "name": "Hand flamer",
-      "range": "12",
+      "range": "12\"",
       "skill": "N/A",
       "strength": "3"
     },
     {
+      "ability_keywords": [
+        "melta 2",
+        "pistol"
+      ],
       "armour_penetration": "-4",
       "attacks": "1",
       "damage": "D3",
       "is_melee": false,
       "line": 9,
       "name": "Inferno pistol",
-      "range": "6",
-      "skill": "3",
+      "range": "6\"",
+      "skill": "3+",
       "strength": "8"
     },
     {
+      "ability_keywords": [
+        "pistol"
+      ],
       "armour_penetration": "-2",
       "attacks": "1",
       "damage": "1",
       "is_melee": false,
       "line": 10,
       "name": "Plasma pistol – standard",
-      "range": "12",
-      "skill": "3",
+      "range": "12\"",
+      "skill": "3+",
       "strength": "7"
     },
     {
+      "ability_keywords": [
+        "hazardous",
+        "pistol"
+      ],
       "armour_penetration": "-3",
       "attacks": "1",
       "damage": "2",
       "is_melee": false,
       "line": 11,
       "name": "Plasma pistol – supercharge",
-      "range": "12",
-      "skill": "3",
+      "range": "12\"",
+      "skill": "3+",
       "strength": "8"
     },
     {
+      "ability_keywords": [
+        "RAPID FIRE 2"
+      ],
       "armour_penetration": "0",
       "attacks": "2",
       "damage": "1",
       "is_melee": false,
       "line": 12,
       "name": "Storm bolter",
-      "range": "24",
-      "skill": "3",
+      "range": "24\"",
+      "skill": "3+",
       "strength": "4"
     },
     {
+      "ability_keywords": [
+        "twin-linked"
+      ],
       "armour_penetration": "0",
       "attacks": "2",
       "damage": "1",
-      "is_melee": false,
+      "is_melee": true,
       "line": 13,
       "name": "Twin boltgun",
-      "range": "24",
-      "skill": "3",
+      "skill": "3+",
       "strength": "4"
     },
     {
@@ -236,7 +399,7 @@
       "is_melee": true,
       "line": 14,
       "name": "Astartes chainsword",
-      "skill": "3",
+      "skill": "3+",
       "strength": "4"
     },
     {
@@ -246,7 +409,7 @@
       "is_melee": true,
       "line": 15,
       "name": "Combat knife",
-      "skill": "3",
+      "skill": "3+",
       "strength": "4"
     },
     {
@@ -256,7 +419,7 @@
       "is_melee": true,
       "line": 16,
       "name": "Power fist",
-      "skill": "3",
+      "skill": "3+",
       "strength": "8"
     },
     {
@@ -266,17 +429,20 @@
       "is_melee": true,
       "line": 17,
       "name": "Power weapon",
-      "skill": "3",
+      "skill": "3+",
       "strength": "5"
     },
     {
+      "ability_keywords": [
+        "devastating wounds"
+      ],
       "armour_penetration": "-2",
       "attacks": "2",
       "damage": "2",
       "is_melee": true,
       "line": 18,
       "name": "Thunder hammer",
-      "skill": "4",
+      "skill": "4+",
       "strength": "8"
     }
   ]

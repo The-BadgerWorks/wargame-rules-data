@@ -1,7 +1,16 @@
 {
   "ability_keys": [
-    "datasheet:one-shot",
-    "datasheet:purge-and-cleanse"
+    "core:deadly-demise-d3",
+    "datasheet:purge-and-cleanse",
+    "faction:assigned-agents"
+  ],
+  "composition": [
+    {
+      "line": 1,
+      "max_count": 1,
+      "min_count": 1,
+      "model_name": "Immolator"
+    }
   ],
   "costs": [
     {
@@ -10,15 +19,7 @@
       "model_count": 1,
       "points": 90,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
-    },
-    {
-      "copy_index_min": 1,
-      "label": "1 model",
-      "model_count": 1,
-      "points": 105,
-      "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
     },
     {
       "copy_index_min": 4,
@@ -26,7 +27,16 @@
       "model_count": 1,
       "points": 100,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
+    },
+    {
+      "copy_index_min": 1,
+      "label": "1 model",
+      "model_count": 1,
+      "points": 105,
+      "pricing_confidence": "verified",
+      "pricing_context": "every-model-has-imperium",
+      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
     },
     {
       "copy_index_min": 4,
@@ -34,7 +44,8 @@
       "model_count": 1,
       "points": 115,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+      "pricing_context": "every-model-has-imperium",
+      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
     }
   ],
   "datasheet_id": "ds-sisters-of-battle-immolator",
@@ -47,45 +58,57 @@
   "keywords": [
     {
       "is_faction_keyword": true,
-      "keyword": "Agents of the Imperium"
+      "keyword": "AGENTS OF THE IMPERIUM"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Dedicated Transport"
+      "keyword": "DEDICATED TRANSPORT",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Immolator"
+      "keyword": "FRAME",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Imperium"
+      "keyword": "IMMOLATOR",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Ordo Hereticus"
+      "keyword": "IMPERIUM",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Smoke"
+      "keyword": "ORDO HERETICUS",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Transport"
+      "keyword": "SMOKE",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Vehicle"
+      "keyword": "TRANSPORT",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "VEHICLE",
+      "keyword_class": "unit"
     }
   ],
   "models": [
     {
-      "base_size": "Use model",
-      "invuln_save": "6",
+      "base_size": "(⌀Use model)",
+      "invuln_save": "6+",
       "leadership": "7+",
       "line": 1,
       "movement": "12\"",
-      "name": "Immolator",
+      "name": "Sisters of Battle Immolator",
       "objective_control": 2,
       "save": "3+",
       "toughness": 10,
@@ -93,76 +116,134 @@
     }
   ],
   "name": "SISTERS OF BATTLE IMMOLATOR",
+  "option_choices": [
+    {
+      "count": 1,
+      "group_id": "og-sisters-of-battle-immolator-1",
+      "id": "oc-sisters-of-battle-immolator-1-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "twin heavy bolter",
+      "replaces_weapon_line": 4
+    },
+    {
+      "count": 1,
+      "group_id": "og-sisters-of-battle-immolator-1",
+      "id": "oc-sisters-of-battle-immolator-1-2",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "twin multi-melta",
+      "replaces_weapon_line": 5
+    },
+    {
+      "count": 1,
+      "grants_weapon_line": 2,
+      "group_id": "og-sisters-of-battle-immolator-2",
+      "id": "oc-sisters-of-battle-immolator-2-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "hunter-killer missile"
+    }
+  ],
+  "option_groups": [
+    {
+      "id": "og-sisters-of-battle-immolator-1",
+      "line": 1,
+      "scope": "model"
+    },
+    {
+      "id": "og-sisters-of-battle-immolator-2",
+      "line": 2,
+      "scope": "model"
+    }
+  ],
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:35aa94204d8bc3fbc70a0dc3bf6af4758e1dd95333f806d02a3af8e82e3cae9a",
-    "last_verified_version": "mfm-2026-08",
+    "last_verified_version": "wh40k-11e-2026-08",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-    "detail_edition_code": "wh40k-10e",
+    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
-    "is_hybrid_edition": true,
-    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "is_hybrid_edition": false,
+    "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
-  "role": "Dedicated Transports",
+  "wargear_option_state": "extracted",
   "weapons": [
     {
+      "ability_keywords": [
+        "sustained hits 1"
+      ],
       "armour_penetration": "-1",
       "attacks": "3",
       "damage": "2",
       "is_melee": false,
       "line": 1,
       "name": "Heavy bolter",
-      "range": "36",
-      "skill": "3",
+      "range": "36\"",
+      "skill": "3+",
       "strength": "5"
     },
     {
+      "ability_keywords": [
+        "one shot"
+      ],
       "armour_penetration": "-3",
       "attacks": "1",
       "damage": "D6",
       "is_melee": false,
       "line": 2,
       "name": "Hunter-killer missile",
-      "range": "48",
-      "skill": "2",
+      "range": "48\"",
+      "skill": "2+",
       "strength": "14"
     },
     {
+      "ability_keywords": [
+        "ignores cover",
+        "torrent"
+      ],
       "armour_penetration": "-1",
       "attacks": "2D6",
       "damage": "1",
       "is_melee": false,
       "line": 3,
       "name": "Immolation flamers",
-      "range": "18",
+      "range": "18\"",
       "skill": "N/A",
       "strength": "6"
     },
     {
+      "ability_keywords": [
+        "sustained hits 2",
+        "twin-linked"
+      ],
       "armour_penetration": "-1",
       "attacks": "3",
       "damage": "2",
       "is_melee": false,
       "line": 4,
       "name": "Twin heavy bolter",
-      "range": "36",
-      "skill": "3",
+      "range": "36\"",
+      "skill": "3+",
       "strength": "5"
     },
     {
+      "ability_keywords": [
+        "melta 2",
+        "twin-linked"
+      ],
       "armour_penetration": "-4",
       "attacks": "2",
       "damage": "D6",
-      "is_melee": false,
+      "is_melee": true,
       "line": 5,
       "name": "Twin multi-melta",
-      "range": "18",
-      "skill": "3",
+      "skill": "3+",
       "strength": "9"
     },
     {
@@ -172,7 +253,7 @@
       "is_melee": true,
       "line": 6,
       "name": "Armoured tracks",
-      "skill": "4",
+      "skill": "4+",
       "strength": "6"
     }
   ]

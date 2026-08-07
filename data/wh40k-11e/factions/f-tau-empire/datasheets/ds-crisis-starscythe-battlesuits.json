@@ -1,7 +1,23 @@
 {
   "ability_keys": [
+    "core:deep-strike",
     "datasheet:battlesuit-support-system",
-    "datasheet:starscythe"
+    "datasheet:starscythe",
+    "faction:for-the-greater-good"
+  ],
+  "composition": [
+    {
+      "line": 1,
+      "max_count": 1,
+      "min_count": 1,
+      "model_name": "Crisis Starscythe Shas’vre"
+    },
+    {
+      "line": 2,
+      "max_count": 2,
+      "min_count": 2,
+      "model_name": "Crisis Starscythe Shas’ui"
+    }
   ],
   "costs": [
     {
@@ -10,7 +26,7 @@
       "model_count": 3,
       "points": 90,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
     },
     {
       "copy_index_min": 3,
@@ -18,7 +34,7 @@
       "model_count": 3,
       "points": 100,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
     }
   ],
   "datasheet_id": "ds-crisis-starscythe-battlesuits",
@@ -31,40 +47,47 @@
   "keywords": [
     {
       "is_faction_keyword": false,
-      "keyword": "Battlesuit"
+      "keyword": "BATTLESUIT",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Crisis"
+      "keyword": "CRISIS",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Fly"
+      "keyword": "FLY",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Starscythe"
+      "keyword": "STARSCYTHE",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": true,
-      "keyword": "T’au Empire"
+      "keyword": "T’AU EMPIRE",
+      "keyword_class": "faction"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Vehicle"
+      "keyword": "VEHICLE",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Walker"
+      "keyword": "WALKER",
+      "keyword_class": "unit"
     }
   ],
   "models": [
     {
-      "base_size": "50mm",
+      "base_size": "(⌀50mm)",
       "leadership": "7+",
       "line": 1,
       "movement": "10\"",
-      "name": "Crisis Battlesuits",
+      "name": "Crisis Starscythe Battlesuits",
       "objective_control": 2,
       "save": "3+",
       "toughness": 5,
@@ -72,22 +95,55 @@
     }
   ],
   "name": "CRISIS STARSCYTHE BATTLESUITS",
+  "option_choices": [
+    {
+      "count": 1,
+      "group_id": "og-crisis-starscythe-battlesuits-3",
+      "id": "oc-crisis-starscythe-battlesuits-3-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "gun drone"
+    },
+    {
+      "count": 1,
+      "group_id": "og-crisis-starscythe-battlesuits-3",
+      "id": "oc-crisis-starscythe-battlesuits-3-2",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "marker drone"
+    },
+    {
+      "count": 1,
+      "group_id": "og-crisis-starscythe-battlesuits-3",
+      "id": "oc-crisis-starscythe-battlesuits-3-3",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "shield drone"
+    }
+  ],
+  "option_groups": [
+    {
+      "id": "og-crisis-starscythe-battlesuits-3",
+      "line": 3,
+      "scope": "unit"
+    }
+  ],
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:d8e456825de50bc61259f0bcc081ebe13530591a4fee0fefb9a5af33ef825441",
-    "last_verified_version": "mfm-2026-08",
+    "last_verified_version": "wh40k-11e-2026-08",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-    "detail_edition_code": "wh40k-10e",
+    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
-    "is_hybrid_edition": true,
-    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "is_hybrid_edition": false,
+    "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
-  "role": "Other",
+  "wargear_option_state": "partial",
   "weapons": [
     {
       "armour_penetration": "0",
@@ -96,18 +152,21 @@
       "is_melee": false,
       "line": 1,
       "name": "Burst cannon",
-      "range": "18",
-      "skill": "4",
+      "range": "18\"",
+      "skill": "4+",
       "strength": "5"
     },
     {
+      "ability_keywords": [
+        "ignores cover",
+        "torrent"
+      ],
       "armour_penetration": "0",
       "attacks": "D6",
       "damage": "1",
-      "is_melee": false,
+      "is_melee": true,
       "line": 2,
       "name": "T’au flamer",
-      "range": "12",
       "skill": "N/A",
       "strength": "4"
     },
@@ -118,7 +177,7 @@
       "is_melee": true,
       "line": 3,
       "name": "Battlesuit fists",
-      "skill": "5",
+      "skill": "5+",
       "strength": "5"
     }
   ]

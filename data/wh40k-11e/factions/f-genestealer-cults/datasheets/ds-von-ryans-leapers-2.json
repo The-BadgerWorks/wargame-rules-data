@@ -1,23 +1,36 @@
 {
   "ability_keys": [
-    "datasheet:pouncing-leap"
+    "core:fights-first",
+    "core:infiltrators",
+    "core:stealth",
+    "datasheet:pouncing-leap",
+    "faction:synapse"
+  ],
+  "composition": [
+    {
+      "line": 1,
+      "max_count": 6,
+      "min_count": 3,
+      "model_line": 1,
+      "model_name": "Von Ryan’s Leapers"
+    }
   ],
   "costs": [
     {
       "copy_index_min": 1,
       "label": "3 models",
       "model_count": 3,
-      "points": 70,
+      "points": 55,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1"
+      "source_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9"
     },
     {
       "copy_index_min": 1,
       "label": "6 models",
       "model_count": 6,
-      "points": 140,
+      "points": 105,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1"
+      "source_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9"
     }
   ],
   "datasheet_id": "ds-von-ryans-leapers-2",
@@ -29,34 +42,35 @@
   "is_legends": false,
   "keywords": [
     {
-      "is_faction_keyword": true,
-      "keyword": "Genestealer Cults"
+      "is_faction_keyword": false,
+      "keyword": "GREAT DEVOURER",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Great Devourer"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Infantry"
+      "keyword": "INFANTRY",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": true,
-      "keyword": "Tyranids"
+      "keyword": "TYRANIDS",
+      "keyword_class": "faction"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Vanguard Invader"
+      "keyword": "VANGUARD INVADER",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Von Ryan’s Leapers"
+      "keyword": "VON RYAN’S LEAPERS",
+      "keyword_class": "unit"
     }
   ],
   "models": [
     {
-      "base_size": "40mm",
-      "invuln_save": "6",
+      "base_size": "(⌀40mm)",
+      "invuln_save": "6+",
       "leadership": "8+",
       "line": 1,
       "movement": "10\"",
@@ -69,17 +83,29 @@
   ],
   "name": "Von Ryan’s Leapers",
   "pricing_confidence": {
-    "consecutive_unverified_releases": 1,
+    "consecutive_unverified_releases": 2,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-    "detail_edition_code": "wh40k-10e",
+    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
-    "is_hybrid_edition": true,
+    "is_hybrid_edition": false,
     "points_edition_code": "wh40k-11e",
     "points_source": "none"
   },
-  "role": "Other"
+  "wargear_option_state": "none",
+  "weapons": [
+    {
+      "armour_penetration": "-1",
+      "attacks": "6",
+      "damage": "1",
+      "is_melee": true,
+      "line": 1,
+      "name": "Leaper’s talons",
+      "skill": "3+",
+      "strength": "5"
+    }
+  ]
 }

@@ -1,7 +1,19 @@
 {
   "ability_keys": [
+    "core:deadly-demise-d6-2",
+    "core:super-heavy-walker",
     "datasheet:runes-of-the-blood-god",
-    "datasheet:super-heavy-walker"
+    "datasheet:super-heavy-walker",
+    "faction:dark-pacts"
+  ],
+  "composition": [
+    {
+      "line": 1,
+      "max_count": 1,
+      "min_count": 1,
+      "model_line": 1,
+      "model_name": "Greater Brass Scorpion"
+    }
   ],
   "costs": [
     {
@@ -10,7 +22,7 @@
       "model_count": 1,
       "points": 500,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1"
+      "source_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9"
     }
   ],
   "damaged_threshold": 9,
@@ -24,41 +36,53 @@
   "keywords": [
     {
       "is_faction_keyword": false,
-      "keyword": "Chaos"
+      "keyword": "CHAOS",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Daemon"
+      "keyword": "DAEMON",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Greater Brass Scorpion"
+      "keyword": "FRAME",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "GREATER BRASS SCORPION",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": true,
-      "keyword": "Heretic Astartes"
+      "keyword": "HERETIC ASTARTES"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Khorne"
+      "keyword": "KHORNE",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Titanic"
+      "keyword": "TITANIC",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Vehicle"
+      "keyword": "VEHICLE",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Walker"
+      "keyword": "WALKER",
+      "keyword_class": "unit"
     }
   ],
   "models": [
     {
-      "base_size": "Use model",
-      "invuln_save": "5",
+      "base_size": "(⌀Use model)",
+      "invuln_save": "5+",
       "leadership": "6+",
       "line": 1,
       "movement": "12\"",
@@ -71,51 +95,60 @@
   ],
   "name": "Greater Brass Scorpion",
   "pricing_confidence": {
-    "consecutive_unverified_releases": 1,
+    "consecutive_unverified_releases": 2,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-    "detail_edition_code": "wh40k-10e",
+    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
-    "is_hybrid_edition": true,
+    "is_hybrid_edition": false,
     "points_edition_code": "wh40k-11e",
     "points_source": "none"
   },
-  "role": "Other",
+  "wargear_option_state": "none",
   "weapons": [
     {
+      "ability_keywords": [
+        "blast"
+      ],
       "armour_penetration": "-3",
       "attacks": "D6+3",
       "damage": "D6",
       "is_melee": false,
       "line": 1,
       "name": "Demolisher cannon",
-      "range": "24",
-      "skill": "3",
+      "range": "24\"",
+      "skill": "3+",
       "strength": "14"
     },
     {
+      "ability_keywords": [
+        "ignores cover",
+        "torrent"
+      ],
       "armour_penetration": "-1",
       "attacks": "2D6",
       "damage": "1",
       "is_melee": false,
       "line": 2,
       "name": "Hellmaw flame cannons",
-      "range": "12",
+      "range": "12\"",
       "skill": "N/A",
       "strength": "8"
     },
     {
+      "ability_keywords": [
+        "sustained hits 1"
+      ],
       "armour_penetration": "-1",
       "attacks": "15",
       "damage": "2",
-      "is_melee": false,
+      "is_melee": true,
       "line": 3,
       "name": "Scorpion cannon",
-      "range": "36",
-      "skill": "3",
+      "skill": "3+",
       "strength": "5"
     },
     {
@@ -125,7 +158,7 @@
       "is_melee": true,
       "line": 4,
       "name": "Hellcrusher claws – strike",
-      "skill": "3",
+      "skill": "3+",
       "strength": "14"
     },
     {
@@ -135,7 +168,7 @@
       "is_melee": true,
       "line": 5,
       "name": "Hellcrusher claws – sweep",
-      "skill": "3",
+      "skill": "3+",
       "strength": "8"
     }
   ]

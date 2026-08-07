@@ -1,7 +1,18 @@
 {
   "ability_keys": [
+    "core:deadly-demise-d3",
+    "core:stealth",
     "datasheet:nowhere-to-hide-pain",
-    "datasheet:void-mine"
+    "datasheet:void-mine",
+    "faction:power-from-pain"
+  ],
+  "composition": [
+    {
+      "line": 1,
+      "max_count": 1,
+      "min_count": 1,
+      "model_name": "Voidraven Bomber"
+    }
   ],
   "costs": [
     {
@@ -10,7 +21,7 @@
       "model_count": 1,
       "points": 245,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
     }
   ],
   "damaged_threshold": 4,
@@ -24,60 +35,82 @@
   "keywords": [
     {
       "is_faction_keyword": false,
-      "keyword": "Aeldari"
+      "keyword": "AELDARI",
+      "keyword_class": "faction"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Aircraft"
+      "keyword": "AIRCRAFT",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": true,
-      "keyword": "Drukhari"
+      "keyword": "DRUKHARI",
+      "keyword_class": "faction"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Fly"
+      "keyword": "FLY",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Vehicle"
+      "keyword": "VEHICLE",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Voidraven Bomber"
-    }
-  ],
-  "models": [
-    {
-      "base_size": "120 x 92mm flying base",
-      "invuln_save": "6",
-      "leadership": "7+",
-      "line": 1,
-      "movement": "20+\"",
-      "name": "Voidraven Bomber",
-      "objective_control": 0,
-      "save": "4+",
-      "toughness": 9,
-      "wounds": 12
+      "keyword": "VOIDRAVEN BOMBER",
+      "keyword_class": "unit"
     }
   ],
   "name": "VOIDRAVEN BOMBER",
+  "option_choices": [
+    {
+      "count": 1,
+      "group_id": "og-voidraven-bomber-1",
+      "id": "oc-voidraven-bomber-1-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "Voidraven missiles"
+    },
+    {
+      "count": 2,
+      "group_id": "og-voidraven-bomber-2",
+      "id": "oc-voidraven-bomber-2-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "dark scythes"
+    }
+  ],
+  "option_groups": [
+    {
+      "id": "og-voidraven-bomber-1",
+      "line": 1,
+      "scope": "model"
+    },
+    {
+      "id": "og-voidraven-bomber-2",
+      "line": 2,
+      "scope": "model"
+    }
+  ],
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:03c6bd2df145ff2855779629b79cf2e073d3f5b9870d4d3da0b2eda97939f0d5",
-    "last_verified_version": "mfm-2026-08",
+    "last_verified_version": "wh40k-11e-2026-08",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-    "detail_edition_code": "wh40k-10e",
+    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
-    "is_hybrid_edition": true,
-    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "is_hybrid_edition": false,
+    "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
-  "role": "Other",
+  "wargear_option_state": "extracted",
   "weapons": [
     {
       "armour_penetration": "-4",
@@ -86,8 +119,8 @@
       "is_melee": false,
       "line": 1,
       "name": "Dark scythe",
-      "range": "24",
-      "skill": "3",
+      "range": "24\"",
+      "skill": "3+",
       "strength": "8"
     },
     {
@@ -97,30 +130,34 @@
       "is_melee": false,
       "line": 2,
       "name": "Void lance",
-      "range": "36",
-      "skill": "3",
+      "range": "36\"",
+      "skill": "3+",
       "strength": "14"
     },
     {
+      "ability_keywords": [
+        "blast"
+      ],
       "armour_penetration": "-2",
       "attacks": "D3",
       "damage": "3",
-      "is_melee": false,
+      "is_melee": true,
       "line": 3,
       "name": "Voidraven missiles – implosion missiles",
-      "range": "48",
-      "skill": "3",
+      "skill": "3+",
       "strength": "9"
     },
     {
+      "ability_keywords": [
+        "blast"
+      ],
       "armour_penetration": "-2",
       "attacks": "D6",
       "damage": "1",
-      "is_melee": false,
+      "is_melee": true,
       "line": 4,
       "name": "Voidraven missiles – shatterfield missiles",
-      "range": "48",
-      "skill": "3",
+      "skill": "3+",
       "strength": "7"
     },
     {
@@ -130,7 +167,7 @@
       "is_melee": true,
       "line": 5,
       "name": "Bladed wings",
-      "skill": "4",
+      "skill": "4+",
       "strength": "6"
     }
   ]

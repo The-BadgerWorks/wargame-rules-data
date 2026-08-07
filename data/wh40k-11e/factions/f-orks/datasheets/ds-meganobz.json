@@ -1,6 +1,16 @@
 {
   "ability_keys": [
-    "datasheet:krumpin-time"
+    "datasheet:krumpin-time",
+    "faction:waaagh"
+  ],
+  "composition": [
+    {
+      "line": 1,
+      "max_count": 6,
+      "min_count": 2,
+      "model_line": 1,
+      "model_name": "Meganobz"
+    }
   ],
   "costs": [
     {
@@ -9,7 +19,7 @@
       "model_count": 2,
       "points": 60,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
     },
     {
       "copy_index_min": 1,
@@ -17,7 +27,7 @@
       "model_count": 3,
       "points": 90,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
     },
     {
       "copy_index_min": 1,
@@ -25,7 +35,7 @@
       "model_count": 5,
       "points": 150,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
     },
     {
       "copy_index_min": 1,
@@ -33,7 +43,7 @@
       "model_count": 6,
       "points": 180,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
     },
     {
       "copy_index_min": 3,
@@ -41,7 +51,7 @@
       "model_count": 2,
       "points": 80,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
     },
     {
       "copy_index_min": 3,
@@ -49,7 +59,7 @@
       "model_count": 3,
       "points": 110,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
     },
     {
       "copy_index_min": 3,
@@ -57,7 +67,7 @@
       "model_count": 5,
       "points": 170,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
     },
     {
       "copy_index_min": 3,
@@ -65,7 +75,7 @@
       "model_count": 6,
       "points": 200,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
     }
   ],
   "datasheet_id": "ds-meganobz",
@@ -78,28 +88,33 @@
   "keywords": [
     {
       "is_faction_keyword": false,
-      "keyword": "Grenades"
+      "keyword": "GRENADES",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Infantry"
+      "keyword": "INFANTRY",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Mega Armour"
+      "keyword": "MEGA ARMOUR",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Meganobz"
+      "keyword": "MEGANOBZ",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": true,
-      "keyword": "Orks"
+      "keyword": "ORKS",
+      "keyword_class": "faction"
     }
   ],
   "models": [
     {
-      "base_size": "40mm",
+      "base_size": "(⌀40mm)",
       "leadership": "7+",
       "line": 1,
       "movement": "5\"",
@@ -114,40 +129,47 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:e43c82cfb6ce1ce19344239b53ec9a18275f211294c45b957766e2a37e8032f6",
-    "last_verified_version": "mfm-2026-08",
+    "last_verified_version": "wh40k-11e-2026-08",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-    "detail_edition_code": "wh40k-10e",
+    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
-    "is_hybrid_edition": true,
-    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "is_hybrid_edition": false,
+    "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
-  "role": "Other",
+  "wargear_option_state": "partial",
   "weapons": [
     {
+      "ability_keywords": [
+        "anti-infantry 4+",
+        "devastating wounds",
+        "rapid fire 1"
+      ],
       "armour_penetration": "0",
       "attacks": "1",
       "damage": "1",
       "is_melee": false,
       "line": 1,
       "name": "Kombi-weapon",
-      "range": "24",
-      "skill": "5",
+      "range": "24\"",
+      "skill": "5+",
       "strength": "4"
     },
     {
+      "ability_keywords": [
+        "rapid fire 2"
+      ],
       "armour_penetration": "0",
       "attacks": "4",
       "damage": "1",
-      "is_melee": false,
+      "is_melee": true,
       "line": 2,
       "name": "Kustom shoota",
-      "range": "18",
-      "skill": "5",
+      "skill": "5+",
       "strength": "4"
     },
     {
@@ -157,7 +179,7 @@
       "is_melee": true,
       "line": 3,
       "name": "Killsaw",
-      "skill": "4",
+      "skill": "4+",
       "strength": "12"
     },
     {
@@ -167,17 +189,20 @@
       "is_melee": true,
       "line": 4,
       "name": "Power klaw",
-      "skill": "4",
+      "skill": "4+",
       "strength": "9"
     },
     {
+      "ability_keywords": [
+        "twin-linked"
+      ],
       "armour_penetration": "-3",
       "attacks": "2",
       "damage": "2",
       "is_melee": true,
       "line": 5,
       "name": "Twin killsaw",
-      "skill": "4",
+      "skill": "4+",
       "strength": "12"
     }
   ]

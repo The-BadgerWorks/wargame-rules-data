@@ -1,7 +1,18 @@
 {
   "ability_keys": [
+    "core:leader",
     "datasheet:cursed-wardings-psychic",
-    "datasheet:psychic-barrier-psychic"
+    "datasheet:psychic-barrier-psychic",
+    "faction:dark-pacts"
+  ],
+  "composition": [
+    {
+      "line": 1,
+      "max_count": 1,
+      "min_count": 1,
+      "model_line": 1,
+      "model_name": "Rogue Psyker"
+    }
   ],
   "costs": [
     {
@@ -10,7 +21,7 @@
       "model_count": 1,
       "points": 60,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1"
+      "source_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9"
     }
   ],
   "datasheet_id": "ds-rogue-psyker",
@@ -23,213 +34,48 @@
   "keywords": [
     {
       "is_faction_keyword": false,
-      "keyword": "Chaos"
+      "keyword": "CHAOS",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Chaos"
+      "keyword": "CHARACTER",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Chaos"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Chaos"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Chaos"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Chaos"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Character"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Character"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Character"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Character"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Character"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Character"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Damned"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Damned"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Damned"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Damned"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Damned"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Damned"
+      "keyword": "DAMNED",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": true,
-      "keyword": "Heretic Astartes"
+      "keyword": "HERETIC ASTARTES"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Infantry"
+      "keyword": "INFANTRY",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Infantry"
+      "keyword": "PSYKER",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Infantry"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Infantry"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Infantry"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Infantry"
-    },
-    {
-      "is_faction_keyword": true,
-      "keyword": "Legiones Daemonica"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Psyker"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Psyker"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Psyker"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Psyker"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Psyker"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Psyker"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Rogue Psyker"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Rogue Psyker"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Rogue Psyker"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Rogue Psyker"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Rogue Psyker"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Rogue Psyker"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Shadow Legion"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Shadow Legion"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Shadow Legion"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Shadow Legion"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Shadow Legion"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Shadow Legion"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Undivided"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Undivided"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Undivided"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Undivided"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Undivided"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Undivided"
+      "keyword": "ROGUE PSYKER , UNDIVIDED , SHADOW LEGION",
+      "keyword_class": "unit"
     }
   ],
   "leader_pairs": [
     "ds-accursed-cultists-2",
     "ds-cultist-mob-2",
+    "ds-cultist-mob-with-firearms",
     "ds-negavolt-cultists"
   ],
   "models": [
     {
-      "base_size": "32mm",
+      "base_size": "(⌀32mm)",
       "leadership": "7+",
       "line": 1,
       "movement": "6\"",
@@ -242,17 +88,77 @@
   ],
   "name": "Rogue Psyker",
   "pricing_confidence": {
-    "consecutive_unverified_releases": 1,
+    "consecutive_unverified_releases": 2,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-    "detail_edition_code": "wh40k-10e",
+    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
-    "is_hybrid_edition": true,
+    "is_hybrid_edition": false,
     "points_edition_code": "wh40k-11e",
     "points_source": "none"
   },
-  "role": "Characters"
+  "wargear_option_state": "none",
+  "weapons": [
+    {
+      "ability_keywords": [
+        "pistol"
+      ],
+      "armour_penetration": "0",
+      "attacks": "1",
+      "damage": "1",
+      "is_melee": false,
+      "line": 1,
+      "name": "Laspistol",
+      "range": "12\"",
+      "skill": "4+",
+      "strength": "3"
+    },
+    {
+      "ability_keywords": [
+        "blast",
+        "devastating wounds",
+        "hazardous",
+        "psychic"
+      ],
+      "armour_penetration": "-2",
+      "attacks": "D6+3",
+      "damage": "2",
+      "is_melee": true,
+      "line": 2,
+      "name": "Psychic Strike – focused witchfire",
+      "skill": "3+",
+      "strength": "6"
+    },
+    {
+      "ability_keywords": [
+        "blast",
+        "devastating wounds",
+        "psychic"
+      ],
+      "armour_penetration": "-2",
+      "attacks": "D6",
+      "damage": "1",
+      "is_melee": true,
+      "line": 3,
+      "name": "Psychic Strike – witchfire",
+      "skill": "3+",
+      "strength": "6"
+    },
+    {
+      "ability_keywords": [
+        "psychic"
+      ],
+      "armour_penetration": "-1",
+      "attacks": "1",
+      "damage": "D3",
+      "is_melee": true,
+      "line": 4,
+      "name": "Chaos stave",
+      "skill": "4+",
+      "strength": "6"
+    }
+  ]
 }

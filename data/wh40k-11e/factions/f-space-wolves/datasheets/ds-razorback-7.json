@@ -1,7 +1,17 @@
 {
   "ability_keys": [
+    "core:deadly-demise-d3",
     "datasheet:fire-support",
-    "datasheet:one-shot"
+    "faction:oath-of-moment"
+  ],
+  "composition": [
+    {
+      "line": 1,
+      "max_count": 1,
+      "min_count": 1,
+      "model_line": 1,
+      "model_name": "Razorback"
+    }
   ],
   "costs": [
     {
@@ -10,7 +20,7 @@
       "model_count": 1,
       "points": 85,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
     },
     {
       "copy_index_min": 4,
@@ -18,7 +28,7 @@
       "model_count": 1,
       "points": 95,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
     }
   ],
   "datasheet_id": "ds-razorback-7",
@@ -31,36 +41,47 @@
   "keywords": [
     {
       "is_faction_keyword": true,
-      "keyword": "Adeptus Astartes"
+      "keyword": "ADEPTUS ASTARTES"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Dedicated Transport"
+      "keyword": "DEDICATED TRANSPORT",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Imperium"
+      "keyword": "FRAME",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Razorback"
+      "keyword": "IMPERIUM",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Smoke"
+      "keyword": "RAZORBACK",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Transport"
+      "keyword": "SMOKE",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Vehicle"
+      "keyword": "TRANSPORT",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "VEHICLE",
+      "keyword_class": "unit"
     }
   ],
   "models": [
     {
-      "base_size": "Use model",
+      "base_size": "(⌀Use model)",
       "leadership": "6+",
       "line": 1,
       "movement": "12\"",
@@ -72,65 +93,123 @@
     }
   ],
   "name": "RAZORBACK",
+  "option_choices": [
+    {
+      "count": 1,
+      "group_id": "og-razorback-7-1",
+      "id": "oc-razorback-7-1-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "twin lascannon",
+      "replaces_weapon_line": 4
+    },
+    {
+      "count": 1,
+      "grants_weapon_line": 1,
+      "group_id": "og-razorback-7-2",
+      "id": "oc-razorback-7-2-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "hunter-killer missile"
+    },
+    {
+      "count": 1,
+      "grants_weapon_line": 2,
+      "group_id": "og-razorback-7-3",
+      "id": "oc-razorback-7-3-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "storm bolter"
+    }
+  ],
+  "option_groups": [
+    {
+      "id": "og-razorback-7-1",
+      "line": 1,
+      "scope": "model"
+    },
+    {
+      "id": "og-razorback-7-2",
+      "line": 2,
+      "scope": "model"
+    },
+    {
+      "id": "og-razorback-7-3",
+      "line": 3,
+      "scope": "model"
+    }
+  ],
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:63fa126a7834ded2c9ac4dcc6f5d3dd4016d7d981f7ae274eaef1d290da2110b",
-    "last_verified_version": "mfm-2026-08",
+    "last_verified_version": "wh40k-11e-2026-08",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-    "detail_edition_code": "wh40k-10e",
+    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
-    "is_hybrid_edition": true,
-    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "is_hybrid_edition": false,
+    "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
-  "role": "Dedicated Transports",
+  "wargear_option_state": "extracted",
   "weapons": [
     {
+      "ability_keywords": [
+        "one shot"
+      ],
       "armour_penetration": "-3",
       "attacks": "1",
       "damage": "D6",
       "is_melee": false,
       "line": 1,
       "name": "Hunter-killer missile",
-      "range": "48",
-      "skill": "2",
+      "range": "48\"",
+      "skill": "2+",
       "strength": "14"
     },
     {
+      "ability_keywords": [
+        "rapid fire 2"
+      ],
       "armour_penetration": "0",
       "attacks": "2",
       "damage": "1",
       "is_melee": false,
       "line": 2,
       "name": "Storm bolter",
-      "range": "24",
-      "skill": "3",
+      "range": "24\"",
+      "skill": "3+",
       "strength": "4"
     },
     {
+      "ability_keywords": [
+        "sustained hits 1",
+        "twin-linked"
+      ],
       "armour_penetration": "-1",
       "attacks": "3",
       "damage": "2",
       "is_melee": false,
       "line": 3,
       "name": "Twin heavy bolter",
-      "range": "36",
-      "skill": "3",
+      "range": "36\"",
+      "skill": "3+",
       "strength": "5"
     },
     {
+      "ability_keywords": [
+        "twin-linked"
+      ],
       "armour_penetration": "-3",
       "attacks": "1",
       "damage": "D6+1",
-      "is_melee": false,
+      "is_melee": true,
       "line": 4,
       "name": "Twin lascannon",
-      "range": "48",
-      "skill": "3",
+      "skill": "3+",
       "strength": "12"
     },
     {
@@ -140,7 +219,7 @@
       "is_melee": true,
       "line": 5,
       "name": "Armoured tracks",
-      "skill": "4",
+      "skill": "4+",
       "strength": "6"
     }
   ]

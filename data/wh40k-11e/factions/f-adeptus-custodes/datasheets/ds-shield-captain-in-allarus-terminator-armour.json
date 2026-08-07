@@ -1,7 +1,19 @@
 {
   "ability_keys": [
+    "core:deep-strike",
+    "core:leader",
     "datasheet:auramite-and-adamantine",
-    "datasheet:strategic-mastery"
+    "datasheet:strategic-mastery",
+    "faction:martial-katah"
+  ],
+  "composition": [
+    {
+      "line": 1,
+      "max_count": 1,
+      "min_count": 1,
+      "model_line": 1,
+      "model_name": "Shield-Captain in Allarus Terminator Armour"
+    }
   ],
   "costs": [
     {
@@ -10,7 +22,7 @@
       "model_count": 1,
       "points": 130,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
     }
   ],
   "datasheet_id": "ds-shield-captain-in-allarus-terminator-armour",
@@ -23,36 +35,43 @@
   "keywords": [
     {
       "is_faction_keyword": true,
-      "keyword": "Adeptus Custodes"
+      "keyword": "ADEPTUS CUSTODES",
+      "keyword_class": "faction"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Character"
+      "keyword": "CHARACTER",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Imperium"
+      "keyword": "IMPERIUM",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Infantry"
+      "keyword": "INFANTRY",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Shield-Captain"
+      "keyword": "SHIELD-CAPTAIN",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Terminator"
+      "keyword": "TERMINATOR",
+      "keyword_class": "unit"
     }
   ],
   "leader_pairs": [
-    "ds-allarus-custodians"
+    "ds-allarus-custodians",
+    "ds-aquilon-custodians"
   ],
   "models": [
     {
-      "base_size": "40mm",
-      "invuln_save": "4",
+      "base_size": "(⌀40mm)",
+      "invuln_save": "4+",
       "leadership": "6+",
       "line": 1,
       "movement": "5\"",
@@ -64,54 +83,79 @@
     }
   ],
   "name": "SHIELD-CAPTAIN IN ALLARUS TERMINATOR ARMOUR",
+  "option_choices": [
+    {
+      "count": 1,
+      "group_id": "og-shield-captain-in-allarus-terminator-armour-1",
+      "id": "oc-shield-captain-in-allarus-terminator-armour-1-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "castellan axe"
+    }
+  ],
+  "option_groups": [
+    {
+      "id": "og-shield-captain-in-allarus-terminator-armour-1",
+      "line": 1,
+      "scope": "model"
+    }
+  ],
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:258e0e76a7bd79b893fdb17291222e7b8ecb9af7c066b0356efd63f36877ee15",
-    "last_verified_version": "mfm-2026-08",
+    "last_verified_version": "wh40k-11e-2026-08",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-    "detail_edition_code": "wh40k-10e",
+    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
-    "is_hybrid_edition": true,
-    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "is_hybrid_edition": false,
+    "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
-  "role": "Characters",
+  "wargear_option_state": "extracted",
   "weapons": [
     {
+      "ability_keywords": [
+        "blast"
+      ],
       "armour_penetration": "-1",
       "attacks": "D6",
       "damage": "1",
       "is_melee": false,
       "line": 1,
       "name": "Balistus grenade launcher",
-      "range": "18",
-      "skill": "2",
+      "range": "18\"",
+      "skill": "2+",
       "strength": "4"
     },
     {
+      "ability_keywords": [
+        "assault"
+      ],
       "armour_penetration": "-1",
       "attacks": "2",
       "damage": "2",
       "is_melee": false,
       "line": 2,
       "name": "Castellan axe",
-      "range": "24",
-      "skill": "2",
+      "range": "24\"",
+      "skill": "2+",
       "strength": "4"
     },
     {
+      "ability_keywords": [
+        "assault"
+      ],
       "armour_penetration": "-1",
       "attacks": "2",
       "damage": "2",
-      "is_melee": false,
+      "is_melee": true,
       "line": 3,
       "name": "Guardian spear",
-      "range": "24",
-      "skill": "2",
+      "skill": "2+",
       "strength": "4"
     },
     {
@@ -121,7 +165,7 @@
       "is_melee": true,
       "line": 4,
       "name": "Castellan axe",
-      "skill": "2",
+      "skill": "2+",
       "strength": "9"
     },
     {
@@ -131,7 +175,7 @@
       "is_melee": true,
       "line": 5,
       "name": "Guardian spear",
-      "skill": "2",
+      "skill": "2+",
       "strength": "7"
     }
   ]

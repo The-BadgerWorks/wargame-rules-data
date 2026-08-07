@@ -1,7 +1,22 @@
 {
   "ability_keys": [
     "datasheet:astartes-shield",
-    "datasheet:turbo-boost"
+    "datasheet:turbo-boost",
+    "faction:assigned-agents"
+  ],
+  "composition": [
+    {
+      "line": 1,
+      "max_count": 1,
+      "min_count": 1,
+      "model_name": "Veteran Biker Sergeant"
+    },
+    {
+      "line": 2,
+      "max_count": 5,
+      "min_count": 2,
+      "model_name": "Veteran Bikers"
+    }
   ],
   "costs": [
     {
@@ -10,7 +25,7 @@
       "model_count": 3,
       "points": 70,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1"
+      "source_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9"
     },
     {
       "copy_index_min": 1,
@@ -18,7 +33,7 @@
       "model_count": 6,
       "points": 140,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1"
+      "source_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9"
     }
   ],
   "datasheet_id": "ds-veteran-bike-squad",
@@ -31,40 +46,47 @@
   "keywords": [
     {
       "is_faction_keyword": true,
-      "keyword": "Agents of the Imperium"
+      "keyword": "AGENTS OF THE IMPERIUM"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Deathwatch"
+      "keyword": "DEATHWATCH",
+      "keyword_class": "chapter"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Grenades"
+      "keyword": "GRENADES",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Imperium"
+      "keyword": "IMPERIUM",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Mounted"
+      "keyword": "MOUNTED",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Ordo Xenos"
+      "keyword": "ORDO XENOS",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Retinue"
+      "keyword": "RETINUE",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Veteran Bike Squad"
+      "keyword": "VETERAN BIKE SQUAD",
+      "keyword_class": "unit"
     }
   ],
   "models": [
     {
-      "base_size": "75 x 25mm",
+      "base_size": "(⌀75 x 25mm)",
       "leadership": "6+",
       "line": 1,
       "movement": "12\"",
@@ -76,52 +98,106 @@
     }
   ],
   "name": "Veteran Bike Squad",
+  "option_choices": [
+    {
+      "count": 1,
+      "grants_weapon_line": 2,
+      "group_id": "og-veteran-bike-squad-1",
+      "id": "oc-veteran-bike-squad-1-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "Long Vigil ranged weapon"
+    },
+    {
+      "count": 1,
+      "grants_weapon_line": 5,
+      "group_id": "og-veteran-bike-squad-1",
+      "id": "oc-veteran-bike-squad-1-2",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "Long Vigil melee weapon"
+    },
+    {
+      "count": 1,
+      "grants_weapon_line": 6,
+      "group_id": "og-veteran-bike-squad-1",
+      "id": "oc-veteran-bike-squad-1-3",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "xenophase blade"
+    },
+    {
+      "count": 1,
+      "group_id": "og-veteran-bike-squad-1",
+      "id": "oc-veteran-bike-squad-1-4",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "Astartes shield"
+    }
+  ],
+  "option_groups": [
+    {
+      "id": "og-veteran-bike-squad-1",
+      "line": 1,
+      "scope": "unit"
+    }
+  ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 1,
+    "consecutive_unverified_releases": 2,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-    "detail_edition_code": "wh40k-10e",
+    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
-    "is_hybrid_edition": true,
+    "is_hybrid_edition": false,
     "points_edition_code": "wh40k-11e",
     "points_source": "none"
   },
-  "role": "Other",
+  "wargear_option_state": "partial",
   "weapons": [
     {
+      "ability_keywords": [
+        "pistol"
+      ],
       "armour_penetration": "0",
       "attacks": "1",
       "damage": "1",
       "is_melee": false,
       "line": 1,
       "name": "Bolt pistol",
-      "range": "12",
-      "skill": "3",
+      "range": "12\"",
+      "skill": "3+",
       "strength": "4"
     },
     {
+      "ability_keywords": [
+        "anti-infantry 4+",
+        "devastating wounds",
+        "rapid fire 1"
+      ],
       "armour_penetration": "0",
       "attacks": "1",
       "damage": "1",
       "is_melee": false,
       "line": 2,
       "name": "Long Vigil ranged weapon",
-      "range": "24",
-      "skill": "4",
+      "range": "24\"",
+      "skill": "4+",
       "strength": "4"
     },
     {
+      "ability_keywords": [
+        "twin-linked"
+      ],
       "armour_penetration": "0",
       "attacks": "2",
       "damage": "1",
-      "is_melee": false,
+      "is_melee": true,
       "line": 3,
       "name": "Twin boltgun",
-      "range": "24",
-      "skill": "3",
+      "skill": "3+",
       "strength": "4"
     },
     {
@@ -131,7 +207,7 @@
       "is_melee": true,
       "line": 4,
       "name": "Close combat weapon",
-      "skill": "3",
+      "skill": "3+",
       "strength": "4"
     },
     {
@@ -141,17 +217,20 @@
       "is_melee": true,
       "line": 5,
       "name": "Long Vigil melee weapon",
-      "skill": "3",
+      "skill": "3+",
       "strength": "5"
     },
     {
+      "ability_keywords": [
+        "devastating wounds"
+      ],
       "armour_penetration": "-2",
       "attacks": "4",
       "damage": "1",
       "is_melee": true,
       "line": 6,
       "name": "Xenophase blade",
-      "skill": "3",
+      "skill": "3+",
       "strength": "5"
     }
   ]

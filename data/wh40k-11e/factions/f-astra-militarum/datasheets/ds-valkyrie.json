@@ -1,6 +1,16 @@
 {
   "ability_keys": [
+    "core:deadly-demise-d6",
+    "core:hover",
     "datasheet:airborne-insertion"
+  ],
+  "composition": [
+    {
+      "line": 1,
+      "max_count": 1,
+      "min_count": 1,
+      "model_name": "Valkyrie"
+    }
   ],
   "costs": [
     {
@@ -9,7 +19,7 @@
       "model_count": 1,
       "points": 170,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
     },
     {
       "copy_index_min": 3,
@@ -17,7 +27,7 @@
       "model_count": 1,
       "points": 180,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
     }
   ],
   "damaged_threshold": 5,
@@ -30,85 +40,124 @@
   "is_legends": false,
   "keywords": [
     {
-      "is_faction_keyword": false,
-      "keyword": "Aircraft"
-    },
-    {
       "is_faction_keyword": true,
-      "keyword": "Astra Militarum"
+      "keyword": "ASTRA MILITARUM",
+      "keyword_class": "faction"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Fly"
+      "keyword": "FLY",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Imperium"
+      "keyword": "IMPERIUM",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Transport"
+      "keyword": "TRANSPORT",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Valkyrie"
+      "keyword": "VALKYRIE",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Vehicle"
-    }
-  ],
-  "models": [
-    {
-      "base_size": "120 x 92mm flying base",
-      "leadership": "7+",
-      "line": 1,
-      "movement": "20+\"",
-      "name": "Valkyrie",
-      "objective_control": 0,
-      "save": "2+",
-      "toughness": 10,
-      "wounds": 14
+      "keyword": "VEHICLE",
+      "keyword_class": "unit"
     }
   ],
   "name": "VALKYRIE",
+  "option_choices": [
+    {
+      "count": 1,
+      "group_id": "og-valkyrie-1",
+      "id": "oc-valkyrie-1-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "lascannon",
+      "replaces_weapon_line": 3
+    },
+    {
+      "count": 2,
+      "group_id": "og-valkyrie-2",
+      "id": "oc-valkyrie-2-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "multiple rocket pods"
+    },
+    {
+      "count": 2,
+      "group_id": "og-valkyrie-3",
+      "id": "oc-valkyrie-3-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "heavy bolters"
+    }
+  ],
+  "option_groups": [
+    {
+      "id": "og-valkyrie-1",
+      "line": 1,
+      "scope": "model"
+    },
+    {
+      "id": "og-valkyrie-2",
+      "line": 2,
+      "scope": "model"
+    },
+    {
+      "id": "og-valkyrie-3",
+      "line": 3,
+      "scope": "model"
+    }
+  ],
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:fcbac9d828fde149561f9015114d29363238ea94c5d89f844a6a1e34adbf9130",
-    "last_verified_version": "mfm-2026-08",
+    "last_verified_version": "wh40k-11e-2026-08",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-    "detail_edition_code": "wh40k-10e",
+    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
-    "is_hybrid_edition": true,
-    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "is_hybrid_edition": false,
+    "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
-  "role": "Other",
+  "wargear_option_state": "extracted",
   "weapons": [
     {
+      "ability_keywords": [
+        "sustained hits 1"
+      ],
       "armour_penetration": "-1",
       "attacks": "3",
       "damage": "2",
       "is_melee": false,
       "line": 1,
       "name": "Heavy bolter",
-      "range": "36",
-      "skill": "4",
+      "range": "36\"",
+      "skill": "4+",
       "strength": "5"
     },
     {
+      "ability_keywords": [
+        "anti-fly 2+"
+      ],
       "armour_penetration": "-3",
       "attacks": "1",
       "damage": "D6",
       "is_melee": false,
       "line": 2,
       "name": "Hellstrike missiles",
-      "range": "48",
-      "skill": "4",
+      "range": "48\"",
+      "skill": "4+",
       "strength": "10"
     },
     {
@@ -118,8 +167,8 @@
       "is_melee": false,
       "line": 3,
       "name": "Lascannon",
-      "range": "48",
-      "skill": "4",
+      "range": "48\"",
+      "skill": "4+",
       "strength": "12"
     },
     {
@@ -129,19 +178,21 @@
       "is_melee": false,
       "line": 4,
       "name": "Multi-laser",
-      "range": "36",
-      "skill": "4",
+      "range": "36\"",
+      "skill": "4+",
       "strength": "6"
     },
     {
+      "ability_keywords": [
+        "blast"
+      ],
       "armour_penetration": "0",
       "attacks": "D6",
       "damage": "1",
-      "is_melee": false,
+      "is_melee": true,
       "line": 5,
       "name": "Multiple rocket pod",
-      "range": "36",
-      "skill": "4",
+      "skill": "4+",
       "strength": "6"
     },
     {
@@ -151,7 +202,7 @@
       "is_melee": true,
       "line": 6,
       "name": "Armoured hull",
-      "skill": "4",
+      "skill": "4+",
       "strength": "6"
     }
   ]

@@ -1,7 +1,16 @@
 {
   "ability_keys": [
-    "datasheet:mount-up",
-    "datasheet:one-shot"
+    "core:deadly-demise-d6-2",
+    "datasheet:mount-up"
+  ],
+  "composition": [
+    {
+      "line": 1,
+      "max_count": 1,
+      "min_count": 1,
+      "model_line": 1,
+      "model_name": "Gorgon Heavy Transport"
+    }
   ],
   "costs": [
     {
@@ -10,7 +19,7 @@
       "model_count": 1,
       "points": 275,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1"
+      "source_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9"
     }
   ],
   "damaged_threshold": 7,
@@ -24,37 +33,49 @@
   "keywords": [
     {
       "is_faction_keyword": true,
-      "keyword": "Astra Militarum"
+      "keyword": "ASTRA MILITARUM",
+      "keyword_class": "faction"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Gorgon Heavy Transport"
+      "keyword": "FRAME",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Imperium"
+      "keyword": "GORGON HEAVY TRANSPORT",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Smoke"
+      "keyword": "IMPERIUM",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Titanic"
+      "keyword": "SMOKE",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Transport"
+      "keyword": "TITANIC",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Vehicle"
+      "keyword": "TRANSPORT",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "VEHICLE",
+      "keyword_class": "unit"
     }
   ],
   "models": [
     {
-      "base_size": "Use model",
-      "invuln_save": "5",
+      "base_size": "(⌀Use model)",
+      "invuln_save": "5+",
       "leadership": "7+",
       "line": 1,
       "movement": "9\"",
@@ -66,85 +87,152 @@
     }
   ],
   "name": "Gorgon Heavy Transport",
+  "option_choices": [
+    {
+      "count": 4,
+      "group_id": "og-gorgon-heavy-transport-1",
+      "id": "oc-gorgon-heavy-transport-1-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "heavy bolters"
+    },
+    {
+      "count": 4,
+      "group_id": "og-gorgon-heavy-transport-1",
+      "id": "oc-gorgon-heavy-transport-1-2",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "heavy flamers"
+    },
+    {
+      "count": 4,
+      "group_id": "og-gorgon-heavy-transport-1",
+      "id": "oc-gorgon-heavy-transport-1-3",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "heavy stubbers"
+    },
+    {
+      "count": 1,
+      "grants_weapon_line": 5,
+      "group_id": "og-gorgon-heavy-transport-2",
+      "id": "oc-gorgon-heavy-transport-2-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "hunter-killer missile"
+    }
+  ],
+  "option_groups": [
+    {
+      "id": "og-gorgon-heavy-transport-1",
+      "line": 1,
+      "scope": "model"
+    },
+    {
+      "id": "og-gorgon-heavy-transport-2",
+      "line": 2,
+      "scope": "model"
+    }
+  ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 1,
+    "consecutive_unverified_releases": 2,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-    "detail_edition_code": "wh40k-10e",
+    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
-    "is_hybrid_edition": true,
+    "is_hybrid_edition": false,
     "points_edition_code": "wh40k-11e",
     "points_source": "none"
   },
-  "role": "Other",
+  "wargear_option_state": "extracted",
   "weapons": [
     {
+      "ability_keywords": [
+        "blast",
+        "indirect fire"
+      ],
       "armour_penetration": "0",
       "attacks": "D6",
       "damage": "1",
       "is_melee": false,
       "line": 1,
       "name": "Gorgon mortar",
-      "range": "48",
-      "skill": "4",
+      "range": "48\"",
+      "skill": "4+",
       "strength": "5"
     },
     {
+      "ability_keywords": [
+        "sustained hits 1"
+      ],
       "armour_penetration": "-1",
       "attacks": "3",
       "damage": "2",
       "is_melee": false,
       "line": 2,
       "name": "Heavy bolter",
-      "range": "36",
-      "skill": "4",
+      "range": "36\"",
+      "skill": "4+",
       "strength": "5"
     },
     {
+      "ability_keywords": [
+        "ignores cover",
+        "torrent"
+      ],
       "armour_penetration": "-1",
       "attacks": "D6",
       "damage": "1",
       "is_melee": false,
       "line": 3,
       "name": "Heavy flamer",
-      "range": "12",
+      "range": "12\"",
       "skill": "N/A",
       "strength": "5"
     },
     {
+      "ability_keywords": [
+        "rapid fire 3"
+      ],
       "armour_penetration": "0",
       "attacks": "3",
       "damage": "1",
       "is_melee": false,
       "line": 4,
       "name": "Heavy stubber",
-      "range": "36",
-      "skill": "4",
+      "range": "36\"",
+      "skill": "4+",
       "strength": "4"
     },
     {
+      "ability_keywords": [
+        "one shot"
+      ],
       "armour_penetration": "-3",
       "attacks": "1",
       "damage": "D6",
       "is_melee": false,
       "line": 5,
       "name": "Hunter-killer missile",
-      "range": "48",
-      "skill": "4",
+      "range": "48\"",
+      "skill": "4+",
       "strength": "14"
     },
     {
+      "ability_keywords": [
+        "rapid fire 3",
+        "twin-linked"
+      ],
       "armour_penetration": "0",
       "attacks": "3",
       "damage": "1",
-      "is_melee": false,
+      "is_melee": true,
       "line": 6,
       "name": "Twin heavy stubber",
-      "range": "36",
-      "skill": "4",
+      "skill": "4+",
       "strength": "4"
     },
     {
@@ -154,7 +242,7 @@
       "is_melee": true,
       "line": 7,
       "name": "Landing ramp",
-      "skill": "4",
+      "skill": "4+",
       "strength": "8"
     }
   ]

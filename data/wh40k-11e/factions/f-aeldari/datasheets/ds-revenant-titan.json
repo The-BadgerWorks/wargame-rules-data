@@ -1,8 +1,19 @@
 {
   "ability_keys": [
+    "core:deadly-demise-2d6",
     "datasheet:revenant-jet-pack",
     "datasheet:titanic-advance",
-    "datasheet:towering-wraith-construct"
+    "datasheet:towering-wraith-construct",
+    "faction:battle-focus"
+  ],
+  "composition": [
+    {
+      "line": 1,
+      "max_count": 1,
+      "min_count": 1,
+      "model_line": 1,
+      "model_name": "Revenant Titan"
+    }
   ],
   "costs": [
     {
@@ -11,7 +22,7 @@
       "model_count": 1,
       "points": 100,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
     }
   ],
   "damaged_threshold": 10,
@@ -25,45 +36,53 @@
   "keywords": [
     {
       "is_faction_keyword": false,
-      "keyword": "Aeldari"
+      "keyword": "AELDARI",
+      "keyword_class": "faction"
     },
     {
       "is_faction_keyword": true,
-      "keyword": "Asuryani"
+      "keyword": "ASURYANI"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Fly"
+      "keyword": "FLY",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Monster"
+      "keyword": "MONSTER",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Revenant Titan"
+      "keyword": "REVENANT TITAN",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Titanic"
+      "keyword": "TITANIC",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Towering"
+      "keyword": "TOWERING",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Walker"
+      "keyword": "WALKER",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Wraith Construct"
+      "keyword": "WRAITH CONSTRUCT",
+      "keyword_class": "unit"
     }
   ],
   "models": [
     {
-      "base_size": "Use model",
-      "invuln_save": "4",
+      "base_size": "(⌀Use model)",
+      "invuln_save": "4+",
       "leadership": "6+",
       "line": 1,
       "movement": "16\"",
@@ -75,53 +94,96 @@
     }
   ],
   "name": "REVENANT TITAN",
+  "option_choices": [
+    {
+      "count": 1,
+      "group_id": "og-revenant-titan-1",
+      "id": "oc-revenant-titan-1-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "sonic lance",
+      "replaces_weapon_line": 3
+    },
+    {
+      "count": 1,
+      "group_id": "og-revenant-titan-2",
+      "id": "oc-revenant-titan-2-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "Revenant pulsar",
+      "replaces_weapon_line": 2
+    }
+  ],
+  "option_groups": [
+    {
+      "id": "og-revenant-titan-1",
+      "line": 1,
+      "scope": "model"
+    },
+    {
+      "id": "og-revenant-titan-2",
+      "line": 2,
+      "scope": "model"
+    }
+  ],
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:58f35ba3ac341406be9f8660d5cb106048687a0c08370852a12b717d0c57ebfa",
-    "last_verified_version": "mfm-2026-08",
+    "last_verified_version": "wh40k-11e-2026-08",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-    "detail_edition_code": "wh40k-10e",
+    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
-    "is_hybrid_edition": true,
-    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "is_hybrid_edition": false,
+    "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
-  "role": "Other",
+  "wargear_option_state": "extracted",
   "weapons": [
     {
+      "ability_keywords": [
+        "blast"
+      ],
       "armour_penetration": "-2",
       "attacks": "2D6",
       "damage": "2",
       "is_melee": false,
       "line": 1,
       "name": "Cloudburst missile launcher",
-      "range": "36",
-      "skill": "3",
+      "range": "36\"",
+      "skill": "3+",
       "strength": "8"
     },
     {
+      "ability_keywords": [
+        "assault"
+      ],
       "armour_penetration": "-3",
       "attacks": "6",
       "damage": "4",
       "is_melee": false,
       "line": 2,
       "name": "Revenant pulsar",
-      "range": "60",
-      "skill": "3",
+      "range": "60\"",
+      "skill": "3+",
       "strength": "14"
     },
     {
+      "ability_keywords": [
+        "anti-monster 4+",
+        "anti-vehicle 4+",
+        "assault",
+        "torrent"
+      ],
       "armour_penetration": "-3",
       "attacks": "D6+6",
       "damage": "2",
-      "is_melee": false,
+      "is_melee": true,
       "line": 3,
       "name": "Sonic lance",
-      "range": "18",
       "skill": "N/A",
       "strength": "8"
     },
@@ -132,7 +194,7 @@
       "is_melee": true,
       "line": 4,
       "name": "Revenant feet",
-      "skill": "3",
+      "skill": "3+",
       "strength": "10"
     }
   ]

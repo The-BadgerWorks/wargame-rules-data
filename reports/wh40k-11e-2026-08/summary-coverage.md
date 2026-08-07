@@ -1,0 +1,1546 @@
+# Summary coverage
+
+**1941** of 1941 ability keys carry an approved summary — **100.0%** of the release.
+
+| class | gate | approved / total | outstanding |
+|---|---|---|---|
+| `abilities` | on | 1941 / 1941 | — |
+| `detachment_rules` | on | 324 / 324 | — |
+| `faction_rules` | on | 28 / 28 | — |
+| `glossary` | off | 70 / 1496 | `glossary:abaddon the despoiler`, `glossary:aberrants`, `glossary:abhorrent`, `glossary:abominant`, `glossary:acanthrites`, `glossary:acastus`, `glossary:accursed cultists`, `glossary:accursed cultists undivided shadow legion`, and 1418 more |
+
+## Glossary entries with no upstream digest
+
+The source publishes no description for these keywords, so their digest is over the **normalised keyword stem** and they will **never auto-flag for re-review** (`contracts/authored-summary-gates.md` §5.1). Sweep this list by hand before the glossary gate is switched on.
+
+- `abaddon the despoiler`
+- `aberrants`
+- `abhorrent`
+- `abominant`
+- `acanthrites`
+- `acastus`
+- `accursed cultists`
+- `accursed cultists undivided shadow legion`
+- `achilles ridgerunners`
+- `acolyte hybrids`
+- `acolyte hybrids with autopistols`
+- `acolyte hybrids with hand flamers`
+- `acolyte iconward`
+- `adeptus arbites`
+- `adeptus astartes`
+- `adeptus titanicus`
+- `adrax agatone`
+- `aegis defence line`
+- `aestred thurga`
+- `aetaos rau keres`
+- `aethon shaan`
+- `agamatus custodians`
+- `agathae dolan`
+- `agents of the imperium`
+- `aggressor squad`
+- `ahriman`
+- `aircraft`
+- `aleya`
+- `allarus custodians`
+- `amallyn shadowguide`
+- `an ggrath the unbound`
+- `anathema psykana`
+- `ancient`
+- `ancient deathwing`
+- `ancient ravenwing`
+- `angron`
+- `anhrathe`
+- `annihilation barge`
+- `anrakyr the traveller`
+- `anti chaos`
+- `anti character`
+- `anti daemon`
+- `anti epic hero`
+- `anti fly`
+- `anti infantry`
+- `anti monster`
+- `anti monster vehicle`
+- `anti non monster vehicle`
+- `anti psyker`
+- `anti titanic`
+- `anti tyranids`
+- `anti vehicle`
+- `anti walker`
+- `apothecary`
+- `apothecary ravenwing`
+- `aquila kill team`
+- `aquila lander`
+- `aquilon custodians`
+- `archaeopter fusilave`
+- `archaeopter stratoraptor`
+- `archaeopter transvector`
+- `archon`
+- `arco flagellants`
+- `ares gunship`
+- `arjac rockfist`
+- `arkanyst evaluator`
+- `arkurian stormhammer`
+- `armageddon pattern medusa`
+- `armiger`
+- `armoured sentinels`
+- `artillery`
+- `artillery team`
+- `arvus lighter`
+- `asmodai`
+- `aspect warrior`
+- `aspect warriors`
+- `assault`
+- `assault intercessor squad`
+- `assault intercessors with jump packs`
+- `assault squad`
+- `assault squad with jump packs`
+- `astartes servitors`
+- `astorath`
+- `astraeus`
+- `asurmen`
+- `asuryani`
+- `atalan jackals`
+- `atlas recovery vehicle`
+- `attack bike squad ravenwing`
+- `attack fighta`
+- `attilan rough riders`
+- `aun shi`
+- `aun va`
+- `autarch`
+- `autarch skyrunner`
+- `autarch wayleaper`
+- `avatar of khaine`
+- `avenger strike fighter`
+- `ax 1 0 tiger shark`
+- `azrael`
+- `baal predator`
+- `baharroth`
+- `ballistus dreadnought deathwing`
+- `baneblade`
+- `banehammer`
+- `banesword`
+- `bannernob`
+- `barbed hierodule`
+- `barbgaunts`
+- `barracuda`
+- `basilisk`
+- `battle leader`
+- `battle sanctum`
+- `battle sisters squad`
+- `battleline`
+- `battlesuit`
+- `battlewagon`
+- `be lakor shadow legion`
+- `beast`
+- `beast snagga`
+- `beast snagga boyz`
+- `beastboss`
+- `beastboss on squigosaur`
+- `beastmaster`
+- `beasts`
+- `beasts of nurgle`
+- `beasts of nurgle shadow legion`
+- `belial`
+- `belisarius cawl`
+- `bellatus`
+- `benefictus`
+- `berehk stornbröw`
+- `berzerkers`
+- `beserks`
+- `big ed bossbunka`
+- `big gunz`
+- `big mek`
+- `big mek in mega armour`
+- `big mek on warbike`
+- `big mek with kustom force field`
+- `big mek with shokk attack gun`
+- `big trakk`
+- `bigboss`
+- `bike squad ravenwing`
+- `biologis`
+- `biologus putrifier`
+- `biophagus`
+- `biovores`
+- `bjorn the fell handed`
+- `blade champion`
+- `bladeguard ancient deathwing`
+- `bladeguard veteran squad deathwing`
+- `blades for hire`
+- `blast`
+- `blightlord terminators`
+- `blitza bommer`
+- `blood claws`
+- `blood legions`
+- `blood slaughterer`
+- `bloodcrushers`
+- `bloodcrushers shadow legion`
+- `bloodletters`
+- `bloodletters shadow legion`
+- `bloodmaster shadow legion`
+- `bloodthirster`
+- `bloodthirster shadow legion`
+- `blue`
+- `bodyguard`
+- `bonesinger`
+- `boomdakka snazzwagon`
+- `boss snikrot`
+- `boss zagstruk`
+- `boyz`
+- `breacher team`
+- `breachers`
+- `breaka boyz`
+- `brigand`
+- `brimstone`
+- `brimstone shadow legion`
+- `broadside`
+- `broodlord`
+- `brother captain`
+- `brother captain stern`
+- `brother corbulo`
+- `brotherhood champion`
+- `brotherhood chaplain`
+- `brotherhood librarian`
+- `brotherhood techmarine`
+- `brotherhood terminator squad`
+- `brutalis dreadnought deathwing`
+- `brôkhyr`
+- `bubblechukka`
+- `bullgryn squad`
+- `buri aegnirssen`
+- `burna bommer`
+- `burna boyz`
+- `burning chariot shadow legion`
+- `burrower`
+- `burrowers`
+- `c tan power`
+- `c tan shard of the deceiver`
+- `c tan shard of the nightbringer`
+- `c tan shard of the void dragon`
+- `caanok var`
+- `cadian`
+- `cadian castellan`
+- `cadian heavy weapons squad`
+- `cadian recon squad`
+- `cadian shock troops`
+- `cadre fireblade`
+- `caestus assault ram ravenwing`
+- `caladius grav tank`
+- `callidus assassin`
+- `canis rex`
+- `canis wolfborn`
+- `canoness`
+- `canoptek`
+- `captain`
+- `captain deathwing`
+- `captain ravenwing`
+- `carab culln the risen deathwing`
+- `carnifexes`
+- `carnivores`
+- `carnodon`
+- `carrier`
+- `castellan`
+- `castellan crowe`
+- `castigator`
+- `catachan`
+- `catachan heavy weapons squad`
+- `catachan jungle fighters`
+- `catacomb command barge`
+- `cato`
+- `celestian insidiants`
+- `celestian sacresant aveline`
+- `celestian sacresants`
+- `centaur light carrier`
+- `centaur rsv`
+- `centurion`
+- `centurion assault squad`
+- `centurion devastator squad`
+- `cerastus`
+- `cerberus`
+- `champion`
+- `changecaster shadow legion`
+- `chaos`
+- `chaos bikers`
+- `chaos lord`
+- `chaos lord in terminator armour`
+- `chaos lord in terminator armour undivided shadow legion`
+- `chaos lord on bike`
+- `chaos lord undivided shadow legion`
+- `chaos spawn`
+- `chaos terminator squad`
+- `chaos terminator squad undivided shadow legion`
+- `chaos undivided`
+- `chaplain`
+- `chaplain cassius`
+- `chaplain deathwing`
+- `chaplain grimaldus`
+- `chaplain ravenwing`
+- `chaplain venerable dreadnought deathwing`
+- `chapter master`
+- `character`
+- `chief librarian mephiston`
+- `chief librarian tigurius`
+- `chimera`
+- `chinork warkopta`
+- `chosen`
+- `chosen undivided shadow legion`
+- `chronomancer`
+- `clamavus`
+- `cleave`
+- `close quarters`
+- `cobra`
+- `colossus`
+- `command squad`
+- `commander dante`
+- `commander farsight`
+- `commander in coldstar battlesuit`
+- `commander in crisis battlesuit`
+- `commander in enforcer battlesuit`
+- `commander shadowsun`
+- `commissar`
+- `commissar graves`
+- `commissar graves on foot`
+- `commissar yarrick`
+- `company champion ravenwing`
+- `company heroes`
+- `company veterans ravenwing`
+- `contemptor achillus dreadnought`
+- `contemptor galatus dreadnought`
+- `contorted epitome shadow legion`
+- `convergence of dominion`
+- `conversion`
+- `coronus grav carrier`
+- `corpuscarii`
+- `corsair cloud dancer band`
+- `corsair reaver band`
+- `corsair skyreavers`
+- `corsair voidreavers`
+- `corsair voidscarred`
+- `corvus blackstar`
+- `coteaz`
+- `court of the archon`
+- `crassus`
+- `crimson hunter`
+- `crisis`
+- `cronos`
+- `crusade ancient`
+- `crusader`
+- `crusader squad`
+- `crusaders`
+- `cryptek`
+- `cryptothralls`
+- `cthonian`
+- `culexus assassin`
+- `cult demagogue`
+- `cult demagogue undivided shadow legion`
+- `cult mechanicus`
+- `cultist firebrand`
+- `cultist firebrand undivided shadow legion`
+- `cultist mob`
+- `cultist mob undivided shadow legion`
+- `cultist mob with firearms`
+- `cultist mob with firearms undivided shadow legion`
+- `cultists`
+- `custodian guard`
+- `custodian guard with adrasite and pyrithite spears`
+- `custodian wardens`
+- `cybernetica datasmith`
+- `cyberwolf`
+- `cyclops demolition vehicle`
+- `cypher`
+- `d cannon platform`
+- `da red gobbo`
+- `daemon`
+- `daemon prince`
+- `daemon prince of chaos shadow legion`
+- `daemon prince of chaos with wings shadow legion`
+- `daemon prince with wings`
+- `daemonettes`
+- `daemonettes shadow legion`
+- `daemonhost`
+- `daemonifuge`
+- `dakkajet`
+- `dakkarig`
+- `damned`
+- `damned legionnaires`
+- `dark apostle`
+- `dark apostle undivided shadow legion`
+- `dark commune`
+- `dark reapers`
+- `dark talon`
+- `darkstrider`
+- `darnath lysander`
+- `dawneagle jetbike`
+- `dead choppy`
+- `death company`
+- `death company dreadnought`
+- `death company marines`
+- `death company marines with bolt rifles`
+- `death company marines with boltguns`
+- `death company marines with boltguns and jump packs`
+- `death company marines with jump packs`
+- `death cult assassins`
+- `death jester`
+- `death korps grenadier squad`
+- `death korps of krieg`
+- `death rider commissar`
+- `death riders`
+- `deathleaper`
+- `deathmarks`
+- `deathshroud terminators`
+- `deathstorm drop pod`
+- `deathstrike`
+- `deathwatch terminator squad`
+- `deathwatch veterans`
+- `deathwing`
+- `deathwing command squad deathwing`
+- `deathwing knights`
+- `deathwing strikemaster deathwing`
+- `deathwing terminator squad`
+- `decimator`
+- `decimus kill team`
+- `dedicated transport`
+- `defenders`
+- `deff dread`
+- `deff rolla battle fortress`
+- `deffkilla wartrike`
+- `deffkoptas`
+- `deffkoptas with big shootas`
+- `defiler`
+- `deimos predator`
+- `deredeo dreadnought`
+- `deredeo dreadnought deathwing`
+- `desolation squad`
+- `destroyer cult`
+- `destroyers`
+- `devastating wounds`
+- `devastating wounds monster vehicle`
+- `devastating wounds non monster vehicle`
+- `devastator squad`
+- `devilfish`
+- `dialogus`
+- `dimachaeron`
+- `dire avengers`
+- `disc of tzeentch`
+- `disc of tzeentch undivided shadow legion`
+- `dogmata`
+- `dominion squad`
+- `dominus`
+- `dominus armoured siege bombard`
+- `doom scythe`
+- `doomhammer`
+- `doomsday ark`
+- `doomstalker`
+- `dragoons with radium jezzails`
+- `dragoons with taser lances`
+- `draxus`
+- `drazhar`
+- `dreadclaw drop pod`
+- `dreadnought`
+- `dreadnought deathwing`
+- `dreadnought drop pod`
+- `drone sentry turret`
+- `drop pod`
+- `earthshaker carriage battery`
+- `earthshaker platform`
+- `earthshakers`
+- `eightbound`
+- `einhyr champion`
+- `einhyr hearthguard`
+- `eisenhorn`
+- `eldrad ulthran`
+- `electro priests`
+- `eliminator squad`
+- `elysian drop sentinel`
+- `elysian sniper squad`
+- `emperor s champion`
+- `endless multitude`
+- `enginseer`
+- `epic hero`
+- `epidemius`
+- `eradicator squad`
+- `eradicator squad with heavy bolters`
+- `ethereal`
+- `eversor assassin`
+- `exaction squad`
+- `exalted champion`
+- `exalted eightbound`
+- `exalted flamer shadow legion`
+- `exalted sorcerer`
+- `execrator`
+- `executioner`
+- `exoarmour`
+- `exocrine`
+- `exodite`
+- `exoframe`
+- `exorcist`
+- `exterminators`
+- `extra attacks`
+- `ezekiel`
+- `fabius bile`
+- `falchion`
+- `falcon`
+- `fallen`
+- `farseer`
+- `farseer skyrunner`
+- `farstalkers`
+- `fateskimmer shadow legion`
+- `feculent gnarlmaw shadow legion`
+- `fellblade`
+- `fellgor beastmen`
+- `fellgor beastmen undivided shadow legion`
+- `fenrisian wolves`
+- `ferren areios`
+- `field ordnance battery`
+- `fiends`
+- `fiends shadow legion`
+- `fighta bommer`
+- `fire dragons`
+- `fire prism`
+- `fire raptor gunship`
+- `fire raptor gunship ravenwing`
+- `fire warrior`
+- `fireknife`
+- `firesight team`
+- `firestorm`
+- `firestrike servo turrets`
+- `flamers`
+- `flamers shadow legion`
+- `flash gitz`
+- `flawless blades`
+- `flayed ones`
+- `flesh hounds`
+- `flesh hounds shadow legion`
+- `flesh shaper`
+- `fluxmaster shadow legion`
+- `fly`
+- `foetid bloat drone`
+- `foetid bloat drone with heavy blight launcher`
+- `forgefiend`
+- `fortification`
+- `fortis kill team`
+- `foul blightspawn`
+- `frame`
+- `fuegan`
+- `fulgrim`
+- `fulgurite`
+- `furies shadow legion`
+- `furioso dreadnought`
+- `fusiliers`
+- `gabriel seth`
+- `gargantuan squiggoth`
+- `gargoyles`
+- `gaunt s ghosts`
+- `gauss pylon`
+- `gellerpox infected`
+- `gellerpox infected undivided shadow legion`
+- `genestealers`
+- `geomancer`
+- `ghazghkull thraka`
+- `ghost ark`
+- `ghostkeel`
+- `giant chaos spawn shadow legion`
+- `gladiator lancer`
+- `gladiator reaper`
+- `gladiator valiant`
+- `goliath rockgrinder`
+- `goliath truck`
+- `goremongers`
+- `gorgon heavy transport`
+- `gorkanaut`
+- `grand master`
+- `grand master in nemesis dreadknight`
+- `grand master voldus`
+- `gravis`
+- `great devourer`
+- `great knarloc`
+- `great unclean one`
+- `great unclean one shadow legion`
+- `greater blight drone`
+- `greater brass scorpion`
+- `grenades`
+- `gretchin`
+- `grey hunters`
+- `grey knights terminator squad`
+- `greyfax`
+- `griffon mortar carrier`
+- `grimnyr`
+- `grot bomm launcha`
+- `grot mega tank`
+- `grot tanks`
+- `grotesques`
+- `grots`
+- `guardian defenders`
+- `guardians`
+- `haarken worldclaimer`
+- `hades breaching drill`
+- `haemonculus`
+- `haemonculus covens`
+- `hammerfall bunker`
+- `hammerhead gunship`
+- `hand of the archon`
+- `harald deathwolf`
+- `harlequins`
+- `harpooned`
+- `harpy`
+- `harridan`
+- `haruspex`
+- `harvester`
+- `hastarii`
+- `havocs`
+- `havocs undivided shadow legion`
+- `hazardous`
+- `headtakers`
+- `hearthkyn warriors`
+- `heavy`
+- `heavy gun drones`
+- `heavy intercessor squad`
+- `heavy mortar team`
+- `heavy quad launcher team`
+- `hekaton land fortress`
+- `helbrute`
+- `heldrake`
+- `hell blade`
+- `hell s last`
+- `hell talon`
+- `hellblaster squad`
+- `hellflayer shadow legion`
+- `hellflayers shadow legion`
+- `hellhammer`
+- `hellhound`
+- `hellions`
+- `helverin`
+- `hemlock wraithfighter`
+- `herald of slaanesh shadow legion`
+- `heretic astartes`
+- `hernkyn`
+- `hexmark destroyer`
+- `hierophant`
+- `high marshal helbrecht`
+- `hippogriff afv`
+- `hive crone`
+- `hive guard`
+- `hive tyrant`
+- `hooked`
+- `hormagaunts`
+- `hornet`
+- `horrors`
+- `horticulous slimux`
+- `hospitaller`
+- `hounds`
+- `hounds of morkai`
+- `howling banshees`
+- `hunta rig`
+- `hunter`
+- `hunting wolves`
+- `huntsman`
+- `huron blackheart`
+- `hybrid metamorphs`
+- `hydra`
+- `hydra platform`
+- `hyperadapted raveners`
+- `icon bearer`
+- `ignores cover`
+- `illic nightspear`
+- `illuminor szeras`
+- `imagifier`
+- `immolator`
+- `immortals`
+- `imotekh the stormlord`
+- `impaled`
+- `imperial fists`
+- `imperial navy breachers`
+- `imperial rhino`
+- `imperial space marine`
+- `imperium`
+- `impulsor`
+- `inceptor squad`
+- `incubi`
+- `incursor squad`
+- `indirect fire`
+- `indomitor kill team`
+- `infantry`
+- `infernal enrapturess shadow legion`
+- `infernal master`
+- `infernus squad`
+- `infiltrator squad`
+- `infiltrators`
+- `infractors`
+- `inner circle companions`
+- `inquisitor`
+- `inquisitor ostromandeus`
+- `inquisitorial agents`
+- `inquisitorial chimera`
+- `interceptor squad`
+- `intercessor squad`
+- `intranzia fraye`
+- `invader atv ravenwing`
+- `invictor tactical warsuit`
+- `irillyth`
+- `iron father feirros`
+- `iron hand straken`
+- `iron hands`
+- `iron master`
+- `iron priest`
+- `ironclad dreadnought deathwing`
+- `ironkin steeljacks`
+- `ironkin steeljacks with heavy volkanite disintegrators`
+- `ironkin steeljacks with melee weapons`
+- `ironstrider ballistarii`
+- `jackal alphus`
+- `jain zar`
+- `jakhals`
+- `janus draik`
+- `javelin attack speeder ravenwing`
+- `jokaero weaponsmith`
+- `judiciar`
+- `juggernaut`
+- `juggernaut undivided shadow legion`
+- `jump pack`
+- `jump packs`
+- `junith eruita`
+- `kabal`
+- `kabalite warriors`
+- `kairos fateweaver`
+- `kaldor draigo`
+- `kannonwagon`
+- `kapricus`
+- `kaptin badrukk`
+- `karamazov`
+- `karanak`
+- `karandras`
+- `karnivore`
+- `kasrkin`
+- `kastelan robots`
+- `kataphron`
+- `kayvaan shrike`
+- `keeper of secrets`
+- `keeper of secrets shadow legion`
+- `kelermorph`
+- `kharseth`
+- `kharybdis assault claw`
+- `khorne`
+- `khârn the betrayer`
+- `kill krusha`
+- `kill rig`
+- `kill tank`
+- `kill team`
+- `kill team cassius`
+- `killa kans`
+- `knarloc riders`
+- `knight abominant`
+- `knight acheron`
+- `knight asterius`
+- `knight atrapos`
+- `knight castellan`
+- `knight castigator`
+- `knight centura`
+- `knight crusader`
+- `knight defender`
+- `knight desecrator`
+- `knight despoiler`
+- `knight destrier`
+- `knight errant`
+- `knight gallant`
+- `knight lancer`
+- `knight magaera`
+- `knight paladin`
+- `knight porphyrion`
+- `knight preceptor`
+- `knight rampager`
+- `knight ruinator`
+- `knight styrix`
+- `knight tyrant`
+- `knight valiant`
+- `knight warden`
+- `kommandos`
+- `kor sarro khan`
+- `kratos`
+- `kravek morne`
+- `krieg`
+- `krieg combat engineers`
+- `krieg heavy weapons squad`
+- `krom dragongaze`
+- `kroot`
+- `krootox rampagers`
+- `krootox riders`
+- `kroyle`
+- `kustom boosta blasta`
+- `kytan ravager`
+- `kâhl`
+- `lady malys`
+- `lance`
+- `land raider`
+- `land raider achilles`
+- `land raider crusader`
+- `land raider crusader deathwing`
+- `land raider deathwing`
+- `land raider excelsior`
+- `land raider helios`
+- `land raider prometheus`
+- `land raider proteus`
+- `land raider redeemer deathwing`
+- `land speeder ravenwing`
+- `land speeder storm ravenwing`
+- `land speeder tempest ravenwing`
+- `land speeder tornado ravenwing`
+- `land speeder typhoon ravenwing`
+- `land speeder vengeance`
+- `lazarus`
+- `legio cybernetica`
+- `legionaries`
+- `legionaries undivided shadow legion`
+- `legiones daemonica`
+- `legions of excess`
+- `lelith hesperax`
+- `leman russ battle tank`
+- `leman russ commander`
+- `leman russ demolisher`
+- `leman russ eradicator`
+- `leman russ executioner`
+- `leman russ exterminator`
+- `leman russ punisher`
+- `leman russ vanquisher`
+- `lemartes`
+- `lethal hits`
+- `leviathan dreadnought`
+- `leviathan dreadnought deathwing`
+- `lhykhis`
+- `librarian`
+- `librarian deathwing`
+- `librarian dreadnought`
+- `librarian ravenwing`
+- `lictor`
+- `lieutenant`
+- `lieutenant in reiver armour`
+- `lieutenant with combi weapon`
+- `lifta wagon`
+- `linked fire`
+- `lion el jonson`
+- `locus`
+- `logan grimnar`
+- `logan grimnar on stormrider`
+- `lokhust destroyers`
+- `lokhust heavy destroyers`
+- `lokhust lord`
+- `lone spear`
+- `long fangs`
+- `longstrike`
+- `lootas`
+- `lord`
+- `lord discordant`
+- `lord exultant`
+- `lord invocatus`
+- `lord kakophonist`
+- `lord marshal dreir`
+- `lord of change`
+- `lord of change shadow legion`
+- `lord of contagion`
+- `lord of poxes`
+- `lord of skulls`
+- `lord of virulence`
+- `lord on juggernaut`
+- `lord solar leontus`
+- `loyal protector`
+- `lucius the eternal`
+- `lukas the trickster`
+- `lychguard`
+- `lynx`
+- `macharius`
+- `macharius omega`
+- `macharius vanquisher`
+- `macharius vulcan`
+- `macrocytes`
+- `mad dok grotsnik`
+- `magnus the red`
+- `magus`
+- `malanthrope`
+- `malcador`
+- `malcador annihilator`
+- `malcador defender`
+- `malcador infernus`
+- `maleceptor`
+- `malignant plaguecaster`
+- `mandrakes`
+- `manipulus`
+- `manta`
+- `manticore`
+- `manticore platform`
+- `marauder bomber`
+- `marauder destroyer`
+- `markerlight`
+- `marneus calgar`
+- `marshal`
+- `master of executions`
+- `master of possession`
+- `master of possession undivided shadow legion`
+- `masters of the maelstrom`
+- `mastodon`
+- `maugan ra`
+- `maulerfiend`
+- `mawloc`
+- `medusa carriage battery`
+- `mega armour`
+- `mega dread`
+- `meganobz`
+- `megatrakk scrapjet`
+- `mek`
+- `mek gunz`
+- `meka dread`
+- `mekboy workshop`
+- `melta`
+- `memnyr strategist`
+- `miasmic malignifier`
+- `militarum tempestus`
+- `ministorum priest`
+- `minotaur`
+- `mob`
+- `mobile`
+- `moirax`
+- `monolith`
+- `monster`
+- `morkanaut`
+- `mortarion`
+- `mortifiers`
+- `mortis dreadnought deathwing`
+- `morvenn vahl`
+- `mounted`
+- `mozrog skragbad`
+- `mucolid spores`
+- `mukaali riders`
+- `munitorum servitors`
+- `murderfang`
+- `mutalith vortex beast`
+- `mutant`
+- `mutilators`
+- `mutoid vermin`
+- `mutoid vermin undivided shadow legion`
+- `myphitic blight hauler`
+- `navigator`
+- `necron warriors`
+- `negavolt cultists`
+- `negavolt cultists undivided shadow legion`
+- `nekrosor ammentar`
+- `nemesis claw`
+- `nemesis dreadknight`
+- `nemesor zahndrekh`
+- `neophyte hybrids`
+- `nephilim jetfighter`
+- `neurogaunts`
+- `neurolictor`
+- `neurotyrant`
+- `nexos`
+- `neyam shai murad`
+- `night scythe`
+- `night shroud`
+- `night spinner`
+- `nightwing`
+- `njal stormcaller`
+- `noble`
+- `nobz`
+- `nobz on warbikes`
+- `noctilith crown`
+- `noise marines`
+- `nork deddog`
+- `norn assimilator`
+- `norn emissary`
+- `noxious blightbringer`
+- `nurgle`
+- `nurglings`
+- `nurglings shadow legion`
+- `obelisk`
+- `obliterators`
+- `officer`
+- `officio assassinorum`
+- `ogryn`
+- `ogryn squad`
+- `old one eye`
+- `onager dunecrawler`
+- `one shot`
+- `ophydian destroyers`
+- `orca dropship`
+- `ordo hereticus`
+- `ordo malleus`
+- `ordo xenos`
+- `orikan the diviner`
+- `orion assault dropship`
+- `outrider squad ravenwing`
+- `overcharge`
+- `overlord`
+- `overlord with translocation shroud`
+- `pack leader`
+- `painboss`
+- `painboy`
+- `painboy on warbike`
+- `paladin squad`
+- `palanquin of nurgle`
+- `palanquin of nurgle undivided shadow legion`
+- `palatine`
+- `pallas grav attack`
+- `paragon warsuits`
+- `parasite of mortrex`
+- `pathfinder team`
+- `patriarch`
+- `pedro kantor`
+- `penitent`
+- `penitent engines`
+- `phantom titan`
+- `phobos`
+- `phoenix`
+- `phoenix lord`
+- `pink`
+- `pioneers`
+- `piranhas`
+- `pistol`
+- `plague drones`
+- `plague drones shadow legion`
+- `plague legions`
+- `plague marines`
+- `plague surgeon`
+- `plague toads shadow legion`
+- `plaguebearers`
+- `plaguebearers shadow legion`
+- `plagueburst crawler`
+- `plasma warhead`
+- `plasmancer`
+- `platoon`
+- `possessed`
+- `possessed undivided shadow legion`
+- `pox riders shadow legion`
+- `poxbringer shadow legion`
+- `poxwalkers`
+- `praetor`
+- `praetorians`
+- `precision`
+- `predator annihilator`
+- `predator destructor`
+- `primarch`
+- `primaris company champion`
+- `primaris psyker`
+- `primus`
+- `prince yriel`
+- `prosecutors`
+- `proteus kill team`
+- `provisionally prepared`
+- `psychic`
+- `psychic assassin`
+- `psychomancer`
+- `psychophage`
+- `psyker`
+- `pteraxii`
+- `purestrain genestealers`
+- `purgation squad`
+- `purifier squad`
+- `pyrovores`
+- `quartermaster cadre squad`
+- `questoris`
+- `r varna`
+- `ragnar blackmane`
+- `raider`
+- `rangers`
+- `rapid fire`
+- `rapid fire d3`
+- `rapid fire d6`
+- `rapier carrier`
+- `rapier laser destroyer battery`
+- `raptors`
+- `raptors undivided shadow legion`
+- `ratlings`
+- `ravager`
+- `raven guard`
+- `raven strike fighter`
+- `raveners`
+- `ravenwing`
+- `ravenwing black knights`
+- `ravenwing command squad`
+- `ravenwing darkshroud`
+- `ravenwing talonmaster ravenwing`
+- `razorback`
+- `razorshark strike fighter`
+- `razorwing jetfighter`
+- `reanimator`
+- `reaper`
+- `reaver titan`
+- `reavers`
+- `red corsairs raiders`
+- `red corsairs reave captain`
+- `redeemer`
+- `redemptor dreadnought deathwing`
+- `reductus saboteur`
+- `regiment`
+- `regimental attachés`
+- `rein and raus`
+- `reiver squad`
+- `relic contemptor dreadnought`
+- `relic contemptor dreadnought deathwing`
+- `relic razorback`
+- `relic terminator squad deathwing`
+- `remora stealth drones`
+- `remote sensor tower`
+- `rendmaster on blood throne shadow legion`
+- `renegade enforcer`
+- `renegade enforcer undivided shadow legion`
+- `renegade heavy weapons squad`
+- `renegade heavy weapons squad undivided shadow legion`
+- `renegade ogryn beast handler`
+- `renegade ogryn beast handler undivided shadow legion`
+- `renegade ogryn brutes`
+- `renegade ogryn brutes undivided shadow legion`
+- `renegade plague ogryns`
+- `renegade plague ogryns undivided shadow legion`
+- `repentia squad`
+- `repressor`
+- `repulsor`
+- `repulsor deathwing`
+- `repulsor executioner`
+- `repulsor executioner deathwing`
+- `requisitioned`
+- `retinue`
+- `retributor squad`
+- `revenant titan`
+- `reverberating summons`
+- `rhino`
+- `rhino primaris`
+- `ripper swarms`
+- `riptide`
+- `roboute guilliman`
+- `rogal dorn battle tank`
+- `rogal dorn commander`
+- `rogue psyker`
+- `rogue psyker undivided shadow legion`
+- `rogue trader entourage`
+- `rotigus`
+- `royal warden`
+- `rubric marines`
+- `rubricae`
+- `rukkatrukk squigbuggy`
+- `ruststalkers`
+- `sabre weapons battery`
+- `sagitaur`
+- `sagittarum custodians`
+- `saint celestine`
+- `salamander command vehicle`
+- `salamander scout vehicle`
+- `salamanders`
+- `sammael`
+- `sanctifiers`
+- `sanctus`
+- `sanguinary guard`
+- `sanguinary priest`
+- `scabeiathrax the bloated`
+- `scarab occult`
+- `scarab swarms`
+- `scintillating legions`
+- `scorpion`
+- `scourges`
+- `scourges with heavy weapons`
+- `scourges with shardcarbines`
+- `scout bike squad ravenwing`
+- `scout sentinels`
+- `scout sniper squad`
+- `scout squad`
+- `screamer killer`
+- `screamers`
+- `screamers shadow legion`
+- `scythed hierodule`
+- `secutarii hoplites`
+- `secutarii peltasts`
+- `seekers`
+- `seekers shadow legion`
+- `sekhetar robots`
+- `sentinel powerlifter`
+- `sentry pylon`
+- `seraphim squad`
+- `seraptek heavy construct`
+- `serberys raiders`
+- `serberys sulphurhounds`
+- `sergeant chronus`
+- `sergeant harker`
+- `sergeant telion`
+- `servitor battleclade`
+- `servitors`
+- `shadow spectres`
+- `shadow weaver platform`
+- `shadowseer`
+- `shadowsword`
+- `shalaxi helbane`
+- `shaper`
+- `shas o r alai`
+- `shield captain`
+- `shining spears`
+- `shokkjump dragsta`
+- `shroud runners`
+- `sicaran arcus`
+- `sicaran battle tank`
+- `sicaran omega`
+- `sicaran punisher`
+- `sicaran venator`
+- `sicarian`
+- `sicarius`
+- `sisters novitiate squad`
+- `sisters of battle squad`
+- `skarbrand`
+- `skathach wraithknight`
+- `skatros`
+- `skitarii`
+- `skorchas`
+- `skorpekh destroyers`
+- `skorpekh lord`
+- `skorpius disintegrator`
+- `skorpius dunerider`
+- `skull altar shadow legion`
+- `skull cannon shadow legion`
+- `skullmaster shadow legion`
+- `skulltaker`
+- `sky ray gunship`
+- `sky slasher swarms`
+- `skyclaws`
+- `skystalkers`
+- `skyweavers`
+- `slaanesh`
+- `slaughterbound`
+- `sloppity bilepiper shadow legion`
+- `sly marbo`
+- `smoke`
+- `snagged`
+- `sokar pattern stormbird`
+- `sokar pattern stormbird ravenwing`
+- `solitaire`
+- `sorcerer`
+- `sorcerer in terminator armour`
+- `sorcerer in terminator armour undivided shadow legion`
+- `sorcerer on bike`
+- `sorcerer undivided shadow legion`
+- `sororitas rhino`
+- `soul grinder shadow legion`
+- `spartan`
+- `spawn`
+- `spectrus kill team`
+- `speed freeks`
+- `spined chaos beast shadow legion`
+- `spiritseer`
+- `spoilpox scrivener shadow legion`
+- `spore mines`
+- `sporocyst`
+- `spyders`
+- `squadron`
+- `squiggoth`
+- `squighog boyz`
+- `stalker`
+- `starfangs`
+- `starscythe`
+- `starweaver`
+- `stealth`
+- `steed of slaanesh`
+- `steed of slaanesh undivided shadow legion`
+- `sternguard veteran squad`
+- `sternguard veteran squad deathwing`
+- `sterylizors`
+- `stompa`
+- `storm chimera`
+- `storm eagle gunship`
+- `storm eagle gunship ravenwing`
+- `storm guardians`
+- `storm speeder hailstrike ravenwing`
+- `storm speeder hammerstrike ravenwing`
+- `storm speeder thunderstrike ravenwing`
+- `stormblade`
+- `stormboyz`
+- `stormfang gunship`
+- `stormhawk interceptor`
+- `stormhawk interceptor ravenwing`
+- `stormlord`
+- `stormraven gunship`
+- `stormraven gunship ravenwing`
+- `stormsurge`
+- `stormsword`
+- `stormtalon gunship`
+- `stormtalon gunship ravenwing`
+- `stormwolf`
+- `strike squad`
+- `strike team`
+- `striking scorpions`
+- `stygies destroyer tank hunter`
+- `subductor squad`
+- `suboden khan`
+- `succubus`
+- `summoned`
+- `sun shark bomber`
+- `sunforge`
+- `support weapon`
+- `suppressor squad`
+- `sustained hits`
+- `sustained hits d3`
+- `swarm`
+- `swooping hawks`
+- `sword brethren squad`
+- `sydonian`
+- `syll esske`
+- `synapse`
+- `ta unar supremacy armour`
+- `tactical squad`
+- `tacticus`
+- `tallyman`
+- `talonstrike kill team`
+- `talos`
+- `tankbustas`
+- `tantalus`
+- `tarantula air defence battery`
+- `tarantula battery`
+- `tarantula sentry battery`
+- `tauros`
+- `tauros assault vehicle`
+- `tauros venator`
+- `taurox`
+- `taurox prime`
+- `tech priest`
+- `tech priest enginseer`
+- `techmarine`
+- `techmarine ravenwing`
+- `technoarcheologist`
+- `technomancer`
+- `tectonic fragdrill`
+- `telemon heavy dreadnought`
+- `tempestus aquilons`
+- `tempestus scions`
+- `termagants`
+- `terminator`
+- `terminator assault squad deathwing`
+- `terminator squad`
+- `terminator squad deathwing`
+- `terminators`
+- `terminus ultra`
+- `terrax pattern termite`
+- `tervigon`
+- `tesseract ark`
+- `tesseract vault`
+- `tetras`
+- `the blue scribes`
+- `the changeling`
+- `the masque of slaanesh`
+- `the red terror`
+- `the sanguinor`
+- `the silent king`
+- `the swarmlord`
+- `the twin lance`
+- `the visarch`
+- `the yncarne`
+- `thulia ghuld`
+- `thunderfire cannon`
+- `thunderhawk`
+- `thunderhawk gunship`
+- `thunderhawk gunship ravenwing`
+- `thunderhawk transporter ravenwing`
+- `thunderkyn`
+- `thunderwolf cavalry`
+- `tidewall droneport`
+- `tidewall gunrig`
+- `tidewall shieldline`
+- `tiger shark`
+- `titanic`
+- `titus`
+- `tomb blades`
+- `tomb citadel`
+- `tomb crawlers`
+- `tomb sentinel`
+- `tomb stalker`
+- `tor garadon`
+- `tormentbringer shadow legion`
+- `tormentors`
+- `torrent`
+- `towering`
+- `toxicrene`
+- `trail shaper`
+- `traitor enforcer`
+- `traitor enforcer undivided shadow legion`
+- `traitor guardsmen squad`
+- `traitor guardsmen squad undivided shadow legion`
+- `trajann valoris`
+- `tranceweaver shadow legion`
+- `transcendent c tan`
+- `transport`
+- `trazyn the infinite`
+- `triarch`
+- `triumph of saint katherine`
+- `trojan support vehicle`
+- `troupe`
+- `troupe master`
+- `trukk`
+- `trygon`
+- `twin linked`
+- `tx42 piranha`
+- `tycho`
+- `tycho the lost`
+- `typhon`
+- `typhus`
+- `tyranid prime with lash whip`
+- `tyranid warriors with melee bio weapons`
+- `tyranid warriors with ranged bio weapons`
+- `tyrannic war veterans`
+- `tyrannocyte`
+- `tyrannofex`
+- `tyrant guard`
+- `tzaangor enlightened`
+- `tzaangor enlightened with fatecaster greatbows`
+- `tzaangor shaman`
+- `tzaangors`
+- `tzeentch`
+- `ufthak blackhawk`
+- `ulrik the slayer`
+- `ultramarines`
+- `ur`
+- `uriel ventris`
+- `urien rakarth`
+- `ursula creed`
+- `valdor`
+- `valerian`
+- `valkyrie`
+- `valkyrie sky talon`
+- `vampire hunter`
+- `vampire raider`
+- `vanguard`
+- `vanguard invader`
+- `vanguard invader burrower`
+- `vanguard veteran squad`
+- `vanguard veteran squad with jump packs deathwing`
+- `vargard obyron`
+- `vashtorr the arkifane`
+- `vehicle`
+- `venatari custodians`
+- `vendetta gunship`
+- `venerable`
+- `venerable contemptor dreadnought`
+- `venerable dreadnought`
+- `venerable land raider`
+- `venom`
+- `venomcrawler`
+- `venomthropes`
+- `vertus praetors`
+- `vespid stingwings`
+- `veteran bike squad`
+- `vibro cannon platform`
+- `victrix honour guard`
+- `vigilant squad`
+- `vigilators`
+- `vindicare assassin`
+- `vindicator`
+- `vindicator laser destroyer`
+- `voidfarers`
+- `voidraven bomber`
+- `voidsmen at arms`
+- `voidweaver`
+- `von ryan s leapers`
+- `voss pattern lightning`
+- `vulkan he stan`
+- `vulture gunship`
+- `vypers`
+- `walker`
+- `war dog`
+- `war shaper`
+- `war walkers`
+- `warbikers`
+- `warboss`
+- `warboss in mega armour`
+- `warbringer nemesis titan`
+- `warbuggies`
+- `wardens of ultramar`
+- `warglaive`
+- `warhound titan`
+- `warlock`
+- `warlock conclave`
+- `warlock skyrunners`
+- `warlocks`
+- `warlord titan`
+- `warp hunter`
+- `warp spiders`
+- `warp talons`
+- `warp talons undivided shadow legion`
+- `warpsmith`
+- `wartrakk`
+- `wasp assault walker`
+- `watch captain artemis`
+- `watch master`
+- `wave serpent`
+- `wazbom blastajet`
+- `wazdakka gutsmek`
+- `webway gate`
+- `weirdboy`
+- `whirlwind`
+- `whirlwind scorpius`
+- `white scars`
+- `windriders`
+- `winged hive tyrant`
+- `winged tyranid prime`
+- `witchseekers`
+- `wolf guard`
+- `wolf guard battle leader in terminator armour`
+- `wolf guard battle leader on thunderwolf`
+- `wolf guard pack leader`
+- `wolf guard pack leader in terminator armour`
+- `wolf guard pack leader with jump pack`
+- `wolf guard terminators`
+- `wolf lord on thunderwolf`
+- `wolf priest`
+- `wolf scouts`
+- `wracks`
+- `wraith construct`
+- `wraithblades`
+- `wraithguard`
+- `wraithknight`
+- `wraithknight with ghostglaive`
+- `wraithlord`
+- `wraiths`
+- `wraithseer`
+- `wulfen`
+- `wulfen with storm shields`
+- `wurrboy`
+- `wych cult`
+- `wyches`
+- `wyvern`
+- `x`
+- `xiphon interceptor`
+- `xiphon interceptor ravenwing`
+- `xv9 hazard`
+- `y vahra`
+- `yaegirs`
+- `ynnari`
+- `yvraine`
+- `zarakynel`
+- `zephyrim squad`
+- `zoanthropes`
+- `zodgrod wortsnagga`
+- `ûthar the destined`
+
+## Abilities, per faction
+
+| faction | approved / total | outstanding |
+|---|---|---|
+| `f-adepta-sororitas` | 80 / 80 | — |
+| `f-adeptus-custodes` | 60 / 60 | — |
+| `f-adeptus-mechanicus` | 72 / 72 | — |
+| `f-aeldari` | 174 / 174 | — |
+| `f-astra-militarum` | 182 / 182 | — |
+| `f-black-templars` | 145 / 145 | — |
+| `f-blood-angels` | 158 / 158 | — |
+| `f-chaos-daemons` | 175 / 175 | — |
+| `f-chaos-knights` | 64 / 64 | — |
+| `f-chaos-space-marines` | 171 / 171 | — |
+| `f-chaos-titan-legions` | 0 / 0 | — |
+| `f-dark-angels` | 159 / 159 | — |
+| `f-death-guard` | 110 / 110 | — |
+| `f-deathwatch` | 141 / 141 | — |
+| `f-drukhari` | 119 / 119 | — |
+| `f-emperors-children` | 52 / 52 | — |
+| `f-genestealer-cults` | 199 / 199 | — |
+| `f-grey-knights` | 54 / 54 | — |
+| `f-imperial-agents` | 111 / 111 | — |
+| `f-imperial-knights` | 59 / 59 | — |
+| `f-leagues-of-votann` | 54 / 54 | — |
+| `f-necrons` | 127 / 127 | — |
+| `f-orks` | 142 / 142 | — |
+| `f-space-marines` | 272 / 272 | — |
+| `f-space-wolves` | 163 / 163 | — |
+| `f-tau-empire` | 121 / 121 | — |
+| `f-thousand-sons` | 97 / 97 | — |
+| `f-titan-legions` | 9 / 9 | — |
+| `f-tyranids` | 94 / 94 | — |
+| `f-world-eaters` | 92 / 92 | — |

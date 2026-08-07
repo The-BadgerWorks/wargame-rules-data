@@ -1,6 +1,17 @@
 {
   "ability_keys": [
-    "datasheet:dread-foe"
+    "core:deadly-demise-1",
+    "datasheet:dread-foe",
+    "faction:martial-katah"
+  ],
+  "composition": [
+    {
+      "line": 1,
+      "max_count": 1,
+      "min_count": 1,
+      "model_line": 1,
+      "model_name": "Contemptor-Achillus Dreadnought"
+    }
   ],
   "costs": [
     {
@@ -9,7 +20,7 @@
       "model_count": 1,
       "points": 155,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
     },
     {
       "copy_index_min": 3,
@@ -17,7 +28,7 @@
       "model_count": 1,
       "points": 170,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
     }
   ],
   "datasheet_id": "ds-contemptor-achillus-dreadnought",
@@ -30,29 +41,34 @@
   "keywords": [
     {
       "is_faction_keyword": true,
-      "keyword": "Adeptus Custodes"
+      "keyword": "ADEPTUS CUSTODES",
+      "keyword_class": "faction"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Contemptor-Achillus Dreadnought"
+      "keyword": "CONTEMPTOR-ACHILLUS DREADNOUGHT",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Imperium"
+      "keyword": "IMPERIUM",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Vehicle"
+      "keyword": "VEHICLE",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Walker"
+      "keyword": "WALKER",
+      "keyword_class": "unit"
     }
   ],
   "models": [
     {
-      "base_size": "60mm",
-      "invuln_save": "5",
+      "base_size": "(⌀60mm)",
+      "invuln_save": "5+",
       "leadership": "6+",
       "line": 1,
       "movement": "6\"",
@@ -64,22 +80,71 @@
     }
   ],
   "name": "CONTEMPTOR-ACHILLUS DREADNOUGHT",
+  "option_choices": [
+    {
+      "count": 2,
+      "group_id": "og-contemptor-achillus-dreadnought-1",
+      "id": "oc-contemptor-achillus-dreadnought-1-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "infernus incinerators"
+    },
+    {
+      "count": 2,
+      "group_id": "og-contemptor-achillus-dreadnought-1",
+      "id": "oc-contemptor-achillus-dreadnought-1-2",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "twin adrathic destructors"
+    },
+    {
+      "count": 1,
+      "group_id": "og-contemptor-achillus-dreadnought-1",
+      "id": "oc-contemptor-achillus-dreadnought-1-3",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "lastrum storm bolter and 1 infernus incinerator"
+    },
+    {
+      "count": 1,
+      "group_id": "og-contemptor-achillus-dreadnought-1",
+      "id": "oc-contemptor-achillus-dreadnought-1-4",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "lastrum storm bolter and 1 twin adrathic destructor"
+    },
+    {
+      "count": 1,
+      "group_id": "og-contemptor-achillus-dreadnought-1",
+      "id": "oc-contemptor-achillus-dreadnought-1-5",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "infernus incinerator and 1 twin adrathic destructor"
+    }
+  ],
+  "option_groups": [
+    {
+      "id": "og-contemptor-achillus-dreadnought-1",
+      "line": 1,
+      "scope": "model"
+    }
+  ],
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:942f79c20c7fc9f8259e0560f35a7e5804669c4d0a79f9a26e0da405fa80c311",
-    "last_verified_version": "mfm-2026-08",
+    "last_verified_version": "wh40k-11e-2026-08",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-    "detail_edition_code": "wh40k-10e",
+    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
-    "is_hybrid_edition": true,
-    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "is_hybrid_edition": false,
+    "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
-  "role": "Other",
+  "wargear_option_state": "extracted",
   "weapons": [
     {
       "armour_penetration": "-2",
@@ -88,51 +153,63 @@
       "is_melee": false,
       "line": 1,
       "name": "Achillus dreadspear",
-      "range": "12",
-      "skill": "2",
+      "range": "12\"",
+      "skill": "2+",
       "strength": "9"
     },
     {
+      "ability_keywords": [
+        "ignores cover",
+        "torrent"
+      ],
       "armour_penetration": "-1",
       "attacks": "D6",
       "damage": "1",
       "is_melee": false,
       "line": 2,
       "name": "Infernus incinerator",
-      "range": "12",
+      "range": "12\"",
       "skill": "N/A",
       "strength": "6"
     },
     {
+      "ability_keywords": [
+        "rapid fire 2"
+      ],
       "armour_penetration": "-1",
       "attacks": "2",
       "damage": "1",
       "is_melee": false,
       "line": 3,
       "name": "Lastrum storm bolter",
-      "range": "24",
-      "skill": "2",
+      "range": "24\"",
+      "skill": "2+",
       "strength": "5"
     },
     {
+      "ability_keywords": [
+        "twin-linked"
+      ],
       "armour_penetration": "-2",
       "attacks": "1",
       "damage": "3",
-      "is_melee": false,
+      "is_melee": true,
       "line": 4,
       "name": "Twin adrathic destructor",
-      "range": "18",
-      "skill": "2",
+      "skill": "2+",
       "strength": "6"
     },
     {
+      "ability_keywords": [
+        "lance"
+      ],
       "armour_penetration": "-2",
       "attacks": "5",
       "damage": "D6+1",
       "is_melee": true,
       "line": 5,
       "name": "Achillus dreadspear",
-      "skill": "2",
+      "skill": "2+",
       "strength": "12"
     }
   ]

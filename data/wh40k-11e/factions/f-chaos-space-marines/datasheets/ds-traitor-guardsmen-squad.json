@@ -1,6 +1,21 @@
 {
   "ability_keys": [
-    "datasheet:twisted-defence-force"
+    "datasheet:twisted-defence-force",
+    "faction:dark-pacts"
+  ],
+  "composition": [
+    {
+      "line": 1,
+      "max_count": 1,
+      "min_count": 1,
+      "model_name": "Traitor Sergeant"
+    },
+    {
+      "line": 2,
+      "max_count": 9,
+      "min_count": 9,
+      "model_name": "Traitor Guardsmen"
+    }
   ],
   "costs": [
     {
@@ -9,7 +24,7 @@
       "model_count": 10,
       "points": 70,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
     }
   ],
   "datasheet_id": "ds-traitor-guardsmen-squad",
@@ -22,32 +37,37 @@
   "keywords": [
     {
       "is_faction_keyword": false,
-      "keyword": "Chaos"
+      "keyword": "CHAOS",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Damned"
+      "keyword": "DAMNED",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Grenades"
+      "keyword": "GRENADES",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": true,
-      "keyword": "Heretic Astartes"
+      "keyword": "HERETIC ASTARTES"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Infantry"
+      "keyword": "INFANTRY",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Traitor Guardsmen Squad"
+      "keyword": "TRAITOR GUARDSMEN SQUAD",
+      "keyword_class": "unit"
     }
   ],
   "models": [
     {
-      "base_size": "25mm",
+      "base_size": "(⌀25mm)",
       "leadership": "7+",
       "line": 1,
       "movement": "6\"",
@@ -59,54 +79,104 @@
     }
   ],
   "name": "TRAITOR GUARDSMEN SQUAD",
+  "option_choices": [
+    {
+      "count": 1,
+      "group_id": "og-traitor-guardsmen-squad-2",
+      "id": "oc-traitor-guardsmen-squad-2-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "chainsword",
+      "replaces_weapon_line": 11
+    },
+    {
+      "count": 1,
+      "group_id": "og-traitor-guardsmen-squad-2",
+      "id": "oc-traitor-guardsmen-squad-2-2",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "power weapon",
+      "replaces_weapon_line": 13
+    },
+    {
+      "count": 1,
+      "group_id": "og-traitor-guardsmen-squad-3",
+      "id": "oc-traitor-guardsmen-squad-3-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "boltgun",
+      "replaces_weapon_line": 1
+    }
+  ],
+  "option_groups": [
+    {
+      "id": "og-traitor-guardsmen-squad-2",
+      "line": 2,
+      "scope": "unit"
+    },
+    {
+      "id": "og-traitor-guardsmen-squad-3",
+      "line": 3,
+      "scope": "unit"
+    }
+  ],
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:f716a508ea160b8b096dfeaf63fb22a552c4966dcaccf2bc6e4bc2e4e2d71bbf",
-    "last_verified_version": "mfm-2026-08",
+    "last_verified_version": "wh40k-11e-2026-08",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-    "detail_edition_code": "wh40k-10e",
+    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
-    "is_hybrid_edition": true,
-    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "is_hybrid_edition": false,
+    "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
-  "role": "Other",
+  "wargear_option_state": "partial",
   "weapons": [
     {
+      "ability_keywords": [
+        "rapid fire 1"
+      ],
       "armour_penetration": "0",
       "attacks": "1",
       "damage": "1",
       "is_melee": false,
       "line": 1,
       "name": "Boltgun",
-      "range": "24",
-      "skill": "4",
+      "range": "24\"",
+      "skill": "4+",
       "strength": "4"
     },
     {
+      "ability_keywords": [
+        "pistol"
+      ],
       "armour_penetration": "-1",
       "attacks": "1",
       "damage": "1",
       "is_melee": false,
       "line": 2,
       "name": "Corrupted pistol",
-      "range": "12",
-      "skill": "4",
+      "range": "12\"",
+      "skill": "4+",
       "strength": "4"
     },
     {
+      "ability_keywords": [
+        "blast"
+      ],
       "armour_penetration": "0",
       "attacks": "D3",
       "damage": "1",
       "is_melee": false,
       "line": 3,
       "name": "Cultist grenade launcher – frag",
-      "range": "24",
-      "skill": "4",
+      "range": "24\"",
+      "skill": "4+",
       "strength": "4"
     },
     {
@@ -116,74 +186,93 @@
       "is_melee": false,
       "line": 4,
       "name": "Cultist grenade launcher – krak",
-      "range": "24",
-      "skill": "4",
+      "range": "24\"",
+      "skill": "4+",
       "strength": "9"
     },
     {
+      "ability_keywords": [
+        "heavy",
+        "precision"
+      ],
       "armour_penetration": "-2",
       "attacks": "1",
       "damage": "2",
       "is_melee": false,
       "line": 5,
       "name": "Cultist sniper rifle",
-      "range": "36",
-      "skill": "4",
+      "range": "36\"",
+      "skill": "4+",
       "strength": "4"
     },
     {
+      "ability_keywords": [
+        "ignores cover",
+        "torrent"
+      ],
       "armour_penetration": "0",
       "attacks": "D6",
       "damage": "1",
       "is_melee": false,
       "line": 6,
       "name": "Flamer",
-      "range": "12",
+      "range": "12\"",
       "skill": "N/A",
       "strength": "4"
     },
     {
+      "ability_keywords": [
+        "rapid fire 1"
+      ],
       "armour_penetration": "0",
       "attacks": "1",
       "damage": "1",
       "is_melee": false,
       "line": 7,
       "name": "Lasgun",
-      "range": "24",
-      "skill": "4",
+      "range": "24\"",
+      "skill": "4+",
       "strength": "3"
     },
     {
+      "ability_keywords": [
+        "melta 2"
+      ],
       "armour_penetration": "-4",
       "attacks": "1",
       "damage": "D6",
       "is_melee": false,
       "line": 8,
       "name": "Meltagun",
-      "range": "12",
-      "skill": "4",
+      "range": "12\"",
+      "skill": "4+",
       "strength": "9"
     },
     {
+      "ability_keywords": [
+        "rapid fire 1"
+      ],
       "armour_penetration": "-2",
       "attacks": "1",
       "damage": "1",
-      "is_melee": false,
+      "is_melee": true,
       "line": 9,
       "name": "Plasma gun – standard",
-      "range": "24",
-      "skill": "4",
+      "skill": "4+",
       "strength": "7"
     },
     {
+      "ability_keywords": [
+        "hazardous",
+        "rapid fire 1"
+      ],
       "armour_penetration": "-3",
       "attacks": "1",
       "damage": "2",
-      "is_melee": false,
+      "is_melee": true,
       "line": 10,
       "name": "Plasma gun – supercharge",
-      "range": "24",
-      "skill": "4",
+      "skill": "4+",
       "strength": "8"
     },
     {
@@ -193,7 +282,7 @@
       "is_melee": true,
       "line": 11,
       "name": "Chainsword",
-      "skill": "4",
+      "skill": "4+",
       "strength": "3"
     },
     {
@@ -203,7 +292,7 @@
       "is_melee": true,
       "line": 12,
       "name": "Close combat weapon",
-      "skill": "4",
+      "skill": "4+",
       "strength": "3"
     },
     {
@@ -213,7 +302,7 @@
       "is_melee": true,
       "line": 13,
       "name": "Power weapon",
-      "skill": "4",
+      "skill": "4+",
       "strength": "4"
     }
   ]

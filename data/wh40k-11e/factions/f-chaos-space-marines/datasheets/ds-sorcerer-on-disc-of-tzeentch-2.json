@@ -1,7 +1,18 @@
 {
   "ability_keys": [
+    "core:leader",
     "datasheet:altered-reality-psychic",
-    "datasheet:flames-of-change-psychic"
+    "datasheet:flames-of-change-psychic",
+    "faction:dark-pacts"
+  ],
+  "composition": [
+    {
+      "line": 1,
+      "max_count": 1,
+      "min_count": 1,
+      "model_line": 1,
+      "model_name": "Sorcerer on Disc of Tzeentch"
+    }
   ],
   "costs": [
     {
@@ -10,7 +21,7 @@
       "model_count": 1,
       "points": 80,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1"
+      "source_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9"
     }
   ],
   "datasheet_id": "ds-sorcerer-on-disc-of-tzeentch-2",
@@ -23,55 +34,63 @@
   "keywords": [
     {
       "is_faction_keyword": false,
-      "keyword": "Chaos"
+      "keyword": "CHAOS",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Character"
+      "keyword": "CHARACTER",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Disc of Tzeentch"
+      "keyword": "DISC OF TZEENTCH",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Fly"
+      "keyword": "FLY",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Grenades"
+      "keyword": "GRENADES",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": true,
-      "keyword": "Heretic Astartes"
+      "keyword": "HERETIC ASTARTES"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Infantry"
+      "keyword": "INFANTRY",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Psyker"
+      "keyword": "PSYKER",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Sorcerer"
+      "keyword": "SORCERER",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Tzeentch"
+      "keyword": "TZEENTCH",
+      "keyword_class": "unit"
     }
   ],
   "leader_pairs": [
     "ds-chosen",
     "ds-legionaries",
     "ds-nemesis-claw",
-    "ds-red-corsairs-raiders",
-    "ds-rubric-marines-2"
+    "ds-red-corsairs-raiders"
   ],
   "models": [
     {
-      "base_size": "40mm",
+      "base_size": "(⌀40mm)",
       "leadership": "6+",
       "line": 1,
       "movement": "12\"",
@@ -83,96 +102,182 @@
     }
   ],
   "name": "Sorcerer On Disc Of Tzeentch",
+  "option_choices": [
+    {
+      "count": 1,
+      "group_id": "og-sorcerer-on-disc-of-tzeentch-2-1",
+      "id": "oc-sorcerer-on-disc-of-tzeentch-2-1-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "plasma pistol"
+    },
+    {
+      "count": 1,
+      "group_id": "og-sorcerer-on-disc-of-tzeentch-2-1",
+      "id": "oc-sorcerer-on-disc-of-tzeentch-2-1-2",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "combi-bolter",
+      "replaces_weapon_line": 2
+    },
+    {
+      "count": 1,
+      "group_id": "og-sorcerer-on-disc-of-tzeentch-2-1",
+      "id": "oc-sorcerer-on-disc-of-tzeentch-2-1-3",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "combi-weapon",
+      "replaces_weapon_line": 3
+    },
+    {
+      "count": 1,
+      "group_id": "og-sorcerer-on-disc-of-tzeentch-2-1",
+      "id": "oc-sorcerer-on-disc-of-tzeentch-2-1-4",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "accursed weapon",
+      "replaces_weapon_line": 8
+    },
+    {
+      "count": 1,
+      "group_id": "og-sorcerer-on-disc-of-tzeentch-2-1",
+      "id": "oc-sorcerer-on-disc-of-tzeentch-2-1-5",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "Astartes chainsword",
+      "replaces_weapon_line": 9
+    },
+    {
+      "count": 1,
+      "group_id": "og-sorcerer-on-disc-of-tzeentch-2-1",
+      "id": "oc-sorcerer-on-disc-of-tzeentch-2-1-6",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "power fist",
+      "replaces_weapon_line": 11
+    }
+  ],
+  "option_groups": [
+    {
+      "id": "og-sorcerer-on-disc-of-tzeentch-2-1",
+      "line": 1,
+      "scope": "model"
+    }
+  ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 1,
+    "consecutive_unverified_releases": 2,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-    "detail_edition_code": "wh40k-10e",
+    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
-    "is_hybrid_edition": true,
+    "is_hybrid_edition": false,
     "points_edition_code": "wh40k-11e",
     "points_source": "none"
   },
-  "role": "Characters",
+  "wargear_option_state": "extracted",
   "weapons": [
     {
+      "ability_keywords": [
+        "pistol"
+      ],
       "armour_penetration": "0",
       "attacks": "1",
       "damage": "1",
       "is_melee": false,
       "line": 1,
       "name": "Bolt pistol",
-      "range": "12",
-      "skill": "2",
+      "range": "12\"",
+      "skill": "2+",
       "strength": "4"
     },
     {
+      "ability_keywords": [
+        "rapid fire 2"
+      ],
       "armour_penetration": "0",
       "attacks": "2",
       "damage": "1",
       "is_melee": false,
       "line": 2,
       "name": "Combi-bolter",
-      "range": "24",
-      "skill": "2",
+      "range": "24\"",
+      "skill": "2+",
       "strength": "4"
     },
     {
+      "ability_keywords": [
+        "anti-infantry 4+",
+        "devastating wounds",
+        "rapid fire 1"
+      ],
       "armour_penetration": "0",
       "attacks": "1",
       "damage": "1",
       "is_melee": false,
       "line": 3,
       "name": "Combi-weapon",
-      "range": "24",
-      "skill": "4",
+      "range": "24\"",
+      "skill": "4+",
       "strength": "4"
     },
     {
+      "ability_keywords": [
+        "devastating wounds",
+        "hazardous",
+        "psychic"
+      ],
       "armour_penetration": "-2",
       "attacks": "D6",
       "damage": "D3",
       "is_melee": false,
       "line": 4,
       "name": "Infernal Gaze – focused witchfire",
-      "range": "24",
-      "skill": "3",
+      "range": "24\"",
+      "skill": "3+",
       "strength": "6"
     },
     {
+      "ability_keywords": [
+        "psychic"
+      ],
       "armour_penetration": "-1",
       "attacks": "D6",
       "damage": "D3",
       "is_melee": false,
       "line": 5,
       "name": "Infernal Gaze – witchfire",
-      "range": "24",
-      "skill": "3",
+      "range": "24\"",
+      "skill": "3+",
       "strength": "5"
     },
     {
+      "ability_keywords": [
+        "pistol"
+      ],
       "armour_penetration": "-2",
       "attacks": "1",
       "damage": "1",
-      "is_melee": false,
+      "is_melee": true,
       "line": 6,
       "name": "Plasma pistol – standard",
-      "range": "12",
-      "skill": "2",
+      "skill": "2+",
       "strength": "7"
     },
     {
+      "ability_keywords": [
+        "hazardous",
+        "pistol"
+      ],
       "armour_penetration": "-3",
       "attacks": "1",
       "damage": "2",
-      "is_melee": false,
+      "is_melee": true,
       "line": 7,
       "name": "Plasma pistol – supercharge",
-      "range": "12",
-      "skill": "2",
+      "skill": "2+",
       "strength": "8"
     },
     {
@@ -182,7 +287,7 @@
       "is_melee": true,
       "line": 8,
       "name": "Accursed weapon",
-      "skill": "3",
+      "skill": "3+",
       "strength": "5"
     },
     {
@@ -192,17 +297,20 @@
       "is_melee": true,
       "line": 9,
       "name": "Astartes chainsword",
-      "skill": "3",
+      "skill": "3+",
       "strength": "4"
     },
     {
+      "ability_keywords": [
+        "psychic"
+      ],
       "armour_penetration": "-1",
       "attacks": "4",
       "damage": "D3",
       "is_melee": true,
       "line": 10,
       "name": "Force weapon",
-      "skill": "3",
+      "skill": "3+",
       "strength": "6"
     },
     {
@@ -212,7 +320,7 @@
       "is_melee": true,
       "line": 11,
       "name": "Power fist",
-      "skill": "3",
+      "skill": "3+",
       "strength": "8"
     }
   ]

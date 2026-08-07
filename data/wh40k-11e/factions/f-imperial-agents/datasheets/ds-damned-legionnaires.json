@@ -1,6 +1,22 @@
 {
   "ability_keys": [
-    "datasheet:grim-spectres"
+    "core:deep-strike",
+    "datasheet:grim-spectres",
+    "faction:assigned-agents"
+  ],
+  "composition": [
+    {
+      "line": 1,
+      "max_count": 1,
+      "min_count": 1,
+      "model_name": "Legionnaire Sergeant"
+    },
+    {
+      "line": 2,
+      "max_count": 9,
+      "min_count": 4,
+      "model_name": "Legionnaires"
+    }
   ],
   "costs": [
     {
@@ -9,7 +25,7 @@
       "model_count": 5,
       "points": 90,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1"
+      "source_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9"
     },
     {
       "copy_index_min": 1,
@@ -17,7 +33,7 @@
       "model_count": 10,
       "points": 180,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1"
+      "source_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9"
     }
   ],
   "datasheet_id": "ds-damned-legionnaires",
@@ -30,33 +46,38 @@
   "keywords": [
     {
       "is_faction_keyword": true,
-      "keyword": "Agents of the Imperium"
+      "keyword": "AGENTS OF THE IMPERIUM"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Damned Legionnaires"
+      "keyword": "DAMNED LEGIONNAIRES",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Grenades"
+      "keyword": "GRENADES",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Imperium"
+      "keyword": "IMPERIUM",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Infantry"
+      "keyword": "INFANTRY",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Retinue"
+      "keyword": "RETINUE",
+      "keyword_class": "unit"
     }
   ],
   "models": [
     {
-      "base_size": "25mm",
-      "invuln_save": "4",
+      "base_size": "(⌀25mm)",
+      "invuln_save": "4+",
       "leadership": "6+",
       "line": 1,
       "movement": "6\"",
@@ -68,129 +89,204 @@
     }
   ],
   "name": "Damned Legionnaires",
+  "option_choices": [
+    {
+      "count": 1,
+      "group_id": "og-damned-legionnaires-1",
+      "id": "oc-damned-legionnaires-1-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "bolt pistol and 1 power weapon"
+    },
+    {
+      "count": 1,
+      "group_id": "og-damned-legionnaires-1",
+      "id": "oc-damned-legionnaires-1-2",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "plasma pistol and 1 power weapon"
+    },
+    {
+      "count": 1,
+      "group_id": "og-damned-legionnaires-1",
+      "id": "oc-damned-legionnaires-1-3",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "bolt pistol and 1 Astartes chainsword"
+    },
+    {
+      "count": 1,
+      "group_id": "og-damned-legionnaires-1",
+      "id": "oc-damned-legionnaires-1-4",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "plasma pistol and 1 Astartes chainsword"
+    }
+  ],
+  "option_groups": [
+    {
+      "id": "og-damned-legionnaires-1",
+      "line": 1,
+      "scope": "unit"
+    }
+  ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 1,
+    "consecutive_unverified_releases": 2,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-    "detail_edition_code": "wh40k-10e",
+    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
-    "is_hybrid_edition": true,
+    "is_hybrid_edition": false,
     "points_edition_code": "wh40k-11e",
     "points_source": "none"
   },
-  "role": "Other",
+  "wargear_option_state": "partial",
   "weapons": [
     {
+      "ability_keywords": [
+        "ignores cover",
+        "pistol"
+      ],
       "armour_penetration": "0",
       "attacks": "1",
       "damage": "1",
       "is_melee": false,
       "line": 1,
       "name": "Bolt pistol",
-      "range": "12",
-      "skill": "3",
+      "range": "12\"",
+      "skill": "3+",
       "strength": "4"
     },
     {
+      "ability_keywords": [
+        "ignores cover"
+      ],
       "armour_penetration": "0",
       "attacks": "2",
       "damage": "1",
       "is_melee": false,
       "line": 2,
       "name": "Boltgun",
-      "range": "24",
-      "skill": "3",
+      "range": "24\"",
+      "skill": "3+",
       "strength": "4"
     },
     {
+      "ability_keywords": [
+        "ignores cover",
+        "torrent"
+      ],
       "armour_penetration": "0",
       "attacks": "D6",
       "damage": "1",
       "is_melee": false,
       "line": 3,
       "name": "Flamer",
-      "range": "12",
+      "range": "12\"",
       "skill": "N/A",
       "strength": "4"
     },
     {
+      "ability_keywords": [
+        "ignores cover",
+        "torrent"
+      ],
       "armour_penetration": "-1",
       "attacks": "D6",
       "damage": "1",
       "is_melee": false,
       "line": 4,
       "name": "Heavy flamer",
-      "range": "12",
+      "range": "12\"",
       "skill": "N/A",
       "strength": "5"
     },
     {
+      "ability_keywords": [
+        "melta 2"
+      ],
       "armour_penetration": "-4",
       "attacks": "1",
       "damage": "D6",
       "is_melee": false,
       "line": 5,
       "name": "Meltagun",
-      "range": "12",
-      "skill": "3",
+      "range": "12\"",
+      "skill": "3+",
       "strength": "9"
     },
     {
+      "ability_keywords": [
+        "heavy",
+        "melta 2"
+      ],
       "armour_penetration": "-4",
       "attacks": "2",
       "damage": "D6",
       "is_melee": false,
       "line": 6,
       "name": "Multi-melta",
-      "range": "18",
-      "skill": "4",
+      "range": "18\"",
+      "skill": "4+",
       "strength": "9"
     },
     {
+      "ability_keywords": [
+        "rapid fire 1"
+      ],
       "armour_penetration": "-2",
       "attacks": "1",
       "damage": "1",
       "is_melee": false,
       "line": 7,
       "name": "Plasma gun – standard",
-      "range": "24",
-      "skill": "3",
+      "range": "24\"",
+      "skill": "3+",
       "strength": "7"
     },
     {
+      "ability_keywords": [
+        "hazardous",
+        "rapid fire 1"
+      ],
       "armour_penetration": "-3",
       "attacks": "1",
       "damage": "2",
       "is_melee": false,
       "line": 8,
       "name": "Plasma gun – supercharge",
-      "range": "24",
-      "skill": "3",
+      "range": "24\"",
+      "skill": "3+",
       "strength": "8"
     },
     {
+      "ability_keywords": [
+        "pistol"
+      ],
       "armour_penetration": "-2",
       "attacks": "1",
       "damage": "1",
-      "is_melee": false,
+      "is_melee": true,
       "line": 9,
       "name": "Plasma pistol – standard",
-      "range": "12",
-      "skill": "3",
+      "skill": "3+",
       "strength": "7"
     },
     {
+      "ability_keywords": [
+        "hazardous",
+        "pistol"
+      ],
       "armour_penetration": "-3",
       "attacks": "1",
       "damage": "2",
-      "is_melee": false,
+      "is_melee": true,
       "line": 10,
       "name": "Plasma pistol – supercharge",
-      "range": "12",
-      "skill": "3",
+      "skill": "3+",
       "strength": "8"
     },
     {
@@ -200,7 +296,7 @@
       "is_melee": true,
       "line": 11,
       "name": "Astartes chainsword",
-      "skill": "3",
+      "skill": "3+",
       "strength": "4"
     },
     {
@@ -210,7 +306,7 @@
       "is_melee": true,
       "line": 12,
       "name": "Close combat weapon",
-      "skill": "3",
+      "skill": "3+",
       "strength": "4"
     },
     {
@@ -220,7 +316,7 @@
       "is_melee": true,
       "line": 13,
       "name": "Power weapon",
-      "skill": "3",
+      "skill": "3+",
       "strength": "5"
     }
   ]

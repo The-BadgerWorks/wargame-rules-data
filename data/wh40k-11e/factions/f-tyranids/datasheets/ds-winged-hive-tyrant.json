@@ -1,7 +1,20 @@
 {
   "ability_keys": [
+    "core:deadly-demise-d3",
+    "core:deep-strike",
     "datasheet:paroxysm-psychic",
-    "datasheet:will-of-the-hive-mind"
+    "datasheet:will-of-the-hive-mind",
+    "faction:shadow-in-the-warp",
+    "faction:synapse"
+  ],
+  "composition": [
+    {
+      "line": 1,
+      "max_count": 1,
+      "min_count": 1,
+      "model_line": 1,
+      "model_name": "Winged Hive Tyrant"
+    }
   ],
   "costs": [
     {
@@ -10,7 +23,7 @@
       "model_count": 1,
       "points": 185,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
     }
   ],
   "datasheet_id": "ds-winged-hive-tyrant",
@@ -23,49 +36,59 @@
   "keywords": [
     {
       "is_faction_keyword": false,
-      "keyword": "Character"
+      "keyword": "CHARACTER",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Fly"
+      "keyword": "FLY",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Great Devourer"
+      "keyword": "GREAT DEVOURER",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Hive Tyrant"
+      "keyword": "HIVE TYRANT",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Monster"
+      "keyword": "MONSTER",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Psyker"
+      "keyword": "PSYKER",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Synapse"
+      "keyword": "SYNAPSE",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": true,
-      "keyword": "Tyranids"
+      "keyword": "TYRANIDS",
+      "keyword_class": "faction"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Vanguard Invader"
+      "keyword": "VANGUARD INVADER",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Winged Hive Tyrant"
+      "keyword": "WINGED HIVE TYRANT",
+      "keyword_class": "unit"
     }
   ],
   "models": [
     {
-      "base_size": "60mm",
-      "invuln_save": "4",
+      "base_size": "(⌀60mm)",
+      "invuln_save": "4+",
       "leadership": "7+",
       "line": 1,
       "movement": "12\"",
@@ -77,63 +100,110 @@
     }
   ],
   "name": "WINGED HIVE TYRANT",
+  "option_choices": [
+    {
+      "count": 1,
+      "group_id": "og-winged-hive-tyrant-1",
+      "id": "oc-winged-hive-tyrant-1-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "heavy venom cannon",
+      "replaces_weapon_line": 1
+    },
+    {
+      "count": 1,
+      "group_id": "og-winged-hive-tyrant-1",
+      "id": "oc-winged-hive-tyrant-1-2",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "stranglethorn cannon",
+      "replaces_weapon_line": 2
+    },
+    {
+      "count": 1,
+      "group_id": "og-winged-hive-tyrant-1",
+      "id": "oc-winged-hive-tyrant-1-3",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "monstrous scything talons",
+      "replaces_weapon_line": 4
+    }
+  ],
+  "option_groups": [
+    {
+      "id": "og-winged-hive-tyrant-1",
+      "line": 1,
+      "scope": "model"
+    }
+  ],
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:61188f8c262589d3b95dfb69e5be705fb5dd822ed8058ee52de39dc52307c378",
-    "last_verified_version": "mfm-2026-08",
+    "last_verified_version": "wh40k-11e-2026-08",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-    "detail_edition_code": "wh40k-10e",
+    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
-    "is_hybrid_edition": true,
-    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "is_hybrid_edition": false,
+    "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
-  "role": "Characters",
+  "wargear_option_state": "extracted",
   "weapons": [
     {
+      "ability_keywords": [
+        "blast"
+      ],
       "armour_penetration": "-2",
       "attacks": "D3",
       "damage": "3",
       "is_melee": false,
       "line": 1,
       "name": "Heavy venom cannon",
-      "range": "36",
-      "skill": "2",
+      "range": "36\"",
+      "skill": "2+",
       "strength": "9"
     },
     {
+      "ability_keywords": [
+        "blast"
+      ],
       "armour_penetration": "-1",
       "attacks": "D6+1",
       "damage": "2",
-      "is_melee": false,
+      "is_melee": true,
       "line": 2,
       "name": "Stranglethorn cannon",
-      "range": "36",
-      "skill": "2",
+      "skill": "2+",
       "strength": "7"
     },
     {
+      "ability_keywords": [
+        "twin-linked"
+      ],
       "armour_penetration": "-2",
       "attacks": "6",
       "damage": "3",
       "is_melee": true,
       "line": 3,
       "name": "Monstrous bonesword and lash whip",
-      "skill": "2",
+      "skill": "2+",
       "strength": "9"
     },
     {
+      "ability_keywords": [
+        "extra attacks"
+      ],
       "armour_penetration": "-2",
       "attacks": "4",
       "damage": "2",
       "is_melee": true,
       "line": 4,
       "name": "Monstrous scything talons",
-      "skill": "2",
+      "skill": "2+",
       "strength": "7"
     },
     {
@@ -143,7 +213,7 @@
       "is_melee": true,
       "line": 5,
       "name": "Tyrant talons",
-      "skill": "2",
+      "skill": "2+",
       "strength": "7"
     }
   ]

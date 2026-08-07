@@ -1,6 +1,21 @@
 {
   "ability_keys": [
-    "datasheet:combat-squads"
+    "datasheet:combat-squads",
+    "faction:oath-of-moment"
+  ],
+  "composition": [
+    {
+      "line": 1,
+      "max_count": 1,
+      "min_count": 1,
+      "model_name": "Tactical Sergeant"
+    },
+    {
+      "line": 2,
+      "max_count": 9,
+      "min_count": 9,
+      "model_name": "Tactical Marines"
+    }
   ],
   "costs": [
     {
@@ -9,7 +24,7 @@
       "model_count": 10,
       "points": 140,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
     }
   ],
   "datasheet_id": "ds-tactical-squad-2",
@@ -22,32 +37,37 @@
   "keywords": [
     {
       "is_faction_keyword": true,
-      "keyword": "Adeptus Astartes"
+      "keyword": "ADEPTUS ASTARTES"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Battleline"
+      "keyword": "BATTLELINE",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Grenades"
+      "keyword": "GRENADES",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Imperium"
+      "keyword": "IMPERIUM",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Infantry"
+      "keyword": "INFANTRY",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Tactical Squad"
+      "keyword": "TACTICAL SQUAD",
+      "keyword_class": "unit"
     }
   ],
   "models": [
     {
-      "base_size": "32mm",
+      "base_size": "(⌀32mm)",
       "leadership": "6+",
       "line": 1,
       "movement": "6\"",
@@ -59,32 +79,265 @@
     }
   ],
   "name": "TACTICAL SQUAD",
+  "option_choices": [
+    {
+      "count": 1,
+      "group_id": "og-tactical-squad-2-1",
+      "id": "oc-tactical-squad-2-1-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "flamer",
+      "replaces_weapon_line": 4
+    },
+    {
+      "count": 1,
+      "group_id": "og-tactical-squad-2-1",
+      "id": "oc-tactical-squad-2-1-10",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "plasma gun"
+    },
+    {
+      "count": 1,
+      "group_id": "og-tactical-squad-2-1",
+      "id": "oc-tactical-squad-2-1-2",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "heavy bolter",
+      "replaces_weapon_line": 8
+    },
+    {
+      "count": 1,
+      "group_id": "og-tactical-squad-2-1",
+      "id": "oc-tactical-squad-2-1-3",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "grav-cannon",
+      "replaces_weapon_line": 5
+    },
+    {
+      "count": 1,
+      "group_id": "og-tactical-squad-2-1",
+      "id": "oc-tactical-squad-2-1-4",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "grav-gun",
+      "replaces_weapon_line": 6
+    },
+    {
+      "count": 1,
+      "group_id": "og-tactical-squad-2-1",
+      "id": "oc-tactical-squad-2-1-5",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "lascannon",
+      "replaces_weapon_line": 9
+    },
+    {
+      "count": 1,
+      "group_id": "og-tactical-squad-2-1",
+      "id": "oc-tactical-squad-2-1-6",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "meltagun",
+      "replaces_weapon_line": 10
+    },
+    {
+      "count": 1,
+      "group_id": "og-tactical-squad-2-1",
+      "id": "oc-tactical-squad-2-1-7",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "missile launcher"
+    },
+    {
+      "count": 1,
+      "group_id": "og-tactical-squad-2-1",
+      "id": "oc-tactical-squad-2-1-8",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "multi-melta",
+      "replaces_weapon_line": 13
+    },
+    {
+      "count": 1,
+      "group_id": "og-tactical-squad-2-1",
+      "id": "oc-tactical-squad-2-1-9",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "plasma cannon"
+    },
+    {
+      "count": 1,
+      "group_id": "og-tactical-squad-2-2",
+      "id": "oc-tactical-squad-2-2-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "flamer",
+      "replaces_weapon_line": 4
+    },
+    {
+      "count": 1,
+      "group_id": "og-tactical-squad-2-2",
+      "id": "oc-tactical-squad-2-2-2",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "grav-gun",
+      "replaces_weapon_line": 6
+    },
+    {
+      "count": 1,
+      "group_id": "og-tactical-squad-2-2",
+      "id": "oc-tactical-squad-2-2-3",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "meltagun",
+      "replaces_weapon_line": 10
+    },
+    {
+      "count": 1,
+      "group_id": "og-tactical-squad-2-2",
+      "id": "oc-tactical-squad-2-2-4",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "plasma gun"
+    },
+    {
+      "count": 1,
+      "group_id": "og-tactical-squad-2-3",
+      "id": "oc-tactical-squad-2-3-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "Astartes chainsword",
+      "replaces_weapon_line": 21
+    },
+    {
+      "count": 1,
+      "group_id": "og-tactical-squad-2-3",
+      "id": "oc-tactical-squad-2-3-10",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "thunder hammer",
+      "replaces_weapon_line": 25
+    },
+    {
+      "count": 1,
+      "group_id": "og-tactical-squad-2-3",
+      "id": "oc-tactical-squad-2-3-2",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "bolt pistol",
+      "replaces_weapon_line": 1
+    },
+    {
+      "count": 1,
+      "group_id": "og-tactical-squad-2-3",
+      "id": "oc-tactical-squad-2-3-3",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "boltgun",
+      "replaces_weapon_line": 2
+    },
+    {
+      "count": 1,
+      "group_id": "og-tactical-squad-2-3",
+      "id": "oc-tactical-squad-2-3-4",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "combi-weapon",
+      "replaces_weapon_line": 3
+    },
+    {
+      "count": 1,
+      "group_id": "og-tactical-squad-2-3",
+      "id": "oc-tactical-squad-2-3-5",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "grav-pistol",
+      "replaces_weapon_line": 7
+    },
+    {
+      "count": 1,
+      "group_id": "og-tactical-squad-2-3",
+      "id": "oc-tactical-squad-2-3-6",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "plasma pistol"
+    },
+    {
+      "count": 1,
+      "group_id": "og-tactical-squad-2-3",
+      "id": "oc-tactical-squad-2-3-7",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "storm bolter",
+      "replaces_weapon_line": 20
+    },
+    {
+      "count": 1,
+      "group_id": "og-tactical-squad-2-3",
+      "id": "oc-tactical-squad-2-3-8",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "power fist",
+      "replaces_weapon_line": 23
+    },
+    {
+      "count": 1,
+      "group_id": "og-tactical-squad-2-3",
+      "id": "oc-tactical-squad-2-3-9",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "power weapon",
+      "replaces_weapon_line": 24
+    }
+  ],
+  "option_groups": [
+    {
+      "id": "og-tactical-squad-2-1",
+      "line": 1,
+      "scope": "unit"
+    },
+    {
+      "id": "og-tactical-squad-2-2",
+      "line": 2,
+      "scope": "unit"
+    },
+    {
+      "id": "og-tactical-squad-2-3",
+      "line": 3,
+      "scope": "unit"
+    }
+  ],
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:fcea0fa9e36a425838cfcf9fc0adbebb3c5fb417e630f86655559bf4e3949e29",
-    "last_verified_version": "mfm-2026-08",
+    "last_verified_version": "wh40k-11e-2026-08",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-    "detail_edition_code": "wh40k-10e",
+    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
-    "is_hybrid_edition": true,
-    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "is_hybrid_edition": false,
+    "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
-  "role": "Battleline",
+  "wargear_option_state": "extracted",
   "weapons": [
     {
+      "ability_keywords": [
+        "pistol"
+      ],
       "armour_penetration": "0",
       "attacks": "1",
       "damage": "1",
       "is_melee": false,
       "line": 1,
       "name": "Bolt pistol",
-      "range": "12",
-      "skill": "3",
+      "range": "12\"",
+      "skill": "3+",
       "strength": "4"
     },
     {
@@ -94,206 +347,272 @@
       "is_melee": false,
       "line": 2,
       "name": "Boltgun",
-      "range": "24",
-      "skill": "3",
+      "range": "24\"",
+      "skill": "3+",
       "strength": "4"
     },
     {
+      "ability_keywords": [
+        "ANTI-INFANTRY 4+",
+        "DEVASTATING WOUNDS",
+        "RAPID FIRE 1"
+      ],
       "armour_penetration": "0",
       "attacks": "1",
       "damage": "1",
       "is_melee": false,
       "line": 3,
       "name": "Combi-weapon",
-      "range": "24",
-      "skill": "4",
+      "range": "24\"",
+      "skill": "4+",
       "strength": "4"
     },
     {
+      "ability_keywords": [
+        "ignores cover",
+        "torrent"
+      ],
       "armour_penetration": "0",
       "attacks": "D6",
       "damage": "1",
       "is_melee": false,
       "line": 4,
       "name": "Flamer",
-      "range": "12",
+      "range": "12\"",
       "skill": "N/A",
       "strength": "4"
     },
     {
+      "ability_keywords": [
+        "ANTI-VEHICLE 2+",
+        "HEAVY"
+      ],
       "armour_penetration": "-1",
       "attacks": "3",
       "damage": "3",
       "is_melee": false,
       "line": 5,
       "name": "Grav-cannon",
-      "range": "24",
-      "skill": "4",
+      "range": "24\"",
+      "skill": "4+",
       "strength": "6"
     },
     {
+      "ability_keywords": [
+        "anti-vehicle 2+"
+      ],
       "armour_penetration": "-1",
       "attacks": "2",
       "damage": "2",
       "is_melee": false,
       "line": 6,
       "name": "Grav-gun",
-      "range": "18",
-      "skill": "3",
+      "range": "18\"",
+      "skill": "3+",
       "strength": "5"
     },
     {
+      "ability_keywords": [
+        "ANTI-VEHICLE 2+",
+        "PISTOL"
+      ],
       "armour_penetration": "-1",
       "attacks": "1",
       "damage": "2",
       "is_melee": false,
       "line": 7,
       "name": "Grav-pistol",
-      "range": "12",
-      "skill": "3",
+      "range": "12\"",
+      "skill": "3+",
       "strength": "4"
     },
     {
+      "ability_keywords": [
+        "HEAVY",
+        "SUSTAINED HITS 1"
+      ],
       "armour_penetration": "-1",
       "attacks": "3",
       "damage": "2",
       "is_melee": false,
       "line": 8,
       "name": "Heavy bolter",
-      "range": "36",
-      "skill": "4",
+      "range": "36\"",
+      "skill": "4+",
       "strength": "5"
     },
     {
+      "ability_keywords": [
+        "HEAVY"
+      ],
       "armour_penetration": "-3",
       "attacks": "1",
       "damage": "D6+1",
       "is_melee": false,
       "line": 9,
       "name": "Lascannon",
-      "range": "48",
-      "skill": "4",
+      "range": "48\"",
+      "skill": "4+",
       "strength": "12"
     },
     {
+      "ability_keywords": [
+        "melta 2"
+      ],
       "armour_penetration": "-4",
       "attacks": "1",
       "damage": "D6",
       "is_melee": false,
       "line": 10,
       "name": "Meltagun",
-      "range": "12",
-      "skill": "3",
+      "range": "12\"",
+      "skill": "3+",
       "strength": "9"
     },
     {
+      "ability_keywords": [
+        "BLAST",
+        "HEAVY"
+      ],
       "armour_penetration": "0",
       "attacks": "D6",
       "damage": "1",
       "is_melee": false,
       "line": 11,
       "name": "Missile launcher – frag",
-      "range": "48",
-      "skill": "4",
+      "range": "48\"",
+      "skill": "4+",
       "strength": "4"
     },
     {
+      "ability_keywords": [
+        "HEAVY"
+      ],
       "armour_penetration": "-2",
       "attacks": "1",
       "damage": "D6",
       "is_melee": false,
       "line": 12,
       "name": "Missile launcher – krak",
-      "range": "48",
-      "skill": "4",
+      "range": "48\"",
+      "skill": "4+",
       "strength": "9"
     },
     {
+      "ability_keywords": [
+        "HEAVY",
+        "MELTA 2"
+      ],
       "armour_penetration": "-4",
       "attacks": "2",
       "damage": "D6",
       "is_melee": false,
       "line": 13,
       "name": "Multi-melta",
-      "range": "18",
-      "skill": "4",
+      "range": "18\"",
+      "skill": "4+",
       "strength": "9"
     },
     {
+      "ability_keywords": [
+        "BLAST",
+        "HEAVY"
+      ],
       "armour_penetration": "-2",
       "attacks": "D3",
       "damage": "1",
       "is_melee": false,
       "line": 14,
       "name": "Plasma cannon – standard",
-      "range": "36",
-      "skill": "4",
+      "range": "36\"",
+      "skill": "4+",
       "strength": "7"
     },
     {
+      "ability_keywords": [
+        "BLAST",
+        "HAZARDOUS",
+        "HEAVY"
+      ],
       "armour_penetration": "-3",
       "attacks": "D3",
       "damage": "2",
       "is_melee": false,
       "line": 15,
       "name": "Plasma cannon – supercharge",
-      "range": "36",
-      "skill": "4",
+      "range": "36\"",
+      "skill": "4+",
       "strength": "8"
     },
     {
+      "ability_keywords": [
+        "rapid fire 1"
+      ],
       "armour_penetration": "-2",
       "attacks": "1",
       "damage": "1",
       "is_melee": false,
       "line": 16,
       "name": "Plasma gun – standard",
-      "range": "24",
-      "skill": "3",
+      "range": "24\"",
+      "skill": "3+",
       "strength": "7"
     },
     {
+      "ability_keywords": [
+        "hazardous",
+        "rapid fire 1"
+      ],
       "armour_penetration": "-3",
       "attacks": "1",
       "damage": "2",
       "is_melee": false,
       "line": 17,
       "name": "Plasma gun – supercharge",
-      "range": "24",
-      "skill": "3",
+      "range": "24\"",
+      "skill": "3+",
       "strength": "8"
     },
     {
+      "ability_keywords": [
+        "PISTOL"
+      ],
       "armour_penetration": "-2",
       "attacks": "1",
       "damage": "1",
       "is_melee": false,
       "line": 18,
       "name": "Plasma pistol – standard",
-      "range": "12",
-      "skill": "3",
+      "range": "12\"",
+      "skill": "3+",
       "strength": "7"
     },
     {
+      "ability_keywords": [
+        "HAZARDOUS",
+        "PISTOL"
+      ],
       "armour_penetration": "-3",
       "attacks": "1",
       "damage": "2",
       "is_melee": false,
       "line": 19,
       "name": "Plasma pistol – supercharge",
-      "range": "12",
-      "skill": "3",
+      "range": "12\"",
+      "skill": "3+",
       "strength": "8"
     },
     {
+      "ability_keywords": [
+        "RAPID FIRE 2"
+      ],
       "armour_penetration": "0",
       "attacks": "2",
       "damage": "1",
-      "is_melee": false,
+      "is_melee": true,
       "line": 20,
       "name": "Storm bolter",
-      "range": "24",
-      "skill": "3",
+      "skill": "3+",
       "strength": "4"
     },
     {
@@ -303,7 +622,7 @@
       "is_melee": true,
       "line": 21,
       "name": "Astartes chainsword",
-      "skill": "3",
+      "skill": "3+",
       "strength": "4"
     },
     {
@@ -313,7 +632,7 @@
       "is_melee": true,
       "line": 22,
       "name": "Close combat weapon",
-      "skill": "3",
+      "skill": "3+",
       "strength": "4"
     },
     {
@@ -323,7 +642,7 @@
       "is_melee": true,
       "line": 23,
       "name": "Power fist",
-      "skill": "3",
+      "skill": "3+",
       "strength": "8"
     },
     {
@@ -333,27 +652,33 @@
       "is_melee": true,
       "line": 24,
       "name": "Power weapon",
-      "skill": "3",
+      "skill": "3+",
       "strength": "5"
     },
     {
+      "ability_keywords": [
+        "devastating wounds"
+      ],
       "armour_penetration": "-2",
       "attacks": "2",
       "damage": "2",
       "is_melee": true,
       "line": 25,
       "name": "Thunder hammer",
-      "skill": "4",
+      "skill": "4+",
       "strength": "8"
     },
     {
+      "ability_keywords": [
+        "twin-linked"
+      ],
       "armour_penetration": "-2",
       "attacks": "4",
       "damage": "1",
       "is_melee": true,
       "line": 26,
       "name": "Twin lightning claws",
-      "skill": "3",
+      "skill": "3+",
       "strength": "4"
     }
   ]

@@ -1,7 +1,20 @@
 {
   "ability_keys": [
+    "core:infiltrators",
+    "core:leader",
+    "core:scouts-7",
+    "core:stealth",
     "datasheet:root-of-honour",
     "datasheet:war-leader"
+  ],
+  "composition": [
+    {
+      "line": 1,
+      "max_count": 1,
+      "min_count": 1,
+      "model_line": 1,
+      "model_name": "Kroot War Shaper"
+    }
   ],
   "costs": [
     {
@@ -10,7 +23,7 @@
       "model_count": 1,
       "points": 60,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
     }
   ],
   "datasheet_id": "ds-kroot-war-shaper",
@@ -23,27 +36,33 @@
   "keywords": [
     {
       "is_faction_keyword": false,
-      "keyword": "Character"
+      "keyword": "CHARACTER",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Infantry"
+      "keyword": "INFANTRY",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Kroot"
+      "keyword": "KROOT",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Shaper"
+      "keyword": "SHAPER",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": true,
-      "keyword": "T’au Empire"
+      "keyword": "T’AU EMPIRE",
+      "keyword_class": "faction"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "War shaper"
+      "keyword": "WAR SHAPER",
+      "keyword_class": "unit"
     }
   ],
   "leader_pairs": [
@@ -52,7 +71,7 @@
   ],
   "models": [
     {
-      "base_size": "32mm",
+      "base_size": "(⌀32mm)",
       "leadership": "7+",
       "line": 1,
       "movement": "7\"",
@@ -64,53 +83,81 @@
     }
   ],
   "name": "KROOT WAR SHAPER",
+  "option_choices": [
+    {
+      "count": 1,
+      "group_id": "og-kroot-war-shaper-1",
+      "id": "oc-kroot-war-shaper-1-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "bladestave and prey-hook",
+      "replaces_weapon_line": 3
+    }
+  ],
+  "option_groups": [
+    {
+      "id": "og-kroot-war-shaper-1",
+      "line": 1,
+      "scope": "model"
+    }
+  ],
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:eddc64f6bdb979921a2a03be4f603fdd0b26ff63fa9b008d853cc940e5f6e0c8",
-    "last_verified_version": "mfm-2026-08",
+    "last_verified_version": "wh40k-11e-2026-08",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-    "detail_edition_code": "wh40k-10e",
+    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
-    "is_hybrid_edition": true,
-    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "is_hybrid_edition": false,
+    "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
-  "role": "Characters",
+  "wargear_option_state": "extracted",
   "weapons": [
     {
+      "ability_keywords": [
+        "ANTI-INFANTRY 3+",
+        "ASSAULT",
+        "HEAVY"
+      ],
       "armour_penetration": "0",
       "attacks": "D3+1",
       "damage": "2",
       "is_melee": false,
       "line": 1,
       "name": "Dart-bow and tri-blade",
-      "range": "24",
-      "skill": "4",
+      "range": "24\"",
+      "skill": "4+",
       "strength": "4"
     },
     {
+      "ability_keywords": [
+        "pistol"
+      ],
       "armour_penetration": "0",
       "attacks": "1",
       "damage": "1",
-      "is_melee": false,
+      "is_melee": true,
       "line": 2,
       "name": "Kroot pistol",
-      "range": "12",
-      "skill": "4",
+      "skill": "4+",
       "strength": "4"
     },
     {
+      "ability_keywords": [
+        "lethal hits"
+      ],
       "armour_penetration": "-1",
       "attacks": "4",
       "damage": "2",
       "is_melee": true,
       "line": 3,
       "name": "Bladestave and prey-hook",
-      "skill": "2",
+      "skill": "2+",
       "strength": "5"
     },
     {
@@ -120,7 +167,7 @@
       "is_melee": true,
       "line": 4,
       "name": "Shaper’s blade",
-      "skill": "2",
+      "skill": "2+",
       "strength": "5"
     }
   ]

@@ -8,14 +8,20 @@
       "is_unique": false,
       "name": "ADVANCED ACQUISITION CADRE",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-        "detail_edition_code": "wh40k-10e",
+        "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+        "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
-        "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
-      }
+      },
+      "rules": [
+        {
+          "name": "Expert Fieldcraft",
+          "summary_key": "detachment:d-advanced-acquisition-cadre:expert-fieldcraft"
+        }
+      ]
     },
     {
       "detachment_id": "d-auxiliary-cadre",
@@ -25,14 +31,20 @@
       "is_unique": true,
       "name": "AUXILIARY CADRE",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-        "detail_edition_code": "wh40k-10e",
+        "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+        "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
-        "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
-      }
+      },
+      "rules": [
+        {
+          "name": "Integrated Command Structure",
+          "summary_key": "detachment:d-auxiliary-cadre:integrated-command-structure"
+        }
+      ]
     },
     {
       "detachment_id": "d-experimental-prototype-cadre",
@@ -42,14 +54,20 @@
       "is_unique": true,
       "name": "EXPERIMENTAL PROTOTYPE CADRE",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-        "detail_edition_code": "wh40k-10e",
+        "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+        "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
-        "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
-      }
+      },
+      "rules": [
+        {
+          "name": "Superior Craftsmanship",
+          "summary_key": "detachment:d-experimental-prototype-cadre:superior-craftsmanship"
+        }
+      ]
     },
     {
       "detachment_id": "d-kauyon",
@@ -59,14 +77,20 @@
       "is_unique": false,
       "name": "KAUYON",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-        "detail_edition_code": "wh40k-10e",
+        "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+        "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
-        "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
-      }
+      },
+      "rules": [
+        {
+          "name": "Patient Hunter",
+          "summary_key": "detachment:d-kauyon:patient-hunter"
+        }
+      ]
     },
     {
       "detachment_id": "d-kroot-hunting-pack",
@@ -76,14 +100,24 @@
       "is_unique": true,
       "name": "KROOT HUNTING PACK",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-        "detail_edition_code": "wh40k-10e",
+        "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+        "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
-        "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
-      }
+      },
+      "rules": [
+        {
+          "name": "Hunter’s Instincts",
+          "summary_key": "detachment:d-kroot-hunting-pack:hunters-instincts"
+        },
+        {
+          "name": "Skirmish Fighters",
+          "summary_key": "detachment:d-kroot-hunting-pack:skirmish-fighters"
+        }
+      ]
     },
     {
       "detachment_id": "d-montka",
@@ -93,14 +127,43 @@
       "is_unique": false,
       "name": "MONT’KA",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-        "detail_edition_code": "wh40k-10e",
+        "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+        "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
-        "is_hybrid_edition": true,
-        "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
-      }
+      },
+      "rules": [
+        {
+          "name": "Killing Blow",
+          "summary_key": "detachment:d-montka:killing-blow"
+        }
+      ]
+    },
+    {
+      "detachment_id": "d-retaliation-cadre",
+      "detachment_points_cost": 3,
+      "force_disposition": "PURGE THE FOE",
+      "is_legends": false,
+      "is_unique": true,
+      "name": "RETALIATION CADRE",
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+        "detail_edition_code": "wh40k-11e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      },
+      "rules": [
+        {
+          "name": "Bonded Heroes",
+          "summary_key": "detachment:d-retaliation-cadre:bonded-heroes"
+        }
+      ]
     }
   ]
 }

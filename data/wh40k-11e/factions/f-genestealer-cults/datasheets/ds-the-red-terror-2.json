@@ -1,0 +1,136 @@
+{
+  "ability_keys": [
+    "core:deep-strike",
+    "datasheet:subterranean-hunter",
+    "datasheet:swallow-whole",
+    "faction:synapse"
+  ],
+  "composition": [
+    {
+      "line": 1,
+      "max_count": 1,
+      "min_count": 1,
+      "model_line": 1,
+      "model_name": "The Red Terror"
+    }
+  ],
+  "costs": [
+    {
+      "copy_index_min": 1,
+      "label": "1 model",
+      "model_count": 1,
+      "points": 130,
+      "pricing_confidence": "unverified",
+      "source_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9"
+    }
+  ],
+  "datasheet_id": "ds-the-red-terror-2",
+  "faction_id": "f-genestealer-cults",
+  "is_battleline": false,
+  "is_character": true,
+  "is_dedicated_transport": false,
+  "is_epic_hero": true,
+  "is_legends": false,
+  "keywords": [
+    {
+      "is_faction_keyword": false,
+      "keyword": "BURROWER",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHARACTER",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "EPIC HERO",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "GREAT DEVOURER",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "MOBILE",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "MONSTER",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "THE RED TERROR",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": true,
+      "keyword": "TYRANIDS",
+      "keyword_class": "faction"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "VANGUARD INVADER",
+      "keyword_class": "unit"
+    }
+  ],
+  "models": [
+    {
+      "base_size": "(⌀100mm)",
+      "leadership": "8+",
+      "line": 1,
+      "movement": "10\"",
+      "name": "The Red Terror",
+      "objective_control": 3,
+      "save": "3+",
+      "toughness": 8,
+      "wounds": 9
+    }
+  ],
+  "name": "The Red Terror",
+  "pricing_confidence": {
+    "consecutive_unverified_releases": 1,
+    "state": "unverified",
+    "unverified_since_version": "wh40k-11e-2026-08"
+  },
+  "provenance": {
+    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_edition_code": "wh40k-11e",
+    "detail_source": "wahapedia",
+    "is_hybrid_edition": false,
+    "points_edition_code": "wh40k-11e",
+    "points_source": "none"
+  },
+  "wargear_option_state": "partial",
+  "weapons": [
+    {
+      "ability_keywords": [
+        "devastating wounds",
+        "extra attacks",
+        "precision"
+      ],
+      "armour_penetration": "-",
+      "attacks": "1",
+      "damage": "D3+2",
+      "is_melee": true,
+      "line": 1,
+      "name": "Gaping maw",
+      "skill": "2+",
+      "strength": "5"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "12",
+      "damage": "2",
+      "is_melee": true,
+      "line": 2,
+      "name": "Scything talons",
+      "skill": "2+",
+      "strength": "7"
+    }
+  ]
+}

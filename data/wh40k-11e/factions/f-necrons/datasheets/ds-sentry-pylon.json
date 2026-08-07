@@ -1,8 +1,18 @@
 {
   "ability_keys": [
-    "datasheet:fortification",
+    "core:deadly-demise-d3",
     "datasheet:phase-shifted-cover",
-    "datasheet:teleportation-matrix"
+    "datasheet:teleportation-matrix",
+    "faction:reanimation-protocols"
+  ],
+  "composition": [
+    {
+      "line": 1,
+      "max_count": 1,
+      "min_count": 1,
+      "model_line": 1,
+      "model_name": "Sentry Pylon"
+    }
   ],
   "costs": [
     {
@@ -11,7 +21,7 @@
       "model_count": 1,
       "points": 120,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1"
+      "source_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9"
     }
   ],
   "datasheet_id": "ds-sentry-pylon",
@@ -24,24 +34,33 @@
   "keywords": [
     {
       "is_faction_keyword": false,
-      "keyword": "Fortification"
+      "keyword": "FORTIFICATION",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "FRAME",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": true,
-      "keyword": "Necrons"
+      "keyword": "NECRONS",
+      "keyword_class": "faction"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Sentry Pylon"
+      "keyword": "SENTRY PYLON",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Vehicle"
+      "keyword": "VEHICLE",
+      "keyword_class": "unit"
     }
   ],
   "models": [
     {
-      "base_size": "Use model",
+      "base_size": "(⌀Use model)",
       "leadership": "7+",
       "line": 1,
       "movement": "-",
@@ -53,52 +72,88 @@
     }
   ],
   "name": "Sentry Pylon",
+  "option_choices": [
+    {
+      "count": 1,
+      "group_id": "og-sentry-pylon-1",
+      "id": "oc-sentry-pylon-1-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "focused death ray",
+      "replaces_weapon_line": 1
+    },
+    {
+      "count": 1,
+      "group_id": "og-sentry-pylon-1",
+      "id": "oc-sentry-pylon-1-2",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "heat cannon",
+      "replaces_weapon_line": 3
+    }
+  ],
+  "option_groups": [
+    {
+      "id": "og-sentry-pylon-1",
+      "line": 1,
+      "scope": "model"
+    }
+  ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 1,
+    "consecutive_unverified_releases": 2,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-    "detail_edition_code": "wh40k-10e",
+    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
-    "is_hybrid_edition": true,
+    "is_hybrid_edition": false,
     "points_edition_code": "wh40k-11e",
     "points_source": "none"
   },
-  "role": "Fortifications",
+  "wargear_option_state": "extracted",
   "weapons": [
     {
+      "ability_keywords": [
+        "sustained hits 2"
+      ],
       "armour_penetration": "-2",
       "attacks": "6",
       "damage": "2",
       "is_melee": false,
       "line": 1,
       "name": "Focused death ray",
-      "range": "36",
-      "skill": "4",
+      "range": "36\"",
+      "skill": "4+",
       "strength": "8"
     },
     {
+      "ability_keywords": [
+        "lethal hits"
+      ],
       "armour_penetration": "-3",
       "attacks": "1",
       "damage": "6",
       "is_melee": false,
       "line": 2,
       "name": "Gauss exterminator",
-      "range": "48",
-      "skill": "4",
+      "range": "48\"",
+      "skill": "4+",
       "strength": "14"
     },
     {
+      "ability_keywords": [
+        "melta 4"
+      ],
       "armour_penetration": "-4",
       "attacks": "2",
       "damage": "D6",
       "is_melee": false,
       "line": 3,
       "name": "Heat cannon",
-      "range": "36",
-      "skill": "4",
+      "range": "36\"",
+      "skill": "4+",
       "strength": "9"
     }
   ]

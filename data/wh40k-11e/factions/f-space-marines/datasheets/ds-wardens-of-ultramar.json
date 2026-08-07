@@ -1,10 +1,49 @@
 {
   "ability_keys": [
-    "datasheet:heroes-of-ultramar",
+    "core:support",
     "datasheet:refractor-field",
     "datasheet:second-company-banner",
     "datasheet:storm-shield",
-    "datasheet:strategium-command"
+    "datasheet:strategium-command",
+    "faction:oath-of-moment"
+  ],
+  "composition": [
+    {
+      "line": 1,
+      "max_count": 1,
+      "min_count": 1,
+      "model_name": "Ancient Gadriel"
+    },
+    {
+      "line": 2,
+      "max_count": 1,
+      "min_count": 1,
+      "model_name": "Veteran Sergeant Metaurus"
+    },
+    {
+      "line": 3,
+      "max_count": 1,
+      "min_count": 1,
+      "model_name": "Gaius Silva"
+    },
+    {
+      "line": 4,
+      "max_count": 1,
+      "min_count": 1,
+      "model_name": "Aemelia Minervas"
+    },
+    {
+      "line": 5,
+      "max_count": 1,
+      "min_count": 1,
+      "model_name": "Dainal Kornelius"
+    },
+    {
+      "line": 6,
+      "max_count": 1,
+      "min_count": 1,
+      "model_name": "Lucia Vestha"
+    }
   ],
   "costs": [
     {
@@ -13,7 +52,7 @@
       "model_count": 6,
       "points": 120,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
     }
   ],
   "datasheet_id": "ds-wardens-of-ultramar",
@@ -26,51 +65,58 @@
   "keywords": [
     {
       "is_faction_keyword": true,
-      "keyword": "Adeptus Astartes"
+      "keyword": "ADEPTUS ASTARTES"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Epic Hero",
+      "keyword": "EPIC HERO",
+      "keyword_class": "unit",
       "model_scope": "ALL MODELS"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Grenades",
+      "keyword": "GRENADES",
+      "keyword_class": "unit",
       "model_scope": "ALL MODELS"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Imperium",
+      "keyword": "IMPERIUM",
+      "keyword_class": "unit",
       "model_scope": "ALL MODELS"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Infantry",
+      "keyword": "INFANTRY",
+      "keyword_class": "unit",
       "model_scope": "ALL MODELS"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Psyker",
+      "keyword": "PSYKER",
+      "keyword_class": "unit",
       "model_scope": "DAINAL KORNELIUS"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Tacticus",
+      "keyword": "TACTICUS",
+      "keyword_class": "unit",
       "model_scope": "ALL MODELS"
     },
     {
       "is_faction_keyword": true,
-      "keyword": "Ultramarines"
+      "keyword": "ULTRAMARINES"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Wardens of Ultramar",
+      "keyword": "WARDENS OF ULTRAMAR",
+      "keyword_class": "unit",
       "model_scope": "ALL MODELS"
     }
   ],
   "models": [
     {
-      "base_size": "40mm",
+      "base_size": "(⌀40mm)",
       "leadership": "6+",
       "line": 1,
       "movement": "6\"",
@@ -81,7 +127,7 @@
       "wounds": 4
     },
     {
-      "base_size": "28.5mm",
+      "base_size": "(⌀28.5mm)",
       "leadership": "6+",
       "line": 2,
       "movement": "6\"",
@@ -96,62 +142,75 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:5faa92508c3166938885a04664a2952b303e54400998959b87185e262e39767f",
-    "last_verified_version": "mfm-2026-08",
+    "last_verified_version": "wh40k-11e-2026-08",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-    "detail_edition_code": "wh40k-10e",
+    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
-    "is_hybrid_edition": true,
-    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "is_hybrid_edition": false,
+    "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
-  "role": "Other",
+  "wargear_option_state": "none",
   "weapons": [
     {
+      "ability_keywords": [
+        "pistol"
+      ],
       "armour_penetration": "-1",
       "attacks": "1",
       "damage": "1",
       "is_melee": false,
       "line": 1,
       "name": "Archeotech laspistol",
-      "range": "12",
-      "skill": "3",
+      "range": "12\"",
+      "skill": "3+",
       "strength": "4"
     },
     {
+      "ability_keywords": [
+        "blast",
+        "psychic"
+      ],
       "armour_penetration": "-1",
       "attacks": "D6",
       "damage": "1",
       "is_melee": false,
       "line": 2,
       "name": "Astropathic Blast",
-      "range": "12",
-      "skill": "3",
+      "range": "12\"",
+      "skill": "3+",
       "strength": "4"
     },
     {
+      "ability_keywords": [
+        "assault",
+        "heavy"
+      ],
       "armour_penetration": "-1",
       "attacks": "2",
       "damage": "1",
       "is_melee": false,
       "line": 3,
       "name": "Bolt rifle",
-      "range": "24",
-      "skill": "3",
+      "range": "24\"",
+      "skill": "3+",
       "strength": "4"
     },
     {
+      "ability_keywords": [
+        "pistol"
+      ],
       "armour_penetration": "-1",
       "attacks": "1",
       "damage": "1",
-      "is_melee": false,
+      "is_melee": true,
       "line": 4,
       "name": "Heavy bolt pistol",
-      "range": "18",
-      "skill": "3",
+      "skill": "3+",
       "strength": "4"
     },
     {
@@ -161,17 +220,20 @@
       "is_melee": true,
       "line": 5,
       "name": "Close combat weapon",
-      "skill": "2",
+      "skill": "2+",
       "strength": "4"
     },
     {
+      "ability_keywords": [
+        "psychic"
+      ],
       "armour_penetration": "-2",
       "attacks": "1",
       "damage": "2",
       "is_melee": true,
       "line": 6,
       "name": "Force stave",
-      "skill": "2",
+      "skill": "2+",
       "strength": "5"
     },
     {
@@ -181,7 +243,7 @@
       "is_melee": true,
       "line": 7,
       "name": "Power weapon",
-      "skill": "2",
+      "skill": "2+",
       "strength": "4"
     },
     {
@@ -191,7 +253,7 @@
       "is_melee": true,
       "line": 8,
       "name": "Master-crafted power weapon",
-      "skill": "2",
+      "skill": "2+",
       "strength": "5"
     }
   ]

@@ -1,7 +1,18 @@
 {
   "ability_keys": [
+    "core:deadly-demise-d3",
+    "core:stealth",
     "datasheet:ground-attack-craft",
-    "datasheet:nowhere-to-run-pain"
+    "datasheet:nowhere-to-run-pain",
+    "faction:power-from-pain"
+  ],
+  "composition": [
+    {
+      "line": 1,
+      "max_count": 1,
+      "min_count": 1,
+      "model_name": "Razorwing Jetfighter"
+    }
   ],
   "costs": [
     {
@@ -10,7 +21,7 @@
       "model_count": 1,
       "points": 170,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
     }
   ],
   "datasheet_id": "ds-razorwing-jetfighter",
@@ -23,60 +34,83 @@
   "keywords": [
     {
       "is_faction_keyword": false,
-      "keyword": "Aeldari"
+      "keyword": "AELDARI",
+      "keyword_class": "faction"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Aircraft"
+      "keyword": "AIRCRAFT",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": true,
-      "keyword": "Drukhari"
+      "keyword": "DRUKHARI",
+      "keyword_class": "faction"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Fly"
+      "keyword": "FLY",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Razorwing Jetfighter"
+      "keyword": "RAZORWING JETFIGHTER",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Vehicle"
-    }
-  ],
-  "models": [
-    {
-      "base_size": "120 x 92mm flying base",
-      "invuln_save": "6",
-      "leadership": "7+",
-      "line": 1,
-      "movement": "20+\"",
-      "name": "Razorwing Jetfighter",
-      "objective_control": 0,
-      "save": "4+",
-      "toughness": 8,
-      "wounds": 10
+      "keyword": "VEHICLE",
+      "keyword_class": "unit"
     }
   ],
   "name": "RAZORWING JETFIGHTER",
+  "option_choices": [
+    {
+      "count": 2,
+      "group_id": "og-razorwing-jetfighter-1",
+      "id": "oc-razorwing-jetfighter-1-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "disintegrator cannons"
+    },
+    {
+      "count": 1,
+      "group_id": "og-razorwing-jetfighter-2",
+      "id": "oc-razorwing-jetfighter-2-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "splinter cannon",
+      "replaces_weapon_line": 6
+    }
+  ],
+  "option_groups": [
+    {
+      "id": "og-razorwing-jetfighter-1",
+      "line": 1,
+      "scope": "model"
+    },
+    {
+      "id": "og-razorwing-jetfighter-2",
+      "line": 2,
+      "scope": "model"
+    }
+  ],
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:279a8cc4bd646e9b2380858c3231c48ee8aef295ed0d4d28e047c1987cb564e1",
-    "last_verified_version": "mfm-2026-08",
+    "last_verified_version": "wh40k-11e-2026-08",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-    "detail_edition_code": "wh40k-10e",
+    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
-    "is_hybrid_edition": true,
-    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "is_hybrid_edition": false,
+    "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
-  "role": "Other",
+  "wargear_option_state": "extracted",
   "weapons": [
     {
       "armour_penetration": "-3",
@@ -85,8 +119,8 @@
       "is_melee": false,
       "line": 1,
       "name": "Dark Lance",
-      "range": "36",
-      "skill": "3",
+      "range": "36\"",
+      "skill": "3+",
       "strength": "12"
     },
     {
@@ -96,63 +130,82 @@
       "is_melee": false,
       "line": 2,
       "name": "Disintegrator cannon",
-      "range": "36",
-      "skill": "3",
+      "range": "36\"",
+      "skill": "3+",
       "strength": "6"
     },
     {
+      "ability_keywords": [
+        "blast"
+      ],
       "armour_penetration": "-1",
       "attacks": "D6",
       "damage": "2",
       "is_melee": false,
       "line": 3,
       "name": "Razorwing missiles – monoscythe missiles",
-      "range": "48",
-      "skill": "3",
+      "range": "48\"",
+      "skill": "3+",
       "strength": "6"
     },
     {
+      "ability_keywords": [
+        "anti-infantry 2+",
+        "blast"
+      ],
       "armour_penetration": "0",
       "attacks": "D6+3",
       "damage": "1",
       "is_melee": false,
       "line": 4,
       "name": "Razorwing missiles – neurotoxin missiles",
-      "range": "48",
-      "skill": "3",
+      "range": "48\"",
+      "skill": "3+",
       "strength": "2"
     },
     {
+      "ability_keywords": [
+        "blast"
+      ],
       "armour_penetration": "-2",
       "attacks": "D6",
       "damage": "1",
       "is_melee": false,
       "line": 5,
       "name": "Razorwing missiles – shatterfield missiles",
-      "range": "48",
-      "skill": "3",
+      "range": "48\"",
+      "skill": "3+",
       "strength": "7"
     },
     {
+      "ability_keywords": [
+        "anti-infantry 3+",
+        "sustained hits 1"
+      ],
       "armour_penetration": "-1",
       "attacks": "3",
       "damage": "2",
       "is_melee": false,
       "line": 6,
       "name": "Splinter cannon",
-      "range": "36",
-      "skill": "3",
+      "range": "36\"",
+      "skill": "3+",
       "strength": "3"
     },
     {
+      "ability_keywords": [
+        "anti-infantry 3+",
+        "assault",
+        "rapid fire 2",
+        "twin-linked"
+      ],
       "armour_penetration": "0",
       "attacks": "2",
       "damage": "1",
-      "is_melee": false,
+      "is_melee": true,
       "line": 7,
       "name": "Twin splinter rifle",
-      "range": "24",
-      "skill": "3",
+      "skill": "3+",
       "strength": "2"
     },
     {
@@ -162,7 +215,7 @@
       "is_melee": true,
       "line": 8,
       "name": "Bladed wings",
-      "skill": "4",
+      "skill": "4+",
       "strength": "6"
     }
   ]

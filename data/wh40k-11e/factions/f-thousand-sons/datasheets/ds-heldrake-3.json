@@ -1,6 +1,16 @@
 {
   "ability_keys": [
+    "core:deadly-demise-d3",
+    "core:hover",
     "datasheet:flame-wreathed"
+  ],
+  "composition": [
+    {
+      "line": 1,
+      "max_count": 1,
+      "min_count": 1,
+      "model_name": "Heldrake"
+    }
   ],
   "costs": [
     {
@@ -9,7 +19,7 @@
       "model_count": 1,
       "points": 175,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
     }
   ],
   "damaged_threshold": 4,
@@ -23,77 +33,88 @@
   "keywords": [
     {
       "is_faction_keyword": false,
-      "keyword": "Aircraft"
+      "keyword": "CHAOS",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Chaos"
+      "keyword": "DAEMON",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Daemon"
+      "keyword": "FLY",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Fly"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Heldrake"
+      "keyword": "HELDRAKE",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": true,
-      "keyword": "Thousand Sons"
+      "keyword": "THOUSAND SONS",
+      "keyword_class": "faction"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Tzeentch"
+      "keyword": "TZEENTCH",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Vehicle"
-    }
-  ],
-  "models": [
-    {
-      "base_size": "120 x 92mm flying base",
-      "invuln_save": "5",
-      "leadership": "6+",
-      "line": 1,
-      "movement": "20+\"",
-      "name": "Heldrake",
-      "objective_control": 0,
-      "save": "3+",
-      "toughness": 9,
-      "wounds": 12
+      "keyword": "VEHICLE",
+      "keyword_class": "unit"
     }
   ],
   "name": "HELDRAKE",
+  "option_choices": [
+    {
+      "count": 1,
+      "group_id": "og-heldrake-3-1",
+      "id": "oc-heldrake-3-1-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "baleflamer",
+      "replaces_weapon_line": 1
+    }
+  ],
+  "option_groups": [
+    {
+      "id": "og-heldrake-3-1",
+      "line": 1,
+      "scope": "model"
+    }
+  ],
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:da1be83ce6334b67bd9d9af95c6b7ad8fe943d88ee81fd002f67b4c3ef29ca97",
-    "last_verified_version": "mfm-2026-08",
+    "last_verified_version": "wh40k-11e-2026-08",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-    "detail_edition_code": "wh40k-10e",
+    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
-    "is_hybrid_edition": true,
-    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "is_hybrid_edition": false,
+    "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
-  "role": "Other",
+  "wargear_option_state": "extracted",
   "weapons": [
     {
+      "ability_keywords": [
+        "ignores cover",
+        "torrent"
+      ],
       "armour_penetration": "-2",
       "attacks": "D6+3",
       "damage": "2",
       "is_melee": false,
       "line": 1,
       "name": "Baleflamer",
-      "range": "12",
+      "range": "12\"",
       "skill": "N/A",
       "strength": "6"
     },
@@ -101,21 +122,24 @@
       "armour_penetration": "-2",
       "attacks": "6",
       "damage": "2",
-      "is_melee": false,
+      "is_melee": true,
       "line": 2,
       "name": "Hades autocannon",
-      "range": "36",
-      "skill": "3",
+      "skill": "3+",
       "strength": "8"
     },
     {
+      "ability_keywords": [
+        "anti-fly 2+",
+        "devastating wounds"
+      ],
       "armour_penetration": "-1",
       "attacks": "5",
       "damage": "2",
       "is_melee": true,
       "line": 3,
       "name": "Heldrake claws",
-      "skill": "3",
+      "skill": "3+",
       "strength": "7"
     }
   ]

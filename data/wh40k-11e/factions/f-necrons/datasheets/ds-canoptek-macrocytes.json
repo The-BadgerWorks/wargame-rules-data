@@ -1,8 +1,19 @@
 {
   "ability_keys": [
+    "core:scouts-8",
     "datasheet:accelerator-mandible",
     "datasheet:harassment-swarm-aura",
-    "datasheet:nanoscarab-projector"
+    "datasheet:nanoscarab-projector",
+    "faction:reanimation-protocols"
+  ],
+  "composition": [
+    {
+      "line": 1,
+      "max_count": 5,
+      "min_count": 5,
+      "model_line": 1,
+      "model_name": "Canoptek Macrocytes"
+    }
   ],
   "costs": [
     {
@@ -11,7 +22,7 @@
       "model_count": 5,
       "points": 70,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
     }
   ],
   "datasheet_id": "ds-canoptek-macrocytes",
@@ -24,28 +35,33 @@
   "keywords": [
     {
       "is_faction_keyword": false,
-      "keyword": "Beasts"
+      "keyword": "BEASTS",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Canoptek"
+      "keyword": "CANOPTEK",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Fly"
+      "keyword": "FLY",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Macrocytes"
+      "keyword": "MACROCYTES",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": true,
-      "keyword": "Necrons"
+      "keyword": "NECRONS",
+      "keyword_class": "faction"
     }
   ],
   "models": [
     {
-      "base_size": "28.5mm",
+      "base_size": "(⌀28.5mm)",
       "leadership": "8+",
       "line": 1,
       "movement": "8\"",
@@ -57,22 +73,52 @@
     }
   ],
   "name": "CANOPTEK MACROCYTES",
+  "option_choices": [
+    {
+      "count": 1,
+      "group_id": "og-canoptek-macrocytes-2",
+      "id": "oc-canoptek-macrocytes-2-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "atomiser beam and 1 nanoscarab projector"
+    },
+    {
+      "count": 1,
+      "group_id": "og-canoptek-macrocytes-3",
+      "id": "oc-canoptek-macrocytes-3-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "accelerator mandible"
+    }
+  ],
+  "option_groups": [
+    {
+      "id": "og-canoptek-macrocytes-2",
+      "line": 2,
+      "scope": "unit"
+    },
+    {
+      "id": "og-canoptek-macrocytes-3",
+      "line": 3,
+      "scope": "unit"
+    }
+  ],
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:135af19730b4f1049b172ba9c4fc20427ebc21087b72485d997072c24d028db0",
-    "last_verified_version": "mfm-2026-08",
+    "last_verified_version": "wh40k-11e-2026-08",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-    "detail_edition_code": "wh40k-10e",
+    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
-    "is_hybrid_edition": true,
-    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "is_hybrid_edition": false,
+    "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
-  "role": "Other",
+  "wargear_option_state": "partial",
   "weapons": [
     {
       "armour_penetration": "-1",
@@ -81,30 +127,36 @@
       "is_melee": false,
       "line": 1,
       "name": "Atomiser beam",
-      "range": "12",
-      "skill": "4",
+      "range": "12\"",
+      "skill": "4+",
       "strength": "6"
     },
     {
+      "ability_keywords": [
+        "lethal hits"
+      ],
       "armour_penetration": "-1",
       "attacks": "1",
       "damage": "1",
       "is_melee": false,
       "line": 2,
       "name": "Gauss scalpel",
-      "range": "18",
-      "skill": "4",
+      "range": "18\"",
+      "skill": "4+",
       "strength": "4"
     },
     {
+      "ability_keywords": [
+        "assault",
+        "sustained hits 1"
+      ],
       "armour_penetration": "0",
       "attacks": "1",
       "damage": "1",
-      "is_melee": false,
+      "is_melee": true,
       "line": 3,
       "name": "Tesla caster",
-      "range": "18",
-      "skill": "4",
+      "skill": "4+",
       "strength": "5"
     },
     {
@@ -114,7 +166,7 @@
       "is_melee": true,
       "line": 4,
       "name": "Claws",
-      "skill": "4",
+      "skill": "4+",
       "strength": "4"
     }
   ]

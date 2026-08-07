@@ -1,9 +1,17 @@
 {
   "ability_keys": [
+    "core:deadly-demise-d3",
     "datasheet:arcane-cover",
-    "datasheet:deployment",
     "datasheet:fortification",
     "datasheet:webway-strike"
+  ],
+  "composition": [
+    {
+      "line": 1,
+      "max_count": 2,
+      "min_count": 2,
+      "model_name": "Wraithbone Arches"
+    }
   ],
   "costs": [
     {
@@ -12,7 +20,7 @@
       "model_count": 2,
       "points": 105,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1"
+      "source_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9"
     }
   ],
   "datasheet_id": "ds-webway-gate",
@@ -25,34 +33,55 @@
   "keywords": [
     {
       "is_faction_keyword": false,
-      "keyword": "Aeldari"
+      "keyword": "AELDARI",
+      "keyword_class": "faction"
     },
     {
       "is_faction_keyword": true,
-      "keyword": "Asuryani"
+      "keyword": "ASURYANI"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Fortification"
+      "keyword": "FORTIFICATION",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Webway Gate"
+      "keyword": "FRAME",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "WEBWAY GATE",
+      "keyword_class": "unit"
+    }
+  ],
+  "models": [
+    {
+      "base_size": "(⌀Use model)",
+      "leadership": "6+",
+      "line": 1,
+      "movement": "-",
+      "name": "Webway Gate",
+      "objective_control": 0,
+      "save": "3+",
+      "toughness": 12,
+      "wounds": 14
     }
   ],
   "name": "Webway Gate",
   "pricing_confidence": {
-    "consecutive_unverified_releases": 1,
+    "consecutive_unverified_releases": 2,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-    "detail_edition_code": "wh40k-10e",
+    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
-    "is_hybrid_edition": true,
+    "is_hybrid_edition": false,
     "points_edition_code": "wh40k-11e",
     "points_source": "none"
   },
-  "role": "Fortifications"
+  "wargear_option_state": "none"
 }

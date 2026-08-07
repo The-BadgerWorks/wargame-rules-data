@@ -1,6 +1,16 @@
 {
   "ability_keys": [
-    "datasheet:death-sphere-bombardment"
+    "core:deadly-demise-d3",
+    "datasheet:death-sphere-bombardment",
+    "faction:reanimation-protocols"
+  ],
+  "composition": [
+    {
+      "line": 1,
+      "max_count": 1,
+      "min_count": 1,
+      "model_name": "Night Shroud"
+    }
   ],
   "costs": [
     {
@@ -9,7 +19,7 @@
       "model_count": 1,
       "points": 140,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1"
+      "source_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9"
     }
   ],
   "damaged_threshold": 5,
@@ -23,63 +33,63 @@
   "keywords": [
     {
       "is_faction_keyword": false,
-      "keyword": "Aircraft"
+      "keyword": "AIRCRAFT",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Fly"
+      "keyword": "FLY",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "FRAME",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": true,
-      "keyword": "Necrons"
+      "keyword": "NECRONS",
+      "keyword_class": "faction"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Night Shroud"
+      "keyword": "NIGHT SHROUD",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Vehicle"
-    }
-  ],
-  "models": [
-    {
-      "base_size": "120 x 92mm flying base",
-      "leadership": "7+",
-      "line": 1,
-      "movement": "20+\"",
-      "name": "Night Shroud",
-      "objective_control": 0,
-      "save": "3+",
-      "toughness": 9,
-      "wounds": 14
+      "keyword": "VEHICLE",
+      "keyword_class": "unit"
     }
   ],
   "name": "Night Shroud",
   "pricing_confidence": {
-    "consecutive_unverified_releases": 1,
+    "consecutive_unverified_releases": 2,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-    "detail_edition_code": "wh40k-10e",
+    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
-    "is_hybrid_edition": true,
+    "is_hybrid_edition": false,
     "points_edition_code": "wh40k-11e",
     "points_source": "none"
   },
-  "role": "Other",
+  "wargear_option_state": "none",
   "weapons": [
     {
+      "ability_keywords": [
+        "sustained hits 2",
+        "twin-linked"
+      ],
       "armour_penetration": "0",
       "attacks": "6",
       "damage": "2",
-      "is_melee": false,
+      "is_melee": true,
       "line": 1,
       "name": "Twin tesla destructor",
-      "range": "36",
-      "skill": "3",
+      "skill": "3+",
       "strength": "8"
     },
     {
@@ -89,7 +99,7 @@
       "is_melee": true,
       "line": 2,
       "name": "Armoured bulk",
-      "skill": "4",
+      "skill": "4+",
       "strength": "6"
     }
   ]

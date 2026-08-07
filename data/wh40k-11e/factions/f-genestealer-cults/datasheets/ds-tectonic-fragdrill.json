@@ -1,9 +1,18 @@
 {
   "ability_keys": [
-    "datasheet:fortification",
+    "core:deadly-demise-d3",
     "datasheet:manufactorum-cover",
     "datasheet:tectonic-fragdrill",
     "datasheet:underground-egress"
+  ],
+  "composition": [
+    {
+      "line": 1,
+      "max_count": 1,
+      "min_count": 1,
+      "model_line": 1,
+      "model_name": "Tectonic Fragdrill"
+    }
   ],
   "costs": [
     {
@@ -12,7 +21,7 @@
       "model_count": 1,
       "points": 125,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1"
+      "source_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9"
     }
   ],
   "datasheet_id": "ds-tectonic-fragdrill",
@@ -25,24 +34,33 @@
   "keywords": [
     {
       "is_faction_keyword": false,
-      "keyword": "Fortification"
+      "keyword": "FORTIFICATION",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "FRAME",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": true,
-      "keyword": "Genestealer Cults"
+      "keyword": "GENESTEALER CULTS",
+      "keyword_class": "faction"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Tectonic Fragdrill"
+      "keyword": "TECTONIC FRAGDRILL",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Vehicle"
+      "keyword": "VEHICLE",
+      "keyword_class": "unit"
     }
   ],
   "models": [
     {
-      "base_size": "Use model",
+      "base_size": "(⌀Use model)",
       "leadership": "7+",
       "line": 1,
       "movement": "-",
@@ -55,19 +73,19 @@
   ],
   "name": "Tectonic Fragdrill",
   "pricing_confidence": {
-    "consecutive_unverified_releases": 1,
+    "consecutive_unverified_releases": 2,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-    "detail_edition_code": "wh40k-10e",
+    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
-    "is_hybrid_edition": true,
+    "is_hybrid_edition": false,
     "points_edition_code": "wh40k-11e",
     "points_source": "none"
   },
-  "role": "Fortifications",
+  "wargear_option_state": "none",
   "weapons": [
     {
       "armour_penetration": "-2",
@@ -76,7 +94,7 @@
       "is_melee": true,
       "line": 1,
       "name": "Fragdrill",
-      "skill": "6",
+      "skill": "6+",
       "strength": "12"
     }
   ]

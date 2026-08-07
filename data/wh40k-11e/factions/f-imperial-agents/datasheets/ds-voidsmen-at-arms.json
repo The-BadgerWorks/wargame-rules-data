@@ -1,7 +1,27 @@
 {
   "ability_keys": [
     "datasheet:masters-of-close-confines",
-    "datasheet:navy-bodyguard"
+    "faction:assigned-agents"
+  ],
+  "composition": [
+    {
+      "line": 1,
+      "max_count": 1,
+      "min_count": 1,
+      "model_name": "Voidmaster"
+    },
+    {
+      "line": 2,
+      "max_count": 4,
+      "min_count": 4,
+      "model_name": "Voidsmen"
+    },
+    {
+      "line": 3,
+      "max_count": 1,
+      "min_count": 1,
+      "model_name": "Canid"
+    }
   ],
   "costs": [
     {
@@ -10,7 +30,7 @@
       "model_count": 6,
       "points": 50,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
     },
     {
       "copy_index_min": 1,
@@ -18,7 +38,8 @@
       "model_count": 6,
       "points": 70,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+      "pricing_context": "every-model-has-imperium",
+      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
     }
   ],
   "datasheet_id": "ds-voidsmen-at-arms",
@@ -31,36 +52,42 @@
   "keywords": [
     {
       "is_faction_keyword": true,
-      "keyword": "Agents of the Imperium"
+      "keyword": "AGENTS OF THE IMPERIUM"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Grenades"
+      "keyword": "GRENADES",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Imperium"
+      "keyword": "IMPERIUM",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Infantry"
+      "keyword": "INFANTRY",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Retinue"
+      "keyword": "RETINUE",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Voidfarers"
+      "keyword": "VOIDFARERS",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Voidsmen-at-Arms"
+      "keyword": "VOIDSMEN-AT-ARMS",
+      "keyword_class": "unit"
     }
   ],
   "models": [
     {
-      "base_size": "25mm",
+      "base_size": "(⌀25mm)",
       "leadership": "7+",
       "line": 1,
       "movement": "6\"",
@@ -75,62 +102,74 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:08db6a5acb5f76cc4557964c8bbd142c415075d0b62c9ae34c6bcc0a55f6e78f",
-    "last_verified_version": "mfm-2026-08",
+    "last_verified_version": "wh40k-11e-2026-08",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-    "detail_edition_code": "wh40k-10e",
+    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
-    "is_hybrid_edition": true,
-    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "is_hybrid_edition": false,
+    "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
-  "role": "Other",
+  "wargear_option_state": "none",
   "weapons": [
     {
+      "ability_keywords": [
+        "assault"
+      ],
       "armour_penetration": "0",
       "attacks": "2",
       "damage": "2",
       "is_melee": false,
       "line": 1,
       "name": "Artificer shotgun",
-      "range": "12",
-      "skill": "4",
+      "range": "12\"",
+      "skill": "4+",
       "strength": "4"
     },
     {
+      "ability_keywords": [
+        "rapid fire 1"
+      ],
       "armour_penetration": "0",
       "attacks": "1",
       "damage": "1",
       "is_melee": false,
       "line": 2,
       "name": "Lasgun",
-      "range": "24",
-      "skill": "4",
+      "range": "24\"",
+      "skill": "4+",
       "strength": "3"
     },
     {
+      "ability_keywords": [
+        "pistol"
+      ],
       "armour_penetration": "0",
       "attacks": "1",
       "damage": "1",
       "is_melee": false,
       "line": 3,
       "name": "Laspistol",
-      "range": "12",
-      "skill": "4",
+      "range": "12\"",
+      "skill": "4+",
       "strength": "3"
     },
     {
+      "ability_keywords": [
+        "heavy",
+        "sustained hits 1"
+      ],
       "armour_penetration": "0",
       "attacks": "6",
       "damage": "1",
-      "is_melee": false,
+      "is_melee": true,
       "line": 4,
       "name": "Voidsman rotor cannon",
-      "range": "24",
-      "skill": "5",
+      "skill": "5+",
       "strength": "6"
     },
     {
@@ -140,7 +179,7 @@
       "is_melee": true,
       "line": 5,
       "name": "Close combat weapon",
-      "skill": "4",
+      "skill": "4+",
       "strength": "3"
     },
     {
@@ -150,7 +189,7 @@
       "is_melee": true,
       "line": 6,
       "name": "Vicious bite",
-      "skill": "4",
+      "skill": "4+",
       "strength": "4"
     }
   ]

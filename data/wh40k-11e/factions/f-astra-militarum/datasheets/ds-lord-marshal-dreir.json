@@ -1,8 +1,19 @@
 {
   "ability_keys": [
+    "core:feel-no-pain-6",
+    "core:leader",
     "datasheet:leading-the-charge",
-    "datasheet:orders",
-    "datasheet:tough-to-kill"
+    "datasheet:tough-to-kill",
+    "faction:voice-of-command"
+  ],
+  "composition": [
+    {
+      "line": 1,
+      "max_count": 1,
+      "min_count": 1,
+      "model_line": 1,
+      "model_name": "Lord Marshal Dreir"
+    }
   ],
   "costs": [
     {
@@ -11,7 +22,7 @@
       "model_count": 1,
       "points": 75,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
     }
   ],
   "datasheet_id": "ds-lord-marshal-dreir",
@@ -24,35 +35,43 @@
   "keywords": [
     {
       "is_faction_keyword": true,
-      "keyword": "Astra Militarum"
+      "keyword": "ASTRA MILITARUM",
+      "keyword_class": "faction"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Character"
+      "keyword": "CHARACTER",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Epic Hero"
+      "keyword": "EPIC HERO",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Grenades"
+      "keyword": "GRENADES",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Imperium"
+      "keyword": "IMPERIUM",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Lord Marshal Dreir"
+      "keyword": "LORD MARSHAL DREIR",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Mounted"
+      "keyword": "MOUNTED",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Officer"
+      "keyword": "OFFICER",
+      "keyword_class": "unit"
     }
   ],
   "leader_pairs": [
@@ -60,8 +79,8 @@
   ],
   "models": [
     {
-      "base_size": "75 x 42mm",
-      "invuln_save": "4",
+      "base_size": "(⌀75 x 42mm)",
+      "invuln_save": "4+",
       "leadership": "7+",
       "line": 1,
       "movement": "10\"",
@@ -76,49 +95,57 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:3ef9b0b950694b9c2204fe4c1a14b9688c6bd63b6f2babb06888bc26464b773a",
-    "last_verified_version": "mfm-2026-08",
+    "last_verified_version": "wh40k-11e-2026-08",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-    "detail_edition_code": "wh40k-10e",
+    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
-    "is_hybrid_edition": true,
-    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "is_hybrid_edition": false,
+    "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
-  "role": "Characters",
+  "wargear_option_state": "none",
   "weapons": [
     {
+      "ability_keywords": [
+        "pistol"
+      ],
       "armour_penetration": "0",
       "attacks": "1",
       "damage": "1",
-      "is_melee": false,
+      "is_melee": true,
       "line": 1,
       "name": "Laspistol",
-      "range": "12",
-      "skill": "3",
+      "skill": "3+",
       "strength": "3"
     },
     {
+      "ability_keywords": [
+        "anti-infantry 4+"
+      ],
       "armour_penetration": "-2",
       "attacks": "6",
       "damage": "1",
       "is_melee": true,
       "line": 2,
       "name": "Sabre of Sacrifice",
-      "skill": "2",
+      "skill": "2+",
       "strength": "6"
     },
     {
+      "ability_keywords": [
+        "extra attacks"
+      ],
       "armour_penetration": "-1",
       "attacks": "2",
       "damage": "1",
       "is_melee": true,
       "line": 3,
       "name": "Savage claws",
-      "skill": "4",
+      "skill": "4+",
       "strength": "4"
     }
   ]

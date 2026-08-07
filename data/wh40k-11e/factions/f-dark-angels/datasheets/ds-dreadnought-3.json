@@ -1,6 +1,17 @@
 {
   "ability_keys": [
-    "datasheet:wisdom-of-the-ancients-aura"
+    "core:deadly-demise-1",
+    "datasheet:wisdom-of-the-ancients-aura",
+    "faction:oath-of-moment"
+  ],
+  "composition": [
+    {
+      "line": 1,
+      "max_count": 1,
+      "min_count": 1,
+      "model_line": 1,
+      "model_name": "Dreadnought"
+    }
   ],
   "costs": [
     {
@@ -9,7 +20,7 @@
       "model_count": 1,
       "points": 135,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
     }
   ],
   "datasheet_id": "ds-dreadnought-3",
@@ -22,36 +33,37 @@
   "keywords": [
     {
       "is_faction_keyword": true,
-      "keyword": "Adeptus Astartes"
+      "keyword": "ADEPTUS ASTARTES"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Deathwing"
+      "keyword": "DREADNOUGHT , DEATHWING",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Dreadnought"
+      "keyword": "IMPERIUM",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Imperium"
+      "keyword": "SMOKE",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Smoke"
+      "keyword": "VEHICLE",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Vehicle"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Walker"
+      "keyword": "WALKER",
+      "keyword_class": "unit"
     }
   ],
   "models": [
     {
-      "base_size": "60mm",
+      "base_size": "(⌀60mm)",
       "leadership": "6+",
       "line": 1,
       "movement": "6\"",
@@ -63,76 +75,149 @@
     }
   ],
   "name": "DREADNOUGHT",
+  "option_choices": [
+    {
+      "count": 1,
+      "group_id": "og-dreadnought-3-1",
+      "id": "oc-dreadnought-3-1-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "heavy plasma cannon"
+    },
+    {
+      "count": 1,
+      "group_id": "og-dreadnought-3-1",
+      "id": "oc-dreadnought-3-1-2",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "multi-melta",
+      "replaces_weapon_line": 7
+    },
+    {
+      "count": 1,
+      "group_id": "og-dreadnought-3-1",
+      "id": "oc-dreadnought-3-1-3",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "twin lascannon",
+      "replaces_weapon_line": 9
+    },
+    {
+      "count": 1,
+      "group_id": "og-dreadnought-3-2",
+      "id": "oc-dreadnought-3-2-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "missile launcher and 1 close combat weapon"
+    },
+    {
+      "count": 1,
+      "group_id": "og-dreadnought-3-2",
+      "id": "oc-dreadnought-3-2-2",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "heavy flamer and 1 Dreadnought combat weapon"
+    }
+  ],
+  "option_groups": [
+    {
+      "id": "og-dreadnought-3-1",
+      "line": 1,
+      "scope": "model"
+    },
+    {
+      "id": "og-dreadnought-3-2",
+      "line": 2,
+      "scope": "model"
+    }
+  ],
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:f9fc68dbe65275e1c366933bf4c3b1832af6b9d618acb3c5c31438b99396e565",
-    "last_verified_version": "mfm-2026-08",
+    "last_verified_version": "wh40k-11e-2026-08",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-    "detail_edition_code": "wh40k-10e",
+    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
-    "is_hybrid_edition": true,
-    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "is_hybrid_edition": false,
+    "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
-  "role": "Other",
+  "wargear_option_state": "extracted",
   "weapons": [
     {
+      "ability_keywords": [
+        "devastating wounds"
+      ],
       "armour_penetration": "0",
       "attacks": "6",
       "damage": "1",
       "is_melee": false,
       "line": 1,
       "name": "Assault cannon",
-      "range": "24",
-      "skill": "3",
+      "range": "24\"",
+      "skill": "3+",
       "strength": "6"
     },
     {
+      "ability_keywords": [
+        "ignores cover",
+        "torrent"
+      ],
       "armour_penetration": "-1",
       "attacks": "D6",
       "damage": "1",
       "is_melee": false,
       "line": 2,
       "name": "Heavy flamer",
-      "range": "12",
+      "range": "12\"",
       "skill": "N/A",
       "strength": "5"
     },
     {
+      "ability_keywords": [
+        "blast"
+      ],
       "armour_penetration": "-2",
       "attacks": "D3",
       "damage": "2",
       "is_melee": false,
       "line": 3,
       "name": "Heavy plasma cannon – standard",
-      "range": "36",
-      "skill": "3",
+      "range": "36\"",
+      "skill": "3+",
       "strength": "7"
     },
     {
+      "ability_keywords": [
+        "blast",
+        "hazardous"
+      ],
       "armour_penetration": "-3",
       "attacks": "D3",
       "damage": "3",
       "is_melee": false,
       "line": 4,
       "name": "Heavy plasma cannon – supercharge",
-      "range": "36",
-      "skill": "3",
+      "range": "36\"",
+      "skill": "3+",
       "strength": "8"
     },
     {
+      "ability_keywords": [
+        "blast"
+      ],
       "armour_penetration": "0",
       "attacks": "D6",
       "damage": "1",
       "is_melee": false,
       "line": 5,
       "name": "Missile launcher – frag",
-      "range": "48",
-      "skill": "3",
+      "range": "48\"",
+      "skill": "3+",
       "strength": "4"
     },
     {
@@ -142,41 +227,49 @@
       "is_melee": false,
       "line": 6,
       "name": "Missile launcher – krak",
-      "range": "48",
-      "skill": "3",
+      "range": "48\"",
+      "skill": "3+",
       "strength": "9"
     },
     {
+      "ability_keywords": [
+        "melta 2"
+      ],
       "armour_penetration": "-4",
       "attacks": "2",
       "damage": "D6",
       "is_melee": false,
       "line": 7,
       "name": "Multi-melta",
-      "range": "18",
-      "skill": "3",
+      "range": "18\"",
+      "skill": "3+",
       "strength": "9"
     },
     {
+      "ability_keywords": [
+        "rapid fire 2"
+      ],
       "armour_penetration": "0",
       "attacks": "2",
       "damage": "1",
       "is_melee": false,
       "line": 8,
       "name": "Storm bolter",
-      "range": "24",
-      "skill": "3",
+      "range": "24\"",
+      "skill": "3+",
       "strength": "4"
     },
     {
+      "ability_keywords": [
+        "twin-linked"
+      ],
       "armour_penetration": "-3",
       "attacks": "1",
       "damage": "D6+1",
-      "is_melee": false,
+      "is_melee": true,
       "line": 9,
       "name": "Twin lascannon",
-      "range": "48",
-      "skill": "3",
+      "skill": "3+",
       "strength": "12"
     },
     {
@@ -186,7 +279,7 @@
       "is_melee": true,
       "line": 10,
       "name": "Close combat weapon",
-      "skill": "3",
+      "skill": "3+",
       "strength": "6"
     },
     {
@@ -196,7 +289,7 @@
       "is_melee": true,
       "line": 11,
       "name": "Dreadnought combat weapon",
-      "skill": "3",
+      "skill": "3+",
       "strength": "12"
     }
   ]

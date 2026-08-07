@@ -1,8 +1,33 @@
 {
   "ability_keys": [
+    "core:leader",
     "datasheet:brokhyr-guild-support",
     "datasheet:forgewrought-expertise",
-    "datasheet:multispectral-visor"
+    "datasheet:multispectral-visor",
+    "faction:prioritised-efficiency"
+  ],
+  "composition": [
+    {
+      "line": 1,
+      "max_count": 1,
+      "min_count": 1,
+      "model_line": 1,
+      "model_name": "Brôkhyr Iron-master"
+    },
+    {
+      "line": 2,
+      "max_count": 1,
+      "min_count": 1,
+      "model_line": 2,
+      "model_name": "Ironkin Assistant"
+    },
+    {
+      "line": 3,
+      "max_count": 3,
+      "min_count": 3,
+      "model_line": 3,
+      "model_name": "E-COGs*"
+    }
   ],
   "costs": [
     {
@@ -11,7 +36,7 @@
       "model_count": 5,
       "points": 70,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
     }
   ],
   "datasheet_id": "ds-brokhyr-iron-master",
@@ -24,27 +49,32 @@
   "keywords": [
     {
       "is_faction_keyword": false,
-      "keyword": "Brôkhyr",
+      "keyword": "BRÔKHYR",
+      "keyword_class": "unit",
       "model_scope": "ALL MODELS"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Character",
+      "keyword": "CHARACTER",
+      "keyword_class": "unit",
       "model_scope": "BRÔKHYR IRON-MASTER MODEL"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Infantry",
+      "keyword": "INFANTRY",
+      "keyword_class": "unit",
       "model_scope": "ALL MODELS"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Iron-master",
+      "keyword": "IRON-MASTER",
+      "keyword_class": "unit",
       "model_scope": "BRÔKHYR IRON-MASTER MODEL"
     },
     {
       "is_faction_keyword": true,
-      "keyword": "Leagues of Votann"
+      "keyword": "LEAGUES OF VOTANN",
+      "keyword_class": "faction"
     }
   ],
   "leader_pairs": [
@@ -53,7 +83,7 @@
   ],
   "models": [
     {
-      "base_size": "32mm",
+      "base_size": "(⌀32mm)",
       "leadership": "7+",
       "line": 1,
       "movement": "5\"",
@@ -64,7 +94,7 @@
       "wounds": 4
     },
     {
-      "base_size": "28.5mm",
+      "base_size": "(⌀28.5mm)",
       "leadership": "7+",
       "line": 2,
       "movement": "5\"",
@@ -75,7 +105,7 @@
       "wounds": 1
     },
     {
-      "base_size": "25mm",
+      "base_size": "(⌀25mm)",
       "leadership": "7+",
       "line": 3,
       "movement": "5\"",
@@ -90,19 +120,19 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:135af19730b4f1049b172ba9c4fc20427ebc21087b72485d997072c24d028db0",
-    "last_verified_version": "mfm-2026-08",
+    "last_verified_version": "wh40k-11e-2026-08",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-    "detail_edition_code": "wh40k-10e",
+    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
-    "is_hybrid_edition": true,
-    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "is_hybrid_edition": false,
+    "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
-  "role": "Characters",
+  "wargear_option_state": "none",
   "weapons": [
     {
       "armour_penetration": "0",
@@ -111,30 +141,33 @@
       "is_melee": false,
       "line": 1,
       "name": "Autoch-pattern bolt pistol",
-      "range": "12",
-      "skill": "3",
+      "range": "12\"",
+      "skill": "3+",
       "strength": "4"
     },
     {
+      "ability_keywords": [
+        "anti-monster 3+",
+        "anti-vehicle 3+"
+      ],
       "armour_penetration": "-1",
       "attacks": "3",
       "damage": "3",
       "is_melee": false,
       "line": 2,
       "name": "Graviton rifle",
-      "range": "18",
-      "skill": "3",
+      "range": "18\"",
+      "skill": "3+",
       "strength": "5"
     },
     {
       "armour_penetration": "-3",
       "attacks": "1",
       "damage": "1",
-      "is_melee": false,
+      "is_melee": true,
       "line": 3,
       "name": "Las-beam cutter",
-      "range": "6",
-      "skill": "4",
+      "skill": "4+",
       "strength": "6"
     },
     {
@@ -144,17 +177,21 @@
       "is_melee": true,
       "line": 4,
       "name": "Close combat weapon",
-      "skill": "4",
+      "skill": "4+",
       "strength": "3"
     },
     {
+      "ability_keywords": [
+        "anti-monster 3+",
+        "anti-vehicle 3+"
+      ],
       "armour_penetration": "-1",
       "attacks": "3",
       "damage": "3",
       "is_melee": true,
       "line": 5,
       "name": "Graviton hammer",
-      "skill": "4",
+      "skill": "4+",
       "strength": "9"
     },
     {
@@ -164,7 +201,7 @@
       "is_melee": true,
       "line": 6,
       "name": "Manipulator arms",
-      "skill": "4",
+      "skill": "4+",
       "strength": "3"
     },
     {
@@ -174,7 +211,7 @@
       "is_melee": true,
       "line": 7,
       "name": "Plasma torch",
-      "skill": "4",
+      "skill": "4+",
       "strength": "6"
     }
   ]

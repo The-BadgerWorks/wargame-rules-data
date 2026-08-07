@@ -1,7 +1,17 @@
 {
   "ability_keys": [
+    "core:deadly-demise-d6-2",
+    "core:hover",
     "datasheet:aerial-assault",
     "datasheet:thunderhawk-cluster-bombs"
+  ],
+  "composition": [
+    {
+      "line": 1,
+      "max_count": 1,
+      "min_count": 1,
+      "model_name": "Chaos Thunderhawk"
+    }
   ],
   "costs": [
     {
@@ -10,9 +20,10 @@
       "model_count": 1,
       "points": 840,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1"
+      "source_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9"
     }
   ],
+  "damaged_threshold": 10,
   "datasheet_id": "ds-chaos-thunderhawk-3",
   "faction_id": "f-thousand-sons",
   "is_battleline": false,
@@ -23,63 +34,174 @@
   "keywords": [
     {
       "is_faction_keyword": false,
-      "keyword": "Aircraft"
+      "keyword": "AIRCRAFT",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Chaos"
+      "keyword": "CHAOS",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Fly"
+      "keyword": "FLY",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "FRAME",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": true,
-      "keyword": "Thousand Sons"
+      "keyword": "THOUSAND SONS",
+      "keyword_class": "faction"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Thunderhawk"
+      "keyword": "THUNDERHAWK",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Titanic"
+      "keyword": "TITANIC",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Transport"
+      "keyword": "TRANSPORT",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Vehicle"
-    }
-  ],
-  "models": [
-    {
-      "base_size": "120 x 92mm flying base",
-      "leadership": "6+",
-      "line": 1,
-      "movement": "20+\"",
-      "name": "Chaos Thunderhawk",
-      "objective_control": 0,
-      "save": "2+",
-      "toughness": 12,
-      "wounds": 30
+      "keyword": "VEHICLE",
+      "keyword_class": "unit"
     }
   ],
   "name": "Chaos Thunderhawk",
+  "option_choices": [
+    {
+      "count": 1,
+      "group_id": "og-chaos-thunderhawk-3-1",
+      "id": "oc-chaos-thunderhawk-3-1-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "turbo-laser destructor",
+      "replaces_weapon_line": 4
+    },
+    {
+      "count": 1,
+      "group_id": "og-chaos-thunderhawk-3-2",
+      "id": "oc-chaos-thunderhawk-3-2-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "hellstrike missile battery",
+      "replaces_weapon_line": 1
+    }
+  ],
+  "option_groups": [
+    {
+      "id": "og-chaos-thunderhawk-3-1",
+      "line": 1,
+      "scope": "model"
+    },
+    {
+      "id": "og-chaos-thunderhawk-3-2",
+      "line": 2,
+      "scope": "model"
+    }
+  ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 1,
+    "consecutive_unverified_releases": 2,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-    "detail_edition_code": "wh40k-10e",
+    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
-    "is_hybrid_edition": true,
+    "is_hybrid_edition": false,
     "points_edition_code": "wh40k-11e",
     "points_source": "none"
   },
-  "role": "Other"
+  "wargear_option_state": "extracted",
+  "weapons": [
+    {
+      "ability_keywords": [
+        "anti-fly 4+"
+      ],
+      "armour_penetration": "-2",
+      "attacks": "4",
+      "damage": "3",
+      "is_melee": false,
+      "line": 1,
+      "name": "Hellstrike missile battery",
+      "range": "72\"",
+      "skill": "3+",
+      "strength": "8"
+    },
+    {
+      "armour_penetration": "-3",
+      "attacks": "1",
+      "damage": "D6+1",
+      "is_melee": false,
+      "line": 2,
+      "name": "Lascannon",
+      "range": "48\"",
+      "skill": "3+",
+      "strength": "12"
+    },
+    {
+      "ability_keywords": [
+        "blast"
+      ],
+      "armour_penetration": "-2",
+      "attacks": "D6+6",
+      "damage": "3",
+      "is_melee": false,
+      "line": 3,
+      "name": "Thunderhawk heavy cannon",
+      "range": "48\"",
+      "skill": "3+",
+      "strength": "10"
+    },
+    {
+      "ability_keywords": [
+        "blast"
+      ],
+      "armour_penetration": "-4",
+      "attacks": "D3+1",
+      "damage": "D6+6",
+      "is_melee": false,
+      "line": 4,
+      "name": "Turbo-laser destructor",
+      "range": "96\"",
+      "skill": "3+",
+      "strength": "20"
+    },
+    {
+      "ability_keywords": [
+        "sustained hits 1",
+        "twin-linked"
+      ],
+      "armour_penetration": "-1",
+      "attacks": "3",
+      "damage": "2",
+      "is_melee": true,
+      "line": 5,
+      "name": "Twin heavy bolter",
+      "skill": "3+",
+      "strength": "5"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "6",
+      "damage": "1",
+      "is_melee": true,
+      "line": 6,
+      "name": "Armoured hull",
+      "skill": "4+",
+      "strength": "8"
+    }
+  ]
 }

@@ -1,4 +1,18 @@
 {
+  "ability_keys": [
+    "core:support",
+    "datasheet:waaagh-banner",
+    "faction:waaagh"
+  ],
+  "composition": [
+    {
+      "line": 1,
+      "max_count": 1,
+      "min_count": 1,
+      "model_line": 1,
+      "model_name": "Bannernob"
+    }
+  ],
   "costs": [
     {
       "copy_index_min": 1,
@@ -6,29 +20,92 @@
       "model_count": 1,
       "points": 50,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
     }
   ],
   "datasheet_id": "ds-bannernob",
   "faction_id": "f-orks",
   "is_battleline": false,
-  "is_character": false,
+  "is_character": true,
   "is_dedicated_transport": false,
   "is_epic_hero": false,
   "is_legends": false,
+  "keywords": [
+    {
+      "is_faction_keyword": false,
+      "keyword": "BANNERNOB",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHARACTER",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "INFANTRY",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": true,
+      "keyword": "ORKS",
+      "keyword_class": "faction"
+    }
+  ],
+  "models": [
+    {
+      "base_size": "(⌀40mm)",
+      "invuln_save": "5+",
+      "leadership": "7+",
+      "line": 1,
+      "movement": "6\"",
+      "name": "Bannernob",
+      "objective_control": 6,
+      "save": "4+",
+      "toughness": 5,
+      "wounds": 4
+    }
+  ],
   "name": "BANNERNOB",
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:41ee28077335a9ecd53c7de158fe69ee1bf1ea864a90f2699f703e77968dd7fd",
-    "last_verified_version": "mfm-2026-08",
+    "last_verified_version": "wh40k-11e-2026-08",
     "state": "verified"
   },
   "provenance": {
+    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
     "detail_edition_code": "wh40k-11e",
-    "detail_source": "none",
+    "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
-  }
+  },
+  "wargear_option_state": "none",
+  "weapons": [
+    {
+      "ability_keywords": [
+        "Rapid Fire 1"
+      ],
+      "armour_penetration": "0",
+      "attacks": "2",
+      "damage": "1",
+      "is_melee": true,
+      "line": 1,
+      "name": "Shoota",
+      "skill": "5+",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "-1",
+      "attacks": "5",
+      "damage": "1",
+      "is_melee": true,
+      "line": 2,
+      "name": "Choppa",
+      "skill": "3+",
+      "strength": "4"
+    }
+  ]
 }

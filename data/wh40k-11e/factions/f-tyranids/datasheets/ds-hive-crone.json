@@ -1,6 +1,16 @@
 {
   "ability_keys": [
-    "datasheet:airborne-predator"
+    "core:deadly-demise-d3",
+    "datasheet:airborne-predator",
+    "faction:synapse"
+  ],
+  "composition": [
+    {
+      "line": 1,
+      "max_count": 1,
+      "min_count": 1,
+      "model_name": "Hive Crone"
+    }
   ],
   "costs": [
     {
@@ -9,7 +19,7 @@
       "model_count": 1,
       "points": 170,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
     }
   ],
   "damaged_threshold": 4,
@@ -23,72 +33,69 @@
   "keywords": [
     {
       "is_faction_keyword": false,
-      "keyword": "Aircraft"
+      "keyword": "AIRCRAFT",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Fly"
+      "keyword": "FLY",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Great Devourer"
+      "keyword": "GREAT DEVOURER",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Hive Crone"
+      "keyword": "HIVE CRONE",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Monster"
+      "keyword": "MONSTER",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": true,
-      "keyword": "Tyranids"
+      "keyword": "TYRANIDS",
+      "keyword_class": "faction"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Vanguard Invader"
-    }
-  ],
-  "models": [
-    {
-      "base_size": "120 x 92mm flying base",
-      "leadership": "8+",
-      "line": 1,
-      "movement": "20+\"",
-      "name": "Hive Crone",
-      "objective_control": 0,
-      "save": "3+",
-      "toughness": 9,
-      "wounds": 12
+      "keyword": "VANGUARD INVADER",
+      "keyword_class": "unit"
     }
   ],
   "name": "HIVE CRONE",
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:279a8cc4bd646e9b2380858c3231c48ee8aef295ed0d4d28e047c1987cb564e1",
-    "last_verified_version": "mfm-2026-08",
+    "last_verified_version": "wh40k-11e-2026-08",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-    "detail_edition_code": "wh40k-10e",
+    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
-    "is_hybrid_edition": true,
-    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "is_hybrid_edition": false,
+    "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
-  "role": "Other",
+  "wargear_option_state": "none",
   "weapons": [
     {
+      "ability_keywords": [
+        "torrent"
+      ],
       "armour_penetration": "-1",
       "attacks": "2D6",
       "damage": "1",
       "is_melee": false,
       "line": 1,
       "name": "Drool cannon",
-      "range": "12",
+      "range": "12\"",
       "skill": "N/A",
       "strength": "6"
     },
@@ -99,19 +106,22 @@
       "is_melee": false,
       "line": 2,
       "name": "Stinger salvoes",
-      "range": "24",
-      "skill": "3",
+      "range": "24\"",
+      "skill": "3+",
       "strength": "5"
     },
     {
+      "ability_keywords": [
+        "anti-vehicle 4+",
+        "devastating wounds"
+      ],
       "armour_penetration": "0",
       "attacks": "4",
       "damage": "2",
-      "is_melee": false,
+      "is_melee": true,
       "line": 3,
       "name": "Tentaclids",
-      "range": "36",
-      "skill": "3",
+      "skill": "3+",
       "strength": "7"
     },
     {
@@ -121,17 +131,21 @@
       "is_melee": true,
       "line": 4,
       "name": "Scything wings",
-      "skill": "4",
+      "skill": "4+",
       "strength": "7"
     },
     {
+      "ability_keywords": [
+        "anti-fly 2+",
+        "extra attacks"
+      ],
       "armour_penetration": "-3",
       "attacks": "1",
       "damage": "D6",
       "is_melee": true,
       "line": 5,
       "name": "Thorax spur",
-      "skill": "3",
+      "skill": "3+",
       "strength": "10"
     }
   ]

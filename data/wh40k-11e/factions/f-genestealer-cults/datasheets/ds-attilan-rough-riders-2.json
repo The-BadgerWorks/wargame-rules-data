@@ -2,6 +2,20 @@
   "ability_keys": [
     "datasheet:horsemasters"
   ],
+  "composition": [
+    {
+      "line": 1,
+      "max_count": 1,
+      "min_count": 1,
+      "model_name": "Rough Rider Sergeant"
+    },
+    {
+      "line": 2,
+      "max_count": 9,
+      "min_count": 4,
+      "model_name": "Rough Riders"
+    }
+  ],
   "costs": [
     {
       "copy_index_min": 1,
@@ -9,7 +23,7 @@
       "model_count": 5,
       "points": 60,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1"
+      "source_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9"
     },
     {
       "copy_index_min": 1,
@@ -17,7 +31,7 @@
       "model_count": 10,
       "points": 120,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1"
+      "source_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9"
     }
   ],
   "datasheet_id": "ds-attilan-rough-riders-2",
@@ -30,36 +44,38 @@
   "keywords": [
     {
       "is_faction_keyword": true,
-      "keyword": "Astra Militarum"
+      "keyword": "ASTRA MILITARUM",
+      "keyword_class": "faction"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Attilan Rough Riders"
-    },
-    {
-      "is_faction_keyword": true,
-      "keyword": "Genestealer Cults"
+      "keyword": "ATTILAN ROUGH RIDERS",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Grenades"
+      "keyword": "GRENADES",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Imperium"
+      "keyword": "IMPERIUM",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Mounted"
+      "keyword": "MOUNTED",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Regiment"
+      "keyword": "REGIMENT",
+      "keyword_class": "unit"
     }
   ],
   "models": [
     {
-      "base_size": "60 x 35.5mm",
+      "base_size": "(⌀60 x 35.5mm)",
       "leadership": "7+",
       "line": 1,
       "movement": "12\"",
@@ -71,18 +87,142 @@
     }
   ],
   "name": "Attilan Rough Riders",
+  "option_choices": [
+    {
+      "count": 1,
+      "group_id": "og-attilan-rough-riders-2-1",
+      "id": "oc-attilan-rough-riders-2-1-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "goad lance",
+      "replaces_weapon_line": 3
+    },
+    {
+      "count": 1,
+      "grants_weapon_line": 6,
+      "group_id": "og-attilan-rough-riders-2-2",
+      "id": "oc-attilan-rough-riders-2-2-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "power sabre"
+    }
+  ],
+  "option_groups": [
+    {
+      "id": "og-attilan-rough-riders-2-1",
+      "line": 1,
+      "scope": "per_n_models",
+      "scope_n": 5
+    },
+    {
+      "id": "og-attilan-rough-riders-2-2",
+      "line": 2,
+      "scope": "unit"
+    }
+  ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 1,
+    "consecutive_unverified_releases": 2,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-    "detail_edition_code": "wh40k-10e",
+    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
-    "is_hybrid_edition": true,
+    "is_hybrid_edition": false,
     "points_edition_code": "wh40k-11e",
     "points_source": "none"
   },
-  "role": "Other"
+  "wargear_option_state": "extracted",
+  "weapons": [
+    {
+      "ability_keywords": [
+        "rapid fire 1"
+      ],
+      "armour_penetration": "0",
+      "attacks": "1",
+      "damage": "1",
+      "is_melee": false,
+      "line": 1,
+      "name": "Lasgun",
+      "range": "24\"",
+      "skill": "4+",
+      "strength": "3"
+    },
+    {
+      "ability_keywords": [
+        "pistol"
+      ],
+      "armour_penetration": "0",
+      "attacks": "1",
+      "damage": "1",
+      "is_melee": true,
+      "line": 2,
+      "name": "Laspistol",
+      "skill": "4+",
+      "strength": "3"
+    },
+    {
+      "ability_keywords": [
+        "lance"
+      ],
+      "armour_penetration": "-2",
+      "attacks": "2",
+      "damage": "2",
+      "is_melee": true,
+      "line": 3,
+      "name": "Goad lance",
+      "skill": "3+",
+      "strength": "6"
+    },
+    {
+      "ability_keywords": [
+        "lance"
+      ],
+      "armour_penetration": "0",
+      "attacks": "D6",
+      "damage": "1",
+      "is_melee": true,
+      "line": 4,
+      "name": "Hunting lance – frag tip",
+      "skill": "3+",
+      "strength": "4"
+    },
+    {
+      "ability_keywords": [
+        "lance"
+      ],
+      "armour_penetration": "-4",
+      "attacks": "1",
+      "damage": "D6",
+      "is_melee": true,
+      "line": 5,
+      "name": "Hunting lance – melta tip",
+      "skill": "3+",
+      "strength": "9"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "4",
+      "damage": "1",
+      "is_melee": true,
+      "line": 6,
+      "name": "Power sabre",
+      "skill": "3+",
+      "strength": "4"
+    },
+    {
+      "ability_keywords": [
+        "extra attacks"
+      ],
+      "armour_penetration": "0",
+      "attacks": "2",
+      "damage": "1",
+      "is_melee": true,
+      "line": 7,
+      "name": "Steed’s hooves",
+      "skill": "4+",
+      "strength": "4"
+    }
+  ]
 }

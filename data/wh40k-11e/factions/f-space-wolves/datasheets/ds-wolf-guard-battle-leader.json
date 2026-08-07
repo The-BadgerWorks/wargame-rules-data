@@ -1,8 +1,19 @@
 {
   "ability_keys": [
+    "core:leader",
     "datasheet:heroic-last-stand",
     "datasheet:storm-shield",
-    "datasheet:tempered-ferocity"
+    "datasheet:tempered-ferocity",
+    "faction:oath-of-moment"
+  ],
+  "composition": [
+    {
+      "line": 1,
+      "max_count": 1,
+      "min_count": 1,
+      "model_line": 1,
+      "model_name": "Wolf Guard Battle Leader"
+    }
   ],
   "costs": [
     {
@@ -11,7 +22,7 @@
       "model_count": 1,
       "points": 65,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
     }
   ],
   "datasheet_id": "ds-wolf-guard-battle-leader",
@@ -24,35 +35,42 @@
   "keywords": [
     {
       "is_faction_keyword": true,
-      "keyword": "Adeptus Astartes"
+      "keyword": "ADEPTUS ASTARTES"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Battle Leader"
+      "keyword": "BATTLE LEADER",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Character"
+      "keyword": "CHARACTER",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Imperium"
+      "keyword": "IMPERIUM",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Infantry"
+      "keyword": "INFANTRY",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": true,
-      "keyword": "Space Wolves"
+      "keyword": "SPACE WOLVES",
+      "keyword_class": "chapter"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Tacticus"
+      "keyword": "TACTICUS",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Wolf Guard"
+      "keyword": "WOLF GUARD",
+      "keyword_class": "unit"
     }
   ],
   "leader_pairs": [
@@ -62,8 +80,8 @@
   ],
   "models": [
     {
-      "base_size": "40mm",
-      "invuln_save": "4",
+      "base_size": "(⌀40mm)",
+      "invuln_save": "4+",
       "leadership": "6+",
       "line": 1,
       "movement": "7\"",
@@ -75,22 +93,71 @@
     }
   ],
   "name": "WOLF GUARD BATTLE LEADER",
+  "option_choices": [
+    {
+      "count": 1,
+      "group_id": "og-wolf-guard-battle-leader-1",
+      "id": "oc-wolf-guard-battle-leader-1-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "thunder hammer",
+      "replaces_weapon_line": 6
+    },
+    {
+      "count": 1,
+      "group_id": "og-wolf-guard-battle-leader-2",
+      "id": "oc-wolf-guard-battle-leader-2-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "master-crafted bolt carbine",
+      "replaces_weapon_line": 1
+    },
+    {
+      "count": 1,
+      "group_id": "og-wolf-guard-battle-leader-2",
+      "id": "oc-wolf-guard-battle-leader-2-2",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "master-crafted heavy bolt pistol",
+      "replaces_weapon_line": 2
+    },
+    {
+      "count": 1,
+      "group_id": "og-wolf-guard-battle-leader-2",
+      "id": "oc-wolf-guard-battle-leader-2-3",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "plasma pistol"
+    }
+  ],
+  "option_groups": [
+    {
+      "id": "og-wolf-guard-battle-leader-1",
+      "line": 1,
+      "scope": "model"
+    },
+    {
+      "id": "og-wolf-guard-battle-leader-2",
+      "line": 2,
+      "scope": "model"
+    }
+  ],
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:bfdd82562214edaaf8e411cd492d5fde983b9a4d02a86f0f9a51aef986f2be9c",
-    "last_verified_version": "mfm-2026-08",
+    "last_verified_version": "wh40k-11e-2026-08",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-    "detail_edition_code": "wh40k-10e",
+    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
-    "is_hybrid_edition": true,
-    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "is_hybrid_edition": false,
+    "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
-  "role": "Characters",
+  "wargear_option_state": "extracted",
   "weapons": [
     {
       "armour_penetration": "0",
@@ -99,41 +166,49 @@
       "is_melee": false,
       "line": 1,
       "name": "Master-crafted bolt carbine",
-      "range": "24",
-      "skill": "3",
+      "range": "24\"",
+      "skill": "3+",
       "strength": "4"
     },
     {
+      "ability_keywords": [
+        "pistol"
+      ],
       "armour_penetration": "-1",
       "attacks": "1",
       "damage": "2",
       "is_melee": false,
       "line": 2,
       "name": "Master-crafted heavy bolt pistol",
-      "range": "18",
-      "skill": "3",
+      "range": "18\"",
+      "skill": "3+",
       "strength": "4"
     },
     {
+      "ability_keywords": [
+        "pistol"
+      ],
       "armour_penetration": "-2",
       "attacks": "1",
       "damage": "1",
-      "is_melee": false,
+      "is_melee": true,
       "line": 3,
       "name": "Plasma pistol – standard",
-      "range": "12",
-      "skill": "3",
+      "skill": "3+",
       "strength": "7"
     },
     {
+      "ability_keywords": [
+        "hazardous",
+        "pistol"
+      ],
       "armour_penetration": "-3",
       "attacks": "1",
       "damage": "2",
-      "is_melee": false,
+      "is_melee": true,
       "line": 4,
       "name": "Plasma pistol – supercharge",
-      "range": "12",
-      "skill": "3",
+      "skill": "3+",
       "strength": "8"
     },
     {
@@ -143,17 +218,20 @@
       "is_melee": true,
       "line": 5,
       "name": "Master-crafted power weapon",
-      "skill": "2",
+      "skill": "2+",
       "strength": "5"
     },
     {
+      "ability_keywords": [
+        "devastating wounds"
+      ],
       "armour_penetration": "-2",
       "attacks": "5",
       "damage": "2",
       "is_melee": true,
       "line": 6,
       "name": "Thunder hammer",
-      "skill": "3",
+      "skill": "3+",
       "strength": "8"
     }
   ]

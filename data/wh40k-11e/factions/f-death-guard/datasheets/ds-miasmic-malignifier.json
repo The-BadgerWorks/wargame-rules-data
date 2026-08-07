@@ -1,9 +1,19 @@
 {
   "ability_keys": [
-    "datasheet:deployment",
+    "core:deadly-demise-d3",
     "datasheet:diseased-cover",
     "datasheet:fortification",
-    "datasheet:putrescent-fog-aura"
+    "datasheet:putrescent-fog-aura",
+    "faction:nurgles-gift-aura"
+  ],
+  "composition": [
+    {
+      "line": 1,
+      "max_count": 1,
+      "min_count": 1,
+      "model_line": 1,
+      "model_name": "Miasmic Malignifier"
+    }
   ],
   "costs": [
     {
@@ -12,7 +22,7 @@
       "model_count": 1,
       "points": 105,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
     }
   ],
   "datasheet_id": "ds-miasmic-malignifier",
@@ -25,28 +35,38 @@
   "keywords": [
     {
       "is_faction_keyword": false,
-      "keyword": "Chaos"
+      "keyword": "CHAOS",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": true,
-      "keyword": "Death Guard"
+      "keyword": "DEATH GUARD",
+      "keyword_class": "faction"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Fortification"
+      "keyword": "FORTIFICATION",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Miasmic Malignifier"
+      "keyword": "FRAME",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Nurgle"
+      "keyword": "MIASMIC MALIGNIFIER",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "NURGLE",
+      "keyword_class": "unit"
     }
   ],
   "models": [
     {
-      "base_size": "Use model",
+      "base_size": "(⌀Use model)",
       "leadership": "6+",
       "line": 1,
       "movement": "-",
@@ -61,28 +81,32 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:8641e4b4146f71a53c7a3bbead41a9c1af813ce55f494ba90c3ba05208ad8aae",
-    "last_verified_version": "mfm-2026-08",
+    "last_verified_version": "wh40k-11e-2026-08",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-    "detail_edition_code": "wh40k-10e",
+    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
-    "is_hybrid_edition": true,
-    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "is_hybrid_edition": false,
+    "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
-  "role": "Fortifications",
+  "wargear_option_state": "none",
   "weapons": [
     {
+      "ability_keywords": [
+        "ignores cover",
+        "torrent"
+      ],
       "armour_penetration": "0",
       "attacks": "2D6",
       "damage": "1",
       "is_melee": false,
       "line": 1,
       "name": "Miasmic gouts",
-      "range": "9",
+      "range": "9\"",
       "skill": "N/A",
       "strength": "3"
     }

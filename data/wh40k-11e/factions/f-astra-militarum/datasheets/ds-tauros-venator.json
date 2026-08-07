@@ -1,7 +1,16 @@
 {
   "ability_keys": [
-    "datasheet:mobile-hunter-killer",
-    "datasheet:one-shot"
+    "core:deadly-demise-1",
+    "datasheet:mobile-hunter-killer"
+  ],
+  "composition": [
+    {
+      "line": 1,
+      "max_count": 1,
+      "min_count": 1,
+      "model_line": 1,
+      "model_name": "Tauros Venator"
+    }
   ],
   "costs": [
     {
@@ -10,7 +19,7 @@
       "model_count": 1,
       "points": 50,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1"
+      "source_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9"
     }
   ],
   "datasheet_id": "ds-tauros-venator",
@@ -23,32 +32,43 @@
   "keywords": [
     {
       "is_faction_keyword": true,
-      "keyword": "Astra Militarum"
+      "keyword": "ASTRA MILITARUM",
+      "keyword_class": "faction"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Imperium"
+      "keyword": "FRAME",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Mounted"
+      "keyword": "IMPERIUM",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Regiment"
+      "keyword": "MOUNTED",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Tauros"
+      "keyword": "REGIMENT",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Tauros Venator"
+      "keyword": "TAUROS",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "TAUROS VENATOR",
+      "keyword_class": "unit"
     }
   ],
   "models": [
     {
-      "base_size": "Use model",
+      "base_size": "(⌀Use model)",
       "leadership": "7+",
       "line": 1,
       "movement": "12\"",
@@ -60,52 +80,92 @@
     }
   ],
   "name": "Tauros Venator",
+  "option_choices": [
+    {
+      "count": 1,
+      "group_id": "og-tauros-venator-1",
+      "id": "oc-tauros-venator-1-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "twin lascannon",
+      "replaces_weapon_line": 2
+    },
+    {
+      "count": 1,
+      "grants_weapon_line": 1,
+      "group_id": "og-tauros-venator-2",
+      "id": "oc-tauros-venator-2-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "hunter-killer missile"
+    }
+  ],
+  "option_groups": [
+    {
+      "id": "og-tauros-venator-1",
+      "line": 1,
+      "scope": "model"
+    },
+    {
+      "id": "og-tauros-venator-2",
+      "line": 2,
+      "scope": "model"
+    }
+  ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 1,
+    "consecutive_unverified_releases": 2,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-    "detail_edition_code": "wh40k-10e",
+    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
-    "is_hybrid_edition": true,
+    "is_hybrid_edition": false,
     "points_edition_code": "wh40k-11e",
     "points_source": "none"
   },
-  "role": "Other",
+  "wargear_option_state": "extracted",
   "weapons": [
     {
+      "ability_keywords": [
+        "one shot"
+      ],
       "armour_penetration": "-3",
       "attacks": "1",
       "damage": "D6",
       "is_melee": false,
       "line": 1,
       "name": "Hunter-killer missile",
-      "range": "48",
-      "skill": "4",
+      "range": "48\"",
+      "skill": "4+",
       "strength": "14"
     },
     {
+      "ability_keywords": [
+        "twin-linked"
+      ],
       "armour_penetration": "-3",
       "attacks": "1",
       "damage": "D6+1",
       "is_melee": false,
       "line": 2,
       "name": "Twin lascannon",
-      "range": "48",
-      "skill": "4",
+      "range": "48\"",
+      "skill": "4+",
       "strength": "12"
     },
     {
+      "ability_keywords": [
+        "twin-linked"
+      ],
       "armour_penetration": "0",
       "attacks": "4",
       "damage": "1",
-      "is_melee": false,
+      "is_melee": true,
       "line": 3,
       "name": "Twin multi-laser",
-      "range": "36",
-      "skill": "4",
+      "skill": "4+",
       "strength": "6"
     },
     {
@@ -115,7 +175,7 @@
       "is_melee": true,
       "line": 4,
       "name": "Armoured frame",
-      "skill": "4",
+      "skill": "4+",
       "strength": "5"
     }
   ]

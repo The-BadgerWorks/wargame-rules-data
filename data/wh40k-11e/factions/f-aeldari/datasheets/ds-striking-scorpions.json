@@ -1,7 +1,26 @@
 {
   "ability_keys": [
+    "core:infiltrators",
+    "core:scouts-7",
+    "core:stealth",
     "datasheet:aspect-shrine-token",
-    "datasheet:mandiblasters"
+    "datasheet:mandiblasters",
+    "faction:battle-focus"
+  ],
+  "composition": [
+    {
+      "line": 1,
+      "max_count": 1,
+      "min_count": 1,
+      "model_name": "Striking Scorpion Exarch"
+    },
+    {
+      "line": 2,
+      "max_count": 9,
+      "min_count": 4,
+      "model_line": 1,
+      "model_name": "Striking Scorpions"
+    }
   ],
   "costs": [
     {
@@ -10,7 +29,7 @@
       "model_count": 5,
       "points": 75,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
     },
     {
       "copy_index_min": 1,
@@ -18,7 +37,7 @@
       "model_count": 10,
       "points": 145,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260804T174919Z-b42f4645"
+      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
     }
   ],
   "datasheet_id": "ds-striking-scorpions",
@@ -31,29 +50,33 @@
   "keywords": [
     {
       "is_faction_keyword": false,
-      "keyword": "Aeldari"
+      "keyword": "AELDARI",
+      "keyword_class": "faction"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Aspect Warriors"
+      "keyword": "ASPECT WARRIORS",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": true,
-      "keyword": "Asuryani"
+      "keyword": "ASURYANI"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Infantry"
+      "keyword": "INFANTRY",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Striking Scorpions"
+      "keyword": "STRIKING SCORPIONS",
+      "keyword_class": "unit"
     }
   ],
   "models": [
     {
-      "base_size": "28.5mm",
-      "invuln_save": "5",
+      "base_size": "(⌀28.5mm)",
+      "invuln_save": "5+",
       "leadership": "6+",
       "line": 1,
       "movement": "7\"",
@@ -64,8 +87,8 @@
       "wounds": 1
     },
     {
-      "base_size": "28.5mm",
-      "invuln_save": "5",
+      "base_size": "(⌀28.5mm)",
+      "invuln_save": "5+",
       "leadership": "6+",
       "line": 2,
       "movement": "7\"",
@@ -77,73 +100,116 @@
     }
   ],
   "name": "STRIKING SCORPIONS",
+  "option_choices": [
+    {
+      "count": 1,
+      "group_id": "og-striking-scorpions-1",
+      "id": "oc-striking-scorpions-1-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "biting blade and 1 shuriken pistol"
+    },
+    {
+      "count": 1,
+      "group_id": "og-striking-scorpions-1",
+      "id": "oc-striking-scorpions-1-2",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "chainsabres"
+    }
+  ],
+  "option_groups": [
+    {
+      "id": "og-striking-scorpions-1",
+      "line": 1,
+      "scope": "unit"
+    }
+  ],
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:05aa9964ad85b930bdd30d32ed0f51a57b20a568f1c6372a1bfba6db3eaf6ba9",
-    "last_verified_version": "mfm-2026-08",
+    "last_verified_version": "wh40k-11e-2026-08",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-    "detail_edition_code": "wh40k-10e",
+    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
-    "is_hybrid_edition": true,
-    "points_acquisition_id": "mfm-20260804T174919Z-b42f4645",
+    "is_hybrid_edition": false,
+    "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
-  "role": "Other",
+  "wargear_option_state": "partial",
   "weapons": [
     {
+      "ability_keywords": [
+        "assault",
+        "pistol",
+        "twin-linked"
+      ],
       "armour_penetration": "-1",
       "attacks": "1",
       "damage": "1",
       "is_melee": false,
       "line": 1,
       "name": "Chainsabres",
-      "range": "12",
-      "skill": "3",
+      "range": "12\"",
+      "skill": "3+",
       "strength": "4"
     },
     {
+      "ability_keywords": [
+        "assault",
+        "pistol"
+      ],
       "armour_penetration": "-1",
       "attacks": "1",
       "damage": "1",
-      "is_melee": false,
+      "is_melee": true,
       "line": 2,
       "name": "Shuriken pistol",
-      "range": "12",
-      "skill": "3",
+      "skill": "3+",
       "strength": "4"
     },
     {
+      "ability_keywords": [
+        "sustained hits 1"
+      ],
       "armour_penetration": "-3",
       "attacks": "4",
       "damage": "1",
       "is_melee": true,
       "line": 3,
       "name": "Biting blade",
-      "skill": "3",
+      "skill": "3+",
       "strength": "6"
     },
     {
+      "ability_keywords": [
+        "sustained hits 1",
+        "twin-linked"
+      ],
       "armour_penetration": "-1",
       "attacks": "5",
       "damage": "1",
       "is_melee": true,
       "line": 4,
       "name": "Chainsabres",
-      "skill": "3",
+      "skill": "3+",
       "strength": "4"
     },
     {
+      "ability_keywords": [
+        "sustained hits 1"
+      ],
       "armour_penetration": "-1",
       "attacks": "4",
       "damage": "1",
       "is_melee": true,
       "line": 5,
       "name": "Scorpion chainsword",
-      "skill": "3",
+      "skill": "3+",
       "strength": "4"
     },
     {
@@ -153,7 +219,7 @@
       "is_melee": true,
       "line": 6,
       "name": "Scorpion’s claw",
-      "skill": "3",
+      "skill": "3+",
       "strength": "8"
     }
   ]

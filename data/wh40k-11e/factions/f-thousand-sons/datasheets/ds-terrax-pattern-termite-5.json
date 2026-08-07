@@ -1,6 +1,17 @@
 {
   "ability_keys": [
+    "core:deadly-demise-d3",
+    "core:deep-strike",
     "datasheet:termite-assault"
+  ],
+  "composition": [
+    {
+      "line": 1,
+      "max_count": 1,
+      "min_count": 1,
+      "model_line": 1,
+      "model_name": "Terrax-pattern Termite"
+    }
   ],
   "costs": [
     {
@@ -9,9 +20,10 @@
       "model_count": 1,
       "points": 200,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1"
+      "source_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9"
     }
   ],
+  "damaged_threshold": 5,
   "datasheet_id": "ds-terrax-pattern-termite-5",
   "faction_id": "f-thousand-sons",
   "is_battleline": false,
@@ -22,132 +34,43 @@
   "keywords": [
     {
       "is_faction_keyword": false,
-      "keyword": "Chaos"
+      "keyword": "CHAOS",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Chaos"
+      "keyword": "DEDICATED TRANSPORT",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Chaos"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Chaos"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Chaos"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Dedicated Transport"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Dedicated Transport"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Dedicated Transport"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Dedicated Transport"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Dedicated Transport"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Terrax-pattern Termite"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Terrax-pattern Termite"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Terrax-pattern Termite"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Terrax-pattern Termite"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Terrax-pattern Termite"
+      "keyword": "TERRAX-PATTERN TERMITE",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": true,
-      "keyword": "Thousand Sons"
+      "keyword": "THOUSAND SONS",
+      "keyword_class": "faction"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Transport"
+      "keyword": "TRANSPORT",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Transport"
+      "keyword": "TZEENTCH",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "Transport"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Transport"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Transport"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Tzeentch"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Tzeentch"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Tzeentch"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Tzeentch"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Tzeentch"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Vehicle"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Vehicle"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Vehicle"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Vehicle"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "Vehicle"
+      "keyword": "VEHICLE",
+      "keyword_class": "unit"
     }
   ],
   "models": [
     {
-      "base_size": "Use model",
+      "base_size": "(⌀Use model)",
       "leadership": "6+",
       "line": 1,
       "movement": "8\"",
@@ -159,18 +82,115 @@
     }
   ],
   "name": "Terrax-pattern Termite",
+  "option_choices": [
+    {
+      "count": 2,
+      "group_id": "og-terrax-pattern-termite-5-1",
+      "id": "oc-terrax-pattern-termite-5-1-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "heavy flamers"
+    },
+    {
+      "count": 2,
+      "group_id": "og-terrax-pattern-termite-5-1",
+      "id": "oc-terrax-pattern-termite-5-1-2",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "twin volkite chargers"
+    }
+  ],
+  "option_groups": [
+    {
+      "id": "og-terrax-pattern-termite-5-1",
+      "line": 1,
+      "scope": "model"
+    }
+  ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 1,
+    "consecutive_unverified_releases": 2,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260804T174954Z-8d3a94e1",
-    "detail_edition_code": "wh40k-10e",
+    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
-    "is_hybrid_edition": true,
+    "is_hybrid_edition": false,
     "points_edition_code": "wh40k-11e",
     "points_source": "none"
   },
-  "role": "Dedicated Transports"
+  "wargear_option_state": "extracted",
+  "weapons": [
+    {
+      "ability_keywords": [
+        "rapid fire 2"
+      ],
+      "armour_penetration": "0",
+      "attacks": "2",
+      "damage": "1",
+      "is_melee": false,
+      "line": 1,
+      "name": "Combi-bolter",
+      "range": "24\"",
+      "skill": "3+",
+      "strength": "4"
+    },
+    {
+      "ability_keywords": [
+        "ignores cover",
+        "torrent"
+      ],
+      "armour_penetration": "-1",
+      "attacks": "D6",
+      "damage": "1",
+      "is_melee": false,
+      "line": 2,
+      "name": "Heavy flamer",
+      "range": "12\"",
+      "skill": "N/A",
+      "strength": "5"
+    },
+    {
+      "ability_keywords": [
+        "melta 2"
+      ],
+      "armour_penetration": "-4",
+      "attacks": "5",
+      "damage": "D6",
+      "is_melee": false,
+      "line": 3,
+      "name": "Terrax melta cutter",
+      "range": "12\"",
+      "skill": "3+",
+      "strength": "9"
+    },
+    {
+      "ability_keywords": [
+        "devastating wounds",
+        "twin-linked"
+      ],
+      "armour_penetration": "0",
+      "attacks": "2",
+      "damage": "2",
+      "is_melee": true,
+      "line": 4,
+      "name": "Twin volkite charger",
+      "skill": "3+",
+      "strength": "5"
+    },
+    {
+      "ability_keywords": [
+        "anti-vehicle 3+"
+      ],
+      "armour_penetration": "-2",
+      "attacks": "6",
+      "damage": "D3+3",
+      "is_melee": true,
+      "line": 5,
+      "name": "Termite drill",
+      "skill": "4+",
+      "strength": "14"
+    }
+  ]
 }
