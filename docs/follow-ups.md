@@ -15,6 +15,9 @@
 <!-- AI-Assisted: Claude Code (model: claude-opus-5) - Added item 6 (issue #5): the per-detachment
      page hypothesis, tested live and refused, with the acquisition decision it settles and the
      detachName oracle the test surfaced. -->
+<!-- AI-Assisted: Claude Code (model: claude-opus-5) - Added items 8 and 9 (004 T081, T084): the
+     three defects the first real-bundle consumer-compat run exposed, two of them pre-existing in
+     the published release, and the glossary denominator that makes its gate un-switchable. -->
 <!-- AI-Assisted: Claude Code (model: claude-opus-5) - Added item 7 (004 T089): the self-approval
      guard's missing authored_by field, recorded against the five real records the 004 release
      preparation approved out of band, with the mitigation actually relied on and the reason it
@@ -255,3 +258,54 @@ likely pull-request actor has to be reasoned about by a human rather than certif
 future release ever needs these records to travel *inside* a pull request, that pull request must
 be opened by someone other than the person named in `reviewed_by` — or `authored_by` must land
 first.
+
+## 8. `tools/consumer_compat.py` cannot ingest any real bundle (004 T081)
+
+The first run of this tool against a real bundle rather than a fixture — 004 T081, on 2026-08-06 —
+failed, and failed identically against the **currently published** `mfm-2026-08` release. Three
+separate defects, recorded in full with counts in
+`reports/wh40k-11e-2026-08/consumer-compat.md` §2. In short:
+
+1. **Tool-side.** `faction.parent_faction_id` is a self-referencing foreign key and the array is
+   sorted by id, so five chapters load before their parent and SQLite's per-row foreign-key check
+   fails. `PRAGMA defer_foreign_keys = ON` inside the load transaction fixes it and still enforces
+   every key at `COMMIT`. The tool does not do it; a real ingestor must.
+2. **Data-side, pre-existing.** With foreign keys deferred, the published bundle fails on 842
+   duplicate `datasheet_keyword` primary keys and 43 duplicate `datasheet_weapon` keys. The
+   enriched candidate reduces both to **zero**.
+3. **Data-side, this candidate.** 36 duplicate `datasheet_cost` and 41 duplicate
+   `datasheet_cost_tier` keys survive from the published release — byte-identical rows across 32
+   datasheets that appear under more than one faction, so a dedupe at emission is mechanical. And
+   4 **new** duplicate `datasheet_ability` keys where the same datasheet carries both a `core` and
+   a `datasheet` ability named `Super-heavy Walker`; the consumer's primary key is
+   `(datasheet_id, name)` with no `ability_type`, so this one is a content decision rather than a
+   dedupe.
+
+**Not fixed during release preparation, deliberately.** (1) is a change to the tool that is the
+release's own evidence, and fixing it in the same run that produces the evidence is marking one's
+own homework. (2) and (3) are pipeline emission changes and one Product Owner decision, none of
+which belong in a run whose job was to prepare a candidate. None of them is a regression: the
+released `003` site build reads this candidate completely and correctly (T082, same report §1),
+and on two of the five duplicate classes the candidate leaves consumers strictly better off than
+the release already in production.
+
+## 9. The glossary coverage denominator counts unit names (004 T064, T084)
+
+`contracts/authored-summary-gates.md` §4.1 excludes `faction` and `chapter` keywords from the
+glossary denominator, but the classification vocabulary has no value for *a datasheet's own name
+repeated as a keyword*, and those dominate: **1 031 of the 1 441** distinct non-faction,
+non-chapter keywords in the `wh40k-11e-2026-08` bundle match a datasheet name exactly.
+
+The effect is that `WGC_GATE_GLOSSARY` cannot be switched on. The T064 campaign delivered 70
+entries against its scoped 60-100, and the gate still blocks with 1 421 `GLS-MISSING` findings,
+because it is asking for definitions of `Wolf Guard Pack Leader with Jump Pack`. Full measurement,
+both rehearsal runs, and the ordered fix are in `docs/verification/gate-switch-on-rehearsal.md`.
+
+The fix is a new keyword class plus a §4.1 amendment — a contract revision, not a code change, and
+not one to make as a side effect of a release. The gate stays `off`, which is exactly the state
+the design provides for: names ship, publication is not blocked, gaps stay named in
+`summary-coverage.md`.
+
+Two smaller observations from the same rehearsal, also unfixed: several keyword keys arrive
+comma-joined (`ancient , deathwing`) rather than split, and one arrives mojibaked
+(`Ûthar the Destined`).
