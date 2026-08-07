@@ -24,8 +24,10 @@ from pipeline.models.curated import CuratedSnapshot
 from pipeline.models.findings import Finding
 from pipeline.report.catalogue import build_finding
 
-#: ``(datasheet_id, copy_index_min, model_count, was, now)``.
-DatasheetCostChange = tuple[str, int, int, int, int]
+#: ``(datasheet_id, copy_index_min, model_count, pricing_context, was, now)``. The context is
+#: `""` for the ordinary price and is part of the identity of the row that changed: two prices
+#: of one unit at one size, under different stated conditions, move independently.
+DatasheetCostChange = tuple[str, int, int, str, int, int]
 
 #: ``(entity_id, was, now)`` for a detachment or an enhancement.
 CostChange = tuple[str, int, int]
@@ -55,10 +57,13 @@ class ChangeSummary:
     """``(datasheet_id, had_escalating_tier, has_escalating_tier)`` — C1/R2."""
 
 
-def _datasheet_costs(snapshot: CuratedSnapshot) -> Mapping[str, Mapping[tuple[int, int], int]]:
+def _datasheet_costs(
+    snapshot: CuratedSnapshot,
+) -> Mapping[str, Mapping[tuple[int, int, str], int]]:
     return {
         datasheet.datasheet_id: {
-            (cost.copy_index_min, cost.model_count): cost.points for cost in datasheet.costs
+            (cost.copy_index_min, cost.model_count, cost.pricing_context or ""): cost.points
+            for cost in datasheet.costs
         }
         for datasheet in snapshot.datasheets
     }
@@ -101,6 +106,7 @@ def compute_change_summary(prior: PriorSnapshot | None, snapshot: CuratedSnapsho
                         datasheet.datasheet_id,
                         key[0],
                         key[1],
+                        key[2],
                         old if old is not None else -1,
                         new if new is not None else -1,
                     )
@@ -154,7 +160,9 @@ def unaccounted_differences(
         return []
 
     missing: list[str] = []
-    accounted_datasheet = {(row[0], row[1], row[2]) for row in summary.datasheet_cost_changes}
+    accounted_datasheet = {
+        (row[0], row[1], row[2], row[3]) for row in summary.datasheet_cost_changes
+    }
     accounted_detachment = {row[0] for row in summary.detachment_cost_changes}
     accounted_enhancement = {row[0] for row in summary.enhancement_cost_changes}
     accounted_entities = (
@@ -177,12 +185,13 @@ def unaccounted_differences(
                     datasheet_id,
                     key[0],
                     key[1],
+                    key[2],
                 )
                 not in accounted_datasheet
             ):
                 missing.append(
                     f"{datasheet_id}: cost at copy_index_min={key[0]} model_count={key[1]} "
-                    "changed but is not listed"
+                    f"pricing_context={key[2] or '(absent)'} changed but is not listed"
                 )
 
     for datasheet_id in sorted(set(current_costs) - set(prior.datasheets)):
@@ -519,9 +528,10 @@ def render_change_summary(
     out += _rows(
         "Unit point costs",
         [
-            f"`{ds}` copy {copy_index}+, {models} models: "
+            f"`{ds}` copy {copy_index}+, {models} models"
+            f"{f' ({context})' if context else ''}: "
             f"{'absent' if was < 0 else was} → {'absent' if now < 0 else now}"
-            for ds, copy_index, models, was, now in summary.datasheet_cost_changes
+            for ds, copy_index, models, context, was, now in summary.datasheet_cost_changes
         ],
     )
     out += _rows(

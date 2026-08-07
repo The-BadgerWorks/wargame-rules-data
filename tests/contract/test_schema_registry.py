@@ -77,6 +77,7 @@ EMPTY_BUNDLE: dict[str, Any] = {
     "datasheetAbilities": [],
     "datasheetCosts": [],
     "datasheetCostTiers": [],
+    "datasheetCostContexts": [],
     "datasheetWargearOptions": [],
     "datasheetLeaderPairs": [],
     "datasheetDetachmentEligibility": [],

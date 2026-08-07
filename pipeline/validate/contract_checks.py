@@ -204,31 +204,38 @@ def check_tier_projection(snapshot: CuratedSnapshot) -> list[Finding]:
     * a `model_count` with no `copy_index_min = 1` row, so the *first* copy has no answer; and
     * a `copy_index_min` present for one `model_count` but not another, so a later copy at the
       second size falls back to a tier the publisher did not price it at.
+
+    Resolvability is **per pricing context**. A context is a self-contained price list — a unit
+    priced under a stated condition must be resolvable under that condition without borrowing a
+    tier from the price it costs without it — so the two are checked apart rather than merged.
     """
     findings: list[Finding] = []
 
     for datasheet in snapshot.datasheets:
         if not datasheet.costs:
             continue
-        by_model_count: dict[int, set[int]] = {}
+        by_context: dict[str, dict[int, set[int]]] = {}
         for cost in datasheet.costs:
+            by_model_count = by_context.setdefault(cost.pricing_context or "", {})
             by_model_count.setdefault(cost.model_count, set()).add(cost.copy_index_min)
 
-        expected_tiers = {tier for tiers in by_model_count.values() for tier in tiers}
-        for model_count, tiers in sorted(by_model_count.items()):
-            missing = expected_tiers - tiers
-            if 1 not in tiers or missing:
-                findings.append(
-                    build_finding(
-                        "PRC-TIER-INCOMPLETE",
-                        entity_refs=[datasheet.datasheet_id],
-                        detail={
-                            "datasheet_id": datasheet.datasheet_id,
-                            "model_count": model_count,
-                            "missing_copy_index_min": sorted(missing | ({1} - tiers)),
-                        },
+        for context, by_model_count in sorted(by_context.items()):
+            expected_tiers = {tier for tiers in by_model_count.values() for tier in tiers}
+            for model_count, tiers in sorted(by_model_count.items()):
+                missing = expected_tiers - tiers
+                if 1 not in tiers or missing:
+                    findings.append(
+                        build_finding(
+                            "PRC-TIER-INCOMPLETE",
+                            entity_refs=[datasheet.datasheet_id],
+                            detail={
+                                "datasheet_id": datasheet.datasheet_id,
+                                "model_count": model_count,
+                                "pricing_context": context or "(absent)",
+                                "missing_copy_index_min": sorted(missing | ({1} - tiers)),
+                            },
+                        )
                     )
-                )
 
     return findings
 
@@ -254,6 +261,7 @@ CONSUMER_PRIMARY_KEYS: Final[dict[str, tuple[str, ...]]] = {
     "datasheetAbilities": ("datasheetId", "name"),
     "datasheetCosts": ("datasheetId", "modelCount"),
     "datasheetCostTiers": ("datasheetId", "modelCount", "copyIndexMin"),
+    "datasheetCostContexts": ("datasheetId", "pricingContext", "modelCount", "copyIndexMin"),
     "datasheetWargearOptions": ("id",),
     "datasheetLeaderPairs": ("leaderDatasheetId", "bodyguardDatasheetId"),
     "datasheetDetachmentEligibility": ("datasheetId", "detachmentId"),

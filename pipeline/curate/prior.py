@@ -77,8 +77,13 @@ class PriorDatasheet:
     datasheet_id: str
     faction_id: str
     name: str
-    costs: Mapping[tuple[int, int], int]
-    """``(copy_index_min, model_count) -> points``."""
+    costs: Mapping[tuple[int, int, str], int]
+    """``(copy_index_min, model_count, pricing_context or "") -> points``.
+
+    The context is in the key because two rows of one datasheet may share a copy index and a
+    model count and differ only by the condition they are priced under; without it the two
+    prices would be one entry here and a change to either would read as a change to both.
+    """
 
     pricing_confidence: PricingConfidence
 
@@ -107,7 +112,7 @@ class PriorDatasheet:
 
     @property
     def has_escalating_tier(self) -> bool:
-        return any(copy_index > 1 for copy_index, _ in self.costs)
+        return any(copy_index > 1 for copy_index, _, _ in self.costs)
 
 
 @dataclass(frozen=True, slots=True)
@@ -257,6 +262,7 @@ def _datasheet(raw: Mapping[str, Any], *, edition_id: str, edition_code: str) ->
                 copy_index_min=int(row.get("copy_index_min", 1)),
                 points=int(row["points"]),
                 label=str(row["label"]),
+                pricing_context=row.get("pricing_context"),
                 pricing_confidence=PricingConfidenceState(
                     row.get("pricing_confidence", PricingConfidenceState.VERIFIED.value)
                 ),
@@ -410,7 +416,10 @@ def prior_from_snapshot(
                 faction_id=datasheet.faction_id,
                 name=datasheet.name,
                 costs={
-                    (cost.copy_index_min, cost.model_count): cost.points for cost in datasheet.costs
+                    (cost.copy_index_min, cost.model_count, cost.pricing_context or ""): (
+                        cost.points
+                    )
+                    for cost in datasheet.costs
                 },
                 pricing_confidence=datasheet.pricing_confidence,
                 has_composition=bool(datasheet.composition),

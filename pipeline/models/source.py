@@ -92,6 +92,13 @@ class MfmUnitCostBlock(_SourceRecord):
         description="The observed literal — 'YOUR UNIT COSTS', 'YOUR 1ST TO 2ND UNITS COST', "
         "'YOUR 3RD + UNIT COSTS'. Preserved verbatim because tier detection keys on it (C1)."
     )
+    cost_section_label: str = Field(
+        default="",
+        description="The heading of the section this block sits in — '' for the page's default "
+        "section, 'EVERY MODEL HAS THE IMPERIUM KEYWORD' for a conditional re-pricing, "
+        "'ULTRAMARINES' for a plain grouping. Preserved verbatim; `curate.assemble` decides "
+        "which of the two it is.",
+    )
     rows: Sequence[MfmCostRow]
     support_targets: Sequence[str] = Field(
         default=(), description="Leader/Support list entries, by name"

@@ -201,7 +201,11 @@ def _rider() -> CuratedDatasheet:
             # `partial`, not `none`: the difference between "this unit has no options" and
             # "this unit's options did not extract" is exactly what the column is for (FR-016).
             "wargear_option_state": WargearOptionState.PARTIAL,
-            "costs": factories.costs(((1, 3, 110),)),
+            # Priced twice over: its own price, and the price a stated condition puts on it.
+            # The second set is what `datasheetCostContexts` carries, and keeping it off
+            # `datasheetCosts` is what lets the v1.2.0 consumer below ingest this bundle at all.
+            "costs": factories.costs(((1, 3, 110),))
+            + factories.costs(((1, 3, 130),), pricing_context="every-model-has-emberbound"),
         }
     )
 

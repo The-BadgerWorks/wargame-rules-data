@@ -32,7 +32,8 @@
     "chapterKeywords",
     "factionRules",
     "detachmentRules",
-    "keywordGlossary"
+    "keywordGlossary",
+    "datasheetCostContexts"
   ],
   "properties": {
     "bundleFormatVersion": {
@@ -469,6 +470,32 @@
         ],
         "properties": {
           "datasheetId": { "type": "string", "minLength": 1 },
+          "modelCount": { "type": "integer", "minimum": 1 },
+          "copyIndexMin": { "type": "integer", "minimum": 1 },
+          "points": { "type": "integer", "minimum": 0 },
+          "label": { "type": "string", "minLength": 1, "maxLength": 64 },
+          "pricingConfidence": { "enum": ["verified", "unverified"] }
+        }
+      }
+    },
+    "datasheetCostContexts": {
+      "type": "array",
+      "description": "Sorted by (datasheetId, pricingContext, modelCount, copyIndexMin). The prices the points source states a CONDITION for: a unit its own faction prices one way and another army prices another ('every-model-has-imperium'), or two bands of one unit that hold the same number of models and are told apart only by what they contain ('with-hunting-wolves'). Deliberately a separate array: datasheetCosts and datasheetCostTiers carry the unconditional price and only that, so their primary keys are unchanged and a consumer that does not read this array reads exactly the prices it read before. Absence of a row here is not a missing price -- it means the unit is priced one way whatever the condition.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "datasheetId",
+          "pricingContext",
+          "modelCount",
+          "copyIndexMin",
+          "points",
+          "label",
+          "pricingConfidence"
+        ],
+        "properties": {
+          "datasheetId": { "type": "string", "minLength": 1 },
+          "pricingContext": { "type": "string", "minLength": 1, "maxLength": 64, "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$" },
           "modelCount": { "type": "integer", "minimum": 1 },
           "copyIndexMin": { "type": "integer", "minimum": 1 },
           "points": { "type": "integer", "minimum": 0 },

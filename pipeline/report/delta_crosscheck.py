@@ -79,8 +79,17 @@ def crosscheck_deltas(
     """
     computed = {
         (datasheet_id, model_count_value): now - was
-        for datasheet_id, copy_index, model_count_value, was, now in summary.datasheet_cost_changes
-        if copy_index == 1 and was >= 0 and now >= 0
+        for (
+            datasheet_id,
+            copy_index,
+            model_count_value,
+            context,
+            was,
+            now,
+        ) in summary.datasheet_cost_changes
+        # The page prints one delta marker per unit, against its ordinary price; a
+        # context-qualified row has no marker of its own to be cross-checked against.
+        if copy_index == 1 and not context and was >= 0 and now >= 0
     }
 
     findings: list[Finding] = []

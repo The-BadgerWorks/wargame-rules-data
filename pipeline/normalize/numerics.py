@@ -96,11 +96,24 @@ def leading_count(text: str) -> tuple[int | None, int | None]:
 
 
 def model_count(label: str, *, field: str) -> int:
-    """The model count a points-source band label states, e.g. `5 models` -> 5."""
-    low, _ = leading_count(label)
-    if low is None:
+    """The number of models a points-source band label states, e.g. `5 models` -> 5.
+
+    A **composite** label names the unit's composition instead of its size, and then the band's
+    model count is the total the label states rather than the first number in it:
+    `1 Sword Brother, 4 Neophytes, 5 Initiates` is a ten-model band, not a one-model band.
+    Reading only the leading integer collapsed that band and `1 Sword Brother, 8 Neophytes,
+    11 Initiates` — ten models and twenty — onto the same key at two different prices, which is
+    exactly what `REC-BAND-MISMATCH` had been reporting against those datasheets.
+
+    Only segments that state a count are summed; a segment that states none contributes nothing
+    rather than being guessed at. A label stating no count anywhere is still a parse failure.
+    """
+    counts = [
+        count for segment in label.split(",") if (count := leading_count(segment)[0]) is not None
+    ]
+    if not counts:
         raise NumericParseError(f"{field}: the band label states no model count")
-    return low
+    return sum(counts)
 
 
 def characteristic(raw: str, *, field: str) -> str:

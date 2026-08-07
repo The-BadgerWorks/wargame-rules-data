@@ -116,7 +116,7 @@ def test_a_rename_is_classified_as_a_rename_not_as_a_removal_plus_an_addition() 
 def test_every_changed_cost_appears_as_was_to_now() -> None:
     change = summary()
 
-    assert ("ds-slate-sentinel", 1, 1, 90, 95) in change.datasheet_cost_changes
+    assert ("ds-slate-sentinel", 1, 1, "", 90, 95) in change.datasheet_cost_changes
     assert ("d-slate-vigil", 1, 2) in change.detachment_cost_changes
     assert ("e-slate-oath", 15, 20) in change.enhancement_cost_changes
 

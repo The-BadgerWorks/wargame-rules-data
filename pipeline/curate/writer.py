@@ -99,6 +99,7 @@ def _cost(cost: CuratedDatasheetCost) -> dict[str, JsonValue]:
             "copy_index_min": cost.copy_index_min,
             "points": cost.points,
             "label": cost.label,
+            "pricing_context": cost.pricing_context,
             "pricing_confidence": cost.pricing_confidence.value,
             "source_acquisition_id": cost.source_acquisition_id,
         }
@@ -322,7 +323,10 @@ def _datasheet(datasheet: CuratedDatasheet) -> dict[str, JsonValue]:
             or None,
             "costs": [
                 _cost(c)
-                for c in sorted(datasheet.costs, key=lambda c: (c.copy_index_min, c.model_count))
+                for c in sorted(
+                    datasheet.costs,
+                    key=lambda c: (c.pricing_context or "", c.copy_index_min, c.model_count),
+                )
             ],
             "pricing_confidence": _pricing_confidence(datasheet.pricing_confidence),
             "provenance": _provenance(datasheet.provenance),

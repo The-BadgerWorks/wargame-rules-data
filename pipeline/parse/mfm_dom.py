@@ -1,3 +1,6 @@
+# AI-Assisted: Claude Code (model: claude-opus-5) - Captured the unit section's heading as
+# `cost_section_label`, which is the only signal distinguishing the points source's two cost
+# tables for one Imperial Agents unit from a reprint of one table.
 # AI-Assisted: Claude Code (model: claude-opus-5) - Implemented points-source DOM extraction
 # (task T058): unit cost tables with their label literals preserved for tier detection,
 # model-count labels, points, delta markers, detachment cards with DP, force disposition and
@@ -21,7 +24,11 @@ Two things are captured but deliberately not authoritative:
 
 * ``cost_table_label`` keeps the observed literal (``YOUR UNIT COSTS`` /
   ``YOUR 1ST TO 2ND UNITS COST`` / ``YOUR 3RD + UNIT COSTS``) because copy-indexed tier
-  detection keys on it (C1); and
+  detection keys on it (C1);
+* ``cost_section_label`` keeps the heading of the *section* the block sits in, for the same
+  reason and with the same discipline — it is the only place the page says that a second cost
+  table for a unit it has already priced is a **different price under a stated condition**
+  rather than a reprint; and
 * ``delta_marker`` captures the page's own ``▲ (+15)`` change annotation, which research D4d
   makes a *witness* for the change summary and never an authority — the markers persist across
   a release cycle and are cleared unannounced.
@@ -132,6 +139,34 @@ def _related_units(block: LexborNode) -> tuple[str, ...]:
     return ()
 
 
+def _section_label(block: LexborNode) -> str:
+    """The heading of the section a unit block sits in, or `""` for the page's default section.
+
+    The page groups its unit blocks into sections: a container holding a grid of blocks,
+    optionally preceded by that section's own heading. Two kinds of heading are published
+    through the same structure and only the reader can tell them apart — a *grouping*
+    (`ULTRAMARINES`, one section per chapter, disjoint unit sets) and a *condition*
+    (`EVERY MODEL HAS THE IMPERIUM KEYWORD`, the **same** unit priced a second time). Both are
+    kept verbatim here for the same reason `cost_table_label` is: this module reports what the
+    page says, and :mod:`pipeline.curate.assemble` decides what it means (C1).
+
+    Read by containment, like everything else here: the section is the block's grid's parent,
+    and the heading is the direct child of that section which holds no cost row. A section that
+    states nothing yields `""`, which is the ordinary case on twenty-nine of the thirty pages.
+    """
+    grid = block.parent
+    section = grid.parent if grid is not None else None
+    if section is None:
+        return ""
+    for child in _child_elements(section):
+        if child.css("li"):
+            continue
+        heading = _text(child)
+        if heading:
+            return heading
+    return ""
+
+
 def _unit_blocks(tree: LexborHTMLParser, slug: str) -> tuple[MfmUnitCostBlock, ...]:
     blocks: list[MfmUnitCostBlock] = []
     for label_node in tree.css("div"):
@@ -150,6 +185,7 @@ def _unit_blocks(tree: LexborHTMLParser, slug: str) -> tuple[MfmUnitCostBlock, .
                 faction_slug=slug,
                 unit_display_name=_first_titled(block),
                 cost_table_label=label,
+                cost_section_label=_section_label(block),
                 rows=rows,
                 support_targets=_related_units(block),
             )

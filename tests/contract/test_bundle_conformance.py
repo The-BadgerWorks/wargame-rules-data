@@ -55,6 +55,7 @@ CONSUMER_ARRAYS = (
     "datasheetAbilities",
     "datasheetCosts",
     "datasheetCostTiers",
+    "datasheetCostContexts",
     "datasheetWargearOptions",
     "datasheetLeaderPairs",
     "datasheetDetachmentEligibility",

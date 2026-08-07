@@ -200,7 +200,7 @@
     "costs": {
       "type": "array",
       "minItems": 1,
-      "description": "Sorted by (copy_index_min, model_count). At least one row is required; none is the blocking CON-NO-COST (FR-030). source_acquisition_id is CURATED-ONLY.",
+      "description": "Sorted by (pricing_context, copy_index_min, model_count). At least one row is required; none is the blocking CON-NO-COST (FR-030). source_acquisition_id is CURATED-ONLY. pricing_context is ABSENT for the price the unit costs in its own army -- which is what every row here has always meant -- and present only where the points source states a condition this price applies under that the model count cannot express.",
       "items": {
         "type": "object",
         "additionalProperties": false,
@@ -210,6 +210,7 @@
           "copy_index_min": { "type": "integer", "minimum": 1 },
           "points": { "type": "integer", "minimum": 0 },
           "label": { "type": "string", "minLength": 1, "maxLength": 64 },
+          "pricing_context": { "type": "string", "minLength": 1, "maxLength": 64, "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$" },
           "pricing_confidence": { "enum": ["verified", "unverified"] },
           "source_acquisition_id": { "type": "string", "minLength": 1 }
         }

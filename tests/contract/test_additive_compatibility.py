@@ -41,8 +41,15 @@ ROOT = Path(__file__).resolve().parents[2]
 BASELINE_PATH = ROOT / "fixtures" / "contract" / "bundle.schema.pre-enrichment.json"
 SCHEMA_PATH = ROOT / "schemas" / "bundle.schema.json"
 
-#: The seven arrays `004-rules-data-enrichment` adds (contract §2). Everything outside this set
-#: must be byte-for-byte what the released consumers were built against.
+#: The arrays `004-rules-data-enrichment` adds (contract §2, plus `datasheetCostContexts` at
+#: v1.4.0). Everything outside this set must be byte-for-byte what the released consumers were
+#: built against.
+#:
+#: `datasheetCostContexts` is a separate array rather than a `pricingContext` column on
+#: `datasheetCosts` precisely so this file's assertions can hold. A column would have carried
+#: extra *rows* under a primary key an old consumer already declares, and an extra row under a
+#: declared key is not something a consumer can ignore — it is a constraint error that refuses
+#: the whole snapshot.
 NEW_ARRAYS: frozenset[str] = frozenset(
     {
         "datasheetCompositions",
@@ -52,6 +59,7 @@ NEW_ARRAYS: frozenset[str] = frozenset(
         "factionRules",
         "detachmentRules",
         "keywordGlossary",
+        "datasheetCostContexts",
     }
 )
 
@@ -240,7 +248,7 @@ def test_each_added_column_is_optional_and_therefore_invisible_to_an_old_consume
     assert column not in items["required"]
 
 
-def test_the_only_new_arrays_are_the_seven_the_contract_declares(
+def test_the_only_new_arrays_are_the_ones_the_contract_declares(
     baseline: dict[str, Any], enriched: dict[str, Any]
 ) -> None:
     assert set(_arrays(enriched)) - set(_arrays(baseline)) == NEW_ARRAYS

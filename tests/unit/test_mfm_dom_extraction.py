@@ -147,3 +147,51 @@ def test_a_page_with_no_units_section_yields_no_unit_blocks_rather_than_guessing
     page = parse_faction_page("empty", "<html><body><div>nothing here</div></body></html>")
     assert page.unit_blocks == ()
     assert page.detachments == ()
+
+
+# --- The unit section's heading (the Imperial Agents dual-pricing signal) -------------------
+
+#: A synthetic two-section page. Both sections price the SAME unit, which is the shape the
+#: points source publishes for units that carry a second price under a stated condition, and
+#: the shape that arrives as an anonymous duplicate block if the heading is thrown away. Every
+#: name here is invented.
+_TWO_SECTION_PAGE = """
+<html><body><div class="flex flex-col mb-5"><h3>UNITS</h3>
+  <div class="pb-2">
+    <div class="grid gap-1">
+      <div class="flex flex-col space-y-1 m-1">
+        <div><span class="text-xl">ASH ENVOY</span></div>
+        <div>
+          <div>YOUR UNIT COSTS</div>
+          <ul><li><span>1 model</span><span>55 pts</span></li></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="pb-2">
+    <div class="px-1 font-bold">EVERY MODEL HAS THE ASHBOUND KEYWORD</div>
+    <div class="grid gap-1">
+      <div class="flex flex-col space-y-1 m-1">
+        <div><span class="text-xl">ASH ENVOY</span></div>
+        <div>
+          <div>YOUR UNIT COSTS</div>
+          <ul><li><span>1 model</span><span>65 pts</span></li></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div></body></html>
+"""
+
+
+def test_a_section_heading_is_carried_verbatim_onto_every_block_it_contains() -> None:
+    blocks = parse_faction_page("ashfall", _TWO_SECTION_PAGE).unit_blocks
+    assert [(b.cost_section_label, b.rows[0].points) for b in blocks] == [
+        ("", 55),
+        ("EVERY MODEL HAS THE ASHBOUND KEYWORD", 65),
+    ]
+
+
+def test_the_default_section_states_no_heading_rather_than_inventing_one() -> None:
+    """The sample page's units sit in one unheaded section: `""`, never a guessed label."""
+    assert {b.cost_section_label for b in _parsed().unit_blocks} == {""}

@@ -131,6 +131,7 @@ def costs(
     pairs: Sequence[tuple[int, int, int]] = ((1, 3, 60), (1, 6, 115)),
     *,
     confidence: PricingConfidenceState = PricingConfidenceState.VERIFIED,
+    pricing_context: str | None = None,
 ) -> list[CuratedDatasheetCost]:
     """``pairs`` are ``(copy_index_min, model_count, points)`` triples."""
     return [
@@ -139,11 +140,21 @@ def costs(
             copy_index_min=copy_index_min,
             points=points,
             label=f"{model_count} models",
+            pricing_context=pricing_context,
             pricing_confidence=confidence,
             source_acquisition_id="mfm-20260613T000000Z-deadbeef",
         )
         for copy_index_min, model_count, points in pairs
     ]
+
+
+def contextual_costs() -> list[CuratedDatasheetCost]:
+    """The §7 fixture requirement for `pricing_context`: one unit priced twice over.
+
+    The same two size bands at the unit's own price and at the price a stated condition puts on
+    it, so a consumer test meets both the unconditional rows and the conditional ones.
+    """
+    return costs() + costs(((1, 3, 70), (1, 6, 135)), pricing_context="every-model-has-emberbound")
 
 
 def datasheet(
@@ -219,7 +230,7 @@ def snapshot(**overrides: object) -> CuratedSnapshot:
         "factions": [faction()],
         "detachments": [detachment()],
         "enhancements": [enhancement()],
-        "datasheets": [datasheet()],
+        "datasheets": [datasheet(cost_rows=contextual_costs())],
         "restrictions": [],
         "ability_summaries": summaries(),
     }

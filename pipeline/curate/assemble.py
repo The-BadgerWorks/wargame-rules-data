@@ -50,6 +50,7 @@ Nothing here reads a `curation/` file directly — it takes an already-validated
 from __future__ import annotations
 
 import re
+from collections import Counter
 from collections.abc import Mapping, Sequence
 from dataclasses import dataclass, field
 from typing import Final
@@ -141,6 +142,24 @@ _TIER_THRESHOLD: Final = re.compile(r"\b(\d+)\s*(?:ST|ND|RD|TH)\b", re.IGNORECAS
 #: for (C8/R3). Reading such a row as a model count would invent a size band nobody printed.
 _WARGEAR_ROW: Final = re.compile(r"^\+\s*(?:(\d+)\s+)?(?P<name>.+?)\s*$")
 
+#: A unit section heading that states a **condition** rather than naming a group. The points
+#: source publishes both through the same structure: `ULTRAMARINES` heads a section of units
+#: only that chapter may field — a partition, and no unit appears twice — while
+#: `EVERY MODEL HAS THE IMPERIUM KEYWORD` heads a *second copy of the whole unit list* at
+#: different prices. Only the conditional form yields a pricing context; a grouping yields none,
+#: because grouping sections never collide. A section heading this does not match, over a unit
+#: the page has already priced, is left to collide and block as `CON-DUPLICATE-KEY` rather than
+#: being guessed at.
+_PRICING_CONDITION: Final = re.compile(
+    r"^EVERY\s+MODEL\s+HAS\s+THE\s+(?P<keyword>.+?)\s+KEYWORDS?$", re.IGNORECASE
+)
+
+#: A band label segment: its count, then whatever it calls the models it counts.
+_BAND_SEGMENT: Final = re.compile(r"^\s*\d+\s*(?:-\s*\d+)?\s*(?P<name>.*?)\s*$")
+
+#: `5 models` names no model *type*, so it says nothing about which composition is being priced.
+_GENERIC_MODEL_NOUNS: Final[frozenset[str]] = frozenset({"model", "models"})
+
 #: The detail source's role vocabulary, mapped onto the flags the consumer contract carries.
 _BATTLELINE_ROLES: Final[frozenset[str]] = frozenset({"battleline"})
 _CHARACTER_ROLES: Final[frozenset[str]] = frozenset({"characters", "character"})
@@ -206,6 +225,78 @@ def _tier_indices(label: str) -> int:
     return int(match.group(1)) if match else 1
 
 
+@dataclass(frozen=True, slots=True)
+class _Band:
+    """One extracted size band, before its context is settled — internal to `_costs`."""
+
+    copy_index: int
+    model_count: int
+    points: int
+    label: str
+    context: str | None
+
+
+def _army_context(section_label: str) -> str | None:
+    """The pricing context a unit *section* heading states, or `None` for the default one.
+
+    `None` is the answer for twenty-nine of the thirty faction pages and for every unit on them:
+    absence means "the price this unit costs in its own army", which is what every cost row has
+    always meant, so nothing that already exists changes meaning by this field arriving.
+    """
+    match = _PRICING_CONDITION.match(section_label.strip())
+    if match is None:
+        return None
+    return f"every-model-has-{slugify(match.group('keyword'))}"
+
+
+def _band_model_types(label: str) -> frozenset[str]:
+    """The model **types** a band label names, casefolded. `5 models` names none."""
+    names: set[str] = set()
+    for segment in label.split(","):
+        match = _BAND_SEGMENT.match(segment)
+        if match is None:
+            continue
+        name = match.group("name").strip().casefold()
+        if name and name not in _GENERIC_MODEL_NOUNS:
+            names.add(name)
+    return frozenset(names)
+
+
+def _composition_contexts(bands: Sequence[_Band]) -> list[str | None]:
+    """A pricing context for the bands a model count cannot tell apart.
+
+    The points source prices some units on two axes. `WOLF GUARD HEADTAKERS` is priced at
+    `3 Wolf Guard Headtakers`, `3 Wolf Guard Headtakers, 3 Hunting Wolves`, `6 Wolf Guard
+    Headtakers` and `6 Wolf Guard Headtakers, 6 Hunting Wolves` — and the second and third of
+    those are **both six-model units**, at 115 and 170 points. No single model count separates
+    them, so the consumer's `(datasheet_id, model_count)` key cannot hold both, and dropping
+    either publishes a price nobody chose (`reference-db-schema.md` §3.8).
+
+    So where two bands do collide, the thing that distinguishes them is used: the model types
+    some bands name and others do not. `Hunting Wolves` becomes `with-hunting-wolves` and the
+    two bands that include them move to their own context, leaving the plain size bands exactly
+    where a consumer has always found them.
+
+    **Only where they collide.** A datasheet whose bands already have distinct model counts is
+    returned untouched, which is all but one of the 2 083 priced datasheets in the tree — the
+    context exists to disambiguate, not to reclassify. Two colliding bands with nothing to tell
+    them apart are also returned untouched, and block as `CON-DUPLICATE-KEY`.
+    """
+    contexts = [band.context for band in bands]
+    collisions = Counter((band.copy_index, band.model_count, band.context) for band in bands)
+    if all(count == 1 for count in collisions.values()):
+        return contexts
+
+    per_band = [_band_model_types(band.label) for band in bands]
+    shared = frozenset.intersection(*per_band)
+    optional = frozenset().union(*per_band) - shared
+    for index, (band, own) in enumerate(zip(bands, per_band, strict=True)):
+        extra = sorted(own & optional)
+        if band.context is None and extra:
+            contexts[index] = "with-" + "-and-".join(slugify(name) for name in extra)
+    return contexts
+
+
 def _provenance(
     points: SourceAcquisition | None,
     detail: SourceAcquisition | None,
@@ -235,13 +326,22 @@ def _costs(
     A row whose label opens with `+` is not a squad size at all: it is a wargear item and its
     price is a delta on top of the unit's cost. Reading it as a model count would invent a size
     band the publisher never printed.
+
+    **A unit priced twice on one page is priced twice, not printed twice.** The Imperial Agents
+    page carries every one of its twenty-nine units in two sections, the second headed
+    `EVERY MODEL HAS THE IMPERIUM KEYWORD`, and nineteen of those pairs disagree about the
+    price. The section heading is the only place the page says which price is which, so it
+    becomes the row's `pricing_context` — absent for the unit's own-army price, explicit for the
+    conditional one. Without it the two rows arrive indistinguishable and one of them is a
+    `CON-DUPLICATE-KEY`.
     """
-    rows: list[CuratedDatasheetCost] = []
+    bands: list[_Band] = []
     options: list[CuratedWargearOption] = []
     findings: list[Finding] = []
 
     for block in blocks:
         copy_index = _tier_indices(block.cost_table_label)
+        context = _army_context(block.cost_section_label)
         for row in block.rows:
             label = row.model_count_label.strip()
             if label.startswith("+"):
@@ -270,17 +370,28 @@ def _costs(
                     )
                 )
                 continue
-            rows.append(
-                CuratedDatasheetCost(
+            bands.append(
+                _Band(
+                    copy_index=copy_index,
                     model_count=count,
-                    copy_index_min=copy_index,
                     points=row.points,
                     label=label,
-                    pricing_confidence=PricingConfidenceState.VERIFIED,
-                    source_acquisition_id=acquisition_id,
+                    context=context,
                 )
             )
 
+    rows = [
+        CuratedDatasheetCost(
+            model_count=band.model_count,
+            copy_index_min=band.copy_index,
+            points=band.points,
+            label=band.label,
+            pricing_context=context,
+            pricing_confidence=PricingConfidenceState.VERIFIED,
+            source_acquisition_id=acquisition_id,
+        )
+        for band, context in zip(bands, _composition_contexts(bands), strict=True)
+    ]
     return rows, _deduplicate_options(options), findings
 
 

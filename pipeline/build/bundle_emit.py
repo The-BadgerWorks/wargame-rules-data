@@ -14,6 +14,9 @@
 # AI-Assisted: Claude Code (model: claude-opus-5) - Emitted `keywordGlossary` (004 task T062,
 # contract §2.7): an entry exists only when authored and approved, and carries none of the
 # authoring state a consumer has no business reading.
+# AI-Assisted: Claude Code (model: claude-opus-5) - Emitted `datasheetCostContexts`: the prices
+# the points source states a condition for, kept out of `datasheetCosts` / `datasheetCostTiers`
+# so those two arrays are unchanged for a consumer that does not read the new one.
 # AI-Assisted: Claude Code (model: claude-opus-5) - Made `_rows` collapse byte-identical duplicate
 # rows, with absence compared as a value, so the emitted bundle satisfies the per-key uniqueness
 # the consumer contract declares (v1.3.2 guarantee 12). Rows that collide and DISAGREE are left
@@ -32,6 +35,15 @@ Three mapping decisions are worth reading before changing anything here.
 `copy_index_min = 1` slice of `datasheetCostTiers`. That is what lets a v1.1.0 app keep reading
 `datasheet_cost` unchanged — correct for the common case, under-priced only for escalating units
 past their threshold — while a v1.2.0 app reads the tiers and is exact (guarantee 7, §3.1).
+
+**A context-qualified price never enters `datasheetCosts` or `datasheetCostTiers`.** Those two
+arrays carry the price a unit costs in its own army — which is what every row in them has always
+meant — and nothing else, so their key, shape and row set are untouched by `pricing_context`
+arriving. A price the points source states a *condition* for goes to `datasheetCostContexts`
+instead, keyed with the condition. That is what keeps this additive in effect and not only on
+paper: a consumer built against v1.3.2 declares `PRIMARY KEY (datasheet_id, model_count)`, and
+an extra row under that key is not a column it can ignore — it is a constraint error that
+refuses the whole snapshot (reference-db-schema.md §2, guarantee 12).
 
 **`datasheetDetachmentEligibility` is always present and always empty.** No upstream
 datasheet-to-detachment join exists (research §0.1), so the consumer contract's default applies:
@@ -224,7 +236,14 @@ FIELD_MAPPING: Final[Mapping[type, tuple[set[str], set[str]]]] = {
         set(),
     ),
     CuratedDatasheetCost: (
-        {"model_count", "copy_index_min", "points", "label", "pricing_confidence"},
+        {
+            "model_count",
+            "copy_index_min",
+            "points",
+            "label",
+            "pricing_context",
+            "pricing_confidence",
+        },
         {"source_acquisition_id"},
     ),
     CuratedModelLine: (
@@ -493,6 +512,7 @@ def _emit_datasheets(snapshot: CuratedSnapshot) -> dict[str, list[dict[str, Json
     weapons: list[dict[str, JsonValue]] = []
     costs: list[dict[str, JsonValue]] = []
     tiers: list[dict[str, JsonValue]] = []
+    contexts: list[dict[str, JsonValue]] = []
     wargear: list[dict[str, JsonValue]] = []
     leader_pairs: list[dict[str, JsonValue]] = []
     compositions: list[dict[str, JsonValue]] = []
@@ -669,6 +689,15 @@ def _emit_datasheets(snapshot: CuratedSnapshot) -> dict[str, list[dict[str, Json
                 "label": cost.label,
                 "pricingConfidence": cost.pricing_confidence.value,
             }
+            if cost.pricing_context is not None:
+                contexts.append(
+                    {
+                        **row,
+                        "pricingContext": cost.pricing_context,
+                        "copyIndexMin": cost.copy_index_min,
+                    }
+                )
+                continue
             tiers.append({**row, "copyIndexMin": cost.copy_index_min})
             if cost.copy_index_min == 1:
                 costs.append(row)
@@ -680,6 +709,9 @@ def _emit_datasheets(snapshot: CuratedSnapshot) -> dict[str, list[dict[str, Json
         "datasheetWeapons": _rows(weapons, "datasheetId", "line"),
         "datasheetCosts": _rows(costs, "datasheetId", "modelCount"),
         "datasheetCostTiers": _rows(tiers, "datasheetId", "modelCount", "copyIndexMin"),
+        "datasheetCostContexts": _rows(
+            contexts, "datasheetId", "pricingContext", "modelCount", "copyIndexMin"
+        ),
         "datasheetWargearOptions": _rows(wargear, "id"),
         "datasheetLeaderPairs": _rows(leader_pairs, "leaderDatasheetId", "bodyguardDatasheetId"),
         "datasheetCompositions": _rows(compositions, "datasheetId", "line"),

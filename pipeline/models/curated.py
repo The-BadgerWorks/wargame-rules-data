@@ -468,17 +468,25 @@ class CuratedWargearOption(_Curated):
 
 
 class CuratedDatasheetCost(_Curated):
-    """One cost row, keyed ``(model_count, copy_index_min)`` within its datasheet.
+    """One cost row, keyed ``(pricing_context, model_count, copy_index_min)`` in its datasheet.
 
-    A ``copy_index_min = 1`` row must exist for every ``model_count`` — the tier table would
-    otherwise be unresolvable at lookup time, which is the blocking ``PRC-TIER-INCOMPLETE``
-    (contract v1.2.0 guarantee 7).
+    A ``copy_index_min = 1`` row must exist for every ``model_count`` **within each context** —
+    the tier table would otherwise be unresolvable at lookup time, which is the blocking
+    ``PRC-TIER-INCOMPLETE`` (contract v1.2.0 guarantee 7).
     """
 
     model_count: int
     copy_index_min: int = Field(default=1, ge=1, description="1-based copy ordinal; 1 = base tier")
     points: int
     label: str = Field(description="'5 models' — the band's LOWER bound (C2/R5)")
+    pricing_context: str | None = Field(
+        default=None,
+        description="ABSENT for the price the unit costs in its own army, which is what every "
+        "cost row has always meant. Present only where the points source states a condition "
+        "this price applies under and the model count cannot express it: "
+        "'every-model-has-imperium' (the second Imperial Agents cost table) or "
+        "'with-hunting-wolves' (two bands of one unit that hold the same number of models).",
+    )
     pricing_confidence: PricingConfidenceState = PricingConfidenceState.VERIFIED
     source_acquisition_id: str | None = Field(default=None, description="CURATED-ONLY")
 
