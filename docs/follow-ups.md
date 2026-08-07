@@ -22,6 +22,9 @@
      guard's missing authored_by field, recorded against the five real records the 004 release
      preparation approved out of band, with the mitigation actually relied on and the reason it
      is not a bypass. -->
+<!-- AI-Assisted: Claude Code (model: claude-opus-5) - Partly closed item 8: the tool defects and
+     every byte-identical duplicate are fixed, and two of the item's own conclusions about the
+     cost duplicates turned out to be wrong. The original text is kept beneath the resolution. -->
 # Follow-ups
 
 Open items surfaced during implementation that are deliberately **not** fixed as part of the work
@@ -259,7 +262,78 @@ future release ever needs these records to travel *inside* a pull request, that 
 be opened by someone other than the person named in `reviewed_by` — or `authored_by` must land
 first.
 
-## 8. `tools/consumer_compat.py` cannot ingest any real bundle (004 T081)
+## 8. `tools/consumer_compat.py` cannot ingest any real bundle (004 T081) — **partly closed 2026-08-06**
+
+**Resolved: the tool side (1), and the whole of the byte-identical half of (2) and (3). Still
+open: the collisions whose rows disagree, which are the release decision.** The original text is
+kept beneath this resolution because its counts are the before-picture, but **two of its
+conclusions were wrong and the corrections matter more than the fix**.
+
+*What was wrong.* The item calls the `datasheet_cost` / `datasheet_cost_tier` duplicates
+"byte-identical rows across 32 datasheets that appear under more than one faction, so a dedupe at
+emission is mechanical". Neither half holds. Only **17 of the 36** cost keys carry identical rows;
+the other **19 disagree about the price** — `ds-inquisitor` at 55 *and* 65, `ds-eversor-assassin`
+at 100 *and* 110, `ds-inquisitor-draxus` at 75 *and* 110. And no datasheet appears under more than
+one faction: every id resolves to exactly one file in the tree. **32 of the 36 are
+`f-imperial-agents`**, where the points source prints two cost tables for one unit on one page and
+`assemble._costs` concatenates the rows of every block matched to a display name. A "mechanical
+dedupe" would have silently published whichever price sorted first.
+
+The other four are a second, unrelated defect: `normalize.numerics.model_count` reads only the
+*leading* integer of a band label, so `1 Sword Brother, 4 Neophytes, 5 Initiates` and
+`1 Sword Brother, 8 Neophytes, 11 Initiates` both become `model_count = 1` — two real size bands
+(10 and 20 models) collapsed onto one key at two prices. The pipeline already sees this and says
+so: `REC-BAND-MISMATCH`, advisory, `composition_min 10 / composition_max 20 / model_count 1`.
+Affects `ds-crusader-squad`, `ds-gretchin` and `ds-wolf-guard-headtakers` (twice).
+
+*What landed.*
+
+* **The tool** now defers foreign keys to `COMMIT` (a chapter sorting before its parent is the
+  normal case, not a malformed bundle), **detects duplicate primary keys instead of dying on the
+  first one**, and separates identical duplicates from disagreeing ones in what it reports. Its
+  schema deliberately stays at v1.2.0 — `test_consumer_compat_enriched.py` asserts it names none
+  of `004`'s arrays, and that assertion *is* the additive-compatibility proof. It also skips the
+  fixture-only exercise army rather than reporting `pricing failed` on every real bundle.
+* **The emitter** (`bundle_emit._rows`) now collapses byte-identical rows, with absence compared
+  as a value. That is lossless by construction and clears **every** identical duplicate: the
+  published tree's 3 869 excess `datasheet_keyword` rows, and 17 cost plus 19 tier rows in both
+  trees.
+* **Validation** raises the new blocking `CON-DUPLICATE-KEY` for what is left, which by
+  construction is only collisions whose rows disagree. Rebuilt today: **published tree 84**
+  (43 weapon, 19 cost, 22 tier), **candidate tree 45** (4 ability, 19 cost, 22 tier).
+* **The consumer contract** gained guarantee 12 and §3.8 at **v1.3.2** — a PATCH, no schema
+  change. The load-bearing sentence is that SQLite permits NULL in a `PRIMARY KEY` column and
+  treats NULLs in a unique index as *distinct*, so the largest duplicate class in the published
+  release — `datasheet_keyword`, whose key ends in the usually-absent `model_scope` — ingests
+  without an error and reaches a player as a keyword listed twice. Only the producer can catch
+  that class, which is why the guarantee is the producer's.
+
+**Action needed** (three items, each needing a decision this fix deliberately did not make):
+
+1. **An additive row in `validation-report.md` §3.4** for `CON-DUPLICATE-KEY` (class `contract`,
+   **blocking**) — the same frozen-contract paperwork item 5 owes for `COV-WEAPON-ABILITIES-EMPTY`.
+   The code is in `PENDING_CONTRACT_SEVERITIES` until it exists.
+2. **The Imperial Agents double-pricing (32 groups).** The points source prices these units twice
+   on one page and the consumer schema has no way to hold both. Deciding *which* price a
+   datasheet filed under `f-imperial-agents` should carry is a Product Owner question; mechanising
+   it needs `MfmUnitCostBlock.cost_table_label`, which is available at build time and not in the
+   tree.
+3. **`model_count` on composite band labels.** Summing the counts a label states
+   (`1 + 4 + 5 = 10`) is almost certainly right and is what `REC-BAND-MISMATCH` is already
+   asking for, but it moves published prices and size bands, so it belongs to a build rather than
+   to a bug fix landing beside it.
+
+The four `datasheet_ability` collisions are unchanged in substance and now blocking rather than
+silent: `ds-greater-brass-scorpion`, `ds-greater-brass-scorpion-2`, `ds-kytan-ravager` and
+`ds-kytan-ravager-2` each carry `core:super-heavy-walker` **and** `datasheet:super-heavy-walker`,
+two records with the same `name`, different `mechanic_digest`s and different approved summaries.
+Contract §3.8 now says explicitly that `ability_type` is not part of the key and that exactly one
+row may reach the bundle, so this is a curation decision — drop one binding, or merge the two
+records — and no longer an open question about what the key means.
+
+### Original text
+
+**`tools/consumer_compat.py` cannot ingest any real bundle (004 T081)**
 
 The first run of this tool against a real bundle rather than a fixture — 004 T081, on 2026-08-06 —
 failed, and failed identically against the **currently published** `mfm-2026-08` release. Three

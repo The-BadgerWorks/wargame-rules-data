@@ -131,6 +131,7 @@ from pipeline.schema_validation import validate_bundle
 from pipeline.validate.contract_checks import (
     RESTRICTION_VOCABULARY_VERSION,
     SCHEMA_CONTRACT_VERSION,
+    check_bundle_primary_keys,
     check_snapshot,
 )
 from pipeline.validate.coverage import (
@@ -678,6 +679,7 @@ def run_build(  # noqa: PLR0913 - the stage boundary is the argument list
     bundle = emit_bundle(snapshot, meta)
     validate_bundle(bundle, source=f"rules-{rules_version_id}.json")
     findings.extend(scan_bundle(bundle))
+    findings.extend(check_bundle_primary_keys(bundle))
 
     payload = encode_bundle(bundle)
     bundle_path = destination / f"rules-{rules_version_id}.json"
@@ -792,10 +794,12 @@ def run_validate(
         restriction_vocabulary_version=RESTRICTION_VOCABULARY_VERSION,
     )
 
+    bundle = emit_bundle(snapshot, meta)
     findings: list[Finding] = [
         *check_snapshot(snapshot, meta),
         *check_authored_references(snapshot, authored),
-        *scan_bundle(emit_bundle(snapshot, meta)),
+        *scan_bundle(bundle),
+        *check_bundle_primary_keys(bundle),
     ]
 
     prior = load_prior(root, edition_code=EDITION_CODE)

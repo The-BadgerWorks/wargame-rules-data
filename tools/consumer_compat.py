@@ -1,6 +1,11 @@
 # AI-Assisted: Claude Code (model: claude-opus-5) - Implemented the consumer-compatibility check
 # (task T077): ingest a bundle into the exact schema reference-db-schema.md v1.2.0 declares,
 # enforce the §1 guarantees at ingestion time, and price a multi-detachment army from the result.
+# AI-Assisted: Claude Code (model: claude-opus-5) - Fixed the two tool-side defects the first run
+# against a real bundle exposed (docs/follow-ups.md item 8): foreign keys are now deferred to
+# COMMIT, so a self-referencing faction key survives the contract's own id sort; and duplicate
+# primary keys are DETECTED and reported rather than crashing the run — including the ones SQLite
+# cannot see, where a key component is NULL. The schema stays at v1.2.0 deliberately.
 """Prove a bundle is ingestible, by ingesting it.
 
 `reference-db-schema.md` calls the SQLite schema the **ingestion target** and the bundle the
@@ -18,6 +23,13 @@ army priced from it comes to the number we expect".
 The pricing exercise is deliberately the awkward case: copy-indexed tiers, a squad size that is
 not a listed band, a wargear cost, two detachments, and an enhancement on each — every rule the
 v1.2.0 additions exist for, in one army.
+
+**The schema below stays at v1.2.0 on purpose.** This module is the stand-in for the *released*
+consumer, and `tests/publication/test_consumer_compat_enriched.py` asserts it names none of
+`004`'s arrays or columns — that assertion is the additive-compatibility proof. Teaching it the
+v1.3.x tables would quietly delete that evidence. What it must keep up with is not the schema
+but the **ingestion behaviour**: how a real ingestor handles a self-referencing foreign key, and
+what it does when the wire format hands it two rows for one primary key.
 """
 
 from __future__ import annotations
@@ -273,10 +285,94 @@ class CompatResult:
         return not self.violations
 
 
+#: Table -> the primary key `reference-db-schema.md` §3 declares for it, in bundle column names.
+#: Only the tables this v1.2.0 ingestor builds; the mapping is per-array in :data:`TABLES`.
+PRIMARY_KEYS: Final[Mapping[str, tuple[str, ...]]] = {
+    "editions": ("id",),
+    "editionRules": ("editionId", "ruleKey"),
+    "gameSizeRules": ("id",),
+    "factions": ("id",),
+    "detachments": ("id",),
+    "detachmentRestrictions": ("id",),
+    "enhancements": ("id",),
+    "enhancementEligibility": ("enhancementId", "ruleType", "value"),
+    "datasheets": ("id",),
+    "datasheetKeywords": ("datasheetId", "keyword", "modelScope"),
+    "datasheetModels": ("datasheetId", "line"),
+    "datasheetWeapons": ("datasheetId", "line"),
+    "datasheetAbilities": ("datasheetId", "name"),
+    "datasheetCosts": ("datasheetId", "modelCount"),
+    "datasheetCostTiers": ("datasheetId", "modelCount", "copyIndexMin"),
+    "datasheetWargearOptions": ("id",),
+    "datasheetLeaderPairs": ("leaderDatasheetId", "bodyguardDatasheetId"),
+    "datasheetDetachmentEligibility": ("datasheetId", "detachmentId"),
+}
+
+
+def duplicate_keys(bundle: Mapping[str, Any]) -> list[str]:
+    """Rows that share a declared primary key, checked **before** the load rather than by it.
+
+    Two reasons it cannot be left to SQLite. The first is that an `IntegrityError` on the first
+    collision ends the run, and a report that names one duplicate out of hundreds is not a
+    report. The second is the load-bearing one: SQLite treats NULLs in a unique index as
+    *distinct*, so `datasheet_keyword`'s trailing nullable `model_scope` means it accepts
+    duplicate keyword rows without a murmur and the app shows the keyword twice. Absence has to
+    compare equal to absence here, because the engine will not do it.
+
+    Byte-identical rows and rows that disagree are reported separately. They are different
+    defects: the first is one source page printed twice and collapses losslessly, the second is
+    two answers to one question and needs a human.
+    """
+    violations: list[str] = []
+
+    for array, keys in TABLES.items():
+        primary = PRIMARY_KEYS.get(array)
+        if primary is None:  # pragma: no cover - TABLES and PRIMARY_KEYS are written together
+            continue
+
+        table = keys[0]
+        grouped: dict[tuple[str, ...], list[Mapping[str, Any]]] = {}
+        for row in bundle[array]:
+            identity = tuple(_key_part(row.get(column)) for column in primary)
+            grouped.setdefault(identity, []).append(row)
+
+        colliding = {key: rows for key, rows in grouped.items() if len(rows) > 1}
+        if not colliding:
+            continue
+
+        identical = sum(
+            1
+            for rows in colliding.values()
+            if len({json.dumps(row, sort_keys=True) for row in rows}) == 1
+        )
+        excess = sum(len(rows) - 1 for rows in colliding.values())
+        violations.append(
+            f"guarantee 12: {table} has {len(colliding)} duplicate primary key(s) "
+            f"({excess} excess row(s); {identical} of the keys carry identical rows, "
+            f"{len(colliding) - identical} disagree)"
+        )
+
+    return violations
+
+
+def _key_part(value: Any) -> str:
+    """One key component as text, with absence written as a value rather than left out."""
+    return "\x00" if value is None else f"{type(value).__name__}:{value}"
+
+
 def ingest(bundle: Mapping[str, Any], connection: sqlite3.Connection) -> dict[str, int]:
-    """Build the schema and load every array into its table. Foreign keys are enforced."""
+    """Build the schema and load every array into its table. Foreign keys are enforced.
+
+    **Deferred, not disabled.** `faction.parent_faction_id` is self-referencing and
+    `curated-snapshot-format.md` requires arrays sorted by id for determinism, so a chapter whose
+    id sorts before its parent's is the normal case rather than a malformed bundle. A per-row
+    check fails on it; `PRAGMA defer_foreign_keys` moves every check to `COMMIT`, where the whole
+    table is present. Nothing is relaxed — a genuinely dangling reference still fails the commit,
+    and `PRAGMA foreign_key_check` below re-reads the loaded database independently.
+    """
     connection.executescript(SCHEMA)
     connection.execute("PRAGMA foreign_keys = ON")
+    connection.execute("PRAGMA defer_foreign_keys = ON")
 
     meta = bundle["snapshotMeta"]
     connection.execute(
@@ -292,7 +388,7 @@ def ingest(bundle: Mapping[str, Any], connection: sqlite3.Connection) -> dict[st
 
     counts: dict[str, int] = {}
     for array, (table, columns) in TABLES.items():
-        rows = bundle[array]
+        rows = _first_row_per_key(array, bundle[array])
         placeholders = ",".join("?" * len(columns))
         connection.executemany(
             f"INSERT INTO {table} ({','.join(_snake(c) for c in columns)}) VALUES ({placeholders})",
@@ -301,6 +397,25 @@ def ingest(bundle: Mapping[str, Any], connection: sqlite3.Connection) -> dict[st
         counts[table] = len(rows)
     connection.commit()
     return counts
+
+
+def _first_row_per_key(array: str, rows: Sequence[Mapping[str, Any]]) -> list[Mapping[str, Any]]:
+    """Drop rows whose primary key has already been seen, keeping the first.
+
+    Not a repair, and not a silent one: :func:`duplicate_keys` has already reported every key
+    this drops, with its counts. Dropping here is what lets the *rest* of the check still say
+    something — the guarantees and the pricing exercise run and produce answers instead of the
+    whole run ending on the first `IntegrityError`. Constraint enforcement itself is untouched:
+    no `OR IGNORE`, no relaxed pragma, so a NOT NULL or foreign-key breach still fails the load.
+    """
+    primary = PRIMARY_KEYS.get(array)
+    if primary is None:  # pragma: no cover - TABLES and PRIMARY_KEYS are written together
+        return list(rows)
+
+    seen: dict[tuple[str, ...], Mapping[str, Any]] = {}
+    for row in rows:
+        seen.setdefault(tuple(_key_part(row.get(column)) for column in primary), row)
+    return list(seen.values())
 
 
 def check_guarantees(connection: sqlite3.Connection) -> list[str]:
@@ -437,18 +552,50 @@ EXERCISE_ARMY: Final[tuple[dict[str, Any], ...]] = (
 )
 
 
+def army_is_present(connection: sqlite3.Connection, army: Sequence[Mapping[str, Any]]) -> bool:
+    """Does this bundle contain every entity the exercise army names?
+
+    :data:`EXERCISE_ARMY` is written against the minimal fixture, whose ids are invented. Run
+    against a real bundle it names nothing, and pricing it would report "pricing failed" — a
+    violation that says the *army* is wrong, next to violations that say the *bundle* is. Two
+    unlike things under one word is how a real defect gets read as the known noise, so the
+    absence is detected first and reported as a skip.
+    """
+    tables: Final[Mapping[str, str]] = {
+        "detachment": "detachment",
+        "enhancement": "enhancement",
+        "wargear": "datasheet_wargear_option",
+    }
+    for entry in army:
+        table = tables.get(str(entry["kind"]), "datasheet")
+        found = connection.execute(
+            f"SELECT 1 FROM {table} WHERE id = ?",  # noqa: S608 - table comes from the map above
+            (entry["id"],),
+        ).fetchone()
+        if found is None:
+            return False
+    return True
+
+
 def run(bundle_path: Path, army: Sequence[Mapping[str, Any]] = EXERCISE_ARMY) -> CompatResult:
     """Ingest ``bundle_path`` and price ``army`` from the result."""
     bundle = json.loads(bundle_path.read_text(encoding="utf-8"))
     result = CompatResult()
 
     with sqlite3.connect(":memory:") as connection:
+        duplicates = duplicate_keys(bundle)
         result.tables = ingest(bundle, connection)
-        result.violations = check_guarantees(connection)
-        try:
-            result.army_total, result.army_lines = price_army(connection, army)
-        except (LookupError, TypeError) as exc:
-            result.violations.append(f"pricing failed: {type(exc).__name__}: {exc}")
+        result.violations = [*duplicates, *check_guarantees(connection)]
+        if not army_is_present(connection, army):
+            result.army_lines = [
+                "pricing exercise skipped: this bundle does not carry the exercise army's "
+                "entities, which is expected for any bundle but the minimal fixture"
+            ]
+        else:
+            try:
+                result.army_total, result.army_lines = price_army(connection, army)
+            except (LookupError, TypeError) as exc:
+                result.violations.append(f"pricing failed: {type(exc).__name__}: {exc}")
 
     return result
 

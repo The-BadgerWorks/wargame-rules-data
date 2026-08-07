@@ -176,6 +176,15 @@ _DEFINITIONS: Final[tuple[FindingDefinition, ...]] = (
         "an option's structure is known but the points source publishes no cost; never a zero",
     ),
     _d("CON-NONDETERMINISTIC", _CON, _B, "FR-033", "a rebuild produced a different checksum"),
+    _d(
+        "CON-DUPLICATE-KEY",
+        _CON,
+        _B,
+        "contract v1.3.2 guarantee 12, issue: follow-ups item 8",
+        "two rows of one bundle array share the consumer's primary key and disagree; identical "
+        "rows have already collapsed at emission, so what is left is a content decision the "
+        "producer may not make on the app's behalf",
+    ),
     _d("AUT-DANGLING-REF", _AUT, _B, "FR-018", "an authored record references a missing entity"),
     _d("SUM-MISSING", _SUM, _B, "FR-020", "an ability binding has no summary record"),
     _d("SUM-UNAPPROVED", _SUM, _B, "FR-023", "a summary is draft or in_review"),

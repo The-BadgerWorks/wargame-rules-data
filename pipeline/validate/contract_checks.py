@@ -1,7 +1,10 @@
 # AI-Assisted: Claude Code (model: claude-opus-5) - Implemented the FR-030 guarantee set as
 # V1-V6 and V19 of data-model.md §8 (task T066), each emitting its catalogued CON-*/PRC-* code,
 # with reference-db-schema.md §3.4's range read from the contract rather than from configuration.
-"""V1-V6 and V19 — the guarantees the producer owes the consumer (FR-030, FR-049).
+# AI-Assisted: Claude Code (model: claude-opus-5) - Added V20, the per-key uniqueness of the
+# emitted bundle (contract v1.3.2 guarantee 12), after the first ingestion of a real bundle found
+# duplicate primary keys in two releases — including a class SQLite itself cannot see.
+"""V1-V6, V19 and V20 — the guarantees the producer owes the consumer (FR-030, FR-049).
 
 These are the checks that decide whether a candidate may ship at all. Each one exists because
 the alternative failure lands on a player rather than on a curator: a datasheet with no cost is
@@ -19,6 +22,7 @@ it appears below as a constant with the contract cited, and not in `pipeline/con
 from __future__ import annotations
 
 import re
+from collections.abc import Mapping, Sequence
 from typing import TYPE_CHECKING, Final
 
 from pipeline.models.curated import RESTRICTION_VOCABULARY, CuratedSnapshot
@@ -227,6 +231,96 @@ def check_tier_projection(snapshot: CuratedSnapshot) -> list[Finding]:
                 )
 
     return findings
+
+
+#: Bundle array -> the consumer primary key `reference-db-schema.md` §3 declares for its table.
+#:
+#: Transcribed from the contract rather than derived from the emitter, for the same reason the
+#: point-limit range above is: the check has to be able to disagree with this repository's own
+#: code, or it is only asserting that the emitter agrees with itself.
+CONSUMER_PRIMARY_KEYS: Final[dict[str, tuple[str, ...]]] = {
+    "editions": ("id",),
+    "editionRules": ("editionId", "ruleKey"),
+    "gameSizeRules": ("id",),
+    "factions": ("id",),
+    "detachments": ("id",),
+    "detachmentRestrictions": ("id",),
+    "enhancements": ("id",),
+    "enhancementEligibility": ("enhancementId", "ruleType", "value"),
+    "datasheets": ("id",),
+    "datasheetKeywords": ("datasheetId", "keyword", "modelScope"),
+    "datasheetModels": ("datasheetId", "line"),
+    "datasheetWeapons": ("datasheetId", "line"),
+    "datasheetAbilities": ("datasheetId", "name"),
+    "datasheetCosts": ("datasheetId", "modelCount"),
+    "datasheetCostTiers": ("datasheetId", "modelCount", "copyIndexMin"),
+    "datasheetWargearOptions": ("id",),
+    "datasheetLeaderPairs": ("leaderDatasheetId", "bodyguardDatasheetId"),
+    "datasheetDetachmentEligibility": ("datasheetId", "detachmentId"),
+    # 004-rules-data-enrichment's additive tables (contract v1.3.0 §3).
+    "datasheetCompositions": ("datasheetId", "line"),
+    "datasheetOptionGroups": ("id",),
+    "datasheetOptionChoices": ("id",),
+    "chapterKeywords": ("keyword",),
+    "factionRules": ("id",),
+    "detachmentRules": ("id",),
+    "keywordGlossary": ("keywordKey",),
+}
+
+
+def check_bundle_primary_keys(bundle: Mapping[str, object]) -> list[Finding]:
+    """V20 — one row per consumer primary key, over the **bundle** rather than the snapshot.
+
+    Over the bundle because that is where the collision becomes real: `datasheetAbilities` is an
+    expansion of each datasheet's ability keys against the authored summaries, so two keys that
+    resolve to the same ability *name* are one row in the tree and two rows in the wire format.
+    A snapshot-level check cannot see it.
+
+    The emitter has already collapsed rows that were byte-identical (`bundle_emit._rows`), which
+    is lossless. Anything still colliding here therefore **disagrees about something**, and the
+    producer may not pick: `reference-db-schema.md` §3 gives the app one row per key, and which
+    one it should be is a content decision. So this blocks, and it names the key and the number
+    of rows rather than the values, because a finding is a report row and not a data channel.
+
+    NULL participates in the key. SQLite treats NULLs in a unique index as distinct, so an
+    ingestor building the declared schema silently accepts duplicates whose `model_scope` is
+    absent — the producer is the only side that can catch those.
+    """
+    findings: list[Finding] = []
+
+    for array, keys in sorted(CONSUMER_PRIMARY_KEYS.items()):
+        rows = bundle.get(array)
+        if not isinstance(rows, Sequence) or isinstance(rows, str | bytes):
+            continue
+
+        grouped: dict[tuple[str, ...], list[Mapping[str, object]]] = {}
+        for row in rows:
+            if not isinstance(row, Mapping):
+                continue
+            grouped.setdefault(tuple(_key_part(row.get(key)) for key in keys), []).append(row)
+
+        for key, group in sorted(grouped.items()):
+            if len(group) > 1:
+                findings.append(
+                    build_finding(
+                        "CON-DUPLICATE-KEY",
+                        entity_refs=[str(group[0].get(keys[0], ""))],
+                        detail={
+                            "array": array,
+                            "key": " / ".join(
+                                f"{name}={part}" for name, part in zip(keys, key, strict=True)
+                            ),
+                            "row_count": len(group),
+                        },
+                    )
+                )
+
+    return findings
+
+
+def _key_part(value: object) -> str:
+    """One key component as text, with absence written as a value rather than left out."""
+    return "(absent)" if value is None else str(value)
 
 
 def check_snapshot(snapshot: CuratedSnapshot, meta: BundleMeta) -> list[Finding]:

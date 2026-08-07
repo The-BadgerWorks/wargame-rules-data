@@ -116,6 +116,7 @@ ENRICHMENT_SEVERITIES = {
 #: for every catalogued code, so the drift protection is unchanged; only the paperwork is owed.
 PENDING_CONTRACT_SEVERITIES = {
     "COV-WEAPON-ABILITIES-EMPTY": A,
+    "CON-DUPLICATE-KEY": B,
 }
 
 CONTRACT_SEVERITIES.update(ENRICHMENT_SEVERITIES)

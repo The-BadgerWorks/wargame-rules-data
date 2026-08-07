@@ -14,6 +14,10 @@
 # AI-Assisted: Claude Code (model: claude-opus-5) - Emitted `keywordGlossary` (004 task T062,
 # contract §2.7): an entry exists only when authored and approved, and carries none of the
 # authoring state a consumer has no business reading.
+# AI-Assisted: Claude Code (model: claude-opus-5) - Made `_rows` collapse byte-identical duplicate
+# rows, with absence compared as a value, so the emitted bundle satisfies the per-key uniqueness
+# the consumer contract declares (v1.3.2 guarantee 12). Rows that collide and DISAGREE are left
+# alone on purpose — those are `CON-DUPLICATE-KEY`, not a dedupe.
 """Turn the curated tree into the published bundle. A pure function, and nothing else.
 
 No network, no source re-acquisition, no input the tree does not already contain, and no clock:
@@ -285,10 +289,44 @@ def check_mapping_totality() -> None:
 
 
 def _rows(items: Sequence[Mapping[str, JsonValue]], *keys: str) -> list[dict[str, JsonValue]]:
-    """Sort emitted rows by their table's primary key, so the bundle is byte-stable."""
+    """Sort emitted rows by their table's primary key, and collapse identical duplicates.
+
+    The sort is what makes the bundle byte-stable. The collapse is what makes it *ingestible*:
+    ``reference-db-schema.md`` §3 declares a `PRIMARY KEY` on every table, so two rows sharing a
+    key are a bundle the declared schema cannot be built from.
+
+    **Only byte-identical rows collapse.** Two identical rows and one identical row ingest to the
+    same table content, so the second is not information — it is one source page printing the
+    same block twice. Rows that share a key and *disagree* are left exactly as they are, because
+    choosing between them is a content decision and a silent choice is how a price nobody picked
+    reaches a player. `check_bundle_primary_keys` raises the blocking `CON-DUPLICATE-KEY` for
+    those, which is the layer where a human can see it.
+    """
+    unique: dict[tuple[tuple[str, str], ...], dict[str, JsonValue]] = {}
+    for item in items:
+        row = dict(item)
+        unique.setdefault(row_identity(row), row)
+
     return sorted(
-        (dict(item) for item in items),
+        unique.values(),
         key=lambda row: tuple(_sort_key(row.get(key)) for key in keys),
+    )
+
+
+def row_identity(row: Mapping[str, JsonValue]) -> tuple[tuple[str, str], ...]:
+    """A row's whole content as a comparable value, with **absence as a value**.
+
+    Absence has to compare equal to absence rather than to nothing at all, because SQLite treats
+    NULLs in a unique index as distinct from each other: a consumer building the declared schema
+    cannot catch a duplicate whose `model_scope` — or any other nullable key column — is absent,
+    so the producer has to. The type name is carried alongside the value so `1` and `"1"` do not
+    collapse into one another.
+    """
+    return tuple(
+        sorted(
+            (name, "\x00" if value is None else f"{type(value).__name__}:{value}")
+            for name, value in row.items()
+        )
     )
 
 
