@@ -34,6 +34,16 @@ from pydantic import BaseModel, ConfigDict, Field
 
 from pipeline.build.canonical_json import JsonValue
 
+#: The hard ceiling on an authored summary, in characters, and the ONE place it is written down
+#: on the Python side. Every ``schemas/curation/*.schema.json`` and ``schemas/bundle.schema.json``
+#: must agree with it, which ``tests/enrichment/test_summary_length_ceiling.py`` asserts rather
+#: than trusts -- this constant was 400 in one file and 1 000 in six others for exactly as long
+#: as it took a live build to reach the curation loader and die there.
+#:
+#: Distinct from ``WGC_SUMMARY_MAX_CHARS`` and its three siblings, which are the *editorial*
+#: targets whose breach is the advisory ``<CLS>-OVERLENGTH``. This one refuses the record.
+SUMMARY_MAX_LENGTH: Final = 1000
+
 
 class ReviewState(StrEnum):
     """The ability-summary review state (data-model.md §4.1, FR-020/FR-023/FR-024).
@@ -277,7 +287,9 @@ class _SummaryRecord(_Authored):
 
     summary_key: str = Field(min_length=1, description="class-prefixed, stable, curator-visible")
     name: str = Field(min_length=1, max_length=120, description="a short mechanical label")
-    summary: str = Field(min_length=1, max_length=400, description="authored, mechanics-only")
+    summary: str = Field(
+        min_length=1, max_length=SUMMARY_MAX_LENGTH, description="authored, mechanics-only"
+    )
     review_state: ReviewState = ReviewState.DRAFT
     mechanic_digest: str = Field(description="keyed, truncated digest — research D6, C6/R8")
     reviewed_by: str | None = None
