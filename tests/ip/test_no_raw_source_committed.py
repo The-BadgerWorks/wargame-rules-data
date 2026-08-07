@@ -1,6 +1,12 @@
 # AI-Assisted: Claude Code (model: claude-opus-5) - Wrote the repository-wide raw-source scan
 # (task T053): no tracked file under work/, no .csv outside fixtures/, no committed HTML outside
 # fixtures/. Runs in CI on every PR.
+# AI-Assisted: Claude Code (model: claude-opus-5) - Extended the scan to the current-edition HTML
+# acquisition path (004 task T083). The extension-based rules below already catch a committed
+# `datasheets.html`, but they catch it as "an .html file", which says nothing about where it came
+# from -- and a page saved under a different extension, or a directory named after the source
+# tree, would sail past all three. The new test asserts on the PATH, which is the thing FR-004
+# and FR-010 actually care about.
 """The scan that keeps raw acquired source material out of version control (FR-010, SC-003).
 
 This is deliberately a *git* scan rather than a filesystem scan. A curator's working tree will
@@ -76,3 +82,35 @@ def test_gitignore_still_excludes_work_first() -> None:
         if line.strip() and not line.strip().startswith("#")
     ]
     assert lines[0] == "work/"
+
+
+#: Path fragments that only appear if something from the publisher's tree was written down.
+#: `wh40k11ed` / `wh40k10ed` are the edition tree segments `WGC_DETAIL_SOURCE_URL` points at;
+#: `SiteMap.xml` and `datasheets.html` are the two documents the `html`-mode sweep retrieves.
+ACQUISITION_PATH_MARKERS: tuple[str, ...] = (
+    "wh40k11ed",
+    "wh40k10ed",
+    "sitemap.xml",
+    "datasheets.html",
+)
+
+
+def test_no_artefact_of_the_html_acquisition_path_is_tracked() -> None:
+    """FR-004's permitted path is a thing to *request*, never a thing to keep.
+
+    The `html`-mode sweep retrieves `SiteMap.xml` and 26 `factions/<slug>/datasheets.html` pages
+    into ephemeral `work/`, digests what it needs, and discards them. None of it may reach version
+    control under any name, in any directory, at any extension -- which is a statement about the
+    path, not about the file type, and so is not covered by the extension rules above.
+    """
+    offenders = [
+        path
+        for path in _tracked_files()
+        if not path.startswith("fixtures/")
+        and any(marker in path.lower() for marker in ACQUISITION_PATH_MARKERS)
+    ]
+
+    assert offenders == [], (
+        "these tracked paths name the publisher's acquisition tree, which is retrieved into "
+        f"work/ and discarded, never committed (FR-004, FR-010): {offenders}"
+    )

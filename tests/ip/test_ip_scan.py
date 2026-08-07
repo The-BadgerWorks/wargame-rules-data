@@ -19,6 +19,8 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
+import pytest
+
 from pipeline.validate.ip_scan import (
     IP_SCAN_MAX_CHARS,
     SCANNED_DIRECTORIES,
@@ -155,3 +157,72 @@ def test_a_genuine_tag_in_a_report_markdown_file_is_still_caught(
     (finding,) = scan_repository(root)
     assert finding.detail["violation"] == "markup"
     assert finding.detail["path"] == "reports/fixture-minimal/report.md"
+
+
+# --- 004 T083: the enrichment's own fields, deliberately poisoned -------------------------------
+
+#: One poisoned value per field family `004-rules-data-enrichment` adds, each carrying a different
+#: violation class, so a scanner that silently stopped walking one of the new shapes is caught by
+#: the field it stopped at rather than by an aggregate count.
+POISONED_ENRICHMENT: dict[str, tuple[str, object]] = {
+    "composition": (
+        "data/wh40k-11e/factions/f-a/datasheets/ds-a.json",
+        {"composition": [{"model_name": "Warden <sup>1</sup>", "count_min": 1, "count_max": 1}]},
+    ),
+    "option_choices": (
+        "data/wh40k-11e/factions/f-a/datasheets/ds-b.json",
+        {"option_groups": [{"choices": [{"label": "bolt pistol &amp; chainsword"}]}]},
+    ),
+    "chapter_keywords": (
+        "data/wh40k-11e/chapter-keywords.json",
+        [{"keyword": "Emberwrights", "chapter_id": "c-a", "note": "adds $CHAPTER$ to it"}],
+    ),
+    "faction_rules": (
+        "curation/faction-rules/f-a.json",
+        {
+            "faction_id": "f-a",
+            "army_rule_state": "present",
+            "rules": [{"summary_key": "faction:f-a:x", "summary": "Special (правая колонка)"}],
+        },
+    ),
+    "detachment_rules": (
+        "curation/detachment-rules/f-a.json",
+        [{"summary_key": "detachment:d-a:x", "summary": "See <i>the codex</i>."}],
+    ),
+    "glossary": (
+        "curation/glossary.json",
+        [{"summary_key": "glossary:x", "summary": "x" * (IP_SCAN_MAX_CHARS + 1)}],
+    ),
+}
+
+
+@pytest.mark.parametrize("field", sorted(POISONED_ENRICHMENT))
+def test_every_enrichment_field_family_is_scanned(field: str, temp_repo) -> None:  # type: ignore[no-untyped-def]
+    """FR-039/SC-007 over the fields `004` added, one family at a time.
+
+    The scan walks JSON structurally rather than by field name, so this is a proof that the new
+    shapes are *reached* — a nested composition row, a choice two levels inside an option group,
+    an object-wrapped rules array — not that each field was individually enumerated somewhere.
+    Structure is what would break silently; a named list would only break loudly.
+    """
+    relative, payload = POISONED_ENRICHMENT[field]
+    root = temp_repo()
+    _write(root, relative, payload)
+
+    findings = scan_repository(root)
+
+    assert [f.finding_code for f in findings] == ["CON-IP-BOUNDARY"], field
+    assert findings[0].detail["path"] == relative
+
+
+@pytest.mark.parametrize("field", sorted(POISONED_ENRICHMENT))
+def test_no_enrichment_finding_quotes_the_text_that_provoked_it(field: str, temp_repo) -> None:  # type: ignore[no-untyped-def]
+    """The scanner names the violation class; it never becomes the thing it is guarding against."""
+    relative, payload = POISONED_ENRICHMENT[field]
+    root = temp_repo()
+    _write(root, relative, payload)
+
+    rendered = json.dumps(dict(scan_repository(root)[0].detail), ensure_ascii=False)
+
+    for forbidden in ("codex", "правая", "CHAPTER", "chainsword", "<sup>"):
+        assert forbidden not in rendered, f"{field} leaked {forbidden!r}"
