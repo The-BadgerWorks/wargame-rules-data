@@ -67,6 +67,7 @@ CONTRACT_SEVERITIES = {
     "CON-IP-BOUNDARY": B,
     "CON-WARGEAR-COST-MISSING": A,
     "CON-NONDETERMINISTIC": B,
+    "CON-DUPLICATE-KEY": B,
     "AUT-DANGLING-REF": B,
     "SUM-MISSING": B,
     "SUM-UNAPPROVED": B,
@@ -112,11 +113,12 @@ ENRICHMENT_SEVERITIES = {
 #: above stays a faithful copy of what the contracts actually say. `validation-report.md` is
 #: Frozen (002 accepted 2026-08-04) and states that any further change to it is a cross-feature
 #: versioning exercise, so a bug fix may not edit it as a side effect — see `docs/follow-ups.md`
-#: item 5 for the additive §3.4 row this code needs. Severity is asserted here exactly as it is
-#: for every catalogued code, so the drift protection is unchanged; only the paperwork is owed.
+#: item 5 for the additive §3.4 row this code needs. `CON-DUPLICATE-KEY` left this block on
+#: 2026-08-06 when `validation-report.md` 1.1.0 catalogued it (follow-up item 8). Severity is
+#: asserted here exactly as it is for every catalogued code, so the drift protection is
+#: unchanged; only the paperwork is owed.
 PENDING_CONTRACT_SEVERITIES = {
     "COV-WEAPON-ABILITIES-EMPTY": A,
-    "CON-DUPLICATE-KEY": B,
 }
 
 CONTRACT_SEVERITIES.update(ENRICHMENT_SEVERITIES)

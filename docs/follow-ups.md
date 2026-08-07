@@ -262,12 +262,61 @@ future release ever needs these records to travel *inside* a pull request, that 
 be opened by someone other than the person named in `reviewed_by` — or `authored_by` must land
 first.
 
-## 8. `tools/consumer_compat.py` cannot ingest any real bundle (004 T081) — **partly closed 2026-08-06**
+## 8. ~~`tools/consumer_compat.py` cannot ingest any real bundle (004 T081)~~ — **closed 2026-08-06**
 
-**Resolved: the tool side (1), and the whole of the byte-identical half of (2) and (3). Still
-open: the collisions whose rows disagree, which are the release decision.** The original text is
-kept beneath this resolution because its counts are the before-picture, but **two of its
-conclusions were wrong and the corrections matter more than the fix**.
+**Closed in two passes.** The first resolved the tool side and every byte-identical duplicate;
+the second resolved the collisions whose rows *disagree*, which needed two Product Owner
+decisions and could not be made as a bug fix.
+
+*Second pass, 2026-08-06 — what the disagreeing collisions actually were.*
+
+* **Nineteen cost and sixteen tier collisions were Imperial Agents dual pricing.** The points
+  source splits a faction page's units into sections, and the Imperial Agents page carries all
+  twenty-nine of its units **twice**: once in an unheaded section, once under
+  `EVERY MODEL HAS THE IMPERIUM KEYWORD`. `cost_table_label` is `YOUR UNIT COSTS` in both, so it
+  was never the signal that told them apart — the *section heading* is, and `mfm_dom` was
+  discarding it. All thirty faction pages were probed to establish that this is the only page
+  whose sections re-price a unit; the six Space Marines chapter sections use the same structure
+  to partition units, which is why the heading's **form** decides and not its presence.
+* **Four cost and six tier collisions were composite band labels**, on exactly three datasheets
+  in the whole tree. Summing the segments a composite label states — the parse fix
+  `REC-BAND-MISMATCH` was already asking for — resolves `ds-crusader-squad` and `ds-gretchin`.
+  It does **not** resolve `ds-wolf-guard-headtakers`, and that is worth recording, because the
+  original diagnosis assumed it would: `3 Wolf Guard Headtakers, 3 Hunting Wolves` (115) and
+  `6 Wolf Guard Headtakers` (170) are both six-model units. That unit is priced on two axes and
+  no single model count can key it.
+* **Four ability collisions** were `core:super-heavy-walker` against
+  `datasheet:super-heavy-walker` on the same datasheet.
+
+*What landed — Product Owner decisions of 2026-08-06.*
+
+* **(A) A price carries the condition it is published under.** `pricing_context` is absent for
+  the price a unit costs unconditionally — what every cost row has always meant — and is derived
+  only from what the source itself says: a section heading of the conditional form
+  (`every-model-has-imperium`), or the model types some bands of a datasheet name and others do
+  not (`with-hunting-wolves`), the latter only where the bands actually collide. Colliding bands
+  with nothing to tell them apart are still left alone and still block.
+* **(B) The narrower authored record wins the consumer key it shares.** Scope precedence — core,
+  faction, datasheet, most specific first — resolves the four `Super-heavy Walker` collisions.
+  It is per datasheet and takes nothing away: the core record still serves every other datasheet
+  bound to it. Two records at the *same* scope still block, because that is a question about the
+  data and not one the emitter may answer.
+* **The bundle keeps conditional prices out of `datasheetCosts` and `datasheetCostTiers`
+  entirely.** A `pricingContext` column on those would have carried extra rows under a primary
+  key old consumers already declare, and an extra row under a declared key is a constraint error
+  that refuses the whole snapshot — not a column a consumer can ignore. `datasheetCostContexts`
+  is a new array whose key includes the condition, which is why the unmodified v1.2.0
+  `tools/consumer_compat.py` still reads the bundle end to end. That tool staying at v1.2.0 *is*
+  the additive-compatibility proof, so any shape that required changing it would have destroyed
+  its own evidence.
+* **Contracts.** `reference-db-schema.md` **v1.4.0** (`datasheet_cost_context`, guarantee 13,
+  §3.9), `bundle-schema-delta.md` 1.1.0, `curated-snapshot-format.md` 1.2.0, and
+  `validation-report.md` **1.1.0**, which catalogues `CON-DUPLICATE-KEY` — action 1 below, now
+  discharged. `COV-WEAPON-ABILITIES-EMPTY` is still owed its row under item 5.
+
+*First pass, 2026-08-06.* The original text is kept below because its counts are the
+before-picture, but **two of its conclusions were wrong and the corrections matter more than the
+fix**.
 
 *What was wrong.* The item calls the `datasheet_cost` / `datasheet_cost_tier` duplicates
 "byte-identical rows across 32 datasheets that appear under more than one faction, so a dedupe at
@@ -308,23 +357,25 @@ Affects `ds-crusader-squad`, `ds-gretchin` and `ds-wolf-guard-headtakers` (twice
   without an error and reaches a player as a keyword listed twice. Only the producer can catch
   that class, which is why the guarantee is the producer's.
 
-**Action needed** (three items, each needing a decision this fix deliberately did not make):
+**Action needed after the first pass** (all three discharged by the second pass above):
 
-1. **An additive row in `validation-report.md` §3.4** for `CON-DUPLICATE-KEY` (class `contract`,
-   **blocking**) — the same frozen-contract paperwork item 5 owes for `COV-WEAPON-ABILITIES-EMPTY`.
-   The code is in `PENDING_CONTRACT_SEVERITIES` until it exists.
-2. **The Imperial Agents double-pricing (32 groups).** The points source prices these units twice
+1. ~~**An additive row in `validation-report.md` §3.4** for `CON-DUPLICATE-KEY`.~~ Done at
+   `validation-report.md` 1.1.0; the code has left `PENDING_CONTRACT_SEVERITIES`.
+2. ~~**The Imperial Agents double-pricing (32 groups).**~~ Decided (A) and mechanised from the
+   section heading rather than from `cost_table_label`, which is identical in both tables. The points source prices these units twice
    on one page and the consumer schema has no way to hold both. Deciding *which* price a
    datasheet filed under `f-imperial-agents` should carry is a Product Owner question; mechanising
    it needs `MfmUnitCostBlock.cost_table_label`, which is available at build time and not in the
    tree.
-3. **`model_count` on composite band labels.** Summing the counts a label states
+3. ~~**`model_count` on composite band labels.**~~ Done, and it moved published prices and size
+   bands exactly as predicted — but it was **not sufficient on its own**, see
+   `ds-wolf-guard-headtakers` above. Original note: summing the counts a label states
    (`1 + 4 + 5 = 10`) is almost certainly right and is what `REC-BAND-MISMATCH` is already
    asking for, but it moves published prices and size bands, so it belongs to a build rather than
    to a bug fix landing beside it.
 
-The four `datasheet_ability` collisions are unchanged in substance and now blocking rather than
-silent: `ds-greater-brass-scorpion`, `ds-greater-brass-scorpion-2`, `ds-kytan-ravager` and
+The four `datasheet_ability` collisions were, at the end of the first pass, unchanged in
+substance and blocking rather than silent — resolved by decision (B) above: `ds-greater-brass-scorpion`, `ds-greater-brass-scorpion-2`, `ds-kytan-ravager` and
 `ds-kytan-ravager-2` each carry `core:super-heavy-walker` **and** `datasheet:super-heavy-walker`,
 two records with the same `name`, different `mechanic_digest`s and different approved summaries.
 Contract §3.8 now says explicitly that `ability_type` is not part of the key and that exactly one

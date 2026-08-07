@@ -11,7 +11,7 @@ feature's own contracts**, which this repository's own `contracts/` directory (m
 
 | Contract | Version | Source of truth |
 |---|---|---|
-| `reference-db-schema.md` | **v1.2.0** | `WargameCompanion:specs/001-army-builder-app/contracts/reference-db-schema.md` |
+| `reference-db-schema.md` | **v1.4.0** | `WargameCompanion:specs/001-army-builder-app/contracts/reference-db-schema.md` |
 | `rules-data-manifest.md` | **v1.1.1** | `WargameCompanion:specs/001-army-builder-app/contracts/rules-data-manifest.md` |
 
 These define the JSON snapshot bundle's shape and the manifest's shape respectively. Both are
@@ -23,9 +23,9 @@ edit made from this repository.
 
 | Contract | Version | Source of truth |
 |---|---|---|
-| `curated-snapshot-format.md` | 1.0.0 | `WargameCompanion:specs/002-rules-data-pipeline/contracts/curated-snapshot-format.md` |
-| `validation-report.md` | 1.0.0 | `WargameCompanion:specs/002-rules-data-pipeline/contracts/validation-report.md` |
-| `pipeline-run-interface.md` | 1.0.0 | `WargameCompanion:specs/002-rules-data-pipeline/contracts/pipeline-run-interface.md` |
+| `curated-snapshot-format.md` | 1.2.0 | `WargameCompanion:specs/002-rules-data-pipeline/contracts/curated-snapshot-format.md` |
+| `validation-report.md` | 1.1.0 | `WargameCompanion:specs/002-rules-data-pipeline/contracts/validation-report.md` |
+| `pipeline-run-interface.md` | 1.0.2 | `WargameCompanion:specs/002-rules-data-pipeline/contracts/pipeline-run-interface.md` |
 
 These govern, respectively: the mapping between the curated JSON tree and the published bundle;
 the validation report, finding catalogue, and resolution format; and the CLI/workflow/exit-code/
