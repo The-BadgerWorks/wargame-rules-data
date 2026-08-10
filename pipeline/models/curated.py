@@ -97,6 +97,54 @@ class WargearOptionState(StrEnum):
     """At least one row did not resolve; what did resolve still ships (`OPT-UNPARSED`)."""
 
 
+class DefaultEquipmentState(StrEnum):
+    """Whether a datasheet's default equipment extracted, and how completely (`006` FR-015).
+
+    :class:`WargearOptionState`'s pattern reused **without variation**, so no consumer learns a
+    new idea: three codes, and the fourth fact — "the source was not consulted, *or* this
+    datasheet's composition did not resolve" — expressed by the value's absence (`006` FR-016).
+
+    A separate enum rather than a reuse of :class:`WargearOptionState`, because the two are
+    different facts about one datasheet and routinely disagree: a datacard states no options and
+    a full equipment sentence, or the reverse, on the same card.
+    """
+
+    NONE = "none"
+    """The datacard states no default-equipment sentence."""
+
+    EXTRACTED = "extracted"
+    """Every sentence resolved."""
+
+    PARTIAL = "partial"
+    """At least one sentence did not resolve; what did resolve still ships (``EQP-UNPARSED``)."""
+
+
+class OptionItemRole(StrEnum):
+    """Which side of a swap an option-choice item sits on (`006` FR-005, FR-006).
+
+    **One code, not two arrays.** ``granted`` and ``replaced`` carry identical fields, are
+    produced by one clause grammar, are linked by one join, and fail in one way; two arrays would
+    duplicate every constraint and every consumer join to encode a distinction one enumerated
+    code already carries (`006` contract §2.1).
+    """
+
+    GRANTED = "granted"
+    REPLACED = "replaced"
+
+
+class EquipmentAppliesTo(StrEnum):
+    """Whom a default-equipment sentence covers (`006` FR-012, FR-013).
+
+    An **explicit code** rather than the presence of ``composition_line``, and that is the whole
+    reason it exists: a nullable foreign key alone cannot tell *"this sentence covers the whole
+    unit"* from *"this sentence names a group I could not identify"*, and FR-015 requires those
+    two to be distinguishable.
+    """
+
+    UNIT = "unit"
+    MODEL_GROUP = "model_group"
+
+
 class KeywordClass(StrEnum):
     """A keyword's role. **Omitted** when unclassified — never guessed (FR-020)."""
 
@@ -366,6 +414,35 @@ class CuratedOptionGroup(_CuratedMechanical):
     )
     min_choices: int | None = Field(default=None, ge=0)
     max_choices: int | None = Field(default=None, ge=0)
+    # -- 006-unit-loadout-fidelity, data-model.md §2.1 -----------------------------------------
+    # Three mutually independent optional fields. None is defaulted from another and none is
+    # inferred from the unit's composition.
+    #
+    # **`scope` does not gain a fourth member for this, and that is not a detail.** It is a
+    # declared closed set, and the bundle schema validates it, which is evidence a consumer does
+    # too. Adding a member would be a MAJOR break wearing an additive costume — FR-018 and
+    # SC-006 forfeited in one line of JSON. A scoped stem therefore publishes `scope = unit`,
+    # which is the truthful coarse reading, and carries its restriction here.
+    eligible_model_name: str | None = Field(
+        default=None,
+        min_length=1,
+        description="the model name a scoped stem restricts the option to; OMITTED when the "
+        "stem names no subset — which is every group `004` already publishes",
+    )
+    eligible_max_count: int | None = Field(
+        default=None,
+        ge=1,
+        description="the maximum of that model the stem makes eligible; OMITTED when the stem "
+        "states no maximum. Carried as the source states it and NOT reconciled against the "
+        "named model's own composition band (spec Clarifications, 2026-08-09)",
+    )
+    is_per_model: bool | None = Field(
+        default=None,
+        description="True when the stem distributes the option per eligible model; OMITTED "
+        "when the source does not distinguish. Never defaulted to False: research D1c measured "
+        "a distributive `can each` on 350 of 571 unparsed rows, so defaulting would over-grant "
+        "the majority form of the residual",
+    )
 
     @model_validator(mode="after")
     def _scope_n_belongs_to_its_scope(self) -> Self:
@@ -408,6 +485,13 @@ class CuratedOptionChoice(_CuratedMechanical):
         "here; what is forbidden is emitting 0 *because* no price was found.",
     )
     priced_option_id: str | None = Field(default=None, description="-> CuratedWargearOption.id")
+    items: Sequence[CuratedOptionChoiceItem] = Field(
+        default=(),
+        description="`006` §1.1: the replaced set and the granted bundle, sorted by "
+        "(role, item_index). Produced by a second pass over the same object clause that NEVER "
+        "rewrites this choice's `name` or `count` — which is what makes FR-009 hold literally "
+        "over the 144 currently-parsing rows whose names conflate a bundle (research D5a).",
+    )
 
     @model_validator(mode="after")
     def _a_no_change_choice_is_never_priced(self) -> Self:
@@ -415,6 +499,99 @@ class CuratedOptionChoice(_CuratedMechanical):
             raise ValueError(
                 f"option choice {self.id}: an explicit 'no change' alternative carries no price "
                 "— pricing one would publish 'take nothing' as a purchasable item"
+            )
+        return self
+
+
+class CuratedOptionChoiceItem(_CuratedMechanical):
+    """One item on one side of one wargear choice (`006` data-model.md §1.1).
+
+    Sorted by ``(role, item_index)`` within its choice.
+
+    **Every choice has items — including the single-item ones `004` already publishes.** A
+    choice that resolves to one granted item emits one ``granted`` row whose ``weapon_line``
+    equals the choice's own ``grants_weapon_line``. That redundancy is deliberate and
+    load-bearing: it makes the consumer's read uniform ("iterate the items"), it turns the
+    spec's *one-element-bundle-must-not-diverge* edge case into contract guarantee 12 — an
+    invariant a test checks on every build — and it costs nothing, because the singular fields
+    keep exactly the values they have today.
+
+    **A multi-item choice carries no singular field.** ``grants_weapon_line`` and
+    ``replaces_weapon_line`` are omitted whenever the choice's item count on that side is
+    anything other than one. Filling them from the first item is precisely the truncation this
+    feature exists to remove, and a consumer showing an unlinked choice is a smaller harm than
+    one showing half a swap as the whole swap.
+    """
+
+    role: OptionItemRole = Field(description="the clause verb that produced the item")
+    item_index: int = Field(ge=1, description="1-based, the SOURCE's own order; zero inference")
+    item_name: str = Field(min_length=1, description="a name, never prose")
+    count: int | None = Field(
+        default=None,
+        ge=1,
+        description="the leading INT of the conjunct; OMITTED when the source states none, and "
+        "never defaulted to 1 — absence means the source said nothing",
+    )
+    weapon_line: int | None = Field(
+        default=None,
+        ge=1,
+        description="exactly-one-match linking, per item; OMITTED on zero or >= 2 matches, "
+        "where the item ships unlinked with OPT-BUNDLE-UNLINKED and its siblings ship too",
+    )
+
+
+class CuratedEquipmentItem(_CuratedMechanical):
+    """One item a default-equipment sentence names (`006` data-model.md §1.3).
+
+    An item that fails to link ships **unlinked** with ``EQP-ITEM-UNLINKED`` and neither its
+    siblings nor its group is discarded — `004`'s ``OPT-LINK-AMBIGUOUS`` discipline applied to a
+    second class.
+    """
+
+    item_index: int = Field(ge=1, description="1-based, the source's own order")
+    item_name: str = Field(min_length=1, description="a name, never prose")
+    count: int | None = Field(default=None, ge=1, description="OMITTED when unstated")
+    weapon_line: int | None = Field(
+        default=None, ge=1, description="OMITTED on zero or >= 2 matches (FR-014)"
+    )
+
+
+class CuratedEquipmentGroup(_CuratedMechanical):
+    """One default-equipment sentence from the datacard, and who it applies to (§1.2).
+
+    ``id`` is ``eq-<datasheet-stem>-<line>``, derived from the sentence's own ordinal — stable
+    across snapshots, zero inference, the same identity discipline as ``og-`` (`004` FR-015).
+
+    **``composition_line`` is resolved by NAME and never by ordinal.** Research D1e measured the
+    pairings: 1 331 cards carry one composition line and one sentence, but **195 carry two lines
+    and one sentence**, where any positional pairing would attach a squad's loadout to its
+    leader. Zero or two-or-more name matches omit the link and raise
+    ``EQP-GROUP-UNRESOLVED``.
+    """
+
+    id: str = Field(min_length=1, description="eq-<datasheet-stem>-<line>")
+    line: int = Field(ge=1, description="source ordinal within the composition block")
+    applies_to: EquipmentAppliesTo
+    model_name: str | None = Field(
+        default=None,
+        min_length=1,
+        description="present exactly when applies_to = model_group",
+    )
+    composition_line: int | None = Field(
+        default=None,
+        ge=1,
+        description="exactly-one-match against the datasheet's own composition rows; OMITTED on "
+        "zero or >= 2 — never guessed, and never resolved positionally",
+    )
+    items: Sequence[CuratedEquipmentItem] = Field(default=(), description="sorted by item_index")
+
+    @model_validator(mode="after")
+    def _model_name_belongs_to_its_subject(self) -> Self:
+        if (self.applies_to is EquipmentAppliesTo.MODEL_GROUP) != (self.model_name is not None):
+            raise ValueError(
+                f"equipment group {self.id}: model_name is present exactly when applies_to is "
+                f"{EquipmentAppliesTo.MODEL_GROUP.value}; got applies_to="
+                f"{self.applies_to.value}, model_name={self.model_name!r}"
             )
         return self
 
@@ -529,6 +706,19 @@ class CuratedDatasheet(_Curated):
         default=None,
         description="none | extracted | partial; OMITTED = the source was not consulted "
         "(FR-016). This is what distinguishes 'no options' from 'options that failed'.",
+    )
+    equipment_groups: Sequence[CuratedEquipmentGroup] = Field(
+        default=(),
+        description="`006` §1.2: sorted by id. EMPTY for a datasheet whose composition did not "
+        "resolve — FR-016 refuses to attach equipment to a composition structure that does not "
+        "exist. Note the asymmetry with composition, and that it is intentional: an unresolved "
+        "composition line suppresses the WHOLE datasheet's composition, while an unresolved "
+        "equipment sentence suppresses only itself.",
+    )
+    default_equipment_state: DefaultEquipmentState | None = Field(
+        default=None,
+        description="`006` §3: none | extracted | partial; OMITTED = the source was not "
+        "consulted, OR this datasheet's composition did not resolve.",
     )
     wargear_options: Sequence[CuratedWargearOption] = Field(
         default=(),

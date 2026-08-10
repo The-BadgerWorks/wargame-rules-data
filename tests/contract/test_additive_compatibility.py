@@ -60,16 +60,62 @@ NEW_ARRAYS: frozenset[str] = frozenset(
         "detachmentRules",
         "keywordGlossary",
         "datasheetCostContexts",
+        # 006-unit-loadout-fidelity (006 task T006, contracts/loadout-schema-delta.md §2). Three
+        # sibling arrays, for the same reason `datasheetCostContexts` is one: extra rows under a
+        # primary key an old consumer already declares is not something it can ignore, and a
+        # multi-item swap published as extra `datasheetOptionChoices` rows would be rendered as
+        # four alternatives -- a WRONG reading rather than a lossy one.
+        "datasheetOptionChoiceItems",
+        "datasheetEquipmentGroups",
+        "datasheetEquipmentItems",
     }
 )
 
-#: The three additive columns (contract §3), as ``array -> column``. Each is **optional** and
-#: omitted when absent, so every existing row that acquires no value is byte-identical.
-NEW_COLUMNS: dict[str, str] = {
-    "datasheets": "wargearOptionState",
-    "datasheetKeywords": "keywordClass",
-    "factions": "armyRuleState",
+#: The arrays `004` alone added. Kept apart from :data:`NEW_ARRAYS` because a `004`-era fixture
+#: bundle populates exactly these, and a proof that says "the fixture really is enriched" can
+#: only assert about arrays the fixture carries. `006`'s three join it once T021 and T030 emit
+#: them, and T042 re-runs that proof against a loadout-extended bundle.
+ENRICHMENT_ARRAYS: frozenset[str] = frozenset(
+    {
+        "datasheetCompositions",
+        "datasheetOptionGroups",
+        "datasheetOptionChoices",
+        "chapterKeywords",
+        "factionRules",
+        "detachmentRules",
+        "keywordGlossary",
+        "datasheetCostContexts",
+    }
+)
+
+#: The additive columns on **pre-enrichment** arrays, as ``array -> columns``. Each is
+#: **optional** and omitted when absent, so every existing row that acquires no value is
+#: byte-identical.
+#:
+#: `006`'s three eligibility columns are not here because they land on `datasheetOptionGroups`,
+#: which is itself an array `004` added — so it is outside this baseline entirely, and the
+#: comparison that governs it is the pre-loadout one (006 task T033).
+NEW_COLUMNS: dict[str, frozenset[str]] = {
+    "datasheets": frozenset({"wargearOptionState", "defaultEquipmentState"}),
+    "datasheetKeywords": frozenset({"keywordClass"}),
+    "factions": frozenset({"armyRuleState"}),
 }
+
+#: Flattened ``(array, column)`` pairs, for the assertions that parametrise or compare per pair.
+NEW_COLUMN_PAIRS: frozenset[tuple[str, str]] = frozenset(
+    (array, column) for array, columns in NEW_COLUMNS.items() for column in columns
+)
+
+#: The `004` columns specifically. Kept apart from the union above because they are the ones a
+#: `004`-era fixture bundle actually *carries*, and the old-strict-validator assertion below can
+#: only observe a column a bundle populates.
+ENRICHMENT_COLUMN_PAIRS: frozenset[tuple[str, str]] = frozenset(
+    {
+        ("datasheets", "wargearOptionState"),
+        ("datasheetKeywords", "keywordClass"),
+        ("factions", "armyRuleState"),
+    }
+)
 
 
 def _schema(path: Path) -> dict[str, Any]:
@@ -103,7 +149,7 @@ _UNCOMPARED_KEYS: frozenset[str] = frozenset({"description", "maxLength"})
 
 
 def _shape(
-    items: dict[str, Any], *, ignore: str | None = None, strict: bool = False
+    items: dict[str, Any], *, ignore: frozenset[str] = frozenset(), strict: bool = False
 ) -> dict[str, Any]:
     """One element type's comparable shape: ordered properties, ordered required, strictness.
 
@@ -118,7 +164,7 @@ def _shape(
     properties = {
         name: {key: value for key, value in node.items() if key not in dropped}
         for name, node in items.get("properties", {}).items()
-        if name != ignore
+        if name not in ignore
     }
     return {
         "properties": properties,
@@ -199,7 +245,7 @@ def test_an_existing_class_is_identical_but_for_its_permitted_new_column(
     if before_node.get("type") != "array":
         pytest.skip(f"{array} is not an array")
 
-    added = NEW_COLUMNS.get(array)
+    added = NEW_COLUMNS.get(array, frozenset())
     assert _shape(after_node["items"], ignore=added) == _shape(before_node["items"])
 
 
@@ -238,7 +284,7 @@ def test_no_existing_field_had_its_length_ceiling_narrowed(
         )
 
 
-@pytest.mark.parametrize(("array", "column"), sorted(NEW_COLUMNS.items()))
+@pytest.mark.parametrize(("array", "column"), sorted(NEW_COLUMN_PAIRS))
 def test_each_added_column_is_optional_and_therefore_invisible_to_an_old_consumer(
     array: str, column: str, enriched: dict[str, Any]
 ) -> None:
@@ -304,4 +350,10 @@ def test_the_three_added_columns_are_the_only_thing_an_old_strict_validator_sees
         if error.absolute_path and error.validator == "additionalProperties"
     }
 
-    assert observed == set(NEW_COLUMNS.items())
+    # `<=` rather than `==`, and the second assertion is what stops that being a weakening: a
+    # strict old validator can only object to a column the bundle actually CARRIES, and 006's
+    # `defaultEquipmentState` is omitted on every row of a 004-era fixture. The claim this test
+    # makes is about the blast radius -- nothing outside the permitted set is ever seen -- and
+    # the 004 three prove it cannot pass vacuously.
+    assert observed <= NEW_COLUMN_PAIRS
+    assert observed >= ENRICHMENT_COLUMN_PAIRS

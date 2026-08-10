@@ -273,6 +273,13 @@ CONSUMER_PRIMARY_KEYS: Final[dict[str, tuple[str, ...]]] = {
     "factionRules": ("id",),
     "detachmentRules": ("id",),
     "keywordGlossary": ("keywordKey",),
+    # 006-unit-loadout-fidelity's additive tables (contracts/loadout-schema-delta.md §2).
+    # Each key is a composite the SOURCE supplies -- the choice or group it hangs off, plus the
+    # source's own conjunct or sentence ordinal -- so no identity is minted here and a rebuild
+    # from an unchanged tree reproduces the same rows in the same order.
+    "datasheetOptionChoiceItems": ("choiceId", "role", "itemIndex"),
+    "datasheetEquipmentGroups": ("id",),
+    "datasheetEquipmentItems": ("groupId", "itemIndex"),
 }
 
 

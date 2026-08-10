@@ -79,11 +79,14 @@ from pipeline.models.curated import (
     CuratedEdition,
     CuratedEditionRule,
     CuratedEnhancement,
+    CuratedEquipmentGroup,
+    CuratedEquipmentItem,
     CuratedFaction,
     CuratedGameSizeRule,
     CuratedKeyword,
     CuratedModelLine,
     CuratedOptionChoice,
+    CuratedOptionChoiceItem,
     CuratedOptionGroup,
     CuratedSnapshot,
     CuratedWargearOption,
@@ -203,6 +206,9 @@ FIELD_MAPPING: Final[Mapping[type, tuple[set[str], set[str]]]] = {
             "option_groups",
             "option_choices",
             "wargear_option_state",
+            # 006-unit-loadout-fidelity.
+            "equipment_groups",
+            "default_equipment_state",
         },
         {"pricing_confidence", "provenance"},
     ),
@@ -220,6 +226,11 @@ FIELD_MAPPING: Final[Mapping[type, tuple[set[str], set[str]]]] = {
             "default_choice_id",
             "min_choices",
             "max_choices",
+            # 006-unit-loadout-fidelity: the eligibility scope, as optional columns on an
+            # existing array rather than a fourth member of the `scope` enum (contract §1.2).
+            "eligible_model_name",
+            "eligible_max_count",
+            "is_per_model",
         },
         set(),
     ),
@@ -235,7 +246,23 @@ FIELD_MAPPING: Final[Mapping[type, tuple[set[str], set[str]]]] = {
             "is_no_change",
             "points_delta",
             "priced_option_id",
+            # 006: emitted into its OWN array, `datasheetOptionChoiceItems`, and not as a
+            # nested property -- one array per consumer table is the layout rule that keeps
+            # bundleFormatVersion at 1.
+            "items",
         },
+        set(),
+    ),
+    CuratedOptionChoiceItem: (
+        {"role", "item_index", "item_name", "count", "weapon_line"},
+        set(),
+    ),
+    CuratedEquipmentGroup: (
+        {"id", "line", "applies_to", "model_name", "composition_line", "items"},
+        set(),
+    ),
+    CuratedEquipmentItem: (
+        {"item_index", "item_name", "count", "weapon_line"},
         set(),
     ),
     CuratedDatasheetCost: (
@@ -521,6 +548,9 @@ def _emit_datasheets(snapshot: CuratedSnapshot) -> dict[str, list[dict[str, Json
     compositions: list[dict[str, JsonValue]] = []
     option_groups: list[dict[str, JsonValue]] = []
     option_choices: list[dict[str, JsonValue]] = []
+    choice_items: list[dict[str, JsonValue]] = []
+    equipment_groups: list[dict[str, JsonValue]] = []
+    equipment_items: list[dict[str, JsonValue]] = []
 
     snapshot_edition = snapshot.edition.code
 
@@ -553,6 +583,14 @@ def _emit_datasheets(snapshot: CuratedSnapshot) -> dict[str, list[dict[str, Json
                         if datasheet.wargear_option_state is not None
                         else None
                     ),
+                    # 006: the same three-state pattern for a second, independent fact. Omitted
+                    # also means "this datasheet's composition did not resolve", in which case
+                    # no equipment attaches at all (FR-016).
+                    "defaultEquipmentState": (
+                        datasheet.default_equipment_state.value
+                        if datasheet.default_equipment_state is not None
+                        else None
+                    ),
                 }
             )
         )
@@ -582,6 +620,11 @@ def _emit_datasheets(snapshot: CuratedSnapshot) -> dict[str, list[dict[str, Json
                     "defaultChoiceId": group.default_choice_id,
                     "minChoices": group.min_choices,
                     "maxChoices": group.max_choices,
+                    # 006: the eligibility scope. Every one of these is omitted on every group
+                    # `004` already publishes, so those rows stay byte-identical.
+                    "eligibleModelName": group.eligible_model_name,
+                    "eligibleMaxCount": group.eligible_max_count,
+                    "isPerModel": group.is_per_model,
                 }
             )
             for group in datasheet.option_groups
@@ -606,6 +649,49 @@ def _emit_datasheets(snapshot: CuratedSnapshot) -> dict[str, list[dict[str, Json
                 }
             )
             for choice in datasheet.option_choices
+        )
+        # 006: one row per item, in its own sibling array keyed on the choice. Never extra
+        # `datasheetOptionChoices` rows under `id` -- a v1.x consumer would render one swap as
+        # four alternatives, which is a *wrong* reading rather than a lossy one (contract §1.1).
+        choice_items.extend(
+            omit_absent(
+                {
+                    "choiceId": choice.id,
+                    "role": item.role.value,
+                    "itemIndex": item.item_index,
+                    "itemName": item.item_name,
+                    "count": item.count,
+                    "weaponLine": item.weapon_line,
+                }
+            )
+            for choice in datasheet.option_choices
+            for item in choice.items
+        )
+        equipment_groups.extend(
+            omit_absent(
+                {
+                    "id": group.id,
+                    "datasheetId": datasheet.datasheet_id,
+                    "line": group.line,
+                    "appliesTo": group.applies_to.value,
+                    "modelName": group.model_name,
+                    "compositionLine": group.composition_line,
+                }
+            )
+            for group in datasheet.equipment_groups
+        )
+        equipment_items.extend(
+            omit_absent(
+                {
+                    "groupId": group.id,
+                    "itemIndex": item.item_index,
+                    "itemName": item.item_name,
+                    "count": item.count,
+                    "weaponLine": item.weapon_line,
+                }
+            )
+            for group in datasheet.equipment_groups
+            for item in group.items
         )
 
         keywords.extend(
@@ -720,6 +806,9 @@ def _emit_datasheets(snapshot: CuratedSnapshot) -> dict[str, list[dict[str, Json
         "datasheetCompositions": _rows(compositions, "datasheetId", "line"),
         "datasheetOptionGroups": _rows(option_groups, "id"),
         "datasheetOptionChoices": _rows(option_choices, "id"),
+        "datasheetOptionChoiceItems": _rows(choice_items, "choiceId", "role", "itemIndex"),
+        "datasheetEquipmentGroups": _rows(equipment_groups, "id"),
+        "datasheetEquipmentItems": _rows(equipment_items, "groupId", "itemIndex"),
     }
 
 

@@ -76,6 +76,13 @@ CONSUMER_ARRAYS = (
     # 004 task T062, contract §2.7. An entry exists ONLY when authored and approved: an
     # unauthored keyword has no row and still appears on its datasheets unchanged.
     "keywordGlossary",
+    # 006-unit-loadout-fidelity (006 task T006), contract §2. Three sibling arrays rather than
+    # extra rows under an existing primary key: a v1.x consumer reading extra
+    # datasheetOptionChoices rows would render one swap as four alternatives, which is a WRONG
+    # reading rather than a lossy one.
+    "datasheetOptionChoiceItems",
+    "datasheetEquipmentGroups",
+    "datasheetEquipmentItems",
 )
 
 
