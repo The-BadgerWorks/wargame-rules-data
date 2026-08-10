@@ -380,6 +380,24 @@ CONFIG_VARS: Final[tuple[ConfigVar, ...]] = (
         False,
         "approved-coverage regression tolerance, glossary (FR-030)",
     ),
+    # -- 006-unit-loadout-fidelity ----------------------------------------------------------
+    # One variable, and deliberately only one. The 2026-08-09 clarification is specific:
+    # resolved-option coverage is RATCHETED WITH NO ABSOLUTE CEILING, so source-wording drift
+    # cannot wedge a release ahead of a parser fix. A threshold knob would be exactly that
+    # ceiling, so none is added — this is the tolerance the ratchet allows either side of the
+    # previous PUBLISHED version's percent, and it joins the four above unchanged in shape.
+    #
+    # `loadout.default_equipment` gets no tolerance because it gets no ratchet in the first
+    # extended release: there is nothing yet to compare it against, and inventing a
+    # first-release threshold would be the ceiling the clarification rules out (research D4).
+    ConfigVar(
+        "WGC_RATCHET_TOLERANCE_OPTIONS",
+        "ratchet_tolerance_options",
+        "0.00",
+        "ratio",
+        False,
+        "resolved-option coverage regression tolerance (006 FR-022)",
+    ),
 )
 
 _BY_ENV_NAME: Final[Mapping[str, ConfigVar]] = {var.env_name: var for var in CONFIG_VARS}
@@ -423,6 +441,7 @@ class PipelineConfig:
     ratchet_tolerance_faction_rules: float
     ratchet_tolerance_detachment_rules: float
     ratchet_tolerance_glossary: float
+    ratchet_tolerance_options: float
 
     @property
     def manifest_path(self) -> str:
@@ -648,4 +667,5 @@ def load_config(
         ratchet_tolerance_faction_rules=_as_ratio(raw, "WGC_RATCHET_TOLERANCE_FACTION_RULES"),
         ratchet_tolerance_detachment_rules=_as_ratio(raw, "WGC_RATCHET_TOLERANCE_DETACHMENT_RULES"),
         ratchet_tolerance_glossary=_as_ratio(raw, "WGC_RATCHET_TOLERANCE_GLOSSARY"),
+        ratchet_tolerance_options=_as_ratio(raw, "WGC_RATCHET_TOLERANCE_OPTIONS"),
     )

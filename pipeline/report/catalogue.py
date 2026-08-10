@@ -326,6 +326,74 @@ _DEFINITIONS: Final[tuple[FindingDefinition, ...]] = (
         "a class's approved-summary coverage fell below the previously published version's, "
         "beyond that class's configured tolerance",
     ),
+    # -- 006-unit-loadout-fidelity (006 data-model.md §5, FR-021) ---------------------------
+    # Seven codes, of which two block. That is `004`'s proportion and the reason is unchanged:
+    # a parse tail is editorial work, and a release that stalls on editorial work teaches
+    # people to route around the gate. The two that block are both *contradictions* — a bundle
+    # that disagrees with itself, and a coverage figure that moved the wrong way — and neither
+    # is fixable by waiting.
+    #
+    # Two existing codes are REUSED rather than duplicated: `OPT-UNPARSED` still reports a row
+    # neither production set resolves (006 FR-010), and `OPT-PROJECTION-DISAGREE`, already
+    # blocking, covers FR-021's "the priced projection disagrees with the new bundle structure"
+    # because it is the same disagreement about the same choice, and a second code for it would
+    # be a second thing to keep in step.
+    _d(
+        "OPT-SCOPE-UNRESOLVED",
+        _REC,
+        _A,
+        "006 FR-004, FR-021",
+        "a group's eligible_model_name matches no composition row of its datasheet; the value "
+        "ships as the source states it, unchecked, per the 2026-08-09 clarification",
+    ),
+    _d(
+        "OPT-BUNDLE-UNLINKED",
+        _REC,
+        _A,
+        "006 FR-007",
+        "a replaced-set or granted-bundle item's name matches zero or two-or-more weapon "
+        "lines; the item ships unlinked and neither its siblings nor its choice is discarded",
+    ),
+    _d(
+        "OPT-BUNDLE-DISAGREE",
+        _CON,
+        _B,
+        "006 contract guarantee 12",
+        "a choice's singular grants_/replaces_weapon_line and its item rows contradict each "
+        "other; the one-element bundle and the single-item fields must agree, not diverge",
+    ),
+    _d(
+        "EQP-UNPARSED",
+        _DQ,
+        _A,
+        "006 FR-012, FR-015",
+        "a default-equipment sentence resolved to no production; the datasheet's state becomes "
+        "partial and what did resolve still ships, reported by shape and never by quotation",
+    ),
+    _d(
+        "EQP-GROUP-UNRESOLVED",
+        _REC,
+        _A,
+        "006 FR-013",
+        "an equipment sentence's subject names a model group matching zero or two-or-more "
+        "composition rows; the link is omitted rather than resolved positionally",
+    ),
+    _d(
+        "EQP-ITEM-UNLINKED",
+        _REC,
+        _A,
+        "006 FR-014",
+        "an equipment item's name matches zero or two-or-more weapon lines; it ships unlinked "
+        "rather than guessed or silently dropped",
+    ),
+    _d(
+        "COV-OPTION-REGRESSION",
+        _COV,
+        _B,
+        "006 FR-022, spec Clarifications 2026-08-09",
+        "loadout.options_resolved fell below the previous PUBLISHED version's percent, less "
+        "the configured tolerance; a rejected candidate never moves the baseline",
+    ),
 )
 
 #: The catalogue, by code. The single source of truth for a finding's class and severity.
