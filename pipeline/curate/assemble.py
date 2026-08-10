@@ -57,6 +57,7 @@ from typing import Final
 
 from pipeline.curate.authored import AuthoredContent
 from pipeline.curate.summaries import detachment_rule_key
+from pipeline.models.authored import OptionOverrideChoice
 from pipeline.models.curated import (
     ArmyRuleState,
     CuratedCompositionEntry,
@@ -73,10 +74,12 @@ from pipeline.models.curated import (
     CuratedKeyword,
     CuratedModelLine,
     CuratedOptionChoice,
+    CuratedOptionChoiceItem,
     CuratedOptionGroup,
     CuratedSnapshot,
     CuratedWargearOption,
     CuratedWeaponLine,
+    OptionItemRole,
     OptionScope,
     WargearOptionState,
 )
@@ -103,11 +106,15 @@ from pipeline.normalize.weapon_abilities import parse_weapon_ability_keywords
 from pipeline.parse.composition_grammar import link_model_line, parse_entry
 from pipeline.parse.mfm_dom import MfmPage
 from pipeline.parse.options_grammar import (
+    MAX_CHOICE_NAME_CHARS,
+    ItemParse,
     OptionVerb,
     choice_id,
     group_id,
     option_state,
     parse_row,
+    split_conjuncts,
+    split_replaced,
 )
 from pipeline.parse.wahapedia_csv import CsvReadResult
 from pipeline.reconcile.bands import reconcile_bands
@@ -127,7 +134,11 @@ from pipeline.reconcile.match import (
     report_orphan_detail_factions,
     resolve_factions,
 )
-from pipeline.reconcile.options_link import link_choice_weapons, project_priced_options
+from pipeline.reconcile.options_link import (
+    link_choice_items,
+    link_choice_weapons,
+    project_priced_options,
+)
 from pipeline.report.catalogue import build_finding
 
 #: The cost-table label that carries the *later* copies of an escalating price. The publisher
@@ -731,6 +742,8 @@ def _option_structure(
     parsed_choices: list[CuratedOptionChoice] = []
     authored_choices: list[CuratedOptionChoice] = []
     verbs: dict[str, OptionVerb] = {}
+    object_roles: dict[str, OptionItemRole] = {}
+    replaced_clauses: dict[str, str | None] = {}
     findings: list[Finding] = []
     unparsed = 0
 
@@ -746,6 +759,11 @@ def _option_structure(
                     scope_n=override.scope_n,
                     min_choices=override.min_choices,
                     max_choices=override.max_choices,
+                    # `006` FR-011: every new member is optional, so a `004`-shaped override
+                    # carries `None` here and resolves exactly as it did.
+                    eligible_model_name=override.eligible_model_name,
+                    eligible_max_count=override.eligible_max_count,
+                    is_per_model=override.is_per_model,
                 )
             )
             authored_choices.extend(
@@ -758,6 +776,7 @@ def _option_structure(
                     replaces_weapon_line=choice.replaces_weapon_line,
                     is_default=choice.is_default,
                     is_no_change=choice.is_no_change,
+                    items=_authored_items(choice),
                 )
                 for index, choice in enumerate(override.choices, start=1)
             )
@@ -781,11 +800,34 @@ def _option_structure(
 
         group = group_id(datasheet_id, line)
         groups.append(
-            CuratedOptionGroup(id=group, line=line, scope=parsed.scope, scope_n=parsed.scope_n)
+            CuratedOptionGroup(
+                id=group,
+                line=line,
+                scope=parsed.scope,
+                scope_n=parsed.scope_n,
+                min_choices=parsed.min_choices,
+                max_choices=parsed.max_choices,
+                eligible_model_name=parsed.eligible_model_name,
+                eligible_max_count=parsed.eligible_max_count,
+                is_per_model=parsed.is_per_model,
+            )
         )
         for index, choice in enumerate(parsed.choices, start=1):
             identifier = choice_id(group, index)
-            verbs[identifier] = choice.verb
+            # Which side the object clause sits on, and therefore which singular field it may
+            # occupy. A `004` replacement clause names its object in `replaces_weapon_line` and
+            # keeps doing so; a distributive stem states the removed weapon in its own head
+            # instead, so its object is the granted side and its head is the replaced one.
+            object_role = (
+                OptionItemRole.REPLACED
+                if parsed.replaced_clause is None and choice.verb is OptionVerb.REPLACE
+                else OptionItemRole.GRANTED
+            )
+            object_roles[identifier] = object_role
+            replaced_clauses[identifier] = parsed.replaced_clause
+            verbs[identifier] = (
+                OptionVerb.REPLACE if object_role is OptionItemRole.REPLACED else OptionVerb.EQUIP
+            )
             parsed_choices.append(
                 CuratedOptionChoice(
                     id=identifier,
@@ -803,8 +845,28 @@ def _option_structure(
     )
     findings.extend(link_findings)
 
+    # Decomposition runs AFTER the singular join, and that ordering is the O1 Ruling: whether a
+    # choice's name is one item or several is decided by whether the baseline already matched it
+    # to exactly one weapon, which is a fact that does not exist until the join has run.
+    decomposed = [
+        choice.model_copy(
+            update={
+                "items": _choice_items(
+                    choice,
+                    object_role=object_roles[choice.id],
+                    replaced_clause=replaced_clauses[choice.id],
+                )
+            }
+        )
+        for choice in linked
+    ]
+    item_linked, item_findings = link_choice_items(
+        datasheet_id=datasheet_id, choices=decomposed, weapons=weapons
+    )
+    findings.extend(item_findings)
+
     choices, price_findings = project_priced_options(
-        datasheet_id=datasheet_id, choices=[*linked, *authored_choices], priced=priced
+        datasheet_id=datasheet_id, choices=[*item_linked, *authored_choices], priced=priced
     )
     findings.extend(price_findings)
 
@@ -813,6 +875,107 @@ def _option_structure(
         choices=sorted(choices, key=lambda choice: choice.id),
         state=option_state(row_count=len(source_rows), unparsed_count=unparsed),
         findings=findings,
+    )
+
+
+def _choice_items(
+    choice: CuratedOptionChoice,
+    *,
+    object_role: OptionItemRole,
+    replaced_clause: str | None,
+) -> tuple[CuratedOptionChoiceItem, ...]:
+    """Every choice's items, including every pre-existing single-item one (`006` §1.1).
+
+    The redundancy is deliberate and load-bearing: a consumer iterates items uniformly, and the
+    spec's *one-element bundle must not diverge* edge case becomes guarantee 12 — an invariant
+    checked on every build rather than an intention.
+
+    **Decomposition is refused for a name the baseline already matched.** An exactly-one weapon
+    match is itself the evidence that the name is one item, so such a choice gets its one
+    mirroring row and nothing is split. That is the O1 Ruling's other half, and with it the 144
+    currently-parsing rows whose names conflate a bundle gain machine-readable items while not
+    one value a consumer already reads changes.
+    """
+    if choice.is_no_change:
+        # "Take nothing" names no item, and a row asserting it names one would be a swap.
+        return ()
+
+    stated = (
+        choice.replaces_weapon_line
+        if object_role is OptionItemRole.REPLACED
+        else choice.grants_weapon_line
+    )
+    parsed_items = (
+        (ItemParse(name=choice.name, count=choice.count),)
+        if stated is not None
+        else split_conjuncts(choice.name, choice.count)
+    )
+    items = [
+        CuratedOptionChoiceItem(
+            role=object_role, item_index=index, item_name=item.name, count=item.count
+        )
+        for index, item in enumerate(parsed_items, start=1)
+        if len(item.name) <= MAX_CHOICE_NAME_CHARS
+    ]
+    if replaced_clause is not None:
+        items.extend(
+            CuratedOptionChoiceItem(
+                role=OptionItemRole.REPLACED,
+                item_index=index,
+                item_name=item.name,
+                count=item.count,
+            )
+            for index, item in enumerate(split_replaced(replaced_clause), start=1)
+            if len(item.name) <= MAX_CHOICE_NAME_CHARS
+        )
+    return tuple(sorted(items, key=lambda item: (item.role.value, item.item_index)))
+
+
+def _authored_items(choice: OptionOverrideChoice) -> tuple[CuratedOptionChoiceItem, ...]:
+    """A curator's own decomposition, used as written and never re-derived (FR-011).
+
+    A `004`-shaped override states no items and gets the same mirroring row a parsed single-item
+    choice gets, so guarantee 12 holds for authored structures without the override file having
+    to be rewritten — which is what makes FR-011 a schema property rather than a migration.
+    """
+    if choice.is_no_change:
+        return ()
+    if choice.items:
+        # `item_index` is 1-based **within its side**, in the curator's own order, exactly as it
+        # is for a parsed choice — the two sides are one array, not one sequence.
+        seen: dict[str, int] = {}
+        authored: list[CuratedOptionChoiceItem] = []
+        for item in choice.items:
+            seen[item.role] = seen.get(item.role, 0) + 1
+            authored.append(
+                CuratedOptionChoiceItem(
+                    role=OptionItemRole(item.role),
+                    item_index=seen[item.role],
+                    item_name=item.item_name,
+                    count=item.count,
+                    weapon_line=item.weapon_line,
+                )
+            )
+        return tuple(sorted(authored, key=lambda row: (row.role.value, row.item_index)))
+
+    role = (
+        OptionItemRole.REPLACED
+        if choice.replaces_weapon_line is not None
+        else OptionItemRole.GRANTED
+    )
+    line = (
+        choice.replaces_weapon_line
+        if role is OptionItemRole.REPLACED
+        else choice.grants_weapon_line
+    )
+    return (
+        CuratedOptionChoiceItem(
+            role=role,
+            item_index=1,
+            item_name=choice.name,
+            count=choice.count,
+            weapon_line=line,
+        ),
     )
 
 

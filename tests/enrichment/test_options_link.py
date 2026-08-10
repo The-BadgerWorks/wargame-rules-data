@@ -13,10 +13,14 @@ whichever profile happened to sort first.
 
 from __future__ import annotations
 
-from pipeline.models.curated import CuratedOptionChoice
+from pipeline.models.curated import (
+    CuratedOptionChoice,
+    CuratedOptionChoiceItem,
+    OptionItemRole,
+)
 from pipeline.models.findings import Severity
 from pipeline.parse.options_grammar import NO_CHANGE_NAME, OptionVerb
-from pipeline.reconcile.options_link import link_choice_weapons
+from pipeline.reconcile.options_link import link_choice_items, link_choice_weapons
 from pipeline.report.catalogue import CATALOGUE
 from tests.enrichment.conftest import weapon
 
@@ -119,4 +123,209 @@ def test_linking_is_deterministic() -> None:
     }
     first = link_choice_weapons(**args)  # type: ignore[arg-type]
     second = link_choice_weapons(**args)  # type: ignore[arg-type]
+    assert first == second
+
+
+# --- 006 US1: per-item linking and guarantee 12 (T014) -----------------------------------------
+#
+# `link_choice_weapons` above is untouched, and stays untouched: it is what sets the singular
+# fields `004` publishes, and FR-009 is a promise about those values. Everything below is a
+# second join over a second array, and the one place the two meet is guarantee 12's invariant.
+
+
+def item(
+    role: OptionItemRole, index: int, name: str, **overrides: object
+) -> CuratedOptionChoiceItem:
+    return CuratedOptionChoiceItem(
+        role=role,
+        item_index=index,
+        item_name=name,
+        **overrides,  # type: ignore[arg-type]
+    )
+
+
+def test_each_item_of_a_bundle_links_on_its_own_exactly_one_match() -> None:
+    linked, findings = link_choice_items(
+        datasheet_id=DATASHEET,
+        choices=[
+            choice(
+                1,
+                "ember lance and 1 close combat weapon",
+                items=[
+                    item(OptionItemRole.GRANTED, 1, "ember lance", count=1),
+                    item(OptionItemRole.GRANTED, 2, "close combat weapon", count=1),
+                ],
+            )
+        ],
+        weapons=[weapon(2, "Ember lance"), weapon(6, "Close combat weapon")],
+    )
+    assert findings == []
+    assert [i.weapon_line for i in linked[0].items] == [2, 6]
+
+
+def test_an_unlinkable_item_never_discards_its_siblings_or_its_choice() -> None:
+    # FR-007 in terms: the item ships unlinked and the rest of the bundle ships linked. A join
+    # that dropped the bundle would turn one ambiguous name into a whole missing swap.
+    linked, findings = link_choice_items(
+        datasheet_id=DATASHEET,
+        choices=[
+            choice(
+                1,
+                "ember lance and 1 mire censer",
+                items=[
+                    item(OptionItemRole.GRANTED, 1, "ember lance", count=1),
+                    item(OptionItemRole.GRANTED, 2, "mire censer", count=1),
+                ],
+            )
+        ],
+        weapons=[weapon(2, "Ember lance"), weapon(3, "Mire censer"), weapon(4, "Mire censer")],
+    )
+    assert [i.weapon_line for i in linked[0].items] == [2, None]
+    assert [f.finding_code for f in findings] == ["OPT-BUNDLE-UNLINKED"]
+    assert findings[0].detail["match_count"] == 2
+    assert CATALOGUE["OPT-BUNDLE-UNLINKED"].severity is Severity.ADVISORY
+
+
+def test_zero_matches_reports_the_same_advisory_and_ships_the_item() -> None:
+    linked, findings = link_choice_items(
+        datasheet_id=DATASHEET,
+        choices=[choice(1, "void net", items=[item(OptionItemRole.GRANTED, 1, "void net")])],
+        weapons=[weapon(1, "Warding rod")],
+    )
+    assert linked[0].items[0].weapon_line is None
+    assert [f.finding_code for f in findings] == ["OPT-BUNDLE-UNLINKED"]
+    assert findings[0].detail["match_count"] == 0
+
+
+def test_a_one_element_bundle_agrees_with_the_singular_field_it_mirrors() -> None:
+    # Guarantee 12, the direction that matters most: every choice `004` publishes today acquires
+    # exactly one mirroring item row carrying the same line, so a consumer can iterate items
+    # uniformly and read the same fact either way.
+    linked, findings = link_choice_items(
+        datasheet_id=DATASHEET,
+        choices=[
+            choice(
+                1,
+                "sedge halberd",
+                replaces_weapon_line=2,
+                items=[item(OptionItemRole.REPLACED, 1, "sedge halberd")],
+            )
+        ],
+        weapons=[weapon(2, "Sedge halberd")],
+    )
+    assert findings == []
+    assert linked[0].items[0].weapon_line == 2
+    assert linked[0].replaces_weapon_line == 2
+
+
+def test_a_sole_item_that_links_supplies_the_singular_field_it_mirrors() -> None:
+    # The other half of the biconditional. A distributive stem names the removed weapon in its
+    # own head rather than in the object clause, so the singular field can only come from the
+    # item - and leaving it absent would publish a one-element bundle that disagrees with its
+    # own choice by omission.
+    linked, findings = link_choice_items(
+        datasheet_id=DATASHEET,
+        choices=[
+            choice(
+                1,
+                "ember lance",
+                grants_weapon_line=2,
+                items=[
+                    item(OptionItemRole.GRANTED, 1, "ember lance"),
+                    item(OptionItemRole.REPLACED, 1, "sedge halberd"),
+                ],
+            )
+        ],
+        weapons=[weapon(2, "Ember lance"), weapon(3, "Sedge halberd")],
+    )
+    assert findings == []
+    assert linked[0].replaces_weapon_line == 3
+
+
+def test_a_multi_item_side_carries_no_singular_field_at_all() -> None:
+    # Filling it from the first item is precisely the truncation this feature exists to remove.
+    linked, findings = link_choice_items(
+        datasheet_id=DATASHEET,
+        choices=[
+            choice(
+                1,
+                "ember lance and 1 void net",
+                items=[
+                    item(OptionItemRole.GRANTED, 1, "ember lance"),
+                    item(OptionItemRole.GRANTED, 2, "void net"),
+                ],
+            )
+        ],
+        weapons=[weapon(2, "Ember lance"), weapon(7, "Void net")],
+    )
+    assert findings == []
+    assert linked[0].grants_weapon_line is None
+
+
+def test_a_singular_field_its_items_contradict_is_blocking() -> None:
+    linked, findings = link_choice_items(
+        datasheet_id=DATASHEET,
+        choices=[
+            choice(
+                1,
+                "sedge halberd",
+                replaces_weapon_line=2,
+                items=[
+                    item(OptionItemRole.REPLACED, 1, "sedge halberd"),
+                    item(OptionItemRole.REPLACED, 2, "mire censer"),
+                ],
+            )
+        ],
+        weapons=[weapon(2, "Sedge halberd"), weapon(3, "Mire censer")],
+    )
+    assert [f.finding_code for f in findings] == ["OPT-BUNDLE-DISAGREE"]
+    assert CATALOGUE["OPT-BUNDLE-DISAGREE"].severity is Severity.BLOCKING
+    assert linked[0].replaces_weapon_line == 2
+
+
+def test_the_disagreement_is_checked_in_the_other_direction_too() -> None:
+    # A singular field pointing at a line its one item does not name is the same contradiction
+    # read from the other end, and a check that only looked one way would miss it.
+    _linked, findings = link_choice_items(
+        datasheet_id=DATASHEET,
+        choices=[
+            choice(
+                1,
+                "sedge halberd",
+                grants_weapon_line=9,
+                items=[item(OptionItemRole.GRANTED, 1, "sedge halberd")],
+            )
+        ],
+        weapons=[weapon(2, "Sedge halberd"), weapon(9, "Warding rod")],
+    )
+    assert [f.finding_code for f in findings] == ["OPT-BUNDLE-DISAGREE"]
+
+
+def test_a_no_change_alternative_carries_no_items_and_raises_nothing() -> None:
+    linked, findings = link_choice_items(
+        datasheet_id=DATASHEET,
+        choices=[choice(3, NO_CHANGE_NAME, is_no_change=True)],
+        weapons=[weapon(1, "Warding rod")],
+    )
+    assert findings == []
+    assert linked[0].items == ()
+
+
+def test_item_linking_is_deterministic() -> None:
+    args = {
+        "datasheet_id": DATASHEET,
+        "choices": [
+            choice(
+                1,
+                "mire censer and 1 sedge halberd",
+                items=[
+                    item(OptionItemRole.GRANTED, 1, "mire censer"),
+                    item(OptionItemRole.GRANTED, 2, "sedge halberd"),
+                ],
+            )
+        ],
+        "weapons": [weapon(4, "Mire censer"), weapon(3, "Mire censer"), weapon(2, "Sedge halberd")],
+    }
+    first = link_choice_items(**args)  # type: ignore[arg-type]
+    second = link_choice_items(**args)  # type: ignore[arg-type]
     assert first == second

@@ -426,6 +426,7 @@ class CuratedOptionGroup(_CuratedMechanical):
     eligible_model_name: str | None = Field(
         default=None,
         min_length=1,
+        max_length=120,
         description="the model name a scoped stem restricts the option to; OMITTED when the "
         "stem names no subset — which is every group `004` already publishes",
     )
@@ -525,7 +526,7 @@ class CuratedOptionChoiceItem(_CuratedMechanical):
 
     role: OptionItemRole = Field(description="the clause verb that produced the item")
     item_index: int = Field(ge=1, description="1-based, the SOURCE's own order; zero inference")
-    item_name: str = Field(min_length=1, description="a name, never prose")
+    item_name: str = Field(min_length=1, max_length=120, description="a name, never prose")
     count: int | None = Field(
         default=None,
         ge=1,
@@ -549,7 +550,7 @@ class CuratedEquipmentItem(_CuratedMechanical):
     """
 
     item_index: int = Field(ge=1, description="1-based, the source's own order")
-    item_name: str = Field(min_length=1, description="a name, never prose")
+    item_name: str = Field(min_length=1, max_length=120, description="a name, never prose")
     count: int | None = Field(default=None, ge=1, description="OMITTED when unstated")
     weapon_line: int | None = Field(
         default=None, ge=1, description="OMITTED on zero or >= 2 matches (FR-014)"
@@ -575,6 +576,7 @@ class CuratedEquipmentGroup(_CuratedMechanical):
     model_name: str | None = Field(
         default=None,
         min_length=1,
+        max_length=120,
         description="present exactly when applies_to = model_group",
     )
     composition_line: int | None = Field(
