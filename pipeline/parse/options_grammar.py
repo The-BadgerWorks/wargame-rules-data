@@ -46,7 +46,7 @@ description *string*, so `csv` mode and `html` mode (task T073) feed it identica
 from __future__ import annotations
 
 import re
-from collections.abc import Sequence
+from collections.abc import Callable, Mapping, Sequence
 from dataclasses import dataclass
 from enum import StrEnum
 from typing import Final
@@ -107,6 +107,194 @@ NO_CHANGE_NAME: Final = "No change"
 MAX_CHOICE_NAME_CHARS: Final = 120
 
 
+# -- `006-unit-loadout-fidelity`: everything below is appended AFTER every `004` production ------
+#
+# **The ordering is the guarantee, not a convention.** :func:`_match_head` runs the `004` table
+# to exhaustion before it looks at ``_EXTENDED_HEADS``, and :func:`_match_verb` runs `004`'s two
+# verbs before ``_DISTRIBUTIVE_REPLACE``. A row the baseline resolved therefore never reaches a
+# line of `006` code, which is FR-009 made structural: there is no path by which a new production
+# can change an old result, so the zero-regression claim does not rest on a test remembering to
+# cover a row (research D5, layer 0).
+#
+# The vocabulary is the **live corpus's**, measured by ``tools/option_taxonomy.py`` into
+# ``reports/option-taxonomy/2026-08-10.md`` over 2 452 rows, and not research D1's ≈81 % sample.
+# Where the two disagree the measurement wins; where the measurement says zero, no production is
+# built, so a vocabulary shift shows up as a falling coverage figure rather than as a guess.
+
+#: The distributive replace verb — research D1b class 1, **283 of 571 unparsed rows (49.6 %)**
+#: and the single highest-yield production in the feature (T016). The possessive side is captured
+#: rather than discarded: it names what the eligible models give up, and it is the only place the
+#: sentence states it.
+_DISTRIBUTIVE_REPLACE: Final = re.compile(
+    r"can each have\s+(?P<side>.+?)\s+replaced with\b", re.IGNORECASE
+)
+
+#: Determiners the possessive side opens with. Stripped so the side reads as item names; the
+#: strip is a fixed closed list rather than a "leading word" rule, because a leading word is
+#: sometimes the item.
+_POSSESSIVE: Final = re.compile(r"^(?:its|their|the|this model's|this model’s)\s+", re.IGNORECASE)
+
+#: A footnote marker glued to a model name inside the stem — 24 measured rows carry one. A head
+#: that cannot read past it loses the row to a typographic convention.
+_FOOTNOTE_MARK: Final = re.compile(r"[*†‡¹²³]+")
+
+#: The apostrophe, in both forms the source uses. NFKC does not fold ``’`` to ``'``, so a
+#: production spelling only one of them matches roughly half the possessive heads it should.
+_APOS: Final = r"['’]"
+
+#: A model-name phrase inside a head: title-cased words, which is how the source names a model.
+_MODEL: Final = r"[A-Z][\w'’-]*(?:[ -][A-Z][\w'’-]*)*"
+
+#: Forms an ``_EXTENDED_HEADS`` production would otherwise swallow, refused before that table is
+#: reached — and **only** before that table, so no row the `004` heads resolve can see them.
+#:
+#: Both classes state a **predicate** the curated schema has nowhere to hold: a unit-size or
+#: equipment condition on whether the option is available at all. Resolving one would publish
+#: "any unit may take this" where the source says "a unit of six or more may", which is the
+#: over-grant this feature exists to stop, not a coverage figure worth having. Research D1c.5
+#: makes the same ruling for class 9's verbless conditionals; these are the same predicate
+#: wearing a verb, and they stay ``OPT-UNPARSED`` and curator-override material.
+#:
+#: Measured: 27 conditional rows and 14 equipment-qualified subjects, of class 2's 105.
+_EXTENDED_REFUSED: Final[tuple[re.Pattern[str], ...]] = (
+    re.compile(r"^(?:If|Unless)\b", re.IGNORECASE),
+    re.compile(r"^[^,]*\bequipped with\b.*\bcan be\b", re.IGNORECASE),
+    re.compile(r"^For each\b", re.IGNORECASE),
+)
+
+
+@dataclass(frozen=True, slots=True)
+class _Head:
+    """What a head production resolves to, beyond the scope `004` already carries."""
+
+    scope: OptionScope
+    scope_n: int | None = None
+    eligible_model_name: str | None = None
+    eligible_max_count: int | None = None
+    is_per_model: bool | None = None
+
+
+def _scoped_max(match: re.Match[str]) -> _Head:
+    """``Up to INT <MODEL>`` — class 1c, 41 rows. The cap is the *model's*, not the unit's."""
+    return _Head(
+        scope=OptionScope.UNIT,
+        eligible_model_name=_model_name(match.group(2)),
+        eligible_max_count=int(match.group(1)),
+    )
+
+
+def _named_subset(match: re.Match[str]) -> _Head:
+    """``Any number of <MODEL>`` — class 1b, 42 rows. A subset with no cap."""
+    return _Head(scope=OptionScope.UNIT, eligible_model_name=_model_name(match.group(1)))
+
+
+def _whole_unit(_match: re.Match[str]) -> _Head:
+    """``All models in this unit`` / ``This unit`` — no subset and no cap."""
+    return _Head(scope=OptionScope.UNIT)
+
+
+def _this_model_items(_match: re.Match[str]) -> _Head:
+    """``Each of this model's <ITEM>`` — 21 rows. One model, distributed over its own weapons."""
+    return _Head(scope=OptionScope.MODEL)
+
+
+def _one_named(match: re.Match[str]) -> _Head:
+    """``One <MODEL>'s <ITEM>`` / ``One <MODEL>`` — a subset of exactly one, by name."""
+    return _Head(
+        scope=OptionScope.UNIT,
+        eligible_model_name=_model_name(match.group(1)),
+        eligible_max_count=1,
+    )
+
+
+def _one_anonymous(_match: re.Match[str]) -> _Head:
+    """``One model's <ITEM>`` / ``One model`` — a subset of exactly one, unnamed."""
+    return _Head(scope=OptionScope.UNIT, eligible_max_count=1)
+
+
+def _each_named(match: re.Match[str]) -> _Head:
+    """``Each <MODEL>`` — every model of a named type, which is distributive by construction."""
+    return _Head(
+        scope=OptionScope.UNIT,
+        eligible_model_name=_model_name(match.group(1)),
+        is_per_model=True,
+    )
+
+
+def _each_model(_match: re.Match[str]) -> _Head:
+    """``Each model's <ITEM>`` — every model of the unit, distributively."""
+    return _Head(scope=OptionScope.UNIT, is_per_model=True)
+
+
+def _per_named(match: re.Match[str]) -> _Head:
+    """``For every INT <MODEL> in this unit,`` — `004`'s ratio head with a named model."""
+    return _Head(scope=OptionScope.PER_N_MODELS, scope_n=int(match.group(1)))
+
+
+#: The `006` head table, tried in this fixed order **only after** every `004` head has failed.
+#: The order is fixed so the same input picks the same production on every run, and the more
+#: specific possessive forms are tried ahead of the bare ones they would otherwise lose to.
+#:
+#: T017 builds the first three (research D1b classes 1b, 1c, 1e); T055 builds the rest, which are
+#: class 2's measured heads — a family whose verb `004` already carried and whose head it did not.
+_EXTENDED_HEADS: Final[tuple[tuple[re.Pattern[str], Callable[[re.Match[str]], _Head]], ...]] = (
+    # -- T017: the distributive-replace family's heads (classes 1b, 1c, 1e) --------------------
+    (re.compile(rf"^Up to (\d+)\s+({_MODEL}|models?)\b"), _scoped_max),
+    (re.compile(r"^All models in this unit\b", re.IGNORECASE), _whole_unit),
+    (re.compile(rf"^Any number of ({_MODEL})\b"), _named_subset),
+    # -- T055: class 2's measured heads ---------------------------------------------------------
+    (re.compile(rf"^(?:Each|Both) of this model{_APOS}s\b", re.IGNORECASE), _this_model_items),
+    (re.compile(rf"^One model{_APOS}s\b", re.IGNORECASE), _one_anonymous),
+    (re.compile(rf"^(?:One|An?) ({_MODEL}){_APOS}s\b"), _one_named),
+    (re.compile(r"^One model\b", re.IGNORECASE), _one_anonymous),
+    (re.compile(rf"^One ({_MODEL})\b"), _one_named),
+    (re.compile(r"^This unit\b", re.IGNORECASE), _whole_unit),
+    (re.compile(rf"^Each model{_APOS}s\b", re.IGNORECASE), _each_model),
+    (re.compile(rf"^Each ({_MODEL})\b"), _each_named),
+    (re.compile(rf"^For every (\d+) (?:{_MODEL})s? in this unit\b"), _per_named),
+)
+
+#: The group-level select quantifier (T019), **derived from the corpus and not from research
+#: D1d**. D1d's skeletons were digit-shaped and matched zero rows for one reason: this corpus
+#: states the quantifier as a *word* numeral. Measured: ``up to two of the following`` 21 rows,
+#: ``up to three of the following`` 4, ``any of the following`` 1 (a cap of nothing, so no value).
+#: ``INT different <ITEM> from the following`` — D1d's other skeleton — is **0 rows and is
+#: deliberately not built**, on exactly the terms `004` refused ``may`` and ``1 in N``.
+#:
+#: ``one of the following:`` is the boilerplate 174 stems end with and is **not** a cap of one.
+_SELECT_QUANTIFIER: Final = re.compile(
+    r"\bup to (?P<count>one|two|three|four|five|six|seven|eight|nine|ten|\d+) of the following\b",
+    re.IGNORECASE,
+)
+
+#: The word numerals the quantifier uses. A closed list, because a general number-word parser
+#: would resolve forms the corpus does not state and has therefore never been measured.
+_NUMERALS: Final[Mapping[str, int]] = {
+    "one": 1,
+    "two": 2,
+    "three": 3,
+    "four": 4,
+    "five": 5,
+    "six": 6,
+    "seven": 7,
+    "eight": 8,
+    "nine": 9,
+    "ten": 10,
+}
+
+#: A conjunct boundary on the **granted** side: ``and INT <ITEM>``. The leading integer is the
+#: evidence a second item started (research D1d measured 137 rows of it). Without one, ``and`` is
+#: part of the name, and splitting on it would invent an item the source does not name.
+_GRANTED_CONJUNCT: Final = re.compile(r"\s+and\s+(?=\d+\s+\S)", re.IGNORECASE)
+
+#: A conjunct boundary on the **replaced** side. The possessive side lists the model's own
+#: weapons and states no counts, so a bare ``and`` — or a semicolon — is the only boundary the
+#: source gives. An item that splits wrongly links to nothing and is reported
+#: ``OPT-BUNDLE-UNLINKED``, which is the visible failure; not splitting at all is the invisible
+#: one this feature exists to remove.
+_REPLACED_CONJUNCT: Final = re.compile(r"\s+and\s+|\s*;\s*", re.IGNORECASE)
+
+
 class OptionVerb(StrEnum):
     """What the clause does with its object."""
 
@@ -125,12 +313,41 @@ class OptionChoiceParse:
 
 
 @dataclass(frozen=True, slots=True)
+class ItemParse:
+    """One item on one side of one choice, before it is linked (`006` FR-005, FR-006).
+
+    ``count`` is the conjunct's own leading integer and is **omitted when the source states
+    none** — never defaulted to 1, because absence means the source said nothing.
+    """
+
+    name: str
+    count: int | None = None
+
+
+@dataclass(frozen=True, slots=True)
 class OptionRowParse:
-    """One source option row, resolved into a group and its choices."""
+    """One source option row, resolved into a group and its choices.
+
+    Every field below ``choices`` is `006`'s, and every one of them defaults to ``None``. That
+    is the structural half of FR-009: a row `004` resolved takes no new production, so it takes
+    no new value either, and the layer-1 harness's golden literals keep comparing equal without
+    being edited.
+    """
 
     scope: OptionScope
     scope_n: int | None
     choices: tuple[OptionChoiceParse, ...]
+    # -- `006` §2.1: the eligibility scope ------------------------------------------------------
+    eligible_model_name: str | None = None
+    eligible_max_count: int | None = None
+    is_per_model: bool | None = None
+    # -- `006` §2.2: the group-level select quantifier ------------------------------------------
+    min_choices: int | None = None
+    max_choices: int | None = None
+    #: The possessive side of a distributive replace stem — what the eligible models give **up**,
+    #: which the clause names in its own head rather than after its verb. ``None`` for every
+    #: production `004` carries, whose object clause is the only side it states.
+    replaced_clause: str | None = None
 
 
 def group_id(datasheet_id: str, line: int) -> str:
@@ -172,9 +389,8 @@ def parse_row(description: str) -> OptionRowParse | None:
     head = _match_head(stem)
     if head is None:
         return None
-    scope, scope_n = head
 
-    verb, object_clause = _match_verb(stem)
+    verb, object_clause, replaced_clause = _match_verb(stem)
     if verb is None:
         return None
 
@@ -191,32 +407,120 @@ def parse_row(description: str) -> OptionRowParse | None:
             return None
         choices.append(choice)
 
-    return OptionRowParse(scope=scope, scope_n=scope_n, choices=tuple(choices))
+    # A distributive verb makes the group per-model whatever its head said; a head that is
+    # distributive in itself says so too. Neither is ever written as `False`: the source not
+    # distinguishing and the source saying "once for the unit" are different facts, and
+    # defaulting would over-grant the 350 measured rows that do distribute.
+    is_per_model = True if replaced_clause is not None else head.is_per_model
+
+    return OptionRowParse(
+        scope=head.scope,
+        scope_n=head.scope_n,
+        choices=tuple(choices),
+        eligible_model_name=head.eligible_model_name,
+        eligible_max_count=head.eligible_max_count,
+        is_per_model=is_per_model,
+        max_choices=_select_quantifier(stem),
+        replaced_clause=replaced_clause,
+    )
 
 
-def _match_head(stem: str) -> tuple[OptionScope, int | None] | None:
+def _match_head(stem: str) -> _Head | None:
+    """`004`'s head table to exhaustion, and only then `006`'s. The order is FR-009."""
     for pattern, scope in _HEADS:
         match = pattern.match(stem)
         if match is None:
             continue
-        if scope is OptionScope.PER_N_MODELS:
-            return scope, int(match.group(1))
-        return scope, None
+        scope_n = int(match.group(1)) if scope is OptionScope.PER_N_MODELS else None
+        return _Head(scope=scope, scope_n=scope_n)
+
+    if any(pattern.search(stem) for pattern in _EXTENDED_REFUSED):
+        return None
+    for pattern, build in _EXTENDED_HEADS:
+        match = pattern.match(stem)
+        if match is not None:
+            return build(match)
     return None
 
 
-def _match_verb(stem: str) -> tuple[OptionVerb | None, str]:
-    """The clause's verb and the text following it.
+def _model_name(text: str) -> str | None:
+    """A head's model-name capture, or ``None`` where the head names no subset.
+
+    ``models`` is the source's word for "the unit's own models", which is the absence of a
+    subset rather than the name of one. The footnote marker is stripped because it is
+    typography; nothing else is, because everything else is the name as the source states it —
+    in particular the plural is **not** singularised, which would be inference dressed as
+    tidying (spec Clarifications, 2026-08-09: carried unchecked).
+    """
+    cleaned = _FOOTNOTE_MARK.sub("", text).strip()
+    if not cleaned or cleaned.casefold() in {"model", "models"}:
+        return None
+    return cleaned
+
+
+def _select_quantifier(stem: str) -> int | None:
+    """The group-level cap the stem states, or ``None`` — `006` T019."""
+    match = _SELECT_QUANTIFIER.search(stem)
+    if match is None:
+        return None
+    count = match.group("count").casefold()
+    return _NUMERALS.get(count, int(count) if count.isdigit() else None)
+
+
+def _match_verb(stem: str) -> tuple[OptionVerb | None, str, str | None]:
+    """The clause's verb, the text following it, and the side it takes away.
 
     ``replace`` is tested first: a row carrying both phrases is describing a replacement whose
     alternatives are then equipped, and reading it as additive would publish an upgrade the
     player has not paid for a swap to take.
+
+    `006`'s distributive verb is tested **last**, after both `004` phrases have failed, so a row
+    the baseline resolved cannot reach it. Its third return value is the possessive side — the
+    only place a distributive stem names what is given up.
     """
     for phrase, verb in ((_REPLACE_VERB, OptionVerb.REPLACE), (_EQUIP_VERB, OptionVerb.EQUIP)):
         index = stem.find(phrase)
         if index >= 0:
-            return verb, stem[index + len(phrase) :].strip()
-    return None, ""
+            return verb, stem[index + len(phrase) :].strip(), None
+
+    distributive = _DISTRIBUTIVE_REPLACE.search(stem)
+    if distributive is not None:
+        remainder = stem[distributive.end() :].strip()
+        return OptionVerb.REPLACE, remainder, distributive.group("side").strip()
+    return None, "", None
+
+
+def split_conjuncts(name: str, count: int | None = None) -> tuple[ItemParse, ...]:
+    """Decompose a choice's object clause into its granted items, in source order (T018).
+
+    **This never rewrites the choice it decomposes.** It is handed the ``name`` and ``count``
+    the baseline productions produced and returns a new structure beside them; the O1 Ruling
+    says a legacy conflated label stays exactly as it is, and the way to keep that promise is a
+    function that cannot express the alternative.
+
+    The caller is responsible for the other half of the rule: decomposition is **refused
+    outright** for any choice whose singular ``grants_``/``replaces_weapon_line`` the baseline
+    already set, because an exactly-one weapon-name match is itself the evidence the name is one
+    item and there is nothing to split.
+    """
+    text = f"{count} {name}" if count is not None else name
+    parts = [part.strip() for part in _GRANTED_CONJUNCT.split(text) if part.strip()]
+    return tuple(_item(part) for part in parts) or (ItemParse(name=name, count=count),)
+
+
+def split_replaced(clause: str) -> tuple[ItemParse, ...]:
+    """Decompose a distributive stem's possessive side into its replaced items (T018, FR-005)."""
+    side = _POSSESSIVE.sub("", clause.strip())
+    parts = [part.strip().rstrip(".;,:").strip() for part in _REPLACED_CONJUNCT.split(side)]
+    return tuple(_item(part) for part in parts if part)
+
+
+def _item(text: str) -> ItemParse:
+    """One conjunct, with its own leading count where the source states one."""
+    counted = _LEADING_COUNT.match(text)
+    if counted is None:
+        return ItemParse(name=text)
+    return ItemParse(name=counted.group(2).strip(), count=int(counted.group(1)))
 
 
 def _parse_object(text: str, verb: OptionVerb) -> OptionChoiceParse | None:

@@ -21,12 +21,15 @@ from pipeline.models.curated import CuratedOptionChoice, OptionScope, WargearOpt
 from pipeline.models.findings import Severity
 from pipeline.parse.options_grammar import (
     NO_CHANGE_NAME,
+    ItemParse,
     OptionVerb,
     choice_id,
     choice_names,
     group_id,
     option_state,
     parse_row,
+    split_conjuncts,
+    split_replaced,
     split_sublist,
 )
 from pipeline.report.catalogue import CATALOGUE
@@ -258,3 +261,213 @@ def test_parsing_is_deterministic_over_the_whole_fixture(
         ]
 
     assert run() == run()
+
+
+# --- 006 US1: the extended productions (T013) --------------------------------------------------
+#
+# Every case below is a shape `004`'s grammar returned `None` for. The `004` cases above are
+# unchanged and stay above, which is the ordering half of FR-009 written into this file's own
+# layout: the baseline's contract is stated first and never edited to accommodate what follows.
+
+
+def test_the_distributive_replace_verb_resolves_a_row_004_could_not(
+    option_rows: Mapping[str, list[tuple[int, str]]],
+) -> None:
+    # GF07|3 - `All models in this unit can each have their glimmer rifle replaced with 1 ...`
+    parsed = parse_row(dict(option_rows["GF07"])[3])
+    assert parsed is not None
+    assert parsed.scope is OptionScope.UNIT
+    assert parsed.is_per_model is True
+    assert choice_names(parsed) == ["ember lance"]
+    assert parsed.replaced_clause == "their glimmer rifle"
+
+
+def test_is_per_model_is_omitted_rather_than_false_on_a_non_distributive_row(
+    option_rows: Mapping[str, list[tuple[int, str]]],
+) -> None:
+    # Never defaulted to False: research D1c measured `can each` on 350 of 571 unparsed rows, so
+    # a default would over-grant the majority form of the residual.
+    parsed = parse_row(dict(option_rows["GF07"])[8])
+    assert parsed is not None
+    assert parsed.is_per_model is None
+
+
+def test_a_scoped_stem_carries_its_model_name_and_its_maximum(
+    option_rows: Mapping[str, list[tuple[int, str]]],
+) -> None:
+    # GF07|1 - `Up to 4 Purgeflight Wardens can each have ...`. `scope` stays `unit`: it is a
+    # declared closed set and a fourth member would be a MAJOR break wearing an additive costume.
+    parsed = parse_row(dict(option_rows["GF07"])[1])
+    assert parsed is not None
+    assert parsed.scope is OptionScope.UNIT
+    assert parsed.eligible_model_name == "Purgeflight Wardens"
+    assert parsed.eligible_max_count == 4
+    assert parsed.is_per_model is True
+
+
+def test_a_scoped_stem_reads_through_a_footnote_marker(
+    option_rows: Mapping[str, list[tuple[int, str]]],
+) -> None:
+    # GF07|20 - the same head with a footnote marker glued to the model name. 24 measured rows
+    # carry one inside the stem; a head that cannot read past it loses the row to a typographic
+    # convention.
+    parsed = parse_row(dict(option_rows["GF07"])[20])
+    assert parsed is not None
+    assert parsed.eligible_model_name == "Purgeflight Wardens"
+    assert parsed.eligible_max_count == 2
+
+
+def test_the_all_models_head_is_unit_scoped_and_names_no_subset(
+    option_rows: Mapping[str, list[tuple[int, str]]],
+) -> None:
+    parsed = parse_row(dict(option_rows["GF07"])[3])
+    assert parsed is not None
+    assert (parsed.scope, parsed.eligible_model_name) == (OptionScope.UNIT, None)
+
+
+def test_the_any_number_of_named_model_head_carries_the_name(
+    option_rows: Mapping[str, list[tuple[int, str]]],
+) -> None:
+    # `004`'s head requires the literal word `models`; 42 measured rows name the model instead.
+    parsed = parse_row(dict(option_rows["GF07"])[5])
+    assert parsed is not None
+    assert parsed.scope is OptionScope.UNIT
+    assert parsed.eligible_model_name == "Purgeflight Wardens"
+    assert parsed.eligible_max_count is None
+
+
+def test_a_possessive_singular_head_is_a_subset_of_exactly_one_model(
+    option_rows: Mapping[str, list[tuple[int, str]]],
+) -> None:
+    # T055, and GF07|8 carries the largest class-2 head: `One <MODEL>'s <ITEM> can be replaced
+    # with ...`. The cap is one *model*, which is the eligibility scope, not the choice's count.
+    parsed = parse_row(dict(option_rows["GF07"])[8])
+    assert parsed is not None
+    assert parsed.scope is OptionScope.UNIT
+    assert parsed.eligible_model_name == "Purgeflight Warden"
+    assert parsed.eligible_max_count == 1
+    assert parsed.is_per_model is None
+
+
+@pytest.mark.parametrize(
+    ("description", "scope", "eligible_model_name", "is_per_model"),
+    [
+        ("This unit can be equipped with 1 void net.", OptionScope.UNIT, None, None),
+        (
+            "Each of this model's glimmer rifles can be replaced with 1 ember lance.",
+            OptionScope.MODEL,
+            None,
+            None,
+        ),
+        (
+            "Each Purgeflight Warden can be equipped with 1 void net.",
+            OptionScope.UNIT,
+            "Purgeflight Warden",
+            True,
+        ),
+    ],
+)
+def test_the_class_2_heads_resolve_a_row_whose_verb_004_already_carried(
+    description: str,
+    scope: OptionScope,
+    eligible_model_name: str | None,
+    is_per_model: bool | None,
+) -> None:
+    # T055. 105 measured rows carry a verb `004` built and a head it did not, which is a
+    # different production to write from a row that failed on its verb.
+    parsed = parse_row(description)
+    assert parsed is not None
+    assert parsed.scope is scope
+    assert parsed.eligible_model_name == eligible_model_name
+    assert parsed.is_per_model is is_per_model
+
+
+@pytest.mark.parametrize(
+    "description",
+    [
+        # The 27 measured conditional class-2 rows. The condition is an availability predicate
+        # and nothing in the schema holds one, so resolving the row would publish "any unit may
+        # take this" where the source says "a unit of six or more may" - research D1c.5's ruling
+        # on class 9, applied to the same predicate wearing a verb.
+        "If this unit has 6 or more models, one model's glimmer rifle can be replaced with 1 x.",
+        "If this model is equipped with a fen charm, its glimmer rifle can be replaced with 1 x.",
+        # The 14 measured rows whose subject is qualified by the equipment it already carries.
+        "One Purgeflight Warden equipped with a glimmer rifle can be replaced with 1 x.",
+        "For each fen charm this model is equipped with, it can be equipped with 1 x.",
+    ],
+)
+def test_a_class_2_row_whose_predicate_the_schema_cannot_hold_stays_unparsed(
+    description: str,
+) -> None:
+    assert parse_row(description) is None
+
+
+def test_a_group_level_select_quantifier_populates_max_choices() -> None:
+    # T019, and the vocabulary is the corpus's own: it states the quantifier as a WORD numeral,
+    # which is why research D1d's digit-shaped skeletons matched zero rows. `min_choices` stays
+    # omitted because no measured stem states a floor.
+    parsed = parse_row(
+        "This model can be equipped with up to two of the following:<ul><li>1 a</li><li>1 b</li>"
+    )
+    assert parsed is not None
+    assert (parsed.min_choices, parsed.max_choices) == (None, 2)
+
+
+def test_the_one_of_the_following_boilerplate_states_no_quantifier(
+    option_rows: Mapping[str, list[tuple[int, str]]],
+) -> None:
+    # 174 measured stems end `one of the following:` and it is boilerplate, not a cap of one.
+    parsed = parse_row(dict(option_rows["GF04"])[1])
+    assert parsed is not None
+    assert (parsed.min_choices, parsed.max_choices) == (None, None)
+
+
+def test_a_quantifier_form_the_corpus_does_not_state_is_deliberately_unbuilt() -> None:
+    # `N different <ITEM> from the following` - research D1d's other skeleton, measured at ZERO
+    # rows. Built productions are for measured vocabulary; this one stays unbuilt so a shift
+    # shows up as a falling coverage figure rather than as a guess.
+    parsed = parse_row(
+        "This model can be equipped with 2 different weapons from the following:<ul><li>1 a</li>"
+    )
+    assert parsed is not None
+    assert parsed.max_choices is None
+
+
+# --- multi-item conjunct splitting (T018) ------------------------------------------------------
+
+
+def test_the_granted_side_splits_on_a_counted_conjunct() -> None:
+    assert split_conjuncts("ember lance and 1 close combat weapon", 1) == (
+        ItemParse(name="ember lance", count=1),
+        ItemParse(name="close combat weapon", count=1),
+    )
+
+
+def test_the_granted_side_does_not_split_a_name_that_merely_contains_and() -> None:
+    # The leading count is the evidence a second item started. Without one, `and` is part of the
+    # name, and splitting on it would invent an item the source does not name.
+    assert split_conjuncts("bolt and blade", None) == (ItemParse(name="bolt and blade"),)
+
+
+def test_the_replaced_side_splits_on_a_bare_conjunction() -> None:
+    # The possessive side lists the model's own weapons and states no counts, so `and` is the
+    # only boundary the source gives.
+    assert split_replaced("their glimmer rifle and fen halberd") == (
+        ItemParse(name="glimmer rifle"),
+        ItemParse(name="fen halberd"),
+    )
+
+
+def test_splitting_never_rewrites_the_choice_it_decomposes(
+    option_rows: Mapping[str, list[tuple[int, str]]],
+) -> None:
+    # The O1 Ruling. GF07|2's object clause conflates a bundle and parses TODAY; decomposition
+    # gives it items and leaves `name` and `count` exactly as `004` produced them.
+    parsed = parse_row(dict(option_rows["GF07"])[2])
+    assert parsed is not None
+    (choice,) = parsed.choices
+    assert (choice.name, choice.count) == ("ember lance and 2 void nets", 1)
+    assert split_conjuncts(choice.name, choice.count) == (
+        ItemParse(name="ember lance", count=1),
+        ItemParse(name="void nets", count=2),
+    )
