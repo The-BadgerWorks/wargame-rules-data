@@ -15,6 +15,9 @@
 <!-- AI-Assisted: Claude Code (model: claude-opus-5) - Added item 6 (issue #5): the per-detachment
      page hypothesis, tested live and refused, with the acquisition decision it settles and the
      detachName oracle the test surfaced. -->
+<!-- AI-Assisted: Claude Code (model: claude-opus-5) - Added item 10 (006 T011): the
+     ninth CLI command an evidence tool needs, implemented ahead of the additive contract row a
+     frozen cross-repository contract may not be given as a side effect of a feature branch. -->
 <!-- AI-Assisted: Claude Code (model: claude-opus-5) - Added items 8 and 9 (004 T081, T084): the
      three defects the first real-bundle consumer-compat run exposed, two of them pre-existing in
      the published release, and the glossary denominator that makes its gate un-switchable. -->
@@ -467,3 +470,28 @@ Aeldari datasheets ship without those abilities this release. Either way, re-run
 against a source that keeps moving — the 11th-edition detail source is actively being populated —
 so any candidate left open long enough will acquire new editorial work before it is approved. The
 release flow has no answer to that yet beyond re-running and re-reviewing.
+
+
+## 10. `pipeline-run-interface.md` owes an additive row for the `option-regression` command
+
+`006` T011 landed `rules-pipeline option-regression`: the FR-009 zero-regression harness's layer
+2, which rebuilds the published option tree with the extended pipeline and diffs it, per choice
+and per field, into `reports/<rulesVersionId>/option-regression.md`.
+
+`contracts/pipeline-run-interface.md` is **frozen at 1.0.2** and its §1 declares exactly eight
+commands. A ninth is a MINOR bump of a contract that lives in another repository
+(`WargameCompanion:specs/002-rules-data-pipeline/contracts/`), and a feature branch may not
+perform a cross-repository versioning exercise as a side effect of shipping a tool. So the
+command is implemented ahead of its row, exactly as `COV-WEAPON-ABILITIES-EMPTY` was in item 5.
+
+**What makes that defensible here rather than a habit**: an *evidence* command is not on the
+approval-gate path. `option-regression` writes one report and nothing else — it never writes
+`data/`, `curation/`, `state/`, a Release, or the manifest, and no workflow branches on its exit
+code, which is always `0`. `pipeline/cli.py` holds it in `EVIDENCE_COMMANDS`, deliberately
+**outside** `COMMANDS`, so anything reading the contract's own §1 list still sees the eight
+commands the contract declares. `tests/contract/test_cli_surface.py` asserts both the separation
+and the command's full option surface, so the drift protection is unchanged.
+
+**Owed**: an additive §1 row and a 1.1.0 bump of `pipeline-run-interface.md`, with a changelog
+entry, naming `option-regression` as an evidence command and stating the not-on-the-gate-path
+property as part of the contract rather than as an implementation convention.

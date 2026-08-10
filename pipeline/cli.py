@@ -50,6 +50,7 @@ import json
 import logging
 import os
 import sys
+import tempfile
 from collections.abc import Mapping, Sequence
 from dataclasses import dataclass
 from datetime import UTC, datetime
@@ -121,6 +122,7 @@ from pipeline.report.edition_mismatch import (
     render_edition_mismatch,
     render_unverified_pricing,
 )
+from pipeline.report.option_regression import OptionRegression, compare, render
 from pipeline.report.trends import render_trends
 from pipeline.report.validation import (
     build_report,
@@ -179,6 +181,18 @@ COMMANDS: Final[tuple[str, ...]] = (
     "verify",
 )
 
+#: Evidence commands: additive to the contract's §1 surface, and **never on the approval-gate
+#: path**. They gather material a human reads before approving a candidate; none of them writes
+#: a Release, a manifest, `data/`, or `curation/`, and none returns a verdict any workflow acts
+#: on.
+#:
+#: Held apart from :data:`COMMANDS` rather than appended to it, because
+#: `contracts/pipeline-run-interface.md` is **frozen at 1.0.2** and a ninth operational command
+#: is a MINOR bump of a cross-repository contract, not something a feature branch may do as a
+#: side effect. This mirrors `pipeline/report/catalogue.py`'s own precedent for a code
+#: implemented ahead of its contract row; the owed §1 addition is `docs/follow-ups.md` item 10.
+EVIDENCE_COMMANDS: Final[tuple[str, ...]] = ("option-regression",)
+
 #: The global options (§1). Accepted before or after the command.
 GLOBAL_OPTIONS: Final[frozenset[str]] = frozenset(
     {"--channel", "--config", "--offline", "--fixtures", "--json", "--dry-run"}
@@ -194,6 +208,7 @@ COMMAND_OPTIONS: Final[Mapping[str, frozenset[str]]] = {
     "publish": frozenset({"--commit-sha", "--expect-sha256"}),
     "withdraw": frozenset({"--rules-version-id", "--reason"}),
     "verify": frozenset(),
+    "option-regression": frozenset({"--rules-version-id", "--since"}),
 }
 
 #: One-line help per command, so ``--help`` states the contract rather than paraphrasing it.
@@ -206,6 +221,10 @@ _HELP: Final[Mapping[str, str]] = {
     "publish": "publish an approved candidate; refuses outside the approved CI context",
     "withdraw": "mark one published version withdrawn; manifest only, no rebuild",
     "verify": "re-verify every published version's checksum against its recorded value",
+    "option-regression": (
+        "EVIDENCE: rebuild the published option tree with this pipeline and diff it, per "
+        "choice and per field; writes a report and nothing else"
+    ),
 }
 
 #: Commands whose stage modules arrive in a later phase, with the task that lands each.
@@ -281,7 +300,7 @@ def build_parser() -> argparse.ArgumentParser:
     _add_global_options(globals_parent, suppress=True)
 
     subparsers = parser.add_subparsers(dest="command", metavar="<command>")
-    for name in COMMANDS:
+    for name in (*COMMANDS, *EVIDENCE_COMMANDS):
         sub = subparsers.add_parser(name, help=_HELP[name], parents=[globals_parent], add_help=True)
         if name == "build":
             sub.add_argument("--rules-version-id", help="the id this candidate will carry")
@@ -292,6 +311,9 @@ def build_parser() -> argparse.ArgumentParser:
         elif name == "withdraw":
             sub.add_argument("--rules-version-id", help="the version to withdraw")
             sub.add_argument("--reason", help="short factual reason")
+        elif name == "option-regression":
+            sub.add_argument("--rules-version-id", help="the id this evidence run reports under")
+            sub.add_argument("--since", help="the published rulesVersionId being compared against")
     return parser
 
 
@@ -1284,6 +1306,97 @@ def _run_detect_command(config: PipelineConfig, args: argparse.Namespace) -> int
     return int(result.exit_code)
 
 
+def run_option_regression(
+    *,
+    config: PipelineConfig,
+    rules_version_id: str,
+    published_version_id: str,
+    repository_root: Path | None = None,
+    reports_root: Path | None = None,
+    fixtures_dir: Path | None = None,
+    offline: bool = False,
+    write: bool = True,
+) -> tuple[OptionRegression, Path | None]:
+    """The FR-009 harness, layer 2: one source, two parsers (006 research D5, task T011).
+
+    The published side is the git-tracked ``data/`` tree — the *expected* half of this
+    comparison is committed, which is the whole reason a real-corpus proof is possible at all
+    when the *input* half never can be. The candidate side is a full run of this pipeline over
+    the same source, into a throwaway destination that is deleted before this function returns.
+
+    **This is evidence, not a gate.** It returns a report and no exit code, it writes nothing
+    under ``data/``, ``curation/``, or ``state/``, and no workflow branches on it. The blocking
+    instrument is ``COV-OPTION-REGRESSION``, which measures a different thing: coverage counts
+    resolved rows, so a row that resolves *differently* is still resolved and is precisely what
+    coverage cannot see.
+    """
+    root = repository_root or repo_root()
+    published = read_curated_tree(root / "data" / EDITION_CODE)
+    if published is None:
+        raise FileNotFoundError(root / "data" / EDITION_CODE)
+
+    with tempfile.TemporaryDirectory(prefix="wgc-option-regression-") as scratch:
+        # A throwaway destination, and the reason is FR-010's rather than tidiness: a rebuild
+        # writing into `data/` would overwrite the machine-written record of a real release with
+        # a comparison artifact, and the two would then be indistinguishable.
+        candidate = run_build(
+            config=config,
+            rules_version_id=f"{rules_version_id}-option-regression",
+            fixtures_dir=fixtures_dir,
+            offline=offline,
+            output_root=Path(scratch),
+            repository_root=root,
+            published_at="1970-01-01T00:00:00Z",
+        ).snapshot
+
+    regression = compare(published, candidate, published_version_id=published_version_id)
+
+    destination: Path | None = None
+    if write:
+        destination = report_dir(reports_root or root, rules_version_id) / "option-regression.md"
+        destination.parent.mkdir(parents=True, exist_ok=True)
+        destination.write_text(render(regression), encoding="utf-8", newline="\n")
+    return regression, destination
+
+
+def _run_option_regression_command(config: PipelineConfig, args: argparse.Namespace) -> int:
+    rules_version_id = getattr(args, "rules_version_id", None)
+    if not rules_version_id:
+        print(f"{PROG}: option-regression requires --rules-version-id", file=sys.stderr)
+        return int(ExitCode.CONFIG_ERROR)
+
+    fixtures = getattr(args, "fixtures", None)
+    try:
+        regression, path = run_option_regression(
+            config=config,
+            rules_version_id=rules_version_id,
+            published_version_id=getattr(args, "since", None) or "the committed curated tree",
+            fixtures_dir=Path(fixtures) if fixtures else None,
+            offline=bool(getattr(args, "offline", False)),
+        )
+    except FileNotFoundError as exc:
+        print(f"{PROG}: no curated tree at {exc}; run 'build' first", file=sys.stderr)
+        return int(ExitCode.CONFIG_ERROR)
+
+    print(f"{PROG}: option-regression {path}")
+    print(
+        f"{PROG}: {regression.identical_choices} choices identical, "
+        f"{len(regression.newly_resolved_choices)} newly resolved, "
+        f"{len(regression.corrected)} corrected fields"
+    )
+    if not regression.is_clean:
+        # stderr, and deliberately not an exit code: this command gathers evidence and does not
+        # hold a verdict. A non-empty Corrected section is for the approver (T048) to act on,
+        # and giving it an exit code here would put an evidence tool on the gate path.
+        print(
+            f"{PROG}: the Corrected section is NOT empty. FR-009 says a row the baseline "
+            "resolved must resolve identically, and research D5's production ordering is "
+            "supposed to make that structural. Read the report before approving anything.",
+            file=sys.stderr,
+        )
+    return int(ExitCode.SUCCESS)
+
+
 def dispatch(command: str, config: PipelineConfig, args: argparse.Namespace) -> int:
     """Run one command and return its contract exit code.
 
@@ -1301,6 +1414,8 @@ def dispatch(command: str, config: PipelineConfig, args: argparse.Namespace) -> 
         return _run_withdraw_command(config, args)
     if command == "verify":
         return _run_verify_command(config, args)
+    if command == "option-regression":
+        return _run_option_regression_command(config, args)
     del config, args  # consumed by the stage modules as they land
     return _pending(command)
 
