@@ -229,6 +229,13 @@ _SELECT_QUANTIFIER: Final = re.compile(
     r"\b(?:up to \d+ of the following|\d+ different\b.*\bfrom the following)", _I
 )
 
+#: A deliberately looser probe for the same idea: any ``… of the following`` that is **not** the
+#: ``one of the following`` boilerplate. It exists so a measured zero above reads as "this corpus
+#: states no group-level select quantifier" rather than as "the strict pattern missed the
+#: phrasing" — very different findings for 006 T019, and indistinguishable without it.
+_QUANTIFIER_PROBE: Final = re.compile(r"\bof the following\b", _I)
+_BOILERPLATE_FOLLOWING: Final = re.compile(r"\bone of the following\b", _I)
+
 
 def classify(stem: str) -> str:
     """The one class this unparsed stem belongs to, as a research D1b key.
@@ -317,6 +324,8 @@ class TaxonomyReport:
     features: Mapping[str, int]
     parsed_conflated_names: int
     parsed_dropped_quantifiers: int
+    unparsed_select_quantifiers: int = 0
+    quantifier_probe_hits: int = 0
     class_labels: Mapping[str, str] = field(default_factory=dict)
 
     @property
@@ -376,6 +385,8 @@ def measure(
     feature_counts: dict[str, int] = {key: 0 for key, _label in _FEATURES}
     conflated = 0
     dropped_quantifiers = 0
+    unparsed_quantifiers = 0
+    probe_hits = 0
     per_faction: list[FactionTaxonomy] = []
 
     with workspace(repository_root) as work:
@@ -406,6 +417,11 @@ def measure(
 
             stem_raw, items = split_sublist(description)
             stem = pre_pass(stem_raw, field="option.description")
+            if (
+                _QUANTIFIER_PROBE.search(stem) is not None
+                and _BOILERPLATE_FOLLOWING.search(stem) is None
+            ):
+                probe_hits += 1
             parsed = parse_row(description)
             if parsed is None:
                 unparsed_per_faction[faction_id] = unparsed_per_faction.get(faction_id, 0) + 1
@@ -413,6 +429,12 @@ def measure(
                 class_counts[classify(stem)] += 1
                 for feature in features_of(stem, items):
                     feature_counts[feature] += 1
+                if _SELECT_QUANTIFIER.search(stem) is not None:
+                    # Counted on the residual as well as on the parsing rows, because which
+                    # side of the line these sit on decides what T019 actually is: a fix to
+                    # rows that publish "pick any number" today, or a field a NEW production
+                    # has to populate as it resolves the row for the first time.
+                    unparsed_quantifiers += 1
                 continue
 
             # The row parsed. D1d's two silent-failure classes live here, and they are the
@@ -447,6 +469,8 @@ def measure(
         features=dict(feature_counts),
         parsed_conflated_names=conflated,
         parsed_dropped_quantifiers=dropped_quantifiers,
+        unparsed_select_quantifiers=unparsed_quantifiers,
+        quantifier_probe_hits=probe_hits,
         class_labels={rule.key: rule.label for rule in _CLASSES},
     )
 
@@ -540,6 +564,14 @@ def render(report: TaxonomyReport) -> str:
         f"| A group-level select quantifier dropped from the stem | "
         f"{report.parsed_dropped_quantifiers} | 006 T019 populates the already-declared "
         "`minChoices`/`maxChoices` |",
+        f"| *(for contrast)* a select quantifier in a row that does **not** parse | "
+        f"{report.unparsed_select_quantifiers} | the same quantifier, on the other side of the "
+        "line: T019 populates it as a new production resolves the row, not as a fix to a row "
+        "that already publishes |",
+        f"| *(loose probe)* any stem stating `… of the following` other than the `one of the "
+        f"following` boilerplate | {report.quantifier_probe_hits} | a zero on the two rows "
+        "above is only meaningful if this one is small too — otherwise the strict pattern "
+        "missed the corpus's own phrasing |",
         "",
         "## Per faction",
         "",
