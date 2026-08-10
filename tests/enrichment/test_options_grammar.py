@@ -221,19 +221,30 @@ def test_the_fixtures_residual_is_exactly_the_one_unmatched_head(
 ) -> None:
     """The fixture's own coverage, pinned so a grammar change has to state its effect.
 
-    Five of the six synthetic rows resolve and one does not — the quirk class research D3 calls
-    the residual. Pinning the identity of that row rather than a percentage is what makes this
-    test say something when it fails: "the grammar stopped matching GF03" is actionable, "83%
-    became 67%" is not.
+    Five of the six `004` rows resolve and one does not — the quirk class research D3 calls the
+    residual. Pinning the identity of that row rather than a percentage is what makes this test
+    say something when it fails: "the grammar stopped matching GF03" is actionable, "83% became
+    67%" is not.
+
+    **Scoped to the `004` datasheets on purpose.** `006` T003 added GF07-GF11, whose rows are the
+    shapes this grammar was never built for; every one of them is residual today and the point of
+    `006` is that some of them stop being. Folding them into this assertion would make a
+    deliberate improvement read as a regression here, while the assertion that actually protects
+    `004` — that *these* six rows never move — would be diluted by it. That is what
+    ``tests/enrichment/test_options_grammar_regression.py`` is for.
     """
+    baseline = {"GF01", "GF02", "GF03", "GF04", "GF05", "GF06"}
+    rows_in_baseline = {
+        datasheet_id: rows for datasheet_id, rows in option_rows.items() if datasheet_id in baseline
+    }
     residual = {
         (datasheet_id, line)
-        for datasheet_id, rows in option_rows.items()
+        for datasheet_id, rows in rows_in_baseline.items()
         for line, description in rows
         if parse_row(description) is None
     }
     assert residual == {("GF05", 1)}
-    assert sum(len(rows) for rows in option_rows.values()) == 6
+    assert sum(len(rows) for rows in rows_in_baseline.values()) == 6
 
 
 def test_parsing_is_deterministic_over_the_whole_fixture(

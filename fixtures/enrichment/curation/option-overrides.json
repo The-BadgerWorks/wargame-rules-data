@@ -1,0 +1,60 @@
+[
+  {
+    "datasheet_id": "ds-purgeflight-wardens",
+    "line": 15,
+    "scope": "unit",
+    "eligible_model_name": "Purgeflight Warden",
+    "eligible_max_count": 4,
+    "is_per_model": true,
+    "min_choices": 0,
+    "max_choices": 1,
+    "choices": [
+      {
+        "name": "ember lance and close combat weapon",
+        "count": 1,
+        "items": [
+          {
+            "role": "replaced",
+            "item_name": "glimmer rifle",
+            "weapon_line": 1
+          },
+          {
+            "role": "replaced",
+            "item_name": "fen halberd",
+            "weapon_line": 5
+          },
+          {
+            "role": "granted",
+            "item_name": "ember lance",
+            "count": 1,
+            "weapon_line": 2
+          },
+          {
+            "role": "granted",
+            "item_name": "close combat weapon",
+            "count": 1,
+            "weapon_line": 6
+          }
+        ]
+      },
+      {
+        "name": "No change",
+        "is_no_change": true
+      }
+    ],
+    "note": "Invented fixture row in the 006 extended shape. Neither production set resolves this row and none is planned for it, which is what an override is for."
+  },
+  {
+    "datasheet_id": "ds-mirebound-choir",
+    "line": 2,
+    "scope": "model",
+    "choices": [
+      {
+        "name": "chime flail",
+        "count": 1,
+        "grants_weapon_line": 1
+      }
+    ],
+    "note": "Invented fixture row in the 004 single-item shape. It states no items array and no eligibility scope, and it must resolve exactly as it did before 006."
+  }
+]

@@ -78,6 +78,15 @@ CSV_ID_TO_ANCHOR: Mapping[str, str] = {
     "GF04": "Sedgeward-Conclave",
     "GF05": "Mirefen-Tanglers",
     "GF06": "Thornlight-Chorus",
+    # 006 T003/T004's quirk-class carriers. GF07 holds one invented row per research D1b class
+    # plus the Purgation-Squad shape; GF08-GF11 hold the four default-equipment shapes research
+    # D1e measured — differentiated model groups, one sentence over two composition rows, no
+    # sentence at all, and a datasheet whose composition itself does not resolve.
+    "GF07": "Purgeflight-Wardens",
+    "GF08": "Mirebound-Choir",
+    "GF09": "Fenwatch-Sentinel",
+    "GF10": "Gloamtide-Host",
+    "GF11": "Snarebound-Wretches",
 }
 
 

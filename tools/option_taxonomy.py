@@ -146,11 +146,11 @@ _CLASSES: Final[tuple[ClassRule, ...]] = (
     ClassRule("2", "Head unknown, verb already built", stem=_BUILT_VERB),
     ClassRule(
         "10",
-        "Pure grant, no replacement — `... can have INT <ITEM>`",
+        "Pure grant, no replacement — `... can have INT [ITEM]`",
         stem=re.compile(r"\bcan (?:each )?have\b", _I),
         absent=re.compile(r"\breplaced\b", _I),
     ),
-    # Ordered ahead of class 11 deliberately. A conditional stem that opens an `<li>` list —
+    # Ordered ahead of class 11 deliberately. A conditional stem that opens an `li` list —
     # `If this unit has INT or more models:` — carries no clause vocabulary at all, so a
     # short-fragment rule tried first would file a group availability predicate as an extractor
     # bug and hide the one class research D1c.5 says to plan no production for.
@@ -192,12 +192,12 @@ _DISTRIBUTIVE_FAMILY: Final[frozenset[str]] = frozenset({"1a", "1b", "1c", "1d",
 #: routinely carries three of them — so these counts do not sum to the residual and are not meant
 #: to. Each names a capability the grammar must carry rather than a production it must add.
 _FEATURES: Final[tuple[tuple[str, str], ...]] = (
-    ("sublist", "carries an `<li>` sub-list"),
+    ("sublist", "carries an `li` sub-list"),
     ("following", "stem ends `one of the following:`"),
     ("multi_replaced", "multi-item REPLACED set (FR-005)"),
     ("multi_granted", "multi-item GRANTED bundle (FR-006)"),
     ("distributive", "distributive `can each` (FR-004, `isPerModel`)"),
-    ("scoped_max", "`Up to INT <MODEL>` — an explicit eligibility cap (`eligibleMaxCount`)"),
+    ("scoped_max", "`Up to INT [MODEL]` — an explicit eligibility cap (`eligibleMaxCount`)"),
     ("footnote", "carries a footnote marker inside the stem"),
 )
 
@@ -212,7 +212,7 @@ _REPLACED_SIDE: Final = re.compile(
     r"\bhave\s+(?:its|their|this model's|the)\s+(?P<side>.+?)\s+replaced with\b", _I
 )
 
-#: A conjunction joining two counted items — `INT <ITEM> and INT <ITEM>` — on the granted side.
+#: A conjunction joining two counted items — `INT [ITEM] and INT [ITEM]` — on the granted side.
 #: The leading count is what distinguishes a bundle from an item whose own name contains `and`.
 _COUNTED_CONJUNCT: Final = re.compile(r"^\d+\s+.+?\s+and\s+\d+\s+\S", _I)
 
@@ -223,7 +223,7 @@ _COUNTED_CONJUNCT: Final = re.compile(r"^\d+\s+.+?\s+and\s+\d+\s+\S", _I)
 _CONFLATED_NAME: Final = re.compile(r"\band\s+\d+\s+\S|\b\S+\s+(?:and|or)\s+\S+", _I)
 
 #: Research D1d's second: a group-level select quantifier in the stem's post-verb remainder,
-#: discarded today whenever an `<li>` list exists, so the group publishes as *pick any number*
+#: discarded today whenever an `li` list exists, so the group publishes as *pick any number*
 #: where the source says *pick up to N* (006 task T019 populates `min_choices`/`max_choices`).
 _SELECT_QUANTIFIER: Final = re.compile(
     r"\b(?:up to \d+ of the following|\d+ different\b.*\bfrom the following)", _I
