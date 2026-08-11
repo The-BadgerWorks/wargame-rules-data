@@ -29,3 +29,27 @@ Two things about the way it is used are deliberate:
 The one legitimate reason to replace it is a **deliberate MAJOR** bump of `bundleFormatVersion`,
 at which point the baseline moves with it and the test is comparing the new layout against the
 new baseline.
+
+## `bundle.schema.pre-loadout.json`
+
+**A frozen copy of `schemas/bundle.schema.json` as it stood before
+`006-unit-loadout-fidelity` touched it**, taken verbatim from commit `4d0c017^` (the parent of
+*Land the additive loadout schema, models, and emission*). Twenty-six arrays: `004`'s fully
+shipped shape, which is **the actual baseline the currently released consumers were built
+against** — the pre-enrichment file above froze the shape before that, and a consumer released
+since `004` would be compared against a document two features old.
+
+Both baselines are kept, and both comparisons run, because they prove different promises:
+
+| baseline | proves | for whom |
+|---|---|---|
+| `bundle.schema.pre-enrichment.json` | `004`'s own additive promise still holds | a consumer released before `004` |
+| `bundle.schema.pre-loadout.json` | `006`'s additive promise (`contracts/loadout-schema-delta.md` §1) | a consumer released after `004` and before `006` |
+
+Deleting the older one when a newer arrives would be the tempting simplification and it is
+wrong: `004`'s promise was made to consumers that are still in the field, and a comparison that
+only ever looks one feature back can walk an existing class across two features one small
+"additive" step at a time, with every individual step passing.
+
+Everything said above about the pre-enrichment copy — it is a copy and not a `git show`, and
+editing it is the failure and not the fix — applies here word for word.

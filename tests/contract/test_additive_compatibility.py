@@ -3,6 +3,13 @@
 # pre-enrichment baseline, failing on any rename, reshape, reorder, or optionality change to an
 # existing class, with bundleFormatVersion and snapshotMeta.schemaContractVersion unchanged
 # (004 FR-031, FR-032, contracts/bundle-schema-delta.md §1).
+# AI-Assisted: Claude Code (model: claude-opus-5) - Added the SECOND comparison, against the
+# frozen pre-loadout baseline (006 task T033): 004's fully shipped shape is what the currently
+# released consumers hold, and three of 006's four new columns land on an array 004 added, so the
+# pre-enrichment baseline cannot govern them at all (006 FR-017, FR-018,
+# contracts/loadout-schema-delta.md §1). Also replaced the single-name parse of jsonschema's
+# additionalProperties message with _strict_validator_objections, which reads every name it
+# lists -- `datasheets` now carries two added columns and the old parse saw one of them.
 """Nothing existing moved. Proven by comparison, not by assertion.
 
 `contracts/bundle-schema-delta.md` §1 makes a claim about a document nobody in this repository
@@ -22,11 +29,20 @@ delete the only evidence that anything moved.
 
 `bundleFormatVersion` and `snapshotMeta.schemaContractVersion` get their own assertions because
 `003`'s fetch-time checks assert on both, and a bump of either is a release of every consumer.
+
+**Two baselines, two comparisons, and neither replaces the other** (006 task T033).
+`bundle.schema.pre-enrichment.json` freezes the shape before `004`; `bundle.schema.pre-loadout.json`
+freezes the shape after it, which is what the *currently* released consumers were built against.
+The second is not a refinement of the first: three of `006`'s four new columns land on
+`datasheetOptionGroups`, an array `004` added, so the pre-enrichment baseline does not describe
+that class at all and could never have caught a reshape of it. Keeping both is also what stops an
+existing class being walked across two features one small "additive" step at a time.
 """
 
 from __future__ import annotations
 
 import json
+import re
 from pathlib import Path
 from typing import Any
 
@@ -39,6 +55,17 @@ from tests import factories
 
 ROOT = Path(__file__).resolve().parents[2]
 BASELINE_PATH = ROOT / "fixtures" / "contract" / "bundle.schema.pre-enrichment.json"
+
+#: `004`'s fully shipped shape — the schema the *currently* released consumers were built
+#: against, and therefore the baseline `006`'s own additive promise is measured from (006 task
+#: T033, contracts/loadout-schema-delta.md §1).
+#:
+#: Both baselines are kept and both comparisons run. Retiring the older one on the grounds that
+#: the newer subsumes it is the tempting simplification and it is wrong twice over: `004`'s
+#: promise was made to consumers still in the field, and a comparison that only ever looks one
+#: feature back would let an existing class be walked across two features one small "additive"
+#: step at a time, with every individual step passing.
+PRE_LOADOUT_PATH = ROOT / "fixtures" / "contract" / "bundle.schema.pre-loadout.json"
 SCHEMA_PATH = ROOT / "schemas" / "bundle.schema.json"
 
 #: The arrays `004-rules-data-enrichment` adds (contract §2, plus `datasheetCostContexts` at
@@ -104,6 +131,25 @@ NEW_COLUMNS: dict[str, frozenset[str]] = {
 #: Flattened ``(array, column)`` pairs, for the assertions that parametrise or compare per pair.
 NEW_COLUMN_PAIRS: frozenset[tuple[str, str]] = frozenset(
     (array, column) for array, columns in NEW_COLUMNS.items() for column in columns
+)
+
+#: The arrays `006` alone adds, measured against :data:`PRE_LOADOUT_PATH` (006 task T033).
+LOADOUT_ARRAYS: frozenset[str] = frozenset(
+    {"datasheetOptionChoiceItems", "datasheetEquipmentGroups", "datasheetEquipmentItems"}
+)
+
+#: The four columns `006` alone adds, as ``array -> columns``.
+#:
+#: Three of them land on `datasheetOptionGroups`, which is an array `004` added — so they are
+#: invisible to the pre-enrichment comparison above and this is the only place they are governed.
+#: That is exactly why a second baseline exists rather than a wider permission on the first.
+LOADOUT_COLUMNS: dict[str, frozenset[str]] = {
+    "datasheets": frozenset({"defaultEquipmentState"}),
+    "datasheetOptionGroups": frozenset({"eligibleModelName", "eligibleMaxCount", "isPerModel"}),
+}
+
+LOADOUT_COLUMN_PAIRS: frozenset[tuple[str, str]] = frozenset(
+    (array, column) for array, columns in LOADOUT_COLUMNS.items() for column in columns
 )
 
 #: The `004` columns specifically. Kept apart from the union above because they are the ones a
@@ -311,6 +357,28 @@ def _enriched_bundle() -> dict[str, Any]:
     return bundle
 
 
+def _strict_validator_objections(
+    baseline_path: Path, bundle: dict[str, Any]
+) -> set[tuple[str, str]]:
+    """``(array, column)`` for every field a strict validator of ``baseline_path`` objects to.
+
+    **Every** field, not the first one named. `jsonschema` reports one `additionalProperties`
+    error per object and lists all of that object's unexpected properties inside a single
+    message, so reading one name out of it silently under-reports exactly the case this file
+    exists to bound: a row that acquired *two* new columns. `datasheets` is that row now — it
+    carries `wargearOptionState` from `004` and `defaultEquipmentState` from `006`.
+    """
+    from jsonschema import Draft202012Validator
+
+    baseline = {key: value for key, value in _schema(baseline_path).items() if key != "$id"}
+    return {
+        (str(error.absolute_path[0]), name)
+        for error in Draft202012Validator(baseline).iter_errors(bundle)
+        if error.absolute_path and error.validator == "additionalProperties"
+        for name in re.findall(r"'([^']+)'", error.message)
+    }
+
+
 def test_the_seven_new_arrays_are_invisible_to_the_pre_enrichment_schema() -> None:
     """A released consumer's own schema does not object to a single new array.
 
@@ -341,19 +409,168 @@ def test_the_three_added_columns_are_the_only_thing_an_old_strict_validator_sees
     this test pins the blast radius of that permission to exactly those three fields, so a fourth
     one cannot be slipped in behind the same argument.
     """
-    from jsonschema import Draft202012Validator
-
-    baseline = {key: value for key, value in _schema(BASELINE_PATH).items() if key != "$id"}
-    observed = {
-        (str(error.absolute_path[0]), error.message.split("'")[1])
-        for error in Draft202012Validator(baseline).iter_errors(_enriched_bundle())
-        if error.absolute_path and error.validator == "additionalProperties"
-    }
+    observed = _strict_validator_objections(BASELINE_PATH, _enriched_bundle())
 
     # `<=` rather than `==`, and the second assertion is what stops that being a weakening: a
     # strict old validator can only object to a column the bundle actually CARRIES, and 006's
     # `defaultEquipmentState` is omitted on every row of a 004-era fixture. The claim this test
     # makes is about the blast radius -- nothing outside the permitted set is ever seen -- and
     # the 004 three prove it cannot pass vacuously.
+    #
+    # `test_the_pre_enrichment_blast_radius_is_exactly_the_permitted_columns` below closes the
+    # gap the `<=` opens, over a bundle that carries all four (006 task T042).
     assert observed <= NEW_COLUMN_PAIRS
     assert observed >= ENRICHMENT_COLUMN_PAIRS
+
+
+# --- and the same comparison again, against the baseline the CURRENT consumers hold -------------
+#
+# Everything above proves `004`'s promise to a consumer released before `004`. Nothing above says
+# anything about `006`'s promise to a consumer released *after* it: `datasheetOptionGroups` is an
+# array `004` added, so the pre-enrichment baseline does not describe it at all, and three of this
+# feature's four new columns live there. This section is where they are governed.
+
+
+@pytest.fixture(scope="module")
+def pre_loadout() -> dict[str, Any]:
+    return _schema(PRE_LOADOUT_PATH)
+
+
+def _loadout_bundle() -> dict[str, Any]:
+    from tests.contract.loadout_bundle import loadout_snapshot
+
+    bundle = emit_bundle(loadout_snapshot(), factories.meta())
+    validate_bundle(bundle)
+    return bundle
+
+
+def test_the_bundle_layout_version_is_unchanged_since_the_last_release(
+    pre_loadout: dict[str, Any], enriched: dict[str, Any]
+) -> None:
+    """`006` adds arrays and columns; it does not change what an array *is* (contract §1)."""
+    assert (
+        enriched["properties"]["bundleFormatVersion"]["const"]
+        == pre_loadout["properties"]["bundleFormatVersion"]["const"]
+        == 1
+    )
+
+
+def test_snapshot_meta_is_untouched_since_the_last_release(
+    pre_loadout: dict[str, Any], enriched: dict[str, Any]
+) -> None:
+    assert _shape(enriched["properties"]["snapshotMeta"], strict=True) == _shape(
+        pre_loadout["properties"]["snapshotMeta"], strict=True
+    )
+
+
+def test_every_pre_loadout_array_still_exists_under_its_own_name(
+    pre_loadout: dict[str, Any], enriched: dict[str, Any]
+) -> None:
+    assert set(_arrays(pre_loadout)) <= set(_arrays(enriched))
+
+
+def test_the_root_required_list_only_grew_by_the_three_loadout_arrays(
+    pre_loadout: dict[str, Any], enriched: dict[str, Any]
+) -> None:
+    """Appended, never inserted: a consumer reading the list positionally keeps its own prefix."""
+    before = pre_loadout["required"]
+    after = enriched["required"]
+
+    assert after[: len(before)] == before
+    assert set(after) - set(before) == LOADOUT_ARRAYS
+
+
+@pytest.mark.parametrize("array", sorted(_schema(PRE_LOADOUT_PATH)["properties"]))
+def test_a_released_class_is_identical_but_for_its_permitted_loadout_column(
+    array: str, pre_loadout: dict[str, Any], enriched: dict[str, Any]
+) -> None:
+    """The field-by-field comparison FR-017 asks for, one released class at a time.
+
+    This is the assertion that would fail if `scope` had gained a fourth member for eligibility
+    scoping, or if `grantsWeaponLine` had been reshaped to carry a list — the two shapes the
+    design considered and rejected. Both would have read as "additive" in a diff.
+    """
+    before_node = pre_loadout["properties"][array]
+    after_node = enriched["properties"][array]
+    if before_node.get("type") != "array":
+        pytest.skip(f"{array} is not an array")
+
+    added = LOADOUT_COLUMNS.get(array, frozenset())
+    assert _shape(after_node["items"], ignore=added) == _shape(before_node["items"])
+
+
+@pytest.mark.parametrize("array", sorted(_schema(PRE_LOADOUT_PATH)["properties"]))
+def test_no_released_field_had_its_length_ceiling_narrowed(
+    array: str, pre_loadout: dict[str, Any], enriched: dict[str, Any]
+) -> None:
+    before_node = pre_loadout["properties"][array]
+    after_node = enriched["properties"][array]
+    if before_node.get("type") != "array":
+        pytest.skip(f"{array} is not an array")
+
+    before = _max_lengths(before_node["items"])
+    after = _max_lengths(after_node["items"])
+
+    for name, ceiling in before.items():
+        assert name in after, f"{array}.{name} lost its length ceiling entirely"
+        assert after[name] >= ceiling, (
+            f"{array}.{name} narrowed its length ceiling {ceiling} -> {after[name]}, "
+            "which invalidates documents the released consumers can already ingest"
+        )
+
+
+@pytest.mark.parametrize(("array", "column"), sorted(LOADOUT_COLUMN_PAIRS))
+def test_each_loadout_column_is_optional_and_therefore_invisible_to_a_released_consumer(
+    array: str, column: str, enriched: dict[str, Any]
+) -> None:
+    items = enriched["properties"][array]["items"]
+
+    assert column in items["properties"]
+    assert column not in items["required"]
+
+
+def test_the_only_arrays_added_since_the_last_release_are_the_three_the_contract_declares(
+    pre_loadout: dict[str, Any], enriched: dict[str, Any]
+) -> None:
+    assert set(_arrays(enriched)) - set(_arrays(pre_loadout)) == LOADOUT_ARRAYS
+
+
+def test_the_three_loadout_arrays_are_invisible_to_the_released_schema() -> None:
+    """A consumer released against `004`'s schema does not object to a single new array."""
+    from jsonschema import Draft202012Validator
+
+    baseline = {key: value for key, value in _schema(PRE_LOADOUT_PATH).items() if key != "$id"}
+    offending = {
+        str(error.absolute_path[0])
+        for error in Draft202012Validator(baseline).iter_errors(_loadout_bundle())
+        if error.absolute_path
+    }
+
+    assert offending & LOADOUT_ARRAYS == set()
+
+
+def test_the_four_added_columns_are_the_only_thing_a_released_strict_validator_sees() -> None:
+    """The honest edge again, and this time with **no** `<=`.
+
+    A strict old validator can only object to a column the bundle actually carries, so the
+    equality below is only meaningful because `tests/contract/loadout_bundle.py` sets all four:
+    `defaultEquipmentState` on both datasheets, and all three eligibility columns on the scoped
+    group. Nothing outside the permitted set is seen, and the permitted set is not padding.
+    """
+    observed = _strict_validator_objections(PRE_LOADOUT_PATH, _loadout_bundle())
+
+    assert observed == LOADOUT_COLUMN_PAIRS
+
+
+def test_the_pre_enrichment_blast_radius_is_exactly_the_permitted_columns() -> None:
+    """The `<=` above, closed — the 006 re-run of the assertion a 004-era fixture can only bound.
+
+    `test_the_three_added_columns_are_the_only_thing_an_old_strict_validator_sees` has to state
+    its claim as an inclusion, because the bundle it runs against omits `defaultEquipmentState`
+    on every row and a validator cannot object to a column that is not there. Run over a bundle
+    that carries it, the same claim becomes an equality — and an equality is what "the blast
+    radius is exactly these four fields" actually means (006 task T042).
+    """
+    observed = _strict_validator_objections(BASELINE_PATH, _loadout_bundle())
+
+    assert observed == NEW_COLUMN_PAIRS
