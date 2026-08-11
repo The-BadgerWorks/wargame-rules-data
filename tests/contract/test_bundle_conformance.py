@@ -5,6 +5,11 @@
 # AI-Assisted: Claude Code (model: claude-opus-5) - Extended to 004-rules-data-enrichment's
 # seven new arrays (004 task T066): each non-empty, sorted by its stated key, omitting absent
 # optionals, and each of FR-033's three lockstep layers proven to fail on its own.
+# AI-Assisted: Claude Code (model: claude-opus-5) - Extended again to 006-unit-loadout-fidelity's
+# three new arrays (006 task T034): each non-empty and sorted by its COMPOSITE key, absent
+# optionals proven absent somewhere rather than asserted over rows that all carry them, the two
+# guarantee-12/13 invariants read off the bundle, and both lockstep layers re-proven over an
+# element type and a curated model this feature added.
 """Tests for the published bundle's shape (`curated-snapshot-format.md` §3-§4).
 
 The bundle exists so the app's ingestor is a mechanical array-to-table load with no reshaping.
@@ -38,6 +43,7 @@ from pipeline.build.bundle_emit import (
 from pipeline.schema_validation import SchemaValidationError, validate_bundle
 from tests import factories
 from tests.contract.enrichment_bundle import enriched_snapshot
+from tests.contract.loadout_bundle import loadout_snapshot
 
 CONSUMER_ARRAYS = (
     "editions",
@@ -308,3 +314,144 @@ def test_an_undescribed_array_fails_the_build(enriched) -> None:  # type: ignore
     """`additionalProperties: false` at the root, too: a new array must be declared to ship."""
     with pytest.raises(SchemaValidationError, match="datasheetInventions"):
         validate_bundle({**enriched, "datasheetInventions": []}, source="polluted bundle")
+
+
+# --- 006-unit-loadout-fidelity's three new arrays (006 task T034, contract §2) -------------------
+
+#: array -> the key tuple `contracts/loadout-schema-delta.md` §2 states it is sorted by.
+#:
+#: Every one of the three is **composite**, which is the difference from `004`'s seven and the
+#: reason they are restated here rather than folded into the map above: a single-column sort key
+#: is checked by the same code but proves much less, because it cannot get the *tie-break* wrong.
+#: `datasheetOptionChoiceItems` sorts by `(choiceId, role, itemIndex)` and its `role` component is
+#: an enum sorted as a string — `granted` before `replaced` — so the replaced set of one choice
+#: never interleaves with the granted bundle of another.
+LOADOUT_ARRAY_SORT_KEYS: Final[Mapping[str, tuple[str, ...]]] = {
+    "datasheetOptionChoiceItems": ("choiceId", "role", "itemIndex"),
+    "datasheetEquipmentGroups": ("id",),
+    "datasheetEquipmentItems": ("groupId", "itemIndex"),
+}
+
+
+@pytest.fixture(scope="module")
+def loadout():  # type: ignore[no-untyped-def]
+    """A bundle in which all three of `006`'s arrays are **non-empty** and all four columns set."""
+    return emit_bundle(loadout_snapshot(), factories.meta())
+
+
+def test_the_loadout_bundle_validates_against_the_extended_schema(loadout) -> None:  # type: ignore[no-untyped-def]
+    validate_bundle(loadout, source="loadout bundle")
+
+
+@pytest.mark.parametrize("array", sorted(LOADOUT_ARRAY_SORT_KEYS))
+def test_every_loadout_array_carries_rows(array: str, loadout) -> None:  # type: ignore[no-untyped-def]
+    assert loadout[array], f"{array} is empty, so nothing below it is really being tested"
+
+
+@pytest.mark.parametrize(("array", "keys"), sorted(LOADOUT_ARRAY_SORT_KEYS.items()))
+def test_every_loadout_array_is_sorted_by_its_stated_composite_key(  # type: ignore[no-untyped-def]
+    array: str, keys: tuple[str, ...], loadout
+) -> None:
+    observed = [tuple(row[key] for key in keys) for row in loadout[array]]
+    assert observed == sorted(observed)
+    assert len(set(observed)) == len(observed), f"{array} has a duplicate primary key"
+
+
+@pytest.mark.parametrize("array", sorted(LOADOUT_ARRAY_SORT_KEYS))
+def test_a_loadout_arrays_absent_optionals_are_omitted_never_null(array: str, loadout) -> None:  # type: ignore[no-untyped-def]
+    for row in loadout[array]:
+        assert all(value is not None for value in row.values()), array
+
+
+def test_the_absent_optionals_really_are_absent_somewhere(loadout) -> None:  # type: ignore[no-untyped-def]
+    """The assertion above passes vacuously on a fixture where every optional is set.
+
+    So each optional is named, and at least one row must be missing it. These are the three
+    absences the feature's whole design rests on: an item whose name matched no weapon line ships
+    with no `weaponLine` rather than a guessed one, a unit-wide equipment sentence carries no
+    `modelName`, and a sentence that resolved to no single composition row carries no
+    `compositionLine` (006 FR-007, FR-014, FR-015).
+    """
+    assert any("weaponLine" not in row for row in loadout["datasheetOptionChoiceItems"])
+    assert any("weaponLine" not in row for row in loadout["datasheetEquipmentItems"])
+    assert any("modelName" not in row for row in loadout["datasheetEquipmentGroups"])
+    assert any("compositionLine" not in row for row in loadout["datasheetEquipmentGroups"])
+
+
+def test_a_multi_item_side_carries_no_singular_column_at_all(loadout) -> None:  # type: ignore[no-untyped-def]
+    """Guarantee 13, read off the bundle rather than off the model.
+
+    Two granted items and two replaced items, and therefore neither `grantsWeaponLine` nor
+    `replacesWeaponLine` — filling either from the first item is the exact truncation this
+    feature exists to remove, and it would be invisible in a bundle that carried it.
+    """
+    swap = next(
+        row for row in loadout["datasheetOptionChoices"] if row["id"] == "oc-fen-warden-3-1"
+    )
+    items = [row for row in loadout["datasheetOptionChoiceItems"] if row["choiceId"] == swap["id"]]
+
+    assert "grantsWeaponLine" not in swap
+    assert "replacesWeaponLine" not in swap
+    assert sorted((row["role"], row["itemIndex"]) for row in items) == [
+        ("granted", 1),
+        ("granted", 2),
+        ("replaced", 1),
+        ("replaced", 2),
+    ]
+
+
+def test_a_sole_item_agrees_with_the_singular_column_it_mirrors(loadout) -> None:  # type: ignore[no-untyped-def]
+    """Guarantee 12: the redundancy is an invariant, not a fixture accident.
+
+    A `004`-era consumer reads `grantsWeaponLine`; a `006` consumer iterates the items. They must
+    never disagree, which is what makes "iterate the items" a safe uniform read.
+    """
+    for choice in loadout["datasheetOptionChoices"]:
+        for role, column in (("granted", "grantsWeaponLine"), ("replaced", "replacesWeaponLine")):
+            side = [
+                row
+                for row in loadout["datasheetOptionChoiceItems"]
+                if row["choiceId"] == choice["id"] and row["role"] == role
+            ]
+            if len(side) != 1:
+                assert column not in choice, f"{choice['id']}.{column} with {len(side)} items"
+                continue
+            assert choice.get(column) == side[0].get("weaponLine")
+
+
+def test_a_loadout_field_the_schema_does_not_describe_fails_the_build(loadout) -> None:  # type: ignore[no-untyped-def]
+    """FR-033's third layer, on a `006` element type: `additionalProperties: false` holds here too.
+
+    `test_the_mapping_is_total_for_every_curated_model` above is the first layer for the same
+    three models — `FIELD_MAPPING` was extended for them in T012 — and every model's
+    `extra="forbid"` is the second.
+    """
+    polluted = {
+        **loadout,
+        "datasheetEquipmentItems": [{**loadout["datasheetEquipmentItems"][0], "note": "x"}],
+    }
+
+    with pytest.raises(SchemaValidationError, match="note"):
+        validate_bundle(polluted, source="polluted bundle")
+
+
+def test_an_unmapped_loadout_field_fails_the_build_rather_than_being_dropped(monkeypatch) -> None:  # type: ignore[no-untyped-def]
+    """The other side of the same lockstep: a curated field nobody decided about stops the build.
+
+    Deliberately over `CuratedEquipmentItem` rather than over the datasheet again — the point is
+    that the totality check reaches the models this feature *added*, not that it still reaches
+    the ones it did not touch.
+    """
+    from pipeline.models.curated import CuratedEquipmentItem
+
+    mapping = {
+        model: (set(mapped), set(dropped)) for model, (mapped, dropped) in FIELD_MAPPING.items()
+    }
+    mapping[CuratedEquipmentItem][0].discard("item_name")
+    monkeypatch.setattr(bundle_emit, "FIELD_MAPPING", mapping)
+
+    with pytest.raises(UnmappedFieldError, match="item_name"):
+        bundle_emit.check_mapping_totality()
+
+    with pytest.raises(UnmappedFieldError, match="item_name"):
+        emit_bundle(loadout_snapshot(), factories.meta())
