@@ -137,8 +137,20 @@ _WEAPON_FIELDS: Final[tuple[str, ...]] = ("range", "A", "BS_WS", "S", "AP", "D")
 _RANGED_SECTION: Final = "RANGED WEAPONS"
 _MELEE_SECTION: Final = "MELEE WEAPONS"
 
-#: A "the source publishes none" placeholder in an option or composition list.
+#: A "the source publishes none" placeholder in an option or composition list. Compared against
+#: the row's text with its trailing full stops removed: the page prints both ``None`` and
+#: ``None.``, and an exact-string comparison published the second as an option row (`006` T022).
 _NONE_TEXT: Final = "none"
+
+#: A default-equipment sentence — a named model's fixed loadout — misfiled into the options
+#: block (`006` T022, research D1c.4; 22 measured rows). ``is equipped with:`` states what a
+#: model *has*, not what it may take.
+_DEFAULT_EQUIPMENT_SENTENCE: Final = re.compile(r"\bis equipped with\s*:", re.IGNORECASE)
+
+#: What makes a row an option at all: the modal that offers the player a decision. It is the
+#: guard on the rule above, so a genuine option row that happens to describe a starting loadout
+#: on its way to offering a swap is never dropped.
+_GRANTS_A_CHOICE: Final = re.compile(r"\bcan\b", re.IGNORECASE)
 
 #: The rule the page draws between two things printed inside one element: two named abilities,
 #: or two model-scoped keyword groups. It is a ``div.dsLineHor`` in the first case and a
@@ -768,6 +780,22 @@ def _options(block: Block) -> tuple[str, ...]:
     :func:`pipeline.parse.options_grammar.split_sublist` splits a stem clause from its
     alternatives on the ``<ul>`` the export also carries — so the same row shape reaches the same
     grammar from both modes, and the grammar is reused with no html-specific branch.
+
+    **Two `<li>` shapes are not option rows at all, and are dropped here rather than tolerated by
+    the grammar** (`006` T022, research D1c.4). Both were measured as a combined 30 rows — 5.3 %
+    of the unparsed residual — and neither is a vocabulary gap:
+
+    * a **default-equipment sentence** misfiled into the options block, 22 rows. The datacard
+      states a named leader's fixed loadout — ``<NAME> is equipped with: …`` with no ``can``
+      anywhere — inside the same list as its options. It grants no choice, so reporting it as an
+      unresolved *option* sizes a production against a layout quirk;
+    * the literal **``None.``** placeholder, 8 rows. The extractor already drops ``None``; the
+      variant carrying the publisher's full stop fell through an exact-string comparison and was
+      published as an option row saying nothing.
+
+    Fixing them here rather than teaching the grammar to recognise and discard them is the
+    difference between an extractor that knows what an option row *is* and a grammar that
+    tolerates being handed anything.
     """
     rows: list[str] = []
     for node in block.nodes:
@@ -776,10 +804,12 @@ def _options(block: Block) -> tuple[str, ...]:
         for item in _children(node):
             if item.tag != "li":
                 continue
-            inner = item.html or ""
-            if _text(item).strip().casefold() == _NONE_TEXT:
+            text = _text(item).strip()
+            if text.rstrip(".").strip().casefold() == _NONE_TEXT:
                 continue
-            rows.append(_strip_outer_tag(inner))
+            if _DEFAULT_EQUIPMENT_SENTENCE.search(text) and not _GRANTS_A_CHOICE.search(text):
+                continue
+            rows.append(_strip_outer_tag(item.html or ""))
     return tuple(rows)
 
 

@@ -299,6 +299,32 @@ def test_an_option_row_the_grammar_refuses_is_still_carried(page) -> None:  # ty
     assert parse_row(tanglers.options[0]) is None
 
 
+# -- the two shapes that are not option rows at all (006 T022) ---------------------------------
+#
+# Research D1c.4 diagnosed both as defects in this extractor rather than gaps in the grammar: 30
+# measured rows, 5.3% of the unparsed residual, fixed where the mistake is made. A grammar taught
+# to recognise and discard them would instead be a grammar that tolerates being handed anything.
+
+
+def test_a_default_equipment_sentence_is_not_an_option_row(page) -> None:  # type: ignore[no-untyped-def]
+    # 22 measured rows: a named model's fixed loadout, printed inside the options list. It
+    # offers no choice, so reporting it as an unresolved option sizes a production against a
+    # layout quirk.
+    wardens = _card(page, "Purgeflight-Wardens")
+    assert not [row for row in wardens.options if "is equipped with:" in row]
+    # ...and the rows around it are untouched, which is the half that makes the drop safe.
+    assert any("can be equipped with" in row for row in wardens.options)
+
+
+def test_the_none_placeholder_is_dropped_with_its_full_stop_too(page) -> None:  # type: ignore[no-untyped-def]
+    # 8 measured rows. The extractor already dropped `None`; the variant carrying the
+    # publisher's full stop fell through an exact-string comparison and shipped as an option row
+    # that says nothing.
+    choir = _card(page, "Mirebound-Choir")
+    assert choir.options
+    assert not [row for row in choir.options if row.strip().rstrip(".").casefold() == "none"]
+
+
 # -- the rest of the card ----------------------------------------------------------------------
 
 
