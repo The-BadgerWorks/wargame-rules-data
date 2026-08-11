@@ -28,6 +28,7 @@ from pipeline.models.authored import (
     CopyLimit,
     DetachmentRuleSummary,
     EditionRuleValue,
+    EquipmentOverrideEntry,
     FactionMapEntry,
     FactionRuleFile,
     FindingResolution,
@@ -56,6 +57,9 @@ _FILES: Final[Mapping[str, str]] = {
     "keyword-classes": "keyword-classes",
     "composition-overrides": "composition-overrides",
     "option-overrides": "option-overrides",
+    # 006-unit-loadout-fidelity's own escape hatch, for the default-equipment sentences research
+    # D1e's compound-and-conditional tail leaves unresolved.
+    "equipment-overrides": "equipment-overrides",
 }
 
 ABILITIES_DIR: Final = "abilities"
@@ -111,6 +115,8 @@ class AuthoredContent:
     keyword_classes: tuple[KeywordClassEntry, ...] = ()
     composition_overrides: tuple[CompositionOverrideEntry, ...] = ()
     option_overrides: tuple[OptionOverrideEntry, ...] = ()
+    # -- 006-unit-loadout-fidelity ----------------------------------------------------------
+    equipment_overrides: tuple[EquipmentOverrideEntry, ...] = ()
 
     def faction_for_slug(self, slug: str) -> FactionMapEntry | None:
         return next((entry for entry in self.faction_map if entry.mfm_slug == slug), None)
@@ -148,6 +154,16 @@ class AuthoredContent:
     def option_override_for(self, datasheet_id: str, line: int) -> OptionOverrideEntry | None:
         return next(
             (o for o in self.option_overrides if o.datasheet_id == datasheet_id and o.line == line),
+            None,
+        )
+
+    def equipment_override_for(self, datasheet_id: str, line: int) -> EquipmentOverrideEntry | None:
+        return next(
+            (
+                o
+                for o in self.equipment_overrides
+                if o.datasheet_id == datasheet_id and o.line == line
+            ),
             None,
         )
 
@@ -304,6 +320,10 @@ def load_authored(curation_dir: Path) -> AuthoredContent:
             OptionOverrideEntry.model_validate(r)
             for r in _load_list(curation_dir, "option-overrides", _FILES["option-overrides"])
         ),
+        equipment_overrides=tuple(
+            EquipmentOverrideEntry.model_validate(r)
+            for r in _load_list(curation_dir, "equipment-overrides", _FILES["equipment-overrides"])
+        ),
     )
 
 
@@ -354,4 +374,8 @@ def authored_entity_refs(content: AuthoredContent) -> Sequence[tuple[str, str, s
         )
     for option_override in content.option_overrides:
         refs.append(("option-overrides.json", "datasheet_id", option_override.datasheet_id))
+    # -- 006-unit-loadout-fidelity. The fifth override class joins the same check for the same
+    # reason: an equipment override outlives the datasheet it resolves unless something says so.
+    for equipment_override in content.equipment_overrides:
+        refs.append(("equipment-overrides.json", "datasheet_id", equipment_override.datasheet_id))
     return refs

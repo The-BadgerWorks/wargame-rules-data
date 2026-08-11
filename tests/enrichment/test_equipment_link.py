@@ -74,10 +74,10 @@ def _link(*groups: CuratedEquipmentGroup) -> tuple[list[CuratedEquipmentGroup], 
     linked, findings = link_equipment(
         datasheet_id=DATASHEET, groups=groups, composition=COMPOSITION, weapons=WEAPONS
     )
-    return linked, [finding.code for finding in findings]
+    return linked, [finding.finding_code for finding in findings]
 
 
-# --- the sentence-to-composition join ------------------------------------------------------------
+# --- the sentence-to-composition join ----------------------------------------------------------
 
 
 def test_a_named_subject_resolves_to_the_composition_row_of_that_name() -> None:
@@ -124,7 +124,7 @@ def test_a_subject_matching_two_composition_rows_is_reported_rather_than_picked(
         weapons=WEAPONS,
     )
     assert linked[0].composition_line is None
-    assert [finding.code for finding in findings] == ["EQP-GROUP-UNRESOLVED"]
+    assert [finding.finding_code for finding in findings] == ["EQP-GROUP-UNRESOLVED"]
 
 
 def test_the_group_finding_is_advisory_and_the_group_still_ships() -> None:
@@ -134,7 +134,7 @@ def test_the_group_finding_is_advisory_and_the_group_still_ships() -> None:
     assert codes == ["EQP-GROUP-UNRESOLVED"]
 
 
-# --- the item-to-weapon join -----------------------------------------------------------------------
+# --- the item-to-weapon join -------------------------------------------------------------------
 
 
 def test_an_item_naming_exactly_one_weapon_row_carries_that_line() -> None:

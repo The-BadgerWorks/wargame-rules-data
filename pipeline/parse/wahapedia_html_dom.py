@@ -89,6 +89,7 @@ from pipeline.acquire.fixtures import FixturePayload
 from pipeline.models.source import WahapediaRow
 from pipeline.normalize.homoglyphs import fold_homoglyphs
 from pipeline.normalize.weapon_abilities import format_ability_keywords
+from pipeline.parse.equipment_grammar import EQUIPMENT_TABLE
 from pipeline.parse.wahapedia_csv import CsvReadResult
 
 #: The datacard root. Both tokens, because ``dsOuterFrame`` alone is also used for other frames.
@@ -146,6 +147,13 @@ _NONE_TEXT: Final = "none"
 #: block (`006` T022, research D1c.4; 22 measured rows). ``is equipped with:`` states what a
 #: model *has*, not what it may take.
 _DEFAULT_EQUIPMENT_SENTENCE: Final = re.compile(r"\bis equipped with\s*:", re.IGNORECASE)
+
+#: The same sentence read where it genuinely lives — the ``<b>`` subject inside the
+#: ``UNIT COMPOSITION`` block (`006` T027, research D1e). ``are`` is accepted beside ``is``
+#: because a plural subject spells it that way; every such subject is refused by the grammar's
+#: own residual rule rather than here, so the extractor stays a reader and the decision about
+#: what resolves stays in one place.
+_EQUIPMENT_SUBJECT: Final = re.compile(r"\b(?:is|are)\s+equipped\s+with\s*:\s*$", re.IGNORECASE)
 
 #: What makes a row an option at all: the modal that offers the player a decision. It is the
 #: guard on the rule above, so a genuine option row that happens to describe a starting loadout
@@ -240,6 +248,11 @@ EMITTED_TABLES: Final[Mapping[str, tuple[str, ...]]] = {
     ),
     "Abilities.csv": ("id", "name", "legend", "faction_id", "description"),
     "Datasheets_unit_composition.csv": ("datasheet_id", "line", "description"),
+    # `006` T027. The **one** table here the export does not publish, and its absence is the
+    # point: in `csv` mode nothing emits it, `curate/assemble.py` finds no mapping entry, and
+    # `default_equipment_state` is OMITTED — data-model.md section 3's "the source was not
+    # consulted", carried with no mode flag anywhere below `acquire`.
+    EQUIPMENT_TABLE: ("datasheet_id", "line", "description"),
     "Datasheets_options.csv": ("datasheet_id", "line", "button", "description"),
     "Datasheets_models_cost.csv": ("datasheet_id", "line", "description", "cost"),
     "Datasheets_leader.csv": ("leader_id", "attached_id"),
@@ -435,6 +448,13 @@ class Datacard:
     abilities: tuple[AbilityReference, ...] = ()
     composition: tuple[str, ...] = ()
     options: tuple[str, ...] = ()
+    equipment: tuple[str, ...] = ()
+    """One default-equipment sentence per element, subject and item list joined (`006` T027).
+
+    Beside ``composition`` rather than inside it, and the two are read from **disjoint** parts of
+    one element: composition is ``ul.dsUl > li``, equipment is the ``<b>`` sentence and the bare
+    text nodes after it. Nothing here changes what ``composition`` contains.
+    """
     costs: tuple[tuple[str, str], ...] = ()
     leads: tuple[str, ...] = ()
     led_by: tuple[str, ...] = ()
@@ -773,6 +793,49 @@ def _composition_and_costs(block: Block) -> tuple[tuple[str, ...], tuple[tuple[s
     return tuple(lines), tuple(costs)
 
 
+def _equipment(block: Block) -> tuple[str, ...]:
+    """The default-equipment sentences printed in the same block as the composition lines.
+
+    **Where they are** (research D1e, measured over 1 688 cached datacards): inside the *same*
+    ``div.dsAbility`` as the composition lists and after them, as a ``<b>`` element whose text
+    ends ``… is equipped with:`` followed by a bare text node holding a ``;``-separated item
+    list, with ``<br><br>`` between groups. 1 676 cards carry one, and 1 932 groups in total.
+
+    **Why extracting them cannot perturb composition** — risk R-E, and it is structural rather
+    than incidental. :func:`_composition_and_costs` reads ``ul.dsUl > li`` and nothing else; this
+    walks the element's **direct children**, so it never descends into a ``<ul>`` and the two
+    reads touch disjoint nodes. The measured half of the same observation: every extracted
+    composition-line skeleton begins with ``INT`` and none contains the equipment vocabulary.
+
+    A ``<b>`` that is not an equipment subject — the block prints other bold labels — closes any
+    open sentence and starts nothing, so text that belongs to neither is carried nowhere.
+
+    The subject and its item list leave here **joined into one string**, because that is what
+    makes :mod:`pipeline.parse.equipment_grammar` mode-blind in exactly the way the composition
+    and option grammars already are: it takes a description, not a DOM.
+    """
+    found: list[str] = []
+    for node in block.nodes:
+        subject: str | None = None
+        items: list[str] = []
+        for child in node.iter(include_text=True):
+            if child.tag == "b":
+                if subject is not None:
+                    found.append(_joined_sentence(subject, items))
+                text = _text(child)
+                subject = text if _EQUIPMENT_SUBJECT.search(text) else None
+                items = []
+            elif subject is not None and child.tag == "-text":
+                items.append(child.text(deep=False) or "")
+        if subject is not None:
+            found.append(_joined_sentence(subject, items))
+    return tuple(found)
+
+
+def _joined_sentence(subject: str, items: Sequence[str]) -> str:
+    return " ".join(f"{subject} {''.join(items)}".split())
+
+
 def _options(block: Block) -> tuple[str, ...]:
     """One description per top-level option, as **markup**, so nested choices survive.
 
@@ -1032,6 +1095,7 @@ def parse_faction_page(slug: str, html: str) -> DatacardPage:
         abilities: list[AbilityReference] = []
         composition: tuple[str, ...] = ()
         costs: tuple[tuple[str, str], ...] = ()
+        equipment: tuple[str, ...] = ()
         options: tuple[str, ...] = ()
         leads: tuple[str, ...] = ()
         led_by: tuple[str, ...] = ()
@@ -1042,6 +1106,7 @@ def parse_faction_page(slug: str, html: str) -> DatacardPage:
                 abilities.extend(_abilities(block))
             elif block.label == COMPOSITION_LABEL:
                 composition, costs = _composition_and_costs(block)
+                equipment = _equipment(block)
             elif block.label == OPTIONS_LABEL:
                 options = _options(block)
             elif block.label == LEADER_LABEL:
@@ -1067,6 +1132,7 @@ def parse_faction_page(slug: str, html: str) -> DatacardPage:
                 abilities=tuple(abilities),
                 composition=composition,
                 options=options,
+                equipment=equipment,
                 costs=costs,
                 leads=leads,
                 led_by=led_by,
@@ -1240,6 +1306,10 @@ def _emit_card(card: Datacard, tables: dict[str, list[dict[str, str]]]) -> None:
         )
     for line, description in enumerate(card.composition, start=1):
         tables["Datasheets_unit_composition.csv"].append(
+            {"datasheet_id": card.detail_id, "line": str(line), "description": description}
+        )
+    for line, description in enumerate(card.equipment, start=1):
+        tables[EQUIPMENT_TABLE].append(
             {"datasheet_id": card.detail_id, "line": str(line), "description": description}
         )
     for line, description in enumerate(card.options, start=1):

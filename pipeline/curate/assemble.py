@@ -69,6 +69,8 @@ from pipeline.models.curated import (
     CuratedEdition,
     CuratedEditionRule,
     CuratedEnhancement,
+    CuratedEquipmentGroup,
+    CuratedEquipmentItem,
     CuratedFaction,
     CuratedGameSizeRule,
     CuratedKeyword,
@@ -79,6 +81,8 @@ from pipeline.models.curated import (
     CuratedSnapshot,
     CuratedWargearOption,
     CuratedWeaponLine,
+    DefaultEquipmentState,
+    EquipmentAppliesTo,
     OptionItemRole,
     OptionScope,
     WargearOptionState,
@@ -104,6 +108,12 @@ from pipeline.normalize.numerics import (
 )
 from pipeline.normalize.weapon_abilities import parse_weapon_ability_keywords
 from pipeline.parse.composition_grammar import link_model_line, parse_entry
+from pipeline.parse.equipment_grammar import (
+    EQUIPMENT_TABLE,
+    equipment_group_id,
+    equipment_state,
+    parse_sentence,
+)
 from pipeline.parse.mfm_dom import MfmPage
 from pipeline.parse.options_grammar import (
     MAX_CHOICE_NAME_CHARS,
@@ -125,6 +135,7 @@ from pipeline.reconcile.chapters import (
 )
 from pipeline.reconcile.composition_bands import reconcile_composition_bands
 from pipeline.reconcile.conflicts import resolve_cost_conflict
+from pipeline.reconcile.equipment_link import link_equipment
 from pipeline.reconcile.identity import EntityKind, IdRegistry, slugify
 from pipeline.reconcile.match import (
     FactionScope,
@@ -621,6 +632,20 @@ class _OptionOutcome:
     findings: list[Finding] = field(default_factory=list)
 
 
+@dataclass(slots=True)
+class _EquipmentOutcome:
+    """One datasheet's default equipment (`006` US2), and how completely it extracted.
+
+    ``groups`` is a tuple rather than a list because its default is the empty one and the
+    suppression path returns it unchanged — the FR-016 case is *literally nothing*, and a shared
+    mutable default is the one way that could stop being true.
+    """
+
+    groups: tuple[CuratedEquipmentGroup, ...] = ()
+    state: DefaultEquipmentState | None = None
+    findings: list[Finding] = field(default_factory=list)
+
+
 def _row_ordinal(raw: str, *, field_name: str) -> int | None:
     """The source's own row ordinal, or ``None`` when it is missing or not a positive integer.
 
@@ -711,6 +736,112 @@ def _composition_entries(
     if unresolved:
         return [], findings
     return sorted(entries, key=lambda entry: entry.line), findings
+
+
+def _equipment(
+    detail_id: str,
+    datasheet_id: str,
+    detail: Mapping[str, CsvReadResult],
+    authored: AuthoredContent,
+    composition: Sequence[CuratedCompositionEntry],
+    weapons: Sequence[CuratedWeaponLine],
+) -> _EquipmentOutcome:
+    """One datasheet's default equipment — but **only** if its composition stands (FR-016).
+
+    Two suppressions, and they are different facts sharing one representation. A datasheet whose
+    composition did not resolve carries no equipment at all: every sentence this feature can state
+    attaches either to the unit or to one of the composition rows, and attaching a loadout to a
+    structure the pipeline has already refused to publish would be an assertion about models
+    nobody can enumerate. A run that never consulted the equipment source — every ``csv``-mode
+    run, where the export publishes no such table — carries none either. Both leave
+    ``default_equipment_state`` **omitted**, which is precisely what data-model.md §3 means by
+    the fourth state being the absence of a value.
+
+    Note the asymmetry with :func:`_composition_entries` above, and that it is deliberate: an
+    unresolved composition line suppresses the whole datasheet's composition, while an unresolved
+    equipment sentence suppresses **only itself** and the datasheet becomes ``partial``. A partial
+    composition under-counts a unit and therefore mis-prices it; a partial loadout under-states
+    what a model carries, and what did resolve is still true.
+    """
+    if not composition:
+        return _EquipmentOutcome()
+    rows = detail.get(EQUIPMENT_TABLE)
+    if rows is None:
+        return _EquipmentOutcome()
+
+    source_rows = rows.grouped_by("datasheet_id").get(detail_id, [])
+    parsed_groups: list[CuratedEquipmentGroup] = []
+    authored_groups: list[CuratedEquipmentGroup] = []
+    findings: list[Finding] = []
+    unparsed = 0
+
+    for row in source_rows:
+        line = _row_ordinal(row.fields.get("line", ""), field_name="equipment.line")
+        override = authored.equipment_override_for(datasheet_id, line) if line else None
+        if line is not None and override is not None:
+            authored_groups.append(
+                CuratedEquipmentGroup(
+                    id=equipment_group_id(datasheet_id, line),
+                    line=line,
+                    applies_to=EquipmentAppliesTo(override.applies_to),
+                    model_name=override.model_name,
+                    composition_line=override.composition_line,
+                    items=tuple(
+                        CuratedEquipmentItem(
+                            item_index=index,
+                            item_name=item.item_name,
+                            count=item.count,
+                            weapon_line=item.weapon_line,
+                        )
+                        for index, item in enumerate(override.items, start=1)
+                    ),
+                )
+            )
+            continue
+
+        parsed = parse_sentence(row.fields.get("description", "")) if line is not None else None
+        if line is None or parsed is None:
+            unparsed += 1
+            findings.append(
+                build_finding(
+                    "EQP-UNPARSED",
+                    entity_refs=[datasheet_id],
+                    detail={
+                        "datasheet_id": datasheet_id,
+                        "line": line if line is not None else 0,
+                        "file_name": EQUIPMENT_TABLE,
+                    },
+                )
+            )
+            continue
+
+        parsed_groups.append(
+            CuratedEquipmentGroup(
+                id=equipment_group_id(datasheet_id, line),
+                line=line,
+                applies_to=parsed.applies_to,
+                model_name=parsed.model_name,
+                items=tuple(
+                    CuratedEquipmentItem(
+                        item_index=index, item_name=item.item_name, count=item.count
+                    )
+                    for index, item in enumerate(parsed.items, start=1)
+                ),
+            )
+        )
+
+    # A curator-authored group already states its own links, so it is not re-joined: doing so
+    # would let a name match overrule the human who wrote the override.
+    linked, link_findings = link_equipment(
+        datasheet_id=datasheet_id, groups=parsed_groups, composition=composition, weapons=weapons
+    )
+    findings.extend(link_findings)
+
+    return _EquipmentOutcome(
+        groups=tuple(sorted([*linked, *authored_groups], key=lambda group: group.id)),
+        state=equipment_state(sentence_count=len(source_rows), unparsed_count=unparsed),
+        findings=findings,
+    )
 
 
 def _option_structure(
@@ -1386,6 +1517,7 @@ def _datasheet_for(  # noqa: PLR0913 - one datasheet needs both sources and the 
     fields: dict[str, object] = {}
     composition: list[CuratedCompositionEntry] = []
     options = _OptionOutcome()
+    equipment = _EquipmentOutcome()
     if match.wahapedia_datasheet_id:
         fields, detail_findings = _detail_datasheet_fields(
             match.wahapedia_datasheet_id, detail, legends_sources
@@ -1408,6 +1540,19 @@ def _datasheet_for(  # noqa: PLR0913 - one datasheet needs both sources and the 
             wargear_options,
         )
         findings.extend(options.findings)
+
+        # Called with the composition already resolved, and reading it: FR-016 refuses to attach
+        # a loadout to a composition structure that does not exist, and passing the entries in is
+        # what makes that refusal a property of the call rather than a rule to remember.
+        equipment = _equipment(
+            match.wahapedia_datasheet_id,
+            match.datasheet_id,
+            detail,
+            authored,
+            composition,
+            weapons,
+        )
+        findings.extend(equipment.findings)
 
         # Both sources priced it: the points source wins, both values are reported, and the
         # losing value is carried nowhere (FR-028).
@@ -1482,6 +1627,8 @@ def _datasheet_for(  # noqa: PLR0913 - one datasheet needs both sources and the 
         option_groups=options.groups,
         option_choices=options.choices,
         wargear_option_state=options.state,
+        equipment_groups=equipment.groups,
+        default_equipment_state=equipment.state,
         wargear_options=wargear_options,
         costs=costs,
         pricing_confidence=PricingConfidence(state=PricingConfidenceState.VERIFIED),

@@ -37,6 +37,7 @@
 /curation/keyword-classes.json      @adhoxx
 /curation/composition-overrides.json  @adhoxx
 /curation/option-overrides.json       @adhoxx
+/curation/equipment-overrides.json    @adhoxx
 
 # Class 4: infrastructure -- workflows, Pages source, and the declared repo-settings doc
 /.github/                 @adhoxx

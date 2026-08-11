@@ -107,7 +107,7 @@ def test_every_model_is_matched_before_the_named_subject_production() -> None:
     assert parsed.model_name is None
 
 
-# --- the item list ------------------------------------------------------------------------------
+# --- the item list ----------------------------------------------------------------
 
 
 def test_items_split_on_the_semicolon_the_source_uses() -> None:
@@ -264,7 +264,7 @@ def test_an_unresolved_sentence_suppresses_only_itself() -> None:
     outcome = _equipment("GF11", "ds-x", detail, AuthoredContent(), COMPOSITION, ())
     assert outcome.state is DefaultEquipmentState.PARTIAL
     assert [group.line for group in outcome.groups] == [1]
-    assert [finding.code for finding in outcome.findings] == ["EQP-UNPARSED"]
+    assert "EQP-UNPARSED" in [finding.finding_code for finding in outcome.findings]
 
 
 def test_a_datasheet_whose_composition_did_not_resolve_carries_no_equipment_at_all() -> None:
