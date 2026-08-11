@@ -9,6 +9,10 @@
 # table, the change summary, the unverified-pricing and edition-mismatch reports, the
 # summary-coverage report, and a pointer to the changed-file list that names the changed
 # datasheets (FR-037, quickstart.md §5).
+# AI-Assisted: Claude Code (model: claude-opus-5) - Added the loadout coverage table and the
+# option-regression pointer (006 task T039): the two `loadout.*` rows say which of them the
+# ratchet guards, and FR-009's zero-regression evidence gets a named place in the reading order
+# rather than living in a report nobody is told to open (006 FR-022).
 """What an approver reads first, in the order they should read it.
 
 `docs/approval-checklist.md` (task T121) states the same order in prose, for a human skimming
@@ -61,6 +65,63 @@ _SUMMARY_COVERAGE_PREFIX = "summaries."
 
 #: Where the churn dry-run's measured re-review wave is recorded (research D8, 004 T075/T076).
 _CHURN_DRY_RUN_DIR = "reports/churn-dry-run"
+
+#: The `coverage` key prefix `006`'s two loadout figures report under.
+_LOADOUT_COVERAGE_PREFIX = "loadout."
+
+#: The one loadout figure the ratchet guards. The other is reported and not ratcheted in this
+#: first extended release, because no published version carries the figure to compare against
+#: (research D4) -- and a table that showed both without saying which is which would let an
+#: approver read a falling unratcheted number as something a gate had already considered.
+_RATCHETED_LOADOUT_FIGURES: frozenset[str] = frozenset({"options_resolved"})
+
+#: `pipeline.cli option-regression`'s report: FR-009's layer-2 evidence, rebuilt from the previous
+#: published version's own source rows and diffed per choice and per field.
+_OPTION_REGRESSION_FILE = "option-regression.md"
+
+
+def _loadout_coverage_section(coverage: Mapping[str, Mapping[str, Any]]) -> list[str]:
+    """`006`'s two loadout figures, and which of them can refuse a release.
+
+    Separate from the summary table above rather than folded into it, because they answer
+    different questions: that one is editorial backlog a curator works through, this one is how
+    much of the source the *pipeline* managed to resolve. A curator cannot act on this row by
+    writing anything, and an approver reading them as one list would be looking for the wrong
+    kind of fix.
+    """
+    figures = {
+        key.removeprefix(_LOADOUT_COVERAGE_PREFIX): figure
+        for key, figure in sorted(coverage.items())
+        if key.startswith(_LOADOUT_COVERAGE_PREFIX)
+    }
+    if not figures:
+        return []
+
+    out = [
+        "",
+        "## Loadout coverage",
+        "",
+        "| figure | resolved | of the previous release | resolved coverage | ratchet |",
+        "|---|---|---|---|---|",
+    ]
+    for name, figure in figures.items():
+        floor = round(float(figure.get("threshold", 0.0)) * 100)
+        guard = f"blocks below {floor}%" if name in _RATCHETED_LOADOUT_FIGURES else "reported only"
+        out.append(
+            f"| `{name}` | {figure.get('current', 0)} | {figure.get('previous', 0)} | "
+            f"{figure.get('ratio_percent', 0)}% | {guard} |"
+        )
+    out += [
+        "",
+        "`options_resolved` is **ratcheted with no absolute ceiling**: it must not fall below "
+        "the previous *published* version's percent, less the configured tolerance, and no "
+        "threshold blocks a release on its own — so source-wording drift cannot wedge a release "
+        "ahead of a parser fix. A rejected candidate never moves the baseline. "
+        "`default_equipment` is reported and not ratcheted in this first extended release: "
+        "nothing has published the figure yet, and a first-release threshold picked to have one "
+        "would be exactly the ceiling that rule rules out.",
+    ]
+    return out
 
 
 def _summary_coverage_section(coverage: Mapping[str, Mapping[str, Any]]) -> list[str]:
@@ -144,6 +205,7 @@ def render_pr_body(
     ]
 
     out += _summary_coverage_section(report_json.get("coverage") or {})
+    out += _loadout_coverage_section(report_json.get("coverage") or {})
 
     blocking = [f for f in findings if f.get("severity") == "blocking" and not f.get("resolution")]
     out += ["", "## Blocking findings", ""]
@@ -161,6 +223,17 @@ def render_pr_body(
         file_name = sub_reports.get(key, SUB_REPORT_FILES[key])
         out.append(f"1. [{_SECTION_TITLE[key]}]({directory}/{file_name})")
     out.append(f"1. [Full validation report]({directory}/report.md)")
+    # FR-022: the zero-regression evidence is named here rather than left to whoever remembers
+    # it exists. It is written by `rules-pipeline option-regression`, which is evidence tooling
+    # and deliberately NOT on the approval-gate path -- so the link is stated unconditionally,
+    # and its absence is itself something an approver is meant to notice.
+    out.append(
+        f"1. [Option-regression evidence]({directory}/{_OPTION_REGRESSION_FILE}) — "
+        "`rules-pipeline option-regression` rebuilds the previous published version's option "
+        "tree with this pipeline and diffs it per choice and per field. A non-empty "
+        "**Corrected** section means a new production reached a row the baseline already "
+        "resolved, which FR-009 forbids."
+    )
 
     out += [
         "",

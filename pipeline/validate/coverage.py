@@ -9,6 +9,11 @@
 # AI-Assisted: Claude Code (model: claude-opus-5) - Added check_weapon_ability_keywords (issue
 # #4): the within-snapshot half of the same question, for the class whose emptiness the
 # previous-release comparison cannot see because the previous release was empty too.
+# AI-Assisted: Claude Code (model: claude-opus-5) - Added the two 006 loadout figures and the
+# named counts behind them (006 task T038): options_resolved_datasheets is now a function
+# rather than an inline sum, because the COV-OPTION-REGRESSION ratchet is a SECOND, stricter
+# test over the SAME count -- two independently written counts of one thing is how a report
+# and a gate end up disagreeing about whether a release regressed (006 FR-022, research D4).
 """V10 — did we just publish a fraction of the release without noticing?
 
 This is the check for the failure that looks like success. A partial response, or an error page
@@ -31,13 +36,27 @@ from __future__ import annotations
 
 from collections.abc import Mapping
 from dataclasses import dataclass, field
+from typing import Final
 
 from pipeline.config import PipelineConfig
 from pipeline.curate.prior import PriorSnapshot, classified_keywords
 from pipeline.exit_codes import ExitCode
-from pipeline.models.curated import CuratedSnapshot, WargearOptionState
+from pipeline.models.curated import CuratedSnapshot, DefaultEquipmentState, WargearOptionState
 from pipeline.models.findings import CoverageFigure, Finding
 from pipeline.report.catalogue import build_finding
+
+#: The `report.json` coverage rows `006` adds, without their `loadout.` prefix (data-model.md §5).
+OPTIONS_RESOLVED_KEY: Final = "options_resolved"
+DEFAULT_EQUIPMENT_KEY: Final = "default_equipment"
+
+#: Which of them the ratchet actually guards — one of two, and deliberately (research D4).
+#:
+#: `default_equipment` is **reported and not ratcheted in this first extended release**: no
+#: version has ever published the figure, so there is nothing to compare it against, and a
+#: first-release threshold picked to have *something* would be exactly the absolute ceiling the
+#: 2026-08-09 clarification rules out — a number that can wedge a release ahead of a parser fix.
+#: It becomes ratchetable for free the release after this one, when a baseline exists.
+LOADOUT_RATCHETED_KEYS: Final[tuple[str, ...]] = (OPTIONS_RESOLVED_KEY,)
 
 
 @dataclass(slots=True)
@@ -55,6 +74,85 @@ class CoverageOutcome:
     def exit_code(self) -> ExitCode | None:
         """``42`` on collapse. Distinct from ``30`` so alerting can tell the two apart."""
         return ExitCode.COVERAGE_COLLAPSE if self.collapsed else None
+
+
+@dataclass(frozen=True, slots=True)
+class LoadoutCoverage:
+    """One `006` loadout figure: how much of the roster resolved, as a proportion of the roster.
+
+    A **proportion**, not a count comparison, and that is the difference from every figure
+    :func:`check_coverage` produces. The collapse check below asks "did this release publish a
+    fraction of what the last one did?", which is a question about the *source*. This asks "how
+    much of what we published did we manage to resolve?", which is a question about the
+    *pipeline* — and the two move independently. A release in which the source adds 40 datasheets
+    can raise the resolved count while lowering the proportion, and SC-001 is about the
+    proportion.
+    """
+
+    key: str
+    resolved: int
+    total: int
+
+    @property
+    def ratio_percent(self) -> int:
+        """Resolved over the whole roster, as an **integer percent**.
+
+        Integer for the same two reasons ``ClassCoverage.ratio_percent`` is: the canonical scalar
+        set excludes ``float`` so report bytes stay reproducible, and the ratchet's comparison has
+        to survive a round trip through the previous release's `report.json` unchanged. An empty
+        roster is complete rather than zero — there is no outstanding work to have failed at.
+        """
+        if self.total <= 0:
+            return 100
+        return round(100 * self.resolved / self.total)
+
+
+def options_resolved_datasheets(snapshot: CuratedSnapshot) -> int:
+    """Datasheets whose option set resolved — ``none`` and ``extracted`` both count.
+
+    A datasheet the source describes no options for is **finished**, not outstanding; counting it
+    as a gap would make the figure fall every time a faction of characters shipped. Extracted
+    here as a named function rather than left inline because the ratchet
+    (:func:`~pipeline.validate.gates.check_option_ratchet`) is a second test over *this* count,
+    and two independently written counts of the same thing is how the report and the gate end up
+    disagreeing about whether a release regressed.
+    """
+    return sum(
+        1
+        for datasheet in snapshot.datasheets
+        if datasheet.wargear_option_state in {WargearOptionState.NONE, WargearOptionState.EXTRACTED}
+    )
+
+
+def default_equipment_resolved_datasheets(snapshot: CuratedSnapshot) -> int:
+    """The same reading over ``default_equipment_state``, which is a **different enum**.
+
+    Deliberately not folded together with the above. The two states routinely disagree on one
+    card — a datacard that states no options and a full equipment sentence, or the reverse — so a
+    single "loadout resolved" figure would average away exactly the signal each one exists to
+    give.
+    """
+    return sum(
+        1
+        for datasheet in snapshot.datasheets
+        if datasheet.default_equipment_state
+        in {DefaultEquipmentState.NONE, DefaultEquipmentState.EXTRACTED}
+    )
+
+
+def loadout_coverages(snapshot: CuratedSnapshot) -> dict[str, LoadoutCoverage]:
+    """Both `006` figures, keyed without their `loadout.` prefix (FR-022, data-model.md §5)."""
+    total = len(snapshot.datasheets)
+    return {
+        OPTIONS_RESOLVED_KEY: LoadoutCoverage(
+            key=OPTIONS_RESOLVED_KEY, resolved=options_resolved_datasheets(snapshot), total=total
+        ),
+        DEFAULT_EQUIPMENT_KEY: LoadoutCoverage(
+            key=DEFAULT_EQUIPMENT_KEY,
+            resolved=default_equipment_resolved_datasheets(snapshot),
+            total=total,
+        ),
+    }
 
 
 def _ratio(current: int, previous: int) -> float:
@@ -123,11 +221,7 @@ def check_coverage(
 
     priced = sum(1 for datasheet in snapshot.datasheets if datasheet.costs)
     composed = sum(1 for datasheet in snapshot.datasheets if datasheet.composition)
-    options_resolved = sum(
-        1
-        for datasheet in snapshot.datasheets
-        if datasheet.wargear_option_state in {WargearOptionState.NONE, WargearOptionState.EXTRACTED}
-    )
+    options_resolved = options_resolved_datasheets(snapshot)
     categories: Mapping[str, tuple[int, int, float]] = {
         "factions": (
             len(snapshot.factions),

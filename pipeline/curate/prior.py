@@ -6,6 +6,10 @@
 # and the previous published version back (task T090), so last-known pricing, rename detection,
 # coverage ratios, and the change summary all have a baseline without re-acquiring anything
 # (FR-032, FR-035, spec Support implications).
+# AI-Assisted: Claude Code (model: claude-opus-5) - Generalised the retained-report reader to a
+# second key family (006 task T038): _previous_coverage takes the prefix, previous_loadout_
+# coverage joins previous_summary_coverage, and the prefix is a FILTER rather than a lookup so
+# a generalisation bug cannot feed summaries.abilities to the option ratchet.
 """The baseline: what we published last time.
 
 Four of US2's guarantees are statements *about a previous release* — last-known pricing, rename
@@ -138,6 +142,18 @@ class PriorSnapshot:
 
     summary_approved_count: Mapping[str, int] = field(default_factory=dict)
     """``<summary class> -> approved entries``, as the previously published version reported."""
+
+    loadout_resolved_count: Mapping[str, int] = field(default_factory=dict)
+    """``<loadout figure> -> resolved datasheets``, as the previously published version reported."""
+
+    loadout_ratio_percent: Mapping[str, int] = field(default_factory=dict)
+    """``<loadout figure> -> resolved percent``, the `006` FR-022 ratchet's baseline.
+
+    Read back from the previously published version's retained `report.json` for the same reason
+    the summary figures are: the tree records what each datasheet's state *is*, never what
+    proportion of the roster reached it, and this run has already overwritten the tree it would
+    otherwise have recomputed the proportion from.
+    """
 
     summary_ratio_percent: Mapping[str, int] = field(default_factory=dict)
     """``<summary class> -> approved-coverage percent``, the FR-030 ratchet's baseline.
@@ -488,16 +504,30 @@ def previous_published_version(manifest_path: Path) -> str | None:
 #: The `report.json` coverage keys the four summary classes occupy (data-model.md §5).
 SUMMARY_COVERAGE_PREFIX = "summaries."
 
+#: The keys `006`'s two loadout figures occupy (006 data-model.md §5).
+#:
+#: A second prefix through the same reader rather than a second reader. The retained
+#: `report.json` of the previous published version is the only place either family's percent can
+#: come from, for the same reason: the curated tree records what a datasheet's state *is*, never
+#: what proportion of the roster reached it, and a proportion cannot be recomputed from a tree
+#: that has since been overwritten by this very run.
+LOADOUT_COVERAGE_PREFIX = "loadout."
 
-def previous_summary_coverage(
-    root: Path, rules_version_id: str | None
+
+def _previous_coverage(
+    root: Path, rules_version_id: str | None, *, prefix: str
 ) -> dict[str, tuple[int, int]]:
-    """``<summary class> -> (approved count, approved percent)`` from a retained report.
+    """``<figure> -> (count, percent)`` for one coverage-key family, from a retained report.
 
-    Returns an empty mapping when there is no previous version, no retained report, or no
-    `summaries.*` rows in it — a first release, or a release predating this feature. A class
-    with no previous figure has nothing to fall from and therefore cannot regress, which is what
-    makes the ratchet safe to introduce mid-campaign rather than needing a seeded baseline.
+    Returns an empty mapping when there is no previous version, no retained report, or no row
+    under ``prefix`` — a first release, or a release predating whichever feature added the
+    family. A figure with no previous value has nothing to fall from and therefore cannot
+    regress, which is what makes a ratchet safe to introduce mid-campaign rather than needing a
+    seeded baseline.
+
+    The prefix is a **filter, not a lookup**: rows outside it are not merely ignored, they are
+    unreachable, so a generalisation bug cannot feed `summaries.abilities` to the option ratchet
+    as a plausible number that means nothing.
     """
     if not rules_version_id:
         return {}
@@ -512,13 +542,34 @@ def previous_summary_coverage(
         return {}
     coverage = document.get("coverage", {})
     return {
-        name.removeprefix(SUMMARY_COVERAGE_PREFIX): (
+        name.removeprefix(prefix): (
             int(figure.get("current", 0)),
             int(figure.get("ratio_percent", 0)),
         )
         for name, figure in coverage.items()
-        if name.startswith(SUMMARY_COVERAGE_PREFIX) and isinstance(figure, dict)
+        if name.startswith(prefix) and isinstance(figure, dict)
     }
+
+
+def previous_summary_coverage(
+    root: Path, rules_version_id: str | None
+) -> dict[str, tuple[int, int]]:
+    """``<summary class> -> (approved count, approved percent)`` from a retained report (FR-030)."""
+    return _previous_coverage(root, rules_version_id, prefix=SUMMARY_COVERAGE_PREFIX)
+
+
+def previous_loadout_coverage(
+    root: Path, rules_version_id: str | None
+) -> dict[str, tuple[int, int]]:
+    """``<loadout figure> -> (resolved count, resolved percent)`` from a retained report (006).
+
+    ``rules_version_id`` is the previously **published** version, resolved by
+    :func:`previous_published_version` from the channel manifest — which only a publication
+    writes. A candidate that was reviewed and turned down leaves a `reports/<id>/report.json`
+    behind exactly like an approved one, so reading "the newest retained report" instead would
+    let a rejected candidate lower the bar for the next one.
+    """
+    return _previous_coverage(root, rules_version_id, prefix=LOADOUT_COVERAGE_PREFIX)
 
 
 def load_prior(
@@ -535,8 +586,11 @@ def load_prior(
     rules_version_id = previous_published_version(root / manifest_relative_path)
     prior = prior_from_snapshot(snapshot, rules_version_id=rules_version_id)
     summaries = previous_summary_coverage(root, rules_version_id)
+    loadout = previous_loadout_coverage(root, rules_version_id)
     return replace(
         prior,
         summary_approved_count={name: count for name, (count, _) in summaries.items()},
         summary_ratio_percent={name: percent for name, (_, percent) in summaries.items()},
+        loadout_resolved_count={name: count for name, (count, _) in loadout.items()},
+        loadout_ratio_percent={name: percent for name, (_, percent) in loadout.items()},
     )

@@ -13,6 +13,11 @@
 # render_trends` (task T149) into both `write_reports` call sites (`run_build` and
 # `run_validate`), reading `state/run-ledger.jsonl` from the real repository root each time so
 # the trend is always a property of the actual run history, never of a fixture's synthetic one.
+# AI-Assisted: Claude Code (model: claude-opus-5) - Wired 006's loadout coverage into both report
+# paths (006 tasks T038, T039): the two `loadout.*` rows and the COV-OPTION-REGRESSION ratchet,
+# deliberately OUTSIDE CoverageOutcome.findings -- that set's non-emptiness exits 42 for a source
+# collapse, and a resolved-option regression is a defect in this pipeline rather than evidence
+# that the source went strange.
 """``rules-pipeline`` — the operator-facing surface.
 
 The same CLI runs locally against fixtures and in CI against the real sources: **there is no
@@ -137,14 +142,17 @@ from pipeline.validate.contract_checks import (
     check_snapshot,
 )
 from pipeline.validate.coverage import (
+    OPTIONS_RESOLVED_KEY,
     CoverageOutcome,
     check_coverage,
     check_weapon_ability_keywords,
+    loadout_coverages,
 )
 from pipeline.validate.gates import (
     ClassCheck,
     ClassCoverage,
     check_glossary_orphans,
+    check_option_ratchet,
     check_summary_gates,
     check_summary_ratchet,
     class_coverage,
@@ -155,6 +163,7 @@ from pipeline.validate.gates import (
     gate_for,
     glossary_keys,
     glossary_summaries,
+    loadout_coverage_figures,
     max_chars_for,
     summary_coverage_figures,
     tolerance_for,
@@ -479,6 +488,34 @@ def _summary_findings_and_coverage(
     return findings, coverages, figures
 
 
+def _loadout_findings_and_coverage(
+    snapshot: CuratedSnapshot, *, prior: PriorSnapshot | None, config: PipelineConfig
+) -> tuple[list[Finding], dict[str, CoverageFigure]]:
+    """`006`'s two report rows, and the ratchet over the one of them that is guarded (FR-022).
+
+    Beside :func:`_summary_findings_and_coverage` and not inside it, because the two answer
+    different questions. That one measures an editorial backlog a curator works through; this
+    one measures how much of the source the *pipeline* resolved, which no amount of curation
+    moves. Folding them together would produce one figure that means two things.
+    """
+    coverages = loadout_coverages(snapshot)
+    previous_percent = prior.loadout_ratio_percent if prior else {}
+    previous_count = prior.loadout_resolved_count if prior else {}
+
+    findings = check_option_ratchet(
+        coverages[OPTIONS_RESOLVED_KEY],
+        previous_percent=previous_percent.get(OPTIONS_RESOLVED_KEY),
+        tolerance=config.ratchet_tolerance_options,
+    )
+    figures = loadout_coverage_figures(
+        coverages,
+        previous_count=previous_count,
+        previous_percent=previous_percent,
+        tolerance=config.ratchet_tolerance_options,
+    )
+    return findings, figures
+
+
 def _reconcile_against_prior(
     snapshot: CuratedSnapshot,
     *,
@@ -545,6 +582,16 @@ def _reconcile_against_prior(
     # (contract §3.1, §5.1).
     findings.extend(check_glossary_orphans(snapshot, authored.glossary_entries))
     coverage.figures.update(summary_figures)
+
+    # 006 FR-022. Kept OUT of `coverage.findings`, whose non-emptiness is what exits 42 for a
+    # source collapse: a resolved-option regression is a defect in this pipeline, not evidence
+    # that the source went strange, and conflating the two would make CI alert on the wrong
+    # thing. It is a blocking finding like any other, refused through the normal verdict.
+    loadout_findings, loadout_figures = _loadout_findings_and_coverage(
+        snapshot, prior=prior, config=config
+    )
+    findings.extend(loadout_findings)
+    coverage.figures.update(loadout_figures)
 
     sub_reports = {
         "change_summary": render_change_summary(summary, enrichment_changes),
@@ -850,6 +897,16 @@ def run_validate(
     # (contract §3.1, §5.1).
     findings.extend(check_glossary_orphans(snapshot, authored.glossary_entries))
     coverage.figures.update(summary_figures)
+
+    # 006 FR-022. Kept OUT of `coverage.findings`, whose non-emptiness is what exits 42 for a
+    # source collapse: a resolved-option regression is a defect in this pipeline, not evidence
+    # that the source went strange, and conflating the two would make CI alert on the wrong
+    # thing. It is a blocking finding like any other, refused through the normal verdict.
+    loadout_findings, loadout_figures = _loadout_findings_and_coverage(
+        snapshot, prior=prior, config=config
+    )
+    findings.extend(loadout_findings)
+    coverage.figures.update(loadout_figures)
 
     summary = compute_change_summary(prior, snapshot)
     # `validate` re-reads the *current* tree, so there is no distinct previous tree here to diff
