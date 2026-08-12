@@ -37,7 +37,17 @@
      sometimes embeds a whole div.abWrap ability card inside its own body. Three tooltips here
      now carry that family — 00002 plain, 00003 with an owner line, 00004 with an embedded card
      — and the body of each is written as a <p> directly inside the <span>, which is the
-     mis-nesting the live templates carry and the reason an earlier DOM attempt read nothing. -->
+     mis-nesting the live templates carry and the reason an earlier DOM attempt read nothing.
+
+     AI-Assisted: Claude Code (model: claude-opus-5) - Added the three keyword-cell separators the
+     live pages print and this fixture printed only one of (006 T049). A keyword column does not
+     separate its keywords with `;` alone: a detachment-conditional keyword is appended after a
+     `, ` in its own span.clFl (Gloamtide-Host), and a conditional group may be introduced by a
+     printed `:` after a model-scoped list (Fenwatch-Sentinel). Snarebound-Wretches carries the
+     case those two must not be fixed by string-splitting: an invented keyword whose OWN name
+     contains a comma, inside one span.kwb. The rule the extractor must therefore hold is that a
+     keyword is a run of span.kwb elements and the separator is any text printed between two of
+     them — never a character searched for in the flattened cell text. -->
 <html>
 <head><title>Glimmerfen Covenant</title></head>
 <body>
@@ -755,7 +765,7 @@
     </div>
   </div>
   <div class="ds2colKW dsColorFrGF">
-    <div class="dsLeftСolKW">KEYWORDS: <span class="kwb kwbu">VEHICLE</span>;</div>
+    <div class="dsLeftСolKW">KEYWORDS – ALL MODELS: <span class="kwb kwbu">VEHICLE</span><span class="dsVertLine"></span>SENTINEL PILOT ONLY: <span><span class="kwb kwbu">CHARACTER</span></span>: <span><span class="clFl GFGF GFBH"><span class="kwb kwbu">GRENADES</span></span></span></div>
     <div class="dsRightСolKW">FACTION KEYWORDS: <span class="kwb kwbu">GLIMMERFEN</span><span class="kwb kwbu">COVENANT</span>;</div>
   </div>
 </div>
@@ -838,7 +848,7 @@
   </div>
   <div class="ds2colKW dsColorFrGF">
     <div class="dsLeftСolKW">KEYWORDS: <span class="kwb kwbu">INFANTRY</span>;</div>
-    <div class="dsRightСolKW">FACTION KEYWORDS: <span class="kwb kwbu">GLIMMERFEN</span><span class="kwb kwbu">COVENANT</span>;</div>
+    <div class="dsRightСolKW">FACTION KEYWORDS: <span><span class="kwb kwbu">GLIMMERFEN</span><span class="kwb kwbu">COVENANT</span><span class="clFl GFGF GFTC">, </span><span class="clFl GFGF GFTC"><span class="kwb kwbu">THORNLIGHT</span><span class="kwb kwbu">CHORUS</span></span></span></div>
   </div>
 </div>
 
@@ -890,7 +900,7 @@
     </div>
   </div>
   <div class="ds2colKW dsColorFrGF">
-    <div class="dsLeftСolKW">KEYWORDS: <span class="kwb kwbu">INFANTRY</span>;</div>
+    <div class="dsLeftСolKW">KEYWORDS: <span class="kwb kwbu">INFANTRY</span>; <span class="kwb kwbu">SNAREBOUND, UNBOWED</span>;</div>
     <div class="dsRightСolKW">FACTION KEYWORDS: <span class="kwb kwbu">GLIMMERFEN</span><span class="kwb kwbu">COVENANT</span>;</div>
   </div>
 </div>

@@ -18,6 +18,9 @@
 # the ability one (issue #7): a faction army rule is headed by `div.tooltip_header` and carries no
 # `div.abName`, so it produced no `Abilities.csv` row and 38 ability keys — one per faction —
 # digested over the empty string and could never flag for re-review.
+# AI-Assisted: Claude Code (model: claude-opus-5) - Split a keyword cell on the boundaries the page
+# draws rather than on the one character it was assumed to print (006 T049): `;` is not the only
+# separator, so 356 rows carried two keywords in one value and matched neither by name.
 """Extract the current-edition datacard pages into the **same record shape** ``csv`` mode reads.
 
 This module is the whole of the difference between the two detail-acquisition modes. Above it,
@@ -662,8 +665,9 @@ def _keywords(card: LexborNode) -> tuple[tuple[str, str, bool], ...]:
     Two further shapes the columns really carry:
 
     * **A keyword is split across several ``span.kwb`` elements** — they are line-break
-      opportunities, not tokens — so the list is split on the separator the page *prints*
-      (``;``), never on the span boundaries, or a two-word keyword would arrive as two.
+      opportunities, not tokens — so the list is split on what the page *prints between* two
+      such runs, never on the span boundaries, or a two-word keyword would arrive as two. That
+      is :func:`_listed_keywords`, and the reason it is not a split of the flattened text.
     * **A column may hold more than one group**, separated by a horizontal rule, where each
       group after the first is labelled with the model it applies to. That label is exactly the
       export's ``model`` column, so it is read into the same field and the keyword classifier
@@ -691,11 +695,70 @@ def _keywords(card: LexborNode) -> tuple[tuple[str, str, bool], ...]:
             else:
                 # A second group in the same column is labelled with the model it applies to.
                 scope = label.strip()
-            for keyword in listed.split(";"):
-                cleaned = keyword.strip()
-                if cleaned:
-                    entries.append((cleaned, scope, is_faction))
+            if listed.strip() and not tree.body.css("span.kwb"):
+                raise HtmlStructureError(
+                    "a keyword group lists keywords that are no longer printed in span.kwb; the "
+                    "element run is the only boundary between two keywords, so every keyword on "
+                    "every card would now be read as one run of words or as none at all"
+                )
+            for keyword in _listed_keywords(tree.body):
+                entries.append((keyword, scope, is_faction))
     return tuple(entries)
+
+
+def _listed_keywords(group: LexborNode) -> tuple[str, ...]:
+    """The keywords one keyword group prints, split where the page draws a boundary.
+
+    The column does **not** separate its keywords with one character. Alongside the ``;`` between
+    ordinary keywords, a detachment-conditional keyword is appended after a ``, `` carried in its
+    own ``span.clFl``, and a conditional group may be introduced by a printed ``:`` after a
+    model-scoped list. Splitting the flattened cell on ``;`` alone therefore emitted one row
+    holding two keywords — 356 rows of the ``wh40k-11e-2026-08-2`` candidate, 291 of them already
+    in the published release — and a consumer filtering on either exact name found nothing.
+
+    Enumerating the separators instead would fix that case and break the opposite one, because a
+    keyword's own name may contain the punctuation. So neither is enumerated. **A keyword is a
+    run of ``span.kwb`` elements, and the separator is any non-whitespace text printed between
+    two runs** — the same reasoning :func:`_ability_keywords` applies one column over, where the
+    element boundary *is* the separator because nothing is printed between two of them.
+
+    Whitespace between two runs is a line-break opportunity, not a boundary, so the words of one
+    keyword are rejoined with a single space exactly as :func:`_text` would have joined them.
+    """
+    keywords: list[str] = []
+    words: list[str] = []
+
+    def flush() -> None:
+        if keyword := " ".join("".join(words).split()):
+            keywords.append(keyword)
+        words.clear()
+
+    for inside_keyword, text in _keyword_runs(group, False):
+        if inside_keyword:
+            words.append(text)
+        elif text.strip():
+            flush()
+        else:
+            words.append(" ")
+    flush()
+    return tuple(keywords)
+
+
+def _keyword_runs(node: LexborNode, inside_keyword: bool) -> Iterator[tuple[bool, str]]:
+    """Every text fragment under ``node``, flagged with whether a ``span.kwb`` encloses it.
+
+    Element boundaries are yielded as their own single-space fragments, carrying the same flag as
+    what they open or close: inside a keyword that is the join between its words, outside one it
+    is whitespace and therefore not a separator.
+    """
+    for child in node.iter(include_text=True):
+        if child.tag == "-text":
+            yield inside_keyword, child.text(deep=False) or ""
+        else:
+            within = inside_keyword or _has_class(child, "kwb")
+            yield within, " "
+            yield from _keyword_runs(child, within)
+            yield within, " "
 
 
 def _split_named_abilities(node: LexborNode) -> list[tuple[str, str]]:

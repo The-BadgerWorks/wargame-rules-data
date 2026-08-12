@@ -213,6 +213,50 @@ def test_a_multi_word_keyword_is_one_keyword_and_not_several(page) -> None:  # t
     assert faction_keywords == ["GLIMMERFEN COVENANT", "THORNLIGHT CHORUS", "BRACKLIGHT HOST"]
 
 
+def test_a_comma_appended_conditional_keyword_is_its_own_keyword(page) -> None:  # type: ignore[no-untyped-def]
+    """The `;` is not the only separator a keyword column prints (006 T049).
+
+    A detachment-conditional faction keyword is appended after a `, ` carried in its own
+    ``span.clFl``, so a column that lists two of them yields two keywords. Reading the cell whole
+    yields one keyword nobody can filter on: a consumer asking for either exact name finds
+    nothing, which is what 356 rows of the 2026-08-2 candidate did.
+    """
+    host = _card(page, "Gloamtide-Host")
+    assert [keyword for keyword, _scope, is_faction in host.keywords if is_faction] == [
+        "GLIMMERFEN COVENANT",
+        "THORNLIGHT CHORUS",
+    ]
+
+
+def test_a_keyword_whose_own_name_contains_a_comma_is_not_split_on_it(page) -> None:  # type: ignore[no-untyped-def]
+    """The other half of the case above, and the reason the fix is not a string split.
+
+    The separator is the text printed *between* two ``span.kwb`` runs, so punctuation inside one
+    of them is part of the name. Splitting the flattened cell on `,` would turn this one keyword
+    into two that the page never printed.
+    """
+    wretches = _card(page, "Snarebound-Wretches")
+    assert [keyword for keyword, _scope, is_faction in wretches.keywords if not is_faction] == [
+        "INFANTRY",
+        "SNAREBOUND, UNBOWED",
+    ]
+
+
+def test_a_conditional_group_introduced_by_a_printed_colon_is_split_too(page) -> None:  # type: ignore[no-untyped-def]
+    """The third separator: a `:` printed after a model-scoped list, introducing a conditional.
+
+    The scope survives it — the whole group is still the one the ``dsVertLine`` opened — so the
+    conditional keyword is attributed to the same models the list before it names.
+    """
+    sentinel = _card(page, "Fenwatch-Sentinel")
+    assert sentinel.keywords == (
+        ("VEHICLE", "ALL MODELS", False),
+        ("CHARACTER", "SENTINEL PILOT ONLY", False),
+        ("GRENADES", "SENTINEL PILOT ONLY", False),
+        ("GLIMMERFEN COVENANT", "", True),
+    )
+
+
 # -- the mode-blindness proof -----------------------------------------------------------------
 
 
