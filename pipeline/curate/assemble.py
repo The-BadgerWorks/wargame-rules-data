@@ -26,6 +26,10 @@
 # id the detail source publishes under two different names instead of resolving it to whichever
 # row was read last (issue #5), so an ambiguous id costs a missing rule rather than a rule
 # attributed to a detachment in another faction.
+# AI-Assisted: Claude Code (model: claude-opus-5) - Wired `_detail_only_datasheet` to `_equipment`
+# (006 T048 triage): a datasheet the points authority did not price was assembled with no default
+# equipment at all, so 647 of the wh40k-11e-2026-08-2 candidate's 658 absent
+# `default_equipment_state` values were a missing branch rather than the documented FR-016 omission.
 """Build one :class:`~pipeline.models.curated.CuratedSnapshot` from everything upstream.
 
 This is where the two sources stop being two sources. The **points** source is authoritative for
@@ -1738,6 +1742,15 @@ def _detail_only_datasheet(  # noqa: PLR0913 - one datasheet needs both trees an
     options = _option_structure(detail_id, datasheet_id, detail, authored, weapons, ())
     findings.extend(options.findings)
 
+    # Whether the points authority priced a datasheet says nothing about what its models carry,
+    # so this path reads equipment on exactly the terms the matched path does. Omitting the call
+    # here is the defect the wh40k-11e-2026-08-2 candidate carried: 647 datasheets reached the
+    # bundle with a composition, weapons and a `wargear_option_state` but no
+    # `default_equipment_state` at all, which reads as "the source was not consulted" for cards
+    # the pipeline had in fact read end to end.
+    equipment = _equipment(detail_id, datasheet_id, detail, authored, composition, weapons)
+    findings.extend(equipment.findings)
+
     findings.extend(
         reconcile_composition_bands(
             datasheet_id=datasheet_id,
@@ -1790,6 +1803,8 @@ def _detail_only_datasheet(  # noqa: PLR0913 - one datasheet needs both trees an
         option_groups=options.groups,
         option_choices=options.choices,
         wargear_option_state=options.state,
+        equipment_groups=equipment.groups,
+        default_equipment_state=equipment.state,
         wargear_options=(),
         costs=costs,
         pricing_confidence=PricingConfidence(state=PricingConfidenceState.UNVERIFIED),

@@ -3,6 +3,10 @@
 # uses, asserting the whole-unit sentence and the leader/squad-differentiated pair each resolve at
 # the granularity the source states, every resolvable item linked, and a datasheet whose
 # composition does not resolve carrying no equipment rows at all.
+# AI-Assisted: Claude Code (model: claude-opus-5) - Added the second-assembly-path regression (006
+# T048 triage): the same fixture driven through `_detail_only_datasheet`, so an unpriced datasheet
+# is proven to carry its loadout, both paths are proven to agree, and FR-016 is proven still to
+# suppress on the path the fix touched.
 """User Story 2, end to end, over the fixtures that carry every shape it exists to resolve.
 
 The tests beside this one prove the pieces: the grammar's productions, the two joins. This one
@@ -26,20 +30,26 @@ import pytest
 from pipeline.curate.assemble import (
     _composition_entries,
     _detail_datasheet_fields,
+    _detail_only_datasheet,
     _equipment,
     _EquipmentOutcome,
 )
 from pipeline.curate.authored import AuthoredContent
 from pipeline.models.curated import (
+    CuratedDatasheet,
     CuratedEquipmentGroup,
     CuratedModelLine,
     CuratedWeaponLine,
     DefaultEquipmentState,
     EquipmentAppliesTo,
 )
+from pipeline.models.findings import Finding
+from pipeline.models.provenance import DetailSource, EntityProvenance, PointsSource
+from pipeline.models.source import SourceAcquisition, SourceKey
 from pipeline.parse.equipment_grammar import EQUIPMENT_TABLE
 from pipeline.parse.wahapedia_csv import CsvReadResult
 from pipeline.parse.wahapedia_html_dom import emit_records, parse_faction_page
+from pipeline.reconcile.identity import IdRegistry
 
 FIXTURE = (
     Path(__file__).resolve().parents[2]
@@ -192,3 +202,87 @@ def test_the_whole_page_resolves_every_sentence_it_states(
         if finding.finding_code == "EQP-UNPARSED"
     ]
     assert unparsed == []
+
+
+# --- both assembly paths, not only the matched one ---------------------------------------------
+
+
+def _detail_only(
+    detail: Mapping[str, CsvReadResult], anchor: str, display_name: str
+) -> tuple[CuratedDatasheet | None, list[Finding]]:
+    """One datasheet down the **unpriced** assembly path, as `assemble()` drives it."""
+    acquisition = SourceAcquisition(
+        acquisition_id="wahapedia-fixture",
+        source_key=SourceKey.WAHAPEDIA,
+        source_base_url="https://example.invalid/fixture",
+        declared_edition_code="wh40k-11e",
+        retrieved_at="2026-08-11T00:00:00Z",
+        content_fingerprint="0" * 64,
+    )
+    return _detail_only_datasheet(
+        f"{SLUG}:{anchor}",
+        display_name=display_name,
+        faction_id="f-glimmerfen-covenant",
+        detail=detail,
+        authored=AuthoredContent(),
+        edition_id="ed-wh40k-11e",
+        provenance=EntityProvenance(
+            points_source=PointsSource.NONE,
+            points_edition_code="wh40k-11e",
+            detail_source=DetailSource.WAHAPEDIA,
+            detail_acquisition_id=acquisition.acquisition_id,
+            detail_edition_code="wh40k-11e",
+        ),
+        registry=IdRegistry(),
+        detail_acquisition=acquisition,
+        legends_sources=frozenset(),
+    )
+
+
+def test_a_datasheet_the_points_source_never_priced_still_carries_its_equipment(
+    detail: Mapping[str, CsvReadResult],
+) -> None:
+    """The `wh40k-11e-2026-08-2` regression, stated as the rule it broke.
+
+    Whether the points authority priced a datasheet is a fact about *pricing*. It says nothing
+    about what the models carry, and it must not decide whether the loadout is published. The
+    candidate carried 647 datasheets down this path with a composition, weapons and a
+    `wargear_option_state` but **no** `default_equipment_state` at all — which a consumer reads
+    as "the equipment source was never consulted" for cards the pipeline had read end to end,
+    and which raised no finding because the extraction was never attempted.
+    """
+    datasheet, _ = _detail_only(detail, "Purgeflight-Wardens", "Purgeflight Wardens")
+    assert datasheet is not None
+    assert datasheet.default_equipment_state is DefaultEquipmentState.EXTRACTED
+    (group,) = datasheet.equipment_groups
+    assert group.applies_to is EquipmentAppliesTo.UNIT
+    assert _items(group) == [("glimmer rifle", 1), ("fen halberd", 5)]
+
+
+def test_both_assembly_paths_agree_about_one_card_s_equipment(
+    detail: Mapping[str, CsvReadResult],
+) -> None:
+    """Priced or not, the same card yields the same loadout — the property that was asymmetric."""
+    for anchor, stem, display_name in (
+        ("Purgeflight-Wardens", "purgeflight-wardens", "Purgeflight Wardens"),
+        ("Mirebound-Choir", "mirebound-choir", "Mirebound Choir"),
+        ("Gloamtide-Host", "gloamtide-host", "Gloamtide Host"),
+    ):
+        matched = _outcome(detail, anchor, stem)
+        datasheet, _ = _detail_only(detail, anchor, display_name)
+        assert datasheet is not None
+        assert datasheet.default_equipment_state is matched.state
+        assert [_items(group) for group in datasheet.equipment_groups] == [
+            _items(group) for group in matched.groups
+        ]
+
+
+def test_fr_016_still_suppresses_equipment_on_the_unpriced_path_too(
+    detail: Mapping[str, CsvReadResult],
+) -> None:
+    """The fix carries FR-016 with it rather than around it: no composition, no equipment."""
+    datasheet, _ = _detail_only(detail, "Snarebound-Wretches", "Snarebound Wretches")
+    assert datasheet is not None
+    assert list(datasheet.composition) == []
+    assert datasheet.default_equipment_state is None
+    assert list(datasheet.equipment_groups) == []
