@@ -94,5 +94,13 @@
     "finding_code": "REC-NEVER-PRICED",
     "resolved_at": "2026-08-06T00:00:00Z",
     "resolved_by": "adhoxx"
+  },
+  {
+    "data_digest": "sha256:45c3697e3503991053776b23162ef5330219e9a9ca2a73708e404fa4d880d423",
+    "entity_ref": "coverage:keyword_classification",
+    "explanation": "The count fell because a defect stopped inventing keywords (006 T049), not because any keyword stopped being classified. All 144 values dropped carry a printed separator and are composites no page prints; the 66 gained are the real keywords they hid, all classified. Distinct UNCLASSIFIED keywords -- what this check watches -- is 18 in both releases.",
+    "finding_code": "COV-COLLAPSE",
+    "resolved_at": "2026-08-12T00:00:00Z",
+    "resolved_by": "pending adhoxx confirmation (drafted for the 006 T049 candidate)"
   }
 ]

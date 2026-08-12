@@ -18,6 +18,11 @@
 # deliberately OUTSIDE CoverageOutcome.findings -- that set's non-emptiness exits 42 for a source
 # collapse, and a resolved-option regression is a defect in this pipeline rather than evidence
 # that the source went strange.
+# AI-Assisted: Claude Code (model: claude-opus-5) - Read the coverage collapse off the RESOLVED
+# findings in `_verdict` (006 T049 follow-on). A dated resolution suppressed the finding in the
+# report and satisfied `pipeline.publish.gate.blocking_finding_codes`, but `CoverageOutcome`'s own
+# `collapsed` is computed before any resolution exists, so exit 42 alone ignored it -- three
+# answers to one question, and the only blocking finding FR-034 could not actually resolve.
 """``rules-pipeline`` — the operator-facing surface.
 
 The same CLI runs locally against fixtures and in CI against the real sources: **there is no
@@ -362,8 +367,20 @@ def _verdict(findings: Sequence[Finding], coverage: CoverageOutcome | None = Non
 
     There is no override flag anywhere in this function or reachable from it. The only ways past
     a blocking finding are to fix the data or to record a dated resolution (FR-029, SC-005).
+
+    Which is why the collapse is read off ``findings`` — the **resolved** set — and not off
+    ``CoverageOutcome.collapsed``. That property is computed in
+    :func:`pipeline.validate.coverage.check_coverage`, before any resolution exists, so reading
+    it here made a dated resolution the one kind of blocking finding a curator could record and
+    watch do nothing: the report said `ADVISORY ONLY` with no blocking finding, the publish
+    gate's :func:`~pipeline.publish.gate.blocking_finding_codes` agreed, and only this line still
+    refused. Suppression is still no override — the digest binds it to one occurrence and it
+    lapses the moment either figure moves.
     """
-    if coverage is not None and coverage.collapsed:
+    collapse_codes = {finding.finding_code for finding in coverage.findings} if coverage else set()
+    if any(
+        finding.finding_code in collapse_codes and not finding.is_suppressed for finding in findings
+    ):
         return ExitCode.COVERAGE_COLLAPSE
     if any(
         finding.severity is Severity.BLOCKING and not finding.is_suppressed for finding in findings
