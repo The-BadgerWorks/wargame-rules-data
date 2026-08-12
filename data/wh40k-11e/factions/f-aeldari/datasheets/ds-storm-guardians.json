@@ -28,7 +28,7 @@
       "model_count": 11,
       "points": 110,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
+      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
     }
   ],
   "datasheet_id": "ds-storm-guardians",
@@ -72,6 +72,10 @@
       "is_faction_keyword": false,
       "keyword": "STORM GUARDIANS",
       "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": true,
+      "keyword": "YNNARI"
     }
   ],
   "models": [
@@ -99,22 +103,71 @@
     }
   ],
   "name": "STORM GUARDIANS",
+  "option_choices": [
+    {
+      "count": 1,
+      "grants_weapon_line": 1,
+      "group_id": "og-storm-guardians-1",
+      "id": "oc-storm-guardians-1-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "flamer",
+      "replaces_weapon_line": 3
+    },
+    {
+      "count": 1,
+      "grants_weapon_line": 2,
+      "group_id": "og-storm-guardians-2",
+      "id": "oc-storm-guardians-2-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "fusion gun",
+      "replaces_weapon_line": 3
+    },
+    {
+      "count": 1,
+      "grants_weapon_line": 5,
+      "group_id": "og-storm-guardians-3",
+      "id": "oc-storm-guardians-3-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "power sword",
+      "replaces_weapon_line": 4
+    }
+  ],
+  "option_groups": [
+    {
+      "id": "og-storm-guardians-1",
+      "line": 1,
+      "scope": "unit"
+    },
+    {
+      "id": "og-storm-guardians-2",
+      "line": 2,
+      "scope": "unit"
+    },
+    {
+      "id": "og-storm-guardians-3",
+      "line": 3,
+      "scope": "unit"
+    }
+  ],
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:a9e9f60cbe931a4025224d0ba16d5746028e4b27b322c89ba09afa1a8ed91b23",
-    "last_verified_version": "wh40k-11e-2026-08",
+    "last_verified_version": "wh40k-11e-2026-08-2",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
+    "points_acquisition_id": "mfm-20260812T223703Z-6694568f",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
-  "wargear_option_state": "partial",
+  "wargear_option_state": "extracted",
   "weapons": [
     {
       "ability_keywords": [

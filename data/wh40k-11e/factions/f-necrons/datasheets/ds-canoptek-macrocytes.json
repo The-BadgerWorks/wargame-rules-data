@@ -22,7 +22,7 @@
       "model_count": 5,
       "points": 70,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
+      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
     }
   ],
   "datasheet_id": "ds-canoptek-macrocytes",
@@ -76,6 +76,16 @@
   "option_choices": [
     {
       "count": 1,
+      "grants_weapon_line": 3,
+      "group_id": "og-canoptek-macrocytes-1",
+      "id": "oc-canoptek-macrocytes-1-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "tesla caster",
+      "replaces_weapon_line": 2
+    },
+    {
+      "count": 1,
       "group_id": "og-canoptek-macrocytes-2",
       "id": "oc-canoptek-macrocytes-2-1",
       "is_default": false,
@@ -93,6 +103,11 @@
   ],
   "option_groups": [
     {
+      "id": "og-canoptek-macrocytes-1",
+      "line": 1,
+      "scope": "unit"
+    },
+    {
       "id": "og-canoptek-macrocytes-2",
       "line": 2,
       "scope": "unit"
@@ -106,19 +121,19 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:135af19730b4f1049b172ba9c4fc20427ebc21087b72485d997072c24d028db0",
-    "last_verified_version": "wh40k-11e-2026-08",
+    "last_verified_version": "wh40k-11e-2026-08-2",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
+    "points_acquisition_id": "mfm-20260812T223703Z-6694568f",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
-  "wargear_option_state": "partial",
+  "wargear_option_state": "extracted",
   "weapons": [
     {
       "armour_penetration": "-1",

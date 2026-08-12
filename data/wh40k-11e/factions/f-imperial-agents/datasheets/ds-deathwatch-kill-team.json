@@ -25,7 +25,7 @@
       "model_count": 5,
       "points": 100,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
+      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
     },
     {
       "copy_index_min": 1,
@@ -33,7 +33,7 @@
       "model_count": 10,
       "points": 190,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
+      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
     },
     {
       "copy_index_min": 1,
@@ -42,7 +42,7 @@
       "points": 100,
       "pricing_confidence": "verified",
       "pricing_context": "every-model-has-imperium",
-      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
+      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
     },
     {
       "copy_index_min": 1,
@@ -51,7 +51,7 @@
       "points": 190,
       "pricing_confidence": "verified",
       "pricing_context": "every-model-has-imperium",
-      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
+      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
     }
   ],
   "datasheet_id": "ds-deathwatch-kill-team",
@@ -124,6 +124,48 @@
   "option_choices": [
     {
       "count": 1,
+      "group_id": "og-deathwatch-kill-team-1",
+      "id": "oc-deathwatch-kill-team-1-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "boltgun and 1 Astartes shield"
+    },
+    {
+      "count": 1,
+      "group_id": "og-deathwatch-kill-team-1",
+      "id": "oc-deathwatch-kill-team-1-2",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "power weapon and 1 Astartes shield"
+    },
+    {
+      "count": 1,
+      "grants_weapon_line": 10,
+      "group_id": "og-deathwatch-kill-team-2",
+      "id": "oc-deathwatch-kill-team-2-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "Deathwatch thunder hammer"
+    },
+    {
+      "count": 1,
+      "group_id": "og-deathwatch-kill-team-4",
+      "id": "oc-deathwatch-kill-team-4-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "Deathwatch shotgun and 1 close combat weapon"
+    },
+    {
+      "count": 1,
+      "group_id": "og-deathwatch-kill-team-7",
+      "id": "oc-deathwatch-kill-team-7-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "Black Shield blades",
+      "replaces_weapon_line": 8
+    },
+    {
+      "count": 1,
       "group_id": "og-deathwatch-kill-team-8",
       "id": "oc-deathwatch-kill-team-8-1",
       "is_default": false,
@@ -143,6 +185,29 @@
   ],
   "option_groups": [
     {
+      "id": "og-deathwatch-kill-team-1",
+      "line": 1,
+      "scope": "per_n_models",
+      "scope_n": 5
+    },
+    {
+      "id": "og-deathwatch-kill-team-2",
+      "line": 2,
+      "scope": "per_n_models",
+      "scope_n": 5
+    },
+    {
+      "id": "og-deathwatch-kill-team-4",
+      "line": 4,
+      "scope": "per_n_models",
+      "scope_n": 5
+    },
+    {
+      "id": "og-deathwatch-kill-team-7",
+      "line": 7,
+      "scope": "unit"
+    },
+    {
       "id": "og-deathwatch-kill-team-8",
       "line": 8,
       "scope": "unit"
@@ -156,15 +221,15 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:efd5e3aa4a1c592a6c530badb0ae16189b40f5329e003aa50a28bd0d7227f721",
-    "last_verified_version": "wh40k-11e-2026-08",
+    "last_verified_version": "wh40k-11e-2026-08-2",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
+    "points_acquisition_id": "mfm-20260812T223703Z-6694568f",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },

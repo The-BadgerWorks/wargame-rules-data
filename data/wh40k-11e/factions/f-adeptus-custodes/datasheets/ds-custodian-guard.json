@@ -23,7 +23,7 @@
       "model_count": 4,
       "points": 170,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
+      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
     },
     {
       "copy_index_min": 1,
@@ -31,7 +31,7 @@
       "model_count": 5,
       "points": 215,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
+      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
     },
     {
       "copy_index_min": 4,
@@ -39,7 +39,7 @@
       "model_count": 4,
       "points": 180,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
+      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
     },
     {
       "copy_index_min": 4,
@@ -47,7 +47,7 @@
       "model_count": 5,
       "points": 225,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
+      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
     }
   ],
   "datasheet_id": "ds-custodian-guard",
@@ -102,6 +102,14 @@
   "option_choices": [
     {
       "count": 1,
+      "group_id": "og-custodian-guard-1",
+      "id": "oc-custodian-guard-1-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "sentinel blade and 1 praesidium shield"
+    },
+    {
+      "count": 1,
       "group_id": "og-custodian-guard-2",
       "id": "oc-custodian-guard-2-1",
       "is_default": false,
@@ -119,6 +127,11 @@
   ],
   "option_groups": [
     {
+      "id": "og-custodian-guard-1",
+      "line": 1,
+      "scope": "unit"
+    },
+    {
       "id": "og-custodian-guard-2",
       "line": 2,
       "scope": "unit"
@@ -127,19 +140,19 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:80a52c9ee93983e724ae88b377860e26fceb836ab83f1d35f1f4988f22d1d9a6",
-    "last_verified_version": "wh40k-11e-2026-08",
+    "last_verified_version": "wh40k-11e-2026-08-2",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
+    "points_acquisition_id": "mfm-20260812T223703Z-6694568f",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
-  "wargear_option_state": "partial",
+  "wargear_option_state": "extracted",
   "weapons": [
     {
       "ability_keywords": [

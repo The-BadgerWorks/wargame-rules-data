@@ -23,7 +23,7 @@
       "model_count": 1,
       "points": 110,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
+      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
     }
   ],
   "datasheet_id": "ds-chief-librarian-mephiston",
@@ -102,15 +102,15 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:2f900182d6312175a2cfc7ca76df756b3daeda5f47acb43fb9945d9582246751",
-    "last_verified_version": "wh40k-11e-2026-08",
+    "last_verified_version": "wh40k-11e-2026-08-2",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
+    "points_acquisition_id": "mfm-20260812T223703Z-6694568f",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },

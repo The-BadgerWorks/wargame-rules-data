@@ -25,7 +25,7 @@
       "model_count": 5,
       "points": 175,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
+      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
     },
     {
       "copy_index_min": 1,
@@ -33,7 +33,7 @@
       "model_count": 10,
       "points": 350,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
+      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
     }
   ],
   "datasheet_id": "ds-chaos-terminator-squad",
@@ -105,12 +105,32 @@
     },
     {
       "count": 1,
+      "grants_weapon_line": 2,
+      "group_id": "og-chaos-terminator-squad-2",
+      "id": "oc-chaos-terminator-squad-2-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "combi-weapon",
+      "replaces_weapon_line": 1
+    },
+    {
+      "count": 1,
       "group_id": "og-chaos-terminator-squad-3",
       "id": "oc-chaos-terminator-squad-3-1",
       "is_default": false,
       "is_no_change": false,
       "name": "paired accursed weapons",
       "replaces_weapon_line": 7
+    },
+    {
+      "count": 1,
+      "grants_weapon_line": 8,
+      "group_id": "og-chaos-terminator-squad-4",
+      "id": "oc-chaos-terminator-squad-4-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "power fist",
+      "replaces_weapon_line": 5
     },
     {
       "count": 1,
@@ -130,8 +150,19 @@
       "scope_n": 5
     },
     {
+      "id": "og-chaos-terminator-squad-2",
+      "line": 2,
+      "scope": "unit"
+    },
+    {
       "id": "og-chaos-terminator-squad-3",
       "line": 3,
+      "scope": "per_n_models",
+      "scope_n": 5
+    },
+    {
+      "id": "og-chaos-terminator-squad-4",
+      "line": 4,
       "scope": "per_n_models",
       "scope_n": 5
     },
@@ -145,19 +176,19 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:9a1008cde10e9042e6bf8cbfa38a113ccfe40748bb310a2cafc7b3083978dd82",
-    "last_verified_version": "wh40k-11e-2026-08",
+    "last_verified_version": "wh40k-11e-2026-08-2",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
+    "points_acquisition_id": "mfm-20260812T223703Z-6694568f",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
-  "wargear_option_state": "partial",
+  "wargear_option_state": "extracted",
   "weapons": [
     {
       "ability_keywords": [

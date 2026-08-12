@@ -26,7 +26,7 @@
       "model_count": 10,
       "points": 95,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
+      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
     }
   ],
   "datasheet_id": "ds-tempestus-aquilons",
@@ -154,6 +154,40 @@
       "is_default": false,
       "is_no_change": false,
       "name": "hot-shot laspistol"
+    },
+    {
+      "count": 1,
+      "group_id": "og-tempestus-aquilons-4",
+      "id": "oc-tempestus-aquilons-4-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "melta carbine",
+      "replaces_weapon_line": 9
+    },
+    {
+      "count": 1,
+      "group_id": "og-tempestus-aquilons-4",
+      "id": "oc-tempestus-aquilons-4-2",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "plasma carbine"
+    },
+    {
+      "count": 2,
+      "group_id": "og-tempestus-aquilons-5",
+      "id": "oc-tempestus-aquilons-5-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "hot-shot laspistols"
+    },
+    {
+      "count": 1,
+      "group_id": "og-tempestus-aquilons-6",
+      "id": "oc-tempestus-aquilons-6-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "hot-shot long-las",
+      "replaces_weapon_line": 4
     }
   ],
   "option_groups": [
@@ -171,20 +205,35 @@
       "id": "og-tempestus-aquilons-3",
       "line": 3,
       "scope": "unit"
+    },
+    {
+      "id": "og-tempestus-aquilons-4",
+      "line": 4,
+      "scope": "unit"
+    },
+    {
+      "id": "og-tempestus-aquilons-5",
+      "line": 5,
+      "scope": "unit"
+    },
+    {
+      "id": "og-tempestus-aquilons-6",
+      "line": 6,
+      "scope": "unit"
     }
   ],
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:265bac37763c8abea4645d036c392f32f5b18c4202fa8268f6bbba80778dc8d0",
-    "last_verified_version": "wh40k-11e-2026-08",
+    "last_verified_version": "wh40k-11e-2026-08-2",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
+    "points_acquisition_id": "mfm-20260812T223703Z-6694568f",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },

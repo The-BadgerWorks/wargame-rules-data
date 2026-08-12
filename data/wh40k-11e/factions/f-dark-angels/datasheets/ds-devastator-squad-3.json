@@ -26,7 +26,7 @@
       "model_count": 5,
       "points": 120,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
+      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
     },
     {
       "copy_index_min": 1,
@@ -34,7 +34,7 @@
       "model_count": 10,
       "points": 200,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
+      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
     }
   ],
   "datasheet_id": "ds-devastator-squad-3",
@@ -85,6 +85,64 @@
   ],
   "name": "DEVASTATOR SQUAD",
   "option_choices": [
+    {
+      "count": 1,
+      "grants_weapon_line": 4,
+      "group_id": "og-devastator-squad-3-1",
+      "id": "oc-devastator-squad-3-1-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "grav-cannon",
+      "replaces_weapon_line": 2
+    },
+    {
+      "count": 1,
+      "grants_weapon_line": 6,
+      "group_id": "og-devastator-squad-3-1",
+      "id": "oc-devastator-squad-3-1-2",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "heavy bolter",
+      "replaces_weapon_line": 2
+    },
+    {
+      "count": 1,
+      "grants_weapon_line": 7,
+      "group_id": "og-devastator-squad-3-1",
+      "id": "oc-devastator-squad-3-1-3",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "lascannon",
+      "replaces_weapon_line": 2
+    },
+    {
+      "count": 1,
+      "group_id": "og-devastator-squad-3-1",
+      "id": "oc-devastator-squad-3-1-4",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "missile launcher",
+      "replaces_weapon_line": 2
+    },
+    {
+      "count": 1,
+      "grants_weapon_line": 10,
+      "group_id": "og-devastator-squad-3-1",
+      "id": "oc-devastator-squad-3-1-5",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "multi-melta",
+      "replaces_weapon_line": 2
+    },
+    {
+      "count": 1,
+      "group_id": "og-devastator-squad-3-1",
+      "id": "oc-devastator-squad-3-1-6",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "plasma cannon",
+      "replaces_weapon_line": 2
+    },
     {
       "count": 1,
       "group_id": "og-devastator-squad-3-2",
@@ -167,6 +225,11 @@
   ],
   "option_groups": [
     {
+      "id": "og-devastator-squad-3-1",
+      "line": 1,
+      "scope": "unit"
+    },
+    {
       "id": "og-devastator-squad-3-2",
       "line": 2,
       "scope": "unit"
@@ -175,19 +238,19 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:12c5ac69136d3fafd77575b94a3887131365f6f4b8052d942e1c72d1eba56b94",
-    "last_verified_version": "wh40k-11e-2026-08",
+    "last_verified_version": "wh40k-11e-2026-08-2",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
+    "points_acquisition_id": "mfm-20260812T223703Z-6694568f",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
-  "wargear_option_state": "partial",
+  "wargear_option_state": "extracted",
   "weapons": [
     {
       "ability_keywords": [

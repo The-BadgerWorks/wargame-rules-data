@@ -18,7 +18,7 @@
       "model_count": 4,
       "points": 105,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
+      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
     },
     {
       "copy_index_min": 1,
@@ -26,7 +26,7 @@
       "model_count": 5,
       "points": 130,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
+      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
     },
     {
       "copy_index_min": 1,
@@ -34,7 +34,7 @@
       "model_count": 9,
       "points": 235,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
+      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
     },
     {
       "copy_index_min": 1,
@@ -42,7 +42,7 @@
       "model_count": 10,
       "points": 260,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
+      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
     },
     {
       "copy_index_min": 3,
@@ -50,7 +50,7 @@
       "model_count": 4,
       "points": 120,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
+      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
     },
     {
       "copy_index_min": 3,
@@ -58,7 +58,7 @@
       "model_count": 5,
       "points": 145,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
+      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
     },
     {
       "copy_index_min": 3,
@@ -66,7 +66,7 @@
       "model_count": 9,
       "points": 250,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
+      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
     },
     {
       "copy_index_min": 3,
@@ -74,7 +74,7 @@
       "model_count": 10,
       "points": 275,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
+      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
     }
   ],
   "datasheet_id": "ds-sword-brethren-squad",
@@ -137,6 +137,16 @@
   "option_choices": [
     {
       "count": 1,
+      "grants_weapon_line": 6,
+      "group_id": "og-sword-brethren-squad-1",
+      "id": "oc-sword-brethren-squad-1-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "master-crafted power weapon",
+      "replaces_weapon_line": 5
+    },
+    {
+      "count": 1,
       "group_id": "og-sword-brethren-squad-2",
       "id": "oc-sword-brethren-squad-2-1",
       "is_default": false,
@@ -154,6 +164,16 @@
     },
     {
       "count": 1,
+      "grants_weapon_line": 4,
+      "group_id": "og-sword-brethren-squad-4",
+      "id": "oc-sword-brethren-squad-4-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "pyre pistol",
+      "replaces_weapon_line": 1
+    },
+    {
+      "count": 1,
       "group_id": "og-sword-brethren-squad-5",
       "id": "oc-sword-brethren-squad-5-1",
       "is_default": false,
@@ -163,6 +183,11 @@
     }
   ],
   "option_groups": [
+    {
+      "id": "og-sword-brethren-squad-1",
+      "line": 1,
+      "scope": "unit"
+    },
     {
       "id": "og-sword-brethren-squad-2",
       "line": 2,
@@ -176,6 +201,12 @@
       "scope_n": 5
     },
     {
+      "id": "og-sword-brethren-squad-4",
+      "line": 4,
+      "scope": "per_n_models",
+      "scope_n": 5
+    },
+    {
       "id": "og-sword-brethren-squad-5",
       "line": 5,
       "scope": "per_n_models",
@@ -185,19 +216,19 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:28a0c3652fc26f51c4aeb1677fc473c5be2d57a2221de1ba3c28c03bd54238c3",
-    "last_verified_version": "wh40k-11e-2026-08",
+    "last_verified_version": "wh40k-11e-2026-08-2",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
+    "points_acquisition_id": "mfm-20260812T223703Z-6694568f",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
-  "wargear_option_state": "partial",
+  "wargear_option_state": "extracted",
   "weapons": [
     {
       "ability_keywords": [

@@ -28,7 +28,7 @@
       "model_count": 10,
       "points": 105,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
+      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
     },
     {
       "copy_index_min": 3,
@@ -36,7 +36,7 @@
       "model_count": 10,
       "points": 120,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
+      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
     }
   ],
   "datasheet_id": "ds-kasrkin",
@@ -95,6 +95,54 @@
   "option_choices": [
     {
       "count": 1,
+      "grants_weapon_line": 2,
+      "group_id": "og-kasrkin-1",
+      "id": "oc-kasrkin-1-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "flamer",
+      "replaces_weapon_line": 5
+    },
+    {
+      "count": 1,
+      "group_id": "og-kasrkin-1",
+      "id": "oc-kasrkin-1-2",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "grenade launcher",
+      "replaces_weapon_line": 5
+    },
+    {
+      "count": 1,
+      "grants_weapon_line": 8,
+      "group_id": "og-kasrkin-1",
+      "id": "oc-kasrkin-1-3",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "hot-shot volley gun",
+      "replaces_weapon_line": 5
+    },
+    {
+      "count": 1,
+      "grants_weapon_line": 9,
+      "group_id": "og-kasrkin-1",
+      "id": "oc-kasrkin-1-4",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "meltagun",
+      "replaces_weapon_line": 5
+    },
+    {
+      "count": 1,
+      "group_id": "og-kasrkin-1",
+      "id": "oc-kasrkin-1-5",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "plasma gun",
+      "replaces_weapon_line": 5
+    },
+    {
+      "count": 1,
       "group_id": "og-kasrkin-2",
       "id": "oc-kasrkin-2-1",
       "is_default": false,
@@ -147,6 +195,11 @@
   ],
   "option_groups": [
     {
+      "id": "og-kasrkin-1",
+      "line": 1,
+      "scope": "unit"
+    },
+    {
       "id": "og-kasrkin-2",
       "line": 2,
       "scope": "unit"
@@ -175,19 +228,19 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:f13337bb9a04982e4e811c279f21cb73a73241ddf0803d1b469483e114af2004",
-    "last_verified_version": "wh40k-11e-2026-08",
+    "last_verified_version": "wh40k-11e-2026-08-2",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
+    "points_acquisition_id": "mfm-20260812T223703Z-6694568f",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
-  "wargear_option_state": "partial",
+  "wargear_option_state": "extracted",
   "weapons": [
     {
       "ability_keywords": [

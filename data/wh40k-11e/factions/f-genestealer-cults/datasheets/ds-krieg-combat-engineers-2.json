@@ -26,7 +26,7 @@
       "model_count": 5,
       "points": 65,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9"
+      "source_acquisition_id": "wahapedia-20260812T223905Z-9a337975"
     },
     {
       "copy_index_min": 1,
@@ -34,7 +34,7 @@
       "model_count": 10,
       "points": 95,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9"
+      "source_acquisition_id": "wahapedia-20260812T223905Z-9a337975"
     }
   ],
   "datasheet_id": "ds-krieg-combat-engineers-2",
@@ -114,6 +114,14 @@
     },
     {
       "count": 1,
+      "group_id": "og-krieg-combat-engineers-2-3",
+      "id": "oc-krieg-combat-engineers-2-3-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "combat shotgun and 1 close combat weapon"
+    },
+    {
+      "count": 1,
       "group_id": "og-krieg-combat-engineers-2-4",
       "id": "oc-krieg-combat-engineers-2-4-1",
       "is_default": false,
@@ -169,6 +177,11 @@
       "scope": "unit"
     },
     {
+      "id": "og-krieg-combat-engineers-2-3",
+      "line": 3,
+      "scope": "unit"
+    },
+    {
       "id": "og-krieg-combat-engineers-2-4",
       "line": 4,
       "scope": "unit"
@@ -180,19 +193,19 @@
     }
   ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 2,
+    "consecutive_unverified_releases": 3,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
     "points_edition_code": "wh40k-11e",
     "points_source": "none"
   },
-  "wargear_option_state": "partial",
+  "wargear_option_state": "extracted",
   "weapons": [
     {
       "ability_keywords": [

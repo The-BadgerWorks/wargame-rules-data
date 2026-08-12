@@ -28,7 +28,7 @@
       "model_count": 3,
       "points": 200,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9"
+      "source_acquisition_id": "wahapedia-20260812T223905Z-9a337975"
     },
     {
       "copy_index_min": 1,
@@ -36,7 +36,7 @@
       "model_count": 6,
       "points": 400,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9"
+      "source_acquisition_id": "wahapedia-20260812T223905Z-9a337975"
     }
   ],
   "datasheet_id": "ds-crisis-battlesuits",
@@ -95,6 +95,92 @@
   "option_choices": [
     {
       "count": 1,
+      "grants_weapon_line": 1,
+      "group_id": "og-crisis-battlesuits-1",
+      "id": "oc-crisis-battlesuits-1-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "airbursting fragmentation projector*",
+      "replaces_weapon_line": 2
+    },
+    {
+      "count": 1,
+      "group_id": "og-crisis-battlesuits-1",
+      "id": "oc-crisis-battlesuits-1-2",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "battlesuit support system*",
+      "replaces_weapon_line": 2
+    },
+    {
+      "count": 1,
+      "group_id": "og-crisis-battlesuits-1",
+      "id": "oc-crisis-battlesuits-1-3",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "cyclic ion blaster",
+      "replaces_weapon_line": 2
+    },
+    {
+      "count": 1,
+      "grants_weapon_line": 5,
+      "group_id": "og-crisis-battlesuits-1",
+      "id": "oc-crisis-battlesuits-1-4",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "fusion blaster",
+      "replaces_weapon_line": 2
+    },
+    {
+      "count": 1,
+      "grants_weapon_line": 6,
+      "group_id": "og-crisis-battlesuits-1",
+      "id": "oc-crisis-battlesuits-1-5",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "missile pod",
+      "replaces_weapon_line": 2
+    },
+    {
+      "count": 1,
+      "grants_weapon_line": 7,
+      "group_id": "og-crisis-battlesuits-1",
+      "id": "oc-crisis-battlesuits-1-6",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "plasma rifle",
+      "replaces_weapon_line": 2
+    },
+    {
+      "count": 1,
+      "group_id": "og-crisis-battlesuits-1",
+      "id": "oc-crisis-battlesuits-1-7",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "shield generator*",
+      "replaces_weapon_line": 2
+    },
+    {
+      "count": 1,
+      "grants_weapon_line": 8,
+      "group_id": "og-crisis-battlesuits-1",
+      "id": "oc-crisis-battlesuits-1-8",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "T’au flamer",
+      "replaces_weapon_line": 2
+    },
+    {
+      "count": 1,
+      "group_id": "og-crisis-battlesuits-1",
+      "id": "oc-crisis-battlesuits-1-9",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "weapon support system*",
+      "replaces_weapon_line": 2
+    },
+    {
+      "count": 1,
       "group_id": "og-crisis-battlesuits-2",
       "id": "oc-crisis-battlesuits-2-1",
       "is_default": false,
@@ -120,18 +206,24 @@
   ],
   "option_groups": [
     {
+      "id": "og-crisis-battlesuits-1",
+      "line": 1,
+      "scope": "unit"
+    },
+    {
       "id": "og-crisis-battlesuits-2",
       "line": 2,
+      "max_choices": 2,
       "scope": "unit"
     }
   ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 2,
+    "consecutive_unverified_releases": 3,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,

@@ -30,7 +30,7 @@
       "model_count": 10,
       "points": 120,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
+      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
     }
   ],
   "datasheet_id": "ds-kommandos",
@@ -113,6 +113,14 @@
     },
     {
       "count": 1,
+      "group_id": "og-kommandos-2",
+      "id": "oc-kommandos-2-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "speshul Kommando shoota and 1 close combat weapon"
+    },
+    {
+      "count": 1,
       "group_id": "og-kommandos-3",
       "id": "oc-kommandos-3-1",
       "is_default": false,
@@ -135,12 +143,33 @@
       "is_default": false,
       "is_no_change": false,
       "name": "rokkit launcha and 1 close combat weapon"
+    },
+    {
+      "count": 1,
+      "group_id": "og-kommandos-6",
+      "id": "oc-kommandos-6-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "bomb squig"
+    },
+    {
+      "count": 1,
+      "group_id": "og-kommandos-7",
+      "id": "oc-kommandos-7-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "distraction grot"
     }
   ],
   "option_groups": [
     {
       "id": "og-kommandos-1",
       "line": 1,
+      "scope": "unit"
+    },
+    {
+      "id": "og-kommandos-2",
+      "line": 2,
       "scope": "unit"
     },
     {
@@ -157,24 +186,34 @@
       "id": "og-kommandos-5",
       "line": 5,
       "scope": "unit"
+    },
+    {
+      "id": "og-kommandos-6",
+      "line": 6,
+      "scope": "unit"
+    },
+    {
+      "id": "og-kommandos-7",
+      "line": 7,
+      "scope": "unit"
     }
   ],
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:8cab02c7d4aff05b81a36438fa6f24e14226f7897921370dec472c76e1119aaa",
-    "last_verified_version": "wh40k-11e-2026-08",
+    "last_verified_version": "wh40k-11e-2026-08-2",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
+    "points_acquisition_id": "mfm-20260812T223703Z-6694568f",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
-  "wargear_option_state": "partial",
+  "wargear_option_state": "extracted",
   "weapons": [
     {
       "ability_keywords": [

@@ -24,7 +24,7 @@
       "model_count": 1,
       "points": 80,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9"
+      "source_acquisition_id": "wahapedia-20260812T223905Z-9a337975"
     }
   ],
   "datasheet_id": "ds-commander-in-crisis-battlesuit",
@@ -289,21 +289,23 @@
     {
       "id": "og-commander-in-crisis-battlesuit-2",
       "line": 2,
+      "max_choices": 2,
       "scope": "model"
     },
     {
       "id": "og-commander-in-crisis-battlesuit-3",
       "line": 3,
+      "max_choices": 3,
       "scope": "model"
     }
   ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 2,
+    "consecutive_unverified_releases": 3,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,

@@ -33,7 +33,7 @@
       "model_count": 3,
       "points": 105,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
+      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
     },
     {
       "copy_index_min": 3,
@@ -41,7 +41,7 @@
       "model_count": 3,
       "points": 115,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
+      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
     }
   ],
   "datasheet_id": "ds-ravenwing-command-squad",
@@ -98,12 +98,6 @@
       "model_scope": "ALL MODELS"
     }
   ],
-  "leader_pairs": [
-    "ds-bike-squad",
-    "ds-company-veterans-on-bikes",
-    "ds-outrider-squad-6",
-    "ds-ravenwing-black-knights"
-  ],
   "models": [
     {
       "base_size": "(⌀75 x 42mm)",
@@ -140,15 +134,15 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:95ddd6a731e5f7106d1e4fd63c6fbd25bba58a00cbdc61213b2c5ec574ed3bfb",
-    "last_verified_version": "wh40k-11e-2026-08",
+    "last_verified_version": "wh40k-11e-2026-08-2",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
+    "points_acquisition_id": "mfm-20260812T223703Z-6694568f",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },

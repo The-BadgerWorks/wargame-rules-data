@@ -7,11 +7,11 @@
     "mfm_slug": "adepta-sororitas",
     "name": "Adepta Sororitas",
     "provenance": {
-      "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+      "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
       "detail_edition_code": "wh40k-11e",
       "detail_source": "wahapedia",
       "is_hybrid_edition": false,
-      "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
+      "points_acquisition_id": "mfm-20260812T223703Z-6694568f",
       "points_edition_code": "wh40k-11e",
       "points_source": "mfm"
     }
@@ -24,11 +24,11 @@
     "mfm_slug": "adeptus-custodes",
     "name": "Adeptus Custodes",
     "provenance": {
-      "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+      "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
       "detail_edition_code": "wh40k-11e",
       "detail_source": "wahapedia",
       "is_hybrid_edition": false,
-      "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
+      "points_acquisition_id": "mfm-20260812T223703Z-6694568f",
       "points_edition_code": "wh40k-11e",
       "points_source": "mfm"
     }
@@ -41,11 +41,11 @@
     "mfm_slug": "adeptus-mechanicus",
     "name": "Adeptus Mechanicus",
     "provenance": {
-      "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+      "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
       "detail_edition_code": "wh40k-11e",
       "detail_source": "wahapedia",
       "is_hybrid_edition": false,
-      "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
+      "points_acquisition_id": "mfm-20260812T223703Z-6694568f",
       "points_edition_code": "wh40k-11e",
       "points_source": "mfm"
     }
@@ -58,11 +58,11 @@
     "mfm_slug": "aeldari",
     "name": "Aeldari",
     "provenance": {
-      "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+      "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
       "detail_edition_code": "wh40k-11e",
       "detail_source": "wahapedia",
       "is_hybrid_edition": false,
-      "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
+      "points_acquisition_id": "mfm-20260812T223703Z-6694568f",
       "points_edition_code": "wh40k-11e",
       "points_source": "mfm"
     }
@@ -75,11 +75,11 @@
     "mfm_slug": "astra-militarum",
     "name": "Astra Militarum",
     "provenance": {
-      "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+      "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
       "detail_edition_code": "wh40k-11e",
       "detail_source": "wahapedia",
       "is_hybrid_edition": false,
-      "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
+      "points_acquisition_id": "mfm-20260812T223703Z-6694568f",
       "points_edition_code": "wh40k-11e",
       "points_source": "mfm"
     }
@@ -93,11 +93,11 @@
     "name": "Black Templars",
     "parent_faction_id": "f-space-marines",
     "provenance": {
-      "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+      "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
       "detail_edition_code": "wh40k-11e",
       "detail_source": "wahapedia",
       "is_hybrid_edition": false,
-      "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
+      "points_acquisition_id": "mfm-20260812T223703Z-6694568f",
       "points_edition_code": "wh40k-11e",
       "points_source": "mfm"
     }
@@ -111,11 +111,11 @@
     "name": "Blood Angels",
     "parent_faction_id": "f-space-marines",
     "provenance": {
-      "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+      "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
       "detail_edition_code": "wh40k-11e",
       "detail_source": "wahapedia",
       "is_hybrid_edition": false,
-      "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
+      "points_acquisition_id": "mfm-20260812T223703Z-6694568f",
       "points_edition_code": "wh40k-11e",
       "points_source": "mfm"
     }
@@ -128,11 +128,11 @@
     "mfm_slug": "chaos-daemons",
     "name": "Chaos Daemons",
     "provenance": {
-      "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+      "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
       "detail_edition_code": "wh40k-11e",
       "detail_source": "wahapedia",
       "is_hybrid_edition": false,
-      "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
+      "points_acquisition_id": "mfm-20260812T223703Z-6694568f",
       "points_edition_code": "wh40k-11e",
       "points_source": "mfm"
     }
@@ -145,11 +145,11 @@
     "mfm_slug": "chaos-knights",
     "name": "Chaos Knights",
     "provenance": {
-      "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+      "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
       "detail_edition_code": "wh40k-11e",
       "detail_source": "wahapedia",
       "is_hybrid_edition": false,
-      "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
+      "points_acquisition_id": "mfm-20260812T223703Z-6694568f",
       "points_edition_code": "wh40k-11e",
       "points_source": "mfm"
     }
@@ -162,11 +162,11 @@
     "mfm_slug": "chaos-space-marines",
     "name": "Chaos Space Marines",
     "provenance": {
-      "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+      "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
       "detail_edition_code": "wh40k-11e",
       "detail_source": "wahapedia",
       "is_hybrid_edition": false,
-      "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
+      "points_acquisition_id": "mfm-20260812T223703Z-6694568f",
       "points_edition_code": "wh40k-11e",
       "points_source": "mfm"
     }
@@ -179,11 +179,11 @@
     "mfm_slug": "chaos-titan-legions",
     "name": "Chaos Titan Legions",
     "provenance": {
-      "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+      "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
       "detail_edition_code": "wh40k-11e",
       "detail_source": "wahapedia",
       "is_hybrid_edition": false,
-      "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
+      "points_acquisition_id": "mfm-20260812T223703Z-6694568f",
       "points_edition_code": "wh40k-11e",
       "points_source": "mfm"
     }
@@ -197,11 +197,11 @@
     "name": "Dark Angels",
     "parent_faction_id": "f-space-marines",
     "provenance": {
-      "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+      "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
       "detail_edition_code": "wh40k-11e",
       "detail_source": "wahapedia",
       "is_hybrid_edition": false,
-      "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
+      "points_acquisition_id": "mfm-20260812T223703Z-6694568f",
       "points_edition_code": "wh40k-11e",
       "points_source": "mfm"
     }
@@ -214,11 +214,11 @@
     "mfm_slug": "death-guard",
     "name": "Death Guard",
     "provenance": {
-      "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+      "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
       "detail_edition_code": "wh40k-11e",
       "detail_source": "wahapedia",
       "is_hybrid_edition": false,
-      "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
+      "points_acquisition_id": "mfm-20260812T223703Z-6694568f",
       "points_edition_code": "wh40k-11e",
       "points_source": "mfm"
     }
@@ -232,11 +232,11 @@
     "name": "Deathwatch",
     "parent_faction_id": "f-space-marines",
     "provenance": {
-      "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+      "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
       "detail_edition_code": "wh40k-11e",
       "detail_source": "wahapedia",
       "is_hybrid_edition": false,
-      "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
+      "points_acquisition_id": "mfm-20260812T223703Z-6694568f",
       "points_edition_code": "wh40k-11e",
       "points_source": "mfm"
     }
@@ -249,11 +249,11 @@
     "mfm_slug": "drukhari",
     "name": "Drukhari",
     "provenance": {
-      "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+      "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
       "detail_edition_code": "wh40k-11e",
       "detail_source": "wahapedia",
       "is_hybrid_edition": false,
-      "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
+      "points_acquisition_id": "mfm-20260812T223703Z-6694568f",
       "points_edition_code": "wh40k-11e",
       "points_source": "mfm"
     }
@@ -266,11 +266,11 @@
     "mfm_slug": "emperors-children",
     "name": "Emperors Children",
     "provenance": {
-      "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+      "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
       "detail_edition_code": "wh40k-11e",
       "detail_source": "wahapedia",
       "is_hybrid_edition": false,
-      "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
+      "points_acquisition_id": "mfm-20260812T223703Z-6694568f",
       "points_edition_code": "wh40k-11e",
       "points_source": "mfm"
     }
@@ -283,11 +283,11 @@
     "mfm_slug": "genestealer-cults",
     "name": "Genestealer Cults",
     "provenance": {
-      "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+      "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
       "detail_edition_code": "wh40k-11e",
       "detail_source": "wahapedia",
       "is_hybrid_edition": false,
-      "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
+      "points_acquisition_id": "mfm-20260812T223703Z-6694568f",
       "points_edition_code": "wh40k-11e",
       "points_source": "mfm"
     }
@@ -300,11 +300,11 @@
     "mfm_slug": "grey-knights",
     "name": "Grey Knights",
     "provenance": {
-      "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+      "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
       "detail_edition_code": "wh40k-11e",
       "detail_source": "wahapedia",
       "is_hybrid_edition": false,
-      "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
+      "points_acquisition_id": "mfm-20260812T223703Z-6694568f",
       "points_edition_code": "wh40k-11e",
       "points_source": "mfm"
     }
@@ -317,11 +317,11 @@
     "mfm_slug": "imperial-agents",
     "name": "Imperial Agents",
     "provenance": {
-      "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+      "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
       "detail_edition_code": "wh40k-11e",
       "detail_source": "wahapedia",
       "is_hybrid_edition": false,
-      "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
+      "points_acquisition_id": "mfm-20260812T223703Z-6694568f",
       "points_edition_code": "wh40k-11e",
       "points_source": "mfm"
     }
@@ -334,11 +334,11 @@
     "mfm_slug": "imperial-knights",
     "name": "Imperial Knights",
     "provenance": {
-      "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+      "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
       "detail_edition_code": "wh40k-11e",
       "detail_source": "wahapedia",
       "is_hybrid_edition": false,
-      "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
+      "points_acquisition_id": "mfm-20260812T223703Z-6694568f",
       "points_edition_code": "wh40k-11e",
       "points_source": "mfm"
     }
@@ -351,11 +351,11 @@
     "mfm_slug": "leagues-of-votann",
     "name": "Leagues Of Votann",
     "provenance": {
-      "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+      "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
       "detail_edition_code": "wh40k-11e",
       "detail_source": "wahapedia",
       "is_hybrid_edition": false,
-      "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
+      "points_acquisition_id": "mfm-20260812T223703Z-6694568f",
       "points_edition_code": "wh40k-11e",
       "points_source": "mfm"
     }
@@ -368,11 +368,11 @@
     "mfm_slug": "necrons",
     "name": "Necrons",
     "provenance": {
-      "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+      "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
       "detail_edition_code": "wh40k-11e",
       "detail_source": "wahapedia",
       "is_hybrid_edition": false,
-      "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
+      "points_acquisition_id": "mfm-20260812T223703Z-6694568f",
       "points_edition_code": "wh40k-11e",
       "points_source": "mfm"
     }
@@ -385,11 +385,11 @@
     "mfm_slug": "orks",
     "name": "Orks",
     "provenance": {
-      "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+      "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
       "detail_edition_code": "wh40k-11e",
       "detail_source": "wahapedia",
       "is_hybrid_edition": false,
-      "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
+      "points_acquisition_id": "mfm-20260812T223703Z-6694568f",
       "points_edition_code": "wh40k-11e",
       "points_source": "mfm"
     }
@@ -402,11 +402,11 @@
     "mfm_slug": "space-marines",
     "name": "Space Marines",
     "provenance": {
-      "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+      "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
       "detail_edition_code": "wh40k-11e",
       "detail_source": "wahapedia",
       "is_hybrid_edition": false,
-      "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
+      "points_acquisition_id": "mfm-20260812T223703Z-6694568f",
       "points_edition_code": "wh40k-11e",
       "points_source": "mfm"
     }
@@ -420,11 +420,11 @@
     "name": "Space Wolves",
     "parent_faction_id": "f-space-marines",
     "provenance": {
-      "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+      "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
       "detail_edition_code": "wh40k-11e",
       "detail_source": "wahapedia",
       "is_hybrid_edition": false,
-      "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
+      "points_acquisition_id": "mfm-20260812T223703Z-6694568f",
       "points_edition_code": "wh40k-11e",
       "points_source": "mfm"
     }
@@ -437,11 +437,11 @@
     "mfm_slug": "tau-empire",
     "name": "Tau Empire",
     "provenance": {
-      "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+      "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
       "detail_edition_code": "wh40k-11e",
       "detail_source": "wahapedia",
       "is_hybrid_edition": false,
-      "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
+      "points_acquisition_id": "mfm-20260812T223703Z-6694568f",
       "points_edition_code": "wh40k-11e",
       "points_source": "mfm"
     }
@@ -454,11 +454,11 @@
     "mfm_slug": "thousand-sons",
     "name": "Thousand Sons",
     "provenance": {
-      "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+      "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
       "detail_edition_code": "wh40k-11e",
       "detail_source": "wahapedia",
       "is_hybrid_edition": false,
-      "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
+      "points_acquisition_id": "mfm-20260812T223703Z-6694568f",
       "points_edition_code": "wh40k-11e",
       "points_source": "mfm"
     }
@@ -471,11 +471,11 @@
     "mfm_slug": "titan-legions",
     "name": "Titan Legions",
     "provenance": {
-      "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+      "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
       "detail_edition_code": "wh40k-11e",
       "detail_source": "wahapedia",
       "is_hybrid_edition": false,
-      "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
+      "points_acquisition_id": "mfm-20260812T223703Z-6694568f",
       "points_edition_code": "wh40k-11e",
       "points_source": "mfm"
     }
@@ -488,11 +488,11 @@
     "mfm_slug": "tyranids",
     "name": "Tyranids",
     "provenance": {
-      "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+      "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
       "detail_edition_code": "wh40k-11e",
       "detail_source": "wahapedia",
       "is_hybrid_edition": false,
-      "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
+      "points_acquisition_id": "mfm-20260812T223703Z-6694568f",
       "points_edition_code": "wh40k-11e",
       "points_source": "mfm"
     }
@@ -505,11 +505,11 @@
     "mfm_slug": "world-eaters",
     "name": "World Eaters",
     "provenance": {
-      "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+      "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
       "detail_edition_code": "wh40k-11e",
       "detail_source": "wahapedia",
       "is_hybrid_edition": false,
-      "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
+      "points_acquisition_id": "mfm-20260812T223703Z-6694568f",
       "points_edition_code": "wh40k-11e",
       "points_source": "mfm"
     }

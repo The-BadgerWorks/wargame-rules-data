@@ -25,7 +25,7 @@
       "model_count": 5,
       "points": 175,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9"
+      "source_acquisition_id": "wahapedia-20260812T223905Z-9a337975"
     },
     {
       "copy_index_min": 1,
@@ -33,7 +33,7 @@
       "model_count": 10,
       "points": 350,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9"
+      "source_acquisition_id": "wahapedia-20260812T223905Z-9a337975"
     }
   ],
   "datasheet_id": "ds-chaos-terminator-squad-2",
@@ -51,7 +51,7 @@
     },
     {
       "is_faction_keyword": false,
-      "keyword": "CHAOS TERMINATOR SQUAD , UNDIVIDED , SHADOW LEGION",
+      "keyword": "CHAOS TERMINATOR SQUAD",
       "keyword_class": "unit"
     },
     {
@@ -65,7 +65,17 @@
     },
     {
       "is_faction_keyword": false,
+      "keyword": "SHADOW LEGION",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
       "keyword": "TERMINATOR",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "UNDIVIDED",
       "keyword_class": "unit"
     }
   ],
@@ -105,12 +115,32 @@
     },
     {
       "count": 1,
+      "grants_weapon_line": 2,
+      "group_id": "og-chaos-terminator-squad-2-2",
+      "id": "oc-chaos-terminator-squad-2-2-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "combi-weapon",
+      "replaces_weapon_line": 1
+    },
+    {
+      "count": 1,
       "group_id": "og-chaos-terminator-squad-2-3",
       "id": "oc-chaos-terminator-squad-2-3-1",
       "is_default": false,
       "is_no_change": false,
       "name": "paired accursed weapons",
       "replaces_weapon_line": 7
+    },
+    {
+      "count": 1,
+      "grants_weapon_line": 8,
+      "group_id": "og-chaos-terminator-squad-2-4",
+      "id": "oc-chaos-terminator-squad-2-4-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "power fist",
+      "replaces_weapon_line": 5
     },
     {
       "count": 1,
@@ -130,8 +160,19 @@
       "scope_n": 5
     },
     {
+      "id": "og-chaos-terminator-squad-2-2",
+      "line": 2,
+      "scope": "unit"
+    },
+    {
       "id": "og-chaos-terminator-squad-2-3",
       "line": 3,
+      "scope": "per_n_models",
+      "scope_n": 5
+    },
+    {
+      "id": "og-chaos-terminator-squad-2-4",
+      "line": 4,
       "scope": "per_n_models",
       "scope_n": 5
     },
@@ -143,19 +184,19 @@
     }
   ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 2,
+    "consecutive_unverified_releases": 3,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
     "points_edition_code": "wh40k-11e",
     "points_source": "none"
   },
-  "wargear_option_state": "partial",
+  "wargear_option_state": "extracted",
   "weapons": [
     {
       "ability_keywords": [
