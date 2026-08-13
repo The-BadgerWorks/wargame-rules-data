@@ -18,6 +18,10 @@
 <!-- AI-Assisted: Claude Code (model: claude-opus-5) - Added item 10 (006 T011): the
      ninth CLI command an evidence tool needs, implemented ahead of the additive contract row a
      frozen cross-repository contract may not be given as a side effect of a feature branch. -->
+<!-- AI-Assisted: Claude Code (model: claude-opus-5) - Added item 11: the two `build` options
+     that finally make `snapshotMeta.publishedAt` a reachable input, landed ahead of the §1
+     amendment they are owed, after a rebuild that crossed 00:00Z refused an approved candidate
+     with exit 51. -->
 <!-- AI-Assisted: Claude Code (model: claude-opus-5) - Added items 8 and 9 (004 T081, T084): the
      three defects the first real-bundle consumer-compat run exposed, two of them pre-existing in
      the published release, and the glossary denominator that makes its gate un-switchable. -->
@@ -495,3 +499,54 @@ and the command's full option surface, so the drift protection is unchanged.
 **Owed**: an additive §1 row and a 1.1.0 bump of `pipeline-run-interface.md`, with a changelog
 entry, naming `option-regression` as an evidence command and stating the not-on-the-gate-path
 property as part of the contract rather than as an implementation convention.
+## 11. `pipeline-run-interface.md` owes `build --published-at` / `--published-at-from-report`
+
+`snapshotMeta.publishedAt` is the only timestamp the bundle carries, and
+`curated-snapshot-format.md` §6 has required since 002 that it be **"an explicit build input
+rather than 'now'"** — that clause is what makes FR-033 ("byte-identical bundle from an unchanged
+tree") and FR-039 (the approval assertion) mean anything at all.
+
+`pipeline.cli.run_build` took it as an input. **No invocation could supply it.** The `build`
+subparser declared only `--rules-version-id` and `--since`, `_run_build_command` never passed the
+argument, and the fallback stamped `datetime.now(UTC).date()`. No configuration variable offered
+a way round it either. So the documented guarantee described behaviour the pipeline did not have,
+and it went unnoticed for as long as every build and its dispatch fell inside one UTC day.
+
+`wh40k-11e-2026-08-2` is where it stopped being invisible: approved on 2026-08-12, dispatched on
+2026-08-13, and `publish.yml`'s rebuild produced a bundle whose **only** difference from the
+approved one — one scalar, in a whole-bundle structural diff — was
+`/snapshotMeta/publishedAt`. Exit 51, on content nobody had changed.
+
+The fix adds two options to `build`, neither of which the frozen contract declares:
+
+- `--published-at <YYYY-MM-DD | YYYY-MM-DDTHH:MM:SSZ>` — the explicit input §6 always described.
+- `--published-at-from-report` — read the date out of this checkout's own
+  `reports/<id>/report.json`, which `candidate.yml` commits beside `data/`. `publish.yml`'s
+  rebuild uses this one.
+
+**Why the derived option rather than a fifth `workflow_dispatch` input.** The date has to be a
+property of the *approved commit*, not of the dispatch that publishes it. A typed input is a
+second place the truth can live, it can disagree with what was approved, and the gate cannot
+notice: `pipeline/publish/gate.py` reads `publishedAt` back out of the bundle the rebuild just
+produced, so anything the rebuild stamps is what the gate believes. Deriving it from the commit
+makes the approval and the date the same fact, and keeps the dispatch parameters unchanged
+(`rules_version_id`, `commit_sha`, `expect_sha256`, `channel`) — an approver's checklist does not
+move because of a bug fix. Resolution happens before the acquisition sweep, and a missing or
+unusable record exits `60` instead of falling back to the clock, because a silent fallback is
+precisely the defect being replaced.
+
+**What makes implementing ahead defensible here.** Item 10's argument does not apply — these two
+options *are* on the approval-gate path. The different argument is that they add no new
+capability to the contract: they make an existing clause of a sibling contract reachable. §1's
+own wording is "**Selected** command options", the command itself is unchanged, every existing
+invocation behaves exactly as before, and `candidate.yml` passes neither option, so a first build
+still stamps its own day. `pipeline/cli.py` holds them in `PUBLISHED_AT_OPTIONS` and
+`tests/contract/test_cli_surface.py` in `PENDING_CONTRACT_COMMAND_OPTIONS`, deliberately apart
+from the contract's own set, so the surface stays asserted against the contract rather than
+against itself and the debt is named rather than absorbed.
+
+**Owed**: a 1.1.0 bump of `pipeline-run-interface.md` (in
+`WargameCompanion:specs/002-rules-data-pipeline/contracts/`) declaring both options on §1's
+`build` row, and a §4 sentence stating that the gate's rebuild takes the publication date from
+the approved commit's recorded report. Worth stating in §4 rather than only in §1: it is a
+property of the approval, not a convenience of the CLI.

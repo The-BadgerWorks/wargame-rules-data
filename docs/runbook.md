@@ -4,7 +4,9 @@
      AI-Assisted: Claude Code (model: claude-sonnet-5) - Expanded with the scheduled detection
      loop overview, the exit-code operational table, the MFM structure-change procedure, and the
      two rollback paths (task T150) — additive to the existing manual-path content above, per
-     contracts/pipeline-run-interface.md §2-§4 and the parser modules in pipeline/parse/. -->
+     contracts/pipeline-run-interface.md §2-§4 and the parser modules in pipeline/parse/.
+     AI-Assisted: Claude Code (model: claude-opus-5) - Documented the publication-date input and
+     the exit-51-that-is-only-a-date, after the wh40k-11e-2026-08-2 dispatch crossed 00:00Z. -->
 # Runbook: detection and the manual path
 
 `.github/workflows/detect.yml` and `.github/workflows/candidate.yml` (tasks T108-T110) automate
@@ -136,11 +138,34 @@ curator who has to decide what to do right now, not just what the code means abs
 | `42` | `COVERAGE_COLLAPSE` | Coverage (factions, datasheets, or priced datasheets) fell below the configured proportion of the previous published version. | Alert; do **not** publish. Investigate whether the source genuinely dropped content or the pipeline mis-parsed a page — `WGC_COVERAGE_MIN_*_RATIO` (`docs/configuration.md`) is the threshold that fired. |
 | `50` | `NONDETERMINISTIC` | A rebuild produced a bundle with a different checksum than expected (FR-033, SC-006). | Block; investigate the serialiser (`pipeline/build/canonical_json.py` and neighbours) for a non-deterministic ordering or timestamp leak. Never touches a published artifact. |
 | `51` | `APPROVAL_MISMATCH` | The rebuilt artifact is not the artifact that was approved (FR-039). | Re-approve the new content — this is `publish.yml`'s own checksum assertion refusing to publish something nobody actually reviewed. Never touches a published artifact. |
-| `60` | `CONFIG_ERROR` | Configuration or invocation error. | Fix the invocation — an unknown `--config` key, an unparseable value, or an out-of-range ratio (`pipeline/config.py`'s `ConfigError`). |
+| `60` | `CONFIG_ERROR` | Configuration or invocation error. | Fix the invocation — an unknown `--config` key, an unparseable value, an out-of-range ratio (`pipeline/config.py`'s `ConfigError`), or a `build --published-at*` the run cannot resolve (below). |
 
 Exit `40`, `41`, `42`, `50`, and `51` **never** touch a published artifact — this is a structural
 property of where each check runs (before acquisition proceeds, before validation passes, or
 before the approval gate's checksum assertion succeeds), not a convention to remember.
+
+### The publication date, and the exit 51 that is not a content change
+
+`snapshotMeta.publishedAt` is the only timestamp in the bundle (`curated-snapshot-format.md` §6),
+so it is also the only field that can make an unchanged tree produce two different checksums.
+`build` takes it as an input:
+
+- **nothing given** — today's UTC date. Correct for a *first* build of a candidate, which is
+  what `candidate.yml` does and why that workflow passes neither option.
+- **`--published-at 2026-08-12`** (or `2026-08-12T00:00:00Z`) — an explicit date, for
+  reproducing a historic build on a laptop.
+- **`--published-at-from-report`** — the date this checkout's own `reports/<id>/report.json`
+  recorded, which `candidate.yml` committed when it built the candidate. This is what
+  `publish.yml`'s rebuild uses, so the approved commit's date travels with the approval and no
+  dispatch input can disagree with it. If the record is missing or unreadable the run exits `60`
+  rather than falling back to the clock.
+
+**If a publish run exits `51`, check this field before assuming the sources moved.** Diff the
+approved bundle against the rebuilt one; a single scalar difference at
+`/snapshotMeta/publishedAt` means the rebuild dated itself, not that the content changed, and no
+re-approval is owed. (This is exactly what happened to `wh40k-11e-2026-08-2`: approved
+2026-08-12, dispatched 2026-08-13, one field apart. `published_at` was documented as a build
+input from 002 onward and had never been wired to the CLI, so every build stamped its own day.)
 
 ## When the MFM page structure changes (exit 41, `SRC-STRUCTURE-CHANGED`)
 

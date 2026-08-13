@@ -23,6 +23,11 @@
 # report and satisfied `pipeline.publish.gate.blocking_finding_codes`, but `CoverageOutcome`'s own
 # `collapsed` is computed before any resolution exists, so exit 42 alone ignored it -- three
 # answers to one question, and the only blocking finding FR-034 could not actually resolve.
+# AI-Assisted: Claude Code (model: claude-opus-5) - Wired `published_at` to the `build` command
+# (`--published-at`, `--published-at-from-report`). It had been documented as a build input by
+# `run_build`'s own docstring and by curated-snapshot-format.md §6 since 002, and was reachable
+# from no invocation at all, so every build stamped its own UTC day and `publish.yml`'s rebuild
+# of an approved candidate failed FR-039 with exit 51 the moment approval crossed 00:00Z.
 """``rules-pipeline`` — the operator-facing surface.
 
 The same CLI runs locally against fixtures and in CI against the real sources: **there is no
@@ -212,11 +217,26 @@ GLOBAL_OPTIONS: Final[frozenset[str]] = frozenset(
     {"--channel", "--config", "--offline", "--fixtures", "--json", "--dry-run"}
 )
 
+#: The two `build` options that supply :data:`snapshotMeta.publishedAt`, held apart from the
+#: contract's own set for the same reason :data:`EVIDENCE_COMMANDS` is held apart from
+#: :data:`COMMANDS`: `pipeline-run-interface.md` is frozen at 1.0.2, and adding an option to a
+#: declared command is a MINOR bump of a cross-repository contract. The owed §1 amendment is
+#: `docs/follow-ups.md` item 11.
+#:
+#: What makes implementing ahead defensible here: these options do not *extend* the contract,
+#: they make an existing clause reachable. `curated-snapshot-format.md` §6 already requires that
+#: `publishedAt` be "an explicit build input rather than 'now'", and `run_build` already took it
+#: as one — the operator surface simply never offered a way to pass it, so the documented
+#: guarantee was unreachable and FR-033/FR-039 held only within a single UTC day.
+PUBLISHED_AT_OPTIONS: Final[frozenset[str]] = frozenset(
+    {"--published-at", "--published-at-from-report"}
+)
+
 #: The per-command options (§1). A command absent from this map takes globals only.
 COMMAND_OPTIONS: Final[Mapping[str, frozenset[str]]] = {
     "detect": frozenset(),
     "acquire": frozenset(),
-    "build": frozenset({"--rules-version-id", "--since"}),
+    "build": frozenset({"--rules-version-id", "--since"}) | PUBLISHED_AT_OPTIONS,
     "validate": frozenset(),
     "report": frozenset(),
     "publish": frozenset({"--commit-sha", "--expect-sha256"}),
@@ -319,6 +339,22 @@ def build_parser() -> argparse.ArgumentParser:
         if name == "build":
             sub.add_argument("--rules-version-id", help="the id this candidate will carry")
             sub.add_argument("--since", help="the previous rulesVersionId to compare against")
+            sub.add_argument(
+                "--published-at",
+                help=(
+                    "the publication date to stamp, YYYY-MM-DD or YYYY-MM-DDTHH:MM:SSZ "
+                    "(default: today, which is correct only for a first build)"
+                ),
+            )
+            sub.add_argument(
+                "--published-at-from-report",
+                action="store_true",
+                default=False,
+                help=(
+                    "take the publication date from this checkout's own "
+                    "reports/<id>/report.json; what a rebuild of an approved candidate uses"
+                ),
+            )
         elif name == "publish":
             sub.add_argument("--commit-sha", help="the approved candidate commit")
             sub.add_argument("--expect-sha256", help="the approved bundle checksum")
@@ -652,6 +688,13 @@ def run_build(  # noqa: PLR0913 - the stage boundary is the argument list
     ``published_at`` is an **input**, never ``now``. That single decision is what makes the
     bundle byte-reproducible and therefore what makes the manifest checksum and the approval
     assertion mean anything (FR-033, FR-039).
+
+    The operator surface for it is ``build --published-at`` and ``build
+    --published-at-from-report`` (see :func:`_resolve_published_at`). The fallback below — the
+    build's own UTC day — is correct for exactly one caller, ``candidate.yml``: for a *fresh*
+    candidate the build day is the publication date. It is wrong for every rebuild, and until
+    those two options existed it was the only reachable behaviour, so an approval that crossed
+    00:00Z could not be published at all (exit 51 on an otherwise identical bundle).
     """
     root = repository_root or repo_root()
     # The baseline is read from a checkout, never re-acquired: the previous curated tree is
@@ -828,11 +871,87 @@ def _report_blocking(findings: Sequence[Finding], report_path: Path) -> None:
     print(f"{PROG}: report {report_path}")
 
 
+def normalise_published_at(value: str) -> str:
+    """``YYYY-MM-DD`` or ``YYYY-MM-DDTHH:MM:SSZ`` -> the stamp the bundle carries.
+
+    Deliberately strict about the zone: `curated-snapshot-format.md` §6 makes `publishedAt` the
+    one timestamp in the bundle, and a local-offset instant would make the same moment two
+    different strings and therefore two different checksums. Raises :class:`InvocationError`,
+    which the CLI maps to exit 60 — the contract's invocation error, not a build failure.
+    """
+    text = value.strip()
+    try:
+        if len(text) == len("YYYY-MM-DD"):
+            return f"{datetime.strptime(text, '%Y-%m-%d').date().isoformat()}T00:00:00Z"
+        parsed = datetime.strptime(text, "%Y-%m-%dT%H:%M:%SZ")
+    except ValueError as error:
+        raise InvocationError(
+            f"--published-at must be YYYY-MM-DD or YYYY-MM-DDTHH:MM:SSZ, got {value!r}"
+        ) from error
+    return f"{parsed.date().isoformat()}T{parsed.time().isoformat()}Z"
+
+
+def recorded_published_at(output_root: Path, rules_version_id: str) -> str:
+    """The publication date this checkout already recorded for ``rules_version_id``.
+
+    `run_build` writes `generated_at` into `reports/<id>/report.json` **from**
+    `snapshotMeta.publishedAt`, and `candidate.yml` commits `reports/` alongside `data/`. So the
+    approved commit carries its own published date, and a rebuild of that commit can recover it
+    without anybody re-typing it at dispatch time. That is the point: `publish.yml` checks out
+    the approved commit and asserts the rebuild reproduces the approved bytes (FR-039), so the
+    date must be a property of the approval, not an input to the run that verifies it.
+
+    Refuses loudly when the record is absent or unusable. A fallback to the clock here would
+    reinstate the exact defect — a wrong date nobody notices until exit 51.
+    """
+    path = report_dir(output_root, rules_version_id) / "report.json"
+    if not path.is_file():
+        raise InvocationError(
+            f"--published-at-from-report found no recorded report at {path}; a rebuild can only "
+            "recover the approved publication date from the commit that recorded it"
+        )
+    try:
+        recorded = json.loads(path.read_bytes().decode("utf-8"))
+    except (ValueError, UnicodeDecodeError) as error:
+        raise InvocationError(f"{path} is not readable JSON: {error}") from error
+    value = recorded.get("generated_at") if isinstance(recorded, dict) else None
+    if not isinstance(value, str) or not value:
+        raise InvocationError(f"{path} records no 'generated_at' to publish under")
+    return normalise_published_at(value)
+
+
+def _resolve_published_at(args: argparse.Namespace, rules_version_id: str) -> str | None:
+    """Which date this build stamps, or ``None`` for "today" (a first build's own day).
+
+    Resolved here rather than inside :func:`run_build` so a bad invocation is refused **before**
+    an acquisition sweep: on the real sources that sweep is the expensive part of the run, and an
+    invocation error found at the end of it is an invocation error found too late.
+    """
+    explicit = getattr(args, "published_at", None)
+    from_report = bool(getattr(args, "published_at_from_report", False))
+    if explicit and from_report:
+        raise InvocationError(
+            "--published-at and --published-at-from-report both name the publication date; give one"
+        )
+    if explicit is not None:
+        return normalise_published_at(explicit)
+    if not from_report:
+        return None
+    fixtures = getattr(args, "fixtures", None)
+    # The same destination `run_build` will write to, so the record read is the record written.
+    output_root = Path(fixtures) / FIXTURE_BUILD_DIR if fixtures else repo_root()
+    return recorded_published_at(output_root, rules_version_id)
+
+
 def _run_build_command(config: PipelineConfig, args: argparse.Namespace) -> int:
     rules_version_id = getattr(args, "rules_version_id", None)
     if not rules_version_id:
         print(f"{PROG}: build requires --rules-version-id", file=sys.stderr)
         return int(ExitCode.CONFIG_ERROR)
+
+    published_at = _resolve_published_at(args, rules_version_id)
+    if published_at is not None:
+        print(f"{PROG}: publishedAt {published_at}")
 
     fixtures = getattr(args, "fixtures", None)
     result = run_build(
@@ -840,6 +959,7 @@ def _run_build_command(config: PipelineConfig, args: argparse.Namespace) -> int:
         rules_version_id=rules_version_id,
         fixtures_dir=Path(fixtures) if fixtures else None,
         offline=bool(getattr(args, "offline", False)),
+        published_at=published_at,
     )
 
     _report_blocking(result.findings, result.report_path)
@@ -1523,6 +1643,12 @@ def main(argv: Sequence[str] | None = None) -> int:
 
     try:
         return dispatch(command, config, args)
+    except InvocationError as exc:
+        # Raised by a command's own argument checking, not by argparse — a malformed
+        # `--published-at`, or a `--published-at-from-report` with nothing to read. Same exit
+        # code as a parse error, because to an operator it is the same mistake.
+        print(f"{PROG}: {exc}", file=sys.stderr)
+        return int(ExitCode.CONFIG_ERROR)
     except AcquisitionError as exc:
         print(f"{PROG}: {exc.finding_code}: {exc}", file=sys.stderr)
         return int(exc.exit_code)

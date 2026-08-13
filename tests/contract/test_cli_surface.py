@@ -5,6 +5,9 @@
 # throwaway repository root (004 Phase 3 pre-task): `verify` was wired after this test was
 # written, and every suite run was appending a real `verify` row to `state/run-ledger.jsonl` in
 # whatever checkout it ran in.
+# AI-Assisted: Claude Code (model: claude-opus-5) - Declared `PENDING_CONTRACT_COMMAND_OPTIONS`
+# for the two `build --published-at*` options, which land ahead of the §1 amendment they are
+# owed, so the option surface stays asserted against the contract rather than against itself.
 """The CLI is the operator contract, and an operator contract that drifts is a broken promise.
 
 Every expectation below is transcribed from ``contracts/pipeline-run-interface.md`` §1-§2
@@ -24,6 +27,7 @@ from pipeline.cli import (
     COMMANDS,
     EVIDENCE_COMMANDS,
     GLOBAL_OPTIONS,
+    PUBLISHED_AT_OPTIONS,
     build_parser,
     main,
 )
@@ -69,6 +73,19 @@ CONTRACT_COMMAND_OPTIONS = {
     "option-regression": {"--rules-version-id", "--since"},
     "publish": {"--commit-sha", "--expect-sha256"},
     "withdraw": {"--rules-version-id", "--reason"},
+}
+
+#: Options the contract does NOT declare, implemented ahead of the §1 amendment they are owed,
+#: exactly as `PENDING_CONTRACT_COMMANDS` above and for the same frozen-contract reason
+#: (`docs/follow-ups.md` item 11).
+#:
+#: The property that makes implementing ahead safe *here* is different from the evidence
+#: command's, because these two ARE on the approval-gate path: they do not extend the contract,
+#: they make an existing clause reachable. `curated-snapshot-format.md` §6 already requires
+#: `snapshotMeta.publishedAt` to be "an explicit build input rather than 'now'"; until these
+#: landed, no invocation could supply it, so the clause described behaviour the CLI did not have.
+PENDING_CONTRACT_COMMAND_OPTIONS = {
+    "build": {"--published-at", "--published-at-from-report"},
 }
 
 
@@ -123,9 +140,22 @@ def test_the_global_option_set_is_exactly_the_contracts() -> None:
 @pytest.mark.parametrize("command", sorted(CONTRACT_COMMANDS | PENDING_CONTRACT_COMMANDS))
 def test_each_command_exposes_the_globals_plus_its_own_options(command: str) -> None:
     sub = _subparsers(build_parser())[command]
-    expected = CONTRACT_GLOBAL_OPTIONS | CONTRACT_COMMAND_OPTIONS.get(command, set())
-    assert _option_strings(sub) == expected
-    assert set(COMMAND_OPTIONS[command]) == CONTRACT_COMMAND_OPTIONS.get(command, set())
+    declared = CONTRACT_COMMAND_OPTIONS.get(command, set())
+    pending = PENDING_CONTRACT_COMMAND_OPTIONS.get(command, set())
+    assert _option_strings(sub) == CONTRACT_GLOBAL_OPTIONS | declared | pending
+    assert set(COMMAND_OPTIONS[command]) == declared | pending
+
+
+def test_the_pending_options_are_named_rather_than_absorbed() -> None:
+    """The paperwork is owed, so the debt is asserted rather than left to a reader to spot.
+
+    `PENDING_CONTRACT_COMMAND_OPTIONS` is the whole of the difference between the contract's §1
+    option surface and the parser's: anything else appearing on a declared command fails the
+    test above, which is the drift protection this module exists for.
+    """
+    assert set(PENDING_CONTRACT_COMMAND_OPTIONS) <= CONTRACT_COMMANDS
+    assert PENDING_CONTRACT_COMMAND_OPTIONS["build"] == set(PUBLISHED_AT_OPTIONS)
+    assert not (PENDING_CONTRACT_COMMAND_OPTIONS["build"] & CONTRACT_COMMAND_OPTIONS["build"])
 
 
 def test_globals_are_accepted_on_either_side_of_the_command() -> None:
