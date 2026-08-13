@@ -6,7 +6,11 @@
      two rollback paths (task T150) — additive to the existing manual-path content above, per
      contracts/pipeline-run-interface.md §2-§4 and the parser modules in pipeline/parse/.
      AI-Assisted: Claude Code (model: claude-opus-5) - Documented the publication-date input and
-     the exit-51-that-is-only-a-date, after the wh40k-11e-2026-08-2 dispatch crossed 00:00Z. -->
+     the exit-51-that-is-only-a-date, after the wh40k-11e-2026-08-2 dispatch crossed 00:00Z.
+     AI-Assisted: Claude Code (model: claude-sonnet-5) - 006 T050: added the equipment-overrides.json
+     authoring loop beside the pre-existing option-overrides one, what resolving an
+     OPT-UNPARSED/EQP-UNPARSED row under the extended grammar actually looks like, and what a
+     non-empty option-regression Corrected section means operationally. -->
 # Runbook: detection and the manual path
 
 `.github/workflows/detect.yml` and `.github/workflows/candidate.yml` (tasks T108-T110) automate
@@ -207,6 +211,82 @@ one into the other. Two modules own this:
    `docs/failed-then-fixed.md` — a structure-change fix that ships without a fixture regression
    test is incomplete, because the whole point is that the same class of breakage cannot silently
    recur.
+
+## Resolving an unparsed loadout row (006): the option- and equipment-overrides loop
+
+`006-unit-loadout-fidelity` widened `options_grammar.py` and added `equipment_grammar.py`, but a
+residual tail is expected by design (spec Edge Cases: "expected to shrink, not vanish"). A row
+either grammar cannot resolve is never guessed — it is reported (`OPT-UNPARSED` for an option row,
+`EQP-UNPARSED` for a default-equipment sentence, both advisory) and named by structural position
+only: `datasheet_id` and `line`, never the sentence itself (Policy and Safety Constraints).
+
+A curator resolves one of these the same way `004` always resolved a composition or option row:
+author an entry in the matching curation override file, keyed the same way. Both files are human-
+authored, the pipeline never writes either, and every member is optional so a `004`-shaped override
+still validates unchanged.
+
+**`curation/option-overrides.json`** — for `OPT-UNPARSED`. The `006` extension adds `scope`'s two
+independent eligibility columns and an optional per-choice `items[]` array for a multi-item bundle:
+
+```jsonc
+{ "datasheet_id": "ds-...", "line": 3,
+  "scope": "unit",
+  "eligible_model_name": "Fenmire Skirmisher",   // new in 006; optional
+  "eligible_max_count": 4,                        // new in 006; optional
+  "is_per_model": true,                           // new in 006; optional
+  "choices": [
+    { "name": "bracklight lance and close combat weapon",
+      "items": [                                  // new in 006; optional
+        { "role": "replaced", "item_name": "storm bolter",  "weapon_line": 1 },
+        { "role": "granted",  "item_name": "bracklight lance", "count": 1, "weapon_line": 7 }
+      ] } ] }
+```
+
+**`curation/equipment-overrides.json`** — new in `006`, for `EQP-UNPARSED`. Same key shape
+(`datasheet_id`, `line`), no points field anywhere (default equipment is never priced), no
+description field (Policy gate: no new prose surface):
+
+```jsonc
+{ "datasheet_id": "ds-...", "line": 2,
+  "applies_to": "model_group", "model_name": "Skirmish Warden", "composition_line": 1,
+  "items": [ { "item_name": "storm bolter", "weapon_line": 1 },
+             { "item_name": "force halberd", "weapon_line": 4 } ] }
+```
+
+Both files enforce the same discipline: a `weapon_line` (or `composition_line`) naming a row that
+does not exist on that datasheet is a **blocking** dangling-reference finding, never silently
+dropped; a curator's stated link is **used, never re-derived** — the pipeline does not check it
+against a name match, because a human already resolved the ambiguity a grammar could not. See
+`contracts/loadout-schema-delta.md` §3 for the columns these overrides ultimately populate and
+`specs/006-unit-loadout-fidelity/quickstart.md` §4 for the same loop from the authoring side.
+
+## Reading a non-empty option-regression `Corrected` section (006)
+
+`pipeline.cli option-regression` (`docs/configuration.md`'s sibling evidence command,
+`reports/<rulesVersionId>/option-regression.md`) renders three sections: **Identical**, **Newly
+resolved**, and **Corrected**. The third should be empty on every run — FR-009's zero-regression
+guarantee means a row the baseline already resolved must resolve **identically** under the extended
+grammar, and item decomposition is structurally forbidden from rewriting a choice's `name` or
+`count` (research D5a, the O1 Ruling). A non-empty *Corrected* section is not automatically a
+defect, but it is never routine — read every entry before approving anything:
+
+1. **Check whether the moved value is a column `004` declared and never emitted**, rather than a
+   value a consumer has ever actually read. The `wh40k-11e-2026-08` candidate's own *Corrected*
+   section carried 21 entries, and all 21 were `maxChoices` moving from absent to a stated integer
+   — T019 populating a column that was always declared and never populated, additive under
+   `contracts/loadout-schema-delta.md` §3.3, not a regression FR-009 forbids.
+2. **If the moved value is anything FR-009 actually promises** — eligibility, a replaced or granted
+   item, a price — a new production reached a row the baseline had already resolved. Treat this as
+   a defect in the production ordering (`pipeline/parse/options_grammar.py`'s clause table), not as
+   a diff to wave through: baseline productions must run first and win, always.
+3. **A legacy conflated choice (O1's ≈144-row class) acquiring item rows while keeping its existing
+   `name`** is expected and is *not* a correction to that name — it shows up in *Newly resolved* or
+   is invisible entirely, never in *Corrected*, because the label itself never moved.
+
+An approver who sees a non-empty *Corrected* section and cannot account for every entry by rule 1
+or rule 3 above should treat the candidate as **not ready for T048's Product Owner sign-off** until
+the production ordering is fixed and layer 1's harness (`tests/enrichment/
+test_options_grammar_regression.py`) is re-confirmed green.
 
 ## Rollback: two paths, deliberately different in scope
 

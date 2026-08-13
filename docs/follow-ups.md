@@ -15,13 +15,25 @@
 <!-- AI-Assisted: Claude Code (model: claude-opus-5) - Added item 6 (issue #5): the per-detachment
      page hypothesis, tested live and refused, with the acquisition decision it settles and the
      detachName oracle the test surfaced. -->
-<!-- AI-Assisted: Claude Code (model: claude-opus-5) - Added item 10 (006 T011): the
-     ninth CLI command an evidence tool needs, implemented ahead of the additive contract row a
-     frozen cross-repository contract may not be given as a side effect of a feature branch. -->
-<!-- AI-Assisted: Claude Code (model: claude-opus-5) - Added item 11: the two `build` options
-     that finally make `snapshotMeta.publishedAt` a reachable input, landed ahead of the §1
-     amendment they are owed, after a rebuild that crossed 00:00Z refused an approved candidate
-     with exit 51. -->
+<!-- AI-Assisted: Claude Code (model: claude-opus-5) - Added item 10 (006 T011, later renumbered
+     to item 11 — see the housekeeping note below): the ninth CLI command an evidence tool needs,
+     implemented ahead of the additive contract row a frozen cross-repository contract may not be
+     given as a side effect of a feature branch. -->
+<!-- AI-Assisted: Claude Code (model: claude-opus-5) - Added item 11 (later renumbered to item
+     12): the two `build` options that finally make `snapshotMeta.publishedAt` a reachable input,
+     landed ahead of the §1 amendment they are owed, after a rebuild that crossed 00:00Z refused an
+     approved candidate with exit 51. -->
+<!-- AI-Assisted: Claude Code (model: claude-sonnet-5) - 006 T050 housekeeping: this file had two
+     items both numbered "10" (the option-regression command and the published-at build options,
+     added independently and never cross-checked against each other's heading). Renumbered the
+     second to 11 and the pre-existing item 11 to 12, and updated every in-repo cross-reference
+     (`pipeline/cli.py`, `tests/contract/test_cli_surface.py`) to match. Added item 13, a release-
+     process gap the wh40k-11e-2026-08-2 publication surfaced: PR #13's own rebuild-proof evidence
+     file never reached `main`. -->
+<!-- AI-Assisted: Claude Code (model: claude-sonnet-5) - 006 T050 housekeeping: added item 14, the
+     genuine test-coverage gap this same review found — nothing exercises the equipment-overrides
+     escape hatch T031 built (`curation/equipment-overrides.json`'s loading and dangling-reference
+     checks). -->
 <!-- AI-Assisted: Claude Code (model: claude-opus-5) - Added items 8 and 9 (004 T081, T084): the
      three defects the first real-bundle consumer-compat run exposed, two of them pre-existing in
      the published release, and the glossary denominator that makes its gate un-switchable. -->
@@ -476,7 +488,7 @@ so any candidate left open long enough will acquire new editorial work before it
 release flow has no answer to that yet beyond re-running and re-reviewing.
 
 
-## 10. `pipeline-run-interface.md` owes an additive row for the `option-regression` command
+## 11. `pipeline-run-interface.md` owes an additive row for the `option-regression` command
 
 `006` T011 landed `rules-pipeline option-regression`: the FR-009 zero-regression harness's layer
 2, which rebuilds the published option tree with the extended pipeline and diffs it, per choice
@@ -499,7 +511,7 @@ and the command's full option surface, so the drift protection is unchanged.
 **Owed**: an additive §1 row and a 1.1.0 bump of `pipeline-run-interface.md`, with a changelog
 entry, naming `option-regression` as an evidence command and stating the not-on-the-gate-path
 property as part of the contract rather than as an implementation convention.
-## 11. `pipeline-run-interface.md` owes `build --published-at` / `--published-at-from-report`
+## 12. `pipeline-run-interface.md` owes `build --published-at` / `--published-at-from-report`
 
 `snapshotMeta.publishedAt` is the only timestamp the bundle carries, and
 `curated-snapshot-format.md` §6 has required since 002 that it be **"an explicit build input
@@ -535,7 +547,7 @@ move because of a bug fix. Resolution happens before the acquisition sweep, and 
 unusable record exits `60` instead of falling back to the clock, because a silent fallback is
 precisely the defect being replaced.
 
-**What makes implementing ahead defensible here.** Item 10's argument does not apply — these two
+**What makes implementing ahead defensible here.** Item 11's argument does not apply — these two
 options *are* on the approval-gate path. The different argument is that they add no new
 capability to the contract: they make an existing clause of a sibling contract reachable. §1's
 own wording is "**Selected** command options", the command itself is unchanged, every existing
@@ -550,3 +562,77 @@ against itself and the debt is named rather than absorbed.
 `build` row, and a §4 sentence stating that the gate's rebuild takes the publication date from
 the approved commit's recorded report. Worth stating in §4 rather than only in §1: it is a
 property of the approval, not a convenience of the CLI.
+
+## 13. PR #13's own rebuild-proof evidence never reached `main`
+
+`wh40k-11e-2026-08-2` published successfully (`site/manifest.json`, `state/published-checksums.json`
+committed at `51e586bf`, live at `reports/wh40k-11e-2026-08-2/`) — this item is not about the
+release, which is sound. It is about a process gap the release's own paper trail left behind.
+
+PR #11 (this item's own fix, item 12) merged **to `main`** at 2026-08-13T13:06:13Z. PR #13
+("Candidate wh40k-11e-2026-08-2, rebuilt on a later day") merged one minute later, at 13:07:27Z —
+but its base branch was `fix/published-at-input`, not `main`, because the candidate branch it
+carried had to be re-authored on top of item 12's fix before `publish.yml`'s rebuild step could
+reach it (the rebuild installs the checked-out commit's own code). Nobody re-merged
+`fix/published-at-input` into `main` afterward. The result: `reports/006-published-at-fix/
+rebuild-proof.md` — the one file PR #13 added, and the whole of its evidence that a rebuild on
+2026-08-13 reproduces the `expect_sha256` approved on 2026-08-12 — exists on
+`origin/fix/published-at-input` (head `69d5a9df`) and is unreachable from `origin/main`.
+
+**Why this did not block or corrupt the release.** `publish.yml` dispatched against `main`'s own
+head at the time (`781bb6ce`, PR #11's merge commit, which already carried item 12's fix on the
+approved candidate's committed `data/`/`reports/` tree), rebuilt it, and the rebuild's own checksum
+assertion — the thing `expect_sha256` exists to check — passed for real, live, in that run
+(`https://github.com/The-BadgerWorks/wargame-rules-data/actions/runs/31703446027`). The published
+bytes are exactly what was approved. What is missing from `main` is only the **standalone written
+record** of the local proof PR #13's description walks through; the gate re-proved the same claim
+itself, independently, at publish time.
+
+**Not fixed here**, because doing so is a git operation on repository history
+(cherry-pick or merge `fix/published-at-input`'s remaining commits onto `main`) that a documentation
+task should not perform as a side effect, and because the fact it would recover — a rebuild on
+2026-08-13 reproduces the 2026-08-12 approval — is now redundantly proven by the live publish run
+itself. **Action needed**: a maintainer decides whether `reports/006-published-at-fix/
+rebuild-proof.md` is worth cherry-picking onto `main` for the historical record, or whether the
+live `publish.yml` run's own log is sufficient evidence and the orphaned branch can simply be
+deleted once PR #13 is confirmed fully superseded. Either way, this is the kind of drift a
+release-branch topology with two active fix branches invites, and it is worth a process note for
+the next candidate that needs a fix landed mid-review: prefer basing the fix directly on `main` and
+rebasing the candidate onto `main` afterward, rather than the reverse.
+
+## 14. Nothing tests the equipment-overrides escape hatch (006 T031)
+
+006 T031 built the equipment-overrides curation escape hatch — `EquipmentOverrideEntry`/
+`EquipmentOverrideItem` (`pipeline/models/authored.py`), `schemas/curation/
+equipment-overrides.schema.json`, `pipeline/curate/authored.py`'s `equipment_override_for` lookup
+and its dangling-reference checks, and the `.github/CODEOWNERS` line for
+`/curation/equipment-overrides.json` — mirroring the option-overrides escape hatch T023 extended
+the same phase.
+
+**What T023's sibling has that T031's does not**: `tests/enrichment/test_composition_option_overrides.py`
+exercises the option-override path directly — an override resolving an `OPT-UNPARSED` row, an
+override naming a datasheet/line/weapon row that does not exist (each asserted blocking), and a
+still-valid override on a suppressed composition row. A repository-wide search for
+`EquipmentOverride`, `equipment_override_for`, and `equipment-overrides` under `tests/` at the time
+of this review (006 T053) returns **zero matches** outside the implementation itself and
+`curation/README.md`-style documentation. No fixture in `fixtures/enrichment/curation/` exercises
+`equipment-overrides.json` either, and no `curation/equipment-overrides.json` has ever been
+authored in this repository — the escape hatch has never been exercised end to end, by a test or by
+a real override.
+
+**Why this is a real gap and not a scope mismatch.** `data-model.md` §4 describes the equipment
+override in the same terms as the option override, and plan.md's Requirement-to-component mapping
+lists FR-011 (extended overrides) as covering both. Nothing in spec.md's Acceptance Scenarios or
+Verification Evidence Plan calls out an equipment-override test by name, which is why it did not
+block T051's scenario-to-evidence mapping — but the code path it names (a dangling `weapon_line` or
+`composition_line` failing validation, a resolved override clearing an `EQP-UNPARSED` finding) is
+untested today.
+
+**Not fixed here**, for the same reason item 3 was left alone: writing the missing test is a
+substantive addition to `tests/enrichment/`, not a documentation task, and belongs in its own
+change rather than riding along inside a Polish-phase review. **Action needed**: extend
+`tests/enrichment/test_composition_option_overrides.py` (or a new sibling file) with the equipment
+equivalent of its existing option-override cases — a resolving override, a dangling-datasheet
+override, a dangling-line override, a dangling-weapon-row override — before the first real
+`curation/equipment-overrides.json` is authored against live data, so the first real use of the
+escape hatch is not also the first test of it.

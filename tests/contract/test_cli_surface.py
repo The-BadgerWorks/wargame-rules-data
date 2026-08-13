@@ -50,7 +50,7 @@ CONTRACT_COMMANDS = {
 #: bump of a cross-repository contract, which a feature branch may not perform as a side effect
 #: -- the same reasoning `PENDING_CONTRACT_SEVERITIES` records in the finding-catalogue test.
 #: They are asserted here exactly as the contract commands are, so the drift protection is
-#: unchanged; only the paperwork is owed (`docs/follow-ups.md` item 10).
+#: unchanged; only the paperwork is owed (`docs/follow-ups.md` item 11).
 #:
 #: The property that makes implementing ahead safe: an evidence command is NOT on the
 #: approval-gate path. It writes a report, it writes nothing under `data/`, `curation/`, or
@@ -77,7 +77,7 @@ CONTRACT_COMMAND_OPTIONS = {
 
 #: Options the contract does NOT declare, implemented ahead of the §1 amendment they are owed,
 #: exactly as `PENDING_CONTRACT_COMMANDS` above and for the same frozen-contract reason
-#: (`docs/follow-ups.md` item 11).
+#: (`docs/follow-ups.md` item 12).
 #:
 #: The property that makes implementing ahead safe *here* is different from the evidence
 #: command's, because these two ARE on the approval-gate path: they do not extend the contract,

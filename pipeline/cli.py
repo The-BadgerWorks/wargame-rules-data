@@ -209,7 +209,7 @@ COMMANDS: Final[tuple[str, ...]] = (
 #: `contracts/pipeline-run-interface.md` is **frozen at 1.0.2** and a ninth operational command
 #: is a MINOR bump of a cross-repository contract, not something a feature branch may do as a
 #: side effect. This mirrors `pipeline/report/catalogue.py`'s own precedent for a code
-#: implemented ahead of its contract row; the owed §1 addition is `docs/follow-ups.md` item 10.
+#: implemented ahead of its contract row; the owed §1 addition is `docs/follow-ups.md` item 11.
 EVIDENCE_COMMANDS: Final[tuple[str, ...]] = ("option-regression",)
 
 #: The global options (§1). Accepted before or after the command.
@@ -221,7 +221,7 @@ GLOBAL_OPTIONS: Final[frozenset[str]] = frozenset(
 #: contract's own set for the same reason :data:`EVIDENCE_COMMANDS` is held apart from
 #: :data:`COMMANDS`: `pipeline-run-interface.md` is frozen at 1.0.2, and adding an option to a
 #: declared command is a MINOR bump of a cross-repository contract. The owed §1 amendment is
-#: `docs/follow-ups.md` item 11.
+#: `docs/follow-ups.md` item 12.
 #:
 #: What makes implementing ahead defensible here: these options do not *extend* the contract,
 #: they make an existing clause reachable. `curated-snapshot-format.md` §6 already requires that

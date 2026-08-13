@@ -3,7 +3,13 @@
      serves, cross-referencing the `purpose` string already in the code and the module
      docstring's FR references, per contracts/pipeline-run-interface.md §5.
      AI-Assisted: Claude Code (model: claude-opus-5) - Recorded the dotenv-quoting rule beside
-     the resolution order (004 T076 follow-up), with the incident that made it a rule. -->
+     the resolution order (004 T076 follow-up), with the incident that made it a rule.
+     AI-Assisted: Claude Code (model: claude-sonnet-5) - 006 T050: documented
+     WGC_RATCHET_TOLERANCE_OPTIONS (the only new CONFIG_VARS entry T009 added — the
+     equipment-vocabulary knob it considered turned out not to be needed, per research D1e's
+     ≈99.5% coverage of the measured subject vocabulary with no tunable threshold) and the two
+     `build` options `--published-at` / `--published-at-from-report` that follow-ups item 12
+     added ahead of their owed pipeline-run-interface.md §1 amendment. -->
 # Configuration
 
 Every variable the pipeline reads is declared exactly once, in `pipeline/config.py`'s
@@ -62,8 +68,32 @@ this page.
 | `WGC_RESTRICTION_VOCABULARY_VERSION` | `1` | Stamped into `snapshotMeta` alongside the schema version, identifying which restriction-code vocabulary the snapshot's detachment/enhancement restrictions were written against. | Restriction-vocabulary compatibility. |
 | `WGC_SUMMARY_MAX_CHARS` | `1000` | The target length ceiling for an authored ability summary. Raised from `240` by Product Owner decision on 2026-08-06 — full-fidelity summaries beat brevity, and a multi-clause mechanic stated completely is worth more than one that fits a phone line. The three sibling class targets (`WGC_FACTION_RULE_MAX_CHARS`, `WGC_DETACHMENT_RULE_MAX_CHARS`, `WGC_GLOSSARY_MAX_CHARS`) moved with it. `SUM-OVERLENGTH` is the advisory finding an approved summary over this length raises (`docs/authoring-summaries.md`). | Summary length target (FR-022). |
 | `WGC_UNVERIFIED_ESCALATE_RELEASES` | `2` | How many consecutive releases a datasheet may carry `pricing_confidence: unverified` before the advisory `PRC-UNVERIFIED-STALE` finding fires — the early signal that a unit has quietly left the authoritative source's listing. | Unverified-pricing escalation. |
+| `WGC_RATCHET_TOLERANCE_OPTIONS` | `0.00` | The proportion `pipeline/validate/gates.py`'s `COV-OPTION-REGRESSION` check allows `loadout.options_resolved` (the proportion of published datasheets whose `wargear_option_state` is `none` or `extracted`) to fall below the previous **published** version's own percent before it raises the blocking finding. Same shape as the four `WGC_RATCHET_TOLERANCE_*` variables above it, joining them unchanged. Deliberately the **only** variable `006-unit-loadout-fidelity` added: the 2026-08-09 clarification ratchets resolved-option coverage with no absolute ceiling, so no separate threshold knob exists for it, and an equipment-vocabulary knob was considered and dropped — the five subject productions cover ≈99.5% of the measured default-equipment sentences with nothing left to tune. `loadout.default_equipment` is reported every build but carries no ratchet and no tolerance variable in this first extended release, because there is nothing yet to compare it against. | Resolved-option coverage regression tolerance (006 FR-022). |
 | `WGC_NOTIFY_WEBHOOK_URL` | *(empty)* | **Sensitive.** See below. | Notification delivery (FR-052, FR-055). |
 | `WGC_MECHANIC_DIGEST_KEY` | *(empty)* | **Sensitive.** See below. | Keyed mechanic digest (research D6, C6/R8). |
+
+## The publication date: `build --published-at` / `--published-at-from-report`
+
+Not a `CONFIG_VARS` entry — a `build` command option — but documented here because it resolves the
+same configuration-table promise `curated-snapshot-format.md` §6 has made since `002`: that
+`snapshotMeta.publishedAt` is "an explicit build input rather than `now`." Until `006`'s
+`fix/published-at-input` change landed, nothing on the CLI could actually supply one; every build
+silently stamped `datetime.now(UTC).date()` regardless.
+
+| Option | Effect |
+|---|---|
+| *(neither given)* | `publishedAt` is today's UTC date. Correct for a **first** build of a candidate — `candidate.yml` passes neither option, so a fresh candidate still stamps its own build day. |
+| `--published-at <YYYY-MM-DD \| YYYY-MM-DDTHH:MM:SSZ>` | An explicit date, for reproducing a historic build outside CI. Strict about the timezone: a local offset would make one real moment two different strings, and therefore two different checksums, for the same approval. |
+| `--published-at-from-report` | Reads the date out of **this checkout's own** `reports/<rulesVersionId>/report.json`, which `candidate.yml` commits beside `data/` at candidate-build time. This is the option `publish.yml`'s rebuild step passes, so the date the approval names travels with the approved commit rather than with whatever day the dispatch happens to land on. |
+
+Both options are mutually exclusive with each other and refuse a malformed or missing date with
+`ExitCode.CONFIG_ERROR` (`60`) rather than falling back to the clock — a silent fallback is exactly
+the defect this pair replaces. Neither is yet a declared row of `contracts/pipeline-run-interface.md`
+§1 (frozen at 1.0.2); `pipeline/cli.py`'s `PUBLISHED_AT_OPTIONS` and `tests/contract/
+test_cli_surface.py`'s `PENDING_CONTRACT_COMMAND_OPTIONS` hold them apart from the contract's own
+declared set for exactly that reason (`docs/follow-ups.md` item 12). See `docs/runbook.md`'s "The
+publication date, and the exit 51 that is not a content change" for the operational read of what to
+do when a publish run exits `51` after this fix.
 
 ## What is deliberately *not* here
 
