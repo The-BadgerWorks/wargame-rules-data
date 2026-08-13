@@ -126,6 +126,28 @@ Two properties worth stating, because a reader will otherwise assume the opposit
   header names and `GF15`'s near-miss name are deliberately absent from their own entries, the
   zero-match case.
 
+## The equivalence-check fixture pair `007` added (Setup phase, T010)
+
+Two more datasheets, HTML-only this time (the equivalence check, `007` FR-019-FR-022, reads
+source text from the same in-memory `detail` the html-mode extractor produces — see `research.md`
+D6 and `reports/equivalence-availability/`).
+
+| Datasheet | What it carries | Why |
+|---|---|---|
+| `GF16` Emberlight Watch | a single-item, whole-unit default-equipment sentence — `Every model is equipped with: qzolthgeist rod.` — worded so its rendering (once `render/loadout.py` exists) is byte-identical to the source sentence itself, not merely normal-form-equal | the equivalence check's **matching** pair (T050), and — because `qzolthgeist` is a distinctive invented token found nowhere else in this repository — the **retention test** fixture (T051): grep every artifact a run writes for it and expect zero hits |
+| `GF17` Duskmire Sentry | the same shape, stating `glow lance` — paired with a `curation/equipment-overrides.json` entry that publishes `storm maul` instead | the equivalence check's **mismatched** pair (T050): the published/rendered equipment deliberately disagrees with the card's own raw sentence, still readable in-process during a build |
+
+**The `not_compared` case needs no new fixture.** `GF09` Fenwatch Sentinel already states no
+default-equipment sentence at all (`006`'s own FR-015 fixture) — exactly contract §9's second
+`not_compared` reading, "the block rendered empty because every row was legitimately omitted."
+
+**Neither `GF16` nor `GF17` can be proven against `render/loadout.py` yet** — that module does not
+exist until `007` Phase 6 (T044) lands. Both are constructed so the claim is checkable by
+inspection today: `GF16`'s wording is chosen to equal contract §3.3's `E.group.unit` template
+(`Every model is equipped with: {itemList}.`) verbatim once the single item's stored name fills
+the slot, and both cards' equipment sentences are confirmed (by this Setup phase) to parse through
+`pipeline.parse.equipment_grammar.parse_sentence` unmodified.
+
 ## Using them
 
 ```bash

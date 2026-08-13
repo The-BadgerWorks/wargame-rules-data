@@ -29,5 +29,18 @@
       }
     ],
     "note": "Invented fixture row. model_name is present exactly because applies_to is model_group, which is the biconditional the model validator enforces."
+  },
+  {
+    "datasheet_id": "ds-duskmire-sentry",
+    "line": 1,
+    "applies_to": "unit",
+    "items": [
+      {
+        "item_name": "storm maul",
+        "count": 1,
+        "weapon_line": 2
+      }
+    ],
+    "note": "007 T010: equivalence-check MISMATCHED-pair fixture. The card states 'glow lance'; this override publishes 'storm maul' instead, a deliberate one-way disagreement for the RND-EQV-MISMATCH case."
   }
 ]
