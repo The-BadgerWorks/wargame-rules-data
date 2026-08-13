@@ -17,6 +17,11 @@
 # 003 spec. Non-interference with publication is by construction: `if: success()`,
 # `continue-on-error: true`, and the `|| echo` fallback keep a failed, refused, timed-out, or
 # unconfigured notification from ever failing this job or altering its outcome.
+# AI-Assisted: Claude Code (model: claude-opus-5) - Bound the rebuild's publication date to the
+# approved commit's own recorded report (`--published-at-from-report`), after run 31657300051
+# refused `wh40k-11e-2026-08-2` with exit 51 on a bundle whose only difference from the approved
+# one was `snapshotMeta.publishedAt` — the dispatch day, because `published_at` had never been
+# reachable from the CLI (FR-033, FR-039).
 name: publish
 
 # `workflow_dispatch` and nothing else. This is the only code path in the repository that can
@@ -150,12 +155,27 @@ jobs:
       # curator reproducing this on a laptop would (contract §1's "no CI-only code path").
       # Exit 20 (valid with advisory findings) is a publishable rebuild — the gate below
       # re-validates and refuses blocking findings itself. Only 0 and 20 proceed.
+      #
+      # `--published-at-from-report` is what makes the checksum assertion below survive a
+      # calendar day. `snapshotMeta.publishedAt` is the one timestamp in the bundle
+      # (curated-snapshot-format.md §6), so a rebuild that stamped its own UTC day produced a
+      # bundle differing from the approved one in exactly that field and exit 51'd — which is
+      # what happened to `wh40k-11e-2026-08-2`, approved on the 12th and dispatched on the 13th.
+      #
+      # The date is read from THIS CHECKOUT's `reports/<id>/report.json`, which `candidate.yml`
+      # committed beside `data/` when it built the candidate. That is deliberate, and it is why
+      # this is not a fifth `workflow_dispatch` input: the published date has to be a property
+      # of the approved commit, not of the dispatch. A typed input could disagree with what was
+      # approved, and the gate below — which reads `publishedAt` back out of this very rebuild —
+      # would have no way to notice. A missing or unreadable record exits 60 here rather than
+      # falling back to the clock, because a silent fallback is the defect this replaced.
       - name: Rebuild the snapshot from the approved commit
         run: |
           set +e
           rules-pipeline build \
             --channel "${{ inputs.channel }}" \
-            --rules-version-id "${{ inputs.rules_version_id }}"
+            --rules-version-id "${{ inputs.rules_version_id }}" \
+            --published-at-from-report
           code=$?
           if [ "$code" -ne 0 ] && [ "$code" -ne 20 ]; then
             exit "$code"
