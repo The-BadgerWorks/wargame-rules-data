@@ -1,0 +1,70 @@
+{
+  "_comment": "AI-Assisted: Claude Code (model: claude-opus-5) - Authored per 006 data-model.md section 4 (006 task T031), for curation/equipment-overrides.json. Keyed (datasheet_id, line): a curator's resolution for a default-equipment sentence research D1e's compound-and-conditional tail left unresolved. THERE IS DELIBERATELY NO POINTS FIELD ANYWHERE IN THIS SCHEMA -- default equipment is what a model already carries and costs nothing by definition, so there is nowhere here for a number to go, and a schema with nowhere to put a price is a stronger control than a review rule saying not to. Likewise there is no description field: a sentence is a subject plus item names, which is what stops this class becoming a prose channel (Constitution Principle 4). Modelled on option-overrides.schema.json's shape so a curator who has written one has written both.",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://the-badgerworks.github.io/wargame-rules-data/schemas/curation/equipment-overrides.schema.json",
+  "title": "curation/equipment-overrides.json",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": ["datasheet_id", "line", "applies_to", "items"],
+    "properties": {
+      "datasheet_id": { "type": "string", "pattern": "^ds-[a-z0-9-]+$" },
+      "line": {
+        "type": "integer",
+        "minimum": 1,
+        "description": "the sentence's own ordinal within the composition block, which is also its display order and the source of its id"
+      },
+      "applies_to": {
+        "enum": ["unit", "model_group"],
+        "description": "Whom the sentence covers. An EXPLICIT code rather than the presence of composition_line, because a nullable link alone cannot tell 'this covers the whole unit' from 'this names a group nobody could identify', and 006 FR-015 requires those two to be distinguishable."
+      },
+      "model_name": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 120,
+        "description": "Present exactly when applies_to is model_group. A NAME, never prose."
+      },
+      "composition_line": {
+        "type": "integer",
+        "minimum": 1,
+        "description": "The datasheet's own composition row this sentence attaches to. Stated by the curator and USED, never re-derived: the pipeline resolves this link by name and omitted it here because it could not. Omit it when the sentence genuinely covers rows the source does not separate -- research D1e measured 195 cards where one sentence covers two composition rows, and on those the honest answer is applies_to = unit with no link at all."
+      },
+      "items": {
+        "type": "array",
+        "minItems": 1,
+        "description": "The items the sentence names, in the source's own order. A stated weapon_line is USED and never re-derived.",
+        "items": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["item_name"],
+          "properties": {
+            "item_name": { "type": "string", "minLength": 1, "maxLength": 120 },
+            "count": {
+              "type": "integer",
+              "minimum": 1,
+              "description": "Omit when the source states none. Absence means the source said nothing; 1 would be this repository saying it instead."
+            },
+            "weapon_line": { "type": "integer", "minimum": 1 }
+          }
+        }
+      },
+      "note": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 240,
+        "description": "A curator's sentence about MECHANICS OR PROCESS. It must not quote source text."
+      }
+    },
+    "allOf": [
+      {
+        "if": {
+          "properties": { "applies_to": { "const": "model_group" } },
+          "required": ["applies_to"]
+        },
+        "then": { "required": ["model_name"] },
+        "else": { "not": { "required": ["model_name"] } }
+      }
+    ]
+  }
+}

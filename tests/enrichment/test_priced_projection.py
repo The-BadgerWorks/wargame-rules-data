@@ -15,18 +15,21 @@ demonstrates.
 from __future__ import annotations
 
 import pytest
+from pydantic import ValidationError
 
 from pipeline.build.bundle_emit import emit_bundle
 from pipeline.build.canonical_json import dumps_bundle
 from pipeline.models.curated import (
     CuratedOptionChoice,
+    CuratedOptionChoiceItem,
     CuratedOptionGroup,
     CuratedWargearOption,
+    OptionItemRole,
     OptionScope,
     WargearOptionState,
 )
 from pipeline.models.findings import Severity
-from pipeline.parse.options_grammar import NO_CHANGE_NAME
+from pipeline.parse.options_grammar import MAX_CHOICE_NAME_CHARS, NO_CHANGE_NAME, parse_row
 from pipeline.reconcile.options_link import project_priced_options
 from pipeline.report.catalogue import CATALOGUE
 from tests import factories
@@ -191,3 +194,85 @@ def test_the_priced_rows_are_byte_identical_across_the_enrichment_boundary() -> 
     )
     # ...and the enrichment really did land, so the assertion above is not vacuous.
     assert enriched["datasheetOptionChoices"]
+
+
+# --- 006 US1: the bundle choice's price (T015) -------------------------------------------------
+#
+# A bundle choice is priced by the same rule a single-item one is, because it goes through the
+# same function unchanged. These cases exist to state that as a contract rather than to exercise
+# new code: the trichotomy below is what a consumer renders, and it has to stay total.
+
+
+def bundle(index: int, name: str, items: int, **overrides: object) -> CuratedOptionChoice:
+    """A choice whose joined name prices as a whole and whose items decompose it."""
+    return CuratedOptionChoice(
+        id=f"oc-glimmerfen-warden-1-{index}",
+        group_id=GROUP,
+        name=name,
+        items=[
+            CuratedOptionChoiceItem(
+                role=OptionItemRole.GRANTED, item_index=i, item_name=f"part {i}"
+            )
+            for i in range(1, items + 1)
+        ],
+        **overrides,  # type: ignore[arg-type]
+    )
+
+
+def test_a_bundles_joined_name_adopts_exactly_the_delta_the_points_source_states() -> None:
+    projected, findings = project_priced_options(
+        datasheet_id=DATASHEET,
+        choices=[bundle(1, "ember lance and close combat weapon", 2)],
+        priced=[priced("Ember lance and close combat weapon", 15)],
+    )
+    assert findings == []
+    assert projected[0].points_delta == 15
+    assert (
+        projected[0].priced_option_id == "wo-glimmerfen-warden-ember-lance-and-close-combat-weapon"
+    )
+
+
+def test_a_bundle_priced_at_a_genuine_zero_carries_that_zero() -> None:
+    # "explicitly free" and "uncosted" are different facts and stay distinguishable with no new
+    # field: `points_delta` present and 0, versus absent (guarantee 13).
+    projected, _findings = project_priced_options(
+        datasheet_id=DATASHEET,
+        choices=[bundle(1, "ember lance and void net", 2)],
+        priced=[priced("Ember lance and void net", 0)],
+    )
+    assert projected[0].points_delta == 0
+    assert projected[0].priced_option_id is not None
+
+
+def test_an_unpriced_bundle_carries_no_delta_field_at_all() -> None:
+    projected, _findings = project_priced_options(
+        datasheet_id=DATASHEET,
+        choices=[bundle(1, "ember lance and void net", 2)],
+        priced=[],
+    )
+    assert projected[0].points_delta is None
+    assert projected[0].priced_option_id is None
+
+
+@pytest.mark.parametrize("items", [1, 2, 4])
+def test_delta_and_priced_id_are_present_together_or_absent_together(items: int) -> None:
+    # Guarantee 13's invariant, over a bundle of any width including the one-element case that
+    # is what every `004` choice becomes. A consumer derives all three points states from this
+    # pair, so a choice carrying one without the other makes the derivation partial.
+    projected, _findings = project_priced_options(
+        datasheet_id=DATASHEET,
+        choices=[bundle(1, "ember lance", items), bundle(2, "void net", items)],
+        priced=[priced("Ember lance", 10)],
+    )
+    for choice_row in projected:
+        assert (choice_row.points_delta is None) == (choice_row.priced_option_id is None)
+
+
+def test_a_joined_name_over_the_ceiling_is_unparsed_rather_than_truncated() -> None:
+    # Research D3's 120-character ceiling. Truncating would produce a name that matches no
+    # weapon and no priced row while looking like it should - the failure mode a reader cannot
+    # see. The row goes to OPT-UNPARSED instead, where a curator can.
+    over = "a" * (MAX_CHOICE_NAME_CHARS + 1)
+    assert parse_row(f"This model can be equipped with 1 {over}.") is None
+    with pytest.raises(ValidationError):
+        CuratedOptionChoiceItem(role=OptionItemRole.GRANTED, item_index=1, item_name=over)

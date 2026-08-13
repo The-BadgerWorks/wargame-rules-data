@@ -19,7 +19,14 @@ from pathlib import Path
 
 import pytest
 
-from pipeline.cli import COMMAND_OPTIONS, COMMANDS, GLOBAL_OPTIONS, build_parser, main
+from pipeline.cli import (
+    COMMAND_OPTIONS,
+    COMMANDS,
+    EVIDENCE_COMMANDS,
+    GLOBAL_OPTIONS,
+    build_parser,
+    main,
+)
 from pipeline.exit_codes import STABLE_EXIT_CODES, ExitCode
 from pipeline.observability.ledger import LEDGER_RELATIVE_PATH
 
@@ -34,6 +41,20 @@ CONTRACT_COMMANDS = {
     "verify",
 }
 
+#: Commands the contract does NOT declare, implemented ahead of the §1 row they are owed.
+#: `pipeline-run-interface.md` is frozen at 1.0.2 and a ninth operational command is a MINOR
+#: bump of a cross-repository contract, which a feature branch may not perform as a side effect
+#: -- the same reasoning `PENDING_CONTRACT_SEVERITIES` records in the finding-catalogue test.
+#: They are asserted here exactly as the contract commands are, so the drift protection is
+#: unchanged; only the paperwork is owed (`docs/follow-ups.md` item 10).
+#:
+#: The property that makes implementing ahead safe: an evidence command is NOT on the
+#: approval-gate path. It writes a report, it writes nothing under `data/`, `curation/`, or
+#: `state/`, and no workflow branches on its exit code.
+PENDING_CONTRACT_COMMANDS = {
+    "option-regression",
+}
+
 CONTRACT_GLOBAL_OPTIONS = {
     "--channel",
     "--config",
@@ -45,6 +66,7 @@ CONTRACT_GLOBAL_OPTIONS = {
 
 CONTRACT_COMMAND_OPTIONS = {
     "build": {"--rules-version-id", "--since"},
+    "option-regression": {"--rules-version-id", "--since"},
     "publish": {"--commit-sha", "--expect-sha256"},
     "withdraw": {"--rules-version-id", "--reason"},
 }
@@ -66,7 +88,18 @@ def _option_strings(parser: argparse.ArgumentParser) -> set[str]:
 
 def test_the_command_set_is_exactly_the_contracts() -> None:
     assert set(COMMANDS) == CONTRACT_COMMANDS
-    assert set(_subparsers(build_parser())) == CONTRACT_COMMANDS
+    assert set(_subparsers(build_parser())) == CONTRACT_COMMANDS | PENDING_CONTRACT_COMMANDS
+
+
+def test_an_evidence_command_is_held_apart_from_the_contract_surface() -> None:
+    """The distinction that makes implementing ahead of a frozen contract defensible.
+
+    `COMMANDS` is the contract's own §1 list and stays exactly that, so anything reading it --
+    the docs, the runbook, a workflow -- sees the surface the contract declares. An evidence
+    command is reachable and documented, and it is not in that list.
+    """
+    assert set(EVIDENCE_COMMANDS) == PENDING_CONTRACT_COMMANDS
+    assert set(COMMANDS) & set(EVIDENCE_COMMANDS) == set()
 
 
 def test_the_commands_are_declared_in_the_contracts_order() -> None:
@@ -87,7 +120,7 @@ def test_the_global_option_set_is_exactly_the_contracts() -> None:
     assert _option_strings(build_parser()) == CONTRACT_GLOBAL_OPTIONS
 
 
-@pytest.mark.parametrize("command", sorted(CONTRACT_COMMANDS))
+@pytest.mark.parametrize("command", sorted(CONTRACT_COMMANDS | PENDING_CONTRACT_COMMANDS))
 def test_each_command_exposes_the_globals_plus_its_own_options(command: str) -> None:
     sub = _subparsers(build_parser())[command]
     expected = CONTRACT_GLOBAL_OPTIONS | CONTRACT_COMMAND_OPTIONS.get(command, set())

@@ -84,6 +84,11 @@ EMPTY_BUNDLE: dict[str, Any] = {
     "datasheetCompositions": [],
     "datasheetOptionGroups": [],
     "datasheetOptionChoices": [],
+    # 006 task T006. Present and empty is the retreat position the contract names: emit the
+    # three new arrays empty and omit the four new columns, and no consumer changes at all.
+    "datasheetOptionChoiceItems": [],
+    "datasheetEquipmentGroups": [],
+    "datasheetEquipmentItems": [],
     # 004 task T040. `chapterKeywords` is always present and empty until a curator classifies
     # something, exactly like every other array here.
     "chapterKeywords": [],

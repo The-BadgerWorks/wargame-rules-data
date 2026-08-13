@@ -109,7 +109,10 @@ def test_the_fixtures_unresolvable_row_is_the_one_named(
         for line, description in rows
         if parse_entry(description) is None
     }
-    assert unresolved == {("GF05", 1)}
+    # GF11 joined GF05 with 006 T004: a datasheet whose composition does not resolve, so
+    # FR-016 has something to assert against -- its default-equipment sentence must not be
+    # attached to a composition structure that does not exist.
+    assert unresolved == {("GF05", 1), ("GF11", 1)}
 
 
 def test_cmp_unresolved_is_advisory_and_therefore_never_blocks_publication() -> None:

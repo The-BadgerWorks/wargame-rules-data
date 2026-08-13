@@ -2,6 +2,11 @@
 # T044), confirmed failing before pipeline/validate/gates.py existed: gate independence, the
 # gate-selects-a-code rule of contracts/authored-summary-gates.md §3, and the coverage ratchet
 # that applies whether or not a class's gate is on (004 FR-029, FR-030, SC-011, SC-013).
+# AI-Assisted: Claude Code (model: claude-opus-5) - Added the COV-OPTION-REGRESSION ratchet's
+# suite (006 task T037), confirmed failing before pipeline/validate/gates.py knew the code: a
+# missing baseline never blocks, a fall past the tolerance blocks, an improvement and a hold never
+# do, a rejected candidate never moves the baseline, and loadout.default_equipment is reported
+# without being ratcheted (006 FR-022, research D4).
 """A gate selects a code. It never selects a severity, and it never selects another class's.
 
 This is the single most important rule in `contracts/authored-summary-gates.md`, and the reason
@@ -17,6 +22,7 @@ could quietly fall back to 30% precisely because nothing was blocking on it yet.
 
 from __future__ import annotations
 
+import json
 from pathlib import Path
 
 import pytest
@@ -24,18 +30,33 @@ import pytest
 from pipeline.cli import run_build
 from pipeline.config import Gate, load_config
 from pipeline.curate.authored import load_authored
+from pipeline.curate.prior import (
+    previous_loadout_coverage,
+    previous_summary_coverage,
+    prior_from_snapshot,
+)
 from pipeline.models.authored import ReviewState, SummaryClass
+from pipeline.models.curated import DefaultEquipmentState, WargearOptionState
 from pipeline.models.findings import Severity
 from pipeline.report.catalogue import CATALOGUE
+from pipeline.validate.coverage import (
+    DEFAULT_EQUIPMENT_KEY,
+    LOADOUT_RATCHETED_KEYS,
+    OPTIONS_RESOLVED_KEY,
+    LoadoutCoverage,
+    check_coverage,
+    loadout_coverages,
+)
 from pipeline.validate.gates import (
     ClassCheck,
+    check_option_ratchet,
     check_summary_gates,
     check_summary_ratchet,
     class_coverage,
     faction_rule_keys,
 )
 from tests.enrichment.test_class_state_machine import KEYS, record
-from tests.factories import faction, snapshot
+from tests.factories import datasheet, faction, snapshot
 
 FIXTURE_CURATION = Path(__file__).resolve().parents[2] / "fixtures" / "enrichment" / "curation"
 
@@ -395,3 +416,307 @@ def test_the_report_carries_one_coverage_row_per_wired_class(
     assert "summaries.abilities" in result.report.coverage
     assert "summaries.faction_rules" in result.report.coverage
     assert result.report.coverage["summaries.abilities"].ratio == 1.0
+
+
+# --- the second ratchet: resolved-option coverage (006 FR-022, research D4) ----------------------
+#
+# A SECOND, stricter test over the counts `pipeline/validate/coverage.py` already computes for its
+# `wargear_options` collapse check. The two are not redundant and the difference is the whole
+# point: the collapse check compares this version's COUNT with the previous version's count
+# against a configured floor, and so tolerates a steady 10% decline indefinitely. This compares
+# PERCENTS, against the previous PUBLISHED version, with a tolerance that defaults to nothing.
+#
+# Raising `WGC_COVERAGE_MIN_OPTION_RATIO` to 1.0 instead would not do: that ratio's denominator
+# moves. A release in which the source adds 40 datasheets can raise the count while lowering the
+# proportion, and SC-001 is about the proportion.
+
+
+def _loadout(resolved: int, total: int, key: str = OPTIONS_RESOLVED_KEY) -> LoadoutCoverage:
+    return LoadoutCoverage(key=key, resolved=resolved, total=total)
+
+
+def _write_previous_report(
+    root: Path, rules_version_id: str, figures: dict[str, tuple[int, int]]
+) -> None:
+    directory = root / "reports" / rules_version_id
+    directory.mkdir(parents=True, exist_ok=True)
+    (directory / "report.json").write_text(
+        json.dumps(
+            {
+                "coverage": {
+                    name: {"current": current, "previous": 0, "ratio_percent": percent}
+                    for name, (current, percent) in figures.items()
+                }
+            }
+        ),
+        encoding="utf-8",
+    )
+
+
+def test_a_first_release_has_nothing_to_fall_from() -> None:
+    """No previous published version, no baseline, no block — the ratchet's introduction rule.
+
+    This is what makes it safe to add mid-campaign rather than needing a seeded baseline, and it
+    is the same rule `check_summary_ratchet` already lives by. The first extended release
+    ESTABLISHES the baseline; the one after it is the first that can regress.
+    """
+    assert check_option_ratchet(_loadout(0, 100), previous_percent=None, tolerance=0.0) == []
+
+
+def test_a_fall_below_the_previous_published_percent_blocks() -> None:
+    coverage = _loadout(30, 100)
+
+    findings = check_option_ratchet(coverage, previous_percent=40, tolerance=0.0)
+
+    assert [f.finding_code for f in findings] == ["COV-OPTION-REGRESSION"]
+    assert findings[0].severity is Severity.BLOCKING
+    assert findings[0].entity_refs == ("coverage:loadout.options_resolved",)
+
+
+def test_the_option_regression_detail_carries_integer_percents_only() -> None:
+    """The canonical scalar set excludes floats so report bytes stay reproducible."""
+    finding = check_option_ratchet(_loadout(30, 100), previous_percent=40, tolerance=0.05)[0]
+
+    assert finding.detail == {
+        "figure": "loadout.options_resolved",
+        "previous_ratio_percent": 40,
+        "current_ratio_percent": 30,
+        "tolerance_percent": 5,
+    }
+    assert all(isinstance(v, int) for k, v in finding.detail.items() if k != "figure")
+
+
+def test_an_improvement_is_never_an_option_regression() -> None:
+    assert check_option_ratchet(_loadout(60, 100), previous_percent=40, tolerance=0.0) == []
+
+
+def test_holding_the_previous_percent_exactly_is_never_a_regression() -> None:
+    """The boundary, stated rather than left to a `<` versus `<=` reading of the source."""
+    assert check_option_ratchet(_loadout(40, 100), previous_percent=40, tolerance=0.0) == []
+
+
+def test_an_option_drop_inside_the_configured_tolerance_is_not_a_regression() -> None:
+    assert check_option_ratchet(_loadout(38, 100), previous_percent=40, tolerance=0.02) == []
+
+
+def test_the_edge_of_the_option_tolerance_is_inside_it() -> None:
+    assert check_option_ratchet(_loadout(35, 100), previous_percent=40, tolerance=0.05) == []
+    assert check_option_ratchet(_loadout(34, 100), previous_percent=40, tolerance=0.05) != []
+
+
+def test_an_empty_option_denominator_is_complete_rather_than_zero() -> None:
+    """A snapshot with no datasheets has no outstanding option work to have failed at."""
+    assert _loadout(0, 0).ratio_percent == 100
+
+
+def test_default_equipment_is_reported_and_never_ratcheted(tmp_path: Path) -> None:
+    """Research D4: there is nothing yet to compare it against.
+
+    Inventing a first-release threshold for it would be exactly the absolute ceiling the
+    2026-08-09 clarification rules out — a figure that can wedge a release ahead of a parser fix.
+    It gets a report row (T039) and no gate.
+    """
+    _write_previous_report(tmp_path, "prev", {"loadout.default_equipment": (900, 90)})
+
+    assert previous_loadout_coverage(tmp_path, "prev") == {"default_equipment": (900, 90)}
+    assert LOADOUT_RATCHETED_KEYS == (OPTIONS_RESOLVED_KEY,)
+
+
+# --- the baseline: the previous PUBLISHED version, never the previous candidate ------------------
+
+
+def test_the_baseline_is_read_from_the_published_versions_retained_report(tmp_path: Path) -> None:
+    _write_previous_report(tmp_path, "v-published", {"loadout.options_resolved": (402, 19)})
+
+    assert previous_loadout_coverage(tmp_path, "v-published") == {"options_resolved": (402, 19)}
+
+
+def test_a_rejected_candidates_report_never_becomes_the_baseline(tmp_path: Path) -> None:
+    """The rejected candidate's report is sitting right there, and is not consulted.
+
+    `load_prior` resolves the version id from the channel MANIFEST, which only a publication
+    writes. A candidate that was reviewed and turned down leaves a `reports/<id>/report.json`
+    behind exactly like an approved one, and reading "the newest report" instead of "the report
+    of the published version" would let a rejected candidate lower the bar for the next one.
+    """
+    _write_previous_report(tmp_path, "v-published", {"loadout.options_resolved": (402, 19)})
+    _write_previous_report(tmp_path, "v-rejected", {"loadout.options_resolved": (10, 1)})
+
+    assert previous_loadout_coverage(tmp_path, "v-published") == {"options_resolved": (402, 19)}
+
+
+def test_no_previous_version_and_no_retained_report_both_yield_no_baseline(tmp_path: Path) -> None:
+    assert previous_loadout_coverage(tmp_path, None) == {}
+    assert previous_loadout_coverage(tmp_path, "never-published") == {}
+
+
+def test_an_unreadable_baseline_removes_the_ratchet_rather_than_stopping_the_run(
+    tmp_path: Path,
+) -> None:
+    """Acting on evidence is the ratchet's whole job; it cannot refuse for want of it."""
+    directory = tmp_path / "reports" / "v-corrupt"
+    directory.mkdir(parents=True)
+    (directory / "report.json").write_text("{not json", encoding="utf-8")
+
+    assert previous_loadout_coverage(tmp_path, "v-corrupt") == {}
+
+
+def test_the_summary_and_loadout_baselines_do_not_read_each_others_rows(tmp_path: Path) -> None:
+    """One generalised reader, two prefixes, and no leakage between them.
+
+    Worth an assertion because the generalisation is exactly where a bug would put
+    `summaries.abilities` into the option ratchet's baseline, where it would be a plausible
+    number that means nothing.
+    """
+    directory = tmp_path / "reports" / "v-mixed"
+    directory.mkdir(parents=True)
+    (directory / "report.json").write_text(
+        json.dumps(
+            {
+                "coverage": {
+                    "summaries.abilities": {"current": 7, "ratio_percent": 70},
+                    "loadout.options_resolved": {"current": 402, "ratio_percent": 19},
+                    "datasheets": {"current": 1, "ratio_percent": 100},
+                }
+            }
+        ),
+        encoding="utf-8",
+    )
+
+    assert previous_loadout_coverage(tmp_path, "v-mixed") == {"options_resolved": (402, 19)}
+    assert previous_summary_coverage(tmp_path, "v-mixed") == {"abilities": (7, 70)}
+
+
+# --- and the same two figures, computed from a snapshot the pipeline actually builds ------------
+
+
+def test_the_option_figure_counts_exactly_what_the_collapse_check_counts() -> None:
+    """One count, two tests over it — not two counts that could drift apart (T038).
+
+    `pipeline/validate/coverage.py` already had to decide what "resolved" means: `none` and
+    `extracted` both count, because a datasheet the source describes no options for is FINISHED
+    rather than outstanding. Counting it as a gap would make the figure fall every time a faction
+    of characters shipped. The ratchet reuses that decision rather than restating it.
+    """
+    resolved = datasheet("ds-a").model_copy(
+        update={"wargear_option_state": WargearOptionState.NONE}
+    )
+    extracted = datasheet("ds-b").model_copy(
+        update={"wargear_option_state": WargearOptionState.EXTRACTED}
+    )
+    partial = datasheet("ds-c").model_copy(
+        update={"wargear_option_state": WargearOptionState.PARTIAL}
+    )
+    unconsulted = datasheet("ds-d")
+
+    figures = loadout_coverages(snapshot(datasheets=[resolved, extracted, partial, unconsulted]))
+
+    assert figures[OPTIONS_RESOLVED_KEY].resolved == 2
+    assert figures[OPTIONS_RESOLVED_KEY].total == 4
+    assert figures[OPTIONS_RESOLVED_KEY].ratio_percent == 50
+
+
+def test_the_default_equipment_figure_reads_its_own_state_and_not_the_option_one() -> None:
+    """The two states routinely disagree on one card, which is why they are separate enums."""
+    both = datasheet("ds-a").model_copy(
+        update={
+            "wargear_option_state": WargearOptionState.PARTIAL,
+            "default_equipment_state": DefaultEquipmentState.EXTRACTED,
+        }
+    )
+    neither = datasheet("ds-b").model_copy(
+        update={"wargear_option_state": WargearOptionState.EXTRACTED}
+    )
+
+    figures = loadout_coverages(snapshot(datasheets=[both, neither]))
+
+    assert figures[OPTIONS_RESOLVED_KEY].resolved == 1
+    assert figures[DEFAULT_EQUIPMENT_KEY].resolved == 1
+    assert figures[DEFAULT_EQUIPMENT_KEY].total == 2
+
+
+# --- the loadout ratchet, wired end to end (006 T038, T039) -------------------------------------
+
+
+def test_a_build_reports_both_loadout_rows(tmp_path_factory) -> None:  # type: ignore[no-untyped-def]
+    """The rows exist on a first release, where the ratchet has nothing to compare against.
+
+    Reporting a figure and guarding it are separate acts, and this is the release that proves it:
+    the throwaway repository root gives the build no previous published version at all, so both
+    rows are stated and neither can block. The figure has to be *published* in this release for
+    the next one to have a baseline — which is what makes a ratchet introduced mid-campaign work
+    without a seeded number nobody measured.
+    """
+    result = _minimal_build(tmp_path_factory, {})
+
+    assert "loadout.options_resolved" in result.report.coverage
+    assert "loadout.default_equipment" in result.report.coverage
+    assert not [f for f in result.findings if f.finding_code == "COV-OPTION-REGRESSION"]
+
+
+def test_the_reported_row_agrees_with_the_collapse_checks_own_count() -> None:
+    """Two figures over one count, and this is the assertion that keeps it one count.
+
+    `wargear_options` (the collapse check) and `loadout.options_resolved` (the ratchet) state the
+    same numerator by construction — they call the same function. If that ever stops being true,
+    the report and the gate can disagree about whether a release regressed, and the report is
+    what an approver reads.
+
+    Note which of the two needs a baseline and which does not. The collapse row is a comparison
+    and simply does not exist on a first release; the loadout row is a proportion of *this*
+    snapshot and is stated always — which is what lets the first extended release publish the
+    figure the next one will be measured against.
+    """
+    current = snapshot(
+        datasheets=[
+            datasheet("ds-a").model_copy(
+                update={"wargear_option_state": WargearOptionState.EXTRACTED}
+            ),
+            datasheet("ds-b").model_copy(
+                update={"wargear_option_state": WargearOptionState.PARTIAL}
+            ),
+        ]
+    )
+    figures = check_coverage(
+        current, prior_from_snapshot(current, rules_version_id="v-prev"), load_config(env={})
+    ).figures
+
+    assert (
+        figures["wargear_options"].current
+        == loadout_coverages(current)[OPTIONS_RESOLVED_KEY].resolved
+        == 1
+    )
+
+
+def test_the_ratchet_refuses_a_candidate_that_fell_since_the_published_release() -> None:
+    """The end-to-end shape, assembled from the parts a real run assembles it from.
+
+    Not a whole build: a build cannot regress against a baseline no fixture has published, and
+    manufacturing one would mean writing a `report.json` and a manifest that say a release
+    happened. What matters is that the prior's percent, the config's tolerance and the snapshot's
+    own count meet in one comparison, which is exactly what this asserts.
+    """
+    partial = datasheet("ds-a").model_copy(
+        update={"wargear_option_state": WargearOptionState.PARTIAL}
+    )
+    resolved = datasheet("ds-b").model_copy(
+        update={"wargear_option_state": WargearOptionState.EXTRACTED}
+    )
+    coverages = loadout_coverages(snapshot(datasheets=[partial, resolved]))
+
+    findings = check_option_ratchet(
+        coverages[OPTIONS_RESOLVED_KEY],
+        previous_percent=90,
+        tolerance=load_config(env={}).ratchet_tolerance_options,
+    )
+
+    assert [f.finding_code for f in findings] == ["COV-OPTION-REGRESSION"]
+    assert CATALOGUE["COV-OPTION-REGRESSION"].severity is Severity.BLOCKING
+
+
+def test_the_default_tolerance_permits_nothing(tmp_path_factory) -> None:  # type: ignore[no-untyped-def]
+    """`WGC_RATCHET_TOLERANCE_OPTIONS` defaults to 0.00, like the four before it."""
+    assert load_config(env={}).ratchet_tolerance_options == 0.0
+    assert load_config(env={"WGC_RATCHET_TOLERANCE_OPTIONS": "0.05"}).ratchet_tolerance_options == (
+        0.05
+    )

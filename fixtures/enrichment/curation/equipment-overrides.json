@@ -1,0 +1,33 @@
+[
+  {
+    "datasheet_id": "ds-snarebound-wretches",
+    "line": 1,
+    "applies_to": "unit",
+    "items": [
+      {
+        "item_name": "snare net",
+        "count": 1,
+        "weapon_line": 1
+      }
+    ],
+    "note": "Invented fixture row. Its datasheet's composition line resolves to neither production, so FR-016 suppresses its equipment however well stated this override is."
+  },
+  {
+    "datasheet_id": "ds-mirebound-choir",
+    "line": 2,
+    "applies_to": "model_group",
+    "model_name": "Mirebound Chorister",
+    "composition_line": 2,
+    "items": [
+      {
+        "item_name": "resonance shard",
+        "count": 1,
+        "weapon_line": 4
+      },
+      {
+        "item_name": "void net"
+      }
+    ],
+    "note": "Invented fixture row. model_name is present exactly because applies_to is model_group, which is the biconditional the model validator enforces."
+  }
+]

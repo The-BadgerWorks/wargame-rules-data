@@ -33,7 +33,10 @@
     "factionRules",
     "detachmentRules",
     "keywordGlossary",
-    "datasheetCostContexts"
+    "datasheetCostContexts",
+    "datasheetOptionChoiceItems",
+    "datasheetEquipmentGroups",
+    "datasheetEquipmentItems"
   ],
   "properties": {
     "bundleFormatVersion": {
@@ -308,6 +311,10 @@
           "wargearOptionState": {
             "enum": ["none", "extracted", "partial"],
             "description": "004 additive column. Distinguishes a datasheet with genuinely no options from one whose options failed to extract (004 FR-016). OMITTED = the detail source was not consulted, which is a third fact again, and an existing row that acquires no value stays byte-identical to what it is today."
+          },
+          "defaultEquipmentState": {
+            "enum": ["none", "extracted", "partial"],
+            "description": "006 additive column (FR-015, FR-016). wargearOptionState's pattern reused without variation, so it needs no new consumer concept. none = the datacard states no default-equipment sentence. extracted = every sentence resolved. partial = at least one did not, and what resolved still ships. OMITTED = the source was not consulted, OR the datasheet's composition did not resolve -- in which case no equipment attaches at all, because there is no composition structure for it to attach to."
           }
         }
       }
@@ -572,7 +579,22 @@
           "parentGroupId": { "type": "string", "minLength": 1 },
           "defaultChoiceId": { "type": "string", "minLength": 1 },
           "minChoices": { "type": "integer", "minimum": 0 },
-          "maxChoices": { "type": "integer", "minimum": 0 }
+          "maxChoices": { "type": "integer", "minimum": 0 },
+          "eligibleModelName": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 120,
+            "description": "006 additive column (FR-004). The model name the stem restricts the option to. OMITTED when the source names no subset -- which is every group 004 already publishes. scope does NOT gain a fourth member for this: it is a declared closed set, and a consumer that validates it would reject a snapshot carrying a value it has never seen, which would be a MAJOR break wearing an additive costume."
+          },
+          "eligibleMaxCount": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "006 additive column (FR-004). The maximum number of that model the stem makes eligible. Independent of eligibleModelName: neither implies the other and neither is defaulted. Carried as the source states it and NOT reconciled against the named model's composition band (spec Clarifications, 2026-08-09)."
+          },
+          "isPerModel": {
+            "type": "boolean",
+            "description": "006 additive column (FR-004). True when the source distributes the option per eligible model rather than once across the unit. OMITTED when the source does not distinguish. Not a nicety: research D1c measured a distributive `can each` on 350 of 571 unparsed rows, and publishing one of those as a plain unit-scoped group would over-grant."
+          }
         }
       }
     },
@@ -602,6 +624,81 @@
             "minLength": 1,
             "description": "FK to datasheetWargearOptions.id. OMITTED when the points source does not price this choice."
           }
+        }
+      }
+    },
+    "datasheetOptionChoiceItems": {
+      "type": "array",
+      "description": "006 additive array. Sorted by (choiceId, role, itemIndex). One item on one side of one choice, which is what makes a multi-item replaced set and a multi-item granted bundle expressible (006 FR-005..FR-007). ONE array and not two: granted and replaced carry identical fields, are produced by one clause grammar, are linked by one join, and fail in one way, so the role is exactly what an enumerated code is for. EVERY choice has items, including the single-item ones 004 already publishes -- that redundancy is deliberate, it makes the consumer's read uniform, and it turns guarantee 12 into an invariant a test checks on every build. A choice whose items on one side number anything other than one carries NO singular grantsWeaponLine/replacesWeaponLine at all: filling it from the first item is the truncation this feature exists to remove.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["choiceId", "role", "itemIndex", "itemName"],
+        "properties": {
+          "choiceId": { "type": "string", "minLength": 1 },
+          "role": { "enum": ["granted", "replaced"] },
+          "itemIndex": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "1-based, in the SOURCE's own order; also display order. Zero inference."
+          },
+          "itemName": { "type": "string", "minLength": 1, "maxLength": 120 },
+          "count": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "OMITTED when the source states none, and never defaulted to 1. Permitted and normally absent on a replaced row."
+          },
+          "weaponLine": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "FK to datasheetWeapons.line. OMITTED when the name match is not unique -- never guessed (006 FR-007). An unlinked item ships, and discards neither its siblings nor its choice."
+          }
+        }
+      }
+    },
+    "datasheetEquipmentGroups": {
+      "type": "array",
+      "description": "006 additive array. Sorted by id. One default-equipment sentence from the datacard, and WHO it applies to (006 FR-012, FR-013). appliesTo is an explicit code rather than the presence of compositionLine, because a nullable FK alone cannot tell 'this sentence covers the whole unit' from 'this sentence names a group I could not identify', and FR-015 requires those two to be distinguishable. compositionLine is resolved by NAME and never by ordinal: research D1e measured 195 cards carrying two composition rows and one equipment sentence, where any positional pairing would be wrong.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "datasheetId", "line", "appliesTo"],
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "description": "eq-<datasheet-stem>-<line>, derived from the sentence's own source ordinal, so identity is stable across snapshots for the same real-world sentence."
+          },
+          "datasheetId": { "type": "string", "minLength": 1 },
+          "line": { "type": "integer", "minimum": 1 },
+          "appliesTo": { "enum": ["unit", "model_group"] },
+          "modelName": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 120,
+            "description": "Present exactly when appliesTo is model_group. A name, never prose."
+          },
+          "compositionLine": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "FK to datasheetCompositions.line. OMITTED when the subject does not resolve to exactly one composition row -- never guessed."
+          }
+        }
+      }
+    },
+    "datasheetEquipmentItems": {
+      "type": "array",
+      "description": "006 additive array. Sorted by (groupId, itemIndex). One item a group carries by default. An item whose name matches zero or two-or-more weapon lines ships UNLINKED, and neither its siblings nor its group is discarded (006 FR-014) -- 004's OPT-LINK-AMBIGUOUS discipline applied to a second class.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["groupId", "itemIndex", "itemName"],
+        "properties": {
+          "groupId": { "type": "string", "minLength": 1 },
+          "itemIndex": { "type": "integer", "minimum": 1 },
+          "itemName": { "type": "string", "minLength": 1, "maxLength": 120 },
+          "count": { "type": "integer", "minimum": 1 },
+          "weaponLine": { "type": "integer", "minimum": 1 }
         }
       }
     },

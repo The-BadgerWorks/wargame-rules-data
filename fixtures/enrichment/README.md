@@ -57,6 +57,37 @@ opening another repository. **A new quirk gets a fixture before it gets a parser
 | `detachment_rules` | two factions · mixed review states · two entries sharing a rule name across factions · a detachment owning more than one rule |
 | `glossary` | one keyword used by several factions · casing/spacing/punctuation variants · a numeric-parameter keyword · a keyword only on weapon profiles · an orphaned entry · a digest-less entry |
 
+## The quirk classes `006-unit-loadout-fidelity` added
+
+`006` extends the same two grammars, so it extends this catalogue rather than starting another
+one. Five datacards joined `wahapedia-html/glimmerfen-covenant.html`, with their option and
+composition rows mirrored into `wahapedia/` — the option grammar is mode-blind and has to be
+proven so over the new shapes exactly as it was over the old ones.
+
+| Datasheet | What it carries | Why |
+|---|---|---|
+| `GF07` Purgeflight Wardens | one invented row per research D1b class (1a-1f, 2-13) plus the Purgation-Squad shape: a scoped stem naming a model subset and a maximum, a multi-item **replaced** set, and multi-item **granted** bundles | US1's whole surface. Also the legacy conflated single-string bundle label (the O1 class, which *parses today*), a `can each` distributive head, a footnote marker inside a stem, an item naming **two** weapon lines (`tide hammer`) and one naming **none** (`void net`) |
+| `GF08` Mirebound Choir | two default-equipment sentences, each naming a different model group | FR-013's differentiated leader/squad shape, with one unlinkable item in each group |
+| `GF09` Fenwatch Sentinel | **no** default-equipment sentence, and no options at all | FR-015: absence has to be distinguishable from a failed extraction |
+| `GF10` Gloamtide Host | two composition rows and **one** whole-unit equipment sentence | Research D1e measured this on 195 cards. The correct result is `appliesTo = unit` with no `compositionLine`, which is why the link is resolved by name and never by ordinal |
+| `GF11` Snarebound Wretches | a composition line neither production resolves, plus an equipment sentence | FR-016: no equipment attaches to a composition structure that does not exist |
+
+`curation/option-overrides.json` and `curation/equipment-overrides.json` carry the override
+escape hatch in both shapes: one row in `006`'s extended shape (eligibility scope, per-choice
+`items`) and one in `004`'s single-item shape **unchanged**, because FR-011 requires an override
+written before this feature to keep validating and resolving identically after it.
+
+Two properties of the `006` additions are worth stating because a reader will otherwise assume
+the opposite:
+
+- **The new option rows are all residual today.** That is the point: they are the shapes the
+  `004` grammar was never built for. `tests/enrichment/test_options_grammar.py`'s pinned residual
+  is therefore scoped to `GF01`-`GF06`, so a deliberate `006` improvement cannot read as a `004`
+  regression there.
+- **Nothing in `GF07`-`GF11` is a capture.** Every model name, item name, count, and price is
+  invented, and the option rows carry the *grammar's* vocabulary because that is the only part of
+  a sentence a parser matches on.
+
 ## Using them
 
 ```bash

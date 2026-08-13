@@ -26,7 +26,7 @@
       "model_count": 5,
       "points": 65,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
+      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
     },
     {
       "copy_index_min": 1,
@@ -34,7 +34,7 @@
       "model_count": 10,
       "points": 120,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
+      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
     },
     {
       "copy_index_min": 3,
@@ -42,7 +42,7 @@
       "model_count": 5,
       "points": 75,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
+      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
     },
     {
       "copy_index_min": 3,
@@ -50,7 +50,7 @@
       "model_count": 10,
       "points": 130,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
+      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
     }
   ],
   "datasheet_id": "ds-scout-squad",
@@ -117,6 +117,26 @@
     },
     {
       "count": 1,
+      "grants_weapon_line": 1,
+      "group_id": "og-scout-squad-2",
+      "id": "oc-scout-squad-2-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "Astartes shotgun",
+      "replaces_weapon_line": 3
+    },
+    {
+      "count": 1,
+      "grants_weapon_line": 10,
+      "group_id": "og-scout-squad-2",
+      "id": "oc-scout-squad-2-2",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "combat knife",
+      "replaces_weapon_line": 3
+    },
+    {
+      "count": 1,
       "group_id": "og-scout-squad-3",
       "id": "oc-scout-squad-3-1",
       "is_default": false,
@@ -149,6 +169,11 @@
       "scope": "unit"
     },
     {
+      "id": "og-scout-squad-2",
+      "line": 2,
+      "scope": "unit"
+    },
+    {
       "id": "og-scout-squad-3",
       "line": 3,
       "scope": "per_n_models",
@@ -164,19 +189,19 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:b1e9512cc5e00188b530a3e70f4c3a71c7c560f604f6b9992c7fcf8ff76493ae",
-    "last_verified_version": "wh40k-11e-2026-08",
+    "last_verified_version": "wh40k-11e-2026-08-2",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
+    "points_acquisition_id": "mfm-20260812T223703Z-6694568f",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
-  "wargear_option_state": "partial",
+  "wargear_option_state": "extracted",
   "weapons": [
     {
       "ability_keywords": [

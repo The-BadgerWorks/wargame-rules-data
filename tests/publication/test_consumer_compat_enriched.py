@@ -40,7 +40,12 @@ from tests.contract.enrichment_bundle import (
     EXERCISE_ARMY_TOTAL,
     enriched_snapshot,
 )
-from tests.contract.test_additive_compatibility import NEW_ARRAYS, NEW_COLUMNS
+from tests.contract.test_additive_compatibility import (
+    ENRICHMENT_ARRAYS,
+    ENRICHMENT_COLUMN_PAIRS,
+    NEW_ARRAYS,
+    NEW_COLUMN_PAIRS,
+)
 from tools.consumer_compat import TABLES, run
 
 
@@ -57,7 +62,7 @@ def _stripped(bundle: dict[str, Any]) -> dict[str, Any]:
     the consumer's behaviour, which is the one thing this comparison must not tolerate.
     """
     out = {name: value for name, value in bundle.items() if name not in NEW_ARRAYS}
-    for array, column in NEW_COLUMNS.items():
+    for array, column in sorted(NEW_COLUMN_PAIRS):
         out[array] = [
             {key: value for key, value in row.items() if key != column} for row in out[array]
         ]
@@ -92,8 +97,12 @@ def test_the_bundle_under_test_carries_all_seven_arrays_and_three_columns(
 ) -> None:
     bundle = json.loads(bundles[0].read_text(encoding="utf-8"))
 
-    assert all(bundle[array] for array in NEW_ARRAYS)
-    for array, column in NEW_COLUMNS.items():
+    # Scoped to what 004 added, because that is what this fixture carries. 006's three arrays
+    # and its two eligibility/equipment columns are emitted empty and omitted until T021 and
+    # T030 populate them, and T042 is where this same proof is re-run over a loadout-extended
+    # bundle.
+    assert all(bundle[array] for array in ENRICHMENT_ARRAYS)
+    for array, column in sorted(ENRICHMENT_COLUMN_PAIRS):
         assert any(column in row for row in bundle[array]), f"{array}.{column} is never set"
 
 
@@ -114,7 +123,7 @@ def test_the_ingestor_names_none_of_the_new_arrays_or_columns() -> None:
     assert set(TABLES) & NEW_ARRAYS == set()
 
     named_columns = {column for _table, columns in TABLES.values() for column in columns}
-    assert named_columns & set(NEW_COLUMNS.values()) == set()
+    assert named_columns & {column for _array, column in NEW_COLUMN_PAIRS} == set()
 
 
 # --- and prices identically to the pre-enrichment run (FR-034) ----------------------------------

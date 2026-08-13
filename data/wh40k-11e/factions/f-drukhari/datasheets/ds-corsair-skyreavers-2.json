@@ -26,7 +26,7 @@
       "model_count": 5,
       "points": 75,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9"
+      "source_acquisition_id": "wahapedia-20260812T223905Z-9a337975"
     },
     {
       "copy_index_min": 1,
@@ -34,7 +34,7 @@
       "model_count": 10,
       "points": 140,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9"
+      "source_acquisition_id": "wahapedia-20260812T223905Z-9a337975"
     }
   ],
   "datasheet_id": "ds-corsair-skyreavers-2",
@@ -104,13 +104,55 @@
     }
   ],
   "name": "Corsair Skyreavers",
+  "option_choices": [
+    {
+      "count": 1,
+      "group_id": "og-corsair-skyreavers-2-2",
+      "id": "oc-corsair-skyreavers-2-2-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "blaster and 1 close combat weapon"
+    },
+    {
+      "count": 1,
+      "group_id": "og-corsair-skyreavers-2-2",
+      "id": "oc-corsair-skyreavers-2-2-2",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "flamer and 1 close combat weapon"
+    },
+    {
+      "count": 1,
+      "group_id": "og-corsair-skyreavers-2-2",
+      "id": "oc-corsair-skyreavers-2-2-3",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "fusion gun and 1 close combat weapon"
+    },
+    {
+      "count": 1,
+      "group_id": "og-corsair-skyreavers-2-2",
+      "id": "oc-corsair-skyreavers-2-2-4",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "shredder and 1 close combat weapon"
+    }
+  ],
+  "option_groups": [
+    {
+      "id": "og-corsair-skyreavers-2-2",
+      "line": 2,
+      "scope": "per_n_models",
+      "scope_n": 5
+    }
+  ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 2,
+    "consecutive_unverified_releases": 3,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,

@@ -18,7 +18,7 @@
       "model_count": 4,
       "points": 55,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9"
+      "source_acquisition_id": "wahapedia-20260812T223905Z-9a337975"
     }
   ],
   "datasheet_id": "ds-astartes-servitors",
@@ -64,20 +64,56 @@
     }
   ],
   "name": "Astartes Servitors",
+  "option_choices": [
+    {
+      "count": 1,
+      "group_id": "og-astartes-servitors-1",
+      "id": "oc-astartes-servitors-1-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "heavy bolter and 1 close combat weapon",
+      "replaces_weapon_line": 6
+    },
+    {
+      "count": 1,
+      "group_id": "og-astartes-servitors-1",
+      "id": "oc-astartes-servitors-1-2",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "multi-melta and 1 close combat weapon",
+      "replaces_weapon_line": 6
+    },
+    {
+      "count": 1,
+      "group_id": "og-astartes-servitors-1",
+      "id": "oc-astartes-servitors-1-3",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "plasma cannon and 1 close combat weapon",
+      "replaces_weapon_line": 6
+    }
+  ],
+  "option_groups": [
+    {
+      "id": "og-astartes-servitors-1",
+      "line": 1,
+      "scope": "unit"
+    }
+  ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 2,
+    "consecutive_unverified_releases": 3,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
     "points_edition_code": "wh40k-11e",
     "points_source": "none"
   },
-  "wargear_option_state": "partial",
+  "wargear_option_state": "extracted",
   "weapons": [
     {
       "ability_keywords": [

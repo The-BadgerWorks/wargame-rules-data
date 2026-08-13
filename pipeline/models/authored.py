@@ -28,9 +28,9 @@ from __future__ import annotations
 
 from collections.abc import Mapping, Sequence
 from enum import StrEnum
-from typing import Final
+from typing import Final, Self
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, ConfigDict, Field, model_validator
 
 from pipeline.build.canonical_json import JsonValue
 
@@ -419,6 +419,20 @@ class CompositionOverrideEntry(_Authored):
     note: str | None = None
 
 
+class OptionOverrideItem(_Authored):
+    """One item on one side of a curator-authored choice (`006` FR-005..FR-007, T005).
+
+    The curator's own decomposition of a multi-item swap. A stated ``weapon_line`` is **used and
+    never re-derived**: the point of an override is that the pipeline could not resolve the row,
+    so re-deriving the link here would overrule the human who did.
+    """
+
+    role: str = Field(description="granted | replaced")
+    item_name: str = Field(min_length=1, max_length=120)
+    count: int | None = Field(default=None, ge=1)
+    weapon_line: int | None = Field(default=None, ge=1)
+
+
 class OptionOverrideChoice(_Authored):
     """One curator-authored choice inside an :class:`OptionOverrideEntry`."""
 
@@ -428,6 +442,10 @@ class OptionOverrideChoice(_Authored):
     replaces_weapon_line: int | None = Field(default=None, ge=1)
     is_default: bool = False
     is_no_change: bool = False
+    items: Sequence[OptionOverrideItem] = ()
+    """Empty for a `004`-shaped override, and that is not a migration but a schema property:
+    every new member here is optional, so an override written before `006` validates and
+    resolves unchanged (FR-011)."""
 
 
 class OptionOverrideEntry(_Authored):
@@ -447,10 +465,63 @@ class OptionOverrideEntry(_Authored):
     line: int = Field(ge=1)
     scope: str = Field(description="unit | model | per_n_models")
     scope_n: int | None = Field(default=None, ge=1)
+    # `006` FR-004's eligibility scope. Three mutually independent optional members, and
+    # deliberately NOT a fourth member of `scope`: that column is a declared closed set, and a
+    # consumer that validates it would reject a snapshot carrying a value it has never seen.
+    eligible_model_name: str | None = Field(default=None, min_length=1, max_length=120)
+    eligible_max_count: int | None = Field(default=None, ge=1)
+    is_per_model: bool | None = None
     min_choices: int | None = Field(default=None, ge=0)
     max_choices: int | None = Field(default=None, ge=0)
     choices: Sequence[OptionOverrideChoice] = ()
     note: str | None = None
+
+
+class EquipmentOverrideItem(_Authored):
+    """One item of a curator-authored default-equipment sentence (`006` FR-012..FR-014, T005).
+
+    A stated ``weapon_line`` is **used and never re-derived**, for the same reason
+    :class:`OptionOverrideItem`'s is: the point of an override is that the pipeline could not
+    resolve the sentence, so re-joining it here would overrule the human who did.
+    """
+
+    item_name: str = Field(min_length=1, max_length=120)
+    count: int | None = Field(default=None, ge=1)
+    weapon_line: int | None = Field(default=None, ge=1)
+
+
+class EquipmentOverrideEntry(_Authored):
+    """``curation/equipment-overrides.json``, keyed ``(datasheet_id, line)`` (`006` §4).
+
+    The curator's resolution for a default-equipment sentence the grammar refused — research
+    D1e's compound-and-conditional tail. **No price field anywhere**, on the same terms as
+    :class:`OptionOverrideEntry`: default equipment is what a model already carries and costs
+    nothing by definition, so there is nowhere here for a number to go. **No description field**
+    either: a sentence is a subject plus item names, which is what stops this class becoming a
+    prose channel.
+
+    ``model_name`` is present **exactly when** ``applies_to`` is ``model_group`` — the same
+    biconditional :class:`pipeline.models.curated.CuratedEquipmentGroup` enforces, checked here
+    as well so a curator learns of the mistake at load time rather than at write time.
+    """
+
+    datasheet_id: str = Field(min_length=1)
+    line: int = Field(ge=1)
+    applies_to: str = Field(description="unit | model_group")
+    model_name: str | None = Field(default=None, min_length=1, max_length=120)
+    composition_line: int | None = Field(default=None, ge=1)
+    items: Sequence[EquipmentOverrideItem] = ()
+    note: str | None = None
+
+    @model_validator(mode="after")
+    def _model_name_belongs_to_its_subject(self) -> Self:
+        if (self.applies_to == "model_group") != (self.model_name is not None):
+            raise ValueError(
+                f"equipment override {self.datasheet_id}:{self.line}: model_name is present "
+                f"exactly when applies_to is model_group; got applies_to={self.applies_to!r}, "
+                f"model_name={self.model_name!r}"
+            )
+        return self
 
 
 class FindingResolution(_Authored):

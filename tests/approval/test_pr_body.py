@@ -1,6 +1,10 @@
 # AI-Assisted: Claude Code (model: claude-sonnet-5) - Wrote coverage for the candidate reviewer
 # view (task T119): the PR body opens with the verdict and scale, orders every sub-report in the
 # approver's reading order, and points at the changed-file list (FR-037).
+# AI-Assisted: Claude Code (model: claude-opus-5) - Added the loadout coverage table and the
+# option-regression pointer (006 task T039): both figures get a row, the table says which of them
+# a gate is actually watching, and the FR-009 evidence link is stated whether or not the file
+# exists -- its absence is what an approver is meant to notice.
 """Tests for `pipeline.report.pr_body` — the PR body a candidate opens with (FR-037)."""
 
 from __future__ import annotations
@@ -109,3 +113,82 @@ def test_a_report_carrying_no_summary_coverage_omits_the_table_entirely() -> Non
     """An empty table reads as "no summaries", a different claim from "not measured"."""
     body = render_pr_body(_report_json(coverage={}))
     assert "## Authored summary coverage" not in body
+
+
+# --- 006 T039: the two loadout figures, and the option-regression pointer ------------------------
+
+
+def _loadout_json():  # type: ignore[no-untyped-def]
+    return _report_json(
+        coverage={
+            "datasheets": {"current": 10, "previous": 10, "ratio_percent": 100},
+            "summaries.abilities": {"current": 1934, "previous": 1900, "ratio_percent": 100},
+            "loadout.options_resolved": {
+                "current": 402,
+                "previous": 380,
+                "ratio_percent": 19,
+                "threshold": 0.18,
+            },
+            "loadout.default_equipment": {
+                "current": 1664,
+                "previous": 0,
+                "ratio_percent": 99,
+                "threshold": 0.0,
+            },
+        }
+    )
+
+
+def test_both_loadout_figures_get_their_own_row() -> None:
+    body = render_pr_body(_loadout_json())
+
+    assert "## Loadout coverage" in body
+    assert "| `options_resolved` | 402 | 380 | 19% | blocks below 18% |" in body
+    assert "| `default_equipment` | 1664 | 0 | 99% | reported only |" in body
+
+
+def test_the_table_says_which_figure_can_refuse_a_release() -> None:
+    """A falling unratcheted number must not read as one a gate has already considered.
+
+    `default_equipment` at 99% and `options_resolved` at 19% is the shape of the first extended
+    release, and an approver who cannot tell which of the two a gate is watching is being asked
+    to approve on the wrong information.
+    """
+    table = render_pr_body(_loadout_json()).split("## Loadout coverage", 1)[1].split("##", 1)[0]
+
+    assert "reported only" in table
+    assert "blocks below" in table
+
+
+def test_the_loadout_table_is_separate_from_the_authored_summary_one() -> None:
+    """Different questions: editorial backlog a curator works through, versus what parsed."""
+    body = render_pr_body(_loadout_json())
+    summary_table = body.split("## Authored summary coverage", 1)[1].split("##", 1)[0]
+    loadout_table = body.split("## Loadout coverage", 1)[1].split("##", 1)[0]
+
+    assert "options_resolved" not in summary_table
+    assert "abilities" not in loadout_table
+    assert "datasheets" not in loadout_table
+
+
+def test_a_report_carrying_no_loadout_coverage_omits_the_table_entirely() -> None:
+    """An empty table reads as "nothing resolved", a different claim from "not measured"."""
+    assert "## Loadout coverage" not in render_pr_body(_report_json(coverage={}))
+
+
+def test_the_body_points_at_the_option_regression_evidence() -> None:
+    """FR-022: the zero-regression evidence is named, not left to whoever remembers it exists."""
+    body = render_pr_body(_loadout_json())
+
+    assert "reports/candidate-2026-01/option-regression.md" in body
+    assert "Corrected" in body
+
+
+def test_the_option_regression_link_is_stated_even_for_a_clean_report() -> None:
+    """Its absence on disk is itself something an approver is meant to notice.
+
+    `rules-pipeline option-regression` is evidence tooling and deliberately not on the
+    approval-gate path, so nothing in a build guarantees the file exists. A link that appeared
+    only when the file did would quietly turn "nobody ran it" into "there was nothing to say".
+    """
+    assert "option-regression.md" in render_pr_body(_report_json(coverage={}))

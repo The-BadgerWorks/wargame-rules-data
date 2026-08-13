@@ -4,6 +4,10 @@
 # AI-Assisted: Claude Code (model: claude-opus-5) - Re-proved it against the ENRICHED bundle
 # (004 task T067), whose mapping-shaped inputs are new places iteration order could reach the
 # bytes (004 FR-039, SC-012).
+# AI-Assisted: Claude Code (model: claude-opus-5) - Re-proved it a third time against the
+# LOADOUT-EXTENDED bundle (006 task T035): three arrays built by walking a nested sequence of
+# sequences, where the outer walk's order is the emitter's and only the inner sort is the
+# contract's (006 FR-023, SC-007).
 """Tests for FR-033 / SC-006 determinism.
 
 The manifest's `sha256` is computed over the bundle, so "the same inputs produce the same bytes"
@@ -29,6 +33,7 @@ from pipeline.build.checksum import (
 from pipeline.exit_codes import ExitCode
 from tests import factories
 from tests.contract.enrichment_bundle import enriched_snapshot
+from tests.contract.loadout_bundle import loadout_snapshot
 
 
 def _bytes(snapshot=None, meta=None) -> bytes:  # type: ignore[no-untyped-def]
@@ -161,3 +166,71 @@ def test_the_enriched_bundle_still_carries_no_floats_and_one_timestamp() -> None
 
     _walk(emit_bundle(enriched_snapshot(), factories.meta()))
     assert _enriched_bytes().decode("utf-8").count("2026-06-13T00:00:00Z") == 1
+
+
+# --- and the loadout-extended bundle, whose new arrays are nested walks (006 task T035) ---------
+
+
+def _loadout_bytes() -> bytes:
+    return encode_bundle(emit_bundle(loadout_snapshot(), factories.meta()))
+
+
+def test_a_rebuild_of_the_loadout_tree_is_byte_identical() -> None:
+    """Three more arrays, and each is a walk over a sequence *inside* a sequence.
+
+    `datasheetOptionChoiceItems` is emitted by iterating every datasheet's choices and then every
+    choice's items; `datasheetEquipmentItems` the same, one level down from equipment groups.
+    The final `_rows(...)` sort is what makes the result deterministic, and it is exactly the
+    kind of guarantee that reads as obviously true right up until an emitter is refactored to
+    stream rows instead of collecting them.
+    """
+    assert _loadout_bytes() == _loadout_bytes()
+
+
+def test_a_rebuild_of_the_loadout_tree_reproduces_an_identical_sha256() -> None:
+    first, second = checksum(_loadout_bytes()), checksum(_loadout_bytes())
+
+    assert first == second
+    assert len(first.sha256) == 64
+    assert first.size_bytes == len(_loadout_bytes())
+    assert_reproducible(_loadout_bytes(), expected_sha256=first.sha256)
+
+
+def test_the_order_the_curated_tree_states_items_in_does_not_reach_the_bytes() -> None:
+    """A curated tree that lists one choice's items backwards builds the same bundle.
+
+    The tree is read back from files a curator can edit, so "the sequence arrived sorted" is an
+    assumption about a human, not a property of the code. Reversing the one multi-item swap is
+    the smallest input that can tell the emitter's own sort from the fixture's tidiness.
+    """
+    snapshot = loadout_snapshot()
+    datasheets = []
+    for datasheet in snapshot.datasheets:
+        choices = [
+            choice.model_copy(update={"items": tuple(reversed(list(choice.items)))})
+            for choice in datasheet.option_choices
+        ]
+        groups = [
+            group.model_copy(update={"items": tuple(reversed(list(group.items)))})
+            for group in datasheet.equipment_groups
+        ]
+        datasheets.append(
+            datasheet.model_copy(update={"option_choices": choices, "equipment_groups": groups})
+        )
+    shuffled = snapshot.model_copy(update={"datasheets": datasheets})
+
+    assert encode_bundle(emit_bundle(shuffled, factories.meta())) == _loadout_bytes()
+
+
+def test_the_loadout_bundle_still_carries_no_floats_and_one_timestamp() -> None:
+    def _walk(node: object) -> None:
+        assert not isinstance(node, float)
+        if isinstance(node, dict):
+            for value in node.values():
+                _walk(value)
+        elif isinstance(node, list):
+            for item in node:
+                _walk(item)
+
+    _walk(emit_bundle(loadout_snapshot(), factories.meta()))
+    assert _loadout_bytes().decode("utf-8").count("2026-06-13T00:00:00Z") == 1

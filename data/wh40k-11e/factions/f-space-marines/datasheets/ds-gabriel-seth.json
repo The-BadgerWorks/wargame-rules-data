@@ -21,7 +21,7 @@
       "model_count": 1,
       "points": 90,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9"
+      "source_acquisition_id": "wahapedia-20260812T223905Z-9a337975"
     }
   ],
   "datasheet_id": "ds-gabriel-seth",
@@ -80,6 +80,7 @@
   "leader_pairs": [
     "ds-assault-intercessor-squad-6",
     "ds-assault-squad",
+    "ds-assault-squad-with-jump-packs",
     "ds-bladeguard-veteran-squad-6",
     "ds-command-squad",
     "ds-company-heroes-6",
@@ -88,7 +89,8 @@
     "ds-intercessor-squad-6",
     "ds-sternguard-veteran-squad-6",
     "ds-tactical-squad-4",
-    "ds-vanguard-veteran-squad"
+    "ds-vanguard-veteran-squad",
+    "ds-vanguard-veteran-squad-with-jump-packs-6"
   ],
   "models": [
     {
@@ -106,12 +108,12 @@
   ],
   "name": "Gabriel Seth",
   "pricing_confidence": {
-    "consecutive_unverified_releases": 2,
+    "consecutive_unverified_releases": 3,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,

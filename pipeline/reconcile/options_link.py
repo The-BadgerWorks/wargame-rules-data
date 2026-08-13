@@ -36,7 +36,13 @@ from __future__ import annotations
 
 from collections.abc import Mapping, Sequence
 
-from pipeline.models.curated import CuratedOptionChoice, CuratedWargearOption, CuratedWeaponLine
+from pipeline.models.curated import (
+    CuratedOptionChoice,
+    CuratedOptionChoiceItem,
+    CuratedWargearOption,
+    CuratedWeaponLine,
+    OptionItemRole,
+)
 from pipeline.models.findings import Finding
 from pipeline.normalize.names import normalize_name
 from pipeline.parse.options_grammar import OptionVerb
@@ -89,6 +95,109 @@ def link_choice_weapons(
         linked.append(choice.model_copy(update={field: matches[0]}))
 
     return linked, findings
+
+
+def link_choice_items(
+    *,
+    datasheet_id: str,
+    choices: Sequence[CuratedOptionChoice],
+    weapons: Sequence[CuratedWeaponLine],
+) -> tuple[list[CuratedOptionChoice], list[Finding]]:
+    """Link each bundle item on its own, then check the two representations agree (`006`).
+
+    **The same join, applied per item.** :func:`link_choice_weapons` above is untouched and stays
+    untouched: it is what sets the singular fields `004` publishes, and FR-009 is a promise about
+    those values. This function reads them, never rewrites them, and adds a second array beside
+    them.
+
+    Three rules, and each one is a decision the design makes explicitly:
+
+    * **Exactly one match links; zero or two-or-more ship unlinked** with the advisory
+      ``OPT-BUNDLE-UNLINKED``, per item. Neither the item's siblings nor its choice is discarded
+      — one ambiguous name in a bundle must not cost the whole swap (FR-007).
+    * **A sole item supplies the singular field it mirrors**, where the baseline left it absent.
+      A distributive stem names the removed weapon in its own head rather than in its object
+      clause, so the item is the only place that link can come from; leaving it absent would
+      publish a one-element bundle that disagrees with its own choice by omission.
+    * **A multi-item side carries no singular field at all**, and one that contradicts its items
+      raises the blocking ``OPT-BUNDLE-DISAGREE`` (guarantee 12). The field is never *repaired*
+      from the items: a contradiction between two representations of one swap is a defect to be
+      read, not a value to be picked.
+    """
+    linked: list[CuratedOptionChoice] = []
+    findings: list[Finding] = []
+
+    for choice in choices:
+        items: list[CuratedOptionChoiceItem] = []
+        for item in choice.items:
+            matches = _weapon_lines_named(item.item_name, weapons)
+            if len(matches) != 1:
+                findings.append(
+                    build_finding(
+                        "OPT-BUNDLE-UNLINKED",
+                        entity_refs=[datasheet_id, choice.id],
+                        detail={
+                            "datasheet_id": datasheet_id,
+                            "choice_id": choice.id,
+                            "role": item.role.value,
+                            "item_index": item.item_index,
+                            "match_count": len(matches),
+                        },
+                    )
+                )
+                items.append(item)
+                continue
+            items.append(item.model_copy(update={"weapon_line": matches[0]}))
+
+        update: dict[str, object] = {"items": tuple(items)}
+        for role, field in (
+            (OptionItemRole.GRANTED, "grants_weapon_line"),
+            (OptionItemRole.REPLACED, "replaces_weapon_line"),
+        ):
+            side = [item for item in items if item.role is role]
+            stated = getattr(choice, field)
+            disagreement = _bundle_disagreement(side, stated)
+            if disagreement is not None:
+                findings.append(
+                    build_finding(
+                        "OPT-BUNDLE-DISAGREE",
+                        entity_refs=[datasheet_id, choice.id],
+                        detail={
+                            "datasheet_id": datasheet_id,
+                            "choice_id": choice.id,
+                            "field": field,
+                            **disagreement,
+                        },
+                    )
+                )
+                continue
+            if stated is None and len(side) == 1 and side[0].weapon_line is not None:
+                update[field] = side[0].weapon_line
+
+        linked.append(choice.model_copy(update=update))
+
+    return linked, findings
+
+
+def _bundle_disagreement(
+    side: Sequence[CuratedOptionChoiceItem], stated: int | None
+) -> dict[str, int | str] | None:
+    """Guarantee 12, asserted in both directions.
+
+    A singular field is a claim about a one-element bundle, so it is a contradiction both when
+    the bundle has a different number of elements and when its one element names a different
+    weapon. Checking only the first direction would pass a field pointing at a line its own item
+    does not name, which is the wrong link — the exact failure the exactly-one-match rule exists
+    to prevent.
+    """
+    if stated is None:
+        return None
+    if len(side) != 1:
+        return {"item_count": len(side), "stated_weapon_line": stated}
+    linked = side[0].weapon_line
+    if linked is not None and linked != stated:
+        return {"item_weapon_line": linked, "stated_weapon_line": stated}
+    return None
 
 
 def _weapon_lines_named(name: str, weapons: Sequence[CuratedWeaponLine]) -> list[int]:

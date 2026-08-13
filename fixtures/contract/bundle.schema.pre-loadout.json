@@ -1,0 +1,624 @@
+{
+  "_comment": "AI-Assisted: Claude Code (model: claude-opus-5) - Authored the published-bundle schema per curated-snapshot-format.md §3-§4 (task T033) against reference-db-schema.md v1.2.0. One array per consumer table, named in lowerCamelCase, each element carrying exactly that table's columns in lowerCamelCase, so the ingestor is a mechanical array-to-table load with no reshaping. Arrays are sorted by their table's primary key, which is what makes the bundle byte-stable and a hand-diff of two bundles meaningful during an incident. Absent optionals are OMITTED (§5) and ingested as SQL NULL; no property here is nullable. datasheetDetachmentEligibility is ALWAYS PRESENT and ALWAYS EMPTY: no upstream datasheet-to-detachment join exists, so the consumer contract's default (absence = legal in any detachment of its faction) applies, which is the correct non-fabricating behaviour under FR-019. additionalProperties is false throughout so an unmapped field is a build failure rather than a silent omission. 004-rules-data-enrichment adds datasheetCompositions, datasheetOptionGroups and datasheetOptionChoices, plus chapterKeywords (T040), factionRules (T048), detachmentRules (T055) and keywordGlossary (T062), and the optional wargearOptionState, keywordClass and armyRuleState columns, per contracts/bundle-schema-delta.md. Every one of those is ADDITIVE: bundleFormatVersion stays 1 because the layout rules are unchanged, and an existing row that acquires no new value is byte-identical to what it was.",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://the-badgerworks.github.io/wargame-rules-data/schemas/bundle.schema.json",
+  "title": "Published snapshot bundle rules-<rulesVersionId>.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "bundleFormatVersion",
+    "snapshotMeta",
+    "editions",
+    "editionRules",
+    "gameSizeRules",
+    "factions",
+    "detachments",
+    "detachmentRestrictions",
+    "enhancements",
+    "enhancementEligibility",
+    "datasheets",
+    "datasheetKeywords",
+    "datasheetModels",
+    "datasheetWeapons",
+    "datasheetAbilities",
+    "datasheetCosts",
+    "datasheetCostTiers",
+    "datasheetWargearOptions",
+    "datasheetLeaderPairs",
+    "datasheetDetachmentEligibility",
+    "datasheetCompositions",
+    "datasheetOptionGroups",
+    "datasheetOptionChoices",
+    "chapterKeywords",
+    "factionRules",
+    "detachmentRules",
+    "keywordGlossary",
+    "datasheetCostContexts"
+  ],
+  "properties": {
+    "bundleFormatVersion": {
+      "const": 1,
+      "description": "This document's MAJOR. Distinct from snapshotMeta.schemaContractVersion, which is the CONSUMER contract's MAJOR: the first describes how the document is laid out, the second describes what the app must be able to read."
+    },
+    "snapshotMeta": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schemaContractVersion",
+        "restrictionVocabularyVersion",
+        "rulesVersionId",
+        "publishedAt",
+        "sourceNote"
+      ],
+      "properties": {
+        "schemaContractVersion": { "type": "integer", "minimum": 1 },
+        "restrictionVocabularyVersion": { "type": "integer", "minimum": 1 },
+        "rulesVersionId": { "type": "string", "minLength": 1 },
+        "publishedAt": {
+          "type": "string",
+          "minLength": 1,
+          "description": "ISO-8601 UTC. The ONLY timestamp anywhere in the bundle, and an explicit build input rather than 'now' -- that is what makes a rebuild byte-identical (FR-033, SC-006)."
+        },
+        "sourceNote": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 120,
+          "description": "Authored, factual provenance. Carries no endorsement claim (FR-050)."
+        }
+      }
+    },
+    "editions": {
+      "type": "array",
+      "description": "Sorted by id.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "code", "name", "displayOrder"],
+        "properties": {
+          "id": { "type": "string", "minLength": 1 },
+          "code": { "type": "string", "minLength": 1 },
+          "name": { "type": "string", "minLength": 1 },
+          "displayOrder": { "type": "integer" }
+        }
+      }
+    },
+    "editionRules": {
+      "type": "array",
+      "description": "Sorted by (editionId, ruleKey).",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["editionId", "ruleKey", "valueJson"],
+        "properties": {
+          "editionId": { "type": "string", "minLength": 1 },
+          "ruleKey": { "type": "string", "minLength": 1 },
+          "valueJson": {
+            "type": "string",
+            "description": "The rule value serialised with the canonical serialiser, so the emission is byte-stable."
+          }
+        }
+      }
+    },
+    "gameSizeRules": {
+      "type": "array",
+      "description": "Sorted by id. Bands must be contiguous, non-overlapping, and cover reference-db-schema.md §3.4's declared range end to end.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "editionId",
+          "label",
+          "minPoints",
+          "maxPoints",
+          "detachmentPointsBudget",
+          "maxDetachments",
+          "maxEnhancements"
+        ],
+        "properties": {
+          "id": { "type": "string", "minLength": 1 },
+          "editionId": { "type": "string", "minLength": 1 },
+          "label": { "type": "string", "minLength": 1 },
+          "minPoints": { "type": "integer", "minimum": 0 },
+          "maxPoints": { "type": "integer", "minimum": 0 },
+          "detachmentPointsBudget": { "type": "integer", "minimum": 0 },
+          "maxDetachments": { "type": "integer", "minimum": 0 },
+          "maxEnhancements": { "type": "integer", "minimum": 0 }
+        }
+      }
+    },
+    "factions": {
+      "type": "array",
+      "description": "Sorted by id.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "editionId", "code", "name"],
+        "properties": {
+          "id": { "type": "string", "minLength": 1 },
+          "editionId": { "type": "string", "minLength": 1 },
+          "code": { "type": "string", "minLength": 1 },
+          "name": { "type": "string", "minLength": 1 },
+          "parentFactionId": { "type": "string", "minLength": 1 },
+          "armyRuleState": {
+            "enum": ["present", "none"],
+            "description": "004 additive column. 'none' = this faction genuinely has no army rule, a completed curation decision that contributes nothing to the coverage denominator. OMITTED = not yet curated, which is a DIFFERENT fact (004 FR-021); a consumer that cannot tell the two apart shows the same empty section for both."
+          }
+        }
+      }
+    },
+    "factionRules": {
+      "type": "array",
+      "description": "Sorted by id. One row per army rule, from 004-rules-data-enrichment; a faction may have more than one, which is what displayOrder is for. The NAME is always carried. The `summary` is authored by a human from the mechanic and appears only once approved: an unapproved entry ships with its name alone, because publishing a draft would put wording nobody has signed off in front of every player (004 FR-021, FR-024, contracts/authored-summary-gates.md §3).",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "factionId", "name", "displayOrder"],
+        "properties": {
+          "id": { "type": "string", "minLength": 1 },
+          "factionId": { "type": "string", "minLength": 1 },
+          "name": { "type": "string", "minLength": 1, "maxLength": 120 },
+          "displayOrder": { "type": "integer", "minimum": 1 },
+          "summary": { "type": "string", "minLength": 1, "maxLength": 1000 }
+        }
+      }
+    },
+    "detachmentRules": {
+      "type": "array",
+      "description": "Sorted by id. One row per detachment rule, from 004-rules-data-enrichment; a detachment may own more than one, which is why the RULE rather than the detachment is the key. The NAME comes from the source and is ALWAYS carried (004 FR-022) -- a detachment whose authoring campaign has not started still ships every rule it owns, named and unexplained, and is counted in the coverage report. The `summary` is authored by a human from the mechanic and appears only once approved. Two detachments in different factions sharing a rule name emit two rows with DIFFERENT ids, because the id embeds the detachment id.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "detachmentId", "name"],
+        "properties": {
+          "id": { "type": "string", "minLength": 1 },
+          "detachmentId": { "type": "string", "minLength": 1 },
+          "name": { "type": "string", "minLength": 1, "maxLength": 120 },
+          "summary": { "type": "string", "minLength": 1, "maxLength": 1000 }
+        }
+      }
+    },
+    "keywordGlossary": {
+      "type": "array",
+      "description": "Sorted by keywordKey. Authored keyword definitions, from 004-rules-data-enrichment. keywordKey is the NORMATIVE normalised key of contracts/bundle-schema-delta.md §4 -- NFKC, casefold, non-alphanumerics to spaces, collapse whitespace, then strip a trailing integer parameter -- which both producer and consumer MUST derive by that exact procedure or a lookup silently fails to resolve. One entry therefore serves a keyword and every casing, spacing, punctuation and numeric-parameter variant of it. An entry exists ONLY when authored and approved; an unauthored keyword has no row here, still appears on its datasheets and weapons unchanged, and is named in the coverage report (004 FR-023).",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["keywordKey", "displayKeyword", "hasNumericParameter", "summary"],
+        "properties": {
+          "keywordKey": { "type": "string", "minLength": 1, "maxLength": 64 },
+          "displayKeyword": { "type": "string", "minLength": 1, "maxLength": 64 },
+          "hasNumericParameter": { "type": "boolean" },
+          "summary": { "type": "string", "minLength": 1, "maxLength": 1000 }
+        }
+      }
+    },
+    "detachments": {
+      "type": "array",
+      "description": "Sorted by id.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "editionId", "factionId", "name", "detachmentPointsCost", "isLegends"],
+        "properties": {
+          "id": { "type": "string", "minLength": 1 },
+          "editionId": { "type": "string", "minLength": 1 },
+          "factionId": { "type": "string", "minLength": 1 },
+          "name": { "type": "string", "minLength": 1 },
+          "detachmentPointsCost": { "type": "integer", "minimum": 0 },
+          "isLegends": { "type": "boolean" }
+        }
+      }
+    },
+    "detachmentRestrictions": {
+      "type": "array",
+      "description": "Sorted by id. detachmentId omitted = an edition-wide rule.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "editionId", "restrictionType", "paramsJson", "messageTemplate"],
+        "properties": {
+          "id": { "type": "string", "minLength": 1 },
+          "editionId": { "type": "string", "minLength": 1 },
+          "detachmentId": { "type": "string", "minLength": 1 },
+          "restrictionType": {
+            "enum": [
+              "max_copies_per_datasheet",
+              "max_units_with_keyword",
+              "min_units_with_keyword",
+              "requires_keyword_in_army",
+              "forbids_keyword_in_army",
+              "forbids_datasheet",
+              "legends_allowed",
+              "max_enhancements",
+              "unique_epic_heroes"
+            ]
+          },
+          "paramsJson": { "type": "string" },
+          "messageTemplate": { "type": "string", "minLength": 1, "maxLength": 240 }
+        }
+      }
+    },
+    "enhancements": {
+      "type": "array",
+      "description": "Sorted by id.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "editionId", "detachmentId", "name", "points", "maxPerArmy"],
+        "properties": {
+          "id": { "type": "string", "minLength": 1 },
+          "editionId": { "type": "string", "minLength": 1 },
+          "detachmentId": { "type": "string", "minLength": 1 },
+          "name": { "type": "string", "minLength": 1 },
+          "points": { "type": "integer", "minimum": 0 },
+          "maxPerArmy": { "type": "integer", "minimum": 1 }
+        }
+      }
+    },
+    "enhancementEligibility": {
+      "type": "array",
+      "description": "Sorted by (enhancementId, ruleType, value). No rows for an enhancement = offered to any Character.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["enhancementId", "ruleType", "value"],
+        "properties": {
+          "enhancementId": { "type": "string", "minLength": 1 },
+          "ruleType": { "enum": ["requires_keyword", "forbids_keyword", "datasheet_allowlist"] },
+          "value": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "datasheets": {
+      "type": "array",
+      "description": "Sorted by id.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "editionId",
+          "factionId",
+          "name",
+          "isLegends",
+          "isCharacter",
+          "isEpicHero",
+          "isBattleline",
+          "isDedicatedTransport"
+        ],
+        "properties": {
+          "id": { "type": "string", "minLength": 1 },
+          "editionId": { "type": "string", "minLength": 1 },
+          "factionId": { "type": "string", "minLength": 1 },
+          "name": { "type": "string", "minLength": 1 },
+          "role": { "type": "string", "minLength": 1 },
+          "isLegends": { "type": "boolean" },
+          "isCharacter": { "type": "boolean" },
+          "isEpicHero": { "type": "boolean" },
+          "isBattleline": { "type": "boolean" },
+          "isDedicatedTransport": { "type": "boolean" },
+          "maxCopiesPerArmy": { "type": "integer", "minimum": 1 },
+          "damagedThreshold": { "type": "integer", "minimum": 0 },
+          "detailEditionCode": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Omitted when the detail came from the snapshot's own edition (§5). Present, this makes a hybrid entity self-describing (C5/R4)."
+          },
+          "wargearOptionState": {
+            "enum": ["none", "extracted", "partial"],
+            "description": "004 additive column. Distinguishes a datasheet with genuinely no options from one whose options failed to extract (004 FR-016). OMITTED = the detail source was not consulted, which is a third fact again, and an existing row that acquires no value stays byte-identical to what it is today."
+          }
+        }
+      }
+    },
+    "datasheetKeywords": {
+      "type": "array",
+      "description": "Sorted by (datasheetId, keyword, modelScope).",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["datasheetId", "keyword", "isFactionKeyword"],
+        "properties": {
+          "datasheetId": { "type": "string", "minLength": 1 },
+          "keyword": { "type": "string", "minLength": 1, "maxLength": 64 },
+          "isFactionKeyword": { "type": "boolean" },
+          "modelScope": { "type": "string", "minLength": 1 },
+          "keywordClass": {
+            "enum": ["faction", "chapter", "unit"],
+            "description": "004 additive column. OMITTED = unclassified, which is not a defect and blocks nothing: an unclassified keyword's row is byte-identical to what it is today and KWD-UNCLASSIFIED (advisory) names it in the report (004 FR-020)."
+          }
+        }
+      }
+    },
+    "chapterKeywords": {
+      "type": "array",
+      "description": "Sorted by keyword. The enumerable chapter (sub-faction) vocabulary, from 004-rules-data-enrichment. Keyed by keyword ALONE because 004 FR-019 guarantees one parent per chapter keyword, which is what keeps 'resolve a chapter -> its datasheets' a plain join against datasheetKeywords.keyword. A chapter the points source already models as a faction of its own STILL appears here, flagged (004 FR-018), so consumers have one mechanism for every chapter grouping.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["keyword", "parentFactionId", "isModelledAsFaction"],
+        "properties": {
+          "keyword": { "type": "string", "minLength": 1, "maxLength": 64 },
+          "parentFactionId": { "type": "string", "minLength": 1 },
+          "chapterFactionId": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Present when the points source models this chapter as a faction of its own. That faction's own parentFactionId MUST equal this row's; a contradiction is the blocking KWD-CHAPTER-PARENT-CONFLICT."
+          },
+          "isModelledAsFaction": { "type": "boolean" }
+        }
+      }
+    },
+    "datasheetModels": {
+      "type": "array",
+      "description": "Sorted by (datasheetId, line).",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "datasheetId",
+          "line",
+          "name",
+          "movement",
+          "toughness",
+          "save",
+          "wounds",
+          "leadership",
+          "objectiveControl"
+        ],
+        "properties": {
+          "datasheetId": { "type": "string", "minLength": 1 },
+          "line": { "type": "integer", "minimum": 1 },
+          "name": { "type": "string", "minLength": 1 },
+          "movement": { "type": "string", "minLength": 1 },
+          "toughness": { "type": "integer" },
+          "save": { "type": "string", "minLength": 1 },
+          "invulnSave": { "type": "string", "minLength": 1 },
+          "wounds": { "type": "integer" },
+          "leadership": { "type": "string", "minLength": 1 },
+          "objectiveControl": { "type": "integer" },
+          "baseSize": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "datasheetWeapons": {
+      "type": "array",
+      "description": "Sorted by (datasheetId, line).",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "datasheetId",
+          "line",
+          "name",
+          "isMelee",
+          "attacks",
+          "skill",
+          "strength",
+          "armourPenetration",
+          "damage"
+        ],
+        "properties": {
+          "datasheetId": { "type": "string", "minLength": 1 },
+          "line": { "type": "integer", "minimum": 1 },
+          "name": { "type": "string", "minLength": 1 },
+          "isMelee": { "type": "boolean" },
+          "range": { "type": "string", "minLength": 1 },
+          "attacks": { "type": "string", "minLength": 1 },
+          "skill": { "type": "string", "minLength": 1 },
+          "strength": { "type": "string", "minLength": 1 },
+          "armourPenetration": { "type": "string", "minLength": 1 },
+          "damage": { "type": "string", "minLength": 1 },
+          "abilityKeywords": {
+            "type": "string",
+            "description": "Comma-separated keywords only -- 'lethal hits,rapid fire 1'. Never rules text.",
+            "maxLength": 240
+          }
+        }
+      }
+    },
+    "datasheetAbilities": {
+      "type": "array",
+      "description": "Sorted by (datasheetId, name). Expanded from the curated ability_keys against curation/abilities/**; every summary is non-empty and approved (V7).",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["datasheetId", "name", "abilityType", "summary"],
+        "properties": {
+          "datasheetId": { "type": "string", "minLength": 1 },
+          "name": { "type": "string", "minLength": 1 },
+          "abilityType": { "enum": ["core", "faction", "datasheet"] },
+          "summary": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 1000,
+            "description": "An ORIGINAL, MECHANICS-ONLY summary authored for this data set, target <= 1000 characters. Never the publisher's rules text and never a light rewording of it (reference-db-schema.md §6.1)."
+          }
+        }
+      }
+    },
+    "datasheetCosts": {
+      "type": "array",
+      "description": "Sorted by (datasheetId, modelCount). Exactly the copy_index_min = 1 projection of datasheetCostTiers -- the redundancy is deliberate and is what lets a v1.1.0 app read this table unchanged (guarantee 7).",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["datasheetId", "modelCount", "points", "label", "pricingConfidence"],
+        "properties": {
+          "datasheetId": { "type": "string", "minLength": 1 },
+          "modelCount": { "type": "integer", "minimum": 1 },
+          "points": { "type": "integer", "minimum": 0 },
+          "label": { "type": "string", "minLength": 1, "maxLength": 64 },
+          "pricingConfidence": { "enum": ["verified", "unverified"] }
+        }
+      }
+    },
+    "datasheetCostTiers": {
+      "type": "array",
+      "description": "Sorted by (datasheetId, modelCount, copyIndexMin). The full copy-indexed set.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "datasheetId",
+          "modelCount",
+          "copyIndexMin",
+          "points",
+          "label",
+          "pricingConfidence"
+        ],
+        "properties": {
+          "datasheetId": { "type": "string", "minLength": 1 },
+          "modelCount": { "type": "integer", "minimum": 1 },
+          "copyIndexMin": { "type": "integer", "minimum": 1 },
+          "points": { "type": "integer", "minimum": 0 },
+          "label": { "type": "string", "minLength": 1, "maxLength": 64 },
+          "pricingConfidence": { "enum": ["verified", "unverified"] }
+        }
+      }
+    },
+    "datasheetCostContexts": {
+      "type": "array",
+      "description": "Sorted by (datasheetId, pricingContext, modelCount, copyIndexMin). The prices the points source states a CONDITION for: a unit its own faction prices one way and another army prices another ('every-model-has-imperium'), or two bands of one unit that hold the same number of models and are told apart only by what they contain ('with-hunting-wolves'). Deliberately a separate array: datasheetCosts and datasheetCostTiers carry the unconditional price and only that, so their primary keys are unchanged and a consumer that does not read this array reads exactly the prices it read before. Absence of a row here is not a missing price -- it means the unit is priced one way whatever the condition.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "datasheetId",
+          "pricingContext",
+          "modelCount",
+          "copyIndexMin",
+          "points",
+          "label",
+          "pricingConfidence"
+        ],
+        "properties": {
+          "datasheetId": { "type": "string", "minLength": 1 },
+          "pricingContext": { "type": "string", "minLength": 1, "maxLength": 64, "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$" },
+          "modelCount": { "type": "integer", "minimum": 1 },
+          "copyIndexMin": { "type": "integer", "minimum": 1 },
+          "points": { "type": "integer", "minimum": 0 },
+          "label": { "type": "string", "minLength": 1, "maxLength": 64 },
+          "pricingConfidence": { "enum": ["verified", "unverified"] }
+        }
+      }
+    },
+    "datasheetWargearOptions": {
+      "type": "array",
+      "description": "Sorted by id. Cost-bearing options only.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "datasheetId", "groupKey", "name", "pointsDelta"],
+        "properties": {
+          "id": { "type": "string", "minLength": 1 },
+          "datasheetId": { "type": "string", "minLength": 1 },
+          "groupKey": { "type": "string", "minLength": 1 },
+          "name": { "type": "string", "minLength": 1 },
+          "pointsDelta": { "type": "integer" },
+          "maxPerUnit": { "type": "integer", "minimum": 1 },
+          "modelsPerInstance": { "type": "integer", "minimum": 1 }
+        }
+      }
+    },
+    "datasheetLeaderPairs": {
+      "type": "array",
+      "description": "Sorted by (leaderDatasheetId, bodyguardDatasheetId).",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["leaderDatasheetId", "bodyguardDatasheetId"],
+        "properties": {
+          "leaderDatasheetId": { "type": "string", "minLength": 1 },
+          "bodyguardDatasheetId": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "datasheetCompositions": {
+      "type": "array",
+      "description": "Sorted by (datasheetId, line). One entry per model line, from 004-rules-data-enrichment. A datasheet whose composition could not be resolved carries NO ROWS AT ALL rather than partial ones (004 FR-008): a partial composition is worse than none, and a guessed count mis-prices a unit. minCount == maxCount is a FIXED count -- the majority shape -- and is never missing data.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["datasheetId", "line", "modelName", "minCount", "maxCount"],
+        "properties": {
+          "datasheetId": { "type": "string", "minLength": 1 },
+          "line": { "type": "integer", "minimum": 1 },
+          "modelName": { "type": "string", "minLength": 1, "maxLength": 120 },
+          "minCount": { "type": "integer", "minimum": 0 },
+          "maxCount": { "type": "integer", "minimum": 0 },
+          "modelLine": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "FK to datasheetModels.line. OMITTED when the name match was not unique -- never guessed."
+          }
+        }
+      }
+    },
+    "datasheetOptionGroups": {
+      "type": "array",
+      "description": "Sorted by id. One group per source option row. id derives from the source's own line ordinal, which is what makes an upstream relabelling surface as a RENAME rather than a removal plus an addition (004 FR-015). scopeN is present exactly when scope is per_n_models.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "datasheetId", "line", "scope"],
+        "properties": {
+          "id": { "type": "string", "minLength": 1 },
+          "datasheetId": { "type": "string", "minLength": 1 },
+          "line": { "type": "integer", "minimum": 1 },
+          "scope": { "enum": ["unit", "model", "per_n_models"] },
+          "scopeN": { "type": "integer", "minimum": 1 },
+          "parentGroupId": { "type": "string", "minLength": 1 },
+          "defaultChoiceId": { "type": "string", "minLength": 1 },
+          "minChoices": { "type": "integer", "minimum": 0 },
+          "maxChoices": { "type": "integer", "minimum": 0 }
+        }
+      }
+    },
+    "datasheetOptionChoices": {
+      "type": "array",
+      "description": "Sorted by id. A choice is a NAME plus mechanical values -- there is deliberately no description property, which is what stops this class becoming a prose channel (004 FR-016). pointsDelta is OMITTED, never 0, when the points source does not price the choice (004 FR-013, guarantee 10): a consumer reads 'uncosted', never 'free'. isNoChange marks an explicit 'no change' alternative, which is never published with a price at all.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "groupId", "name", "isDefault", "isNoChange"],
+        "properties": {
+          "id": { "type": "string", "minLength": 1 },
+          "groupId": { "type": "string", "minLength": 1 },
+          "name": { "type": "string", "minLength": 1, "maxLength": 120 },
+          "count": { "type": "integer", "minimum": 1 },
+          "grantsWeaponLine": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "FK to datasheetWeapons.line. OMITTED when the name match is not unique -- never guessed and never silently attached to the wrong profile (004 FR-011)."
+          },
+          "replacesWeaponLine": { "type": "integer", "minimum": 1 },
+          "isDefault": { "type": "boolean" },
+          "isNoChange": { "type": "boolean" },
+          "pointsDelta": { "type": "integer" },
+          "pricedOptionId": {
+            "type": "string",
+            "minLength": 1,
+            "description": "FK to datasheetWargearOptions.id. OMITTED when the points source does not price this choice."
+          }
+        }
+      }
+    },
+    "datasheetDetachmentEligibility": {
+      "type": "array",
+      "maxItems": 0,
+      "description": "ALWAYS EMPTY. No upstream datasheet-to-detachment join exists, so the consumer contract's default applies: absence of rows = legal in any detachment of its faction.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["datasheetId", "detachmentId", "isAllowed"],
+        "properties": {
+          "datasheetId": { "type": "string", "minLength": 1 },
+          "detachmentId": { "type": "string", "minLength": 1 },
+          "isAllowed": { "type": "boolean" }
+        }
+      }
+    }
+  }
+}

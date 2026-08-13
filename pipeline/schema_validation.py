@@ -72,6 +72,8 @@ CURATION_SCHEMAS: Final[Mapping[str, str]] = {
     "keyword-classes": "curation/keyword-classes.schema.json",
     "composition-overrides": "curation/composition-overrides.schema.json",
     "option-overrides": "curation/option-overrides.schema.json",
+    # 006-unit-loadout-fidelity.
+    "equipment-overrides": "curation/equipment-overrides.schema.json",
 }
 
 #: The published bundle schema.

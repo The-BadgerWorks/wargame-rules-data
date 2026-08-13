@@ -50,7 +50,7 @@
       "model_count": 5,
       "points": 160,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9"
+      "source_acquisition_id": "wahapedia-20260812T223905Z-9a337975"
     },
     {
       "copy_index_min": 1,
@@ -58,7 +58,7 @@
       "model_count": 10,
       "points": 320,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9"
+      "source_acquisition_id": "wahapedia-20260812T223905Z-9a337975"
     }
   ],
   "datasheet_id": "ds-proteus-kill-team",
@@ -168,6 +168,44 @@
       "is_default": false,
       "is_no_change": false,
       "name": "Long Vigil melee weapon"
+    },
+    {
+      "count": 1,
+      "grants_weapon_line": 1,
+      "group_id": "og-proteus-kill-team-6",
+      "id": "oc-proteus-kill-team-6-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "assault cannon",
+      "replaces_weapon_line": 12
+    },
+    {
+      "count": 1,
+      "grants_weapon_line": 6,
+      "group_id": "og-proteus-kill-team-6",
+      "id": "oc-proteus-kill-team-6-2",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "heavy flamer",
+      "replaces_weapon_line": 12
+    },
+    {
+      "count": 1,
+      "group_id": "og-proteus-kill-team-6",
+      "id": "oc-proteus-kill-team-6-3",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "plasma cannon",
+      "replaces_weapon_line": 12
+    },
+    {
+      "count": 1,
+      "group_id": "og-proteus-kill-team-6",
+      "id": "oc-proteus-kill-team-6-4",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "cyclone missile launcher and 1 storm bolter (this model’s storm bolter cannot be replaced)",
+      "replaces_weapon_line": 12
     }
   ],
   "option_groups": [
@@ -175,15 +213,20 @@
       "id": "og-proteus-kill-team-4",
       "line": 4,
       "scope": "unit"
+    },
+    {
+      "id": "og-proteus-kill-team-6",
+      "line": 6,
+      "scope": "unit"
     }
   ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 2,
+    "consecutive_unverified_releases": 3,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,

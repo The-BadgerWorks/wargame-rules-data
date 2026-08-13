@@ -26,7 +26,7 @@
       "model_count": 5,
       "points": 90,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9"
+      "source_acquisition_id": "wahapedia-20260812T223905Z-9a337975"
     },
     {
       "copy_index_min": 1,
@@ -34,7 +34,7 @@
       "model_count": 7,
       "points": 125,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9"
+      "source_acquisition_id": "wahapedia-20260812T223905Z-9a337975"
     },
     {
       "copy_index_min": 1,
@@ -42,7 +42,7 @@
       "model_count": 10,
       "points": 180,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9"
+      "source_acquisition_id": "wahapedia-20260812T223905Z-9a337975"
     }
   ],
   "datasheet_id": "ds-plague-marines-2",
@@ -194,6 +194,26 @@
       "is_default": false,
       "is_no_change": false,
       "name": "plasma gun"
+    },
+    {
+      "count": 1,
+      "grants_weapon_line": 11,
+      "group_id": "og-plague-marines-2-6",
+      "id": "oc-plague-marines-2-6-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "bubotic weapons",
+      "replaces_weapon_line": 2
+    },
+    {
+      "count": 1,
+      "grants_weapon_line": 12,
+      "group_id": "og-plague-marines-2-7",
+      "id": "oc-plague-marines-2-7-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "heavy plague weapon",
+      "replaces_weapon_line": 2
     }
   ],
   "option_groups": [
@@ -224,15 +244,27 @@
       "line": 5,
       "scope": "per_n_models",
       "scope_n": 5
+    },
+    {
+      "id": "og-plague-marines-2-6",
+      "line": 6,
+      "scope": "per_n_models",
+      "scope_n": 5
+    },
+    {
+      "id": "og-plague-marines-2-7",
+      "line": 7,
+      "scope": "per_n_models",
+      "scope_n": 5
     }
   ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 2,
+    "consecutive_unverified_releases": 3,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,

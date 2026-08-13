@@ -17,7 +17,7 @@
       "model_count": 2,
       "points": 90,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9"
+      "source_acquisition_id": "wahapedia-20260812T223905Z-9a337975"
     }
   ],
   "datasheet_id": "ds-field-ordnance-battery-2",
@@ -78,20 +78,49 @@
     }
   ],
   "name": "Field Ordnance Battery",
+  "option_choices": [
+    {
+      "count": 1,
+      "grants_weapon_line": 1,
+      "group_id": "og-field-ordnance-battery-2-1",
+      "id": "oc-field-ordnance-battery-2-1-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "bombast field gun",
+      "replaces_weapon_line": 5
+    },
+    {
+      "count": 1,
+      "grants_weapon_line": 2,
+      "group_id": "og-field-ordnance-battery-2-1",
+      "id": "oc-field-ordnance-battery-2-1-2",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "heavy lascannon",
+      "replaces_weapon_line": 5
+    }
+  ],
+  "option_groups": [
+    {
+      "id": "og-field-ordnance-battery-2-1",
+      "line": 1,
+      "scope": "unit"
+    }
+  ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 2,
+    "consecutive_unverified_releases": 3,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
     "points_edition_code": "wh40k-11e",
     "points_source": "none"
   },
-  "wargear_option_state": "partial",
+  "wargear_option_state": "extracted",
   "weapons": [
     {
       "ability_keywords": [

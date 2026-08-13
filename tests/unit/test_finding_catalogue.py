@@ -121,7 +121,24 @@ PENDING_CONTRACT_SEVERITIES = {
     "COV-WEAPON-ABILITIES-EMPTY": A,
 }
 
+#: Transcribed by hand from 006's data-model.md §5 table and its contracts/
+#: loadout-schema-delta.md guarantees 12-16, independently of pipeline/report/catalogue.py.
+#: Two of seven block, which is 004's proportion and deliberately so: a parse tail is editorial
+#: work and a release that stalls on it teaches people to route around the gate. Both blockers
+#: are contradictions rather than gaps -- a bundle disagreeing with itself, and a coverage
+#: figure that moved the wrong way -- and neither is fixable by waiting.
+LOADOUT_SEVERITIES = {
+    "OPT-SCOPE-UNRESOLVED": A,
+    "OPT-BUNDLE-UNLINKED": A,
+    "OPT-BUNDLE-DISAGREE": B,
+    "EQP-UNPARSED": A,
+    "EQP-GROUP-UNRESOLVED": A,
+    "EQP-ITEM-UNLINKED": A,
+    "COV-OPTION-REGRESSION": B,
+}
+
 CONTRACT_SEVERITIES.update(ENRICHMENT_SEVERITIES)
+CONTRACT_SEVERITIES.update(LOADOUT_SEVERITIES)
 CONTRACT_SEVERITIES.update(PENDING_CONTRACT_SEVERITIES)
 
 
@@ -284,3 +301,46 @@ def test_the_ratchet_detail_reports_percentages_as_integers() -> None:
     assert finding.detail["current_ratio_percent"] == 31
     with pytest.raises(ValueError, match="dictionary|float|valid"):
         build_finding("COV-SUMMARY-REGRESSION", detail={"current_ratio": 0.31})
+
+
+# -- 006-unit-loadout-fidelity (006 task T008) ---------------------------------------------
+
+
+def test_the_loadout_codes_reuse_the_two_that_already_say_what_they_would_say() -> None:
+    """A second code for one fact is a second thing to keep in step.
+
+    `OPT-UNPARSED` already reports a row no production resolves, and `OPT-PROJECTION-DISAGREE`
+    already blocks on a priced projection disagreeing with the choice that references it. 006
+    FR-010 and FR-021 describe exactly those two situations over a wider grammar, so neither
+    gets a new code -- and this test is what stops one being added later by someone reading
+    FR-021 as a list of codes to create.
+    """
+    assert "OPT-UNPARSED" in CATALOGUE
+    assert severity_of("OPT-PROJECTION-DISAGREE") is Severity.BLOCKING
+    for invented in ("OPT-BUNDLE-UNPARSED", "OPT-ITEM-PROJECTION-DISAGREE", "EQP-PROJECTION"):
+        assert invented not in CATALOGUE
+
+
+def test_only_a_contradiction_blocks_among_the_loadout_codes() -> None:
+    """The severities in one sentence: what is missing is advisory, what disagrees blocks."""
+    blocking = {code for code, severity in LOADOUT_SEVERITIES.items() if severity == B}
+    assert blocking == {"OPT-BUNDLE-DISAGREE", "COV-OPTION-REGRESSION"}
+    assert blocking <= BLOCKING_CODES
+
+    for code in set(LOADOUT_SEVERITIES) - blocking:
+        assert severity_of(code) is Severity.ADVISORY, (
+            f"{code} reports something the grammar could not resolve, and an unresolved row is "
+            "editorial work rather than a reason to refuse a release"
+        )
+
+
+def test_an_unlinked_item_and_an_unresolved_group_are_reconciliation_findings() -> None:
+    """Class is a property of the code too, and it decides which report section a reader looks
+    in. A linking failure is reconciliation; a sentence that matched no production is data
+    quality; a self-contradicting bundle is a contract breach."""
+    assert CATALOGUE["OPT-BUNDLE-UNLINKED"].finding_class is FindingClass.RECONCILIATION
+    assert CATALOGUE["EQP-GROUP-UNRESOLVED"].finding_class is FindingClass.RECONCILIATION
+    assert CATALOGUE["EQP-ITEM-UNLINKED"].finding_class is FindingClass.RECONCILIATION
+    assert CATALOGUE["EQP-UNPARSED"].finding_class is FindingClass.DATA_QUALITY
+    assert CATALOGUE["OPT-BUNDLE-DISAGREE"].finding_class is FindingClass.CONTRACT
+    assert CATALOGUE["COV-OPTION-REGRESSION"].finding_class is FindingClass.COVERAGE

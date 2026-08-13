@@ -24,7 +24,7 @@
       "model_count": 10,
       "points": 50,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9"
+      "source_acquisition_id": "wahapedia-20260812T223905Z-9a337975"
     },
     {
       "copy_index_min": 1,
@@ -32,7 +32,7 @@
       "model_count": 20,
       "points": 100,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9"
+      "source_acquisition_id": "wahapedia-20260812T223905Z-9a337975"
     }
   ],
   "datasheet_id": "ds-cultist-mob-with-firearms",
@@ -55,7 +55,7 @@
     },
     {
       "is_faction_keyword": false,
-      "keyword": "CULTIST MOB WITH FIREARMS , UNDIVIDED , SHADOW LEGION",
+      "keyword": "CULTIST MOB WITH FIREARMS",
       "keyword_class": "unit"
     },
     {
@@ -75,6 +75,16 @@
     {
       "is_faction_keyword": false,
       "keyword": "INFANTRY",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "SHADOW LEGION",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "UNDIVIDED",
       "keyword_class": "unit"
     }
   ],
@@ -101,6 +111,14 @@
       "is_no_change": false,
       "name": "bolt pistol",
       "replaces_weapon_line": 3
+    },
+    {
+      "count": 1,
+      "group_id": "og-cultist-mob-with-firearms-2",
+      "id": "oc-cultist-mob-with-firearms-2-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "autopistol and 1 brutal assault weapon"
     },
     {
       "count": 1,
@@ -136,6 +154,11 @@
       "scope": "unit"
     },
     {
+      "id": "og-cultist-mob-with-firearms-2",
+      "line": 2,
+      "scope": "unit"
+    },
+    {
       "id": "og-cultist-mob-with-firearms-3",
       "line": 3,
       "scope": "per_n_models",
@@ -155,19 +178,19 @@
     }
   ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 2,
+    "consecutive_unverified_releases": 3,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
     "points_edition_code": "wh40k-11e",
     "points_source": "none"
   },
-  "wargear_option_state": "partial",
+  "wargear_option_state": "extracted",
   "weapons": [
     {
       "ability_keywords": [

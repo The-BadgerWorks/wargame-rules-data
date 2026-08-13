@@ -8,6 +8,10 @@
 # CuratedDetachment.rules rather than off the curator's own file.
 # AI-Assisted: Claude Code (model: claude-opus-5) - Added the glossary denominator, its
 # faction/chapter exclusion, and the GLS-ORPHANED advisory (004 task T061, contract §4.1/§5.1).
+# AI-Assisted: Claude Code (model: claude-opus-5) - Added the COV-OPTION-REGRESSION ratchet and
+# the two loadout coverage rows (006 task T038): check_summary_ratchet's shape reused for a
+# figure that is not an authored class, comparing PERCENTS against the previous PUBLISHED
+# version where the collapse check compares counts against a configured floor.
 """V7, generalised — every authored summary class, one gate mechanism.
 
 **A gate selects a code. It never selects a severity.** That single sentence is why this module
@@ -49,6 +53,7 @@ from collections.abc import Mapping, Sequence
 from dataclasses import dataclass, field
 
 from pipeline.config import Gate, PipelineConfig
+from pipeline.curate.prior import LOADOUT_COVERAGE_PREFIX
 from pipeline.curate.summaries import (
     AuthoredSummary,
     SummaryStatus,
@@ -65,6 +70,7 @@ from pipeline.models.curated import ArmyRuleState, CuratedSnapshot, KeywordClass
 from pipeline.models.findings import CoverageFigure, Finding
 from pipeline.normalize.keyword_key import keyword_key
 from pipeline.report.catalogue import build_finding
+from pipeline.validate.coverage import LOADOUT_RATCHETED_KEYS, LoadoutCoverage
 
 #: The blocking code a gated-on class emits for each reason an entry lacks an approved summary.
 #: Kept distinct because a curator reading the report needs to know which one to act on:
@@ -264,6 +270,79 @@ def check_summary_ratchet(
                 )
             )
     return findings
+
+
+def check_option_ratchet(
+    coverage: LoadoutCoverage, *, previous_percent: int | None, tolerance: float
+) -> list[Finding]:
+    """``COV-OPTION-REGRESSION`` — resolved-option coverage must not fall (`006` FR-022).
+
+    A **second, stricter test over the counts the collapse check already computes**, and the two
+    are not redundant. ``validate/coverage.py``'s ``wargear_options`` row compares this version's
+    count with the previous version's count against a configured floor, so it tolerates a steady
+    ten-percent decline indefinitely — which is precisely the failure the 2026-08-09 clarification
+    names. This compares *percents*, against the previous **published** version, with a tolerance
+    that defaults to nothing.
+
+    Raising ``WGC_COVERAGE_MIN_OPTION_RATIO`` to 1.0 instead would not have done: that ratio's
+    denominator moves. A release in which the source adds forty datasheets can raise the count
+    while lowering the proportion, and can lower the count while raising it.
+
+    Args:
+        previous_percent: the previously **published** version's percent, read back from its
+            retained `report.json`. ``None`` — a first release, or a release predating this
+            feature — cannot regress, which is what makes the ratchet safe to introduce
+            mid-campaign rather than needing a seeded baseline.
+        tolerance: ``WGC_RATCHET_TOLERANCE_OPTIONS``, as a ratio. There is deliberately **no**
+            absolute threshold knob beside it: a floor is exactly the ceiling the clarification
+            rules out, since it would let source-wording drift wedge a release ahead of a parser
+            fix.
+    """
+    if previous_percent is None:
+        return []
+    tolerance_percent = round(100 * tolerance)
+    if coverage.ratio_percent >= previous_percent - tolerance_percent:
+        return []
+    return [
+        build_finding(
+            "COV-OPTION-REGRESSION",
+            entity_refs=[f"coverage:{LOADOUT_COVERAGE_PREFIX}{coverage.key}"],
+            detail={
+                "figure": f"{LOADOUT_COVERAGE_PREFIX}{coverage.key}",
+                "previous_ratio_percent": previous_percent,
+                "current_ratio_percent": coverage.ratio_percent,
+                "tolerance_percent": tolerance_percent,
+            },
+        )
+    ]
+
+
+def loadout_coverage_figures(
+    coverages: Mapping[str, LoadoutCoverage],
+    *,
+    previous_count: Mapping[str, int],
+    previous_percent: Mapping[str, int],
+    tolerance: float,
+) -> dict[str, CoverageFigure]:
+    """The two ``loadout.<figure>`` rows of the report's coverage block (`006` data-model.md §5).
+
+    Both figures are reported; only :data:`~pipeline.validate.coverage.LOADOUT_RATCHETED_KEYS` is
+    guarded. An unratcheted row states ``threshold`` ``0.0``, which is the truthful reading —
+    nothing refuses a release over it — rather than a floor nobody enforces, and an approver can
+    tell the two apart in the block itself without knowing the tolerance configuration.
+    """
+    figures: dict[str, CoverageFigure] = {}
+    for key, coverage in coverages.items():
+        ratcheted = key in LOADOUT_RATCHETED_KEYS
+        baseline = previous_percent.get(key) if ratcheted else None
+        floor = 0 if baseline is None else max(baseline - round(100 * tolerance), 0)
+        figures[f"{LOADOUT_COVERAGE_PREFIX}{key}"] = CoverageFigure(
+            current=coverage.resolved,
+            previous=previous_count.get(key, 0),
+            ratio=round(coverage.ratio_percent / 100, 4),
+            threshold=round(floor / 100, 4),
+        )
+    return figures
 
 
 def used_ability_keys(snapshot: CuratedSnapshot) -> set[str]:

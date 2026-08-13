@@ -25,7 +25,7 @@
       "model_count": 4,
       "points": 60,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
+      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
     }
   ],
   "datasheet_id": "ds-krieg-heavy-weapons-squad",
@@ -92,22 +92,51 @@
     }
   ],
   "name": "KRIEG HEAVY WEAPONS SQUAD",
+  "option_choices": [
+    {
+      "count": 1,
+      "grants_weapon_line": 1,
+      "group_id": "og-krieg-heavy-weapons-squad-1",
+      "id": "oc-krieg-heavy-weapons-squad-1-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "Krieg heavy flamer",
+      "replaces_weapon_line": 2
+    },
+    {
+      "count": 1,
+      "grants_weapon_line": 4,
+      "group_id": "og-krieg-heavy-weapons-squad-1",
+      "id": "oc-krieg-heavy-weapons-squad-1-2",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "twin Krieg heavy stubber",
+      "replaces_weapon_line": 2
+    }
+  ],
+  "option_groups": [
+    {
+      "id": "og-krieg-heavy-weapons-squad-1",
+      "line": 1,
+      "scope": "unit"
+    }
+  ],
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:069482f417b99afefd53afa4e382e5016da66e740827ab8492265bdd754d4ec3",
-    "last_verified_version": "wh40k-11e-2026-08",
+    "last_verified_version": "wh40k-11e-2026-08-2",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
+    "points_acquisition_id": "mfm-20260812T223703Z-6694568f",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
-  "wargear_option_state": "partial",
+  "wargear_option_state": "extracted",
   "weapons": [
     {
       "ability_keywords": [

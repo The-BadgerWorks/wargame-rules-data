@@ -18,6 +18,9 @@
 # the ability one (issue #7): a faction army rule is headed by `div.tooltip_header` and carries no
 # `div.abName`, so it produced no `Abilities.csv` row and 38 ability keys — one per faction —
 # digested over the empty string and could never flag for re-review.
+# AI-Assisted: Claude Code (model: claude-opus-5) - Split a keyword cell on the boundaries the page
+# draws rather than on the one character it was assumed to print (006 T049): `;` is not the only
+# separator, so 356 rows carried two keywords in one value and matched neither by name.
 """Extract the current-edition datacard pages into the **same record shape** ``csv`` mode reads.
 
 This module is the whole of the difference between the two detail-acquisition modes. Above it,
@@ -89,6 +92,7 @@ from pipeline.acquire.fixtures import FixturePayload
 from pipeline.models.source import WahapediaRow
 from pipeline.normalize.homoglyphs import fold_homoglyphs
 from pipeline.normalize.weapon_abilities import format_ability_keywords
+from pipeline.parse.equipment_grammar import EQUIPMENT_TABLE
 from pipeline.parse.wahapedia_csv import CsvReadResult
 
 #: The datacard root. Both tokens, because ``dsOuterFrame`` alone is also used for other frames.
@@ -137,8 +141,27 @@ _WEAPON_FIELDS: Final[tuple[str, ...]] = ("range", "A", "BS_WS", "S", "AP", "D")
 _RANGED_SECTION: Final = "RANGED WEAPONS"
 _MELEE_SECTION: Final = "MELEE WEAPONS"
 
-#: A "the source publishes none" placeholder in an option or composition list.
+#: A "the source publishes none" placeholder in an option or composition list. Compared against
+#: the row's text with its trailing full stops removed: the page prints both ``None`` and
+#: ``None.``, and an exact-string comparison published the second as an option row (`006` T022).
 _NONE_TEXT: Final = "none"
+
+#: A default-equipment sentence — a named model's fixed loadout — misfiled into the options
+#: block (`006` T022, research D1c.4; 22 measured rows). ``is equipped with:`` states what a
+#: model *has*, not what it may take.
+_DEFAULT_EQUIPMENT_SENTENCE: Final = re.compile(r"\bis equipped with\s*:", re.IGNORECASE)
+
+#: The same sentence read where it genuinely lives — the ``<b>`` subject inside the
+#: ``UNIT COMPOSITION`` block (`006` T027, research D1e). ``are`` is accepted beside ``is``
+#: because a plural subject spells it that way; every such subject is refused by the grammar's
+#: own residual rule rather than here, so the extractor stays a reader and the decision about
+#: what resolves stays in one place.
+_EQUIPMENT_SUBJECT: Final = re.compile(r"\b(?:is|are)\s+equipped\s+with\s*:\s*$", re.IGNORECASE)
+
+#: What makes a row an option at all: the modal that offers the player a decision. It is the
+#: guard on the rule above, so a genuine option row that happens to describe a starting loadout
+#: on its way to offering a swap is never dropped.
+_GRANTS_A_CHOICE: Final = re.compile(r"\bcan\b", re.IGNORECASE)
 
 #: The rule the page draws between two things printed inside one element: two named abilities,
 #: or two model-scoped keyword groups. It is a ``div.dsLineHor`` in the first case and a
@@ -228,6 +251,11 @@ EMITTED_TABLES: Final[Mapping[str, tuple[str, ...]]] = {
     ),
     "Abilities.csv": ("id", "name", "legend", "faction_id", "description"),
     "Datasheets_unit_composition.csv": ("datasheet_id", "line", "description"),
+    # `006` T027. The **one** table here the export does not publish, and its absence is the
+    # point: in `csv` mode nothing emits it, `curate/assemble.py` finds no mapping entry, and
+    # `default_equipment_state` is OMITTED — data-model.md section 3's "the source was not
+    # consulted", carried with no mode flag anywhere below `acquire`.
+    EQUIPMENT_TABLE: ("datasheet_id", "line", "description"),
     "Datasheets_options.csv": ("datasheet_id", "line", "button", "description"),
     "Datasheets_models_cost.csv": ("datasheet_id", "line", "description", "cost"),
     "Datasheets_leader.csv": ("leader_id", "attached_id"),
@@ -423,6 +451,13 @@ class Datacard:
     abilities: tuple[AbilityReference, ...] = ()
     composition: tuple[str, ...] = ()
     options: tuple[str, ...] = ()
+    equipment: tuple[str, ...] = ()
+    """One default-equipment sentence per element, subject and item list joined (`006` T027).
+
+    Beside ``composition`` rather than inside it, and the two are read from **disjoint** parts of
+    one element: composition is ``ul.dsUl > li``, equipment is the ``<b>`` sentence and the bare
+    text nodes after it. Nothing here changes what ``composition`` contains.
+    """
     costs: tuple[tuple[str, str], ...] = ()
     leads: tuple[str, ...] = ()
     led_by: tuple[str, ...] = ()
@@ -630,8 +665,9 @@ def _keywords(card: LexborNode) -> tuple[tuple[str, str, bool], ...]:
     Two further shapes the columns really carry:
 
     * **A keyword is split across several ``span.kwb`` elements** — they are line-break
-      opportunities, not tokens — so the list is split on the separator the page *prints*
-      (``;``), never on the span boundaries, or a two-word keyword would arrive as two.
+      opportunities, not tokens — so the list is split on what the page *prints between* two
+      such runs, never on the span boundaries, or a two-word keyword would arrive as two. That
+      is :func:`_listed_keywords`, and the reason it is not a split of the flattened text.
     * **A column may hold more than one group**, separated by a horizontal rule, where each
       group after the first is labelled with the model it applies to. That label is exactly the
       export's ``model`` column, so it is read into the same field and the keyword classifier
@@ -659,11 +695,70 @@ def _keywords(card: LexborNode) -> tuple[tuple[str, str, bool], ...]:
             else:
                 # A second group in the same column is labelled with the model it applies to.
                 scope = label.strip()
-            for keyword in listed.split(";"):
-                cleaned = keyword.strip()
-                if cleaned:
-                    entries.append((cleaned, scope, is_faction))
+            if listed.strip() and not tree.body.css("span.kwb"):
+                raise HtmlStructureError(
+                    "a keyword group lists keywords that are no longer printed in span.kwb; the "
+                    "element run is the only boundary between two keywords, so every keyword on "
+                    "every card would now be read as one run of words or as none at all"
+                )
+            for keyword in _listed_keywords(tree.body):
+                entries.append((keyword, scope, is_faction))
     return tuple(entries)
+
+
+def _listed_keywords(group: LexborNode) -> tuple[str, ...]:
+    """The keywords one keyword group prints, split where the page draws a boundary.
+
+    The column does **not** separate its keywords with one character. Alongside the ``;`` between
+    ordinary keywords, a detachment-conditional keyword is appended after a ``, `` carried in its
+    own ``span.clFl``, and a conditional group may be introduced by a printed ``:`` after a
+    model-scoped list. Splitting the flattened cell on ``;`` alone therefore emitted one row
+    holding two keywords — 356 rows of the ``wh40k-11e-2026-08-2`` candidate, 291 of them already
+    in the published release — and a consumer filtering on either exact name found nothing.
+
+    Enumerating the separators instead would fix that case and break the opposite one, because a
+    keyword's own name may contain the punctuation. So neither is enumerated. **A keyword is a
+    run of ``span.kwb`` elements, and the separator is any non-whitespace text printed between
+    two runs** — the same reasoning :func:`_ability_keywords` applies one column over, where the
+    element boundary *is* the separator because nothing is printed between two of them.
+
+    Whitespace between two runs is a line-break opportunity, not a boundary, so the words of one
+    keyword are rejoined with a single space exactly as :func:`_text` would have joined them.
+    """
+    keywords: list[str] = []
+    words: list[str] = []
+
+    def flush() -> None:
+        if keyword := " ".join("".join(words).split()):
+            keywords.append(keyword)
+        words.clear()
+
+    for inside_keyword, text in _keyword_runs(group, False):
+        if inside_keyword:
+            words.append(text)
+        elif text.strip():
+            flush()
+        else:
+            words.append(" ")
+    flush()
+    return tuple(keywords)
+
+
+def _keyword_runs(node: LexborNode, inside_keyword: bool) -> Iterator[tuple[bool, str]]:
+    """Every text fragment under ``node``, flagged with whether a ``span.kwb`` encloses it.
+
+    Element boundaries are yielded as their own single-space fragments, carrying the same flag as
+    what they open or close: inside a keyword that is the join between its words, outside one it
+    is whitespace and therefore not a separator.
+    """
+    for child in node.iter(include_text=True):
+        if child.tag == "-text":
+            yield inside_keyword, child.text(deep=False) or ""
+        else:
+            within = inside_keyword or _has_class(child, "kwb")
+            yield within, " "
+            yield from _keyword_runs(child, within)
+            yield within, " "
 
 
 def _split_named_abilities(node: LexborNode) -> list[tuple[str, str]]:
@@ -761,6 +856,49 @@ def _composition_and_costs(block: Block) -> tuple[tuple[str, ...], tuple[tuple[s
     return tuple(lines), tuple(costs)
 
 
+def _equipment(block: Block) -> tuple[str, ...]:
+    """The default-equipment sentences printed in the same block as the composition lines.
+
+    **Where they are** (research D1e, measured over 1 688 cached datacards): inside the *same*
+    ``div.dsAbility`` as the composition lists and after them, as a ``<b>`` element whose text
+    ends ``… is equipped with:`` followed by a bare text node holding a ``;``-separated item
+    list, with ``<br><br>`` between groups. 1 676 cards carry one, and 1 932 groups in total.
+
+    **Why extracting them cannot perturb composition** — risk R-E, and it is structural rather
+    than incidental. :func:`_composition_and_costs` reads ``ul.dsUl > li`` and nothing else; this
+    walks the element's **direct children**, so it never descends into a ``<ul>`` and the two
+    reads touch disjoint nodes. The measured half of the same observation: every extracted
+    composition-line skeleton begins with ``INT`` and none contains the equipment vocabulary.
+
+    A ``<b>`` that is not an equipment subject — the block prints other bold labels — closes any
+    open sentence and starts nothing, so text that belongs to neither is carried nowhere.
+
+    The subject and its item list leave here **joined into one string**, because that is what
+    makes :mod:`pipeline.parse.equipment_grammar` mode-blind in exactly the way the composition
+    and option grammars already are: it takes a description, not a DOM.
+    """
+    found: list[str] = []
+    for node in block.nodes:
+        subject: str | None = None
+        items: list[str] = []
+        for child in node.iter(include_text=True):
+            if child.tag == "b":
+                if subject is not None:
+                    found.append(_joined_sentence(subject, items))
+                text = _text(child)
+                subject = text if _EQUIPMENT_SUBJECT.search(text) else None
+                items = []
+            elif subject is not None and child.tag == "-text":
+                items.append(child.text(deep=False) or "")
+        if subject is not None:
+            found.append(_joined_sentence(subject, items))
+    return tuple(found)
+
+
+def _joined_sentence(subject: str, items: Sequence[str]) -> str:
+    return " ".join(f"{subject} {''.join(items)}".split())
+
+
 def _options(block: Block) -> tuple[str, ...]:
     """One description per top-level option, as **markup**, so nested choices survive.
 
@@ -768,6 +906,22 @@ def _options(block: Block) -> tuple[str, ...]:
     :func:`pipeline.parse.options_grammar.split_sublist` splits a stem clause from its
     alternatives on the ``<ul>`` the export also carries — so the same row shape reaches the same
     grammar from both modes, and the grammar is reused with no html-specific branch.
+
+    **Two `<li>` shapes are not option rows at all, and are dropped here rather than tolerated by
+    the grammar** (`006` T022, research D1c.4). Both were measured as a combined 30 rows — 5.3 %
+    of the unparsed residual — and neither is a vocabulary gap:
+
+    * a **default-equipment sentence** misfiled into the options block, 22 rows. The datacard
+      states a named leader's fixed loadout — ``<NAME> is equipped with: …`` with no ``can``
+      anywhere — inside the same list as its options. It grants no choice, so reporting it as an
+      unresolved *option* sizes a production against a layout quirk;
+    * the literal **``None.``** placeholder, 8 rows. The extractor already drops ``None``; the
+      variant carrying the publisher's full stop fell through an exact-string comparison and was
+      published as an option row saying nothing.
+
+    Fixing them here rather than teaching the grammar to recognise and discard them is the
+    difference between an extractor that knows what an option row *is* and a grammar that
+    tolerates being handed anything.
     """
     rows: list[str] = []
     for node in block.nodes:
@@ -776,10 +930,12 @@ def _options(block: Block) -> tuple[str, ...]:
         for item in _children(node):
             if item.tag != "li":
                 continue
-            inner = item.html or ""
-            if _text(item).strip().casefold() == _NONE_TEXT:
+            text = _text(item).strip()
+            if text.rstrip(".").strip().casefold() == _NONE_TEXT:
                 continue
-            rows.append(_strip_outer_tag(inner))
+            if _DEFAULT_EQUIPMENT_SENTENCE.search(text) and not _GRANTS_A_CHOICE.search(text):
+                continue
+            rows.append(_strip_outer_tag(item.html or ""))
     return tuple(rows)
 
 
@@ -1002,6 +1158,7 @@ def parse_faction_page(slug: str, html: str) -> DatacardPage:
         abilities: list[AbilityReference] = []
         composition: tuple[str, ...] = ()
         costs: tuple[tuple[str, str], ...] = ()
+        equipment: tuple[str, ...] = ()
         options: tuple[str, ...] = ()
         leads: tuple[str, ...] = ()
         led_by: tuple[str, ...] = ()
@@ -1012,6 +1169,7 @@ def parse_faction_page(slug: str, html: str) -> DatacardPage:
                 abilities.extend(_abilities(block))
             elif block.label == COMPOSITION_LABEL:
                 composition, costs = _composition_and_costs(block)
+                equipment = _equipment(block)
             elif block.label == OPTIONS_LABEL:
                 options = _options(block)
             elif block.label == LEADER_LABEL:
@@ -1037,6 +1195,7 @@ def parse_faction_page(slug: str, html: str) -> DatacardPage:
                 abilities=tuple(abilities),
                 composition=composition,
                 options=options,
+                equipment=equipment,
                 costs=costs,
                 leads=leads,
                 led_by=led_by,
@@ -1210,6 +1369,10 @@ def _emit_card(card: Datacard, tables: dict[str, list[dict[str, str]]]) -> None:
         )
     for line, description in enumerate(card.composition, start=1):
         tables["Datasheets_unit_composition.csv"].append(
+            {"datasheet_id": card.detail_id, "line": str(line), "description": description}
+        )
+    for line, description in enumerate(card.equipment, start=1):
+        tables[EQUIPMENT_TABLE].append(
             {"datasheet_id": card.detail_id, "line": str(line), "description": description}
         )
     for line, description in enumerate(card.options, start=1):

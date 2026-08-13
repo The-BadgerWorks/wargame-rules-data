@@ -17,6 +17,21 @@
         "minimum": 1,
         "description": "Present exactly when scope is per_n_models."
       },
+      "eligible_model_name": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 120,
+        "description": "006 FR-004. The model name the stem restricts the option to. A NAME, never prose, and never a fourth member of `scope` -- adding one to that closed enum would break a consumer that validates it. Independent of eligible_max_count: a stem may name a subset without a cap."
+      },
+      "eligible_max_count": {
+        "type": "integer",
+        "minimum": 1,
+        "description": "006 FR-004. The maximum number of that model the stem makes eligible. Carried as the source states it and NOT reconciled against the named model's own composition band (spec Clarifications, 2026-08-09)."
+      },
+      "is_per_model": {
+        "type": "boolean",
+        "description": "006 FR-004. True when the source distributes the option per eligible model rather than once across the unit. Omitted when the source does not distinguish -- never defaulted, because defaulting it to false would over-grant on the majority form of the residual."
+      },
       "min_choices": { "type": "integer", "minimum": 0 },
       "max_choices": { "type": "integer", "minimum": 0 },
       "choices": {
@@ -35,6 +50,22 @@
             "is_no_change": {
               "type": "boolean",
               "description": "An explicit 'no change' alternative. It never carries a price, because publishing one would present 'take nothing' as a purchasable item."
+            },
+            "items": {
+              "type": "array",
+              "minItems": 1,
+              "description": "006 FR-005..FR-007. The replaced set and the granted bundle, in the source's own order. Optional: a 004-shaped override that states grants_weapon_line and no items is expanded by the assembler into the single-element list guarantee 12 requires, and a curator's stated weapon_line is USED, never re-derived.",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["role", "item_name"],
+                "properties": {
+                  "role": { "enum": ["granted", "replaced"] },
+                  "item_name": { "type": "string", "minLength": 1, "maxLength": 120 },
+                  "count": { "type": "integer", "minimum": 1 },
+                  "weapon_line": { "type": "integer", "minimum": 1 }
+                }
+              }
             }
           }
         }

@@ -141,7 +141,22 @@
           "parent_group_id": { "type": "string", "minLength": 1 },
           "default_choice_id": { "type": "string", "minLength": 1 },
           "min_choices": { "type": "integer", "minimum": 0 },
-          "max_choices": { "type": "integer", "minimum": 0 }
+          "max_choices": { "type": "integer", "minimum": 0 },
+          "eligible_model_name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 120,
+            "description": "006 data-model.md §2.1 (FR-004). The model name a scoped stem restricts the option to. OMITTED when the stem names no subset. `scope` does NOT gain a fourth member for this -- see 006 contracts/loadout-schema-delta.md §1.2."
+          },
+          "eligible_max_count": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "006 data-model.md §2.1 (FR-004). Independent of eligible_model_name; neither implies the other and neither is defaulted. Carried as the source states it, unchecked against the named model's composition band."
+          },
+          "is_per_model": {
+            "type": "boolean",
+            "description": "006 data-model.md §2.1 (FR-004). OMITTED when the source does not distinguish -- never defaulted to false, which would over-grant on the majority form of the residual."
+          }
         }
       }
     },
@@ -162,13 +177,73 @@
           "is_default": { "type": "boolean" },
           "is_no_change": { "type": "boolean" },
           "points_delta": { "type": "integer" },
-          "priced_option_id": { "type": "string", "minLength": 1 }
+          "priced_option_id": { "type": "string", "minLength": 1 },
+          "items": {
+            "type": "array",
+            "description": "006 data-model.md §1.1 (FR-005..FR-007). Sorted by (role, item_index). EVERY choice has items, including the single-item ones 004 already publishes: the redundancy is deliberate and load-bearing, because it makes the consumer's read uniform and turns guarantee 12 into an invariant a test checks on every build. A choice whose items on one side number anything other than one carries NO singular grants_/replaces_weapon_line at all.",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["role", "item_index", "item_name"],
+              "properties": {
+                "role": { "enum": ["granted", "replaced"] },
+                "item_index": { "type": "integer", "minimum": 1 },
+                "item_name": { "type": "string", "minLength": 1, "maxLength": 120 },
+                "count": { "type": "integer", "minimum": 1 },
+                "weapon_line": { "type": "integer", "minimum": 1 }
+              }
+            }
+          }
         }
       }
     },
     "wargear_option_state": {
       "enum": ["none", "extracted", "partial"],
       "description": "OMITTED = the source was not consulted. Distinguishes a datasheet with genuinely NO options from one whose options failed to extract (004 FR-016) -- a consumer that cannot tell them apart shows an empty list for both."
+    },
+    "equipment_groups": {
+      "type": "array",
+      "description": "Sorted by id. 006 data-model.md §1.2 (FR-012, FR-013). One default-equipment sentence and WHO it applies to. applies_to is an explicit code rather than the presence of composition_line, because a nullable FK alone cannot tell 'covers the whole unit' from 'names a group I could not identify'. composition_line is resolved by NAME and never by ordinal.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "line", "applies_to"],
+        "properties": {
+          "id": { "type": "string", "minLength": 1 },
+          "line": { "type": "integer", "minimum": 1 },
+          "applies_to": { "enum": ["unit", "model_group"] },
+          "model_name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 120,
+            "description": "Present exactly when applies_to is model_group."
+          },
+          "composition_line": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "OMITTED on zero or two-or-more name matches against composition[] -- never guessed."
+          },
+          "items": {
+            "type": "array",
+            "description": "Sorted by item_index, in the source's own order.",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["item_index", "item_name"],
+              "properties": {
+                "item_index": { "type": "integer", "minimum": 1 },
+                "item_name": { "type": "string", "minLength": 1, "maxLength": 120 },
+                "count": { "type": "integer", "minimum": 1 },
+                "weapon_line": { "type": "integer", "minimum": 1 }
+              }
+            }
+          }
+        }
+      }
+    },
+    "default_equipment_state": {
+      "enum": ["none", "extracted", "partial"],
+      "description": "006 data-model.md §3 (FR-015, FR-016). wargear_option_state's pattern reused without variation. OMITTED = the source was not consulted, OR the datasheet's composition did not resolve, in which case no equipment attaches at all."
     },
     "ability_keys": {
       "type": "array",

@@ -2,6 +2,9 @@
 # partial or error response that parses cleanly but drops faction, datasheet, or priced-datasheet
 # counts below the configured ratios raises the blocking COV-COLLAPSE and exits 42 without
 # publishing (FR-009, V10).
+# AI-Assisted: Claude Code (model: claude-opus-5) - Added the resolution cases (006 T049
+# follow-on): a dated, digest-bound resolution has to reach exit 42 and not only the report, and a
+# resolution bound to other numbers still has to refuse.
 """V10 — coverage against the previous published version.
 
 The failure this catches is the quiet one. A partial response, or an error page that happens to
@@ -16,10 +19,12 @@ from __future__ import annotations
 
 from pathlib import Path
 
-from pipeline.cli import run_build
+from pipeline.cli import _verdict, run_build
 from pipeline.config import load_config
 from pipeline.curate.prior import load_prior, prior_from_snapshot
 from pipeline.exit_codes import ExitCode
+from pipeline.models.authored import FindingResolution
+from pipeline.reconcile.findings import apply_resolutions
 from pipeline.validate.coverage import check_coverage
 from tests import factories
 
@@ -100,6 +105,66 @@ def test_a_datasheet_collapse_is_reported_per_category() -> None:
 
     categories = sorted(str(f.detail["category"]) for f in outcome.findings)
     assert categories == ["datasheets", "priced_datasheets"]
+
+
+def _collapse_findings():
+    """One real ``COV-COLLAPSE`` on ``factions``, carrying its data digest."""
+    prior = prior_from_snapshot(
+        snapshot_of(factions=3, datasheets=12, priced=12), rules_version_id="mfm-2026-05"
+    )
+    outcome = check_coverage(
+        snapshot_of(factions=1, datasheets=12, priced=12), prior, load_config(env={})
+    )
+    return outcome, apply_resolutions(outcome.findings, ())
+
+
+def test_an_unresolved_collapse_still_exits_42() -> None:
+    outcome, findings = _collapse_findings()
+
+    assert _verdict(findings, outcome) is ExitCode.COVERAGE_COLLAPSE
+
+
+def test_a_dated_resolution_reaches_the_exit_code_and_not_only_the_report() -> None:
+    """FR-034 promises one way past a blocking finding, and 42 was not honouring it.
+
+    ``CoverageOutcome.collapsed`` is computed in :func:`check_coverage`, *before* any resolution
+    exists. Reading it for the verdict made a curator's dated resolution suppress the finding in
+    the report and satisfy the publish gate while this one code still refused — three answers to
+    one question. The verdict is read off the resolved set instead.
+    """
+    outcome, findings = _collapse_findings()
+    resolution = FindingResolution(
+        finding_code="COV-COLLAPSE",
+        entity_ref="coverage:factions",
+        data_digest=findings[0].data_digest or "",
+        resolved_at="2026-08-12T00:00:00Z",
+        resolved_by="test",
+        explanation="Invented: the fixture publishes fewer factions on purpose.",
+    )
+
+    resolved = apply_resolutions(outcome.findings, (resolution,))
+
+    assert resolved[0].is_suppressed
+    assert _verdict(resolved, outcome) is ExitCode.ADVISORY_ONLY
+    assert outcome.collapsed, "the raw coverage outcome is unchanged; only the verdict reads it"
+
+
+def test_a_resolution_bound_to_other_numbers_does_not_reach_the_exit_code() -> None:
+    """The digest is the whole defence: a resolution is one occurrence, not a class."""
+    outcome, findings = _collapse_findings()
+    stale = FindingResolution(
+        finding_code="COV-COLLAPSE",
+        entity_ref="coverage:factions",
+        data_digest="sha256:" + "0" * 64,
+        resolved_at="2026-08-12T00:00:00Z",
+        resolved_by="test",
+        explanation="Invented: bound to numbers this run does not produce.",
+    )
+
+    resolved = apply_resolutions(outcome.findings, (stale,))
+
+    assert not resolved[0].is_suppressed
+    assert _verdict(resolved, outcome) is ExitCode.COVERAGE_COLLAPSE
 
 
 def test_no_previous_published_version_cannot_collapse() -> None:

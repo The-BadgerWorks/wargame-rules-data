@@ -163,4 +163,35 @@ def check_override_references(
                 if line is not None and line not in weapon_lines:
                     _dangle("option-overrides.json", field, reference, line)
 
+    for equipment_override in authored.equipment_overrides:
+        datasheet = datasheets.get(equipment_override.datasheet_id)
+        if datasheet is None:
+            continue
+        reference = f"{equipment_override.datasheet_id}:{equipment_override.line}"
+        # Guarded on the datasheet HAVING equipment at all, exactly as the composition check
+        # above is guarded on its composition. FR-016 suppresses every equipment row of a
+        # datasheet whose composition did not resolve, and a curator's override for such a
+        # datasheet is a resolution waiting for the composition to be resolved too — not a
+        # reference to something that has gone away.
+        if datasheet.equipment_groups and equipment_override.line not in {
+            group.line for group in datasheet.equipment_groups
+        }:
+            _dangle("equipment-overrides.json", "line", reference, equipment_override.line)
+        weapon_lines = {weapon.line for weapon in datasheet.weapons}
+        composition_lines = {entry.line for entry in datasheet.composition}
+        if (
+            composition_lines
+            and equipment_override.composition_line is not None
+            and equipment_override.composition_line not in composition_lines
+        ):
+            _dangle(
+                "equipment-overrides.json",
+                "composition_line",
+                reference,
+                equipment_override.composition_line,
+            )
+        for item in equipment_override.items:
+            if item.weapon_line is not None and item.weapon_line not in weapon_lines:
+                _dangle("equipment-overrides.json", "weapon_line", reference, item.weapon_line)
+
     return findings
