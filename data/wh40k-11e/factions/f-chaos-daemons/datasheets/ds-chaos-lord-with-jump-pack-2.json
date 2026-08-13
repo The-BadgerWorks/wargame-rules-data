@@ -21,7 +21,7 @@
       "model_count": 1,
       "points": 80,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9"
+      "source_acquisition_id": "wahapedia-20260812T223905Z-9a337975"
     }
   ],
   "datasheet_id": "ds-chaos-lord-with-jump-pack-2",
@@ -39,7 +39,7 @@
     },
     {
       "is_faction_keyword": false,
-      "keyword": "CHAOS LORD , UNDIVIDED , SHADOW LEGION",
+      "keyword": "CHAOS LORD",
       "keyword_class": "unit"
     },
     {
@@ -69,6 +69,16 @@
     {
       "is_faction_keyword": false,
       "keyword": "JUMP PACK",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "SHADOW LEGION",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "UNDIVIDED",
       "keyword_class": "unit"
     }
   ],
@@ -136,12 +146,12 @@
     }
   ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 2,
+    "consecutive_unverified_releases": 3,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,

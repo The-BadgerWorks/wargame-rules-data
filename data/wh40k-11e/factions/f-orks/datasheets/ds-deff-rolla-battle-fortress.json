@@ -21,7 +21,7 @@
       "model_count": 1,
       "points": 250,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9"
+      "source_acquisition_id": "wahapedia-20260812T223905Z-9a337975"
     }
   ],
   "damaged_threshold": 7,
@@ -84,6 +84,23 @@
     },
     {
       "count": 1,
+      "group_id": "og-deff-rolla-battle-fortress-2",
+      "id": "oc-deff-rolla-battle-fortress-2-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "lobba",
+      "replaces_weapon_line": 4
+    },
+    {
+      "count": 1,
+      "group_id": "og-deff-rolla-battle-fortress-2",
+      "id": "oc-deff-rolla-battle-fortress-2-2",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "kannon"
+    },
+    {
+      "count": 1,
       "group_id": "og-deff-rolla-battle-fortress-3",
       "id": "oc-deff-rolla-battle-fortress-3-1",
       "is_default": false,
@@ -99,6 +116,24 @@
       "is_no_change": false,
       "name": "zzap gun",
       "replaces_weapon_line": 8
+    },
+    {
+      "count": 1,
+      "group_id": "og-deff-rolla-battle-fortress-4",
+      "id": "oc-deff-rolla-battle-fortress-4-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "skorcha",
+      "replaces_weapon_line": 6
+    },
+    {
+      "count": 1,
+      "group_id": "og-deff-rolla-battle-fortress-4",
+      "id": "oc-deff-rolla-battle-fortress-4-2",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "rokkit launcha",
+      "replaces_weapon_line": 5
     }
   ],
   "option_groups": [
@@ -108,25 +143,35 @@
       "scope": "model"
     },
     {
+      "id": "og-deff-rolla-battle-fortress-2",
+      "line": 2,
+      "scope": "model"
+    },
+    {
       "id": "og-deff-rolla-battle-fortress-3",
       "line": 3,
+      "scope": "model"
+    },
+    {
+      "id": "og-deff-rolla-battle-fortress-4",
+      "line": 4,
       "scope": "model"
     }
   ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 2,
+    "consecutive_unverified_releases": 3,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
     "points_edition_code": "wh40k-11e",
     "points_source": "none"
   },
-  "wargear_option_state": "partial",
+  "wargear_option_state": "extracted",
   "weapons": [
     {
       "ability_keywords": [

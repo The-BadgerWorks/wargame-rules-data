@@ -24,7 +24,7 @@
       "model_count": 1,
       "points": 80,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
+      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
     }
   ],
   "datasheet_id": "ds-commander-in-enforcer-battlesuit",
@@ -289,26 +289,28 @@
     {
       "id": "og-commander-in-enforcer-battlesuit-2",
       "line": 2,
+      "max_choices": 2,
       "scope": "model"
     },
     {
       "id": "og-commander-in-enforcer-battlesuit-3",
       "line": 3,
+      "max_choices": 3,
       "scope": "model"
     }
   ],
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:1d28e8ecc53fabf8370677d1207b796a090869ddce53671a84a15b7879bb6f71",
-    "last_verified_version": "wh40k-11e-2026-08",
+    "last_verified_version": "wh40k-11e-2026-08-2",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
+    "points_acquisition_id": "mfm-20260812T223703Z-6694568f",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },

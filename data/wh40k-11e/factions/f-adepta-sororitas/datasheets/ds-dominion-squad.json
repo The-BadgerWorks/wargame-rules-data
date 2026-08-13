@@ -27,7 +27,7 @@
       "model_count": 10,
       "points": 90,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
+      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
     },
     {
       "copy_index_min": 3,
@@ -35,7 +35,7 @@
       "model_count": 10,
       "points": 100,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
+      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
     }
   ],
   "datasheet_id": "ds-dominion-squad",
@@ -161,6 +161,36 @@
     },
     {
       "count": 1,
+      "grants_weapon_line": 1,
+      "group_id": "og-dominion-squad-3",
+      "id": "oc-dominion-squad-3-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "artificer-crafted storm bolter",
+      "replaces_weapon_line": 3
+    },
+    {
+      "count": 1,
+      "grants_weapon_line": 7,
+      "group_id": "og-dominion-squad-3",
+      "id": "oc-dominion-squad-3-2",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "meltagun",
+      "replaces_weapon_line": 3
+    },
+    {
+      "count": 1,
+      "grants_weapon_line": 8,
+      "group_id": "og-dominion-squad-3",
+      "id": "oc-dominion-squad-3-3",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "Ministorum flamer",
+      "replaces_weapon_line": 3
+    },
+    {
+      "count": 1,
       "group_id": "og-dominion-squad-4",
       "id": "oc-dominion-squad-4-1",
       "is_default": false,
@@ -180,6 +210,11 @@
       "scope": "unit"
     },
     {
+      "id": "og-dominion-squad-3",
+      "line": 3,
+      "scope": "unit"
+    },
+    {
       "id": "og-dominion-squad-4",
       "line": 4,
       "scope": "unit"
@@ -188,19 +223,19 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:b30816f088486980db0e0cc021fb209636ff59f90fd574714ba7eb92910c1f1e",
-    "last_verified_version": "wh40k-11e-2026-08",
+    "last_verified_version": "wh40k-11e-2026-08-2",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
+    "points_acquisition_id": "mfm-20260812T223703Z-6694568f",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
-  "wargear_option_state": "partial",
+  "wargear_option_state": "extracted",
   "weapons": [
     {
       "ability_keywords": [

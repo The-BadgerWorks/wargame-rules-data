@@ -27,7 +27,7 @@
       "model_count": 5,
       "points": 65,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
+      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
     },
     {
       "copy_index_min": 1,
@@ -35,7 +35,7 @@
       "model_count": 10,
       "points": 110,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
+      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
     }
   ],
   "datasheet_id": "ds-corsair-voidreavers",
@@ -79,6 +79,10 @@
       "is_faction_keyword": false,
       "keyword": "INFANTRY",
       "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": true,
+      "keyword": "YNNARI"
     }
   ],
   "models": [
@@ -124,6 +128,15 @@
     },
     {
       "count": 1,
+      "grants_weapon_line": 6,
+      "group_id": "og-corsair-voidreavers-3",
+      "id": "oc-corsair-voidreavers-3-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "shuriken rifle"
+    },
+    {
+      "count": 1,
       "group_id": "og-corsair-voidreavers-4",
       "id": "oc-corsair-voidreavers-4-1",
       "is_default": false,
@@ -153,6 +166,11 @@
       "scope": "unit"
     },
     {
+      "id": "og-corsair-voidreavers-3",
+      "line": 3,
+      "scope": "unit"
+    },
+    {
       "id": "og-corsair-voidreavers-4",
       "line": 4,
       "scope": "per_n_models",
@@ -162,15 +180,15 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:db078938d9e4858395ab94d52de20a593f6fa6f7b281b1d6f3fc5ac7f40e12d5",
-    "last_verified_version": "wh40k-11e-2026-08",
+    "last_verified_version": "wh40k-11e-2026-08-2",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
+    "points_acquisition_id": "mfm-20260812T223703Z-6694568f",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },

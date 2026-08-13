@@ -25,7 +25,7 @@
       "model_count": 2,
       "points": 110,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9"
+      "source_acquisition_id": "wahapedia-20260812T223905Z-9a337975"
     },
     {
       "copy_index_min": 1,
@@ -33,7 +33,7 @@
       "model_count": 5,
       "points": 275,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9"
+      "source_acquisition_id": "wahapedia-20260812T223905Z-9a337975"
     }
   ],
   "datasheet_id": "ds-company-veterans-on-bikes",
@@ -50,7 +50,7 @@
     },
     {
       "is_faction_keyword": false,
-      "keyword": "COMPANY VETERANS , RAVENWING",
+      "keyword": "COMPANY VETERANS",
       "keyword_class": "unit"
     },
     {
@@ -66,6 +66,11 @@
     {
       "is_faction_keyword": false,
       "keyword": "MOUNTED",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "RAVENWING",
       "keyword_class": "unit"
     }
   ],
@@ -169,12 +174,12 @@
     }
   ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 2,
+    "consecutive_unverified_releases": 3,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,

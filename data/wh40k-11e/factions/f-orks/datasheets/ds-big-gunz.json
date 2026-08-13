@@ -19,7 +19,7 @@
       "model_count": 1,
       "points": 20,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9"
+      "source_acquisition_id": "wahapedia-20260812T223905Z-9a337975"
     },
     {
       "copy_index_min": 1,
@@ -27,7 +27,7 @@
       "model_count": 2,
       "points": 40,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9"
+      "source_acquisition_id": "wahapedia-20260812T223905Z-9a337975"
     }
   ],
   "datasheet_id": "ds-big-gunz",
@@ -79,20 +79,47 @@
     }
   ],
   "name": "Big Gunz",
+  "option_choices": [
+    {
+      "count": 1,
+      "grants_weapon_line": 3,
+      "group_id": "og-big-gunz-1",
+      "id": "oc-big-gunz-1-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "lobba"
+    },
+    {
+      "count": 1,
+      "grants_weapon_line": 4,
+      "group_id": "og-big-gunz-1",
+      "id": "oc-big-gunz-1-2",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "zzap gun"
+    }
+  ],
+  "option_groups": [
+    {
+      "id": "og-big-gunz-1",
+      "line": 1,
+      "scope": "unit"
+    }
+  ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 2,
+    "consecutive_unverified_releases": 3,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
     "points_edition_code": "wh40k-11e",
     "points_source": "none"
   },
-  "wargear_option_state": "partial",
+  "wargear_option_state": "extracted",
   "weapons": [
     {
       "ability_keywords": [

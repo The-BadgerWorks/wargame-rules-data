@@ -27,7 +27,7 @@
       "model_count": 5,
       "points": 110,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
+      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
     },
     {
       "copy_index_min": 1,
@@ -35,7 +35,7 @@
       "model_count": 10,
       "points": 210,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
+      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
     },
     {
       "copy_index_min": 3,
@@ -43,7 +43,7 @@
       "model_count": 5,
       "points": 120,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
+      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
     },
     {
       "copy_index_min": 3,
@@ -51,7 +51,7 @@
       "model_count": 10,
       "points": 220,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
+      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
     }
   ],
   "datasheet_id": "ds-raptors",
@@ -137,6 +137,52 @@
       "is_no_change": false,
       "name": "heavy melee weapon",
       "replaces_weapon_line": 11
+    },
+    {
+      "count": 1,
+      "group_id": "og-raptors-3",
+      "id": "oc-raptors-3-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "plasma pistol (these models’ Astartes chainswords cannot be replaced)",
+      "replaces_weapon_line": 1
+    },
+    {
+      "count": 1,
+      "grants_weapon_line": 11,
+      "group_id": "og-raptors-4",
+      "id": "oc-raptors-4-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "heavy melee weapon",
+      "replaces_weapon_line": 9
+    },
+    {
+      "count": 1,
+      "group_id": "og-raptors-6",
+      "id": "oc-raptors-6-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "flamer and 1 close combat weapon",
+      "replaces_weapon_line": 9
+    },
+    {
+      "count": 1,
+      "group_id": "og-raptors-6",
+      "id": "oc-raptors-6-2",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "meltagun and 1 close combat weapon",
+      "replaces_weapon_line": 9
+    },
+    {
+      "count": 1,
+      "group_id": "og-raptors-6",
+      "id": "oc-raptors-6-3",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "plasma gun and 1 close combat weapon",
+      "replaces_weapon_line": 9
     }
   ],
   "option_groups": [
@@ -149,20 +195,37 @@
       "id": "og-raptors-2",
       "line": 2,
       "scope": "unit"
+    },
+    {
+      "id": "og-raptors-3",
+      "line": 3,
+      "scope": "per_n_models",
+      "scope_n": 5
+    },
+    {
+      "id": "og-raptors-4",
+      "line": 4,
+      "scope": "per_n_models",
+      "scope_n": 5
+    },
+    {
+      "id": "og-raptors-6",
+      "line": 6,
+      "scope": "unit"
     }
   ],
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:4a60efb90e8f52b14cc364dec4390359d30db2baeb904048ea6f4e0d7d4b2c3f",
-    "last_verified_version": "wh40k-11e-2026-08",
+    "last_verified_version": "wh40k-11e-2026-08-2",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
+    "points_acquisition_id": "mfm-20260812T223703Z-6694568f",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },

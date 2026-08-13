@@ -26,7 +26,7 @@
       "model_count": 3,
       "points": 100,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
+      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
     },
     {
       "copy_index_min": 3,
@@ -34,7 +34,7 @@
       "model_count": 3,
       "points": 110,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
+      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
     }
   ],
   "datasheet_id": "ds-crisis-fireknife-battlesuits",
@@ -98,6 +98,26 @@
   "option_choices": [
     {
       "count": 1,
+      "grants_weapon_line": 1,
+      "group_id": "og-crisis-fireknife-battlesuits-1",
+      "id": "oc-crisis-fireknife-battlesuits-1-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "missile pod",
+      "replaces_weapon_line": 2
+    },
+    {
+      "count": 1,
+      "grants_weapon_line": 2,
+      "group_id": "og-crisis-fireknife-battlesuits-2",
+      "id": "oc-crisis-fireknife-battlesuits-2-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "plasma rifle",
+      "replaces_weapon_line": 1
+    },
+    {
+      "count": 1,
       "group_id": "og-crisis-fireknife-battlesuits-3",
       "id": "oc-crisis-fireknife-battlesuits-3-1",
       "is_default": false,
@@ -123,27 +143,38 @@
   ],
   "option_groups": [
     {
+      "id": "og-crisis-fireknife-battlesuits-1",
+      "line": 1,
+      "scope": "unit"
+    },
+    {
+      "id": "og-crisis-fireknife-battlesuits-2",
+      "line": 2,
+      "scope": "unit"
+    },
+    {
       "id": "og-crisis-fireknife-battlesuits-3",
       "line": 3,
+      "max_choices": 2,
       "scope": "unit"
     }
   ],
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:9b8ce27dbdc6b2f50acdc4b2632ee0c1dbe25bb3b843521874f87e7709bf49a6",
-    "last_verified_version": "wh40k-11e-2026-08",
+    "last_verified_version": "wh40k-11e-2026-08-2",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
+    "points_acquisition_id": "mfm-20260812T223703Z-6694568f",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
-  "wargear_option_state": "partial",
+  "wargear_option_state": "extracted",
   "weapons": [
     {
       "armour_penetration": "-1",

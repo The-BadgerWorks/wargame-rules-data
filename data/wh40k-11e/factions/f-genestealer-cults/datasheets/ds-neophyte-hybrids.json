@@ -27,7 +27,7 @@
       "model_count": 10,
       "points": 70,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
+      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
     },
     {
       "copy_index_min": 1,
@@ -35,7 +35,7 @@
       "model_count": 20,
       "points": 135,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260807T033959Z-6075ce5c"
+      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
     }
   ],
   "datasheet_id": "ds-neophyte-hybrids",
@@ -93,6 +93,59 @@
   "name": "NEOPHYTE HYBRIDS",
   "option_choices": [
     {
+      "grants_weapon_line": 7,
+      "group_id": "og-neophyte-hybrids-2",
+      "id": "oc-neophyte-hybrids-2-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "Heavy stubber*",
+      "replaces_weapon_line": 3
+    },
+    {
+      "grants_weapon_line": 8,
+      "group_id": "og-neophyte-hybrids-2",
+      "id": "oc-neophyte-hybrids-2-2",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "Mining laser*",
+      "replaces_weapon_line": 3
+    },
+    {
+      "grants_weapon_line": 9,
+      "group_id": "og-neophyte-hybrids-2",
+      "id": "oc-neophyte-hybrids-2-3",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "Seismic cannon*",
+      "replaces_weapon_line": 3
+    },
+    {
+      "grants_weapon_line": 4,
+      "group_id": "og-neophyte-hybrids-3",
+      "id": "oc-neophyte-hybrids-3-1",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "Flamer*",
+      "replaces_weapon_line": 3
+    },
+    {
+      "group_id": "og-neophyte-hybrids-3",
+      "id": "oc-neophyte-hybrids-3-2",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "Grenade launcher*",
+      "replaces_weapon_line": 3
+    },
+    {
+      "grants_weapon_line": 10,
+      "group_id": "og-neophyte-hybrids-3",
+      "id": "oc-neophyte-hybrids-3-3",
+      "is_default": false,
+      "is_no_change": false,
+      "name": "Webber*",
+      "replaces_weapon_line": 3
+    },
+    {
       "count": 1,
       "group_id": "og-neophyte-hybrids-4",
       "id": "oc-neophyte-hybrids-4-1",
@@ -111,6 +164,18 @@
   ],
   "option_groups": [
     {
+      "id": "og-neophyte-hybrids-2",
+      "line": 2,
+      "scope": "per_n_models",
+      "scope_n": 10
+    },
+    {
+      "id": "og-neophyte-hybrids-3",
+      "line": 3,
+      "scope": "per_n_models",
+      "scope_n": 10
+    },
+    {
       "id": "og-neophyte-hybrids-4",
       "line": 4,
       "scope": "unit"
@@ -119,15 +184,15 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:0f329aade0b6123120379dd3700e550cea7146f32eba349abe56a73f086beba2",
-    "last_verified_version": "wh40k-11e-2026-08",
+    "last_verified_version": "wh40k-11e-2026-08-2",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260807T034120Z-8356e6d9",
+    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260807T033959Z-6075ce5c",
+    "points_acquisition_id": "mfm-20260812T223703Z-6694568f",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
