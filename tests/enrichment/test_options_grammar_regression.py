@@ -2,6 +2,9 @@
 # layer 1 (006 task T010): every pre-006 option fixture and every inline description 004's own
 # grammar suite exercises, re-run under the extended grammar and asserted byte-identical against
 # a committed golden captured before a single new production was written (006 research D5).
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - Widened the scope-decision assertion to
+# GF12 (007 task T005 fixture scaffolding): a new non-baseline datasheet id, same exclusion
+# reasoning as GF07-GF11.
 """Nothing `004` resolved may resolve differently. Proven against a frozen golden.
 
 FR-009 is the constraint the whole feature is built around: *a pre-existing option sentence that
@@ -191,16 +194,19 @@ def test_the_golden_is_a_literal_and_not_a_recomputation() -> None:
     )
 
 
-def test_every_006_datasheet_is_deliberately_outside_this_harness() -> None:
+def test_every_006_and_007_datasheet_is_deliberately_outside_this_harness() -> None:
     """The scope decision, stated as an assertion rather than as a comment.
 
-    GF07-GF11 carry the shapes 006 exists to resolve. If one of them were folded into the
-    baseline set, a successful new production would fail this file, and the pressure would be to
-    edit the golden — which is how a zero-regression harness stops meaning anything.
+    GF07-GF11 carry the shapes 006 exists to resolve, and GF12 carries 007's own new option-row
+    shapes (research D3.3's legacy stem-object outcomes, the footnote-restriction residual, and
+    the over-length replaced item). If one of them were folded into the baseline set, a
+    successful new production would fail this file, and the pressure would be to edit the golden
+    — which is how a zero-regression harness stops meaning anything.
     """
     all_datasheets = {row.fields["datasheet_id"] for row in read_file(OPTIONS_CSV).rows}
     assert all_datasheets > BASELINE_DATASHEETS
     # GF09 and GF11 are absent from this file on purpose rather than by oversight: neither
     # datacard states a WARGEAR OPTIONS block at all, which is the `wargear_option_state = none`
-    # case one of them carries for the equipment tests.
-    assert all_datasheets - BASELINE_DATASHEETS == {"GF07", "GF08", "GF10"}
+    # case one of them carries for the equipment tests. GF13-GF15 (007's composition-only header
+    # fixtures) are absent from this file for the same reason: they state no options block.
+    assert all_datasheets - BASELINE_DATASHEETS == {"GF07", "GF08", "GF10", "GF12"}

@@ -2,6 +2,9 @@
      catalogue (task T007): the quirk classes composition, options, keywords, and the four
      authored summary classes are each proven against, restating the synthetic-fixture rule that
      governs every fixture in this repository (FR-006, quickstart section 1, research D10). -->
+<!-- AI-Assisted: Claude Code (model: claude-sonnet-5) - Documented the 007-loadout-display-
+     fidelity additions (Setup phase T005-T008): GF12-GF15, the CSV-only scoping decision, and
+     why each new datasheet id exists. -->
 # `fixtures/enrichment/`
 
 The quirk-class catalogue for `004-rules-data-enrichment`: structured unit composition, the full
@@ -87,6 +90,41 @@ the opposite:
 - **Nothing in `GF07`-`GF11` is a capture.** Every model name, item name, count, and price is
   invented, and the option rows carry the *grammar's* vocabulary because that is the only part of
   a sentence a parser matches on.
+
+## The quirk classes `007-loadout-display-fidelity` added (Setup phase, T005-T008)
+
+Four more invented datasheet ids, `CSV-only` by deliberate scope decision (stated once here
+rather than at each site): `007`'s Setup-phase fixtures serve the grammar- and curate-level unit
+tests that read `option_rows`/`composition_rows` through `tests/enrichment/conftest.py` — the
+same low-level access `004` and `006`'s own option/composition tests already use — which needs
+only `wahapedia/`'s CSV mirror. Mode-blind HTML parity for these four ids is left to whichever
+later-phase task first needs it (T042 onward), the same way `GF09`/`GF11` already omit files they
+have no content for.
+
+| Datasheet | What it carries | Why |
+|---|---|---|
+| `GF12` Marshlight Vigil | 11 option rows: `research D3.3`'s three legacy stem-object outcomes (given-up item resolves and links; stated but unlinkable; no given-up item at all) plus the `OPT-SCOPE-UNRESOLVED` edge case, a marker on a granted item's name, three footnote-restriction shapes (`not_replaceable` unscoped, `not_replaceable` scoped to a named model, `one_per_unit`), one unlinkable restriction, one restriction-shaped line matching no vocabulary member, and one over-length replaced item (135 chars) | `007` US2 (T005), US3 (T006), and D3.4's `OPT-ITEM-OVERLONG` (T008) |
+| `GF13` Fenward Cohort Alpha | a two-row header (`9`) summing to its two successors (`3 + 6`) | research D1's first header shape (T007) |
+| `GF14` Fenward Cohort Beta | a single-row header (`5`) equal to its one successor (`5`) | research D1's second header shape (T007) |
+| `GF15` Fenward Relict Watch | a genuine first model row (`1`), then a **near-miss** row that is fixed-size, unlinkable, and numerically equal to the sum of the other two rows (`1 + 7 = 8`) — but is not itself the datasheet's first row | the one case research D1's five-signal rule is designed not to refuse: the position gate that opens the conjunction, not a fifth signal happening to fail (T007) |
+
+`GF12`'s composition also carries a footnote marker on `Marshlight Sentry*` — the composition-side
+half of the marker-residue fixture pair, alongside the option-side marker on `marsh axe*` in row 5.
+
+Two properties worth stating, because a reader will otherwise assume the opposite:
+
+- **`GF12`-`GF15`'s option and composition rows all parse successfully today** under the existing
+  `004`/`006` grammar (verified against `pipeline.parse.options_grammar.parse_row` and
+  `pipeline.parse.composition_grammar.parse_entry`) — none of them exercises `OPT-UNPARSED` or
+  `CMP-UNRESOLVED` by itself. What each one exercises is a **later** stage `007` adds: the stem
+  production (T021), the constraint production (T039), the five-signal header refusal (T030), or
+  the over-length-item finding (T024) — none of which exists yet as this Setup phase lands.
+  `GF12`'s five footnote-restriction-shaped rows (lines 6-10) are the deliberate exception: they
+  are refused today (unparsed), which is the residual `T039`'s new production is added to.
+- **`MODEL_LINES` in `tests/enrichment/conftest.py` carries `GF12`-`GF15`'s model-name entries**,
+  on the same zero/one-match discipline `GF01`-`GF06` already establish — `GF13`'s and `GF14`'s
+  header names and `GF15`'s near-miss name are deliberately absent from their own entries, the
+  zero-match case.
 
 ## Using them
 
