@@ -44,6 +44,12 @@
 <!-- AI-Assisted: Claude Code (model: claude-opus-5) - Partly closed item 8: the tool defects and
      every byte-identical duplicate are fixed, and two of the item's own conclusions about the
      cost duplicates turned out to be wrong. The original text is kept beneath the resolution. -->
+<!-- AI-Assisted: Claude Code (model: claude-sonnet-5) - Added items 15-18, surfaced during
+     007-loadout-display-fidelity's Polish phase and release: the footnote-constraint vocabulary's
+     zero-real-row result despite real candidates existing, the rendering-equivalence baseline
+     needing investigation before any ratchet decision, the org's Actions-PR-creation gap
+     recurring for a second release, and the change-class guard's implication for how a future
+     multi-class feature must plan its release. None resolved here; all four are forward-looking. -->
 # Follow-ups
 
 Open items surfaced during implementation that are deliberately **not** fixed as part of the work
@@ -636,3 +642,117 @@ equivalent of its existing option-override cases — a resolving override, a dan
 override, a dangling-line override, a dangling-weapon-row override — before the first real
 `curation/equipment-overrides.json` is authored against live data, so the first real use of the
 escape hatch is not also the first test of it.
+
+**Closed by `007-loadout-display-fidelity` T034**: `tests/enrichment/test_equipment_overrides.py`
+now exercises exactly the four cases this item asked for (resolving, dangling-datasheet,
+dangling-line, dangling-weapon), landed ahead of the first real
+`curation/equipment-overrides.json` being authored, per the item's own closing instruction.
+
+## 15. The footnote-constraint vocabulary matched zero real rows this release, despite real candidates existing (007)
+
+`007-loadout-display-fidelity` shipped a two-member closed vocabulary
+(`not_replaceable`, `one_per_unit`, `pipeline/models/curated.py`'s `CuratedItemConstraint
+.constraint_type`) for footnote-style restrictions, sized against the taxonomy T002/T036 built.
+`datasheetItemConstraints` shipped **zero rows** in `wh40k-11e-2026-08-3`
+(`reports/wh40k-11e-2026-08-3/spot-check.md` §4; `report.json`'s `loadout.item_constraints` reads
+`0/0`, 100% by the zero-attempts convention) — not because no restriction-shaped rows exist in the
+live corpus, but because none of the ones that do exist matched either vocabulary member closely
+enough to resolve.
+
+The live taxonomy measurement (`reports/footnote-restriction-taxonomy/2026-08-14.md`, T003) found
+real candidates: of the options grammar's 206 unparsed rows, **12 carry a negation signal** (9
+under `refused_conditional_or_equipment_qualified`, 3 under `head_ok_no_verb`) — genuine
+restriction-shaped text the two-member vocabulary does not (yet) resolve to a structured fact,
+reported as advisory `CST-UNPARSED` instead (`docs/runbook.md`'s new "Resolving an unparsed
+item-constraint row" section). R-J itself is confirmed (every footnote-style restriction arrives
+as a refused option row, not through a second, unwatched path — the composition and equipment
+residual tables in the same report are both `neither`-only), so this is squarely a vocabulary-
+coverage gap, not an arrival-path gap.
+
+**Not fixed here**, deliberately: `curated.py`'s own docstring states the vocabulary "grows only
+with a version bump of `itemConstraintVocabularyVersion`, on `restriction_type`'s precedent" — a
+versioned decision, not a Polish-phase patch. **Action needed**: a future feature (or a dedicated
+follow-up task) reads the 12 negation-signal candidates' actual structural shape (never their
+text — the taxonomy tool is deliberately text-free) and either widens the vocabulary with a third
+member, or confirms the 12 are a distinct restriction shape that needs its own production rather
+than a vocabulary member at all. There is also currently no dedicated curation override file for
+`CST-UNPARSED`/`OPT-SCOPE-UNRESOLVED` (unlike `OPT-UNPARSED`/`EQP-UNPARSED`, which resolve through
+`option-overrides.json`/`equipment-overrides.json`) — building one, following that precedent, is
+the one-off fallback if a widened vocabulary still leaves a residual.
+
+## 16. `loadout.rendering_equivalence`'s 15.0% first-release baseline needs investigation before any ratchet decision (007)
+
+`wh40k-11e-2026-08-3` reports `loadout.rendering_equivalence` at 388 matched of 2,587 compared
+(15.0%), with 1,525 datasheets `not_compared` (`reports/wh40k-11e-2026-08-3/report.json`). This is
+report-only by design (FR-022, Product Owner decision 2026-08-13) — neither figure is in
+`LOADOUT_RATCHETED_KEYS`, and nothing about publishing this release depended on either number.
+
+The figure is a first release with no prior baseline to compare against, so 15.0% is neither
+"good" nor "bad" on its own — but it is also not yet **understood**: this session did not
+decompose the ~85% of compared datasheets that mismatch (2,587 − 388 ≈ 2,199) into cause classes.
+The one live sample this release's spot-check drew (`reports/wh40k-11e-2026-08-3/spot-check.md`
+item 6, a `RND-EQV-MISMATCH`) was explained as a template/normal-form gap rather than lost data,
+but one sample is not a distribution.
+
+**Not investigated here**, because doing so is a data-analysis task over `not_compared`/mismatch
+reasons that belongs in its own pass, not folded into a Polish-phase documentation review.
+**Action needed before any future decision to ratchet either `loadout.rendering_equivalence` or
+`loadout.rendering_equivalence_not_compared`**: sample a representative set of the ~2,199
+mismatches (not just one), classify them by cause (template gap vs. genuine extraction defect vs.
+normal-form gap), and separately investigate why 1,525 of ~4,112 attempted comparisons landed
+`not_compared` — both are prerequisites the report-only decision explicitly deferred rather than
+answered.
+
+## 17. The org still blocks Actions-created pull requests, and it bit twice in one release (007)
+
+`candidate.yml`'s own "open or update the candidate pull request" step has never completed
+unattended in this repository, across two separate releases now. `wh40k-11e-2026-08-2`'s
+candidate needed a manually-opened PR the first time this was hit. `wh40k-11e-2026-08-3` hit a
+**second**, slightly different symptom of the same underlying restriction: the run that produced
+the guard-compliant `data`+`reports`-only candidate completed every step successfully, including
+"Open or update the candidate pull request" — but because `gh pr view <branch>` matches closed
+PRs too, it found and edited the body of the already-closed PR #17 rather than creating a new one,
+so a PR still had to be opened by hand as PR #20 (`.impl-progress.md`'s "#18 and #19 merged... the
+fresh, guard-compliant candidate" section).
+
+**Not fixed here**, because it is a repository-settings change (permitting the default
+`GITHUB_TOKEN` — or a dedicated app installation — to create pull requests), not a workflow-code
+fix, and this session has no administrative access to change it. **Action needed**: a maintainer
+either enables "Allow GitHub Actions to create and approve pull requests" for this repository, or
+provisions a scoped PAT/GitHub App installation token for `candidate.yml`'s PR-creation step
+specifically (narrower than the general repository setting, if that is preferred) — see
+`docs/repo-settings.md` for the pattern this repository already uses for scoping least-privilege
+credentials to a single workflow step. Until then, every candidate needs a human to open (or, as
+happened this release, re-open) its own PR, which is a process cost worth removing before the next
+release depends on it going smoothly under time pressure.
+
+## 18. The change-class guard means a future multi-class feature must plan its split-PR release path from the start (007)
+
+`007-loadout-display-fidelity`'s first candidate PR (#17) mixed `pipeline+tests` and `curation`
+change classes, because `candidate.yml` built the candidate branch on top of the still-unmerged
+feature branch — its diff against `main` therefore carried the whole feature's code alongside the
+candidate's own data churn. `tools/check_change_classes.py`'s guard correctly refused it
+(`FAIL: this PR touches more than one change class: curation, data, pipeline+tests`), and the
+release had to be restructured under time pressure into three separate PRs (#18 `pipeline+tests`,
+#19 `curation`, #20 `data`+`reports`) via `git worktree` + pathspec checkouts rather than a clean
+commit-range split, because the feature's ~15 commits interleaved all classes throughout
+(`.impl-progress.md`'s "T067 PASSED... then PR #17 turned out unmergeable, restructured"
+section).
+
+This is the guard doing exactly its documented job — nothing about it was weakened, and the
+eventual release was correct — but discovering the restructuring need at release time, rather than
+planning for it from the feature's first commit, cost real session time and required a
+non-standard git technique (worktree-plus-pathspec-checkout, not cherry-pick) to execute cleanly.
+
+**Not fixed here**, because the underlying discipline (one change class per PR) is correct and
+already documented (`docs/repo-settings.md`, `tools/check_change_classes.py`'s own module
+docstring) — what is missing is process guidance for *authoring*, not for the guard itself.
+**Action needed**: a future feature whose plan already anticipates touching more than one change
+class (code changes, a curation escape hatch, and eventually a data candidate — which describes
+almost every substantive feature this pipeline ships) should structure its commit history from the
+start as cleanly separable per-class ranges — either by branching each class off the previous
+one's merge point rather than working on one long-lived feature branch, or by committing each
+class's changes in a way that a `git diff --name-status` per commit never crosses a class
+boundary. `plan.md`'s own Separation gate already states the discipline in the abstract ("Delivery
+is planned as separate pull requests accordingly"); this item is the concrete lesson that "planned"
+has to mean "structured in the commit history," not just "intended."
