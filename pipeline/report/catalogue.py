@@ -13,6 +13,10 @@
 # codes (007 task T013, data-model.md §4): item-constraint linking/parsing, the marker-residue
 # and header-row guarantee breaches, the legacy-value-correction and over-length-item advisories,
 # the generic rendering-omission code, and the two equivalence-check outcomes.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - Demoted CMP-HEADER-ROW from blocking to
+# advisory (007 Release phase, Product Owner decision 2026-08-14 T061 review): the live corpus's
+# T031 re-derivation found real false positives among the rows the automatic conjunction would
+# have dropped. See `pipeline/curate/assemble.py::_flag_header_row_candidate`.
 """The finding catalogue.
 
 ``validation-report.md`` §1.1: **severity is a property of the code, not of the occurrence.** A
@@ -399,9 +403,15 @@ _DEFINITIONS: Final[tuple[FindingDefinition, ...]] = (
         "the configured tolerance; a rejected candidate never moves the baseline",
     ),
     # -- 007-loadout-display-fidelity (007 data-model.md §4) --------------------------------
-    # Nine codes. Two block, and both are guarantee breaches rather than gaps -- a marker
-    # artifact left in a published name (guarantee 21) and a phantom composition row (guarantee
-    # 20) -- the same "a contradiction blocks, a gap is advisory" split `004`/`006` already use.
+    # Nine codes. One blocks -- a marker artifact left in a published name (guarantee 21), the
+    # same "a contradiction blocks, a gap is advisory" split `004`/`006` already use.
+    # CMP-HEADER-ROW (guarantee 20) was ALSO blocking at first release of this feature, but was
+    # demoted to advisory by Product Owner decision on 2026-08-14 (T061 review of the live
+    # corpus's T031 re-derivation): the automatic conjunction proved to have real false positives
+    # on the live corpus (three duo-sheet first models), so it no longer drops a row by itself --
+    # see `pipeline/curate/assemble.py::_flag_header_row_candidate` for the full account. A
+    # confirmed phantom is now removed only via a curator's `remove` entry in
+    # `curation/composition-overrides.json`.
     _d(
         "CST-UNLINKED",
         _REC,
@@ -429,10 +439,13 @@ _DEFINITIONS: Final[tuple[FindingDefinition, ...]] = (
     _d(
         "CMP-HEADER-ROW",
         _CON,
-        _B,
+        _A,
         "007 FR-010, SC-003, contract guarantee 20",
-        "a composition row was produced from a line matching the unit-size header shape; "
-        "blocking for the same reason CST-MARKER-RESIDUE is",
+        "a composition row's first-of-two-or-more line matches the unit-size header shape "
+        "(fixed-count, unlinked, equal to the sum of its successors) -- advisory since the "
+        "Product Owner's 2026-08-14 decision (T061 review): flags the row for a curator's "
+        "review, never drops it automatically. A confirmed phantom is removed only via "
+        "curation/composition-overrides.json's `remove` entry",
     ),
     _d(
         "OPT-LEGACY-CORRECTED",

@@ -8,6 +8,10 @@
 # weapon_line (007 task T017, guarantee 22): every PRESENT weapon_line names a datasheet_weapons
 # row of the datasheet that owns the constraint, defence-in-depth beside the reconcile-stage
 # exactly-one-match join that is supposed to guarantee it already.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - Taught the composition-override line check
+# about `remove` (007, Product Owner decision 2026-08-14 T061 review): a removed line is
+# DELIBERATELY absent from the published composition, which is the override doing its job, not a
+# stale reference to flag.
 """V4 and V9 — every reference resolves, in both directions.
 
 **V4** is the consumer contract's guarantee 4, checked here rather than discovered at ingestion:
@@ -161,9 +165,13 @@ def check_override_references(
         if datasheet is None:
             continue  # already reported by `authored_entity_refs`
         reference = f"{override.datasheet_id}:{override.line}"
-        if datasheet.composition and override.line not in {
-            entry.line for entry in datasheet.composition
-        }:
+        # A `remove` override's line is SUPPOSED to be absent from the published composition --
+        # that absence is the override working, not a stale reference (2026-08-14 PO decision).
+        if (
+            not override.remove
+            and datasheet.composition
+            and override.line not in {entry.line for entry in datasheet.composition}
+        ):
             _dangle("composition-overrides.json", "line", reference, override.line)
         if override.model_line is not None and override.model_line not in {
             model.line for model in datasheet.models

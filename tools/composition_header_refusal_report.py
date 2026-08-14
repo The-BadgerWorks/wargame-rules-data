@@ -8,19 +8,30 @@
 # tools/header_refusal_population.py's acquire-into-ephemeral-work-then-discard shape, but
 # distinct from it: T004's tool measures signal 4's population only and refuses nothing; this
 # tool applies all five signals and reports the actual refusal set T030 will produce.
-"""Re-derive the whole-corpus five-signal header-refusal set, for review before T030 ships.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - Repointed at the Release-phase live run
+# (Product Owner decision, 2026-08-14 T061 review): the conjunction this tool re-derives is no
+# longer automatic. `pipeline/curate/assemble.py::_flag_header_row_candidate` (renamed from
+# `_refuse_header_row`) only raises the advisory CMP-HEADER-ROW now; this tool's report IS the
+# human-review queue a curator works from to write a `curation/composition-overrides.json`
+# `remove` entry for a confirmed phantom, not a post-hoc check of an automatic refusal.
+"""Re-derive the whole-corpus five-signal header-refusal candidate set, for curator review.
 
-research D1 designs the refusal as a conjunction of five independent structural signals, applied
-where composition entries are assembled (never in the line grammar): a row is refused when it is
-the first row of its datasheet's composition list, at least one row follows it, its minimum equals
-its maximum, its count equals the sum of the maxima of the rows that follow it, and its name
-resolves to no model entry of the datasheet.
+research D1 designs the conjunction as five independent structural signals, applied where
+composition entries are assembled (never in the line grammar): a row is *flagged* when it is the
+first row of its datasheet's composition list, at least one row follows it, its minimum equals its
+maximum, its count equals the sum of the maxima of the rows that follow it, and its name resolves
+to no model entry of the datasheet.
 
 D8's R-1/R-A: "the five-signal header refusal suppresses a genuine first model row on some card
-outside the measured eight [Kill Team datasheets]." The mitigation is this tool — re-deriving the
-refusal set over the **whole** corpus and reporting every refused row by datasheet id, so a human
-reviews the set before the fix ships. A refusal set larger than the eight known Kill Team
-datasheets is a finding to review, not necessarily a defect::
+outside the measured eight [Kill Team datasheets]." That risk materialised on the live corpus (see
+`reports/composition-header-refusal/2026-08-14.md`): of the rows the conjunction identified, three
+were real duo-sheet first models, not phantom headers. Product Owner decision, 2026-08-14 T061
+review: the conjunction never drops a row by itself any more — it only raises the advisory
+`CMP-HEADER-ROW` finding. **This tool is now that advisory's review-queue generator**: it
+re-derives the candidate set over the whole corpus and reports every flagged row by datasheet id,
+so a curator can confirm each one against its own card and write a `remove` entry in
+`curation/composition-overrides.json` for the confirmed phantoms — the only path that still
+removes a row::
 
     python tools/composition_header_refusal_report.py                                    # live
     python tools/composition_header_refusal_report.py --fixtures fixtures/minimal --offline
@@ -81,7 +92,9 @@ def refuses(
 
     Signals 1-2 (first row, at least one successor) are the caller's precondition — this function
     is only ever invoked with a genuine first-of-two-or-more row. Signals 3-5 are checked here,
-    identically to :func:`pipeline.curate.assemble._refuse_header_row`.
+    identically to :func:`pipeline.curate.assemble._flag_header_row_candidate` — a `True` result
+    from this function means "flag for curator review", never "drop automatically", since the
+    2026-08-14 Product Owner decision (T061 review).
     """
     is_fixed = first.min_count == first.max_count
     sums_to_successors = first.max_count == sum(entry.max_count for entry in rest)
@@ -190,30 +203,36 @@ def render(report: HeaderRefusalReport) -> str:
         "description reaches this page — only datasheet ids, line ordinals, and model names "
         "already published as composition data.",
         "",
-        "## Every row the five-signal rule refuses",
+        "## Every row the five-signal conjunction flags",
         "",
-        "A row is refused when it is the datasheet's first composition row, at least one row "
+        "A row is flagged when it is the datasheet's first composition row, at least one row "
         "follows it, its minimum equals its maximum, its count equals the sum of the maxima of "
         "the rows that follow it, and its name resolves to no model entry of the datasheet — "
-        "`pipeline/curate/assemble.py::_refuse_header_row`'s own conjunction, re-derived here "
-        "over the whole corpus rather than the eight measured Kill Team datasheets.",
+        "`pipeline/curate/assemble.py::_flag_header_row_candidate`'s own conjunction, re-derived "
+        "here over the whole corpus. **This is a candidate list for curator review, not an "
+        "automatic refusal**: since the Product Owner's 2026-08-14 decision (T061 review), a row "
+        "leaves the published composition only via a `remove` entry in "
+        "`curation/composition-overrides.json`, written after a human confirms the card.",
         "",
-        f"Datasheets with composition: {report.datasheets_with_composition}. Rows refused: "
+        f"Datasheets with composition: {report.datasheets_with_composition}. Rows flagged: "
         f"**{len(report.refused)}**.",
         "",
         "## Reading this",
         "",
-        "- **A refusal set of exactly the eight known Kill Team datasheets confirms the fix is "
-        "scoped as measured.** research D1 measured all five signals holding on eight affected "
-        "datasheets; this report is where that count is checked against the live corpus.",
-        "- **A refusal set larger than eight is R-1/R-A's own risk materialising — a finding to "
-        "review, not an automatic defect.** Each row below should be read against its own card "
-        "before the fix ships: the conjunction is designed so a false positive requires a first "
-        "row that is simultaneously unlinkable, fixed-size, and numerically equal to the total "
-        "of every other row, which is the 'total' reading anyway — but this report is where a "
-        "human confirms that reading holds for each one, not where it is assumed.",
+        "- **This report no longer predicts what a build will drop** — nothing is dropped "
+        "automatically any more. It is the queue a curator works from.",
+        "- **The live corpus's own first run of this tool found a refusal set that did not match "
+        "the eight originally-measured Kill Team datasheets at all**: the eight all failed "
+        "signal 4 (their variant rows overlap the base row, so the count does not sum), and the "
+        "rows flagged instead were three false positives on named duo/crew datasheets. This is "
+        "exactly why the conjunction no longer acts automatically.",
+        "- **Every row below needs a human card check before a `remove` entry is written for "
+        "it.** The conjunction is designed so a false positive requires a first row that is "
+        "simultaneously unlinkable, fixed-size, and numerically equal to the total of every "
+        "other row — which is also what a genuine two-model duo sheet looks like. This report "
+        "cannot tell the two apart; a curator reading the actual card can.",
         "",
-        "### Refused rows",
+        "### Flagged rows",
         "",
     ]
     if report.refused:
@@ -254,7 +273,7 @@ def _parse_args(argv: Sequence[str] | None) -> argparse.Namespace:
 
 def _summary_line(report: HeaderRefusalReport) -> str:
     return (
-        f"{PROG}: {len(report.refused)} rows refused over "
+        f"{PROG}: {len(report.refused)} rows flagged for curator review over "
         f"{report.datasheets_with_composition} datasheets with composition"
     )
 

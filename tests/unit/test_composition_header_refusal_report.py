@@ -42,7 +42,8 @@ def _entry(name: str, count: int) -> CompositionParse:
 
 
 def test_agrees_with_assemble_py_on_the_two_row_header() -> None:
-    # GF13: header refused by both the tool's classifier and the production rule.
+    # GF13: flagged by both the tool's classifier and the production rule. Since the 2026-08-14
+    # PO decision, the flagged row SURVIVES in the published composition (advisory, not a drop).
     model_lines = {1: "Fenward Sergeant", 2: "Fenward Trooper"}
     first = _entry("Fenward Cohort", 9)
     rest = [_entry("Fenward Sergeant", 3), _entry("Fenward Trooper", 6)]
@@ -56,7 +57,11 @@ def test_agrees_with_assemble_py_on_the_two_row_header() -> None:
     entries, findings = _composition_entries(
         "GF13", "ds-fenward-cohort-alpha", detail, AuthoredContent(), curated_models("GF13")
     )
-    assert [entry.model_name for entry in entries] == ["Fenward Sergeant", "Fenward Trooper"]
+    assert [entry.model_name for entry in entries] == [
+        "Fenward Cohort",
+        "Fenward Sergeant",
+        "Fenward Trooper",
+    ]
     assert any(f.finding_code == "CMP-HEADER-ROW" for f in findings)
 
 

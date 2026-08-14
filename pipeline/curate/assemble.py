@@ -39,6 +39,11 @@
 # assembly into `_option_structure` via the new `_item_constraint` helper, tried only after
 # `parse_row` has already refused a row (research D4.2); threaded `options.item_constraints` onto
 # both `CuratedDatasheet` construction sites.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - 007 Release phase, Product Owner decision
+# 2026-08-14 (T061 review): renamed `_refuse_header_row` to `_flag_header_row_candidate` and
+# stopped it from ever dropping a row -- it only raises the advisory `CMP-HEADER-ROW` finding now.
+# Wired the new `CompositionOverrideEntry.remove` shape into `_composition_entries`'s override
+# branch, the only remaining path that removes a composition row.
 """Build one :class:`~pipeline.models.curated.CuratedSnapshot` from everything upstream.
 
 This is where the two sources stop being two sources. The **points** source is authoritative for
@@ -796,6 +801,16 @@ def _composition_entries(
         line = _row_ordinal(row.fields.get("line", ""), field_name="composition.line")
         override = authored.composition_override_for(datasheet_id, line) if line else None
         if line is not None and override is not None:
+            if override.remove:
+                # 007, Product Owner decision 2026-08-14 T061 review: the only path left that
+                # removes a composition row at all. The row is dropped entirely -- no entry, no
+                # CMP-UNRESOLVED, no CMP-HEADER-ROW -- because a curator has already confirmed it
+                # is a phantom and removed it, the same finality `remove` gives an equivalence
+                # check's `not_compared` case has no analogue to.
+                continue
+            assert override.model_name is not None
+            assert override.min_count is not None
+            assert override.max_count is not None
             entries.append(
                 CuratedCompositionEntry(
                     line=line,
@@ -837,16 +852,16 @@ def _composition_entries(
         return [], findings
 
     ordered = sorted(entries, key=lambda entry: entry.line)
-    ordered, header_finding = _refuse_header_row(datasheet_id, ordered)
+    header_finding = _flag_header_row_candidate(datasheet_id, ordered)
     if header_finding is not None:
         findings.append(header_finding)
     return ordered, findings
 
 
-def _refuse_header_row(
+def _flag_header_row_candidate(
     datasheet_id: str, entries: Sequence[CuratedCompositionEntry]
-) -> tuple[list[CuratedCompositionEntry], Finding | None]:
-    """Issue #15's phantom unit-size header, refused by a relation over the WHOLE row set.
+) -> Finding | None:
+    """Issue #15's phantom unit-size header — flagged for human review, **never auto-dropped**.
 
     research D1: the header line is a *valid parse* of the fixed composition production — an
     integer, then a name — so nothing on the line itself says it is not a model row. The
@@ -861,12 +876,30 @@ def _refuse_header_row(
        equals the aggregate of its successors is a *total*, not a part;
     5. its name resolves to no model entry of the datasheet.
 
+    **Superseded design, recorded so it is not silently reintroduced (Product Owner decision,
+    2026-08-14 T061 review of the live corpus's T031 re-derivation).** This function used to
+    *return* the row set with the flagged row removed (T030's original design: an automatic,
+    blocking refusal). The live corpus proved the conjunction's own documented false-positive
+    risk (R-1/R-A) real: of the rows it would have auto-dropped, three were genuine duo-sheet
+    first models (``Rein`` of ``astra-militarum:Rein-And-Raus``, the Techmarine Gunner leading
+    ``space-marines:Thunderfire-Cannon``, ``Ri'Lantar`` leading ``t-au-empire:The-Twin-Lance``) —
+    each one fixed-size, unlinked (its own name does not textually match its ``datasheet_model``
+    row), and numerically equal to the total of its one squad-mate, which is exactly what a real
+    duo's model count looks like. Automatic removal is not safe at this precision; **this
+    function now only raises the advisory finding**, and a row leaves the published composition
+    only via a curator's explicit ``remove`` entry in
+    ``curation/composition-overrides.json`` (§_composition_entries's override branch, above) —
+    matched against a genuine phantom by a human, the same discipline every other override in
+    this file already applies. ``tools/composition_header_refusal_report.py`` (T031) is now this
+    advisory's review-queue generator, not a post-hoc check of an automatic refusal.
+
     Each signal alone has a plausible false positive (a genuine first row can be fixed-size, can
     fail to link, and a two-row card can coincidentally sum); requiring all five at once is what
-    lets GF15's near-miss survive while GF13/GF14's two measured header shapes are both refused.
+    lets GF15's near-miss go unflagged while GF13/GF14's two measured header shapes are both
+    flagged — but, per the finding above, "flagged" is no longer "refused".
     """
     if len(entries) < 2:
-        return list(entries), None
+        return None
 
     first, *rest = entries
     is_fixed = first.min_count == first.max_count
@@ -874,9 +907,9 @@ def _refuse_header_row(
     is_unlinked = first.model_line is None
 
     if not (is_fixed and sums_to_successors and is_unlinked):
-        return list(entries), None
+        return None
 
-    finding = build_finding(
+    return build_finding(
         "CMP-HEADER-ROW",
         entity_refs=[datasheet_id],
         detail={
@@ -886,7 +919,6 @@ def _refuse_header_row(
             "file_name": "Datasheets_unit_composition.csv",
         },
     )
-    return rest, finding
 
 
 def _equipment(

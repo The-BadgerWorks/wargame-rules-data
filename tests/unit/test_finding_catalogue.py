@@ -140,14 +140,18 @@ LOADOUT_SEVERITIES = {
 }
 
 #: Transcribed by hand from 007's data-model.md §4 table, independently of
-#: pipeline/report/catalogue.py. Two of nine block, both guarantee breaches (guarantees 20 and
-#: 21) rather than gaps -- the same split 004 and 006 already use: a contradiction with what was
-#: already promised blocks, a gap in what the grammar could resolve is advisory.
+#: pipeline/report/catalogue.py. At first release, two of nine blocked, both guarantee breaches
+#: (guarantees 20 and 21) rather than gaps -- the same split 004 and 006 already use: a
+#: contradiction with what was already promised blocks, a gap in what the grammar could resolve
+#: is advisory. CMP-HEADER-ROW was demoted to advisory by Product Owner decision on 2026-08-14
+#: (T061 review of the live corpus's T031 re-derivation, which found real false positives among
+#: the rows the automatic conjunction would have dropped) -- one of nine blocks now. See
+#: pipeline/curate/assemble.py::_flag_header_row_candidate.
 DISPLAY_FIDELITY_SEVERITIES = {
     "CST-UNLINKED": A,
     "CST-UNPARSED": A,
     "CST-MARKER-RESIDUE": B,
-    "CMP-HEADER-ROW": B,
+    "CMP-HEADER-ROW": A,
     "OPT-LEGACY-CORRECTED": A,
     "OPT-ITEM-OVERLONG": A,
     "RND-OMITTED": A,
@@ -368,11 +372,14 @@ def test_an_unlinked_item_and_an_unresolved_group_are_reconciliation_findings() 
 # -- 007-loadout-display-fidelity (007 task T013) ------------------------------------------
 
 
-def test_only_the_two_guarantee_breaches_block_among_the_display_fidelity_codes() -> None:
-    """Same split as 004 and 006: a contradiction with an existing guarantee blocks, a gap in
-    what the grammar or the equivalence check could resolve is advisory."""
+def test_only_one_guarantee_breach_blocks_among_the_display_fidelity_codes() -> None:
+    """CST-MARKER-RESIDUE still blocks: a marker character is either present in a name or it is
+    not, with no false-positive risk. CMP-HEADER-ROW no longer does — Product Owner decision,
+    2026-08-14 T061 review: the automatic five-signal conjunction had real false positives on the
+    live corpus (three duo-sheet first models), so it is advisory-only now, flagging a candidate
+    for a curator's review rather than dropping a row by itself."""
     blocking = {code for code, severity in DISPLAY_FIDELITY_SEVERITIES.items() if severity == B}
-    assert blocking == {"CST-MARKER-RESIDUE", "CMP-HEADER-ROW"}
+    assert blocking == {"CST-MARKER-RESIDUE"}
     assert blocking <= BLOCKING_CODES
 
     for code in set(DISPLAY_FIDELITY_SEVERITIES) - blocking:

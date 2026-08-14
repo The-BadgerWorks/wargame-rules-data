@@ -205,8 +205,12 @@ def check_marker_residue(snapshot: CuratedSnapshot) -> list[Finding]:
 
     Blocking, unlike every other check in this module's item-constraint half: a marker surviving
     into a published name is the **exact defect** this feature exists to remove, and it is cheap
-    to detect — the same "a contradiction blocks, a gap is advisory" split `CMP-HEADER-ROW`
-    (guarantee 20) already draws.
+    to detect. `CMP-HEADER-ROW` (guarantee 20) drew the same "a contradiction blocks, a gap is
+    advisory" split at first release, but was demoted to advisory by Product Owner decision on
+    2026-08-14 (T061 review, `pipeline/curate/assemble.py::_flag_header_row_candidate`) once the
+    live corpus showed the automatic conjunction had real false positives — this check has no
+    equivalent false-positive risk (a marker character is either present in a name or it is not),
+    so it keeps blocking.
 
     Reuses :data:`~pipeline.parse.composition_grammar.FOOTNOTE_MARK`, the one expression every
     extraction-time strip (`007` T038) already applies — this is the **independent second
