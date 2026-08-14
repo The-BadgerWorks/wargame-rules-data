@@ -28,7 +28,14 @@ from pipeline.models.curated import (
     OptionItemRole,
     OptionScope,
 )
-from pipeline.report.option_regression import compare, newly_resolved_datasheets, render
+from pipeline.report.option_regression import (
+    TRANSITION_NO_GIVEN_UP_ITEM_STATED,
+    TRANSITION_RESOLVED_AND_RELINKED,
+    TRANSITION_STATED_BUT_UNLINKED,
+    compare,
+    newly_resolved_datasheets,
+    render,
+)
 from tests import factories
 
 GROUP = CuratedOptionGroup(id="og-ember-sentinel-1", line=1, scope=OptionScope.UNIT)
@@ -161,6 +168,146 @@ def test_a_repriced_choice_is_a_correction_and_names_both_sides() -> None:
     fields = {d.field: (d.was, d.now) for d in result.corrected}
     assert fields["points_delta"] == ("absent", "15")
     assert fields["priced_option_id"] == ("absent", "wo-x")
+
+
+# -- 007 US2: OPT-LEGACY-CORRECTED, grouped by research D3.3's three transition classes (T020) --
+#
+# FR-007's ≈2 030-choice correction (research D3.2) needs an approver to read three patterns, not
+# 2 030 unrelated lines (plan O1). `compare()` classifies every choice whose `grants_`/
+# `replaces_weapon_line` moved between the published and candidate snapshots by inspecting the
+# CANDIDATE side's REPLACED-role items — the same three shapes D3.3 names.
+
+PUBLISHED_INVERTED = CuratedOptionChoice(
+    id="oc-ember-sentinel-1-1",
+    group_id="og-ember-sentinel-1",
+    name="glow lance",
+    count=1,
+    replaces_weapon_line=9,  # the inversion: this is the GRANTED item's own line, pre-correction.
+)
+
+
+def _legacy_group() -> CuratedOptionGroup:
+    return GROUP.model_copy(update={"eligible_model_name": "Marshlight Warden"})
+
+
+def test_a_resolved_and_relinked_choice_is_classified_by_its_replaced_item() -> None:
+    corrected = PUBLISHED_INVERTED.model_copy(
+        update={
+            "grants_weapon_line": 9,
+            "replaces_weapon_line": 4,
+            "items": [
+                CuratedOptionChoiceItem(
+                    role=OptionItemRole.GRANTED, item_index=1, item_name="glow lance", weapon_line=9
+                ),
+                CuratedOptionChoiceItem(
+                    role=OptionItemRole.REPLACED,
+                    item_index=1,
+                    item_name="storm maul",
+                    weapon_line=4,
+                ),
+            ],
+        }
+    )
+    published = _with_options([_legacy_group()], [PUBLISHED_INVERTED])
+    candidate = _with_options([_legacy_group()], [corrected])
+
+    result = compare(published, candidate, published_version_id="v")
+
+    assert [f.finding_code for f in result.legacy_corrections] == ["OPT-LEGACY-CORRECTED"]
+    (finding,) = result.legacy_corrections
+    assert finding.detail["transition_class"] == TRANSITION_RESOLVED_AND_RELINKED
+    assert finding.detail["choice_name"] == "glow lance"
+    assert finding.detail["choice_id"] == PUBLISHED_INVERTED.id
+
+
+def test_a_stated_but_unlinked_choice_is_classified_by_its_unlinked_replaced_item() -> None:
+    corrected = PUBLISHED_INVERTED.model_copy(
+        update={
+            "grants_weapon_line": 9,
+            "replaces_weapon_line": None,
+            "items": [
+                CuratedOptionChoiceItem(
+                    role=OptionItemRole.GRANTED, item_index=1, item_name="glow lance", weapon_line=9
+                ),
+                CuratedOptionChoiceItem(
+                    role=OptionItemRole.REPLACED,
+                    item_index=1,
+                    item_name="ceremonial rod",
+                    weapon_line=None,
+                ),
+            ],
+        }
+    )
+    published = _with_options([_legacy_group()], [PUBLISHED_INVERTED])
+    candidate = _with_options([_legacy_group()], [corrected])
+
+    (finding,) = compare(published, candidate, published_version_id="v").legacy_corrections
+    assert finding.detail["transition_class"] == TRANSITION_STATED_BUT_UNLINKED
+
+
+def test_a_choice_with_no_replaced_item_at_all_is_the_third_class() -> None:
+    # D3.3's "no given-up item at all" — the candidate's REPLACED side is simply empty.
+    corrected = PUBLISHED_INVERTED.model_copy(
+        update={
+            "grants_weapon_line": 9,
+            "replaces_weapon_line": None,
+            "items": [
+                CuratedOptionChoiceItem(
+                    role=OptionItemRole.GRANTED, item_index=1, item_name="glow lance", weapon_line=9
+                ),
+            ],
+        }
+    )
+    published = _with_options([_legacy_group()], [PUBLISHED_INVERTED])
+    candidate = _with_options([_legacy_group()], [corrected])
+
+    (finding,) = compare(published, candidate, published_version_id="v").legacy_corrections
+    assert finding.detail["transition_class"] == TRANSITION_NO_GIVEN_UP_ITEM_STATED
+
+
+def test_an_unchanged_choice_produces_no_legacy_correction_finding() -> None:
+    published = _with_options([GROUP], [CHOICE])
+    candidate = _with_options([GROUP], [CHOICE])
+
+    assert compare(published, candidate, published_version_id="v").legacy_corrections == ()
+
+
+def test_a_correction_to_an_unrelated_field_produces_no_legacy_correction_finding() -> None:
+    # `count` moving is a DIFFERENT kind of correction (and, per FR-009, should never happen) —
+    # OPT-LEGACY-CORRECTED is specifically about the derived link fields, not every field.
+    published = _with_options([GROUP], [CHOICE])
+    candidate = _with_options([GROUP], [CHOICE.model_copy(update={"count": 2})])
+
+    assert compare(published, candidate, published_version_id="v").legacy_corrections == ()
+
+
+def test_the_report_groups_legacy_corrections_by_transition_class_with_counts_and_names() -> None:
+    resolved = PUBLISHED_INVERTED.model_copy(
+        update={
+            "grants_weapon_line": 9,
+            "replaces_weapon_line": 4,
+            "items": [
+                CuratedOptionChoiceItem(
+                    role=OptionItemRole.GRANTED, item_index=1, item_name="glow lance", weapon_line=9
+                ),
+                CuratedOptionChoiceItem(
+                    role=OptionItemRole.REPLACED,
+                    item_index=1,
+                    item_name="storm maul",
+                    weapon_line=4,
+                ),
+            ],
+        }
+    )
+    published = _with_options([_legacy_group()], [PUBLISHED_INVERTED])
+    candidate = _with_options([_legacy_group()], [resolved])
+
+    rendered = render(compare(published, candidate, published_version_id="v"))
+
+    assert "resolved" in rendered.casefold() and "relink" in rendered.casefold()
+    assert "glow lance" in rendered
+    # The per-class count is visible beside the class, not buried in a flat per-field table.
+    assert "1" in rendered.split("## Corrected")[1].split("## Identical")[0]
 
 
 # -- the datasheet-level view --------------------------------------------------------------------

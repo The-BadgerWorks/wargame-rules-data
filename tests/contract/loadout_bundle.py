@@ -2,6 +2,11 @@
 # four proofs share (006 tasks T033-T035, T042): the 004-enriched fixture with every 006 addition
 # layered on top -- all three new arrays non-empty, all four new columns set -- so "additive" is
 # proven against a bundle that actually carries the additions rather than against an empty one.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - Added two CuratedItemConstraint rows to the
+# Warden (007 task T011/T015 ripple fix): NEW_ARRAYS now includes datasheetItemConstraints, and
+# tests/publication/test_consumer_compat_loadout.py asserts every member of that set is
+# non-empty. Direct model construction, like the rest of this fixture -- no grammar production
+# exists yet (that is 007 US3's job), so this proves the model/schema/bundle wiring only.
 """`004`'s enriched snapshot, plus **every** addition `006-unit-loadout-fidelity` makes.
 
 `tests/contract/enrichment_bundle.py` did this job for `004` and is deliberately left alone: its
@@ -43,6 +48,7 @@ from pipeline.models.curated import (
     CuratedDatasheet,
     CuratedEquipmentGroup,
     CuratedEquipmentItem,
+    CuratedItemConstraint,
     CuratedOptionChoice,
     CuratedOptionChoiceItem,
     CuratedOptionGroup,
@@ -50,6 +56,7 @@ from pipeline.models.curated import (
     CuratedWeaponLine,
     DefaultEquipmentState,
     EquipmentAppliesTo,
+    ItemConstraintType,
     OptionItemRole,
     OptionScope,
 )
@@ -228,6 +235,25 @@ def _rider_equipment() -> list[CuratedEquipmentGroup]:
     ]
 
 
+def _warden_item_constraints() -> list[CuratedItemConstraint]:
+    """007: one linked, unscoped `not_replaceable`; one linked, model-scoped `one_per_unit`."""
+    return [
+        CuratedItemConstraint(
+            constraint_index=1,
+            constraint_type=ItemConstraintType.NOT_REPLACEABLE,
+            item_name="Fen glaive",
+            weapon_line=1,
+        ),
+        CuratedItemConstraint(
+            constraint_index=2,
+            constraint_type=ItemConstraintType.ONE_PER_UNIT,
+            item_name="Tide hook",
+            weapon_line=GRANTED_WEAPON_LINES[0],
+            model_name="Fen Warden Prime",
+        ),
+    ]
+
+
 def _extend_warden(datasheet: CuratedDatasheet) -> CuratedDatasheet:
     return datasheet.model_copy(
         update={
@@ -240,6 +266,7 @@ def _extend_warden(datasheet: CuratedDatasheet) -> CuratedDatasheet:
             "option_choices": _warden_option_choices(list(datasheet.option_choices)),
             "equipment_groups": _warden_equipment(),
             "default_equipment_state": DefaultEquipmentState.EXTRACTED,
+            "item_constraints": _warden_item_constraints(),
         }
     )
 

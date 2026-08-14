@@ -2,6 +2,13 @@
 # to the priced projection (004 task T030): the normalised-name join with exactly-one-match
 # linking, OPT-LINK-AMBIGUOUS on zero or many, and guarantee 8's priced projection — which is
 # implemented by linking TO the pre-existing CuratedWargearOption producer and never touching it.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - 007 US2 (T023): `link_choice_weapons` stops
+# writing `grants_`/`replaces_weapon_line` at all — it still performs the choice-to-weapon join
+# for `OPT-LINK-AMBIGUOUS`'s sake, but the two singular fields are now written exactly once, by
+# `link_choice_items`'s existing per-role loop, as the total function of contract §4.1 (present
+# iff exactly one item row on that role, equal to its `weapon_line`) rather than only filling a
+# gap the first join happened to leave (research D3: correcting the dual-semantics inversion at
+# its source means the derivation can no longer start from a value the inversion already wrote).
 """Two joins the source does not publish, both refusing to guess.
 
 **Choice to weapon profile (FR-011).** There is no foreign key, and the wargear rows have no
@@ -34,7 +41,7 @@ What follows from that:
 
 from __future__ import annotations
 
-from collections.abc import Mapping, Sequence
+from collections.abc import Sequence
 
 from pipeline.models.curated import (
     CuratedOptionChoice,
@@ -45,7 +52,6 @@ from pipeline.models.curated import (
 )
 from pipeline.models.findings import Finding
 from pipeline.normalize.names import normalize_name
-from pipeline.parse.options_grammar import OptionVerb
 from pipeline.report.catalogue import build_finding
 
 
@@ -53,13 +59,18 @@ def link_choice_weapons(
     *,
     datasheet_id: str,
     choices: Sequence[CuratedOptionChoice],
-    verbs: Mapping[str, OptionVerb],
     weapons: Sequence[CuratedWeaponLine],
 ) -> tuple[list[CuratedOptionChoice], list[Finding]]:
-    """Attach each choice to the weapon row it names, or report that it could not be.
+    """Report whether each choice's own name names a weapon uniquely. Writes nothing (007 T023).
 
-    ``verbs`` maps a choice id to the clause verb that produced it, which is what decides
-    whether the matched line lands in ``grants_weapon_line`` or in ``replaces_weapon_line``.
+    This is `004`'s original join, kept for ``OPT-LINK-AMBIGUOUS`` — the signal that a choice's
+    *whole* name, decomposed or not, matches a weapon row unambiguously. It no longer writes
+    ``grants_``/``replaces_weapon_line``: :func:`link_choice_items`'s per-role loop is the sole
+    writer of both fields now (research D3, contract §4.1) — filling a gap this function left was
+    exactly the mechanism that let the pre-`007` dual-semantics inversion reach a published field
+    unexamined. Every choice this function is given comes back unchanged; only the findings list
+    carries information out of it.
+
     A choice carrying ``is_no_change`` is skipped in silence: "take nothing" names no weapon, so
     an unlinked-name finding for it would be noise in a report whose value is its signal.
     """
@@ -71,7 +82,7 @@ def link_choice_weapons(
             linked.append(choice)
             continue
 
-        matches = _weapon_lines_named(choice.name, weapons)
+        matches = weapon_lines_named(choice.name, weapons)
         if len(matches) != 1:
             findings.append(
                 build_finding(
@@ -84,15 +95,7 @@ def link_choice_weapons(
                     },
                 )
             )
-            linked.append(choice)
-            continue
-
-        field = (
-            "replaces_weapon_line"
-            if verbs.get(choice.id) is OptionVerb.REPLACE
-            else "grants_weapon_line"
-        )
-        linked.append(choice.model_copy(update={field: matches[0]}))
+        linked.append(choice)
 
     return linked, findings
 
@@ -130,7 +133,7 @@ def link_choice_items(
     for choice in choices:
         items: list[CuratedOptionChoiceItem] = []
         for item in choice.items:
-            matches = _weapon_lines_named(item.item_name, weapons)
+            matches = weapon_lines_named(item.item_name, weapons)
             if len(matches) != 1:
                 findings.append(
                     build_finding(
@@ -155,6 +158,11 @@ def link_choice_items(
             (OptionItemRole.REPLACED, "replaces_weapon_line"),
         ):
             side = [item for item in items if item.role is role]
+            # ``stated`` is always `None` for a freshly-parsed choice now that
+            # `link_choice_weapons` no longer writes either field (007 T023) — this check
+            # defends against a coding error re-populating it (an authored merge, a future
+            # regression), not against divergent extraction, which is what made it blocking in
+            # the first place (research D3, contract §4.1, guarantee 19).
             stated = getattr(choice, field)
             disagreement = _bundle_disagreement(side, stated)
             if disagreement is not None:
@@ -171,8 +179,11 @@ def link_choice_items(
                     )
                 )
                 continue
-            if stated is None and len(side) == 1 and side[0].weapon_line is not None:
-                update[field] = side[0].weapon_line
+            # The total function of contract §4.1: present iff exactly one item on this role,
+            # equal to its `weapon_line`; omitted otherwise. Computed unconditionally — never
+            # only when `stated` happened to be absent — because this is now the field's ONLY
+            # writer (007 T023).
+            update[field] = side[0].weapon_line if len(side) == 1 else None
 
         linked.append(choice.model_copy(update=update))
 
@@ -200,7 +211,14 @@ def _bundle_disagreement(
     return None
 
 
-def _weapon_lines_named(name: str, weapons: Sequence[CuratedWeaponLine]) -> list[int]:
+def weapon_lines_named(name: str, weapons: Sequence[CuratedWeaponLine]) -> list[int]:
+    """The weapon rows whose name normalises equal to ``name`` — the exactly-one-match join.
+
+    Public (007 T023): `_choice_items` in `pipeline/curate/assemble.py` needs the same "does
+    this whole name match a weapon uniquely" evidence `link_choice_weapons` computes, to decide
+    whether to decompose a choice's name at all (the O1 Ruling) — now that the field that used
+    to carry the answer is no longer written for that purpose.
+    """
     needle = normalize_name(name)
     if not needle:
         return []

@@ -24,6 +24,12 @@
 # rows, with absence compared as a value, so the emitted bundle satisfies the per-key uniqueness
 # the consumer contract declares (v1.3.2 guarantee 12). Rows that collide and DISAGREE are left
 # alone on purpose — those are `CON-DUPLICATE-KEY`, not a dedupe.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - Emitted `datasheetItemConstraints` (007
+# task T015, display-fidelity-schema-delta.md §2.1): one row per CuratedItemConstraint, with
+# `datasheetId` injected here exactly as `datasheetCompositions` already does. Added the two new
+# optional `snapshotMeta` fields to `BundleMeta` and wrapped that dict in `omit_absent` for the
+# first time, so a producer with nothing to say for either simply omits it rather than emitting
+# `null` — the schema forbids `null` on every property (§5).
 """Turn the curated tree into the published bundle. A pure function, and nothing else.
 
 No network, no source re-acquisition, no input the tree does not already contain, and no clock:
@@ -83,6 +89,7 @@ from pipeline.models.curated import (
     CuratedEquipmentItem,
     CuratedFaction,
     CuratedGameSizeRule,
+    CuratedItemConstraint,
     CuratedKeyword,
     CuratedModelLine,
     CuratedOptionChoice,
@@ -114,6 +121,14 @@ class BundleMeta:
     source_note: str
     schema_contract_version: int
     restriction_vocabulary_version: int
+    # -- 007-loadout-display-fidelity -----------------------------------------------------------
+    # Both OPTIONAL, both default None, both OMITTED from snapshotMeta when None (display-
+    # fidelity-schema-delta.md §3). Unlike the two REQUIRED fields above, no CLI call site is
+    # obliged to set either yet — a run that never populates item_constraints or runs no
+    # equivalence check has nothing to stamp, and omitting the stamp is the correct statement of
+    # that, not a bug to route around.
+    item_constraint_vocabulary_version: int | None = None
+    rendering_contract_version: str | None = None
 
     def replace(self, **changes: object) -> BundleMeta:
         """A copy with fields changed — the readable form for tests and for a re-stamp."""
@@ -209,6 +224,8 @@ FIELD_MAPPING: Final[Mapping[type, tuple[set[str], set[str]]]] = {
             # 006-unit-loadout-fidelity.
             "equipment_groups",
             "default_equipment_state",
+            # 007-loadout-display-fidelity.
+            "item_constraints",
         },
         {"pricing_confidence", "provenance"},
     ),
@@ -263,6 +280,12 @@ FIELD_MAPPING: Final[Mapping[type, tuple[set[str], set[str]]]] = {
     ),
     CuratedEquipmentItem: (
         {"item_index", "item_name", "count", "weapon_line"},
+        set(),
+    ),
+    # 007-loadout-display-fidelity. Every field mapped, none dropped: `datasheet_id` is injected
+    # by the emitter from the owning datasheet, exactly as `CuratedCompositionEntry` above.
+    CuratedItemConstraint: (
+        {"constraint_index", "constraint_type", "item_name", "weapon_line", "model_name"},
         set(),
     ),
     CuratedDatasheetCost: (
@@ -551,6 +574,7 @@ def _emit_datasheets(snapshot: CuratedSnapshot) -> dict[str, list[dict[str, Json
     choice_items: list[dict[str, JsonValue]] = []
     equipment_groups: list[dict[str, JsonValue]] = []
     equipment_items: list[dict[str, JsonValue]] = []
+    item_constraints: list[dict[str, JsonValue]] = []
 
     snapshot_edition = snapshot.edition.code
 
@@ -693,6 +717,19 @@ def _emit_datasheets(snapshot: CuratedSnapshot) -> dict[str, list[dict[str, Json
             for group in datasheet.equipment_groups
             for item in group.items
         )
+        item_constraints.extend(
+            omit_absent(
+                {
+                    "datasheetId": datasheet.datasheet_id,
+                    "constraintIndex": constraint.constraint_index,
+                    "constraintType": constraint.constraint_type.value,
+                    "itemName": constraint.item_name,
+                    "weaponLine": constraint.weapon_line,
+                    "modelName": constraint.model_name,
+                }
+            )
+            for constraint in datasheet.item_constraints
+        )
 
         keywords.extend(
             omit_absent(
@@ -809,6 +846,7 @@ def _emit_datasheets(snapshot: CuratedSnapshot) -> dict[str, list[dict[str, Json
         "datasheetOptionChoiceItems": _rows(choice_items, "choiceId", "role", "itemIndex"),
         "datasheetEquipmentGroups": _rows(equipment_groups, "id"),
         "datasheetEquipmentItems": _rows(equipment_items, "groupId", "itemIndex"),
+        "datasheetItemConstraints": _rows(item_constraints, "datasheetId", "constraintIndex"),
     }
 
 
@@ -1014,13 +1052,19 @@ def emit_bundle(snapshot: CuratedSnapshot, meta: BundleMeta) -> dict[str, Any]:
 
     return {
         "bundleFormatVersion": BUNDLE_FORMAT_VERSION,
-        "snapshotMeta": {
-            "schemaContractVersion": meta.schema_contract_version,
-            "restrictionVocabularyVersion": meta.restriction_vocabulary_version,
-            "rulesVersionId": meta.rules_version_id,
-            "publishedAt": meta.published_at,
-            "sourceNote": meta.source_note,
-        },
+        "snapshotMeta": omit_absent(
+            {
+                "schemaContractVersion": meta.schema_contract_version,
+                "restrictionVocabularyVersion": meta.restriction_vocabulary_version,
+                # 007-loadout-display-fidelity, both OPTIONAL (display-fidelity-schema-delta.md
+                # §3): OMITTED, never null, when the producer has nothing to say.
+                "itemConstraintVocabularyVersion": meta.item_constraint_vocabulary_version,
+                "renderingContractVersion": meta.rendering_contract_version,
+                "rulesVersionId": meta.rules_version_id,
+                "publishedAt": meta.published_at,
+                "sourceNote": meta.source_note,
+            }
+        ),
         "editions": _emit_editions(snapshot),
         "editionRules": _emit_edition_rules(snapshot),
         "gameSizeRules": _emit_game_sizes(snapshot),

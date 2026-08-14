@@ -1,6 +1,15 @@
 # AI-Assisted: Claude Code (model: claude-opus-5) - Test-support builders for curated snapshots
 # (tasks T048-T052), so a contract test states the ONE thing it is about rather than restating
 # thirty fields of scaffolding around it.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - Added loadout_datasheet() (007 task T009):
+# one synthetic datasheet exercising all five classes 006 added that pipeline/curate/writer.py
+# and prior.py currently lose on a round trip (research D2, issue #14) — equipment groups with
+# items, default_equipment_state, option_choices[].items, and the three option-group eligibility
+# columns — ready for T029's write-read-compare test to import directly.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - Extended loadout_datasheet() with
+# item_constraints (007 US3, T037/T040, and the carried-over writer.py/prior.py round-trip gap
+# US4's T032 deliberately left for US3 to close): one linked, one scoped-and-unlinked row, so the
+# same fixture proves both the vocabulary's linking rule and the round trip in one place.
 """Builders for synthetic curated snapshots.
 
 Every contract test needs a snapshot that is valid in every respect except the one it is
@@ -17,18 +26,31 @@ from collections.abc import Sequence
 from pipeline.build.bundle_emit import BundleMeta
 from pipeline.models.authored import AbilitySummary, ReviewState
 from pipeline.models.curated import (
+    CuratedCompositionEntry,
     CuratedDatasheet,
     CuratedDatasheetCost,
     CuratedDetachment,
     CuratedEdition,
     CuratedEditionRule,
     CuratedEnhancement,
+    CuratedEquipmentGroup,
+    CuratedEquipmentItem,
     CuratedFaction,
     CuratedGameSizeRule,
+    CuratedItemConstraint,
     CuratedKeyword,
     CuratedModelLine,
+    CuratedOptionChoice,
+    CuratedOptionChoiceItem,
+    CuratedOptionGroup,
     CuratedSnapshot,
     CuratedWeaponLine,
+    DefaultEquipmentState,
+    EquipmentAppliesTo,
+    ItemConstraintType,
+    OptionItemRole,
+    OptionScope,
+    WargearOptionState,
 )
 from pipeline.models.provenance import (
     DetailSource,
@@ -203,6 +225,185 @@ def datasheet(
         costs=list(cost_rows if cost_rows is not None else costs()),
         pricing_confidence=PricingConfidence(state=PricingConfidenceState.VERIFIED),
         provenance=provenance(detail_edition_code=detail_edition_code),
+    )
+
+
+def loadout_datasheet(
+    datasheet_id: str = "ds-sootveil-cohort",
+    *,
+    faction_id: str = "f-emberwrights",
+) -> CuratedDatasheet:
+    """007 T009: one datasheet exercising all five classes ``006`` added and the curated tree
+    currently loses on a write-read round trip through ``writer.py``/``prior.py`` (research D2,
+    issue #14): equipment groups (with items), ``default_equipment_state``, ``option_choices[].
+    items``, and the three ``option_groups`` eligibility columns (``eligible_model_name``,
+    ``eligible_max_count``, ``is_per_model``).
+
+    A self-contained build rather than an override of :func:`datasheet` — every named field
+    below (models, weapons, composition, equipment, options) is one consistent invented unit, so
+    a round-trip failure on one class is legible without cross-referencing a second function's
+    defaults.
+
+    Shape: **The Sootveil Warden** (a named leader, default-equipped with a ranged and a melee
+    weapon — the ``model_group`` equipment-applies-to case) leads a squad of **Sootveil
+    Troopers**, up to four of whom may each individually replace their glow lance with one of two
+    alternatives — a multi-item granted bundle, or no change — which is simultaneously
+    ``eligible_model_name``-scoped, ``eligible_max_count``-capped, and ``is_per_model``
+    distributive.
+
+    007 US3 (T037/T040) extends this fixture with a **sixth** class the curated tree also needs
+    to round-trip: ``item_constraints`` — one row linked to a weapon line and unscoped (``Storm
+    maul``, ``not_replaceable``), one row scoped to a named model group and deliberately
+    unlinked (``Marsh axe``, ``one_per_unit``, ``model_name`` present, ``weapon_line`` absent) —
+    so a round-trip failure on either optional field is legible without a second fixture.
+    """
+    return CuratedDatasheet(
+        datasheet_id=datasheet_id,
+        edition_id=EDITION_ID,
+        faction_id=faction_id,
+        name="Sootveil Cohort",
+        role="Battleline",
+        is_battleline=True,
+        models=[
+            CuratedModelLine(
+                line=1,
+                name="Sootveil Warden",
+                movement='6"',
+                toughness=4,
+                save="4+",
+                wounds=3,
+                leadership="6+",
+                objective_control=1,
+                base_size="32mm",
+            ),
+            CuratedModelLine(
+                line=2,
+                name="Sootveil Trooper",
+                movement='6"',
+                toughness=3,
+                save="4+",
+                wounds=1,
+                leadership="7+",
+                objective_control=1,
+                base_size="25mm",
+            ),
+        ],
+        weapons=[
+            CuratedWeaponLine(
+                line=1,
+                name="Glow lance",
+                is_melee=False,
+                range='18"',
+                attacks="2",
+                skill="4+",
+                strength="4",
+                armour_penetration="0",
+                damage="1",
+            ),
+            CuratedWeaponLine(
+                line=2,
+                name="Storm maul",
+                is_melee=True,
+                attacks="2",
+                skill="4+",
+                strength="4",
+                armour_penetration="-1",
+                damage="1",
+            ),
+            CuratedWeaponLine(
+                line=3,
+                name="Marsh axe",
+                is_melee=True,
+                attacks="2",
+                skill="4+",
+                strength="4",
+                armour_penetration="-1",
+                damage="1",
+            ),
+        ],
+        keywords=[CuratedKeyword(keyword="INFANTRY")],
+        composition=[
+            CuratedCompositionEntry(
+                line=1, model_name="Sootveil Warden", min_count=1, max_count=1, model_line=1
+            ),
+            CuratedCompositionEntry(
+                line=2, model_name="Sootveil Trooper", min_count=4, max_count=8, model_line=2
+            ),
+        ],
+        # -- 006 class 1: equipment groups (with items) ------------------------------------------
+        equipment_groups=[
+            CuratedEquipmentGroup(
+                id=f"eq-{datasheet_id.removeprefix('ds-')}-1",
+                line=1,
+                applies_to=EquipmentAppliesTo.MODEL_GROUP,
+                model_name="Sootveil Warden",
+                composition_line=1,
+                items=[
+                    CuratedEquipmentItem(item_index=1, item_name="Glow lance", weapon_line=1),
+                    CuratedEquipmentItem(item_index=2, item_name="Storm maul", weapon_line=2),
+                ],
+            ),
+        ],
+        # -- 006 class 2: default_equipment_state ------------------------------------------------
+        default_equipment_state=DefaultEquipmentState.EXTRACTED,
+        # -- 006 class 4: the three option-group eligibility columns -----------------------------
+        option_groups=[
+            CuratedOptionGroup(
+                id=f"og-{datasheet_id.removeprefix('ds-')}-1",
+                line=1,
+                scope=OptionScope.UNIT,
+                eligible_model_name="Sootveil Trooper",
+                eligible_max_count=4,
+                is_per_model=True,
+            ),
+        ],
+        # -- 006 class 3: option_choices[].items --------------------------------------------------
+        option_choices=[
+            CuratedOptionChoice(
+                id=f"oc-{datasheet_id.removeprefix('ds-')}-1-1",
+                group_id=f"og-{datasheet_id.removeprefix('ds-')}-1",
+                name="marsh axe and storm maul",
+                items=[
+                    CuratedOptionChoiceItem(
+                        role=OptionItemRole.GRANTED,
+                        item_index=1,
+                        item_name="Marsh axe",
+                        weapon_line=3,
+                    ),
+                    CuratedOptionChoiceItem(
+                        role=OptionItemRole.GRANTED,
+                        item_index=2,
+                        item_name="Storm maul",
+                        weapon_line=2,
+                    ),
+                ],
+            ),
+            CuratedOptionChoice(
+                id=f"oc-{datasheet_id.removeprefix('ds-')}-1-2",
+                group_id=f"og-{datasheet_id.removeprefix('ds-')}-1",
+                name="No change",
+                is_no_change=True,
+            ),
+        ],
+        wargear_option_state=WargearOptionState.EXTRACTED,
+        # -- 007 T037/T040: item constraints -- one linked, unscoped; one scoped, unlinked -------
+        item_constraints=[
+            CuratedItemConstraint(
+                constraint_index=1,
+                constraint_type=ItemConstraintType.NOT_REPLACEABLE,
+                item_name="Storm maul",
+                weapon_line=2,
+            ),
+            CuratedItemConstraint(
+                constraint_index=2,
+                constraint_type=ItemConstraintType.ONE_PER_UNIT,
+                item_name="Marsh axe",
+                model_name="Sootveil Warden",
+            ),
+        ],
+        costs=costs(),
+        pricing_confidence=PricingConfidence(state=PricingConfidenceState.VERIFIED),
+        provenance=provenance(),
     )
 
 
