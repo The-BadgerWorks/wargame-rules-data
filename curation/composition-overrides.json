@@ -1,1 +1,50 @@
-[]
+[
+  {
+    "datasheet_id": "ds-fortis-kill-team",
+    "line": 1,
+    "remove": true,
+    "note": "Confirmed phantom 'MODELS MAXIMUM' header, not a model (min=max=10, successors sum to 24 -- variant equipment rows overlap, signal 4 never flags it). PO decision 2026-08-14, T061 review, reports/composition-header-refusal/2026-08-14.md."
+  },
+  {
+    "datasheet_id": "ds-indomitor-kill-team",
+    "line": 1,
+    "remove": true,
+    "note": "Confirmed phantom 'MODELS MAXIMUM' header, not a model (min=max=10, successors sum to 16 -- variant equipment rows overlap, signal 4 never flags it). PO decision 2026-08-14, T061 review, reports/composition-header-refusal/2026-08-14.md."
+  },
+  {
+    "datasheet_id": "ds-spectrus-kill-team",
+    "line": 1,
+    "remove": true,
+    "note": "Confirmed phantom 'MODELS MAXIMUM' header, not a model (min=max=10, successors sum to 21 -- variant equipment rows overlap, signal 4 never flags it). PO decision 2026-08-14, T061 review, reports/composition-header-refusal/2026-08-14.md."
+  },
+  {
+    "datasheet_id": "ds-talonstrike-kill-team",
+    "line": 1,
+    "remove": true,
+    "note": "Confirmed phantom 'MODELS MAXIMUM' header, not a model (min=max=10, successors sum to 15 -- variant equipment rows overlap, signal 4 never flags it). PO decision 2026-08-14, T061 review, reports/composition-header-refusal/2026-08-14.md."
+  },
+  {
+    "datasheet_id": "ds-fortis-kill-team-2",
+    "line": 1,
+    "remove": true,
+    "note": "Confirmed phantom 'MODELS MAXIMUM' header, not a model (min=max=10, successors sum to 20 -- variant equipment rows overlap, signal 4 never flags it). PO decision 2026-08-14, T061 review, reports/composition-header-refusal/2026-08-14.md."
+  },
+  {
+    "datasheet_id": "ds-indomitor-kill-team-2",
+    "line": 1,
+    "remove": true,
+    "note": "Confirmed phantom 'MODELS MAXIMUM' header, not a model (min=max=10, successors sum to 16 -- variant equipment rows overlap, signal 4 never flags it). PO decision 2026-08-14, T061 review, reports/composition-header-refusal/2026-08-14.md."
+  },
+  {
+    "datasheet_id": "ds-proteus-kill-team",
+    "line": 1,
+    "remove": true,
+    "note": "Confirmed phantom 'MODELS MAXIMUM' header, not a model (min=max=10, successors sum to 20 -- variant equipment rows overlap, signal 4 never flags it). PO decision 2026-08-14, T061 review, reports/composition-header-refusal/2026-08-14.md."
+  },
+  {
+    "datasheet_id": "ds-spectrus-kill-team-2",
+    "line": 1,
+    "remove": true,
+    "note": "Confirmed phantom 'MODELS MAXIMUM' header, not a model (min=max=10, successors sum to 22 -- variant equipment rows overlap, signal 4 never flags it). PO decision 2026-08-14, T061 review, reports/composition-header-refusal/2026-08-14.md."
+  }
+]
