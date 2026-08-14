@@ -119,7 +119,15 @@ def _loadout_coverage_section(coverage: Mapping[str, Mapping[str, Any]]) -> list
         "ahead of a parser fix. A rejected candidate never moves the baseline. "
         "`default_equipment` is reported and not ratcheted in this first extended release: "
         "nothing has published the figure yet, and a first-release threshold picked to have one "
-        "would be exactly the ceiling that rule rules out.",
+        "would be exactly the ceiling that rule rules out. "
+        "`item_constraints` and `rendering_equivalence` (`007` US5) are the same: new "
+        "report-only baselines, reported from their first release and ratcheted by no version of "
+        "this pipeline yet (PO decision 2026-08-13). `rendering_equivalence_not_compared` is a "
+        "**raw count**, not a proportion — read its `resolved` column, not its `%`, which is "
+        "always 100 by construction: it is the number of datasheet/block comparisons the check "
+        "could not make this run (source unavailable, or the rendered block legitimately empty), "
+        "excluded from `rendering_equivalence`'s own numerator and denominator so a shrinking "
+        "denominator can never read as an improving figure.",
     ]
     return out
 

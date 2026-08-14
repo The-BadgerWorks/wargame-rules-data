@@ -5,6 +5,10 @@
 # access for US2 (004 task T034): the keyword export, the curated faction tree the fixture
 # implies, and the curator's keyword-class records, all in one place because the classification
 # cases are a property of the THREE together and stating them apart makes each one illegible.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - Added MODEL_LINES entries for GF12-GF15
+# (007 task T005/T007 fixture scaffolding): the legacy stem-object/footnote-restriction/
+# over-length-item fixture (GF12) and the three unit-size-header fixtures (GF13-GF15), the last
+# of which is the near-miss the five-signal header rule is designed not to refuse.
 """Shared access to ``fixtures/enrichment/``.
 
 Every row these fixtures carry is invented — invented faction, invented units, invented model
@@ -81,6 +85,26 @@ MODEL_LINES: Mapping[str, Mapping[int, str]] = {
     # "Thornlight Chorister" is a prefix of "Thornlight Chorister Prime", so the Prime line
     # matches both rows and is correctly refused rather than attached to the shorter one.
     "GF06": {1: "Thornlight Chorister Prime", 2: "Thornlight Chorister"},
+    # -- 007-loadout-display-fidelity: T005/T007 additions -------------------------------------
+    # GF12 is T005's legacy stem-object fixture (research D3.3's three outcomes plus
+    # OPT-SCOPE-UNRESOLVED) and T006/T008's footnote-restriction and over-length-item fixtures.
+    # "Marshlight Warden" is the eligibility subject three option rows name; it must link so the
+    # sergeant-shape subject is a genuine model, never itself the unresolved case.
+    "GF12": {1: "Marshlight Warden", 2: "Marshlight Sentry"},
+    # GF13/GF14/GF15 are T007's unit-size-header fixtures (research D1's five-signal rule). No
+    # model row is named "Fenward Cohort" or "Fenward Vanguard Squad": the header names are the
+    # zero-match case signal 5 tests for, on the same terms GF03's "Bracklight Outrider" already
+    # establishes.
+    "GF13": {1: "Fenward Sergeant", 2: "Fenward Trooper"},
+    "GF14": {1: "Fenward Outrider"},
+    # GF15 is the near-miss: its row 2 ("Fenward Relict Line") is fixed-size, unlinkable (no
+    # profile below is named for it, on the same zero-match terms), and numerically equal to the
+    # sum of the OTHER two rows (1 + 7 = 8) — every property research D1's five-signal rule tests
+    # for except the first (it is not the datasheet's FIRST composition row, so the rule — which
+    # only ever examines row 1 — never considers it a candidate at all). This is "the one case
+    # the five-signal conjunction is designed not to refuse": not because four of five signals
+    # fail, but because the position gate that starts the conjunction does.
+    "GF15": {1: "Fenward Relict Warden", 3: "Fenward Relict Skirmisher"},
 }
 
 

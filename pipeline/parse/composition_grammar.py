@@ -2,6 +2,10 @@
 # 004 research D2 (004 task T027): the fixed-order pre-pass, exactly two productions, and the
 # exactly-one-match model link — with no fuzzy matching, no spelled-numeral dictionary, and no
 # "and"-splitting heuristic anywhere.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - 007 US3 (T038): relocated the footnote-marker
+# expression here from `options_grammar` (now public `FOOTNOTE_MARK`) so both grammars reuse the
+# one expression without a circular import, and stripped it from `model_name` (research D4.1,
+# guarantee 21).
 """Resolve one composition line into a model name and an integer count range.
 
 **Two productions, and no more** (research D2)::
@@ -74,6 +78,17 @@ MAX_MODEL_NAME_CHARS: Final = 120
 #: ``curation/composition-overrides.json``.
 _MULTI_MODEL: Final = re.compile(r"\band\s+\d")
 
+#: A footnote marker glued to a name (007 research D4.1) — 24 measured option-row heads and 6
+#: measured composition ``model_name`` rows carry one. **Public and defined here, not in
+#: ``options_grammar``**, so both grammars reuse the same one expression rather than each keeping
+#: their own copy: ``options_grammar`` already imports :func:`pre_pass` from this module, and a
+#: second definition of the same pattern is exactly the drift research D4a's "reuse the
+#: expression that already exists" decision exists to prevent. The name normaliser used for
+#: *joins* (:func:`pipeline.normalize.names.normalize_name`) collapses non-alphanumeric runs, so
+#: a marker is invisible to a link and fully visible in the stored display name until stripped
+#: here at extraction (007 T038, guarantee 21).
+FOOTNOTE_MARK: Final = re.compile(r"[*†‡¹²³]+")
+
 
 @dataclass(frozen=True, slots=True)
 class CompositionParse:
@@ -116,7 +131,7 @@ def parse_entry(description: str) -> CompositionParse | None:
     ranged = _RANGE.match(text)
     if ranged is not None:
         minimum, maximum = int(ranged.group(1)), int(ranged.group(2))
-        name = ranged.group(3).strip()
+        name = _strip_marker(ranged.group(3).strip())
         # A range that runs backwards is a parse defect, not data. Reporting it as unresolved
         # hands it to a curator; emitting it would raise inside the curated model at write time,
         # where the failure is a stack trace rather than a finding.
@@ -128,10 +143,20 @@ def parse_entry(description: str) -> CompositionParse | None:
     if fixed is None:
         return None
     count = int(fixed.group(1))
-    name = fixed.group(2).strip()
+    name = _strip_marker(fixed.group(2).strip())
     if not _is_name(name):
         return None
     return CompositionParse(model_name=name, min_count=count, max_count=count)
+
+
+def _strip_marker(name: str) -> str:
+    """Strip a footnote marker from a captured name (007 T038, guarantee 21).
+
+    The marker is typography, never part of the name — the same ruling
+    :func:`pipeline.parse.options_grammar._model_name` already makes for an eligibility
+    subject's name, applied here to ``composition[].model_name``.
+    """
+    return FOOTNOTE_MARK.sub("", name).strip()
 
 
 def _is_name(value: str) -> bool:

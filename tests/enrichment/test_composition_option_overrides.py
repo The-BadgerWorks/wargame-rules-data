@@ -1,6 +1,10 @@
 # AI-Assisted: Claude Code (model: claude-opus-5) - The curator escape hatch's contract (004 task
 # T026): an override resolves its keyed row and the finding disappears with it, and an override
 # naming a datasheet, line, or model that does not exist is the blocking AUT-DANGLING-REF.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - Added coverage for the composition
+# override's `remove` shape (007, Product Owner decision 2026-08-14 T061 review): the second
+# shape an entry may take, subtractive rather than corrective, added once CMP-HEADER-ROW's
+# automatic refusal was demoted to advisory-only.
 """The two override files, and why they are what makes "never guess" affordable.
 
 Without them a 1.3% composition tail and a ~20% option tail would be permanent defects. With them
@@ -11,6 +15,8 @@ never.
 """
 
 from __future__ import annotations
+
+import pytest
 
 from pipeline.curate.assemble import _composition_entries, _option_structure
 from pipeline.curate.authored import AuthoredContent
@@ -83,6 +89,30 @@ def test_without_an_override_the_row_is_unresolved_and_reported() -> None:
     )
     assert entries == []
     assert [f.finding_code for f in findings] == ["CMP-UNRESOLVED"]
+
+
+def test_a_remove_override_carries_no_replacement_fields() -> None:
+    """007, Product Owner decision 2026-08-14 T061 review: a removal states only that a line is
+    gone, never a replacement for it -- the two shapes are mutually exclusive by construction."""
+    entry = CompositionOverrideEntry.model_validate(
+        {"datasheet_id": DATASHEET, "line": 1, "remove": True}
+    )
+    assert entry.model_name is None
+    assert entry.min_count is None
+    assert entry.max_count is None
+    assert entry.model_line is None
+
+
+def test_a_remove_override_rejects_replacement_fields() -> None:
+    with pytest.raises(ValueError, match="remove=true"):
+        CompositionOverrideEntry.model_validate(
+            {"datasheet_id": DATASHEET, "line": 1, "remove": True, "model_name": "Anything"}
+        )
+
+
+def test_a_non_remove_override_still_requires_all_three_replacement_fields() -> None:
+    with pytest.raises(ValueError, match="model_name, min_count, and max_count"):
+        CompositionOverrideEntry.model_validate({"datasheet_id": DATASHEET, "line": 1})
 
 
 def test_a_composition_override_resolves_the_row_and_the_finding_disappears() -> None:

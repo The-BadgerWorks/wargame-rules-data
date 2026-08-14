@@ -1,5 +1,6 @@
 {
   "_comment": "AI-Assisted: Claude Code (model: claude-opus-5) - Authored the published-bundle schema per curated-snapshot-format.md §3-§4 (task T033) against reference-db-schema.md v1.2.0. One array per consumer table, named in lowerCamelCase, each element carrying exactly that table's columns in lowerCamelCase, so the ingestor is a mechanical array-to-table load with no reshaping. Arrays are sorted by their table's primary key, which is what makes the bundle byte-stable and a hand-diff of two bundles meaningful during an incident. Absent optionals are OMITTED (§5) and ingested as SQL NULL; no property here is nullable. datasheetDetachmentEligibility is ALWAYS PRESENT and ALWAYS EMPTY: no upstream datasheet-to-detachment join exists, so the consumer contract's default (absence = legal in any detachment of its faction) applies, which is the correct non-fabricating behaviour under FR-019. additionalProperties is false throughout so an unmapped field is a build failure rather than a silent omission. 004-rules-data-enrichment adds datasheetCompositions, datasheetOptionGroups and datasheetOptionChoices, plus chapterKeywords (T040), factionRules (T048), detachmentRules (T055) and keywordGlossary (T062), and the optional wargearOptionState, keywordClass and armyRuleState columns, per contracts/bundle-schema-delta.md. Every one of those is ADDITIVE: bundleFormatVersion stays 1 because the layout rules are unchanged, and an existing row that acquires no new value is byte-identical to what it was.",
+  "_comment2": "AI-Assisted: Claude Code (model: claude-sonnet-5) - Added 007-loadout-display-fidelity's datasheetItemConstraints array (007 task T011, display-fidelity-schema-delta.md §2.1), appended to the root required list rather than inserted, and the two optional snapshotMeta fields itemConstraintVocabularyVersion and renderingContractVersion (§3). Additive: bundleFormatVersion stays 1, additionalProperties stays false throughout, and a producer with nothing to say for either snapshotMeta field simply omits it.",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://the-badgerworks.github.io/wargame-rules-data/schemas/bundle.schema.json",
   "title": "Published snapshot bundle rules-<rulesVersionId>.json",
@@ -36,7 +37,8 @@
     "datasheetCostContexts",
     "datasheetOptionChoiceItems",
     "datasheetEquipmentGroups",
-    "datasheetEquipmentItems"
+    "datasheetEquipmentItems",
+    "datasheetItemConstraints"
   ],
   "properties": {
     "bundleFormatVersion": {
@@ -56,6 +58,16 @@
       "properties": {
         "schemaContractVersion": { "type": "integer", "minimum": 1 },
         "restrictionVocabularyVersion": { "type": "integer", "minimum": 1 },
+        "itemConstraintVocabularyVersion": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "007 addition, OPTIONAL. Mirrors restrictionVocabularyVersion for the closed set datasheetItemConstraints.constraintType draws from (display-fidelity-schema-delta.md §3.1). OMITTED by a producer with nothing to say; a consumer that reads neither is unaffected."
+        },
+        "renderingContractVersion": {
+          "type": "string",
+          "minLength": 1,
+          "description": "007 addition, OPTIONAL. Records the rendering-contract.md version the producer's own equivalence check (FR-019) ran against -- provenance for the FR-022 figure, not an instruction. A consumer is free to implement a different version (display-fidelity-schema-delta.md §3.3)."
+        },
         "rulesVersionId": { "type": "string", "minLength": 1 },
         "publishedAt": {
           "type": "string",
@@ -714,6 +726,36 @@
           "datasheetId": { "type": "string", "minLength": 1 },
           "detachmentId": { "type": "string", "minLength": 1 },
           "isAllowed": { "type": "boolean" }
+        }
+      }
+    },
+    "datasheetItemConstraints": {
+      "type": "array",
+      "description": "007 additive array. Sorted by (datasheetId, constraintIndex). A restriction the datacard states against a NAMED ITEM, captured as its own structured fact rather than left as a marker artifact on the item's own name (007 FR-009, display-fidelity-schema-delta.md §2.1). weaponLine is OMITTED when itemName does not match exactly one datasheetWeapons row of the same datasheet -- never guessed; the row still ships unlinked with an advisory. modelName is present only when the source scopes the restriction to a named model group.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["datasheetId", "constraintIndex", "constraintType", "itemName"],
+        "properties": {
+          "datasheetId": { "type": "string", "minLength": 1 },
+          "constraintIndex": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "1-based, in the source's own order; also display order. With datasheetId, the primary key."
+          },
+          "constraintType": { "enum": ["not_replaceable", "one_per_unit"] },
+          "itemName": { "type": "string", "minLength": 1, "maxLength": 120 },
+          "weaponLine": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "FK to datasheetWeapons.line of the SAME datasheet. OMITTED when the name does not match exactly one line -- never guessed."
+          },
+          "modelName": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 120,
+            "description": "Present only when the source scopes the restriction to a named model group."
+          }
         }
       }
     }

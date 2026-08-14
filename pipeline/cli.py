@@ -158,6 +158,7 @@ from pipeline.validate.coverage import (
     check_weapon_ability_keywords,
     loadout_coverages,
 )
+from pipeline.validate.equivalence import EquivalenceSummary, check_equivalence
 from pipeline.validate.gates import (
     ClassCheck,
     ClassCoverage,
@@ -542,16 +543,25 @@ def _summary_findings_and_coverage(
 
 
 def _loadout_findings_and_coverage(
-    snapshot: CuratedSnapshot, *, prior: PriorSnapshot | None, config: PipelineConfig
+    snapshot: CuratedSnapshot,
+    *,
+    prior: PriorSnapshot | None,
+    config: PipelineConfig,
+    equivalence: EquivalenceSummary | None = None,
 ) -> tuple[list[Finding], dict[str, CoverageFigure]]:
-    """`006`'s two report rows, and the ratchet over the one of them that is guarded (FR-022).
+    """`006`'s two report rows plus `007`'s two new ones, and the ratchet over the one guarded
+    figure (FR-022).
 
     Beside :func:`_summary_findings_and_coverage` and not inside it, because the two answer
     different questions. That one measures an editorial backlog a curator works through; this
     one measures how much of the source the *pipeline* resolved, which no amount of curation
     moves. Folding them together would produce one figure that means two things.
+
+    ``equivalence`` is `None` on every call site that has no source text in scope (`run_validate`,
+    or a `run_build` with the check disabled) — read by `loadout_coverages` as "not measured this
+    run," which omits the figure rather than reporting a false 100% (007 T001, T053).
     """
-    coverages = loadout_coverages(snapshot)
+    coverages = loadout_coverages(snapshot, equivalence=equivalence)
     previous_percent = prior.loadout_ratio_percent if prior else {}
     previous_count = prior.loadout_resolved_count if prior else {}
 
@@ -581,6 +591,7 @@ def _reconcile_against_prior(
     ability_current_digests: Mapping[str, str] | None,
     digest_key: bytes | None,
     previous_tree: CuratedSnapshot | None = None,
+    equivalence: EquivalenceSummary | None = None,
 ) -> tuple[CuratedSnapshot, list[Finding], CoverageOutcome, dict[str, str]]:
     """Everything US2 adds that needs a baseline, in one place.
 
@@ -641,7 +652,7 @@ def _reconcile_against_prior(
     # that the source went strange, and conflating the two would make CI alert on the wrong
     # thing. It is a blocking finding like any other, refused through the normal verdict.
     loadout_findings, loadout_figures = _loadout_findings_and_coverage(
-        snapshot, prior=prior, config=config
+        snapshot, prior=prior, config=config, equivalence=equivalence
     )
     findings.extend(loadout_findings)
     coverage.figures.update(loadout_figures)
@@ -750,6 +761,20 @@ def run_build(  # noqa: PLR0913 - the stage boundary is the argument list
         findings.extend(assembly.findings)
         snapshot = assembly.snapshot
 
+        # 007 US5 (FR-019..FR-021). Same reasoning as the mechanic digest just below: the source
+        # card's block text is only reachable here, inside this `with workspace()` block, so the
+        # equivalence check must be called from here too rather than from either of `validate`'s
+        # own call sites (neither has `detail` in scope — `reports/equivalence-availability/
+        # 2026-08-13.md`, T001). Advisory and gated: a run with the check disabled leaves
+        # `equivalence_summary` `None`, which `loadout_coverages` reads as "not measured this
+        # run," never as "everything matched."
+        equivalence_summary: EquivalenceSummary | None = None
+        if config.equivalence_check_enabled:
+            equivalence_findings, equivalence_summary = check_equivalence(
+                snapshot, detail, wahapedia_datasheet_ids=assembly.wahapedia_datasheet_ids
+            )
+            findings.extend(equivalence_findings)
+
         # The mechanic digest may only be computed while the detail source's text is in hand
         # (research D6: "the digest may only be computed where the text exists"), which is here
         # and only here — `detail` goes out of scope with `work/` at the end of this block. A
@@ -785,6 +810,7 @@ def run_build(  # noqa: PLR0913 - the stage boundary is the argument list
         ability_current_digests=ability_current_digests,
         digest_key=resolved_digest_key,
         previous_tree=previous_tree,
+        equivalence=equivalence_summary,
     )
     findings.extend(prior_findings)
 

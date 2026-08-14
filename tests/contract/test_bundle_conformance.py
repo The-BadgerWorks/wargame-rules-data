@@ -10,6 +10,9 @@
 # optionals proven absent somewhere rather than asserted over rows that all carry them, the two
 # guarantee-12/13 invariants read off the bundle, and both lockstep layers re-proven over an
 # element type and a curated model this feature added.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - Added `datasheetItemConstraints` to
+# CONSUMER_ARRAYS (007 task T011). Always empty here — 007's Foundational phase adds the schema,
+# the model, and the mapping, but nothing yet produces a row.
 """Tests for the published bundle's shape (`curated-snapshot-format.md` §3-§4).
 
 The bundle exists so the app's ingestor is a mechanical array-to-table load with no reshaping.
@@ -89,6 +92,11 @@ CONSUMER_ARRAYS = (
     "datasheetOptionChoiceItems",
     "datasheetEquipmentGroups",
     "datasheetEquipmentItems",
+    # 007-loadout-display-fidelity (007 task T011), display-fidelity-schema-delta.md §2.1. A
+    # restriction the datacard states against a named item, sorted by (datasheetId,
+    # constraintIndex). Always empty in this module's own fixtures -- T037-T041 (US3) is where
+    # a row is first produced.
+    "datasheetItemConstraints",
 )
 
 

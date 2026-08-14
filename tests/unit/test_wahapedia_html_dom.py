@@ -17,6 +17,8 @@
 # AI-Assisted: Claude Code (model: claude-opus-5) - Added the army-rule tooltip template cases
 # (issue #7): the div.tooltip_header family an ordinary ability's div.abName reader emitted
 # nothing for, including the owner line, the embedded ability card and the digest-join guard.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - Added GF16/GF17 to CSV_ID_TO_ANCHOR (007
+# task T010 fixture scaffolding): the equivalence-check matching and mismatched fixture pair.
 """The mode-blindness proof, stated as tests rather than as a design note.
 
 `004`'s architecture rests on one claim: the composition and option grammars, measured once
@@ -87,6 +89,12 @@ CSV_ID_TO_ANCHOR: Mapping[str, str] = {
     "GF09": "Fenwatch-Sentinel",
     "GF10": "Gloamtide-Host",
     "GF11": "Snarebound-Wretches",
+    # 007-loadout-display-fidelity T010's equivalence-check fixture pair: a matching pair (whose
+    # source sentence carries a distinctive token for the retention test) and a mismatched pair
+    # (paired with a curation/equipment-overrides.json entry that publishes a different item
+    # than the card states).
+    "GF16": "Emberlight-Watch",
+    "GF17": "Duskmire-Sentry",
 }
 
 
