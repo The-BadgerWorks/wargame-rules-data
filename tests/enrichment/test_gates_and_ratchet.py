@@ -36,17 +36,26 @@ from pipeline.curate.prior import (
     prior_from_snapshot,
 )
 from pipeline.models.authored import ReviewState, SummaryClass
-from pipeline.models.curated import DefaultEquipmentState, WargearOptionState
+from pipeline.models.curated import (
+    CuratedItemConstraint,
+    DefaultEquipmentState,
+    ItemConstraintType,
+    WargearOptionState,
+)
 from pipeline.models.findings import Severity
 from pipeline.report.catalogue import CATALOGUE
 from pipeline.validate.coverage import (
     DEFAULT_EQUIPMENT_KEY,
+    ITEM_CONSTRAINTS_KEY,
     LOADOUT_RATCHETED_KEYS,
     OPTIONS_RESOLVED_KEY,
+    RENDERING_EQUIVALENCE_KEY,
+    RENDERING_EQUIVALENCE_NOT_COMPARED_KEY,
     LoadoutCoverage,
     check_coverage,
     loadout_coverages,
 )
+from pipeline.validate.equivalence import EquivalenceSummary
 from pipeline.validate.gates import (
     ClassCheck,
     check_option_ratchet,
@@ -633,6 +642,105 @@ def test_the_default_equipment_figure_reads_its_own_state_and_not_the_option_one
     assert figures[OPTIONS_RESOLVED_KEY].resolved == 1
     assert figures[DEFAULT_EQUIPMENT_KEY].resolved == 1
     assert figures[DEFAULT_EQUIPMENT_KEY].total == 2
+
+
+# --- 007 T054: the two new loadout figures -------------------------------------------------
+
+
+def test_item_constraints_figure_counts_datasheets_whose_restrictions_all_linked() -> None:
+    """Of the datasheets stating a restriction, the proportion whose restrictions ALL resolved
+    (quickstart §4) — one unlinked row is enough to keep the whole datasheet out of the
+    numerator."""
+    all_linked = datasheet("ds-a").model_copy(
+        update={
+            "item_constraints": [
+                CuratedItemConstraint(
+                    constraint_index=1,
+                    constraint_type=ItemConstraintType.NOT_REPLACEABLE,
+                    item_name="Storm maul",
+                    weapon_line=1,
+                )
+            ]
+        }
+    )
+    one_unlinked = datasheet("ds-b").model_copy(
+        update={
+            "item_constraints": [
+                CuratedItemConstraint(
+                    constraint_index=1,
+                    constraint_type=ItemConstraintType.NOT_REPLACEABLE,
+                    item_name="Storm maul",
+                    weapon_line=1,
+                ),
+                CuratedItemConstraint(
+                    constraint_index=2,
+                    constraint_type=ItemConstraintType.ONE_PER_UNIT,
+                    item_name="Nowhere weapon",
+                ),
+            ]
+        }
+    )
+    no_restriction = datasheet("ds-c")
+
+    figures = loadout_coverages(snapshot(datasheets=[all_linked, one_unlinked, no_restriction]))
+
+    assert figures[ITEM_CONSTRAINTS_KEY].resolved == 1
+    assert figures[ITEM_CONSTRAINTS_KEY].total == 2  # no_restriction is outside the question
+    assert ITEM_CONSTRAINTS_KEY not in LOADOUT_RATCHETED_KEYS
+
+
+def test_rendering_equivalence_is_absent_when_no_equivalence_summary_is_given() -> None:
+    """`equivalence=None` — the `run_validate` / check-disabled case (007 T001, T053) — omits the
+    figure rather than reporting a false 100%: nothing was measured this run."""
+    figures = loadout_coverages(snapshot(datasheets=[datasheet("ds-a")]))
+
+    assert RENDERING_EQUIVALENCE_KEY not in figures
+    assert RENDERING_EQUIVALENCE_NOT_COMPARED_KEY not in figures
+
+
+def test_rendering_equivalence_excludes_not_compared_from_numerator_and_denominator() -> None:
+    """Research D7 / data-model.md §5: `not_compared` moves neither side of the ratio and is
+    reported as its own count instead."""
+    equivalence = EquivalenceSummary(matched=3, mismatched=1, not_compared=5)
+
+    figures = loadout_coverages(snapshot(datasheets=[datasheet("ds-a")]), equivalence=equivalence)
+
+    assert figures[RENDERING_EQUIVALENCE_KEY].resolved == 3
+    assert figures[RENDERING_EQUIVALENCE_KEY].total == 4  # matched + mismatched, not + 5
+    assert figures[RENDERING_EQUIVALENCE_KEY].ratio_percent == 75
+    assert figures[RENDERING_EQUIVALENCE_NOT_COMPARED_KEY].resolved == 5
+    assert RENDERING_EQUIVALENCE_KEY not in LOADOUT_RATCHETED_KEYS
+    assert RENDERING_EQUIVALENCE_NOT_COMPARED_KEY not in LOADOUT_RATCHETED_KEYS
+
+
+def test_a_build_reports_the_two_007_loadout_rows_beside_the_006_ones(
+    tmp_path_factory,  # type: ignore[no-untyped-def]
+) -> None:
+    """T056: confirm the US5 independent test's report-shape half — a fixture run's `report.json`
+    carries `loadout.rendering_equivalence` beside its `loadout.rendering_equivalence_not_
+    compared` count, and `loadout.item_constraints`, on the same first-release report-only terms
+    as `006`'s two rows (FR-019..FR-022, SC-006)."""
+    result = _minimal_build(tmp_path_factory, {})
+
+    assert f"loadout.{RENDERING_EQUIVALENCE_KEY}" in result.report.coverage
+    assert f"loadout.{RENDERING_EQUIVALENCE_NOT_COMPARED_KEY}" in result.report.coverage
+    assert f"loadout.{ITEM_CONSTRAINTS_KEY}" in result.report.coverage
+    for key in (RENDERING_EQUIVALENCE_KEY, RENDERING_EQUIVALENCE_NOT_COMPARED_KEY):
+        assert result.report.coverage[f"loadout.{key}"].threshold == 0.0
+    assert not [f for f in result.findings if f.finding_code == "COV-OPTION-REGRESSION"]
+
+
+def test_the_equivalence_check_can_be_disabled(
+    tmp_path_factory,  # type: ignore[no-untyped-def]
+) -> None:
+    """`WGC_EQUIVALENCE_CHECK_ENABLED=false` (007 T014, T053): the two new figures are simply
+    absent from the report, and no `RND-EQV-*` finding is raised — the switch controls whether
+    the check runs at all, never what happens when it finds a mismatch."""
+    result = _minimal_build(tmp_path_factory, {"WGC_EQUIVALENCE_CHECK_ENABLED": "false"})
+
+    assert f"loadout.{RENDERING_EQUIVALENCE_KEY}" not in result.report.coverage
+    assert f"loadout.{RENDERING_EQUIVALENCE_NOT_COMPARED_KEY}" not in result.report.coverage
+    assert not [f for f in result.findings if f.finding_code.startswith("RND-EQV-")]
 
 
 # --- the loadout ratchet, wired end to end (006 T038, T039) -------------------------------------

@@ -221,6 +221,16 @@ class AssemblyResult:
     Carried out of the stage rather than re-derived downstream: the delta cross-check needs the
     same pairing this stage decided, and a second derivation is a second chance to disagree.
     """
+    wahapedia_datasheet_ids: dict[str, str] = field(default_factory=dict)
+    """``curated datasheet_id -> detail source's own datasheet id`` (007 US5, T053).
+
+    The inverse of this function's own internal ``detail_to_curated`` join, carried out for the
+    same reason ``datasheet_ids`` above already is: the build-time equivalence check
+    (:mod:`pipeline.validate.equivalence`) needs to look up a datasheet's raw ``detail`` rows
+    while iterating the curated snapshot, and re-deriving the join from a datasheet's name would
+    be a second chance for it to disagree with the one this stage already decided. Present only
+    for datasheets the detail source actually contributed to (points-only entries have none).
+    """
 
 
 def _composition_lines(detail_id: str | None, detail: Mapping[str, CsvReadResult]) -> list[str]:
@@ -1556,7 +1566,14 @@ def assemble(  # noqa: PLR0913 - the stage genuinely needs every upstream input
         keyword_glossary=authored.glossary_entries,
     )
 
-    return AssemblyResult(snapshot=snapshot, findings=findings, datasheet_ids=datasheet_ids)
+    return AssemblyResult(
+        snapshot=snapshot,
+        findings=findings,
+        datasheet_ids=datasheet_ids,
+        wahapedia_datasheet_ids={
+            curated_id: detail_id for detail_id, curated_id in detail_to_curated.items()
+        },
+    )
 
 
 #: The detail export's detachment-rule file. **Not in `EXPORT_FILES`** — the current-edition
