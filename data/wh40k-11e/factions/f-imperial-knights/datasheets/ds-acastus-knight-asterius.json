@@ -21,7 +21,7 @@
       "model_count": 1,
       "points": 785,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T195124Z-0c772378"
     },
     {
       "copy_index_min": 2,
@@ -29,11 +29,41 @@
       "model_count": 1,
       "points": 860,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T195124Z-0c772378"
     }
   ],
   "damaged_threshold": 10,
   "datasheet_id": "ds-acastus-knight-asterius",
+  "default_equipment_state": "extracted",
+  "equipment_groups": [
+    {
+      "applies_to": "unit",
+      "id": "eq-acastus-knight-asterius-1",
+      "items": [
+        {
+          "count": 2,
+          "item_index": 1,
+          "item_name": "Asterius volkite culverins"
+        },
+        {
+          "item_index": 2,
+          "item_name": "karacnos mortar battery",
+          "weapon_line": 2
+        },
+        {
+          "count": 2,
+          "item_index": 3,
+          "item_name": "twin conversion beam cannons"
+        },
+        {
+          "item_index": 4,
+          "item_name": "titanic feet",
+          "weapon_line": 4
+        }
+      ],
+      "line": 1
+    }
+  ],
   "faction_id": "f-imperial-knights",
   "is_battleline": false,
   "is_character": false,
@@ -100,15 +130,15 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:67a9ff595c94283b19506b85fa417bc7f4f91f4a75cc2884e3099e30de877d69",
-    "last_verified_version": "wh40k-11e-2026-08-2",
+    "last_verified_version": "wh40k-11e-2026-08-3",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
+    "detail_acquisition_id": "wahapedia-20260814T195616Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260812T223703Z-6694568f",
+    "points_acquisition_id": "mfm-20260814T195124Z-0c772378",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },

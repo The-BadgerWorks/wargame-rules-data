@@ -32,7 +32,7 @@
       "model_count": 5,
       "points": 85,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T195124Z-0c772378"
     },
     {
       "copy_index_min": 3,
@@ -40,10 +40,50 @@
       "model_count": 5,
       "points": 95,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T195124Z-0c772378"
     }
   ],
   "datasheet_id": "ds-militarum-tempestus-command-squad",
+  "default_equipment_state": "extracted",
+  "equipment_groups": [
+    {
+      "applies_to": "model_group",
+      "composition_line": 1,
+      "id": "eq-militarum-tempestus-command-squad-1",
+      "items": [
+        {
+          "item_index": 1,
+          "item_name": "bolt pistol",
+          "weapon_line": 1
+        },
+        {
+          "item_index": 2,
+          "item_name": "Tempestus dagger",
+          "weapon_line": 14
+        }
+      ],
+      "line": 1,
+      "model_name": "Tempestor Prime"
+    },
+    {
+      "applies_to": "model_group",
+      "id": "eq-militarum-tempestus-command-squad-2",
+      "items": [
+        {
+          "item_index": 1,
+          "item_name": "hot-shot lasgun",
+          "weapon_line": 5
+        },
+        {
+          "item_index": 2,
+          "item_name": "close combat weapon",
+          "weapon_line": 13
+        }
+      ],
+      "line": 2,
+      "model_name": "Tempestus Scion"
+    }
+  ],
   "faction_id": "f-astra-militarum",
   "is_battleline": false,
   "is_character": true,
@@ -135,6 +175,21 @@
       "id": "oc-militarum-tempestus-command-squad-1-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "flamer",
+          "role": "granted",
+          "weapon_line": 2
+        },
+        {
+          "item_index": 1,
+          "item_name": "hot-shot lasgun",
+          "role": "replaced",
+          "weapon_line": 5
+        }
+      ],
       "name": "flamer",
       "replaces_weapon_line": 5
     },
@@ -144,6 +199,20 @@
       "id": "oc-militarum-tempestus-command-squad-1-2",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "grenade launcher",
+          "role": "granted"
+        },
+        {
+          "item_index": 1,
+          "item_name": "hot-shot lasgun",
+          "role": "replaced",
+          "weapon_line": 5
+        }
+      ],
       "name": "grenade launcher",
       "replaces_weapon_line": 5
     },
@@ -154,6 +223,21 @@
       "id": "oc-militarum-tempestus-command-squad-1-3",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "hot-shot volley gun",
+          "role": "granted",
+          "weapon_line": 7
+        },
+        {
+          "item_index": 1,
+          "item_name": "hot-shot lasgun",
+          "role": "replaced",
+          "weapon_line": 5
+        }
+      ],
       "name": "hot-shot volley gun",
       "replaces_weapon_line": 5
     },
@@ -164,6 +248,21 @@
       "id": "oc-militarum-tempestus-command-squad-1-4",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "meltagun",
+          "role": "granted",
+          "weapon_line": 8
+        },
+        {
+          "item_index": 1,
+          "item_name": "hot-shot lasgun",
+          "role": "replaced",
+          "weapon_line": 5
+        }
+      ],
       "name": "meltagun",
       "replaces_weapon_line": 5
     },
@@ -173,6 +272,20 @@
       "id": "oc-militarum-tempestus-command-squad-1-5",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "plasma gun",
+          "role": "granted"
+        },
+        {
+          "item_index": 1,
+          "item_name": "hot-shot lasgun",
+          "role": "replaced",
+          "weapon_line": 5
+        }
+      ],
       "name": "plasma gun",
       "replaces_weapon_line": 5
     },
@@ -182,6 +295,14 @@
       "id": "oc-militarum-tempestus-command-squad-2-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "regimental standard (that model’s hot-shot lasgun cannot be replaced)",
+          "role": "granted"
+        }
+      ],
       "name": "regimental standard (that model’s hot-shot lasgun cannot be replaced)"
     },
     {
@@ -190,6 +311,26 @@
       "id": "oc-militarum-tempestus-command-squad-3-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "hot-shot laspistol",
+          "role": "granted",
+          "weapon_line": 6
+        },
+        {
+          "count": 1,
+          "item_index": 2,
+          "item_name": "master vox",
+          "role": "granted"
+        },
+        {
+          "item_index": 1,
+          "item_name": "Tempestus Scion’s hot-shot lasgun",
+          "role": "replaced"
+        }
+      ],
       "name": "hot-shot laspistol and 1 master vox"
     },
     {
@@ -198,6 +339,26 @@
       "id": "oc-militarum-tempestus-command-squad-4-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "hot-shot laspistol",
+          "role": "granted",
+          "weapon_line": 6
+        },
+        {
+          "count": 1,
+          "item_index": 2,
+          "item_name": "medi-pack",
+          "role": "granted"
+        },
+        {
+          "item_index": 1,
+          "item_name": "Tempestus Scion’s hot-shot lasgun",
+          "role": "replaced"
+        }
+      ],
       "name": "hot-shot laspistol and 1 medi-pack"
     },
     {
@@ -206,6 +367,25 @@
       "id": "oc-militarum-tempestus-command-squad-4-2",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "hot-shot lasgun, 1 hot-shot laspistol",
+          "role": "granted"
+        },
+        {
+          "count": 1,
+          "item_index": 2,
+          "item_name": "medi-pack [that model's hot-shot lasgun cannot be replaced]",
+          "role": "granted"
+        },
+        {
+          "item_index": 1,
+          "item_name": "Tempestus Scion’s hot-shot lasgun",
+          "role": "replaced"
+        }
+      ],
       "name": "hot-shot lasgun, 1 hot-shot laspistol and 1 medi-pack [that model's hot-shot lasgun cannot be replaced]"
     },
     {
@@ -214,6 +394,19 @@
       "id": "oc-militarum-tempestus-command-squad-5-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "plasma pistol",
+          "role": "granted"
+        },
+        {
+          "item_index": 1,
+          "item_name": "Tempestor Prime’s bolt pistol",
+          "role": "replaced"
+        }
+      ],
       "name": "plasma pistol"
     },
     {
@@ -222,12 +415,27 @@
       "id": "oc-militarum-tempestus-command-squad-5-2",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "command rod",
+          "role": "granted"
+        },
+        {
+          "item_index": 1,
+          "item_name": "Tempestor Prime’s bolt pistol",
+          "role": "replaced"
+        }
+      ],
       "name": "command rod"
     }
   ],
   "option_groups": [
     {
+      "eligible_model_name": "Tempestus Scions",
       "id": "og-militarum-tempestus-command-squad-1",
+      "is_per_model": true,
       "line": 1,
       "scope": "unit"
     },
@@ -255,15 +463,15 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:df05dfea9ff45d669b322df11d20f5eaa6b17b79e7d27a135c40c938fc143ea9",
-    "last_verified_version": "wh40k-11e-2026-08-2",
+    "last_verified_version": "wh40k-11e-2026-08-3",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
+    "detail_acquisition_id": "wahapedia-20260814T195616Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260812T223703Z-6694568f",
+    "points_acquisition_id": "mfm-20260814T195124Z-0c772378",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },

@@ -27,7 +27,7 @@
       "model_count": 10,
       "points": 90,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T195124Z-0c772378"
     },
     {
       "copy_index_min": 3,
@@ -35,10 +35,35 @@
       "model_count": 10,
       "points": 100,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T195124Z-0c772378"
     }
   ],
   "datasheet_id": "ds-dominion-squad",
+  "default_equipment_state": "extracted",
+  "equipment_groups": [
+    {
+      "applies_to": "unit",
+      "id": "eq-dominion-squad-1",
+      "items": [
+        {
+          "item_index": 1,
+          "item_name": "bolt pistol",
+          "weapon_line": 2
+        },
+        {
+          "item_index": 2,
+          "item_name": "boltgun",
+          "weapon_line": 3
+        },
+        {
+          "item_index": 3,
+          "item_name": "close combat weapon",
+          "weapon_line": 13
+        }
+      ],
+      "line": 1
+    }
+  ],
   "faction_id": "f-adepta-sororitas",
   "is_battleline": false,
   "is_character": false,
@@ -90,48 +115,118 @@
   "option_choices": [
     {
       "count": 1,
+      "grants_weapon_line": 2,
       "group_id": "og-dominion-squad-1",
       "id": "oc-dominion-squad-1-1",
       "is_default": false,
       "is_no_change": false,
-      "name": "bolt pistol",
-      "replaces_weapon_line": 2
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "bolt pistol",
+          "role": "granted",
+          "weapon_line": 2
+        },
+        {
+          "item_index": 1,
+          "item_name": "Dominion Superior’s boltgun",
+          "role": "replaced"
+        }
+      ],
+      "name": "bolt pistol"
     },
     {
       "count": 1,
+      "grants_weapon_line": 4,
       "group_id": "og-dominion-squad-1",
       "id": "oc-dominion-squad-1-2",
       "is_default": false,
       "is_no_change": false,
-      "name": "combi-weapon",
-      "replaces_weapon_line": 4
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "combi-weapon",
+          "role": "granted",
+          "weapon_line": 4
+        },
+        {
+          "item_index": 1,
+          "item_name": "Dominion Superior’s boltgun",
+          "role": "replaced"
+        }
+      ],
+      "name": "combi-weapon"
     },
     {
       "count": 1,
+      "grants_weapon_line": 5,
       "group_id": "og-dominion-squad-1",
       "id": "oc-dominion-squad-1-3",
       "is_default": false,
       "is_no_change": false,
-      "name": "condemnor boltgun",
-      "replaces_weapon_line": 5
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "condemnor boltgun",
+          "role": "granted",
+          "weapon_line": 5
+        },
+        {
+          "item_index": 1,
+          "item_name": "Dominion Superior’s boltgun",
+          "role": "replaced"
+        }
+      ],
+      "name": "condemnor boltgun"
     },
     {
       "count": 1,
+      "grants_weapon_line": 6,
       "group_id": "og-dominion-squad-1",
       "id": "oc-dominion-squad-1-4",
       "is_default": false,
       "is_no_change": false,
-      "name": "inferno pistol",
-      "replaces_weapon_line": 6
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "inferno pistol",
+          "role": "granted",
+          "weapon_line": 6
+        },
+        {
+          "item_index": 1,
+          "item_name": "Dominion Superior’s boltgun",
+          "role": "replaced"
+        }
+      ],
+      "name": "inferno pistol"
     },
     {
       "count": 1,
+      "grants_weapon_line": 9,
       "group_id": "og-dominion-squad-1",
       "id": "oc-dominion-squad-1-5",
       "is_default": false,
       "is_no_change": false,
-      "name": "Ministorum hand flamer",
-      "replaces_weapon_line": 9
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "Ministorum hand flamer",
+          "role": "granted",
+          "weapon_line": 9
+        },
+        {
+          "item_index": 1,
+          "item_name": "Dominion Superior’s boltgun",
+          "role": "replaced"
+        }
+      ],
+      "name": "Ministorum hand flamer"
     },
     {
       "count": 1,
@@ -139,6 +234,19 @@
       "id": "oc-dominion-squad-1-6",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "plasma pistol",
+          "role": "granted"
+        },
+        {
+          "item_index": 1,
+          "item_name": "Dominion Superior’s boltgun",
+          "role": "replaced"
+        }
+      ],
       "name": "plasma pistol"
     },
     {
@@ -148,6 +256,15 @@
       "id": "oc-dominion-squad-2-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "chainsword",
+          "role": "granted",
+          "weapon_line": 12
+        }
+      ],
       "name": "chainsword"
     },
     {
@@ -157,6 +274,15 @@
       "id": "oc-dominion-squad-2-2",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "power weapon",
+          "role": "granted",
+          "weapon_line": 14
+        }
+      ],
       "name": "power weapon"
     },
     {
@@ -166,6 +292,21 @@
       "id": "oc-dominion-squad-3-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "artificer-crafted storm bolter",
+          "role": "granted",
+          "weapon_line": 1
+        },
+        {
+          "item_index": 1,
+          "item_name": "boltgun",
+          "role": "replaced",
+          "weapon_line": 3
+        }
+      ],
       "name": "artificer-crafted storm bolter",
       "replaces_weapon_line": 3
     },
@@ -176,6 +317,21 @@
       "id": "oc-dominion-squad-3-2",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "meltagun",
+          "role": "granted",
+          "weapon_line": 7
+        },
+        {
+          "item_index": 1,
+          "item_name": "boltgun",
+          "role": "replaced",
+          "weapon_line": 3
+        }
+      ],
       "name": "meltagun",
       "replaces_weapon_line": 3
     },
@@ -186,6 +342,21 @@
       "id": "oc-dominion-squad-3-3",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "Ministorum flamer",
+          "role": "granted",
+          "weapon_line": 8
+        },
+        {
+          "item_index": 1,
+          "item_name": "boltgun",
+          "role": "replaced",
+          "weapon_line": 3
+        }
+      ],
       "name": "Ministorum flamer",
       "replaces_weapon_line": 3
     },
@@ -195,6 +366,14 @@
       "id": "oc-dominion-squad-4-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "simulacrum imperialis (that model’s boltgun cannot be replaced)",
+          "role": "granted"
+        }
+      ],
       "name": "simulacrum imperialis (that model’s boltgun cannot be replaced)"
     }
   ],
@@ -210,7 +389,10 @@
       "scope": "unit"
     },
     {
+      "eligible_max_count": 4,
+      "eligible_model_name": "Dominions",
       "id": "og-dominion-squad-3",
+      "is_per_model": true,
       "line": 3,
       "scope": "unit"
     },
@@ -223,15 +405,15 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:b30816f088486980db0e0cc021fb209636ff59f90fd574714ba7eb92910c1f1e",
-    "last_verified_version": "wh40k-11e-2026-08-2",
+    "last_verified_version": "wh40k-11e-2026-08-3",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
+    "detail_acquisition_id": "wahapedia-20260814T195616Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260812T223703Z-6694568f",
+    "points_acquisition_id": "mfm-20260814T195124Z-0c772378",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },

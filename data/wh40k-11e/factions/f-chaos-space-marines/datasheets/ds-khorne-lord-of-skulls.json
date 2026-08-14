@@ -20,7 +20,7 @@
       "model_count": 1,
       "points": 450,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T195124Z-0c772378"
     },
     {
       "copy_index_min": 2,
@@ -28,11 +28,35 @@
       "model_count": 1,
       "points": 475,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T195124Z-0c772378"
     }
   ],
   "damaged_threshold": 8,
   "datasheet_id": "ds-khorne-lord-of-skulls",
+  "default_equipment_state": "extracted",
+  "equipment_groups": [
+    {
+      "applies_to": "unit",
+      "id": "eq-khorne-lord-of-skulls-1",
+      "items": [
+        {
+          "item_index": 1,
+          "item_name": "gorestorm cannon",
+          "weapon_line": 2
+        },
+        {
+          "item_index": 2,
+          "item_name": "Hades gatling cannon",
+          "weapon_line": 3
+        },
+        {
+          "item_index": 3,
+          "item_name": "great cleaver of Khorne"
+        }
+      ],
+      "line": 1
+    }
+  ],
   "faction_id": "f-chaos-space-marines",
   "is_battleline": false,
   "is_character": false,
@@ -103,30 +127,72 @@
   "option_choices": [
     {
       "count": 1,
+      "grants_weapon_line": 1,
       "group_id": "og-khorne-lord-of-skulls-1",
       "id": "oc-khorne-lord-of-skulls-1-1",
       "is_default": false,
       "is_no_change": false,
-      "name": "daemongore cannon",
-      "replaces_weapon_line": 1
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "daemongore cannon",
+          "role": "granted",
+          "weapon_line": 1
+        },
+        {
+          "item_index": 1,
+          "item_name": "’s gorestorm cannon",
+          "role": "replaced"
+        }
+      ],
+      "name": "daemongore cannon"
     },
     {
       "count": 1,
+      "grants_weapon_line": 4,
       "group_id": "og-khorne-lord-of-skulls-1",
       "id": "oc-khorne-lord-of-skulls-1-2",
       "is_default": false,
       "is_no_change": false,
-      "name": "ichor cannon",
-      "replaces_weapon_line": 4
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "ichor cannon",
+          "role": "granted",
+          "weapon_line": 4
+        },
+        {
+          "item_index": 1,
+          "item_name": "’s gorestorm cannon",
+          "role": "replaced"
+        }
+      ],
+      "name": "ichor cannon"
     },
     {
       "count": 1,
+      "grants_weapon_line": 5,
       "group_id": "og-khorne-lord-of-skulls-2",
       "id": "oc-khorne-lord-of-skulls-2-1",
       "is_default": false,
       "is_no_change": false,
-      "name": "skullhurler",
-      "replaces_weapon_line": 5
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "skullhurler",
+          "role": "granted",
+          "weapon_line": 5
+        },
+        {
+          "item_index": 1,
+          "item_name": "’s Hades gatling cannon",
+          "role": "replaced"
+        }
+      ],
+      "name": "skullhurler"
     }
   ],
   "option_groups": [
@@ -144,15 +210,15 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:e6e8aba3f7b35dbc5c7d7686762246742bea6a876347f1259c8581d9c7df1bcc",
-    "last_verified_version": "wh40k-11e-2026-08-2",
+    "last_verified_version": "wh40k-11e-2026-08-3",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
+    "detail_acquisition_id": "wahapedia-20260814T195616Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260812T223703Z-6694568f",
+    "points_acquisition_id": "mfm-20260814T195124Z-0c772378",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },

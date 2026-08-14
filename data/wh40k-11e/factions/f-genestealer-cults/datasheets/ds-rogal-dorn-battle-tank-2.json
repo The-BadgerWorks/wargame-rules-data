@@ -19,11 +19,41 @@
       "model_count": 1,
       "points": 260,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260812T223905Z-9a337975"
+      "source_acquisition_id": "wahapedia-20260814T195616Z-9a337975"
     }
   ],
   "damaged_threshold": 6,
   "datasheet_id": "ds-rogal-dorn-battle-tank-2",
+  "default_equipment_state": "extracted",
+  "equipment_groups": [
+    {
+      "applies_to": "unit",
+      "id": "eq-rogal-dorn-battle-tank-2-1",
+      "items": [
+        {
+          "item_index": 1,
+          "item_name": "castigator gatling cannon",
+          "weapon_line": 1
+        },
+        {
+          "item_index": 2,
+          "item_name": "heavy stubber",
+          "weapon_line": 4
+        },
+        {
+          "item_index": 3,
+          "item_name": "twin battle cannon",
+          "weapon_line": 9
+        },
+        {
+          "item_index": 4,
+          "item_name": "armoured tracks",
+          "weapon_line": 10
+        }
+      ],
+      "line": 1
+    }
+  ],
   "faction_id": "f-genestealer-cults",
   "is_battleline": false,
   "is_character": false,
@@ -88,16 +118,51 @@
       "id": "oc-rogal-dorn-battle-tank-2-1-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "oppressor cannon",
+          "role": "granted",
+          "weapon_line": 7
+        },
+        {
+          "count": 1,
+          "item_index": 2,
+          "item_name": "coaxial autocannon",
+          "role": "granted",
+          "weapon_line": 2
+        },
+        {
+          "item_index": 1,
+          "item_name": "’s twin battle cannon",
+          "role": "replaced"
+        }
+      ],
       "name": "oppressor cannon and 1 coaxial autocannon"
     },
     {
       "count": 1,
+      "grants_weapon_line": 8,
       "group_id": "og-rogal-dorn-battle-tank-2-2",
       "id": "oc-rogal-dorn-battle-tank-2-2-1",
       "is_default": false,
       "is_no_change": false,
-      "name": "pulveriser cannon",
-      "replaces_weapon_line": 8
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "pulveriser cannon",
+          "role": "granted",
+          "weapon_line": 8
+        },
+        {
+          "item_index": 1,
+          "item_name": "’s castigator gatling cannon",
+          "role": "replaced"
+        }
+      ],
+      "name": "pulveriser cannon"
     },
     {
       "count": 2,
@@ -105,6 +170,14 @@
       "id": "oc-rogal-dorn-battle-tank-2-3-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 2,
+          "item_index": 1,
+          "item_name": "meltaguns",
+          "role": "granted"
+        }
+      ],
       "name": "meltaguns"
     },
     {
@@ -113,6 +186,14 @@
       "id": "oc-rogal-dorn-battle-tank-2-3-2",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 2,
+          "item_index": 1,
+          "item_name": "additional heavy stubbers",
+          "role": "granted"
+        }
+      ],
       "name": "additional heavy stubbers"
     },
     {
@@ -121,6 +202,14 @@
       "id": "oc-rogal-dorn-battle-tank-2-4-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 2,
+          "item_index": 1,
+          "item_name": "heavy bolters",
+          "role": "granted"
+        }
+      ],
       "name": "heavy bolters"
     },
     {
@@ -129,6 +218,14 @@
       "id": "oc-rogal-dorn-battle-tank-2-4-2",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 2,
+          "item_index": 1,
+          "item_name": "multi-meltas",
+          "role": "granted"
+        }
+      ],
       "name": "multi-meltas"
     }
   ],
@@ -155,12 +252,12 @@
     }
   ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 3,
+    "consecutive_unverified_releases": 4,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
+    "detail_acquisition_id": "wahapedia-20260814T195616Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,

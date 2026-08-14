@@ -21,10 +21,35 @@
       "model_count": 1,
       "points": 90,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T195124Z-0c772378"
     }
   ],
   "datasheet_id": "ds-exalted-sorcerer",
+  "default_equipment_state": "extracted",
+  "equipment_groups": [
+    {
+      "applies_to": "unit",
+      "id": "eq-exalted-sorcerer-1",
+      "items": [
+        {
+          "item_index": 1,
+          "item_name": "Astral Blast",
+          "weapon_line": 1
+        },
+        {
+          "item_index": 2,
+          "item_name": "inferno bolt pistol",
+          "weapon_line": 2
+        },
+        {
+          "item_index": 3,
+          "item_name": "force weapon",
+          "weapon_line": 3
+        }
+      ],
+      "line": 1
+    }
+  ],
   "faction_id": "f-thousand-sons",
   "is_battleline": false,
   "is_character": true,
@@ -99,6 +124,15 @@
       "id": "oc-exalted-sorcerer-1-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "Prosperine khopesh",
+          "role": "granted",
+          "weapon_line": 4
+        }
+      ],
       "name": "Prosperine khopesh"
     }
   ],
@@ -112,15 +146,15 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:e44414db501bb26ca640da94337f11b3d663084e8077e4ba8b901744af55657a",
-    "last_verified_version": "wh40k-11e-2026-08-2",
+    "last_verified_version": "wh40k-11e-2026-08-3",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
+    "detail_acquisition_id": "wahapedia-20260814T195616Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260812T223703Z-6694568f",
+    "points_acquisition_id": "mfm-20260814T195124Z-0c772378",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },

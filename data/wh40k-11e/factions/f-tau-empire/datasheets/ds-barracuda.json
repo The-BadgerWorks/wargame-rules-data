@@ -19,11 +19,41 @@
       "model_count": 1,
       "points": 220,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260812T223905Z-9a337975"
+      "source_acquisition_id": "wahapedia-20260814T195616Z-9a337975"
     }
   ],
   "damaged_threshold": 5,
   "datasheet_id": "ds-barracuda",
+  "default_equipment_state": "extracted",
+  "equipment_groups": [
+    {
+      "applies_to": "unit",
+      "id": "eq-barracuda-1",
+      "items": [
+        {
+          "count": 2,
+          "item_index": 1,
+          "item_name": "long-barrelled burst cannons"
+        },
+        {
+          "item_index": 2,
+          "item_name": "swiftstrike burst cannon",
+          "weapon_line": 8
+        },
+        {
+          "count": 2,
+          "item_index": 3,
+          "item_name": "missile pods"
+        },
+        {
+          "item_index": 4,
+          "item_name": "armoured hull",
+          "weapon_line": 10
+        }
+      ],
+      "line": 1
+    }
+  ],
   "faction_id": "f-tau-empire",
   "is_battleline": false,
   "is_character": false,
@@ -70,6 +100,19 @@
       "id": "oc-barracuda-1-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 2,
+          "item_index": 1,
+          "item_name": "cyclic ion blasters",
+          "role": "granted"
+        },
+        {
+          "item_index": 1,
+          "item_name": "’s 2 long-barrelled burst cannons",
+          "role": "replaced"
+        }
+      ],
       "name": "cyclic ion blasters"
     },
     {
@@ -78,22 +121,56 @@
       "id": "oc-barracuda-2-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "ion cannon",
+          "role": "granted"
+        },
+        {
+          "item_index": 1,
+          "item_name": "’s swiftstrike burst cannon",
+          "role": "replaced"
+        }
+      ],
       "name": "ion cannon"
     },
     {
       "count": 1,
+      "grants_weapon_line": 9,
       "group_id": "og-barracuda-2",
       "id": "oc-barracuda-2-2",
       "is_default": false,
       "is_no_change": false,
-      "name": "swiftstrike railgun",
-      "replaces_weapon_line": 9
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "swiftstrike railgun",
+          "role": "granted",
+          "weapon_line": 9
+        },
+        {
+          "item_index": 1,
+          "item_name": "’s swiftstrike burst cannon",
+          "role": "replaced"
+        }
+      ],
+      "name": "swiftstrike railgun"
     },
     {
       "group_id": "og-barracuda-3",
       "id": "oc-barracuda-3-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "item_index": 1,
+          "item_name": "up to 4 seeker missiles",
+          "role": "granted"
+        }
+      ],
       "name": "up to 4 seeker missiles"
     }
   ],
@@ -115,12 +192,12 @@
     }
   ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 3,
+    "consecutive_unverified_releases": 4,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
+    "detail_acquisition_id": "wahapedia-20260814T195616Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,

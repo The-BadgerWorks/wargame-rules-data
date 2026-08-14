@@ -21,7 +21,7 @@
       "model_count": 1,
       "points": 600,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T195124Z-0c772378"
     },
     {
       "copy_index_min": 2,
@@ -29,11 +29,55 @@
       "model_count": 1,
       "points": 700,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T195124Z-0c772378"
     }
   ],
   "damaged_threshold": 10,
   "datasheet_id": "ds-stompa",
+  "default_equipment_state": "extracted",
+  "equipment_groups": [
+    {
+      "applies_to": "unit",
+      "id": "eq-stompa-1",
+      "items": [
+        {
+          "count": 3,
+          "item_index": 1,
+          "item_name": "big shootas"
+        },
+        {
+          "item_index": 2,
+          "item_name": "deffkannon",
+          "weapon_line": 2
+        },
+        {
+          "item_index": 3,
+          "item_name": "skorcha",
+          "weapon_line": 3
+        },
+        {
+          "item_index": 4,
+          "item_name": "supa-gatler",
+          "weapon_line": 4
+        },
+        {
+          "item_index": 5,
+          "item_name": "supa-rokkits",
+          "weapon_line": 5
+        },
+        {
+          "item_index": 6,
+          "item_name": "twin big shoota",
+          "weapon_line": 6
+        },
+        {
+          "item_index": 7,
+          "item_name": "mega-choppa"
+        }
+      ],
+      "line": 1
+    }
+  ],
   "faction_id": "f-orks",
   "is_battleline": false,
   "is_character": false,
@@ -100,15 +144,15 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:1e7f8bc304c97c14107167de883155e7c82c7ae4ac2d8f733877ebca9b722d5c",
-    "last_verified_version": "wh40k-11e-2026-08-2",
+    "last_verified_version": "wh40k-11e-2026-08-3",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
+    "detail_acquisition_id": "wahapedia-20260814T195616Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260812T223703Z-6694568f",
+    "points_acquisition_id": "mfm-20260814T195124Z-0c772378",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },

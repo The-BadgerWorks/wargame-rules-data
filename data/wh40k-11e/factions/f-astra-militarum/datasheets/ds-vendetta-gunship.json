@@ -20,11 +20,31 @@
       "model_count": 1,
       "points": 255,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260812T223905Z-9a337975"
+      "source_acquisition_id": "wahapedia-20260814T195616Z-9a337975"
     }
   ],
   "damaged_threshold": 5,
   "datasheet_id": "ds-vendetta-gunship",
+  "default_equipment_state": "extracted",
+  "equipment_groups": [
+    {
+      "applies_to": "unit",
+      "id": "eq-vendetta-gunship-1",
+      "items": [
+        {
+          "count": 3,
+          "item_index": 1,
+          "item_name": "Vendetta twin lascannons"
+        },
+        {
+          "item_index": 2,
+          "item_name": "armoured hull",
+          "weapon_line": 4
+        }
+      ],
+      "line": 1
+    }
+  ],
   "faction_id": "f-astra-militarum",
   "is_battleline": false,
   "is_character": false,
@@ -85,12 +105,26 @@
   "option_choices": [
     {
       "count": 1,
+      "grants_weapon_line": 2,
       "group_id": "og-vendetta-gunship-1",
       "id": "oc-vendetta-gunship-1-1",
       "is_default": false,
       "is_no_change": false,
-      "name": "Vendetta hellstrike rack",
-      "replaces_weapon_line": 2
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "Vendetta hellstrike rack",
+          "role": "granted",
+          "weapon_line": 2
+        },
+        {
+          "item_index": 1,
+          "item_name": "of this model’s Vendetta twin lascannons",
+          "role": "replaced"
+        }
+      ],
+      "name": "Vendetta hellstrike rack"
     },
     {
       "count": 2,
@@ -98,6 +132,14 @@
       "id": "oc-vendetta-gunship-2-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 2,
+          "item_index": 1,
+          "item_name": "heavy bolters",
+          "role": "granted"
+        }
+      ],
       "name": "heavy bolters"
     }
   ],
@@ -114,12 +156,12 @@
     }
   ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 3,
+    "consecutive_unverified_releases": 4,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
+    "detail_acquisition_id": "wahapedia-20260814T195616Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,

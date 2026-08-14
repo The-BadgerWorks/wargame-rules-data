@@ -19,7 +19,7 @@
       "model_count": 1,
       "points": 20,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260812T223905Z-9a337975"
+      "source_acquisition_id": "wahapedia-20260814T195616Z-9a337975"
     },
     {
       "copy_index_min": 1,
@@ -27,10 +27,29 @@
       "model_count": 2,
       "points": 40,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260812T223905Z-9a337975"
+      "source_acquisition_id": "wahapedia-20260814T195616Z-9a337975"
     }
   ],
   "datasheet_id": "ds-big-gunz",
+  "default_equipment_state": "extracted",
+  "equipment_groups": [
+    {
+      "applies_to": "unit",
+      "id": "eq-big-gunz-1",
+      "items": [
+        {
+          "item_index": 1,
+          "item_name": "kannon"
+        },
+        {
+          "item_index": 2,
+          "item_name": "close combat weapons",
+          "weapon_line": 5
+        }
+      ],
+      "line": 1
+    }
+  ],
   "faction_id": "f-orks",
   "is_battleline": false,
   "is_character": false,
@@ -87,6 +106,20 @@
       "id": "oc-big-gunz-1-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "lobba",
+          "role": "granted",
+          "weapon_line": 3
+        },
+        {
+          "item_index": 1,
+          "item_name": "kannon",
+          "role": "replaced"
+        }
+      ],
       "name": "lobba"
     },
     {
@@ -96,23 +129,38 @@
       "id": "oc-big-gunz-1-2",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "zzap gun",
+          "role": "granted",
+          "weapon_line": 4
+        },
+        {
+          "item_index": 1,
+          "item_name": "kannon",
+          "role": "replaced"
+        }
+      ],
       "name": "zzap gun"
     }
   ],
   "option_groups": [
     {
       "id": "og-big-gunz-1",
+      "is_per_model": true,
       "line": 1,
       "scope": "unit"
     }
   ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 3,
+    "consecutive_unverified_releases": 4,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
+    "detail_acquisition_id": "wahapedia-20260814T195616Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,

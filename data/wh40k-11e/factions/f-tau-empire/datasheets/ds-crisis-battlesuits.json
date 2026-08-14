@@ -28,7 +28,7 @@
       "model_count": 3,
       "points": 200,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260812T223905Z-9a337975"
+      "source_acquisition_id": "wahapedia-20260814T195616Z-9a337975"
     },
     {
       "copy_index_min": 1,
@@ -36,10 +36,30 @@
       "model_count": 6,
       "points": 400,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260812T223905Z-9a337975"
+      "source_acquisition_id": "wahapedia-20260814T195616Z-9a337975"
     }
   ],
   "datasheet_id": "ds-crisis-battlesuits",
+  "default_equipment_state": "extracted",
+  "equipment_groups": [
+    {
+      "applies_to": "unit",
+      "id": "eq-crisis-battlesuits-1",
+      "items": [
+        {
+          "item_index": 1,
+          "item_name": "burst cannon",
+          "weapon_line": 2
+        },
+        {
+          "item_index": 2,
+          "item_name": "battlesuit fists",
+          "weapon_line": 9
+        }
+      ],
+      "line": 1
+    }
+  ],
   "faction_id": "f-tau-empire",
   "is_battleline": false,
   "is_character": false,
@@ -100,7 +120,22 @@
       "id": "oc-crisis-battlesuits-1-1",
       "is_default": false,
       "is_no_change": false,
-      "name": "airbursting fragmentation projector*",
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "airbursting fragmentation projector",
+          "role": "granted",
+          "weapon_line": 1
+        },
+        {
+          "item_index": 1,
+          "item_name": "burst cannon",
+          "role": "replaced",
+          "weapon_line": 2
+        }
+      ],
+      "name": "airbursting fragmentation projector",
       "replaces_weapon_line": 2
     },
     {
@@ -109,7 +144,21 @@
       "id": "oc-crisis-battlesuits-1-2",
       "is_default": false,
       "is_no_change": false,
-      "name": "battlesuit support system*",
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "battlesuit support system",
+          "role": "granted"
+        },
+        {
+          "item_index": 1,
+          "item_name": "burst cannon",
+          "role": "replaced",
+          "weapon_line": 2
+        }
+      ],
+      "name": "battlesuit support system",
       "replaces_weapon_line": 2
     },
     {
@@ -118,6 +167,20 @@
       "id": "oc-crisis-battlesuits-1-3",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "cyclic ion blaster",
+          "role": "granted"
+        },
+        {
+          "item_index": 1,
+          "item_name": "burst cannon",
+          "role": "replaced",
+          "weapon_line": 2
+        }
+      ],
       "name": "cyclic ion blaster",
       "replaces_weapon_line": 2
     },
@@ -128,6 +191,21 @@
       "id": "oc-crisis-battlesuits-1-4",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "fusion blaster",
+          "role": "granted",
+          "weapon_line": 5
+        },
+        {
+          "item_index": 1,
+          "item_name": "burst cannon",
+          "role": "replaced",
+          "weapon_line": 2
+        }
+      ],
       "name": "fusion blaster",
       "replaces_weapon_line": 2
     },
@@ -138,6 +216,21 @@
       "id": "oc-crisis-battlesuits-1-5",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "missile pod",
+          "role": "granted",
+          "weapon_line": 6
+        },
+        {
+          "item_index": 1,
+          "item_name": "burst cannon",
+          "role": "replaced",
+          "weapon_line": 2
+        }
+      ],
       "name": "missile pod",
       "replaces_weapon_line": 2
     },
@@ -148,6 +241,21 @@
       "id": "oc-crisis-battlesuits-1-6",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "plasma rifle",
+          "role": "granted",
+          "weapon_line": 7
+        },
+        {
+          "item_index": 1,
+          "item_name": "burst cannon",
+          "role": "replaced",
+          "weapon_line": 2
+        }
+      ],
       "name": "plasma rifle",
       "replaces_weapon_line": 2
     },
@@ -157,7 +265,21 @@
       "id": "oc-crisis-battlesuits-1-7",
       "is_default": false,
       "is_no_change": false,
-      "name": "shield generator*",
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "shield generator",
+          "role": "granted"
+        },
+        {
+          "item_index": 1,
+          "item_name": "burst cannon",
+          "role": "replaced",
+          "weapon_line": 2
+        }
+      ],
+      "name": "shield generator",
       "replaces_weapon_line": 2
     },
     {
@@ -167,6 +289,21 @@
       "id": "oc-crisis-battlesuits-1-8",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "T’au flamer",
+          "role": "granted",
+          "weapon_line": 8
+        },
+        {
+          "item_index": 1,
+          "item_name": "burst cannon",
+          "role": "replaced",
+          "weapon_line": 2
+        }
+      ],
       "name": "T’au flamer",
       "replaces_weapon_line": 2
     },
@@ -176,7 +313,21 @@
       "id": "oc-crisis-battlesuits-1-9",
       "is_default": false,
       "is_no_change": false,
-      "name": "weapon support system*",
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "weapon support system",
+          "role": "granted"
+        },
+        {
+          "item_index": 1,
+          "item_name": "burst cannon",
+          "role": "replaced",
+          "weapon_line": 2
+        }
+      ],
+      "name": "weapon support system",
       "replaces_weapon_line": 2
     },
     {
@@ -185,6 +336,14 @@
       "id": "oc-crisis-battlesuits-2-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "gun drone",
+          "role": "granted"
+        }
+      ],
       "name": "gun drone"
     },
     {
@@ -193,6 +352,14 @@
       "id": "oc-crisis-battlesuits-2-2",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "marker drone",
+          "role": "granted"
+        }
+      ],
       "name": "marker drone"
     },
     {
@@ -201,12 +368,21 @@
       "id": "oc-crisis-battlesuits-2-3",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "shield drone",
+          "role": "granted"
+        }
+      ],
       "name": "shield drone"
     }
   ],
   "option_groups": [
     {
       "id": "og-crisis-battlesuits-1",
+      "is_per_model": true,
       "line": 1,
       "scope": "unit"
     },
@@ -218,12 +394,12 @@
     }
   ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 3,
+    "consecutive_unverified_releases": 4,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
+    "detail_acquisition_id": "wahapedia-20260814T195616Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,

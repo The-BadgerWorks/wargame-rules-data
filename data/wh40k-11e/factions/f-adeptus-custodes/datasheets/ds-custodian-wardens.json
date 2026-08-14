@@ -22,7 +22,7 @@
       "model_count": 4,
       "points": 200,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T195124Z-0c772378"
     },
     {
       "copy_index_min": 1,
@@ -30,7 +30,7 @@
       "model_count": 5,
       "points": 250,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T195124Z-0c772378"
     },
     {
       "copy_index_min": 2,
@@ -38,7 +38,7 @@
       "model_count": 4,
       "points": 220,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T195124Z-0c772378"
     },
     {
       "copy_index_min": 2,
@@ -46,10 +46,24 @@
       "model_count": 5,
       "points": 270,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T195124Z-0c772378"
     }
   ],
   "datasheet_id": "ds-custodian-wardens",
+  "default_equipment_state": "extracted",
+  "equipment_groups": [
+    {
+      "applies_to": "unit",
+      "id": "eq-custodian-wardens-1",
+      "items": [
+        {
+          "item_index": 1,
+          "item_name": "guardian spear"
+        }
+      ],
+      "line": 1
+    }
+  ],
   "faction_id": "f-adeptus-custodes",
   "is_battleline": false,
   "is_character": false,
@@ -100,6 +114,19 @@
       "id": "oc-custodian-wardens-1-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "castellan axe",
+          "role": "granted"
+        },
+        {
+          "item_index": 1,
+          "item_name": "guardian spear",
+          "role": "replaced"
+        }
+      ],
       "name": "castellan axe"
     },
     {
@@ -108,12 +135,21 @@
       "id": "oc-custodian-wardens-2-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "vexilla",
+          "role": "granted"
+        }
+      ],
       "name": "vexilla"
     }
   ],
   "option_groups": [
     {
       "id": "og-custodian-wardens-1",
+      "is_per_model": true,
       "line": 1,
       "scope": "unit"
     },
@@ -126,15 +162,15 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:82ce0ee6d372d02f92715fdcac76778ff9679cf388648158ed6291c13c41f86a",
-    "last_verified_version": "wh40k-11e-2026-08-2",
+    "last_verified_version": "wh40k-11e-2026-08-3",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
+    "detail_acquisition_id": "wahapedia-20260814T195616Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260812T223703Z-6694568f",
+    "points_acquisition_id": "mfm-20260814T195124Z-0c772378",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },

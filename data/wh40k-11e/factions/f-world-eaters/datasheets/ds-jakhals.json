@@ -11,7 +11,7 @@
       "model_count": 10,
       "points": 65,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T195124Z-0c772378"
     },
     {
       "copy_index_min": 1,
@@ -19,7 +19,7 @@
       "model_count": 20,
       "points": 130,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T195124Z-0c772378"
     }
   ],
   "datasheet_id": "ds-jakhals",
@@ -78,12 +78,26 @@
   "option_choices": [
     {
       "count": 1,
+      "grants_weapon_line": 4,
       "group_id": "og-jakhals-1",
       "id": "oc-jakhals-1-1",
       "is_default": false,
       "is_no_change": false,
-      "name": "mauler chainblade",
-      "replaces_weapon_line": 4
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "mauler chainblade",
+          "role": "granted",
+          "weapon_line": 4
+        },
+        {
+          "item_index": 1,
+          "item_name": "in this unit, 1 Jakhal’s chainblades",
+          "role": "replaced"
+        }
+      ],
+      "name": "mauler chainblade"
     },
     {
       "count": 1,
@@ -92,6 +106,21 @@
       "id": "oc-jakhals-2-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "skullsmasher and mangler",
+          "role": "granted",
+          "weapon_line": 5
+        },
+        {
+          "item_index": 1,
+          "item_name": "paired manglers",
+          "role": "replaced",
+          "weapon_line": 3
+        }
+      ],
       "name": "skullsmasher and mangler",
       "replaces_weapon_line": 3
     },
@@ -101,6 +130,14 @@
       "id": "oc-jakhals-3-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "icon of Khorne",
+          "role": "granted"
+        }
+      ],
       "name": "icon of Khorne"
     }
   ],
@@ -113,6 +150,7 @@
     },
     {
       "id": "og-jakhals-2",
+      "is_per_model": true,
       "line": 2,
       "scope": "unit"
     },
@@ -126,15 +164,15 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:73e52f944cdcec2b0b5db621f4a07cb7ad48fe1b8beec726c113b3f88afd26ea",
-    "last_verified_version": "wh40k-11e-2026-08-2",
+    "last_verified_version": "wh40k-11e-2026-08-3",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
+    "detail_acquisition_id": "wahapedia-20260814T195616Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260812T223703Z-6694568f",
+    "points_acquisition_id": "mfm-20260814T195124Z-0c772378",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },

@@ -33,7 +33,7 @@
       "model_count": 11,
       "points": 90,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T195124Z-0c772378"
     },
     {
       "copy_index_min": 1,
@@ -42,10 +42,51 @@
       "points": 85,
       "pricing_confidence": "verified",
       "pricing_context": "every-model-has-imperium",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T195124Z-0c772378"
     }
   ],
   "datasheet_id": "ds-exaction-squad",
+  "default_equipment_state": "extracted",
+  "equipment_groups": [
+    {
+      "applies_to": "model_group",
+      "composition_line": 1,
+      "id": "eq-exaction-squad-1",
+      "items": [
+        {
+          "item_index": 1,
+          "item_name": "Arbites combat shotgun",
+          "weapon_line": 1
+        },
+        {
+          "item_index": 2,
+          "item_name": "Arbites shotpistol",
+          "weapon_line": 4
+        },
+        {
+          "item_index": 3,
+          "item_name": "close combat weapon",
+          "weapon_line": 8
+        }
+      ],
+      "line": 1,
+      "model_name": "Proctor-Exactant and Exaction Vigilant"
+    },
+    {
+      "applies_to": "model_group",
+      "composition_line": 3,
+      "id": "eq-exaction-squad-2",
+      "items": [
+        {
+          "item_index": 1,
+          "item_name": "mechanical bite",
+          "weapon_line": 10
+        }
+      ],
+      "line": 2,
+      "model_name": "Cyber-mastiff"
+    }
+  ],
   "faction_id": "f-imperial-agents",
   "is_battleline": false,
   "is_character": false,
@@ -110,6 +151,21 @@
       "id": "oc-exaction-squad-1-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "executioner shotgun",
+          "role": "granted",
+          "weapon_line": 5
+        },
+        {
+          "item_index": 1,
+          "item_name": "Arbites combat shotgun",
+          "role": "replaced",
+          "weapon_line": 1
+        }
+      ],
       "name": "executioner shotgun",
       "replaces_weapon_line": 1
     },
@@ -119,6 +175,20 @@
       "id": "oc-exaction-squad-1-2",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "Arbites grenade launcher",
+          "role": "granted"
+        },
+        {
+          "item_index": 1,
+          "item_name": "Arbites combat shotgun",
+          "role": "replaced",
+          "weapon_line": 1
+        }
+      ],
       "name": "Arbites grenade launcher",
       "replaces_weapon_line": 1
     },
@@ -129,6 +199,21 @@
       "id": "oc-exaction-squad-1-3",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "heavy stubber",
+          "role": "granted",
+          "weapon_line": 6
+        },
+        {
+          "item_index": 1,
+          "item_name": "Arbites combat shotgun",
+          "role": "replaced",
+          "weapon_line": 1
+        }
+      ],
       "name": "heavy stubber",
       "replaces_weapon_line": 1
     },
@@ -139,6 +224,21 @@
       "id": "oc-exaction-squad-1-4",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "webber",
+          "role": "granted",
+          "weapon_line": 7
+        },
+        {
+          "item_index": 1,
+          "item_name": "Arbites combat shotgun",
+          "role": "replaced",
+          "weapon_line": 1
+        }
+      ],
       "name": "webber",
       "replaces_weapon_line": 1
     },
@@ -149,7 +249,16 @@
       "id": "oc-exaction-squad-2-1",
       "is_default": false,
       "is_no_change": false,
-      "name": "excruciator maul.*"
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "excruciator maul.",
+          "role": "granted",
+          "weapon_line": 9
+        }
+      ],
+      "name": "excruciator maul."
     },
     {
       "count": 1,
@@ -157,7 +266,15 @@
       "id": "oc-exaction-squad-3-1",
       "is_default": false,
       "is_no_change": false,
-      "name": "Arbites medi-kit.*"
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "Arbites medi-kit.",
+          "role": "granted"
+        }
+      ],
+      "name": "Arbites medi-kit."
     },
     {
       "count": 1,
@@ -165,7 +282,15 @@
       "id": "oc-exaction-squad-4-1",
       "is_default": false,
       "is_no_change": false,
-      "name": "soulguilt scanner.*"
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "soulguilt scanner.",
+          "role": "granted"
+        }
+      ],
+      "name": "soulguilt scanner."
     },
     {
       "count": 1,
@@ -173,12 +298,23 @@
       "id": "oc-exaction-squad-5-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "nuncio aquila",
+          "role": "granted"
+        }
+      ],
       "name": "nuncio aquila"
     }
   ],
   "option_groups": [
     {
+      "eligible_max_count": 2,
+      "eligible_model_name": "Exaction Vigilants",
       "id": "og-exaction-squad-1",
+      "is_per_model": true,
       "line": 1,
       "scope": "unit"
     },
@@ -206,15 +342,15 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:cfe613a17cedc54756036bd1bc8bc005685714025669d1b686856ffc65ce7490",
-    "last_verified_version": "wh40k-11e-2026-08-2",
+    "last_verified_version": "wh40k-11e-2026-08-3",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
+    "detail_acquisition_id": "wahapedia-20260814T195616Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260812T223703Z-6694568f",
+    "points_acquisition_id": "mfm-20260814T195124Z-0c772378",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },

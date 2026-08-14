@@ -22,7 +22,7 @@
       "model_count": 3,
       "points": 125,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T195124Z-0c772378"
     },
     {
       "copy_index_min": 1,
@@ -30,7 +30,7 @@
       "model_count": 6,
       "points": 260,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T195124Z-0c772378"
     },
     {
       "copy_index_min": 3,
@@ -38,7 +38,7 @@
       "model_count": 3,
       "points": 145,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T195124Z-0c772378"
     },
     {
       "copy_index_min": 3,
@@ -46,10 +46,30 @@
       "model_count": 6,
       "points": 280,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T195124Z-0c772378"
     }
   ],
   "datasheet_id": "ds-sanguinary-guard",
+  "default_equipment_state": "extracted",
+  "equipment_groups": [
+    {
+      "applies_to": "unit",
+      "id": "eq-sanguinary-guard-1",
+      "items": [
+        {
+          "item_index": 1,
+          "item_name": "Angelus boltgun",
+          "weapon_line": 1
+        },
+        {
+          "item_index": 2,
+          "item_name": "encarmine blade",
+          "weapon_line": 3
+        }
+      ],
+      "line": 1
+    }
+  ],
   "faction_id": "f-blood-angels",
   "is_battleline": false,
   "is_character": false,
@@ -125,17 +145,46 @@
       "id": "oc-sanguinary-guard-1-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "encarmine spear",
+          "role": "granted",
+          "weapon_line": 4
+        },
+        {
+          "item_index": 1,
+          "item_name": "encarmine blade",
+          "role": "replaced",
+          "weapon_line": 3
+        }
+      ],
       "name": "encarmine spear",
       "replaces_weapon_line": 3
     },
     {
       "count": 1,
+      "grants_weapon_line": 2,
       "group_id": "og-sanguinary-guard-2",
       "id": "oc-sanguinary-guard-2-1",
       "is_default": false,
       "is_no_change": false,
-      "name": "inferno pistol",
-      "replaces_weapon_line": 2
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "inferno pistol",
+          "role": "granted",
+          "weapon_line": 2
+        },
+        {
+          "item_index": 1,
+          "item_name": "in this unit, 1 model’s Angelus boltgun",
+          "role": "replaced"
+        }
+      ],
+      "name": "inferno pistol"
     },
     {
       "count": 1,
@@ -143,12 +192,21 @@
       "id": "oc-sanguinary-guard-3-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "Sanguinary banner",
+          "role": "granted"
+        }
+      ],
       "name": "Sanguinary banner"
     }
   ],
   "option_groups": [
     {
       "id": "og-sanguinary-guard-1",
+      "is_per_model": true,
       "line": 1,
       "scope": "unit"
     },
@@ -159,6 +217,7 @@
       "scope_n": 3
     },
     {
+      "eligible_max_count": 1,
       "id": "og-sanguinary-guard-3",
       "line": 3,
       "scope": "unit"
@@ -167,15 +226,15 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:d79d204dbdb7fb22e62092079836f85e5aec5961ef97d5247c4bdb4a4ba8de90",
-    "last_verified_version": "wh40k-11e-2026-08-2",
+    "last_verified_version": "wh40k-11e-2026-08-3",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
+    "detail_acquisition_id": "wahapedia-20260814T195616Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260812T223703Z-6694568f",
+    "points_acquisition_id": "mfm-20260814T195124Z-0c772378",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },

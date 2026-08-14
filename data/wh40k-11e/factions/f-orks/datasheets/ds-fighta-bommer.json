@@ -21,11 +21,31 @@
       "model_count": 1,
       "points": 100,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260812T223905Z-9a337975"
+      "source_acquisition_id": "wahapedia-20260814T195616Z-9a337975"
     }
   ],
   "damaged_threshold": 4,
   "datasheet_id": "ds-fighta-bommer",
+  "default_equipment_state": "extracted",
+  "equipment_groups": [
+    {
+      "applies_to": "unit",
+      "id": "eq-fighta-bommer-1",
+      "items": [
+        {
+          "count": 3,
+          "item_index": 1,
+          "item_name": "twin big shootas"
+        },
+        {
+          "item_index": 2,
+          "item_name": "armoured hull",
+          "weapon_line": 4
+        }
+      ],
+      "line": 1
+    }
+  ],
   "faction_id": "f-orks",
   "is_battleline": false,
   "is_character": false,
@@ -86,6 +106,14 @@
       "id": "oc-fighta-bommer-1-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 2,
+          "item_index": 1,
+          "item_name": "Grot-guided bomms",
+          "role": "granted"
+        }
+      ],
       "name": "Grot-guided bomms"
     },
     {
@@ -95,6 +123,15 @@
       "id": "oc-fighta-bommer-1-2",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 2,
+          "item_index": 1,
+          "item_name": "wing missiles",
+          "role": "granted",
+          "weapon_line": 3
+        }
+      ],
       "name": "wing missiles"
     },
     {
@@ -102,6 +139,13 @@
       "id": "oc-fighta-bommer-1-3",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "item_index": 1,
+          "item_name": "Small bomms",
+          "role": "granted"
+        }
+      ],
       "name": "Small bomms"
     }
   ],
@@ -113,12 +157,12 @@
     }
   ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 3,
+    "consecutive_unverified_releases": 4,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
+    "detail_acquisition_id": "wahapedia-20260814T195616Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,

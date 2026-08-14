@@ -21,10 +21,35 @@
       "model_count": 1,
       "points": 80,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260812T223905Z-9a337975"
+      "source_acquisition_id": "wahapedia-20260814T195616Z-9a337975"
     }
   ],
   "datasheet_id": "ds-librarian-on-bike",
+  "default_equipment_state": "extracted",
+  "equipment_groups": [
+    {
+      "applies_to": "unit",
+      "id": "eq-librarian-on-bike-1",
+      "items": [
+        {
+          "item_index": 1,
+          "item_name": "bolt pistol",
+          "weapon_line": 1
+        },
+        {
+          "item_index": 2,
+          "item_name": "twin boltgun",
+          "weapon_line": 10
+        },
+        {
+          "item_index": 3,
+          "item_name": "force weapon",
+          "weapon_line": 11
+        }
+      ],
+      "line": 1
+    }
+  ],
   "faction_id": "f-space-marines",
   "is_battleline": false,
   "is_character": true,
@@ -95,30 +120,72 @@
   "option_choices": [
     {
       "count": 1,
+      "grants_weapon_line": 2,
       "group_id": "og-librarian-on-bike-1",
       "id": "oc-librarian-on-bike-1-1",
       "is_default": false,
       "is_no_change": false,
-      "name": "boltgun",
-      "replaces_weapon_line": 2
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "boltgun",
+          "role": "granted",
+          "weapon_line": 2
+        },
+        {
+          "item_index": 1,
+          "item_name": "’s bolt pistol",
+          "role": "replaced"
+        }
+      ],
+      "name": "boltgun"
     },
     {
       "count": 1,
+      "grants_weapon_line": 3,
       "group_id": "og-librarian-on-bike-1",
       "id": "oc-librarian-on-bike-1-2",
       "is_default": false,
       "is_no_change": false,
-      "name": "combi-weapon",
-      "replaces_weapon_line": 3
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "combi-weapon",
+          "role": "granted",
+          "weapon_line": 3
+        },
+        {
+          "item_index": 1,
+          "item_name": "’s bolt pistol",
+          "role": "replaced"
+        }
+      ],
+      "name": "combi-weapon"
     },
     {
       "count": 1,
+      "grants_weapon_line": 4,
       "group_id": "og-librarian-on-bike-1",
       "id": "oc-librarian-on-bike-1-3",
       "is_default": false,
       "is_no_change": false,
-      "name": "grav-pistol",
-      "replaces_weapon_line": 4
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "grav-pistol",
+          "role": "granted",
+          "weapon_line": 4
+        },
+        {
+          "item_index": 1,
+          "item_name": "’s bolt pistol",
+          "role": "replaced"
+        }
+      ],
+      "name": "grav-pistol"
     },
     {
       "count": 1,
@@ -126,16 +193,43 @@
       "id": "oc-librarian-on-bike-1-4",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "plasma pistol",
+          "role": "granted"
+        },
+        {
+          "item_index": 1,
+          "item_name": "’s bolt pistol",
+          "role": "replaced"
+        }
+      ],
       "name": "plasma pistol"
     },
     {
       "count": 1,
+      "grants_weapon_line": 9,
       "group_id": "og-librarian-on-bike-1",
       "id": "oc-librarian-on-bike-1-5",
       "is_default": false,
       "is_no_change": false,
-      "name": "storm bolter",
-      "replaces_weapon_line": 9
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "storm bolter",
+          "role": "granted",
+          "weapon_line": 9
+        },
+        {
+          "item_index": 1,
+          "item_name": "’s bolt pistol",
+          "role": "replaced"
+        }
+      ],
+      "name": "storm bolter"
     }
   ],
   "option_groups": [
@@ -146,12 +240,12 @@
     }
   ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 3,
+    "consecutive_unverified_releases": 4,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
+    "detail_acquisition_id": "wahapedia-20260814T195616Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,

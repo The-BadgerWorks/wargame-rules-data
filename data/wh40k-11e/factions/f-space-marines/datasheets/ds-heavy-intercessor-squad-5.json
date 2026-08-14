@@ -24,7 +24,7 @@
       "model_count": 5,
       "points": 100,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T195124Z-0c772378"
     },
     {
       "copy_index_min": 1,
@@ -32,10 +32,35 @@
       "model_count": 10,
       "points": 200,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T195124Z-0c772378"
     }
   ],
   "datasheet_id": "ds-heavy-intercessor-squad-5",
+  "default_equipment_state": "extracted",
+  "equipment_groups": [
+    {
+      "applies_to": "unit",
+      "id": "eq-heavy-intercessor-squad-5-1",
+      "items": [
+        {
+          "item_index": 1,
+          "item_name": "bolt pistol",
+          "weapon_line": 1
+        },
+        {
+          "item_index": 2,
+          "item_name": "heavy bolt rifle",
+          "weapon_line": 2
+        },
+        {
+          "item_index": 3,
+          "item_name": "close combat weapon",
+          "weapon_line": 4
+        }
+      ],
+      "line": 1
+    }
+  ],
   "faction_id": "f-space-marines",
   "is_battleline": true,
   "is_character": false,
@@ -95,12 +120,26 @@
   "option_choices": [
     {
       "count": 1,
+      "grants_weapon_line": 3,
       "group_id": "og-heavy-intercessor-squad-5-1",
       "id": "oc-heavy-intercessor-squad-5-1-1",
       "is_default": false,
       "is_no_change": false,
-      "name": "heavy bolter",
-      "replaces_weapon_line": 3
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "heavy bolter",
+          "role": "granted",
+          "weapon_line": 3
+        },
+        {
+          "item_index": 1,
+          "item_name": "in this unit, 1 Heavy Intercessor’s heavy bolt rifle",
+          "role": "replaced"
+        }
+      ],
+      "name": "heavy bolter"
     }
   ],
   "option_groups": [
@@ -114,15 +153,15 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:e48578cd34af0a27a60b812a0e4500a8e3aa359e155e92f3f3a1c0fb10004e39",
-    "last_verified_version": "wh40k-11e-2026-08-2",
+    "last_verified_version": "wh40k-11e-2026-08-3",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
+    "detail_acquisition_id": "wahapedia-20260814T195616Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260812T223703Z-6694568f",
+    "points_acquisition_id": "mfm-20260814T195124Z-0c772378",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },

@@ -26,7 +26,7 @@
       "model_count": 5,
       "points": 90,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260812T223905Z-9a337975"
+      "source_acquisition_id": "wahapedia-20260814T195616Z-9a337975"
     },
     {
       "copy_index_min": 1,
@@ -34,7 +34,7 @@
       "model_count": 7,
       "points": 125,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260812T223905Z-9a337975"
+      "source_acquisition_id": "wahapedia-20260814T195616Z-9a337975"
     },
     {
       "copy_index_min": 1,
@@ -42,10 +42,30 @@
       "model_count": 10,
       "points": 180,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260812T223905Z-9a337975"
+      "source_acquisition_id": "wahapedia-20260814T195616Z-9a337975"
     }
   ],
   "datasheet_id": "ds-plague-marines-2",
+  "default_equipment_state": "extracted",
+  "equipment_groups": [
+    {
+      "applies_to": "unit",
+      "id": "eq-plague-marines-2-1",
+      "items": [
+        {
+          "item_index": 1,
+          "item_name": "boltgun",
+          "weapon_line": 2
+        },
+        {
+          "item_index": 2,
+          "item_name": "plague knives",
+          "weapon_line": 13
+        }
+      ],
+      "line": 1
+    }
+  ],
   "faction_id": "f-chaos-space-marines",
   "is_battleline": true,
   "is_character": false,
@@ -110,12 +130,26 @@
   "option_choices": [
     {
       "count": 1,
+      "grants_weapon_line": 3,
       "group_id": "og-plague-marines-2-1",
       "id": "oc-plague-marines-2-1-1",
       "is_default": false,
       "is_no_change": false,
-      "name": "bolt pistol",
-      "replaces_weapon_line": 3
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "bolt pistol",
+          "role": "granted",
+          "weapon_line": 3
+        },
+        {
+          "item_index": 1,
+          "item_name": "Plague Champion’s boltgun",
+          "role": "replaced"
+        }
+      ],
+      "name": "bolt pistol"
     },
     {
       "count": 1,
@@ -123,6 +157,19 @@
       "id": "oc-plague-marines-2-1-2",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "plasma gun",
+          "role": "granted"
+        },
+        {
+          "item_index": 1,
+          "item_name": "Plague Champion’s boltgun",
+          "role": "replaced"
+        }
+      ],
       "name": "plasma gun"
     },
     {
@@ -131,61 +178,158 @@
       "id": "oc-plague-marines-2-1-3",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "plasma pistol",
+          "role": "granted"
+        },
+        {
+          "item_index": 1,
+          "item_name": "Plague Champion’s boltgun",
+          "role": "replaced"
+        }
+      ],
       "name": "plasma pistol"
     },
     {
       "count": 1,
+      "grants_weapon_line": 11,
       "group_id": "og-plague-marines-2-2",
       "id": "oc-plague-marines-2-2-1",
       "is_default": false,
       "is_no_change": false,
-      "name": "bubotic weapons",
-      "replaces_weapon_line": 11
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "bubotic weapons",
+          "role": "granted",
+          "weapon_line": 11
+        },
+        {
+          "item_index": 1,
+          "item_name": "Plague Champion’s plague knives",
+          "role": "replaced"
+        }
+      ],
+      "name": "bubotic weapons"
     },
     {
       "count": 1,
+      "grants_weapon_line": 14,
       "group_id": "og-plague-marines-2-2",
       "id": "oc-plague-marines-2-2-2",
       "is_default": false,
       "is_no_change": false,
-      "name": "power fist",
-      "replaces_weapon_line": 14
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "power fist",
+          "role": "granted",
+          "weapon_line": 14
+        },
+        {
+          "item_index": 1,
+          "item_name": "Plague Champion’s plague knives",
+          "role": "replaced"
+        }
+      ],
+      "name": "power fist"
     },
     {
       "count": 1,
+      "grants_weapon_line": 1,
       "group_id": "og-plague-marines-2-3",
       "id": "oc-plague-marines-2-3-1",
       "is_default": false,
       "is_no_change": false,
-      "name": "blight launcher",
-      "replaces_weapon_line": 1
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "blight launcher",
+          "role": "granted",
+          "weapon_line": 1
+        },
+        {
+          "item_index": 1,
+          "item_name": "in this unit, 1 Plague Marine’s boltgun",
+          "role": "replaced"
+        }
+      ],
+      "name": "blight launcher"
     },
     {
       "count": 1,
+      "grants_weapon_line": 6,
       "group_id": "og-plague-marines-2-4",
       "id": "oc-plague-marines-2-4-1",
       "is_default": false,
       "is_no_change": false,
-      "name": "plague spewer",
-      "replaces_weapon_line": 6
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "plague spewer",
+          "role": "granted",
+          "weapon_line": 6
+        },
+        {
+          "item_index": 1,
+          "item_name": "in this unit, 1 Plague Marine’s boltgun",
+          "role": "replaced"
+        }
+      ],
+      "name": "plague spewer"
     },
     {
       "count": 1,
+      "grants_weapon_line": 4,
       "group_id": "og-plague-marines-2-5",
       "id": "oc-plague-marines-2-5-1",
       "is_default": false,
       "is_no_change": false,
-      "name": "meltagun",
-      "replaces_weapon_line": 4
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "meltagun",
+          "role": "granted",
+          "weapon_line": 4
+        },
+        {
+          "item_index": 1,
+          "item_name": "in this unit, 1 Plague Marine’s boltgun",
+          "role": "replaced"
+        }
+      ],
+      "name": "meltagun"
     },
     {
       "count": 1,
+      "grants_weapon_line": 5,
       "group_id": "og-plague-marines-2-5",
       "id": "oc-plague-marines-2-5-2",
       "is_default": false,
       "is_no_change": false,
-      "name": "plague belcher",
-      "replaces_weapon_line": 5
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "plague belcher",
+          "role": "granted",
+          "weapon_line": 5
+        },
+        {
+          "item_index": 1,
+          "item_name": "in this unit, 1 Plague Marine’s boltgun",
+          "role": "replaced"
+        }
+      ],
+      "name": "plague belcher"
     },
     {
       "count": 1,
@@ -193,6 +337,19 @@
       "id": "oc-plague-marines-2-5-3",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "plasma gun",
+          "role": "granted"
+        },
+        {
+          "item_index": 1,
+          "item_name": "in this unit, 1 Plague Marine’s boltgun",
+          "role": "replaced"
+        }
+      ],
       "name": "plasma gun"
     },
     {
@@ -202,6 +359,21 @@
       "id": "oc-plague-marines-2-6-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "bubotic weapons",
+          "role": "granted",
+          "weapon_line": 11
+        },
+        {
+          "item_index": 1,
+          "item_name": "boltgun",
+          "role": "replaced",
+          "weapon_line": 2
+        }
+      ],
       "name": "bubotic weapons",
       "replaces_weapon_line": 2
     },
@@ -212,6 +384,21 @@
       "id": "oc-plague-marines-2-7-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "heavy plague weapon",
+          "role": "granted",
+          "weapon_line": 12
+        },
+        {
+          "item_index": 1,
+          "item_name": "boltgun",
+          "role": "replaced",
+          "weapon_line": 2
+        }
+      ],
       "name": "heavy plague weapon",
       "replaces_weapon_line": 2
     }
@@ -247,24 +434,26 @@
     },
     {
       "id": "og-plague-marines-2-6",
+      "is_per_model": true,
       "line": 6,
       "scope": "per_n_models",
       "scope_n": 5
     },
     {
       "id": "og-plague-marines-2-7",
+      "is_per_model": true,
       "line": 7,
       "scope": "per_n_models",
       "scope_n": 5
     }
   ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 3,
+    "consecutive_unverified_releases": 4,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
+    "detail_acquisition_id": "wahapedia-20260814T195616Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,

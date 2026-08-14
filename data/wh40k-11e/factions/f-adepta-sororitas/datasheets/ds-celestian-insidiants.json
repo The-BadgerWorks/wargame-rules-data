@@ -28,10 +28,31 @@
       "model_count": 10,
       "points": 120,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T195124Z-0c772378"
     }
   ],
   "datasheet_id": "ds-celestian-insidiants",
+  "default_equipment_state": "extracted",
+  "equipment_groups": [
+    {
+      "applies_to": "model_group",
+      "id": "eq-celestian-insidiants-1",
+      "items": [
+        {
+          "item_index": 1,
+          "item_name": "condemnor bolt pistol",
+          "weapon_line": 1
+        },
+        {
+          "item_index": 2,
+          "item_name": "null mace",
+          "weapon_line": 5
+        }
+      ],
+      "line": 1,
+      "model_name": "model"
+    }
+  ],
   "faction_id": "f-adepta-sororitas",
   "is_battleline": false,
   "is_character": false,
@@ -83,12 +104,26 @@
   "option_choices": [
     {
       "count": 1,
+      "grants_weapon_line": 2,
       "group_id": "og-celestian-insidiants-1",
       "id": "oc-celestian-insidiants-1-1",
       "is_default": false,
       "is_no_change": false,
-      "name": "inferno pistol",
-      "replaces_weapon_line": 2
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "inferno pistol",
+          "role": "granted",
+          "weapon_line": 2
+        },
+        {
+          "item_index": 1,
+          "item_name": "Celestian Insidiant Superior’s condemnor bolt pistol",
+          "role": "replaced"
+        }
+      ],
+      "name": "inferno pistol"
     },
     {
       "count": 1,
@@ -97,6 +132,21 @@
       "id": "oc-celestian-insidiants-2-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "Ministorum hand flamer",
+          "role": "granted",
+          "weapon_line": 3
+        },
+        {
+          "item_index": 1,
+          "item_name": "condemnor bolt pistol",
+          "role": "replaced",
+          "weapon_line": 1
+        }
+      ],
       "name": "Ministorum hand flamer",
       "replaces_weapon_line": 1
     },
@@ -107,16 +157,58 @@
       "id": "oc-celestian-insidiants-3-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "blessed sword",
+          "role": "granted",
+          "weapon_line": 4
+        },
+        {
+          "item_index": 1,
+          "item_name": "condemnor bolt pistol",
+          "role": "replaced",
+          "weapon_line": 1
+        },
+        {
+          "item_index": 2,
+          "item_name": "null mace",
+          "role": "replaced",
+          "weapon_line": 5
+        }
+      ],
       "name": "blessed sword"
     },
     {
       "count": 1,
+      "grants_weapon_line": 6,
       "group_id": "og-celestian-insidiants-4",
       "id": "oc-celestian-insidiants-4-1",
       "is_default": false,
       "is_no_change": false,
-      "name": "virge of admonition",
-      "replaces_weapon_line": 6
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "virge of admonition",
+          "role": "granted",
+          "weapon_line": 6
+        },
+        {
+          "item_index": 1,
+          "item_name": "condemnor bolt pistol",
+          "role": "replaced",
+          "weapon_line": 1
+        },
+        {
+          "item_index": 2,
+          "item_name": "null mace",
+          "role": "replaced",
+          "weapon_line": 5
+        }
+      ],
+      "name": "virge of admonition"
     },
     {
       "count": 1,
@@ -124,7 +216,22 @@
       "id": "oc-celestian-insidiants-5-1",
       "is_default": false,
       "is_no_change": false,
-      "name": "denuncia oratory"
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "denuncia oratory",
+          "role": "granted"
+        },
+        {
+          "item_index": 1,
+          "item_name": "condemnor bolt pistol",
+          "role": "replaced",
+          "weapon_line": 1
+        }
+      ],
+      "name": "denuncia oratory",
+      "replaces_weapon_line": 1
     }
   ],
   "option_groups": [
@@ -134,21 +241,31 @@
       "scope": "unit"
     },
     {
+      "eligible_max_count": 2,
+      "eligible_model_name": "Celestian Insidiants",
       "id": "og-celestian-insidiants-2",
+      "is_per_model": true,
       "line": 2,
       "scope": "unit"
     },
     {
+      "eligible_max_count": 2,
+      "eligible_model_name": "Celestian Insidiants",
       "id": "og-celestian-insidiants-3",
+      "is_per_model": true,
       "line": 3,
       "scope": "unit"
     },
     {
+      "eligible_max_count": 1,
+      "eligible_model_name": "Celestian Insidiant",
       "id": "og-celestian-insidiants-4",
       "line": 4,
       "scope": "unit"
     },
     {
+      "eligible_max_count": 1,
+      "eligible_model_name": "Celestian Insidiant",
       "id": "og-celestian-insidiants-5",
       "line": 5,
       "scope": "unit"
@@ -157,15 +274,15 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:8cab02c7d4aff05b81a36438fa6f24e14226f7897921370dec472c76e1119aaa",
-    "last_verified_version": "wh40k-11e-2026-08-2",
+    "last_verified_version": "wh40k-11e-2026-08-3",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
+    "detail_acquisition_id": "wahapedia-20260814T195616Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260812T223703Z-6694568f",
+    "points_acquisition_id": "mfm-20260814T195124Z-0c772378",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },

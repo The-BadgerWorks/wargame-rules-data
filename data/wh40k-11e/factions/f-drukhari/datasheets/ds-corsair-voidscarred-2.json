@@ -47,7 +47,7 @@
       "model_count": 5,
       "points": 70,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260812T223905Z-9a337975"
+      "source_acquisition_id": "wahapedia-20260814T195616Z-9a337975"
     },
     {
       "copy_index_min": 1,
@@ -55,10 +55,36 @@
       "model_count": 10,
       "points": 140,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260812T223905Z-9a337975"
+      "source_acquisition_id": "wahapedia-20260814T195616Z-9a337975"
     }
   ],
   "datasheet_id": "ds-corsair-voidscarred-2",
+  "default_equipment_state": "partial",
+  "equipment_groups": [
+    {
+      "applies_to": "model_group",
+      "id": "eq-corsair-voidscarred-2-1",
+      "items": [
+        {
+          "item_index": 1,
+          "item_name": "shuriken pistol",
+          "weapon_line": 8
+        },
+        {
+          "item_index": 2,
+          "item_name": "power sword",
+          "weapon_line": 13
+        },
+        {
+          "item_index": 3,
+          "item_name": "close combat weapon",
+          "weapon_line": 11
+        }
+      ],
+      "line": 1,
+      "model_name": "Corsair Voidscarred and Voidscarred Felarch"
+    }
+  ],
   "faction_id": "f-drukhari",
   "is_battleline": false,
   "is_character": false,
@@ -134,25 +160,74 @@
       "id": "oc-corsair-voidscarred-2-1-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "shuriken rifle",
+          "role": "granted",
+          "weapon_line": 9
+        },
+        {
+          "item_index": 1,
+          "item_name": "shuriken pistol",
+          "role": "replaced",
+          "weapon_line": 8
+        },
+        {
+          "item_index": 2,
+          "item_name": "power sword",
+          "role": "replaced",
+          "weapon_line": 13
+        }
+      ],
       "name": "shuriken rifle"
     },
     {
       "count": 1,
+      "grants_weapon_line": 5,
       "group_id": "og-corsair-voidscarred-2-2",
       "id": "oc-corsair-voidscarred-2-2-1",
       "is_default": false,
       "is_no_change": false,
-      "name": "neuro disruptor",
-      "replaces_weapon_line": 5
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "neuro disruptor",
+          "role": "granted",
+          "weapon_line": 5
+        },
+        {
+          "item_index": 1,
+          "item_name": "Voidscarred Felarch’s shuriken pistol",
+          "role": "replaced"
+        }
+      ],
+      "name": "neuro disruptor"
     },
     {
       "count": 1,
+      "grants_weapon_line": 9,
       "group_id": "og-corsair-voidscarred-2-2",
       "id": "oc-corsair-voidscarred-2-2-2",
       "is_default": false,
       "is_no_change": false,
-      "name": "shuriken rifle",
-      "replaces_weapon_line": 9
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "shuriken rifle",
+          "role": "granted",
+          "weapon_line": 9
+        },
+        {
+          "item_index": 1,
+          "item_name": "Voidscarred Felarch’s shuriken pistol",
+          "role": "replaced"
+        }
+      ],
+      "name": "shuriken rifle"
     },
     {
       "count": 1,
@@ -160,25 +235,61 @@
       "id": "oc-corsair-voidscarred-2-3-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "mistshield",
+          "role": "granted"
+        }
+      ],
       "name": "mistshield"
     },
     {
       "count": 1,
+      "grants_weapon_line": 1,
       "group_id": "og-corsair-voidscarred-2-4",
       "id": "oc-corsair-voidscarred-2-4-1",
       "is_default": false,
       "is_no_change": false,
-      "name": "blaster",
-      "replaces_weapon_line": 1
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "blaster",
+          "role": "granted",
+          "weapon_line": 1
+        },
+        {
+          "item_index": 1,
+          "item_name": "in this unit, 1 Corsair Voidscarred’s shuriken rifle",
+          "role": "replaced"
+        }
+      ],
+      "name": "blaster"
     },
     {
       "count": 1,
+      "grants_weapon_line": 6,
       "group_id": "og-corsair-voidscarred-2-4",
       "id": "oc-corsair-voidscarred-2-4-2",
       "is_default": false,
       "is_no_change": false,
-      "name": "shredder",
-      "replaces_weapon_line": 6
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "shredder",
+          "role": "granted",
+          "weapon_line": 6
+        },
+        {
+          "item_index": 1,
+          "item_name": "in this unit, 1 Corsair Voidscarred’s shuriken rifle",
+          "role": "replaced"
+        }
+      ],
+      "name": "shredder"
     },
     {
       "count": 1,
@@ -186,12 +297,22 @@
       "id": "oc-corsair-voidscarred-2-8-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "Faolchú",
+          "role": "granted"
+        }
+      ],
       "name": "Faolchú"
     }
   ],
   "option_groups": [
     {
+      "eligible_model_name": "Corsair Voidscarred",
       "id": "og-corsair-voidscarred-2-1",
+      "is_per_model": true,
       "line": 1,
       "scope": "unit"
     },
@@ -218,12 +339,12 @@
     }
   ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 3,
+    "consecutive_unverified_releases": 4,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
+    "detail_acquisition_id": "wahapedia-20260814T195616Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,

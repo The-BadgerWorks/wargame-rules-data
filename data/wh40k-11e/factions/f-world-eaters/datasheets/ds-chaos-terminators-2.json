@@ -26,7 +26,7 @@
       "model_count": 5,
       "points": 165,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T195124Z-0c772378"
     },
     {
       "copy_index_min": 1,
@@ -34,7 +34,7 @@
       "model_count": 10,
       "points": 330,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T195124Z-0c772378"
     },
     {
       "copy_index_min": 3,
@@ -42,7 +42,7 @@
       "model_count": 5,
       "points": 175,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T195124Z-0c772378"
     },
     {
       "copy_index_min": 3,
@@ -50,10 +50,30 @@
       "model_count": 10,
       "points": 340,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T195124Z-0c772378"
     }
   ],
   "datasheet_id": "ds-chaos-terminators-2",
+  "default_equipment_state": "extracted",
+  "equipment_groups": [
+    {
+      "applies_to": "unit",
+      "id": "eq-chaos-terminators-2-1",
+      "items": [
+        {
+          "item_index": 1,
+          "item_name": "combi-bolter",
+          "weapon_line": 1
+        },
+        {
+          "item_index": 2,
+          "item_name": "accursed weapon",
+          "weapon_line": 5
+        }
+      ],
+      "line": 1
+    }
+  ],
   "faction_id": "f-world-eaters",
   "is_battleline": false,
   "is_character": false,
@@ -110,21 +130,49 @@
   "option_choices": [
     {
       "count": 1,
+      "grants_weapon_line": 3,
       "group_id": "og-chaos-terminators-2-1",
       "id": "oc-chaos-terminators-2-1-1",
       "is_default": false,
       "is_no_change": false,
-      "name": "heavy flamer",
-      "replaces_weapon_line": 3
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "heavy flamer",
+          "role": "granted",
+          "weapon_line": 3
+        },
+        {
+          "item_index": 1,
+          "item_name": "in this unit, 1 Chaos Terminator’s combi-bolter",
+          "role": "replaced"
+        }
+      ],
+      "name": "heavy flamer"
     },
     {
       "count": 1,
+      "grants_weapon_line": 4,
       "group_id": "og-chaos-terminators-2-1",
       "id": "oc-chaos-terminators-2-1-2",
       "is_default": false,
       "is_no_change": false,
-      "name": "reaper autocannon",
-      "replaces_weapon_line": 4
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "reaper autocannon",
+          "role": "granted",
+          "weapon_line": 4
+        },
+        {
+          "item_index": 1,
+          "item_name": "in this unit, 1 Chaos Terminator’s combi-bolter",
+          "role": "replaced"
+        }
+      ],
+      "name": "reaper autocannon"
     },
     {
       "count": 1,
@@ -133,17 +181,52 @@
       "id": "oc-chaos-terminators-2-2-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "combi-weapon",
+          "role": "granted",
+          "weapon_line": 2
+        },
+        {
+          "item_index": 1,
+          "item_name": "combi-bolter",
+          "role": "replaced",
+          "weapon_line": 1
+        }
+      ],
       "name": "combi-weapon",
       "replaces_weapon_line": 1
     },
     {
       "count": 1,
+      "grants_weapon_line": 7,
       "group_id": "og-chaos-terminators-2-3",
       "id": "oc-chaos-terminators-2-3-1",
       "is_default": false,
       "is_no_change": false,
-      "name": "paired accursed weapons",
-      "replaces_weapon_line": 7
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "paired accursed weapons",
+          "role": "granted",
+          "weapon_line": 7
+        },
+        {
+          "item_index": 1,
+          "item_name": "in this unit, 1 model’s combi-bolter",
+          "role": "replaced"
+        },
+        {
+          "item_index": 2,
+          "item_name": "accursed weapon",
+          "role": "replaced",
+          "weapon_line": 5
+        }
+      ],
+      "name": "paired accursed weapons"
     },
     {
       "count": 1,
@@ -152,17 +235,46 @@
       "id": "oc-chaos-terminators-2-4-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "power fist",
+          "role": "granted",
+          "weapon_line": 8
+        },
+        {
+          "item_index": 1,
+          "item_name": "accursed weapon",
+          "role": "replaced",
+          "weapon_line": 5
+        }
+      ],
       "name": "power fist",
       "replaces_weapon_line": 5
     },
     {
       "count": 1,
+      "grants_weapon_line": 6,
       "group_id": "og-chaos-terminators-2-5",
       "id": "oc-chaos-terminators-2-5-1",
       "is_default": false,
       "is_no_change": false,
-      "name": "chainfist",
-      "replaces_weapon_line": 6
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "chainfist",
+          "role": "granted",
+          "weapon_line": 6
+        },
+        {
+          "item_index": 1,
+          "item_name": "in this unit, 1 model’s accursed weapon",
+          "role": "replaced"
+        }
+      ],
+      "name": "chainfist"
     }
   ],
   "option_groups": [
@@ -174,6 +286,7 @@
     },
     {
       "id": "og-chaos-terminators-2-2",
+      "is_per_model": true,
       "line": 2,
       "scope": "unit"
     },
@@ -185,6 +298,7 @@
     },
     {
       "id": "og-chaos-terminators-2-4",
+      "is_per_model": true,
       "line": 4,
       "scope": "per_n_models",
       "scope_n": 5
@@ -199,15 +313,15 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:56f8c1efebe85add2bbc0f401571e0a6150846b9540e7811bdc2d24a49f3d990",
-    "last_verified_version": "wh40k-11e-2026-08-2",
+    "last_verified_version": "wh40k-11e-2026-08-3",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
+    "detail_acquisition_id": "wahapedia-20260814T195616Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260812T223703Z-6694568f",
+    "points_acquisition_id": "mfm-20260814T195124Z-0c772378",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },

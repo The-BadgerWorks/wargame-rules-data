@@ -26,7 +26,7 @@
       "model_count": 5,
       "points": 120,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260812T223905Z-9a337975"
+      "source_acquisition_id": "wahapedia-20260814T195616Z-9a337975"
     },
     {
       "copy_index_min": 1,
@@ -34,10 +34,35 @@
       "model_count": 6,
       "points": 145,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260812T223905Z-9a337975"
+      "source_acquisition_id": "wahapedia-20260814T195616Z-9a337975"
     }
   ],
   "datasheet_id": "ds-long-fangs",
+  "default_equipment_state": "extracted",
+  "equipment_groups": [
+    {
+      "applies_to": "unit",
+      "id": "eq-long-fangs-1",
+      "items": [
+        {
+          "item_index": 1,
+          "item_name": "boltgun",
+          "weapon_line": 2
+        },
+        {
+          "item_index": 2,
+          "item_name": "bolt pistol",
+          "weapon_line": 1
+        },
+        {
+          "item_index": 3,
+          "item_name": "close combat weapon",
+          "weapon_line": 20
+        }
+      ],
+      "line": 1
+    }
+  ],
   "faction_id": "f-space-marines",
   "is_battleline": false,
   "is_character": false,
@@ -97,6 +122,21 @@
       "id": "oc-long-fangs-1-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "grav-cannon",
+          "role": "granted",
+          "weapon_line": 3
+        },
+        {
+          "item_index": 1,
+          "item_name": "boltgun",
+          "role": "replaced",
+          "weapon_line": 2
+        }
+      ],
       "name": "grav-cannon",
       "replaces_weapon_line": 2
     },
@@ -107,6 +147,21 @@
       "id": "oc-long-fangs-1-2",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "heavy bolter",
+          "role": "granted",
+          "weapon_line": 5
+        },
+        {
+          "item_index": 1,
+          "item_name": "boltgun",
+          "role": "replaced",
+          "weapon_line": 2
+        }
+      ],
       "name": "heavy bolter",
       "replaces_weapon_line": 2
     },
@@ -117,6 +172,21 @@
       "id": "oc-long-fangs-1-3",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "heavy flamer",
+          "role": "granted",
+          "weapon_line": 6
+        },
+        {
+          "item_index": 1,
+          "item_name": "boltgun",
+          "role": "replaced",
+          "weapon_line": 2
+        }
+      ],
       "name": "heavy flamer",
       "replaces_weapon_line": 2
     },
@@ -127,6 +197,21 @@
       "id": "oc-long-fangs-1-4",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "lascannon",
+          "role": "granted",
+          "weapon_line": 7
+        },
+        {
+          "item_index": 1,
+          "item_name": "boltgun",
+          "role": "replaced",
+          "weapon_line": 2
+        }
+      ],
       "name": "lascannon",
       "replaces_weapon_line": 2
     },
@@ -136,6 +221,20 @@
       "id": "oc-long-fangs-1-5",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "missile launcher",
+          "role": "granted"
+        },
+        {
+          "item_index": 1,
+          "item_name": "boltgun",
+          "role": "replaced",
+          "weapon_line": 2
+        }
+      ],
       "name": "missile launcher",
       "replaces_weapon_line": 2
     },
@@ -146,6 +245,21 @@
       "id": "oc-long-fangs-1-6",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "multi-melta",
+          "role": "granted",
+          "weapon_line": 12
+        },
+        {
+          "item_index": 1,
+          "item_name": "boltgun",
+          "role": "replaced",
+          "weapon_line": 2
+        }
+      ],
       "name": "multi-melta",
       "replaces_weapon_line": 2
     },
@@ -155,40 +269,98 @@
       "id": "oc-long-fangs-1-7",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "plasma cannon",
+          "role": "granted"
+        },
+        {
+          "item_index": 1,
+          "item_name": "boltgun",
+          "role": "replaced",
+          "weapon_line": 2
+        }
+      ],
       "name": "plasma cannon",
       "replaces_weapon_line": 2
     },
     {
       "count": 1,
+      "grants_weapon_line": 19,
       "group_id": "og-long-fangs-3",
       "id": "oc-long-fangs-3-1",
       "is_default": false,
       "is_no_change": false,
-      "name": "Astartes chainsword",
-      "replaces_weapon_line": 19
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "Astartes chainsword",
+          "role": "granted",
+          "weapon_line": 19
+        },
+        {
+          "item_index": 1,
+          "item_name": "Long Fang Pack Leader’s close combat weapon",
+          "role": "replaced"
+        }
+      ],
+      "name": "Astartes chainsword"
     },
     {
       "count": 1,
+      "grants_weapon_line": 21,
       "group_id": "og-long-fangs-3",
       "id": "oc-long-fangs-3-2",
       "is_default": false,
       "is_no_change": false,
-      "name": "power fist",
-      "replaces_weapon_line": 21
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "power fist",
+          "role": "granted",
+          "weapon_line": 21
+        },
+        {
+          "item_index": 1,
+          "item_name": "Long Fang Pack Leader’s close combat weapon",
+          "role": "replaced"
+        }
+      ],
+      "name": "power fist"
     },
     {
       "count": 1,
+      "grants_weapon_line": 22,
       "group_id": "og-long-fangs-3",
       "id": "oc-long-fangs-3-3",
       "is_default": false,
       "is_no_change": false,
-      "name": "power weapon",
-      "replaces_weapon_line": 22
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "power weapon",
+          "role": "granted",
+          "weapon_line": 22
+        },
+        {
+          "item_index": 1,
+          "item_name": "Long Fang Pack Leader’s close combat weapon",
+          "role": "replaced"
+        }
+      ],
+      "name": "power weapon"
     }
   ],
   "option_groups": [
     {
+      "eligible_model_name": "Long Fangs",
       "id": "og-long-fangs-1",
+      "is_per_model": true,
       "line": 1,
       "scope": "unit"
     },
@@ -199,12 +371,12 @@
     }
   ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 3,
+    "consecutive_unverified_releases": 4,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
+    "detail_acquisition_id": "wahapedia-20260814T195616Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,

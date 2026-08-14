@@ -21,11 +21,31 @@
       "model_count": 1,
       "points": 220,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260812T223905Z-9a337975"
+      "source_acquisition_id": "wahapedia-20260814T195616Z-9a337975"
     }
   ],
   "damaged_threshold": 5,
   "datasheet_id": "ds-land-raider-proteus-5",
+  "default_equipment_state": "extracted",
+  "equipment_groups": [
+    {
+      "applies_to": "unit",
+      "id": "eq-land-raider-proteus-5-1",
+      "items": [
+        {
+          "count": 2,
+          "item_index": 1,
+          "item_name": "twin lascannons"
+        },
+        {
+          "item_index": 2,
+          "item_name": "armoured tracks",
+          "weapon_line": 8
+        }
+      ],
+      "line": 1
+    }
+  ],
   "faction_id": "f-world-eaters",
   "is_battleline": false,
   "is_character": false,
@@ -91,6 +111,15 @@
       "id": "oc-land-raider-proteus-5-1-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "heavy bolter",
+          "role": "granted",
+          "weapon_line": 1
+        }
+      ],
       "name": "heavy bolter"
     },
     {
@@ -100,6 +129,15 @@
       "id": "oc-land-raider-proteus-5-1-2",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "multi-melta",
+          "role": "granted",
+          "weapon_line": 3
+        }
+      ],
       "name": "multi-melta"
     },
     {
@@ -109,6 +147,15 @@
       "id": "oc-land-raider-proteus-5-1-3",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "twin heavy bolter",
+          "role": "granted",
+          "weapon_line": 5
+        }
+      ],
       "name": "twin heavy bolter"
     },
     {
@@ -118,6 +165,15 @@
       "id": "oc-land-raider-proteus-5-1-4",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "twin heavy flamer",
+          "role": "granted",
+          "weapon_line": 6
+        }
+      ],
       "name": "twin heavy flamer"
     },
     {
@@ -127,6 +183,15 @@
       "id": "oc-land-raider-proteus-5-2-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "hunter-killer missile",
+          "role": "granted",
+          "weapon_line": 2
+        }
+      ],
       "name": "hunter-killer missile"
     },
     {
@@ -136,6 +201,15 @@
       "id": "oc-land-raider-proteus-5-3-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "storm bolter",
+          "role": "granted",
+          "weapon_line": 4
+        }
+      ],
       "name": "storm bolter"
     },
     {
@@ -144,6 +218,14 @@
       "id": "oc-land-raider-proteus-5-4-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "explorator augury web",
+          "role": "granted"
+        }
+      ],
       "name": "explorator augury web"
     }
   ],
@@ -170,12 +252,12 @@
     }
   ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 3,
+    "consecutive_unverified_releases": 4,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
+    "detail_acquisition_id": "wahapedia-20260814T195616Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,

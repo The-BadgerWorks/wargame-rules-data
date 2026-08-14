@@ -19,7 +19,7 @@
       "max_count": 2,
       "min_count": 1,
       "model_line": 2,
-      "model_name": "Atalan Wolfquads*"
+      "model_name": "Atalan Wolfquads"
     }
   ],
   "costs": [
@@ -29,7 +29,7 @@
       "model_count": 5,
       "points": 85,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T195124Z-0c772378"
     },
     {
       "copy_index_min": 1,
@@ -37,7 +37,7 @@
       "model_count": 9,
       "points": 160,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T195124Z-0c772378"
     },
     {
       "copy_index_min": 1,
@@ -45,7 +45,7 @@
       "model_count": 10,
       "points": 150,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T195124Z-0c772378"
     },
     {
       "copy_index_min": 3,
@@ -53,7 +53,7 @@
       "model_count": 5,
       "points": 95,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T195124Z-0c772378"
     },
     {
       "copy_index_min": 3,
@@ -61,7 +61,7 @@
       "model_count": 9,
       "points": 170,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T195124Z-0c772378"
     },
     {
       "copy_index_min": 3,
@@ -69,10 +69,54 @@
       "model_count": 10,
       "points": 160,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T195124Z-0c772378"
     }
   ],
   "datasheet_id": "ds-atalan-jackals",
+  "default_equipment_state": "extracted",
+  "equipment_groups": [
+    {
+      "applies_to": "model_group",
+      "id": "eq-atalan-jackals-1",
+      "items": [
+        {
+          "item_index": 1,
+          "item_name": "Atalan small arms",
+          "weapon_line": 2
+        },
+        {
+          "item_index": 2,
+          "item_name": "close combat weapon",
+          "weapon_line": 8
+        }
+      ],
+      "line": 1,
+      "model_name": "Atalan Jackal"
+    },
+    {
+      "applies_to": "model_group",
+      "id": "eq-atalan-jackals-2",
+      "items": [
+        {
+          "item_index": 1,
+          "item_name": "Atalan small arms",
+          "weapon_line": 2
+        },
+        {
+          "item_index": 2,
+          "item_name": "heavy stubber",
+          "weapon_line": 5
+        },
+        {
+          "item_index": 3,
+          "item_name": "close combat weapon",
+          "weapon_line": 8
+        }
+      ],
+      "line": 2,
+      "model_name": "Atalan Wolfquad"
+    }
+  ],
   "faction_id": "f-genestealer-cults",
   "is_battleline": false,
   "is_character": false,
@@ -138,6 +182,19 @@
       "id": "oc-atalan-jackals-2-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "grenade launcher",
+          "role": "granted"
+        },
+        {
+          "item_index": 1,
+          "item_name": ", 1 Atalan Jackal's Atalan small arms",
+          "role": "replaced"
+        }
+      ],
       "name": "grenade launcher"
     },
     {
@@ -147,6 +204,21 @@
       "id": "oc-atalan-jackals-3-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "Atalan incinerator",
+          "role": "granted",
+          "weapon_line": 1
+        },
+        {
+          "item_index": 1,
+          "item_name": "heavy stubber",
+          "role": "replaced",
+          "weapon_line": 5
+        }
+      ],
       "name": "Atalan incinerator",
       "replaces_weapon_line": 5
     },
@@ -157,6 +229,21 @@
       "id": "oc-atalan-jackals-3-2",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "mining laser",
+          "role": "granted",
+          "weapon_line": 6
+        },
+        {
+          "item_index": 1,
+          "item_name": "heavy stubber",
+          "role": "replaced",
+          "weapon_line": 5
+        }
+      ],
       "name": "mining laser",
       "replaces_weapon_line": 5
     }
@@ -169,7 +256,9 @@
       "scope_n": 4
     },
     {
+      "eligible_model_name": "Atalan Wolfquads",
       "id": "og-atalan-jackals-3",
+      "is_per_model": true,
       "line": 3,
       "scope": "unit"
     }
@@ -177,15 +266,15 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:99101d8abdab2312213413a67027e3e762d58ef1b627e391ede91ec369cb480e",
-    "last_verified_version": "wh40k-11e-2026-08-2",
+    "last_verified_version": "wh40k-11e-2026-08-3",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
+    "detail_acquisition_id": "wahapedia-20260814T195616Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260812T223703Z-6694568f",
+    "points_acquisition_id": "mfm-20260814T195124Z-0c772378",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },

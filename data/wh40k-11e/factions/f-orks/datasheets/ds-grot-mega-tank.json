@@ -20,11 +20,41 @@
       "model_count": 1,
       "points": 110,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260812T223905Z-9a337975"
+      "source_acquisition_id": "wahapedia-20260814T195616Z-9a337975"
     }
   ],
   "damaged_threshold": 4,
   "datasheet_id": "ds-grot-mega-tank",
+  "default_equipment_state": "extracted",
+  "equipment_groups": [
+    {
+      "applies_to": "unit",
+      "id": "eq-grot-mega-tank-1",
+      "items": [
+        {
+          "item_index": 1,
+          "item_name": "Mega-tank weapons",
+          "weapon_line": 1
+        },
+        {
+          "item_index": 2,
+          "item_name": "twin big shoota",
+          "weapon_line": 2
+        },
+        {
+          "item_index": 3,
+          "item_name": "twin grotzooka",
+          "weapon_line": 3
+        },
+        {
+          "item_index": 4,
+          "item_name": "armoured hull",
+          "weapon_line": 7
+        }
+      ],
+      "line": 1
+    }
+  ],
   "faction_id": "f-orks",
   "is_battleline": false,
   "is_character": false,
@@ -70,75 +100,187 @@
   "option_choices": [
     {
       "count": 1,
+      "grants_weapon_line": 3,
       "group_id": "og-grot-mega-tank-1",
       "id": "oc-grot-mega-tank-1-1",
       "is_default": false,
       "is_no_change": false,
-      "name": "twin grotzooka",
-      "replaces_weapon_line": 3
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "twin grotzooka",
+          "role": "granted",
+          "weapon_line": 3
+        },
+        {
+          "item_index": 1,
+          "item_name": "’s twin big shoota",
+          "role": "replaced"
+        }
+      ],
+      "name": "twin grotzooka"
     },
     {
       "count": 1,
+      "grants_weapon_line": 4,
       "group_id": "og-grot-mega-tank-1",
       "id": "oc-grot-mega-tank-1-2",
       "is_default": false,
       "is_no_change": false,
-      "name": "twin kustom mega-blasta",
-      "replaces_weapon_line": 4
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "twin kustom mega-blasta",
+          "role": "granted",
+          "weapon_line": 4
+        },
+        {
+          "item_index": 1,
+          "item_name": "’s twin big shoota",
+          "role": "replaced"
+        }
+      ],
+      "name": "twin kustom mega-blasta"
     },
     {
       "count": 1,
+      "grants_weapon_line": 5,
       "group_id": "og-grot-mega-tank-1",
       "id": "oc-grot-mega-tank-1-3",
       "is_default": false,
       "is_no_change": false,
-      "name": "twin rokkit launcha",
-      "replaces_weapon_line": 5
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "twin rokkit launcha",
+          "role": "granted",
+          "weapon_line": 5
+        },
+        {
+          "item_index": 1,
+          "item_name": "’s twin big shoota",
+          "role": "replaced"
+        }
+      ],
+      "name": "twin rokkit launcha"
     },
     {
       "count": 1,
+      "grants_weapon_line": 6,
       "group_id": "og-grot-mega-tank-1",
       "id": "oc-grot-mega-tank-1-4",
       "is_default": false,
       "is_no_change": false,
-      "name": "twin skorcha",
-      "replaces_weapon_line": 6
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "twin skorcha",
+          "role": "granted",
+          "weapon_line": 6
+        },
+        {
+          "item_index": 1,
+          "item_name": "’s twin big shoota",
+          "role": "replaced"
+        }
+      ],
+      "name": "twin skorcha"
     },
     {
       "count": 1,
+      "grants_weapon_line": 2,
       "group_id": "og-grot-mega-tank-2",
       "id": "oc-grot-mega-tank-2-1",
       "is_default": false,
       "is_no_change": false,
-      "name": "twin big shoota",
-      "replaces_weapon_line": 2
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "twin big shoota",
+          "role": "granted",
+          "weapon_line": 2
+        },
+        {
+          "item_index": 1,
+          "item_name": "’s twin grotzooka",
+          "role": "replaced"
+        }
+      ],
+      "name": "twin big shoota"
     },
     {
       "count": 1,
+      "grants_weapon_line": 4,
       "group_id": "og-grot-mega-tank-2",
       "id": "oc-grot-mega-tank-2-2",
       "is_default": false,
       "is_no_change": false,
-      "name": "twin kustom mega-blasta",
-      "replaces_weapon_line": 4
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "twin kustom mega-blasta",
+          "role": "granted",
+          "weapon_line": 4
+        },
+        {
+          "item_index": 1,
+          "item_name": "’s twin grotzooka",
+          "role": "replaced"
+        }
+      ],
+      "name": "twin kustom mega-blasta"
     },
     {
       "count": 1,
+      "grants_weapon_line": 5,
       "group_id": "og-grot-mega-tank-2",
       "id": "oc-grot-mega-tank-2-3",
       "is_default": false,
       "is_no_change": false,
-      "name": "twin rokkit launcha",
-      "replaces_weapon_line": 5
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "twin rokkit launcha",
+          "role": "granted",
+          "weapon_line": 5
+        },
+        {
+          "item_index": 1,
+          "item_name": "’s twin grotzooka",
+          "role": "replaced"
+        }
+      ],
+      "name": "twin rokkit launcha"
     },
     {
       "count": 1,
+      "grants_weapon_line": 6,
       "group_id": "og-grot-mega-tank-2",
       "id": "oc-grot-mega-tank-2-4",
       "is_default": false,
       "is_no_change": false,
-      "name": "twin skorcha",
-      "replaces_weapon_line": 6
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "twin skorcha",
+          "role": "granted",
+          "weapon_line": 6
+        },
+        {
+          "item_index": 1,
+          "item_name": "’s twin grotzooka",
+          "role": "replaced"
+        }
+      ],
+      "name": "twin skorcha"
     }
   ],
   "option_groups": [
@@ -154,12 +296,12 @@
     }
   ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 3,
+    "consecutive_unverified_releases": 4,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
+    "detail_acquisition_id": "wahapedia-20260814T195616Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,

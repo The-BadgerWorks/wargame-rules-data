@@ -20,7 +20,7 @@
       "model_count": 1,
       "points": 170,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T195124Z-0c772378"
     },
     {
       "copy_index_min": 3,
@@ -28,11 +28,46 @@
       "model_count": 1,
       "points": 190,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T195124Z-0c772378"
     }
   ],
   "damaged_threshold": 5,
   "datasheet_id": "ds-repulsor-4",
+  "default_equipment_state": "extracted",
+  "equipment_groups": [
+    {
+      "applies_to": "unit",
+      "id": "eq-repulsor-4-1",
+      "items": [
+        {
+          "item_index": 1,
+          "item_name": "heavy onslaught gatling cannon",
+          "weapon_line": 1
+        },
+        {
+          "item_index": 2,
+          "item_name": "hunter-slayer missile",
+          "weapon_line": 2
+        },
+        {
+          "item_index": 3,
+          "item_name": "Repulsor defensive array",
+          "weapon_line": 4
+        },
+        {
+          "item_index": 4,
+          "item_name": "twin heavy bolter",
+          "weapon_line": 5
+        },
+        {
+          "item_index": 5,
+          "item_name": "armoured hull",
+          "weapon_line": 7
+        }
+      ],
+      "line": 1
+    }
+  ],
   "faction_id": "f-deathwatch",
   "is_battleline": false,
   "is_character": false,
@@ -97,21 +132,49 @@
   "option_choices": [
     {
       "count": 1,
+      "grants_weapon_line": 6,
       "group_id": "og-repulsor-4-1",
       "id": "oc-repulsor-4-1-1",
       "is_default": false,
       "is_no_change": false,
-      "name": "twin lascannon",
-      "replaces_weapon_line": 6
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "twin lascannon",
+          "role": "granted",
+          "weapon_line": 6
+        },
+        {
+          "item_index": 1,
+          "item_name": "’s twin heavy bolter",
+          "role": "replaced"
+        }
+      ],
+      "name": "twin lascannon"
     },
     {
       "count": 1,
+      "grants_weapon_line": 3,
       "group_id": "og-repulsor-4-2",
       "id": "oc-repulsor-4-2-1",
       "is_default": false,
       "is_no_change": false,
-      "name": "las-talon",
-      "replaces_weapon_line": 3
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "las-talon",
+          "role": "granted",
+          "weapon_line": 3
+        },
+        {
+          "item_index": 1,
+          "item_name": "’s heavy onslaught gatling cannon",
+          "role": "replaced"
+        }
+      ],
+      "name": "las-talon"
     }
   ],
   "option_groups": [
@@ -129,15 +192,15 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:c6b8a37598f8f13b9ef2eef56d9892584fd6b347e849ef4035e9eab7c76a07da",
-    "last_verified_version": "wh40k-11e-2026-08-2",
+    "last_verified_version": "wh40k-11e-2026-08-3",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
+    "detail_acquisition_id": "wahapedia-20260814T195616Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260812T223703Z-6694568f",
+    "points_acquisition_id": "mfm-20260814T195124Z-0c772378",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },

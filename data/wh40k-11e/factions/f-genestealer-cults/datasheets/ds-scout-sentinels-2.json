@@ -20,7 +20,7 @@
       "model_count": 1,
       "points": 55,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260812T223905Z-9a337975"
+      "source_acquisition_id": "wahapedia-20260814T195616Z-9a337975"
     },
     {
       "copy_index_min": 1,
@@ -28,10 +28,30 @@
       "model_count": 2,
       "points": 100,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260812T223905Z-9a337975"
+      "source_acquisition_id": "wahapedia-20260814T195616Z-9a337975"
     }
   ],
   "datasheet_id": "ds-scout-sentinels-2",
+  "default_equipment_state": "extracted",
+  "equipment_groups": [
+    {
+      "applies_to": "unit",
+      "id": "eq-scout-sentinels-2-1",
+      "items": [
+        {
+          "item_index": 1,
+          "item_name": "multi-laser",
+          "weapon_line": 5
+        },
+        {
+          "item_index": 2,
+          "item_name": "close combat weapon",
+          "weapon_line": 10
+        }
+      ],
+      "line": 1
+    }
+  ],
   "faction_id": "f-genestealer-cults",
   "is_battleline": false,
   "is_character": false,
@@ -102,6 +122,21 @@
       "id": "oc-scout-sentinels-2-1-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "autocannon",
+          "role": "granted",
+          "weapon_line": 1
+        },
+        {
+          "item_index": 1,
+          "item_name": "multi-laser",
+          "role": "replaced",
+          "weapon_line": 5
+        }
+      ],
       "name": "autocannon",
       "replaces_weapon_line": 5
     },
@@ -112,6 +147,21 @@
       "id": "oc-scout-sentinels-2-1-2",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "heavy flamer",
+          "role": "granted",
+          "weapon_line": 2
+        },
+        {
+          "item_index": 1,
+          "item_name": "multi-laser",
+          "role": "replaced",
+          "weapon_line": 5
+        }
+      ],
       "name": "heavy flamer",
       "replaces_weapon_line": 5
     },
@@ -122,6 +172,21 @@
       "id": "oc-scout-sentinels-2-1-3",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "lascannon",
+          "role": "granted",
+          "weapon_line": 4
+        },
+        {
+          "item_index": 1,
+          "item_name": "multi-laser",
+          "role": "replaced",
+          "weapon_line": 5
+        }
+      ],
       "name": "lascannon",
       "replaces_weapon_line": 5
     },
@@ -131,6 +196,20 @@
       "id": "oc-scout-sentinels-2-1-4",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "missile launcher",
+          "role": "granted"
+        },
+        {
+          "item_index": 1,
+          "item_name": "multi-laser",
+          "role": "replaced",
+          "weapon_line": 5
+        }
+      ],
       "name": "missile launcher",
       "replaces_weapon_line": 5
     },
@@ -140,6 +219,20 @@
       "id": "oc-scout-sentinels-2-1-5",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "plasma cannon",
+          "role": "granted"
+        },
+        {
+          "item_index": 1,
+          "item_name": "multi-laser",
+          "role": "replaced",
+          "weapon_line": 5
+        }
+      ],
       "name": "plasma cannon",
       "replaces_weapon_line": 5
     }
@@ -147,17 +240,18 @@
   "option_groups": [
     {
       "id": "og-scout-sentinels-2-1",
+      "is_per_model": true,
       "line": 1,
       "scope": "unit"
     }
   ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 3,
+    "consecutive_unverified_releases": 4,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
+    "detail_acquisition_id": "wahapedia-20260814T195616Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,

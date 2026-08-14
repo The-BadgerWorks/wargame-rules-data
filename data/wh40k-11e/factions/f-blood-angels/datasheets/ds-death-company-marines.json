@@ -21,7 +21,7 @@
       "model_count": 5,
       "points": 85,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T195124Z-0c772378"
     },
     {
       "copy_index_min": 1,
@@ -29,7 +29,7 @@
       "model_count": 10,
       "points": 160,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T195124Z-0c772378"
     },
     {
       "copy_index_min": 3,
@@ -37,7 +37,7 @@
       "model_count": 5,
       "points": 95,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T195124Z-0c772378"
     },
     {
       "copy_index_min": 3,
@@ -45,10 +45,30 @@
       "model_count": 10,
       "points": 170,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T195124Z-0c772378"
     }
   ],
   "datasheet_id": "ds-death-company-marines",
+  "default_equipment_state": "extracted",
+  "equipment_groups": [
+    {
+      "applies_to": "unit",
+      "id": "eq-death-company-marines-1",
+      "items": [
+        {
+          "item_index": 1,
+          "item_name": "heavy bolt pistol",
+          "weapon_line": 2
+        },
+        {
+          "item_index": 2,
+          "item_name": "Astartes chainsword",
+          "weapon_line": 6
+        }
+      ],
+      "line": 1
+    }
+  ],
   "faction_id": "f-blood-angels",
   "is_battleline": false,
   "is_character": false,
@@ -113,21 +133,49 @@
   "option_choices": [
     {
       "count": 1,
+      "grants_weapon_line": 1,
       "group_id": "og-death-company-marines-1",
       "id": "oc-death-company-marines-1-1",
       "is_default": false,
       "is_no_change": false,
-      "name": "hand flamer",
-      "replaces_weapon_line": 1
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "hand flamer",
+          "role": "granted",
+          "weapon_line": 1
+        },
+        {
+          "item_index": 1,
+          "item_name": "model's heavy bolt pistol",
+          "role": "replaced"
+        }
+      ],
+      "name": "hand flamer"
     },
     {
       "count": 1,
+      "grants_weapon_line": 3,
       "group_id": "og-death-company-marines-1",
       "id": "oc-death-company-marines-1-2",
       "is_default": false,
       "is_no_change": false,
-      "name": "inferno pistol",
-      "replaces_weapon_line": 3
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "inferno pistol",
+          "role": "granted",
+          "weapon_line": 3
+        },
+        {
+          "item_index": 1,
+          "item_name": "model's heavy bolt pistol",
+          "role": "replaced"
+        }
+      ],
+      "name": "inferno pistol"
     },
     {
       "count": 1,
@@ -135,6 +183,19 @@
       "id": "oc-death-company-marines-1-3",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "plasma pistol",
+          "role": "granted"
+        },
+        {
+          "item_index": 1,
+          "item_name": "model's heavy bolt pistol",
+          "role": "replaced"
+        }
+      ],
       "name": "plasma pistol"
     },
     {
@@ -142,34 +203,88 @@
       "id": "oc-death-company-marines-2-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "item_index": 1,
+          "item_name": "equipped with 1 eviscerator",
+          "role": "granted"
+        },
+        {
+          "item_index": 1,
+          "item_name": "in this unit, 1 model's Astartes chainsword",
+          "role": "replaced"
+        }
+      ],
       "name": "equipped with 1 eviscerator"
     },
     {
       "count": 1,
+      "grants_weapon_line": 8,
       "group_id": "og-death-company-marines-3",
       "id": "oc-death-company-marines-3-1",
       "is_default": false,
       "is_no_change": false,
-      "name": "power fist",
-      "replaces_weapon_line": 8
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "power fist",
+          "role": "granted",
+          "weapon_line": 8
+        },
+        {
+          "item_index": 1,
+          "item_name": "model’s Astartes chainsword",
+          "role": "replaced"
+        }
+      ],
+      "name": "power fist"
     },
     {
       "count": 1,
+      "grants_weapon_line": 9,
       "group_id": "og-death-company-marines-3",
       "id": "oc-death-company-marines-3-2",
       "is_default": false,
       "is_no_change": false,
-      "name": "power weapon",
-      "replaces_weapon_line": 9
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "power weapon",
+          "role": "granted",
+          "weapon_line": 9
+        },
+        {
+          "item_index": 1,
+          "item_name": "model’s Astartes chainsword",
+          "role": "replaced"
+        }
+      ],
+      "name": "power weapon"
     },
     {
       "count": 1,
+      "grants_weapon_line": 10,
       "group_id": "og-death-company-marines-3",
       "id": "oc-death-company-marines-3-3",
       "is_default": false,
       "is_no_change": false,
-      "name": "thunder hammer",
-      "replaces_weapon_line": 10
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "thunder hammer",
+          "role": "granted",
+          "weapon_line": 10
+        },
+        {
+          "item_index": 1,
+          "item_name": "model’s Astartes chainsword",
+          "role": "replaced"
+        }
+      ],
+      "name": "thunder hammer"
     }
   ],
   "option_groups": [
@@ -193,15 +308,15 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:4b0daf10b7f39c8626b4750ed32dcd39ddacc5a4e9e1e1e5d5bc71165011412a",
-    "last_verified_version": "wh40k-11e-2026-08-2",
+    "last_verified_version": "wh40k-11e-2026-08-3",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
+    "detail_acquisition_id": "wahapedia-20260814T195616Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260812T223703Z-6694568f",
+    "points_acquisition_id": "mfm-20260814T195124Z-0c772378",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
