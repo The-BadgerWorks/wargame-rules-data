@@ -19,11 +19,12 @@
       "model_count": 1,
       "points": 375,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260812T223905Z-9a337975"
+      "source_acquisition_id": "wahapedia-20260814T171635Z-9a337975"
     }
   ],
   "damaged_threshold": 8,
   "datasheet_id": "ds-shadowsword-2",
+  "default_equipment_state": "none",
   "faction_id": "f-genestealer-cults",
   "is_battleline": false,
   "is_character": false,
@@ -88,6 +89,19 @@
       "id": "oc-shadowsword-2-1-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 2,
+          "item_index": 1,
+          "item_name": "twin heavy bolters",
+          "role": "granted"
+        },
+        {
+          "item_index": 1,
+          "item_name": "’s 2 twin heavy flamers",
+          "role": "replaced"
+        }
+      ],
       "name": "twin heavy bolters"
     },
     {
@@ -96,6 +110,20 @@
       "id": "oc-shadowsword-2-2-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 2,
+          "item_index": 1,
+          "item_name": "lascannons",
+          "role": "granted"
+        },
+        {
+          "count": 2,
+          "item_index": 2,
+          "item_name": "twin heavy bolters",
+          "role": "granted"
+        }
+      ],
       "name": "lascannons and 2 twin heavy bolters"
     },
     {
@@ -104,6 +132,20 @@
       "id": "oc-shadowsword-2-2-2",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 2,
+          "item_index": 1,
+          "item_name": "lascannons",
+          "role": "granted"
+        },
+        {
+          "count": 2,
+          "item_index": 2,
+          "item_name": "twin heavy flamers",
+          "role": "granted"
+        }
+      ],
       "name": "lascannons and 2 twin heavy flamers"
     }
   ],
@@ -120,12 +162,12 @@
     }
   ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 3,
+    "consecutive_unverified_releases": 4,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
+    "detail_acquisition_id": "wahapedia-20260814T171635Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,

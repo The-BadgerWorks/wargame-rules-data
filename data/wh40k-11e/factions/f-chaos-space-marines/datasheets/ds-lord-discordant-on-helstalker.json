@@ -20,10 +20,45 @@
       "model_count": 1,
       "points": 160,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T170952Z-0c772378"
     }
   ],
   "datasheet_id": "ds-lord-discordant-on-helstalker",
+  "default_equipment_state": "extracted",
+  "equipment_groups": [
+    {
+      "applies_to": "unit",
+      "id": "eq-lord-discordant-on-helstalker-1",
+      "items": [
+        {
+          "item_index": 1,
+          "item_name": "bolt pistol",
+          "weapon_line": 2
+        },
+        {
+          "item_index": 2,
+          "item_name": "Helstalker autocannon",
+          "weapon_line": 3
+        },
+        {
+          "item_index": 3,
+          "item_name": "techno-virus injector",
+          "weapon_line": 7
+        },
+        {
+          "item_index": 4,
+          "item_name": "bladed limbs",
+          "weapon_line": 5
+        },
+        {
+          "item_index": 5,
+          "item_name": "impaler chainglaive",
+          "weapon_line": 6
+        }
+      ],
+      "line": 1
+    }
+  ],
   "faction_id": "f-chaos-space-marines",
   "is_battleline": false,
   "is_character": true,
@@ -79,21 +114,49 @@
   "option_choices": [
     {
       "count": 1,
+      "grants_weapon_line": 1,
       "group_id": "og-lord-discordant-on-helstalker-1",
       "id": "oc-lord-discordant-on-helstalker-1-1",
       "is_default": false,
       "is_no_change": false,
-      "name": "baleflamer",
-      "replaces_weapon_line": 1
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "baleflamer",
+          "role": "granted",
+          "weapon_line": 1
+        },
+        {
+          "item_index": 1,
+          "item_name": "’s Helstalker autocannon",
+          "role": "replaced"
+        }
+      ],
+      "name": "baleflamer"
     },
     {
       "count": 1,
+      "grants_weapon_line": 4,
       "group_id": "og-lord-discordant-on-helstalker-2",
       "id": "oc-lord-discordant-on-helstalker-2-1",
       "is_default": false,
       "is_no_change": false,
-      "name": "magma cutter",
-      "replaces_weapon_line": 4
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "magma cutter",
+          "role": "granted",
+          "weapon_line": 4
+        },
+        {
+          "item_index": 1,
+          "item_name": "’s techno-virus injector",
+          "role": "replaced"
+        }
+      ],
+      "name": "magma cutter"
     }
   ],
   "option_groups": [
@@ -111,15 +174,15 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:737a28b1ae11352979200c01aa0693a1a479a14bbe7ee6575fbd65aa6cf8cdf0",
-    "last_verified_version": "wh40k-11e-2026-08-2",
+    "last_verified_version": "wh40k-11e-2026-08-3",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
+    "detail_acquisition_id": "wahapedia-20260814T171635Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260812T223703Z-6694568f",
+    "points_acquisition_id": "mfm-20260814T170952Z-0c772378",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },

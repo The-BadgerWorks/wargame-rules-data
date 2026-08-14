@@ -31,7 +31,7 @@
       "model_count": 10,
       "points": 150,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T170952Z-0c772378"
     },
     {
       "copy_index_min": 1,
@@ -39,10 +39,73 @@
       "model_count": 20,
       "points": 290,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T170952Z-0c772378"
     }
   ],
   "datasheet_id": "ds-crusader-squad",
+  "default_equipment_state": "extracted",
+  "equipment_groups": [
+    {
+      "applies_to": "model_group",
+      "composition_line": 1,
+      "id": "eq-crusader-squad-1",
+      "items": [
+        {
+          "item_index": 1,
+          "item_name": "heavy bolt pistol",
+          "weapon_line": 3
+        },
+        {
+          "item_index": 2,
+          "item_name": "master-crafted power weapon",
+          "weapon_line": 9
+        }
+      ],
+      "line": 1,
+      "model_name": "Sword Brother"
+    },
+    {
+      "applies_to": "model_group",
+      "id": "eq-crusader-squad-2",
+      "items": [
+        {
+          "item_index": 1,
+          "item_name": "bolt pistol",
+          "weapon_line": 1
+        },
+        {
+          "item_index": 2,
+          "item_name": "bolt rifle",
+          "weapon_line": 2
+        },
+        {
+          "item_index": 3,
+          "item_name": "close combat weapon",
+          "weapon_line": 8
+        }
+      ],
+      "line": 2,
+      "model_name": "Initiate"
+    },
+    {
+      "applies_to": "model_group",
+      "id": "eq-crusader-squad-3",
+      "items": [
+        {
+          "item_index": 1,
+          "item_name": "bolt pistol",
+          "weapon_line": 1
+        },
+        {
+          "item_index": 2,
+          "item_name": "Astartes chainsword",
+          "weapon_line": 7
+        }
+      ],
+      "line": 3,
+      "model_name": "Neophyte"
+    }
+  ],
   "faction_id": "f-black-templars",
   "is_battleline": true,
   "is_character": false,
@@ -118,12 +181,26 @@
   "option_choices": [
     {
       "count": 1,
+      "grants_weapon_line": 5,
       "group_id": "og-crusader-squad-1",
       "id": "oc-crusader-squad-1-1",
       "is_default": false,
       "is_no_change": false,
-      "name": "pyre pistol",
-      "replaces_weapon_line": 5
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "pyre pistol",
+          "role": "granted",
+          "weapon_line": 5
+        },
+        {
+          "item_index": 1,
+          "item_name": "Sword Brother’s heavy bolt pistol",
+          "role": "replaced"
+        }
+      ],
+      "name": "pyre pistol"
     },
     {
       "count": 1,
@@ -131,6 +208,34 @@
       "id": "oc-crusader-squad-2-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "Neophyte firearm",
+          "role": "granted",
+          "weapon_line": 4
+        },
+        {
+          "count": 1,
+          "item_index": 2,
+          "item_name": "close combat weapon",
+          "role": "granted",
+          "weapon_line": 8
+        },
+        {
+          "item_index": 1,
+          "item_name": "bolt pistol",
+          "role": "replaced",
+          "weapon_line": 1
+        },
+        {
+          "item_index": 2,
+          "item_name": "Astartes chainsword",
+          "role": "replaced",
+          "weapon_line": 7
+        }
+      ],
       "name": "Neophyte firearm and 1 close combat weapon"
     },
     {
@@ -139,6 +244,28 @@
       "id": "oc-crusader-squad-3-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "heavy bolt pistol",
+          "role": "granted",
+          "weapon_line": 3
+        },
+        {
+          "count": 1,
+          "item_index": 2,
+          "item_name": "Astartes chainsword",
+          "role": "granted",
+          "weapon_line": 7
+        },
+        {
+          "item_index": 1,
+          "item_name": "bolt rifle",
+          "role": "replaced",
+          "weapon_line": 2
+        }
+      ],
       "name": "heavy bolt pistol and 1 Astartes chainsword",
       "replaces_weapon_line": 2
     },
@@ -148,6 +275,28 @@
       "id": "oc-crusader-squad-4-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "heavy bolt pistol",
+          "role": "granted",
+          "weapon_line": 3
+        },
+        {
+          "count": 1,
+          "item_index": 2,
+          "item_name": "power fist",
+          "role": "granted",
+          "weapon_line": 10
+        },
+        {
+          "item_index": 1,
+          "item_name": "bolt rifle",
+          "role": "replaced",
+          "weapon_line": 2
+        }
+      ],
       "name": "heavy bolt pistol and 1 power fist",
       "replaces_weapon_line": 2
     },
@@ -158,6 +307,21 @@
       "id": "oc-crusader-squad-4-2",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "pyreblaster",
+          "role": "granted",
+          "weapon_line": 6
+        },
+        {
+          "item_index": 1,
+          "item_name": "bolt rifle",
+          "role": "replaced",
+          "weapon_line": 2
+        }
+      ],
       "name": "pyreblaster",
       "replaces_weapon_line": 2
     }
@@ -169,17 +333,22 @@
       "scope": "unit"
     },
     {
+      "eligible_model_name": "Neophytes",
       "id": "og-crusader-squad-2",
+      "is_per_model": true,
       "line": 2,
       "scope": "unit"
     },
     {
+      "eligible_model_name": "Initiates",
       "id": "og-crusader-squad-3",
+      "is_per_model": true,
       "line": 3,
       "scope": "unit"
     },
     {
       "id": "og-crusader-squad-4",
+      "is_per_model": true,
       "line": 4,
       "scope": "per_n_models",
       "scope_n": 10
@@ -188,15 +357,15 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:23409788361d3b92c4ba1305d795b9af6e927654a6ab42fcf3c4b0a5ca1b5b00",
-    "last_verified_version": "wh40k-11e-2026-08-2",
+    "last_verified_version": "wh40k-11e-2026-08-3",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
+    "detail_acquisition_id": "wahapedia-20260814T171635Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260812T223703Z-6694568f",
+    "points_acquisition_id": "mfm-20260814T170952Z-0c772378",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },

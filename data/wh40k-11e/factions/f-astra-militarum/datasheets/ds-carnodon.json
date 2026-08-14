@@ -19,11 +19,36 @@
       "model_count": 1,
       "points": 160,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260812T223905Z-9a337975"
+      "source_acquisition_id": "wahapedia-20260814T171635Z-9a337975"
     }
   ],
   "damaged_threshold": 4,
   "datasheet_id": "ds-carnodon",
+  "default_equipment_state": "extracted",
+  "equipment_groups": [
+    {
+      "applies_to": "unit",
+      "id": "eq-carnodon-1",
+      "items": [
+        {
+          "count": 2,
+          "item_index": 1,
+          "item_name": "autocannons"
+        },
+        {
+          "item_index": 2,
+          "item_name": "Carnodon twin autocannon",
+          "weapon_line": 2
+        },
+        {
+          "item_index": 3,
+          "item_name": "armoured tracks",
+          "weapon_line": 12
+        }
+      ],
+      "line": 1
+    }
+  ],
   "faction_id": "f-astra-militarum",
   "is_battleline": false,
   "is_character": false,
@@ -84,30 +109,72 @@
   "option_choices": [
     {
       "count": 1,
+      "grants_weapon_line": 3,
       "group_id": "og-carnodon-1",
       "id": "oc-carnodon-1-1",
       "is_default": false,
       "is_no_change": false,
-      "name": "Carnodon twin lascannon",
-      "replaces_weapon_line": 3
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "Carnodon twin lascannon",
+          "role": "granted",
+          "weapon_line": 3
+        },
+        {
+          "item_index": 1,
+          "item_name": "’s Carnodon twin autocannon",
+          "role": "replaced"
+        }
+      ],
+      "name": "Carnodon twin lascannon"
     },
     {
       "count": 1,
+      "grants_weapon_line": 4,
       "group_id": "og-carnodon-1",
       "id": "oc-carnodon-1-2",
       "is_default": false,
       "is_no_change": false,
-      "name": "Carnodon twin multi-laser",
-      "replaces_weapon_line": 4
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "Carnodon twin multi-laser",
+          "role": "granted",
+          "weapon_line": 4
+        },
+        {
+          "item_index": 1,
+          "item_name": "’s Carnodon twin autocannon",
+          "role": "replaced"
+        }
+      ],
+      "name": "Carnodon twin multi-laser"
     },
     {
       "count": 1,
+      "grants_weapon_line": 11,
       "group_id": "og-carnodon-1",
       "id": "oc-carnodon-1-3",
       "is_default": false,
       "is_no_change": false,
-      "name": "volkite culverin",
-      "replaces_weapon_line": 11
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "volkite culverin",
+          "role": "granted",
+          "weapon_line": 11
+        },
+        {
+          "item_index": 1,
+          "item_name": "’s Carnodon twin autocannon",
+          "role": "replaced"
+        }
+      ],
+      "name": "volkite culverin"
     },
     {
       "count": 2,
@@ -115,6 +182,19 @@
       "id": "oc-carnodon-2-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 2,
+          "item_index": 1,
+          "item_name": "heavy bolters",
+          "role": "granted"
+        },
+        {
+          "item_index": 1,
+          "item_name": "’s 2 autocannons",
+          "role": "replaced"
+        }
+      ],
       "name": "heavy bolters"
     },
     {
@@ -123,6 +203,19 @@
       "id": "oc-carnodon-2-2",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 2,
+          "item_index": 1,
+          "item_name": "heavy flamers",
+          "role": "granted"
+        },
+        {
+          "item_index": 1,
+          "item_name": "’s 2 autocannons",
+          "role": "replaced"
+        }
+      ],
       "name": "heavy flamers"
     },
     {
@@ -131,6 +224,19 @@
       "id": "oc-carnodon-2-3",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 2,
+          "item_index": 1,
+          "item_name": "lascannons",
+          "role": "granted"
+        },
+        {
+          "item_index": 1,
+          "item_name": "’s 2 autocannons",
+          "role": "replaced"
+        }
+      ],
       "name": "lascannons"
     },
     {
@@ -139,6 +245,19 @@
       "id": "oc-carnodon-2-4",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 2,
+          "item_index": 1,
+          "item_name": "Militarum multi-lasers",
+          "role": "granted"
+        },
+        {
+          "item_index": 1,
+          "item_name": "’s 2 autocannons",
+          "role": "replaced"
+        }
+      ],
       "name": "Militarum multi-lasers"
     },
     {
@@ -147,6 +266,19 @@
       "id": "oc-carnodon-2-5",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 2,
+          "item_index": 1,
+          "item_name": "volkite calivers",
+          "role": "granted"
+        },
+        {
+          "item_index": 1,
+          "item_name": "’s 2 autocannons",
+          "role": "replaced"
+        }
+      ],
       "name": "volkite calivers"
     },
     {
@@ -156,6 +288,15 @@
       "id": "oc-carnodon-3-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "hunter-killer missile",
+          "role": "granted",
+          "weapon_line": 7
+        }
+      ],
       "name": "hunter-killer missile"
     }
   ],
@@ -177,12 +318,12 @@
     }
   ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 3,
+    "consecutive_unverified_releases": 4,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
+    "detail_acquisition_id": "wahapedia-20260814T171635Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,

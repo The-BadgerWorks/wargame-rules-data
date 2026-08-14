@@ -47,10 +47,82 @@
       "model_count": 9,
       "points": 110,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T170952Z-0c772378"
     }
   ],
   "datasheet_id": "ds-sanctifiers",
+  "default_equipment_state": "partial",
+  "equipment_groups": [
+    {
+      "applies_to": "model_group",
+      "composition_line": 1,
+      "id": "eq-sanctifiers-1",
+      "items": [
+        {
+          "item_index": 1,
+          "item_name": "holy fire",
+          "weapon_line": 1
+        },
+        {
+          "item_index": 2,
+          "item_name": "burning hands",
+          "weapon_line": 7
+        }
+      ],
+      "line": 1,
+      "model_name": "Miraculist"
+    },
+    {
+      "applies_to": "model_group",
+      "composition_line": 2,
+      "id": "eq-sanctifiers-2",
+      "items": [
+        {
+          "item_index": 1,
+          "item_name": "close combat weapon",
+          "weapon_line": 8
+        },
+        {
+          "item_index": 2,
+          "item_name": "Salvationist medikit"
+        }
+      ],
+      "line": 2,
+      "model_name": "Salvationist"
+    },
+    {
+      "applies_to": "model_group",
+      "composition_line": 3,
+      "id": "eq-sanctifiers-3",
+      "items": [
+        {
+          "item_index": 1,
+          "item_name": "Death Cult blades",
+          "weapon_line": 9
+        }
+      ],
+      "line": 3,
+      "model_name": "Death Cult Assassin"
+    },
+    {
+      "applies_to": "model_group",
+      "id": "eq-sanctifiers-6",
+      "items": [
+        {
+          "item_index": 1,
+          "item_name": "Ministorum hand flamer",
+          "weapon_line": 4
+        },
+        {
+          "item_index": 2,
+          "item_name": "Sanctifier melee weapon",
+          "weapon_line": 10
+        }
+      ],
+      "line": 6,
+      "model_name": "Sanctifier"
+    }
+  ],
   "faction_id": "f-adepta-sororitas",
   "is_battleline": false,
   "is_character": false,
@@ -106,6 +178,14 @@
       "id": "oc-sanctifiers-2-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "holy fire (this model’s plasma gun cannot be replaced)",
+          "role": "granted"
+        }
+      ],
       "name": "holy fire (this model’s plasma gun cannot be replaced)"
     }
   ],
@@ -119,15 +199,15 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:1e908147497e2a9462a37144e890ebd23365266cc53ae5ea93680a896b56b5e5",
-    "last_verified_version": "wh40k-11e-2026-08-2",
+    "last_verified_version": "wh40k-11e-2026-08-3",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
+    "detail_acquisition_id": "wahapedia-20260814T171635Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260812T223703Z-6694568f",
+    "points_acquisition_id": "mfm-20260814T170952Z-0c772378",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },

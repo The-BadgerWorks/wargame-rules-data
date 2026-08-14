@@ -28,7 +28,7 @@
       "model_count": 3,
       "points": 95,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T170952Z-0c772378"
     },
     {
       "copy_index_min": 1,
@@ -36,7 +36,7 @@
       "model_count": 6,
       "points": 190,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T170952Z-0c772378"
     },
     {
       "copy_index_min": 3,
@@ -44,7 +44,7 @@
       "model_count": 3,
       "points": 115,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T170952Z-0c772378"
     },
     {
       "copy_index_min": 3,
@@ -52,10 +52,30 @@
       "model_count": 6,
       "points": 210,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T170952Z-0c772378"
     }
   ],
   "datasheet_id": "ds-bloodcrushers-2",
+  "default_equipment_state": "extracted",
+  "equipment_groups": [
+    {
+      "applies_to": "unit",
+      "id": "eq-bloodcrushers-2-1",
+      "items": [
+        {
+          "item_index": 1,
+          "item_name": "hellblade",
+          "weapon_line": 1
+        },
+        {
+          "item_index": 2,
+          "item_name": "bladed horn",
+          "weapon_line": 2
+        }
+      ],
+      "line": 1
+    }
+  ],
   "faction_id": "f-world-eaters",
   "is_battleline": false,
   "is_character": false,
@@ -120,6 +140,14 @@
       "id": "oc-bloodcrushers-2-1-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "instrument of Chaos",
+          "role": "granted"
+        }
+      ],
       "name": "instrument of Chaos"
     },
     {
@@ -128,6 +156,14 @@
       "id": "oc-bloodcrushers-2-2-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "daemonic icon",
+          "role": "granted"
+        }
+      ],
       "name": "daemonic icon"
     }
   ],
@@ -146,15 +182,15 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:bd8a2285e8f4ce5e93e39d3704949b5df8a3c53b0b83a297efbc09a99f1805ff",
-    "last_verified_version": "wh40k-11e-2026-08-2",
+    "last_verified_version": "wh40k-11e-2026-08-3",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
+    "detail_acquisition_id": "wahapedia-20260814T171635Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260812T223703Z-6694568f",
+    "points_acquisition_id": "mfm-20260814T170952Z-0c772378",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },

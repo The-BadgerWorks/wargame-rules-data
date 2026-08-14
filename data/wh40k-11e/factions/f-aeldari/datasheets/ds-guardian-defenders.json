@@ -27,10 +27,50 @@
       "model_count": 11,
       "points": 90,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T170952Z-0c772378"
     }
   ],
   "datasheet_id": "ds-guardian-defenders",
+  "default_equipment_state": "extracted",
+  "equipment_groups": [
+    {
+      "applies_to": "model_group",
+      "id": "eq-guardian-defenders-1",
+      "items": [
+        {
+          "item_index": 1,
+          "item_name": "shuriken catapult",
+          "weapon_line": 6
+        },
+        {
+          "item_index": 2,
+          "item_name": "close combat weapon",
+          "weapon_line": 8
+        }
+      ],
+      "line": 1,
+      "model_name": "Guardian Defender"
+    },
+    {
+      "applies_to": "model_group",
+      "composition_line": 2,
+      "id": "eq-guardian-defenders-2",
+      "items": [
+        {
+          "item_index": 1,
+          "item_name": "shuriken cannon",
+          "weapon_line": 5
+        },
+        {
+          "item_index": 2,
+          "item_name": "close combat weapon",
+          "weapon_line": 8
+        }
+      ],
+      "line": 2,
+      "model_name": "Heavy Weapon Platform"
+    }
+  ],
   "faction_id": "f-aeldari",
   "is_battleline": true,
   "is_character": false,
@@ -109,34 +149,89 @@
       "id": "oc-guardian-defenders-1-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "missile launcher",
+          "role": "granted"
+        },
+        {
+          "item_index": 1,
+          "item_name": "Heavy Weapon Platform’s shuriken cannon",
+          "role": "replaced"
+        }
+      ],
       "name": "missile launcher"
     },
     {
       "count": 1,
+      "grants_weapon_line": 1,
       "group_id": "og-guardian-defenders-1",
       "id": "oc-guardian-defenders-1-2",
       "is_default": false,
       "is_no_change": false,
-      "name": "bright lance",
-      "replaces_weapon_line": 1
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "bright lance",
+          "role": "granted",
+          "weapon_line": 1
+        },
+        {
+          "item_index": 1,
+          "item_name": "Heavy Weapon Platform’s shuriken cannon",
+          "role": "replaced"
+        }
+      ],
+      "name": "bright lance"
     },
     {
       "count": 1,
+      "grants_weapon_line": 4,
       "group_id": "og-guardian-defenders-1",
       "id": "oc-guardian-defenders-1-3",
       "is_default": false,
       "is_no_change": false,
-      "name": "scatter laser",
-      "replaces_weapon_line": 4
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "scatter laser",
+          "role": "granted",
+          "weapon_line": 4
+        },
+        {
+          "item_index": 1,
+          "item_name": "Heavy Weapon Platform’s shuriken cannon",
+          "role": "replaced"
+        }
+      ],
+      "name": "scatter laser"
     },
     {
       "count": 1,
+      "grants_weapon_line": 7,
       "group_id": "og-guardian-defenders-1",
       "id": "oc-guardian-defenders-1-4",
       "is_default": false,
       "is_no_change": false,
-      "name": "starcannon",
-      "replaces_weapon_line": 7
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "starcannon",
+          "role": "granted",
+          "weapon_line": 7
+        },
+        {
+          "item_index": 1,
+          "item_name": "Heavy Weapon Platform’s shuriken cannon",
+          "role": "replaced"
+        }
+      ],
+      "name": "starcannon"
     }
   ],
   "option_groups": [
@@ -149,15 +244,15 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:db02cb128a034a442ecd246d7a0175d8c0ac33f4c0a3f2c2efe7a57dc3dfe971",
-    "last_verified_version": "wh40k-11e-2026-08-2",
+    "last_verified_version": "wh40k-11e-2026-08-3",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
+    "detail_acquisition_id": "wahapedia-20260814T171635Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260812T223703Z-6694568f",
+    "points_acquisition_id": "mfm-20260814T170952Z-0c772378",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },

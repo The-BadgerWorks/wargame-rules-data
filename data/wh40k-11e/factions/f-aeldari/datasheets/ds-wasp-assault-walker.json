@@ -20,10 +20,35 @@
       "model_count": 1,
       "points": 95,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260812T223905Z-9a337975"
+      "source_acquisition_id": "wahapedia-20260814T171635Z-9a337975"
     }
   ],
   "datasheet_id": "ds-wasp-assault-walker",
+  "default_equipment_state": "extracted",
+  "equipment_groups": [
+    {
+      "applies_to": "unit",
+      "id": "eq-wasp-assault-walker-1",
+      "items": [
+        {
+          "item_index": 1,
+          "item_name": "scatter laser",
+          "weapon_line": 4
+        },
+        {
+          "item_index": 2,
+          "item_name": "shuriken cannon",
+          "weapon_line": 5
+        },
+        {
+          "item_index": 3,
+          "item_name": "Wasp feet",
+          "weapon_line": 7
+        }
+      ],
+      "line": 1
+    }
+  ],
   "faction_id": "f-aeldari",
   "is_battleline": false,
   "is_character": false,
@@ -87,34 +112,89 @@
       "id": "oc-wasp-assault-walker-1-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "Aeldari missile launcher",
+          "role": "granted"
+        },
+        {
+          "item_index": 1,
+          "item_name": "’s scatter laser",
+          "role": "replaced"
+        }
+      ],
       "name": "Aeldari missile launcher"
     },
     {
       "count": 1,
+      "grants_weapon_line": 3,
       "group_id": "og-wasp-assault-walker-1",
       "id": "oc-wasp-assault-walker-1-2",
       "is_default": false,
       "is_no_change": false,
-      "name": "bright lance",
-      "replaces_weapon_line": 3
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "bright lance",
+          "role": "granted",
+          "weapon_line": 3
+        },
+        {
+          "item_index": 1,
+          "item_name": "’s scatter laser",
+          "role": "replaced"
+        }
+      ],
+      "name": "bright lance"
     },
     {
       "count": 1,
+      "grants_weapon_line": 5,
       "group_id": "og-wasp-assault-walker-1",
       "id": "oc-wasp-assault-walker-1-3",
       "is_default": false,
       "is_no_change": false,
-      "name": "shuriken cannon",
-      "replaces_weapon_line": 5
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "shuriken cannon",
+          "role": "granted",
+          "weapon_line": 5
+        },
+        {
+          "item_index": 1,
+          "item_name": "’s scatter laser",
+          "role": "replaced"
+        }
+      ],
+      "name": "shuriken cannon"
     },
     {
       "count": 1,
+      "grants_weapon_line": 6,
       "group_id": "og-wasp-assault-walker-1",
       "id": "oc-wasp-assault-walker-1-4",
       "is_default": false,
       "is_no_change": false,
-      "name": "starcannon",
-      "replaces_weapon_line": 6
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "starcannon",
+          "role": "granted",
+          "weapon_line": 6
+        },
+        {
+          "item_index": 1,
+          "item_name": "’s scatter laser",
+          "role": "replaced"
+        }
+      ],
+      "name": "starcannon"
     },
     {
       "count": 1,
@@ -122,34 +202,89 @@
       "id": "oc-wasp-assault-walker-2-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "Aeldari missile launcher",
+          "role": "granted"
+        },
+        {
+          "item_index": 1,
+          "item_name": "’s shuriken cannon",
+          "role": "replaced"
+        }
+      ],
       "name": "Aeldari missile launcher"
     },
     {
       "count": 1,
+      "grants_weapon_line": 3,
       "group_id": "og-wasp-assault-walker-2",
       "id": "oc-wasp-assault-walker-2-2",
       "is_default": false,
       "is_no_change": false,
-      "name": "bright lance",
-      "replaces_weapon_line": 3
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "bright lance",
+          "role": "granted",
+          "weapon_line": 3
+        },
+        {
+          "item_index": 1,
+          "item_name": "’s shuriken cannon",
+          "role": "replaced"
+        }
+      ],
+      "name": "bright lance"
     },
     {
       "count": 1,
+      "grants_weapon_line": 4,
       "group_id": "og-wasp-assault-walker-2",
       "id": "oc-wasp-assault-walker-2-3",
       "is_default": false,
       "is_no_change": false,
-      "name": "scatter laser",
-      "replaces_weapon_line": 4
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "scatter laser",
+          "role": "granted",
+          "weapon_line": 4
+        },
+        {
+          "item_index": 1,
+          "item_name": "’s shuriken cannon",
+          "role": "replaced"
+        }
+      ],
+      "name": "scatter laser"
     },
     {
       "count": 1,
+      "grants_weapon_line": 6,
       "group_id": "og-wasp-assault-walker-2",
       "id": "oc-wasp-assault-walker-2-4",
       "is_default": false,
       "is_no_change": false,
-      "name": "starcannon",
-      "replaces_weapon_line": 6
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "starcannon",
+          "role": "granted",
+          "weapon_line": 6
+        },
+        {
+          "item_index": 1,
+          "item_name": "’s shuriken cannon",
+          "role": "replaced"
+        }
+      ],
+      "name": "starcannon"
     }
   ],
   "option_groups": [
@@ -165,12 +300,12 @@
     }
   ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 3,
+    "consecutive_unverified_releases": 4,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
+    "detail_acquisition_id": "wahapedia-20260814T171635Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,

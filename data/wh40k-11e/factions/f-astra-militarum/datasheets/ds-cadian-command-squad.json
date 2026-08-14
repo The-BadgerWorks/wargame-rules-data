@@ -29,10 +29,32 @@
       "model_count": 5,
       "points": 60,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T170952Z-0c772378"
     }
   ],
   "datasheet_id": "ds-cadian-command-squad",
+  "default_equipment_state": "partial",
+  "equipment_groups": [
+    {
+      "applies_to": "model_group",
+      "composition_line": 1,
+      "id": "eq-cadian-command-squad-1",
+      "items": [
+        {
+          "item_index": 1,
+          "item_name": "laspistol",
+          "weapon_line": 6
+        },
+        {
+          "item_index": 2,
+          "item_name": "chainsword",
+          "weapon_line": 12
+        }
+      ],
+      "line": 1,
+      "model_name": "Cadian Commander"
+    }
+  ],
   "faction_id": "f-astra-militarum",
   "is_battleline": false,
   "is_character": true,
@@ -125,12 +147,31 @@
   "option_choices": [
     {
       "count": 1,
+      "grants_weapon_line": 2,
       "group_id": "og-cadian-command-squad-1",
       "id": "oc-cadian-command-squad-1-1",
       "is_default": false,
       "is_no_change": false,
-      "name": "flamer",
-      "replaces_weapon_line": 2
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "flamer",
+          "role": "granted",
+          "weapon_line": 2
+        },
+        {
+          "item_index": 1,
+          "item_name": "Cadian Veteran Guardsman’s lasgun",
+          "role": "replaced"
+        },
+        {
+          "item_index": 2,
+          "item_name": "regimental standard",
+          "role": "replaced"
+        }
+      ],
+      "name": "flamer"
     },
     {
       "count": 1,
@@ -138,16 +179,53 @@
       "id": "oc-cadian-command-squad-1-2",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "grenade launcher",
+          "role": "granted"
+        },
+        {
+          "item_index": 1,
+          "item_name": "Cadian Veteran Guardsman’s lasgun",
+          "role": "replaced"
+        },
+        {
+          "item_index": 2,
+          "item_name": "regimental standard",
+          "role": "replaced"
+        }
+      ],
       "name": "grenade launcher"
     },
     {
       "count": 1,
+      "grants_weapon_line": 7,
       "group_id": "og-cadian-command-squad-1",
       "id": "oc-cadian-command-squad-1-3",
       "is_default": false,
       "is_no_change": false,
-      "name": "meltagun",
-      "replaces_weapon_line": 7
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "meltagun",
+          "role": "granted",
+          "weapon_line": 7
+        },
+        {
+          "item_index": 1,
+          "item_name": "Cadian Veteran Guardsman’s lasgun",
+          "role": "replaced"
+        },
+        {
+          "item_index": 2,
+          "item_name": "regimental standard",
+          "role": "replaced"
+        }
+      ],
+      "name": "meltagun"
     },
     {
       "count": 1,
@@ -155,16 +233,48 @@
       "id": "oc-cadian-command-squad-1-4",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "plasma gun",
+          "role": "granted"
+        },
+        {
+          "item_index": 1,
+          "item_name": "Cadian Veteran Guardsman’s lasgun",
+          "role": "replaced"
+        },
+        {
+          "item_index": 2,
+          "item_name": "regimental standard",
+          "role": "replaced"
+        }
+      ],
       "name": "plasma gun"
     },
     {
       "count": 1,
+      "grants_weapon_line": 1,
       "group_id": "og-cadian-command-squad-2",
       "id": "oc-cadian-command-squad-2-1",
       "is_default": false,
       "is_no_change": false,
-      "name": "bolt pistol",
-      "replaces_weapon_line": 1
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "bolt pistol",
+          "role": "granted",
+          "weapon_line": 1
+        },
+        {
+          "item_index": 1,
+          "item_name": "Cadian Veteran Guardsman’s laspistol",
+          "role": "replaced"
+        }
+      ],
+      "name": "bolt pistol"
     },
     {
       "count": 1,
@@ -172,16 +282,43 @@
       "id": "oc-cadian-command-squad-2-2",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "plasma pistol",
+          "role": "granted"
+        },
+        {
+          "item_index": 1,
+          "item_name": "Cadian Veteran Guardsman’s laspistol",
+          "role": "replaced"
+        }
+      ],
       "name": "plasma pistol"
     },
     {
       "count": 1,
+      "grants_weapon_line": 1,
       "group_id": "og-cadian-command-squad-3",
       "id": "oc-cadian-command-squad-3-1",
       "is_default": false,
       "is_no_change": false,
-      "name": "bolt pistol",
-      "replaces_weapon_line": 1
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "bolt pistol",
+          "role": "granted",
+          "weapon_line": 1
+        },
+        {
+          "item_index": 1,
+          "item_name": "Cadian Commander’s laspistol",
+          "role": "replaced"
+        }
+      ],
+      "name": "bolt pistol"
     },
     {
       "count": 1,
@@ -189,6 +326,19 @@
       "id": "oc-cadian-command-squad-3-2",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "plasma pistol",
+          "role": "granted"
+        },
+        {
+          "item_index": 1,
+          "item_name": "Cadian Commander’s laspistol",
+          "role": "replaced"
+        }
+      ],
       "name": "plasma pistol"
     },
     {
@@ -197,6 +347,27 @@
       "id": "oc-cadian-command-squad-4-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "flamer",
+          "role": "granted",
+          "weapon_line": 2
+        },
+        {
+          "count": 1,
+          "item_index": 2,
+          "item_name": "close combat weapon",
+          "role": "granted",
+          "weapon_line": 13
+        },
+        {
+          "item_index": 1,
+          "item_name": "Cadian Veteran Guardsman's chainsword",
+          "role": "replaced"
+        }
+      ],
       "name": "flamer and 1 close combat weapon"
     },
     {
@@ -205,6 +376,26 @@
       "id": "oc-cadian-command-squad-4-2",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "grenade launcher",
+          "role": "granted"
+        },
+        {
+          "count": 1,
+          "item_index": 2,
+          "item_name": "close combat weapon",
+          "role": "granted",
+          "weapon_line": 13
+        },
+        {
+          "item_index": 1,
+          "item_name": "Cadian Veteran Guardsman's chainsword",
+          "role": "replaced"
+        }
+      ],
       "name": "grenade launcher and 1 close combat weapon"
     },
     {
@@ -213,6 +404,27 @@
       "id": "oc-cadian-command-squad-4-3",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "meltagun",
+          "role": "granted",
+          "weapon_line": 7
+        },
+        {
+          "count": 1,
+          "item_index": 2,
+          "item_name": "close combat weapon",
+          "role": "granted",
+          "weapon_line": 13
+        },
+        {
+          "item_index": 1,
+          "item_name": "Cadian Veteran Guardsman's chainsword",
+          "role": "replaced"
+        }
+      ],
       "name": "meltagun and 1 close combat weapon"
     },
     {
@@ -221,43 +433,119 @@
       "id": "oc-cadian-command-squad-4-4",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "plasma gun",
+          "role": "granted"
+        },
+        {
+          "count": 1,
+          "item_index": 2,
+          "item_name": "close combat weapon",
+          "role": "granted",
+          "weapon_line": 13
+        },
+        {
+          "item_index": 1,
+          "item_name": "Cadian Veteran Guardsman's chainsword",
+          "role": "replaced"
+        }
+      ],
       "name": "plasma gun and 1 close combat weapon"
     },
     {
       "count": 1,
+      "grants_weapon_line": 14,
       "group_id": "og-cadian-command-squad-4",
       "id": "oc-cadian-command-squad-4-5",
       "is_default": false,
       "is_no_change": false,
-      "name": "power fist",
-      "replaces_weapon_line": 14
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "power fist",
+          "role": "granted",
+          "weapon_line": 14
+        },
+        {
+          "item_index": 1,
+          "item_name": "Cadian Veteran Guardsman's chainsword",
+          "role": "replaced"
+        }
+      ],
+      "name": "power fist"
     },
     {
       "count": 1,
+      "grants_weapon_line": 15,
       "group_id": "og-cadian-command-squad-4",
       "id": "oc-cadian-command-squad-4-6",
       "is_default": false,
       "is_no_change": false,
-      "name": "power weapon",
-      "replaces_weapon_line": 15
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "power weapon",
+          "role": "granted",
+          "weapon_line": 15
+        },
+        {
+          "item_index": 1,
+          "item_name": "Cadian Veteran Guardsman's chainsword",
+          "role": "replaced"
+        }
+      ],
+      "name": "power weapon"
     },
     {
       "count": 1,
+      "grants_weapon_line": 14,
       "group_id": "og-cadian-command-squad-5",
       "id": "oc-cadian-command-squad-5-1",
       "is_default": false,
       "is_no_change": false,
-      "name": "power fist",
-      "replaces_weapon_line": 14
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "power fist",
+          "role": "granted",
+          "weapon_line": 14
+        },
+        {
+          "item_index": 1,
+          "item_name": "Cadian Commander’s chainsword",
+          "role": "replaced"
+        }
+      ],
+      "name": "power fist"
     },
     {
       "count": 1,
+      "grants_weapon_line": 15,
       "group_id": "og-cadian-command-squad-5",
       "id": "oc-cadian-command-squad-5-2",
       "is_default": false,
       "is_no_change": false,
-      "name": "power weapon",
-      "replaces_weapon_line": 15
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "power weapon",
+          "role": "granted",
+          "weapon_line": 15
+        },
+        {
+          "item_index": 1,
+          "item_name": "Cadian Commander’s chainsword",
+          "role": "replaced"
+        }
+      ],
+      "name": "power weapon"
     }
   ],
   "option_groups": [
@@ -290,15 +578,15 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:93772c302f00645972b62e3cf909776c83307da44fefcdf6d4cfb06816ef82d6",
-    "last_verified_version": "wh40k-11e-2026-08-2",
+    "last_verified_version": "wh40k-11e-2026-08-3",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
+    "detail_acquisition_id": "wahapedia-20260814T171635Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260812T223703Z-6694568f",
+    "points_acquisition_id": "mfm-20260814T170952Z-0c772378",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },

@@ -6,12 +6,6 @@
   ],
   "composition": [
     {
-      "line": 1,
-      "max_count": 10,
-      "min_count": 10,
-      "model_name": "MODELS MAXIMUM"
-    },
-    {
       "line": 2,
       "max_count": 10,
       "min_count": 3,
@@ -37,7 +31,7 @@
       "model_count": 10,
       "points": 275,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T170952Z-0c772378"
     },
     {
       "copy_index_min": 3,
@@ -45,10 +39,36 @@
       "model_count": 10,
       "points": 290,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T170952Z-0c772378"
     }
   ],
   "datasheet_id": "ds-indomitor-kill-team",
+  "default_equipment_state": "partial",
+  "equipment_groups": [
+    {
+      "applies_to": "model_group",
+      "id": "eq-indomitor-kill-team-1",
+      "items": [
+        {
+          "item_index": 1,
+          "item_name": "bolt pistol",
+          "weapon_line": 2
+        },
+        {
+          "item_index": 2,
+          "item_name": "Deathwatch heavy bolt rifle",
+          "weapon_line": 3
+        },
+        {
+          "item_index": 3,
+          "item_name": "close combat weapon",
+          "weapon_line": 9
+        }
+      ],
+      "line": 1,
+      "model_name": "Kill Team Heavy Intercessor"
+    }
+  ],
   "faction_id": "f-deathwatch",
   "is_battleline": false,
   "is_character": false,
@@ -117,6 +137,28 @@
       "id": "oc-indomitor-kill-team-3-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "auto boltstorm gauntlets",
+          "role": "granted",
+          "weapon_line": 1
+        },
+        {
+          "count": 1,
+          "item_index": 2,
+          "item_name": "fragstorm grenade launcher",
+          "role": "granted",
+          "weapon_line": 5
+        },
+        {
+          "item_index": 1,
+          "item_name": "flamestorm gauntlets",
+          "role": "replaced",
+          "weapon_line": 6
+        }
+      ],
       "name": "auto boltstorm gauntlets and 1 fragstorm grenade launcher",
       "replaces_weapon_line": 6
     }
@@ -124,6 +166,7 @@
   "option_groups": [
     {
       "id": "og-indomitor-kill-team-3",
+      "is_per_model": true,
       "line": 3,
       "scope": "unit"
     }
@@ -131,15 +174,15 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:9de6f8bfa0c385b0a51d03c4a244b3d328e6173c4a0707bd5f569fe0373df367",
-    "last_verified_version": "wh40k-11e-2026-08-2",
+    "last_verified_version": "wh40k-11e-2026-08-3",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
+    "detail_acquisition_id": "wahapedia-20260814T171635Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260812T223703Z-6694568f",
+    "points_acquisition_id": "mfm-20260814T170952Z-0c772378",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },

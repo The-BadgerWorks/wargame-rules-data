@@ -22,7 +22,7 @@
       "model_count": 1,
       "points": 355,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T170952Z-0c772378"
     },
     {
       "copy_index_min": 3,
@@ -30,11 +30,34 @@
       "model_count": 1,
       "points": 370,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T170952Z-0c772378"
     }
   ],
   "damaged_threshold": 9,
   "datasheet_id": "ds-knight-gallant",
+  "default_equipment_state": "extracted",
+  "equipment_groups": [
+    {
+      "applies_to": "unit",
+      "id": "eq-knight-gallant-1",
+      "items": [
+        {
+          "item_index": 1,
+          "item_name": "meltagun",
+          "weapon_line": 2
+        },
+        {
+          "item_index": 2,
+          "item_name": "thunderstrike gauntlet"
+        },
+        {
+          "item_index": 3,
+          "item_name": "reaper chainsword"
+        }
+      ],
+      "line": 1
+    }
+  ],
   "faction_id": "f-imperial-knights",
   "is_battleline": false,
   "is_character": true,
@@ -106,12 +129,26 @@
   "option_choices": [
     {
       "count": 1,
+      "grants_weapon_line": 3,
       "group_id": "og-knight-gallant-1",
       "id": "oc-knight-gallant-1-1",
       "is_default": false,
       "is_no_change": false,
-      "name": "Questoris heavy stubber",
-      "replaces_weapon_line": 3
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "Questoris heavy stubber",
+          "role": "granted",
+          "weapon_line": 3
+        },
+        {
+          "item_index": 1,
+          "item_name": "’s meltagun",
+          "role": "replaced"
+        }
+      ],
+      "name": "Questoris heavy stubber"
     },
     {
       "count": 1,
@@ -120,6 +157,15 @@
       "id": "oc-knight-gallant-2-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "ironstorm missile pod",
+          "role": "granted",
+          "weapon_line": 1
+        }
+      ],
       "name": "ironstorm missile pod"
     },
     {
@@ -129,6 +175,15 @@
       "id": "oc-knight-gallant-2-2",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "stormspear rocket pod",
+          "role": "granted",
+          "weapon_line": 4
+        }
+      ],
       "name": "stormspear rocket pod"
     },
     {
@@ -138,6 +193,15 @@
       "id": "oc-knight-gallant-2-3",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "twin Icarus autocannon",
+          "role": "granted",
+          "weapon_line": 5
+        }
+      ],
       "name": "twin Icarus autocannon"
     }
   ],
@@ -156,15 +220,15 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:6bb61e8051602992a4cfd65c1dadfe35c7894755fe2659fad6a886b41193d423",
-    "last_verified_version": "wh40k-11e-2026-08-2",
+    "last_verified_version": "wh40k-11e-2026-08-3",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
+    "detail_acquisition_id": "wahapedia-20260814T171635Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260812T223703Z-6694568f",
+    "points_acquisition_id": "mfm-20260814T170952Z-0c772378",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },

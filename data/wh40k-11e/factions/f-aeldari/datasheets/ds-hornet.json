@@ -20,10 +20,30 @@
       "model_count": 1,
       "points": 100,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260812T223905Z-9a337975"
+      "source_acquisition_id": "wahapedia-20260814T171635Z-9a337975"
     }
   ],
   "datasheet_id": "ds-hornet",
+  "default_equipment_state": "extracted",
+  "equipment_groups": [
+    {
+      "applies_to": "unit",
+      "id": "eq-hornet-1",
+      "items": [
+        {
+          "count": 2,
+          "item_index": 1,
+          "item_name": "Hornet pulse lasers"
+        },
+        {
+          "item_index": 2,
+          "item_name": "wraithbone hull",
+          "weapon_line": 8
+        }
+      ],
+      "line": 1
+    }
+  ],
   "faction_id": "f-aeldari",
   "is_battleline": false,
   "is_character": false,
@@ -85,39 +105,103 @@
       "id": "oc-hornet-1-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "item_index": 1,
+          "item_name": "Aeldari missile launcher",
+          "role": "granted"
+        },
+        {
+          "item_index": 1,
+          "item_name": "Hornet pulse lasers",
+          "role": "replaced"
+        }
+      ],
       "name": "Aeldari missile launcher"
     },
     {
+      "grants_weapon_line": 3,
       "group_id": "og-hornet-1",
       "id": "oc-hornet-1-2",
       "is_default": false,
       "is_no_change": false,
-      "name": "Bright lance",
-      "replaces_weapon_line": 3
+      "items": [
+        {
+          "item_index": 1,
+          "item_name": "Bright lance",
+          "role": "granted",
+          "weapon_line": 3
+        },
+        {
+          "item_index": 1,
+          "item_name": "Hornet pulse lasers",
+          "role": "replaced"
+        }
+      ],
+      "name": "Bright lance"
     },
     {
+      "grants_weapon_line": 5,
       "group_id": "og-hornet-1",
       "id": "oc-hornet-1-3",
       "is_default": false,
       "is_no_change": false,
-      "name": "Scatter laser",
-      "replaces_weapon_line": 5
+      "items": [
+        {
+          "item_index": 1,
+          "item_name": "Scatter laser",
+          "role": "granted",
+          "weapon_line": 5
+        },
+        {
+          "item_index": 1,
+          "item_name": "Hornet pulse lasers",
+          "role": "replaced"
+        }
+      ],
+      "name": "Scatter laser"
     },
     {
+      "grants_weapon_line": 6,
       "group_id": "og-hornet-1",
       "id": "oc-hornet-1-4",
       "is_default": false,
       "is_no_change": false,
-      "name": "Shuriken cannon",
-      "replaces_weapon_line": 6
+      "items": [
+        {
+          "item_index": 1,
+          "item_name": "Shuriken cannon",
+          "role": "granted",
+          "weapon_line": 6
+        },
+        {
+          "item_index": 1,
+          "item_name": "Hornet pulse lasers",
+          "role": "replaced"
+        }
+      ],
+      "name": "Shuriken cannon"
     },
     {
+      "grants_weapon_line": 7,
       "group_id": "og-hornet-1",
       "id": "oc-hornet-1-5",
       "is_default": false,
       "is_no_change": false,
-      "name": "Starcannon",
-      "replaces_weapon_line": 7
+      "items": [
+        {
+          "item_index": 1,
+          "item_name": "Starcannon",
+          "role": "granted",
+          "weapon_line": 7
+        },
+        {
+          "item_index": 1,
+          "item_name": "Hornet pulse lasers",
+          "role": "replaced"
+        }
+      ],
+      "name": "Starcannon"
     }
   ],
   "option_groups": [
@@ -128,12 +212,12 @@
     }
   ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 3,
+    "consecutive_unverified_releases": 4,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
+    "detail_acquisition_id": "wahapedia-20260814T171635Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,

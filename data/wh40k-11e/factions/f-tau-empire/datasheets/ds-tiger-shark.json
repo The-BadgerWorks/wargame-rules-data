@@ -20,7 +20,7 @@
       "model_count": 1,
       "points": 375,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T170952Z-0c772378"
     },
     {
       "copy_index_min": 2,
@@ -28,11 +28,45 @@
       "model_count": 1,
       "points": 425,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T170952Z-0c772378"
     }
   ],
   "damaged_threshold": 6,
   "datasheet_id": "ds-tiger-shark",
+  "default_equipment_state": "extracted",
+  "equipment_groups": [
+    {
+      "applies_to": "unit",
+      "id": "eq-tiger-shark-1",
+      "items": [
+        {
+          "count": 2,
+          "item_index": 1,
+          "item_name": "burst cannons"
+        },
+        {
+          "count": 2,
+          "item_index": 2,
+          "item_name": "ion cannons"
+        },
+        {
+          "count": 2,
+          "item_index": 3,
+          "item_name": "missile pods"
+        },
+        {
+          "item_index": 4,
+          "item_name": "armoured hull",
+          "weapon_line": 11
+        },
+        {
+          "item_index": 5,
+          "item_name": "transport bay"
+        }
+      ],
+      "line": 1
+    }
+  ],
   "faction_id": "f-tau-empire",
   "is_battleline": false,
   "is_character": false,
@@ -74,6 +108,19 @@
       "id": "oc-tiger-shark-1-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 2,
+          "item_index": 1,
+          "item_name": "cyclic ion blasters",
+          "role": "granted"
+        },
+        {
+          "item_index": 1,
+          "item_name": "’s 2 burst cannons",
+          "role": "replaced"
+        }
+      ],
       "name": "cyclic ion blasters"
     },
     {
@@ -82,6 +129,19 @@
       "id": "oc-tiger-shark-2-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 2,
+          "item_index": 1,
+          "item_name": "swiftstrike burst cannons",
+          "role": "granted"
+        },
+        {
+          "item_index": 1,
+          "item_name": "’s 2 ion cannons",
+          "role": "replaced"
+        }
+      ],
       "name": "swiftstrike burst cannons"
     },
     {
@@ -90,6 +150,19 @@
       "id": "oc-tiger-shark-2-2",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 2,
+          "item_index": 1,
+          "item_name": "swiftstrike railguns",
+          "role": "granted"
+        },
+        {
+          "item_index": 1,
+          "item_name": "’s 2 ion cannons",
+          "role": "replaced"
+        }
+      ],
       "name": "swiftstrike railguns"
     },
     {
@@ -97,6 +170,13 @@
       "id": "oc-tiger-shark-3-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "item_index": 1,
+          "item_name": "up to 6 seeker missiles",
+          "role": "granted"
+        }
+      ],
       "name": "up to 6 seeker missiles"
     },
     {
@@ -105,6 +185,19 @@
       "id": "oc-tiger-shark-4-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 2,
+          "item_index": 1,
+          "item_name": "skyspear missile racks",
+          "role": "granted"
+        },
+        {
+          "item_index": 1,
+          "item_name": "’s transport bay",
+          "role": "replaced"
+        }
+      ],
       "name": "skyspear missile racks"
     }
   ],
@@ -133,15 +226,15 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:00f5569442aefde60e5dab196ab7f70f6e3a00aec5b933b030789dc8ebc329f0",
-    "last_verified_version": "wh40k-11e-2026-08-2",
+    "last_verified_version": "wh40k-11e-2026-08-3",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
+    "detail_acquisition_id": "wahapedia-20260814T171635Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260812T223703Z-6694568f",
+    "points_acquisition_id": "mfm-20260814T170952Z-0c772378",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },

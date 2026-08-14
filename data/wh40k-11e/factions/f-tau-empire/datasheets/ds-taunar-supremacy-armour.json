@@ -21,7 +21,7 @@
       "model_count": 1,
       "points": 790,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T170952Z-0c772378"
     },
     {
       "copy_index_min": 2,
@@ -29,11 +29,50 @@
       "model_count": 1,
       "points": 890,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T170952Z-0c772378"
     }
   ],
   "damaged_threshold": 10,
   "datasheet_id": "ds-taunar-supremacy-armour",
+  "default_equipment_state": "extracted",
+  "equipment_groups": [
+    {
+      "applies_to": "unit",
+      "id": "eq-taunar-supremacy-armour-1",
+      "items": [
+        {
+          "count": 4,
+          "item_index": 1,
+          "item_name": "burst cannons"
+        },
+        {
+          "item_index": 2,
+          "item_name": "fusion eradicator",
+          "weapon_line": 3
+        },
+        {
+          "count": 3,
+          "item_index": 3,
+          "item_name": "pulse ordnance drivers"
+        },
+        {
+          "count": 4,
+          "item_index": 4,
+          "item_name": "smart missile systems"
+        },
+        {
+          "item_index": 5,
+          "item_name": "tri-axis ion cannon"
+        },
+        {
+          "item_index": 6,
+          "item_name": "crushing feet",
+          "weapon_line": 10
+        }
+      ],
+      "line": 1
+    }
+  ],
   "faction_id": "f-tau-empire",
   "is_battleline": false,
   "is_character": false,
@@ -95,12 +134,26 @@
   "option_choices": [
     {
       "count": 1,
+      "grants_weapon_line": 3,
       "group_id": "og-taunar-supremacy-armour-1",
       "id": "oc-taunar-supremacy-armour-1-1",
       "is_default": false,
       "is_no_change": false,
-      "name": "fusion eradicator",
-      "replaces_weapon_line": 3
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "fusion eradicator",
+          "role": "granted",
+          "weapon_line": 3
+        },
+        {
+          "item_index": 1,
+          "item_name": "’s tri-axis ion cannon",
+          "role": "replaced"
+        }
+      ],
+      "name": "fusion eradicator"
     },
     {
       "count": 1,
@@ -108,6 +161,19 @@
       "id": "oc-taunar-supremacy-armour-2-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "tri-axis ion cannon",
+          "role": "granted"
+        },
+        {
+          "item_index": 1,
+          "item_name": "’s fusion eradicator",
+          "role": "replaced"
+        }
+      ],
       "name": "tri-axis ion cannon"
     },
     {
@@ -116,6 +182,19 @@
       "id": "oc-taunar-supremacy-armour-3-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 2,
+          "item_index": 1,
+          "item_name": "nexus missile launchers",
+          "role": "granted"
+        },
+        {
+          "item_index": 1,
+          "item_name": "’s 3 pulse ordnance drivers",
+          "role": "replaced"
+        }
+      ],
       "name": "nexus missile launchers"
     },
     {
@@ -124,6 +203,27 @@
       "id": "oc-taunar-supremacy-armour-3-2",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "heavy rail cannon array",
+          "role": "granted",
+          "weapon_line": 4
+        },
+        {
+          "count": 1,
+          "item_index": 2,
+          "item_name": "fragmentation cluster shell launcher",
+          "role": "granted",
+          "weapon_line": 2
+        },
+        {
+          "item_index": 1,
+          "item_name": "’s 3 pulse ordnance drivers",
+          "role": "replaced"
+        }
+      ],
       "name": "heavy rail cannon array and 1 fragmentation cluster shell launcher"
     }
   ],
@@ -147,15 +247,15 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:e4feae70607b52826c53163cf891b0889728e3d56f34379ce1c3d45f347f83bb",
-    "last_verified_version": "wh40k-11e-2026-08-2",
+    "last_verified_version": "wh40k-11e-2026-08-3",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
+    "detail_acquisition_id": "wahapedia-20260814T171635Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260812T223703Z-6694568f",
+    "points_acquisition_id": "mfm-20260814T170952Z-0c772378",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },

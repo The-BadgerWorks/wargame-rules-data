@@ -10,7 +10,7 @@
       "model_count": 10,
       "points": 75,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T170952Z-0c772378"
     },
     {
       "copy_index_min": 1,
@@ -18,7 +18,7 @@
       "model_count": 20,
       "points": 145,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T170952Z-0c772378"
     }
   ],
   "datasheet_id": "ds-cadian-shock-troops",
@@ -97,6 +97,21 @@
       "id": "oc-cadian-shock-troops-1-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "flamer",
+          "role": "granted",
+          "weapon_line": 2
+        },
+        {
+          "item_index": 1,
+          "item_name": "lasgun",
+          "role": "replaced",
+          "weapon_line": 5
+        }
+      ],
       "name": "flamer",
       "replaces_weapon_line": 5
     },
@@ -106,6 +121,20 @@
       "id": "oc-cadian-shock-troops-1-2",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "grenade launcher",
+          "role": "granted"
+        },
+        {
+          "item_index": 1,
+          "item_name": "lasgun",
+          "role": "replaced",
+          "weapon_line": 5
+        }
+      ],
       "name": "grenade launcher",
       "replaces_weapon_line": 5
     },
@@ -116,6 +145,21 @@
       "id": "oc-cadian-shock-troops-1-3",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "meltagun",
+          "role": "granted",
+          "weapon_line": 7
+        },
+        {
+          "item_index": 1,
+          "item_name": "lasgun",
+          "role": "replaced",
+          "weapon_line": 5
+        }
+      ],
       "name": "meltagun",
       "replaces_weapon_line": 5
     },
@@ -125,6 +169,20 @@
       "id": "oc-cadian-shock-troops-1-4",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "plasma gun",
+          "role": "granted"
+        },
+        {
+          "item_index": 1,
+          "item_name": "lasgun",
+          "role": "replaced",
+          "weapon_line": 5
+        }
+      ],
       "name": "plasma gun",
       "replaces_weapon_line": 5
     },
@@ -134,6 +192,14 @@
       "id": "oc-cadian-shock-troops-2-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "vox-caster (that model’s lasgun cannot be replaced)",
+          "role": "granted"
+        }
+      ],
       "name": "vox-caster (that model’s lasgun cannot be replaced)"
     },
     {
@@ -143,6 +209,21 @@
       "id": "oc-cadian-shock-troops-3-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "bolt pistol",
+          "role": "granted",
+          "weapon_line": 1
+        },
+        {
+          "item_index": 1,
+          "item_name": "laspistol",
+          "role": "replaced",
+          "weapon_line": 6
+        }
+      ],
       "name": "bolt pistol",
       "replaces_weapon_line": 6
     },
@@ -152,12 +233,41 @@
       "id": "oc-cadian-shock-troops-4-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "Sergeant's autogun",
+          "role": "granted",
+          "weapon_line": 10
+        },
+        {
+          "count": 1,
+          "item_index": 2,
+          "item_name": "close combat weapon",
+          "role": "granted",
+          "weapon_line": 12
+        },
+        {
+          "item_index": 1,
+          "item_name": "laspistol",
+          "role": "replaced",
+          "weapon_line": 6
+        },
+        {
+          "item_index": 2,
+          "item_name": "chainsword",
+          "role": "replaced",
+          "weapon_line": 11
+        }
+      ],
       "name": "Sergeant's autogun and 1 close combat weapon"
     }
   ],
   "option_groups": [
     {
       "id": "og-cadian-shock-troops-1",
+      "is_per_model": true,
       "line": 1,
       "scope": "per_n_models",
       "scope_n": 10
@@ -169,12 +279,16 @@
       "scope_n": 10
     },
     {
+      "eligible_model_name": "Shock Trooper Sergeants",
       "id": "og-cadian-shock-troops-3",
+      "is_per_model": true,
       "line": 3,
       "scope": "unit"
     },
     {
+      "eligible_model_name": "Shock Trooper Sergeants",
       "id": "og-cadian-shock-troops-4",
+      "is_per_model": true,
       "line": 4,
       "scope": "unit"
     }
@@ -182,15 +296,15 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:e8eebeffaae8e7624a6969e3b509431ddb4a430251859cffe71eaf2116fa833a",
-    "last_verified_version": "wh40k-11e-2026-08-2",
+    "last_verified_version": "wh40k-11e-2026-08-3",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
+    "detail_acquisition_id": "wahapedia-20260814T171635Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260812T223703Z-6694568f",
+    "points_acquisition_id": "mfm-20260814T170952Z-0c772378",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },

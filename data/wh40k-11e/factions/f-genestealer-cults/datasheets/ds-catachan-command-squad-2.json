@@ -29,10 +29,55 @@
       "model_count": 5,
       "points": 60,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260812T223905Z-9a337975"
+      "source_acquisition_id": "wahapedia-20260814T171635Z-9a337975"
     }
   ],
   "datasheet_id": "ds-catachan-command-squad-2",
+  "default_equipment_state": "extracted",
+  "equipment_groups": [
+    {
+      "applies_to": "model_group",
+      "composition_line": 1,
+      "id": "eq-catachan-command-squad-2-1",
+      "items": [
+        {
+          "item_index": 1,
+          "item_name": "laspistol",
+          "weapon_line": 8
+        },
+        {
+          "item_index": 2,
+          "item_name": "close combat weapon",
+          "weapon_line": 16
+        }
+      ],
+      "line": 1,
+      "model_name": "Catachan Commander"
+    },
+    {
+      "applies_to": "model_group",
+      "id": "eq-catachan-command-squad-2-2",
+      "items": [
+        {
+          "item_index": 1,
+          "item_name": "lasgun",
+          "weapon_line": 7
+        },
+        {
+          "item_index": 2,
+          "item_name": "laspistol",
+          "weapon_line": 8
+        },
+        {
+          "item_index": 3,
+          "item_name": "close combat weapon",
+          "weapon_line": 16
+        }
+      ],
+      "line": 2,
+      "model_name": "Veteran Guardsman"
+    }
+  ],
   "faction_id": "f-genestealer-cults",
   "is_battleline": false,
   "is_character": true,
@@ -130,6 +175,21 @@
       "id": "oc-catachan-command-squad-2-1-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "flamer",
+          "role": "granted",
+          "weapon_line": 3
+        },
+        {
+          "item_index": 1,
+          "item_name": "lasgun",
+          "role": "replaced",
+          "weapon_line": 7
+        }
+      ],
       "name": "flamer",
       "replaces_weapon_line": 7
     },
@@ -139,6 +199,20 @@
       "id": "oc-catachan-command-squad-2-1-2",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "grenade launcher",
+          "role": "granted"
+        },
+        {
+          "item_index": 1,
+          "item_name": "lasgun",
+          "role": "replaced",
+          "weapon_line": 7
+        }
+      ],
       "name": "grenade launcher",
       "replaces_weapon_line": 7
     },
@@ -149,6 +223,21 @@
       "id": "oc-catachan-command-squad-2-1-3",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "heavy flamer",
+          "role": "granted",
+          "weapon_line": 6
+        },
+        {
+          "item_index": 1,
+          "item_name": "lasgun",
+          "role": "replaced",
+          "weapon_line": 7
+        }
+      ],
       "name": "heavy flamer",
       "replaces_weapon_line": 7
     },
@@ -159,6 +248,21 @@
       "id": "oc-catachan-command-squad-2-1-4",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "meltagun",
+          "role": "granted",
+          "weapon_line": 9
+        },
+        {
+          "item_index": 1,
+          "item_name": "lasgun",
+          "role": "replaced",
+          "weapon_line": 7
+        }
+      ],
       "name": "meltagun",
       "replaces_weapon_line": 7
     },
@@ -168,6 +272,20 @@
       "id": "oc-catachan-command-squad-2-1-5",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "plasma gun",
+          "role": "granted"
+        },
+        {
+          "item_index": 1,
+          "item_name": "lasgun",
+          "role": "replaced",
+          "weapon_line": 7
+        }
+      ],
       "name": "plasma gun",
       "replaces_weapon_line": 7
     },
@@ -178,6 +296,21 @@
       "id": "oc-catachan-command-squad-2-1-6",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "sniper rifle",
+          "role": "granted",
+          "weapon_line": 14
+        },
+        {
+          "item_index": 1,
+          "item_name": "lasgun",
+          "role": "replaced",
+          "weapon_line": 7
+        }
+      ],
       "name": "sniper rifle",
       "replaces_weapon_line": 7
     },
@@ -187,16 +320,38 @@
       "id": "oc-catachan-command-squad-2-4-1",
       "is_default": false,
       "is_no_change": false,
-      "name": "regimental standard.**"
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "regimental standard.",
+          "role": "granted"
+        }
+      ],
+      "name": "regimental standard."
     },
     {
       "count": 1,
+      "grants_weapon_line": 1,
       "group_id": "og-catachan-command-squad-2-5",
       "id": "oc-catachan-command-squad-2-5-1",
       "is_default": false,
       "is_no_change": false,
-      "name": "bolt pistol",
-      "replaces_weapon_line": 1
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "bolt pistol",
+          "role": "granted",
+          "weapon_line": 1
+        },
+        {
+          "item_index": 1,
+          "item_name": "Catachan Commander’s laspistol",
+          "role": "replaced"
+        }
+      ],
+      "name": "bolt pistol"
     },
     {
       "count": 1,
@@ -204,6 +359,19 @@
       "id": "oc-catachan-command-squad-2-5-2",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "plasma pistol",
+          "role": "granted"
+        },
+        {
+          "item_index": 1,
+          "item_name": "Catachan Commander’s laspistol",
+          "role": "replaced"
+        }
+      ],
       "name": "plasma pistol"
     },
     {
@@ -213,6 +381,15 @@
       "id": "oc-catachan-command-squad-2-6-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "boltgun",
+          "role": "granted",
+          "weapon_line": 2
+        }
+      ],
       "name": "boltgun"
     },
     {
@@ -222,6 +399,15 @@
       "id": "oc-catachan-command-squad-2-6-2",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "chainsword",
+          "role": "granted",
+          "weapon_line": 15
+        }
+      ],
       "name": "chainsword"
     },
     {
@@ -231,6 +417,15 @@
       "id": "oc-catachan-command-squad-2-6-3",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "power fist",
+          "role": "granted",
+          "weapon_line": 17
+        }
+      ],
       "name": "power fist"
     },
     {
@@ -240,12 +435,23 @@
       "id": "oc-catachan-command-squad-2-6-4",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "power weapon",
+          "role": "granted",
+          "weapon_line": 18
+        }
+      ],
       "name": "power weapon"
     }
   ],
   "option_groups": [
     {
+      "eligible_model_name": "Veteran Guardsmen",
       "id": "og-catachan-command-squad-2-1",
+      "is_per_model": true,
       "line": 1,
       "scope": "unit"
     },
@@ -266,12 +472,12 @@
     }
   ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 3,
+    "consecutive_unverified_releases": 4,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
+    "detail_acquisition_id": "wahapedia-20260814T171635Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,

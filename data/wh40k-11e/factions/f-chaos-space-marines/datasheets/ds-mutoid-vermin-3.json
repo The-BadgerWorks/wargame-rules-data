@@ -20,10 +20,25 @@
       "model_count": 16,
       "points": 85,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260812T223905Z-9a337975"
+      "source_acquisition_id": "wahapedia-20260814T171635Z-9a337975"
     }
   ],
   "datasheet_id": "ds-mutoid-vermin-3",
+  "default_equipment_state": "extracted",
+  "equipment_groups": [
+    {
+      "applies_to": "unit",
+      "id": "eq-mutoid-vermin-3-1",
+      "items": [
+        {
+          "item_index": 1,
+          "item_name": "diseased claws and fangs",
+          "weapon_line": 1
+        }
+      ],
+      "line": 1
+    }
+  ],
   "faction_id": "f-chaos-space-marines",
   "is_battleline": false,
   "is_character": false,
@@ -76,12 +91,12 @@
   ],
   "name": "Mutoid Vermin",
   "pricing_confidence": {
-    "consecutive_unverified_releases": 3,
+    "consecutive_unverified_releases": 4,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
+    "detail_acquisition_id": "wahapedia-20260814T171635Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,

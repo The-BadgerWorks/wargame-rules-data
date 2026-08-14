@@ -31,10 +31,50 @@
       "model_count": 9,
       "points": 65,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T170952Z-0c772378"
     }
   ],
   "datasheet_id": "ds-servitor-battleclade",
+  "default_equipment_state": "partial",
+  "equipment_groups": [
+    {
+      "applies_to": "model_group",
+      "composition_line": 1,
+      "id": "eq-servitor-battleclade-1",
+      "items": [
+        {
+          "item_index": 1,
+          "item_name": "Mechanicus pistol",
+          "weapon_line": 4
+        },
+        {
+          "item_index": 2,
+          "item_name": "dataspikes",
+          "weapon_line": 7
+        }
+      ],
+      "line": 1,
+      "model_name": "Servitor Underseer"
+    },
+    {
+      "applies_to": "model_group",
+      "id": "eq-servitor-battleclade-4",
+      "items": [
+        {
+          "item_index": 1,
+          "item_name": "phosphor blaster",
+          "weapon_line": 6
+        },
+        {
+          "item_index": 2,
+          "item_name": "servo-claw",
+          "weapon_line": 8
+        }
+      ],
+      "line": 4,
+      "model_name": "Combat Servitor"
+    }
+  ],
   "faction_id": "f-adeptus-mechanicus",
   "is_battleline": false,
   "is_character": false,
@@ -113,13 +153,32 @@
       "id": "oc-servitor-battleclade-2-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "incendine igniter",
+          "role": "granted",
+          "weapon_line": 3
+        },
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "phosphor blaster",
+          "role": "replaced",
+          "weapon_line": 6
+        }
+      ],
       "name": "incendine igniter",
       "replaces_weapon_line": 6
     }
   ],
   "option_groups": [
     {
+      "eligible_max_count": 3,
+      "eligible_model_name": "Combat Servitor",
       "id": "og-servitor-battleclade-2",
+      "is_per_model": true,
       "line": 2,
       "scope": "unit"
     }
@@ -127,15 +186,15 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:e4b0dd9a5863d4f3ef69c1e01dc0e74ff8b1dd9134dff514e62ddb8c648c88b6",
-    "last_verified_version": "wh40k-11e-2026-08-2",
+    "last_verified_version": "wh40k-11e-2026-08-3",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
+    "detail_acquisition_id": "wahapedia-20260814T171635Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260812T223703Z-6694568f",
+    "points_acquisition_id": "mfm-20260814T170952Z-0c772378",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },

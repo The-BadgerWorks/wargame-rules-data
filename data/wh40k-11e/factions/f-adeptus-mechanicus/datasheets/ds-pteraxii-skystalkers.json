@@ -26,7 +26,7 @@
       "model_count": 5,
       "points": 80,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T170952Z-0c772378"
     },
     {
       "copy_index_min": 1,
@@ -34,7 +34,7 @@
       "model_count": 10,
       "points": 150,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T170952Z-0c772378"
     },
     {
       "copy_index_min": 3,
@@ -42,7 +42,7 @@
       "model_count": 5,
       "points": 90,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T170952Z-0c772378"
     },
     {
       "copy_index_min": 3,
@@ -50,10 +50,50 @@
       "model_count": 10,
       "points": 160,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T170952Z-0c772378"
     }
   ],
   "datasheet_id": "ds-pteraxii-skystalkers",
+  "default_equipment_state": "extracted",
+  "equipment_groups": [
+    {
+      "applies_to": "model_group",
+      "composition_line": 1,
+      "id": "eq-pteraxii-skystalkers-1",
+      "items": [
+        {
+          "item_index": 1,
+          "item_name": "flechette blaster",
+          "weapon_line": 1
+        },
+        {
+          "item_index": 2,
+          "item_name": "taser goad",
+          "weapon_line": 4
+        }
+      ],
+      "line": 1,
+      "model_name": "Pteraxii Skystalker Alpha model"
+    },
+    {
+      "applies_to": "model_group",
+      "id": "eq-pteraxii-skystalkers-2",
+      "items": [
+        {
+          "item_index": 1,
+          "item_name": "flechette carbine",
+          "weapon_line": 2
+        },
+        {
+          "item_index": 2,
+          "item_name": "close combat weapon",
+          "weapon_line": 3
+        }
+      ],
+      "line": 2,
+      "model_name": "Pteraxii Skystalker model"
+    }
+  ],
   "faction_id": "f-adeptus-mechanicus",
   "is_battleline": false,
   "is_character": false,
@@ -125,15 +165,15 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:71e145cf961f7dff122a0e60efab2a46d1abc41416e0420abc79a92855577b59",
-    "last_verified_version": "wh40k-11e-2026-08-2",
+    "last_verified_version": "wh40k-11e-2026-08-3",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
+    "detail_acquisition_id": "wahapedia-20260814T171635Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260812T223703Z-6694568f",
+    "points_acquisition_id": "mfm-20260814T170952Z-0c772378",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },

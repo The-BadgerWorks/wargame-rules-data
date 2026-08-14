@@ -20,7 +20,7 @@
       "model_count": 1,
       "points": 230,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T170952Z-0c772378"
     },
     {
       "copy_index_min": 3,
@@ -28,11 +28,50 @@
       "model_count": 1,
       "points": 250,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T170952Z-0c772378"
     }
   ],
   "damaged_threshold": 5,
   "datasheet_id": "ds-repulsor-executioner-2",
+  "default_equipment_state": "extracted",
+  "equipment_groups": [
+    {
+      "applies_to": "unit",
+      "id": "eq-repulsor-executioner-2-1",
+      "items": [
+        {
+          "item_index": 1,
+          "item_name": "heavy onslaught gatling cannon",
+          "weapon_line": 2
+        },
+        {
+          "item_index": 2,
+          "item_name": "macro plasma incinerator"
+        },
+        {
+          "item_index": 3,
+          "item_name": "Repulsor Executioner defensive array",
+          "weapon_line": 7
+        },
+        {
+          "item_index": 4,
+          "item_name": "twin heavy bolter",
+          "weapon_line": 8
+        },
+        {
+          "item_index": 5,
+          "item_name": "twin Icarus ironhail heavy stubber",
+          "weapon_line": 9
+        },
+        {
+          "item_index": 6,
+          "item_name": "armoured hull",
+          "weapon_line": 10
+        }
+      ],
+      "line": 1
+    }
+  ],
   "faction_id": "f-blood-angels",
   "is_battleline": false,
   "is_character": false,
@@ -97,12 +136,26 @@
   "option_choices": [
     {
       "count": 1,
+      "grants_weapon_line": 1,
       "group_id": "og-repulsor-executioner-2-1",
       "id": "oc-repulsor-executioner-2-1-1",
       "is_default": false,
       "is_no_change": false,
-      "name": "heavy laser destroyer",
-      "replaces_weapon_line": 1
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "heavy laser destroyer",
+          "role": "granted",
+          "weapon_line": 1
+        },
+        {
+          "item_index": 1,
+          "item_name": "’s macro plasma incinerator",
+          "role": "replaced"
+        }
+      ],
+      "name": "heavy laser destroyer"
     },
     {
       "count": 1,
@@ -111,6 +164,15 @@
       "id": "oc-repulsor-executioner-2-2-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "ironhail heavy stubber",
+          "role": "granted",
+          "weapon_line": 4
+        }
+      ],
       "name": "ironhail heavy stubber"
     },
     {
@@ -120,6 +182,15 @@
       "id": "oc-repulsor-executioner-2-3-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "Icarus rocket pod",
+          "role": "granted",
+          "weapon_line": 3
+        }
+      ],
       "name": "Icarus rocket pod"
     }
   ],
@@ -143,15 +214,15 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:9d1929f2c01c138699addc97884a15db862b517319c3225cbc424b0c1d045865",
-    "last_verified_version": "wh40k-11e-2026-08-2",
+    "last_verified_version": "wh40k-11e-2026-08-3",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
+    "detail_acquisition_id": "wahapedia-20260814T171635Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260812T223703Z-6694568f",
+    "points_acquisition_id": "mfm-20260814T170952Z-0c772378",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },

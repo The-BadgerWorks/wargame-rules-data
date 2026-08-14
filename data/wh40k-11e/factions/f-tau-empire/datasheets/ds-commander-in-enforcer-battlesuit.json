@@ -24,10 +24,30 @@
       "model_count": 1,
       "points": 80,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T170952Z-0c772378"
     }
   ],
   "datasheet_id": "ds-commander-in-enforcer-battlesuit",
+  "default_equipment_state": "extracted",
+  "equipment_groups": [
+    {
+      "applies_to": "unit",
+      "id": "eq-commander-in-enforcer-battlesuit-1",
+      "items": [
+        {
+          "item_index": 1,
+          "item_name": "burst cannon",
+          "weapon_line": 2
+        },
+        {
+          "item_index": 2,
+          "item_name": "battlesuit fists",
+          "weapon_line": 9
+        }
+      ],
+      "line": 1
+    }
+  ],
   "faction_id": "f-tau-empire",
   "is_battleline": false,
   "is_character": true,
@@ -94,12 +114,26 @@
   "option_choices": [
     {
       "count": 1,
+      "grants_weapon_line": 1,
       "group_id": "og-commander-in-enforcer-battlesuit-1",
       "id": "oc-commander-in-enforcer-battlesuit-1-1",
       "is_default": false,
       "is_no_change": false,
-      "name": "airbursting fragmentation projector*",
-      "replaces_weapon_line": 1
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "airbursting fragmentation projector",
+          "role": "granted",
+          "weapon_line": 1
+        },
+        {
+          "item_index": 1,
+          "item_name": "’s burst cannon",
+          "role": "replaced"
+        }
+      ],
+      "name": "airbursting fragmentation projector"
     },
     {
       "count": 1,
@@ -107,7 +141,20 @@
       "id": "oc-commander-in-enforcer-battlesuit-1-2",
       "is_default": false,
       "is_no_change": false,
-      "name": "battlesuit support system*"
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "battlesuit support system",
+          "role": "granted"
+        },
+        {
+          "item_index": 1,
+          "item_name": "’s burst cannon",
+          "role": "replaced"
+        }
+      ],
+      "name": "battlesuit support system"
     },
     {
       "count": 1,
@@ -115,34 +162,89 @@
       "id": "oc-commander-in-enforcer-battlesuit-1-3",
       "is_default": false,
       "is_no_change": false,
-      "name": "cyclic ion blaster*"
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "cyclic ion blaster",
+          "role": "granted"
+        },
+        {
+          "item_index": 1,
+          "item_name": "’s burst cannon",
+          "role": "replaced"
+        }
+      ],
+      "name": "cyclic ion blaster"
     },
     {
       "count": 1,
+      "grants_weapon_line": 5,
       "group_id": "og-commander-in-enforcer-battlesuit-1",
       "id": "oc-commander-in-enforcer-battlesuit-1-4",
       "is_default": false,
       "is_no_change": false,
-      "name": "fusion blaster",
-      "replaces_weapon_line": 5
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "fusion blaster",
+          "role": "granted",
+          "weapon_line": 5
+        },
+        {
+          "item_index": 1,
+          "item_name": "’s burst cannon",
+          "role": "replaced"
+        }
+      ],
+      "name": "fusion blaster"
     },
     {
       "count": 1,
+      "grants_weapon_line": 6,
       "group_id": "og-commander-in-enforcer-battlesuit-1",
       "id": "oc-commander-in-enforcer-battlesuit-1-5",
       "is_default": false,
       "is_no_change": false,
-      "name": "missile pod",
-      "replaces_weapon_line": 6
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "missile pod",
+          "role": "granted",
+          "weapon_line": 6
+        },
+        {
+          "item_index": 1,
+          "item_name": "’s burst cannon",
+          "role": "replaced"
+        }
+      ],
+      "name": "missile pod"
     },
     {
       "count": 1,
+      "grants_weapon_line": 7,
       "group_id": "og-commander-in-enforcer-battlesuit-1",
       "id": "oc-commander-in-enforcer-battlesuit-1-6",
       "is_default": false,
       "is_no_change": false,
-      "name": "plasma rifle",
-      "replaces_weapon_line": 7
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "plasma rifle",
+          "role": "granted",
+          "weapon_line": 7
+        },
+        {
+          "item_index": 1,
+          "item_name": "’s burst cannon",
+          "role": "replaced"
+        }
+      ],
+      "name": "plasma rifle"
     },
     {
       "count": 1,
@@ -150,16 +252,43 @@
       "id": "oc-commander-in-enforcer-battlesuit-1-7",
       "is_default": false,
       "is_no_change": false,
-      "name": "shield generator*"
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "shield generator",
+          "role": "granted"
+        },
+        {
+          "item_index": 1,
+          "item_name": "’s burst cannon",
+          "role": "replaced"
+        }
+      ],
+      "name": "shield generator"
     },
     {
       "count": 1,
+      "grants_weapon_line": 8,
       "group_id": "og-commander-in-enforcer-battlesuit-1",
       "id": "oc-commander-in-enforcer-battlesuit-1-8",
       "is_default": false,
       "is_no_change": false,
-      "name": "T’au flamer",
-      "replaces_weapon_line": 8
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "T’au flamer",
+          "role": "granted",
+          "weapon_line": 8
+        },
+        {
+          "item_index": 1,
+          "item_name": "’s burst cannon",
+          "role": "replaced"
+        }
+      ],
+      "name": "T’au flamer"
     },
     {
       "count": 1,
@@ -167,7 +296,20 @@
       "id": "oc-commander-in-enforcer-battlesuit-1-9",
       "is_default": false,
       "is_no_change": false,
-      "name": "weapon support system*"
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "weapon support system",
+          "role": "granted"
+        },
+        {
+          "item_index": 1,
+          "item_name": "’s burst cannon",
+          "role": "replaced"
+        }
+      ],
+      "name": "weapon support system"
     },
     {
       "count": 1,
@@ -175,6 +317,14 @@
       "id": "oc-commander-in-enforcer-battlesuit-2-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "gun drone",
+          "role": "granted"
+        }
+      ],
       "name": "gun drone"
     },
     {
@@ -183,6 +333,14 @@
       "id": "oc-commander-in-enforcer-battlesuit-2-2",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "marker drone",
+          "role": "granted"
+        }
+      ],
       "name": "marker drone"
     },
     {
@@ -191,6 +349,14 @@
       "id": "oc-commander-in-enforcer-battlesuit-2-3",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "shield drone",
+          "role": "granted"
+        }
+      ],
       "name": "shield drone"
     },
     {
@@ -200,7 +366,16 @@
       "id": "oc-commander-in-enforcer-battlesuit-3-1",
       "is_default": false,
       "is_no_change": false,
-      "name": "airbursting fragmentation projector*"
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "airbursting fragmentation projector",
+          "role": "granted",
+          "weapon_line": 1
+        }
+      ],
+      "name": "airbursting fragmentation projector"
     },
     {
       "count": 1,
@@ -208,7 +383,15 @@
       "id": "oc-commander-in-enforcer-battlesuit-3-10",
       "is_default": false,
       "is_no_change": false,
-      "name": "weapon support system*"
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "weapon support system",
+          "role": "granted"
+        }
+      ],
+      "name": "weapon support system"
     },
     {
       "count": 1,
@@ -216,7 +399,15 @@
       "id": "oc-commander-in-enforcer-battlesuit-3-2",
       "is_default": false,
       "is_no_change": false,
-      "name": "battlesuit support system*"
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "battlesuit support system",
+          "role": "granted"
+        }
+      ],
+      "name": "battlesuit support system"
     },
     {
       "count": 1,
@@ -225,6 +416,15 @@
       "id": "oc-commander-in-enforcer-battlesuit-3-3",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "burst cannon",
+          "role": "granted",
+          "weapon_line": 2
+        }
+      ],
       "name": "burst cannon"
     },
     {
@@ -233,7 +433,15 @@
       "id": "oc-commander-in-enforcer-battlesuit-3-4",
       "is_default": false,
       "is_no_change": false,
-      "name": "cyclic ion blaster*"
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "cyclic ion blaster",
+          "role": "granted"
+        }
+      ],
+      "name": "cyclic ion blaster"
     },
     {
       "count": 1,
@@ -242,6 +450,15 @@
       "id": "oc-commander-in-enforcer-battlesuit-3-5",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "fusion blaster",
+          "role": "granted",
+          "weapon_line": 5
+        }
+      ],
       "name": "fusion blaster"
     },
     {
@@ -251,6 +468,15 @@
       "id": "oc-commander-in-enforcer-battlesuit-3-6",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "missile pod",
+          "role": "granted",
+          "weapon_line": 6
+        }
+      ],
       "name": "missile pod"
     },
     {
@@ -260,6 +486,15 @@
       "id": "oc-commander-in-enforcer-battlesuit-3-7",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "plasma rifle",
+          "role": "granted",
+          "weapon_line": 7
+        }
+      ],
       "name": "plasma rifle"
     },
     {
@@ -268,7 +503,15 @@
       "id": "oc-commander-in-enforcer-battlesuit-3-8",
       "is_default": false,
       "is_no_change": false,
-      "name": "shield generator*"
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "shield generator",
+          "role": "granted"
+        }
+      ],
+      "name": "shield generator"
     },
     {
       "count": 1,
@@ -277,6 +520,15 @@
       "id": "oc-commander-in-enforcer-battlesuit-3-9",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "T’au flamer",
+          "role": "granted",
+          "weapon_line": 8
+        }
+      ],
       "name": "T’au flamer"
     }
   ],
@@ -302,15 +554,15 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:1d28e8ecc53fabf8370677d1207b796a090869ddce53671a84a15b7879bb6f71",
-    "last_verified_version": "wh40k-11e-2026-08-2",
+    "last_verified_version": "wh40k-11e-2026-08-3",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
+    "detail_acquisition_id": "wahapedia-20260814T171635Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260812T223703Z-6694568f",
+    "points_acquisition_id": "mfm-20260814T170952Z-0c772378",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },

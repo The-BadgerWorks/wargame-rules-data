@@ -21,7 +21,7 @@
       "model_count": 1,
       "points": 725,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T170952Z-0c772378"
     },
     {
       "copy_index_min": 2,
@@ -29,11 +29,41 @@
       "model_count": 1,
       "points": 800,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T170952Z-0c772378"
     }
   ],
   "damaged_threshold": 10,
   "datasheet_id": "ds-acastus-knight-porphyrion",
+  "default_equipment_state": "extracted",
+  "equipment_groups": [
+    {
+      "applies_to": "unit",
+      "id": "eq-acastus-knight-porphyrion-1",
+      "items": [
+        {
+          "count": 2,
+          "item_index": 1,
+          "item_name": "Acastus autocannons"
+        },
+        {
+          "item_index": 2,
+          "item_name": "Acastus ironstorm missile pod",
+          "weapon_line": 2
+        },
+        {
+          "count": 2,
+          "item_index": 3,
+          "item_name": "twin magna lascannons"
+        },
+        {
+          "item_index": 4,
+          "item_name": "titanic feet",
+          "weapon_line": 6
+        }
+      ],
+      "line": 1
+    }
+  ],
   "faction_id": "f-imperial-knights",
   "is_battleline": false,
   "is_character": false,
@@ -104,6 +134,19 @@
       "id": "oc-acastus-knight-porphyrion-1-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 2,
+          "item_index": 1,
+          "item_name": "lascannons",
+          "role": "granted"
+        },
+        {
+          "item_index": 1,
+          "item_name": "’s 2 Acastus autocannons",
+          "role": "replaced"
+        }
+      ],
       "name": "lascannons"
     },
     {
@@ -112,16 +155,51 @@
       "id": "oc-acastus-knight-porphyrion-1-2",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "Acastus autocannon",
+          "role": "granted",
+          "weapon_line": 1
+        },
+        {
+          "count": 1,
+          "item_index": 2,
+          "item_name": "lascannon",
+          "role": "granted",
+          "weapon_line": 4
+        },
+        {
+          "item_index": 1,
+          "item_name": "’s 2 Acastus autocannons",
+          "role": "replaced"
+        }
+      ],
       "name": "Acastus autocannon and 1 lascannon"
     },
     {
       "count": 1,
+      "grants_weapon_line": 3,
       "group_id": "og-acastus-knight-porphyrion-2",
       "id": "oc-acastus-knight-porphyrion-2-1",
       "is_default": false,
       "is_no_change": false,
-      "name": "helios defence missiles",
-      "replaces_weapon_line": 3
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "helios defence missiles",
+          "role": "granted",
+          "weapon_line": 3
+        },
+        {
+          "item_index": 1,
+          "item_name": "’s Acastus ironstorm missile pod",
+          "role": "replaced"
+        }
+      ],
+      "name": "helios defence missiles"
     }
   ],
   "option_groups": [
@@ -139,15 +217,15 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:40431c0357ca3cc6dd470251cd0cb825175bde1d0b653b75940c847c9bd750b5",
-    "last_verified_version": "wh40k-11e-2026-08-2",
+    "last_verified_version": "wh40k-11e-2026-08-3",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
+    "detail_acquisition_id": "wahapedia-20260814T171635Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260812T223703Z-6694568f",
+    "points_acquisition_id": "mfm-20260814T170952Z-0c772378",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },

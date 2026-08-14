@@ -19,7 +19,7 @@
       "model_count": 1,
       "points": 250,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T170952Z-0c772378"
     },
     {
       "copy_index_min": 3,
@@ -27,11 +27,36 @@
       "model_count": 1,
       "points": 270,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T170952Z-0c772378"
     }
   ],
   "damaged_threshold": 5,
   "datasheet_id": "ds-land-raider-redeemer-5",
+  "default_equipment_state": "extracted",
+  "equipment_groups": [
+    {
+      "applies_to": "unit",
+      "id": "eq-land-raider-redeemer-5-1",
+      "items": [
+        {
+          "count": 2,
+          "item_index": 1,
+          "item_name": "flamestorm cannons"
+        },
+        {
+          "item_index": 2,
+          "item_name": "twin assault cannon",
+          "weapon_line": 5
+        },
+        {
+          "item_index": 3,
+          "item_name": "armoured tracks",
+          "weapon_line": 6
+        }
+      ],
+      "line": 1
+    }
+  ],
   "faction_id": "f-grey-knights",
   "is_battleline": false,
   "is_character": false,
@@ -107,6 +132,15 @@
       "id": "oc-land-raider-redeemer-5-1-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "hunter-killer missile",
+          "role": "granted",
+          "weapon_line": 2
+        }
+      ],
       "name": "hunter-killer missile"
     },
     {
@@ -116,6 +150,15 @@
       "id": "oc-land-raider-redeemer-5-2-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "multi-melta",
+          "role": "granted",
+          "weapon_line": 3
+        }
+      ],
       "name": "multi-melta"
     },
     {
@@ -125,6 +168,15 @@
       "id": "oc-land-raider-redeemer-5-3-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "storm bolter",
+          "role": "granted",
+          "weapon_line": 4
+        }
+      ],
       "name": "storm bolter"
     }
   ],
@@ -148,15 +200,15 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:bf2c35781d3c6ff3ef9ac04847d69f896f9ab0cf0abb5392ae77b93bdfd365c1",
-    "last_verified_version": "wh40k-11e-2026-08-2",
+    "last_verified_version": "wh40k-11e-2026-08-3",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
+    "detail_acquisition_id": "wahapedia-20260814T171635Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260812T223703Z-6694568f",
+    "points_acquisition_id": "mfm-20260814T170952Z-0c772378",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },

@@ -20,11 +20,41 @@
       "model_count": 1,
       "points": 420,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260812T223905Z-9a337975"
+      "source_acquisition_id": "wahapedia-20260814T171635Z-9a337975"
     }
   ],
   "damaged_threshold": 8,
   "datasheet_id": "ds-falchion-2",
+  "default_equipment_state": "extracted",
+  "equipment_groups": [
+    {
+      "applies_to": "unit",
+      "id": "eq-falchion-2-1",
+      "items": [
+        {
+          "count": 2,
+          "item_index": 1,
+          "item_name": "quad lascannons"
+        },
+        {
+          "item_index": 2,
+          "item_name": "twin heavy bolter",
+          "weapon_line": 8
+        },
+        {
+          "item_index": 3,
+          "item_name": "twin Falchion volcano cannon",
+          "weapon_line": 7
+        },
+        {
+          "item_index": 4,
+          "item_name": "armoured tracks",
+          "weapon_line": 10
+        }
+      ],
+      "line": 1
+    }
+  ],
   "faction_id": "f-death-guard",
   "is_battleline": false,
   "is_character": false,
@@ -89,16 +119,43 @@
       "id": "oc-falchion-2-1-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 2,
+          "item_index": 1,
+          "item_name": "laser destroyers",
+          "role": "granted"
+        },
+        {
+          "item_index": 1,
+          "item_name": "’s 2 quad lascannons",
+          "role": "replaced"
+        }
+      ],
       "name": "laser destroyers"
     },
     {
       "count": 1,
+      "grants_weapon_line": 9,
       "group_id": "og-falchion-2-2",
       "id": "oc-falchion-2-2-1",
       "is_default": false,
       "is_no_change": false,
-      "name": "twin heavy flamer",
-      "replaces_weapon_line": 9
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "twin heavy flamer",
+          "role": "granted",
+          "weapon_line": 9
+        },
+        {
+          "item_index": 1,
+          "item_name": "’s twin heavy bolter",
+          "role": "replaced"
+        }
+      ],
+      "name": "twin heavy flamer"
     },
     {
       "count": 1,
@@ -107,6 +164,15 @@
       "id": "oc-falchion-2-3-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "heavy bolter",
+          "role": "granted",
+          "weapon_line": 1
+        }
+      ],
       "name": "heavy bolter"
     },
     {
@@ -116,6 +182,15 @@
       "id": "oc-falchion-2-3-2",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "heavy flamer",
+          "role": "granted",
+          "weapon_line": 2
+        }
+      ],
       "name": "heavy flamer"
     },
     {
@@ -125,6 +200,15 @@
       "id": "oc-falchion-2-3-3",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "multi-melta",
+          "role": "granted",
+          "weapon_line": 4
+        }
+      ],
       "name": "multi-melta"
     },
     {
@@ -134,6 +218,15 @@
       "id": "oc-falchion-2-3-4",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "storm bolter",
+          "role": "granted",
+          "weapon_line": 6
+        }
+      ],
       "name": "storm bolter"
     }
   ],
@@ -155,12 +248,12 @@
     }
   ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 3,
+    "consecutive_unverified_releases": 4,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
+    "detail_acquisition_id": "wahapedia-20260814T171635Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,

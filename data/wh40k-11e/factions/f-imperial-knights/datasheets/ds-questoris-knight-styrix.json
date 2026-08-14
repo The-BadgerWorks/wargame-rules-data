@@ -22,7 +22,7 @@
       "model_count": 1,
       "points": 375,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T170952Z-0c772378"
     },
     {
       "copy_index_min": 2,
@@ -30,11 +30,35 @@
       "model_count": 1,
       "points": 390,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T170952Z-0c772378"
     }
   ],
   "damaged_threshold": 9,
   "datasheet_id": "ds-questoris-knight-styrix",
+  "default_equipment_state": "extracted",
+  "equipment_groups": [
+    {
+      "applies_to": "unit",
+      "id": "eq-questoris-knight-styrix-1",
+      "items": [
+        {
+          "item_index": 1,
+          "item_name": "graviton crusher",
+          "weapon_line": 1
+        },
+        {
+          "item_index": 2,
+          "item_name": "volkite chierovile",
+          "weapon_line": 3
+        },
+        {
+          "item_index": 3,
+          "item_name": "reaper chainsword"
+        }
+      ],
+      "line": 1
+    }
+  ],
   "faction_id": "f-imperial-knights",
   "is_battleline": false,
   "is_character": true,
@@ -110,6 +134,26 @@
       "id": "oc-questoris-knight-styrix-1-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "hekaton siege claw",
+          "role": "granted"
+        },
+        {
+          "count": 1,
+          "item_index": 2,
+          "item_name": "twin rad cleanser",
+          "role": "granted",
+          "weapon_line": 2
+        },
+        {
+          "item_index": 1,
+          "item_name": "’s reaper chainsword",
+          "role": "replaced"
+        }
+      ],
       "name": "hekaton siege claw and 1 twin rad cleanser"
     }
   ],
@@ -123,15 +167,15 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:1ba60ec373eebaebb2121f182a5bee3cb4ab4966dc187948772a1af34e2af9de",
-    "last_verified_version": "wh40k-11e-2026-08-2",
+    "last_verified_version": "wh40k-11e-2026-08-3",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
+    "detail_acquisition_id": "wahapedia-20260814T171635Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260812T223703Z-6694568f",
+    "points_acquisition_id": "mfm-20260814T170952Z-0c772378",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },

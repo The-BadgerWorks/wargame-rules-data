@@ -21,10 +21,30 @@
       "model_count": 1,
       "points": 80,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T170952Z-0c772378"
     }
   ],
   "datasheet_id": "ds-captain-in-gravis-armour-4",
+  "default_equipment_state": "extracted",
+  "equipment_groups": [
+    {
+      "applies_to": "unit",
+      "id": "eq-captain-in-gravis-armour-4-1",
+      "items": [
+        {
+          "item_index": 1,
+          "item_name": "master-crafted heavy bolt rifle",
+          "weapon_line": 2
+        },
+        {
+          "item_index": 2,
+          "item_name": "master-crafted power weapon",
+          "weapon_line": 3
+        }
+      ],
+      "line": 1
+    }
+  ],
   "faction_id": "f-deathwatch",
   "is_battleline": false,
   "is_character": true,
@@ -89,6 +109,32 @@
       "id": "oc-captain-in-gravis-armour-4-1-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "boltstorm gauntlet, 1 power fist",
+          "role": "granted"
+        },
+        {
+          "count": 1,
+          "item_index": 2,
+          "item_name": "relic chainsword",
+          "role": "granted",
+          "weapon_line": 6
+        },
+        {
+          "item_index": 1,
+          "item_name": "’s master-crafted heavy bolt rifle",
+          "role": "replaced"
+        },
+        {
+          "item_index": 2,
+          "item_name": "master-crafted power weapon",
+          "role": "replaced",
+          "weapon_line": 3
+        }
+      ],
       "name": "boltstorm gauntlet, 1 power fist and 1 relic chainsword"
     },
     {
@@ -97,6 +143,32 @@
       "id": "oc-captain-in-gravis-armour-4-1-2",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "boltstorm gauntlet, 1 power fist",
+          "role": "granted"
+        },
+        {
+          "count": 1,
+          "item_index": 2,
+          "item_name": "relic blade",
+          "role": "granted",
+          "weapon_line": 5
+        },
+        {
+          "item_index": 1,
+          "item_name": "’s master-crafted heavy bolt rifle",
+          "role": "replaced"
+        },
+        {
+          "item_index": 2,
+          "item_name": "master-crafted power weapon",
+          "role": "replaced",
+          "weapon_line": 3
+        }
+      ],
       "name": "boltstorm gauntlet, 1 power fist and 1 relic blade"
     },
     {
@@ -105,6 +177,32 @@
       "id": "oc-captain-in-gravis-armour-4-1-3",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "boltstorm gauntlet, 1 power fist",
+          "role": "granted"
+        },
+        {
+          "count": 1,
+          "item_index": 2,
+          "item_name": "relic fist",
+          "role": "granted",
+          "weapon_line": 7
+        },
+        {
+          "item_index": 1,
+          "item_name": "’s master-crafted heavy bolt rifle",
+          "role": "replaced"
+        },
+        {
+          "item_index": 2,
+          "item_name": "master-crafted power weapon",
+          "role": "replaced",
+          "weapon_line": 3
+        }
+      ],
       "name": "boltstorm gauntlet, 1 power fist and 1 relic fist"
     }
   ],
@@ -118,15 +216,15 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:1d28e8ecc53fabf8370677d1207b796a090869ddce53671a84a15b7879bb6f71",
-    "last_verified_version": "wh40k-11e-2026-08-2",
+    "last_verified_version": "wh40k-11e-2026-08-3",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
+    "detail_acquisition_id": "wahapedia-20260814T171635Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260812T223703Z-6694568f",
+    "points_acquisition_id": "mfm-20260814T170952Z-0c772378",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },

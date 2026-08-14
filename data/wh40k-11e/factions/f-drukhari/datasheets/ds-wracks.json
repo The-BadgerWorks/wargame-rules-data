@@ -26,7 +26,7 @@
       "model_count": 5,
       "points": 60,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T170952Z-0c772378"
     },
     {
       "copy_index_min": 1,
@@ -34,7 +34,7 @@
       "model_count": 8,
       "points": 100,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T170952Z-0c772378"
     },
     {
       "copy_index_min": 1,
@@ -42,10 +42,25 @@
       "model_count": 10,
       "points": 120,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T170952Z-0c772378"
     }
   ],
   "datasheet_id": "ds-wracks",
+  "default_equipment_state": "extracted",
+  "equipment_groups": [
+    {
+      "applies_to": "unit",
+      "id": "eq-wracks-1",
+      "items": [
+        {
+          "item_index": 1,
+          "item_name": "twin torturer’s tools",
+          "weapon_line": 7
+        }
+      ],
+      "line": 1
+    }
+  ],
   "faction_id": "f-drukhari",
   "is_battleline": true,
   "is_character": false,
@@ -106,6 +121,26 @@
       "id": "oc-wracks-2-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "power weapon",
+          "role": "granted",
+          "weapon_line": 5
+        },
+        {
+          "count": 1,
+          "item_index": 2,
+          "item_name": "torturer’s tool",
+          "role": "granted"
+        },
+        {
+          "item_index": 1,
+          "item_name": "Acothyst’s twin torturer’s tools",
+          "role": "replaced"
+        }
+      ],
       "name": "power weapon and 1 torturer’s tool"
     }
   ],
@@ -119,15 +154,15 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:bb7f834efc4244e173cf9fb020a90ac99ea72bb45f33998632e66f1eb275bcbd",
-    "last_verified_version": "wh40k-11e-2026-08-2",
+    "last_verified_version": "wh40k-11e-2026-08-3",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
+    "detail_acquisition_id": "wahapedia-20260814T171635Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260812T223703Z-6694568f",
+    "points_acquisition_id": "mfm-20260814T170952Z-0c772378",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },

@@ -27,7 +27,7 @@
       "model_count": 5,
       "points": 150,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T170952Z-0c772378"
     },
     {
       "copy_index_min": 1,
@@ -35,7 +35,7 @@
       "model_count": 10,
       "points": 300,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T170952Z-0c772378"
     },
     {
       "copy_index_min": 3,
@@ -43,7 +43,7 @@
       "model_count": 5,
       "points": 165,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T170952Z-0c772378"
     },
     {
       "copy_index_min": 3,
@@ -51,10 +51,50 @@
       "model_count": 10,
       "points": 315,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T170952Z-0c772378"
     }
   ],
   "datasheet_id": "ds-wolf-guard-terminators",
+  "default_equipment_state": "extracted",
+  "equipment_groups": [
+    {
+      "applies_to": "model_group",
+      "composition_line": 1,
+      "id": "eq-wolf-guard-terminators-1",
+      "items": [
+        {
+          "item_index": 1,
+          "item_name": "storm bolter",
+          "weapon_line": 2
+        },
+        {
+          "item_index": 2,
+          "item_name": "master-crafted power weapon",
+          "weapon_line": 3
+        }
+      ],
+      "line": 1,
+      "model_name": "Wolf Guard Terminator Pack Leader"
+    },
+    {
+      "applies_to": "model_group",
+      "id": "eq-wolf-guard-terminators-2",
+      "items": [
+        {
+          "item_index": 1,
+          "item_name": "storm bolter",
+          "weapon_line": 2
+        },
+        {
+          "item_index": 2,
+          "item_name": "master-crafted power weapon",
+          "weapon_line": 3
+        }
+      ],
+      "line": 2,
+      "model_name": "Wolf Guard Terminator"
+    }
+  ],
   "faction_id": "f-space-wolves",
   "is_battleline": false,
   "is_character": false,
@@ -119,31 +159,86 @@
       "id": "oc-wolf-guard-terminators-1-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "storm shield",
+          "role": "granted"
+        },
+        {
+          "item_index": 1,
+          "item_name": "storm bolter",
+          "role": "replaced",
+          "weapon_line": 2
+        }
+      ],
       "name": "storm shield",
       "replaces_weapon_line": 2
     },
     {
       "count": 1,
+      "grants_weapon_line": 5,
       "group_id": "og-wolf-guard-terminators-3",
       "id": "oc-wolf-guard-terminators-3-1",
       "is_default": false,
       "is_no_change": false,
-      "name": "relic greataxe",
-      "replaces_weapon_line": 5
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "relic greataxe",
+          "role": "granted",
+          "weapon_line": 5
+        },
+        {
+          "item_index": 1,
+          "item_name": "Wolf Guard Terminator Pack Leader’s storm bolter",
+          "role": "replaced"
+        },
+        {
+          "item_index": 2,
+          "item_name": "master-crafted power weapon",
+          "role": "replaced",
+          "weapon_line": 3
+        }
+      ],
+      "name": "relic greataxe"
     },
     {
       "count": 1,
+      "grants_weapon_line": 6,
       "group_id": "og-wolf-guard-terminators-3",
       "id": "oc-wolf-guard-terminators-3-2",
       "is_default": false,
       "is_no_change": false,
-      "name": "twin lightning claws",
-      "replaces_weapon_line": 6
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "twin lightning claws",
+          "role": "granted",
+          "weapon_line": 6
+        },
+        {
+          "item_index": 1,
+          "item_name": "Wolf Guard Terminator Pack Leader’s storm bolter",
+          "role": "replaced"
+        },
+        {
+          "item_index": 2,
+          "item_name": "master-crafted power weapon",
+          "role": "replaced",
+          "weapon_line": 3
+        }
+      ],
+      "name": "twin lightning claws"
     }
   ],
   "option_groups": [
     {
       "id": "og-wolf-guard-terminators-1",
+      "is_per_model": true,
       "line": 1,
       "scope": "unit"
     },
@@ -156,15 +251,15 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:ed63f8fe3856a3c140ffaf3487a90a99e86b94ba4e013eaa02cd25644427f7a3",
-    "last_verified_version": "wh40k-11e-2026-08-2",
+    "last_verified_version": "wh40k-11e-2026-08-3",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
+    "detail_acquisition_id": "wahapedia-20260814T171635Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260812T223703Z-6694568f",
+    "points_acquisition_id": "mfm-20260814T170952Z-0c772378",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },

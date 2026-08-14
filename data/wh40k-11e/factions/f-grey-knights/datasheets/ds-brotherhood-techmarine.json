@@ -23,10 +23,39 @@
       "model_count": 1,
       "points": 70,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T170952Z-0c772378"
     }
   ],
   "datasheet_id": "ds-brotherhood-techmarine",
+  "default_equipment_state": "extracted",
+  "equipment_groups": [
+    {
+      "applies_to": "unit",
+      "id": "eq-brotherhood-techmarine-1",
+      "items": [
+        {
+          "item_index": 1,
+          "item_name": "forge bolter",
+          "weapon_line": 1
+        },
+        {
+          "item_index": 2,
+          "item_name": "grav-pistol",
+          "weapon_line": 2
+        },
+        {
+          "item_index": 3,
+          "item_name": "Omnissian power axe",
+          "weapon_line": 3
+        },
+        {
+          "item_index": 4,
+          "item_name": "servo-arm"
+        }
+      ],
+      "line": 1
+    }
+  ],
   "faction_id": "f-grey-knights",
   "is_battleline": false,
   "is_character": true,
@@ -92,15 +121,15 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:e848ec11450ed9ecb7d2b7768b1808d24c7f55f4121478b70e73c06d9cfbd8b3",
-    "last_verified_version": "wh40k-11e-2026-08-2",
+    "last_verified_version": "wh40k-11e-2026-08-3",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
+    "detail_acquisition_id": "wahapedia-20260814T171635Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260812T223703Z-6694568f",
+    "points_acquisition_id": "mfm-20260814T170952Z-0c772378",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },

@@ -26,7 +26,7 @@
       "model_count": 3,
       "points": 100,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T170952Z-0c772378"
     },
     {
       "copy_index_min": 3,
@@ -34,10 +34,35 @@
       "model_count": 3,
       "points": 110,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T170952Z-0c772378"
     }
   ],
   "datasheet_id": "ds-crisis-fireknife-battlesuits",
+  "default_equipment_state": "extracted",
+  "equipment_groups": [
+    {
+      "applies_to": "unit",
+      "id": "eq-crisis-fireknife-battlesuits-1",
+      "items": [
+        {
+          "item_index": 1,
+          "item_name": "plasma rifle",
+          "weapon_line": 2
+        },
+        {
+          "item_index": 2,
+          "item_name": "missile pod",
+          "weapon_line": 1
+        },
+        {
+          "item_index": 3,
+          "item_name": "battlesuit fists",
+          "weapon_line": 3
+        }
+      ],
+      "line": 1
+    }
+  ],
   "faction_id": "f-tau-empire",
   "is_battleline": false,
   "is_character": false,
@@ -103,6 +128,21 @@
       "id": "oc-crisis-fireknife-battlesuits-1-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "missile pod",
+          "role": "granted",
+          "weapon_line": 1
+        },
+        {
+          "item_index": 1,
+          "item_name": "plasma rifle",
+          "role": "replaced",
+          "weapon_line": 2
+        }
+      ],
       "name": "missile pod",
       "replaces_weapon_line": 2
     },
@@ -113,6 +153,21 @@
       "id": "oc-crisis-fireknife-battlesuits-2-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "plasma rifle",
+          "role": "granted",
+          "weapon_line": 2
+        },
+        {
+          "item_index": 1,
+          "item_name": "missile pod",
+          "role": "replaced",
+          "weapon_line": 1
+        }
+      ],
       "name": "plasma rifle",
       "replaces_weapon_line": 1
     },
@@ -122,6 +177,14 @@
       "id": "oc-crisis-fireknife-battlesuits-3-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "gun drone",
+          "role": "granted"
+        }
+      ],
       "name": "gun drone"
     },
     {
@@ -130,6 +193,14 @@
       "id": "oc-crisis-fireknife-battlesuits-3-2",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "marker drone",
+          "role": "granted"
+        }
+      ],
       "name": "marker drone"
     },
     {
@@ -138,17 +209,27 @@
       "id": "oc-crisis-fireknife-battlesuits-3-3",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "shield drone",
+          "role": "granted"
+        }
+      ],
       "name": "shield drone"
     }
   ],
   "option_groups": [
     {
       "id": "og-crisis-fireknife-battlesuits-1",
+      "is_per_model": true,
       "line": 1,
       "scope": "unit"
     },
     {
       "id": "og-crisis-fireknife-battlesuits-2",
+      "is_per_model": true,
       "line": 2,
       "scope": "unit"
     },
@@ -162,15 +243,15 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:9b8ce27dbdc6b2f50acdc4b2632ee0c1dbe25bb3b843521874f87e7709bf49a6",
-    "last_verified_version": "wh40k-11e-2026-08-2",
+    "last_verified_version": "wh40k-11e-2026-08-3",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
+    "detail_acquisition_id": "wahapedia-20260814T171635Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260812T223703Z-6694568f",
+    "points_acquisition_id": "mfm-20260814T170952Z-0c772378",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },

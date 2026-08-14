@@ -26,7 +26,7 @@
       "model_count": 3,
       "points": 100,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T170952Z-0c772378"
     },
     {
       "copy_index_min": 1,
@@ -34,10 +34,29 @@
       "model_count": 6,
       "points": 200,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T170952Z-0c772378"
     }
   ],
   "datasheet_id": "ds-shining-spears",
+  "default_equipment_state": "extracted",
+  "equipment_groups": [
+    {
+      "applies_to": "unit",
+      "id": "eq-shining-spears-1",
+      "items": [
+        {
+          "item_index": 1,
+          "item_name": "laser lance"
+        },
+        {
+          "item_index": 2,
+          "item_name": "twin shuriken catapult",
+          "weapon_line": 4
+        }
+      ],
+      "line": 1
+    }
+  ],
   "faction_id": "f-aeldari",
   "is_battleline": false,
   "is_character": false,
@@ -109,12 +128,26 @@
   "option_choices": [
     {
       "count": 1,
+      "grants_weapon_line": 6,
       "group_id": "og-shining-spears-1",
       "id": "oc-shining-spears-1-1",
       "is_default": false,
       "is_no_change": false,
-      "name": "paragon sabre",
-      "replaces_weapon_line": 6
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "paragon sabre",
+          "role": "granted",
+          "weapon_line": 6
+        },
+        {
+          "item_index": 1,
+          "item_name": "Shining Spear Exarch’s laser lance",
+          "role": "replaced"
+        }
+      ],
+      "name": "paragon sabre"
     },
     {
       "count": 1,
@@ -122,16 +155,43 @@
       "id": "oc-shining-spears-1-2",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "star lance",
+          "role": "granted"
+        },
+        {
+          "item_index": 1,
+          "item_name": "Shining Spear Exarch’s laser lance",
+          "role": "replaced"
+        }
+      ],
       "name": "star lance"
     },
     {
       "count": 1,
+      "grants_weapon_line": 2,
       "group_id": "og-shining-spears-2",
       "id": "oc-shining-spears-2-1",
       "is_default": false,
       "is_no_change": false,
-      "name": "shuriken cannon",
-      "replaces_weapon_line": 2
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "shuriken cannon",
+          "role": "granted",
+          "weapon_line": 2
+        },
+        {
+          "item_index": 1,
+          "item_name": "Shining Spear Exarch’s twin shuriken catapult",
+          "role": "replaced"
+        }
+      ],
+      "name": "shuriken cannon"
     },
     {
       "count": 1,
@@ -139,6 +199,14 @@
       "id": "oc-shining-spears-3-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "shimmershield",
+          "role": "granted"
+        }
+      ],
       "name": "shimmershield"
     }
   ],
@@ -162,15 +230,15 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:aa03064bbbf7924a8d22a0abeaa9282a5ab053b5af767bbef0330f8f21e782d5",
-    "last_verified_version": "wh40k-11e-2026-08-2",
+    "last_verified_version": "wh40k-11e-2026-08-3",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
+    "detail_acquisition_id": "wahapedia-20260814T171635Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260812T223703Z-6694568f",
+    "points_acquisition_id": "mfm-20260814T170952Z-0c772378",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },

@@ -21,7 +21,7 @@
       "model_count": 1,
       "points": 280,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T170952Z-0c772378"
     },
     {
       "copy_index_min": 2,
@@ -29,11 +29,40 @@
       "model_count": 1,
       "points": 300,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T170952Z-0c772378"
     }
   ],
   "damaged_threshold": 5,
   "datasheet_id": "ds-stormraven-gunship-6",
+  "default_equipment_state": "extracted",
+  "equipment_groups": [
+    {
+      "applies_to": "unit",
+      "id": "eq-stormraven-gunship-6-1",
+      "items": [
+        {
+          "count": 2,
+          "item_index": 1,
+          "item_name": "stormstrike missile launchers"
+        },
+        {
+          "item_index": 2,
+          "item_name": "twin assault cannon",
+          "weapon_line": 3
+        },
+        {
+          "item_index": 3,
+          "item_name": "typhoon missile launcher"
+        },
+        {
+          "item_index": 4,
+          "item_name": "armoured hull",
+          "weapon_line": 11
+        }
+      ],
+      "line": 1
+    }
+  ],
   "faction_id": "f-space-marines",
   "is_battleline": false,
   "is_character": false,
@@ -97,34 +126,89 @@
       "id": "oc-stormraven-gunship-6-1-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "twin heavy plasma cannon",
+          "role": "granted"
+        },
+        {
+          "item_index": 1,
+          "item_name": "’s twin assault cannon",
+          "role": "replaced"
+        }
+      ],
       "name": "twin heavy plasma cannon"
     },
     {
       "count": 1,
+      "grants_weapon_line": 7,
       "group_id": "og-stormraven-gunship-6-1",
       "id": "oc-stormraven-gunship-6-1-2",
       "is_default": false,
       "is_no_change": false,
-      "name": "twin lascannon",
-      "replaces_weapon_line": 7
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "twin lascannon",
+          "role": "granted",
+          "weapon_line": 7
+        },
+        {
+          "item_index": 1,
+          "item_name": "’s twin assault cannon",
+          "role": "replaced"
+        }
+      ],
+      "name": "twin lascannon"
     },
     {
       "count": 1,
+      "grants_weapon_line": 4,
       "group_id": "og-stormraven-gunship-6-2",
       "id": "oc-stormraven-gunship-6-2-1",
       "is_default": false,
       "is_no_change": false,
-      "name": "twin heavy bolter",
-      "replaces_weapon_line": 4
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "twin heavy bolter",
+          "role": "granted",
+          "weapon_line": 4
+        },
+        {
+          "item_index": 1,
+          "item_name": "’s typhoon missile launcher",
+          "role": "replaced"
+        }
+      ],
+      "name": "twin heavy bolter"
     },
     {
       "count": 1,
+      "grants_weapon_line": 8,
       "group_id": "og-stormraven-gunship-6-2",
       "id": "oc-stormraven-gunship-6-2-2",
       "is_default": false,
       "is_no_change": false,
-      "name": "twin multi-melta",
-      "replaces_weapon_line": 8
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "twin multi-melta",
+          "role": "granted",
+          "weapon_line": 8
+        },
+        {
+          "item_index": 1,
+          "item_name": "’s typhoon missile launcher",
+          "role": "replaced"
+        }
+      ],
+      "name": "twin multi-melta"
     },
     {
       "count": 2,
@@ -132,6 +216,14 @@
       "id": "oc-stormraven-gunship-6-3-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 2,
+          "item_index": 1,
+          "item_name": "hurricane bolters",
+          "role": "granted"
+        }
+      ],
       "name": "hurricane bolters"
     }
   ],
@@ -155,15 +247,15 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:031c53a5c2f255a6287dd9a37c528a9b0af05b1c0e6751ca34a4254e09663d63",
-    "last_verified_version": "wh40k-11e-2026-08-2",
+    "last_verified_version": "wh40k-11e-2026-08-3",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
+    "detail_acquisition_id": "wahapedia-20260814T171635Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260812T223703Z-6694568f",
+    "points_acquisition_id": "mfm-20260814T170952Z-0c772378",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },

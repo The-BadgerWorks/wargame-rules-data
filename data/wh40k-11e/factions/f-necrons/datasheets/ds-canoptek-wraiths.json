@@ -19,7 +19,7 @@
       "model_count": 3,
       "points": 95,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T170952Z-0c772378"
     },
     {
       "copy_index_min": 1,
@@ -27,7 +27,7 @@
       "model_count": 6,
       "points": 220,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T170952Z-0c772378"
     },
     {
       "copy_index_min": 2,
@@ -35,7 +35,7 @@
       "model_count": 3,
       "points": 115,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T170952Z-0c772378"
     },
     {
       "copy_index_min": 2,
@@ -43,10 +43,25 @@
       "model_count": 6,
       "points": 240,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T170952Z-0c772378"
     }
   ],
   "datasheet_id": "ds-canoptek-wraiths",
+  "default_equipment_state": "extracted",
+  "equipment_groups": [
+    {
+      "applies_to": "unit",
+      "id": "eq-canoptek-wraiths-1",
+      "items": [
+        {
+          "item_index": 1,
+          "item_name": "vicious claws",
+          "weapon_line": 3
+        }
+      ],
+      "line": 1
+    }
+  ],
   "faction_id": "f-necrons",
   "is_battleline": false,
   "is_character": false,
@@ -102,6 +117,20 @@
       "id": "oc-canoptek-wraiths-2-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "item_index": 1,
+          "item_name": "whip coils",
+          "role": "granted",
+          "weapon_line": 4
+        },
+        {
+          "item_index": 1,
+          "item_name": "vicious claws",
+          "role": "replaced",
+          "weapon_line": 3
+        }
+      ],
       "name": "whip coils",
       "replaces_weapon_line": 3
     }
@@ -109,6 +138,7 @@
   "option_groups": [
     {
       "id": "og-canoptek-wraiths-2",
+      "is_per_model": true,
       "line": 2,
       "scope": "unit"
     }
@@ -116,15 +146,15 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:2ce970043e61cd380ccdcc57319d4bff3ab75c7012909a0dc5000d029a67f3ab",
-    "last_verified_version": "wh40k-11e-2026-08-2",
+    "last_verified_version": "wh40k-11e-2026-08-3",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
+    "detail_acquisition_id": "wahapedia-20260814T171635Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260812T223703Z-6694568f",
+    "points_acquisition_id": "mfm-20260814T170952Z-0c772378",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },

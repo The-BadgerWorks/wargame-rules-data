@@ -28,10 +28,64 @@
       "model_count": 10,
       "points": 100,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T170952Z-0c772378"
     }
   ],
   "datasheet_id": "ds-hearthkyn-warriors",
+  "default_equipment_state": "extracted",
+  "equipment_groups": [
+    {
+      "applies_to": "model_group",
+      "composition_line": 1,
+      "id": "eq-hearthkyn-warriors-1",
+      "items": [
+        {
+          "item_index": 1,
+          "item_name": "Autoch-pattern bolt pistol",
+          "weapon_line": 1
+        },
+        {
+          "item_index": 2,
+          "item_name": "Autoch-pattern bolter",
+          "weapon_line": 2
+        },
+        {
+          "item_index": 3,
+          "item_name": "close combat weapon",
+          "weapon_line": 11
+        },
+        {
+          "item_index": 4,
+          "item_name": "weavefield crest"
+        }
+      ],
+      "line": 1,
+      "model_name": "Theyn"
+    },
+    {
+      "applies_to": "model_group",
+      "id": "eq-hearthkyn-warriors-2",
+      "items": [
+        {
+          "item_index": 1,
+          "item_name": "Autoch-pattern bolt pistol",
+          "weapon_line": 1
+        },
+        {
+          "item_index": 2,
+          "item_name": "Autoch-pattern bolter",
+          "weapon_line": 2
+        },
+        {
+          "item_index": 3,
+          "item_name": "close combat weapon",
+          "weapon_line": 11
+        }
+      ],
+      "line": 2,
+      "model_name": "Hearthkyn Warrior"
+    }
+  ],
   "faction_id": "f-leagues-of-votann",
   "is_battleline": true,
   "is_character": false,
@@ -87,6 +141,21 @@
       "id": "oc-hearthkyn-warriors-1-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "ion blaster",
+          "role": "granted",
+          "weapon_line": 6
+        },
+        {
+          "item_index": 1,
+          "item_name": "Autoch-pattern bolter",
+          "role": "replaced",
+          "weapon_line": 2
+        }
+      ],
       "name": "ion blaster",
       "replaces_weapon_line": 2
     },
@@ -97,6 +166,20 @@
       "id": "oc-hearthkyn-warriors-2-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "HYLas auto rifle",
+          "role": "granted",
+          "weapon_line": 4
+        },
+        {
+          "item_index": 1,
+          "item_name": "Autoch-pattern bolter or ion blaster",
+          "role": "replaced"
+        }
+      ],
       "name": "HYLas auto rifle"
     },
     {
@@ -106,6 +189,20 @@
       "id": "oc-hearthkyn-warriors-2-2",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "HYLas rotary cannon",
+          "role": "granted",
+          "weapon_line": 5
+        },
+        {
+          "item_index": 1,
+          "item_name": "Autoch-pattern bolter or ion blaster",
+          "role": "replaced"
+        }
+      ],
       "name": "HYLas rotary cannon"
     },
     {
@@ -114,6 +211,19 @@
       "id": "oc-hearthkyn-warriors-2-3",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "L7 missile launcher",
+          "role": "granted"
+        },
+        {
+          "item_index": 1,
+          "item_name": "Autoch-pattern bolter or ion blaster",
+          "role": "replaced"
+        }
+      ],
       "name": "L7 missile launcher"
     },
     {
@@ -123,6 +233,20 @@
       "id": "oc-hearthkyn-warriors-2-4",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "EtaCarn plasma beamer",
+          "role": "granted",
+          "weapon_line": 3
+        },
+        {
+          "item_index": 1,
+          "item_name": "Autoch-pattern bolter or ion blaster",
+          "role": "replaced"
+        }
+      ],
       "name": "EtaCarn plasma beamer"
     },
     {
@@ -132,6 +256,20 @@
       "id": "oc-hearthkyn-warriors-2-5",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "magna-rail rifle",
+          "role": "granted",
+          "weapon_line": 9
+        },
+        {
+          "item_index": 1,
+          "item_name": "Autoch-pattern bolter or ion blaster",
+          "role": "replaced"
+        }
+      ],
       "name": "magna-rail rifle"
     },
     {
@@ -141,25 +279,67 @@
       "id": "oc-hearthkyn-warriors-3-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "plasma knife",
+          "role": "granted",
+          "weapon_line": 12
+        },
+        {
+          "item_index": 1,
+          "item_name": "Autoch-pattern bolter or ion blaster",
+          "role": "replaced"
+        }
+      ],
       "name": "plasma knife"
     },
     {
       "count": 1,
+      "grants_weapon_line": 6,
       "group_id": "og-hearthkyn-warriors-4",
       "id": "oc-hearthkyn-warriors-4-1",
       "is_default": false,
       "is_no_change": false,
-      "name": "ion blaster",
-      "replaces_weapon_line": 6
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "ion blaster",
+          "role": "granted",
+          "weapon_line": 6
+        },
+        {
+          "item_index": 1,
+          "item_name": "Theyn’s Autoch-pattern bolter",
+          "role": "replaced"
+        }
+      ],
+      "name": "ion blaster"
     },
     {
       "count": 1,
+      "grants_weapon_line": 10,
       "group_id": "og-hearthkyn-warriors-4",
       "id": "oc-hearthkyn-warriors-4-2",
       "is_default": false,
       "is_no_change": false,
-      "name": "Theyn’s pistol",
-      "replaces_weapon_line": 10
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "Theyn’s pistol",
+          "role": "granted",
+          "weapon_line": 10
+        },
+        {
+          "item_index": 1,
+          "item_name": "Theyn’s Autoch-pattern bolter",
+          "role": "replaced"
+        }
+      ],
+      "name": "Theyn’s pistol"
     },
     {
       "count": 1,
@@ -168,22 +348,39 @@
       "id": "oc-hearthkyn-warriors-5-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "Theyn’s melee weapon",
+          "role": "granted",
+          "weapon_line": 13
+        }
+      ],
       "name": "Theyn’s melee weapon"
     }
   ],
   "option_groups": [
     {
+      "eligible_model_name": "Hearthkyn Warriors",
       "id": "og-hearthkyn-warriors-1",
+      "is_per_model": true,
       "line": 1,
       "scope": "unit"
     },
     {
+      "eligible_max_count": 2,
+      "eligible_model_name": "Hearthkyn Warriors",
       "id": "og-hearthkyn-warriors-2",
+      "is_per_model": true,
       "line": 2,
       "scope": "unit"
     },
     {
+      "eligible_max_count": 2,
+      "eligible_model_name": "Hearthkyn Warriors",
       "id": "og-hearthkyn-warriors-3",
+      "is_per_model": true,
       "line": 3,
       "scope": "unit"
     },
@@ -201,15 +398,15 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:589f8ffe990df07f7eaf3e8e2043e58d0cb99a07ccf35a4491fd120a20d87245",
-    "last_verified_version": "wh40k-11e-2026-08-2",
+    "last_verified_version": "wh40k-11e-2026-08-3",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
+    "detail_acquisition_id": "wahapedia-20260814T171635Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260812T223703Z-6694568f",
+    "points_acquisition_id": "mfm-20260814T170952Z-0c772378",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },

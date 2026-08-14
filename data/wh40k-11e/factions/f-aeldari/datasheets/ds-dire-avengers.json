@@ -27,7 +27,7 @@
       "model_count": 5,
       "points": 75,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T170952Z-0c772378"
     },
     {
       "copy_index_min": 1,
@@ -35,10 +35,30 @@
       "model_count": 10,
       "points": 150,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T170952Z-0c772378"
     }
   ],
   "datasheet_id": "ds-dire-avengers",
+  "default_equipment_state": "extracted",
+  "equipment_groups": [
+    {
+      "applies_to": "unit",
+      "id": "eq-dire-avengers-1",
+      "items": [
+        {
+          "item_index": 1,
+          "item_name": "Avenger shuriken catapult",
+          "weapon_line": 1
+        },
+        {
+          "item_index": 2,
+          "item_name": "close combat weapon",
+          "weapon_line": 3
+        }
+      ],
+      "line": 1
+    }
+  ],
   "faction_id": "f-aeldari",
   "is_battleline": false,
   "is_character": false,
@@ -110,21 +130,49 @@
   "option_choices": [
     {
       "count": 1,
+      "grants_weapon_line": 4,
       "group_id": "og-dire-avengers-1",
       "id": "oc-dire-avengers-1-1",
       "is_default": false,
       "is_no_change": false,
-      "name": "diresword",
-      "replaces_weapon_line": 4
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "diresword",
+          "role": "granted",
+          "weapon_line": 4
+        },
+        {
+          "item_index": 1,
+          "item_name": "Dire Avenger Exarch’s Avenger shuriken catapult",
+          "role": "replaced"
+        }
+      ],
+      "name": "diresword"
     },
     {
       "count": 1,
+      "grants_weapon_line": 5,
       "group_id": "og-dire-avengers-1",
       "id": "oc-dire-avengers-1-2",
       "is_default": false,
       "is_no_change": false,
-      "name": "power glaive",
-      "replaces_weapon_line": 5
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "power glaive",
+          "role": "granted",
+          "weapon_line": 5
+        },
+        {
+          "item_index": 1,
+          "item_name": "Dire Avenger Exarch’s Avenger shuriken catapult",
+          "role": "replaced"
+        }
+      ],
+      "name": "power glaive"
     },
     {
       "count": 1,
@@ -132,6 +180,19 @@
       "id": "oc-dire-avengers-3-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "shimmershield",
+          "role": "granted"
+        },
+        {
+          "item_index": 1,
+          "item_name": "Dire Avenger Exarch’s shuriken pistol",
+          "role": "replaced"
+        }
+      ],
       "name": "shimmershield"
     }
   ],
@@ -150,15 +211,15 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:2efc7222b58bd4aa51fe4c19ae81e0777532af7d2fb54c987b30869403372ceb",
-    "last_verified_version": "wh40k-11e-2026-08-2",
+    "last_verified_version": "wh40k-11e-2026-08-3",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
+    "detail_acquisition_id": "wahapedia-20260814T171635Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260812T223703Z-6694568f",
+    "points_acquisition_id": "mfm-20260814T170952Z-0c772378",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },

@@ -27,7 +27,7 @@
       "model_count": 5,
       "points": 100,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T170952Z-0c772378"
     },
     {
       "copy_index_min": 1,
@@ -35,10 +35,30 @@
       "model_count": 10,
       "points": 190,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T170952Z-0c772378"
     }
   ],
   "datasheet_id": "ds-deathwatch-veterans",
+  "default_equipment_state": "extracted",
+  "equipment_groups": [
+    {
+      "applies_to": "unit",
+      "id": "eq-deathwatch-veterans-1",
+      "items": [
+        {
+          "item_index": 1,
+          "item_name": "boltgun",
+          "weapon_line": 1
+        },
+        {
+          "item_index": 2,
+          "item_name": "power weapon",
+          "weapon_line": 11
+        }
+      ],
+      "line": 1
+    }
+  ],
   "faction_id": "f-deathwatch",
   "is_battleline": true,
   "is_character": false,
@@ -107,6 +127,33 @@
       "id": "oc-deathwatch-veterans-1-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "boltgun, 1 Astartes shield",
+          "role": "granted"
+        },
+        {
+          "count": 1,
+          "item_index": 2,
+          "item_name": "close combat weapon",
+          "role": "granted",
+          "weapon_line": 9
+        },
+        {
+          "item_index": 1,
+          "item_name": "boltgun",
+          "role": "replaced",
+          "weapon_line": 1
+        },
+        {
+          "item_index": 2,
+          "item_name": "power weapon",
+          "role": "replaced",
+          "weapon_line": 11
+        }
+      ],
       "name": "boltgun, 1 Astartes shield and 1 close combat weapon"
     },
     {
@@ -115,6 +162,33 @@
       "id": "oc-deathwatch-veterans-1-2",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "power weapon",
+          "role": "granted",
+          "weapon_line": 11
+        },
+        {
+          "count": 1,
+          "item_index": 2,
+          "item_name": "Astartes shield",
+          "role": "granted"
+        },
+        {
+          "item_index": 1,
+          "item_name": "boltgun",
+          "role": "replaced",
+          "weapon_line": 1
+        },
+        {
+          "item_index": 2,
+          "item_name": "power weapon",
+          "role": "replaced",
+          "weapon_line": 11
+        }
+      ],
       "name": "power weapon and 1 Astartes shield"
     },
     {
@@ -124,6 +198,27 @@
       "id": "oc-deathwatch-veterans-2-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "Deathwatch thunder hammer",
+          "role": "granted",
+          "weapon_line": 10
+        },
+        {
+          "item_index": 1,
+          "item_name": "boltgun",
+          "role": "replaced",
+          "weapon_line": 1
+        },
+        {
+          "item_index": 2,
+          "item_name": "power weapon",
+          "role": "replaced",
+          "weapon_line": 11
+        }
+      ],
       "name": "Deathwatch thunder hammer"
     },
     {
@@ -132,51 +227,130 @@
       "id": "oc-deathwatch-veterans-4-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "Deathwatch shotgun",
+          "role": "granted",
+          "weapon_line": 3
+        },
+        {
+          "count": 1,
+          "item_index": 2,
+          "item_name": "close combat weapon",
+          "role": "granted",
+          "weapon_line": 9
+        },
+        {
+          "item_index": 1,
+          "item_name": "boltgun",
+          "role": "replaced",
+          "weapon_line": 1
+        },
+        {
+          "item_index": 2,
+          "item_name": "power weapon",
+          "role": "replaced",
+          "weapon_line": 11
+        }
+      ],
       "name": "Deathwatch shotgun and 1 close combat weapon"
     },
     {
       "count": 1,
+      "grants_weapon_line": 8,
       "group_id": "og-deathwatch-veterans-7",
       "id": "oc-deathwatch-veterans-7-1",
       "is_default": false,
       "is_no_change": false,
-      "name": "Black Shield blades",
-      "replaces_weapon_line": 8
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "Black Shield blades",
+          "role": "granted",
+          "weapon_line": 8
+        },
+        {
+          "item_index": 1,
+          "item_name": "model’s boltgun",
+          "role": "replaced"
+        },
+        {
+          "item_index": 2,
+          "item_name": "power weapon",
+          "role": "replaced",
+          "weapon_line": 11
+        }
+      ],
+      "name": "Black Shield blades"
     },
     {
       "count": 1,
+      "grants_weapon_line": 12,
       "group_id": "og-deathwatch-veterans-8",
       "id": "oc-deathwatch-veterans-8-1",
       "is_default": false,
       "is_no_change": false,
-      "name": "xenophase blade",
-      "replaces_weapon_line": 12
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "xenophase blade",
+          "role": "granted",
+          "weapon_line": 12
+        },
+        {
+          "item_index": 1,
+          "item_name": "Watch Sergeant’s power weapon",
+          "role": "replaced"
+        }
+      ],
+      "name": "xenophase blade"
     },
     {
       "count": 1,
+      "grants_weapon_line": 2,
       "group_id": "og-deathwatch-veterans-9",
       "id": "oc-deathwatch-veterans-9-1",
       "is_default": false,
       "is_no_change": false,
-      "name": "combi-weapon",
-      "replaces_weapon_line": 2
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "combi-weapon",
+          "role": "granted",
+          "weapon_line": 2
+        },
+        {
+          "item_index": 1,
+          "item_name": "Watch Sergeant’s boltgun",
+          "role": "replaced"
+        }
+      ],
+      "name": "combi-weapon"
     }
   ],
   "option_groups": [
     {
       "id": "og-deathwatch-veterans-1",
+      "is_per_model": true,
       "line": 1,
       "scope": "per_n_models",
       "scope_n": 5
     },
     {
       "id": "og-deathwatch-veterans-2",
+      "is_per_model": true,
       "line": 2,
       "scope": "per_n_models",
       "scope_n": 5
     },
     {
       "id": "og-deathwatch-veterans-4",
+      "is_per_model": true,
       "line": 4,
       "scope": "per_n_models",
       "scope_n": 5
@@ -200,15 +374,15 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:d2573c581077690e7562e7fafef6b15736a6433f05f4500a916ee2c54d2bb82d",
-    "last_verified_version": "wh40k-11e-2026-08-2",
+    "last_verified_version": "wh40k-11e-2026-08-3",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
+    "detail_acquisition_id": "wahapedia-20260814T171635Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260812T223703Z-6694568f",
+    "points_acquisition_id": "mfm-20260814T170952Z-0c772378",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },

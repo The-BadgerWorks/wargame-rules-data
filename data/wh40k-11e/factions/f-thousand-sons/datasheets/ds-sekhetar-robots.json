@@ -20,7 +20,7 @@
       "model_count": 2,
       "points": 85,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T170952Z-0c772378"
     },
     {
       "copy_index_min": 1,
@@ -28,7 +28,7 @@
       "model_count": 4,
       "points": 175,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T170952Z-0c772378"
     },
     {
       "copy_index_min": 3,
@@ -36,7 +36,7 @@
       "model_count": 2,
       "points": 100,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T170952Z-0c772378"
     },
     {
       "copy_index_min": 3,
@@ -44,10 +44,40 @@
       "model_count": 4,
       "points": 190,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T170952Z-0c772378"
     }
   ],
   "datasheet_id": "ds-sekhetar-robots",
+  "default_equipment_state": "extracted",
+  "equipment_groups": [
+    {
+      "applies_to": "unit",
+      "id": "eq-sekhetar-robots-1",
+      "items": [
+        {
+          "item_index": 1,
+          "item_name": "heavy warpflamer",
+          "weapon_line": 1
+        },
+        {
+          "item_index": 2,
+          "item_name": "hellfyre missile rack",
+          "weapon_line": 2
+        },
+        {
+          "item_index": 3,
+          "item_name": "pyreflux meltagun",
+          "weapon_line": 3
+        },
+        {
+          "item_index": 4,
+          "item_name": "close combat weapon",
+          "weapon_line": 5
+        }
+      ],
+      "line": 1
+    }
+  ],
   "faction_id": "f-thousand-sons",
   "is_battleline": false,
   "is_character": false,
@@ -108,6 +138,28 @@
       "id": "oc-sekhetar-robots-1-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "warpflame projector",
+          "role": "granted",
+          "weapon_line": 4
+        },
+        {
+          "count": 1,
+          "item_index": 2,
+          "item_name": "power claw",
+          "role": "granted",
+          "weapon_line": 6
+        },
+        {
+          "item_index": 1,
+          "item_name": "pyreflux meltagun",
+          "role": "replaced",
+          "weapon_line": 3
+        }
+      ],
       "name": "warpflame projector and 1 power claw",
       "replaces_weapon_line": 3
     }
@@ -115,6 +167,7 @@
   "option_groups": [
     {
       "id": "og-sekhetar-robots-1",
+      "is_per_model": true,
       "line": 1,
       "scope": "unit"
     }
@@ -122,15 +175,15 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:5e495e8dcb79e5a6b22d7b6c471b5f500e208b729386c287a8ffb8a4701d2506",
-    "last_verified_version": "wh40k-11e-2026-08-2",
+    "last_verified_version": "wh40k-11e-2026-08-3",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
+    "detail_acquisition_id": "wahapedia-20260814T171635Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260812T223703Z-6694568f",
+    "points_acquisition_id": "mfm-20260814T170952Z-0c772378",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },

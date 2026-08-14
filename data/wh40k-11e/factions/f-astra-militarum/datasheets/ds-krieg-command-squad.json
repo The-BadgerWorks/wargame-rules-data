@@ -30,10 +30,32 @@
       "model_count": 6,
       "points": 60,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T170952Z-0c772378"
     }
   ],
   "datasheet_id": "ds-krieg-command-squad",
+  "default_equipment_state": "partial",
+  "equipment_groups": [
+    {
+      "applies_to": "model_group",
+      "composition_line": 1,
+      "id": "eq-krieg-command-squad-1",
+      "items": [
+        {
+          "item_index": 1,
+          "item_name": "laspistol",
+          "weapon_line": 7
+        },
+        {
+          "item_index": 2,
+          "item_name": "power weapon",
+          "weapon_line": 16
+        }
+      ],
+      "line": 1,
+      "model_name": "Lord Commissar"
+    }
+  ],
   "faction_id": "f-astra-militarum",
   "is_battleline": false,
   "is_character": true,
@@ -128,12 +150,26 @@
   "option_choices": [
     {
       "count": 1,
+      "grants_weapon_line": 3,
       "group_id": "og-krieg-command-squad-1",
       "id": "oc-krieg-command-squad-1-1",
       "is_default": false,
       "is_no_change": false,
-      "name": "flamer",
-      "replaces_weapon_line": 3
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "flamer",
+          "role": "granted",
+          "weapon_line": 3
+        },
+        {
+          "item_index": 1,
+          "item_name": "Veteran Guardsman’s boltgun",
+          "role": "replaced"
+        }
+      ],
+      "name": "flamer"
     },
     {
       "count": 1,
@@ -141,16 +177,43 @@
       "id": "oc-krieg-command-squad-1-2",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "grenade launcher",
+          "role": "granted"
+        },
+        {
+          "item_index": 1,
+          "item_name": "Veteran Guardsman’s boltgun",
+          "role": "replaced"
+        }
+      ],
       "name": "grenade launcher"
     },
     {
       "count": 1,
+      "grants_weapon_line": 8,
       "group_id": "og-krieg-command-squad-1",
       "id": "oc-krieg-command-squad-1-3",
       "is_default": false,
       "is_no_change": false,
-      "name": "meltagun",
-      "replaces_weapon_line": 8
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "meltagun",
+          "role": "granted",
+          "weapon_line": 8
+        },
+        {
+          "item_index": 1,
+          "item_name": "Veteran Guardsman’s boltgun",
+          "role": "replaced"
+        }
+      ],
+      "name": "meltagun"
     },
     {
       "count": 1,
@@ -158,16 +221,43 @@
       "id": "oc-krieg-command-squad-1-4",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "plasma gun",
+          "role": "granted"
+        },
+        {
+          "item_index": 1,
+          "item_name": "Veteran Guardsman’s boltgun",
+          "role": "replaced"
+        }
+      ],
       "name": "plasma gun"
     },
     {
       "count": 1,
+      "grants_weapon_line": 15,
       "group_id": "og-krieg-command-squad-2",
       "id": "oc-krieg-command-squad-2-1",
       "is_default": false,
       "is_no_change": false,
-      "name": "power fist",
-      "replaces_weapon_line": 15
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "power fist",
+          "role": "granted",
+          "weapon_line": 15
+        },
+        {
+          "item_index": 1,
+          "item_name": "Lord Commissar's power weapon",
+          "role": "replaced"
+        }
+      ],
+      "name": "power fist"
     },
     {
       "count": 1,
@@ -175,25 +265,61 @@
       "id": "oc-krieg-command-squad-3-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "plasma pistol",
+          "role": "granted"
+        }
+      ],
       "name": "plasma pistol"
     },
     {
       "count": 1,
+      "grants_weapon_line": 17,
       "group_id": "og-krieg-command-squad-4",
       "id": "oc-krieg-command-squad-4-1",
       "is_default": false,
       "is_no_change": false,
-      "name": "trench club",
-      "replaces_weapon_line": 17
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "trench club",
+          "role": "granted",
+          "weapon_line": 17
+        },
+        {
+          "item_index": 1,
+          "item_name": "Veteran Guardsman’s chainsword",
+          "role": "replaced"
+        }
+      ],
+      "name": "trench club"
     },
     {
       "count": 1,
+      "grants_weapon_line": 16,
       "group_id": "og-krieg-command-squad-4",
       "id": "oc-krieg-command-squad-4-2",
       "is_default": false,
       "is_no_change": false,
-      "name": "power weapon",
-      "replaces_weapon_line": 16
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "power weapon",
+          "role": "granted",
+          "weapon_line": 16
+        },
+        {
+          "item_index": 1,
+          "item_name": "Veteran Guardsman’s chainsword",
+          "role": "replaced"
+        }
+      ],
+      "name": "power weapon"
     }
   ],
   "option_groups": [
@@ -221,15 +347,15 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:771226af43ccd6d089bd43290d8895013c29b13f18d34a2dc982a6821379440a",
-    "last_verified_version": "wh40k-11e-2026-08-2",
+    "last_verified_version": "wh40k-11e-2026-08-3",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
+    "detail_acquisition_id": "wahapedia-20260814T171635Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260812T223703Z-6694568f",
+    "points_acquisition_id": "mfm-20260814T170952Z-0c772378",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },

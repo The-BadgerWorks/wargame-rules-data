@@ -18,7 +18,7 @@
       "model_count": 1,
       "points": 45,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260812T223905Z-9a337975"
+      "source_acquisition_id": "wahapedia-20260814T171635Z-9a337975"
     },
     {
       "copy_index_min": 1,
@@ -26,10 +26,30 @@
       "model_count": 2,
       "points": 90,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260812T223905Z-9a337975"
+      "source_acquisition_id": "wahapedia-20260814T171635Z-9a337975"
     }
   ],
   "datasheet_id": "ds-sabre-weapons-battery-2",
+  "default_equipment_state": "extracted",
+  "equipment_groups": [
+    {
+      "applies_to": "unit",
+      "id": "eq-sabre-weapons-battery-2-1",
+      "items": [
+        {
+          "item_index": 1,
+          "item_name": "twin heavy bolter",
+          "weapon_line": 2
+        },
+        {
+          "item_index": 2,
+          "item_name": "close combat weapon",
+          "weapon_line": 5
+        }
+      ],
+      "line": 1
+    }
+  ],
   "faction_id": "f-genestealer-cults",
   "is_battleline": false,
   "is_character": false,
@@ -78,12 +98,12 @@
   ],
   "name": "Sabre Weapons Battery",
   "pricing_confidence": {
-    "consecutive_unverified_releases": 3,
+    "consecutive_unverified_releases": 4,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
+    "detail_acquisition_id": "wahapedia-20260814T171635Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,

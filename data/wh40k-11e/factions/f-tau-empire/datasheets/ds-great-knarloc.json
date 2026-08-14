@@ -20,10 +20,25 @@
       "model_count": 1,
       "points": 100,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260812T223905Z-9a337975"
+      "source_acquisition_id": "wahapedia-20260814T171635Z-9a337975"
     }
   ],
   "datasheet_id": "ds-great-knarloc",
+  "default_equipment_state": "extracted",
+  "equipment_groups": [
+    {
+      "applies_to": "unit",
+      "id": "eq-great-knarloc-1",
+      "items": [
+        {
+          "item_index": 1,
+          "item_name": "Great Knarloc beak and talons",
+          "weapon_line": 4
+        }
+      ],
+      "line": 1
+    }
+  ],
   "faction_id": "f-tau-empire",
   "is_battleline": false,
   "is_character": false,
@@ -78,6 +93,21 @@
       "id": "oc-great-knarloc-1-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "Kroot bolt thrower",
+          "role": "granted",
+          "weapon_line": 1
+        },
+        {
+          "count": 1,
+          "item_index": 2,
+          "item_name": "Kroot rifle",
+          "role": "granted"
+        }
+      ],
       "name": "Kroot bolt thrower and 1 Kroot rifle"
     },
     {
@@ -87,6 +117,15 @@
       "id": "oc-great-knarloc-1-2",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "twin Kroot gun",
+          "role": "granted",
+          "weapon_line": 3
+        }
+      ],
       "name": "twin Kroot gun"
     },
     {
@@ -95,6 +134,14 @@
       "id": "oc-great-knarloc-1-3",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "baggage harness",
+          "role": "granted"
+        }
+      ],
       "name": "baggage harness"
     }
   ],
@@ -106,12 +153,12 @@
     }
   ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 3,
+    "consecutive_unverified_releases": 4,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
+    "detail_acquisition_id": "wahapedia-20260814T171635Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,

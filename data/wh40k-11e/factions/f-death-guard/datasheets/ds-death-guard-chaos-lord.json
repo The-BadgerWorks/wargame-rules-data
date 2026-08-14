@@ -21,10 +21,30 @@
       "model_count": 1,
       "points": 65,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260812T223905Z-9a337975"
+      "source_acquisition_id": "wahapedia-20260814T171635Z-9a337975"
     }
   ],
   "datasheet_id": "ds-death-guard-chaos-lord",
+  "default_equipment_state": "extracted",
+  "equipment_groups": [
+    {
+      "applies_to": "unit",
+      "id": "eq-death-guard-chaos-lord-1",
+      "items": [
+        {
+          "item_index": 1,
+          "item_name": "plague bolt pistol",
+          "weapon_line": 2
+        },
+        {
+          "item_index": 2,
+          "item_name": "Astartes chainsword",
+          "weapon_line": 6
+        }
+      ],
+      "line": 1
+    }
+  ],
   "faction_id": "f-death-guard",
   "is_battleline": false,
   "is_character": true,
@@ -84,39 +104,95 @@
   "option_choices": [
     {
       "count": 1,
+      "grants_weapon_line": 1,
       "group_id": "og-death-guard-chaos-lord-1",
       "id": "oc-death-guard-chaos-lord-1-1",
       "is_default": false,
       "is_no_change": false,
-      "name": "combi-weapon",
-      "replaces_weapon_line": 1
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "combi-weapon",
+          "role": "granted",
+          "weapon_line": 1
+        },
+        {
+          "item_index": 1,
+          "item_name": "’s plague bolt pistol",
+          "role": "replaced"
+        }
+      ],
+      "name": "combi-weapon"
     },
     {
       "count": 1,
+      "grants_weapon_line": 3,
       "group_id": "og-death-guard-chaos-lord-1",
       "id": "oc-death-guard-chaos-lord-1-2",
       "is_default": false,
       "is_no_change": false,
-      "name": "plague combi-bolter",
-      "replaces_weapon_line": 3
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "plague combi-bolter",
+          "role": "granted",
+          "weapon_line": 3
+        },
+        {
+          "item_index": 1,
+          "item_name": "’s plague bolt pistol",
+          "role": "replaced"
+        }
+      ],
+      "name": "plague combi-bolter"
     },
     {
       "count": 1,
+      "grants_weapon_line": 7,
       "group_id": "og-death-guard-chaos-lord-1",
       "id": "oc-death-guard-chaos-lord-1-3",
       "is_default": false,
       "is_no_change": false,
-      "name": "plague fist",
-      "replaces_weapon_line": 7
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "plague fist",
+          "role": "granted",
+          "weapon_line": 7
+        },
+        {
+          "item_index": 1,
+          "item_name": "’s plague bolt pistol",
+          "role": "replaced"
+        }
+      ],
+      "name": "plague fist"
     },
     {
       "count": 1,
+      "grants_weapon_line": 8,
       "group_id": "og-death-guard-chaos-lord-1",
       "id": "oc-death-guard-chaos-lord-1-4",
       "is_default": false,
       "is_no_change": false,
-      "name": "plague-encrusted exalted weapon",
-      "replaces_weapon_line": 8
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "plague-encrusted exalted weapon",
+          "role": "granted",
+          "weapon_line": 8
+        },
+        {
+          "item_index": 1,
+          "item_name": "’s plague bolt pistol",
+          "role": "replaced"
+        }
+      ],
+      "name": "plague-encrusted exalted weapon"
     },
     {
       "count": 1,
@@ -124,25 +200,66 @@
       "id": "oc-death-guard-chaos-lord-1-5",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "plasma pistol",
+          "role": "granted"
+        },
+        {
+          "item_index": 1,
+          "item_name": "’s plague bolt pistol",
+          "role": "replaced"
+        }
+      ],
       "name": "plasma pistol"
     },
     {
       "count": 1,
+      "grants_weapon_line": 7,
       "group_id": "og-death-guard-chaos-lord-2",
       "id": "oc-death-guard-chaos-lord-2-1",
       "is_default": false,
       "is_no_change": false,
-      "name": "plague fist",
-      "replaces_weapon_line": 7
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "plague fist",
+          "role": "granted",
+          "weapon_line": 7
+        },
+        {
+          "item_index": 1,
+          "item_name": "’s Astartes chainsword",
+          "role": "replaced"
+        }
+      ],
+      "name": "plague fist"
     },
     {
       "count": 1,
+      "grants_weapon_line": 8,
       "group_id": "og-death-guard-chaos-lord-2",
       "id": "oc-death-guard-chaos-lord-2-2",
       "is_default": false,
       "is_no_change": false,
-      "name": "plague-encrusted exalted weapon",
-      "replaces_weapon_line": 8
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "plague-encrusted exalted weapon",
+          "role": "granted",
+          "weapon_line": 8
+        },
+        {
+          "item_index": 1,
+          "item_name": "’s Astartes chainsword",
+          "role": "replaced"
+        }
+      ],
+      "name": "plague-encrusted exalted weapon"
     },
     {
       "count": 1,
@@ -150,6 +267,25 @@
       "id": "oc-death-guard-chaos-lord-3-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "twin lighting claws",
+          "role": "granted"
+        },
+        {
+          "item_index": 1,
+          "item_name": "’s plague bolt pistol",
+          "role": "replaced"
+        },
+        {
+          "item_index": 2,
+          "item_name": "Astartes chainsword",
+          "role": "replaced",
+          "weapon_line": 6
+        }
+      ],
       "name": "twin lighting claws"
     }
   ],
@@ -171,12 +307,12 @@
     }
   ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 3,
+    "consecutive_unverified_releases": 4,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
+    "detail_acquisition_id": "wahapedia-20260814T171635Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,

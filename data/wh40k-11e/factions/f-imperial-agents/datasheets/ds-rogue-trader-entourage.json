@@ -40,7 +40,7 @@
       "model_count": 4,
       "points": 75,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T170952Z-0c772378"
     },
     {
       "copy_index_min": 1,
@@ -49,10 +49,93 @@
       "points": 105,
       "pricing_confidence": "verified",
       "pricing_context": "every-model-has-imperium",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T170952Z-0c772378"
     }
   ],
   "datasheet_id": "ds-rogue-trader-entourage",
+  "default_equipment_state": "extracted",
+  "equipment_groups": [
+    {
+      "applies_to": "model_group",
+      "composition_line": 1,
+      "id": "eq-rogue-trader-entourage-1",
+      "items": [
+        {
+          "item_index": 1,
+          "item_name": "household pistol",
+          "weapon_line": 2
+        },
+        {
+          "item_index": 2,
+          "item_name": "monomolecular cane-rapier",
+          "weapon_line": 7
+        }
+      ],
+      "line": 1,
+      "model_name": "Rogue Trader"
+    },
+    {
+      "applies_to": "model_group",
+      "composition_line": 2,
+      "id": "eq-rogue-trader-entourage-2",
+      "items": [
+        {
+          "item_index": 1,
+          "item_name": "dartmask",
+          "weapon_line": 1
+        },
+        {
+          "item_index": 2,
+          "item_name": "Death Cult power blade",
+          "weapon_line": 6
+        }
+      ],
+      "line": 2,
+      "model_name": "Death Cult Assassin"
+    },
+    {
+      "applies_to": "model_group",
+      "composition_line": 3,
+      "id": "eq-rogue-trader-entourage-3",
+      "items": [
+        {
+          "item_index": 1,
+          "item_name": "voltaic pistol",
+          "weapon_line": 4
+        },
+        {
+          "item_index": 2,
+          "item_name": "close combat weapon",
+          "weapon_line": 5
+        }
+      ],
+      "line": 3,
+      "model_name": "Lectro-Maester"
+    },
+    {
+      "applies_to": "model_group",
+      "composition_line": 4,
+      "id": "eq-rogue-trader-entourage-4",
+      "items": [
+        {
+          "item_index": 1,
+          "item_name": "laspistol",
+          "weapon_line": 3
+        },
+        {
+          "item_index": 2,
+          "item_name": "close combat weapon",
+          "weapon_line": 5
+        },
+        {
+          "item_index": 3,
+          "item_name": "healing serum"
+        }
+      ],
+      "line": 4,
+      "model_name": "Rejuvenat Adept"
+    }
+  ],
   "faction_id": "f-imperial-agents",
   "is_battleline": false,
   "is_character": true,
@@ -135,15 +218,15 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:e1cb0be9e77c18d80a400e7e1b14bf0955588acbe13a44c8203271e0e9cda529",
-    "last_verified_version": "wh40k-11e-2026-08-2",
+    "last_verified_version": "wh40k-11e-2026-08-3",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
+    "detail_acquisition_id": "wahapedia-20260814T171635Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260812T223703Z-6694568f",
+    "points_acquisition_id": "mfm-20260814T170952Z-0c772378",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },

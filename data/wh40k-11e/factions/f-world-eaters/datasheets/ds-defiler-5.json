@@ -21,7 +21,7 @@
       "model_count": 1,
       "points": 270,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T170952Z-0c772378"
     },
     {
       "copy_index_min": 2,
@@ -29,11 +29,48 @@
       "model_count": 1,
       "points": 310,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T170952Z-0c772378"
     }
   ],
   "damaged_threshold": 6,
   "datasheet_id": "ds-defiler-5",
+  "default_equipment_state": "extracted",
+  "equipment_groups": [
+    {
+      "applies_to": "unit",
+      "id": "eq-defiler-5-1",
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "Hades battle cannon",
+          "weapon_line": 4
+        },
+        {
+          "count": 2,
+          "item_index": 2,
+          "item_name": "excruciator cannons"
+        },
+        {
+          "count": 1,
+          "item_index": 3,
+          "item_name": "heavy missile launcher"
+        },
+        {
+          "count": 1,
+          "item_index": 4,
+          "item_name": "heavy baleflamer",
+          "weapon_line": 3
+        },
+        {
+          "count": 1,
+          "item_index": 5,
+          "item_name": "shearing claws"
+        }
+      ],
+      "line": 1
+    }
+  ],
   "faction_id": "f-world-eaters",
   "is_battleline": false,
   "is_character": false,
@@ -95,39 +132,95 @@
   "option_choices": [
     {
       "count": 1,
+      "grants_weapon_line": 1,
       "group_id": "og-defiler-5-1",
       "id": "oc-defiler-5-1-1",
       "is_default": false,
       "is_no_change": false,
-      "name": "ectoplasma destructor",
-      "replaces_weapon_line": 1
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "ectoplasma destructor",
+          "role": "granted",
+          "weapon_line": 1
+        },
+        {
+          "item_index": 1,
+          "item_name": "’s Hades battle cannon",
+          "role": "replaced"
+        }
+      ],
+      "name": "ectoplasma destructor"
     },
     {
       "count": 2,
+      "grants_weapon_line": 9,
       "group_id": "og-defiler-5-2",
       "id": "oc-defiler-5-2-1",
       "is_default": false,
       "is_no_change": false,
-      "name": "magma cutters",
-      "replaces_weapon_line": 9
+      "items": [
+        {
+          "count": 2,
+          "item_index": 1,
+          "item_name": "magma cutters",
+          "role": "granted",
+          "weapon_line": 9
+        },
+        {
+          "item_index": 1,
+          "item_name": "’s excruciator cannons",
+          "role": "replaced"
+        }
+      ],
+      "name": "magma cutters"
     },
     {
       "count": 1,
+      "grants_weapon_line": 5,
       "group_id": "og-defiler-5-3",
       "id": "oc-defiler-5-3-1",
       "is_default": false,
       "is_no_change": false,
-      "name": "Hades lascannon",
-      "replaces_weapon_line": 5
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "Hades lascannon",
+          "role": "granted",
+          "weapon_line": 5
+        },
+        {
+          "item_index": 1,
+          "item_name": "’s heavy baleflamer",
+          "role": "replaced"
+        }
+      ],
+      "name": "Hades lascannon"
     },
     {
       "count": 1,
+      "grants_weapon_line": 8,
       "group_id": "og-defiler-5-3",
       "id": "oc-defiler-5-3-2",
       "is_default": false,
       "is_no_change": false,
-      "name": "heavy reaper autocannon",
-      "replaces_weapon_line": 8
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "heavy reaper autocannon",
+          "role": "granted",
+          "weapon_line": 8
+        },
+        {
+          "item_index": 1,
+          "item_name": "’s heavy baleflamer",
+          "role": "replaced"
+        }
+      ],
+      "name": "heavy reaper autocannon"
     },
     {
       "count": 1,
@@ -135,25 +228,66 @@
       "id": "oc-defiler-5-3-3",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "electroscourge (a model cannot be equipped with more than one electroscourge)",
+          "role": "granted"
+        },
+        {
+          "item_index": 1,
+          "item_name": "’s heavy baleflamer",
+          "role": "replaced"
+        }
+      ],
       "name": "electroscourge (a model cannot be equipped with more than one electroscourge)"
     },
     {
       "count": 1,
+      "grants_weapon_line": 5,
       "group_id": "og-defiler-5-4",
       "id": "oc-defiler-5-4-1",
       "is_default": false,
       "is_no_change": false,
-      "name": "Hades lascannon",
-      "replaces_weapon_line": 5
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "Hades lascannon",
+          "role": "granted",
+          "weapon_line": 5
+        },
+        {
+          "item_index": 1,
+          "item_name": "’s heavy missile launcher",
+          "role": "replaced"
+        }
+      ],
+      "name": "Hades lascannon"
     },
     {
       "count": 1,
+      "grants_weapon_line": 8,
       "group_id": "og-defiler-5-4",
       "id": "oc-defiler-5-4-2",
       "is_default": false,
       "is_no_change": false,
-      "name": "heavy reaper autocannon",
-      "replaces_weapon_line": 8
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "heavy reaper autocannon",
+          "role": "granted",
+          "weapon_line": 8
+        },
+        {
+          "item_index": 1,
+          "item_name": "’s heavy missile launcher",
+          "role": "replaced"
+        }
+      ],
+      "name": "heavy reaper autocannon"
     },
     {
       "count": 1,
@@ -161,6 +295,19 @@
       "id": "oc-defiler-5-4-3",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "electroscourge (a model cannot be equipped with more than one electroscourge)",
+          "role": "granted"
+        },
+        {
+          "item_index": 1,
+          "item_name": "’s heavy missile launcher",
+          "role": "replaced"
+        }
+      ],
       "name": "electroscourge (a model cannot be equipped with more than one electroscourge)"
     }
   ],
@@ -189,15 +336,15 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:c4ac56e1ed23a984e65c11330dc3cf835923ede17627fbca35a266a46954f7f5",
-    "last_verified_version": "wh40k-11e-2026-08-2",
+    "last_verified_version": "wh40k-11e-2026-08-3",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
+    "detail_acquisition_id": "wahapedia-20260814T171635Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260812T223703Z-6694568f",
+    "points_acquisition_id": "mfm-20260814T170952Z-0c772378",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },

@@ -21,10 +21,25 @@
       "model_count": 1,
       "points": 120,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260812T223905Z-9a337975"
+      "source_acquisition_id": "wahapedia-20260814T171635Z-9a337975"
     }
   ],
   "datasheet_id": "ds-sentry-pylon",
+  "default_equipment_state": "extracted",
+  "equipment_groups": [
+    {
+      "applies_to": "unit",
+      "id": "eq-sentry-pylon-1",
+      "items": [
+        {
+          "item_index": 1,
+          "item_name": "gauss exterminator",
+          "weapon_line": 2
+        }
+      ],
+      "line": 1
+    }
+  ],
   "faction_id": "f-necrons",
   "is_battleline": false,
   "is_character": false,
@@ -75,21 +90,49 @@
   "option_choices": [
     {
       "count": 1,
+      "grants_weapon_line": 1,
       "group_id": "og-sentry-pylon-1",
       "id": "oc-sentry-pylon-1-1",
       "is_default": false,
       "is_no_change": false,
-      "name": "focused death ray",
-      "replaces_weapon_line": 1
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "focused death ray",
+          "role": "granted",
+          "weapon_line": 1
+        },
+        {
+          "item_index": 1,
+          "item_name": "’s gauss exterminator",
+          "role": "replaced"
+        }
+      ],
+      "name": "focused death ray"
     },
     {
       "count": 1,
+      "grants_weapon_line": 3,
       "group_id": "og-sentry-pylon-1",
       "id": "oc-sentry-pylon-1-2",
       "is_default": false,
       "is_no_change": false,
-      "name": "heat cannon",
-      "replaces_weapon_line": 3
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "heat cannon",
+          "role": "granted",
+          "weapon_line": 3
+        },
+        {
+          "item_index": 1,
+          "item_name": "’s gauss exterminator",
+          "role": "replaced"
+        }
+      ],
+      "name": "heat cannon"
     }
   ],
   "option_groups": [
@@ -100,12 +143,12 @@
     }
   ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 3,
+    "consecutive_unverified_releases": 4,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
+    "detail_acquisition_id": "wahapedia-20260814T171635Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,

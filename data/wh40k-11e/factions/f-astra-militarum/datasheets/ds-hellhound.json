@@ -19,7 +19,7 @@
       "model_count": 1,
       "points": 125,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T170952Z-0c772378"
     },
     {
       "copy_index_min": 3,
@@ -27,11 +27,36 @@
       "model_count": 1,
       "points": 135,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T170952Z-0c772378"
     }
   ],
   "damaged_threshold": 4,
   "datasheet_id": "ds-hellhound",
+  "default_equipment_state": "extracted",
+  "equipment_groups": [
+    {
+      "applies_to": "unit",
+      "id": "eq-hellhound-1",
+      "items": [
+        {
+          "item_index": 1,
+          "item_name": "heavy flamer",
+          "weapon_line": 3
+        },
+        {
+          "item_index": 2,
+          "item_name": "inferno cannon",
+          "weapon_line": 5
+        },
+        {
+          "item_index": 3,
+          "item_name": "armoured tracks",
+          "weapon_line": 8
+        }
+      ],
+      "line": 1
+    }
+  ],
   "faction_id": "f-astra-militarum",
   "is_battleline": false,
   "is_character": false,
@@ -92,39 +117,95 @@
   "option_choices": [
     {
       "count": 1,
+      "grants_weapon_line": 1,
       "group_id": "og-hellhound-1",
       "id": "oc-hellhound-1-1",
       "is_default": false,
       "is_no_change": false,
-      "name": "chem cannon",
-      "replaces_weapon_line": 1
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "chem cannon",
+          "role": "granted",
+          "weapon_line": 1
+        },
+        {
+          "item_index": 1,
+          "item_name": "’s inferno cannon",
+          "role": "replaced"
+        }
+      ],
+      "name": "chem cannon"
     },
     {
       "count": 1,
+      "grants_weapon_line": 6,
       "group_id": "og-hellhound-1",
       "id": "oc-hellhound-1-2",
       "is_default": false,
       "is_no_change": false,
-      "name": "melta cannon",
-      "replaces_weapon_line": 6
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "melta cannon",
+          "role": "granted",
+          "weapon_line": 6
+        },
+        {
+          "item_index": 1,
+          "item_name": "’s inferno cannon",
+          "role": "replaced"
+        }
+      ],
+      "name": "melta cannon"
     },
     {
       "count": 1,
+      "grants_weapon_line": 2,
       "group_id": "og-hellhound-2",
       "id": "oc-hellhound-2-1",
       "is_default": false,
       "is_no_change": false,
-      "name": "heavy bolter",
-      "replaces_weapon_line": 2
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "heavy bolter",
+          "role": "granted",
+          "weapon_line": 2
+        },
+        {
+          "item_index": 1,
+          "item_name": "’s heavy flamer",
+          "role": "replaced"
+        }
+      ],
+      "name": "heavy bolter"
     },
     {
       "count": 1,
+      "grants_weapon_line": 7,
       "group_id": "og-hellhound-2",
       "id": "oc-hellhound-2-2",
       "is_default": false,
       "is_no_change": false,
-      "name": "multi-melta",
-      "replaces_weapon_line": 7
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "multi-melta",
+          "role": "granted",
+          "weapon_line": 7
+        },
+        {
+          "item_index": 1,
+          "item_name": "’s heavy flamer",
+          "role": "replaced"
+        }
+      ],
+      "name": "multi-melta"
     },
     {
       "count": 1,
@@ -133,6 +214,15 @@
       "id": "oc-hellhound-3-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "hunter-killer missile",
+          "role": "granted",
+          "weapon_line": 4
+        }
+      ],
       "name": "hunter-killer missile"
     }
   ],
@@ -156,15 +246,15 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:a4014a14965bf716f2cb81333079c619e4f03d82faebe0fa26aba1a2212c21f2",
-    "last_verified_version": "wh40k-11e-2026-08-2",
+    "last_verified_version": "wh40k-11e-2026-08-3",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
+    "detail_acquisition_id": "wahapedia-20260814T171635Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260812T223703Z-6694568f",
+    "points_acquisition_id": "mfm-20260814T170952Z-0c772378",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },

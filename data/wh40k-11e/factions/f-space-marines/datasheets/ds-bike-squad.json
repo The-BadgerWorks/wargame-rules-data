@@ -32,7 +32,7 @@
       "model_count": 1,
       "points": 55,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260812T223905Z-9a337975"
+      "source_acquisition_id": "wahapedia-20260814T171635Z-9a337975"
     },
     {
       "copy_index_min": 1,
@@ -40,7 +40,7 @@
       "model_count": 3,
       "points": 80,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260812T223905Z-9a337975"
+      "source_acquisition_id": "wahapedia-20260814T171635Z-9a337975"
     },
     {
       "copy_index_min": 1,
@@ -48,10 +48,37 @@
       "model_count": 6,
       "points": 160,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260812T223905Z-9a337975"
+      "source_acquisition_id": "wahapedia-20260814T171635Z-9a337975"
     }
   ],
   "datasheet_id": "ds-bike-squad",
+  "default_equipment_state": "partial",
+  "equipment_groups": [
+    {
+      "applies_to": "model_group",
+      "composition_line": 1,
+      "id": "eq-bike-squad-1",
+      "items": [
+        {
+          "item_index": 1,
+          "item_name": "bolt pistol",
+          "weapon_line": 2
+        },
+        {
+          "item_index": 2,
+          "item_name": "twin boltgun",
+          "weapon_line": 17
+        },
+        {
+          "item_index": 3,
+          "item_name": "close combat weapon",
+          "weapon_line": 19
+        }
+      ],
+      "line": 1,
+      "model_name": "Biker Sergeant and every Space Marine Biker"
+    }
+  ],
   "faction_id": "f-space-marines",
   "is_battleline": false,
   "is_character": false,
@@ -117,75 +144,187 @@
   "option_choices": [
     {
       "count": 1,
+      "grants_weapon_line": 18,
       "group_id": "og-bike-squad-1",
       "id": "oc-bike-squad-1-1",
       "is_default": false,
       "is_no_change": false,
-      "name": "Astartes chainsword",
-      "replaces_weapon_line": 18
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "Astartes chainsword",
+          "role": "granted",
+          "weapon_line": 18
+        },
+        {
+          "item_index": 1,
+          "item_name": "Biker Sergeant’s bolt pistol",
+          "role": "replaced"
+        }
+      ],
+      "name": "Astartes chainsword"
     },
     {
       "count": 1,
+      "grants_weapon_line": 21,
       "group_id": "og-bike-squad-1",
       "id": "oc-bike-squad-1-10",
       "is_default": false,
       "is_no_change": false,
-      "name": "power weapon",
-      "replaces_weapon_line": 21
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "power weapon",
+          "role": "granted",
+          "weapon_line": 21
+        },
+        {
+          "item_index": 1,
+          "item_name": "Biker Sergeant’s bolt pistol",
+          "role": "replaced"
+        }
+      ],
+      "name": "power weapon"
     },
     {
       "count": 1,
+      "grants_weapon_line": 22,
       "group_id": "og-bike-squad-1",
       "id": "oc-bike-squad-1-11",
       "is_default": false,
       "is_no_change": false,
-      "name": "thunder hammer",
-      "replaces_weapon_line": 22
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "thunder hammer",
+          "role": "granted",
+          "weapon_line": 22
+        },
+        {
+          "item_index": 1,
+          "item_name": "Biker Sergeant’s bolt pistol",
+          "role": "replaced"
+        }
+      ],
+      "name": "thunder hammer"
     },
     {
       "count": 1,
+      "grants_weapon_line": 1,
       "group_id": "og-bike-squad-1",
       "id": "oc-bike-squad-1-2",
       "is_default": false,
       "is_no_change": false,
-      "name": "boltgun",
-      "replaces_weapon_line": 1
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "boltgun",
+          "role": "granted",
+          "weapon_line": 1
+        },
+        {
+          "item_index": 1,
+          "item_name": "Biker Sergeant’s bolt pistol",
+          "role": "replaced"
+        }
+      ],
+      "name": "boltgun"
     },
     {
       "count": 1,
+      "grants_weapon_line": 3,
       "group_id": "og-bike-squad-1",
       "id": "oc-bike-squad-1-3",
       "is_default": false,
       "is_no_change": false,
-      "name": "combi-weapon",
-      "replaces_weapon_line": 3
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "combi-weapon",
+          "role": "granted",
+          "weapon_line": 3
+        },
+        {
+          "item_index": 1,
+          "item_name": "Biker Sergeant’s bolt pistol",
+          "role": "replaced"
+        }
+      ],
+      "name": "combi-weapon"
     },
     {
       "count": 1,
+      "grants_weapon_line": 7,
       "group_id": "og-bike-squad-1",
       "id": "oc-bike-squad-1-4",
       "is_default": false,
       "is_no_change": false,
-      "name": "hand flamer",
-      "replaces_weapon_line": 7
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "hand flamer",
+          "role": "granted",
+          "weapon_line": 7
+        },
+        {
+          "item_index": 1,
+          "item_name": "Biker Sergeant’s bolt pistol",
+          "role": "replaced"
+        }
+      ],
+      "name": "hand flamer"
     },
     {
       "count": 1,
+      "grants_weapon_line": 6,
       "group_id": "og-bike-squad-1",
       "id": "oc-bike-squad-1-5",
       "is_default": false,
       "is_no_change": false,
-      "name": "grav-pistol",
-      "replaces_weapon_line": 6
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "grav-pistol",
+          "role": "granted",
+          "weapon_line": 6
+        },
+        {
+          "item_index": 1,
+          "item_name": "Biker Sergeant’s bolt pistol",
+          "role": "replaced"
+        }
+      ],
+      "name": "grav-pistol"
     },
     {
       "count": 1,
+      "grants_weapon_line": 9,
       "group_id": "og-bike-squad-1",
       "id": "oc-bike-squad-1-6",
       "is_default": false,
       "is_no_change": false,
-      "name": "inferno pistol",
-      "replaces_weapon_line": 9
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "inferno pistol",
+          "role": "granted",
+          "weapon_line": 9
+        },
+        {
+          "item_index": 1,
+          "item_name": "Biker Sergeant’s bolt pistol",
+          "role": "replaced"
+        }
+      ],
+      "name": "inferno pistol"
     },
     {
       "count": 1,
@@ -193,25 +332,66 @@
       "id": "oc-bike-squad-1-7",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "plasma pistol",
+          "role": "granted"
+        },
+        {
+          "item_index": 1,
+          "item_name": "Biker Sergeant’s bolt pistol",
+          "role": "replaced"
+        }
+      ],
       "name": "plasma pistol"
     },
     {
       "count": 1,
+      "grants_weapon_line": 16,
       "group_id": "og-bike-squad-1",
       "id": "oc-bike-squad-1-8",
       "is_default": false,
       "is_no_change": false,
-      "name": "storm bolter",
-      "replaces_weapon_line": 16
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "storm bolter",
+          "role": "granted",
+          "weapon_line": 16
+        },
+        {
+          "item_index": 1,
+          "item_name": "Biker Sergeant’s bolt pistol",
+          "role": "replaced"
+        }
+      ],
+      "name": "storm bolter"
     },
     {
       "count": 1,
+      "grants_weapon_line": 20,
       "group_id": "og-bike-squad-1",
       "id": "oc-bike-squad-1-9",
       "is_default": false,
       "is_no_change": false,
-      "name": "power fist",
-      "replaces_weapon_line": 20
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "power fist",
+          "role": "granted",
+          "weapon_line": 20
+        },
+        {
+          "item_index": 1,
+          "item_name": "Biker Sergeant’s bolt pistol",
+          "role": "replaced"
+        }
+      ],
+      "name": "power fist"
     },
     {
       "count": 1,
@@ -220,6 +400,21 @@
       "id": "oc-bike-squad-2-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "Astartes chainsword",
+          "role": "granted",
+          "weapon_line": 18
+        },
+        {
+          "item_index": 1,
+          "item_name": "bolt pistol",
+          "role": "replaced",
+          "weapon_line": 2
+        }
+      ],
       "name": "Astartes chainsword",
       "replaces_weapon_line": 2
     },
@@ -230,6 +425,21 @@
       "id": "oc-bike-squad-3-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "flamer",
+          "role": "granted",
+          "weapon_line": 4
+        },
+        {
+          "item_index": 1,
+          "item_name": "bolt pistol",
+          "role": "replaced",
+          "weapon_line": 2
+        }
+      ],
       "name": "flamer",
       "replaces_weapon_line": 2
     },
@@ -240,6 +450,21 @@
       "id": "oc-bike-squad-3-2",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "grav-gun",
+          "role": "granted",
+          "weapon_line": 5
+        },
+        {
+          "item_index": 1,
+          "item_name": "bolt pistol",
+          "role": "replaced",
+          "weapon_line": 2
+        }
+      ],
       "name": "grav-gun",
       "replaces_weapon_line": 2
     },
@@ -250,6 +475,21 @@
       "id": "oc-bike-squad-3-3",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "meltagun",
+          "role": "granted",
+          "weapon_line": 10
+        },
+        {
+          "item_index": 1,
+          "item_name": "bolt pistol",
+          "role": "replaced",
+          "weapon_line": 2
+        }
+      ],
       "name": "meltagun",
       "replaces_weapon_line": 2
     },
@@ -259,6 +499,20 @@
       "id": "oc-bike-squad-3-4",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "plasma gun",
+          "role": "granted"
+        },
+        {
+          "item_index": 1,
+          "item_name": "bolt pistol",
+          "role": "replaced",
+          "weapon_line": 2
+        }
+      ],
       "name": "plasma gun",
       "replaces_weapon_line": 2
     },
@@ -268,17 +522,47 @@
       "id": "oc-bike-squad-3-5",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "plasma pistol",
+          "role": "granted"
+        },
+        {
+          "item_index": 1,
+          "item_name": "bolt pistol",
+          "role": "replaced",
+          "weapon_line": 2
+        }
+      ],
       "name": "plasma pistol",
       "replaces_weapon_line": 2
     },
     {
       "count": 1,
+      "grants_weapon_line": 11,
       "group_id": "og-bike-squad-4",
       "id": "oc-bike-squad-4-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "multi-melta",
+          "role": "granted",
+          "weapon_line": 11
+        },
+        {
+          "item_index": 1,
+          "item_name": "heavy bolter",
+          "role": "replaced",
+          "weapon_line": 8
+        }
+      ],
       "name": "multi-melta",
-      "replaces_weapon_line": 11
+      "replaces_weapon_line": 8
     }
   ],
   "option_groups": [
@@ -288,28 +572,35 @@
       "scope": "unit"
     },
     {
+      "eligible_model_name": "Space Marine Bikers",
       "id": "og-bike-squad-2",
+      "is_per_model": true,
       "line": 2,
       "scope": "unit"
     },
     {
+      "eligible_max_count": 2,
+      "eligible_model_name": "Space Marine Bikers",
       "id": "og-bike-squad-3",
+      "is_per_model": true,
       "line": 3,
       "scope": "unit"
     },
     {
+      "eligible_max_count": 1,
+      "eligible_model_name": "Attack Bike",
       "id": "og-bike-squad-4",
       "line": 4,
       "scope": "unit"
     }
   ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 3,
+    "consecutive_unverified_releases": 4,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
+    "detail_acquisition_id": "wahapedia-20260814T171635Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
