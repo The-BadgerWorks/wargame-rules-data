@@ -42,6 +42,7 @@ from pipeline.models.curated import (
     CuratedDetachment,
     CuratedDetachmentRestriction,
     CuratedEnhancement,
+    CuratedEquipmentGroup,
     CuratedFaction,
     CuratedSnapshot,
 )
@@ -102,6 +103,37 @@ def _cost(cost: CuratedDatasheetCost) -> dict[str, JsonValue]:
             "pricing_context": cost.pricing_context,
             "pricing_confidence": cost.pricing_confidence.value,
             "source_acquisition_id": cost.source_acquisition_id,
+        }
+    )
+
+
+def _equipment_group(group: CuratedEquipmentGroup) -> dict[str, JsonValue]:
+    """One `006` default-equipment sentence, with its items (`007` T032, research D2, issue #14).
+
+    Missing from `data/` until now: the curated tree carried none of `006`'s equipment classes,
+    so a bundle rebuilt *from the tree* (what `validate` does) diverged from the freshly-acquired
+    bundle a candidate publishes. This closes that gap on the writer side; :func:`_datasheet` in
+    `prior.py` closes it on the read side.
+    """
+    return omit_absent(
+        {
+            "id": group.id,
+            "line": group.line,
+            "applies_to": group.applies_to.value,
+            "model_name": group.model_name,
+            "composition_line": group.composition_line,
+            "items": [
+                omit_absent(
+                    {
+                        "item_index": item.item_index,
+                        "item_name": item.item_name,
+                        "count": item.count,
+                        "weapon_line": item.weapon_line,
+                    }
+                )
+                for item in sorted(group.items, key=lambda item: item.item_index)
+            ]
+            or None,
         }
     )
 
@@ -277,6 +309,11 @@ def _datasheet(datasheet: CuratedDatasheet) -> dict[str, JsonValue]:
                         "default_choice_id": group.default_choice_id,
                         "min_choices": group.min_choices,
                         "max_choices": group.max_choices,
+                        # `006` §2.1, closed the round-trip by `007` T032 (research D2, issue
+                        # #14): three mutually independent optional fields, never inferred.
+                        "eligible_model_name": group.eligible_model_name,
+                        "eligible_max_count": group.eligible_max_count,
+                        "is_per_model": group.is_per_model,
                     }
                 )
                 for group in sorted(datasheet.option_groups, key=lambda group: group.id)
@@ -295,6 +332,23 @@ def _datasheet(datasheet: CuratedDatasheet) -> dict[str, JsonValue]:
                         "is_no_change": choice.is_no_change,
                         "points_delta": choice.points_delta,
                         "priced_option_id": choice.priced_option_id,
+                        # `006` §1.1, closed the round-trip by `007` T032: the replaced set and
+                        # the granted bundle, never derivable from the singular fields alone.
+                        "items": [
+                            omit_absent(
+                                {
+                                    "role": item.role.value,
+                                    "item_index": item.item_index,
+                                    "item_name": item.item_name,
+                                    "count": item.count,
+                                    "weapon_line": item.weapon_line,
+                                }
+                            )
+                            for item in sorted(
+                                choice.items, key=lambda item: (item.role.value, item.item_index)
+                            )
+                        ]
+                        or None,
                     }
                 )
                 for choice in sorted(datasheet.option_choices, key=lambda choice: choice.id)
@@ -303,6 +357,20 @@ def _datasheet(datasheet: CuratedDatasheet) -> dict[str, JsonValue]:
             "wargear_option_state": (
                 datasheet.wargear_option_state.value
                 if datasheet.wargear_option_state is not None
+                else None
+            ),
+            # `006` §1.2/§3, closed the round-trip by `007` T032 (research D2, issue #14): the
+            # curated tree previously carried none of `006`'s equipment classes at all, so a
+            # bundle rebuilt from the tree (what `validate` does) diverged from a freshly
+            # acquired one.
+            "equipment_groups": [
+                _equipment_group(group)
+                for group in sorted(datasheet.equipment_groups, key=lambda group: group.id)
+            ]
+            or None,
+            "default_equipment_state": (
+                datasheet.default_equipment_state.value
+                if datasheet.default_equipment_state is not None
                 else None
             ),
             "ability_keys": sorted(datasheet.ability_keys) or None,

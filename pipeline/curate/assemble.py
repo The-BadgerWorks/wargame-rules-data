@@ -745,7 +745,58 @@ def _composition_entries(
 
     if unresolved:
         return [], findings
-    return sorted(entries, key=lambda entry: entry.line), findings
+
+    ordered = sorted(entries, key=lambda entry: entry.line)
+    ordered, header_finding = _refuse_header_row(datasheet_id, ordered)
+    if header_finding is not None:
+        findings.append(header_finding)
+    return ordered, findings
+
+
+def _refuse_header_row(
+    datasheet_id: str, entries: Sequence[CuratedCompositionEntry]
+) -> tuple[list[CuratedCompositionEntry], Finding | None]:
+    """Issue #15's phantom unit-size header, refused by a relation over the WHOLE row set.
+
+    research D1: the header line is a *valid parse* of the fixed composition production — an
+    integer, then a name — so nothing on the line itself says it is not a model row. The
+    discriminating evidence is a **conjunction of five independent structural signals**, applied
+    here rather than in ``pipeline/parse/composition_grammar.py``, which stays mode-blind and
+    untouched:
+
+    1. it is the first row of the datasheet's composition list;
+    2. at least one row follows it;
+    3. its minimum equals its maximum (a header states one number, not a range);
+    4. its count equals the sum of the maxima of the rows that follow it — a first row that
+       equals the aggregate of its successors is a *total*, not a part;
+    5. its name resolves to no model entry of the datasheet.
+
+    Each signal alone has a plausible false positive (a genuine first row can be fixed-size, can
+    fail to link, and a two-row card can coincidentally sum); requiring all five at once is what
+    lets GF15's near-miss survive while GF13/GF14's two measured header shapes are both refused.
+    """
+    if len(entries) < 2:
+        return list(entries), None
+
+    first, *rest = entries
+    is_fixed = first.min_count == first.max_count
+    sums_to_successors = first.max_count == sum(entry.max_count for entry in rest)
+    is_unlinked = first.model_line is None
+
+    if not (is_fixed and sums_to_successors and is_unlinked):
+        return list(entries), None
+
+    finding = build_finding(
+        "CMP-HEADER-ROW",
+        entity_refs=[datasheet_id],
+        detail={
+            "datasheet_id": datasheet_id,
+            "line": first.line,
+            "model_name": first.model_name,
+            "file_name": "Datasheets_unit_composition.csv",
+        },
+    )
+    return rest, finding
 
 
 def _equipment(

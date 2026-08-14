@@ -54,6 +54,7 @@ from pipeline.models.curated import (
     CuratedEditionRule,
     CuratedEnhancement,
     CuratedEnhancementEligibility,
+    CuratedEquipmentGroup,
     CuratedFaction,
     CuratedGameSizeRule,
     CuratedKeyword,
@@ -63,6 +64,7 @@ from pipeline.models.curated import (
     CuratedSnapshot,
     CuratedWargearOption,
     CuratedWeaponLine,
+    DefaultEquipmentState,
     WargearOptionState,
 )
 from pipeline.models.provenance import (
@@ -269,6 +271,16 @@ def _datasheet(raw: Mapping[str, Any], *, edition_id: str, edition_code: str) ->
         wargear_option_state=(
             WargearOptionState(raw["wargear_option_state"])
             if raw.get("wargear_option_state")
+            else None
+        ),
+        # `006` §1.2/§3, closed the round-trip by `007` T032 (research D2, issue #14). Nested
+        # `items` inside each group validate into `CuratedEquipmentItem` automatically — pydantic
+        # parses `**row`'s sequence-of-dicts against the field's declared item type, the same way
+        # `option_choices` above already relies on for its own `items` array.
+        equipment_groups=[CuratedEquipmentGroup(**row) for row in raw.get("equipment_groups", [])],
+        default_equipment_state=(
+            DefaultEquipmentState(raw["default_equipment_state"])
+            if raw.get("default_equipment_state")
             else None
         ),
         wargear_options=[CuratedWargearOption(**row) for row in raw.get("wargear_options", [])],
