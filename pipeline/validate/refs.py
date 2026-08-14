@@ -4,6 +4,10 @@
 # AI-Assisted: Claude Code (model: claude-opus-5) - Extended V9 to 004's two override files (004
 # task T026, 004 data-model.md §4): an override naming a line, model row, or weapon row that no
 # longer exists is the same defect, reported the same way rather than by a check of its own.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - Extended V4 to CuratedItemConstraint.
+# weapon_line (007 task T017, guarantee 22): every PRESENT weapon_line names a datasheet_weapons
+# row of the datasheet that owns the constraint, defence-in-depth beside the reconcile-stage
+# exactly-one-match join that is supposed to guarantee it already.
 """V4 and V9 — every reference resolves, in both directions.
 
 **V4** is the consumer contract's guarantee 4, checked here rather than discovered at ingestion:
@@ -77,6 +81,25 @@ def check_intra_snapshot_references(snapshot: CuratedSnapshot) -> list[Finding]:
         _require(datasheet.datasheet_id, "faction_id", datasheet.faction_id, "faction_id")
         for bodyguard in datasheet.leader_pairs:
             _require(datasheet.datasheet_id, "leader_pairs", bodyguard, "datasheet_id")
+
+        # 007-loadout-display-fidelity (guarantee 22): every PRESENT weapon_line names a
+        # datasheet_weapons row of the datasheet that OWNS the constraint. Local to the
+        # datasheet rather than routed through `_require`/`known`, because `weapon_line` is
+        # `datasheet.line`-scoped, not a snapshot-wide id pool.
+        weapon_lines = {weapon.line for weapon in datasheet.weapons}
+        for constraint in datasheet.item_constraints:
+            if constraint.weapon_line is not None and constraint.weapon_line not in weapon_lines:
+                findings.append(
+                    build_finding(
+                        "CON-DANGLING-REF",
+                        entity_refs=[datasheet.datasheet_id],
+                        detail={
+                            "holder": f"{datasheet.datasheet_id}:{constraint.constraint_index}",
+                            "field": "weapon_line",
+                            "missing_id": str(constraint.weapon_line),
+                        },
+                    )
+                )
 
     return findings
 

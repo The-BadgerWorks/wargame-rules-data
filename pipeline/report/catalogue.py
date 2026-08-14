@@ -9,6 +9,10 @@
 # AI-Assisted: Claude Code (model: claude-opus-5) - Added COV-WEAPON-ABILITIES-EMPTY (issue #4):
 # the advisory that makes a whole extracted class going empty visible, which is the one shape of
 # defect every other code here is blind to because nothing about it is wrong per record.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - Added 007-loadout-display-fidelity's nine
+# codes (007 task T013, data-model.md §4): item-constraint linking/parsing, the marker-residue
+# and header-row guarantee breaches, the legacy-value-correction and over-length-item advisories,
+# the generic rendering-omission code, and the two equivalence-check outcomes.
 """The finding catalogue.
 
 ``validation-report.md`` §1.1: **severity is a property of the code, not of the occurrence.** A
@@ -393,6 +397,82 @@ _DEFINITIONS: Final[tuple[FindingDefinition, ...]] = (
         "006 FR-022, spec Clarifications 2026-08-09",
         "loadout.options_resolved fell below the previous PUBLISHED version's percent, less "
         "the configured tolerance; a rejected candidate never moves the baseline",
+    ),
+    # -- 007-loadout-display-fidelity (007 data-model.md §4) --------------------------------
+    # Nine codes. Two block, and both are guarantee breaches rather than gaps -- a marker
+    # artifact left in a published name (guarantee 21) and a phantom composition row (guarantee
+    # 20) -- the same "a contradiction blocks, a gap is advisory" split `004`/`006` already use.
+    _d(
+        "CST-UNLINKED",
+        _REC,
+        _A,
+        "007 FR-009",
+        "an item constraint's item_name matches zero or two-or-more weapon lines; the row ships "
+        "with weapon_line omitted, never guessed",
+    ),
+    _d(
+        "CST-UNPARSED",
+        _DQ,
+        _A,
+        "007 FR-009",
+        "a restriction-shaped line matched no member of the closed item-constraint vocabulary; "
+        "no row is produced",
+    ),
+    _d(
+        "CST-MARKER-RESIDUE",
+        _CON,
+        _B,
+        "007 SC-002, contract guarantee 21",
+        "a published name field still carries a footnote-marker artifact; blocking because it is "
+        "the exact defect this feature exists to remove, and cheap to detect",
+    ),
+    _d(
+        "CMP-HEADER-ROW",
+        _CON,
+        _B,
+        "007 FR-010, SC-003, contract guarantee 20",
+        "a composition row was produced from a line matching the unit-size header shape; "
+        "blocking for the same reason CST-MARKER-RESIDUE is",
+    ),
+    _d(
+        "OPT-LEGACY-CORRECTED",
+        _REC,
+        _A,
+        "007 FR-007",
+        "a derived singular grants_/replaces_weapon_line value differs from the previously "
+        "published one; enumerated by name in option-regression.md's Corrected section",
+    ),
+    _d(
+        "OPT-ITEM-OVERLONG",
+        _DQ,
+        _A,
+        "007 research D3.4",
+        "an item name exceeded the 120-character ceiling and was dropped; today this happens "
+        "silently, which is how a bundle can lose an item with no trace",
+    ),
+    _d(
+        "RND-OMITTED",
+        _DQ,
+        _A,
+        "007 rendering-contract.md §4, §5",
+        "a row was omitted from a rendered block, carrying one of that contract's RND-* reason "
+        "codes in its detail; the enclosing block still renders every sibling that resolved",
+    ),
+    _d(
+        "RND-EQV-MISMATCH",
+        _COV,
+        _A,
+        "007 FR-019, contract §9",
+        "a rendered block and the source block disagree under the §9 comparison normal form; "
+        "carries datasheet_id and block name only, never either side's text",
+    ),
+    _d(
+        "RND-EQV-NOT-COMPARED",
+        _COV,
+        _A,
+        "007 FR-021, contract §9",
+        "the source block could not be read on this run, or the rendered block was empty "
+        "because every row was legitimately omitted; excluded from both sides of the figure",
     ),
 )
 

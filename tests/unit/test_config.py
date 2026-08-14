@@ -5,6 +5,8 @@
 # variables (004 task T008): every new default resolves, the mode selector and the three gates
 # reject a value outside their enum, every new variable is non-sensitive, and an unknown
 # --config key still fails the run.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - Added WGC_EQUIVALENCE_CHECK_ENABLED (007
+# task T014): the accepted boolean spellings, the rejection of anything else, and the default.
 """Configuration: the documented defaults, the resolution order, and the redaction rule."""
 
 from __future__ import annotations
@@ -66,10 +68,17 @@ ENRICHMENT_DEFAULTS = {
     "WGC_RATCHET_TOLERANCE_GLOSSARY": "0.00",
 }
 
+#: Transcribed from 007's plan.md Environment gate, independently of pipeline/config.py.
+DISPLAY_FIDELITY_DEFAULTS = {
+    "WGC_EQUIVALENCE_CHECK_ENABLED": "true",
+}
+
 
 def test_every_contract_variable_carries_its_documented_default() -> None:
     declared = {var.env_name: var.default for var in CONFIG_VARS}
     for name, default in CONTRACT_DEFAULTS.items():
+        assert declared[name] == default, f"{name} drifted from the contract's default"
+    for name, default in DISPLAY_FIDELITY_DEFAULTS.items():
         assert declared[name] == default, f"{name} drifted from the contract's default"
 
 
@@ -295,3 +304,34 @@ def test_only_a_matched_surrounding_pair_is_ever_removed(value: str) -> None:
     would start editing values rather than undoing a loader's omission."""
     expected = "" if value == '""' else value
     assert load_config(env={"WGC_DETECT_CRON": value}).detect_cron == expected
+
+
+# -- 007-loadout-display-fidelity (007 task T014) -------------------------------------------
+
+
+def test_the_equivalence_check_defaults_on() -> None:
+    assert load_config(env={}).equivalence_check_enabled is True
+
+
+@pytest.mark.parametrize(
+    ("value", "expected"), [("true", True), ("false", False), ("1", True), ("0", False)]
+)
+def test_the_equivalence_check_switch_accepts_its_documented_spellings(
+    value: str, expected: bool
+) -> None:
+    config = load_config(env={"WGC_EQUIVALENCE_CHECK_ENABLED": value})
+    assert config.equivalence_check_enabled is expected
+
+
+def test_the_equivalence_check_switch_is_case_insensitive_and_trims_whitespace() -> None:
+    assert load_config(env={"WGC_EQUIVALENCE_CHECK_ENABLED": " TRUE "}).equivalence_check_enabled
+
+
+def test_an_invalid_equivalence_check_value_is_a_configuration_error() -> None:
+    with pytest.raises(ConfigError, match="WGC_EQUIVALENCE_CHECK_ENABLED"):
+        load_config(env={"WGC_EQUIVALENCE_CHECK_ENABLED": "yes"})
+
+
+def test_the_equivalence_check_switch_is_not_sensitive() -> None:
+    var = next(v for v in CONFIG_VARS if v.env_name == "WGC_EQUIVALENCE_CHECK_ENABLED")
+    assert var.sensitive is False

@@ -10,6 +10,10 @@
 # contracts/loadout-schema-delta.md §1). Also replaced the single-name parse of jsonschema's
 # additionalProperties message with _strict_validator_objections, which reads every name it
 # lists -- `datasheets` now carries two added columns and the old parse saw one of them.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - Added 007-loadout-display-fidelity's
+# `datasheetItemConstraints` to NEW_ARRAYS and LOADOUT_ARRAYS (007 task T011), and the two new
+# OPTIONAL snapshotMeta fields to a permitted-exception set the same way NEW_COLUMNS/
+# LOADOUT_COLUMNS already except additive columns on ordinary arrays.
 """Nothing existing moved. Proven by comparison, not by assertion.
 
 `contracts/bundle-schema-delta.md` §1 makes a claim about a document nobody in this repository
@@ -95,6 +99,11 @@ NEW_ARRAYS: frozenset[str] = frozenset(
         "datasheetOptionChoiceItems",
         "datasheetEquipmentGroups",
         "datasheetEquipmentItems",
+        # 007-loadout-display-fidelity (007 task T011, display-fidelity-schema-delta.md §2.1).
+        # Measured against the PRE-ENRICHMENT baseline below, so it joins this set too: a
+        # consumer released before `004` has never heard of any array added since, including
+        # this one.
+        "datasheetItemConstraints",
     }
 )
 
@@ -133,9 +142,28 @@ NEW_COLUMN_PAIRS: frozenset[tuple[str, str]] = frozenset(
     (array, column) for array, columns in NEW_COLUMNS.items() for column in columns
 )
 
-#: The arrays `006` alone adds, measured against :data:`PRE_LOADOUT_PATH` (006 task T033).
+#: The arrays added since :data:`PRE_LOADOUT_PATH` was frozen (006 task T033) -- i.e. everything
+#: the CURRENTLY released consumers do not know about. `006`'s own three, plus `007`'s
+#: `datasheetItemConstraints` (007 task T011): `PRE_LOADOUT_PATH` freezes the shape as it stood
+#: BEFORE `006` shipped, so from that vantage point `007`'s addition is just as new as `006`'s
+#: three were. A THIRD baseline, frozen at `007`'s own release, is `007`'s own concern when it
+#: ships -- not a reason to keep this set artificially at three in the meantime.
 LOADOUT_ARRAYS: frozenset[str] = frozenset(
-    {"datasheetOptionChoiceItems", "datasheetEquipmentGroups", "datasheetEquipmentItems"}
+    {
+        "datasheetOptionChoiceItems",
+        "datasheetEquipmentGroups",
+        "datasheetEquipmentItems",
+        "datasheetItemConstraints",
+    }
+)
+
+#: The two OPTIONAL `snapshotMeta` fields `007` alone adds (display-fidelity-schema-delta.md
+#: §3). Both are omitted by a producer with nothing to say, so an old consumer reading neither is
+#: unaffected — `test_snapshot_meta_is_untouched(_since_the_last_release)` would otherwise treat
+#: this addition as a shape change, which is exactly the kind of "additive" schema change the two
+#: `NEW_COLUMNS`/`LOADOUT_COLUMNS` dicts above already carve an exception for on ordinary arrays.
+SNAPSHOT_META_NEW_FIELDS: frozenset[str] = frozenset(
+    {"itemConstraintVocabularyVersion", "renderingContractVersion"}
 )
 
 #: The four columns `006` alone adds, as ``array -> columns``.
@@ -252,10 +280,14 @@ def test_the_consumer_contract_major_is_unchanged() -> None:
 
 
 def test_snapshot_meta_is_untouched(baseline: dict[str, Any], enriched: dict[str, Any]) -> None:
-    """`003` asserts on this object at fetch time; a change here is a site release."""
-    assert _shape(enriched["properties"]["snapshotMeta"], strict=True) == _shape(
-        baseline["properties"]["snapshotMeta"], strict=True
-    )
+    """`003` asserts on this object at fetch time; a change here is a site release.
+
+    `007`'s two OPTIONAL fields are the one permitted exception (`SNAPSHOT_META_NEW_FIELDS`),
+    on the same footing as `NEW_COLUMNS`'s additive columns on ordinary arrays.
+    """
+    assert _shape(
+        enriched["properties"]["snapshotMeta"], ignore=SNAPSHOT_META_NEW_FIELDS, strict=True
+    ) == _shape(baseline["properties"]["snapshotMeta"], strict=True)
 
 
 # --- nothing existing renamed, reshaped, reordered, or changed optionality -----------------------
@@ -458,9 +490,10 @@ def test_the_bundle_layout_version_is_unchanged_since_the_last_release(
 def test_snapshot_meta_is_untouched_since_the_last_release(
     pre_loadout: dict[str, Any], enriched: dict[str, Any]
 ) -> None:
-    assert _shape(enriched["properties"]["snapshotMeta"], strict=True) == _shape(
-        pre_loadout["properties"]["snapshotMeta"], strict=True
-    )
+    """`007`'s two OPTIONAL fields are the one permitted exception, same as above."""
+    assert _shape(
+        enriched["properties"]["snapshotMeta"], ignore=SNAPSHOT_META_NEW_FIELDS, strict=True
+    ) == _shape(pre_loadout["properties"]["snapshotMeta"], strict=True)
 
 
 def test_every_pre_loadout_array_still_exists_under_its_own_name(
@@ -469,7 +502,7 @@ def test_every_pre_loadout_array_still_exists_under_its_own_name(
     assert set(_arrays(pre_loadout)) <= set(_arrays(enriched))
 
 
-def test_the_root_required_list_only_grew_by_the_three_loadout_arrays(
+def test_the_root_required_list_only_grew_by_the_arrays_added_since_the_last_release(
     pre_loadout: dict[str, Any], enriched: dict[str, Any]
 ) -> None:
     """Appended, never inserted: a consumer reading the list positionally keeps its own prefix."""
@@ -529,13 +562,13 @@ def test_each_loadout_column_is_optional_and_therefore_invisible_to_a_released_c
     assert column not in items["required"]
 
 
-def test_the_only_arrays_added_since_the_last_release_are_the_three_the_contract_declares(
+def test_the_only_arrays_added_since_the_last_release_are_the_ones_the_contracts_declare(
     pre_loadout: dict[str, Any], enriched: dict[str, Any]
 ) -> None:
     assert set(_arrays(enriched)) - set(_arrays(pre_loadout)) == LOADOUT_ARRAYS
 
 
-def test_the_three_loadout_arrays_are_invisible_to_the_released_schema() -> None:
+def test_the_arrays_added_since_the_last_release_are_invisible_to_the_released_schema() -> None:
     """A consumer released against `004`'s schema does not object to a single new array."""
     from jsonschema import Draft202012Validator
 

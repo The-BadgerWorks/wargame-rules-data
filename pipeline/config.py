@@ -15,6 +15,11 @@
 # environment is read (004 T076 follow-up): a `.env.local` secret loaded by a hand-rolled
 # `KEY=VALUE` split keyed the mechanic digest on a quoted string, which silently re-reviewed
 # every approved ability summary rather than failing anything (see `unquote_env_value`).
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - Added WGC_EQUIVALENCE_CHECK_ENABLED (007
+# task T014, plan.md Environment gate): the one on/off switch for the Part C equivalence check,
+# non-sensitive, defaulted true. The comparison's elision-word set is deliberately NOT a second
+# env-driven variable — it is authored, versioned-with-the-check configuration documented in
+# docs/configuration.md, per contract §9.1's "not derived from any source page."
 """Pipeline configuration.
 
 Every variable in ``contracts/pipeline-run-interface.md`` §5 appears here exactly once, with
@@ -105,7 +110,7 @@ class Gate(StrEnum):
         return self is Gate.ON
 
 
-ValueKind = Literal["str", "int", "ratio", "channel", "detail_mode", "gate"]
+ValueKind = Literal["str", "int", "ratio", "channel", "detail_mode", "gate", "bool"]
 
 
 @dataclass(frozen=True, slots=True)
@@ -398,6 +403,19 @@ CONFIG_VARS: Final[tuple[ConfigVar, ...]] = (
         False,
         "resolved-option coverage regression tolerance (006 FR-022)",
     ),
+    # -- 007-loadout-display-fidelity ---------------------------------------------------------
+    # One variable, deliberately: the Part C equivalence check's on/off switch. The comparison's
+    # elision-word set is NOT a second variable here — it is authored configuration versioned
+    # with the check itself (docs/configuration.md), because contract §9.1 requires it to be
+    # "not derived from any source page," which is exactly what an env override would risk.
+    ConfigVar(
+        "WGC_EQUIVALENCE_CHECK_ENABLED",
+        "equivalence_check_enabled",
+        "true",
+        "bool",
+        False,
+        "on/off switch, the build-time rendering equivalence check (007 FR-019..FR-022)",
+    ),
 )
 
 _BY_ENV_NAME: Final[Mapping[str, ConfigVar]] = {var.env_name: var for var in CONFIG_VARS}
@@ -442,6 +460,7 @@ class PipelineConfig:
     ratchet_tolerance_detachment_rules: float
     ratchet_tolerance_glossary: float
     ratchet_tolerance_options: float
+    equivalence_check_enabled: bool
 
     @property
     def manifest_path(self) -> str:
@@ -603,6 +622,26 @@ def _as_gate(raw: Mapping[str, str], env_name: str) -> Gate:
         raise ConfigError(f"{env_name} must be one of {allowed}, got {text!r}") from exc
 
 
+#: Accepted spellings, lower-cased before lookup. Deliberately not `bool(text)` — every
+#: non-empty string is truthy in Python, which would make `WGC_EQUIVALENCE_CHECK_ENABLED=false`
+#: turn the check ON.
+_BOOL_VALUES: Final[Mapping[str, bool]] = {
+    "true": True,
+    "false": False,
+    "1": True,
+    "0": False,
+}
+
+
+def _as_bool(raw: Mapping[str, str], env_name: str) -> bool:
+    text = raw[env_name]
+    try:
+        return _BOOL_VALUES[text.strip().lower()]
+    except KeyError as exc:
+        allowed = ", ".join(sorted(_BOOL_VALUES))
+        raise ConfigError(f"{env_name} must be one of {allowed}, got {text!r}") from exc
+
+
 def load_config(
     env: Mapping[str, str] | None = None,
     config_path: Path | str | None = None,
@@ -668,4 +707,5 @@ def load_config(
         ratchet_tolerance_detachment_rules=_as_ratio(raw, "WGC_RATCHET_TOLERANCE_DETACHMENT_RULES"),
         ratchet_tolerance_glossary=_as_ratio(raw, "WGC_RATCHET_TOLERANCE_GLOSSARY"),
         ratchet_tolerance_options=_as_ratio(raw, "WGC_RATCHET_TOLERANCE_OPTIONS"),
+        equivalence_check_enabled=_as_bool(raw, "WGC_EQUIVALENCE_CHECK_ENABLED"),
     )
