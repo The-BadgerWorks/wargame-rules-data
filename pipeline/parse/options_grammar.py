@@ -2,6 +2,10 @@
 # 004 research D3 (004 task T028): the `<li>` split ahead of the clause grammar, the clause
 # head and verb table with its measured frequencies, the `with N` quantifier, and the residual
 # marker that makes a vocabulary shift a coverage figure rather than missing data.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - 007 US3 (T038, T039): stripped the footnote
+# marker at `_parse_object` and `_item` (research D4.1, guarantee 21); added the item-constraint
+# production `parse_constraint_row`/`is_constraint_shaped` against the closed two-member
+# vocabulary (research D4.2), tried by the caller only after `parse_row` has already refused a row.
 """Resolve one wargear-option row into a group scope and its choices.
 
 The source publishes one row per option, as free text with an optional ``<li>`` sub-list, **no
@@ -51,8 +55,8 @@ from dataclasses import dataclass
 from enum import StrEnum
 from typing import Final
 
-from pipeline.models.curated import OptionScope, WargearOptionState
-from pipeline.parse.composition_grammar import pre_pass
+from pipeline.models.curated import ItemConstraintType, OptionScope, WargearOptionState
+from pipeline.parse.composition_grammar import FOOTNOTE_MARK, pre_pass
 
 #: The sub-list opener. ``<\s*ul``, never ``<ul>`` — see the module docstring.
 _SUBLIST: Final = re.compile(r"<\s*ul", re.IGNORECASE)
@@ -133,10 +137,6 @@ _DISTRIBUTIVE_REPLACE: Final = re.compile(
 #: strip is a fixed closed list rather than a "leading word" rule, because a leading word is
 #: sometimes the item.
 _POSSESSIVE: Final = re.compile(r"^(?:its|their|the|this model's|this model’s)\s+", re.IGNORECASE)
-
-#: A footnote marker glued to a model name inside the stem — 24 measured rows carry one. A head
-#: that cannot read past it loses the row to a typographic convention.
-_FOOTNOTE_MARK: Final = re.compile(r"[*†‡¹²³]+")
 
 #: The apostrophe, in both forms the source uses. NFKC does not fold ``’`` to ``'``, so a
 #: production spelling only one of them matches roughly half the possessive heads it should.
@@ -344,9 +344,13 @@ class OptionRowParse:
     # -- `006` §2.2: the group-level select quantifier ------------------------------------------
     min_choices: int | None = None
     max_choices: int | None = None
-    #: The possessive side of a distributive replace stem — what the eligible models give **up**,
-    #: which the clause names in its own head rather than after its verb. ``None`` for every
-    #: production `004` carries, whose object clause is the only side it states.
+    #: What the eligible subject gives **up**, captured from EITHER of two places the source
+    #: states it (007 research D3.1): the distributive stem's own possessive head (`006`), or —
+    #: new here — the plain text between a legacy `_REPLACE_VERB` row's head match and its verb
+    #: phrase, which `004` matched for its head shape and then discarded. ``None`` only for a
+    #: row whose verb is not a replacement at all (`_EQUIP_VERB`, or no verb matched); a legacy
+    #: replacement row with literally nothing stated between head and verb captures ``""``, never
+    #: ``None`` — the distinction the `_option_structure` role ternary depends on (007 D3).
     replaced_clause: str | None = None
 
 
@@ -386,11 +390,12 @@ def parse_row(description: str) -> OptionRowParse | None:
     if not stem or any(pattern.search(stem) for pattern in _REFUSED):
         return None
 
-    head = _match_head(stem)
-    if head is None:
+    matched_head = _match_head(stem)
+    if matched_head is None:
         return None
+    head, head_end = matched_head
 
-    verb, object_clause, replaced_clause = _match_verb(stem)
+    verb, object_clause, replaced_clause, is_distributive = _match_verb(stem, head_end)
     if verb is None:
         return None
 
@@ -411,7 +416,13 @@ def parse_row(description: str) -> OptionRowParse | None:
     # distributive in itself says so too. Neither is ever written as `False`: the source not
     # distinguishing and the source saying "once for the unit" are different facts, and
     # defaulting would over-grant the 350 measured rows that do distribute.
-    is_per_model = True if replaced_clause is not None else head.is_per_model
+    #
+    # **Keyed on `is_distributive`, not on `replaced_clause is not None`** (007 T021): the legacy
+    # `_REPLACE_VERB` shape now populates `replaced_clause` too, and it is not distributive — a
+    # singular "One <Model>'s <item> can be replaced with ..." row must keep `is_per_model` at
+    # whatever its head said (`None` for a singular head), never forced `True` by the mere
+    # presence of a given-up-item capture.
+    is_per_model = True if is_distributive else head.is_per_model
 
     return OptionRowParse(
         scope=head.scope,
@@ -425,21 +436,25 @@ def parse_row(description: str) -> OptionRowParse | None:
     )
 
 
-def _match_head(stem: str) -> _Head | None:
-    """`004`'s head table to exhaustion, and only then `006`'s. The order is FR-009."""
+def _match_head(stem: str) -> tuple[_Head, int] | None:
+    """`004`'s head table to exhaustion, and only then `006`'s. The order is FR-009.
+
+    Returns the match's end offset alongside the head (007 T021): it is where a legacy
+    replacement clause's given-up item, if any, begins.
+    """
     for pattern, scope in _HEADS:
         match = pattern.match(stem)
         if match is None:
             continue
         scope_n = int(match.group(1)) if scope is OptionScope.PER_N_MODELS else None
-        return _Head(scope=scope, scope_n=scope_n)
+        return _Head(scope=scope, scope_n=scope_n), match.end()
 
     if any(pattern.search(stem) for pattern in _EXTENDED_REFUSED):
         return None
     for pattern, build in _EXTENDED_HEADS:
         match = pattern.match(stem)
         if match is not None:
-            return build(match)
+            return build(match), match.end()
     return None
 
 
@@ -452,7 +467,7 @@ def _model_name(text: str) -> str | None:
     in particular the plural is **not** singularised, which would be inference dressed as
     tidying (spec Clarifications, 2026-08-09: carried unchecked).
     """
-    cleaned = _FOOTNOTE_MARK.sub("", text).strip()
+    cleaned = FOOTNOTE_MARK.sub("", text).strip()
     if not cleaned or cleaned.casefold() in {"model", "models"}:
         return None
     return cleaned
@@ -467,27 +482,46 @@ def _select_quantifier(stem: str) -> int | None:
     return _NUMERALS.get(count, int(count) if count.isdigit() else None)
 
 
-def _match_verb(stem: str) -> tuple[OptionVerb | None, str, str | None]:
-    """The clause's verb, the text following it, and the side it takes away.
+def _match_verb(stem: str, head_end: int) -> tuple[OptionVerb | None, str, str | None, bool]:
+    """The clause's verb, the text following it, the side it takes away, and whether that side
+    is `006`'s distributive shape.
 
     ``replace`` is tested first: a row carrying both phrases is describing a replacement whose
     alternatives are then equipped, and reading it as additive would publish an upgrade the
     player has not paid for a swap to take.
 
+    **007 T021**: the legacy ``_REPLACE_VERB`` phrase now also captures a given-up clause — the
+    stem text between the head's own match end (``head_end``) and the verb phrase's start, which
+    `004` matched for its head shape and then discarded (research D3.1's "single missing
+    capture"). It is captured even when empty (``""``, never ``None``): an empty span is D3.3's
+    "no given-up item at all" case, and `_option_structure`'s role ternary needs to tell that
+    apart from a row whose verb was never a replacement in the first place.
+
     `006`'s distributive verb is tested **last**, after both `004` phrases have failed, so a row
     the baseline resolved cannot reach it. Its third return value is the possessive side — the
-    only place a distributive stem names what is given up.
+    only place a distributive stem names what is given up. The fourth return value,
+    ``is_distributive``, is true only for this branch — the legacy capture above must not be
+    read as evidence of distributivity too (007 T021, guards `is_per_model`).
     """
-    for phrase, verb in ((_REPLACE_VERB, OptionVerb.REPLACE), (_EQUIP_VERB, OptionVerb.EQUIP)):
-        index = stem.find(phrase)
-        if index >= 0:
-            return verb, stem[index + len(phrase) :].strip(), None
+    replace_index = stem.find(_REPLACE_VERB)
+    if replace_index >= 0:
+        given_up = stem[head_end:replace_index].strip()
+        return (
+            OptionVerb.REPLACE,
+            stem[replace_index + len(_REPLACE_VERB) :].strip(),
+            given_up,
+            False,
+        )
+
+    equip_index = stem.find(_EQUIP_VERB)
+    if equip_index >= 0:
+        return OptionVerb.EQUIP, stem[equip_index + len(_EQUIP_VERB) :].strip(), None, False
 
     distributive = _DISTRIBUTIVE_REPLACE.search(stem)
     if distributive is not None:
         remainder = stem[distributive.end() :].strip()
-        return OptionVerb.REPLACE, remainder, distributive.group("side").strip()
-    return None, "", None
+        return OptionVerb.REPLACE, remainder, distributive.group("side").strip(), True
+    return None, "", None, False
 
 
 def split_conjuncts(name: str, count: int | None = None) -> tuple[ItemParse, ...]:
@@ -516,15 +550,29 @@ def split_replaced(clause: str) -> tuple[ItemParse, ...]:
 
 
 def _item(text: str) -> ItemParse:
-    """One conjunct, with its own leading count where the source states one."""
+    """One conjunct, with its own leading count where the source states one.
+
+    **007 T038**: the footnote marker is stripped here too, not only in :func:`_parse_object`.
+    A conjunct built from a choice's own (already-clean) ``name`` never carries one, but a
+    conjunct built from a legacy replacement's possessive ``replaced_clause`` — captured directly
+    from the stem by :func:`_match_verb` and never routed through ``_parse_object`` — can, and
+    this is the only extraction point that ever sees that span (research D4.1, guarantee 21).
+    """
     counted = _LEADING_COUNT.match(text)
-    if counted is None:
-        return ItemParse(name=text)
-    return ItemParse(name=counted.group(2).strip(), count=int(counted.group(1)))
+    name = counted.group(2).strip() if counted is not None else text
+    name = FOOTNOTE_MARK.sub("", name).strip()
+    return ItemParse(name=name, count=int(counted.group(1)) if counted is not None else None)
 
 
 def _parse_object(text: str, verb: OptionVerb) -> OptionChoiceParse | None:
-    """One clause object — ``with INT name``, ``name``, or an explicit "no change"."""
+    """One clause object — ``with INT name``, ``name``, or an explicit "no change".
+
+    **007 T038**: the footnote marker is stripped from the name here — the extraction point for
+    ``option_choices[].name`` — so a published choice name is never the display artifact of a
+    restriction stated elsewhere on the card (research D4.1, guarantee 21). Stripped after the
+    ``no change`` check (that literal never carries one) and before the length ceiling, so a name
+    that is only over length *because* of a trailing marker run is correctly rescued.
+    """
     cleaned = text.strip().rstrip(".;,:").strip()
     if not cleaned:
         return None
@@ -534,7 +582,7 @@ def _parse_object(text: str, verb: OptionVerb) -> OptionChoiceParse | None:
 
     counted = _LEADING_COUNT.match(cleaned)
     count = int(counted.group(1)) if counted else None
-    name = (counted.group(2) if counted else cleaned).strip()
+    name = FOOTNOTE_MARK.sub("", (counted.group(2) if counted else cleaned).strip()).strip()
     if not name or len(name) > MAX_CHOICE_NAME_CHARS:
         return None
     return OptionChoiceParse(name=name, count=count, verb=verb)
@@ -557,3 +605,95 @@ def option_state(*, row_count: int, unparsed_count: int) -> WargearOptionState:
     if row_count == 0:
         return WargearOptionState.NONE
     return WargearOptionState.PARTIAL if unparsed_count else WargearOptionState.EXTRACTED
+
+
+# -- 007-loadout-display-fidelity: the item-constraint production (US3, research D4.2) -----------
+#
+# **Tried by the caller, never inside `parse_row` above.** `pipeline/curate/assemble.py::
+# _option_structure` calls :func:`parse_constraint_row` only for a row `parse_row` has already
+# failed to resolve as an option (`line is not None and parsed is None`) — the row genuinely is
+# refused by `004`'s and `006`'s own tables, one way or another, before this module's constraint
+# vocabulary is ever consulted. This keeps rule 4's ordering guarantee literal: nothing below
+# changes what any row that resolves today resolves to, because nothing below runs before that
+# resolution is already known to have failed.
+#
+# Measured (research D4.2): a small closed set of restriction sentence shapes reach the pipeline
+# as refused option rows rather than as a second arrival path inside the composition or equipment
+# block — T003's whole-corpus measurement could not run this session (no live/cached-corpus
+# access), so this vocabulary is fixture-proven against T006's GF12 rows 6-10 rather than
+# corpus-measured, exactly as `.impl-progress.md` records.
+
+
+@dataclass(frozen=True, slots=True)
+class ItemConstraintParse:
+    """One footnote-style restriction, resolved against the closed vocabulary (FR-009)."""
+
+    constraint_type: ItemConstraintType
+    item_name: str
+    model_name: str | None = None
+
+
+#: ``The [<MODEL>'s] <ITEM> cannot be replaced.`` — the item may not be exchanged through any
+#: wargear option, optionally scoped to a named model group exactly as a `006` distributive
+#: stem's own possessive head is (the same ``_MODEL``/``_APOS`` vocabulary, reused rather than
+#: reinvented).
+_NOT_REPLACEABLE: Final = re.compile(
+    rf"^The (?:(?P<model>{_MODEL}){_APOS}s\s+)?(?P<item>.+?)\s+cannot be replaced\.?$"
+)
+
+#: ``Only one <ITEM> can be taken per unit.`` — at most one model of the unit may carry it.
+_ONE_PER_UNIT: Final = re.compile(r"^Only one (?P<item>.+?)\s+can be taken per unit\.?$")
+
+#: **Restriction-shaped, not necessarily vocabulary-matched.** Broader than either production
+#: above on purpose: a row this matches but neither production resolves is a restriction the
+#: closed vocabulary does not (yet) cover — the advisory ``CST-UNPARSED``, never ``OPT-UNPARSED``,
+#: because ``OPT-UNPARSED`` says "this looked like an option and did not resolve", which is the
+#: wrong fact for a row that was never an option attempt to begin with. A row this does **not**
+#: match falls through to ``OPT-UNPARSED`` exactly as it does today — this detector only ever
+#: narrows which advisory a refused row receives, never whether a row resolves.
+_RESTRICTION_SHAPED: Final = re.compile(
+    r"\bcannot be\b|\bonly one\b.*\bcan\b|\bmay only\b", re.IGNORECASE
+)
+
+
+def parse_constraint_row(description: str) -> ItemConstraintParse | None:
+    """Resolve one restriction row against the closed two-member vocabulary, or ``None``.
+
+    Never a nearest-member guess (contract §3.2): a row that looks like a restriction but matches
+    neither production returns ``None`` here, and the caller checks :func:`is_constraint_shaped`
+    separately to decide whether that ``None`` means ``CST-UNPARSED`` or plain ``OPT-UNPARSED``.
+    """
+    stem = pre_pass(description, field="option.description")
+    if not stem:
+        return None
+
+    replace_match = _NOT_REPLACEABLE.match(stem)
+    if replace_match is not None:
+        item = FOOTNOTE_MARK.sub("", replace_match.group("item")).strip()
+        if not item or len(item) > MAX_CHOICE_NAME_CHARS:
+            return None
+        model = replace_match.group("model")
+        return ItemConstraintParse(
+            constraint_type=ItemConstraintType.NOT_REPLACEABLE,
+            item_name=item,
+            model_name=_model_name(model) if model is not None else None,
+        )
+
+    per_unit_match = _ONE_PER_UNIT.match(stem)
+    if per_unit_match is not None:
+        item = FOOTNOTE_MARK.sub("", per_unit_match.group("item")).strip()
+        if not item or len(item) > MAX_CHOICE_NAME_CHARS:
+            return None
+        return ItemConstraintParse(constraint_type=ItemConstraintType.ONE_PER_UNIT, item_name=item)
+
+    return None
+
+
+def is_constraint_shaped(description: str) -> bool:
+    """Whether a row *looks like* a restriction, whether or not it matched the vocabulary.
+
+    This is what lets the caller tell "a restriction the vocabulary does not cover"
+    (``CST-UNPARSED``) apart from "not a restriction at all" (``OPT-UNPARSED``, unchanged).
+    """
+    stem = pre_pass(description, field="option.description")
+    return bool(_RESTRICTION_SHAPED.search(stem))

@@ -12,6 +12,10 @@
 # AI-Assisted: Claude Code (model: claude-opus-5) - Wrote down what detail_source_faction_id is
 # (004 T076 follow-up), after it was re-pointed wholesale at mfm_slug: it is the source's own
 # slug, three factions spell it differently, and two curated factions legitimately share one.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - Added CompositionOverrideEntry.remove (007,
+# Product Owner decision 2026-08-14 T061 review): the curator-suppression shape research D1
+# called "impossible today" and "a reasonable later addition", added once CMP-HEADER-ROW's
+# automatic refusal was demoted to advisory-only.
 """Authored records — human-written, under ``curation/``.
 
 **Invariant:** the pipeline reads these and never writes them; humans write these and never
@@ -408,15 +412,45 @@ class CompositionOverrideEntry(_Authored):
     The curator's resolution for a composition line the grammar could not resolve. Mirrors
     ``curation/resolutions.json``'s existing pattern: curator-written, carried forward, validated
     on load, never written by any pipeline stage.
+
+    ``remove`` (007, Product Owner decision 2026-08-14 T061 review) is the second shape an entry
+    may take, added when the automatic five-signal ``CMP-HEADER-ROW`` refusal was demoted from a
+    blocking auto-drop to an advisory flag (research D1, risk R-1/R-A materialising on the live
+    corpus: 3 of the rows the automatic conjunction would have refused were real duo-sheet first
+    models, not phantom headers). A ``remove`` entry carries **no** replacement fields — it names
+    the line and states only that it is gone, the same "resolves once, carried forward" shape
+    ``option-overrides.json``'s escape hatch already has, but subtractive rather than corrective.
+    A non-``remove`` entry is unchanged from `004`: it *replaces* the row's fields, and still
+    requires all three.
     """
 
     datasheet_id: str = Field(min_length=1)
     line: int = Field(ge=1)
-    model_name: str = Field(min_length=1)
-    min_count: int = Field(ge=0)
-    max_count: int = Field(ge=0)
+    remove: bool = False
+    model_name: str | None = Field(default=None, min_length=1)
+    min_count: int | None = Field(default=None, ge=0)
+    max_count: int | None = Field(default=None, ge=0)
     model_line: int | None = Field(default=None, ge=1)
     note: str | None = None
+
+    @model_validator(mode="after")
+    def _remove_xor_replace(self) -> Self:
+        replacement_fields_present = (
+            self.model_name is not None or self.min_count is not None or self.max_count is not None
+        )
+        if self.remove:
+            if replacement_fields_present or self.model_line is not None:
+                raise ValueError(
+                    f"composition override {self.datasheet_id}:{self.line}: remove=true carries "
+                    "no model_name/min_count/max_count/model_line — a removal states only that "
+                    "the row is gone, never a replacement for it"
+                )
+        elif self.model_name is None or self.min_count is None or self.max_count is None:
+            raise ValueError(
+                f"composition override {self.datasheet_id}:{self.line}: model_name, min_count, "
+                "and max_count are all required unless remove=true"
+            )
+        return self
 
 
 class OptionOverrideItem(_Authored):

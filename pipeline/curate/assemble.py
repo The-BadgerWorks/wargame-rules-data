@@ -30,6 +30,20 @@
 # (006 T048 triage): a datasheet the points authority did not price was assembled with no default
 # equipment at all, so 647 of the wh40k-11e-2026-08-2 candidate's 658 absent
 # `default_equipment_state` values were a missing branch rather than the documented FR-016 omission.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - 007 US2 (T022, T024, T025): confirmed
+# `_option_structure`'s `object_role` ternary self-corrects the moment T021 populates
+# `replaced_clause` for a legacy stem, wired `OPT-ITEM-OVERLONG` into `_choice_items`'s two
+# length filters, and wired `OPT-SCOPE-UNRESOLVED`'s producer using the same `link_model_line`
+# containment join `equipment_link.py` already uses for `EQP-GROUP-UNRESOLVED`.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - 007 US3 (T040): wired `CuratedItemConstraint`
+# assembly into `_option_structure` via the new `_item_constraint` helper, tried only after
+# `parse_row` has already refused a row (research D4.2); threaded `options.item_constraints` onto
+# both `CuratedDatasheet` construction sites.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - 007 Release phase, Product Owner decision
+# 2026-08-14 (T061 review): renamed `_refuse_header_row` to `_flag_header_row_candidate` and
+# stopped it from ever dropping a row -- it only raises the advisory `CMP-HEADER-ROW` finding now.
+# Wired the new `CompositionOverrideEntry.remove` shape into `_composition_entries`'s override
+# branch, the only remaining path that removes a composition row.
 """Build one :class:`~pipeline.models.curated.CuratedSnapshot` from everything upstream.
 
 This is where the two sources stop being two sources. The **points** source is authoritative for
@@ -77,6 +91,7 @@ from pipeline.models.curated import (
     CuratedEquipmentItem,
     CuratedFaction,
     CuratedGameSizeRule,
+    CuratedItemConstraint,
     CuratedKeyword,
     CuratedModelLine,
     CuratedOptionChoice,
@@ -125,7 +140,9 @@ from pipeline.parse.options_grammar import (
     OptionVerb,
     choice_id,
     group_id,
+    is_constraint_shaped,
     option_state,
+    parse_constraint_row,
     parse_row,
     split_conjuncts,
     split_replaced,
@@ -153,6 +170,7 @@ from pipeline.reconcile.options_link import (
     link_choice_items,
     link_choice_weapons,
     project_priced_options,
+    weapon_lines_named,
 )
 from pipeline.report.catalogue import build_finding
 
@@ -207,6 +225,16 @@ class AssemblyResult:
 
     Carried out of the stage rather than re-derived downstream: the delta cross-check needs the
     same pairing this stage decided, and a second derivation is a second chance to disagree.
+    """
+    wahapedia_datasheet_ids: dict[str, str] = field(default_factory=dict)
+    """``curated datasheet_id -> detail source's own datasheet id`` (007 US5, T053).
+
+    The inverse of this function's own internal ``detail_to_curated`` join, carried out for the
+    same reason ``datasheet_ids`` above already is: the build-time equivalence check
+    (:mod:`pipeline.validate.equivalence`) needs to look up a datasheet's raw ``detail`` rows
+    while iterating the curated snapshot, and re-deriving the join from a datasheet's name would
+    be a second chance for it to disagree with the one this stage already decided. Present only
+    for datasheets the detail source actually contributed to (points-only entries have none).
     """
 
 
@@ -634,6 +662,79 @@ class _OptionOutcome:
     choices: list[CuratedOptionChoice] = field(default_factory=list)
     state: WargearOptionState | None = None
     findings: list[Finding] = field(default_factory=list)
+    #: 007-loadout-display-fidelity US3: restrictions the same option rows state, captured
+    #: alongside the option set they were refused out of rather than in a second pass over the
+    #: same file (research D4.2).
+    item_constraints: list[CuratedItemConstraint] = field(default_factory=list)
+
+
+@dataclass(frozen=True, slots=True)
+class _ConstraintOutcome:
+    """One option row's fate against the item-constraint vocabulary (007 T039, T040).
+
+    ``recognized`` is what lets the caller choose between the three advisory outcomes: a
+    constraint present means it resolved (linked or not); ``recognized`` true with no constraint
+    means it looked like a restriction but matched no vocabulary member (``CST-UNPARSED``); both
+    false means the row was never restriction-shaped at all, and the caller's own ``OPT-UNPARSED``
+    handling is unchanged (research D4.2).
+    """
+
+    constraint: CuratedItemConstraint | None
+    findings: tuple[Finding, ...]
+    recognized: bool
+
+
+def _item_constraint(
+    line: int, description: str, *, datasheet_id: str, weapons: Sequence[CuratedWeaponLine]
+) -> _ConstraintOutcome:
+    """One option row, tried against the item-constraint vocabulary after `parse_row` refused it.
+
+    ``constraint_index`` is the row's own source ordinal (``line``), never re-numbered —
+    :class:`CuratedCompositionEntry`'s ``line`` pattern, reused unchanged (data-model.md §1.1).
+    Linking reuses :func:`~pipeline.reconcile.options_link.weapon_lines_named`'s exactly-one-match
+    join — the same rule every other name-to-weapon join in this module uses — rather than a
+    second linking rule invented for this one entity.
+    """
+    parsed = parse_constraint_row(description)
+    if parsed is not None:
+        matches = weapon_lines_named(parsed.item_name, weapons)
+        weapon_line = matches[0] if len(matches) == 1 else None
+        findings: list[Finding] = []
+        if weapon_line is None:
+            findings.append(
+                build_finding(
+                    "CST-UNLINKED",
+                    entity_refs=[datasheet_id],
+                    detail={
+                        "datasheet_id": datasheet_id,
+                        "constraint_index": line,
+                        "item_name": parsed.item_name,
+                        "match_count": len(matches),
+                    },
+                )
+            )
+        constraint = CuratedItemConstraint(
+            constraint_index=line,
+            constraint_type=parsed.constraint_type,
+            item_name=parsed.item_name,
+            weapon_line=weapon_line,
+            model_name=parsed.model_name,
+        )
+        return _ConstraintOutcome(constraint=constraint, findings=tuple(findings), recognized=True)
+
+    if is_constraint_shaped(description):
+        finding = build_finding(
+            "CST-UNPARSED",
+            entity_refs=[datasheet_id],
+            detail={
+                "datasheet_id": datasheet_id,
+                "line": line,
+                "file_name": "Datasheets_options.csv",
+            },
+        )
+        return _ConstraintOutcome(constraint=None, findings=(finding,), recognized=True)
+
+    return _ConstraintOutcome(constraint=None, findings=(), recognized=False)
 
 
 @dataclass(slots=True)
@@ -700,6 +801,16 @@ def _composition_entries(
         line = _row_ordinal(row.fields.get("line", ""), field_name="composition.line")
         override = authored.composition_override_for(datasheet_id, line) if line else None
         if line is not None and override is not None:
+            if override.remove:
+                # 007, Product Owner decision 2026-08-14 T061 review: the only path left that
+                # removes a composition row at all. The row is dropped entirely -- no entry, no
+                # CMP-UNRESOLVED, no CMP-HEADER-ROW -- because a curator has already confirmed it
+                # is a phantom and removed it, the same finality `remove` gives an equivalence
+                # check's `not_compared` case has no analogue to.
+                continue
+            assert override.model_name is not None
+            assert override.min_count is not None
+            assert override.max_count is not None
             entries.append(
                 CuratedCompositionEntry(
                     line=line,
@@ -739,7 +850,75 @@ def _composition_entries(
 
     if unresolved:
         return [], findings
-    return sorted(entries, key=lambda entry: entry.line), findings
+
+    ordered = sorted(entries, key=lambda entry: entry.line)
+    header_finding = _flag_header_row_candidate(datasheet_id, ordered)
+    if header_finding is not None:
+        findings.append(header_finding)
+    return ordered, findings
+
+
+def _flag_header_row_candidate(
+    datasheet_id: str, entries: Sequence[CuratedCompositionEntry]
+) -> Finding | None:
+    """Issue #15's phantom unit-size header — flagged for human review, **never auto-dropped**.
+
+    research D1: the header line is a *valid parse* of the fixed composition production — an
+    integer, then a name — so nothing on the line itself says it is not a model row. The
+    discriminating evidence is a **conjunction of five independent structural signals**, applied
+    here rather than in ``pipeline/parse/composition_grammar.py``, which stays mode-blind and
+    untouched:
+
+    1. it is the first row of the datasheet's composition list;
+    2. at least one row follows it;
+    3. its minimum equals its maximum (a header states one number, not a range);
+    4. its count equals the sum of the maxima of the rows that follow it — a first row that
+       equals the aggregate of its successors is a *total*, not a part;
+    5. its name resolves to no model entry of the datasheet.
+
+    **Superseded design, recorded so it is not silently reintroduced (Product Owner decision,
+    2026-08-14 T061 review of the live corpus's T031 re-derivation).** This function used to
+    *return* the row set with the flagged row removed (T030's original design: an automatic,
+    blocking refusal). The live corpus proved the conjunction's own documented false-positive
+    risk (R-1/R-A) real: of the rows it would have auto-dropped, three were genuine duo-sheet
+    first models (``Rein`` of ``astra-militarum:Rein-And-Raus``, the Techmarine Gunner leading
+    ``space-marines:Thunderfire-Cannon``, ``Ri'Lantar`` leading ``t-au-empire:The-Twin-Lance``) —
+    each one fixed-size, unlinked (its own name does not textually match its ``datasheet_model``
+    row), and numerically equal to the total of its one squad-mate, which is exactly what a real
+    duo's model count looks like. Automatic removal is not safe at this precision; **this
+    function now only raises the advisory finding**, and a row leaves the published composition
+    only via a curator's explicit ``remove`` entry in
+    ``curation/composition-overrides.json`` (§_composition_entries's override branch, above) —
+    matched against a genuine phantom by a human, the same discipline every other override in
+    this file already applies. ``tools/composition_header_refusal_report.py`` (T031) is now this
+    advisory's review-queue generator, not a post-hoc check of an automatic refusal.
+
+    Each signal alone has a plausible false positive (a genuine first row can be fixed-size, can
+    fail to link, and a two-row card can coincidentally sum); requiring all five at once is what
+    lets GF15's near-miss go unflagged while GF13/GF14's two measured header shapes are both
+    flagged — but, per the finding above, "flagged" is no longer "refused".
+    """
+    if len(entries) < 2:
+        return None
+
+    first, *rest = entries
+    is_fixed = first.min_count == first.max_count
+    sums_to_successors = first.max_count == sum(entry.max_count for entry in rest)
+    is_unlinked = first.model_line is None
+
+    if not (is_fixed and sums_to_successors and is_unlinked):
+        return None
+
+    return build_finding(
+        "CMP-HEADER-ROW",
+        entity_refs=[datasheet_id],
+        detail={
+            "datasheet_id": datasheet_id,
+            "line": first.line,
+            "model_name": first.model_name,
+            "file_name": "Datasheets_unit_composition.csv",
+        },
+    )
 
 
 def _equipment(
@@ -848,13 +1027,14 @@ def _equipment(
     )
 
 
-def _option_structure(
+def _option_structure(  # noqa: PLR0913 - composition is needed to resolve a scoped stem's subject
     detail_id: str,
     datasheet_id: str,
     detail: Mapping[str, CsvReadResult],
     authored: AuthoredContent,
     weapons: Sequence[CuratedWeaponLine],
     priced: Sequence[CuratedWargearOption],
+    composition: Sequence[CuratedCompositionEntry] = (),
 ) -> _OptionOutcome:
     """One datasheet's full option set — not only the cost-bearing subset (FR-010).
 
@@ -873,13 +1053,18 @@ def _option_structure(
         return _OptionOutcome()
 
     source_rows = rows.grouped_by("datasheet_id").get(detail_id, [])
+    # 007 T025: the same exactly-one-match containment join `equipment_link.py` uses to resolve
+    # an equipment sentence's subject, reused here for a scoped option stem's eligibility
+    # subject — `OPT-SCOPE-UNRESOLVED`'s producer, wired the moment FR-004 makes a legacy stem
+    # state a subject at all (research D3.4).
+    model_names = {entry.line: entry.model_name for entry in composition}
     groups: list[CuratedOptionGroup] = []
     parsed_choices: list[CuratedOptionChoice] = []
     authored_choices: list[CuratedOptionChoice] = []
-    verbs: dict[str, OptionVerb] = {}
     object_roles: dict[str, OptionItemRole] = {}
     replaced_clauses: dict[str, str | None] = {}
     findings: list[Finding] = []
+    item_constraints: list[CuratedItemConstraint] = []
     unparsed = 0
 
     for row in source_rows:
@@ -917,8 +1102,31 @@ def _option_structure(
             )
             continue
 
-        parsed = parse_row(row.fields.get("description", "")) if line is not None else None
+        description = row.fields.get("description", "")
+        parsed = parse_row(description) if line is not None else None
         if line is None or parsed is None:
+            # 007 US3 (T039/T040): a row `parse_row` could not resolve as an option gets one more
+            # chance — against the closed item-constraint vocabulary — before it is reported as
+            # unparsed. Tried only here, after `parse_row` has already failed, so no row that
+            # resolves as an option today can ever reach this branch (research D4.2, rule 3/4).
+            outcome = (
+                _item_constraint(line, description, datasheet_id=datasheet_id, weapons=weapons)
+                if line is not None
+                else None
+            )
+            if outcome is not None:
+                findings.extend(outcome.findings)
+                if outcome.constraint is not None:
+                    item_constraints.append(outcome.constraint)
+                    continue
+                if outcome.recognized:
+                    # Restriction-shaped but out of vocabulary: CST-UNPARSED already names the
+                    # row's fate. Raising OPT-UNPARSED too would report the same row under two
+                    # codes for two readings of one failure — still counted toward `unparsed` for
+                    # `wargear_option_state`, since nothing option-shaped came of it either.
+                    unparsed += 1
+                    continue
+
             unparsed += 1
             findings.append(
                 build_finding(
@@ -947,6 +1155,23 @@ def _option_structure(
                 is_per_model=parsed.is_per_model,
             )
         )
+        if parsed.eligible_model_name is not None and (
+            link_model_line(parsed.eligible_model_name, model_names) is None
+        ):
+            # The value ships exactly as the source states it, unchecked — this is advisory,
+            # never a suppression, per the 2026-08-09 clarification `006` already wrote the code
+            # for and never wired (research D3.4).
+            findings.append(
+                build_finding(
+                    "OPT-SCOPE-UNRESOLVED",
+                    entity_refs=[datasheet_id, group],
+                    detail={
+                        "datasheet_id": datasheet_id,
+                        "group_id": group,
+                        "eligible_model_name": parsed.eligible_model_name,
+                    },
+                )
+            )
         for index, choice in enumerate(parsed.choices, start=1):
             identifier = choice_id(group, index)
             # Which side the object clause sits on, and therefore which singular field it may
@@ -960,9 +1185,6 @@ def _option_structure(
             )
             object_roles[identifier] = object_role
             replaced_clauses[identifier] = parsed.replaced_clause
-            verbs[identifier] = (
-                OptionVerb.REPLACE if object_role is OptionItemRole.REPLACED else OptionVerb.EQUIP
-            )
             parsed_choices.append(
                 CuratedOptionChoice(
                     id=identifier,
@@ -976,25 +1198,25 @@ def _option_structure(
     # A curator-authored structure already states its own links, so it is not re-joined: doing
     # so would let a name match overrule the human who wrote the override.
     linked, link_findings = link_choice_weapons(
-        datasheet_id=datasheet_id, choices=parsed_choices, verbs=verbs, weapons=weapons
+        datasheet_id=datasheet_id, choices=parsed_choices, weapons=weapons
     )
     findings.extend(link_findings)
 
     # Decomposition runs AFTER the singular join, and that ordering is the O1 Ruling: whether a
     # choice's name is one item or several is decided by whether the baseline already matched it
-    # to exactly one weapon, which is a fact that does not exist until the join has run.
-    decomposed = [
-        choice.model_copy(
-            update={
-                "items": _choice_items(
-                    choice,
-                    object_role=object_roles[choice.id],
-                    replaced_clause=replaced_clauses[choice.id],
-                )
-            }
+    # to exactly one weapon — recomputed here directly (007 T023) rather than read off
+    # `grants_`/`replaces_weapon_line`, since `link_choice_weapons` no longer writes either field.
+    decomposed = []
+    for linked_choice in linked:
+        items, overlong_findings = _choice_items(
+            linked_choice,
+            datasheet_id=datasheet_id,
+            object_role=object_roles[linked_choice.id],
+            replaced_clause=replaced_clauses[linked_choice.id],
+            weapons=weapons,
         )
-        for choice in linked
-    ]
+        findings.extend(overlong_findings)
+        decomposed.append(linked_choice.model_copy(update={"items": items}))
     item_linked, item_findings = link_choice_items(
         datasheet_id=datasheet_id, choices=decomposed, weapons=weapons
     )
@@ -1010,39 +1232,68 @@ def _option_structure(
         choices=sorted(choices, key=lambda choice: choice.id),
         state=option_state(row_count=len(source_rows), unparsed_count=unparsed),
         findings=findings,
+        item_constraints=sorted(
+            item_constraints, key=lambda constraint: constraint.constraint_index
+        ),
     )
 
 
 def _choice_items(
     choice: CuratedOptionChoice,
     *,
+    datasheet_id: str,
     object_role: OptionItemRole,
     replaced_clause: str | None,
-) -> tuple[CuratedOptionChoiceItem, ...]:
+    weapons: Sequence[CuratedWeaponLine],
+) -> tuple[tuple[CuratedOptionChoiceItem, ...], list[Finding]]:
     """Every choice's items, including every pre-existing single-item one (`006` §1.1).
 
     The redundancy is deliberate and load-bearing: a consumer iterates items uniformly, and the
     spec's *one-element bundle must not diverge* edge case becomes guarantee 12 — an invariant
     checked on every build rather than an intention.
 
-    **Decomposition is refused for a name the baseline already matched.** An exactly-one weapon
-    match is itself the evidence that the name is one item, so such a choice gets its one
-    mirroring row and nothing is split. That is the O1 Ruling's other half, and with it the 144
-    currently-parsing rows whose names conflate a bundle gain machine-readable items while not
-    one value a consumer already reads changes.
+    **Decomposition is refused for a name that matches a weapon row on its own.** An exactly-one
+    weapon match on the choice's *whole* name is itself the evidence that the name is one item,
+    so such a choice gets its one mirroring row and nothing is split. That is the O1 Ruling's
+    other half, and with it the 144 currently-parsing rows whose names conflate a bundle gain
+    machine-readable items while not one value a consumer already reads changes.
+
+    **007 T023**: this evidence is recomputed here via
+    :func:`pipeline.reconcile.options_link.weapon_lines_named` rather than read off
+    ``grants_``/``replaces_weapon_line`` — `link_choice_weapons` no longer writes either field
+    (research D3), so the field itself can no longer carry the "already matched" signal.
+
+    **007 T024**: an item name exceeding ``MAX_CHOICE_NAME_CHARS`` is dropped here — unchanged
+    from `006` — but now raises the advisory ``OPT-ITEM-OVERLONG`` instead of vanishing with no
+    trace (research D3.4).
     """
     if choice.is_no_change:
         # "Take nothing" names no item, and a row asserting it names one would be a swap.
-        return ()
+        return (), []
 
-    stated = (
-        choice.replaces_weapon_line
-        if object_role is OptionItemRole.REPLACED
-        else choice.grants_weapon_line
-    )
+    findings: list[Finding] = []
+
+    def _within_limit(item: ItemParse, *, role: OptionItemRole) -> bool:
+        if len(item.name) <= MAX_CHOICE_NAME_CHARS:
+            return True
+        findings.append(
+            build_finding(
+                "OPT-ITEM-OVERLONG",
+                entity_refs=[datasheet_id, choice.id],
+                detail={
+                    "datasheet_id": datasheet_id,
+                    "choice_id": choice.id,
+                    "role": role.value,
+                    "item_name_length": len(item.name),
+                },
+            )
+        )
+        return False
+
+    whole_name_linked = len(weapon_lines_named(choice.name, weapons)) == 1
     parsed_items = (
         (ItemParse(name=choice.name, count=choice.count),)
-        if stated is not None
+        if whole_name_linked
         else split_conjuncts(choice.name, choice.count)
     )
     items = [
@@ -1050,7 +1301,7 @@ def _choice_items(
             role=object_role, item_index=index, item_name=item.name, count=item.count
         )
         for index, item in enumerate(parsed_items, start=1)
-        if len(item.name) <= MAX_CHOICE_NAME_CHARS
+        if _within_limit(item, role=object_role)
     ]
     if replaced_clause is not None:
         items.extend(
@@ -1061,9 +1312,9 @@ def _choice_items(
                 count=item.count,
             )
             for index, item in enumerate(split_replaced(replaced_clause), start=1)
-            if len(item.name) <= MAX_CHOICE_NAME_CHARS
+            if _within_limit(item, role=OptionItemRole.REPLACED)
         )
-    return tuple(sorted(items, key=lambda item: (item.role.value, item.item_index)))
+    return tuple(sorted(items, key=lambda item: (item.role.value, item.item_index))), findings
 
 
 def _authored_items(choice: OptionOverrideChoice) -> tuple[CuratedOptionChoiceItem, ...]:
@@ -1347,7 +1598,14 @@ def assemble(  # noqa: PLR0913 - the stage genuinely needs every upstream input
         keyword_glossary=authored.glossary_entries,
     )
 
-    return AssemblyResult(snapshot=snapshot, findings=findings, datasheet_ids=datasheet_ids)
+    return AssemblyResult(
+        snapshot=snapshot,
+        findings=findings,
+        datasheet_ids=datasheet_ids,
+        wahapedia_datasheet_ids={
+            curated_id: detail_id for detail_id, curated_id in detail_to_curated.items()
+        },
+    )
 
 
 #: The detail export's detachment-rule file. **Not in `EXPORT_FILES`** — the current-edition
@@ -1542,6 +1800,7 @@ def _datasheet_for(  # noqa: PLR0913 - one datasheet needs both sources and the 
             authored,
             weapons,
             wargear_options,
+            composition,
         )
         findings.extend(options.findings)
 
@@ -1633,6 +1892,7 @@ def _datasheet_for(  # noqa: PLR0913 - one datasheet needs both sources and the 
         wargear_option_state=options.state,
         equipment_groups=equipment.groups,
         default_equipment_state=equipment.state,
+        item_constraints=options.item_constraints,
         wargear_options=wargear_options,
         costs=costs,
         pricing_confidence=PricingConfidence(state=PricingConfidenceState.VERIFIED),
@@ -1739,7 +1999,7 @@ def _detail_only_datasheet(  # noqa: PLR0913 - one datasheet needs both trees an
 
     # No points source priced this datasheet, so there are no priced rows for its choices to
     # adopt — every one of them ships uncosted, which is exactly what FR-013 asks for.
-    options = _option_structure(detail_id, datasheet_id, detail, authored, weapons, ())
+    options = _option_structure(detail_id, datasheet_id, detail, authored, weapons, (), composition)
     findings.extend(options.findings)
 
     # Whether the points authority priced a datasheet says nothing about what its models carry,
@@ -1805,6 +2065,7 @@ def _detail_only_datasheet(  # noqa: PLR0913 - one datasheet needs both trees an
         wargear_option_state=options.state,
         equipment_groups=equipment.groups,
         default_equipment_state=equipment.state,
+        item_constraints=options.item_constraints,
         wargear_options=(),
         costs=costs,
         pricing_confidence=PricingConfidence(state=PricingConfidenceState.UNVERIFIED),

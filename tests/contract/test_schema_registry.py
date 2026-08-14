@@ -1,6 +1,8 @@
 # AI-Assisted: Claude Code (model: claude-opus-5) - Asserts every authored JSON Schema is itself
 # valid, loads through the cached registry, and enforces additionalProperties: false, so an
 # unmapped field is a hard failure rather than a silent pass-through (tasks T032-T035).
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - Added `datasheetItemConstraints` to
+# EMPTY_BUNDLE (007 task T011): the array is now root-required, so the skeleton must carry it.
 """The schemas are the "nowhere to land it" half of the IP boundary.
 
 Control 1 of research D8 is that a violation has no field to occupy. That only holds if every
@@ -89,6 +91,9 @@ EMPTY_BUNDLE: dict[str, Any] = {
     "datasheetOptionChoiceItems": [],
     "datasheetEquipmentGroups": [],
     "datasheetEquipmentItems": [],
+    # 007 task T011. Present and empty is the same retreat position: emit the one new array
+    # empty and omit the two new snapshotMeta fields, and no consumer changes at all.
+    "datasheetItemConstraints": [],
     # 004 task T040. `chapterKeywords` is always present and empty until a curator classifies
     # something, exactly like every other array here.
     "chapterKeywords": [],

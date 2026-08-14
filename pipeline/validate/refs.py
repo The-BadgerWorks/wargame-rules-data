@@ -4,6 +4,14 @@
 # AI-Assisted: Claude Code (model: claude-opus-5) - Extended V9 to 004's two override files (004
 # task T026, 004 data-model.md §4): an override naming a line, model row, or weapon row that no
 # longer exists is the same defect, reported the same way rather than by a check of its own.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - Extended V4 to CuratedItemConstraint.
+# weapon_line (007 task T017, guarantee 22): every PRESENT weapon_line names a datasheet_weapons
+# row of the datasheet that owns the constraint, defence-in-depth beside the reconcile-stage
+# exactly-one-match join that is supposed to guarantee it already.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - Taught the composition-override line check
+# about `remove` (007, Product Owner decision 2026-08-14 T061 review): a removed line is
+# DELIBERATELY absent from the published composition, which is the override doing its job, not a
+# stale reference to flag.
 """V4 and V9 — every reference resolves, in both directions.
 
 **V4** is the consumer contract's guarantee 4, checked here rather than discovered at ingestion:
@@ -78,6 +86,25 @@ def check_intra_snapshot_references(snapshot: CuratedSnapshot) -> list[Finding]:
         for bodyguard in datasheet.leader_pairs:
             _require(datasheet.datasheet_id, "leader_pairs", bodyguard, "datasheet_id")
 
+        # 007-loadout-display-fidelity (guarantee 22): every PRESENT weapon_line names a
+        # datasheet_weapons row of the datasheet that OWNS the constraint. Local to the
+        # datasheet rather than routed through `_require`/`known`, because `weapon_line` is
+        # `datasheet.line`-scoped, not a snapshot-wide id pool.
+        weapon_lines = {weapon.line for weapon in datasheet.weapons}
+        for constraint in datasheet.item_constraints:
+            if constraint.weapon_line is not None and constraint.weapon_line not in weapon_lines:
+                findings.append(
+                    build_finding(
+                        "CON-DANGLING-REF",
+                        entity_refs=[datasheet.datasheet_id],
+                        detail={
+                            "holder": f"{datasheet.datasheet_id}:{constraint.constraint_index}",
+                            "field": "weapon_line",
+                            "missing_id": str(constraint.weapon_line),
+                        },
+                    )
+                )
+
     return findings
 
 
@@ -138,9 +165,13 @@ def check_override_references(
         if datasheet is None:
             continue  # already reported by `authored_entity_refs`
         reference = f"{override.datasheet_id}:{override.line}"
-        if datasheet.composition and override.line not in {
-            entry.line for entry in datasheet.composition
-        }:
+        # A `remove` override's line is SUPPOSED to be absent from the published composition --
+        # that absence is the override working, not a stale reference (2026-08-14 PO decision).
+        if (
+            not override.remove
+            and datasheet.composition
+            and override.line not in {entry.line for entry in datasheet.composition}
+        ):
             _dangle("composition-overrides.json", "line", reference, override.line)
         if override.model_line is not None and override.model_line not in {
             model.line for model in datasheet.models

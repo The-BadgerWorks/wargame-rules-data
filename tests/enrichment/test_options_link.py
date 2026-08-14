@@ -2,6 +2,10 @@
 # task T023): exactly one normalised-name match links, zero or two-or-more report
 # OPT-LINK-AMBIGUOUS and ship unlinked, and the clause verb decides which of the two link fields
 # the match lands in (FR-011).
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - 007 US2 (T019/T023): rewrote
+# `link_choice_weapons`'s own tests for its new contract — it reports `OPT-LINK-AMBIGUOUS` and
+# writes NOTHING, since `link_choice_items`'s per-role loop is the singular fields' sole writer
+# now (research D3, contract guarantee 19).
 """The join the source does not publish, and what it does when it cannot be made.
 
 There is no foreign key from an option row to a wargear row, and the wargear rows have no stable
@@ -13,13 +17,15 @@ whichever profile happened to sort first.
 
 from __future__ import annotations
 
+import pytest
+
 from pipeline.models.curated import (
     CuratedOptionChoice,
     CuratedOptionChoiceItem,
     OptionItemRole,
 )
 from pipeline.models.findings import Severity
-from pipeline.parse.options_grammar import NO_CHANGE_NAME, OptionVerb
+from pipeline.parse.options_grammar import NO_CHANGE_NAME
 from pipeline.reconcile.options_link import link_choice_items, link_choice_weapons
 from pipeline.report.catalogue import CATALOGUE
 from tests.enrichment.conftest import weapon
@@ -36,35 +42,24 @@ def choice(index: int, name: str, **overrides: object) -> CuratedOptionChoice:
     )
 
 
-def test_exactly_one_match_links_a_replacement_choice_to_the_weapon_it_replaces() -> None:
+def test_an_exact_match_reports_nothing_and_writes_nothing() -> None:
+    # 007 T023: `link_choice_weapons` no longer writes either singular field, for either verb —
+    # `link_choice_items`'s per-role loop is the sole writer now.
     linked, findings = link_choice_weapons(
         datasheet_id=DATASHEET,
         choices=[choice(1, "sedge halberd")],
-        verbs={"oc-sedgeward-conclave-1-1": OptionVerb.REPLACE},
         weapons=[weapon(1, "Warding rod"), weapon(2, "Sedge halberd")],
     )
     assert findings == []
-    assert linked[0].replaces_weapon_line == 2
-    assert linked[0].grants_weapon_line is None
-
-
-def test_exactly_one_match_links_an_additive_choice_to_the_weapon_it_grants() -> None:
-    linked, findings = link_choice_weapons(
-        datasheet_id=DATASHEET,
-        choices=[choice(1, "chime flail")],
-        verbs={"oc-sedgeward-conclave-1-1": OptionVerb.EQUIP},
-        weapons=[weapon(1, "Chime flail")],
-    )
-    assert findings == []
-    assert linked[0].grants_weapon_line == 1
     assert linked[0].replaces_weapon_line is None
+    assert linked[0].grants_weapon_line is None
+    assert linked[0] == choice(1, "sedge halberd")  # unchanged, byte for byte
 
 
-def test_zero_matches_ships_unlinked_and_reports() -> None:
+def test_zero_matches_reports_and_writes_nothing() -> None:
     linked, findings = link_choice_weapons(
         datasheet_id=DATASHEET,
         choices=[choice(1, "glimmer lantern")],
-        verbs={},
         weapons=[weapon(1, "Warding rod")],
     )
     assert linked[0].grants_weapon_line is None
@@ -73,13 +68,12 @@ def test_zero_matches_ships_unlinked_and_reports() -> None:
     assert findings[0].detail["match_count"] == 0
 
 
-def test_two_or_more_matches_ship_unlinked_and_report() -> None:
+def test_two_or_more_matches_report_and_write_nothing() -> None:
     # The export really does publish two rows under one name — a weapon with two profiles — and
     # picking either would silently attach the choice to the wrong one half the time.
     linked, findings = link_choice_weapons(
         datasheet_id=DATASHEET,
         choices=[choice(1, "mire censer")],
-        verbs={"oc-sedgeward-conclave-1-1": OptionVerb.REPLACE},
         weapons=[weapon(3, "Mire censer"), weapon(4, "Mire censer")],
     )
     assert linked[0].replaces_weapon_line is None
@@ -96,18 +90,16 @@ def test_the_join_folds_casing_spacing_and_punctuation() -> None:
     linked, findings = link_choice_weapons(
         datasheet_id=DATASHEET,
         choices=[choice(1, "SEDGE  HALBERD")],
-        verbs={},
         weapons=[weapon(7, "Sedge halberd")],
     )
     assert findings == []
-    assert linked[0].grants_weapon_line == 7
+    assert linked[0].grants_weapon_line is None
 
 
 def test_a_no_change_alternative_names_no_weapon_and_raises_nothing() -> None:
     linked, findings = link_choice_weapons(
         datasheet_id=DATASHEET,
         choices=[choice(3, NO_CHANGE_NAME, is_no_change=True)],
-        verbs={},
         weapons=[weapon(1, "Warding rod")],
     )
     assert findings == []
@@ -118,7 +110,6 @@ def test_linking_is_deterministic() -> None:
     args = {
         "datasheet_id": DATASHEET,
         "choices": [choice(1, "mire censer"), choice(2, "sedge halberd")],
-        "verbs": {"oc-sedgeward-conclave-1-1": OptionVerb.REPLACE},
         "weapons": [weapon(4, "Mire censer"), weapon(3, "Mire censer"), weapon(2, "Sedge halberd")],
     }
     first = link_choice_weapons(**args)  # type: ignore[arg-type]
@@ -198,9 +189,9 @@ def test_zero_matches_reports_the_same_advisory_and_ships_the_item() -> None:
 
 
 def test_a_one_element_bundle_agrees_with_the_singular_field_it_mirrors() -> None:
-    # Guarantee 12, the direction that matters most: every choice `004` publishes today acquires
-    # exactly one mirroring item row carrying the same line, so a consumer can iterate items
-    # uniformly and read the same fact either way.
+    # Guarantee 12/19, the direction that matters most: every choice `004` publishes today
+    # acquires exactly one mirroring item row carrying the same line, so a consumer can iterate
+    # items uniformly and read the same fact either way.
     linked, findings = link_choice_items(
         datasheet_id=DATASHEET,
         choices=[
@@ -260,6 +251,87 @@ def test_a_multi_item_side_carries_no_singular_field_at_all() -> None:
     )
     assert findings == []
     assert linked[0].grants_weapon_line is None
+
+
+# --- 007 US2: the singular field as a TOTAL FUNCTION of the item rows (T019, contract guarantee
+# 19, replacing the "partial fill" reading of the two tests above) -----------------------------
+#
+# `link_choice_weapons` no longer writes `grants_`/`replaces_weapon_line` at all (T023): every
+# choice reaching `link_choice_items` therefore carries `stated = None` on both fields in
+# production, and the field the caller reads afterwards is *entirely* `link_choice_items`'s own
+# computation — never a value it merely left alone because something upstream got there first.
+# `OPT-BUNDLE-DISAGREE` stays wired for a value that arrives already populated (a curator override
+# merge, a future regression) but defends a coding error now, not divergent extraction (research
+# D3, contract §4.1).
+
+
+@pytest.mark.parametrize(
+    ("item_names", "expected"),
+    [
+        # exactly one item, linked -> present, equal to its line (D3.3 case 1: "resolved and
+        # relinked").
+        (["storm maul"], 4),
+        # exactly one item, matching no weapon -> omitted (D3.3 case 2: "stated but unlinked").
+        (["ceremonial rod"], None),
+        # zero items on the role -> omitted (D3.3 case 3: "no given-up item stated").
+        ([], None),
+    ],
+)
+def test_the_singular_field_is_present_exactly_when_its_role_holds_one_linked_item(
+    item_names: list[str], expected: int | None
+) -> None:
+    items = [
+        item(OptionItemRole.REPLACED, index, name) for index, name in enumerate(item_names, start=1)
+    ]
+    linked, _findings = link_choice_items(
+        datasheet_id=DATASHEET,
+        choices=[choice(1, "glow lance", items=items)],
+        weapons=[weapon(4, "Storm maul")],
+    )
+    assert linked[0].replaces_weapon_line == expected
+
+
+def test_two_or_more_items_on_a_role_carry_no_singular_field_either() -> None:
+    linked, findings = link_choice_items(
+        datasheet_id=DATASHEET,
+        choices=[
+            choice(
+                1,
+                "storm maul and ceremonial rod",
+                items=[
+                    item(OptionItemRole.REPLACED, 1, "storm maul", weapon_line=4),
+                    item(OptionItemRole.REPLACED, 2, "ceremonial rod", weapon_line=5),
+                ],
+            )
+        ],
+        weapons=[weapon(4, "Storm maul"), weapon(5, "Ceremonial rod")],
+    )
+    assert findings == []
+    assert linked[0].replaces_weapon_line is None
+
+
+def test_a_stale_stated_value_is_cleared_when_its_own_item_fails_to_link() -> None:
+    # The case that tells "total function" apart from "fill the gap `link_choice_weapons` left":
+    # a `stated` value that is present and does NOT contradict the items (its one item simply
+    # failed to link, so `_bundle_disagreement` sees nothing to compare) is not a disagreement —
+    # but under `link_choice_weapons` no longer writing this field at all (T023), a stale
+    # `stated` value must never survive un-recomputed. The old "only fill an absent field"
+    # reading would have left `5` in place; the derivation clears it, because the total function
+    # of contract §4.1 is "exactly one linked item", not "whatever was already there".
+    linked, findings = link_choice_items(
+        datasheet_id=DATASHEET,
+        choices=[
+            choice(
+                1,
+                "ceremonial rod",
+                replaces_weapon_line=5,
+                items=[item(OptionItemRole.REPLACED, 1, "ceremonial rod")],
+            )
+        ],
+        weapons=[weapon(4, "Storm maul")],
+    )
+    assert [f.finding_code for f in findings] == ["OPT-BUNDLE-UNLINKED"]
+    assert linked[0].replaces_weapon_line is None
 
 
 def test_a_singular_field_its_items_contradict_is_blocking() -> None:

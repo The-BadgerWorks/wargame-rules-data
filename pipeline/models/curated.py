@@ -11,6 +11,12 @@
 # rather than from the curator's own file (004 data-model.md §2.2, FR-022).
 # AI-Assisted: Claude Code (model: claude-opus-5) - Carried the authored keyword glossary on
 # the snapshot (004 task T061), keyed by the normalised keyword key of §2.4.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - Added CuratedItemConstraint and
+# ItemConstraintType (007 task T012, data-model.md §1.1): a footnote-style restriction on a
+# named item, captured as its own structured fact rather than left as a marker artifact on the
+# item's own name. Follows CuratedCompositionEntry's (datasheet_id, constraint_index) identity
+# pattern exactly -- datasheet_id comes from the owning CuratedDatasheet.item_constraints list,
+# never from a field on the record itself.
 """Curated records — the canonical reviewable state, machine-written into ``data/``.
 
 Every record here maps to a row in the consumer schema; the field-level mapping is
@@ -143,6 +149,23 @@ class EquipmentAppliesTo(StrEnum):
 
     UNIT = "unit"
     MODEL_GROUP = "model_group"
+
+
+class ItemConstraintType(StrEnum):
+    """A footnote-style restriction's shape (`007` FR-009, data-model.md §1.1, §3.2).
+
+    **Two members, not a general-purpose one.** A vocabulary is only closed if adding to it is a
+    versioned decision; starting with the two shapes the validation pass actually found, and
+    reporting anything else (`CST-UNPARSED`) rather than inventing a member for it, is what keeps
+    `constraint_type` a *code* and not a place where prose eventually lands. Grows only with a
+    version bump of `itemConstraintVocabularyVersion`, on `restriction_type`'s precedent.
+    """
+
+    NOT_REPLACEABLE = "not_replaceable"
+    """The named item cannot be exchanged through any wargear option."""
+
+    ONE_PER_UNIT = "one_per_unit"
+    """At most one model of the unit may carry the named item."""
 
 
 class KeywordClass(StrEnum):
@@ -598,6 +621,44 @@ class CuratedEquipmentGroup(_CuratedMechanical):
         return self
 
 
+class CuratedItemConstraint(_CuratedMechanical):
+    """A restriction the datacard states against a named item (`007` data-model.md §1.1).
+
+    **Identity is the source ordinal, not the item.** Two restrictions may name the same item,
+    and a restriction may name an item that resolves to no line at all; keying on the item would
+    make one of those unrepresentable and the other collide. This is
+    :class:`CuratedCompositionEntry`'s ``(datasheet_id, line)`` pattern reused unchanged --
+    ``datasheet_id`` is supplied by the owning :class:`CuratedDatasheet`'s ``item_constraints``
+    list, never carried as a field here.
+
+    **Zero, one, or many per datasheet, and zero is the overwhelmingly common case.** A datasheet
+    with no stated restriction carries no rows -- the absence of a row means the source stated
+    nothing, exactly as everywhere else in this bundle.
+
+    **The item's own name is unmodified.** Capturing the constraint and stripping the marker
+    artifact are one change, not two: the marker is removed at extraction because it was never
+    part of the name, and this row is what carries the fact it stood for (SC-002, guarantee 21).
+    """
+
+    constraint_index: int = Field(
+        ge=1, description="source row ordinal; also display order; with datasheet_id, the key"
+    )
+    constraint_type: ItemConstraintType
+    item_name: str = Field(min_length=1, max_length=120, description="a name, never prose")
+    weapon_line: int | None = Field(
+        default=None,
+        ge=1,
+        description="OMITTED unless item_name matches EXACTLY ONE datasheet_weapon.line of this "
+        "datasheet -- never guessed (CST-UNLINKED on zero or >= 2 matches)",
+    )
+    model_name: str | None = Field(
+        default=None,
+        min_length=1,
+        max_length=120,
+        description="present only when the source scopes the restriction to a named model group",
+    )
+
+
 class CuratedChapterKeyword(_CuratedMechanical):
     """One chapter (sub-faction) keyword and its parent, sorted by ``keyword`` (§1.5).
 
@@ -721,6 +782,12 @@ class CuratedDatasheet(_Curated):
         default=None,
         description="`006` §3: none | extracted | partial; OMITTED = the source was not "
         "consulted, OR this datasheet's composition did not resolve.",
+    )
+    item_constraints: Sequence[CuratedItemConstraint] = Field(
+        default=(),
+        description="`007` §1.1: sorted by constraint_index. A restriction the datacard states "
+        "against a named item, captured as its own structured fact rather than left as a marker "
+        "artifact on the item's own name (FR-009). Zero rows is the overwhelmingly common case.",
     )
     wargear_options: Sequence[CuratedWargearOption] = Field(
         default=(),

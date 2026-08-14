@@ -44,10 +44,18 @@ from pipeline.exit_codes import ExitCode
 from pipeline.models.curated import CuratedSnapshot, DefaultEquipmentState, WargearOptionState
 from pipeline.models.findings import CoverageFigure, Finding
 from pipeline.report.catalogue import build_finding
+from pipeline.validate.equivalence import EquivalenceSummary
 
 #: The `report.json` coverage rows `006` adds, without their `loadout.` prefix (data-model.md §5).
 OPTIONS_RESOLVED_KEY: Final = "options_resolved"
 DEFAULT_EQUIPMENT_KEY: Final = "default_equipment"
+
+#: The two `007` US5 rows add (research D7, data-model.md §5). `RENDERING_EQUIVALENCE_KEY`'s
+#: companion `_not_compared` count key is built from it below rather than declared separately, so
+#: the two can never drift apart in spelling.
+ITEM_CONSTRAINTS_KEY: Final = "item_constraints"
+RENDERING_EQUIVALENCE_KEY: Final = "rendering_equivalence"
+RENDERING_EQUIVALENCE_NOT_COMPARED_KEY: Final = f"{RENDERING_EQUIVALENCE_KEY}_not_compared"
 
 #: Which of them the ratchet actually guards — one of two, and deliberately (research D4).
 #:
@@ -56,6 +64,11 @@ DEFAULT_EQUIPMENT_KEY: Final = "default_equipment"
 #: first-release threshold picked to have *something* would be exactly the absolute ceiling the
 #: 2026-08-09 clarification rules out — a number that can wedge a release ahead of a parser fix.
 #: It becomes ratchetable for free the release after this one, when a baseline exists.
+#:
+#: **`item_constraints` and `rendering_equivalence` are deliberately absent** (007 research D7,
+#: FR-022, PO decision 2026-08-13): both are new report-only baselines with no prior release to
+#: compare against. Adding either key here is the entire implementation of a future decision to
+#: ratchet it — nothing else about how it is computed or reported changes.
 LOADOUT_RATCHETED_KEYS: Final[tuple[str, ...]] = (OPTIONS_RESOLVED_KEY,)
 
 
@@ -140,10 +153,45 @@ def default_equipment_resolved_datasheets(snapshot: CuratedSnapshot) -> int:
     )
 
 
-def loadout_coverages(snapshot: CuratedSnapshot) -> dict[str, LoadoutCoverage]:
-    """Both `006` figures, keyed without their `loadout.` prefix (FR-022, data-model.md §5)."""
+def item_constraints_stated_datasheets(snapshot: CuratedSnapshot) -> int:
+    """Datasheets stating at least one footnote-style restriction (`007` FR-009, quickstart §4).
+
+    The denominator of `loadout.item_constraints`: a datasheet the source states no restriction
+    for is outside the question this figure asks, exactly as an option-free datasheet is outside
+    `loadout.options_resolved`'s (`options_resolved_datasheets` above).
+    """
+    return sum(1 for datasheet in snapshot.datasheets if datasheet.item_constraints)
+
+
+def item_constraints_resolved_datasheets(snapshot: CuratedSnapshot) -> int:
+    """Of the datasheets above, those whose stated restrictions **all** resolved (linked).
+
+    One unlinked (`CST-UNLINKED`) restriction is enough to keep the whole datasheet out of the
+    numerator — a datasheet with two restrictions, one linked, is not "half resolved" for this
+    figure's purpose, it is a datasheet a reviewer still needs to look at.
+    """
+    return sum(
+        1
+        for datasheet in snapshot.datasheets
+        if datasheet.item_constraints
+        and all(constraint.weapon_line is not None for constraint in datasheet.item_constraints)
+    )
+
+
+def loadout_coverages(
+    snapshot: CuratedSnapshot, equivalence: EquivalenceSummary | None = None
+) -> dict[str, LoadoutCoverage]:
+    """`006`'s two figures plus `007`'s two new ones, keyed without their `loadout.` prefix
+    (FR-022, data-model.md §5).
+
+    ``equivalence`` is the `EquivalenceSummary` `pipeline.cli.run_build` computed inside its own
+    `with workspace()` block (007 T053) — the only place source text is ever in scope (research
+    D6). `None` means "not measured this run" (the check disabled, or a bare `validate` re-run
+    with no source text at all): `rendering_equivalence` and its `_not_compared` companion are
+    simply **absent** from the returned dict in that case, never reported as a false 100%.
+    """
     total = len(snapshot.datasheets)
-    return {
+    coverages: dict[str, LoadoutCoverage] = {
         OPTIONS_RESOLVED_KEY: LoadoutCoverage(
             key=OPTIONS_RESOLVED_KEY, resolved=options_resolved_datasheets(snapshot), total=total
         ),
@@ -152,7 +200,29 @@ def loadout_coverages(snapshot: CuratedSnapshot) -> dict[str, LoadoutCoverage]:
             resolved=default_equipment_resolved_datasheets(snapshot),
             total=total,
         ),
+        ITEM_CONSTRAINTS_KEY: LoadoutCoverage(
+            key=ITEM_CONSTRAINTS_KEY,
+            resolved=item_constraints_resolved_datasheets(snapshot),
+            total=item_constraints_stated_datasheets(snapshot),
+        ),
     }
+    if equivalence is not None:
+        # `not_compared` outcomes are excluded from both numerator and denominator (research D7,
+        # data-model.md §5) — a datasheet nobody could compare must not move the proportion
+        # either way. Reported instead as its own count, a second `LoadoutCoverage` whose
+        # `resolved`/`total` are deliberately the SAME number: its `ratio_percent` is therefore
+        # always 100 and is not the figure a reader wants from this row — `current` (the raw
+        # count) is. See `pipeline/report/pr_body.py::_loadout_coverage_section`'s footer text.
+        compared = equivalence.matched + equivalence.mismatched
+        coverages[RENDERING_EQUIVALENCE_KEY] = LoadoutCoverage(
+            key=RENDERING_EQUIVALENCE_KEY, resolved=equivalence.matched, total=compared
+        )
+        coverages[RENDERING_EQUIVALENCE_NOT_COMPARED_KEY] = LoadoutCoverage(
+            key=RENDERING_EQUIVALENCE_NOT_COMPARED_KEY,
+            resolved=equivalence.not_compared,
+            total=equivalence.not_compared,
+        )
+    return coverages
 
 
 def _ratio(current: int, previous: int) -> float:

@@ -4,6 +4,12 @@
 # AI-Assisted: Claude Code (model: claude-opus-5) - Added V20, the per-key uniqueness of the
 # emitted bundle (contract v1.3.2 guarantee 12), after the first ingestion of a real bundle found
 # duplicate primary keys in two releases — including a class SQLite itself cannot see.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - Added the item-constraint closed-vocabulary
+# check and its version-stamp check (007 task T016, display-fidelity-schema-delta.md §3.2), and
+# `datasheetItemConstraints` to CONSUMER_PRIMARY_KEYS so V20 covers it too.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - Added check_marker_residue (007 task T036,
+# guarantee 21): the blocking CST-MARKER-RESIDUE check that proves the T038 extraction-time strip
+# actually ran, scanned independently of pipeline/validate/ip_scan.py's generic markup scan.
 """V1-V6, V19 and V20 — the guarantees the producer owes the consumer (FR-030, FR-049).
 
 These are the checks that decide whether a candidate may ship at all. Each one exists because
@@ -25,8 +31,9 @@ import re
 from collections.abc import Mapping, Sequence
 from typing import TYPE_CHECKING, Final
 
-from pipeline.models.curated import RESTRICTION_VOCABULARY, CuratedSnapshot
+from pipeline.models.curated import RESTRICTION_VOCABULARY, CuratedSnapshot, ItemConstraintType
 from pipeline.models.findings import Finding
+from pipeline.parse.composition_grammar import FOOTNOTE_MARK
 from pipeline.report.catalogue import build_finding
 from pipeline.validate.refs import check_intra_snapshot_references
 
@@ -45,6 +52,18 @@ MAX_CUSTOM_POINT_LIMIT: Final = 5000
 #: a contract version this build of the pipeline does not actually emit (FR-049).
 SCHEMA_CONTRACT_VERSION: Final = 1
 RESTRICTION_VOCABULARY_VERSION: Final = 1
+
+#: 007-loadout-display-fidelity (display-fidelity-schema-delta.md §3.2). `constraint_type` is
+#: `ItemConstraintType`-typed on `CuratedItemConstraint` (unlike `restriction_type`, which is a
+#: bare `str`), so Pydantic already refuses an out-of-vocabulary value at the model boundary and
+#: this check is unreachable in normal operation. It is kept anyway, modelled exactly on
+#: `RESTRICTION_VOCABULARY`/`check_restriction_vocabulary`, as defence-in-depth against a future
+#: widening of the field's type — the same reasoning that keeps `check_intra_snapshot_references`
+#: checking a `weapon_line` the reconcile-stage join already guarantees resolves (guarantee 22).
+ITEM_CONSTRAINT_VOCABULARY_VERSION: Final = 1
+ITEM_CONSTRAINT_VOCABULARY: Final[frozenset[str]] = frozenset(
+    member.value for member in ItemConstraintType
+)
 
 #: A rules version id is a stable, non-empty identifier. The *publication* path additionally
 #: pins the `mfm-YYYY-MM` shape (research D9, V12); at build time a fixture id such as
@@ -155,6 +174,100 @@ def check_restriction_vocabulary(snapshot: CuratedSnapshot) -> list[Finding]:
     ]
 
 
+def check_item_constraint_vocabulary(snapshot: CuratedSnapshot) -> list[Finding]:
+    """007 — every item constraint's `constraint_type` is in the closed vocabulary.
+
+    Reuses `CON-RESTRICTION-VOCAB` rather than minting a second code: the fact this check reports
+    — "a value lies outside a closed vocabulary the contract declares" — is the same fact
+    `check_restriction_vocabulary` reports, over a second field. `007`'s own finding catalogue
+    (data-model.md §4) deliberately adds no tenth code for it, on `OPT-UNPARSED`'s precedent
+    (006 catalogue.py: "a second code for one fact is a second thing to keep in step").
+    """
+    return [
+        build_finding(
+            "CON-RESTRICTION-VOCAB",
+            entity_refs=[datasheet.datasheet_id],
+            detail={
+                "datasheet_id": datasheet.datasheet_id,
+                "constraint_index": constraint.constraint_index,
+                "constraint_type": constraint.constraint_type.value,
+                "vocabulary_version": ITEM_CONSTRAINT_VOCABULARY_VERSION,
+            },
+        )
+        for datasheet in snapshot.datasheets
+        for constraint in datasheet.item_constraints
+        if constraint.constraint_type.value not in ITEM_CONSTRAINT_VOCABULARY
+    ]
+
+
+def check_marker_residue(snapshot: CuratedSnapshot) -> list[Finding]:
+    """007 US3 — guarantee 21: no name field carries a footnote-marker artifact (SC-002).
+
+    Blocking, unlike every other check in this module's item-constraint half: a marker surviving
+    into a published name is the **exact defect** this feature exists to remove, and it is cheap
+    to detect. `CMP-HEADER-ROW` (guarantee 20) drew the same "a contradiction blocks, a gap is
+    advisory" split at first release, but was demoted to advisory by Product Owner decision on
+    2026-08-14 (T061 review, `pipeline/curate/assemble.py::_flag_header_row_candidate`) once the
+    live corpus showed the automatic conjunction had real false positives — this check has no
+    equivalent false-positive risk (a marker character is either present in a name or it is not),
+    so it keeps blocking.
+
+    Reuses :data:`~pipeline.parse.composition_grammar.FOOTNOTE_MARK`, the one expression every
+    extraction-time strip (`007` T038) already applies — this is the **independent second
+    mechanism** that proves the strip actually ran, on `validate/ip_scan.py`'s own precedent of
+    pairing a schema-level control with a scanned one (research D9 control 1/2). Every name-shaped
+    field guarantee 21 names: ``itemName``, ``modelName``, ``eligibleModelName``, and
+    ``datasheetWeapons.name`` — plus the choice's own ``name``, the one D4.1 measured 119 rows of
+    (the item rows a bundle item and its choice's name seed both descend from it).
+    """
+    findings: list[Finding] = []
+    for datasheet in snapshot.datasheets:
+        candidates: list[tuple[str, str]] = [
+            *((f"weapon[{w.line}].name", w.name) for w in datasheet.weapons),
+            *((f"composition[{c.line}].model_name", c.model_name) for c in datasheet.composition),
+            *(
+                (f"option_groups[{g.id}].eligible_model_name", g.eligible_model_name)
+                for g in datasheet.option_groups
+                if g.eligible_model_name is not None
+            ),
+            *((f"option_choices[{ch.id}].name", ch.name) for ch in datasheet.option_choices),
+            *(
+                (f"option_choices[{ch.id}].items[{it.item_index}].item_name", it.item_name)
+                for ch in datasheet.option_choices
+                for it in ch.items
+            ),
+            *(
+                (f"equipment_groups[{eg.id}].model_name", eg.model_name)
+                for eg in datasheet.equipment_groups
+                if eg.model_name is not None
+            ),
+            *(
+                (f"equipment_groups[{eg.id}].items[{ei.item_index}].item_name", ei.item_name)
+                for eg in datasheet.equipment_groups
+                for ei in eg.items
+            ),
+            *(
+                (f"item_constraints[{ic.constraint_index}].item_name", ic.item_name)
+                for ic in datasheet.item_constraints
+            ),
+            *(
+                (f"item_constraints[{ic.constraint_index}].model_name", ic.model_name)
+                for ic in datasheet.item_constraints
+                if ic.model_name is not None
+            ),
+        ]
+        for field_path, value in candidates:
+            if FOOTNOTE_MARK.search(value):
+                findings.append(
+                    build_finding(
+                        "CST-MARKER-RESIDUE",
+                        entity_refs=[datasheet.datasheet_id],
+                        detail={"datasheet_id": datasheet.datasheet_id, "field": field_path},
+                    )
+                )
+    return findings
+
+
 def check_version_stamp(meta: BundleMeta) -> list[Finding]:
     """V6 — the stamps are present and match what this build actually emits (FR-049)."""
     findings: list[Finding] = []
@@ -178,6 +291,23 @@ def check_version_stamp(meta: BundleMeta) -> list[Finding]:
                     "field": "restrictionVocabularyVersion",
                     "stamped": meta.restriction_vocabulary_version,
                     "expected": RESTRICTION_VOCABULARY_VERSION,
+                },
+            )
+        )
+    # 007-loadout-display-fidelity: OPTIONAL, unlike the two required stamps above (contract
+    # §3.1) — a producer that has not stamped it yet has said nothing wrong, so the check only
+    # fires on a stamp that is PRESENT and disagrees.
+    if (
+        meta.item_constraint_vocabulary_version is not None
+        and meta.item_constraint_vocabulary_version != ITEM_CONSTRAINT_VOCABULARY_VERSION
+    ):
+        findings.append(
+            build_finding(
+                "CON-VERSION-STAMP",
+                detail={
+                    "field": "itemConstraintVocabularyVersion",
+                    "stamped": meta.item_constraint_vocabulary_version,
+                    "expected": ITEM_CONSTRAINT_VOCABULARY_VERSION,
                 },
             )
         )
@@ -280,6 +410,8 @@ CONSUMER_PRIMARY_KEYS: Final[dict[str, tuple[str, ...]]] = {
     "datasheetOptionChoiceItems": ("choiceId", "role", "itemIndex"),
     "datasheetEquipmentGroups": ("id",),
     "datasheetEquipmentItems": ("groupId", "itemIndex"),
+    # 007-loadout-display-fidelity's one additive table (display-fidelity-schema-delta.md §2.1).
+    "datasheetItemConstraints": ("datasheetId", "constraintIndex"),
 }
 
 
@@ -350,6 +482,8 @@ def check_snapshot(snapshot: CuratedSnapshot, meta: BundleMeta) -> list[Finding]
         *check_game_size_bands(snapshot),
         *check_intra_snapshot_references(snapshot),
         *check_restriction_vocabulary(snapshot),
+        *check_item_constraint_vocabulary(snapshot),
+        *check_marker_residue(snapshot),
         *check_version_stamp(meta),
         *check_tier_projection(snapshot),
     ]

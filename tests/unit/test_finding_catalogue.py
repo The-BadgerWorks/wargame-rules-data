@@ -1,6 +1,8 @@
 # AI-Assisted: Claude Code (model: claude-opus-5) - Asserts severity is a property of the code
 # and cannot be overridden per occurrence (task T026, validation-report.md §1.1), and
 # transcribes the whole §3 catalogue so a code's severity cannot drift silently.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - Transcribed 007-loadout-display-fidelity's
+# nine new codes (007 task T013) from data-model.md §4, independently of catalogue.py.
 """Severity belongs to the code, not to the occurrence.
 
 ``curation/resolutions.json`` entries reference finding codes, so a code whose severity moved
@@ -137,9 +139,30 @@ LOADOUT_SEVERITIES = {
     "COV-OPTION-REGRESSION": B,
 }
 
+#: Transcribed by hand from 007's data-model.md §4 table, independently of
+#: pipeline/report/catalogue.py. At first release, two of nine blocked, both guarantee breaches
+#: (guarantees 20 and 21) rather than gaps -- the same split 004 and 006 already use: a
+#: contradiction with what was already promised blocks, a gap in what the grammar could resolve
+#: is advisory. CMP-HEADER-ROW was demoted to advisory by Product Owner decision on 2026-08-14
+#: (T061 review of the live corpus's T031 re-derivation, which found real false positives among
+#: the rows the automatic conjunction would have dropped) -- one of nine blocks now. See
+#: pipeline/curate/assemble.py::_flag_header_row_candidate.
+DISPLAY_FIDELITY_SEVERITIES = {
+    "CST-UNLINKED": A,
+    "CST-UNPARSED": A,
+    "CST-MARKER-RESIDUE": B,
+    "CMP-HEADER-ROW": A,
+    "OPT-LEGACY-CORRECTED": A,
+    "OPT-ITEM-OVERLONG": A,
+    "RND-OMITTED": A,
+    "RND-EQV-MISMATCH": A,
+    "RND-EQV-NOT-COMPARED": A,
+}
+
 CONTRACT_SEVERITIES.update(ENRICHMENT_SEVERITIES)
 CONTRACT_SEVERITIES.update(LOADOUT_SEVERITIES)
 CONTRACT_SEVERITIES.update(PENDING_CONTRACT_SEVERITIES)
+CONTRACT_SEVERITIES.update(DISPLAY_FIDELITY_SEVERITIES)
 
 
 def test_the_catalogue_is_exactly_the_contract_catalogue() -> None:
@@ -344,3 +367,35 @@ def test_an_unlinked_item_and_an_unresolved_group_are_reconciliation_findings() 
     assert CATALOGUE["EQP-UNPARSED"].finding_class is FindingClass.DATA_QUALITY
     assert CATALOGUE["OPT-BUNDLE-DISAGREE"].finding_class is FindingClass.CONTRACT
     assert CATALOGUE["COV-OPTION-REGRESSION"].finding_class is FindingClass.COVERAGE
+
+
+# -- 007-loadout-display-fidelity (007 task T013) ------------------------------------------
+
+
+def test_only_one_guarantee_breach_blocks_among_the_display_fidelity_codes() -> None:
+    """CST-MARKER-RESIDUE still blocks: a marker character is either present in a name or it is
+    not, with no false-positive risk. CMP-HEADER-ROW no longer does — Product Owner decision,
+    2026-08-14 T061 review: the automatic five-signal conjunction had real false positives on the
+    live corpus (three duo-sheet first models), so it is advisory-only now, flagging a candidate
+    for a curator's review rather than dropping a row by itself."""
+    blocking = {code for code, severity in DISPLAY_FIDELITY_SEVERITIES.items() if severity == B}
+    assert blocking == {"CST-MARKER-RESIDUE"}
+    assert blocking <= BLOCKING_CODES
+
+    for code in set(DISPLAY_FIDELITY_SEVERITIES) - blocking:
+        assert severity_of(code) is Severity.ADVISORY
+
+
+def test_the_display_fidelity_codes_are_classed_where_the_fact_they_report_belongs() -> None:
+    """Class is a property of the code: a linking failure is reconciliation, an unresolved
+    shape is data quality, a guarantee breach is a contract finding, and an equivalence-check
+    outcome feeds a coverage figure."""
+    assert CATALOGUE["CST-UNLINKED"].finding_class is FindingClass.RECONCILIATION
+    assert CATALOGUE["CST-UNPARSED"].finding_class is FindingClass.DATA_QUALITY
+    assert CATALOGUE["CST-MARKER-RESIDUE"].finding_class is FindingClass.CONTRACT
+    assert CATALOGUE["CMP-HEADER-ROW"].finding_class is FindingClass.CONTRACT
+    assert CATALOGUE["OPT-LEGACY-CORRECTED"].finding_class is FindingClass.RECONCILIATION
+    assert CATALOGUE["OPT-ITEM-OVERLONG"].finding_class is FindingClass.DATA_QUALITY
+    assert CATALOGUE["RND-OMITTED"].finding_class is FindingClass.DATA_QUALITY
+    assert CATALOGUE["RND-EQV-MISMATCH"].finding_class is FindingClass.COVERAGE
+    assert CATALOGUE["RND-EQV-NOT-COMPARED"].finding_class is FindingClass.COVERAGE

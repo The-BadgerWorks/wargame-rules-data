@@ -1,5 +1,6 @@
 {
   "_comment2": "AI-Assisted: Claude Code (model: claude-opus-5) - Extended for 004-rules-data-enrichment (004 task T013): optional composition[], option_groups[], option_choices[], wargear_option_state, and keywords[].keyword_class. Every addition is OPTIONAL and omitted when absent, so a datasheet that acquires none of them is byte-identical to what it is today -- which is what makes the whole delta additive (004 contracts/bundle-schema-delta.md §1).",
+  "_comment3": "AI-Assisted: Claude Code (model: claude-sonnet-5) - Extended for 007-loadout-display-fidelity (007 task T011): optional item_constraints[], each a footnote-style restriction against a named item. datasheet_id is NOT a field here -- identity is (owning datasheet, constraint_index), exactly as composition[] and equipment_groups[] above carry no datasheet_id of their own (display-fidelity-schema-delta.md §2.1, data-model.md §1.1).",
   "_comment": "AI-Assisted: Claude Code (model: claude-opus-5) - Authored per curated-snapshot-format.md §2.5 (task T032). Three things this schema enforces that are easy to lose: (1) ability_keys carries KEYS, never text -- summaries live in curation/abilities/<faction-id>.json and are resolved at build time, which is what keeps authored content out of the machine-written tree entirely; (2) an uncurated optional is OMITTED, never null and never a guess (FR-019, §5), so no property here is nullable; (3) costs[] is copy-indexed -- copy_index_min is the 1-based ordinal of a copy within one army counted across all squad sizes, a copy_index_min = 1 row must exist for every model_count (guarantee 7, PRC-TIER-INCOMPLETE), and model_count values are band LOWER bounds (C2/R5).",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://the-badgerworks.github.io/wargame-rules-data/schemas/curated/datasheet.schema.json",
@@ -244,6 +245,31 @@
     "default_equipment_state": {
       "enum": ["none", "extracted", "partial"],
       "description": "006 data-model.md §3 (FR-015, FR-016). wargear_option_state's pattern reused without variation. OMITTED = the source was not consulted, OR the datasheet's composition did not resolve, in which case no equipment attaches at all."
+    },
+    "item_constraints": {
+      "type": "array",
+      "description": "Sorted by constraint_index. 007 data-model.md §1.1 (FR-009). A restriction the datacard states against a NAMED ITEM, captured as its own structured fact rather than left as a marker artifact on the item's own name. Zero rows is the overwhelmingly common case. weapon_line is OMITTED unless item_name matches exactly one weapons[] row of this datasheet -- never guessed.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["constraint_index", "constraint_type", "item_name"],
+        "properties": {
+          "constraint_index": { "type": "integer", "minimum": 1 },
+          "constraint_type": { "enum": ["not_replaceable", "one_per_unit"] },
+          "item_name": { "type": "string", "minLength": 1, "maxLength": 120 },
+          "weapon_line": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "OMITTED on zero or two-or-more name matches against weapons[] -- never guessed."
+          },
+          "model_name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 120,
+            "description": "Present only when the source scopes the restriction to a named model group."
+          }
+        }
+      }
     },
     "ability_keys": {
       "type": "array",
