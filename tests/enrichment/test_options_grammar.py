@@ -402,6 +402,92 @@ def test_a_class_2_row_whose_predicate_the_schema_cannot_hold_stays_unparsed(
     assert parse_row(description) is None
 
 
+# --- 007 US2: the legacy stem-object shape's given-up item (T018) ------------------------------
+#
+# `_REPLACE_VERB` ("can be replaced with") is the `004` production. Until now it discarded
+# everything before the verb phrase, which is precisely the text that names what a sergeant-shape
+# subject gives up (research D3.1). GF12 is T005's fixture: row 1 is D3.3's "resolves and links"
+# case, row 2 is "stated but does not link uniquely" (link-level, so parse-level the two look the
+# same), row 3 is the "no given-up item at all" control — a plain `_EQUIP_VERB` row with nothing
+# to do with the legacy replace shape at all — and row 4 is the `OPT-SCOPE-UNRESOLVED` edge case
+# (a subject naming no composition row of its own datasheet).
+
+
+def test_the_legacy_replace_verb_captures_the_given_up_item_between_head_and_verb(
+    option_rows: Mapping[str, list[tuple[int, str]]],
+) -> None:
+    # GF12|1 - `One Marshlight Warden's storm maul can be replaced with 1 glow lance.`
+    parsed = parse_row(dict(option_rows["GF12"])[1])
+    assert parsed is not None
+    assert parsed.eligible_model_name == "Marshlight Warden"
+    assert parsed.eligible_max_count == 1
+    assert parsed.replaced_clause == "storm maul"
+    assert choice_names(parsed) == ["glow lance"]
+    assert {choice.verb for choice in parsed.choices} == {OptionVerb.REPLACE}
+
+
+def test_a_second_legacy_row_captures_its_own_given_up_item(
+    option_rows: Mapping[str, list[tuple[int, str]]],
+) -> None:
+    # GF12|2 - the same shape, a different given-up item ("ceremonial rod"). Parsing does not
+    # know yet whether it will link uniquely — that is `link_choice_items`'s job (T019/T023) —
+    # so the two rows differ only in which item name is captured.
+    parsed = parse_row(dict(option_rows["GF12"])[2])
+    assert parsed is not None
+    assert parsed.eligible_model_name == "Marshlight Warden"
+    assert parsed.replaced_clause == "ceremonial rod"
+
+
+def test_an_equip_only_row_captures_no_given_up_item(
+    option_rows: Mapping[str, list[tuple[int, str]]],
+) -> None:
+    # GF12|3 - `The Marshlight Warden can be equipped with 1 glow lance.` D3.3's third case: an
+    # `_EQUIP_VERB` row never touches the replace-verb capture at all, so `replaced_clause` stays
+    # `None` exactly as `004` always produced it.
+    parsed = parse_row(dict(option_rows["GF12"])[3])
+    assert parsed is not None
+    assert {choice.verb for choice in parsed.choices} == {OptionVerb.EQUIP}
+    assert parsed.replaced_clause is None
+
+
+def test_a_legacy_row_whose_subject_matches_no_model_still_captures_its_given_up_item(
+    option_rows: Mapping[str, list[tuple[int, str]]],
+) -> None:
+    # GF12|4 - `One Marshguard Sentinel's storm maul can be replaced with 1 glow lance.` No model
+    # row of GF12 is named "Marshguard Sentinel" (research D3.4's OPT-SCOPE-UNRESOLVED edge case,
+    # wired at curate time by T025) — but the grammar itself has no composition to check against,
+    # so parsing succeeds and captures the given-up item exactly as row 1 does.
+    parsed = parse_row(dict(option_rows["GF12"])[4])
+    assert parsed is not None
+    assert parsed.eligible_model_name == "Marshguard Sentinel"
+    assert parsed.replaced_clause == "storm maul"
+
+
+def test_the_legacy_shapes_singular_head_is_not_forced_per_model(
+    option_rows: Mapping[str, list[tuple[int, str]]],
+) -> None:
+    # The regression this capture must not cause: a singular "One <Model>'s <item>" legacy head
+    # is not distributive, and populating `replaced_clause` for it must not flip `is_per_model`
+    # to `True` the way the `006` `_DISTRIBUTIVE_REPLACE` shape genuinely does (GF07|8 already
+    # pins `is_per_model is None` for the same head shape under `_EQUIP_VERB`; this pins it for
+    # the legacy `_REPLACE_VERB` shape too).
+    parsed = parse_row(dict(option_rows["GF12"])[1])
+    assert parsed is not None
+    assert parsed.is_per_model is None
+
+
+def test_the_distributive_shapes_replaced_clause_still_forces_per_model(
+    option_rows: Mapping[str, list[tuple[int, str]]],
+) -> None:
+    # The other half of the same regression, read from the `006` side: a genuinely distributive
+    # stem must still force `is_per_model = True`, so the new capture must not have collapsed
+    # the distinction between "legacy stem, now also captured" and "always was distributive".
+    parsed = parse_row(dict(option_rows["GF07"])[3])
+    assert parsed is not None
+    assert parsed.is_per_model is True
+    assert parsed.replaced_clause == "their glimmer rifle"
+
+
 def test_a_group_level_select_quantifier_populates_max_choices() -> None:
     # T019, and the vocabulary is the corpus's own: it states the quantifier as a WORD numeral,
     # which is why research D1d's digit-shaped skeletons matched zero rows. `min_choices` stays

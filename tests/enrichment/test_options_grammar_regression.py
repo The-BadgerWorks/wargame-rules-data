@@ -5,6 +5,13 @@
 # AI-Assisted: Claude Code (model: claude-sonnet-5) - Widened the scope-decision assertion to
 # GF12 (007 task T005 fixture scaffolding): a new non-baseline datasheet id, same exclusion
 # reasoning as GF07-GF11.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - Updated GF04|1's golden `replaced_clause`
+# for 007 task T021: the dual-semantics correction is a deliberate, in-scope change to what the
+# EXISTING `_REPLACE_VERB` production returns (research D3.1's "single missing capture"), not a
+# new production reaching an old row, so it is not the regression this harness exists to catch —
+# it is the fix this harness must now reflect. `scope`/`choices`/`verb`/`count` — the fields
+# `004` actually published downstream — are unchanged; only the previously-discarded pre-verb
+# text is now captured.
 """Nothing `004` resolved may resolve differently. Proven against a frozen golden.
 
 FR-009 is the constraint the whole feature is built around: *a pre-existing option sentence that
@@ -86,6 +93,12 @@ FIXTURE_GOLDEN: dict[tuple[str, int], R | None] = {
             C(name="mire censer", count=1, is_no_change=False, verb=V.REPLACE),
             C(name="No change", count=None, is_no_change=True, verb=V.REPLACE),
         ),
+        # 007 T021: `^The\b` (the `004` head) does not capture a model name, so the whole
+        # pre-verb span becomes the given-up clause. It will not link to any weapon line of this
+        # datasheet — the fixture's own subject name is not one of its items — and ships
+        # unlinked with an advisory (`OPT-BUNDLE-UNLINKED`) rather than a guess, exactly as any
+        # other unresolvable given-up item does (research D3.3 case 2).
+        replaced_clause="Sedgeward Adept",
     ),
     ("GF05", 1): None,
     ("GF06", 1): R(

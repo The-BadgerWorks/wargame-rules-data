@@ -344,9 +344,13 @@ class OptionRowParse:
     # -- `006` §2.2: the group-level select quantifier ------------------------------------------
     min_choices: int | None = None
     max_choices: int | None = None
-    #: The possessive side of a distributive replace stem — what the eligible models give **up**,
-    #: which the clause names in its own head rather than after its verb. ``None`` for every
-    #: production `004` carries, whose object clause is the only side it states.
+    #: What the eligible subject gives **up**, captured from EITHER of two places the source
+    #: states it (007 research D3.1): the distributive stem's own possessive head (`006`), or —
+    #: new here — the plain text between a legacy `_REPLACE_VERB` row's head match and its verb
+    #: phrase, which `004` matched for its head shape and then discarded. ``None`` only for a
+    #: row whose verb is not a replacement at all (`_EQUIP_VERB`, or no verb matched); a legacy
+    #: replacement row with literally nothing stated between head and verb captures ``""``, never
+    #: ``None`` — the distinction the `_option_structure` role ternary depends on (007 D3).
     replaced_clause: str | None = None
 
 
@@ -386,11 +390,12 @@ def parse_row(description: str) -> OptionRowParse | None:
     if not stem or any(pattern.search(stem) for pattern in _REFUSED):
         return None
 
-    head = _match_head(stem)
-    if head is None:
+    matched_head = _match_head(stem)
+    if matched_head is None:
         return None
+    head, head_end = matched_head
 
-    verb, object_clause, replaced_clause = _match_verb(stem)
+    verb, object_clause, replaced_clause, is_distributive = _match_verb(stem, head_end)
     if verb is None:
         return None
 
@@ -411,7 +416,13 @@ def parse_row(description: str) -> OptionRowParse | None:
     # distributive in itself says so too. Neither is ever written as `False`: the source not
     # distinguishing and the source saying "once for the unit" are different facts, and
     # defaulting would over-grant the 350 measured rows that do distribute.
-    is_per_model = True if replaced_clause is not None else head.is_per_model
+    #
+    # **Keyed on `is_distributive`, not on `replaced_clause is not None`** (007 T021): the legacy
+    # `_REPLACE_VERB` shape now populates `replaced_clause` too, and it is not distributive — a
+    # singular "One <Model>'s <item> can be replaced with ..." row must keep `is_per_model` at
+    # whatever its head said (`None` for a singular head), never forced `True` by the mere
+    # presence of a given-up-item capture.
+    is_per_model = True if is_distributive else head.is_per_model
 
     return OptionRowParse(
         scope=head.scope,
@@ -425,21 +436,25 @@ def parse_row(description: str) -> OptionRowParse | None:
     )
 
 
-def _match_head(stem: str) -> _Head | None:
-    """`004`'s head table to exhaustion, and only then `006`'s. The order is FR-009."""
+def _match_head(stem: str) -> tuple[_Head, int] | None:
+    """`004`'s head table to exhaustion, and only then `006`'s. The order is FR-009.
+
+    Returns the match's end offset alongside the head (007 T021): it is where a legacy
+    replacement clause's given-up item, if any, begins.
+    """
     for pattern, scope in _HEADS:
         match = pattern.match(stem)
         if match is None:
             continue
         scope_n = int(match.group(1)) if scope is OptionScope.PER_N_MODELS else None
-        return _Head(scope=scope, scope_n=scope_n)
+        return _Head(scope=scope, scope_n=scope_n), match.end()
 
     if any(pattern.search(stem) for pattern in _EXTENDED_REFUSED):
         return None
     for pattern, build in _EXTENDED_HEADS:
         match = pattern.match(stem)
         if match is not None:
-            return build(match)
+            return build(match), match.end()
     return None
 
 
@@ -467,27 +482,46 @@ def _select_quantifier(stem: str) -> int | None:
     return _NUMERALS.get(count, int(count) if count.isdigit() else None)
 
 
-def _match_verb(stem: str) -> tuple[OptionVerb | None, str, str | None]:
-    """The clause's verb, the text following it, and the side it takes away.
+def _match_verb(stem: str, head_end: int) -> tuple[OptionVerb | None, str, str | None, bool]:
+    """The clause's verb, the text following it, the side it takes away, and whether that side
+    is `006`'s distributive shape.
 
     ``replace`` is tested first: a row carrying both phrases is describing a replacement whose
     alternatives are then equipped, and reading it as additive would publish an upgrade the
     player has not paid for a swap to take.
 
+    **007 T021**: the legacy ``_REPLACE_VERB`` phrase now also captures a given-up clause — the
+    stem text between the head's own match end (``head_end``) and the verb phrase's start, which
+    `004` matched for its head shape and then discarded (research D3.1's "single missing
+    capture"). It is captured even when empty (``""``, never ``None``): an empty span is D3.3's
+    "no given-up item at all" case, and `_option_structure`'s role ternary needs to tell that
+    apart from a row whose verb was never a replacement in the first place.
+
     `006`'s distributive verb is tested **last**, after both `004` phrases have failed, so a row
     the baseline resolved cannot reach it. Its third return value is the possessive side — the
-    only place a distributive stem names what is given up.
+    only place a distributive stem names what is given up. The fourth return value,
+    ``is_distributive``, is true only for this branch — the legacy capture above must not be
+    read as evidence of distributivity too (007 T021, guards `is_per_model`).
     """
-    for phrase, verb in ((_REPLACE_VERB, OptionVerb.REPLACE), (_EQUIP_VERB, OptionVerb.EQUIP)):
-        index = stem.find(phrase)
-        if index >= 0:
-            return verb, stem[index + len(phrase) :].strip(), None
+    replace_index = stem.find(_REPLACE_VERB)
+    if replace_index >= 0:
+        given_up = stem[head_end:replace_index].strip()
+        return (
+            OptionVerb.REPLACE,
+            stem[replace_index + len(_REPLACE_VERB) :].strip(),
+            given_up,
+            False,
+        )
+
+    equip_index = stem.find(_EQUIP_VERB)
+    if equip_index >= 0:
+        return OptionVerb.EQUIP, stem[equip_index + len(_EQUIP_VERB) :].strip(), None, False
 
     distributive = _DISTRIBUTIVE_REPLACE.search(stem)
     if distributive is not None:
         remainder = stem[distributive.end() :].strip()
-        return OptionVerb.REPLACE, remainder, distributive.group("side").strip()
-    return None, "", None
+        return OptionVerb.REPLACE, remainder, distributive.group("side").strip(), True
+    return None, "", None, False
 
 
 def split_conjuncts(name: str, count: int | None = None) -> tuple[ItemParse, ...]:

@@ -131,13 +131,14 @@ def diagnose_option_row(description: str) -> str:
     if any(pattern.search(stem) for pattern in _REFUSED):
         return "refused_permissive_or_ratio"
 
-    head = _match_head(stem)
-    if head is None:
+    matched_head = _match_head(stem)
+    if matched_head is None:
         if any(pattern.search(stem) for pattern in _EXTENDED_REFUSED):
             return "refused_conditional_or_equipment_qualified"
         return "no_head_match"
+    _head, head_end = matched_head
 
-    verb, object_clause, _replaced_clause = _match_verb(stem)
+    verb, object_clause, _replaced_clause, _is_distributive = _match_verb(stem, head_end)
     if verb is None:
         return "head_ok_no_verb"
 
