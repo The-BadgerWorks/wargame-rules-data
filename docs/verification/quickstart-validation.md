@@ -4,7 +4,12 @@
 <!-- AI-Assisted: Claude Code (model: claude-sonnet-5) - Appended the 006-unit-loadout-fidelity
      T054 quickstart validation: every §0-§6 command run against the current `main` checkout
      (already the delivered tree, post-publication of wh40k-11e-2026-08-2), three real defects
-     found and fixed in specs/006-unit-loadout-fidelity/quickstart.md itself. -->
+     found and fixed in specs/006-unit-loadout-fidelity/quickstart.md itself.
+     AI-Assisted: Claude Code (model: claude-sonnet-5) - Appended the 007-loadout-display-fidelity
+     T073 quickstart validation: every §0-§8 section run or checked against the current `main`
+     checkout (post-publication of wh40k-11e-2026-08-3), two real command-line defects found and
+     fixed in specs/007-loadout-display-fidelity/quickstart.md itself, one of them a stale design
+     claim overtaken by a same-day Product Owner decision rather than a simple typo. -->
 # T160 — clean-checkout quickstart validation
 
 `specs/002-rules-data-pipeline/quickstart.md` (in `WargameCompanion`) walks a curator through
@@ -202,3 +207,143 @@ command-line examples rather than in the conceptual walkthrough, all three fixed
 inline note recording what was wrong: §2's `report.json` key names, §3's `option-regression` flag
 name, and §5's `consumer_compat.py` invocation shape. Every other command in §1, §4, and §6 ran (or,
 for §4/§6's prose sections, was checked against the actual code) without correction.
+
+---
+
+# T073 (007-loadout-display-fidelity) — quickstart validation
+
+`specs/007-loadout-display-fidelity/quickstart.md` (in `WargameCompanion`) walks whoever implements
+Part A, Part B, or Part C through the offline grammar loop, the rendering-contract conformance loop,
+the equivalence-check loop and its retention test, reading the two new report-only figures,
+reviewing the FR-007 transition report without reading 2,039 lines, the escape-hatch notes, and the
+consumer-proof commands. This runs every section for real.
+
+**Checkout used**: the current `main` working tree
+(`c:\Users\Justin\Documents\git_repos\BBS\wargame-rules-data`) at `98328210` (after T072's
+constitution-compliance commit, itself after `229c2b3d`, the tip immediately after
+`wh40k-11e-2026-08-3` published) — already clean before and after this validation; a fresh clone was
+not needed to prove the commands work against the delivered repository.
+
+## §0 The rules that will bite you first
+
+Prose-only, no commands. Checked each of the six rules against the delivered code rather than taken
+on faith: rule 3 ("no hash" of source text) against `pipeline/validate/equivalence.py` and
+`tests/validate/test_equivalence.py::test_a_mismatch_finding_never_carries_either_sides_text`; rule
+4 ("fix the roles before deriving the fields") against `pipeline/curate/assemble.py`'s
+`_option_structure` ordering; rule 5 (baseline productions run first) against `pipeline/parse/
+options_grammar.py`'s clause table. All six hold as stated.
+
+## §1 Local loop: Part A, offline — one real defect found and fixed
+
+**Defect**: the documented command, `rules-pipeline build --offline --fixtures fixtures/enrichment
+--rules-version-id local-dev`, does not run:
+
+```
+$ python -m pipeline.cli build --offline --fixtures fixtures/enrichment --rules-version-id local-dev-007-verify
+rules-pipeline: SRC-UNREACHABLE: fixture set has no mfm/ directory for the mfm source: fixtures\enrichment\mfm
+```
+
+`fixtures/enrichment` was never built as a full-CLI-build fixture set — `fixtures/README.md`'s own
+naming convention requires an `mfm/` directory for anything passed to `--fixtures`, and `tests/
+enrichment/conftest.py` reads `fixtures/enrichment`'s `wahapedia`/`wahapedia-html`/`curation`
+directories directly at the enrichment-stage level, never through `pipeline.cli.run_build`. Tried
+the two other committed sets as an alternative and confirmed both fail **by design**, not as a
+substitute fix: `fixtures/sample` exits `41` (`SRC-STRUCTURE-CHANGED`, an intentionally unfilled
+placeholder — `docs/runbook.md`'s reproduction procedure for exactly this); `fixtures/minimal`
+exits with `COV-COLLAPSE` on six categories, because its tiny corpus is compared against the real
+previously-published baseline `state/` records, not against itself. **There is currently no
+committed fixture set that supports a clean, green, full `rules-pipeline build --offline` run.**
+**Fixed** in `quickstart.md` §1: removed the `build` line, kept `pytest tests/enrichment -q` (ran
+clean: **453 passed**), and added a note recording all three fixture sets' actual behaviour so the
+next reader does not rediscover this by trial and error. (Build artifacts this probe wrote into
+tracked `fixtures/minimal/build/` were reverted with `git checkout --` before anything else in this
+session touched that tree.)
+
+## §2 Local loop: Part B, the rendering contract
+
+```
+pytest tests/contract/test_rendering_conformance.py -q
+```
+
+Ran clean: **81 passed**. The three implementer traps §2 lists (never read the deprecated singular
+link columns; check `eligible_model_name` before `scope`; every selection table ends in omission)
+were each cross-checked against `pipeline/render/loadout.py`'s actual selection order and found
+accurate — no correction needed.
+
+## §3 Local loop: Part C, the equivalence check
+
+```
+pytest tests/validate/test_equivalence.py -q
+```
+
+Ran clean: **6 passed**, including `test_the_source_text_used_for_a_mismatched_comparison_is_never_
+written_anywhere` — the retention test §3 calls "the cheapest test in the feature and the most
+important" (T051, written before T052's implementation existed to pass it). The three-outcome table
+(`match`/`mismatch`/`not_compared`) and the R-D pointer both check out against `pipeline/validate/
+equivalence.py` and `reports/equivalence-availability/2026-08-13.md`.
+
+## §4 Reading the two new figures
+
+Read `reports/wh40k-11e-2026-08-3/report.json`'s `coverage` block directly. Figures match the
+document's description exactly: `loadout.rendering_equivalence` `{current: 388, previous: 0,
+ratio_percent: 15, threshold_percent: 0}`, `loadout.item_constraints` `{current: 0, previous: 0,
+ratio_percent: 100, threshold_percent: 0}` — both `threshold_percent: 0` as documented, confirming
+neither is in `LOADOUT_RATCHETED_KEYS`. No correction needed; `docs/runbook.md`'s T069 addition now
+gives this section's "read beside `not_compared`" instruction its own worked numeric example.
+
+## §5 Reviewing the FR-007 correction without reading every line
+
+`≈2 030` (research D3.2's pre-measurement estimate) vs. the real, live count of **2,039** — close
+enough not to change anything below it, but corrected in `quickstart.md`'s own §5 heading and body
+with a note pointing at `reports/wh40k-11e-2026-08-3/option-regression.md` for the exact figure,
+split 37 / 2,002 / 0 across the three named transition classes exactly as the table describes.
+
+## §6 Resolving what the extended grammar still cannot parse — one design claim overtaken, corrected
+
+**Not a typo — a stale design claim.** §6 stated "there is currently no way to suppress a
+composition row by curation." That was true when `quickstart.md` was authored (2026-08-13) and
+became false the next day: T061's Product Owner decision (2026-08-14) withdrew the automatic
+`CMP-HEADER-ROW` refusal after T031's whole-corpus re-derivation found refused rows outside the
+eight measured Kill Team datasheets, and added exactly the suppression path this paragraph said did
+not exist — `curation/composition-overrides.json`'s new `remove: true` entry
+(`schemas/curation/composition-overrides.schema.json`, confirmed present and validated:
+`"remove": {"type": "boolean", ...}` with the schema's `if`/`then` requiring no replacement fields
+alongside it). **Fixed** in `quickstart.md` §6: the original paragraph is kept, labelled as
+historical argument no longer describing the shipped mechanism, with the corrected mechanism stated
+above it and `tests/enrichment/test_composition_header_refusal.py` cited as the evidence
+(`test_a_curator_remove_override_removes_a_confirmed_phantom_and_only_that_row`,
+`test_remove_is_the_only_way_a_row_disappears_a_bare_flag_never_does_it`, both confirmed present and
+passing).
+
+The equipment-override-hatch-test debt §6 also names (pipeline follow-up 14) is confirmed paid:
+`tests/enrichment/test_equipment_overrides.py` exists and is green, part of the same 1,894-test
+suite T072 ran in full.
+
+## §7 Proving the released consumers still work
+
+Not re-run against a fresh bundle in this validation pass (building one is T064's live-candidate
+job, already discharged); the documented claims were checked against the actual evidence file
+instead. `reports/wh40k-11e-2026-08-3/consumer-compat.md` confirms exactly what §7 describes: the
+unmodified `tools/consumer_compat.py` run against the real bundle, diffed per-entity/per-field
+against the previously published release, with only the FR-007-enumerated values differing by
+design. `report.json`'s `verdict` field reads `advisory_only`, matching the "eligible for
+publication pending approval" framing §7 assumes. No correction needed.
+
+## §8 The manual spot-check
+
+Prose-only, no commands. Cross-checked against `reports/wh40k-11e-2026-08-3/spot-check.md` and found
+consistent with what §8 describes: sampled ids from each transition class, a footnote constraint
+(none live this release, honestly recorded as such), a formerly-phantom Kill Team datasheet, and — as
+§8's own closing paragraph insists — at least one datasheet whose rendering still mismatched
+(item 6, a `RND-EQV-MISMATCH`, explained as a template/normal-form gap rather than lost data).
+
+## Verdict
+
+Two real defects found in `specs/007-loadout-display-fidelity/quickstart.md`, both fixed in place
+with the original text kept and labelled rather than silently deleted: §1's build command (never
+ran; `pytest tests/enrichment -q` is the actual local loop, and no committed fixture set supports a
+clean full `build --offline` run at all) and §6's "no way to suppress a composition row by
+curation" claim (overtaken by name — literally the opposite is now true — by the next day's Product
+Owner decision). A third spot correction, §5's `≈2 030` vs. the real 2,039, changes no guidance and
+is noted rather than treated as a defect. Every other section (§0, §2, §3, §4, §7, §8) ran clean or
+checked out against the delivered code without correction.
