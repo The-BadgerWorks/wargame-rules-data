@@ -10,7 +10,11 @@
      AI-Assisted: Claude Code (model: claude-sonnet-5) - 006 T050: added the equipment-overrides.json
      authoring loop beside the pre-existing option-overrides one, what resolving an
      OPT-UNPARSED/EQP-UNPARSED row under the extended grammar actually looks like, and what a
-     non-empty option-regression Corrected section means operationally. -->
+     non-empty option-regression Corrected section means operationally.
+     AI-Assisted: Claude Code (model: claude-sonnet-5) - 007 T069: added resolving a
+     CST-UNPARSED/OPT-SCOPE-UNRESOLVED row, reading the two new report-only loadout figures beside
+     their not_compared/threshold_percent context, and what a Corrected-section entry outside 007's
+     three named transition classes means. -->
 # Runbook: detection and the manual path
 
 `.github/workflows/detect.yml` and `.github/workflows/candidate.yml` (tasks T108-T110) automate
@@ -287,6 +291,108 @@ An approver who sees a non-empty *Corrected* section and cannot account for ever
 or rule 3 above should treat the candidate as **not ready for T048's Product Owner sign-off** until
 the production ordering is fixed and layer 1's harness (`tests/enrichment/
 test_options_grammar_regression.py`) is re-confirmed green.
+
+### 007's three transition classes, and what an entry outside them means
+
+`007-loadout-display-fidelity` adds a second, distinct reason for a non-empty *Corrected* section:
+the FR-007 legacy-link correction, which touches every pre-`006` stem-object choice whose singular
+link field pointed at the *granted* item under a field name that means "the removed item"
+everywhere else in the bundle (`display-fidelity-schema-delta.md` §1.1, the one stated,
+bounded exception to that document's additivity guarantee). Read the entry against research D3.3's
+three named transition classes before reading anything else in it — `docs/configuration.md`'s
+sibling table and `wh40k-11e-2026-08-3`'s own `reports/wh40k-11e-2026-08-3/option-regression.md`
+are the worked example:
+
+1. **Resolved and relinked** — the given-up item resolves to exactly one weapon line; `replaces`
+   moves from the granted item's line to the given-up item's line, and `grants` is newly
+   populated. Check: does the swap now read the right way round?
+2. **Stated but unlinked** — the given-up item is named but does not link to exactly one weapon
+   line; `replaces` moves from the granted item's line to **absent**, `grants` is populated.
+   Expected — an unlinked item is better than a wrongly linked one.
+3. **No given-up item stated at all** — the row was never a replacement in the first place;
+   `replaces` moves from the granted item's line to **absent**, `grants` is populated. Expected.
+
+The published `wh40k-11e-2026-08-3` candidate's own *Corrected* section carries all 2,039 legacy
+choices this correction touches, split 37 / 2,002 / 0 across classes 1-3 above — every one
+accounted for by rule 1, 2, or 3, none left over.
+
+**A *Corrected* entry that fits none of these three classes, and is not one of `006`'s already-
+documented `maxChoices` cases above, is the thing to stop on.** It means either the FR-007
+correction reached a row research D3.3 did not anticipate, or a later, unrelated production
+change moved a value FR-009's zero-regression guarantee protects. Treat it exactly as the 006
+section above already instructs for its own out-of-class case: not ready for sign-off until the
+production ordering (or the FR-007 role-correction pass, `pipeline/curate/assemble.py`'s
+`_option_structure`) is checked against the specific row, and `tests/enrichment/
+test_option_regression.py` and `test_legacy_option_roles.py` are re-confirmed green.
+
+## Resolving an unparsed item-constraint row (007): the footnote-restriction loop
+
+`007-loadout-display-fidelity` widened `options_grammar.py` with a closed, two-member restriction
+vocabulary (`not_replaceable`, `one_per_unit` — `pipeline/models/curated.py`'s
+`CuratedItemConstraint.constraint_type` docstring) for footnote-style restrictions ("this model's
+storm bolter cannot be replaced") that `006` left as a stray marker glued to the item's own name.
+Two advisory finding codes cover the two ways a restriction-shaped row can fail to become a clean
+`datasheetItemConstraints` row, and they are deliberately never confused with each other
+(`pipeline/parse/options_grammar.py`'s `is_constraint_shaped` module comment):
+
+- **`CST-UNPARSED`** — the row is **restriction-shaped** (it matches the broader detector that
+  looks for the restriction's grammatical pattern) but matches **neither** vocabulary member. This
+  is "a restriction the closed vocabulary does not (yet) cover," never "this did not look like a
+  restriction at all" — that second case falls through to the pre-existing `OPT-UNPARSED` exactly
+  as it always has, and a row is reported under one code or the other, never both.
+- **`OPT-SCOPE-UNRESOLVED`** — the restriction (or a scoped option stem more generally) names an
+  eligibility subject that does not link, by the same exactly-one-match containment join
+  `equipment_link.py` uses for `EQP-GROUP-UNRESOLVED`, to exactly one composition row of the same
+  datasheet. The group still **ships**, carrying the stated `eligible_model_name` exactly as the
+  source states it, unchecked — this is advisory and never a suppression (`tests/enrichment/
+  test_legacy_option_roles.py::test_...` asserts the group survives with the finding attached, not
+  instead of it).
+
+**There is currently no dedicated curation override file for either code** — unlike `OPT-UNPARSED`
+and `EQP-UNPARSED`, which resolve through `curation/option-overrides.json` and `curation/
+equipment-overrides.json` respectively (above). `datasheetItemConstraints` shipped **zero rows** in
+`wh40k-11e-2026-08-3` (`reports/wh40k-11e-2026-08-3/spot-check.md` §4): the taxonomy measurement
+that sized the two-member vocabulary found real restriction-shaped candidates in the live corpus,
+but none matched `not_replaceable` or `one_per_unit` closely enough to resolve, so `CST-UNPARSED`
+has not yet had a real row to escalate against. Until one does, a curator who hits `CST-UNPARSED`
+or a restriction-relevant `OPT-SCOPE-UNRESOLVED` has two choices, in order of preference: (1) widen
+the vocabulary — a versioned bump of `itemConstraintVocabularyVersion`, per `curated.py`'s own
+"grows only with a version bump" rule, not a curation-time patch; or (2) if the row is genuinely
+one-off, author a curation override file for it following the `option-overrides.json`/
+`equipment-overrides.json` precedent above — not yet built, because nothing has needed it yet. See
+`docs/follow-ups.md` for the open item tracking the vocabulary-widening path.
+
+## Reading the two new report-only loadout figures (007)
+
+`loadout.rendering_equivalence` and `loadout.item_constraints` join `loadout.default_equipment` in
+the `coverage` block, reported every build with a `threshold_percent` of `0` on every release — that
+is correct, not a placeholder: neither is in the ratcheted-key tuple, and adding one there is the
+entire implementation of a future decision to ratchet it (`docs/configuration.md`'s
+`WGC_EQUIVALENCE_CHECK_ENABLED` row; plan.md research D7).
+
+- **`loadout.rendering_equivalence`** — `matched / (matched + mismatched)`, **excluding**
+  `not_compared` outcomes from both the numerator and the denominator entirely (`pipeline/validate/
+  coverage.py`'s `loadout_coverages`, research D7): a datasheet nobody could compare must not move
+  the proportion either way. `not_compared` is reported beside it as its own count,
+  `loadout.rendering_equivalence_not_compared`, whose `resolved`/`total` are deliberately the same
+  number — its own `ratio_percent` is therefore always `100` by construction and is **not** the
+  figure to read from that row; the raw count is. **Always read the two together**: a matched
+  proportion computed only over what was compared can look stable while the compared population
+  itself shrinks or grows underneath it, and the `not_compared` count is what makes that movement
+  visible. `wh40k-11e-2026-08-3` reports 388 matched of 2,587 compared (15.0%) alongside 1,525
+  `not_compared` — most of the check's first-release population has not been compared at all yet,
+  which is a statement about how much of the corpus the check currently reaches, not about how well
+  the rendering agrees with the card where it does reach.
+- **`loadout.item_constraints`** — of the datasheets **stating** a restriction
+  (`item_constraints_stated_datasheets`, the row's own `total`), the proportion whose restrictions
+  all resolved. On a release where nothing has resolved at all (`wh40k-11e-2026-08-3`, per the
+  section above — zero real rows matched the vocabulary), this figure's denominator is itself zero
+  and it reads as `100%` by the same "no attempts, nothing failed" convention `LoadoutCoverage`
+  applies uniformly — not evidence the feature is complete, only that nothing has failed yet because
+  nothing has been attempted.
+
+Both are visible as **trends** from their first release onward, per `plan.md`'s Operational
+readiness gate — read them release over release, not as a single snapshot.
 
 ## Rollback: two paths, deliberately different in scope
 
