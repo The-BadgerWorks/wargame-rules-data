@@ -31,7 +31,7 @@
       "model_count": 6,
       "points": 95,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T165020Z-0c772378"
     }
   ],
   "datasheet_id": "ds-gaunts-ghosts",
@@ -119,15 +119,15 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:408b5828297f6321a2e97cd3b2ebb92e41da2ae72e61bc7fca13ec3ca4ad135f",
-    "last_verified_version": "wh40k-11e-2026-08-2",
+    "last_verified_version": "wh40k-11e-2026-08-3",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
+    "detail_acquisition_id": "wahapedia-20260814T165715Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260812T223703Z-6694568f",
+    "points_acquisition_id": "mfm-20260814T165020Z-0c772378",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },

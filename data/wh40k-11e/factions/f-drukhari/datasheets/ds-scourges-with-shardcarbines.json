@@ -26,7 +26,7 @@
       "model_count": 5,
       "points": 75,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T165020Z-0c772378"
     },
     {
       "copy_index_min": 3,
@@ -34,7 +34,7 @@
       "model_count": 5,
       "points": 85,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T165020Z-0c772378"
     }
   ],
   "datasheet_id": "ds-scourges-with-shardcarbines",
@@ -157,15 +157,15 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:2b0b54b0382cd993b1736bef3d190e6f0c2e88773a912241c7719039ee1d4a79",
-    "last_verified_version": "wh40k-11e-2026-08-2",
+    "last_verified_version": "wh40k-11e-2026-08-3",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
+    "detail_acquisition_id": "wahapedia-20260814T165715Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260812T223703Z-6694568f",
+    "points_acquisition_id": "mfm-20260814T165020Z-0c772378",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },

@@ -22,7 +22,7 @@
       "model_count": 1,
       "points": 315,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T165020Z-0c772378"
     }
   ],
   "damaged_threshold": 7,
@@ -97,15 +97,15 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:83dfaf2437d0663360f2cc29378c46a7bcc19936f97f3ae8e63e0671c1b8431f",
-    "last_verified_version": "wh40k-11e-2026-08-2",
+    "last_verified_version": "wh40k-11e-2026-08-3",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
+    "detail_acquisition_id": "wahapedia-20260814T165715Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260812T223703Z-6694568f",
+    "points_acquisition_id": "mfm-20260814T165020Z-0c772378",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },

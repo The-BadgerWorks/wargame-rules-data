@@ -22,7 +22,7 @@
       "model_count": 5,
       "points": 120,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T165020Z-0c772378"
     },
     {
       "copy_index_min": 1,
@@ -30,7 +30,7 @@
       "model_count": 10,
       "points": 230,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T165020Z-0c772378"
     },
     {
       "copy_index_min": 3,
@@ -38,7 +38,7 @@
       "model_count": 5,
       "points": 135,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T165020Z-0c772378"
     },
     {
       "copy_index_min": 3,
@@ -46,7 +46,7 @@
       "model_count": 10,
       "points": 245,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T165020Z-0c772378"
     }
   ],
   "datasheet_id": "ds-death-company-marines-with-jump-packs",
@@ -274,15 +274,15 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:6b3462f1c0529874ebf782cafd509237941fefc98d2df56f3153a119e7a7c4a3",
-    "last_verified_version": "wh40k-11e-2026-08-2",
+    "last_verified_version": "wh40k-11e-2026-08-3",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
+    "detail_acquisition_id": "wahapedia-20260814T165715Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260812T223703Z-6694568f",
+    "points_acquisition_id": "mfm-20260814T165020Z-0c772378",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },

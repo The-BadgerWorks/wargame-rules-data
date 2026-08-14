@@ -24,7 +24,7 @@
       "model_count": 3,
       "points": 125,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260812T223905Z-9a337975"
+      "source_acquisition_id": "wahapedia-20260814T165715Z-9a337975"
     },
     {
       "copy_index_min": 1,
@@ -32,7 +32,7 @@
       "model_count": 4,
       "points": 150,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260812T223905Z-9a337975"
+      "source_acquisition_id": "wahapedia-20260814T165715Z-9a337975"
     },
     {
       "copy_index_min": 1,
@@ -40,7 +40,7 @@
       "model_count": 6,
       "points": 210,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260812T223905Z-9a337975"
+      "source_acquisition_id": "wahapedia-20260814T165715Z-9a337975"
     },
     {
       "copy_index_min": 1,
@@ -48,7 +48,7 @@
       "model_count": 7,
       "points": 245,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260812T223905Z-9a337975"
+      "source_acquisition_id": "wahapedia-20260814T165715Z-9a337975"
     }
   ],
   "datasheet_id": "ds-corsair-cloud-dancer-band",
@@ -195,12 +195,12 @@
     }
   ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 3,
+    "consecutive_unverified_releases": 4,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
+    "detail_acquisition_id": "wahapedia-20260814T165715Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
