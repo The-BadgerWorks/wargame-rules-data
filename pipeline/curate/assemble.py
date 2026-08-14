@@ -35,6 +35,10 @@
 # `replaced_clause` for a legacy stem, wired `OPT-ITEM-OVERLONG` into `_choice_items`'s two
 # length filters, and wired `OPT-SCOPE-UNRESOLVED`'s producer using the same `link_model_line`
 # containment join `equipment_link.py` already uses for `EQP-GROUP-UNRESOLVED`.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - 007 US3 (T040): wired `CuratedItemConstraint`
+# assembly into `_option_structure` via the new `_item_constraint` helper, tried only after
+# `parse_row` has already refused a row (research D4.2); threaded `options.item_constraints` onto
+# both `CuratedDatasheet` construction sites.
 """Build one :class:`~pipeline.models.curated.CuratedSnapshot` from everything upstream.
 
 This is where the two sources stop being two sources. The **points** source is authoritative for
@@ -82,6 +86,7 @@ from pipeline.models.curated import (
     CuratedEquipmentItem,
     CuratedFaction,
     CuratedGameSizeRule,
+    CuratedItemConstraint,
     CuratedKeyword,
     CuratedModelLine,
     CuratedOptionChoice,
@@ -130,7 +135,9 @@ from pipeline.parse.options_grammar import (
     OptionVerb,
     choice_id,
     group_id,
+    is_constraint_shaped,
     option_state,
+    parse_constraint_row,
     parse_row,
     split_conjuncts,
     split_replaced,
@@ -640,6 +647,79 @@ class _OptionOutcome:
     choices: list[CuratedOptionChoice] = field(default_factory=list)
     state: WargearOptionState | None = None
     findings: list[Finding] = field(default_factory=list)
+    #: 007-loadout-display-fidelity US3: restrictions the same option rows state, captured
+    #: alongside the option set they were refused out of rather than in a second pass over the
+    #: same file (research D4.2).
+    item_constraints: list[CuratedItemConstraint] = field(default_factory=list)
+
+
+@dataclass(frozen=True, slots=True)
+class _ConstraintOutcome:
+    """One option row's fate against the item-constraint vocabulary (007 T039, T040).
+
+    ``recognized`` is what lets the caller choose between the three advisory outcomes: a
+    constraint present means it resolved (linked or not); ``recognized`` true with no constraint
+    means it looked like a restriction but matched no vocabulary member (``CST-UNPARSED``); both
+    false means the row was never restriction-shaped at all, and the caller's own ``OPT-UNPARSED``
+    handling is unchanged (research D4.2).
+    """
+
+    constraint: CuratedItemConstraint | None
+    findings: tuple[Finding, ...]
+    recognized: bool
+
+
+def _item_constraint(
+    line: int, description: str, *, datasheet_id: str, weapons: Sequence[CuratedWeaponLine]
+) -> _ConstraintOutcome:
+    """One option row, tried against the item-constraint vocabulary after `parse_row` refused it.
+
+    ``constraint_index`` is the row's own source ordinal (``line``), never re-numbered —
+    :class:`CuratedCompositionEntry`'s ``line`` pattern, reused unchanged (data-model.md §1.1).
+    Linking reuses :func:`~pipeline.reconcile.options_link.weapon_lines_named`'s exactly-one-match
+    join — the same rule every other name-to-weapon join in this module uses — rather than a
+    second linking rule invented for this one entity.
+    """
+    parsed = parse_constraint_row(description)
+    if parsed is not None:
+        matches = weapon_lines_named(parsed.item_name, weapons)
+        weapon_line = matches[0] if len(matches) == 1 else None
+        findings: list[Finding] = []
+        if weapon_line is None:
+            findings.append(
+                build_finding(
+                    "CST-UNLINKED",
+                    entity_refs=[datasheet_id],
+                    detail={
+                        "datasheet_id": datasheet_id,
+                        "constraint_index": line,
+                        "item_name": parsed.item_name,
+                        "match_count": len(matches),
+                    },
+                )
+            )
+        constraint = CuratedItemConstraint(
+            constraint_index=line,
+            constraint_type=parsed.constraint_type,
+            item_name=parsed.item_name,
+            weapon_line=weapon_line,
+            model_name=parsed.model_name,
+        )
+        return _ConstraintOutcome(constraint=constraint, findings=tuple(findings), recognized=True)
+
+    if is_constraint_shaped(description):
+        finding = build_finding(
+            "CST-UNPARSED",
+            entity_refs=[datasheet_id],
+            detail={
+                "datasheet_id": datasheet_id,
+                "line": line,
+                "file_name": "Datasheets_options.csv",
+            },
+        )
+        return _ConstraintOutcome(constraint=None, findings=(finding,), recognized=True)
+
+    return _ConstraintOutcome(constraint=None, findings=(), recognized=False)
 
 
 @dataclass(slots=True)
@@ -942,6 +1022,7 @@ def _option_structure(  # noqa: PLR0913 - composition is needed to resolve a sco
     object_roles: dict[str, OptionItemRole] = {}
     replaced_clauses: dict[str, str | None] = {}
     findings: list[Finding] = []
+    item_constraints: list[CuratedItemConstraint] = []
     unparsed = 0
 
     for row in source_rows:
@@ -979,8 +1060,31 @@ def _option_structure(  # noqa: PLR0913 - composition is needed to resolve a sco
             )
             continue
 
-        parsed = parse_row(row.fields.get("description", "")) if line is not None else None
+        description = row.fields.get("description", "")
+        parsed = parse_row(description) if line is not None else None
         if line is None or parsed is None:
+            # 007 US3 (T039/T040): a row `parse_row` could not resolve as an option gets one more
+            # chance — against the closed item-constraint vocabulary — before it is reported as
+            # unparsed. Tried only here, after `parse_row` has already failed, so no row that
+            # resolves as an option today can ever reach this branch (research D4.2, rule 3/4).
+            outcome = (
+                _item_constraint(line, description, datasheet_id=datasheet_id, weapons=weapons)
+                if line is not None
+                else None
+            )
+            if outcome is not None:
+                findings.extend(outcome.findings)
+                if outcome.constraint is not None:
+                    item_constraints.append(outcome.constraint)
+                    continue
+                if outcome.recognized:
+                    # Restriction-shaped but out of vocabulary: CST-UNPARSED already names the
+                    # row's fate. Raising OPT-UNPARSED too would report the same row under two
+                    # codes for two readings of one failure — still counted toward `unparsed` for
+                    # `wargear_option_state`, since nothing option-shaped came of it either.
+                    unparsed += 1
+                    continue
+
             unparsed += 1
             findings.append(
                 build_finding(
@@ -1086,6 +1190,9 @@ def _option_structure(  # noqa: PLR0913 - composition is needed to resolve a sco
         choices=sorted(choices, key=lambda choice: choice.id),
         state=option_state(row_count=len(source_rows), unparsed_count=unparsed),
         findings=findings,
+        item_constraints=sorted(
+            item_constraints, key=lambda constraint: constraint.constraint_index
+        ),
     )
 
 
@@ -1736,6 +1843,7 @@ def _datasheet_for(  # noqa: PLR0913 - one datasheet needs both sources and the 
         wargear_option_state=options.state,
         equipment_groups=equipment.groups,
         default_equipment_state=equipment.state,
+        item_constraints=options.item_constraints,
         wargear_options=wargear_options,
         costs=costs,
         pricing_confidence=PricingConfidence(state=PricingConfidenceState.VERIFIED),
@@ -1908,6 +2016,7 @@ def _detail_only_datasheet(  # noqa: PLR0913 - one datasheet needs both trees an
         wargear_option_state=options.state,
         equipment_groups=equipment.groups,
         default_equipment_state=equipment.state,
+        item_constraints=options.item_constraints,
         wargear_options=(),
         costs=costs,
         pricing_confidence=PricingConfidence(state=PricingConfidenceState.UNVERIFIED),

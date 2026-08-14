@@ -2,6 +2,10 @@
 # round-trip (007 task T029): write -> read -> compare through `pipeline/curate/writer.py` and
 # `pipeline/curate/prior.py`, per class, for all five classes `006` added and the curated tree
 # lost (FR-012, research D2, issue #14).
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - Added the item_constraints round-trip (007
+# US3, the carried-over gap US4's T032 deliberately left for this entity — recorded in
+# `.impl-progress.md`'s US3 section — since US3 is the phase that creates the first real
+# producer for it).
 """User Story 4: the curated `data/` tree round-trips everything `006` published.
 
 research D2 found the curated writer's per-datasheet serialisation and the prior-snapshot reader
@@ -94,6 +98,26 @@ def test_option_group_eligibility_columns_round_trip(tmp_path: Path) -> None:
     assert rebuilt_group.is_per_model == original_group.is_per_model is not None
 
 
+# --- 007's own sixth class: item_constraints, carried over from US4's T032 scope note ----------
+
+
+def test_item_constraints_round_trip(tmp_path: Path) -> None:
+    """Not one of `006`'s five classes T029/T032 scoped to — `007`'s own new entity, closed here
+    because this phase creates the first real producer for it (`.impl-progress.md` US3 section,
+    carried-over gap). Covers both an optional field present (`weapon_line`) and absent
+    (`model_name` on the first row; `weapon_line` on the second) so neither optional field's
+    round trip is proven only by coincidence of the other being set."""
+    original, rebuilt = _round_tripped(tmp_path)
+    assert len(rebuilt.item_constraints) == len(original.item_constraints) == 2
+    assert [
+        (c.constraint_index, c.constraint_type, c.item_name, c.weapon_line, c.model_name)
+        for c in rebuilt.item_constraints
+    ] == [
+        (c.constraint_index, c.constraint_type, c.item_name, c.weapon_line, c.model_name)
+        for c in original.item_constraints
+    ]
+
+
 # --- the whole point: a bundle rebuilt from the tree matches a freshly-acquired one -------------
 
 
@@ -107,3 +131,4 @@ def test_all_five_classes_together_leave_no_field_silently_dropped(tmp_path: Pat
     assert rebuilt.option_groups[0].eligible_model_name is not None
     assert rebuilt.option_groups[0].eligible_max_count is not None
     assert rebuilt.option_groups[0].is_per_model is not None
+    assert rebuilt.item_constraints != ()

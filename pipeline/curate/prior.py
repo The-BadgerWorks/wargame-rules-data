@@ -10,6 +10,8 @@
 # second key family (006 task T038): _previous_coverage takes the prefix, previous_loadout_
 # coverage joins previous_summary_coverage, and the prefix is a FILTER rather than a lookup so
 # a generalisation bug cannot feed summaries.abilities to the option ratchet.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - Read item_constraints back (007 US3, the
+# carried-over round-trip gap US4's T032 deliberately left for this entity).
 """The baseline: what we published last time.
 
 Four of US2's guarantees are statements *about a previous release* — last-known pricing, rename
@@ -57,6 +59,7 @@ from pipeline.models.curated import (
     CuratedEquipmentGroup,
     CuratedFaction,
     CuratedGameSizeRule,
+    CuratedItemConstraint,
     CuratedKeyword,
     CuratedModelLine,
     CuratedOptionChoice,
@@ -283,6 +286,10 @@ def _datasheet(raw: Mapping[str, Any], *, edition_id: str, edition_code: str) ->
             if raw.get("default_equipment_state")
             else None
         ),
+        # `007` §1.1, the carried-over round-trip gap closed alongside `006`'s five classes: a
+        # flat row, no nested structure, so — like `option_groups`/`option_choices` above —
+        # pydantic validates it directly from `**row`.
+        item_constraints=[CuratedItemConstraint(**row) for row in raw.get("item_constraints", [])],
         wargear_options=[CuratedWargearOption(**row) for row in raw.get("wargear_options", [])],
         costs=[
             CuratedDatasheetCost(

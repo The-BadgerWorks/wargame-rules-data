@@ -2,6 +2,10 @@
 # 004 research D3 (004 task T028): the `<li>` split ahead of the clause grammar, the clause
 # head and verb table with its measured frequencies, the `with N` quantifier, and the residual
 # marker that makes a vocabulary shift a coverage figure rather than missing data.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - 007 US3 (T038, T039): stripped the footnote
+# marker at `_parse_object` and `_item` (research D4.1, guarantee 21); added the item-constraint
+# production `parse_constraint_row`/`is_constraint_shaped` against the closed two-member
+# vocabulary (research D4.2), tried by the caller only after `parse_row` has already refused a row.
 """Resolve one wargear-option row into a group scope and its choices.
 
 The source publishes one row per option, as free text with an optional ``<li>`` sub-list, **no
@@ -51,8 +55,8 @@ from dataclasses import dataclass
 from enum import StrEnum
 from typing import Final
 
-from pipeline.models.curated import OptionScope, WargearOptionState
-from pipeline.parse.composition_grammar import pre_pass
+from pipeline.models.curated import ItemConstraintType, OptionScope, WargearOptionState
+from pipeline.parse.composition_grammar import FOOTNOTE_MARK, pre_pass
 
 #: The sub-list opener. ``<\s*ul``, never ``<ul>`` — see the module docstring.
 _SUBLIST: Final = re.compile(r"<\s*ul", re.IGNORECASE)
@@ -133,10 +137,6 @@ _DISTRIBUTIVE_REPLACE: Final = re.compile(
 #: strip is a fixed closed list rather than a "leading word" rule, because a leading word is
 #: sometimes the item.
 _POSSESSIVE: Final = re.compile(r"^(?:its|their|the|this model's|this model’s)\s+", re.IGNORECASE)
-
-#: A footnote marker glued to a model name inside the stem — 24 measured rows carry one. A head
-#: that cannot read past it loses the row to a typographic convention.
-_FOOTNOTE_MARK: Final = re.compile(r"[*†‡¹²³]+")
 
 #: The apostrophe, in both forms the source uses. NFKC does not fold ``’`` to ``'``, so a
 #: production spelling only one of them matches roughly half the possessive heads it should.
@@ -467,7 +467,7 @@ def _model_name(text: str) -> str | None:
     in particular the plural is **not** singularised, which would be inference dressed as
     tidying (spec Clarifications, 2026-08-09: carried unchecked).
     """
-    cleaned = _FOOTNOTE_MARK.sub("", text).strip()
+    cleaned = FOOTNOTE_MARK.sub("", text).strip()
     if not cleaned or cleaned.casefold() in {"model", "models"}:
         return None
     return cleaned
@@ -550,15 +550,29 @@ def split_replaced(clause: str) -> tuple[ItemParse, ...]:
 
 
 def _item(text: str) -> ItemParse:
-    """One conjunct, with its own leading count where the source states one."""
+    """One conjunct, with its own leading count where the source states one.
+
+    **007 T038**: the footnote marker is stripped here too, not only in :func:`_parse_object`.
+    A conjunct built from a choice's own (already-clean) ``name`` never carries one, but a
+    conjunct built from a legacy replacement's possessive ``replaced_clause`` — captured directly
+    from the stem by :func:`_match_verb` and never routed through ``_parse_object`` — can, and
+    this is the only extraction point that ever sees that span (research D4.1, guarantee 21).
+    """
     counted = _LEADING_COUNT.match(text)
-    if counted is None:
-        return ItemParse(name=text)
-    return ItemParse(name=counted.group(2).strip(), count=int(counted.group(1)))
+    name = counted.group(2).strip() if counted is not None else text
+    name = FOOTNOTE_MARK.sub("", name).strip()
+    return ItemParse(name=name, count=int(counted.group(1)) if counted is not None else None)
 
 
 def _parse_object(text: str, verb: OptionVerb) -> OptionChoiceParse | None:
-    """One clause object — ``with INT name``, ``name``, or an explicit "no change"."""
+    """One clause object — ``with INT name``, ``name``, or an explicit "no change".
+
+    **007 T038**: the footnote marker is stripped from the name here — the extraction point for
+    ``option_choices[].name`` — so a published choice name is never the display artifact of a
+    restriction stated elsewhere on the card (research D4.1, guarantee 21). Stripped after the
+    ``no change`` check (that literal never carries one) and before the length ceiling, so a name
+    that is only over length *because* of a trailing marker run is correctly rescued.
+    """
     cleaned = text.strip().rstrip(".;,:").strip()
     if not cleaned:
         return None
@@ -568,7 +582,7 @@ def _parse_object(text: str, verb: OptionVerb) -> OptionChoiceParse | None:
 
     counted = _LEADING_COUNT.match(cleaned)
     count = int(counted.group(1)) if counted else None
-    name = (counted.group(2) if counted else cleaned).strip()
+    name = FOOTNOTE_MARK.sub("", (counted.group(2) if counted else cleaned).strip()).strip()
     if not name or len(name) > MAX_CHOICE_NAME_CHARS:
         return None
     return OptionChoiceParse(name=name, count=count, verb=verb)
@@ -591,3 +605,95 @@ def option_state(*, row_count: int, unparsed_count: int) -> WargearOptionState:
     if row_count == 0:
         return WargearOptionState.NONE
     return WargearOptionState.PARTIAL if unparsed_count else WargearOptionState.EXTRACTED
+
+
+# -- 007-loadout-display-fidelity: the item-constraint production (US3, research D4.2) -----------
+#
+# **Tried by the caller, never inside `parse_row` above.** `pipeline/curate/assemble.py::
+# _option_structure` calls :func:`parse_constraint_row` only for a row `parse_row` has already
+# failed to resolve as an option (`line is not None and parsed is None`) — the row genuinely is
+# refused by `004`'s and `006`'s own tables, one way or another, before this module's constraint
+# vocabulary is ever consulted. This keeps rule 4's ordering guarantee literal: nothing below
+# changes what any row that resolves today resolves to, because nothing below runs before that
+# resolution is already known to have failed.
+#
+# Measured (research D4.2): a small closed set of restriction sentence shapes reach the pipeline
+# as refused option rows rather than as a second arrival path inside the composition or equipment
+# block — T003's whole-corpus measurement could not run this session (no live/cached-corpus
+# access), so this vocabulary is fixture-proven against T006's GF12 rows 6-10 rather than
+# corpus-measured, exactly as `.impl-progress.md` records.
+
+
+@dataclass(frozen=True, slots=True)
+class ItemConstraintParse:
+    """One footnote-style restriction, resolved against the closed vocabulary (FR-009)."""
+
+    constraint_type: ItemConstraintType
+    item_name: str
+    model_name: str | None = None
+
+
+#: ``The [<MODEL>'s] <ITEM> cannot be replaced.`` — the item may not be exchanged through any
+#: wargear option, optionally scoped to a named model group exactly as a `006` distributive
+#: stem's own possessive head is (the same ``_MODEL``/``_APOS`` vocabulary, reused rather than
+#: reinvented).
+_NOT_REPLACEABLE: Final = re.compile(
+    rf"^The (?:(?P<model>{_MODEL}){_APOS}s\s+)?(?P<item>.+?)\s+cannot be replaced\.?$"
+)
+
+#: ``Only one <ITEM> can be taken per unit.`` — at most one model of the unit may carry it.
+_ONE_PER_UNIT: Final = re.compile(r"^Only one (?P<item>.+?)\s+can be taken per unit\.?$")
+
+#: **Restriction-shaped, not necessarily vocabulary-matched.** Broader than either production
+#: above on purpose: a row this matches but neither production resolves is a restriction the
+#: closed vocabulary does not (yet) cover — the advisory ``CST-UNPARSED``, never ``OPT-UNPARSED``,
+#: because ``OPT-UNPARSED`` says "this looked like an option and did not resolve", which is the
+#: wrong fact for a row that was never an option attempt to begin with. A row this does **not**
+#: match falls through to ``OPT-UNPARSED`` exactly as it does today — this detector only ever
+#: narrows which advisory a refused row receives, never whether a row resolves.
+_RESTRICTION_SHAPED: Final = re.compile(
+    r"\bcannot be\b|\bonly one\b.*\bcan\b|\bmay only\b", re.IGNORECASE
+)
+
+
+def parse_constraint_row(description: str) -> ItemConstraintParse | None:
+    """Resolve one restriction row against the closed two-member vocabulary, or ``None``.
+
+    Never a nearest-member guess (contract §3.2): a row that looks like a restriction but matches
+    neither production returns ``None`` here, and the caller checks :func:`is_constraint_shaped`
+    separately to decide whether that ``None`` means ``CST-UNPARSED`` or plain ``OPT-UNPARSED``.
+    """
+    stem = pre_pass(description, field="option.description")
+    if not stem:
+        return None
+
+    replace_match = _NOT_REPLACEABLE.match(stem)
+    if replace_match is not None:
+        item = FOOTNOTE_MARK.sub("", replace_match.group("item")).strip()
+        if not item or len(item) > MAX_CHOICE_NAME_CHARS:
+            return None
+        model = replace_match.group("model")
+        return ItemConstraintParse(
+            constraint_type=ItemConstraintType.NOT_REPLACEABLE,
+            item_name=item,
+            model_name=_model_name(model) if model is not None else None,
+        )
+
+    per_unit_match = _ONE_PER_UNIT.match(stem)
+    if per_unit_match is not None:
+        item = FOOTNOTE_MARK.sub("", per_unit_match.group("item")).strip()
+        if not item or len(item) > MAX_CHOICE_NAME_CHARS:
+            return None
+        return ItemConstraintParse(constraint_type=ItemConstraintType.ONE_PER_UNIT, item_name=item)
+
+    return None
+
+
+def is_constraint_shaped(description: str) -> bool:
+    """Whether a row *looks like* a restriction, whether or not it matched the vocabulary.
+
+    This is what lets the caller tell "a restriction the vocabulary does not cover"
+    (``CST-UNPARSED``) apart from "not a restriction at all" (``OPT-UNPARSED``, unchanged).
+    """
+    stem = pre_pass(description, field="option.description")
+    return bool(_RESTRICTION_SHAPED.search(stem))

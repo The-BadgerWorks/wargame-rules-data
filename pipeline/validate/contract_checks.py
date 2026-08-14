@@ -7,6 +7,9 @@
 # AI-Assisted: Claude Code (model: claude-sonnet-5) - Added the item-constraint closed-vocabulary
 # check and its version-stamp check (007 task T016, display-fidelity-schema-delta.md §3.2), and
 # `datasheetItemConstraints` to CONSUMER_PRIMARY_KEYS so V20 covers it too.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - Added check_marker_residue (007 task T036,
+# guarantee 21): the blocking CST-MARKER-RESIDUE check that proves the T038 extraction-time strip
+# actually ran, scanned independently of pipeline/validate/ip_scan.py's generic markup scan.
 """V1-V6, V19 and V20 — the guarantees the producer owes the consumer (FR-030, FR-049).
 
 These are the checks that decide whether a candidate may ship at all. Each one exists because
@@ -30,6 +33,7 @@ from typing import TYPE_CHECKING, Final
 
 from pipeline.models.curated import RESTRICTION_VOCABULARY, CuratedSnapshot, ItemConstraintType
 from pipeline.models.findings import Finding
+from pipeline.parse.composition_grammar import FOOTNOTE_MARK
 from pipeline.report.catalogue import build_finding
 from pipeline.validate.refs import check_intra_snapshot_references
 
@@ -194,6 +198,70 @@ def check_item_constraint_vocabulary(snapshot: CuratedSnapshot) -> list[Finding]
         for constraint in datasheet.item_constraints
         if constraint.constraint_type.value not in ITEM_CONSTRAINT_VOCABULARY
     ]
+
+
+def check_marker_residue(snapshot: CuratedSnapshot) -> list[Finding]:
+    """007 US3 — guarantee 21: no name field carries a footnote-marker artifact (SC-002).
+
+    Blocking, unlike every other check in this module's item-constraint half: a marker surviving
+    into a published name is the **exact defect** this feature exists to remove, and it is cheap
+    to detect — the same "a contradiction blocks, a gap is advisory" split `CMP-HEADER-ROW`
+    (guarantee 20) already draws.
+
+    Reuses :data:`~pipeline.parse.composition_grammar.FOOTNOTE_MARK`, the one expression every
+    extraction-time strip (`007` T038) already applies — this is the **independent second
+    mechanism** that proves the strip actually ran, on `validate/ip_scan.py`'s own precedent of
+    pairing a schema-level control with a scanned one (research D9 control 1/2). Every name-shaped
+    field guarantee 21 names: ``itemName``, ``modelName``, ``eligibleModelName``, and
+    ``datasheetWeapons.name`` — plus the choice's own ``name``, the one D4.1 measured 119 rows of
+    (the item rows a bundle item and its choice's name seed both descend from it).
+    """
+    findings: list[Finding] = []
+    for datasheet in snapshot.datasheets:
+        candidates: list[tuple[str, str]] = [
+            *((f"weapon[{w.line}].name", w.name) for w in datasheet.weapons),
+            *((f"composition[{c.line}].model_name", c.model_name) for c in datasheet.composition),
+            *(
+                (f"option_groups[{g.id}].eligible_model_name", g.eligible_model_name)
+                for g in datasheet.option_groups
+                if g.eligible_model_name is not None
+            ),
+            *((f"option_choices[{ch.id}].name", ch.name) for ch in datasheet.option_choices),
+            *(
+                (f"option_choices[{ch.id}].items[{it.item_index}].item_name", it.item_name)
+                for ch in datasheet.option_choices
+                for it in ch.items
+            ),
+            *(
+                (f"equipment_groups[{eg.id}].model_name", eg.model_name)
+                for eg in datasheet.equipment_groups
+                if eg.model_name is not None
+            ),
+            *(
+                (f"equipment_groups[{eg.id}].items[{ei.item_index}].item_name", ei.item_name)
+                for eg in datasheet.equipment_groups
+                for ei in eg.items
+            ),
+            *(
+                (f"item_constraints[{ic.constraint_index}].item_name", ic.item_name)
+                for ic in datasheet.item_constraints
+            ),
+            *(
+                (f"item_constraints[{ic.constraint_index}].model_name", ic.model_name)
+                for ic in datasheet.item_constraints
+                if ic.model_name is not None
+            ),
+        ]
+        for field_path, value in candidates:
+            if FOOTNOTE_MARK.search(value):
+                findings.append(
+                    build_finding(
+                        "CST-MARKER-RESIDUE",
+                        entity_refs=[datasheet.datasheet_id],
+                        detail={"datasheet_id": datasheet.datasheet_id, "field": field_path},
+                    )
+                )
+    return findings
 
 
 def check_version_stamp(meta: BundleMeta) -> list[Finding]:
@@ -411,6 +479,7 @@ def check_snapshot(snapshot: CuratedSnapshot, meta: BundleMeta) -> list[Finding]
         *check_intra_snapshot_references(snapshot),
         *check_restriction_vocabulary(snapshot),
         *check_item_constraint_vocabulary(snapshot),
+        *check_marker_residue(snapshot),
         *check_version_stamp(meta),
         *check_tier_projection(snapshot),
     ]

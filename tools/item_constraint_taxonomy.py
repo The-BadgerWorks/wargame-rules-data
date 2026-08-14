@@ -64,11 +64,10 @@ from pipeline.acquire.detail_source import acquire_detail, read_detail
 from pipeline.acquire.http import AcquisitionError
 from pipeline.config import ConfigError, PipelineConfig, load_config, repo_root
 from pipeline.exit_codes import ExitCode
-from pipeline.parse.composition_grammar import parse_entry, pre_pass
+from pipeline.parse.composition_grammar import FOOTNOTE_MARK, parse_entry, pre_pass
 from pipeline.parse.equipment_grammar import EQUIPMENT_TABLE, parse_sentence
 from pipeline.parse.options_grammar import (
     _EXTENDED_REFUSED,  # noqa: SLF001 - the ground truth this tool exists to diagnose against
-    _FOOTNOTE_MARK,  # noqa: SLF001
     _REFUSED,  # noqa: SLF001
     _match_head,  # noqa: SLF001
     _match_verb,  # noqa: SLF001
@@ -255,7 +254,7 @@ def measure(
                 diagnosis = diagnose_option_row(description)
                 cell = (diagnosis, signal)
                 option_cells[cell] = option_cells.get(cell, 0) + 1
-                if _FOOTNOTE_MARK.search(stem) is not None:
+                if FOOTNOTE_MARK.search(stem) is not None:
                     option_marker_cells[cell] = option_marker_cells.get(cell, 0) + 1
 
         composition = tables.get(_COMPOSITION_TABLE)

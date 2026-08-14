@@ -6,6 +6,10 @@
 # and prior.py currently lose on a round trip (research D2, issue #14) — equipment groups with
 # items, default_equipment_state, option_choices[].items, and the three option-group eligibility
 # columns — ready for T029's write-read-compare test to import directly.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - Extended loadout_datasheet() with
+# item_constraints (007 US3, T037/T040, and the carried-over writer.py/prior.py round-trip gap
+# US4's T032 deliberately left for US3 to close): one linked, one scoped-and-unlinked row, so the
+# same fixture proves both the vocabulary's linking rule and the round trip in one place.
 """Builders for synthetic curated snapshots.
 
 Every contract test needs a snapshot that is valid in every respect except the one it is
@@ -33,6 +37,7 @@ from pipeline.models.curated import (
     CuratedEquipmentItem,
     CuratedFaction,
     CuratedGameSizeRule,
+    CuratedItemConstraint,
     CuratedKeyword,
     CuratedModelLine,
     CuratedOptionChoice,
@@ -42,6 +47,7 @@ from pipeline.models.curated import (
     CuratedWeaponLine,
     DefaultEquipmentState,
     EquipmentAppliesTo,
+    ItemConstraintType,
     OptionItemRole,
     OptionScope,
     WargearOptionState,
@@ -244,6 +250,12 @@ def loadout_datasheet(
     alternatives — a multi-item granted bundle, or no change — which is simultaneously
     ``eligible_model_name``-scoped, ``eligible_max_count``-capped, and ``is_per_model``
     distributive.
+
+    007 US3 (T037/T040) extends this fixture with a **sixth** class the curated tree also needs
+    to round-trip: ``item_constraints`` — one row linked to a weapon line and unscoped (``Storm
+    maul``, ``not_replaceable``), one row scoped to a named model group and deliberately
+    unlinked (``Marsh axe``, ``one_per_unit``, ``model_name`` present, ``weapon_line`` absent) —
+    so a round-trip failure on either optional field is legible without a second fixture.
     """
     return CuratedDatasheet(
         datasheet_id=datasheet_id,
@@ -353,11 +365,15 @@ def loadout_datasheet(
                 name="marsh axe and storm maul",
                 items=[
                     CuratedOptionChoiceItem(
-                        role=OptionItemRole.GRANTED, item_index=1, item_name="Marsh axe",
+                        role=OptionItemRole.GRANTED,
+                        item_index=1,
+                        item_name="Marsh axe",
                         weapon_line=3,
                     ),
                     CuratedOptionChoiceItem(
-                        role=OptionItemRole.GRANTED, item_index=2, item_name="Storm maul",
+                        role=OptionItemRole.GRANTED,
+                        item_index=2,
+                        item_name="Storm maul",
                         weapon_line=2,
                     ),
                 ],
@@ -370,6 +386,21 @@ def loadout_datasheet(
             ),
         ],
         wargear_option_state=WargearOptionState.EXTRACTED,
+        # -- 007 T037/T040: item constraints -- one linked, unscoped; one scoped, unlinked -------
+        item_constraints=[
+            CuratedItemConstraint(
+                constraint_index=1,
+                constraint_type=ItemConstraintType.NOT_REPLACEABLE,
+                item_name="Storm maul",
+                weapon_line=2,
+            ),
+            CuratedItemConstraint(
+                constraint_index=2,
+                constraint_type=ItemConstraintType.ONE_PER_UNIT,
+                item_name="Marsh axe",
+                model_name="Sootveil Warden",
+            ),
+        ],
         costs=costs(),
         pricing_confidence=PricingConfidence(state=PricingConfidenceState.VERIFIED),
         provenance=provenance(),

@@ -10,6 +10,9 @@
 # is the baseline a bare `validate` re-run and the coverage ratchet both read back.
 # AI-Assisted: Claude Code (model: claude-opus-5) - Wrote each detachment's rule identities
 # (004 task T054), so the detachment-rule denominator survives a rebuild-free `validate`.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - Wrote item_constraints (007 US3, the
+# carried-over round-trip gap US4's T032 deliberately left for this entity): a flat row per
+# footnote-style restriction, closing issue #14's divergence class before a real producer exists.
 """Write the curated tree — the artifact a human reviews.
 
 The layout exists for **diff quality**, which FR-016 and FR-037 make a requirement rather than
@@ -44,6 +47,7 @@ from pipeline.models.curated import (
     CuratedEnhancement,
     CuratedEquipmentGroup,
     CuratedFaction,
+    CuratedItemConstraint,
     CuratedSnapshot,
 )
 from pipeline.models.provenance import EntityProvenance, PricingConfidence
@@ -134,6 +138,20 @@ def _equipment_group(group: CuratedEquipmentGroup) -> dict[str, JsonValue]:
                 for item in sorted(group.items, key=lambda item: item.item_index)
             ]
             or None,
+        }
+    )
+
+
+def _item_constraint(constraint: CuratedItemConstraint) -> dict[str, JsonValue]:
+    """One `007` footnote-style restriction, closing the round-trip gap US4's T032 deliberately
+    left for this entity (carried over into this phase, `.impl-progress.md` US3 section)."""
+    return omit_absent(
+        {
+            "constraint_index": constraint.constraint_index,
+            "constraint_type": constraint.constraint_type.value,
+            "item_name": constraint.item_name,
+            "weapon_line": constraint.weapon_line,
+            "model_name": constraint.model_name,
         }
     )
 
@@ -373,6 +391,15 @@ def _datasheet(datasheet: CuratedDatasheet) -> dict[str, JsonValue]:
                 if datasheet.default_equipment_state is not None
                 else None
             ),
+            # `007` §1.1, closed the round-trip alongside `006`'s five classes (carried-over gap,
+            # US4 T032's own scope note, closed here since this phase creates the first real
+            # producer): a footnote-style restriction, never derivable from anything else on the
+            # datasheet.
+            "item_constraints": [
+                _item_constraint(c)
+                for c in sorted(datasheet.item_constraints, key=lambda c: c.constraint_index)
+            ]
+            or None,
             "ability_keys": sorted(datasheet.ability_keys) or None,
             "leader_pairs": sorted(datasheet.leader_pairs) or None,
             "wargear_options": [
