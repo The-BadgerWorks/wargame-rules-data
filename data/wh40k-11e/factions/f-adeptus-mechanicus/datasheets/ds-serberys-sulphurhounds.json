@@ -25,7 +25,7 @@
       "model_count": 3,
       "points": 55,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T195124Z-0c772378"
     },
     {
       "copy_index_min": 1,
@@ -33,10 +33,65 @@
       "model_count": 6,
       "points": 100,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T195124Z-0c772378"
     }
   ],
   "datasheet_id": "ds-serberys-sulphurhounds",
+  "default_equipment_state": "extracted",
+  "equipment_groups": [
+    {
+      "applies_to": "model_group",
+      "composition_line": 1,
+      "id": "eq-serberys-sulphurhounds-1",
+      "items": [
+        {
+          "item_index": 1,
+          "item_name": "Mechanicus pistol",
+          "weapon_line": 1
+        },
+        {
+          "item_index": 2,
+          "item_name": "sulphur breath",
+          "weapon_line": 4
+        },
+        {
+          "item_index": 3,
+          "item_name": "cavalry arc maul",
+          "weapon_line": 5
+        },
+        {
+          "item_index": 4,
+          "item_name": "clawed limbs",
+          "weapon_line": 6
+        }
+      ],
+      "line": 1,
+      "model_name": "Serberys Sulphurhound Alpha model"
+    },
+    {
+      "applies_to": "model_group",
+      "id": "eq-serberys-sulphurhounds-2",
+      "items": [
+        {
+          "count": 2,
+          "item_index": 1,
+          "item_name": "phosphor pistols"
+        },
+        {
+          "item_index": 2,
+          "item_name": "sulphur breath",
+          "weapon_line": 4
+        },
+        {
+          "item_index": 3,
+          "item_name": "clawed limbs",
+          "weapon_line": 6
+        }
+      ],
+      "line": 2,
+      "model_name": "Serberys Sulphurhound model"
+    }
+  ],
   "faction_id": "f-adeptus-mechanicus",
   "is_battleline": false,
   "is_character": false,
@@ -92,6 +147,27 @@
       "id": "oc-serberys-sulphurhounds-1-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "phosphor blast carbine",
+          "role": "granted",
+          "weapon_line": 2
+        },
+        {
+          "count": 1,
+          "item_index": 2,
+          "item_name": "phosphor pistol",
+          "role": "granted",
+          "weapon_line": 3
+        },
+        {
+          "item_index": 1,
+          "item_name": "in this unit, 1 Serberys Sulphurhound’s 2 phosphor pistols",
+          "role": "replaced"
+        }
+      ],
       "name": "phosphor blast carbine and 1 phosphor pistol"
     }
   ],
@@ -106,15 +182,15 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:29f821c49bc403434cb7a53e6b74d9ca42c6dd579888a7aee4d98571c7a1fcaf",
-    "last_verified_version": "wh40k-11e-2026-08-2",
+    "last_verified_version": "wh40k-11e-2026-08-3",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
+    "detail_acquisition_id": "wahapedia-20260814T195616Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260812T223703Z-6694568f",
+    "points_acquisition_id": "mfm-20260814T195124Z-0c772378",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },

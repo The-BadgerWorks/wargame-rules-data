@@ -20,7 +20,7 @@
       "model_count": 5,
       "points": 125,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260812T223905Z-9a337975"
+      "source_acquisition_id": "wahapedia-20260814T195616Z-9a337975"
     },
     {
       "copy_index_min": 1,
@@ -28,10 +28,30 @@
       "model_count": 10,
       "points": 250,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260812T223905Z-9a337975"
+      "source_acquisition_id": "wahapedia-20260814T195616Z-9a337975"
     }
   ],
   "datasheet_id": "ds-death-company-marines-with-boltguns",
+  "default_equipment_state": "extracted",
+  "equipment_groups": [
+    {
+      "applies_to": "unit",
+      "id": "eq-death-company-marines-with-boltguns-1",
+      "items": [
+        {
+          "item_index": 1,
+          "item_name": "boltgun",
+          "weapon_line": 2
+        },
+        {
+          "item_index": 2,
+          "item_name": "close combat weapon",
+          "weapon_line": 8
+        }
+      ],
+      "line": 1
+    }
+  ],
   "faction_id": "f-space-marines",
   "is_battleline": false,
   "is_character": false,
@@ -95,6 +115,34 @@
       "id": "oc-death-company-marines-with-boltguns-1-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "Astartes chainsword",
+          "role": "granted",
+          "weapon_line": 7
+        },
+        {
+          "count": 1,
+          "item_index": 2,
+          "item_name": "bolt pistol",
+          "role": "granted",
+          "weapon_line": 1
+        },
+        {
+          "item_index": 1,
+          "item_name": "boltgun",
+          "role": "replaced",
+          "weapon_line": 2
+        },
+        {
+          "item_index": 2,
+          "item_name": "close combat weapon",
+          "role": "replaced",
+          "weapon_line": 8
+        }
+      ],
       "name": "Astartes chainsword and 1 bolt pistol"
     },
     {
@@ -104,6 +152,27 @@
       "id": "oc-death-company-marines-with-boltguns-1-2",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "thunder hammer",
+          "role": "granted",
+          "weapon_line": 11
+        },
+        {
+          "item_index": 1,
+          "item_name": "boltgun",
+          "role": "replaced",
+          "weapon_line": 2
+        },
+        {
+          "item_index": 2,
+          "item_name": "close combat weapon",
+          "role": "replaced",
+          "weapon_line": 8
+        }
+      ],
       "name": "thunder hammer"
     },
     {
@@ -113,6 +182,21 @@
       "id": "oc-death-company-marines-with-boltguns-2-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "hand flamer",
+          "role": "granted",
+          "weapon_line": 3
+        },
+        {
+          "item_index": 1,
+          "item_name": "bolt pistol",
+          "role": "replaced",
+          "weapon_line": 1
+        }
+      ],
       "name": "hand flamer",
       "replaces_weapon_line": 1
     },
@@ -123,6 +207,21 @@
       "id": "oc-death-company-marines-with-boltguns-2-2",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "inferno pistol",
+          "role": "granted",
+          "weapon_line": 4
+        },
+        {
+          "item_index": 1,
+          "item_name": "bolt pistol",
+          "role": "replaced",
+          "weapon_line": 1
+        }
+      ],
       "name": "inferno pistol",
       "replaces_weapon_line": 1
     },
@@ -132,6 +231,20 @@
       "id": "oc-death-company-marines-with-boltguns-2-3",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "plasma pistol",
+          "role": "granted"
+        },
+        {
+          "item_index": 1,
+          "item_name": "bolt pistol",
+          "role": "replaced",
+          "weapon_line": 1
+        }
+      ],
       "name": "plasma pistol",
       "replaces_weapon_line": 1
     },
@@ -142,6 +255,21 @@
       "id": "oc-death-company-marines-with-boltguns-3-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "power fist",
+          "role": "granted",
+          "weapon_line": 9
+        },
+        {
+          "item_index": 1,
+          "item_name": "Astartes chainsword",
+          "role": "replaced",
+          "weapon_line": 7
+        }
+      ],
       "name": "power fist",
       "replaces_weapon_line": 7
     },
@@ -152,6 +280,21 @@
       "id": "oc-death-company-marines-with-boltguns-3-2",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "power weapon",
+          "role": "granted",
+          "weapon_line": 10
+        },
+        {
+          "item_index": 1,
+          "item_name": "Astartes chainsword",
+          "role": "replaced",
+          "weapon_line": 7
+        }
+      ],
       "name": "power weapon",
       "replaces_weapon_line": 7
     }
@@ -159,27 +302,30 @@
   "option_groups": [
     {
       "id": "og-death-company-marines-with-boltguns-1",
+      "is_per_model": true,
       "line": 1,
       "scope": "unit"
     },
     {
       "id": "og-death-company-marines-with-boltguns-2",
+      "is_per_model": true,
       "line": 2,
       "scope": "unit"
     },
     {
       "id": "og-death-company-marines-with-boltguns-3",
+      "is_per_model": true,
       "line": 3,
       "scope": "unit"
     }
   ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 3,
+    "consecutive_unverified_releases": 4,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
+    "detail_acquisition_id": "wahapedia-20260814T195616Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,

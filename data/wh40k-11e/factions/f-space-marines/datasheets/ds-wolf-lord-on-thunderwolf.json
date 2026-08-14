@@ -22,10 +22,35 @@
       "model_count": 1,
       "points": 100,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260812T223905Z-9a337975"
+      "source_acquisition_id": "wahapedia-20260814T195616Z-9a337975"
     }
   ],
   "datasheet_id": "ds-wolf-lord-on-thunderwolf",
+  "default_equipment_state": "extracted",
+  "equipment_groups": [
+    {
+      "applies_to": "unit",
+      "id": "eq-wolf-lord-on-thunderwolf-1",
+      "items": [
+        {
+          "item_index": 1,
+          "item_name": "bolt pistol",
+          "weapon_line": 1
+        },
+        {
+          "item_index": 2,
+          "item_name": "crushing teeth and claws",
+          "weapon_line": 7
+        },
+        {
+          "item_index": 3,
+          "item_name": "relic weapon",
+          "weapon_line": 10
+        }
+      ],
+      "line": 1
+    }
+  ],
   "faction_id": "f-space-marines",
   "is_battleline": false,
   "is_character": true,
@@ -94,21 +119,49 @@
   "option_choices": [
     {
       "count": 1,
+      "grants_weapon_line": 2,
       "group_id": "og-wolf-lord-on-thunderwolf-1",
       "id": "oc-wolf-lord-on-thunderwolf-1-1",
       "is_default": false,
       "is_no_change": false,
-      "name": "combi-weapon",
-      "replaces_weapon_line": 2
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "combi-weapon",
+          "role": "granted",
+          "weapon_line": 2
+        },
+        {
+          "item_index": 1,
+          "item_name": "’s bolt pistol",
+          "role": "replaced"
+        }
+      ],
+      "name": "combi-weapon"
     },
     {
       "count": 1,
+      "grants_weapon_line": 3,
       "group_id": "og-wolf-lord-on-thunderwolf-1",
       "id": "oc-wolf-lord-on-thunderwolf-1-2",
       "is_default": false,
       "is_no_change": false,
-      "name": "master-crafted boltgun",
-      "replaces_weapon_line": 3
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "master-crafted boltgun",
+          "role": "granted",
+          "weapon_line": 3
+        },
+        {
+          "item_index": 1,
+          "item_name": "’s bolt pistol",
+          "role": "replaced"
+        }
+      ],
+      "name": "master-crafted boltgun"
     },
     {
       "count": 1,
@@ -116,43 +169,112 @@
       "id": "oc-wolf-lord-on-thunderwolf-1-3",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "plasma pistol",
+          "role": "granted"
+        },
+        {
+          "item_index": 1,
+          "item_name": "’s bolt pistol",
+          "role": "replaced"
+        }
+      ],
       "name": "plasma pistol"
     },
     {
       "count": 1,
+      "grants_weapon_line": 6,
       "group_id": "og-wolf-lord-on-thunderwolf-1",
       "id": "oc-wolf-lord-on-thunderwolf-1-4",
       "is_default": false,
       "is_no_change": false,
-      "name": "storm bolter",
-      "replaces_weapon_line": 6
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "storm bolter",
+          "role": "granted",
+          "weapon_line": 6
+        },
+        {
+          "item_index": 1,
+          "item_name": "’s bolt pistol",
+          "role": "replaced"
+        }
+      ],
+      "name": "storm bolter"
     },
     {
       "count": 1,
+      "grants_weapon_line": 9,
       "group_id": "og-wolf-lord-on-thunderwolf-1",
       "id": "oc-wolf-lord-on-thunderwolf-1-5",
       "is_default": false,
       "is_no_change": false,
-      "name": "power fist",
-      "replaces_weapon_line": 9
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "power fist",
+          "role": "granted",
+          "weapon_line": 9
+        },
+        {
+          "item_index": 1,
+          "item_name": "’s bolt pistol",
+          "role": "replaced"
+        }
+      ],
+      "name": "power fist"
     },
     {
       "count": 1,
+      "grants_weapon_line": 10,
       "group_id": "og-wolf-lord-on-thunderwolf-1",
       "id": "oc-wolf-lord-on-thunderwolf-1-6",
       "is_default": false,
       "is_no_change": false,
-      "name": "relic weapon",
-      "replaces_weapon_line": 10
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "relic weapon",
+          "role": "granted",
+          "weapon_line": 10
+        },
+        {
+          "item_index": 1,
+          "item_name": "’s bolt pistol",
+          "role": "replaced"
+        }
+      ],
+      "name": "relic weapon"
     },
     {
       "count": 1,
+      "grants_weapon_line": 11,
       "group_id": "og-wolf-lord-on-thunderwolf-1",
       "id": "oc-wolf-lord-on-thunderwolf-1-7",
       "is_default": false,
       "is_no_change": false,
-      "name": "thunder hammer",
-      "replaces_weapon_line": 11
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "thunder hammer",
+          "role": "granted",
+          "weapon_line": 11
+        },
+        {
+          "item_index": 1,
+          "item_name": "’s bolt pistol",
+          "role": "replaced"
+        }
+      ],
+      "name": "thunder hammer"
     },
     {
       "count": 1,
@@ -160,25 +282,66 @@
       "id": "oc-wolf-lord-on-thunderwolf-2-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "plasma pistol",
+          "role": "granted"
+        },
+        {
+          "item_index": 1,
+          "item_name": "’s relic weapon",
+          "role": "replaced"
+        }
+      ],
       "name": "plasma pistol"
     },
     {
       "count": 1,
+      "grants_weapon_line": 9,
       "group_id": "og-wolf-lord-on-thunderwolf-2",
       "id": "oc-wolf-lord-on-thunderwolf-2-2",
       "is_default": false,
       "is_no_change": false,
-      "name": "power fist",
-      "replaces_weapon_line": 9
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "power fist",
+          "role": "granted",
+          "weapon_line": 9
+        },
+        {
+          "item_index": 1,
+          "item_name": "’s relic weapon",
+          "role": "replaced"
+        }
+      ],
+      "name": "power fist"
     },
     {
       "count": 1,
+      "grants_weapon_line": 11,
       "group_id": "og-wolf-lord-on-thunderwolf-2",
       "id": "oc-wolf-lord-on-thunderwolf-2-3",
       "is_default": false,
       "is_no_change": false,
-      "name": "thunder hammer",
-      "replaces_weapon_line": 11
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "thunder hammer",
+          "role": "granted",
+          "weapon_line": 11
+        },
+        {
+          "item_index": 1,
+          "item_name": "’s relic weapon",
+          "role": "replaced"
+        }
+      ],
+      "name": "thunder hammer"
     },
     {
       "count": 1,
@@ -186,16 +349,56 @@
       "id": "oc-wolf-lord-on-thunderwolf-2-4",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "relic shield",
+          "role": "granted"
+        },
+        {
+          "count": 1,
+          "item_index": 2,
+          "item_name": "close combat weapon",
+          "role": "granted",
+          "weapon_line": 8
+        },
+        {
+          "item_index": 1,
+          "item_name": "’s relic weapon",
+          "role": "replaced"
+        }
+      ],
       "name": "relic shield and 1 close combat weapon"
     },
     {
       "count": 1,
+      "grants_weapon_line": 12,
       "group_id": "og-wolf-lord-on-thunderwolf-3",
       "id": "oc-wolf-lord-on-thunderwolf-3-1",
       "is_default": false,
       "is_no_change": false,
-      "name": "twin lightning claws",
-      "replaces_weapon_line": 12
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "twin lightning claws",
+          "role": "granted",
+          "weapon_line": 12
+        },
+        {
+          "item_index": 1,
+          "item_name": "’s bolt pistol",
+          "role": "replaced"
+        },
+        {
+          "item_index": 2,
+          "item_name": "relic weapon",
+          "role": "replaced",
+          "weapon_line": 10
+        }
+      ],
+      "name": "twin lightning claws"
     }
   ],
   "option_groups": [
@@ -216,12 +419,12 @@
     }
   ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 3,
+    "consecutive_unverified_releases": 4,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
+    "detail_acquisition_id": "wahapedia-20260814T195616Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,

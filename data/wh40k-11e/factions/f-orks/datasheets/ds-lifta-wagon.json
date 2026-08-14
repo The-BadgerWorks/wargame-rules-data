@@ -20,11 +20,31 @@
       "model_count": 1,
       "points": 135,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260812T223905Z-9a337975"
+      "source_acquisition_id": "wahapedia-20260814T195616Z-9a337975"
     }
   ],
   "damaged_threshold": 5,
   "datasheet_id": "ds-lifta-wagon",
+  "default_equipment_state": "extracted",
+  "equipment_groups": [
+    {
+      "applies_to": "unit",
+      "id": "eq-lifta-wagon-1",
+      "items": [
+        {
+          "item_index": 1,
+          "item_name": "lifta-droppa",
+          "weapon_line": 2
+        },
+        {
+          "item_index": 2,
+          "item_name": "tracks and wheels",
+          "weapon_line": 6
+        }
+      ],
+      "line": 1
+    }
+  ],
   "faction_id": "f-orks",
   "is_battleline": false,
   "is_character": false,
@@ -66,12 +86,31 @@
   "option_choices": [
     {
       "count": 1,
+      "grants_weapon_line": 4,
       "group_id": "og-lifta-wagon-1",
       "id": "oc-lifta-wagon-1-1",
       "is_default": false,
       "is_no_change": false,
-      "name": "deff rolla",
-      "replaces_weapon_line": 4
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "deff rolla",
+          "role": "granted",
+          "weapon_line": 4
+        },
+        {
+          "item_index": 1,
+          "item_name": "’s tracks",
+          "role": "replaced"
+        },
+        {
+          "item_index": 2,
+          "item_name": "wheels",
+          "role": "replaced"
+        }
+      ],
+      "name": "deff rolla"
     },
     {
       "count": 1,
@@ -80,6 +119,15 @@
       "id": "oc-lifta-wagon-2-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "grabbin’ klaw",
+          "role": "granted",
+          "weapon_line": 5
+        }
+      ],
       "name": "grabbin’ klaw"
     },
     {
@@ -89,6 +137,15 @@
       "id": "oc-lifta-wagon-3-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "wreckin’ ball",
+          "role": "granted",
+          "weapon_line": 7
+        }
+      ],
       "name": "wreckin’ ball"
     },
     {
@@ -98,6 +155,15 @@
       "id": "oc-lifta-wagon-4-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "big shoota",
+          "role": "granted",
+          "weapon_line": 1
+        }
+      ],
       "name": "big shoota"
     },
     {
@@ -106,6 +172,14 @@
       "id": "oc-lifta-wagon-4-2",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 2,
+          "item_index": 1,
+          "item_name": "big shootas",
+          "role": "granted"
+        }
+      ],
       "name": "big shootas"
     },
     {
@@ -114,6 +188,22 @@
       "id": "oc-lifta-wagon-4-3",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "big shoota",
+          "role": "granted",
+          "weapon_line": 1
+        },
+        {
+          "count": 1,
+          "item_index": 2,
+          "item_name": "rokkit launcha",
+          "role": "granted",
+          "weapon_line": 3
+        }
+      ],
       "name": "big shoota and 1 rokkit launcha"
     },
     {
@@ -123,6 +213,15 @@
       "id": "oc-lifta-wagon-4-4",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "rokkit launcha",
+          "role": "granted",
+          "weapon_line": 3
+        }
+      ],
       "name": "rokkit launcha"
     },
     {
@@ -131,6 +230,14 @@
       "id": "oc-lifta-wagon-4-5",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 2,
+          "item_index": 1,
+          "item_name": "rokkit launchas",
+          "role": "granted"
+        }
+      ],
       "name": "rokkit launchas"
     }
   ],
@@ -157,12 +264,12 @@
     }
   ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 3,
+    "consecutive_unverified_releases": 4,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
+    "detail_acquisition_id": "wahapedia-20260814T195616Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,

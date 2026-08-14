@@ -27,7 +27,7 @@
       "model_count": 10,
       "points": 90,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T195124Z-0c772378"
     },
     {
       "copy_index_min": 1,
@@ -36,10 +36,50 @@
       "points": 90,
       "pricing_confidence": "verified",
       "pricing_context": "every-model-has-imperium",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T195124Z-0c772378"
     }
   ],
   "datasheet_id": "ds-imperial-navy-breachers",
+  "default_equipment_state": "partial",
+  "equipment_groups": [
+    {
+      "applies_to": "model_group",
+      "composition_line": 1,
+      "id": "eq-imperial-navy-breachers-1",
+      "items": [
+        {
+          "item_index": 1,
+          "item_name": "Navis shotgun",
+          "weapon_line": 7
+        },
+        {
+          "item_index": 2,
+          "item_name": "close combat weapon",
+          "weapon_line": 12
+        }
+      ],
+      "line": 1,
+      "model_name": "Navis Sergeant-at-Arms"
+    },
+    {
+      "applies_to": "model_group",
+      "id": "eq-imperial-navy-breachers-4",
+      "items": [
+        {
+          "item_index": 1,
+          "item_name": "Navis shotgun",
+          "weapon_line": 7
+        },
+        {
+          "item_index": 2,
+          "item_name": "close combat weapon",
+          "weapon_line": 12
+        }
+      ],
+      "line": 4,
+      "model_name": "other model"
+    }
+  ],
   "faction_id": "f-imperial-agents",
   "is_battleline": true,
   "is_character": false,
@@ -113,6 +153,27 @@
       "id": "oc-imperial-navy-breachers-1-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "autopistol",
+          "role": "granted",
+          "weapon_line": 1
+        },
+        {
+          "count": 1,
+          "item_index": 2,
+          "item_name": "chainsword",
+          "role": "granted",
+          "weapon_line": 11
+        },
+        {
+          "item_index": 1,
+          "item_name": "Navis Sergeant-at-Arms’ Navis shotgun",
+          "role": "replaced"
+        }
+      ],
       "name": "autopistol and 1 chainsword"
     },
     {
@@ -121,16 +182,51 @@
       "id": "oc-imperial-navy-breachers-1-2",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "bolt pistol",
+          "role": "granted",
+          "weapon_line": 2
+        },
+        {
+          "count": 1,
+          "item_index": 2,
+          "item_name": "power weapon",
+          "role": "granted",
+          "weapon_line": 13
+        },
+        {
+          "item_index": 1,
+          "item_name": "Navis Sergeant-at-Arms’ Navis shotgun",
+          "role": "replaced"
+        }
+      ],
       "name": "bolt pistol and 1 power weapon"
     },
     {
       "count": 1,
+      "grants_weapon_line": 4,
       "group_id": "og-imperial-navy-breachers-2",
       "id": "oc-imperial-navy-breachers-2-1",
       "is_default": false,
       "is_no_change": false,
-      "name": "meltagun",
-      "replaces_weapon_line": 4
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "meltagun",
+          "role": "granted",
+          "weapon_line": 4
+        },
+        {
+          "item_index": 1,
+          "item_name": "Navis Armsman’s Navis las-volley",
+          "role": "replaced"
+        }
+      ],
+      "name": "meltagun"
     },
     {
       "count": 1,
@@ -138,6 +234,19 @@
       "id": "oc-imperial-navy-breachers-2-2",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "plasma gun",
+          "role": "granted"
+        },
+        {
+          "item_index": 1,
+          "item_name": "Navis Armsman’s Navis las-volley",
+          "role": "replaced"
+        }
+      ],
       "name": "plasma gun"
     },
     {
@@ -146,6 +255,27 @@
       "id": "oc-imperial-navy-breachers-3-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "autopistol",
+          "role": "granted",
+          "weapon_line": 1
+        },
+        {
+          "count": 1,
+          "item_index": 2,
+          "item_name": "power weapon",
+          "role": "granted",
+          "weapon_line": 13
+        },
+        {
+          "item_index": 1,
+          "item_name": "Navis Armsman's Navis shotgun",
+          "role": "replaced"
+        }
+      ],
       "name": "autopistol and 1 power weapon"
     },
     {
@@ -154,6 +284,27 @@
       "id": "oc-imperial-navy-breachers-4-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "autopistol",
+          "role": "granted",
+          "weapon_line": 1
+        },
+        {
+          "count": 1,
+          "item_index": 2,
+          "item_name": "chainfist",
+          "role": "granted",
+          "weapon_line": 10
+        },
+        {
+          "item_index": 1,
+          "item_name": "Navis Armsman’s Navis shotgun",
+          "role": "replaced"
+        }
+      ],
       "name": "autopistol and 1 chainfist"
     },
     {
@@ -163,6 +314,15 @@
       "id": "oc-imperial-navy-breachers-5-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "demolition charge",
+          "role": "granted",
+          "weapon_line": 3
+        }
+      ],
       "name": "demolition charge"
     }
   ],
@@ -196,15 +356,15 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:d43dfc3c8eecc7a316b3cfd662908c9403ccd3c39ad10e9ea2448123481e4fb6",
-    "last_verified_version": "wh40k-11e-2026-08-2",
+    "last_verified_version": "wh40k-11e-2026-08-3",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
+    "detail_acquisition_id": "wahapedia-20260814T195616Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260812T223703Z-6694568f",
+    "points_acquisition_id": "mfm-20260814T195124Z-0c772378",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },

@@ -21,7 +21,7 @@
       "model_count": 1,
       "points": 420,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T195124Z-0c772378"
     },
     {
       "copy_index_min": 2,
@@ -29,11 +29,36 @@
       "model_count": 1,
       "points": 440,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T195124Z-0c772378"
     }
   ],
   "damaged_threshold": 7,
   "datasheet_id": "ds-monolith",
+  "default_equipment_state": "extracted",
+  "equipment_groups": [
+    {
+      "applies_to": "unit",
+      "id": "eq-monolith-1",
+      "items": [
+        {
+          "count": 4,
+          "item_index": 1,
+          "item_name": "gauss flux arcs"
+        },
+        {
+          "item_index": 2,
+          "item_name": "particle whip",
+          "weapon_line": 3
+        },
+        {
+          "item_index": 3,
+          "item_name": "portal of exile",
+          "weapon_line": 4
+        }
+      ],
+      "line": 1
+    }
+  ],
   "faction_id": "f-necrons",
   "is_battleline": false,
   "is_character": false,
@@ -98,6 +123,19 @@
       "id": "oc-monolith-1-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 4,
+          "item_index": 1,
+          "item_name": "death rays",
+          "role": "granted"
+        },
+        {
+          "item_index": 1,
+          "item_name": "’s 4 gauss flux arcs",
+          "role": "replaced"
+        }
+      ],
       "name": "death rays"
     }
   ],
@@ -111,15 +149,15 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:30625a2d0ff53a0a0b4c94a8f1faef2b782623d92710c4c6c4315e2fcd9f55a8",
-    "last_verified_version": "wh40k-11e-2026-08-2",
+    "last_verified_version": "wh40k-11e-2026-08-3",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
+    "detail_acquisition_id": "wahapedia-20260814T195616Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260812T223703Z-6694568f",
+    "points_acquisition_id": "mfm-20260814T195124Z-0c772378",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },

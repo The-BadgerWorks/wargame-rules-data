@@ -25,7 +25,7 @@
       "model_count": 5,
       "points": 95,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260812T223905Z-9a337975"
+      "source_acquisition_id": "wahapedia-20260814T195616Z-9a337975"
     },
     {
       "copy_index_min": 1,
@@ -33,10 +33,30 @@
       "model_count": 10,
       "points": 190,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260812T223905Z-9a337975"
+      "source_acquisition_id": "wahapedia-20260814T195616Z-9a337975"
     }
   ],
   "datasheet_id": "ds-assault-squad",
+  "default_equipment_state": "extracted",
+  "equipment_groups": [
+    {
+      "applies_to": "unit",
+      "id": "eq-assault-squad-1",
+      "items": [
+        {
+          "item_index": 1,
+          "item_name": "bolt pistol",
+          "weapon_line": 1
+        },
+        {
+          "item_index": 2,
+          "item_name": "Astartes chainsword",
+          "weapon_line": 11
+        }
+      ],
+      "line": 1
+    }
+  ],
   "faction_id": "f-space-marines",
   "is_battleline": false,
   "is_character": false,
@@ -86,30 +106,72 @@
   "option_choices": [
     {
       "count": 1,
+      "grants_weapon_line": 3,
       "group_id": "og-assault-squad-1",
       "id": "oc-assault-squad-1-1",
       "is_default": false,
       "is_no_change": false,
-      "name": "grav-pistol",
-      "replaces_weapon_line": 3
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "grav-pistol",
+          "role": "granted",
+          "weapon_line": 3
+        },
+        {
+          "item_index": 1,
+          "item_name": "Assault Sergeant’s bolt pistol",
+          "role": "replaced"
+        }
+      ],
+      "name": "grav-pistol"
     },
     {
       "count": 1,
+      "grants_weapon_line": 4,
       "group_id": "og-assault-squad-1",
       "id": "oc-assault-squad-1-2",
       "is_default": false,
       "is_no_change": false,
-      "name": "hand flamer",
-      "replaces_weapon_line": 4
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "hand flamer",
+          "role": "granted",
+          "weapon_line": 4
+        },
+        {
+          "item_index": 1,
+          "item_name": "Assault Sergeant’s bolt pistol",
+          "role": "replaced"
+        }
+      ],
+      "name": "hand flamer"
     },
     {
       "count": 1,
+      "grants_weapon_line": 5,
       "group_id": "og-assault-squad-1",
       "id": "oc-assault-squad-1-3",
       "is_default": false,
       "is_no_change": false,
-      "name": "inferno pistol",
-      "replaces_weapon_line": 5
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "inferno pistol",
+          "role": "granted",
+          "weapon_line": 5
+        },
+        {
+          "item_index": 1,
+          "item_name": "Assault Sergeant’s bolt pistol",
+          "role": "replaced"
+        }
+      ],
+      "name": "inferno pistol"
     },
     {
       "count": 1,
@@ -117,34 +179,89 @@
       "id": "oc-assault-squad-1-4",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "plasma pistol",
+          "role": "granted"
+        },
+        {
+          "item_index": 1,
+          "item_name": "Assault Sergeant’s bolt pistol",
+          "role": "replaced"
+        }
+      ],
       "name": "plasma pistol"
     },
     {
       "count": 1,
+      "grants_weapon_line": 14,
       "group_id": "og-assault-squad-2",
       "id": "oc-assault-squad-2-1",
       "is_default": false,
       "is_no_change": false,
-      "name": "power fist",
-      "replaces_weapon_line": 14
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "power fist",
+          "role": "granted",
+          "weapon_line": 14
+        },
+        {
+          "item_index": 1,
+          "item_name": "Assault Sergeant’s Astartes chainsword",
+          "role": "replaced"
+        }
+      ],
+      "name": "power fist"
     },
     {
       "count": 1,
+      "grants_weapon_line": 15,
       "group_id": "og-assault-squad-2",
       "id": "oc-assault-squad-2-2",
       "is_default": false,
       "is_no_change": false,
-      "name": "power weapon",
-      "replaces_weapon_line": 15
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "power weapon",
+          "role": "granted",
+          "weapon_line": 15
+        },
+        {
+          "item_index": 1,
+          "item_name": "Assault Sergeant’s Astartes chainsword",
+          "role": "replaced"
+        }
+      ],
+      "name": "power weapon"
     },
     {
       "count": 1,
+      "grants_weapon_line": 16,
       "group_id": "og-assault-squad-2",
       "id": "oc-assault-squad-2-3",
       "is_default": false,
       "is_no_change": false,
-      "name": "thunder hammer",
-      "replaces_weapon_line": 16
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "thunder hammer",
+          "role": "granted",
+          "weapon_line": 16
+        },
+        {
+          "item_index": 1,
+          "item_name": "Assault Sergeant’s Astartes chainsword",
+          "role": "replaced"
+        }
+      ],
+      "name": "thunder hammer"
     },
     {
       "count": 1,
@@ -152,6 +269,33 @@
       "id": "oc-assault-squad-4-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "plasma pistol",
+          "role": "granted"
+        },
+        {
+          "count": 1,
+          "item_index": 2,
+          "item_name": "Astartes chainsword",
+          "role": "granted",
+          "weapon_line": 11
+        },
+        {
+          "item_index": 1,
+          "item_name": "bolt pistol",
+          "role": "replaced",
+          "weapon_line": 1
+        },
+        {
+          "item_index": 2,
+          "item_name": "Astartes chainsword",
+          "role": "replaced",
+          "weapon_line": 11
+        }
+      ],
       "name": "plasma pistol and 1 Astartes chainsword"
     },
     {
@@ -160,6 +304,34 @@
       "id": "oc-assault-squad-4-2",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "flamer",
+          "role": "granted",
+          "weapon_line": 2
+        },
+        {
+          "count": 1,
+          "item_index": 2,
+          "item_name": "close combat weapon",
+          "role": "granted",
+          "weapon_line": 12
+        },
+        {
+          "item_index": 1,
+          "item_name": "bolt pistol",
+          "role": "replaced",
+          "weapon_line": 1
+        },
+        {
+          "item_index": 2,
+          "item_name": "Astartes chainsword",
+          "role": "replaced",
+          "weapon_line": 11
+        }
+      ],
       "name": "flamer and 1 close combat weapon"
     },
     {
@@ -168,6 +340,34 @@
       "id": "oc-assault-squad-4-3",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "meltagun",
+          "role": "granted",
+          "weapon_line": 6
+        },
+        {
+          "count": 1,
+          "item_index": 2,
+          "item_name": "close combat weapon",
+          "role": "granted",
+          "weapon_line": 12
+        },
+        {
+          "item_index": 1,
+          "item_name": "bolt pistol",
+          "role": "replaced",
+          "weapon_line": 1
+        },
+        {
+          "item_index": 2,
+          "item_name": "Astartes chainsword",
+          "role": "replaced",
+          "weapon_line": 11
+        }
+      ],
       "name": "meltagun and 1 close combat weapon"
     },
     {
@@ -176,16 +376,57 @@
       "id": "oc-assault-squad-4-4",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "plasma gun",
+          "role": "granted"
+        },
+        {
+          "count": 1,
+          "item_index": 2,
+          "item_name": "close combat weapon",
+          "role": "granted",
+          "weapon_line": 12
+        },
+        {
+          "item_index": 1,
+          "item_name": "bolt pistol",
+          "role": "replaced",
+          "weapon_line": 1
+        },
+        {
+          "item_index": 2,
+          "item_name": "Astartes chainsword",
+          "role": "replaced",
+          "weapon_line": 11
+        }
+      ],
       "name": "plasma gun and 1 close combat weapon"
     },
     {
       "count": 1,
+      "grants_weapon_line": 13,
       "group_id": "og-assault-squad-5",
       "id": "oc-assault-squad-5-1",
       "is_default": false,
       "is_no_change": false,
-      "name": "eviscerator",
-      "replaces_weapon_line": 13
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "eviscerator",
+          "role": "granted",
+          "weapon_line": 13
+        },
+        {
+          "item_index": 1,
+          "item_name": "in this unit, 1 model’s Astartes chainsword",
+          "role": "replaced"
+        }
+      ],
+      "name": "eviscerator"
     }
   ],
   "option_groups": [
@@ -200,7 +441,10 @@
       "scope": "unit"
     },
     {
+      "eligible_max_count": 2,
+      "eligible_model_name": "Assault Marines",
       "id": "og-assault-squad-4",
+      "is_per_model": true,
       "line": 4,
       "scope": "unit"
     },
@@ -212,12 +456,12 @@
     }
   ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 3,
+    "consecutive_unverified_releases": 4,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
+    "detail_acquisition_id": "wahapedia-20260814T195616Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,

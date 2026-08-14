@@ -18,10 +18,25 @@
       "model_count": 4,
       "points": 55,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260812T223905Z-9a337975"
+      "source_acquisition_id": "wahapedia-20260814T195616Z-9a337975"
     }
   ],
   "datasheet_id": "ds-astartes-servitors",
+  "default_equipment_state": "extracted",
+  "equipment_groups": [
+    {
+      "applies_to": "unit",
+      "id": "eq-astartes-servitors-1",
+      "items": [
+        {
+          "item_index": 1,
+          "item_name": "Servitor servo-arm",
+          "weapon_line": 6
+        }
+      ],
+      "line": 1
+    }
+  ],
   "faction_id": "f-space-marines",
   "is_battleline": false,
   "is_character": false,
@@ -71,6 +86,28 @@
       "id": "oc-astartes-servitors-1-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "heavy bolter",
+          "role": "granted",
+          "weapon_line": 1
+        },
+        {
+          "count": 1,
+          "item_index": 2,
+          "item_name": "close combat weapon",
+          "role": "granted",
+          "weapon_line": 5
+        },
+        {
+          "item_index": 1,
+          "item_name": "Servitor servo-arm",
+          "role": "replaced",
+          "weapon_line": 6
+        }
+      ],
       "name": "heavy bolter and 1 close combat weapon",
       "replaces_weapon_line": 6
     },
@@ -80,6 +117,28 @@
       "id": "oc-astartes-servitors-1-2",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "multi-melta",
+          "role": "granted",
+          "weapon_line": 2
+        },
+        {
+          "count": 1,
+          "item_index": 2,
+          "item_name": "close combat weapon",
+          "role": "granted",
+          "weapon_line": 5
+        },
+        {
+          "item_index": 1,
+          "item_name": "Servitor servo-arm",
+          "role": "replaced",
+          "weapon_line": 6
+        }
+      ],
       "name": "multi-melta and 1 close combat weapon",
       "replaces_weapon_line": 6
     },
@@ -89,24 +148,47 @@
       "id": "oc-astartes-servitors-1-3",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "plasma cannon",
+          "role": "granted"
+        },
+        {
+          "count": 1,
+          "item_index": 2,
+          "item_name": "close combat weapon",
+          "role": "granted",
+          "weapon_line": 5
+        },
+        {
+          "item_index": 1,
+          "item_name": "Servitor servo-arm",
+          "role": "replaced",
+          "weapon_line": 6
+        }
+      ],
       "name": "plasma cannon and 1 close combat weapon",
       "replaces_weapon_line": 6
     }
   ],
   "option_groups": [
     {
+      "eligible_max_count": 2,
       "id": "og-astartes-servitors-1",
+      "is_per_model": true,
       "line": 1,
       "scope": "unit"
     }
   ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 3,
+    "consecutive_unverified_releases": 4,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
+    "detail_acquisition_id": "wahapedia-20260814T195616Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,

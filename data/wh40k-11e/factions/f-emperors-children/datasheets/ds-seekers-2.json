@@ -29,7 +29,7 @@
       "model_count": 5,
       "points": 80,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T195124Z-0c772378"
     },
     {
       "copy_index_min": 1,
@@ -37,10 +37,30 @@
       "model_count": 10,
       "points": 155,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T195124Z-0c772378"
     }
   ],
   "datasheet_id": "ds-seekers-2",
+  "default_equipment_state": "extracted",
+  "equipment_groups": [
+    {
+      "applies_to": "unit",
+      "id": "eq-seekers-2-1",
+      "items": [
+        {
+          "item_index": 1,
+          "item_name": "lashing tongue",
+          "weapon_line": 1
+        },
+        {
+          "item_index": 2,
+          "item_name": "slashing claws",
+          "weapon_line": 2
+        }
+      ],
+      "line": 1
+    }
+  ],
   "faction_id": "f-emperors-children",
   "is_battleline": false,
   "is_character": false,
@@ -105,6 +125,14 @@
       "id": "oc-seekers-2-1-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "instrument of Chaos",
+          "role": "granted"
+        }
+      ],
       "name": "instrument of Chaos"
     },
     {
@@ -113,6 +141,14 @@
       "id": "oc-seekers-2-2-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "daemonic icon",
+          "role": "granted"
+        }
+      ],
       "name": "daemonic icon"
     }
   ],
@@ -131,15 +167,15 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:a5283e0302b8896d30f041b818cdb52556d1858b5ebb5cfa0cdcc951c950d7b4",
-    "last_verified_version": "wh40k-11e-2026-08-2",
+    "last_verified_version": "wh40k-11e-2026-08-3",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
+    "detail_acquisition_id": "wahapedia-20260814T195616Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260812T223703Z-6694568f",
+    "points_acquisition_id": "mfm-20260814T195124Z-0c772378",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },

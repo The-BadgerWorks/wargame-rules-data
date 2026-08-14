@@ -22,7 +22,7 @@
       "model_count": 1,
       "points": 200,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T195124Z-0c772378"
     },
     {
       "copy_index_min": 3,
@@ -30,11 +30,26 @@
       "model_count": 1,
       "points": 215,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T195124Z-0c772378"
     }
   ],
   "damaged_threshold": 4,
   "datasheet_id": "ds-grand-master-in-nemesis-dreadknight",
+  "default_equipment_state": "extracted",
+  "equipment_groups": [
+    {
+      "applies_to": "unit",
+      "id": "eq-grand-master-in-nemesis-dreadknight-1",
+      "items": [
+        {
+          "item_index": 1,
+          "item_name": "dreadfists",
+          "weapon_line": 6
+        }
+      ],
+      "line": 1
+    }
+  ],
   "faction_id": "f-grey-knights",
   "is_battleline": false,
   "is_character": true,
@@ -96,21 +111,49 @@
   "option_choices": [
     {
       "count": 1,
+      "grants_weapon_line": 7,
       "group_id": "og-grand-master-in-nemesis-dreadknight-1",
       "id": "oc-grand-master-in-nemesis-dreadknight-1-1",
       "is_default": false,
       "is_no_change": false,
-      "name": "Nemesis daemon greathammer",
-      "replaces_weapon_line": 7
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "Nemesis daemon greathammer",
+          "role": "granted",
+          "weapon_line": 7
+        },
+        {
+          "item_index": 1,
+          "item_name": "’s dreadfists",
+          "role": "replaced"
+        }
+      ],
+      "name": "Nemesis daemon greathammer"
     },
     {
       "count": 1,
+      "grants_weapon_line": 8,
       "group_id": "og-grand-master-in-nemesis-dreadknight-1",
       "id": "oc-grand-master-in-nemesis-dreadknight-1-2",
       "is_default": false,
       "is_no_change": false,
-      "name": "Nemesis flail",
-      "replaces_weapon_line": 8
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "Nemesis flail",
+          "role": "granted",
+          "weapon_line": 8
+        },
+        {
+          "item_index": 1,
+          "item_name": "’s dreadfists",
+          "role": "replaced"
+        }
+      ],
+      "name": "Nemesis flail"
     },
     {
       "count": 1,
@@ -118,16 +161,43 @@
       "id": "oc-grand-master-in-nemesis-dreadknight-1-3",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "Nemesis greatsword",
+          "role": "granted"
+        },
+        {
+          "item_index": 1,
+          "item_name": "’s dreadfists",
+          "role": "replaced"
+        }
+      ],
       "name": "Nemesis greatsword"
     },
     {
       "count": 1,
+      "grants_weapon_line": 11,
       "group_id": "og-grand-master-in-nemesis-dreadknight-1",
       "id": "oc-grand-master-in-nemesis-dreadknight-1-4",
       "is_default": false,
       "is_no_change": false,
-      "name": "Nemesis mace",
-      "replaces_weapon_line": 11
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "Nemesis mace",
+          "role": "granted",
+          "weapon_line": 11
+        },
+        {
+          "item_index": 1,
+          "item_name": "’s dreadfists",
+          "role": "replaced"
+        }
+      ],
+      "name": "Nemesis mace"
     },
     {
       "count": 1,
@@ -136,6 +206,15 @@
       "id": "oc-grand-master-in-nemesis-dreadknight-2-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "gatling psilencer",
+          "role": "granted",
+          "weapon_line": 2
+        }
+      ],
       "name": "gatling psilencer"
     },
     {
@@ -145,6 +224,15 @@
       "id": "oc-grand-master-in-nemesis-dreadknight-2-2",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "heavy incinerator",
+          "role": "granted",
+          "weapon_line": 3
+        }
+      ],
       "name": "heavy incinerator"
     },
     {
@@ -154,6 +242,15 @@
       "id": "oc-grand-master-in-nemesis-dreadknight-2-3",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "heavy psycannon",
+          "role": "granted",
+          "weapon_line": 4
+        }
+      ],
       "name": "heavy psycannon"
     },
     {
@@ -163,6 +260,15 @@
       "id": "oc-grand-master-in-nemesis-dreadknight-2-4",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "sublimator",
+          "role": "granted",
+          "weapon_line": 5
+        }
+      ],
       "name": "sublimator"
     },
     {
@@ -172,6 +278,15 @@
       "id": "oc-grand-master-in-nemesis-dreadknight-3-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "fragstorm grenade launcher",
+          "role": "granted",
+          "weapon_line": 1
+        }
+      ],
       "name": "fragstorm grenade launcher"
     }
   ],
@@ -196,15 +311,15 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:bd5e8c8cbda42ccf8afef94a754c2fe4a2eb614fad9d6a039d196b453b209d9a",
-    "last_verified_version": "wh40k-11e-2026-08-2",
+    "last_verified_version": "wh40k-11e-2026-08-3",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
+    "detail_acquisition_id": "wahapedia-20260814T195616Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260812T223703Z-6694568f",
+    "points_acquisition_id": "mfm-20260814T195124Z-0c772378",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },

@@ -28,7 +28,7 @@
       "model_count": 5,
       "points": 75,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T195124Z-0c772378"
     },
     {
       "copy_index_min": 1,
@@ -36,7 +36,7 @@
       "model_count": 10,
       "points": 155,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T195124Z-0c772378"
     },
     {
       "copy_index_min": 3,
@@ -44,7 +44,7 @@
       "model_count": 5,
       "points": 85,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T195124Z-0c772378"
     },
     {
       "copy_index_min": 3,
@@ -52,10 +52,30 @@
       "model_count": 10,
       "points": 165,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T195124Z-0c772378"
     }
   ],
   "datasheet_id": "ds-sicarian-infiltrators",
+  "default_equipment_state": "extracted",
+  "equipment_groups": [
+    {
+      "applies_to": "unit",
+      "id": "eq-sicarian-infiltrators-1",
+      "items": [
+        {
+          "item_index": 1,
+          "item_name": "stubcarbine",
+          "weapon_line": 2
+        },
+        {
+          "item_index": 2,
+          "item_name": "power weapon",
+          "weapon_line": 3
+        }
+      ],
+      "line": 1
+    }
+  ],
   "faction_id": "f-adeptus-mechanicus",
   "is_battleline": false,
   "is_character": false,
@@ -116,12 +136,41 @@
       "id": "oc-sicarian-infiltrators-1-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "flechette blaster",
+          "role": "granted",
+          "weapon_line": 1
+        },
+        {
+          "count": 1,
+          "item_index": 2,
+          "item_name": "taser goad",
+          "role": "granted",
+          "weapon_line": 4
+        },
+        {
+          "item_index": 1,
+          "item_name": "stubcarbine",
+          "role": "replaced",
+          "weapon_line": 2
+        },
+        {
+          "item_index": 2,
+          "item_name": "power weapon",
+          "role": "replaced",
+          "weapon_line": 3
+        }
+      ],
       "name": "flechette blaster and 1 taser goad"
     }
   ],
   "option_groups": [
     {
       "id": "og-sicarian-infiltrators-1",
+      "is_per_model": true,
       "line": 1,
       "scope": "unit"
     }
@@ -129,15 +178,15 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:c168422327d607c8117665ff167b82abe4ac356dff0481ac765c7e319874e59f",
-    "last_verified_version": "wh40k-11e-2026-08-2",
+    "last_verified_version": "wh40k-11e-2026-08-3",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
+    "detail_acquisition_id": "wahapedia-20260814T195616Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260812T223703Z-6694568f",
+    "points_acquisition_id": "mfm-20260814T195124Z-0c772378",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },

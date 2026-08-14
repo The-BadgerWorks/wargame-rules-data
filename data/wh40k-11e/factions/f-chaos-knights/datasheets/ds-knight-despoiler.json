@@ -22,7 +22,7 @@
       "model_count": 1,
       "points": 380,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T195124Z-0c772378"
     },
     {
       "copy_index_min": 2,
@@ -30,11 +30,39 @@
       "model_count": 1,
       "points": 400,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T195124Z-0c772378"
     }
   ],
   "damaged_threshold": 9,
   "datasheet_id": "ds-knight-despoiler",
+  "default_equipment_state": "extracted",
+  "equipment_groups": [
+    {
+      "applies_to": "unit",
+      "id": "eq-knight-despoiler-1",
+      "items": [
+        {
+          "item_index": 1,
+          "item_name": "daemonbreath meltagun",
+          "weapon_line": 1
+        },
+        {
+          "item_index": 2,
+          "item_name": "reaper chainsword"
+        },
+        {
+          "item_index": 3,
+          "item_name": "titanic feet",
+          "weapon_line": 12
+        },
+        {
+          "item_index": 4,
+          "item_name": "warpstrike claw"
+        }
+      ],
+      "line": 1
+    }
+  ],
   "faction_id": "f-chaos-knights",
   "is_battleline": false,
   "is_character": true,
@@ -106,21 +134,49 @@
   "option_choices": [
     {
       "count": 1,
+      "grants_weapon_line": 5,
       "group_id": "og-knight-despoiler-1",
       "id": "oc-knight-despoiler-1-1",
       "is_default": false,
       "is_no_change": false,
-      "name": "diabolus heavy stubber",
-      "replaces_weapon_line": 5
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "diabolus heavy stubber",
+          "role": "granted",
+          "weapon_line": 5
+        },
+        {
+          "item_index": 1,
+          "item_name": "’s daemonbreath meltagun",
+          "role": "replaced"
+        }
+      ],
+      "name": "diabolus heavy stubber"
     },
     {
       "count": 1,
+      "grants_weapon_line": 2,
       "group_id": "og-knight-despoiler-2",
       "id": "oc-knight-despoiler-2-1",
       "is_default": false,
       "is_no_change": false,
-      "name": "daemonbreath thermal cannon",
-      "replaces_weapon_line": 2
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "daemonbreath thermal cannon",
+          "role": "granted",
+          "weapon_line": 2
+        },
+        {
+          "item_index": 1,
+          "item_name": "’s reaper chainsword",
+          "role": "replaced"
+        }
+      ],
+      "name": "daemonbreath thermal cannon"
     },
     {
       "count": 1,
@@ -128,6 +184,27 @@
       "id": "oc-knight-despoiler-2-2",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "despoiler gatling cannon",
+          "role": "granted",
+          "weapon_line": 4
+        },
+        {
+          "count": 1,
+          "item_index": 2,
+          "item_name": "heavy darkflamer",
+          "role": "granted",
+          "weapon_line": 7
+        },
+        {
+          "item_index": 1,
+          "item_name": "’s reaper chainsword",
+          "role": "replaced"
+        }
+      ],
       "name": "despoiler gatling cannon and 1 heavy darkflamer"
     },
     {
@@ -136,16 +213,51 @@
       "id": "oc-knight-despoiler-2-3",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "despoiler battle cannon",
+          "role": "granted",
+          "weapon_line": 3
+        },
+        {
+          "count": 1,
+          "item_index": 2,
+          "item_name": "diabolus heavy stubber",
+          "role": "granted",
+          "weapon_line": 5
+        },
+        {
+          "item_index": 1,
+          "item_name": "’s reaper chainsword",
+          "role": "replaced"
+        }
+      ],
       "name": "despoiler battle cannon and 1 diabolus heavy stubber"
     },
     {
       "count": 1,
+      "grants_weapon_line": 2,
       "group_id": "og-knight-despoiler-3",
       "id": "oc-knight-despoiler-3-1",
       "is_default": false,
       "is_no_change": false,
-      "name": "daemonbreath thermal cannon",
-      "replaces_weapon_line": 2
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "daemonbreath thermal cannon",
+          "role": "granted",
+          "weapon_line": 2
+        },
+        {
+          "item_index": 1,
+          "item_name": "’s warpstrike claw",
+          "role": "replaced"
+        }
+      ],
+      "name": "daemonbreath thermal cannon"
     },
     {
       "count": 1,
@@ -153,6 +265,27 @@
       "id": "oc-knight-despoiler-3-2",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "despoiler gatling cannon",
+          "role": "granted",
+          "weapon_line": 4
+        },
+        {
+          "count": 1,
+          "item_index": 2,
+          "item_name": "heavy darkflamer",
+          "role": "granted",
+          "weapon_line": 7
+        },
+        {
+          "item_index": 1,
+          "item_name": "’s warpstrike claw",
+          "role": "replaced"
+        }
+      ],
       "name": "despoiler gatling cannon and 1 heavy darkflamer"
     },
     {
@@ -161,6 +294,27 @@
       "id": "oc-knight-despoiler-3-3",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "despoiler battle cannon",
+          "role": "granted",
+          "weapon_line": 3
+        },
+        {
+          "count": 1,
+          "item_index": 2,
+          "item_name": "diabolus heavy stubber",
+          "role": "granted",
+          "weapon_line": 5
+        },
+        {
+          "item_index": 1,
+          "item_name": "’s warpstrike claw",
+          "role": "replaced"
+        }
+      ],
       "name": "despoiler battle cannon and 1 diabolus heavy stubber"
     },
     {
@@ -170,6 +324,15 @@
       "id": "oc-knight-despoiler-4-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "havoc missile pod",
+          "role": "granted",
+          "weapon_line": 6
+        }
+      ],
       "name": "havoc missile pod"
     },
     {
@@ -179,6 +342,15 @@
       "id": "oc-knight-despoiler-4-2",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "ruinspear rocket pod",
+          "role": "granted",
+          "weapon_line": 9
+        }
+      ],
       "name": "ruinspear rocket pod"
     },
     {
@@ -188,6 +360,15 @@
       "id": "oc-knight-despoiler-4-3",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "hellstorm autocannons",
+          "role": "granted",
+          "weapon_line": 8
+        }
+      ],
       "name": "hellstorm autocannons"
     }
   ],
@@ -216,15 +397,15 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:f4a14da7e3119f74c65c7e915124c945609562c72b031561c2dde4b1cc996362",
-    "last_verified_version": "wh40k-11e-2026-08-2",
+    "last_verified_version": "wh40k-11e-2026-08-3",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
+    "detail_acquisition_id": "wahapedia-20260814T195616Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260812T223703Z-6694568f",
+    "points_acquisition_id": "mfm-20260814T195124Z-0c772378",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },

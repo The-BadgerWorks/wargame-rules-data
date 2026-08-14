@@ -22,10 +22,67 @@
       "model_count": 10,
       "points": 115,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T195124Z-0c772378"
     }
   ],
   "datasheet_id": "ds-pink-horrors-2",
+  "default_equipment_state": "extracted",
+  "equipment_groups": [
+    {
+      "applies_to": "model_group",
+      "id": "eq-pink-horrors-2-1",
+      "items": [
+        {
+          "item_index": 1,
+          "item_name": "coruscating pink flames",
+          "weapon_line": 2
+        },
+        {
+          "item_index": 2,
+          "item_name": "pink claws",
+          "weapon_line": 5
+        }
+      ],
+      "line": 1,
+      "model_name": "Pink Horror"
+    },
+    {
+      "applies_to": "model_group",
+      "id": "eq-pink-horrors-2-2",
+      "items": [
+        {
+          "item_index": 1,
+          "item_name": "coruscating blue flames",
+          "weapon_line": 1
+        },
+        {
+          "item_index": 2,
+          "item_name": "blue claws",
+          "weapon_line": 4
+        }
+      ],
+      "line": 2,
+      "model_name": "Blue Horror added to this unit using the Split ability"
+    },
+    {
+      "applies_to": "model_group",
+      "id": "eq-pink-horrors-2-3",
+      "items": [
+        {
+          "item_index": 1,
+          "item_name": "coruscating yellow flames",
+          "weapon_line": 3
+        },
+        {
+          "item_index": 2,
+          "item_name": "yellow claws",
+          "weapon_line": 6
+        }
+      ],
+      "line": 3,
+      "model_name": "Brimstone Horror added to this unit using the Split ability"
+    }
+  ],
   "faction_id": "f-thousand-sons",
   "is_battleline": true,
   "is_character": false,
@@ -132,6 +189,14 @@
       "id": "oc-pink-horrors-2-1-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "instrument of Chaos",
+          "role": "granted"
+        }
+      ],
       "name": "instrument of Chaos"
     },
     {
@@ -140,6 +205,14 @@
       "id": "oc-pink-horrors-2-2-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "daemonic icon",
+          "role": "granted"
+        }
+      ],
       "name": "daemonic icon"
     }
   ],
@@ -158,15 +231,15 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:d2c9e2e3f18267d9bfdd8cce66b341010375e705cb45581e5f67239064b667ab",
-    "last_verified_version": "wh40k-11e-2026-08-2",
+    "last_verified_version": "wh40k-11e-2026-08-3",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
+    "detail_acquisition_id": "wahapedia-20260814T195616Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260812T223703Z-6694568f",
+    "points_acquisition_id": "mfm-20260814T195124Z-0c772378",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },

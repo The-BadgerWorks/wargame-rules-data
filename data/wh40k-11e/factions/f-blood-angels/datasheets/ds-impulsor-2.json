@@ -23,7 +23,7 @@
       "model_count": 1,
       "points": 70,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T195124Z-0c772378"
     },
     {
       "copy_index_min": 4,
@@ -31,10 +31,30 @@
       "model_count": 1,
       "points": 80,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T195124Z-0c772378"
     }
   ],
   "datasheet_id": "ds-impulsor-2",
+  "default_equipment_state": "extracted",
+  "equipment_groups": [
+    {
+      "applies_to": "unit",
+      "id": "eq-impulsor-2-1",
+      "items": [
+        {
+          "count": 2,
+          "item_index": 1,
+          "item_name": "storm bolters"
+        },
+        {
+          "item_index": 2,
+          "item_name": "armoured hull",
+          "weapon_line": 8
+        }
+      ],
+      "line": 1
+    }
+  ],
   "faction_id": "f-blood-angels",
   "is_battleline": false,
   "is_character": false,
@@ -99,6 +119,15 @@
       "id": "oc-impulsor-2-1-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "ironhail heavy stubber",
+          "role": "granted",
+          "weapon_line": 5
+        }
+      ],
       "name": "ironhail heavy stubber"
     },
     {
@@ -107,6 +136,19 @@
       "id": "oc-impulsor-2-2-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 2,
+          "item_index": 1,
+          "item_name": "fragstorm grenade launchers",
+          "role": "granted"
+        },
+        {
+          "item_index": 1,
+          "item_name": "’s 2 storm bolters",
+          "role": "replaced"
+        }
+      ],
       "name": "fragstorm grenade launchers"
     },
     {
@@ -115,6 +157,14 @@
       "id": "oc-impulsor-2-3-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "bellicatus missile array",
+          "role": "granted"
+        }
+      ],
       "name": "bellicatus missile array"
     },
     {
@@ -124,6 +174,15 @@
       "id": "oc-impulsor-2-3-2",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "ironhail skytalon array",
+          "role": "granted",
+          "weapon_line": 6
+        }
+      ],
       "name": "ironhail skytalon array"
     },
     {
@@ -132,6 +191,14 @@
       "id": "oc-impulsor-2-3-3",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "orbital comms array",
+          "role": "granted"
+        }
+      ],
       "name": "orbital comms array"
     },
     {
@@ -140,6 +207,14 @@
       "id": "oc-impulsor-2-3-4",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "shield dome",
+          "role": "granted"
+        }
+      ],
       "name": "shield dome"
     }
   ],
@@ -163,15 +238,15 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:8a23184f3d332278333bc165c45d1255c5741131045f307e69e783618884c939",
-    "last_verified_version": "wh40k-11e-2026-08-2",
+    "last_verified_version": "wh40k-11e-2026-08-3",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
+    "detail_acquisition_id": "wahapedia-20260814T195616Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260812T223703Z-6694568f",
+    "points_acquisition_id": "mfm-20260814T195124Z-0c772378",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },

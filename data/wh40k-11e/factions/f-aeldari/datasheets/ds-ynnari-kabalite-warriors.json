@@ -26,10 +26,30 @@
       "model_count": 10,
       "points": 110,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T195124Z-0c772378"
     }
   ],
   "datasheet_id": "ds-ynnari-kabalite-warriors",
+  "default_equipment_state": "extracted",
+  "equipment_groups": [
+    {
+      "applies_to": "unit",
+      "id": "eq-ynnari-kabalite-warriors-1",
+      "items": [
+        {
+          "item_index": 1,
+          "item_name": "splinter rifle",
+          "weapon_line": 7
+        },
+        {
+          "item_index": 2,
+          "item_name": "close combat weapon",
+          "weapon_line": 8
+        }
+      ],
+      "line": 1
+    }
+  ],
   "faction_id": "f-aeldari",
   "is_battleline": true,
   "is_character": false,
@@ -80,12 +100,26 @@
   "option_choices": [
     {
       "count": 1,
+      "grants_weapon_line": 9,
       "group_id": "og-ynnari-kabalite-warriors-1",
       "id": "oc-ynnari-kabalite-warriors-1-1",
       "is_default": false,
       "is_no_change": false,
-      "name": "Sybarite weapon",
-      "replaces_weapon_line": 9
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "Sybarite weapon",
+          "role": "granted",
+          "weapon_line": 9
+        },
+        {
+          "item_index": 1,
+          "item_name": "Sybarite’s close combat weapon",
+          "role": "replaced"
+        }
+      ],
+      "name": "Sybarite weapon"
     },
     {
       "count": 1,
@@ -93,61 +127,153 @@
       "id": "oc-ynnari-kabalite-warriors-2-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "phantasm grenade launcher",
+          "role": "granted"
+        }
+      ],
       "name": "phantasm grenade launcher"
     },
     {
       "count": 1,
+      "grants_weapon_line": 1,
       "group_id": "og-ynnari-kabalite-warriors-3",
       "id": "oc-ynnari-kabalite-warriors-3-1",
       "is_default": false,
       "is_no_change": false,
-      "name": "blast pistol",
-      "replaces_weapon_line": 1
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "blast pistol",
+          "role": "granted",
+          "weapon_line": 1
+        },
+        {
+          "item_index": 1,
+          "item_name": "Sybarite’s splinter rifle",
+          "role": "replaced"
+        }
+      ],
+      "name": "blast pistol"
     },
     {
       "count": 1,
+      "grants_weapon_line": 6,
       "group_id": "og-ynnari-kabalite-warriors-3",
       "id": "oc-ynnari-kabalite-warriors-3-2",
       "is_default": false,
       "is_no_change": false,
-      "name": "splinter pistol",
-      "replaces_weapon_line": 6
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "splinter pistol",
+          "role": "granted",
+          "weapon_line": 6
+        },
+        {
+          "item_index": 1,
+          "item_name": "Sybarite’s splinter rifle",
+          "role": "replaced"
+        }
+      ],
+      "name": "splinter pistol"
     },
     {
       "count": 1,
+      "grants_weapon_line": 2,
       "group_id": "og-ynnari-kabalite-warriors-4",
       "id": "oc-ynnari-kabalite-warriors-4-1",
       "is_default": false,
       "is_no_change": false,
-      "name": "blaster",
-      "replaces_weapon_line": 2
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "blaster",
+          "role": "granted",
+          "weapon_line": 2
+        },
+        {
+          "item_index": 1,
+          "item_name": "Kabalite Warrior’s splinter rifle",
+          "role": "replaced"
+        }
+      ],
+      "name": "blaster"
     },
     {
       "count": 1,
+      "grants_weapon_line": 3,
       "group_id": "og-ynnari-kabalite-warriors-5",
       "id": "oc-ynnari-kabalite-warriors-5-1",
       "is_default": false,
       "is_no_change": false,
-      "name": "dark lance",
-      "replaces_weapon_line": 3
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "dark lance",
+          "role": "granted",
+          "weapon_line": 3
+        },
+        {
+          "item_index": 1,
+          "item_name": "Kabalite Warrior’s splinter rifle",
+          "role": "replaced"
+        }
+      ],
+      "name": "dark lance"
     },
     {
       "count": 1,
+      "grants_weapon_line": 4,
       "group_id": "og-ynnari-kabalite-warriors-6",
       "id": "oc-ynnari-kabalite-warriors-6-1",
       "is_default": false,
       "is_no_change": false,
-      "name": "shredder",
-      "replaces_weapon_line": 4
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "shredder",
+          "role": "granted",
+          "weapon_line": 4
+        },
+        {
+          "item_index": 1,
+          "item_name": "Kabalite Warrior’s splinter rifle",
+          "role": "replaced"
+        }
+      ],
+      "name": "shredder"
     },
     {
       "count": 1,
+      "grants_weapon_line": 5,
       "group_id": "og-ynnari-kabalite-warriors-7",
       "id": "oc-ynnari-kabalite-warriors-7-1",
       "is_default": false,
       "is_no_change": false,
-      "name": "splinter cannon",
-      "replaces_weapon_line": 5
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "splinter cannon",
+          "role": "granted",
+          "weapon_line": 5
+        },
+        {
+          "item_index": 1,
+          "item_name": "Kabalite Warrior’s splinter rifle",
+          "role": "replaced"
+        }
+      ],
+      "name": "splinter cannon"
     }
   ],
   "option_groups": [
@@ -190,15 +316,15 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:a489ac2754411033876595022ef5dedf21d1c13c432bebc41b9c20b69b9fefba",
-    "last_verified_version": "wh40k-11e-2026-08-2",
+    "last_verified_version": "wh40k-11e-2026-08-3",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
+    "detail_acquisition_id": "wahapedia-20260814T195616Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260812T223703Z-6694568f",
+    "points_acquisition_id": "mfm-20260814T195124Z-0c772378",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },

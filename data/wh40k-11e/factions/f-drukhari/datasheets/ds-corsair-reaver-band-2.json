@@ -23,7 +23,7 @@
       "model_count": 5,
       "points": 125,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260812T223905Z-9a337975"
+      "source_acquisition_id": "wahapedia-20260814T195616Z-9a337975"
     },
     {
       "copy_index_min": 1,
@@ -31,7 +31,7 @@
       "model_count": 6,
       "points": 150,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260812T223905Z-9a337975"
+      "source_acquisition_id": "wahapedia-20260814T195616Z-9a337975"
     },
     {
       "copy_index_min": 1,
@@ -39,7 +39,7 @@
       "model_count": 10,
       "points": 250,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260812T223905Z-9a337975"
+      "source_acquisition_id": "wahapedia-20260814T195616Z-9a337975"
     },
     {
       "copy_index_min": 1,
@@ -47,10 +47,35 @@
       "model_count": 11,
       "points": 275,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260812T223905Z-9a337975"
+      "source_acquisition_id": "wahapedia-20260814T195616Z-9a337975"
     }
   ],
   "datasheet_id": "ds-corsair-reaver-band-2",
+  "default_equipment_state": "extracted",
+  "equipment_groups": [
+    {
+      "applies_to": "unit",
+      "id": "eq-corsair-reaver-band-2-1",
+      "items": [
+        {
+          "item_index": 1,
+          "item_name": "brace of pistols",
+          "weapon_line": 4
+        },
+        {
+          "item_index": 2,
+          "item_name": "Corsair firearm",
+          "weapon_line": 5
+        },
+        {
+          "item_index": 3,
+          "item_name": "close combat weapon",
+          "weapon_line": 13
+        }
+      ],
+      "line": 1
+    }
+  ],
   "faction_id": "f-drukhari",
   "is_battleline": false,
   "is_character": false,
@@ -115,6 +140,21 @@
       "id": "oc-corsair-reaver-band-2-1-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "spar-glaive",
+          "role": "granted",
+          "weapon_line": 14
+        },
+        {
+          "item_index": 1,
+          "item_name": "Corsair firearm",
+          "role": "replaced",
+          "weapon_line": 5
+        }
+      ],
       "name": "spar-glaive",
       "replaces_weapon_line": 5
     },
@@ -124,70 +164,181 @@
       "id": "oc-corsair-reaver-band-2-2-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "Aeldari missile launcher",
+          "role": "granted"
+        },
+        {
+          "item_index": 1,
+          "item_name": "in this unit, 1 model’s Corsair firearm",
+          "role": "replaced"
+        }
+      ],
       "name": "Aeldari missile launcher"
     },
     {
       "count": 1,
+      "grants_weapon_line": 3,
       "group_id": "og-corsair-reaver-band-2-2",
       "id": "oc-corsair-reaver-band-2-2-2",
       "is_default": false,
       "is_no_change": false,
-      "name": "blaster",
-      "replaces_weapon_line": 3
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "blaster",
+          "role": "granted",
+          "weapon_line": 3
+        },
+        {
+          "item_index": 1,
+          "item_name": "in this unit, 1 model’s Corsair firearm",
+          "role": "replaced"
+        }
+      ],
+      "name": "blaster"
     },
     {
       "count": 1,
+      "grants_weapon_line": 6,
       "group_id": "og-corsair-reaver-band-2-2",
       "id": "oc-corsair-reaver-band-2-2-3",
       "is_default": false,
       "is_no_change": false,
-      "name": "dark lance",
-      "replaces_weapon_line": 6
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "dark lance",
+          "role": "granted",
+          "weapon_line": 6
+        },
+        {
+          "item_index": 1,
+          "item_name": "in this unit, 1 model’s Corsair firearm",
+          "role": "replaced"
+        }
+      ],
+      "name": "dark lance"
     },
     {
       "count": 1,
+      "grants_weapon_line": 8,
       "group_id": "og-corsair-reaver-band-2-2",
       "id": "oc-corsair-reaver-band-2-2-4",
       "is_default": false,
       "is_no_change": false,
-      "name": "flamer",
-      "replaces_weapon_line": 8
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "flamer",
+          "role": "granted",
+          "weapon_line": 8
+        },
+        {
+          "item_index": 1,
+          "item_name": "in this unit, 1 model’s Corsair firearm",
+          "role": "replaced"
+        }
+      ],
+      "name": "flamer"
     },
     {
       "count": 1,
+      "grants_weapon_line": 9,
       "group_id": "og-corsair-reaver-band-2-2",
       "id": "oc-corsair-reaver-band-2-2-5",
       "is_default": false,
       "is_no_change": false,
-      "name": "fusion gun",
-      "replaces_weapon_line": 9
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "fusion gun",
+          "role": "granted",
+          "weapon_line": 9
+        },
+        {
+          "item_index": 1,
+          "item_name": "in this unit, 1 model’s Corsair firearm",
+          "role": "replaced"
+        }
+      ],
+      "name": "fusion gun"
     },
     {
       "count": 1,
+      "grants_weapon_line": 10,
       "group_id": "og-corsair-reaver-band-2-2",
       "id": "oc-corsair-reaver-band-2-2-6",
       "is_default": false,
       "is_no_change": false,
-      "name": "shredder",
-      "replaces_weapon_line": 10
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "shredder",
+          "role": "granted",
+          "weapon_line": 10
+        },
+        {
+          "item_index": 1,
+          "item_name": "in this unit, 1 model’s Corsair firearm",
+          "role": "replaced"
+        }
+      ],
+      "name": "shredder"
     },
     {
       "count": 1,
+      "grants_weapon_line": 11,
       "group_id": "og-corsair-reaver-band-2-2",
       "id": "oc-corsair-reaver-band-2-2-7",
       "is_default": false,
       "is_no_change": false,
-      "name": "shuriken cannon",
-      "replaces_weapon_line": 11
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "shuriken cannon",
+          "role": "granted",
+          "weapon_line": 11
+        },
+        {
+          "item_index": 1,
+          "item_name": "in this unit, 1 model’s Corsair firearm",
+          "role": "replaced"
+        }
+      ],
+      "name": "shuriken cannon"
     },
     {
       "count": 1,
+      "grants_weapon_line": 12,
       "group_id": "og-corsair-reaver-band-2-2",
       "id": "oc-corsair-reaver-band-2-2-8",
       "is_default": false,
       "is_no_change": false,
-      "name": "splinter cannon",
-      "replaces_weapon_line": 12
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "splinter cannon",
+          "role": "granted",
+          "weapon_line": 12
+        },
+        {
+          "item_index": 1,
+          "item_name": "in this unit, 1 model’s Corsair firearm",
+          "role": "replaced"
+        }
+      ],
+      "name": "splinter cannon"
     },
     {
       "count": 1,
@@ -196,6 +347,15 @@
       "id": "oc-corsair-reaver-band-2-3-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "dissonance pistol",
+          "role": "granted",
+          "weapon_line": 7
+        }
+      ],
       "name": "dissonance pistol"
     },
     {
@@ -205,12 +365,22 @@
       "id": "oc-corsair-reaver-band-2-3-2",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "void sabre",
+          "role": "granted",
+          "weapon_line": 15
+        }
+      ],
       "name": "void sabre"
     }
   ],
   "option_groups": [
     {
       "id": "og-corsair-reaver-band-2-1",
+      "is_per_model": true,
       "line": 1,
       "scope": "unit"
     },
@@ -227,12 +397,12 @@
     }
   ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 3,
+    "consecutive_unverified_releases": 4,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
+    "detail_acquisition_id": "wahapedia-20260814T195616Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,

@@ -30,7 +30,7 @@
       "model_count": 5,
       "points": 165,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T195124Z-0c772378"
     },
     {
       "copy_index_min": 3,
@@ -38,10 +38,27 @@
       "model_count": 5,
       "points": 175,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T195124Z-0c772378"
     }
   ],
   "datasheet_id": "ds-hyperadapted-raveners",
+  "default_equipment_state": "partial",
+  "equipment_groups": [
+    {
+      "applies_to": "model_group",
+      "composition_line": 1,
+      "id": "eq-hyperadapted-raveners-1",
+      "items": [
+        {
+          "item_index": 1,
+          "item_name": "Prime claws and talons",
+          "weapon_line": 2
+        }
+      ],
+      "line": 1,
+      "model_name": "Ravener Prime"
+    }
+  ],
   "faction_id": "f-tyranids",
   "is_battleline": false,
   "is_character": true,
@@ -128,15 +145,15 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:adbe786481a39901354eab8b9b776916ba6adf50f38bad6e436c3a03f783aaeb",
-    "last_verified_version": "wh40k-11e-2026-08-2",
+    "last_verified_version": "wh40k-11e-2026-08-3",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
+    "detail_acquisition_id": "wahapedia-20260814T195616Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260812T223703Z-6694568f",
+    "points_acquisition_id": "mfm-20260814T195124Z-0c772378",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },

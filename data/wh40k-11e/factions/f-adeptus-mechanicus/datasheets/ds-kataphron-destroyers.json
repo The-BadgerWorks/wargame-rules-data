@@ -19,7 +19,7 @@
       "model_count": 3,
       "points": 100,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T195124Z-0c772378"
     },
     {
       "copy_index_min": 1,
@@ -27,10 +27,35 @@
       "model_count": 6,
       "points": 200,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T195124Z-0c772378"
     }
   ],
   "datasheet_id": "ds-kataphron-destroyers",
+  "default_equipment_state": "extracted",
+  "equipment_groups": [
+    {
+      "applies_to": "unit",
+      "id": "eq-kataphron-destroyers-1",
+      "items": [
+        {
+          "item_index": 1,
+          "item_name": "heavy grav-cannon",
+          "weapon_line": 2
+        },
+        {
+          "item_index": 2,
+          "item_name": "phosphor blaster",
+          "weapon_line": 5
+        },
+        {
+          "item_index": 3,
+          "item_name": "close combat weapon",
+          "weapon_line": 6
+        }
+      ],
+      "line": 1
+    }
+  ],
   "faction_id": "f-adeptus-mechanicus",
   "is_battleline": false,
   "is_character": false,
@@ -91,6 +116,20 @@
       "id": "oc-kataphron-destroyers-1-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "Kataphron plasma culverin",
+          "role": "granted"
+        },
+        {
+          "item_index": 1,
+          "item_name": "heavy grav-cannon",
+          "role": "replaced",
+          "weapon_line": 2
+        }
+      ],
       "name": "Kataphron plasma culverin",
       "replaces_weapon_line": 2
     },
@@ -101,6 +140,21 @@
       "id": "oc-kataphron-destroyers-2-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "cognis flamer",
+          "role": "granted",
+          "weapon_line": 1
+        },
+        {
+          "item_index": 1,
+          "item_name": "phosphor blaster",
+          "role": "replaced",
+          "weapon_line": 5
+        }
+      ],
       "name": "cognis flamer",
       "replaces_weapon_line": 5
     }
@@ -108,11 +162,13 @@
   "option_groups": [
     {
       "id": "og-kataphron-destroyers-1",
+      "is_per_model": true,
       "line": 1,
       "scope": "unit"
     },
     {
       "id": "og-kataphron-destroyers-2",
+      "is_per_model": true,
       "line": 2,
       "scope": "unit"
     }
@@ -120,15 +176,15 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:aa03064bbbf7924a8d22a0abeaa9282a5ab053b5af767bbef0330f8f21e782d5",
-    "last_verified_version": "wh40k-11e-2026-08-2",
+    "last_verified_version": "wh40k-11e-2026-08-3",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
+    "detail_acquisition_id": "wahapedia-20260814T195616Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260812T223703Z-6694568f",
+    "points_acquisition_id": "mfm-20260814T195124Z-0c772378",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },

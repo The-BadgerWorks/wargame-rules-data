@@ -26,10 +26,30 @@
       "model_count": 10,
       "points": 90,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T195124Z-0c772378"
     }
   ],
   "datasheet_id": "ds-wyches",
+  "default_equipment_state": "extracted",
+  "equipment_groups": [
+    {
+      "applies_to": "unit",
+      "id": "eq-wyches-1",
+      "items": [
+        {
+          "item_index": 1,
+          "item_name": "splinter pistol",
+          "weapon_line": 2
+        },
+        {
+          "item_index": 2,
+          "item_name": "Hekatarii blade",
+          "weapon_line": 4
+        }
+      ],
+      "line": 1
+    }
+  ],
   "faction_id": "f-drukhari",
   "is_battleline": true,
   "is_character": false,
@@ -91,21 +111,49 @@
   "option_choices": [
     {
       "count": 1,
+      "grants_weapon_line": 1,
       "group_id": "og-wyches-1",
       "id": "oc-wyches-1-1",
       "is_default": false,
       "is_no_change": false,
-      "name": "blast pistol",
-      "replaces_weapon_line": 1
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "blast pistol",
+          "role": "granted",
+          "weapon_line": 1
+        },
+        {
+          "item_index": 1,
+          "item_name": "Hekatrix’s splinter pistol",
+          "role": "replaced"
+        }
+      ],
+      "name": "blast pistol"
     },
     {
       "count": 1,
+      "grants_weapon_line": 5,
       "group_id": "og-wyches-2",
       "id": "oc-wyches-2-1",
       "is_default": false,
       "is_no_change": false,
-      "name": "power weapon",
-      "replaces_weapon_line": 5
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "power weapon",
+          "role": "granted",
+          "weapon_line": 5
+        },
+        {
+          "item_index": 1,
+          "item_name": "Hekatrix’s Hekatarii blade",
+          "role": "replaced"
+        }
+      ],
+      "name": "power weapon"
     },
     {
       "count": 1,
@@ -114,6 +162,27 @@
       "id": "oc-wyches-3-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "gladiatorial weapons",
+          "role": "granted",
+          "weapon_line": 3
+        },
+        {
+          "item_index": 1,
+          "item_name": "splinter pistol",
+          "role": "replaced",
+          "weapon_line": 2
+        },
+        {
+          "item_index": 2,
+          "item_name": "Hekatarii blade",
+          "role": "replaced",
+          "weapon_line": 4
+        }
+      ],
       "name": "gladiatorial weapons"
     }
   ],
@@ -129,7 +198,10 @@
       "scope": "unit"
     },
     {
+      "eligible_max_count": 3,
+      "eligible_model_name": "Wyches",
       "id": "og-wyches-3",
+      "is_per_model": true,
       "line": 3,
       "scope": "unit"
     }
@@ -137,15 +209,15 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:37d3ec03de3a41fe8363af0a16a955140ec2e90f64de737d09e879c631b3ca43",
-    "last_verified_version": "wh40k-11e-2026-08-2",
+    "last_verified_version": "wh40k-11e-2026-08-3",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
+    "detail_acquisition_id": "wahapedia-20260814T195616Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260812T223703Z-6694568f",
+    "points_acquisition_id": "mfm-20260814T195124Z-0c772378",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },

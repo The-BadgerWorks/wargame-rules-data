@@ -26,7 +26,7 @@
       "model_count": 5,
       "points": 160,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T195124Z-0c772378"
     },
     {
       "copy_index_min": 1,
@@ -34,10 +34,30 @@
       "model_count": 10,
       "points": 320,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T195124Z-0c772378"
     }
   ],
   "datasheet_id": "ds-terminator-squad-2",
+  "default_equipment_state": "extracted",
+  "equipment_groups": [
+    {
+      "applies_to": "unit",
+      "id": "eq-terminator-squad-2-1",
+      "items": [
+        {
+          "item_index": 1,
+          "item_name": "storm bolter",
+          "weapon_line": 5
+        },
+        {
+          "item_index": 2,
+          "item_name": "power fist",
+          "weapon_line": 7
+        }
+      ],
+      "line": 1
+    }
+  ],
   "faction_id": "f-blood-angels",
   "is_battleline": false,
   "is_character": false,
@@ -93,21 +113,49 @@
   "option_choices": [
     {
       "count": 1,
+      "grants_weapon_line": 1,
       "group_id": "og-terminator-squad-2-1",
       "id": "oc-terminator-squad-2-1-1",
       "is_default": false,
       "is_no_change": false,
-      "name": "assault cannon",
-      "replaces_weapon_line": 1
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "assault cannon",
+          "role": "granted",
+          "weapon_line": 1
+        },
+        {
+          "item_index": 1,
+          "item_name": "in this unit, 1 Terminator’s storm bolter",
+          "role": "replaced"
+        }
+      ],
+      "name": "assault cannon"
     },
     {
       "count": 1,
+      "grants_weapon_line": 4,
       "group_id": "og-terminator-squad-2-1",
       "id": "oc-terminator-squad-2-1-2",
       "is_default": false,
       "is_no_change": false,
-      "name": "heavy flamer",
-      "replaces_weapon_line": 4
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "heavy flamer",
+          "role": "granted",
+          "weapon_line": 4
+        },
+        {
+          "item_index": 1,
+          "item_name": "in this unit, 1 Terminator’s storm bolter",
+          "role": "replaced"
+        }
+      ],
+      "name": "heavy flamer"
     },
     {
       "count": 1,
@@ -115,7 +163,27 @@
       "id": "oc-terminator-squad-2-1-3",
       "is_default": false,
       "is_no_change": false,
-      "name": "cyclone missile launcher and 1 storm bolter.*"
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "cyclone missile launcher",
+          "role": "granted"
+        },
+        {
+          "count": 1,
+          "item_index": 2,
+          "item_name": "storm bolter.",
+          "role": "granted",
+          "weapon_line": 5
+        },
+        {
+          "item_index": 1,
+          "item_name": "in this unit, 1 Terminator’s storm bolter",
+          "role": "replaced"
+        }
+      ],
+      "name": "cyclone missile launcher and 1 storm bolter."
     },
     {
       "count": 1,
@@ -124,17 +192,46 @@
       "id": "oc-terminator-squad-2-2-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "chainfist",
+          "role": "granted",
+          "weapon_line": 6
+        },
+        {
+          "item_index": 1,
+          "item_name": "power fist",
+          "role": "replaced",
+          "weapon_line": 7
+        }
+      ],
       "name": "chainfist",
       "replaces_weapon_line": 7
     },
     {
       "count": 1,
+      "grants_weapon_line": 8,
       "group_id": "og-terminator-squad-2-3",
       "id": "oc-terminator-squad-2-3-1",
       "is_default": false,
       "is_no_change": false,
-      "name": "power weapon",
-      "replaces_weapon_line": 8
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "power weapon",
+          "role": "granted",
+          "weapon_line": 8
+        },
+        {
+          "item_index": 1,
+          "item_name": "Terminator Sergeant’s power fist",
+          "role": "replaced"
+        }
+      ],
+      "name": "power weapon"
     }
   ],
   "option_groups": [
@@ -146,6 +243,7 @@
     },
     {
       "id": "og-terminator-squad-2-2",
+      "is_per_model": true,
       "line": 2,
       "scope": "unit"
     },
@@ -158,15 +256,15 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:73b9858af40132f8d53c5f6a9152c1cc100ab96df90f03fd23c150061988d1fa",
-    "last_verified_version": "wh40k-11e-2026-08-2",
+    "last_verified_version": "wh40k-11e-2026-08-3",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
+    "detail_acquisition_id": "wahapedia-20260814T195616Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260812T223703Z-6694568f",
+    "points_acquisition_id": "mfm-20260814T195124Z-0c772378",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },

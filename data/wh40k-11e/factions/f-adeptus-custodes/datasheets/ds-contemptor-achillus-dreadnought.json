@@ -20,7 +20,7 @@
       "model_count": 1,
       "points": 155,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T195124Z-0c772378"
     },
     {
       "copy_index_min": 3,
@@ -28,10 +28,29 @@
       "model_count": 1,
       "points": 170,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T195124Z-0c772378"
     }
   ],
   "datasheet_id": "ds-contemptor-achillus-dreadnought",
+  "default_equipment_state": "extracted",
+  "equipment_groups": [
+    {
+      "applies_to": "unit",
+      "id": "eq-contemptor-achillus-dreadnought-1",
+      "items": [
+        {
+          "count": 2,
+          "item_index": 1,
+          "item_name": "lastrum storm bolters"
+        },
+        {
+          "item_index": 2,
+          "item_name": "Achillus dreadspear"
+        }
+      ],
+      "line": 1
+    }
+  ],
   "faction_id": "f-adeptus-custodes",
   "is_battleline": false,
   "is_character": false,
@@ -87,6 +106,19 @@
       "id": "oc-contemptor-achillus-dreadnought-1-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 2,
+          "item_index": 1,
+          "item_name": "infernus incinerators",
+          "role": "granted"
+        },
+        {
+          "item_index": 1,
+          "item_name": "’s 2 lastrum storm bolters",
+          "role": "replaced"
+        }
+      ],
       "name": "infernus incinerators"
     },
     {
@@ -95,6 +127,19 @@
       "id": "oc-contemptor-achillus-dreadnought-1-2",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 2,
+          "item_index": 1,
+          "item_name": "twin adrathic destructors",
+          "role": "granted"
+        },
+        {
+          "item_index": 1,
+          "item_name": "’s 2 lastrum storm bolters",
+          "role": "replaced"
+        }
+      ],
       "name": "twin adrathic destructors"
     },
     {
@@ -103,6 +148,27 @@
       "id": "oc-contemptor-achillus-dreadnought-1-3",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "lastrum storm bolter",
+          "role": "granted",
+          "weapon_line": 3
+        },
+        {
+          "count": 1,
+          "item_index": 2,
+          "item_name": "infernus incinerator",
+          "role": "granted",
+          "weapon_line": 2
+        },
+        {
+          "item_index": 1,
+          "item_name": "’s 2 lastrum storm bolters",
+          "role": "replaced"
+        }
+      ],
       "name": "lastrum storm bolter and 1 infernus incinerator"
     },
     {
@@ -111,6 +177,27 @@
       "id": "oc-contemptor-achillus-dreadnought-1-4",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "lastrum storm bolter",
+          "role": "granted",
+          "weapon_line": 3
+        },
+        {
+          "count": 1,
+          "item_index": 2,
+          "item_name": "twin adrathic destructor",
+          "role": "granted",
+          "weapon_line": 4
+        },
+        {
+          "item_index": 1,
+          "item_name": "’s 2 lastrum storm bolters",
+          "role": "replaced"
+        }
+      ],
       "name": "lastrum storm bolter and 1 twin adrathic destructor"
     },
     {
@@ -119,6 +206,27 @@
       "id": "oc-contemptor-achillus-dreadnought-1-5",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "infernus incinerator",
+          "role": "granted",
+          "weapon_line": 2
+        },
+        {
+          "count": 1,
+          "item_index": 2,
+          "item_name": "twin adrathic destructor",
+          "role": "granted",
+          "weapon_line": 4
+        },
+        {
+          "item_index": 1,
+          "item_name": "’s 2 lastrum storm bolters",
+          "role": "replaced"
+        }
+      ],
       "name": "infernus incinerator and 1 twin adrathic destructor"
     }
   ],
@@ -132,15 +240,15 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:942f79c20c7fc9f8259e0560f35a7e5804669c4d0a79f9a26e0da405fa80c311",
-    "last_verified_version": "wh40k-11e-2026-08-2",
+    "last_verified_version": "wh40k-11e-2026-08-3",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
+    "detail_acquisition_id": "wahapedia-20260814T195616Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260812T223703Z-6694568f",
+    "points_acquisition_id": "mfm-20260814T195124Z-0c772378",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },

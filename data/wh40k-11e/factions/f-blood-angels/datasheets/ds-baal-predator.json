@@ -20,7 +20,7 @@
       "model_count": 1,
       "points": 125,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T195124Z-0c772378"
     },
     {
       "copy_index_min": 3,
@@ -28,11 +28,31 @@
       "model_count": 1,
       "points": 135,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T195124Z-0c772378"
     }
   ],
   "damaged_threshold": 4,
   "datasheet_id": "ds-baal-predator",
+  "default_equipment_state": "extracted",
+  "equipment_groups": [
+    {
+      "applies_to": "unit",
+      "id": "eq-baal-predator-1",
+      "items": [
+        {
+          "item_index": 1,
+          "item_name": "twin assault cannon",
+          "weapon_line": 6
+        },
+        {
+          "item_index": 2,
+          "item_name": "armoured tracks",
+          "weapon_line": 7
+        }
+      ],
+      "line": 1
+    }
+  ],
   "faction_id": "f-blood-angels",
   "is_battleline": false,
   "is_character": false,
@@ -92,12 +112,26 @@
   "option_choices": [
     {
       "count": 1,
+      "grants_weapon_line": 1,
       "group_id": "og-baal-predator-1",
       "id": "oc-baal-predator-1-1",
       "is_default": false,
       "is_no_change": false,
-      "name": "Baal flamestorm cannon",
-      "replaces_weapon_line": 1
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "Baal flamestorm cannon",
+          "role": "granted",
+          "weapon_line": 1
+        },
+        {
+          "item_index": 1,
+          "item_name": "'s twin assault cannon",
+          "role": "replaced"
+        }
+      ],
+      "name": "Baal flamestorm cannon"
     },
     {
       "count": 1,
@@ -106,6 +140,15 @@
       "id": "oc-baal-predator-2-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "hunter-killer missile",
+          "role": "granted",
+          "weapon_line": 4
+        }
+      ],
       "name": "hunter-killer missile"
     },
     {
@@ -115,6 +158,15 @@
       "id": "oc-baal-predator-3-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "storm bolter",
+          "role": "granted",
+          "weapon_line": 5
+        }
+      ],
       "name": "storm bolter"
     },
     {
@@ -123,6 +175,14 @@
       "id": "oc-baal-predator-4-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 2,
+          "item_index": 1,
+          "item_name": "heavy bolters",
+          "role": "granted"
+        }
+      ],
       "name": "heavy bolters"
     },
     {
@@ -131,6 +191,14 @@
       "id": "oc-baal-predator-4-2",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 2,
+          "item_index": 1,
+          "item_name": "heavy flamers",
+          "role": "granted"
+        }
+      ],
       "name": "heavy flamers"
     }
   ],
@@ -159,15 +227,15 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:a4014a14965bf716f2cb81333079c619e4f03d82faebe0fa26aba1a2212c21f2",
-    "last_verified_version": "wh40k-11e-2026-08-2",
+    "last_verified_version": "wh40k-11e-2026-08-3",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
+    "detail_acquisition_id": "wahapedia-20260814T195616Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260812T223703Z-6694568f",
+    "points_acquisition_id": "mfm-20260814T195124Z-0c772378",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },

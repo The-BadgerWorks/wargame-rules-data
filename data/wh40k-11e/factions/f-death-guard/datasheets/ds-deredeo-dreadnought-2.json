@@ -20,11 +20,36 @@
       "model_count": 1,
       "points": 160,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260812T223905Z-9a337975"
+      "source_acquisition_id": "wahapedia-20260814T195616Z-9a337975"
     }
   ],
   "damaged_threshold": 4,
   "datasheet_id": "ds-deredeo-dreadnought-2",
+  "default_equipment_state": "extracted",
+  "equipment_groups": [
+    {
+      "applies_to": "unit",
+      "id": "eq-deredeo-dreadnought-2-1",
+      "items": [
+        {
+          "item_index": 1,
+          "item_name": "anvilus autocannon battery",
+          "weapon_line": 2
+        },
+        {
+          "item_index": 2,
+          "item_name": "twin heavy bolter",
+          "weapon_line": 7
+        },
+        {
+          "item_index": 3,
+          "item_name": "armoured feet",
+          "weapon_line": 10
+        }
+      ],
+      "line": 1
+    }
+  ],
   "faction_id": "f-death-guard",
   "is_battleline": false,
   "is_character": false,
@@ -91,12 +116,26 @@
   "option_choices": [
     {
       "count": 1,
+      "grants_weapon_line": 3,
       "group_id": "og-deredeo-dreadnought-2-1",
       "id": "oc-deredeo-dreadnought-2-1-1",
       "is_default": false,
       "is_no_change": false,
-      "name": "arachnus heavy lascannon battery",
-      "replaces_weapon_line": 3
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "arachnus heavy lascannon battery",
+          "role": "granted",
+          "weapon_line": 3
+        },
+        {
+          "item_index": 1,
+          "item_name": "’s anvilus autocannon battery",
+          "role": "replaced"
+        }
+      ],
+      "name": "arachnus heavy lascannon battery"
     },
     {
       "count": 1,
@@ -104,25 +143,66 @@
       "id": "oc-deredeo-dreadnought-2-1-2",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "hellfire plasma carronade",
+          "role": "granted"
+        },
+        {
+          "item_index": 1,
+          "item_name": "’s anvilus autocannon battery",
+          "role": "replaced"
+        }
+      ],
       "name": "hellfire plasma carronade"
     },
     {
       "count": 1,
+      "grants_weapon_line": 9,
       "group_id": "og-deredeo-dreadnought-2-1",
       "id": "oc-deredeo-dreadnought-2-1-3",
       "is_default": false,
       "is_no_change": false,
-      "name": "volkite falconet battery",
-      "replaces_weapon_line": 9
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "volkite falconet battery",
+          "role": "granted",
+          "weapon_line": 9
+        },
+        {
+          "item_index": 1,
+          "item_name": "’s anvilus autocannon battery",
+          "role": "replaced"
+        }
+      ],
+      "name": "volkite falconet battery"
     },
     {
       "count": 1,
+      "grants_weapon_line": 8,
       "group_id": "og-deredeo-dreadnought-2-2",
       "id": "oc-deredeo-dreadnought-2-2-1",
       "is_default": false,
       "is_no_change": false,
-      "name": "twin heavy flamer",
-      "replaces_weapon_line": 8
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "twin heavy flamer",
+          "role": "granted",
+          "weapon_line": 8
+        },
+        {
+          "item_index": 1,
+          "item_name": "’s twin heavy bolter",
+          "role": "replaced"
+        }
+      ],
+      "name": "twin heavy flamer"
     },
     {
       "count": 1,
@@ -131,6 +211,15 @@
       "id": "oc-deredeo-dreadnought-2-3-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "aiolos missile launcher",
+          "role": "granted",
+          "weapon_line": 1
+        }
+      ],
       "name": "aiolos missile launcher"
     },
     {
@@ -140,6 +229,15 @@
       "id": "oc-deredeo-dreadnought-2-3-2",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "boreas air defence missiles",
+          "role": "granted",
+          "weapon_line": 4
+        }
+      ],
       "name": "boreas air defence missiles"
     }
   ],
@@ -161,12 +259,12 @@
     }
   ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 3,
+    "consecutive_unverified_releases": 4,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
+    "detail_acquisition_id": "wahapedia-20260814T195616Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,

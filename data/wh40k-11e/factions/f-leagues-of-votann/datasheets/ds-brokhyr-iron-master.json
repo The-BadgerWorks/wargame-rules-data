@@ -26,7 +26,7 @@
       "max_count": 3,
       "min_count": 3,
       "model_line": 3,
-      "model_name": "E-COGs*"
+      "model_name": "E-COGs"
     }
   ],
   "costs": [
@@ -36,10 +36,51 @@
       "model_count": 5,
       "points": 70,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T195124Z-0c772378"
     }
   ],
   "datasheet_id": "ds-brokhyr-iron-master",
+  "default_equipment_state": "partial",
+  "equipment_groups": [
+    {
+      "applies_to": "model_group",
+      "composition_line": 1,
+      "id": "eq-brokhyr-iron-master-1",
+      "items": [
+        {
+          "item_index": 1,
+          "item_name": "graviton rifle",
+          "weapon_line": 2
+        },
+        {
+          "item_index": 2,
+          "item_name": "graviton hammer",
+          "weapon_line": 5
+        }
+      ],
+      "line": 1,
+      "model_name": "Brôkhyr Iron-master"
+    },
+    {
+      "applies_to": "model_group",
+      "composition_line": 2,
+      "id": "eq-brokhyr-iron-master-2",
+      "items": [
+        {
+          "item_index": 1,
+          "item_name": "las-beam cutter",
+          "weapon_line": 3
+        },
+        {
+          "item_index": 2,
+          "item_name": "close combat weapon",
+          "weapon_line": 4
+        }
+      ],
+      "line": 2,
+      "model_name": "Ironkin Assistant"
+    }
+  ],
   "faction_id": "f-leagues-of-votann",
   "is_battleline": false,
   "is_character": true,
@@ -120,15 +161,15 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:135af19730b4f1049b172ba9c4fc20427ebc21087b72485d997072c24d028db0",
-    "last_verified_version": "wh40k-11e-2026-08-2",
+    "last_verified_version": "wh40k-11e-2026-08-3",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
+    "detail_acquisition_id": "wahapedia-20260814T195616Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260812T223703Z-6694568f",
+    "points_acquisition_id": "mfm-20260814T195124Z-0c772378",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },

@@ -28,10 +28,30 @@
       "model_count": 10,
       "points": 85,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260812T223905Z-9a337975"
+      "source_acquisition_id": "wahapedia-20260814T195616Z-9a337975"
     }
   ],
   "datasheet_id": "ds-skitarii-vanguard-2",
+  "default_equipment_state": "extracted",
+  "equipment_groups": [
+    {
+      "applies_to": "unit",
+      "id": "eq-skitarii-vanguard-2-1",
+      "items": [
+        {
+          "item_index": 1,
+          "item_name": "radium carbine",
+          "weapon_line": 5
+        },
+        {
+          "item_index": 2,
+          "item_name": "close combat weapon",
+          "weapon_line": 8
+        }
+      ],
+      "line": 1
+    }
+  ],
   "faction_id": "f-imperial-knights",
   "is_battleline": true,
   "is_character": false,
@@ -93,25 +113,62 @@
       "id": "oc-skitarii-vanguard-2-1-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "Alpha combat weapon",
+          "role": "granted",
+          "weapon_line": 7
+        }
+      ],
       "name": "Alpha combat weapon"
     },
     {
       "count": 1,
+      "grants_weapon_line": 1,
       "group_id": "og-skitarii-vanguard-2-2",
       "id": "oc-skitarii-vanguard-2-2-1",
       "is_default": false,
       "is_no_change": false,
-      "name": "Mechanicus pistol",
-      "replaces_weapon_line": 1
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "Mechanicus pistol",
+          "role": "granted",
+          "weapon_line": 1
+        },
+        {
+          "item_index": 1,
+          "item_name": "Skitarii Vanguard Alpha’s radium carbine",
+          "role": "replaced"
+        }
+      ],
+      "name": "Mechanicus pistol"
     },
     {
       "count": 1,
+      "grants_weapon_line": 2,
       "group_id": "og-skitarii-vanguard-2-3",
       "id": "oc-skitarii-vanguard-2-3-1",
       "is_default": false,
       "is_no_change": false,
-      "name": "arc rifle",
-      "replaces_weapon_line": 2
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "arc rifle",
+          "role": "granted",
+          "weapon_line": 2
+        },
+        {
+          "item_index": 1,
+          "item_name": "Skitarii Vanguard’s radium carbine",
+          "role": "replaced"
+        }
+      ],
+      "name": "arc rifle"
     },
     {
       "count": 1,
@@ -119,16 +176,43 @@
       "id": "oc-skitarii-vanguard-2-4-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "plasma caliver",
+          "role": "granted"
+        },
+        {
+          "item_index": 1,
+          "item_name": "Skitarii Vanguard’s radium carbine",
+          "role": "replaced"
+        }
+      ],
       "name": "plasma caliver"
     },
     {
       "count": 1,
+      "grants_weapon_line": 6,
       "group_id": "og-skitarii-vanguard-2-5",
       "id": "oc-skitarii-vanguard-2-5-1",
       "is_default": false,
       "is_no_change": false,
-      "name": "transuranic arquebus",
-      "replaces_weapon_line": 6
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "transuranic arquebus",
+          "role": "granted",
+          "weapon_line": 6
+        },
+        {
+          "item_index": 1,
+          "item_name": "Skitarii Vanguard’s radium carbine",
+          "role": "replaced"
+        }
+      ],
+      "name": "transuranic arquebus"
     },
     {
       "count": 1,
@@ -136,7 +220,15 @@
       "id": "oc-skitarii-vanguard-2-6-1",
       "is_default": false,
       "is_no_change": false,
-      "name": "enhanced data-tether*"
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "enhanced data-tether",
+          "role": "granted"
+        }
+      ],
+      "name": "enhanced data-tether"
     },
     {
       "count": 1,
@@ -144,7 +236,15 @@
       "id": "oc-skitarii-vanguard-2-6-2",
       "is_default": false,
       "is_no_change": false,
-      "name": "omnispex*"
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "omnispex",
+          "role": "granted"
+        }
+      ],
+      "name": "omnispex"
     }
   ],
   "option_groups": [
@@ -180,12 +280,12 @@
     }
   ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 3,
+    "consecutive_unverified_releases": 4,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
+    "detail_acquisition_id": "wahapedia-20260814T195616Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,

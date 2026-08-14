@@ -26,7 +26,7 @@
       "model_count": 5,
       "points": 70,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T195124Z-0c772378"
     },
     {
       "copy_index_min": 1,
@@ -34,10 +34,30 @@
       "model_count": 10,
       "points": 130,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260812T223703Z-6694568f"
+      "source_acquisition_id": "mfm-20260814T195124Z-0c772378"
     }
   ],
   "datasheet_id": "ds-acolyte-hybrids-with-autopistols",
+  "default_equipment_state": "extracted",
+  "equipment_groups": [
+    {
+      "applies_to": "unit",
+      "id": "eq-acolyte-hybrids-with-autopistols-1",
+      "items": [
+        {
+          "item_index": 1,
+          "item_name": "autopistol",
+          "weapon_line": 1
+        },
+        {
+          "item_index": 2,
+          "item_name": "cult claws and knife",
+          "weapon_line": 2
+        }
+      ],
+      "line": 1
+    }
+  ],
   "faction_id": "f-genestealer-cults",
   "is_battleline": true,
   "is_character": false,
@@ -102,7 +122,22 @@
       "id": "oc-acolyte-hybrids-with-autopistols-1-1",
       "is_default": false,
       "is_no_change": false,
-      "name": "cult icon"
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "cult icon",
+          "role": "granted"
+        },
+        {
+          "item_index": 1,
+          "item_name": "autopistol",
+          "role": "replaced",
+          "weapon_line": 1
+        }
+      ],
+      "name": "cult icon",
+      "replaces_weapon_line": 1
     },
     {
       "count": 1,
@@ -111,26 +146,73 @@
       "id": "oc-acolyte-hybrids-with-autopistols-2-1",
       "is_default": false,
       "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "heavy mining tool",
+          "role": "granted",
+          "weapon_line": 3
+        },
+        {
+          "item_index": 1,
+          "item_name": "autopistol",
+          "role": "replaced",
+          "weapon_line": 1
+        },
+        {
+          "item_index": 2,
+          "item_name": "cult claws",
+          "role": "replaced"
+        },
+        {
+          "item_index": 3,
+          "item_name": "knife",
+          "role": "replaced"
+        }
+      ],
       "name": "heavy mining tool"
     },
     {
       "count": 1,
+      "grants_weapon_line": 4,
       "group_id": "og-acolyte-hybrids-with-autopistols-3",
       "id": "oc-acolyte-hybrids-with-autopistols-3-1",
       "is_default": false,
       "is_no_change": false,
-      "name": "Leader's bio-weapons",
-      "replaces_weapon_line": 4
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "Leader's bio-weapons",
+          "role": "granted",
+          "weapon_line": 4
+        },
+        {
+          "item_index": 1,
+          "item_name": "Acolyte Leader’s cult claws",
+          "role": "replaced"
+        },
+        {
+          "item_index": 2,
+          "item_name": "knife",
+          "role": "replaced"
+        }
+      ],
+      "name": "Leader's bio-weapons"
     }
   ],
   "option_groups": [
     {
+      "eligible_max_count": 1,
+      "eligible_model_name": "Acolyte Hybrid",
       "id": "og-acolyte-hybrids-with-autopistols-1",
       "line": 1,
       "scope": "unit"
     },
     {
       "id": "og-acolyte-hybrids-with-autopistols-2",
+      "is_per_model": true,
       "line": 2,
       "scope": "per_n_models",
       "scope_n": 5
@@ -144,15 +226,15 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:2f138d054195719073bb50cf917038929751db5130fa1580e697229187334dbe",
-    "last_verified_version": "wh40k-11e-2026-08-2",
+    "last_verified_version": "wh40k-11e-2026-08-3",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260812T223905Z-9a337975",
+    "detail_acquisition_id": "wahapedia-20260814T195616Z-9a337975",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260812T223703Z-6694568f",
+    "points_acquisition_id": "mfm-20260814T195124Z-0c772378",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
