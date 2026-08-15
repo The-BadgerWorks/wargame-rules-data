@@ -1,0 +1,13 @@
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - Created for 008 task T009: the first
+# committed `csv`-mode default-equipment fixture file (`pipeline/parse/equipment_grammar.py` has
+# existed since 006, but every test of it so far has hand-built its own inline `CsvReadResult`
+# rather than reading a shared fixture from disk — see `test_equipment_grammar.py`,
+# `test_equipment_overrides.py`). GF24 is US3's own Independent Test, stated verbatim in
+# spec.md: a composition block stating differentiated default equipment for two model groups, one
+# in a subject shape `_SUBJECTS` already resolves (`The Watch Sergeant is equipped with:`) and one
+# in a shape `_REFUSED` rejects (`One Watch Trooper is equipped with:` — the `One`/`INT`/`A`
+# subset-subject family Open Decision O1 sizes). CSV-only, following 007's GF12-GF15 precedent
+# (`fixtures/enrichment/README.md`) rather than mirroring into `wahapedia-html/` as well.
+datasheet_id|line|description|
+GF24|1|The Watch Sergeant is equipped with: signal lantern; ember blade.|
+GF24|2|One Watch Trooper is equipped with: marsh blade.|
