@@ -487,6 +487,31 @@ _DEFINITIONS: Final[tuple[FindingDefinition, ...]] = (
         "the source block could not be read on this run, or the rendered block was empty "
         "because every row was legitimately omitted; excluded from both sides of the figure",
     ),
+    # -- 008-wargear-option-completion (plan.md "New finding codes") -----------------------
+    # Two codes, both new additions to the catalogue rather than changes to an existing one
+    # (FR-001). One is advisory -- a curator override quietly outliving the production that
+    # made it redundant is editorial tidying, never a contradiction. The other blocks, on the
+    # identical terms `COV-OPTION-REGRESSION` already does: `loadout.default_equipment` joins
+    # the ratcheted set (FR-021, Clarifications 2026-08-15 Q2) and a figure that falls below
+    # the previous PUBLISHED version's percent is exactly the kind of contradiction this
+    # catalogue's two-code proportion (`004`/`006`) already reserves blocking severity for.
+    _d(
+        "OPT-OVERRIDE-REDUNDANT",
+        _REC,
+        _A,
+        "008 FR-011",
+        "a curator override resolves a row a production now resolves independently; the "
+        "override's value is published and the entry can be retired deliberately",
+    ),
+    _d(
+        "COV-EQUIPMENT-REGRESSION",
+        _COV,
+        _B,
+        "008 FR-021, spec Clarifications 2026-08-15 Q2",
+        "loadout.default_equipment fell below the previous PUBLISHED version's percent, less "
+        "the configured tolerance; the symmetric twin of COV-OPTION-REGRESSION for the second "
+        "ratcheted loadout figure",
+    ),
 )
 
 #: The catalogue, by code. The single source of truth for a finding's class and severity.

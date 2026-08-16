@@ -99,6 +99,31 @@ _SUBJECTS: Final[tuple[tuple[re.Pattern[str], EquipmentAppliesTo], ...]] = (
 _LEADING_COUNT: Final = re.compile(r"^(\d+)\s+(\S.*)$")
 
 
+# -- `008-wargear-option-completion`: everything below is appended AFTER `006`'s `_SUBJECTS` -----
+#
+# **The same ordering guarantee `options_grammar.py` carries, over one table instead of two.**
+# :func:`_match_subject` tries every `006` subject to exhaustion before it looks at
+# ``_COMPLETION_SUBJECTS``, and — the one place this module's guarantee is stricter than a mere
+# "tried last" — ``_REFUSED`` is **not moved and not modified**: it already runs before `006`'s
+# own table, so it stands between every subject `008` might add and the compound/conditional tail
+# (`Every <MODEL> with <ITEM>`, `One <MODEL>`, `INT <MODEL>`, `A <MODEL>`, `For every INT models,`,
+# `If the unit has INT models,`) on exactly the terms `options_grammar.py`'s `_EXTENDED_REFUSED`
+# stands ahead of `_COMPLETION_HEADS`. A row any prior release resolved therefore never reaches a
+# line of `008` code, and a row `_REFUSED` refuses never reaches `_COMPLETION_SUBJECTS` either —
+# Open Decision O1's option A (curator overrides for the `One`/`INT`/`A` subset-subject family)
+# depends on that second half holding exactly as much as FR-006 does.
+#
+# **Empty here** (008 Foundational task T017) — Phase 5 is blocked on T014's O1 ruling and adds
+# entries only for the subject shapes O1 authorises a production for; the subset-subject family
+# itself is routed to `curation/equipment-overrides.json` under the decided option A and gets no
+# entry here at all.
+
+#: One `008` subject production: a pattern, and the `EquipmentAppliesTo` a match resolves to —
+#: the identical shape `_SUBJECTS` already uses, so a `008` subject production is written exactly
+#: like a `006` one.
+_COMPLETION_SUBJECTS: Final[tuple[tuple[re.Pattern[str], EquipmentAppliesTo], ...]] = ()
+
+
 @dataclass(frozen=True, slots=True)
 class EquipmentItemParse:
     """One item of a sentence's list. ``weapon_line`` is linked separately, never guessed."""
@@ -156,6 +181,16 @@ def _match_subject(subject: str) -> tuple[EquipmentAppliesTo, str | None] | None
     if not subject or any(pattern.search(subject) for pattern in _REFUSED):
         return None
     for pattern, applies_to in _SUBJECTS:
+        match = pattern.match(subject)
+        if match is None:
+            continue
+        if applies_to is EquipmentAppliesTo.UNIT:
+            return applies_to, None
+        name = match.group(1).strip()
+        return (applies_to, name) if _is_name(name) else None
+    # `008`, last: reached only after every `006` subject has failed to match, and only for a
+    # subject `_REFUSED` above did not already reject.
+    for pattern, applies_to in _COMPLETION_SUBJECTS:
         match = pattern.match(subject)
         if match is None:
             continue

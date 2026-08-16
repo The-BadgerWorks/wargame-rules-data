@@ -121,6 +121,12 @@ ENRICHMENT_SEVERITIES = {
 #: unchanged; only the paperwork is owed.
 PENDING_CONTRACT_SEVERITIES = {
     "COV-WEAPON-ABILITIES-EMPTY": A,
+    # 008-wargear-option-completion (plan.md "New finding codes", tasks.md T018/T019): both new,
+    # both ahead of validation-report.md's own §3 row on the identical terms
+    # COV-WEAPON-ABILITIES-EMPTY already sits in this block for (docs/follow-ups.md item 5's
+    # precedent, extended by this feature's own follow-up entry).
+    "OPT-OVERRIDE-REDUNDANT": A,
+    "COV-EQUIPMENT-REGRESSION": B,
 }
 
 #: Transcribed by hand from 006's data-model.md §5 table and its contracts/
