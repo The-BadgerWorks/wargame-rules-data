@@ -53,7 +53,9 @@ from pipeline.validate.coverage import (
     RENDERING_EQUIVALENCE_NOT_COMPARED_KEY,
     LoadoutCoverage,
     check_coverage,
+    default_equipment_resolved_datasheets,
     loadout_coverages,
+    options_resolved_datasheets,
 )
 from pipeline.validate.equivalence import EquivalenceSummary
 from pipeline.validate.gates import (
@@ -828,3 +830,66 @@ def test_the_default_tolerance_permits_nothing(tmp_path_factory) -> None:  # typ
     assert load_config(env={"WGC_RATCHET_TOLERANCE_OPTIONS": "0.05"}).ratchet_tolerance_options == (
         0.05
     )
+
+
+# --- 008 T022 (FR-019): the two resolved-datasheet definitions do not drift ---------------------
+#
+# `loadout.options_resolved` and `loadout.default_equipment` are ESTABLISHED figures now (both
+# published across two versions before this feature). Clarifications 2026-08-15's whole premise —
+# that this release's high is a meaningful floor for the next one — depends on the two counts
+# meaning exactly what they meant when `006` shipped them. A refactor that quietly narrowed the
+# counted-state set, widened it to a hypothetical fourth state, or filtered the denominator would
+# move both coverage figures without a single line of `008` grammar changing, and nothing else in
+# this suite would catch it: every ratchet test above assumes the count it is handed already means
+# what it says.
+
+
+def test_both_loadout_figures_count_exactly_none_and_extracted() -> None:
+    """FR-019: same numerator rule `006` shipped (`NONE`/`EXTRACTED` count, `PARTIAL` does not),
+    same denominator (every published datasheet, unconditionally) -- for both loadout figures."""
+    rows = [
+        datasheet("ds-none").model_copy(
+            update={
+                "wargear_option_state": WargearOptionState.NONE,
+                "default_equipment_state": DefaultEquipmentState.NONE,
+            }
+        ),
+        datasheet("ds-extracted").model_copy(
+            update={
+                "wargear_option_state": WargearOptionState.EXTRACTED,
+                "default_equipment_state": DefaultEquipmentState.EXTRACTED,
+            }
+        ),
+        datasheet("ds-partial").model_copy(
+            update={
+                "wargear_option_state": WargearOptionState.PARTIAL,
+                "default_equipment_state": DefaultEquipmentState.PARTIAL,
+            }
+        ),
+    ]
+    snap = snapshot(datasheets=rows)
+
+    # The numerator: NONE and EXTRACTED both count, PARTIAL does not -- 2 of 3, for both figures.
+    assert options_resolved_datasheets(snap) == 2
+    assert default_equipment_resolved_datasheets(snap) == 2
+
+    # The denominator: every published datasheet, unconditionally. Neither function filters its
+    # input, so the count above is always compared against the full `len(snap.datasheets)` in
+    # `loadout_coverages`, never a subset of it.
+    assert loadout_coverages(snap)[OPTIONS_RESOLVED_KEY].total == len(rows) == 3
+    assert loadout_coverages(snap)[DEFAULT_EQUIPMENT_KEY].total == len(rows) == 3
+
+    # The counted-state set is exactly {NONE, EXTRACTED} for each enum, never PARTIAL and never a
+    # hypothetical fourth member -- both enums are closed at three (research D1e's "the fourth
+    # fact is the value's absence", carried into `008` unchanged). Neither numerator nor
+    # denominator has therefore gained a condition since `006`.
+    assert set(WargearOptionState) == {
+        WargearOptionState.NONE,
+        WargearOptionState.EXTRACTED,
+        WargearOptionState.PARTIAL,
+    }
+    assert set(DefaultEquipmentState) == {
+        DefaultEquipmentState.NONE,
+        DefaultEquipmentState.EXTRACTED,
+        DefaultEquipmentState.PARTIAL,
+    }
