@@ -50,6 +50,13 @@
      needing investigation before any ratchet decision, the org's Actions-PR-creation gap
      recurring for a second release, and the change-class guard's implication for how a future
      multi-class feature must plan its release. None resolved here; all four are forward-looking. -->
+<!-- AI-Assisted: Claude Code (model: claude-sonnet-5) - 008 T026 (Foundational phase): marked
+     item 18 discharged -- this feature planned and has so far executed its split-PR release path
+     from the first commit, exactly the discipline item 18 asked a future multi-class feature to
+     adopt. Referenced items 15, 16, and 17 as out of scope from this feature's own plan.md. Added
+     item 19, this feature's own entry: the ahead-of-contract finding codes T018/T019 added
+     (validation-report.md §3 owed an additive row, item 5's precedent) and the O2 restatement
+     T014 decided but has not yet sized (T074 owes the exact figure). -->
 # Follow-ups
 
 Open items surfaced during implementation that are deliberately **not** fixed as part of the work
@@ -726,7 +733,23 @@ credentials to a single workflow step. Until then, every candidate needs a human
 happened this release, re-open) its own PR, which is a process cost worth removing before the next
 release depends on it going smoothly under time pressure.
 
-## 18. The change-class guard means a future multi-class feature must plan its split-PR release path from the start (007)
+## 18. ~~The change-class guard means a future multi-class feature must plan its split-PR release path from the start~~ — **discharged by 008-wargear-option-completion**
+
+**Discharged, 2026-08-15 (008 T026).** `008-wargear-option-completion`'s `plan.md` names the exact
+discipline this item asked for, before a single production was written: a *Delivery sequencing*
+section stating the PR A (`pipeline/`+`tests/`) → PR B (`curation/`) → PR C (`data/`+`reports/`)
+order up front, and `tasks.md` tagging every task with the pull request it belongs to in a table
+at the top of the file, rather than discovering the split at release time. The Foundational phase
+(T015-T026) landed entirely as PR A commits, each one `pipeline/`+`tests/`-only (confirmed by
+`git status --short` before every commit in this phase — no `curation/` or `data/` file appeared
+in any diff). Whether the discipline holds all the way through Phase 7's override authoring (a
+genuinely different change class, landing later in the same feature) and the Release phase's PR
+A → B → C merge order is still open — this item is marked discharged for the *planning and
+Foundational-phase execution* the original text asked for, not for a release that has not
+happened yet. If the split turns out to fail anyway at Phase 8, that is a new, sharper follow-up
+in its own right, not a reason to reopen this one.
+
+### Original text (007)
 
 `007-loadout-display-fidelity`'s first candidate PR (#17) mixed `pipeline+tests` and `curation`
 change classes, because `candidate.yml` built the candidate branch on top of the still-unmerged
@@ -756,3 +779,31 @@ class's changes in a way that a `git diff --name-status` per commit never crosse
 boundary. `plan.md`'s own Separation gate already states the discipline in the abstract ("Delivery
 is planned as separate pull requests accordingly"); this item is the concrete lesson that "planned"
 has to mean "structured in the commit history," not just "intended."
+
+## 19. Two 008 finding codes are ahead of `validation-report.md`'s own contract row, and O2's exact restated ceiling is not sized yet (008)
+
+`008-wargear-option-completion`'s Foundational phase (T018/T019) catalogued two new finding codes
+— `OPT-OVERRIDE-REDUNDANT` (advisory) and `COV-EQUIPMENT-REGRESSION` (blocking) — in
+`pipeline/report/catalogue.py` and in `tests/unit/test_finding_catalogue.py`'s independently-
+transcribed `PENDING_CONTRACT_SEVERITIES` block, on `COV-WEAPON-ABILITIES-EMPTY`'s precedent
+(item 5 above): `validation-report.md` is Frozen (`002` accepted 2026-08-04), so adding its owed
+§3 rows for these two codes is a cross-feature versioning exercise this feature's own scope does
+not reach, exactly as item 5 was for its one code. **Not fixed here.** **Action needed**: a future
+housekeeping pass (on `006` T050's and `004` T076's own precedent of batching several owed
+contract rows into one cross-feature update) adds `OPT-OVERRIDE-REDUNDANT` and
+`COV-EQUIPMENT-REGRESSION` to `validation-report.md` §3 alongside item 5's still-outstanding
+`COV-WEAPON-ABILITIES-EMPTY` row and item 11/12's still-outstanding `pipeline-run-interface.md`
+rows, rather than four separate single-code amendments to a frozen contract.
+
+Separately: **Open Decision O2 is decided but not yet sized.** The Product Owner's 2026-08-15 T014
+ruling commits to restating SC-002 to "the measured reachable ceiling" — not to confirming the
+98% as written — on the strength of T003's conditional-blocking census, whose own low-end estimate
+(22 datasheets) already exceeds SC-002's entire 21-datasheet headroom. The *exact* restated number
+is deliberately not guessed at T014 and is not computed here either: `.impl-progress.md` records
+the decision and its reasoning, but T074's mid-campaign real-corpus dry-run — run only after every
+Phase 3-6 production is in place — is what owes the precise figure, against the productions this
+feature actually lands rather than the 2026-08-10 provisional class-share ranking. **Not fixed
+here**, because computing it now would mean guessing it. **Action needed**: T077's Product Owner
+checkpoint records the restated SC-002 value T074 measures, and `spec.md` gains it as a new
+Clarifications session at that point — this item exists so the open thread is visible between now
+and then, not lost in a Foundational-phase commit nobody revisits until Phase 8.
