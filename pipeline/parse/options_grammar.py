@@ -455,6 +455,12 @@ def _match_head(stem: str) -> tuple[_Head, int] | None:
         match = pattern.match(stem)
         if match is not None:
             return build(match), match.end()
+    # `008`, last: `_EXTENDED_REFUSED`'s early `return None` above already stands between this
+    # loop and every conditional/equipment-qualified row, exactly as it does for `_EXTENDED_HEADS`.
+    for pattern, build in _COMPLETION_HEADS:
+        match = pattern.match(stem)
+        if match is not None:
+            return build(match), match.end()
     return None
 
 
@@ -521,6 +527,12 @@ def _match_verb(stem: str, head_end: int) -> tuple[OptionVerb | None, str, str |
     if distributive is not None:
         remainder = stem[distributive.end() :].strip()
         return OptionVerb.REPLACE, remainder, distributive.group("side").strip(), True
+
+    # `008`, last: reached only after every `004` and `006` verb has failed to match.
+    for pattern, build in _COMPLETION_VERBS:
+        match = pattern.search(stem)
+        if match is not None:
+            return build(match, stem, head_end)
     return None, "", None, False
 
 
@@ -591,6 +603,45 @@ def _parse_object(text: str, verb: OptionVerb) -> OptionChoiceParse | None:
 def choice_names(parsed: OptionRowParse) -> Sequence[str]:
     """The parsed choice names, in source order — a convenience for reports and tests."""
     return [choice.name for choice in parsed.choices]
+
+
+# -- `008-wargear-option-completion`: everything below is appended AFTER every `004` AND `006` ---
+# production
+#
+# **The same ordering guarantee, extended by one more stage.** :func:`_match_head` runs `004`'s
+# table to exhaustion, then `006`'s ``_EXTENDED_HEADS`` to exhaustion, and only then looks at
+# ``_COMPLETION_HEADS``; :func:`_match_verb` runs `004`'s two verbs and `006`'s
+# ``_DISTRIBUTIVE_REPLACE`` before ``_COMPLETION_VERBS``. A row any prior release resolved
+# therefore never reaches a line of `008` code, on exactly the terms research D5 established for
+# `006` (plan.md's *Architecture*, "The ordering guarantee, restated as control flow"). This is
+# proven, not merely arranged: `tests/enrichment/test_options_grammar_ordering.py` monkeypatches
+# both tables below to entries that raise if a resolving row's path ever touches them.
+#
+# **Both tables are EMPTY here** (008 Foundational task T016) — the guarantee lands, tested,
+# before a single production exists. Phase 3 and Phase 4 only ever *append* an entry; nothing
+# about the tables' position, their being tried last, or the refusal tables ahead of them
+# (``_REFUSED``, ``_EXTENDED_REFUSED``, both already run before either table is reached and are
+# never modified here) changes when they do.
+
+#: One `008` head production: a pattern, and the builder its match is handed to — the identical
+#: shape `_EXTENDED_HEADS` already uses, so a `008` head production is written exactly like a
+#: `006` one.
+_CompletionHeadBuilder = Callable[[re.Match[str]], _Head]
+
+#: One `008` verb production: a pattern searched (not anchored) against the stem, and a builder
+#: that is handed the match, the whole stem, and the head's own match end — the same three
+#: values `_DISTRIBUTIVE_REPLACE`'s own inline handling already closes over, generalised into a
+#: table because `008` appends more than one verb shape rather than exactly one.
+_CompletionVerbBuilder = Callable[
+    [re.Match[str], str, int], tuple[OptionVerb, str, str | None, bool]
+]
+
+#: Appended after every `006` head has failed to match. Rule 5 (tasks.md): a class T001 measures
+#: at zero gets no entry here, ever.
+_COMPLETION_HEADS: Final[tuple[tuple[re.Pattern[str], _CompletionHeadBuilder], ...]] = ()
+
+#: Appended after `_DISTRIBUTIVE_REPLACE` has failed to match. Same rule 5.
+_COMPLETION_VERBS: Final[tuple[tuple[re.Pattern[str], _CompletionVerbBuilder], ...]] = ()
 
 
 def option_state(*, row_count: int, unparsed_count: int) -> WargearOptionState:
