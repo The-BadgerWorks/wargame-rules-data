@@ -5,6 +5,9 @@
 # which branch fired. Confirmed failing before T016 lands the (empty) tables into
 # `_match_head`/`_match_verb` -- `options_grammar` carries neither symbol yet, so
 # `monkeypatch.setattr` itself raises `AttributeError` on every test in this file.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - 008 US1 (T029): pinned `_COMPLETION_VERBS`'
+# three new entries by builder name and position, so a later refactor that reorders the tuple
+# fails here rather than surfacing only as a moved coverage figure.
 """FR-007's ordering guarantee, proven structurally rather than left to review.
 
 `plan.md`'s *Architecture* section states the control-flow guarantee in full: a row any prior
@@ -108,3 +111,25 @@ def test_the_resolving_population_is_non_empty() -> None:
     """
     assert _RESOLVING_FIXTURE_GOLDEN
     assert _RESOLVING_INLINE_GOLDEN
+
+
+def test_the_three_us1_productions_are_named_and_ordered_as_measured(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    """T029: T001's measured zero-group-closure order (class 3 > class 4 > class 5) is a design
+    decision, not an accident of tuple iteration. Pinning the builders by name, in order, is what
+    makes a later reorder of `_COMPLETION_VERBS` fail here — loudly, by name — rather than only
+    as a coverage figure that moved for a reason nobody wrote down.
+
+    This file's own `_completion_tables_raise_if_reached` fixture is `autouse` — every other test
+    here deliberately never sees the real table. This is the one test in the file that must, so
+    it explicitly undoes that patch first (the `monkeypatch` fixture is function-scoped, and this
+    test receives the identical instance the autouse fixture already patched with).
+    """
+    monkeypatch.undo()
+    names = [build.__name__ for _, build in options_grammar._COMPLETION_VERBS]
+    assert names == [
+        "_distributive_equip",
+        "_active_replace_per_unit",
+        "_replace_have_singular",
+    ]

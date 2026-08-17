@@ -3,6 +3,9 @@
 # clause grammar and its space-variant `<ul` forms, the unmatched head that is reported rather
 # than dropped, the never-priced "no change" choice, line-ordinal identity, and the three-state
 # rule (FR-010, FR-015, FR-016).
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - 008 US1 (T027, T028, T034): one test per
+# Phase 3 production over its own GF16-GF18 fixture row, the paired GF22 refusal tests, and the
+# card-shape identity property (US1 Acceptance Scenario 3).
 """What the option grammar promises, stated against the synthetic fixture.
 
 The load-bearing assertions here are the two negatives — an unmatched head is **reported**, and
@@ -557,3 +560,120 @@ def test_splitting_never_rewrites_the_choice_it_decomposes(
         ItemParse(name="ember lance", count=1),
         ItemParse(name="void nets", count=2),
     )
+
+
+# --- 008 US1: the three highest-yield `head_ok_no_verb` productions (T027-T029, T034) -----------
+#
+# Every case below is a row a prior release refused (`004`'s and `006`'s verb tables both fail to
+# match) and this feature's own `_COMPLETION_VERBS` now resolves. GF16-GF18's row 1 is unchanged
+# and stays covered by the layer-1 harness; row 2 of each is the new shape.
+
+
+def test_distributive_equip_resolves_a_row_004_and_006_could_not(
+    option_rows: Mapping[str, list[tuple[int, str]]],
+) -> None:
+    # GF16|2 - `Any number of Emberlight Sentry models can each be equipped with 1 ember beacon.`
+    # T030, class 3: distributive, granted only — no given-up side. The head resolves through
+    # `004`'s own bare `^Any number of\b.*\bmodels\b` (the literal word "models" is present, so
+    # `006`'s more specific `_named_subset` production is never reached) — this row's residual
+    # was always the verb, never the head, which `is_distributive=True` alone proves: it forces
+    # `is_per_model` regardless of what the (model-name-blind) `004` head itself captured.
+    parsed = parse_row(dict(option_rows["GF16"])[2])
+    assert parsed is not None
+    assert parsed.scope is OptionScope.UNIT
+    assert parsed.scope_n is None
+    assert parsed.eligible_model_name is None
+    assert parsed.is_per_model is True
+    assert choice_names(parsed) == ["ember beacon"]
+    assert [(c.count, c.is_no_change, c.verb) for c in parsed.choices] == [
+        (1, False, OptionVerb.EQUIP)
+    ]
+    assert parsed.replaced_clause is None
+
+
+def test_active_replace_per_unit_resolves_a_row_004_and_006_could_not(
+    option_rows: Mapping[str, list[tuple[int, str]]],
+) -> None:
+    # GF17|2 - `This unit can replace its signal beacon with 1 ember coil.`
+    # T031, class 4: active voice, per-unit, not distributive.
+    parsed = parse_row(dict(option_rows["GF17"])[2])
+    assert parsed is not None
+    assert parsed.scope is OptionScope.UNIT
+    assert parsed.scope_n is None
+    assert parsed.eligible_model_name is None
+    assert parsed.is_per_model is None
+    assert choice_names(parsed) == ["ember coil"]
+    assert [(c.count, c.is_no_change, c.verb) for c in parsed.choices] == [
+        (1, False, OptionVerb.REPLACE)
+    ]
+    assert parsed.replaced_clause == "its signal beacon"
+
+
+def test_non_distributive_replace_have_resolves_a_row_004_and_006_could_not(
+    option_rows: Mapping[str, list[tuple[int, str]]],
+) -> None:
+    # GF18|2 - `The Watch Sentry can have its signal flare replaced with 1 smoke charm.`
+    # T032, class 5: the non-distributive sibling of `006`'s `_DISTRIBUTIVE_REPLACE`.
+    parsed = parse_row(dict(option_rows["GF18"])[2])
+    assert parsed is not None
+    assert parsed.scope is OptionScope.UNIT
+    assert parsed.scope_n is None
+    assert parsed.eligible_model_name is None
+    assert parsed.is_per_model is None
+    assert choice_names(parsed) == ["smoke charm"]
+    assert [(c.count, c.is_no_change, c.verb) for c in parsed.choices] == [
+        (1, False, OptionVerb.REPLACE)
+    ]
+    assert parsed.replaced_clause == "its signal flare"
+
+
+@pytest.mark.parametrize("line", [1, 2, 3, 4, 5])
+def test_a_refused_row_stays_unresolved_under_every_us1_production(
+    option_rows: Mapping[str, list[tuple[int, str]]], line: int
+) -> None:
+    """T028, FR-006, R-B: GF22's five refused shape families still return `None`.
+
+    Every row here is refused before `_match_verb` ever runs — either at `parse_row`'s own
+    `_REFUSED` check (the `1 in N` and `may` rows) or at `_match_head`'s `_EXTENDED_REFUSED`
+    check (the conditional-stem, equipment-qualified-subject, and `For each` rows) — so a new
+    verb production appended to `_COMPLETION_VERBS` structurally cannot reach any of them. This
+    is the test that would catch a production written one character too greedy: if a future edit
+    ever moved a refusal check to run *after* the head/verb tables, this file would start failing
+    here rather than only in a coverage figure.
+    """
+    parsed = parse_row(dict(option_rows["GF22"])[line])
+    assert parsed is None
+
+
+def test_a_shape_fixed_once_is_fixed_for_every_clone(
+    option_rows: Mapping[str, list[tuple[int, str]]],
+) -> None:
+    """US1 Acceptance Scenario 3 (T034): the corpus repeats each of these shapes across several
+    clone datasheets (`LAND SPEEDER`, `CAPTAIN WITH JUMP PACK`, and five others, each ×6) that
+    differ only in which model and item names they name. `parse_row` takes no datasheet id, so
+    the production that resolves GF16-GF18's own row resolves every clone identically — proven
+    here by differently-named rows of the identical structural shape, not by re-parsing the same
+    string twice.
+    """
+    clones = [
+        (
+            "Any number of Watch Sentinel models can each be equipped with 1 flare rod.",
+            dict(option_rows["GF16"])[2],
+        ),
+        (
+            "This unit can replace its marker light with 1 pulse rifle.",
+            dict(option_rows["GF17"])[2],
+        ),
+        (
+            "The Marsh Warden can have its glow stave replaced with 1 fen rod.",
+            dict(option_rows["GF18"])[2],
+        ),
+    ]
+    for clone_description, fixture_description in clones:
+        clone = parse_row(clone_description)
+        fixture = parse_row(fixture_description)
+        assert clone is not None and fixture is not None
+        assert clone.scope is fixture.scope
+        assert clone.is_per_model is fixture.is_per_model
+        assert {c.verb for c in clone.choices} == {c.verb for c in fixture.choices}
+        assert (clone.replaced_clause is None) == (fixture.replaced_clause is None)

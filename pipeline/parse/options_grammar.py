@@ -6,6 +6,10 @@
 # marker at `_parse_object` and `_item` (research D4.1, guarantee 21); added the item-constraint
 # production `parse_constraint_row`/`is_constraint_shaped` against the closed two-member
 # vocabulary (research D4.2), tried by the caller only after `parse_row` has already refused a row.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - 008 US1 (T030-T032): appended the three
+# highest-yield `head_ok_no_verb` verb productions to `_COMPLETION_VERBS` — distributive equip,
+# active-voice replace per-unit, and the non-distributive `can have … replaced with` sibling of
+# `006`'s distributive production — closing the 42 zero-group datasheets / 28 card shapes.
 """Resolve one wargear-option row into a group scope and its choices.
 
 The source publishes one row per option, as free text with an optional ``<li>`` sub-list, **no
@@ -636,12 +640,77 @@ _CompletionVerbBuilder = Callable[
     [re.Match[str], str, int], tuple[OptionVerb, str, str | None, bool]
 ]
 
+# -- Phase 3 (US1, T030-T032): the three highest-yield `head_ok_no_verb` verb shapes, in T001's
+# measured zero-group-closure order (`reports/option-taxonomy/2026-08-15.md` Section (a),
+# 2026-08-10 classes 3, 4, 5 — 34, 31, and 30 rows respectively). All three reuse a head `004` or
+# `006` already carries; the residual on these rows was always the verb, never the head, which is
+# why none of them needs a `_COMPLETION_HEADS` entry.
+
+#: ``can each be equipped with`` — T030, class 3, 34 measured rows. The distributive sibling of
+#: the legacy ``_EQUIP_VERB`` ("can be equipped with"): `is_distributive` is set true exactly as
+#: `_DISTRIBUTIVE_REPLACE` sets it, and — because nothing is given up, only granted — it captures
+#: no `replaced_clause`.
+_DISTRIBUTIVE_EQUIP: Final = re.compile(r"\bcan each be equipped with\b", re.IGNORECASE)
+
+
+def _distributive_equip(
+    match: re.Match[str], stem: str, _head_end: int
+) -> tuple[OptionVerb, str, str | None, bool]:
+    """T030: ``can each be equipped with`` — distributive, no given-up side."""
+    return OptionVerb.EQUIP, stem[match.end() :].strip(), None, True
+
+
+#: ``can replace its/their … with`` — T031, class 4, 31 measured rows. Active voice, per-unit
+#: (not distributive: this shape names no ``each``). The possessive side — captured raw, with
+#: its leading determiner — is the same shape of string `_DISTRIBUTIVE_REPLACE`'s own ``side``
+#: group already hands `replaced_clause`, so `split_replaced`'s existing `_POSSESSIVE` strip
+#: removes the determiner downstream without a second production needing to know that.
+_ACTIVE_REPLACE: Final = re.compile(
+    r"\bcan replace\s+(?P<side>(?:its|their)\s+.+?)\s+with\b", re.IGNORECASE
+)
+
+
+def _active_replace_per_unit(
+    match: re.Match[str], stem: str, _head_end: int
+) -> tuple[OptionVerb, str, str | None, bool]:
+    """T031: ``can replace its/their … with`` — not distributive."""
+    return OptionVerb.REPLACE, stem[match.end() :].strip(), match.group("side").strip(), False
+
+
+#: ``can have … replaced with`` — T032, class 5, 30 measured rows. The singular sibling of
+#: `006`'s distributive ``can each have … replaced with`` (`_DISTRIBUTIVE_REPLACE`), differing
+#: from it by exactly the word ``each``. **Not distributive.** Appended after it in
+#: `_COMPLETION_VERBS` below, but the guarantee that actually protects a distributive row is
+#: `_match_verb`'s own control flow: `_DISTRIBUTIVE_REPLACE` is tried, unconditionally, before
+#: `_COMPLETION_VERBS` is even reached — so a "can each have … replaced with" row is resolved by
+#: that production and never sees this one. tasks.md calls this pair "the single most dangerous
+#: task in this list" for exactly this reason, and it is covered by three independent controls:
+#: this ordering, `tests/enrichment/test_options_grammar_ordering.py`'s monkeypatch guarantee, and
+#: the layer-1 golden (`test_options_grammar_regression.py`).
+_REPLACE_HAVE_SINGULAR: Final = re.compile(
+    r"\bcan have\s+(?P<side>.+?)\s+replaced with\b", re.IGNORECASE
+)
+
+
+def _replace_have_singular(
+    match: re.Match[str], stem: str, _head_end: int
+) -> tuple[OptionVerb, str, str | None, bool]:
+    """T032: ``can have … replaced with`` — the non-distributive sibling of `006`'s production."""
+    return OptionVerb.REPLACE, stem[match.end() :].strip(), match.group("side").strip(), False
+
+
 #: Appended after every `006` head has failed to match. Rule 5 (tasks.md): a class T001 measures
-#: at zero gets no entry here, ever.
+#: at zero gets no entry here, ever. Empty in Phase 3 — see the module note above.
 _COMPLETION_HEADS: Final[tuple[tuple[re.Pattern[str], _CompletionHeadBuilder], ...]] = ()
 
-#: Appended after `_DISTRIBUTIVE_REPLACE` has failed to match. Same rule 5.
-_COMPLETION_VERBS: Final[tuple[tuple[re.Pattern[str], _CompletionVerbBuilder], ...]] = ()
+#: Appended after `_DISTRIBUTIVE_REPLACE` has failed to match. Same rule 5. Order is T001's
+#: measured zero-group-closure order (rule 3 — never reordered by a later phase without also
+#: updating `test_options_grammar_ordering.py`'s explicit name pin, T029).
+_COMPLETION_VERBS: Final[tuple[tuple[re.Pattern[str], _CompletionVerbBuilder], ...]] = (
+    (_DISTRIBUTIVE_EQUIP, _distributive_equip),
+    (_ACTIVE_REPLACE, _active_replace_per_unit),
+    (_REPLACE_HAVE_SINGULAR, _replace_have_singular),
+)
 
 
 def option_state(*, row_count: int, unparsed_count: int) -> WargearOptionState:
