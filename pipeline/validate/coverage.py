@@ -14,6 +14,10 @@
 # rather than an inline sum, because the COV-OPTION-REGRESSION ratchet is a SECOND, stricter
 # test over the SAME count -- two independently written counts of one thing is how a report
 # and a gate end up disagreeing about whether a release regressed (006 FR-022, research D4).
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - 008 task T059: DEFAULT_EQUIPMENT_KEY joins
+# LOADOUT_RATCHETED_KEYS, on the Product Owner's 2026-08-15 two-step ruling (FR-021) -- research
+# D4's "becomes ratchetable for free the release after this one, when a baseline exists" is no
+# longer a future condition, it is this release's condition.
 """V10 — did we just publish a fraction of the release without noticing?
 
 This is the check for the failure that looks like success. A partial response, or an error page
@@ -57,19 +61,26 @@ ITEM_CONSTRAINTS_KEY: Final = "item_constraints"
 RENDERING_EQUIVALENCE_KEY: Final = "rendering_equivalence"
 RENDERING_EQUIVALENCE_NOT_COMPARED_KEY: Final = f"{RENDERING_EQUIVALENCE_KEY}_not_compared"
 
-#: Which of them the ratchet actually guards — one of two, and deliberately (research D4).
+#: Which of them the ratchet actually guards — now both loadout figures (008 FR-021,
+#: Clarifications 2026-08-15 Q2, the two-step ruling).
 #:
-#: `default_equipment` is **reported and not ratcheted in this first extended release**: no
-#: version has ever published the figure, so there is nothing to compare it against, and a
-#: first-release threshold picked to have *something* would be exactly the absolute ceiling the
-#: 2026-08-09 clarification rules out — a number that can wedge a release ahead of a parser fix.
-#: It becomes ratchetable for free the release after this one, when a baseline exists.
+#: `default_equipment` **joins `options_resolved` here in `008-wargear-option-completion`**. This
+#: row used to say the opposite — that it was "reported and not ratcheted in this first extended
+#: release", because no version had ever published the figure. That was a first-release condition,
+#: not a permanent one, and it named its own expiry: "it becomes ratchetable for free the release
+#: after this one, when a baseline exists." Two releases (`006`, `007`) have since published
+#: `loadout.default_equipment`'s percent, so the baseline research D4 was waiting for now exists,
+#: and the Product Owner's 2026-08-15 ruling turns the ratchet on — floored at the previous
+#: **published** version's percent, exactly as `options_resolved` always has been, with its own
+#: tolerance (`WGC_RATCHET_TOLERANCE_EQUIPMENT`) and its own finding code
+#: (`COV-EQUIPMENT-REGRESSION`, `check_option_ratchet`'s symmetric twin for this key).
 #:
-#: **`item_constraints` and `rendering_equivalence` are deliberately absent** (007 research D7,
-#: FR-022, PO decision 2026-08-13): both are new report-only baselines with no prior release to
-#: compare against. Adding either key here is the entire implementation of a future decision to
-#: ratchet it — nothing else about how it is computed or reported changes.
-LOADOUT_RATCHETED_KEYS: Final[tuple[str, ...]] = (OPTIONS_RESOLVED_KEY,)
+#: **`item_constraints` and `rendering_equivalence` are still deliberately absent** (007 research
+#: D7, FR-022, PO decision 2026-08-13, untouched by this feature): both are new report-only
+#: baselines with no prior release to compare against. Adding either key here is the entire
+#: implementation of a future decision to ratchet it — nothing else about how it is computed or
+#: reported changes.
+LOADOUT_RATCHETED_KEYS: Final[tuple[str, ...]] = (OPTIONS_RESOLVED_KEY, DEFAULT_EQUIPMENT_KEY)
 
 
 @dataclass(slots=True)

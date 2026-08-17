@@ -152,7 +152,7 @@ from pipeline.validate.contract_checks import (
     check_snapshot,
 )
 from pipeline.validate.coverage import (
-    OPTIONS_RESOLVED_KEY,
+    LOADOUT_RATCHETED_KEYS,
     CoverageOutcome,
     check_coverage,
     check_weapon_ability_keywords,
@@ -175,6 +175,7 @@ from pipeline.validate.gates import (
     glossary_keys,
     glossary_summaries,
     loadout_coverage_figures,
+    loadout_ratchet_tolerance_for,
     max_chars_for,
     summary_coverage_figures,
     tolerance_for,
@@ -549,8 +550,8 @@ def _loadout_findings_and_coverage(
     config: PipelineConfig,
     equivalence: EquivalenceSummary | None = None,
 ) -> tuple[list[Finding], dict[str, CoverageFigure]]:
-    """`006`'s two report rows plus `007`'s two new ones, and the ratchet over the one guarded
-    figure (FR-022).
+    """`006`'s two report rows plus `007`'s two new ones, and the ratchet over both guarded
+    figures (`006` FR-022, `008` FR-021).
 
     Beside :func:`_summary_findings_and_coverage` and not inside it, because the two answer
     different questions. That one measures an editorial backlog a curator works through; this
@@ -560,21 +561,32 @@ def _loadout_findings_and_coverage(
     ``equivalence`` is `None` on every call site that has no source text in scope (`run_validate`,
     or a `run_build` with the check disabled) — read by `loadout_coverages` as "not measured this
     run," which omits the figure rather than reporting a false 100% (007 T001, T053).
+
+    Iterates :data:`~pipeline.validate.coverage.LOADOUT_RATCHETED_KEYS` rather than naming
+    ``OPTIONS_RESOLVED_KEY`` (008 T060): `default_equipment` joined the ratcheted set on the
+    2026-08-15 two-step ruling, and each figure carries its own tolerance
+    (:func:`~pipeline.validate.gates.loadout_ratchet_tolerance_for`) so a campaign can configure
+    the two ratchets independently.
     """
     coverages = loadout_coverages(snapshot, equivalence=equivalence)
     previous_percent = prior.loadout_ratio_percent if prior else {}
     previous_count = prior.loadout_resolved_count if prior else {}
+    tolerances = {key: loadout_ratchet_tolerance_for(key, config) for key in LOADOUT_RATCHETED_KEYS}
 
-    findings = check_option_ratchet(
-        coverages[OPTIONS_RESOLVED_KEY],
-        previous_percent=previous_percent.get(OPTIONS_RESOLVED_KEY),
-        tolerance=config.ratchet_tolerance_options,
-    )
+    findings: list[Finding] = []
+    for key in LOADOUT_RATCHETED_KEYS:
+        findings.extend(
+            check_option_ratchet(
+                coverages[key],
+                previous_percent=previous_percent.get(key),
+                tolerance=tolerances[key],
+            )
+        )
     figures = loadout_coverage_figures(
         coverages,
         previous_count=previous_count,
         previous_percent=previous_percent,
-        tolerance=config.ratchet_tolerance_options,
+        tolerances=tolerances,
     )
     return findings, figures
 

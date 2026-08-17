@@ -7,6 +7,14 @@
 # missing baseline never blocks, a fall past the tolerance blocks, an improvement and a hold never
 # do, a rejected candidate never moves the baseline, and loadout.default_equipment is reported
 # without being ratcheted (006 FR-022, research D4).
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - Added the 008 T056-T058/T063 suite for the
+# 2026-08-15 two-step ruling: FR-020's no-op proof that the floor is the previous PUBLISHED
+# percent and never the candidate's own figure, COV-EQUIPMENT-REGRESSION as check_option_ratchet's
+# symmetric twin (FR-021), the updated LOADOUT_RATCHETED_KEYS membership (both figures in,
+# item_constraints/rendering_equivalence still out, 007 FR-022 untouched), and the
+# deliberately-regressed-candidate proof that the ratchet refuses through the SAME `_verdict`
+# mechanism every other blocking finding uses (FR-015, SC-007). Confirmed failing before
+# pipeline/validate/gates.py knew COV-EQUIPMENT-REGRESSION or the per-key tolerance plumbing.
 """A gate selects a code. It never selects a severity, and it never selects another class's.
 
 This is the single most important rule in `contracts/authored-summary-gates.md`, and the reason
@@ -27,14 +35,16 @@ from pathlib import Path
 
 import pytest
 
-from pipeline.cli import run_build
+from pipeline.cli import _verdict, run_build
 from pipeline.config import Gate, load_config
 from pipeline.curate.authored import load_authored
 from pipeline.curate.prior import (
+    PriorSnapshot,
     previous_loadout_coverage,
     previous_summary_coverage,
     prior_from_snapshot,
 )
+from pipeline.exit_codes import ExitCode
 from pipeline.models.authored import ReviewState, SummaryClass
 from pipeline.models.curated import (
     CuratedItemConstraint,
@@ -65,6 +75,7 @@ from pipeline.validate.gates import (
     check_summary_ratchet,
     class_coverage,
     faction_rule_keys,
+    loadout_coverage_figures,
 )
 from tests.enrichment.test_class_state_machine import KEYS, record
 from tests.factories import datasheet, faction, snapshot
@@ -520,17 +531,23 @@ def test_an_empty_option_denominator_is_complete_rather_than_zero() -> None:
     assert _loadout(0, 0).ratio_percent == 100
 
 
-def test_default_equipment_is_reported_and_never_ratcheted(tmp_path: Path) -> None:
-    """Research D4: there is nothing yet to compare it against.
+def test_the_ratcheted_key_set_is_both_loadout_figures_now(tmp_path: Path) -> None:
+    """008 T058 supersedes the 006-era claim this test used to make.
 
-    Inventing a first-release threshold for it would be exactly the absolute ceiling the
-    2026-08-09 clarification rules out — a figure that can wedge a release ahead of a parser fix.
-    It gets a report row (T039) and no gate.
+    Research D4's "`default_equipment` carries no ratchet" state was explicitly a FIRST-release
+    condition — `coverage.py`'s own pre-008 comment said it becomes ratchetable "for free the
+    release after this one, when a baseline exists". Two releases later (006, 007 both published
+    the figure), `default_equipment` joins `options_resolved` in the ratcheted set on the
+    2026-08-15 two-step ruling's terms (FR-021). `item_constraints` and `rendering_equivalence`
+    are untouched — `007` FR-022, PO decision 2026-08-13, and this feature does not reopen it.
     """
     _write_previous_report(tmp_path, "prev", {"loadout.default_equipment": (900, 90)})
 
     assert previous_loadout_coverage(tmp_path, "prev") == {"default_equipment": (900, 90)}
-    assert LOADOUT_RATCHETED_KEYS == (OPTIONS_RESOLVED_KEY,)
+    assert set(LOADOUT_RATCHETED_KEYS) == {OPTIONS_RESOLVED_KEY, DEFAULT_EQUIPMENT_KEY}
+    assert ITEM_CONSTRAINTS_KEY not in LOADOUT_RATCHETED_KEYS
+    assert RENDERING_EQUIVALENCE_KEY not in LOADOUT_RATCHETED_KEYS
+    assert RENDERING_EQUIVALENCE_NOT_COMPARED_KEY not in LOADOUT_RATCHETED_KEYS
 
 
 # --- the baseline: the previous PUBLISHED version, never the previous candidate ------------------
@@ -893,3 +910,135 @@ def test_both_loadout_figures_count_exactly_none_and_extracted() -> None:
         DefaultEquipmentState.EXTRACTED,
         DefaultEquipmentState.PARTIAL,
     }
+
+
+# --- 008 T056 (FR-020): the two-step ratchet's no-op half ---------------------------------------
+#
+# `check_option_ratchet` already floors on the previous PUBLISHED report and never on the
+# candidate's own figure -- `tasks.md` calls FR-020 "a test with no production change" for exactly
+# this reason. This is that test: a candidate reporting 99% floors at 92%, the PRIOR release's own
+# published percent, not 99 or any function of it.
+
+
+def test_the_floor_is_the_previous_published_percent_never_the_candidates_own_figure() -> None:
+    """FR-020, confirmed PASSING as written, before this phase touches a production line.
+
+    A no-op test that has never failed is only worth having if it says why: `check_option_ratchet`
+    and `loadout_coverage_figures` both read the floor from `previous_percent`, which comes from
+    the previous release's *retained* `report.json` (`PriorSnapshot.loadout_ratio_percent`) —
+    never from `coverage.ratio_percent`, the figure this run itself computed. A refactor that
+    turned the ratchet into a self-comparison (a floor derived from the candidate's own number)
+    would fail here, on a candidate whose own figure (99) is deliberately HIGHER than the prior
+    release's (92) so the two floors are trivially distinguishable.
+    """
+    prior = PriorSnapshot(
+        rules_version_id="v-prev",
+        loadout_ratio_percent={OPTIONS_RESOLVED_KEY: 92},
+        loadout_resolved_count={OPTIONS_RESOLVED_KEY: 920},
+    )
+    coverage = _loadout(990, 1000)  # this candidate's own figure: 99%
+    assert coverage.ratio_percent == 99
+
+    figures = loadout_coverage_figures(
+        {OPTIONS_RESOLVED_KEY: coverage},
+        previous_count=prior.loadout_resolved_count,
+        previous_percent=prior.loadout_ratio_percent,
+        tolerances={OPTIONS_RESOLVED_KEY: 0.0},
+    )
+
+    assert figures["loadout.options_resolved"].threshold == 0.92
+    assert check_option_ratchet(coverage, previous_percent=92, tolerance=0.0) == []
+
+
+# --- 008 T057 (FR-021): COV-EQUIPMENT-REGRESSION, check_option_ratchet's symmetric twin ---------
+
+
+def _equipment_loadout(resolved: int, total: int) -> LoadoutCoverage:
+    return _loadout(resolved, total, key=DEFAULT_EQUIPMENT_KEY)
+
+
+def test_an_equipment_fall_below_the_previous_published_percent_blocks() -> None:
+    coverage = _equipment_loadout(90, 100)
+
+    findings = check_option_ratchet(coverage, previous_percent=97, tolerance=0.0)
+
+    assert [f.finding_code for f in findings] == ["COV-EQUIPMENT-REGRESSION"]
+    assert findings[0].severity is Severity.BLOCKING
+    assert findings[0].severity is CATALOGUE["COV-EQUIPMENT-REGRESSION"].severity
+    assert findings[0].entity_refs == ("coverage:loadout.default_equipment",)
+
+
+def test_holding_the_previous_equipment_percent_exactly_is_never_a_regression() -> None:
+    """The boundary, on the equipment figure's own terms — 97 stays 97."""
+    assert (
+        check_option_ratchet(_equipment_loadout(97, 100), previous_percent=97, tolerance=0.0) == []
+    )
+
+
+def test_an_equipment_improvement_is_never_a_regression() -> None:
+    assert (
+        check_option_ratchet(_equipment_loadout(98, 100), previous_percent=97, tolerance=0.0) == []
+    )
+
+
+def test_the_edge_of_the_equipment_tolerance_is_inside_it() -> None:
+    assert (
+        check_option_ratchet(_equipment_loadout(95, 100), previous_percent=97, tolerance=0.02) == []
+    )
+    assert (
+        check_option_ratchet(_equipment_loadout(94, 100), previous_percent=97, tolerance=0.02) != []
+    )
+
+
+def test_an_equipment_class_with_no_previously_published_figure_cannot_regress() -> None:
+    """`None` — a first release, or one predating this feature — has nothing to fall from."""
+    assert (
+        check_option_ratchet(_equipment_loadout(0, 100), previous_percent=None, tolerance=0.0) == []
+    )
+
+
+def test_the_equipment_regression_detail_carries_integer_percents_only() -> None:
+    """The canonical scalar set excludes floats, on the equipment figure exactly as on options."""
+    finding = check_option_ratchet(_equipment_loadout(90, 100), previous_percent=97, tolerance=0.0)[
+        0
+    ]
+
+    assert finding.detail == {
+        "figure": "loadout.default_equipment",
+        "previous_ratio_percent": 97,
+        "current_ratio_percent": 90,
+        "tolerance_percent": 0,
+    }
+    assert all(isinstance(v, int) for k, v in finding.detail.items() if k != "figure")
+
+
+def test_the_default_equipment_tolerance_permits_nothing() -> None:
+    """`WGC_RATCHET_TOLERANCE_EQUIPMENT` defaults to 0.00, like every `WGC_RATCHET_TOLERANCE_*`
+    variable before it (T020, Foundational phase)."""
+    assert load_config(env={}).ratchet_tolerance_equipment == 0.0
+    assert (
+        load_config(env={"WGC_RATCHET_TOLERANCE_EQUIPMENT": "0.05"}).ratchet_tolerance_equipment
+        == 0.05
+    )
+
+
+# --- 008 T063 (FR-015, SC-007): the deliberately-regressed candidate -----------------------------
+
+
+def test_a_regressed_candidate_is_refused_through_the_existing_blocking_mechanism() -> None:
+    """A datasheet publishing fewer resolved option groups than the prior published version is
+    refused by `COV-OPTION-REGRESSION`, through the SAME `_verdict` machinery every other
+    blocking finding uses — `Severity.BLOCKING` read out of the catalogue, not a bespoke
+    refusal path invented for this ratchet. No new exit code, no new mechanism."""
+    findings = check_option_ratchet(_loadout(30, 100), previous_percent=40, tolerance=0.0)
+
+    assert [f.finding_code for f in findings] == ["COV-OPTION-REGRESSION"]
+    assert _verdict(findings) is ExitCode.BLOCKING
+
+
+def test_an_equipment_regressed_candidate_is_refused_the_same_way() -> None:
+    """FR-021's twin case: the equipment figure refuses through the identical mechanism."""
+    findings = check_option_ratchet(_equipment_loadout(30, 100), previous_percent=40, tolerance=0.0)
+
+    assert [f.finding_code for f in findings] == ["COV-EQUIPMENT-REGRESSION"]
+    assert _verdict(findings) is ExitCode.BLOCKING

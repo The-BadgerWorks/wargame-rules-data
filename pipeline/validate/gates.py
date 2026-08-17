@@ -12,6 +12,13 @@
 # the two loadout coverage rows (006 task T038): check_summary_ratchet's shape reused for a
 # figure that is not an authored class, comparing PERCENTS against the previous PUBLISHED
 # version where the collapse check compares counts against a configured floor.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - 008 task T060: generalised
+# check_option_ratchet over both ratcheted loadout figures -- one function, a per-figure finding
+# code selected by the coverage's own key (COV-OPTION-REGRESSION / COV-EQUIPMENT-REGRESSION),
+# exactly the way gate_for/tolerance_for already select a summary class's own gate/tolerance by
+# its own identity. loadout_coverage_figures now takes a tolerance PER ratcheted key rather than
+# one shared scalar, so a release that configures the two ratchets' tolerances differently gets a
+# report threshold column that agrees with what the gate actually enforced (FR-021).
 """V7, generalised — every authored summary class, one gate mechanism.
 
 **A gate selects a code. It never selects a severity.** That single sentence is why this module
@@ -51,6 +58,7 @@ from __future__ import annotations
 
 from collections.abc import Mapping, Sequence
 from dataclasses import dataclass, field
+from typing import Final
 
 from pipeline.config import Gate, PipelineConfig
 from pipeline.curate.prior import LOADOUT_COVERAGE_PREFIX
@@ -70,7 +78,12 @@ from pipeline.models.curated import ArmyRuleState, CuratedSnapshot, KeywordClass
 from pipeline.models.findings import CoverageFigure, Finding
 from pipeline.normalize.keyword_key import keyword_key
 from pipeline.report.catalogue import build_finding
-from pipeline.validate.coverage import LOADOUT_RATCHETED_KEYS, LoadoutCoverage
+from pipeline.validate.coverage import (
+    DEFAULT_EQUIPMENT_KEY,
+    LOADOUT_RATCHETED_KEYS,
+    OPTIONS_RESOLVED_KEY,
+    LoadoutCoverage,
+)
 
 #: The blocking code a gated-on class emits for each reason an entry lacks an approved summary.
 #: Kept distinct because a curator reading the report needs to know which one to act on:
@@ -272,10 +285,27 @@ def check_summary_ratchet(
     return findings
 
 
+#: Which finding code each ratcheted loadout figure raises on regression — one function over both
+#: figures (008 T060), the code selected by the coverage's own ``key`` rather than by a boolean or
+#: a second function the caller has to remember to call. A separate code per figure rather than a
+#: shared one with a ``figure`` detail, so an alerting rule can tell which figure moved without
+#: parsing a payload (plan.md "New finding codes", FR-021).
+_RATCHET_FINDING_CODE: Final[Mapping[str, str]] = {
+    OPTIONS_RESOLVED_KEY: "COV-OPTION-REGRESSION",
+    DEFAULT_EQUIPMENT_KEY: "COV-EQUIPMENT-REGRESSION",
+}
+
+
 def check_option_ratchet(
     coverage: LoadoutCoverage, *, previous_percent: int | None, tolerance: float
 ) -> list[Finding]:
-    """``COV-OPTION-REGRESSION`` — resolved-option coverage must not fall (`006` FR-022).
+    """``COV-OPTION-REGRESSION`` / ``COV-EQUIPMENT-REGRESSION`` — resolved-loadout coverage must
+    not fall (`006` FR-022, `008` FR-021, Clarifications 2026-08-15 Q2's two-step ruling).
+
+    One function over **both** ratcheted loadout figures. ``coverage.key`` selects the finding
+    code from :data:`_RATCHET_FINDING_CODE`, exactly the way :func:`gate_for` and
+    :func:`tolerance_for` already select a summary class's own gate and tolerance by the class's
+    own identity rather than by a second code path the caller has to keep in sync.
 
     A **second, stricter test over the counts the collapse check already computes**, and the two
     are not redundant. ``validate/coverage.py``'s ``wargear_options`` row compares this version's
@@ -292,11 +322,13 @@ def check_option_ratchet(
         previous_percent: the previously **published** version's percent, read back from its
             retained `report.json`. ``None`` — a first release, or a release predating this
             feature — cannot regress, which is what makes the ratchet safe to introduce
-            mid-campaign rather than needing a seeded baseline.
-        tolerance: ``WGC_RATCHET_TOLERANCE_OPTIONS``, as a ratio. There is deliberately **no**
-            absolute threshold knob beside it: a floor is exactly the ceiling the clarification
-            rules out, since it would let source-wording drift wedge a release ahead of a parser
-            fix.
+            mid-campaign rather than needing a seeded baseline. This is FR-020's two-step rule
+            made literal: the floor is always the previous *published* figure, never a function
+            of the candidate's own.
+        tolerance: ``WGC_RATCHET_TOLERANCE_OPTIONS`` or ``WGC_RATCHET_TOLERANCE_EQUIPMENT``,
+            matching ``coverage.key``, as a ratio. There is deliberately **no** absolute threshold
+            knob beside either: a floor is exactly the ceiling the clarification rules out, since
+            it would let source-wording drift wedge a release ahead of a parser fix.
     """
     if previous_percent is None:
         return []
@@ -305,7 +337,7 @@ def check_option_ratchet(
         return []
     return [
         build_finding(
-            "COV-OPTION-REGRESSION",
+            _RATCHET_FINDING_CODE[coverage.key],
             entity_refs=[f"coverage:{LOADOUT_COVERAGE_PREFIX}{coverage.key}"],
             detail={
                 "figure": f"{LOADOUT_COVERAGE_PREFIX}{coverage.key}",
@@ -317,24 +349,47 @@ def check_option_ratchet(
     ]
 
 
+def loadout_ratchet_tolerance_for(key: str, config: PipelineConfig) -> float:
+    """The ratcheted loadout figure's own tolerance (008 FR-021).
+
+    ``options_resolved`` and ``default_equipment`` are configured independently
+    (``WGC_RATCHET_TOLERANCE_OPTIONS`` / ``WGC_RATCHET_TOLERANCE_EQUIPMENT``) — the same
+    one-knob-per-figure shape :func:`tolerance_for` already gives the four authored summary
+    classes, so a campaign can tune how much slack each figure gets without the two moving
+    together.
+    """
+    if key == DEFAULT_EQUIPMENT_KEY:
+        return config.ratchet_tolerance_equipment
+    return config.ratchet_tolerance_options
+
+
 def loadout_coverage_figures(
     coverages: Mapping[str, LoadoutCoverage],
     *,
     previous_count: Mapping[str, int],
     previous_percent: Mapping[str, int],
-    tolerance: float,
+    tolerances: Mapping[str, float],
 ) -> dict[str, CoverageFigure]:
-    """The two ``loadout.<figure>`` rows of the report's coverage block (`006` data-model.md §5).
+    """Every ``loadout.<figure>`` row of the report's coverage block (`006` data-model.md §5).
 
-    Both figures are reported; only :data:`~pipeline.validate.coverage.LOADOUT_RATCHETED_KEYS` is
+    Every figure is reported; only :data:`~pipeline.validate.coverage.LOADOUT_RATCHETED_KEYS` is
     guarded. An unratcheted row states ``threshold`` ``0.0``, which is the truthful reading —
     nothing refuses a release over it — rather than a floor nobody enforces, and an approver can
     tell the two apart in the block itself without knowing the tolerance configuration.
+
+    ``tolerances`` is **per ratcheted key** (008 FR-021) rather than one shared scalar: since
+    `default_equipment` joined the ratcheted set on its own ``WGC_RATCHET_TOLERANCE_EQUIPMENT``
+    configuration variable, a single float here would apply `options_resolved`'s tolerance to
+    `default_equipment`'s floor whenever the two were ever configured differently — a report
+    column that disagreed with what :func:`check_option_ratchet` actually enforced. A key absent
+    from the mapping (or a key that is not ratcheted at all) floors on ``0.0``, matching every
+    tolerance variable's own default.
     """
     figures: dict[str, CoverageFigure] = {}
     for key, coverage in coverages.items():
         ratcheted = key in LOADOUT_RATCHETED_KEYS
         baseline = previous_percent.get(key) if ratcheted else None
+        tolerance = tolerances.get(key, 0.0) if ratcheted else 0.0
         floor = 0 if baseline is None else max(baseline - round(100 * tolerance), 0)
         figures[f"{LOADOUT_COVERAGE_PREFIX}{key}"] = CoverageFigure(
             current=coverage.resolved,
