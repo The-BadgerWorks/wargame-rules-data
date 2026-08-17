@@ -1,0 +1,56 @@
+[
+  {
+    "faction_slug": "black-templars",
+    "declared_at": "2026-08-17",
+    "reason": "detail source page unreachable (404) on direct probe; absent from the live sitemap",
+    "note": "Product Owner decision 2026-08-17, following 008 T074's dry-run finding"
+  },
+  {
+    "faction_slug": "blood-angels",
+    "declared_at": "2026-08-17",
+    "reason": "detail source page unreachable (404) on direct probe; absent from the live sitemap",
+    "note": "Product Owner decision 2026-08-17, following 008 T074's dry-run finding"
+  },
+  {
+    "faction_slug": "chaos-titan-legions",
+    "declared_at": "2026-08-17",
+    "reason": "detail source page unreachable (404) on direct probe; absent from the live sitemap",
+    "note": "Product Owner decision 2026-08-17, following 008 T074's dry-run finding"
+  },
+  {
+    "faction_slug": "dark-angels",
+    "declared_at": "2026-08-17",
+    "reason": "detail source page unreachable (404) on direct probe; absent from the live sitemap",
+    "note": "Product Owner decision 2026-08-17, following 008 T074's dry-run finding"
+  },
+  {
+    "faction_slug": "deathwatch",
+    "declared_at": "2026-08-17",
+    "reason": "detail source page unreachable (404) on direct probe; absent from the live sitemap",
+    "note": "Product Owner decision 2026-08-17, following 008 T074's dry-run finding"
+  },
+  {
+    "faction_slug": "emperors-children",
+    "declared_at": "2026-08-17",
+    "reason": "detail source page unreachable (404) on direct probe; absent from the live sitemap",
+    "note": "Product Owner decision 2026-08-17, following 008 T074's dry-run finding"
+  },
+  {
+    "faction_slug": "space-wolves",
+    "declared_at": "2026-08-17",
+    "reason": "detail source page unreachable (404) on direct probe; absent from the live sitemap",
+    "note": "Product Owner decision 2026-08-17, following 008 T074's dry-run finding"
+  },
+  {
+    "faction_slug": "tau-empire",
+    "declared_at": "2026-08-17",
+    "reason": "detail source page unreachable (404) on direct probe; absent from the live sitemap",
+    "note": "Product Owner decision 2026-08-17, following 008 T074's dry-run finding"
+  },
+  {
+    "faction_slug": "titan-legions",
+    "declared_at": "2026-08-17",
+    "reason": "detail source page unreachable (404) on direct probe; absent from the live sitemap",
+    "note": "Product Owner decision 2026-08-17, following 008 T074's dry-run finding"
+  }
+]
