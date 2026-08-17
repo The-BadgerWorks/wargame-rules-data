@@ -512,6 +512,36 @@ _DEFINITIONS: Final[tuple[FindingDefinition, ...]] = (
         "the configured tolerance; the symmetric twin of COV-OPTION-REGRESSION for the second "
         "ratcheted loadout figure",
     ),
+    # -- 008-wargear-option-completion, Phase 8a (FR-024/FR-025, Product Owner decision
+    # 2026-08-17) -- the per-faction carry-forward mechanism T074's dry-run surfaced the need
+    # for: a declared faction whose page cannot be fetched no longer fails the whole sweep, but
+    # every such substitution is visible rather than silent (FR-025's own wording).
+    _d(
+        "SRC-FACTION-CARRIED-FORWARD",
+        _REC,
+        _A,
+        "008 FR-024/FR-025",
+        "a declared faction (curation/carried-forward-factions.json) could not be fetched this "
+        "run; its datasheets are sourced unchanged from the previous published version instead "
+        "of blocking the sweep. Detail names the faction slug and the version frozen from",
+    ),
+    _d(
+        "SRC-FACTION-CARRY-FORWARD-UNUSED",
+        _REC,
+        _A,
+        "008 FR-024",
+        "a faction declared in curation/carried-forward-factions.json was fetched live "
+        "successfully this run; the declaration was not needed and a curator may retire it",
+    ),
+    _d(
+        "SRC-FACTION-CARRY-FORWARD-NO-PRIOR",
+        _REC,
+        _B,
+        "008 FR-024/FR-008",
+        "a declared faction could not be fetched this run AND has no previous published data to "
+        "carry forward from; there is nothing to substitute, so this blocks exactly as an "
+        "undeclared unreachable faction would (FR-008 unweakened for a first-release faction)",
+    ),
 )
 
 #: The catalogue, by code. The single source of truth for a finding's class and severity.

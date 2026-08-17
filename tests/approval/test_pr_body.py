@@ -204,3 +204,48 @@ def test_the_option_regression_link_is_stated_even_for_a_clean_report() -> None:
     only when the file did would quietly turn "nobody ran it" into "there was nothing to say".
     """
     assert "option-regression.md" in render_pr_body(_report_json(coverage={}))
+
+
+# -- carried-forward factions (008 FR-025, Product Owner decision 2026-08-17) --------------------
+
+
+def _carried_forward_finding(**overrides):  # type: ignore[no-untyped-def]
+    base = {
+        "finding_code": "SRC-FACTION-CARRIED-FORWARD",
+        "finding_class": "reconciliation",
+        "severity": "advisory",
+        "entity_refs": ["faction:f-tau-empire"],
+        "detail": {
+            "faction_id": "f-tau-empire",
+            "faction_slug": "tau-empire",
+            "frozen_at_version": "wh40k-11e-2026-08-3",
+            "datasheets_carried": 42,
+        },
+    }
+    base.update(overrides)
+    return base
+
+
+def test_a_carried_faction_gets_its_own_prominent_section() -> None:
+    body = render_pr_body(_report_json(findings=[_carried_forward_finding()]))
+    section = body.split("## Carried-forward factions", 1)[1].split("##", 1)[0]
+    assert "f-tau-empire" in section
+    assert "wh40k-11e-2026-08-3" in section
+    assert "42" in section
+
+
+def test_an_unused_declaration_is_named_separately_from_a_carried_one() -> None:
+    unused = _carried_forward_finding(
+        finding_code="SRC-FACTION-CARRY-FORWARD-UNUSED",
+        detail={"faction_id": "f-tau-empire", "faction_slug": "tau-empire"},
+    )
+    body = render_pr_body(_report_json(findings=[unused]))
+    section = body.split("## Carried-forward factions", 1)[1].split("##", 1)[0]
+    assert "not needed this run" in section
+    assert "tau-empire" in section
+
+
+def test_no_carried_forward_section_when_nothing_was_substituted() -> None:
+    """Absence is itself the signal — a clean report with no declarations active gets no section
+    at all, the same discipline the option-regression link's own test file documents."""
+    assert "Carried-forward factions" not in render_pr_body(_report_json())

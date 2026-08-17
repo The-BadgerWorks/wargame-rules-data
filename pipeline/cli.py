@@ -79,9 +79,17 @@ from pipeline.build.bundle_emit import BundleMeta, emit_bundle
 from pipeline.build.canonical_json import encode_bundle, write_bundle
 from pipeline.build.checksum import BundleChecksum, checksum
 from pipeline.build.manifest import ManifestError
-from pipeline.config import Channel, ConfigError, PipelineConfig, load_config, repo_root
+from pipeline.config import (
+    Channel,
+    ConfigError,
+    DetailAcquisitionMode,
+    PipelineConfig,
+    load_config,
+    repo_root,
+)
 from pipeline.curate.assemble import assemble
 from pipeline.curate.authored import AuthoredContent, load_authored
+from pipeline.curate.carry_forward import apply_carried_forward
 from pipeline.curate.prior import PriorSnapshot, load_prior, read_curated_tree
 from pipeline.curate.summaries import (
     compute_current_digests,
@@ -738,6 +746,13 @@ def run_build(  # noqa: PLR0913 - the stage boundary is the argument list
         else root / "curation"
     )
 
+    # Loaded before acquisition, not after (008 FR-024): the html detail arm needs the declared
+    # carry-forward slug set *before* it decides which faction pages to attempt, so a curator's
+    # declaration in curation/carried-forward-factions.json has to be in hand first. Neither
+    # `load_authored` nor a curation-dir read touches the network, so moving it earlier costs
+    # nothing and changes no other stage's inputs.
+    authored = load_authored(authored_dir)
+
     with workspace(root) as work:
         points_acq, points_payloads = acquire_mfm(
             config, fixtures_dir=fixtures_dir, offline=offline
@@ -746,7 +761,11 @@ def run_build(  # noqa: PLR0913 - the stage boundary is the argument list
         # nothing can tell whether the detail source was the bulk export or the current-edition
         # datacard pages, because what it receives is the same shape either way (research D1d).
         detail_acq, detail_payloads = acquire_detail(
-            config, fixtures_dir=fixtures_dir, offline=offline, workspace=work
+            config,
+            fixtures_dir=fixtures_dir,
+            offline=offline,
+            workspace=work,
+            carried_forward_slugs=authored.carried_forward_slugs,
         )
 
         pages = [
@@ -758,8 +777,6 @@ def run_build(  # noqa: PLR0913 - the stage boundary is the argument list
         findings: list[Finding] = []
         for result in detail.values():
             findings.extend(result.findings)
-
-        authored = load_authored(authored_dir)
 
         assembly = assemble(
             pages=pages,
@@ -811,6 +828,34 @@ def run_build(  # noqa: PLR0913 - the stage boundary is the argument list
     # The same checkout `prior` is projected from, read whole: the five enrichment categories
     # compare structures the cost projection does not carry (FR-037). `None` on a first release.
     previous_tree = read_curated_tree(baseline_root / "data" / EDITION_CODE)
+
+    # 008 FR-024/FR-025 (Product Owner decision 2026-08-17): splice in every declared faction the
+    # acquisition layer could not fetch this run, from `previous_tree` — BEFORE reconciliation, so
+    # a carried faction's datasheets read as "present, unchanged" to every coverage figure below,
+    # structurally rather than via a coverage.py special case. No-op when nothing was declared.
+    # Which declared slug landed which way is derived here, from the payloads actually returned —
+    # `SourceAcquisition.coverage` carries only counts (it is `Mapping[str, int]`, feeding FR-009's
+    # figures), never slugs, so this is the one place that needs the two sets and the one place
+    # cheap enough to compute them in. **html mode only**: a csv-mode payload's `name` is a file
+    # name (`Datasheets.csv`), never a faction slug, so a declaration would falsely read as
+    # "carried" for every entry under any other mode — carry-forward has no meaning where there is
+    # no per-faction page to fail in the first place.
+    if config.detail_acquisition_mode is DetailAcquisitionMode.HTML:
+        fetched_slugs = frozenset(payload.name for payload in detail_payloads)
+        carried_slugs = authored.carried_forward_slugs - fetched_slugs
+        unused_slugs = authored.carried_forward_slugs & fetched_slugs
+    else:
+        carried_slugs = frozenset()
+        unused_slugs = frozenset()
+    snapshot, carry_forward_findings = apply_carried_forward(
+        snapshot,
+        previous_tree=previous_tree,
+        carried_slugs=carried_slugs,
+        unused_declaration_slugs=unused_slugs,
+        previous_version_id=(prior.rules_version_id if prior else None) or "(none)",
+    )
+    findings.extend(carry_forward_findings)
+
     snapshot, prior_findings, coverage, sub_reports = _reconcile_against_prior(
         snapshot,
         prior=prior,

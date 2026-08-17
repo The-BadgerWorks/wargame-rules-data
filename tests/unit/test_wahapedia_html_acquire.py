@@ -180,6 +180,103 @@ def test_a_page_that_does_not_answer_is_a_failed_sweep(httpx_mock: HTTPXMock) ->
         acquire_wahapedia_html(_config(), client=client)
 
 
+# -- carry-forward (008 FR-024/FR-025, Product Owner decision 2026-08-17) ------------------------
+#
+# A declared faction's page failing no longer fails the whole sweep; an UNDECLARED one still does,
+# on the identical terms `test_a_page_that_does_not_answer_is_a_failed_sweep` above already proves
+# for the no-declarations-at-all case. Written against a stashed-out `carried_forward_slugs`
+# parameter first — confirmed failing (`TypeError: unexpected keyword argument`) — then restored.
+
+
+def test_a_declared_faction_absent_from_the_sitemap_is_still_attempted(
+    httpx_mock: HTTPXMock,
+) -> None:
+    """The exact gap 008's T074 dry-run found: a slug the sitemap does not list, but whose page
+    is still live. A declared slug is attempted even though `enumerate_faction_slugs` never
+    named it."""
+    _serve(httpx_mock)
+    extra = "delta-remnant"
+    httpx_mock.add_response(url=f"{BASE}/{FACTION_PAGE.format(slug=extra)}", text="<html></html>")
+
+    with _client(_config(), Recorder()) as client:
+        acquisition, payloads = acquire_wahapedia_html(
+            _config(), client=client, carried_forward_slugs=frozenset({extra})
+        )
+
+    assert {p.name for p in payloads} == {*SLUGS, extra}
+    assert acquisition.coverage["faction_pages"] == len(SLUGS) + 1
+
+
+def test_a_declared_unreachable_faction_is_skipped_not_refused(httpx_mock: HTTPXMock) -> None:
+    httpx_mock.add_response(url=ROBOTS, text=ALLOW_ALL, is_reusable=True)
+    httpx_mock.add_response(url=SITEMAP, text=SITEMAP_XML)
+    for slug in SLUGS:
+        if slug == SLUGS[0]:
+            httpx_mock.add_response(url=f"{BASE}/{FACTION_PAGE.format(slug=slug)}", status_code=404)
+        else:
+            httpx_mock.add_response(
+                url=f"{BASE}/{FACTION_PAGE.format(slug=slug)}", text="<html></html>"
+            )
+
+    with _client(_config(), Recorder()) as client:
+        acquisition, payloads = acquire_wahapedia_html(
+            _config(), client=client, carried_forward_slugs=frozenset({SLUGS[0]})
+        )
+
+    # No payload for the carried faction — its data comes from the previous tree instead
+    # (pipeline.curate.carry_forward), never from a partial or fabricated live fetch.
+    assert {p.name for p in payloads} == set(SLUGS[1:])
+    assert acquisition.outcome.value == "ok"
+    assert acquisition.coverage["carried_forward_faction_count"] == 1
+
+
+def test_an_undeclared_unreachable_faction_still_refuses_even_with_other_declarations(
+    httpx_mock: HTTPXMock,
+) -> None:
+    """Selectivity: declaring faction A does not relax the FR-008 refusal for faction B."""
+    httpx_mock.add_response(url=ROBOTS, text=ALLOW_ALL, is_reusable=True)
+    httpx_mock.add_response(url=SITEMAP, text=SITEMAP_XML)
+    httpx_mock.add_response(
+        url=f"{BASE}/{FACTION_PAGE.format(slug=SLUGS[0])}", text="<html></html>"
+    )
+    httpx_mock.add_response(
+        url=f"{BASE}/{FACTION_PAGE.format(slug=SLUGS[1])}", status_code=404, is_reusable=True
+    )
+
+    with (
+        _client(_config(), Recorder()) as client,
+        pytest.raises(SourceUnreachable, match="carried-forward-factions"),
+    ):
+        acquire_wahapedia_html(
+            _config(), client=client, carried_forward_slugs=frozenset({SLUGS[0]})
+        )
+
+
+def test_a_declared_faction_that_is_reachable_uses_live_data(httpx_mock: HTTPXMock) -> None:
+    """The source recovered: live data wins, exactly as O2's "prefer real data" instruction."""
+    _serve(httpx_mock, page="<html><body>live and current</body></html>")
+
+    with _client(_config(), Recorder()) as client:
+        acquisition, payloads = acquire_wahapedia_html(
+            _config(), client=client, carried_forward_slugs=frozenset({SLUGS[0]})
+        )
+
+    (recovered,) = [p for p in payloads if p.name == SLUGS[0]]
+    assert recovered.text == "<html><body>live and current</body></html>"
+    assert acquisition.coverage["carry_forward_unused_declaration_count"] == 1
+    assert acquisition.coverage.get("carried_forward_faction_count", 0) == 0
+
+
+def test_no_declarations_leaves_coverage_exactly_as_before(httpx_mock: HTTPXMock) -> None:
+    """A declaration-free run's `coverage` keeps the plain `{"faction_pages": N}` shape every
+    existing test and report reads — no new key appears unless something was actually declared."""
+    _serve(httpx_mock)
+    with _client(_config(), Recorder()) as client:
+        acquisition, _ = acquire_wahapedia_html(_config(), client=client)
+
+    assert acquisition.coverage == {"faction_pages": len(SLUGS)}
+
+
 def test_the_pages_land_in_the_workspace_and_nowhere_else(
     httpx_mock: HTTPXMock, tmp_path: Path
 ) -> None:

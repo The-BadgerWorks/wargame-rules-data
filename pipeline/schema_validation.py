@@ -74,6 +74,10 @@ CURATION_SCHEMAS: Final[Mapping[str, str]] = {
     "option-overrides": "curation/option-overrides.schema.json",
     # 006-unit-loadout-fidelity.
     "equipment-overrides": "curation/equipment-overrides.schema.json",
+    # 008-wargear-option-completion FR-024 (Product Owner decision 2026-08-17): a curator's
+    # explicit declaration that a faction's detail-source page may be carried forward from the
+    # previous published version rather than block the whole sweep.
+    "carried-forward-factions": "curation/carried-forward-factions.schema.json",
 }
 
 #: The published bundle schema.

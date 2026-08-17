@@ -1,0 +1,36 @@
+{
+  "_comment": "AI-Assisted: Claude Code (model: claude-sonnet-5) - Authored for 008-wargear-option-completion FR-024/FR-025 (Product Owner decision 2026-08-17), for curation/carried-forward-factions.json. A curator's EXPLICIT declaration that a named faction's detail-source page may be sourced from the previous published version if this run cannot fetch it live -- never silent, never inferred. pipeline/acquire/wahapedia_html.py::acquire_wahapedia_html only treats a faction this way when its slug appears here; any other faction whose page cannot be fetched still fails the whole sweep (FR-008 unweakened). No mechanical value of any kind lives in this file -- it names a faction and a reason, nothing about what that faction publishes.",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://the-badgerworks.github.io/wargame-rules-data/schemas/curation/carried-forward-factions.schema.json",
+  "title": "curation/carried-forward-factions.json",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": ["faction_slug", "declared_at", "reason"],
+    "properties": {
+      "faction_slug": {
+        "type": "string",
+        "pattern": "^[a-z0-9-]+$",
+        "description": "The detail source's own faction-page slug (pipeline/acquire/wahapedia_html.py::FACTION_PAGE), not a curated faction_id -- the two vocabularies can differ, and this file is read before curation ever resolves one to the other."
+      },
+      "declared_at": {
+        "type": "string",
+        "format": "date",
+        "description": "The date a curator confirmed this faction's page could not be fetched and chose to carry it forward rather than block the release."
+      },
+      "reason": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 240,
+        "description": "A curator's sentence about the ACQUISITION FAILURE (e.g. 'sitemap omits this faction' or 'page 404s'), never about what the faction's cards say."
+      },
+      "note": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 240,
+        "description": "Optional process note. Must not quote source text."
+      }
+    }
+  }
+}

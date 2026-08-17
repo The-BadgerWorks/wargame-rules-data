@@ -185,6 +185,42 @@ def _summary_coverage_section(coverage: Mapping[str, Mapping[str, Any]]) -> list
     return out
 
 
+def _carried_forward_section(findings: Sequence[Mapping[str, Any]]) -> list[str]:
+    """008 FR-025 (Product Owner decision 2026-08-17): every carry-forward substitution named
+    explicitly, never left to a reviewer noticing an advisory finding among thousands of others.
+
+    Renders **only** when at least one `SRC-FACTION-CARRIED-FORWARD` or
+    `SRC-FACTION-CARRY-FORWARD-UNUSED` finding exists this run — a candidate with no declarations
+    active gets no section at all, so its absence is itself the "nothing was substituted" signal.
+    """
+    carried = [f for f in findings if f.get("finding_code") == "SRC-FACTION-CARRIED-FORWARD"]
+    unused = [f for f in findings if f.get("finding_code") == "SRC-FACTION-CARRY-FORWARD-UNUSED"]
+    if not carried and not unused:
+        return []
+
+    out = ["", "## Carried-forward factions", ""]
+    if carried:
+        out.append(
+            "**These factions could not be fetched this run and are frozen at the previous "
+            "published version** (`curation/carried-forward-factions.json`):"
+        )
+        out += [
+            f"- `{f['detail'].get('faction_id')}` frozen at "
+            f"`{f['detail'].get('frozen_at_version')}` "
+            f"({f['detail'].get('datasheets_carried')} datasheet(s))"
+            for f in carried
+        ]
+    if unused:
+        if carried:
+            out.append("")
+        out.append(
+            "**These declarations were not needed this run** — the source answered live, so the "
+            "declaration in `curation/carried-forward-factions.json` may be retired:"
+        )
+        out += [f"- `{f['detail'].get('faction_slug')}`" for f in unused]
+    return out
+
+
 def render_pr_body(
     report_json: Mapping[str, Any], *, reports_relative_dir: str | None = None
 ) -> str:
@@ -219,6 +255,7 @@ def render_pr_body(
         for name, figure in sorted(scale.items())
     ]
 
+    out += _carried_forward_section(findings)
     out += _summary_coverage_section(report_json.get("coverage") or {})
     out += _loadout_coverage_section(report_json.get("coverage") or {})
 
