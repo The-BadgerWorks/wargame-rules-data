@@ -5,6 +5,11 @@
 # option-regression pointer (006 task T039): both figures get a row, the table says which of them
 # a gate is actually watching, and the FR-009 evidence link is stated whether or not the file
 # exists -- its absence is what an approver is meant to notice.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - 008 task T062: `default_equipment` now
+# reports a real, non-zero threshold (the two-step ratchet, FR-021) rather than the first-extended-
+# release `reported only` state -- the fixture and its assertions moved to reflect that, and an
+# unratcheted `item_constraints` row was added so the "which figure can refuse" distinction still
+# has an unratcheted example to point at.
 """Tests for `pipeline.report.pr_body` — the PR body a candidate opens with (FR-037)."""
 
 from __future__ import annotations
@@ -130,9 +135,15 @@ def _loadout_json():  # type: ignore[no-untyped-def]
                 "threshold": 0.18,
             },
             "loadout.default_equipment": {
-                "current": 1664,
-                "previous": 0,
+                "current": 1680,
+                "previous": 1664,
                 "ratio_percent": 99,
+                "threshold": 0.97,
+            },
+            "loadout.item_constraints": {
+                "current": 120,
+                "previous": 110,
+                "ratio_percent": 80,
                 "threshold": 0.0,
             },
         }
@@ -144,15 +155,16 @@ def test_both_loadout_figures_get_their_own_row() -> None:
 
     assert "## Loadout coverage" in body
     assert "| `options_resolved` | 402 | 380 | 19% | blocks below 18% |" in body
-    assert "| `default_equipment` | 1664 | 0 | 99% | reported only |" in body
+    assert "| `default_equipment` | 1680 | 1664 | 99% | blocks below 97% |" in body
 
 
 def test_the_table_says_which_figure_can_refuse_a_release() -> None:
     """A falling unratcheted number must not read as one a gate has already considered.
 
-    `default_equipment` at 99% and `options_resolved` at 19% is the shape of the first extended
-    release, and an approver who cannot tell which of the two a gate is watching is being asked
-    to approve on the wrong information.
+    `item_constraints` (unratcheted — `007` FR-022, PO decision 2026-08-13) beside
+    `options_resolved`/`default_equipment` (both ratcheted, `008` FR-021's two-step ruling) is
+    what lets an approver tell the two apart in the table itself, without knowing the tolerance
+    configuration.
     """
     table = render_pr_body(_loadout_json()).split("## Loadout coverage", 1)[1].split("##", 1)[0]
 
