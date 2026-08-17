@@ -10,6 +10,13 @@
 # highest-yield `head_ok_no_verb` verb productions to `_COMPLETION_VERBS` — distributive equip,
 # active-voice replace per-unit, and the non-distributive `can have … replaced with` sibling of
 # `006`'s distributive production — closing the 42 zero-group datasheets / 28 card shapes.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - 008 US2 (T040-T042): appended the three
+# remaining measured `head_ok_no_verb` verb productions — active-voice replace distributive,
+# item-subject passive, and the pure-grant `can [each] have INT <ITEM>` (which also discharges
+# `007` T033's deferred "N models can each have …" family) — over the 120 some-group datasheets /
+# 80 card shapes. `_COMPLETION_HEADS` deliberately stays empty (T043): the measured `no_head_match`
+# residual is predominantly extractor artifacts, not a grammar gap, and routes to Phase 7 override
+# authoring instead (`reports/option-taxonomy/2026-08-15.md` Section (a2)).
 """Resolve one wargear-option row into a group scope and its choices.
 
 The source publishes one row per option, as free text with an optional ``<li>`` sub-list, **no
@@ -699,8 +706,74 @@ def _replace_have_singular(
     return OptionVerb.REPLACE, stem[match.end() :].strip(), match.group("side").strip(), False
 
 
+# -- Phase 4 (US2, T040-T042): the three remaining measured `head_ok_no_verb` verb shapes, in
+# T001's measured order (`reports/option-taxonomy/2026-08-15.md` Section (a), 2026-08-10 classes
+# 7, 8, 10 — 18, 13, and 9 rows respectively). All three reuse a head `004` or `006` already
+# carries, exactly as Phase 3's three did.
+
+#: ``can each replace … with`` — T040, class 7, 18 measured rows. The distributive sibling of
+#: T031's active-voice ``_ACTIVE_REPLACE``: the possessive side is the ``replaced_clause``, and
+#: because the verb phrase carries ``each`` this sets `is_distributive` true exactly as every
+#: other ``each`` production in this module does. Distinct phrase from `_ACTIVE_REPLACE` (`can
+#: replace` has no ``each`` between the two words), so the two never contend for the same row.
+_ACTIVE_REPLACE_DISTRIBUTIVE: Final = re.compile(
+    r"\bcan each replace\s+(?P<side>(?:its|their)\s+.+?)\s+with\b", re.IGNORECASE
+)
+
+
+def _active_replace_distributive(
+    match: re.Match[str], stem: str, _head_end: int
+) -> tuple[OptionVerb, str, str | None, bool]:
+    """T040: ``can each replace … with`` — distributive."""
+    return OptionVerb.REPLACE, stem[match.end() :].strip(), match.group("side").strip(), True
+
+
+#: ``<ITEM> can each be replaced with`` — T041, class 8, 13 measured rows. The subject *is* the
+#: replaced item, which is the shape's whole difficulty: there is no possessive phrase naming what
+#: is given up, because the head itself already named it. The given-up span is read from the head's
+#: own match end to this verb's match start — the identical capture `007` T021's legacy
+#: `_REPLACE_VERB` shape uses, reused rather than reinvented. Distinct phrase from `_DISTRIBUTIVE_
+#: EQUIP` (``equipped`` not ``replaced``) and from `_DISTRIBUTIVE_REPLACE` (which requires ``have``
+#: between ``each`` and the possessive side; this shape has no ``have`` at all), so neither
+#: contends for the same row.
+_ITEM_SUBJECT_PASSIVE: Final = re.compile(r"\bcan each be replaced with\b", re.IGNORECASE)
+
+
+def _item_subject_passive(
+    match: re.Match[str], stem: str, head_end: int
+) -> tuple[OptionVerb, str, str | None, bool]:
+    """T041: ``<ITEM> can each be replaced with`` — the subject is the given-up item."""
+    given_up = stem[head_end : match.start()].strip()
+    return OptionVerb.REPLACE, stem[match.end() :].strip(), given_up, True
+
+
+#: ``can [each] have INT <ITEM>`` — T042, class 10, 9 measured rows. Verb ``EQUIP``, no
+#: ``replaced_clause``: nothing is given up, only granted. The digit lookahead is what tells this
+#: apart from T032's `_REPLACE_HAVE_SINGULAR` and `006`'s `_DISTRIBUTIVE_REPLACE` (both require a
+#: later ``replaced with``); those two are tried first — `_DISTRIBUTIVE_REPLACE` unconditionally in
+#: `_match_verb`, `_REPLACE_HAVE_SINGULAR` earlier in this same tuple — so a row carrying
+#: ``replaced with`` is always claimed by one of them before this pattern is ever reached.
+#:
+#: The optional ``each`` is what discharges `007` T033's deferred "N models can each have …"
+#: family (008 T044): that family's head already resolves through `004`'s bare ``^\d+ `` digit
+#: head, and this verb was the only piece missing.
+_PURE_GRANT: Final = re.compile(r"\bcan(?:\s+each)?\s+have\b(?=\s+\d)", re.IGNORECASE)
+
+
+def _pure_grant(
+    match: re.Match[str], stem: str, _head_end: int
+) -> tuple[OptionVerb, str, str | None, bool]:
+    """T042: ``can [each] have INT <ITEM>`` — pure grant, no replacement."""
+    is_distributive = "each" in match.group(0).casefold()
+    return OptionVerb.EQUIP, stem[match.end() :].strip(), None, is_distributive
+
+
 #: Appended after every `006` head has failed to match. Rule 5 (tasks.md): a class T001 measures
-#: at zero gets no entry here, ever. Empty in Phase 3 — see the module note above.
+#: at zero gets no entry here, ever. **Still empty after Phase 4** (T043): T001's Section (a2)
+#: measured the `no_head_match` residual (17 rows) as predominantly extractor artifacts (2026-08-10
+#: classes 11 and 13, 16 of that residual's 17), not a grammar gap — building a production for an
+#: extractor bug would be fixing the wrong layer, and there is no vocabulary left to close here.
+#: That residual routes to Phase 7's override authoring instead.
 _COMPLETION_HEADS: Final[tuple[tuple[re.Pattern[str], _CompletionHeadBuilder], ...]] = ()
 
 #: Appended after `_DISTRIBUTIVE_REPLACE` has failed to match. Same rule 5. Order is T001's
@@ -710,6 +783,9 @@ _COMPLETION_VERBS: Final[tuple[tuple[re.Pattern[str], _CompletionVerbBuilder], .
     (_DISTRIBUTIVE_EQUIP, _distributive_equip),
     (_ACTIVE_REPLACE, _active_replace_per_unit),
     (_REPLACE_HAVE_SINGULAR, _replace_have_singular),
+    (_ACTIVE_REPLACE_DISTRIBUTIVE, _active_replace_distributive),
+    (_ITEM_SUBJECT_PASSIVE, _item_subject_passive),
+    (_PURE_GRANT, _pure_grant),
 )
 
 

@@ -20,11 +20,15 @@ from collections.abc import Mapping
 
 import pytest
 
+from pipeline.curate.assemble import _option_structure
+from pipeline.curate.authored import AuthoredContent
 from pipeline.models.curated import CuratedOptionChoice, OptionScope, WargearOptionState
 from pipeline.models.findings import Severity
 from pipeline.parse.options_grammar import (
     NO_CHANGE_NAME,
     ItemParse,
+    OptionChoiceParse,
+    OptionRowParse,
     OptionVerb,
     choice_id,
     choice_names,
@@ -36,6 +40,7 @@ from pipeline.parse.options_grammar import (
     split_sublist,
 )
 from pipeline.report.catalogue import CATALOGUE
+from tests.enrichment.test_options_residual import _detail as _options_detail
 
 # --- the clause head table (research D3) -------------------------------------------------------
 
@@ -677,3 +682,170 @@ def test_a_shape_fixed_once_is_fixed_for_every_clone(
         assert clone.is_per_model is fixture.is_per_model
         assert {c.verb for c in clone.choices} == {c.verb for c in fixture.choices}
         assert (clone.replaced_clause is None) == (fixture.replaced_clause is None)
+
+
+# --- 008 US2: the three remaining measured `head_ok_no_verb` productions (T037-T039) ------------
+#
+# Every case below is a row Phase 3's three productions still refuse and this feature's own
+# `_COMPLETION_VERBS` — T040, T041, T042 — now resolves, over the 120 some-group datasheets / 80
+# card shapes GF19-GF21 stand in for. GF19-GF21's row 1 is unchanged (a `004` baseline shape) and
+# stays covered by the layer-1 harness; row 2 of each is the new shape.
+
+
+def test_active_replace_distributive_resolves_a_row_us1_could_not(
+    option_rows: Mapping[str, list[tuple[int, str]]],
+) -> None:
+    # GF19|2 - `Any number of Watch Sentinel models can each replace their signal flare with 1
+    # ember coil.` T040, class 7: distributive, active voice. The head resolves through `004`'s
+    # own bare `^Any number of\b.*\bmodels\b` (the literal word "models" is present), exactly the
+    # same head-vs-verb subtlety T030's GF16|2 test caught.
+    parsed = parse_row(dict(option_rows["GF19"])[2])
+    assert parsed is not None
+    assert parsed.scope is OptionScope.UNIT
+    assert parsed.scope_n is None
+    assert parsed.eligible_model_name is None
+    assert parsed.is_per_model is True
+    assert choice_names(parsed) == ["ember coil"]
+    assert [(c.count, c.is_no_change, c.verb) for c in parsed.choices] == [
+        (1, False, OptionVerb.REPLACE)
+    ]
+    assert parsed.replaced_clause == "their signal flare"
+
+
+def test_item_subject_passive_resolves_a_row_us1_could_not(
+    option_rows: Mapping[str, list[tuple[int, str]]],
+) -> None:
+    # GF20|2 - `The signal flares can each be replaced with 1 ember coil.` T041, class 8: the
+    # subject IS the replaced item. The head resolves through `004`'s bare `^The\b` (unit-scoped,
+    # names no model), so the given-up item comes from the span between that head's own match end
+    # and this verb's match start, not from a possessive phrase this shape states nowhere.
+    parsed = parse_row(dict(option_rows["GF20"])[2])
+    assert parsed is not None
+    assert parsed.scope is OptionScope.UNIT
+    assert parsed.eligible_model_name is None
+    assert parsed.is_per_model is True
+    assert choice_names(parsed) == ["ember coil"]
+    assert [(c.count, c.is_no_change, c.verb) for c in parsed.choices] == [
+        (1, False, OptionVerb.REPLACE)
+    ]
+    assert parsed.replaced_clause == "signal flares"
+
+
+def test_pure_grant_resolves_a_row_us1_could_not(
+    option_rows: Mapping[str, list[tuple[int, str]]],
+) -> None:
+    # GF21|2 - `This model can have 1 ember coil.` T042, class 10: verb EQUIP, nothing given up.
+    # No `each`, so not distributive - the head's own `MODEL` scope already means "this one model".
+    parsed = parse_row(dict(option_rows["GF21"])[2])
+    assert parsed is not None
+    assert parsed.scope is OptionScope.MODEL
+    assert parsed.is_per_model is None
+    assert choice_names(parsed) == ["ember coil"]
+    assert [(c.count, c.is_no_change, c.verb) for c in parsed.choices] == [
+        (1, False, OptionVerb.EQUIP)
+    ]
+    assert parsed.replaced_clause is None
+
+
+@pytest.mark.parametrize("line", [1, 2, 3])
+def test_the_no_head_match_residual_stays_unresolved_under_every_us2_production(
+    option_rows: Mapping[str, list[tuple[int, str]]], line: int
+) -> None:
+    """T037/T043: GF23's three `no_head_match` rows must pass **both before and after** T040-T042
+    land, on T028's own terms. T001's Section (a2) measured this residual as predominantly
+    extractor artifacts, not a grammar gap (2026-08-10 classes 11/13, 16 of the residual's 17), so
+    T043 deliberately builds no `_COMPLETION_HEADS` entry — this is the test that pins that
+    decision rather than leaving it to be re-discovered as a coverage figure that quietly stopped
+    moving.
+    """
+    parsed = parse_row(dict(option_rows["GF23"])[line])
+    assert parsed is None
+
+
+@pytest.mark.parametrize("line", [1, 2, 3, 4, 5])
+def test_a_refused_row_stays_unresolved_under_every_us2_production(
+    option_rows: Mapping[str, list[tuple[int, str]]], line: int
+) -> None:
+    """T038, FR-006, R-B: the same GF22 refusal pairing T028 wrote for Phase 3, re-run over
+    Phase 4's three new productions. Every row here is refused before `_match_verb` ever runs, so
+    `_COMPLETION_VERBS` growing by three more entries structurally cannot reach any of them.
+    """
+    parsed = parse_row(dict(option_rows["GF22"])[line])
+    assert parsed is None
+
+
+def test_a_row_only_a_us2_production_resolves_appears_beside_a_prior_row_in_source_order() -> None:
+    """US2 Acceptance Scenario 2 (T039) — the test that makes the whole story safe.
+
+    GF19|1 (`This model can be equipped with 1 dusk lantern.`) is a `004` baseline shape, untouched
+    by every production this feature adds — FR-009's ordering guarantee, proven structurally in
+    `test_options_grammar_ordering.py`, not merely re-asserted here as a value. GF19|2 is reachable
+    only by T040's new `_active_replace_distributive` production. `_option_structure` assembles
+    both, in the source's own line order, once the datasheet is built.
+    """
+    golden_first = OptionRowParse(
+        scope=OptionScope.MODEL,
+        scope_n=None,
+        choices=(OptionChoiceParse(name="dusk lantern", count=1, verb=OptionVerb.EQUIP),),
+    )
+    assert parse_row("This model can be equipped with 1 dusk lantern.") == golden_first
+
+    outcome = _option_structure(
+        "GF19", "ds-gf19-mixed", _options_detail(), AuthoredContent(), (), ()
+    )
+    assert [group.line for group in outcome.groups] == [1, 2]
+    first_group, second_group = outcome.groups
+
+    first_choices = [c for c in outcome.choices if c.group_id == first_group.id]
+    assert first_group.scope is OptionScope.MODEL
+    assert [(c.name, c.count) for c in first_choices] == [("dusk lantern", 1)]
+
+    second_choices = [c for c in outcome.choices if c.group_id == second_group.id]
+    assert second_group.scope is OptionScope.UNIT
+    assert second_group.is_per_model is True
+    assert [(c.name, c.count) for c in second_choices] == [("ember coil", 1)]
+
+    assert outcome.state is WargearOptionState.EXTRACTED
+
+
+# --- 008 US2: the `007` T033 deferral, discharged (T044) ----------------------------------------
+
+
+def test_the_kill_team_shaped_n_models_can_each_have_family_now_resolves() -> None:
+    """`007` task T033 deliberately deferred "additional Kill Team-cluster productions" for want
+    of a measured shape (spec.md Backlog References). Spec.md 008 names the specific family it
+    deferred: "the 'N models can each have…' family". Its head already resolved through `004`'s
+    bare ``^\\d+ `` digit head; T042's `can [each] have INT <ITEM>` production is the only piece
+    that was missing.
+    """
+    parsed = parse_row("3 models can each have 1 combat knife.")
+    assert parsed is not None
+    assert parsed.scope is OptionScope.UNIT
+    assert parsed.is_per_model is True
+    assert choice_names(parsed) == ["combat knife"]
+    assert [(c.count, c.verb) for c in parsed.choices] == [(1, OptionVerb.EQUIP)]
+    assert parsed.replaced_clause is None
+
+
+# --- 008 US2: the sub-list interaction (T046) ----------------------------------------------------
+
+
+def test_a_us2_production_resolves_alongside_a_sublist_and_a_select_quantifier() -> None:
+    """T046: a Phase 4 verb production whose row also carries an `<li>` sub-list and an `up to N
+    of the following` quantifier resolves all three together — `split_sublist` runs before the
+    clause grammar and `_select_quantifier` runs over the stem, so neither is re-implemented here.
+    """
+    description = (
+        "Any number of Watch Sentinel models can each replace their signal flare with up to two "
+        "of the following:<ul><li>1 ember coil</li><li>1 pulse rod</li>"
+    )
+    parsed = parse_row(description)
+    assert parsed is not None
+    assert parsed.is_per_model is True
+    assert parsed.replaced_clause == "their signal flare"
+    assert (parsed.min_choices, parsed.max_choices) == (None, 2)
+    assert choice_names(parsed) == ["ember coil", "pulse rod"]
+    assert [(c.count, c.verb) for c in parsed.choices] == [
+        (1, OptionVerb.REPLACE),
+        (1, OptionVerb.REPLACE),
+    ]
