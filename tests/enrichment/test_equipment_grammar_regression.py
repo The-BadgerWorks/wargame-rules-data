@@ -12,9 +12,9 @@ has existed since 006, but no shared, on-disk fixture file backed it until 008 t
 test before this one hand-built its own inline `CsvReadResult`
 (`test_equipment_grammar.py`, `test_equipment_overrides.py`). There is therefore no "pre-008
 equipment fixture row" to protect: :data:`BASELINE_DATASHEETS` and :data:`FIXTURE_GOLDEN` are
-correctly **empty**, and the file's only committed equipment row (`GF24`, T009's own US3
-Independent Test pair) is 008's own and belongs on the excluded side, exactly as `GF07`-`GF12`
-do for the options harness.
+correctly **empty**, and the file's committed equipment rows (`GF24`, T009's own US3 Independent
+Test pair; `GF25`, T049's equipment-qualified refusal pairing) are 008's own and belong on the
+excluded side, exactly as `GF07`-`GF12` do for the options harness.
 
 The real golden is :data:`INLINE_GOLDEN`: 006's own five subject productions plus the bare-model
 sixth, the item-list splitting rules, and the compound/conditional refusal tail, lifted as literal
@@ -169,9 +169,12 @@ def test_every_008_datasheet_is_deliberately_outside_this_harness() -> None:
     """The scope decision, stated as an assertion rather than as a comment.
 
     `GF24` carries US3's own Independent Test shape (008 task T009: one resolving, one refused —
-    the `One`/`INT`/`A` subset-subject family Open Decision O1 sizes). If it were folded into the
-    baseline set, a successful Phase 5 production would fail this file, and the pressure would be
-    to edit the golden — which is how a zero-regression harness stops meaning anything.
+    the `One`/`INT`/`A` subset-subject family Open Decision O1 sizes). `GF25` carries the
+    equipment-qualified refusal pairing (008 task T049, Phase 5 — named in the Setup-phase ledger
+    at T010 but not actually added to this CSV until Phase 5 needed it for a full-pipeline
+    refusal test). If either were folded into the baseline set, a successful Phase 5 production
+    would fail this file, and the pressure would be to edit the golden — which is how a
+    zero-regression harness stops meaning anything.
     """
     all_datasheets = {row.fields["datasheet_id"] for row in read_file(EQUIPMENT_CSV).rows}
-    assert all_datasheets - BASELINE_DATASHEETS == {"GF24"}
+    assert all_datasheets - BASELINE_DATASHEETS == {"GF24", "GF25"}
