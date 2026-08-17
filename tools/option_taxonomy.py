@@ -676,6 +676,10 @@ def main(argv: Sequence[str] | None = None) -> int:
         rendered += render_snapshot_sections(
             evidence, excluded=excluded, zero_group=zero_group, census=census
         )
+        worklist = override_candidate_worklist(evidence.findings)
+        rendered += render_override_candidate_worklist(
+            worklist, rules_version_id=evidence.rules_version_id
+        )
 
     if args.print_only:
         print(rendered)
@@ -887,6 +891,96 @@ def conditional_blocking_census(
         estimate_high=estimate_high,
         sc002_headroom=sc002_headroom,
     )
+
+
+# -- 008 Phase 7 (T071/T072 preparation) ---------------------------------------------------------
+# The worklist a curator needs before writing `curation/option-overrides.json`'s real entries:
+# which datasheet, which line. `ConditionalBlockingCensus` above already builds a per-datasheet
+# row COUNT for O2's own purpose; this keeps the row NUMBERS themselves, because an override is
+# keyed `(datasheet_id, line)` and a curator opening the source card needs the line to find the
+# row, not merely how many rows the datasheet has.
+
+
+@dataclass(frozen=True, slots=True)
+class OverrideCandidateWorklist:
+    """Every `OPT-UNPARSED` row the retained report names, grouped by datasheet.
+
+    **This is a worklist, not a candidate report's worth of overrides.** It says WHERE to look,
+    never what to write there — no item name, no scope, no choice ever appears here, because none
+    of those is derivable from `report.json`'s text-free finding detail (`datasheet_id`, `line`
+    only). Authoring the row itself is T071's own job, done by a human reading the source card.
+
+    **It is also stale by construction**, and deliberately not disguised as anything else: this
+    feature's own Phase 3/4 productions (`_COMPLETION_VERBS`) did not exist when the retained
+    `report.json` this reads was generated, so a row named here may already resolve once those
+    productions run against a current corpus. T074's mid-campaign dry-run — run AFTER every
+    Phase 3-6 production is in place, BEFORE a single override is authored — is what turns this
+    into the real, current worklist (tasks.md's own explicit ordering: "only the real-corpus
+    dry-run can say which rows those are"). This function exists so that dry-run has a
+    ready-made, tested shape to populate rather than inventing one under time pressure.
+    """
+
+    rows_by_datasheet: Mapping[str, tuple[int, ...]]
+    total_rows: int
+    total_datasheets: int
+
+
+def override_candidate_worklist(
+    findings: Sequence[Mapping[str, object]],
+) -> OverrideCandidateWorklist:
+    per_datasheet: dict[str, list[int]] = {}
+    for finding in findings:
+        if finding.get("finding_code") != "OPT-UNPARSED":
+            continue
+        detail = finding.get("detail")
+        if not isinstance(detail, Mapping):
+            continue
+        datasheet_id = detail.get("datasheet_id")
+        line = detail.get("line")
+        if isinstance(datasheet_id, str) and isinstance(line, int):
+            per_datasheet.setdefault(datasheet_id, []).append(line)
+
+    rows_by_datasheet = {
+        datasheet_id: tuple(sorted(lines)) for datasheet_id, lines in sorted(per_datasheet.items())
+    }
+    return OverrideCandidateWorklist(
+        rows_by_datasheet=rows_by_datasheet,
+        total_rows=sum(len(lines) for lines in rows_by_datasheet.values()),
+        total_datasheets=len(rows_by_datasheet),
+    )
+
+
+def render_override_candidate_worklist(
+    worklist: OverrideCandidateWorklist, *, rules_version_id: str
+) -> str:
+    """T071/T072 preparation, as its own Markdown section — counts and `datasheet_id#line` pairs
+    only, never a sentence, a fragment, or an item name."""
+    lines = [
+        "",
+        "## Override-candidate worklist (T071/T072 preparation)",
+        "",
+        f"Read from `reports/{rules_version_id}/report.json`'s own `OPT-UNPARSED` findings — "
+        "text-free (`datasheet_id`, `line` only). **Stale by construction** (see "
+        "`OverrideCandidateWorklist`'s own docstring): this predates Phase 3-6's productions, so "
+        "it names WHERE the pre-008 residual was, not the current one. **Not a substitute for "
+        "T074's mid-campaign dry-run** — that run, over the current corpus with every Phase 3-6 "
+        "production in place, is what T071/T072 actually author against. This section exists so "
+        "the worklist's SHAPE (grouped by datasheet, real line ordinals) is proven before that "
+        "live run supplies the current, authoritative list.",
+        "",
+        f"**{worklist.total_rows} `OPT-UNPARSED` rows across {worklist.total_datasheets} "
+        "datasheets, pre-008 baseline:**",
+        "",
+    ]
+    if worklist.rows_by_datasheet:
+        lines += [
+            f"`{datasheet_id}`: lines {', '.join(str(line) for line in rows)}"
+            for datasheet_id, rows in worklist.rows_by_datasheet.items()
+        ]
+    else:
+        lines.append("(none)")
+    lines.append("")
+    return "\n".join(lines)
 
 
 @dataclass(frozen=True, slots=True)

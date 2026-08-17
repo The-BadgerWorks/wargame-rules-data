@@ -303,6 +303,10 @@ def main(argv: Sequence[str] | None = None) -> int:
         breakdown = equipment_partial_breakdown(snapshot)
         baseline = default_equipment_ratchet_baseline(root)
         rendered += render_snapshot_sections(breakdown=breakdown, baseline=baseline)
+        candidate_evidence = equipment_override_candidate_worklist(root)
+        if candidate_evidence is not None:
+            rules_version_id, worklist = candidate_evidence
+            rendered += render_equipment_override_candidate_worklist(rules_version_id, worklist)
 
     if args.print_only:
         print(rendered)
@@ -395,6 +399,103 @@ def default_equipment_ratchet_baseline(
         ratio_percent=figure.get("ratio_percent"),
         threshold_percent=figure.get("threshold_percent"),
     )
+
+
+# -- 008 Phase 7 (T071/T072 preparation) ---------------------------------------------------------
+# The equipment twin of `tools/option_taxonomy.py::override_candidate_worklist` — same shape, same
+# staleness caveat, same text-free discipline, over `EQP-UNPARSED` instead of `OPT-UNPARSED`.
+
+
+@dataclass(frozen=True, slots=True)
+class EquipmentOverrideCandidateWorklist:
+    """Every `EQP-UNPARSED` row the retained report names, grouped by datasheet.
+
+    A worklist, not a set of overrides: no item name, no `applies_to`, no model name ever appears
+    here, because none is derivable from `report.json`'s text-free finding detail. It is also
+    stale by construction, on the identical terms `tools.option_taxonomy.
+    OverrideCandidateWorklist`'s own docstring explains — this predates Phase 5's own measurement
+    (which added zero grammar productions but still moved which rows count) and every row named
+    here needs T074's mid-campaign dry-run to confirm it is still unresolved, and which of the
+    three permanently-refused/subset/O1 classes it falls into, before a curator authors it.
+    """
+
+    rows_by_datasheet: Mapping[str, tuple[int, ...]]
+    total_rows: int
+    total_datasheets: int
+
+
+def equipment_override_candidate_worklist(
+    root: Path, *, manifest_relative_path: str = "site/manifest.json"
+) -> tuple[str, EquipmentOverrideCandidateWorklist] | None:
+    """The previous published version's retained `EQP-UNPARSED` findings, grouped by datasheet.
+
+    Returns ``None`` on the same terms `default_equipment_ratchet_baseline` does: no previous
+    published version, or its `report.json` absent — never an error, since a fresh checkout
+    legitimately has neither yet.
+    """
+    rules_version_id = previous_published_version(root / manifest_relative_path)
+    if rules_version_id is None:
+        return None
+    report_path = root / "reports" / rules_version_id / "report.json"
+    if not report_path.is_file():
+        return None
+    document = json.loads(report_path.read_text(encoding="utf-8"))
+    findings = document.get("findings", [])
+    if not isinstance(findings, list):
+        findings = []
+
+    per_datasheet: dict[str, list[int]] = {}
+    for finding in findings:
+        if not isinstance(finding, Mapping) or finding.get("finding_code") != "EQP-UNPARSED":
+            continue
+        detail = finding.get("detail")
+        if not isinstance(detail, Mapping):
+            continue
+        datasheet_id = detail.get("datasheet_id")
+        line = detail.get("line")
+        if isinstance(datasheet_id, str) and isinstance(line, int):
+            per_datasheet.setdefault(datasheet_id, []).append(line)
+
+    rows_by_datasheet = {
+        datasheet_id: tuple(sorted(lines)) for datasheet_id, lines in sorted(per_datasheet.items())
+    }
+    return rules_version_id, EquipmentOverrideCandidateWorklist(
+        rows_by_datasheet=rows_by_datasheet,
+        total_rows=sum(len(lines) for lines in rows_by_datasheet.values()),
+        total_datasheets=len(rows_by_datasheet),
+    )
+
+
+def render_equipment_override_candidate_worklist(
+    rules_version_id: str, worklist: EquipmentOverrideCandidateWorklist
+) -> str:
+    """T071/T072 preparation, as its own Markdown section — counts and `datasheet_id#line` pairs
+    only, never a sentence, a subject, or an item name."""
+    lines = [
+        "",
+        "## Override-candidate worklist (T071/T072 preparation)",
+        "",
+        f"Read from `reports/{rules_version_id}/report.json`'s own `EQP-UNPARSED` findings — "
+        "text-free (`datasheet_id`, `line` only). **Stale by construction and NOT a substitute "
+        "for T074's mid-campaign dry-run** — see `EquipmentOverrideCandidateWorklist`'s own "
+        "docstring. This section proves the worklist's SHAPE (grouped by datasheet, real line "
+        "ordinals) before that live run supplies the current, authoritative list, and before a "
+        "curator can tell a genuine O1 subset row apart from a permanently-refused one — that "
+        "split needs the sentence text this environment has no route to acquire.",
+        "",
+        f"**{worklist.total_rows} `EQP-UNPARSED` rows across {worklist.total_datasheets} "
+        "datasheets, pre-008 baseline:**",
+        "",
+    ]
+    if worklist.rows_by_datasheet:
+        lines += [
+            f"`{datasheet_id}`: lines {', '.join(str(line) for line in rows)}"
+            for datasheet_id, rows in worklist.rows_by_datasheet.items()
+        ]
+    else:
+        lines.append("(none)")
+    lines.append("")
+    return "\n".join(lines)
 
 
 def render_snapshot_sections(

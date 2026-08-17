@@ -35,7 +35,9 @@ from tools.option_taxonomy import (
     load_published_snapshot_evidence,
     main,
     measure,
+    override_candidate_worklist,
     render,
+    render_override_candidate_worklist,
     zero_group_breakdown,
 )
 
@@ -311,6 +313,41 @@ def test_conditional_blocking_census_handles_zero_unparsed_rows() -> None:
         [], measured_conditional_rows=0, measured_total_unparsed_rows=0, sc002_headroom=21
     )
     assert (census.unparsed_row_datasheets, census.estimate_low, census.estimate_high) == (0, 0, 0)
+
+
+def test_override_candidate_worklist_groups_lines_by_datasheet_in_order() -> None:
+    """008 T071/T072 preparation: a worklist of `(datasheet_id, line)` pairs, never item content
+    -- `detail` here carries only what `report.json`'s own text-free finding detail ever carries."""
+    findings = [
+        {"finding_code": "OPT-UNPARSED", "detail": {"datasheet_id": "ds-b", "line": 2}},
+        {"finding_code": "OPT-UNPARSED", "detail": {"datasheet_id": "ds-a", "line": 3}},
+        {"finding_code": "OPT-UNPARSED", "detail": {"datasheet_id": "ds-a", "line": 1}},
+        {"finding_code": "OTHER-CODE", "detail": {"datasheet_id": "ds-a", "line": 9}},
+        {"finding_code": "OPT-UNPARSED", "detail": {"not_a_datasheet_id": True}},
+    ]
+
+    worklist = override_candidate_worklist(findings)
+
+    assert worklist.rows_by_datasheet == {"ds-a": (1, 3), "ds-b": (2,)}
+    assert (worklist.total_rows, worklist.total_datasheets) == (3, 2)
+
+
+def test_override_candidate_worklist_handles_no_findings() -> None:
+    worklist = override_candidate_worklist([])
+    assert worklist.rows_by_datasheet == {}
+    assert (worklist.total_rows, worklist.total_datasheets) == (0, 0)
+
+
+def test_render_override_candidate_worklist_never_carries_more_than_ids_and_line_numbers() -> None:
+    worklist = override_candidate_worklist(
+        [{"finding_code": "OPT-UNPARSED", "detail": {"datasheet_id": "ds-a", "line": 1}}]
+    )
+    rendered = render_override_candidate_worklist(worklist, rules_version_id="wh40k-11e-2026-08-3")
+    assert "ds-a" in rendered
+    assert "line" in rendered.casefold() and "1" in rendered
+    assert "stale" in rendered.casefold()
+    # No prose ever appears in the worklist: it names ids and integers only.
+    assert "ember" not in rendered.casefold()  # a canary invented item name, never present
 
 
 def test_load_published_snapshot_evidence_is_none_without_a_manifest(tmp_path: Path) -> None:

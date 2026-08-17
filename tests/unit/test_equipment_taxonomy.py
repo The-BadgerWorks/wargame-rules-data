@@ -24,11 +24,13 @@ from tools.equipment_taxonomy import (
     classify_subject,
     default_equipment_ratchet_baseline,
     diagnose_sentence,
+    equipment_override_candidate_worklist,
     equipment_partial_breakdown,
     iter_class_keys,
     main,
     measure,
     render,
+    render_equipment_override_candidate_worklist,
 )
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
@@ -193,6 +195,34 @@ def test_equipment_partial_breakdown_collapses_by_case_insensitive_name() -> Non
 
 def test_default_equipment_ratchet_baseline_is_none_without_a_manifest(tmp_path: Path) -> None:
     assert default_equipment_ratchet_baseline(tmp_path) is None
+
+
+def test_equipment_override_candidate_worklist_is_none_without_a_manifest(tmp_path: Path) -> None:
+    assert equipment_override_candidate_worklist(tmp_path) is None
+
+
+def test_equipment_override_candidate_worklist_reads_this_repositorys_own_committed_state() -> None:
+    """008 T071/T072 preparation, the equipment twin of `test_option_taxonomy.py`'s
+    `override_candidate_worklist`: the previous published version's retained `report.json`
+    resolves in **this** checkout with no live acquisition, and its `EQP-UNPARSED` findings group
+    into a real, non-empty worklist."""
+    root = Path(__file__).resolve().parents[2]
+    result = equipment_override_candidate_worklist(root)
+    assert result is not None
+    rules_version_id, worklist = result
+    assert rules_version_id
+    assert worklist.total_rows > 0
+    assert worklist.total_datasheets > 0
+    assert sum(len(lines) for lines in worklist.rows_by_datasheet.values()) == worklist.total_rows
+
+
+def test_the_rendered_equipment_worklist_carries_only_ids_and_line_numbers() -> None:
+    result = equipment_override_candidate_worklist(Path(__file__).resolve().parents[2])
+    assert result is not None
+    rules_version_id, worklist = result
+    rendered = render_equipment_override_candidate_worklist(rules_version_id, worklist)
+    assert "stale" in rendered.casefold()
+    assert "ember" not in rendered.casefold()  # a canary invented item name, never present
 
 
 def test_default_equipment_ratchet_baseline_reads_this_repositorys_own_committed_state() -> None:
