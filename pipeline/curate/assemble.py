@@ -962,6 +962,23 @@ def _equipment(
         line = _row_ordinal(row.fields.get("line", ""), field_name="equipment.line")
         override = authored.equipment_override_for(datasheet_id, line) if line else None
         if line is not None and override is not None:
+            # 008 FR-011/T068: tried anyway and DISCARDED — the override still wins, structurally,
+            # by `continue`-ing below with the override's own values regardless of what comes
+            # back. The only thing this changes is whether a production now ALSO reaches the row,
+            # which is advisory information for a curator deciding whether to retire the entry,
+            # never a reason to prefer the production's answer over the human's.
+            if parse_sentence(row.fields.get("description", "")) is not None:
+                findings.append(
+                    build_finding(
+                        "OPT-OVERRIDE-REDUNDANT",
+                        entity_refs=[datasheet_id],
+                        detail={
+                            "datasheet_id": datasheet_id,
+                            "line": line,
+                            "file_name": "equipment-overrides.json",
+                        },
+                    )
+                )
             authored_groups.append(
                 CuratedEquipmentGroup(
                     id=equipment_group_id(datasheet_id, line),
@@ -1071,6 +1088,21 @@ def _option_structure(  # noqa: PLR0913 - composition is needed to resolve a sco
         line = _row_ordinal(row.fields.get("line", ""), field_name="option.line")
         override = authored.option_override_for(datasheet_id, line) if line else None
         if line is not None and override is not None:
+            # 008 FR-011/T067: tried anyway and DISCARDED, mirroring `_equipment`'s own branch
+            # above — the override still wins structurally, by `continue`-ing below regardless of
+            # what `parse_row` returns.
+            if parse_row(row.fields.get("description", "")) is not None:
+                findings.append(
+                    build_finding(
+                        "OPT-OVERRIDE-REDUNDANT",
+                        entity_refs=[datasheet_id],
+                        detail={
+                            "datasheet_id": datasheet_id,
+                            "line": line,
+                            "file_name": "option-overrides.json",
+                        },
+                    )
+                )
             groups.append(
                 CuratedOptionGroup(
                     id=group_id(datasheet_id, line),
