@@ -7,6 +7,9 @@
 # theirs stays unresolved. Written before a single Phase 3/4 production exists, so a later
 # production that quietly starts resolving one of GF22's refusals (or reports a partial
 # datasheet as complete) is caught here rather than only at Polish-phase review.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - 008 US1 (T035): the US1 Acceptance Scenario
+# 4 test, narrowed to GF23|3 specifically -- confirms the guarantee still holds now that Phase 3's
+# three `_COMPLETION_VERBS` productions exist beside it.
 """FR-016 / SC-006: an unresolved row is always visible, never silently absorbed.
 
 `pipeline/curate/assemble.py::_option_structure` reports two facts about a row it cannot resolve
@@ -133,3 +136,28 @@ def test_the_unresolvable_rows_are_confirmed_none_of_them_restriction_shaped() -
             "CST-UNPARSED"
         )
         assert code == "OPT-UNPARSED"
+
+
+def test_a_row_no_us1_production_reaches_stays_unresolved_and_the_datasheet_stays_partial() -> None:
+    """US1 Acceptance Scenario 4 (T035).
+
+    GF23|3 ("See the appendix for further wargear notes.") is T008's own deliberately-
+    unresolvable fragment — override material, not a shape any production this feature builds
+    could ever legitimately close. Now that Phase 3's three `_COMPLETION_VERBS` productions exist
+    beside it, this row must still raise its advisory and GF23 must still read `partial`, never
+    `extracted` — the promise US1 Acceptance Scenario 4 states, re-checked with the productions
+    in place rather than only against their absence (T023's original form).
+    """
+    outcome = _outcome("GF23")
+
+    matches = [
+        finding
+        for finding in outcome.findings
+        if finding.finding_code == "OPT-UNPARSED"
+        and finding.detail.get("datasheet_id") == _DATASHEET_IDS["GF23"]
+        and finding.detail.get("line") == 3
+    ]
+    assert len(matches) == 1
+
+    assert outcome.state is WargearOptionState.PARTIAL
+    assert outcome.state is not WargearOptionState.EXTRACTED
