@@ -1162,12 +1162,13 @@
   },
   {
     "ability_key": "faction:oath-of-moment",
-    "mechanic_digest": "41a7b10b6475a03f4fd384c5285e86ac",
+    "mechanic_digest": "5cc1b5c4c34cc1ca6098836852d48897",
     "name": "Oath of Moment",
     "review_state": "approved",
-    "reviewed_at": "2026-08-06T00:00:00Z",
-    "reviewed_by": "claude-opus-5-adversarial-reviewer",
-    "summary": "At the start of your Command phase, select an enemy unit as your Oath of Moment target: attacks against it can re-roll the Hit roll (and add 1 to the Wound roll too, for a Space Marines Detachment without Chapter-specific units)."
+    "summary": "At the start of your Command phase, select an enemy unit as your Oath of Moment target until your next Command phase. Your models with this ability re-roll the Hit roll against it; if your detachment is a Codex: Space Marines Detachment fielding no Blood Angels, Dark Angels, Deathwatch, or Space Wolves units, also add 1 to the Wound roll.",
+    "authored_against_acquisition": "wahapedia-20260818T020405Z-2a890ad0",
+    "reviewed_by": "adhoxx",
+    "reviewed_at": "2026-08-18T00:00:00Z"
   },
   {
     "ability_key": "faction:templar-vows",
