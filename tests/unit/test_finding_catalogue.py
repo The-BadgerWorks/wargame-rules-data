@@ -3,6 +3,9 @@
 # transcribes the whole §3 catalogue so a code's severity cannot drift silently.
 # AI-Assisted: Claude Code (model: claude-sonnet-5) - Transcribed 007-loadout-display-fidelity's
 # nine new codes (007 task T013) from data-model.md §4, independently of catalogue.py.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - Transcribed 009-csv-migration's three
+# Foundational codes (009 task T017) into PENDING_CONTRACT_SEVERITIES, independently of
+# catalogue.py.
 """Severity belongs to the code, not to the occurrence.
 
 ``curation/resolutions.json`` entries reference finding codes, so a code whose severity moved
@@ -132,6 +135,13 @@ PENDING_CONTRACT_SEVERITIES = {
     "SRC-FACTION-CARRIED-FORWARD": A,
     "SRC-FACTION-CARRY-FORWARD-UNUSED": A,
     "SRC-FACTION-CARRY-FORWARD-NO-PRIOR": B,
+    # 009-csv-migration (data-model.md §2, plan.md "New finding codes", task T017): three new,
+    # all ahead of validation-report.md's own §3 row on the identical terms this block already
+    # establishes. REC-DETAIL-FACTION-EMPTY is the migration's actual cutover guard (plan.md
+    # finding 2: the coverage ratchets read 100 on an empty roster and cannot catch it).
+    "REC-DETAIL-FACTION-EMPTY": B,
+    "SRC-TABLE-MISSING": B,
+    "SRC-EXPORT-UNCHANGED": A,
 }
 
 #: Transcribed by hand from 006's data-model.md §5 table and its contracts/

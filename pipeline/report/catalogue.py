@@ -17,6 +17,14 @@
 # advisory (007 Release phase, Product Owner decision 2026-08-14 T061 review): the live corpus's
 # T031 re-derivation found real false positives among the rows the automatic conjunction would
 # have dropped. See `pipeline/curate/assemble.py::_flag_header_row_candidate`.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - Added 009-csv-migration's three Foundational
+# codes (009 task T017, data-model.md §2, plan.md "New finding codes"): the loud faction-mismatch
+# guard the plan's finding 2 established the coverage ratchets cannot catch on their own
+# (REC-DETAIL-FACTION-EMPTY), the acquired-set table-presence guard FR-018 requires
+# (SRC-TABLE-MISSING), and the advisory short-circuit outcome FR-031 needs to tell a skipped
+# fetch from an unchanged source from a failed one (SRC-EXPORT-UNCHANGED). Additions only, per
+# FR-001 -- no existing code's severity or class moves. `SRC-CLASS-ARM` is deliberately absent
+# here: it is authored only if T047 chooses a hybrid (T048).
 """The finding catalogue.
 
 ``validation-report.md`` §1.1: **severity is a property of the code, not of the occurrence.** A
@@ -121,6 +129,15 @@ _DEFINITIONS: Final[tuple[FindingDefinition, ...]] = (
     _d("REC-FACTION-REMOVED", _REC, _A, "FR-004", "the publisher's faction list lost a faction"),
     _d("REC-FACTION-UNMAPPED", _REC, _B, "C3/R6", "a points-source slug has no faction-map entry"),
     _d("REC-DETAIL-FACTION-ORPHAN", _REC, _A, "C3/R6", "a detail faction id is referenced by none"),
+    _d(
+        "REC-DETAIL-FACTION-EMPTY",
+        _REC,
+        _B,
+        "009 FR-015",
+        "a mapped detail faction resolves to zero detail rows, under either arm; the loud "
+        "complement to REC-DETAIL-FACTION-ORPHAN and the migration's actual cutover guard, "
+        "because an empty roster reads 100 on the coverage ratchets and cannot catch it there",
+    ),
     # §3.2 Pricing confidence
     _d("PRC-UNVERIFIED", _REC, _A, "FR-035", "priced from last-known values; marker set"),
     _d("PRC-REVERIFIED", _REC, _A, "FR-035a", "the authority published it again; marker cleared"),
@@ -151,6 +168,23 @@ _DEFINITIONS: Final[tuple[FindingDefinition, ...]] = (
     _d("SRC-UNREACHABLE", _COV, _B, "FR-008", "a source did not respond"),
     _d("SRC-REFUSED", _COV, _B, "FR-007", "a source refused or throttled; the run stops"),
     _d("SRC-STRUCTURE-CHANGED", _COV, _B, "FR-008", "values can no longer be extracted reliably"),
+    _d(
+        "SRC-TABLE-MISSING",
+        _COV,
+        _B,
+        "009 FR-018",
+        "a table the build consumes is absent or empty in the acquired set; named by table, "
+        "asserted against a real acquisition rather than a fixture directory listing",
+    ),
+    _d(
+        "SRC-EXPORT-UNCHANGED",
+        _COV,
+        _A,
+        "009 FR-030, FR-031",
+        "the export's content fingerprint is unmoved since the last run; the fetch was skipped "
+        "and this is why, distinguishing a skipped fetch from an unchanged source from a failed "
+        "one",
+    ),
     _d("COV-COLLAPSE", _COV, _B, "FR-009", "coverage fell below the configured proportion"),
     _d(
         "COV-WEAPON-ABILITIES-EMPTY",
