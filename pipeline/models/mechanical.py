@@ -6,6 +6,10 @@
 # record, which is how the feature's new models assert the invariant at the model boundary
 # rather than relying on the scan that runs later. The scalar set stays float-free; see the note
 # on MechanicalScalar for why the coverage ratchet reports integer percents instead.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - Tightened NON_MECHANICAL_PATTERNS["markup"]
+# in lockstep with pipeline/normalize/ip_strip.py's _HAS_MARKUP (009 task T030, plan.md finding
+# 6): space-variant `<`/`</` forms, quoted-attributes-only (no bare word), and an unterminated-tag
+# branch. See ip_strip.py's own comment for the full account of why each branch is shaped this way.
 """The shared guard for "this string carries a mechanical value, not prose".
 
 Downstream of ``normalize`` nothing may hold publisher wording (FR-013). Two independent
@@ -37,8 +41,21 @@ from pydantic import BaseModel
 MECHANICAL_STRING_MAX_CHARS: Final = 240
 
 #: reason -> pattern. Every one of these is a class observed in a real source (research §0.1).
+#:
+#: **`"markup"` MUST stay character-for-character identical to
+#: `pipeline.normalize.ip_strip._HAS_MARKUP`** (009 task T030, `plan.md` finding 6). Not shared
+#: via import — `models` sits below `normalize` in the dependency order — so the two are
+#: hand-kept in lockstep instead, and `tests/ip/test_ip_strip.py`'s own paired assertion is what
+#: catches a drift. Two branches: a genuine CLOSED tag (space-variant `<`/`</` forms allowed,
+#: only quoted `key="value"` attributes, never a bare word — that last restriction is what stops
+#: prose like `a <b and c> d` from parsing as a tag), and an UNTERMINATED tag (no `>` anywhere
+#: later in the field, removed to the end of the field rather than left in place).
 NON_MECHANICAL_PATTERNS: Final[Mapping[str, re.Pattern[str]]] = {
-    "markup": re.compile(r"</?[A-Za-z][A-Za-z0-9]*[\s/>]"),
+    "markup": re.compile(
+        r"(?:<\s*/?\s*[A-Za-z][A-Za-z0-9]*"
+        r"""(?:\s+[A-Za-z][A-Za-z0-9-]*=(?:"[^"]*"|'[^']*'))*\s*/?>)"""
+        r"|(?:<(?!.*>)\s*/?\s*[A-Za-z][A-Za-z0-9]*.*$)"
+    ),
     "html_entity": re.compile(r"&(?:[A-Za-z][A-Za-z0-9]{1,31}|#[0-9]{1,7}|#[Xx][0-9A-Fa-f]{1,6});"),
     "placeholder_token": re.compile(r"\$[A-Za-z_{]"),
     "cyrillic": re.compile(r"[Ѐ-ӿ]"),
