@@ -19,7 +19,7 @@
       "model_count": 3,
       "points": 95,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260814T195124Z-0c772378"
+      "source_acquisition_id": "mfm-20260818T033550Z-0c772378"
     },
     {
       "copy_index_min": 1,
@@ -27,7 +27,7 @@
       "model_count": 6,
       "points": 220,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260814T195124Z-0c772378"
+      "source_acquisition_id": "mfm-20260818T033550Z-0c772378"
     },
     {
       "copy_index_min": 2,
@@ -35,7 +35,7 @@
       "model_count": 3,
       "points": 115,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260814T195124Z-0c772378"
+      "source_acquisition_id": "mfm-20260818T033550Z-0c772378"
     },
     {
       "copy_index_min": 2,
@@ -43,7 +43,7 @@
       "model_count": 6,
       "points": 240,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260814T195124Z-0c772378"
+      "source_acquisition_id": "mfm-20260818T033550Z-0c772378"
     }
   ],
   "datasheet_id": "ds-canoptek-wraiths",
@@ -112,6 +112,42 @@
   "name": "CANOPTEK WRAITHS",
   "option_choices": [
     {
+      "count": 1,
+      "grants_weapon_line": 1,
+      "group_id": "og-canoptek-wraiths-1",
+      "id": "oc-canoptek-wraiths-1-1",
+      "is_default": false,
+      "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "particle caster",
+          "role": "granted",
+          "weapon_line": 1
+        }
+      ],
+      "name": "particle caster"
+    },
+    {
+      "count": 1,
+      "grants_weapon_line": 2,
+      "group_id": "og-canoptek-wraiths-1",
+      "id": "oc-canoptek-wraiths-1-2",
+      "is_default": false,
+      "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "transdimensional beamer",
+          "role": "granted",
+          "weapon_line": 2
+        }
+      ],
+      "name": "transdimensional beamer"
+    },
+    {
       "grants_weapon_line": 4,
       "group_id": "og-canoptek-wraiths-2",
       "id": "oc-canoptek-wraiths-2-1",
@@ -137,6 +173,12 @@
   ],
   "option_groups": [
     {
+      "id": "og-canoptek-wraiths-1",
+      "is_per_model": true,
+      "line": 1,
+      "scope": "unit"
+    },
+    {
       "id": "og-canoptek-wraiths-2",
       "is_per_model": true,
       "line": 2,
@@ -146,19 +188,19 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:2ce970043e61cd380ccdcc57319d4bff3ab75c7012909a0dc5000d029a67f3ab",
-    "last_verified_version": "wh40k-11e-2026-08-3",
+    "last_verified_version": "wh40k-11e-2026-08-4",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260814T195616Z-9a337975",
+    "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260814T195124Z-0c772378",
+    "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
-  "wargear_option_state": "partial",
+  "wargear_option_state": "extracted",
   "weapons": [
     {
       "ability_keywords": [

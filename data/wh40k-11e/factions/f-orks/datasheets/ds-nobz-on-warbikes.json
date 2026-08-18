@@ -19,7 +19,7 @@
       "model_count": 3,
       "points": 125,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260814T195616Z-9a337975"
+      "source_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0"
     }
   ],
   "datasheet_id": "ds-nobz-on-warbikes",
@@ -97,6 +97,24 @@
   ],
   "name": "Nobz On Warbikes",
   "option_choices": [
+    {
+      "count": 1,
+      "grants_weapon_line": 1,
+      "group_id": "og-nobz-on-warbikes-1",
+      "id": "oc-nobz-on-warbikes-1-1",
+      "is_default": false,
+      "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "slugga",
+          "role": "granted",
+          "weapon_line": 1
+        }
+      ],
+      "name": "slugga"
+    },
     {
       "count": 1,
       "grants_weapon_line": 3,
@@ -225,6 +243,12 @@
   ],
   "option_groups": [
     {
+      "id": "og-nobz-on-warbikes-1",
+      "is_per_model": true,
+      "line": 1,
+      "scope": "unit"
+    },
+    {
       "id": "og-nobz-on-warbikes-2",
       "is_per_model": true,
       "line": 2,
@@ -232,19 +256,19 @@
     }
   ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 4,
+    "consecutive_unverified_releases": 5,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260814T195616Z-9a337975",
+    "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
     "points_edition_code": "wh40k-11e",
     "points_source": "none"
   },
-  "wargear_option_state": "partial",
+  "wargear_option_state": "extracted",
   "weapons": [
     {
       "ability_keywords": [

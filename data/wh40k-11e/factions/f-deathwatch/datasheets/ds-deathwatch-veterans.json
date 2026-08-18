@@ -27,7 +27,7 @@
       "model_count": 5,
       "points": 100,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260814T195124Z-0c772378"
+      "source_acquisition_id": "mfm-20260818T033550Z-0c772378"
     },
     {
       "copy_index_min": 1,
@@ -35,7 +35,7 @@
       "model_count": 10,
       "points": 190,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260814T195124Z-0c772378"
+      "source_acquisition_id": "mfm-20260818T033550Z-0c772378"
     }
   ],
   "datasheet_id": "ds-deathwatch-veterans",
@@ -223,6 +223,42 @@
     },
     {
       "count": 1,
+      "group_id": "og-deathwatch-veterans-3",
+      "id": "oc-deathwatch-veterans-3-1",
+      "is_default": false,
+      "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "stalker-pattern boltgun",
+          "role": "granted",
+          "weapon_line": 7
+        },
+        {
+          "count": 1,
+          "item_index": 2,
+          "item_name": "close combat weapon",
+          "role": "granted",
+          "weapon_line": 9
+        },
+        {
+          "item_index": 1,
+          "item_name": "boltgun",
+          "role": "replaced",
+          "weapon_line": 1
+        },
+        {
+          "item_index": 2,
+          "item_name": "power weapon",
+          "role": "replaced",
+          "weapon_line": 11
+        }
+      ],
+      "name": "stalker-pattern boltgun and 1 close combat weapon"
+    },
+    {
+      "count": 1,
       "group_id": "og-deathwatch-veterans-4",
       "id": "oc-deathwatch-veterans-4-1",
       "is_default": false,
@@ -256,6 +292,77 @@
         }
       ],
       "name": "Deathwatch shotgun and 1 close combat weapon"
+    },
+    {
+      "count": 1,
+      "group_id": "og-deathwatch-veterans-5",
+      "id": "oc-deathwatch-veterans-5-1",
+      "is_default": false,
+      "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "frag cannon",
+          "role": "granted",
+          "weapon_line": 4
+        },
+        {
+          "count": 1,
+          "item_index": 2,
+          "item_name": "close combat weapon",
+          "role": "granted",
+          "weapon_line": 9
+        },
+        {
+          "item_index": 1,
+          "item_name": "boltgun",
+          "role": "replaced",
+          "weapon_line": 1
+        },
+        {
+          "item_index": 2,
+          "item_name": "power weapon",
+          "role": "replaced",
+          "weapon_line": 11
+        }
+      ],
+      "name": "frag cannon and 1 close combat weapon"
+    },
+    {
+      "count": 1,
+      "group_id": "og-deathwatch-veterans-6",
+      "id": "oc-deathwatch-veterans-6-1",
+      "is_default": false,
+      "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "infernus heavy bolter",
+          "role": "granted"
+        },
+        {
+          "count": 1,
+          "item_index": 2,
+          "item_name": "close combat weapon",
+          "role": "granted",
+          "weapon_line": 9
+        },
+        {
+          "item_index": 1,
+          "item_name": "boltgun",
+          "role": "replaced",
+          "weapon_line": 1
+        },
+        {
+          "item_index": 2,
+          "item_name": "power weapon",
+          "role": "replaced",
+          "weapon_line": 11
+        }
+      ],
+      "name": "infernus heavy bolter and 1 close combat weapon"
     },
     {
       "count": 1,
@@ -349,9 +456,27 @@
       "scope_n": 5
     },
     {
+      "id": "og-deathwatch-veterans-3",
+      "line": 3,
+      "scope": "per_n_models",
+      "scope_n": 5
+    },
+    {
       "id": "og-deathwatch-veterans-4",
       "is_per_model": true,
       "line": 4,
+      "scope": "per_n_models",
+      "scope_n": 5
+    },
+    {
+      "id": "og-deathwatch-veterans-5",
+      "line": 5,
+      "scope": "per_n_models",
+      "scope_n": 5
+    },
+    {
+      "id": "og-deathwatch-veterans-6",
+      "line": 6,
       "scope": "per_n_models",
       "scope_n": 5
     },
@@ -374,19 +499,19 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:d2573c581077690e7562e7fafef6b15736a6433f05f4500a916ee2c54d2bb82d",
-    "last_verified_version": "wh40k-11e-2026-08-3",
+    "last_verified_version": "wh40k-11e-2026-08-4",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260814T195616Z-9a337975",
+    "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260814T195124Z-0c772378",
+    "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
-  "wargear_option_state": "partial",
+  "wargear_option_state": "extracted",
   "weapons": [
     {
       "armour_penetration": "0",

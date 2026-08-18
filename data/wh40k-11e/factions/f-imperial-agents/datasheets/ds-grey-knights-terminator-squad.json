@@ -27,7 +27,7 @@
       "model_count": 5,
       "points": 175,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260814T195124Z-0c772378"
+      "source_acquisition_id": "mfm-20260818T033550Z-0c772378"
     },
     {
       "copy_index_min": 1,
@@ -36,7 +36,7 @@
       "points": 190,
       "pricing_confidence": "verified",
       "pricing_context": "every-model-has-imperium",
-      "source_acquisition_id": "mfm-20260814T195124Z-0c772378"
+      "source_acquisition_id": "mfm-20260818T033550Z-0c772378"
     }
   ],
   "datasheet_id": "ds-grey-knights-terminator-squad",
@@ -212,6 +212,29 @@
         }
       ],
       "name": "Ancient’s banner."
+    },
+    {
+      "count": 1,
+      "group_id": "og-grey-knights-terminator-squad-3",
+      "id": "oc-grey-knights-terminator-squad-3-1",
+      "is_default": false,
+      "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "narthecium.",
+          "role": "granted"
+        },
+        {
+          "item_index": 1,
+          "item_name": "storm bolter",
+          "role": "replaced",
+          "weapon_line": 4
+        }
+      ],
+      "name": "narthecium.",
+      "replaces_weapon_line": 4
     }
   ],
   "option_groups": [
@@ -225,24 +248,29 @@
       "id": "og-grey-knights-terminator-squad-2",
       "line": 2,
       "scope": "unit"
+    },
+    {
+      "id": "og-grey-knights-terminator-squad-3",
+      "line": 3,
+      "scope": "unit"
     }
   ],
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:e80321ff61a79811d172a3a3c015515062ba2d8984ad59096026f95f794167d0",
-    "last_verified_version": "wh40k-11e-2026-08-3",
+    "last_verified_version": "wh40k-11e-2026-08-4",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260814T195616Z-9a337975",
+    "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260814T195124Z-0c772378",
+    "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
-  "wargear_option_state": "partial",
+  "wargear_option_state": "extracted",
   "weapons": [
     {
       "ability_keywords": [

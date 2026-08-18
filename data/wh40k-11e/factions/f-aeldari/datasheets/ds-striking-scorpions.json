@@ -29,7 +29,7 @@
       "model_count": 5,
       "points": 75,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260814T195124Z-0c772378"
+      "source_acquisition_id": "mfm-20260818T033550Z-0c772378"
     },
     {
       "copy_index_min": 1,
@@ -37,7 +37,7 @@
       "model_count": 10,
       "points": 145,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260814T195124Z-0c772378"
+      "source_acquisition_id": "mfm-20260818T033550Z-0c772378"
     }
   ],
   "datasheet_id": "ds-striking-scorpions",
@@ -211,6 +211,22 @@
         }
       ],
       "name": "chainsabres"
+    },
+    {
+      "count": 1,
+      "group_id": "og-striking-scorpions-2",
+      "id": "oc-striking-scorpions-2-1",
+      "is_default": false,
+      "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "Aspect Shrine token",
+          "role": "granted"
+        }
+      ],
+      "name": "Aspect Shrine token"
     }
   ],
   "option_groups": [
@@ -218,24 +234,30 @@
       "id": "og-striking-scorpions-1",
       "line": 1,
       "scope": "unit"
+    },
+    {
+      "id": "og-striking-scorpions-2",
+      "line": 2,
+      "scope": "per_n_models",
+      "scope_n": 5
     }
   ],
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:05aa9964ad85b930bdd30d32ed0f51a57b20a568f1c6372a1bfba6db3eaf6ba9",
-    "last_verified_version": "wh40k-11e-2026-08-3",
+    "last_verified_version": "wh40k-11e-2026-08-4",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260814T195616Z-9a337975",
+    "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260814T195124Z-0c772378",
+    "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
-  "wargear_option_state": "partial",
+  "wargear_option_state": "extracted",
   "weapons": [
     {
       "ability_keywords": [

@@ -31,7 +31,7 @@
       "model_count": 9,
       "points": 65,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260814T195124Z-0c772378"
+      "source_acquisition_id": "mfm-20260818T033550Z-0c772378"
     }
   ],
   "datasheet_id": "ds-servitor-battleclade",
@@ -148,6 +148,32 @@
   "option_choices": [
     {
       "count": 1,
+      "grants_weapon_line": 5,
+      "group_id": "og-servitor-battleclade-1",
+      "id": "oc-servitor-battleclade-1-1",
+      "is_default": false,
+      "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "meltagun",
+          "role": "granted",
+          "weapon_line": 5
+        },
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "phosphor blaster",
+          "role": "replaced",
+          "weapon_line": 6
+        }
+      ],
+      "name": "meltagun",
+      "replaces_weapon_line": 6
+    },
+    {
+      "count": 1,
       "grants_weapon_line": 3,
       "group_id": "og-servitor-battleclade-2",
       "id": "oc-servitor-battleclade-2-1",
@@ -175,6 +201,11 @@
   ],
   "option_groups": [
     {
+      "id": "og-servitor-battleclade-1",
+      "line": 1,
+      "scope": "unit"
+    },
+    {
       "eligible_max_count": 3,
       "eligible_model_name": "Combat Servitor",
       "id": "og-servitor-battleclade-2",
@@ -186,19 +217,19 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:e4b0dd9a5863d4f3ef69c1e01dc0e74ff8b1dd9134dff514e62ddb8c648c88b6",
-    "last_verified_version": "wh40k-11e-2026-08-3",
+    "last_verified_version": "wh40k-11e-2026-08-4",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260814T195616Z-9a337975",
+    "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260814T195124Z-0c772378",
+    "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
-  "wargear_option_state": "partial",
+  "wargear_option_state": "extracted",
   "weapons": [
     {
       "ability_keywords": [

@@ -26,7 +26,7 @@
       "model_count": 5,
       "points": 75,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260814T195124Z-0c772378"
+      "source_acquisition_id": "mfm-20260818T033550Z-0c772378"
     },
     {
       "copy_index_min": 1,
@@ -34,7 +34,7 @@
       "model_count": 10,
       "points": 140,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260814T195124Z-0c772378"
+      "source_acquisition_id": "mfm-20260818T033550Z-0c772378"
     }
   ],
   "datasheet_id": "ds-corsair-skyreavers",
@@ -124,6 +124,56 @@
   ],
   "name": "CORSAIR SKYREAVERS",
   "option_choices": [
+    {
+      "count": 1,
+      "grants_weapon_line": 2,
+      "group_id": "og-corsair-skyreavers-1",
+      "id": "oc-corsair-skyreavers-1-1",
+      "is_default": false,
+      "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "blast pistol",
+          "role": "granted",
+          "weapon_line": 2
+        },
+        {
+          "item_index": 1,
+          "item_name": "shuriken pistol",
+          "role": "replaced",
+          "weapon_line": 7
+        }
+      ],
+      "name": "blast pistol",
+      "replaces_weapon_line": 7
+    },
+    {
+      "count": 1,
+      "grants_weapon_line": 5,
+      "group_id": "og-corsair-skyreavers-1",
+      "id": "oc-corsair-skyreavers-1-2",
+      "is_default": false,
+      "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "neuro disruptor",
+          "role": "granted",
+          "weapon_line": 5
+        },
+        {
+          "item_index": 1,
+          "item_name": "shuriken pistol",
+          "role": "replaced",
+          "weapon_line": 7
+        }
+      ],
+      "name": "neuro disruptor",
+      "replaces_weapon_line": 7
+    },
     {
       "count": 1,
       "group_id": "og-corsair-skyreavers-2",
@@ -271,6 +321,11 @@
   ],
   "option_groups": [
     {
+      "id": "og-corsair-skyreavers-1",
+      "line": 1,
+      "scope": "unit"
+    },
+    {
       "id": "og-corsair-skyreavers-2",
       "is_per_model": true,
       "line": 2,
@@ -281,19 +336,19 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:28ceaa7499d3de996b0b33b312fcecc79a0defdfac3d1046907caa098de3eade",
-    "last_verified_version": "wh40k-11e-2026-08-3",
+    "last_verified_version": "wh40k-11e-2026-08-4",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260814T195616Z-9a337975",
+    "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260814T195124Z-0c772378",
+    "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
-  "wargear_option_state": "partial",
+  "wargear_option_state": "extracted",
   "weapons": [
     {
       "ability_keywords": [

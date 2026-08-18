@@ -44,7 +44,7 @@
       "model_count": 5,
       "points": 160,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260814T195616Z-9a337975"
+      "source_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0"
     },
     {
       "copy_index_min": 1,
@@ -52,7 +52,7 @@
       "model_count": 10,
       "points": 320,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260814T195616Z-9a337975"
+      "source_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0"
     }
   ],
   "datasheet_id": "ds-proteus-kill-team",
@@ -210,6 +210,194 @@
   "option_choices": [
     {
       "count": 1,
+      "grants_weapon_line": 9,
+      "group_id": "og-proteus-kill-team-1",
+      "id": "oc-proteus-kill-team-1-1",
+      "is_default": false,
+      "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "Long Vigil ranged weapon",
+          "role": "granted",
+          "weapon_line": 9
+        },
+        {
+          "item_index": 1,
+          "item_name": "boltgun",
+          "role": "replaced",
+          "weapon_line": 2
+        },
+        {
+          "item_index": 2,
+          "item_name": "Long Vigil melee weapon",
+          "role": "replaced",
+          "weapon_line": 17
+        }
+      ],
+      "name": "Long Vigil ranged weapon"
+    },
+    {
+      "count": 1,
+      "group_id": "og-proteus-kill-team-1",
+      "id": "oc-proteus-kill-team-1-2",
+      "is_default": false,
+      "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "boltgun",
+          "role": "granted",
+          "weapon_line": 2
+        },
+        {
+          "count": 1,
+          "item_index": 2,
+          "item_name": "Astartes shield",
+          "role": "granted"
+        },
+        {
+          "item_index": 1,
+          "item_name": "boltgun",
+          "role": "replaced",
+          "weapon_line": 2
+        },
+        {
+          "item_index": 2,
+          "item_name": "Long Vigil melee weapon",
+          "role": "replaced",
+          "weapon_line": 17
+        }
+      ],
+      "name": "boltgun and 1 Astartes shield"
+    },
+    {
+      "count": 1,
+      "group_id": "og-proteus-kill-team-1",
+      "id": "oc-proteus-kill-team-1-3",
+      "is_default": false,
+      "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "Long Vigil melee weapon",
+          "role": "granted",
+          "weapon_line": 17
+        },
+        {
+          "count": 1,
+          "item_index": 2,
+          "item_name": "Astartes shield",
+          "role": "granted"
+        },
+        {
+          "item_index": 1,
+          "item_name": "boltgun",
+          "role": "replaced",
+          "weapon_line": 2
+        },
+        {
+          "item_index": 2,
+          "item_name": "Long Vigil melee weapon",
+          "role": "replaced",
+          "weapon_line": 17
+        }
+      ],
+      "name": "Long Vigil melee weapon and 1 Astartes shield"
+    },
+    {
+      "count": 1,
+      "grants_weapon_line": 16,
+      "group_id": "og-proteus-kill-team-2",
+      "id": "oc-proteus-kill-team-2-1",
+      "is_default": false,
+      "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "Deathwatch thunder hammer",
+          "role": "granted",
+          "weapon_line": 16
+        },
+        {
+          "item_index": 1,
+          "item_name": "boltgun",
+          "role": "replaced",
+          "weapon_line": 2
+        },
+        {
+          "item_index": 2,
+          "item_name": "Long Vigil melee weapon",
+          "role": "replaced",
+          "weapon_line": 17
+        }
+      ],
+      "name": "Deathwatch thunder hammer"
+    },
+    {
+      "count": 1,
+      "grants_weapon_line": 5,
+      "group_id": "og-proteus-kill-team-3",
+      "id": "oc-proteus-kill-team-3-1",
+      "is_default": false,
+      "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "frag cannon",
+          "role": "granted",
+          "weapon_line": 5
+        },
+        {
+          "item_index": 1,
+          "item_name": "boltgun",
+          "role": "replaced",
+          "weapon_line": 2
+        },
+        {
+          "item_index": 2,
+          "item_name": "Long Vigil melee weapon",
+          "role": "replaced",
+          "weapon_line": 17
+        }
+      ],
+      "name": "frag cannon"
+    },
+    {
+      "count": 1,
+      "group_id": "og-proteus-kill-team-3",
+      "id": "oc-proteus-kill-team-3-2",
+      "is_default": false,
+      "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "Infernus heavy bolter",
+          "role": "granted"
+        },
+        {
+          "item_index": 1,
+          "item_name": "boltgun",
+          "role": "replaced",
+          "weapon_line": 2
+        },
+        {
+          "item_index": 2,
+          "item_name": "Long Vigil melee weapon",
+          "role": "replaced",
+          "weapon_line": 17
+        }
+      ],
+      "name": "Infernus heavy bolter"
+    },
+    {
+      "count": 1,
       "group_id": "og-proteus-kill-team-4",
       "id": "oc-proteus-kill-team-4-1",
       "is_default": false,
@@ -241,6 +429,36 @@
         }
       ],
       "name": "Long Vigil melee weapon"
+    },
+    {
+      "count": 1,
+      "grants_weapon_line": 16,
+      "group_id": "og-proteus-kill-team-5",
+      "id": "oc-proteus-kill-team-5-1",
+      "is_default": false,
+      "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "Deathwatch thunder hammer",
+          "role": "granted",
+          "weapon_line": 16
+        },
+        {
+          "item_index": 1,
+          "item_name": "boltgun",
+          "role": "replaced",
+          "weapon_line": 2
+        },
+        {
+          "item_index": 2,
+          "item_name": "Long Vigil melee weapon",
+          "role": "replaced",
+          "weapon_line": 17
+        }
+      ],
+      "name": "Deathwatch thunder hammer"
     },
     {
       "count": 1,
@@ -343,13 +561,174 @@
       ],
       "name": "cyclone missile launcher and 1 storm bolter (this model’s storm bolter cannot be replaced)",
       "replaces_weapon_line": 12
+    },
+    {
+      "count": 1,
+      "group_id": "og-proteus-kill-team-7",
+      "id": "oc-proteus-kill-team-7-1",
+      "is_default": false,
+      "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "storm bolter",
+          "role": "granted",
+          "weapon_line": 12
+        },
+        {
+          "count": 1,
+          "item_index": 2,
+          "item_name": "power weapon",
+          "role": "granted",
+          "weapon_line": 19
+        },
+        {
+          "item_index": 1,
+          "item_name": "power fist",
+          "role": "replaced",
+          "weapon_line": 18
+        },
+        {
+          "item_index": 2,
+          "item_name": "storm bolter",
+          "role": "replaced",
+          "weapon_line": 12
+        }
+      ],
+      "name": "storm bolter and 1 power weapon"
+    },
+    {
+      "count": 1,
+      "group_id": "og-proteus-kill-team-7",
+      "id": "oc-proteus-kill-team-7-2",
+      "is_default": false,
+      "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "storm bolter",
+          "role": "granted",
+          "weapon_line": 12
+        },
+        {
+          "count": 1,
+          "item_index": 2,
+          "item_name": "chainfist",
+          "role": "granted",
+          "weapon_line": 15
+        },
+        {
+          "item_index": 1,
+          "item_name": "power fist",
+          "role": "replaced",
+          "weapon_line": 18
+        },
+        {
+          "item_index": 2,
+          "item_name": "storm bolter",
+          "role": "replaced",
+          "weapon_line": 12
+        }
+      ],
+      "name": "storm bolter and 1 chainfist"
+    },
+    {
+      "count": 1,
+      "grants_weapon_line": 21,
+      "group_id": "og-proteus-kill-team-7",
+      "id": "oc-proteus-kill-team-7-3",
+      "is_default": false,
+      "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "twin lightning claws",
+          "role": "granted",
+          "weapon_line": 21
+        },
+        {
+          "item_index": 1,
+          "item_name": "power fist",
+          "role": "replaced",
+          "weapon_line": 18
+        },
+        {
+          "item_index": 2,
+          "item_name": "storm bolter",
+          "role": "replaced",
+          "weapon_line": 12
+        }
+      ],
+      "name": "twin lightning claws"
+    },
+    {
+      "count": 1,
+      "group_id": "og-proteus-kill-team-7",
+      "id": "oc-proteus-kill-team-7-4",
+      "is_default": false,
+      "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "Terminator thunder hammer",
+          "role": "granted",
+          "weapon_line": 20
+        },
+        {
+          "count": 1,
+          "item_index": 2,
+          "item_name": "storm shield",
+          "role": "granted"
+        },
+        {
+          "item_index": 1,
+          "item_name": "power fist",
+          "role": "replaced",
+          "weapon_line": 18
+        },
+        {
+          "item_index": 2,
+          "item_name": "storm bolter",
+          "role": "replaced",
+          "weapon_line": 12
+        }
+      ],
+      "name": "Terminator thunder hammer and 1 storm shield"
     }
   ],
   "option_groups": [
     {
+      "eligible_model_name": "Kill Team Veterans",
+      "id": "og-proteus-kill-team-1",
+      "line": 1,
+      "scope": "unit"
+    },
+    {
+      "id": "og-proteus-kill-team-2",
+      "line": 2,
+      "scope": "per_n_models",
+      "scope_n": 5
+    },
+    {
+      "id": "og-proteus-kill-team-3",
+      "line": 3,
+      "scope": "per_n_models",
+      "scope_n": 5
+    },
+    {
       "id": "og-proteus-kill-team-4",
       "line": 4,
       "scope": "unit"
+    },
+    {
+      "id": "og-proteus-kill-team-5",
+      "line": 5,
+      "scope": "per_n_models",
+      "scope_n": 5
     },
     {
       "eligible_max_count": 3,
@@ -357,22 +736,27 @@
       "is_per_model": true,
       "line": 6,
       "scope": "unit"
+    },
+    {
+      "id": "og-proteus-kill-team-7",
+      "line": 7,
+      "scope": "unit"
     }
   ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 4,
+    "consecutive_unverified_releases": 5,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260814T195616Z-9a337975",
+    "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
     "points_edition_code": "wh40k-11e",
     "points_source": "none"
   },
-  "wargear_option_state": "partial",
+  "wargear_option_state": "extracted",
   "weapons": [
     {
       "ability_keywords": [

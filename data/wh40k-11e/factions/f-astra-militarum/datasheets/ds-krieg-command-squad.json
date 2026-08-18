@@ -30,7 +30,7 @@
       "model_count": 6,
       "points": 60,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260814T195124Z-0c772378"
+      "source_acquisition_id": "mfm-20260818T033550Z-0c772378"
     }
   ],
   "datasheet_id": "ds-krieg-command-squad",
@@ -320,6 +320,54 @@
         }
       ],
       "name": "power weapon"
+    },
+    {
+      "count": 1,
+      "grants_weapon_line": 2,
+      "group_id": "og-krieg-command-squad-5",
+      "id": "oc-krieg-command-squad-5-1",
+      "is_default": false,
+      "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "bolt pistol",
+          "role": "granted",
+          "weapon_line": 2
+        },
+        {
+          "item_index": 1,
+          "item_name": "laspistol",
+          "role": "replaced",
+          "weapon_line": 7
+        }
+      ],
+      "name": "bolt pistol",
+      "replaces_weapon_line": 7
+    },
+    {
+      "count": 1,
+      "group_id": "og-krieg-command-squad-5",
+      "id": "oc-krieg-command-squad-5-2",
+      "is_default": false,
+      "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "plasma pistol",
+          "role": "granted"
+        },
+        {
+          "item_index": 1,
+          "item_name": "laspistol",
+          "role": "replaced",
+          "weapon_line": 7
+        }
+      ],
+      "name": "plasma pistol",
+      "replaces_weapon_line": 7
     }
   ],
   "option_groups": [
@@ -342,24 +390,29 @@
       "id": "og-krieg-command-squad-4",
       "line": 4,
       "scope": "unit"
+    },
+    {
+      "id": "og-krieg-command-squad-5",
+      "line": 5,
+      "scope": "unit"
     }
   ],
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:771226af43ccd6d089bd43290d8895013c29b13f18d34a2dc982a6821379440a",
-    "last_verified_version": "wh40k-11e-2026-08-3",
+    "last_verified_version": "wh40k-11e-2026-08-4",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260814T195616Z-9a337975",
+    "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260814T195124Z-0c772378",
+    "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
-  "wargear_option_state": "partial",
+  "wargear_option_state": "extracted",
   "weapons": [
     {
       "ability_keywords": [
