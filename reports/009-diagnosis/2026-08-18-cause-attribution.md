@@ -81,8 +81,8 @@ live corpus — it is overwhelmingly the placeholder shape, not genuine footnote
 rows are addressed in §5, alongside class 13.)
 
 **The originally-cited estimate was itself an undercount.** `docs/follow-ups.md`/`plan.md` sized the
-two extractor-dropped shapes together at "roughly 30 rows, about 5.3% of the residual"
-(FR-006(b)'s own carried figure). The measured live count is **303 rows, 84.6% of the delta** — an
+two extractor-dropped shapes together at roughly 30 rows, about 5.3% of the residual (FR-006(b)'s
+own carried figure). The measured live count is **303 rows, 84.6% of the delta** — an
 order of magnitude larger. Both figures are stated; the disagreement is itself a finding, on the same
 terms Setup's own report already established for the collision-set and `-N`-population measurements.
 
@@ -145,7 +145,7 @@ never to a production (rule 5) — moot on the evidence measured here.
 
 ## 5. The remaining classes: 12 and 13
 
-- **Class 12** ("upstream typo — a missing `with`, a `must be equipped`"), delta **15 rows**: verified
+- **Class 12** (upstream typo — a missing `with`, a `must be equipped`), delta **15 rows**: verified
   structurally (regex over the pre-passed stem, never quoting it) as **17 rows** missing the expected
   `with` and **1 row** carrying the `must be equipped` variant, of 18 live total (html carries 3).
   This is genuine upstream source malformation — individually idiosyncratic, not a stable phrasing —
