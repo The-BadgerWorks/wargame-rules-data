@@ -1,5 +1,5 @@
 {
-  "_comment": "AI-Assisted: Claude Code (model: claude-opus-5) - Authored per data-model.md §4 (task T034). Faction mapping is AUTHORED, not derived: the taxonomies genuinely disagree -- 30 points-source slugs against 26 detail-source ids, chapters split one way and Titan Legions the other (C3/R6). An unmapped slug is the blocking REC-FACTION-UNMAPPED. AI-Assisted: Claude Code (model: claude-sonnet-5) - Added the optional detail_source_publication_id property: a stage-2 disambiguation signal (see pipeline/reconcile/match.py) that lets a chapter-scoped mapping prefer its own supplement's datasheet over a same-named core-codex twin when the detail source's normalised-name match is otherwise ambiguous; see curation/README.md's provenance section for why Black Templars needed it.",
+  "_comment": "AI-Assisted: Claude Code (model: claude-opus-5) - Authored per data-model.md §4 (task T034). Faction mapping is AUTHORED, not derived: the taxonomies genuinely disagree -- 30 points-source slugs against 26 detail-source ids, chapters split one way and Titan Legions the other (C3/R6). An unmapped slug is the blocking REC-FACTION-UNMAPPED. AI-Assisted: Claude Code (model: claude-sonnet-5) - Added the optional detail_source_publication_id property: a stage-2 disambiguation signal (see pipeline/reconcile/match.py) that lets a chapter-scoped mapping prefer its own supplement's datasheet over a same-named core-codex twin when the detail source's normalised-name match is otherwise ambiguous; see curation/README.md's provenance section for why Black Templars needed it. AI-Assisted: Claude Code (model: claude-sonnet-5) - Added the optional detail_source_faction_code property (009 task T021, data-model.md §2): the bulk export's own faction-code vocabulary (e.g. SM), stored alongside detail_source_faction_id now that the latter carries html-mode's page-slug vocabulary instead. Additive; every existing record stays valid.",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://the-badgerworks.github.io/wargame-rules-data/schemas/curation/faction-map.schema.json",
   "title": "curation/faction-map.json",
@@ -13,7 +13,8 @@
       "faction_id": { "type": "string", "pattern": "^f-[a-z0-9-]+$" },
       "parent_faction_id": { "type": "string", "pattern": "^f-[a-z0-9-]+$" },
       "detail_source_faction_id": { "type": "string", "minLength": 1 },
-      "detail_source_publication_id": { "type": "string", "minLength": 1 }
+      "detail_source_publication_id": { "type": "string", "minLength": 1 },
+      "detail_source_faction_code": { "type": "string", "minLength": 1 }
     }
   }
 }
