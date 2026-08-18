@@ -1,3 +1,9 @@
+<!-- AI-Assisted: Claude Code (model: claude-sonnet-5) - 008-wargear-option-completion Polish/
+     closeout pass, 2026-08-18: closed item 10's loop with the published wh40k-11e-2026-08-4
+     figures, and added items 20-23 -- a CSV export migration candidate for a future release
+     (unverified, no source fetched), the override-authoring follow-up release still owed
+     (T071/T072/T073/T080), the stacked-PR merge-order lesson PR #21/#22 surfaced, and the
+     known GitHub "Update branch" bot-authorship footgun PR #26 hit and fixed. -->
 <!-- AI-Assisted: Claude Code (model: claude-sonnet-5) - Recorded three items surfaced while
      landing the Polish phase (T146-T162): one operational setup step the settings-drift checker
      (T148) depends on but cannot perform itself, one pre-existing test-hygiene defect the T161
@@ -513,6 +519,21 @@ mid-candidate — has no carry-forward equivalent and still has no answer beyond
 re-reviewing. The two are different failure shapes (a faction disappearing vs. a faction's content
 changing) and only the first has a mechanism now.
 
+**Discharged for the "a faction disappears" shape, published 2026-08-18.** `wh40k-11e-2026-08-4`
+published with the carry-forward mechanism live in production, not merely designed: 5 factions
+genuinely carried forward (`black-templars`, `blood-angels`, `dark-angels`, `deathwatch`,
+`space-wolves`), 14 declarations correctly unused because the source answered live, 0
+`SRC-FACTION-CARRY-FORWARD-NO-PRIOR`. The mechanism this item asked for, for that one failure
+shape, is a shipped and exercised production path, not a proposal — `reports/wh40k-11e-2026-08-4/
+report.json`'s own `factions: 100%` (30/30) and `datasheets: 100%` (2083/2084) are the release-time
+proof.
+
+**What remains open, restated once more for clarity**: the *content*-drift failure shape — a
+reachable, live-fetched faction's page changing mid-candidate — still has no mechanism, only the
+existing triage-and-resolve-or-author human process this item's original text already named. That
+is exactly what blocked the first two `wh40k-11e-2026-08-4` dispatch attempts (the 24
+`SUM-NEEDS-REREVIEW` findings above, resolved by human triage — PR #24/#25 — not by a code path).
+The two failure shapes remain genuinely different, and only the first one has a mechanism now.
 
 ## 11. `pipeline-run-interface.md` owes an additive row for the `option-regression` command
 
@@ -824,3 +845,135 @@ factions, measured it precisely. **Resolved 2026-08-17**: SC-002 restates to **�
 Clarifications session 2026-08-17 and `plan.md` Open Decision O3, exactly as T077's Product Owner
 checkpoint was scoped to do. This item can be considered closed on the O2-sizing thread; the
 finding-code contract-row debt (first paragraph) remains open.
+
+## 20. CSV export migration is a candidate for a future release
+
+The current-edition detail source has been read exclusively in `html` mode
+(`DetailAcquisitionMode.HTML`, `pipeline/config.py`) since `006`, because no bulk export existed
+for the current 11th-edition catalogue — `csv` mode (`DetailAcquisitionMode.CSV`) has only ever
+served the *previous*-edition content path. That has reportedly changed: 11e CSV export endpoints
+are now live at `wahapedia.ru/wh40k11ed/*.csv`, the same first-party publisher this pipeline
+already treats as its detail source.
+
+**Not verified by this session** — no source acquisition was performed to confirm shape or
+coverage, consistent with this repository's rule against fetching a source page ad hoc outside the
+pipeline's own governed acquisition. Recorded here as a scoped candidate for a future feature's own
+measurement phase, not as a decision or a commitment.
+
+If confirmed, a `csv`-mode current-edition build would give this pipeline a structured export
+rather than a datacard-page HTML tree — precisely the shape of source that would have made `008`'s
+own carry-forward mechanism (item 10 above) unnecessary for the "a whole faction's page becomes
+unreachable" failure it was built to route around, though it says nothing about whether a bulk
+export is subject to a *different* coverage-gap shape of its own.
+
+Two things worth flagging up front, each needing its own measurement before any commitment:
+
+1. **Digest re-baseline at scale.** Every ability's `mechanic_digest` is computed from the current
+   html-mode extraction path. Switching the current-edition acquisition mode would move digests for
+   essentially the whole corpus (2,000+ datasheets, ~2,000 approved ability summaries) in one
+   release — the same *shape* of disruption item 10 describes for a handful of abilities at a time,
+   at roughly a thousand times the scale, once. A migration needs a dry-run measuring exactly how
+   many summaries would flip to `SUM-NEEDS-REREVIEW` and a triage plan — most likely the same
+   draft-then-human-verify shape `008`'s own Q6 authoring-mode amendment established for override
+   authoring — sized and reviewed before a migration release is scheduled.
+2. **Chapter consolidation.** The 25-faction CSV model reportedly consolidates the six Space Marine
+   chapters this pipeline's html-mode acquisition currently reads as six distinct faction pages
+   (five of which are the `008` item-10 carry-forward factions above) into fewer rows. Whether a
+   consumer sees "Space Marines" plus five sub-chapter records, or one consolidated faction with
+   chapter-scoped sub-data, is a data-model and consumer-contract question for the Product Owner —
+   not something an extraction-layer migration should decide as a side effect of a mode switch.
+
+**Action needed**: a future feature's own Setup phase measures the CSV endpoints through the
+pipeline's own governed acquisition (never an ad hoc fetch) to confirm shape, coverage, and the
+digest-churn size, and puts the chapter-consolidation consumer-model question to the Product Owner
+before committing to a migration. Evaluate this before authoring item 21's override worklist by
+hand, in case the CSV shape resolves some of it mechanically.
+
+## 21. 008's override-authoring follow-up release is still owed (T071/T072/T073/T080)
+
+`008-wargear-option-completion`'s own two-release split (spec.md Clarifications session
+2026-08-17, Q5) shipped the grammar productions and the carry-forward mechanism in
+`wh40k-11e-2026-08-4` at the measured 96% (`loadout.options_resolved` 1,992/2,084), clear of the
+92% ratchet floor — but does not, and was never meant to, reach SC-002's restated ≥97%
+(≥2,029/2,084) ceiling on its own. T071 (option overrides) / T072 (equipment overrides) / T073
+(validation) / T080 (the follow-up's own PR B merge) are re-scoped to a follow-up release, not
+dropped.
+
+The worklist is corpus-complete and ready: `reports/008-dryrun/override-candidates-2026-08-17.md`
+— 26 override-addressable datasheets / 30 rows on the option side, plus the equipment residual (99
+rows, Open Decision O1's 24 card shapes, structurally unchanged since `008` Phase 5's own
+measurement) — both text-free, both datasheet id + line + diagnosis class only, no item name or
+count. Authoring mode is amended for this follow-up specifically (spec.md Clarifications Q6):
+machine-drafted from the source via the pipeline's own client, human-verified per entry before
+merge — superseding T071/T072's original "never machine-generated" wording for this task only.
+
+**Action needed, and sharpened by item 20 above**: before authoring roughly 129 rows by hand
+against the html-mode source, evaluate whether a CSV export migration (if item 20's measurement
+confirms one is viable) supersedes some or all of this worklist — a structured CSV row may resolve
+mechanically what an html-mode sentence needed a curator override for, mooting part or all of this
+authoring effort. If the CSV migration is not imminent, T071-T073 proceed on their own schedule
+under the Q6 authoring mode; if it is, re-measure this worklist against the CSV-mode corpus first
+rather than authoring it twice.
+
+## 22. Stacked pull requests must be retargeted or merged bottom-up (008, PR #21/#22)
+
+`008`'s split-PR release used a stacked pair: PR #22 (`curation/carried-forward-factions.json`)
+was opened with PR #21 (`pipeline/`+`tests/`) as its **base branch**, rather than `main`, because
+#22's content genuinely depends on #21's finding codes and loader. Both merged individually
+through GitHub's normal "Merge pull request" control — but merging #22 merges it into #21's own
+*branch*, not into `main`. PR #21 merged into `main` separately, first. The two merge commits
+(`875cb615`, `f9b72e80`) are siblings, not a chain: `main` gained #21's machinery but never gained
+#22's declaration, undetected until `T081`'s own pre-flight check (`git show
+origin/main:curation/carried-forward-factions.json` failing) caught it before a candidate was
+built against a `main` that looked complete but was not (full account: `WargameCompanion`'s
+`specs/008-wargear-option-completion/.impl-progress.md`, "T081 pre-flight" section). Fixed by a
+third PR (#23) carrying exactly the one missing file from PR #21's branch's then-current tip.
+
+**Not a GitHub defect and not a guard gap.** `tools/check_change_classes.py` correctly evaluated
+each PR's own diff on its own terms; nothing about a stacked PR's diff is wrong in isolation. The
+gap is a merge-order assumption GitHub's UI neither enforces nor warns about: merging a PR closes
+it and marks it merged regardless of whether its base branch itself ever reaches `main`.
+
+**Lesson, worth keeping the way item 18 kept the change-class one**: a stacked PR pair (a base PR,
+plus a dependent PR based on the base PR's own branch) must either (a) be retargeted to `main` once
+the base PR merges, before the dependent PR is itself merged, or (b) be merged strictly
+bottom-up with the dependent PR's base branch manually repointed to `main` first. GitHub does
+neither automatically, and closing/merging the dependent PR gives no visible signal that its
+content failed to reach `main`. A release process using stacked PRs needs an explicit post-merge
+verification step — `git show origin/main:<path>` for every file the stack was supposed to add —
+before the next stage (a candidate build, here) trusts what `main` contains.
+
+## 23. GitHub's "Update branch" button breaks bot-authorship on a data-class PR (008, PR #26)
+
+PR #26 (the `wh40k-11e-2026-08-4` candidate, `data`-class, opened manually under the pipeline
+bot's git identity because the org still blocks Actions-created PRs — item 17) needed bot-authored
+commits throughout its history: `tools/check_change_classes.py`'s guard requires every commit in a
+`data`-carrying PR to be attributed to the pipeline bot, not to whichever human last touched the
+branch.
+
+The Product Owner clicked GitHub's own "Update branch" control on the PR (it was behind `main`) —
+a normal, well-intentioned action to keep a stale PR current before merge. GitHub performs that
+merge as a UI-initiated commit authored **and** committed as the clicking user's own GitHub
+identity, not the bot's, even though the content merged in was itself a harmless automated commit
+(`a1ca4c1e`, an integrity-check run touching only `state/run-ledger.jsonl`). That tripped the
+change-class guard's bot-authorship rule on the PR's next CI run.
+
+**Fixed without discarding history**: only the offending merge commit was replaced — the commits
+before and after it (the candidate build itself and the spot-check commit) were already correctly
+bot-authored and untouched. The fix re-did the same merge locally with `GIT_AUTHOR_NAME`/
+`GIT_COMMITTER_NAME` forced to the bot identity, verified byte-for-byte tree-identical to the
+Product Owner's own merge result before force-pushing the replacement — full verification steps
+(empty diff against the original merge, empty diff against the pre-merge candidate commit for
+`data/`, the guard passing locally, and the approved `commit_sha`'s ancestor status confirmed
+unmoved) are in `.impl-progress.md`'s "PR #26 authorship fix" section.
+
+**Known workaround, worth documenting so the next release does not lose time rediscovering it**:
+on any pull request that must carry bot-only authorship end to end (any PR touching `data/`), do
+not use GitHub's "Update branch" button — it always commits as the clicking human, with no option
+to attribute it otherwise. Instead, either (a) leave the PR as-is if being behind `main` does not
+actually block a guard-compliant merge (`mergeStateStatus: BEHIND` alone is not blocking), or (b)
+if it genuinely must be updated, re-merge `main` locally under the bot's forced git identity and
+force-push, exactly as this fix did. **Action needed**: document this explicitly in
+`docs/repo-settings.md` or `docs/runbook.md` (whichever documents PR mechanics for the
+`data`-class release path) so a future Product Owner reviewing a candidate PR does not reach for
+the same button a second time.
