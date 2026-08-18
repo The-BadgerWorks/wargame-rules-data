@@ -1,0 +1,116 @@
+[
+  {
+    "faction_slug": "death-guard",
+    "declared_at": "2026-08-17",
+    "reason": "absent from the live sitemap enumeration; page itself answers directly (attempted so it is used live, not carried, whenever it does)",
+    "note": "Product Owner decision 2026-08-17, following 008 T074's dry-run finding"
+  },
+  {
+    "faction_slug": "drukhari",
+    "declared_at": "2026-08-17",
+    "reason": "absent from the live sitemap enumeration; page itself answers directly (attempted so it is used live, not carried, whenever it does)",
+    "note": "Product Owner decision 2026-08-17, following 008 T074's dry-run finding"
+  },
+  {
+    "faction_slug": "genestealer-cults",
+    "declared_at": "2026-08-17",
+    "reason": "absent from the live sitemap enumeration; page itself answers directly (attempted so it is used live, not carried, whenever it does)",
+    "note": "Product Owner decision 2026-08-17, following 008 T074's dry-run finding"
+  },
+  {
+    "faction_slug": "grey-knights",
+    "declared_at": "2026-08-17",
+    "reason": "absent from the live sitemap enumeration; page itself answers directly (attempted so it is used live, not carried, whenever it does)",
+    "note": "Product Owner decision 2026-08-17, following 008 T074's dry-run finding"
+  },
+  {
+    "faction_slug": "imperial-agents",
+    "declared_at": "2026-08-17",
+    "reason": "absent from the live sitemap enumeration; page itself answers directly (attempted so it is used live, not carried, whenever it does)",
+    "note": "Product Owner decision 2026-08-17, following 008 T074's dry-run finding"
+  },
+  {
+    "faction_slug": "imperial-knights",
+    "declared_at": "2026-08-17",
+    "reason": "absent from the live sitemap enumeration; page itself answers directly (attempted so it is used live, not carried, whenever it does)",
+    "note": "Product Owner decision 2026-08-17, following 008 T074's dry-run finding"
+  },
+  {
+    "faction_slug": "leagues-of-votann",
+    "declared_at": "2026-08-17",
+    "reason": "absent from the live sitemap enumeration; page itself answers directly (attempted so it is used live, not carried, whenever it does)",
+    "note": "Product Owner decision 2026-08-17, following 008 T074's dry-run finding"
+  },
+  {
+    "faction_slug": "necrons",
+    "declared_at": "2026-08-17",
+    "reason": "absent from the live sitemap enumeration; page itself answers directly (attempted so it is used live, not carried, whenever it does)",
+    "note": "Product Owner decision 2026-08-17, following 008 T074's dry-run finding"
+  },
+  {
+    "faction_slug": "orks",
+    "declared_at": "2026-08-17",
+    "reason": "absent from the live sitemap enumeration; page itself answers directly (attempted so it is used live, not carried, whenever it does)",
+    "note": "Product Owner decision 2026-08-17, following 008 T074's dry-run finding"
+  },
+  {
+    "faction_slug": "thousand-sons",
+    "declared_at": "2026-08-17",
+    "reason": "absent from the live sitemap enumeration; page itself answers directly (attempted so it is used live, not carried, whenever it does)",
+    "note": "Product Owner decision 2026-08-17, following 008 T074's dry-run finding"
+  },
+  {
+    "faction_slug": "tyranids",
+    "declared_at": "2026-08-17",
+    "reason": "absent from the live sitemap enumeration; page itself answers directly (attempted so it is used live, not carried, whenever it does)",
+    "note": "Product Owner decision 2026-08-17, following 008 T074's dry-run finding"
+  },
+  {
+    "faction_slug": "world-eaters",
+    "declared_at": "2026-08-17",
+    "reason": "absent from the live sitemap enumeration; page itself answers directly (attempted so it is used live, not carried, whenever it does)",
+    "note": "Product Owner decision 2026-08-17, following 008 T074's dry-run finding"
+  },
+  {
+    "faction_slug": "t-au-empire",
+    "declared_at": "2026-08-17",
+    "reason": "absent from the live sitemap enumeration under this, its actual detail-source slug (curation/faction-map.json's own provenance key); page itself answers directly",
+    "note": "Product Owner decision 2026-08-17, following 008 T074's dry-run finding. Corrected 2026-08-17 from an initial wrong guess ('tau-empire') that does not match the site's real slug -- see reports/008-dryrun/2026-08-17.md addendum"
+  },
+  {
+    "faction_slug": "emperor-s-children",
+    "declared_at": "2026-08-17",
+    "reason": "absent from the live sitemap enumeration under this, its actual detail-source slug (curation/faction-map.json's own provenance key); page itself answers directly",
+    "note": "Product Owner decision 2026-08-17, following 008 T074's dry-run finding. Corrected 2026-08-17 from an initial wrong guess ('emperors-children') that does not match the site's real slug -- see reports/008-dryrun/2026-08-17.md addendum"
+  },
+  {
+    "faction_slug": "black-templars",
+    "declared_at": "2026-08-17",
+    "reason": "detail source page unreachable (404) on direct probe; absent from the live sitemap",
+    "note": "Product Owner decision 2026-08-17, following 008 T074's dry-run finding"
+  },
+  {
+    "faction_slug": "blood-angels",
+    "declared_at": "2026-08-17",
+    "reason": "detail source page unreachable (404) on direct probe; absent from the live sitemap",
+    "note": "Product Owner decision 2026-08-17, following 008 T074's dry-run finding"
+  },
+  {
+    "faction_slug": "dark-angels",
+    "declared_at": "2026-08-17",
+    "reason": "detail source page unreachable (404) on direct probe; absent from the live sitemap",
+    "note": "Product Owner decision 2026-08-17, following 008 T074's dry-run finding"
+  },
+  {
+    "faction_slug": "deathwatch",
+    "declared_at": "2026-08-17",
+    "reason": "detail source page unreachable (404) on direct probe; absent from the live sitemap",
+    "note": "Product Owner decision 2026-08-17, following 008 T074's dry-run finding"
+  },
+  {
+    "faction_slug": "space-wolves",
+    "declared_at": "2026-08-17",
+    "reason": "detail source page unreachable (404) on direct probe; absent from the live sitemap",
+    "note": "Product Owner decision 2026-08-17, following 008 T074's dry-run finding"
+  }
+]
