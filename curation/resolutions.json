@@ -102,5 +102,189 @@
     "finding_code": "COV-COLLAPSE",
     "resolved_at": "2026-08-12T00:00:00Z",
     "resolved_by": "adhoxx"
+  },
+  {
+    "finding_code": "SUM-NEEDS-REREVIEW",
+    "entity_ref": "faction:acts-of-faith",
+    "data_digest": "sha256:a22bf791117de22c846d2b86b84332220272d9439ab0388b8dcab4d8d9d8744c",
+    "resolved_at": "2026-08-18",
+    "resolved_by": "pending-po-confirmation",
+    "explanation": "Source page now appends an Errata/FAQ block to this ability's text (published since this summary was approved), moving the mechanic_digest. The operative rule itself is unchanged from the approved summary -- confirmed by an ephemeral structural comparison, source text discarded, before this resolution was written."
+  },
+  {
+    "finding_code": "SUM-NEEDS-REREVIEW",
+    "entity_ref": "faction:battle-focus",
+    "data_digest": "sha256:47f35031b2b5264bd6d0e71e97d66850a690e5e92fb372475f9bc1ece26731d5",
+    "resolved_at": "2026-08-18",
+    "resolved_by": "pending-po-confirmation",
+    "explanation": "Source page now appends an Errata/FAQ block to this ability's text (published since this summary was approved), moving the mechanic_digest. The operative rule itself is unchanged from the approved summary -- confirmed by an ephemeral structural comparison, source text discarded, before this resolution was written."
+  },
+  {
+    "finding_code": "SUM-NEEDS-REREVIEW",
+    "entity_ref": "faction:blessings-of-khorne",
+    "data_digest": "sha256:4c5d754175b4cb662e620c82070e75b4a9026c3f3e5bff0b559e9a548a0babac",
+    "resolved_at": "2026-08-18",
+    "resolved_by": "pending-po-confirmation",
+    "explanation": "Source page now appends an Errata/FAQ block to this ability's text (published since this summary was approved), moving the mechanic_digest. The operative rule itself is unchanged from the approved summary -- confirmed by an ephemeral structural comparison, source text discarded, before this resolution was written."
+  },
+  {
+    "finding_code": "SUM-NEEDS-REREVIEW",
+    "entity_ref": "faction:cabal-of-sorcerers",
+    "data_digest": "sha256:f5c0d621e0e05fc4ec94685bcb4e9914d27e484659f3c50f099c2f6f82af3aa2",
+    "resolved_at": "2026-08-18",
+    "resolved_by": "pending-po-confirmation",
+    "explanation": "Source page now appends an Errata/FAQ block to this ability's text (published since this summary was approved), moving the mechanic_digest. The operative rule itself is unchanged from the approved summary -- confirmed by an ephemeral structural comparison, source text discarded, before this resolution was written."
+  },
+  {
+    "finding_code": "SUM-NEEDS-REREVIEW",
+    "entity_ref": "faction:cabal-of-sorcerers-1",
+    "data_digest": "sha256:ced791cc0655c5deb983855b9e2ac9ca5ed317cdcf1f777b884d2c8bdd5c5799",
+    "resolved_at": "2026-08-18",
+    "resolved_by": "pending-po-confirmation",
+    "explanation": "Source page now appends an Errata/FAQ block to this ability's text (published since this summary was approved), moving the mechanic_digest. The operative rule itself is unchanged from the approved summary -- confirmed by an ephemeral structural comparison, source text discarded, before this resolution was written."
+  },
+  {
+    "finding_code": "SUM-NEEDS-REREVIEW",
+    "entity_ref": "faction:cabal-of-sorcerers-aspiring-sorcerer-only",
+    "data_digest": "sha256:10c34ee14f61436ac08349b58dc002f53971602787df15088e921cbfa4216262",
+    "resolved_at": "2026-08-18",
+    "resolved_by": "pending-po-confirmation",
+    "explanation": "Source page now appends an Errata/FAQ block to this ability's text (published since this summary was approved), moving the mechanic_digest. The operative rule itself is unchanged from the approved summary -- confirmed by an ephemeral structural comparison, source text discarded, before this resolution was written."
+  },
+  {
+    "finding_code": "SUM-NEEDS-REREVIEW",
+    "entity_ref": "faction:cabal-of-sorcerers-scarab-occult-sorcerer-only",
+    "data_digest": "sha256:20ff593486b5b5fcc6eec7192bf4500c6fee1d80fdc9c0f0c1f0795ba2f8291a",
+    "resolved_at": "2026-08-18",
+    "resolved_by": "pending-po-confirmation",
+    "explanation": "Source page now appends an Errata/FAQ block to this ability's text (published since this summary was approved), moving the mechanic_digest. The operative rule itself is unchanged from the approved summary -- confirmed by an ephemeral structural comparison, source text discarded, before this resolution was written."
+  },
+  {
+    "finding_code": "SUM-NEEDS-REREVIEW",
+    "entity_ref": "faction:code-chivalric",
+    "data_digest": "sha256:e0d2592c65fbb8ff4a3731a20cc301475bf301650bf9e87688e93ed432b15b9c",
+    "resolved_at": "2026-08-18",
+    "resolved_by": "pending-po-confirmation",
+    "explanation": "Source page now appends an Errata/FAQ block to this ability's text (published since this summary was approved), moving the mechanic_digest. The operative rule itself is unchanged from the approved summary -- confirmed by an ephemeral structural comparison, source text discarded, before this resolution was written."
+  },
+  {
+    "finding_code": "SUM-NEEDS-REREVIEW",
+    "entity_ref": "faction:cult-ambush",
+    "data_digest": "sha256:63b94e5029cd48cddda6004780517a0d1cba35c58bdb4c74189c934da7152bbc",
+    "resolved_at": "2026-08-18",
+    "resolved_by": "pending-po-confirmation",
+    "explanation": "Source page now appends an Errata/FAQ block to this ability's text (published since this summary was approved), moving the mechanic_digest. The operative rule itself is unchanged from the approved summary -- confirmed by an ephemeral structural comparison, source text discarded, before this resolution was written."
+  },
+  {
+    "finding_code": "SUM-NEEDS-REREVIEW",
+    "entity_ref": "faction:dark-pacts",
+    "data_digest": "sha256:a00a7a9dc263a1446050bb0367809bab9ac5c96a386941c482c539d1cf348f73",
+    "resolved_at": "2026-08-18",
+    "resolved_by": "pending-po-confirmation",
+    "explanation": "Source page now appends an Errata/FAQ block to this ability's text (published since this summary was approved), moving the mechanic_digest. The operative rule itself is unchanged from the approved summary -- confirmed by an ephemeral structural comparison, source text discarded, before this resolution was written."
+  },
+  {
+    "finding_code": "SUM-NEEDS-REREVIEW",
+    "entity_ref": "faction:doctrina-imperatives",
+    "data_digest": "sha256:d61510f6fd33af5fe9b4aa893d5d24670ab68bf571e08bff303851efbeb3c62c",
+    "resolved_at": "2026-08-18",
+    "resolved_by": "pending-po-confirmation",
+    "explanation": "Source page now appends an Errata/FAQ block to this ability's text (published since this summary was approved), moving the mechanic_digest. The operative rule itself is unchanged from the approved summary -- confirmed by an ephemeral structural comparison, source text discarded, before this resolution was written."
+  },
+  {
+    "finding_code": "SUM-NEEDS-REREVIEW",
+    "entity_ref": "faction:for-the-greater-good",
+    "data_digest": "sha256:bfb6a81cfb01d2a31b0ba9776a3facc988ce91a9abbfbcfd3a7aad18ec9aef0a",
+    "resolved_at": "2026-08-18",
+    "resolved_by": "pending-po-confirmation",
+    "explanation": "Source page now appends an Errata/FAQ block to this ability's text (published since this summary was approved), moving the mechanic_digest. The operative rule itself is unchanged from the approved summary -- confirmed by an ephemeral structural comparison, source text discarded, before this resolution was written."
+  },
+  {
+    "finding_code": "SUM-NEEDS-REREVIEW",
+    "entity_ref": "faction:gate-of-infinity",
+    "data_digest": "sha256:97de798d0402bd19d0b3eddd9fab85182ad74f48ac1a18e112b41da65ff316a1",
+    "resolved_at": "2026-08-18",
+    "resolved_by": "pending-po-confirmation",
+    "explanation": "Source page now appends an Errata/FAQ block to this ability's text (published since this summary was approved), moving the mechanic_digest. The operative rule itself is unchanged from the approved summary -- confirmed by an ephemeral structural comparison, source text discarded, before this resolution was written."
+  },
+  {
+    "finding_code": "SUM-NEEDS-REREVIEW",
+    "entity_ref": "faction:harbingers-of-dread",
+    "data_digest": "sha256:0ec5de4321f38f5085e31303a3850260e8029784da7a8d081c7b8e566b3637df",
+    "resolved_at": "2026-08-18",
+    "resolved_by": "pending-po-confirmation",
+    "explanation": "Source page now appends an Errata/FAQ block to this ability's text (published since this summary was approved), moving the mechanic_digest. The operative rule itself is unchanged from the approved summary -- confirmed by an ephemeral structural comparison, source text discarded, before this resolution was written."
+  },
+  {
+    "finding_code": "SUM-NEEDS-REREVIEW",
+    "entity_ref": "faction:nurgles-gift-aura",
+    "data_digest": "sha256:5c55b57d6b962bd72f636a236231ee969baeb49da4dd711fcd8876a8569e6656",
+    "resolved_at": "2026-08-18",
+    "resolved_by": "pending-po-confirmation",
+    "explanation": "Source page now appends an Errata/FAQ block to this ability's text (published since this summary was approved), moving the mechanic_digest. The operative rule itself is unchanged from the approved summary -- confirmed by an ephemeral structural comparison, source text discarded, before this resolution was written."
+  },
+  {
+    "finding_code": "SUM-NEEDS-REREVIEW",
+    "entity_ref": "faction:reanimation-protocols",
+    "data_digest": "sha256:4b099d413ab84d74a0398642d11ba35d0e4744fd5d5a1deb9791a8e7aab6e36a",
+    "resolved_at": "2026-08-18",
+    "resolved_by": "pending-po-confirmation",
+    "explanation": "Source page now appends an Errata/FAQ block to this ability's text (published since this summary was approved), moving the mechanic_digest. The operative rule itself is unchanged from the approved summary -- confirmed by an ephemeral structural comparison, source text discarded, before this resolution was written."
+  },
+  {
+    "finding_code": "SUM-NEEDS-REREVIEW",
+    "entity_ref": "faction:shadow-in-the-warp",
+    "data_digest": "sha256:bd30e49483e112c24cf5480af703e07416a895ea198c2471d0f2c8d7980d7e99",
+    "resolved_at": "2026-08-18",
+    "resolved_by": "pending-po-confirmation",
+    "explanation": "Source page now appends an Errata/FAQ block to this ability's text (published since this summary was approved), moving the mechanic_digest. The operative rule itself is unchanged from the approved summary -- confirmed by an ephemeral structural comparison, source text discarded, before this resolution was written."
+  },
+  {
+    "finding_code": "SUM-NEEDS-REREVIEW",
+    "entity_ref": "faction:shadow-in-the-warp-ravener-prime-only",
+    "data_digest": "sha256:5e45314fcaf832c837f5ed32cc244d2982947e48d04f2fabb2b4e5ef3d546d03",
+    "resolved_at": "2026-08-18",
+    "resolved_by": "pending-po-confirmation",
+    "explanation": "Source page now appends an Errata/FAQ block to this ability's text (published since this summary was approved), moving the mechanic_digest. The operative rule itself is unchanged from the approved summary -- confirmed by an ephemeral structural comparison, source text discarded, before this resolution was written."
+  },
+  {
+    "finding_code": "SUM-NEEDS-REREVIEW",
+    "entity_ref": "faction:synapse",
+    "data_digest": "sha256:07b0c4b52d8c212d3f47b5e8607e02b6bb3ab89602441fa3abd86b9af6434ccd",
+    "resolved_at": "2026-08-18",
+    "resolved_by": "pending-po-confirmation",
+    "explanation": "Source page now appends an Errata/FAQ block to this ability's text (published since this summary was approved), moving the mechanic_digest. The operative rule itself is unchanged from the approved summary -- confirmed by an ephemeral structural comparison, source text discarded, before this resolution was written."
+  },
+  {
+    "finding_code": "SUM-NEEDS-REREVIEW",
+    "entity_ref": "faction:templar-vows",
+    "data_digest": "sha256:4b8ffab5c910bfc2bb9334bf5e9623f5cf0b363678ec798d4e59cc94ac7d870d",
+    "resolved_at": "2026-08-18",
+    "resolved_by": "pending-po-confirmation",
+    "explanation": "Source page now appends an Errata/FAQ block to this ability's text (published since this summary was approved), moving the mechanic_digest. The operative rule itself is unchanged from the approved summary -- confirmed by an ephemeral structural comparison, source text discarded, before this resolution was written."
+  },
+  {
+    "finding_code": "SUM-NEEDS-REREVIEW",
+    "entity_ref": "faction:the-shadow-of-chaos",
+    "data_digest": "sha256:d2001cf9a2c9fca2b3c8931127483cb0b8c13b8b8a2e78037517f9c71ef7773f",
+    "resolved_at": "2026-08-18",
+    "resolved_by": "pending-po-confirmation",
+    "explanation": "Source page now appends an Errata/FAQ block to this ability's text (published since this summary was approved), moving the mechanic_digest. The operative rule itself is unchanged from the approved summary -- confirmed by an ephemeral structural comparison, source text discarded, before this resolution was written."
+  },
+  {
+    "finding_code": "SUM-NEEDS-REREVIEW",
+    "entity_ref": "faction:voice-of-command",
+    "data_digest": "sha256:4ff36ef7636094197b0aa96233f1e8f7bbe0fbd4ea1de9e73b733f5b326cb2b8",
+    "resolved_at": "2026-08-18",
+    "resolved_by": "pending-po-confirmation",
+    "explanation": "Source page now appends an Errata/FAQ block to this ability's text (published since this summary was approved), moving the mechanic_digest. The operative rule itself is unchanged from the approved summary -- confirmed by an ephemeral structural comparison, source text discarded, before this resolution was written."
+  },
+  {
+    "finding_code": "SUM-NEEDS-REREVIEW",
+    "entity_ref": "faction:waaagh",
+    "data_digest": "sha256:c26db47aa861f9fe80301c2dc6a3a07d71511ab656140453d0ebda0f4afa1086",
+    "resolved_at": "2026-08-18",
+    "resolved_by": "pending-po-confirmation",
+    "explanation": "Source page now appends an Errata/FAQ block to this ability's text (published since this summary was approved), moving the mechanic_digest. The operative rule itself is unchanged from the approved summary -- confirmed by an ephemeral structural comparison, source text discarded, before this resolution was written."
   }
 ]
