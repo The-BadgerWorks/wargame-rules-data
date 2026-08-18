@@ -21,14 +21,20 @@ from pathlib import Path
 
 from pipeline.models.curated import (
     CuratedDatasheet,
+    CuratedEquipmentGroup,
+    CuratedEquipmentItem,
     CuratedOptionChoice,
     CuratedOptionChoiceItem,
     CuratedOptionGroup,
     CuratedSnapshot,
+    DefaultEquipmentState,
+    EquipmentAppliesTo,
     OptionItemRole,
     OptionScope,
 )
 from pipeline.report.option_regression import (
+    EQUIPMENT_ADDED_TO_ABSENT,
+    EQUIPMENT_ADDED_TO_UNPARSED,
     TRANSITION_NO_GIVEN_UP_ITEM_STATED,
     TRANSITION_RESOLVED_AND_RELINKED,
     TRANSITION_STATED_BUT_UNLINKED,
@@ -308,6 +314,113 @@ def test_the_report_groups_legacy_corrections_by_transition_class_with_counts_an
     assert "glow lance" in rendered
     # The per-class count is visible beside the class, not buried in a flat per-field table.
     assert "1" in rendered.split("## Corrected")[1].split("## Identical")[0]
+
+
+# -- 008 T061 (FR-014, FR-021): the equipment twin -----------------------------------------------
+#
+# The same "distinction, not the diff" discipline the option side already lives by, applied to
+# `default_equipment_state`'s three-value model: a new group or item is bucketed by what the
+# DATASHEET's own prior state was -- `none`/omitted (this card never published an equipment fact)
+# is a previously ABSENT value; `partial` (something on the card already resolved, something else
+# had not) is a previously UNPARSED row resolving beside it. A field changing on a group or item
+# the published side already carried is the third class, and it is the one FR-013/SC-004 say
+# should never happen and an approver must read.
+
+GROUP_EQ = CuratedEquipmentGroup(
+    id="eq-ember-sentinel-1",
+    line=1,
+    applies_to=EquipmentAppliesTo.MODEL_GROUP,
+    model_name="Ember Sentinel",
+    items=[CuratedEquipmentItem(item_index=1, item_name="glow lance", weapon_line=1)],
+)
+
+
+def _with_equipment(
+    groups: list[CuratedEquipmentGroup], *, state: DefaultEquipmentState | None
+) -> CuratedSnapshot:
+    base = factories.datasheet(cost_rows=factories.contextual_costs())
+    return _snapshot(
+        base.model_copy(update={"equipment_groups": groups, "default_equipment_state": state})
+    )
+
+
+def test_a_new_equipment_group_on_a_previously_absent_datasheet_is_classified_absent() -> None:
+    published = _with_equipment([], state=DefaultEquipmentState.NONE)
+    candidate = _with_equipment([GROUP_EQ], state=DefaultEquipmentState.EXTRACTED)
+
+    result = compare(published, candidate, published_version_id="v")
+
+    assert len(result.equipment_added) == 1
+    assert result.equipment_added[0].classification == EQUIPMENT_ADDED_TO_ABSENT
+    assert result.equipment_added[0].entity_id == GROUP_EQ.id
+    assert result.is_clean, "an addition is not a regression"
+
+
+def test_a_new_equipment_group_beside_a_partial_datasheet_is_classified_unparsed() -> None:
+    published = _with_equipment([], state=DefaultEquipmentState.PARTIAL)
+    candidate = _with_equipment([GROUP_EQ], state=DefaultEquipmentState.PARTIAL)
+
+    result = compare(published, candidate, published_version_id="v")
+
+    assert result.equipment_added[0].classification == EQUIPMENT_ADDED_TO_UNPARSED
+    assert result.is_clean
+
+
+def test_a_field_change_on_an_already_published_equipment_group_is_the_third_class() -> None:
+    published = _with_equipment([GROUP_EQ], state=DefaultEquipmentState.EXTRACTED)
+    renamed_group = GROUP_EQ.model_copy(update={"model_name": "Ember Warden"})
+    candidate = _with_equipment([renamed_group], state=DefaultEquipmentState.EXTRACTED)
+
+    result = compare(published, candidate, published_version_id="v")
+
+    assert not result.is_clean
+    (difference,) = result.equipment_corrected
+    assert difference.field == "model_name"
+    assert (difference.was, difference.now) == ("Ember Sentinel", "Ember Warden")
+
+
+def test_an_equipment_item_field_change_is_also_the_third_class() -> None:
+    published = _with_equipment([GROUP_EQ], state=DefaultEquipmentState.EXTRACTED)
+    changed_item_group = GROUP_EQ.model_copy(
+        update={"items": [CuratedEquipmentItem(item_index=1, item_name="glow lance")]}
+    )
+    candidate = _with_equipment([changed_item_group], state=DefaultEquipmentState.EXTRACTED)
+
+    result = compare(published, candidate, published_version_id="v")
+
+    assert not result.is_clean
+    fields = {d.field: (d.was, d.now) for d in result.equipment_corrected}
+    assert fields["weapon_line"] == ("1", "absent")
+
+
+def test_an_equipment_group_the_candidate_stopped_producing_is_a_regression() -> None:
+    published = _with_equipment([GROUP_EQ], state=DefaultEquipmentState.EXTRACTED)
+    candidate = _with_equipment([], state=DefaultEquipmentState.NONE)
+
+    result = compare(published, candidate, published_version_id="v")
+
+    assert not result.is_clean
+    assert len(result.equipment_removed) == 1
+
+
+def test_the_report_renders_the_equipment_section_with_its_own_counts() -> None:
+    published = _with_equipment([], state=DefaultEquipmentState.NONE)
+    candidate = _with_equipment([GROUP_EQ], state=DefaultEquipmentState.EXTRACTED)
+
+    rendered = render(compare(published, candidate, published_version_id="v"))
+
+    assert "## Equipment" in rendered
+    assert "Added to a previously absent datasheet: **1**" in rendered
+    assert "Added to a previously partial datasheet: **0**" in rendered
+
+
+def test_the_equipment_section_carries_no_source_sentence() -> None:
+    published = _with_equipment([], state=DefaultEquipmentState.NONE)
+    candidate = _with_equipment([GROUP_EQ], state=DefaultEquipmentState.EXTRACTED)
+
+    rendered = render(compare(published, candidate, published_version_id="v"))
+
+    assert "is equipped with" not in rendered
 
 
 # -- the datasheet-level view --------------------------------------------------------------------

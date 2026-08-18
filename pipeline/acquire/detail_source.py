@@ -59,6 +59,7 @@ class DetailAcquirer(Protocol):
         client: PoliteClient | None = ...,
         retrieved_at: datetime | None = ...,
         workspace: Path | None = ...,
+        carried_forward_slugs: frozenset[str] = ...,
     ) -> tuple[SourceAcquisition, list[FixturePayload]]: ...
 
 
@@ -152,10 +153,14 @@ def acquire_detail(
     client: PoliteClient | None = None,
     retrieved_at: datetime | None = None,
     workspace: Path | None = None,
+    carried_forward_slugs: frozenset[str] = frozenset(),
 ) -> tuple[SourceAcquisition, list[FixturePayload]]:
     """Acquire the datasheet-detail source in the configured mode.
 
     Every caller below ``acquire`` takes what this returns and never asks how it was obtained.
+
+    ``carried_forward_slugs`` (008 FR-024): forwarded to whichever arm ran. Only the html arm
+    gives it any meaning — see :func:`pipeline.acquire.wahapedia_html.acquire_wahapedia_html`.
     """
     acquire: Callable[..., tuple[SourceAcquisition, list[FixturePayload]]] = acquirer_for(
         config.detail_acquisition_mode
@@ -167,6 +172,7 @@ def acquire_detail(
         client=client,
         retrieved_at=retrieved_at,
         workspace=workspace,
+        carried_forward_slugs=carried_forward_slugs,
     )
 
 

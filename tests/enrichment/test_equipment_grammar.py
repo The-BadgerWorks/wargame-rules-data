@@ -40,8 +40,9 @@ from pipeline.parse.equipment_grammar import (
     equipment_state,
     parse_sentence,
 )
-from pipeline.parse.wahapedia_csv import CsvReadResult, read_text
+from pipeline.parse.wahapedia_csv import CsvReadResult, read_file, read_text
 from pipeline.parse.wahapedia_html_dom import Datacard, parse_faction_page
+from tests.enrichment.conftest import weapon
 
 FIXTURE = (
     Path(__file__).resolve().parents[2]
@@ -51,6 +52,14 @@ FIXTURE = (
     / "glimmerfen-covenant.html"
 )
 SLUG = "glimmerfen-covenant"
+
+EQUIPMENT_CSV = (
+    Path(__file__).resolve().parents[2]
+    / "fixtures"
+    / "enrichment"
+    / "wahapedia"
+    / "Datasheets_unit_equipment.csv"
+)
 
 
 @pytest.fixture(scope="module")
@@ -313,3 +322,104 @@ def test_every_sentence_the_quirk_fixtures_state_resolves(cards: Mapping[str, Da
 
 def test_a_card_stating_no_sentence_yields_none(cards: Mapping[str, Datacard]) -> None:
     assert cards["Fenwatch-Sentinel"].equipment == ()
+
+
+# --- 008 Phase 5 (US3): the multi-model-group differentiated-equipment shape ---------------------
+#
+# T051 measured (`reports/equipment-taxonomy/2026-08-15.md`'s dated addendum) that
+# `_COMPLETION_SUBJECTS` has no reachable production to add: `_SUBJECTS`'s own bare-subject sixth
+# entry already resolves every subject `_REFUSED` does not reject, and the six representative
+# shapes above (`test_a_compound_or_conditional_subject_is_refused`, unmodified since 006) already
+# prove the whole compound/conditional tail stays refused by design. These three tests therefore
+# pass **today**, before this phase changes a line of `equipment_grammar.py` — the point, on the
+# same "confirm passing, say why" terms `tasks.md` T056 states for its own no-op ratchet test, is
+# to prove FR-008's differentiated-equipment shape already resolves per-sentence end to end
+# (through `_equipment` and `link_equipment` together, not just `parse_sentence`), and that the
+# 47-datasheet residual is entirely the O1 subset family plus the permanently refused tail.
+
+GF24_COMPOSITION = (
+    CuratedCompositionEntry(line=1, model_name="Watch Trooper", min_count=4, max_count=4),
+    CuratedCompositionEntry(line=2, model_name="Watch Sergeant", min_count=1, max_count=1),
+)
+
+
+def _gf24_detail() -> Mapping[str, CsvReadResult]:
+    return {EQUIPMENT_TABLE: read_file(EQUIPMENT_CSV)}
+
+
+def test_the_multi_model_group_differentiated_shape_already_resolves_per_sentence() -> None:
+    """US3 Independent Test, adapted to GF24 as it was actually built (008 task T009) rather than
+    to `tasks.md` T048's pre-T014 aspirational wording. GF24 states differentiated default
+    equipment for two model groups: row 1 (`The Watch Sergeant is equipped with: ...`) is a
+    subject shape `_SUBJECTS` already resolves; row 2 (`One Watch Trooper is equipped with:
+    ...`) is the O1 subset shape `_REFUSED` rejects. That pairing — not "both resolve" — is what
+    `tasks.md` T009 itself named this fixture for.
+    """
+    outcome = _equipment(
+        "GF24",
+        "ds-gf24",
+        _gf24_detail(),
+        AuthoredContent(),
+        GF24_COMPOSITION,
+        (weapon(1, "signal lantern"), weapon(2, "ember blade"), weapon(3, "marsh blade")),
+    )
+    assert outcome.state is DefaultEquipmentState.PARTIAL
+
+    (group,) = outcome.groups
+    assert group.line == 1
+    assert group.applies_to is EquipmentAppliesTo.MODEL_GROUP
+    assert group.model_name == "Watch Sergeant"
+    assert group.composition_line == 2
+    assert [(item.item_name, item.weapon_line) for item in group.items] == [
+        ("signal lantern", 1),
+        ("ember blade", 2),
+    ]
+
+    assert [finding.finding_code for finding in outcome.findings] == ["EQP-UNPARSED"]
+    (unparsed,) = outcome.findings
+    assert unparsed.detail["line"] == 2
+
+
+def test_an_equipment_qualified_subject_stays_refused_through_the_full_pipeline() -> None:
+    """FR-006's rule wearing an equipment costume (US3 paired refusal, `tasks.md` T049). `GF25`'s
+    equipment-qualified sentence (`Every Marsh Sentry with a lantern is equipped with: ...`) was
+    named in the Setup-phase ledger at T010 but never actually landed in
+    `Datasheets_unit_equipment.csv` until this task needed a full-pipeline (not just
+    `parse_sentence`) case for it. The conditional-subject half of T049's pairing is already
+    proven at the `_equipment` level by 006's own pre-008
+    `test_an_unresolved_sentence_suppresses_only_itself` above — not duplicated here.
+    """
+    composition = (
+        CuratedCompositionEntry(line=1, model_name="Marsh Sentry", min_count=3, max_count=3),
+    )
+    detail = {EQUIPMENT_TABLE: read_file(EQUIPMENT_CSV)}
+    outcome = _equipment("GF25", "ds-gf25", detail, AuthoredContent(), composition, ())
+    assert outcome.state is DefaultEquipmentState.PARTIAL
+    assert outcome.groups == ()
+    assert [finding.finding_code for finding in outcome.findings] == ["EQP-UNPARSED"]
+
+
+def test_an_unlinkable_item_ships_unlinked_beside_a_still_refused_sibling_row() -> None:
+    """US3 Acceptance Scenario 3, proven through `_equipment` end to end rather than only at
+    `link_equipment`'s own pre-008 unit level (`test_equipment_link.py`'s
+    `test_an_item_matching_no_weapon_row_ships_unlinked_beside_its_siblings` already covers that
+    case in isolation). Weapon coverage for `ember blade` is deliberately omitted: the item still
+    ships, unlinked, beside its linked sibling and beside row 2's still-refused sentence.
+    """
+    outcome = _equipment(
+        "GF24",
+        "ds-gf24",
+        _gf24_detail(),
+        AuthoredContent(),
+        GF24_COMPOSITION,
+        (weapon(1, "signal lantern"),),
+    )
+    (group,) = outcome.groups
+    assert [(item.item_name, item.weapon_line) for item in group.items] == [
+        ("signal lantern", 1),
+        ("ember blade", None),
+    ]
+    assert group.composition_line == 2
+
+    codes = sorted(finding.finding_code for finding in outcome.findings)
+    assert codes == ["EQP-ITEM-UNLINKED", "EQP-UNPARSED"]

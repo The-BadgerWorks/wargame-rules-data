@@ -6,6 +6,10 @@
 # `link_choice_weapons`'s own tests for its new contract — it reports `OPT-LINK-AMBIGUOUS` and
 # writes NOTHING, since `link_choice_items`'s per-role loop is the singular fields' sole writer
 # now (research D3, contract guarantee 19).
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - 008 US2 (T045): a granted bundle and a
+# replaced set produced by one of Phase 4's new `_COMPLETION_VERBS` productions link through
+# `link_choice_items` on the identical exactly-one-match rule as a `004`/`006` row's — the join
+# does not know or care which production built the choice it is handed.
 """The join the source does not publish, and what it does when it cannot be made.
 
 There is no foreign key from an option row to a wargear row, and the wargear rows have no stable
@@ -25,7 +29,12 @@ from pipeline.models.curated import (
     OptionItemRole,
 )
 from pipeline.models.findings import Severity
-from pipeline.parse.options_grammar import NO_CHANGE_NAME
+from pipeline.parse.options_grammar import (
+    NO_CHANGE_NAME,
+    parse_row,
+    split_conjuncts,
+    split_replaced,
+)
 from pipeline.reconcile.options_link import link_choice_items, link_choice_weapons
 from pipeline.report.catalogue import CATALOGUE
 from tests.enrichment.conftest import weapon
@@ -401,3 +410,52 @@ def test_item_linking_is_deterministic() -> None:
     first = link_choice_items(**args)  # type: ignore[arg-type]
     second = link_choice_items(**args)  # type: ignore[arg-type]
     assert first == second
+
+
+# --- 008 US2: a Phase 4 production's bundle and replaced set link the same way (T045) -----------
+
+
+def test_a_phase_4_bundle_and_replaced_set_link_by_the_same_exactly_one_match_rule() -> None:
+    """`link_choice_items` does not know which production built the choice it is handed — a
+    Phase 4 row's granted bundle and replaced set go through the identical exactly-one-match join
+    as a `004`/`006` row's, and an item that fails to link still ships, named in the report,
+    rather than dropped or guessed (FR-007).
+    """
+    parsed = parse_row(
+        "Any number of Watch Sentinel models can each replace their signal flare and marker "
+        "beacon with 1 ember coil and 1 pulse rod."
+    )
+    assert parsed is not None
+    assert parsed.replaced_clause is not None
+    (choice_parse,) = parsed.choices
+
+    granted = split_conjuncts(choice_parse.name, choice_parse.count)
+    replaced = split_replaced(parsed.replaced_clause)
+    assert [i.name for i in granted] == ["ember coil", "pulse rod"]
+    assert [i.name for i in replaced] == ["signal flare", "marker beacon"]
+
+    linked, findings = link_choice_items(
+        datasheet_id=DATASHEET,
+        choices=[
+            choice(
+                1,
+                choice_parse.name,
+                count=choice_parse.count,
+                items=[
+                    item(OptionItemRole.GRANTED, 1, granted[0].name, count=granted[0].count),
+                    item(OptionItemRole.GRANTED, 2, granted[1].name, count=granted[1].count),
+                    item(OptionItemRole.REPLACED, 1, replaced[0].name),
+                    item(OptionItemRole.REPLACED, 2, replaced[1].name),
+                ],
+            )
+        ],
+        weapons=[
+            weapon(1, "Ember coil"),
+            weapon(2, "Pulse rod"),
+            weapon(3, "Signal flare"),
+            # "Marker beacon" is deliberately absent from the weapon lines - the unlinkable item.
+        ],
+    )
+    assert [i.weapon_line for i in linked[0].items] == [1, 2, 3, None]
+    assert [f.finding_code for f in findings] == ["OPT-BUNDLE-UNLINKED"]
+    assert findings[0].detail["match_count"] == 0

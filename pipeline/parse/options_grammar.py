@@ -6,6 +6,17 @@
 # marker at `_parse_object` and `_item` (research D4.1, guarantee 21); added the item-constraint
 # production `parse_constraint_row`/`is_constraint_shaped` against the closed two-member
 # vocabulary (research D4.2), tried by the caller only after `parse_row` has already refused a row.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - 008 US1 (T030-T032): appended the three
+# highest-yield `head_ok_no_verb` verb productions to `_COMPLETION_VERBS` — distributive equip,
+# active-voice replace per-unit, and the non-distributive `can have … replaced with` sibling of
+# `006`'s distributive production — closing the 42 zero-group datasheets / 28 card shapes.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - 008 US2 (T040-T042): appended the three
+# remaining measured `head_ok_no_verb` verb productions — active-voice replace distributive,
+# item-subject passive, and the pure-grant `can [each] have INT <ITEM>` (which also discharges
+# `007` T033's deferred "N models can each have …" family) — over the 120 some-group datasheets /
+# 80 card shapes. `_COMPLETION_HEADS` deliberately stays empty (T043): the measured `no_head_match`
+# residual is predominantly extractor artifacts, not a grammar gap, and routes to Phase 7 override
+# authoring instead (`reports/option-taxonomy/2026-08-15.md` Section (a2)).
 """Resolve one wargear-option row into a group scope and its choices.
 
 The source publishes one row per option, as free text with an optional ``<li>`` sub-list, **no
@@ -455,6 +466,12 @@ def _match_head(stem: str) -> tuple[_Head, int] | None:
         match = pattern.match(stem)
         if match is not None:
             return build(match), match.end()
+    # `008`, last: `_EXTENDED_REFUSED`'s early `return None` above already stands between this
+    # loop and every conditional/equipment-qualified row, exactly as it does for `_EXTENDED_HEADS`.
+    for pattern, build in _COMPLETION_HEADS:
+        match = pattern.match(stem)
+        if match is not None:
+            return build(match), match.end()
     return None
 
 
@@ -521,6 +538,12 @@ def _match_verb(stem: str, head_end: int) -> tuple[OptionVerb | None, str, str |
     if distributive is not None:
         remainder = stem[distributive.end() :].strip()
         return OptionVerb.REPLACE, remainder, distributive.group("side").strip(), True
+
+    # `008`, last: reached only after every `004` and `006` verb has failed to match.
+    for pattern, build in _COMPLETION_VERBS:
+        match = pattern.search(stem)
+        if match is not None:
+            return build(match, stem, head_end)
     return None, "", None, False
 
 
@@ -591,6 +614,179 @@ def _parse_object(text: str, verb: OptionVerb) -> OptionChoiceParse | None:
 def choice_names(parsed: OptionRowParse) -> Sequence[str]:
     """The parsed choice names, in source order — a convenience for reports and tests."""
     return [choice.name for choice in parsed.choices]
+
+
+# -- `008-wargear-option-completion`: everything below is appended AFTER every `004` AND `006` ---
+# production
+#
+# **The same ordering guarantee, extended by one more stage.** :func:`_match_head` runs `004`'s
+# table to exhaustion, then `006`'s ``_EXTENDED_HEADS`` to exhaustion, and only then looks at
+# ``_COMPLETION_HEADS``; :func:`_match_verb` runs `004`'s two verbs and `006`'s
+# ``_DISTRIBUTIVE_REPLACE`` before ``_COMPLETION_VERBS``. A row any prior release resolved
+# therefore never reaches a line of `008` code, on exactly the terms research D5 established for
+# `006` (plan.md's *Architecture*, "The ordering guarantee, restated as control flow"). This is
+# proven, not merely arranged: `tests/enrichment/test_options_grammar_ordering.py` monkeypatches
+# both tables below to entries that raise if a resolving row's path ever touches them.
+#
+# **Both tables are EMPTY here** (008 Foundational task T016) — the guarantee lands, tested,
+# before a single production exists. Phase 3 and Phase 4 only ever *append* an entry; nothing
+# about the tables' position, their being tried last, or the refusal tables ahead of them
+# (``_REFUSED``, ``_EXTENDED_REFUSED``, both already run before either table is reached and are
+# never modified here) changes when they do.
+
+#: One `008` head production: a pattern, and the builder its match is handed to — the identical
+#: shape `_EXTENDED_HEADS` already uses, so a `008` head production is written exactly like a
+#: `006` one.
+_CompletionHeadBuilder = Callable[[re.Match[str]], _Head]
+
+#: One `008` verb production: a pattern searched (not anchored) against the stem, and a builder
+#: that is handed the match, the whole stem, and the head's own match end — the same three
+#: values `_DISTRIBUTIVE_REPLACE`'s own inline handling already closes over, generalised into a
+#: table because `008` appends more than one verb shape rather than exactly one.
+_CompletionVerbBuilder = Callable[
+    [re.Match[str], str, int], tuple[OptionVerb, str, str | None, bool]
+]
+
+# -- Phase 3 (US1, T030-T032): the three highest-yield `head_ok_no_verb` verb shapes, in T001's
+# measured zero-group-closure order (`reports/option-taxonomy/2026-08-15.md` Section (a),
+# 2026-08-10 classes 3, 4, 5 — 34, 31, and 30 rows respectively). All three reuse a head `004` or
+# `006` already carries; the residual on these rows was always the verb, never the head, which is
+# why none of them needs a `_COMPLETION_HEADS` entry.
+
+#: ``can each be equipped with`` — T030, class 3, 34 measured rows. The distributive sibling of
+#: the legacy ``_EQUIP_VERB`` ("can be equipped with"): `is_distributive` is set true exactly as
+#: `_DISTRIBUTIVE_REPLACE` sets it, and — because nothing is given up, only granted — it captures
+#: no `replaced_clause`.
+_DISTRIBUTIVE_EQUIP: Final = re.compile(r"\bcan each be equipped with\b", re.IGNORECASE)
+
+
+def _distributive_equip(
+    match: re.Match[str], stem: str, _head_end: int
+) -> tuple[OptionVerb, str, str | None, bool]:
+    """T030: ``can each be equipped with`` — distributive, no given-up side."""
+    return OptionVerb.EQUIP, stem[match.end() :].strip(), None, True
+
+
+#: ``can replace its/their … with`` — T031, class 4, 31 measured rows. Active voice, per-unit
+#: (not distributive: this shape names no ``each``). The possessive side — captured raw, with
+#: its leading determiner — is the same shape of string `_DISTRIBUTIVE_REPLACE`'s own ``side``
+#: group already hands `replaced_clause`, so `split_replaced`'s existing `_POSSESSIVE` strip
+#: removes the determiner downstream without a second production needing to know that.
+_ACTIVE_REPLACE: Final = re.compile(
+    r"\bcan replace\s+(?P<side>(?:its|their)\s+.+?)\s+with\b", re.IGNORECASE
+)
+
+
+def _active_replace_per_unit(
+    match: re.Match[str], stem: str, _head_end: int
+) -> tuple[OptionVerb, str, str | None, bool]:
+    """T031: ``can replace its/their … with`` — not distributive."""
+    return OptionVerb.REPLACE, stem[match.end() :].strip(), match.group("side").strip(), False
+
+
+#: ``can have … replaced with`` — T032, class 5, 30 measured rows. The singular sibling of
+#: `006`'s distributive ``can each have … replaced with`` (`_DISTRIBUTIVE_REPLACE`), differing
+#: from it by exactly the word ``each``. **Not distributive.** Appended after it in
+#: `_COMPLETION_VERBS` below, but the guarantee that actually protects a distributive row is
+#: `_match_verb`'s own control flow: `_DISTRIBUTIVE_REPLACE` is tried, unconditionally, before
+#: `_COMPLETION_VERBS` is even reached — so a "can each have … replaced with" row is resolved by
+#: that production and never sees this one. tasks.md calls this pair "the single most dangerous
+#: task in this list" for exactly this reason, and it is covered by three independent controls:
+#: this ordering, `tests/enrichment/test_options_grammar_ordering.py`'s monkeypatch guarantee, and
+#: the layer-1 golden (`test_options_grammar_regression.py`).
+_REPLACE_HAVE_SINGULAR: Final = re.compile(
+    r"\bcan have\s+(?P<side>.+?)\s+replaced with\b", re.IGNORECASE
+)
+
+
+def _replace_have_singular(
+    match: re.Match[str], stem: str, _head_end: int
+) -> tuple[OptionVerb, str, str | None, bool]:
+    """T032: ``can have … replaced with`` — the non-distributive sibling of `006`'s production."""
+    return OptionVerb.REPLACE, stem[match.end() :].strip(), match.group("side").strip(), False
+
+
+# -- Phase 4 (US2, T040-T042): the three remaining measured `head_ok_no_verb` verb shapes, in
+# T001's measured order (`reports/option-taxonomy/2026-08-15.md` Section (a), 2026-08-10 classes
+# 7, 8, 10 — 18, 13, and 9 rows respectively). All three reuse a head `004` or `006` already
+# carries, exactly as Phase 3's three did.
+
+#: ``can each replace … with`` — T040, class 7, 18 measured rows. The distributive sibling of
+#: T031's active-voice ``_ACTIVE_REPLACE``: the possessive side is the ``replaced_clause``, and
+#: because the verb phrase carries ``each`` this sets `is_distributive` true exactly as every
+#: other ``each`` production in this module does. Distinct phrase from `_ACTIVE_REPLACE` (`can
+#: replace` has no ``each`` between the two words), so the two never contend for the same row.
+_ACTIVE_REPLACE_DISTRIBUTIVE: Final = re.compile(
+    r"\bcan each replace\s+(?P<side>(?:its|their)\s+.+?)\s+with\b", re.IGNORECASE
+)
+
+
+def _active_replace_distributive(
+    match: re.Match[str], stem: str, _head_end: int
+) -> tuple[OptionVerb, str, str | None, bool]:
+    """T040: ``can each replace … with`` — distributive."""
+    return OptionVerb.REPLACE, stem[match.end() :].strip(), match.group("side").strip(), True
+
+
+#: ``<ITEM> can each be replaced with`` — T041, class 8, 13 measured rows. The subject *is* the
+#: replaced item, which is the shape's whole difficulty: there is no possessive phrase naming what
+#: is given up, because the head itself already named it. The given-up span is read from the head's
+#: own match end to this verb's match start — the identical capture `007` T021's legacy
+#: `_REPLACE_VERB` shape uses, reused rather than reinvented. Distinct phrase from `_DISTRIBUTIVE_
+#: EQUIP` (``equipped`` not ``replaced``) and from `_DISTRIBUTIVE_REPLACE` (which requires ``have``
+#: between ``each`` and the possessive side; this shape has no ``have`` at all), so neither
+#: contends for the same row.
+_ITEM_SUBJECT_PASSIVE: Final = re.compile(r"\bcan each be replaced with\b", re.IGNORECASE)
+
+
+def _item_subject_passive(
+    match: re.Match[str], stem: str, head_end: int
+) -> tuple[OptionVerb, str, str | None, bool]:
+    """T041: ``<ITEM> can each be replaced with`` — the subject is the given-up item."""
+    given_up = stem[head_end : match.start()].strip()
+    return OptionVerb.REPLACE, stem[match.end() :].strip(), given_up, True
+
+
+#: ``can [each] have INT <ITEM>`` — T042, class 10, 9 measured rows. Verb ``EQUIP``, no
+#: ``replaced_clause``: nothing is given up, only granted. The digit lookahead is what tells this
+#: apart from T032's `_REPLACE_HAVE_SINGULAR` and `006`'s `_DISTRIBUTIVE_REPLACE` (both require a
+#: later ``replaced with``); those two are tried first — `_DISTRIBUTIVE_REPLACE` unconditionally in
+#: `_match_verb`, `_REPLACE_HAVE_SINGULAR` earlier in this same tuple — so a row carrying
+#: ``replaced with`` is always claimed by one of them before this pattern is ever reached.
+#:
+#: The optional ``each`` is what discharges `007` T033's deferred "N models can each have …"
+#: family (008 T044): that family's head already resolves through `004`'s bare ``^\d+ `` digit
+#: head, and this verb was the only piece missing.
+_PURE_GRANT: Final = re.compile(r"\bcan(?:\s+each)?\s+have\b(?=\s+\d)", re.IGNORECASE)
+
+
+def _pure_grant(
+    match: re.Match[str], stem: str, _head_end: int
+) -> tuple[OptionVerb, str, str | None, bool]:
+    """T042: ``can [each] have INT <ITEM>`` — pure grant, no replacement."""
+    is_distributive = "each" in match.group(0).casefold()
+    return OptionVerb.EQUIP, stem[match.end() :].strip(), None, is_distributive
+
+
+#: Appended after every `006` head has failed to match. Rule 5 (tasks.md): a class T001 measures
+#: at zero gets no entry here, ever. **Still empty after Phase 4** (T043): T001's Section (a2)
+#: measured the `no_head_match` residual (17 rows) as predominantly extractor artifacts (2026-08-10
+#: classes 11 and 13, 16 of that residual's 17), not a grammar gap — building a production for an
+#: extractor bug would be fixing the wrong layer, and there is no vocabulary left to close here.
+#: That residual routes to Phase 7's override authoring instead.
+_COMPLETION_HEADS: Final[tuple[tuple[re.Pattern[str], _CompletionHeadBuilder], ...]] = ()
+
+#: Appended after `_DISTRIBUTIVE_REPLACE` has failed to match. Same rule 5. Order is T001's
+#: measured zero-group-closure order (rule 3 — never reordered by a later phase without also
+#: updating `test_options_grammar_ordering.py`'s explicit name pin, T029).
+_COMPLETION_VERBS: Final[tuple[tuple[re.Pattern[str], _CompletionVerbBuilder], ...]] = (
+    (_DISTRIBUTIVE_EQUIP, _distributive_equip),
+    (_ACTIVE_REPLACE, _active_replace_per_unit),
+    (_REPLACE_HAVE_SINGULAR, _replace_have_singular),
+    (_ACTIVE_REPLACE_DISTRIBUTIVE, _active_replace_distributive),
+    (_ITEM_SUBJECT_PASSIVE, _item_subject_passive),
+    (_PURE_GRANT, _pure_grant),
+)
 
 
 def option_state(*, row_count: int, unparsed_count: int) -> WargearOptionState:

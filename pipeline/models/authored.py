@@ -576,3 +576,21 @@ class FindingResolution(_Authored):
     resolved_at: str
     resolved_by: str
     explanation: str
+
+
+class CarriedForwardFactionEntry(_Authored):
+    """``curation/carried-forward-factions.json``, keyed ``faction_slug`` (008 FR-024/FR-025,
+    Product Owner decision 2026-08-17).
+
+    A curator's explicit declaration that a named faction's detail-source page may be sourced
+    from the previous published version if a run cannot fetch it live — never inferred, never
+    silent. ``faction_slug`` is the detail source's own page slug
+    (:data:`pipeline.acquire.wahapedia_html.FACTION_PAGE`), which is not always the same string
+    as a curated ``faction_id`` — this file is read before curation resolves one to the other, so
+    it has to name the vocabulary the acquisition layer actually sees.
+    """
+
+    faction_slug: str = Field(min_length=1)
+    declared_at: str
+    reason: str = Field(min_length=1, max_length=240)
+    note: str | None = Field(default=None, min_length=1, max_length=240)

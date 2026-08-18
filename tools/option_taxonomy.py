@@ -46,6 +46,7 @@ are properties of the same sentence and both bear on what the grammar must carry
 from __future__ import annotations
 
 import argparse
+import json
 import re
 import sys
 from collections.abc import Iterable, Mapping, Sequence
@@ -57,7 +58,9 @@ from typing import Final
 from pipeline.acquire.detail_source import acquire_detail, read_detail
 from pipeline.acquire.http import AcquisitionError
 from pipeline.config import ConfigError, PipelineConfig, load_config, repo_root
+from pipeline.curate.prior import previous_published_version, read_curated_tree
 from pipeline.exit_codes import ExitCode
+from pipeline.models.curated import CuratedSnapshot, WargearOptionState
 from pipeline.parse.composition_grammar import pre_pass
 from pipeline.parse.options_grammar import parse_row, split_sublist
 from pipeline.workspace import workspace
@@ -660,6 +663,24 @@ def main(argv: Sequence[str] | None = None) -> int:
         return int(exc.exit_code)
 
     rendered = render(report)
+    evidence = load_published_snapshot_evidence(root, edition_code=config.detail_edition)
+    if evidence is not None:
+        excluded = excluded_populations(evidence.snapshot, evidence.findings)
+        zero_group = zero_group_breakdown(evidence.snapshot)
+        census = conditional_blocking_census(
+            evidence.findings,
+            measured_conditional_rows=SC002_MEASURED_CONDITIONAL_ROWS,
+            measured_total_unparsed_rows=SC002_MEASURED_TOTAL_UNPARSED_ROWS,
+            sc002_headroom=SC002_HEADROOM,
+        )
+        rendered += render_snapshot_sections(
+            evidence, excluded=excluded, zero_group=zero_group, census=census
+        )
+        worklist = override_candidate_worklist(evidence.findings)
+        rendered += render_override_candidate_worklist(
+            worklist, rules_version_id=evidence.rules_version_id
+        )
+
     if args.print_only:
         print(rendered)
     else:
@@ -672,9 +693,436 @@ def main(argv: Sequence[str] | None = None) -> int:
     return int(ExitCode.SUCCESS)
 
 
+#: The diagnosis-class-level figures from the last **live** run of
+#: `reports/footnote-restriction-taxonomy/2026-08-14.md` (`tools/item_constraint_taxonomy.py`,
+#: which calls the options grammar's own private refusal/head/verb/object functions directly on
+#: the live corpus) — 2422 rows, 206 unparsed: `head_ok_no_verb` 139, `refused_conditional_or_
+#: equipment_qualified` 50, `no_head_match` 17. Carried forward rather than re-measured, and named
+#: as constants rather than inlined, because T003's census and T014's O2 sizing both read them.
+SC002_MEASURED_CONDITIONAL_ROWS: Final = 50
+SC002_MEASURED_TOTAL_UNPARSED_ROWS: Final = 206
+
+#: SC-002 needs a gain of 126 datasheets (92% -> 98% of 2084) from a partial population of 162, of
+#: which 15 are excluded as the item-constraint vocabulary gap (spec Edge Cases), leaving 147
+#: addressable — so up to 147-126=21 of those 147 may fail to close and SC-002 still holds.
+SC002_HEADROOM: Final = 21
+
+
 def iter_class_keys() -> Iterable[str]:
     """Every taxonomy class key, in report order — a convenience for tests and reports."""
     return sorted((rule.key for rule in _CLASSES), key=_class_sort_key)
+
+
+# =================================================================================================
+# 008 task T001(b)/(c), T003, T004 — the zero-group breakdown, the card-shape collapse, and the
+# conditional-blocking census.
+#
+# **Why this section reads a different source than everything above.** `classify()` and
+# `measure()` answer "why did the grammar refuse this row", which only the raw acquired sentence
+# can answer. The three questions this section answers — "does this datasheet publish ANY option
+# group", "how many DISTINCT card shapes does a population of datasheets collapse to", and "how
+# many datasheets can no production or override ever fully close" — are questions about what the
+# pipeline already **published**, not about a sentence's grammar. They are answered from the
+# pipeline's own curated tree (`data/<edition-code>/`, read the same way
+# `pipeline.validate.gates.check_option_ratchet`'s prior-snapshot comparison already does) and the
+# retained validation report of the previous published version (`reports/<rulesVersionId>/
+# report.json`) — both git-tracked, both already governed by the pipeline's own acquisition and
+# curation, and neither requiring a source fetch of any kind. This is committed/published evidence
+# on the same terms `tools/consumer_compat.py::run` already reads a released bundle by path.
+# =================================================================================================
+
+
+def _card_shapes(names: Iterable[str]) -> int:
+    """Case-insensitive name collapse — spec's *Card Shape*: one shape, several factions' clones.
+
+    Confirmed against the spec's own committed census (42/28, 120/80, 47/24): collapsing a
+    population's datasheet names this way reproduces every one of those six numbers exactly,
+    which is the strongest evidence available in this repository that this is the method the
+    census itself used.
+    """
+    return len({name.strip().casefold() for name in names})
+
+
+@dataclass(frozen=True, slots=True)
+class ZeroGroupBreakdown:
+    """T001(b): does a `partial` datasheet publish not one option group, or merely not all of
+    them. The two populations US1 and US2 are sized against (spec's Key Entities: *Zero-Group
+    Partial Datasheet*)."""
+
+    zero_group_datasheets: int
+    zero_group_shapes: int
+    some_group_datasheets: int
+    some_group_shapes: int
+    zero_group_ids: tuple[str, ...]
+    some_group_ids: tuple[str, ...]
+
+
+def zero_group_breakdown(snapshot: CuratedSnapshot) -> ZeroGroupBreakdown:
+    """Split every `wargear_option_state = partial` datasheet by whether it publishes a group."""
+    is_partial = WargearOptionState.PARTIAL
+    partial = [d for d in snapshot.datasheets if d.wargear_option_state == is_partial]
+    zero = sorted((d for d in partial if not d.option_groups), key=lambda d: d.datasheet_id)
+    some = sorted((d for d in partial if d.option_groups), key=lambda d: d.datasheet_id)
+    return ZeroGroupBreakdown(
+        zero_group_datasheets=len(zero),
+        zero_group_shapes=_card_shapes(d.name for d in zero),
+        some_group_datasheets=len(some),
+        some_group_shapes=_card_shapes(d.name for d in some),
+        zero_group_ids=tuple(d.datasheet_id for d in zero),
+        some_group_ids=tuple(d.datasheet_id for d in some),
+    )
+
+
+@dataclass(frozen=True, slots=True)
+class ExcludedPopulations:
+    """T004: the two populations the spec excludes from every target, so they are never counted
+    as unresolved work — by datasheet id, so the exclusion is checkable rather than asserted."""
+
+    item_constraint_vocabulary_gap: tuple[str, ...]
+    """`partial` only because a restriction-shaped row fell out of `007`'s two-member
+    item-constraint vocabulary (`docs/follow-ups.md` item 15) — carries `CST-UNPARSED` and no
+    `OPT-UNPARSED` finding at all. Spec: 15."""
+
+    no_option_state_at_all: tuple[str, ...]
+    """`wargear_option_state` is OMITTED (not `none`, not `partial`) — the source was never
+    consulted for this datasheet, data-model.md §3's fourth state. Spec: the four Chaos Titans,
+    Myphitic Blight-haulers, Vyper — 6."""
+
+
+def excluded_populations(
+    snapshot: CuratedSnapshot, findings: Sequence[Mapping[str, object]]
+) -> ExcludedPopulations:
+    """Compute both exclusion sets from the curated tree and the retained candidate report's own
+    findings (`OPT-UNPARSED`, text-free: datasheet id, file name, row ordinal only)."""
+    opt_unparsed_ids: set[str] = set()
+    for finding in findings:
+        if finding.get("finding_code") != "OPT-UNPARSED":
+            continue
+        detail = finding.get("detail")
+        if isinstance(detail, Mapping):
+            datasheet_id = detail.get("datasheet_id")
+            if isinstance(datasheet_id, str):
+                opt_unparsed_ids.add(datasheet_id)
+
+    partial_ids = {
+        d.datasheet_id
+        for d in snapshot.datasheets
+        if d.wargear_option_state == WargearOptionState.PARTIAL
+    }
+    vocabulary_gap = tuple(sorted(partial_ids - opt_unparsed_ids))
+    no_state = tuple(
+        sorted(d.datasheet_id for d in snapshot.datasheets if d.wargear_option_state is None)
+    )
+    return ExcludedPopulations(vocabulary_gap, no_state)
+
+
+@dataclass(frozen=True, slots=True)
+class ConditionalBlockingCensus:
+    """T003: sizes Open Decision O2 — is SC-002's 98% reachable at all.
+
+    `estimate_low`/`estimate_high` are an **estimate bounded by measurement, not a measurement**:
+    the retained candidate report names which datasheet each `OPT-UNPARSED` row belongs to, but
+    not which taxonomy diagnosis class that row is (that classification requires the raw sentence,
+    which this environment has no route to acquire — see the report's own methodology note). The
+    range is honestly reported as a range for exactly that reason.
+    """
+
+    unparsed_row_datasheets: int
+    unparsed_rows_total: int
+    single_row_datasheets: int
+    row_count_histogram: Mapping[int, int]
+    measured_conditional_rows: int
+    measured_total_unparsed_rows: int
+    estimate_low: int
+    estimate_high: int
+    sc002_headroom: int
+
+
+def conditional_blocking_census(
+    findings: Sequence[Mapping[str, object]],
+    *,
+    measured_conditional_rows: int,
+    measured_total_unparsed_rows: int,
+    sc002_headroom: int,
+) -> ConditionalBlockingCensus:
+    """Build the per-datasheet `OPT-UNPARSED` row-count histogram and bound the conditional-only
+    count from it.
+
+    ``estimate_low``: the measured conditional share applied to the single-row population only —
+    the assumption that a conditional stem is usually the datasheet's *only* unparsed row (the
+    diagnosis table's own signal columns support this: a `refused_conditional_or_equipment_
+    qualified` row is a whole-clause predicate, not a fragment sharing a row with other clause
+    vocabulary). ``estimate_high``: the theoretical concentration bound — every measured
+    conditional row landing on its own, otherwise-single-row datasheet, capped at the single-row
+    population itself. Both are stated; neither is asserted as exact.
+    """
+    per_datasheet: dict[str, int] = {}
+    for finding in findings:
+        if finding.get("finding_code") != "OPT-UNPARSED":
+            continue
+        detail = finding.get("detail")
+        if not isinstance(detail, Mapping):
+            continue
+        datasheet_id = detail.get("datasheet_id")
+        if isinstance(datasheet_id, str):
+            per_datasheet[datasheet_id] = per_datasheet.get(datasheet_id, 0) + 1
+
+    histogram: dict[int, int] = {}
+    for count in per_datasheet.values():
+        histogram[count] = histogram.get(count, 0) + 1
+    single_row = histogram.get(1, 0)
+
+    share = (
+        measured_conditional_rows / measured_total_unparsed_rows
+        if measured_total_unparsed_rows
+        else 0.0
+    )
+    estimate_low = round(single_row * share)
+    estimate_high = min(measured_conditional_rows, single_row)
+
+    return ConditionalBlockingCensus(
+        unparsed_row_datasheets=len(per_datasheet),
+        unparsed_rows_total=sum(per_datasheet.values()),
+        single_row_datasheets=single_row,
+        row_count_histogram=dict(sorted(histogram.items())),
+        measured_conditional_rows=measured_conditional_rows,
+        measured_total_unparsed_rows=measured_total_unparsed_rows,
+        estimate_low=min(estimate_low, estimate_high),
+        estimate_high=estimate_high,
+        sc002_headroom=sc002_headroom,
+    )
+
+
+# -- 008 Phase 7 (T071/T072 preparation) ---------------------------------------------------------
+# The worklist a curator needs before writing `curation/option-overrides.json`'s real entries:
+# which datasheet, which line. `ConditionalBlockingCensus` above already builds a per-datasheet
+# row COUNT for O2's own purpose; this keeps the row NUMBERS themselves, because an override is
+# keyed `(datasheet_id, line)` and a curator opening the source card needs the line to find the
+# row, not merely how many rows the datasheet has.
+
+
+@dataclass(frozen=True, slots=True)
+class OverrideCandidateWorklist:
+    """Every `OPT-UNPARSED` row the retained report names, grouped by datasheet.
+
+    **This is a worklist, not a candidate report's worth of overrides.** It says WHERE to look,
+    never what to write there — no item name, no scope, no choice ever appears here, because none
+    of those is derivable from `report.json`'s text-free finding detail (`datasheet_id`, `line`
+    only). Authoring the row itself is T071's own job, done by a human reading the source card.
+
+    **It is also stale by construction**, and deliberately not disguised as anything else: this
+    feature's own Phase 3/4 productions (`_COMPLETION_VERBS`) did not exist when the retained
+    `report.json` this reads was generated, so a row named here may already resolve once those
+    productions run against a current corpus. T074's mid-campaign dry-run — run AFTER every
+    Phase 3-6 production is in place, BEFORE a single override is authored — is what turns this
+    into the real, current worklist (tasks.md's own explicit ordering: "only the real-corpus
+    dry-run can say which rows those are"). This function exists so that dry-run has a
+    ready-made, tested shape to populate rather than inventing one under time pressure.
+    """
+
+    rows_by_datasheet: Mapping[str, tuple[int, ...]]
+    total_rows: int
+    total_datasheets: int
+
+
+def override_candidate_worklist(
+    findings: Sequence[Mapping[str, object]],
+) -> OverrideCandidateWorklist:
+    per_datasheet: dict[str, list[int]] = {}
+    for finding in findings:
+        if finding.get("finding_code") != "OPT-UNPARSED":
+            continue
+        detail = finding.get("detail")
+        if not isinstance(detail, Mapping):
+            continue
+        datasheet_id = detail.get("datasheet_id")
+        line = detail.get("line")
+        if isinstance(datasheet_id, str) and isinstance(line, int):
+            per_datasheet.setdefault(datasheet_id, []).append(line)
+
+    rows_by_datasheet = {
+        datasheet_id: tuple(sorted(lines)) for datasheet_id, lines in sorted(per_datasheet.items())
+    }
+    return OverrideCandidateWorklist(
+        rows_by_datasheet=rows_by_datasheet,
+        total_rows=sum(len(lines) for lines in rows_by_datasheet.values()),
+        total_datasheets=len(rows_by_datasheet),
+    )
+
+
+def render_override_candidate_worklist(
+    worklist: OverrideCandidateWorklist, *, rules_version_id: str
+) -> str:
+    """T071/T072 preparation, as its own Markdown section — counts and `datasheet_id#line` pairs
+    only, never a sentence, a fragment, or an item name."""
+    lines = [
+        "",
+        "## Override-candidate worklist (T071/T072 preparation)",
+        "",
+        f"Read from `reports/{rules_version_id}/report.json`'s own `OPT-UNPARSED` findings — "
+        "text-free (`datasheet_id`, `line` only). **Stale by construction** (see "
+        "`OverrideCandidateWorklist`'s own docstring): this predates Phase 3-6's productions, so "
+        "it names WHERE the pre-008 residual was, not the current one. **Not a substitute for "
+        "T074's mid-campaign dry-run** — that run, over the current corpus with every Phase 3-6 "
+        "production in place, is what T071/T072 actually author against. This section exists so "
+        "the worklist's SHAPE (grouped by datasheet, real line ordinals) is proven before that "
+        "live run supplies the current, authoritative list.",
+        "",
+        f"**{worklist.total_rows} `OPT-UNPARSED` rows across {worklist.total_datasheets} "
+        "datasheets, pre-008 baseline:**",
+        "",
+    ]
+    if worklist.rows_by_datasheet:
+        lines += [
+            f"`{datasheet_id}`: lines {', '.join(str(line) for line in rows)}"
+            for datasheet_id, rows in worklist.rows_by_datasheet.items()
+        ]
+    else:
+        lines.append("(none)")
+    lines.append("")
+    return "\n".join(lines)
+
+
+@dataclass(frozen=True, slots=True)
+class PublishedSnapshotEvidence:
+    """The three committed sources T001(b)/(c)/T003/T004 read, and nothing else."""
+
+    rules_version_id: str
+    snapshot: CuratedSnapshot
+    findings: tuple[Mapping[str, object], ...]
+
+
+def load_published_snapshot_evidence(
+    root: Path, *, edition_code: str, manifest_relative_path: str = "site/manifest.json"
+) -> PublishedSnapshotEvidence | None:
+    """The previous published version's curated tree and retained report, or `None`.
+
+    `None` when either is absent — a fresh checkout with no history, or a `--fixtures` rehearsal
+    with no `data/`/`site/`/`reports/` at all — so this section is additive and never breaks a run
+    that has nothing to read. Uses `previous_published_version`, the exact function
+    `check_option_ratchet`'s own prior-snapshot resolution uses, so this measurement asks the
+    identical question production code asks.
+    """
+    rules_version_id = previous_published_version(root / manifest_relative_path)
+    if rules_version_id is None:
+        return None
+    snapshot = read_curated_tree(root / "data" / edition_code)
+    if snapshot is None:
+        return None
+    report_path = root / "reports" / rules_version_id / "report.json"
+    if not report_path.is_file():
+        return None
+    document = json.loads(report_path.read_text(encoding="utf-8"))
+    findings = document.get("findings", [])
+    if not isinstance(findings, list):
+        findings = []
+    return PublishedSnapshotEvidence(
+        rules_version_id=rules_version_id,
+        snapshot=snapshot,
+        findings=tuple(f for f in findings if isinstance(f, Mapping)),
+    )
+
+
+def render_snapshot_sections(
+    evidence: PublishedSnapshotEvidence,
+    *,
+    excluded: ExcludedPopulations,
+    zero_group: ZeroGroupBreakdown,
+    census: ConditionalBlockingCensus,
+) -> str:
+    """T001(b), T001(c), T003, T004 — rendered as their own Markdown sections. Counts and
+    datasheet ids only; no source sentence appears anywhere below."""
+    lines = [
+        "",
+        "## Zero-group breakdown and card-shape collapse (T001(b)/(c))",
+        "",
+        f"Read from the previous published version's own retained state: `data/` as of "
+        f"`{evidence.rules_version_id}` and `reports/{evidence.rules_version_id}/report.json`. "
+        "Not a live acquisition (see this report's methodology note) — the pipeline's own "
+        "already-governed output for the corpus in question.",
+        "",
+        "| Population | Datasheets | Distinct card shapes |",
+        "|---|---:|---:|",
+        f"| `wargearOptionState=partial`, zero option groups (US1) | "
+        f"{zero_group.zero_group_datasheets} | {zero_group.zero_group_shapes} |",
+        f"| `wargearOptionState=partial`, some option groups (US2) | "
+        f"{zero_group.some_group_datasheets} | {zero_group.some_group_shapes} |",
+        "",
+        "## Excluded populations (T004)",
+        "",
+        "Never counted as unresolved work by any task in this feature.",
+        "",
+        f"**Item-constraint vocabulary gap** (`docs/follow-ups.md` item 15) — "
+        f"{len(excluded.item_constraint_vocabulary_gap)} datasheets, `CST-UNPARSED` and no "
+        "`OPT-UNPARSED` finding at all:",
+        "",
+        (
+            f"`{', '.join(excluded.item_constraint_vocabulary_gap)}`"
+            if excluded.item_constraint_vocabulary_gap
+            else "(none)"
+        ),
+        "",
+        f"**No option state at all** (the source was never consulted; data-model.md §3's fourth "
+        f"state) — {len(excluded.no_option_state_at_all)} datasheets:",
+        "",
+        (
+            f"`{', '.join(excluded.no_option_state_at_all)}`"
+            if excluded.no_option_state_at_all
+            else "(none)"
+        ),
+        "",
+        "## Conditional-blocking census (T003, sizes Open Decision O2)",
+        "",
+        "| `OPT-UNPARSED` rows | Datasheets carrying one | Single-row datasheets |",
+        "|---:|---:|---:|",
+        f"| {census.unparsed_rows_total} | {census.unparsed_row_datasheets} | "
+        f"{census.single_row_datasheets} |",
+        "",
+        "Row-count histogram (rows unparsed on one datasheet -> how many datasheets):",
+        "",
+        "| Rows | Datasheets |",
+        "|---:|---:|",
+    ]
+    lines += [f"| {rows} | {count} |" for rows, count in census.row_count_histogram.items()]
+    lines += [
+        "",
+        f"**Estimate, not a measurement** (this report's methodology note explains why an exact "
+        f"per-row diagnosis is not available in this environment): of the "
+        f"{census.single_row_datasheets} single-unparsed-row datasheets, between "
+        f"**{census.estimate_low}** and **{census.estimate_high}** are plausibly blocked *only* "
+        f"by a `refused_conditional_or_equipment_qualified` row that no production or override may "
+        f"legitimately close (FR-006, O2) — bounded by the measured "
+        f"{census.measured_conditional_rows} conditional rows of "
+        f"{census.measured_total_unparsed_rows} total unparsed (the diagnosis-class run this "
+        "figure is carried forward from; see methodology note) applied to the single-row "
+        "population, and by simple concentration.",
+        "",
+        f"**Compared against SC-002's headroom of {census.sc002_headroom}** (a gain of 126 "
+        "datasheets is needed from a partial population of 162, of which 15 are excluded by the "
+        "spec as the item-constraint vocabulary gap, leaving 147 addressable and only 126 of "
+        "those needing to close): "
+        + (
+            f"**even the low end of the estimate ({census.estimate_low}) exceeds the headroom "
+            f"({census.sc002_headroom})** — this report's own reading is that SC-002's 98% is "
+            "not reachable as written without either the override path closing the gap (which "
+            "O2 rules out for genuinely conditional rows) or a restated ceiling, which this "
+            "report states as its own finding rather than rounding it away — see T014's "
+            "decision package."
+            if census.estimate_low > census.sc002_headroom
+            else (
+                f"the estimate range spans the headroom exactly "
+                f"({census.estimate_low}-{census.estimate_high} against a headroom of "
+                f"{census.sc002_headroom}) — inconclusive at this resolution, stated as such "
+                "rather than rounded either way — see T014's decision package."
+                if census.estimate_high > census.sc002_headroom
+                else "the full estimate range stays within the headroom — SC-002's 98% reads as "
+                "reachable on this evidence, subject to T074's real-corpus confirmation — see "
+                "T014's decision package."
+            )
+        ),
+        "",
+    ]
+    return "\n".join(lines)
 
 
 if __name__ == "__main__":  # pragma: no cover - process entry point
