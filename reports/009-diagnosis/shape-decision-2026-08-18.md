@@ -34,7 +34,7 @@ not translated into the ratcheted coverage figure clearing its floor on a real b
 - **Live measurement of the derivation's own input** (this session): the marker occurs in **0**
   of 2131 `Datasheets_unit_composition.csv` rows on the live corpus. It occurs in **22** of 2780
   `Datasheets_options.csv` rows instead — the SAME 22 rows the export-mode taxonomy already names
-  as class 6 ("a default-equipment sentence misfiled into the options block"), already attributed
+  as class 6, the default-equipment sentence misfiled into the options block, already attributed
   as part of criterion 1's residual. **`plan.md` finding 9's premise (the marker lives in the
   composition table) does not hold against this corpus on this date; both are stated rather than
   the newer one silently overwriting the plan.** The derivation is implemented correctly for the
@@ -72,8 +72,8 @@ on unilaterally).
 - **research.md Q3** (T067, this session): the chapter-keyword rung is confirmed starved for the
   Black-Templars-shape pairs (already resolved by publication-id instead). For the one genuine
   case, the export DOES carry a per-datasheet chapter-identifying keyword (`Space Wolves`) —
-  contradicting phase 0's "zero rows bearing the five chapter keyword strings" measurement — but
-  it is **title-case** in the export while `curation/keyword-classes.json`'s vocabulary is
+  contradicting phase 0's zero-chapter-keyword-rows measurement — but it is **title-case** in the
+  export while `curation/keyword-classes.json`'s vocabulary is
   **upper-case** (`SPACE WOLVES`), so the existing rung does not fire on it as authored. Not
   fixed here (a `pipeline/` code change is a different PR class from this session's `curation/`
   work); flagged as a finding, not a rung invented (rule 10 — the crosswalk entry already closes
