@@ -16,6 +16,12 @@
 # Product Owner decision 2026-08-14 T061 review): the curator-suppression shape research D1
 # called "impossible today" and "a reasonable later addition", added once CMP-HEADER-ROW's
 # automatic refusal was demoted to advisory-only.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - Added FactionMapEntry.
+# detail_source_faction_code and UnitMapEntry.faction_id (009 tasks T021/T024, data-model.md
+# §1-§2): the bulk export's own faction-code vocabulary alongside the existing (now html-slug)
+# detail_source_faction_id, and the unit-map crosswalk's optional faction scope, which is what
+# stops a chapter-shared entry from adopting one datasheet_id into all six Space Marine chapters
+# (risk R-C, the C1 ruling).
 """Authored records — human-written, under ``curation/``.
 
 **Invariant:** the pipeline reads these and never writes them; humans write these and never
@@ -129,6 +135,19 @@ class FactionMapEntry(_Authored):
     prefer the datasheet published there over a same-named core-codex twin — but **only** when
     that preference narrows the candidates to exactly one; it never manufactures a match where
     none of the candidates carry that publication id.
+
+    ``detail_source_faction_code`` is an optional second vocabulary for the SAME detail faction
+    (009 data-model.md §2, plan.md finding 1): ``detail_source_faction_id`` carries one value for
+    two arms with two genuinely different vocabularies — commit ``200a6e23`` rewrote all 30
+    records from the bulk export's own codes (``SM``) to html-mode's page slugs
+    (``space-marines``), overwriting the only record of the csv vocabulary rather than storing it
+    alongside. When set, this field names the detail source's identifier for this faction **in
+    the bulk export's vocabulary specifically**; ``detail_source_faction_id`` keeps its current
+    slug value unchanged. Absent means the arm-appropriate value IS ``detail_source_faction_id``,
+    which is every existing record's case today. Resolution
+    (:func:`pipeline.reconcile.match.resolve_factions`) reads BOTH values into scope when this is
+    set, never chooses between them by a mode check (FR-012) — whichever arm actually acquired
+    the data, only its own vocabulary's value will ever appear in a real row.
     """
 
     mfm_slug: str
@@ -136,6 +155,7 @@ class FactionMapEntry(_Authored):
     parent_faction_id: str | None = None
     detail_source_faction_id: str
     detail_source_publication_id: str | None = None
+    detail_source_faction_code: str | None = None
 
 
 class UnitMapEntry(_Authored):
@@ -144,6 +164,14 @@ class UnitMapEntry(_Authored):
     Consulted **before any name matching** (D5 stage 1). A confirmed pairing is never
     re-derived, so an upstream rename lands as a changed display name on an unchanged curated
     id — reported as a rename, never as a removal plus an addition (FR-015).
+
+    ``faction_id`` is optional (009 data-model.md §1) — additive, so every entry stays valid
+    without it — but **mandatory in the authoring rule** (rule 8) the moment an entry is written
+    for a name shared across sibling factions. Stage 1's matcher loop runs once PER faction
+    scope; an entry naming no faction is adopted into every scope that reaches it, which is
+    correct for a name unique to one faction and a C1-breaching collapse for one that is not (six
+    Space Marine chapters would all resolve the same `datasheet_id` for a shared unit name).
+    Omitted keeps today's global behaviour exactly.
     """
 
     datasheet_id: str
@@ -151,6 +179,7 @@ class UnitMapEntry(_Authored):
     wahapedia_datasheet_id: str
     confirmed_at: str
     confirmed_by: str
+    faction_id: str | None = None
 
 
 class UnitAlias(_Authored):
