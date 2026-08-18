@@ -757,7 +757,7 @@
   },
   {
     "ability_key": "faction:blessings-of-khorne",
-    "mechanic_digest": "c8d28de8713368a2a676e1caca51093d",
+    "mechanic_digest": "363924f8861e06a67a0794a94d511f40",
     "name": "Blessings of Khorne",
     "review_state": "approved",
     "reviewed_at": "2026-08-06T00:00:00Z",
@@ -766,7 +766,7 @@
   },
   {
     "ability_key": "faction:cabal-of-sorcerers-aspiring-sorcerer-only",
-    "mechanic_digest": "c8722c0ac1850d81456cddc43116d107",
+    "mechanic_digest": "fa308c93308cb434d71b1c724bf9f789",
     "name": "Cabal of Sorcerers (Aspiring Sorcerer only)",
     "review_state": "approved",
     "reviewed_at": "2026-08-06T00:00:00Z",
@@ -775,7 +775,7 @@
   },
   {
     "ability_key": "faction:nurgles-gift-aura",
-    "mechanic_digest": "ad8887300cfa858c72e53e84cabb7cbd",
+    "mechanic_digest": "cfb9167a905fea095b727e9e1b1d3db0",
     "name": "Nurgle's Gift (Aura)",
     "review_state": "approved",
     "reviewed_at": "2026-08-06T00:00:00Z",

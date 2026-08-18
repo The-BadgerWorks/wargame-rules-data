@@ -1585,7 +1585,7 @@
   },
   {
     "ability_key": "faction:dark-pacts",
-    "mechanic_digest": "6a8cdc1f184493270e2194d176548eb2",
+    "mechanic_digest": "a34bc27c79b1a22bea65cc19a55d6c9a",
     "name": "Dark Pacts",
     "review_state": "approved",
     "reviewed_at": "2026-08-06T00:00:00Z",
@@ -1594,7 +1594,7 @@
   },
   {
     "ability_key": "faction:the-shadow-of-chaos",
-    "mechanic_digest": "536bf9fc4a03f34e6bce620d619972da",
+    "mechanic_digest": "52ca4a3cfbcc6cd6f0f97e6e401c9a1a",
     "name": "The Shadow of Chaos",
     "review_state": "approved",
     "summary": "Shadow of Chaos: your deployment zone, plus No Man's Land or the enemy zone while you hold half its objectives. Daemons inside: +1 Battle-shock, heal D3 on a pass; enemies inside or within 6\" of a Greater Daemon: -1, D3 mortals if failed.",
