@@ -167,6 +167,7 @@ from pipeline.reconcile.identity import EntityKind, IdRegistry, slugify
 from pipeline.reconcile.match import (
     FactionScope,
     UnitMatch,
+    _detail_ids_for,
     datasheet_key,
     match_units,
     report_orphan_detail_factions,
@@ -1952,18 +1953,31 @@ def _datasheet_for(  # noqa: PLR0913 - one datasheet needs both sources and the 
 
 
 def _owning_factions(scopes: Sequence[FactionScope]) -> dict[str, FactionScope]:
-    """Which curated faction owns each detail-source faction id.
+    """Which curated faction owns each detail-source faction id, **in either arm's vocabulary**.
 
     Several curated factions can share one detail-source id — the chapters all draw on the
     parent's. A datasheet nobody priced is filed under the **root** of that group, because the
     consumer contract's §3.5 query rule then shows it to the parent *and* to every chapter,
     whereas filing it under one chapter would hide it from the other four.
+
+    Keyed through :func:`pipeline.reconcile.match._detail_ids_for`, the same helper
+    ``resolve_factions``/``match_units``'s own scope-building already uses (009 T020/T021,
+    data-model.md §2) — **not** ``scope.entry.detail_source_faction_id`` alone. Without this, an
+    unclaimed row's ``faction_id`` under ``csv`` mode is the export's own code (``"SM"``), which
+    never matches the ``html``-arm slug this dict used to be keyed by alone, so every unclaimed
+    detail-only row was silently dropped by the caller's ``owning_faction.get(...) is None``
+    check — proven live (shape-decision diagnosis session) to be effectively the entire measured
+    coverage collapse under a full ``csv``-mode build, discarding the whole FR-026/FR-035
+    "ships on the best price known" recovery pass for every row. Arm-blind by construction, same
+    as every other 009 arm-selection site (rule 4/FR-012): both vocabularies are always carried,
+    never chosen between.
     """
     owners: dict[str, FactionScope] = {}
     for scope in sorted(
         scopes, key=lambda s: (s.entry.parent_faction_id is not None, s.faction_id)
     ):
-        owners.setdefault(scope.entry.detail_source_faction_id, scope)
+        for detail_id in _detail_ids_for(scope.entry):
+            owners.setdefault(detail_id, scope)
     return owners
 
 
