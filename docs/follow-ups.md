@@ -513,6 +513,16 @@ mid-candidate — has no carry-forward equivalent and still has no answer beyond
 re-reviewing. The two are different failure shapes (a faction disappearing vs. a faction's content
 changing) and only the first has a mechanism now.
 
+**Materialised, same day (2026-08-18)**: the `wh40k-11e-2026-08-4` candidate dispatch (008's own
+release) hit exactly the still-open half of this item. 24 approved ability summaries' live source
+digests no longer match the digest each was approved against — `SUM-NEEDS-REREVIEW` on each,
+`COV-SUMMARY-REGRESSION` on the resulting coverage drop, `BLOCKING`, exit 30, no candidate branch
+pushed. None of the 24 keys are option- or equipment-related; the carry-forward mechanism itself
+worked correctly in the same run (every declared faction resolved as designed). This is evidence
+this item's general point is still true, not a new defect — "re-running and re-reviewing" is
+exactly what happens next, and the Product Owner's two ways forward (author the 24 summaries, or
+record 24 dated resolutions) are unchanged from this item's own original framing above.
+
 
 ## 11. `pipeline-run-interface.md` owes an additive row for the `option-regression` command
 
