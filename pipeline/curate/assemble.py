@@ -48,6 +48,8 @@
 # vocabulary actually acquired this run (arm-agnostic) and passes it to `resolve_factions`, so
 # `REC-DETAIL-FACTION-EMPTY` is live against real builds rather than only unit-tested -- the
 # `plan.md` finding 1 silent-failure shape this feature exists to make loud.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - 009 task T028: updated
+# DETACHMENT_ABILITIES_FILE's comment now that it has joined EXPORT_FILES under the csv arm too.
 """Build one :class:`~pipeline.models.curated.CuratedSnapshot` from everything upstream.
 
 This is where the two sources stop being two sources. The **points** source is authoritative for
@@ -1656,11 +1658,11 @@ def assemble(  # noqa: PLR0913 - the stage genuinely needs every upstream input
     )
 
 
-#: The detail export's detachment-rule file. **Not in `EXPORT_FILES`** — the current-edition
-#: acquisition that brings it lands with Phase 9's own tasks, and adding it to the sweep here
-#: would change acquisition behaviour under a task that is about curation. Until then the file
-#: is simply absent from `detail`, which :func:`_source_detachment_rules` reads as "the source
-#: published no rule names this run" rather than as an error.
+#: The detail export's detachment-rule file. Joined `EXPORT_FILES` in the `csv` arm at 009 task
+#: T028 (FR-019 parity restoration) — previously only the `html` arm supplied it, and
+#: :func:`_source_detachment_rules` already reads its absence as "the source published no rule
+#: names this run" rather than as an error, which is what let this join land with zero behaviour
+#: change for any run that does not yet acquire it.
 DETACHMENT_ABILITIES_FILE: Final = "Detachment_abilities.csv"
 
 
