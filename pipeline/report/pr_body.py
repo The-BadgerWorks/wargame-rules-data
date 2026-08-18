@@ -13,6 +13,10 @@
 # option-regression pointer (006 task T039): the two `loadout.*` rows say which of them the
 # ratchet guards, and FR-009's zero-regression evidence gets a named place in the reading order
 # rather than living in a report nobody is told to open (006 FR-022).
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - 008 task T062: `default_equipment` joins
+# `options_resolved` as a figure the table marks "blocks below X%" (the two-step ratchet, FR-021)
+# -- the explanatory footer is rewritten to match, since it used to explain why the figure had NO
+# ratchet.
 """What an approver reads first, in the order they should read it.
 
 `docs/approval-checklist.md` (task T121) states the same order in prose, for a human skimming
@@ -69,11 +73,12 @@ _CHURN_DRY_RUN_DIR = "reports/churn-dry-run"
 #: The `coverage` key prefix `006`'s two loadout figures report under.
 _LOADOUT_COVERAGE_PREFIX = "loadout."
 
-#: The one loadout figure the ratchet guards. The other is reported and not ratcheted in this
-#: first extended release, because no published version carries the figure to compare against
-#: (research D4) -- and a table that showed both without saying which is which would let an
+#: The loadout figures the ratchet guards -- both, since `008`'s 2026-08-15 two-step ruling
+#: (FR-021). `item_constraints` and `rendering_equivalence` (`007` FR-022, PO decision
+#: 2026-08-13) are still absent -- new report-only baselines with no prior release to compare
+#: against -- and a table that showed every figure without saying which is which would let an
 #: approver read a falling unratcheted number as something a gate had already considered.
-_RATCHETED_LOADOUT_FIGURES: frozenset[str] = frozenset({"options_resolved"})
+_RATCHETED_LOADOUT_FIGURES: frozenset[str] = frozenset({"options_resolved", "default_equipment"})
 
 #: `pipeline.cli option-regression`'s report: FR-009's layer-2 evidence, rebuilt from the previous
 #: published version's own source rows and diffed per choice and per field.
@@ -113,21 +118,23 @@ def _loadout_coverage_section(coverage: Mapping[str, Mapping[str, Any]]) -> list
         )
     out += [
         "",
-        "`options_resolved` is **ratcheted with no absolute ceiling**: it must not fall below "
-        "the previous *published* version's percent, less the configured tolerance, and no "
-        "threshold blocks a release on its own — so source-wording drift cannot wedge a release "
-        "ahead of a parser fix. A rejected candidate never moves the baseline. "
-        "`default_equipment` is reported and not ratcheted in this first extended release: "
-        "nothing has published the figure yet, and a first-release threshold picked to have one "
-        "would be exactly the ceiling that rule rules out. "
-        "`item_constraints` and `rendering_equivalence` (`007` US5) are the same: new "
-        "report-only baselines, reported from their first release and ratcheted by no version of "
-        "this pipeline yet (PO decision 2026-08-13). `rendering_equivalence_not_compared` is a "
-        "**raw count**, not a proportion — read its `resolved` column, not its `%`, which is "
-        "always 100 by construction: it is the number of datasheet/block comparisons the check "
-        "could not make this run (source unavailable, or the rendered block legitimately empty), "
-        "excluded from `rendering_equivalence`'s own numerator and denominator so a shrinking "
-        "denominator can never read as an improving figure.",
+        "`options_resolved` and `default_equipment` are **both ratcheted, with no absolute "
+        "ceiling on either** (`008` FR-021, Clarifications 2026-08-15 Q2's two-step ruling): "
+        "each must not fall below the previous *published* version's own percent, less its own "
+        "configured tolerance, and no threshold blocks a release on its own — so source-wording "
+        "drift cannot wedge a release ahead of a parser fix. A rejected candidate never moves "
+        "either baseline. `default_equipment` reported without a ratchet in `006`'s first "
+        "extended release, because no version had yet published the figure to compare against "
+        "(research D4); two releases later that baseline exists, and the ratchet is on. "
+        "`item_constraints` and `rendering_equivalence` (`007` US5) are still new report-only "
+        "baselines, reported from their first release and ratcheted by no version of this "
+        "pipeline yet (PO decision 2026-08-13, untouched by this feature). "
+        "`rendering_equivalence_not_compared` is a **raw count**, not a proportion — read its "
+        "`resolved` column, not its `%`, which is always 100 by construction: it is the number "
+        "of datasheet/block comparisons the check could not make this run (source unavailable, "
+        "or the rendered block legitimately empty), excluded from `rendering_equivalence`'s own "
+        "numerator and denominator so a shrinking denominator can never read as an improving "
+        "figure.",
     ]
     return out
 
@@ -178,6 +185,42 @@ def _summary_coverage_section(coverage: Mapping[str, Mapping[str, Any]]) -> list
     return out
 
 
+def _carried_forward_section(findings: Sequence[Mapping[str, Any]]) -> list[str]:
+    """008 FR-025 (Product Owner decision 2026-08-17): every carry-forward substitution named
+    explicitly, never left to a reviewer noticing an advisory finding among thousands of others.
+
+    Renders **only** when at least one `SRC-FACTION-CARRIED-FORWARD` or
+    `SRC-FACTION-CARRY-FORWARD-UNUSED` finding exists this run — a candidate with no declarations
+    active gets no section at all, so its absence is itself the "nothing was substituted" signal.
+    """
+    carried = [f for f in findings if f.get("finding_code") == "SRC-FACTION-CARRIED-FORWARD"]
+    unused = [f for f in findings if f.get("finding_code") == "SRC-FACTION-CARRY-FORWARD-UNUSED"]
+    if not carried and not unused:
+        return []
+
+    out = ["", "## Carried-forward factions", ""]
+    if carried:
+        out.append(
+            "**These factions could not be fetched this run and are frozen at the previous "
+            "published version** (`curation/carried-forward-factions.json`):"
+        )
+        out += [
+            f"- `{f['detail'].get('faction_id')}` frozen at "
+            f"`{f['detail'].get('frozen_at_version')}` "
+            f"({f['detail'].get('datasheets_carried')} datasheet(s))"
+            for f in carried
+        ]
+    if unused:
+        if carried:
+            out.append("")
+        out.append(
+            "**These declarations were not needed this run** — the source answered live, so the "
+            "declaration in `curation/carried-forward-factions.json` may be retired:"
+        )
+        out += [f"- `{f['detail'].get('faction_slug')}`" for f in unused]
+    return out
+
+
 def render_pr_body(
     report_json: Mapping[str, Any], *, reports_relative_dir: str | None = None
 ) -> str:
@@ -212,6 +255,7 @@ def render_pr_body(
         for name, figure in sorted(scale.items())
     ]
 
+    out += _carried_forward_section(findings)
     out += _summary_coverage_section(report_json.get("coverage") or {})
     out += _loadout_coverage_section(report_json.get("coverage") or {})
 

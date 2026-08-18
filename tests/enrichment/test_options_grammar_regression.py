@@ -12,6 +12,13 @@
 # it is the fix this harness must now reflect. `scope`/`choices`/`verb`/`count` — the fields
 # `004` actually published downstream — are unchanged; only the previously-discarded pre-verb
 # text is now captured.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - Widened the scope-decision assertion to
+# GF16-GF25 (008 task T011, Setup phase fixture scaffolding): six new `head_ok_no_verb` carriers
+# (GF16-GF21, one per Phase 3/4 production), a refusal carrier (GF22, five refused shape
+# families), a `no_head_match` carrier (GF23), and an override-target carrier (GF25 — GF24 is
+# equipment-only and never reaches `Datasheets_options.csv` at all). Same exclusion reasoning as
+# GF07-GF12: every one of these carries a shape this harness's baseline grammar was never built
+# for, and folding them in would make a deliberate 008 improvement read as a regression.
 """Nothing `004` resolved may resolve differently. Proven against a frozen golden.
 
 FR-009 is the constraint the whole feature is built around: *a pre-existing option sentence that
@@ -221,5 +228,21 @@ def test_every_006_and_007_datasheet_is_deliberately_outside_this_harness() -> N
     # GF09 and GF11 are absent from this file on purpose rather than by oversight: neither
     # datacard states a WARGEAR OPTIONS block at all, which is the `wargear_option_state = none`
     # case one of them carries for the equipment tests. GF13-GF15 (007's composition-only header
-    # fixtures) are absent from this file for the same reason: they state no options block.
-    assert all_datasheets - BASELINE_DATASHEETS == {"GF07", "GF08", "GF10", "GF12"}
+    # fixtures) are absent from this file for the same reason: they state no options block. GF24
+    # (008's equipment-only US3 Independent Test fixture) is absent for the same reason again: it
+    # states composition and default equipment, never a Wargear Options row.
+    assert all_datasheets - BASELINE_DATASHEETS == {
+        "GF07",
+        "GF08",
+        "GF10",
+        "GF12",
+        "GF16",
+        "GF17",
+        "GF18",
+        "GF19",
+        "GF20",
+        "GF21",
+        "GF22",
+        "GF23",
+        "GF25",
+    }

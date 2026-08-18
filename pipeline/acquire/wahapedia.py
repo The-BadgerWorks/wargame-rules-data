@@ -115,12 +115,20 @@ def acquire_wahapedia(
     client: PoliteClient | None = None,
     retrieved_at: datetime | None = None,
     workspace: Path | None = None,
+    carried_forward_slugs: frozenset[str] = frozenset(),
 ) -> tuple[SourceAcquisition, list[FixturePayload]]:
     """Acquire the detail-source export.
 
     When ``workspace`` is given the retrieved files are written into it — that is ``work/``, and
     it is the only place they are ever written.
+
+    ``carried_forward_slugs`` is accepted and unused, on the same terms
+    :func:`pipeline.acquire.detail_source.read_export_payloads` already accepts and ignores
+    ``edition_code``: the signature is shared with the html arm so a caller never learns which
+    mode ran (008 FR-024). The bulk export has no per-faction page to fail partway through — it
+    is one file or none — so there is nothing here for a carry-forward declaration to apply to.
     """
+    del carried_forward_slugs
     if fixtures_dir is not None:
         return acquire_from_fixtures(
             fixtures_dir, SourceKey.WAHAPEDIA, config, retrieved_at=retrieved_at

@@ -79,9 +79,17 @@ from pipeline.build.bundle_emit import BundleMeta, emit_bundle
 from pipeline.build.canonical_json import encode_bundle, write_bundle
 from pipeline.build.checksum import BundleChecksum, checksum
 from pipeline.build.manifest import ManifestError
-from pipeline.config import Channel, ConfigError, PipelineConfig, load_config, repo_root
+from pipeline.config import (
+    Channel,
+    ConfigError,
+    DetailAcquisitionMode,
+    PipelineConfig,
+    load_config,
+    repo_root,
+)
 from pipeline.curate.assemble import assemble
 from pipeline.curate.authored import AuthoredContent, load_authored
+from pipeline.curate.carry_forward import apply_carried_forward
 from pipeline.curate.prior import PriorSnapshot, load_prior, read_curated_tree
 from pipeline.curate.summaries import (
     compute_current_digests,
@@ -152,7 +160,7 @@ from pipeline.validate.contract_checks import (
     check_snapshot,
 )
 from pipeline.validate.coverage import (
-    OPTIONS_RESOLVED_KEY,
+    LOADOUT_RATCHETED_KEYS,
     CoverageOutcome,
     check_coverage,
     check_weapon_ability_keywords,
@@ -175,6 +183,7 @@ from pipeline.validate.gates import (
     glossary_keys,
     glossary_summaries,
     loadout_coverage_figures,
+    loadout_ratchet_tolerance_for,
     max_chars_for,
     summary_coverage_figures,
     tolerance_for,
@@ -549,8 +558,8 @@ def _loadout_findings_and_coverage(
     config: PipelineConfig,
     equivalence: EquivalenceSummary | None = None,
 ) -> tuple[list[Finding], dict[str, CoverageFigure]]:
-    """`006`'s two report rows plus `007`'s two new ones, and the ratchet over the one guarded
-    figure (FR-022).
+    """`006`'s two report rows plus `007`'s two new ones, and the ratchet over both guarded
+    figures (`006` FR-022, `008` FR-021).
 
     Beside :func:`_summary_findings_and_coverage` and not inside it, because the two answer
     different questions. That one measures an editorial backlog a curator works through; this
@@ -560,21 +569,32 @@ def _loadout_findings_and_coverage(
     ``equivalence`` is `None` on every call site that has no source text in scope (`run_validate`,
     or a `run_build` with the check disabled) — read by `loadout_coverages` as "not measured this
     run," which omits the figure rather than reporting a false 100% (007 T001, T053).
+
+    Iterates :data:`~pipeline.validate.coverage.LOADOUT_RATCHETED_KEYS` rather than naming
+    ``OPTIONS_RESOLVED_KEY`` (008 T060): `default_equipment` joined the ratcheted set on the
+    2026-08-15 two-step ruling, and each figure carries its own tolerance
+    (:func:`~pipeline.validate.gates.loadout_ratchet_tolerance_for`) so a campaign can configure
+    the two ratchets independently.
     """
     coverages = loadout_coverages(snapshot, equivalence=equivalence)
     previous_percent = prior.loadout_ratio_percent if prior else {}
     previous_count = prior.loadout_resolved_count if prior else {}
+    tolerances = {key: loadout_ratchet_tolerance_for(key, config) for key in LOADOUT_RATCHETED_KEYS}
 
-    findings = check_option_ratchet(
-        coverages[OPTIONS_RESOLVED_KEY],
-        previous_percent=previous_percent.get(OPTIONS_RESOLVED_KEY),
-        tolerance=config.ratchet_tolerance_options,
-    )
+    findings: list[Finding] = []
+    for key in LOADOUT_RATCHETED_KEYS:
+        findings.extend(
+            check_option_ratchet(
+                coverages[key],
+                previous_percent=previous_percent.get(key),
+                tolerance=tolerances[key],
+            )
+        )
     figures = loadout_coverage_figures(
         coverages,
         previous_count=previous_count,
         previous_percent=previous_percent,
-        tolerance=config.ratchet_tolerance_options,
+        tolerances=tolerances,
     )
     return findings, figures
 
@@ -726,6 +746,13 @@ def run_build(  # noqa: PLR0913 - the stage boundary is the argument list
         else root / "curation"
     )
 
+    # Loaded before acquisition, not after (008 FR-024): the html detail arm needs the declared
+    # carry-forward slug set *before* it decides which faction pages to attempt, so a curator's
+    # declaration in curation/carried-forward-factions.json has to be in hand first. Neither
+    # `load_authored` nor a curation-dir read touches the network, so moving it earlier costs
+    # nothing and changes no other stage's inputs.
+    authored = load_authored(authored_dir)
+
     with workspace(root) as work:
         points_acq, points_payloads = acquire_mfm(
             config, fixtures_dir=fixtures_dir, offline=offline
@@ -734,7 +761,11 @@ def run_build(  # noqa: PLR0913 - the stage boundary is the argument list
         # nothing can tell whether the detail source was the bulk export or the current-edition
         # datacard pages, because what it receives is the same shape either way (research D1d).
         detail_acq, detail_payloads = acquire_detail(
-            config, fixtures_dir=fixtures_dir, offline=offline, workspace=work
+            config,
+            fixtures_dir=fixtures_dir,
+            offline=offline,
+            workspace=work,
+            carried_forward_slugs=authored.carried_forward_slugs,
         )
 
         pages = [
@@ -746,8 +777,6 @@ def run_build(  # noqa: PLR0913 - the stage boundary is the argument list
         findings: list[Finding] = []
         for result in detail.values():
             findings.extend(result.findings)
-
-        authored = load_authored(authored_dir)
 
         assembly = assemble(
             pages=pages,
@@ -799,6 +828,34 @@ def run_build(  # noqa: PLR0913 - the stage boundary is the argument list
     # The same checkout `prior` is projected from, read whole: the five enrichment categories
     # compare structures the cost projection does not carry (FR-037). `None` on a first release.
     previous_tree = read_curated_tree(baseline_root / "data" / EDITION_CODE)
+
+    # 008 FR-024/FR-025 (Product Owner decision 2026-08-17): splice in every declared faction the
+    # acquisition layer could not fetch this run, from `previous_tree` — BEFORE reconciliation, so
+    # a carried faction's datasheets read as "present, unchanged" to every coverage figure below,
+    # structurally rather than via a coverage.py special case. No-op when nothing was declared.
+    # Which declared slug landed which way is derived here, from the payloads actually returned —
+    # `SourceAcquisition.coverage` carries only counts (it is `Mapping[str, int]`, feeding FR-009's
+    # figures), never slugs, so this is the one place that needs the two sets and the one place
+    # cheap enough to compute them in. **html mode only**: a csv-mode payload's `name` is a file
+    # name (`Datasheets.csv`), never a faction slug, so a declaration would falsely read as
+    # "carried" for every entry under any other mode — carry-forward has no meaning where there is
+    # no per-faction page to fail in the first place.
+    if config.detail_acquisition_mode is DetailAcquisitionMode.HTML:
+        fetched_slugs = frozenset(payload.name for payload in detail_payloads)
+        carried_slugs = authored.carried_forward_slugs - fetched_slugs
+        unused_slugs = authored.carried_forward_slugs & fetched_slugs
+    else:
+        carried_slugs = frozenset()
+        unused_slugs = frozenset()
+    snapshot, carry_forward_findings = apply_carried_forward(
+        snapshot,
+        previous_tree=previous_tree,
+        carried_slugs=carried_slugs,
+        unused_declaration_slugs=unused_slugs,
+        previous_version_id=(prior.rules_version_id if prior else None) or "(none)",
+    )
+    findings.extend(carry_forward_findings)
+
     snapshot, prior_findings, coverage, sub_reports = _reconcile_against_prior(
         snapshot,
         prior=prior,

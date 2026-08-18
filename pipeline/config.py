@@ -416,6 +416,21 @@ CONFIG_VARS: Final[tuple[ConfigVar, ...]] = (
         False,
         "on/off switch, the build-time rendering equivalence check (007 FR-019..FR-022)",
     ),
+    # -- 008-wargear-option-completion ---------------------------------------------------------
+    # One variable, and only as a consequence of the Product Owner's two-step ruling
+    # (Clarifications 2026-08-15 Q2, FR-021): `loadout.default_equipment` joins the ratcheted set
+    # on the same terms `loadout.options_resolved` already does. Same shape as the five
+    # `WGC_RATCHET_TOLERANCE_*` variables above -- no absolute threshold or floor is introduced
+    # for either figure; this is only the proportion the ratchet allows either side of the
+    # previous PUBLISHED version's percent, identically to `WGC_RATCHET_TOLERANCE_OPTIONS`.
+    ConfigVar(
+        "WGC_RATCHET_TOLERANCE_EQUIPMENT",
+        "ratchet_tolerance_equipment",
+        "0.00",
+        "ratio",
+        False,
+        "default-equipment coverage regression tolerance (008 FR-021)",
+    ),
 )
 
 _BY_ENV_NAME: Final[Mapping[str, ConfigVar]] = {var.env_name: var for var in CONFIG_VARS}
@@ -461,6 +476,7 @@ class PipelineConfig:
     ratchet_tolerance_glossary: float
     ratchet_tolerance_options: float
     equivalence_check_enabled: bool
+    ratchet_tolerance_equipment: float
 
     @property
     def manifest_path(self) -> str:
@@ -708,4 +724,5 @@ def load_config(
         ratchet_tolerance_glossary=_as_ratio(raw, "WGC_RATCHET_TOLERANCE_GLOSSARY"),
         ratchet_tolerance_options=_as_ratio(raw, "WGC_RATCHET_TOLERANCE_OPTIONS"),
         equivalence_check_enabled=_as_bool(raw, "WGC_EQUIVALENCE_CHECK_ENABLED"),
+        ratchet_tolerance_equipment=_as_ratio(raw, "WGC_RATCHET_TOLERANCE_EQUIPMENT"),
     )

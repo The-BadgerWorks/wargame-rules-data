@@ -50,6 +50,13 @@
      needing investigation before any ratchet decision, the org's Actions-PR-creation gap
      recurring for a second release, and the change-class guard's implication for how a future
      multi-class feature must plan its release. None resolved here; all four are forward-looking. -->
+<!-- AI-Assisted: Claude Code (model: claude-sonnet-5) - 008 T026 (Foundational phase): marked
+     item 18 discharged -- this feature planned and has so far executed its split-PR release path
+     from the first commit, exactly the discipline item 18 asked a future multi-class feature to
+     adopt. Referenced items 15, 16, and 17 as out of scope from this feature's own plan.md. Added
+     item 19, this feature's own entry: the ahead-of-contract finding codes T018/T019 added
+     (validation-report.md §3 owed an additive row, item 5's precedent) and the O2 restatement
+     T014 decided but has not yet sized (T074 owes the exact figure). -->
 # Follow-ups
 
 Open items surfaced during implementation that are deliberately **not** fixed as part of the work
@@ -493,6 +500,19 @@ against a source that keeps moving — the 11th-edition detail source is activel
 so any candidate left open long enough will acquire new editorial work before it is approved. The
 release flow has no answer to that yet beyond re-running and re-reviewing.
 
+**Partially discharged by `008-wargear-option-completion` (2026-08-17), for one specific shape of
+"the source moved": a whole faction becoming unreachable.** `008`'s T074 dry-run found the detail
+source's own sitemap enumerating only 10 of 30 published factions, and several previously-published
+faction slugs renamed or 404ing outright. The per-faction carry-forward mechanism (FR-024/FR-025,
+`curation/carried-forward-factions.json`, `pipeline/curate/carry_forward.py`) gives the release flow
+its first real answer for that one drift shape: a declared faction is sourced from the previous
+published version rather than blocking the whole candidate, visibly and without regressing any
+coverage figure. **Still open**: the *content* drift this item was originally about — an existing,
+reachable faction's page gaining or changing editorial material (new abilities, moved keywords)
+mid-candidate — has no carry-forward equivalent and still has no answer beyond re-running and
+re-reviewing. The two are different failure shapes (a faction disappearing vs. a faction's content
+changing) and only the first has a mechanism now.
+
 
 ## 11. `pipeline-run-interface.md` owes an additive row for the `option-regression` command
 
@@ -726,7 +746,23 @@ credentials to a single workflow step. Until then, every candidate needs a human
 happened this release, re-open) its own PR, which is a process cost worth removing before the next
 release depends on it going smoothly under time pressure.
 
-## 18. The change-class guard means a future multi-class feature must plan its split-PR release path from the start (007)
+## 18. ~~The change-class guard means a future multi-class feature must plan its split-PR release path from the start~~ — **discharged by 008-wargear-option-completion**
+
+**Discharged, 2026-08-15 (008 T026).** `008-wargear-option-completion`'s `plan.md` names the exact
+discipline this item asked for, before a single production was written: a *Delivery sequencing*
+section stating the PR A (`pipeline/`+`tests/`) → PR B (`curation/`) → PR C (`data/`+`reports/`)
+order up front, and `tasks.md` tagging every task with the pull request it belongs to in a table
+at the top of the file, rather than discovering the split at release time. The Foundational phase
+(T015-T026) landed entirely as PR A commits, each one `pipeline/`+`tests/`-only (confirmed by
+`git status --short` before every commit in this phase — no `curation/` or `data/` file appeared
+in any diff). Whether the discipline holds all the way through Phase 7's override authoring (a
+genuinely different change class, landing later in the same feature) and the Release phase's PR
+A → B → C merge order is still open — this item is marked discharged for the *planning and
+Foundational-phase execution* the original text asked for, not for a release that has not
+happened yet. If the split turns out to fail anyway at Phase 8, that is a new, sharper follow-up
+in its own right, not a reason to reopen this one.
+
+### Original text (007)
 
 `007-loadout-display-fidelity`'s first candidate PR (#17) mixed `pipeline+tests` and `curation`
 change classes, because `candidate.yml` built the candidate branch on top of the still-unmerged
@@ -756,3 +792,35 @@ class's changes in a way that a `git diff --name-status` per commit never crosse
 boundary. `plan.md`'s own Separation gate already states the discipline in the abstract ("Delivery
 is planned as separate pull requests accordingly"); this item is the concrete lesson that "planned"
 has to mean "structured in the commit history," not just "intended."
+
+## 19. ~~Two~~ Five 008 finding codes are ahead of `validation-report.md`'s own contract row; O2's exact restated ceiling ~~is not sized yet~~ **is now sized (2026-08-17)** (008)
+
+`008-wargear-option-completion`'s Foundational phase (T018/T019) catalogued two new finding codes
+— `OPT-OVERRIDE-REDUNDANT` (advisory) and `COV-EQUIPMENT-REGRESSION` (blocking) — in
+`pipeline/report/catalogue.py` and in `tests/unit/test_finding_catalogue.py`'s independently-
+transcribed `PENDING_CONTRACT_SEVERITIES` block, on `COV-WEAPON-ABILITIES-EMPTY`'s precedent
+(item 5 above): `validation-report.md` is Frozen (`002` accepted 2026-08-04), so adding its owed
+§3 rows for these two codes is a cross-feature versioning exercise this feature's own scope does
+not reach, exactly as item 5 was for its one code. **Not fixed here.**
+
+**2026-08-17 addition**: Phase 8a's per-faction carry-forward mechanism (Product Owner decision
+2026-08-17, FR-024/FR-025) added three more codes on the identical ahead-of-contract terms:
+`SRC-FACTION-CARRIED-FORWARD` (advisory), `SRC-FACTION-CARRY-FORWARD-UNUSED` (advisory),
+`SRC-FACTION-CARRY-FORWARD-NO-PRIOR` (blocking). **Action needed**: a future housekeeping pass (on
+`006` T050's and `004` T076's own precedent of batching several owed contract rows into one
+cross-feature update) adds all five of this feature's codes to `validation-report.md` §3 alongside
+item 5's still-outstanding `COV-WEAPON-ABILITIES-EMPTY` row and item 11/12's still-outstanding
+`pipeline-run-interface.md` rows, rather than five-plus separate single-code amendments to a frozen
+contract.
+
+Separately: **Open Decision O2 was decided at T014 and is now sized.** The Product Owner's
+2026-08-15 T014 ruling committed to restating SC-002 to "the measured reachable ceiling" — not to
+confirming the 98% as written — on the strength of T003's conditional-blocking census, whose own
+low-end estimate (22 datasheets) already exceeded SC-002's entire 21-datasheet headroom. The exact
+restated number was deliberately not guessed at T014: T074's mid-campaign real-corpus dry-run,
+extended by Phase 8a's carry-forward mechanism once T074 found the corpus itself short several
+factions, measured it precisely. **Resolved 2026-08-17**: SC-002 restates to **≥97% (≥2,029/2,084)**
+— `1,916 + (147 addressable − 34 permanently-conditional-blocked) = 2,029` — recorded in `spec.md`
+Clarifications session 2026-08-17 and `plan.md` Open Decision O3, exactly as T077's Product Owner
+checkpoint was scoped to do. This item can be considered closed on the O2-sizing thread; the
+finding-code contract-row debt (first paragraph) remains open.

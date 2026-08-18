@@ -23,14 +23,22 @@ import pytest
 
 from pipeline.config import load_config
 from pipeline.exit_codes import ExitCode
+from pipeline.models.curated import CuratedOptionGroup, OptionScope, WargearOptionState
+from tests.factories import datasheet, snapshot
 from tools.option_taxonomy import (
     BUILD_ORDER,
     classify,
+    conditional_blocking_census,
+    excluded_populations,
     features_of,
     iter_class_keys,
+    load_published_snapshot_evidence,
     main,
     measure,
+    override_candidate_worklist,
     render,
+    render_override_candidate_worklist,
+    zero_group_breakdown,
 )
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
@@ -220,3 +228,140 @@ def test_a_live_run_without_a_source_url_is_a_configuration_error(
     assert code == int(ExitCode.CONFIG_ERROR)
     assert "WGC_DETAIL_SOURCE_URL" in capsys.readouterr().err
     assert not (tmp_path / "reports").exists()
+
+
+# -- 008 T001(b)/(c)/T003/T004: the published-snapshot section ----------------------------------
+
+
+def _group(datasheet_id: str, line: int) -> CuratedOptionGroup:
+    return CuratedOptionGroup(id=f"og-{datasheet_id}-{line}", line=line, scope=OptionScope.MODEL)
+
+
+def test_zero_group_breakdown_splits_partial_by_whether_a_group_published() -> None:
+    zero_a = datasheet("ds-zero-a", faction_id="f-a")
+    zero_b = datasheet("ds-zero-b", faction_id="f-b")  # same name -> same shape as zero_a
+    some = datasheet("ds-some", faction_id="f-c")
+    extracted = datasheet("ds-extracted", faction_id="f-d")
+    zero_a = zero_a.model_copy(update={"wargear_option_state": WargearOptionState.PARTIAL})
+    zero_b = zero_b.model_copy(update={"wargear_option_state": WargearOptionState.PARTIAL})
+    some = some.model_copy(
+        update={
+            "wargear_option_state": WargearOptionState.PARTIAL,
+            "option_groups": [_group("ds-some", 1)],
+        }
+    )
+    extracted = extracted.model_copy(update={"wargear_option_state": WargearOptionState.EXTRACTED})
+
+    result = zero_group_breakdown(snapshot(datasheets=[zero_a, zero_b, some, extracted]))
+
+    assert result.zero_group_datasheets == 2
+    assert result.zero_group_shapes == 1  # zero_a and zero_b share `datasheet()`'s default name
+    assert result.some_group_datasheets == 1
+    assert result.some_group_shapes == 1
+    assert set(result.zero_group_ids) == {"ds-zero-a", "ds-zero-b"}
+    assert result.some_group_ids == ("ds-some",)
+
+
+def test_excluded_populations_finds_the_cst_only_and_no_state_sets() -> None:
+    vocab_gap = datasheet("ds-vocab-gap").model_copy(
+        update={"wargear_option_state": WargearOptionState.PARTIAL}
+    )
+    genuinely_unparsed = datasheet("ds-genuinely-unparsed").model_copy(
+        update={"wargear_option_state": WargearOptionState.PARTIAL}
+    )
+    no_state = datasheet("ds-no-state").model_copy(update={"wargear_option_state": None})
+    findings = [
+        {"finding_code": "OPT-UNPARSED", "detail": {"datasheet_id": "ds-genuinely-unparsed"}},
+        {"finding_code": "CST-UNPARSED", "detail": {"datasheet_id": "ds-vocab-gap"}},
+        {"finding_code": "OTHER-CODE", "detail": {"datasheet_id": "ds-vocab-gap"}},
+    ]
+
+    result = excluded_populations(
+        snapshot(datasheets=[vocab_gap, genuinely_unparsed, no_state]), findings
+    )
+
+    assert result.item_constraint_vocabulary_gap == ("ds-vocab-gap",)
+    assert result.no_option_state_at_all == ("ds-no-state",)
+
+
+def test_conditional_blocking_census_builds_the_histogram_and_bounds_the_estimate() -> None:
+    findings = [
+        {"finding_code": "OPT-UNPARSED", "detail": {"datasheet_id": "ds-a"}},
+        {"finding_code": "OPT-UNPARSED", "detail": {"datasheet_id": "ds-b"}},
+        {"finding_code": "OPT-UNPARSED", "detail": {"datasheet_id": "ds-b"}},
+        {"finding_code": "OTHER-CODE", "detail": {"datasheet_id": "ds-c"}},
+    ]
+
+    census = conditional_blocking_census(
+        findings,
+        measured_conditional_rows=1,
+        measured_total_unparsed_rows=2,
+        sc002_headroom=5,
+    )
+
+    assert census.unparsed_row_datasheets == 2
+    assert census.unparsed_rows_total == 3
+    assert census.single_row_datasheets == 1
+    assert census.row_count_histogram == {1: 1, 2: 1}
+    # share = 1/2 = 0.5; single_row=1 -> low = round(0.5) = 0; high = min(1, 1) = 1
+    assert (census.estimate_low, census.estimate_high) == (0, 1)
+
+
+def test_conditional_blocking_census_handles_zero_unparsed_rows() -> None:
+    """A findings list with no `OPT-UNPARSED` at all must not divide by zero."""
+    census = conditional_blocking_census(
+        [], measured_conditional_rows=0, measured_total_unparsed_rows=0, sc002_headroom=21
+    )
+    assert (census.unparsed_row_datasheets, census.estimate_low, census.estimate_high) == (0, 0, 0)
+
+
+def test_override_candidate_worklist_groups_lines_by_datasheet_in_order() -> None:
+    """008 T071/T072 preparation: a worklist of `(datasheet_id, line)` pairs, never item content
+    -- `detail` here carries only what `report.json`'s own text-free finding detail ever carries."""
+    findings = [
+        {"finding_code": "OPT-UNPARSED", "detail": {"datasheet_id": "ds-b", "line": 2}},
+        {"finding_code": "OPT-UNPARSED", "detail": {"datasheet_id": "ds-a", "line": 3}},
+        {"finding_code": "OPT-UNPARSED", "detail": {"datasheet_id": "ds-a", "line": 1}},
+        {"finding_code": "OTHER-CODE", "detail": {"datasheet_id": "ds-a", "line": 9}},
+        {"finding_code": "OPT-UNPARSED", "detail": {"not_a_datasheet_id": True}},
+    ]
+
+    worklist = override_candidate_worklist(findings)
+
+    assert worklist.rows_by_datasheet == {"ds-a": (1, 3), "ds-b": (2,)}
+    assert (worklist.total_rows, worklist.total_datasheets) == (3, 2)
+
+
+def test_override_candidate_worklist_handles_no_findings() -> None:
+    worklist = override_candidate_worklist([])
+    assert worklist.rows_by_datasheet == {}
+    assert (worklist.total_rows, worklist.total_datasheets) == (0, 0)
+
+
+def test_render_override_candidate_worklist_never_carries_more_than_ids_and_line_numbers() -> None:
+    worklist = override_candidate_worklist(
+        [{"finding_code": "OPT-UNPARSED", "detail": {"datasheet_id": "ds-a", "line": 1}}]
+    )
+    rendered = render_override_candidate_worklist(worklist, rules_version_id="wh40k-11e-2026-08-3")
+    assert "ds-a" in rendered
+    assert "line" in rendered.casefold() and "1" in rendered
+    assert "stale" in rendered.casefold()
+    # No prose ever appears in the worklist: it names ids and integers only.
+    assert "ember" not in rendered.casefold()  # a canary invented item name, never present
+
+
+def test_load_published_snapshot_evidence_is_none_without_a_manifest(tmp_path: Path) -> None:
+    """A fresh checkout, or a `--fixtures` rehearsal, has no `site/manifest.json` — additive,
+    never a crash."""
+    assert load_published_snapshot_evidence(tmp_path, edition_code="wh40k-11e") is None
+
+
+def test_load_published_snapshot_evidence_reads_this_repositorys_own_committed_state() -> None:
+    """The real property this feature depends on: `data/wh40k-11e/`, `site/manifest.json`, and
+    `reports/<rulesVersionId>/report.json` are all committed in **this** checkout, so this run
+    against the real repository root resolves real evidence rather than needing a fixture."""
+    root = Path(__file__).resolve().parents[2]
+    evidence = load_published_snapshot_evidence(root, edition_code="wh40k-11e")
+    assert evidence is not None
+    assert evidence.snapshot.datasheets
+    assert evidence.findings
