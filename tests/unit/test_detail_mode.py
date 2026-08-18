@@ -1,3 +1,9 @@
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - Added the source-level mode-containment
+# scan (009 task T016, FR-012): an AST walk over pipeline/parse, normalize, reconcile, curate,
+# validate and build asserting no module below acquire branches on a `mode` comparison or
+# references `DetailAcquisitionMode` at all. A hybrid (T048) is expressed as which arm populates
+# which table, declared in curation/ and resolved at acquisition -- never as a conditional in one
+# of these six stages -- so this is the structural guard for rule 4, not a style preference.
 # AI-Assisted: Claude Code (model: claude-opus-5) - Extended the mode-parity assertions to the
 # real html arm and to the reader table (004 task T074): both modes now acquire and both
 # produce the same file-name -> CsvReadResult mapping, which is the whole of mode-blindness.
@@ -20,10 +26,12 @@ Everything here runs offline against a synthetic fixture tree; nothing opens a s
 
 from __future__ import annotations
 
+import ast
 import dataclasses
 import inspect
 from datetime import UTC, datetime
 from pathlib import Path
+from typing import Final
 
 import pytest
 
@@ -249,6 +257,101 @@ def test_the_reader_table_covers_every_documented_mode() -> None:
 def test_an_unrecognised_mode_is_a_configuration_error_for_the_reader_too(mode: str) -> None:
     with pytest.raises(ConfigError, match="WGC_DETAIL_ACQUISITION_MODE"):
         reader_for(mode)
+
+
+# -- the structural guard: no module below acquire may branch on mode (009 T016, FR-012) --------
+
+#: Every stage rule 4 names by name. `pipeline/acquire`, `pipeline/cli.py`, `pipeline/config.py`,
+#: `pipeline/models`, `pipeline/report`, `pipeline/detect`, `pipeline/render`, `pipeline/publish`
+#: and `pipeline/observability` are deliberately NOT scanned: the rule's own wording is "parsing,
+#: normalization, reconciliation, curation, validation, or build", not "everywhere the identifier
+#: `mode` appears". `pipeline/cli.py:843`'s own `if config.detail_acquisition_mode is
+#: DetailAcquisitionMode.HTML` is the orchestration layer selecting which carry-forward slug sets
+#: apply -- above every one of these six stages, not below them -- and is unaffected by this scan.
+_SCANNED_PACKAGES: Final = (
+    "parse",
+    "normalize",
+    "reconcile",
+    "curate",
+    "validate",
+    "build",
+)
+
+_PIPELINE_ROOT = Path(__file__).resolve().parents[2] / "pipeline"
+
+
+def _iter_scanned_modules() -> list[Path]:
+    modules: list[Path] = []
+    for package in _SCANNED_PACKAGES:
+        package_dir = _PIPELINE_ROOT / package
+        if not package_dir.is_dir():
+            continue
+        modules.extend(sorted(package_dir.rglob("*.py")))
+    return modules
+
+
+def _mode_branches(tree: ast.AST) -> list[ast.Compare]:
+    """Every `ast.Compare` node comparing a bare `mode` name with `is`/`is not`/`==`/`!=`.
+
+    An AST walk rather than a text search on purpose: `equipment_grammar.py`'s own docstring
+    reads "...its absence under csv mode is what..." and `wahapedia_html_dom.py`'s reads
+    "Faction identity under this mode is the page slug" -- both perfectly legitimate prose that a
+    substring search on `"mode is"` would misreport as a branch. A comment or a docstring is not
+    part of the AST's `Compare`/`Name` nodes, so this scan is blind to prose by construction and
+    can only ever find an actual conditional.
+    """
+    found: list[ast.Compare] = []
+    for node in ast.walk(tree):
+        if not isinstance(node, ast.Compare):
+            continue
+        operands = [node.left, *node.comparators]
+        is_mode_name = any(
+            isinstance(operand, ast.Name) and operand.id == "mode" for operand in operands
+        )
+        is_comparison_op = all(
+            isinstance(op, ast.Is | ast.IsNot | ast.Eq | ast.NotEq) for op in node.ops
+        )
+        if is_mode_name and is_comparison_op:
+            found.append(node)
+    return found
+
+
+def _detail_acquisition_mode_references(tree: ast.AST) -> list[ast.Name]:
+    """Every reference to the `DetailAcquisitionMode` name itself, import or use.
+
+    Not just comparisons: a module below `acquire` that imports the enum at all has already
+    started down the path the design-loss warning names, even before it writes a branch.
+    """
+    return [
+        node
+        for node in ast.walk(tree)
+        if isinstance(node, ast.Name) and node.id == "DetailAcquisitionMode"
+    ]
+
+
+@pytest.mark.parametrize("module_path", _iter_scanned_modules(), ids=lambda p: str(p.name))
+def test_no_mode_branch_or_reference_below_acquire(module_path: Path) -> None:
+    tree = ast.parse(module_path.read_text(encoding="utf-8"), filename=str(module_path))
+
+    branches = _mode_branches(tree)
+    assert not branches, (
+        f"{module_path}: a `mode` comparison at line(s) "
+        f"{[b.lineno for b in branches]} -- FR-012 (rule 4): if a mode branch appears anywhere "
+        "below acquire, the design has been lost. Express a hybrid as which arm populates which "
+        "table, declared in curation/ and resolved at acquisition, never as a conditional here."
+    )
+
+    references = _detail_acquisition_mode_references(tree)
+    assert not references, (
+        f"{module_path}: `DetailAcquisitionMode` is referenced at line(s) "
+        f"{[r.lineno for r in references]} -- this stage should never need to know the mode "
+        "exists at all, let alone which one ran."
+    )
+
+
+def test_the_scan_covers_a_nonempty_module_set() -> None:
+    """A scan over zero files would pass vacuously and prove nothing."""
+    assert len(_iter_scanned_modules()) > 10
 
 
 def test_selecting_html_mode_changes_no_other_configured_value() -> None:
