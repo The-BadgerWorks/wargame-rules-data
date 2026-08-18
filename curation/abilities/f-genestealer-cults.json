@@ -586,7 +586,7 @@
   },
   {
     "ability_key": "faction:cult-ambush",
-    "mechanic_digest": "dbe125b14ad4b836005144391613872b",
+    "mechanic_digest": "885375e8825a6521a9f155e1a9e37e70",
     "name": "Cult Ambush",
     "review_state": "approved",
     "reviewed_at": "2026-08-06T00:00:00Z",
@@ -595,7 +595,7 @@
   },
   {
     "ability_key": "faction:shadow-in-the-warp",
-    "mechanic_digest": "a51a703853b33a27322f6c1783879c9a",
+    "mechanic_digest": "34f49d56513b9dfe6d50a52f55fc6e33",
     "name": "Shadow in the Warp",
     "review_state": "approved",
     "reviewed_at": "2026-08-06T00:00:00Z",
@@ -604,7 +604,7 @@
   },
   {
     "ability_key": "faction:shadow-in-the-warp-ravener-prime-only",
-    "mechanic_digest": "a51a703853b33a27322f6c1783879c9a",
+    "mechanic_digest": "34f49d56513b9dfe6d50a52f55fc6e33",
     "name": "Shadow In The Warp (Ravener Prime only)",
     "review_state": "approved",
     "reviewed_at": "2026-08-06T00:00:00Z",
@@ -613,7 +613,7 @@
   },
   {
     "ability_key": "faction:synapse",
-    "mechanic_digest": "cc1b41cf8e0cb12ece33a76869438494",
+    "mechanic_digest": "c1426c0d0b2b57b3ba7ac7a43a7fc412",
     "name": "Synapse",
     "review_state": "approved",
     "reviewed_at": "2026-08-06T00:00:00Z",
