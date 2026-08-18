@@ -7,6 +7,16 @@
 # from -- and a page saved under a different extension, or a directory named after the source
 # tree, would sail past all three. The new test asserts on the PATH, which is the thing FR-004
 # and FR-010 actually care about.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - Extended the walk to
+# `reports/009-diagnosis/` (009 task T034): FR-008 requires the diagnosis report to be
+# text-free -- cause, row count, residual, finding class, datasheet id only -- which is a
+# narrower and different claim than `pipeline.validate.ip_scan`'s markup/entity/placeholder scan
+# already makes over the same directory. That scan deliberately does not check prose length or
+# quotation (`ip_scan.py::_scan_text`'s own docstring: "a long sentence in report.md is not an
+# IP violation" -- the report's own authored analysis prose is expected and fine). What FR-008
+# adds on top is narrower: no *quoted* run of source-shaped text, because this report's own
+# prose never has a reason to quote anything it describes -- it names causes and classes, it
+# never repeats what a row said.
 """The scan that keeps raw acquired source material out of version control (FR-010, SC-003).
 
 This is deliberately a *git* scan rather than a filesystem scan. A curator's working tree will
@@ -113,4 +123,85 @@ def test_no_artefact_of_the_html_acquisition_path_is_tracked() -> None:
     assert offenders == [], (
         "these tracked paths name the publisher's acquisition tree, which is retrieved into "
         f"work/ and discarded, never committed (FR-004, FR-010): {offenders}"
+    )
+
+
+# --- 009 T034: the diagnosis report is text-free (FR-008, SC-012) ------------------------------
+
+DIAGNOSIS_REPORTS_DIR: str = "reports/009-diagnosis/"
+
+#: The length above which a quoted run reads as a matched sentence or quoted phrasing rather
+#: than a short quoted term (a single word, a finding code). Comfortably above any of this
+#: report's own short quoted terms, comfortably below the length of an ordinary option or
+#: equipment sentence -- which is what a real leak would actually look like.
+_QUOTED_RUN_MIN_LENGTH: int = 40
+
+#: Straight and curly double quotes, normalised to one character before pairing. Treated as
+#: interchangeable rather than matched open-to-close, because this project's own reports use
+#: straight quotes throughout and the distinction buys nothing here.
+_QUOTE_CHARS: str = '"“”'
+
+
+def _quoted_phrase_offenders(text: str) -> list[str]:
+    """Every line of ``text`` carrying a quoted run of :data:`_QUOTED_RUN_MIN_LENGTH`+
+    characters, for a finding message that names the line without repeating its content.
+
+    Pairs quote marks **positionally** (1st with 2nd, 3rd with 4th, ...) rather than matching
+    any quote character to the next one found -- a naive "quote ... quote" regex pairs a
+    pair's own CLOSING mark with a LATER, unrelated pair's OPENING mark whenever a line carries
+    more than one quotation, which is exactly the shape one of this feature's own already-
+    committed report lines has (a short quote of `spec.md`'s own wording, immediately followed
+    by the *start* of a second, longer quote that continues on the next line): naive pairing
+    would misread the plain prose sitting between the two quotations as though it were itself
+    quoted. An odd trailing quote mark (a quotation that continues past this line) is correctly
+    left unpaired here rather than reaching for the next line's opening mark, which is also why
+    this scan stays per-line instead of running over the whole file.
+    """
+    offenders: list[str] = []
+    for number, line in enumerate(text.splitlines(), start=1):
+        positions = [index for index, char in enumerate(line) if char in _QUOTE_CHARS]
+        for start, end in zip(positions[0::2], positions[1::2], strict=False):
+            if end - start - 1 >= _QUOTED_RUN_MIN_LENGTH:
+                offenders.append(f"line {number}")
+                break
+    return offenders
+
+
+def test_the_quoted_phrase_scan_catches_a_planted_violation() -> None:
+    """The scan is proven against a synthetic string before it is trusted against real reports --
+    the same discipline `test_ip_scan.py`'s poisoned-tree cases use."""
+    poisoned = (
+        "## A finding\n\n"
+        'The row reads "This model can be equipped with one ember lance and a tide hammer, '
+        'or it can instead take a marsh lantern" and was left unresolved.\n'
+    )
+    assert _quoted_phrase_offenders(poisoned) == ["line 3"]
+
+
+def test_the_quoted_phrase_scan_does_not_flag_a_short_quoted_term() -> None:
+    """A short quoted word or finding code is not what FR-008 guards against -- only a run long
+    enough to be a matched sentence or a quoted phrase from a source row."""
+    clean = 'The finding names the class as "footnote fragment" and nothing else.\n'
+    assert _quoted_phrase_offenders(clean) == []
+
+
+def test_the_009_diagnosis_reports_carry_no_quoted_phrase() -> None:
+    """FR-008: the published diagnosis report never quotes a source sentence or fragment.
+
+    Walks every tracked file under `reports/009-diagnosis/` rather than one named file, so a
+    future dated report added by a later run of this feature is covered without editing this
+    test.
+    """
+    tracked = [p for p in _tracked_files() if p.startswith(DIAGNOSIS_REPORTS_DIR)]
+    assert tracked != [], "the diagnosis report directory should be tracked and non-empty by now"
+
+    offenders: dict[str, list[str]] = {}
+    for relative in tracked:
+        text = (REPO_ROOT / relative).read_text(encoding="utf-8")
+        found = _quoted_phrase_offenders(text)
+        if found:
+            offenders[relative] = found
+
+    assert offenders == {}, (
+        f"these reports carry a long quoted run, which FR-008 forbids: {offenders}"
     )
