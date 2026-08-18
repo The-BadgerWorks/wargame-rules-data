@@ -44,6 +44,10 @@
 # stopped it from ever dropping a row -- it only raises the advisory `CMP-HEADER-ROW` finding now.
 # Wired the new `CompositionOverrideEntry.remove` shape into `_composition_entries`'s override
 # branch, the only remaining path that removes a composition row.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - 009 task T019: computes the faction-id
+# vocabulary actually acquired this run (arm-agnostic) and passes it to `resolve_factions`, so
+# `REC-DETAIL-FACTION-EMPTY` is live against real builds rather than only unit-tested -- the
+# `plan.md` finding 1 silent-failure shape this feature exists to make loud.
 """Build one :class:`~pipeline.models.curated.CuratedSnapshot` from everything upstream.
 
 This is where the two sources stop being two sources. The **points** source is authoritative for
@@ -1424,11 +1428,23 @@ def assemble(  # noqa: PLR0913 - the stage genuinely needs every upstream input
     registry = registry or IdRegistry()
     edition_id = f"ed-{edition_code}"
 
-    factions_outcome = resolve_factions([page.faction_slug for page in pages], authored)
+    detail_datasheets = detail["Datasheets.csv"]
+    # The faction-id vocabulary actually acquired this run, arm-agnostic (009 FR-015,
+    # data-model.md §2): whichever arm read `Datasheets.csv`, this is what its own `faction_id`
+    # column carries. Passed to `resolve_factions` so a mapped faction matching NONE of it is the
+    # loud, blocking `REC-DETAIL-FACTION-EMPTY` rather than the silent empty roster `plan.md`
+    # finding 2 measured -- the coverage ratchets read 100% on the OTHER factions regardless.
+    detail_faction_ids_present = frozenset(
+        faction_id for row in detail_datasheets.rows if (faction_id := row.fields.get("faction_id"))
+    )
+    factions_outcome = resolve_factions(
+        [page.faction_slug for page in pages],
+        authored,
+        detail_faction_ids_present=detail_faction_ids_present,
+    )
     findings.extend(factions_outcome.findings)
     scopes = {scope.entry.mfm_slug: scope for scope in factions_outcome.scopes}
 
-    detail_datasheets = detail["Datasheets.csv"]
     legends_sources = _legends_source_ids(detail)
     detail_faction_keywords = _faction_keywords_by_datasheet(detail)
     source_detachment_rules = _source_detachment_rules(detail)
