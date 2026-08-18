@@ -1,4 +1,10 @@
 #!/usr/bin/env python3
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - Added --compare-modes (009 task T001): a
+# same-process, same-live-corpus measurement of both the csv and html acquisition arms, joined on
+# case-folded datasheet name (the two arms' own ids are not comparable), rendering a per-
+# diagnosis-class residual table side by side plus a row-granularity section for research.md Q1 --
+# the rig FR-004's diagnosis rests on, written to reports/009-diagnosis/ rather than
+# reports/option-taxonomy/ so it is never mistaken for the single-mode report it sits beside.
 # AI-Assisted: Claude Code (model: claude-opus-5) - Implemented the option-row taxonomy classifier
 # (006 task T001): acquire the detail source in the configured mode into an ephemeral work/, run
 # every option row through the pipeline's own parse path, classify each unparsed row against
