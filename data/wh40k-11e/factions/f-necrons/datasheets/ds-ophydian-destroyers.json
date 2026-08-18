@@ -21,7 +21,7 @@
       "model_count": 3,
       "points": 80,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260814T195124Z-0c772378"
+      "source_acquisition_id": "mfm-20260818T033550Z-0c772378"
     },
     {
       "copy_index_min": 1,
@@ -29,7 +29,7 @@
       "model_count": 6,
       "points": 145,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260814T195124Z-0c772378"
+      "source_acquisition_id": "mfm-20260818T033550Z-0c772378"
     },
     {
       "copy_index_min": 3,
@@ -37,7 +37,7 @@
       "model_count": 3,
       "points": 90,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260814T195124Z-0c772378"
+      "source_acquisition_id": "mfm-20260818T033550Z-0c772378"
     },
     {
       "copy_index_min": 3,
@@ -45,7 +45,7 @@
       "model_count": 6,
       "points": 155,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260814T195124Z-0c772378"
+      "source_acquisition_id": "mfm-20260818T033550Z-0c772378"
     }
   ],
   "datasheet_id": "ds-ophydian-destroyers",
@@ -106,22 +106,48 @@
     }
   ],
   "name": "OPHYDIAN DESTROYERS",
+  "option_choices": [
+    {
+      "count": 1,
+      "group_id": "og-ophydian-destroyers-1",
+      "id": "oc-ophydian-destroyers-1-1",
+      "is_default": false,
+      "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "Plasmacyte",
+          "role": "granted"
+        }
+      ],
+      "name": "Plasmacyte"
+    }
+  ],
+  "option_groups": [
+    {
+      "id": "og-ophydian-destroyers-1",
+      "line": 1,
+      "scope": "per_n_models",
+      "scope_n": 3
+    }
+  ],
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:ae77dfe83da8bd6bd2d972213f9944a24993d0c1c6cedb16615d94dfbe985091",
-    "last_verified_version": "wh40k-11e-2026-08-3",
+    "last_verified_version": "wh40k-11e-2026-08-4",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260814T195616Z-9a337975",
+    "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260814T195124Z-0c772378",
+    "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
-  "wargear_option_state": "partial",
+  "wargear_option_state": "extracted",
   "weapons": [
     {
       "armour_penetration": "-2",

@@ -25,7 +25,7 @@
       "model_count": 1,
       "points": 75,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260814T195124Z-0c772378"
+      "source_acquisition_id": "mfm-20260818T033550Z-0c772378"
     },
     {
       "copy_index_min": 1,
@@ -33,7 +33,7 @@
       "model_count": 2,
       "points": 150,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260814T195124Z-0c772378"
+      "source_acquisition_id": "mfm-20260818T033550Z-0c772378"
     },
     {
       "copy_index_min": 1,
@@ -41,7 +41,7 @@
       "model_count": 3,
       "points": 255,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260814T195124Z-0c772378"
+      "source_acquisition_id": "mfm-20260818T033550Z-0c772378"
     },
     {
       "copy_index_min": 3,
@@ -49,7 +49,7 @@
       "model_count": 1,
       "points": 95,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260814T195124Z-0c772378"
+      "source_acquisition_id": "mfm-20260818T033550Z-0c772378"
     },
     {
       "copy_index_min": 3,
@@ -57,7 +57,7 @@
       "model_count": 2,
       "points": 170,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260814T195124Z-0c772378"
+      "source_acquisition_id": "mfm-20260818T033550Z-0c772378"
     },
     {
       "copy_index_min": 3,
@@ -65,7 +65,7 @@
       "model_count": 3,
       "points": 275,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260814T195124Z-0c772378"
+      "source_acquisition_id": "mfm-20260818T033550Z-0c772378"
     }
   ],
   "datasheet_id": "ds-broadside-battlesuits",
@@ -161,6 +161,140 @@
       ],
       "name": "high-yield missile pods",
       "replaces_weapon_line": 1
+    },
+    {
+      "count": 1,
+      "grants_weapon_line": 3,
+      "group_id": "og-broadside-battlesuits-2",
+      "id": "oc-broadside-battlesuits-2-1",
+      "is_default": false,
+      "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "seeker missile",
+          "role": "granted",
+          "weapon_line": 3
+        }
+      ],
+      "name": "seeker missile"
+    },
+    {
+      "count": 1,
+      "grants_weapon_line": 4,
+      "group_id": "og-broadside-battlesuits-2",
+      "id": "oc-broadside-battlesuits-2-2",
+      "is_default": false,
+      "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "twin plasma rifle",
+          "role": "granted",
+          "weapon_line": 4
+        }
+      ],
+      "name": "twin plasma rifle"
+    },
+    {
+      "count": 1,
+      "grants_weapon_line": 5,
+      "group_id": "og-broadside-battlesuits-2",
+      "id": "oc-broadside-battlesuits-2-3",
+      "is_default": false,
+      "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "twin smart missile system",
+          "role": "granted",
+          "weapon_line": 5
+        }
+      ],
+      "name": "twin smart missile system"
+    },
+    {
+      "count": 1,
+      "group_id": "og-broadside-battlesuits-2",
+      "id": "oc-broadside-battlesuits-2-4",
+      "is_default": false,
+      "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "weapon support system",
+          "role": "granted"
+        }
+      ],
+      "name": "weapon support system"
+    },
+    {
+      "count": 1,
+      "group_id": "og-broadside-battlesuits-3",
+      "id": "oc-broadside-battlesuits-3-1",
+      "is_default": false,
+      "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "gun drone",
+          "role": "granted"
+        }
+      ],
+      "name": "gun drone"
+    },
+    {
+      "count": 1,
+      "group_id": "og-broadside-battlesuits-3",
+      "id": "oc-broadside-battlesuits-3-2",
+      "is_default": false,
+      "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "marker drone",
+          "role": "granted"
+        }
+      ],
+      "name": "marker drone"
+    },
+    {
+      "count": 1,
+      "group_id": "og-broadside-battlesuits-3",
+      "id": "oc-broadside-battlesuits-3-3",
+      "is_default": false,
+      "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "missile drone",
+          "role": "granted"
+        }
+      ],
+      "name": "missile drone"
+    },
+    {
+      "count": 1,
+      "group_id": "og-broadside-battlesuits-3",
+      "id": "oc-broadside-battlesuits-3-4",
+      "is_default": false,
+      "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "shield drone",
+          "role": "granted"
+        }
+      ],
+      "name": "shield drone"
     }
   ],
   "option_groups": [
@@ -169,24 +303,38 @@
       "is_per_model": true,
       "line": 1,
       "scope": "unit"
+    },
+    {
+      "id": "og-broadside-battlesuits-2",
+      "is_per_model": true,
+      "line": 2,
+      "max_choices": 2,
+      "scope": "unit"
+    },
+    {
+      "id": "og-broadside-battlesuits-3",
+      "is_per_model": true,
+      "line": 3,
+      "max_choices": 2,
+      "scope": "unit"
     }
   ],
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:c51e2ed072bce2d1e736c1620dd195fed341c558242d064b2df59d33b817fd82",
-    "last_verified_version": "wh40k-11e-2026-08-3",
+    "last_verified_version": "wh40k-11e-2026-08-4",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260814T195616Z-9a337975",
+    "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260814T195124Z-0c772378",
+    "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
-  "wargear_option_state": "partial",
+  "wargear_option_state": "extracted",
   "weapons": [
     {
       "ability_keywords": [

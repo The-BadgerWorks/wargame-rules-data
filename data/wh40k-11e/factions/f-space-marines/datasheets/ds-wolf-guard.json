@@ -27,7 +27,7 @@
       "model_count": 5,
       "points": 85,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260814T195616Z-9a337975"
+      "source_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0"
     },
     {
       "copy_index_min": 1,
@@ -35,7 +35,7 @@
       "model_count": 10,
       "points": 170,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260814T195616Z-9a337975"
+      "source_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0"
     }
   ],
   "datasheet_id": "ds-wolf-guard",
@@ -110,20 +110,150 @@
     }
   ],
   "name": "Wolf Guard",
+  "option_choices": [
+    {
+      "count": 1,
+      "grants_weapon_line": 2,
+      "group_id": "og-wolf-guard-1",
+      "id": "oc-wolf-guard-1-1",
+      "is_default": false,
+      "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "boltgun",
+          "role": "granted",
+          "weapon_line": 2
+        },
+        {
+          "item_index": 1,
+          "item_name": "bolt pistol",
+          "role": "replaced",
+          "weapon_line": 1
+        }
+      ],
+      "name": "boltgun",
+      "replaces_weapon_line": 1
+    },
+    {
+      "count": 1,
+      "grants_weapon_line": 3,
+      "group_id": "og-wolf-guard-1",
+      "id": "oc-wolf-guard-1-2",
+      "is_default": false,
+      "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "combi-weapon",
+          "role": "granted",
+          "weapon_line": 3
+        },
+        {
+          "item_index": 1,
+          "item_name": "bolt pistol",
+          "role": "replaced",
+          "weapon_line": 1
+        }
+      ],
+      "name": "combi-weapon",
+      "replaces_weapon_line": 1
+    },
+    {
+      "count": 1,
+      "group_id": "og-wolf-guard-1",
+      "id": "oc-wolf-guard-1-3",
+      "is_default": false,
+      "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "plasma pistol",
+          "role": "granted"
+        },
+        {
+          "item_index": 1,
+          "item_name": "bolt pistol",
+          "role": "replaced",
+          "weapon_line": 1
+        }
+      ],
+      "name": "plasma pistol",
+      "replaces_weapon_line": 1
+    },
+    {
+      "count": 1,
+      "grants_weapon_line": 6,
+      "group_id": "og-wolf-guard-1",
+      "id": "oc-wolf-guard-1-4",
+      "is_default": false,
+      "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "storm bolter",
+          "role": "granted",
+          "weapon_line": 6
+        },
+        {
+          "item_index": 1,
+          "item_name": "bolt pistol",
+          "role": "replaced",
+          "weapon_line": 1
+        }
+      ],
+      "name": "storm bolter",
+      "replaces_weapon_line": 1
+    },
+    {
+      "count": 1,
+      "group_id": "og-wolf-guard-1",
+      "id": "oc-wolf-guard-1-5",
+      "is_default": false,
+      "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "storm shield",
+          "role": "granted"
+        },
+        {
+          "item_index": 1,
+          "item_name": "bolt pistol",
+          "role": "replaced",
+          "weapon_line": 1
+        }
+      ],
+      "name": "storm shield",
+      "replaces_weapon_line": 1
+    }
+  ],
+  "option_groups": [
+    {
+      "id": "og-wolf-guard-1",
+      "line": 1,
+      "scope": "unit"
+    }
+  ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 4,
+    "consecutive_unverified_releases": 5,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260814T195616Z-9a337975",
+    "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
     "points_edition_code": "wh40k-11e",
     "points_source": "none"
   },
-  "wargear_option_state": "partial",
+  "wargear_option_state": "extracted",
   "weapons": [
     {
       "ability_keywords": [

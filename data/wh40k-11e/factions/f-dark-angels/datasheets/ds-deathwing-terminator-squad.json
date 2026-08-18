@@ -27,7 +27,7 @@
       "model_count": 5,
       "points": 165,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260814T195124Z-0c772378"
+      "source_acquisition_id": "mfm-20260818T033550Z-0c772378"
     },
     {
       "copy_index_min": 1,
@@ -35,7 +35,7 @@
       "model_count": 10,
       "points": 330,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260814T195124Z-0c772378"
+      "source_acquisition_id": "mfm-20260818T033550Z-0c772378"
     }
   ],
   "datasheet_id": "ds-deathwing-terminator-squad",
@@ -164,6 +164,109 @@
     },
     {
       "count": 1,
+      "grants_weapon_line": 1,
+      "group_id": "og-deathwing-terminator-squad-2",
+      "id": "oc-deathwing-terminator-squad-2-1",
+      "is_default": false,
+      "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "assault cannon",
+          "role": "granted",
+          "weapon_line": 1
+        },
+        {
+          "item_index": 1,
+          "item_name": "storm bolter",
+          "role": "replaced",
+          "weapon_line": 7
+        }
+      ],
+      "name": "assault cannon",
+      "replaces_weapon_line": 7
+    },
+    {
+      "count": 1,
+      "grants_weapon_line": 4,
+      "group_id": "og-deathwing-terminator-squad-2",
+      "id": "oc-deathwing-terminator-squad-2-2",
+      "is_default": false,
+      "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "heavy flamer",
+          "role": "granted",
+          "weapon_line": 4
+        },
+        {
+          "item_index": 1,
+          "item_name": "storm bolter",
+          "role": "replaced",
+          "weapon_line": 7
+        }
+      ],
+      "name": "heavy flamer",
+      "replaces_weapon_line": 7
+    },
+    {
+      "count": 1,
+      "group_id": "og-deathwing-terminator-squad-2",
+      "id": "oc-deathwing-terminator-squad-2-3",
+      "is_default": false,
+      "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "plasma cannon",
+          "role": "granted"
+        },
+        {
+          "item_index": 1,
+          "item_name": "storm bolter",
+          "role": "replaced",
+          "weapon_line": 7
+        }
+      ],
+      "name": "plasma cannon",
+      "replaces_weapon_line": 7
+    },
+    {
+      "count": 1,
+      "group_id": "og-deathwing-terminator-squad-2",
+      "id": "oc-deathwing-terminator-squad-2-4",
+      "is_default": false,
+      "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "storm bolter",
+          "role": "granted",
+          "weapon_line": 7
+        },
+        {
+          "count": 1,
+          "item_index": 2,
+          "item_name": "cyclone missile launcher (this model’s storm bolter cannot be replaced)",
+          "role": "granted"
+        },
+        {
+          "item_index": 1,
+          "item_name": "storm bolter",
+          "role": "replaced",
+          "weapon_line": 7
+        }
+      ],
+      "name": "storm bolter and 1 cyclone missile launcher (this model’s storm bolter cannot be replaced)",
+      "replaces_weapon_line": 7
+    },
+    {
+      "count": 1,
       "group_id": "og-deathwing-terminator-squad-3",
       "id": "oc-deathwing-terminator-squad-3-1",
       "is_default": false,
@@ -188,6 +291,12 @@
       "scope": "unit"
     },
     {
+      "id": "og-deathwing-terminator-squad-2",
+      "line": 2,
+      "scope": "per_n_models",
+      "scope_n": 5
+    },
+    {
       "id": "og-deathwing-terminator-squad-3",
       "line": 3,
       "scope": "unit"
@@ -196,19 +305,19 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:ac62069161a40df232657a74481d160239ad2524515ed37789623d653e1e7fca",
-    "last_verified_version": "wh40k-11e-2026-08-3",
+    "last_verified_version": "wh40k-11e-2026-08-4",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260814T195616Z-9a337975",
+    "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260814T195124Z-0c772378",
+    "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
-  "wargear_option_state": "partial",
+  "wargear_option_state": "extracted",
   "weapons": [
     {
       "ability_keywords": [

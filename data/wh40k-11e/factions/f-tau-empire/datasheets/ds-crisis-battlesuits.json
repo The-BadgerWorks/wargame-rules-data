@@ -28,7 +28,7 @@
       "model_count": 3,
       "points": 200,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260814T195616Z-9a337975"
+      "source_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0"
     },
     {
       "copy_index_min": 1,
@@ -36,7 +36,7 @@
       "model_count": 6,
       "points": 400,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260814T195616Z-9a337975"
+      "source_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0"
     }
   ],
   "datasheet_id": "ds-crisis-battlesuits",
@@ -377,6 +377,178 @@
         }
       ],
       "name": "shield drone"
+    },
+    {
+      "count": 1,
+      "grants_weapon_line": 1,
+      "group_id": "og-crisis-battlesuits-3",
+      "id": "oc-crisis-battlesuits-3-1",
+      "is_default": false,
+      "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "airbursting fragmentation projector",
+          "role": "granted",
+          "weapon_line": 1
+        }
+      ],
+      "name": "airbursting fragmentation projector"
+    },
+    {
+      "count": 1,
+      "group_id": "og-crisis-battlesuits-3",
+      "id": "oc-crisis-battlesuits-3-10",
+      "is_default": false,
+      "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "weapon support system",
+          "role": "granted"
+        }
+      ],
+      "name": "weapon support system"
+    },
+    {
+      "count": 1,
+      "group_id": "og-crisis-battlesuits-3",
+      "id": "oc-crisis-battlesuits-3-2",
+      "is_default": false,
+      "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "battlesuit support system",
+          "role": "granted"
+        }
+      ],
+      "name": "battlesuit support system"
+    },
+    {
+      "count": 1,
+      "grants_weapon_line": 2,
+      "group_id": "og-crisis-battlesuits-3",
+      "id": "oc-crisis-battlesuits-3-3",
+      "is_default": false,
+      "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "burst cannon",
+          "role": "granted",
+          "weapon_line": 2
+        }
+      ],
+      "name": "burst cannon"
+    },
+    {
+      "count": 1,
+      "group_id": "og-crisis-battlesuits-3",
+      "id": "oc-crisis-battlesuits-3-4",
+      "is_default": false,
+      "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "cyclic ion blaster",
+          "role": "granted"
+        }
+      ],
+      "name": "cyclic ion blaster"
+    },
+    {
+      "count": 1,
+      "grants_weapon_line": 5,
+      "group_id": "og-crisis-battlesuits-3",
+      "id": "oc-crisis-battlesuits-3-5",
+      "is_default": false,
+      "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "fusion blaster",
+          "role": "granted",
+          "weapon_line": 5
+        }
+      ],
+      "name": "fusion blaster"
+    },
+    {
+      "count": 1,
+      "grants_weapon_line": 6,
+      "group_id": "og-crisis-battlesuits-3",
+      "id": "oc-crisis-battlesuits-3-6",
+      "is_default": false,
+      "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "missile pod",
+          "role": "granted",
+          "weapon_line": 6
+        }
+      ],
+      "name": "missile pod"
+    },
+    {
+      "count": 1,
+      "grants_weapon_line": 7,
+      "group_id": "og-crisis-battlesuits-3",
+      "id": "oc-crisis-battlesuits-3-7",
+      "is_default": false,
+      "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "plasma rifle",
+          "role": "granted",
+          "weapon_line": 7
+        }
+      ],
+      "name": "plasma rifle"
+    },
+    {
+      "count": 1,
+      "group_id": "og-crisis-battlesuits-3",
+      "id": "oc-crisis-battlesuits-3-8",
+      "is_default": false,
+      "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "shield generator",
+          "role": "granted"
+        }
+      ],
+      "name": "shield generator"
+    },
+    {
+      "count": 1,
+      "grants_weapon_line": 8,
+      "group_id": "og-crisis-battlesuits-3",
+      "id": "oc-crisis-battlesuits-3-9",
+      "is_default": false,
+      "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "T’au flamer",
+          "role": "granted",
+          "weapon_line": 8
+        }
+      ],
+      "name": "T’au flamer"
     }
   ],
   "option_groups": [
@@ -391,22 +563,29 @@
       "line": 2,
       "max_choices": 2,
       "scope": "unit"
+    },
+    {
+      "id": "og-crisis-battlesuits-3",
+      "is_per_model": true,
+      "line": 3,
+      "max_choices": 3,
+      "scope": "unit"
     }
   ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 4,
+    "consecutive_unverified_releases": 5,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260814T195616Z-9a337975",
+    "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
     "points_edition_code": "wh40k-11e",
     "points_source": "none"
   },
-  "wargear_option_state": "partial",
+  "wargear_option_state": "extracted",
   "weapons": [
     {
       "ability_keywords": [

@@ -19,7 +19,7 @@
       "model_count": 1,
       "points": 125,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260814T195124Z-0c772378"
+      "source_acquisition_id": "mfm-20260818T033550Z-0c772378"
     },
     {
       "copy_index_min": 3,
@@ -27,7 +27,7 @@
       "model_count": 1,
       "points": 135,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260814T195124Z-0c772378"
+      "source_acquisition_id": "mfm-20260818T033550Z-0c772378"
     }
   ],
   "damaged_threshold": 4,
@@ -246,15 +246,15 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:a4014a14965bf716f2cb81333079c619e4f03d82faebe0fa26aba1a2212c21f2",
-    "last_verified_version": "wh40k-11e-2026-08-3",
+    "last_verified_version": "wh40k-11e-2026-08-4",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260814T195616Z-9a337975",
+    "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260814T195124Z-0c772378",
+    "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },

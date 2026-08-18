@@ -19,7 +19,7 @@
       "model_count": 1,
       "points": 65,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260814T195616Z-9a337975"
+      "source_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0"
     },
     {
       "copy_index_min": 1,
@@ -27,7 +27,7 @@
       "model_count": 2,
       "points": 120,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260814T195616Z-9a337975"
+      "source_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0"
     }
   ],
   "datasheet_id": "ds-armoured-sentinels-2",
@@ -234,6 +234,42 @@
       ],
       "name": "plasma cannon",
       "replaces_weapon_line": 5
+    },
+    {
+      "count": 1,
+      "grants_weapon_line": 11,
+      "group_id": "og-armoured-sentinels-2-2",
+      "id": "oc-armoured-sentinels-2-2-1",
+      "is_default": false,
+      "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "Sentinel chainsaw",
+          "role": "granted",
+          "weapon_line": 11
+        }
+      ],
+      "name": "Sentinel chainsaw"
+    },
+    {
+      "count": 1,
+      "grants_weapon_line": 3,
+      "group_id": "og-armoured-sentinels-2-3",
+      "id": "oc-armoured-sentinels-2-3-1",
+      "is_default": false,
+      "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "hunter-killer missile",
+          "role": "granted",
+          "weapon_line": 3
+        }
+      ],
+      "name": "hunter-killer missile"
     }
   ],
   "option_groups": [
@@ -242,22 +278,34 @@
       "is_per_model": true,
       "line": 1,
       "scope": "unit"
+    },
+    {
+      "id": "og-armoured-sentinels-2-2",
+      "is_per_model": true,
+      "line": 2,
+      "scope": "unit"
+    },
+    {
+      "id": "og-armoured-sentinels-2-3",
+      "is_per_model": true,
+      "line": 3,
+      "scope": "unit"
     }
   ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 4,
+    "consecutive_unverified_releases": 5,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260814T195616Z-9a337975",
+    "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
     "points_edition_code": "wh40k-11e",
     "points_source": "none"
   },
-  "wargear_option_state": "partial",
+  "wargear_option_state": "extracted",
   "weapons": [
     {
       "armour_penetration": "-1",

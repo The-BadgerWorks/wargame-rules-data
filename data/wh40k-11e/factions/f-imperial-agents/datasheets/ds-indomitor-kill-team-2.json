@@ -38,7 +38,7 @@
       "model_count": 5,
       "points": 120,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260814T195616Z-9a337975"
+      "source_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0"
     },
     {
       "copy_index_min": 1,
@@ -46,7 +46,7 @@
       "model_count": 10,
       "points": 240,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260814T195616Z-9a337975"
+      "source_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0"
     }
   ],
   "datasheet_id": "ds-indomitor-kill-team-2",
@@ -145,6 +145,56 @@
   "option_choices": [
     {
       "count": 1,
+      "grants_weapon_line": 6,
+      "group_id": "og-indomitor-kill-team-2-1",
+      "id": "oc-indomitor-kill-team-2-1-1",
+      "is_default": false,
+      "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "heavy bolter",
+          "role": "granted",
+          "weapon_line": 6
+        },
+        {
+          "item_index": 1,
+          "item_name": "heavy bolt rifle",
+          "role": "replaced",
+          "weapon_line": 5
+        }
+      ],
+      "name": "heavy bolter",
+      "replaces_weapon_line": 5
+    },
+    {
+      "count": 1,
+      "grants_weapon_line": 9,
+      "group_id": "og-indomitor-kill-team-2-2",
+      "id": "oc-indomitor-kill-team-2-2-1",
+      "is_default": false,
+      "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "multi-melta",
+          "role": "granted",
+          "weapon_line": 9
+        },
+        {
+          "item_index": 1,
+          "item_name": "melta rifle",
+          "role": "replaced",
+          "weapon_line": 8
+        }
+      ],
+      "name": "multi-melta",
+      "replaces_weapon_line": 8
+    },
+    {
+      "count": 1,
       "group_id": "og-indomitor-kill-team-2-3",
       "id": "oc-indomitor-kill-team-2-3-1",
       "is_default": false,
@@ -200,6 +250,17 @@
   ],
   "option_groups": [
     {
+      "id": "og-indomitor-kill-team-2-1",
+      "line": 1,
+      "scope": "per_n_models",
+      "scope_n": 5
+    },
+    {
+      "id": "og-indomitor-kill-team-2-2",
+      "line": 2,
+      "scope": "unit"
+    },
+    {
       "id": "og-indomitor-kill-team-2-3",
       "is_per_model": true,
       "line": 3,
@@ -213,19 +274,19 @@
     }
   ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 4,
+    "consecutive_unverified_releases": 5,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260814T195616Z-9a337975",
+    "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
     "points_edition_code": "wh40k-11e",
     "points_source": "none"
   },
-  "wargear_option_state": "partial",
+  "wargear_option_state": "extracted",
   "weapons": [
     {
       "ability_keywords": [

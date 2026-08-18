@@ -19,7 +19,7 @@
       "model_count": 1,
       "points": 115,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260814T195616Z-9a337975"
+      "source_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0"
     }
   ],
   "datasheet_id": "ds-griffon-mortar-carrier",
@@ -133,6 +133,42 @@
         }
       ],
       "name": "heavy flamer"
+    },
+    {
+      "count": 1,
+      "grants_weapon_line": 4,
+      "group_id": "og-griffon-mortar-carrier-2",
+      "id": "oc-griffon-mortar-carrier-2-1",
+      "is_default": false,
+      "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "heavy stubber",
+          "role": "granted",
+          "weapon_line": 4
+        }
+      ],
+      "name": "heavy stubber"
+    },
+    {
+      "count": 1,
+      "grants_weapon_line": 5,
+      "group_id": "og-griffon-mortar-carrier-2",
+      "id": "oc-griffon-mortar-carrier-2-2",
+      "is_default": false,
+      "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "storm bolter",
+          "role": "granted",
+          "weapon_line": 5
+        }
+      ],
+      "name": "storm bolter"
     }
   ],
   "option_groups": [
@@ -140,22 +176,28 @@
       "id": "og-griffon-mortar-carrier-1",
       "line": 1,
       "scope": "model"
+    },
+    {
+      "id": "og-griffon-mortar-carrier-2",
+      "is_per_model": true,
+      "line": 2,
+      "scope": "model"
     }
   ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 4,
+    "consecutive_unverified_releases": 5,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260814T195616Z-9a337975",
+    "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
     "points_edition_code": "wh40k-11e",
     "points_source": "none"
   },
-  "wargear_option_state": "partial",
+  "wargear_option_state": "extracted",
   "weapons": [
     {
       "ability_keywords": [

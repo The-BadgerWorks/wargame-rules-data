@@ -23,7 +23,7 @@
       "model_count": 1,
       "points": 55,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260814T195616Z-9a337975"
+      "source_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0"
     },
     {
       "copy_index_min": 1,
@@ -31,7 +31,7 @@
       "model_count": 2,
       "points": 110,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260814T195616Z-9a337975"
+      "source_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0"
     }
   ],
   "datasheet_id": "ds-xv9-hazard-battlesuits",
@@ -212,6 +212,102 @@
       ],
       "name": "phased ion gun",
       "replaces_weapon_line": 3
+    },
+    {
+      "count": 1,
+      "group_id": "og-xv9-hazard-battlesuits-3",
+      "id": "oc-xv9-hazard-battlesuits-3-1",
+      "is_default": false,
+      "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "battlesuit support system",
+          "role": "granted"
+        }
+      ],
+      "name": "battlesuit support system"
+    },
+    {
+      "count": 1,
+      "group_id": "og-xv9-hazard-battlesuits-3",
+      "id": "oc-xv9-hazard-battlesuits-3-2",
+      "is_default": false,
+      "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "shield generator",
+          "role": "granted"
+        }
+      ],
+      "name": "shield generator"
+    },
+    {
+      "count": 1,
+      "group_id": "og-xv9-hazard-battlesuits-3",
+      "id": "oc-xv9-hazard-battlesuits-3-3",
+      "is_default": false,
+      "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "weapon support system",
+          "role": "granted"
+        }
+      ],
+      "name": "weapon support system"
+    },
+    {
+      "count": 1,
+      "group_id": "og-xv9-hazard-battlesuits-4",
+      "id": "oc-xv9-hazard-battlesuits-4-1",
+      "is_default": false,
+      "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "gun drone",
+          "role": "granted"
+        }
+      ],
+      "name": "gun drone"
+    },
+    {
+      "count": 1,
+      "group_id": "og-xv9-hazard-battlesuits-4",
+      "id": "oc-xv9-hazard-battlesuits-4-2",
+      "is_default": false,
+      "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "marker drone",
+          "role": "granted"
+        }
+      ],
+      "name": "marker drone"
+    },
+    {
+      "count": 1,
+      "group_id": "og-xv9-hazard-battlesuits-4",
+      "id": "oc-xv9-hazard-battlesuits-4-3",
+      "is_default": false,
+      "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "shield drone",
+          "role": "granted"
+        }
+      ],
+      "name": "shield drone"
     }
   ],
   "option_groups": [
@@ -226,22 +322,35 @@
       "is_per_model": true,
       "line": 2,
       "scope": "unit"
+    },
+    {
+      "id": "og-xv9-hazard-battlesuits-3",
+      "is_per_model": true,
+      "line": 3,
+      "scope": "unit"
+    },
+    {
+      "id": "og-xv9-hazard-battlesuits-4",
+      "is_per_model": true,
+      "line": 4,
+      "max_choices": 2,
+      "scope": "unit"
     }
   ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 4,
+    "consecutive_unverified_releases": 5,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260814T195616Z-9a337975",
+    "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
     "points_edition_code": "wh40k-11e",
     "points_source": "none"
   },
-  "wargear_option_state": "partial",
+  "wargear_option_state": "extracted",
   "weapons": [
     {
       "ability_keywords": [

@@ -20,7 +20,7 @@
       "model_count": 3,
       "points": 75,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260814T195124Z-0c772378"
+      "source_acquisition_id": "mfm-20260818T033550Z-0c772378"
     },
     {
       "copy_index_min": 1,
@@ -28,7 +28,7 @@
       "model_count": 6,
       "points": 140,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260814T195124Z-0c772378"
+      "source_acquisition_id": "mfm-20260818T033550Z-0c772378"
     }
   ],
   "datasheet_id": "ds-deffkoptas",
@@ -110,22 +110,57 @@
     }
   ],
   "name": "DEFFKOPTAS",
+  "option_choices": [
+    {
+      "count": 1,
+      "grants_weapon_line": 2,
+      "group_id": "og-deffkoptas-1",
+      "id": "oc-deffkoptas-1-1",
+      "is_default": false,
+      "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "kustom mega-blasta",
+          "role": "granted",
+          "weapon_line": 2
+        },
+        {
+          "item_index": 1,
+          "item_name": "kopta rokkits",
+          "role": "replaced",
+          "weapon_line": 1
+        }
+      ],
+      "name": "kustom mega-blasta",
+      "replaces_weapon_line": 1
+    }
+  ],
+  "option_groups": [
+    {
+      "id": "og-deffkoptas-1",
+      "line": 1,
+      "scope": "per_n_models",
+      "scope_n": 3
+    }
+  ],
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:e018e21324c4d44d75bb23738f17eaee3fbf85c3f62ddd8ad68f384834abcddc",
-    "last_verified_version": "wh40k-11e-2026-08-3",
+    "last_verified_version": "wh40k-11e-2026-08-4",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260814T195616Z-9a337975",
+    "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260814T195124Z-0c772378",
+    "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
-  "wargear_option_state": "partial",
+  "wargear_option_state": "extracted",
   "weapons": [
     {
       "ability_keywords": [

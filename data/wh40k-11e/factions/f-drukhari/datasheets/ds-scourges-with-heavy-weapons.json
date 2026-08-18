@@ -26,7 +26,7 @@
       "model_count": 5,
       "points": 110,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260814T195124Z-0c772378"
+      "source_acquisition_id": "mfm-20260818T033550Z-0c772378"
     },
     {
       "copy_index_min": 3,
@@ -34,7 +34,7 @@
       "model_count": 5,
       "points": 120,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260814T195124Z-0c772378"
+      "source_acquisition_id": "mfm-20260818T033550Z-0c772378"
     }
   ],
   "datasheet_id": "ds-scourges-with-heavy-weapons",
@@ -204,6 +204,131 @@
         }
       ],
       "name": "splinter pistol and 1 power weapon"
+    },
+    {
+      "count": 1,
+      "grants_weapon_line": 2,
+      "group_id": "og-scourges-with-heavy-weapons-2",
+      "id": "oc-scourges-with-heavy-weapons-2-1",
+      "is_default": false,
+      "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "blaster",
+          "role": "granted",
+          "weapon_line": 2
+        },
+        {
+          "item_index": 1,
+          "item_name": "splinter cannon",
+          "role": "replaced",
+          "weapon_line": 8
+        }
+      ],
+      "name": "blaster",
+      "replaces_weapon_line": 8
+    },
+    {
+      "count": 1,
+      "grants_weapon_line": 3,
+      "group_id": "og-scourges-with-heavy-weapons-2",
+      "id": "oc-scourges-with-heavy-weapons-2-2",
+      "is_default": false,
+      "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "dark lance",
+          "role": "granted",
+          "weapon_line": 3
+        },
+        {
+          "item_index": 1,
+          "item_name": "splinter cannon",
+          "role": "replaced",
+          "weapon_line": 8
+        }
+      ],
+      "name": "dark lance",
+      "replaces_weapon_line": 8
+    },
+    {
+      "count": 1,
+      "grants_weapon_line": 4,
+      "group_id": "og-scourges-with-heavy-weapons-2",
+      "id": "oc-scourges-with-heavy-weapons-2-3",
+      "is_default": false,
+      "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "haywire blaster",
+          "role": "granted",
+          "weapon_line": 4
+        },
+        {
+          "item_index": 1,
+          "item_name": "splinter cannon",
+          "role": "replaced",
+          "weapon_line": 8
+        }
+      ],
+      "name": "haywire blaster",
+      "replaces_weapon_line": 8
+    },
+    {
+      "count": 1,
+      "grants_weapon_line": 5,
+      "group_id": "og-scourges-with-heavy-weapons-2",
+      "id": "oc-scourges-with-heavy-weapons-2-4",
+      "is_default": false,
+      "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "heat lance",
+          "role": "granted",
+          "weapon_line": 5
+        },
+        {
+          "item_index": 1,
+          "item_name": "splinter cannon",
+          "role": "replaced",
+          "weapon_line": 8
+        }
+      ],
+      "name": "heat lance",
+      "replaces_weapon_line": 8
+    },
+    {
+      "count": 1,
+      "grants_weapon_line": 7,
+      "group_id": "og-scourges-with-heavy-weapons-2",
+      "id": "oc-scourges-with-heavy-weapons-2-5",
+      "is_default": false,
+      "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "shredder",
+          "role": "granted",
+          "weapon_line": 7
+        },
+        {
+          "item_index": 1,
+          "item_name": "splinter cannon",
+          "role": "replaced",
+          "weapon_line": 8
+        }
+      ],
+      "name": "shredder",
+      "replaces_weapon_line": 8
     }
   ],
   "option_groups": [
@@ -211,24 +336,31 @@
       "id": "og-scourges-with-heavy-weapons-1",
       "line": 1,
       "scope": "unit"
+    },
+    {
+      "eligible_model_name": "Scourges",
+      "id": "og-scourges-with-heavy-weapons-2",
+      "is_per_model": true,
+      "line": 2,
+      "scope": "unit"
     }
   ],
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:822312241500ef7a8974c19a1eee1ff4f0b2881369402736893e821814417f6f",
-    "last_verified_version": "wh40k-11e-2026-08-3",
+    "last_verified_version": "wh40k-11e-2026-08-4",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260814T195616Z-9a337975",
+    "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260814T195124Z-0c772378",
+    "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
-  "wargear_option_state": "partial",
+  "wargear_option_state": "extracted",
   "weapons": [
     {
       "ability_keywords": [

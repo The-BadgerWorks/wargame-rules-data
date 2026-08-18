@@ -26,7 +26,7 @@
       "model_count": 10,
       "points": 75,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260814T195124Z-0c772378"
+      "source_acquisition_id": "mfm-20260818T033550Z-0c772378"
     },
     {
       "copy_index_min": 1,
@@ -34,7 +34,7 @@
       "model_count": 20,
       "points": 160,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260814T195124Z-0c772378"
+      "source_acquisition_id": "mfm-20260818T033550Z-0c772378"
     },
     {
       "copy_index_min": 4,
@@ -42,7 +42,7 @@
       "model_count": 10,
       "points": 85,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260814T195124Z-0c772378"
+      "source_acquisition_id": "mfm-20260818T033550Z-0c772378"
     },
     {
       "copy_index_min": 4,
@@ -50,7 +50,7 @@
       "model_count": 20,
       "points": 170,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260814T195124Z-0c772378"
+      "source_acquisition_id": "mfm-20260818T033550Z-0c772378"
     }
   ],
   "datasheet_id": "ds-boyz",
@@ -180,6 +180,155 @@
         }
       ],
       "name": "power klaw"
+    },
+    {
+      "count": 1,
+      "group_id": "og-boyz-2",
+      "id": "oc-boyz-2-1",
+      "is_default": false,
+      "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "big choppa",
+          "role": "granted",
+          "weapon_line": 9
+        },
+        {
+          "count": 1,
+          "item_index": 2,
+          "item_name": "kustom shoota (this model’s big choppa cannot be replaced)",
+          "role": "granted"
+        },
+        {
+          "item_index": 1,
+          "item_name": "big choppa",
+          "role": "replaced",
+          "weapon_line": 9
+        }
+      ],
+      "name": "big choppa and 1 kustom shoota (this model’s big choppa cannot be replaced)",
+      "replaces_weapon_line": 9
+    },
+    {
+      "count": 1,
+      "group_id": "og-boyz-2",
+      "id": "oc-boyz-2-2",
+      "is_default": false,
+      "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "big choppa, 1 kombi-rokkit",
+          "role": "granted"
+        },
+        {
+          "count": 1,
+          "item_index": 2,
+          "item_name": "kombi-shoota (this model’s big choppa cannot be replaced)",
+          "role": "granted"
+        },
+        {
+          "item_index": 1,
+          "item_name": "big choppa",
+          "role": "replaced",
+          "weapon_line": 9
+        }
+      ],
+      "name": "big choppa, 1 kombi-rokkit and 1 kombi-shoota (this model’s big choppa cannot be replaced)",
+      "replaces_weapon_line": 9
+    },
+    {
+      "count": 1,
+      "grants_weapon_line": 7,
+      "group_id": "og-boyz-3",
+      "id": "oc-boyz-3-1",
+      "is_default": false,
+      "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "shoota",
+          "role": "granted",
+          "weapon_line": 7
+        }
+      ],
+      "name": "shoota"
+    },
+    {
+      "count": 1,
+      "group_id": "og-boyz-4",
+      "id": "oc-boyz-4-1",
+      "is_default": false,
+      "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "big shoota",
+          "role": "granted",
+          "weapon_line": 1
+        },
+        {
+          "count": 1,
+          "item_index": 2,
+          "item_name": "close combat weapon",
+          "role": "granted",
+          "weapon_line": 11
+        },
+        {
+          "item_index": 1,
+          "item_name": "choppa",
+          "role": "replaced",
+          "weapon_line": 10
+        },
+        {
+          "item_index": 2,
+          "item_name": "slugga",
+          "role": "replaced",
+          "weapon_line": 8
+        }
+      ],
+      "name": "big shoota and 1 close combat weapon"
+    },
+    {
+      "count": 1,
+      "group_id": "og-boyz-4",
+      "id": "oc-boyz-4-2",
+      "is_default": false,
+      "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "rokkit launcha",
+          "role": "granted",
+          "weapon_line": 6
+        },
+        {
+          "count": 1,
+          "item_index": 2,
+          "item_name": "close combat weapon",
+          "role": "granted",
+          "weapon_line": 11
+        },
+        {
+          "item_index": 1,
+          "item_name": "choppa",
+          "role": "replaced",
+          "weapon_line": 10
+        },
+        {
+          "item_index": 2,
+          "item_name": "slugga",
+          "role": "replaced",
+          "weapon_line": 8
+        }
+      ],
+      "name": "rokkit launcha and 1 close combat weapon"
     }
   ],
   "option_groups": [
@@ -187,24 +336,42 @@
       "id": "og-boyz-1",
       "line": 1,
       "scope": "unit"
+    },
+    {
+      "id": "og-boyz-2",
+      "line": 2,
+      "scope": "unit"
+    },
+    {
+      "eligible_model_name": "Boyz",
+      "id": "og-boyz-3",
+      "is_per_model": true,
+      "line": 3,
+      "scope": "unit"
+    },
+    {
+      "id": "og-boyz-4",
+      "line": 4,
+      "scope": "per_n_models",
+      "scope_n": 10
     }
   ],
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:a57f91f7500a0f262b45fc4851ea6f44f4153d8db7424cb61c3dca78fb2c9c0a",
-    "last_verified_version": "wh40k-11e-2026-08-3",
+    "last_verified_version": "wh40k-11e-2026-08-4",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260814T195616Z-9a337975",
+    "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260814T195124Z-0c772378",
+    "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
-  "wargear_option_state": "partial",
+  "wargear_option_state": "extracted",
   "weapons": [
     {
       "ability_keywords": [

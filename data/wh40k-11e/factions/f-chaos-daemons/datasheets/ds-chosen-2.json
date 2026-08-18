@@ -27,7 +27,7 @@
       "model_count": 5,
       "points": 135,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260814T195616Z-9a337975"
+      "source_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0"
     },
     {
       "copy_index_min": 1,
@@ -35,7 +35,7 @@
       "model_count": 10,
       "points": 270,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260814T195616Z-9a337975"
+      "source_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0"
     }
   ],
   "datasheet_id": "ds-chosen-2",
@@ -200,6 +200,29 @@
     },
     {
       "count": 1,
+      "group_id": "og-chosen-2-4",
+      "id": "oc-chosen-2-4-1",
+      "is_default": false,
+      "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "power fist. That model’s boltgun cannot be replaced",
+          "role": "granted"
+        },
+        {
+          "item_index": 1,
+          "item_name": "accursed weapon",
+          "role": "replaced",
+          "weapon_line": 6
+        }
+      ],
+      "name": "power fist. That model’s boltgun cannot be replaced",
+      "replaces_weapon_line": 6
+    },
+    {
+      "count": 1,
       "group_id": "og-chosen-2-5",
       "id": "oc-chosen-2-5-1",
       "is_default": false,
@@ -237,25 +260,31 @@
       "scope_n": 5
     },
     {
+      "id": "og-chosen-2-4",
+      "line": 4,
+      "scope": "per_n_models",
+      "scope_n": 5
+    },
+    {
       "id": "og-chosen-2-5",
       "line": 5,
       "scope": "unit"
     }
   ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 4,
+    "consecutive_unverified_releases": 5,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260814T195616Z-9a337975",
+    "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
     "points_edition_code": "wh40k-11e",
     "points_source": "none"
   },
-  "wargear_option_state": "partial",
+  "wargear_option_state": "extracted",
   "weapons": [
     {
       "ability_keywords": [
