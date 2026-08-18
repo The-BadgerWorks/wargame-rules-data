@@ -500,6 +500,19 @@ against a source that keeps moving — the 11th-edition detail source is activel
 so any candidate left open long enough will acquire new editorial work before it is approved. The
 release flow has no answer to that yet beyond re-running and re-reviewing.
 
+**Partially discharged by `008-wargear-option-completion` (2026-08-17), for one specific shape of
+"the source moved": a whole faction becoming unreachable.** `008`'s T074 dry-run found the detail
+source's own sitemap enumerating only 10 of 30 published factions, and several previously-published
+faction slugs renamed or 404ing outright. The per-faction carry-forward mechanism (FR-024/FR-025,
+`curation/carried-forward-factions.json`, `pipeline/curate/carry_forward.py`) gives the release flow
+its first real answer for that one drift shape: a declared faction is sourced from the previous
+published version rather than blocking the whole candidate, visibly and without regressing any
+coverage figure. **Still open**: the *content* drift this item was originally about — an existing,
+reachable faction's page gaining or changing editorial material (new abilities, moved keywords)
+mid-candidate — has no carry-forward equivalent and still has no answer beyond re-running and
+re-reviewing. The two are different failure shapes (a faction disappearing vs. a faction's content
+changing) and only the first has a mechanism now.
+
 
 ## 11. `pipeline-run-interface.md` owes an additive row for the `option-regression` command
 
@@ -780,7 +793,7 @@ boundary. `plan.md`'s own Separation gate already states the discipline in the a
 is planned as separate pull requests accordingly"); this item is the concrete lesson that "planned"
 has to mean "structured in the commit history," not just "intended."
 
-## 19. Two 008 finding codes are ahead of `validation-report.md`'s own contract row, and O2's exact restated ceiling is not sized yet (008)
+## 19. ~~Two~~ Five 008 finding codes are ahead of `validation-report.md`'s own contract row; O2's exact restated ceiling ~~is not sized yet~~ **is now sized (2026-08-17)** (008)
 
 `008-wargear-option-completion`'s Foundational phase (T018/T019) catalogued two new finding codes
 — `OPT-OVERRIDE-REDUNDANT` (advisory) and `COV-EQUIPMENT-REGRESSION` (blocking) — in
@@ -788,22 +801,26 @@ has to mean "structured in the commit history," not just "intended."
 transcribed `PENDING_CONTRACT_SEVERITIES` block, on `COV-WEAPON-ABILITIES-EMPTY`'s precedent
 (item 5 above): `validation-report.md` is Frozen (`002` accepted 2026-08-04), so adding its owed
 §3 rows for these two codes is a cross-feature versioning exercise this feature's own scope does
-not reach, exactly as item 5 was for its one code. **Not fixed here.** **Action needed**: a future
-housekeeping pass (on `006` T050's and `004` T076's own precedent of batching several owed
-contract rows into one cross-feature update) adds `OPT-OVERRIDE-REDUNDANT` and
-`COV-EQUIPMENT-REGRESSION` to `validation-report.md` §3 alongside item 5's still-outstanding
-`COV-WEAPON-ABILITIES-EMPTY` row and item 11/12's still-outstanding `pipeline-run-interface.md`
-rows, rather than four separate single-code amendments to a frozen contract.
+not reach, exactly as item 5 was for its one code. **Not fixed here.**
 
-Separately: **Open Decision O2 is decided but not yet sized.** The Product Owner's 2026-08-15 T014
-ruling commits to restating SC-002 to "the measured reachable ceiling" — not to confirming the
-98% as written — on the strength of T003's conditional-blocking census, whose own low-end estimate
-(22 datasheets) already exceeds SC-002's entire 21-datasheet headroom. The *exact* restated number
-is deliberately not guessed at T014 and is not computed here either: `.impl-progress.md` records
-the decision and its reasoning, but T074's mid-campaign real-corpus dry-run — run only after every
-Phase 3-6 production is in place — is what owes the precise figure, against the productions this
-feature actually lands rather than the 2026-08-10 provisional class-share ranking. **Not fixed
-here**, because computing it now would mean guessing it. **Action needed**: T077's Product Owner
-checkpoint records the restated SC-002 value T074 measures, and `spec.md` gains it as a new
-Clarifications session at that point — this item exists so the open thread is visible between now
-and then, not lost in a Foundational-phase commit nobody revisits until Phase 8.
+**2026-08-17 addition**: Phase 8a's per-faction carry-forward mechanism (Product Owner decision
+2026-08-17, FR-024/FR-025) added three more codes on the identical ahead-of-contract terms:
+`SRC-FACTION-CARRIED-FORWARD` (advisory), `SRC-FACTION-CARRY-FORWARD-UNUSED` (advisory),
+`SRC-FACTION-CARRY-FORWARD-NO-PRIOR` (blocking). **Action needed**: a future housekeeping pass (on
+`006` T050's and `004` T076's own precedent of batching several owed contract rows into one
+cross-feature update) adds all five of this feature's codes to `validation-report.md` §3 alongside
+item 5's still-outstanding `COV-WEAPON-ABILITIES-EMPTY` row and item 11/12's still-outstanding
+`pipeline-run-interface.md` rows, rather than five-plus separate single-code amendments to a frozen
+contract.
+
+Separately: **Open Decision O2 was decided at T014 and is now sized.** The Product Owner's
+2026-08-15 T014 ruling committed to restating SC-002 to "the measured reachable ceiling" — not to
+confirming the 98% as written — on the strength of T003's conditional-blocking census, whose own
+low-end estimate (22 datasheets) already exceeded SC-002's entire 21-datasheet headroom. The exact
+restated number was deliberately not guessed at T014: T074's mid-campaign real-corpus dry-run,
+extended by Phase 8a's carry-forward mechanism once T074 found the corpus itself short several
+factions, measured it precisely. **Resolved 2026-08-17**: SC-002 restates to **≥97% (≥2,029/2,084)**
+— `1,916 + (147 addressable − 34 permanently-conditional-blocked) = 2,029` — recorded in `spec.md`
+Clarifications session 2026-08-17 and `plan.md` Open Decision O3, exactly as T077's Product Owner
+checkpoint was scoped to do. This item can be considered closed on the O2-sizing thread; the
+finding-code contract-row debt (first paragraph) remains open.
