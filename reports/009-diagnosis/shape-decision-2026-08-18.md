@@ -160,3 +160,80 @@ reading the four criteria as the whole picture.
 - **No shape (full or hybrid) is recommended by this document.** That is T047's decision, put to
   the Product Owner against these numbers, plus the additional unattributed coverage-collapse
   finding above.
+
+## Session addendum — the coverage collapse, diagnosed and fixed; criteria 1/2 re-measured
+
+<!-- AI-Assisted: Claude Code (model: claude-sonnet-5) - Diagnosed and fixed the general
+     coverage-collapse finding this document's own "additional finding" section flagged as
+     unattributed, then re-measured criteria 1 and 2 against the fixed build, and measured the
+     equipment-source redesign question US2/O1 needs. Text-free, structural counts only,
+     matching this whole document's own convention. -->
+
+**The collapse is diagnosed, root-caused, and fixed.** It was not an MFM-side (points source)
+fetch shortfall, not a disambiguation gap, and not a structural export shortfall. Live
+instrumentation of `pipeline.curate.assemble` under both arms, against the identical live MFM
+roster, proved every points-source unit always produces exactly one match (`csv`-mode's own
+matched-datasheet count equalled the live roster size exactly, per faction). The entire gap traced
+to `_owning_factions()` (`curate/assemble.py`), which keyed its detail-source-faction-id lookup by
+`detail_source_faction_id` alone (the `html`-arm slug vocabulary) rather than through
+`_detail_ids_for()` (009 T020/T021's own helper, which also carries `detail_source_faction_code`).
+Under `csv` mode, every unclaimed export row's `faction_id` is the export's own code, matching
+nothing in the slug-keyed dict — silently discarding the entire FR-026/FR-035 "ships on the best
+price known" detail-only recovery pass (the mechanism that recovers every unit the live points
+source no longer prices but the detail source still carries). **Fixed**: `_owning_factions` now
+keys through `_detail_ids_for`, the same two-tier shape every other 009 arm-selection site already
+uses. Failing-first test added and confirmed failing pre-fix. Full suite green (2176/8, was
+2173/8). `wargame-rules-data` commit `439df21f`.
+
+**Live re-measurement, full build, `csv` mode, post-fix** (output diverted to scratch, nothing
+published): `datasheets` 2083/2083 = 100.0% (was 1437/2083 = 69.0%); `composition` 2058/2063 =
+99.76% (was 68.9%); `factions` 100%; `priced_datasheets` 100%; `keyword_classification` 99.64%.
+`COV-COLLAPSE` now fires on **one** category only — `wargear_options` — not on the general
+datasheet/composition/faction counts. The collapse this document's own "additional finding"
+section flagged as unattributed is closed.
+
+**Criterion 1, re-measured post-fix**: `loadout.options_resolved` = **1646/2083 = 79%** — lower
+than this document's original T062 figure (85.0%) not because the fix regressed anything, but
+because the fix surfaces 648 previously-invisible detail-only datasheets (units the points source
+no longer prices) whose options resolve at a materially worse rate than the roster-matched
+population; the 85.0% figure was computed over an incomplete, collapsed population. Applying the
+cause-attribution report's own recommended exclusion (denominator + denominator-adjacent causes,
+`option_taxonomy.classify()` classes 6/11/13) — measured structurally this session, NOT
+implemented in production code, since it is a design decision about which datasheets count as
+"resolved," reserved for T047 — moves the figure to **≈1964/2083 ≈ 94.3%**: closes most, but not
+all, of the gap to the 96 floor. **Residual ≈1.7 points**, concentrated in one under-sized,
+previously-uncharacterized class (`option_taxonomy` class 2, "head unknown, verb already built,"
+43 rows in this live population — the cause-attribution report only sized this class's csv-vs-html
+**delta** at 1 row; its live **total** population is far larger and both arms carry most of it)
+plus already-known unproductionable noise (class 12, 18 rows) plus genuine within-family grammar
+gaps (classes 1f/7/8/5/4, 19 rows) plus class 9's already-accepted no-production case (7 rows).
+**Verdict: still FAILS the 96 floor, before and after the exclusion — but by a much narrower
+margin than the original 85.0% suggested, and the residual is now named down to specific classes
+rather than left as an unattributed gap.**
+
+**Criterion 2, re-measured post-fix**: unaffected by the collapse fix (a different mechanism) —
+`loadout.default_equipment` = 0/2083 = 0.0% still, confirmed unchanged live. **Equipment-source
+redesign evidence measured this session** (the composition-marker premise `plan.md` finding 9
+named is confirmed dead, 0/2131, live): of every candidate table checked
+(`Datasheets_unit_composition.csv`'s marker, `Datasheets_options.csv`'s class-6 misfiled rows,
+`Datasheets_models.csv`, `Datasheets_wargear.csv`), the strongest by a wide margin is
+`Datasheets.csv`'s own `loadout` column — already declared prose-bearing in
+`PROSE_BEARING_FIELDS` (`pipeline/models/source.py:156`) but consumed by no reader today. Live
+population: 1673/1680 export rows non-empty (99.6%). A read-only dry run through the existing,
+UNMODIFIED `equipment_grammar.parse_sentence()` (rule 5 respected — nothing changed, nothing
+published) parses 1665 of those 1673 (99.5%) as a valid equipment sentence, whole-field or its
+first clause. Effective achievable coverage against the previously-published 2,016-datasheet
+target: **≈82.6%** (1665/2016) — bounded by population presence, not by grammar coverage. Full
+verdict table, all candidates, in this repo's implementation-progress ledger (specs repo,
+`specs/009-csv-migration/.impl-progress.md`, "Finding 3"). **Not implemented this session** — a
+`loadout`-column reader and derivation is a real design change, reserved for T047's decision.
+
+**Updated shape recommendation.** The general-collapse finding that previously made even a
+narrowly-scoped hybrid look potentially insufficient is now closed — a hybrid or a full migration
+can both be evaluated against criteria 1-4 alone, with no unattributed residual risk hiding behind
+them. Criterion 3 and 4 pass as before. Criterion 1 fails narrowly (94.3% vs 96, post-exclusion,
+not yet implemented) rather than by a wide margin. Criterion 2 still fails by the whole figure
+(0.0% vs 97), but the evidence now in hand shows a derive-from-export path could plausibly close
+most of that gap (≈82.6% achievable via the `loadout` column) rather than being structurally
+impossible — a materially different starting point for weighing derive-from-export against
+hybrid-keep-html-equipment than "0% achievable, composition marker dead" was.
