@@ -38,7 +38,7 @@ from __future__ import annotations
 
 from collections.abc import Mapping, Sequence
 from enum import StrEnum
-from typing import Final, Self
+from typing import Final, Literal, Self
 
 from pydantic import BaseModel, ConfigDict, Field, model_validator
 
@@ -623,3 +623,28 @@ class CarriedForwardFactionEntry(_Authored):
     declared_at: str
     reason: str = Field(min_length=1, max_length=240)
     note: str | None = Field(default=None, min_length=1, max_length=240)
+
+
+class DetailSourceAuthorityEntry(_Authored):
+    """``curation/detail-source-authority.json``, keyed ``data_class`` (009 T048, FR-010,
+    data-model.md §3, Product Owner decision T047 2026-08-18: hybrid now, full later).
+
+    Authored only because a hybrid was chosen: FR-009's four criteria measured two classes —
+    ``options`` and ``default_equipment`` — below their own floor
+    (``reports/009-diagnosis/shape-decision-2026-08-18.md``), so those two stay on the ``html``
+    arm while every class not named here takes the build's own
+    :attr:`~pipeline.config.PipelineConfig.detail_acquisition_mode`. A full migration would leave
+    this file empty (or absent); every class then takes the configured default, exactly as it did
+    before this feature.
+
+    ``data_class`` is deliberately a closed set (``options``, ``default_equipment``) rather than
+    a free string: it names the ONLY two classes this feature's own measurements evaluated, and it
+    is what :data:`pipeline.acquire.detail_source._CLASS_TABLES` keys on to know which acquired
+    table(s) the declared arm supplies. Reversal (FR-011) is editing this file — removing a record
+    (or moving its ``arm``) changes which arm a class is read from, no code change.
+    """
+
+    data_class: Literal["options", "default_equipment"]
+    arm: Literal["csv", "html"]
+    reason: str = Field(min_length=1, max_length=240)
+    declared_at: str

@@ -142,6 +142,10 @@ PENDING_CONTRACT_SEVERITIES = {
     "REC-DETAIL-FACTION-EMPTY": B,
     "SRC-TABLE-MISSING": B,
     "SRC-EXPORT-UNCHANGED": A,
+    # 009-csv-migration (data-model.md §3, task T048, Product Owner decision T047 2026-08-18:
+    # hybrid now, full later): the per-class arm-attribution advisory, on the identical
+    # ahead-of-contract terms as the three above.
+    "SRC-CLASS-ARM": A,
 }
 
 #: Transcribed by hand from 006's data-model.md §5 table and its contracts/
