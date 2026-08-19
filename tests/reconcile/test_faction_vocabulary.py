@@ -28,7 +28,9 @@ an export code.
 
 from __future__ import annotations
 
+from pipeline.cli import _verdict
 from pipeline.curate.authored import AuthoredContent
+from pipeline.exit_codes import ExitCode
 from pipeline.models.authored import FactionMapEntry
 from pipeline.models.findings import Severity
 from pipeline.reconcile.match import resolve_factions
@@ -111,6 +113,38 @@ def test_fires_identically_regardless_of_which_arms_vocabulary_shape_is_observed
             ["ghost-archive"], ghost_archive_authored(), detail_faction_ids_present=present
         )
         assert [f.finding_code for f in outcome.findings] == ["REC-DETAIL-FACTION-EMPTY"], present
+
+
+# -- T050: the loud failure changes the EXIT CODE, under both arms' vocabulary shape -------------
+#
+# `plan.md` finding 1's whole point: today the mismatch is loud in the report and silent in the
+# exit code (a candidate with 30 factions and no datasheets for one of them still exits 0/20). The
+# tests above already prove the finding fires identically for a csv-shaped or html-shaped
+# vocabulary; this is the other half SC-006 requires — that firing actually moves `_verdict`,
+# through the SAME machinery every other blocking finding is refused by
+# (`tests/enrichment/test_gates_and_ratchet.py`'s own precedent for importing `_verdict` directly).
+
+
+def test_the_loud_failure_changes_the_exit_code_under_both_arm_vocabularies() -> None:
+    csv_shaped_codes = frozenset({"SM", "AdM", "TAU"})
+    html_shaped_slugs = frozenset({"space-marines", "adeptus-mechanicus", "tau-empire"})
+
+    for present in (csv_shaped_codes, html_shaped_slugs):
+        outcome = resolve_factions(
+            ["ghost-archive"], ghost_archive_authored(), detail_faction_ids_present=present
+        )
+        assert _verdict(outcome.findings) is ExitCode.BLOCKING, present
+
+
+def test_the_positive_case_does_not_move_the_exit_code() -> None:
+    """The complement: a faction whose mapped id genuinely was observed changes nothing."""
+    present = frozenset({GHOST_ARCHIVE.detail_source_faction_id, "OTHER"})
+
+    outcome = resolve_factions(
+        ["ghost-archive"], ghost_archive_authored(), detail_faction_ids_present=present
+    )
+
+    assert _verdict(outcome.findings) is ExitCode.SUCCESS
 
 
 # -- T020: arm-appropriate identifier selection, driven by curated data ------------------------
