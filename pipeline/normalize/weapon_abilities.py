@@ -46,6 +46,11 @@ _WHITESPACE_RUN: Final = re.compile(r"\s+")
 #: The separators a group's own printed form uses.
 _SEPARATORS: Final = frozenset(",;")
 
+#: Sentence-final punctuation -- the one guard against reading genuine prose as an unbracketed
+#: keyword list (009 Finding B). Measured live this session: 6,362/6,362 of the real bulk
+#: export's non-empty `description` rows contain none of these; a row that does is prose.
+_SENTENCE_PUNCTUATION: Final = re.compile(r"[.!?]")
+
 
 def _split_group(group: str) -> list[str]:
     """Split one group on its separators, ignoring any inside parentheses."""
@@ -76,16 +81,32 @@ def parse_weapon_ability_keywords(description: str) -> tuple[str, ...]:
     parameter values states two things, and merging them here would lose one of them before
     anything downstream could see it.
 
-    Returns an empty tuple for an empty field, a field with no bracketed group, and a field that
-    is entirely prose. Those three are the same answer on purpose: "this row states no ability
-    keyword" is what each of them means.
+    Returns an empty tuple for an empty field and for a field that is entirely prose. Those two
+    are the same answer on purpose: "this row states no ability keyword" is what each means.
+
+    **Brackets are optional.** The html arm always wraps its keywords in ``[...]``
+    (:func:`format_ability_keywords`'s own shape); the real bulk export never does — it states
+    the same kind of list bare, comma/semicolon-separated, directly in the field (009 Finding B,
+    measured live: 6,362/6,362 non-empty rows, none containing a bracket, none containing
+    sentence-final punctuation). So a bracket present anywhere selects the bracket-only rule
+    unchanged (text outside a bracket is still discarded without inspection); its total absence
+    selects the same splitting rule applied to the whole field, guarded by
+    :data:`_SENTENCE_PUNCTUATION` — a bracket-free field ending a sentence is prose, not a list,
+    and yields nothing rather than a guessed token.
     """
-    if not description or "[" not in description:
+    if not description:
         return ()
+
+    if "[" in description:
+        groups: Iterable[str] = _GROUP.findall(description)
+    elif _SENTENCE_PUNCTUATION.search(description):
+        return ()
+    else:
+        groups = (description,)
 
     keywords: list[str] = []
     seen: set[str] = set()
-    for group in _GROUP.findall(description):
+    for group in groups:
         for part in _split_group(group):
             keyword = _WHITESPACE_RUN.sub(" ", part).strip()
             if not keyword:
