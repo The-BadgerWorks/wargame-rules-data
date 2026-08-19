@@ -12,6 +12,12 @@
 # about `remove` (007, Product Owner decision 2026-08-14 T061 review): a removed line is
 # DELIBERATELY absent from the published composition, which is the override doing its job, not a
 # stale reference to flag.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - Added the reverse direction of unit-map.json
+# coverage (009 tasks T025/T026, FR-014, data-model.md §1/§5): a published datasheet with NO
+# crosswalk entry, once the export arm is authoritative for it. Deliberately NOT wired into the
+# always-on check_authored_references -- which datasheets the export arm is authoritative for is
+# Open Decision O2, not decided until T047 -- so a caller passes the scope explicitly and the
+# check stays inert on every real build until a later phase has a real set to pass it.
 """V4 and V9 — every reference resolves, in both directions.
 
 **V4** is the consumer contract's guarantee 4, checked here rather than discovered at ingestion:
@@ -27,6 +33,8 @@ reconciled in the same release rather than never.
 """
 
 from __future__ import annotations
+
+from collections.abc import Set
 
 from pipeline.curate.authored import AuthoredContent, authored_entity_refs
 from pipeline.models.curated import CuratedSnapshot
@@ -226,3 +234,42 @@ def check_override_references(
                 _dangle("equipment-overrides.json", "weapon_line", reference, item.weapon_line)
 
     return findings
+
+
+def check_unit_map_reverse_coverage(
+    authored: AuthoredContent, *, authoritative_datasheet_ids: Set[str]
+) -> list[Finding]:
+    """V9's reverse direction (FR-014): a datasheet with no crosswalk entry, once the export arm
+    is authoritative for it.
+
+    ``authored_entity_refs``/:func:`check_authored_references` already catch a ``unit-map.json``
+    entry naming a ``datasheet_id`` that does not exist. This is the direction people forget: an
+    upstream re-slug or export renumbering can silently move a consumer-facing id for a datasheet
+    that was never pinned, because there is nothing here that would notice the *absence* of a
+    pin. ``AUT-DANGLING-REF`` is reused rather than a new code minted — the same finding, the
+    same severity, the other half of the same guarantee (data-model.md §5: *"Both are validated
+    on load, in both directions"*).
+
+    Args:
+        authoritative_datasheet_ids: the datasheet ids this run considers the export arm
+            authoritative for, and therefore requires a crosswalk pin for. **Not derived here and
+            not defaulted to "every datasheet"** — Open Decision O2 (collision set only, plus
+            every ``-N``-suffixed slug, or the whole corpus) is not decided until T047, so a
+            caller passes the scope explicitly. An empty set (the parameter has no default,
+            forcing every caller to make that choice) reports nothing, which is what keeps this
+            function safe to exist before O2 is decided: nothing calls it with a real scope yet,
+            so it raises zero findings against the live corpus today.
+    """
+    pinned = {entry.datasheet_id for entry in authored.unit_map}
+    return [
+        build_finding(
+            "AUT-DANGLING-REF",
+            entity_refs=[f"unit-map.json:{datasheet_id}"],
+            detail={
+                "file_name": "unit-map.json",
+                "field": "datasheet_id",
+                "missing_id": datasheet_id,
+            },
+        )
+        for datasheet_id in sorted(authoritative_datasheet_ids - pinned)
+    ]

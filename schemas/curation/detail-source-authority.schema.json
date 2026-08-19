@@ -1,0 +1,35 @@
+{
+  "_comment": "AI-Assisted: Claude Code (model: claude-sonnet-5) - Authored for 009-csv-migration §3 (data-model.md), T048: the Product Owner's hybrid decision (T047, 2026-08-18) is expressed as a curated per-class arm declaration, never as a mode branch below pipeline/acquire/. A record here says which acquisition arm is authoritative for one named data class, and why -- citing the FR-009 criterion and figure that failed. Conditional on the shape decision: authored only because a hybrid was chosen; a full migration would leave this file empty (or absent) and every class would take the build's own WGC_DETAIL_ACQUISITION_MODE. No mechanical value lives in this file -- it names a class, an arm, and a reason, nothing about what either arm's data says.",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://the-badgerworks.github.io/wargame-rules-data/schemas/curation/detail-source-authority.schema.json",
+  "title": "curation/detail-source-authority.json",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": ["data_class", "arm", "reason", "declared_at"],
+    "properties": {
+      "data_class": {
+        "type": "string",
+        "enum": ["options", "default_equipment"],
+        "description": "The data class this record governs, matching pipeline/acquire/detail_source.py's own class-to-table mapping. Only a class this feature has actually measured against FR-009's criteria may be declared -- a class not listed here stays on the build's default arm (WGC_DETAIL_ACQUISITION_MODE)."
+      },
+      "arm": {
+        "type": "string",
+        "enum": ["csv", "html"],
+        "description": "Which acquisition arm is authoritative for this class."
+      },
+      "reason": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 240,
+        "description": "Which FR-009 criterion failed, and the measurement that failed it (e.g. 'criterion 1, loadout.options_resolved 79%/94.3%, below the 96 floor'). Never about what either source's cards say."
+      },
+      "declared_at": {
+        "type": "string",
+        "format": "date",
+        "description": "The date this record was authored."
+      }
+    }
+  }
+}

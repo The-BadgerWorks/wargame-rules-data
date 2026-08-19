@@ -59,3 +59,10 @@ GF23|1|Wargear Options|Deployment restrictions are noted on the unit's own card 
 GF23|2|Wargear Options|Squad markings are recorded on a separate roster page.|
 GF23|3|Wargear Options|See the appendix for further wargear notes.|
 GF25|1|Wargear Options|The Marsh Sentry must be equipped 1 ember lance.|
+CM01|1|Wargear Options|This model can be equipped with 1 marsh lantern< b>ornate</b> and a tide hammer.|
+CM01|2|Wargear Options|This model can be equipped with 1 marsh lantern<b>ornate</ b> and a tide hammer.|
+CM01|3|Wargear Options|This model can be equipped with 1 marsh lantern<b unclosed and a tide hammer.|
+CM01|4|Wargear Options|This model can be equipped with 1 marsh lantern< br/>and a tide hammer.|
+CM01|5|Wargear Options|This model can be equipped with 1 marsh lantern <b and c> and a tide hammer.|
+CM02|1|Wargear Options|The Marsh Sentinel is equipped with: glow lantern; tide axe.|
+CM02|2|Wargear Options|None.|

@@ -1,3 +1,6 @@
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - Added CM01/CM02 to the deliberately-excluded
+# set (009 tasks T007/T008): the markup-variant matrix and the two html-extractor-dropped row
+# shapes are diagnosis material, not zero-churn baseline content.
 # AI-Assisted: Claude Code (model: claude-opus-5) - Built the FR-009 zero-regression harness,
 # layer 1 (006 task T010): every pre-006 option fixture and every inline description 004's own
 # grammar suite exercises, re-run under the extended grammar and asserted byte-identical against
@@ -222,6 +225,13 @@ def test_every_006_and_007_datasheet_is_deliberately_outside_this_harness() -> N
     the over-length replaced item). If one of them were folded into the baseline set, a
     successful new production would fail this file, and the pressure would be to edit the golden
     — which is how a zero-regression harness stops meaning anything.
+
+    CM01 (009 T007, the markup-variant matrix) and CM02 (009 T008, the two html-extractor-dropped
+    row shapes) join them for the same reason: 009 rule 5 forbids this feature from ever authoring
+    a new options-grammar production, but they are still deliberately outside this harness because
+    they are diagnosis material for `reports/009-diagnosis/`, not zero-churn baseline content —
+    folding them in would make a future diagnosis re-run's residual movement read as this harness
+    breaking, rather than as the measurement it is.
     """
     all_datasheets = {row.fields["datasheet_id"] for row in read_file(OPTIONS_CSV).rows}
     assert all_datasheets > BASELINE_DATASHEETS
@@ -245,4 +255,6 @@ def test_every_006_and_007_datasheet_is_deliberately_outside_this_harness() -> N
         "GF22",
         "GF23",
         "GF25",
+        "CM01",
+        "CM02",
     }

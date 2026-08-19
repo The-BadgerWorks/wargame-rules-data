@@ -1,6 +1,10 @@
 # AI-Assisted: Claude Code (model: claude-opus-5) - Wrote the table-driven IP-strip tests (task
 # T046): one case per quirk class in research §0.1, each asserting the output is mechanical only
 # and that the discarded content appears in no return value.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - Added the variant matrix (009 task T029,
+# plan.md finding 6): space-variant open/close tags, an unterminated tag, a self-closing space
+# variant, and the "a <b and c> d" over-strip trap -- against T007's CM01 forms -- plus the
+# paired source-level assertion that models/mechanical.py's markup pattern stays in lockstep.
 """Tests for the normalize stage's IP strip (FR-011, FR-012, FR-013, research D8).
 
 Two assertions per case, and the second is the one that earns its keep:
@@ -15,7 +19,8 @@ from __future__ import annotations
 
 import pytest
 
-from pipeline.normalize.ip_strip import StripResult, strip_field
+from pipeline.models.mechanical import NON_MECHANICAL_PATTERNS
+from pipeline.normalize.ip_strip import _HAS_MARKUP, StripResult, strip_field
 
 
 def _codes(result: StripResult) -> list[str]:
@@ -117,6 +122,97 @@ def test_free_text_composition_is_stripped_before_it_is_parsed() -> None:
     """Strip-then-parse, never parse-then-strip: markup reaches unit_composition too (§0.1)."""
     result = strip_field('<span class="kwb">5 Cinder Wardens</span>', field="description")
     assert result.text == "5 Cinder Wardens"
+
+
+# -- 009 T029: the variant matrix, against T007's CM01 forms (plan.md finding 6) ----------------
+#
+# `test_quirk_class` above exercises only well-formed, closed, flush tags (`<span class="kwb">`).
+# These five mirror `fixtures/enrichment/wahapedia/Datasheets_options.csv`'s `CM01` rows
+# verbatim: a space-variant open tag, a space-variant close tag, an unterminated tag, a
+# self-closing space variant, and the "looks like a tag but is prose" over-strip trap.
+
+
+@pytest.mark.parametrize(
+    ("raw", "expected"),
+    [
+        pytest.param(
+            "This model can be equipped with 1 marsh lantern< b>ornate</b> and a tide hammer.",
+            "This model can be equipped with 1 marsh lantern ornate and a tide hammer.",
+            id="space-variant-open-tag",
+        ),
+        pytest.param(
+            "This model can be equipped with 1 marsh lantern<b>ornate</ b> and a tide hammer.",
+            "This model can be equipped with 1 marsh lantern ornate and a tide hammer.",
+            id="space-variant-close-tag",
+        ),
+        pytest.param(
+            "This model can be equipped with 1 marsh lantern< br/>and a tide hammer.",
+            "This model can be equipped with 1 marsh lantern and a tide hammer.",
+            id="self-closing-space-variant",
+        ),
+    ],
+)
+def test_space_variant_tag_forms_are_stripped_and_reported(raw: str, expected: str) -> None:
+    result = strip_field(raw, field="description")
+
+    assert result.text == expected
+    assert _codes(result) == ["DQ-MARKUP-IN-FIELD"]
+    assert "<" not in result.text
+    assert ">" not in result.text
+
+
+@pytest.mark.parametrize(
+    "raw",
+    [
+        pytest.param("<b x", id="unterminated-minimal"),
+        pytest.param('<img src="a"', id="unterminated-with-attribute"),
+        pytest.param(
+            "This model can be equipped with 1 marsh lantern<b unclosed and a tide hammer.",
+            id="unterminated-mid-sentence",
+        ),
+    ],
+)
+def test_an_unterminated_tag_is_removed_not_merely_reported(raw: str) -> None:
+    result = strip_field(raw, field="description")
+
+    assert "<" not in result.text
+    assert _codes(result) == ["DQ-MARKUP-IN-FIELD"]
+
+
+@pytest.mark.parametrize(
+    "raw",
+    [
+        pytest.param("</ b>trailing text", id="close-with-leading-space"),
+        pytest.param("< /b>trailing text", id="close-with-space-before-slash"),
+    ],
+)
+def test_close_tag_space_variants_are_recognised(raw: str) -> None:
+    result = strip_field(raw, field="description")
+
+    assert "<" not in result.text
+    assert ">" not in result.text
+    assert _codes(result) == ["DQ-MARKUP-IN-FIELD"]
+
+
+def test_the_over_strip_trap_does_not_lose_ordinary_words_in_brackets() -> None:
+    """`a <b and c> d` LOOKS like a tag (`<` + letter + ... + `>`) but is not one: `and`/`c` are
+    bare words with no `=`, which is what a genuine attribute in this export always has. Losing
+    "b and c" here was the old, looser pattern's actual defect (`plan.md` finding 6) — verified
+    empirically against the pre-T030 pattern before this fix landed."""
+    raw = "a <b and c> d"
+
+    result = strip_field(raw, field="description")
+
+    assert result.text == raw
+    assert _codes(result) == []
+
+
+def test_the_mechanical_markup_pattern_stays_in_lockstep_with_the_stripper() -> None:
+    """`models/mechanical.py`'s `NON_MECHANICAL_PATTERNS["markup"]` must catch every form
+    `_HAS_MARKUP` catches -- character-for-character identical today (009 task T030), asserted
+    as a source-level equality rather than trusted as a comment, so a future edit to either
+    cannot silently open a blind spot in the other."""
+    assert NON_MECHANICAL_PATTERNS["markup"].pattern == _HAS_MARKUP.pattern
 
 
 # `mechanic_digest` and `hard_normalise` moved to `pipeline.normalize.mechanic_digest` (T127);
