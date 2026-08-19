@@ -213,6 +213,14 @@ _DEFINITIONS: Final[tuple[FindingDefinition, ...]] = (
     _d("CON-RESTRICTION-VOCAB", _CON, _B, "FR-030", "a restriction_type outside the closed set"),
     _d("CON-VERSION-STAMP", _CON, _B, "FR-030, FR-049", "a version stamp is missing or mismatched"),
     _d(
+        "CON-IDENTITY-DROPPED",
+        _CON,
+        _B,
+        "009 FR-013, SC-004",
+        "a faction id, datasheet id, or ability key the previous published version carried is "
+        "absent from this build; names the kind and the id, never a count alone",
+    ),
+    _d(
         "CON-IP-BOUNDARY",
         _CON,
         _B,

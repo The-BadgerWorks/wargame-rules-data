@@ -146,6 +146,10 @@ PENDING_CONTRACT_SEVERITIES = {
     # hybrid now, full later): the per-class arm-attribution advisory, on the identical
     # ahead-of-contract terms as the three above.
     "SRC-CLASS-ARM": A,
+    # 009-csv-migration (task T049, FR-013/SC-004, Product Owner decision T047/O2 2026-08-18):
+    # the identity-survival guard O2 designates as standing in place of pre-authoring the whole
+    # `-N`-suffix crosswalk population.
+    "CON-IDENTITY-DROPPED": B,
 }
 
 #: Transcribed by hand from 006's data-model.md §5 table and its contracts/
