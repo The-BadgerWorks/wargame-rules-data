@@ -72,7 +72,11 @@ from datetime import UTC, datetime
 from pathlib import Path
 from typing import Final
 
-from pipeline.acquire.detail_source import acquire_detail, read_detail
+from pipeline.acquire.detail_source import (
+    acquire_detail,
+    apply_detail_source_authority,
+    read_detail,
+)
 from pipeline.acquire.http import AcquisitionError, PoliteClient
 from pipeline.acquire.mfm import acquire_mfm
 from pipeline.build.bundle_emit import BundleMeta, emit_bundle
@@ -773,6 +777,19 @@ def run_build(  # noqa: PLR0913 - the stage boundary is the argument list
             for payload in points_payloads
         ]
         detail = read_detail(config, detail_payloads)
+        # 009 T048, FR-010 (Product Owner decision T047, 2026-08-18: hybrid now, full later): a
+        # no-op unless `curation/detail-source-authority.json` carries records — see the
+        # function's own docstring for why that is what keeps a full migration and a hybrid the
+        # same code path here.
+        detail = apply_detail_source_authority(
+            detail,
+            authority=authored.detail_source_authority,
+            config=config,
+            fixtures_dir=fixtures_dir,
+            offline=offline,
+            workspace=work,
+            carried_forward_slugs=authored.carried_forward_slugs,
+        )
 
         findings: list[Finding] = []
         for result in detail.values():

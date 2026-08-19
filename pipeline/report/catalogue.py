@@ -185,6 +185,16 @@ _DEFINITIONS: Final[tuple[FindingDefinition, ...]] = (
         "and this is why, distinguishing a skipped fetch from an unchanged source from a failed "
         "one",
     ),
+    _d(
+        "SRC-CLASS-ARM",
+        _COV,
+        _A,
+        "009 FR-010, T047/T048",
+        "curation/detail-source-authority.json declares this data class authoritative from a "
+        "named arm, overriding the build's default acquisition mode for it; names the class and "
+        "the arm that actually produced its rows this run -- the per-value attributability a "
+        "hybrid requires",
+    ),
     _d("COV-COLLAPSE", _COV, _B, "FR-009", "coverage fell below the configured proportion"),
     _d(
         "COV-WEAPON-ABILITIES-EMPTY",
