@@ -564,7 +564,9 @@ def _detail_datasheet_fields(
     fields["models"] = models
 
     weapons: list[CuratedWeaponLine] = []
-    for weapon in detail["Datasheets_wargear.csv"].grouped_by("datasheet_id").get(detail_id, []):
+    for line_number, weapon in enumerate(
+        detail["Datasheets_wargear.csv"].grouped_by("datasheet_id").get(detail_id, []), start=1
+    ):
         if not strip_field(weapon.fields.get("name", ""), field="weapon.name").text:
             findings.append(
                 build_finding(
@@ -577,9 +579,21 @@ def _detail_datasheet_fields(
         weapon_range = optional_characteristic(weapon.fields.get("range"))
         is_melee = (weapon.fields.get("type", "") or "").strip().casefold() == "melee"
         try:
+            # `line` is minted from the row's own position in this datasheet's weapon list, not
+            # read off the export's `line` column (009 Finding A, CON-DUPLICATE-KEY, 39 live
+            # instances). The export's `line` numbers a wargear CHOICE, not a row: a multi-profile
+            # weapon (plasma standard/supercharge, missile frag/krak, ...) states two rows under
+            # one `line`, disambiguated only by `line_in_wargear` -- a column nothing here reads.
+            # The html arm never had this collision, because its own scraper
+            # (`wahapedia_html_dom.py::_weapon_profiles`) mints a fresh sequential number per row
+            # it prints rather than reading one off the page, which is exactly what `line_number`
+            # reproduces for the export too. `to_int` below still validates the raw column parses
+            # -- a row whose own `line` is genuinely malformed is still `DQ-MALFORMED-ROW` -- it
+            # is simply no longer what identifies the row.
+            to_int(weapon.fields["line"], field="weapon.line")
             weapons.append(
                 CuratedWeaponLine(
-                    line=to_int(weapon.fields["line"], field="weapon.line"),
+                    line=line_number,
                     name=strip_field(weapon.fields["name"], field="weapon.name").text,
                     is_melee=is_melee,
                     range=None if is_melee else weapon_range,
