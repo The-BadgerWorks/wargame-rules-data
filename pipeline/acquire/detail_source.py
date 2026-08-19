@@ -29,7 +29,7 @@ below ``acquire``, the design has been lost.
 from __future__ import annotations
 
 import re
-from collections.abc import Callable, Sequence
+from collections.abc import Callable, Mapping, Sequence
 from dataclasses import replace as _replace_csv_read_result
 from datetime import datetime
 from pathlib import Path
@@ -40,10 +40,12 @@ from pipeline.acquire.http import PoliteClient
 from pipeline.acquire.wahapedia import acquire_wahapedia
 from pipeline.acquire.wahapedia_html import acquire_wahapedia_html
 from pipeline.config import ConfigError, DetailAcquisitionMode, PipelineConfig
+from pipeline.models.authored import DetailSourceAuthorityEntry
 from pipeline.models.source import SourceAcquisition, WahapediaRow
 from pipeline.parse.equipment_grammar import EQUIPMENT_TABLE
 from pipeline.parse.wahapedia_csv import CsvReadResult, read_text
 from pipeline.parse.wahapedia_html_dom import read_datacard_payloads
+from pipeline.report.catalogue import build_finding
 
 #: `Datasheets_unit_composition.csv`'s export name -- the table
 #: :func:`_derive_equipment_from_composition` reads FROM.
@@ -256,3 +258,101 @@ def read_detail(
     grammars below it are written once and exercised by both.
     """
     return reader_for(config.detail_acquisition_mode)(payloads, edition_code=config.detail_edition)
+
+
+# -- the hybrid: which arm populates which table (009 T048, FR-010, data-model.md §3) -----------
+#
+# Product Owner decision, T047 (2026-08-18): "hybrid now, full later". FR-009's four criteria
+# measured two classes -- `options` and `default_equipment` -- below their own floor
+# (`reports/009-diagnosis/shape-decision-2026-08-18.md`), so `curation/detail-source-authority
+# .json` may declare either back onto the `html` arm while every other class stays on the
+# build's configured `WGC_DETAIL_ACQUISITION_MODE`. This is expressed entirely in this module,
+# as data read at acquisition time, on the same discipline `detail_source_faction_code`
+# (T020/T021) already established for the faction vocabulary: no `if mode is ...` anywhere below
+# `acquire` (rule 4) -- see `tests/unit/test_detail_mode.py`'s structural scan, extended by this
+# feature to also cover an `arm` comparison, not merely a `mode` one.
+
+#: `data_class` (`schemas/curation/detail-source-authority.schema.json`'s closed enum) -> the
+#: acquired table name(s) it governs. The only two classes this feature's own measurements
+#: evaluated -- a class not listed here cannot be declared (the schema enum refuses it) and so
+#: always stays on the build's own configured arm.
+_CLASS_TABLES: Final[Mapping[str, tuple[str, ...]]] = {
+    "options": ("Datasheets_options.csv",),
+    "default_equipment": (EQUIPMENT_TABLE,),
+}
+
+
+def apply_detail_source_authority(
+    detail: dict[str, CsvReadResult],
+    *,
+    authority: Sequence[DetailSourceAuthorityEntry],
+    config: PipelineConfig,
+    fixtures_dir: Path | None = None,
+    offline: bool = False,
+    client: PoliteClient | None = None,
+    retrieved_at: datetime | None = None,
+    workspace: Path | None = None,
+    carried_forward_slugs: frozenset[str] = frozenset(),
+) -> dict[str, CsvReadResult]:
+    """Overlay each declared class's table(s) from its declared arm, onto ``detail``.
+
+    ``detail`` — the build's own configured-arm read, exactly :func:`read_detail`'s return —
+    passes through **unchanged** when ``authority`` is empty. That is what makes a full
+    migration and a hybrid the same code path: the only thing that differs is whether
+    ``curation/detail-source-authority.json`` carries any records (FR-011's reversibility, in
+    the reader rather than as a branch).
+
+    For every arm ``authority`` names that is **not** the build's own configured arm, that arm
+    is acquired and read **once** (never once per class, however many classes name it), and
+    every declared class's table(s) are overlaid from that single read. A declared class whose
+    arm *is* the build's own configured arm is a no-op — the table it names is already what
+    ``detail`` carries.
+
+    Each overlay carries an advisory ``SRC-CLASS-ARM`` finding, attached to the overlaid table's
+    own ``CsvReadResult.findings`` — the same tuple :func:`pipeline.cli.run_build` already walks
+    (``for result in detail.values(): findings.extend(result.findings)``), so the per-value
+    attributability FR-010 requires reaches the run's report with no new call site.
+    """
+    if not authority:
+        return detail
+
+    configured = config.detail_acquisition_mode
+    needed_arms = {
+        DetailAcquisitionMode(entry.arm)
+        for entry in authority
+        if DetailAcquisitionMode(entry.arm) != configured
+    }
+    if not needed_arms:
+        return detail
+
+    supplements: dict[DetailAcquisitionMode, dict[str, CsvReadResult]] = {}
+    for arm in needed_arms:
+        _acquisition, payloads = acquirer_for(arm)(
+            config,
+            fixtures_dir=fixtures_dir,
+            offline=offline,
+            client=client,
+            retrieved_at=retrieved_at,
+            workspace=workspace,
+            carried_forward_slugs=carried_forward_slugs,
+        )
+        supplements[arm] = reader_for(arm)(payloads, edition_code=config.detail_edition)
+
+    merged = dict(detail)
+    for entry in authority:
+        arm = DetailAcquisitionMode(entry.arm)
+        if arm == configured:
+            continue
+        supplement = supplements[arm]
+        for table_name in _CLASS_TABLES[entry.data_class]:
+            source_result = supplement.get(table_name)
+            if source_result is None:
+                continue
+            finding = build_finding(
+                "SRC-CLASS-ARM",
+                detail={"data_class": entry.data_class, "arm": entry.arm, "table": table_name},
+            )
+            merged[table_name] = _replace_csv_read_result(
+                source_result, findings=(*source_result.findings, finding)
+            )
+    return merged

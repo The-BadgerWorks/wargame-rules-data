@@ -78,6 +78,9 @@ CURATION_SCHEMAS: Final[Mapping[str, str]] = {
     # explicit declaration that a faction's detail-source page may be carried forward from the
     # previous published version rather than block the whole sweep.
     "carried-forward-factions": "curation/carried-forward-factions.schema.json",
+    # 009-csv-migration §3 (Product Owner decision T047, 2026-08-18: hybrid now, full later): a
+    # curated per-class acquisition-arm declaration, authored only because a hybrid was chosen.
+    "detail-source-authority": "curation/detail-source-authority.schema.json",
 }
 
 #: The published bundle schema.
