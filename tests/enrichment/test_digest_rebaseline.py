@@ -24,6 +24,11 @@
 # hand-authors the equivalent record in a separate one. The assertion is now a claim about two
 # independently-constructed pull requests, demonstrated able to fail by perturbing one arm's
 # attribution and restoring it (this rung's report carries the red output).
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - Rung R02a-fix4, own-judgement cleanup
+# alongside item 3: added a case for a curation file that is not valid JSON, matching the new
+# `except ValueError` in `check_summary_approvals.cmd_diff`. Demonstrated able to fail by removing
+# that except clause and confirming an unhandled `JSONDecodeError` escapes instead (this rung's
+# report carries the red output), then restored.
 """Feature 009 re-baselines every approved summary digest once. These five rules bound it.
 
 A bulk digest refresh is mechanically indistinguishable from **laundering an approval** —
@@ -1029,6 +1034,34 @@ def _refresh_pair(repo: Path) -> tuple[str, str]:
         message="synthetic refresh",
     )
     return base, head
+
+
+def test_cmd_diff_refuses_a_malformed_curation_file_with_a_named_refusal(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch, capsys: pytest.CaptureFixture[str]
+) -> None:
+    """A curation file that is not valid JSON is a named refusal, not an unhandled traceback.
+
+    `json.JSONDecodeError` is itself a `ValueError`, so the same `except ValueError` in
+    `cmd_diff` also covers `records_in`'s own shape checks (a file that parses but is not the
+    array/object shape `SOURCES` expects). Either way, CI was already red on this input before
+    this guard existed to say so -- an unhandled exception out of `main` still exits non-zero --
+    this only replaces the traceback with a refusal naming what is wrong.
+    """
+    repo = _init_repo(tmp_path)
+    base = _git(repo, "rev-parse", "HEAD").strip()
+    path = repo / CURATION_PATH
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text("{not valid json", encoding="utf-8")
+    _git(repo, "add", CURATION_PATH)
+    _git(repo, "commit", "-q", "-m", "synthetic malformed curation file")
+    head = _git(repo, "rev-parse", "HEAD").strip()
+    monkeypatch.chdir(repo)
+
+    code = _run_diff(base, head)
+
+    assert code == 1
+    error = capsys.readouterr().err
+    assert "could not be read as the shape this guard expects" in error
 
 
 def test_cmd_diff_refuses_when_the_base_content_cannot_be_read(

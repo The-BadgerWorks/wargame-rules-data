@@ -50,6 +50,14 @@
 # in depth: real, mechanical catches on the unattributed and stale-stamp cases, and the three
 # named gaps (rekeying, an unresolved authorization string, the post-rollback window) it does not
 # catch, with the per-record human reviewer named as the control those fall through to.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - Rung R02a-fix4, own-judgement cleanup
+# (kickoff's "not blocking, do if cheap" list): `changed_ability_files` had zero callers anywhere
+# in the repository -- checked with a full-repo search before touching it -- so its docstring's
+# "kept because CI and 002's docs both name it" was false; deleted rather than corrected, since
+# nothing depends on it. Also added `except ValueError` to `cmd_diff` so a curation file that is
+# not valid JSON (json.JSONDecodeError IS a ValueError) or not the shape SOURCES expects reaches
+# CI as this guard's own named refusal instead of an unhandled traceback out of `main`; the exit
+# code was already non-zero either way, this only names why.
 """Self-approval guard for every authored summary class.
 
   check_summary_approvals.py diff --base <ref> --head <ref> --actor <login>
@@ -292,15 +300,6 @@ def changed_curation_files(base: str, head: str) -> list[tuple[str, CurationSour
         if source is not None:
             pairs.append((line.strip(), source))
     return pairs
-
-
-def changed_ability_files(base: str, head: str) -> list[str]:
-    """The abilities-only view, kept because CI and `002`'s docs both name it."""
-    return [
-        path
-        for path, source in changed_curation_files(base, head)
-        if source.prefix == ABILITIES_GLOB_PREFIX
-    ]
 
 
 def records_in(payload: Any, source: CurationSource) -> list[dict[str, Any]]:
@@ -575,6 +574,18 @@ def cmd_diff(args: argparse.Namespace) -> int:
             "'every record here is new' -- the one reading under which no digest refresh carries "
             "an approval and no attribution is demanded. Re-run with the base and head commits "
             "both present in the checkout (a full-history fetch, and blobs available offline).",
+            file=sys.stderr,
+        )
+        return 1
+    except ValueError as error:
+        # `json.JSONDecodeError` is itself a `ValueError`, so this also catches a curation file
+        # that is not valid JSON at all, alongside `records_in`'s own shape checks. Named here so
+        # a malformed file reaches CI as this refusal rather than an unhandled traceback out of
+        # `main` -- the exit code was already non-zero either way, this only names why.
+        print(
+            f"FAIL: this check could not be performed: a curation file matched by SOURCES could "
+            f"not be read as the shape this guard expects: {error}. Fix the file's JSON and "
+            "re-run.",
             file=sys.stderr,
         )
         return 1
