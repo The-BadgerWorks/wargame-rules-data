@@ -8,6 +8,14 @@
 # tree, would sail past all three. The new test asserts on the PATH, which is the thing FR-004
 # and FR-010 actually care about.
 # AI-Assisted: Claude Code (model: claude-sonnet-5) - Extended the walk to
+# `state/wahapedia-export-digest.json` (009 rung R05, T094, FR-030): the export-timestamp
+# short-circuit's own new state file is the one place this feature could accidentally retain the
+# publisher's raw `Last_update.csv` text instead of its one-way digest, so the same mechanism
+# that already keeps raw source out of `fixtures/`, `work/`, and the diagnosis reports now also
+# keeps it out of this file -- and, as evidence it is not a check that would pass regardless, a
+# planted raw-timestamp-shaped value in a synthetic digest object is shown caught before the real
+# tracked file is checked.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - Extended the walk to
 # `reports/009-diagnosis/` (009 task T034): FR-008 requires the diagnosis report to be
 # text-free -- cause, row count, residual, finding class, datasheet id only -- which is a
 # narrower and different claim than `pipeline.validate.ip_scan`'s markup/entity/placeholder scan
@@ -30,10 +38,16 @@ why the files there are authored rather than captured.
 
 from __future__ import annotations
 
+import hashlib
+import json
+import re
 import subprocess
 from pathlib import Path
 
 import pytest
+from pydantic import ValidationError
+
+from pipeline.observability.ledger import RunLedgerEntry
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
 
@@ -205,3 +219,78 @@ def test_the_009_diagnosis_reports_carry_no_quoted_phrase() -> None:
     assert offenders == {}, (
         f"these reports carry a long quoted run, which FR-008 forbids: {offenders}"
     )
+
+
+# --- 009 rung R05 T094: no raw publisher timestamp anywhere (FR-030) ---------------------------
+#
+# The export-timestamp short-circuit's own hazard: `state/wahapedia-export-digest.json` is the
+# one file this feature adds that reads the publisher's `Last_update.csv` at all. Everything else
+# it could leak through -- a report, a log, the run ledger -- either does not carry the value
+# (`pipeline.observability.ledger.RunLedgerEntry`'s `coverage` field is typed `Mapping[str, int]`,
+# which structurally cannot hold a timestamp string) or is covered by the scans above.
+
+_HEX_DIGEST_PATTERN = re.compile(r"^[0-9a-f]{64}$")
+
+EXPORT_DIGEST_STATE_PATH = "state/wahapedia-export-digest.json"
+
+
+def _non_digest_string_values(raw: dict[str, object]) -> list[str]:
+    """Every top-level string value in a digest-state JSON object that is not a bare sha256 hex
+    digest -- the shape a raw publisher timestamp (or any other un-hashed value) would take if
+    it were accidentally persisted here instead of hashed (FR-030).
+    """
+    return [
+        f"{key}={value!r}"
+        for key, value in raw.items()
+        if isinstance(value, str) and not _HEX_DIGEST_PATTERN.fullmatch(value)
+    ]
+
+
+def test_the_digest_shape_scan_catches_a_planted_raw_timestamp() -> None:
+    """Proof the scan can fail before it is trusted against the real tracked file -- the same
+    poisoned-then-clean discipline `test_ip_scan.py` and this file's own quoted-phrase scan use.
+    """
+    poisoned = {"digest": "2026-08-30T12:00:00Z"}
+    assert _non_digest_string_values(poisoned) == ["digest='2026-08-30T12:00:00Z'"]
+
+
+def test_the_digest_shape_scan_accepts_a_real_one_way_digest() -> None:
+    clean = {"digest": hashlib.sha256(b"placeholder export text").hexdigest()}
+    assert _non_digest_string_values(clean) == []
+
+
+def test_the_digest_shape_scan_accepts_the_seeded_empty_state() -> None:
+    assert _non_digest_string_values({}) == []
+
+
+def test_the_tracked_export_digest_state_file_holds_only_a_digest() -> None:
+    """FR-030: whatever the tracked `state/wahapedia-export-digest.json` currently holds --
+    seeded empty, or carrying a digest from a real run -- it is never the publisher's raw
+    `Last_update.csv` text."""
+    tracked = _tracked_files()
+    assert EXPORT_DIGEST_STATE_PATH in tracked, (
+        "the export-digest state file should exist and be tracked (state/README.md)"
+    )
+    raw = json.loads((REPO_ROOT / EXPORT_DIGEST_STATE_PATH).read_text(encoding="utf-8"))
+    offenders = _non_digest_string_values(raw)
+    assert offenders == [], (
+        f"state/wahapedia-export-digest.json carries a non-digest string value, which FR-030 "
+        f"forbids -- it must hold a one-way digest, never the raw timestamp: {offenders}"
+    )
+
+
+def test_the_run_ledger_entry_schema_structurally_cannot_carry_a_timestamp_string() -> None:
+    """A second, mechanical guarantee alongside the tracked-file scan above: even if some future
+    caller tried to smuggle the raw `Last_update.csv` text into a ledger line's `coverage` map --
+    the one place acquisition-shaped counts reach `state/run-ledger.jsonl` -- the schema itself
+    refuses it, because `coverage` is typed `Mapping[str, int]`, not `Mapping[str, str]`.
+    """
+    with pytest.raises(ValidationError):
+        RunLedgerEntry(
+            run_id="local-test",
+            command="build",
+            trigger="manual",
+            channel="production",
+            started_at="2026-08-01T00:00:00Z",
+            coverage={"last_update": "2026-08-01T00:00:00Z"},  # type: ignore[dict-item]
+        )
