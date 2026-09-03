@@ -42,6 +42,11 @@
 # Before this fix, `content_fingerprint([])`'s constant -- the SAME value on every source, every
 # run -- was recorded as both the acquisition's own `content_fingerprint` and, via its first 8
 # hex characters, its `acquisition_id`, on every UNCHANGED acquisition.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - R05-fix2 item 4 (gate on PR #30):
+# `coverage["csv_files"]` counted every file a run touched, probe included, while the content
+# fingerprint excluded it -- the two figures described different sets under the same run.
+# `csv_files` keeps its original meaning; a new `coverage["corpus_files"]` names what the
+# fingerprint actually covers, so a reader cannot mistake one for the other.
 """Acquire the datasheet-detail source: the CSV export, into ``work/``.
 
 Three things are worth stating plainly.
@@ -532,21 +537,26 @@ def acquire_wahapedia(
             (target / payload.name).write_text(payload.text, encoding="utf-8", newline="\n")
 
     moment = (retrieved_at or datetime.now(UTC)).astimezone(UTC)
+    corpus = _corpus_payloads(payloads)
     if outcome is AcquisitionOutcome.UNCHANGED:
-        # R05-fix2 item 2: the short-circuit only fetched the probe, so the corpus
-        # `_corpus_payloads` would compute here is empty -- `content_fingerprint(empty)` would
-        # return the constant every empty input hashes to, reported as if the corpus itself were
-        # empty, on every UNCHANGED run against every source. `short_circuit`'s own condition
-        # already required `prior_state` to be non-None and identity-matched, so the fingerprint
-        # IT recorded is exactly what this unchanged corpus was last measured to be -- carried
-        # forward rather than recomputed from bytes this run never fetched.
+        # R05-fix2 item 2: the short-circuit only fetched the probe, so `corpus` is empty here --
+        # `content_fingerprint(corpus)` would return the constant every empty input hashes to,
+        # reported as if the corpus itself were empty, on every UNCHANGED run against every
+        # source. `short_circuit`'s own condition already required `prior_state` to be non-None
+        # and identity-matched, so the fingerprint IT recorded is exactly what this unchanged
+        # corpus was last measured to be -- carried forward rather than recomputed from bytes
+        # this run never fetched.
         assert prior_state is not None  # narrows for mypy; `short_circuit` already proved it
         fingerprint = prior_state.content_fingerprint
     else:
         # R05-fix item 1: the probe is fetched (above) but never counted as corpus -- see
         # _corpus_payloads's own docstring for why this is the one place that decision is made.
-        fingerprint = content_fingerprint(_corpus_payloads(payloads))
-    coverage = {"csv_files": len(payloads)}
+        fingerprint = content_fingerprint(corpus)
+    # R05-fix2 item 4: `csv_files` keeps its original meaning -- every file THIS RUN touched,
+    # probe included, which is what T093's `csv_files_total` comparison below still needs -- and
+    # `corpus_files` is added alongside it, naming what the fingerprint actually covers, so a
+    # reader cannot mistake one count for the other the way a single `csv_files` key invited.
+    coverage = {"csv_files": len(payloads), "corpus_files": len(corpus)}
     if outcome is AcquisitionOutcome.UNCHANGED:
         # T093: the surface reduction the short-circuit buys, recorded rather than merely
         # implied by a smaller `csv_files` count -- a curator sees both numbers without having

@@ -9,6 +9,11 @@
 # fingerprinted as corpus under `--fixtures`, in every `fixtures/detection/*` set, even though
 # the live adapter already excluded it. A caller that has such a file passes the SAME predicate
 # its live path uses; every other caller passes nothing and this is a total no-op.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - 009 rung R05-fix2 item 4: added the
+# `corpus_files` coverage figure alongside `coverage[coverage_key]` whenever `corpus_filter` is
+# given, so a reader cannot mistake "every payload this run loaded" for "what the fingerprint
+# actually covers" -- the same pairing `pipeline.acquire.wahapedia.acquire_wahapedia`'s own live
+# path now reports (`csv_files` / `corpus_files`).
 """The fixture source adapter.
 
 ``--fixtures <dir>`` sources both upstreams from a synthetic tree. The point is not
@@ -161,7 +166,8 @@ def acquire_from_fixtures(
     (:func:`pipeline.acquire.wahapedia._corpus_payloads`) rather than this module reimplementing
     the exclusion by name. ``None`` (every other caller) is a total no-op: every loaded payload is
     corpus, exactly as before this parameter existed. ``payloads`` — what is returned and what
-    ``coverage[coverage_key]`` counts — is never filtered; only the fingerprint is.
+    ``coverage[coverage_key]`` counts — is never filtered; only the fingerprint and the
+    ``corpus_files`` figure below are.
     """
     resolved = layout or _LAYOUT[source_key]
     payloads = load_fixture_payloads(fixtures_dir, source_key, layout=resolved)
@@ -172,6 +178,12 @@ def acquire_from_fixtures(
 
     declared_edition = config.mfm_edition if source_key is SourceKey.MFM else config.detail_edition
     coverage_key = resolved.coverage_key
+    coverage = {coverage_key: len(payloads)}
+    if corpus_filter is not None:
+        # R05-fix2 item 4: named apart from `coverage_key` rather than left to silently disagree
+        # with what the fingerprint above covers -- the same pairing the live wahapedia path now
+        # reports (`csv_files` / `corpus_files`).
+        coverage["corpus_files"] = len(corpus)
 
     acquisition = SourceAcquisition(
         acquisition_id=f"{source_key.value}-{stamp}-{fingerprint[:8]}",
@@ -180,7 +192,7 @@ def acquire_from_fixtures(
         declared_edition_code=declared_edition,
         retrieved_at=moment.isoformat().replace("+00:00", "Z"),
         content_fingerprint=f"sha256:{fingerprint}",
-        coverage={coverage_key: len(payloads)},
+        coverage=coverage,
         request_count=0,
         request_interval_ms=0,
         outcome=AcquisitionOutcome.OK,

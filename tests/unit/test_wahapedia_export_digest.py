@@ -25,6 +25,11 @@
 # empty-corpus constant `content_fingerprint([])` must never surface as an UNCHANGED
 # acquisition's own `content_fingerprint` or `acquisition_id` -- confirmed red against today's
 # code first, per the same house rule.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - R05-fix2 item 4 (gate on PR #30):
+# `coverage["csv_files"]` and the content fingerprint described different sets (the former
+# counted the probe, the latter excluded it) under one shared name -- two new tests assert the
+# now-separately-named `csv_files` / `corpus_files` figures agree with what each actually counts,
+# on both the live path and `--fixtures`.
 """FR-030's whole hazard in one sentence: a cheap check that says "nothing changed" when
 something did. Every test here either proves the short-circuit cannot do that, or proves the
 mechanism that lets it skip real work at all still behaves.
@@ -715,3 +720,30 @@ def test_changing_a_real_export_file_still_moves_the_fingerprint_under_fixtures(
     assert acquisition_a.content_fingerprint != acquisition_b.content_fingerprint, (
         "a genuine corpus change reaching --fixtures must still move the fingerprint"
     )
+
+
+# -- R05-fix2 item 4 -- coverage and fingerprint must describe the same set ---------------------
+
+
+def test_the_coverage_and_fingerprint_counts_agree_on_a_full_fetch(tmp_path: Path) -> None:
+    """The live path: `csv_files` counts every file this run touched (the probe included), and
+    the new `corpus_files` names what the fingerprint actually covers -- the probe is the +1
+    between them, rather than the two disagreeing under one shared name."""
+    directory = tmp_path / "export"
+    _write_export(directory, last_update="2026-08-01T00:00:00Z")
+
+    acquisition, payloads = acquire_wahapedia(_config(str(directory)), offline=True)
+
+    assert acquisition.coverage["csv_files"] == len(payloads) == len(EXPORT_FILES)
+    assert acquisition.coverage["corpus_files"] == len(EXPORT_FILES) - 1
+
+
+def test_the_coverage_and_fingerprint_counts_agree_under_fixtures(tmp_path: Path) -> None:
+    """The same agreement, through `--fixtures`."""
+    fixtures_dir = tmp_path / "set"
+    _write_fixture_export(fixtures_dir, last_update="2026-08-01T00:00:00Z")
+
+    acquisition, payloads = acquire_wahapedia(_config(""), fixtures_dir=fixtures_dir)
+
+    assert acquisition.coverage["csv_files"] == len(payloads) == len(EXPORT_FILES)
+    assert acquisition.coverage["corpus_files"] == len(EXPORT_FILES) - 1
