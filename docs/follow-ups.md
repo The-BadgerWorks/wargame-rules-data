@@ -1123,3 +1123,107 @@ constructs an approved refresh with a syntactically valid but nonexistent author
 asserts the guard refuses it, under `pytest.mark.xfail(strict=True)`. The day this closes, that
 test goes green, the strict xfail fails, and whoever closed it is forced to promote the case into
 an ordinary assertion rather than leave a stale note behind.
+
+## 27. A record copied into a new shard file escapes the guard entirely (009 rung R02a-fix5)
+
+`tools/check_summary_approvals.py::_collect` reads the base side of a change class only from the
+paths the pull request *changed* — `changed_curation_files` asks git what changed, and every
+base-side `read_records_at` call is made against that same changed set. A record **copied** into
+a brand-new shard file, with the original file left untouched and its digest moved on the copy,
+therefore has no prior at the new path at all: it is not a rename, so R02a's `--no-renames`
+matching buys nothing, and `digest_refreshes` never sees it as a refresh — it reads as first-time
+authoring and needs no attribution pair. Reproduced directly against this worktree's
+`tools/check_summary_approvals.py`: a synthetic base commit with one approved record in
+`curation/abilities/shard-a.json`, and a head commit that leaves that file alone and adds
+`curation/abilities/shard-b.json` carrying the same `ability_key`, `review_state: "approved"`,
+and a moved `mechanic_digest` with no attribution pair, prints `OK` and exits 0.
+
+**The compounding half, which is the part with teeth.**
+`pipeline/curate/authored.py::_load_ability_summaries` builds the ability-summary map by iterating
+`sorted(directory.glob("*.json"))` and keying on `ability_key` with `summaries[summary.ability_key]
+= summary` — last-file-wins, with no duplicate-key check anywhere in the loop. Whichever shard
+sorts last wins the key. A record duplicated into a new shard is therefore not merely unguarded;
+if its filename sorts after the original's, it is also the copy the build actually consumes,
+digest and all, silently and regardless of which shard a reviewer thought was authoritative.
+
+**Why it was not fixed here.** The decision has been taken to replace the diff-based approach with
+whole-tree validation at build time rather than keep closing leaks in the changed-file framing one
+at a time; a targeted fix here would be replaced within the same feature.
+
+**Fix direction:** read the base side from **every file of the class** at the merge-base, not only
+the ones the diff touched — or, as planned, drop the diff framing entirely for whole-tree
+validation, which sees every record regardless of which file(s) carry it. The duplicate-key hazard
+in `_load_ability_summaries` is worth its own look regardless of which way the guard goes: a
+last-file-wins map over a human-editable directory has no mechanism to even notice a collision,
+let alone refuse one.
+
+**Pinned, not merely written down**:
+`tests/enrichment/test_digest_rebaseline.py::test_cmd_diff_refuses_an_approved_refresh_copied_into_a_new_shard_file`
+constructs the bypass end to end through `cmd_diff` (original shard untouched, new shard carrying
+the moved digest and no attribution) and asserts the refusal, under `pytest.mark.xfail(strict=True)`.
+The day this closes, that test goes green, the strict xfail fails, and whoever closed it is forced
+to promote the case into an ordinary assertion rather than leave a stale note behind. The
+compounding half in `_load_ability_summaries` is recorded above but not separately pinned — it has
+no `cmd_diff`-shaped surface to assert against, being a build-time consumption question rather than
+a guard question.
+
+## 28. Non-ASCII paths are silently skipped by both checks (009 rung R02a-fix5)
+
+`git diff --name-only` path-quotes any non-ASCII path by default (`core.quotePath` defaults to
+`true`), rendering it as a quoted string with octal escapes — e.g.
+`"curation/abilities/t\303\251st.json"` for a file literally named `tést.json`. `source_for`
+matches a changed path with a plain `str.startswith(source.prefix)`, which fails against the
+leading `"` the quoted form carries, so the file is silently dropped from `changed_curation_files`
+before either check sees it: the self-approval check and the digest re-baseline check both miss it.
+Reproduced directly against this worktree's `tools/check_summary_approvals.py`: a synthetic base
+commit with one approved record in `curation/abilities/tést.json`, and a head commit that moves
+its `mechanic_digest` with no attribution pair — `git diff --name-only --no-renames` renders the
+path quoted as above, the guard's `changed_curation_files` returns no matching pair for it, and
+`check_summary_approvals.py diff` prints `OK` and exits 0.
+
+**Why it was not fixed here.** Same reason as item 27: the diff-based framing this bug lives in is
+being replaced by whole-tree validation at build time, which reads every curation file regardless
+of what a diff's default quoting does to its name.
+
+**Fix direction:** `-c core.quotePath=false` on the `git diff` invocation, or `-z` with
+NUL-separated output parsed accordingly — either removes the quoting this bug depends on.
+
+**Pinned, not merely written down**:
+`tests/enrichment/test_digest_rebaseline.py::test_cmd_diff_refuses_an_unattributed_refresh_on_a_non_ascii_path`
+constructs an unattributed digest refresh on a record whose curation file's path carries a
+non-ASCII character and asserts the guard refuses it, under `pytest.mark.xfail(strict=True)`. The
+day this closes, that test goes green, the strict xfail fails, and whoever closed it is forced to
+promote the case into an ordinary assertion rather than leave a stale note behind.
+
+## 29. A shape-invalid curation file escapes this branch's own named refusal (009 rung R02a-fix5)
+
+`records_in` validates only the top-level container — that a wrapper class holds an object and an
+array is present under `wrapper_key`, or that a bare class holds a list — and never the shape of
+the elements inside it. A curation file whose top level is a syntactically valid JSON array of the
+wrong element shape, such as `["oops"]`, therefore passes `records_in` unchanged and reaches
+`newly_approved`, which calls `record.get("review_state")` on each element. A bare string has no
+`.get`, so this raises an unhandled `AttributeError` out of `newly_approved`, escaping the
+`except ValueError` refusal R02a-fix4 added to `cmd_diff` for exactly this class of malformed
+file — `json.JSONDecodeError` is a `ValueError` and is caught; a JSON document that parses cleanly
+but holds the wrong element shape one level down is not. Reproduced directly against this
+worktree's `tools/check_summary_approvals.py`: a synthetic base commit with an empty
+`curation/abilities/shard-c.json` (`[]`) and a head commit replacing its contents with `["oops"]`
+produces a Python traceback (`AttributeError: 'str' object has no attribute 'get'` at
+`newly_approved`, `check_summary_approvals.py:363`) rather than R02a-fix4's named `FAIL:` message.
+
+**It still exits non-zero, so CI stays red** — an unhandled exception exits 1 the same as
+`cmd_diff`'s own refusal path. It is the message that is wrong, not the outcome: a reviewer or a
+future maintainer sees a bare traceback instead of the guard's own diagnosis of what is wrong with
+the file and how to fix it.
+
+**Why it was not fixed here.** Same reason as items 27 and 28: this framing is being replaced by
+whole-tree validation at build time, and R02a-fix5's scope is recording what a final review found,
+not chasing a third round of shape-checking inside the diff-based tool.
+
+**Fix direction:** `records_in` (or a caller immediately after it) should validate that every
+element of the array is a `dict` before any field is read from it, raising the same `ValueError`
+`cmd_diff` already catches — turning this into the same named refusal R02a-fix4 gave a
+non-JSON file, rather than a distinct, unhandled failure mode.
+
+**Not pinned.** The kickoff for this rung asked only for items 1 and 2 (this file's items 27 and
+28) to be pinned if cheap; item 3 (this entry) was to be recorded only.
