@@ -11,6 +11,14 @@
      stamp while moving a digest. The ordinary path (an attributed rollback) is documented
      first, and this page is named as the escape hatch only for the case where even that
      cannot be done in time. -->
+<!-- AI-Assisted: Claude Code (model: claude-sonnet-5) - 009 rung R02a-fix4, item 2: this page
+     contradicted itself -- "the reverted records carry a stamp describing a re-baseline that is
+     no longer in effect" versus, a few paragraphs earlier, "no attribution pair" for the same
+     records. The second was correct; corrected the first, and named the interim exposure it was
+     hiding: with no stamp, prior_version/prior_authorization are None, which disarms the
+     staleness half of the guard's check on exactly those records until remediation lands. Also
+     corrected the revert-vs-stripped-stamp test citation to describe how R02a-fix4 item 1
+     actually builds the two arms now that they are independently constructed. -->
 # Break glass: hand-editing published state directly
 
 **This is an exception, not a procedure to reach for.** Every other document in this repository
@@ -172,10 +180,12 @@ is exactly the refusal above.
 — the abuse this check exists to catch — writes a byte-identical record. Nothing inside a
 base/head diff separates the two, so a rule admitting the rollback would admit the abuse with it.
 `tests/enrichment/test_digest_rebaseline.py`'s
-`test_a_plain_revert_and_a_stripped_stamp_are_the_same_pull_request` constructs both and asserts
-the guard receives identical input and returns an identical verdict; if that test ever fails, some signal has appeared that this decision should be
-revisited on. This is recorded as follow-up item 25's companion decision, and it is **not** a
-weakness the guard is unaware of.
+`test_a_plain_revert_and_a_stripped_stamp_are_the_same_pull_request` builds the rollback through
+an actual `git revert` of a real merged commit and the abuse through a hand-authored head record,
+in two separate throwaway repositories, and asserts the guard returns an identical verdict on
+both; if that test ever fails, some signal has appeared that this decision should be revisited on.
+This is recorded as follow-up item 25's companion decision, and it is **not** a weakness the guard
+is unaware of.
 
 ## The ordinary path: a rollback names its own decision
 
@@ -216,8 +226,22 @@ the Product Owner merges the revert with the guard's check overridden, and:
 - **Remediation is the ordinary path, run late.** A follow-up pull request adds the attribution
   pair naming the rollback decision to every record the revert touched, so the corpus ends up in
   the state the ordinary path would have produced and the next digest move on those records has a
-  truthful `prior` to be measured fresh against. Until that lands, the reverted records carry a
-  stamp describing a re-baseline that is no longer in effect.
+  truthful `prior` to be measured fresh against. **Until that lands, the reverted records carry
+  no attribution pair at all** — `digest_refreshed_at_version` and
+  `digest_refreshed_under_authorization` are both absent, exactly as reverting is described above:
+  the commit that added the pair is the one being undone.
+  - **This is a real interim exposure, not merely an untidy state.** With `prior_version` and
+    `prior_authorization` both `None`, the guard's staleness half of `attribution_defects` is
+    disarmed on exactly these records for as long as remediation is outstanding: a later pull
+    request can re-present the *reverted* commit's own version/authorization pair verbatim — the
+    stamp this page has just said describes a re-baseline that is no longer in effect — and
+    because there is no prior value for it to match, the guard reads it as freshly attributed
+    rather than stale, and passes it. Presence, not truth, is what the staleness check can see.
+  - **What closes the window**: either the follow-up pull request above lands, naming the
+    rollback's own new decision, or the affected records are moved out of `approved` (returned to
+    `in_review`) until it does. Until one of those happens, the presence of *some* version/
+    authorization pair on one of these records is not by itself evidence it was genuinely
+    re-authorized after the rollback.
 - **Never** loosen the guard, add an exemption path to it, or skip it in `ci.yml` to make a
   rollback land. An override is visible and leaves a record; a loosened guard is neither, and it
   stays loose for every pull request afterwards.
