@@ -40,6 +40,10 @@
      Product Owner ruling 2026-09-03): added item 30, recording `run_build`'s missing coverage
      guard as the precondition for ever wiring it to the export-timestamp short-circuit -- this
      round wired `detect` and only `detect`, exactly as ruled. -->
+<!-- AI-Assisted: Claude Code (model: claude-sonnet-5) - 009 rung R05-fix2 (gate on PR #30,
+     Product Owner ruling 2026-09-03 REVERSING the ruling above): updated item 30 to record the
+     reversal and the three reasons `detect` was rejected, having actually been tried --
+     `run_detect` is reverted to its pre-wiring behaviour and wiring is deferred to a future rung. -->
 <!-- AI-Assisted: Claude Code (model: claude-sonnet-5) - 006 T050 housekeeping: this file had two
      items both numbered "10" (the option-regression command and the published-at build options,
      added independently and never cross-checked against each other's heading). Renumbered the
@@ -1232,27 +1236,55 @@ non-JSON file, rather than a distinct, unhandled failure mode.
 **Not pinned.** The kickoff for this rung asked only for items 1 and 2 (this file's items 27 and
 28) to be pinned if cheap; item 3 (this entry) was to be recorded only.
 
-## 30. `run_build` has no coverage guard behind an opt-in -- the precondition for ever wiring it (009 rung R05-fix)
+## 30. No caller is wired to the export-timestamp short-circuit -- `detect` was tried and rejected (009 rung R05-fix / R05-fix2)
 
-`run_build` never calls `check_table_coverage` on the detail source it acquires — `run_detect`
-(R05-fix item 6) is the only caller now wired to the export-timestamp short-circuit, and
-`run_build` deliberately stays byte-for-byte unwired (Product Owner ruling, gate finding 5,
-2026-09-03): a short-circuited build would fetch only `Last_update.csv`, assemble against
-whatever detail rows happened to still be in scope (carried-forward factions, prior state, or
-none), and `check_table_coverage`'s absence from `run_build` means a near-empty detail set would
-not block — it would ship with, at most, an advisory `SRC-TABLE-MISSING` per missing table, the
-same shape of silent-total-loss this repository's own `CLAUDE.md` traps section already names for
-the coverage-ratchet family ("Ratchets read green on total loss").
+**Superseded, 2026-09-03 (R05-fix2).** The ruling this entry originally recorded — `detect` opts
+into `pipeline.acquire.wahapedia.acquire_wahapedia`'s export-timestamp short-circuit, `build`
+does not — has been **reversed by the Product Owner**. `run_detect` is reverted to its
+byte-for-byte pre-wiring behaviour (no detail-source acquisition, no `state_path`, no
+short-circuit involvement of any kind); `tests/unit/test_state_path_inert.py` asserts, as a
+structural property of the source, that no caller anywhere in `pipeline/` passes `state_path` a
+real value. The mechanism itself (`acquire_wahapedia`'s opt-in `state_path` parameter) is
+untouched and stays proven correct in isolation — it is simply wired into nothing.
 
-**Why it was not fixed here.** Out of scope by explicit ruling: this rung wires `detect` and only
-`detect`. `run_build` keeps fetching in full regardless, so the coverage guard's absence is inert
-under every call this rung makes or leaves unchanged — nothing published today is at risk from it.
+**Why `detect` was rejected, having actually been tried:**
+
+1. **It would have silently killed production detection.** `.github/workflows/detect.yml`'s
+   `detect` step carries no `env:` block — `candidate.yml` and `publish.yml` pass
+   `WGC_DETAIL_SOURCE_URL` and friends explicitly as repository variables, `detect.yml` does not,
+   and a GitHub repo variable is not automatically an environment variable. A wired `detect`
+   would demand `WGC_DETAIL_SOURCE_URL` on every scheduled run, not have it, and exit
+   `CONFIG_ERROR` (60): a green job, no candidate, no fault alert, no ledger entry — the scheduled
+   sweep would have gone quietly inert.
+2. **It coupled the release trigger to a source `detect` never otherwise reads.** `detect`'s job
+   is the points-source sweep; a Wahapedia outage under the wiring would abort that sweep too,
+   at exit 40, for a source the points-side release decision has nothing to do with.
+3. **The saving was never actually there.** When the export timestamp has moved, `detect` would
+   still download the whole export and discard every byte immediately — `detect` never reads a
+   detail-source row. The short-circuit's real saving (skipping a fetch whose bytes would
+   otherwise be read and parsed) only exists on the path that actually consumes the detail
+   source, which is `build`, not `detect`.
+
+**Wiring is deferred to a future rung** (R07 at the earliest), decided once a caller is genuinely
+consuming the detail source. The precondition below, from this entry's original R05-fix content,
+still stands for `build` specifically and is unaffected by the reversal.
+
+---
+
+`run_build` never calls `check_table_coverage` on the detail source it acquires. A
+short-circuited build would fetch only `Last_update.csv`, assemble against whatever detail rows
+happened to still be in scope (carried-forward factions, prior state, or none), and
+`check_table_coverage`'s absence from `run_build` means a near-empty detail set would not block —
+it would ship with, at most, an advisory `SRC-TABLE-MISSING` per missing table, the same shape of
+silent-total-loss this repository's own `CLAUDE.md` traps section already names for the
+coverage-ratchet family ("Ratchets read green on total loss").
 
 **Fix direction, when `build` is ever proposed for the short-circuit:** wire
 `check_table_coverage` (or an equivalent whole-detail-set coverage assertion, blocking rather than
 advisory) into `run_build`'s own acquisition path first, and treat that guard's presence — not
-merely its existence elsewhere in the codebase — as the precondition the Product Owner's ruling
-names. A short-circuited `build` is not safe to wire before that guard blocks on its own.
+merely its existence elsewhere in the codebase — as a precondition. A short-circuited `build` is
+not safe to wire before that guard blocks on its own.
 
-**Not pinned.** No code path in this repository wires `build` to the short-circuit, so there is
-nothing to reproduce yet; this entry records the precondition for the day one is proposed.
+**Not pinned.** No code path in this repository wires anything to the short-circuit, so there is
+nothing to reproduce yet; this entry records the precondition and the rejected direction for the
+day either is proposed again.
