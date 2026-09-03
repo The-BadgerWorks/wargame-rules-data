@@ -1,6 +1,11 @@
 <!-- AI-Assisted: Claude Code (model: claude-sonnet-5) - Authored the detection fixture set and
      documented why "an unreachable source" is not a fifth sub-directory here (task T100,
      research D4b, D10). Every name in every page below is invented; nothing was captured. -->
+<!-- AI-Assisted: Claude Code (model: claude-sonnet-5) - R05-fix item 6 (gate on PR #30): `detect`
+     now also probes the detail source's own `Last_update.csv`, so every set below gained a
+     minimal synthetic `wahapedia/` directory -- one placeholder file, since `--fixtures` reads it
+     by glob rather than by `EXPORT_FILES`'s exact name list and `detect` never parses the detail
+     source's rows, only acquires and records its outcome. -->
 # `fixtures/detection/`
 
 Four page-set pairs, each a deliberate one-step edit away from `baseline/`, so
@@ -16,18 +21,20 @@ units, invented placeholder prose, hand-authored from the structure description 
 
 ```text
 fixtures/detection/
-├── baseline/mfm/               # the reference state: two factions, one unit and one
-│                                # detachment each
-├── mechanical-change/mfm/      # verdant-marchers' 5-model band moves 80 -> 85 pts;
-│                                # duskrail-cabal is byte-identical to baseline
-├── presentation-only/mfm/      # both factions: reordered rows and sections, renumbered
-│                                # P:/S: ids, different colour/utility classes, an added
-│                                # UPDATED/Unique tag, an added delta marker on an UNCHANGED
-│                                # value, extra whitespace -- every mechanical value is
-│                                # identical to baseline
-└── restructured/mfm/           # verdant-marchers' 5-model swap is gone, so its <template>
-                                 # is never filled; duskrail-cabal is unchanged, to prove one
-                                 # broken page fails the whole sweep (FR-008)
+├── baseline/mfm/                    # the reference state: two factions, one unit and one
+│   └── wahapedia/Last_update.csv    # detachment each; a placeholder detail-source probe --
+│                                     # detect never parses these rows, only acquires them
+├── mechanical-change/mfm/           # verdant-marchers' 5-model band moves 80 -> 85 pts;
+│   └── wahapedia/Last_update.csv    # duskrail-cabal is byte-identical to baseline
+├── presentation-only/mfm/           # both factions: reordered rows and sections, renumbered
+│   └── wahapedia/Last_update.csv    # P:/S: ids, different colour/utility classes, an added
+│                                     # UPDATED/Unique tag, an added delta marker on an
+│                                     # UNCHANGED value, extra whitespace -- every mechanical
+│                                     # value is identical to baseline
+└── restructured/mfm/                # verdant-marchers' 5-model swap is gone, so its
+    └── wahapedia/Last_update.csv    # <template> is never filled; duskrail-cabal is
+                                      # unchanged, to prove one broken page fails the whole
+                                      # sweep (FR-008)
 ```
 
 ## Running it
