@@ -35,6 +35,11 @@
 # `test_the_short_circuits_own_fingerprint_never_claims_full_verification` proves the content
 # fingerprint can differ while this code still fires. The text now says what the check actually
 # checks.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - Registered SRC-STATE-CORRUPT (009 rung
+# R05-fix3 item 2): `pipeline/acquire/wahapedia.py::ExportStateCorrupt` has raised this code since
+# R05-fix item 4, but it was absent here, so `definition("SRC-STATE-CORRUPT")` raised
+# `UnknownFindingCodeError` -- unlike every other `finding_code` in `pipeline/`. Given the same
+# class and severity as its acquire-stage siblings SRC-UNREACHABLE and SRC-REFUSED.
 """The finding catalogue.
 
 ``validation-report.md`` §1.1: **severity is a property of the code, not of the occurrence.** A
@@ -185,6 +190,16 @@ _DEFINITIONS: Final[tuple[FindingDefinition, ...]] = (
         "009 FR-018",
         "a table the build consumes is absent or empty in the acquired set; named by table, "
         "asserted against a real acquisition rather than a fixture directory listing",
+    ),
+    _d(
+        "SRC-STATE-CORRUPT",
+        _COV,
+        _B,
+        "009 FR-030, R05-fix item 4",
+        "state/wahapedia-export-digest.json exists but is not a JSON object; this pipeline is "
+        "the only writer of that file, so finding something else there is evidence of external "
+        "tampering or truncation, never a fact to route around -- fails closed on the same "
+        "severity and class as SRC-UNREACHABLE and SRC-REFUSED, its acquire-stage siblings",
     ),
     _d(
         "SRC-EXPORT-UNCHANGED",

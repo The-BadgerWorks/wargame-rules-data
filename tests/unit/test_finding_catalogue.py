@@ -6,6 +6,9 @@
 # AI-Assisted: Claude Code (model: claude-sonnet-5) - Transcribed 009-csv-migration's three
 # Foundational codes (009 task T017) into PENDING_CONTRACT_SEVERITIES, independently of
 # catalogue.py.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - Transcribed SRC-STATE-CORRUPT (009 rung
+# R05-fix3 item 2) into PENDING_CONTRACT_SEVERITIES, independently of catalogue.py, matching the
+# severity now registered there.
 """Severity belongs to the code, not to the occurrence.
 
 ``curation/resolutions.json`` entries reference finding codes, so a code whose severity moved
@@ -142,6 +145,11 @@ PENDING_CONTRACT_SEVERITIES = {
     "REC-DETAIL-FACTION-EMPTY": B,
     "SRC-TABLE-MISSING": B,
     "SRC-EXPORT-UNCHANGED": A,
+    # 009-csv-migration (task T090, R05-fix item 4, registered R05-fix3 item 2): the state file
+    # this rung's short-circuit added is the only writer of state/wahapedia-export-digest.json,
+    # so finding something else there fails closed rather than being swallowed or left to crash
+    # unmapped. Same class and severity as its acquire-stage siblings SRC-UNREACHABLE/SRC-REFUSED.
+    "SRC-STATE-CORRUPT": B,
     # 009-csv-migration (data-model.md §3, task T048, Product Owner decision T047 2026-08-18:
     # hybrid now, full later): the per-class arm-attribution advisory, on the identical
     # ahead-of-contract terms as the three above.
