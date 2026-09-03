@@ -50,6 +50,9 @@
 # `plan.md` finding 1 silent-failure shape this feature exists to make loud.
 # AI-Assisted: Claude Code (model: claude-sonnet-5) - 009 task T028: updated
 # DETACHMENT_ABILITIES_FILE's comment now that it has joined EXPORT_FILES under the csv arm too.
+# AI-Assisted: Claude Code (model: claude-opus-5) - 009 rung R01b: forward
+# `carried_forward_detail_ids` to `resolve_factions`, so a faction carried forward from the
+# previous published tree is not reported as an unexplained empty faction.
 """Build one :class:`~pipeline.models.curated.CuratedSnapshot` from everything upstream.
 
 This is where the two sources stop being two sources. The **points** source is authoritative for
@@ -1425,8 +1428,17 @@ def assemble(  # noqa: PLR0913 - the stage genuinely needs every upstream input
     edition_code: str,
     edition_name: str,
     registry: IdRegistry | None = None,
+    carried_forward_detail_ids: frozenset[str] = frozenset(),
 ) -> AssemblyResult:
-    """Build the whole curated snapshot."""
+    """Build the whole curated snapshot.
+
+    ``carried_forward_detail_ids`` (008 FR-024) is carried straight through to
+    :func:`~pipeline.reconcile.match.resolve_factions` — the detail-source ids acquisition
+    declared **and** could not fetch this run, so a faction contributing no rows for that reason
+    is not the unexplained ``REC-DETAIL-FACTION-EMPTY``. Plain data resolved at acquisition by
+    :func:`pipeline.acquire.detail_source.resolve_carried_forward`; nothing here knows a mode
+    exists (rule 4). Defaults to empty, which is inert.
+    """
     findings: list[Finding] = []
     registry = registry or IdRegistry()
     edition_id = f"ed-{edition_code}"
@@ -1444,6 +1456,7 @@ def assemble(  # noqa: PLR0913 - the stage genuinely needs every upstream input
         [page.faction_slug for page in pages],
         authored,
         detail_faction_ids_present=detail_faction_ids_present,
+        carried_forward_detail_ids=carried_forward_detail_ids,
     )
     findings.extend(factions_outcome.findings)
     scopes = {scope.entry.mfm_slug: scope for scope in factions_outcome.scopes}

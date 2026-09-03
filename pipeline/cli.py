@@ -28,6 +28,11 @@
 # `run_build`'s own docstring and by curated-snapshot-format.md §6 since 002, and was reachable
 # from no invocation at all, so every build stamped its own UTC day and `publish.yml`'s rebuild
 # of an approved candidate failed FR-039 with exit 51 the moment approval crossed 00:00Z.
+# AI-Assisted: Claude Code (model: claude-opus-5) - 009 rung R01b: resolve the carry-forward
+# carried/unused split at the acquisition boundary via `resolve_carried_forward`, before
+# `assemble` rather than after it, and feed the carried set to both `assemble` (so the faction
+# guard knows the absence was declared) and `apply_carried_forward` (so the splice and the
+# exemption can never disagree about which faction is which).
 """``rules-pipeline`` — the operator-facing surface.
 
 The same CLI runs locally against fixtures and in CI against the real sources: **there is no
@@ -76,6 +81,7 @@ from pipeline.acquire.detail_source import (
     acquire_detail,
     apply_detail_source_authority,
     read_detail,
+    resolve_carried_forward,
 )
 from pipeline.acquire.http import AcquisitionError, PoliteClient
 from pipeline.acquire.mfm import acquire_mfm
@@ -86,7 +92,6 @@ from pipeline.build.manifest import ManifestError
 from pipeline.config import (
     Channel,
     ConfigError,
-    DetailAcquisitionMode,
     PipelineConfig,
     load_config,
     repo_root,
@@ -771,6 +776,17 @@ def run_build(  # noqa: PLR0913 - the stage boundary is the argument list
             workspace=work,
             carried_forward_slugs=authored.carried_forward_slugs,
         )
+        # 008 FR-024/FR-025: which declared slug landed which way, derived from the payloads
+        # acquisition actually returned. Computed HERE, at the acquisition boundary and before
+        # `assemble` — not at the splice below — because `resolve_factions` needs the carried set
+        # to know that a faction contributing no detail rows did so for a declared reason, and by
+        # the time `apply_carried_forward` runs, `REC-DETAIL-FACTION-EMPTY` has already been
+        # appended with no path to withdraw it. `resolve_carried_forward` owns the one mode
+        # question involved (whether a payload name is a faction slug at all); everything below
+        # receives its answer as a plain `frozenset[str]` (rule 4/FR-012).
+        carry_forward = resolve_carried_forward(
+            config, detail_payloads, declared_slugs=authored.carried_forward_slugs
+        )
 
         pages = [
             parse_faction_page(payload.name, replay(payload.text).html)
@@ -803,6 +819,7 @@ def run_build(  # noqa: PLR0913 - the stage boundary is the argument list
             detail_acquisition=detail_acq,
             edition_code=EDITION_CODE,
             edition_name=EDITION_NAME,
+            carried_forward_detail_ids=carry_forward.carried,
         )
         findings.extend(assembly.findings)
         snapshot = assembly.snapshot
@@ -850,25 +867,14 @@ def run_build(  # noqa: PLR0913 - the stage boundary is the argument list
     # acquisition layer could not fetch this run, from `previous_tree` — BEFORE reconciliation, so
     # a carried faction's datasheets read as "present, unchanged" to every coverage figure below,
     # structurally rather than via a coverage.py special case. No-op when nothing was declared.
-    # Which declared slug landed which way is derived here, from the payloads actually returned —
-    # `SourceAcquisition.coverage` carries only counts (it is `Mapping[str, int]`, feeding FR-009's
-    # figures), never slugs, so this is the one place that needs the two sets and the one place
-    # cheap enough to compute them in. **html mode only**: a csv-mode payload's `name` is a file
-    # name (`Datasheets.csv`), never a faction slug, so a declaration would falsely read as
-    # "carried" for every entry under any other mode — carry-forward has no meaning where there is
-    # no per-faction page to fail in the first place.
-    if config.detail_acquisition_mode is DetailAcquisitionMode.HTML:
-        fetched_slugs = frozenset(payload.name for payload in detail_payloads)
-        carried_slugs = authored.carried_forward_slugs - fetched_slugs
-        unused_slugs = authored.carried_forward_slugs & fetched_slugs
-    else:
-        carried_slugs = frozenset()
-        unused_slugs = frozenset()
+    # The split itself is `carry_forward`, resolved at acquisition above — the same two sets
+    # `assemble` was given, so the faction the splice fills in and the faction the guard exempts
+    # can never be different factions.
     snapshot, carry_forward_findings = apply_carried_forward(
         snapshot,
         previous_tree=previous_tree,
-        carried_slugs=carried_slugs,
-        unused_declaration_slugs=unused_slugs,
+        carried_slugs=carry_forward.carried,
+        unused_declaration_slugs=carry_forward.unused,
         previous_version_id=(prior.rules_version_id if prior else None) or "(none)",
     )
     findings.extend(carry_forward_findings)

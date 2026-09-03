@@ -14,6 +14,11 @@
 # AI-Assisted: Claude Code (model: claude-opus-5) - Added the unset-source-URL assertions (004
 # T075 follow-up): both arms refuse the empty default rather than interpreting it, and a fixture
 # run still never reads it.
+# AI-Assisted: Claude Code (model: claude-opus-5) - Added the `resolve_carried_forward` receipts
+# (009 rung R01b): the carried/unused split is the one mode question carry-forward involves, so it
+# is resolved in `acquire/detail_source.py` and must stay empty under every arm that has no
+# per-faction page -- otherwise a csv payload's file name would read as a carried faction slug and
+# exempt every declared faction from `REC-DETAIL-FACTION-EMPTY`.
 """Mode-blindness is a property to be proven, not a comment to be believed.
 
 The design's load-bearing claim is that everything below ``acquire`` cannot tell which mode ran.
@@ -42,7 +47,9 @@ from pipeline.acquire.detail_source import (
     acquirer_for,
     read_detail,
     reader_for,
+    resolve_carried_forward,
 )
+from pipeline.acquire.fixtures import FixturePayload
 from pipeline.acquire.wahapedia import acquire_wahapedia
 from pipeline.acquire.wahapedia_html import acquire_wahapedia_html
 from pipeline.config import ConfigError, DetailAcquisitionMode, PipelineConfig, load_config
@@ -364,3 +371,61 @@ def test_selecting_html_mode_changes_no_other_configured_value() -> None:
     html_values = dataclasses.asdict(html_config)
     differing = {k for k in csv_values if csv_values[k] != html_values[k]}
     assert differing == {"detail_acquisition_mode"}
+
+
+# -- the carry-forward split, and why it lives in `acquire/` (009 rung R01b) --------------------
+#
+# `REC-DETAIL-FACTION-EMPTY` (009 T018/T019) blocks a mapped faction that resolves to zero detail
+# rows. 008's carry-forward (FR-024) is the Product-Owner-approved answer for exactly that
+# condition, and every declared faction is parentless, so `resolve_factions`' ancestor walk -- the
+# thing that spares a Space Marine chapter -- rescued none of them. The exemption needs the set of
+# ids actually carried, which is a MODE question (is a payload name a faction slug at all?), so it
+# is answered here and travels below `acquire` as plain data.
+
+
+def _payload(name: str) -> FixturePayload:
+    return FixturePayload(name=name, text="")
+
+
+_DECLARED: Final = frozenset({"veiled-conclave", "tarnish-host"})
+
+
+def test_html_mode_splits_declared_slugs_by_what_acquisition_returned() -> None:
+    outcome = resolve_carried_forward(
+        _config(WGC_DETAIL_ACQUISITION_MODE="html"),
+        [_payload("tarnish-host"), _payload("emberwrights")],
+        declared_slugs=_DECLARED,
+    )
+
+    assert outcome.carried == frozenset({"veiled-conclave"})
+    assert outcome.unused == frozenset({"tarnish-host"})
+
+
+def test_a_declaration_never_leaks_into_csv_mode() -> None:
+    """A csv payload's name is `Datasheets.csv`, never a faction slug.
+
+    Splitting on it would put every declared slug in `carried` -- exempting every one of them
+    from the faction guard on a run where the export was read perfectly well. The whole set stays
+    empty instead, which is also what makes carry-forward a no-op under that arm exactly as it
+    was before this rung.
+    """
+    outcome = resolve_carried_forward(
+        _config(),
+        [_payload("Datasheets.csv"), _payload("Datasheets_options.csv")],
+        declared_slugs=_DECLARED,
+    )
+
+    assert outcome.carried == frozenset()
+    assert outcome.unused == frozenset()
+
+
+def test_the_two_halves_are_disjoint_and_cover_the_declared_set_under_html() -> None:
+    """A slug in both sets would be carried AND reported as an unused declaration."""
+    outcome = resolve_carried_forward(
+        _config(WGC_DETAIL_ACQUISITION_MODE="html"),
+        [_payload("tarnish-host")],
+        declared_slugs=_DECLARED,
+    )
+
+    assert not (outcome.carried & outcome.unused)
+    assert outcome.carried | outcome.unused == _DECLARED

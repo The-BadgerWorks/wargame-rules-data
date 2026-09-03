@@ -2,6 +2,11 @@
 # dispatch (004 task T018): csv routes to the existing export acquirer unchanged, html routes to
 # the datacard acquirer, both producing the same SourceAcquisition record shape so every stage
 # below parse is mode-blind (004 research D1d, plan Architecture).
+# AI-Assisted: Claude Code (model: claude-opus-5) - 009 rung R01b: added `resolve_carried_forward`,
+# which splits the declared carry-forward set into carried/unused against the payloads acquisition
+# returned. It lives here because "is a payload name a faction slug?" is the mode question, and the
+# mode's influence belongs in this module; `pipeline/cli.py` had the branch and could only reach it
+# after `assemble` had already run.
 """Which shape the datasheet-detail source is read in — and nothing else.
 
 ``WGC_DETAIL_ACQUISITION_MODE`` selects **a parser, not a behaviour**. This is the same
@@ -30,6 +35,7 @@ from __future__ import annotations
 
 import re
 from collections.abc import Callable, Mapping, Sequence
+from dataclasses import dataclass
 from dataclasses import replace as _replace_csv_read_result
 from datetime import datetime
 from pathlib import Path
@@ -246,6 +252,52 @@ def acquire_detail(
         workspace=workspace,
         carried_forward_slugs=carried_forward_slugs,
     )
+
+
+@dataclass(frozen=True, slots=True)
+class CarriedForwardOutcome:
+    """Which declared carry-forward slugs this run actually used, and which it did not.
+
+    Two disjoint subsets of ``curation/carried-forward-factions.json``'s declared set, and the
+    ONLY place that split is computed (008 FR-024/FR-025):
+
+    * ``carried`` — declared **and** not returned by acquisition. The faction's data is spliced
+      in from the previous published tree, and it is what exempts the faction from
+      ``REC-DETAIL-FACTION-EMPTY`` downstream.
+    * ``unused`` — declared **and** returned anyway; the source recovered, the live data is used
+      like anybody else's, and the declaration can be retired.
+
+    Empty under every arm but ``html``, deliberately: a ``csv``-mode payload's ``name`` is a file
+    name (``Datasheets.csv``), never a faction slug, so a declaration would falsely read as
+    "carried" for every entry. Carry-forward has no meaning where there is no per-faction page
+    to fail in the first place.
+    """
+
+    carried: frozenset[str] = frozenset()
+    unused: frozenset[str] = frozenset()
+
+
+def resolve_carried_forward(
+    config: PipelineConfig,
+    payloads: Sequence[FixturePayload],
+    *,
+    declared_slugs: frozenset[str],
+) -> CarriedForwardOutcome:
+    """Split ``declared_slugs`` against what acquisition actually returned.
+
+    Lives here rather than in ``pipeline/cli.py`` for the reason this whole module exists: the
+    split is a *mode* question — whether a payload name is a faction slug at all — and the mode's
+    influence is contained in this file (rule 4/FR-012). Every stage below receives the answer as
+    a plain ``frozenset[str]`` of detail-source ids and never learns which arm produced it.
+
+    ``SourceAcquisition.coverage`` cannot answer this: it is a ``Mapping[str, int]`` of counts
+    feeding FR-009's figures and carries no slugs, so the payload names are the only record of
+    which declared page came back.
+    """
+    if config.detail_acquisition_mode is not DetailAcquisitionMode.HTML:
+        return CarriedForwardOutcome()
+    fetched = frozenset(payload.name for payload in payloads)
+    return CarriedForwardOutcome(carried=declared_slugs - fetched, unused=declared_slugs & fetched)
 
 
 def read_detail(
