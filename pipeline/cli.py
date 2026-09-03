@@ -33,6 +33,20 @@
 # `assemble` rather than after it, and feed the carried set to both `assemble` (so the faction
 # guard knows the absence was declared) and `apply_carried_forward` (so the splice and the
 # exemption can never disagree about which faction is which).
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - 009 rung R05-fix2 (gate on PR #30): the
+# Product Owner reversed the previous round's ruling that wired `run_detect` to the detail
+# source's export-timestamp short-circuit. `run_detect` is reverted here to its byte-for-byte
+# pre-wiring behaviour -- no detail-source acquisition, no `state_path`, no short-circuit
+# involvement of any kind -- because `detect.yml` has no `env:` block passing
+# `WGC_DETAIL_SOURCE_URL`, so the wiring would have made `detect` demand a variable it never
+# receives on a real run and exit CONFIG_ERROR (60) with no candidate, no fault alert, and no
+# ledger entry; because it coupled the release trigger to a source `detect` never otherwise
+# reads; and because the short-circuit's saving was never actually there for `detect` -- on a
+# moved timestamp `detect` fetches and discards the whole export exactly as before, since the
+# saving belongs to whichever stage consumes the detail source, which is `build`, not `detect`.
+# Wiring is deferred to a future rung, decided once a caller is genuinely consuming the detail
+# source (see `docs/follow-ups.md` item 30). The mechanism itself (`acquire_wahapedia`'s
+# `state_path` opt-in) is untouched here and stays proven in isolation.
 """``rules-pipeline`` — the operator-facing surface.
 
 The same CLI runs locally against fixtures and in CI against the real sources: **there is no
@@ -810,6 +824,13 @@ def run_build(  # noqa: PLR0913 - the stage boundary is the argument list
         findings: list[Finding] = []
         for result in detail.values():
             findings.extend(result.findings)
+        # 009 rung R05 (T087, T091, FR-031): acquisition-time findings -- SRC-EXPORT-UNCHANGED,
+        # were a caller ever to opt `detail_acq` into the export-timestamp short-circuit -- reach
+        # the run's report the same way a table-level finding does. `run_build` itself never
+        # passes `state_path` to `acquire_detail` (see that function's own docstring), so this is
+        # presently always `()`; it is here so a future caller that does opt in needs no second
+        # wiring point.
+        findings.extend(detail_acq.findings)
 
         assembly = assemble(
             pages=pages,

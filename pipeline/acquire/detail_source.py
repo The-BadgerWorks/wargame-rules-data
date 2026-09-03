@@ -131,6 +131,7 @@ class DetailAcquirer(Protocol):
         retrieved_at: datetime | None = ...,
         workspace: Path | None = ...,
         carried_forward_slugs: frozenset[str] = ...,
+        state_path: Path | None = ...,
     ) -> tuple[SourceAcquisition, list[FixturePayload]]: ...
 
 
@@ -232,6 +233,7 @@ def acquire_detail(
     retrieved_at: datetime | None = None,
     workspace: Path | None = None,
     carried_forward_slugs: frozenset[str] = frozenset(),
+    state_path: Path | None = None,
 ) -> tuple[SourceAcquisition, list[FixturePayload]]:
     """Acquire the datasheet-detail source in the configured mode.
 
@@ -239,6 +241,12 @@ def acquire_detail(
 
     ``carried_forward_slugs`` (008 FR-024): forwarded to whichever arm ran. Only the html arm
     gives it any meaning — see :func:`pipeline.acquire.wahapedia_html.acquire_wahapedia_html`.
+
+    ``state_path`` (009 rung R05, T090): forwarded to whichever arm ran, on the same terms.
+    Only the csv arm gives it any meaning — see
+    :func:`pipeline.acquire.wahapedia.acquire_wahapedia`'s own docstring for the export-timestamp
+    short-circuit it switches on. ``None`` (this function's default, and every call `run_build`
+    makes) is a no-op for either arm.
     """
     acquire: Callable[..., tuple[SourceAcquisition, list[FixturePayload]]] = acquirer_for(
         config.detail_acquisition_mode
@@ -251,6 +259,7 @@ def acquire_detail(
         retrieved_at=retrieved_at,
         workspace=workspace,
         carried_forward_slugs=carried_forward_slugs,
+        state_path=state_path,
     )
 
 

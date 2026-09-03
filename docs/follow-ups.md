@@ -36,6 +36,14 @@
      12): the two `build` options that finally make `snapshotMeta.publishedAt` a reachable input,
      landed ahead of the §1 amendment they are owed, after a rebuild that crossed 00:00Z refused an
      approved candidate with exit 51. -->
+<!-- AI-Assisted: Claude Code (model: claude-sonnet-5) - 009 rung R05-fix (gate on PR #30,
+     Product Owner ruling 2026-09-03): added item 30, recording `run_build`'s missing coverage
+     guard as the precondition for ever wiring it to the export-timestamp short-circuit -- this
+     round wired `detect` and only `detect`, exactly as ruled. -->
+<!-- AI-Assisted: Claude Code (model: claude-sonnet-5) - 009 rung R05-fix2 (gate on PR #30,
+     Product Owner ruling 2026-09-03 REVERSING the ruling above): updated item 30 to record the
+     reversal and the three reasons `detect` was rejected, having actually been tried --
+     `run_detect` is reverted to its pre-wiring behaviour and wiring is deferred to a future rung. -->
 <!-- AI-Assisted: Claude Code (model: claude-sonnet-5) - 006 T050 housekeeping: this file had two
      items both numbered "10" (the option-regression command and the published-at build options,
      added independently and never cross-checked against each other's heading). Renumbered the
@@ -78,6 +86,14 @@
      3): the digest guard's attribution pair is checked for shape only, never resolved to a real
      artefact -- an invented authorization string satisfies FR-028/FR-029 as written. Pinned with
      a strict xfail rather than closed, since resolving it is its own already-planned rung. -->
+<!-- AI-Assisted: Claude Code (model: claude-sonnet-5) - 009 rung R05-fix3 (gate on PR #30):
+     added items 31-34, the four findings a final review surfaced beside item 30 -- an UNCHANGED
+     run's coverage/fingerprint set mismatch, ExportStateCorrupt's borrowed exit code, the
+     probe-matching mismatch between export_digest_state_for and _is_probe, and work/ carrying a
+     one-file "export" on a short-circuited build. All four are gated behind wiring that does not
+     exist (tests/unit/test_state_path_inert.py proves no caller passes state_path a real value),
+     so none is fixed here -- recording them is the job, exactly as item 30 already does for the
+     coverage-guard precondition. -->
 # Follow-ups
 
 Open items surfaced during implementation that are deliberately **not** fixed as part of the work
@@ -1227,3 +1243,156 @@ non-JSON file, rather than a distinct, unhandled failure mode.
 
 **Not pinned.** The kickoff for this rung asked only for items 1 and 2 (this file's items 27 and
 28) to be pinned if cheap; item 3 (this entry) was to be recorded only.
+
+## 30. No caller is wired to the export-timestamp short-circuit -- `detect` was tried and rejected (009 rung R05-fix / R05-fix2)
+
+**Superseded, 2026-09-03 (R05-fix2).** The ruling this entry originally recorded — `detect` opts
+into `pipeline.acquire.wahapedia.acquire_wahapedia`'s export-timestamp short-circuit, `build`
+does not — has been **reversed by the Product Owner**. `run_detect` is reverted to its
+byte-for-byte pre-wiring behaviour (no detail-source acquisition, no `state_path`, no
+short-circuit involvement of any kind); `tests/unit/test_state_path_inert.py` asserts, as a
+structural property of the source, that no caller anywhere in `pipeline/` passes `state_path` a
+real value. The mechanism itself (`acquire_wahapedia`'s opt-in `state_path` parameter) is
+untouched and stays proven correct in isolation — it is simply wired into nothing.
+
+**Why `detect` was rejected, having actually been tried:**
+
+1. **It would have silently killed production detection.** `.github/workflows/detect.yml`'s
+   `detect` step carries no `env:` block — `candidate.yml` and `publish.yml` pass
+   `WGC_DETAIL_SOURCE_URL` and friends explicitly as repository variables, `detect.yml` does not,
+   and a GitHub repo variable is not automatically an environment variable. A wired `detect`
+   would demand `WGC_DETAIL_SOURCE_URL` on every scheduled run, not have it, and exit
+   `CONFIG_ERROR` (60): a green job, no candidate, no fault alert, no ledger entry — the scheduled
+   sweep would have gone quietly inert.
+2. **It coupled the release trigger to a source `detect` never otherwise reads.** `detect`'s job
+   is the points-source sweep; a Wahapedia outage under the wiring would abort that sweep too,
+   at exit 40, for a source the points-side release decision has nothing to do with.
+3. **The saving was never actually there.** When the export timestamp has moved, `detect` would
+   still download the whole export and discard every byte immediately — `detect` never reads a
+   detail-source row. The short-circuit's real saving (skipping a fetch whose bytes would
+   otherwise be read and parsed) only exists on the path that actually consumes the detail
+   source, which is `build`, not `detect`.
+
+**Wiring is deferred to a future rung** (R07 at the earliest), decided once a caller is genuinely
+consuming the detail source. The precondition below, from this entry's original R05-fix content,
+still stands for `build` specifically and is unaffected by the reversal.
+
+---
+
+`run_build` never calls `check_table_coverage` on the detail source it acquires. A
+short-circuited build would fetch only `Last_update.csv`, assemble against whatever detail rows
+happened to still be in scope (carried-forward factions, prior state, or none), and
+`check_table_coverage`'s absence from `run_build` means a near-empty detail set would not block —
+it would ship with, at most, an advisory `SRC-TABLE-MISSING` per missing table, the same shape of
+silent-total-loss this repository's own `CLAUDE.md` traps section already names for the
+coverage-ratchet family ("Ratchets read green on total loss").
+
+**Fix direction, when `build` is ever proposed for the short-circuit:** wire
+`check_table_coverage` (or an equivalent whole-detail-set coverage assertion, blocking rather than
+advisory) into `run_build`'s own acquisition path first, and treat that guard's presence — not
+merely its existence elsewhere in the codebase — as a precondition. A short-circuited `build` is
+not safe to wire before that guard blocks on its own.
+
+**Not pinned.** No code path in this repository wires anything to the short-circuit, so there is
+nothing to reproduce yet; this entry records the precondition and the rejected direction for the
+day either is proposed again.
+
+## 31. An UNCHANGED run reports `coverage["corpus_files"] == 0` while `content_fingerprint` describes the prior run's corpus (009 rung R05-fix3)
+
+**Gated behind wiring that does not exist.** `tests/unit/test_state_path_inert.py` asserts no
+caller in `pipeline/` passes `acquire_wahapedia`'s `state_path` a real value, so the short-circuit
+this item describes never fires in any run this repository actually performs. Recorded as a
+precondition, not fixed, on the same terms item 30 already states for the group.
+
+**Reproduction.** `pipeline/acquire/wahapedia.py::acquire_wahapedia`, lines ~540-559. On a
+short-circuited (`outcome is AcquisitionOutcome.UNCHANGED`) run, `payloads` holds only the probe
+(`Last_update.csv`, line 512: `payloads = [last_update]`), so `corpus = _corpus_payloads(payloads)`
+is empty and `coverage["corpus_files"] = len(corpus) = 0` (line 559). But `fingerprint` is not
+recomputed from that empty corpus -- line 550 carries `prior_state.content_fingerprint` forward
+unchanged, the real fingerprint the *previous* run's full 15-file corpus produced. The two
+top-level fields of the same `SourceAcquisition` record describe different sets: `corpus_files`
+says "nothing was fetched this run" and `content_fingerprint` says "here is the hash of 15 files."
+A reader who trusts `corpus_files` as the fingerprint's own denominator is misled.
+
+**Why left.** This is the mismatch R05-fix2 item 4 set out to fix by giving `corpus_files` its own
+key separate from `csv_files` -- but R05-fix2's own both-directions receipt only exercised the
+full-fetch path, never the `UNCHANGED` short-circuit path, so the fix's coverage of its own target
+case was never proven. Fixing it now (making `corpus_files` report the prior run's carried-forward
+count, or documenting the field as "this run's own fetch count" explicitly) is design work on a
+mechanism nothing calls; R07 is where that design happens, once a caller opts in.
+
+## 32. `ExportStateCorrupt` inherits `exit_code = SOURCE_UNAVAILABLE` (40), tripping `detect.yml`'s source-fault alert for a local file problem (009 rung R05-fix3)
+
+**Gated behind wiring that does not exist** -- same inertness proof as item 31.
+
+**Reproduction.** `pipeline/acquire/http.py`'s `AcquisitionError` base class sets
+`exit_code: ExitCode = ExitCode.SOURCE_UNAVAILABLE` (line 79).
+`pipeline/acquire/wahapedia.py::ExportStateCorrupt` (line 153) subclasses `AcquisitionError` and
+overrides only `finding_code`, never `exit_code`, so a corrupt **local**
+`state/wahapedia-export-digest.json` -- hand-edited, truncated, or overwritten outside the
+pipeline's own contract -- exits `40` (`SOURCE_UNAVAILABLE`) exactly as a genuine upstream network
+failure would. `.github/workflows/detect.yml`'s source-fault alert is keyed on that exit code
+family, so it would fire for a state-file integrity problem that has nothing to do with the source
+being reachable.
+
+**Precedent.** `pipeline/acquire/http.py::OfflineViolation` (line 103) is the sibling that already
+overrides `exit_code = ExitCode.CONFIG_ERROR` for exactly this reason: "nothing is wrong upstream,
+the run asked for something `--offline` forbids." `ExportStateCorrupt`'s docstring makes the
+identical claim about itself ("the file was hand-edited, truncated, or overwritten by something
+outside the contract") but never took the code that claim implies.
+
+**Why left.** No caller ever passes a real `state_path`, so no run this repository performs can
+raise `ExportStateCorrupt` today -- there is no live alert to correct. Overriding the exit code is
+a one-line, low-risk change, which is exactly why it is tempting to fix opportunistically; doing so
+now would be speculative work on a mechanism nobody calls, and R07 revisits every exit-code and
+alert-routing decision for this short-circuit once a caller exists to observe it against.
+
+## 33. `export_digest_state_for` matches the probe by exact filename while `_is_probe` matches by stem, so under `--fixtures` the documented save sequence raises `AttributeError` (009 rung R05-fix3)
+
+**Gated behind wiring that does not exist** -- same inertness proof as items 31 and 32.
+
+**Reproduction.** `pipeline/acquire/wahapedia.py::export_digest_state_for` (line 305):
+`probe = next((payload for payload in payloads if payload.name == LAST_UPDATE_FILE), None)` --
+`LAST_UPDATE_FILE` is the literal string `"Last_update.csv"`. The fixture adapter
+(`load_fixture_payloads`) names every payload by `Path.stem`, so under `--fixtures` its own probe
+payload is named `"Last_update"` (no suffix) -- a name this exact-string comparison never matches.
+`_is_probe` (line 328, the predicate `_corpus_payloads` uses) was corrected to compare by
+`Path(payload.name).stem` in R05-fix2 item 3 (commit `963aee5c`) for the identical spelling
+mismatch, but that fix touched only `_corpus_payloads`/`_is_probe`; `export_digest_state_for`,
+defined a few lines above the new stem-comparison helper in the same file, was not brought along.
+Under `--fixtures`, `export_digest_state_for(...)` therefore returns `None` even when the probe
+was genuinely fetched, and the sequence this module's own docstring documents as the caller's
+contract -- `save_export_digest_state(path, export_digest_state_for(...))` -- raises
+`AttributeError: 'NoneType' object has no attribute 'digest'` the moment
+`save_export_digest_state` tries to read `state.digest`.
+
+**Why left.** This gap was identified while implementing R05-fix2 item 3 but was not recorded in
+this file at the time, only noted in passing; it belongs here rather than staying visible solely
+in a session report. It stays unfixed for the same reason as items 31 and 32: no caller reaches
+either function with `state_path` set, so no run this repository performs can hit it. Bringing
+`export_digest_state_for` onto the same stem comparison `_is_probe` already uses is the obvious
+fix, and obvious is not the same as in scope -- it moves with R07's wiring, not ahead of it.
+
+## 34. An UNCHANGED run with a workspace leaves a one-file "export" in `work/`, and `outcome` is never used as a guard on what gets written or returned (009 rung R05-fix3)
+
+**Gated behind wiring that does not exist** -- same inertness proof as items 31-33.
+
+**Reproduction.** `pipeline/acquire/wahapedia.py::acquire_wahapedia`, lines 533-537 and 579. When
+`workspace` is given, every element of `payloads` is written into `workspace / "wahapedia"`
+unconditionally -- no check of `outcome`. On a short-circuited run `payloads` holds only the probe
+(line 512), so `work/wahapedia/` ends up holding a single `Last_update.csv` and nothing else: a
+directory shaped like a completed export, missing every other table, with nothing at that path
+recording that it is a one-file stand-in rather than a partial or corrupt real one. The function's
+return value (line 579: `return acquisition, payloads`) is the same single-element list -- a
+caller that iterates `payloads` expecting the full detail corpus (as every existing caller does
+today, since none opts into the short-circuit) would silently see one file. Nothing in the
+function gates either the workspace write or the return on `outcome is AcquisitionOutcome.OK`
+versus `UNCHANGED`; `outcome` is set and returned but never consulted as a guard.
+
+**Why left.** No caller passes `state_path`, so `outcome` is always `AcquisitionOutcome.OK` and
+`payloads` always the full set in every run this repository performs today -- there is no
+observable one-file `work/` directory to reproduce against a live run. Deciding what a
+short-circuited caller *should* find in `work/` (nothing written at all, since nothing changed; the
+previous run's own files, carried forward the way `content_fingerprint` already is; or the
+single-file probe as today, documented rather than silent) is a design question for whichever rung
+wires a caller to the short-circuit, not something to guess at ahead of that caller existing.

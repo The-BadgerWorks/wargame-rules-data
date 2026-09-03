@@ -2,6 +2,13 @@
 # data-model.md §1 (task T020): SourceAcquisition plus the MfmUnitCostBlock /
 # MfmDetachmentCard / WahapediaRow family, with every prose-bearing field explicitly annotated
 # as ephemeral.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - Added SourceAcquisition.findings and
+# AcquisitionOutcome.UNCHANGED (009 rung R05, T090/T091, FR-030/FR-031): the export-timestamp
+# short-circuit needs somewhere to carry SRC-EXPORT-UNCHANGED out of `acquire_wahapedia` and a
+# third outcome distinct from both OK and the existing failure family, so a curator reading the
+# run record can tell a skipped-because-unchanged acquisition from a normal one and from a
+# failed one. Additive only: every existing constructor of SourceAcquisition keeps working
+# unchanged on the field's default.
 """Source-side records — **ephemeral, never committed**.
 
 These are the only records in the pipeline that may hold publisher prose. They live in memory
@@ -22,6 +29,8 @@ from typing import Final
 
 from pydantic import BaseModel, ConfigDict, Field
 
+from pipeline.models.findings import Finding
+
 
 class SourceKey(StrEnum):
     """The two upstream sources, with split authority (FR-001, FR-002 as amended)."""
@@ -34,9 +43,16 @@ class SourceKey(StrEnum):
 
 
 class AcquisitionOutcome(StrEnum):
-    """How one retrieval ended. Anything but :attr:`OK` fails the run (FR-007, FR-008)."""
+    """How one retrieval ended.
+
+    Three shapes, not two (009 FR-031): :attr:`OK` is a normal fetch; :attr:`UNCHANGED` is also
+    a *successful* fetch — advisory, never blocking — that stopped early because the export's
+    own change marker matched the last recorded run (``SRC-EXPORT-UNCHANGED``, `acquire_wahapedia`
+    T090); every other member is a failure and fails the run (FR-007, FR-008).
+    """
 
     OK = "ok"
+    UNCHANGED = "unchanged"
     REFUSED = "refused"
     THROTTLED = "throttled"
     STRUCTURE_CHANGED = "structure_changed"
@@ -69,6 +85,11 @@ class SourceAcquisition(_SourceRecord):
     request_count: int = Field(default=0, description="politeness evidence (FR-007)")
     request_interval_ms: int = Field(default=0, description="politeness evidence (FR-007)")
     outcome: AcquisitionOutcome = AcquisitionOutcome.OK
+    findings: Sequence[Finding] = Field(
+        default=(),
+        description="acquisition-time findings, e.g. SRC-EXPORT-UNCHANGED (009 FR-031) -- "
+        "mechanical values only, the same rule every other Finding carries",
+    )
 
 
 class MfmCostRow(_SourceRecord):

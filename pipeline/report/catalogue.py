@@ -28,6 +28,18 @@
 # 5b): it claimed `SRC-CLASS-ARM` "is deliberately absent here: it is authored only if T047
 # chooses a hybrid (T048)", while the same commit added the code to CATALOGUE. The code IS
 # present and advisory; what T047/T048 still gate is whether any run EMITS it.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - Corrected SRC-EXPORT-UNCHANGED's own
+# description (009 rung R05-fix item 3, gate on PR #30): it claimed "the export's content
+# fingerprint is unmoved since the last run", but the check that fires it compares only the
+# `Last_update.csv` timestamp digest -- this repository's own
+# `test_the_short_circuits_own_fingerprint_never_claims_full_verification` proves the content
+# fingerprint can differ while this code still fires. The text now says what the check actually
+# checks.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - Registered SRC-STATE-CORRUPT (009 rung
+# R05-fix3 item 2): `pipeline/acquire/wahapedia.py::ExportStateCorrupt` has raised this code since
+# R05-fix item 4, but it was absent here, so `definition("SRC-STATE-CORRUPT")` raised
+# `UnknownFindingCodeError` -- unlike every other `finding_code` in `pipeline/`. Given the same
+# class and severity as its acquire-stage siblings SRC-UNREACHABLE and SRC-REFUSED.
 """The finding catalogue.
 
 ``validation-report.md`` §1.1: **severity is a property of the code, not of the occurrence.** A
@@ -180,13 +192,24 @@ _DEFINITIONS: Final[tuple[FindingDefinition, ...]] = (
         "asserted against a real acquisition rather than a fixture directory listing",
     ),
     _d(
+        "SRC-STATE-CORRUPT",
+        _COV,
+        _B,
+        "009 FR-030, R05-fix item 4",
+        "state/wahapedia-export-digest.json exists but is not a JSON object; this pipeline is "
+        "the only writer of that file, so finding something else there is evidence of external "
+        "tampering or truncation, never a fact to route around -- fails closed on the same "
+        "severity and class as SRC-UNREACHABLE and SRC-REFUSED, its acquire-stage siblings",
+    ),
+    _d(
         "SRC-EXPORT-UNCHANGED",
         _COV,
         _A,
         "009 FR-030, FR-031",
-        "the export's content fingerprint is unmoved since the last run; the fetch was skipped "
-        "and this is why, distinguishing a skipped fetch from an unchanged source from a failed "
-        "one",
+        "the export's own Last_update.csv timestamp digest matched the last recorded run under "
+        "the same source identity, so the rest of the export was never re-fetched; a convenience "
+        "pre-check, not a claim that the content fingerprint is unmoved -- only a full fetch "
+        "verifies that",
     ),
     _d(
         "SRC-CLASS-ARM",

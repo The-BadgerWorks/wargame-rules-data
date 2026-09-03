@@ -168,6 +168,10 @@ def _acquisition_row(acquisition: SourceAcquisition) -> dict[str, MechanicalValu
         "declared_edition_code": acquisition.declared_edition_code,
         "retrieved_at": acquisition.retrieved_at,
         "content_fingerprint": acquisition.content_fingerprint,
+        # 009 rung R05 (T087, T091, FR-031): the outcome is what lets a curator reading the run
+        # record tell a skipped-because-unchanged acquisition (`unchanged`) from a normal one
+        # (`ok`) from a failed one, without cross-referencing the findings list.
+        "outcome": acquisition.outcome.value,
         **{f"coverage_{key}": value for key, value in sorted(acquisition.coverage.items())},
     }
 

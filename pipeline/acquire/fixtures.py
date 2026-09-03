@@ -2,6 +2,18 @@
 # (task T037): --fixtures <dir> sources both upstreams from a synthetic tree with no network,
 # producing the same SourceAcquisition records as the live path so there is no CI-only code
 # path (contracts/pipeline-run-interface.md §1).
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - 009 rung R05-fix2 item 3: added
+# `acquire_from_fixtures`'s `corpus_filter` parameter. Before this, the function fingerprinted
+# every loaded payload unconditionally, so a source with its own non-corpus probe file --
+# `pipeline.acquire.wahapedia`'s `Last_update.csv` is the only one today -- had that probe
+# fingerprinted as corpus under `--fixtures`, in every `fixtures/detection/*` set, even though
+# the live adapter already excluded it. A caller that has such a file passes the SAME predicate
+# its live path uses; every other caller passes nothing and this is a total no-op.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - 009 rung R05-fix2 item 4: added the
+# `corpus_files` coverage figure alongside `coverage[coverage_key]` whenever `corpus_filter` is
+# given, so a reader cannot mistake "every payload this run loaded" for "what the fingerprint
+# actually covers" -- the same pairing `pipeline.acquire.wahapedia.acquire_wahapedia`'s own live
+# path now reports (`csv_files` / `corpus_files`).
 """The fixture source adapter.
 
 ``--fixtures <dir>`` sources both upstreams from a synthetic tree. The point is not
@@ -29,7 +41,7 @@ file is prohibited, not merely discouraged (FR-010, FR-013, research D10).
 from __future__ import annotations
 
 import hashlib
-from collections.abc import Sequence
+from collections.abc import Callable, Sequence
 from dataclasses import dataclass
 from datetime import UTC, datetime
 from pathlib import Path
@@ -141,19 +153,37 @@ def acquire_from_fixtures(
     *,
     retrieved_at: datetime | None = None,
     layout: FixtureLayout | None = None,
+    corpus_filter: Callable[[Sequence[FixturePayload]], Sequence[FixturePayload]] | None = None,
 ) -> tuple[SourceAcquisition, list[FixturePayload]]:
     """Acquire one source from a fixture set, with no network access whatsoever.
 
     Returns the acquisition record and its payloads, exactly as the live adapters do.
+
+    ``corpus_filter`` (009 rung R05-fix2 item 3): applied to the loaded payloads before the
+    content fingerprint is computed, so a source whose live adapter excludes a non-corpus file of
+    its own -- ``pipeline.acquire.wahapedia``'s ``Last_update.csv`` is the only one today --
+    excludes it here too, on the exact predicate that adapter passes
+    (:func:`pipeline.acquire.wahapedia._corpus_payloads`) rather than this module reimplementing
+    the exclusion by name. ``None`` (every other caller) is a total no-op: every loaded payload is
+    corpus, exactly as before this parameter existed. ``payloads`` — what is returned and what
+    ``coverage[coverage_key]`` counts — is never filtered; only the fingerprint and the
+    ``corpus_files`` figure below are.
     """
     resolved = layout or _LAYOUT[source_key]
     payloads = load_fixture_payloads(fixtures_dir, source_key, layout=resolved)
-    fingerprint = content_fingerprint(payloads)
+    corpus = list(corpus_filter(payloads)) if corpus_filter is not None else payloads
+    fingerprint = content_fingerprint(corpus)
     moment = (retrieved_at or datetime.now(UTC)).astimezone(UTC)
     stamp = moment.strftime("%Y%m%dT%H%M%SZ")
 
     declared_edition = config.mfm_edition if source_key is SourceKey.MFM else config.detail_edition
     coverage_key = resolved.coverage_key
+    coverage = {coverage_key: len(payloads)}
+    if corpus_filter is not None:
+        # R05-fix2 item 4: named apart from `coverage_key` rather than left to silently disagree
+        # with what the fingerprint above covers -- the same pairing the live wahapedia path now
+        # reports (`csv_files` / `corpus_files`).
+        coverage["corpus_files"] = len(corpus)
 
     acquisition = SourceAcquisition(
         acquisition_id=f"{source_key.value}-{stamp}-{fingerprint[:8]}",
@@ -162,7 +192,7 @@ def acquire_from_fixtures(
         declared_edition_code=declared_edition,
         retrieved_at=moment.isoformat().replace("+00:00", "Z"),
         content_fingerprint=f"sha256:{fingerprint}",
-        coverage={coverage_key: len(payloads)},
+        coverage=coverage,
         request_count=0,
         request_interval_ms=0,
         outcome=AcquisitionOutcome.OK,
