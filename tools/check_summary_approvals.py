@@ -22,6 +22,13 @@
 # the 23-record refresh (`59f2986b`) touched approved records and needed a recorded human
 # decision. A bulk refresh is mechanically indistinguishable from laundering an approval, and
 # this is the check that tells them apart.
+# AI-Assisted: Claude Code (model: claude-opus-5) - Rung R02a: the attribution pair was read from
+# the head record alone, which tests PRESENCE, not FRESHNESS -- so the guard disarmed itself the
+# moment the pass it constrains stamped every approved record, and any later PR could move any
+# approved digest again under the stamp already sitting there. Attribution is now compared against
+# the base record, and records are matched by key across every changed file of a class over a
+# `--no-renames` diff, because resharding a curation file otherwise walked past both halves of
+# this check at once.
 """Self-approval guard for every authored summary class.
 
   check_summary_approvals.py diff --base <ref> --head <ref> --actor <login>
@@ -31,7 +38,6 @@
       changed) is "newly approved" by this PR. If any newly approved record's `reviewed_by`
       equals `--actor`, the PR is a self-approval and this check fails.
 
-  check_summary_approvals.py diff --base <ref> --head <ref> --actor <login>
       The same invocation ALSO refuses a **digest re-baseline that launders an approval**: a
       record `approved` at base and still `approved` at head whose `mechanic_digest` moved is
       carrying that approval across a change in what the digest describes, and it may do so only
@@ -39,10 +45,32 @@
       (FR-026 to FR-029). A record that was **not** approved at base is bookkeeping and passes
       freely -- no approval is being carried over anything.
 
+**The attribution must be fresh for the refresh it attributes.** Both halves must be present and
+non-empty, AND each must differ from the value the record already carried at base. A pair
+identical to the base record's attributes nothing: it names the version and the decision of that
+record's *previous* re-baseline, not this one. Presence alone would mean the guard disarms itself
+the moment 009's blanket pass stamps the corpus -- protecting it exactly until the event the
+guard was written to constrain, and inert from then on. Freshness is required per half for the
+same reason presence is: a new version beside the previous authorization says *when* this refresh
+happened but names the decision that authorised the previous one, and a new authorization beside
+the previous version names a decision but not the build it was taken against. FR-029's blanket
+authorization covers **one operation**, so a record's second refresh is a second operation and
+cites its own named, dated artefact.
+
+The rule deliberately refuses one honest case it cannot distinguish from a dishonest one: a
+record refreshed twice under the same authorization at the same version. Nothing in the data
+separates that from a stale stamp left untouched, and a guard resolves that ambiguity toward
+refusal. The way through is a new recorded decision -- which is the thing this check exists to
+demand.
+
 The comparison is by **key**, never by file position, so reordering or an unrelated edit
-elsewhere in the same file never produces a false positive. Which field carries the key differs
-per class — `ability_key` on the existing class, `summary_key` on the three added by
-`004-rules-data-enrichment` — and that difference is the whole of :data:`SOURCES`.
+elsewhere in the same file never produces a false positive. It is also by key **across every
+changed file of the same class**, not within one path, so resharding a curation file does not
+reset every record in it to "no prior" -- which had let a pull request that moved a file and
+refreshed the approved digests inside it in the same commit walk past this check and the
+self-approval check together. Which field carries the key differs per class — `ability_key` on
+the existing class, `summary_key` on the three added by `004-rules-data-enrichment` — and that
+difference is the whole of :data:`SOURCES`.
 
 > **Known weakness, inherited from `002` and deliberately not diverged from here.** There is no
 > `authored_by` field on any record; "author" is taken to be the pull-request actor. The rule
@@ -101,9 +129,16 @@ def source_for(path: str) -> CurationSource | None:
 
 
 def changed_curation_files(base: str, head: str) -> list[tuple[str, CurationSource]]:
-    """Every changed file the table claims, paired with the row that claims it."""
+    """Every changed file the table claims, paired with the row that claims it.
+
+    ``--no-renames`` is load-bearing, not tidiness. Rename detection is on by default, and it
+    reports a resharded curation file as a **single destination path** -- the source path never
+    reaches this list, so the records as they stood at base become invisible and every record at
+    the new path reads as brand new. Reported as delete-plus-add, both paths are present, which
+    is what lets :func:`cmd_diff` find a record's prior after it has moved between files.
+    """
     result = subprocess.run(
-        ["git", "diff", "--name-only", f"{base}...{head}"],
+        ["git", "diff", "--name-only", "--no-renames", f"{base}...{head}"],
         capture_output=True,
         text=True,
         check=True,
@@ -225,6 +260,14 @@ class DigestRefresh:
     carries_approval: bool
     version: str | None = None
     authorization: str | None = None
+    prior_version: str | None = None
+    """The version half as it stood on the BASE record -- ``None`` if never re-baselined before.
+
+    Without it this class can only ask whether a stamp is present, and presence is satisfied
+    forever by the stamp a previous re-baseline left behind.
+    """
+    prior_authorization: str | None = None
+    """The authorization half as it stood on the base record. See :attr:`prior_version`."""
 
     @property
     def is_attributed(self) -> bool:
@@ -233,13 +276,36 @@ class DigestRefresh:
         Both, because either alone leaves a question the record was added to answer: a version
         with no authorization says when but not under what, and an authorization with no version
         says under what but not against which build's digest.
+
+        Presence only. It is deliberately **not** the permission test -- see
+        :attr:`attribution_defects`.
         """
         return bool(self.version) and bool(self.authorization)
 
     @property
+    def attribution_defects(self) -> list[str]:
+        """Why this refresh's attribution does not authorize it, half by half, or ``[]``.
+
+        A half is defective when it is absent (``missing``) or when it repeats the value the
+        record already carried at base (``stale``). Stale is the case that matters: a stamp
+        identical to the one already on the record describes that record's *previous* refresh,
+        so it attributes this one to nothing. Reported per half so the refusal says which.
+        """
+        defects: list[str] = []
+        for field, value, prior in (
+            (REBASELINE_VERSION_FIELD, self.version, self.prior_version),
+            (REBASELINE_AUTHORIZATION_FIELD, self.authorization, self.prior_authorization),
+        ):
+            if not value:
+                defects.append(f"missing {field}")
+            elif value == prior:
+                defects.append(f"stale {field}")
+        return defects
+
+    @property
     def is_permitted(self) -> bool:
-        """Bookkeeping is always permitted; a carried approval only when attributed."""
-        return not self.carries_approval or self.is_attributed
+        """Bookkeeping is always permitted; a carried approval only when freshly attributed."""
+        return not self.carries_approval or not self.attribution_defects
 
 
 def _digest_of(record: dict[str, Any]) -> str:
@@ -264,6 +330,10 @@ def digest_refreshes(
 
     Records absent at base are skipped: a brand-new record has no prior digest to have moved
     away from, so it is authoring rather than a re-baseline.
+
+    ``base_records`` is expected to span the whole change class, not one file -- see
+    :func:`cmd_diff`. A record that moved between files still has a prior, and a prior is what
+    both this classification and the freshness test are read from.
     """
     base_by_key = {record.get(key_field): record for record in base_records}
     refreshes: list[DigestRefresh] = []
@@ -281,13 +351,19 @@ def digest_refreshes(
                 ),
                 version=_text_or_none(record, REBASELINE_VERSION_FIELD),
                 authorization=_text_or_none(record, REBASELINE_AUTHORIZATION_FIELD),
+                prior_version=_text_or_none(prior, REBASELINE_VERSION_FIELD),
+                prior_authorization=_text_or_none(prior, REBASELINE_AUTHORIZATION_FIELD),
             )
         )
     return refreshes
 
 
 def unattributed_refreshes(refreshes: Sequence[DigestRefresh]) -> list[DigestRefresh]:
-    """The refreshes that carry an approval without naming version and authorization."""
+    """The refreshes carrying an approval whose attribution is absent or stale.
+
+    "Unattributed" covers both, because a stamp repeated unchanged from the base record
+    attributes nothing to *this* refresh — it names the previous one's version and decision.
+    """
     return sorted(
         (refresh for refresh in refreshes if not refresh.is_permitted), key=lambda r: r.key
     )
@@ -296,23 +372,35 @@ def unattributed_refreshes(refreshes: Sequence[DigestRefresh]) -> list[DigestRef
 def cmd_diff(args: argparse.Namespace) -> int:
     offending: list[str] = []
     unattributed: list[str] = []
-    for path, source in changed_curation_files(args.base, args.head):
-        base_records = read_records_at(args.base, path, source)
-        head_records = read_records_at(args.head, path, source)
-        introduced = newly_approved(base_records, head_records, key_field=source.key_field)
-        for key in self_approved_keys(introduced, actor=args.actor, key_field=source.key_field):
-            offending.append(f"{path}: {key}")
-        refreshes = digest_refreshes(base_records, head_records, key_field=source.key_field)
-        for refresh in unattributed_refreshes(refreshes):
-            missing = " and ".join(
-                name
-                for name, present in (
-                    (REBASELINE_VERSION_FIELD, refresh.version),
-                    (REBASELINE_AUTHORIZATION_FIELD, refresh.authorization),
-                )
-                if not present
+
+    # Grouped by change class, and the base side read across the whole group, because a record
+    # that moved between two files of the same class must still find its prior. Matching within
+    # one path let a pull request reshard a curation file and refresh the approved digests
+    # inside it in the same commit: at the new path every record looked brand new, and at the
+    # old path there was no head record left to compare against.
+    changed = changed_curation_files(args.base, args.head)
+    by_source: dict[CurationSource, list[str]] = {}
+    for path, source in changed:
+        by_source.setdefault(source, []).append(path)
+
+    for source, paths in by_source.items():
+        class_base_records = [
+            record for path in paths for record in read_records_at(args.base, path, source)
+        ]
+        for path in paths:
+            head_records = read_records_at(args.head, path, source)
+            introduced = newly_approved(
+                class_base_records, head_records, key_field=source.key_field
             )
-            unattributed.append(f"{path}: {refresh.key} (missing {missing})")
+            for key in self_approved_keys(introduced, actor=args.actor, key_field=source.key_field):
+                offending.append(f"{path}: {key}")
+            refreshes = digest_refreshes(
+                class_base_records, head_records, key_field=source.key_field
+            )
+            for refresh in unattributed_refreshes(refreshes):
+                unattributed.append(
+                    f"{path}: {refresh.key} ({', '.join(refresh.attribution_defects)})"
+                )
 
     failed = False
     if offending:
@@ -331,9 +419,11 @@ def cmd_diff(args: argparse.Namespace) -> int:
         print(
             "FAIL: this PR refreshes mechanic_digest on a record that is approved at both ends "
             "of the diff, carrying that approval across a change in what the digest describes, "
-            "without naming the version it was refreshed at and the authorization it was "
-            "refreshed under (FR-026 to FR-029). A record that was never approved may be "
-            "refreshed as bookkeeping; this one may not:",
+            "without freshly naming the version it was refreshed at and the authorization it "
+            "was refreshed under (FR-026 to FR-029). A record that was never approved may be "
+            "refreshed as bookkeeping; this one may not. A stamp repeated unchanged from the "
+            "base record is stale: it names the version and the decision of this record's "
+            "PREVIOUS re-baseline and attributes this one to nothing:",
             file=sys.stderr,
         )
         for entry in unattributed:
@@ -349,8 +439,21 @@ def cmd_diff(args: argparse.Namespace) -> int:
     return 0
 
 
+#: What ``--help`` shows. Deliberately NOT this module's ``__doc__``: that docstring is the
+#: written-down rule, several hundred words of it, and `argparse` reflows whatever it is given
+#: into the help text. Passing it made ``--help`` a wall of policy prose -- and, while the rule
+#: was documented under two identical ``check_summary_approvals.py diff ...`` headings, printed
+#: the tool's single subcommand twice.
+_HELP_DESCRIPTION = (
+    "Self-approval and digest-re-baseline guard for every authored summary class. Refuses a "
+    "pull request that approves a summary its own actor reviewed, and one that refreshes a "
+    "mechanic_digest on an approved record without freshly naming the version and the "
+    "authorization the refresh happened under. The full rule is this module's docstring."
+)
+
+
 def main(argv: list[str] | None = None) -> int:
-    parser = argparse.ArgumentParser(description=__doc__)
+    parser = argparse.ArgumentParser(description=_HELP_DESCRIPTION)
     sub = parser.add_subparsers(dest="mode", required=True)
 
     diff_parser = sub.add_parser("diff", help="check a PR's newly approved authored summaries")
