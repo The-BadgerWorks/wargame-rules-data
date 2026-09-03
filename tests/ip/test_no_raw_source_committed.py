@@ -15,6 +15,12 @@
 # keeps it out of this file -- and, as evidence it is not a check that would pass regardless, a
 # planted raw-timestamp-shaped value in a synthetic digest object is shown caught before the real
 # tracked file is checked.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - Fixed the timestamp-shape scan's own gap
+# (009 rung R05-fix3 item 1): it was `^...$`-anchored and called with `.match()`, so it only ever
+# caught a value that was *entirely* a timestamp, and missed one storing the real two-line,
+# pipe-delimited `Last_update.csv` text verbatim. Dropped the anchors and switched to `.search()`
+# so a raw timestamp is caught wherever it appears in a value, added a receipt planting the
+# verbatim file text, and re-verified the bare-timestamp and identity-field cases still hold.
 # AI-Assisted: Claude Code (model: claude-sonnet-5) - Extended the walk to
 # `reports/009-diagnosis/` (009 task T034): FR-008 requires the diagnosis report to be
 # text-free -- cause, row count, residual, finding class, datasheet id only -- which is a
@@ -235,25 +241,38 @@ def test_the_009_diagnosis_reports_carry_no_quoted_phrase() -> None:
 # fields are ordinary configuration strings, not hashes, so the scan below can no longer demand
 # that *every* top-level string be hex -- it now checks by SHAPE instead of by key, catching a
 # raw timestamp landing in any field rather than only under a key named `digest`.
+#
+# R05-fix3 item 1: the real `Last_update.csv` is not a bare timestamp -- it is **two lines**,
+# pipe-delimited, BOM-prefixed (`fixtures/sample/wahapedia/Last_update.csv` carries the same
+# shape). The scan used to be `^...$`-anchored and called with `.match()`, which demands the
+# *entire* value be nothing but the timestamp -- so a state file storing that two-line text
+# verbatim sailed past clean, exactly the gap this header used to claim was already closed. The
+# pattern below drops both anchors and the call below switched to `.search()`, so the shape is
+# now caught **wherever it appears in a value**, embedded in multi-line text included, while a
+# bare sha256 hex digest (no `-` characters at all) and the three identity fields
+# (`source_base_url`, `declared_edition_code`, `mode` -- none of which contain a four-digit run
+# followed by two dash-separated two-digit runs) still fail to match it.
 
 EXPORT_DIGEST_STATE_PATH = "state/wahapedia-export-digest.json"
 
 #: The shape `Last_update.csv`'s own text takes -- `YYYY-MM-DD`, optionally followed by a time
 #: (space- or `T`-separated, optionally `Z`-suffixed). Matches both the real mirror's own
 #: `2026-06-13 12:02:41` and the ISO-8601 `2026-08-30T12:00:00Z` shape a planted violation might
-#: take; a bare sha256 hex digest, a URL, and an edition code all fail to match it.
-_TIMESTAMP_SHAPE_PATTERN = re.compile(r"^\d{4}-\d{2}-\d{2}([T ]\d{2}:\d{2}(:\d{2})?Z?)?$")
+#: take, wherever in the value it occurs; a bare sha256 hex digest, a URL, and an edition code
+#: all fail to match it anywhere.
+_TIMESTAMP_SHAPE_PATTERN = re.compile(r"\d{4}-\d{2}-\d{2}([T ]\d{2}:\d{2}(:\d{2})?Z?)?")
 
 
 def _raw_timestamp_shaped_values(raw: dict[str, object]) -> list[str]:
-    """Every top-level string value in a digest-state JSON object shaped like a raw publisher
-    timestamp -- the one thing FR-030 forbids this file from ever holding, regardless of which
-    key it turns up under.
+    """Every top-level string value in a digest-state JSON object that carries, anywhere within
+    it, a run shaped like a raw publisher timestamp -- the one thing FR-030 forbids this file
+    from ever holding, regardless of which key it turns up under or whether it is the value's
+    entire text or just embedded in a longer, multi-line one.
     """
     return [
         f"{key}={value!r}"
         for key, value in raw.items()
-        if isinstance(value, str) and _TIMESTAMP_SHAPE_PATTERN.match(value)
+        if isinstance(value, str) and _TIMESTAMP_SHAPE_PATTERN.search(value)
     ]
 
 
@@ -270,6 +289,21 @@ def test_the_timestamp_shape_scan_catches_a_planted_raw_timestamp_under_an_ident
     a violation under `source_base_url` as under `digest`."""
     poisoned = {"digest": "abc123", "source_base_url": "2026-08-30T12:00:00Z"}
     assert _raw_timestamp_shaped_values(poisoned) == ["source_base_url='2026-08-30T12:00:00Z'"]
+
+
+def test_the_timestamp_shape_scan_catches_the_verbatim_two_line_export_file_text() -> None:
+    """R05-fix3 item 1: the real `Last_update.csv` is not a bare timestamp value -- it is a
+    two-line, pipe-delimited, BOM-prefixed file (`fixtures/sample/wahapedia/Last_update.csv`
+    carries the identical synthetic shape). A state file that stored that text **verbatim**
+    used to pass the old `^...$`-anchored, `.match()`-based scan clean, because the timestamp
+    was only part of the value rather than the whole of it. The scan must catch it embedded in
+    multi-line text exactly as it catches a bare extracted timestamp.
+    """
+    verbatim_export_text = (
+        REPO_ROOT / "fixtures" / "sample" / "wahapedia" / "Last_update.csv"
+    ).read_text(encoding="utf-8-sig")
+    poisoned = {"digest": verbatim_export_text}
+    assert _raw_timestamp_shaped_values(poisoned) == [f"digest={verbatim_export_text!r}"]
 
 
 def test_the_timestamp_shape_scan_accepts_a_real_one_way_digest() -> None:
