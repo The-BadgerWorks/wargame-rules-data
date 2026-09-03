@@ -18,6 +18,10 @@
 <!-- AI-Assisted: Claude Code (model: claude-opus-5) - Added item 24 (009 rung R01a): the
      one markup class still narrower than origin/main after the R01a regression repair, with
      the reason it was not closed and the strict-xfail test that will force it to be. -->
+<!-- AI-Assisted: Claude Code (model: claude-opus-5) - Added item 25 (009 rung R02a-fix2): the
+     digest guard's rekeying bypass, pinned with a strict xfail rather than chased, and the
+     rollback decision recorded beside it -- a revert is indistinguishable from the abuse the
+     guard exists to catch, so it routes through docs/break-glass.md instead. -->
 <!-- AI-Assisted: Claude Code (model: claude-opus-5) - Added item 5 (issue #4): the finding code
      the weapon-ability-keyword fix needed, implemented ahead of the additive row a frozen
      contract may not be given as a side effect of a bug fix. -->
@@ -1040,3 +1044,43 @@ patterns as always.
 asserts `main`'s behaviour under `pytest.mark.xfail(strict=True)`. The day the residual is closed
 that test goes green, the strict xfail fails, and whoever closed it is forced to promote the rows
 into `test_no_regression_against_main` rather than leave a stale note behind.
+
+## 25. The digest guard matches by key alone, so rekeying a record bypasses it (009 rung R02a-fix2)
+
+`tools/check_summary_approvals.py` finds a record's prior by looking its key up in the base side
+of the diff — `ability_key` on the abilities class, `summary_key` on the other three. A pull
+request that **changes that key while refreshing `mechanic_digest`** on an `approved` record
+therefore finds no prior at all. With no prior the record is classified as first-time authoring,
+`digest_refreshes` never sees it, and no attribution pair is demanded of it. The approval rides
+across the digest move unremarked.
+
+This is the same family as the rename bypass rung R02a closed — a reshard moved records between
+files, every record read as brand new, and the check walked past — but on **identity** rather
+than **path**. R02a's fix (match by key across every changed file of the class, over a
+`--no-renames` diff) closes the path half and cannot close this one: there is no second field to
+fall back on, and matching on anything looser than the key (the summary text, the reviewer, file
+position) would reintroduce false positives the key matching exists to remove.
+
+**Why it was not closed here.** Unlike a reshard, which is ordinary housekeeping a person can do
+without intending anything, rekeying an approved record requires deliberate intent and shows up
+in a pull request's diff as a changed identifier on a line next to a changed digest — the most
+visible thing in the change. The bypasses worth code are the ones that hide; this one announces
+itself. **Action needed**: if it is ever closed, the likely shape is a content-similarity fallback
+used only to *raise a question* — "this looks like a rekeyed record, name its authorization" —
+never to auto-approve, because a fallback that silently matches the wrong prior would let a real
+refresh be measured fresh against a record it has nothing to do with.
+
+**Pinned, not merely written down**:
+`tests/enrichment/test_digest_rebaseline.py::test_cmd_diff_refuses_an_approved_refresh_hidden_behind_a_rekeying`
+constructs the bypass end to end through `cmd_diff` and asserts the refusal under
+`pytest.mark.xfail(strict=True)`. The day the bypass is closed that test goes green, the strict
+xfail fails, and whoever closed it is forced to promote the case into an ordinary assertion rather
+than leave a stale note behind.
+
+**Recorded beside it, and deliberately *not* an open item**: the same guard refuses a plain
+`git revert` of a merged re-baseline, because a revert and "a stamp stripped while the digest
+moved" are byte-identical inside a base/head diff. That refusal is a decision, not a defect. The
+sanctioned path — a rollback that names its own authorization, and break-glass only if even that
+cannot be done in time — is documented in `docs/break-glass.md`'s second section and asserted by
+`test_a_plain_revert_and_a_stripped_stamp_are_the_same_pull_request` and
+`test_a_rollback_that_names_its_own_decision_is_permitted`.
