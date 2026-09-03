@@ -27,6 +27,14 @@
 # The persisted state now carries the source identity the digest was taken under, checked before
 # the short-circuit may fire, and a state file that cannot be parsed as a JSON object raises the
 # mapped `ExportStateCorrupt` instead of an unmapped traceback.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - R05-fix2 item 3 (gate on PR #30):
+# `_corpus_payloads`'s probe exclusion now matches by `Path(name).stem` rather than the exact
+# string `"Last_update.csv"`, so it recognises the fixture adapter's own spelling (`"Last_update"`,
+# no suffix) too -- plumbed into `acquire_from_fixtures` via its new `corpus_filter` parameter
+# (`pipeline/acquire/fixtures.py`), the one place that adapter now excludes anything. Before this
+# fix, `acquire_from_fixtures` fingerprinted every loaded payload unconditionally, so under
+# `--fixtures` the probe WAS corpus in every `fixtures/detection/*` set, even though the live path
+# already excluded it.
 """Acquire the datasheet-detail source: the CSV export, into ``work/``.
 
 Three things are worth stating plainly.
@@ -259,15 +267,34 @@ def export_digest_state_for(
     )
 
 
+#: :data:`LAST_UPDATE_FILE`'s own name, normalised to its stem. The live path names the probe's
+#: payload ``"Last_update.csv"`` (`_read_local`/`_fetch_remote` keep the file's own name); the
+#: fixture adapter names it ``"Last_update"`` (`load_fixture_payloads` uses ``Path.stem`` for
+#: every payload). R05-fix2 item 3: comparing by stem is the ONE normalisation both spellings
+#: resolve to, so there is exactly one place this decision is made rather than two that can
+#: silently drift apart -- which is exactly what happened before this fix: `_corpus_payloads`
+#: excluded the exact string ``"Last_update.csv"``, which the fixture adapter's payload never is,
+#: so under ``--fixtures`` the probe was corpus in every `fixtures/detection/*` set.
+_PROBE_STEM: Final = Path(LAST_UPDATE_FILE).stem
+
+
+def _is_probe(payload: FixturePayload) -> bool:
+    """Whether ``payload`` is the export-timestamp probe, regardless of which adapter read it."""
+    return Path(payload.name).stem == _PROBE_STEM
+
+
 #: The files that count as the export's own content — what may move the content fingerprint and
-#: the acquisition_id derived from it. The **only** place that decision is made (R05-fix item 1):
-#: :data:`LAST_UPDATE_FILE` is fetched like any other table (the all-or-nothing guarantee still
-#: covers it) but is never corpus, so a bare regeneration timestamp can never masquerade as a
-#: rules change. A file added to :data:`EXPORT_FILES` later is corpus by default and has to be
-#: excluded here deliberately, the same way this one was -- exactly the property that was missing
-#: before this fix.
+#: the acquisition_id derived from it. The **only** place that decision is made (R05-fix item 1;
+#: made spelling-independent by R05-fix2 item 3): :data:`LAST_UPDATE_FILE` is fetched like any
+#: other table (the all-or-nothing guarantee still covers it) but is never corpus, so a bare
+#: regeneration timestamp can never masquerade as a rules change. A file added to
+#: :data:`EXPORT_FILES` later is corpus by default and has to be excluded here deliberately, the
+#: same way this one was -- exactly the property that was missing before this fix. Passed to
+#: :func:`~pipeline.acquire.fixtures.acquire_from_fixtures` as its ``corpus_filter`` (R05-fix2
+#: item 3) so the SAME function decides this under ``--fixtures`` too, rather than that module
+#: reimplementing the exclusion by name.
 def _corpus_payloads(payloads: Sequence[FixturePayload]) -> list[FixturePayload]:
-    return [payload for payload in payloads if payload.name != LAST_UPDATE_FILE]
+    return [payload for payload in payloads if not _is_probe(payload)]
 
 
 def _local_directory(location: str) -> Path | None:
@@ -387,8 +414,15 @@ def acquire_wahapedia(
     """
     del carried_forward_slugs
     if fixtures_dir is not None:
+        # R05-fix2 item 3: `corpus_filter=_corpus_payloads` so the fixture adapter excludes the
+        # probe on the SAME predicate the live path below uses, rather than never excluding it at
+        # all -- see `_corpus_payloads`'s own docstring.
         return acquire_from_fixtures(
-            fixtures_dir, SourceKey.WAHAPEDIA, config, retrieved_at=retrieved_at
+            fixtures_dir,
+            SourceKey.WAHAPEDIA,
+            config,
+            retrieved_at=retrieved_at,
+            corpus_filter=_corpus_payloads,
         )
 
     # Refused here rather than interpreted: an empty location is a relative path, and a relative

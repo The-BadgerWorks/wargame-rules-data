@@ -15,6 +15,12 @@
 # place, because two directories are, correctly, two different `source_base_url` identities now
 # -- the original shape would have made several of these pass vacuously off the identity check
 # alone rather than off the mechanism each one names.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - R05-fix2 item 3 (gate on PR #30): item 1's
+# both-directions receipt, extended to the `--fixtures` path the previous round's own test never
+# exercised (the fixture adapter names the probe by its stem, and the previous fix's
+# `_corpus_payloads` matched only the exact string `"Last_update.csv"`, so under `--fixtures` the
+# probe WAS corpus in every `fixtures/detection/*` set -- confirmed red against today's code
+# first, per this repository's own "failing-first is the house form" rule).
 """FR-030's whole hazard in one sentence: a cheap check that says "nothing changed" when
 something did. Every test here either proves the short-circuit cannot do that, or proves the
 mechanism that lets it skip real work at all still behaves.
@@ -575,3 +581,78 @@ def test_an_identity_mismatch_is_not_an_error(tmp_path: Path) -> None:
 
     assert second.outcome is AcquisitionOutcome.OK
     assert second.findings == ()
+
+
+# -- R05-fix2 item 3 -- the probe exclusion must hold under --fixtures too ----------------------
+#
+# The previous round's both-directions receipt (above, `test_changing_only_the_probe_does_not_
+# move_the_fingerprint_or_acquisition_id` / `test_changing_a_real_export_file_still_moves_the_
+# fingerprint`) only ever exercises `acquire_wahapedia`'s LOCAL-DIRECTORY path -- `_config`
+# points `WGC_DETAIL_SOURCE_URL` at a directory, never `--fixtures`. `_corpus_payloads` matched
+# the exact string `"Last_update.csv"`; the fixture adapter (`load_fixture_payloads`) names every
+# payload by `Path.stem`, so its probe is named `"Last_update"` -- a name `_corpus_payloads`
+# never matched, and `acquire_from_fixtures` never applied any exclusion at all before this
+# rung's fix. Under `--fixtures`, the probe WAS corpus, in every `fixtures/detection/*` set. That
+# is precisely what the previous round's own commit message claimed `--fixtures` made
+# structurally impossible.
+
+
+def _write_fixture_export(
+    directory: Path, *, last_update: str, abilities: str = _PLACEHOLDER
+) -> None:
+    """A synthetic `--fixtures` set carrying the detail source's own export files, the way
+    `load_fixture_payloads` reads them: one file per table, under `wahapedia/`, read by `*.csv`
+    glob rather than `EXPORT_FILES`'s exact name list."""
+    wahapedia_dir = directory / "wahapedia"
+    wahapedia_dir.mkdir(parents=True, exist_ok=True)
+    for name in EXPORT_FILES:
+        text = last_update if name == LAST_UPDATE_FILE else _PLACEHOLDER
+        if name == "Abilities.csv":
+            text = abilities
+        (wahapedia_dir / name).write_text(text, encoding="utf-8-sig")
+
+
+def test_changing_only_the_probe_does_not_move_the_fingerprint_under_fixtures(
+    tmp_path: Path,
+) -> None:
+    """Direction 1, through `--fixtures`: the probe alone moves. Nothing that matters may move
+    with it. Red against the code this rung inherited -- `acquire_from_fixtures` fingerprinted
+    every loaded payload unconditionally, so this assertion failed before the fix."""
+    set_a = tmp_path / "set-a"
+    _write_fixture_export(set_a, last_update="2026-08-01T00:00:00Z")
+    set_b = tmp_path / "set-b"
+    _write_fixture_export(set_b, last_update="2026-08-08T00:00:00Z")  # only the probe differs
+
+    same_moment = datetime(2026, 8, 9, tzinfo=UTC)
+    acquisition_a, _ = acquire_wahapedia(_config(""), fixtures_dir=set_a, retrieved_at=same_moment)
+    acquisition_b, _ = acquire_wahapedia(_config(""), fixtures_dir=set_b, retrieved_at=same_moment)
+
+    assert acquisition_a.content_fingerprint == acquisition_b.content_fingerprint, (
+        "Last_update.csv is a probe, not corpus content, under --fixtures exactly as it is on "
+        "the live path -- its own text moving must never move the content fingerprint"
+    )
+    assert acquisition_a.acquisition_id == acquisition_b.acquisition_id, (
+        "acquisition_id is derived from the fingerprint -- it must not move either"
+    )
+
+
+def test_changing_a_real_export_file_still_moves_the_fingerprint_under_fixtures(
+    tmp_path: Path,
+) -> None:
+    """Direction 2, through `--fixtures`: the complementary half -- fixing direction 1 must not
+    numb the fingerprint to an actual rules change reaching it via `--fixtures`."""
+    set_a = tmp_path / "set-a"
+    _write_fixture_export(
+        set_a, last_update="2026-08-01T00:00:00Z", abilities="id|name|\n1|Bolter|\n"
+    )
+    set_b = tmp_path / "set-b"
+    _write_fixture_export(
+        set_b, last_update="2026-08-01T00:00:00Z", abilities="id|name|\n1|Las Cannon|\n"
+    )
+
+    acquisition_a, _ = acquire_wahapedia(_config(""), fixtures_dir=set_a)
+    acquisition_b, _ = acquire_wahapedia(_config(""), fixtures_dir=set_b)
+
+    assert acquisition_a.content_fingerprint != acquisition_b.content_fingerprint, (
+        "a genuine corpus change reaching --fixtures must still move the fingerprint"
+    )
