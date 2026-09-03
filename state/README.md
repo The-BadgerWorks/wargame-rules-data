@@ -17,3 +17,9 @@ nothing from which any acquired text could be reconstructed (FR-010, FR-013).
   empty. Entries carry mechanical values only -- ids, counts, and codes, never free text.
 - `published-checksums.json` -- sha256 and size for every published release asset, re-verified
   daily by `.github/workflows/integrity.yml`. Seeded as `[]`.
+- `wahapedia-export-digest.json` -- one field, `digest`: sha256 hex over the detail source's
+  `Last_update.csv` text, never the text itself (009 rung R05, task T090, FR-030). Compared by
+  `pipeline.acquire.wahapedia.acquire_wahapedia`'s opt-in short-circuit (its `state_path`
+  parameter) to decide whether the rest of the export is worth re-fetching -- a convenience
+  pre-check, never a substitute for the content fingerprint the pipeline already computes over
+  whatever it actually fetches. Seeded empty (`{}`): no run has ever reached the short-circuit.

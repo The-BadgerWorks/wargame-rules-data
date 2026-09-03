@@ -810,6 +810,13 @@ def run_build(  # noqa: PLR0913 - the stage boundary is the argument list
         findings: list[Finding] = []
         for result in detail.values():
             findings.extend(result.findings)
+        # 009 rung R05 (T087, T091, FR-031): acquisition-time findings -- SRC-EXPORT-UNCHANGED,
+        # were a caller ever to opt `detail_acq` into the export-timestamp short-circuit -- reach
+        # the run's report the same way a table-level finding does. `run_build` itself never
+        # passes `state_path` to `acquire_detail` (see that function's own docstring), so this is
+        # presently always `()`; it is here so a future caller that does opt in needs no second
+        # wiring point.
+        findings.extend(detail_acq.findings)
 
         assembly = assemble(
             pages=pages,

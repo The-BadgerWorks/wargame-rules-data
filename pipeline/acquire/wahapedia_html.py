@@ -134,6 +134,7 @@ def acquire_wahapedia_html(
     retrieved_at: datetime | None = None,
     workspace: Path | None = None,
     carried_forward_slugs: frozenset[str] = frozenset(),
+    state_path: Path | None = None,
 ) -> tuple[SourceAcquisition, list[FixturePayload]]:
     """Acquire the current-edition datacard pages.
 
@@ -142,6 +143,14 @@ def acquire_wahapedia_html(
     :class:`~pipeline.models.source.SourceAcquisition` plus the retrieved payloads, under the
     **same** source key. That parity is what makes every stage below ``acquire`` mode-blind — it
     cannot tell which arm ran, because there is nothing in what it receives that says.
+
+    ``state_path`` (009 rung R05, T090) is accepted and unused, on the same terms
+    ``carried_forward_slugs`` is accepted and unused by the csv arm: the export-timestamp
+    short-circuit is a bulk-export concept — there is no single whole-export change marker a
+    per-faction page sweep could probe ahead of itself — so this arm has nothing to do with it,
+    but the parameter has to exist here too or the two arms would no longer take the same
+    arguments, and mode-blindness below ``acquire`` would stop being provable by comparing the
+    two signatures.
 
     Each payload's ``name`` is the faction slug and its ``text`` the retrieved page. With
     ``workspace`` given the pages are written into it — that is ``work/``, and it is the only
@@ -172,6 +181,7 @@ def acquire_wahapedia_html(
     two-tuple stays identical to the csv arm's, so nothing below ``acquire`` has to learn a new
     shape for what is still, from its own point of view, "the faction pages we managed to get."
     """
+    del state_path
     if fixtures_dir is not None:
         return acquire_from_fixtures(
             fixtures_dir,
