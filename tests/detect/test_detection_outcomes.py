@@ -2,12 +2,6 @@
 # T102): a mechanical change exits 10, a presentation-only change exits 0 and raises no
 # candidate, an unreachable source exits 40, a restructured source exits 41 with the prior
 # digest untouched, and every check appends a ledger entry (FR-051..FR-054).
-# AI-Assisted: Claude Code (model: claude-sonnet-5) - 009 rung R05-fix item 6 (gate on PR #30):
-# `run_detect` now also acquires the detail source, so the unreachable-source test needed a
-# mocked wahapedia host too (it would otherwise crash on an unset `WGC_DETAIL_SOURCE_URL` before
-# ever reaching the points-source failure it names) -- and, since the detail source now acquires
-# successfully in that test, its own export-digest state must be just as untouched as the
-# points-source digest already was (R05-fix item 2).
 """`rules-pipeline detect`'s whole exit-code contract, one outcome per test.
 
 The two failure cases (`40`, `41`) share the property that matters most: **the previously
@@ -24,7 +18,6 @@ import pytest
 from pytest_httpx import HTTPXMock
 
 from pipeline.acquire.http import PoliteClient
-from pipeline.acquire.wahapedia import EXPORT_DIGEST_STATE_RELATIVE_PATH, EXPORT_FILES
 from pipeline.cli import DetectResult, run_detect
 from pipeline.config import PipelineConfig, load_config
 from pipeline.exit_codes import ExitCode
@@ -33,10 +26,6 @@ from pipeline.observability.ledger import LEDGER_RELATIVE_PATH, read_entries
 DETECTION = Path(__file__).resolve().parents[2] / "fixtures" / "detection"
 
 DIGEST_STATE_PATH = "state/detection-digest.json"
-
-#: A placeholder body good enough for every wahapedia export file none of these tests inspect
-#: the content of -- `run_detect` never parses a single detail-source row.
-_WAHAPEDIA_PLACEHOLDER = "id|name|\n"
 
 
 def _config(**overrides: str) -> PipelineConfig:
@@ -103,22 +92,8 @@ def test_an_unreachable_source_exits_40_and_the_prior_digest_is_untouched(  # ty
     httpx_mock.add_response(url=f"{host}/robots.txt", text="User-agent: *\nAllow: /\n")
     httpx_mock.add_response(url=f"{host}/en/verdant-marchers", status_code=503, is_reusable=True)
 
-    # R05-fix item 6: `detect` now also probes the detail source, before it ever reaches the
-    # points-source failure below -- it has to succeed here for this test to still be exercising
-    # what its name says (a points-source failure), rather than an unrelated detail-source one.
-    detail_host = "https://wahapedia.example"
-    httpx_mock.add_response(
-        url=f"{detail_host}/robots.txt", text="User-agent: *\nAllow: /\n", is_reusable=True
-    )
-    for name in EXPORT_FILES:
-        httpx_mock.add_response(
-            url=f"{detail_host}/{name}", text=_WAHAPEDIA_PLACEHOLDER, is_reusable=True
-        )
-
     repo = temp_repo()
-    config = _config(
-        WGC_MFM_BASE_URL=f"{host}/en", WGC_MAX_RETRIES="0", WGC_DETAIL_SOURCE_URL=detail_host
-    )
+    config = _config(WGC_MFM_BASE_URL=f"{host}/en", WGC_MAX_RETRIES="0")
     client = PoliteClient(config, sleep=lambda _seconds: None)
     try:
         result = run_detect(config=config, client=client, repository_root=repo)
@@ -128,10 +103,6 @@ def test_an_unreachable_source_exits_40_and_the_prior_digest_is_untouched(  # ty
     assert result.exit_code is ExitCode.SOURCE_UNAVAILABLE
     assert result.diagnostic is not None
     assert not (repo / DIGEST_STATE_PATH).exists()
-    # R05-fix item 2: the detail source's OWN state must be just as untouched -- it acquired
-    # successfully this run, but the sweep as a whole did not, and advancing it anyway is
-    # exactly the hazard that would leave a genuinely changed export un-re-fetched forever.
-    assert not (repo / EXPORT_DIGEST_STATE_RELATIVE_PATH).exists()
 
 
 def test_every_check_appends_a_ledger_entry_so_a_quiet_period_is_distinguishable(  # type: ignore[no-untyped-def]

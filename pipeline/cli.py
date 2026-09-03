@@ -33,13 +33,20 @@
 # `assemble` rather than after it, and feed the carried set to both `assemble` (so the faction
 # guard knows the absence was declared) and `apply_carried_forward` (so the splice and the
 # exemption can never disagree about which faction is which).
-# AI-Assisted: Claude Code (model: claude-sonnet-5) - 009 rung R05-fix (gate on PR #30, Product
-# Owner ruling 2026-09-03): wired `run_detect` to the detail source's export-timestamp
-# short-circuit -- and only `run_detect`; `run_build` is untouched. The detail source is
-# acquired FIRST so a downstream points-source failure cannot advance its state (item 2); its
-# outcome is recorded on `DetectResult` and the ledger's `stage_outcomes` (OK/SKIPPED/FAILED,
-# item 6); a `ConfigError` from an unset `WGC_DETAIL_SOURCE_URL` is now mapped to a clean
-# CONFIG_ERROR return rather than left to crash `detect --offline` uncaught.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - 009 rung R05-fix2 (gate on PR #30): the
+# Product Owner reversed the previous round's ruling that wired `run_detect` to the detail
+# source's export-timestamp short-circuit. `run_detect` is reverted here to its byte-for-byte
+# pre-wiring behaviour -- no detail-source acquisition, no `state_path`, no short-circuit
+# involvement of any kind -- because `detect.yml` has no `env:` block passing
+# `WGC_DETAIL_SOURCE_URL`, so the wiring would have made `detect` demand a variable it never
+# receives on a real run and exit CONFIG_ERROR (60) with no candidate, no fault alert, and no
+# ledger entry; because it coupled the release trigger to a source `detect` never otherwise
+# reads; and because the short-circuit's saving was never actually there for `detect` -- on a
+# moved timestamp `detect` fetches and discards the whole export exactly as before, since the
+# saving belongs to whichever stage consumes the detail source, which is `build`, not `detect`.
+# Wiring is deferred to a future rung, decided once a caller is genuinely consuming the detail
+# source (see `docs/follow-ups.md` item 30). The mechanism itself (`acquire_wahapedia`'s
+# `state_path` opt-in) is untouched here and stays proven in isolation.
 """``rules-pipeline`` — the operator-facing surface.
 
 The same CLI runs locally against fixtures and in CI against the real sources: **there is no
@@ -92,11 +99,6 @@ from pipeline.acquire.detail_source import (
 )
 from pipeline.acquire.http import AcquisitionError, PoliteClient
 from pipeline.acquire.mfm import acquire_mfm
-from pipeline.acquire.wahapedia import (
-    EXPORT_DIGEST_STATE_RELATIVE_PATH,
-    export_digest_state_for,
-    save_export_digest_state,
-)
 from pipeline.build.bundle_emit import BundleMeta, emit_bundle
 from pipeline.build.canonical_json import encode_bundle, write_bundle
 from pipeline.build.checksum import BundleChecksum, checksum
@@ -127,12 +129,10 @@ from pipeline.exit_codes import ExitCode
 from pipeline.models.authored import SummaryClass
 from pipeline.models.curated import CuratedSnapshot
 from pipeline.models.findings import CoverageFigure, Finding, Severity, ValidationReport
-from pipeline.models.source import AcquisitionOutcome
 from pipeline.normalize.mechanic_digest import DigestKeyMissingError, resolve_digest_key
 from pipeline.observability.ledger import (
     LEDGER_RELATIVE_PATH,
     RunLedgerEntry,
-    StageOutcome,
     Trigger,
     append_entry,
     read_entries,
@@ -1495,11 +1495,6 @@ class DetectResult:
     diagnostic: str | None = None
     stale: bool = False
     ledger_line: str = ""
-    # 009 rung R05-fix item 6: the detail source's own outcome, distinct from the points
-    # source's changed/unchanged verdict above -- `None` only when the run never reached the
-    # detail-source acquisition at all (a points-source failure that returned first).
-    wahapedia_stage: StageOutcome | None = None
-    wahapedia_findings: tuple[str, ...] = ()
 
 
 def _trigger_from_environment() -> Trigger:
@@ -1527,22 +1522,13 @@ def run_detect(  # noqa: PLR0913 - the stage boundary is the argument list
 ) -> DetectResult:
     """Sweep the points source, digest its mechanical values, and compare with the last digest.
 
-    ``detect`` also probes the detail source's own ``Last_update.csv`` (009 rung R05-fix item 6;
-    Product Owner ruling: ``detect`` opts into the export-timestamp short-circuit, ``run_build``
-    does not and keeps fetching in full — ``run_build`` has no coverage guard behind an opt-in,
-    which `docs/follow-ups.md` records as the precondition for ever wiring it). ``detect`` still
-    never reads a single detail-source row, never writes ``data/`` or a report, and never writes
-    ``work/`` — the acquisition's payloads are discarded once its outcome and findings are
-    recorded. Its writes are the points-source digest state, the detail-source export-digest
-    state (via :func:`~pipeline.acquire.wahapedia.save_export_digest_state`, and only once the
-    *whole* sweep has succeeded — FR-030's own hazard, R05-fix item 2), and one ledger line
-    (contract §1, §3). A structural or reachability failure on **either** source leaves **both**
-    states untouched, so the previously published version stays current (FR-007, FR-008, exit
-    codes 40/41 §2).
+    ``detect`` never touches the detail source and never writes ``data/`` or a report — its only
+    writes are the digest state and one ledger line (contract §1, §3). A structural or
+    reachability failure leaves the previously recorded digest untouched, so the previously
+    published version stays current (FR-007, FR-008, exit codes 40/41 §2).
     """
     root = repository_root or repo_root()
     state_path = root / DIGEST_STATE_RELATIVE_PATH
-    export_state_path = root / EXPORT_DIGEST_STATE_RELATIVE_PATH
     ledger_path = root / LEDGER_RELATIVE_PATH
     prior_state = load_detection_state(state_path)
     moment = now or datetime.now(UTC)
@@ -1554,8 +1540,6 @@ def run_detect(  # noqa: PLR0913 - the stage boundary is the argument list
         changed: tuple[str, ...] = (),
         diagnostic: str | None = None,
         coverage: Mapping[str, int] | None = None,
-        wahapedia_stage: StageOutcome | None = None,
-        wahapedia_findings: tuple[str, ...] = (),
     ) -> DetectResult:
         entry = RunLedgerEntry(
             run_id=run_id or f"local-detect-{moment.strftime('%Y%m%dT%H%M%SZ')}",
@@ -1563,7 +1547,6 @@ def run_detect(  # noqa: PLR0913 - the stage boundary is the argument list
             trigger=trigger,
             channel=config.data_channel.value,
             started_at=started_at,
-            stage_outcomes={"wahapedia": wahapedia_stage} if wahapedia_stage is not None else {},
             coverage=coverage or {},
             exit_code=int(exit_code),
         )
@@ -1577,50 +1560,7 @@ def run_detect(  # noqa: PLR0913 - the stage boundary is the argument list
             diagnostic=diagnostic,
             stale=stale,
             ledger_line=line,
-            wahapedia_stage=wahapedia_stage,
-            wahapedia_findings=wahapedia_findings,
         )
-
-    # The detail source is probed FIRST (R05-fix item 2). If it acquires a genuinely new export
-    # and the points-source sweep below then fails, NEITHER state may advance: a run that dies
-    # partway through is unfinished work, not "no comparable prior", and writing the detail
-    # source's state anyway would let a real change go un-re-fetched the next time around --
-    # exactly the hazard this rung exists to close. See save_export_digest_state's own docstring.
-    try:
-        detail_acq, detail_payloads = acquire_detail(
-            config,
-            fixtures_dir=fixtures_dir,
-            offline=offline,
-            client=client,
-            retrieved_at=retrieved_at,
-            state_path=export_state_path,
-        )
-    except AcquisitionError as exc:
-        diagnostic = f"{exc.finding_code}: {exc}"
-        if exc.exit_code is ExitCode.CONFIG_ERROR:
-            # An invocation error, not a detection attempt: neither source was ever contacted,
-            # so there is nothing for the ledger to record.
-            return DetectResult(exit_code=exc.exit_code, diagnostic=diagnostic)
-        return _finish(exc.exit_code, diagnostic=diagnostic, wahapedia_stage=StageOutcome.FAILED)
-    except ConfigError as exc:
-        # `require_detail_source` refuses an unset `WGC_DETAIL_SOURCE_URL` with a plain
-        # `ConfigError` (it is not an `AcquisitionError`, by design — nothing upstream was ever
-        # contacted). `detect` now reaches this on a live, non-fixture run the same way
-        # `run_build` always has; unlike `run_build`, `detect` has no earlier required-argument
-        # check to catch it first, so it is mapped here rather than left to crash uncaught.
-        return DetectResult(
-            exit_code=ExitCode.CONFIG_ERROR, diagnostic=f"configuration error: {exc}"
-        )
-
-    # SKIPPED distinguishes "the short-circuit fired" from OK's "a normal, complete fetch" from
-    # FAILED above -- the run record the item 6 receipt asks for (`SRC-EXPORT-UNCHANGED` is
-    # among `wahapedia_findings` exactly when this is SKIPPED).
-    wahapedia_stage = (
-        StageOutcome.SKIPPED
-        if detail_acq.outcome is AcquisitionOutcome.UNCHANGED
-        else StageOutcome.OK
-    )
-    wahapedia_findings = tuple(finding.finding_code for finding in detail_acq.findings)
 
     try:
         _acquisition, payloads = acquire_mfm(
@@ -1638,12 +1578,7 @@ def run_detect(  # noqa: PLR0913 - the stage boundary is the argument list
             # record -- the same reasoning `run_build`'s missing `--rules-version-id` check
             # already applies before it writes anything.
             return DetectResult(exit_code=exc.exit_code, diagnostic=diagnostic)
-        return _finish(
-            exc.exit_code,
-            diagnostic=diagnostic,
-            wahapedia_stage=wahapedia_stage,
-            wahapedia_findings=wahapedia_findings,
-        )
+        return _finish(exc.exit_code, diagnostic=diagnostic)
 
     pages: list[MfmPage] = []
     try:
@@ -1651,30 +1586,16 @@ def run_detect(  # noqa: PLR0913 - the stage boundary is the argument list
             replayed = replay(payload.text)
             pages.append(parse_faction_page(payload.name, replayed.html))
     except StructureChanged as exc:
-        return _finish(
-            exc.exit_code,
-            diagnostic=f"{exc.finding_code}: {exc}",
-            wahapedia_stage=wahapedia_stage,
-            wahapedia_findings=wahapedia_findings,
-        )
+        return _finish(exc.exit_code, diagnostic=f"{exc.finding_code}: {exc}")
 
     comparison = compare_digests(pages, prior_state)
     save_detection_state(state_path, comparison.new_state)
-
-    # Only now -- the whole sweep succeeded -- does the detail source's own state advance
-    # (R05-fix item 2). `None` on a fixture-driven run: the fixture adapter never reaches the
-    # probe at all, so there is nothing to persist that a future run could compare against.
-    export_state = export_digest_state_for(config, detail_acq, detail_payloads)
-    if export_state is not None:
-        save_export_digest_state(export_state_path, export_state)
 
     exit_code = ExitCode.CHANGE_DETECTED if comparison.changed else ExitCode.SUCCESS
     return _finish(
         exit_code,
         changed=comparison.changed_factions,
         coverage={"faction_pages": len(payloads)},
-        wahapedia_stage=wahapedia_stage,
-        wahapedia_findings=wahapedia_findings,
     )
 
 
@@ -1686,13 +1607,6 @@ def _report_detect(result: DetectResult) -> None:
         print(f"{PROG}: CHANGE DETECTED {' '.join(result.changed_factions)}")
     elif result.diagnostic is None:
         print(f"{PROG}: no change")
-    # R05-fix item 6: the detail source's own outcome, printed separately from the points
-    # source's changed/unchanged verdict above -- distinguishing skipped (the short-circuit
-    # fired) from ok (a normal full fetch) from failed (folded into `diagnostic` above already).
-    if result.wahapedia_stage is not None:
-        print(f"{PROG}: wahapedia {result.wahapedia_stage.value}")
-    for finding_code in result.wahapedia_findings:
-        print(f"{PROG}: {finding_code}")
     if result.stale:
         print(
             f"{PROG}: STALE detection - no successful check completed within the configured "
