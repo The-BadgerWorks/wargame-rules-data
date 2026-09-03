@@ -5,6 +5,16 @@
 # Last_update.csv itself (T089), the politeness interval is unmoved and the surface reduction is
 # recorded (T093), and no raw publisher timestamp is ever persisted (T094, alongside the ip/ scan
 # it also extends).
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - R05-fix (gate on PR #30): item 1's own
+# both-directions receipt (the probe alone must never move the fingerprint or acquisition_id; a
+# real corpus change still must), item 4's receipt (a corrupt state file raises the mapped
+# ExportStateCorrupt instead of an unhandled JSONDecodeError/AttributeError -- confirmed against
+# today's code first), and item 5's receipt (a digest match recorded under a different source
+# identity is "no comparable prior", not a skip). Every test that used two separate directories
+# to stand in for "the same source polled twice" was rewritten onto one directory mutated in
+# place, because two directories are, correctly, two different `source_base_url` identities now
+# -- the original shape would have made several of these pass vacuously off the identity check
+# alone rather than off the mechanism each one names.
 """FR-030's whole hazard in one sentence: a cheap check that says "nothing changed" when
 something did. Every test here either proves the short-circuit cannot do that, or proves the
 mechanism that lets it skip real work at all still behaves.
@@ -20,19 +30,25 @@ from __future__ import annotations
 
 import json
 import tempfile
+from datetime import UTC, datetime
 from pathlib import Path
 
 import pytest
 from pytest_httpx import HTTPXMock
 
+from pipeline.acquire.fixtures import FixturePayload
 from pipeline.acquire.http import PoliteClient, SourceUnreachable
 from pipeline.acquire.wahapedia import (
     EXPORT_FILES,
     LAST_UPDATE_FILE,
+    ExportStateCorrupt,
     acquire_wahapedia,
+    export_digest_state_for,
+    load_export_digest_state,
+    save_export_digest_state,
 )
 from pipeline.config import PipelineConfig, load_config
-from pipeline.models.source import AcquisitionOutcome
+from pipeline.models.source import AcquisitionOutcome, SourceAcquisition
 
 pytestmark = pytest.mark.httpx_mock(assert_all_responses_were_requested=False)
 
@@ -43,6 +59,22 @@ _PLACEHOLDER = "id|name|\n"
 
 def _config(location: str, **overrides: str) -> PipelineConfig:
     return load_config(env={"WGC_DETAIL_SOURCE_URL": location, **overrides})
+
+
+def _seed_state(
+    config: PipelineConfig, state_path: Path
+) -> tuple[SourceAcquisition, list[FixturePayload]]:
+    """Acquire once, then persist the resulting digest state -- the same two calls a real
+    opted-in caller makes only after its own downstream work succeeds (R05-fix item 2).
+    `acquire_wahapedia` deliberately no longer saves its own state, so every test in this file
+    that needs "a prior run on record" goes through this helper rather than relying on a single
+    `acquire_wahapedia(..., state_path=...)` call to have written anything.
+    """
+    acquisition, payloads = acquire_wahapedia(config, offline=True, state_path=state_path)
+    state = export_digest_state_for(config, acquisition, payloads)
+    assert state is not None, "a real acquisition always carries Last_update.csv"
+    save_export_digest_state(state_path, state)
+    return acquisition, payloads
 
 
 def _write_export(directory: Path, *, last_update: str, abilities: str = _PLACEHOLDER) -> None:
@@ -110,25 +142,24 @@ def test_the_short_circuits_own_fingerprint_never_claims_full_verification(
     """
     state_path = tmp_path / "state" / "wahapedia-export-digest.json"
     same_timestamp = "2026-08-01T00:00:00Z"
+    directory = tmp_path / "export"
+    config = _config(str(directory))
 
-    directory_a = tmp_path / "export-a"
-    _write_export(directory_a, last_update=same_timestamp, abilities="id|name|\n1|Bolter|\n")
-    directory_b = tmp_path / "export-b"
-    _write_export(directory_b, last_update=same_timestamp, abilities="id|name|\n1|Las Cannon|\n")
+    # Seeds state_path with the source's own Last_update.csv digest.
+    _write_export(directory, last_update=same_timestamp, abilities="id|name|\n1|Bolter|\n")
+    _seed_state(config, state_path)
 
-    # Seeds state_path with directory A's Last_update.csv digest.
-    acquire_wahapedia(_config(str(directory_a)), offline=True, state_path=state_path)
-    # Directory B's own timestamp is byte-identical to A's, so the short-circuit fires -- even
-    # though B's Abilities.csv genuinely differs from A's.
-    skipped, skipped_payloads = acquire_wahapedia(
-        _config(str(directory_b)), offline=True, state_path=state_path
-    )
-    # What a full, unshortcircuited fetch of directory B would have fingerprinted.
-    full_b, _ = acquire_wahapedia(_config(str(directory_b)), offline=True)
+    # The SAME source (item 5: identical source_base_url/declared_edition_code/mode) polled
+    # again: its own timestamp is byte-identical, so the short-circuit fires -- even though
+    # Abilities.csv genuinely changed underneath it.
+    _write_export(directory, last_update=same_timestamp, abilities="id|name|\n1|Las Cannon|\n")
+    skipped, skipped_payloads = acquire_wahapedia(config, offline=True, state_path=state_path)
+    # What a full, unshortcircuited fetch of the (now-changed) source would have fingerprinted.
+    full, _ = acquire_wahapedia(config, offline=True)
 
     assert skipped.outcome is AcquisitionOutcome.UNCHANGED
     assert [p.name for p in skipped_payloads] == [LAST_UPDATE_FILE]
-    assert skipped.content_fingerprint != full_b.content_fingerprint, (
+    assert skipped.content_fingerprint != full.content_fingerprint, (
         "the short-circuit's own fingerprint covers only what it fetched and must never read as "
         "though it verified the whole, genuinely-changed export"
     )
@@ -139,19 +170,12 @@ def test_the_short_circuits_own_fingerprint_never_claims_full_verification(
 
 def test_an_unmoved_export_timestamp_skips_the_fetch_and_says_why(tmp_path: Path) -> None:
     state_path = tmp_path / "state" / "wahapedia-export-digest.json"
-    same_timestamp = "2026-08-01T00:00:00Z"
+    directory = tmp_path / "export"
+    _write_export(directory, last_update="2026-08-01T00:00:00Z")
+    config = _config(str(directory))
 
-    directory_a = tmp_path / "export-a"
-    _write_export(directory_a, last_update=same_timestamp)
-    directory_b = tmp_path / "export-b"
-    _write_export(directory_b, last_update=same_timestamp)
-
-    first, first_payloads = acquire_wahapedia(
-        _config(str(directory_a)), offline=True, state_path=state_path
-    )
-    second, second_payloads = acquire_wahapedia(
-        _config(str(directory_b)), offline=True, state_path=state_path
-    )
+    first, first_payloads = _seed_state(config, state_path)
+    second, second_payloads = acquire_wahapedia(config, offline=True, state_path=state_path)
 
     assert first.outcome is AcquisitionOutcome.OK
     assert len(first_payloads) == len(EXPORT_FILES)
@@ -165,16 +189,14 @@ def test_an_unmoved_export_timestamp_skips_the_fetch_and_says_why(tmp_path: Path
 
 def test_a_moved_export_timestamp_does_not_skip(tmp_path: Path) -> None:
     state_path = tmp_path / "state" / "wahapedia-export-digest.json"
+    directory = tmp_path / "export"
+    config = _config(str(directory))
 
-    directory_a = tmp_path / "export-a"
-    _write_export(directory_a, last_update="2026-08-01T00:00:00Z")
-    directory_b = tmp_path / "export-b"
-    _write_export(directory_b, last_update="2026-08-08T00:00:00Z")
+    _write_export(directory, last_update="2026-08-01T00:00:00Z")
+    _seed_state(config, state_path)
 
-    acquire_wahapedia(_config(str(directory_a)), offline=True, state_path=state_path)
-    second, second_payloads = acquire_wahapedia(
-        _config(str(directory_b)), offline=True, state_path=state_path
-    )
+    _write_export(directory, last_update="2026-08-08T00:00:00Z")
+    second, second_payloads = acquire_wahapedia(config, offline=True, state_path=state_path)
 
     assert second.outcome is AcquisitionOutcome.OK
     assert second.findings == ()
@@ -185,14 +207,22 @@ def test_the_first_run_never_skips_there_is_nothing_to_compare_against(tmp_path:
     state_path = tmp_path / "state" / "wahapedia-export-digest.json"
     directory = tmp_path / "export"
     _write_export(directory, last_update="2026-08-01T00:00:00Z")
+    config = _config(str(directory))
 
-    acquisition, payloads = acquire_wahapedia(
-        _config(str(directory)), offline=True, state_path=state_path
-    )
+    acquisition, payloads = acquire_wahapedia(config, offline=True, state_path=state_path)
 
     assert acquisition.outcome is AcquisitionOutcome.OK
     assert len(payloads) == len(EXPORT_FILES)
-    assert state_path.exists(), "the digest is recorded even on the run that could not skip"
+    assert not state_path.exists(), (
+        "R05-fix item 2: acquisition alone never advances the state, whatever `state_path` says "
+        "-- only a caller whose own downstream work has succeeded does, by calling "
+        "export_digest_state_for/save_export_digest_state itself"
+    )
+
+    state = export_digest_state_for(config, acquisition, payloads)
+    assert state is not None
+    save_export_digest_state(state_path, state)
+    assert state_path.exists(), "the caller's own save is what actually records it"
 
 
 def test_no_state_path_is_a_total_no_op(tmp_path: Path) -> None:
@@ -219,10 +249,12 @@ def test_the_persisted_state_holds_a_digest_never_the_raw_timestamp(tmp_path: Pa
     raw_timestamp = "2026-08-01T00:00:00Z"
     _write_export(directory, last_update=raw_timestamp)
 
-    acquire_wahapedia(_config(str(directory)), offline=True, state_path=state_path)
+    _seed_state(_config(str(directory)), state_path)
 
     raw = json.loads(state_path.read_text(encoding="utf-8"))
-    assert set(raw) == {"digest"}
+    # R05-fix item 5: the source identity the digest was taken under joins it -- never anything
+    # that could reconstruct the raw text.
+    assert set(raw) == {"digest", "source_base_url", "declared_edition_code", "mode"}
     assert raw["digest"] != raw_timestamp
     assert raw_timestamp not in state_path.read_text(encoding="utf-8")
     # sha256 hex: 64 lowercase hex characters, nothing else.
@@ -263,15 +295,15 @@ def test_a_missing_file_among_the_rest_fails_even_when_the_short_circuit_does_no
     fetch must still fail whole on one missing file rather than silently returning a partial
     set with an `UNCHANGED`-shaped outcome."""
     state_path = tmp_path / "state" / "wahapedia-export-digest.json"
-    directory_a = tmp_path / "export-a"
-    _write_export(directory_a, last_update="2026-08-01T00:00:00Z")
-    directory_b = tmp_path / "export-b"
-    _write_export(directory_b, last_update="2026-08-08T00:00:00Z")
-    (directory_b / "Enhancements.csv").unlink()
+    directory = tmp_path / "export"
+    config = _config(str(directory))
+    _write_export(directory, last_update="2026-08-01T00:00:00Z")
+    _seed_state(config, state_path)
 
-    acquire_wahapedia(_config(str(directory_a)), offline=True, state_path=state_path)
+    _write_export(directory, last_update="2026-08-08T00:00:00Z")
+    (directory / "Enhancements.csv").unlink()
     with pytest.raises(SourceUnreachable, match="Enhancements.csv"):
-        acquire_wahapedia(_config(str(directory_b)), offline=True, state_path=state_path)
+        acquire_wahapedia(config, offline=True, state_path=state_path)
 
 
 # -- T092 -- the fingerprint is computed over every fetched payload, unconditionally -----------
@@ -295,6 +327,62 @@ def test_the_fingerprint_is_never_computed_from_last_update_csv_alone_on_a_full_
     acquisition_b, _ = acquire_wahapedia(_config(str(directory_b)), offline=True)
 
     assert acquisition_a.content_fingerprint != acquisition_b.content_fingerprint
+
+
+# -- R05-fix item 1 -- the probe must not enter the content fingerprint or acquisition_id -------
+#
+# PR #30's gate: `Last_update.csv` was folded into `EXPORT_FILES`, and `content_fingerprint`
+# fingerprints every fetched payload unconditionally -- including on the plain `state_path=None`
+# path every existing caller (including `run_build`) uses. Verified against the real mirror, the
+# file is a bare export-regeneration timestamp, so this moved the authoritative change signal on
+# every republish with no rules change at all. These two tests are the rung's own both-directions
+# receipt: the first is red against the code this rung inherited.
+
+
+def test_changing_only_the_probe_does_not_move_the_fingerprint_or_acquisition_id(
+    tmp_path: Path,
+) -> None:
+    """Direction 1: the probe alone moves. Nothing that matters may move with it."""
+    directory_a = tmp_path / "export-a"
+    _write_export(directory_a, last_update="2026-08-01T00:00:00Z")
+    directory_b = tmp_path / "export-b"
+    _write_export(directory_b, last_update="2026-08-08T00:00:00Z")  # only the probe differs
+
+    same_moment = datetime(2026, 8, 9, tzinfo=UTC)
+    acquisition_a, _ = acquire_wahapedia(
+        _config(str(directory_a)), offline=True, retrieved_at=same_moment
+    )
+    acquisition_b, _ = acquire_wahapedia(
+        _config(str(directory_b)), offline=True, retrieved_at=same_moment
+    )
+
+    assert acquisition_a.content_fingerprint == acquisition_b.content_fingerprint, (
+        "Last_update.csv is a probe, not corpus content -- its own text moving must never move "
+        "the content fingerprint"
+    )
+    assert acquisition_a.acquisition_id == acquisition_b.acquisition_id, (
+        "acquisition_id is derived from the fingerprint -- it must not move either"
+    )
+
+
+def test_changing_a_real_export_file_still_moves_the_fingerprint(tmp_path: Path) -> None:
+    """Direction 2: the complementary half -- fixing direction 1 must not numb the fingerprint
+    to an actual rules change."""
+    directory_a = tmp_path / "export-a"
+    _write_export(
+        directory_a, last_update="2026-08-01T00:00:00Z", abilities="id|name|\n1|Bolter|\n"
+    )
+    directory_b = tmp_path / "export-b"
+    _write_export(
+        directory_b, last_update="2026-08-01T00:00:00Z", abilities="id|name|\n1|Las Cannon|\n"
+    )
+
+    acquisition_a, _ = acquire_wahapedia(_config(str(directory_a)), offline=True)
+    acquisition_b, _ = acquire_wahapedia(_config(str(directory_b)), offline=True)
+
+    assert acquisition_a.content_fingerprint != acquisition_b.content_fingerprint, (
+        "a genuine corpus change must still move the fingerprint"
+    )
 
 
 # -- T093 -- politeness unchanged; the surface reduction is recorded ---------------------------
@@ -353,6 +441,11 @@ def test_the_smaller_request_set_still_honours_the_configured_interval_and_is_re
         first, first_payloads = acquire_wahapedia(
             _remote_config(), client=client, state_path=state_path
         )
+        # R05-fix item 2: the caller persists the state itself, only once its own downstream
+        # work (nothing, in this test) has succeeded -- acquire_wahapedia no longer does.
+        first_state = export_digest_state_for(_remote_config(), first, first_payloads)
+        assert first_state is not None
+        save_export_digest_state(state_path, first_state)
         requests_after_first = client.request_count
         sleeps_after_first = len(recorder.sleeps)
 
@@ -378,3 +471,107 @@ def test_the_smaller_request_set_still_honours_the_configured_interval_and_is_re
     # the client's own counter, which a curator reading a report never sees.
     assert second.coverage["csv_files"] == 1
     assert second.coverage["csv_files_total"] == len(EXPORT_FILES)
+
+
+# -- R05-fix item 4 -- a corrupt state file is a mapped failure, not a bare traceback -----------
+#
+# Confirmed against today's code first: a JSON-decode failure on `state_path` propagated as a
+# bare `json.decoder.JSONDecodeError` -- not an `AcquisitionError` -- so the CLI's exit-code
+# mapping never saw it and the process died with an unmapped traceback instead of a clean exit.
+
+
+def test_a_non_json_state_file_raises_the_mapped_error(tmp_path: Path) -> None:
+    state_path = tmp_path / "state" / "wahapedia-export-digest.json"
+    state_path.parent.mkdir(parents=True, exist_ok=True)
+    state_path.write_text("not json{{{", encoding="utf-8")
+
+    with pytest.raises(ExportStateCorrupt):
+        load_export_digest_state(state_path)
+
+
+def test_a_state_file_holding_a_json_array_raises_the_mapped_error(tmp_path: Path) -> None:
+    """Valid JSON, wrong shape: a list has no `.get`, which is `AttributeError` today -- also
+    unmapped, also fixed the same way."""
+    state_path = tmp_path / "state" / "wahapedia-export-digest.json"
+    state_path.parent.mkdir(parents=True, exist_ok=True)
+    state_path.write_text("[1, 2, 3]", encoding="utf-8")
+
+    with pytest.raises(ExportStateCorrupt):
+        load_export_digest_state(state_path)
+
+
+def test_a_corrupt_state_file_fails_the_whole_acquisition_rather_than_fetching_blindly(
+    tmp_path: Path,
+) -> None:
+    """Fail closed end to end: the corrupt file must stop the run through `acquire_wahapedia`
+    itself, not merely through the loader in isolation -- and it must never be silently treated
+    as "no prior" and let the short-circuit fire (or even attempt to)."""
+    state_path = tmp_path / "state" / "wahapedia-export-digest.json"
+    state_path.parent.mkdir(parents=True, exist_ok=True)
+    state_path.write_text("not json{{{", encoding="utf-8")
+    directory = tmp_path / "export"
+    _write_export(directory, last_update="2026-08-01T00:00:00Z")
+
+    with pytest.raises(ExportStateCorrupt):
+        acquire_wahapedia(_config(str(directory)), offline=True, state_path=state_path)
+
+
+# -- R05-fix item 5 -- the digest is only comparable under a matching source identity -----------
+
+
+def test_a_digest_match_under_a_different_source_base_url_does_not_skip(tmp_path: Path) -> None:
+    """The exact hazard item 5 closes: two differently-configured sources whose probes happen to
+    carry byte-identical text must never let one's prior state wrongly skip the other's fetch."""
+    state_path = tmp_path / "state" / "wahapedia-export-digest.json"
+    same_timestamp = "2026-08-01T00:00:00Z"
+
+    directory_a = tmp_path / "export-a"
+    _write_export(directory_a, last_update=same_timestamp)
+    directory_b = tmp_path / "export-b"
+    _write_export(directory_b, last_update=same_timestamp)
+
+    _seed_state(_config(str(directory_a)), state_path)
+    # directory_b is a DIFFERENT source_base_url carrying the SAME Last_update.csv text -- the
+    # digest alone would match, but the identity does not.
+    second, second_payloads = acquire_wahapedia(
+        _config(str(directory_b)), offline=True, state_path=state_path
+    )
+
+    assert second.outcome is AcquisitionOutcome.OK, (
+        "a digest match recorded under a different source is not comparable -- it must fetch, "
+        "never skip"
+    )
+    assert second.findings == ()
+    assert len(second_payloads) == len(EXPORT_FILES)
+
+
+def test_a_digest_match_under_a_different_declared_edition_does_not_skip(tmp_path: Path) -> None:
+    state_path = tmp_path / "state" / "wahapedia-export-digest.json"
+    directory = tmp_path / "export"
+    _write_export(directory, last_update="2026-08-01T00:00:00Z")
+
+    _seed_state(_config(str(directory)), state_path)
+    reconfigured = _config(str(directory), WGC_DETAIL_EDITION="wh40k-11e")
+    second, second_payloads = acquire_wahapedia(reconfigured, offline=True, state_path=state_path)
+
+    assert second.outcome is AcquisitionOutcome.OK, (
+        "a digest recorded under a different declared edition is not comparable -- it must "
+        "fetch, never skip"
+    )
+    assert len(second_payloads) == len(EXPORT_FILES)
+
+
+def test_an_identity_mismatch_is_not_an_error(tmp_path: Path) -> None:
+    """The other half of item 5: a mismatch is an ordinary "no comparable prior", never a
+    failure -- distinct from item 4's corrupt-file case, which IS one."""
+    state_path = tmp_path / "state" / "wahapedia-export-digest.json"
+    directory_a = tmp_path / "export-a"
+    _write_export(directory_a, last_update="2026-08-01T00:00:00Z")
+    directory_b = tmp_path / "export-b"
+    _write_export(directory_b, last_update="2026-08-01T00:00:00Z")
+
+    _seed_state(_config(str(directory_a)), state_path)
+    second, _ = acquire_wahapedia(_config(str(directory_b)), offline=True, state_path=state_path)
+
+    assert second.outcome is AcquisitionOutcome.OK
+    assert second.findings == ()

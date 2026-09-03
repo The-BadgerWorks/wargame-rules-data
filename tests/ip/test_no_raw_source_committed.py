@@ -228,54 +228,85 @@ def test_the_009_diagnosis_reports_carry_no_quoted_phrase() -> None:
 # it could leak through -- a report, a log, the run ledger -- either does not carry the value
 # (`pipeline.observability.ledger.RunLedgerEntry`'s `coverage` field is typed `Mapping[str, int]`,
 # which structurally cannot hold a timestamp string) or is covered by the scans above.
-
-_HEX_DIGEST_PATTERN = re.compile(r"^[0-9a-f]{64}$")
+#
+# R05-fix item 5 (gate on PR #30) added the source identity (`source_base_url`,
+# `declared_edition_code`, `mode`) alongside `digest`, per this rung's own standing rule: "the
+# state file holds a one-way digest and the source identity, nothing else." Those identity
+# fields are ordinary configuration strings, not hashes, so the scan below can no longer demand
+# that *every* top-level string be hex -- it now checks by SHAPE instead of by key, catching a
+# raw timestamp landing in any field rather than only under a key named `digest`.
 
 EXPORT_DIGEST_STATE_PATH = "state/wahapedia-export-digest.json"
 
+#: The shape `Last_update.csv`'s own text takes -- `YYYY-MM-DD`, optionally followed by a time
+#: (space- or `T`-separated, optionally `Z`-suffixed). Matches both the real mirror's own
+#: `2026-06-13 12:02:41` and the ISO-8601 `2026-08-30T12:00:00Z` shape a planted violation might
+#: take; a bare sha256 hex digest, a URL, and an edition code all fail to match it.
+_TIMESTAMP_SHAPE_PATTERN = re.compile(r"^\d{4}-\d{2}-\d{2}([T ]\d{2}:\d{2}(:\d{2})?Z?)?$")
 
-def _non_digest_string_values(raw: dict[str, object]) -> list[str]:
-    """Every top-level string value in a digest-state JSON object that is not a bare sha256 hex
-    digest -- the shape a raw publisher timestamp (or any other un-hashed value) would take if
-    it were accidentally persisted here instead of hashed (FR-030).
+
+def _raw_timestamp_shaped_values(raw: dict[str, object]) -> list[str]:
+    """Every top-level string value in a digest-state JSON object shaped like a raw publisher
+    timestamp -- the one thing FR-030 forbids this file from ever holding, regardless of which
+    key it turns up under.
     """
     return [
         f"{key}={value!r}"
         for key, value in raw.items()
-        if isinstance(value, str) and not _HEX_DIGEST_PATTERN.fullmatch(value)
+        if isinstance(value, str) and _TIMESTAMP_SHAPE_PATTERN.match(value)
     ]
 
 
-def test_the_digest_shape_scan_catches_a_planted_raw_timestamp() -> None:
+def test_the_timestamp_shape_scan_catches_a_planted_raw_timestamp() -> None:
     """Proof the scan can fail before it is trusted against the real tracked file -- the same
     poisoned-then-clean discipline `test_ip_scan.py` and this file's own quoted-phrase scan use.
     """
     poisoned = {"digest": "2026-08-30T12:00:00Z"}
-    assert _non_digest_string_values(poisoned) == ["digest='2026-08-30T12:00:00Z'"]
+    assert _raw_timestamp_shaped_values(poisoned) == ["digest='2026-08-30T12:00:00Z'"]
 
 
-def test_the_digest_shape_scan_accepts_a_real_one_way_digest() -> None:
+def test_the_timestamp_shape_scan_catches_a_planted_raw_timestamp_under_an_identity_field() -> None:
+    """The shape check, not the key name, is what catches it -- a raw timestamp is just as much
+    a violation under `source_base_url` as under `digest`."""
+    poisoned = {"digest": "abc123", "source_base_url": "2026-08-30T12:00:00Z"}
+    assert _raw_timestamp_shaped_values(poisoned) == ["source_base_url='2026-08-30T12:00:00Z'"]
+
+
+def test_the_timestamp_shape_scan_accepts_a_real_one_way_digest() -> None:
     clean = {"digest": hashlib.sha256(b"placeholder export text").hexdigest()}
-    assert _non_digest_string_values(clean) == []
+    assert _raw_timestamp_shaped_values(clean) == []
 
 
-def test_the_digest_shape_scan_accepts_the_seeded_empty_state() -> None:
-    assert _non_digest_string_values({}) == []
+def test_the_timestamp_shape_scan_accepts_the_identity_fields() -> None:
+    """R05-fix item 5: a digest plus the source identity it was taken under -- none of it
+    timestamp-shaped -- is exactly what this file is now allowed to hold."""
+    clean = {
+        "digest": hashlib.sha256(b"placeholder export text").hexdigest(),
+        "source_base_url": "https://wahapedia.example",
+        "declared_edition_code": "wh40k-10e",
+        "mode": "csv",
+    }
+    assert _raw_timestamp_shaped_values(clean) == []
 
 
-def test_the_tracked_export_digest_state_file_holds_only_a_digest() -> None:
+def test_the_timestamp_shape_scan_accepts_the_seeded_empty_state() -> None:
+    assert _raw_timestamp_shaped_values({}) == []
+
+
+def test_the_tracked_export_digest_state_file_holds_no_raw_timestamp() -> None:
     """FR-030: whatever the tracked `state/wahapedia-export-digest.json` currently holds --
-    seeded empty, or carrying a digest from a real run -- it is never the publisher's raw
-    `Last_update.csv` text."""
+    seeded empty, or carrying a digest and identity from a real run -- it is never the
+    publisher's raw `Last_update.csv` text."""
     tracked = _tracked_files()
     assert EXPORT_DIGEST_STATE_PATH in tracked, (
         "the export-digest state file should exist and be tracked (state/README.md)"
     )
     raw = json.loads((REPO_ROOT / EXPORT_DIGEST_STATE_PATH).read_text(encoding="utf-8"))
-    offenders = _non_digest_string_values(raw)
+    offenders = _raw_timestamp_shaped_values(raw)
     assert offenders == [], (
-        f"state/wahapedia-export-digest.json carries a non-digest string value, which FR-030 "
-        f"forbids -- it must hold a one-way digest, never the raw timestamp: {offenders}"
+        f"state/wahapedia-export-digest.json carries a raw-timestamp-shaped value, which FR-030 "
+        f"forbids -- it must hold a one-way digest and source identity, never the raw "
+        f"timestamp: {offenders}"
     )
 
 

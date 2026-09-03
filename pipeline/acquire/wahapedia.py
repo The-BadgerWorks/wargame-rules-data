@@ -18,13 +18,28 @@
 # flagged as unresolved by `tasks.md`'s own Phase 7 note, is deciding which caller opts in and
 # how a skip composes with a full build; this rung delivers the mechanism and proves it correct
 # in isolation, never wires it into `run_build`.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - R05-fix (gate on PR #30, items 1/2/4/5):
+# `Last_update.csv` is now excluded from `content_fingerprint`/`acquisition_id` by
+# `_corpus_payloads` -- the one place that decides what the corpus is, so a republish with no
+# rules change no longer moves the authoritative signal. `_save_export_digest` no longer runs
+# inside acquisition -- a caller that opted in now persists `ExportDigestState` itself, only
+# after its own downstream work succeeds (`save_export_digest_state`, `export_digest_state_for`).
+# The persisted state now carries the source identity the digest was taken under, checked before
+# the short-circuit may fire, and a state file that cannot be parsed as a JSON object raises the
+# mapped `ExportStateCorrupt` instead of an unmapped traceback.
 """Acquire the datasheet-detail source: the CSV export, into ``work/``.
 
 Three things are worth stating plainly.
 
-**The export lands in `work/` and nowhere else.** `work/` is gitignored, emptied at the start of
-every command that writes to it and again in a `finally` (FR-010). Nothing here writes outside
-it, and the records handed downstream are the parsed ones, not the files.
+**The export lands in `work/` and nowhere else, with one documented exception.** `work/` is
+gitignored, emptied at the start of every command that writes to it and again in a `finally`
+(FR-010), and the records handed downstream are the parsed ones, not the files. The exception is
+`state/wahapedia-export-digest.json`, written **only** by :func:`save_export_digest_state` —
+never called from inside this module, only exposed for a caller that both opted into the
+short-circuit (passed a real ``state_path``) and completed its own downstream work successfully.
+This is not corpus data: it is a one-way digest of `Last_update.csv` plus the source identity
+(``source_base_url``, ``declared_edition_code``, ``mode``) it was taken under, kept for exactly
+one purpose — deciding whether next run's fetch can be skipped (R05-fix item 3).
 
 **The declared edition is configuration, not inference** (FR-005). The export is 10th Edition
 today and the points source is 11th, which is why hybrid pairing is the normal case at launch
@@ -35,11 +50,13 @@ the edition out of the data would make that a code change and, worse, would make
 **The publisher's own change marker is a convenience, never evidence** (FR-030). ``Last_update
 .csv`` is fetched/read like any other export file — `_read_local`/`_fetch_remote`'s all-or-nothing
 guarantee covers it exactly as it covers every other table (FR-032) — and when ``state_path`` is
-given, its one-way digest is compared against the last recorded one *before* the rest of the
-export is retrieved. A match short-circuits the remaining fetch and raises
-``SRC-EXPORT-UNCHANGED``; a mismatch (or no prior state) fetches everything and the existing
-:func:`~pipeline.acquire.fixtures.content_fingerprint` — computed, as always, over whatever was
-actually retrieved — is what a caller must trust, never the digest comparison alone. The
+given, its one-way digest AND the source identity it was taken under are compared against the
+last recorded state *before* the rest of the export is retrieved (R05-fix item 5); either
+mismatching means "no comparable prior", never an error. A match short-circuits the remaining
+fetch and raises ``SRC-EXPORT-UNCHANGED``; a mismatch (or no prior state) fetches everything and
+the existing :func:`~pipeline.acquire.fixtures.content_fingerprint` — computed, as always, over
+whatever was actually retrieved, and always excluding the probe itself (:func:`_corpus_payloads`,
+R05-fix item 1) — is what a caller must trust, never the digest comparison alone. The
 short-circuit sits in front of that fingerprint; nothing here lets it sit over it.
 """
 
@@ -105,9 +122,24 @@ EXPORT_FILES: Final[tuple[str, ...]] = (
 LAST_UPDATE_FILE: Final = "Last_update.csv"
 
 #: ``state/``'s new file for this rung (T090, state/README.md's one-way-digest-only rule). Holds
-#: exactly one field, ``digest`` — sha256 hex over ``Last_update.csv``'s own text, never the
-#: text itself. Seeded empty (``{}``): no prior run has ever reached the short-circuit.
+#: a ``digest`` — sha256 hex over ``Last_update.csv``'s own text, never the text itself — plus
+#: the source identity it was taken under (R05-fix item 5). Seeded empty (``{}``): no prior run
+#: has ever reached the short-circuit.
 EXPORT_DIGEST_STATE_RELATIVE_PATH: Final = "state/wahapedia-export-digest.json"
+
+
+class ExportStateCorrupt(AcquisitionError):
+    """``state_path`` exists but is not a JSON object (R05-fix item 4).
+
+    This pipeline is the only writer of this file — a run that reaches it and finds something
+    else is evidence the file was hand-edited, truncated, or overwritten by something outside the
+    contract, never a fact to route around. **Fail closed**: raised as a mapped error the CLI can
+    turn into the right exit code, never swallowed into "no prior" and never left to crash with
+    an unmapped traceback. The short-circuit still does not fire either way — the difference is
+    that a missing file is silently unremarkable while a corrupt one is not.
+    """
+
+    finding_code = "SRC-STATE-CORRUPT"
 
 
 def _one_way_export_digest(text: str) -> str:
@@ -122,19 +154,120 @@ def _one_way_export_digest(text: str) -> str:
     return hashlib.sha256(text.encode("utf-8")).hexdigest()
 
 
-def _load_export_digest(path: Path) -> str | None:
-    """The digest the last run that reached ``path`` recorded, or ``None`` (no prior run, or the
-    seeded-empty state)."""
+class ExportDigestState:
+    """The short-circuit's persisted state: a digest, plus the identity it was taken under.
+
+    R05-fix item 5: comparing a digest across differently-configured sources (a different
+    ``source_base_url``, a different declared detail edition, or a different acquisition mode)
+    would let one configuration's "unchanged" wrongly skip another's fetch. Recording the
+    identity here, and requiring it to match before :func:`acquire_wahapedia` may short-circuit,
+    is what closes that. A mismatch is never an error — see that function's own docstring — it
+    simply means there is nothing comparable to compare against.
+    """
+
+    __slots__ = ("digest", "source_base_url", "declared_edition_code", "mode")
+
+    def __init__(
+        self, *, digest: str, source_base_url: str, declared_edition_code: str, mode: str
+    ) -> None:
+        self.digest = digest
+        self.source_base_url = source_base_url
+        self.declared_edition_code = declared_edition_code
+        self.mode = mode
+
+    @property
+    def identity(self) -> tuple[str, str, str]:
+        """The three fields a caller's current configuration must match for the digest above to
+        be comparable at all."""
+        return (self.source_base_url, self.declared_edition_code, self.mode)
+
+
+def load_export_digest_state(path: Path) -> ExportDigestState | None:
+    """The state the last successful, opted-in run recorded, or ``None``.
+
+    ``None`` covers two different, both entirely ordinary, facts: the file does not exist yet (no
+    prior run has ever reached the short-circuit), and the file exists but is the seeded-empty
+    ``{}`` (same fact, written down explicitly instead of left absent). Either way the caller's
+    only correct move is to fetch — there is nothing to compare against.
+
+    A file that exists and is **not** valid JSON, or is valid JSON that is not an object, is a
+    third, different fact — the tracked state itself is broken — and is raised as
+    :class:`ExportStateCorrupt` rather than folded into the same ``None`` (R05-fix item 4,
+    "fail closed": a state file that cannot be read must never be treated as silently absent).
+    """
     if not path.exists():
         return None
-    raw = json.loads(path.read_text(encoding="utf-8"))
+    text = path.read_text(encoding="utf-8")
+    try:
+        raw = json.loads(text)
+    except json.JSONDecodeError as exc:
+        raise ExportStateCorrupt(f"{path} does not hold valid JSON: {exc}") from exc
+    if not isinstance(raw, dict):
+        raise ExportStateCorrupt(f"{path} does not hold a JSON object (got {type(raw).__name__})")
     digest = raw.get("digest")
-    return str(digest) if digest else None
+    if not digest:
+        return None  # the seeded-empty {} state, or a state written before identity existed
+    return ExportDigestState(
+        digest=str(digest),
+        source_base_url=str(raw.get("source_base_url", "")),
+        declared_edition_code=str(raw.get("declared_edition_code", "")),
+        mode=str(raw.get("mode", "")),
+    )
 
 
-def _save_export_digest(path: Path, digest: str) -> None:
-    """Persist ``digest`` through the same canonical-JSON writer every other state file uses."""
-    write_tree_file(path, {"digest": digest})
+def save_export_digest_state(path: Path, state: ExportDigestState) -> None:
+    """Persist ``state`` through the same canonical-JSON writer every other state file uses.
+
+    Never called from inside :func:`acquire_wahapedia` (R05-fix item 2) — acquisition alone does
+    not know whether the caller's own downstream work will succeed, and advancing this file on an
+    acquisition that turned out to feed a failed run is exactly the hazard that let a genuinely
+    changed export go un-re-fetched forever. Call this only after the whole run it belongs to has
+    succeeded, the same way ``detect.yml`` writes ``state/detection-digest.json`` only after a
+    successful sweep.
+    """
+    write_tree_file(
+        path,
+        {
+            "digest": state.digest,
+            "source_base_url": state.source_base_url,
+            "declared_edition_code": state.declared_edition_code,
+            "mode": state.mode,
+        },
+    )
+
+
+def export_digest_state_for(
+    config: PipelineConfig,
+    acquisition: SourceAcquisition,
+    payloads: Sequence[FixturePayload],
+) -> ExportDigestState | None:
+    """The state worth persisting after a completed, successful acquisition, or ``None``.
+
+    ``None`` when ``payloads`` carries no :data:`LAST_UPDATE_FILE` entry — a fixture-driven run
+    (which never reaches the probe at all) or any acquisition that did not go through this
+    module. A caller calls this, then :func:`save_export_digest_state`, only once its own
+    downstream work has succeeded (R05-fix item 2) — never from inside acquisition itself.
+    """
+    probe = next((payload for payload in payloads if payload.name == LAST_UPDATE_FILE), None)
+    if probe is None:
+        return None
+    return ExportDigestState(
+        digest=_one_way_export_digest(probe.text),
+        source_base_url=acquisition.source_base_url,
+        declared_edition_code=acquisition.declared_edition_code,
+        mode=config.detail_acquisition_mode.value,
+    )
+
+
+#: The files that count as the export's own content — what may move the content fingerprint and
+#: the acquisition_id derived from it. The **only** place that decision is made (R05-fix item 1):
+#: :data:`LAST_UPDATE_FILE` is fetched like any other table (the all-or-nothing guarantee still
+#: covers it) but is never corpus, so a bare regeneration timestamp can never masquerade as a
+#: rules change. A file added to :data:`EXPORT_FILES` later is corpus by default and has to be
+#: excluded here deliberately, the same way this one was -- exactly the property that was missing
+#: before this fix.
+def _corpus_payloads(payloads: Sequence[FixturePayload]) -> list[FixturePayload]:
+    return [payload for payload in payloads if payload.name != LAST_UPDATE_FILE]
 
 
 def _local_directory(location: str) -> Path | None:
@@ -227,20 +360,27 @@ def acquire_wahapedia(
     mode ran (008 FR-024). The bulk export has no per-faction page to fail partway through — it
     is one file or none — so there is nothing here for a carry-forward declaration to apply to.
 
-    ``state_path`` (009 rung R05, T090) is the export-timestamp short-circuit's own opt-in
-    switch, pointed at :data:`EXPORT_DIGEST_STATE_RELATIVE_PATH`. **``None`` — the default, and
-    every call this rung leaves unchanged, including every call `run_build` makes — is a total
-    no-op**: :data:`LAST_UPDATE_FILE` is still fetched (it is simply one more name in
-    :data:`EXPORT_FILES` now), but nothing is ever skipped and the fingerprint is computed over
-    the complete export exactly as before this rung. When a caller opts in by passing a real
-    path: :data:`LAST_UPDATE_FILE` is read first, on its own; if its digest matches the digest
-    :func:`_load_export_digest` reads back from ``state_path``, the remaining
+    ``state_path`` (009 rung R05, T090; identity check added R05-fix item 5) is the
+    export-timestamp short-circuit's own opt-in switch, pointed at
+    :data:`EXPORT_DIGEST_STATE_RELATIVE_PATH`. **``None`` — the default, and every call this rung
+    leaves unchanged, including every call `run_build` makes — is a total no-op**:
+    :data:`LAST_UPDATE_FILE` is still fetched (it is simply one more name in :data:`EXPORT_FILES`
+    now), but nothing is ever skipped and the fingerprint is computed over the complete export
+    exactly as before this rung. When a caller opts in by passing a real path:
+    :data:`LAST_UPDATE_FILE` is read first, on its own; if its digest matches the digest
+    :func:`load_export_digest_state` reads back from ``state_path`` **and** the state's recorded
+    identity (``source_base_url``, ``declared_edition_code``, ``mode``) matches this call's own —
+    a mismatch on either is "no comparable prior", not an error — the remaining
     :data:`_REMAINING_EXPORT_FILES` are never requested, ``outcome`` is
     :attr:`~pipeline.models.source.AcquisitionOutcome.UNCHANGED`, and the returned ``findings``
     carry ``SRC-EXPORT-UNCHANGED`` (FR-031) — otherwise every file is fetched exactly as it always
     was, and :func:`~pipeline.acquire.fixtures.content_fingerprint` runs over that complete,
-    freshly-fetched set. Either way ``state_path`` (when given) is rewritten with the fresh
-    digest before returning, so the *next* call is the one that can skip.
+    freshly-fetched set, excluding the probe either way (:func:`_corpus_payloads`, R05-fix item
+    1). **This function itself never writes ``state_path``** (R05-fix item 2): a caller that wants
+    the next call to be able to skip calls :func:`export_digest_state_for` and
+    :func:`save_export_digest_state` itself, only once its own downstream work has succeeded —
+    acquiring a genuinely new export and then advancing the state regardless of what happened
+    next is the exact hazard that would leave the changed export un-re-fetched forever.
 
     A fixture run (``fixtures_dir``) never reaches any of this — :func:`acquire_from_fixtures`
     returns before ``state_path`` is even inspected, exactly as it always has.
@@ -260,7 +400,8 @@ def acquire_wahapedia(
     findings: tuple[Finding, ...] = ()
     coverage: dict[str, int]
 
-    prior_digest = _load_export_digest(state_path) if state_path is not None else None
+    prior_state = load_export_digest_state(state_path) if state_path is not None else None
+    current_identity = (location, config.detail_edition, config.detail_acquisition_mode.value)
     owned = client is None
     active: PoliteClient | None = None
     try:
@@ -273,13 +414,20 @@ def acquire_wahapedia(
 
         fresh_digest = _one_way_export_digest(last_update.text)
         # T088/FR-030's central guarantee lives in this one condition: the short-circuit fires
-        # ONLY when a caller opted in (`state_path` given) AND a prior digest exists AND it
-        # matches. Every other combination — no `state_path`, first run, or a moved digest —
-        # falls through to the full fetch below, where the content fingerprint is computed over
-        # real, current bytes exactly as it always has been. The digest is never asked to stand
-        # in for that fingerprint; it only ever decides whether the fingerprint's own inputs are
-        # worth re-requesting.
-        if state_path is not None and prior_digest is not None and fresh_digest == prior_digest:
+        # ONLY when a caller opted in (`state_path` given) AND a prior state exists AND its
+        # recorded identity matches this call's own (R05-fix item 5) AND the digest matches.
+        # Every other combination — no `state_path`, first run, a moved digest, or a matching
+        # digest recorded under a different source configuration — falls through to the full
+        # fetch below, where the content fingerprint is computed over real, current bytes exactly
+        # as it always has been. The digest is never asked to stand in for that fingerprint; it
+        # only ever decides whether the fingerprint's own inputs are worth re-requesting.
+        short_circuit = (
+            state_path is not None
+            and prior_state is not None
+            and prior_state.identity == current_identity
+            and fresh_digest == prior_state.digest
+        )
+        if short_circuit:
             payloads = [last_update]
             outcome = AcquisitionOutcome.UNCHANGED
             findings = (build_finding("SRC-EXPORT-UNCHANGED", detail={"table": LAST_UPDATE_FILE}),)
@@ -292,8 +440,9 @@ def acquire_wahapedia(
                 request_count = active.request_count
             payloads = [last_update, *rest]
 
-        if state_path is not None:
-            _save_export_digest(state_path, fresh_digest)
+        # R05-fix item 2: state_path is READ above (to decide the short-circuit) but never
+        # WRITTEN here -- see save_export_digest_state's own docstring for why that is now the
+        # caller's job, and only after its own downstream work succeeds.
     except AcquisitionError:
         raise
     finally:
@@ -307,7 +456,9 @@ def acquire_wahapedia(
             (target / payload.name).write_text(payload.text, encoding="utf-8", newline="\n")
 
     moment = (retrieved_at or datetime.now(UTC)).astimezone(UTC)
-    fingerprint = content_fingerprint(payloads)
+    # R05-fix item 1: the probe is fetched (above) but never counted as corpus -- see
+    # _corpus_payloads's own docstring for why this is the one place that decision is made.
+    fingerprint = content_fingerprint(_corpus_payloads(payloads))
     coverage = {"csv_files": len(payloads)}
     if outcome is AcquisitionOutcome.UNCHANGED:
         # T093: the surface reduction the short-circuit buys, recorded rather than merely
