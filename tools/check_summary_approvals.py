@@ -44,6 +44,12 @@
 # digest. `merge_base` now resolves the branch point once, `check=False` and every failure raising
 # :exc:`GitAnswerUnavailable`, and both the changed-file set and every base-side record read are
 # taken from that one commit -- never from `base`'s tip directly.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - Rung R02a-fix4, item 4: this docstring
+# described what the guard checks without ever stating, in one place, what it does and does not
+# guarantee -- easy to read as a lock. Added a closing paragraph naming it as best-effort defence
+# in depth: real, mechanical catches on the unattributed and stale-stamp cases, and the three
+# named gaps (rekeying, an unresolved authorization string, the post-rollback window) it does not
+# catch, with the per-record human reviewer named as the control those fall through to.
 """Self-approval guard for every authored summary class.
 
   check_summary_approvals.py diff --base <ref> --head <ref> --actor <login>
@@ -126,6 +132,20 @@ difference is the whole of :data:`SOURCES`.
 > it would touch the 2 031 existing ability records — a change-class collision with
 > `004`'s transform work under `tools/check_change_classes.py`. **This limitation must be
 > restated in the pull request that first switches a class gate on.**
+
+> **What this guard actually guarantees.** It is best-effort defence in depth, not a lock. On a
+> record `approved` at both ends of a diff, it mechanically catches the two cases FR-026 to
+> FR-029 name: a digest refresh with **no** attribution pair, and one whose pair is **stale** — a
+> value repeated unchanged from what the record already carried at base. Those two catches are
+> real, not aspirational, and every case above is asserted end to end through `cmd_diff`. What it
+> does **not** catch: an approval carried across a rekeyed record (`docs/follow-ups.md` item 25),
+> an attribution pair that is present, fresh, and non-empty but names no decision that actually
+> exists (item 26), or an approval re-presented, unremarked, inside the interim window a rollback's
+> own remediation leaves open (`docs/break-glass.md`). None of those three is a bug still to be
+> fixed by this file; each is pinned by a strict xfail or written down so it cannot drift silently
+> narrower or wider. The control every one of them falls through to is the same one that has
+> always carried the weight this guard only narrows: a human reviewer reading the diff before
+> approving it.
 """
 
 from __future__ import annotations
