@@ -13,7 +13,9 @@
 # section (`_diverge` plus the false-refusal, fail-open-mirror, and merge-base-unavailable
 # cases), which builds two branches diverging from one common ancestor -- the shape an
 # un-rebased PR takes once its target branch moves, which every prior repo in this file could
-# not represent because each committed in a single straight line.
+# not represent because each committed in a single straight line. Folded
+# `commit.gpgsign=false` and `core.hooksPath=/dev/null` into `_git` itself, so every throwaway
+# repository this file creates runs isolated from the contributor's own ambient git config.
 """Feature 009 re-baselines every approved summary digest once. These five rules bound it.
 
 A bulk digest refresh is mechanically indistinguishable from **laundering an approval** —
@@ -678,8 +680,29 @@ def test_every_summary_class_schema_declares_the_attribution_pair(schema_name: s
 # ---------------------------------------------------------------------------------------
 
 
+#: Isolates every throwaway repository below from the contributor's own ambient git config.
+#: `_init_repo` used to set only `user.name`/`user.email`, so a global `commit.gpgsign = true` or
+#: `core.hooksPath` pointed at a real hook script made `_git(..., check=True)` raise on `commit`
+#: and errored the whole section -- on a contributor's machine, never in CI, which starts from a
+#: clean `$HOME`. One tuple, spliced into every invocation by `_git` itself, so the flags cannot
+#: drift between the ~25 `cmd_diff` tests in this section that create and commit into one of
+#: these repos.
+_HOSTILE_CONFIG_GUARD: tuple[str, ...] = (
+    "-c",
+    "commit.gpgsign=false",
+    "-c",
+    "core.hooksPath=/dev/null",
+)
+
+
 def _git(repo: Path, *args: str) -> str:
-    result = subprocess.run(["git", *args], cwd=repo, check=True, capture_output=True, text=True)
+    result = subprocess.run(
+        ["git", *_HOSTILE_CONFIG_GUARD, *args],
+        cwd=repo,
+        check=True,
+        capture_output=True,
+        text=True,
+    )
     return result.stdout
 
 
