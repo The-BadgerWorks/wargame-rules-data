@@ -16,6 +16,14 @@
 # not represent because each committed in a single straight line. Folded
 # `commit.gpgsign=false` and `core.hooksPath=/dev/null` into `_git` itself, so every throwaway
 # repository this file creates runs isolated from the contributor's own ambient git config.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - Rung R02a-fix4, item 1:
+# `test_a_plain_revert_and_a_stripped_stamp_are_the_same_pull_request` built the same repository
+# twice from the same call, so its assertion of two identical values compared no genuine
+# alternative and could never fail. The "revert" arm now performs a real `git revert` of a real
+# merged, attributed re-baseline commit in its own throwaway repository; the "stripped-stamp" arm
+# hand-authors the equivalent record in a separate one. The assertion is now a claim about two
+# independently-constructed pull requests, demonstrated able to fail by perturbing one arm's
+# attribution and restoring it (this rung's report carries the red output).
 """Feature 009 re-baselines every approved summary digest once. These five rules bound it.
 
 A bulk digest refresh is mechanically indistinguishable from **laundering an approval** —
@@ -1115,10 +1123,12 @@ def test_absence_is_established_rather_than_inferred_from_a_failure(
 
 # ---------------------------------------------------------------------------------------
 # Rolling a re-baseline back. A plain `git revert` of a merged re-baseline is refused, and that
-# refusal is DELIBERATE: the two tests below construct a rollback and the abuse this guard
-# exists to catch, and assert that the guard receives byte-identical input from both. Nothing
-# inside a base/head diff can separate them, so the sanctioned path is not an exemption but the
-# ordinary rule -- a rollback names its own decision. `docs/break-glass.md` carries it.
+# refusal is DELIBERATE: the first test below builds the rollback through an actual `git revert`
+# of a real merged commit, builds the abuse through a hand-authored head record in a separate
+# throwaway repository, and asserts the two independently-constructed pull requests reach the
+# guard's refusal identically. Nothing inside a base/head diff can separate them, so the
+# sanctioned path is not an exemption but the ordinary rule -- a rollback names its own decision.
+# `docs/break-glass.md` carries it.
 # ---------------------------------------------------------------------------------------
 
 
@@ -1147,22 +1157,63 @@ def test_a_plain_revert_and_a_stripped_stamp_are_the_same_pull_request(
 ) -> None:
     """Why this guard does not discriminate a rollback: there is nothing to discriminate on.
 
-    A ``git revert`` of a merged re-baseline restores the record as it stood before -- old
-    digest, still approved, no attribution pair, because the reverted commit is what added it.
-    An actor stripping a stamp while moving a digest writes the same record. Both are refused,
-    with the same two defects named, and a rule that admitted the first would admit the second.
+    The two arms are built two genuinely different ways, not two calls to the same helper:
+
+    * **revert** -- three real commits in one throwaway repository (pre-rebaseline, the merged
+      re-baseline, and an actual ``git revert`` of it), so the restored record is whatever git
+      itself computed by reversing the re-baseline commit's diff, not a value this test wrote.
+    * **stripped-stamp** -- a record hand-authored straight onto head in a *separate* throwaway
+      repository, naming the same digest and no attribution, with no revert anywhere in its
+      history.
+
+    Both restore the identical record content, by the mechanic each represents rather than by
+    the test sharing one call between them: a ``git revert`` of a merged re-baseline puts back
+    the record exactly as it stood before -- old digest, still approved, no attribution pair,
+    because the reverted commit is what added it -- and an actor stripping a stamp while moving
+    a digest writes that same record directly. Both are refused, with the same two defects
+    named, and a rule that admitted the first would admit the second.
     """
     outcomes = []
-    for name in ("revert", "stripped-stamp"):
-        sub = tmp_path / name
-        sub.mkdir()
-        repo = _init_repo(sub)
-        base, head = _rolled_back_pair(
-            repo, head_record=_record(review_state="approved", mechanic_digest=OLD_DIGEST)
-        )
-        monkeypatch.chdir(repo)
-        code = _run_diff(base, head)
-        outcomes.append((code, capsys.readouterr().err.splitlines()[-1].strip()))
+
+    # -- revert: a real `git revert` of a real merged commit.
+    revert_root = tmp_path / "revert"
+    revert_root.mkdir()
+    revert_repo = _init_repo(revert_root)
+    _commit_curation(
+        revert_repo,
+        {CURATION_PATH: [_record(review_state="approved", mechanic_digest=OLD_DIGEST)]},
+        message="synthetic pre-rebaseline",
+    )
+    revert_base = _commit_curation(
+        revert_repo,
+        {
+            CURATION_PATH: [
+                _record(
+                    review_state="approved",
+                    mechanic_digest=NEW_DIGEST,
+                    version=VERSION,
+                    authorization=AUTHORIZATION,
+                )
+            ]
+        },
+        message="synthetic merged re-baseline",
+    )
+    _git(revert_repo, "revert", "--no-edit", revert_base)
+    revert_head = _git(revert_repo, "rev-parse", "HEAD").strip()
+    monkeypatch.chdir(revert_repo)
+    revert_code = _run_diff(revert_base, revert_head)
+    outcomes.append((revert_code, capsys.readouterr().err.splitlines()[-1].strip()))
+
+    # -- stripped-stamp: the abuse, hand-authored directly, in its own repository.
+    stamp_root = tmp_path / "stripped-stamp"
+    stamp_root.mkdir()
+    stamp_repo = _init_repo(stamp_root)
+    stamp_base, stamp_head = _rolled_back_pair(
+        stamp_repo, head_record=_record(review_state="approved", mechanic_digest=OLD_DIGEST)
+    )
+    monkeypatch.chdir(stamp_repo)
+    stamp_code = _run_diff(stamp_base, stamp_head)
+    outcomes.append((stamp_code, capsys.readouterr().err.splitlines()[-1].strip()))
 
     assert outcomes[0] == outcomes[1], (
         "a rollback and the abuse are indistinguishable to this guard; if these ever differ, "
