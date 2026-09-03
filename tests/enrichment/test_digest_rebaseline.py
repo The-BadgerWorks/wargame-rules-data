@@ -953,6 +953,257 @@ def test_cmd_diff_no_longer_calls_a_carried_forward_approval_a_self_approval_on_
 
 
 # ---------------------------------------------------------------------------------------
+# A git answer this guard cannot get is a refusal, not a pass. Every case below is the SAME
+# pull request -- an approved record whose digest moves with no attribution, which the section
+# above proves is refused -- with one git question made unanswerable. Before this rung each one
+# exited 0, because an empty base side classifies every record as new and demands nothing.
+# ---------------------------------------------------------------------------------------
+
+
+def _unreachable_blob(repo: Path, ref: str, path: str) -> str:
+    """Delete ``ref:path``'s blob from the object store and return the sha it used to name.
+
+    This is the reachable shape of the fail-open, and the reason it is worth constructing rather
+    than asserting on :func:`read_records_at` alone: ``git diff --name-only`` compares tree
+    entries by oid and still answers, so :func:`changed_curation_files` reports the path as
+    changed and the command runs its full length -- only the base content is missing. A partial
+    (``--filter=blob:none``) clone with no network reaches the same state without any tampering.
+    """
+    blob = _git(repo, "rev-parse", f"{ref}:{path}").strip()
+    loose = repo / ".git" / "objects" / blob[:2] / blob[2:]
+    assert loose.exists(), (
+        f"expected {blob} to be a loose object in a three-commit throwaway repository; if git "
+        "has packed it, this construction needs to unpack it first"
+    )
+    loose.chmod(0o600)  # git writes loose objects read-only; Windows enforces it on unlink
+    loose.unlink()
+    return blob
+
+
+def _refresh_pair(repo: Path) -> tuple[str, str]:
+    """Base and head of an unattributed approved refresh -- refused whenever git can answer."""
+    base = _commit_curation(
+        repo,
+        {CURATION_PATH: [_record(review_state="approved", mechanic_digest=OLD_DIGEST)]},
+        message="synthetic base",
+    )
+    head = _commit_curation(
+        repo,
+        {CURATION_PATH: [_record(review_state="approved", mechanic_digest=NEW_DIGEST)]},
+        message="synthetic refresh",
+    )
+    return base, head
+
+
+def test_cmd_diff_refuses_when_the_base_content_cannot_be_read(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch, capsys: pytest.CaptureFixture[str]
+) -> None:
+    """The silent half of the bug: `git show` fails, the base side empties, the guard clears it.
+
+    The polarity is why it survived. The same empty base side makes :func:`newly_approved`
+    **over**-report -- everything looks newly approved, which is noisy -- while making
+    :func:`digest_refreshes` **under**-report, which is silent. This asserts the silent one.
+    """
+    repo = _init_repo(tmp_path)
+    base, head = _refresh_pair(repo)
+    _unreachable_blob(repo, base, CURATION_PATH)
+    monkeypatch.chdir(repo)
+
+    code = _run_diff(base, head)
+
+    assert code == 1, "an unreadable base side must refuse, not clear, the pull request"
+    error = capsys.readouterr().err
+    assert "could not be performed" in error
+    assert CURATION_PATH in error
+    assert base in error
+
+
+def test_cmd_diff_refuses_an_unresolvable_base_ref_and_says_which(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch, capsys: pytest.CaptureFixture[str]
+) -> None:
+    """A base sha that was never fetched -- a shallow checkout, a mis-wired workflow input.
+
+    It must not merely crash: `ci.yml` runs this as a shell step, and a traceback and a refusal
+    are the same red X to a reviewer, but only one of them says what to do about it.
+    """
+    repo = _init_repo(tmp_path)
+    _, head = _refresh_pair(repo)
+    absent = "deadbeef" * 5
+    monkeypatch.chdir(repo)
+
+    code = _run_diff(absent, head)
+
+    assert code == 1
+    error = capsys.readouterr().err
+    assert "cannot resolve" in error
+    assert absent in error
+
+
+def test_a_file_absent_at_a_ref_still_reads_as_an_empty_record_list(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    """The fail-open's legitimate twin, which must keep working exactly as it did.
+
+    Absence has to stay cheap and silent in both directions -- a file this pull request **adds**
+    is genuinely not at base, and a file it **deletes** in a reshard is genuinely not at head.
+    Closing the fail-open by refusing every non-zero git exit would have turned ordinary
+    authoring into a red build, which is the worse defect of the two.
+    """
+    repo = _init_repo(tmp_path)
+    base = _git(repo, "rev-parse", "HEAD").strip()
+    head = _commit_curation(
+        repo,
+        {CURATION_PATH: [_record(review_state="approved", mechanic_digest=NEW_DIGEST)]},
+        message="synthetic first authoring of this file",
+    )
+    monkeypatch.chdir(repo)
+
+    assert check_summary_approvals.read_records_at(base, CURATION_PATH) == []
+    assert check_summary_approvals.read_records_at(head, OTHER_CURATION_PATH) == []
+    assert _run_diff(base, head) == 0, "authoring a new curation file must stay green"
+
+
+def test_absence_is_established_rather_than_inferred_from_a_failure(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    """The distinction itself, at the level it is drawn.
+
+    ``git show`` cannot tell these two apart -- both exit non-zero -- so the guard must not ask
+    it to. :func:`path_exists_at` answers over a ref proven to resolve, and the two cases part
+    company there: absent means ``[]``, present-but-unreadable raises.
+    """
+    repo = _init_repo(tmp_path)
+    base, _ = _refresh_pair(repo)
+    monkeypatch.chdir(repo)
+
+    assert check_summary_approvals.path_exists_at(base, CURATION_PATH) is True
+    assert check_summary_approvals.path_exists_at(base, OTHER_CURATION_PATH) is False
+
+    _unreachable_blob(repo, base, CURATION_PATH)
+    assert check_summary_approvals.path_exists_at(base, CURATION_PATH) is True
+    with pytest.raises(check_summary_approvals.GitAnswerUnavailable):
+        check_summary_approvals.read_records_at(base, CURATION_PATH)
+
+
+# ---------------------------------------------------------------------------------------
+# Rolling a re-baseline back. A plain `git revert` of a merged re-baseline is refused, and that
+# refusal is DELIBERATE: the two tests below construct a rollback and the abuse this guard
+# exists to catch, and assert that the guard receives byte-identical input from both. Nothing
+# inside a base/head diff can separate them, so the sanctioned path is not an exemption but the
+# ordinary rule -- a rollback names its own decision. `docs/break-glass.md` carries it.
+# ---------------------------------------------------------------------------------------
+
+
+def _rolled_back_pair(repo: Path, *, head_record: dict[str, object]) -> tuple[str, str]:
+    """A merged, properly attributed re-baseline at base, and ``head_record`` at head."""
+    base = _commit_curation(
+        repo,
+        {
+            CURATION_PATH: [
+                _record(
+                    review_state="approved",
+                    mechanic_digest=NEW_DIGEST,
+                    version=VERSION,
+                    authorization=AUTHORIZATION,
+                )
+            ]
+        },
+        message="synthetic merged re-baseline",
+    )
+    head = _commit_curation(repo, {CURATION_PATH: [head_record]}, message="synthetic head")
+    return base, head
+
+
+def test_a_plain_revert_and_a_stripped_stamp_are_the_same_pull_request(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch, capsys: pytest.CaptureFixture[str]
+) -> None:
+    """Why this guard does not discriminate a rollback: there is nothing to discriminate on.
+
+    A ``git revert`` of a merged re-baseline restores the record as it stood before -- old
+    digest, still approved, no attribution pair, because the reverted commit is what added it.
+    An actor stripping a stamp while moving a digest writes the same record. Both are refused,
+    with the same two defects named, and a rule that admitted the first would admit the second.
+    """
+    outcomes = []
+    for name in ("revert", "stripped-stamp"):
+        sub = tmp_path / name
+        sub.mkdir()
+        repo = _init_repo(sub)
+        base, head = _rolled_back_pair(
+            repo, head_record=_record(review_state="approved", mechanic_digest=OLD_DIGEST)
+        )
+        monkeypatch.chdir(repo)
+        code = _run_diff(base, head)
+        outcomes.append((code, capsys.readouterr().err.splitlines()[-1].strip()))
+
+    assert outcomes[0] == outcomes[1], (
+        "a rollback and the abuse are indistinguishable to this guard; if these ever differ, "
+        "some signal has appeared that the (b) break-glass decision should be revisited on"
+    )
+    code, entry = outcomes[0]
+    assert code == 1
+    assert f"{KEY} (missing {REBASELINE_VERSION_FIELD}, missing " in entry
+
+
+def test_a_rollback_that_names_its_own_decision_is_permitted(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    """The documented way through, asserted so `docs/break-glass.md` cannot drift from it.
+
+    Undoing a re-baseline moves ``mechanic_digest`` on a record approved at both ends, which is
+    the very thing FR-028 says must cite a named, dated artefact. The rollback is a decision, so
+    it names one -- and then the existing rule permits it, with no exemption and no new code.
+    """
+    repo = _init_repo(tmp_path)
+    base, head = _rolled_back_pair(
+        repo,
+        head_record=_record(
+            review_state="approved",
+            mechanic_digest=OLD_DIGEST,
+            version=NEWER_VERSION,
+            authorization=NEWER_AUTHORIZATION,
+        ),
+    )
+    monkeypatch.chdir(repo)
+
+    assert _run_diff(base, head) == 0
+
+
+@pytest.mark.xfail(
+    strict=True,
+    reason=(
+        "Open narrowing, follow-ups.md item 25: records are matched by key alone, so changing "
+        "the key while refreshing the digest leaves no prior to compare against and the refresh "
+        "is classified as authoring. The day this passes, the bypass is closed and this xfail "
+        "must be promoted into an ordinary assertion."
+    ),
+)
+def test_cmd_diff_refuses_an_approved_refresh_hidden_behind_a_rekeying(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    """Same family as the rename bypass this rung closed, but on identity rather than path.
+
+    Deliberately not fixed here: unlike a reshard, rekeying an approved record requires
+    deliberate intent and is plainly visible in a pull request's diff. Pinned rather than merely
+    written down, so closing it cannot leave a stale note behind.
+    """
+    repo = _init_repo(tmp_path)
+    base = _commit_curation(
+        repo,
+        {CURATION_PATH: [_record(KEY, review_state="approved", mechanic_digest=OLD_DIGEST)]},
+        message="synthetic base",
+    )
+    head = _commit_curation(
+        repo,
+        {CURATION_PATH: [_record(OTHER_KEY, review_state="approved", mechanic_digest=NEW_DIGEST)]},
+        message="synthetic rekey plus refresh",
+    )
+    monkeypatch.chdir(repo)
+
+    assert _run_diff(base, head) == 1
+
+
+# ---------------------------------------------------------------------------------------
 # T078 / FR-025 — the re-baseline is an event, not a setting.
 # ---------------------------------------------------------------------------------------
 

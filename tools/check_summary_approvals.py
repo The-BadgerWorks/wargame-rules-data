@@ -29,6 +29,12 @@
 # the base record, and records are matched by key across every changed file of a class over a
 # `--no-renames` diff, because resharding a curation file otherwise walked past both halves of
 # this check at once.
+# AI-Assisted: Claude Code (model: claude-opus-5) - Rung R02a-fix2: every git question this
+# guard's verdict rests on was asked with `check=False` and a non-zero exit read as "the file is
+# new here", so a bad ref, an unfetched sha, or a blob git could not produce made the base side
+# empty, every refresh read as authoring, and the guard passed an unattributed re-baseline green.
+# Absence is now established by `git ls-tree` against a ref proven to resolve, and any other git
+# failure raises :exc:`GitAnswerUnavailable` and refuses the pull request instead of clearing it.
 """Self-approval guard for every authored summary class.
 
   check_summary_approvals.py diff --base <ref> --head <ref> --actor <login>
@@ -63,6 +69,26 @@ separates that from a stale stamp left untouched, and a guard resolves that ambi
 refusal. The way through is a new recorded decision -- which is the thing this check exists to
 demand.
 
+**A git failure is a refusal, never a pass.** Every base/head answer here comes from git, and
+this guard reads an empty base side as "the record is new, so nothing is being carried over
+anything" -- the most permissive reading it has. That reading is only safe when the emptiness was
+*established*, so absence is proven with :func:`require_ref_resolves` plus a ``git ls-tree``
+lookup, and any other non-zero exit raises :exc:`GitAnswerUnavailable` and fails the command. The
+polarity is why this mattered: the same empty base side makes :func:`newly_approved` **over**-
+report, which is noisy and gets noticed, while making :func:`digest_refreshes` **under**-report,
+which is silent and does not.
+
+**Rolling a re-baseline back is itself a re-baseline, and cites its own decision.** Reverting a
+merged re-baseline moves ``mechanic_digest`` again on a record approved at both ends, so this
+guard governs it exactly as it governs the move it undoes -- and a plain ``git revert``, which
+also removes the attribution pair the reverted commit added, is refused. That refusal is
+deliberate. Nothing inside a base/head diff separates "a stamp disappeared because a decision was
+rolled back" from "a stamp was stripped while the digest was moved", which is the abuse this check
+exists to catch. The way through is not an exemption but the ordinary rule: a rollback names the
+version it was rolled back at and the authorization it was rolled back under, and the guard
+permits it. ``docs/break-glass.md`` carries the path, including the case where even that cannot be
+done in time.
+
 The comparison is by **key**, never by file position, so reordering or an unrelated edit
 elsewhere in the same file never produces a false positive. It is also by key **across every
 changed file of the same class**, not within one path, so resharding a curation file does not
@@ -93,6 +119,57 @@ from dataclasses import dataclass
 from typing import Any
 
 ABILITIES_GLOB_PREFIX = "curation/abilities/"
+
+
+class GitAnswerUnavailable(RuntimeError):
+    """git could not answer a question this guard's verdict depends on.
+
+    Raised instead of returning the permissive default, because "git failed" and "the file is
+    not there" are the same non-zero exit and only the second one is safe to read as an empty
+    base side. A bad ref, a sha that was never fetched, a shallow or partial clone, or a
+    transient failure all land here and refuse the pull request.
+    """
+
+
+def _git(*args: str) -> subprocess.CompletedProcess[str]:
+    """One git invocation, never raising on a non-zero exit -- the caller decides what it means."""
+    return subprocess.run(["git", *args], capture_output=True, text=True, check=False)
+
+
+def _git_failure(what: str, result: subprocess.CompletedProcess[str]) -> GitAnswerUnavailable:
+    detail = result.stderr.strip() or result.stdout.strip() or "no output"
+    return GitAnswerUnavailable(f"{what} (git exited {result.returncode}: {detail})")
+
+
+def require_ref_resolves(ref: str) -> str:
+    """The commit sha ``ref`` names, or :exc:`GitAnswerUnavailable` if git cannot resolve it.
+
+    This is what makes an empty answer trustworthy. Without it, a base sha that was never
+    fetched -- the shape a shallow checkout or a mis-wired workflow input produces -- reads
+    exactly like a base commit in which no curation file existed yet.
+    """
+    result = _git("rev-parse", "--verify", "--quiet", f"{ref}^{{commit}}")
+    sha = result.stdout.strip()
+    if result.returncode != 0 or not sha:
+        raise _git_failure(
+            f"cannot resolve {ref!r} to a commit in this checkout, so the records it holds "
+            "cannot be read and no verdict about them is possible",
+            result,
+        )
+    return sha
+
+
+def path_exists_at(ref: str, path: str) -> bool:
+    """Whether ``path`` is present in ``ref``'s tree.
+
+    Absence established here -- rather than inferred from a failed ``git show`` -- is the whole
+    of the legitimate new-file case: a file added by this pull request is genuinely not at base,
+    and its records are genuinely new.
+    """
+    result = _git("ls-tree", "--name-only", ref, "--", path)
+    if result.returncode != 0:
+        raise _git_failure(f"cannot list {path!r} at {ref!r}", result)
+    return bool(result.stdout.strip())
 
 
 @dataclass(frozen=True)
@@ -137,12 +214,11 @@ def changed_curation_files(base: str, head: str) -> list[tuple[str, CurationSour
     the new path reads as brand new. Reported as delete-plus-add, both paths are present, which
     is what lets :func:`cmd_diff` find a record's prior after it has moved between files.
     """
-    result = subprocess.run(
-        ["git", "diff", "--name-only", "--no-renames", f"{base}...{head}"],
-        capture_output=True,
-        text=True,
-        check=True,
-    )
+    require_ref_resolves(base)
+    require_ref_resolves(head)
+    result = _git("diff", "--name-only", "--no-renames", f"{base}...{head}")
+    if result.returncode != 0:
+        raise _git_failure(f"cannot diff {base!r}...{head!r}", result)
     pairs: list[tuple[str, CurationSource]] = []
     for line in result.stdout.splitlines():
         source = source_for(line)
@@ -177,17 +253,24 @@ def read_records_at(
     """The records a curation file held at ``ref``, or ``[]`` if it did not exist there yet.
 
     A brand-new file is `[]` at base, so every record in it is by definition newly approved
-    wherever it says so.
+    wherever it says so. The same is true of a file deleted at head, which is how a reshard's
+    old path reads.
+
+    That empty answer is returned only when absence has been **established** -- the ref resolves
+    and ``git ls-tree`` says the path is not in its tree. Every other non-zero exit raises
+    :exc:`GitAnswerUnavailable`, because a base side emptied by a git failure classifies every
+    refresh in the pull request as authoring and demands no attribution for any of it.
     """
     resolved = source if source is not None else source_for(path)
-    result = subprocess.run(
-        ["git", "show", f"{ref}:{path}"],
-        capture_output=True,
-        text=True,
-        check=False,
-    )
-    if result.returncode != 0:
+    require_ref_resolves(ref)
+    if not path_exists_at(ref, path):
         return []
+    result = _git("show", f"{ref}:{path}")
+    if result.returncode != 0:
+        raise _git_failure(
+            f"{path!r} is present at {ref!r} but its content could not be read",
+            result,
+        )
     text = result.stdout.strip()
     if not text:
         return []
@@ -369,7 +452,12 @@ def unattributed_refreshes(refreshes: Sequence[DigestRefresh]) -> list[DigestRef
     )
 
 
-def cmd_diff(args: argparse.Namespace) -> int:
+def _collect(args: argparse.Namespace) -> tuple[list[str], list[str]]:
+    """The self-approvals and the unattributed refreshes this PR contains.
+
+    Every git call underneath may raise :exc:`GitAnswerUnavailable`; :func:`cmd_diff` turns that
+    into a refusal, so no partial answer is ever reported as a clean one.
+    """
     offending: list[str] = []
     unattributed: list[str] = []
 
@@ -401,6 +489,23 @@ def cmd_diff(args: argparse.Namespace) -> int:
                 unattributed.append(
                     f"{path}: {refresh.key} ({', '.join(refresh.attribution_defects)})"
                 )
+
+    return offending, unattributed
+
+
+def cmd_diff(args: argparse.Namespace) -> int:
+    try:
+        offending, unattributed = _collect(args)
+    except GitAnswerUnavailable as error:
+        print(
+            f"FAIL: this check could not be performed, so it refuses rather than passes: {error}. "
+            "An unanswerable git question empties the base side of the diff, which reads as "
+            "'every record here is new' -- the one reading under which no digest refresh carries "
+            "an approval and no attribution is demanded. Re-run with the base and head commits "
+            "both present in the checkout (a full-history fetch, and blobs available offline).",
+            file=sys.stderr,
+        )
+        return 1
 
     failed = False
     if offending:
