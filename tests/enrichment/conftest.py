@@ -9,6 +9,10 @@
 # (007 task T005/T007 fixture scaffolding): the legacy stem-object/footnote-restriction/
 # over-length-item fixture (GF12) and the three unit-size-header fixtures (GF13-GF15), the last
 # of which is the near-miss the five-signal header rule is designed not to refuse.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - Reconciled the three csv fixture sets this
+# repository carries (009 task T013, retiring risk R-G's fixture half): recorded which one models
+# the real bulk export and which one models the html arm's own manufactured table, so a future
+# reader of `Datasheets_unit_equipment.csv` cannot mistake this set for evidence about the export.
 """Shared access to ``fixtures/enrichment/``.
 
 Every row these fixtures carry is invented — invented faction, invented units, invented model
@@ -19,6 +23,34 @@ capture into a fixture would not make it one either (FR-006).
 The tests read the exports through :func:`pipeline.parse.wahapedia_csv.read_file` rather than
 splitting the text themselves, so a change to the reader's record repair shows up here as a test
 failure rather than as a divergence between what the suite parses and what a run parses.
+
+**Which of the three committed csv fixture sets models what (009 T013).** This repository carries
+three: this one (``fixtures/enrichment/``), ``fixtures/minimal/``, and ``fixtures/disagreements/``.
+They diverge on exactly one point that matters to the CSV acquisition migration, and it is worth
+stating plainly rather than leaving a future reader to infer it from a diff:
+
+* ``fixtures/minimal/wahapedia/`` and ``fixtures/disagreements/wahapedia/`` **omit**
+  ``Datasheets_unit_equipment.csv`` entirely — correctly, because the real bulk export publishes
+  no such file (FR-017's whole premise: the html arm *manufactures* it from the datacard's
+  composition block, and phase 0's 20-file inventory confirmed the export carries no counterpart).
+  Both sets are built to stand in for a real acquisition — one arm or the other, faithfully — and
+  this is the one file whose *absence* is the faithful choice.
+* **This set (``fixtures/enrichment/wahapedia/``) invents
+  ``Datasheets_unit_equipment.csv``.** It exists so `pipeline.parse.equipment_grammar` can be
+  exercised directly against a table of its own, independent of which acquisition arm would have
+  produced it — `test_equipment_grammar_regression.py`'s own docstring records that no such file
+  backed the grammar at all before `008` task T009 created this one. **It is not evidence about
+  what the export publishes**, and FR-018's rule follows directly: table-presence and
+  table-population claims for the migration are asserted against an **acquired** set (009 T054,
+  T065), never against this file or any fixture — the one category of assertion in this feature
+  that may not be fixture-backed.
+
+`Datasheets_unit_composition.csv` here (this set) carries the equipment-marker shape (`GF05|1`,
+`CM03|2`, 009 T011) that a real export-sourced derivation reads *instead of* a manufactured
+equipment table — the mechanism FR-017's csv-mode derivation route actually uses, and the reason
+this set's own invented equipment file and its composition file can coexist without contradicting
+each other: one models the html arm's manufactured table, the other models the raw material a csv
+derivation reads.
 """
 
 from __future__ import annotations

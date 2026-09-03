@@ -44,6 +44,15 @@
 # stopped it from ever dropping a row -- it only raises the advisory `CMP-HEADER-ROW` finding now.
 # Wired the new `CompositionOverrideEntry.remove` shape into `_composition_entries`'s override
 # branch, the only remaining path that removes a composition row.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - 009 task T019: computes the faction-id
+# vocabulary actually acquired this run (arm-agnostic) and passes it to `resolve_factions`, so
+# `REC-DETAIL-FACTION-EMPTY` is live against real builds rather than only unit-tested -- the
+# `plan.md` finding 1 silent-failure shape this feature exists to make loud.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - 009 task T028: updated
+# DETACHMENT_ABILITIES_FILE's comment now that it has joined EXPORT_FILES under the csv arm too.
+# AI-Assisted: Claude Code (model: claude-opus-5) - 009 rung R01b: forward
+# `carried_forward_detail_ids` to `resolve_factions`, so a faction carried forward from the
+# previous published tree is not reported as an unexplained empty faction.
 """Build one :class:`~pipeline.models.curated.CuratedSnapshot` from everything upstream.
 
 This is where the two sources stop being two sources. The **points** source is authoritative for
@@ -161,6 +170,7 @@ from pipeline.reconcile.identity import EntityKind, IdRegistry, slugify
 from pipeline.reconcile.match import (
     FactionScope,
     UnitMatch,
+    _detail_ids_for,
     datasheet_key,
     match_units,
     report_orphan_detail_factions,
@@ -1418,17 +1428,39 @@ def assemble(  # noqa: PLR0913 - the stage genuinely needs every upstream input
     edition_code: str,
     edition_name: str,
     registry: IdRegistry | None = None,
+    carried_forward_detail_ids: frozenset[str] = frozenset(),
 ) -> AssemblyResult:
-    """Build the whole curated snapshot."""
+    """Build the whole curated snapshot.
+
+    ``carried_forward_detail_ids`` (008 FR-024) is carried straight through to
+    :func:`~pipeline.reconcile.match.resolve_factions` — the detail-source ids acquisition
+    declared **and** could not fetch this run, so a faction contributing no rows for that reason
+    is not the unexplained ``REC-DETAIL-FACTION-EMPTY``. Plain data resolved at acquisition by
+    :func:`pipeline.acquire.detail_source.resolve_carried_forward`; nothing here knows a mode
+    exists (rule 4). Defaults to empty, which is inert.
+    """
     findings: list[Finding] = []
     registry = registry or IdRegistry()
     edition_id = f"ed-{edition_code}"
 
-    factions_outcome = resolve_factions([page.faction_slug for page in pages], authored)
+    detail_datasheets = detail["Datasheets.csv"]
+    # The faction-id vocabulary actually acquired this run, arm-agnostic (009 FR-015,
+    # data-model.md §2): whichever arm read `Datasheets.csv`, this is what its own `faction_id`
+    # column carries. Passed to `resolve_factions` so a mapped faction matching NONE of it is the
+    # loud, blocking `REC-DETAIL-FACTION-EMPTY` rather than the silent empty roster `plan.md`
+    # finding 2 measured -- the coverage ratchets read 100% on the OTHER factions regardless.
+    detail_faction_ids_present = frozenset(
+        faction_id for row in detail_datasheets.rows if (faction_id := row.fields.get("faction_id"))
+    )
+    factions_outcome = resolve_factions(
+        [page.faction_slug for page in pages],
+        authored,
+        detail_faction_ids_present=detail_faction_ids_present,
+        carried_forward_detail_ids=carried_forward_detail_ids,
+    )
     findings.extend(factions_outcome.findings)
     scopes = {scope.entry.mfm_slug: scope for scope in factions_outcome.scopes}
 
-    detail_datasheets = detail["Datasheets.csv"]
     legends_sources = _legends_source_ids(detail)
     detail_faction_keywords = _faction_keywords_by_datasheet(detail)
     source_detachment_rules = _source_detachment_rules(detail)
@@ -1640,11 +1672,11 @@ def assemble(  # noqa: PLR0913 - the stage genuinely needs every upstream input
     )
 
 
-#: The detail export's detachment-rule file. **Not in `EXPORT_FILES`** — the current-edition
-#: acquisition that brings it lands with Phase 9's own tasks, and adding it to the sweep here
-#: would change acquisition behaviour under a task that is about curation. Until then the file
-#: is simply absent from `detail`, which :func:`_source_detachment_rules` reads as "the source
-#: published no rule names this run" rather than as an error.
+#: The detail export's detachment-rule file. Joined `EXPORT_FILES` in the `csv` arm at 009 task
+#: T028 (FR-019 parity restoration) — previously only the `html` arm supplied it, and
+#: :func:`_source_detachment_rules` already reads its absence as "the source published no rule
+#: names this run" rather than as an error, which is what let this join land with zero behaviour
+#: change for any run that does not yet acquire it.
 DETACHMENT_ABILITIES_FILE: Final = "Detachment_abilities.csv"
 
 
@@ -1934,18 +1966,31 @@ def _datasheet_for(  # noqa: PLR0913 - one datasheet needs both sources and the 
 
 
 def _owning_factions(scopes: Sequence[FactionScope]) -> dict[str, FactionScope]:
-    """Which curated faction owns each detail-source faction id.
+    """Which curated faction owns each detail-source faction id, **in either arm's vocabulary**.
 
     Several curated factions can share one detail-source id — the chapters all draw on the
     parent's. A datasheet nobody priced is filed under the **root** of that group, because the
     consumer contract's §3.5 query rule then shows it to the parent *and* to every chapter,
     whereas filing it under one chapter would hide it from the other four.
+
+    Keyed through :func:`pipeline.reconcile.match._detail_ids_for`, the same helper
+    ``resolve_factions``/``match_units``'s own scope-building already uses (009 T020/T021,
+    data-model.md §2) — **not** ``scope.entry.detail_source_faction_id`` alone. Without this, an
+    unclaimed row's ``faction_id`` under ``csv`` mode is the export's own code (``"SM"``), which
+    never matches the ``html``-arm slug this dict used to be keyed by alone, so every unclaimed
+    detail-only row was silently dropped by the caller's ``owning_faction.get(...) is None``
+    check — proven live (shape-decision diagnosis session) to be effectively the entire measured
+    coverage collapse under a full ``csv``-mode build, discarding the whole FR-026/FR-035
+    "ships on the best price known" recovery pass for every row. Arm-blind by construction, same
+    as every other 009 arm-selection site (rule 4/FR-012): both vocabularies are always carried,
+    never chosen between.
     """
     owners: dict[str, FactionScope] = {}
     for scope in sorted(
         scopes, key=lambda s: (s.entry.parent_faction_id is not None, s.faction_id)
     ):
-        owners.setdefault(scope.entry.detail_source_faction_id, scope)
+        for detail_id in _detail_ids_for(scope.entry):
+            owners.setdefault(detail_id, scope)
     return owners
 
 

@@ -1,4 +1,10 @@
 #!/usr/bin/env python3
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - Added --compare-modes (009 task T001): a
+# same-process, same-live-corpus measurement of both the csv and html acquisition arms, joined on
+# case-folded datasheet name (the two arms' own ids are not comparable), rendering a per-
+# diagnosis-class residual table side by side plus a row-granularity section for research.md Q1 --
+# the rig FR-004's diagnosis rests on, written to reports/009-diagnosis/ rather than
+# reports/option-taxonomy/ so it is never mistaken for the single-mode report it sits beside.
 # AI-Assisted: Claude Code (model: claude-opus-5) - Implemented the option-row taxonomy classifier
 # (006 task T001): acquire the detail source in the configured mode into an ephemeral work/, run
 # every option row through the pipeline's own parse path, classify each unparsed row against
@@ -50,14 +56,20 @@ import json
 import re
 import sys
 from collections.abc import Iterable, Mapping, Sequence
-from dataclasses import dataclass, field
+from dataclasses import dataclass, field, replace
 from datetime import UTC, datetime
 from pathlib import Path
 from typing import Final
 
 from pipeline.acquire.detail_source import acquire_detail, read_detail
 from pipeline.acquire.http import AcquisitionError
-from pipeline.config import ConfigError, PipelineConfig, load_config, repo_root
+from pipeline.config import (
+    ConfigError,
+    DetailAcquisitionMode,
+    PipelineConfig,
+    load_config,
+    repo_root,
+)
 from pipeline.curate.prior import previous_published_version, read_curated_tree
 from pipeline.exit_codes import ExitCode
 from pipeline.models.curated import CuratedSnapshot, WargearOptionState
@@ -478,6 +490,299 @@ def measure(
     )
 
 
+# =================================================================================================
+# 009 task T001 -- the export-mode comparison. FR-004 requires the taxonomy re-run in `csv` mode
+# over the SAME current-edition corpus as the existing `html`-mode measurement, with per-
+# diagnosis-class residuals placed side by side rather than reduced to two aggregate percentages,
+# plus a row-granularity section for research.md Q1. Both arms are measured inside one process so
+# "the same corpus" is a fact about when the two acquisitions ran, not an assumption.
+# =================================================================================================
+
+
+@dataclass(frozen=True, slots=True)
+class ModeResidual:
+    """One acquisition mode's option residual, classified by `classify()` -- the unit the
+    comparison places side by side. Rows are keyed by the datasheet's case-folded NAME, not its
+    id: `html` mode's id joins the faction slug to the page anchor, and `csv` mode's is the
+    export's own numeric id, so name is the only join key the two arms share (the same collapse
+    `_card_shapes` uses elsewhere in this file)."""
+
+    mode: str
+    datasheets: int
+    rows: int
+    unparsed: int
+    classes: Mapping[str, int]
+    rows_per_datasheet: Mapping[str, int]
+    unparsed_per_datasheet: Mapping[str, int]
+
+    @property
+    def ratio(self) -> float:
+        return self.unparsed / self.rows if self.rows else 0.0
+
+
+@dataclass(frozen=True, slots=True)
+class RowGranularity:
+    """research.md Q1: does the export split a card's option list into the same rows the html arm
+    does. Counts and a histogram only -- no row text, in either direction."""
+
+    shared_names: int
+    equal_count: int
+    differing_count: int
+    csv_only_names: int
+    html_only_names: int
+    csv_unparsed_rows_on_differing: int
+    html_unparsed_rows_on_differing: int
+    csv_histogram: Mapping[int, int]
+    html_histogram: Mapping[int, int]
+
+
+@dataclass(frozen=True, slots=True)
+class ModeComparisonReport:
+    """T001's whole deliverable: two `ModeResidual`s over the same corpus, plus the granularity
+    section. Text-free -- counts, class keys, and datasheet NAMES never appear; only their
+    case-folded identity is used, internally, as a join key."""
+
+    generated_at: str
+    edition: str
+    source: str
+    csv: ModeResidual
+    html: ModeResidual
+    granularity: RowGranularity
+    class_labels: Mapping[str, str] = field(default_factory=dict)
+
+
+def _measure_mode_residual(
+    config: PipelineConfig,
+    mode: DetailAcquisitionMode,
+    *,
+    repository_root: Path,
+    fixtures_dir: Path | None,
+    offline: bool,
+) -> ModeResidual:
+    """One arm's residual, over whatever `config` (with `mode` substituted) resolves to acquire.
+
+    Mirrors `measure()`'s acquire-classify-discard shape; kept separate because `measure()`'s
+    per-faction breakdown is a different axis than the per-datasheet-name one this comparison
+    needs to join the two arms on.
+    """
+    mode_config = replace(config, detail_acquisition_mode=mode)
+    class_counts: dict[str, int] = {rule.key: 0 for rule in _CLASSES}
+    rows_per_name: dict[str, int] = {}
+    unparsed_per_name: dict[str, int] = {}
+    names_seen: set[str] = set()
+    rows_total = 0
+    unparsed_total = 0
+
+    with workspace(repository_root) as work:
+        _acquisition, payloads = acquire_detail(
+            mode_config, fixtures_dir=fixtures_dir, offline=offline, workspace=work
+        )
+        tables = read_detail(mode_config, payloads)
+        name_of = {
+            row.fields.get("id", ""): row.fields.get("name", "").strip().casefold()
+            for row in tables[_DATASHEETS_TABLE].rows
+        }
+        for row in tables[_OPTIONS_TABLE].rows:
+            datasheet_id = row.fields.get("datasheet_id", "")
+            name = name_of.get(datasheet_id, "")
+            names_seen.add(name)
+            description = row.fields.get("description", "")
+            rows_total += 1
+            rows_per_name[name] = rows_per_name.get(name, 0) + 1
+
+            stem_raw, _items = split_sublist(description)
+            stem = pre_pass(stem_raw, field="option.description")
+            parsed = parse_row(description)
+            if parsed is None:
+                unparsed_total += 1
+                unparsed_per_name[name] = unparsed_per_name.get(name, 0) + 1
+                class_counts[classify(stem)] += 1
+
+    return ModeResidual(
+        mode=mode.value,
+        datasheets=len(names_seen),
+        rows=rows_total,
+        unparsed=unparsed_total,
+        classes=dict(class_counts),
+        rows_per_datasheet=dict(rows_per_name),
+        unparsed_per_datasheet=dict(unparsed_per_name),
+    )
+
+
+def _histogram(counts: Mapping[str, int]) -> dict[int, int]:
+    histogram: dict[int, int] = {}
+    for count in counts.values():
+        histogram[count] = histogram.get(count, 0) + 1
+    return dict(sorted(histogram.items()))
+
+
+def _row_granularity(csv_residual: ModeResidual, html_residual: ModeResidual) -> RowGranularity:
+    """Compare option-row counts per datasheet NAME between the two arms.
+
+    A name present in both arms with a differing row count is exactly the shape research.md Q1
+    asks about: the stem-versus-alternative geometry the grammar reads may have changed underneath
+    it. Reported as counts and a distribution only.
+    """
+    csv_names = set(csv_residual.rows_per_datasheet)
+    html_names = set(html_residual.rows_per_datasheet)
+    shared = csv_names & html_names
+    differing = {
+        name
+        for name in shared
+        if csv_residual.rows_per_datasheet[name] != html_residual.rows_per_datasheet[name]
+    }
+    equal = shared - differing
+
+    csv_unparsed_on_differing = sum(
+        csv_residual.unparsed_per_datasheet.get(name, 0) for name in differing
+    )
+    html_unparsed_on_differing = sum(
+        html_residual.unparsed_per_datasheet.get(name, 0) for name in differing
+    )
+
+    return RowGranularity(
+        shared_names=len(shared),
+        equal_count=len(equal),
+        differing_count=len(differing),
+        csv_only_names=len(csv_names - html_names),
+        html_only_names=len(html_names - csv_names),
+        csv_unparsed_rows_on_differing=csv_unparsed_on_differing,
+        html_unparsed_rows_on_differing=html_unparsed_on_differing,
+        csv_histogram=_histogram(csv_residual.rows_per_datasheet),
+        html_histogram=_histogram(html_residual.rows_per_datasheet),
+    )
+
+
+def measure_mode_comparison(
+    config: PipelineConfig,
+    *,
+    repository_root: Path,
+    fixtures_dir: Path | None = None,
+    offline: bool = False,
+    generated_at: datetime | None = None,
+) -> ModeComparisonReport:
+    """FR-004's rig: both arms, over the same current-edition corpus, in one process.
+
+    `config.detail_acquisition_mode` is not read here beyond determining `edition`/`source` for
+    the report header -- each arm substitutes its own mode via `dataclasses.replace`, so a single
+    invocation (regardless of which mode `WGC_DETAIL_ACQUISITION_MODE` currently names) measures
+    both.
+    """
+    csv_residual = _measure_mode_residual(
+        config,
+        DetailAcquisitionMode.CSV,
+        repository_root=repository_root,
+        fixtures_dir=fixtures_dir,
+        offline=offline,
+    )
+    html_residual = _measure_mode_residual(
+        config,
+        DetailAcquisitionMode.HTML,
+        repository_root=repository_root,
+        fixtures_dir=fixtures_dir,
+        offline=offline,
+    )
+    granularity = _row_granularity(csv_residual, html_residual)
+    moment = (generated_at or datetime.now(UTC)).astimezone(UTC)
+    return ModeComparisonReport(
+        generated_at=moment.isoformat().replace("+00:00", "Z"),
+        edition=config.detail_edition,
+        source=config.detail_source_url,
+        csv=csv_residual,
+        html=html_residual,
+        granularity=granularity,
+        class_labels={rule.key: rule.label for rule in _CLASSES},
+    )
+
+
+def render_mode_comparison(report: ModeComparisonReport) -> str:
+    """T001's report as Markdown. Counts, class labels, and a row-count histogram only -- no
+    source sentence, no fragment, no item name, no datasheet name."""
+    lines = [
+        "<!-- AI-Assisted: Claude Code (model: claude-sonnet-5) - Generated by "
+        "tools/option_taxonomy.py --compare-modes (009 T001). -->",
+        "# Export-mode option-residual comparison",
+        "",
+        f"- Generated: `{report.generated_at}`",
+        f"- Declared detail edition: `{report.edition}`",
+        f"- Source: `{report.source}`",
+        "",
+        "**Non-destructive, and text-free.** Both arms were acquired into an ephemeral workspace "
+        "discarded at run end. Nothing under `data/`, `curation/`, or `state/` was written, and no "
+        "source sentence, fragment, item name, or datasheet name appears on this page -- rows are "
+        "joined between arms on a case-folded name internally and only the join's own counts are "
+        "reported.",
+        "",
+        "## Aggregate, both arms over the same corpus",
+        "",
+        "| Mode | Datasheets | Option rows | Unparsed | Share unparsed |",
+        "|---|---:|---:|---:|---:|",
+        f"| `{report.csv.mode}` | {report.csv.datasheets} | {report.csv.rows} | "
+        f"{report.csv.unparsed} | {report.csv.ratio:.1%} |",
+        f"| `{report.html.mode}` | {report.html.datasheets} | {report.html.rows} | "
+        f"{report.html.unparsed} | {report.html.ratio:.1%} |",
+        "",
+        "## The residual, by class, side by side (FR-004, FR-005)",
+        "",
+        "Disjoint and ordered per arm -- each arm's own column sums to that arm's own residual "
+        "above.",
+        "",
+        "| Class | Shape | `csv` rows | `html` rows | Delta (csv - html) |",
+        "|---|---|---:|---:|---:|",
+    ]
+    for key in sorted(report.class_labels, key=_class_sort_key):
+        label = report.class_labels[key]
+        csv_count = report.csv.classes.get(key, 0)
+        html_count = report.html.classes.get(key, 0)
+        delta = csv_count - html_count
+        lines.append(f"| **{key}** | {label} | {csv_count} | {html_count} | {delta} |")
+
+    g = report.granularity
+    lines += [
+        "",
+        "## Row granularity (research.md Q1)",
+        "",
+        "Option-row counts per datasheet, joined between arms by case-folded name -- the only key "
+        "the two arms share (`html`'s id joins the faction slug to the page anchor; `csv`'s is the "
+        "export's own numeric id).",
+        "",
+        "| Shared names | Same row count in both arms | Differing row count | `csv`-only names | "
+        "`html`-only names |",
+        "|---:|---:|---:|---:|---:|",
+        f"| {g.shared_names} | {g.equal_count} | {g.differing_count} | {g.csv_only_names} | "
+        f"{g.html_only_names} |",
+        "",
+        f"Of the residual above, **{g.csv_unparsed_rows_on_differing}** `csv`-mode unparsed rows "
+        f"and **{g.html_unparsed_rows_on_differing}** `html`-mode unparsed rows sit on a datasheet "
+        "whose row count differs between arms -- the population a granularity cause (rather than a "
+        "normalization or vocabulary one) could explain.",
+        "",
+        "Rows-per-datasheet distribution (row count -> datasheets):",
+        "",
+        "| Rows | `csv` datasheets | `html` datasheets |",
+        "|---:|---:|---:|",
+    ]
+    all_counts = sorted(set(g.csv_histogram) | set(g.html_histogram))
+    for count in all_counts:
+        csv_n = g.csv_histogram.get(count, 0)
+        html_n = g.html_histogram.get(count, 0)
+        lines.append(f"| {count} | {csv_n} | {html_n} |")
+
+    lines += [
+        "",
+        "## Reading this",
+        "",
+        "- **This is the rig FR-004's diagnosis rests on.** It attributes nothing by itself -- "
+        "`reports/009-diagnosis/`'s cause-attribution work reads this table's deltas and assigns "
+        "each to a denominator, normalization, or vocabulary cause.",
+        "- A name absent from one arm (`csv`-only or `html`-only) is not a parsing difference; it "
+        "is an enumeration difference between the two acquisitions and is reported separately, "
+        "never folded into a class delta.",
+        "",
+    ]
+    return "\n".join(lines)
+
+
 def _percent(part: int, whole: int) -> str:
     return f"{part / whole:.1%}" if whole else "—"
 
@@ -631,7 +936,21 @@ def _parse_args(argv: Sequence[str] | None) -> argparse.Namespace:
     parser.add_argument(
         "--print-only", action="store_true", help="render to stdout and write no file"
     )
+    parser.add_argument(
+        "--compare-modes",
+        action="store_true",
+        help=(
+            "009 T001: measure BOTH csv and html mode over the same current-edition corpus and "
+            "render the per-diagnosis-class comparison (default report path "
+            "reports/009-diagnosis/<date>.md) instead of the single-mode report"
+        ),
+    )
     return parser.parse_args(list(argv) if argv is not None else None)
+
+
+#: 009 T001's own report directory -- distinct from `REPORTS_DIR` so this comparison is never
+#: mistaken for the single-mode taxonomy report it sits beside.
+DIAGNOSIS_REPORTS_DIR: Final = Path("reports") / "009-diagnosis"
 
 
 def _summary_line(report: TaxonomyReport) -> str:
@@ -643,9 +962,44 @@ def _summary_line(report: TaxonomyReport) -> str:
     )
 
 
+def _main_compare_modes(args: argparse.Namespace, root: Path) -> int:
+    """009 T001: measure both arms and render the comparison. Separated from `main` because the
+    single-mode path's `load_config`/`measure` error handling names one mode; this path always
+    exercises both regardless of which mode `WGC_DETAIL_ACQUISITION_MODE` currently names."""
+    try:
+        config = load_config()
+        report = measure_mode_comparison(
+            config, repository_root=root, fixtures_dir=args.fixtures, offline=args.offline
+        )
+    except ConfigError as exc:
+        print(f"{PROG}: {exc}", file=sys.stderr)
+        return int(ExitCode.CONFIG_ERROR)
+    except AcquisitionError as exc:
+        print(f"{PROG}: {exc}", file=sys.stderr)
+        return int(exc.exit_code)
+
+    rendered = render_mode_comparison(report)
+    if args.print_only:
+        print(rendered)
+    else:
+        destination = args.out or (root / DIAGNOSIS_REPORTS_DIR / f"{report.generated_at[:10]}.md")
+        destination.parent.mkdir(parents=True, exist_ok=True)
+        destination.write_text(rendered, encoding="utf-8", newline="\n")
+        print(f"{PROG}: wrote {destination}")
+
+    print(
+        f"{PROG}: csv {report.csv.unparsed}/{report.csv.rows} ({report.csv.ratio:.1%}) vs "
+        f"html {report.html.unparsed}/{report.html.rows} ({report.html.ratio:.1%}) unparsed"
+    )
+    return int(ExitCode.SUCCESS)
+
+
 def main(argv: Sequence[str] | None = None) -> int:
     args = _parse_args(argv)
     root = args.repo or repo_root()
+
+    if args.compare_modes:
+        return _main_compare_modes(args, root)
 
     try:
         config = load_config()

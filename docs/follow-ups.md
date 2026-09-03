@@ -15,6 +15,9 @@
 <!-- AI-Assisted: Claude Code (model: claude-opus-5) - Closed item 4: the chapter-keyword rung
      landed, and the coverage shortfall it attributed to an edition-boundary artefact turned out
      to be a cost-table parsing defect. The original text is kept beneath the resolution. -->
+<!-- AI-Assisted: Claude Code (model: claude-opus-5) - Added item 24 (009 rung R01a): the
+     one markup class still narrower than origin/main after the R01a regression repair, with
+     the reason it was not closed and the strict-xfail test that will force it to be. -->
 <!-- AI-Assisted: Claude Code (model: claude-opus-5) - Added item 5 (issue #4): the finding code
      the weapon-ability-keyword fix needed, implemented ahead of the additive row a frozen
      contract may not be given as a side effect of a bug fix. -->
@@ -63,6 +66,10 @@
      item 19, this feature's own entry: the ahead-of-contract finding codes T018/T019 added
      (validation-report.md §3 owed an additive row, item 5's precedent) and the O2 restatement
      T014 decided but has not yet sized (T074 owes the exact figure). -->
+<!-- AI-Assisted: Claude Code (model: claude-sonnet-5) - 009 T032 (Foundational phase): pointed
+     items 20 and 21 at 009-csv-migration as their discharge-in-progress, with the live figures
+     Setup's own T001-T005 measured (digest churn, collision set, -N population) and the C1 ruling
+     that answers item 20's chapter-consolidation question. -->
 # Follow-ups
 
 Open items surfaced during implementation that are deliberately **not** fixed as part of the work
@@ -848,6 +855,17 @@ finding-code contract-row debt (first paragraph) remains open.
 
 ## 20. CSV export migration is a candidate for a future release
 
+**Discharge in progress: `009-csv-migration`.** Its own Setup phase (T001-T005) measured the
+csv-mode endpoints live through the pipeline's own governed acquisition and answered every open
+question below with a real number: the digest-churn size (76/2,125 approved-record churn, not the
+near-total wave the "essentially the whole corpus" framing two paragraphs down anticipated), the
+Space Marine collision set (9 pairs export-side, not the 53 `html`-measured), and the
+`-N`-suffixed population (793). The chapter-consolidation question this item raised was resolved
+by Product Owner ruling C1 (2026-08-18): the 30-faction model, chapter identifiers included, is
+**held** — no consolidation. See `specs/009-csv-migration/plan.md` and
+`reports/009-diagnosis/2026-08-18.md` for the full figures; this item's own text below is left
+as the pre-measurement record of what was uncertain before that phase ran.
+
 The current-edition detail source has been read exclusively in `html` mode
 (`DetailAcquisitionMode.HTML`, `pipeline/config.py`) since `006`, because no bulk export existed
 for the current 11th-edition catalogue — `csv` mode (`DetailAcquisitionMode.CSV`) has only ever
@@ -890,6 +908,13 @@ before committing to a migration. Evaluate this before authoring item 21's overr
 hand, in case the CSV shape resolves some of it mechanically.
 
 ## 21. 008's override-authoring follow-up release is still owed (T071/T072/T073/T080)
+
+**Discharge in progress: `009-csv-migration`.** Per this item's own instruction, `009` runs
+*before* T071-T073 rather than after: its US5 (FR-033/FR-036, T097-T099) explicitly re-runs `008`'s
+override-candidate worklist against the post-migration corpus and diffs it against the figures
+this item cites (26 datasheets / 30 option rows, 99 equipment rows), so the two are not paid for
+twice. T099 is the sequencing guarantee: no override row is authored before that diff exists. If
+`009` does not reach a published release, this item's own worklist proceeds unchanged.
 
 `008-wargear-option-completion`'s own two-release split (spec.md Clarifications session
 2026-08-17, Q5) shipped the grammar productions and the carry-forward mechanism in
@@ -977,3 +1002,41 @@ force-push, exactly as this fix did. **Action needed**: document this explicitly
 `docs/repo-settings.md` or `docs/runbook.md` (whichever documents PR mechanics for the
 `data`-class release path) so a future Product Owner reviewing a candidate PR does not reach for
 the same button a second time.
+
+## 24. A tag carrying a *valueless* attribute is still not recognised as markup (009 rung R01a)
+
+009's markup tightening (`T029`/`T030`) narrowed `ip_strip.py`'s `_ATTR` to attributes that carry
+an `=` and a value. Rung R01a widened it back to accept an **unquoted** value, which is what
+repaired the `<td colspan=2>` regression. What remains narrower than `origin/main@2c603c7f` is a
+tag whose attribute has **no `=` at all**:
+
+| Input | `origin/main@2c603c7f` | today |
+|---|---|---|
+| `<span hidden>Bolt rifle</span>` | `'Bolt rifle'` + `DQ-MARKUP-IN-FIELD` | `'<span hidden>Bolt rifle'` + finding |
+| `<td colspan="2" nowrap>Bolt rifle</td>` | `'Bolt rifle'` + `DQ-MARKUP-IN-FIELD` | `'<td colspan="2" nowrap>Bolt rifle'` + finding |
+
+The finding still fires, because the closing `</span>` matches on its own — so a run is not
+silent about it. But the markup itself **survives in the field**, and since
+`models/mechanical.py`'s `NON_MECHANICAL_PATTERNS["markup"]` is character-identical by
+construction, `validate/ip_scan.py` has the same blind spot and would not block a publish on it.
+
+**Why it was not closed in R01a.** Nothing textual separates `<span hidden>` from the prose
+`a <b and c> d` that the same tightening exists to protect, except that the prose case happens to
+carry two bare words rather than one. Every rule fitted to that distinction — "allow at most one
+valueless attribute", "allow one only beside a valued one" — is fitted to a sample of one and
+re-opens the over-strip for ordinary prose such as `roll a <D6 result> here`. The alternative, an
+allowlist of HTML boolean attribute names, is a closed set that would work but is a wider change
+than the rung was scoped for, and it fails open on any attribute not on the list.
+
+**Not yet measured.** No count exists for how often a valueless attribute actually appears in the
+export; the class was found by construction while building R01a's no-regression matrix, not by
+measurement. Standing rule 10 (*a class measured at zero gets no code*) is the reason this is a
+follow-up rather than a fix. **Action needed**: measure the class against a real acquisition
+first; if it is non-zero, close it with the boolean-attribute allowlist, in lockstep across both
+patterns as always.
+
+**Pinned, not merely written down**:
+`tests/ip/test_ip_strip.py::test_a_valueless_attribute_is_a_known_open_narrowing_against_main`
+asserts `main`'s behaviour under `pytest.mark.xfail(strict=True)`. The day the residual is closed
+that test goes green, the strict xfail fails, and whoever closed it is forced to promote the rows
+into `test_no_regression_against_main` rather than leave a stale note behind.

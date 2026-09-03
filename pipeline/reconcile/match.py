@@ -14,6 +14,12 @@
 # (docs/follow-ups.md item 4): html mode carries no publication id, so the publication-id step is
 # inert there and the same collision resurfaced. The signal html mode does carry is the card's own
 # faction keywords, read against curation/keyword-classes.json's curator-authored chapter records.
+# AI-Assisted: Claude Code (model: claude-opus-5) - 009 rung R01b: `resolve_factions` takes the
+# detail ids carry-forward actually used this run (`carried_forward_detail_ids`) and does not
+# raise `REC-DETAIL-FACTION-EMPTY` for them. Every carried-forward faction is parentless, so the
+# ancestor walk that spares a Space Marine chapter saved none of them, and the splice runs after
+# assembly with no way to withdraw a finding already appended -- so 008's approved safety net
+# turned exit 0 into exit 30 on exactly the runs it exists for.
 """Pair the points source's units with the detail source's datasheets, deterministically.
 
 The ladder, and the reason each rung exists (research D5):
@@ -78,7 +84,7 @@ from difflib import SequenceMatcher
 from typing import Final
 
 from pipeline.curate.authored import AuthoredContent
-from pipeline.models.authored import FactionMapEntry, KeywordClassEntry
+from pipeline.models.authored import FactionMapEntry, KeywordClassEntry, UnitMapEntry
 from pipeline.models.curated import KeywordClass
 from pipeline.models.findings import Finding, Suggestion
 from pipeline.normalize.names import normalize_name
@@ -178,12 +184,66 @@ def rank_suggestions(
     )
 
 
-def resolve_factions(slugs: Sequence[str], authored: AuthoredContent) -> MatchOutcome:
+def _detail_ids_for(entry: FactionMapEntry) -> tuple[str, ...]:
+    """Every identifier this entry's own detail faction might be read under, in either arm.
+
+    Normally one value. When the entry also declares ``detail_source_faction_code`` (009
+    data-model.md §2), **both** the id and the code are returned, never a choice between them —
+    there is no mode parameter here (rule 4/FR-012). Whichever arm actually acquired the data,
+    only its own vocabulary's value will ever appear in a real row's ``faction_id`` column, so
+    the unused alternative simply never matches anything; arm selection falls out of the data
+    rather than a branch.
+    """
+    code = entry.detail_source_faction_code
+    if code and code != entry.detail_source_faction_id:
+        return (entry.detail_source_faction_id, code)
+    return (entry.detail_source_faction_id,)
+
+
+def resolve_factions(
+    slugs: Sequence[str],
+    authored: AuthoredContent,
+    *,
+    detail_faction_ids_present: Set[str] = frozenset(),
+    carried_forward_detail_ids: Set[str] = frozenset(),
+) -> MatchOutcome:
     """Stage 0. Map every points-source slug to a curated faction, or block.
 
     Also reports a detail-source faction id that no mapping references — advisory, because a
     faction the points source does not publish is not a faction a player can field, but it is
     worth an approver knowing about.
+
+    Args:
+        detail_faction_ids_present: the faction-id vocabulary actually observed in this run's
+            acquired ``Datasheets.csv`` — arm-agnostic; the caller passes what it actually saw,
+            whichever arm ran. When non-empty and a scope's own faction ids (its own plus every
+            ancestor's, in either vocabulary `_detail_ids_for` returns) share nothing with it,
+            the scope is the **blocking** ``REC-DETAIL-FACTION-EMPTY`` (009 FR-015, data-model.md
+            §2, plan.md finding 2) — the loud complement to the advisory
+            ``REC-DETAIL-FACTION-ORPHAN``, and the one check the coverage ratchets cannot do
+            instead, since an empty roster still reads 100% of the OTHER factions' coverage.
+            Defaults to empty, which is inert: a caller that has not wired in the acquired
+            vocabulary sees exactly today's behaviour.
+        carried_forward_detail_ids: the detail-source ids **actually carried forward this run**
+            (008 FR-024) — the declared set minus what acquisition returned, resolved at
+            acquisition by
+            :func:`pipeline.acquire.detail_source.resolve_carried_forward` and passed down as
+            plain data. A faction whose ``detail_source_faction_id`` is in this set contributed
+            no rows *for a declared, Product-Owner-approved reason*, and
+            ``REC-DETAIL-FACTION-EMPTY`` — which is for the **unexplained** case — is not raised
+            for it; ``SRC-FACTION-CARRIED-FORWARD`` reports it instead, from
+            :func:`pipeline.curate.carry_forward.apply_carried_forward` (rule 10: no second code
+            for a condition already reported). Every carried-forward faction is parentless, so
+            the ancestor walk below — the thing that spares a Space Marine chapter — rescues none
+            of them, and the splice runs *after* assembly with no way to withdraw a finding
+            already appended; the exemption therefore has to be made here or not at all.
+
+            **Keyed on "declared and absent", never on "declared".** A declared faction whose
+            page answered is not carried this run, is absent from this set, and stays fully
+            subject to the guard — which is the case that matters, since "the page answered but
+            its rows speak a vocabulary nothing maps" is exactly ``plan.md`` finding 2's shape.
+            Empty under any arm that has no per-faction page to fail in the first place, so the
+            exemption cannot leak into ``csv`` mode; nothing here knows a mode exists (rule 4).
     """
     outcome = MatchOutcome()
     by_faction = {entry.faction_id: entry for entry in authored.faction_map}
@@ -209,7 +269,7 @@ def resolve_factions(slugs: Sequence[str], authored: AuthoredContent) -> MatchOu
             )
             continue
 
-        detail_ids = [entry.detail_source_faction_id]
+        detail_ids = list(_detail_ids_for(entry))
         ancestor = entry.parent_faction_id
         seen = {entry.faction_id}
         while ancestor and ancestor not in seen:
@@ -217,9 +277,24 @@ def resolve_factions(slugs: Sequence[str], authored: AuthoredContent) -> MatchOu
             parent = by_faction.get(ancestor)
             if parent is None:
                 break
-            if parent.detail_source_faction_id not in detail_ids:
-                detail_ids.append(parent.detail_source_faction_id)
+            for parent_id in _detail_ids_for(parent):
+                if parent_id not in detail_ids:
+                    detail_ids.append(parent_id)
             ancestor = parent.parent_faction_id
+
+        carried_forward = entry.detail_source_faction_id in carried_forward_detail_ids
+        if (
+            detail_faction_ids_present
+            and not carried_forward
+            and not (set(detail_ids) & detail_faction_ids_present)
+        ):
+            outcome.findings.append(
+                build_finding(
+                    "REC-DETAIL-FACTION-EMPTY",
+                    entity_refs=[f"mfm:{slug}"],
+                    detail={"faction_id": entry.faction_id, "mfm_slug": slug},
+                )
+            )
 
         own, foreign = _chapter_keywords_for(entry.faction_id, lineage=seen, chapters=chapters)
         outcome.scopes.append(
@@ -346,7 +421,18 @@ def match_units(
 
     # Stage 1's index. The authored map is authoritative on its own — the id registry is
     # consulted only when an id has to be *issued*, which by definition is not this case.
-    identity_by_name = {entry.mfm_display_name: entry for entry in authored.unit_map}
+    #
+    # Faction-scoped when an entry declares `faction_id` (009 data-model.md §1, risk R-C), on
+    # the same two-tier shape the sibling alias index a few lines below already uses
+    # (`alias.faction_id == scope.faction_id`). This loop runs ONCE PER FACTION SCOPE: an entry
+    # with no `faction_id` still matches every scope (today's behaviour, unchanged), but an entry
+    # WITH one is a curated decision that ONLY this faction's copy of the shared name resolves to
+    # its `datasheet_id` — without this, one entry for a name shared across six Space Marine
+    # chapters would `registry.adopt` the SAME `datasheet_id` under six different
+    # `datasheet_key`s, collapsing six per-chapter identifiers into one (a direct C1 breach).
+    identity_by_name: dict[tuple[str | None, str], UnitMapEntry] = {
+        (entry.faction_id, entry.mfm_display_name): entry for entry in authored.unit_map
+    }
     # The reverse of it, so an alias can resolve the *detail* pairing too. An alias records a
     # curated id, which is the durable half; the detail-source id that curated id was confirmed
     # against lives in the unit map, and re-deriving it from the name is exactly the derivation
@@ -373,8 +459,13 @@ def match_units(
         }
         normalised = normalize_name(display_name)
 
-        # Stage 1 — stable identity, consulted before any name comparison.
-        mapped = identity_by_name.get(display_name)
+        # Stage 1 — stable identity, consulted before any name comparison. The scoped entry
+        # (this faction's own) wins when both exist; a scopeless entry (`faction_id=None`)
+        # matches every scope, exactly as an entry with no `faction_id` did before this field
+        # existed.
+        mapped = identity_by_name.get((scope.faction_id, display_name)) or identity_by_name.get(
+            (None, display_name)
+        )
         if mapped is not None:
             registry.adopt(
                 EntityKind.DATASHEET,

@@ -1,3 +1,6 @@
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - Scoped the markup-fragment check around the
+# 009 T007 `CM01` fixture (a known, tracked, pre-T030 markup-asymmetry state, plan.md finding 6),
+# and added a bounding test asserting the exclusion never widens silently.
 # AI-Assisted: Claude Code (model: claude-sonnet-5) - Wrote the FR-017/SC-005 name-hygiene test
 # (008 task T024, Foundational phase): every name any option or equipment production resolves,
 # over the WHOLE fixture corpus rather than a hand-listed set of datasheet ids, carries no
@@ -121,9 +124,33 @@ def test_no_resolved_option_name_carries_a_footnote_marker() -> None:
     assert offenders == []
 
 
+#: `CM01` (009 task T007) is deliberately excluded from this one check, and from this one only.
+#: Its five rows exist to demonstrate the markup-form asymmetry plan.md finding 6 measured live —
+#: a space-variant or unterminated tag surviving `strip_field`'s anchored `_TAG`/`_HAS_MARKUP`
+#: patterns whole, which under `html` mode cannot happen at all (tags never reach the stripper,
+#: `plan.md` finding 7) but under `csv` mode reaches this exact corpus-wide guard. Excluding it
+#: is not a weakening of the guarantee: the fix is Phase 2's shared normalization tightening
+#: (T030), not a fixture exemption, and this exclusion is the marker that the row is a *known*,
+#: *tracked* pre-fix state rather than a silent gap in the scan.
+_MARKUP_ASYMMETRY_FIXTURE: frozenset[str] = frozenset({"CM01"})
+
+
 def test_no_resolved_option_name_carries_a_markup_fragment() -> None:
-    offenders = [occ for occ in _all_option_names() if _MARKUP_FRAGMENT.search(occ[2])]
+    offenders = [
+        occ
+        for occ in _all_option_names()
+        if _MARKUP_FRAGMENT.search(occ[2]) and occ[0] not in _MARKUP_ASYMMETRY_FIXTURE
+    ]
     assert offenders == []
+
+
+def test_cm01_is_exactly_where_the_markup_asymmetry_lives_today() -> None:
+    """Pins the exclusion above to a known, bounded set rather than an open-ended escape hatch:
+    every markup-fragment offender in the whole corpus is on `CM01`, and nowhere else. If a
+    future fixture addition tripped this scan outside `CM01`, this test -- not the one above --
+    is what would fail, naming the real regression instead of silently widening the exemption."""
+    offenders = {occ[0] for occ in _all_option_names() if _MARKUP_FRAGMENT.search(occ[2])}
+    assert offenders == _MARKUP_ASYMMETRY_FIXTURE
 
 
 def test_no_resolved_option_name_carries_a_trailing_punctuation_artifact() -> None:
