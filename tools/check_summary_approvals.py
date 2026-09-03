@@ -13,6 +13,15 @@
 # T056) and the glossary row (004 task T063), completing contract §6's table. The glossary's
 # `prefix` is a whole path rather than a directory, which `str.startswith` handles without a
 # special case -- the table stays four uniform rows.
+# AI-Assisted: Claude Code (model: claude-opus-5) - Added the digest re-baseline guard (009
+# tasks T074/T075/T077, FR-026 to FR-029) into this tool's existing vocabulary rather than a
+# second script: `digest_refreshes` classifies every mechanic_digest that moved in the diff by
+# whether an APPROVAL is being carried across the move, and `unattributed_refreshes` refuses the
+# ones that are without the version/authorization pair. The two precedents draw the line: the
+# 39-record refresh (`3b4766a9`) touched records that were never approved and is bookkeeping;
+# the 23-record refresh (`59f2986b`) touched approved records and needed a recorded human
+# decision. A bulk refresh is mechanically indistinguishable from laundering an approval, and
+# this is the check that tells them apart.
 """Self-approval guard for every authored summary class.
 
   check_summary_approvals.py diff --base <ref> --head <ref> --actor <login>
@@ -21,6 +30,14 @@
       is `approved` at head but was not `approved` at base (a new record, or one whose state just
       changed) is "newly approved" by this PR. If any newly approved record's `reviewed_by`
       equals `--actor`, the PR is a self-approval and this check fails.
+
+  check_summary_approvals.py diff --base <ref> --head <ref> --actor <login>
+      The same invocation ALSO refuses a **digest re-baseline that launders an approval**: a
+      record `approved` at base and still `approved` at head whose `mechanic_digest` moved is
+      carrying that approval across a change in what the digest describes, and it may do so only
+      while naming `digest_refreshed_at_version` and `digest_refreshed_under_authorization`
+      (FR-026 to FR-029). A record that was **not** approved at base is bookkeeping and passes
+      freely -- no approval is being carried over anything.
 
 The comparison is by **key**, never by file position, so reordering or an unrelated edit
 elsewhere in the same file never produces a false positive. Which field carries the key differs
@@ -178,16 +195,128 @@ def self_approved_keys(
     )
 
 
+#: The re-baseline attribution pair FR-028/FR-029 require on a refreshed record, and the ONE
+#: place their spelling is written down on this side. `pipeline/models/authored.py` declares the
+#: same two fields on `AbilitySummary` and `_SummaryRecord`; the four
+#: `schemas/curation/*.schema.json` files declare them optional so the change stays additive over
+#: the existing records. Optional in the schema, mandatory in the authoring rule -- this check is
+#: what makes the second half true.
+REBASELINE_VERSION_FIELD = "digest_refreshed_at_version"
+REBASELINE_AUTHORIZATION_FIELD = "digest_refreshed_under_authorization"
+
+
+@dataclass(frozen=True)
+class DigestRefresh:
+    """One record whose ``mechanic_digest`` moved between base and head.
+
+    ``carries_approval`` is the whole distinction FR-026 draws, and it is deliberately read from
+    **both** ends of the diff rather than from head alone:
+
+    * ``approved`` at base and ``approved`` at head -- the approval is being carried ACROSS the
+      refresh. Only a recorded human decision may do that (precedent ``59f2986b``);
+    * anything else -- the record was not approved before the refresh, so the refresh carries no
+      approval over anything and is bookkeeping (precedent ``3b4766a9``). A record that becomes
+      approved in this same pull request is a *new* approval, which :func:`newly_approved` and
+      the self-approval check above already govern; demanding a re-baseline authorization for it
+      too would refuse ordinary first-time authoring.
+    """
+
+    key: str
+    carries_approval: bool
+    version: str | None = None
+    authorization: str | None = None
+
+    @property
+    def is_attributed(self) -> bool:
+        """Both halves of the pair present and non-empty.
+
+        Both, because either alone leaves a question the record was added to answer: a version
+        with no authorization says when but not under what, and an authorization with no version
+        says under what but not against which build's digest.
+        """
+        return bool(self.version) and bool(self.authorization)
+
+    @property
+    def is_permitted(self) -> bool:
+        """Bookkeeping is always permitted; a carried approval only when attributed."""
+        return not self.carries_approval or self.is_attributed
+
+
+def _digest_of(record: dict[str, Any]) -> str:
+    return str(record.get("mechanic_digest", ""))
+
+
+def _text_or_none(record: dict[str, Any], field: str) -> str | None:
+    value = record.get(field)
+    if value is None:
+        return None
+    text = str(value).strip()
+    return text or None
+
+
+def digest_refreshes(
+    base_records: Sequence[dict[str, Any]],
+    head_records: Sequence[dict[str, Any]],
+    *,
+    key_field: str = "ability_key",
+) -> list[DigestRefresh]:
+    """Every record whose ``mechanic_digest`` moved, classified by FR-026's distinction.
+
+    Records absent at base are skipped: a brand-new record has no prior digest to have moved
+    away from, so it is authoring rather than a re-baseline.
+    """
+    base_by_key = {record.get(key_field): record for record in base_records}
+    refreshes: list[DigestRefresh] = []
+    for record in head_records:
+        key = record.get(key_field)
+        prior = base_by_key.get(key)
+        if prior is None or _digest_of(prior) == _digest_of(record):
+            continue
+        refreshes.append(
+            DigestRefresh(
+                key=str(key),
+                carries_approval=(
+                    prior.get("review_state") == "approved"
+                    and record.get("review_state") == "approved"
+                ),
+                version=_text_or_none(record, REBASELINE_VERSION_FIELD),
+                authorization=_text_or_none(record, REBASELINE_AUTHORIZATION_FIELD),
+            )
+        )
+    return refreshes
+
+
+def unattributed_refreshes(refreshes: Sequence[DigestRefresh]) -> list[DigestRefresh]:
+    """The refreshes that carry an approval without naming version and authorization."""
+    return sorted(
+        (refresh for refresh in refreshes if not refresh.is_permitted), key=lambda r: r.key
+    )
+
+
 def cmd_diff(args: argparse.Namespace) -> int:
     offending: list[str] = []
+    unattributed: list[str] = []
     for path, source in changed_curation_files(args.base, args.head):
         base_records = read_records_at(args.base, path, source)
         head_records = read_records_at(args.head, path, source)
         introduced = newly_approved(base_records, head_records, key_field=source.key_field)
         for key in self_approved_keys(introduced, actor=args.actor, key_field=source.key_field):
             offending.append(f"{path}: {key}")
+        refreshes = digest_refreshes(base_records, head_records, key_field=source.key_field)
+        for refresh in unattributed_refreshes(refreshes):
+            missing = " and ".join(
+                name
+                for name, present in (
+                    (REBASELINE_VERSION_FIELD, refresh.version),
+                    (REBASELINE_AUTHORIZATION_FIELD, refresh.authorization),
+                )
+                if not present
+            )
+            unattributed.append(f"{path}: {refresh.key} (missing {missing})")
 
+    failed = False
     if offending:
+        failed = True
         print(
             f'FAIL: this PR introduces review_state: "approved" on a record authored by its '
             f"own actor ({args.actor!r}). Only a pull request approved by someone other than "
@@ -196,9 +325,27 @@ def cmd_diff(args: argparse.Namespace) -> int:
         )
         for entry in offending:
             print(f"  {entry}", file=sys.stderr)
+
+    if unattributed:
+        failed = True
+        print(
+            "FAIL: this PR refreshes mechanic_digest on a record that is approved at both ends "
+            "of the diff, carrying that approval across a change in what the digest describes, "
+            "without naming the version it was refreshed at and the authorization it was "
+            "refreshed under (FR-026 to FR-029). A record that was never approved may be "
+            "refreshed as bookkeeping; this one may not:",
+            file=sys.stderr,
+        )
+        for entry in unattributed:
+            print(f"  {entry}", file=sys.stderr)
+
+    if failed:
         return 1
 
-    print("OK: no newly approved authored summary is self-authored")
+    print(
+        "OK: no newly approved authored summary is self-authored, and no digest refresh "
+        "carries an approval without naming its version and authorization"
+    )
     return 0
 
 

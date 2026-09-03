@@ -16,6 +16,11 @@
 # Product Owner decision 2026-08-14 T061 review): the curator-suppression shape research D1
 # called "impossible today" and "a reasonable later addition", added once CMP-HEADER-ROW's
 # automatic refusal was demoted to advisory-only.
+# AI-Assisted: Claude Code (model: claude-opus-5) - Added the two digest re-baseline attribution
+# fields to AbilitySummary and _SummaryRecord (009 task T077, FR-028/FR-029): the version a
+# record's mechanic_digest was refreshed at and the single blanket authorization it was refreshed
+# under. Optional so the change stays additive over the 2 031 existing records; MANDATORY in the
+# authoring rule, which tools/check_summary_approvals.py enforces on the diff.
 # AI-Assisted: Claude Code (model: claude-sonnet-5) - Added FactionMapEntry.
 # detail_source_faction_code and UnitMapEntry.faction_id (009 tasks T021/T024, data-model.md
 # §1-§2): the bulk export's own faction-code vocabulary alongside the existing (now html-slug)
@@ -203,6 +208,15 @@ class AbilitySummary(_Authored):
     ``summary`` is **authored from the mechanic**, in the data set's own words. Machine
     paraphrase of the publisher's text does not satisfy the contract and is prohibited
     (``reference-db-schema.md`` §6.1(2), research D6).
+
+    ``digest_refreshed_at_version`` and ``digest_refreshed_under_authorization`` are the
+    **re-baseline attribution pair** (FR-028/FR-029). They are written only when a record's
+    ``mechanic_digest`` is refreshed while the record's approval is carried across that refresh,
+    and they answer, without re-running the pipeline, "at what version" and "under whose
+    authorization". Optional in the schema so the change stays additive; **mandatory in the
+    authoring rule**, which ``tools/check_summary_approvals.py`` enforces on the pull request's
+    diff. Nothing under ``pipeline/`` reads either field — an attributed record is not thereby
+    excused from the summary gate, which compares digests and nothing else.
     """
 
     ability_key: str
@@ -213,6 +227,14 @@ class AbilitySummary(_Authored):
     reviewed_by: str | None = None
     reviewed_at: str | None = None
     authored_against_acquisition: str | None = None
+    digest_refreshed_at_version: str | None = Field(
+        default=None,
+        description="the version id this record's mechanic_digest was re-baselined at (FR-028)",
+    )
+    digest_refreshed_under_authorization: str | None = Field(
+        default=None,
+        description="the named, dated authorization record the re-baseline ran under (FR-029)",
+    )
 
 
 class GameSizeBand(_Authored):
@@ -316,6 +338,15 @@ class _SummaryRecord(_Authored):
     ``summary`` is authored **by a human from the mechanic, in the data set's own words**.
     Machine paraphrase, synonym substitution, and reordering of the publisher's text do not
     satisfy this and are policy violations, not quality issues (FR-024, Principle 4).
+
+    ``digest_refreshed_at_version`` and ``digest_refreshed_under_authorization`` are the
+    **re-baseline attribution pair** (FR-028/FR-029). They are written only when a record's
+    ``mechanic_digest`` is refreshed while the record's approval is carried across that refresh,
+    and they answer, without re-running the pipeline, "at what version" and "under whose
+    authorization". Optional in the schema so the change stays additive; **mandatory in the
+    authoring rule**, which ``tools/check_summary_approvals.py`` enforces on the pull request's
+    diff. Nothing under ``pipeline/`` reads either field — an attributed record is not thereby
+    excused from the summary gate, which compares digests and nothing else.
     """
 
     summary_key: str = Field(min_length=1, description="class-prefixed, stable, curator-visible")
@@ -328,6 +359,14 @@ class _SummaryRecord(_Authored):
     reviewed_by: str | None = None
     reviewed_at: str | None = None
     authored_against_acquisition: str | None = None
+    digest_refreshed_at_version: str | None = Field(
+        default=None,
+        description="the version id this record's mechanic_digest was re-baselined at (FR-028)",
+    )
+    digest_refreshed_under_authorization: str | None = Field(
+        default=None,
+        description="the named, dated authorization record the re-baseline ran under (FR-029)",
+    )
 
 
 class FactionRuleSummary(_SummaryRecord):
