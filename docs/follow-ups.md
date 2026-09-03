@@ -18,6 +18,10 @@
 <!-- AI-Assisted: Claude Code (model: claude-opus-5) - Added item 24 (009 rung R01a): the
      one markup class still narrower than origin/main after the R01a regression repair, with
      the reason it was not closed and the strict-xfail test that will force it to be. -->
+<!-- AI-Assisted: Claude Code (model: claude-opus-5) - Added item 25 (009 rung R02a-fix2): the
+     digest guard's rekeying bypass, pinned with a strict xfail rather than chased, and the
+     rollback decision recorded beside it -- a revert is indistinguishable from the abuse the
+     guard exists to catch, so it routes through docs/break-glass.md instead. -->
 <!-- AI-Assisted: Claude Code (model: claude-opus-5) - Added item 5 (issue #4): the finding code
      the weapon-ability-keyword fix needed, implemented ahead of the additive row a frozen
      contract may not be given as a side effect of a bug fix. -->
@@ -70,6 +74,10 @@
      items 20 and 21 at 009-csv-migration as their discharge-in-progress, with the live figures
      Setup's own T001-T005 measured (digest churn, collision set, -N population) and the C1 ruling
      that answers item 20's chapter-consolidation question. -->
+<!-- AI-Assisted: Claude Code (model: claude-sonnet-5) - Added item 26 (009 rung R02a-fix4, item
+     3): the digest guard's attribution pair is checked for shape only, never resolved to a real
+     artefact -- an invented authorization string satisfies FR-028/FR-029 as written. Pinned with
+     a strict xfail rather than closed, since resolving it is its own already-planned rung. -->
 # Follow-ups
 
 Open items surfaced during implementation that are deliberately **not** fixed as part of the work
@@ -1040,3 +1048,182 @@ patterns as always.
 asserts `main`'s behaviour under `pytest.mark.xfail(strict=True)`. The day the residual is closed
 that test goes green, the strict xfail fails, and whoever closed it is forced to promote the rows
 into `test_no_regression_against_main` rather than leave a stale note behind.
+
+## 25. The digest guard matches by key alone, so rekeying a record bypasses it (009 rung R02a-fix2)
+
+`tools/check_summary_approvals.py` finds a record's prior by looking its key up in the base side
+of the diff — `ability_key` on the abilities class, `summary_key` on the other three. A pull
+request that **changes that key while refreshing `mechanic_digest`** on an `approved` record
+therefore finds no prior at all. With no prior the record is classified as first-time authoring,
+`digest_refreshes` never sees it, and no attribution pair is demanded of it. The approval rides
+across the digest move unremarked.
+
+This is the same family as the rename bypass rung R02a closed — a reshard moved records between
+files, every record read as brand new, and the check walked past — but on **identity** rather
+than **path**. R02a's fix (match by key across every changed file of the class, over a
+`--no-renames` diff) closes the path half and cannot close this one: there is no second field to
+fall back on, and matching on anything looser than the key (the summary text, the reviewer, file
+position) would reintroduce false positives the key matching exists to remove.
+
+**Why it was not closed here.** Unlike a reshard, which is ordinary housekeeping a person can do
+without intending anything, rekeying an approved record requires deliberate intent and shows up
+in a pull request's diff as a changed identifier on a line next to a changed digest — the most
+visible thing in the change. The bypasses worth code are the ones that hide; this one announces
+itself. **Action needed**: if it is ever closed, the likely shape is a content-similarity fallback
+used only to *raise a question* — "this looks like a rekeyed record, name its authorization" —
+never to auto-approve, because a fallback that silently matches the wrong prior would let a real
+refresh be measured fresh against a record it has nothing to do with.
+
+**Pinned, not merely written down**:
+`tests/enrichment/test_digest_rebaseline.py::test_cmd_diff_refuses_an_approved_refresh_hidden_behind_a_rekeying`
+constructs the bypass end to end through `cmd_diff` and asserts the refusal under
+`pytest.mark.xfail(strict=True)`. The day the bypass is closed that test goes green, the strict
+xfail fails, and whoever closed it is forced to promote the case into an ordinary assertion rather
+than leave a stale note behind.
+
+**Recorded beside it, and deliberately *not* an open item**: the same guard refuses a plain
+`git revert` of a merged re-baseline, because a revert and "a stamp stripped while the digest
+moved" are byte-identical inside a base/head diff. That refusal is a decision, not a defect. The
+sanctioned path — a rollback that names its own authorization, and break-glass only if even that
+cannot be done in time — is documented in `docs/break-glass.md`'s second section and asserted by
+`test_a_plain_revert_and_a_stripped_stamp_are_the_same_pull_request` and
+`test_a_rollback_that_names_its_own_decision_is_permitted`.
+
+## 26. The digest guard never resolves `digest_refreshed_under_authorization` to anything (009 rung R02a-fix4)
+
+`DigestRefresh.attribution_defects` treats a half of the attribution pair as sufficient once it is
+non-empty and differs from the value the record carried at base. That is a **shape** test, not a
+**resolution** test: nothing checks that `digest_refreshed_under_authorization` actually names a
+decision that exists anywhere. Two invented strings — a made-up version and a made-up
+authorization pointing at, say, a `docs/verification/*.md` file that was never authored — satisfy
+FR-028 and FR-029 exactly as written, and `check_summary_approvals.py diff` prints `OK`.
+
+**Why this is not the same gap as the rekeying bypass (item 25).** Rekeying requires deliberate
+intent and shows up as a changed identifier next to a changed digest — the most visible thing in
+the diff. An invented authorization string requires no more effort than a genuine one and looks
+identical to it in every field the guard reads: present, non-empty, fresh. There is nothing about
+it that would draw a reviewer's eye the way a changed key does.
+
+**Why it was not closed here.** Making the authorization a resolvable, committed artefact — a
+`docs/verification/` entry that must actually exist, or an equivalent — is a change to what
+FR-029's "named, dated artefact" is allowed to mean, not a bug fix inside the guard's existing
+rule. It is its own rung and is already planned; R02a-fix4's scope is naming what the guard
+already claims true, not adding a capability it does not have.
+
+**What closing it needs**: `check_summary_approvals.py` already has `path_exists_at(ref, path)`,
+built for a different question (whether a curation file existed at a ref) but exactly the
+primitive this gap needs — resolving `digest_refreshed_under_authorization` against the commit
+tree it is validating and refusing a value that names nothing there. The version half likely wants
+a narrower, format-level check (a real edition/version token) rather than existence, since a
+version does not correspond to a single committed path the way an authorization artefact would.
+
+**Pinned, not merely written down**:
+`tests/enrichment/test_digest_rebaseline.py::test_cmd_diff_refuses_a_refresh_whose_authorization_names_no_committed_artefact`
+constructs an approved refresh with a syntactically valid but nonexistent authorization and
+asserts the guard refuses it, under `pytest.mark.xfail(strict=True)`. The day this closes, that
+test goes green, the strict xfail fails, and whoever closed it is forced to promote the case into
+an ordinary assertion rather than leave a stale note behind.
+
+## 27. A record copied into a new shard file escapes the guard entirely (009 rung R02a-fix5)
+
+`tools/check_summary_approvals.py::_collect` reads the base side of a change class only from the
+paths the pull request *changed* — `changed_curation_files` asks git what changed, and every
+base-side `read_records_at` call is made against that same changed set. A record **copied** into
+a brand-new shard file, with the original file left untouched and its digest moved on the copy,
+therefore has no prior at the new path at all: it is not a rename, so R02a's `--no-renames`
+matching buys nothing, and `digest_refreshes` never sees it as a refresh — it reads as first-time
+authoring and needs no attribution pair. Reproduced directly against this worktree's
+`tools/check_summary_approvals.py`: a synthetic base commit with one approved record in
+`curation/abilities/shard-a.json`, and a head commit that leaves that file alone and adds
+`curation/abilities/shard-b.json` carrying the same `ability_key`, `review_state: "approved"`,
+and a moved `mechanic_digest` with no attribution pair, prints `OK` and exits 0.
+
+**The compounding half, which is the part with teeth.**
+`pipeline/curate/authored.py::_load_ability_summaries` builds the ability-summary map by iterating
+`sorted(directory.glob("*.json"))` and keying on `ability_key` with `summaries[summary.ability_key]
+= summary` — last-file-wins, with no duplicate-key check anywhere in the loop. Whichever shard
+sorts last wins the key. A record duplicated into a new shard is therefore not merely unguarded;
+if its filename sorts after the original's, it is also the copy the build actually consumes,
+digest and all, silently and regardless of which shard a reviewer thought was authoritative.
+
+**Why it was not fixed here.** The decision has been taken to replace the diff-based approach with
+whole-tree validation at build time rather than keep closing leaks in the changed-file framing one
+at a time; a targeted fix here would be replaced within the same feature.
+
+**Fix direction:** read the base side from **every file of the class** at the merge-base, not only
+the ones the diff touched — or, as planned, drop the diff framing entirely for whole-tree
+validation, which sees every record regardless of which file(s) carry it. The duplicate-key hazard
+in `_load_ability_summaries` is worth its own look regardless of which way the guard goes: a
+last-file-wins map over a human-editable directory has no mechanism to even notice a collision,
+let alone refuse one.
+
+**Pinned, not merely written down**:
+`tests/enrichment/test_digest_rebaseline.py::test_cmd_diff_refuses_an_approved_refresh_copied_into_a_new_shard_file`
+constructs the bypass end to end through `cmd_diff` (original shard untouched, new shard carrying
+the moved digest and no attribution) and asserts the refusal, under `pytest.mark.xfail(strict=True)`.
+The day this closes, that test goes green, the strict xfail fails, and whoever closed it is forced
+to promote the case into an ordinary assertion rather than leave a stale note behind. The
+compounding half in `_load_ability_summaries` is recorded above but not separately pinned — it has
+no `cmd_diff`-shaped surface to assert against, being a build-time consumption question rather than
+a guard question.
+
+## 28. Non-ASCII paths are silently skipped by both checks (009 rung R02a-fix5)
+
+`git diff --name-only` path-quotes any non-ASCII path by default (`core.quotePath` defaults to
+`true`), rendering it as a quoted string with octal escapes — e.g.
+`"curation/abilities/t\303\251st.json"` for a file literally named `tést.json`. `source_for`
+matches a changed path with a plain `str.startswith(source.prefix)`, which fails against the
+leading `"` the quoted form carries, so the file is silently dropped from `changed_curation_files`
+before either check sees it: the self-approval check and the digest re-baseline check both miss it.
+Reproduced directly against this worktree's `tools/check_summary_approvals.py`: a synthetic base
+commit with one approved record in `curation/abilities/tést.json`, and a head commit that moves
+its `mechanic_digest` with no attribution pair — `git diff --name-only --no-renames` renders the
+path quoted as above, the guard's `changed_curation_files` returns no matching pair for it, and
+`check_summary_approvals.py diff` prints `OK` and exits 0.
+
+**Why it was not fixed here.** Same reason as item 27: the diff-based framing this bug lives in is
+being replaced by whole-tree validation at build time, which reads every curation file regardless
+of what a diff's default quoting does to its name.
+
+**Fix direction:** `-c core.quotePath=false` on the `git diff` invocation, or `-z` with
+NUL-separated output parsed accordingly — either removes the quoting this bug depends on.
+
+**Pinned, not merely written down**:
+`tests/enrichment/test_digest_rebaseline.py::test_cmd_diff_refuses_an_unattributed_refresh_on_a_non_ascii_path`
+constructs an unattributed digest refresh on a record whose curation file's path carries a
+non-ASCII character and asserts the guard refuses it, under `pytest.mark.xfail(strict=True)`. The
+day this closes, that test goes green, the strict xfail fails, and whoever closed it is forced to
+promote the case into an ordinary assertion rather than leave a stale note behind.
+
+## 29. A shape-invalid curation file escapes this branch's own named refusal (009 rung R02a-fix5)
+
+`records_in` validates only the top-level container — that a wrapper class holds an object and an
+array is present under `wrapper_key`, or that a bare class holds a list — and never the shape of
+the elements inside it. A curation file whose top level is a syntactically valid JSON array of the
+wrong element shape, such as `["oops"]`, therefore passes `records_in` unchanged and reaches
+`newly_approved`, which calls `record.get("review_state")` on each element. A bare string has no
+`.get`, so this raises an unhandled `AttributeError` out of `newly_approved`, escaping the
+`except ValueError` refusal R02a-fix4 added to `cmd_diff` for exactly this class of malformed
+file — `json.JSONDecodeError` is a `ValueError` and is caught; a JSON document that parses cleanly
+but holds the wrong element shape one level down is not. Reproduced directly against this
+worktree's `tools/check_summary_approvals.py`: a synthetic base commit with an empty
+`curation/abilities/shard-c.json` (`[]`) and a head commit replacing its contents with `["oops"]`
+produces a Python traceback (`AttributeError: 'str' object has no attribute 'get'` at
+`newly_approved`, `check_summary_approvals.py:363`) rather than R02a-fix4's named `FAIL:` message.
+
+**It still exits non-zero, so CI stays red** — an unhandled exception exits 1 the same as
+`cmd_diff`'s own refusal path. It is the message that is wrong, not the outcome: a reviewer or a
+future maintainer sees a bare traceback instead of the guard's own diagnosis of what is wrong with
+the file and how to fix it.
+
+**Why it was not fixed here.** Same reason as items 27 and 28: this framing is being replaced by
+whole-tree validation at build time, and R02a-fix5's scope is recording what a final review found,
+not chasing a third round of shape-checking inside the diff-based tool.
+
+**Fix direction:** `records_in` (or a caller immediately after it) should validate that every
+element of the array is a `dict` before any field is read from it, raising the same `ValueError`
+`cmd_diff` already catches — turning this into the same named refusal R02a-fix4 gave a
+non-JSON file, rather than a distinct, unhandled failure mode.
+
+**Not pinned.** The kickoff for this rung asked only for items 1 and 2 (this file's items 27 and
+28) to be pinned if cheap; item 3 (this entry) was to be recorded only.

@@ -4,6 +4,21 @@
      including exactly how state/published-checksums.json reconciliation works
      (pipeline/publish/pages.py, pipeline/publish/verify.py, .github/workflows/integrity.yml).
      This documents plan.md's Principle 5 exception. -->
+<!-- AI-Assisted: Claude Code (model: claude-opus-5) - 009 rung R02a-fix2: added the second
+     section, rolling back a merged digest re-baseline. The digest guard
+     (tools/check_summary_approvals.py) refuses a plain `git revert` of one, and that refusal
+     is deliberate -- nothing inside a base/head diff separates a rollback from stripping a
+     stamp while moving a digest. The ordinary path (an attributed rollback) is documented
+     first, and this page is named as the escape hatch only for the case where even that
+     cannot be done in time. -->
+<!-- AI-Assisted: Claude Code (model: claude-sonnet-5) - 009 rung R02a-fix4, item 2: this page
+     contradicted itself -- "the reverted records carry a stamp describing a re-baseline that is
+     no longer in effect" versus, a few paragraphs earlier, "no attribution pair" for the same
+     records. The second was correct; corrected the first, and named the interim exposure it was
+     hiding: with no stamp, prior_version/prior_authorization are None, which disarms the
+     staleness half of the guard's check on exactly those records until remediation lands. Also
+     corrected the revert-vs-stripped-stamp test citation to describe how R02a-fix4 item 1
+     actually builds the two arms now that they are independently constructed. -->
 # Break glass: hand-editing published state directly
 
 **This is an exception, not a procedure to reach for.** Every other document in this repository
@@ -138,3 +153,95 @@ Reconciliation means the ledger entry, after remediation, is true again:
 **Follow-up / prevention** (optional but encouraged): <anything about why the gated path was not
 fast enough this time, and whether that is itself worth fixing>
 ```
+
+---
+
+# Break glass, second case: rolling back a merged digest re-baseline
+
+This section is about `curation/`, not the published site — a different resource, the same
+structure: a gate that is right to exist, a rare situation in which it is the thing standing in
+the way, and a documented path through that leaves a record behind.
+
+## What the gate does, and why it refuses a revert
+
+`tools/check_summary_approvals.py diff` refuses a pull request that moves `mechanic_digest` on a
+record `approved` at both ends of the diff without freshly naming
+`digest_refreshed_at_version` and `digest_refreshed_under_authorization` (FR-026 to FR-029). A
+bulk digest refresh is mechanically indistinguishable from laundering an approval, and that pair
+is the named, dated human decision that tells them apart.
+
+**A plain `git revert` of a merged re-baseline is refused by that rule.** Reverting restores the
+record as it stood before the re-baseline: the old digest, still `approved`, and **no**
+attribution pair — because the commit being reverted is the one that added it. To the guard that
+reads as an approved record whose digest moved with both halves of its attribution missing, which
+is exactly the refusal above.
+
+**The refusal is deliberate, not an oversight.** An actor stripping a stamp while moving a digest
+— the abuse this check exists to catch — writes a byte-identical record. Nothing inside a
+base/head diff separates the two, so a rule admitting the rollback would admit the abuse with it.
+`tests/enrichment/test_digest_rebaseline.py`'s
+`test_a_plain_revert_and_a_stripped_stamp_are_the_same_pull_request` builds the rollback through
+an actual `git revert` of a real merged commit and the abuse through a hand-authored head record,
+in two separate throwaway repositories, and asserts the guard returns an identical verdict on
+both; if that test ever fails, some signal has appeared that this decision should be revisited on.
+This is recorded as follow-up item 25's companion decision, and it is **not** a weakness the guard
+is unaware of.
+
+## The ordinary path: a rollback names its own decision
+
+**Try this first. It is not break-glass, and in almost every case it is all that is needed.**
+
+Rolling a re-baseline back *is itself a re-baseline*: it moves an approved record's
+`mechanic_digest`, which is precisely the operation FR-028 says must cite a named, dated artefact.
+So the rollback cites one. FR-029's blanket authorization covers one operation; a rollback is a
+second operation and carries its own.
+
+1. Record the rollback decision as its own dated artefact, the same way the re-baseline it undoes
+   was recorded (`docs/verification/` is where those live).
+2. Revert the re-baseline's content — the digests go back to their previous values.
+3. On every record whose digest you moved back, set `digest_refreshed_at_version` to the version
+   the rollback was made at and `digest_refreshed_under_authorization` to the artefact from step
+   1. Both must differ from what the record carried before the rollback, or the guard reads them
+   as stale and refuses — which is correct, because the previous pair describes the move you are
+   undoing, not this one.
+4. Open the pull request normally. The guard permits it, with no exemption and no override:
+   `tests/enrichment/test_digest_rebaseline.py`'s
+   `test_a_rollback_that_names_its_own_decision_is_permitted` asserts exactly this, so this page
+   cannot drift away from the code.
+
+Note what this does **not** ask you to do: it does not ask for a re-review of the summary text.
+Whether the summary still describes the current mechanic is a separate question, answered by the
+summary gate (`pipeline/validate/gates.py`) against the digest the pipeline computes, not by this
+check.
+
+## When this becomes break-glass
+
+Only when the ordinary path above cannot be taken in time — a consumer-facing defect where a
+plain `git revert` must land immediately and unedited, and stopping to author and stamp a
+rollback decision would cost more than the defect is worth. In that case, and only in that case,
+the Product Owner merges the revert with the guard's check overridden, and:
+
+- **The break-glass record template above is mandatory**, with the same fields, filled in against
+  `curation/` and the affected summary keys instead of a manifest and a `rulesVersionId`.
+- **Remediation is the ordinary path, run late.** A follow-up pull request adds the attribution
+  pair naming the rollback decision to every record the revert touched, so the corpus ends up in
+  the state the ordinary path would have produced and the next digest move on those records has a
+  truthful `prior` to be measured fresh against. **Until that lands, the reverted records carry
+  no attribution pair at all** — `digest_refreshed_at_version` and
+  `digest_refreshed_under_authorization` are both absent, exactly as reverting is described above:
+  the commit that added the pair is the one being undone.
+  - **This is a real interim exposure, not merely an untidy state.** With `prior_version` and
+    `prior_authorization` both `None`, the guard's staleness half of `attribution_defects` is
+    disarmed on exactly these records for as long as remediation is outstanding: a later pull
+    request can re-present the *reverted* commit's own version/authorization pair verbatim — the
+    stamp this page has just said describes a re-baseline that is no longer in effect — and
+    because there is no prior value for it to match, the guard reads it as freshly attributed
+    rather than stale, and passes it. Presence, not truth, is what the staleness check can see.
+  - **What closes the window**: either the follow-up pull request above lands, naming the
+    rollback's own new decision, or the affected records are moved out of `approved` (returned to
+    `in_review`) until it does. Until one of those happens, the presence of *some* version/
+    authorization pair on one of these records is not by itself evidence it was genuinely
+    re-authorized after the rollback.
+- **Never** loosen the guard, add an exemption path to it, or skip it in `ci.yml` to make a
+  rollback land. An override is visible and leaves a record; a loosened guard is neither, and it
+  stays loose for every pull request afterwards.

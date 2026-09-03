@@ -13,6 +13,51 @@
 # T056) and the glossary row (004 task T063), completing contract §6's table. The glossary's
 # `prefix` is a whole path rather than a directory, which `str.startswith` handles without a
 # special case -- the table stays four uniform rows.
+# AI-Assisted: Claude Code (model: claude-opus-5) - Added the digest re-baseline guard (009
+# tasks T074/T075/T077, FR-026 to FR-029) into this tool's existing vocabulary rather than a
+# second script: `digest_refreshes` classifies every mechanic_digest that moved in the diff by
+# whether an APPROVAL is being carried across the move, and `unattributed_refreshes` refuses the
+# ones that are without the version/authorization pair. The two precedents draw the line: the
+# 39-record refresh (`3b4766a9`) touched records that were never approved and is bookkeeping;
+# the 23-record refresh (`59f2986b`) touched approved records and needed a recorded human
+# decision. A bulk refresh is mechanically indistinguishable from laundering an approval, and
+# this is the check that tells them apart.
+# AI-Assisted: Claude Code (model: claude-opus-5) - Rung R02a: the attribution pair was read from
+# the head record alone, which tests PRESENCE, not FRESHNESS -- so the guard disarmed itself the
+# moment the pass it constrains stamped every approved record, and any later PR could move any
+# approved digest again under the stamp already sitting there. Attribution is now compared against
+# the base record, and records are matched by key across every changed file of a class over a
+# `--no-renames` diff, because resharding a curation file otherwise walked past both halves of
+# this check at once.
+# AI-Assisted: Claude Code (model: claude-opus-5) - Rung R02a-fix2: every git question this
+# guard's verdict rests on was asked with `check=False` and a non-zero exit read as "the file is
+# new here", so a bad ref, an unfetched sha, or a blob git could not produce made the base side
+# empty, every refresh read as authoring, and the guard passed an unattributed re-baseline green.
+# Absence is now established by `git ls-tree` against a ref proven to resolve, and any other git
+# failure raises :exc:`GitAnswerUnavailable` and refuses the pull request instead of clearing it.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - Rung R02a-fix3: `changed_curation_files`
+# took its changed-file set from a three-dot diff (`base...head`, i.e. `merge-base(base,head)..
+# head`), while `read_records_at` read base-side content at `base`'s own tip -- two different
+# commits whenever `base` had moved since `head` branched. An un-rebased PR was refused for a
+# record it never touched (base had since re-baselined it, head had not), and its mirror slipped
+# an attribution-less refresh past the guard whenever base's tip happened to already carry head's
+# digest. `merge_base` now resolves the branch point once, `check=False` and every failure raising
+# :exc:`GitAnswerUnavailable`, and both the changed-file set and every base-side record read are
+# taken from that one commit -- never from `base`'s tip directly.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - Rung R02a-fix4, item 4: this docstring
+# described what the guard checks without ever stating, in one place, what it does and does not
+# guarantee -- easy to read as a lock. Added a closing paragraph naming it as best-effort defence
+# in depth: real, mechanical catches on the unattributed and stale-stamp cases, and the three
+# named gaps (rekeying, an unresolved authorization string, the post-rollback window) it does not
+# catch, with the per-record human reviewer named as the control those fall through to.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - Rung R02a-fix4, own-judgement cleanup
+# (kickoff's "not blocking, do if cheap" list): `changed_ability_files` had zero callers anywhere
+# in the repository -- checked with a full-repo search before touching it -- so its docstring's
+# "kept because CI and 002's docs both name it" was false; deleted rather than corrected, since
+# nothing depends on it. Also added `except ValueError` to `cmd_diff` so a curation file that is
+# not valid JSON (json.JSONDecodeError IS a ValueError) or not the shape SOURCES expects reaches
+# CI as this guard's own named refusal instead of an unhandled traceback out of `main`; the exit
+# code was already non-zero either way, this only names why.
 """Self-approval guard for every authored summary class.
 
   check_summary_approvals.py diff --base <ref> --head <ref> --actor <login>
@@ -22,10 +67,70 @@
       changed) is "newly approved" by this PR. If any newly approved record's `reviewed_by`
       equals `--actor`, the PR is a self-approval and this check fails.
 
+      The same invocation ALSO refuses a **digest re-baseline that launders an approval**: a
+      record `approved` at base and still `approved` at head whose `mechanic_digest` moved is
+      carrying that approval across a change in what the digest describes, and it may do so only
+      while naming `digest_refreshed_at_version` and `digest_refreshed_under_authorization`
+      (FR-026 to FR-029). A record that was **not** approved at base is bookkeeping and passes
+      freely -- no approval is being carried over anything.
+
+**The attribution must be fresh for the refresh it attributes.** Both halves must be present and
+non-empty, AND each must differ from the value the record already carried at base. A pair
+identical to the base record's attributes nothing: it names the version and the decision of that
+record's *previous* re-baseline, not this one. Presence alone would mean the guard disarms itself
+the moment 009's blanket pass stamps the corpus -- protecting it exactly until the event the
+guard was written to constrain, and inert from then on. Freshness is required per half for the
+same reason presence is: a new version beside the previous authorization says *when* this refresh
+happened but names the decision that authorised the previous one, and a new authorization beside
+the previous version names a decision but not the build it was taken against. FR-029's blanket
+authorization covers **one operation**, so a record's second refresh is a second operation and
+cites its own named, dated artefact.
+
+The rule deliberately refuses one honest case it cannot distinguish from a dishonest one: a
+record refreshed twice under the same authorization at the same version. Nothing in the data
+separates that from a stale stamp left untouched, and a guard resolves that ambiguity toward
+refusal. The way through is a new recorded decision -- which is the thing this check exists to
+demand.
+
+**A git failure is a refusal, never a pass.** Every base/head answer here comes from git, and
+this guard reads an empty base side as "the record is new, so nothing is being carried over
+anything" -- the most permissive reading it has. That reading is only safe when the emptiness was
+*established*, so absence is proven with :func:`require_ref_resolves` plus a ``git ls-tree``
+lookup, and any other non-zero exit raises :exc:`GitAnswerUnavailable` and fails the command. The
+polarity is why this mattered: the same empty base side makes :func:`newly_approved` **over**-
+report, which is noisy and gets noticed, while making :func:`digest_refreshes` **under**-report,
+which is silent and does not.
+
+**Both sides of the diff are read from the same commit: the merge-base, never `base`'s own tip.**
+:func:`merge_base` resolves ``git merge-base <base> <head>`` once, and both
+:func:`changed_curation_files` and every base-side :func:`read_records_at` call are made against
+that one commit. This is a strictly stronger dependency on history than reading `base` directly
+was -- a checkout now needs enough of it to compute the branch point, not merely enough to resolve
+two refs -- and that is the correct direction: a shallow or partial checkout that cannot answer
+the question must refuse rather than silently compare the wrong two commits. If the merge-base
+itself cannot be computed -- unrelated histories, or history the checkout does not have -- that is
+exactly :exc:`GitAnswerUnavailable`, refused the same as any other unanswerable git question,
+never a fall-through to an empty base side.
+
+**Rolling a re-baseline back is itself a re-baseline, and cites its own decision.** Reverting a
+merged re-baseline moves ``mechanic_digest`` again on a record approved at both ends, so this
+guard governs it exactly as it governs the move it undoes -- and a plain ``git revert``, which
+also removes the attribution pair the reverted commit added, is refused. That refusal is
+deliberate. Nothing inside a base/head diff separates "a stamp disappeared because a decision was
+rolled back" from "a stamp was stripped while the digest was moved", which is the abuse this check
+exists to catch. The way through is not an exemption but the ordinary rule: a rollback names the
+version it was rolled back at and the authorization it was rolled back under, and the guard
+permits it. ``docs/break-glass.md`` carries the path, including the case where even that cannot be
+done in time.
+
 The comparison is by **key**, never by file position, so reordering or an unrelated edit
-elsewhere in the same file never produces a false positive. Which field carries the key differs
-per class — `ability_key` on the existing class, `summary_key` on the three added by
-`004-rules-data-enrichment` — and that difference is the whole of :data:`SOURCES`.
+elsewhere in the same file never produces a false positive. It is also by key **across every
+changed file of the same class**, not within one path, so resharding a curation file does not
+reset every record in it to "no prior" -- which had let a pull request that moved a file and
+refreshed the approved digests inside it in the same commit walk past this check and the
+self-approval check together. Which field carries the key differs per class — `ability_key` on
+the existing class, `summary_key` on the three added by `004-rules-data-enrichment` — and that
+difference is the whole of :data:`SOURCES`.
 
 > **Known weakness, inherited from `002` and deliberately not diverged from here.** There is no
 > `authored_by` field on any record; "author" is taken to be the pull-request actor. The rule
@@ -35,6 +140,20 @@ per class — `ability_key` on the existing class, `summary_key` on the three ad
 > it would touch the 2 031 existing ability records — a change-class collision with
 > `004`'s transform work under `tools/check_change_classes.py`. **This limitation must be
 > restated in the pull request that first switches a class gate on.**
+
+> **What this guard actually guarantees.** It is best-effort defence in depth, not a lock. On a
+> record `approved` at both ends of a diff, it mechanically catches the two cases FR-026 to
+> FR-029 name: a digest refresh with **no** attribution pair, and one whose pair is **stale** — a
+> value repeated unchanged from what the record already carried at base. Those two catches are
+> real, not aspirational, and every case above is asserted end to end through `cmd_diff`. What it
+> does **not** catch: an approval carried across a rekeyed record (`docs/follow-ups.md` item 25),
+> an attribution pair that is present, fresh, and non-empty but names no decision that actually
+> exists (item 26), or an approval re-presented, unremarked, inside the interim window a rollback's
+> own remediation leaves open (`docs/break-glass.md`). None of those three is a bug still to be
+> fixed by this file; each is pinned by a strict xfail or written down so it cannot drift silently
+> narrower or wider. The control every one of them falls through to is the same one that has
+> always carried the weight this guard only narrows: a human reviewer reading the diff before
+> approving it.
 """
 
 from __future__ import annotations
@@ -48,6 +167,57 @@ from dataclasses import dataclass
 from typing import Any
 
 ABILITIES_GLOB_PREFIX = "curation/abilities/"
+
+
+class GitAnswerUnavailable(RuntimeError):
+    """git could not answer a question this guard's verdict depends on.
+
+    Raised instead of returning the permissive default, because "git failed" and "the file is
+    not there" are the same non-zero exit and only the second one is safe to read as an empty
+    base side. A bad ref, a sha that was never fetched, a shallow or partial clone, or a
+    transient failure all land here and refuse the pull request.
+    """
+
+
+def _git(*args: str) -> subprocess.CompletedProcess[str]:
+    """One git invocation, never raising on a non-zero exit -- the caller decides what it means."""
+    return subprocess.run(["git", *args], capture_output=True, text=True, check=False)
+
+
+def _git_failure(what: str, result: subprocess.CompletedProcess[str]) -> GitAnswerUnavailable:
+    detail = result.stderr.strip() or result.stdout.strip() or "no output"
+    return GitAnswerUnavailable(f"{what} (git exited {result.returncode}: {detail})")
+
+
+def require_ref_resolves(ref: str) -> str:
+    """The commit sha ``ref`` names, or :exc:`GitAnswerUnavailable` if git cannot resolve it.
+
+    This is what makes an empty answer trustworthy. Without it, a base sha that was never
+    fetched -- the shape a shallow checkout or a mis-wired workflow input produces -- reads
+    exactly like a base commit in which no curation file existed yet.
+    """
+    result = _git("rev-parse", "--verify", "--quiet", f"{ref}^{{commit}}")
+    sha = result.stdout.strip()
+    if result.returncode != 0 or not sha:
+        raise _git_failure(
+            f"cannot resolve {ref!r} to a commit in this checkout, so the records it holds "
+            "cannot be read and no verdict about them is possible",
+            result,
+        )
+    return sha
+
+
+def path_exists_at(ref: str, path: str) -> bool:
+    """Whether ``path`` is present in ``ref``'s tree.
+
+    Absence established here -- rather than inferred from a failed ``git show`` -- is the whole
+    of the legitimate new-file case: a file added by this pull request is genuinely not at base,
+    and its records are genuinely new.
+    """
+    result = _git("ls-tree", "--name-only", ref, "--", path)
+    if result.returncode != 0:
+        raise _git_failure(f"cannot list {path!r} at {ref!r}", result)
+    return bool(result.stdout.strip())
 
 
 @dataclass(frozen=True)
@@ -83,29 +253,53 @@ def source_for(path: str) -> CurationSource | None:
     return next((source for source in SOURCES if stripped.startswith(source.prefix)), None)
 
 
+def merge_base(base: str, head: str) -> str:
+    """The commit ``base`` and ``head`` diverged from -- what a PR's diff is actually measured
+    against, and the one commit every base-side read in this module must be taken from.
+
+    ``git diff base...head`` (three-dot) is already defined as ``merge-base(base,head)..head``, so
+    :func:`changed_curation_files` was always answering "what changed since the branch point".
+    Reading base-side *content* at ``base``'s own tip instead of at that same branch point is the
+    bug this rung closes: when `base` has moved since `head` diverged from it -- the ordinary
+    shape of an un-rebased PR once its target branch gains new commits -- the two sides of the
+    "diff" were being read from different commits, and the guard measured head against work it
+    never saw.
+    """
+    require_ref_resolves(base)
+    require_ref_resolves(head)
+    result = _git("merge-base", base, head)
+    sha = result.stdout.strip()
+    if result.returncode != 0 or not sha:
+        raise _git_failure(
+            f"cannot compute a merge-base between {base!r} and {head!r} -- unrelated histories, "
+            "or history this checkout does not have -- so there is no single commit both the "
+            "changed-file set and the base-side records can be read from, and no verdict is "
+            "possible",
+            result,
+        )
+    return sha
+
+
 def changed_curation_files(base: str, head: str) -> list[tuple[str, CurationSource]]:
-    """Every changed file the table claims, paired with the row that claims it."""
-    result = subprocess.run(
-        ["git", "diff", "--name-only", f"{base}...{head}"],
-        capture_output=True,
-        text=True,
-        check=True,
-    )
+    """Every changed file the table claims, paired with the row that claims it.
+
+    ``--no-renames`` is load-bearing, not tidiness. Rename detection is on by default, and it
+    reports a resharded curation file as a **single destination path** -- the source path never
+    reaches this list, so the records as they stood at base become invisible and every record at
+    the new path reads as brand new. Reported as delete-plus-add, both paths are present, which
+    is what lets :func:`cmd_diff` find a record's prior after it has moved between files.
+    """
+    require_ref_resolves(base)
+    require_ref_resolves(head)
+    result = _git("diff", "--name-only", "--no-renames", f"{base}...{head}")
+    if result.returncode != 0:
+        raise _git_failure(f"cannot diff {base!r}...{head!r}", result)
     pairs: list[tuple[str, CurationSource]] = []
     for line in result.stdout.splitlines():
         source = source_for(line)
         if source is not None:
             pairs.append((line.strip(), source))
     return pairs
-
-
-def changed_ability_files(base: str, head: str) -> list[str]:
-    """The abilities-only view, kept because CI and `002`'s docs both name it."""
-    return [
-        path
-        for path, source in changed_curation_files(base, head)
-        if source.prefix == ABILITIES_GLOB_PREFIX
-    ]
 
 
 def records_in(payload: Any, source: CurationSource) -> list[dict[str, Any]]:
@@ -125,17 +319,24 @@ def read_records_at(
     """The records a curation file held at ``ref``, or ``[]`` if it did not exist there yet.
 
     A brand-new file is `[]` at base, so every record in it is by definition newly approved
-    wherever it says so.
+    wherever it says so. The same is true of a file deleted at head, which is how a reshard's
+    old path reads.
+
+    That empty answer is returned only when absence has been **established** -- the ref resolves
+    and ``git ls-tree`` says the path is not in its tree. Every other non-zero exit raises
+    :exc:`GitAnswerUnavailable`, because a base side emptied by a git failure classifies every
+    refresh in the pull request as authoring and demands no attribution for any of it.
     """
     resolved = source if source is not None else source_for(path)
-    result = subprocess.run(
-        ["git", "show", f"{ref}:{path}"],
-        capture_output=True,
-        text=True,
-        check=False,
-    )
-    if result.returncode != 0:
+    require_ref_resolves(ref)
+    if not path_exists_at(ref, path):
         return []
+    result = _git("show", f"{ref}:{path}")
+    if result.returncode != 0:
+        raise _git_failure(
+            f"{path!r} is present at {ref!r} but its content could not be read",
+            result,
+        )
     text = result.stdout.strip()
     if not text:
         return []
@@ -178,16 +379,220 @@ def self_approved_keys(
     )
 
 
-def cmd_diff(args: argparse.Namespace) -> int:
-    offending: list[str] = []
-    for path, source in changed_curation_files(args.base, args.head):
-        base_records = read_records_at(args.base, path, source)
-        head_records = read_records_at(args.head, path, source)
-        introduced = newly_approved(base_records, head_records, key_field=source.key_field)
-        for key in self_approved_keys(introduced, actor=args.actor, key_field=source.key_field):
-            offending.append(f"{path}: {key}")
+#: The re-baseline attribution pair FR-028/FR-029 require on a refreshed record, and the ONE
+#: place their spelling is written down on this side. `pipeline/models/authored.py` declares the
+#: same two fields on `AbilitySummary` and `_SummaryRecord`; the four
+#: `schemas/curation/*.schema.json` files declare them optional so the change stays additive over
+#: the existing records. Optional in the schema, mandatory in the authoring rule -- this check is
+#: what makes the second half true.
+REBASELINE_VERSION_FIELD = "digest_refreshed_at_version"
+REBASELINE_AUTHORIZATION_FIELD = "digest_refreshed_under_authorization"
 
+
+@dataclass(frozen=True)
+class DigestRefresh:
+    """One record whose ``mechanic_digest`` moved between base and head.
+
+    ``carries_approval`` is the whole distinction FR-026 draws, and it is deliberately read from
+    **both** ends of the diff rather than from head alone:
+
+    * ``approved`` at base and ``approved`` at head -- the approval is being carried ACROSS the
+      refresh. Only a recorded human decision may do that (precedent ``59f2986b``);
+    * anything else -- the record was not approved before the refresh, so the refresh carries no
+      approval over anything and is bookkeeping (precedent ``3b4766a9``). A record that becomes
+      approved in this same pull request is a *new* approval, which :func:`newly_approved` and
+      the self-approval check above already govern; demanding a re-baseline authorization for it
+      too would refuse ordinary first-time authoring.
+    """
+
+    key: str
+    carries_approval: bool
+    version: str | None = None
+    authorization: str | None = None
+    prior_version: str | None = None
+    """The version half as it stood on the BASE record -- ``None`` if never re-baselined before.
+
+    Without it this class can only ask whether a stamp is present, and presence is satisfied
+    forever by the stamp a previous re-baseline left behind.
+    """
+    prior_authorization: str | None = None
+    """The authorization half as it stood on the base record. See :attr:`prior_version`."""
+
+    @property
+    def is_attributed(self) -> bool:
+        """Both halves of the pair present and non-empty.
+
+        Both, because either alone leaves a question the record was added to answer: a version
+        with no authorization says when but not under what, and an authorization with no version
+        says under what but not against which build's digest.
+
+        Presence only. It is deliberately **not** the permission test -- see
+        :attr:`attribution_defects`.
+        """
+        return bool(self.version) and bool(self.authorization)
+
+    @property
+    def attribution_defects(self) -> list[str]:
+        """Why this refresh's attribution does not authorize it, half by half, or ``[]``.
+
+        A half is defective when it is absent (``missing``) or when it repeats the value the
+        record already carried at base (``stale``). Stale is the case that matters: a stamp
+        identical to the one already on the record describes that record's *previous* refresh,
+        so it attributes this one to nothing. Reported per half so the refusal says which.
+        """
+        defects: list[str] = []
+        for field, value, prior in (
+            (REBASELINE_VERSION_FIELD, self.version, self.prior_version),
+            (REBASELINE_AUTHORIZATION_FIELD, self.authorization, self.prior_authorization),
+        ):
+            if not value:
+                defects.append(f"missing {field}")
+            elif value == prior:
+                defects.append(f"stale {field}")
+        return defects
+
+    @property
+    def is_permitted(self) -> bool:
+        """Bookkeeping is always permitted; a carried approval only when freshly attributed."""
+        return not self.carries_approval or not self.attribution_defects
+
+
+def _digest_of(record: dict[str, Any]) -> str:
+    return str(record.get("mechanic_digest", ""))
+
+
+def _text_or_none(record: dict[str, Any], field: str) -> str | None:
+    value = record.get(field)
+    if value is None:
+        return None
+    text = str(value).strip()
+    return text or None
+
+
+def digest_refreshes(
+    base_records: Sequence[dict[str, Any]],
+    head_records: Sequence[dict[str, Any]],
+    *,
+    key_field: str = "ability_key",
+) -> list[DigestRefresh]:
+    """Every record whose ``mechanic_digest`` moved, classified by FR-026's distinction.
+
+    Records absent at base are skipped: a brand-new record has no prior digest to have moved
+    away from, so it is authoring rather than a re-baseline.
+
+    ``base_records`` is expected to span the whole change class, not one file -- see
+    :func:`cmd_diff`. A record that moved between files still has a prior, and a prior is what
+    both this classification and the freshness test are read from.
+    """
+    base_by_key = {record.get(key_field): record for record in base_records}
+    refreshes: list[DigestRefresh] = []
+    for record in head_records:
+        key = record.get(key_field)
+        prior = base_by_key.get(key)
+        if prior is None or _digest_of(prior) == _digest_of(record):
+            continue
+        refreshes.append(
+            DigestRefresh(
+                key=str(key),
+                carries_approval=(
+                    prior.get("review_state") == "approved"
+                    and record.get("review_state") == "approved"
+                ),
+                version=_text_or_none(record, REBASELINE_VERSION_FIELD),
+                authorization=_text_or_none(record, REBASELINE_AUTHORIZATION_FIELD),
+                prior_version=_text_or_none(prior, REBASELINE_VERSION_FIELD),
+                prior_authorization=_text_or_none(prior, REBASELINE_AUTHORIZATION_FIELD),
+            )
+        )
+    return refreshes
+
+
+def unattributed_refreshes(refreshes: Sequence[DigestRefresh]) -> list[DigestRefresh]:
+    """The refreshes carrying an approval whose attribution is absent or stale.
+
+    "Unattributed" covers both, because a stamp repeated unchanged from the base record
+    attributes nothing to *this* refresh — it names the previous one's version and decision.
+    """
+    return sorted(
+        (refresh for refresh in refreshes if not refresh.is_permitted), key=lambda r: r.key
+    )
+
+
+def _collect(args: argparse.Namespace) -> tuple[list[str], list[str]]:
+    """The self-approvals and the unattributed refreshes this PR contains.
+
+    Every git call underneath may raise :exc:`GitAnswerUnavailable`; :func:`cmd_diff` turns that
+    into a refusal, so no partial answer is ever reported as a clean one.
+    """
+    offending: list[str] = []
+    unattributed: list[str] = []
+
+    # Resolved once, and used for BOTH the changed-file set and every base-side record read
+    # below. `base` itself is never read from directly past this point -- only from the commit
+    # it and `head` diverged from -- so the two sides of the diff are always the same commit.
+    base = merge_base(args.base, args.head)
+
+    # Grouped by change class, and the base side read across the whole group, because a record
+    # that moved between two files of the same class must still find its prior. Matching within
+    # one path let a pull request reshard a curation file and refresh the approved digests
+    # inside it in the same commit: at the new path every record looked brand new, and at the
+    # old path there was no head record left to compare against.
+    changed = changed_curation_files(base, args.head)
+    by_source: dict[CurationSource, list[str]] = {}
+    for path, source in changed:
+        by_source.setdefault(source, []).append(path)
+
+    for source, paths in by_source.items():
+        class_base_records = [
+            record for path in paths for record in read_records_at(base, path, source)
+        ]
+        for path in paths:
+            head_records = read_records_at(args.head, path, source)
+            introduced = newly_approved(
+                class_base_records, head_records, key_field=source.key_field
+            )
+            for key in self_approved_keys(introduced, actor=args.actor, key_field=source.key_field):
+                offending.append(f"{path}: {key}")
+            refreshes = digest_refreshes(
+                class_base_records, head_records, key_field=source.key_field
+            )
+            for refresh in unattributed_refreshes(refreshes):
+                unattributed.append(
+                    f"{path}: {refresh.key} ({', '.join(refresh.attribution_defects)})"
+                )
+
+    return offending, unattributed
+
+
+def cmd_diff(args: argparse.Namespace) -> int:
+    try:
+        offending, unattributed = _collect(args)
+    except GitAnswerUnavailable as error:
+        print(
+            f"FAIL: this check could not be performed, so it refuses rather than passes: {error}. "
+            "An unanswerable git question empties the base side of the diff, which reads as "
+            "'every record here is new' -- the one reading under which no digest refresh carries "
+            "an approval and no attribution is demanded. Re-run with the base and head commits "
+            "both present in the checkout (a full-history fetch, and blobs available offline).",
+            file=sys.stderr,
+        )
+        return 1
+    except ValueError as error:
+        # `json.JSONDecodeError` is itself a `ValueError`, so this also catches a curation file
+        # that is not valid JSON at all, alongside `records_in`'s own shape checks. Named here so
+        # a malformed file reaches CI as this refusal rather than an unhandled traceback out of
+        # `main` -- the exit code was already non-zero either way, this only names why.
+        print(
+            f"FAIL: this check could not be performed: a curation file matched by SOURCES could "
+            f"not be read as the shape this guard expects: {error}. Fix the file's JSON and "
+            "re-run.",
+            file=sys.stderr,
+        )
+        return 1
+
+    failed = False
     if offending:
+        failed = True
         print(
             f'FAIL: this PR introduces review_state: "approved" on a record authored by its '
             f"own actor ({args.actor!r}). Only a pull request approved by someone other than "
@@ -196,14 +601,47 @@ def cmd_diff(args: argparse.Namespace) -> int:
         )
         for entry in offending:
             print(f"  {entry}", file=sys.stderr)
+
+    if unattributed:
+        failed = True
+        print(
+            "FAIL: this PR refreshes mechanic_digest on a record that is approved at both ends "
+            "of the diff, carrying that approval across a change in what the digest describes, "
+            "without freshly naming the version it was refreshed at and the authorization it "
+            "was refreshed under (FR-026 to FR-029). A record that was never approved may be "
+            "refreshed as bookkeeping; this one may not. A stamp repeated unchanged from the "
+            "base record is stale: it names the version and the decision of this record's "
+            "PREVIOUS re-baseline and attributes this one to nothing:",
+            file=sys.stderr,
+        )
+        for entry in unattributed:
+            print(f"  {entry}", file=sys.stderr)
+
+    if failed:
         return 1
 
-    print("OK: no newly approved authored summary is self-authored")
+    print(
+        "OK: no newly approved authored summary is self-authored, and no digest refresh "
+        "carries an approval without naming its version and authorization"
+    )
     return 0
 
 
+#: What ``--help`` shows. Deliberately NOT this module's ``__doc__``: that docstring is the
+#: written-down rule, several hundred words of it, and `argparse` reflows whatever it is given
+#: into the help text. Passing it made ``--help`` a wall of policy prose -- and, while the rule
+#: was documented under two identical ``check_summary_approvals.py diff ...`` headings, printed
+#: the tool's single subcommand twice.
+_HELP_DESCRIPTION = (
+    "Self-approval and digest-re-baseline guard for every authored summary class. Refuses a "
+    "pull request that approves a summary its own actor reviewed, and one that refreshes a "
+    "mechanic_digest on an approved record without freshly naming the version and the "
+    "authorization the refresh happened under. The full rule is this module's docstring."
+)
+
+
 def main(argv: list[str] | None = None) -> int:
-    parser = argparse.ArgumentParser(description=__doc__)
+    parser = argparse.ArgumentParser(description=_HELP_DESCRIPTION)
     sub = parser.add_subparsers(dest="mode", required=True)
 
     diff_parser = sub.add_parser("diff", help="check a PR's newly approved authored summaries")

@@ -36,7 +36,9 @@
       },
       "reviewed_by": { "type": "string", "minLength": 1 },
       "reviewed_at": { "type": "string", "minLength": 1 },
-      "authored_against_acquisition": { "type": "string", "minLength": 1 }
+      "authored_against_acquisition": { "type": "string", "minLength": 1 },
+      "digest_refreshed_at_version": { "type": "string", "minLength": 1, "description": "the version id this record's mechanic_digest was re-baselined at (009 FR-028); written only when an approval is carried across a digest refresh" },
+      "digest_refreshed_under_authorization": { "type": "string", "minLength": 1, "description": "the named, dated Product Owner authorization record the re-baseline ran under (009 FR-029); one blanket authorization, cited by every refreshed record" }
     }
   }
 }
