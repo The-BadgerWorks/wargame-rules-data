@@ -74,6 +74,10 @@
      items 20 and 21 at 009-csv-migration as their discharge-in-progress, with the live figures
      Setup's own T001-T005 measured (digest churn, collision set, -N population) and the C1 ruling
      that answers item 20's chapter-consolidation question. -->
+<!-- AI-Assisted: Claude Code (model: claude-sonnet-5) - Added item 26 (009 rung R02a-fix4, item
+     3): the digest guard's attribution pair is checked for shape only, never resolved to a real
+     artefact -- an invented authorization string satisfies FR-028/FR-029 as written. Pinned with
+     a strict xfail rather than closed, since resolving it is its own already-planned rung. -->
 # Follow-ups
 
 Open items surfaced during implementation that are deliberately **not** fixed as part of the work
@@ -1084,3 +1088,38 @@ sanctioned path — a rollback that names its own authorization, and break-glass
 cannot be done in time — is documented in `docs/break-glass.md`'s second section and asserted by
 `test_a_plain_revert_and_a_stripped_stamp_are_the_same_pull_request` and
 `test_a_rollback_that_names_its_own_decision_is_permitted`.
+
+## 26. The digest guard never resolves `digest_refreshed_under_authorization` to anything (009 rung R02a-fix4)
+
+`DigestRefresh.attribution_defects` treats a half of the attribution pair as sufficient once it is
+non-empty and differs from the value the record carried at base. That is a **shape** test, not a
+**resolution** test: nothing checks that `digest_refreshed_under_authorization` actually names a
+decision that exists anywhere. Two invented strings — a made-up version and a made-up
+authorization pointing at, say, a `docs/verification/*.md` file that was never authored — satisfy
+FR-028 and FR-029 exactly as written, and `check_summary_approvals.py diff` prints `OK`.
+
+**Why this is not the same gap as the rekeying bypass (item 25).** Rekeying requires deliberate
+intent and shows up as a changed identifier next to a changed digest — the most visible thing in
+the diff. An invented authorization string requires no more effort than a genuine one and looks
+identical to it in every field the guard reads: present, non-empty, fresh. There is nothing about
+it that would draw a reviewer's eye the way a changed key does.
+
+**Why it was not closed here.** Making the authorization a resolvable, committed artefact — a
+`docs/verification/` entry that must actually exist, or an equivalent — is a change to what
+FR-029's "named, dated artefact" is allowed to mean, not a bug fix inside the guard's existing
+rule. It is its own rung and is already planned; R02a-fix4's scope is naming what the guard
+already claims true, not adding a capability it does not have.
+
+**What closing it needs**: `check_summary_approvals.py` already has `path_exists_at(ref, path)`,
+built for a different question (whether a curation file existed at a ref) but exactly the
+primitive this gap needs — resolving `digest_refreshed_under_authorization` against the commit
+tree it is validating and refusing a value that names nothing there. The version half likely wants
+a narrower, format-level check (a real edition/version token) rather than existence, since a
+version does not correspond to a single committed path the way an authorization artefact would.
+
+**Pinned, not merely written down**:
+`tests/enrichment/test_digest_rebaseline.py::test_cmd_diff_refuses_a_refresh_whose_authorization_names_no_committed_artefact`
+constructs an approved refresh with a syntactically valid but nonexistent authorization and
+asserts the guard refuses it, under `pytest.mark.xfail(strict=True)`. The day this closes, that
+test goes green, the strict xfail fails, and whoever closed it is forced to promote the case into
+an ordinary assertion rather than leave a stale note behind.
