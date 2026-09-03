@@ -21,6 +21,10 @@
 # `_corpus_payloads` matched only the exact string `"Last_update.csv"`, so under `--fixtures` the
 # probe WAS corpus in every `fixtures/detection/*` set -- confirmed red against today's code
 # first, per this repository's own "failing-first is the house form" rule).
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - R05-fix2 item 2 (gate on PR #30): the
+# empty-corpus constant `content_fingerprint([])` must never surface as an UNCHANGED
+# acquisition's own `content_fingerprint` or `acquisition_id` -- confirmed red against today's
+# code first, per the same house rule.
 """FR-030's whole hazard in one sentence: a cheap check that says "nothing changed" when
 something did. Every test here either proves the short-circuit cannot do that, or proves the
 mechanism that lets it skip real work at all still behaves.
@@ -42,7 +46,7 @@ from pathlib import Path
 import pytest
 from pytest_httpx import HTTPXMock
 
-from pipeline.acquire.fixtures import FixturePayload
+from pipeline.acquire.fixtures import FixturePayload, content_fingerprint
 from pipeline.acquire.http import PoliteClient, SourceUnreachable
 from pipeline.acquire.wahapedia import (
     EXPORT_FILES,
@@ -259,8 +263,15 @@ def test_the_persisted_state_holds_a_digest_never_the_raw_timestamp(tmp_path: Pa
 
     raw = json.loads(state_path.read_text(encoding="utf-8"))
     # R05-fix item 5: the source identity the digest was taken under joins it -- never anything
-    # that could reconstruct the raw text.
-    assert set(raw) == {"digest", "source_base_url", "declared_edition_code", "mode"}
+    # that could reconstruct the raw text. R05-fix2 item 2: `content_fingerprint` joins it too --
+    # a corpus fingerprint, not the raw text either.
+    assert set(raw) == {
+        "digest",
+        "content_fingerprint",
+        "source_base_url",
+        "declared_edition_code",
+        "mode",
+    }
     assert raw["digest"] != raw_timestamp
     assert raw_timestamp not in state_path.read_text(encoding="utf-8")
     # sha256 hex: 64 lowercase hex characters, nothing else.
@@ -581,6 +592,54 @@ def test_an_identity_mismatch_is_not_an_error(tmp_path: Path) -> None:
 
     assert second.outcome is AcquisitionOutcome.OK
     assert second.findings == ()
+
+
+# -- R05-fix2 item 2 -- an UNCHANGED acquisition never reports the empty-corpus constant --------
+#
+# `_corpus_payloads` strips the short-circuit's only fetched payload (the probe), so
+# `content_fingerprint([])` -- ONE constant, identical for every source and every run -- was
+# recorded as BOTH the acquisition's own `content_fingerprint` AND, via its first 8 hex
+# characters, its `acquisition_id`, on every UNCHANGED acquisition against every source. That is
+# a fingerprint claiming the corpus is empty when it is, by definition, unchanged from whatever
+# it was last measured to be.
+#
+# Decision: an UNCHANGED acquisition carries the PREVIOUS acquisition's own corpus fingerprint
+# forward (`ExportDigestState.content_fingerprint`), rather than declining to report one.
+# `SourceAcquisition.content_fingerprint` is a required `str` field project-wide -- making it
+# optional would ripple into every consumer that reads it (`report/validation.py`'s coverage
+# row, `acquisition_id`'s own derivation) for one narrow case. "The same corpus as last time" is
+# also exactly what UNCHANGED already means for every OTHER field on the record (the digest
+# matched, the identity matched); the fingerprint should say the same thing the outcome already
+# does, not something that contradicts it.
+
+
+def test_the_empty_corpus_constant_is_never_an_acquisition_fingerprint(tmp_path: Path) -> None:
+    """Red against the code this rung inherited: before this fix, `skipped.content_fingerprint`
+    equalled `f"sha256:{empty_corpus_constant}"` -- the SAME constant on every source, every run.
+    """
+    empty_corpus_constant = content_fingerprint([])
+
+    state_path = tmp_path / "state" / "wahapedia-export-digest.json"
+    directory = tmp_path / "export"
+    _write_export(directory, last_update="2026-08-01T00:00:00Z")
+    config = _config(str(directory))
+    seeded, _ = _seed_state(config, state_path)
+
+    skipped, skipped_payloads = acquire_wahapedia(config, offline=True, state_path=state_path)
+
+    assert skipped.outcome is AcquisitionOutcome.UNCHANGED
+    assert len(skipped_payloads) == 1  # only the probe was fetched -- the corpus IS empty here
+    assert skipped.content_fingerprint != f"sha256:{empty_corpus_constant}", (
+        "an UNCHANGED acquisition must never report the constant an empty corpus hashes to"
+    )
+    assert not skipped.acquisition_id.endswith(empty_corpus_constant[:8]), (
+        "acquisition_id is derived from the fingerprint -- the empty-corpus constant must never "
+        "surface there either"
+    )
+    assert skipped.content_fingerprint == seeded.content_fingerprint, (
+        "the decision this fix makes: an UNCHANGED acquisition carries the PREVIOUS "
+        "acquisition's own corpus fingerprint forward, because that IS what 'unchanged' means"
+    )
 
 
 # -- R05-fix2 item 3 -- the probe exclusion must hold under --fixtures too ----------------------

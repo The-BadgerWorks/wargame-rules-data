@@ -35,6 +35,13 @@
 # fix, `acquire_from_fixtures` fingerprinted every loaded payload unconditionally, so under
 # `--fixtures` the probe WAS corpus in every `fixtures/detection/*` set, even though the live path
 # already excluded it.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - R05-fix2 item 2 (gate on PR #30): an
+# UNCHANGED acquisition now carries the PREVIOUS acquisition's own content fingerprint forward
+# (`ExportDigestState.content_fingerprint`, persisted alongside `digest`) rather than
+# fingerprinting the near-empty payload set the short-circuit actually fetched (just the probe).
+# Before this fix, `content_fingerprint([])`'s constant -- the SAME value on every source, every
+# run -- was recorded as both the acquisition's own `content_fingerprint` and, via its first 8
+# hex characters, its `acquisition_id`, on every UNCHANGED acquisition.
 """Acquire the datasheet-detail source: the CSV export, into ``work/``.
 
 Three things are worth stating plainly.
@@ -46,8 +53,10 @@ gitignored, emptied at the start of every command that writes to it and again in
 never called from inside this module, only exposed for a caller that both opted into the
 short-circuit (passed a real ``state_path``) and completed its own downstream work successfully.
 This is not corpus data: it is a one-way digest of `Last_update.csv` plus the source identity
-(``source_base_url``, ``declared_edition_code``, ``mode``) it was taken under, kept for exactly
-one purpose — deciding whether next run's fetch can be skipped (R05-fix item 3).
+(``source_base_url``, ``declared_edition_code``, ``mode``) it was taken under, plus the content
+fingerprint the acquisition that recorded it already computed (R05-fix2 item 2) — kept for
+deciding whether next run's fetch can be skipped, and, when it is, what fingerprint an unchanged
+corpus should report instead of an empty one.
 
 **The declared edition is configuration, not inference** (FR-005). The export is 10th Edition
 today and the points source is 11th, which is why hybrid pairing is the normal case at launch
@@ -163,7 +172,8 @@ def _one_way_export_digest(text: str) -> str:
 
 
 class ExportDigestState:
-    """The short-circuit's persisted state: a digest, plus the identity it was taken under.
+    """The short-circuit's persisted state: a digest, the identity it was taken under, and the
+    content fingerprint it authorises a caller to carry forward.
 
     R05-fix item 5: comparing a digest across differently-configured sources (a different
     ``source_base_url``, a different declared detail edition, or a different acquisition mode)
@@ -171,14 +181,32 @@ class ExportDigestState:
     identity here, and requiring it to match before :func:`acquire_wahapedia` may short-circuit,
     is what closes that. A mismatch is never an error — see that function's own docstring — it
     simply means there is nothing comparable to compare against.
+
+    R05-fix2 item 2: ``content_fingerprint`` is the corpus fingerprint the acquisition that
+    *produced* this state itself reported — never recomputed from the near-empty payload set a
+    short-circuited run actually fetches (just the probe). It is what lets a short-circuited
+    acquisition report "the same corpus as last time" instead of an empty one.
     """
 
-    __slots__ = ("digest", "source_base_url", "declared_edition_code", "mode")
+    __slots__ = (
+        "digest",
+        "content_fingerprint",
+        "source_base_url",
+        "declared_edition_code",
+        "mode",
+    )
 
     def __init__(
-        self, *, digest: str, source_base_url: str, declared_edition_code: str, mode: str
+        self,
+        *,
+        digest: str,
+        content_fingerprint: str,
+        source_base_url: str,
+        declared_edition_code: str,
+        mode: str,
     ) -> None:
         self.digest = digest
+        self.content_fingerprint = content_fingerprint
         self.source_base_url = source_base_url
         self.declared_edition_code = declared_edition_code
         self.mode = mode
@@ -202,6 +230,11 @@ def load_export_digest_state(path: Path) -> ExportDigestState | None:
     third, different fact — the tracked state itself is broken — and is raised as
     :class:`ExportStateCorrupt` rather than folded into the same ``None`` (R05-fix item 4,
     "fail closed": a state file that cannot be read must never be treated as silently absent).
+
+    R05-fix2 item 2: a state that carries a ``digest`` but no ``content_fingerprint`` — the
+    seeded-empty ``{}``, or a state written by code older than this fix — has nothing safe for a
+    short-circuited acquisition to carry forward, so it is treated the same as no prior state at
+    all (``None``), never as license to report an empty-corpus fingerprint.
     """
     if not path.exists():
         return None
@@ -213,10 +246,12 @@ def load_export_digest_state(path: Path) -> ExportDigestState | None:
     if not isinstance(raw, dict):
         raise ExportStateCorrupt(f"{path} does not hold a JSON object (got {type(raw).__name__})")
     digest = raw.get("digest")
-    if not digest:
-        return None  # the seeded-empty {} state, or a state written before identity existed
+    content_fingerprint_value = raw.get("content_fingerprint")
+    if not digest or not content_fingerprint_value:
+        return None  # the seeded-empty {} state, or a state written before either field existed
     return ExportDigestState(
         digest=str(digest),
+        content_fingerprint=str(content_fingerprint_value),
         source_base_url=str(raw.get("source_base_url", "")),
         declared_edition_code=str(raw.get("declared_edition_code", "")),
         mode=str(raw.get("mode", "")),
@@ -237,6 +272,7 @@ def save_export_digest_state(path: Path, state: ExportDigestState) -> None:
         path,
         {
             "digest": state.digest,
+            "content_fingerprint": state.content_fingerprint,
             "source_base_url": state.source_base_url,
             "declared_edition_code": state.declared_edition_code,
             "mode": state.mode,
@@ -255,12 +291,18 @@ def export_digest_state_for(
     (which never reaches the probe at all) or any acquisition that did not go through this
     module. A caller calls this, then :func:`save_export_digest_state`, only once its own
     downstream work has succeeded (R05-fix item 2) — never from inside acquisition itself.
+
+    R05-fix2 item 2: ``content_fingerprint`` carries ``acquisition``'s own, already-computed
+    corpus fingerprint forward — never recomputed here — so a future short-circuited acquisition
+    that matches this state can report "the same corpus as this one had" instead of fingerprinting
+    the near-empty payload set it actually fetches.
     """
     probe = next((payload for payload in payloads if payload.name == LAST_UPDATE_FILE), None)
     if probe is None:
         return None
     return ExportDigestState(
         digest=_one_way_export_digest(probe.text),
+        content_fingerprint=acquisition.content_fingerprint.removeprefix("sha256:"),
         source_base_url=acquisition.source_base_url,
         declared_edition_code=acquisition.declared_edition_code,
         mode=config.detail_acquisition_mode.value,
@@ -490,9 +532,20 @@ def acquire_wahapedia(
             (target / payload.name).write_text(payload.text, encoding="utf-8", newline="\n")
 
     moment = (retrieved_at or datetime.now(UTC)).astimezone(UTC)
-    # R05-fix item 1: the probe is fetched (above) but never counted as corpus -- see
-    # _corpus_payloads's own docstring for why this is the one place that decision is made.
-    fingerprint = content_fingerprint(_corpus_payloads(payloads))
+    if outcome is AcquisitionOutcome.UNCHANGED:
+        # R05-fix2 item 2: the short-circuit only fetched the probe, so the corpus
+        # `_corpus_payloads` would compute here is empty -- `content_fingerprint(empty)` would
+        # return the constant every empty input hashes to, reported as if the corpus itself were
+        # empty, on every UNCHANGED run against every source. `short_circuit`'s own condition
+        # already required `prior_state` to be non-None and identity-matched, so the fingerprint
+        # IT recorded is exactly what this unchanged corpus was last measured to be -- carried
+        # forward rather than recomputed from bytes this run never fetched.
+        assert prior_state is not None  # narrows for mypy; `short_circuit` already proved it
+        fingerprint = prior_state.content_fingerprint
+    else:
+        # R05-fix item 1: the probe is fetched (above) but never counted as corpus -- see
+        # _corpus_payloads's own docstring for why this is the one place that decision is made.
+        fingerprint = content_fingerprint(_corpus_payloads(payloads))
     coverage = {"csv_files": len(payloads)}
     if outcome is AcquisitionOutcome.UNCHANGED:
         # T093: the surface reduction the short-circuit buys, recorded rather than merely
