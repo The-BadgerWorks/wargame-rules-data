@@ -1282,6 +1282,55 @@ def test_cmd_diff_refuses_an_approved_refresh_hidden_behind_a_rekeying(
     assert _run_diff(base, head) == 1
 
 
+@pytest.mark.xfail(
+    strict=True,
+    reason=(
+        "Open gap, follow-ups.md item 26: attribution_defects requires only that "
+        "digest_refreshed_under_authorization is non-empty and differs from the record's prior "
+        "value -- it is never resolved to anything. An invented string naming no committed "
+        "artefact satisfies FR-028/FR-029 as written and the guard passes it. Closing this is its "
+        "own rung (path_exists_at is already available to do it), deliberately not done here. "
+        "The day this passes, the gap is closed and this xfail must be promoted into an ordinary "
+        "assertion."
+    ),
+)
+def test_cmd_diff_refuses_a_refresh_whose_authorization_names_no_committed_artefact(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    """The authorization half is never resolved to anything -- only checked for shape.
+
+    Unlike the rekeying bypass, which requires deliberate intent and is plainly visible as a
+    changed identifier next to a changed digest, this one hides in plain sight: any non-empty
+    string that differs from the record's prior value passes, whether or not it names a real,
+    findable decision. This record's attribution pair is syntactically indistinguishable from a
+    genuine one -- fresh, present, both halves non-empty -- and names nothing that exists.
+    """
+    invented_authorization = "docs/verification/rung-that-was-never-authored-0000-00-00.md"
+    repo = _init_repo(tmp_path)
+    base = _commit_curation(
+        repo,
+        {CURATION_PATH: [_record(review_state="approved", mechanic_digest=OLD_DIGEST)]},
+        message="synthetic base",
+    )
+    head = _commit_curation(
+        repo,
+        {
+            CURATION_PATH: [
+                _record(
+                    review_state="approved",
+                    mechanic_digest=NEW_DIGEST,
+                    version=VERSION,
+                    authorization=invented_authorization,
+                )
+            ]
+        },
+        message="synthetic refresh under an invented authorization",
+    )
+    monkeypatch.chdir(repo)
+
+    assert _run_diff(base, head) == 1
+
+
 # ---------------------------------------------------------------------------------------
 # Rung R02a-fix3: both sides of the diff must be read from the same commit -- the merge-base,
 # never `base`'s own tip. `changed_curation_files` already measured the changed-file set from
