@@ -100,9 +100,7 @@ class _StatePathCallVisitor(ast.NodeVisitor):
             value = keyword.value
             is_none = isinstance(value, ast.Constant) and value.value is None
             is_passthrough = (
-                isinstance(value, ast.Name)
-                and value.id == "state_path"
-                and "state_path" in params
+                isinstance(value, ast.Name) and value.id == "state_path" and "state_path" in params
             )
             if not is_none and not is_passthrough:
                 self.hits.append(node.lineno)
