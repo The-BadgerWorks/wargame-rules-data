@@ -9,6 +9,11 @@
 # carry the moment 009's blanket pass stamped it. Added the freshness cases, the rename case,
 # and an end-to-end `cmd_diff` section over a real throwaway repository, because `cmd_diff` is
 # the wiring that makes CI refuse anything and it appeared nowhere in this file.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - Rung R02a-fix3: added the merge-base
+# section (`_diverge` plus the false-refusal, fail-open-mirror, and merge-base-unavailable
+# cases), which builds two branches diverging from one common ancestor -- the shape an
+# un-rebased PR takes once its target branch moves, which every prior repo in this file could
+# not represent because each committed in a single straight line.
 """Feature 009 re-baselines every approved summary digest once. These five rules bound it.
 
 A bulk digest refresh is mechanically indistinguishable from **laundering an approval** —
@@ -1201,6 +1206,203 @@ def test_cmd_diff_refuses_an_approved_refresh_hidden_behind_a_rekeying(
     monkeypatch.chdir(repo)
 
     assert _run_diff(base, head) == 1
+
+
+# ---------------------------------------------------------------------------------------
+# Rung R02a-fix3: both sides of the diff must be read from the same commit -- the merge-base,
+# never `base`'s own tip. `changed_curation_files` already measured the changed-file set from
+# `base...head` (git's own `merge-base(base,head)..head`), while `read_records_at` was reading
+# base-side CONTENT at `base`'s tip directly -- a different commit whenever `base` had moved past
+# the point `head` branched from. Every case below builds two branches that diverge from one
+# common ancestor and never merge back, which is the shape an un-rebased PR takes once its target
+# branch gains new commits -- a fake diff on two unrelated tips cannot stand in for it.
+# ---------------------------------------------------------------------------------------
+
+
+def _diverge(repo: Path, *, from_ref: str, branch: str) -> None:
+    """Check out a new branch named ``branch`` starting at ``from_ref``, so later commits on
+    ``main`` and on ``branch`` diverge from a shared ancestor instead of stacking on each other.
+    """
+    _git(repo, "checkout", "-q", "-b", branch, from_ref)
+
+
+def test_merge_base_resolves_the_common_ancestor_of_diverging_branches(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    repo = _init_repo(tmp_path)
+    ancestor = _git(repo, "rev-parse", "HEAD").strip()
+
+    _diverge(repo, from_ref=ancestor, branch="pr-head")
+    head = _commit_curation(
+        repo,
+        {CURATION_PATH: [_record(review_state="in_review")]},
+        message="synthetic head commit",
+    )
+
+    _git(repo, "checkout", "-q", "main")
+    base = _commit_curation(
+        repo,
+        {CURATION_PATH: [_record(OTHER_KEY, review_state="in_review")]},
+        message="synthetic base commit, unrelated to the head commit",
+    )
+    monkeypatch.chdir(repo)
+
+    assert check_summary_approvals.merge_base(base, head) == ancestor
+
+
+def test_merge_base_refuses_when_base_and_head_share_no_common_history(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    """The named failure mode: unrelated histories, or history the checkout does not have.
+
+    Orphan branches are the reachable shape of "no merge-base exists" -- a shallow clone missing
+    the branch point answers `git merge-base` the same way, with the same non-zero exit.
+    """
+    repo = _init_repo(tmp_path)
+    head = _git(repo, "rev-parse", "HEAD").strip()
+
+    _git(repo, "checkout", "-q", "--orphan", "unrelated")
+    _git(repo, "rm", "-q", "-rf", ".")
+    (repo / "OTHER.md").write_text("synthetic unrelated history\n", encoding="utf-8")
+    _git(repo, "add", "OTHER.md")
+    _git(repo, "commit", "-q", "-m", "synthetic unrelated history")
+    base = _git(repo, "rev-parse", "HEAD").strip()
+    monkeypatch.chdir(repo)
+
+    with pytest.raises(check_summary_approvals.GitAnswerUnavailable):
+        check_summary_approvals.merge_base(base, head)
+
+
+def test_cmd_diff_refuses_when_base_and_head_share_no_common_history(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch, capsys: pytest.CaptureFixture[str]
+) -> None:
+    """End to end: an unfindable merge-base is a named refusal through `cmd_diff`, never a pass.
+
+    Keeps fix2's fail-closed contract -- a git question this guard's verdict depends on that git
+    cannot answer refuses the pull request, and this is now true of the merge-base question too.
+    """
+    repo = _init_repo(tmp_path)
+    head = _git(repo, "rev-parse", "HEAD").strip()
+
+    _git(repo, "checkout", "-q", "--orphan", "unrelated")
+    _git(repo, "rm", "-q", "-rf", ".")
+    (repo / "OTHER.md").write_text("synthetic unrelated history\n", encoding="utf-8")
+    _git(repo, "add", "OTHER.md")
+    _git(repo, "commit", "-q", "-m", "synthetic unrelated history")
+    base = _git(repo, "rev-parse", "HEAD").strip()
+    monkeypatch.chdir(repo)
+
+    code = _run_diff(base, head)
+
+    assert code == 1
+    error = capsys.readouterr().err
+    assert "could not be performed" in error
+    assert "merge-base" in error
+
+
+def test_cmd_diff_does_not_refuse_an_unrebased_pr_for_a_move_it_never_saw(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch, capsys: pytest.CaptureFixture[str]
+) -> None:
+    """The false refusal. Base has since re-baselined `KEY`; head branched before that and only
+    ever edits `OTHER_KEY`, in the same file.
+
+    Reading base-side content at `base`'s own tip sees `KEY` moved from `NEW_DIGEST` (base) to
+    `OLD_DIGEST` (head) with no attribution on the head record, and refuses a pull request that
+    never touched `KEY` at all. Reading it from the merge-base instead, `KEY` is identical on both
+    sides of the diff -- head's copy is exactly the branch point's copy -- and nothing is refused
+    for it.
+    """
+    repo = _init_repo(tmp_path)
+    ancestor = _commit_curation(
+        repo,
+        {
+            CURATION_PATH: [
+                _record(KEY, review_state="approved", mechanic_digest=OLD_DIGEST),
+                _record(OTHER_KEY, review_state="in_review", mechanic_digest=OLD_DIGEST),
+            ]
+        },
+        message="synthetic common ancestor",
+    )
+
+    _diverge(repo, from_ref=ancestor, branch="pr-head")
+    head = _commit_curation(
+        repo,
+        {
+            CURATION_PATH: [
+                _record(KEY, review_state="approved", mechanic_digest=OLD_DIGEST),
+                _record(OTHER_KEY, review_state="in_review", mechanic_digest=NEW_DIGEST),
+            ]
+        },
+        message="synthetic PR commit, touches only OTHER_KEY",
+    )
+
+    _git(repo, "checkout", "-q", "main")
+    base = _commit_curation(
+        repo,
+        {
+            CURATION_PATH: [
+                _record(
+                    KEY,
+                    review_state="approved",
+                    mechanic_digest=NEW_DIGEST,
+                    version=VERSION,
+                    authorization=AUTHORIZATION,
+                ),
+                _record(OTHER_KEY, review_state="in_review", mechanic_digest=OLD_DIGEST),
+            ]
+        },
+        message="synthetic main re-baseline, unrelated to the PR branch",
+    )
+    monkeypatch.chdir(repo)
+
+    code = _run_diff(base, head)
+
+    out, err = capsys.readouterr()
+    assert code == 0, err
+    assert "OK:" in out
+
+
+def test_cmd_diff_refuses_a_refresh_that_an_independently_advanced_base_tip_would_hide(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch, capsys: pytest.CaptureFixture[str]
+) -> None:
+    """The fail-open mirror. Base's tip already carries the exact digest head introduces, but
+    head's own copy carries no fresh attribution.
+
+    Reading base-side content at `base`'s own tip sees identical digests on both sides and
+    detects no refresh at all -- the missing attribution is never even asked about, and an
+    approved record's digest moves in complete silence. Reading it from the merge-base, where the
+    digest is still the old one on both sides, the move is visible and the missing attribution
+    refuses the pull request as it must.
+    """
+    repo = _init_repo(tmp_path)
+    ancestor = _commit_curation(
+        repo,
+        {CURATION_PATH: [_record(review_state="approved", mechanic_digest=OLD_DIGEST)]},
+        message="synthetic common ancestor",
+    )
+
+    _diverge(repo, from_ref=ancestor, branch="pr-head")
+    head = _commit_curation(
+        repo,
+        {CURATION_PATH: [_record(review_state="approved", mechanic_digest=NEW_DIGEST)]},
+        message="synthetic PR refresh, no attribution",
+    )
+
+    _git(repo, "checkout", "-q", "main")
+    base = _commit_curation(
+        repo,
+        {CURATION_PATH: [_record(review_state="approved", mechanic_digest=NEW_DIGEST)]},
+        message="synthetic main, independently arrived at the same digest",
+    )
+    monkeypatch.chdir(repo)
+
+    code = _run_diff(base, head)
+
+    assert code == 1
+    error = capsys.readouterr().err
+    assert f"{CURATION_PATH}: {KEY}" in error
+    assert f"missing {REBASELINE_VERSION_FIELD}" in error
+    assert f"missing {REBASELINE_AUTHORIZATION_FIELD}" in error
 
 
 # ---------------------------------------------------------------------------------------

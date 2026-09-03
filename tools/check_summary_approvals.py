@@ -35,6 +35,15 @@
 # empty, every refresh read as authoring, and the guard passed an unattributed re-baseline green.
 # Absence is now established by `git ls-tree` against a ref proven to resolve, and any other git
 # failure raises :exc:`GitAnswerUnavailable` and refuses the pull request instead of clearing it.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - Rung R02a-fix3: `changed_curation_files`
+# took its changed-file set from a three-dot diff (`base...head`, i.e. `merge-base(base,head)..
+# head`), while `read_records_at` read base-side content at `base`'s own tip -- two different
+# commits whenever `base` had moved since `head` branched. An un-rebased PR was refused for a
+# record it never touched (base had since re-baselined it, head had not), and its mirror slipped
+# an attribution-less refresh past the guard whenever base's tip happened to already carry head's
+# digest. `merge_base` now resolves the branch point once, `check=False` and every failure raising
+# :exc:`GitAnswerUnavailable`, and both the changed-file set and every base-side record read are
+# taken from that one commit -- never from `base`'s tip directly.
 """Self-approval guard for every authored summary class.
 
   check_summary_approvals.py diff --base <ref> --head <ref> --actor <login>
@@ -77,6 +86,17 @@ lookup, and any other non-zero exit raises :exc:`GitAnswerUnavailable` and fails
 polarity is why this mattered: the same empty base side makes :func:`newly_approved` **over**-
 report, which is noisy and gets noticed, while making :func:`digest_refreshes` **under**-report,
 which is silent and does not.
+
+**Both sides of the diff are read from the same commit: the merge-base, never `base`'s own tip.**
+:func:`merge_base` resolves ``git merge-base <base> <head>`` once, and both
+:func:`changed_curation_files` and every base-side :func:`read_records_at` call are made against
+that one commit. This is a strictly stronger dependency on history than reading `base` directly
+was -- a checkout now needs enough of it to compute the branch point, not merely enough to resolve
+two refs -- and that is the correct direction: a shallow or partial checkout that cannot answer
+the question must refuse rather than silently compare the wrong two commits. If the merge-base
+itself cannot be computed -- unrelated histories, or history the checkout does not have -- that is
+exactly :exc:`GitAnswerUnavailable`, refused the same as any other unanswerable git question,
+never a fall-through to an empty base side.
 
 **Rolling a re-baseline back is itself a re-baseline, and cites its own decision.** Reverting a
 merged re-baseline moves ``mechanic_digest`` again on a record approved at both ends, so this
@@ -203,6 +223,33 @@ def source_for(path: str) -> CurationSource | None:
     if not stripped.endswith(".json"):
         return None
     return next((source for source in SOURCES if stripped.startswith(source.prefix)), None)
+
+
+def merge_base(base: str, head: str) -> str:
+    """The commit ``base`` and ``head`` diverged from -- what a PR's diff is actually measured
+    against, and the one commit every base-side read in this module must be taken from.
+
+    ``git diff base...head`` (three-dot) is already defined as ``merge-base(base,head)..head``, so
+    :func:`changed_curation_files` was always answering "what changed since the branch point".
+    Reading base-side *content* at ``base``'s own tip instead of at that same branch point is the
+    bug this rung closes: when `base` has moved since `head` diverged from it -- the ordinary
+    shape of an un-rebased PR once its target branch gains new commits -- the two sides of the
+    "diff" were being read from different commits, and the guard measured head against work it
+    never saw.
+    """
+    require_ref_resolves(base)
+    require_ref_resolves(head)
+    result = _git("merge-base", base, head)
+    sha = result.stdout.strip()
+    if result.returncode != 0 or not sha:
+        raise _git_failure(
+            f"cannot compute a merge-base between {base!r} and {head!r} -- unrelated histories, "
+            "or history this checkout does not have -- so there is no single commit both the "
+            "changed-file set and the base-side records can be read from, and no verdict is "
+            "possible",
+            result,
+        )
+    return sha
 
 
 def changed_curation_files(base: str, head: str) -> list[tuple[str, CurationSource]]:
@@ -461,19 +508,24 @@ def _collect(args: argparse.Namespace) -> tuple[list[str], list[str]]:
     offending: list[str] = []
     unattributed: list[str] = []
 
+    # Resolved once, and used for BOTH the changed-file set and every base-side record read
+    # below. `base` itself is never read from directly past this point -- only from the commit
+    # it and `head` diverged from -- so the two sides of the diff are always the same commit.
+    base = merge_base(args.base, args.head)
+
     # Grouped by change class, and the base side read across the whole group, because a record
     # that moved between two files of the same class must still find its prior. Matching within
     # one path let a pull request reshard a curation file and refresh the approved digests
     # inside it in the same commit: at the new path every record looked brand new, and at the
     # old path there was no head record left to compare against.
-    changed = changed_curation_files(args.base, args.head)
+    changed = changed_curation_files(base, args.head)
     by_source: dict[CurationSource, list[str]] = {}
     for path, source in changed:
         by_source.setdefault(source, []).append(path)
 
     for source, paths in by_source.items():
         class_base_records = [
-            record for path in paths for record in read_records_at(args.base, path, source)
+            record for path in paths for record in read_records_at(base, path, source)
         ]
         for path in paths:
             head_records = read_records_at(args.head, path, source)
