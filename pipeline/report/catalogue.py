@@ -23,8 +23,11 @@
 # (REC-DETAIL-FACTION-EMPTY), the acquired-set table-presence guard FR-018 requires
 # (SRC-TABLE-MISSING), and the advisory short-circuit outcome FR-031 needs to tell a skipped
 # fetch from an unchanged source from a failed one (SRC-EXPORT-UNCHANGED). Additions only, per
-# FR-001 -- no existing code's severity or class moves. `SRC-CLASS-ARM` is deliberately absent
-# here: it is authored only if T047 chooses a hybrid (T048).
+# FR-001 -- no existing code's severity or class moves.
+# AI-Assisted: Claude Code (model: claude-opus-5) - Corrected this header (009 rung R01a, ledger
+# 5b): it claimed `SRC-CLASS-ARM` "is deliberately absent here: it is authored only if T047
+# chooses a hybrid (T048)", while the same commit added the code to CATALOGUE. The code IS
+# present and advisory; what T047/T048 still gate is whether any run EMITS it.
 """The finding catalogue.
 
 ``validation-report.md`` §1.1: **severity is a property of the code, not of the occurrence.** A

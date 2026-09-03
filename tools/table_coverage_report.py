@@ -77,6 +77,9 @@ def main(argv: Sequence[str] | None = None) -> int:
 
     try:
         config = load_config()
+        # Captured BEFORE the rebind below, or the report says "config default is `csv`" no
+        # matter what the configured default actually is (009 rung R01a, ledger 5a).
+        configured_mode = config.detail_acquisition_mode
         config = dataclasses.replace(config, detail_acquisition_mode=DetailAcquisitionMode.CSV)
         with workspace(root) as work:
             acquisition, payloads = acquire_detail(
@@ -104,7 +107,7 @@ def main(argv: Sequence[str] | None = None) -> int:
         f"- Generated: `{generated_at}`",
         f"- Source: `{acquisition.source_base_url}`",
         f"- Mode forced to `csv` for this measurement "
-        f"(config default is `{config.detail_acquisition_mode.value}`)",
+        f"(config default is `{configured_mode.value}`)",
         "",
         "| Table | Rows | Coverage |",
         "|---|---:|---|",

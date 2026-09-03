@@ -217,3 +217,199 @@ def test_the_mechanical_markup_pattern_stays_in_lockstep_with_the_stripper() -> 
 
 # `mechanic_digest` and `hard_normalise` moved to `pipeline.normalize.mechanic_digest` (T127);
 # their tests moved with them to `tests/summaries/test_mechanic_digest.py` (T123).
+
+
+# -- 009 R01a: the no-regression matrix (the direction T029/T030 never proved) -------------------
+#
+# The matrices above prove the OLD holes are closed. They prove nothing about holes the tightening
+# might have OPENED, which is exactly how two regressions shipped through a green suite and a
+# green CI. This matrix pins the other direction as a fixed contract.
+#
+# Every `main_text` / `main_codes` literal below was captured first-hand by running
+# `strip_field(raw, field="description")` against `origin/main` at commit `2c603c7f` -- the
+# revision `009-csv-migration` branched from. They are hard-coded, never recomputed: nothing here
+# imports, checks out, or shells out to `main` at test time, so this is a frozen contract rather
+# than a comparison that moves whenever `main` does.
+#
+# Inputs are synthetic throughout (standing rule 1): invented placeholder prose, invented weapon
+# names, `example.invalid` hosts.
+
+
+@pytest.mark.parametrize(
+    ("raw", "main_text", "main_codes"),
+    [
+        pytest.param(
+            '<span class="kwb">5 Cinder Wardens</span>',
+            "5 Cinder Wardens",
+            ["DQ-MARKUP-IN-FIELD"],
+            id="quoted-attribute",
+        ),
+        pytest.param(
+            "<td colspan=2>Bolt rifle</td>",
+            "Bolt rifle",
+            ["DQ-MARKUP-IN-FIELD"],
+            id="unquoted-attribute-value",
+        ),
+        pytest.param(
+            "<a href=#note>Bolt rifle</a>",
+            "Bolt rifle",
+            ["DQ-MARKUP-IN-FIELD"],
+            id="unquoted-attribute-value-punctuation",
+        ),
+        pytest.param(
+            "<img src=x.png>",
+            "",
+            ["DQ-MARKUP-IN-FIELD"],
+            id="unquoted-attribute-self-closing-subtree",
+        ),
+        pytest.param(
+            '<img src="https://example.invalid/icon.png"/>Invented tail.',
+            "Invented tail.",
+            ["DQ-MARKUP-IN-FIELD"],
+            id="quoted-attribute-self-closing-subtree",
+        ),
+        pytest.param(
+            "Roll 2D6; if the result is < the target, nothing happens",
+            "Roll 2D6; if the result is < the target, nothing happens",
+            [],
+            id="prose-less-than-before-a-word",
+        ),
+        pytest.param(
+            "Roll 2D6; if the result is < the target and < 4, nothing happens",
+            "Roll 2D6; if the result is < the target and < 4, nothing happens",
+            [],
+            id="prose-less-than-twice",
+        ),
+        pytest.param("2 < 3", "2 < 3", [], id="numeric-less-than-spaced"),
+        pytest.param("2<3", "2<3", [], id="numeric-less-than-flush"),
+        pytest.param("a<b", "a<b", [], id="prose-less-than-flush-at-end"),
+    ],
+)
+def test_no_regression_against_main(raw: str, main_text: str, main_codes: list[str]) -> None:
+    """Whatever `origin/main` stripped is still stripped; whatever it left alone is still left
+    alone. Anything `main` did not report is still not reported, and anything it did report still
+    is. A row here failing means the tightening opened a hole `main` did not have."""
+    result = strip_field(raw, field="description")
+
+    assert result.text == main_text
+    assert _codes(result) == main_codes
+
+
+@pytest.mark.parametrize(
+    ("raw", "main_text", "main_codes", "text", "codes"),
+    [
+        pytest.param(
+            "a <b and c> d",
+            "a d",
+            ["DQ-MARKUP-IN-FIELD"],
+            "a <b and c> d",
+            [],
+            id="over-strip-trap-is-no-longer-eaten",
+        ),
+        pytest.param(
+            "This model can be equipped with 1 marsh lantern< br/>and a tide hammer.",
+            "This model can be equipped with 1 marsh lantern< br/>and a tide hammer.",
+            [],
+            "This model can be equipped with 1 marsh lantern and a tide hammer.",
+            ["DQ-MARKUP-IN-FIELD"],
+            id="self-closing-space-variant-is-now-caught",
+        ),
+        pytest.param(
+            "This model can be equipped with 1 marsh lantern< b>ornate</b> and a tide hammer.",
+            "This model can be equipped with 1 marsh lantern< b>ornate and a tide hammer.",
+            ["DQ-MARKUP-IN-FIELD"],
+            "This model can be equipped with 1 marsh lantern ornate and a tide hammer.",
+            ["DQ-MARKUP-IN-FIELD"],
+            id="space-variant-open-tag-is-now-fully-removed",
+        ),
+        pytest.param(
+            "This model can be equipped with 1 marsh lantern<b>ornate</ b> and a tide hammer.",
+            "This model can be equipped with 1 marsh lantern ornate</ b> and a tide hammer.",
+            ["DQ-MARKUP-IN-FIELD"],
+            "This model can be equipped with 1 marsh lantern ornate and a tide hammer.",
+            ["DQ-MARKUP-IN-FIELD"],
+            id="space-variant-close-tag-is-now-fully-removed",
+        ),
+        pytest.param(
+            "</ b>trailing text",
+            "</ b>trailing text",
+            [],
+            "trailing text",
+            ["DQ-MARKUP-IN-FIELD"],
+            id="space-variant-close-tag-alone-is-now-caught",
+        ),
+        pytest.param(
+            "<b x",
+            "<b x",
+            ["DQ-MARKUP-IN-FIELD"],
+            "",
+            ["DQ-MARKUP-IN-FIELD"],
+            id="unterminated-tag-is-now-removed-not-merely-reported",
+        ),
+        pytest.param(
+            '<img src="a"',
+            '<img src="a"',
+            ["DQ-MARKUP-IN-FIELD"],
+            "",
+            ["DQ-MARKUP-IN-FIELD"],
+            id="unterminated-tag-with-attribute-is-now-removed",
+        ),
+        pytest.param(
+            "a<b c",
+            "a<b c",
+            ["DQ-MARKUP-IN-FIELD"],
+            "a",
+            ["DQ-MARKUP-IN-FIELD"],
+            id="unterminated-tag-main-reported-but-left-in-place",
+        ),
+    ],
+)
+def test_the_deliberate_divergences_from_main_are_the_ones_009_intended(
+    raw: str, main_text: str, main_codes: list[str], text: str, codes: list[str]
+) -> None:
+    """The rows where 009 deliberately changed `main`'s behaviour, each pinned on both sides.
+
+    A divergence is only legitimate if it is one of these, and each is asserted to be a real
+    divergence -- if a future edit made the new behaviour identical to `main` again, the
+    inequality fires rather than the row quietly becoming a tautology.
+    """
+    result = strip_field(raw, field="description")
+
+    assert (result.text, _codes(result)) != (main_text, main_codes), (
+        "this row claims to diverge from origin/main@2c603c7f but no longer does"
+    )
+    assert result.text == text
+    assert _codes(result) == codes
+
+
+@pytest.mark.xfail(
+    strict=True,
+    reason="KNOWN RESIDUAL NARROWING against origin/main@2c603c7f: a tag carrying a VALUELESS "
+    "(boolean) attribute is not recognised, so it survives in the field and -- because "
+    "models/mechanical.py is character-identical -- validate/ip_scan.py will not catch it "
+    "either. Deliberately not closed here: the only thing separating `<span hidden>` from the "
+    "prose `a <b and c> d` this fix exists to protect is that the latter happens to carry two "
+    "bare words rather than one, and fitting a rule to that re-opens the over-strip. See "
+    "docs/follow-ups.md.",
+)
+@pytest.mark.parametrize(
+    ("raw", "main_text"),
+    [
+        pytest.param("<span hidden>Bolt rifle</span>", "Bolt rifle", id="valueless-attribute"),
+        pytest.param(
+            '<td colspan="2" nowrap>Bolt rifle</td>',
+            "Bolt rifle",
+            id="valueless-attribute-beside-a-valued-one",
+        ),
+    ],
+)
+def test_a_valueless_attribute_is_a_known_open_narrowing_against_main(
+    raw: str, main_text: str
+) -> None:
+    """`main` stripped these; 009 does not. Marked `xfail(strict=True)` deliberately: the day the
+    residual is closed this test goes green, which fails the strict xfail and forces whoever
+    closed it to promote the row into `test_no_regression_against_main` above."""
+    result = strip_field(raw, field="description")
+
+    assert result.text == main_text
+    assert _codes(result) == ["DQ-MARKUP-IN-FIELD"]

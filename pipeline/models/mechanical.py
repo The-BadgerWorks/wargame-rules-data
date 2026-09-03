@@ -10,6 +10,9 @@
 # in lockstep with pipeline/normalize/ip_strip.py's _HAS_MARKUP (009 task T030, plan.md finding
 # 6): space-variant `<`/`</` forms, quoted-attributes-only (no bare word), and an unterminated-tag
 # branch. See ip_strip.py's own comment for the full account of why each branch is shaped this way.
+# AI-Assisted: Claude Code (model: claude-opus-5) - Kept in lockstep through 009 rung R01a's
+# repair of that tightening: unquoted attribute values are matched again, and the unterminated
+# branch requires a flush `<`. Character-identical to _HAS_MARKUP, as the paired test asserts.
 """The shared guard for "this string carries a mechanical value, not prose".
 
 Downstream of ``normalize`` nothing may hold publisher wording (FR-013). Two independent
@@ -46,15 +49,22 @@ MECHANICAL_STRING_MAX_CHARS: Final = 240
 #: `pipeline.normalize.ip_strip._HAS_MARKUP`** (009 task T030, `plan.md` finding 6). Not shared
 #: via import — `models` sits below `normalize` in the dependency order — so the two are
 #: hand-kept in lockstep instead, and `tests/ip/test_ip_strip.py`'s own paired assertion is what
-#: catches a drift. Two branches: a genuine CLOSED tag (space-variant `<`/`</` forms allowed,
-#: only quoted `key="value"` attributes, never a bare word — that last restriction is what stops
-#: prose like `a <b and c> d` from parsing as a tag), and an UNTERMINATED tag (no `>` anywhere
-#: later in the field, removed to the end of the field rather than left in place).
+#: catches a drift. Two branches: a genuine CLOSED tag (space-variant `<`/`</` forms allowed;
+#: attributes must carry an `=` and a value, quoted or bare, but never a *valueless* bare word —
+#: that last restriction is what stops prose like `a <b and c> d` from parsing as a tag), and an
+#: UNTERMINATED tag (no `>` anywhere later in the field, `<` flush against the name, removed to
+#: the end of the field rather than left in place).
+#:
+#: The two 009 rung R01a corrections are the reason the shape reads the way it does: requiring
+#: *quoted* values let `<td colspan=2>` through both here and in the stripper, and allowing
+#: whitespace after `<` in the unterminated branch let prose like `is < the target` be treated as
+#: a tag. See `ip_strip.py`'s own comments for the full account, including the one residual
+#: (a valueless attribute) deliberately left open.
 NON_MECHANICAL_PATTERNS: Final[Mapping[str, re.Pattern[str]]] = {
     "markup": re.compile(
         r"(?:<\s*/?\s*[A-Za-z][A-Za-z0-9]*"
-        r"""(?:\s+[A-Za-z][A-Za-z0-9-]*=(?:"[^"]*"|'[^']*'))*\s*/?>)"""
-        r"|(?:<(?!.*>)\s*/?\s*[A-Za-z][A-Za-z0-9]*.*$)"
+        r"""(?:\s+[A-Za-z][A-Za-z0-9-]*=(?:"[^"]*"|'[^']*'|[^\s"'`=<>]+))*\s*/?>)"""
+        r"|(?:<(?!.*>)/?[A-Za-z][A-Za-z0-9]*[\s/].*$)"
     ),
     "html_entity": re.compile(r"&(?:[A-Za-z][A-Za-z0-9]{1,31}|#[0-9]{1,7}|#[Xx][0-9A-Fa-f]{1,6});"),
     "placeholder_token": re.compile(r"\$[A-Za-z_{]"),

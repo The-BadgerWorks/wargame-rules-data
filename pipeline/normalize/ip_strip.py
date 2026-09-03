@@ -11,6 +11,13 @@
 # tag), and an UNTERMINATED-tag branch for a tag with no closing `>` anywhere later in the field.
 # Edited in lockstep with models/mechanical.py's NON_MECHANICAL_PATTERNS["markup"] (T029's paired
 # assertion) -- parse/options_grammar.py and equipment_grammar.py are untouched (rule 5).
+# AI-Assisted: Claude Code (model: claude-opus-5) - Repaired the two regressions that tightening
+# introduced against origin/main (009 rung R01a): _ATTR now accepts an UNQUOTED attribute value
+# (`<td colspan=2>` had stopped matching and survived in the field, with the identical blind spot
+# in validate/ip_scan.py), and _UNTERMINATED_TAG now requires the `<` FLUSH against the tag name
+# (`... is < the target` had been treated as a tag and deleted to end of field). Both directions
+# are now pinned: tests/ip/test_ip_strip.py gained a no-regression matrix hard-coding
+# origin/main@2c603c7f's own outputs, so a future tightening cannot open a hole main did not have.
 """Strip everything the product may not carry, and keep only mechanical values.
 
 **Relationship to the `strip-wahapedia-ip` precedent.** That skill's per-record classification —
@@ -67,15 +74,30 @@ _TAG_NAME: Final = r"[A-Za-z][A-Za-z0-9]*"
 
 #: The opening of a tag, or a closing tag's opening: `<`, then an OPTIONAL `/` with OPTIONAL
 #: whitespace on EITHER side of it (`</b>`, `< /b>`, `</ b>`, `< / b>` all recognised — every
-#: space-variant form `plan.md` finding 6 measured), before the name.
+#: space-variant form `plan.md` finding 6 measured), before the name. Used by `_CLOSED_TAG`
+#: ONLY: the whitespace tolerance is safe there because a `>` must still follow, and unsafe in
+#: `_UNTERMINATED_TAG`, which has no such terminator to bound it (see that pattern).
 _TAG_OPEN: Final = r"<\s*/?\s*"
 
-#: One `key="value"` or `key='value'` attribute, the ONLY attribute shape a well-formed tag may
-#: carry here. Deliberately excludes a bare (unquoted, no `=`) attribute — real markup in this
-#: export never needs one, and allowing it is exactly what let `<b and c>` parse as tag `b` with
-#: two boolean attributes `and`/`c` under the old, looser pattern (009 task T030, `plan.md`
-#: finding 6's "over-strip" case).
-_ATTR: Final = r"""(?:\s+[A-Za-z][A-Za-z0-9-]*=(?:"[^"]*"|'[^']*'))"""
+#: One `key=value` attribute, in any of the three shapes HTML permits a *value* to take:
+#: `key="value"`, `key='value'`, or a bare unquoted `key=value` run.
+#:
+#: **The `=` is the load-bearing part, not the quoting** (009 rung R01a). Requiring quotes was a
+#: regression against `origin/main`: `<td colspan=2>` and `<img src=x.png>` stopped matching
+#: `_CLOSED_TAG` and survived in the field, and because `models/mechanical.py` is character-
+#: identical, `validate/ip_scan.py` had the same blind spot and the markup would have published.
+#: What must stay excluded is a *valueless* attribute — a bare word with no `=` at all — because
+#: allowing one is exactly what let `<b and c>` parse as tag `b` carrying boolean attributes
+#: `and`/`c`, which is `plan.md` finding 6's over-strip case.
+#:
+#: **Known residual, deliberately left open:** a genuine tag carrying a genuine valueless
+#: attribute (`<span hidden>`, `<td colspan="2" nowrap>`) is therefore *not* recognised, where
+#: `origin/main` recognised it. Nothing textual separates `<span hidden>` from the prose
+#: `a <b and c> d` except that the latter happens to carry two bare words rather than one, and a
+#: rule fitted to that re-opens the over-strip. Pinned by
+#: `tests/ip/test_ip_strip.py::test_a_valueless_attribute_is_a_known_open_narrowing_against_main`
+#: as a strict xfail, and recorded in `docs/follow-ups.md`.
+_ATTR: Final = r"""(?:\s+[A-Za-z][A-Za-z0-9-]*=(?:"[^"]*"|'[^']*'|[^\s"'`=<>]+))"""
 
 #: Branch 1 — a genuine, CLOSED tag: `_TAG_OPEN`, zero or more quoted attributes, an optional
 #: self-closing `/`, and a `>`. `<b and c>` fails this branch: after the name `b`, the literal
@@ -83,14 +105,33 @@ _ATTR: Final = r"""(?:\s+[A-Za-z][A-Za-z0-9-]*=(?:"[^"]*"|'[^']*'))"""
 #: does not match — which is what leaves ordinary prose using angle brackets untouched.
 _CLOSED_TAG: Final = rf"{_TAG_OPEN}{_TAG_NAME}{_ATTR}*\s*/?>"
 
-#: Branch 2 — an UNTERMINATED tag: `_TAG_OPEN` and a name, and — checked by the lookahead — no
-#: `>` appears anywhere later in the field. Removed to the end of the field rather than left in
-#: place (a scraper artefact with no closing bracket has no well-defined extent, and rule FR-013
-#: treats "leave it in" as the greater risk). The lookahead is checked right after `<`, before
-#: `_TAG_OPEN`'s own optional `/`/whitespace are consumed, which is exactly what stops this branch
-#: from also swallowing `<b and c>`: that field DOES have a `>` later on, so the lookahead fails
-#: and branch 1's refusal stands.
-_UNTERMINATED_TAG: Final = rf"<(?!.*>)\s*/?\s*{_TAG_NAME}.*$"
+#: Branch 2 — an UNTERMINATED tag: a PLAUSIBLE tag opening, with — checked by the lookahead — no
+#: `>` anywhere later in the field. Removed to the end of the field rather than left in place (a
+#: scraper artefact with no closing bracket has no well-defined extent, and FR-013 treats "leave
+#: it in" as the greater risk). The lookahead sits right after `<`, before anything else is
+#: consumed, which is what stops this branch from also swallowing `<b and c>`: that field DOES
+#: have a `>` later on, so the lookahead fails and branch 1's refusal stands.
+#:
+#: **"Plausible" means exactly what `origin/main`'s own `_HAS_MARKUP` called a tag opening**
+#: (`</?[A-Za-z][A-Za-z0-9]*[\s/>]`), minus the `>` the lookahead has already excluded: the `<`
+#: FLUSH against an optional `/` and then the name, and the name followed by whitespace or `/`.
+#: Defining it as main's own prefix is what makes this branch provably no *wider* than main on
+#: the shape it recognises, while the removal it performs is 009's deliberate change.
+#:
+#: Two things this rules out, both regressions the first cut of this branch introduced (009 rung
+#: R01a), and both fixed by *flushness*:
+#:
+#: * `<` used as "less than" in ordinary prose — `... if the result is < the target` — where the
+#:   old `\s*/?\s*` let the branch treat the next English word as a tag name and delete the rest
+#:   of the field, reporting only an advisory. Every `<`-as-less-than form observed is spaced;
+#: * `a<b` at the end of a field, where there is no whitespace or `/` after the name.
+#:
+#: Nothing is lost by the narrowing: every unterminated form measured is flush
+#: (`fixtures/enrichment/wahapedia/Datasheets_options.csv`'s `CM01` row 3,
+#: `…marsh lantern<b unclosed and…`), and every space-variant form measured (`< b>`, `</ b>`,
+#: `< /b>`, `< br/>`) is *terminated* and belongs to branch 1. A space-variant UNTERMINATED tag
+#: is a class measured at zero, and standing rule 10 says a class measured at zero gets no code.
+_UNTERMINATED_TAG: Final = rf"<(?!.*>)/?{_TAG_NAME}[\s/].*$"
 
 #: Any remaining element. Its *content* survives; the tag does not.
 _TAG: Final = re.compile(rf"(?:{_CLOSED_TAG})|(?:{_UNTERMINATED_TAG})")

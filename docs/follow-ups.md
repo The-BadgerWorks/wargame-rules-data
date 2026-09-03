@@ -15,6 +15,9 @@
 <!-- AI-Assisted: Claude Code (model: claude-opus-5) - Closed item 4: the chapter-keyword rung
      landed, and the coverage shortfall it attributed to an edition-boundary artefact turned out
      to be a cost-table parsing defect. The original text is kept beneath the resolution. -->
+<!-- AI-Assisted: Claude Code (model: claude-opus-5) - Added item 24 (009 rung R01a): the
+     one markup class still narrower than origin/main after the R01a regression repair, with
+     the reason it was not closed and the strict-xfail test that will force it to be. -->
 <!-- AI-Assisted: Claude Code (model: claude-opus-5) - Added item 5 (issue #4): the finding code
      the weapon-ability-keyword fix needed, implemented ahead of the additive row a frozen
      contract may not be given as a side effect of a bug fix. -->
@@ -999,3 +1002,41 @@ force-push, exactly as this fix did. **Action needed**: document this explicitly
 `docs/repo-settings.md` or `docs/runbook.md` (whichever documents PR mechanics for the
 `data`-class release path) so a future Product Owner reviewing a candidate PR does not reach for
 the same button a second time.
+
+## 24. A tag carrying a *valueless* attribute is still not recognised as markup (009 rung R01a)
+
+009's markup tightening (`T029`/`T030`) narrowed `ip_strip.py`'s `_ATTR` to attributes that carry
+an `=` and a value. Rung R01a widened it back to accept an **unquoted** value, which is what
+repaired the `<td colspan=2>` regression. What remains narrower than `origin/main@2c603c7f` is a
+tag whose attribute has **no `=` at all**:
+
+| Input | `origin/main@2c603c7f` | today |
+|---|---|---|
+| `<span hidden>Bolt rifle</span>` | `'Bolt rifle'` + `DQ-MARKUP-IN-FIELD` | `'<span hidden>Bolt rifle'` + finding |
+| `<td colspan="2" nowrap>Bolt rifle</td>` | `'Bolt rifle'` + `DQ-MARKUP-IN-FIELD` | `'<td colspan="2" nowrap>Bolt rifle'` + finding |
+
+The finding still fires, because the closing `</span>` matches on its own — so a run is not
+silent about it. But the markup itself **survives in the field**, and since
+`models/mechanical.py`'s `NON_MECHANICAL_PATTERNS["markup"]` is character-identical by
+construction, `validate/ip_scan.py` has the same blind spot and would not block a publish on it.
+
+**Why it was not closed in R01a.** Nothing textual separates `<span hidden>` from the prose
+`a <b and c> d` that the same tightening exists to protect, except that the prose case happens to
+carry two bare words rather than one. Every rule fitted to that distinction — "allow at most one
+valueless attribute", "allow one only beside a valued one" — is fitted to a sample of one and
+re-opens the over-strip for ordinary prose such as `roll a <D6 result> here`. The alternative, an
+allowlist of HTML boolean attribute names, is a closed set that would work but is a wider change
+than the rung was scoped for, and it fails open on any attribute not on the list.
+
+**Not yet measured.** No count exists for how often a valueless attribute actually appears in the
+export; the class was found by construction while building R01a's no-regression matrix, not by
+measurement. Standing rule 10 (*a class measured at zero gets no code*) is the reason this is a
+follow-up rather than a fix. **Action needed**: measure the class against a real acquisition
+first; if it is non-zero, close it with the boolean-attribute allowlist, in lockstep across both
+patterns as always.
+
+**Pinned, not merely written down**:
+`tests/ip/test_ip_strip.py::test_a_valueless_attribute_is_a_known_open_narrowing_against_main`
+asserts `main`'s behaviour under `pytest.mark.xfail(strict=True)`. The day the residual is closed
+that test goes green, the strict xfail fails, and whoever closed it is forced to promote the rows
+into `test_no_regression_against_main` rather than leave a stale note behind.
