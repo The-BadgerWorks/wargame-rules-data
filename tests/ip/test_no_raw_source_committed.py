@@ -31,6 +31,14 @@
 # adds on top is narrower: no *quoted* run of source-shaped text, because this report's own
 # prose never has a reason to quote anything it describes -- it names causes and classes, it
 # never repeats what a row said.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - Fixed the timestamp-shape scan's remaining
+# gap (009 rung R05-fix4 item 1): it walked `raw.items()` once, at the top level only, so a raw
+# timestamp nested one level down -- inside a nested object or inside a list -- sailed past
+# clean, the sibling of the anchoring gap R05-fix3 item 1 had just closed in this same function.
+# Added `_iter_raw_strings` to walk the whole decoded structure (dicts and lists, any depth) and
+# switched `_raw_timestamp_shaped_values` to use it, with two new red-then-green receipts for the
+# nested-object and nested-list shapes and the existing top-level/verbatim/identity cases
+# re-verified unchanged.
 """The scan that keeps raw acquired source material out of version control (FR-010, SC-003).
 
 This is deliberately a *git* scan rather than a filesystem scan. A curator's working tree will
@@ -252,6 +260,14 @@ def test_the_009_diagnosis_reports_carry_no_quoted_phrase() -> None:
 # bare sha256 hex digest (no `-` characters at all) and the three identity fields
 # (`source_base_url`, `declared_edition_code`, `mode` -- none of which contain a four-digit run
 # followed by two dash-separated two-digit runs) still fail to match it.
+#
+# R05-fix4 item 1: the walk itself was still only one level deep -- `raw.items()`, testing string
+# values at the top level only. A raw timestamp nested one level down, inside a nested object or
+# inside a list, sailed past clean; the same class of gap R05-fix3 item 1 just closed for anchoring
+# in this same function, its sibling shape left open. `_iter_raw_strings` below now walks the
+# whole decoded JSON structure -- dicts and lists, to any depth -- and yields every string value
+# it finds with a dotted/indexed path label, so `_raw_timestamp_shaped_values` catches a planted
+# timestamp at any depth rather than only at the object's own top level.
 
 EXPORT_DIGEST_STATE_PATH = "state/wahapedia-export-digest.json"
 
@@ -263,16 +279,38 @@ EXPORT_DIGEST_STATE_PATH = "state/wahapedia-export-digest.json"
 _TIMESTAMP_SHAPE_PATTERN = re.compile(r"\d{4}-\d{2}-\d{2}([T ]\d{2}:\d{2}(:\d{2})?Z?)?")
 
 
+def _iter_raw_strings(node: object, path: str) -> list[tuple[str, str]]:
+    """Every string value under ``node``, at any depth, paired with a dotted/indexed label built
+    from the keys and indices walked to reach it.
+
+    Walks dicts (one path segment per key) and lists (one ``[index]`` segment per element) to
+    unbounded depth, so a value nested inside an object nested inside a list nested inside
+    another object is found exactly as a top-level one is. A non-container, non-string leaf
+    (``None``, a bool, a number) yields nothing -- only strings are ever timestamp-shaped.
+    """
+    found: list[tuple[str, str]] = []
+    if isinstance(node, str):
+        found.append((path, node))
+    elif isinstance(node, dict):
+        for key, value in node.items():
+            child_path = f"{path}.{key}" if path else str(key)
+            found.extend(_iter_raw_strings(value, child_path))
+    elif isinstance(node, list):
+        for index, value in enumerate(node):
+            found.extend(_iter_raw_strings(value, f"{path}[{index}]"))
+    return found
+
+
 def _raw_timestamp_shaped_values(raw: dict[str, object]) -> list[str]:
-    """Every top-level string value in a digest-state JSON object that carries, anywhere within
-    it, a run shaped like a raw publisher timestamp -- the one thing FR-030 forbids this file
-    from ever holding, regardless of which key it turns up under or whether it is the value's
-    entire text or just embedded in a longer, multi-line one.
+    """Every string value in a digest-state JSON object, at any depth, that carries, anywhere
+    within it, a run shaped like a raw publisher timestamp -- the one thing FR-030 forbids this
+    file from ever holding, regardless of which key or index it turns up under, how deep it is
+    nested, or whether it is the value's entire text or just embedded in a longer, multi-line one.
     """
     return [
-        f"{key}={value!r}"
-        for key, value in raw.items()
-        if isinstance(value, str) and _TIMESTAMP_SHAPE_PATTERN.search(value)
+        f"{path}={value!r}"
+        for path, value in _iter_raw_strings(raw, "")
+        if _TIMESTAMP_SHAPE_PATTERN.search(value)
     ]
 
 
@@ -289,6 +327,23 @@ def test_the_timestamp_shape_scan_catches_a_planted_raw_timestamp_under_an_ident
     a violation under `source_base_url` as under `digest`."""
     poisoned = {"digest": "abc123", "source_base_url": "2026-08-30T12:00:00Z"}
     assert _raw_timestamp_shaped_values(poisoned) == ["source_base_url='2026-08-30T12:00:00Z'"]
+
+
+def test_the_timestamp_shape_scan_catches_a_planted_raw_timestamp_nested_in_an_object() -> None:
+    """R05-fix4 item 1: the scan used to call ``raw.items()`` once, at the top level only, so a
+    raw timestamp one level down -- inside a nested object -- sailed past clean. Same class as
+    the anchoring gap R05-fix3 item 1 just closed in this same function: one shape closed, its
+    sibling left open until now.
+    """
+    poisoned = {"digest": {"raw_capture": "2026-08-30T12:00:00Z"}}
+    assert _raw_timestamp_shaped_values(poisoned) == ["digest.raw_capture='2026-08-30T12:00:00Z'"]
+
+
+def test_the_timestamp_shape_scan_catches_a_planted_raw_timestamp_nested_in_a_list() -> None:
+    """R05-fix4 item 1: the sibling shape -- a raw timestamp inside a list value rather than a
+    nested object -- must be caught the same way."""
+    poisoned = {"digest": ["2026-08-30T12:00:00Z"]}
+    assert _raw_timestamp_shaped_values(poisoned) == ["digest[0]='2026-08-30T12:00:00Z'"]
 
 
 def test_the_timestamp_shape_scan_catches_the_verbatim_two_line_export_file_text() -> None:
