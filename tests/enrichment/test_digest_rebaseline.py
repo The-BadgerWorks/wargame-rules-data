@@ -29,6 +29,12 @@
 # `except ValueError` in `check_summary_approvals.cmd_diff`. Demonstrated able to fail by removing
 # that except clause and confirming an unhandled `JSONDecodeError` escapes instead (this rung's
 # report carries the red output), then restored.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - Rung R02a-fix5: two more strict-xfail pins
+# beside the item 25/26 pair, both reproduced end to end through `cmd_diff` before being written
+# down as follow-ups.md items 27 (a record copied into a new shard file, original left untouched,
+# has no prior at the changed-file-only base read) and 28 (a non-ASCII curation path dropped by
+# `git diff --name-only`'s default quoting). Fixes nothing; the diff-based guard is being replaced
+# by whole-tree validation at build time, and this is what carries both gaps across that move.
 """Feature 009 re-baselines every approved summary digest once. These five rules bound it.
 
 A bulk digest refresh is mechanically indistinguishable from **laundering an approval** —
@@ -115,6 +121,10 @@ NEWER_AUTHORIZATION = "invented-authorization-record-0000-01-01"
 #: Two synthetic curation paths in the same class, so a reshard can move a record between them.
 CURATION_PATH = "curation/abilities/f-invented.json"
 OTHER_CURATION_PATH = "curation/abilities/f-invented-reshard.json"
+
+#: A synthetic path with a non-ASCII character, so a base/head diff can be built over a file
+#: `git diff --name-only` quotes by default (`core.quotePath`), follow-ups.md item 28.
+NON_ASCII_CURATION_PATH = "curation/abilities/f-invénted.json"
 
 
 def _record(
@@ -1358,6 +1368,79 @@ def test_cmd_diff_refuses_a_refresh_whose_authorization_names_no_committed_artef
             ]
         },
         message="synthetic refresh under an invented authorization",
+    )
+    monkeypatch.chdir(repo)
+
+    assert _run_diff(base, head) == 1
+
+
+@pytest.mark.xfail(
+    strict=True,
+    reason=(
+        "Open gap, follow-ups.md item 27: the base side is read only from the paths the PR "
+        "changed, so a record copied into a NEW shard file -- the original left untouched -- has "
+        "no prior at that path, is never classified as a refresh, and needs no attribution pair. "
+        "Closing this needs the base side read from every file of the class at the merge-base, "
+        "or the planned move to whole-tree validation. The day this passes, the bypass is closed "
+        "and this xfail must be promoted into an ordinary assertion."
+    ),
+)
+def test_cmd_diff_refuses_an_approved_refresh_copied_into_a_new_shard_file(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    """Unlike the rename bypass this rung closed, the original file is never removed.
+
+    `changed_curation_files` only ever asks git what changed, and `_collect` reads the base side
+    of a class from those same changed paths. A record duplicated into a brand-new file, with its
+    digest moved and no attribution added, therefore finds no prior at the new path -- it is not
+    a rename, so `--no-renames` buys nothing here -- and is classified as first-time authoring.
+    """
+    repo = _init_repo(tmp_path)
+    base = _commit_curation(
+        repo,
+        {CURATION_PATH: [_record(review_state="approved", mechanic_digest=OLD_DIGEST)]},
+        message="synthetic base",
+    )
+    head = _commit_curation(
+        repo,
+        {OTHER_CURATION_PATH: [_record(review_state="approved", mechanic_digest=NEW_DIGEST)]},
+        message="synthetic copy into a new shard, original left untouched, digest moved",
+    )
+    monkeypatch.chdir(repo)
+
+    assert _run_diff(base, head) == 1
+
+
+@pytest.mark.xfail(
+    strict=True,
+    reason=(
+        "Open gap, follow-ups.md item 28: git diff --name-only quotes a non-ASCII path "
+        "(core.quotePath defaults to true), so source_for's plain startswith match fails and the "
+        "file is dropped from the changed set entirely -- by the self-approval check and this "
+        "digest check alike. Closing this needs -c core.quotePath=false, or -z with NUL-separated "
+        "parsing. The day this passes, the gap is closed and this xfail must be promoted into an "
+        "ordinary assertion."
+    ),
+)
+def test_cmd_diff_refuses_an_unattributed_refresh_on_a_non_ascii_path(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    """A file this guard's own SOURCES table claims, silently missed because of how it is named.
+
+    Nothing about the record is unusual -- approved at both ends, digest moved, no attribution --
+    only the path containing a non-ASCII character, which is enough for `git diff --name-only`'s
+    default quoting to make `source_for`'s `str.startswith("curation/abilities/")` fail.
+    """
+    repo = _init_repo(tmp_path)
+    base = _commit_curation(
+        repo,
+        {NON_ASCII_CURATION_PATH: [_record(review_state="approved", mechanic_digest=OLD_DIGEST)]},
+        message="synthetic base on a non-ASCII path",
+    )
+    head = _commit_curation(
+        repo,
+        {NON_ASCII_CURATION_PATH: [_record(review_state="approved", mechanic_digest=NEW_DIGEST)]},
+        message="synthetic unattributed refresh on the same non-ASCII path",
     )
     monkeypatch.chdir(repo)
 
