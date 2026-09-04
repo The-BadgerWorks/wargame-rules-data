@@ -25,6 +25,31 @@
 # (`_option_structure`'s own `_OptionOutcome`, same call that fills `option_groups`/
 # `option_choices`) and was missing, which silently dropped a carried faction's restrictions
 # while keeping its option groups -- the FR-025 regression this splice exists to prevent.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - R06a-fix2 item 1: `_CLASS_FIELDS` freezes
+# fields that carry ORDINALS into `weapons`/`composition` -- `item_constraints[].weapon_line`,
+# `option_choices[].grants_weapon_line`/`replaces_weapon_line` (and, one level down, its own
+# `items[].weapon_line`), `equipment_groups[].composition_line`, and
+# `equipment_groups[].items[].weapon_line` -- frozen from the PRIOR publish onto a datasheet whose
+# `weapons`/`composition` are THIS run's own (neither field is named in `_CLASS_FIELDS`, so
+# neither is ever frozen). A prior ordinal can point at the wrong current row, or at no row at
+# all, and nothing re-resolved it: the name-to-line joins in `reconcile/options_link.py` and
+# `reconcile/equipment_link.py` run inside `assemble`, BEFORE this splice. Every one of the four
+# fields carries the referent's NAME beside (or one step from) the ordinal -- `item_name` on
+# `CuratedItemConstraint` and `CuratedEquipmentItem`, `model_name` on `CuratedEquipmentGroup`
+# (composition_line is only ever set when `applies_to` is `model_group`, i.e. exactly when
+# `model_name` is present), and `items[].item_name` on `CuratedOptionChoice` (a present singular
+# field always mirrors exactly one item on that role, per `link_choice_items`'s own contract) --
+# so every field is re-resolvable, never refused. `_reresolve_options_ordinals` and
+# `_reresolve_equipment_ordinals` below reset the frozen ordinals to `None` (the "freshly parsed,
+# not yet linked" shape those reconcile-stage functions expect) and then call THIS run's own
+# `reconcile.options_link.link_choice_items` / `reconcile.equipment_link.link_equipment` against
+# THIS run's own `weapons`/`composition` -- the same name-to-line join every other datasheet in
+# the run gets, rather than a second implementation of that rule. `item_constraints` has no
+# existing bulk "link" pass to reuse (`curate/assemble.py::_item_constraint` also re-parses the
+# raw description text, which frozen data does not carry) -- re-linked here with the same public
+# `weapon_lines_named` join and the same `CST-UNLINKED` code the parse-time path already reports a
+# 0-or-2-plus-match under, so a referent that no longer exists is a finding, never a silent
+# mis-point or a silent drop.
 """Splice declared, unreachable-this-run factions in from the previous published tree.
 
 Three outcomes, one per declared or newly-carried slug, and each is a `Finding` — never silent
@@ -65,6 +90,8 @@ from typing import Final
 
 from pipeline.models.curated import CuratedDatasheet, CuratedSnapshot
 from pipeline.models.findings import Finding
+from pipeline.reconcile.equipment_link import link_equipment
+from pipeline.reconcile.options_link import link_choice_items, weapon_lines_named
 from pipeline.report.catalogue import build_finding
 
 #: data_class (`schemas/curation/detail-source-authority.schema.json`'s closed enum) -> the
@@ -102,6 +129,97 @@ _CLASS_FIELDS: Final[Mapping[str, tuple[str, ...]]] = {
 #: literal as a mutable default would be a classic Python trap; this is the module-level
 #: singleton every un-hybrid caller (the overwhelming majority of runs) actually gets.
 _NO_CLASS_CARRY: Final[Mapping[str, frozenset[str]]] = MappingProxyType({})
+
+
+def _reresolve_options_ordinals(
+    datasheet: CuratedDatasheet, findings: list[Finding]
+) -> CuratedDatasheet:
+    """Re-link a per-class-composed `options` datasheet's frozen ordinals (R06a-fix2 item 1).
+
+    `item_constraints[].weapon_line` and `option_choices[].{grants,replaces}_weapon_line` (and
+    the `items[]` each singular field mirrors) were frozen from the previous publish onto a
+    datasheet whose `weapons` are THIS run's. Reset to the "freshly parsed" shape and re-linked by
+    NAME against `datasheet.weapons` -- never frozen by `_CLASS_FIELDS`, so always this run's own
+    -- reusing `reconcile.options_link.link_choice_items` (the sole writer of both option fields,
+    per its own docstring) and the public `weapon_lines_named` join it shares with
+    `curate/assemble.py::_item_constraint`, rather than a second implementation of either rule.
+    """
+    reset_choices = [
+        choice.model_copy(
+            update={
+                "grants_weapon_line": None,
+                "replaces_weapon_line": None,
+                "items": tuple(
+                    item.model_copy(update={"weapon_line": None}) for item in choice.items
+                ),
+            }
+        )
+        for choice in datasheet.option_choices
+    ]
+    relinked_choices, choice_findings = link_choice_items(
+        datasheet_id=datasheet.datasheet_id, choices=reset_choices, weapons=datasheet.weapons
+    )
+    findings.extend(choice_findings)
+
+    relinked_constraints = []
+    for constraint in datasheet.item_constraints:
+        matches = weapon_lines_named(constraint.item_name, datasheet.weapons)
+        weapon_line = matches[0] if len(matches) == 1 else None
+        if weapon_line is None:
+            findings.append(
+                build_finding(
+                    "CST-UNLINKED",
+                    entity_refs=[datasheet.datasheet_id],
+                    detail={
+                        "datasheet_id": datasheet.datasheet_id,
+                        "constraint_index": constraint.constraint_index,
+                        "item_name": constraint.item_name,
+                        "match_count": len(matches),
+                    },
+                )
+            )
+        relinked_constraints.append(constraint.model_copy(update={"weapon_line": weapon_line}))
+
+    return datasheet.model_copy(
+        update={
+            "option_choices": tuple(relinked_choices),
+            "item_constraints": tuple(relinked_constraints),
+        }
+    )
+
+
+def _reresolve_equipment_ordinals(
+    datasheet: CuratedDatasheet, findings: list[Finding]
+) -> CuratedDatasheet:
+    """Equipment-side counterpart of :func:`_reresolve_options_ordinals` (R06a-fix2 item 1).
+
+    `equipment_groups[].composition_line` and `equipment_groups[].items[].weapon_line` were
+    frozen from the previous publish onto a datasheet whose `composition`/`weapons` are THIS
+    run's -- neither is ever named in `_CLASS_FIELDS`. Reset and re-linked by NAME
+    (`model_name`, `item_name`) against `datasheet.composition`/`datasheet.weapons`, reusing
+    `reconcile.equipment_link.link_equipment` unchanged. The equipment side has no intra-snapshot
+    referential check today (`validate/refs.py::check_intra_snapshot_references` covers only
+    `item_constraints`), so a mis-pointed or dropped reference here would otherwise pass silently.
+    """
+    reset_groups = [
+        group.model_copy(
+            update={
+                "composition_line": None,
+                "items": tuple(
+                    item.model_copy(update={"weapon_line": None}) for item in group.items
+                ),
+            }
+        )
+        for group in datasheet.equipment_groups
+    ]
+    relinked_groups, group_findings = link_equipment(
+        datasheet_id=datasheet.datasheet_id,
+        groups=reset_groups,
+        composition=datasheet.composition,
+        weapons=datasheet.weapons,
+    )
+    findings.extend(group_findings)
+    return datasheet.model_copy(update={"equipment_groups": tuple(relinked_groups)})
 
 
 def apply_carried_forward(
@@ -238,9 +356,18 @@ def apply_carried_forward(
                 prior_datasheet = prior_by_id.get(current.datasheet_id)
                 if prior_datasheet is None:
                     continue  # a datasheet new since the last publish has no prior class to take
-                working[index] = current.model_copy(
+                composed_datasheet = current.model_copy(
                     update={field: getattr(prior_datasheet, field) for field in fields}
                 )
+                # R06a-fix2 item 1: the fields just composed carry ordinals into THIS run's own
+                # `weapons`/`composition` (never frozen by `_CLASS_FIELDS`) -- re-resolve them by
+                # name before publishing the mixed-vintage datasheet, rather than leaving a
+                # frozen ordinal to silently name the wrong row or a now-missing one.
+                if data_class == "options":
+                    composed_datasheet = _reresolve_options_ordinals(composed_datasheet, findings)
+                elif data_class == "default_equipment":
+                    composed_datasheet = _reresolve_equipment_ordinals(composed_datasheet, findings)
+                working[index] = composed_datasheet
                 composed += 1
             if not composed:
                 # R06a-fix item 2: prior data existed for the faction, but none of THIS run's

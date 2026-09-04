@@ -23,10 +23,18 @@ from __future__ import annotations
 
 from pipeline.curate.carry_forward import apply_carried_forward
 from pipeline.models.curated import (
+    CuratedCompositionEntry,
+    CuratedEquipmentGroup,
+    CuratedEquipmentItem,
     CuratedItemConstraint,
+    CuratedOptionChoice,
+    CuratedOptionChoiceItem,
     CuratedWargearOption,
+    CuratedWeaponLine,
     DefaultEquipmentState,
+    EquipmentAppliesTo,
     ItemConstraintType,
+    OptionItemRole,
     WargearOptionState,
 )
 from tests.factories import costs, datasheet, faction, snapshot
@@ -482,3 +490,358 @@ def test_a_class_with_no_matching_prior_datasheet_id_is_reported_not_silenced() 
     assert no_match.severity.value == "blocking"
     assert no_match.detail["data_class"] == "options"
     assert no_match.detail["faction_slug"] == MIXED_SLUG
+
+
+# -- R06a-fix2 item 1: a frozen ordinal must not point into THIS run's weapons/composition ------
+#
+# `item_constraints[].weapon_line`, `option_choices[].{grants,replaces}_weapon_line` (and its own
+# `items[].weapon_line`), `equipment_groups[].composition_line`, and
+# `equipment_groups[].items[].weapon_line` are frozen from the PREVIOUS publish by the per-class
+# splice above, onto a datasheet whose `weapons`/`composition` are THIS run's own. THIS run's own
+# weapon/composition table is built once here and shared by every case below: line 1 ("Bolt
+# pistol" / "Leader") is the SAME referent in both runs; line 2 held "Plasma gun" / "Trooper" in
+# the previous publish and now holds something else ("Chainsword" / "Leader" is already taken, so
+# the model MOVES to line 2) -- the referent still exists, just under a different ordinal; "Storm
+# bolter" / "Retired Model" existed in the previous publish and does not exist THIS run at all.
+#
+# Confirmed red: every "moved" and "removed" assertion below fails against the carry_forward.py
+# on `main` at this rung (`a915acf5`) -- the per-class splice composes `item_constraints`,
+# `option_choices`, and `equipment_groups` wholesale from the prior datasheet with no
+# re-resolution step at all, so a moved referent's frozen ordinal is published unchanged (pointing
+# at the WRONG current row) and a removed referent's frozen ordinal is published unchanged too
+# (pointing at nothing, or coincidentally at a row that exists but is not it), with zero findings
+# either way. Reproduced by `git stash`-ing this rung's fix and re-running this module.
+
+_CURRENT_WEAPONS = [
+    CuratedWeaponLine(
+        line=1,
+        name="Bolt pistol",
+        is_melee=False,
+        range='12"',
+        attacks="1",
+        skill="3+",
+        strength="4",
+        armour_penetration="0",
+        damage="1",
+    ),
+    CuratedWeaponLine(
+        line=2,
+        name="Chainsword",
+        is_melee=True,
+        attacks="3",
+        skill="3+",
+        strength="4",
+        armour_penetration="-1",
+        damage="1",
+    ),
+    CuratedWeaponLine(
+        line=3,
+        name="Plasma gun",
+        is_melee=False,
+        range='24"',
+        attacks="1",
+        skill="3+",
+        strength="7",
+        armour_penetration="-2",
+        damage="2",
+    ),
+    # Deliberately NO "Storm bolter" -- the removed-referent case.
+]
+
+_CURRENT_COMPOSITION = [
+    CuratedCompositionEntry(line=1, model_name="Leader", min_count=1, max_count=1, model_line=1),
+    CuratedCompositionEntry(line=2, model_name="Trooper", min_count=1, max_count=5, model_line=2),
+    # Deliberately NO "Retired Model" -- the removed-referent case.
+]
+
+
+def _reresolution_prior_datasheet() -> object:
+    """The previous published tree's own datasheet: every ordinal below was correct THEN --
+    `weapon_line=2` genuinely named "Plasma gun" and `composition_line=2` genuinely named
+    "Trooper" at THAT publish. Neither is stated on THIS run's own weapons/composition above,
+    which is the whole point: this object supplies only the frozen fields the splice composes,
+    never the pool a re-resolution reads.
+    """
+    return datasheet(MIXED_DATASHEET_ID, faction_id=MIXED_FACTION_ID).model_copy(
+        update={
+            "wargear_option_state": WargearOptionState.EXTRACTED,
+            "default_equipment_state": DefaultEquipmentState.EXTRACTED,
+            "item_constraints": [
+                CuratedItemConstraint(  # unchanged referent
+                    constraint_index=1,
+                    constraint_type=ItemConstraintType.NOT_REPLACEABLE,
+                    item_name="Bolt pistol",
+                    weapon_line=1,
+                ),
+                CuratedItemConstraint(  # moved referent: line 2 named Plasma gun back then
+                    constraint_index=2,
+                    constraint_type=ItemConstraintType.NOT_REPLACEABLE,
+                    item_name="Plasma gun",
+                    weapon_line=2,
+                ),
+                CuratedItemConstraint(  # removed referent
+                    constraint_index=3,
+                    constraint_type=ItemConstraintType.ONE_PER_UNIT,
+                    item_name="Storm bolter",
+                    weapon_line=3,
+                ),
+            ],
+            "option_choices": [
+                CuratedOptionChoice(  # unchanged referent
+                    id="oc-mixed-vintage-unit-1-1",
+                    group_id="og-mixed-vintage-unit-1",
+                    name="Take Bolt pistol",
+                    grants_weapon_line=1,
+                    items=[
+                        CuratedOptionChoiceItem(
+                            role=OptionItemRole.GRANTED,
+                            item_index=1,
+                            item_name="Bolt pistol",
+                            weapon_line=1,
+                        )
+                    ],
+                ),
+                CuratedOptionChoice(  # moved referent
+                    id="oc-mixed-vintage-unit-1-2",
+                    group_id="og-mixed-vintage-unit-1",
+                    name="Take Plasma gun",
+                    grants_weapon_line=2,
+                    items=[
+                        CuratedOptionChoiceItem(
+                            role=OptionItemRole.GRANTED,
+                            item_index=1,
+                            item_name="Plasma gun",
+                            weapon_line=2,
+                        )
+                    ],
+                ),
+                CuratedOptionChoice(  # removed referent
+                    id="oc-mixed-vintage-unit-1-3",
+                    group_id="og-mixed-vintage-unit-1",
+                    name="Take Storm bolter",
+                    grants_weapon_line=3,
+                    items=[
+                        CuratedOptionChoiceItem(
+                            role=OptionItemRole.GRANTED,
+                            item_index=1,
+                            item_name="Storm bolter",
+                            weapon_line=3,
+                        )
+                    ],
+                ),
+            ],
+            "equipment_groups": [
+                CuratedEquipmentGroup(  # unchanged referent, both composition_line and item
+                    id="eq-mixed-vintage-unit-1",
+                    line=1,
+                    applies_to=EquipmentAppliesTo.MODEL_GROUP,
+                    model_name="Leader",
+                    composition_line=1,
+                    items=[
+                        CuratedEquipmentItem(item_index=1, item_name="Bolt pistol", weapon_line=1)
+                    ],
+                ),
+                CuratedEquipmentGroup(  # moved referent: Trooper was composition line 1 back then
+                    id="eq-mixed-vintage-unit-2",
+                    line=2,
+                    applies_to=EquipmentAppliesTo.MODEL_GROUP,
+                    model_name="Trooper",
+                    composition_line=1,
+                    items=[
+                        CuratedEquipmentItem(item_index=1, item_name="Plasma gun", weapon_line=2)
+                    ],
+                ),
+                CuratedEquipmentGroup(  # removed referent, both composition_line and item
+                    id="eq-mixed-vintage-unit-3",
+                    line=3,
+                    applies_to=EquipmentAppliesTo.MODEL_GROUP,
+                    model_name="Retired Model",
+                    composition_line=2,
+                    items=[
+                        CuratedEquipmentItem(item_index=1, item_name="Storm bolter", weapon_line=3)
+                    ],
+                ),
+            ],
+        }
+    )
+
+
+def _reresolution_candidate_datasheet() -> object:
+    """THIS run's own assembly: the export arm answered (current weapons/composition/name), but
+    the options-arm class's own arm did not fetch this faction's page at all."""
+    return datasheet(MIXED_DATASHEET_ID, faction_id=MIXED_FACTION_ID).model_copy(
+        update={
+            "weapons": _CURRENT_WEAPONS,
+            "composition": _CURRENT_COMPOSITION,
+            "wargear_option_state": None,
+            "default_equipment_state": None,
+            "item_constraints": [],
+            "option_choices": [],
+            "equipment_groups": [],
+        }
+    )
+
+
+def _reresolution_published_tree() -> object:
+    return snapshot(
+        factions=[
+            faction(MIXED_FACTION_ID, parent=None).model_copy(
+                update={"detail_source_faction_id": MIXED_SLUG}
+            )
+        ],
+        datasheets=[_reresolution_prior_datasheet()],
+    )
+
+
+def _run_reresolution(data_class: str) -> tuple[object, object]:
+    """Compose ``data_class`` onto :func:`_reresolution_candidate_datasheet` and return
+    ``(result_datasheet, findings)``."""
+    candidate = snapshot(
+        factions=[
+            faction(MIXED_FACTION_ID, parent=None).model_copy(
+                update={"detail_source_faction_id": MIXED_SLUG}
+            )
+        ],
+        datasheets=[_reresolution_candidate_datasheet()],
+    )
+    merged, findings = apply_carried_forward(
+        candidate,
+        previous_tree=_reresolution_published_tree(),
+        carried_slugs=frozenset(),
+        unused_declaration_slugs=frozenset({MIXED_SLUG}),
+        previous_version_id="wh40k-11e-2026-08-3",
+        class_carried_slugs={data_class: frozenset({MIXED_SLUG})},
+    )
+    (result,) = [d for d in merged.datasheets if d.datasheet_id == MIXED_DATASHEET_ID]
+    return result, findings
+
+
+# -- options side ---------------------------------------------------------------------------
+
+
+def test_options_side_a_moved_weapon_resolves_to_its_new_line_not_the_stale_one() -> None:
+    """`weapon_line=2` was frozen from the previous publish, when line 2 named "Plasma gun".
+    THIS run's own line 2 is "Chainsword" -- a different weapon -- and "Plasma gun" now sits at
+    line 3. The frozen ordinal must resolve to 3, never silently stay at 2 (a mis-point onto
+    "Chainsword") and never be dropped."""
+    result, _findings = _run_reresolution("options")
+
+    moved_constraint = next(c for c in result.item_constraints if c.item_name == "Plasma gun")
+    assert moved_constraint.weapon_line == 3
+
+    moved_choice = next(c for c in result.option_choices if c.name == "Take Plasma gun")
+    assert moved_choice.grants_weapon_line == 3
+    assert moved_choice.items[0].weapon_line == 3
+
+
+def test_options_side_a_removed_weapon_referent_produces_a_finding_not_a_silent_mispoint_or_drop() -> (  # noqa: E501
+    None
+):
+    """The weapon "Storm bolter" does not exist in THIS run's weapons at all. The frozen ordinal
+    must not be republished pointing at whatever line 3 happens to hold now (a silent mis-point),
+    and the constraint/choice row itself must not vanish (a silent drop) -- only its weapon_line
+    goes absent, and a finding says why."""
+    result, findings = _run_reresolution("options")
+
+    removed_constraint = next(c for c in result.item_constraints if c.item_name == "Storm bolter")
+    assert removed_constraint.weapon_line is None  # not silently mis-pointed at line 3 (Plasma gun)
+    assert any(  # not silently dropped: the row itself is still published
+        c.constraint_index == 3 for c in result.item_constraints
+    )
+    assert any(
+        f.finding_code == "CST-UNLINKED" and f.detail.get("item_name") == "Storm bolter"
+        for f in findings
+    )
+
+    removed_choice = next(c for c in result.option_choices if c.name == "Take Storm bolter")
+    assert removed_choice.grants_weapon_line is None
+    assert removed_choice.items[0].weapon_line is None
+    assert any(  # not silently dropped
+        c.id == "oc-mixed-vintage-unit-1-3" for c in result.option_choices
+    )
+    assert any(
+        f.finding_code == "OPT-BUNDLE-UNLINKED" and f.detail.get("choice_id") == removed_choice.id
+        for f in findings
+    )
+
+
+def test_options_side_an_unchanged_weapon_referent_is_left_alone() -> None:
+    """The weapon "Bolt pistol" is line 1 in both the previous publish and THIS run. Re-resolution
+    must reproduce the same ordinal, not perturb a link that was already correct."""
+    result, findings = _run_reresolution("options")
+
+    unchanged_constraint = next(c for c in result.item_constraints if c.item_name == "Bolt pistol")
+    assert unchanged_constraint.weapon_line == 1
+
+    unchanged_choice = next(c for c in result.option_choices if c.name == "Take Bolt pistol")
+    assert unchanged_choice.grants_weapon_line == 1
+    assert unchanged_choice.items[0].weapon_line == 1
+
+    assert not any(
+        f.finding_code in ("CST-UNLINKED", "OPT-BUNDLE-UNLINKED")
+        and f.detail.get("item_name") == "Bolt pistol"
+        for f in findings
+    )
+
+
+# -- equipment side ---------------------------------------------------------------------------
+#
+# `reconcile.equipment_link` has no test of its own reused here by name, and
+# `validate/refs.py::check_intra_snapshot_references` never checks `equipment_groups` at all
+# (R06a-fix2 item 1's premise) -- so these receipts assert the re-resolved values directly rather
+# than relying on any existing guard to fail if the fix regresses.
+
+
+def test_equipment_side_a_moved_model_resolves_to_its_new_composition_line_not_the_stale_one() -> (
+    None
+):
+    """The model "Trooper" was composition line 1 at the previous publish; "Leader" occupies THIS
+    run's line 1 instead, and "Trooper" is now line 2. `composition_line` must resolve to 2, never
+    stay at 1 (a mis-point onto "Leader")."""
+    result, _findings = _run_reresolution("default_equipment")
+
+    moved_group = next(g for g in result.equipment_groups if g.model_name == "Trooper")
+    assert moved_group.composition_line == 2
+    assert moved_group.items[0].weapon_line == 3  # "Plasma gun" also moved, 2 -> 3
+
+
+def test_equipment_side_a_removed_referent_produces_a_finding_not_a_silent_mispoint_or_drop() -> (
+    None
+):
+    """The model "Retired Model" is absent from THIS run's composition and "Storm bolter" is
+    absent from THIS run's weapons. Both frozen ordinals must go absent with a finding, and the
+    group/item rows themselves must still publish."""
+    result, findings = _run_reresolution("default_equipment")
+
+    removed_group = next(g for g in result.equipment_groups if g.model_name == "Retired Model")
+    assert removed_group.composition_line is None
+    assert removed_group.items[0].weapon_line is None
+    assert any(  # not silently dropped
+        g.id == "eq-mixed-vintage-unit-3" for g in result.equipment_groups
+    )
+    assert any(
+        f.finding_code == "EQP-GROUP-UNRESOLVED"
+        and f.detail.get("equipment_group_id") == removed_group.id
+        for f in findings
+    )
+    assert any(
+        f.finding_code == "EQP-ITEM-UNLINKED"
+        and f.detail.get("equipment_group_id") == removed_group.id
+        for f in findings
+    )
+
+
+def test_equipment_side_an_unchanged_referent_is_left_alone() -> None:
+    """The model "Leader" is composition line 1 and "Bolt pistol" is weapon line 1 in both the
+    previous publish and THIS run. Re-resolution must reproduce the same ordinals."""
+    result, findings = _run_reresolution("default_equipment")
+
+    unchanged_group = next(g for g in result.equipment_groups if g.model_name == "Leader")
+    assert unchanged_group.composition_line == 1
+    assert unchanged_group.items[0].weapon_line == 1
+
+    assert not any(
+        f.finding_code in ("EQP-GROUP-UNRESOLVED", "EQP-ITEM-UNLINKED")
+        and f.detail.get("equipment_group_id") == unchanged_group.id
+        for f in findings
+    )
