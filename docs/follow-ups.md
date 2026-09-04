@@ -1420,3 +1420,35 @@ carry-forward or class-carry slug in `curation/carried-forward-factions.json` or
 unreached in practice today; fixing `slug_to_faction_id` to carry a set of faction ids per slug (or
 to key on `(slug, faction_id)` once a caller needs to disambiguate) is real design work belonging
 to whichever rung first declares a carry-forward or class-carry entry for a shared-slug faction.
+
+## 36. `option_choices[].priced_option_id` can point at a `wargear_options` id from the previous publish after a per-class "options" carry (009 rung R06a-fix2, item found while fixing the frozen-ordinal defect class, not fixed)
+
+**Same defect class as R06a-fix2 item 1, one field wider than that kickoff named, and unlike all
+four of that item's fields, nothing anywhere checks it.**
+
+**Reproduction.** The per-class splice in `pipeline/curate/carry_forward.py` freezes the whole
+`option_choices` field from the previous publish onto a datasheet whose `wargear_options` is THIS
+run's own -- `wargear_options` is deliberately never in `_CLASS_FIELDS` (R06a-fix item 1: it
+shares `_costs()`'s single producer call with `costs`, which is never frozen either). A frozen
+`CuratedOptionChoice.priced_option_id` is a `-> CuratedWargearOption.id` reference
+(`pipeline/models/curated.py:511`) set by `reconcile/options_link.py::project_priced_options`
+against the PRIOR run's own priced rows. After the splice, that id is checked against nothing:
+`pipeline/validate/refs.py::check_intra_snapshot_references` never reads `option_choices` at all,
+and `pipeline/build/bundle_emit.py:672` emits `choice.priced_option_id` into the published bundle
+unchanged. A consumer resolving `pricedOptionId` against the published `wargear_options` table
+would find no row, or -- if this run's own `_costs()` id scheme happens to reuse the same id for
+an unrelated priced row -- silently attach the wrong price and count. `points_delta`, adopted onto
+the choice by the same prior-run join, is frozen alongside it and carries the identical exposure.
+
+**Why left.** Out of scope for R06a-fix2: the kickoff named exactly four fields --
+`item_constraints[].weapon_line`, `option_choices[].{grants,replaces}_weapon_line`,
+`equipment_groups[].composition_line`, and `equipment_groups[].items[].weapon_line` -- all four
+ordinals into `weapons`/`composition`, neither of which is ever frozen. `priced_option_id` is a
+different reference shape (a snapshot-wide id, not a datasheet-local ordinal) into a different
+never-frozen field (`wargear_options`, not `weapons`/`composition`), and fixing it needs its own
+re-link against THIS run's own priced rows via `reconcile/options_link.py::project_priced_options`
+-- reusable the same way `link_choice_items`/`link_equipment` were reused for item 1, but a
+distinct call this kickoff never asked for and a distinct receipt (there being no existing check
+to prove wrong first, the same gap R06a-fix2 item 1 flagged for the equipment side). Real design
+work belonging to whichever rung next touches per-class options carry or adds the missing
+intra-snapshot check this item and item 1's equipment-side gap both point at.
