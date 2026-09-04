@@ -47,6 +47,12 @@
 # Wiring is deferred to a future rung, decided once a caller is genuinely consuming the detail
 # source (see `docs/follow-ups.md` item 30). The mechanism itself (`acquire_wahapedia`'s
 # `state_path` opt-in) is untouched here and stays proven in isolation.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - 009 rung R06a-fix3: reverted this call
+# site's two per-class wires -- `apply_detail_source_authority`'s second return value
+# (`class_carried`) and `apply_carried_forward`'s `class_carried_slugs=` argument -- along with
+# the per-class composition they fed, withdrawn in `pipeline/curate/carry_forward.py` (see that
+# module's own header and `docs/follow-ups.md` item 37). `unused_answers_per_faction=` stays: it
+# is the rung's actual, kept purpose, unrelated to per-class composition.
 """``rules-pipeline`` — the operator-facing surface.
 
 The same CLI runs locally against fixtures and in CI against the real sources: **there is no
@@ -811,11 +817,7 @@ def run_build(  # noqa: PLR0913 - the stage boundary is the argument list
         # no-op unless `curation/detail-source-authority.json` carries records — see the
         # function's own docstring for why that is what keeps a full migration and a hybrid the
         # same code path here.
-        # 009 rung R06a (T096, FR-033): the second return value is which declared carry-forward
-        # slugs a hybrid-declared class's OWN arm did not answer this run, per class — carried all
-        # the way to `apply_carried_forward` below, the one place with the previous published
-        # tree in curated shape to compose a mixed-vintage datasheet from.
-        detail, class_carried = apply_detail_source_authority(
+        detail = apply_detail_source_authority(
             detail,
             authority=authored.detail_source_authority,
             config=config,
@@ -901,7 +903,6 @@ def run_build(  # noqa: PLR0913 - the stage boundary is the argument list
         carried_slugs=carry_forward.carried,
         unused_declaration_slugs=carry_forward.unused,
         previous_version_id=(prior.rules_version_id if prior else None) or "(none)",
-        class_carried_slugs=class_carried,
         unused_answers_per_faction=carry_forward.answers_per_faction,
     )
     findings.extend(carry_forward_findings)

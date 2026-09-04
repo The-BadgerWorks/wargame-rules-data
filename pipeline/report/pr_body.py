@@ -17,6 +17,13 @@
 # `options_resolved` as a figure the table marks "blocks below X%" (the two-step ratchet, FR-021)
 # -- the explanatory footer is rewritten to match, since it used to explain why the figure had NO
 # ratchet.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - 009 rung R06a-fix3: reverted `_carried_line`'s
+# and `_carried_forward_section`'s per-class rendering (the `detail.data_class` branch and the
+# whole-faction/per-class heading split), added for T096/FR-033's per-class carry-forward
+# composition and withdrawn along with it -- see `pipeline/curate/carry_forward.py`'s header and
+# `docs/follow-ups.md` item 37. `SRC-FACTION-CARRIED-FORWARD` no longer ever carries
+# `detail.data_class`, so there is exactly one heading again. The `unused`/`answers_per_faction`
+# split just below (R06a-fix item 3) is untouched -- it is the rung's actual, kept purpose.
 """What an approver reads first, in the order they should read it.
 
 `docs/approval-checklist.md` (task T121) states the same order in prose, for a human skimming
@@ -186,23 +193,12 @@ def _summary_coverage_section(coverage: Mapping[str, Mapping[str, Any]]) -> list
 
 
 def _carried_line(finding: Mapping[str, Any]) -> str:
-    """One `SRC-FACTION-CARRIED-FORWARD` row (R06a-fix item 4).
-
-    The per-class composition (009 rung R06a, T096, FR-033) reuses this same code and detail
-    shape for a four-field freeze, distinguished only by `detail.data_class` being present. Left
-    unrendered, a reader sees "frozen (N datasheets)" and reads it as the WHOLE datasheet frozen
-    whole-faction-style — the four-field freeze is a much smaller, much less alarming thing, and
-    a reader who cannot tell them apart is being asked to approve on the wrong information.
-    """
+    """One `SRC-FACTION-CARRIED-FORWARD` row (R06a-fix item 4)."""
     detail = finding["detail"]
-    base = (
+    return (
         f"- `{detail.get('faction_id')}` frozen at `{detail.get('frozen_at_version')}` "
         f"({detail.get('datasheets_carried')} datasheet(s))"
     )
-    data_class = detail.get("data_class")
-    if data_class is None:
-        return base
-    return f"{base} — **`{data_class}` class only**, not the whole datasheet"
 
 
 def _carried_forward_section(findings: Sequence[Mapping[str, Any]]) -> list[str]:
@@ -212,43 +208,21 @@ def _carried_forward_section(findings: Sequence[Mapping[str, Any]]) -> list[str]
     Renders **only** when at least one `SRC-FACTION-CARRIED-FORWARD` or
     `SRC-FACTION-CARRY-FORWARD-UNUSED` finding exists this run — a candidate with no declarations
     active gets no section at all, so its absence is itself the "nothing was substituted" signal.
-
-    R06a-fix2 item 2: `SRC-FACTION-CARRIED-FORWARD` covers TWO different facts (`_carried_line`'s
-    own docstring) — a whole-faction freeze (`detail.data_class` absent), where the faction truly
-    could not be fetched this run, and a per-class freeze (`detail.data_class` present), which
-    happens exactly when the configured arm DID fetch the faction and only one class's own
-    declared arm did not. Rendering both under one "could not be fetched this run" heading states
-    something false of every per-class row, and — because the same slug can simultaneously be
-    `unused` with `answers_per_faction: False` under a bulk hybrid (FR-032) — puts one faction
-    under two headings that contradict each other. Split into two headings, each true of the rows
-    under it, so a reader sees one coherent statement per faction.
     """
     carried = [f for f in findings if f.get("finding_code") == "SRC-FACTION-CARRIED-FORWARD"]
     unused = [f for f in findings if f.get("finding_code") == "SRC-FACTION-CARRY-FORWARD-UNUSED"]
     if not carried and not unused:
         return []
 
-    whole_faction = [f for f in carried if f["detail"].get("data_class") is None]
-    per_class = [f for f in carried if f["detail"].get("data_class") is not None]
-
     out = ["", "## Carried-forward factions", ""]
-    if whole_faction:
+    if carried:
         out.append(
             "**These factions could not be fetched this run and are frozen at the previous "
             "published version** (`curation/carried-forward-factions.json`):"
         )
-        out += [_carried_line(f) for f in whole_faction]
-    if per_class:
-        if whole_faction:
-            out.append("")
-        out.append(
-            "**These factions were fetched successfully this run overall — only one data "
-            "class's own declared arm could not answer for them, and just that class is frozen "
-            "at the previous published version** (`curation/detail-source-authority.json`):"
-        )
-        out += [_carried_line(f) for f in per_class]
+        out += [_carried_line(f) for f in carried]
     if unused:
-        if whole_faction or per_class:
+        if carried:
             out.append("")
         # R06a-fix item 3: `detail.answers_per_faction` (default True — an older report without
         # the field predates this rung and behaved as `html` always did) tells apart a genuine

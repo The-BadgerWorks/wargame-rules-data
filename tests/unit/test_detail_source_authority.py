@@ -5,10 +5,11 @@
 # their floor (options, default_equipment) back to the html arm while every other class stays on
 # the build's configured arm -- expressed entirely as data resolved in `pipeline/acquire/`, never
 # as a mode branch below it (rule 4).
-# AI-Assisted: Claude Code (model: claude-sonnet-5) - 009 rung R06a (T096, FR-033): updated every
-# existing call site for the function's new second return value (`data_class -> declared slugs
-# that class's own arm did not answer`), and added the dedicated tests for it -- the
-# acquisition-side half of composing a mixed-vintage datasheet.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - 009 rung R06a-fix3: reverted every call
+# site back to the function's single-value return, and removed the per-class carry-forward
+# split's own tests added by T096/FR-033 -- that split, and the per-class composition it fed in
+# `pipeline/curate/carry_forward.py`, was withdrawn (see that module's own header comment and
+# `docs/follow-ups.md` item 37).
 """``apply_detail_source_authority`` -- the hybrid, expressed as which arm populates which table.
 
 Every acquisition here is stubbed (no network, no fixture tree): the function under test only
@@ -16,10 +17,6 @@ orchestrates ``acquirer_for``/``reader_for`` calls and merges their output, so w
 call count and merge shape, not real csv/html content. The mode-containment extension at the
 bottom is the structural guard: no scanned module may compare a bare ``arm`` name, the same
 discipline T016 already established for ``mode``.
-
-009 rung R06a (T096) added the per-class carry-forward split's OWN tests below the hybrid overlay
-tests: `apply_detail_source_authority` now returns ``(merged tables, data_class -> declared slugs
-that class's own arm did not answer)`` rather than just the merged tables.
 """
 
 from __future__ import annotations
@@ -124,7 +121,7 @@ def stubbed(monkeypatch: pytest.MonkeyPatch) -> dict[str, object]:
 def test_empty_authority_returns_the_same_object(stubbed: dict[str, object]) -> None:
     detail = _primary_detail()
 
-    result, _class_carried = apply_detail_source_authority(detail, authority=(), config=_config())
+    result = apply_detail_source_authority(detail, authority=(), config=_config())
 
     assert result is detail
     assert stubbed["csv"].calls == 0  # type: ignore[attr-defined]
@@ -136,7 +133,7 @@ def test_a_declaration_naming_the_configured_arm_is_a_no_op(stubbed: dict[str, o
     detail = _primary_detail()
     authority = (_entry("options", "csv"),)
 
-    result, _class_carried = apply_detail_source_authority(
+    result = apply_detail_source_authority(
         detail, authority=authority, config=_config(WGC_DETAIL_ACQUISITION_MODE="csv")
     )
 
@@ -152,7 +149,7 @@ def test_a_declared_class_is_overlaid_from_its_declared_arm(stubbed: dict[str, o
     detail = _primary_detail()
     authority = (_entry("options", "html"),)
 
-    result, _class_carried = apply_detail_source_authority(
+    result = apply_detail_source_authority(
         detail, authority=authority, config=_config(WGC_DETAIL_ACQUISITION_MODE="csv")
     )
 
@@ -168,7 +165,7 @@ def test_the_overlaid_table_carries_a_src_class_arm_finding(stubbed: dict[str, o
     detail = _primary_detail()
     authority = (_entry("options", "html"),)
 
-    result, _class_carried = apply_detail_source_authority(
+    result = apply_detail_source_authority(
         detail, authority=authority, config=_config(WGC_DETAIL_ACQUISITION_MODE="csv")
     )
 
@@ -188,7 +185,7 @@ def test_two_classes_on_the_same_arm_acquire_that_arm_exactly_once(
     detail = _primary_detail()
     authority = (_entry("options", "html"), _entry("default_equipment", "html"))
 
-    result, _class_carried = apply_detail_source_authority(
+    result = apply_detail_source_authority(
         detail, authority=authority, config=_config(WGC_DETAIL_ACQUISITION_MODE="csv")
     )
 
@@ -204,7 +201,7 @@ def test_the_two_classes_may_split_across_two_different_arms(stubbed: dict[str, 
 
     # configured arm is html here, so `default_equipment -> csv` is the one needing a supplement
     # and `options -> html` is the no-op (already the configured arm).
-    result, _class_carried = apply_detail_source_authority(
+    result = apply_detail_source_authority(
         detail, authority=authority, config=_config(WGC_DETAIL_ACQUISITION_MODE="html")
     )
 
@@ -212,113 +209,6 @@ def test_the_two_classes_may_split_across_two_different_arms(stubbed: dict[str, 
     assert result[EQUIPMENT_TABLE].file_name == "csv-equipment"
     assert stubbed["csv"].calls == 1  # type: ignore[attr-defined]
     assert stubbed["html"].calls == 0  # type: ignore[attr-defined]
-
-
-# -- the per-class carry-forward split (009 rung R06a, T096, FR-033) --------------------------
-#
-# This is the acquisition-side half of composing a mixed-vintage datasheet: deciding, per
-# declared class, which declared carry-forward slugs that class's OWN arm did not answer this
-# run. The actual composition -- freezing just that class's fields from the previous published
-# tree -- happens one layer up, in `curate/carry_forward.py` (`tests/unit/test_carry_forward.py`
-# carries that half's receipt), because only `curate` has the previous tree in curated shape.
-
-
-def _html_acquirer_returning(*names: str):
-    """A supplement acquirer whose payload NAMES are controllable -- `_StubAcquirer` above
-    returns a bare `object()`, which has no `.name` and would crash the missing-slug diff."""
-
-    def _for_mode(mode: DetailAcquisitionMode) -> object:
-        def _call(config: object, **kwargs: object) -> tuple[None, list[FixturePayload]]:
-            del config, kwargs
-            return None, [FixturePayload(name=name, text="") for name in names]
-
-        return _call
-
-    return _for_mode
-
-
-def test_a_declared_slug_missing_from_the_class_arm_is_class_carried(
-    monkeypatch: pytest.MonkeyPatch,
-) -> None:
-    import pipeline.acquire.detail_source as module
-
-    monkeypatch.setattr(module, "acquirer_for", _html_acquirer_returning("fetched-faction"))
-    monkeypatch.setattr(
-        module, "reader_for", lambda mode: _stub_reader_factory("html-options", "html-equipment")
-    )
-
-    _detail, class_carried = apply_detail_source_authority(
-        _primary_detail(),
-        authority=(_entry("options", "html"),),
-        config=_config(WGC_DETAIL_ACQUISITION_MODE="csv"),
-        carried_forward_slugs=frozenset({"fetched-faction", "missing-faction"}),
-    )
-
-    assert class_carried == {"options": frozenset({"missing-faction"})}
-
-
-def test_a_declared_slug_the_class_arm_did_answer_is_not_class_carried(
-    monkeypatch: pytest.MonkeyPatch,
-) -> None:
-    import pipeline.acquire.detail_source as module
-
-    monkeypatch.setattr(module, "acquirer_for", _html_acquirer_returning("declared-and-fetched"))
-    monkeypatch.setattr(
-        module, "reader_for", lambda mode: _stub_reader_factory("html-options", "html-equipment")
-    )
-
-    _detail, class_carried = apply_detail_source_authority(
-        _primary_detail(),
-        authority=(_entry("options", "html"),),
-        config=_config(WGC_DETAIL_ACQUISITION_MODE="csv"),
-        carried_forward_slugs=frozenset({"declared-and-fetched"}),
-    )
-
-    assert class_carried == {}
-
-
-def test_a_csv_declared_class_never_reports_class_carried(
-    monkeypatch: pytest.MonkeyPatch,
-) -> None:
-    """A ``csv``-sourced class is whole-or-nothing (FR-032): there is no per-faction failure for
-    it to describe, on the same terms `resolve_carried_forward`'s own ``carried`` stays empty
-    outside ``html`` (`tests/unit/test_detail_mode.py`). The configured arm here is `html`, so
-    `default_equipment -> csv` is the one needing a supplement -- and even though a slug is
-    declared and the (stubbed) csv acquisition names something else entirely, that never surfaces
-    as a per-class carry: csv payload names are file names, never faction slugs, and this
-    function must not guess otherwise."""
-    import pipeline.acquire.detail_source as module
-
-    monkeypatch.setattr(
-        module, "acquirer_for", _html_acquirer_returning("Datasheets_unit_equipment.csv")
-    )
-    monkeypatch.setattr(
-        module, "reader_for", lambda mode: _stub_reader_factory("csv-options", "csv-equipment")
-    )
-
-    _detail, class_carried = apply_detail_source_authority(
-        _primary_detail(),
-        authority=(_entry("default_equipment", "csv"),),
-        config=_config(WGC_DETAIL_ACQUISITION_MODE="html"),
-        carried_forward_slugs=frozenset({"any-declared-slug"}),
-    )
-
-    assert class_carried == {}
-
-
-def test_no_declared_carry_forward_slugs_is_never_class_carried(
-    stubbed: dict[str, object],
-) -> None:
-    """The default (empty) `carried_forward_slugs` -- every caller before this rung, and every
-    non-hybrid caller since -- must reproduce exactly today's return shape: a class dict that is
-    always empty."""
-    _detail, class_carried = apply_detail_source_authority(
-        _primary_detail(),
-        authority=(_entry("options", "html"),),
-        config=_config(WGC_DETAIL_ACQUISITION_MODE="csv"),
-    )
-
-    assert class_carried == {}
 
 
 def test_retrieved_at_and_workspace_reach_the_supplemental_acquirer(
@@ -331,9 +221,6 @@ def test_retrieved_at_and_workspace_reach_the_supplemental_acquirer(
     def _acquirer(mode: DetailAcquisitionMode) -> object:
         def _call(config: object, **kwargs: object) -> tuple[None, list[FixturePayload]]:
             received.update(kwargs)
-            # A real (if unrelated) payload name, not a bare `object()`: 009 rung R06a's per-class
-            # split now diffs `carried_forward_slugs` against the fetched payload names whenever
-            # the declared arm is html and something was declared -- both true here.
             return None, [FixturePayload(name="an-unrelated-page", text="")]
 
         return _call

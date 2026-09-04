@@ -10,12 +10,13 @@
 # AI-Assisted: Claude Code (model: claude-sonnet-5) - 009 rung R06a (T095/T100/T101, FR-033):
 # `resolve_carried_forward` now reports a non-empty declared set as `unused` rather than dropping
 # it under any arm but `html` -- visibly inert instead of invisibly ignored.
-# AI-Assisted: Claude Code (model: claude-sonnet-5) - 009 rung R06a (T096, FR-033):
-# `apply_detail_source_authority` now also returns which declared slugs a hybrid-declared class's
-# OWN arm did not answer this run, per class -- the acquisition-side half of composing a
-# mixed-vintage datasheet; `curate/carry_forward.py::apply_carried_forward` is where that
-# composition actually happens, since only `curate` has the previous published tree in curated
-# (not raw export-row) shape.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - 009 rung R06a-fix3: reverted
+# `apply_detail_source_authority`'s second return value (`data_class -> declared slugs that
+# class's own arm did not answer`), added for T096/FR-033's per-class carry-forward composition
+# and withdrawn along with it -- `pipeline/curate/carry_forward.py`'s own header comment and
+# `docs/follow-ups.md` item 37 record why. Its sole consumer was `pipeline/cli.py`'s
+# `apply_carried_forward(class_carried_slugs=...)` call, itself reverted; nothing else read this
+# value.
 """Which shape the datasheet-detail source is read in — and nothing else.
 
 ``WGC_DETAIL_ACQUISITION_MODE`` selects **a parser, not a behaviour**. This is the same
@@ -404,7 +405,7 @@ def apply_detail_source_authority(
     retrieved_at: datetime | None = None,
     workspace: Path | None = None,
     carried_forward_slugs: frozenset[str] = frozenset(),
-) -> tuple[dict[str, CsvReadResult], Mapping[str, frozenset[str]]]:
+) -> dict[str, CsvReadResult]:
     """Overlay each declared class's table(s) from its declared arm, onto ``detail``.
 
     ``detail`` — the build's own configured-arm read, exactly :func:`read_detail`'s return —
@@ -424,19 +425,15 @@ def apply_detail_source_authority(
     (``for result in detail.values(): findings.extend(result.findings)``), so the per-value
     attributability FR-010 requires reaches the run's report with no new call site.
 
-    Returns a second value (009 rung R06a, T096, FR-033): ``data_class -> the declared
-    carry-forward slugs that class's OWN declared arm did not return this run``. Only a class
-    declared onto ``html`` can appear here — the same reasoning
-    :class:`CarriedForwardOutcome`'s own docstring gives for the whole-faction split: a
-    ``csv``-sourced class is whole-or-nothing, so there is no per-faction failure for it to
-    describe. Empty whenever nothing was declared, or every declared class's own arm answered
-    every declared faction. `pipeline/cli.py` hands this straight to
-    `curate/carry_forward.py::apply_carried_forward`'s ``class_carried_slugs`` — never resolved
-    here into an actual splice, because that needs the previous PUBLISHED tree in its curated
-    (post-parse) shape, which this acquisition-layer module never sees.
+    ``carried_forward_slugs`` is forwarded to whichever supplemental arm is acquired (the same
+    meaning :func:`acquire_detail` documents), never inspected here — this function used to also
+    diff it against the supplemental arm's own fetched slugs, per class (009 T096, FR-033), but
+    that was the acquisition-side half of per-class carry-forward composition, withdrawn along
+    with the rest of it (009 rung R06a-fix3; see `pipeline/curate/carry_forward.py`'s header and
+    `docs/follow-ups.md` item 37).
     """
     if not authority:
-        return detail, {}
+        return detail
 
     configured = config.detail_acquisition_mode
     needed_arms = {
@@ -445,10 +442,9 @@ def apply_detail_source_authority(
         if DetailAcquisitionMode(entry.arm) != configured
     }
     if not needed_arms:
-        return detail, {}
+        return detail
 
     supplements: dict[DetailAcquisitionMode, dict[str, CsvReadResult]] = {}
-    payloads_by_arm: dict[DetailAcquisitionMode, Sequence[FixturePayload]] = {}
     for arm in needed_arms:
         _acquisition, payloads = acquirer_for(arm)(
             config,
@@ -460,10 +456,8 @@ def apply_detail_source_authority(
             carried_forward_slugs=carried_forward_slugs,
         )
         supplements[arm] = reader_for(arm)(payloads, edition_code=config.detail_edition)
-        payloads_by_arm[arm] = payloads
 
     merged = dict(detail)
-    class_carried: dict[str, frozenset[str]] = {}
     for entry in authority:
         arm = DetailAcquisitionMode(entry.arm)
         if arm == configured:
@@ -480,8 +474,4 @@ def apply_detail_source_authority(
             merged[table_name] = _replace_csv_read_result(
                 source_result, findings=(*source_result.findings, finding)
             )
-        if arm is DetailAcquisitionMode.HTML and carried_forward_slugs:
-            missing = carried_forward_slugs - _fetched_slugs(payloads_by_arm[arm])
-            if missing:
-                class_carried[entry.data_class] = missing
-    return merged, class_carried
+    return merged
