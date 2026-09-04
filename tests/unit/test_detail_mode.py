@@ -19,6 +19,13 @@
 # is resolved in `acquire/detail_source.py` and must stay empty under every arm that has no
 # per-faction page -- otherwise a csv payload's file name would read as a carried faction slug and
 # exempt every declared faction from `REC-DETAIL-FACTION-EMPTY`.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - 009 rung R06a (T095/T100, FR-033): replaced
+# `test_a_declaration_never_leaks_into_csv_mode`'s "unused stays empty" assertion, which was
+# pinning the exact silent-discard behaviour this rung fixes, with the T095/T100 receipt --
+# confirmed red against `main` at `6b7fd150` first -- and parametrized both csv-mode tests across
+# the fixtures adapter's and the live adapter's own payload-naming shapes from one place, per this
+# rung's own standing instruction: a fix that only holds on one path has broken this feature four
+# times before.
 """Mode-blindness is a property to be proven, not a comment to be believed.
 
 The design's load-bearing claim is that everything below ``acquire`` cannot tell which mode ran.
@@ -401,18 +408,74 @@ def test_html_mode_splits_declared_slugs_by_what_acquisition_returned() -> None:
     assert outcome.unused == frozenset({"tarnish-host"})
 
 
-def test_a_declaration_never_leaks_into_csv_mode() -> None:
-    """A csv payload's name is `Datasheets.csv`, never a faction slug.
+#: The two shapes the same table's payload name takes depending which path acquired it (009 rung
+#: R06a, T095/T100): `acquire_wahapedia`'s live path keeps the export's own file name
+#: (`Datasheets.csv`); `acquire_from_fixtures` carries the file's bare stem (`Datasheets`) --
+#: `pipeline/acquire/wahapedia.py`'s own module docstring names this exact pair, and
+#: `_corpus_payloads`'s `Path(name).stem` matching exists because a fix here has drifted between
+#: the two shapes before (R05-fix2 item 3, same underlying discrepancy). Parametrized from here so
+#: a fix that only holds on one path fails loudly rather than shipping green.
+_CSV_PAYLOAD_NAME_STYLES: Final = pytest.mark.parametrize(
+    "csv_payload_names",
+    [
+        pytest.param(("Datasheets.csv", "Datasheets_options.csv"), id="live-directory"),
+        pytest.param(("Datasheets", "Datasheets_options"), id="fixtures"),
+    ],
+)
 
-    Splitting on it would put every declared slug in `carried` -- exempting every one of them
-    from the faction guard on a run where the export was read perfectly well. The whole set stays
-    empty instead, which is also what makes carry-forward a no-op under that arm exactly as it
-    was before this rung.
+
+@_CSV_PAYLOAD_NAME_STYLES
+def test_a_declaration_never_leaks_into_carried_under_csv_mode(
+    csv_payload_names: tuple[str, str],
+) -> None:
+    """A csv payload's name is a file name, never a faction slug -- live or fixtures.
+
+    Splitting `carried` on it would put every declared slug there -- exempting every one of them
+    from the faction guard (`REC-DETAIL-FACTION-EMPTY`) on a run where the export was read
+    perfectly well. `carried` stays empty regardless of which path's payload-naming shape
+    acquisition used.
     """
     outcome = resolve_carried_forward(
         _config(),
-        [_payload("Datasheets.csv"), _payload("Datasheets_options.csv")],
+        [_payload(name) for name in csv_payload_names],
         declared_slugs=_DECLARED,
+    )
+
+    assert outcome.carried == frozenset()
+
+
+@_CSV_PAYLOAD_NAME_STYLES
+def test_a_declaration_is_reported_unused_not_dropped_under_csv_mode(
+    csv_payload_names: tuple[str, str],
+) -> None:
+    """009 rung R06a (T095/T100, FR-033): before this rung, a declaration under any arm but
+    `html` was dropped here unconditionally -- `outcome.unused` was `frozenset()` regardless of
+    what was declared, on both payload-naming shapes (confirmed red against `main` at
+    `6b7fd150`: this assertion failed with the extra items being the whole of `_DECLARED`).
+
+    A bulk export answers whole or not at all (FR-032): a run that reaches this point already
+    means the export answered, declared faction rows included, so `unused` -- "the declaration
+    did nothing this run, a curator may retire it" -- is a true description here too, and reusing
+    it is what keeps a declaration visible without minting a new finding code for a condition
+    this vocabulary already reports correctly (rule 10).
+    """
+    outcome = resolve_carried_forward(
+        _config(),
+        [_payload(name) for name in csv_payload_names],
+        declared_slugs=_DECLARED,
+    )
+
+    assert outcome.unused == _DECLARED
+    assert not (outcome.carried & outcome.unused)
+
+
+def test_no_declaration_is_still_a_true_no_op_under_csv_mode() -> None:
+    """An empty declared set stays empty both ways -- a declaration-free build pays nothing for
+    this rung's change, exactly as before it."""
+    outcome = resolve_carried_forward(
+        _config(),
+        [_payload("Datasheets.csv")],
+        declared_slugs=frozenset(),
     )
 
     assert outcome.carried == frozenset()

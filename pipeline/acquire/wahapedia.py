@@ -47,6 +47,12 @@
 # fingerprint excluded it -- the two figures described different sets under the same run.
 # `csv_files` keeps its original meaning; a new `coverage["corpus_files"]` names what the
 # fingerprint actually covers, so a reader cannot mistake one for the other.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - 009 rung R06a (T095/T096/T100/T101,
+# FR-033): clarified `acquire_wahapedia`'s own docstring so a reader does not repeat this rung's
+# own false start -- the `del carried_forward_slugs` a few lines below stays correct as written;
+# the silent-discard fix belongs in `pipeline/acquire/detail_source.py::resolve_carried_forward`,
+# which is where a declared slug and the acquired payloads are both already in scope. No
+# behaviour in this file changed.
 """Acquire the datasheet-detail source: the CSV export, into ``work/``.
 
 Three things are worth stating plainly.
@@ -432,7 +438,22 @@ def acquire_wahapedia(
     :func:`pipeline.acquire.detail_source.read_export_payloads` already accepts and ignores
     ``edition_code``: the signature is shared with the html arm so a caller never learns which
     mode ran (008 FR-024). The bulk export has no per-faction page to fail partway through — it
-    is one file or none — so there is nothing here for a carry-forward declaration to apply to.
+    is one file or none — so there is genuinely nothing HERE for a carry-forward declaration to
+    apply to, and the ``del`` below stays correct on that count.
+
+    009 rung R06a (T095/T096/T100/T101, FR-033): that is NOT the same claim as "a declaration
+    under this arm may be dropped silently" — a claim this docstring used to make no comment on,
+    and `tasks.md`'s T100 (written before rung R01b restructured this area) once located the fix
+    for that right here. It does not belong here: this function has no ``declared_slugs`` vs.
+    ``fetched`` diff to run, because a payload's ``name`` at this layer is a file name
+    (``Datasheets.csv``), never a faction slug — the same reasoning
+    :class:`pipeline.acquire.detail_source.CarriedForwardOutcome` gives for its own ``carried``
+    field. Visibility lives one level up, in
+    :func:`pipeline.acquire.detail_source.resolve_carried_forward`, which is where
+    ``declared_slugs`` and the acquired payloads are both already in scope — a declaration is
+    now reported ``unused`` (never dropped) there, under this arm exactly as under any arm but
+    ``html``. This function's own ``del`` remains a true no-op on an unused parameter, not the
+    place the silent discard used to happen.
 
     ``state_path`` (009 rung R05, T090; identity check added R05-fix item 5) is the
     export-timestamp short-circuit's own opt-in switch, pointed at

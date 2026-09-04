@@ -7,6 +7,9 @@
 # returned. It lives here because "is a payload name a faction slug?" is the mode question, and the
 # mode's influence belongs in this module; `pipeline/cli.py` had the branch and could only reach it
 # after `assemble` had already run.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - 009 rung R06a (T095/T100/T101, FR-033):
+# `resolve_carried_forward` now reports a non-empty declared set as `unused` rather than dropping
+# it under any arm but `html` -- visibly inert instead of invisibly ignored.
 """Which shape the datasheet-detail source is read in — and nothing else.
 
 ``WGC_DETAIL_ACQUISITION_MODE`` selects **a parser, not a behaviour**. This is the same
@@ -276,10 +279,15 @@ class CarriedForwardOutcome:
     * ``unused`` — declared **and** returned anyway; the source recovered, the live data is used
       like anybody else's, and the declaration can be retired.
 
-    Empty under every arm but ``html``, deliberately: a ``csv``-mode payload's ``name`` is a file
-    name (``Datasheets.csv``), never a faction slug, so a declaration would falsely read as
-    "carried" for every entry. Carry-forward has no meaning where there is no per-faction page
-    to fail in the first place.
+    ``carried`` is empty under every arm but ``html``, deliberately: a ``csv``-mode payload's
+    ``name`` is a file name (``Datasheets.csv``), never a faction slug, so a declaration would
+    falsely read as "carried" for every entry. Carry-forward has no per-faction page to fail
+    under that arm in the first place.
+
+    ``unused`` is NOT empty under a non-``html`` arm when something is declared (009 rung R06a,
+    T095/T100, FR-033) — see :func:`resolve_carried_forward`'s own docstring for why reusing this
+    code, rather than dropping the declaration, is what makes it visibly inert instead of
+    invisibly ignored.
     """
 
     carried: frozenset[str] = frozenset()
@@ -302,11 +310,34 @@ def resolve_carried_forward(
     ``SourceAcquisition.coverage`` cannot answer this: it is a ``Mapping[str, int]`` of counts
     feeding FR-009's figures and carries no slugs, so the payload names are the only record of
     which declared page came back.
+
+    009 rung R06a (T095/T100, FR-033): under any arm but ``html`` the per-faction-page failure
+    the mechanism exists for cannot occur — the bulk export answers whole or not at all (FR-032),
+    so a run that reaches this point already means the export answered, declared faction rows
+    included. Before this rung, a non-empty ``declared_slugs`` was dropped here entirely
+    (``CarriedForwardOutcome()``, unconditionally) — invisibly ignored, not merely unneeded. Now
+    it is reported ``unused``: the SAME code and the SAME true meaning a faction that answered
+    live under ``html`` mode already gets ("the declaration did nothing this run, a curator may
+    retire it"), rather than a new code for a condition this vocabulary already describes
+    correctly. This is what "neither silently satisfied nor silently discarded" means in
+    practice, and it is why a later return to a per-page arm finds the declaration intact:
+    nothing here ever touches ``curation/carried-forward-factions.json``, only the in-memory
+    ``declared_slugs`` this run was handed.
     """
     if config.detail_acquisition_mode is not DetailAcquisitionMode.HTML:
-        return CarriedForwardOutcome()
-    fetched = frozenset(payload.name for payload in payloads)
+        return CarriedForwardOutcome(unused=declared_slugs)
+    fetched = _fetched_slugs(payloads)
     return CarriedForwardOutcome(carried=declared_slugs - fetched, unused=declared_slugs & fetched)
+
+
+def _fetched_slugs(payloads: Sequence[FixturePayload]) -> frozenset[str]:
+    """The payload names acquisition actually returned, as a plain set.
+
+    Factored out of :func:`resolve_carried_forward` because 009 rung R06a's per-class split
+    (:func:`apply_detail_source_authority`) needs the identical diff against a declared slug set
+    — only the payloads being diffed (the configured arm's vs. a hybrid supplement arm's) differ.
+    """
+    return frozenset(payload.name for payload in payloads)
 
 
 def read_detail(
