@@ -811,7 +811,11 @@ def run_build(  # noqa: PLR0913 - the stage boundary is the argument list
         # no-op unless `curation/detail-source-authority.json` carries records — see the
         # function's own docstring for why that is what keeps a full migration and a hybrid the
         # same code path here.
-        detail = apply_detail_source_authority(
+        # 009 rung R06a (T096, FR-033): the second return value is which declared carry-forward
+        # slugs a hybrid-declared class's OWN arm did not answer this run, per class — carried all
+        # the way to `apply_carried_forward` below, the one place with the previous published
+        # tree in curated shape to compose a mixed-vintage datasheet from.
+        detail, class_carried = apply_detail_source_authority(
             detail,
             authority=authored.detail_source_authority,
             config=config,
@@ -897,6 +901,7 @@ def run_build(  # noqa: PLR0913 - the stage boundary is the argument list
         carried_slugs=carry_forward.carried,
         unused_declaration_slugs=carry_forward.unused,
         previous_version_id=(prior.rules_version_id if prior else None) or "(none)",
+        class_carried_slugs=class_carried,
     )
     findings.extend(carry_forward_findings)
 
