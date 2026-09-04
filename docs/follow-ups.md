@@ -1396,3 +1396,27 @@ short-circuited caller *should* find in `work/` (nothing written at all, since n
 previous run's own files, carried forward the way `content_fingerprint` already is; or the
 single-file probe as today, documented rather than silent) is a design question for whichever rung
 wires a caller to the short-circuit, not something to guess at ahead of that caller existing.
+
+## 35. `carry_forward.py`'s `slug_to_faction_id` collapses a `detail_source_faction_id` shared by two factions (009 rung R06a-fix, item found while fixing the class field map)
+
+**Pre-existing, repeated by the per-class composition loop R06a added.** Not caused by this rung
+and not fixed by it.
+
+**Reproduction.** `apply_carried_forward` builds `slug_to_faction_id` as a plain dict
+comprehension: `{faction.detail_source_faction_id: faction.faction_id for faction in
+previous_tree.factions}` (008 FR-024, unchanged shape). `data/wh40k-11e/factions.json` already has
+one `detail_source_faction_id` shared by two factions: `adeptus-titanicus` maps to both
+`f-chaos-titan-legions` and `f-titan-legions` (checked directly against the tracked file; grepping
+the same field across every faction in the tree turns up no other collision, so two is the current
+maximum). Whichever of the two factions iterates last in `previous_tree.factions` silently wins the
+dict slot; the other is unreachable through this map. A declared carry-forward or per-class-carry
+slug of `adeptus-titanicus` would therefore always resolve to the SAME one of the two factions,
+never the other, regardless of which one the run actually needed to carry.
+
+**Why left.** Out of scope for R06a-fix by the kickoff's own instruction (`R06a-fix-class-fields-
+and-silence.md`, "record ... rather than fixing it here; it predates this rung"). No declared
+carry-forward or class-carry slug in `curation/carried-forward-factions.json` or
+`curation/detail-source-authority.json` currently names `adeptus-titanicus`, so the collision is
+unreached in practice today; fixing `slug_to_faction_id` to carry a set of faction ids per slug (or
+to key on `(slug, faction_id)` once a caller needs to disambiguate) is real design work belonging
+to whichever rung first declares a carry-forward or class-carry entry for a shared-slug faction.

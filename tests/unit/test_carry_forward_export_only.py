@@ -2,7 +2,8 @@
 # receipts that must hold for the export-only inert path specifically -- the declaration file is
 # read-only to every run, and the escape hatch a declaration cannot open
 # (`SRC-FACTION-CARRY-FORWARD-NO-PRIOR`) stays blocking. Exercises the REAL
-# `curation/carried-forward-factions.json` (five declared factions as of this rung) rather than a
+# `curation/carried-forward-factions.json` (19 declared factions as of this rung -- corrected by
+# R06a-fix, which found the file had grown to 19 while this header still said five) rather than a
 # synthetic one, because "unchanged by any run" is a claim about that specific file.
 """009 T101: the declaration file is read-only, and the no-prior refusal still blocks.
 
