@@ -36,9 +36,10 @@ Two shapes inside a group, both observed:
 established that the real bulk export states its keyword list bare, with no bracket; its own
 guard -- "no sentence-final punctuation anywhere in the field" -- has no bound on what a
 comma-split fragment may contain, so a publisher sentence with an internal comma and no
-terminal punctuation (``"Each time an attack is made with this weapon, an unmodified Hit roll
-of 6 scores a Critical Hit"``) read straight through as two ability keywords: an IP-boundary
-violation, not a parsing edge case. The bound chosen is a per-item ceiling of
+terminal punctuation (invented example, shaped like rules text: ``"Each time this weapon
+targets a unit within 6 inches, that unit suffers a mortal wound on a roll of 4 or more"``) read
+straight through as two ability keywords: an IP-boundary violation, not a parsing edge case. The
+bound chosen is a per-item ceiling of
 :data:`_MAX_UNBRACKETED_ITEM_WORDS` words and :data:`_MAX_UNBRACKETED_ITEM_LENGTH` characters,
 measured from the only keyword-shaped vocabulary this repository holds in usable form --
 ``curation/glossary.json``'s 70 approved entries (a live bulk-export corpus is not available
@@ -46,8 +47,9 @@ outside a network-connected run, so the glossary is the real distribution on han
 approved entry's printed form (parameter placeholder included, e.g. ``"Anti-Epic Hero X+"``,
 ``"Devastating Wounds: Monster/Vehicle"``) tops out at 3 words / 35 characters; the ceiling of
 4 words / 40 characters keeps headroom for a real keyword not yet authored while still
-rejecting anything sentence-shaped -- the shortest fragment in this issue's own reproduction is
-9 words / 44 characters. Matching against the glossary's vocabulary directly was considered and
+rejecting anything sentence-shaped -- the shorter half of the invented sentence above is still
+10 words / 52 characters, well past the ceiling. Matching against the glossary's vocabulary
+directly was considered and
 rejected: an unauthored keyword is expected to ship with no glossary row at all
 (:func:`pipeline.build.bundle_emit._emit_keyword_glossary`), so an allow-list would silently
 drop a real, currently-unauthored keyword -- the opposite failure from the one this bound
