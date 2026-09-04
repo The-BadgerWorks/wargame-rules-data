@@ -438,3 +438,47 @@ def test_options_class_carry_leaves_costs_and_wargear_options_current_and_carrie
     assert result.wargear_option_state == WargearOptionState.EXTRACTED  # the rest of the class
 
 
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - R06a-fix item 2: confirmed red the same way
+# as item 1 -- `test_a_class_with_no_matching_prior_datasheet_id_is_reported_not_silenced` found
+# zero findings against the stashed `continue` before the fix added the
+# `SRC-FACTION-CARRY-FORWARD-NO-PRIOR` report.
+# -- R06a-fix item 2: a class carry that matches no current datasheet id is reported, not silent -
+
+
+def test_a_class_with_no_matching_prior_datasheet_id_is_reported_not_silenced() -> None:
+    """Prior data exists for the faction, but under a NEW datasheet id -- so nothing in this
+    run's own assembly for the faction has a matching prior row to compose the class from. Before
+    the fix this was `if not composed: continue` with zero findings; the class ships blank AND
+    silent, contradicting the module's own "never silent" contract (R06a-fix item 2)."""
+    prior_datasheet = datasheet("ds-retired-mixed-vintage-unit", faction_id=MIXED_FACTION_ID)
+    published = snapshot(
+        factions=[
+            faction(MIXED_FACTION_ID, parent=None).model_copy(
+                update={"detail_source_faction_id": MIXED_SLUG}
+            )
+        ],
+        datasheets=[prior_datasheet],
+    )
+    candidate = _mixed_vintage_candidate()  # datasheet_id == MIXED_DATASHEET_ID, no match above
+
+    merged, findings = apply_carried_forward(
+        candidate,
+        previous_tree=published,
+        carried_slugs=frozenset(),
+        unused_declaration_slugs=frozenset({MIXED_SLUG}),
+        previous_version_id="wh40k-11e-2026-08-3",
+        class_carried_slugs={"options": frozenset({MIXED_SLUG})},
+    )
+
+    # Nothing composed -- the candidate's own datasheet comes through untouched.
+    (result,) = [d for d in merged.datasheets if d.datasheet_id == MIXED_DATASHEET_ID]
+    assert result.wargear_option_state is None
+
+    codes = [f.finding_code for f in findings]
+    assert "SRC-FACTION-CARRY-FORWARD-NO-PRIOR" in codes, (
+        "the no-match case must produce a finding -- absent before this fix (item 2)"
+    )
+    no_match = next(f for f in findings if f.finding_code == "SRC-FACTION-CARRY-FORWARD-NO-PRIOR")
+    assert no_match.severity.value == "blocking"
+    assert no_match.detail["data_class"] == "options"
+    assert no_match.detail["faction_slug"] == MIXED_SLUG

@@ -229,7 +229,22 @@ def apply_carried_forward(
                 )
                 composed += 1
             if not composed:
-                continue  # rule 10: a class measured at zero here gets no finding either
+                # R06a-fix item 2: prior data existed for the faction, but none of THIS run's
+                # datasheet ids for it matched a prior one, so the class has nothing to compose
+                # from -- practically the same "nothing to substitute" fact the block above
+                # reports for a faction with no prior rows at all, just discovered one join later
+                # (rule 10 does not apply here: that rule is about not writing production code
+                # for a class never measured in the corpus, not about silencing an already-reached
+                # runtime branch). Reusing the same code and detail shape rather than minting a
+                # new one for a condition this vocabulary already describes correctly.
+                findings.append(
+                    build_finding(
+                        "SRC-FACTION-CARRY-FORWARD-NO-PRIOR",
+                        entity_refs=(f"faction-slug:{slug}",),
+                        detail={"faction_slug": slug, "data_class": data_class},
+                    )
+                )
+                continue
             composed_any = True
             findings.append(
                 build_finding(
