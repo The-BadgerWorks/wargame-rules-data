@@ -902,6 +902,7 @@ def run_build(  # noqa: PLR0913 - the stage boundary is the argument list
         unused_declaration_slugs=carry_forward.unused,
         previous_version_id=(prior.rules_version_id if prior else None) or "(none)",
         class_carried_slugs=class_carried,
+        unused_answers_per_faction=carry_forward.answers_per_faction,
     )
     findings.extend(carry_forward_findings)
 

@@ -185,6 +185,26 @@ def _summary_coverage_section(coverage: Mapping[str, Mapping[str, Any]]) -> list
     return out
 
 
+def _carried_line(finding: Mapping[str, Any]) -> str:
+    """One `SRC-FACTION-CARRIED-FORWARD` row (R06a-fix item 4).
+
+    The per-class composition (009 rung R06a, T096, FR-033) reuses this same code and detail
+    shape for a four-field freeze, distinguished only by `detail.data_class` being present. Left
+    unrendered, a reader sees "frozen (N datasheets)" and reads it as the WHOLE datasheet frozen
+    whole-faction-style — the four-field freeze is a much smaller, much less alarming thing, and
+    a reader who cannot tell them apart is being asked to approve on the wrong information.
+    """
+    detail = finding["detail"]
+    base = (
+        f"- `{detail.get('faction_id')}` frozen at `{detail.get('frozen_at_version')}` "
+        f"({detail.get('datasheets_carried')} datasheet(s))"
+    )
+    data_class = detail.get("data_class")
+    if data_class is None:
+        return base
+    return f"{base} — **`{data_class}` class only**, not the whole datasheet"
+
+
 def _carried_forward_section(findings: Sequence[Mapping[str, Any]]) -> list[str]:
     """008 FR-025 (Product Owner decision 2026-08-17): every carry-forward substitution named
     explicitly, never left to a reviewer noticing an advisory finding among thousands of others.
@@ -204,20 +224,36 @@ def _carried_forward_section(findings: Sequence[Mapping[str, Any]]) -> list[str]
             "**These factions could not be fetched this run and are frozen at the previous "
             "published version** (`curation/carried-forward-factions.json`):"
         )
-        out += [
-            f"- `{f['detail'].get('faction_id')}` frozen at "
-            f"`{f['detail'].get('frozen_at_version')}` "
-            f"({f['detail'].get('datasheets_carried')} datasheet(s))"
-            for f in carried
-        ]
+        out += [_carried_line(f) for f in carried]
     if unused:
         if carried:
             out.append("")
-        out.append(
-            "**These declarations were not needed this run** — the source answered live, so the "
-            "declaration in `curation/carried-forward-factions.json` may be retired:"
-        )
-        out += [f"- `{f['detail'].get('faction_slug')}`" for f in unused]
+        # R06a-fix item 3: `detail.answers_per_faction` (default True — an older report without
+        # the field predates this rung and behaved as `html` always did) tells apart a genuine
+        # per-faction fetch from a bulk arm's all-or-nothing answer. "This arm cannot answer
+        # per-faction at all" and "this faction answered live, so retire the declaration" are
+        # opposite facts, and only the first is true under a bulk arm — rendering the second for
+        # it would advise deleting the declaration that stops the per-faction sweep hard-failing
+        # once the arm returns to it.
+        per_faction = [f for f in unused if f["detail"].get("answers_per_faction", True)]
+        bulk_answered = [f for f in unused if not f["detail"].get("answers_per_faction", True)]
+        if per_faction:
+            out.append(
+                "**These declarations were not needed this run** — the source answered live, so "
+                "the declaration in `curation/carried-forward-factions.json` may be retired:"
+            )
+            out += [f"- `{f['detail'].get('faction_slug')}`" for f in per_faction]
+        if bulk_answered:
+            if per_faction:
+                out.append("")
+            out.append(
+                "**These declarations were not evaluated per faction this run — do not retire "
+                "them.** The configured detail arm answers as one bulk export, never one page "
+                "per faction, so a declared faction showing here as unused is not evidence its "
+                "own page would still be reachable; retiring it now would remove the guard that "
+                "stops the per-faction sweep hard-failing once the arm returns to it:"
+            )
+            out += [f"- `{f['detail'].get('faction_slug')}`" for f in bulk_answered]
     return out
 
 

@@ -406,6 +406,9 @@ def test_html_mode_splits_declared_slugs_by_what_acquisition_returned() -> None:
 
     assert outcome.carried == frozenset({"veiled-conclave"})
     assert outcome.unused == frozenset({"tarnish-host"})
+    # R06a-fix item 3: `html` genuinely fetches one page per faction, so an `unused` slug here IS
+    # evidence that faction's own page answered -- `answers_per_faction` is true.
+    assert outcome.answers_per_faction is True
 
 
 #: The two shapes the same table's payload name takes depending which path acquired it (009 rung
@@ -467,6 +470,10 @@ def test_a_declaration_is_reported_unused_not_dropped_under_csv_mode(
 
     assert outcome.unused == _DECLARED
     assert not (outcome.carried & outcome.unused)
+    # R06a-fix item 3: a bulk export answers whole or not at all -- `unused` here is NOT evidence
+    # any one declared faction's own page would be reachable, unlike under `html`. A consumer
+    # (`pr_body.py`) must be able to tell the two apart before advising a declaration's retirement.
+    assert outcome.answers_per_faction is False
 
 
 def test_no_declaration_is_still_a_true_no_op_under_csv_mode() -> None:

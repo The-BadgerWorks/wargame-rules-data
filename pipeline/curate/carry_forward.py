@@ -112,6 +112,7 @@ def apply_carried_forward(
     unused_declaration_slugs: frozenset[str],
     previous_version_id: str,
     class_carried_slugs: Mapping[str, frozenset[str]] = _NO_CLASS_CARRY,
+    unused_answers_per_faction: bool = True,
 ) -> tuple[CuratedSnapshot, tuple[Finding, ...]]:
     """Return ``snapshot`` with every carried faction's datasheets spliced in, plus findings.
 
@@ -132,6 +133,15 @@ def apply_carried_forward(
     008's whole-faction splice already gives: composed here, strictly before
     `_reconcile_against_prior` runs in `pipeline/cli.py`, so no coverage figure moves because of
     the substitution alone.
+
+    ``unused_answers_per_faction`` (R06a-fix item 3): whether THIS run's configured detail arm can
+    even answer "did this one faction's page come back" at all —
+    :func:`pipeline.acquire.detail_source.resolve_carried_forward`'s own
+    ``CarriedForwardOutcome.answers_per_faction``, true only under ``html``. Under a bulk arm
+    (``csv``) a declared slug is unconditionally reported ``unused`` the moment the whole export
+    answers (FR-032), which is a true but much weaker fact than "this faction's own page was
+    reachable" — carried into the finding's ``detail`` so a reader (`pr_body.py`) does not confuse
+    the two and advise retiring a declaration a bulk arm was never in a position to test.
     """
     if not carried_slugs and not unused_declaration_slugs and not class_carried_slugs:
         return snapshot, ()
@@ -188,7 +198,11 @@ def apply_carried_forward(
             build_finding(
                 "SRC-FACTION-CARRY-FORWARD-UNUSED",
                 entity_refs=(f"faction-slug:{slug}",),
-                detail={"faction_id": faction_id, "faction_slug": slug},
+                detail={
+                    "faction_id": faction_id,
+                    "faction_slug": slug,
+                    "answers_per_faction": unused_answers_per_faction,
+                },
             )
         )
 

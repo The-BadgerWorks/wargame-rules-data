@@ -294,10 +294,19 @@ class CarriedForwardOutcome:
     T095/T100, FR-033) — see :func:`resolve_carried_forward`'s own docstring for why reusing this
     code, rather than dropping the declaration, is what makes it visibly inert instead of
     invisibly ignored.
+
+    ``answers_per_faction`` (R06a-fix item 3): whether ``unused`` was computed from a genuine
+    per-faction fetch (``html``, one page per declared slug) or from a bulk arm's all-or-nothing
+    answer (every other mode). Both make ``unused`` true for the same reason ("this run did not
+    need the carry"), but they are not the same STRENGTH of evidence: a bulk arm being unused says
+    nothing about whether this ONE faction's own page would still be reachable, so a consumer
+    (`pr_body.py`) must not read a bulk-arm ``unused`` as "the declaration may be retired" the way
+    it correctly reads an ``html``-arm one.
     """
 
     carried: frozenset[str] = frozenset()
     unused: frozenset[str] = frozenset()
+    answers_per_faction: bool = True
 
 
 def resolve_carried_forward(
@@ -331,9 +340,13 @@ def resolve_carried_forward(
     ``declared_slugs`` this run was handed.
     """
     if config.detail_acquisition_mode is not DetailAcquisitionMode.HTML:
-        return CarriedForwardOutcome(unused=declared_slugs)
+        return CarriedForwardOutcome(unused=declared_slugs, answers_per_faction=False)
     fetched = _fetched_slugs(payloads)
-    return CarriedForwardOutcome(carried=declared_slugs - fetched, unused=declared_slugs & fetched)
+    return CarriedForwardOutcome(
+        carried=declared_slugs - fetched,
+        unused=declared_slugs & fetched,
+        answers_per_faction=True,
+    )
 
 
 def _fetched_slugs(payloads: Sequence[FixturePayload]) -> frozenset[str]:
