@@ -358,3 +358,105 @@ def test_no_carried_forward_section_when_nothing_was_substituted() -> None:
     """Absence is itself the signal — a clean report with no declarations active gets no section
     at all, the same discipline the option-regression link's own test file documents."""
     assert "Carried-forward factions" not in render_pr_body(_report_json())
+
+
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - R06a-fix2 item 2: added receipts for the
+# contradictory-headings defect. Confirmed red against the pre-fix `_carried_forward_section`,
+# which put every `SRC-FACTION-CARRIED-FORWARD` finding -- whole-faction AND per-class alike --
+# under the single "could not be fetched this run" heading, false for a per-class freeze (the
+# configured arm DID fetch the faction; only one class's own arm did not).
+# -- R06a-fix2 item 2: one faction must not appear under two contradictory headings ---------------
+
+
+def test_a_per_class_freeze_is_never_rendered_as_could_not_be_fetched() -> None:
+    """A per-class freeze (`detail.data_class` present) happens exactly when the configured arm
+    DID fetch the faction this run -- only one class's own declared arm did not answer. Rendering
+    it under "could not be fetched this run" states the opposite of what happened."""
+    finding = _carried_forward_finding(
+        detail={
+            "faction_id": "f-tau-empire",
+            "faction_slug": "tau-empire",
+            "frozen_at_version": "wh40k-11e-2026-08-3",
+            "datasheets_carried": 1,
+            "data_class": "options",
+        }
+    )
+    body = render_pr_body(_report_json(findings=[finding]))
+    section = body.split("## Carried-forward factions", 1)[1].split("##", 1)[0]
+    assert "could not be fetched" not in section
+    assert "tau-empire" in section
+
+
+def test_a_faction_with_both_a_per_class_freeze_and_an_unused_bulk_declaration_reads_coherently() -> (  # noqa: E501
+    None
+):
+    """The exact scenario the kickoff names: under a bulk-arm hybrid, a declared faction is
+    ALWAYS `unused` the moment the whole export answers (FR-032, `answers_per_faction: False`)
+    even when one class's own arm still failed to fetch that faction's page and had to be
+    per-class frozen. Both findings name the same faction; the rendering must state one coherent
+    story, never "could not be fetched" beside "answered live" for the same slug."""
+    unused = _carried_forward_finding(
+        finding_code="SRC-FACTION-CARRY-FORWARD-UNUSED",
+        detail={
+            "faction_id": "f-tau-empire",
+            "faction_slug": "tau-empire",
+            "answers_per_faction": False,
+        },
+    )
+    per_class = _carried_forward_finding(
+        detail={
+            "faction_id": "f-tau-empire",
+            "faction_slug": "tau-empire",
+            "frozen_at_version": "wh40k-11e-2026-08-3",
+            "datasheets_carried": 1,
+            "data_class": "options",
+        }
+    )
+    body = render_pr_body(_report_json(findings=[unused, per_class]))
+    section = body.split("## Carried-forward factions", 1)[1].split("##", 1)[0]
+
+    # The per-class row's own PARAGRAPH -- not merely its own line, since the false heading sits
+    # one line above the bullet row rather than on it -- must not be the "could not be fetched"
+    # one.
+    paragraphs = [p for p in section.split("\n\n") if p.strip()]
+    per_class_paragraph = next(p for p in paragraphs if "tau-empire" in p and "class only" in p)
+    assert "could not be fetched" not in per_class_paragraph, (
+        "a per-class freeze must never be rendered under the whole-faction "
+        "'could not be fetched this run' heading for the same faction a bulk-arm 'unused' "
+        "finding also names"
+    )
+
+
+def test_a_whole_faction_freeze_and_a_per_class_freeze_render_under_different_headings() -> None:
+    """The two headings say different, non-contradictory things about two different facts. A
+    reader must be able to tell which faction is which without reading `detail.data_class`
+    themselves."""
+    whole = _carried_forward_finding(
+        detail={
+            "faction_id": "f-drukhari",
+            "faction_slug": "drukhari",
+            "frozen_at_version": "wh40k-11e-2026-08-3",
+            "datasheets_carried": 42,
+        }
+    )
+    per_class = _carried_forward_finding(
+        detail={
+            "faction_id": "f-tau-empire",
+            "faction_slug": "tau-empire",
+            "frozen_at_version": "wh40k-11e-2026-08-3",
+            "datasheets_carried": 1,
+            "data_class": "options",
+        }
+    )
+    body = render_pr_body(_report_json(findings=[whole, per_class]))
+    section = body.split("## Carried-forward factions", 1)[1].split("##", 1)[0]
+
+    # Each faction's row sits directly under exactly one heading paragraph, split on the blank
+    # lines `_carried_forward_section` puts between them.
+    paragraphs = [p for p in section.split("\n\n") if p.strip()]
+    drukhari_paragraph = next(p for p in paragraphs if "drukhari" in p)
+    tau_paragraph = next(p for p in paragraphs if "tau-empire" in p)
+    assert drukhari_paragraph is not tau_paragraph
+    assert "could not be fetched" in drukhari_paragraph
+    assert "could not be fetched" not in tau_paragraph
+    assert "class only" in tau_paragraph

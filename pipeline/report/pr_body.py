@@ -212,21 +212,43 @@ def _carried_forward_section(findings: Sequence[Mapping[str, Any]]) -> list[str]
     Renders **only** when at least one `SRC-FACTION-CARRIED-FORWARD` or
     `SRC-FACTION-CARRY-FORWARD-UNUSED` finding exists this run — a candidate with no declarations
     active gets no section at all, so its absence is itself the "nothing was substituted" signal.
+
+    R06a-fix2 item 2: `SRC-FACTION-CARRIED-FORWARD` covers TWO different facts (`_carried_line`'s
+    own docstring) — a whole-faction freeze (`detail.data_class` absent), where the faction truly
+    could not be fetched this run, and a per-class freeze (`detail.data_class` present), which
+    happens exactly when the configured arm DID fetch the faction and only one class's own
+    declared arm did not. Rendering both under one "could not be fetched this run" heading states
+    something false of every per-class row, and — because the same slug can simultaneously be
+    `unused` with `answers_per_faction: False` under a bulk hybrid (FR-032) — puts one faction
+    under two headings that contradict each other. Split into two headings, each true of the rows
+    under it, so a reader sees one coherent statement per faction.
     """
     carried = [f for f in findings if f.get("finding_code") == "SRC-FACTION-CARRIED-FORWARD"]
     unused = [f for f in findings if f.get("finding_code") == "SRC-FACTION-CARRY-FORWARD-UNUSED"]
     if not carried and not unused:
         return []
 
+    whole_faction = [f for f in carried if f["detail"].get("data_class") is None]
+    per_class = [f for f in carried if f["detail"].get("data_class") is not None]
+
     out = ["", "## Carried-forward factions", ""]
-    if carried:
+    if whole_faction:
         out.append(
             "**These factions could not be fetched this run and are frozen at the previous "
             "published version** (`curation/carried-forward-factions.json`):"
         )
-        out += [_carried_line(f) for f in carried]
+        out += [_carried_line(f) for f in whole_faction]
+    if per_class:
+        if whole_faction:
+            out.append("")
+        out.append(
+            "**These factions were fetched successfully this run overall — only one data "
+            "class's own declared arm could not answer for them, and just that class is frozen "
+            "at the previous published version** (`curation/detail-source-authority.json`):"
+        )
+        out += [_carried_line(f) for f in per_class]
     if unused:
-        if carried:
+        if whole_faction or per_class:
             out.append("")
         # R06a-fix item 3: `detail.answers_per_faction` (default True — an older report without
         # the field predates this rung and behaved as `html` always did) tells apart a genuine
