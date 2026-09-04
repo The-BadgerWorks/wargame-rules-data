@@ -8,6 +8,10 @@
 # every one of 6,362 live non-empty rows measured (0 contain a bracket, 0 contain a period) --
 # the bracket-only reader silently returned nothing for all of them, orphaning 50 of the 70
 # authored glossary entries the moment `csv` mode supplied this table for real.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - 009 PR32: added the bracket-free bound's
+# receipts (a comma-split prose sentence with no terminal punctuation, previously unbounded and
+# read straight through as ability keywords) and the per-item punctuation-guard receipts (one
+# stray period no longer empties every keyword on the row). All shown failing first.
 """The field reader that recovers a weapon's ability keywords, and the boundary it holds.
 
 Two properties are load-bearing and neither is obvious from the implementation:
@@ -188,3 +192,64 @@ def test_a_bracketed_field_still_ignores_anything_outside_the_brackets() -> None
     assert parse_weapon_ability_keywords(
         "Invented placeholder prose about this weapon. [Glimmerburst] More invented prose."
     ) == ("Glimmerburst",)
+
+
+# -- the bracket-free bound (009 PR32, Finding B's fix had none) ------------------------------
+#
+# The bracket-free rule used to be "no bracket, no sentence-final punctuation anywhere in the
+# field" -- which never asks whether a comma-split fragment is *plausibly a keyword*. A
+# publisher sentence with an internal comma and no terminal punctuation sailed straight through.
+# Invented here, never any real ability's wording.
+
+
+def test_a_comma_split_prose_sentence_with_no_terminal_punctuation_yields_nothing() -> None:
+    """The IP-boundary defect this round exists to close.
+
+    Against the pre-bound code this returned the sentence's two comma-split halves verbatim --
+    publisher-prose-shaped text emitted as two ability keywords. Neither half is anywhere near a
+    real keyword's shape (each is 10+ words / 50+ characters; the widest entry this repository's
+    approved glossary holds is 3 words / 35 characters), so the per-item ceiling rejects both.
+    """
+    assert (
+        parse_weapon_ability_keywords(
+            "Each time this weapon targets a unit within 6 inches, that unit suffers a "
+            "mortal wound on a roll of 4 or more"
+        )
+        == ()
+    )
+
+
+def test_a_real_bare_list_still_yields_its_keywords_under_the_new_bound() -> None:
+    assert parse_weapon_ability_keywords("Assault, Rapid Fire 1") == ("Assault", "Rapid Fire 1")
+
+
+def test_a_single_bare_token_still_yields_one_keyword_under_the_new_bound() -> None:
+    assert parse_weapon_ability_keywords("Blast") == ("Blast",)
+
+
+def test_a_bracketed_field_is_byte_for_byte_unaffected_by_the_new_bound() -> None:
+    """The ceiling and the per-item punctuation guard apply only to the bracket-free rule.
+
+    A bracketed field is trusted verbatim, exactly as before -- even a group that would fail
+    the bracket-free ceiling on word count and length passes through untouched.
+    """
+    assert parse_weapon_ability_keywords(
+        "[Each time this weapon targets a unit within 6 inches]"
+    ) == ("Each time this weapon targets a unit within 6 inches",)
+
+
+# -- the per-item punctuation guard (009 PR32, item 2) -----------------------------------------
+
+
+def test_one_trailing_period_no_longer_empties_the_whole_row() -> None:
+    """Regression case: one stray period on a bare list used to drop every keyword on the row."""
+    assert parse_weapon_ability_keywords("Assault, Rapid Fire 1.") == ("Assault", "Rapid Fire 1")
+
+
+def test_a_lone_sentence_ending_in_a_period_is_still_prose_not_a_keyword() -> None:
+    """No separator at all means the trailing period is not a list terminator to forgive."""
+    assert parse_weapon_ability_keywords("Invented placeholder prose about this weapon.") == ()
+
+
+def test_a_non_final_item_with_sentence_punctuation_is_dropped_without_emptying_the_row() -> None:
+    assert parse_weapon_ability_keywords("Beware this weapon!, Assault") == ("Assault",)
