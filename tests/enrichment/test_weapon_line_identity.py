@@ -7,6 +7,10 @@
 # `(datasheetId, line)` key. Invented weapon names and stats throughout; the shape (two rows,
 # same `line`, different `line_in_wargear`) is transcribed from the live export's own header and
 # row shape, never the publisher's content.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - 009 PR32, item 3: corrected the vacuous
+# `lines == sorted(lines)` assertion (the fixture's own `line` column is already sorted, so it
+# passes against the pre-fix verbatim-column mint too and pins nothing) to `lines == [1, 2, 3]`,
+# proven red against the pre-fix mint before landing.
 """``CuratedWeaponLine.line`` must be unique per row, not copied off the export's own column.
 
 The export's `line` numbers a wargear *choice* (the same physical weapon may print more than one
@@ -82,7 +86,11 @@ def test_the_row_order_is_preserved_in_the_minted_line_numbers() -> None:
     weapons: list[CuratedWeaponLine] = fields["weapons"]  # type: ignore[assignment]
 
     lines = [w.line for w in weapons]
-    assert lines == sorted(lines)
+    # Not `lines == sorted(lines)`: the fixture's export `line` column (1, 1, 2) is already
+    # sorted, so that assertion passes against the pre-fix code too and pins nothing (009 PR32,
+    # the sixth vacuous test found in this feature). The minted sequence for three weapon rows
+    # is exactly [1, 2, 3] -- distinct from the export's own (colliding) column values.
+    assert lines == [1, 2, 3]
 
 
 def test_a_single_profile_datasheet_is_unaffected() -> None:
