@@ -7,6 +7,11 @@
 # per-class composition receipts. Confirmed red first: `class_carried_slugs` did not exist as a
 # parameter, so every test below raised `TypeError: apply_carried_forward() got an unexpected
 # keyword argument 'class_carried_slugs'` against a stashed-out implementation.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - R06a-fix item 1: confirmed red by stashing
+# `pipeline/curate/carry_forward.py` back to the R06a `_CLASS_FIELDS` (`wargear_options` in,
+# `item_constraints` out) -- `test_options_class_carry_...` failed both assertions (costs/
+# wargear_options came back frozen at the prior values, item_constraints came back empty) before
+# the field-map fix.
 """The three outcomes `apply_carried_forward` can reach, each its own finding, plus the no-op --
 and (009 rung R06a) the fourth, per-class outcome that composes on top of any of the three.
 
@@ -17,8 +22,14 @@ Modelled on `tests/factories.py`'s existing snapshot builders rather than hand-r
 from __future__ import annotations
 
 from pipeline.curate.carry_forward import apply_carried_forward
-from pipeline.models.curated import DefaultEquipmentState, WargearOptionState
-from tests.factories import datasheet, faction, snapshot
+from pipeline.models.curated import (
+    CuratedItemConstraint,
+    CuratedWargearOption,
+    DefaultEquipmentState,
+    ItemConstraintType,
+    WargearOptionState,
+)
+from tests.factories import costs, datasheet, faction, snapshot
 
 CARRIED_SLUG = "carried-faction-slug"
 LIVE_SLUG = "live-faction-slug"
@@ -335,3 +346,95 @@ def test_per_class_composition_with_no_prior_data_blocks() -> None:
     no_prior = next(f for f in findings if f.finding_code == "SRC-FACTION-CARRY-FORWARD-NO-PRIOR")
     assert no_prior.severity.value == "blocking"
     assert no_prior.detail["data_class"] == "options"
+
+
+# -- R06a-fix item 1: the class field map, verified in both directions ---------------------------
+#
+# `wargear_options` shares `_costs()`'s producer with `costs` (`curate/assemble.py::_datasheet_for`
+# calls `_costs(blocks, ...)` ONCE and destructures both from that single call, over THIS run's own
+# points-source blocks) -- it does not belong in `_CLASS_FIELDS["options"]`, the options-ARM class,
+# and freezing it there while `costs` (never in any class map) stayed current would price the same
+# datasheet from two different points acquisitions. `item_constraints` DOES belong: it is sourced
+# from the SAME `_option_structure` call (`options.item_constraints`, the same `_OptionOutcome`
+# that fills `option_groups`/`option_choices`), and carrying the groups without it would regress
+# `loadout.item_constraints` for exactly the carried faction.
+
+
+def test_options_class_carry_leaves_costs_and_wargear_options_current_and_carries_item_constraints() -> (  # noqa: E501
+    None
+):
+    prior_option = CuratedWargearOption(
+        id="wo-mixed-vintage-unit-prior-relic",
+        group_key="relic",
+        name="Prior Relic",
+        points_delta=15,
+    )
+    current_option = CuratedWargearOption(
+        id="wo-mixed-vintage-unit-current-relic",
+        group_key="relic",
+        name="Current Relic",
+        points_delta=20,
+    )
+    prior_constraint = CuratedItemConstraint(
+        constraint_index=1,
+        constraint_type=ItemConstraintType.NOT_REPLACEABLE,
+        item_name="Prior Sigil",
+    )
+    prior_costs = costs(((1, 5, 90),))
+    current_costs = costs(((1, 5, 100),))
+
+    prior_datasheet = datasheet(MIXED_DATASHEET_ID, faction_id=MIXED_FACTION_ID).model_copy(
+        update={
+            "wargear_option_state": WargearOptionState.EXTRACTED,
+            "wargear_options": [prior_option],
+            "item_constraints": [prior_constraint],
+            "costs": prior_costs,
+        }
+    )
+    published = snapshot(
+        factions=[
+            faction(MIXED_FACTION_ID, parent=None).model_copy(
+                update={"detail_source_faction_id": MIXED_SLUG}
+            )
+        ],
+        datasheets=[prior_datasheet],
+    )
+
+    current_datasheet = datasheet(MIXED_DATASHEET_ID, faction_id=MIXED_FACTION_ID).model_copy(
+        update={
+            "wargear_option_state": None,
+            "wargear_options": [current_option],
+            "item_constraints": [],
+            "costs": current_costs,
+        }
+    )
+    candidate = snapshot(
+        factions=[
+            faction(MIXED_FACTION_ID, parent=None).model_copy(
+                update={"detail_source_faction_id": MIXED_SLUG}
+            )
+        ],
+        datasheets=[current_datasheet],
+    )
+
+    merged, _findings = apply_carried_forward(
+        candidate,
+        previous_tree=published,
+        carried_slugs=frozenset(),
+        unused_declaration_slugs=frozenset({MIXED_SLUG}),
+        previous_version_id="wh40k-11e-2026-08-3",
+        class_carried_slugs={"options": frozenset({MIXED_SLUG})},
+    )
+    (result,) = [d for d in merged.datasheets if d.datasheet_id == MIXED_DATASHEET_ID]
+
+    # `costs` and `wargear_options` are BOTH `_costs()`'s output for THIS run -- both current,
+    # never split across the prior publish and this run.
+    assert [row.points for row in result.costs] == [row.points for row in current_costs]
+    assert [o.id for o in result.wargear_options] == [current_option.id]
+    assert [o.points_delta for o in result.wargear_options] == [20]
+
+    # `item_constraints` is carried WITH the options-arm class it is sourced from.
+    assert [c.item_name for c in result.item_constraints] == ["Prior Sigil"]
+    assert result.wargear_option_state == WargearOptionState.EXTRACTED  # the rest of the class
+
+

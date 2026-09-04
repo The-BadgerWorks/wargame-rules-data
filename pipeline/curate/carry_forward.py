@@ -15,6 +15,16 @@
 # for exactly the class(es) whose own arm did not answer -- and this is the one place that
 # freezing happens: only `curate` has the previous published tree already in curated (post-parse)
 # shape to compose it from.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - R06a-fix item 1: corrected `_CLASS_FIELDS`
+# in both directions. `wargear_options` is NOT options-arm-sourced -- traced to
+# `curate/assemble.py::_costs()`, which returns it and `costs` from ONE call over the SAME
+# points-source blocks for THIS run (also stated on `CuratedDatasheet.wargear_options`'s own
+# field docstring: "same producer (_costs())" as `costs`). Freezing `wargear_options` alone while
+# `costs` stayed current split one atomic computation across two points acquisitions -- a real
+# price disagreement, not merely a stale-looking one. `item_constraints` IS options-arm-sourced
+# (`_option_structure`'s own `_OptionOutcome`, same call that fills `option_groups`/
+# `option_choices`) and was missing, which silently dropped a carried faction's restrictions
+# while keeping its option groups -- the FR-025 regression this splice exists to prevent.
 """Splice declared, unreachable-this-run factions in from the previous published tree.
 
 Three outcomes, one per declared or newly-carried slug, and each is a `Finding` — never silent
@@ -66,13 +76,25 @@ from pipeline.report.catalogue import build_finding
 #: the pipeline -- the same discipline `acquire/detail_source.py::_EQUIPMENT_MARKER` already
 #: applies to its own copy of a pattern `parse/wahapedia_html_dom.py` also defines.
 #:
-#: `options` carries `wargear_options` alongside the three raw fields it is derived from
-#: (`option_groups`, `option_choices`, `wargear_option_state`): that is the PRICED projection
-#: (`curate/assemble.py`'s own `_costs()`), and composing the raw fields from the prior tree
-#: while leaving this run's own (empty-source) pricing in place would ship a datasheet whose own
-#: two option views disagree with each other.
+#: `options` carries the three fields `curate/assemble.py::_option_structure` (the OPTIONS-arm
+#: extraction) actually produces in its `_OptionOutcome`: `option_groups`, `option_choices`,
+#: `wargear_option_state` -- and, alongside them, `item_constraints`, sourced from that SAME call
+#: (`options.item_constraints` at the `_datasheet_for` call site), not a fourth raw field bolted
+#: on. Carrying the groups without the restrictions the source stated against their items would
+#: regress `loadout.item_constraints` for exactly the carried faction (the FR-025 regression this
+#: splice exists to prevent).
+#:
+#: `wargear_options` is deliberately NOT here. It is the PRICED projection, but it is
+#: POINTS-source-built: `_datasheet_for` calls `_costs(blocks, ...)` ONCE and that one call
+#: returns both `costs` and `wargear_options` together, from the same points-source blocks, for
+#: THIS run (`CuratedDatasheet.wargear_options`'s own field docstring: "same producer (_costs())"
+#: as `costs`). `costs` is never in `_CLASS_FIELDS` -- the options-arm hybrid split has no
+#: authority over it -- so freezing `wargear_options` from the prior publish while `costs` stayed
+#: this run's own would split one atomic computation across two different points acquisitions:
+#: two priced views of one datasheet disagreeing, and a stale wargear upgrade price shown beside
+#: a current base cost.
 _CLASS_FIELDS: Final[Mapping[str, tuple[str, ...]]] = {
-    "options": ("option_groups", "option_choices", "wargear_option_state", "wargear_options"),
+    "options": ("option_groups", "option_choices", "wargear_option_state", "item_constraints"),
     "default_equipment": ("equipment_groups", "default_equipment_state"),
 }
 
