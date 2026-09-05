@@ -47,6 +47,12 @@
 # Wiring is deferred to a future rung, decided once a caller is genuinely consuming the detail
 # source (see `docs/follow-ups.md` item 30). The mechanism itself (`acquire_wahapedia`'s
 # `state_path` opt-in) is untouched here and stays proven in isolation.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - 009 rung R06a-fix3: reverted this call
+# site's two per-class wires -- `apply_detail_source_authority`'s second return value
+# (`class_carried`) and `apply_carried_forward`'s `class_carried_slugs=` argument -- along with
+# the per-class composition they fed, withdrawn in `pipeline/curate/carry_forward.py` (see that
+# module's own header and `docs/follow-ups.md` item 37). `unused_answers_per_faction=` stays: it
+# is the rung's actual, kept purpose, unrelated to per-class composition.
 """``rules-pipeline`` — the operator-facing surface.
 
 The same CLI runs locally against fixtures and in CI against the real sources: **there is no
@@ -897,6 +903,7 @@ def run_build(  # noqa: PLR0913 - the stage boundary is the argument list
         carried_slugs=carry_forward.carried,
         unused_declaration_slugs=carry_forward.unused,
         previous_version_id=(prior.rules_version_id if prior else None) or "(none)",
+        unused_answers_per_faction=carry_forward.answers_per_faction,
     )
     findings.extend(carry_forward_findings)
 

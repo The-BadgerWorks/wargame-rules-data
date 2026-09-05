@@ -10,10 +10,15 @@
 # release `reported only` state -- the fixture and its assertions moved to reflect that, and an
 # unratcheted `item_constraints` row was added so the "which figure can refuse" distinction still
 # has an unratcheted example to point at.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - R06a-fix item 3: added receipts for the
+# bulk-arm-vs-per-faction `unused` rendering split. Confirmed red against the pre-fix
+# `_carried_forward_section`, which rendered "may be retired" for every `unused` finding
+# regardless of `detail` (see each test's own docstring).
 """Tests for `pipeline.report.pr_body` — the PR body a candidate opens with (FR-037)."""
 
 from __future__ import annotations
 
+from pipeline.curate.carry_forward import apply_carried_forward
 from pipeline.report.pr_body import READING_ORDER, render_pr_body
 from pipeline.report.validation import SUB_REPORT_FILES, report_json
 from tests import factories
@@ -243,6 +248,129 @@ def test_an_unused_declaration_is_named_separately_from_a_carried_one() -> None:
     section = body.split("## Carried-forward factions", 1)[1].split("##", 1)[0]
     assert "not needed this run" in section
     assert "tau-empire" in section
+
+
+# -- R06a-fix item 3: a bulk-arm `unused` finding must not advise retirement ---------------------
+
+
+def test_an_html_arm_unused_declaration_still_advises_retirement() -> None:
+    """`answers_per_faction: True` (or absent, for an older report) is a genuine per-faction
+    fetch answering live -- the existing "may be retired" advice is correct and must stay."""
+    unused = _carried_forward_finding(
+        finding_code="SRC-FACTION-CARRY-FORWARD-UNUSED",
+        detail={
+            "faction_id": "f-tau-empire",
+            "faction_slug": "tau-empire",
+            "answers_per_faction": True,
+        },
+    )
+    body = render_pr_body(_report_json(findings=[unused]))
+    section = body.split("## Carried-forward factions", 1)[1].split("##", 1)[0]
+    assert "may be retired" in section
+    assert "tau-empire" in section
+
+
+def test_a_bulk_arm_unused_declaration_never_advises_retirement() -> None:
+    """R06a-fix item 3: "this arm cannot answer per-faction at all" and "this faction answered
+    live, so retire the declaration" are opposite facts. Under a bulk arm (`answers_per_faction:
+    False`), `unused` is not evidence any one faction's own page is reachable -- acting on
+    retirement advice here would delete the declaration that stops the per-faction sweep
+    hard-failing once the arm returns to it. Confirmed red against `render_pr_body` before this
+    fix: the ONLY branch was the "may be retired" text, rendered for every `unused` finding
+    regardless of `detail`."""
+    unused = _carried_forward_finding(
+        finding_code="SRC-FACTION-CARRY-FORWARD-UNUSED",
+        detail={
+            "faction_id": "f-tau-empire",
+            "faction_slug": "tau-empire",
+            "answers_per_faction": False,
+        },
+    )
+    body = render_pr_body(_report_json(findings=[unused]))
+    section = body.split("## Carried-forward factions", 1)[1].split("##", 1)[0]
+    assert "may be retired" not in section
+    assert "do not retire" in section.lower()
+    assert "tau-empire" in section
+
+
+def test_html_and_bulk_unused_declarations_are_rendered_separately_in_one_report() -> None:
+    """A run could plausibly report both in principle (though not today, since one run has one
+    configured arm) -- if it ever does, each slug's own advice must follow its own evidence."""
+    per_faction = _carried_forward_finding(
+        finding_code="SRC-FACTION-CARRY-FORWARD-UNUSED",
+        detail={
+            "faction_id": "f-tau-empire",
+            "faction_slug": "tau-empire",
+            "answers_per_faction": True,
+        },
+    )
+    bulk = _carried_forward_finding(
+        finding_code="SRC-FACTION-CARRY-FORWARD-UNUSED",
+        detail={
+            "faction_id": "f-drukhari",
+            "faction_slug": "drukhari",
+            "answers_per_faction": False,
+        },
+    )
+    body = render_pr_body(_report_json(findings=[per_faction, bulk]))
+    section = body.split("## Carried-forward factions", 1)[1].split("##", 1)[0]
+    retire_line = next(line for line in section.splitlines() if "tau-empire" in line)
+    keep_line = next(line for line in section.splitlines() if "drukhari" in line)
+    assert retire_line != keep_line
+
+
+# -- R06a-fix4: an omitted `unused_answers_per_faction` argument must not silently advise --------
+
+
+def test_omitting_answers_per_faction_renders_no_retirement_advice() -> None:
+    """The whole exposure R06a-fix4 closes: `apply_carried_forward`'s own default for
+    `unused_answers_per_faction` -- never a value any caller chose -- must not read, once
+    rendered, as "this arm answers per faction, so retire the declaration". Wired through the
+    real `Finding` `apply_carried_forward` builds and the real renderer, not just the raw
+    boolean, because the exposure is what a reviewer would actually see in a PR body.
+
+    Confirmed red before the fix: with the old `True` default this rendered "may be retired" --
+    unearned advice nobody established, for a call that never mentioned `answers_per_faction` at
+    all.
+    """
+    candidate = factories.snapshot(
+        factions=[factories.faction("f-live-faction", parent=None)],
+        datasheets=[factories.datasheet("ds-live-unit", faction_id="f-live-faction")],
+    )
+
+    _merged, findings = apply_carried_forward(
+        candidate,
+        previous_tree=None,
+        carried_slugs=frozenset(),
+        unused_declaration_slugs=frozenset({"omitted-arg-slug"}),
+        previous_version_id="(none)",
+        # `unused_answers_per_faction` deliberately omitted -- that omission is the exposure.
+    )
+    (finding,) = findings
+    unused = {
+        "finding_code": finding.finding_code,
+        "severity": finding.severity.value,
+        "detail": dict(finding.detail),
+    }
+
+    body = render_pr_body(_report_json(findings=[unused]))
+    section = body.split("## Carried-forward factions", 1)[1].split("##", 1)[0]
+    assert "may be retired" not in section
+    assert "do not retire" in section.lower()
+    assert "omitted-arg-slug" in section
+
+
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - 009 rung R06a-fix3: removed the three
+# per-class-vs-whole-faction rendering receipts R06a-fix item 4 and R06a-fix2 item 2 added --
+# `SRC-FACTION-CARRIED-FORWARD` can no longer carry `detail.data_class` at all, since the
+# composition that set it was withdrawn (`pipeline/curate/carry_forward.py`'s own header comment
+# and `docs/follow-ups.md` item 37). This one whole-faction receipt, predating both fixes, stays.
+
+
+def test_a_whole_faction_freeze_reads_as_the_whole_datasheet() -> None:
+    body = render_pr_body(_report_json(findings=[_carried_forward_finding()]))
+    section = body.split("## Carried-forward factions", 1)[1].split("##", 1)[0]
+    assert "class only" not in section
 
 
 def test_no_carried_forward_section_when_nothing_was_substituted() -> None:

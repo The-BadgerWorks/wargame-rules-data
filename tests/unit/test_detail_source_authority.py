@@ -5,6 +5,11 @@
 # their floor (options, default_equipment) back to the html arm while every other class stays on
 # the build's configured arm -- expressed entirely as data resolved in `pipeline/acquire/`, never
 # as a mode branch below it (rule 4).
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - 009 rung R06a-fix3: reverted every call
+# site back to the function's single-value return, and removed the per-class carry-forward
+# split's own tests added by T096/FR-033 -- that split, and the per-class composition it fed in
+# `pipeline/curate/carry_forward.py`, was withdrawn (see that module's own header comment and
+# `docs/follow-ups.md` item 37).
 """``apply_detail_source_authority`` -- the hybrid, expressed as which arm populates which table.
 
 Every acquisition here is stubbed (no network, no fixture tree): the function under test only
@@ -24,6 +29,7 @@ from typing import Final
 import pytest
 
 from pipeline.acquire.detail_source import apply_detail_source_authority
+from pipeline.acquire.fixtures import FixturePayload
 from pipeline.config import DetailAcquisitionMode, load_config
 from pipeline.models.authored import DetailSourceAuthorityEntry
 from pipeline.models.findings import Finding
@@ -213,9 +219,9 @@ def test_retrieved_at_and_workspace_reach_the_supplemental_acquirer(
     received: dict[str, object] = {}
 
     def _acquirer(mode: DetailAcquisitionMode) -> object:
-        def _call(config: object, **kwargs: object) -> tuple[None, list[object]]:
+        def _call(config: object, **kwargs: object) -> tuple[None, list[FixturePayload]]:
             received.update(kwargs)
-            return None, [object()]
+            return None, [FixturePayload(name="an-unrelated-page", text="")]
 
         return _call
 

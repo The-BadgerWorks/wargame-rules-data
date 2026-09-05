@@ -3,6 +3,11 @@
 # `pipeline.curate.carry_forward.apply_carried_forward` before any caller in `pipeline/cli.py`
 # depended on it, on the same terms every other 008 production was TDD'd: confirmed these fail
 # against a stashed-out `apply_carried_forward` (ImportError), then pass once it exists.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - 009 rung R06a-fix3: removed the per-class
+# composition receipts added by T096/FR-033 and corrected across R06a-fix and R06a-fix2 -- the
+# feature they pinned was withdrawn (`pipeline/curate/carry_forward.py`'s own header comment and
+# `docs/follow-ups.md` item 37 record why). The six whole-faction tests below, predating T096,
+# are untouched.
 """The three outcomes `apply_carried_forward` can reach, each its own finding, plus the no-op.
 
 Modelled on `tests/factories.py`'s existing snapshot builders rather than hand-rolling minimal

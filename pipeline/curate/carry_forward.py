@@ -6,10 +6,30 @@
 # comparison runs -- so a carried faction's datasheets simply look "present, unchanged" to every
 # coverage figure, which is what makes FR-025's "no figure regresses because of a carry-forward"
 # true structurally rather than by a special case in pipeline/validate/coverage.py.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - 009 rung R06a-fix3: reverted the per-class
+# composition this module carried (009 T096, FR-033, added then corrected across R06a-fix and
+# R06a-fix2). Withdrawn, not merely rolled back to an earlier bug: three fix rounds each closed
+# one defect and exposed the next, and all four shared one root -- freezing a SUBSET of a
+# datasheet's fields breaks invariants that only hold when the whole datasheet moves together
+# (link passes assume a fresh parse; `curation/option-overrides.json` assumes a post-link merge
+# and exists precisely because a name-join overrules it; priced projections assume same-run
+# costs; and the splice kept reintroducing silent paths). Whole-faction freeze, below, is immune
+# to all four because it moves ordinals, overrides, prices, and referents together as one unit.
+# Recorded for whoever revisits T096 at R07 (once a class sits on the html arm in production) in
+# `docs/follow-ups.md` item 37; item 36 there records the specific defect class this withdrawal
+# leaves real but undemonstrated. What stays: `resolve_carried_forward` reporting a declared slug
+# as `unused` rather than dropping it under any arm but `html`, and the arm-aware `unused`
+# rendering in `pipeline/report/pr_body.py` -- the rung's actual purpose, untouched by this
+# revert.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - 009 rung R06a-fix4: flipped
+# `unused_answers_per_faction`'s default from `True` to `False`. `True` is the claim "this arm
+# answers per faction, so a declaration that went unused can be retired" -- defaulting to it meant
+# an omitted keyword argument silently produced retirement advice nobody established. `cli.py`,
+# the one production caller, already passed the real `CarriedForwardOutcome.answers_per_faction`
+# explicitly and needed no change.
 """Splice declared, unreachable-this-run factions in from the previous published tree.
 
-Three outcomes, one per declared or newly-carried slug, and each is a `Finding` — never silent
-(FR-025):
+Three outcomes, one per declared slug, and each is a `Finding` — never silent (FR-025):
 
 * **Carried** — the faction could not be fetched this run and was declared; its datasheets are
   copied from the previous published tree unchanged. `SRC-FACTION-CARRIED-FORWARD`, advisory.
@@ -43,12 +63,28 @@ def apply_carried_forward(
     carried_slugs: frozenset[str],
     unused_declaration_slugs: frozenset[str],
     previous_version_id: str,
+    unused_answers_per_faction: bool = False,
 ) -> tuple[CuratedSnapshot, tuple[Finding, ...]]:
     """Return ``snapshot`` with every carried faction's datasheets spliced in, plus findings.
 
-    A no-op, returning ``snapshot`` unchanged, when neither set names anything — the overwhelming
-    majority of runs, including every run before this feature and every run once the source
-    recovers, so a declaration-free build pays nothing for this function existing.
+    A no-op, returning ``snapshot`` unchanged, when neither ``carried_slugs`` nor
+    ``unused_declaration_slugs`` names anything — the overwhelming majority of runs, including
+    every run before this feature and every run once the source recovers, so a declaration-free
+    build pays nothing for this function existing.
+
+    ``unused_answers_per_faction`` (R06a-fix item 3): whether THIS run's configured detail arm can
+    even answer "did this one faction's page come back" at all —
+    :func:`pipeline.acquire.detail_source.resolve_carried_forward`'s own
+    ``CarriedForwardOutcome.answers_per_faction``, true only under ``html``. Under a bulk arm
+    (``csv``) a declared slug is unconditionally reported ``unused`` the moment the whole export
+    answers (FR-032), which is a true but much weaker fact than "this faction's own page was
+    reachable" — carried into the finding's ``detail`` so a reader (`pr_body.py`) does not confuse
+    the two and advise retiring a declaration a bulk arm was never in a position to test.
+
+    Defaults to ``False`` (R06a-fix4): ``True`` is the claim that this arm answers per faction, so
+    an *omitted* argument must never assert it for free. A caller that has actually established
+    the arm answers per faction — today, only `cli.py`, from the real
+    ``CarriedForwardOutcome.answers_per_faction`` — passes ``True`` explicitly.
     """
     if not carried_slugs and not unused_declaration_slugs:
         return snapshot, ()
@@ -105,7 +141,11 @@ def apply_carried_forward(
             build_finding(
                 "SRC-FACTION-CARRY-FORWARD-UNUSED",
                 entity_refs=(f"faction-slug:{slug}",),
-                detail={"faction_id": faction_id, "faction_slug": slug},
+                detail={
+                    "faction_id": faction_id,
+                    "faction_slug": slug,
+                    "answers_per_faction": unused_answers_per_faction,
+                },
             )
         )
 

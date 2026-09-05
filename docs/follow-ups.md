@@ -94,6 +94,14 @@
      exist (tests/unit/test_state_path_inert.py proves no caller passes state_path a real value),
      so none is fixed here -- recording them is the job, exactly as item 30 already does for the
      coverage-guard precondition. -->
+<!-- AI-Assisted: Claude Code (model: claude-sonnet-5) - 009 rung R06a-fix3: added item 37,
+     recording that T096's per-class carry-forward composition (added R06a, corrected across
+     R06a-fix and R06a-fix2) was withdrawn -- three fix rounds each closed one defect and exposed
+     the next, all four sharing the same root (freezing a subset of a datasheet's fields breaks
+     invariants that only hold when the whole datasheet moves together). Reworded item 36's own
+     "Why left" framing to note it now describes an exposure of a withdrawn mechanism rather than
+     an open defect in a live one, without deleting it -- item 37 points back to it as the fourth
+     defect class found. -->
 # Follow-ups
 
 Open items surfaced during implementation that are deliberately **not** fixed as part of the work
@@ -1396,3 +1404,124 @@ short-circuited caller *should* find in `work/` (nothing written at all, since n
 previous run's own files, carried forward the way `content_fingerprint` already is; or the
 single-file probe as today, documented rather than silent) is a design question for whichever rung
 wires a caller to the short-circuit, not something to guess at ahead of that caller existing.
+
+## 35. `carry_forward.py`'s `slug_to_faction_id` collapses a `detail_source_faction_id` shared by two factions (009 rung R06a-fix, item found while fixing the class field map)
+
+**Pre-existing, repeated by the per-class composition loop R06a added.** Not caused by this rung
+and not fixed by it.
+
+**Reproduction.** `apply_carried_forward` builds `slug_to_faction_id` as a plain dict
+comprehension: `{faction.detail_source_faction_id: faction.faction_id for faction in
+previous_tree.factions}` (008 FR-024, unchanged shape). `data/wh40k-11e/factions.json` already has
+one `detail_source_faction_id` shared by two factions: `adeptus-titanicus` maps to both
+`f-chaos-titan-legions` and `f-titan-legions` (checked directly against the tracked file; grepping
+the same field across every faction in the tree turns up no other collision, so two is the current
+maximum). Whichever of the two factions iterates last in `previous_tree.factions` silently wins the
+dict slot; the other is unreachable through this map. A declared carry-forward or per-class-carry
+slug of `adeptus-titanicus` would therefore always resolve to the SAME one of the two factions,
+never the other, regardless of which one the run actually needed to carry.
+
+**Why left.** Out of scope for R06a-fix by the kickoff's own instruction (`R06a-fix-class-fields-
+and-silence.md`, "record ... rather than fixing it here; it predates this rung"). No declared
+carry-forward or class-carry slug in `curation/carried-forward-factions.json` or
+`curation/detail-source-authority.json` currently names `adeptus-titanicus`, so the collision is
+unreached in practice today; fixing `slug_to_faction_id` to carry a set of faction ids per slug (or
+to key on `(slug, faction_id)` once a caller needs to disambiguate) is real design work belonging
+to whichever rung first declares a carry-forward or class-carry entry for a shared-slug faction.
+
+## 36. `option_choices[].priced_option_id` can point at a `wargear_options` id from the previous publish after a per-class "options" carry (009 rung R06a-fix2, item found while fixing the frozen-ordinal defect class, not fixed)
+
+**Withdrawn along with per-class composition itself (009 rung R06a-fix3) -- kept here, unfixed,
+as a record of the exposure class for whoever revisits T096 at R07.** The per-class splice this
+item describes no longer exists in `pipeline/curate/carry_forward.py` on this branch, so the
+reproduction below no longer reproduces today. It is left standing rather than deleted because
+item 37 below withdrew per-class composition precisely *because* it kept exposing invariants like
+this one that only hold when a whole datasheet moves together as a unit -- `priced_option_id` was
+the fourth such invariant found (weapon/composition ordinals, three of them, were the other
+three, fixed in R06a-fix2 item 1), and it is the one this project never got around to fixing
+before deciding the mechanism itself was the wrong shape. Whoever reconsiders per-class
+composition at R07, once a class sits on the html arm in production, starts here rather than
+rediscovering it.
+
+**Same defect class as R06a-fix2 item 1, one field wider than that kickoff named, and unlike all
+four of that item's fields, nothing anywhere checks it.**
+
+**Reproduction.** The per-class splice in `pipeline/curate/carry_forward.py` freezes the whole
+`option_choices` field from the previous publish onto a datasheet whose `wargear_options` is THIS
+run's own -- `wargear_options` is deliberately never in `_CLASS_FIELDS` (R06a-fix item 1: it
+shares `_costs()`'s single producer call with `costs`, which is never frozen either). A frozen
+`CuratedOptionChoice.priced_option_id` is a `-> CuratedWargearOption.id` reference
+(`pipeline/models/curated.py:511`) set by `reconcile/options_link.py::project_priced_options`
+against the PRIOR run's own priced rows. After the splice, that id is checked against nothing:
+`pipeline/validate/refs.py::check_intra_snapshot_references` never reads `option_choices` at all,
+and `pipeline/build/bundle_emit.py:672` emits `choice.priced_option_id` into the published bundle
+unchanged. A consumer resolving `pricedOptionId` against the published `wargear_options` table
+would find no row, or -- if this run's own `_costs()` id scheme happens to reuse the same id for
+an unrelated priced row -- silently attach the wrong price and count. `points_delta`, adopted onto
+the choice by the same prior-run join, is frozen alongside it and carries the identical exposure.
+
+**Why left.** Out of scope for R06a-fix2: the kickoff named exactly four fields --
+`item_constraints[].weapon_line`, `option_choices[].{grants,replaces}_weapon_line`,
+`equipment_groups[].composition_line`, and `equipment_groups[].items[].weapon_line` -- all four
+ordinals into `weapons`/`composition`, neither of which is ever frozen. `priced_option_id` is a
+different reference shape (a snapshot-wide id, not a datasheet-local ordinal) into a different
+never-frozen field (`wargear_options`, not `weapons`/`composition`), and fixing it needs its own
+re-link against THIS run's own priced rows via `reconcile/options_link.py::project_priced_options`
+-- reusable the same way `link_choice_items`/`link_equipment` were reused for item 1, but a
+distinct call this kickoff never asked for and a distinct receipt (there being no existing check
+to prove wrong first, the same gap R06a-fix2 item 1 flagged for the equipment side). Real design
+work belonging to whichever rung next touches per-class options carry or adds the missing
+intra-snapshot check this item and item 1's equipment-side gap both point at.
+
+## 37. 009 rung R06a's T096 per-class composition was built, measured across three fix rounds, and withdrawn (009 rung R06a-fix3)
+
+**What was withdrawn.** `pipeline/curate/carry_forward.py`'s per-class composition -- the
+mechanism that froze only a hybrid-declared class's own fields (`option_groups`,
+`option_choices`, `wargear_option_state`, `item_constraints` for `options`; `equipment_groups`,
+`default_equipment_state` for `default_equipment`) onto a datasheet whose OTHER classes answered
+live this run, when that class's own declared arm failed to fetch the faction's page. Removed
+with it: `_CLASS_FIELDS`, `_reresolve_options_ordinals`, `_reresolve_equipment_ordinals`, and
+`apply_carried_forward`'s `class_carried_slugs` parameter (all in `carry_forward.py`); and
+`pipeline/acquire/detail_source.py::apply_detail_source_authority`'s second return value
+(`data_class -> declared slugs that class's own arm did not answer`), which existed solely to
+feed `class_carried_slugs`. `pipeline/report/pr_body.py`'s per-class rendering (the
+`detail.data_class` branch in `_carried_line`, and the whole-faction/per-class heading split in
+`_carried_forward_section`) went with it, since `SRC-FACTION-CARRIED-FORWARD` can no longer carry
+`data_class` at all.
+
+**Why.** Three fix rounds (R06a-fix, R06a-fix2, and this one, R06a-fix3) each closed one defect
+and exposed the next, and all four shared one root: **freezing a SUBSET of a datasheet's fields
+breaks invariants that only hold when the whole datasheet moves together.**
+
+- Link passes (`reconcile/options_link.py`, `reconcile/equipment_link.py`) assume a fresh parse --
+  frozen ordinals pointed into THIS run's own weapons/composition, sometimes at the wrong current
+  row, sometimes at nothing (fixed R06a-fix2 item 1, itself needing a full re-resolution pass
+  rather than a smaller patch).
+- Overrides assume a post-link merge -- re-resolving by name overruled
+  `curation/option-overrides.json`, which `assemble.py` deliberately excludes from
+  `link_choice_items` because a name match would overrule the human who wrote the override; an
+  override exists *because* the name join fails.
+- Priced projections assume same-run costs -- frozen `option_choices[].points_delta` /
+  `priced_option_id` shipped a stale upgrade price beside a current base cost (item 36 above:
+  found, documented, never fixed).
+- The splice kept reintroducing silent paths -- most recently a per-datasheet
+  `prior_datasheet is None: continue` publishing "this unit has no options" for a datasheet that
+  simply had no prior (fixed R06a-fix item 2, but the pattern of a new silent path recurred
+  again after that fix).
+
+Whole-faction freeze (008 FR-024/FR-025, untouched by this withdrawal) is immune to all four,
+because it moves ordinals, overrides, prices, and referents together as one unit -- there is no
+"subset" for an invariant spanning fields to fall between.
+
+**The tradeoff, stated honestly.** A faction whose configured (html) arm fails now loses its
+csv-sourced classes too, whole-faction, rather than getting a smaller per-class freeze -- judged
+better than shipping stale prices and trampled curator overrides.
+
+**Why left for T096/R07.** None of this is reachable until the arm flip (R07) puts a class on
+the html arm in production, so the requirement goes back to the Product Owner to decide there,
+against real measurement, rather than being rebuilt speculatively now. What stays, because it was
+the rung's actual point and never the defective part: `resolve_carried_forward` reporting a
+non-empty declared set as `unused` rather than dropping it under any arm but `html`
+(`CarriedForwardOutcome.answers_per_faction`), and the arm-aware `unused` rendering in
+`pr_body.py` that keeps a bulk arm from being read as advising retirement of a declaration it was
+never in a position to test.
