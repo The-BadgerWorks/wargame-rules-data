@@ -18,6 +18,7 @@
 
 from __future__ import annotations
 
+from pipeline.curate.carry_forward import apply_carried_forward
 from pipeline.report.pr_body import READING_ORDER, render_pr_body
 from pipeline.report.validation import SUB_REPORT_FILES, report_json
 from tests import factories
@@ -316,6 +317,47 @@ def test_html_and_bulk_unused_declarations_are_rendered_separately_in_one_report
     retire_line = next(line for line in section.splitlines() if "tau-empire" in line)
     keep_line = next(line for line in section.splitlines() if "drukhari" in line)
     assert retire_line != keep_line
+
+
+# -- R06a-fix4: an omitted `unused_answers_per_faction` argument must not silently advise --------
+
+
+def test_omitting_answers_per_faction_renders_no_retirement_advice() -> None:
+    """The whole exposure R06a-fix4 closes: `apply_carried_forward`'s own default for
+    `unused_answers_per_faction` -- never a value any caller chose -- must not read, once
+    rendered, as "this arm answers per faction, so retire the declaration". Wired through the
+    real `Finding` `apply_carried_forward` builds and the real renderer, not just the raw
+    boolean, because the exposure is what a reviewer would actually see in a PR body.
+
+    Confirmed red before the fix: with the old `True` default this rendered "may be retired" --
+    unearned advice nobody established, for a call that never mentioned `answers_per_faction` at
+    all.
+    """
+    candidate = factories.snapshot(
+        factions=[factories.faction("f-live-faction", parent=None)],
+        datasheets=[factories.datasheet("ds-live-unit", faction_id="f-live-faction")],
+    )
+
+    _merged, findings = apply_carried_forward(
+        candidate,
+        previous_tree=None,
+        carried_slugs=frozenset(),
+        unused_declaration_slugs=frozenset({"omitted-arg-slug"}),
+        previous_version_id="(none)",
+        # `unused_answers_per_faction` deliberately omitted -- that omission is the exposure.
+    )
+    (finding,) = findings
+    unused = {
+        "finding_code": finding.finding_code,
+        "severity": finding.severity.value,
+        "detail": dict(finding.detail),
+    }
+
+    body = render_pr_body(_report_json(findings=[unused]))
+    section = body.split("## Carried-forward factions", 1)[1].split("##", 1)[0]
+    assert "may be retired" not in section
+    assert "do not retire" in section.lower()
+    assert "omitted-arg-slug" in section
 
 
 # AI-Assisted: Claude Code (model: claude-sonnet-5) - 009 rung R06a-fix3: removed the three
