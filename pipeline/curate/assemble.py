@@ -56,6 +56,10 @@
 # through `Abilities.csv` (010 R6): the binding rows carry an empty `name` and a populated
 # `ability_id`, so the key loop bound 0 `core:` keys against the published tree's 2 422, and
 # an unresolvable binding is now DQ-MALFORMED-ROW rather than a silent `continue`.
+# AI-Assisted: Claude Code (model: claude-opus-5) - 010 R6 review round 1: the name index is
+# built once per build and threaded to the assembly rather than memoised in a module global,
+# so no `Abilities.csv` read result (and so no publisher text) outlives the build block, and
+# the index is returned read-only because every datasheet in the build shares it.
 """Build one :class:`~pipeline.models.curated.CuratedSnapshot` from everything upstream.
 
 This is where the two sources stop being two sources. The **points** source is authoritative for
@@ -83,6 +87,7 @@ import re
 from collections import Counter
 from collections.abc import Mapping, Sequence
 from dataclasses import dataclass, field
+from types import MappingProxyType
 from typing import Final
 
 from pipeline.curate.authored import AuthoredContent
@@ -517,6 +522,8 @@ def _detail_datasheet_fields(
     detail_id: str,
     detail: Mapping[str, CsvReadResult],
     legends_sources: frozenset[str] = frozenset(),
+    *,
+    ability_names: Mapping[str, str] = MappingProxyType({}),
 ) -> tuple[dict[str, object], list[Finding]]:
     """Everything the detail source contributes to one datasheet."""
     findings: list[Finding] = []
@@ -667,8 +674,9 @@ def _detail_datasheet_fields(
     # A Core or Faction binding states no name of its own — the export publishes it once, in
     # `Abilities.csv`, and the binding joins to it by `ability_id` (010 R6: 2 015 Core and 1 437
     # of 1 442 Faction rows live). Reading the binding's own column alone bound zero `core:` keys
-    # against the published tree's 2 422, and said nothing about it.
-    ability_names = ability_name_index(detail)
+    # against the published tree's 2 422, and said nothing about it. The index is built once per
+    # build by the caller and passed in — not rebuilt here from this call's own `detail`, which
+    # would let a filtered mapping desynchronise a key from its digest.
     ability_keys: list[str] = []
     for binding in detail["Datasheets_abilities.csv"].grouped_by("datasheet_id").get(detail_id, []):
         name = resolve_binding_name(binding.fields, names=ability_names)
@@ -1485,6 +1493,10 @@ def assemble(  # noqa: PLR0913 - the stage genuinely needs every upstream input
     scopes = {scope.entry.mfm_slug: scope for scope in factions_outcome.scopes}
 
     legends_sources = _legends_source_ids(detail)
+    # Built once, here, and passed down: the `Abilities.csv` rows it reads carry the publisher's
+    # text, which goes out of scope with `work/` at the end of the build, so nothing may hold
+    # that read result alive past this call (010 R6 review, finding 1).
+    ability_names = ability_name_index(detail)
     detail_faction_keywords = _faction_keywords_by_datasheet(detail)
     source_detachment_rules = _source_detachment_rules(detail)
     findings.extend(
@@ -1591,6 +1603,7 @@ def assemble(  # noqa: PLR0913 - the stage genuinely needs every upstream input
                 points_acquisition=points_acquisition,
                 provenance=provenance if match.wahapedia_datasheet_id else points_only_provenance,
                 legends_sources=legends_sources,
+                ability_names=ability_names,
             )
             findings.extend(datasheet_findings)
             datasheets.append(datasheet)
@@ -1622,6 +1635,7 @@ def assemble(  # noqa: PLR0913 - the stage genuinely needs every upstream input
             registry=registry,
             detail_acquisition=detail_acquisition,
             legends_sources=legends_sources,
+            ability_names=ability_names,
         )
         findings.extend(unverified_findings)
         if unverified is not None:
@@ -1856,6 +1870,7 @@ def _datasheet_for(  # noqa: PLR0913 - one datasheet needs both sources and the 
     points_acquisition: SourceAcquisition,
     provenance: EntityProvenance,
     legends_sources: frozenset[str],
+    ability_names: Mapping[str, str],
 ) -> tuple[CuratedDatasheet, list[Finding]]:
     findings: list[Finding] = []
     costs, wargear_options, cost_findings = _costs(
@@ -1869,7 +1884,7 @@ def _datasheet_for(  # noqa: PLR0913 - one datasheet needs both sources and the 
     equipment = _EquipmentOutcome()
     if match.wahapedia_datasheet_id:
         fields, detail_findings = _detail_datasheet_fields(
-            match.wahapedia_datasheet_id, detail, legends_sources
+            match.wahapedia_datasheet_id, detail, legends_sources, ability_names=ability_names
         )
         findings.extend(detail_findings)
 
@@ -2029,6 +2044,7 @@ def _detail_only_datasheet(  # noqa: PLR0913 - one datasheet needs both trees an
     registry: IdRegistry,
     detail_acquisition: SourceAcquisition,
     legends_sources: frozenset[str],
+    ability_names: Mapping[str, str],
 ) -> tuple[CuratedDatasheet | None, list[Finding]]:
     """A datasheet the points authority did not price this release (FR-026, FR-035).
 
@@ -2087,7 +2103,9 @@ def _detail_only_datasheet(  # noqa: PLR0913 - one datasheet needs both trees an
         datasheet_key(faction_id, normalize_name(display_name), is_legends=is_legends),
         display_name,
     )
-    fields, detail_findings = _detail_datasheet_fields(detail_id, detail, legends_sources)
+    fields, detail_findings = _detail_datasheet_fields(
+        detail_id, detail, legends_sources, ability_names=ability_names
+    )
     findings.extend(detail_findings)
 
     models: Sequence[CuratedModelLine] = fields.get("models", ())  # type: ignore[assignment]

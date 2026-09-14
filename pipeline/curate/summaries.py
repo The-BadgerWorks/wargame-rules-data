@@ -17,6 +17,10 @@
 # through `Abilities.csv` (010 R6): `ability_name_index` and `resolve_binding_name`, read by
 # both this module's digest join and `assemble`'s key loop, so a nameless Core or Faction
 # binding — 2 015 and 1 437 rows live — is keyed and digested rather than dropped by both.
+# AI-Assisted: Claude Code (model: claude-opus-5) - 010 R6 review round 1: the name index is
+# built once per build and threaded to the assembly rather than memoised in a module global,
+# so no `Abilities.csv` read result (and so no publisher text) outlives the build block, and
+# the index is returned read-only because every datasheet in the build shares it.
 """Compare an ability's *current* mechanic against what a curator approved.
 
 Two things this module deliberately does **not** do:
@@ -51,6 +55,7 @@ from __future__ import annotations
 
 from collections.abc import Iterable, Mapping
 from enum import StrEnum
+from types import MappingProxyType
 from typing import Protocol
 
 from pipeline.models.authored import ReviewState
@@ -206,16 +211,7 @@ def digestless_keyword_keys(
     return tuple(sorted(key for key in set(keyword_keys) if key not in texts))
 
 
-#: One-entry memo for :func:`ability_name_index`, keyed by the *identity* of the
-#: :class:`CsvReadResult` it was built from. The index is a pure function of a frozen value, and
-#: it is asked for once per datasheet by :mod:`pipeline.curate.assemble` — recomputing it 2 000
-#: times over a few thousand rows costs seconds of every build for an answer that cannot have
-#: changed. The entry holds its own source alive, so the identity it compares against can never
-#: be a recycled address.
-_NAME_INDEX_MEMO: tuple[CsvReadResult, dict[str, str]] | None = None
-
-
-def ability_name_index(detail: Mapping[str, CsvReadResult]) -> dict[str, str]:
+def ability_name_index(detail: Mapping[str, CsvReadResult]) -> Mapping[str, str]:
     """`Abilities.csv` `id` → that ability's IP-stripped `name`.
 
     The binding rows in `Datasheets_abilities.csv` are *join rows*: for Core and Faction
@@ -224,19 +220,24 @@ def ability_name_index(detail: Mapping[str, CsvReadResult]) -> dict[str, str]:
     Faction rows in that shape, all 3 452 resolving here). Reading the binding's own column
     alone therefore mints no key for any of them, which is what this index exists to prevent.
 
-    A detail source that publishes no `Abilities.csv` yields an empty index rather than raising:
-    the fixture sets that predate the join do not state the table, and a binding that resolves
-    to nothing is the caller's reported defect, not this function's.
-    """
-    global _NAME_INDEX_MEMO
+    Built **once per build**, from the whole detail mapping, and passed down — never rebuilt per
+    datasheet and never memoised in module state. The index is the only thing that outlives this
+    call: the `CsvReadResult` it reads carries the publisher's `description` text, which
+    `pipeline.cli` discards with `work/` at the end of the build block, and a cache holding that
+    result alive would defeat exactly that (010 R6 review, finding 1).
 
+    A detail source that publishes no `Abilities.csv` yields an empty index rather than raising.
+    All four fixture sets do publish the table; the branch is for a hand-built detail mapping
+    that states only the tables one test needs (e.g.
+    `tests/enrichment/test_weapon_line_identity.py`). A binding that then resolves to nothing is
+    the caller's reported defect, not this function's.
+
+    The return is read-only: the index is shared by every datasheet in the build, so one
+    caller's mutation would silently move another's key.
+    """
     abilities = detail.get("Abilities.csv")
     if abilities is None:
-        return {}
-
-    memo = _NAME_INDEX_MEMO
-    if memo is not None and memo[0] is abilities:
-        return memo[1]
+        return MappingProxyType({})
 
     index: dict[str, str] = {}
     for row in abilities.rows:
@@ -247,8 +248,7 @@ def ability_name_index(detail: Mapping[str, CsvReadResult]) -> dict[str, str]:
         if name:
             index[ability_id] = name
 
-    _NAME_INDEX_MEMO = (abilities, index)
-    return index
+    return MappingProxyType(index)
 
 
 def resolve_binding_name(fields: Mapping[str, str], *, names: Mapping[str, str]) -> str:

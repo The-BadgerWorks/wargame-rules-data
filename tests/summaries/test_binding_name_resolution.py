@@ -13,6 +13,8 @@ exists for a key nothing binds (never read). Both read
 
 from __future__ import annotations
 
+import pytest
+
 from pipeline.curate.summaries import ability_name_index, compute_current_digests
 from pipeline.normalize.mechanic_digest import mechanic_digest
 from pipeline.parse.wahapedia_csv import CsvReadResult, read_text
@@ -45,6 +47,15 @@ def test_the_index_maps_an_ability_id_to_its_stripped_name() -> None:
     )
 
     assert index == {"A1": "Tidal Step"}
+
+
+def test_the_index_is_read_only_because_every_datasheet_shares_it() -> None:
+    index = ability_name_index(
+        _detail(bindings="", abilities=f"A1|Tidal Step||TF|{_JOINED_DESCRIPTION}|\n")
+    )
+
+    with pytest.raises(TypeError):
+        index["A1"] = "Harbour Watch"  # type: ignore[index]
 
 
 def test_a_nameless_core_binding_is_digested_under_its_joined_key() -> None:

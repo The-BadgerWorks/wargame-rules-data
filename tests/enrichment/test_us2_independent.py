@@ -41,6 +41,7 @@ from pipeline.curate.assemble import (
     _EquipmentOutcome,
 )
 from pipeline.curate.authored import AuthoredContent
+from pipeline.curate.summaries import ability_name_index
 from pipeline.models.curated import (
     CuratedDatasheet,
     CuratedEquipmentGroup,
@@ -335,6 +336,8 @@ def _detail_only(
         registry=IdRegistry(),
         detail_acquisition=acquisition,
         legends_sources=frozenset(),
+        # 010 R6: the ability-name index is a build-level value the caller passes in.
+        ability_names=ability_name_index(detail),
     )
 
 
