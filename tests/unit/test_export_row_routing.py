@@ -317,11 +317,16 @@ def test_a_non_breaking_space_after_a_full_stop_is_still_a_boundary_candidate() 
 
 
 def test_a_bold_tag_with_attributes_still_splits_sentences() -> None:
+    """Content, not just the count: `("", "")` has length 2 as well, so a regression that split
+    correctly and then refused both halves would satisfy a length-only assertion."""
     cell = (
         '<b class="x">Every model</b> is equipped with: glow lantern. '
         '<b class="x">The Leader</b> is equipped with: fen pike.'
     )
-    assert len(split_equipment_sentences(cell)) == 2
+    assert split_equipment_sentences(cell) == (
+        '<b class="x">Every model</b> is equipped with: glow lantern.',
+        '<b class="x">The Leader</b> is equipped with: fen pike.',
+    )
 
 
 def test_a_marker_less_bold_run_without_a_preceding_full_stop_refuses_the_sentence() -> None:
@@ -348,3 +353,15 @@ def test_non_option_shapes_are_recognised_through_markup_and_odd_whitespace() ->
         "CM03|3|•|This model can be equipped with 1 glow lantern.|\n"
     )
     assert _options_rows(text)["CM03"] == ["3"]
+
+
+def test_a_tag_between_two_words_does_not_weld_them_together() -> None:
+    """Reading through markup must replace a tag with a space, never with nothing, exactly as
+    `normalize/ip_strip.py` does. Welding `can<br>be` into one word loses the choice marker, and
+    a genuine option row would then be routed out of the options table with no finding at all —
+    only `button` `*` rows are counted."""
+    text = (
+        "datasheet_id|line|button|description|\n"
+        "CM03|1|•|The Leader is equipped with: tide axe, and can<br>be given 1 lantern.|\n"
+    )
+    assert _options_rows(text).get("CM03", []) == ["1"]

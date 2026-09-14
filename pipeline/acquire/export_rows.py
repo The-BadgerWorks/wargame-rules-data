@@ -10,6 +10,10 @@
 # instead of re-joining a guess; the non-option shape checks read through markup and
 # collapsed whitespace; and a footnote row with no `datasheet_id` raises no finding that
 # could never be located.
+# AI-Assisted: Claude Code (model: claude-opus-5) - 010 round 5 fix round 1: `_plain_text`
+# substitutes a SPACE for a tag rather than deleting it, matching `normalize/ip_strip.py`.
+# Deleting it welded the words either side together and routed a genuine option row out of
+# the options table with no finding raised.
 """Row routing for the bulk-export reader — which table a row belongs in, and whether it is a
 row at all.
 
@@ -49,8 +53,15 @@ def _plain_text(text: str) -> str:
     The one shape the non-option checks and the ambiguous-tail test both compare against, so a
     row carrying a tag or a non-breaking space is recognised as the same shape as one that does
     not.
+
+    **A tag becomes a space, never nothing** — the same substitution
+    `normalize/ip_strip.py::strip_field` makes, for the same reason. Deleting the tag welds the
+    words either side of it into one: `can<br>be` reads as a single unknown word, the choice
+    marker disappears, and `_is_option_row` routes a genuine option row out of the table with no
+    finding to show for it (only a ``button`` ``*`` row is counted). The trailing
+    `_WHITESPACE_RUN` collapse is what keeps the extra space invisible to every caller.
     """
-    return _WHITESPACE_RUN.sub(" ", _NBSP.sub(" ", _ANY_TAG.sub("", text))).strip()
+    return _WHITESPACE_RUN.sub(" ", _NBSP.sub(" ", _ANY_TAG.sub(" ", text))).strip()
 
 
 #: Mirrors ``wahapedia_html_dom._NONE_TEXT``: the source's "publishes none" placeholder, compared
