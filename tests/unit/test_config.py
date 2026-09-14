@@ -22,7 +22,6 @@ from pipeline.config import (
     REDACTED,
     Channel,
     ConfigError,
-    DetailAcquisitionMode,
     Gate,
     load_config,
 )
@@ -52,7 +51,6 @@ CONTRACT_DEFAULTS = {
 #: tasks.md T008 — independently of pipeline/config.py, which is the only way this catches a
 #: drift rather than restating one.
 ENRICHMENT_DEFAULTS = {
-    "WGC_DETAIL_ACQUISITION_MODE": "csv",
     "WGC_GATE_FACTION_RULES": "off",
     "WGC_GATE_DETACHMENT_RULES": "off",
     "WGC_GATE_GLOSSARY": "off",
@@ -193,7 +191,6 @@ def test_every_enrichment_variable_carries_its_documented_default() -> None:
 def test_the_enrichment_variables_all_resolve_without_any_environment() -> None:
     config = load_config(env={})
 
-    assert config.detail_acquisition_mode is DetailAcquisitionMode.CSV
     # All three new gates start OFF (FR-029, product-owner decision 2026-08-05): the first
     # enriched release must not be held back by three authoring campaigns that have not started.
     assert config.gate_faction_rules is Gate.OFF
@@ -216,20 +213,22 @@ def test_the_enrichment_variables_all_resolve_without_any_environment() -> None:
     assert config.ratchet_tolerance_glossary == pytest.approx(0.0)
 
 
-def test_the_detail_acquisition_mode_accepts_exactly_csv_and_html() -> None:
-    assert {mode.value for mode in DetailAcquisitionMode} == {"csv", "html"}
-    assert (
-        load_config(env={"WGC_DETAIL_ACQUISITION_MODE": "html"}).detail_acquisition_mode
-        is DetailAcquisitionMode.HTML
+def test_the_deleted_detail_acquisition_mode_is_no_longer_a_configuration_variable() -> None:
+    """010 R5: one acquisition arm, so no variable selects one. An environment still setting
+    the old name is ignored outright rather than refused -- `load_config` reads the variables
+    it declares and no others."""
+    assert not any(var.env_name == "WGC_DETAIL_ACQUISITION_MODE" for var in CONFIG_VARS), (
+        "the mode variable is declared again"
+    )
+    assert "WGC_DETAIL_ACQUISITION_MODE" not in load_config(env={}).redacted()
+    assert not hasattr(
+        load_config(env={"WGC_DETAIL_ACQUISITION_MODE": "html"}), "detail_acquisition_mode"
     )
 
 
 @pytest.mark.parametrize(
     "env",
     [
-        {"WGC_DETAIL_ACQUISITION_MODE": "xml"},
-        {"WGC_DETAIL_ACQUISITION_MODE": "CSV"},
-        {"WGC_DETAIL_ACQUISITION_MODE": ""},
         {"WGC_GATE_FACTION_RULES": "true"},
         {"WGC_GATE_DETACHMENT_RULES": "1"},
         {"WGC_GATE_GLOSSARY": "enabled"},
@@ -291,10 +290,7 @@ def test_quoting_is_stripped_before_a_value_is_parsed_as_anything_but_a_string()
     so the unquoting happens where the environment is read and not per variable."""
     assert load_config(env={"WGC_REQUEST_INTERVAL_MS": '"5000"'}).request_interval_ms == 5000
     assert load_config(env={"WGC_DATA_CHANNEL": '"published"'}).data_channel is Channel.PUBLISHED
-    assert (
-        load_config(env={"WGC_DETAIL_ACQUISITION_MODE": "'html'"}).detail_acquisition_mode
-        is DetailAcquisitionMode.HTML
-    )
+    assert load_config(env={"WGC_GATE_GLOSSARY": "'on'"}).gate_glossary is Gate.ON
 
 
 @pytest.mark.parametrize("value", ['"unbalanced', "'mixed\"", '""', 'a"b', "\"'"])

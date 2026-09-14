@@ -164,51 +164,10 @@ def test_blanking_every_loadout_removes_every_derived_row() -> None:
     )
 
 
-def test_loadout_rows_append_to_composition_derived_rows_rather_than_replacing_them() -> None:
-    detail = read_export_payloads(
-        [
-            FixturePayload(
-                name=DATASHEETS,
-                text=_datasheets({"CM05": "This model is equipped with: tide axe."}),
-            ),
-            FixturePayload(
-                name="Datasheets_unit_composition.csv",
-                text=(
-                    "datasheet_id|line|description|\n"
-                    "CM03|2|Every model in this unit is equipped with: glow lantern.|\n"
-                ),
-            ),
-        ]
-    )
-    ids = {row.fields["datasheet_id"] for row in detail[EQUIPMENT_TABLE].rows}
-    assert ids == {"CM03", "CM05"}
-
-
-def test_a_composition_and_loadout_derived_row_on_the_same_datasheet_get_distinct_lines() -> None:
-    """Fix-round F2 receipt: equal line values on the same datasheet_id would collide the
-    equipment group id curate/assemble.py mints from (datasheet_id, line)."""
-    detail = read_export_payloads(
-        [
-            FixturePayload(
-                name=DATASHEETS,
-                text=_datasheets({"CM03": "This model is equipped with: tide axe."}),
-            ),
-            FixturePayload(
-                name="Datasheets_unit_composition.csv",
-                text=(
-                    "datasheet_id|line|description|\n"
-                    "CM03|1|Every model in this unit is equipped with: glow lantern.|\n"
-                ),
-            ),
-        ]
-    )
-    lines = [
-        row.fields["line"]
-        for row in detail[EQUIPMENT_TABLE].rows
-        if row.fields["datasheet_id"] == "CM03"
-    ]
-    assert len(lines) == 2
-    assert len(set(lines)) == 2, "equal line values collide the equipment group id"
+# 010 R5: the two receipts that stood here -- a loadout-derived row appending to a
+# composition-derived one, and the two of them taking distinct `line` values -- went with
+# `_derive_equipment_from_composition`. Nothing but this module now writes the equipment
+# table, so there is no second producer for a row to append to or collide with.
 
 
 def test_one_bold_subject_per_sentence_splits_on_the_bold_tag() -> None:

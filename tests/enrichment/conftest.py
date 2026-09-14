@@ -45,12 +45,11 @@ stating plainly rather than leaving a future reader to infer it from a diff:
   T065), never against this file or any fixture — the one category of assertion in this feature
   that may not be fixture-backed.
 
-`Datasheets_unit_composition.csv` here (this set) carries the equipment-marker shape (`GF05|1`,
-`CM03|2`, 009 T011) that a real export-sourced derivation reads *instead of* a manufactured
-equipment table — the mechanism FR-017's csv-mode derivation route actually uses, and the reason
-this set's own invented equipment file and its composition file can coexist without contradicting
-each other: one models the html arm's manufactured table, the other models the raw material a csv
-derivation reads.
+`Datasheets_unit_composition.csv` here (this set) carries one equipment-marker row (`GF05|1`),
+which the composition grammar correctly cannot resolve and reports as unresolved. A second such
+row (`CM03|2`) was added at 009 T011 to back a derivation that read the sentence out of the
+composition table; 010 R1 established that the export states the sentence in `Datasheets.csv`'s
+own `loadout` column instead, and 010 R5 deleted that derivation and the row with it.
 """
 
 from __future__ import annotations

@@ -131,7 +131,6 @@ class EquipmentTaxonomyReport:
     """The whole measurement: counts and class labels, and only those."""
 
     generated_at: str
-    mode: str
     edition: str
     source: str
     sentences: int
@@ -167,7 +166,7 @@ def measure(
             config, fixtures_dir=fixtures_dir, offline=offline, workspace=work
         )
         source = acquisition.source_base_url
-        tables = read_detail(config, payloads)
+        tables = read_detail(payloads)
         rows = tables.get(EQUIPMENT_TABLE)
         if rows is not None:
             for row in rows.rows:
@@ -181,7 +180,6 @@ def measure(
     moment = (generated_at or datetime.now(UTC)).astimezone(UTC)
     return EquipmentTaxonomyReport(
         generated_at=moment.isoformat().replace("+00:00", "Z"),
-        mode=config.detail_acquisition_mode.value,
         edition=config.detail_edition,
         source=source,
         sentences=sentences,
@@ -202,7 +200,6 @@ def render(report: EquipmentTaxonomyReport) -> str:
         "# Equipment-sentence taxonomy",
         "",
         f"- Generated: `{report.generated_at}`",
-        f"- Detail acquisition mode: `{report.mode}`",
         f"- Declared detail edition: `{report.edition}`",
         f"- Source: `{report.source}`",
         "",

@@ -1,3 +1,8 @@
+# AI-Assisted: Claude Code (model: claude-opus-5) - 010 R5: the two tests that read the T004
+# quirk shapes out of an html fixture are resolved here instead: the sentence-resolution one
+# states its sentences directly (its assertions were always about `parse_sentence`), and the
+# one asserting a card published no sentence at all went with the extractor -- it asserted what
+# the DOM walk produced, which no longer exists.
 # AI-Assisted: Claude Code (model: claude-opus-5) - The default-equipment grammar's contract (006
 # task T025): research D1e's five subject productions plus the bare-model one, item-list splitting
 # on `;` and on a bare `,`, the refusals that keep a compound subject out of a model name, and the
@@ -41,17 +46,7 @@ from pipeline.parse.equipment_grammar import (
     parse_sentence,
 )
 from pipeline.parse.wahapedia_csv import CsvReadResult, read_file, read_text
-from pipeline.parse.wahapedia_html_dom import Datacard, parse_faction_page
 from tests.enrichment.conftest import weapon
-
-FIXTURE = (
-    Path(__file__).resolve().parents[2]
-    / "fixtures"
-    / "enrichment"
-    / "wahapedia-html"
-    / "glimmerfen-covenant.html"
-)
-SLUG = "glimmerfen-covenant"
 
 EQUIPMENT_CSV = (
     Path(__file__).resolve().parents[2]
@@ -60,13 +55,6 @@ EQUIPMENT_CSV = (
     / "wahapedia"
     / "Datasheets_unit_equipment.csv"
 )
-
-
-@pytest.fixture(scope="module")
-def cards() -> Mapping[str, Datacard]:
-    """The T004 quirk-class fixtures, by anchor, read through the extractor a run uses."""
-    page = parse_faction_page(SLUG, FIXTURE.read_text(encoding="utf-8"))
-    return {card.detail_id.rpartition(":")[2]: card for card in page.cards}
 
 
 # --- the five measured subject productions, plus the bare one ----------------------------------
@@ -292,23 +280,36 @@ def test_a_datasheet_whose_composition_did_not_resolve_carries_no_equipment_at_a
     assert outcome.groups == ()
 
 
-# --- the fixture's own sentences, end to end ------------------------------------------------------
+# --- the quirk shapes' own sentences ------------------------------------------------------
 
 
-def test_every_sentence_the_quirk_fixtures_state_resolves(cards: Mapping[str, Datacard]) -> None:
-    """The T004 carriers, read out of the html fixture and through the grammar."""
+def test_every_sentence_the_quirk_shapes_state_resolves() -> None:
+    """The T004 carriers' own sentences, through the grammar.
+
+    010 R5: these arrived through the html extractor until the arm was deleted. The sentences
+    themselves are unchanged -- they are what this test was ever about; `parse_sentence` is the
+    only thing it ever asserted on -- and they are now stated directly. The route from a source
+    cell to these strings is `tests/enrichment/test_us2_independent.py`'s subject, not this
+    file's.
+    """
     resolved = {
-        anchor: [parse_sentence(sentence) for sentence in cards[anchor].equipment]
-        for anchor in ("Purgeflight-Wardens", "Mirebound-Choir", "Gloamtide-Host")
+        "wardens": [parse_sentence("Every model is equipped with: glimmer rifle; fen halberd.")],
+        "choir": [
+            parse_sentence("The Mirebound Cantor is equipped with: chime flail; tide hammer."),
+            parse_sentence(
+                "Every Mirebound Chorister is equipped with: resonance shard; void net."
+            ),
+        ],
+        "host": [parse_sentence("Every model is equipped with: gloam pistol; gloam blade.")],
     }
     assert all(parse is not None for parses in resolved.values() for parse in parses)
 
-    (wardens,) = resolved["Purgeflight-Wardens"]
+    (wardens,) = resolved["wardens"]
     assert wardens is not None
     assert wardens.applies_to is EquipmentAppliesTo.UNIT
     assert [item.item_name for item in wardens.items] == ["glimmer rifle", "fen halberd"]
 
-    cantor, choristers = resolved["Mirebound-Choir"]
+    cantor, choristers = resolved["choir"]
     assert cantor is not None and choristers is not None
     assert (cantor.applies_to, cantor.model_name) == (
         EquipmentAppliesTo.MODEL_GROUP,
@@ -318,10 +319,6 @@ def test_every_sentence_the_quirk_fixtures_state_resolves(cards: Mapping[str, Da
         EquipmentAppliesTo.MODEL_GROUP,
         "Mirebound Chorister",
     )
-
-
-def test_a_card_stating_no_sentence_yields_none(cards: Mapping[str, Datacard]) -> None:
-    assert cards["Fenwatch-Sentinel"].equipment == ()
 
 
 # --- 008 Phase 5 (US3): the multi-model-group differentiated-equipment shape ---------------------

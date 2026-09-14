@@ -8,6 +8,9 @@
      field (item 2) and that no caller reads or writes this file today -- `detect`'s wiring was
      reversed; wiring is deferred to a future rung. -->
 
+<!-- AI-Assisted: Claude Code (model: Claude Opus 5) - 010 R5: the export-digest identity no
+     longer carries an acquisition-arm field, so the field count and the two sentences that
+     named it are corrected here. -->
 # state/
 
 Operational state written and read only by the pipeline and its CI workflows. These files hold
@@ -25,10 +28,11 @@ nothing from which any acquired text could be reconstructed (FR-010, FR-013).
   empty. Entries carry mechanical values only -- ids, counts, and codes, never free text.
 - `published-checksums.json` -- sha256 and size for every published release asset, re-verified
   daily by `.github/workflows/integrity.yml`. Seeded as `[]`.
-- `wahapedia-export-digest.json` -- five fields: `digest` (sha256 hex over the detail source's
+- `wahapedia-export-digest.json` -- four fields: `digest` (sha256 hex over the detail source's
   `Last_update.csv` text, never the text itself -- 009 rung R05, task T090, FR-030), the source
-  identity it was taken under -- `source_base_url`, `declared_edition_code`, `mode` (rung R05-fix
-  item 5) -- and `content_fingerprint`, the corpus fingerprint the acquisition that recorded this
+  identity it was taken under -- `source_base_url` and `declared_edition_code` (rung R05-fix
+  item 5; a third identity field naming the acquisition arm was dropped by `010` R5, there being
+  one arm) -- and `content_fingerprint`, the corpus fingerprint the acquisition that recorded this
   state itself computed (rung R05-fix2 item 2), carried forward so a future short-circuited
   acquisition can report "the same corpus as this one had" rather than fingerprinting the
   near-empty payload set a skip actually fetches. Compared by
@@ -36,7 +40,7 @@ nothing from which any acquired text could be reconstructed (FR-010, FR-013).
   parameter) to decide whether the rest of the export is worth re-fetching -- a convenience
   pre-check, never a substitute for the content fingerprint the pipeline already computes over
   whatever it actually fetches, and never comparable across a changed source identity: a digest
-  match recorded under a different `source_base_url`, `declared_edition_code`, or `mode` is "no
+  match recorded under a different `source_base_url` or `declared_edition_code` is "no
   comparable prior," not a skip. Written only by
   `pipeline.acquire.wahapedia.save_export_digest_state`, and only once a caller's own whole sweep
   has succeeded -- never from inside acquisition itself, so a run that acquires a changed export

@@ -102,6 +102,16 @@
      "Why left" framing to note it now describes an exposure of a withdrawn mechanism rather than
      an open defect in a live one, without deleting it -- item 37 points back to it as the fourth
      defect class found. -->
+<!-- AI-Assisted: Claude Code (model: Claude Opus 5) - 010 R5: closure notes on items 20,
+     35, 36 and 37, and the present-tense sentences that named the deleted second detail
+     arm or the deleted carry-forward mechanism as live code. Items 30-34 left open. -->
+<!-- AI-Assisted: Claude Code (model: Claude Opus 5) - 010 R5 final-review fix item 1: added a
+     dated correction to closed item 4. Its archived original text asserts, present tense, that
+     the detail_source_publication_id narrowing step is inert; under the one surviving detail arm
+     it is live (Source.csv is in acquire/wahapedia.py's EXPORT_FILES, and reconcile/match.py's
+     match_units reads it through curate/assemble.py's detail_source_ids). The correction states
+     what is live, drops the stale unit-map keying claim, and refuses to assert a current
+     REC-AMBIGUOUS-MATCH count that no run on this branch measured. -->
 # Follow-ups
 
 Open items surfaced during implementation that are deliberately **not** fixed as part of the work
@@ -181,9 +191,10 @@ implemented as sketched, driven by `curation/keyword-classes.json`'s curator-aut
 records rather than by any inference from a keyword's spelling — see `pipeline/reconcile/match.py`'s
 module docstring (rung 3) and `tests/reconcile/test_chapter_keyword_preference.py`. All 53
 `REC-AMBIGUOUS-MATCH` findings cleared. The `unit-map.json` alternative this item offered as the
-cheaper option turned out not to be available: `unit-map.json` is keyed by
-`mfm_display_name` alone, with no faction column, so one entry would resolve `Impulsor` identically
-in all six Space Marine factions — which is the one thing the collision needs it not to do.
+cheaper option was not available **at the time**: an entry was keyed by display name alone, with
+no faction column, so one entry resolved the same curated id in all six Space Marine factions —
+which is the one thing the collision needs it not to do. That is no longer the shape of the file;
+see the 010 R5 correction below.
 
 The item was also wrong about the size of the shortfall, and the correction is the more useful
 half of it. Clearing the 53 raised datasheet coverage to 92.4%, not the ~92.5% estimated — but the
@@ -194,6 +205,34 @@ whose cost table was sitting on the card were read as priced by nobody. Coverage
 is **2 083 / 2 099 = 99.2%**, and no dated `resolutions.json` entry for a threshold shortfall is
 needed after all. The lesson worth keeping: a coverage figure short of its floor was blamed on the
 baseline being a different edition, and the baseline was almost right.
+
+**Correction, 010 R5 (2026-09-14) — this item stays closed, and the archived text below is a
+historical snapshot of the deleted arm, not a statement about the tree.** Three of its claims
+read in the present tense and are false under the one surviving detail arm:
+
+- **`Source.csv` is a real export table.** It is listed in `EXPORT_FILES` in
+  `pipeline/acquire/wahapedia.py` and fetched under the same all-or-nothing guarantee as every
+  other table. The module that emitted the two-row stand-in described below,
+  `pipeline/parse/wahapedia_html_dom.py`, is no longer in the tree —
+  `tests/unit/test_single_arm.py` asserts that no module under `pipeline/` so much as names it.
+- **The `detail_source_publication_id` narrowing step is live, not inert.**
+  `pipeline/reconcile/match.py`'s `match_units` consults
+  `scope.entry.detail_source_publication_id` as the second of its three narrowing signals,
+  against the per-datasheet publication ids `pipeline/curate/assemble.py` builds from the detail
+  source's own `source_id` column and passes in as `detail_source_ids`.
+  `tests/reconcile/test_publication_preference.py` covers it, including the case where the
+  authored id matches no candidate and the pair must still block. The five `curation/unit-map.json`
+  entries naming their own publication id are therefore **not** inert.
+- **`unit-map.json` is no longer keyed by display name alone.** `UnitMapEntry` in
+  `pipeline/models/authored.py` carries a `faction_id` — optional in the schema so the change
+  stayed additive, mandatory by authoring rule the moment an entry is written for a name shared
+  across sibling factions.
+
+**No current finding count is asserted here.** Every count and percentage in this item was
+measured on the deleted arm's live runs. What `REC-AMBIGUOUS-MATCH` reports under the export arm,
+with both narrowing signals live, **has not been measured on this branch and must be re-measured
+on a live run.** Until it has been: do not author curator pairings and do not plan a ladder rung
+to recover coverage that the narrowing signals above may already recover on their own.
 
 The original item follows, unedited.
 
@@ -549,8 +588,8 @@ release flow has no answer to that yet beyond re-running and re-reviewing.
 "the source moved": a whole faction becoming unreachable.** `008`'s T074 dry-run found the detail
 source's own sitemap enumerating only 10 of 30 published factions, and several previously-published
 faction slugs renamed or 404ing outright. The per-faction carry-forward mechanism (FR-024/FR-025,
-`curation/carried-forward-factions.json`, `pipeline/curate/carry_forward.py`) gives the release flow
-its first real answer for that one drift shape: a declared faction is sourced from the previous
+`curation/carried-forward-factions.json`, `pipeline/curate/carry_forward.py`) gave the release flow
+its first real answer for that one drift shape (the mechanism was deleted by `010` R5): a declared faction is sourced from the previous
 published version rather than blocking the whole candidate, visibly and without regressing any
 coverage figure. **Still open**: the *content* drift this item was originally about — an existing,
 reachable faction's page gaining or changing editorial material (new abilities, moved keywords)
@@ -887,6 +926,10 @@ finding-code contract-row debt (first paragraph) remains open.
 
 ## 20. CSV export migration is a candidate for a future release
 
+**Closed by 010 R5, PR C** -- the migration is complete: the CSV export is the only detail arm,
+the second arm and its acquisition-mode variable having been deleted. Everything below this line
+is the pre-migration record and describes code that is no longer in the tree.
+
 **Discharge in progress: `009-csv-migration`.** Its own Setup phase (T001-T005) measured the
 csv-mode endpoints live through the pipeline's own governed acquisition and answered every open
 question below with a real number: the digest-churn size (76/2,125 approved-record churn, not the
@@ -898,10 +941,11 @@ by Product Owner ruling C1 (2026-08-18): the 30-faction model, chapter identifie
 `reports/009-diagnosis/2026-08-18.md` for the full figures; this item's own text below is left
 as the pre-measurement record of what was uncertain before that phase ran.
 
-The current-edition detail source has been read exclusively in `html` mode
-(`DetailAcquisitionMode.HTML`, `pipeline/config.py`) since `006`, because no bulk export existed
-for the current 11th-edition catalogue — `csv` mode (`DetailAcquisitionMode.CSV`) has only ever
-served the *previous*-edition content path. That has reportedly changed: 11e CSV export endpoints
+At the time this item was written the current-edition detail source was read exclusively in the
+datacard-page shape, and had been since `006`, because no bulk export existed for the current
+11th-edition catalogue — the export shape had only ever served the *previous*-edition content
+path. (Both shapes were selected by a configuration variable then; neither that variable nor the
+datacard-page arm exists now.) That has reportedly changed: 11e CSV export endpoints
 are now live at `wahapedia.ru/wh40k11ed/*.csv`, the same first-party publisher this pipeline
 already treats as its detail source.
 
@@ -1407,6 +1451,11 @@ wires a caller to the short-circuit, not something to guess at ahead of that cal
 
 ## 35. `carry_forward.py`'s `slug_to_faction_id` collapses a `detail_source_faction_id` shared by two factions (009 rung R06a-fix, item found while fixing the class field map)
 
+**Closed by 010 R5, PR C** -- `pipeline/curate/carry_forward.py` and the whole carry-forward
+mechanism were deleted with the second detail arm, so nothing described below is reachable.
+Everything after this line is a record of code that is no longer in the tree; read it in the
+past tense.
+
 **Pre-existing, repeated by the per-class composition loop R06a added.** Not caused by this rung
 and not fixed by it.
 
@@ -1430,6 +1479,11 @@ to key on `(slug, faction_id)` once a caller needs to disambiguate) is real desi
 to whichever rung first declares a carry-forward or class-carry entry for a shared-slug faction.
 
 ## 36. `option_choices[].priced_option_id` can point at a `wargear_options` id from the previous publish after a per-class "options" carry (009 rung R06a-fix2, item found while fixing the frozen-ordinal defect class, not fixed)
+
+**Closed by 010 R5, PR C** -- `pipeline/curate/carry_forward.py` and the whole carry-forward
+mechanism were deleted with the second detail arm, so nothing described below is reachable.
+Everything after this line is a record of code that is no longer in the tree; read it in the
+past tense.
 
 **Withdrawn along with per-class composition itself (009 rung R06a-fix3) -- kept here, unfixed,
 as a record of the exposure class for whoever revisits T096 at R07.** The per-class splice this
@@ -1474,6 +1528,11 @@ work belonging to whichever rung next touches per-class options carry or adds th
 intra-snapshot check this item and item 1's equipment-side gap both point at.
 
 ## 37. 009 rung R06a's T096 per-class composition was built, measured across three fix rounds, and withdrawn (009 rung R06a-fix3)
+
+**Closed by 010 R5, PR C** -- `pipeline/curate/carry_forward.py` and the whole carry-forward
+mechanism were deleted with the second detail arm, so nothing described below is reachable.
+Everything after this line is a record of code that is no longer in the tree; read it in the
+past tense.
 
 **What was withdrawn.** `pipeline/curate/carry_forward.py`'s per-class composition -- the
 mechanism that froze only a hybrid-declared class's own fields (`option_groups`,

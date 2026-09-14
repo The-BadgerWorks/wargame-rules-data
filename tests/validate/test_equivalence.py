@@ -6,6 +6,11 @@
 # feature and the most important."
 # AI-Assisted: Claude Code (model: claude-opus-5) - 010 round 5 task 1: added the red test
 # for a markup-bearing source row comparing equal to its tag-free rendering.
+# AI-Assisted: Claude Code (model: claude-opus-5) - 010 R5: T051's fixture is now built by
+# adding rows to a copy of `fixtures/minimal/wahapedia`'s export tables rather than by
+# splicing a datacard into `AV.html`. The property under test is unchanged -- the token the
+# comparison reads must appear in nothing the run writes -- and the source it is read from is
+# the only one left.
 """T050: does `check_equivalence` produce the right one of three outcomes? T051: does a real
 build ever write the source text it compared anywhere?
 
@@ -260,97 +265,42 @@ def test_markup_in_a_source_row_does_not_defeat_the_comparison() -> None:
 # -- T051: the retention test, over a real build --------------------------------------------
 
 
-def _insert_retention_datasheet(av_html_path: Path) -> None:
-    """Splice one synthetic detail-only datasheet into a copy of `fixtures/minimal`'s `AV.html`
-    — same DOM shape `fixtures/enrichment`'s GF16/GF17 already use (composition + equipment
-    sentence + a "YOUR UNIT COSTS" table, the detail-only path's own price source), with its own
-    harmless weapon so `DISTINCTIVE_TOKEN` is not also printed as a weapon profile (the trap
-    GF16/GF17 fall into — see this module's own docstring and `.impl-progress.md`)."""
-    char_row = "".join(
-        f'<div class="dsCharWrap"><div class="dsCharName">{label}</div>'
-        f'<div class="dsCharFrame dsColorBgAV"><div class="dsCharFrameBack">'
-        f'<div class="dsCharValue dsColorAV">{value}</div>'
-        f"</div></div></div>\n        "
-        for label, value in (
-            ("M", '6"'),
-            ("T", "4"),
-            ("SV", "4+"),
-            ("W", "2"),
-            ("LD", "7+"),
-            ("OC", "1"),
-        )
-    )
-    block = f"""
-<a name="Retention-Probe"></a>
-<div class="dsOuterFrame datasheet pagebreak clFl AVAV AVAG" style="position:relative">
-  <div class="dsBannerWrap">
-    <div class="dsH2Header"><div>Retention Probe</div></div>
-    <div class="dsProfileBaseWrap">
-      <div class="dsProfileWrapLeft"><div class="dsProfileWrap">
-        {char_row}
-      </div></div>
-      <div class="dsProfileWrapRight">
-        <span class="dsModelName dsModelNameTop">Retention Probe</span>
-      </div>
-    </div>
-  </div>
-  <div class="ds2col">
-    <div class="dsLeftСol dsColorFrAV">
-      <table class="wTable" width="100%">
-        <tbody><tr>
-          <td class="dsHeader dsColorBgAV"><div class="dsMeleeIcon"></div></td>
-          <td class="wTable_WEAPON">
-            <div class="dsHeader dsColorBgAV">MELEE WEAPONS</div>
-          </td>
-          <td><div class="ct dsHeader dsColorBgAV">RANGE</div></td>
-          <td><div class="ct dsHeader dsColorBgAV">A</div></td>
-          <td><div class="ct dsHeader dsColorBgAV">WS</div></td>
-          <td><div class="ct dsHeader dsColorBgAV">S</div></td>
-          <td><div class="ct dsHeader dsColorBgAV">AP</div></td>
-          <td><div class="ct dsHeader dsColorBgAV">D</div></td>
-        </tr></tbody>
-        <tbody class="bkg">
-          <tr class="wTable2_long"><td></td>
-            <td colspan="6" class="pad2626"><span>Training baton</span></td>
-          </tr>
-          <tr><td></td><td class="wTable2_short pad2626"><span>Training baton</span></td>
-            <td><div class="ct pad2626">Melee</div></td>
-            <td><div class="ct pad2626">1</div></td>
-            <td><div class="ct pad2626">4+</div></td>
-            <td><div class="ct pad2626">3</div></td>
-            <td><div class="ct pad2626">0</div></td>
-            <td><div class="ct pad2626">1</div></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="dsRightСol dsColorFrAV">
-      <div class="dsHeader dsColorBgAV">ABILITIES</div>
-      <div class="dsAbility"><b>Probe Ward:</b>Invented placeholder mechanic.</div>
-      <div class="dsHeader dsColorBgAV">UNIT COMPOSITION</div>
-      <div class="dsAbility">
-        <ul class="dsUl"><li>1 Retention Probe</li></ul>
-        <b>Every model is equipped with:</b>{DISTINCTIVE_TOKEN} rod.</div>
-      <div class="dsAbility">
-        <table width="100%" border="0" cellspacing="0" cellpadding="2"><tbody>
-        <tr><td colspan="2" class="dsUnitCostHeader">YOUR UNIT COSTS</td></tr>
-        <tr><td>1 model</td><td><div class="PriceTag">40</div></td></tr>
-      </tbody></table></div>
-    </div>
-  </div>
-  <div class="ds2colKW dsColorFrAV">
-    <div class="dsLeftСolKW">KEYWORDS: <span class="kwb kwbu">INFANTRY</span>;</div>
-    <div class="dsRightСolKW">FACTION KEYWORDS:
-      <span class="kwb kwbu">ASHEN</span><span class="kwb kwbu">VIGIL</span>;
-    </div>
-  </div>
-</div>
+def _append(path: Path, row: str) -> None:
+    """One more pipe-delimited row on the end of a fixture table."""
+    text = path.read_text(encoding="utf-8")
+    if not text.endswith("\n"):
+        text += "\n"
+    path.write_text(text + row + "\n", encoding="utf-8")
 
-<a name="Ashen-Warden"></a>"""
-    text = av_html_path.read_text(encoding="utf-8")
-    marker = '<a name="Ashen-Warden"></a>'
-    assert marker in text, "AV.html's own structure moved; this splice point needs updating"
-    av_html_path.write_text(text.replace(marker, block, 1), encoding="utf-8")
+
+def _insert_retention_datasheet(wahapedia_dir: Path) -> None:
+    """Add one synthetic detail-only datasheet to a copy of `fixtures/minimal`'s export tables.
+
+    010 R5: this spliced a datacard into `AV.html` until the html arm was deleted. The datasheet
+    it adds is the same one -- a unit of one model, its own harmless weapon so
+    `DISTINCTIVE_TOKEN` is printed nowhere but the default-equipment sentence, and its own
+    "YOUR UNIT COSTS" equivalent so the detail-only assembly path has a price to publish -- now
+    stated in the tables the surviving arm reads. The sentence rides `Datasheets.csv`'s own
+    `loadout` column, which is where the export states it and where
+    `acquire/export_rows.py::derive_equipment_from_loadout` reads it from.
+    """
+    _append(
+        wahapedia_dir / "Datasheets.csv",
+        "AV99|Retention Probe|AV|1||Battleline|"
+        f"<b>Every model</b> is equipped with: {DISTINCTIVE_TOKEN} rod.|0|0|||||"
+        "https://example.invalid/ds/AV99|",
+    )
+    _append(
+        wahapedia_dir / "Datasheets_models.csv", 'AV99|1|Retention Probe|6"|5|3+|||3|6+|2|32mm||'
+    )
+    _append(wahapedia_dir / "Datasheets_models_cost.csv", "AV99|1|1 model|40|")
+    _append(wahapedia_dir / "Datasheets_unit_composition.csv", "AV99|1|1 Retention Probe|")
+    _append(
+        wahapedia_dir / "Datasheets_wargear.csv",
+        "AV99|1|1||Probe blade|[GLIMMERBURST]|Melee|Melee|3|3+|5|-1|2|",
+    )
+    _append(wahapedia_dir / "Datasheets_keywords.csv", "AV99|INFANTRY||false|")
+    _append(wahapedia_dir / "Datasheets_keywords.csv", "AV99|ASHEN VIGIL||true|")
 
 
 @pytest.fixture
@@ -363,7 +313,7 @@ def retention_fixture_dir(tmp_path: Path) -> Path:
     """
     fixture_dir = tmp_path / "fixture-src"
     shutil.copytree(MINIMAL, fixture_dir)
-    _insert_retention_datasheet(fixture_dir / "wahapedia-html" / "AV.html")
+    _insert_retention_datasheet(fixture_dir / "wahapedia")
     overrides_path = fixture_dir / "curation" / "equipment-overrides.json"
     overrides_path.write_text(
         """[
@@ -403,7 +353,7 @@ def test_the_source_text_used_for_a_mismatched_comparison_is_never_written_anywh
     output_root = tmp_path / "out"
 
     result = run_build(
-        config=load_config(env={"WGC_DETAIL_ACQUISITION_MODE": "html"}),
+        config=load_config(env={}),
         rules_version_id="retention-probe",
         fixtures_dir=retention_fixture_dir,
         offline=True,
@@ -441,7 +391,7 @@ def test_the_source_text_used_for_a_mismatched_comparison_is_never_written_anywh
     # And a sanity check on the test itself: the token really was available in memory during
     # this build (otherwise the assertion above would be vacuous) -- it is exactly the fixture
     # source file the build read from, which is OUTSIDE both trees just grepped.
-    fixture_html = (retention_fixture_dir / "wahapedia-html" / "AV.html").read_text(
+    fixture_table = (retention_fixture_dir / "wahapedia" / "Datasheets.csv").read_text(
         encoding="utf-8"
     )
-    assert DISTINCTIVE_TOKEN in fixture_html.lower()
+    assert DISTINCTIVE_TOKEN in fixture_table.lower()
