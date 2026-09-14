@@ -24,10 +24,9 @@
 # (SRC-TABLE-MISSING), and the advisory short-circuit outcome FR-031 needs to tell a skipped
 # fetch from an unchanged source from a failed one (SRC-EXPORT-UNCHANGED). Additions only, per
 # FR-001 -- no existing code's severity or class moves.
-# AI-Assisted: Claude Code (model: claude-opus-5) - Corrected this header (009 rung R01a, ledger
-# 5b): it claimed `SRC-CLASS-ARM` "is deliberately absent here: it is authored only if T047
-# chooses a hybrid (T048)", while the same commit added the code to CATALOGUE. The code IS
-# present and advisory; what T047/T048 still gate is whether any run EMITS it.
+# AI-Assisted: Claude Code (model: claude-opus-5) - 010 R5: removed `SRC-CLASS-ARM`, the
+# per-class acquisition-arm advisory. With a single arm there is no second arm a class could be
+# declared onto, so no run can emit it.
 # AI-Assisted: Claude Code (model: claude-sonnet-5) - Corrected SRC-EXPORT-UNCHANGED's own
 # description (009 rung R05-fix item 3, gate on PR #30): it claimed "the export's content
 # fingerprint is unmoved since the last run", but the check that fires it compares only the
@@ -221,16 +220,6 @@ _DEFINITIONS: Final[tuple[FindingDefinition, ...]] = (
         "the same source identity, so the rest of the export was never re-fetched; a convenience "
         "pre-check, not a claim that the content fingerprint is unmoved -- only a full fetch "
         "verifies that",
-    ),
-    _d(
-        "SRC-CLASS-ARM",
-        _COV,
-        _A,
-        "009 FR-010, T047/T048",
-        "curation/detail-source-authority.json declares this data class authoritative from a "
-        "named arm, overriding the build's default acquisition mode for it; names the class and "
-        "the arm that actually produced its rows this run -- the per-value attributability a "
-        "hybrid requires",
     ),
     _d("COV-COLLAPSE", _COV, _B, "FR-009", "coverage fell below the configured proportion"),
     _d(

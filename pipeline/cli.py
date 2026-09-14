@@ -47,12 +47,9 @@
 # Wiring is deferred to a future rung, decided once a caller is genuinely consuming the detail
 # source (see `docs/follow-ups.md` item 30). The mechanism itself (`acquire_wahapedia`'s
 # `state_path` opt-in) is untouched here and stays proven in isolation.
-# AI-Assisted: Claude Code (model: claude-sonnet-5) - 009 rung R06a-fix3: reverted this call
-# site's two per-class wires -- `apply_detail_source_authority`'s second return value
-# (`class_carried`) and `apply_carried_forward`'s `class_carried_slugs=` argument -- along with
-# the per-class composition they fed, withdrawn in `pipeline/curate/carry_forward.py` (see that
-# module's own header and `docs/follow-ups.md` item 37). `unused_answers_per_faction=` stays: it
-# is the rung's actual, kept purpose, unrelated to per-class composition.
+# AI-Assisted: Claude Code (model: claude-opus-5) - 010 R5: dropped this call site's
+# `apply_detail_source_authority` overlay along with the hybrid it expressed; `read_detail`'s
+# return now reaches the stages below untouched.
 """``rules-pipeline`` — the operator-facing surface.
 
 The same CLI runs locally against fixtures and in CI against the real sources: **there is no
@@ -99,7 +96,6 @@ from typing import Final
 
 from pipeline.acquire.detail_source import (
     acquire_detail,
-    apply_detail_source_authority,
     read_detail,
     resolve_carried_forward,
 )
@@ -813,19 +809,6 @@ def run_build(  # noqa: PLR0913 - the stage boundary is the argument list
             for payload in points_payloads
         ]
         detail = read_detail(config, detail_payloads)
-        # 009 T048, FR-010 (Product Owner decision T047, 2026-08-18: hybrid now, full later): a
-        # no-op unless `curation/detail-source-authority.json` carries records — see the
-        # function's own docstring for why that is what keeps a full migration and a hybrid the
-        # same code path here.
-        detail = apply_detail_source_authority(
-            detail,
-            authority=authored.detail_source_authority,
-            config=config,
-            fixtures_dir=fixtures_dir,
-            offline=offline,
-            workspace=work,
-            carried_forward_slugs=authored.carried_forward_slugs,
-        )
 
         findings: list[Finding] = []
         for result in detail.values():
