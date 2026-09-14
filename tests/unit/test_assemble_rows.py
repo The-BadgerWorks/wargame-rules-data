@@ -104,3 +104,32 @@ def test_a_non_numeric_toughness_is_still_a_malformed_row() -> None:
             "file_name": "Datasheets_models.csv",
             "field": "characteristics",
         }
+
+
+def test_a_non_numeric_objective_control_that_is_not_a_dash_is_still_malformed() -> None:
+    """The `OC` field's own boundary: only exactly `-` maps to zero, nothing else.
+
+    Without this fence, every other test here stays green if `_objective_control` were widened
+    to swallow any `NumericParseError` on `OC` and return `0` -- and `0` is a legal value in
+    `schemas/curated/datasheet.schema.json`, so nothing downstream would catch the fabricated
+    characteristic. Two shapes, so the fence is not a single point: a value that contains a dash
+    without being one, and a non-numeric value with no dash at all. Both invented.
+    """
+    for shape, row in (
+        ("contains a dash", 'ds1|1|Test Trooper|6"|4|3+|||2|6|1-2|32mm||\n'),
+        ("no dash at all", 'ds1|1|Test Trooper|6"|4|3+|||2|6|N/A|32mm||\n'),
+    ):
+        fields, findings = _detail_datasheet_fields(
+            "ds1", _detail(_MODELS_HEADER + row), frozenset()
+        )
+
+        assert fields["models"] == [], (
+            f"an `OC` value that {shape} was mapped to a model line rather than rejected: "
+            "only exactly `-` means no objective control"
+        )
+        malformed = [f for f in findings if f.finding_code == "DQ-MALFORMED-ROW"]
+        assert len(malformed) == 1, f"an `OC` value that {shape} produced {len(malformed)} findings"
+        assert malformed[0].detail == {
+            "file_name": "Datasheets_models.csv",
+            "field": "characteristics",
+        }
