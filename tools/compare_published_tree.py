@@ -39,7 +39,6 @@ from __future__ import annotations
 import argparse
 import json
 import sys
-from collections import Counter
 from collections.abc import Sequence
 from dataclasses import dataclass, field
 from pathlib import Path
@@ -53,6 +52,10 @@ EXCLUDED_TOP_LEVEL: Final = frozenset({"provenance", "pricing_confidence"})
 EXCLUDED_COST_FIELD: Final = "source_acquisition_id"
 
 WEAPON_FIELDS: Final = (
+    # Weapons *pair* case-insensitively, so a paired pair whose printed names differ differs by
+    # case alone - and that difference must still be counted rather than absorbed by the
+    # pairing rule, which is otherwise a comparison that cannot see what it matched on.
+    "name",
     "line",
     "range",
     "attacks",
@@ -63,6 +66,7 @@ WEAPON_FIELDS: Final = (
     "ability_keywords",
 )
 MODEL_FIELDS: Final = (
+    "name",
     "line",
     "movement",
     "toughness",
@@ -99,6 +103,10 @@ MAX_SAMPLES: Final = 3
 #: Exit code for an argument that cannot be compared at all. The brief's "exit 0 always" binds
 #: the *measurement verdict* - no reading, however bad, is a failure - and not an argument error.
 USAGE_EXIT: Final = 2
+
+#: Distinguishes "the key is not there" from "the key is there and null". Comparing `.get(key)`
+#: on both sides conflates them and hides a real difference.
+_ABSENT: Final = object()
 
 
 @dataclass(slots=True)
@@ -415,31 +423,40 @@ def _compare_keywords(published: Any, candidate: Any, report: ParityReport) -> N
     """Case-insensitively equal sets whose printed text differs are a case-only difference."""
     published_raw = [str(row.get("keyword", "")) for row in _rows(published, "keywords")]
     candidate_raw = [str(row.get("keyword", "")) for row in _rows(candidate, "keywords")]
-    left = {value.casefold() for value in published_raw}
-    right = {value.casefold() for value in candidate_raw}
-    if left == right:
+    left_folded = sorted(value.casefold() for value in published_raw)
+    right_folded = sorted(value.casefold() for value in candidate_raw)
+    if left_folded == right_folded:
+        # Equal as *multisets*, not merely as sets. A side carrying the same keyword twice has
+        # an equal set and a different list, and filing that as "case only" asserts a
+        # capitalisation difference that was never checked - it is a count difference.
         if sorted(published_raw) != sorted(candidate_raw):
             report.keywords_case_only += 1
         return
     report.keywords_set_differs += 1
-    report.keywords_missing += len(left - right)
-    report.keywords_extra += len(right - left)
+    report.keywords_missing += len(set(left_folded) - set(right_folded))
+    report.keywords_extra += len(set(right_folded) - set(left_folded))
 
 
-def _prefixes(payload: Any) -> Counter[str]:
+def _keys(payload: Any) -> set[str]:
     keys = payload.get("ability_keys")
-    if not isinstance(keys, list):
-        return Counter()
-    return Counter(str(key).split(":", 1)[0] for key in keys)
+    return {str(key) for key in keys} if isinstance(keys, list) else set()
 
 
 def _compare_ability_keys(published: Any, candidate: Any, report: ParityReport) -> None:
-    """Bindings, not distinct keys: one present here and absent there counts once, by prefix."""
-    left = _prefixes(published)
-    right = _prefixes(candidate)
-    for prefix in set(left) | set(right):
-        _bump(report.ability_keys_only_published, prefix, max(left[prefix] - right[prefix], 0))
-        _bump(report.ability_keys_only_candidate, prefix, max(right[prefix] - left[prefix], 0))
+    """Set difference of the **full** ``prefix:slug`` strings, bucketed by prefix.
+
+    Per datasheet, so a key missing on three datasheets counts three times - bindings, not
+    distinct keys. The difference is taken over the whole key and never over a per-prefix
+    *count*: a datasheet holding three ``core:`` keys on each side whose slugs all differ has a
+    count difference of zero and a set difference of three, and reporting zero there is a claim
+    of parity the comparison never made.
+    """
+    left = _keys(published)
+    right = _keys(candidate)
+    for key in left - right:
+        _bump(report.ability_keys_only_published, key.split(":", 1)[0])
+    for key in right - left:
+        _bump(report.ability_keys_only_candidate, key.split(":", 1)[0])
 
 
 def _compare_names(published: Any, candidate: Any, report: ParityReport) -> None:
@@ -470,7 +487,10 @@ def compare_trees(published: Path, candidate: Path) -> ParityReport:
         if published_payload == candidate_payload:
             report.identical += 1
         for key in set(published_payload) | set(candidate_payload):
-            if published_payload.get(key) != candidate_payload.get(key):
+            # `_ABSENT`, not `.get(key)`: a key present as null on one side and absent on the
+            # other makes the datasheet non-identical, and comparing two `None`s would leave
+            # that difference counted in `identical` yet named in no row of the table.
+            if published_payload.get(key, _ABSENT) != candidate_payload.get(key, _ABSENT):
                 _bump(report.top_level, key)
         _compare_names(published_payload, candidate_payload, report)
         _compare_keywords(published_payload, candidate_payload, report)

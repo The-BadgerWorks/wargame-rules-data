@@ -205,3 +205,121 @@ def test_two_version_directories_under_one_root_is_a_usage_error(
     assert exit_code == USAGE_EXIT
     assert "Published-vs-candidate field parity" not in captured.out
     assert str(root) in captured.err
+
+
+def _variant(root: Path, **overrides: Any) -> Path:
+    """Tree A with named fields replaced. Every value invented, as everywhere in this file."""
+    payload = _datasheet(
+        skill="3+",
+        weapon_range='12"',
+        keyword="FEN WARDENS",
+        ability_keys=["core:deep-strike", "datasheet:tidal-surge"],
+    )
+    payload.update(overrides)
+    return _write_tree(root, payload)
+
+
+def test_equal_ability_key_counts_with_different_slugs_are_counted_as_changed(
+    tmp_path: Path,
+) -> None:
+    """The count of `core:` keys is not the set of them.
+
+    Fails against a comparator that subtracts per-prefix counts: both sides hold exactly one
+    `core:` key, so a count difference is zero while the binding has in fact been replaced. An
+    equal count with a different slug is a changed key, not a match, and a tool that reports it
+    as a match asserts a parity it never checked.
+    """
+    published = _variant(tmp_path / "a")
+    candidate = _variant(
+        tmp_path / "b", ability_keys=["core:rapid-insertion", "datasheet:tidal-surge"]
+    )
+
+    report = compare_trees(published, candidate)
+
+    assert report.ability_keys_only_published == {"core": 1}, (
+        "an equal count of core: keys with different slugs is a changed key, not a match"
+    )
+    assert report.ability_keys_only_candidate == {"core": 1}
+
+
+def test_duplicate_keyword_multiplicity_is_not_reported_as_a_case_difference(
+    tmp_path: Path,
+) -> None:
+    """Case-only means the same keywords printed differently - nothing else.
+
+    Fails against a comparator that tests casefolded *set* equality: a side carrying the same
+    keyword twice has an equal set and would be filed as a case difference, which is a claim
+    about capitalisation that was never checked.
+    """
+    published = _variant(
+        tmp_path / "a",
+        keywords=[
+            {"keyword": "FEN WARDENS", "is_faction_keyword": False},
+            {"keyword": "FEN WARDENS", "is_faction_keyword": False},
+        ],
+    )
+    candidate = _variant(
+        tmp_path / "b", keywords=[{"keyword": "FEN WARDENS", "is_faction_keyword": False}]
+    )
+
+    report = compare_trees(published, candidate)
+
+    assert report.keywords_case_only == 0, (
+        "a differing number of identical keywords is not a capitalisation difference"
+    )
+    assert report.keywords_set_differs == 1
+
+
+def test_a_changed_model_name_is_reported(tmp_path: Path) -> None:
+    """Fails if `name` drops out of the model fields: a renamed profile would read as parity."""
+    published = _variant(tmp_path / "a")
+    candidate_payload = _datasheet(
+        skill="3+",
+        weapon_range='12"',
+        keyword="FEN WARDENS",
+        ability_keys=["core:deep-strike", "datasheet:tidal-surge"],
+    )
+    candidate_payload["models"][0]["name"] = "Fen Reaver"
+    candidate = _write_tree(tmp_path / "b", candidate_payload)
+
+    report = compare_trees(published, candidate)
+
+    assert report.model_field_diffs.get("name", 0) == 1
+
+
+def test_a_weapon_name_differing_only_in_case_is_reported(tmp_path: Path) -> None:
+    """Weapons pair case-insensitively, so the case difference itself must still be counted.
+
+    Fails if `name` is absent from the weapon fields: the pair matches, every stat matches, and
+    a printed-name difference disappears from the field table entirely.
+    """
+    published = _variant(tmp_path / "a")
+    candidate_payload = _datasheet(
+        skill="3+",
+        weapon_range='12"',
+        keyword="FEN WARDENS",
+        ability_keys=["core:deep-strike", "datasheet:tidal-surge"],
+    )
+    candidate_payload["weapons"][0]["name"] = "Tide Axe"
+    candidate = _write_tree(tmp_path / "b", candidate_payload)
+
+    report = compare_trees(published, candidate)
+
+    assert report.weapons_paired == 1
+    assert report.weapon_field_diffs.get("name", 0) == 1
+
+
+def test_a_key_present_as_null_against_an_absent_key_is_a_difference(tmp_path: Path) -> None:
+    """`.get()` on both sides cannot tell null from absent.
+
+    Fails against a comparator that compares `payload.get(key)` alone: the datasheet counts as
+    non-identical yet appears in no top-level row, so the report shows a difference it cannot
+    name.
+    """
+    published = _variant(tmp_path / "a", damaged_threshold=None)
+    candidate = _variant(tmp_path / "b")
+
+    report = compare_trees(published, candidate)
+
+    assert report.identical == 0
+    assert report.top_level.get("damaged_threshold", 0) == 1
