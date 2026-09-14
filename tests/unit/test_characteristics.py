@@ -18,7 +18,7 @@ from __future__ import annotations
 
 import pytest
 
-from pipeline.curate.assemble import _detail_datasheet_fields
+from pipeline.curate.assemble import _detail_datasheet_fields, _faction_keywords_by_datasheet
 from pipeline.models.curated import CuratedKeyword, CuratedModelLine, CuratedWeaponLine
 from pipeline.normalize.characteristics import printed_base_size, printed_range, printed_roll
 from pipeline.parse.wahapedia_csv import CsvReadResult, read_text
@@ -115,3 +115,26 @@ def test_a_keyword_stated_in_title_case_publishes_upper_case() -> None:
 
     keywords: list[CuratedKeyword] = fields["keywords"]  # type: ignore[assignment]
     assert [k.keyword for k in keywords] == ["FEN WARDENS"]
+
+
+#: A curated chapter keyword as `curation/keyword-classes.json` states one: upper-case, invented.
+#: `match.py` builds `own_chapter_keywords` from exactly this token, and intersects it with the
+#: sibling view below.
+_CURATED_CHAPTER_KEYWORDS = frozenset({"FEN WARDENS"})
+
+
+def test_the_sibling_keyword_view_meets_the_curated_chapter_vocabulary() -> None:
+    """Match-ladder rung 3 reads this view; an empty intersection makes the rung inert.
+
+    The assertion goes through the reader rather than around it: the fixture states the keyword
+    in the export's own case, and the intersection has to survive that. Reverted, this is red —
+    the reader yields the title-case token, the intersection with the upper-case curated
+    vocabulary is empty, and no chapter disambiguation can ever fire on this arm.
+    """
+    observed = _faction_keywords_by_datasheet(_detail())["ds1"]
+
+    assert observed & _CURATED_CHAPTER_KEYWORDS, (
+        "the sibling keyword view does not meet the curated chapter vocabulary: read "
+        f"{len(observed)} faction keyword(s), intersection empty — match-ladder rung 3 is "
+        "inert on this arm and chapter disambiguation never fires"
+    )

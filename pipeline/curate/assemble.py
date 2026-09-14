@@ -510,8 +510,15 @@ def _faction_keywords_by_datasheet(
 
     Only the *faction* keywords, because only those can name a chapter — a unit keyword shared by
     two datasheets says nothing about which faction may field either. Read through the same
-    ``strip_field`` the curated keyword rows go through, so the token a curator writes in
-    ``curation/keyword-classes.json`` means one thing across both files rather than two.
+    ``strip_field`` **and the same upper-casing** the curated keyword rows go through, so the
+    token a curator writes in ``curation/keyword-classes.json`` means one thing across both
+    files rather than two.
+
+    The upper-casing is load-bearing, not cosmetic. ``match.py``'s rung 3 intersects these sets
+    with ``own_chapter_keywords``/``foreign_chapter_keywords``, which are built from
+    ``record.keyword`` — upper-case curation. The export does not state keywords upper (1 754
+    case-only differences measured), so leaving this view in export case made that intersection
+    empty and the rung inert: chapter disambiguation could never fire.
     """
     keywords = detail.get("Datasheets_keywords.csv")
     if keywords is None:
@@ -523,7 +530,7 @@ def _faction_keywords_by_datasheet(
         text = strip_field(row.fields.get("keyword", ""), field="keyword").text
         if not text:
             continue
-        by_datasheet.setdefault(row.fields.get("datasheet_id", ""), set()).add(text)
+        by_datasheet.setdefault(row.fields.get("datasheet_id", ""), set()).add(text.upper())
     return {datasheet_id: frozenset(values) for datasheet_id, values in by_datasheet.items()}
 
 
