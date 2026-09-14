@@ -37,7 +37,6 @@ REPO_ROOT = Path(__file__).resolve().parents[2]
 FIXTURES = REPO_ROOT / "fixtures" / "minimal"
 
 HTML_ENV = {
-    "WGC_DETAIL_ACQUISITION_MODE": "html",
     "WGC_DETAIL_EDITION": "wh40k-11e",
 }
 
@@ -115,9 +114,9 @@ def test_the_class_counts_sum_to_the_residual(tmp_path: Path) -> None:
     assert report.unparsed <= report.sentences
 
 
-def test_the_run_records_the_mode_and_edition_it_measured(tmp_path: Path) -> None:
+def test_the_run_records_the_edition_it_measured(tmp_path: Path) -> None:
     report = _measure(tmp_path)
-    assert (report.mode, report.edition) == ("html", "wh40k-11e")
+    assert report.edition == "wh40k-11e"
 
 
 def test_the_acquired_text_is_discarded(tmp_path: Path) -> None:

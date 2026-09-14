@@ -50,9 +50,8 @@
 # `plan.md` finding 1 silent-failure shape this feature exists to make loud.
 # AI-Assisted: Claude Code (model: claude-sonnet-5) - 009 task T028: updated
 # DETACHMENT_ABILITIES_FILE's comment now that it has joined EXPORT_FILES under the csv arm too.
-# AI-Assisted: Claude Code (model: claude-opus-5) - 009 rung R01b: forward
-# `carried_forward_detail_ids` to `resolve_factions`, so a faction carried forward from the
-# previous published tree is not reported as an unexplained empty faction.
+# AI-Assisted: Claude Code (model: claude-opus-5) - 010 R5: dropped the
+# `carried_forward_detail_ids` pass-through along with the per-faction carry-forward mechanism.
 """Build one :class:`~pipeline.models.curated.CuratedSnapshot` from everything upstream.
 
 This is where the two sources stop being two sources. The **points** source is authoritative for
@@ -587,12 +586,10 @@ def _detail_datasheet_fields(
             # instances). The export's `line` numbers a wargear CHOICE, not a row: a multi-profile
             # weapon (plasma standard/supercharge, missile frag/krak, ...) states two rows under
             # one `line`, disambiguated only by `line_in_wargear` -- a column nothing here reads.
-            # The html arm never had this collision, because its own scraper
-            # (`wahapedia_html_dom.py::_weapon_profiles`) mints a fresh sequential number per row
-            # it prints rather than reading one off the page, which is exactly what `line_number`
-            # reproduces for the export too. `to_int` below still validates the raw column parses
-            # -- a row whose own `line` is genuinely malformed is still `DQ-MALFORMED-ROW` -- it
-            # is simply no longer what identifies the row.
+            # The number has to be minted from the row's own position rather than read off the
+            # column, which is exactly what `line_number` does. `to_int` below still validates
+            # that the raw column parses -- a row whose own `line` is genuinely malformed is still
+            # `DQ-MALFORMED-ROW` -- it is simply no longer what identifies the row.
             to_int(weapon.fields["line"], field="weapon.line")
             weapons.append(
                 CuratedWeaponLine(
@@ -608,8 +605,7 @@ def _detail_datasheet_fields(
                     # Issue #4. The keywords are stated in the export's `description` column,
                     # which also carries free prose — so the field is IP-stripped first and then
                     # read by the bracketed-group rule, which takes the keyword list and nothing
-                    # else. Both detail modes reach this line: html mode re-emits the keywords
-                    # its cards print into the same column, in the same shape.
+                    # else.
                     ability_keywords=parse_weapon_ability_keywords(
                         strip_field(
                             weapon.fields.get("description", ""),
@@ -1442,17 +1438,8 @@ def assemble(  # noqa: PLR0913 - the stage genuinely needs every upstream input
     edition_code: str,
     edition_name: str,
     registry: IdRegistry | None = None,
-    carried_forward_detail_ids: frozenset[str] = frozenset(),
 ) -> AssemblyResult:
-    """Build the whole curated snapshot.
-
-    ``carried_forward_detail_ids`` (008 FR-024) is carried straight through to
-    :func:`~pipeline.reconcile.match.resolve_factions` — the detail-source ids acquisition
-    declared **and** could not fetch this run, so a faction contributing no rows for that reason
-    is not the unexplained ``REC-DETAIL-FACTION-EMPTY``. Plain data resolved at acquisition by
-    :func:`pipeline.acquire.detail_source.resolve_carried_forward`; nothing here knows a mode
-    exists (rule 4). Defaults to empty, which is inert.
-    """
+    """Build the whole curated snapshot."""
     findings: list[Finding] = []
     registry = registry or IdRegistry()
     edition_id = f"ed-{edition_code}"
@@ -1470,7 +1457,6 @@ def assemble(  # noqa: PLR0913 - the stage genuinely needs every upstream input
         [page.faction_slug for page in pages],
         authored,
         detail_faction_ids_present=detail_faction_ids_present,
-        carried_forward_detail_ids=carried_forward_detail_ids,
     )
     findings.extend(factions_outcome.findings)
     scopes = {scope.entry.mfm_slug: scope for scope in factions_outcome.scopes}

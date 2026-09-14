@@ -3,6 +3,9 @@
      for the first time (004 task T084). Rehearsed against the prerelease channel on 2026-08-06
      with the wh40k-11e-2026-08 candidate; three of the four gates go on, and the fourth is
      recorded here as refused with the measurement that refuses it. -->
+<!-- AI-Assisted: Claude Code (model: Claude Opus 5) - 010 R5: corrected the preflight
+     paragraph, which named the deleted detail-acquisition mode as a variable the
+     workflows still read. The rehearsal's own measurements are unchanged. -->
 # Gate switch-on rehearsal
 
 `contracts/authored-summary-gates.md` §7 item 3 requires each class gate's **first** switch-on to
@@ -29,9 +32,11 @@ A gate is switched on by a **repository variable** read by `candidate.yml` and `
 
 Both workflows therefore read the identical five variables, and both carry a preflight step that
 refuses an unset one: an unset repository variable arrives as an **empty string**, not as absent,
-so the library default never applies. `WGC_GATE_*` and `WGC_DETAIL_ACQUISITION_MODE` then fail
-inside `load_config`, but `WGC_DETAIL_EDITION` passes validation as `""` and would stamp an empty
-edition code on every entity.
+so the library default never applies. `WGC_GATE_*` then fails inside `load_config` and
+`WGC_DETAIL_SOURCE_URL` fails later at `require_detail_source`, but `WGC_DETAIL_EDITION` passes
+validation as `""` and would stamp an empty edition code on every entity. (The sixth variable the
+rehearsal ran under, the detail-acquisition mode, was deleted by `010` R5 along with the second
+detail arm; it is no longer read by either workflow.)
 
 ## Per-class result
 

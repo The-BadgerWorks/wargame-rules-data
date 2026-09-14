@@ -38,7 +38,6 @@ FIXTURES = REPO_ROOT / "fixtures" / "minimal"
 KEY = "churn-dry-run-test-key"
 
 HTML_ENV = {
-    "WGC_DETAIL_ACQUISITION_MODE": "html",
     "WGC_DETAIL_EDITION": "wh40k-11e",
     "WGC_MECHANIC_DIGEST_KEY": KEY,
 }
@@ -48,7 +47,7 @@ def _current_digests() -> dict[str, str]:
     """The digests the fixture source produces, computed exactly as the tool computes them."""
     config = load_config(env=HTML_ENV)
     _acquisition, payloads = acquire_detail(config, fixtures_dir=FIXTURES, offline=True)
-    return compute_current_digests(read_detail(config, payloads), key=KEY.encode("utf-8"))
+    return compute_current_digests(read_detail(payloads), key=KEY.encode("utf-8"))
 
 
 def _authored(curation: Path, faction_id: str, records: list[dict[str, object]]) -> Path:
@@ -164,9 +163,9 @@ def test_a_record_nobody_approved_is_not_counted_as_churn(tmp_path: Path, curati
     assert moved.needs_rereview == 1
 
 
-def test_the_run_records_the_mode_and_edition_it_measured(tmp_path: Path, curation: Path) -> None:
+def test_the_run_records_the_edition_it_measured(tmp_path: Path, curation: Path) -> None:
     report = _measure(tmp_path, curation)
-    assert (report.mode, report.edition) == ("html", "wh40k-11e")
+    assert report.edition == "wh40k-11e"
 
 
 # -- what it must not do -------------------------------------------------------------------------
@@ -257,7 +256,6 @@ def test_a_live_run_in_csv_mode_fails_the_same_way(
 ) -> None:
     """`csv` is the default mode, so this is what an operator who set only the key actually got."""
     monkeypatch.setenv("WGC_MECHANIC_DIGEST_KEY", KEY)
-    monkeypatch.delenv("WGC_DETAIL_ACQUISITION_MODE", raising=False)
     monkeypatch.delenv("WGC_DETAIL_SOURCE_URL", raising=False)
 
     code = main(["--repo", str(tmp_path)])

@@ -35,13 +35,6 @@ from pipeline.models.authored import ReviewState, SummaryClass
 from pipeline.models.curated import CuratedDetachmentRule
 from pipeline.models.findings import Severity
 from pipeline.parse.wahapedia_csv import CsvReadResult, WahapediaRow
-from pipeline.parse.wahapedia_html_dom import (
-    Datacard,
-    DatacardPage,
-    Detachment,
-    detail_id,
-    emit_records,
-)
 from pipeline.schema_validation import validate_bundle
 from pipeline.validate.gates import (
     ClassCheck,
@@ -154,59 +147,13 @@ def test_the_denominator_is_every_published_rule_not_every_authored_one() -> Non
     assert (coverage.approved, coverage.total) == (1, 3)
 
 
-# --- issue #5: a rule belongs to the detachment that published it, or to none --------------------
-
-
-def _page(slug: str, code: str, detachment: str, *rules: str) -> DatacardPage:
-    """One invented faction publishing one invented detachment and its invented rules."""
-    return DatacardPage(
-        faction_slug=slug,
-        faction_name=slug,
-        detachments=(Detachment(code=code, name=detachment),),
-        cards=(
-            Datacard(
-                detail_id=detail_id(slug, "Invented-Card"),
-                name="Invented Card",
-                faction_id=slug,
-                detachment_rules=tuple((code, rule) for rule in rules),
-            ),
-        ),
-    )
-
-
-def test_a_shared_page_code_does_not_move_one_factions_rules_onto_anothers_detachment() -> None:
-    """The live failure: two-letter ``data-det-code`` is unique per page, not per source.
-
-    Ashenreach's rule reaching Sedge Column's denominator is not a missing summary — it is a
-    curator asked to explain a rule that detachment does not have, and 88 of the 285 entries the
-    first campaign worked from were exactly that.
-    """
-    detail = emit_records(
-        [
-            _page("ashenreach", "SC", "Sable Cohort", "Sable Advance"),
-            _page("thornmoor", "SC", "Sedge Column", "Sedge Volley"),
-        ],
-        edition_code="wh40k-11e",
-    )
-
-    assert _source_detachment_rules(detail) == {
-        "sable cohort": ("Sable Advance",),
-        "sedge column": ("Sedge Volley",),
-    }
-
-
-def test_a_detachment_that_loses_a_code_collision_still_reports_its_own_rules() -> None:
-    """The half of the bug that was invisible: the loser reported *no* rules at all, so its
-    genuinely published ones never entered the denominator and nobody was asked to write them."""
-    detail = emit_records(
-        [
-            _page("ashenreach", "SC", "Sable Cohort", "Sable Advance", "Sable Vigil"),
-            _page("thornmoor", "SC", "Sedge Column", "Sedge Volley"),
-        ],
-        edition_code="wh40k-11e",
-    )
-
-    assert _source_detachment_rules(detail)["sable cohort"] == ("Sable Advance", "Sable Vigil")
+# --- issue #5: a rule belongs to the detachment that published it, or to none ---------------
+#
+# 010 R5: the two receipts here that built `DatacardPage` objects and ran them through
+# `emit_records` went with the html arm. They asserted the DOM emitter's own routing of a
+# `data-det-code` collision; there is no DOM emitter to route anything now. The csv arm's own
+# defence against the identical shape -- an id the source publishes under two names -- is the
+# pair of tests below, which were always the only ones that applied to the surviving arm.
 
 
 def _detail_rows(

@@ -10,6 +10,8 @@
      checkout (post-publication of wh40k-11e-2026-08-3), two real command-line defects found and
      fixed in specs/007-loadout-display-fidelity/quickstart.md itself, one of them a stale design
      claim overtaken by a same-day Product Owner decision rather than a simple typo. -->
+<!-- AI-Assisted: Claude Code (model: Claude Opus 5) - 010 R5: the enrichment-fixture sentence
+     named a fixture directory this rung deleted. -->
 # T160 — clean-checkout quickstart validation
 
 `specs/002-rules-data-pipeline/quickstart.md` (in `WargameCompanion`) walks a curator through
@@ -245,8 +247,10 @@ rules-pipeline: SRC-UNREACHABLE: fixture set has no mfm/ directory for the mfm s
 
 `fixtures/enrichment` was never built as a full-CLI-build fixture set — `fixtures/README.md`'s own
 naming convention requires an `mfm/` directory for anything passed to `--fixtures`, and `tests/
-enrichment/conftest.py` reads `fixtures/enrichment`'s `wahapedia`/`wahapedia-html`/`curation`
-directories directly at the enrichment-stage level, never through `pipeline.cli.run_build`. Tried
+enrichment/conftest.py` reads `fixtures/enrichment`'s `wahapedia`/`curation`
+directories directly at the enrichment-stage level, never through `pipeline.cli.run_build`.
+(A third directory, `wahapedia-html/`, was read there too until `010` R5 deleted it with the
+second detail arm.) Tried
 the two other committed sets as an alternative and confirmed both fail **by design**, not as a
 substitute fix: `fixtures/sample` exits `41` (`SRC-STRUCTURE-CHANGED`, an intentionally unfilled
 placeholder — `docs/runbook.md`'s reproduction procedure for exactly this); `fixtures/minimal`

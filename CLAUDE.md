@@ -1,6 +1,10 @@
 <!-- AI-Assisted: Claude Code (model: Claude Opus 5) - Authored when the project moved to the
      rung/gate/receipt workflow, so /code-review and every executor session in the repo where
      the code actually lives read the same contract as the one in WargameCompanion. -->
+<!-- AI-Assisted: Claude Code (model: Claude Opus 5) - 010 R5: trap 9 restated as closed on
+     main since PR #27, standing rule 6 rewritten for a single detail arm, and the
+     arm-swap receipt example replaced, the second arm having been deleted; standing rule 4 no
+     longer names the detail-source authority declaration, whose schema and loader are gone. -->
 # wargame-rules-data — working rules for agents
 
 This repository is the whole rules-data pipeline: it acquires two upstream sources, strips
@@ -66,16 +70,16 @@ never touched the changed code, a "same output" test asserting only `exit_code =
 - **Anything you added on your own judgement needs the same receipt as anything you were told
   to do.** In this project's worst round, both mandated changes were correct and both
   self-directed ones were broken, because nobody asked those for evidence.
-- The non-vacuous form for an arm swap: build twice, once per arm for a moved class, and
+- The non-vacuous form for a mechanism: exercise it twice, once with it and once without, and
   **assert the outputs differ**, with a message saying identical outputs mean the mechanism is
-  not wired up.
+  not wired up. (The arm-swap version of this went with the second arm — 010 R5 left one.)
 
 ---
 
 ## Build and test
 
 ```bash
-pytest                             # full suite; last known good 2270 passed / 8 skipped
+pytest                             # last known good 2338 passed / 8 skipped / 6 xfailed
 ruff check . && ruff format --check .
 mypy                               # strict, packages = ["pipeline"]
 ```
@@ -132,13 +136,16 @@ Every one of these has produced a confidently wrong answer in this repo.
    quotes what it found** — `DQ-MARKUP-IN-FIELD` names the field, not the markup.
 8. **Task IDs are reused across features.** A bare `T049` in this tree may belong to 002, 008,
    or 009. Only a `009 task T0xx`-style citation is evidence of which feature owns it.
-9. **`ip_strip.py`'s markup hole is open on `main`.** There, `_TAG` is a single pattern
-   requiring a name character immediately after `<` and a terminating `>`, so `< b>x</ b>`
-   survives with **no finding** and `a <b and c> d` collapses to `a d`. `models/mechanical.py`'s
-   `NON_MECHANICAL_PATTERNS["markup"]` is character-identical, so such a residue passes
-   `assert_mechanical_string` and `validate/ip_scan.py` **and would publish**. Fixed on
-   `009-csv-migration` (two-branch `_CLOSED_TAG` | `_UNTERMINATED_TAG`), waiting in PR #27.
-   **These two patterns must move together, always.**
+9. **`ip_strip.py`'s markup hole is closed on `main`, and the fix is two patterns wide.**
+   `_TAG` was once a single pattern requiring a name character immediately after `<` and a
+   terminating `>`, so `< b>x</ b>` survived with **no finding** and `a <b and c> d` collapsed
+   to `a d`; `models/mechanical.py`'s `NON_MECHANICAL_PATTERNS["markup"]` was
+   character-identical, so such a residue passed `assert_mechanical_string` and
+   `validate/ip_scan.py` **and would have published**. The two-branch form (`_CLOSED_TAG` |
+   `_UNTERMINATED_TAG`) in `normalize/ip_strip.py` has been on `main` since PR #27 merged on
+   2026-09-03. **These two patterns must still move together, always** — `models` sits below
+   `normalize` in the dependency order, so they are hand-kept in lockstep and
+   `tests/ip/test_ip_strip.py`'s paired assertion is what catches a drift.
 10. **A fixture may never stand in for a table the real export does not publish.**
     `fixtures/enrichment/wahapedia/Datasheets_unit_equipment.csv` fabricates one, while
     `fixtures/minimal/` and `fixtures/disagreements/` — the sets that model the real export —
@@ -159,17 +166,16 @@ Breaking one of these is Tier 1.
 3. **Ability summaries are authored by a human from the mechanic.** Machine paraphrase, synonym
    substitution, or reordering of the publisher's text is a policy violation, not a shortcut.
 4. **The pipeline writes `data/`; humans write `curation/`.** Neither ever writes the other. No
-   code path may generate the crosswalk, the faction codes, the authority declaration, or a
-   refreshed digest. Machine-**drafted** through the pipeline's own client, **human-verified per
+   code path may generate the crosswalk, the faction codes, or a refreshed digest. Machine-**drafted** through the pipeline's own client, **human-verified per
    entry before merge**.
 5. **Automation produces candidates only.** `publish.yml` is the only code path that may write a
    Release or the manifest, and it refuses outside the approved CI context. Never work around
    that refusal.
-6. **No mode branch below `acquire`.** From `acquire/detail_source.py`'s own docstring: *"If a
-   `if mode is …` appears anywhere below `acquire`, the design has been lost."* A hybrid is
-   expressed as **which arm populates which table**, resolved at acquisition and declared in
-   `curation/` — never as a conditional in `parse`, `normalize`, `reconcile`, `curate`,
-   `validate` or `build`.
+6. **There is one detail arm, the CSV export.** No acquisition-shape branch exists anywhere:
+   no mode variable, no dispatch table, no `if mode is …` in `acquire` or below it. Adding a
+   second source is a **design decision**, taken deliberately and reviewed as one — never a
+   mode variable bolted onto the existing arm, and never a conditional in `parse`, `normalize`,
+   `reconcile`, `curate`, `validate` or `build`.
 7. **No grammar production is authored while a normalization cause is unfixed.**
    `parse/options_grammar.py` and `parse/equipment_grammar.py` are not edited by feature 009. A
    production written to paper over a normalization defect is a second parallel vocabulary at

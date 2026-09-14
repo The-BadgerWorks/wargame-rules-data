@@ -1,3 +1,6 @@
+# AI-Assisted: Claude Code (model: Claude Opus 5) - 010 R5 final-review fix item 6: recorded
+# that `_ANY_TAG` is routing-only and is not one of the two markup patterns CLAUDE.md trap 9
+# binds together. Comment only; the pattern is unchanged.
 # AI-Assisted: Claude Code (model: claude-sonnet-5) - Authored and carried this module
 # through 010 rounds 1-4: csv-arm row routing at the reader boundary (which table a row
 # belongs in), markup-anchored default-loadout sentence boundaries, refusal in place of a
@@ -14,12 +17,16 @@
 # substitutes a SPACE for a tag rather than deleting it, matching `normalize/ip_strip.py`.
 # Deleting it welded the words either side together and routed a genuine option row out of
 # the options table with no finding raised.
+# AI-Assisted: Claude Code (model: Claude Opus 5) - 010 R5: two comments still spoke of a
+# mode the deletion removed; the historical references to the second arm stay in the past
+# tense they were already written in.
 """Row routing for the bulk-export reader — which table a row belongs in, and whether it is a
 row at all.
 
 Everything here decides *membership*, never *meaning*: a row is dropped because the html arm
 never delivered its shape to the grammar, or moved because the export files it under a
-different heading than the one the grammar reads. The grammars stay mode-blind and unedited.
+different heading than the one the grammar reads. The grammars stay unedited, and blind to
+where a row came from.
 """
 
 from __future__ import annotations
@@ -40,6 +47,10 @@ DATASHEETS_TABLE: Final = "Datasheets.csv"
 
 #: Any element. Only ever used to read *through* markup - the tag is never a boundary, a value
 #: or a finding here; `normalize/ip_strip.py` owns removing it for real, downstream.
+#: Deliberately a weaker, routing-only pattern and **NOT** the IP-strip definition: the two
+#: patterns CLAUDE.md trap 9 requires to move together are `normalize/ip_strip.py::_TAG` and
+#: `models/mechanical.py`'s `NON_MECHANICAL_PATTERNS["markup"]`. This third copy is not one of
+#: them and must not be edited to match them.
 _ANY_TAG: Final = re.compile(r"<[^>]+>")
 #: A run of whitespace, and the export's two spellings of a non-breaking space. ``\s`` already
 #: matches U+00A0; the HTML entity is a literal six-character run that it does not.
@@ -64,10 +75,11 @@ def _plain_text(text: str) -> str:
     return _WHITESPACE_RUN.sub(" ", _NBSP.sub(" ", _ANY_TAG.sub(" ", text))).strip()
 
 
-#: Mirrors ``wahapedia_html_dom._NONE_TEXT``: the source's "publishes none" placeholder, compared
-#: with trailing full stops removed because the page prints both spellings.
+#: The source's "publishes none" placeholder, compared with trailing full stops removed
+#: because the source prints both spellings.
 _NONE_TEXT: Final = "none"
-#: Mirrors ``wahapedia_html_dom._DEFAULT_EQUIPMENT_SENTENCE`` and ``_GRANTS_A_CHOICE``.
+#: The default-equipment marker, and the word that makes a sentence a choice rather than a
+#: loadout. Both are membership questions, never grammar ones.
 _DEFAULT_EQUIPMENT_SENTENCE: Final = re.compile(r"\bis equipped with\s*:", re.IGNORECASE)
 _GRANTS_A_CHOICE: Final = re.compile(r"\bcan\b", re.IGNORECASE)
 
@@ -201,7 +213,7 @@ def split_equipment_sentences(text: str) -> tuple[str, ...]:
 
 
 def derive_equipment_from_loadout(detail: dict[str, CsvReadResult]) -> dict[str, CsvReadResult]:
-    """csv-mode's source for ``Datasheets_unit_equipment.csv`` (010 R1, spec §4.2).
+    """The source for ``Datasheets_unit_equipment.csv`` (010 R1, spec §4.2).
 
     The export publishes no equipment table; it states each datasheet's default loadout in
     ``Datasheets.csv``'s ``loadout`` column, one prose cell per datasheet, sometimes holding more
@@ -213,11 +225,11 @@ def derive_equipment_from_loadout(detail: dict[str, CsvReadResult]) -> dict[str,
     Numbering starts one past the highest existing integer ``line`` already recorded for that
     ``datasheet_id`` in ``detail``'s equipment table (0 when there is none, so "from 1" holds
     whenever nothing else derived a row for that datasheet) — never from 1 unconditionally.
-    ``_derive_equipment_from_composition`` runs first and can already have filed a row for the
-    same ``datasheet_id`` under ``line="1"``; numbering from 1 here too would mint two rows
-    sharing one ``(datasheet_id, line)`` pair, and ``curate/assemble.py``'s
-    ``equipment_group_id`` turns that pair into a single group id shared by two distinct rows —
-    a published-identifier collision (spec §4.6), not merely a cosmetic duplicate.
+    This module is the only producer of that table today, so the count is always 0; it stays
+    because ``curate/assemble.py``'s ``equipment_group_id`` mints one published id from
+    ``(datasheet_id, line)``, and a second producer numbering from 1 as well would give two
+    distinct rows one id — a published-identifier collision (spec §4.6), not a cosmetic
+    duplicate.
     """
     datasheets = detail.get(DATASHEETS_TABLE)
     if datasheets is None:

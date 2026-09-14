@@ -1,7 +1,5 @@
-# AI-Assisted: Claude Code (model: claude-sonnet-5) - Added CM03|2 to the fixture's expected
-# unresolved set (009 task T011): the equipment-marker composition row `Datasheets_unit_
-# composition.csv` gained for Phase 5's derivation test, on the exact shape GF05|1 already
-# demonstrates.
+# AI-Assisted: Claude Code (model: claude-opus-5) - 010 R5: removed CM03|2 from the fixture's
+# expected unresolved set, with the composition-sourced equipment derivation it was added for.
 # AI-Assisted: Claude Code (model: claude-opus-5) - The composition grammar's contract (004 task
 # T021): the pre-pass, the two productions, "a fixed count is not missing data", exactly-one
 # model linking, and the unresolved row that reports and never blocks (FR-007, FR-008).
@@ -116,12 +114,11 @@ def test_the_fixtures_unresolvable_row_is_the_one_named(
     # GF11 joined GF05 with 006 T004: a datasheet whose composition does not resolve, so
     # FR-016 has something to assert against -- its default-equipment sentence must not be
     # attached to a composition structure that does not exist.
-    # CM03|2 joined them at 009 T011: the same equipment-marker shape GF05|1 already
-    # demonstrates, on a datasheet that ALSO carries a genuine composition row (CM03|1) --
-    # so Phase 5's derivation test can assert the marker line is extracted and the genuine
-    # line is left alone, once CMP-UNRESOLVED no longer suppresses the whole datasheet's
-    # equipment for it (plan.md finding 9, T053).
-    assert unresolved == {("GF05", 1), ("GF11", 1), ("CM03", 2)}
+    # A third such row (CM03|2) joined them at 009 T011 to back a derivation that read the
+    # default-equipment sentence out of the composition table; 010 R5 deleted that derivation,
+    # and the row with it, once the export's own `loadout` column proved to be where the
+    # sentence is actually filed.
+    assert unresolved == {("GF05", 1), ("GF11", 1)}
 
 
 def test_cmp_unresolved_is_advisory_and_therefore_never_blocks_publication() -> None:

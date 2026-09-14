@@ -14,12 +14,12 @@
 # (docs/follow-ups.md item 4): html mode carries no publication id, so the publication-id step is
 # inert there and the same collision resurfaced. The signal html mode does carry is the card's own
 # faction keywords, read against curation/keyword-classes.json's curator-authored chapter records.
-# AI-Assisted: Claude Code (model: claude-opus-5) - 009 rung R01b: `resolve_factions` takes the
-# detail ids carry-forward actually used this run (`carried_forward_detail_ids`) and does not
-# raise `REC-DETAIL-FACTION-EMPTY` for them. Every carried-forward faction is parentless, so the
-# ancestor walk that spares a Space Marine chapter saved none of them, and the splice runs after
-# assembly with no way to withdraw a finding already appended -- so 008's approved safety net
-# turned exit 0 into exit 30 on exactly the runs it exists for.
+# AI-Assisted: Claude Code (model: claude-opus-5) - 010 R5: dropped `carried_forward_detail_ids`
+# from `resolve_factions` along with the per-faction carry-forward mechanism; the single bulk arm
+# has no per-faction page failure for a declaration to excuse, so every empty faction is now the
+# unexplained one `REC-DETAIL-FACTION-EMPTY` reports.
+# AI-Assisted: Claude Code (model: Claude Opus 5) - 010 R5: rung 3's rationale named the
+# deleted second arm in the present tense; put into the past tense, no behaviour touched.
 """Pair the points source's units with the detail source's datasheets, deterministically.
 
 The ladder, and the reason each rung exists (research D5):
@@ -52,13 +52,14 @@ before it failed:
    it *is*.
 
 Every one of the three resolves the pair only when it leaves **exactly one** candidate; otherwise
-the ladder falls through to ``REC-AMBIGUOUS-MATCH`` unchanged. Rung 3 exists because rung 2 is
-inert under ``html`` mode: a datacard page states Legends as a class token and never states which
-publication a datasheet came from, so the whole page is one publication and there is nothing to
-prefer with (``docs/follow-ups.md`` item 4). It is not a fuzzy match by another name — the chapter
-records it reads are authored by a curator and asserted against the faction tree (FR-019), so what
-narrows the candidates is a **declaration**, exactly as in rungs 1 and 2. Nothing here infers a
-chapter from a keyword's spelling.
+the ladder falls through to ``REC-AMBIGUOUS-MATCH`` unchanged. Rung 3 exists because rung 2 was
+inert under the datacard-page arm `010` R5 deleted: a datacard page stated Legends as a class
+token and never stated which publication a datasheet came from, so the whole page was one
+publication and there was nothing to prefer with (``docs/follow-ups.md`` item 4). It is not a
+fuzzy match by another name — the chapter records it reads are authored by a curator and
+asserted against the faction tree (FR-019), so what narrows the candidates is a
+**declaration**, exactly as in rungs 1 and 2. Nothing here infers a chapter from a keyword's
+spelling.
 
 **Stage 3 — authored aliases**, for spellings a curator has confirmed once.
 
@@ -205,7 +206,6 @@ def resolve_factions(
     authored: AuthoredContent,
     *,
     detail_faction_ids_present: Set[str] = frozenset(),
-    carried_forward_detail_ids: Set[str] = frozenset(),
 ) -> MatchOutcome:
     """Stage 0. Map every points-source slug to a curated faction, or block.
 
@@ -224,26 +224,6 @@ def resolve_factions(
             instead, since an empty roster still reads 100% of the OTHER factions' coverage.
             Defaults to empty, which is inert: a caller that has not wired in the acquired
             vocabulary sees exactly today's behaviour.
-        carried_forward_detail_ids: the detail-source ids **actually carried forward this run**
-            (008 FR-024) — the declared set minus what acquisition returned, resolved at
-            acquisition by
-            :func:`pipeline.acquire.detail_source.resolve_carried_forward` and passed down as
-            plain data. A faction whose ``detail_source_faction_id`` is in this set contributed
-            no rows *for a declared, Product-Owner-approved reason*, and
-            ``REC-DETAIL-FACTION-EMPTY`` — which is for the **unexplained** case — is not raised
-            for it; ``SRC-FACTION-CARRIED-FORWARD`` reports it instead, from
-            :func:`pipeline.curate.carry_forward.apply_carried_forward` (rule 10: no second code
-            for a condition already reported). Every carried-forward faction is parentless, so
-            the ancestor walk below — the thing that spares a Space Marine chapter — rescues none
-            of them, and the splice runs *after* assembly with no way to withdraw a finding
-            already appended; the exemption therefore has to be made here or not at all.
-
-            **Keyed on "declared and absent", never on "declared".** A declared faction whose
-            page answered is not carried this run, is absent from this set, and stays fully
-            subject to the guard — which is the case that matters, since "the page answered but
-            its rows speak a vocabulary nothing maps" is exactly ``plan.md`` finding 2's shape.
-            Empty under any arm that has no per-faction page to fail in the first place, so the
-            exemption cannot leak into ``csv`` mode; nothing here knows a mode exists (rule 4).
     """
     outcome = MatchOutcome()
     by_faction = {entry.faction_id: entry for entry in authored.faction_map}
@@ -282,12 +262,7 @@ def resolve_factions(
                     detail_ids.append(parent_id)
             ancestor = parent.parent_faction_id
 
-        carried_forward = entry.detail_source_faction_id in carried_forward_detail_ids
-        if (
-            detail_faction_ids_present
-            and not carried_forward
-            and not (set(detail_ids) & detail_faction_ids_present)
-        ):
+        if detail_faction_ids_present and not (set(detail_ids) & detail_faction_ids_present):
             outcome.findings.append(
                 build_finding(
                     "REC-DETAIL-FACTION-EMPTY",
@@ -409,9 +384,9 @@ def match_units(
         detail_faction_keywords: the **faction** keywords each detail datasheet carries. Consulted
             last of the three narrowing signals, and only against the chapter keywords the scope
             resolved from ``curation/keyword-classes.json``; a faction with no chapter records in
-            its lineage never reaches it. Required rather than defaulted: it is the only signal
-            ``html`` mode carries for this collision, and a caller that forgot it would get a
-            silently blocking run rather than an error.
+            its lineage never reaches it. Required rather than defaulted: it was the only
+            signal the deleted datacard-page arm carried for this collision, and a caller that
+            forgot it would get a silently blocking run rather than an error.
     """
     outcome = MatchOutcome()
 
@@ -505,9 +480,9 @@ def match_units(
             if len(by_publication) == 1:
                 candidates = by_publication
 
-        # Chapter-keyword narrowing, the last of the three signals and the only one `html` mode
-        # carries (module docstring, rung 3). Inert for a faction with no chapter records in its
-        # lineage, which is every faction outside a chapter tree.
+        # Chapter-keyword narrowing, the last of the three signals and the only one the deleted
+        # datacard-page arm carried (module docstring, rung 3). Inert for a faction with no
+        # chapter records in its lineage, which is every faction outside a chapter tree.
         if len(candidates) > 1:
             by_chapter = _narrow_by_chapter_keyword(candidates, scope, detail_faction_keywords)
             if by_chapter is not None:

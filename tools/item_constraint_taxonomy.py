@@ -172,7 +172,6 @@ class ConstraintTaxonomyReport:
     """The whole measurement: counts, and only counts."""
 
     generated_at: str
-    mode: str
     edition: str
     source: str
     equipment_table_present: bool
@@ -231,7 +230,7 @@ def measure(
             config, fixtures_dir=fixtures_dir, offline=offline, workspace=work
         )
         source = acquisition.source_base_url
-        tables = read_detail(config, payloads)
+        tables = read_detail(payloads)
 
         options = tables.get(_OPTIONS_TABLE)
         if options is not None:
@@ -283,7 +282,6 @@ def measure(
     moment = (generated_at or datetime.now(UTC)).astimezone(UTC)
     return ConstraintTaxonomyReport(
         generated_at=moment.isoformat().replace("+00:00", "Z"),
-        mode=config.detail_acquisition_mode.value,
         edition=config.detail_edition,
         source=source,
         equipment_table_present=equipment_table_present,
@@ -313,7 +311,6 @@ def render(report: ConstraintTaxonomyReport) -> str:
         "# Footnote-restriction arrival-path taxonomy",
         "",
         f"- Generated: `{report.generated_at}`",
-        f"- Detail acquisition mode: `{report.mode}`",
         f"- Declared detail edition: `{report.edition}`",
         f"- Source: `{report.source}`",
         "",

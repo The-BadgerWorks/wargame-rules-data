@@ -2,6 +2,8 @@
 # disallowed-path deny-list (004 task T003): the two paths the source's published crawling rules
 # forbid, checked before a request is constructed so a disallowed path issues zero requests
 # (research D1a, verified again by the T002 markup spike).
+# AI-Assisted: Claude Code (model: Claude Opus 5) - 010 R5: dropped the deny-list comment's
+# citation of the markup spike write-up, which this rung deleted along with the html arm.
 """The pre-request path deny-list.
 
 `002` recorded the source's crawling permissions as "verified ``Allow: /``". `004`'s research
@@ -42,7 +44,7 @@ from pipeline.acquire.http import AcquisitionError
 from pipeline.exit_codes import ExitCode
 
 #: The paths the source's published crawling rules forbid, as read from the live ``robots.txt``
-#: on 2026-08-05 (research D1a; re-confirmed by ``docs/verification/html-markup-spike.md``).
+#: on 2026-08-05 (research D1a).
 #: ``/wh40k11ed/`` — the current-edition tree this feature moves onto — is **not** listed there
 #: and is therefore permitted; it must never be added here.
 DISALLOWED_PATH_PREFIXES: Final[tuple[str, ...]] = (

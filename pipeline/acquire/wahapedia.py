@@ -47,12 +47,15 @@
 # fingerprint excluded it -- the two figures described different sets under the same run.
 # `csv_files` keeps its original meaning; a new `coverage["corpus_files"]` names what the
 # fingerprint actually covers, so a reader cannot mistake one for the other.
-# AI-Assisted: Claude Code (model: claude-sonnet-5) - 009 rung R06a (T095/T096/T100/T101,
-# FR-033): clarified `acquire_wahapedia`'s own docstring so a reader does not repeat this rung's
-# own false start -- the `del carried_forward_slugs` a few lines below stays correct as written;
-# the silent-discard fix belongs in `pipeline/acquire/detail_source.py::resolve_carried_forward`,
-# which is where a declared slug and the acquired payloads are both already in scope. No
-# behaviour in this file changed.
+# AI-Assisted: Claude Code (model: claude-opus-5) - 010 R5: dropped `mode` from
+# `ExportDigestState`'s recorded identity. It named which acquisition arm the digest was
+# taken under; there is one arm, so the field could only ever hold one value and could never
+# make two states incomparable. No schema and no frozen contract carries the state file, so
+# the field is dropped rather than pinned to a literal. A state file written before this
+# still loads: the key is simply no longer read.
+# AI-Assisted: Claude Code (model: claude-opus-5) - 010 R5: dropped the accepted-and-unused
+# `carried_forward_slugs` parameter along with the per-faction carry-forward mechanism. The bulk
+# export answers whole or not at all, so no per-faction declaration has anything here to apply to.
 """Acquire the datasheet-detail source: the CSV export, into ``work/``.
 
 Three things are worth stating plainly.
@@ -64,7 +67,7 @@ gitignored, emptied at the start of every command that writes to it and again in
 never called from inside this module, only exposed for a caller that both opted into the
 short-circuit (passed a real ``state_path``) and completed its own downstream work successfully.
 This is not corpus data: it is a one-way digest of `Last_update.csv` plus the source identity
-(``source_base_url``, ``declared_edition_code``, ``mode``) it was taken under, plus the content
+(``source_base_url``, ``declared_edition_code``) it was taken under, plus the content
 fingerprint the acquisition that recorded it already computed (R05-fix2 item 2) — kept for
 deciding whether next run's fetch can be skipped, and, when it is, what fingerprint an unchanged
 corpus should report instead of an empty one.
@@ -187,7 +190,7 @@ class ExportDigestState:
     content fingerprint it authorises a caller to carry forward.
 
     R05-fix item 5: comparing a digest across differently-configured sources (a different
-    ``source_base_url``, a different declared detail edition, or a different acquisition mode)
+    ``source_base_url``, or a different declared detail edition)
     would let one configuration's "unchanged" wrongly skip another's fetch. Recording the
     identity here, and requiring it to match before :func:`acquire_wahapedia` may short-circuit,
     is what closes that. A mismatch is never an error — see that function's own docstring — it
@@ -199,13 +202,7 @@ class ExportDigestState:
     acquisition report "the same corpus as last time" instead of an empty one.
     """
 
-    __slots__ = (
-        "digest",
-        "content_fingerprint",
-        "source_base_url",
-        "declared_edition_code",
-        "mode",
-    )
+    __slots__ = ("digest", "content_fingerprint", "source_base_url", "declared_edition_code")
 
     def __init__(
         self,
@@ -214,19 +211,17 @@ class ExportDigestState:
         content_fingerprint: str,
         source_base_url: str,
         declared_edition_code: str,
-        mode: str,
     ) -> None:
         self.digest = digest
         self.content_fingerprint = content_fingerprint
         self.source_base_url = source_base_url
         self.declared_edition_code = declared_edition_code
-        self.mode = mode
 
     @property
-    def identity(self) -> tuple[str, str, str]:
-        """The three fields a caller's current configuration must match for the digest above to
+    def identity(self) -> tuple[str, str]:
+        """The two fields a caller's current configuration must match for the digest above to
         be comparable at all."""
-        return (self.source_base_url, self.declared_edition_code, self.mode)
+        return (self.source_base_url, self.declared_edition_code)
 
 
 def load_export_digest_state(path: Path) -> ExportDigestState | None:
@@ -265,7 +260,6 @@ def load_export_digest_state(path: Path) -> ExportDigestState | None:
         content_fingerprint=str(content_fingerprint_value),
         source_base_url=str(raw.get("source_base_url", "")),
         declared_edition_code=str(raw.get("declared_edition_code", "")),
-        mode=str(raw.get("mode", "")),
     )
 
 
@@ -286,7 +280,6 @@ def save_export_digest_state(path: Path, state: ExportDigestState) -> None:
             "content_fingerprint": state.content_fingerprint,
             "source_base_url": state.source_base_url,
             "declared_edition_code": state.declared_edition_code,
-            "mode": state.mode,
         },
     )
 
@@ -316,7 +309,6 @@ def export_digest_state_for(
         content_fingerprint=acquisition.content_fingerprint.removeprefix("sha256:"),
         source_base_url=acquisition.source_base_url,
         declared_edition_code=acquisition.declared_edition_code,
-        mode=config.detail_acquisition_mode.value,
     )
 
 
@@ -426,34 +418,12 @@ def acquire_wahapedia(
     client: PoliteClient | None = None,
     retrieved_at: datetime | None = None,
     workspace: Path | None = None,
-    carried_forward_slugs: frozenset[str] = frozenset(),
     state_path: Path | None = None,
 ) -> tuple[SourceAcquisition, list[FixturePayload]]:
     """Acquire the detail-source export.
 
     When ``workspace`` is given the retrieved files are written into it — that is ``work/``, and
     it is the only place they are ever written.
-
-    ``carried_forward_slugs`` is accepted and unused, on the same terms
-    :func:`pipeline.acquire.detail_source.read_export_payloads` already accepts and ignores
-    ``edition_code``: the signature is shared with the html arm so a caller never learns which
-    mode ran (008 FR-024). The bulk export has no per-faction page to fail partway through — it
-    is one file or none — so there is genuinely nothing HERE for a carry-forward declaration to
-    apply to, and the ``del`` below stays correct on that count.
-
-    009 rung R06a (T095/T096/T100/T101, FR-033): that is NOT the same claim as "a declaration
-    under this arm may be dropped silently" — a claim this docstring used to make no comment on,
-    and `tasks.md`'s T100 (written before rung R01b restructured this area) once located the fix
-    for that right here. It does not belong here: this function has no ``declared_slugs`` vs.
-    ``fetched`` diff to run, because a payload's ``name`` at this layer is a file name
-    (``Datasheets.csv``), never a faction slug — the same reasoning
-    :class:`pipeline.acquire.detail_source.CarriedForwardOutcome` gives for its own ``carried``
-    field. Visibility lives one level up, in
-    :func:`pipeline.acquire.detail_source.resolve_carried_forward`, which is where
-    ``declared_slugs`` and the acquired payloads are both already in scope — a declaration is
-    now reported ``unused`` (never dropped) there, under this arm exactly as under any arm but
-    ``html``. This function's own ``del`` remains a true no-op on an unused parameter, not the
-    place the silent discard used to happen.
 
     ``state_path`` (009 rung R05, T090; identity check added R05-fix item 5) is the
     export-timestamp short-circuit's own opt-in switch, pointed at
@@ -464,7 +434,7 @@ def acquire_wahapedia(
     exactly as before this rung. When a caller opts in by passing a real path:
     :data:`LAST_UPDATE_FILE` is read first, on its own; if its digest matches the digest
     :func:`load_export_digest_state` reads back from ``state_path`` **and** the state's recorded
-    identity (``source_base_url``, ``declared_edition_code``, ``mode``) matches this call's own —
+    identity (``source_base_url``, ``declared_edition_code``) matches this call's own —
     a mismatch on either is "no comparable prior", not an error — the remaining
     :data:`_REMAINING_EXPORT_FILES` are never requested, ``outcome`` is
     :attr:`~pipeline.models.source.AcquisitionOutcome.UNCHANGED`, and the returned ``findings``
@@ -480,7 +450,6 @@ def acquire_wahapedia(
     A fixture run (``fixtures_dir``) never reaches any of this — :func:`acquire_from_fixtures`
     returns before ``state_path`` is even inspected, exactly as it always has.
     """
-    del carried_forward_slugs
     if fixtures_dir is not None:
         # R05-fix2 item 3: `corpus_filter=_corpus_payloads` so the fixture adapter excludes the
         # probe on the SAME predicate the live path below uses, rather than never excluding it at
@@ -503,7 +472,7 @@ def acquire_wahapedia(
     coverage: dict[str, int]
 
     prior_state = load_export_digest_state(state_path) if state_path is not None else None
-    current_identity = (location, config.detail_edition, config.detail_acquisition_mode.value)
+    current_identity = (location, config.detail_edition)
     owned = client is None
     active: PoliteClient | None = None
     try:

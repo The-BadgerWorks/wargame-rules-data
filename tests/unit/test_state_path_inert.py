@@ -1,3 +1,5 @@
+# AI-Assisted: Claude Code (model: Claude Opus 5) - 010 R5 final-review fix item 2: repointed
+# this header's cited discipline at the surviving guard; no assertion changed.
 # AI-Assisted: Claude Code (model: claude-sonnet-5) - 009 rung R05-fix2 item 5: added the
 # structural scan asserting no caller anywhere in `pipeline/` wires `state_path` to a real value.
 # The export-timestamp short-circuit (`pipeline.acquire.wahapedia.acquire_wahapedia`'s own
@@ -5,9 +7,10 @@
 # `run_detect` to it and that ruling was reversed (`pipeline/cli.py`'s own header explains why).
 # This test makes "no caller passes state_path" an asserted property of the source rather than a
 # claim in a docstring or a commit message, on the same AST-walk discipline
-# `tests/unit/test_detail_mode.py::test_no_mode_branch_or_reference_below_acquire` already uses
-# for rule 4's "no mode branch below acquire" guarantee -- so the day a caller opts in
-# deliberately, this test goes red and tells whoever wired it to come update it.
+# `tests/unit/test_single_arm.py` uses today (it replaced the mode-branch scan this header
+# originally cited, which 010 R5 deleted along with the second detail arm): a structural property
+# of the source is asserted against the source -- so the day a caller opts in deliberately, this
+# test goes red and tells whoever wired it to come update it.
 # AI-Assisted: Claude Code (model: claude-sonnet-5) - Closed the guard's own exemption gap (009
 # rung R05-fix4 item 2): "any `state_path=state_path` call is plumbing" ignored scope, so a
 # locally-bound `state_path` -- exactly what `run_detect` (`pipeline/cli.py`) binds today,
@@ -18,9 +21,11 @@
 # the exact wiring this feature reverted directly in `pipeline/cli.py`, confirming the old check
 # missed it and the new one catches it, then reverting the reconstruction (not committed).
 # Documented, rather than silently claimed away, two pre-existing blind spots the review also
-# raised: `**kwargs` forwarding and callers outside `pipeline/` (e.g.
-# `tools/table_coverage_report.py`) are both outside what an AST walk scoped to `pipeline/`'s own
-# keyword arguments can see.
+# raised: `**kwargs` forwarding and callers outside `pipeline/` (e.g. `tools/option_taxonomy.py`)
+# are both outside what an AST walk scoped to `pipeline/`'s own keyword arguments can see.
+# AI-Assisted: Claude Code (model: claude-opus-5) - 010 R5: the out-of-tree example this file
+# named, `tools/table_coverage_report.py`, was deleted with the mode dispatch it reported on;
+# `tools/option_taxonomy.py` names the same blind spot with a script that still exists.
 """The short-circuit mechanism is proven correct in isolation (`test_wahapedia_export_digest.py`)
 but wired into nothing. That is a property of the source code, checked here, not a fact anyone
 has to take on faith from a comment.
@@ -28,8 +33,8 @@ has to take on faith from a comment.
 **Known limits of this scan** (R05-fix4 item 2): it walks explicit keyword arguments only, so a
 call that forwards `state_path` via `**kwargs` (a dict spread carrying the key) is invisible to
 it; and it only parses modules under `pipeline/`, so a caller elsewhere in the repository --
-`tools/table_coverage_report.py` is the one such script that imports from `pipeline` today -- is
-never inspected at all. Neither gap is new to this fix; both existed under the previous,
+every script under `tools/` that imports from `pipeline`, `tools/option_taxonomy.py` among them
+-- is never inspected at all. Neither gap is new to this fix; both existed under the previous,
 laxer check too. They are named here rather than left implicit because `docs/follow-ups.md`
 items 31-34 cite this test as proof that four dormant defects are unreachable, and that proof is
 only as strong as what this scan actually looks at.
@@ -125,7 +130,7 @@ def _wired_state_path_calls(tree: ast.AST) -> list[int]:
     Known blind spots, documented rather than silently assumed away: this walk does not follow
     ``**kwargs`` forwarding (a call spreading a dict that happens to carry ``state_path`` reads as
     clean), and it only ever looks under ``pipeline/`` — a caller outside that tree entirely (for
-    example `tools/table_coverage_report.py`) is invisible to it. Both are pre-existing limits of
+    example `tools/option_taxonomy.py`) is invisible to it. Both are pre-existing limits of
     this scan, not new ones introduced by this fix; see this module's own docstring and
     :func:`test_no_caller_wires_state_path`.
     """

@@ -164,7 +164,7 @@ def test_the_short_circuits_own_fingerprint_never_claims_full_verification(
     _write_export(directory, last_update=same_timestamp, abilities="id|name|\n1|Bolter|\n")
     _seed_state(config, state_path)
 
-    # The SAME source (item 5: identical source_base_url/declared_edition_code/mode) polled
+    # The SAME source (item 5: identical source_base_url/declared_edition_code) polled
     # again: its own timestamp is byte-identical, so the short-circuit fires -- even though
     # Abilities.csv genuinely changed underneath it.
     _write_export(directory, last_update=same_timestamp, abilities="id|name|\n1|Las Cannon|\n")
@@ -275,7 +275,6 @@ def test_the_persisted_state_holds_a_digest_never_the_raw_timestamp(tmp_path: Pa
         "content_fingerprint",
         "source_base_url",
         "declared_edition_code",
-        "mode",
     }
     assert raw["digest"] != raw_timestamp
     assert raw_timestamp not in state_path.read_text(encoding="utf-8")
