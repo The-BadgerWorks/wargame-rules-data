@@ -1,3 +1,7 @@
+# AI-Assisted: Claude Code (model: claude-opus-5) - 010 R5 fix round 1: this module's own
+# docstring still told a reader, present tense, that a set may carry both detail shapes and
+# that building it twice is how mode-blindness is proven. Neither has been true since the
+# second arm was deleted earlier on this branch.
 # AI-Assisted: Claude Code (model: claude-opus-5) - Implemented the fixture source adapter
 # (task T037): --fixtures <dir> sources both upstreams from a synthetic tree with no network,
 # producing the same SourceAcquisition records as the live path so there is no CI-only code
@@ -25,12 +29,14 @@ adapter they are reading from.
 
 Layout (``fixtures/README.md``)::
 
-    fixtures/<set>/mfm/<slug>.html
-    fixtures/<set>/wahapedia/<Name>.csv        # detail source, csv mode
+    fixtures/<set>/mfm/<slug>.html              # points source, one faction page per file
+    fixtures/<set>/wahapedia/<Name>.csv         # detail source, one export file per file
 
-A set may carry both detail shapes, describing the *same* invented units. Where it does, a test
-can build it twice and compare — which is how "every stage below ``acquire`` is mode-blind" is
-proven rather than asserted.
+One directory per source, and one shape each. A set once carried a second detail directory
+(``wahapedia-html/``) holding the *same* invented units as datacard pages, so a test could build
+the set twice and diff the two snapshots; 010 R5 deleted the second acquisition arm, that
+directory, and that test. There is one detail shape now, and no build-it-twice comparison
+anywhere in the suite — do not write a receipt that assumes one still exists.
 
 Fixtures are **synthetic** — hand-authored structures with invented faction names, invented unit
 names, and invented placeholder prose. Capturing a real page or a real CSV export as a golden

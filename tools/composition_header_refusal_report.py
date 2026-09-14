@@ -123,7 +123,7 @@ def measure(
             config, fixtures_dir=fixtures_dir, offline=offline, workspace=work
         )
         source = acquisition.source_base_url
-        tables = read_detail(config, payloads)
+        tables = read_detail(payloads)
 
         composition = tables.get(_COMPOSITION_TABLE)
         models = tables.get(_MODELS_TABLE)

@@ -190,7 +190,7 @@ def measure(
         _acquisition, payloads = acquire_detail(
             config, fixtures_dir=fixtures_dir, offline=offline, workspace=work
         )
-        detail = read_detail(config, payloads)
+        detail = read_detail(payloads)
         current = compute_current_digests(detail, key=key)
         source = _acquisition.source_base_url
 

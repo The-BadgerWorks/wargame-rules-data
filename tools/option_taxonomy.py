@@ -402,7 +402,7 @@ def measure(
             config, fixtures_dir=fixtures_dir, offline=offline, workspace=work
         )
         source = acquisition.source_base_url
-        tables = read_detail(config, payloads)
+        tables = read_detail(payloads)
         faction_of = {
             row.fields["id"]: row.fields.get("faction_id", "")
             for row in tables[_DATASHEETS_TABLE].rows

@@ -784,7 +784,7 @@ def run_build(  # noqa: PLR0913 - the stage boundary is the argument list
             parse_faction_page(payload.name, replay(payload.text).html)
             for payload in points_payloads
         ]
-        detail = read_detail(config, detail_payloads)
+        detail = read_detail(detail_payloads)
 
         findings: list[Finding] = []
         for result in detail.values():

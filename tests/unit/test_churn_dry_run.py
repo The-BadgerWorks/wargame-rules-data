@@ -47,7 +47,7 @@ def _current_digests() -> dict[str, str]:
     """The digests the fixture source produces, computed exactly as the tool computes them."""
     config = load_config(env=HTML_ENV)
     _acquisition, payloads = acquire_detail(config, fixtures_dir=FIXTURES, offline=True)
-    return compute_current_digests(read_detail(config, payloads), key=KEY.encode("utf-8"))
+    return compute_current_digests(read_detail(payloads), key=KEY.encode("utf-8"))
 
 
 def _authored(curation: Path, faction_id: str, records: list[dict[str, object]]) -> Path:

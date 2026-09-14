@@ -166,7 +166,7 @@ def measure(
             config, fixtures_dir=fixtures_dir, offline=offline, workspace=work
         )
         source = acquisition.source_base_url
-        tables = read_detail(config, payloads)
+        tables = read_detail(payloads)
         rows = tables.get(EQUIPMENT_TABLE)
         if rows is not None:
             for row in rows.rows:

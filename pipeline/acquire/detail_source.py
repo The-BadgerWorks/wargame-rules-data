@@ -1,3 +1,8 @@
+# AI-Assisted: Claude Code (model: claude-opus-5) - 010 R5 fix round 1: dropped the reader's
+# vestigial `edition_code` parameter, accepted and `del`d on entry because the two arms'
+# readers had to be callable identically. One reader, no shared signature to honour, and a
+# parameter plumbed from config to a `del` invites an edition switch that silently does
+# nothing. `read_detail` no longer takes `config` either -- that was the plumbing.
 # AI-Assisted: Claude Code (model: claude-opus-5) - 010 R5: deleted the
 # WGC_DETAIL_ACQUISITION_MODE dispatch. There is one acquisition arm, so `acquire_detail`
 # calls `acquire_wahapedia` and `read_detail` calls `read_export_payloads`, and the mode
@@ -42,22 +47,18 @@ from pipeline.models.source import SourceAcquisition
 from pipeline.parse.wahapedia_csv import CsvReadResult, read_text
 
 
-def read_export_payloads(
-    payloads: Sequence[FixturePayload], *, edition_code: str = ""
-) -> dict[str, CsvReadResult]:
+def read_export_payloads(payloads: Sequence[FixturePayload]) -> dict[str, CsvReadResult]:
     """The reader: one acquired export file per payload.
 
     A payload's name is the file name, with or without its suffix - the live adapter carries
     ``Datasheets.csv`` and the fixture adapter carries the stem - so the suffix is normalised
-    here rather than at each call site. ``edition_code`` is accepted and unused; it is part of
-    the reader's signature and is deleted on entry.
+    here rather than at each call site.
 
     010 R1: `drop_non_option_rows` runs first, so the options table reaches the grammar carrying
     only rows that are options, and `derive_equipment_from_loadout` builds the
     ``Datasheets_unit_equipment.csv`` the export does not publish (FR-018) from
     `Datasheets.csv`'s `loadout` column, which is where the export actually states it.
     """
-    del edition_code
     results = {
         (name if (name := payload.name).endswith(".csv") else f"{name}.csv"): read_text(
             name if name.endswith(".csv") else f"{name}.csv", payload.text
@@ -97,8 +98,11 @@ def acquire_detail(
     )
 
 
-def read_detail(
-    config: PipelineConfig, payloads: Sequence[FixturePayload]
-) -> dict[str, CsvReadResult]:
-    """Read what :func:`acquire_detail` returned into the export's own table shape."""
-    return read_export_payloads(payloads, edition_code=config.detail_edition)
+def read_detail(payloads: Sequence[FixturePayload]) -> dict[str, CsvReadResult]:
+    """Read what :func:`acquire_detail` returned into the export's own table shape.
+
+    Kept as a name of its own rather than folded into :func:`read_export_payloads`: this is the
+    acquire-layer boundary every stage below calls, and :func:`read_export_payloads` is how that
+    boundary is currently satisfied. A caller naming the boundary cannot be made to care which.
+    """
+    return read_export_payloads(payloads)
