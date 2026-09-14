@@ -65,21 +65,30 @@ def _fixture_with_core_parameter(tmp: Path, parameter: str) -> Path:
     assert replaced, f"fixture has no {FIRST_ID} binding row to rewrite"
     path.write_text("﻿" + "\n".join(rewritten) + "\n", encoding="utf-8")
 
-    _approve_summary(fixtures, joined_key=f"core:{slugify(f'{CORE_NAME} {parameter}'.strip())}")
+    # Approve summaries under BOTH the joined key (intended behaviour) and the bare key (the
+    # regression this receipt guards against). Approving only the joined key means a build over
+    # the unfixed, bare-key-minting code blocks on `SUM-MISSING` before this test's own bundle
+    # assertion is ever reached — the receipt would fail on an opaque exit-code gate instead of
+    # its own stated message. Approving both lets the build succeed either way, so the failure
+    # this receipt is meant to report is always the one that actually prints.
+    joined_key = f"core:{slugify(f'{CORE_NAME} {parameter}'.strip())}"
+    bare_key = f"core:{slugify(CORE_NAME)}"
+    _approve_summary(fixtures, ability_key=joined_key)
+    _approve_summary(fixtures, ability_key=bare_key)
     return fixtures
 
 
-def _approve_summary(fixtures: Path, *, joined_key: str) -> None:
-    """Give the rewritten binding's new ability key an approved curated summary.
+def _approve_summary(fixtures: Path, *, ability_key: str) -> None:
+    """Give an ability key an approved curated summary.
 
-    Without this the build reports `SUM-MISSING` for the new key and never reaches the bundle
-    comparison this test is actually about.
+    Without this the build reports `SUM-MISSING` for a key that lacks one and never reaches the
+    bundle comparison this test is actually about.
     """
     path = fixtures / "curation" / "abilities" / "f-ashen-vigil.json"
     entries = json.loads(path.read_text(encoding="utf-8"))
     entries.append(
         {
-            "ability_key": joined_key,
+            "ability_key": ability_key,
             "mechanic_digest": _PLACEHOLDER_DIGEST,
             "name": CORE_NAME,
             "review_state": "approved",
