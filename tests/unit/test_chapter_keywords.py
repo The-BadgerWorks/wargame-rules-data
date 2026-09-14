@@ -1,6 +1,8 @@
 # AI-Assisted: Claude Opus 5 - 010 R6 task 5. Failing-first receipt for the five
 # `curation/keyword-classes.json` records stranded by publishing keywords upper-case, and for the
-# `keyword_classification` coverage collapse that stranding produced (1 370 -> 1 297). The index
+# `keyword_classification` coverage collapse the stranding is one part of (1 370 -> 1 297); the r6
+# build measured this fix recovering 5 of those 73 points (1 297 -> 1 302), so the stranding is not
+# the whole cause and the remainder is not accounted for here. The index
 # matched `record.keyword` exactly, so a record and an observed keyword that are the same token in
 # different case no longer met.
 """A curator's record and an observed keyword are one token, whatever case each states it in.
