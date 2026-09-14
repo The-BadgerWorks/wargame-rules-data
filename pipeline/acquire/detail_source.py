@@ -51,6 +51,7 @@ from datetime import datetime
 from pathlib import Path
 from typing import Final, Protocol
 
+from pipeline.acquire.export_rows import drop_non_option_rows
 from pipeline.acquire.fixtures import FixturePayload
 from pipeline.acquire.http import PoliteClient
 from pipeline.acquire.wahapedia import acquire_wahapedia
@@ -174,6 +175,9 @@ def read_export_payloads(
     ``Datasheets_unit_composition.csv`` and into a derived ``Datasheets_unit_equipment.csv`` —
     still inside the reader, so every stage below ``acquire`` sees the same table shape both arms
     produce and stays mode-blind (rule 4).
+
+    010 R1: `drop_non_option_rows` runs first, so the options table reaches the grammar with the
+    same membership the html arm delivered.
     """
     del edition_code
     results = {
@@ -182,7 +186,7 @@ def read_export_payloads(
         )
         for payload in payloads
     }
-    return _derive_equipment_from_composition(results)
+    return _derive_equipment_from_composition(drop_non_option_rows(results))
 
 
 #: mode -> acquirer. A table rather than a branch, so adding a mode is adding a row and the
