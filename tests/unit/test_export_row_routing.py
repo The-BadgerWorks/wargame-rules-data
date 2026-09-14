@@ -7,7 +7,7 @@ from __future__ import annotations
 
 from pipeline.acquire.detail_source import read_export_payloads
 from pipeline.acquire.fixtures import FixturePayload
-from pipeline.parse.equipment_grammar import EQUIPMENT_TABLE
+from pipeline.parse.equipment_grammar import EQUIPMENT_TABLE, parse_sentence
 
 OPTIONS = "Datasheets_options.csv"
 
@@ -190,39 +190,75 @@ def test_a_composition_and_loadout_derived_row_on_the_same_datasheet_get_distinc
     assert len(set(lines)) == 2, "equal line values collide the equipment group id"
 
 
-def test_an_internal_period_in_a_later_sentences_lead_in_stays_on_the_previous_row() -> None:
-    """Accepted, measured-at-zero residual of the Finding-1 fix (fix-round 2 ruling): a SECOND
-    abbreviation-style period, one that opens a later marker sentence's lead-in (``"... Mk. II
-    Leader is equipped with: ..."``), still folds onto the row before it rather than opening its
-    own row. Misattributed placement is accepted here because the alternative the fold-backward
-    approach replaced was outright deletion (spec 4.2 forbids losing text, not misplacing it),
-    and the true sentence boundary is genuinely ambiguous from the text alone without a guessed
-    heuristic (abbreviation lists, token-length, capitalisation) that CLAUDE.md standing rule 10
-    forbids writing for a class nobody has measured on the live export. Task 4's live count of
-    this shape decides whether a later round acts on it. This test exists to PIN today's
-    behaviour, not to assert it is correct, and it is expected to pass immediately (no red
-    phase) since it documents current output rather than driving a new fix."""
-    cell = "Every model is equipped with: glow lantern. Mk. II Leader is equipped with: fen pike."
-    rows = _equipment_rows({"CM03": cell})
-    assert [line for line, _ in rows["CM03"]] == ["1", "2"]
-    row_1, row_2 = (description for _, description in rows["CM03"])
-    assert row_1 == "Every model is equipped with: glow lantern. Mk."
-    assert row_2 == "II Leader is equipped with: fen pike."
-    # The binding invariant: no text is lost, only (in this one ambiguous shape) misattributed.
-    assert f"{row_1} {row_2}" == cell
-
-
-def test_a_line_break_immediately_after_a_period_still_reconstitutes_with_a_space() -> None:
-    """A ``<br>`` sitting directly against a period (no whitespace before it), immediately
-    followed by another abbreviation-style period on the next segment, must still (a) split on
-    the ``<br>`` rather than misreading it, and (b) rejoin the later false split with a single
-    space, never the literal ``<br>`` tag text."""
+def test_a_line_break_immediately_after_a_period_opens_the_next_row_intact() -> None:
+    """A ``<br>`` sitting directly against a full stop, with the next segment opening on an
+    abbreviation-style full stop, must split on the ``<br>`` and start row 2 at the segment's own
+    first character — the line-break tag may never be read as part of the word ending row 1's
+    sentence, and no tag text may reach either row. (Replaces the fix-round-2 assertions, which
+    pinned the removed fold's output.)"""
     cell = (
         "Every model is equipped with: glow lantern.<br>Mk. II Leader is equipped with: fen pike."
     )
     rows = _equipment_rows({"CM03": cell})
     assert [line for line, _ in rows["CM03"]] == ["1", "2"]
     row_1, row_2 = (description for _, description in rows["CM03"])
-    assert row_1 == "Every model is equipped with: glow lantern. Mk."
-    assert "<br>" not in row_1
-    assert row_2 == "II Leader is equipped with: fen pike."
+    assert row_1 == "Every model is equipped with: glow lantern."
+    assert row_2 == "Mk. II Leader is equipped with: fen pike."
+    assert "<br" not in row_1 and "<br" not in row_2
+
+
+def _parsed_item_names(cell: str) -> list[list[str]]:
+    """The item names a user would see: every derived row driven through the real grammar entry
+    point, ``equipment_grammar.parse_sentence`` — the reader whose output reaches a published
+    ``item_name``. Asserting on the split output alone would have missed T1-1 entirely."""
+    names: list[list[str]] = []
+    for _, description in _equipment_rows({"CM03": cell})["CM03"]:
+        parse = parse_sentence(description)
+        assert parse is not None, "the derived row no longer parses at all"
+        names.append([item.item_name for item in parse.items])
+    return names
+
+
+def test_a_trailing_non_equipment_sentence_never_enters_a_parsed_item_name() -> None:
+    """T1-1 receipt. A cell whose loadout sentence is followed by a non-equipment sentence must
+    yield ONE row, and the trailing prose must not be absorbed into the last item's name — the
+    field that is published. Remove the boundary rule and the trailing clause reappears inside
+    ``items[-1].item_name``."""
+    cell = "Every model is equipped with: glow lantern. Some trailing note about it in play."
+    rows = _equipment_rows({"CM03": cell})
+    assert len(rows["CM03"]) == 1
+    assert _parsed_item_names(cell) == [["glow lantern"]]
+
+
+def test_a_pre_marker_lead_in_is_not_deleted() -> None:
+    """T1-2 receipt. The subject clause before the marker is what the equipment linker reads to
+    decide which model carries the equipment, so a false boundary inside it must never delete
+    it."""
+    rows = _equipment_rows({"CM03": "A Mk. II Leader is equipped with: fen pike."})
+    assert rows["CM03"] == [("1", "A Mk. II Leader is equipped with: fen pike.")]
+    two = _equipment_rows(
+        {
+            "CM03": (
+                "The Mk. II Sergeant is equipped with: blade. "
+                "Every model is equipped with: lantern."
+            )
+        }
+    )
+    assert [description for _, description in two["CM03"]] == [
+        "The Mk. II Sergeant is equipped with: blade.",
+        "Every model is equipped with: lantern.",
+    ]
+
+
+def test_the_guard_splits_two_sentences_joined_by_a_short_final_item_name() -> None:
+    """The boundary rule's own guard. A genuine sentence whose final word is three characters or
+    shorter suppresses its boundary, so the two sentences arrive as one segment carrying two
+    markers — which is the signal that the suppression was wrong. The segment is split at the
+    suppressed boundary after all, so the rule cannot silently merge two real sentences."""
+    cell = "Every model is equipped with: axe. Mk. II Leader is equipped with: fen pike."
+    rows = _equipment_rows({"CM03": cell})
+    assert [description for _, description in rows["CM03"]] == [
+        "Every model is equipped with: axe.",
+        "Mk. II Leader is equipped with: fen pike.",
+    ]
+    assert _parsed_item_names(cell) == [["axe"], ["fen pike"]]

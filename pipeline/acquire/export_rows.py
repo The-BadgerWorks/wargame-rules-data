@@ -10,6 +10,16 @@
 # 1, so the two sources cannot mint colliding `(datasheet_id, line)` equipment-group ids
 # (Finding 2). Fix round 2: no code change — see the header note in
 # `tests/unit/test_export_row_routing.py` for the accepted, measured-at-zero residual this left.
+# AI-Assisted: Claude Code (model: claude-opus-5) - 010 round 1 final-review fix wave: the
+# fold-backward above is REVERSED (T1-1/T1-2). It appended a marker-less trailing sentence onto the
+# preceding loadout sentence, and `equipment_grammar._parse_items` then carried that prose inside
+# the LAST item's published `item_name`; it also deleted a marker-less buffer, losing the subject
+# clause when the false full stop preceded the marker. `split_equipment_sentences` now applies one
+# narrow rule instead: a line-break tag always ends a sentence, a full stop plus whitespace ends
+# one only when the word ending at that full stop is longer than three characters, and only
+# marker-bearing sentences are kept (a trailing non-equipment sentence is dropped, not folded).
+# The two-marker guard in `_split_on_suppressed` makes the length rule self-verifying. The
+# fix-round-2 pin test for the old misattribution is deleted: the misattribution no longer occurs.
 """Row routing for the bulk-export reader — which table a row belongs in, and whether it is a
 row at all.
 
@@ -62,56 +72,99 @@ def drop_non_option_rows(detail: dict[str, CsvReadResult]) -> dict[str, CsvReadR
 #: The same marker ``equipment_grammar._MARKER`` and ``detail_source._EQUIPMENT_MARKER`` carry,
 #: kept as this module's own copy on the same terms they keep theirs.
 _EQUIPMENT_MARKER: Final = re.compile(r"\b(?:is|are)\s+equipped\s+with\s*:", re.IGNORECASE)
-#: Candidate sentence boundaries inside one ``loadout`` cell: a line-break tag, or a full stop
-#: followed by whitespace. Captured (not just matched), because an internal abbreviation-style
-#: period ("Mk. II blade.") produces a false boundary here that :func:`split_equipment_sentences`
-#: must undo — it needs the exact separator text back to rejoin what it wrongly split.
-_SENTENCE_BREAK: Final = re.compile(r"(<br\s*/?>|(?<=\.)\s+)", re.IGNORECASE)
-#: A line-break separator is reconstituted as a single space when rejoining a false split; a
-#: whitespace separator is reconstituted verbatim.
-_BR_TAG: Final = re.compile(r"^<br", re.IGNORECASE)
+#: A line-break tag: always a sentence boundary inside one ``loadout`` cell.
+_BR_TAG: Final = re.compile(r"<br\s*/?>", re.IGNORECASE)
+#: A full stop followed by whitespace: a boundary only when the word ending at that full stop is
+#: longer than :data:`_MIN_SENTENCE_FINAL_WORD_CHARS` characters. The whitespace alone is the cut,
+#: so the full stop stays with the sentence it ends.
+_PERIOD_GAP: Final = re.compile(r"(?<=\.)\s+")
+#: An abbreviation short enough to be one ("Mk.") does not end a sentence; a word longer than this
+#: does. Measured against the ambiguous class this round counted in the live export, and made
+#: self-verifying by the two-marker guard in :func:`split_equipment_sentences` rather than trusted.
+_MIN_SENTENCE_FINAL_WORD_CHARS: Final = 3
+
+
+def _word_ending_at(text: str, period_index: int) -> str:
+    """The run of non-whitespace, non-full-stop characters immediately before ``period_index``.
+
+    An *empty* run — a full stop directly after whitespace, or after another full stop — is the
+    conservative branch: length 0 is not longer than the threshold, so the candidate is
+    **suppressed** and no text can be split off and dropped. The two-marker guard still recovers a
+    genuine boundary there, so suppressing costs nothing that the guard does not give back.
+    """
+    start = period_index
+    while start > 0 and not text[start - 1].isspace() and text[start - 1] != ".":
+        start -= 1
+    return text[start:period_index]
+
+
+def _segment_block(block: str) -> list[tuple[str, list[tuple[int, int]]]]:
+    """One line-break-free block cut at its accepted full-stop boundaries.
+
+    Each result is the segment text plus the candidate boundaries inside it that rule 2
+    **suppressed**, as offsets into that segment, which is what the guard needs to undo a wrong
+    suppression. The word run is measured inside the block, so a line-break tag can never be read
+    as part of the word ending a sentence.
+    """
+    segments: list[tuple[str, list[tuple[int, int]]]] = []
+    start = 0
+    suppressed: list[tuple[int, int]] = []
+    for match in _PERIOD_GAP.finditer(block):
+        word = _word_ending_at(block, match.start() - 1)
+        if len(word) > _MIN_SENTENCE_FINAL_WORD_CHARS:
+            segments.append((block[start : match.start()], suppressed))
+            start, suppressed = match.end(), []
+        else:
+            suppressed.append((match.start() - start, match.end() - start))
+    segments.append((block[start:], suppressed))
+    return segments
+
+
+def _split_on_suppressed(segment: str, suppressed: list[tuple[int, int]]) -> list[str]:
+    """The guard: a segment carrying two or more markers had a real boundary suppressed.
+
+    Two default-loadout statements never share one sentence, so a second marker occurrence proves
+    the length rule guessed wrong on a sentence whose final word is short. Split at the earliest
+    suppressed candidate lying between the first marker and the second — the only place the real
+    boundary can be — and re-check the tail, so three statements in a row resolve too.
+    """
+    markers = list(_EQUIPMENT_MARKER.finditer(segment))
+    if len(markers) < 2:
+        return [segment]
+    for index, (cut_start, cut_end) in enumerate(suppressed):
+        if markers[0].end() <= cut_start <= markers[1].start():
+            tail = segment[cut_end:]
+            tail_suppressed = [(s - cut_end, e - cut_end) for s, e in suppressed[index + 1 :]]
+            return [segment[:cut_start], *_split_on_suppressed(tail, tail_suppressed)]
+    return [segment]
 
 
 def split_equipment_sentences(text: str) -> tuple[str, ...]:
     """Every sentence of ``text`` that states a default loadout, in text order.
 
-    ``_SENTENCE_BREAK`` only proposes candidate boundaries — a full stop followed by whitespace
-    also fires inside an abbreviation ("Mk. II blade."), which would otherwise truncate the
-    sentence and silently drop the tail (spec §4.2: the prose is carried as-is). A candidate
-    fragment that does not itself carry the equipment marker is therefore folded back onto the
-    fragment before it, provided that fragment DOES carry the marker — restoring the exact
-    separator text the split consumed (a single space in place of a ``<br>`` tag). A marker-less
-    fragment with no marker-bearing fragment before it (a leading clause, or the whole cell) is
-    still discarded, never merged forward: :func:`derive_equipment_from_loadout` only wants rows
-    that describe a default loadout, not scene-setting prose that happens to precede one.
+    Two rules and one guard, and deliberately nothing else:
+
+    1. A line-break tag is always a sentence boundary.
+    2. A full stop followed by whitespace is a boundary only when the word ending at that full
+       stop is longer than three characters, so an abbreviation-style internal full stop
+       ("Mk. II blade") neither truncates the item list nor deletes the subject clause before the
+       marker — the clause the equipment linker reads to attribute the equipment.
+    3. Only the resulting sentences that carry the equipment marker are kept. A genuine trailing
+       non-equipment sentence is **dropped**, never folded onto the loadout sentence before it:
+       folding it put publisher prose inside a published ``item_name``, because the equipment
+       grammar reads whatever trails the last list item as part of that item's name.
+
+    The guard makes rule 2 self-verifying instead of a bare guess: a kept sentence holding two or
+    more marker occurrences means rule 2 suppressed a real boundary, so it is split there after
+    all (:func:`_split_on_suppressed`).
     """
-    tokens = _SENTENCE_BREAK.split(text)
-    parts = tokens[0::2]
-    separators = tokens[1::2]
     sentences: list[str] = []
-    buffer: str | None = None
-    buffer_has_marker = False
-    for index, raw_part in enumerate(parts):
-        part = raw_part.strip()
-        if not part:
-            continue
-        has_marker = bool(_EQUIPMENT_MARKER.search(part))
-        if buffer is None:
-            buffer, buffer_has_marker = part, has_marker
-            continue
-        if has_marker:
-            if buffer_has_marker:
-                sentences.append(buffer)
-            buffer, buffer_has_marker = part, True
-        elif buffer_has_marker:
-            separator = separators[index - 1] if index - 1 < len(separators) else " "
-            if _BR_TAG.match(separator):
-                separator = " "
-            buffer = f"{buffer}{separator}{part}"
-        else:
-            buffer, buffer_has_marker = part, False
-    if buffer is not None and buffer_has_marker:
-        sentences.append(buffer)
+    for block in _BR_TAG.split(text):
+        for segment, suppressed in _segment_block(block):
+            for piece in _split_on_suppressed(segment, suppressed):
+                stripped = piece.strip()
+                if stripped and _EQUIPMENT_MARKER.search(stripped):
+                    sentences.append(stripped)
     return tuple(sentences)
 
 
