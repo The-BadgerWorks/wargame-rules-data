@@ -1,0 +1,106 @@
+# AI-Assisted: Claude Opus 5 - 010 R6 task 4 (model half). Failing-first receipt for the one
+# model-row rejection class round 6 measured live: 65 model rows are rejected by the
+# `characteristics` arm of `_detail_datasheet_fields`, all 65 on `OC`, all 65 on the value class
+# `has -`. `line`, `T` and `W` fail `to_int` on zero rows, and the value classes `has +` and
+# `has "` measure zero occurrences -- so nothing here asks for them, and the second test pins
+# that a genuinely malformed characteristic is still `DQ-MALFORMED-ROW`.
+"""``OC`` stated as ``-`` is no objective control, which is mechanically zero -- not a defect.
+
+Two directions, as the project's receipt rule demands:
+
+* the false positive is gone -- a row whose ``OC`` is ``-`` yields a ``CuratedModelLine`` with
+  ``objective_control == 0`` and no finding;
+* the true positive still fires -- a row whose ``T`` (or ``W``, or ``line``) is non-numeric is
+  still ``DQ-MALFORMED-ROW`` on ``field="characteristics"``, and contributes no model line.
+
+All identifiers, names and prose here are invented; only the header shape and the stat value
+shapes (``'3+'``, ``'-'``) come from the export.
+"""
+
+from __future__ import annotations
+
+from pipeline.curate.assemble import _detail_datasheet_fields
+from pipeline.models.curated import CuratedModelLine
+from pipeline.parse.wahapedia_csv import CsvReadResult, read_text
+
+_DATASHEETS_CSV = (
+    "id|name|faction_id|source_id|legend|role|loadout|transport|virtual|leader_head|"
+    "leader_footer|damaged_w|damaged_description|link|\n"
+    "ds1|Test Unit|TF|1||Battleline|||0|||||https://example.invalid/ds/ds1|\n"
+)
+
+_MODELS_HEADER = (
+    "datasheet_id|line|name|M|T|Sv|inv_sv|inv_sv_descr|W|Ld|OC|base_size|base_size_descr|\n"
+)
+_EMPTY_WARGEAR_CSV = (
+    "datasheet_id|line|line_in_wargear|dice|name|description|range|type|A|BS_WS|S|AP|D|\n"
+)
+_EMPTY_KEYWORDS_CSV = "datasheet_id|keyword|model|is_faction_keyword|\n"
+_EMPTY_ABILITIES_CSV = "datasheet_id|line|ability_id|model|name|description|type|parameter|\n"
+
+
+def _detail(models_csv: str) -> dict[str, CsvReadResult]:
+    return {
+        "Datasheets.csv": read_text("Datasheets.csv", _DATASHEETS_CSV),
+        "Datasheets_models.csv": read_text("Datasheets_models.csv", models_csv),
+        "Datasheets_wargear.csv": read_text("Datasheets_wargear.csv", _EMPTY_WARGEAR_CSV),
+        "Datasheets_keywords.csv": read_text("Datasheets_keywords.csv", _EMPTY_KEYWORDS_CSV),
+        "Datasheets_abilities.csv": read_text("Datasheets_abilities.csv", _EMPTY_ABILITIES_CSV),
+    }
+
+
+def test_a_model_stating_no_objective_control_is_read_as_zero() -> None:
+    """`OC` of `-` is the export's way of writing "this model has none" -- mechanically 0.
+
+    Reverted, this is red on the first assertion: `to_int` raises `NumericParseError` on `-`,
+    the row is swallowed by the `characteristics` arm, `models` is `[]`, and one
+    `DQ-MALFORMED-ROW` finding is emitted instead of a model line.
+    """
+    models_csv = _MODELS_HEADER + 'ds1|1|Test Walker|10"|9|2+|||12|6|-|100mm||\n'
+
+    fields, findings = _detail_datasheet_fields("ds1", _detail(models_csv), frozenset())
+
+    models: list[CuratedModelLine] = fields["models"]  # type: ignore[assignment]
+    assert len(models) == 1, (
+        "a model row stating `-` objective control was rejected rather than read as zero: "
+        f"{len(models)} model lines, findings {[f.finding_code for f in findings]}"
+    )
+    assert models[0].objective_control == 0
+    assert models[0].toughness == 9
+    assert models[0].wounds == 12
+    assert not [f for f in findings if f.finding_code == "DQ-MALFORMED-ROW"]
+
+
+def test_an_ordinary_numeric_objective_control_is_unchanged() -> None:
+    models_csv = _MODELS_HEADER + 'ds1|1|Test Trooper|6"|4|3+|||2|6|2|32mm||\n'
+
+    fields, findings = _detail_datasheet_fields("ds1", _detail(models_csv), frozenset())
+
+    models: list[CuratedModelLine] = fields["models"]  # type: ignore[assignment]
+    assert [m.objective_control for m in models] == [2]
+    assert not [f for f in findings if f.finding_code == "DQ-MALFORMED-ROW"]
+
+
+def test_a_non_numeric_toughness_is_still_a_malformed_row() -> None:
+    """The true positive still fires. `T`, `W` and `line` measured zero non-integer rows live,
+    so the `-` mapping is confined to `OC`: a malformed one of these is still a defect.
+
+    Reverted, this test is green -- it pins that the fix did not widen into a blanket
+    tolerance. It goes red if the `-` mapping is ever extended past `OC`.
+    """
+    for column, row in (
+        ("T", 'ds1|1|Test Trooper|6"|-|3+|||2|6|2|32mm||\n'),
+        ("W", 'ds1|1|Test Trooper|6"|4|3+|||-|6|2|32mm||\n'),
+        ("line", 'ds1|-|Test Trooper|6"|4|3+|||2|6|2|32mm||\n'),
+    ):
+        fields, findings = _detail_datasheet_fields(
+            "ds1", _detail(_MODELS_HEADER + row), frozenset()
+        )
+
+        assert fields["models"] == [], f"a malformed `{column}` produced a model line"
+        malformed = [f for f in findings if f.finding_code == "DQ-MALFORMED-ROW"]
+        assert len(malformed) == 1, f"a malformed `{column}` produced {len(malformed)} findings"
+        assert malformed[0].detail == {
+            "file_name": "Datasheets_models.csv",
+            "field": "characteristics",
+        }

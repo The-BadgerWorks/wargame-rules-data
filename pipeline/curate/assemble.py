@@ -1,3 +1,5 @@
+# AI-Assisted: Claude Opus 5 - 010 R6: a model row stating `-` objective control is read as
+# zero rather than rejected as a malformed row (65 live rows, all on `OC`, all on `-`).
 # AI-Assisted: Claude Code (model: claude-opus-5) - Assemble the CuratedSnapshot from the two
 # normalized sources plus the authored tree (needed by the T073 build wiring, which names the
 # curate stage but assigns it no assembly module of its own).
@@ -518,6 +520,23 @@ def _faction_keywords_by_datasheet(
     return {datasheet_id: frozenset(values) for datasheet_id, values in by_datasheet.items()}
 
 
+def _objective_control(raw: str) -> int:
+    """A model's ``OC``, with the export's ``-`` read as **zero**.
+
+    ``-`` stated in the ``OC`` column means the model has no objective control, which is
+    mechanically zero rather than an unreadable row -- so rejecting the whole model line over it
+    (65 live rows, round 6's measurement) loses a model the app can otherwise render in full.
+
+    The mapping is confined to ``OC`` on purpose. ``line``, ``T`` and ``W`` were measured over
+    the same live export and fail ``to_int`` on **zero** rows, and the ``+``- and ``"``-suffixed
+    value classes measure zero occurrences anywhere in this file; a class measured at zero gets
+    no code. A non-numeric ``T``, ``W`` or ``line`` therefore remains ``DQ-MALFORMED-ROW``.
+    """
+    if raw.strip() == "-":
+        return 0
+    return to_int(raw, field="model.OC")
+
+
 def _detail_datasheet_fields(
     detail_id: str,
     detail: Mapping[str, CsvReadResult],
@@ -566,7 +585,7 @@ def _detail_datasheet_fields(
                     invuln_save=optional_characteristic(model.fields.get("inv_sv")),
                     wounds=to_int(model.fields["W"], field="model.W"),
                     leadership=model.fields["Ld"].strip() or "-",
-                    objective_control=to_int(model.fields["OC"], field="model.OC"),
+                    objective_control=_objective_control(model.fields["OC"]),
                     base_size=optional_characteristic(model.fields.get("base_size")),
                 )
             )
