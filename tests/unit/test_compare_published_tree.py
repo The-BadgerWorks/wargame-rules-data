@@ -18,7 +18,7 @@ import json
 from pathlib import Path
 from typing import Any
 
-from tools.compare_published_tree import compare_trees
+from tools.compare_published_tree import USAGE_EXIT, compare_trees, main
 
 FACTION = "f-fen"
 DATASHEET = "ds-fen-warden-1"
@@ -149,6 +149,7 @@ def test_two_identical_trees_report_every_counter_zero(tmp_path: Path) -> None:
     assert report.model_field_diffs == {}
     assert report.names_case_only == 0
     assert report.names_differ == 0
+    assert report.weapon_samples == {}
 
 
 def test_markdown_carries_no_name_or_keyword_out_of_either_tree(tmp_path: Path) -> None:
@@ -160,3 +161,47 @@ def test_markdown_carries_no_name_or_keyword_out_of_either_tree(tmp_path: Path) 
     assert "Fen Wardens" not in markdown
     assert "FEN WARDENS" not in markdown
     assert "Fen Warden" not in markdown
+
+
+def test_a_root_one_directory_too_high_is_a_usage_error_not_an_all_zero_report(
+    tmp_path: Path, capsys: Any
+) -> None:
+    """A mis-aimed root must not read as a comparison that found nothing.
+
+    This is CLAUDE.md trap 1 on the output side: `factions/` absent loads zero datasheets, and
+    without this branch the tool prints a full report of zeros and exits 0 - indistinguishable
+    from a genuine comparison of two empty trees. Fails if the diagnostic or the non-zero exit
+    is removed: the exit drops to 0 and a markdown report appears on stdout.
+    """
+    _tree_a(tmp_path / "a")
+    _tree_a(tmp_path / "b")
+
+    # One directory too high: `tmp_path` holds `a/` and `b/`, neither of which is `factions/`.
+    exit_code = main(["--published", str(tmp_path), "--candidate", str(tmp_path / "b")])
+
+    captured = capsys.readouterr()
+    assert exit_code == USAGE_EXIT
+    assert exit_code != 0
+    assert "Published-vs-candidate field parity" not in captured.out
+    assert "| 0 | 0 | 0 | 0 |" not in captured.out
+    assert str(tmp_path) in captured.err
+
+
+def test_two_version_directories_under_one_root_is_a_usage_error(
+    tmp_path: Path, capsys: Any
+) -> None:
+    """Ambiguity is named, never resolved by picking one.
+
+    Fails if `_data_dir` goes back to falling back to the root: the run would then load zero
+    datasheets from a tree that has two, and report it as a comparison.
+    """
+    root = tmp_path / "a"
+    _tree_a(root)
+    (root / "wh40k-12e" / "factions").mkdir(parents=True)
+
+    exit_code = main(["--published", str(root), "--candidate", str(_tree_a(tmp_path / "b"))])
+
+    captured = capsys.readouterr()
+    assert exit_code == USAGE_EXIT
+    assert "Published-vs-candidate field parity" not in captured.out
+    assert str(root) in captured.err

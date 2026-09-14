@@ -96,6 +96,10 @@ FORMAT_SENSITIVE_FIELDS: Final = ("skill", "range")
 
 MAX_SAMPLES: Final = 3
 
+#: Exit code for an argument that cannot be compared at all. The brief's "exit 0 always" binds
+#: the *measurement verdict* - no reading, however bad, is a failure - and not an argument error.
+USAGE_EXIT: Final = 2
+
 
 @dataclass(slots=True)
 class ParityReport:
@@ -249,27 +253,53 @@ def _bump(counts: dict[str, int], key: str, amount: int = 1) -> None:
         counts[key] = counts.get(key, 0) + amount
 
 
+class UsageError(Exception):
+    """An argument that cannot be compared at all - not a reading, however bad.
+
+    Kept distinct from every measurement outcome because the two must never share an exit code:
+    a comparison that finds total divergence is a *result*, and a root that points at nothing is
+    a mistake in the invocation.
+    """
+
+
 def _data_dir(root: Path) -> Path:
     """Strip one leading ``wh40k-*`` version directory when there is exactly one.
 
     The two roots are named by different runs and may or may not carry the version directory;
     keying paths relative to it is what makes ``data/wh40k-11e/...`` and a scratch build
     comparable at all.
+
+    Two or more version directories is an ambiguity, and it is *named* rather than resolved by
+    picking one: silently choosing the first would compare one edition's tree against another's
+    and report the difference as a build defect.
     """
     versions = sorted(child for child in root.glob("wh40k-*") if child.is_dir())
-    return versions[0] if len(versions) == 1 else root
+    if len(versions) > 1:
+        raise UsageError(
+            f"{root} holds {len(versions)} wh40k-* version directories; "
+            "point --published/--candidate at exactly one"
+        )
+    return versions[0] if versions else root
 
 
 def _load_tree(root: Path) -> dict[str, Any]:
-    """``<faction>/<...>/<ds>.json -> payload`` for every datasheet under ``factions/``."""
+    """``<faction>/<...>/<ds>.json -> payload`` for every datasheet under ``factions/``.
+
+    A root that yields no datasheets raises rather than returning ``{}``. This is CLAUDE.md
+    trap 1 on the output side: an empty tree renders a complete report of zeros, which is
+    indistinguishable from a genuine comparison that found nothing wrong, and a mistyped path
+    would read as parity.
+    """
     factions = _data_dir(root) / "factions"
     tree: dict[str, Any] = {}
-    if not factions.is_dir():
-        return tree
-    for path in sorted(factions.rglob("*.json")):
-        if not path.name.startswith("ds-"):
-            continue
-        tree[path.relative_to(factions).as_posix()] = json.loads(path.read_text(encoding="utf-8"))
+    if factions.is_dir():
+        for path in sorted(factions.rglob("*.json")):
+            if not path.name.startswith("ds-"):
+                continue
+            payload = json.loads(path.read_text(encoding="utf-8"))
+            tree[path.relative_to(factions).as_posix()] = payload
+    if not tree:
+        raise UsageError(f"{root} holds no datasheets under factions/; nothing to compare")
     return tree
 
 
@@ -466,8 +496,16 @@ def main(argv: Sequence[str] | None = None) -> int:
     for label, root in (("--published", args.published), ("--candidate", args.candidate)):
         if not root.is_dir():
             print(f"{PROG}: {label} is not a directory", file=sys.stderr)
-            return 2
-    print(compare_trees(args.published, args.candidate).to_markdown())
+            return USAGE_EXIT
+    try:
+        report = compare_trees(args.published, args.candidate)
+    except UsageError as exc:
+        # Nothing is printed to stdout on this path. A report of zeros on a mis-aimed root is
+        # the failure mode this branch exists to prevent, so the diagnostic replaces it rather
+        # than accompanying it.
+        print(f"{PROG}: {exc}", file=sys.stderr)
+        return USAGE_EXIT
+    print(report.to_markdown())
     return 0
 
 
