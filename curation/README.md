@@ -20,6 +20,13 @@
      ladder's new chapter-keyword rung reads), and the eight html-mode REC-NEVER-PRICED
      exclusions added to resolutions.json plus the two deliberately left blocking. Neither JSON
      file admits comment syntax of its own. -->
+<!-- AI-Assisted: Claude Code (model: claude-opus-5) - 010 R5: deleted
+     curation/carried-forward-factions.json (schemas/curation/carried-forward-factions.schema.json
+     is untouched here -- its deletion belongs to the pipeline PR that also drops the loader
+     that named it). Corrected the detail_source_faction_id passage below, which named a
+     since-removed acquisition-mode configuration variable in the present tense; the mapping's
+     slug values were authored while that now-deleted arm was in use, and the passage now says
+     so without asserting the variable still exists. -->
 # `curation/` — the authored tree
 
 **Humans write this directory. The pipeline never does.** The pipeline writes `data/` and never
@@ -90,12 +97,13 @@ makes a chapter army see its parent's units. Two detail-source faction ids (`UN`
 referenced by no mapping and are reported as `REC-DETAIL-FACTION-ORPHAN`, which is advisory: a
 faction the points source does not publish is not one a player can field.
 
-**Under `html` mode a `detail_source_faction_id` is the source's own page slug, and three of
-them are not the points source's spelling.** Adopting the current-edition datacard pages
-(`WGC_DETAIL_ACQUISITION_MODE=html`) replaced the export's two-letter faction codes with the
-slug each faction page is published at, and the mapping was re-pointed wholesale at each
-record's `mfm_slug` on the assumption that the two agree. They do not, in three places, and the
-live sweep named every one of them as `REC-DETAIL-FACTION-ORPHAN`:
+**`detail_source_faction_id` here is a page slug, not the CSV export's own two-letter faction
+code, and three of them are not the points source's spelling.** The mapping was authored while
+a since-removed html-mode detail arm was still in use: adopting the current-edition datacard
+pages replaced the export's two-letter faction codes with the slug each faction page was
+published at, and the mapping was re-pointed wholesale at each record's `mfm_slug` on the
+assumption that the two agree. They do not, in three places, and the live sweep named every one
+of them as `REC-DETAIL-FACTION-ORPHAN`:
 
 | Curated faction | `mfm_slug` | The page the source actually publishes |
 |---|---|---|
