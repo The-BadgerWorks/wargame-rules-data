@@ -135,6 +135,7 @@ def test_two_identical_trees_report_every_counter_zero(tmp_path: Path) -> None:
     assert report.only_candidate == 0
     assert report.top_level == {}
     assert report.keywords_case_only == 0
+    assert report.keywords_multiplicity_differs == 0
     assert report.keywords_set_differs == 0
     assert report.keywords_missing == 0
     assert report.keywords_extra == 0
@@ -267,7 +268,13 @@ def test_duplicate_keyword_multiplicity_is_not_reported_as_a_case_difference(
     assert report.keywords_case_only == 0, (
         "a differing number of identical keywords is not a capitalisation difference"
     )
-    assert report.keywords_set_differs == 1
+    assert report.keywords_multiplicity_differs == 1
+    assert report.keywords_set_differs == 0, (
+        "an equal casefolded set with an unequal multiplicity is a multiplicity difference, "
+        "not a set difference"
+    )
+    assert report.keywords_missing == 0
+    assert report.keywords_extra == 0
 
 
 def test_a_changed_model_name_is_reported(tmp_path: Path) -> None:

@@ -119,6 +119,8 @@ class ParityReport:
     identical: int = 0
     top_level: dict[str, int] = field(default_factory=dict)
     keywords_case_only: int = 0
+    keywords_multiplicity_differs: int = 0
+    keywords_multiplicity_delta: int = 0
     keywords_set_differs: int = 0
     keywords_missing: int = 0
     keywords_extra: int = 0
@@ -185,9 +187,17 @@ class ParityReport:
             "## Keywords",
             "",
             f"- Case-only difference: {self.keywords_case_only}",
+            f"- Same keywords, different multiplicity: {self.keywords_multiplicity_differs} "
+            f"(rows of surplus or shortfall: {self.keywords_multiplicity_delta})",
             f"- Set differs: {self.keywords_set_differs}",
             f"- Missing from candidate: {self.keywords_missing}",
             f"- Extra in candidate: {self.keywords_extra}",
+            "",
+            "`Set differs` means the casefolded sets genuinely differ, and only those datasheets "
+            "contribute to the missing/extra counts. A datasheet holding the same keywords a "
+            "different number of times is counted on the multiplicity line instead. "
+            "`is_faction_keyword` is not compared: a flag-only difference appears on the "
+            "`keywords` top-level row and nowhere else.",
             "",
             "## Ability-key bindings",
             "",
@@ -240,6 +250,10 @@ class ParityReport:
             "## Model profiles",
             "",
             f"- Shared datasheets whose model count differs: {self.models_count_differs}",
+            "",
+            "The field table below is a **floor, not a total**: models pair by position, so the "
+            "datasheets counted on the line above are skipped entirely for field comparison, and "
+            "their differences appear on the `models` top-level row only.",
             "",
             "| Field | Profiles differing |",
             "|---|---:|",
@@ -368,7 +382,13 @@ def _group_weapons(weapons: list[dict[str, Any]]) -> dict[tuple[str, bool], list
 
 
 def _compare_weapons(published: Any, candidate: Any, report: ParityReport) -> None:
-    """Pair by ``(name.casefold(), is_melee)``, zip in order, classify each field difference."""
+    """Pair by ``(name.casefold(), is_melee)``, zip in order, classify each field difference.
+
+    Measured-latent, and one-directional: when a group holds several same-named profiles the two
+    sides may list them in different orders, and the zip then compares profile 1 against profile
+    2. That **over**-counts field differences and can never hide one, so the field table is an
+    upper bound in exactly the direction that keeps a parity claim honest.
+    """
     left = _group_weapons(_rows(published, "weapons"))
     right = _group_weapons(_rows(candidate, "weapons"))
     for key in sorted(set(left) | set(right)):
@@ -407,7 +427,13 @@ def _compare_weapon_pair(
 
 
 def _compare_models(published: Any, candidate: Any, report: ParityReport) -> None:
-    """Pair by position, and only when the counts agree - position means nothing otherwise."""
+    """Pair by position, and only when the counts agree - position means nothing otherwise.
+
+    So ``model_field_diffs`` is a **floor, not a total**: every datasheet counted in
+    ``models_count_differs`` contributes nothing to it. That is correct - there is no honest
+    field pairing across differing counts - but the rendered markdown says so as well, because a
+    reader meeting the table alone would take it for a total.
+    """
     lhs = _rows(published, "models")
     rhs = _rows(candidate, "models")
     if len(lhs) != len(rhs):
@@ -420,7 +446,12 @@ def _compare_models(published: Any, candidate: Any, report: ParityReport) -> Non
 
 
 def _compare_keywords(published: Any, candidate: Any, report: ParityReport) -> None:
-    """Case-insensitively equal sets whose printed text differs are a case-only difference."""
+    """Three named outcomes: case only, multiplicity only, or a genuine set difference.
+
+    Only ``keyword`` is compared. Measured-latent: ``is_faction_keyword`` inside a keyword row is
+    not, so a flag-only difference would surface on the ``keywords`` top-level row and on no
+    keyword line. Measured at **0 flag-only differences** across the shared datasheets.
+    """
     published_raw = [str(row.get("keyword", "")) for row in _rows(published, "keywords")]
     candidate_raw = [str(row.get("keyword", "")) for row in _rows(candidate, "keywords")]
     left_folded = sorted(value.casefold() for value in published_raw)
@@ -432,12 +463,27 @@ def _compare_keywords(published: Any, candidate: Any, report: ParityReport) -> N
         if sorted(published_raw) != sorted(candidate_raw):
             report.keywords_case_only += 1
         return
+    if set(left_folded) == set(right_folded):
+        # Same keywords, a different number of them. Its own counter, because keywords_missing
+        # and keywords_extra are set differences and are both *zero* here: folding this into
+        # keywords_set_differs would count the datasheet under a heading whose two size columns
+        # cannot name it, which is the counted-but-unnamed shape this file has now closed twice.
+        report.keywords_multiplicity_differs += 1
+        report.keywords_multiplicity_delta += abs(len(left_folded) - len(right_folded))
+        return
     report.keywords_set_differs += 1
     report.keywords_missing += len(set(left_folded) - set(right_folded))
     report.keywords_extra += len(set(right_folded) - set(left_folded))
 
 
 def _keys(payload: Any) -> set[str]:
+    """The datasheet ability keys, as a set.
+
+    Measured-latent: a set collapses a duplicated key within one datasheet, so a change in how
+    many times the same key is bound would read as no difference. Measured at **0 occurrences**
+    across both trees in r5 and r6 - no datasheet on either side binds one key twice - so it is
+    recorded here rather than coded against.
+    """
     keys = payload.get("ability_keys")
     return {str(key) for key in keys} if isinstance(keys, list) else set()
 
