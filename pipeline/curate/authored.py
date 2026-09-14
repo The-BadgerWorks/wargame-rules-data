@@ -24,7 +24,6 @@ from typing import Any, Final
 
 from pipeline.models.authored import (
     AbilitySummary,
-    CarriedForwardFactionEntry,
     CompositionOverrideEntry,
     CopyLimit,
     DetachmentRuleSummary,
@@ -61,9 +60,6 @@ _FILES: Final[Mapping[str, str]] = {
     # 006-unit-loadout-fidelity's own escape hatch, for the default-equipment sentences research
     # D1e's compound-and-conditional tail leaves unresolved.
     "equipment-overrides": "equipment-overrides",
-    # 008-wargear-option-completion FR-024 (Product Owner decision 2026-08-17): the per-faction
-    # carry-forward declaration.
-    "carried-forward-factions": "carried-forward-factions",
 }
 
 ABILITIES_DIR: Final = "abilities"
@@ -121,13 +117,6 @@ class AuthoredContent:
     option_overrides: tuple[OptionOverrideEntry, ...] = ()
     # -- 006-unit-loadout-fidelity ----------------------------------------------------------
     equipment_overrides: tuple[EquipmentOverrideEntry, ...] = ()
-    # -- 008-wargear-option-completion (FR-024, Product Owner decision 2026-08-17) -----------
-    carried_forward_factions: tuple[CarriedForwardFactionEntry, ...] = ()
-
-    @property
-    def carried_forward_slugs(self) -> frozenset[str]:
-        """The declared set, as the plain ``frozenset[str]`` the acquisition layer takes."""
-        return frozenset(entry.faction_slug for entry in self.carried_forward_factions)
 
     def faction_for_slug(self, slug: str) -> FactionMapEntry | None:
         return next((entry for entry in self.faction_map if entry.mfm_slug == slug), None)
@@ -334,12 +323,6 @@ def load_authored(curation_dir: Path) -> AuthoredContent:
         equipment_overrides=tuple(
             EquipmentOverrideEntry.model_validate(r)
             for r in _load_list(curation_dir, "equipment-overrides", _FILES["equipment-overrides"])
-        ),
-        carried_forward_factions=tuple(
-            CarriedForwardFactionEntry.model_validate(r)
-            for r in _load_list(
-                curation_dir, "carried-forward-factions", _FILES["carried-forward-factions"]
-            )
         ),
     )
 

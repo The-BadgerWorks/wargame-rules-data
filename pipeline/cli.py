@@ -28,11 +28,9 @@
 # `run_build`'s own docstring and by curated-snapshot-format.md §6 since 002, and was reachable
 # from no invocation at all, so every build stamped its own UTC day and `publish.yml`'s rebuild
 # of an approved candidate failed FR-039 with exit 51 the moment approval crossed 00:00Z.
-# AI-Assisted: Claude Code (model: claude-opus-5) - 009 rung R01b: resolve the carry-forward
-# carried/unused split at the acquisition boundary via `resolve_carried_forward`, before
-# `assemble` rather than after it, and feed the carried set to both `assemble` (so the faction
-# guard knows the absence was declared) and `apply_carried_forward` (so the splice and the
-# exemption can never disagree about which faction is which).
+# AI-Assisted: Claude Code (model: claude-opus-5) - 010 R5: removed the carry-forward split and
+# splice (`resolve_carried_forward`, `apply_carried_forward`) from `run_build` along with the
+# per-faction carry-forward mechanism itself.
 # AI-Assisted: Claude Code (model: claude-sonnet-5) - 009 rung R05-fix2 (gate on PR #30): the
 # Product Owner reversed the previous round's ruling that wired `run_detect` to the detail
 # source's export-timestamp short-circuit. `run_detect` is reverted here to its byte-for-byte
@@ -94,11 +92,7 @@ from datetime import UTC, datetime
 from pathlib import Path
 from typing import Final
 
-from pipeline.acquire.detail_source import (
-    acquire_detail,
-    read_detail,
-    resolve_carried_forward,
-)
+from pipeline.acquire.detail_source import acquire_detail, read_detail
 from pipeline.acquire.http import AcquisitionError, PoliteClient
 from pipeline.acquire.mfm import acquire_mfm
 from pipeline.build.bundle_emit import BundleMeta, emit_bundle
@@ -114,7 +108,6 @@ from pipeline.config import (
 )
 from pipeline.curate.assemble import assemble
 from pipeline.curate.authored import AuthoredContent, load_authored
-from pipeline.curate.carry_forward import apply_carried_forward
 from pipeline.curate.prior import PriorSnapshot, load_prior, read_curated_tree
 from pipeline.curate.summaries import (
     compute_current_digests,
@@ -771,11 +764,8 @@ def run_build(  # noqa: PLR0913 - the stage boundary is the argument list
         else root / "curation"
     )
 
-    # Loaded before acquisition, not after (008 FR-024): the html detail arm needs the declared
-    # carry-forward slug set *before* it decides which faction pages to attempt, so a curator's
-    # declaration in curation/carried-forward-factions.json has to be in hand first. Neither
-    # `load_authored` nor a curation-dir read touches the network, so moving it earlier costs
-    # nothing and changes no other stage's inputs.
+    # Loaded before acquisition, not after. Neither `load_authored` nor a curation-dir read
+    # touches the network, so reading it here costs nothing and changes no other stage's inputs.
     authored = load_authored(authored_dir)
 
     with workspace(root) as work:
@@ -790,20 +780,7 @@ def run_build(  # noqa: PLR0913 - the stage boundary is the argument list
             fixtures_dir=fixtures_dir,
             offline=offline,
             workspace=work,
-            carried_forward_slugs=authored.carried_forward_slugs,
         )
-        # 008 FR-024/FR-025: which declared slug landed which way, derived from the payloads
-        # acquisition actually returned. Computed HERE, at the acquisition boundary and before
-        # `assemble` — not at the splice below — because `resolve_factions` needs the carried set
-        # to know that a faction contributing no detail rows did so for a declared reason, and by
-        # the time `apply_carried_forward` runs, `REC-DETAIL-FACTION-EMPTY` has already been
-        # appended with no path to withdraw it. `resolve_carried_forward` owns the one mode
-        # question involved (whether a payload name is a faction slug at all); everything below
-        # receives its answer as a plain `frozenset[str]` (rule 4/FR-012).
-        carry_forward = resolve_carried_forward(
-            config, detail_payloads, declared_slugs=authored.carried_forward_slugs
-        )
-
         pages = [
             parse_faction_page(payload.name, replay(payload.text).html)
             for payload in points_payloads
@@ -829,7 +806,6 @@ def run_build(  # noqa: PLR0913 - the stage boundary is the argument list
             detail_acquisition=detail_acq,
             edition_code=EDITION_CODE,
             edition_name=EDITION_NAME,
-            carried_forward_detail_ids=carry_forward.carried,
         )
         findings.extend(assembly.findings)
         snapshot = assembly.snapshot
@@ -872,23 +848,6 @@ def run_build(  # noqa: PLR0913 - the stage boundary is the argument list
     # The same checkout `prior` is projected from, read whole: the five enrichment categories
     # compare structures the cost projection does not carry (FR-037). `None` on a first release.
     previous_tree = read_curated_tree(baseline_root / "data" / EDITION_CODE)
-
-    # 008 FR-024/FR-025 (Product Owner decision 2026-08-17): splice in every declared faction the
-    # acquisition layer could not fetch this run, from `previous_tree` — BEFORE reconciliation, so
-    # a carried faction's datasheets read as "present, unchanged" to every coverage figure below,
-    # structurally rather than via a coverage.py special case. No-op when nothing was declared.
-    # The split itself is `carry_forward`, resolved at acquisition above — the same two sets
-    # `assemble` was given, so the faction the splice fills in and the faction the guard exempts
-    # can never be different factions.
-    snapshot, carry_forward_findings = apply_carried_forward(
-        snapshot,
-        previous_tree=previous_tree,
-        carried_slugs=carry_forward.carried,
-        unused_declaration_slugs=carry_forward.unused,
-        previous_version_id=(prior.rules_version_id if prior else None) or "(none)",
-        unused_answers_per_faction=carry_forward.answers_per_faction,
-    )
-    findings.extend(carry_forward_findings)
 
     snapshot, prior_findings, coverage, sub_reports = _reconcile_against_prior(
         snapshot,

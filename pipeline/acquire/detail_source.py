@@ -2,14 +2,10 @@
 # dispatch (004 task T018): csv routes to the existing export acquirer unchanged, html routes to
 # the datacard acquirer, both producing the same SourceAcquisition record shape so every stage
 # below parse is mode-blind (004 research D1d, plan Architecture).
-# AI-Assisted: Claude Code (model: claude-opus-5) - 009 rung R01b: added `resolve_carried_forward`,
-# which splits the declared carry-forward set into carried/unused against the payloads acquisition
-# returned. It lives here because "is a payload name a faction slug?" is the mode question, and the
-# mode's influence belongs in this module; `pipeline/cli.py` had the branch and could only reach it
-# after `assemble` had already run.
-# AI-Assisted: Claude Code (model: claude-sonnet-5) - 009 rung R06a (T095/T100/T101, FR-033):
-# `resolve_carried_forward` now reports a non-empty declared set as `unused` rather than dropping
-# it under any arm but `html` -- visibly inert instead of invisibly ignored.
+# AI-Assisted: Claude Code (model: claude-opus-5) - 010 R5: deleted `resolve_carried_forward`,
+# `CarriedForwardOutcome` and `_fetched_slugs` along with the per-faction carry-forward mechanism
+# they served. A bulk export answers whole or not at all, so there is no per-faction page failure
+# for a declaration to cover.
 # AI-Assisted: Claude Code (model: claude-sonnet-5) - 010 R1: `read_export_payloads` now also runs
 # `derive_equipment_from_loadout` (from `export_rows.py`) as the last step, so the csv arm's
 # default-equipment table also picks up rows manufactured from `Datasheets.csv`'s `loadout`
@@ -46,7 +42,6 @@ from __future__ import annotations
 
 import re
 from collections.abc import Callable, Sequence
-from dataclasses import dataclass
 from dataclasses import replace as _replace_csv_read_result
 from datetime import datetime
 from pathlib import Path
@@ -140,7 +135,6 @@ class DetailAcquirer(Protocol):
         client: PoliteClient | None = ...,
         retrieved_at: datetime | None = ...,
         workspace: Path | None = ...,
-        carried_forward_slugs: frozenset[str] = ...,
         state_path: Path | None = ...,
     ) -> tuple[SourceAcquisition, list[FixturePayload]]: ...
 
@@ -249,15 +243,11 @@ def acquire_detail(
     client: PoliteClient | None = None,
     retrieved_at: datetime | None = None,
     workspace: Path | None = None,
-    carried_forward_slugs: frozenset[str] = frozenset(),
     state_path: Path | None = None,
 ) -> tuple[SourceAcquisition, list[FixturePayload]]:
     """Acquire the datasheet-detail source in the configured mode.
 
     Every caller below ``acquire`` takes what this returns and never asks how it was obtained.
-
-    ``carried_forward_slugs`` (008 FR-024): forwarded to whichever arm ran. Only the html arm
-    gives it any meaning — see :func:`pipeline.acquire.wahapedia_html.acquire_wahapedia_html`.
 
     ``state_path`` (009 rung R05, T090): forwarded to whichever arm ran, on the same terms.
     Only the csv arm gives it any meaning — see
@@ -275,95 +265,8 @@ def acquire_detail(
         client=client,
         retrieved_at=retrieved_at,
         workspace=workspace,
-        carried_forward_slugs=carried_forward_slugs,
         state_path=state_path,
     )
-
-
-@dataclass(frozen=True, slots=True)
-class CarriedForwardOutcome:
-    """Which declared carry-forward slugs this run actually used, and which it did not.
-
-    Two disjoint subsets of ``curation/carried-forward-factions.json``'s declared set, and the
-    ONLY place that split is computed (008 FR-024/FR-025):
-
-    * ``carried`` — declared **and** not returned by acquisition. The faction's data is spliced
-      in from the previous published tree, and it is what exempts the faction from
-      ``REC-DETAIL-FACTION-EMPTY`` downstream.
-    * ``unused`` — declared **and** returned anyway; the source recovered, the live data is used
-      like anybody else's, and the declaration can be retired.
-
-    ``carried`` is empty under every arm but ``html``, deliberately: a ``csv``-mode payload's
-    ``name`` is a file name (``Datasheets.csv``), never a faction slug, so a declaration would
-    falsely read as "carried" for every entry. Carry-forward has no per-faction page to fail
-    under that arm in the first place.
-
-    ``unused`` is NOT empty under a non-``html`` arm when something is declared (009 rung R06a,
-    T095/T100, FR-033) — see :func:`resolve_carried_forward`'s own docstring for why reusing this
-    code, rather than dropping the declaration, is what makes it visibly inert instead of
-    invisibly ignored.
-
-    ``answers_per_faction`` (R06a-fix item 3): whether ``unused`` was computed from a genuine
-    per-faction fetch (``html``, one page per declared slug) or from a bulk arm's all-or-nothing
-    answer (every other mode). Both make ``unused`` true for the same reason ("this run did not
-    need the carry"), but they are not the same STRENGTH of evidence: a bulk arm being unused says
-    nothing about whether this ONE faction's own page would still be reachable, so a consumer
-    (`pr_body.py`) must not read a bulk-arm ``unused`` as "the declaration may be retired" the way
-    it correctly reads an ``html``-arm one.
-    """
-
-    carried: frozenset[str] = frozenset()
-    unused: frozenset[str] = frozenset()
-    answers_per_faction: bool = True
-
-
-def resolve_carried_forward(
-    config: PipelineConfig,
-    payloads: Sequence[FixturePayload],
-    *,
-    declared_slugs: frozenset[str],
-) -> CarriedForwardOutcome:
-    """Split ``declared_slugs`` against what acquisition actually returned.
-
-    Lives here rather than in ``pipeline/cli.py`` for the reason this whole module exists: the
-    split is a *mode* question — whether a payload name is a faction slug at all — and the mode's
-    influence is contained in this file (rule 4/FR-012). Every stage below receives the answer as
-    a plain ``frozenset[str]`` of detail-source ids and never learns which arm produced it.
-
-    ``SourceAcquisition.coverage`` cannot answer this: it is a ``Mapping[str, int]`` of counts
-    feeding FR-009's figures and carries no slugs, so the payload names are the only record of
-    which declared page came back.
-
-    009 rung R06a (T095/T100, FR-033): under any arm but ``html`` the per-faction-page failure
-    the mechanism exists for cannot occur — the bulk export answers whole or not at all (FR-032),
-    so a run that reaches this point already means the export answered, declared faction rows
-    included. Before this rung, a non-empty ``declared_slugs`` was dropped here entirely
-    (``CarriedForwardOutcome()``, unconditionally) — invisibly ignored, not merely unneeded. Now
-    it is reported ``unused``: the SAME code and the SAME true meaning a faction that answered
-    live under ``html`` mode already gets ("the declaration did nothing this run, a curator may
-    retire it"), rather than a new code for a condition this vocabulary already describes
-    correctly. This is what "neither silently satisfied nor silently discarded" means in
-    practice, and it is why a later return to a per-page arm finds the declaration intact:
-    nothing here ever touches ``curation/carried-forward-factions.json``, only the in-memory
-    ``declared_slugs`` this run was handed.
-    """
-    if config.detail_acquisition_mode is not DetailAcquisitionMode.HTML:
-        return CarriedForwardOutcome(unused=declared_slugs, answers_per_faction=False)
-    fetched = _fetched_slugs(payloads)
-    return CarriedForwardOutcome(
-        carried=declared_slugs - fetched,
-        unused=declared_slugs & fetched,
-        answers_per_faction=True,
-    )
-
-
-def _fetched_slugs(payloads: Sequence[FixturePayload]) -> frozenset[str]:
-    """The payload names acquisition actually returned, as a plain set.
-
-    Kept as its own function because the payload-name set is a distinct question from the
-    carried/unused split that reads it.
-    """
-    return frozenset(payload.name for payload in payloads)
 
 
 def read_detail(

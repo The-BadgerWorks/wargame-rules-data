@@ -141,9 +141,6 @@ PENDING_CONTRACT_SEVERITIES = {
     "COV-EQUIPMENT-REGRESSION": B,
     # Phase 8a (FR-024/FR-025, Product Owner decision 2026-08-17): the per-faction carry-forward
     # mechanism, on the identical ahead-of-contract terms as the pair above.
-    "SRC-FACTION-CARRIED-FORWARD": A,
-    "SRC-FACTION-CARRY-FORWARD-UNUSED": A,
-    "SRC-FACTION-CARRY-FORWARD-NO-PRIOR": B,
     # 009-csv-migration (data-model.md §2, plan.md "New finding codes", task T017): three new,
     # all ahead of validation-report.md's own §3 row on the identical terms this block already
     # establishes. REC-DETAIL-FACTION-EMPTY is the migration's actual cutover guard (plan.md

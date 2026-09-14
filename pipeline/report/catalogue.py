@@ -25,8 +25,10 @@
 # fetch from an unchanged source from a failed one (SRC-EXPORT-UNCHANGED). Additions only, per
 # FR-001 -- no existing code's severity or class moves.
 # AI-Assisted: Claude Code (model: claude-opus-5) - 010 R5: removed `SRC-CLASS-ARM`, the
-# per-class acquisition-arm advisory. With a single arm there is no second arm a class could be
-# declared onto, so no run can emit it.
+# per-class acquisition-arm advisory, and the three `SRC-FACTION-CARR*-FORWARD*` codes, along
+# with the hybrid and the per-faction carry-forward mechanisms that emitted them. With a single
+# bulk arm there is no second arm a class could be declared onto and no per-faction page failure
+# a declaration could excuse, so no run can emit any of them.
 # AI-Assisted: Claude Code (model: claude-sonnet-5) - Corrected SRC-EXPORT-UNCHANGED's own
 # description (009 rung R05-fix item 3, gate on PR #30): it claimed "the export's content
 # fingerprint is unmoved since the last run", but the check that fires it compares only the
@@ -610,36 +612,6 @@ _DEFINITIONS: Final[tuple[FindingDefinition, ...]] = (
         "loadout.default_equipment fell below the previous PUBLISHED version's percent, less "
         "the configured tolerance; the symmetric twin of COV-OPTION-REGRESSION for the second "
         "ratcheted loadout figure",
-    ),
-    # -- 008-wargear-option-completion, Phase 8a (FR-024/FR-025, Product Owner decision
-    # 2026-08-17) -- the per-faction carry-forward mechanism T074's dry-run surfaced the need
-    # for: a declared faction whose page cannot be fetched no longer fails the whole sweep, but
-    # every such substitution is visible rather than silent (FR-025's own wording).
-    _d(
-        "SRC-FACTION-CARRIED-FORWARD",
-        _REC,
-        _A,
-        "008 FR-024/FR-025",
-        "a declared faction (curation/carried-forward-factions.json) could not be fetched this "
-        "run; its datasheets are sourced unchanged from the previous published version instead "
-        "of blocking the sweep. Detail names the faction slug and the version frozen from",
-    ),
-    _d(
-        "SRC-FACTION-CARRY-FORWARD-UNUSED",
-        _REC,
-        _A,
-        "008 FR-024",
-        "a faction declared in curation/carried-forward-factions.json was fetched live "
-        "successfully this run; the declaration was not needed and a curator may retire it",
-    ),
-    _d(
-        "SRC-FACTION-CARRY-FORWARD-NO-PRIOR",
-        _REC,
-        _B,
-        "008 FR-024/FR-008",
-        "a declared faction could not be fetched this run AND has no previous published data to "
-        "carry forward from; there is nothing to substitute, so this blocks exactly as an "
-        "undeclared unreachable faction would (FR-008 unweakened for a first-release faction)",
     ),
 )
 
