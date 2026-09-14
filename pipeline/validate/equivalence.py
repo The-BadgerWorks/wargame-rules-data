@@ -4,6 +4,9 @@
 # blocks from the source card's in-memory `detail` (research D6, `reports/equivalence-
 # availability/2026-08-13.md`), compares both sides under `rendering-contract.md` §9's normal
 # form, and retains nothing from either side beyond the call that compares them (FR-019..FR-021).
+# AI-Assisted: Claude Code (model: claude-opus-5) - 010 round 5 task 1: `_rows_text` passes each
+# source row through `normalize/ip_strip.py` before it is compared, so both sides are read
+# tag-free under the repo's single markup definition (PR #35 review finding, tier 1).
 """The Part C equivalence check: does the rendering read like the card?
 
 **The single fact this module exists to prove**: nothing here is typed to hold source text past
@@ -40,6 +43,7 @@ from pipeline.models.curated import (
     CuratedSnapshot,
 )
 from pipeline.models.findings import Finding
+from pipeline.normalize.ip_strip import strip_field
 from pipeline.parse.equipment_grammar import EQUIPMENT_TABLE
 from pipeline.parse.wahapedia_csv import CsvReadResult
 from pipeline.render.loadout import (
@@ -124,8 +128,19 @@ def _normalize(text: str) -> tuple[str, ...]:
 
 
 def _rows_text(table: CsvReadResult | None, detail_id: str) -> list[str]:
-    """One detail table's rows for one datasheet, in source line order — the raw sentences the
-    card prints, exactly as `detail` already carries them (no new acquisition, research D6)."""
+    """One detail table's rows for one datasheet, in source line order — the sentences the card
+    prints, exactly as `detail` already carries them (no new acquisition, research D6), reduced
+    to their text through `normalize/ip_strip.py`.
+
+    The strip is what keeps the comparison about *content*. The csv arm's equipment rows carry
+    the export's own bold subject tag (`acquire/export_rows.py`, 010 R1) while the rendered side
+    never can, so an unstripped source row mismatches on the markup alone and the equivalence
+    figure reads a working rendering as a defect. The one markup definition in the repo is
+    `ip_strip`'s, so it is called rather than re-implemented here — and its findings are
+    deliberately dropped: a source-side data-quality observation is raised where the field is
+    acquired, not a second time inside a read-only comparison. Nothing is retained either way
+    (FR-020): the returned strings live and die inside `check_equivalence`'s loop body.
+    """
     if table is None:
         return []
     rows = table.grouped_by("datasheet_id").get(detail_id, [])
@@ -137,7 +152,10 @@ def _rows_text(table: CsvReadResult | None, detail_id: str) -> list[str]:
             return 0
 
     ordered = sorted(rows, key=_line)
-    return [row.fields.get("description", "") for row in ordered]
+    return [
+        strip_field(row.fields.get("description", ""), field="equipment.description").text
+        for row in ordered
+    ]
 
 
 def _source_text(

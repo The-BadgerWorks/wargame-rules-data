@@ -1,37 +1,15 @@
-# AI-Assisted: Claude Code (model: claude-sonnet-5) - 010 round 1: csv-arm row routing at the reader
-# boundary. Ports the two non-option row shapes wahapedia_html_dom._options drops, and derives
-# the default-equipment table from the Datasheets export's loadout column. Row routing only:
-# no grammar production, no normalization, no mode branch.
-# AI-Assisted: Claude Code (model: claude-sonnet-5) - 010 round 1 fix round 1:
-# `derive_equipment_from_loadout` numbers each datasheet's loadout-derived lines starting past the
-# highest line `_derive_equipment_from_composition` already filed for it, instead of always from
-# 1, so the two sources cannot mint colliding `(datasheet_id, line)` equipment-group ids
-# (Finding 2). This rule is still live.
-# AI-Assisted: Claude Code (model: claude-sonnet-5) - 010 round 2 task 1: the period heuristic
-# (`_PERIOD_GAP`, `_MIN_SENTENCE_FINAL_WORD_CHARS`, `_word_ending_at`, `_segment_block`,
-# `_split_on_suppressed`) is removed. Punctuation-length guessing could never tell an
-# abbreviation's full stop from a genuine sentence boundary; it is replaced with a boundary
-# anchored on the export's own markup — one bold subject per default-loadout sentence
-# (`_BOLD_OPEN`) — which needs no guess at all. A segment whose tail is still ambiguous after
-# tag-stripping (`_is_ambiguous`) is refused, not guessed either way, and reported as
-# `EQP-BOUNDARY-AMBIGUOUS` on the equipment table's findings so the omission is visible.
-# AI-Assisted: Claude Code (model: claude-sonnet-5) - 010 round 3 task 1: a refused sentence used
-# to be dropped from `split_equipment_sentences`'s output entirely, which let later sentences on
-# the same datasheet shift into its ordinal and let `derive_equipment_from_loadout` see zero
-# source rows for a datasheet that in fact had one — publishing it as `none` (or `extracted`, if
-# every other sentence on the card resolved) instead of `partial`. `split_equipment_sentences`
-# now yields `""` at the refused sentence's own position instead of omitting it, so the row still
-# reaches the equipment table (reserving the ordinal) and `curate/assemble.py` counts it as
-# unparsed. `ambiguous_equipment_sentences` is removed; the refused count is read back off the
-# `""` positions already in `sentences`.
-# AI-Assisted: Claude Code (model: claude-sonnet-5) - 010 round 4 task 1: the live export's
-# `Datasheets_options.csv` carries a `button` column the retired html arm never had — `•` marks a
-# real option row, `*` marks a footnote the html arm's `<li>` walk never delivered to the options
-# grammar. `_is_option_row` now takes the row's fields (not just the description) and refuses a
-# footnote row before either existing check runs; `drop_non_option_rows` counts the routed rows
-# per datasheet and raises one `OPT-FOOTNOTE-ROW` finding per affected datasheet so the omission
-# is visible instead of silently lowering the denominator (a repeat of round 1's placeholder-row
-# decision, at the reader boundary, never in the grammar).
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - Authored and carried this module
+# through 010 rounds 1-4: csv-arm row routing at the reader boundary (which table a row
+# belongs in), markup-anchored default-loadout sentence boundaries, refusal in place of a
+# guess, and the export's own footnote rows routed out of the options table. The
+# round-by-round narrative lives in the commit history, not here.
+# AI-Assisted: Claude Code (model: claude-opus-5) - 010 round 5 task 1: closed the PR #35
+# review's routing holes - any full stop mid-tail is ambiguous (not only one with three
+# words after it) and `&nbsp;` counts as the whitespace after it; the bold boundary
+# tolerates tag attributes; a marker-less bold run mid-sentence refuses its sentence
+# instead of re-joining a guess; the non-option shape checks read through markup and
+# collapsed whitespace; and a footnote row with no `datasheet_id` raises no finding that
+# could never be located.
 """Row routing for the bulk-export reader — which table a row belongs in, and whether it is a
 row at all.
 
@@ -56,6 +34,25 @@ from pipeline.report.catalogue import build_finding
 OPTIONS_TABLE: Final = "Datasheets_options.csv"
 DATASHEETS_TABLE: Final = "Datasheets.csv"
 
+#: Any element. Only ever used to read *through* markup - the tag is never a boundary, a value
+#: or a finding here; `normalize/ip_strip.py` owns removing it for real, downstream.
+_ANY_TAG: Final = re.compile(r"<[^>]+>")
+#: A run of whitespace, and the export's two spellings of a non-breaking space. ``\s`` already
+#: matches U+00A0; the HTML entity is a literal six-character run that it does not.
+_WHITESPACE_RUN: Final = re.compile(r"\s+")
+_NBSP: Final = re.compile(r"&nbsp;|\u00a0", re.IGNORECASE)
+
+
+def _plain_text(text: str) -> str:
+    """``text`` with its markup read through and every whitespace spelling collapsed to a space.
+
+    The one shape the non-option checks and the ambiguous-tail test both compare against, so a
+    row carrying a tag or a non-breaking space is recognised as the same shape as one that does
+    not.
+    """
+    return _WHITESPACE_RUN.sub(" ", _NBSP.sub(" ", _ANY_TAG.sub("", text))).strip()
+
+
 #: Mirrors ``wahapedia_html_dom._NONE_TEXT``: the source's "publishes none" placeholder, compared
 #: with trailing full stops removed because the page prints both spellings.
 _NONE_TEXT: Final = "none"
@@ -70,9 +67,13 @@ _FOOTNOTE_BUTTON: Final = "*"
 
 
 def _is_option_row(fields: Mapping[str, str]) -> bool:
+    """Both shape checks read the description through its markup (``<i>None.</i>`` is the
+    placeholder row, not an option) and through its whitespace spellings (a non-breaking space
+    between the marker's words is still the marker). Otherwise a tagged or oddly spaced copy of
+    a shape the html arm dropped survives here and reaches the options grammar."""
     if fields.get("button", "").strip() == _FOOTNOTE_BUTTON:
         return False
-    text = fields.get("description", "").strip()
+    text = _plain_text(fields.get("description", ""))
     if text.rstrip(".").strip().casefold() == _NONE_TEXT:
         return False
     return not (_DEFAULT_EQUIPMENT_SENTENCE.search(text) and not _GRANTS_A_CHOICE.search(text))
@@ -91,7 +92,13 @@ def drop_non_option_rows(detail: dict[str, CsvReadResult]) -> dict[str, CsvReadR
             kept.append(row)
             continue
         if row.fields.get("button", "").strip() == _FOOTNOTE_BUTTON:
-            datasheet_id = row.fields.get("datasheet_id", "")
+            datasheet_id = row.fields.get("datasheet_id", "").strip()
+            if not datasheet_id:
+                # A finding whose `entity_refs` is `("",)` names no record: it cannot be
+                # located, triaged or resolved, and it would accumulate one bogus count per
+                # malformed row. The row is still routed out; only the unlocatable report of it
+                # is suppressed.
+                continue
             footnote_counts[datasheet_id] = footnote_counts.get(datasheet_id, 0) + 1
     if len(kept) == len(options.rows):
         return detail
@@ -123,41 +130,48 @@ _BR_TAG: Final = re.compile(r"<br\s*/?>", re.IGNORECASE)
 #: The export states each default-loadout sentence with its subject in bold. Measured 2026-09-14
 #: on the live export: 1636 of 1653 cells are exactly one bold subject per sentence. Splitting on
 #: the opening tag (zero-width, so the tag stays with its sentence) is the structural boundary.
-_BOLD_OPEN: Final = re.compile(r"(?=<b>)", re.IGNORECASE)
-_ANY_TAG: Final = re.compile(r"<[^>]+>")
-#: After the marker, a full stop followed by whitespace and three or more further words is
-#: ambiguous: a trailing sentence (which must never enter an item name) or an abbreviation inside
-#: an item name (which must never be cut). Ten of 1915 live sentences; refused, never guessed.
-_AMBIGUOUS_TAIL: Final = re.compile(r"\.\s+(?:\S+\s+){2}\S+")
+#: The pattern matches ``<b`` followed by whitespace or ``>``, so an opening bold tag is
+#: recognised with or without attributes; requiring ``<b>`` exactly missed every attributed
+#: subject and folded its sentences into one. ``<br>`` cannot match - ``r`` is neither
+#: whitespace nor ``>`` - and `_BR_TAG` has in any case already replaced it.
+_BOLD_OPEN: Final = re.compile(r"(?=<b[\s>])", re.IGNORECASE)
+#: After the marker, ANY full stop with something following it is ambiguous: a trailing sentence
+#: (which must never enter an item name) or an abbreviation inside an item name (which must never
+#: be cut). Demanding three further words let a two-word trailing sentence fold into the last
+#: item's name instead. Both readings are refused, never guessed.
+_AMBIGUOUS_TAIL: Final = re.compile(r"\.\s+\S")
 
 
 def _is_ambiguous(sentence: str) -> bool:
     marker = _EQUIPMENT_MARKER.search(sentence)
     if marker is None:
         return False
-    tail = _ANY_TAG.sub("", sentence[marker.end() :]).strip()
-    return _AMBIGUOUS_TAIL.search(tail) is not None
+    return _AMBIGUOUS_TAIL.search(_plain_text(sentence[marker.end() :])) is not None
 
 
-def _bold_segments(text: str) -> list[str]:
-    """Cut at every opening bold tag, then re-join a tagless-marker segment onto its sentence.
+def _bold_segments(text: str) -> list[tuple[str, bool]]:
+    """Cut at every opening bold tag; each segment paired with whether it is refused.
 
-    A segment without the marker is one of two things: a separate sentence (the previous
-    segment ended with a full stop) — kept apart so it is dropped below — or emphasis inside the
-    previous sentence's item list (no full stop before it) — re-joined so no item is lost.
+    A segment without the marker is one of two things. It is a separate sentence when the
+    previous segment ended with a full stop - kept apart, so the marker filter below drops it.
+    Otherwise it is a bold run inside the previous sentence's item list, and where that item
+    list ends cannot be known without guessing: re-joining assumes the run is an item name,
+    splitting assumes it is a new subject, and the export states neither. The previous sentence
+    is therefore refused (``True``), which surfaces as `EQP-BOUNDARY-AMBIGUOUS` for a curator
+    rather than as an invented item name in published data.
     """
-    merged: list[str] = []
+    merged: list[tuple[str, bool]] = []
     for segment in _BOLD_OPEN.split(_BR_TAG.sub(" ", text)):
         if not segment.strip():
             continue
         if not merged or _EQUIPMENT_MARKER.search(segment):
-            merged.append(segment)
+            merged.append((segment, False))
             continue
-        previous_text = _ANY_TAG.sub("", merged[-1]).rstrip()
-        if previous_text.endswith("."):
-            merged.append(segment)
+        previous, _refused = merged[-1]
+        if _plain_text(previous).endswith("."):
+            merged.append((segment, False))
         else:
-            merged[-1] += segment
+            merged[-1] = (previous, True)
     return merged
 
 
@@ -169,8 +183,8 @@ def split_equipment_sentences(text: str) -> tuple[str, ...]:
     (the datasheet's state is ``partial``, never ``extracted`` or ``none``).
     """
     return tuple(
-        "" if _is_ambiguous(segment) else segment.strip()
-        for segment in _bold_segments(text)
+        "" if refused or _is_ambiguous(segment) else segment.strip()
+        for segment, refused in _bold_segments(text)
         if _EQUIPMENT_MARKER.search(segment)
     )
 

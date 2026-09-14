@@ -15,6 +15,11 @@
 # AI-Assisted: Claude Code (model: claude-sonnet-5) - 010 round 4 task 1: added coverage for the
 # export's own footnote marker (`button` `*`) being routed out of the options table alongside the
 # two shapes above, and for the one `OPT-FOOTNOTE-ROW` finding per affected datasheet.
+# AI-Assisted: Claude Code (model: claude-opus-5) - 010 round 5 task 1: added the six red
+# tests for the PR #35 review's routing holes (short trailing sentence, `&nbsp;` boundary,
+# attributed bold tag, marker-less mid-sentence bold, blank-`datasheet_id` footnote row,
+# non-option shapes behind markup and odd whitespace) and re-pointed the mid-sentence-bold
+# test at refusal rather than re-joining. All fixture text is invented.
 """``read_export_payloads`` reaches parity with the html arm's row routing (010 R1)."""
 
 from __future__ import annotations
@@ -256,10 +261,9 @@ def test_a_trailing_sentence_with_its_own_bold_subject_is_dropped_not_folded() -
     )
 
 
-def test_a_mid_sentence_bold_on_an_item_is_rejoined_to_its_sentence() -> None:
+def test_a_mid_sentence_bold_on_an_item_is_refused_not_rejoined() -> None:
     cell = "<b>Every model</b> is equipped with: glow lantern; <b>tide axe</b>; fen pike."
-    (sentence,) = split_equipment_sentences(cell)
-    assert sentence.endswith("<b>tide axe</b>; fen pike.")
+    assert split_equipment_sentences(cell) == ("",)
 
 
 def test_a_sentence_with_untagged_trailing_prose_is_refused_not_guessed() -> None:
@@ -300,3 +304,47 @@ def test_a_refused_row_is_counted_by_the_equipment_grammar_as_unparsed() -> None
     from pipeline.parse.equipment_grammar import parse_sentence
 
     assert parse_sentence("") is None
+
+
+def test_a_short_trailing_sentence_is_refused_not_folded_into_the_last_item() -> None:
+    cell = "<b>Every model</b> is equipped with: glow lantern. See below."
+    assert split_equipment_sentences(cell) == ("",)
+
+
+def test_a_non_breaking_space_after_a_full_stop_is_still_a_boundary_candidate() -> None:
+    cell = "<b>Every model</b> is equipped with: glow lantern.&nbsp;Some invented prose here."
+    assert split_equipment_sentences(cell) == ("",)
+
+
+def test_a_bold_tag_with_attributes_still_splits_sentences() -> None:
+    cell = (
+        '<b class="x">Every model</b> is equipped with: glow lantern. '
+        '<b class="x">The Leader</b> is equipped with: fen pike.'
+    )
+    assert len(split_equipment_sentences(cell)) == 2
+
+
+def test_a_marker_less_bold_run_without_a_preceding_full_stop_refuses_the_sentence() -> None:
+    """The html arm closed a sentence at any bold that was not a subject. Rejoining guessed;
+    refusing is visible and curator-resolvable."""
+    cell = (
+        "<b>Every model</b> is equipped with: glow lantern; tide axe "
+        "<b>Note</b> invented restriction text"
+    )
+    assert split_equipment_sentences(cell) == ("",)
+
+
+def test_a_footnote_row_with_a_blank_datasheet_id_raises_no_finding() -> None:
+    text = "datasheet_id|line|button|description|\n|1|*|Invented footnote text.|\n"
+    detail = read_export_payloads([FixturePayload(name=OPTIONS, text=text)])
+    assert detail[OPTIONS].findings == ()  # type: ignore[attr-defined]
+
+
+def test_non_option_shapes_are_recognised_through_markup_and_odd_whitespace() -> None:
+    text = (
+        "datasheet_id|line|button|description|\n"
+        "CM03|1|•|<i>None.</i>|\n"
+        "CM03|2|•|The Leader is equipped with: tide axe.|\n"
+        "CM03|3|•|This model can be equipped with 1 glow lantern.|\n"
+    )
+    assert _options_rows(text)["CM03"] == ["3"]
