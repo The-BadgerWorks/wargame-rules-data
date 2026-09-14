@@ -139,3 +139,46 @@ def test_loadout_rows_append_to_composition_derived_rows_rather_than_replacing_t
     )
     ids = {row.fields["datasheet_id"] for row in detail[EQUIPMENT_TABLE].rows}
     assert ids == {"CM03", "CM05"}
+
+
+def test_an_internal_period_inside_one_sentence_does_not_truncate_it() -> None:
+    """Fix-round F1: a mid-sentence 'X. Y' period must not be read as a sentence end."""
+    rows = _equipment_rows({"CM03": "Every model is equipped with: Mk. II blade."})
+    assert len(rows["CM03"]) == 1
+    assert "II blade." in rows["CM03"][0][1]
+    assert rows["CM03"][0][1] == "Every model is equipped with: Mk. II blade."
+
+
+def test_a_marker_less_leading_clause_is_discarded_leaving_one_row() -> None:
+    """Fix-round F1 regression: a leading non-marker clause must still be dropped, not merged
+    forward onto the marker sentence that follows it."""
+    rows = _equipment_rows({"CM03": "Some intro text. Every model is equipped with: fen pike."})
+    assert len(rows["CM03"]) == 1
+    assert rows["CM03"][0][1] == "Every model is equipped with: fen pike."
+
+
+def test_a_composition_and_loadout_derived_row_on_the_same_datasheet_get_distinct_lines() -> None:
+    """Fix-round F2 receipt: equal line values on the same datasheet_id would collide the
+    equipment group id curate/assemble.py mints from (datasheet_id, line)."""
+    detail = read_export_payloads(
+        [
+            FixturePayload(
+                name=DATASHEETS,
+                text=_datasheets({"CM03": "This model is equipped with: tide axe."}),
+            ),
+            FixturePayload(
+                name="Datasheets_unit_composition.csv",
+                text=(
+                    "datasheet_id|line|description|\n"
+                    "CM03|1|Every model in this unit is equipped with: glow lantern.|\n"
+                ),
+            ),
+        ]
+    )
+    lines = [
+        row.fields["line"]
+        for row in detail[EQUIPMENT_TABLE].rows
+        if row.fields["datasheet_id"] == "CM03"
+    ]
+    assert len(lines) == 2
+    assert len(set(lines)) == 2, "equal line values collide the equipment group id"
