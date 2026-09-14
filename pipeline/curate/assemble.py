@@ -1,3 +1,5 @@
+# AI-Assisted: Claude Opus 5 - 010 R6 task 5: publish the printed characteristic forms (skill,
+# invulnerable save, range, base size) and upper-case keywords, matching the published tree.
 # AI-Assisted: Claude Opus 5 - 010 R6: a model row stating `-` objective control is read as
 # zero rather than rejected as a malformed row (65 live rows, all on `OC`, all on `-`).
 # AI-Assisted: Claude Code (model: claude-opus-5) - Assemble the CuratedSnapshot from the two
@@ -139,6 +141,11 @@ from pipeline.models.provenance import (
 )
 from pipeline.models.source import MfmDetachmentCard, MfmUnitCostBlock, SourceAcquisition
 from pipeline.normalize.ability_types import classify
+from pipeline.normalize.characteristics import (
+    printed_base_size,
+    printed_range,
+    printed_roll,
+)
 from pipeline.normalize.ip_strip import strip_field
 from pipeline.normalize.names import normalize_name
 from pipeline.normalize.numerics import (
@@ -574,6 +581,7 @@ def _detail_datasheet_fields(
                 )
             )
             continue
+        raw_invuln = optional_characteristic(model.fields.get("inv_sv"))
         try:
             models.append(
                 CuratedModelLine(
@@ -582,11 +590,13 @@ def _detail_datasheet_fields(
                     movement=model.fields["M"].strip() or "-",
                     toughness=to_int(model.fields["T"], field="model.T"),
                     save=model.fields["Sv"].strip() or "-",
-                    invuln_save=optional_characteristic(model.fields.get("inv_sv")),
+                    invuln_save=(None if raw_invuln is None else printed_roll(raw_invuln)),
                     wounds=to_int(model.fields["W"], field="model.W"),
                     leadership=model.fields["Ld"].strip() or "-",
                     objective_control=_objective_control(model.fields["OC"]),
-                    base_size=optional_characteristic(model.fields.get("base_size")),
+                    base_size=printed_base_size(
+                        optional_characteristic(model.fields.get("base_size"))
+                    ),
                 )
             )
         except (NumericParseError, KeyError):
@@ -612,7 +622,8 @@ def _detail_datasheet_fields(
                 )
             )
             continue
-        weapon_range = optional_characteristic(weapon.fields.get("range"))
+        raw_range = optional_characteristic(weapon.fields.get("range"))
+        weapon_range = None if raw_range is None else printed_range(raw_range)
         is_melee = (weapon.fields.get("type", "") or "").strip().casefold() == "melee"
         try:
             # `line` is minted from the row's own position in this datasheet's weapon list, not
@@ -632,7 +643,7 @@ def _detail_datasheet_fields(
                     is_melee=is_melee,
                     range=None if is_melee else weapon_range,
                     attacks=weapon.fields["A"].strip() or "-",
-                    skill=weapon.fields["BS_WS"].strip() or "-",
+                    skill=printed_roll(weapon.fields["BS_WS"].strip() or "-"),
                     strength=weapon.fields["S"].strip() or "-",
                     armour_penetration=weapon.fields["AP"].strip() or "0",
                     damage=weapon.fields["D"].strip() or "-",
@@ -665,7 +676,7 @@ def _detail_datasheet_fields(
             continue
         keywords.append(
             CuratedKeyword(
-                keyword=text,
+                keyword=text.upper(),
                 is_faction_keyword=keyword.fields.get("is_faction_keyword", "").strip().casefold()
                 == "true",
                 model_scope=strip_field(keyword.fields.get("model", ""), field="model").text

@@ -1,3 +1,5 @@
+# AI-Assisted: Claude Opus 5 - 010 R6 task 5: the keyword-class index folds case on both sides,
+# so the five curator records stranded by publishing keywords upper-case classify again.
 # AI-Assisted: Claude Code (model: claude-opus-5) - Implemented keyword classification and the
 # enumerable chapter vocabulary (004 task T038): data-model.md §1.6's three default rules, the
 # curator's exceptions from curation/keyword-classes.json, CuratedChapterKeyword construction
@@ -166,7 +168,11 @@ def classify_keywords(
         factions: the curated faction tree — the authority the chapter records answer to.
         authored: ``curation/keyword-classes.json``, the curator's exceptions.
     """
-    by_keyword = {record.keyword: record for record in authored}
+    # Folded on both sides: the case a token is printed in is a presentation fact, and the
+    # cutover publishes keywords upper-case while `curation/keyword-classes.json` states them as
+    # the curator wrote them. Matching exactly stranded five records and collapsed
+    # `keyword_classification` coverage (1 370 -> 1 297); a keyword is one token in either case.
+    by_keyword = {record.keyword.casefold(): record for record in authored}
     factions_by_id = {faction.faction_id: faction for faction in factions}
     parentless = _parentless_faction_slugs(factions)
 
@@ -175,7 +181,7 @@ def classify_keywords(
     findings: list[Finding] = []
 
     for keyword in sorted(observed):
-        record = by_keyword.get(keyword)
+        record = by_keyword.get(keyword.casefold())
         if record is not None:
             # The curator's record wins over the default, in both directions: it is how a
             # chapter that *does* resolve to a faction is told apart from a parent, and how a
