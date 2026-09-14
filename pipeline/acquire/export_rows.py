@@ -2,6 +2,14 @@
 # boundary. Ports the two non-option row shapes wahapedia_html_dom._options drops, and derives
 # the default-equipment table from the Datasheets export's loadout column. Row routing only:
 # no grammar production, no normalization, no mode branch.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - 010 round 1 fix round 1: `_SENTENCE_BREAK`
+# now captures its separator so a false internal-period split can be rejoined onto the preceding
+# marker-bearing fragment instead of dropping the tail (Finding 1), and
+# `derive_equipment_from_loadout` numbers each datasheet's loadout-derived lines starting past the
+# highest line `_derive_equipment_from_composition` already filed for it, instead of always from
+# 1, so the two sources cannot mint colliding `(datasheet_id, line)` equipment-group ids
+# (Finding 2). Fix round 2: no code change — see the header note in
+# `tests/unit/test_export_row_routing.py` for the accepted, measured-at-zero residual this left.
 """Row routing for the bulk-export reader — which table a row belongs in, and whether it is a
 row at all.
 

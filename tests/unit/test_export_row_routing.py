@@ -149,12 +149,18 @@ def test_an_internal_period_inside_one_sentence_does_not_truncate_it() -> None:
     assert rows["CM03"][0][1] == "Every model is equipped with: Mk. II blade."
 
 
-def test_a_marker_less_leading_clause_is_discarded_leaving_one_row() -> None:
-    """Fix-round F1 regression: a leading non-marker clause must still be dropped, not merged
-    forward onto the marker sentence that follows it."""
+def test_a_marker_less_leading_clause_never_merges_forward_onto_the_following_sentence() -> None:
+    """General merge-direction guard, independent of any Finding-1 fix: a leading marker-less
+    clause must be dropped, never merged FORWARD onto the marker sentence after it. Renamed (was
+    ``..._is_discarded_leaving_one_row``) and strengthened per fix-round-2 review: the old name
+    read as evidence the Finding-1 fix worked, but pre-fix code already produced this exact
+    one-row outcome here, so it proves nothing about that fix — only about merge direction, which
+    this assertion now pins directly rather than leaving implicit in the row count."""
     rows = _equipment_rows({"CM03": "Some intro text. Every model is equipped with: fen pike."})
     assert len(rows["CM03"]) == 1
-    assert rows["CM03"][0][1] == "Every model is equipped with: fen pike."
+    description = rows["CM03"][0][1]
+    assert description == "Every model is equipped with: fen pike."
+    assert "intro" not in description.casefold(), "the leading clause merged forward"
 
 
 def test_a_composition_and_loadout_derived_row_on_the_same_datasheet_get_distinct_lines() -> None:
@@ -182,3 +188,41 @@ def test_a_composition_and_loadout_derived_row_on_the_same_datasheet_get_distinc
     ]
     assert len(lines) == 2
     assert len(set(lines)) == 2, "equal line values collide the equipment group id"
+
+
+def test_an_internal_period_in_a_later_sentences_lead_in_stays_on_the_previous_row() -> None:
+    """Accepted, measured-at-zero residual of the Finding-1 fix (fix-round 2 ruling): a SECOND
+    abbreviation-style period, one that opens a later marker sentence's lead-in (``"... Mk. II
+    Leader is equipped with: ..."``), still folds onto the row before it rather than opening its
+    own row. Misattributed placement is accepted here because the alternative the fold-backward
+    approach replaced was outright deletion (spec 4.2 forbids losing text, not misplacing it),
+    and the true sentence boundary is genuinely ambiguous from the text alone without a guessed
+    heuristic (abbreviation lists, token-length, capitalisation) that CLAUDE.md standing rule 10
+    forbids writing for a class nobody has measured on the live export. Task 4's live count of
+    this shape decides whether a later round acts on it. This test exists to PIN today's
+    behaviour, not to assert it is correct, and it is expected to pass immediately (no red
+    phase) since it documents current output rather than driving a new fix."""
+    cell = "Every model is equipped with: glow lantern. Mk. II Leader is equipped with: fen pike."
+    rows = _equipment_rows({"CM03": cell})
+    assert [line for line, _ in rows["CM03"]] == ["1", "2"]
+    row_1, row_2 = (description for _, description in rows["CM03"])
+    assert row_1 == "Every model is equipped with: glow lantern. Mk."
+    assert row_2 == "II Leader is equipped with: fen pike."
+    # The binding invariant: no text is lost, only (in this one ambiguous shape) misattributed.
+    assert f"{row_1} {row_2}" == cell
+
+
+def test_a_line_break_immediately_after_a_period_still_reconstitutes_with_a_space() -> None:
+    """A ``<br>`` sitting directly against a period (no whitespace before it), immediately
+    followed by another abbreviation-style period on the next segment, must still (a) split on
+    the ``<br>`` rather than misreading it, and (b) rejoin the later false split with a single
+    space, never the literal ``<br>`` tag text."""
+    cell = (
+        "Every model is equipped with: glow lantern.<br>Mk. II Leader is equipped with: fen pike."
+    )
+    rows = _equipment_rows({"CM03": cell})
+    assert [line for line, _ in rows["CM03"]] == ["1", "2"]
+    row_1, row_2 = (description for _, description in rows["CM03"])
+    assert row_1 == "Every model is equipped with: glow lantern. Mk."
+    assert "<br>" not in row_1
+    assert row_2 == "II Leader is equipped with: fen pike."
