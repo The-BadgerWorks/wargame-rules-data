@@ -154,14 +154,44 @@ def test_two_identical_trees_report_every_counter_zero(tmp_path: Path) -> None:
 
 
 def test_markdown_carries_no_name_or_keyword_out_of_either_tree(tmp_path: Path) -> None:
-    """The report is counts and stat shapes. Fails the moment a cell leaks into it."""
+    """The report is counts and stat shapes. Fails the moment a cell leaks into it.
+
+    The absence assertions alone are vacuous - they hold against a `to_markdown()` that returns
+    the empty string, which is CLAUDE.md trap 1 on the rendering side. The positive assertions
+    below are what let this test tell "no leak" apart from "no output": they fail if the render
+    stops producing its headline or its roster row.
+    """
     report = compare_trees(_tree_a(tmp_path / "a"), _tree_b(tmp_path / "b"))
     markdown = report.to_markdown()
+
+    assert markdown.strip(), "an empty render passes every absence assertion below"
+    assert "# Published-vs-candidate field parity" in markdown
+    # One shared datasheet, none on either side alone, and it is not identical.
+    assert "| 1 | 0 | 0 | 0 |" in markdown
 
     assert "tide axe" not in markdown
     assert "Fen Wardens" not in markdown
     assert "FEN WARDENS" not in markdown
     assert "Fen Warden" not in markdown
+
+
+def test_the_cli_exits_zero_and_prints_the_report_for_two_well_aimed_roots(
+    tmp_path: Path, capsys: Any
+) -> None:
+    """The only positive receipt on the CLI path: it runs, exits 0, and emits the report.
+
+    The two usage-error tests below assert absence only, so without this one the whole entry
+    point could print nothing at all and the file would still read green. Fails if `main` stops
+    exiting 0 on a valid pair, or stops writing the rendered report to stdout.
+    """
+    exit_code = main(
+        ["--published", str(_tree_a(tmp_path / "a")), "--candidate", str(_tree_b(tmp_path / "b"))]
+    )
+
+    captured = capsys.readouterr()
+    assert exit_code == 0
+    assert "# Published-vs-candidate field parity" in captured.out
+    assert "| 1 | 0 | 0 | 0 |" in captured.out
 
 
 def test_a_root_one_directory_too_high_is_a_usage_error_not_an_all_zero_report(

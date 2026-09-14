@@ -91,7 +91,6 @@ import re
 from collections import Counter
 from collections.abc import Mapping, Sequence
 from dataclasses import dataclass, field
-from types import MappingProxyType
 from typing import Final
 
 from pipeline.curate.authored import AuthoredContent
@@ -516,8 +515,9 @@ def _faction_keywords_by_datasheet(
 
     The upper-casing is load-bearing, not cosmetic. ``match.py``'s rung 3 intersects these sets
     with ``own_chapter_keywords``/``foreign_chapter_keywords``, which are built from
-    ``record.keyword`` — upper-case curation. The export does not state keywords upper (1 754
-    case-only differences measured), so leaving this view in export case made that intersection
+    ``record.keyword`` — upper-case curation. The export does not state keywords upper (1 660
+    datasheets differ on keyword case alone, as derived by ``tools/compare_published_tree.py``
+    against the published tree), so leaving this view in export case made that intersection
     empty and the rung inert: chapter disambiguation could never fire.
     """
     keywords = detail.get("Datasheets_keywords.csv")
@@ -556,7 +556,7 @@ def _detail_datasheet_fields(
     detail: Mapping[str, CsvReadResult],
     legends_sources: frozenset[str] = frozenset(),
     *,
-    ability_names: Mapping[str, str] = MappingProxyType({}),
+    ability_names: Mapping[str, str],
 ) -> tuple[dict[str, object], list[Finding]]:
     """Everything the detail source contributes to one datasheet."""
     findings: list[Finding] = []

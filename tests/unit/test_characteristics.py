@@ -1,7 +1,8 @@
 # AI-Assisted: Claude Opus 5 - 010 R6 task 5. Failing-first receipt for the printed-form parity
 # gap round 6 measured against the published tree: 6 720 skill pairs and 4 257 range pairs differ
-# by format alone, plus 864 invulnerable-save pairs and 2 015 base-size pairs, and 1 659
-# datasheets differ on keyword case alone. The export states the bare value, the published tree
+# by format alone, plus 864 invulnerable-save pairs and 2 015 base-size pairs, and 1 660
+# datasheets differ on keyword case alone (every figure derived by
+# `tools/compare_published_tree.py`). The export states the bare value, the published tree
 # states the printed one, and the cutover's parity target is the published form.
 """The printed forms the published tree carries, minted from the export's bare values.
 

@@ -58,7 +58,9 @@ def test_a_model_stating_no_objective_control_is_read_as_zero() -> None:
     """
     models_csv = _MODELS_HEADER + 'ds1|1|Test Walker|10"|9|2+|||12|6|-|100mm||\n'
 
-    fields, findings = _detail_datasheet_fields("ds1", _detail(models_csv), frozenset())
+    fields, findings = _detail_datasheet_fields(
+        "ds1", _detail(models_csv), frozenset(), ability_names={}
+    )
 
     models: list[CuratedModelLine] = fields["models"]  # type: ignore[assignment]
     assert len(models) == 1, (
@@ -74,7 +76,9 @@ def test_a_model_stating_no_objective_control_is_read_as_zero() -> None:
 def test_an_ordinary_numeric_objective_control_is_unchanged() -> None:
     models_csv = _MODELS_HEADER + 'ds1|1|Test Trooper|6"|4|3+|||2|6|2|32mm||\n'
 
-    fields, findings = _detail_datasheet_fields("ds1", _detail(models_csv), frozenset())
+    fields, findings = _detail_datasheet_fields(
+        "ds1", _detail(models_csv), frozenset(), ability_names={}
+    )
 
     models: list[CuratedModelLine] = fields["models"]  # type: ignore[assignment]
     assert [m.objective_control for m in models] == [2]
@@ -94,7 +98,7 @@ def test_a_non_numeric_toughness_is_still_a_malformed_row() -> None:
         ("line", 'ds1|-|Test Trooper|6"|4|3+|||2|6|2|32mm||\n'),
     ):
         fields, findings = _detail_datasheet_fields(
-            "ds1", _detail(_MODELS_HEADER + row), frozenset()
+            "ds1", _detail(_MODELS_HEADER + row), frozenset(), ability_names={}
         )
 
         assert fields["models"] == [], f"a malformed `{column}` produced a model line"
@@ -120,7 +124,7 @@ def test_a_non_numeric_objective_control_that_is_not_a_dash_is_still_malformed()
         ("no dash at all", 'ds1|1|Test Trooper|6"|4|3+|||2|6|N/A|32mm||\n'),
     ):
         fields, findings = _detail_datasheet_fields(
-            "ds1", _detail(_MODELS_HEADER + row), frozenset()
+            "ds1", _detail(_MODELS_HEADER + row), frozenset(), ability_names={}
         )
 
         assert fields["models"] == [], (

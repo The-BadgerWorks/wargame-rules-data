@@ -171,7 +171,7 @@ def detail() -> Mapping[str, CsvReadResult]:
 def _outcome(detail: Mapping[str, CsvReadResult], detail_id: str, stem: str) -> _EquipmentOutcome:
     """One datasheet's equipment, built the way ``_datasheet_for`` builds it."""
     datasheet_id = f"ds-{stem}"
-    fields, _ = _detail_datasheet_fields(detail_id, detail, frozenset())
+    fields, _ = _detail_datasheet_fields(detail_id, detail, frozenset(), ability_names={})
     models: Sequence[CuratedModelLine] = fields.get("models", ())  # type: ignore[assignment]
     weapons: Sequence[CuratedWeaponLine] = fields.get("weapons", ())  # type: ignore[assignment]
     composition, _ = _composition_entries(

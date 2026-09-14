@@ -171,10 +171,11 @@ def classify_keywords(
     """
     # Folded on both sides so the index is not case-brittle: the case a token is printed in is a
     # presentation fact, and a classification keyed on it is keyed on the wrong thing.
-    # **This is defensive symmetry, not the fix for anything live.** What restores
-    # `keyword_classification` coverage (1 297 -> 1 370) is publishing the observed keyword
-    # upper-case in `curate/assemble.py`; today's five curator records are already upper-case and
-    # none collide when folded, so this lookup returns exactly what an exact match returned.
+    # **This is defensive symmetry, not the fix for anything live.** What moves
+    # `keyword_classification` coverage (1 297 -> 1 302, the r6 build's measurement — a gain of
+    # five, not a restoration) is publishing the observed keyword upper-case in
+    # `curate/assemble.py`; today's five curator records are already upper-case and none collide
+    # when folded, so this lookup returns exactly what an exact match returned.
     by_keyword = {record.keyword.casefold(): record for record in authored}
     factions_by_id = {faction.faction_id: faction for faction in factions}
     parentless = _parentless_faction_slugs(factions)

@@ -60,7 +60,7 @@ def _detail() -> dict[str, CsvReadResult]:
 
 
 def test_two_profile_rows_sharing_the_exports_line_get_distinct_curated_lines() -> None:
-    fields, findings = _detail_datasheet_fields("ds1", _detail(), frozenset())
+    fields, findings = _detail_datasheet_fields("ds1", _detail(), frozenset(), ability_names={})
 
     weapons: list[CuratedWeaponLine] = fields["weapons"]  # type: ignore[assignment]
 
@@ -79,7 +79,7 @@ def test_two_profile_rows_sharing_the_exports_line_get_distinct_curated_lines() 
 def test_the_row_order_is_preserved_in_the_minted_line_numbers() -> None:
     """The mint is positional, not a re-sort — the export's own row order is what a consumer
     displaying a datasheet's weapons in source order depends on."""
-    fields, _ = _detail_datasheet_fields("ds1", _detail(), frozenset())
+    fields, _ = _detail_datasheet_fields("ds1", _detail(), frozenset(), ability_names={})
     weapons: list[CuratedWeaponLine] = fields["weapons"]  # type: ignore[assignment]
 
     lines = [w.line for w in weapons]
@@ -106,7 +106,7 @@ def test_a_single_profile_datasheet_is_unaffected() -> None:
     )
     detail["Datasheets_wargear.csv"] = only_blade
 
-    fields, _ = _detail_datasheet_fields("ds1", detail, frozenset())
+    fields, _ = _detail_datasheet_fields("ds1", detail, frozenset(), ability_names={})
     weapons: list[CuratedWeaponLine] = fields["weapons"]  # type: ignore[assignment]
 
     assert [(w.name, w.line) for w in weapons] == [("Test combat blade", 1)]
