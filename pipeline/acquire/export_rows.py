@@ -14,12 +14,16 @@
 # substitutes a SPACE for a tag rather than deleting it, matching `normalize/ip_strip.py`.
 # Deleting it welded the words either side together and routed a genuine option row out of
 # the options table with no finding raised.
+# AI-Assisted: Claude Code (model: Claude Opus 5) - 010 R5: two comments still spoke of a
+# mode the deletion removed; the historical references to the second arm stay in the past
+# tense they were already written in.
 """Row routing for the bulk-export reader — which table a row belongs in, and whether it is a
 row at all.
 
 Everything here decides *membership*, never *meaning*: a row is dropped because the html arm
 never delivered its shape to the grammar, or moved because the export files it under a
-different heading than the one the grammar reads. The grammars stay mode-blind and unedited.
+different heading than the one the grammar reads. The grammars stay unedited, and blind to
+where a row came from.
 """
 
 from __future__ import annotations
@@ -202,7 +206,7 @@ def split_equipment_sentences(text: str) -> tuple[str, ...]:
 
 
 def derive_equipment_from_loadout(detail: dict[str, CsvReadResult]) -> dict[str, CsvReadResult]:
-    """csv-mode's source for ``Datasheets_unit_equipment.csv`` (010 R1, spec §4.2).
+    """The source for ``Datasheets_unit_equipment.csv`` (010 R1, spec §4.2).
 
     The export publishes no equipment table; it states each datasheet's default loadout in
     ``Datasheets.csv``'s ``loadout`` column, one prose cell per datasheet, sometimes holding more

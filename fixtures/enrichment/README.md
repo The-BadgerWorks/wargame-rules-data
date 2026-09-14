@@ -5,6 +5,8 @@
 <!-- AI-Assisted: Claude Code (model: claude-sonnet-5) - Documented the 007-loadout-display-
      fidelity additions (Setup phase T005-T008): GF12-GF15, the CSV-only scoping decision, and
      why each new datasheet id exists. -->
+<!-- AI-Assisted: Claude Code (model: Claude Opus 5) - 010 R5: the 007 quirk-class section still
+     promised HTML parity for four ids; there is one detail shape now. -->
 # `fixtures/enrichment/`
 
 The quirk-class catalogue for `004-rules-data-enrichment`: structured unit composition, the full
@@ -93,9 +95,9 @@ Four more invented datasheet ids, `CSV-only` by deliberate scope decision (state
 rather than at each site): `007`'s Setup-phase fixtures serve the grammar- and curate-level unit
 tests that read `option_rows`/`composition_rows` through `tests/enrichment/conftest.py` — the
 same low-level access `004` and `006`'s own option/composition tests already use — which needs
-only `wahapedia/`'s CSV mirror. Mode-blind HTML parity for these four ids is left to whichever
-later-phase task first needs it (T042 onward), the same way `GF09`/`GF11` already omit files they
-have no content for.
+only `wahapedia/`'s CSV mirror. There was once a second detail shape to mirror them into; `010` R5
+deleted it, so `CSV-only` now describes every fixture in this set, the same way `GF09`/`GF11`
+already omit files they have no content for.
 
 | Datasheet | What it carries | Why |
 |---|---|---|

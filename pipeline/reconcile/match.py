@@ -18,6 +18,8 @@
 # from `resolve_factions` along with the per-faction carry-forward mechanism; the single bulk arm
 # has no per-faction page failure for a declaration to excuse, so every empty faction is now the
 # unexplained one `REC-DETAIL-FACTION-EMPTY` reports.
+# AI-Assisted: Claude Code (model: Claude Opus 5) - 010 R5: rung 3's rationale named the
+# deleted second arm in the present tense; put into the past tense, no behaviour touched.
 """Pair the points source's units with the detail source's datasheets, deterministically.
 
 The ladder, and the reason each rung exists (research D5):
@@ -50,13 +52,14 @@ before it failed:
    it *is*.
 
 Every one of the three resolves the pair only when it leaves **exactly one** candidate; otherwise
-the ladder falls through to ``REC-AMBIGUOUS-MATCH`` unchanged. Rung 3 exists because rung 2 is
-inert under ``html`` mode: a datacard page states Legends as a class token and never states which
-publication a datasheet came from, so the whole page is one publication and there is nothing to
-prefer with (``docs/follow-ups.md`` item 4). It is not a fuzzy match by another name — the chapter
-records it reads are authored by a curator and asserted against the faction tree (FR-019), so what
-narrows the candidates is a **declaration**, exactly as in rungs 1 and 2. Nothing here infers a
-chapter from a keyword's spelling.
+the ladder falls through to ``REC-AMBIGUOUS-MATCH`` unchanged. Rung 3 exists because rung 2 was
+inert under the datacard-page arm `010` R5 deleted: a datacard page stated Legends as a class
+token and never stated which publication a datasheet came from, so the whole page was one
+publication and there was nothing to prefer with (``docs/follow-ups.md`` item 4). It is not a
+fuzzy match by another name — the chapter records it reads are authored by a curator and
+asserted against the faction tree (FR-019), so what narrows the candidates is a
+**declaration**, exactly as in rungs 1 and 2. Nothing here infers a chapter from a keyword's
+spelling.
 
 **Stage 3 — authored aliases**, for spellings a curator has confirmed once.
 
@@ -381,9 +384,9 @@ def match_units(
         detail_faction_keywords: the **faction** keywords each detail datasheet carries. Consulted
             last of the three narrowing signals, and only against the chapter keywords the scope
             resolved from ``curation/keyword-classes.json``; a faction with no chapter records in
-            its lineage never reaches it. Required rather than defaulted: it is the only signal
-            ``html`` mode carries for this collision, and a caller that forgot it would get a
-            silently blocking run rather than an error.
+            its lineage never reaches it. Required rather than defaulted: it was the only
+            signal the deleted datacard-page arm carried for this collision, and a caller that
+            forgot it would get a silently blocking run rather than an error.
     """
     outcome = MatchOutcome()
 
@@ -477,9 +480,9 @@ def match_units(
             if len(by_publication) == 1:
                 candidates = by_publication
 
-        # Chapter-keyword narrowing, the last of the three signals and the only one `html` mode
-        # carries (module docstring, rung 3). Inert for a faction with no chapter records in its
-        # lineage, which is every faction outside a chapter tree.
+        # Chapter-keyword narrowing, the last of the three signals and the only one the deleted
+        # datacard-page arm carried (module docstring, rung 3). Inert for a faction with no
+        # chapter records in its lineage, which is every faction outside a chapter tree.
         if len(candidates) > 1:
             by_chapter = _narrow_by_chapter_keyword(candidates, scope, detail_faction_keywords)
             if by_chapter is not None:

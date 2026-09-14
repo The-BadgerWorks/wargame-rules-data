@@ -113,8 +113,9 @@ class FactionMapEntry(_Authored):
     slugs against 26 detail ids, chapters split one way and Titan Legions the other (C3/R6). An
     unmapped slug is the blocking ``REC-FACTION-UNMAPPED``.
 
-    ``detail_source_faction_id`` is **the detail source's own identifier, verbatim** — under
-    ``html`` mode, the faction page's slug. It is *not* derivable from ``mfm_slug``, and the two
+    ``detail_source_faction_id`` is **the detail source's own identifier, verbatim** — a faction
+    page slug in every tracked record (the bulk export's own code lives in
+    ``detail_source_faction_code`` below). It is *not* derivable from ``mfm_slug``, and the two
     disagree in both of the ways a curator will assume they cannot:
 
     * the same faction, spelled differently by each source (``tau-empire`` against

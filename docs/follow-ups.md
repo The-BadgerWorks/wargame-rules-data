@@ -102,6 +102,9 @@
      "Why left" framing to note it now describes an exposure of a withdrawn mechanism rather than
      an open defect in a live one, without deleting it -- item 37 points back to it as the fourth
      defect class found. -->
+<!-- AI-Assisted: Claude Code (model: Claude Opus 5) - 010 R5: closure notes on items 20,
+     35, 36 and 37, and the present-tense sentences that named the deleted second detail
+     arm or the deleted carry-forward mechanism as live code. Items 30-34 left open. -->
 # Follow-ups
 
 Open items surfaced during implementation that are deliberately **not** fixed as part of the work
@@ -549,8 +552,8 @@ release flow has no answer to that yet beyond re-running and re-reviewing.
 "the source moved": a whole faction becoming unreachable.** `008`'s T074 dry-run found the detail
 source's own sitemap enumerating only 10 of 30 published factions, and several previously-published
 faction slugs renamed or 404ing outright. The per-faction carry-forward mechanism (FR-024/FR-025,
-`curation/carried-forward-factions.json`, `pipeline/curate/carry_forward.py`) gives the release flow
-its first real answer for that one drift shape: a declared faction is sourced from the previous
+`curation/carried-forward-factions.json`, `pipeline/curate/carry_forward.py`) gave the release flow
+its first real answer for that one drift shape (the mechanism was deleted by `010` R5): a declared faction is sourced from the previous
 published version rather than blocking the whole candidate, visibly and without regressing any
 coverage figure. **Still open**: the *content* drift this item was originally about — an existing,
 reachable faction's page gaining or changing editorial material (new abilities, moved keywords)
@@ -887,6 +890,10 @@ finding-code contract-row debt (first paragraph) remains open.
 
 ## 20. CSV export migration is a candidate for a future release
 
+**Closed by 010 R5, PR C** -- the migration is complete: the CSV export is the only detail arm,
+the second arm and its acquisition-mode variable having been deleted. Everything below this line
+is the pre-migration record and describes code that is no longer in the tree.
+
 **Discharge in progress: `009-csv-migration`.** Its own Setup phase (T001-T005) measured the
 csv-mode endpoints live through the pipeline's own governed acquisition and answered every open
 question below with a real number: the digest-churn size (76/2,125 approved-record churn, not the
@@ -898,10 +905,11 @@ by Product Owner ruling C1 (2026-08-18): the 30-faction model, chapter identifie
 `reports/009-diagnosis/2026-08-18.md` for the full figures; this item's own text below is left
 as the pre-measurement record of what was uncertain before that phase ran.
 
-The current-edition detail source has been read exclusively in `html` mode
-(`DetailAcquisitionMode.HTML`, `pipeline/config.py`) since `006`, because no bulk export existed
-for the current 11th-edition catalogue — `csv` mode (`DetailAcquisitionMode.CSV`) has only ever
-served the *previous*-edition content path. That has reportedly changed: 11e CSV export endpoints
+At the time this item was written the current-edition detail source was read exclusively in the
+datacard-page shape, and had been since `006`, because no bulk export existed for the current
+11th-edition catalogue — the export shape had only ever served the *previous*-edition content
+path. (Both shapes were selected by a configuration variable then; neither that variable nor the
+datacard-page arm exists now.) That has reportedly changed: 11e CSV export endpoints
 are now live at `wahapedia.ru/wh40k11ed/*.csv`, the same first-party publisher this pipeline
 already treats as its detail source.
 
@@ -1407,6 +1415,11 @@ wires a caller to the short-circuit, not something to guess at ahead of that cal
 
 ## 35. `carry_forward.py`'s `slug_to_faction_id` collapses a `detail_source_faction_id` shared by two factions (009 rung R06a-fix, item found while fixing the class field map)
 
+**Closed by 010 R5, PR C** -- `pipeline/curate/carry_forward.py` and the whole carry-forward
+mechanism were deleted with the second detail arm, so nothing described below is reachable.
+Everything after this line is a record of code that is no longer in the tree; read it in the
+past tense.
+
 **Pre-existing, repeated by the per-class composition loop R06a added.** Not caused by this rung
 and not fixed by it.
 
@@ -1430,6 +1443,11 @@ to key on `(slug, faction_id)` once a caller needs to disambiguate) is real desi
 to whichever rung first declares a carry-forward or class-carry entry for a shared-slug faction.
 
 ## 36. `option_choices[].priced_option_id` can point at a `wargear_options` id from the previous publish after a per-class "options" carry (009 rung R06a-fix2, item found while fixing the frozen-ordinal defect class, not fixed)
+
+**Closed by 010 R5, PR C** -- `pipeline/curate/carry_forward.py` and the whole carry-forward
+mechanism were deleted with the second detail arm, so nothing described below is reachable.
+Everything after this line is a record of code that is no longer in the tree; read it in the
+past tense.
 
 **Withdrawn along with per-class composition itself (009 rung R06a-fix3) -- kept here, unfixed,
 as a record of the exposure class for whoever revisits T096 at R07.** The per-class splice this
@@ -1474,6 +1492,11 @@ work belonging to whichever rung next touches per-class options carry or adds th
 intra-snapshot check this item and item 1's equipment-side gap both point at.
 
 ## 37. 009 rung R06a's T096 per-class composition was built, measured across three fix rounds, and withdrawn (009 rung R06a-fix3)
+
+**Closed by 010 R5, PR C** -- `pipeline/curate/carry_forward.py` and the whole carry-forward
+mechanism were deleted with the second detail arm, so nothing described below is reachable.
+Everything after this line is a record of code that is no longer in the tree; read it in the
+past tense.
 
 **What was withdrawn.** `pipeline/curate/carry_forward.py`'s per-class composition -- the
 mechanism that froze only a hybrid-declared class's own fields (`option_groups`,
