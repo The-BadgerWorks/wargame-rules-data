@@ -166,10 +166,11 @@ the right one. That case does not exist in the data today and the check for it i
 `SM` faction's duplicate normalised names, grouped by publication. When it does appear, the fix
 is a `unit-map.json` entry, which is stage 1 and outranks every rung below it.
 
-**`detail_source_publication_id` is inert under `html` mode, and `keyword-classes.json` is what
-replaces it.** A datacard page states Legends as a class token on the card and never states which
-publication a datasheet came from, so the whole page reads as one publication (`current`) and
-stage 2 has nothing to prefer with. The collision itself did not go away: the current-edition
+**`detail_source_publication_id` was inert under the since-removed html-mode arm, and
+`keyword-classes.json` is what covered for it then.** A datacard page states Legends as a class
+token on the card and never states which publication a datasheet came from, so the whole page
+reads as one publication (`current`) and stage 2 has nothing to prefer with. The collision
+itself did not go away: the current-edition
 `space-marines` page publishes **ten** pairs of datasheets sharing a normalised name — nine of
 them a core datacard beside a Black Templars one, one beside a Space Wolves one — and the live
 2026-08-05 sweep raised 53 blocking `REC-AMBIGUOUS-MATCH` findings across all six Space Marine
@@ -186,9 +187,13 @@ FR-019, and never an inference from a keyword's spelling.
 
 Two things follow that are worth stating rather than discovering:
 
-* **The five `detail_source_publication_id` values are left in place.** They cost nothing while
-  html mode makes them inert, and they are the correct answer again the day anything reads the
-  bulk export. Deleting them would be throwing away a curator's finding to tidy a field.
+* **The five `detail_source_publication_id` values are left in place.** They were inert while
+  the datacard-page (html) arm was in use. It is deleted now, and the surviving CSV arm builds
+  `detail_source_ids` straight from the export's own `source_id` column for every build
+  (`pipeline/curate/assemble.py`); `match_units` consults `detail_source_publication_id`
+  whenever the Legends check alone leaves a collision unresolved (`pipeline/reconcile/match.py`).
+  These five values are live now, not a no-cost placeholder — deleting them would drop a
+  curator's finding the pipeline actually reads.
 * **The other 18 unclassified faction keywords are deliberately still unclassified.** Only the
   chapters that were causing a blocking ambiguity were authored. `KWD-UNCLASSIFIED` is advisory
   and an unclassified keyword ships byte-identically (FR-020), so classifying the rest is
@@ -217,12 +222,15 @@ cost, or a faction, the digest moves, the resolution lapses, and the finding blo
 nobody having to remember to look. Both stay visible in every report as suppressed, with the
 explanation above, so an approver can see what was waved through and why.
 
-**Under `html` mode both of those two are inert, and eight more were added.** A resolution is
-bound to `(finding_code, entity_ref, data_digest)`, and an html-mode detail id is the page anchor
-(`wahapedia:imperial-knights:Sir-Hekhtur`) where a csv-mode one was an export id
-(`wahapedia:000002770`). The two seeded entries above therefore match nothing while the pipeline
-reads the datacard pages; they are kept rather than deleted, because they are still the correct
-answer the day anything reads the export again. The eight added on 2026-08-06 are the same
+**Both of those two went inert when the datacard-page (html) arm was deleted, and eight more
+were added.** A resolution is bound to `(finding_code, entity_ref, data_digest)`, and the two
+above were seeded with a page-anchor `entity_ref` (`wahapedia:imperial-knights:Sir-Hekhtur`)
+from that arm, where the surviving CSV arm's `entity_ref` is always an export id
+(`wahapedia:000002770`) instead — `pipeline/curate/assemble.py` builds every `entity_ref` as
+`f"wahapedia:{detail_id}"` from the export's own row id. The two seeded entries above therefore
+now match nothing, permanently, since the pipeline no longer reads a source that produces a
+page-anchor id; they are kept rather than deleted, because a resolution nothing can match does
+no harm and remains the record of the decision. The eight added on 2026-08-06 are the same
 finding re-raised under the new identity, and they fall into exactly two classes:
 
 * **Seven Legends datasheets whose datacard prints no unit-cost table at all.** Nothing else can
