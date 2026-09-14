@@ -1,3 +1,6 @@
+# AI-Assisted: Claude Code (model: Claude Opus 5) - 010 R5 final-review fix item 6: recorded
+# that `_ANY_TAG` is routing-only and is not one of the two markup patterns CLAUDE.md trap 9
+# binds together. Comment only; the pattern is unchanged.
 # AI-Assisted: Claude Code (model: claude-sonnet-5) - Authored and carried this module
 # through 010 rounds 1-4: csv-arm row routing at the reader boundary (which table a row
 # belongs in), markup-anchored default-loadout sentence boundaries, refusal in place of a
@@ -44,6 +47,10 @@ DATASHEETS_TABLE: Final = "Datasheets.csv"
 
 #: Any element. Only ever used to read *through* markup - the tag is never a boundary, a value
 #: or a finding here; `normalize/ip_strip.py` owns removing it for real, downstream.
+#: Deliberately a weaker, routing-only pattern and **NOT** the IP-strip definition: the two
+#: patterns CLAUDE.md trap 9 requires to move together are `normalize/ip_strip.py::_TAG` and
+#: `models/mechanical.py`'s `NON_MECHANICAL_PATTERNS["markup"]`. This third copy is not one of
+#: them and must not be edited to match them.
 _ANY_TAG: Final = re.compile(r"<[^>]+>")
 #: A run of whitespace, and the export's two spellings of a non-breaking space. ``\s`` already
 #: matches U+00A0; the HTML entity is a literal six-character run that it does not.

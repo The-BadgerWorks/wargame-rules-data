@@ -1,3 +1,7 @@
+# AI-Assisted: Claude Code (model: Claude Opus 5) - 010 R5 final-review fix items 4 and 5:
+# corrected the 004 block's variable count (thirteen, counted in the tree) and removed the
+# `detail_mode` ValueKind member, which no ConfigVar declared and no `_as_*` handler implemented
+# after 010 R5 deleted the second detail arm.
 # AI-Assisted: Claude Code (model: claude-opus-5) - Implemented the configuration surface of
 # contracts/pipeline-run-interface.md §5 (task T016): every documented variable with its
 # documented default, layered resolution (defaults -> environment -> --config), non-sensitive
@@ -93,7 +97,7 @@ class Gate(StrEnum):
         return self is Gate.ON
 
 
-ValueKind = Literal["str", "int", "ratio", "channel", "detail_mode", "gate", "bool"]
+ValueKind = Literal["str", "int", "ratio", "channel", "gate", "bool"]
 
 
 @dataclass(frozen=True, slots=True)
@@ -250,7 +254,7 @@ CONFIG_VARS: Final[tuple[ConfigVar, ...]] = (
         "SENSITIVE: HMAC key for the keyed mechanic digest (research D6, C6/R8)",
     ),
     # -- 004-rules-data-enrichment ---------------------------------------------------------
-    # Fourteen variables, every one non-sensitive and defaulted. The digest key above is
+    # Thirteen variables, every one non-sensitive and defaulted. The digest key above is
     # **reused** for the three new summary classes rather than a second key being introduced:
     # one secret, one rotation story (004 plan, Security/configuration gate).
     ConfigVar(

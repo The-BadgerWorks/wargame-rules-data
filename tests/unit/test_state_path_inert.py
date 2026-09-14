@@ -1,3 +1,5 @@
+# AI-Assisted: Claude Code (model: Claude Opus 5) - 010 R5 final-review fix item 2: repointed
+# this header's cited discipline at the surviving guard; no assertion changed.
 # AI-Assisted: Claude Code (model: claude-sonnet-5) - 009 rung R05-fix2 item 5: added the
 # structural scan asserting no caller anywhere in `pipeline/` wires `state_path` to a real value.
 # The export-timestamp short-circuit (`pipeline.acquire.wahapedia.acquire_wahapedia`'s own
@@ -5,9 +7,10 @@
 # `run_detect` to it and that ruling was reversed (`pipeline/cli.py`'s own header explains why).
 # This test makes "no caller passes state_path" an asserted property of the source rather than a
 # claim in a docstring or a commit message, on the same AST-walk discipline
-# `tests/unit/test_detail_mode.py::test_no_mode_branch_or_reference_below_acquire` already uses
-# for rule 4's "no mode branch below acquire" guarantee -- so the day a caller opts in
-# deliberately, this test goes red and tells whoever wired it to come update it.
+# `tests/unit/test_single_arm.py` uses today (it replaced the mode-branch scan this header
+# originally cited, which 010 R5 deleted along with the second detail arm): a structural property
+# of the source is asserted against the source -- so the day a caller opts in deliberately, this
+# test goes red and tells whoever wired it to come update it.
 # AI-Assisted: Claude Code (model: claude-sonnet-5) - Closed the guard's own exemption gap (009
 # rung R05-fix4 item 2): "any `state_path=state_path` call is plumbing" ignored scope, so a
 # locally-bound `state_path` -- exactly what `run_detect` (`pipeline/cli.py`) binds today,

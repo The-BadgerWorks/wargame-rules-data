@@ -105,6 +105,13 @@
 <!-- AI-Assisted: Claude Code (model: Claude Opus 5) - 010 R5: closure notes on items 20,
      35, 36 and 37, and the present-tense sentences that named the deleted second detail
      arm or the deleted carry-forward mechanism as live code. Items 30-34 left open. -->
+<!-- AI-Assisted: Claude Code (model: Claude Opus 5) - 010 R5 final-review fix item 1: added a
+     dated correction to closed item 4. Its archived original text asserts, present tense, that
+     the detail_source_publication_id narrowing step is inert; under the one surviving detail arm
+     it is live (Source.csv is in acquire/wahapedia.py's EXPORT_FILES, and reconcile/match.py's
+     match_units reads it through curate/assemble.py's detail_source_ids). The correction states
+     what is live, drops the stale unit-map keying claim, and refuses to assert a current
+     REC-AMBIGUOUS-MATCH count that no run on this branch measured. -->
 # Follow-ups
 
 Open items surfaced during implementation that are deliberately **not** fixed as part of the work
@@ -184,9 +191,10 @@ implemented as sketched, driven by `curation/keyword-classes.json`'s curator-aut
 records rather than by any inference from a keyword's spelling — see `pipeline/reconcile/match.py`'s
 module docstring (rung 3) and `tests/reconcile/test_chapter_keyword_preference.py`. All 53
 `REC-AMBIGUOUS-MATCH` findings cleared. The `unit-map.json` alternative this item offered as the
-cheaper option turned out not to be available: `unit-map.json` is keyed by
-`mfm_display_name` alone, with no faction column, so one entry would resolve `Impulsor` identically
-in all six Space Marine factions — which is the one thing the collision needs it not to do.
+cheaper option was not available **at the time**: an entry was keyed by display name alone, with
+no faction column, so one entry resolved the same curated id in all six Space Marine factions —
+which is the one thing the collision needs it not to do. That is no longer the shape of the file;
+see the 010 R5 correction below.
 
 The item was also wrong about the size of the shortfall, and the correction is the more useful
 half of it. Clearing the 53 raised datasheet coverage to 92.4%, not the ~92.5% estimated — but the
@@ -197,6 +205,34 @@ whose cost table was sitting on the card were read as priced by nobody. Coverage
 is **2 083 / 2 099 = 99.2%**, and no dated `resolutions.json` entry for a threshold shortfall is
 needed after all. The lesson worth keeping: a coverage figure short of its floor was blamed on the
 baseline being a different edition, and the baseline was almost right.
+
+**Correction, 010 R5 (2026-09-14) — this item stays closed, and the archived text below is a
+historical snapshot of the deleted arm, not a statement about the tree.** Three of its claims
+read in the present tense and are false under the one surviving detail arm:
+
+- **`Source.csv` is a real export table.** It is listed in `EXPORT_FILES` in
+  `pipeline/acquire/wahapedia.py` and fetched under the same all-or-nothing guarantee as every
+  other table. The module that emitted the two-row stand-in described below,
+  `pipeline/parse/wahapedia_html_dom.py`, is no longer in the tree —
+  `tests/unit/test_single_arm.py` asserts that no module under `pipeline/` so much as names it.
+- **The `detail_source_publication_id` narrowing step is live, not inert.**
+  `pipeline/reconcile/match.py`'s `match_units` consults
+  `scope.entry.detail_source_publication_id` as the second of its three narrowing signals,
+  against the per-datasheet publication ids `pipeline/curate/assemble.py` builds from the detail
+  source's own `source_id` column and passes in as `detail_source_ids`.
+  `tests/reconcile/test_publication_preference.py` covers it, including the case where the
+  authored id matches no candidate and the pair must still block. The five `curation/unit-map.json`
+  entries naming their own publication id are therefore **not** inert.
+- **`unit-map.json` is no longer keyed by display name alone.** `UnitMapEntry` in
+  `pipeline/models/authored.py` carries a `faction_id` — optional in the schema so the change
+  stayed additive, mandatory by authoring rule the moment an entry is written for a name shared
+  across sibling factions.
+
+**No current finding count is asserted here.** Every count and percentage in this item was
+measured on the deleted arm's live runs. What `REC-AMBIGUOUS-MATCH` reports under the export arm,
+with both narrowing signals live, **has not been measured on this branch and must be re-measured
+on a live run.** Until it has been: do not author curator pairings and do not plan a ladder rung
+to recover coverage that the narrowing signals above may already recover on their own.
 
 The original item follows, unedited.
 

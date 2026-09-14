@@ -19,9 +19,18 @@
      2026-08-15 Q2, FR-021) and amended the WGC_RATCHET_TOLERANCE_OPTIONS row: its
      `loadout.default_equipment` sentence described `006`'s first-extended-release state, which
      the Product Owner's ruling has since superseded. -->
+<!-- AI-Assisted: Claude Code (model: claude-sonnet-5) - 009 T032 (Foundational phase): recorded
+     that WGC_DETAIL_ACQUISITION_MODE's documented default (csv) is overridden to html by
+     .env.local and by both candidate.yml/publish.yml's own vars reference on every live run --
+     which is what makes 009 FR-011's "reversible within one release" a variable change, not a
+     code change (plan.md finding 11). -->
 <!-- AI-Assisted: Claude Code (model: Claude Opus 5) - 010 R5: deleted the detail-mode row
      and the caveat about its overridden default, the variable no longer existing, and
      rewrote the WGC_DETAIL_SOURCE_URL row for a single detail arm. -->
+<!-- AI-Assisted: Claude Code (model: Claude Opus 5) - 010 R5 final-review fix item 3: restored
+     the 009 T032 header line above, which the previous edit replaced rather than appended to.
+     These headers accumulate; the row it describes is gone, the record that it was written is
+     not. -->
 # Configuration
 
 Every variable the pipeline reads is declared exactly once, in `pipeline/config.py`'s
