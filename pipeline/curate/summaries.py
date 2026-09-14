@@ -59,6 +59,7 @@ from types import MappingProxyType
 from typing import Protocol
 
 from pipeline.models.authored import ReviewState
+from pipeline.normalize.ability_key import ability_key
 from pipeline.normalize.ability_types import classify
 from pipeline.normalize.ip_strip import strip_field
 from pipeline.normalize.mechanic_digest import mechanic_digest
@@ -300,8 +301,8 @@ def compute_current_digests(detail: Mapping[str, CsvReadResult], *, key: bytes) 
         if ability_type is None:
             continue  # DQ-ABILITY-TYPE already raised once by the assemble-stage pass.
 
-        ability_key = f"{ability_type.value}:{slugify(name)}"
-        if ability_key in digests:
+        key_value = ability_key(ability_type, name, parameter=row.fields.get("parameter", ""))
+        if key_value in digests:
             continue
 
         text = row.fields.get("description", "").strip()
@@ -309,7 +310,7 @@ def compute_current_digests(detail: Mapping[str, CsvReadResult], *, key: bytes) 
             ability_id = row.fields.get("ability_id", "").strip()
             text = by_ability_id.get(ability_id, "")
 
-        digests[ability_key] = mechanic_digest(text, key=key)
+        digests[key_value] = mechanic_digest(text, key=key)
 
     return digests
 

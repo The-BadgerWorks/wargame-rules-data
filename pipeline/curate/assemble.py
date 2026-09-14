@@ -139,6 +139,7 @@ from pipeline.models.provenance import (
     PricingConfidenceState,
 )
 from pipeline.models.source import MfmDetachmentCard, MfmUnitCostBlock, SourceAcquisition
+from pipeline.normalize.ability_key import ability_key
 from pipeline.normalize.ability_types import classify
 from pipeline.normalize.characteristics import (
     printed_base_size,
@@ -736,7 +737,9 @@ def _detail_datasheet_fields(
             findings.append(finding)
             continue
         assert ability_type is not None
-        ability_keys.append(f"{ability_type.value}:{slugify(name)}")
+        ability_keys.append(
+            ability_key(ability_type, name, parameter=binding.fields.get("parameter", ""))
+        )
     fields["ability_keys"] = sorted(set(ability_keys))
 
     return fields, findings
