@@ -9,6 +9,12 @@
 # AI-Assisted: Claude Code (model: claude-sonnet-5) - Transcribed SRC-STATE-CORRUPT (009 rung
 # R05-fix3 item 2) into PENDING_CONTRACT_SEVERITIES, independently of catalogue.py, matching the
 # severity now registered there.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - Transcribed EQP-BOUNDARY-AMBIGUOUS (010 R2
+# task 1) into PENDING_CONTRACT_SEVERITIES, independently of catalogue.py, matching the severity
+# now registered there.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - Transcribed OPT-FOOTNOTE-ROW (010 R4 task
+# 1) into PENDING_CONTRACT_SEVERITIES, independently of catalogue.py, matching the severity now
+# registered there.
 """Severity belongs to the code, not to the occurrence.
 
 ``curation/resolutions.json`` entries reference finding codes, so a code whose severity moved
@@ -158,6 +164,15 @@ PENDING_CONTRACT_SEVERITIES = {
     # the identity-survival guard O2 designates as standing in place of pre-authoring the whole
     # `-N`-suffix crosswalk population.
     "CON-IDENTITY-DROPPED": B,
+    # 010-csv-cutover round 2 task 1 (spec §4.2): the boundary-refusal advisory
+    # `derive_equipment_from_loadout` raises for a loadout sentence with a structurally
+    # ambiguous tail, on the identical ahead-of-contract terms as the block above.
+    "EQP-BOUNDARY-AMBIGUOUS": A,
+    # 010-csv-cutover round 4 task 1 (spec §4.1): the footnote-row routing advisory
+    # `drop_non_option_rows` raises when the export's own `button` `*` marks a row the html arm
+    # never delivered to the options grammar, on the identical ahead-of-contract terms as the
+    # block above.
+    "OPT-FOOTNOTE-ROW": A,
 }
 
 #: Transcribed by hand from 006's data-model.md §5 table and its contracts/

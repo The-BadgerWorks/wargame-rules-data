@@ -4,6 +4,8 @@
 # below was written and confirmed failing (`ModuleNotFoundError`) before
 # `pipeline/validate/equivalence.py` existed; quickstart §3 calls it "the cheapest test in the
 # feature and the most important."
+# AI-Assisted: Claude Code (model: claude-opus-5) - 010 round 5 task 1: added the red test
+# for a markup-bearing source row comparing equal to its tag-free rendering.
 """T050: does `check_equivalence` produce the right one of three outcomes? T051: does a real
 build ever write the source text it compared anywhere?
 
@@ -41,7 +43,12 @@ from pipeline.config import load_config
 from pipeline.parse.equipment_grammar import EQUIPMENT_TABLE
 from pipeline.parse.wahapedia_csv import CsvReadResult
 from pipeline.report.catalogue import CATALOGUE
-from pipeline.validate.equivalence import EquivalenceSummary, check_equivalence
+from pipeline.validate.equivalence import (
+    EquivalenceSummary,
+    _compare,
+    _rows_text,
+    check_equivalence,
+)
 from tests.factories import datasheet, loadout_datasheet, snapshot
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
@@ -227,6 +234,27 @@ def test_a_mismatch_finding_never_carries_either_sides_text() -> None:
         # And, symmetrically, never the rendered side's own item names either — the payload
         # carries only the datasheet id and the block name, full stop.
         assert set(finding.detail) == {"datasheet_id", "block"}
+
+
+def test_markup_in_a_source_row_does_not_defeat_the_comparison() -> None:
+    """The csv arm derives its equipment rows from the export's loadout cell, which states each
+    sentence's subject in bold (010 R1). Unless both sides are compared tag-free — through the
+    one markup definition `normalize/ip_strip.py` owns — every csv-arm composition block
+    mismatches on the tag alone, and the equivalence figure reads as a rendering defect."""
+    table = _csv(
+        EQUIPMENT_TABLE,
+        [
+            {
+                "datasheet_id": "GF-PROBE",
+                "line": "1",
+                "description": "<b>Every model</b> is equipped with: glow lantern.",
+            }
+        ],
+    )
+
+    (source,) = _rows_text(table, "GF-PROBE")
+
+    assert _compare("Every model is equipped with: glow lantern.", source) == "match"
 
 
 # -- T051: the retention test, over a real build --------------------------------------------

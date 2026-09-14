@@ -10,6 +10,10 @@
 # AI-Assisted: Claude Code (model: claude-sonnet-5) - 009 rung R06a (T095/T100/T101, FR-033):
 # `resolve_carried_forward` now reports a non-empty declared set as `unused` rather than dropping
 # it under any arm but `html` -- visibly inert instead of invisibly ignored.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - 010 R1: `read_export_payloads` now also runs
+# `derive_equipment_from_loadout` (from `export_rows.py`) as the last step, so the csv arm's
+# default-equipment table also picks up rows manufactured from `Datasheets.csv`'s `loadout`
+# column, alongside what `_derive_equipment_from_composition` already split from composition.
 # AI-Assisted: Claude Code (model: claude-sonnet-5) - 009 rung R06a-fix3: reverted
 # `apply_detail_source_authority`'s second return value (`data_class -> declared slugs that
 # class's own arm did not answer`), added for T096/FR-033's per-class carry-forward composition
@@ -51,6 +55,7 @@ from datetime import datetime
 from pathlib import Path
 from typing import Final, Protocol
 
+from pipeline.acquire.export_rows import derive_equipment_from_loadout, drop_non_option_rows
 from pipeline.acquire.fixtures import FixturePayload
 from pipeline.acquire.http import PoliteClient
 from pipeline.acquire.wahapedia import acquire_wahapedia
@@ -174,6 +179,11 @@ def read_export_payloads(
     ``Datasheets_unit_composition.csv`` and into a derived ``Datasheets_unit_equipment.csv`` —
     still inside the reader, so every stage below ``acquire`` sees the same table shape both arms
     produce and stays mode-blind (rule 4).
+
+    010 R1: `drop_non_option_rows` runs first, so the options table reaches the grammar with the
+    same membership the html arm delivered, and `derive_equipment_from_loadout` runs last, so a
+    default-equipment table manufactured from `Datasheets.csv`'s `loadout` column joins whatever
+    `_derive_equipment_from_composition` already split out of the composition table.
     """
     del edition_code
     results = {
@@ -182,7 +192,9 @@ def read_export_payloads(
         )
         for payload in payloads
     }
-    return _derive_equipment_from_composition(results)
+    return derive_equipment_from_loadout(
+        _derive_equipment_from_composition(drop_non_option_rows(results))
+    )
 
 
 #: mode -> acquirer. A table rather than a branch, so adding a mode is adding a row and the

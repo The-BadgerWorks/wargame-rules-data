@@ -40,6 +40,17 @@
 # R05-fix item 4, but it was absent here, so `definition("SRC-STATE-CORRUPT")` raised
 # `UnknownFindingCodeError` -- unlike every other `finding_code` in `pipeline/`. Given the same
 # class and severity as its acquire-stage siblings SRC-UNREACHABLE and SRC-REFUSED.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - Registered EQP-BOUNDARY-AMBIGUOUS (010 R2
+# task 1, spec §4.2): the advisory `pipeline/acquire/export_rows.py::derive_equipment_from_loadout`
+# raises when a loadout sentence's tail is structurally ambiguous between a trailing sentence and
+# an in-item abbreviation, and the row is refused rather than guessed.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - 010 round 3 task 1: the refused row is no
+# longer dropped — it reaches the equipment table as an empty description at its own ordinal, so
+# EQP-UNPARSED also fires for it and the datasheet's state is partial rather than none. Updated
+# EQP-BOUNDARY-AMBIGUOUS's text to describe delivery-as-empty-row instead of omission.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - 010 round 4 task 1: registered
+# OPT-FOOTNOTE-ROW for `pipeline/acquire/export_rows.py::drop_non_option_rows`'s new footnote-row
+# routing (the export's `button` `*`, html parity).
 """The finding catalogue.
 
 ``validation-report.md`` §1.1: **severity is a property of the code, not of the occurrence.** A
@@ -455,6 +466,27 @@ _DEFINITIONS: Final[tuple[FindingDefinition, ...]] = (
         "006 FR-012, FR-015",
         "a default-equipment sentence resolved to no production; the datasheet's state becomes "
         "partial and what did resolve still ships, reported by shape and never by quotation",
+    ),
+    _d(
+        "EQP-BOUNDARY-AMBIGUOUS",
+        _DQ,
+        _A,
+        "010 spec §4.2",
+        "a default-equipment sentence in the export's loadout column carries text after an "
+        "internal full stop that could be a trailing sentence or part of an item name; it is "
+        "delivered as an empty row at its own ordinal rather than guessed, so the datasheet's "
+        "state becomes partial, EQP-UNPARSED fires for the same row, later group ids keep their "
+        "numbers, and a curator override is the resolution",
+    ),
+    _d(
+        "OPT-FOOTNOTE-ROW",
+        _DQ,
+        _A,
+        "010 spec §4.1",
+        "an option row the export marks as a footnote (`button` `*`) is routed out of the "
+        "options table so the datasheet's option state is judged on its option rows alone, as "
+        "the html arm judged it; the footnote's restriction is not published and is a "
+        "follow-up feature",
     ),
     _d(
         "EQP-GROUP-UNRESOLVED",
