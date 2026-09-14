@@ -772,9 +772,8 @@ def run_build(  # noqa: PLR0913 - the stage boundary is the argument list
         points_acq, points_payloads = acquire_mfm(
             config, fixtures_dir=fixtures_dir, offline=offline
         )
-        # The mode selector, and the only place in a run that it is consulted: below this line
-        # nothing can tell whether the detail source was the bulk export or the current-edition
-        # datacard pages, because what it receives is the same shape either way (research D1d).
+        # The one acquisition arm: the bulk export. Nothing below this line is told how the
+        # tables it receives were obtained.
         detail_acq, detail_payloads = acquire_detail(
             config,
             fixtures_dir=fixtures_dir,
