@@ -1,10 +1,11 @@
-# AI-Assisted: Claude Code (model: claude-sonnet-5) - Failing-first tests for 010 round 1: the csv
-# reader drops the two non-option row shapes the html extractor already dropped, and derives
-# default equipment rows from the Datasheets export's loadout column. All fixture text is invented.
-# AI-Assisted: Claude Code (model: claude-sonnet-5) - 010 round 2 task 1: deleted the seven tests
-# written for the period-heuristic splitter and its `_parsed_item_names` helper, and added nine
-# failing-first tests for the markup-anchored splitter and its `EQP-BOUNDARY-AMBIGUOUS` refusal
-# finding. All fixture text remains invented.
+# AI-Assisted: Claude Code (model: claude-haiku-4-5) - Tests for `read_export_payloads` row
+# routing. The module verifies: (1) two non-option row shapes are dropped from the options table
+# (matching the retired HTML arm's behaviour); (2) default-equipment rows are derived from the
+# Datasheets export's loadout column; (3) sentence boundaries are anchored on the export's
+# markup—one bold subject per default-loadout sentence; (4) line-break tags are rendered as
+# spaces; (5) segments ambiguous after tag-stripping are refused and reported as
+# EQP-BOUNDARY-AMBIGUOUS; (6) loadout-derived line numbers start one past the highest
+# composition-derived line for that datasheet_id. All fixture text is invented.
 """``read_export_payloads`` reaches parity with the html arm's row routing (010 R1)."""
 
 from __future__ import annotations
