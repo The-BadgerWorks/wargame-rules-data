@@ -214,11 +214,11 @@ def derive_equipment_from_loadout(detail: dict[str, CsvReadResult]) -> dict[str,
     Numbering starts one past the highest existing integer ``line`` already recorded for that
     ``datasheet_id`` in ``detail``'s equipment table (0 when there is none, so "from 1" holds
     whenever nothing else derived a row for that datasheet) — never from 1 unconditionally.
-    ``_derive_equipment_from_composition`` runs first and can already have filed a row for the
-    same ``datasheet_id`` under ``line="1"``; numbering from 1 here too would mint two rows
-    sharing one ``(datasheet_id, line)`` pair, and ``curate/assemble.py``'s
-    ``equipment_group_id`` turns that pair into a single group id shared by two distinct rows —
-    a published-identifier collision (spec §4.6), not merely a cosmetic duplicate.
+    This module is the only producer of that table today, so the count is always 0; it stays
+    because ``curate/assemble.py``'s ``equipment_group_id`` mints one published id from
+    ``(datasheet_id, line)``, and a second producer numbering from 1 as well would give two
+    distinct rows one id — a published-identifier collision (spec §4.6), not a cosmetic
+    duplicate.
     """
     datasheets = detail.get(DATASHEETS_TABLE)
     if datasheets is None:
