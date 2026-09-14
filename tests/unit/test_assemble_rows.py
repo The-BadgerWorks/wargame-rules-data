@@ -4,6 +4,11 @@
 # `has -`. `line`, `T` and `W` fail `to_int` on zero rows, and the value classes `has +` and
 # `has "` measure zero occurrences -- so nothing here asks for them, and the second test pins
 # that a genuinely malformed characteristic is still `DQ-MALFORMED-ROW`.
+#
+# AI-Assisted: Claude Opus 5 - 010 R6b task 2. Failing-first receipt for the wargear-row class
+# round 6 measured live: 1990 `Datasheets_wargear.csv` rows carry an empty `line` column and a
+# numeric `line_in_wargear`, and were all rejected. The Owner ruled these rows are read, with
+# `line` minted from position exactly as an ordinary row's is.
 """``OC`` stated as ``-`` is no objective control, which is mechanically zero -- not a defect.
 
 Two directions, as the project's receipt rule demands:
@@ -13,6 +18,11 @@ Two directions, as the project's receipt rule demands:
 * the true positive still fires -- a row whose ``T`` (or ``W``, or ``line``) is non-numeric is
   still ``DQ-MALFORMED-ROW`` on ``field="characteristics"``, and contributes no model line.
 
+A second class covers the wargear loop: a row whose `line` column is empty but whose
+`line_in_wargear` parses is read, with `line` minted from position -- and a row whose `line` is
+non-empty but malformed is still `DQ-MALFORMED-ROW`, proving the true positive still fires there
+too.
+
 All identifiers, names and prose here are invented; only the header shape and the stat value
 shapes (``'3+'``, ``'-'``) come from the export.
 """
@@ -20,7 +30,7 @@ shapes (``'3+'``, ``'-'``) come from the export.
 from __future__ import annotations
 
 from pipeline.curate.assemble import _detail_datasheet_fields
-from pipeline.models.curated import CuratedModelLine
+from pipeline.models.curated import CuratedModelLine, CuratedWeaponLine
 from pipeline.parse.wahapedia_csv import CsvReadResult, read_text
 
 _DATASHEETS_CSV = (
@@ -39,14 +49,17 @@ _EMPTY_KEYWORDS_CSV = "datasheet_id|keyword|model|is_faction_keyword|\n"
 _EMPTY_ABILITIES_CSV = "datasheet_id|line|ability_id|model|name|description|type|parameter|\n"
 
 
-def _detail(models_csv: str) -> dict[str, CsvReadResult]:
+def _detail(models_csv: str, wargear_csv: str = _EMPTY_WARGEAR_CSV) -> dict[str, CsvReadResult]:
     return {
         "Datasheets.csv": read_text("Datasheets.csv", _DATASHEETS_CSV),
         "Datasheets_models.csv": read_text("Datasheets_models.csv", models_csv),
-        "Datasheets_wargear.csv": read_text("Datasheets_wargear.csv", _EMPTY_WARGEAR_CSV),
+        "Datasheets_wargear.csv": read_text("Datasheets_wargear.csv", wargear_csv),
         "Datasheets_keywords.csv": read_text("Datasheets_keywords.csv", _EMPTY_KEYWORDS_CSV),
         "Datasheets_abilities.csv": read_text("Datasheets_abilities.csv", _EMPTY_ABILITIES_CSV),
     }
+
+
+_ONE_MODEL_CSV = _MODELS_HEADER + 'ds1|1|Test Trooper|6"|4|3+|||2|6|2|32mm||\n'
 
 
 def test_a_model_stating_no_objective_control_is_read_as_zero() -> None:
@@ -108,6 +121,108 @@ def test_a_non_numeric_toughness_is_still_a_malformed_row() -> None:
             "file_name": "Datasheets_models.csv",
             "field": "characteristics",
         }
+
+
+def test_a_wargear_row_with_empty_line_and_numeric_line_in_wargear_is_read() -> None:
+    """The change: a wargear row whose `line` column is empty but whose `line_in_wargear`
+    parses is a legitimate weapon profile, not a defect (010 R6b, 1990 live rows).
+
+    Reverted, this test is red: `to_int(weapon.fields["line"], ...)` raises `NumericParseError`
+    on the empty string, the row is swallowed by the `except` arm, `weapons` is `[]` and one
+    `DQ-MALFORMED-ROW` finding is emitted instead of a weapon line.
+    """
+    wargear_csv = _EMPTY_WARGEAR_CSV + "ds1||1||Test Blade||Melee|Melee|3|3+|5|-1|2|\n"
+
+    fields, findings = _detail_datasheet_fields(
+        "ds1", _detail(_ONE_MODEL_CSV, wargear_csv), frozenset(), ability_names={}
+    )
+
+    weapons: list[CuratedWeaponLine] = fields["weapons"]  # type: ignore[assignment]
+    assert len(weapons) == 1, (
+        "a wargear row with an empty `line` column and a numeric `line_in_wargear` was "
+        f"rejected rather than read: weapons={weapons}, "
+        f"findings={[f.finding_code for f in findings]}"
+    )
+    assert weapons[0].line == 1, "the minted `line` was not the row's position"
+    assert weapons[0].name == "Test Blade"
+    assert not [f for f in findings if f.finding_code == "DQ-MALFORMED-ROW"]
+
+
+def test_two_empty_line_wargear_rows_get_distinct_positional_lines() -> None:
+    """A second empty-`line` row is also read, and the two profiles get distinct positional
+    `line` values -- proving `line` is minted from position, not copied from `line_in_wargear`.
+    """
+    wargear_csv = (
+        _EMPTY_WARGEAR_CSV
+        + "ds1||1||Test Blade One||Melee|Melee|3|3+|5|-1|2|\n"
+        + "ds1||2||Test Blade Two||Melee|Melee|3|3+|5|-1|2|\n"
+    )
+
+    fields, findings = _detail_datasheet_fields(
+        "ds1", _detail(_ONE_MODEL_CSV, wargear_csv), frozenset(), ability_names={}
+    )
+
+    weapons: list[CuratedWeaponLine] = fields["weapons"]  # type: ignore[assignment]
+    assert [w.name for w in weapons] == ["Test Blade One", "Test Blade Two"], weapons
+    assert [w.line for w in weapons] == [1, 2], (
+        f"the two profiles did not get distinct positional `line` values: {weapons}"
+    )
+    assert not [f for f in findings if f.finding_code == "DQ-MALFORMED-ROW"]
+
+
+def test_a_wargear_row_with_both_line_columns_empty_is_still_malformed() -> None:
+    """A row with `line` empty **and** `line_in_wargear` empty has nothing to mint a position
+    guard from and is still `DQ-MALFORMED-ROW`."""
+    wargear_csv = _EMPTY_WARGEAR_CSV + "ds1||||Test Blade||Melee|Melee|3|3+|5|-1|2|\n"
+
+    fields, findings = _detail_datasheet_fields(
+        "ds1", _detail(_ONE_MODEL_CSV, wargear_csv), frozenset(), ability_names={}
+    )
+
+    assert fields["weapons"] == [], "an all-empty `line` pair produced a weapon line"
+    malformed = [f for f in findings if f.finding_code == "DQ-MALFORMED-ROW"]
+    assert len(malformed) == 1, f"an all-empty `line` pair produced {len(malformed)} findings"
+    assert malformed[0].detail == {
+        "file_name": "Datasheets_wargear.csv",
+        "field": "profile",
+    }
+
+
+def test_a_wargear_row_with_empty_line_and_non_numeric_line_in_wargear_is_still_malformed() -> None:
+    """A row with `line` empty and `line_in_wargear` non-numeric is still `DQ-MALFORMED-ROW`."""
+    wargear_csv = _EMPTY_WARGEAR_CSV + "ds1||not-a-number||Test Blade||Melee|Melee|3|3+|5|-1|2|\n"
+
+    fields, findings = _detail_datasheet_fields(
+        "ds1", _detail(_ONE_MODEL_CSV, wargear_csv), frozenset(), ability_names={}
+    )
+
+    assert fields["weapons"] == [], "a non-numeric `line_in_wargear` produced a weapon line"
+    malformed = [f for f in findings if f.finding_code == "DQ-MALFORMED-ROW"]
+    assert len(malformed) == 1, (
+        f"a non-numeric `line_in_wargear` produced {len(malformed)} findings"
+    )
+    assert malformed[0].detail == {
+        "file_name": "Datasheets_wargear.csv",
+        "field": "profile",
+    }
+
+
+def test_a_wargear_row_with_non_empty_malformed_line_is_still_malformed() -> None:
+    """The true positive still fires: a row whose `line` column is non-empty but malformed is
+    still `DQ-MALFORMED-ROW`, exactly as before this change."""
+    wargear_csv = _EMPTY_WARGEAR_CSV + "ds1|not-a-number|1||Test Blade||Melee|Melee|3|3+|5|-1|2|\n"
+
+    fields, findings = _detail_datasheet_fields(
+        "ds1", _detail(_ONE_MODEL_CSV, wargear_csv), frozenset(), ability_names={}
+    )
+
+    assert fields["weapons"] == [], "a malformed non-empty `line` produced a weapon line"
+    malformed = [f for f in findings if f.finding_code == "DQ-MALFORMED-ROW"]
+    assert len(malformed) == 1, f"a malformed non-empty `line` produced {len(malformed)} findings"
+    assert malformed[0].detail == {
+        "file_name": "Datasheets_wargear.csv",
+        "field": "profile",
+    }
 
 
 def test_a_non_numeric_objective_control_that_is_not_a_dash_is_still_malformed() -> None:

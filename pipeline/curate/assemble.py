@@ -1,3 +1,5 @@
+# AI-Assisted: Claude Opus 5 - 010 R6b task 2: read a `Datasheets_wargear.csv` row whose `line`
+# column is empty by validating `line_in_wargear` instead (1990 live rows, 287 datasheets).
 # AI-Assisted: Claude Opus 5 - 010 R6 task 5: publish the printed characteristic forms (skill,
 # invulnerable save, range, base size) and upper-case keywords, matching the published tree.
 # AI-Assisted: Claude Opus 5 - 010 R6: a model row stating `-` objective control is read as
@@ -638,12 +640,24 @@ def _detail_datasheet_fields(
             # read off the export's `line` column (009 Finding A, CON-DUPLICATE-KEY, 39 live
             # instances). The export's `line` numbers a wargear CHOICE, not a row: a multi-profile
             # weapon (plasma standard/supercharge, missile frag/krak, ...) states two rows under
-            # one `line`, disambiguated only by `line_in_wargear` -- a column nothing here reads.
-            # The number has to be minted from the row's own position rather than read off the
-            # column, which is exactly what `line_number` does. `to_int` below still validates
-            # that the raw column parses -- a row whose own `line` is genuinely malformed is still
-            # `DQ-MALFORMED-ROW` -- it is simply no longer what identifies the row.
-            to_int(weapon.fields["line"], field="weapon.line")
+            # one `line`, disambiguated only by `line_in_wargear`. The number has to be minted
+            # from the row's own position rather than read off the column, which is exactly what
+            # `line_number` does. The block below still validates that a *stated* `line` parses --
+            # a row whose own `line` is non-empty but malformed is still `DQ-MALFORMED-ROW` -- it
+            # is simply no longer what identifies the row.
+            #
+            # 010 R6b: the live export states 1990 rows with `line` genuinely empty and a numeric
+            # `line_in_wargear` (287 datasheets' entire named wargear block, across 10
+            # `faction_id`s) -- every one of them a legitimate profile the published site
+            # renders, not a malformed row. Since neither column is read for identity, an empty
+            # `line` falls back to validating `line_in_wargear` instead: still `to_int`, so a
+            # genuinely malformed value on either column still raises and still lands as
+            # `DQ-MALFORMED-ROW`.
+            raw_line = weapon.fields["line"]
+            if raw_line.strip():
+                to_int(raw_line, field="weapon.line")
+            else:
+                to_int(weapon.fields["line_in_wargear"], field="weapon.line_in_wargear")
             weapons.append(
                 CuratedWeaponLine(
                     line=line_number,
