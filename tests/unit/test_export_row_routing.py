@@ -7,6 +7,7 @@ from __future__ import annotations
 
 from pipeline.acquire.detail_source import read_export_payloads
 from pipeline.acquire.fixtures import FixturePayload
+from pipeline.parse.equipment_grammar import EQUIPMENT_TABLE
 
 OPTIONS = "Datasheets_options.csv"
 
@@ -54,3 +55,87 @@ def test_the_other_tables_are_not_touched_by_the_options_routing() -> None:
         ]
     )
     assert len(detail["Datasheets_keywords.csv"].rows) == 1
+
+
+DATASHEETS = "Datasheets.csv"
+_DS_HEADER = (
+    "id|name|faction_id|source_id|legend|role|loadout|transport|virtual|is_support|"
+    "leader_head|leader_footer|damaged_w|damaged_description|link|\n"
+)
+
+
+def _datasheets(loadouts: dict[str, str]) -> str:
+    body = "".join(
+        f"{ds}|Unit {ds}|FX|1||Battleline|{loadout}||false|false||||||\n"
+        for ds, loadout in loadouts.items()
+    )
+    return _DS_HEADER + body
+
+
+def _equipment_rows(loadouts: dict[str, str]) -> dict[str, list[tuple[str, str]]]:
+    detail = read_export_payloads([FixturePayload(name=DATASHEETS, text=_datasheets(loadouts))])
+    if EQUIPMENT_TABLE not in detail:
+        return {}
+    grouped = detail[EQUIPMENT_TABLE].grouped_by("datasheet_id")
+    return {
+        ds: [(row.fields["line"], row.fields["description"]) for row in rows]
+        for ds, rows in grouped.items()
+    }
+
+
+def test_a_single_loadout_sentence_becomes_one_equipment_row_on_line_1() -> None:
+    rows = _equipment_rows({"CM03": "Every model is equipped with: glow lantern; tide axe."})
+    assert rows["CM03"] == [("1", "Every model is equipped with: glow lantern; tide axe.")]
+
+
+def test_two_sentences_in_one_cell_become_two_rows_in_text_order() -> None:
+    cell = (
+        "Every model is equipped with: glow lantern; tide axe. "
+        "The Marshguard Leader is equipped with: fen pike."
+    )
+    rows = _equipment_rows({"CM03": cell})
+    assert [line for line, _ in rows["CM03"]] == ["1", "2"]
+    assert rows["CM03"][1][1] == "The Marshguard Leader is equipped with: fen pike."
+
+
+def test_sentences_separated_by_a_line_break_tag_are_split_too() -> None:
+    cell = "Every model is equipped with: glow lantern.<br>The Leader is equipped with: fen pike."
+    rows = _equipment_rows({"CM03": cell})
+    assert len(rows["CM03"]) == 2
+
+
+def test_an_empty_loadout_yields_no_row_and_no_table_when_nothing_else_does() -> None:
+    assert _equipment_rows({"CM03": ""}) == {}
+
+
+def test_a_loadout_without_the_marker_yields_no_row() -> None:
+    assert _equipment_rows({"CM03": "Prose that mentions no loadout at all."}) == {}
+
+
+def test_blanking_every_loadout_removes_every_derived_row() -> None:
+    """The receipt: identical counts would mean the reader is not wired into the csv path."""
+    populated = _equipment_rows({"CM03": "Every model is equipped with: glow lantern."})
+    blanked = _equipment_rows({"CM03": ""})
+    assert sum(len(v) for v in populated.values()) > sum(len(v) for v in blanked.values()), (
+        "blanking the loadout column changed nothing: derive_equipment_from_loadout is not wired"
+    )
+
+
+def test_loadout_rows_append_to_composition_derived_rows_rather_than_replacing_them() -> None:
+    detail = read_export_payloads(
+        [
+            FixturePayload(
+                name=DATASHEETS,
+                text=_datasheets({"CM05": "This model is equipped with: tide axe."}),
+            ),
+            FixturePayload(
+                name="Datasheets_unit_composition.csv",
+                text=(
+                    "datasheet_id|line|description|\n"
+                    "CM03|2|Every model in this unit is equipped with: glow lantern.|\n"
+                ),
+            ),
+        ]
+    )
+    ids = {row.fields["datasheet_id"] for row in detail[EQUIPMENT_TABLE].rows}
+    assert ids == {"CM03", "CM05"}

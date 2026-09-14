@@ -16,6 +16,8 @@ import re
 from dataclasses import replace
 from typing import Final
 
+from pipeline.models.source import WahapediaRow
+from pipeline.parse.equipment_grammar import EQUIPMENT_TABLE
 from pipeline.parse.wahapedia_csv import CsvReadResult
 
 OPTIONS_TABLE: Final = "Datasheets_options.csv"
@@ -46,4 +48,65 @@ def drop_non_option_rows(detail: dict[str, CsvReadResult]) -> dict[str, CsvReadR
         return detail
     updated = dict(detail)
     updated[OPTIONS_TABLE] = replace(options, rows=kept)
+    return updated
+
+
+#: The same marker ``equipment_grammar._MARKER`` and ``detail_source._EQUIPMENT_MARKER`` carry,
+#: kept as this module's own copy on the same terms they keep theirs.
+_EQUIPMENT_MARKER: Final = re.compile(r"\b(?:is|are)\s+equipped\s+with\s*:", re.IGNORECASE)
+#: Sentence boundaries inside one ``loadout`` cell: a line-break tag, or a full stop followed by
+#: whitespace. Item lists end in a full stop, so a stop at end-of-text closes the last sentence.
+_SENTENCE_BREAK: Final = re.compile(r"(?:<br\s*/?>|(?<=\.)\s+)", re.IGNORECASE)
+
+
+def split_equipment_sentences(text: str) -> tuple[str, ...]:
+    """Every sentence of ``text`` that states a default loadout, in text order."""
+    parts = (part.strip() for part in _SENTENCE_BREAK.split(text))
+    return tuple(part for part in parts if part and _EQUIPMENT_MARKER.search(part))
+
+
+def derive_equipment_from_loadout(detail: dict[str, CsvReadResult]) -> dict[str, CsvReadResult]:
+    """csv-mode's source for ``Datasheets_unit_equipment.csv`` (010 R1, spec §4.2).
+
+    The export publishes no equipment table; it states each datasheet's default loadout in
+    ``Datasheets.csv``'s ``loadout`` column, one prose cell per datasheet, sometimes holding more
+    than one sentence. Each sentence becomes one row in the same ``datasheet_id|line|description``
+    shape the html arm manufactured, numbered from 1 in text order, so ``curate/assemble.py`` and
+    the equipment grammar are unchanged. The text is carried as-is: it is a prose-bearing field
+    and the grammar's own ``pre_pass`` is the only reader that may look inside it.
+    """
+    datasheets = detail.get(DATASHEETS_TABLE)
+    if datasheets is None:
+        return detail
+    derived: list[WahapediaRow] = []
+    for row in datasheets.rows:
+        datasheet_id = row.fields.get("id", "")
+        if not datasheet_id:
+            continue
+        for line, sentence in enumerate(
+            split_equipment_sentences(row.fields.get("loadout", "")), start=1
+        ):
+            derived.append(
+                WahapediaRow(
+                    file_name=EQUIPMENT_TABLE,
+                    line_number=row.line_number,
+                    fields={
+                        "datasheet_id": datasheet_id,
+                        "line": str(line),
+                        "description": sentence,
+                    },
+                    repaired=row.repaired,
+                )
+            )
+    if not derived:
+        return detail
+    existing = detail.get(EQUIPMENT_TABLE)
+    updated = dict(detail)
+    updated[EQUIPMENT_TABLE] = CsvReadResult(
+        file_name=EQUIPMENT_TABLE,
+        field_names=("datasheet_id", "line", "description"),
+        rows=(existing.rows if existing else ()) + tuple(derived),
+        repairs=existing.repairs if existing else 0,
+        findings=existing.findings if existing else (),
+    )
     return updated
