@@ -64,10 +64,11 @@ def _plain_text(text: str) -> str:
     return _WHITESPACE_RUN.sub(" ", _NBSP.sub(" ", _ANY_TAG.sub(" ", text))).strip()
 
 
-#: Mirrors ``wahapedia_html_dom._NONE_TEXT``: the source's "publishes none" placeholder, compared
-#: with trailing full stops removed because the page prints both spellings.
+#: The source's "publishes none" placeholder, compared with trailing full stops removed
+#: because the source prints both spellings.
 _NONE_TEXT: Final = "none"
-#: Mirrors ``wahapedia_html_dom._DEFAULT_EQUIPMENT_SENTENCE`` and ``_GRANTS_A_CHOICE``.
+#: The default-equipment marker, and the word that makes a sentence a choice rather than a
+#: loadout. Both are membership questions, never grammar ones.
 _DEFAULT_EQUIPMENT_SENTENCE: Final = re.compile(r"\bis equipped with\s*:", re.IGNORECASE)
 _GRANTS_A_CHOICE: Final = re.compile(r"\bcan\b", re.IGNORECASE)
 

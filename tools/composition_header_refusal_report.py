@@ -78,7 +78,6 @@ class RefusedRow:
 @dataclass(frozen=True, slots=True)
 class HeaderRefusalReport:
     generated_at: str
-    mode: str
     edition: str
     source: str
     datasheets_with_composition: int
@@ -170,7 +169,6 @@ def measure(
     moment = (generated_at or datetime.now(UTC)).astimezone(UTC)
     return HeaderRefusalReport(
         generated_at=moment.isoformat().replace("+00:00", "Z"),
-        mode=config.detail_acquisition_mode.value,
         edition=config.detail_edition,
         source=source,
         datasheets_with_composition=datasheets_with_composition,
@@ -194,7 +192,6 @@ def render(report: HeaderRefusalReport) -> str:
         "# Composition-header refusal set (research D1, risk R-1/R-A)",
         "",
         f"- Generated: `{report.generated_at}`",
-        f"- Detail acquisition mode: `{report.mode}`",
         f"- Declared detail edition: `{report.edition}`",
         f"- Source: `{report.source}`",
         "",

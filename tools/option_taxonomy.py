@@ -3,7 +3,7 @@
 # whole two-arm residual comparison it drove. With a single acquisition arm there is no second
 # arm to place beside the first.
 # AI-Assisted: Claude Code (model: claude-opus-5) - Implemented the option-row taxonomy classifier
-# (006 task T001): acquire the detail source in the configured mode into an ephemeral work/, run
+# (006 task T001): acquire the detail source into an ephemeral work/, run
 # every option row through the pipeline's own parse path, classify each unparsed row against
 # research D1b's thirteen classes and its cross-cutting features, measure D1d's two silent-failure
 # classes over the rows that DO parse, and write counts to reports/option-taxonomy/<date>.md —
@@ -26,9 +26,7 @@ This tool confirms it, or contradicts it::
 Four properties, each of which is why a line of this file exists:
 
 * **It uses the pipeline's own parse path.** Rows come from
-  :func:`pipeline.acquire.detail_source.read_detail` — which in ``html`` mode is
-  :func:`pipeline.parse.wahapedia_html_dom.parse_faction_page` over each acquired page, reading
-  each card's ``options`` — and every row is resolved by
+  :func:`pipeline.acquire.detail_source.read_detail`, and every row is resolved by
   :func:`pipeline.parse.options_grammar.parse_row`. A classifier with its own idea of what fails
   to parse would measure itself.
 * **The acquired text is discarded.** It lands in a workspace emptied on exit, whatever happens,
@@ -327,7 +325,6 @@ class TaxonomyReport:
     """The whole measurement: counts, and only counts."""
 
     generated_at: str
-    mode: str
     edition: str
     source: str
     factions: tuple[FactionTaxonomy, ...]
@@ -472,7 +469,6 @@ def measure(
     moment = (generated_at or datetime.now(UTC)).astimezone(UTC)
     return TaxonomyReport(
         generated_at=moment.isoformat().replace("+00:00", "Z"),
-        mode=config.detail_acquisition_mode.value,
         edition=config.detail_edition,
         source=source,
         factions=tuple(per_faction),
@@ -501,7 +497,6 @@ def render(report: TaxonomyReport) -> str:
         "# Option-row taxonomy",
         "",
         f"- Generated: `{report.generated_at}`",
-        f"- Detail acquisition mode: `{report.mode}`",
         f"- Declared detail edition: `{report.edition}`",
         f"- Source: `{report.source}`",
         "",
@@ -606,7 +601,7 @@ def render(report: TaxonomyReport) -> str:
         "here than D1 measured costs an unused production, not a defect; a class *larger* here "
         "moves it up the order.",
         "- Classes **6** and **11** are extractor bugs, not grammar gaps (research D1c.4). They "
-        "are fixed in `parse/wahapedia_html_dom.py::_options` (006 T022) and never reach the "
+        "are fixed at the acquisition boundary (006 T022) and never reach the "
         "grammar, so they are excluded from what any production is expected to clear.",
         "- Class **9** is a group *availability predicate*, not clause vocabulary. No production "
         "is planned for it; it stays `OPT-UNPARSED` and is curator-override material.",

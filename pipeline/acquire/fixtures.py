@@ -27,7 +27,6 @@ Layout (``fixtures/README.md``)::
 
     fixtures/<set>/mfm/<slug>.html
     fixtures/<set>/wahapedia/<Name>.csv        # detail source, csv mode
-    fixtures/<set>/wahapedia-html/<slug>.html  # detail source, html mode (004 T072)
 
 A set may carry both detail shapes, describing the *same* invented units. Where it does, a test
 can build it twice and compare — which is how "every stage below ``acquire`` is mode-blind" is
@@ -73,12 +72,6 @@ _LAYOUT: Final[dict[SourceKey, FixtureLayout]] = {
     SourceKey.MFM: FixtureLayout("mfm", "*.html", "faction_pages", "utf-8"),
     SourceKey.WAHAPEDIA: FixtureLayout("wahapedia", "*.csv", "csv_files", "utf-8-sig"),
 }
-
-#: The detail source read in ``html`` mode (`004` T072): the same source key — the acquisition
-#: record must not say which mode produced it, or nothing below ``acquire`` would be mode-blind —
-#: read from its own sub-directory, so one fixture set can carry the *same* invented units in
-#: both source shapes and the grammars can be proven mode-blind against them (research D1d).
-HTML_DETAIL_LAYOUT: Final = FixtureLayout("wahapedia-html", "*.html", "faction_pages", "utf-8")
 
 
 class FixtureSetError(AcquisitionError):

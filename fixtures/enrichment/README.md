@@ -23,19 +23,16 @@ particular:
 - The structure descriptions to author from are in `004/research.md` D2 (composition), D3
   (options), and D7 (keywords), and the measured baseline proportions there are what the coverage
   assertions are calibrated against.
-- The `wahapedia-html/` set exists so the same grammars can be proven **mode-blind** (research
-  D1d): the `csv` and `html` sets carry the *same* invented units in the *two* source shapes, and
-  `pipeline/parse/composition_grammar.py` and `pipeline/parse/options_grammar.py` must consume
-  both unmodified. `docs/verification/html-markup-spike.md` records the real markup's structure —
-  class tokens, block segmentation, and the two traps — which is what the `wahapedia-html/`
-  fixtures reproduce. Nothing retrieved during that spike was kept.
+- A second `wahapedia-html/` set once carried the same invented units in the datacard shape, so
+  the grammars could be proven mode-blind across two acquisition arms (research D1d). 010 R5
+  deleted the second arm and the fixtures with it; there is one source shape now, and the
+  grammars are exercised over it.
 
 ## Layout
 
 ```text
 fixtures/enrichment/
-├── wahapedia/        # csv-mode detail source: the pipe-delimited export shape
-├── wahapedia-html/   # html-mode detail source: synthetic datacard markup, same units
+├── wahapedia/        # detail source: the pipe-delimited export shape
 └── curation/         # authored records in mixed review states, for the four summary classes
 ```
 
@@ -63,9 +60,8 @@ opening another repository. **A new quirk gets a fixture before it gets a parser
 ## The quirk classes `006-unit-loadout-fidelity` added
 
 `006` extends the same two grammars, so it extends this catalogue rather than starting another
-one. Five datacards joined `wahapedia-html/glimmerfen-covenant.html`, with their option and
-composition rows mirrored into `wahapedia/` — the option grammar is mode-blind and has to be
-proven so over the new shapes exactly as it was over the old ones.
+one. Five datasheets joined the set, in `wahapedia/`'s option and composition rows. (They also had a
+datacard counterpart until 010 R5 deleted the second arm.)
 
 | Datasheet | What it carries | Why |
 |---|---|---|
@@ -128,9 +124,10 @@ Two properties worth stating, because a reader will otherwise assume the opposit
 
 ## The equivalence-check fixture pair `007` added (Setup phase, T010)
 
-Two more datasheets, HTML-only this time (the equivalence check, `007` FR-019-FR-022, reads
-source text from the same in-memory `detail` the html-mode extractor produces — see `research.md`
-D6 and `reports/equivalence-availability/`).
+Two more datasheets for the equivalence check (`007` FR-019-FR-022), which reads source text
+from the same in-memory `detail` the reader produces — see `research.md` D6 and
+`reports/equivalence-availability/`. They were authored in the datacard shape and went with it
+in 010 R5; `tests/validate/test_equivalence.py` builds its own fixture instead.
 
 | Datasheet | What it carries | Why |
 |---|---|---|

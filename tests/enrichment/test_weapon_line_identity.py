@@ -14,12 +14,9 @@
 """``CuratedWeaponLine.line`` must be unique per row, not copied off the export's own column.
 
 The export's `line` numbers a wargear *choice* (the same physical weapon may print more than one
-firing-mode row under it); the html arm has never had this problem because
-`wahapedia_html_dom.py::_weapon_profiles` mints a fresh sequential number per scraped row rather
-than reading one off the page. `_detail_datasheet_fields`'s weapon loop is the one place both
-arms' `Datasheets_wargear.csv`-shaped tables converge, so the fix belongs there: mint `line` from
-the row's own position in the datasheet's weapon list, the same guarantee the html arm already
-gives for free, while still validating the raw `line` column parses (a genuinely malformed row is
+firing-mode row under it), so it cannot identify a row. `_detail_datasheet_fields`'s weapon loop
+is where the fix belongs: mint `line` from the row's own position in the datasheet's weapon
+list, while still validating the raw `line` column parses (a genuinely malformed row is
 still `DQ-MALFORMED-ROW`).
 """
 

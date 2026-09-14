@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # AI-Assisted: Claude Code (model: claude-opus-5) - Implemented the digest-churn dry run (004 task
-# T075): acquire in html mode into an ephemeral work/, recompute every approved ability summary's
+# T075): acquire the detail source into an ephemeral work/, recompute every approved ability
+# summary's
 # status against the freshly acquired source WITHOUT writing curation/, report the per-faction and
 # total needs_rereview count, and discard the acquired text on exit (research D8, risk R-B,
 # quickstart section 3).
@@ -25,11 +26,11 @@ summaries flip. **An estimate is not a plan.** This tool turns the estimate into
     python tools/churn_dry_run.py --fixtures fixtures/minimal --offline   # rehearsal, no network
 
 The live invocation reads the source the configuration names, and nothing here guesses at one:
-``WGC_DETAIL_ACQUISITION_MODE``, ``WGC_DETAIL_EDITION`` and ``WGC_DETAIL_SOURCE_URL`` are set
+``WGC_DETAIL_EDITION`` and ``WGC_DETAIL_SOURCE_URL`` are set
 together when an edition is adopted, and a live run with any of them unset stops as the
 configuration error it is (exit 60) rather than as a source failure.
 
-What it does, in one sentence: acquires the detail source in the configured mode into an
+What it does, in one sentence: acquires the detail source into an
 **ephemeral** workspace, computes each ability's current mechanic digest there, compares it with
 the digest each approved record was authored against, and writes the counts to
 ``reports/churn-dry-run/<date>.md``.
@@ -102,7 +103,6 @@ class ChurnReport:
     """The whole measurement: per faction, and in total."""
 
     generated_at: str
-    mode: str
     edition: str
     source: str
     factions: tuple[FactionChurn, ...]
@@ -236,7 +236,6 @@ def measure(
     moment = (generated_at or datetime.now(UTC)).astimezone(UTC)
     return ChurnReport(
         generated_at=moment.isoformat().replace("+00:00", "Z"),
-        mode=config.detail_acquisition_mode.value,
         edition=config.detail_edition,
         source=source,
         factions=tuple(measured),
@@ -251,7 +250,6 @@ def render(report: ChurnReport) -> str:
         "# Digest-churn dry run",
         "",
         f"- Generated: `{report.generated_at}`",
-        f"- Detail acquisition mode: `{report.mode}`",
         f"- Declared detail edition: `{report.edition}`",
         f"- Source: `{report.source}`",
         "",

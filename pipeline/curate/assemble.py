@@ -586,12 +586,10 @@ def _detail_datasheet_fields(
             # instances). The export's `line` numbers a wargear CHOICE, not a row: a multi-profile
             # weapon (plasma standard/supercharge, missile frag/krak, ...) states two rows under
             # one `line`, disambiguated only by `line_in_wargear` -- a column nothing here reads.
-            # The html arm never had this collision, because its own scraper
-            # (`wahapedia_html_dom.py::_weapon_profiles`) mints a fresh sequential number per row
-            # it prints rather than reading one off the page, which is exactly what `line_number`
-            # reproduces for the export too. `to_int` below still validates the raw column parses
-            # -- a row whose own `line` is genuinely malformed is still `DQ-MALFORMED-ROW` -- it
-            # is simply no longer what identifies the row.
+            # The number has to be minted from the row's own position rather than read off the
+            # column, which is exactly what `line_number` does. `to_int` below still validates
+            # that the raw column parses -- a row whose own `line` is genuinely malformed is still
+            # `DQ-MALFORMED-ROW` -- it is simply no longer what identifies the row.
             to_int(weapon.fields["line"], field="weapon.line")
             weapons.append(
                 CuratedWeaponLine(
@@ -607,8 +605,7 @@ def _detail_datasheet_fields(
                     # Issue #4. The keywords are stated in the export's `description` column,
                     # which also carries free prose — so the field is IP-stripped first and then
                     # read by the bracketed-group rule, which takes the keyword list and nothing
-                    # else. Both detail modes reach this line: html mode re-emits the keywords
-                    # its cards print into the same column, in the same shape.
+                    # else.
                     ability_keywords=parse_weapon_ability_keywords(
                         strip_field(
                             weapon.fields.get("description", ""),

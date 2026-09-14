@@ -73,23 +73,6 @@ class Channel(StrEnum):
     PUBLISHED = "published"
 
 
-class DetailAcquisitionMode(StrEnum):
-    """Which shape the datasheet-detail source is read in (`004` research D1d).
-
-    A *variable, never a logic branch*: both modes emit the same
-    :class:`~pipeline.models.source.SourceAcquisition` record shape, so every stage below
-    ``parse`` is mode-blind and each grammar, linker, and validator is written once and tested
-    once. The selector exists because the two modes read different **content**, not because
-    they need different downstream code.
-    """
-
-    CSV = "csv"
-    """The bulk export under the permitted current-edition path — previous-edition *content*."""
-
-    HTML = "html"
-    """The current-edition datacard pages — current-edition content (FR-003)."""
-
-
 class Gate(StrEnum):
     """A per-class publication gate (`contracts/authored-summary-gates.md` §3).
 
@@ -270,14 +253,6 @@ CONFIG_VARS: Final[tuple[ConfigVar, ...]] = (
     # Fourteen variables, every one non-sensitive and defaulted. The digest key above is
     # **reused** for the three new summary classes rather than a second key being introduced:
     # one secret, one rotation story (004 plan, Security/configuration gate).
-    ConfigVar(
-        "WGC_DETAIL_ACQUISITION_MODE",
-        "detail_acquisition_mode",
-        "csv",
-        "detail_mode",
-        False,
-        "detail source shape: csv | html (004 research D1d)",
-    ),
     ConfigVar(
         "WGC_GATE_FACTION_RULES",
         "gate_faction_rules",
@@ -460,7 +435,6 @@ class PipelineConfig:
     unverified_escalate_releases: int
     notify_webhook_url: str
     mechanic_digest_key: str
-    detail_acquisition_mode: DetailAcquisitionMode
     gate_faction_rules: Gate
     gate_detachment_rules: Gate
     gate_glossary: Gate
@@ -510,13 +484,12 @@ class PipelineConfig:
 
         ``WGC_DETAIL_SOURCE_URL`` defaults to empty and has done since `002` shipped, because a
         fixture build never reads it and a live one must state it deliberately. What was missing
-        was the refusal: under ``csv`` mode an empty location parsed as a *relative path*, which
-        is the process's working directory, so a live run with the variable unset went looking
-        for the export in the repository checkout and reported the first file it did not find
-        there as ``the detail source's export is missing Abilities.csv … (FR-008)``. That
-        diagnostic is true of what the code did and wrong about what happened: it names an
-        upstream partial export when the actual fault is local and configural, and it sent the
-        first real ``html``-mode execution hunting for a bug in a parser that had not run.
+        was the refusal: an empty location parsed as a *relative path*, which is the process's
+        working directory, so a live run with the variable unset went looking for the export in
+        the repository checkout and reported the first file it did not find there as ``the detail
+        source's export is missing Abilities.csv ... (FR-008)``. That diagnostic is true of what
+        the code did and wrong about what happened: it names an upstream partial export when the
+        actual fault is local and configural.
 
         FR-008's rule is untouched — *a partial export is a failed acquisition*. This says only
         that a source which was never configured is not a partial one, and belongs to
@@ -529,9 +502,8 @@ class PipelineConfig:
         if not location:
             raise ConfigError(
                 "WGC_DETAIL_SOURCE_URL is not set, so a live acquisition has no source to read. "
-                f"Set it to the export directory under {DetailAcquisitionMode.CSV.value} mode, "
-                f"or to the current-edition tree under {DetailAcquisitionMode.HTML.value} mode "
-                "(see docs/configuration.md); or run against a fixture set, which never reads it."
+                "Set it to the export directory (see docs/configuration.md); or run against a "
+                "fixture set, which never reads it."
             )
         return location
 
@@ -620,15 +592,6 @@ def _as_channel(raw: Mapping[str, str], env_name: str) -> Channel:
         raise ConfigError(f"{env_name} must be one of {allowed}, got {text!r}") from exc
 
 
-def _as_detail_mode(raw: Mapping[str, str], env_name: str) -> DetailAcquisitionMode:
-    text = raw[env_name]
-    try:
-        return DetailAcquisitionMode(text)
-    except ValueError as exc:
-        allowed = ", ".join(mode.value for mode in DetailAcquisitionMode)
-        raise ConfigError(f"{env_name} must be one of {allowed}, got {text!r}") from exc
-
-
 def _as_gate(raw: Mapping[str, str], env_name: str) -> Gate:
     text = raw[env_name]
     try:
@@ -708,7 +671,6 @@ def load_config(
         unverified_escalate_releases=_as_int(raw, "WGC_UNVERIFIED_ESCALATE_RELEASES"),
         notify_webhook_url=_as_str(raw, "WGC_NOTIFY_WEBHOOK_URL"),
         mechanic_digest_key=_as_str(raw, "WGC_MECHANIC_DIGEST_KEY"),
-        detail_acquisition_mode=_as_detail_mode(raw, "WGC_DETAIL_ACQUISITION_MODE"),
         gate_faction_rules=_as_gate(raw, "WGC_GATE_FACTION_RULES"),
         gate_detachment_rules=_as_gate(raw, "WGC_GATE_DETACHMENT_RULES"),
         gate_glossary=_as_gate(raw, "WGC_GATE_GLOSSARY"),
