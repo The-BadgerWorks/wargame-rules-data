@@ -22,6 +22,9 @@
 # refused `wh40k-11e-2026-08-2` with exit 51 on a bundle whose only difference from the approved
 # one was `snapshotMeta.publishedAt` — the dispatch day, because `published_at` had never been
 # reachable from the CLI (FR-033, FR-039).
+# AI-Assisted: Claude Code (model: Claude Opus 5) - 010 R5: dropped the detail-mode
+# repository variable from the env block and the presence check, the detail arm being
+# singular now, and corrected the presence-check comment's count and failure sites.
 name: publish
 
 # `workflow_dispatch` and nothing else. This is the only code path in the repository that can
@@ -96,11 +99,10 @@ jobs:
       # a default reaches every fixture build in the test suite, where an un-curated fixture is
       # the expected state and a switched-on gate would block it.
       #
-      # WGC_DETAIL_ACQUISITION_MODE / WGC_DETAIL_EDITION: html + wh40k-11e is the wholesale
-      # adoption the O1 Ruling requires (004 T074). Absent these, a CI rebuild would acquire in
-      # csv mode against wh40k-10e and could not reproduce a candidate built in html mode.
+      # WGC_DETAIL_EDITION: wh40k-11e is the wholesale adoption the O1 Ruling requires
+      # (004 T074). Absent it, a CI rebuild would stamp the library default edition code on
+      # every entity and could not reproduce the candidate.
       # WGC_GATE_*: on, the three campaigns having completed (004 T050, T057, T064).
-      WGC_DETAIL_ACQUISITION_MODE: ${{ vars.WGC_DETAIL_ACQUISITION_MODE }}
       WGC_DETAIL_EDITION: ${{ vars.WGC_DETAIL_EDITION }}
       WGC_GATE_FACTION_RULES: ${{ vars.WGC_GATE_FACTION_RULES }}
       WGC_GATE_DETACHMENT_RULES: ${{ vars.WGC_GATE_DETACHMENT_RULES }}
@@ -129,15 +131,16 @@ jobs:
         run: python -m pip install --disable-pip-version-check -e .
 
       # An unset repository variable arrives as an EMPTY STRING, not as "absent", so the
-      # library default never applies here. Two of the five then fail loudly inside load_config
-      # and one (WGC_DETAIL_EDITION) would sail through as "" and stamp an empty edition code on
+      # library default never applies here. Three of the five (the WGC_GATE_* trio) then fail
+      # loudly inside load_config, WGC_DETAIL_SOURCE_URL fails later at require_detail_source,
+      # and WGC_DETAIL_EDITION would sail through as "" and stamp an empty edition code on
       # every entity. Checked together, up front, so the diagnostic names the variable rather
       # than the symptom.
       - name: Require the build-shaping repository variables
         run: |
           set -euo pipefail
           missing=""
-          names="WGC_DETAIL_SOURCE_URL WGC_DETAIL_ACQUISITION_MODE WGC_DETAIL_EDITION"
+          names="WGC_DETAIL_SOURCE_URL WGC_DETAIL_EDITION"
           names="$names WGC_GATE_FACTION_RULES WGC_GATE_DETACHMENT_RULES WGC_GATE_GLOSSARY"
           for name in $names; do
             eval "value=\${$name:-}"
