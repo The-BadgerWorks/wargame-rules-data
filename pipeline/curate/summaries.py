@@ -13,6 +13,10 @@
 # AI-Assisted: Claude Code (model: claude-opus-5) - Added `glossary_current_digests` (004 task
 # T061): the §5.1 stem-digest fallback for a keyword the edition publishes no description for,
 # and the honest consequence — such an entry never auto-flags for re-review.
+# AI-Assisted: Claude Code (model: claude-opus-5) - Resolved Core and Faction ability names
+# through `Abilities.csv` (010 R6): `ability_name_index` and `resolve_binding_name`, read by
+# both this module's digest join and `assemble`'s key loop, so a nameless Core or Faction
+# binding — 2 015 and 1 437 rows live — is keyed and digested rather than dropped by both.
 """Compare an ability's *current* mechanic against what a curator approved.
 
 Two things this module deliberately does **not** do:
@@ -202,6 +206,64 @@ def digestless_keyword_keys(
     return tuple(sorted(key for key in set(keyword_keys) if key not in texts))
 
 
+#: One-entry memo for :func:`ability_name_index`, keyed by the *identity* of the
+#: :class:`CsvReadResult` it was built from. The index is a pure function of a frozen value, and
+#: it is asked for once per datasheet by :mod:`pipeline.curate.assemble` — recomputing it 2 000
+#: times over a few thousand rows costs seconds of every build for an answer that cannot have
+#: changed. The entry holds its own source alive, so the identity it compares against can never
+#: be a recycled address.
+_NAME_INDEX_MEMO: tuple[CsvReadResult, dict[str, str]] | None = None
+
+
+def ability_name_index(detail: Mapping[str, CsvReadResult]) -> dict[str, str]:
+    """`Abilities.csv` `id` → that ability's IP-stripped `name`.
+
+    The binding rows in `Datasheets_abilities.csv` are *join rows*: for Core and Faction
+    abilities the export states the name once, in `Abilities.csv`, and the binding carries an
+    empty `name` with a populated `ability_id` (010 R6 measured 2 015 Core and 1 437 of 1 442
+    Faction rows in that shape, all 3 452 resolving here). Reading the binding's own column
+    alone therefore mints no key for any of them, which is what this index exists to prevent.
+
+    A detail source that publishes no `Abilities.csv` yields an empty index rather than raising:
+    the fixture sets that predate the join do not state the table, and a binding that resolves
+    to nothing is the caller's reported defect, not this function's.
+    """
+    global _NAME_INDEX_MEMO
+
+    abilities = detail.get("Abilities.csv")
+    if abilities is None:
+        return {}
+
+    memo = _NAME_INDEX_MEMO
+    if memo is not None and memo[0] is abilities:
+        return memo[1]
+
+    index: dict[str, str] = {}
+    for row in abilities.rows:
+        ability_id = row.fields.get("id", "").strip()
+        if not ability_id or ability_id in index:
+            continue
+        name = strip_field(row.fields.get("name", ""), field="ability.name").text
+        if name:
+            index[ability_id] = name
+
+    _NAME_INDEX_MEMO = (abilities, index)
+    return index
+
+
+def resolve_binding_name(fields: Mapping[str, str], *, names: Mapping[str, str]) -> str:
+    """The name one ability binding carries: its own column, else the one it joins to.
+
+    The single rule both :func:`compute_current_digests` and
+    :mod:`pipeline.curate.assemble`'s key assembly read, so a key and its digest can never be
+    minted from two different readings of the same row.
+    """
+    own = strip_field(fields.get("name", ""), field="ability.name").text
+    if own:
+        return own
+    return names.get(fields.get("ability_id", "").strip(), "")
+
+
 def compute_current_digests(detail: Mapping[str, CsvReadResult], *, key: bytes) -> dict[str, str]:
     """The current mechanic digest per ability key, joined from the detail source.
 
@@ -227,9 +289,11 @@ def compute_current_digests(detail: Mapping[str, CsvReadResult], *, key: bytes) 
             if ability_id and ability_id not in by_ability_id:
                 by_ability_id[ability_id] = row.fields.get("description", "")
 
+    names = ability_name_index(detail)
+
     digests: dict[str, str] = {}
     for row in bindings.rows:
-        name = strip_field(row.fields.get("name", ""), field="ability.name").text
+        name = resolve_binding_name(row.fields, names=names)
         if not name:
             continue
         ability_type, _finding = classify(row.fields.get("type", ""))

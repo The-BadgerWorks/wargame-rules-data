@@ -52,6 +52,10 @@
 # DETACHMENT_ABILITIES_FILE's comment now that it has joined EXPORT_FILES under the csv arm too.
 # AI-Assisted: Claude Code (model: claude-opus-5) - 010 R5: dropped the
 # `carried_forward_detail_ids` pass-through along with the per-faction carry-forward mechanism.
+# AI-Assisted: Claude Code (model: claude-opus-5) - Resolved Core and Faction ability names
+# through `Abilities.csv` (010 R6): the binding rows carry an empty `name` and a populated
+# `ability_id`, so the key loop bound 0 `core:` keys against the published tree's 2 422, and
+# an unresolvable binding is now DQ-MALFORMED-ROW rather than a silent `continue`.
 """Build one :class:`~pipeline.models.curated.CuratedSnapshot` from everything upstream.
 
 This is where the two sources stop being two sources. The **points** source is authoritative for
@@ -82,7 +86,11 @@ from dataclasses import dataclass, field
 from typing import Final
 
 from pipeline.curate.authored import AuthoredContent
-from pipeline.curate.summaries import detachment_rule_key
+from pipeline.curate.summaries import (
+    ability_name_index,
+    detachment_rule_key,
+    resolve_binding_name,
+)
 from pipeline.models.authored import OptionOverrideChoice
 from pipeline.models.curated import (
     ArmyRuleState,
@@ -656,10 +664,25 @@ def _detail_datasheet_fields(
         "dedicated transport" in keyword_set or role_key in _TRANSPORT_ROLES
     )
 
+    # A Core or Faction binding states no name of its own — the export publishes it once, in
+    # `Abilities.csv`, and the binding joins to it by `ability_id` (010 R6: 2 015 Core and 1 437
+    # of 1 442 Faction rows live). Reading the binding's own column alone bound zero `core:` keys
+    # against the published tree's 2 422, and said nothing about it.
+    ability_names = ability_name_index(detail)
     ability_keys: list[str] = []
     for binding in detail["Datasheets_abilities.csv"].grouped_by("datasheet_id").get(detail_id, []):
-        name = strip_field(binding.fields.get("name", ""), field="ability.name").text
+        name = resolve_binding_name(binding.fields, names=ability_names)
         if not name:
+            # Reported, not skipped in silence: a binding that names nothing and joins to
+            # nothing is a defect in the export, and five rounds passed without anyone seeing it
+            # because this branch was a bare `continue`.
+            findings.append(
+                build_finding(
+                    "DQ-MALFORMED-ROW",
+                    entity_refs=[f"wahapedia:{detail_id}"],
+                    detail={"file_name": "Datasheets_abilities.csv", "field": "name"},
+                )
+            )
             continue
         ability_type, finding = classify(
             binding.fields.get("type", ""), entity_ref=f"wahapedia:{detail_id}"
