@@ -79,7 +79,7 @@ never touched the changed code, a "same output" test asserting only `exit_code =
 ## Build and test
 
 ```bash
-pytest                             # full suite; last known good 2270 passed / 8 skipped
+pytest                             # last known good 2338 passed / 8 skipped / 6 xfailed
 ruff check . && ruff format --check .
 mypy                               # strict, packages = ["pipeline"]
 ```
