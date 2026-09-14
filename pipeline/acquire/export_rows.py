@@ -24,6 +24,14 @@
 # reaches the equipment table (reserving the ordinal) and `curate/assemble.py` counts it as
 # unparsed. `ambiguous_equipment_sentences` is removed; the refused count is read back off the
 # `""` positions already in `sentences`.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - 010 round 4 task 1: the live export's
+# `Datasheets_options.csv` carries a `button` column the retired html arm never had — `•` marks a
+# real option row, `*` marks a footnote the html arm's `<li>` walk never delivered to the options
+# grammar. `_is_option_row` now takes the row's fields (not just the description) and refuses a
+# footnote row before either existing check runs; `drop_non_option_rows` counts the routed rows
+# per datasheet and raises one `OPT-FOOTNOTE-ROW` finding per affected datasheet so the omission
+# is visible instead of silently lowering the denominator (a repeat of round 1's placeholder-row
+# decision, at the reader boundary, never in the grammar).
 """Row routing for the bulk-export reader — which table a row belongs in, and whether it is a
 row at all.
 
@@ -35,6 +43,7 @@ different heading than the one the grammar reads. The grammars stay mode-blind a
 from __future__ import annotations
 
 import re
+from collections.abc import Mapping
 from dataclasses import replace
 from typing import Final
 
@@ -54,24 +63,54 @@ _NONE_TEXT: Final = "none"
 _DEFAULT_EQUIPMENT_SENTENCE: Final = re.compile(r"\bis equipped with\s*:", re.IGNORECASE)
 _GRANTS_A_CHOICE: Final = re.compile(r"\bcan\b", re.IGNORECASE)
 
+#: The export's own bullet column. ``•`` is an option row; ``*`` is a footnote the html arm's
+#: ``<li>`` walk never delivered to the grammar (55 of 2747 live rows, 2026-09-14). Routing it
+#: out here is a denominator decision, the same one round 1 made for the placeholder row.
+_FOOTNOTE_BUTTON: Final = "*"
 
-def _is_option_row(description: str) -> bool:
-    text = description.strip()
+
+def _is_option_row(fields: Mapping[str, str]) -> bool:
+    if fields.get("button", "").strip() == _FOOTNOTE_BUTTON:
+        return False
+    text = fields.get("description", "").strip()
     if text.rstrip(".").strip().casefold() == _NONE_TEXT:
         return False
     return not (_DEFAULT_EQUIPMENT_SENTENCE.search(text) and not _GRANTS_A_CHOICE.search(text))
 
 
 def drop_non_option_rows(detail: dict[str, CsvReadResult]) -> dict[str, CsvReadResult]:
-    """Remove the two ``<li>`` shapes the html extractor never handed to the options grammar."""
+    """Remove the two ``<li>`` shapes the html extractor never handed to the options grammar,
+    plus the export's own footnote rows (``button`` ``*``), which the html arm never had."""
     options = detail.get(OPTIONS_TABLE)
     if options is None:
         return detail
-    kept = tuple(row for row in options.rows if _is_option_row(row.fields.get("description", "")))
+    kept = []
+    footnote_counts: dict[str, int] = {}
+    for row in options.rows:
+        if _is_option_row(row.fields):
+            kept.append(row)
+            continue
+        if row.fields.get("button", "").strip() == _FOOTNOTE_BUTTON:
+            datasheet_id = row.fields.get("datasheet_id", "")
+            footnote_counts[datasheet_id] = footnote_counts.get(datasheet_id, 0) + 1
     if len(kept) == len(options.rows):
         return detail
+    new_findings = [
+        build_finding(
+            "OPT-FOOTNOTE-ROW",
+            entity_refs=[datasheet_id],
+            detail={
+                "datasheet_id": datasheet_id,
+                "rows": count,
+                "file_name": OPTIONS_TABLE,
+            },
+        )
+        for datasheet_id, count in footnote_counts.items()
+    ]
     updated = dict(detail)
-    updated[OPTIONS_TABLE] = replace(options, rows=kept)
+    updated[OPTIONS_TABLE] = replace(
+        options, rows=tuple(kept), findings=options.findings + tuple(new_findings)
+    )
     return updated
 
 

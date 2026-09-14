@@ -48,6 +48,9 @@
 # longer dropped — it reaches the equipment table as an empty description at its own ordinal, so
 # EQP-UNPARSED also fires for it and the datasheet's state is partial rather than none. Updated
 # EQP-BOUNDARY-AMBIGUOUS's text to describe delivery-as-empty-row instead of omission.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - 010 round 4 task 1: registered
+# OPT-FOOTNOTE-ROW for `pipeline/acquire/export_rows.py::drop_non_option_rows`'s new footnote-row
+# routing (the export's `button` `*`, html parity).
 """The finding catalogue.
 
 ``validation-report.md`` §1.1: **severity is a property of the code, not of the occurrence.** A
@@ -474,6 +477,16 @@ _DEFINITIONS: Final[tuple[FindingDefinition, ...]] = (
         "delivered as an empty row at its own ordinal rather than guessed, so the datasheet's "
         "state becomes partial, EQP-UNPARSED fires for the same row, later group ids keep their "
         "numbers, and a curator override is the resolution",
+    ),
+    _d(
+        "OPT-FOOTNOTE-ROW",
+        _DQ,
+        _A,
+        "010 spec §4.1",
+        "an option row the export marks as a footnote (`button` `*`) is routed out of the "
+        "options table so the datasheet's option state is judged on its option rows alone, as "
+        "the html arm judged it; the footnote's restriction is not published and is a "
+        "follow-up feature",
     ),
     _d(
         "EQP-GROUP-UNRESOLVED",

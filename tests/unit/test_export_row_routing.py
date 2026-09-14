@@ -12,6 +12,9 @@
 # refused sentence vanished from `split_equipment_sentences`'s output and from the equipment
 # table entirely; added coverage for a refused sentence between two resolved ones, and for the
 # equipment grammar counting an empty description as unparsed.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - 010 round 4 task 1: added coverage for the
+# export's own footnote marker (`button` `*`) being routed out of the options table alongside the
+# two shapes above, and for the one `OPT-FOOTNOTE-ROW` finding per affected datasheet.
 """``read_export_payloads`` reaches parity with the html arm's row routing (010 R1)."""
 
 from __future__ import annotations
@@ -67,6 +70,35 @@ def test_the_other_tables_are_not_touched_by_the_options_routing() -> None:
         ]
     )
     assert len(detail["Datasheets_keywords.csv"].rows) == 1
+
+
+_FOOTNOTE_TEXT = (
+    "datasheet_id|line|button|description|\n"
+    "CM03|1|•|This model can be equipped with 1 glow lantern.|\n"
+    "CM03|2|*|Invented footnote text about the lantern.|\n"
+    "CM04|1|•|Any number of models can each have their fen pike replaced with 1 tide axe.|\n"
+)
+
+
+def test_a_footnote_row_is_routed_out_of_the_options_table() -> None:
+    assert _options_rows(_FOOTNOTE_TEXT)["CM03"] == ["1"]
+
+
+def test_a_bullet_row_survives_footnote_routing() -> None:
+    assert _options_rows(_FOOTNOTE_TEXT)["CM04"] == ["1"]
+
+
+def test_footnote_routing_raises_one_finding_per_datasheet_with_the_row_count() -> None:
+    detail = read_export_payloads([FixturePayload(name=OPTIONS, text=_FOOTNOTE_TEXT)])
+    findings = detail[OPTIONS].findings  # type: ignore[attr-defined]
+    assert [f.finding_code for f in findings] == ["OPT-FOOTNOTE-ROW"]
+    assert findings[0].entity_refs == ("CM03",)
+    assert findings[0].detail["rows"] == 1
+
+
+def test_an_empty_or_bullet_button_never_routes_a_row() -> None:
+    """The existing fixture has an empty button column on every row; nothing may change."""
+    assert _options_rows()["CM04"] == ["1"]
 
 
 DATASHEETS = "Datasheets.csv"
