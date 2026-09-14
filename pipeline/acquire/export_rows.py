@@ -10,16 +10,14 @@
 # 1, so the two sources cannot mint colliding `(datasheet_id, line)` equipment-group ids
 # (Finding 2). Fix round 2: no code change — see the header note in
 # `tests/unit/test_export_row_routing.py` for the accepted, measured-at-zero residual this left.
-# AI-Assisted: Claude Code (model: claude-opus-5) - 010 round 1 final-review fix wave: the
-# fold-backward above is REVERSED (T1-1/T1-2). It appended a marker-less trailing sentence onto the
-# preceding loadout sentence, and `equipment_grammar._parse_items` then carried that prose inside
-# the LAST item's published `item_name`; it also deleted a marker-less buffer, losing the subject
-# clause when the false full stop preceded the marker. `split_equipment_sentences` now applies one
-# narrow rule instead: a line-break tag always ends a sentence, a full stop plus whitespace ends
-# one only when the word ending at that full stop is longer than three characters, and only
-# marker-bearing sentences are kept (a trailing non-equipment sentence is dropped, not folded).
-# The two-marker guard in `_split_on_suppressed` makes the length rule self-verifying. The
-# fix-round-2 pin test for the old misattribution is deleted: the misattribution no longer occurs.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - 010 round 2 task 1: the period heuristic
+# (`_PERIOD_GAP`, `_MIN_SENTENCE_FINAL_WORD_CHARS`, `_word_ending_at`, `_segment_block`,
+# `_split_on_suppressed`) is removed. Punctuation-length guessing could never tell an
+# abbreviation's full stop from a genuine sentence boundary; it is replaced with a boundary
+# anchored on the export's own markup — one bold subject per default-loadout sentence
+# (`_BOLD_OPEN`) — which needs no guess at all. A segment whose tail is still ambiguous after
+# tag-stripping (`_is_ambiguous`) is refused, not guessed either way, and reported as
+# `EQP-BOUNDARY-AMBIGUOUS` on the equipment table's findings so the omission is visible.
 """Row routing for the bulk-export reader — which table a row belongs in, and whether it is a
 row at all.
 
@@ -34,9 +32,11 @@ import re
 from dataclasses import replace
 from typing import Final
 
+from pipeline.models.findings import Finding
 from pipeline.models.source import WahapediaRow
 from pipeline.parse.equipment_grammar import EQUIPMENT_TABLE
 from pipeline.parse.wahapedia_csv import CsvReadResult
+from pipeline.report.catalogue import build_finding
 
 OPTIONS_TABLE: Final = "Datasheets_options.csv"
 DATASHEETS_TABLE: Final = "Datasheets.csv"
@@ -72,100 +72,72 @@ def drop_non_option_rows(detail: dict[str, CsvReadResult]) -> dict[str, CsvReadR
 #: The same marker ``equipment_grammar._MARKER`` and ``detail_source._EQUIPMENT_MARKER`` carry,
 #: kept as this module's own copy on the same terms they keep theirs.
 _EQUIPMENT_MARKER: Final = re.compile(r"\b(?:is|are)\s+equipped\s+with\s*:", re.IGNORECASE)
-#: A line-break tag: always a sentence boundary inside one ``loadout`` cell.
+#: A line-break tag inside a loadout cell is layout, never a sentence boundary: 20 live cells
+#: carry one inside a single item list. Replaced by a space before anything else looks at the text.
 _BR_TAG: Final = re.compile(r"<br\s*/?>", re.IGNORECASE)
-#: A full stop followed by whitespace: a boundary only when the word ending at that full stop is
-#: longer than :data:`_MIN_SENTENCE_FINAL_WORD_CHARS` characters. The whitespace alone is the cut,
-#: so the full stop stays with the sentence it ends.
-_PERIOD_GAP: Final = re.compile(r"(?<=\.)\s+")
-#: An abbreviation short enough to be one ("Mk.") does not end a sentence; a word longer than this
-#: does. Measured against the ambiguous class this round counted in the live export, and made
-#: self-verifying by the two-marker guard in :func:`split_equipment_sentences` rather than trusted.
-_MIN_SENTENCE_FINAL_WORD_CHARS: Final = 3
+#: The export states each default-loadout sentence with its subject in bold. Measured 2026-09-14
+#: on the live export: 1636 of 1653 cells are exactly one bold subject per sentence. Splitting on
+#: the opening tag (zero-width, so the tag stays with its sentence) is the structural boundary.
+_BOLD_OPEN: Final = re.compile(r"(?=<b>)", re.IGNORECASE)
+_ANY_TAG: Final = re.compile(r"<[^>]+>")
+#: After the marker, a full stop followed by whitespace and three or more further words is
+#: ambiguous: a trailing sentence (which must never enter an item name) or an abbreviation inside
+#: an item name (which must never be cut). Ten of 1915 live sentences; refused, never guessed.
+_AMBIGUOUS_TAIL: Final = re.compile(r"\.\s+(?:\S+\s+){2}\S+")
 
 
-def _word_ending_at(text: str, period_index: int) -> str:
-    """The run of non-whitespace, non-full-stop characters immediately before ``period_index``.
+def _is_ambiguous(sentence: str) -> bool:
+    marker = _EQUIPMENT_MARKER.search(sentence)
+    if marker is None:
+        return False
+    tail = _ANY_TAG.sub("", sentence[marker.end() :]).strip()
+    return _AMBIGUOUS_TAIL.search(tail) is not None
 
-    An *empty* run — a full stop directly after whitespace, or after another full stop — is the
-    conservative branch: length 0 is not longer than the threshold, so the candidate is
-    **suppressed** and no text can be split off and dropped. The two-marker guard still recovers a
-    genuine boundary there, so suppressing costs nothing that the guard does not give back.
+
+def _bold_segments(text: str) -> list[str]:
+    """Cut at every opening bold tag, then re-join a tagless-marker segment onto its sentence.
+
+    A segment without the marker is one of two things: a separate sentence (the previous
+    segment ended with a full stop) — kept apart so it is dropped below — or emphasis inside the
+    previous sentence's item list (no full stop before it) — re-joined so no item is lost.
     """
-    start = period_index
-    while start > 0 and not text[start - 1].isspace() and text[start - 1] != ".":
-        start -= 1
-    return text[start:period_index]
-
-
-def _segment_block(block: str) -> list[tuple[str, list[tuple[int, int]]]]:
-    """One line-break-free block cut at its accepted full-stop boundaries.
-
-    Each result is the segment text plus the candidate boundaries inside it that rule 2
-    **suppressed**, as offsets into that segment, which is what the guard needs to undo a wrong
-    suppression. The word run is measured inside the block, so a line-break tag can never be read
-    as part of the word ending a sentence.
-    """
-    segments: list[tuple[str, list[tuple[int, int]]]] = []
-    start = 0
-    suppressed: list[tuple[int, int]] = []
-    for match in _PERIOD_GAP.finditer(block):
-        word = _word_ending_at(block, match.start() - 1)
-        if len(word) > _MIN_SENTENCE_FINAL_WORD_CHARS:
-            segments.append((block[start : match.start()], suppressed))
-            start, suppressed = match.end(), []
+    merged: list[str] = []
+    for segment in _BOLD_OPEN.split(_BR_TAG.sub(" ", text)):
+        if not segment.strip():
+            continue
+        if not merged or _EQUIPMENT_MARKER.search(segment):
+            merged.append(segment)
+            continue
+        previous_text = _ANY_TAG.sub("", merged[-1]).rstrip()
+        if previous_text.endswith("."):
+            merged.append(segment)
         else:
-            suppressed.append((match.start() - start, match.end() - start))
-    segments.append((block[start:], suppressed))
-    return segments
-
-
-def _split_on_suppressed(segment: str, suppressed: list[tuple[int, int]]) -> list[str]:
-    """The guard: a segment carrying two or more markers had a real boundary suppressed.
-
-    Two default-loadout statements never share one sentence, so a second marker occurrence proves
-    the length rule guessed wrong on a sentence whose final word is short. Split at the earliest
-    suppressed candidate lying between the first marker and the second — the only place the real
-    boundary can be — and re-check the tail, so three statements in a row resolve too.
-    """
-    markers = list(_EQUIPMENT_MARKER.finditer(segment))
-    if len(markers) < 2:
-        return [segment]
-    for index, (cut_start, cut_end) in enumerate(suppressed):
-        if markers[0].end() <= cut_start <= markers[1].start():
-            tail = segment[cut_end:]
-            tail_suppressed = [(s - cut_end, e - cut_end) for s, e in suppressed[index + 1 :]]
-            return [segment[:cut_start], *_split_on_suppressed(tail, tail_suppressed)]
-    return [segment]
+            merged[-1] += segment
+    return merged
 
 
 def split_equipment_sentences(text: str) -> tuple[str, ...]:
     """Every sentence of ``text`` that states a default loadout, in text order.
 
-    Two rules and one guard, and deliberately nothing else:
-
-    1. A line-break tag is always a sentence boundary.
-    2. A full stop followed by whitespace is a boundary only when the word ending at that full
-       stop is longer than three characters, so an abbreviation-style internal full stop
-       ("Mk. II blade") neither truncates the item list nor deletes the subject clause before the
-       marker — the clause the equipment linker reads to attribute the equipment.
-    3. Only the resulting sentences that carry the equipment marker are kept. A genuine trailing
-       non-equipment sentence is **dropped**, never folded onto the loadout sentence before it:
-       folding it put publisher prose inside a published ``item_name``, because the equipment
-       grammar reads whatever trails the last list item as part of that item's name.
-
-    The guard makes rule 2 self-verifying instead of a bare guess: a kept sentence holding two or
-    more marker occurrences means rule 2 suppressed a real boundary, so it is split there after
-    all (:func:`_split_on_suppressed`).
+    Boundaries come from the export's own markup (one bold subject per sentence), never from
+    punctuation. A segment carrying no marker is dropped. A segment whose tail is ambiguous
+    (:func:`_is_ambiguous`) is dropped here too; :func:`derive_equipment_from_loadout` reports
+    it as ``EQP-BOUNDARY-AMBIGUOUS`` so the omission is visible, not silent.
     """
-    sentences: list[str] = []
-    for block in _BR_TAG.split(text):
-        for segment, suppressed in _segment_block(block):
-            for piece in _split_on_suppressed(segment, suppressed):
-                stripped = piece.strip()
-                if stripped and _EQUIPMENT_MARKER.search(stripped):
-                    sentences.append(stripped)
-    return tuple(sentences)
+    return tuple(
+        segment.strip()
+        for segment in _bold_segments(text)
+        if _EQUIPMENT_MARKER.search(segment) and not _is_ambiguous(segment)
+    )
+
+
+def ambiguous_equipment_sentences(text: str) -> int:
+    """How many marker-bearing segments of ``text`` :func:`split_equipment_sentences` refused."""
+    return sum(
+        1
+        for segment in _bold_segments(text)
+        if _EQUIPMENT_MARKER.search(segment) and _is_ambiguous(segment)
+    )
 
 
 def derive_equipment_from_loadout(detail: dict[str, CsvReadResult]) -> dict[str, CsvReadResult]:
@@ -203,11 +175,25 @@ def derive_equipment_from_loadout(detail: dict[str, CsvReadResult]) -> dict[str,
                 next_line[existing_id] = existing_line
 
     derived: list[WahapediaRow] = []
+    boundary_findings: list[Finding] = []
     for row in datasheets.rows:
         datasheet_id = row.fields.get("id", "")
         if not datasheet_id:
             continue
         sentences = split_equipment_sentences(row.fields.get("loadout", ""))
+        refused = ambiguous_equipment_sentences(row.fields.get("loadout", ""))
+        if refused:
+            boundary_findings.append(
+                build_finding(
+                    "EQP-BOUNDARY-AMBIGUOUS",
+                    entity_refs=[datasheet_id],
+                    detail={
+                        "datasheet_id": datasheet_id,
+                        "refused_sentences": refused,
+                        "file_name": EQUIPMENT_TABLE,
+                    },
+                )
+            )
         if not sentences:
             continue
         start = next_line.get(datasheet_id, 0)
@@ -225,7 +211,7 @@ def derive_equipment_from_loadout(detail: dict[str, CsvReadResult]) -> dict[str,
                 )
             )
         next_line[datasheet_id] = start + len(sentences)
-    if not derived:
+    if not derived and not boundary_findings:
         return detail
     updated = dict(detail)
     updated[EQUIPMENT_TABLE] = CsvReadResult(
@@ -233,6 +219,6 @@ def derive_equipment_from_loadout(detail: dict[str, CsvReadResult]) -> dict[str,
         field_names=("datasheet_id", "line", "description"),
         rows=(existing.rows if existing else ()) + tuple(derived),
         repairs=existing.repairs if existing else 0,
-        findings=existing.findings if existing else (),
+        findings=(existing.findings if existing else ()) + tuple(boundary_findings),
     )
     return updated

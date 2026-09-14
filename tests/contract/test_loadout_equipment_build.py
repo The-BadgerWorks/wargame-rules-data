@@ -74,3 +74,20 @@ def test_a_loadout_sentence_reaches_the_bundle_as_extracted_equipment(tmp_path: 
         "the bundle is identical with and without a loadout sentence: the loadout reader is not "
         "wired through run_build"
     )
+
+
+def test_an_ambiguous_loadout_sentence_surfaces_as_a_finding_in_the_build(tmp_path: Path) -> None:
+    fixtures = _fixture_with_loadout(
+        tmp_path / "f",
+        "<b>Every model</b> is equipped with: glow lantern. Some invented trailing prose here.",
+    )
+    result = run_build(
+        config=load_config(env={}),
+        rules_version_id="fixture-ambiguous",
+        fixtures_dir=fixtures,
+        offline=True,
+        output_root=tmp_path / "out",
+        repository_root=_empty_repo(tmp_path / "repo"),
+    )
+    codes = [f.finding_code for f in result.findings]
+    assert "EQP-BOUNDARY-AMBIGUOUS" in codes, codes

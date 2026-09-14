@@ -40,6 +40,10 @@
 # R05-fix item 4, but it was absent here, so `definition("SRC-STATE-CORRUPT")` raised
 # `UnknownFindingCodeError` -- unlike every other `finding_code` in `pipeline/`. Given the same
 # class and severity as its acquire-stage siblings SRC-UNREACHABLE and SRC-REFUSED.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - Registered EQP-BOUNDARY-AMBIGUOUS (010 R2
+# task 1, spec §4.2): the advisory `pipeline/acquire/export_rows.py::derive_equipment_from_loadout`
+# raises when a loadout sentence's tail is structurally ambiguous between a trailing sentence and
+# an in-item abbreviation, and the row is refused rather than guessed.
 """The finding catalogue.
 
 ``validation-report.md`` §1.1: **severity is a property of the code, not of the occurrence.** A
@@ -455,6 +459,16 @@ _DEFINITIONS: Final[tuple[FindingDefinition, ...]] = (
         "006 FR-012, FR-015",
         "a default-equipment sentence resolved to no production; the datasheet's state becomes "
         "partial and what did resolve still ships, reported by shape and never by quotation",
+    ),
+    _d(
+        "EQP-BOUNDARY-AMBIGUOUS",
+        _DQ,
+        _A,
+        "010 spec §4.2",
+        "a default-equipment sentence in the export's loadout column carries text after an "
+        "internal full stop that could be either a trailing sentence or part of an item name; "
+        "the row is refused rather than guessed, the datasheet's state becomes partial, and a "
+        "curator override is the resolution",
     ),
     _d(
         "EQP-GROUP-UNRESOLVED",
