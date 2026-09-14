@@ -6,6 +6,12 @@
 # spaces; (5) segments ambiguous after tag-stripping are refused and reported as
 # EQP-BOUNDARY-AMBIGUOUS; (6) loadout-derived line numbers start one past the highest
 # composition-derived line for that datasheet_id. All fixture text is invented.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - 010 round 3 task 1: a refused sentence now
+# keeps its ordinal as an empty-description row instead of being dropped, so the datasheet
+# publishes `partial` (never `extracted` or `none`). Amended the three tests that asserted the
+# refused sentence vanished from `split_equipment_sentences`'s output and from the equipment
+# table entirely; added coverage for a refused sentence between two resolved ones, and for the
+# equipment grammar counting an empty description as unparsed.
 """``read_export_payloads`` reaches parity with the html arm's row routing (010 R1)."""
 
 from __future__ import annotations
@@ -198,7 +204,7 @@ def test_an_abbreviation_style_full_stop_inside_an_item_name_is_refused_never_tr
     """After tag stripping, an abbreviation and a trailing sentence are the same shape. The rule
     refuses both (visible, curator-resolvable) rather than cutting the item name (silent, wrong)."""
     cell = "<b>Every model</b> is equipped with: Mk. II glow lantern; tide axe."
-    assert split_equipment_sentences(cell) == ()
+    assert split_equipment_sentences(cell) == ("",)
 
 
 def test_a_lead_in_before_the_first_bold_subject_is_dropped_not_folded() -> None:
@@ -228,7 +234,7 @@ def test_a_sentence_with_untagged_trailing_prose_is_refused_not_guessed() -> Non
     """Three or more words after an internal full stop: could be prose (must not enter an item
     name) or an abbreviation (must not be cut). Neither is guessed; the row is refused."""
     cell = "<b>Every model</b> is equipped with: glow lantern. Some invented trailing prose here."
-    assert split_equipment_sentences(cell) == ()
+    assert split_equipment_sentences(cell) == ("",)
 
 
 def test_a_refused_sentence_raises_the_boundary_finding_on_the_equipment_table() -> None:
@@ -239,4 +245,26 @@ def test_a_refused_sentence_raises_the_boundary_finding_on_the_equipment_table()
     findings = detail[EQUIPMENT_TABLE].findings  # type: ignore[attr-defined]
     assert [f.finding_code for f in findings] == ["EQP-BOUNDARY-AMBIGUOUS"]
     assert findings[0].entity_refs == ("CM03",)
-    assert not [r for r in detail[EQUIPMENT_TABLE].rows if r.fields["datasheet_id"] == "CM03"]  # type: ignore[attr-defined]
+    rows = [r for r in detail[EQUIPMENT_TABLE].rows if r.fields["datasheet_id"] == "CM03"]  # type: ignore[attr-defined]
+    assert len(rows) == 1
+    fields = rows[0].fields
+    assert fields["line"] == "1"
+    assert fields["description"] == ""
+
+
+def test_a_refused_second_sentence_keeps_the_third_sentence_on_line_3() -> None:
+    cell = (
+        "<b>Every model</b> is equipped with: glow lantern. "
+        "<b>The Leader</b> is equipped with: fen pike. Some invented trailing prose here. "
+        "<b>The Herald</b> is equipped with: tide axe."
+    )
+    rows = _equipment_rows({"CM03": cell})["CM03"]
+    assert [line for line, _ in rows] == ["1", "2", "3"]
+    assert rows[1][1] == ""
+    assert rows[2][1].endswith("tide axe.")
+
+
+def test_a_refused_row_is_counted_by_the_equipment_grammar_as_unparsed() -> None:
+    from pipeline.parse.equipment_grammar import parse_sentence
+
+    assert parse_sentence("") is None

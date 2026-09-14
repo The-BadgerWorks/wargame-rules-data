@@ -15,6 +15,15 @@
 # (`_BOLD_OPEN`) — which needs no guess at all. A segment whose tail is still ambiguous after
 # tag-stripping (`_is_ambiguous`) is refused, not guessed either way, and reported as
 # `EQP-BOUNDARY-AMBIGUOUS` on the equipment table's findings so the omission is visible.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - 010 round 3 task 1: a refused sentence used
+# to be dropped from `split_equipment_sentences`'s output entirely, which let later sentences on
+# the same datasheet shift into its ordinal and let `derive_equipment_from_loadout` see zero
+# source rows for a datasheet that in fact had one — publishing it as `none` (or `extracted`, if
+# every other sentence on the card resolved) instead of `partial`. `split_equipment_sentences`
+# now yields `""` at the refused sentence's own position instead of omitting it, so the row still
+# reaches the equipment table (reserving the ordinal) and `curate/assemble.py` counts it as
+# unparsed. `ambiguous_equipment_sentences` is removed; the refused count is read back off the
+# `""` positions already in `sentences`.
 """Row routing for the bulk-export reader — which table a row belongs in, and whether it is a
 row at all.
 
@@ -114,26 +123,16 @@ def _bold_segments(text: str) -> list[str]:
 
 
 def split_equipment_sentences(text: str) -> tuple[str, ...]:
-    """Every sentence of ``text`` that states a default loadout, in text order.
+    """Every default-loadout sentence of ``text`` in text order — a refused one as ``""``.
 
-    Boundaries come from the export's own markup (one bold subject per sentence), never from
-    punctuation. A segment carrying no marker is dropped. A segment whose tail is ambiguous
-    (:func:`_is_ambiguous`) is dropped here too; :func:`derive_equipment_from_loadout` reports
-    it as ``EQP-BOUNDARY-AMBIGUOUS`` so the omission is visible, not silent.
+    The empty string keeps the sentence's position, so the row emitted for it reserves its
+    ordinal (later ``eq-…`` ids do not move) and ``curate/assemble.py`` counts it as unparsed
+    (the datasheet's state is ``partial``, never ``extracted`` or ``none``).
     """
     return tuple(
-        segment.strip()
+        "" if _is_ambiguous(segment) else segment.strip()
         for segment in _bold_segments(text)
-        if _EQUIPMENT_MARKER.search(segment) and not _is_ambiguous(segment)
-    )
-
-
-def ambiguous_equipment_sentences(text: str) -> int:
-    """How many marker-bearing segments of ``text`` :func:`split_equipment_sentences` refused."""
-    return sum(
-        1
-        for segment in _bold_segments(text)
-        if _EQUIPMENT_MARKER.search(segment) and _is_ambiguous(segment)
+        if _EQUIPMENT_MARKER.search(segment)
     )
 
 
@@ -178,7 +177,7 @@ def derive_equipment_from_loadout(detail: dict[str, CsvReadResult]) -> dict[str,
         if not datasheet_id:
             continue
         sentences = split_equipment_sentences(row.fields.get("loadout", ""))
-        refused = ambiguous_equipment_sentences(row.fields.get("loadout", ""))
+        refused = sum(1 for sentence in sentences if not sentence)
         if refused:
             boundary_findings.append(
                 build_finding(
