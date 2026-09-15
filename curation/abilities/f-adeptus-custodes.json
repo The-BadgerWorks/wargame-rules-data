@@ -133,12 +133,15 @@
   },
   {
     "ability_key": "datasheet:devoted-to-destruction",
-    "mechanic_digest": "349dc8689484a930bbb6bf77ae7e0613",
+    "mechanic_digest": "5dff976a8aa29e2aef568b1c1d340d8d",
     "name": "Devoted to Destruction",
     "review_state": "approved",
-    "reviewed_at": "2026-08-06T00:00:00Z",
-    "reviewed_by": "claude-opus-5-adversarial-reviewer",
-    "summary": "Add 2 to the Attacks of this model's Telemon caestus weapons, but only while it carries two of them alongside its armoured feet weapon."
+    "reviewed_at": "2026-09-15T15:44:22Z",
+    "reviewed_by": "claude-fable-5-1-manager-hand-review",
+    "summary": "If this model is equipped with two melee weapons in addition to its close combat weapon, add 2 to the Attacks characteristic of those two weapons.",
+    "authored_against_acquisition": "wahapedia-20260915T154300Z-ae4bfdaf",
+    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
+    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation"
   },
   {
     "ability_key": "datasheet:disintegration-beams",

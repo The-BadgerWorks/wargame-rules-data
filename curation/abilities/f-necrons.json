@@ -25,12 +25,15 @@
   },
   {
     "ability_key": "core:deadly-demise-d6-3-szarekh-model-only",
-    "mechanic_digest": "687ffc1b1f643f9a8bf384cb7ee385f8",
+    "mechanic_digest": "d52a3cc9f80dc2d0442b1fee51ed8c53",
     "name": "Deadly Demise D6+3 (Szarekh model only)",
     "review_state": "approved",
-    "reviewed_at": "2026-08-06T00:00:00Z",
-    "reviewed_by": "claude-opus-5-second-reviewer",
-    "summary": "Deadly Demise X: each time a model in this unit is destroyed, roll one D6; on a 6 each unit within 6\" suffers X mortal wounds (here D6+3, Szarekh model only), rolled separately for each unit."
+    "reviewed_at": "2026-09-15T15:44:22Z",
+    "reviewed_by": "claude-fable-5-1-manager-hand-review",
+    "summary": "Deadly Demise D6+3 (Szarekh model only): when this model is destroyed, after any embarked units make their emergency disembark moves, roll one D6. On a 6, each unit within 6\" suffers D6+3 mortal wounds, rolled separately for each unit.",
+    "authored_against_acquisition": "wahapedia-20260915T154300Z-ae4bfdaf",
+    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
+    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation"
   },
   {
     "ability_key": "core:scouts-8",

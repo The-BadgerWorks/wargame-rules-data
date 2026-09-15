@@ -1093,11 +1093,14 @@
   },
   {
     "ability_key": "faction:acts-of-faith",
-    "mechanic_digest": "e7ac45820c26ab32311d1818ed9dc5de",
+    "mechanic_digest": "3fe1ca09afd1b2c62eca5d7ae23d5d8d",
     "name": "Acts of Faith",
     "review_state": "approved",
-    "reviewed_at": "2026-08-06T00:00:00Z",
-    "reviewed_by": "claude-opus-5-second-reviewer",
-    "summary": "You gain and roll 1 Miracle dice each battle round and 1 whenever an Adepta Sororitas unit of yours is destroyed. Once per phase a unit with this ability can swap one into an Advance, Charge, Battle-shock, Hit, Wound, Save or Damage roll."
+    "reviewed_at": "2026-09-15T15:44:22Z",
+    "reviewed_by": "claude-fable-5-1-manager-hand-review",
+    "summary": "If your Army Faction is Adepta Sororitas: gain 1 Miracle dice at the start of each turn and each time an Adepta Sororitas unit of yours is destroyed; roll each when gained and keep its value in your pool. Before a unit with this ability makes an Advance roll, Battle-shock test, Charge roll, Damage roll, Hit roll, saving throw or Wound roll, it can perform one Act of Faith per phase: substitute one Miracle dice for one dice of that roll, which counts as an unmodified roll of that value.",
+    "authored_against_acquisition": "wahapedia-20260915T154300Z-ae4bfdaf",
+    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
+    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation"
   }
 ]

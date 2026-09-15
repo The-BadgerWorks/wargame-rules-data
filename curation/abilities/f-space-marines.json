@@ -1534,21 +1534,26 @@
   },
   {
     "ability_key": "faction:oath-of-moment",
-    "mechanic_digest": "5cc1b5c4c34cc1ca6098836852d48897",
+    "mechanic_digest": "0a94a8711a631efe0789a520ee516646",
     "name": "Oath of Moment",
     "review_state": "approved",
-    "summary": "At the start of your Command phase, select an enemy unit as your Oath of Moment target until your next Command phase. Your models with this ability re-roll the Hit roll against it; if your detachment is a Codex: Space Marines Detachment fielding no Blood Angels, Dark Angels, Deathwatch, or Space Wolves units, also add 1 to the Wound roll.",
-    "authored_against_acquisition": "wahapedia-20260818T020405Z-2a890ad0",
-    "reviewed_by": "adhoxx",
-    "reviewed_at": "2026-08-18T00:00:00Z"
+    "summary": "If your Army Faction is Adeptus Astartes, at the start of your Command phase select one enemy unit as your Oath of Moment target until your next Command phase. Each time a model with this ability attacks that target you can re-roll the Hit roll. If you use a Codex: Space Marines Detachment and your army includes no Black Templars, Blood Angels, Dark Angels, Deathwatch or Space Wolves units, also add 1 to the Wound roll.",
+    "authored_against_acquisition": "wahapedia-20260915T154300Z-ae4bfdaf",
+    "reviewed_by": "claude-fable-5-1-manager-hand-review",
+    "reviewed_at": "2026-09-15T15:44:22Z",
+    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
+    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation"
   },
   {
     "ability_key": "faction:templar-vows",
-    "mechanic_digest": "02143fb023d8ff14aef8fb49707c7f1a",
+    "mechanic_digest": "bff3e98e18c497804849694f4412c815",
     "name": "Templar Vows",
     "review_state": "approved",
-    "summary": "Pick one Vow in round 1; it applies to Adeptus Astartes units all battle. Abhor the Witch: melee attacks on Psykers gain Precision; charges declared with an enemy Psyker within 12in may re-roll, but must end engaged with one. Accept Any Challenge: +1 to melee Wound rolls when attack S does not exceed target T. Suffer Not the Unclean: may charge after Falling Back; Pile-in/Consolidate moves need only end as close as possible to the nearest enemy unit. Uphold the Honour: Infantry on your objective at the end of your Command phase hold it until the opponent out-controls you, and may start Actions after Advancing.",
-    "reviewed_by": "adhoxx",
-    "reviewed_at": "2026-08-06T00:00:00Z"
+    "summary": "If your Army Faction is Adeptus Astartes, at the start of the first battle round select one Vow; while it is active, Adeptus Astartes units from your army have its ability. Abhor the Witch: melee attacks against Psykers have Precision, and a charge declared with an enemy Psyker within 12\" can be re-rolled but must end engaged with one. Accept Any Challenge: +1 to melee Wound rolls when the attack's Strength does not exceed the target's Toughness. Suffer Not the Unclean: can charge after Falling Back, and Pile-in and Consolidate moves need only end as close as possible to the nearest enemy. Uphold the Honour: Infantry on an objective you control at the end of your Command phase keep it until the opponent out-controls you, and can start Actions after Advancing.",
+    "reviewed_by": "claude-fable-5-1-manager-hand-review",
+    "reviewed_at": "2026-09-15T15:44:22Z",
+    "authored_against_acquisition": "wahapedia-20260915T154300Z-ae4bfdaf",
+    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
+    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation"
   }
 ]
