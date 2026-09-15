@@ -2,6 +2,9 @@
 # drafting and reviewing passes of the Owner's amended standing rule 3. These are OUR
 # instructions, authored here; no publisher wording appears in this file, and the rules it lays
 # down are the ones that keep publisher wording out of what comes back.
+# AI-Assisted: Claude Code (model: claude-opus-5) - 010 R7 task 2 fix round 1: `draft_user` takes
+# an optional `hint` and appends the reviewing pass's reason code as one instruction line, so the
+# standing instructions stay byte-identical between a first attempt and a redraft.
 """The two system prompts, and the two user messages that carry one entry's text.
 
 Standing rule 3 (amended 2026-09-14) permits a summary to be machine-drafted from the export's
@@ -71,13 +74,43 @@ _CLASS_LABEL: Final[dict[str, str]] = {
 }
 
 
+#: How a redraft hint is named to the model. One line, appended after the entry, because the
+#: reviewing pass's reason code is a closed set of OUR own codes: it says why the previous
+#: attempt was sent back, and nothing about it is publisher material.
+_HINT_LABEL: Final[dict[str, str]] = {
+    "meaning-changed": "changed, dropped or added meaning",
+    "too-long": "exceeded the character limit",
+    "lore-present": "carried lore, flavour or world text",
+    "ok": "was sent back without a stated reason",
+}
+
+
 def draft_user(
     name: str,
     mechanic_text: str,
     ability_class: Literal["ability", "detachment_rule"],
+    *,
+    hint: str | None = None,
 ) -> str:
-    """The user message for the drafting pass."""
-    return f"Entry class: {_CLASS_LABEL[ability_class]}\nName: {name}\nRules text:\n{mechanic_text}"
+    """The user message for the drafting pass.
+
+    ``hint`` is the reviewing pass's reason code from a previous attempt at this same entry
+    (010 R7 task 2 fix round 1). It is appended as **one instruction line** rather than folded
+    into the system prompt, so the standing instructions are byte-identical on a first attempt
+    and on a redraft, and the only difference is the stated reason the first was rejected. An
+    unrecognised code is passed through as itself rather than dropped: a code outside the
+    closed set is a surprise worth seeing in the request, not worth silently discarding.
+    """
+    message = (
+        f"Entry class: {_CLASS_LABEL[ability_class]}\nName: {name}\nRules text:\n{mechanic_text}"
+    )
+    if hint:
+        described = _HINT_LABEL.get(hint, hint)
+        message += (
+            f"\n\nA previous attempt at this entry was rejected on review: it {described}. "
+            f"(reason code: {hint}) Draft it again and avoid that."
+        )
+    return message
 
 
 def review_user(name: str, mechanic_text: str, summary: str) -> str:

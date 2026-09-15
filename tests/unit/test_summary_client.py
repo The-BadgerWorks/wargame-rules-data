@@ -262,3 +262,48 @@ def test_the_two_model_variables_carry_their_documented_defaults() -> None:
     config = load_config(env={})
     assert config.draft_model == "claude-opus-5"
     assert config.review_model == "claude-sonnet-5"
+
+
+# -- (g) the redraft hint (010 R7 task 2 fix round 1) --------------------------------------------
+
+
+def test_a_draft_without_a_hint_sends_no_hint_line(httpx_mock: HTTPXMock) -> None:
+    """The additive parameter must not change what an existing caller sends."""
+    httpx_mock.add_response(
+        url=MESSAGES_URL, json=_reply({"summary": INVENTED_SUMMARY, "used_verbatim": False})
+    )
+
+    _client().draft(INVENTED_NAME, INVENTED_MECHANIC, ability_class="ability")
+
+    sent = json.dumps(json.loads(httpx_mock.get_requests()[0].content)["messages"])
+    assert "reason code" not in sent
+    assert "previous attempt" not in sent
+
+
+def test_the_redraft_hint_reaches_the_request_body(httpx_mock: HTTPXMock) -> None:
+    httpx_mock.add_response(
+        url=MESSAGES_URL, json=_reply({"summary": INVENTED_SUMMARY, "used_verbatim": False})
+    )
+
+    _client().draft(
+        INVENTED_NAME, INVENTED_MECHANIC, ability_class="ability", hint="meaning-changed"
+    )
+
+    body = json.loads(httpx_mock.get_requests()[0].content)
+    # The standing instructions are untouched; only the user message grew.
+    assert body["system"] == prompts.DRAFT_SYSTEM
+    sent = json.dumps(body["messages"])
+    assert "meaning-changed" in sent
+    assert "changed, dropped or added meaning" in sent
+    assert INVENTED_MECHANIC in sent
+
+
+def test_an_unrecognised_hint_is_passed_through_rather_than_dropped(httpx_mock: HTTPXMock) -> None:
+    httpx_mock.add_response(
+        url=MESSAGES_URL, json=_reply({"summary": INVENTED_SUMMARY, "used_verbatim": False})
+    )
+
+    _client().draft(INVENTED_NAME, INVENTED_MECHANIC, ability_class="ability", hint="invented-code")
+
+    sent = json.dumps(json.loads(httpx_mock.get_requests()[0].content)["messages"])
+    assert "invented-code" in sent

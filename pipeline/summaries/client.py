@@ -5,6 +5,9 @@
 # through `PoliteClient`, which refuses any host outside the declared source set by design, and
 # it never logs the request body: the body is the one place an export's rules text exists in
 # this process, and standing rule 2 keeps it out of logs, reports and history.
+# AI-Assisted: Claude Code (model: claude-opus-5) - 010 R7 task 2 fix round 1: `draft` takes an
+# additive keyword-only `hint`, the reviewing pass's reason code from a previous attempt, so a
+# redraft says why the first was sent back instead of being an undirected second sample.
 """The drafting client.
 
 Two calls, one transport. :meth:`SummaryClient.draft` asks a model to restate one mechanic;
@@ -160,11 +163,19 @@ class SummaryClient:
         mechanic_text: str,
         *,
         ability_class: Literal["ability", "detachment_rule"],
+        hint: str | None = None,
     ) -> Draft:
-        """Restate one mechanic as a summary, or return it verbatim if restating would change it."""
+        """Restate one mechanic as a summary, or return it verbatim if restating would change it.
+
+        ``hint`` (010 R7 task 2 fix round 1) is the reviewing pass's reason code from a previous
+        attempt at this same entry. Additive and keyword-only: every existing caller is
+        unaffected, and omitting it produces byte-identical request content to before. It is one
+        of our own four closed reason codes, never publisher material, so appending it to the
+        user message carries nothing out of the workspace that was not already going in.
+        """
         payload = self._exchange(
             prompts.DRAFT_SYSTEM,
-            prompts.draft_user(name, mechanic_text, ability_class),
+            prompts.draft_user(name, mechanic_text, ability_class, hint=hint),
             purpose="draft",
         )
         reply = _validate(_DraftReply, payload)

@@ -3,27 +3,40 @@
 # task 2): drives the Task-1 `SummaryClient` over a build report's outstanding summary findings
 # and writes CANDIDATE records to a scratch directory for the Owner to read. It never writes
 # `curation/` — a human does that, later, in a separate PR — and it refuses an `--out` that
-# resolves inside the repository's curation tree (amended standing rule 3, 2026-09-14; rule 4).
+# resolves inside the curation tree (amended standing rule 3, 2026-09-14; rule 4).
+# AI-Assisted: Claude Code (model: claude-opus-5) - 010 R7 task 2 fix round 1: the attribution
+# pair is written for every candidate whose key is already approved in `curation/` (not only the
+# carried-approval path, which left a redrafted re-review candidate failing
+# `check_summary_approvals.py`); the detachment id is resolved from the BUILD rather than
+# re-slugged from the CSV name; the run is resumable, writes per class, survives a `DraftingError`
+# with its partial results on disk, and files an invalid record rather than losing the batch;
+# candidates are laid out per faction; `-UNAPPROVED` is left to the human who owns that draft.
 """Draft candidate summaries for the entries a build reported as outstanding.
 
 Standing rule 3 was amended on 2026-09-14: a summary may be **machine-drafted** from the
 export's rules text, reviewed by a second model pass, and **approved by the Owner before
-merge**. This tool is the drafting half of that, and nothing else. Read the three sentences it
+merge**. This tool is the drafting half of that, and nothing else. Read the four sentences it
 is built around:
 
 * **It produces candidates, never curation.** Every record lands under ``--out``, which must
-  resolve outside the repository's ``curation/`` tree or the run refuses before it starts. The
-  Owner reads the candidates and copies what they approve into ``curation/`` by hand, in a
-  separate pull request, which is where ``tools/check_summary_approvals.py`` meets them
-  (standing rules 4 and 5, FR-017).
+  resolve outside the curation tree of both ``--repo`` and this checkout, or the run refuses
+  before it starts. The Owner reads the candidates and copies what they approve into
+  ``curation/`` by hand, in a separate pull request, which is where
+  ``tools/check_summary_approvals.py`` meets them (standing rules 4 and 5, FR-017).
 * **The export's rules text never leaves the workspace.** The acquisition, the join, and every
   API call happen inside one ``with workspace(...)`` block — the shape
   ``tools/churn_dry_run.py`` already uses — and what comes back out is a digest, a
-  model-authored summary, and counts. Stdout carries **keys, counts and verdict codes only**:
-  no mechanic text, no digest, no configured secret.
-* **It spends money, so it asks first.** Before the first call it prints how many calls the
-  work list implies and an order-of-magnitude token estimate, and waits for ``--yes`` or an
-  interactive ``y``. A non-interactive run without ``--yes`` refuses rather than proceeding.
+  model-authored summary, and counts. Stdout carries **keys, counts and outcome labels only**:
+  no mechanic text, no summary, no digest, no configured secret.
+* **It spends money, so it asks first — and never spends it twice.** Before the first call it
+  prints how many calls the work list implies and an order-of-magnitude token estimate, and
+  waits for ``--yes`` or an interactive ``y``. Keys already drafted into ``--out`` by an earlier
+  invocation are skipped, each class is written as it finishes, and a ``DraftingError`` keeps
+  every candidate produced so far and exits non-zero. The live run has one budget; nothing here
+  may discard work that has already been billed.
+* **It never guesses.** A key the source does not publish, a detachment whose curated id this
+  run cannot resolve, a record that fails its own model — each is reported by key and left for a
+  human (standing rule 10).
 
 ::
 
@@ -34,11 +47,8 @@ is built around:
 **The re-baseline path.** A ``*-NEEDS-REREVIEW`` finding means an approved summary's mechanic
 digest moved. The reviewing model is shown the *current* text beside the *approved* summary; a
 ``keep`` verdict produces a candidate that carries the existing summary and approval across the
-move with the **new** digest and the attribution pair
-``digest_refreshed_at_version`` / ``digest_refreshed_under_authorization``
-(FR-028/FR-029) that ``tools/check_summary_approvals.py`` requires. A ``redraft`` verdict is
-treated exactly as a missing summary: the approval is not carried, and no attribution pair is
-written, because there is nothing to attribute — the summary is new.
+move. A ``redraft`` verdict is treated as a missing summary and the entry is drafted fresh —
+but the attribution pair is written either way, because see :func:`_record`.
 """
 
 from __future__ import annotations
@@ -52,6 +62,8 @@ from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any, Final, Literal, Protocol
 
+from pydantic import ValidationError
+
 from pipeline.acquire.detail_source import acquire_detail, read_detail
 from pipeline.acquire.http import AcquisitionError
 from pipeline.config import ConfigError, PipelineConfig, load_config, repo_root
@@ -60,9 +72,9 @@ from pipeline.exit_codes import ExitCode
 from pipeline.models.authored import AbilitySummary, DetachmentRuleSummary, SummaryClass
 from pipeline.normalize.ip_strip import strip_field
 from pipeline.normalize.mechanic_digest import DigestKeyMissingError, resolve_digest_key
+from pipeline.normalize.names import normalize_name
 from pipeline.parse.wahapedia_csv import CsvReadResult
-from pipeline.reconcile.identity import slugify
-from pipeline.summaries import Draft, Verdict
+from pipeline.summaries import Draft, DraftingError, Verdict
 from pipeline.workspace import workspace
 
 PROG: Final = "draft_summaries.py"
@@ -75,6 +87,11 @@ REBASELINE_AUTHORIZATION: Final = "owner-2026-09-15-digest-key-rotation"
 
 #: ``--classes`` default. The two classes this round has outstanding findings for.
 DEFAULT_CLASSES: Final = ("abilities", "detachment_rules")
+
+#: The file a key with no resolvable faction lands in. Placement is **editorial, not
+#: correctness**: `pipeline.curate.authored` flattens every file of a class into one mapping, so
+#: a record in the wrong file is still the same record. Naming the ambiguity is what matters.
+UNASSIGNED: Final = "unassigned"
 
 #: The directory each class's candidates land in, under ``--out``. Named after the ``curation/``
 #: directory the Owner will eventually merge them into, so the correspondence is obvious while
@@ -132,17 +149,19 @@ _MODEL: Final[Mapping[SummaryClass, type[AbilitySummary] | type[DetachmentRuleSu
 _CHARS_PER_TOKEN: Final = 4
 _PER_CALL_OVERHEAD_TOKENS: Final = 700
 
-#: The export table the detachment-rule join reads.
+#: The export tables the detachment-rule join reads.
 DETACHMENT_ABILITIES_FILE: Final = "Detachment_abilities.csv"
 DETACHMENTS_FILE: Final = "Detachments.csv"
 
 __all__ = [
     "DEFAULT_CLASSES",
     "REBASELINE_AUTHORIZATION",
+    "UNASSIGNED",
     "Candidate",
     "ClassOutcome",
     "ConfirmationRefused",
     "DraftRun",
+    "curated_detachments",
     "detachment_rule_texts",
     "draft_candidates",
     "main",
@@ -158,7 +177,7 @@ class ConfirmationRefused(RuntimeError):
 
 
 class OutsideCurationError(ValueError):
-    """``--out`` resolves inside the repository's ``curation/`` tree."""
+    """``--out`` resolves inside a ``curation/`` tree."""
 
 
 class Drafter(Protocol):
@@ -170,6 +189,7 @@ class Drafter(Protocol):
         mechanic_text: str,
         *,
         ability_class: Literal["ability", "detachment_rule"],
+        hint: str | None = None,
     ) -> Draft: ...
 
 
@@ -181,10 +201,11 @@ class Reviewer(Protocol):
 
 @dataclass(frozen=True, slots=True)
 class Candidate:
-    """One record this run proposes, and the class it belongs to."""
+    """One record this run proposes, the class it belongs to, and the file it lands in."""
 
     summary_class: SummaryClass
     key: str
+    faction: str
     record: Mapping[str, Any]
 
 
@@ -208,20 +229,41 @@ class ClassOutcome:
     dropped_unresolved: tuple[str, ...] = ()
     """Keys whose second attempt still did not pass review for a non-lore reason."""
 
+    dropped_invalid: tuple[str, ...] = ()
+    """Keys whose candidate failed its own class model — an overlength summary, most likely."""
+
     verbatim: tuple[str, ...] = ()
     """Keys whose kept draft restated the mechanic as written (rule 3's narrow permission)."""
 
     unresolved: tuple[str, ...] = ()
-    """Keys the report names that this run's source does not publish. Reported, not invented."""
+    """Keys the report names that this run cannot pair with source text. Reported, not invented."""
+
+    skipped_unapproved: tuple[str, ...] = ()
+    """`-UNAPPROVED` keys: a human has a draft in flight, and this tool does not write over it."""
+
+    already_drafted: tuple[str, ...] = ()
+    """Keys an earlier invocation already wrote into ``--out``. Never paid for twice."""
 
     skipped_over_limit: tuple[str, ...] = ()
     """Keys ``--limit`` left for a later run."""
 
+    not_attempted: tuple[str, ...] = ()
+    """Keys the run never reached because a :class:`DraftingError` stopped it."""
+
     candidates: tuple[Candidate, ...] = ()
 
+    failure: str | None = None
+    """Why this class stopped early, if it did. Never carries a reply body."""
+
     @property
-    def drafted(self) -> int:
-        """How many drafting calls this class's outcome represents."""
+    def entries_drafted(self) -> int:
+        """How many **entries** this class put through the drafting pass.
+
+        Entries, not API calls: a redrafted entry costs two draft calls and two review calls and
+        counts once here. The printed label says ``entries-drafted`` for that reason — a
+        diagnostic that reads as a call count while counting entries is the shipped-doc defect
+        class, not a wording preference.
+        """
         return (
             len(self.kept)
             - len(self.rebaselined)
@@ -239,6 +281,8 @@ class DraftRun:
     out_dir: Path
     by_class: Mapping[str, ClassOutcome]
     written: tuple[Path, ...] = ()
+    failure: str | None = None
+    """Set when a :class:`DraftingError` stopped the run. Candidates written so far are on disk."""
 
 
 # --------------------------------------------------------------------------------------
@@ -251,10 +295,13 @@ class _WorkList:
     """One class's outstanding keys, split by what the finding says about them."""
 
     fresh: tuple[str, ...] = ()
-    """No usable summary exists: `-MISSING`, `-UNAPPROVED`, or the gated-off `-OUTSTANDING`."""
+    """No summary exists at all: `-MISSING`, or the gated-off `-OUTSTANDING`."""
 
     rereview: tuple[str, ...] = ()
     """`-NEEDS-REREVIEW`: an approved summary whose mechanic digest moved."""
+
+    unapproved: tuple[str, ...] = ()
+    """`-UNAPPROVED`: a human's `draft`/`in_review` record. Reported, never written over."""
 
     @property
     def calls(self) -> int:
@@ -262,9 +309,15 @@ class _WorkList:
         return 2 * len(self.fresh) + len(self.rereview)
 
 
-#: Finding suffixes that mean "this entry has no summary a run can use".
-_FRESH_SUFFIXES: Final = ("-MISSING", "-UNAPPROVED", "-OUTSTANDING")
+#: Finding suffixes that mean "this entry has no summary at all".
+#:
+#: ``-UNAPPROVED`` is deliberately **not** here (010 R7 fix round 1, ruling on minor 8). It means
+#: a human has a `draft` or `in_review` record in flight (`pipeline/validate/gates.py`), and
+#: producing a machine candidate for a key a curator is mid-authoring crosses the human/machine
+#: boundary standing rule 4 draws. Those keys are reported and left alone.
+_FRESH_SUFFIXES: Final = ("-MISSING", "-OUTSTANDING")
 _REREVIEW_SUFFIX: Final = "-NEEDS-REREVIEW"
+_UNAPPROVED_SUFFIX: Final = "-UNAPPROVED"
 
 
 def work_lists(
@@ -282,6 +335,7 @@ def work_lists(
         key_field = summary_class.key_field
         fresh: list[str] = []
         rereview: list[str] = []
+        unapproved: list[str] = []
         for finding in findings:
             code = str(finding.get("finding_code", ""))
             if not code.startswith(f"{prefix}-"):
@@ -293,10 +347,14 @@ def work_lists(
                 continue
             if code.endswith(_REREVIEW_SUFFIX):
                 rereview.append(key)
+            elif code.endswith(_UNAPPROVED_SUFFIX):
+                unapproved.append(key)
             elif code.endswith(_FRESH_SUFFIXES):
                 fresh.append(key)
         lists[summary_class] = _WorkList(
-            fresh=tuple(sorted(set(fresh))), rereview=tuple(sorted(set(rereview)))
+            fresh=tuple(sorted(set(fresh))),
+            rereview=tuple(sorted(set(rereview))),
+            unapproved=tuple(sorted(set(unapproved))),
         )
     return lists
 
@@ -306,7 +364,42 @@ def work_lists(
 # --------------------------------------------------------------------------------------
 
 
-def detachment_rule_texts(detail: Mapping[str, CsvReadResult]) -> Iterator[tuple[str, str, str]]:
+def curated_detachments(data_dir: Path) -> dict[str, tuple[str, str]]:
+    """``detachment_id -> (curated name, faction_id)``, read from the built snapshot tree.
+
+    **Why the build and not the CSV.** The curated detachment id is minted from the *points
+    source's* card name (``pipeline/curate/assemble.py``'s
+    ``registry.mint(EntityKind.DETACHMENT, key, card.detachment_name)``), and the detail source
+    is joined to it by :func:`pipeline.normalize.names.normalize_name`, which folds NFKC and
+    typographic characters and strips a leading article — none of which
+    :func:`pipeline.reconcile.identity.slugify` does. Deriving the id from the CSV name instead
+    produces a different id whenever the two spellings differ by an article or by punctuation,
+    and the key it produces is one no curated record ever uses. The pipeline says this about
+    itself two lines away: *"a second derivation is a second chance to disagree"*.
+
+    So the ids are **read from the build the report came from** rather than re-derived. A tree
+    that is absent, or that does not carry a detachment, yields nothing for that key and the key
+    is reported ``unresolved`` — which is a stated gap a human can act on, where a wrong id is a
+    summary approved against a rule it does not describe.
+    """
+    resolved: dict[str, tuple[str, str]] = {}
+    if not data_dir.is_dir():
+        return resolved
+    for path in sorted(data_dir.glob("*/factions/*/detachments.json")):
+        faction_id = path.parent.name
+        payload = json.loads(path.read_text(encoding="utf-8"))
+        rows = payload.get("detachments", []) if isinstance(payload, dict) else payload
+        for row in rows:
+            identifier = row.get("detachment_id")
+            name = row.get("name")
+            if isinstance(identifier, str) and isinstance(name, str) and identifier not in resolved:
+                resolved[identifier] = (name, faction_id)
+    return resolved
+
+
+def detachment_rule_texts(
+    detail: Mapping[str, CsvReadResult], *, curated: Mapping[str, tuple[str, str]]
+) -> Iterator[tuple[str, str, str]]:
     """``(summary_key, rule name, mechanic text)`` for every detachment rule the source binds.
 
     The abilities class has :func:`pipeline.curate.summaries.binding_texts`, which the digest
@@ -314,36 +407,40 @@ def detachment_rule_texts(detail: Mapping[str, CsvReadResult]) -> Iterator[tuple
     join in the pipeline yet** — ``pipeline/cli.py`` passes ``current_digests=None`` for it — so
     this is the first one, and it is stated here rather than in ``pipeline/`` because nothing
     under ``pipeline/`` reads it: a join with one caller belongs with its caller until it has
-    two. When the pipeline grows its own detachment digest join, this moves and both consume it.
+    two.
 
-    The detachment id is derived the way :class:`pipeline.reconcile.identity.IdRegistry` mints
-    it — ``d-`` plus the slug of the detachment's own name — because that is the id the curated
-    ``summary_key`` carries and this tool has no registry. The one case that derivation misses
-    is a name collision the registry disambiguated with a numeric suffix; such a key simply
-    finds no text and is reported as **unresolved** rather than being paired with the wrong
-    rule. A summary approved against a rule it does not describe is not a milder failure than a
-    missing summary.
+    ``curated`` comes from :func:`curated_detachments`; the detail source is matched to it by
+    ``normalize_name``, which is the same join ``assemble._source_detachment_rules`` performs. A
+    detail detachment that matches no curated one yields nothing, so its rules are reported
+    ``unresolved`` rather than keyed under an invented id.
     """
     detachments = detail.get(DETACHMENTS_FILE)
     abilities = detail.get(DETACHMENT_ABILITIES_FILE)
     if detachments is None or abilities is None:
         return
 
-    ids: dict[str, str] = {}
+    by_normalised: dict[str, str] = {}
+    for identifier, (name, _faction) in curated.items():
+        by_normalised.setdefault(normalize_name(name), identifier)
+
+    # The detail source's own id -> the curated id it matches, via the normalised display name.
+    source_to_curated: dict[str, str] = {}
     for row in detachments.rows:
         identifier = row.fields.get("id", "").strip()
         name = strip_field(row.fields.get("name", ""), field="detachment.name").text
         if not identifier or not name:
             continue
-        ids[identifier] = f"d-{slugify(name)}"
+        curated_id = by_normalised.get(normalize_name(name))
+        if curated_id is not None:
+            source_to_curated[identifier] = curated_id
 
     seen: set[str] = set()
     for row in abilities.rows:
-        detachment_id = ids.get(row.fields.get("detachment_id", "").strip())
+        curated_id = source_to_curated.get(row.fields.get("detachment_id", "").strip())
         name = strip_field(row.fields.get("name", ""), field="detachment_rule.name").text
-        if not detachment_id or not name:
+        if not curated_id or not name:
             continue
-        key = detachment_rule_key(detachment_id, name)
+        key = detachment_rule_key(curated_id, name)
         if key in seen:
             continue
         seen.add(key)
@@ -351,41 +448,74 @@ def detachment_rule_texts(detail: Mapping[str, CsvReadResult]) -> Iterator[tuple
 
 
 def _texts_for(
-    summary_class: SummaryClass, detail: Mapping[str, CsvReadResult]
+    summary_class: SummaryClass,
+    detail: Mapping[str, CsvReadResult],
+    *,
+    curated: Mapping[str, tuple[str, str]],
 ) -> dict[str, tuple[str, str]]:
     """``key -> (name, mechanic text)`` for one class, from this run's acquired source."""
     join = (
         binding_texts(detail)
         if summary_class is SummaryClass.ABILITIES
-        else detachment_rule_texts(detail)
+        else detachment_rule_texts(detail, curated=curated)
     )
     return {key: (name, text) for key, name, text in join}
 
 
 # --------------------------------------------------------------------------------------
-# Reading what the curator already approved
+# Reading what the curator already approved, and what an earlier invocation already drafted
 # --------------------------------------------------------------------------------------
 
 
-def _authored_records(curation_dir: Path, summary_class: SummaryClass) -> dict[str, dict[str, Any]]:
-    """``key -> the committed record``, read straight from the class's ``curation/`` files.
+def _authored_records(
+    curation_dir: Path, summary_class: SummaryClass
+) -> dict[str, tuple[dict[str, Any], str]]:
+    """``key -> (the committed record, the file stem it came from)``.
 
-    Read, never written. The re-baseline path needs the approved ``summary`` to show the
-    reviewing pass and to carry across the digest move; nothing here writes back.
+    Read, never written. Two things need it: the re-baseline path needs the approved ``summary``,
+    and :func:`_record` needs to know whether the key is already approved in ``curation/``. The
+    **file stem** is carried because it is the faction the record belongs to — the one piece of
+    faction attribution a re-baseline candidate can state with certainty, and it was being
+    discarded before fix round 1.
     """
     directory = curation_dir / _CLASS_DIRECTORY[summary_class]
     if not directory.is_dir():
         return {}
     key_field = summary_class.key_field
-    records: dict[str, dict[str, Any]] = {}
+    records: dict[str, tuple[dict[str, Any], str]] = {}
     for path in sorted(directory.glob("*.json")):
         payload = json.loads(path.read_text(encoding="utf-8"))
         rows = payload if isinstance(payload, list) else payload.get("rules", [])
         for record in rows:
             key = record.get(key_field)
             if isinstance(key, str) and key not in records:
-                records[key] = dict(record)
+                records[key] = (dict(record), path.stem)
     return records
+
+
+def existing_candidates(out_dir: Path, summary_class: SummaryClass) -> dict[str, set[str]]:
+    """``file stem -> the keys an earlier invocation already wrote there``.
+
+    The resume mechanism, and it is a **key-presence** check rather than an offset or a cursor
+    on purpose: an offset is a second piece of state that can be wrong, and it goes wrong exactly
+    when the work list changes between invocations — which it does, because a rebuilt report is
+    what produces the work list. "Is this key already drafted into the output I am about to
+    extend" is answerable from the output alone and cannot drift from it.
+    """
+    directory = out_dir / _CLASS_DIRECTORY[summary_class]
+    if not directory.is_dir():
+        return {}
+    key_field = summary_class.key_field
+    present: dict[str, set[str]] = {}
+    for path in sorted(directory.glob("*.json")):
+        payload = json.loads(path.read_text(encoding="utf-8"))
+        keys = {
+            record[key_field]
+            for record in payload
+            if isinstance(record, dict) and isinstance(record.get(key_field), str)
+        }
+        present[path.stem] = keys
+    return present
 
 
 # --------------------------------------------------------------------------------------
@@ -394,22 +524,34 @@ def _authored_records(curation_dir: Path, summary_class: SummaryClass) -> dict[s
 
 
 def _estimate(
-    work: Mapping[SummaryClass, _WorkList], texts: Mapping[SummaryClass, Any]
+    work: Mapping[SummaryClass, _WorkList],
+    texts: Mapping[SummaryClass, Mapping[str, tuple[str, str]]],
+    drafted: Mapping[SummaryClass, set[str]],
 ) -> tuple[int, int]:
     """``(calls, tokens)`` the confirmed work list implies, before any redraft.
 
     A **lower bound**, and said to be one where it is printed: a reviewer that sends a draft
     back costs one more draft and one more review, and there is no way to know in advance how
-    many will.
+    many will. Keys an earlier invocation already drafted, and keys the source does not publish,
+    are excluded — the estimate is what this invocation will actually spend.
     """
-    calls = sum(item.calls for item in work.values())
+    calls = 0
     characters = 0
     for summary_class, item in work.items():
         per_class = texts.get(summary_class, {})
-        for key in (*item.fresh, *item.rereview):
+        done = drafted.get(summary_class, set())
+        for key, cost in ((k, 2) for k in item.fresh):
             entry = per_class.get(key)
-            if entry is not None:
-                characters += len(entry[1])
+            if entry is None or key in done:
+                continue
+            calls += cost
+            characters += len(entry[1])
+        for key in item.rereview:
+            entry = per_class.get(key)
+            if entry is None or key in done:
+                continue
+            calls += 1
+            characters += len(entry[1])
     return calls, calls * _PER_CALL_OVERHEAD_TOKENS + characters // _CHARS_PER_TOKEN
 
 
@@ -450,8 +592,12 @@ class _ClassTally:
     dropped_unresolved: list[str] = field(default_factory=list)
     verbatim: list[str] = field(default_factory=list)
     unresolved: list[str] = field(default_factory=list)
+    unapproved: list[str] = field(default_factory=list)
+    already: list[str] = field(default_factory=list)
     skipped: list[str] = field(default_factory=list)
+    not_attempted: list[str] = field(default_factory=list)
     candidates: list[Candidate] = field(default_factory=list)
+    failure: str | None = None
 
     def freeze(self, summary_class: SummaryClass) -> ClassOutcome:
         return ClassOutcome(
@@ -463,8 +609,12 @@ class _ClassTally:
             dropped_unresolved=tuple(self.dropped_unresolved),
             verbatim=tuple(self.verbatim),
             unresolved=tuple(self.unresolved),
+            skipped_unapproved=tuple(self.unapproved),
+            already_drafted=tuple(self.already),
             skipped_over_limit=tuple(self.skipped),
+            not_attempted=tuple(self.not_attempted),
             candidates=tuple(self.candidates),
+            failure=self.failure,
         )
 
 
@@ -476,15 +626,14 @@ def _draft_one(
     drafter: Drafter,
     reviewer: Reviewer,
 ) -> tuple[Draft | None, Verdict, bool]:
-    """Draft, review, and — where the reviewer says so — draft once more.
+    """Draft, review, and — where the reviewer says so — draft once more, **with the reason**.
 
     Returns ``(accepted draft or None, the last verdict, whether a redraft happened)``.
 
-    **The reason code is not fed back to the client.** Task 1 fixed ``draft``'s signature with no
-    channel for it, and widening a frozen interface to carry a hint is a larger change than the
-    hint is worth: the second attempt is a second sample, and a mechanic the model cannot
-    restate twice is one the Owner should see as dropped rather than as coaxed. The code is
-    still reported in the tally so a run that redrafts a lot says why.
+    The second attempt carries the first verdict's ``reason_code`` through
+    :meth:`SummaryClient.draft`'s ``hint`` (added in fix round 1), so a redraft is directed
+    rather than an undirected second sample. The reason code is one of our own four; no
+    publisher material travels in it.
     """
     ability_class = _CLASS_ABILITY_CLASS[summary_class]
     draft = drafter.draft(name, text, ability_class=ability_class)
@@ -492,14 +641,14 @@ def _draft_one(
     if verdict.decision == "keep":
         return draft, verdict, False
 
-    second = drafter.draft(name, text, ability_class=ability_class)
+    second = drafter.draft(name, text, ability_class=ability_class, hint=verdict.reason_code)
     verdict = reviewer.review(name, text, second.summary)
     if verdict.decision == "keep":
         return second, verdict, True
     return None, verdict, True
 
 
-def _record(
+def _record(  # noqa: PLR0913 - one argument per field the record carries
     summary_class: SummaryClass,
     key: str,
     *,
@@ -511,7 +660,21 @@ def _record(
     acquisition_id: str,
     version: str | None = None,
 ) -> dict[str, Any]:
-    """One candidate record, in the class's own field order, absent fields omitted."""
+    """One candidate record, in the class's own field order, absent fields omitted.
+
+    **When ``version`` is passed** the re-baseline attribution pair is written. Fix round 1
+    widened the condition that decides that, and the reason is worth stating because the first
+    reading of it was wrong. ``tools/check_summary_approvals.py``'s ``digest_refreshes``
+    classifies ``carries_approval`` from the base and head ``review_state`` **alone**: a key that
+    is ``approved`` in ``curation/`` at base and ``approved`` in the merged candidate at head,
+    with a moved ``mechanic_digest``, carries an approval as far as that guard is concerned — no
+    matter that this tool re-drafted the summary from scratch and considers it new authorship.
+    Omitting the pair for a redrafted re-review candidate therefore failed CI on merge with
+    "refreshes mechanic_digest on a record that is approved at both ends … without freshly naming
+    the version". So the caller passes ``version`` for **any** key already approved in
+    ``curation/``, and the tool's notion of "carried approval" is aligned with the guard's rather
+    than argued with.
+    """
     values: dict[str, Any] = {
         summary_class.key_field: key,
         "name": name,
@@ -532,110 +695,177 @@ def _record(
         values["digest_refreshed_under_authorization"] = REBASELINE_AUTHORIZATION
 
     order = _FIELD_ORDER[summary_class]
-    return {name_: values[name_] for name_ in order if name_ in values}
+    return {field_name: values[field_name] for field_name in order if field_name in values}
 
 
-def _run_class(  # noqa: PLR0913 - one argument per input; the alternative is a context blob
+@dataclass(frozen=True, slots=True)
+class _ClassInputs:
+    """Everything one class's pass reads. A record rather than fifteen parameters."""
+
+    texts: Mapping[str, tuple[str, str]]
+    digests: Mapping[str, str]
+    authored: Mapping[str, tuple[dict[str, Any], str]]
+    curated: Mapping[str, tuple[str, str]]
+    already: set[str]
+    reviewed_by: str
+    reviewed_at: str
+    acquisition_id: str
+    version: str
+    limit: int | None
+
+
+def _faction_of(
+    summary_class: SummaryClass,
+    key: str,
+    *,
+    authored: Mapping[str, tuple[dict[str, Any], str]],
+    curated: Mapping[str, tuple[str, str]],
+) -> str:
+    """The file stem a candidate belongs in, or :data:`UNASSIGNED`.
+
+    Three sources, in order of certainty: the ``curation/`` file the key already lives in (a
+    re-baseline, or any key a curator has touched); the built snapshot's own faction directory
+    (every detachment rule, since a detachment belongs to exactly one faction); and otherwise
+    nothing — a fresh ``core:`` or multi-faction ability key genuinely has no single faction, and
+    :data:`UNASSIGNED` says so rather than picking one.
+    """
+    known = authored.get(key)
+    if known is not None:
+        return known[1]
+    if summary_class is SummaryClass.DETACHMENT_RULES and key.count(":") >= 2:
+        entry = curated.get(key.split(":")[1])
+        if entry is not None:
+            return entry[1]
+    return UNASSIGNED
+
+
+def _run_class(
     summary_class: SummaryClass,
     work: _WorkList,
+    inputs: _ClassInputs,
     *,
-    texts: Mapping[str, tuple[str, str]],
-    digests: Mapping[str, str],
-    authored: Mapping[str, dict[str, Any]],
     drafter: Drafter,
     reviewer: Reviewer,
-    reviewed_by: str,
-    reviewed_at: str,
-    acquisition_id: str,
-    version: str,
-    limit: int | None,
 ) -> ClassOutcome:
+    """One class's whole pass. Stops on a :class:`DraftingError`, keeping what it has."""
     tally = _ClassTally()
+    tally.unapproved.extend(work.unapproved)
 
     # Re-review first: it is the cheaper call (one review, no draft) and the one whose outcome
     # can turn into drafting work, so a --limit that runs out should run out on drafting.
+    rereview = set(work.rereview)
     ordered: list[tuple[str, bool]] = [(key, True) for key in work.rereview]
-    ordered += [(key, False) for key in work.fresh if key not in set(work.rereview)]
+    ordered += [(key, False) for key in work.fresh if key not in rereview]
 
     worked = 0
-    for key, is_rereview in ordered:
-        entry = texts.get(key)
+    for index, (key, is_rereview) in enumerate(ordered):
+        if tally.failure is not None:
+            tally.not_attempted.append(key)
+            continue
+        entry = inputs.texts.get(key)
         if entry is None:
-            # Standing rule 10: a key measured at zero gets no code, and a key the source does
-            # not publish gets no guess. It is reported and left for a human.
+            # Standing rule 10: a key measured at zero gets no code, and a key this run cannot
+            # pair with source text gets no guess. It is reported and left for a human.
             tally.unresolved.append(key)
             continue
-        if limit is not None and worked >= limit:
+        if key in inputs.already:
+            tally.already.append(key)
+            continue
+        if inputs.limit is not None and worked >= inputs.limit:
             tally.skipped.append(key)
             continue
         worked += 1
-        name, text = entry
-        digest = digests[key]
+        try:
+            _work_one(
+                key,
+                entry,
+                is_rereview=is_rereview,
+                tally=tally,
+                summary_class=summary_class,
+                inputs=inputs,
+                drafter=drafter,
+                reviewer=reviewer,
+            )
+        except DraftingError as exc:
+            # The bill for everything before this point is already paid. Stop the class, keep the
+            # candidates, name the key it stopped on, and let the caller write and report.
+            tally.failure = f"stopped at {key}: {exc}"
+            tally.not_attempted.extend(k for k, _ in ordered[index + 1 :])
+            break
 
-        if is_rereview:
-            prior = authored.get(key)
-            if prior is not None and isinstance(prior.get("summary"), str):
-                verdict = reviewer.review(name, text, prior["summary"])
-                if verdict.decision == "keep":
-                    tally.kept.append(key)
-                    tally.rebaselined.append(key)
-                    tally.candidates.append(
-                        Candidate(
-                            summary_class,
-                            key,
-                            _record(
-                                summary_class,
-                                key,
-                                name=prior.get("name") or name,
-                                summary=prior["summary"],
-                                digest=digest,
-                                reviewed_by=reviewed_by,
-                                reviewed_at=reviewed_at,
-                                acquisition_id=acquisition_id,
-                                version=version,
-                            ),
-                        )
-                    )
-                    continue
-                if verdict.decision == "lore":
-                    tally.dropped_lore.append(key)
-                    continue
-                # `redraft`: the approved summary no longer describes the mechanic, so this is
-                # a missing summary and falls through to the drafting path below. No attribution
-                # pair is written — there is no approval being carried across anything.
+    return tally.freeze(summary_class)
 
-        draft, verdict, redrafted = _draft_one(
-            name, text, summary_class=summary_class, drafter=drafter, reviewer=reviewer
-        )
-        if redrafted:
-            tally.redrafted.append(key)
-        if draft is None:
-            if verdict.decision == "lore":
-                tally.dropped_lore.append(key)
-            else:
-                tally.dropped_unresolved.append(key)
-            continue
-        if draft.used_verbatim:
-            tally.verbatim.append(key)
+
+def _work_one(  # noqa: PLR0913 - one argument per input, as this module's style
+    key: str,
+    entry: tuple[str, str],
+    *,
+    is_rereview: bool,
+    tally: _ClassTally,
+    summary_class: SummaryClass,
+    inputs: _ClassInputs,
+    drafter: Drafter,
+    reviewer: Reviewer,
+) -> None:
+    """One key: the re-review pass where it applies, else draft-and-review."""
+    name, text = entry
+    digest = inputs.digests[key]
+    prior_entry = inputs.authored.get(key)
+    prior = prior_entry[0] if prior_entry is not None else None
+    # The guard's own test, not ours: a key already approved in curation/ whose digest moves is a
+    # re-baseline as far as check_summary_approvals.py is concerned, however the summary got
+    # here. See `_record`.
+    approved_in_curation = prior is not None and prior.get("review_state") == "approved"
+    version = inputs.version if approved_in_curation else None
+    faction = _faction_of(summary_class, key, authored=inputs.authored, curated=inputs.curated)
+
+    def add(summary: str, *, display_name: str) -> None:
         tally.kept.append(key)
         tally.candidates.append(
             Candidate(
                 summary_class,
                 key,
+                faction,
                 _record(
                     summary_class,
                     key,
-                    name=name,
-                    summary=draft.summary,
+                    name=display_name,
+                    summary=summary,
                     digest=digest,
-                    reviewed_by=reviewed_by,
-                    reviewed_at=reviewed_at,
-                    acquisition_id=acquisition_id,
+                    reviewed_by=inputs.reviewed_by,
+                    reviewed_at=inputs.reviewed_at,
+                    acquisition_id=inputs.acquisition_id,
+                    version=version,
                 ),
             )
         )
 
-    return tally.freeze(summary_class)
+    if is_rereview and prior is not None and isinstance(prior.get("summary"), str):
+        verdict = reviewer.review(name, text, prior["summary"])
+        if verdict.decision == "keep":
+            tally.rebaselined.append(key)
+            add(prior["summary"], display_name=prior.get("name") or name)
+            return
+        if verdict.decision == "lore":
+            tally.dropped_lore.append(key)
+            return
+        # `redraft`: the approved summary no longer describes the mechanic, so this is a missing
+        # summary and falls through to the drafting path below.
+
+    draft, verdict, redrafted = _draft_one(
+        name, text, summary_class=summary_class, drafter=drafter, reviewer=reviewer
+    )
+    if redrafted:
+        tally.redrafted.append(key)
+    if draft is None:
+        if verdict.decision == "lore":
+            tally.dropped_lore.append(key)
+        else:
+            tally.dropped_unresolved.append(key)
+        return
+    if draft.used_verbatim:
+        tally.verbatim.append(key)
+    add(draft.summary, display_name=name)
 
 
 # --------------------------------------------------------------------------------------
@@ -644,19 +874,26 @@ def _run_class(  # noqa: PLR0913 - one argument per input; the alternative is a 
 
 
 def resolve_out_dir(out: Path, repository_root: Path) -> Path:
-    """The absolute ``--out``, refused if it resolves inside the repository's ``curation/``.
+    """The absolute ``--out``, refused if it resolves inside **any** ``curation/`` in play.
 
-    Resolved with :meth:`Path.resolve` on both sides before comparing, so ``work/../curation``,
-    a symlink, and a relative path all reach the same answer. The check is on the resolved path
-    and not on the spelling, because the spelling is exactly what an accident gets wrong.
+    Both ``--repo``'s curation tree and this checkout's own are compared, because ``--repo`` is
+    an argument and an argument can be wrong: ``--repo /tmp/anything --out <real repo>/curation``
+    passed the single-root check while writing straight into the tree the whole tool exists to
+    keep out of (fix round 1, minor 6).
+
+    Resolved with :meth:`Path.resolve` on both sides before comparing, so ``work/../curation``, a
+    symlink, and a relative path all reach the same answer. The check is on the resolved path and
+    not on the spelling, because the spelling is exactly what an accident gets wrong.
     """
     resolved = Path(out).resolve()
-    curation = (Path(repository_root).resolve() / "curation").resolve()
-    if resolved == curation or curation in resolved.parents:
-        raise OutsideCurationError(
-            f"--out {resolved} is inside {curation}; this tool writes candidates only, and "
-            "curation/ is written by a human in a separate pull request (standing rule 4)"
-        )
+    roots = {Path(repository_root).resolve(), repo_root().resolve()}
+    for root in sorted(roots):
+        curation = (root / "curation").resolve()
+        if resolved == curation or curation in resolved.parents:
+            raise OutsideCurationError(
+                f"--out {resolved} is inside {curation}; this tool writes candidates only, and "
+                "curation/ is written by a human in a separate pull request (standing rule 4)"
+            )
     return resolved
 
 
@@ -678,6 +915,7 @@ def draft_candidates(  # noqa: PLR0913 - one argument per input, as tools/churn_
     fixtures_dir: Path | None = None,
     offline: bool = False,
     curation_dir: Path | None = None,
+    data_dir: Path | None = None,
     limit: int | None = None,
     assume_yes: bool = False,
     now: datetime | None = None,
@@ -687,6 +925,9 @@ def draft_candidates(  # noqa: PLR0913 - one argument per input, as tools/churn_
     Everything that touches the export's rules text happens inside the ``with workspace(...)``
     block, the API calls included: that is the only place the text exists, and what leaves the
     block is a set of candidate records and a tally of keys.
+
+    **Each class is written as it completes**, not at the end. The live run has exactly one
+    budget; a failure in the second class must not discard the first class's paid-for work.
     """
     resolved_out = resolve_out_dir(out_dir, repository_root)
     selected = [SummaryClass(name) for name in classes]
@@ -694,88 +935,173 @@ def draft_candidates(  # noqa: PLR0913 - one argument per input, as tools/churn_
     findings = json.loads(Path(report_path).read_text(encoding="utf-8")).get("findings", [])
     work = work_lists(findings, selected)
     curation = curation_dir or (Path(repository_root) / "curation")
+    data = data_dir or (Path(repository_root) / "data")
+    curated = curated_detachments(Path(data))
     authored = {
         summary_class: _authored_records(curation, summary_class) for summary_class in selected
+    }
+    already = {
+        summary_class: set().union(*existing_candidates(resolved_out, summary_class).values())
+        if existing_candidates(resolved_out, summary_class)
+        else set()
+        for summary_class in selected
     }
     reviewed_by = f"{config.review_model}-reviewer"
     reviewed_at = (now or datetime.now(UTC)).astimezone(UTC).strftime("%Y-%m-%dT%H:%M:%SZ")
 
     outcomes: dict[str, ClassOutcome] = {}
+    written: list[Path] = []
+    failure: str | None = None
     with workspace(repository_root) as work_path:
         acquisition, payloads = acquire_detail(
             config, fixtures_dir=fixtures_dir, offline=offline, workspace=work_path
         )
         detail = read_detail(payloads)
-        texts = {summary_class: _texts_for(summary_class, detail) for summary_class in selected}
+        texts = {
+            summary_class: _texts_for(summary_class, detail, curated=curated)
+            for summary_class in selected
+        }
         digests = {
             summary_class: compute_digests({k: v[1] for k, v in per_class.items()}, key=key)
             for summary_class, per_class in texts.items()
         }
 
-        calls, tokens = _estimate(work, texts)
+        calls, tokens = _estimate(work, texts, already)
         _confirm(calls, tokens, assume_yes=assume_yes)
 
         for summary_class in selected:
-            outcomes[summary_class.value] = _run_class(
+            if failure is not None:
+                outcomes[summary_class.value] = ClassOutcome(
+                    summary_class=summary_class,
+                    not_attempted=tuple(
+                        sorted({*work[summary_class].fresh, *work[summary_class].rereview})
+                    ),
+                    failure="an earlier class stopped the run",
+                )
+                continue
+            outcome = _run_class(
                 summary_class,
                 work[summary_class],
-                texts=texts[summary_class],
-                digests=digests[summary_class],
-                authored=authored[summary_class],
+                _ClassInputs(
+                    texts=texts[summary_class],
+                    digests=digests[summary_class],
+                    authored=authored[summary_class],
+                    curated=curated,
+                    already=already[summary_class],
+                    reviewed_by=reviewed_by,
+                    reviewed_at=reviewed_at,
+                    acquisition_id=acquisition.acquisition_id,
+                    version=version,
+                    limit=limit,
+                ),
                 drafter=drafter,
                 reviewer=reviewer,
-                reviewed_by=reviewed_by,
-                reviewed_at=reviewed_at,
-                acquisition_id=acquisition.acquisition_id,
-                version=version,
-                limit=limit,
             )
+            # Written HERE, inside the loop and before the next class starts: a DraftingError in
+            # the next class must not cost this one's paid-for candidates.
+            outcome, paths = _write(resolved_out, outcome)
+            outcomes[summary_class.value] = outcome
+            written.extend(paths)
+            if outcome.failure is not None:
+                failure = outcome.failure
 
-    written = _write(resolved_out, outcomes)
     run = DraftRun(
         version=version,
         acquisition_id=acquisition.acquisition_id,
         out_dir=resolved_out,
         by_class=outcomes,
-        written=written,
+        written=tuple(written),
+        failure=failure,
     )
     _report(run)
     return run
 
 
-def _write(out_dir: Path, outcomes: Mapping[str, ClassOutcome]) -> tuple[Path, ...]:
-    """Write each class's candidates, validating every record as its class's authored model.
+def _write(out_dir: Path, outcome: ClassOutcome) -> tuple[ClassOutcome, tuple[Path, ...]]:
+    """Write one class's candidates, per faction file, and return the outcome plus the paths.
 
-    Validating before writing rather than trusting the shape: a candidate that cannot load as
-    the model the Owner will merge it as is a defect in this tool, and it should stop here
-    rather than in a pull request. A class with no candidates writes **no file** — an empty
-    array on disk reads as "this class is done", which is exactly the false green
-    ``CLAUDE.md``'s first trap is about.
+    Three properties, each of which cost a finding to learn:
+
+    * **Validation is per record, not per batch.** ``DetachmentRuleSummary.summary`` caps at
+      1 000 characters, so an overlong draft raises ``ValidationError`` — which, uncaught, lost
+      the whole class's candidates *and* rendered pydantic's truncated ``input_value`` repr, i.e.
+      summary text, onto the terminal. The record is dropped into ``dropped-invalid`` **by key
+      only**: the exception is never rendered, printed, or carried.
+    * **A class with no candidates writes no file.** An empty array on disk reads as "this class
+      is done", which is exactly the false green ``CLAUDE.md``'s first trap is about.
+    * **An existing file is extended, not replaced.** Records already in it are kept, so a
+      resumed run adds to what the previous one paid for. Sorted by key on write so the file is
+      reviewable and a re-run is a no-op.
     """
-    written: list[Path] = []
-    for outcome in outcomes.values():
-        if not outcome.candidates:
+    per_faction: dict[str, list[dict[str, Any]]] = {}
+    invalid: list[str] = []
+    model_for = _MODEL[outcome.summary_class]
+    for candidate in outcome.candidates:
+        record = dict(candidate.record)
+        try:
+            model_for.model_validate(record)
+        except ValidationError:
+            # By key only. `ValidationError.__str__` renders the input it rejected, and the input
+            # here is a summary — see the docstring.
+            invalid.append(candidate.key)
             continue
-        model = _MODEL[outcome.summary_class]
-        records = [dict(candidate.record) for candidate in outcome.candidates]
-        for record in records:
-            model.model_validate(record)
-        path = out_dir / _CLASS_DIRECTORY[outcome.summary_class] / "candidates.json"
+        per_faction.setdefault(candidate.faction, []).append(record)
+
+    key_field = outcome.summary_class.key_field
+    written: list[Path] = []
+    for faction, records in sorted(per_faction.items()):
+        path = out_dir / _CLASS_DIRECTORY[outcome.summary_class] / f"{faction}.json"
         path.parent.mkdir(parents=True, exist_ok=True)
-        path.write_text(json.dumps(records, indent=2) + "\n", encoding="utf-8", newline="\n")
+        merged: dict[str, dict[str, Any]] = {}
+        if path.exists():
+            for record in json.loads(path.read_text(encoding="utf-8")):
+                if isinstance(record, dict) and isinstance(record.get(key_field), str):
+                    merged[record[key_field]] = record
+        for record in records:
+            merged[str(record[key_field])] = record
+        ordered = [merged[k] for k in sorted(merged)]
+        path.write_text(json.dumps(ordered, indent=2) + "\n", encoding="utf-8", newline="\n")
         written.append(path)
-    return tuple(written)
+
+    if not invalid:
+        return outcome, tuple(written)
+    kept = tuple(k for k in outcome.kept if k not in set(invalid))
+    return (
+        ClassOutcome(
+            summary_class=outcome.summary_class,
+            kept=kept,
+            rebaselined=tuple(k for k in outcome.rebaselined if k not in set(invalid)),
+            redrafted=outcome.redrafted,
+            dropped_lore=outcome.dropped_lore,
+            dropped_unresolved=outcome.dropped_unresolved,
+            dropped_invalid=tuple(sorted(invalid)),
+            verbatim=outcome.verbatim,
+            unresolved=outcome.unresolved,
+            skipped_unapproved=outcome.skipped_unapproved,
+            already_drafted=outcome.already_drafted,
+            skipped_over_limit=outcome.skipped_over_limit,
+            not_attempted=outcome.not_attempted,
+            candidates=outcome.candidates,
+            failure=outcome.failure,
+        ),
+        tuple(written),
+    )
 
 
 def _report(run: DraftRun) -> None:
-    """Stdout: keys, counts and verdict outcomes. Never text, never a digest, never a secret."""
+    """Stdout: keys, counts and outcome labels. Never text, never a digest, never a secret."""
     print(f"{PROG}: candidates for {run.version} under {run.out_dir}")
     for name, outcome in run.by_class.items():
         print(
-            f"{PROG}: {name}: drafted={outcome.drafted} kept={len(outcome.kept)} "
-            f"rebaselined={len(outcome.rebaselined)} redrafted={len(outcome.redrafted)} "
-            f"dropped-lore={len(outcome.dropped_lore)} verbatim={len(outcome.verbatim)} "
-            f"unresolved={len(outcome.unresolved)} over-limit={len(outcome.skipped_over_limit)}"
+            f"{PROG}: {name}: entries-drafted={outcome.entries_drafted} "
+            f"kept={len(outcome.kept)} rebaselined={len(outcome.rebaselined)} "
+            f"redrafted={len(outcome.redrafted)} dropped-lore={len(outcome.dropped_lore)} "
+            f"dropped-invalid={len(outcome.dropped_invalid)} verbatim={len(outcome.verbatim)} "
+            f"unresolved={len(outcome.unresolved)} "
+            f"skipped-unapproved={len(outcome.skipped_unapproved)} "
+            f"already-drafted={len(outcome.already_drafted)} "
+            f"over-limit={len(outcome.skipped_over_limit)} "
+            f"not-attempted={len(outcome.not_attempted)}"
         )
         for label, keys in (
             ("kept", outcome.kept),
@@ -783,14 +1109,24 @@ def _report(run: DraftRun) -> None:
             ("redrafted", outcome.redrafted),
             ("dropped-lore", outcome.dropped_lore),
             ("dropped-unresolved", outcome.dropped_unresolved),
+            ("dropped-invalid", outcome.dropped_invalid),
             ("verbatim", outcome.verbatim),
             ("unresolved", outcome.unresolved),
+            ("skipped-unapproved", outcome.skipped_unapproved),
+            ("already-drafted", outcome.already_drafted),
             ("over-limit", outcome.skipped_over_limit),
+            ("not-attempted", outcome.not_attempted),
         ):
             for key in keys:
                 print(f"{PROG}:   {name} {label} {key}")
     for path in run.written:
         print(f"{PROG}: wrote {path}")
+    if run.failure is not None:
+        print(f"{PROG}: RUN INCOMPLETE — {run.failure}")
+        print(
+            f"{PROG}: every candidate produced before that point is on disk; re-run with the "
+            "same --out to resume from where this stopped."
+        )
     print(
         f"{PROG}: nothing under curation/ was written. Read the candidates, approve what is "
         "correct, and merge them by hand in a separate pull request."
@@ -818,10 +1154,13 @@ def _parse_args(argv: Sequence[str] | None) -> argparse.Namespace:
         default=",".join(DEFAULT_CLASSES),
         help=f"comma-separated summary classes (default: {','.join(DEFAULT_CLASSES)})",
     )
-    parser.add_argument("--limit", type=int, help="work at most N entries per class")
+    parser.add_argument("--limit", type=int, help="work at most N new entries per class")
     parser.add_argument("--yes", action="store_true", help="skip the confirmation prompt")
     parser.add_argument("--repo", type=Path, help="repository root (default: this checkout)")
     parser.add_argument("--curation", type=Path, help="curation tree to READ (never written)")
+    parser.add_argument(
+        "--data", type=Path, help="built snapshot tree the report came from (READ; never written)"
+    )
     parser.add_argument("--fixtures", type=Path, help="source from a synthetic fixture set")
     parser.add_argument(
         "--offline", action="store_true", help="refuse network access; requires --fixtures"
@@ -829,7 +1168,19 @@ def _parse_args(argv: Sequence[str] | None) -> argparse.Namespace:
     return parser.parse_args(list(argv) if argv is not None else None)
 
 
-def main(argv: Sequence[str] | None = None, *, env: Mapping[str, str] | None = None) -> int:
+def main(
+    argv: Sequence[str] | None = None,
+    *,
+    env: Mapping[str, str] | None = None,
+    clients: tuple[Drafter, Reviewer] | None = None,
+) -> int:
+    """The CLI entry point.
+
+    ``clients`` substitutes the two :class:`SummaryClient` instances. It exists so the exit-code
+    contract — which is what CI and the operator branch on — can be exercised without a socket,
+    and so a future dry-run harness can drive the whole path. ``None`` (every real invocation)
+    builds the real clients from the configured key.
+    """
     args = _parse_args(argv)
     root = args.repo or repo_root()
 
@@ -848,35 +1199,55 @@ def main(argv: Sequence[str] | None = None, *, env: Mapping[str, str] | None = N
         print(f"{PROG}: {exc}", file=sys.stderr)
         return int(ExitCode.CONFIG_ERROR)
 
+    from contextlib import nullcontext
+
     from pipeline.summaries import SummaryClient
+
+    if clients is None:
+        drafting = SummaryClient(config.anthropic_api_key, model=config.draft_model)
+        reviewing = SummaryClient(config.anthropic_api_key, model=config.review_model)
+    else:
+        drafting, reviewing = clients  # type: ignore[assignment]
 
     try:
         with (
-            SummaryClient(config.anthropic_api_key, model=config.draft_model) as drafter,
-            SummaryClient(config.anthropic_api_key, model=config.review_model) as reviewer,
+            drafting if clients is None else nullcontext(drafting),
+            reviewing if clients is None else nullcontext(reviewing),
         ):
-            draft_candidates(
+            run = draft_candidates(
                 config,
                 repository_root=root,
                 report_path=args.report,
                 out_dir=args.out,
                 version=args.version,
-                drafter=drafter,
-                reviewer=reviewer,
+                drafter=drafting,
+                reviewer=reviewing,
                 classes=classes,
                 fixtures_dir=args.fixtures,
                 offline=args.offline,
                 curation_dir=args.curation,
+                data_dir=args.data,
                 limit=args.limit,
                 assume_yes=args.yes,
             )
     except (ConfigError, DigestKeyMissingError, ConfirmationRefused) as exc:
         print(f"{PROG}: {exc}", file=sys.stderr)
         return int(ExitCode.CONFIG_ERROR)
+    except DraftingError as exc:
+        # Belt and braces: `draft_candidates` catches this per key and writes what it has, so
+        # reaching here means it escaped the per-key handler (a failure outside the drafting
+        # loop). Reported as the same class of outcome rather than as a traceback.
+        print(f"{PROG}: drafting stopped: {exc}", file=sys.stderr)
+        return int(ExitCode.SOURCE_UNAVAILABLE)
     except AcquisitionError as exc:
         print(f"{PROG}: {exc}", file=sys.stderr)
         return int(exc.exit_code)
 
+    if run.failure is not None:
+        # Non-zero, and NOT zero-with-a-warning: an incomplete run that exits 0 is a green check
+        # over work that did not happen. The candidates are on disk either way.
+        print(f"{PROG}: {run.failure}", file=sys.stderr)
+        return int(ExitCode.SOURCE_UNAVAILABLE)
     return int(ExitCode.SUCCESS)
 
 
