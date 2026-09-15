@@ -1751,3 +1751,93 @@ def test_r7c_an_explicit_api_transport_builds_the_api_client(
 
     assert code == 0
     assert built == [DRAFT_MODEL, REVIEW_MODEL]
+
+
+# --------------------------------------------------------------------------------------
+# 010 R7c task 2, fix round 1 — the two partial-write paths the restructure created
+# --------------------------------------------------------------------------------------
+
+
+@dataclass
+class ShortBatchClient(BatchClient):
+    """A batching reviewer that returns the WRONG NUMBER of verdicts for chosen batches.
+
+    Unreachable through the real `CliSummaryClient`, which length-checks its own reply and
+    raises `cli-batch-shape` first. This client stands in for the shape that check exists to
+    catch, so the tool's own handling of it is exercised rather than assumed.
+    """
+
+    short_batches: set[int] = field(default_factory=set)
+
+    def review_many(self, items: Sequence[tuple[str, str, str]]) -> list[Verdict]:
+        verdicts = super().review_many(items)
+        if len(self.batch_sizes) - 1 in self.short_batches:
+            return verdicts[:-1]
+        return verdicts
+
+
+def test_r7c_fix1_a_phase_two_failure_keeps_the_candidates_phase_one_produced(
+    repo: Path, fixtures_dir: Path, tmp_path: Path
+) -> None:
+    """Fix round 1, Important 1 — the partial-write path the restructure newly created.
+
+    A re-baseline is a candidate produced in the re-review phase, *before* a single draft call is
+    made. If those candidates were written only after the drafting phase, a `DraftingError` on
+    any redrafted key would discard every re-baseline the same class already paid for. Move the
+    phase-1 `_add` to after the drafting loop and this test fails with an empty candidates file.
+    """
+    keys = write_batch_abilities(fixtures_dir, 3)
+    approve_batch(repo, 3)
+    report = write_report(
+        tmp_path / "report.json", [finding("SUM-NEEDS-REREVIEW", key) for key in keys]
+    )
+    out = tmp_path / "out"
+    client = BatchClient(
+        verdicts={
+            batch_name(1): [Verdict("keep", "ok")],
+            batch_name(2): [Verdict("redraft", "incomplete")],
+            batch_name(3): [Verdict("redraft", "incomplete")],
+        },
+        raise_on_draft={batch_name(2): DraftingError(529)},
+    )
+
+    outcome = run(repo, fixtures_dir, report, out, drafter=client, reviewer=client)
+
+    abilities = outcome.by_class["abilities"]
+    assert outcome.failure is not None
+    assert batch_key(2) in outcome.failure
+    assert abilities.rebaselined == (batch_key(1),)
+    assert abilities.not_attempted == (batch_key(3),)
+    # The one the re-review phase paid for is on disk, though the drafting phase then failed.
+    on_disk = [record["ability_key"] for record in records(out, f"abilities/{FACTION}.json")]
+    assert on_disk == [batch_key(1)]
+
+
+def test_r7c_fix1_a_batch_of_the_wrong_length_keeps_what_was_paid_for(
+    repo: Path, fixtures_dir: Path, tmp_path: Path
+) -> None:
+    """Fix round 1, Important 2 — a mismatched reply is a stop, not a traceback.
+
+    `zip(..., strict=True)` raised `ValueError`, which no handler in `_run_class`,
+    `draft_candidates` or `main` catches: the whole class's already-paid-for candidates went with
+    it. Restore the bare `zip(...)`/`strict=True` and drop the length check and this test fails
+    with `ValueError` instead of reporting a failure.
+    """
+    keys = write_batch_abilities(fixtures_dir, 15)
+    approve_batch(repo, 15)
+    report = write_report(
+        tmp_path / "report.json", [finding("SUM-NEEDS-REREVIEW", key) for key in keys]
+    )
+    out = tmp_path / "out"
+    client = ShortBatchClient(short_batches={1})
+
+    outcome = run(repo, fixtures_dir, report, out, drafter=client, reviewer=client)
+
+    abilities = outcome.by_class["abilities"]
+    assert outcome.failure is not None
+    assert batch_key(11) in outcome.failure
+    assert "cli-batch-shape" in outcome.failure
+    assert len(abilities.rebaselined) == 10
+    assert sorted(abilities.not_attempted) == [batch_key(i) for i in range(11, 16)]
+    on_disk = [record["ability_key"] for record in records(out, f"abilities/{FACTION}.json")]
+    assert on_disk == [batch_key(i) for i in range(1, 11)], "the paid-for ten are on disk"

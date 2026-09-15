@@ -1063,6 +1063,15 @@ def _run_class(
         chunk = reviewable[start : start + MAX_BATCH_ITEMS]
         try:
             verdicts = _review_batch(reviewer, [(i.name, i.text, s) for i, s in chunk])
+            if len(verdicts) != len(chunk):
+                # Defence in depth behind `CliSummaryClient`'s own length check, and raised as a
+                # `DraftingError` rather than left to `zip(strict=True)`'s `ValueError` (fix
+                # round 1, Important 2). Nothing in this module, `draft_candidates` or `main`
+                # catches `ValueError`, so a mismatch used to discard the whole class's
+                # already-paid-for candidates and print a traceback — exactly the failure mode
+                # the write-inside-the-loop exists to prevent. Same detail string the client
+                # uses, so one shape has one name wherever it is noticed.
+                raise DraftingError(None, "cli-batch-shape")
         except DraftingError as exc:
             # The bill for everything before this point is already paid. Stop the class, keep the
             # candidates, name the batch this stopped on, and let the caller write and report.
@@ -1073,6 +1082,7 @@ def _run_class(
                 entry.key for entry in (*redrafts, *(i for i, _ in reviewable[start:]), *queue)
             )
             return tally.freeze(summary_class)
+        # `strict=True` cannot fire: the guard above has already stopped an unequal reply.
         for (item, _prior), verdict in zip(chunk, verdicts, strict=True):
             if verdict.decision == "keep":
                 tally.rebaselined.append(item.key)
