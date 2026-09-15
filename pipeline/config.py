@@ -448,6 +448,25 @@ CONFIG_VARS: Final[tuple[ConfigVar, ...]] = (
         False,
         "model id for the summary reviewing pass (standing rule 3, amended 2026-09-14)",
     ),
+    # 010 R7c: a second transport for the drafting client that shells out to the Claude Code CLI
+    # in print mode, so a drafting run bills the Owner's subscription instead of the messages API
+    # above. "api" keeps the original transport reachable without a code change.
+    ConfigVar(
+        "WGC_DRAFT_TRANSPORT",
+        "draft_transport",
+        "cli",
+        "str",
+        False,
+        "transport for the drafting client: cli (subscription) or api (billed messages API)",
+    ),
+    ConfigVar(
+        "WGC_CLAUDE_CLI",
+        "claude_cli",
+        "claude",
+        "str",
+        False,
+        "executable name/path for the Claude Code CLI transport",
+    ),
 )
 
 _BY_ENV_NAME: Final[Mapping[str, ConfigVar]] = {var.env_name: var for var in CONFIG_VARS}
@@ -496,6 +515,8 @@ class PipelineConfig:
     anthropic_api_key: str
     draft_model: str
     review_model: str
+    draft_transport: str
+    claude_cli: str
 
     @property
     def manifest_path(self) -> str:
@@ -637,6 +658,19 @@ def _as_channel(raw: Mapping[str, str], env_name: str) -> Channel:
         raise ConfigError(f"{env_name} must be one of {allowed}, got {text!r}") from exc
 
 
+#: The two transports a caller may select for the drafting client. Read here rather than in
+#: `pipeline.summaries` so `config.py` stays the only place a config value's shape is validated.
+_DRAFT_TRANSPORTS: Final[frozenset[str]] = frozenset({"cli", "api"})
+
+
+def _as_draft_transport(raw: Mapping[str, str], env_name: str) -> str:
+    text = raw[env_name]
+    if text not in _DRAFT_TRANSPORTS:
+        allowed = ", ".join(sorted(_DRAFT_TRANSPORTS))
+        raise ConfigError(f"{env_name} must be one of {allowed}, got {text!r}")
+    return text
+
+
 def _as_gate(raw: Mapping[str, str], env_name: str) -> Gate:
     text = raw[env_name]
     try:
@@ -735,4 +769,6 @@ def load_config(
         anthropic_api_key=_as_str(raw, "WGC_ANTHROPIC_API_KEY"),
         draft_model=_as_str(raw, "WGC_DRAFT_MODEL"),
         review_model=_as_str(raw, "WGC_REVIEW_MODEL"),
+        draft_transport=_as_draft_transport(raw, "WGC_DRAFT_TRANSPORT"),
+        claude_cli=_as_str(raw, "WGC_CLAUDE_CLI"),
     )

@@ -5,6 +5,9 @@
 # AI-Assisted: Claude Code (model: claude-opus-5) - 010 R7 task 2 fix round 1: `draft_user` takes
 # an optional `hint` and appends the reviewing pass's reason code as one instruction line, so the
 # standing instructions stay byte-identical between a first attempt and a redraft.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - 010 R7c task 1: the batch review prompt and
+# the three JSON schemas the CLI transport's `--json-schema` flag needs. The batch prompt numbers
+# each item so a reply's order is unambiguous without inventing a second identifier scheme.
 """The two system prompts, and the two user messages that carry one entry's text.
 
 Standing rule 3 (amended 2026-09-14) permits a summary to be machine-drafted from the export's
@@ -20,7 +23,8 @@ Both prompts ask for JSON and nothing else, because the client validates the rep
 
 from __future__ import annotations
 
-from typing import Final, Literal
+from collections.abc import Sequence
+from typing import Any, Final, Literal
 
 # The 600-character target and the four reason codes are stated to the model below and enforced
 # by the `Literal` types in `client.py`. They are deliberately not also constants here: a second
@@ -116,3 +120,88 @@ def draft_user(
 def review_user(name: str, mechanic_text: str, summary: str) -> str:
     """The user message for the reviewing pass."""
     return f"Name: {name}\nRules text:\n{mechanic_text}\n\nProposed summary:\n{summary}"
+
+
+REVIEW_BATCH_SYSTEM: Final = """\
+You review several mechanical summaries in one pass, each against the rules text it was
+drafted from, before a human approves them. The items are numbered.
+
+For each item, independently decide one of:
+- "keep"    - the summary is faithful, mechanical, and within 600 characters.
+- "redraft" - the summary changes, drops, or adds meaning, or it exceeds 600 characters.
+- "lore"    - the summary carries lore, setting or world detail, unit background, quoted
+              flavour, or a publisher or product name.
+
+Then give exactly one reason code per item:
+- "meaning-changed" - a condition, value, timing, target, or keyword differs from the text.
+- "too-long"        - the summary exceeds 600 characters.
+- "lore-present"    - the summary carries non-mechanical content.
+- "ok"              - nothing is wrong with it.
+
+Use "ok" only with "keep", and never invent a code outside those four.
+
+Reply with one verdict per item, in the same order the items were given, one object per item,
+never fewer, and no other text:
+{"verdicts": [{"decision": "<keep|redraft|lore>", "reason_code": "<one of the four codes>"}, ...]}
+"""
+
+
+def review_batch_user(items: Sequence[tuple[str, str, str]]) -> str:
+    """The user message for a batched reviewing pass: one numbered block per ``(name, text,
+    summary)`` triple, so the reply's order is unambiguous."""
+    blocks = [
+        f"Item {index}\nName: {name}\nRules text:\n{mechanic_text}\n\nProposed summary:\n{summary}"
+        for index, (name, mechanic_text, summary) in enumerate(items, start=1)
+    ]
+    return "\n\n".join(blocks)
+
+
+#: The three JSON schemas the CLI transport's `--json-schema` flag validates a reply against.
+#: Shaped to match `_DraftReply` / `_ReviewReply` / the batch reply model in `cli_client.py` —
+#: `additionalProperties: false` and every field required, so a malformed reply is refused by the
+#: CLI itself rather than only by our own `pydantic` pass.
+DRAFT_SCHEMA: Final[dict[str, Any]] = {
+    "type": "object",
+    "properties": {
+        "summary": {"type": "string"},
+        "used_verbatim": {"type": "boolean"},
+    },
+    "required": ["summary", "used_verbatim"],
+    "additionalProperties": False,
+}
+
+REVIEW_SCHEMA: Final[dict[str, Any]] = {
+    "type": "object",
+    "properties": {
+        "decision": {"type": "string", "enum": ["keep", "redraft", "lore"]},
+        "reason_code": {
+            "type": "string",
+            "enum": ["meaning-changed", "too-long", "lore-present", "ok"],
+        },
+    },
+    "required": ["decision", "reason_code"],
+    "additionalProperties": False,
+}
+
+REVIEW_BATCH_SCHEMA: Final[dict[str, Any]] = {
+    "type": "object",
+    "properties": {
+        "verdicts": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "decision": {"type": "string", "enum": ["keep", "redraft", "lore"]},
+                    "reason_code": {
+                        "type": "string",
+                        "enum": ["meaning-changed", "too-long", "lore-present", "ok"],
+                    },
+                },
+                "required": ["decision", "reason_code"],
+                "additionalProperties": False,
+            },
+        },
+    },
+    "required": ["verdicts"],
+    "additionalProperties": False,
+}
