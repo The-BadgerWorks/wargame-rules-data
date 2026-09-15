@@ -4,6 +4,10 @@
 # boundary it must NOT cross (a keyword that merely CONTAINS a unit name stays in), the flow
 # through to `glossary_keys`, the wiring through `run_build`, and the advisory that keeps the
 # shrink visible.
+# AI-Assisted: Claude Code (model: claude-opus-5) - 010 R9 task 5 fix round 1: pinned the two
+# tradeoffs the exclusion accepts, both receipts rather than behaviour changes - an emptied
+# denominator still reads 100% (trap 1, now reachable from the data), and a genuine mechanic that
+# also names a unit is excluded with only the advisory's counts to show it.
 """A keyword that names a unit is not a glossary candidate.
 
 The denominator this touches is `GLS-OUTSTANDING`'s. Round 8 measured it at 1264 keys, of which
@@ -23,10 +27,14 @@ import shutil
 from pathlib import Path
 
 from pipeline.cli import run_build
-from pipeline.config import load_config
+from pipeline.config import Gate, load_config
+from pipeline.curate.summaries import glossary_key
+from pipeline.models.authored import SummaryClass
 from pipeline.models.curated import CuratedKeyword, CuratedModelLine, KeywordClass
 from pipeline.validate.gates import (
+    ClassCheck,
     check_unit_name_exclusions,
+    class_coverage,
     glossary_keys,
     used_keyword_keys,
 )
@@ -266,3 +274,92 @@ def test_a_build_applies_the_exclusion_and_raises_the_advisory(tmp_path, temp_re
     assert "glossary:slate sentinel" not in {
         ref for finding in outstanding for ref in finding.entity_refs
     }
+
+
+# --- the two tradeoffs this exclusion accepts, pinned so neither can move quietly ---------------
+
+
+def test_a_denominator_emptied_by_the_exclusion_still_reads_one_hundred_percent() -> None:
+    """A 100% reading over an empty candidate set is NOT evidence of coverage.
+
+    `ClassCoverage.ratio_percent` returns 100 when `total <= 0` -- "a class with an empty
+    denominator is complete rather than zero" -- and `check_summary_ratchet` clears trivially
+    against it. That is this project's trap 1, and the unit-name exclusion opens a new,
+    **data-driven** path into it: a snapshot whose only keyword names its own datasheet ends with
+    no glossary candidates at all, and the glossary row reads a confident 100.
+
+    **The advisory is currently the only signal that this happened.** Nothing here is blocking,
+    and nothing here should be read as approving the reading -- this test exists so that the day
+    somebody changes the empty-denominator convention, a named test tells them exactly what they
+    changed and what depended on it. Whether an emptied denominator should read 100, 0, or refuse
+    to report at all is the Owner's question, not this test's.
+    """
+    snapshot = factories.snapshot(
+        datasheets=[
+            _datasheet("ds-fen-warden", name="Fen Warden", keywords=[_keyword("Fen Warden")])
+        ]
+    )
+
+    assert used_keyword_keys(snapshot) == ()
+    assert glossary_keys(snapshot) == ()
+
+    coverage = class_coverage(
+        ClassCheck(
+            summary_class=SummaryClass.GLOSSARY,
+            keys=glossary_keys(snapshot),
+            authored={},
+            gate=Gate.OFF,
+        )
+    )
+
+    assert (coverage.approved, coverage.total) == (0, 0)
+    assert coverage.ratio_percent == 100
+
+    advisories = check_unit_name_exclusions(snapshot)
+    assert advisories[0].detail == {"excluded_keys": 1, "candidate_keys": 0}
+
+
+def test_a_genuine_mechanic_that_also_names_a_unit_is_excluded_and_only_counted() -> None:
+    """A known, accepted consequence of exact-equality exclusion.
+
+    The subtraction in `used_keyword_keys` is unconditional and snapshot-wide: it asks whether a
+    key equals a published name, never whether the keyword is *also* a real mechanic somewhere.
+    So an export that names a datasheet after a genuine rules keyword takes that keyword out of
+    the denominator -- and out of the numerator too, if a curator had already defined and approved
+    it -- with no way for a reader to tell which key went, because `GLS-UNIT-NAME-EXCLUDED`
+    carries counts and nothing else.
+
+    That is the accepted tradeoff, pinned here so it is explicit and reviewable rather than
+    discovered. The alternative -- reporting the excluded keys themselves in the finding's detail
+    -- was considered and deliberately NOT taken: the brief specified counts, and naming the whole
+    excluded set in a finding payload is a separate design decision that belongs to the Owner.
+    """
+    mechanic = "Tidewalk"
+    snapshot = factories.snapshot(
+        datasheets=[
+            _datasheet(
+                "ds-tidewalk",
+                name=mechanic,
+                keywords=[_keyword(mechanic), _keyword("Infantry")],
+                models=[_model(mechanic)],
+            ),
+            _datasheet(
+                "ds-brackrider-column",
+                name="Brackrider Column",
+                faction_id="f-bracklight-host",
+                keywords=[_keyword(mechanic)],
+                models=[_model("Brackrider Column")],
+            ),
+        ]
+    )
+
+    # The keyword is a mechanic by every other measure -- a second faction, naming nothing of its
+    # own after it, prints it as a keyword. It leaves anyway.
+    assert used_keyword_keys(snapshot) == ("infantry",)
+    assert glossary_key("tidewalk") not in glossary_keys(snapshot)
+
+    advisories = check_unit_name_exclusions(snapshot)
+    assert advisories[0].detail == {"excluded_keys": 1, "candidate_keys": 1}
+    # Counts only. Nothing in the finding says WHICH key left -- that is the signal this tradeoff
+    # costs, and it is recorded rather than worked around.
+    assert set(advisories[0].detail) == {"excluded_keys", "candidate_keys"}
