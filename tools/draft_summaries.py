@@ -16,6 +16,12 @@
 # not one), the ambiguous-source-id guard is adopted from the pipeline, the drafted count is
 # recorded where the drafting happens rather than inferred, and a per-class
 # keys/resolved/unresolved line is printed BEFORE the confirmation prompt.
+# AI-Assisted: Claude Code (model: claude-opus-5[1m]) - 010 R7c task 2: a `--transport cli|api`
+# switch (defaulting to the configured `cli`) that drives the run through `CliSummaryClient` and
+# therefore needs no API key, and re-reviews issued in batches of at most ten through
+# `review_many`, so the round-7 backlog of ~2000 re-reviews costs ~200 calls rather than 2000.
+# The class pass is three phases now — gate, batched re-review, per-entry drafting — with every
+# bucket, gate order and partial-write guarantee of the single loop it replaces.
 """Draft candidate summaries for the entries a build reported as outstanding.
 
 Standing rule 3 was amended on 2026-09-14: a summary may be **machine-drafted** from the
@@ -65,7 +71,7 @@ from collections.abc import Iterable, Iterator, Mapping, Sequence
 from dataclasses import dataclass, field
 from datetime import UTC, datetime
 from pathlib import Path
-from typing import Any, Final, Literal, Protocol
+from typing import Any, Final, Literal, Protocol, runtime_checkable
 
 from pydantic import ValidationError
 
@@ -81,6 +87,7 @@ from pipeline.normalize.names import normalize_name
 from pipeline.parse.wahapedia_csv import CsvReadResult
 from pipeline.reconcile.identity import slugify
 from pipeline.summaries import Draft, DraftingError, Verdict
+from pipeline.summaries.cli_client import MAX_BATCH_ITEMS
 from pipeline.workspace import workspace
 
 PROG: Final = "draft_summaries.py"
@@ -205,6 +212,32 @@ class Reviewer(Protocol):
     def review(self, name: str, mechanic_text: str, summary: str) -> Verdict: ...
 
 
+@runtime_checkable
+class BatchReviewer(Protocol):
+    """A reviewer that can take several entries in one call.
+
+    Only :class:`pipeline.summaries.CliSummaryClient` implements it. Declared here rather than
+    added to ``SummaryClient`` because the messages API transport has no batching to offer and a
+    method that loops internally would be a second, slower implementation wearing the same name.
+    Runtime-checkable so :func:`_review_batch` can ask the object rather than the caller.
+    """
+
+    def review_many(self, items: Sequence[tuple[str, str, str]]) -> list[Verdict]: ...
+
+
+def _review_batch(reviewer: Reviewer, items: Sequence[tuple[str, str, str]]) -> list[Verdict]:
+    """Review ``items`` — ``(name, mechanic_text, summary)`` triples — in as few calls as the
+    reviewer allows, returning one verdict per item **in the order given**.
+
+    One call when the reviewer batches, one call per item when it does not. This is the whole
+    of the difference between the two transports inside the drafting loop: the loop above does
+    not branch on the transport, and the api path keeps exactly today's call shape.
+    """
+    if isinstance(reviewer, BatchReviewer):
+        return reviewer.review_many(items)
+    return [reviewer.review(*item) for item in items]
+
+
 @dataclass(frozen=True, slots=True)
 class Candidate:
     """One record this run proposes, the class it belongs to, and the file it lands in."""
@@ -314,10 +347,9 @@ class _WorkList:
     unapproved: tuple[str, ...] = ()
     """`-UNAPPROVED`: a human's `draft`/`in_review` record. Reported, never written over."""
 
-    @property
-    def calls(self) -> int:
-        """The minimum number of API calls, before any redraft: draft+review, or review."""
-        return 2 * len(self.fresh) + len(self.rereview)
+    # There was a `calls` property here, and it had no caller. Removed in 010 R7c task 2 rather
+    # than taught about batching: two call counts that can disagree is exactly the shipped-
+    # diagnostic defect class, and :func:`_estimate` is the one the human is shown.
 
 
 #: Finding suffixes that mean "this entry has no summary at all".
@@ -594,6 +626,8 @@ def _estimate(
     work: Mapping[SummaryClass, _WorkList],
     texts: Mapping[SummaryClass, Mapping[str, tuple[str, str]]],
     drafted: Mapping[SummaryClass, set[str]],
+    *,
+    batch_size: int | None,
 ) -> tuple[int, int]:
     """``(calls, tokens)`` the confirmed work list implies, before any redraft.
 
@@ -601,24 +635,32 @@ def _estimate(
     back costs one more draft and one more review, and there is no way to know in advance how
     many will. Keys an earlier invocation already drafted, and keys the source does not publish,
     are excluded — the estimate is what this invocation will actually spend.
+
+    ``batch_size`` is the reviewer's own batch limit, or ``None`` when it does not batch. It is
+    derived from the reviewer object rather than from the transport name, because it has to be
+    the same fact :func:`_review_batch` acts on: an estimate that counts calls the run will not
+    make is a diagnostic that contradicts behaviour, however plausible the number looks.
     """
     calls = 0
     characters = 0
     for summary_class, item in work.items():
         per_class = texts.get(summary_class, {})
         done = drafted.get(summary_class, set())
-        for key, cost in ((k, 2) for k in item.fresh):
+        for key in item.fresh:
             entry = per_class.get(key)
             if entry is None or key in done:
                 continue
-            calls += cost
+            calls += 2
             characters += len(entry[1])
+        reviews = 0
         for key in item.rereview:
             entry = per_class.get(key)
             if entry is None or key in done:
                 continue
-            calls += 1
+            reviews += 1
             characters += len(entry[1])
+        # Ceiling division: a last partial batch is still one call.
+        calls += reviews if batch_size is None else -(-reviews // batch_size)
     return calls, calls * _PER_CALL_OVERHEAD_TOKENS + characters // _CHARS_PER_TOKEN
 
 
@@ -652,25 +694,37 @@ def _report_resolution(
         )
 
 
-def _confirm(calls: int, tokens: int, *, assume_yes: bool) -> None:
+def _confirm(calls: int, tokens: int, *, assume_yes: bool, transport: str) -> None:
     """Print the estimate and refuse unless a human, or ``--yes``, says go.
 
     Prints a **count**, never a sample: the estimate is derived from the length of the text, not
     from the text, so that the thing a human is being asked to authorise sending is still not on
     their screen when they authorise it.
+
+    The ``cli`` transport is a subscription seat, so its line states calls and **no token
+    figure**: a token count there is a number with no meaning attached to it, shown to the one
+    person whose job at that moment is to decide whether the number is acceptable. The ``api``
+    transport is billed by token and its line is unchanged.
     """
-    print(f"{PROG}: about to make at least {calls} API calls, ~{tokens} tokens, before redrafts")
+    noun = "CLI calls" if transport == "cli" else "API calls"
+    if transport == "cli":
+        print(
+            f"{PROG}: about to make at least {calls} {noun} on the cli transport "
+            "(subscription seat), before redrafts"
+        )
+    else:
+        print(f"{PROG}: about to make at least {calls} {noun}, ~{tokens} tokens, before redrafts")
     if assume_yes:
         print(f"{PROG}: --yes given; proceeding")
         return
     if not sys.stdin.isatty():
         raise ConfirmationRefused(
-            f"{calls} API calls were not confirmed: this run is not interactive and --yes was "
+            f"{calls} {noun} were not confirmed: this run is not interactive and --yes was "
             "not given. Re-run with --yes when the estimate above is acceptable."
         )
     answer = input(f"{PROG}: proceed? [y/N] ").strip().lower()
     if answer not in {"y", "yes"}:
-        raise ConfirmationRefused(f"{calls} API calls were declined at the prompt")
+        raise ConfirmationRefused(f"{calls} {noun} were declined at the prompt")
 
 
 # --------------------------------------------------------------------------------------
@@ -838,29 +892,50 @@ def _faction_of(
     return UNASSIGNED
 
 
-def _run_class(
+@dataclass(frozen=True, slots=True)
+class _WorkItem:
+    """One key that passed the gates, with everything the two call phases need, read once.
+
+    Built by :func:`_work_items` so that the batching phase can look at a whole chunk of keys
+    without re-deriving per-key facts, and so that the candidate a key produces is assembled
+    from exactly the same five values whichever phase produces it.
+    """
+
+    key: str
+    is_rereview: bool
+    name: str
+    """The display name the source publishes for this key."""
+
+    text: str
+    digest: str
+    faction: str
+    version: str | None
+    """The version a re-baseline is attributed to, or ``None`` when no approval is carried."""
+
+    prior_summary: str | None
+    """The approved summary to re-review, or ``None`` when this key goes straight to drafting."""
+
+    prior_name: str
+    """The display name a carried-across candidate keeps: the curated one, else the source's."""
+
+
+def _work_items(
+    ordered: Sequence[tuple[str, bool]],
     summary_class: SummaryClass,
-    work: _WorkList,
     inputs: _ClassInputs,
     *,
-    drafter: Drafter,
-    reviewer: Reviewer,
-) -> ClassOutcome:
-    """One class's whole pass. Stops on a :class:`DraftingError`, keeping what it has."""
-    tally = _ClassTally()
-    tally.unapproved.extend(work.unapproved)
+    tally: _ClassTally,
+) -> list[_WorkItem]:
+    """Phase 0: the three gates, in today's order, without making one call.
 
-    # Re-review first: it is the cheaper call (one review, no draft) and the one whose outcome
-    # can turn into drafting work, so a --limit that runs out should run out on drafting.
-    rereview = set(work.rereview)
-    ordered: list[tuple[str, bool]] = [(key, True) for key in work.rereview]
-    ordered += [(key, False) for key in work.fresh if key not in rereview]
-
+    Hoisted out of the drafting loop so that phase 1 can see a whole class's re-reviews at once
+    and batch them. Behaviour-preserving because no gate reads a result: ``unresolved`` before
+    ``already`` before ``--limit``, and ``worked`` counts exactly the keys that reach a call.
+    ``ordered`` still puts re-reviews first, so a ``--limit`` still runs out on drafting.
+    """
+    items: list[_WorkItem] = []
     worked = 0
-    for index, (key, is_rereview) in enumerate(ordered):
-        if tally.failure is not None:
-            tally.not_attempted.append(key)
-            continue
+    for key, is_rereview in ordered:
         entry = inputs.texts.get(key)
         if entry is None:
             # Standing rule 10: a key measured at zero gets no code, and a key this run cannot
@@ -874,11 +949,153 @@ def _run_class(
             tally.skipped.append(key)
             continue
         worked += 1
+        items.append(
+            _work_item(
+                key, entry, is_rereview=is_rereview, summary_class=summary_class, inputs=inputs
+            )
+        )
+    return items
+
+
+def _work_item(
+    key: str,
+    entry: tuple[str, str],
+    *,
+    is_rereview: bool,
+    summary_class: SummaryClass,
+    inputs: _ClassInputs,
+) -> _WorkItem:
+    """Everything one key's candidate is built from — the prologue of the old ``_work_one``."""
+    name, text = entry
+    prior_entry = inputs.authored.get(key)
+    prior = prior_entry[0] if prior_entry is not None else None
+    # The guard's own test, not ours: a key already approved in curation/ whose digest moves is a
+    # re-baseline as far as check_summary_approvals.py is concerned, however the summary got
+    # here. See `_record`.
+    approved_in_curation = prior is not None and prior.get("review_state") == "approved"
+    summary = prior.get("summary") if prior is not None else None
+    prior_name = prior.get("name") if prior is not None else None
+    return _WorkItem(
+        key=key,
+        is_rereview=is_rereview,
+        name=name,
+        text=text,
+        digest=inputs.digests[key],
+        faction=_faction_of(summary_class, key, authored=inputs.authored, curated=inputs.curated),
+        version=inputs.version if approved_in_curation else None,
+        prior_summary=summary if is_rereview and isinstance(summary, str) else None,
+        prior_name=prior_name if isinstance(prior_name, str) and prior_name else name,
+    )
+
+
+def _add(
+    item: _WorkItem,
+    summary: str,
+    display_name: str,
+    *,
+    tally: _ClassTally,
+    summary_class: SummaryClass,
+    inputs: _ClassInputs,
+) -> None:
+    """Record one candidate. The single construction site, whichever phase produced it."""
+    tally.kept.append(item.key)
+    tally.candidates.append(
+        Candidate(
+            summary_class,
+            item.key,
+            item.faction,
+            _record(
+                summary_class,
+                item.key,
+                name=display_name,
+                summary=summary,
+                digest=item.digest,
+                reviewed_by=inputs.reviewed_by,
+                reviewed_at=inputs.reviewed_at,
+                acquisition_id=inputs.acquisition_id,
+                version=item.version,
+            ),
+        )
+    )
+
+
+def _run_class(
+    summary_class: SummaryClass,
+    work: _WorkList,
+    inputs: _ClassInputs,
+    *,
+    drafter: Drafter,
+    reviewer: Reviewer,
+) -> ClassOutcome:
+    """One class's whole pass, in three phases. Stops on a :class:`DraftingError`, keeping what
+    it has.
+
+    Phase 0 gates without calling anything; phase 1 re-reviews the keys that have an approved
+    summary, up to :data:`MAX_BATCH_ITEMS` per call; phase 2 drafts, one entry at a time, the
+    fresh keys and the ones phase 1 sent back. Splitting the old single loop is what turns this
+    round's ~2000 re-reviews into ~200 calls; every bucket a key can land in, the order the
+    gates apply in, and the partial-write guarantee are the loop's own and are unchanged.
+    """
+    tally = _ClassTally()
+    tally.unapproved.extend(work.unapproved)
+
+    # Re-review first: it is the cheaper call (one review, no draft) and the one whose outcome
+    # can turn into drafting work, so a --limit that runs out should run out on drafting.
+    rereview = set(work.rereview)
+    ordered: list[tuple[str, bool]] = [(key, True) for key in work.rereview]
+    ordered += [(key, False) for key in work.fresh if key not in rereview]
+
+    pending = _work_items(ordered, summary_class, inputs, tally=tally)
+
+    # A re-review key with no usable prior summary is a missing summary, and goes straight to
+    # drafting exactly as it did before there were phases.
+    reviewable: list[tuple[_WorkItem, str]] = []
+    queue: list[_WorkItem] = []
+    for item in pending:
+        prior = item.prior_summary
+        if prior is None:
+            queue.append(item)
+        else:
+            reviewable.append((item, prior))
+
+    redrafts: list[_WorkItem] = []
+    for start in range(0, len(reviewable), MAX_BATCH_ITEMS):
+        chunk = reviewable[start : start + MAX_BATCH_ITEMS]
         try:
-            _work_one(
-                key,
-                entry,
-                is_rereview=is_rereview,
+            verdicts = _review_batch(reviewer, [(i.name, i.text, s) for i, s in chunk])
+        except DraftingError as exc:
+            # The bill for everything before this point is already paid. Stop the class, keep the
+            # candidates, name the batch this stopped on, and let the caller write and report.
+            # `redrafts` joins not-attempted: those keys were reviewed but never drafted, and a
+            # key in no bucket at all would vanish from the report the operator resumes from.
+            tally.failure = f"stopped at {chunk[0][0].key}: {exc}"
+            tally.not_attempted.extend(
+                entry.key for entry in (*redrafts, *(i for i, _ in reviewable[start:]), *queue)
+            )
+            return tally.freeze(summary_class)
+        for (item, _prior), verdict in zip(chunk, verdicts, strict=True):
+            if verdict.decision == "keep":
+                tally.rebaselined.append(item.key)
+                _add(
+                    item,
+                    _prior,
+                    item.prior_name,
+                    tally=tally,
+                    summary_class=summary_class,
+                    inputs=inputs,
+                )
+            elif verdict.decision == "lore":
+                tally.dropped_lore.append(item.key)
+            else:
+                # `redraft`: the approved summary no longer describes the mechanic, so this is a
+                # missing summary and joins the drafting queue below.
+                redrafts.append(item)
+
+    drafting = [*redrafts, *queue]
+    for index, item in enumerate(drafting):
+        try:
+            _draft_item(
+                item,
                 tally=tally,
                 summary_class=summary_class,
                 inputs=inputs,
@@ -886,88 +1103,40 @@ def _run_class(
                 reviewer=reviewer,
             )
         except DraftingError as exc:
-            # The bill for everything before this point is already paid. Stop the class, keep the
-            # candidates, name the key it stopped on, and let the caller write and report.
-            tally.failure = f"stopped at {key}: {exc}"
-            tally.not_attempted.extend(k for k, _ in ordered[index + 1 :])
+            tally.failure = f"stopped at {item.key}: {exc}"
+            tally.not_attempted.extend(rest.key for rest in drafting[index + 1 :])
             break
 
     return tally.freeze(summary_class)
 
 
-def _work_one(  # noqa: PLR0913 - one argument per input, as this module's style
-    key: str,
-    entry: tuple[str, str],
+def _draft_item(
+    item: _WorkItem,
     *,
-    is_rereview: bool,
     tally: _ClassTally,
     summary_class: SummaryClass,
     inputs: _ClassInputs,
     drafter: Drafter,
     reviewer: Reviewer,
 ) -> None:
-    """One key: the re-review pass where it applies, else draft-and-review."""
-    name, text = entry
-    digest = inputs.digests[key]
-    prior_entry = inputs.authored.get(key)
-    prior = prior_entry[0] if prior_entry is not None else None
-    # The guard's own test, not ours: a key already approved in curation/ whose digest moves is a
-    # re-baseline as far as check_summary_approvals.py is concerned, however the summary got
-    # here. See `_record`.
-    approved_in_curation = prior is not None and prior.get("review_state") == "approved"
-    version = inputs.version if approved_in_curation else None
-    faction = _faction_of(summary_class, key, authored=inputs.authored, curated=inputs.curated)
-
-    def add(summary: str, *, display_name: str) -> None:
-        tally.kept.append(key)
-        tally.candidates.append(
-            Candidate(
-                summary_class,
-                key,
-                faction,
-                _record(
-                    summary_class,
-                    key,
-                    name=display_name,
-                    summary=summary,
-                    digest=digest,
-                    reviewed_by=inputs.reviewed_by,
-                    reviewed_at=inputs.reviewed_at,
-                    acquisition_id=inputs.acquisition_id,
-                    version=version,
-                ),
-            )
-        )
-
-    if is_rereview and prior is not None and isinstance(prior.get("summary"), str):
-        verdict = reviewer.review(name, text, prior["summary"])
-        if verdict.decision == "keep":
-            tally.rebaselined.append(key)
-            add(prior["summary"], display_name=prior.get("name") or name)
-            return
-        if verdict.decision == "lore":
-            tally.dropped_lore.append(key)
-            return
-        # `redraft`: the approved summary no longer describes the mechanic, so this is a missing
-        # summary and falls through to the drafting path below.
-
+    """Draft one entry and file the outcome — the drafting half of the old ``_work_one``."""
     # Recorded HERE, at the one call site of the drafting pass, so the figure is an
     # observation rather than an inference from buckets that later change (fix round 2, D).
-    tally.drafted.append(key)
+    tally.drafted.append(item.key)
     draft, verdict, redrafted = _draft_one(
-        name, text, summary_class=summary_class, drafter=drafter, reviewer=reviewer
+        item.name, item.text, summary_class=summary_class, drafter=drafter, reviewer=reviewer
     )
     if redrafted:
-        tally.redrafted.append(key)
+        tally.redrafted.append(item.key)
     if draft is None:
         if verdict.decision == "lore":
-            tally.dropped_lore.append(key)
+            tally.dropped_lore.append(item.key)
         else:
-            tally.dropped_unresolved.append(key)
+            tally.dropped_unresolved.append(item.key)
         return
     if draft.used_verbatim:
-        tally.verbatim.append(key)
-    add(draft.summary, display_name=name)
+        tally.verbatim.append(item.key)
+    _add(item, draft.summary, item.name, tally=tally, summary_class=summary_class, inputs=inputs)
 
 
 # --------------------------------------------------------------------------------------
@@ -1021,6 +1190,7 @@ def draft_candidates(  # noqa: PLR0913 - one argument per input, as tools/churn_
     limit: int | None = None,
     assume_yes: bool = False,
     now: datetime | None = None,
+    transport: str = "api",
 ) -> DraftRun:
     """Acquire, join, draft, review, write candidates — and discard the acquired text.
 
@@ -1030,6 +1200,11 @@ def draft_candidates(  # noqa: PLR0913 - one argument per input, as tools/churn_
 
     **Each class is written as it completes**, not at the end. The live run has exactly one
     budget; a failure in the second class must not discard the first class's paid-for work.
+
+    ``transport`` names how ``drafter``/``reviewer`` reach a model, and is used for **one**
+    thing: whether the cost line quotes a token figure. Whether re-reviews are batched is asked
+    of the reviewer object instead, so the printed call count cannot disagree with the calls the
+    run then makes.
     """
     resolved_out = resolve_out_dir(out_dir, repository_root)
     selected = [SummaryClass(name) for name in classes]
@@ -1074,8 +1249,9 @@ def draft_candidates(  # noqa: PLR0913 - one argument per input, as tools/churn_
         }
 
         _report_resolution(selected, work, texts, already)
-        calls, tokens = _estimate(work, texts, already)
-        _confirm(calls, tokens, assume_yes=assume_yes)
+        batch_size = MAX_BATCH_ITEMS if isinstance(reviewer, BatchReviewer) else None
+        calls, tokens = _estimate(work, texts, already, batch_size=batch_size)
+        _confirm(calls, tokens, assume_yes=assume_yes, transport=transport)
 
         for summary_class in selected:
             if failure is not None:
@@ -1272,6 +1448,15 @@ def _parse_args(argv: Sequence[str] | None) -> argparse.Namespace:
     parser.add_argument(
         "--data", type=Path, help="built snapshot tree the report came from (READ; never written)"
     )
+    parser.add_argument(
+        "--transport",
+        choices=("cli", "api"),
+        default=None,
+        help=(
+            "how to reach the model: cli (a Claude Code subscription seat) or api (the billed "
+            "messages API). Default: WGC_DRAFT_TRANSPORT."
+        ),
+    )
     parser.add_argument("--fixtures", type=Path, help="source from a synthetic fixture set")
     parser.add_argument(
         "--offline", action="store_true", help="refuse network access; requires --fixtures"
@@ -1298,7 +1483,11 @@ def main(
     try:
         resolve_out_dir(args.out, root)
         config = load_config(env=env) if env is not None else load_config()
-        if not config.anthropic_api_key:
+        # An explicit --transport overrides the configured default.
+        transport = str(args.transport or config.draft_transport)
+        # Only the api path spends a key, and only the api path may refuse for the want of one:
+        # the whole point of the cli transport is a drafting run that needs no API credential.
+        if transport == "api" and not config.anthropic_api_key:
             raise ConfigError("WGC_ANTHROPIC_API_KEY is not set; this tool cannot draft without it")
         classes = tuple(name.strip() for name in str(args.classes).split(",") if name.strip())
         for name in classes:
@@ -1310,21 +1499,31 @@ def main(
         print(f"{PROG}: {exc}", file=sys.stderr)
         return int(ExitCode.CONFIG_ERROR)
 
-    from contextlib import nullcontext
+    from contextlib import AbstractContextManager, nullcontext
 
-    from pipeline.summaries import SummaryClient
+    from pipeline.summaries import CliSummaryClient, SummaryClient
 
-    if clients is None:
-        drafting = SummaryClient(config.anthropic_api_key, model=config.draft_model)
-        reviewing = SummaryClient(config.anthropic_api_key, model=config.review_model)
+    drafting: Drafter
+    reviewing: Reviewer
+    # `CliSummaryClient` holds no connection to close, so it enters through `nullcontext` for the
+    # same reason injected clients do rather than growing an `__enter__` it has no work for.
+    contexts: tuple[AbstractContextManager[Any], AbstractContextManager[Any]]
+    if clients is not None:
+        drafting, reviewing = clients
+        contexts = (nullcontext(drafting), nullcontext(reviewing))
+    elif transport == "cli":
+        cli_drafting = CliSummaryClient(model=config.draft_model, executable=config.claude_cli)
+        cli_reviewing = CliSummaryClient(model=config.review_model, executable=config.claude_cli)
+        drafting, reviewing = cli_drafting, cli_reviewing
+        contexts = (nullcontext(cli_drafting), nullcontext(cli_reviewing))
     else:
-        drafting, reviewing = clients  # type: ignore[assignment]
+        api_drafting = SummaryClient(config.anthropic_api_key, model=config.draft_model)
+        api_reviewing = SummaryClient(config.anthropic_api_key, model=config.review_model)
+        drafting, reviewing = api_drafting, api_reviewing
+        contexts = (api_drafting, api_reviewing)
 
     try:
-        with (
-            drafting if clients is None else nullcontext(drafting),
-            reviewing if clients is None else nullcontext(reviewing),
-        ):
+        with contexts[0], contexts[1]:
             run = draft_candidates(
                 config,
                 repository_root=root,
@@ -1340,6 +1539,7 @@ def main(
                 data_dir=args.data,
                 limit=args.limit,
                 assume_yes=args.yes,
+                transport=transport,
             )
     except (ConfigError, DigestKeyMissingError, ConfirmationRefused) as exc:
         print(f"{PROG}: {exc}", file=sys.stderr)

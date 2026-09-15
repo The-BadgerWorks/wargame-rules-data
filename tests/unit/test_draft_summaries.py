@@ -281,11 +281,13 @@ def run(
     classes: Sequence[str] = ("abilities",),
     limit: int | None = None,
     assume_yes: bool = True,
+    transport: str = "api",
 ) -> DraftRun:
     from pipeline.config import load_config
 
     return draft_candidates(
         load_config(env=ENV),
+        transport=transport,
         repository_root=repo,
         report_path=report,
         out_dir=out,
@@ -1407,3 +1409,345 @@ def test_a_key_the_source_does_not_publish_is_reported_not_guessed(
     assert outcome.by_class["abilities"].unresolved == ("datasheet:not-in-this-export",)
     assert client.draft_calls == []
     assert "datasheet:not-in-this-export" in capsys.readouterr().out
+
+
+# --------------------------------------------------------------------------------------
+# 010 R7c task 2 — the transport switch, and batched re-reviews
+# --------------------------------------------------------------------------------------
+
+#: Invented mechanic text for the many-key batching fixtures. Unmistakable on sight, like the
+#: MECHANIC_* strings above: if one of these reaches stdout a test fails rather than a reviewer
+#: having to notice.
+BATCH_MECHANIC = "MECHANIC-THETA-{n:02d} invented models add {n} to an invented roll."
+
+
+def batch_key(index: int) -> str:
+    return f"datasheet:batch-ability-{index:02d}"
+
+
+def batch_name(index: int) -> str:
+    return f"Batch Ability {index:02d}"
+
+
+def write_batch_abilities(fixtures_dir: Path, count: int) -> list[str]:
+    """Rewrite the datasheet-ability table with ``count`` invented rows; return their keys."""
+    rows = ["﻿datasheet_id|line|ability_id|model|name|description|type|parameter|"]
+    for index in range(1, count + 1):
+        rows.append(
+            f"BV01|{index}|||{batch_name(index)}|{BATCH_MECHANIC.format(n=index)}|Datasheet||"
+        )
+    (fixtures_dir / "wahapedia" / "Datasheets_abilities.csv").write_text(
+        "\n".join(rows) + "\n", encoding="utf-8", newline=""
+    )
+    return [batch_key(index) for index in range(1, count + 1)]
+
+
+def approve_batch(repo: Path, count: int) -> None:
+    """One approved curated record per batch key, so each is a re-review with a prior summary."""
+    authored(
+        repo,
+        f"abilities/{FACTION}.json",
+        [
+            approved_ability(
+                batch_key(index),
+                batch_name(index),
+                f"An invented summary a curator approved, number {index:02d}.",
+            )
+            for index in range(1, count + 1)
+        ],
+    )
+
+
+@dataclass
+class BatchClient(FakeClient):
+    """The CLI shape: everything :class:`FakeClient` does, plus ``review_many``.
+
+    Records the SIZE of every batch, because a batching path that quietly issued one call per
+    item would still produce the right verdicts and the right totals.
+    """
+
+    batch_sizes: list[int] = field(default_factory=list)
+    raise_on_batch: dict[int, DraftingError] = field(default_factory=dict)
+
+    def review_many(self, items: Sequence[tuple[str, str, str]]) -> list[Verdict]:
+        self.batch_sizes.append(len(items))
+        failure = self.raise_on_batch.get(len(self.batch_sizes) - 1)
+        if failure is not None:
+            raise failure
+        return [self.review(*item) for item in items]
+
+
+def test_r7c_twenty_five_rereviews_are_issued_in_batches_of_ten_ten_five(
+    repo: Path, fixtures_dir: Path, tmp_path: Path
+) -> None:
+    """(c) The receipt for batching itself: the SIZES, not the total.
+
+    Unbatched, these 25 keys are 25 `review` calls. Delete `_review_batch`'s batching arm and
+    `batch_sizes` is empty, not `[10, 10, 5]`.
+    """
+    keys = write_batch_abilities(fixtures_dir, 25)
+    approve_batch(repo, 25)
+    report = write_report(
+        tmp_path / "report.json", [finding("SUM-NEEDS-REREVIEW", key) for key in keys]
+    )
+    client = BatchClient()
+
+    outcome = run(repo, fixtures_dir, report, tmp_path / "out", drafter=client, reviewer=client)
+
+    assert client.batch_sizes == [10, 10, 5]
+    assert client.draft_calls == [], "a kept re-review costs no draft"
+    assert len(outcome.by_class["abilities"].rebaselined) == 25
+
+
+def test_r7c_a_batch_routes_keep_lore_and_redraft_to_the_same_buckets_as_the_unbatched_path(
+    repo: Path, fixtures_dir: Path, tmp_path: Path
+) -> None:
+    """(d) One batch, three verdicts, three destinations — and the redraft is drafted."""
+    keys = write_batch_abilities(fixtures_dir, 3)
+    approve_batch(repo, 3)
+    report = write_report(
+        tmp_path / "report.json", [finding("SUM-NEEDS-REREVIEW", key) for key in keys]
+    )
+    client = BatchClient(
+        verdicts={
+            batch_name(1): [Verdict("keep", "ok")],
+            batch_name(2): [Verdict("lore", "lore")],
+            # The batch verdict, then the verdict on the fresh draft that follows it.
+            batch_name(3): [Verdict("redraft", "incomplete"), Verdict("keep", "ok")],
+        },
+        drafts={batch_name(3): [Draft("An invented redrafted summary.", False)]},
+    )
+    out = tmp_path / "out"
+
+    outcome = run(repo, fixtures_dir, report, out, drafter=client, reviewer=client)
+
+    abilities = outcome.by_class["abilities"]
+    assert client.batch_sizes == [3]
+    assert abilities.rebaselined == (batch_key(1),)
+    assert abilities.dropped_lore == (batch_key(2),)
+    assert abilities.drafted == (batch_key(3),)
+    assert sorted(abilities.kept) == sorted([batch_key(1), batch_key(3)])
+    assert [call[0] for call in client.draft_calls] == [batch_name(3)]
+    written = {
+        record["ability_key"]: record for record in records(out, f"abilities/{FACTION}.json")
+    }
+    assert written[batch_key(3)]["summary"] == "An invented redrafted summary."
+    # The redrafted re-baseline still carries the attribution pair (fix round 1's receipt).
+    assert written[batch_key(3)]["digest_refreshed_at_version"] == VERSION
+
+
+def test_r7c_a_failed_batch_keeps_the_candidates_already_produced(
+    repo: Path, fixtures_dir: Path, tmp_path: Path
+) -> None:
+    """(g) A `DraftingError` from `review_many` is the partial-write path, as a per-key one is."""
+    keys = write_batch_abilities(fixtures_dir, 15)
+    approve_batch(repo, 15)
+    report = write_report(
+        tmp_path / "report.json", [finding("SUM-NEEDS-REREVIEW", key) for key in keys]
+    )
+    out = tmp_path / "out"
+    client = BatchClient(raise_on_batch={1: DraftingError(529)})
+
+    outcome = run(repo, fixtures_dir, report, out, drafter=client, reviewer=client)
+
+    abilities = outcome.by_class["abilities"]
+    assert outcome.failure is not None
+    assert batch_key(11) in outcome.failure, "the batch's first key names the stop"
+    assert len(abilities.rebaselined) == 10
+    assert sorted(abilities.not_attempted) == [batch_key(i) for i in range(11, 16)]
+    on_disk = [record["ability_key"] for record in records(out, f"abilities/{FACTION}.json")]
+    assert on_disk == [batch_key(i) for i in range(1, 11)], "the paid-for ten are on disk"
+
+
+def test_r7c_a_reviewer_without_review_many_still_costs_one_call_per_key(
+    repo: Path, fixtures_dir: Path, tmp_path: Path
+) -> None:
+    """(h) The api shape. `_review_batch`'s fallback arm, and today's behaviour unchanged."""
+    keys = write_batch_abilities(fixtures_dir, 12)
+    approve_batch(repo, 12)
+    report = write_report(
+        tmp_path / "report.json", [finding("SUM-NEEDS-REREVIEW", key) for key in keys]
+    )
+    client = FakeClient()
+    assert not hasattr(client, "review_many")
+
+    outcome = run(repo, fixtures_dir, report, tmp_path / "out", drafter=client, reviewer=client)
+
+    assert [call[0] for call in client.review_calls] == [batch_name(i) for i in range(1, 13)]
+    assert len(outcome.by_class["abilities"].rebaselined) == 12
+
+
+def test_r7c_the_batched_run_never_lets_the_mechanic_text_reach_stdout(
+    repo: Path, fixtures_dir: Path, tmp_path: Path, capsys: pytest.CaptureFixture[str]
+) -> None:
+    """(i) The standing assertion, over the batched path this time."""
+    keys = write_batch_abilities(fixtures_dir, 12)
+    approve_batch(repo, 12)
+    report = write_report(
+        tmp_path / "report.json", [finding("SUM-NEEDS-REREVIEW", key) for key in keys]
+    )
+    client = BatchClient()
+
+    run(repo, fixtures_dir, report, tmp_path / "out", drafter=client, reviewer=client)
+
+    captured = capsys.readouterr()
+    for index in range(1, 13):
+        assert BATCH_MECHANIC.format(n=index) not in captured.out
+        assert BATCH_MECHANIC.format(n=index) not in captured.err
+    assert batch_key(1) in captured.out
+
+
+def test_r7c_the_cli_cost_line_states_calls_and_no_token_figure(
+    repo: Path, fixtures_dir: Path, tmp_path: Path, capsys: pytest.CaptureFixture[str]
+) -> None:
+    """(e) A token figure is a number that means nothing on a subscription seat."""
+    keys = write_batch_abilities(fixtures_dir, 25)
+    approve_batch(repo, 25)
+    report = write_report(
+        tmp_path / "report.json", [finding("SUM-NEEDS-REREVIEW", key) for key in keys]
+    )
+    client = BatchClient()
+
+    run(
+        repo,
+        fixtures_dir,
+        report,
+        tmp_path / "out",
+        drafter=client,
+        reviewer=client,
+        transport="cli",
+    )
+
+    printed = capsys.readouterr().out
+    assert "3 CLI calls" in printed, "25 re-reviews batch into three calls"
+    assert "tokens" not in printed
+    assert "API calls" not in printed
+
+
+def test_r7c_the_api_cost_line_is_unchanged(
+    repo: Path, fixtures_dir: Path, tmp_path: Path, capsys: pytest.CaptureFixture[str]
+) -> None:
+    """(e) The billed transport still shows what it will be billed for."""
+    report = write_report(
+        tmp_path / "report.json",
+        [finding("SUM-MISSING", VAULT_KEY), finding("SUM-MISSING", CHITIN_KEY)],
+    )
+
+    run(
+        repo,
+        fixtures_dir,
+        report,
+        tmp_path / "out",
+        drafter=FakeClient(),
+        reviewer=FakeClient(),
+        transport="api",
+    )
+
+    printed = capsys.readouterr().out
+    assert "4 API calls" in printed
+    assert "tokens" in printed
+
+
+def test_r7c_estimate_counts_a_batched_rereview_class_as_ceil_n_over_ten() -> None:
+    """(f) The estimate is what the human says yes to; it must count the calls that happen."""
+    from pipeline.models.authored import SummaryClass
+    from tools.draft_summaries import MAX_BATCH_ITEMS, _estimate, _WorkList
+
+    keys = tuple(batch_key(index) for index in range(1, 26))
+    work = {SummaryClass.ABILITIES: _WorkList(rereview=keys)}
+    texts = {SummaryClass.ABILITIES: {key: ("a name", "invented text") for key in keys}}
+    drafted: dict[SummaryClass, set[str]] = {}
+
+    batched, _tokens = _estimate(work, texts, drafted, batch_size=MAX_BATCH_ITEMS)
+    serial, _serial_tokens = _estimate(work, texts, drafted, batch_size=None)
+
+    assert batched == 3
+    assert serial == 25
+
+
+# --------------------------------------------------------------------------------------
+# 010 R7c task 2 — `--transport`, and the API key the cli path must not need
+# --------------------------------------------------------------------------------------
+
+ENV_NO_KEY = {name: value for name, value in ENV.items() if name != "WGC_ANTHROPIC_API_KEY"}
+
+
+class _RecordingCli(BatchClient):
+    """Stands in for `CliSummaryClient` in `main`, recording how it was constructed."""
+
+    built: list[dict[str, Any]] = []
+
+    def __init__(self, *, model: str, executable: str = "claude") -> None:
+        super().__init__()
+        type(self).built.append({"model": model, "executable": executable})
+
+
+def _never_built(**kwargs: Any) -> Any:
+    raise AssertionError("the cli client was built on the api transport")
+
+
+def test_r7c_the_default_transport_builds_the_cli_client_and_needs_no_api_key(
+    repo: Path, fixtures_dir: Path, tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    """(a) The whole point: a subscription run that never reads `anthropic_api_key`."""
+    monkeypatch.setattr("pipeline.summaries.CliSummaryClient", _RecordingCli)
+    _RecordingCli.built = []
+    report = write_report(tmp_path / "report.json", [finding("SUM-MISSING", VAULT_KEY)])
+
+    code = main(
+        _refusal_argv(repo, fixtures_dir, report, tmp_path / "out"), env=ENV_NO_KEY, clients=None
+    )
+
+    assert code == 0
+    assert [entry["model"] for entry in _RecordingCli.built] == [DRAFT_MODEL, REVIEW_MODEL]
+    assert {entry["executable"] for entry in _RecordingCli.built} == {"claude"}
+    assert records(tmp_path / "out", f"abilities/{UNASSIGNED}.json")
+
+
+def test_r7c_an_explicit_api_transport_still_refuses_an_empty_api_key(
+    repo: Path, fixtures_dir: Path, tmp_path: Path, capsys: pytest.CaptureFixture[str]
+) -> None:
+    """(b) The guard belongs to the api path, and still fires there."""
+    report = write_report(tmp_path / "report.json", [finding("SUM-MISSING", VAULT_KEY)])
+    client = FakeClient()
+
+    code = main(
+        [*_refusal_argv(repo, fixtures_dir, report, tmp_path / "out"), "--transport", "api"],
+        env=ENV_NO_KEY,
+        clients=(client, client),
+    )
+
+    assert code == 60
+    assert "WGC_ANTHROPIC_API_KEY" in capsys.readouterr().err
+    assert client.draft_calls == []
+
+
+def test_r7c_an_explicit_api_transport_builds_the_api_client(
+    repo: Path, fixtures_dir: Path, tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    """(b) `--transport api` overrides the config's `cli` default."""
+    built: list[str] = []
+
+    class _RecordingApi(FakeClient):
+        def __init__(self, api_key: str, *, model: str) -> None:
+            super().__init__()
+            built.append(model)
+
+        def __enter__(self) -> _RecordingApi:
+            return self
+
+        def __exit__(self, *args: Any) -> None:
+            return None
+
+    monkeypatch.setattr("pipeline.summaries.SummaryClient", _RecordingApi)
+    monkeypatch.setattr("pipeline.summaries.CliSummaryClient", _never_built)
+    report = write_report(tmp_path / "report.json", [finding("SUM-MISSING", VAULT_KEY)])
+
+    code = main(
+        [*_refusal_argv(repo, fixtures_dir, report, tmp_path / "out"), "--transport", "api"],
+        env=ENV,
+        clients=None,
+    )
+
+    assert code == 0
+    assert built == [DRAFT_MODEL, REVIEW_MODEL]
