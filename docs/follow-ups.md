@@ -94,6 +94,11 @@
      exist (tests/unit/test_state_path_inert.py proves no caller passes state_path a real value),
      so none is fixed here -- recording them is the job, exactly as item 30 already does for the
      coverage-guard precondition. -->
+<!-- AI-Assisted: Claude Code (model: claude-opus-5) - 010 R9 task 1: closed items 30-34 by
+     deletion. The header above cites tests/unit/test_state_path_inert.py as the inertness proof
+     for items 31-34; that test is deleted along with the export-timestamp short-circuit itself,
+     and the items are closed rather than still gated. tests/unit/test_no_export_short_circuit.py
+     is the successor guard, and it asserts absence rather than inertness. -->
 <!-- AI-Assisted: Claude Code (model: claude-sonnet-5) - 009 rung R06a-fix3: added item 37,
      recording that T096's per-class carry-forward composition (added R06a, corrected across
      R06a-fix and R06a-fix2) was withdrawn -- three fix rounds each closed one defect and exposed
