@@ -2,13 +2,15 @@
 # data-model.md §1 (task T020): SourceAcquisition plus the MfmUnitCostBlock /
 # MfmDetachmentCard / WahapediaRow family, with every prose-bearing field explicitly annotated
 # as ephemeral.
-# AI-Assisted: Claude Code (model: claude-sonnet-5) - Added SourceAcquisition.findings and
-# AcquisitionOutcome.UNCHANGED (009 rung R05, T090/T091, FR-030/FR-031): the export-timestamp
-# short-circuit needs somewhere to carry SRC-EXPORT-UNCHANGED out of `acquire_wahapedia` and a
-# third outcome distinct from both OK and the existing failure family, so a curator reading the
-# run record can tell a skipped-because-unchanged acquisition from a normal one and from a
-# failed one. Additive only: every existing constructor of SourceAcquisition keeps working
-# unchanged on the field's default.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - Added SourceAcquisition.findings (009 rung
+# R05, T087/T091, FR-031): acquisition-time findings need somewhere to leave `acquire_wahapedia`
+# and reach the run's report. Additive only: every existing constructor keeps working unchanged
+# on the field's default.
+# AI-Assisted: Claude Code (model: claude-opus-5) - 010 R9 task 1: dropped
+# AcquisitionOutcome.UNCHANGED along with the export-timestamp short-circuit, the only thing that
+# ever set it (`pipeline/acquire/wahapedia.py`'s own header states why the mechanism went). No
+# code path can produce that outcome now, and an enum member no producer can reach is a shape a
+# reader would reasonably expect to see in a run record and never would. `findings` stays.
 """Source-side records — **ephemeral, never committed**.
 
 These are the only records in the pipeline that may hold publisher prose. They live in memory
@@ -45,14 +47,12 @@ class SourceKey(StrEnum):
 class AcquisitionOutcome(StrEnum):
     """How one retrieval ended.
 
-    Three shapes, not two (009 FR-031): :attr:`OK` is a normal fetch; :attr:`UNCHANGED` is also
-    a *successful* fetch — advisory, never blocking — that stopped early because the export's
-    own change marker matched the last recorded run (``SRC-EXPORT-UNCHANGED``, `acquire_wahapedia`
-    T090); every other member is a failure and fails the run (FR-007, FR-008).
+    :attr:`OK` is a successful fetch; every other member is a failure and fails the run (FR-007,
+    FR-008). 010 R9 removed the third shape, ``UNCHANGED``, with the export-timestamp
+    short-circuit that was its only producer.
     """
 
     OK = "ok"
-    UNCHANGED = "unchanged"
     REFUSED = "refused"
     THROTTLED = "throttled"
     STRUCTURE_CHANGED = "structure_changed"
@@ -87,7 +87,7 @@ class SourceAcquisition(_SourceRecord):
     outcome: AcquisitionOutcome = AcquisitionOutcome.OK
     findings: Sequence[Finding] = Field(
         default=(),
-        description="acquisition-time findings, e.g. SRC-EXPORT-UNCHANGED (009 FR-031) -- "
+        description="acquisition-time findings (009 FR-031) -- "
         "mechanical values only, the same rule every other Finding carries",
     )
 

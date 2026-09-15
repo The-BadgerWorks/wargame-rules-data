@@ -1,3 +1,7 @@
+# AI-Assisted: Claude Code (model: claude-opus-5) - 010 R9 task 1: dropped the `state_path`
+# passthrough along with the export-timestamp short-circuit it switched on
+# (`pipeline/acquire/wahapedia.py`'s own header states why the mechanism went). It was forwarded
+# unchanged and never given a real value by any caller.
 # AI-Assisted: Claude Code (model: claude-opus-5) - 010 R5 fix round 1: dropped the reader's
 # vestigial `edition_code` parameter, accepted and `del`d on entry because the two arms'
 # readers had to be callable identically. One reader, no shared signature to honour, and a
@@ -76,16 +80,10 @@ def acquire_detail(
     client: PoliteClient | None = None,
     retrieved_at: datetime | None = None,
     workspace: Path | None = None,
-    state_path: Path | None = None,
 ) -> tuple[SourceAcquisition, list[FixturePayload]]:
     """Acquire the datasheet-detail source.
 
     Every caller below ``acquire`` takes what this returns and never asks how it was obtained.
-
-    ``state_path`` (009 rung R05, T090) is forwarded unchanged - see
-    :func:`pipeline.acquire.wahapedia.acquire_wahapedia`'s own docstring for the export-timestamp
-    short-circuit it switches on. ``None`` (this function's default, and every call `run_build`
-    makes) is a no-op.
     """
     return acquire_wahapedia(
         config,
@@ -94,7 +92,6 @@ def acquire_detail(
         client=client,
         retrieved_at=retrieved_at,
         workspace=workspace,
-        state_path=state_path,
     )
 
 

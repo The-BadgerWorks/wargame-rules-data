@@ -1300,7 +1300,17 @@ non-JSON file, rather than a distinct, unhandled failure mode.
 **Not pinned.** The kickoff for this rung asked only for items 1 and 2 (this file's items 27 and
 28) to be pinned if cheap; item 3 (this entry) was to be recorded only.
 
-## 30. No caller is wired to the export-timestamp short-circuit -- `detect` was tried and rejected (009 rung R05-fix / R05-fix2)
+## 30. ~~No caller is wired to the export-timestamp short-circuit -- `detect` was tried and rejected~~ (009 rung R05-fix / R05-fix2) — **closed 2026-09-15**
+
+**Closed by deletion, 2026-09-15 (010 R9 task 1).** The export-timestamp short-circuit was
+deleted outright on the Owner's ruling — `ExportDigestState` and its load/save/derive helpers,
+`ExportStateCorrupt`, `_one_way_export_digest`, `EXPORT_DIGEST_STATE_RELATIVE_PATH`, the
+`state_path` opt-in, the skip branch, the `SRC-EXPORT-UNCHANGED` and `SRC-STATE-CORRUPT` codes,
+`AcquisitionOutcome.UNCHANGED`, and the tracked `state/wahapedia-export-digest.json`. The
+mechanism had no caller from the day it landed and could acquire none: the corpus is never
+retained, so no stage can consume a fetch that did not happen. There is no code left for this
+item to describe. `tests/unit/test_no_export_short_circuit.py` asserts the absence structurally,
+replacing `tests/unit/test_state_path_inert.py`.
 
 **Superseded, 2026-09-03 (R05-fix2).** The ruling this entry originally recorded — `detect` opts
 into `pipeline.acquire.wahapedia.acquire_wahapedia`'s export-timestamp short-circuit, `build`
@@ -1353,7 +1363,17 @@ not safe to wire before that guard blocks on its own.
 nothing to reproduce yet; this entry records the precondition and the rejected direction for the
 day either is proposed again.
 
-## 31. An UNCHANGED run reports `coverage["corpus_files"] == 0` while `content_fingerprint` describes the prior run's corpus (009 rung R05-fix3)
+## 31. ~~An UNCHANGED run reports `coverage["corpus_files"] == 0` while `content_fingerprint` describes the prior run's corpus~~ (009 rung R05-fix3) — **closed 2026-09-15**
+
+**Closed by deletion, 2026-09-15 (010 R9 task 1).** The export-timestamp short-circuit was
+deleted outright on the Owner's ruling — `ExportDigestState` and its load/save/derive helpers,
+`ExportStateCorrupt`, `_one_way_export_digest`, `EXPORT_DIGEST_STATE_RELATIVE_PATH`, the
+`state_path` opt-in, the skip branch, the `SRC-EXPORT-UNCHANGED` and `SRC-STATE-CORRUPT` codes,
+`AcquisitionOutcome.UNCHANGED`, and the tracked `state/wahapedia-export-digest.json`. The
+mechanism had no caller from the day it landed and could acquire none: the corpus is never
+retained, so no stage can consume a fetch that did not happen. There is no code left for this
+item to describe. `tests/unit/test_no_export_short_circuit.py` asserts the absence structurally,
+replacing `tests/unit/test_state_path_inert.py`.
 
 **Gated behind wiring that does not exist.** `tests/unit/test_state_path_inert.py` asserts no
 caller in `pipeline/` passes `acquire_wahapedia`'s `state_path` a real value, so the short-circuit
@@ -1377,7 +1397,17 @@ case was never proven. Fixing it now (making `corpus_files` report the prior run
 count, or documenting the field as "this run's own fetch count" explicitly) is design work on a
 mechanism nothing calls; R07 is where that design happens, once a caller opts in.
 
-## 32. `ExportStateCorrupt` inherits `exit_code = SOURCE_UNAVAILABLE` (40), tripping `detect.yml`'s source-fault alert for a local file problem (009 rung R05-fix3)
+## 32. ~~`ExportStateCorrupt` inherits `exit_code = SOURCE_UNAVAILABLE` (40), tripping `detect.yml`'s source-fault alert for a local file problem~~ (009 rung R05-fix3) — **closed 2026-09-15**
+
+**Closed by deletion, 2026-09-15 (010 R9 task 1).** The export-timestamp short-circuit was
+deleted outright on the Owner's ruling — `ExportDigestState` and its load/save/derive helpers,
+`ExportStateCorrupt`, `_one_way_export_digest`, `EXPORT_DIGEST_STATE_RELATIVE_PATH`, the
+`state_path` opt-in, the skip branch, the `SRC-EXPORT-UNCHANGED` and `SRC-STATE-CORRUPT` codes,
+`AcquisitionOutcome.UNCHANGED`, and the tracked `state/wahapedia-export-digest.json`. The
+mechanism had no caller from the day it landed and could acquire none: the corpus is never
+retained, so no stage can consume a fetch that did not happen. There is no code left for this
+item to describe. `tests/unit/test_no_export_short_circuit.py` asserts the absence structurally,
+replacing `tests/unit/test_state_path_inert.py`.
 
 **Gated behind wiring that does not exist** -- same inertness proof as item 31.
 
@@ -1403,7 +1433,17 @@ a one-line, low-risk change, which is exactly why it is tempting to fix opportun
 now would be speculative work on a mechanism nobody calls, and R07 revisits every exit-code and
 alert-routing decision for this short-circuit once a caller exists to observe it against.
 
-## 33. `export_digest_state_for` matches the probe by exact filename while `_is_probe` matches by stem, so under `--fixtures` the documented save sequence raises `AttributeError` (009 rung R05-fix3)
+## 33. ~~`export_digest_state_for` matches the probe by exact filename while `_is_probe` matches by stem, so under `--fixtures` the documented save sequence raises `AttributeError`~~ (009 rung R05-fix3) — **closed 2026-09-15**
+
+**Closed by deletion, 2026-09-15 (010 R9 task 1).** The export-timestamp short-circuit was
+deleted outright on the Owner's ruling — `ExportDigestState` and its load/save/derive helpers,
+`ExportStateCorrupt`, `_one_way_export_digest`, `EXPORT_DIGEST_STATE_RELATIVE_PATH`, the
+`state_path` opt-in, the skip branch, the `SRC-EXPORT-UNCHANGED` and `SRC-STATE-CORRUPT` codes,
+`AcquisitionOutcome.UNCHANGED`, and the tracked `state/wahapedia-export-digest.json`. The
+mechanism had no caller from the day it landed and could acquire none: the corpus is never
+retained, so no stage can consume a fetch that did not happen. There is no code left for this
+item to describe. `tests/unit/test_no_export_short_circuit.py` asserts the absence structurally,
+replacing `tests/unit/test_state_path_inert.py`.
 
 **Gated behind wiring that does not exist** -- same inertness proof as items 31 and 32.
 
@@ -1429,7 +1469,17 @@ either function with `state_path` set, so no run this repository performs can hi
 `export_digest_state_for` onto the same stem comparison `_is_probe` already uses is the obvious
 fix, and obvious is not the same as in scope -- it moves with R07's wiring, not ahead of it.
 
-## 34. An UNCHANGED run with a workspace leaves a one-file "export" in `work/`, and `outcome` is never used as a guard on what gets written or returned (009 rung R05-fix3)
+## 34. ~~An UNCHANGED run with a workspace leaves a one-file "export" in `work/`, and `outcome` is never used as a guard on what gets written or returned~~ (009 rung R05-fix3) — **closed 2026-09-15**
+
+**Closed by deletion, 2026-09-15 (010 R9 task 1).** The export-timestamp short-circuit was
+deleted outright on the Owner's ruling — `ExportDigestState` and its load/save/derive helpers,
+`ExportStateCorrupt`, `_one_way_export_digest`, `EXPORT_DIGEST_STATE_RELATIVE_PATH`, the
+`state_path` opt-in, the skip branch, the `SRC-EXPORT-UNCHANGED` and `SRC-STATE-CORRUPT` codes,
+`AcquisitionOutcome.UNCHANGED`, and the tracked `state/wahapedia-export-digest.json`. The
+mechanism had no caller from the day it landed and could acquire none: the corpus is never
+retained, so no stage can consume a fetch that did not happen. There is no code left for this
+item to describe. `tests/unit/test_no_export_short_circuit.py` asserts the absence structurally,
+replacing `tests/unit/test_state_path_inert.py`.
 
 **Gated behind wiring that does not exist** -- same inertness proof as items 31-33.
 
