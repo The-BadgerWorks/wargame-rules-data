@@ -13,6 +13,9 @@
 # AI-Assisted: Claude Code (model: claude-opus-5) - Kept in lockstep through 009 rung R01a's
 # repair of that tightening: unquoted attribute values are matched again, and the unterminated
 # branch requires a flush `<`. Character-identical to _HAS_MARKUP, as the paired test asserts.
+# AI-Assisted: Claude Code (model: claude-opus-5) - Moved in lockstep again for 010 rung R9
+# task 2: the quoted-value alternatives tolerate one trailing extra quote. Character-identical
+# to _HAS_MARKUP still, as the paired test asserts.
 """The shared guard for "this string carries a mechanical value, not prose".
 
 Downstream of ``normalize`` nothing may hold publisher wording (FR-013). Two independent
@@ -59,11 +62,13 @@ MECHANICAL_STRING_MAX_CHARS: Final = 240
 #: *quoted* values let `<td colspan=2>` through both here and in the stripper, and allowing
 #: whitespace after `<` in the unterminated branch let prose like `is < the target` be treated as
 #: a tag. See `ip_strip.py`'s own comments for the full account, including the one residual
-#: (a valueless attribute) deliberately left open.
+#: (a valueless attribute) deliberately left open. A quoted value may also carry one trailing
+#: EXTRA quote (`style=""` + `"`), which 010 rung R9 added to the value alternatives after
+#: round 8 measured the fragment surviving the stripper whole.
 NON_MECHANICAL_PATTERNS: Final[Mapping[str, re.Pattern[str]]] = {
     "markup": re.compile(
         r"(?:<\s*/?\s*[A-Za-z][A-Za-z0-9]*"
-        r"""(?:\s+[A-Za-z][A-Za-z0-9-]*=(?:"[^"]*"|'[^']*'|[^\s"'`=<>]+))*\s*/?>)"""
+        r"""(?:\s+[A-Za-z][A-Za-z0-9-]*=(?:"[^"]*""?|'[^']*''?|[^\s"'`=<>]+))*\s*/?>)"""
         r"|(?:<(?!.*>)/?[A-Za-z][A-Za-z0-9]*[\s/].*$)"
     ),
     "html_entity": re.compile(r"&(?:[A-Za-z][A-Za-z0-9]{1,31}|#[0-9]{1,7}|#[Xx][0-9A-Fa-f]{1,6});"),

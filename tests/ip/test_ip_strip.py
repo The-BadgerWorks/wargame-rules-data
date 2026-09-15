@@ -5,6 +5,11 @@
 # plan.md finding 6): space-variant open/close tags, an unterminated tag, a self-closing space
 # variant, and the "a <b and c> d" over-strip trap -- against T007's CM01 forms -- plus the
 # paired source-level assertion that models/mechanical.py's markup pattern stays in lockstep.
+# AI-Assisted: Claude Code (model: claude-opus-5) - Added the doubled-quote attribute matrix
+# (010 rung R9, task 2), written failing-first: the stripped-output rows, the paired
+# assert_mechanical_string rejection (opening tag only, so the row is not satisfied by a
+# closing tag), and the two guards proving the widening cost neither the ordinary attribute
+# forms nor the `a <b and c> d` over-strip protection.
 """Tests for the normalize stage's IP strip (FR-011, FR-012, FR-013, research D8).
 
 Two assertions per case, and the second is the one that earns its keep:
@@ -19,7 +24,11 @@ from __future__ import annotations
 
 import pytest
 
-from pipeline.models.mechanical import NON_MECHANICAL_PATTERNS
+from pipeline.models.mechanical import (
+    NON_MECHANICAL_PATTERNS,
+    NonMechanicalValueError,
+    assert_mechanical_string,
+)
 from pipeline.normalize.ip_strip import _HAS_MARKUP, StripResult, strip_field
 
 
@@ -413,3 +422,77 @@ def test_a_valueless_attribute_is_a_known_open_narrowing_against_main(
 
     assert result.text == main_text
     assert _codes(result) == ["DQ-MARKUP-IN-FIELD"]
+
+
+# -- 010 R9: the doubled-quote attribute value (round 8's measured residual) ---------------------
+#
+# Round 8 measured a residual class the two-branch pattern does not match: an attribute whose
+# quoted value is followed by one EXTRA quote (`style=""`+`"`, `style="y"`+`"`). The quoted-value
+# alternative consumes through the closing quote, the stray quote then matches neither another
+# `_ATTR` nor the `\s*/?>` tail, and the whole fragment survives `strip_field` intact. Because
+# `models/mechanical.py` is character-identical, `assert_mechanical_string` and
+# `validate/ip_scan.py` share the blind spot exactly.
+#
+# Not a publish leak -- the literal `<` dies later in `hard_normalise`'s punctuation strip -- but
+# the tag text enters the mechanic digest, so a cosmetic upstream style edit false-flags those
+# keys for re-review.
+#
+# Inputs are synthetic throughout (standing rule 1).
+
+
+@pytest.mark.parametrize(
+    "raw",
+    [
+        pytest.param('a <div class="x" style=""">b</div> c', id="empty-doubled-double-quote"),
+        pytest.param('a <div class="x" style="y"">b</div> c', id="valued-trailing-double-quote"),
+        pytest.param("a <div class='x' style='''>b</div> c", id="empty-doubled-single-quote"),
+        pytest.param("a <div class='x' style='y''>b</div> c", id="valued-trailing-single-quote"),
+        pytest.param('a <div style=""">b</div> c', id="doubled-quote-as-the-only-attribute"),
+    ],
+)
+def test_a_doubled_quote_attribute_value_is_stripped(raw: str) -> None:
+    """The false positive is gone: the fragment no longer survives whole."""
+    result = strip_field(raw, field="description")
+
+    assert result.text == "a b c"
+    assert _codes(result) == ["DQ-MARKUP-IN-FIELD"]
+
+
+@pytest.mark.parametrize(
+    "raw",
+    [
+        pytest.param('<div class="x" style=""">', id="empty-doubled-double-quote"),
+        pytest.param('<div class="x" style="y"">', id="valued-trailing"),
+        pytest.param("<div class='x' style='''>", id="empty-doubled-single-quote"),
+    ],
+)
+def test_the_mechanical_guard_rejects_a_doubled_quote_attribute(raw: str) -> None:
+    """`assert_mechanical_string` must reject the raw fragment -- the paired pattern moves with
+    the stripper's, so the typed boundary and `validate/ip_scan.py` lose the blind spot too.
+
+    The opening tag is the ONLY markup in each row on purpose: with a closing `</div>` appended
+    the row would be rejected on that tag alone and would pass even with the hole wide open."""
+    with pytest.raises(NonMechanicalValueError):
+        assert_mechanical_string(raw, field="description")
+
+
+def test_the_doubled_quote_widening_still_accepts_an_ordinary_attribute() -> None:
+    """The true positive still fires: widening the value alternative did not cost the plain
+    quoted, plain unquoted, or self-closing forms their match."""
+    for raw, expected in (
+        ('<span class="kwb">Bolt rifle</span>', "Bolt rifle"),
+        ("<td colspan=2>Bolt rifle</td>", "Bolt rifle"),
+        ("<span class='kwb'>Bolt rifle</span>", "Bolt rifle"),
+    ):
+        result = strip_field(raw, field="description")
+        assert result.text == expected
+        assert _codes(result) == ["DQ-MARKUP-IN-FIELD"]
+
+
+def test_the_doubled_quote_widening_leaves_a_quote_in_ordinary_prose_alone() -> None:
+    """A stray quote in prose beside an angle bracket is still not a tag: the over-strip guard
+    (a valueless bare word is never an attribute) is untouched by this widening."""
+    for raw in ("a <b and c> d", 'a <b "and" c> d', 'She said "yes" and 2 < 3 held.'):
+        result = strip_field(raw, field="description")
+        assert result.text == raw
+        assert _codes(result) == []

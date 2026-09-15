@@ -18,6 +18,13 @@
 # (`... is < the target` had been treated as a tag and deleted to end of field). Both directions
 # are now pinned: tests/ip/test_ip_strip.py gained a no-regression matrix hard-coding
 # origin/main@2c603c7f's own outputs, so a future tightening cannot open a hole main did not have.
+# AI-Assisted: Claude Code (model: claude-opus-5) - Closed round 8's measured residual (010
+# rung R9, task 2): _ATTR now tolerates one EXTRA quote after a quoted attribute value
+# (`style=""` + `"`), which previously left the whole fragment intact in the field and, via the
+# character-identical models/mechanical.py pattern, blind in validate/ip_scan.py too. The
+# widening sits on the value's tail only: the `=`-plus-value requirement that keeps the
+# `a <b and c> d` over-strip closed, and the valueless-attribute narrowing pinned as a strict
+# xfail, are both unchanged.
 """Strip everything the product may not carry, and keep only mechanical values.
 
 **Relationship to the `strip-wahapedia-ip` precedent.** That skill's per-record classification —
@@ -97,7 +104,16 @@ _TAG_OPEN: Final = r"<\s*/?\s*"
 #: rule fitted to that re-opens the over-strip. Pinned by
 #: `tests/ip/test_ip_strip.py::test_a_valueless_attribute_is_a_known_open_narrowing_against_main`
 #: as a strict xfail, and recorded in `docs/follow-ups.md`.
-_ATTR: Final = r"""(?:\s+[A-Za-z][A-Za-z0-9-]*=(?:"[^"]*"|'[^']*'|[^\s"'`=<>]+))"""
+#:
+#: **The optional trailing quote** (`""?` / `''?`) closes round 8's measured residual: an
+#: attribute whose quoted value is followed by one EXTRA quote (`style=""` + `"`, `style="y"` + `"`
+#: — 9 of 2088 ability texts). Without it the quoted alternative consumes through the closing
+#: quote, the stray quote then matches neither a further `_ATTR` nor the `\s*/?>` tail, and the
+#: whole fragment survives `strip_field` intact. It is not an *empty* value that was unmatched —
+#: `<div style="">` always matched — so the widening is on the tail, not the body. It stays
+#: inside the quoted alternatives, so the `=`-plus-value requirement that keeps `a <b and c> d`
+#: out is untouched, and so is the valueless-attribute narrowing pinned as a strict xfail.
+_ATTR: Final = r"""(?:\s+[A-Za-z][A-Za-z0-9-]*=(?:"[^"]*""?|'[^']*''?|[^\s"'`=<>]+))"""
 
 #: Branch 1 — a genuine, CLOSED tag: `_TAG_OPEN`, zero or more quoted attributes, an optional
 #: self-closing `/`, and a `>`. `<b and c>` fails this branch: after the name `b`, the literal
