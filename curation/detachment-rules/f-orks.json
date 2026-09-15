@@ -20,6 +20,16 @@
     "reviewed_at": "2026-09-15T04:35:16Z"
   },
   {
+    "summary_key": "detachment:d-brute-bosses:ard-as-nails",
+    "detachment_id": "d-brute-bosses",
+    "name": "’Ard as Nails",
+    "summary": "When a friendly Warboss model is destroyed, if this unit has not been selected to fight this phase, roll one D6, with +1 to the roll if your unit is riled up. On a 3+, that Warboss model is not removed from the battlefield. When this unit has fought, or at the end of the phase (whichever comes first), that Warboss model is removed from the battlefield.",
+    "review_state": "approved",
+    "mechanic_digest": "c5b846220581f7f63bd0993f368f9df2",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "reviewed_at": "2026-09-15T19:44:58Z"
+  },
+  {
     "summary_key": "detachment:d-bully-boyz:da-boss-is-watchin",
     "detachment_id": "d-bully-boyz",
     "name": "Da Boss Is Watchin’",
@@ -60,6 +70,16 @@
     "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
+    "summary_key": "detachment:d-flyboyz:skyborne-loons",
+    "detachment_id": "d-flyboyz",
+    "name": "Skyborne Loons",
+    "summary": "Friendly Orks Aircraft units do not count towards the combined points value of your strategic reserves units. While a friendly Orks Aircraft or Orks Deffkoptas unit is riled up, this unit's ranged attacks have +1 to hit rolls.",
+    "review_state": "approved",
+    "mechanic_digest": "2725e95da766e382936f2a582546536a",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "reviewed_at": "2026-09-15T19:44:58Z"
+  },
+  {
     "summary_key": "detachment:d-green-tide:mob-handed-brutality",
     "detachment_id": "d-green-tide",
     "name": "Mob-handed Brutality",
@@ -80,6 +100,36 @@
     "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
+    "summary_key": "detachment:d-madcap-meks:unpredictable-genius",
+    "detachment_id": "d-madcap-meks",
+    "name": "Unpredictable Genius",
+    "summary": "In your Shooting phase, when all of a friendly Big Mek, Mek Gunz, Morkanaut or Wazbom Blastajet unit's ranged attacks target a single enemy unit, roll one D6. On a 1, the target unit has a 4+ invulnerable save until your unit has shot. On a 2-3, select one other enemy unit within 3\" of the target; that unit suffers D3 mortal wounds. On a 4, those attacks have +1 to hit rolls. On a 5, the target unit has FLY and cannot have the benefit of cover until your unit has shot. On a 6, the target unit has -1 Toughness until your unit has shot.",
+    "review_state": "approved",
+    "mechanic_digest": "2783e5987352e4f710b217a0abfeff7f",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "reviewed_at": "2026-09-15T19:44:58Z"
+  },
+  {
+    "summary_key": "detachment:d-runt-swarm:sneaky-little-gitz",
+    "detachment_id": "d-runt-swarm",
+    "name": "Sneaky Little Gitz",
+    "summary": "Friendly Gretchin units have the BATTLELINE keyword. When a friendly GRETCHIN unit is selected to make an Advance or Fall Back move, that move does not prevent it from being eligible to start an action.",
+    "review_state": "approved",
+    "mechanic_digest": "e490dfb1fedc1f15d34ef9999f18de07",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "reviewed_at": "2026-09-15T19:44:58Z"
+  },
+  {
+    "summary_key": "detachment:d-shoota-boyz:dakka-dakka-dakka",
+    "detachment_id": "d-shoota-boyz",
+    "name": "Dakka! Dakka! Dakka!",
+    "summary": "Ranged attacks made by friendly Orks Infantry units have the [Assault] ability. While the unit is riled up, those ranged attacks have +3\" Range.",
+    "review_state": "approved",
+    "mechanic_digest": "0af3f7c6a2cb776396b4862928bef4fd",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "reviewed_at": "2026-09-15T19:44:58Z"
+  },
+  {
     "summary_key": "detachment:d-taktikal-brigade:suspiciously-well-organised",
     "detachment_id": "d-taktikal-brigade",
     "name": "Suspiciously Well Organised",
@@ -98,5 +148,25 @@
     "mechanic_digest": "aa6012aa2619aecc4a3c2d7770b97c07",
     "reviewed_by": "claude-opus-5-adversarial-reviewer",
     "reviewed_at": "2026-08-06T00:00:00Z"
+  },
+  {
+    "summary_key": "detachment:d-wreckas:wreckin-and-lootin",
+    "detachment_id": "d-wreckas",
+    "name": "Wreckin’ and Lootin’",
+    "summary": "In your Shooting phase, when a friendly Breaka Boyz, Flash Gitz, or Tankbustas unit is selected to shoot, that unit's attacks can re-roll hit rolls of 1 if either of the following applies: that unit is within range of an objective, or the target of that attack is within range of an objective.",
+    "review_state": "approved",
+    "mechanic_digest": "48caf8a0efcbbd9221b035f92be47bb0",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "reviewed_at": "2026-09-15T19:44:58Z"
+  },
+  {
+    "summary_key": "detachment:d-wurrband:powers-of-da-waaagh",
+    "detachment_id": "d-wurrband",
+    "name": "Powers of da Waaagh!",
+    "summary": "Friendly ORKS PSYKER models' Psychic attacks have +1 S, plus +1 S for every 5 models in the unit (or embarked within the model). Roar of Mork (psychic level 1): in your Movement phase, if it is not battle-shocked, make a psychic roll of one D6; on a 1 it is battle-shocked; select one enemy unit (excluding MONSTER/VEHICLE) within 12\" and it makes a battle-shock roll with -1 for every 10 models in this unit. Visions of Violence (psychic level 1): at the start of the Fight phase, if it is not battle-shocked, make a psychic roll of one D6; on a 1 it is battle-shocked; it has Fights First.",
+    "review_state": "approved",
+    "mechanic_digest": "421a0c2cf5688d3ded99a532f0c747bd",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "reviewed_at": "2026-09-15T19:44:58Z"
   }
 ]
