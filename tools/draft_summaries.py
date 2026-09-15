@@ -30,6 +30,12 @@
 # resolution table now prints the `data_dir` it used. `--rebaseline-authorization` replaces the
 # hard-coded citation as a CLI parameter, defaulting to the prior constant, for task 5's
 # per-round authorization string.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - 010 R8 task 3 fix round 1 (code review):
+# `_default_data_dir` walked upward with no stop condition, so a report under a run root with no
+# `out/data` of its own could latch onto an unrelated ancestor's `out/data` (shared scratch space
+# left over from a different run) and draft against the wrong build. The search is now bounded to
+# the report's own run root: climb past every contiguous `reports`-named ancestor `report_dir`'s
+# own layout guarantees, then check only that root's `out/data` — never past it.
 """Draft candidate summaries for the entries a build reported as outstanding.
 
 Standing rule 3 was amended on 2026-09-14: a summary may be **machine-drafted** from the
@@ -416,23 +422,37 @@ def work_lists(
 
 
 def _default_data_dir(report_path: Path) -> Path | None:
-    """``<report's run root>/out/data``, or ``None`` when no ancestor of ``report_path`` has one.
+    """``<report's run root>/out/data``, or ``None`` when the run root has no such directory.
 
     010 R8 task 3 (round 7d fix): the tool used to default to ``repository_root/data`` — the
     committed tree — regardless of which build the report came from, so every detachment rule
     new since round 6 was silently unresolved (``curated.get(detachment_id)`` returning
-    ``None``). ``live_build.py`` writes its build under ``<run root>/out`` and its reports under
-    ``<run root>/reports/<rules_version_id>/report.json``, which may or may not sit directly
-    under ``<run root>`` (a caller is free to nest its own ``reports_root`` further, as
-    ``live_build.py`` itself does). Walking upward from the report until an ``out/data``
-    directory turns up finds the run root either way, without guessing a fixed number of
-    parent hops that only one calling convention would satisfy.
+    ``None``).
+
+    **The run root, bounded** (fix round 1, Important finding). ``report_dir()`` always writes
+    ``report.json`` directly inside ``<some root>/reports/<rules_version_id>/``, so the
+    ``<rules_version_id>`` directory's parent is *always* literally named ``reports`` by that
+    function's own contract. ``live_build.py`` additionally nests its own ``reports_root`` under
+    a ``reports/`` directory of its own (``reports_root=SCRATCH/"reports"``), which is why its
+    reports land two ``reports/`` segments deep while its build output sits at a sibling of
+    ``SCRATCH`` itself (``SCRATCH/out``), not of ``reports_root``. Climbing past every
+    contiguous ``reports``-named ancestor — the one ``report_dir`` always adds, plus any further
+    nesting a caller added of its own — lands on the run root either way.
+
+    That climb is also the fix: it is a **bounded** search, not an unbounded walk to the
+    filesystem root. An unbounded walk finds the *nearest* ancestor with an ``out/data``
+    directory, which is wrong the moment a run root has none of its own but some unrelated
+    ancestor — scratch space shared across multiple runs, say — has one left over from a
+    different run: the wrong build gets read silently. Stopping at the run root means a run root
+    with no ``out/data`` of its own is reported ``None`` (and the caller refuses, naming
+    ``--data``) rather than escaping to whatever the next directory up happens to contain.
     """
-    for ancestor in Path(report_path).resolve().parents:
-        candidate = ancestor / "out" / "data"
-        if candidate.is_dir():
-            return candidate
-    return None
+    node = Path(report_path).resolve().parent  # the <rules_version_id> directory
+    run_root = node.parent
+    while run_root.name == "reports" and run_root.parent != run_root:
+        run_root = run_root.parent
+    candidate = run_root / "out" / "data"
+    return candidate if candidate.is_dir() else None
 
 
 def curated_detachments(data_dir: Path) -> dict[str, tuple[str, str]]:

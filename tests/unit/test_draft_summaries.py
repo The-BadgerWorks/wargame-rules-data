@@ -16,6 +16,9 @@
 # (the never-guess refusal naming `--data`, the derivation from `<run root>/out/data`, the
 # resolution table printing the `data_dir` it used, and the seven-detachment regression closed),
 # plus `--rebaseline-authorization` as a CLI parameter over the former hard-coded citation.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - 010 R8 task 3 fix round 1 (code review): a
+# receipt that `_default_data_dir` does not escape the report's own run root to an unrelated
+# ancestor's `out/data` (shared scratch space left over from a different run).
 """What this tool has to be trusted about is what it refuses to do.
 
 The candidates it produces are read by the Owner and merged by hand, so the record shape is
@@ -47,6 +50,7 @@ from tools.draft_summaries import (
     UNASSIGNED,
     ConfirmationRefused,
     DraftRun,
+    _default_data_dir,
     draft_candidates,
     main,
 )
@@ -2034,6 +2038,39 @@ def test_seven_keys_from_a_detachment_id_absent_from_committed_data_all_resolve(
     captured = capsys.readouterr()
     assert "detachment_rules: keys=7 resolved=7 unresolved=0" in captured.out
     assert sorted(outcome.by_class["detachment_rules"].kept) == sorted(round8_keys())
+
+
+def test_default_data_dir_does_not_escape_the_report_run_root_to_an_unrelated_ancestors_build(
+    tmp_path: Path,
+) -> None:
+    """Fix round 1 (code review). ``_default_data_dir`` must be bounded to the report's own run
+    root, not walk to the first ``out/data`` found at any ancestor.
+
+    ``scratch/`` here stands in for shared scratch space carrying leftovers from a *different*
+    run: ``scratch/out/data`` belongs to that other run, not to this one. This run's own root,
+    ``scratch/run-a``, has no ``out/data`` of its own -- its report sits at
+    ``scratch/run-a/reports/<id>/report.json``, exactly where ``report_dir`` writes it. An
+    unbounded walk up the parents would pass ``scratch/run-a`` (no ``out/data``) and keep going
+    to find ``scratch/out/data`` -- the unrelated other run's build -- and return that. The
+    correct behaviour is to stop at ``scratch/run-a`` and report ``None``, exactly as if no
+    ``out/data`` existed anywhere.
+    """
+    scratch = tmp_path / "scratch"
+    other_run_data_dir = scratch / "out" / "data"
+    other_run_data_dir.mkdir(parents=True)
+    (other_run_data_dir / "marker.json").write_text("{}", encoding="utf-8")
+
+    run_root = scratch / "run-a"
+    report_path = run_root / "reports" / "round8-id" / "report.json"
+    report_path.parent.mkdir(parents=True)
+    report_path.write_text("{}", encoding="utf-8")
+
+    result = _default_data_dir(report_path)
+
+    assert result is None, (
+        f"expected None (run root has no out/data of its own), got {result!r} -- "
+        "the unbounded walk escaped to an unrelated ancestor's out/data"
+    )
 
 
 # --------------------------------------------------------------------------------------
