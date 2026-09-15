@@ -11,6 +11,11 @@
 # re-slugged from the CSV name; the run is resumable, writes per class, survives a `DraftingError`
 # with its partial results on disk, and files an invalid record rather than losing the batch;
 # candidates are laid out per faction; `-UNAPPROVED` is left to the human who owns that draft.
+# AI-Assisted: Claude Code (model: claude-opus-5) - 010 R7 task 2 fix round 2: the detachment-rule
+# join is driven from the report key (a name shared across factions reaches every curated id,
+# not one), the ambiguous-source-id guard is adopted from the pipeline, the drafted count is
+# recorded where the drafting happens rather than inferred, and a per-class
+# keys/resolved/unresolved line is printed BEFORE the confirmation prompt.
 """Draft candidate summaries for the entries a build reported as outstanding.
 
 Standing rule 3 was amended on 2026-09-14: a summary may be **machine-drafted** from the
@@ -56,7 +61,7 @@ from __future__ import annotations
 import argparse
 import json
 import sys
-from collections.abc import Iterator, Mapping, Sequence
+from collections.abc import Iterable, Iterator, Mapping, Sequence
 from dataclasses import dataclass, field
 from datetime import UTC, datetime
 from pathlib import Path
@@ -67,13 +72,14 @@ from pydantic import ValidationError
 from pipeline.acquire.detail_source import acquire_detail, read_detail
 from pipeline.acquire.http import AcquisitionError
 from pipeline.config import ConfigError, PipelineConfig, load_config, repo_root
-from pipeline.curate.summaries import binding_texts, compute_digests, detachment_rule_key
+from pipeline.curate.summaries import binding_texts, compute_digests
 from pipeline.exit_codes import ExitCode
 from pipeline.models.authored import AbilitySummary, DetachmentRuleSummary, SummaryClass
 from pipeline.normalize.ip_strip import strip_field
 from pipeline.normalize.mechanic_digest import DigestKeyMissingError, resolve_digest_key
 from pipeline.normalize.names import normalize_name
 from pipeline.parse.wahapedia_csv import CsvReadResult
+from pipeline.reconcile.identity import slugify
 from pipeline.summaries import Draft, DraftingError, Verdict
 from pipeline.workspace import workspace
 
@@ -250,6 +256,16 @@ class ClassOutcome:
     not_attempted: tuple[str, ...] = ()
     """Keys the run never reached because a :class:`DraftingError` stopped it."""
 
+    drafted: tuple[str, ...] = ()
+    """Keys this class actually put through the drafting pass — **recorded, not inferred**.
+
+    Fix round 2, D. Deriving the figure from the other buckets got two edges wrong, in opposite
+    directions: a key dropped by :func:`_write` for failing its model was removed from ``kept``
+    and so went uncounted although it had been drafted and billed; and a re-review key whose
+    *review* verdict was ``lore`` was counted although it never reached the drafting pass at all.
+    A figure that is recorded where the event happens cannot drift from the event.
+    """
+
     candidates: tuple[Candidate, ...] = ()
 
     failure: str | None = None
@@ -264,12 +280,7 @@ class ClassOutcome:
         diagnostic that reads as a call count while counting entries is the shipped-doc defect
         class, not a wording preference.
         """
-        return (
-            len(self.kept)
-            - len(self.rebaselined)
-            + len(self.dropped_lore)
-            + len(self.dropped_unresolved)
-        )
+        return len(self.drafted)
 
 
 @dataclass(frozen=True, slots=True)
@@ -397,54 +408,104 @@ def curated_detachments(data_dir: Path) -> dict[str, tuple[str, str]]:
     return resolved
 
 
+def _source_detachment_rules(
+    detail: Mapping[str, CsvReadResult],
+) -> tuple[dict[str, list[tuple[str, str]]], set[str]]:
+    """``normalised detachment name -> [(rule name, mechanic text)]``, plus the ambiguous ids.
+
+    The pipeline's own guard, adopted rather than paraphrased
+    (``pipeline/curate/assemble.py::_source_detachment_rules``, "issue #5"): a source detachment
+    **id** that publishes two differently-named detachments names neither of them and is
+    **deleted**, not resolved to whichever row was read last. Last-write-wins here would attach a
+    rule to the wrong detachment, and in this project a wrong record the Owner then approves is
+    worse than a missing one — a missing one is an outstanding entry a curator sees.
+
+    Grouped by the **normalised name** rather than by the source id, because the curated id is
+    minted from the points card and the two taxonomies share no id; the normalised name is the
+    only thing they have in common, and it is the join the pipeline already performs.
+    """
+    detachments = detail.get(DETACHMENTS_FILE)
+    abilities = detail.get(DETACHMENT_ABILITIES_FILE)
+    if detachments is None or abilities is None:
+        return {}, set()
+
+    names_by_id: dict[str, str] = {}
+    ambiguous: set[str] = set()
+    for row in detachments.rows:
+        identifier = row.fields.get("id", "").strip()
+        if not identifier:
+            continue
+        name = normalize_name(strip_field(row.fields.get("name", ""), field="detachment.name").text)
+        if not name:
+            continue
+        if identifier in names_by_id and names_by_id[identifier] != name:
+            ambiguous.add(identifier)
+        names_by_id[identifier] = name
+    for identifier in ambiguous:
+        del names_by_id[identifier]
+
+    grouped: dict[str, list[tuple[str, str]]] = {}
+    for row in abilities.rows:
+        normalised = names_by_id.get(row.fields.get("detachment_id", "").strip())
+        name = strip_field(row.fields.get("name", ""), field="detachment_rule.name").text
+        if not normalised or not name:
+            continue
+        rules = grouped.setdefault(normalised, [])
+        if all(existing != name for existing, _text in rules):
+            rules.append((name, row.fields.get("description", "").strip()))
+    return grouped, ambiguous
+
+
 def detachment_rule_texts(
-    detail: Mapping[str, CsvReadResult], *, curated: Mapping[str, tuple[str, str]]
+    detail: Mapping[str, CsvReadResult],
+    *,
+    curated: Mapping[str, tuple[str, str]],
+    keys: Iterable[str],
 ) -> Iterator[tuple[str, str, str]]:
-    """``(summary_key, rule name, mechanic text)`` for every detachment rule the source binds.
+    """``(summary_key, rule name, mechanic text)`` for each outstanding detachment-rule key.
 
     The abilities class has :func:`pipeline.curate.summaries.binding_texts`, which the digest
     join itself consumes, so the two can never disagree. **The detachment-rule class has no such
     join in the pipeline yet** — ``pipeline/cli.py`` passes ``current_digests=None`` for it — so
     this is the first one, and it is stated here rather than in ``pipeline/`` because nothing
-    under ``pipeline/`` reads it: a join with one caller belongs with its caller until it has
-    two.
+    under ``pipeline/`` reads it: a join with one caller belongs with its caller until it has two.
 
-    ``curated`` comes from :func:`curated_detachments`; the detail source is matched to it by
-    ``normalize_name``, which is the same join ``assemble._source_detachment_rules`` performs. A
-    detail detachment that matches no curated one yields nothing, so its rules are reported
-    ``unresolved`` rather than keyed under an invented id.
+    **Driven from the report's keys, not from the source rows** (010 R7 fix round 2, A). A
+    source-driven join has to answer "which curated id does this detachment name belong to", and
+    that question has no single answer: 16 normalised detachment names in the live tree are shared
+    across roughly six factions each — the Space Marine chapter duplicates
+    (``d-anvil-siege-force`` and its ``-2`` … ``-6``), which are exactly the per-chapter
+    identifiers the C1 ruling exists to hold apart. Any one-to-one map, ``setdefault`` or
+    last-write-wins alike, silently makes 78 of 346 detachment ids unreachable and drops the 68
+    rules they carry.
+
+    The key already carries the answer. ``detachment:<id>:<slug>`` names the curated id, so this
+    reads the curated **name** for that id and matches it one-to-many against the source's
+    detachments, then picks the rule whose name slugifies back to ``<slug>``. Every chapter's id
+    resolves to the same shared source rows and each gets its own key, which is the behaviour the
+    ruling requires.
+
+    A key whose id the build does not carry, or whose slug no rule matches, yields nothing and is
+    reported ``unresolved`` — a stated gap a human can act on, where a wrong pairing would be a
+    summary approved against a rule it does not describe.
     """
-    detachments = detail.get(DETACHMENTS_FILE)
-    abilities = detail.get(DETACHMENT_ABILITIES_FILE)
-    if detachments is None or abilities is None:
+    grouped, _ambiguous = _source_detachment_rules(detail)
+    if not grouped:
         return
 
-    by_normalised: dict[str, str] = {}
-    for identifier, (name, _faction) in curated.items():
-        by_normalised.setdefault(normalize_name(name), identifier)
-
-    # The detail source's own id -> the curated id it matches, via the normalised display name.
-    source_to_curated: dict[str, str] = {}
-    for row in detachments.rows:
-        identifier = row.fields.get("id", "").strip()
-        name = strip_field(row.fields.get("name", ""), field="detachment.name").text
-        if not identifier or not name:
-            continue
-        curated_id = by_normalised.get(normalize_name(name))
-        if curated_id is not None:
-            source_to_curated[identifier] = curated_id
-
     seen: set[str] = set()
-    for row in abilities.rows:
-        curated_id = source_to_curated.get(row.fields.get("detachment_id", "").strip())
-        name = strip_field(row.fields.get("name", ""), field="detachment_rule.name").text
-        if not curated_id or not name:
+    for key in keys:
+        if key in seen or key.count(":") < 2:
             continue
-        key = detachment_rule_key(curated_id, name)
-        if key in seen:
+        _prefix, detachment_id, slug = key.split(":", 2)
+        entry = curated.get(detachment_id)
+        if entry is None:
             continue
-        seen.add(key)
-        yield key, name, row.fields.get("description", "").strip()
+        for name, text in grouped.get(normalize_name(entry[0]), ()):
+            if slugify(name) == slug:
+                seen.add(key)
+                yield key, name, text
+                break
 
 
 def _texts_for(
@@ -452,12 +513,18 @@ def _texts_for(
     detail: Mapping[str, CsvReadResult],
     *,
     curated: Mapping[str, tuple[str, str]],
+    keys: Iterable[str],
 ) -> dict[str, tuple[str, str]]:
-    """``key -> (name, mechanic text)`` for one class, from this run's acquired source."""
+    """``key -> (name, mechanic text)`` for one class, from this run's acquired source.
+
+    The abilities join enumerates the source; the detachment-rule join is driven from ``keys``.
+    That asymmetry is the source's, not a design preference: an ability key is derivable from the
+    binding row alone, and a detachment-rule key is not (see :func:`detachment_rule_texts`).
+    """
     join = (
         binding_texts(detail)
         if summary_class is SummaryClass.ABILITIES
-        else detachment_rule_texts(detail, curated=curated)
+        else detachment_rule_texts(detail, curated=curated, keys=keys)
     )
     return {key: (name, text) for key, name, text in join}
 
@@ -555,6 +622,36 @@ def _estimate(
     return calls, calls * _PER_CALL_OVERHEAD_TOKENS + characters // _CHARS_PER_TOKEN
 
 
+def _report_resolution(
+    selected: Sequence[SummaryClass],
+    work: Mapping[SummaryClass, _WorkList],
+    texts: Mapping[SummaryClass, Mapping[str, tuple[str, str]]],
+    drafted: Mapping[SummaryClass, set[str]],
+) -> None:
+    """Per class, before the prompt: how many outstanding keys this run can actually pair with text.
+
+    Printed **before** the confirmation gate and not only in the closing report (fix round 2, E).
+    The session has one billed run; an unresolved count that only appears afterwards is a number
+    nobody can act on. A large ``unresolved`` here means the source or the ``--data`` tree is not
+    the one the report came from, and the answer is to say no at the prompt and check, not to
+    spend the budget and read about it later.
+    """
+    for summary_class in selected:
+        item = work[summary_class]
+        keys = (*item.rereview, *item.fresh)
+        resolved = sum(1 for key in keys if key in texts.get(summary_class, {}))
+        already = sum(
+            1
+            for key in keys
+            if key in texts.get(summary_class, {}) and key in drafted.get(summary_class, set())
+        )
+        print(
+            f"{PROG}: {summary_class.value}: keys={len(keys)} resolved={resolved} "
+            f"unresolved={len(keys) - resolved} already-drafted={already} "
+            f"skipped-unapproved={len(item.unapproved)}"
+        )
+
+
 def _confirm(calls: int, tokens: int, *, assume_yes: bool) -> None:
     """Print the estimate and refuse unless a human, or ``--yes``, says go.
 
@@ -590,6 +687,7 @@ class _ClassTally:
     redrafted: list[str] = field(default_factory=list)
     dropped_lore: list[str] = field(default_factory=list)
     dropped_unresolved: list[str] = field(default_factory=list)
+    drafted: list[str] = field(default_factory=list)
     verbatim: list[str] = field(default_factory=list)
     unresolved: list[str] = field(default_factory=list)
     unapproved: list[str] = field(default_factory=list)
@@ -607,6 +705,7 @@ class _ClassTally:
             redrafted=tuple(self.redrafted),
             dropped_lore=tuple(self.dropped_lore),
             dropped_unresolved=tuple(self.dropped_unresolved),
+            drafted=tuple(self.drafted),
             verbatim=tuple(self.verbatim),
             unresolved=tuple(self.unresolved),
             skipped_unapproved=tuple(self.unapproved),
@@ -852,6 +951,9 @@ def _work_one(  # noqa: PLR0913 - one argument per input, as this module's style
         # `redraft`: the approved summary no longer describes the mechanic, so this is a missing
         # summary and falls through to the drafting path below.
 
+    # Recorded HERE, at the one call site of the drafting pass, so the figure is an
+    # observation rather than an inference from buckets that later change (fix round 2, D).
+    tally.drafted.append(key)
     draft, verdict, redrafted = _draft_one(
         name, text, summary_class=summary_class, drafter=drafter, reviewer=reviewer
     )
@@ -958,7 +1060,12 @@ def draft_candidates(  # noqa: PLR0913 - one argument per input, as tools/churn_
         )
         detail = read_detail(payloads)
         texts = {
-            summary_class: _texts_for(summary_class, detail, curated=curated)
+            summary_class: _texts_for(
+                summary_class,
+                detail,
+                curated=curated,
+                keys=(*work[summary_class].rereview, *work[summary_class].fresh),
+            )
             for summary_class in selected
         }
         digests = {
@@ -966,6 +1073,7 @@ def draft_candidates(  # noqa: PLR0913 - one argument per input, as tools/churn_
             for summary_class, per_class in texts.items()
         }
 
+        _report_resolution(selected, work, texts, already)
         calls, tokens = _estimate(work, texts, already)
         _confirm(calls, tokens, assume_yes=assume_yes)
 
@@ -1075,6 +1183,9 @@ def _write(out_dir: Path, outcome: ClassOutcome) -> tuple[ClassOutcome, tuple[Pa
             dropped_lore=outcome.dropped_lore,
             dropped_unresolved=outcome.dropped_unresolved,
             dropped_invalid=tuple(sorted(invalid)),
+            # NOT filtered by `invalid`: the entry was drafted and billed, and the count says
+            # what this run spent, not what survived validation.
+            drafted=outcome.drafted,
             verbatim=outcome.verbatim,
             unresolved=outcome.unresolved,
             skipped_unapproved=outcome.skipped_unapproved,

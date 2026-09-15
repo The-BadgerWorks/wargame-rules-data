@@ -15,6 +15,7 @@ from __future__ import annotations
 import json
 import logging
 
+import httpx
 import pytest
 from pytest_httpx import HTTPXMock
 
@@ -307,3 +308,60 @@ def test_an_unrecognised_hint_is_passed_through_rather_than_dropped(httpx_mock: 
 
     sent = json.dumps(json.loads(httpx_mock.get_requests()[0].content)["messages"])
     assert "invented-code" in sent
+
+
+# -- (h) transport faults (010 R7 task 2 fix round 2, B) ----------------------------------------
+
+
+@pytest.mark.parametrize(
+    "fault",
+    [
+        httpx.ConnectError("an invented connection failure"),
+        httpx.ReadTimeout("an invented read timeout"),
+        httpx.RemoteProtocolError("an invented protocol fault"),
+        httpx.PoolTimeout("an invented pool timeout"),
+    ],
+    ids=["connect", "read-timeout", "protocol", "pool-timeout"],
+)
+def test_a_transport_fault_is_reported_as_a_drafting_error(
+    httpx_mock: HTTPXMock, fault: httpx.HTTPError
+) -> None:
+    """A caller that handles `DraftingError` must not be surprised by a socket.
+
+    The whole partial-write path in `tools/draft_summaries.py` keys off this type. Letting these
+    propagate as themselves meant one connection reset in a multi-hour billed run bypassed it.
+    """
+    httpx_mock.add_exception(fault)
+
+    with pytest.raises(DraftingError) as caught:
+        _client().draft(INVENTED_NAME, INVENTED_MECHANIC, ability_class="ability")
+
+    assert caught.value.status_code is None
+    assert str(caught.value) == "the request did not complete"
+
+
+def test_a_transport_fault_message_names_neither_the_entry_nor_the_url(
+    httpx_mock: HTTPXMock,
+) -> None:
+    """`httpx` renders a URL, and sometimes a payload hint, in its own `str`. Neither travels."""
+    httpx_mock.add_exception(httpx.ConnectError("an invented connection failure"))
+
+    with pytest.raises(DraftingError) as caught:
+        _client().draft(INVENTED_NAME, INVENTED_MECHANIC, ability_class="ability")
+
+    rendered = str(caught.value)
+    assert INVENTED_MECHANIC not in rendered
+    assert INVENTED_NAME not in rendered
+    assert "api.anthropic.com" not in rendered
+    assert "an invented connection failure" not in rendered
+    # Kept for a debugger, never rendered.
+    assert isinstance(caught.value.__cause__, httpx.ConnectError)
+
+
+def test_a_transport_fault_during_review_is_reported_the_same_way(httpx_mock: HTTPXMock) -> None:
+    httpx_mock.add_exception(httpx.ReadTimeout("an invented read timeout"))
+
+    with pytest.raises(DraftingError) as caught:
+        _client().review(INVENTED_NAME, INVENTED_MECHANIC, INVENTED_SUMMARY)
+
+    assert caught.value.status_code is None

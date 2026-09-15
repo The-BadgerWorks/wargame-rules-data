@@ -5,6 +5,9 @@
 # through `PoliteClient`, which refuses any host outside the declared source set by design, and
 # it never logs the request body: the body is the one place an export's rules text exists in
 # this process, and standing rule 2 keeps it out of logs, reports and history.
+# AI-Assisted: Claude Code (model: claude-opus-5) - 010 R7 task 2 fix round 2: a transport fault
+# is reported as `DraftingError(None, ...)` rather than escaping as itself, so one connection
+# reset in a multi-hour billed run takes the caller's partial-write path instead of bypassing it.
 # AI-Assisted: Claude Code (model: claude-opus-5) - 010 R7 task 2 fix round 1: `draft` takes an
 # additive keyword-only `hint`, the reviewing pass's reason code from a previous attempt, so a
 # redraft says why the first was sent back instead of being an undirected second sample.
@@ -63,10 +66,15 @@ class DraftingError(RuntimeError):
     """A drafting or reviewing call that did not produce a usable reply.
 
     ``status_code`` carries the HTTP status when the endpoint refused the request, and is
-    ``None`` when the request itself succeeded but the reply was not the declared JSON shape —
-    the two failure modes a caller actually distinguishes (retry the run vs. re-prompt the
-    entry). The message never quotes the reply: a malformed reply may still carry the model's
-    restatement of the rules text.
+    ``None`` when the request never completed or completed with a reply that was not the declared
+    JSON shape — the two failure modes a caller actually distinguishes (retry the run vs.
+    re-prompt the entry). The message never quotes the reply: a malformed reply may still carry
+    the model's restatement of the rules text.
+
+    Since 010 R7 fix round 2, a transport fault (``httpx.HTTPError`` and every subclass —
+    ``ConnectError``, ``ReadTimeout``, ``RemoteProtocolError``, ``PoolTimeout``) is reported as
+    this error too, with ``status_code is None`` and a fixed message. It is the same fact to a
+    caller as a 529, and a caller that only handles this type must not be surprised by a socket.
     """
 
     def __init__(self, status_code: int | None, detail: str | None = None) -> None:
@@ -217,7 +225,20 @@ class SummaryClient:
         }
 
         for attempt in (1, 2):
-            response = self._client().post(MESSAGES_URL, json=body, headers=headers)
+            try:
+                response = self._client().post(MESSAGES_URL, json=body, headers=headers)
+            except httpx.HTTPError as exc:
+                # A transport fault is the SAME FACT to a caller as a 529: the request did not
+                # complete, and the decision is "stop the run, keep what is paid for" rather than
+                # "re-prompt this entry". Letting `ConnectError` / `ReadTimeout` /
+                # `RemoteProtocolError` / `PoolTimeout` propagate as themselves meant one
+                # connection reset in a multi-hour billed run bypassed the caller's partial-write
+                # path and discarded the in-flight class's candidates (010 R7 fix round 2, B).
+                #
+                # The message is fixed and names nothing: `httpx` renders a URL and sometimes a
+                # payload hint in its own `str`, and neither belongs on an output path. The
+                # original is attached as `__cause__` for a debugger and never rendered.
+                raise DraftingError(None, "the request did not complete") from exc
             if response.status_code == httpx.codes.OK:
                 return _text_payload(response)
             LOGGER.debug(

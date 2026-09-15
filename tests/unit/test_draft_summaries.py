@@ -6,7 +6,11 @@
 # attribution pair on a redrafted re-review candidate, the build-resolved detachment id (with the
 # leading-article divergence that the old slug derivation got wrong), resume/per-class writes/
 # DraftingError survival, the per-record validation drop, the per-faction layout, the second
-# curation-root refusal, the entries-vs-calls label, and the -UNAPPROVED skip.
+# curation-refusal, the entries-vs-calls label, and the -UNAPPROVED skip.
+# AI-Assisted: Claude Code (model: claude-opus-5) - 010 R7 task 2 fix round 2: receipts for the
+# key-driven detachment join (a name shared by two factions must reach BOTH curated ids), the
+# ambiguous-source-id guard, a transport fault taking the partial-write path end to end, the
+# recorded drafted count, and the pre-prompt resolution line.
 """What this tool has to be trusted about is what it refuses to do.
 
 The candidates it produces are read by the Owner and merged by hand, so the record shape is
@@ -63,6 +67,8 @@ MECHANIC_CHITIN = "MECHANIC-BETA models in this unit add 1 to every invented sav
 MECHANIC_EMBER = "MECHANIC-GAMMA on an invented roll of 6, ignore the invented wound."
 MECHANIC_CADENCE = "MECHANIC-DELTA each unit may invent one extra action in each phase."
 MECHANIC_STORM = "MECHANIC-EPSILON invented ranged attacks add 1 to the invented hit roll."
+MECHANIC_SHARED = "MECHANIC-ZETA invented units in this detachment reroll one invented die."
+MECHANIC_CONTESTED = "MECHANIC-ETA invented charges add 1 to the invented distance."
 
 VAULT_KEY = "datasheet:vault-cadence"
 CHITIN_KEY = "faction:chitin-bloom"
@@ -76,6 +82,13 @@ DETACHMENT_KEY = "detachment:d-invented-vanguard:sacred-cadence"
 #: detachment as `unresolved`.
 ARTICLE_KEY = "detachment:d-the-ironstorm-spearhead:storm-cadence"
 
+#: Two curated ids, one shared display name, one source detachment. Both must resolve.
+SHARED_KEY_ONE = "detachment:d-shared-cadre:shared-doctrine"
+SHARED_KEY_TWO = "detachment:d-shared-cadre-2:shared-doctrine"
+
+#: Reachable only through a source id that publishes two differently-named detachments.
+AMBIGUOUS_KEY = "detachment:d-ambiguous-beta:contested-doctrine"
+
 FACTION = "f-invented"
 
 ABILITIES_CSV = f"﻿id|name|legend|faction_id|description|\nA1|Chitin Bloom||F1|{MECHANIC_CHITIN}|\n"
@@ -86,12 +99,21 @@ DATASHEETS_ABILITIES_CSV = (
     f"AV01|3|||Ember Shield|{MECHANIC_EMBER}|Datasheet||\n"
 )
 DETACHMENTS_CSV = (
-    "﻿id|faction_id|name|legend|type|\nD1|F1|Invented Vanguard|||\nD2|F1|Ironstorm Spearhead|||\n"
+    "﻿id|faction_id|name|legend|type|\n"
+    "D1|F1|Invented Vanguard|||\n"
+    "D2|F1|Ironstorm Spearhead|||\n"
+    # One name, published once, that TWO curated ids share - the chapter-duplicate shape.
+    "D3|F1|Shared Cadre|||\n"
+    # One source id publishing two differently-named detachments: the pipeline deletes it.
+    "D4|F1|Ambiguous Alpha|||\n"
+    "D4|F1|Ambiguous Beta|||\n"
 )
 DETACHMENT_ABILITIES_CSV = (
     "﻿id|detachment_id|name|legend|description|\n"
     f"DA1|D1|Sacred Cadence||{MECHANIC_CADENCE}|\n"
     f"DA2|D2|Storm Cadence||{MECHANIC_STORM}|\n"
+    f"DA3|D3|Shared Doctrine||{MECHANIC_SHARED}|\n"
+    f"DA4|D4|Contested Doctrine||{MECHANIC_CONTESTED}|\n"
 )
 
 #: The built snapshot the report came from. The detachment ids here are the ones the curated
@@ -104,6 +126,20 @@ BUILT_DETACHMENTS = {
             "name": "The Ironstorm Spearhead",
             "rules": [],
         },
+        # The first of two curated ids sharing one name (see BUILT_DETACHMENTS_TWO).
+        {"detachment_id": "d-shared-cadre", "name": "Shared Cadre", "rules": []},
+        # Reachable only through the source id the ambiguity guard deletes.
+        {"detachment_id": "d-ambiguous-beta", "name": "Ambiguous Beta", "rules": []},
+    ]
+}
+
+#: A second faction whose detachment carries the SAME display name as the first faction's, minted
+#: `-2` by the registry exactly as the six Space Marine chapter duplicates are. Both ids must be
+#: reachable: they are the per-chapter identifiers the C1 ruling exists to hold apart.
+FACTION_TWO = "f-invented-two"
+BUILT_DETACHMENTS_TWO = {
+    "detachments": [
+        {"detachment_id": "d-shared-cadre-2", "name": "Shared Cadre", "rules": []},
     ]
 }
 
@@ -201,6 +237,9 @@ def repo(tmp_path: Path) -> Path:
     built = root / "data" / "wh40k-11e" / "factions" / FACTION
     built.mkdir(parents=True)
     (built / "detachments.json").write_text(json.dumps(BUILT_DETACHMENTS), encoding="utf-8")
+    built_two = root / "data" / "wh40k-11e" / "factions" / FACTION_TWO
+    built_two.mkdir(parents=True)
+    (built_two / "detachments.json").write_text(json.dumps(BUILT_DETACHMENTS_TWO), encoding="utf-8")
     return root
 
 
@@ -586,7 +625,15 @@ def test_nothing_is_written_under_curation(repo: Path, fixtures_dir: Path, tmp_p
 # --------------------------------------------------------------------------------------
 
 
-ALL_MECHANICS = (MECHANIC_VAULT, MECHANIC_CHITIN, MECHANIC_EMBER, MECHANIC_CADENCE, MECHANIC_STORM)
+ALL_MECHANICS = (
+    MECHANIC_VAULT,
+    MECHANIC_CHITIN,
+    MECHANIC_EMBER,
+    MECHANIC_CADENCE,
+    MECHANIC_STORM,
+    MECHANIC_SHARED,
+    MECHANIC_CONTESTED,
+)
 
 
 def test_the_mechanic_text_never_reaches_stdout(
@@ -987,6 +1034,266 @@ def test_an_unexpected_fault_in_the_second_class_keeps_the_first_classs_file(
         )  # fmt: skip
 
     assert [r["ability_key"] for r in records(out, f"abilities/{UNASSIGNED}.json")] == [VAULT_KEY]
+
+
+# --------------------------------------------------------------------------------------
+# Fix round 2 — A: one detachment name, two curated ids, both reachable
+# --------------------------------------------------------------------------------------
+
+
+def test_a_detachment_name_two_factions_share_resolves_to_both_curated_ids(
+    repo: Path, fixtures_dir: Path, tmp_path: Path
+) -> None:
+    """Fix round 2, Important A — the receipt.
+
+    The source publishes "Shared Cadre" once; two curated ids carry that name, one per faction,
+    minted `-2` by the registry exactly as the six Space Marine chapter duplicates are. A
+    source-driven, one-to-one join (`setdefault`, or last-write-wins) reaches exactly one of them
+    and silently drops the other — measured at 78 of 346 detachment ids and 68 of 324 rules in the
+    live tree. Restore that join and this test fails: one key becomes `unresolved` and its
+    faction file is never written.
+    """
+    report = write_report(
+        tmp_path / "report.json",
+        [
+            finding("DRL-OUTSTANDING", SHARED_KEY_ONE, key_field="summary_key"),
+            finding("DRL-OUTSTANDING", SHARED_KEY_TWO, key_field="summary_key"),
+        ],
+    )
+    out = tmp_path / "out"
+
+    outcome = run(
+        repo, fixtures_dir, report, out, drafter=FakeClient(), reviewer=FakeClient(),
+        classes=("detachment_rules",),
+    )  # fmt: skip
+
+    assert outcome.by_class["detachment_rules"].unresolved == ()
+    assert sorted(outcome.by_class["detachment_rules"].kept) == sorted(
+        [SHARED_KEY_ONE, SHARED_KEY_TWO]
+    )
+    # Each chapter's key lands in its OWN faction file, which is the point of holding them apart.
+    first = records(out, f"detachment-rules/{FACTION}.json")
+    second = records(out, f"detachment-rules/{FACTION_TWO}.json")
+    assert [record["summary_key"] for record in first] == [SHARED_KEY_ONE]
+    assert [record["summary_key"] for record in second] == [SHARED_KEY_TWO]
+    assert first[0]["detachment_id"] == "d-shared-cadre"
+    assert second[0]["detachment_id"] == "d-shared-cadre-2"
+    # Same source rule, so the same mechanic — and so the same digest — under two keys.
+    assert first[0]["mechanic_digest"] == second[0]["mechanic_digest"]
+
+
+def test_a_key_whose_slug_matches_no_rule_of_its_detachment_is_unresolved(
+    repo: Path, fixtures_dir: Path, tmp_path: Path
+) -> None:
+    """The key names the detachment AND the rule; a wrong rule slug must not fall back."""
+    key = "detachment:d-invented-vanguard:no-such-rule"
+    report = write_report(
+        tmp_path / "report.json", [finding("DRL-OUTSTANDING", key, key_field="summary_key")]
+    )
+    client = FakeClient()
+
+    outcome = run(
+        repo, fixtures_dir, report, tmp_path / "out", drafter=client, reviewer=client,
+        classes=("detachment_rules",),
+    )  # fmt: skip
+
+    assert outcome.by_class["detachment_rules"].unresolved == (key,)
+    assert client.draft_calls == []
+
+
+# --------------------------------------------------------------------------------------
+# Fix round 2 — C: the ambiguous source id is dropped, not resolved to the last row
+# --------------------------------------------------------------------------------------
+
+
+def test_a_source_id_publishing_two_names_yields_nothing_rather_than_a_guess(
+    repo: Path, fixtures_dir: Path, tmp_path: Path
+) -> None:
+    """Fix round 2, minor C — the receipt, and the one failure mode that mis-attributes.
+
+    Source id `D4` publishes both "Ambiguous Alpha" and "Ambiguous Beta", so it names neither.
+    Last-write-wins files `D4`'s rule under "Ambiguous Beta" and produces a candidate for
+    `d-ambiguous-beta` — a summary approved against a rule that may belong to Alpha. The
+    pipeline's own guard deletes such an id (`assemble.py`, "issue #5") and this adopts it:
+    the key is reported `unresolved` and nothing is drafted. Delete the two `del names_by_id`
+    lines and this test fails with a candidate written.
+    """
+    report = write_report(
+        tmp_path / "report.json",
+        [finding("DRL-OUTSTANDING", AMBIGUOUS_KEY, key_field="summary_key")],
+    )
+    client = FakeClient()
+    out = tmp_path / "out"
+
+    outcome = run(
+        repo, fixtures_dir, report, out, drafter=client, reviewer=client,
+        classes=("detachment_rules",),
+    )  # fmt: skip
+
+    assert outcome.by_class["detachment_rules"].unresolved == (AMBIGUOUS_KEY,)
+    assert outcome.by_class["detachment_rules"].kept == ()
+    assert client.draft_calls == []
+    assert not (out / "detachment-rules").exists()
+
+
+# --------------------------------------------------------------------------------------
+# Fix round 2 — B: a transport fault takes the partial-write path, end to end
+# --------------------------------------------------------------------------------------
+
+
+def test_a_transport_fault_through_the_real_client_keeps_the_paid_for_candidates(
+    repo: Path, fixtures_dir: Path, tmp_path: Path
+) -> None:
+    """Fix round 2, Important B — the receipt, through the real `SummaryClient`.
+
+    No socket: the client is handed an `httpx.Client` on a `MockTransport`. The first entry
+    completes; the second entry's draft call meets a `ConnectError`. Before the fix that escaped
+    `SummaryClient` as itself, `draft_candidates` caught only `DraftingError`, and the first
+    entry's paid-for candidate went with it. Remove the `except httpx.HTTPError` in
+    `pipeline/summaries/client.py` and this test fails with a bare `ConnectError`.
+    """
+    import httpx
+
+    from pipeline.summaries import SummaryClient
+
+    calls = {"n": 0}
+
+    def handler(request: httpx.Request) -> httpx.Response:
+        calls["n"] += 1
+        if calls["n"] > 2:
+            raise httpx.ConnectError("an invented connection reset")
+        body = json.loads(request.content)
+        payload = (
+            {"summary": "An invented candidate summary.", "used_verbatim": False}
+            if "restate" in body["system"]
+            else {"decision": "keep", "reason_code": "ok"}
+        )
+        return httpx.Response(
+            200,
+            json={
+                "id": "msg_test",
+                "type": "message",
+                "role": "assistant",
+                "model": DRAFT_MODEL,
+                "content": [{"type": "text", "text": json.dumps(payload)}],
+                "stop_reason": "end_turn",
+            },
+        )
+
+    report = write_report(
+        tmp_path / "report.json",
+        [
+            finding("SUM-MISSING", EMBER_KEY),
+            finding("SUM-MISSING", VAULT_KEY),
+        ],
+    )
+    out = tmp_path / "out"
+    transport = httpx.Client(transport=httpx.MockTransport(handler))
+    with SummaryClient(API_KEY, model=DRAFT_MODEL, http=transport) as client:
+        outcome = run(repo, fixtures_dir, report, out, drafter=client, reviewer=client)
+
+    assert outcome.failure is not None
+    assert VAULT_KEY in outcome.failure
+    # The first entry was billed before the reset; it is on disk.
+    assert [r["ability_key"] for r in records(out, f"abilities/{UNASSIGNED}.json")] == [EMBER_KEY]
+    # And the diagnostic names neither the entry text nor the transport's own message.
+    for text in ALL_MECHANICS:
+        assert text not in str(outcome.failure)
+    assert "an invented connection reset" not in str(outcome.failure)
+
+
+# --------------------------------------------------------------------------------------
+# Fix round 2 — D: the drafted count is recorded, not inferred
+# --------------------------------------------------------------------------------------
+
+
+def test_an_entry_dropped_for_being_invalid_is_still_counted_as_drafted(
+    repo: Path, fixtures_dir: Path, tmp_path: Path
+) -> None:
+    """It was drafted and billed. The count says what this run spent, not what survived."""
+    overlong = "INVENTED-OVERLENGTH " * 80
+    report = write_report(
+        tmp_path / "report.json",
+        [finding("DRL-OUTSTANDING", DETACHMENT_KEY, key_field="summary_key")],
+    )
+    client = FakeClient(drafts={"Sacred Cadence": [Draft(overlong, False)]})
+
+    outcome = run(
+        repo, fixtures_dir, report, tmp_path / "out", drafter=client, reviewer=client,
+        classes=("detachment_rules",),
+    )  # fmt: skip
+
+    assert outcome.by_class["detachment_rules"].dropped_invalid == (DETACHMENT_KEY,)
+    assert outcome.by_class["detachment_rules"].kept == ()
+    assert outcome.by_class["detachment_rules"].entries_drafted == 1
+
+
+def test_a_rereview_key_the_reviewer_calls_lore_is_not_counted_as_drafted(
+    repo: Path, fixtures_dir: Path, tmp_path: Path
+) -> None:
+    """It never reached the drafting pass: one review call, no draft call."""
+    authored(
+        repo,
+        f"abilities/{FACTION}.json",
+        [approved_ability(EMBER_KEY, "Ember Shield", "An invented summary that carries flavour.")],
+    )
+    report = write_report(tmp_path / "report.json", [finding("SUM-NEEDS-REREVIEW", EMBER_KEY)])
+    client = FakeClient(verdicts={"Ember Shield": [Verdict("lore", "lore-present")]})
+
+    outcome = run(repo, fixtures_dir, report, tmp_path / "out", drafter=client, reviewer=client)
+
+    assert client.draft_calls == []
+    assert outcome.by_class["abilities"].dropped_lore == (EMBER_KEY,)
+    assert outcome.by_class["abilities"].entries_drafted == 0
+
+
+# --------------------------------------------------------------------------------------
+# Fix round 2 — E: the resolution line, before the prompt
+# --------------------------------------------------------------------------------------
+
+
+def test_the_resolution_line_is_printed_before_the_confirmation_estimate(
+    repo: Path, fixtures_dir: Path, tmp_path: Path, capsys: pytest.CaptureFixture[str]
+) -> None:
+    """One billed run: an unresolved count nobody sees until afterwards is unactionable."""
+    report = write_report(
+        tmp_path / "report.json",
+        [
+            finding("SUM-MISSING", VAULT_KEY),
+            finding("SUM-MISSING", "datasheet:not-in-this-export"),
+            finding("SUM-UNAPPROVED", CHITIN_KEY),
+        ],
+    )
+
+    run(repo, fixtures_dir, report, tmp_path / "out", drafter=FakeClient(), reviewer=FakeClient())
+
+    printed = capsys.readouterr().out
+    line = "abilities: keys=2 resolved=1 unresolved=1 already-drafted=0 skipped-unapproved=1"
+    assert line in printed
+    assert printed.index(line) < printed.index("API calls"), "before the prompt, not after it"
+
+
+def test_the_resolution_line_carries_no_mechanic_text(
+    repo: Path, fixtures_dir: Path, tmp_path: Path, capsys: pytest.CaptureFixture[str]
+) -> None:
+    report = write_report(
+        tmp_path / "report.json",
+        [
+            finding("SUM-MISSING", VAULT_KEY),
+            finding("DRL-OUTSTANDING", DETACHMENT_KEY, key_field="summary_key"),
+        ],
+    )
+    with pytest.raises(ConfirmationRefused):
+        run(
+            repo, fixtures_dir, report, tmp_path / "out", drafter=ExplodingClient(),
+            reviewer=ExplodingClient(), classes=("abilities", "detachment_rules"),
+            assume_yes=False,
+        )  # fmt: skip
+    captured = capsys.readouterr()
+    assert "keys=1 resolved=1" in captured.out
+    for text in ALL_MECHANICS:
+        assert text not in captured.out
+        assert text not in captured.err
 
 
 # --------------------------------------------------------------------------------------
