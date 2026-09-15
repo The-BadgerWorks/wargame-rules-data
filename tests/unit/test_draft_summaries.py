@@ -19,6 +19,11 @@
 # AI-Assisted: Claude Code (model: claude-sonnet-5) - 010 R8 task 3 fix round 1 (code review): a
 # receipt that `_default_data_dir` does not escape the report's own run root to an unrelated
 # ancestor's `out/data` (shared scratch space left over from a different run).
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - 010 R8b: the Owner ruled the derivation
+# itself is the defect (PR #46). `_default_data_dir` and its three derivation-specific tests are
+# deleted; the refusal receipt is now an argparse `SystemExit(2)` naming `--data` on the missing
+# flag, and the surviving seven-keys test also asserts the resolution table prints the `data_dir`
+# it was given, folding in requirement (c)'s print receipt.
 """What this tool has to be trusted about is what it refuses to do.
 
 The candidates it produces are read by the Owner and merged by hand, so the record shape is
@@ -42,7 +47,7 @@ from typing import Any, Literal
 
 import pytest
 
-from pipeline.config import ConfigError, load_config
+from pipeline.config import load_config
 from pipeline.exit_codes import ExitCode
 from pipeline.summaries import Draft, DraftingError, Verdict
 from tools.draft_summaries import (
@@ -50,7 +55,6 @@ from tools.draft_summaries import (
     UNASSIGNED,
     ConfirmationRefused,
     DraftRun,
-    _default_data_dir,
     draft_candidates,
     main,
 )
@@ -310,11 +314,9 @@ def run(
         offline=True,
         limit=limit,
         assume_yes=assume_yes,
-        # 010 R8 task 3: every test using this helper writes its `report.json` loose under
-        # `tmp_path`, with no `<run root>/out/data` anywhere above it, so the tool's new
-        # never-guess default would refuse with a ConfigError. Naming the `repo` fixture's own
-        # built tree here is this helper's business, not the tool's default — the default itself
-        # is asserted separately, against a report placed where a real build would leave it.
+        # 010 R8b: `data_dir` is required — there is no derived default. Naming the `repo`
+        # fixture's own built tree here is this helper's business, exactly as every real caller
+        # must name its own build.
         data_dir=repo / "data",
     )
 
@@ -570,11 +572,9 @@ def _refusal_argv(repo: Path, fixtures_dir: Path, report: Path, out: Path) -> li
         "--out", str(out),
         "--version", VERSION,
         "--repo", str(repo),
-        # 010 R8 task 3: every caller of this helper writes `report.json` loose under
-        # `tmp_path`, with no `<run root>/out/data` above it, so the tool's new never-guess
-        # default would refuse with a ConfigError. `--data` names the `repo` fixture's own
-        # built tree explicitly, exactly as a real caller must once the report and the build
-        # it came from are not siblings on disk.
+        # 010 R8b: `--data` is required — there is no derived default any more (a missing
+        # `--data` is now argparse's own usage error). `--data` names the `repo` fixture's own
+        # built tree explicitly, exactly as every real caller must.
         "--data", str(repo / "data"),
         "--fixtures", str(fixtures_dir),
         "--offline",
@@ -1942,73 +1942,42 @@ def write_round8_report(run_root: Path, rules_version_id: str = "round8-id") -> 
     return write_report(path, findings)
 
 
-def test_no_data_flag_and_no_out_data_dir_refuses_with_a_configerror_naming_data(
-    repo: Path, round8_fixtures_dir: Path, tmp_path: Path
+def test_omitting_the_data_flag_is_an_argparse_error_naming_data(
+    repo: Path, fixtures_dir: Path, tmp_path: Path, capsys: pytest.CaptureFixture[str]
 ) -> None:
-    """Requirement (a), the refusal half.
+    """010 R8b (Owner ruling): there is no derived `data_dir` default any more.
 
-    ``repo``'s committed ``data/`` tree exists and is perfectly readable -- that is exactly the
-    trap: the old default silently read it regardless of which build the report came from. The
-    report here sits loose under ``tmp_path``, with no ``<run root>/out/data`` anywhere above
-    it, so the tool must refuse rather than fall back.
+    The derivation this replaces climbed from the report path to a build tree and had three
+    ways to resolve to an unrelated build or overshoot. `--data` is now required, so the
+    failure is argparse's own usage error before any work starts -- never a silent wrong tree.
     """
     report = write_report(tmp_path / "report.json", [finding("SUM-MISSING", VAULT_KEY)])
 
-    with pytest.raises(ConfigError, match="--data"):
-        draft_candidates(
-            load_config(env=ENV),
-            transport="api",
-            repository_root=repo,
-            report_path=report,
-            out_dir=tmp_path / "candidates",
-            version=VERSION,
-            classes=("abilities",),
-            drafter=FakeClient(),
-            reviewer=FakeClient(),
-            fixtures_dir=round8_fixtures_dir,
-            offline=True,
-            assume_yes=True,
-        )
+    with pytest.raises(SystemExit) as excinfo:
+        main(
+            [
+                "--report", str(report),
+                "--out", str(tmp_path / "candidates"),
+                "--version", VERSION,
+                "--repo", str(repo),
+                "--fixtures", str(fixtures_dir),
+                "--offline",
+                "--yes",
+            ],
+            env=ENV,
+            clients=None,
+        )  # fmt: skip
 
-
-def test_data_dir_is_derived_from_the_reports_run_root_and_named_in_the_resolution_table(
-    repo: Path, round8_fixtures_dir: Path, tmp_path: Path, capsys: pytest.CaptureFixture[str]
-) -> None:
-    """Requirements (a) (the derivation half) and (c).
-
-    No ``--data`` is given. The report sits at ``<run_root>/reports/<id>/report.json``, exactly
-    where a real build's ``report_dir`` writes it, and ``<run_root>/out/data`` carries the id
-    ``repo``'s committed tree does not. The resolution table must print the ``data_dir`` this
-    run actually used, so a human reading it before the confirmation prompt can tell whether it
-    is the one the report came from.
-    """
-    run_root = tmp_path / "run"
-    data_dir = write_round8_build_tree(run_root)
-    report = write_round8_report(run_root)
-
-    draft_candidates(
-        load_config(env=ENV),
-        transport="api",
-        repository_root=repo,
-        report_path=report,
-        out_dir=tmp_path / "candidates",
-        version=VERSION,
-        classes=("detachment_rules",),
-        drafter=FakeClient(),
-        reviewer=FakeClient(),
-        fixtures_dir=round8_fixtures_dir,
-        offline=True,
-        assume_yes=True,
-    )
-
-    captured = capsys.readouterr()
-    assert str(data_dir) in captured.out
+    assert excinfo.value.code == 2
+    assert "--data" in capsys.readouterr().err
 
 
 def test_seven_keys_from_a_detachment_id_absent_from_committed_data_all_resolve(
     repo: Path, round8_fixtures_dir: Path, tmp_path: Path, capsys: pytest.CaptureFixture[str]
 ) -> None:
-    """Requirement (b) -- the round-6-through-8 regression, closed.
+    """Requirement (b) -- the round-6-through-8 regression, closed -- and, after 010 R8b deleted
+    the derivation, the surviving receipt for requirement (c): the resolution table prints the
+    `data_dir` it was actually given.
 
     All 7 keys name a detachment id ``repo``'s committed ``data/`` tree has never carried. Were
     ``data_dir`` still defaulting to ``repository_root/data``, ``curated_detachments`` would
@@ -2017,7 +1986,7 @@ def test_seven_keys_from_a_detachment_id_absent_from_committed_data_all_resolve(
     task exists to close.
     """
     run_root = tmp_path / "run"
-    write_round8_build_tree(run_root)
+    data_dir = write_round8_build_tree(run_root)
     report = write_round8_report(run_root)
 
     outcome = draft_candidates(
@@ -2033,44 +2002,13 @@ def test_seven_keys_from_a_detachment_id_absent_from_committed_data_all_resolve(
         fixtures_dir=round8_fixtures_dir,
         offline=True,
         assume_yes=True,
+        data_dir=data_dir,
     )
 
     captured = capsys.readouterr()
     assert "detachment_rules: keys=7 resolved=7 unresolved=0" in captured.out
     assert sorted(outcome.by_class["detachment_rules"].kept) == sorted(round8_keys())
-
-
-def test_default_data_dir_does_not_escape_the_report_run_root_to_an_unrelated_ancestors_build(
-    tmp_path: Path,
-) -> None:
-    """Fix round 1 (code review). ``_default_data_dir`` must be bounded to the report's own run
-    root, not walk to the first ``out/data`` found at any ancestor.
-
-    ``scratch/`` here stands in for shared scratch space carrying leftovers from a *different*
-    run: ``scratch/out/data`` belongs to that other run, not to this one. This run's own root,
-    ``scratch/run-a``, has no ``out/data`` of its own -- its report sits at
-    ``scratch/run-a/reports/<id>/report.json``, exactly where ``report_dir`` writes it. An
-    unbounded walk up the parents would pass ``scratch/run-a`` (no ``out/data``) and keep going
-    to find ``scratch/out/data`` -- the unrelated other run's build -- and return that. The
-    correct behaviour is to stop at ``scratch/run-a`` and report ``None``, exactly as if no
-    ``out/data`` existed anywhere.
-    """
-    scratch = tmp_path / "scratch"
-    other_run_data_dir = scratch / "out" / "data"
-    other_run_data_dir.mkdir(parents=True)
-    (other_run_data_dir / "marker.json").write_text("{}", encoding="utf-8")
-
-    run_root = scratch / "run-a"
-    report_path = run_root / "reports" / "round8-id" / "report.json"
-    report_path.parent.mkdir(parents=True)
-    report_path.write_text("{}", encoding="utf-8")
-
-    result = _default_data_dir(report_path)
-
-    assert result is None, (
-        f"expected None (run root has no out/data of its own), got {result!r} -- "
-        "the unbounded walk escaped to an unrelated ancestor's out/data"
-    )
+    assert str(data_dir) in captured.out
 
 
 # --------------------------------------------------------------------------------------

@@ -36,6 +36,12 @@
 # left over from a different run) and draft against the wrong build. The search is now bounded to
 # the report's own run root: climb past every contiguous `reports`-named ancestor `report_dir`'s
 # own layout guarantees, then check only that root's `out/data` — never past it.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - 010 R8b: the Owner ruled the derivation
+# itself is the defect, not a candidate for a better heuristic — the three code-review findings
+# above (PR #46) were all about `_default_data_dir`'s climb. `_default_data_dir` is deleted;
+# `--data` is now a required argument and `draft_candidates`'s `data_dir` a required `Path`. A
+# missing `--data` is now argparse's own usage error before any work starts, never a silent
+# fallback to the wrong build.
 """Draft candidate summaries for the entries a build reported as outstanding.
 
 Standing rule 3 was amended on 2026-09-14: a summary may be **machine-drafted** from the
@@ -419,40 +425,6 @@ def work_lists(
 # --------------------------------------------------------------------------------------
 # The joins: key -> (name, mechanic text)
 # --------------------------------------------------------------------------------------
-
-
-def _default_data_dir(report_path: Path) -> Path | None:
-    """``<report's run root>/out/data``, or ``None`` when the run root has no such directory.
-
-    010 R8 task 3 (round 7d fix): the tool used to default to ``repository_root/data`` — the
-    committed tree — regardless of which build the report came from, so every detachment rule
-    new since round 6 was silently unresolved (``curated.get(detachment_id)`` returning
-    ``None``).
-
-    **The run root, bounded** (fix round 1, Important finding). ``report_dir()`` always writes
-    ``report.json`` directly inside ``<some root>/reports/<rules_version_id>/``, so the
-    ``<rules_version_id>`` directory's parent is *always* literally named ``reports`` by that
-    function's own contract. ``live_build.py`` additionally nests its own ``reports_root`` under
-    a ``reports/`` directory of its own (``reports_root=SCRATCH/"reports"``), which is why its
-    reports land two ``reports/`` segments deep while its build output sits at a sibling of
-    ``SCRATCH`` itself (``SCRATCH/out``), not of ``reports_root``. Climbing past every
-    contiguous ``reports``-named ancestor — the one ``report_dir`` always adds, plus any further
-    nesting a caller added of its own — lands on the run root either way.
-
-    That climb is also the fix: it is a **bounded** search, not an unbounded walk to the
-    filesystem root. An unbounded walk finds the *nearest* ancestor with an ``out/data``
-    directory, which is wrong the moment a run root has none of its own but some unrelated
-    ancestor — scratch space shared across multiple runs, say — has one left over from a
-    different run: the wrong build gets read silently. Stopping at the run root means a run root
-    with no ``out/data`` of its own is reported ``None`` (and the caller refuses, naming
-    ``--data``) rather than escaping to whatever the next directory up happens to contain.
-    """
-    node = Path(report_path).resolve().parent  # the <rules_version_id> directory
-    run_root = node.parent
-    while run_root.name == "reports" and run_root.parent != run_root:
-        run_root = run_root.parent
-    candidate = run_root / "out" / "data"
-    return candidate if candidate.is_dir() else None
 
 
 def curated_detachments(data_dir: Path) -> dict[str, tuple[str, str]]:
@@ -1254,7 +1226,7 @@ def draft_candidates(  # noqa: PLR0913 - one argument per input, as tools/churn_
     fixtures_dir: Path | None = None,
     offline: bool = False,
     curation_dir: Path | None = None,
-    data_dir: Path | None = None,
+    data_dir: Path,
     limit: int | None = None,
     assume_yes: bool = False,
     now: datetime | None = None,
@@ -1281,18 +1253,8 @@ def draft_candidates(  # noqa: PLR0913 - one argument per input, as tools/churn_
     findings = json.loads(Path(report_path).read_text(encoding="utf-8")).get("findings", [])
     work = work_lists(findings, selected)
     curation = curation_dir or (Path(repository_root) / "curation")
-    if data_dir is not None:
-        data = Path(data_dir)
-    else:
-        derived = _default_data_dir(report_path)
-        if derived is None:
-            raise ConfigError(
-                f"cannot derive data_dir from {report_path}: no <run root>/out/data directory "
-                "found above it. This tool never falls back to the committed data/ tree — pass "
-                "--data <path to the build's snapshot tree> explicitly"
-            )
-        data = derived
-    curated = curated_detachments(Path(data))
+    data = Path(data_dir)
+    curated = curated_detachments(data)
     authored = {
         summary_class: _authored_records(curation, summary_class) for summary_class in selected
     }
@@ -1526,7 +1488,10 @@ def _parse_args(argv: Sequence[str] | None) -> argparse.Namespace:
     parser.add_argument("--repo", type=Path, help="repository root (default: this checkout)")
     parser.add_argument("--curation", type=Path, help="curation tree to READ (never written)")
     parser.add_argument(
-        "--data", type=Path, help="built snapshot tree the report came from (READ; never written)"
+        "--data",
+        type=Path,
+        required=True,
+        help="built snapshot tree the report came from (READ; never written)",
     )
     parser.add_argument(
         "--transport",
