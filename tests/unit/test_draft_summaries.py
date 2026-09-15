@@ -11,12 +11,14 @@
 # key-driven detachment join (a name shared by two factions must reach BOTH curated ids), the
 # ambiguous-source-id guard, a transport fault taking the partial-write path end to end, the
 # recorded drafted count, and the pre-prompt resolution line.
-# AI-Assisted: Claude Code (model: claude-sonnet-5) - 010 R8 task 3: receipts for `data_dir`
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - 010 R8 task 3 (SUPERSEDED by 010 R8b below
+# — the derivation is deleted): receipts for `data_dir`
 # being derived from the report's own run root instead of defaulting to `repository_root/data`
 # (the never-guess refusal naming `--data`, the derivation from `<run root>/out/data`, the
 # resolution table printing the `data_dir` it used, and the seven-detachment regression closed),
 # plus `--rebaseline-authorization` as a CLI parameter over the former hard-coded citation.
-# AI-Assisted: Claude Code (model: claude-sonnet-5) - 010 R8 task 3 fix round 1 (code review): a
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - 010 R8 task 3 fix round 1 (code review)
+# (SUPERSEDED by 010 R8b below — the derivation is deleted): a
 # receipt that `_default_data_dir` does not escape the report's own run root to an unrelated
 # ancestor's `out/data` (shared scratch space left over from a different run).
 # AI-Assisted: Claude Code (model: claude-sonnet-5) - 010 R8b: the Owner ruled the derivation

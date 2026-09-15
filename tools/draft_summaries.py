@@ -22,7 +22,8 @@
 # `review_many`, so the round-7 backlog of ~2000 re-reviews costs ~200 calls rather than 2000.
 # The class pass is three phases now — gate, batched re-review, per-entry drafting — with every
 # bucket, gate order and partial-write guarantee of the single loop it replaces.
-# AI-Assisted: Claude Code (model: claude-sonnet-5) - 010 R8 task 3: `data_dir` is now derived
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - 010 R8 task 3 (SUPERSEDED by 010 R8b below
+# — the derivation is deleted): `data_dir` is now derived
 # from the report's own run root (`<run root>/out/data`, found by walking up from the report
 # until it exists) instead of defaulting to `repository_root/data` — the committed tree, which
 # round 7d found was silently swallowing every detachment rule new since round 6. No `--data`
@@ -30,7 +31,8 @@
 # resolution table now prints the `data_dir` it used. `--rebaseline-authorization` replaces the
 # hard-coded citation as a CLI parameter, defaulting to the prior constant, for task 5's
 # per-round authorization string.
-# AI-Assisted: Claude Code (model: claude-sonnet-5) - 010 R8 task 3 fix round 1 (code review):
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - 010 R8 task 3 fix round 1 (code review)
+# (SUPERSEDED by 010 R8b below — the derivation is deleted):
 # `_default_data_dir` walked upward with no stop condition, so a report under a run root with no
 # `out/data` of its own could latch onto an unrelated ancestor's `out/data` (shared scratch space
 # left over from a different run) and draft against the wrong build. The search is now bounded to
