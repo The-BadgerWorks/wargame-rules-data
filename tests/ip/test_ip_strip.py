@@ -10,6 +10,11 @@
 # assert_mechanical_string rejection (opening tag only, so the row is not satisfied by a
 # closing tag), and the two guards proving the widening cost neither the ordinary attribute
 # forms nor the `a <b and c> d` over-strip protection.
+# AI-Assisted: Claude Code (model: claude-opus-5) - Added the table-content matrix (010 rung R9,
+# task 3), written failing-first: the cell text now reaches the field, multi-cell tables stay
+# separated, and the paired guard that `img`/`svg`/`script`/`style` subtrees still drop whole.
+# The superseded `table-content-is-dropped-not-flattened` quirk row was rewritten in place, with
+# the reason recorded beside it.
 """Tests for the normalize stage's IP strip (FR-011, FR-012, FR-013, research D8).
 
 Two assertions per case, and the second is the one that earns its keep:
@@ -69,11 +74,15 @@ def _all_strings(result: StripResult) -> str:
             id="named-entities",
         ),
         pytest.param(
+            # 010 R9 task 3 rewrote this row. It asserted table content was dropped whole; round
+            # 8 measured that costing 17 ability keys their cell text in the mechanic digest
+            # while `tools/draft_summaries.py` read that same table raw. A cell holds mechanical
+            # values, so the cells now survive and only the tags are flattened away.
             "<table><tr><td>Distance</td><td>Effect</td></tr></table>Invented tail.",
-            "Invented tail.",
+            "Distance Effect Invented tail.",
             ["DQ-MARKUP-IN-FIELD"],
-            ["Distance", "Effect", "table"],
-            id="table-content-is-dropped-not-flattened",
+            ["table", "<tr", "<td"],
+            id="table-tags-are-flattened-and-the-cells-survive",
         ),
         pytest.param(
             '<img src="https://example.invalid/icon.png"/>Invented tail.',
@@ -496,3 +505,75 @@ def test_the_doubled_quote_widening_leaves_a_quote_in_ordinary_prose_alone() -> 
         result = strip_field(raw, field="description")
         assert result.text == raw
         assert _codes(result) == []
+
+
+# -- 010 R9, task 3: table content is mechanical text, and the digest must see it ----------------
+#
+# `_DROPPED_SUBTREES` removed `<table>` elements *and their content* before `hard_normalise`
+# computed the mechanic digest. Round 8 measured the consequence across the acquired corpus: 17
+# keys affected, 59,674 alphanumeric characters removed, 11 of the 17 losing more than half their
+# text, median loss 836 plain-text characters. Mutating every table cell in all 17 left
+# `hard_normalise`'s output unchanged, 17/17 -- so a tabular mechanic could never auto-flag for
+# re-review. `tools/draft_summaries.py` meanwhile hands the drafting prompt the RAW text, so the
+# drafter read a table the digest was blind to. The digest must cover what the drafter reads.
+#
+# What does NOT move: `img`, `svg`, `script` and `style` subtrees still drop whole, content and
+# all. Those carry artwork references and non-mechanical payload, and standing rule 2 admits no
+# exception. `picture`/`figure` measured at zero occurrences in round 8's element census and so
+# get no code either way (standing rule 10).
+#
+# Inputs are synthetic throughout (standing rule 1): invented labels and invented numbers.
+
+
+def test_table_content_survives_the_strip_while_its_tags_do_not() -> None:
+    """The defect's own shape: the cell text is mechanical, and it must reach the field."""
+    result = strip_field("x <table><tr><td>Fen 3</td></tr></table> y", field="description")
+
+    assert result.text == "x Fen 3 y"
+    assert _codes(result) == ["DQ-MARKUP-IN-FIELD"]
+    for tag_text in ("table", "<tr", "<td"):
+        assert tag_text not in result.text, f"{tag_text!r} is presentation, not mechanics"
+
+
+def test_a_multi_cell_table_keeps_every_cell_separated() -> None:
+    """Cells must not run together: `3` and `4` adjacent would read as `34`."""
+    result = strip_field(
+        "<table><tr><td>Fen</td><td>3</td></tr><tr><td>Grelth</td><td>4</td></tr></table>",
+        field="description",
+    )
+
+    assert result.text == "Fen 3 Grelth 4"
+
+
+@pytest.mark.parametrize(
+    ("raw", "marker"),
+    [
+        pytest.param(
+            '<img src="https://example.invalid/a.png">Grelth 7</img>Invented tail.',
+            "Grelth 7",
+            id="img-subtree",
+        ),
+        pytest.param(
+            '<svg viewBox="0 0 1 1"><title>Grelth 7</title></svg>Invented tail.',
+            "Grelth 7",
+            id="svg-subtree",
+        ),
+        pytest.param(
+            "<script>var invented = 'Grelth 7';</script>Invented tail.",
+            "Grelth 7",
+            id="script-subtree",
+        ),
+        pytest.param(
+            "<style>.invented { content: 'Grelth 7'; }</style>Invented tail.",
+            "Grelth 7",
+            id="style-subtree",
+        ),
+    ],
+)
+def test_artwork_and_payload_subtrees_still_drop_whole(raw: str, marker: str) -> None:
+    """The true positive still fires. Only `table` left the content-dropping alternation; these
+    four carry artwork references and non-mechanical payload and must lose their content too."""
+    result = strip_field(raw, field="description")
+
+    assert result.text == "Invented tail."
+    assert marker not in _all_strings(result), f"{marker!r} survived a dropped subtree"

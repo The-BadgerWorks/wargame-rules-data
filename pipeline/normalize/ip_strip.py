@@ -25,6 +25,14 @@
 # widening sits on the value's tail only: the `=`-plus-value requirement that keeps the
 # `a <b and c> d` over-strip closed, and the valueless-attribute narrowing pinned as a strict
 # xfail, are both unchanged.
+# AI-Assisted: Claude Code (model: claude-opus-5) - Moved `table` out of _DROPPED_SUBTREES' own
+# content-dropping alternation (010 rung R9, task 3), so a table cell's mechanical text reaches
+# `hard_normalise` and the mechanic digest, which round 8 measured it never did (17 keys, 59,674
+# alphanumeric characters, projection unchanged under a full cell mutation 17/17) while
+# `tools/draft_summaries.py` handed the drafting prompt that same table raw. `img`, `svg`,
+# `script` and `style` still drop content and all; `picture`/`figure` measured at zero and were
+# left untouched (standing rule 10). _DROPPED_SUBTREES is NOT one of the patterns
+# models/mechanical.py mirrors -- only _HAS_MARKUP is -- so nothing there moved with it.
 """Strip everything the product may not carry, and keep only mechanical values.
 
 **Relationship to the `strip-wahapedia-ip` precedent.** That skill's per-record classification —
@@ -39,9 +47,10 @@ recorded here so nobody "reuses" the skill and smuggles content in:
 
 **The order of operations is load-bearing.** Markup is removed before entities are decoded,
 because decoding first turns `&lt;b&gt;` into something that looks like markup and gets
-stripped on the second pass — silently deleting a legitimate value. `<table>` and `<img>`
-content is dropped **whole** rather than flattened: a flattened table is still the publisher's
-tabular rules, just harder to notice.
+stripped on the second pass — silently deleting a legitimate value. `<img>`, `<svg>`, `<script>`
+and `<style>` content is dropped **whole** rather than flattened: an artwork reference and a
+script or stylesheet payload are never mechanical values. `<table>` content is *kept* and its
+tags flattened away — see `_DROPPED_SUBTREES` for the measurement that moved it (010 R9).
 
 **A finding never quotes what it found.** `DQ-MARKUP-IN-FIELD` names the field, not the markup.
 A stripper that reports what it stripped has moved the text into the report rather than removed
@@ -69,9 +78,26 @@ from pipeline.normalize.homoglyphs import fold_homoglyphs
 from pipeline.report.catalogue import build_finding
 
 #: Elements whose *content* is dropped along with the element: publisher artwork references and
-#: tabular rules. Research §0.1 counted 87 `<table>` and 27 `<img>` in one export file alone.
+#: non-mechanical payload. Research §0.1 counted 27 `<img>` in one export file alone.
+#:
+#: **`table` is deliberately NOT here** (010 rung R9, task 3). It was, and round 8 measured what
+#: that cost: 17 ability keys whose table content never reached ``hard_normalise``, 59,674
+#: alphanumeric characters removed, 11 of the 17 losing more than half their text, median loss
+#: 836 plain-text characters. Mutating every table cell in all 17 left the projection unchanged,
+#: 17/17 — so a tabular mechanic could change upstream and its digest would not move. Meanwhile
+#: `tools/draft_summaries.py` hands the drafting prompt the RAW, unstripped text, so the drafter
+#: read a table the digest was blind to. The digest must cover what the drafter reads (FR-024),
+#: and a table cell is a mechanical value, not the publisher's expression of one. The
+#: `<table>`/`<tr>`/`<td>` tags themselves are still removed, by the ordinary `_TAG` pass below;
+#: only the cell text survives, and each tag becomes a space so adjacent cells stay separated.
+#:
+#: `img`, `svg`, `script` and `style` stay, content and all: an artwork reference and a script or
+#: stylesheet payload are never mechanical, and standing rule 2 admits no exception. `picture`
+#: and `figure` also stay — round 8's element census measured both at zero occurrences, and a
+#: class measured at zero gets no code either way (standing rule 10), so they are left exactly
+#: where they were rather than moved on the theory that they might carry text.
 _DROPPED_SUBTREES: Final = re.compile(
-    r"<(table|img|svg|picture|figure|script|style)\b[^>]*>.*?</\1\s*>|<(img|br|hr)\b[^>]*/?>",
+    r"<(img|svg|picture|figure|script|style)\b[^>]*>.*?</\1\s*>|<(img|br|hr)\b[^>]*/?>",
     re.IGNORECASE | re.DOTALL,
 )
 
