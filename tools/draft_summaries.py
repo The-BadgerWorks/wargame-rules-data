@@ -22,6 +22,28 @@
 # `review_many`, so the round-7 backlog of ~2000 re-reviews costs ~200 calls rather than 2000.
 # The class pass is three phases now — gate, batched re-review, per-entry drafting — with every
 # bucket, gate order and partial-write guarantee of the single loop it replaces.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - 010 R8 task 3 (SUPERSEDED by 010 R8b below
+# — the derivation is deleted): `data_dir` is now derived
+# from the report's own run root (`<run root>/out/data`, found by walking up from the report
+# until it exists) instead of defaulting to `repository_root/data` — the committed tree, which
+# round 7d found was silently swallowing every detachment rule new since round 6. No `--data`
+# and no discoverable `out/data` is a `ConfigError` naming `--data`, never a silent fallback. The
+# resolution table now prints the `data_dir` it used. `--rebaseline-authorization` replaces the
+# hard-coded citation as a CLI parameter, defaulting to the prior constant, for task 5's
+# per-round authorization string.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - 010 R8 task 3 fix round 1 (code review)
+# (SUPERSEDED by 010 R8b below — the derivation is deleted):
+# `_default_data_dir` walked upward with no stop condition, so a report under a run root with no
+# `out/data` of its own could latch onto an unrelated ancestor's `out/data` (shared scratch space
+# left over from a different run) and draft against the wrong build. The search is now bounded to
+# the report's own run root: climb past every contiguous `reports`-named ancestor `report_dir`'s
+# own layout guarantees, then check only that root's `out/data` — never past it.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - 010 R8b: the Owner ruled the derivation
+# itself is the defect, not a candidate for a better heuristic — the three code-review findings
+# above (PR #46) were all about `_default_data_dir`'s climb. `_default_data_dir` is deleted;
+# `--data` is now a required argument and `draft_candidates`'s `data_dir` a required `Path`. A
+# missing `--data` is now argparse's own usage error before any work starts, never a silent
+# fallback to the wrong build.
 """Draft candidate summaries for the entries a build reported as outstanding.
 
 Standing rule 3 was amended on 2026-09-14: a summary may be **machine-drafted** from the
@@ -669,6 +691,8 @@ def _report_resolution(
     work: Mapping[SummaryClass, _WorkList],
     texts: Mapping[SummaryClass, Mapping[str, tuple[str, str]]],
     drafted: Mapping[SummaryClass, set[str]],
+    *,
+    data_dir: Path,
 ) -> None:
     """Per class, before the prompt: how many outstanding keys this run can actually pair with text.
 
@@ -677,7 +701,12 @@ def _report_resolution(
     nobody can act on. A large ``unresolved`` here means the source or the ``--data`` tree is not
     the one the report came from, and the answer is to say no at the prompt and check, not to
     spend the budget and read about it later.
+
+    ``data_dir`` is printed **once, before the per-class lines** (010 R8 task 3): the detachment
+    join reads it, and a human deciding whether ``unresolved`` looks wrong needs to see which
+    tree was actually read, not infer it from ``--data`` or a default they may not remember.
     """
+    print(f"{PROG}: data_dir={data_dir}")
     for summary_class in selected:
         item = work[summary_class]
         keys = (*item.rereview, *item.fresh)
@@ -812,6 +841,7 @@ def _record(  # noqa: PLR0913 - one argument per field the record carries
     reviewed_at: str,
     acquisition_id: str,
     version: str | None = None,
+    rebaseline_authorization: str = REBASELINE_AUTHORIZATION,
 ) -> dict[str, Any]:
     """One candidate record, in the class's own field order, absent fields omitted.
 
@@ -845,7 +875,7 @@ def _record(  # noqa: PLR0913 - one argument per field the record carries
         values["detachment_id"] = key.split(":")[1] if key.count(":") >= 2 else ""
     if version is not None:
         values["digest_refreshed_at_version"] = version
-        values["digest_refreshed_under_authorization"] = REBASELINE_AUTHORIZATION
+        values["digest_refreshed_under_authorization"] = rebaseline_authorization
 
     order = _FIELD_ORDER[summary_class]
     return {field_name: values[field_name] for field_name in order if field_name in values}
@@ -865,6 +895,7 @@ class _ClassInputs:
     acquisition_id: str
     version: str
     limit: int | None
+    rebaseline_authorization: str
 
 
 def _faction_of(
@@ -1014,6 +1045,7 @@ def _add(
                 reviewed_at=inputs.reviewed_at,
                 acquisition_id=inputs.acquisition_id,
                 version=item.version,
+                rebaseline_authorization=inputs.rebaseline_authorization,
             ),
         )
     )
@@ -1196,11 +1228,12 @@ def draft_candidates(  # noqa: PLR0913 - one argument per input, as tools/churn_
     fixtures_dir: Path | None = None,
     offline: bool = False,
     curation_dir: Path | None = None,
-    data_dir: Path | None = None,
+    data_dir: Path,
     limit: int | None = None,
     assume_yes: bool = False,
     now: datetime | None = None,
     transport: str = "api",
+    rebaseline_authorization: str = REBASELINE_AUTHORIZATION,
 ) -> DraftRun:
     """Acquire, join, draft, review, write candidates — and discard the acquired text.
 
@@ -1222,8 +1255,8 @@ def draft_candidates(  # noqa: PLR0913 - one argument per input, as tools/churn_
     findings = json.loads(Path(report_path).read_text(encoding="utf-8")).get("findings", [])
     work = work_lists(findings, selected)
     curation = curation_dir or (Path(repository_root) / "curation")
-    data = data_dir or (Path(repository_root) / "data")
-    curated = curated_detachments(Path(data))
+    data = Path(data_dir)
+    curated = curated_detachments(data)
     authored = {
         summary_class: _authored_records(curation, summary_class) for summary_class in selected
     }
@@ -1258,7 +1291,7 @@ def draft_candidates(  # noqa: PLR0913 - one argument per input, as tools/churn_
             for summary_class, per_class in texts.items()
         }
 
-        _report_resolution(selected, work, texts, already)
+        _report_resolution(selected, work, texts, already, data_dir=data)
         batch_size = MAX_BATCH_ITEMS if isinstance(reviewer, BatchReviewer) else None
         calls, tokens = _estimate(work, texts, already, batch_size=batch_size)
         _confirm(calls, tokens, assume_yes=assume_yes, transport=transport)
@@ -1287,6 +1320,7 @@ def draft_candidates(  # noqa: PLR0913 - one argument per input, as tools/churn_
                     acquisition_id=acquisition.acquisition_id,
                     version=version,
                     limit=limit,
+                    rebaseline_authorization=rebaseline_authorization,
                 ),
                 drafter=drafter,
                 reviewer=reviewer,
@@ -1456,7 +1490,10 @@ def _parse_args(argv: Sequence[str] | None) -> argparse.Namespace:
     parser.add_argument("--repo", type=Path, help="repository root (default: this checkout)")
     parser.add_argument("--curation", type=Path, help="curation tree to READ (never written)")
     parser.add_argument(
-        "--data", type=Path, help="built snapshot tree the report came from (READ; never written)"
+        "--data",
+        type=Path,
+        required=True,
+        help="built snapshot tree the report came from (READ; never written)",
     )
     parser.add_argument(
         "--transport",
@@ -1470,6 +1507,14 @@ def _parse_args(argv: Sequence[str] | None) -> argparse.Namespace:
     parser.add_argument("--fixtures", type=Path, help="source from a synthetic fixture set")
     parser.add_argument(
         "--offline", action="store_true", help="refuse network access; requires --fixtures"
+    )
+    parser.add_argument(
+        "--rebaseline-authorization",
+        default=REBASELINE_AUTHORIZATION,
+        help=(
+            "the Owner ruling a re-baseline candidate's digest_refreshed_under_authorization "
+            f"cites (default: {REBASELINE_AUTHORIZATION!r})"
+        ),
     )
     return parser.parse_args(list(argv) if argv is not None else None)
 
@@ -1550,6 +1595,7 @@ def main(
                 limit=args.limit,
                 assume_yes=args.yes,
                 transport=transport,
+                rebaseline_authorization=args.rebaseline_authorization,
             )
     except (ConfigError, DigestKeyMissingError, ConfirmationRefused) as exc:
         print(f"{PROG}: {exc}", file=sys.stderr)

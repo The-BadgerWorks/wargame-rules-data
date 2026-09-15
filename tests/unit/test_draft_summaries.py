@@ -11,6 +11,21 @@
 # key-driven detachment join (a name shared by two factions must reach BOTH curated ids), the
 # ambiguous-source-id guard, a transport fault taking the partial-write path end to end, the
 # recorded drafted count, and the pre-prompt resolution line.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - 010 R8 task 3 (SUPERSEDED by 010 R8b below
+# — the derivation is deleted): receipts for `data_dir`
+# being derived from the report's own run root instead of defaulting to `repository_root/data`
+# (the never-guess refusal naming `--data`, the derivation from `<run root>/out/data`, the
+# resolution table printing the `data_dir` it used, and the seven-detachment regression closed),
+# plus `--rebaseline-authorization` as a CLI parameter over the former hard-coded citation.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - 010 R8 task 3 fix round 1 (code review)
+# (SUPERSEDED by 010 R8b below — the derivation is deleted): a
+# receipt that `_default_data_dir` does not escape the report's own run root to an unrelated
+# ancestor's `out/data` (shared scratch space left over from a different run).
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - 010 R8b: the Owner ruled the derivation
+# itself is the defect (PR #46). `_default_data_dir` and its three derivation-specific tests are
+# deleted; the refusal receipt is now an argparse `SystemExit(2)` naming `--data` on the missing
+# flag, and the surviving seven-keys test also asserts the resolution table prints the `data_dir`
+# it was given, folding in requirement (c)'s print receipt.
 """What this tool has to be trusted about is what it refuses to do.
 
 The candidates it produces are read by the Owner and merged by hand, so the record shape is
@@ -34,6 +49,8 @@ from typing import Any, Literal
 
 import pytest
 
+from pipeline.config import load_config
+from pipeline.exit_codes import ExitCode
 from pipeline.summaries import Draft, DraftingError, Verdict
 from tools.draft_summaries import (
     REBASELINE_AUTHORIZATION,
@@ -299,6 +316,10 @@ def run(
         offline=True,
         limit=limit,
         assume_yes=assume_yes,
+        # 010 R8b: `data_dir` is required — there is no derived default. Naming the `repo`
+        # fixture's own built tree here is this helper's business, exactly as every real caller
+        # must name its own build.
+        data_dir=repo / "data",
     )
 
 
@@ -553,6 +574,10 @@ def _refusal_argv(repo: Path, fixtures_dir: Path, report: Path, out: Path) -> li
         "--out", str(out),
         "--version", VERSION,
         "--repo", str(repo),
+        # 010 R8b: `--data` is required — there is no derived default any more (a missing
+        # `--data` is now argparse's own usage error). `--data` names the `repo` fixture's own
+        # built tree explicitly, exactly as every real caller must.
+        "--data", str(repo / "data"),
         "--fixtures", str(fixtures_dir),
         "--offline",
         "--yes",
@@ -1841,3 +1866,203 @@ def test_r7c_fix1_a_batch_of_the_wrong_length_keeps_what_was_paid_for(
     assert sorted(abilities.not_attempted) == [batch_key(i) for i in range(11, 16)]
     on_disk = [record["ability_key"] for record in records(out, f"abilities/{FACTION}.json")]
     assert on_disk == [batch_key(i) for i in range(1, 11)], "the paid-for ten are on disk"
+
+
+# --------------------------------------------------------------------------------------
+# 010 R8 task 3: data_dir is derived from the build the report came from, never the
+# committed data/ tree. Round 7d found the cause first-hand: a stale default resolved
+# detachment ids against `repository_root/data` regardless of which build the report was
+# for, so all seven detachment-rule keys new since round 6 were silently dropped.
+# --------------------------------------------------------------------------------------
+
+#: A detachment id invented for this section only, absent from the `repo` fixture's committed
+#: `data/` tree -- that absence IS the bug this section exists to catch. Were the default still
+#: falling back to `repository_root/data`, every key below would be unresolved.
+ROUND8_FACTION = "f-round8"
+ROUND8_DETACHMENT_ID = "d-round8-only-detachment"
+ROUND8_RULE_COUNT = 7
+
+ROUND8_DETACHMENTS_CSV = "﻿id|faction_id|name|legend|type|\nD9|F9|Round Eight Detachment|||\n"
+ROUND8_DETACHMENT_ABILITIES_CSV = "﻿id|detachment_id|name|legend|description|\n" + "".join(
+    f"DA9{i}|D9|Round Eight Rule {i}||MECHANIC-R8-{i} an invented rule text for rule {i}.|\n"
+    for i in range(1, ROUND8_RULE_COUNT + 1)
+)
+
+
+def round8_keys() -> list[str]:
+    """The 7 outstanding detachment-rule keys this section's report carries."""
+    return [
+        f"detachment:{ROUND8_DETACHMENT_ID}:round-eight-rule-{i}"
+        for i in range(1, ROUND8_RULE_COUNT + 1)
+    ]
+
+
+@pytest.fixture
+def round8_fixtures_dir(tmp_path: Path) -> Path:
+    """A fresh copy of the minimal fixture set, carrying only the round-8 detachment rows."""
+    root = tmp_path / "round8-fixtures"
+    shutil.copytree(MINIMAL, root)
+    wahapedia = root / "wahapedia"
+    (wahapedia / "Detachments.csv").write_text(ROUND8_DETACHMENTS_CSV, encoding="utf-8", newline="")
+    (wahapedia / "Detachment_abilities.csv").write_text(
+        ROUND8_DETACHMENT_ABILITIES_CSV, encoding="utf-8", newline=""
+    )
+    return root
+
+
+def write_round8_build_tree(run_root: Path) -> Path:
+    """``<run_root>/out/data/<edition>/factions/<faction>/detachments.json``.
+
+    The layout ``live_build.py`` produces, carrying the id ``repo``'s committed ``data/`` tree
+    does not.
+    """
+    data_dir = run_root / "out" / "data"
+    faction_dir = data_dir / "wh40k-11e" / "factions" / ROUND8_FACTION
+    faction_dir.mkdir(parents=True)
+    (faction_dir / "detachments.json").write_text(
+        json.dumps(
+            {
+                "detachments": [
+                    {
+                        "detachment_id": ROUND8_DETACHMENT_ID,
+                        "name": "Round Eight Detachment",
+                        "rules": [],
+                    }
+                ]
+            }
+        ),
+        encoding="utf-8",
+    )
+    return data_dir
+
+
+def write_round8_report(run_root: Path, rules_version_id: str = "round8-id") -> Path:
+    """``<run_root>/reports/<rules_version_id>/report.json`` -- the layout ``report_dir`` writes."""
+    path = run_root / "reports" / rules_version_id / "report.json"
+    path.parent.mkdir(parents=True)
+    findings = [finding("DRL-OUTSTANDING", key, key_field="summary_key") for key in round8_keys()]
+    return write_report(path, findings)
+
+
+def test_omitting_the_data_flag_is_an_argparse_error_naming_data(
+    repo: Path, fixtures_dir: Path, tmp_path: Path, capsys: pytest.CaptureFixture[str]
+) -> None:
+    """010 R8b (Owner ruling): there is no derived `data_dir` default any more.
+
+    The derivation this replaces climbed from the report path to a build tree and had three
+    ways to resolve to an unrelated build or overshoot. `--data` is now required, so the
+    failure is argparse's own usage error before any work starts -- never a silent wrong tree.
+    """
+    report = write_report(tmp_path / "report.json", [finding("SUM-MISSING", VAULT_KEY)])
+
+    with pytest.raises(SystemExit) as excinfo:
+        main(
+            [
+                "--report", str(report),
+                "--out", str(tmp_path / "candidates"),
+                "--version", VERSION,
+                "--repo", str(repo),
+                "--fixtures", str(fixtures_dir),
+                "--offline",
+                "--yes",
+            ],
+            env=ENV,
+            clients=None,
+        )  # fmt: skip
+
+    assert excinfo.value.code == 2
+    assert "--data" in capsys.readouterr().err
+
+
+def test_seven_keys_from_a_detachment_id_absent_from_committed_data_all_resolve(
+    repo: Path, round8_fixtures_dir: Path, tmp_path: Path, capsys: pytest.CaptureFixture[str]
+) -> None:
+    """Requirement (b) -- the round-6-through-8 regression, closed -- and, after 010 R8b deleted
+    the derivation, the surviving receipt for requirement (c): the resolution table prints the
+    `data_dir` it was actually given.
+
+    All 7 keys name a detachment id ``repo``'s committed ``data/`` tree has never carried. Were
+    ``data_dir`` still defaulting to ``repository_root/data``, ``curated_detachments`` would
+    resolve nothing for this id, ``detachment_rule_texts`` would ``continue`` past every key,
+    and the resolution line would read ``resolved=0 unresolved=7`` -- the exact silent-skip this
+    task exists to close.
+    """
+    run_root = tmp_path / "run"
+    data_dir = write_round8_build_tree(run_root)
+    report = write_round8_report(run_root)
+
+    outcome = draft_candidates(
+        load_config(env=ENV),
+        transport="api",
+        repository_root=repo,
+        report_path=report,
+        out_dir=tmp_path / "candidates",
+        version=VERSION,
+        classes=("detachment_rules",),
+        drafter=FakeClient(),
+        reviewer=FakeClient(),
+        fixtures_dir=round8_fixtures_dir,
+        offline=True,
+        assume_yes=True,
+        data_dir=data_dir,
+    )
+
+    captured = capsys.readouterr()
+    assert "detachment_rules: keys=7 resolved=7 unresolved=0" in captured.out
+    assert sorted(outcome.by_class["detachment_rules"].kept) == sorted(round8_keys())
+    assert str(data_dir) in captured.out
+
+
+# --------------------------------------------------------------------------------------
+# 010 R8 task 3: --rebaseline-authorization -- task 5 invokes this tool with a round-8
+# citation the module's own hard-coded ruling-6 string cannot name.
+# --------------------------------------------------------------------------------------
+
+
+def test_rebaseline_authorization_defaults_to_the_module_constant(
+    repo: Path, fixtures_dir: Path, tmp_path: Path
+) -> None:
+    authored(
+        repo,
+        f"abilities/{FACTION}.json",
+        [approved_ability(EMBER_KEY, "Ember Shield", "An invented summary a curator approved.")],
+    )
+    report = write_report(tmp_path / "report.json", [finding("SUM-NEEDS-REREVIEW", EMBER_KEY)])
+    out = tmp_path / "candidates"
+
+    run(repo, fixtures_dir, report, out, drafter=FakeClient(), reviewer=FakeClient())
+
+    record = records(out, f"abilities/{FACTION}.json")[0]
+    assert record["digest_refreshed_under_authorization"] == REBASELINE_AUTHORIZATION
+
+
+def test_rebaseline_authorization_cli_flag_overrides_the_default(
+    repo: Path, fixtures_dir: Path, tmp_path: Path
+) -> None:
+    """The exact interface task 5 needs: ``--rebaseline-authorization <citation>``."""
+    authored(
+        repo,
+        f"abilities/{FACTION}.json",
+        [approved_ability(EMBER_KEY, "Ember Shield", "An invented summary a curator approved.")],
+    )
+    report = write_report(tmp_path / "report.json", [finding("SUM-NEEDS-REREVIEW", EMBER_KEY)])
+    out = tmp_path / "candidates"
+    citation = "owner-2026-09-15-text-integrity-rereview"
+    client = FakeClient()
+
+    code = main(
+        [
+            *_refusal_argv(repo, fixtures_dir, report, out),
+            "--classes",
+            "abilities",
+            "--rebaseline-authorization",
+            citation,
+        ],
+        env=ENV,
+        clients=(client, client),
+    )
+
+    assert code == int(ExitCode.SUCCESS)
+    record = records(out, f"abilities/{FACTION}.json")[0]
+    assert record["digest_refreshed_under_authorization"] == citation
+    assert record["digest_refreshed_under_authorization"] != REBASELINE_AUTHORIZATION
