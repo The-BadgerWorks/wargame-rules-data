@@ -40,6 +40,26 @@
     "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
+    "summary_key": "detachment:d-elegant-brutes:eager-to-kill",
+    "detachment_id": "d-elegant-brutes",
+    "name": "Eager to Kill",
+    "summary": "When a friendly EMPEROR'S CHILDREN TERMINATOR unit is set up, that unit adds 1 to its charge rolls until the end of that turn.",
+    "review_state": "approved",
+    "mechanic_digest": "03fb618180a04f76156135ec7a3cf753",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "reviewed_at": "2026-09-15T04:35:16Z"
+  },
+  {
+    "summary_key": "detachment:d-frenzied-host:frantic-focus",
+    "detachment_id": "d-frenzied-host",
+    "name": "Frantic Focus",
+    "summary": "When a friendly EMPEROR'S CHILDREN BATTLELINE unit is selected to make an advance/fall-back move, that unit's attacks have +1 S until the end of the turn. This detachment has the HOST tag and cannot be taken with another HOST detachment.",
+    "review_state": "approved",
+    "mechanic_digest": "805e6566dab61577a8fdd6e230046ffe",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "reviewed_at": "2026-09-15T04:35:16Z"
+  },
+  {
     "summary_key": "detachment:d-mercurial-host:quicksilver-grace",
     "detachment_id": "d-mercurial-host",
     "name": "Quicksilver Grace",
@@ -78,5 +98,15 @@
     "mechanic_digest": "f57d1cea64d268618bf700597186d3ca",
     "reviewed_by": "claude-opus-5-adversarial-reviewer",
     "reviewed_at": "2026-08-06T00:00:00Z"
+  },
+  {
+    "summary_key": "detachment:d-spectacle-of-slaughter:entitled-to-victory",
+    "detachment_id": "d-spectacle-of-slaughter",
+    "name": "Entitled to Victory",
+    "summary": "Friendly FLAWLESS BLADES units have Fights First.",
+    "review_state": "approved",
+    "mechanic_digest": "1075857e20b253ece9f0ebe947d25f8c",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "reviewed_at": "2026-09-15T04:35:16Z"
   }
 ]

@@ -1,5 +1,15 @@
 [
   {
+    "summary_key": "detachment:d-argent-assault:dauntless-champions",
+    "detachment_id": "d-argent-assault",
+    "name": "Dauntless Champions",
+    "summary": "When a friendly PALADIN SQUAD unit is selected to fight, any of those attacks whose Strength is lower than the Toughness of the target have +1 to wound rolls.",
+    "review_state": "approved",
+    "mechanic_digest": "3d15a2bbbb4d615a4d2b35c12bdb80c6",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "reviewed_at": "2026-09-15T04:35:16Z"
+  },
+  {
     "summary_key": "detachment:d-augurium-task-force:prescient-redeployment",
     "detachment_id": "d-augurium-task-force",
     "name": "Prescient Redeployment",
@@ -30,6 +40,16 @@
     "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
+    "summary_key": "detachment:d-fires-of-purgation:searing-soulflame",
+    "detachment_id": "d-fires-of-purgation",
+    "name": "Searing Soulflame",
+    "summary": "When you select a unit to be pinned by a friendly PURGATION SQUAD unit's Righteous Persecution ability, that enemy unit makes a battle-shock roll, with -1 to that battle-shock roll.",
+    "review_state": "approved",
+    "mechanic_digest": "f8a6fb054880a77283a3266b3e9cff39",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "reviewed_at": "2026-09-15T04:35:16Z"
+  },
+  {
     "summary_key": "detachment:d-hallowed-conclave:duty-before-all",
     "detachment_id": "d-hallowed-conclave",
     "name": "Duty Before All",
@@ -38,6 +58,16 @@
     "mechanic_digest": "ce07e95b355831e53ac5dcb4d72071e9",
     "reviewed_by": "claude-opus-5-adversarial-reviewer",
     "reviewed_at": "2026-08-06T00:00:00Z"
+  },
+  {
+    "summary_key": "detachment:d-immaterial-interdiction:echojump",
+    "detachment_id": "d-immaterial-interdiction",
+    "name": "Echojump",
+    "summary": "In your Shooting phase, when a friendly INTERCEPTOR SQUAD unit has shot, you can use this ability. If you do: that unit cannot use its Personal Teleporters ability, and that unit can make a surge move of up to D6+1\".",
+    "review_state": "approved",
+    "mechanic_digest": "7c05621d9eebb42b71bcc2034224c8bc",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "reviewed_at": "2026-09-15T04:35:16Z"
   },
   {
     "summary_key": "detachment:d-sanctic-spearhead:mailed-fist",

@@ -20,6 +20,16 @@
     "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
+    "summary_key": "detachment:d-chaos-cult:keywords",
+    "detachment_id": "d-chaos-cult",
+    "name": "KEYWORDS",
+    "summary": "TRAITOR GUARDSMEN SQUAD units in your army gain the BATTLELINE keyword.",
+    "review_state": "approved",
+    "mechanic_digest": "4a35746005a68762fe825cb6050934df",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "reviewed_at": "2026-09-15T04:35:16Z"
+  },
+  {
     "summary_key": "detachment:d-creations-of-bile:experimental-augmentations",
     "detachment_id": "d-creations-of-bile",
     "name": "Experimental Augmentations",
@@ -48,6 +58,16 @@
     "mechanic_digest": "cbd9578ed6b54b802e4ed4dcac2c7863",
     "reviewed_by": "claude-opus-5-second-reviewer",
     "reviewed_at": "2026-08-06T00:00:00Z"
+  },
+  {
+    "summary_key": "detachment:d-devotees-of-destruction:rain-of-ruin",
+    "detachment_id": "d-devotees-of-destruction",
+    "name": "Rain of Ruin",
+    "summary": "Ranged attacks made by friendly HAVOCS and OBLITERATORS units have the [HEAVY] ability.",
+    "review_state": "approved",
+    "mechanic_digest": "d581c205bb93ff34154219e228c1efcd",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "reviewed_at": "2026-09-15T04:35:16Z"
   },
   {
     "summary_key": "detachment:d-dread-talons:terror-descends-aura",

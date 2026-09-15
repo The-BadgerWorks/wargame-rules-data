@@ -20,6 +20,16 @@
     "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
+    "summary_key": "detachment:d-delve-assault-shift:fury-from-the-delve",
+    "detachment_id": "d-delve-assault-shift",
+    "name": "Fury From The Dêlve",
+    "summary": "Cthonian Beserks units from your army have the Deep Strike ability. Cthonian Beserks units from your army gain the BATTLELINE keyword.",
+    "review_state": "approved",
+    "mechanic_digest": "bfb9ff60a30ac7b5237829d781a9e5fd",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "reviewed_at": "2026-09-15T04:35:16Z"
+  },
+  {
     "summary_key": "detachment:d-farseekers:eye-of-the-hunt",
     "detachment_id": "d-farseekers",
     "name": "Eye of the Hunt",

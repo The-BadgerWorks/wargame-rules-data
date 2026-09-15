@@ -40,6 +40,16 @@
     "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
+    "summary_key": "detachment:d-rubricae-phalanx:all-is-dust",
+    "detachment_id": "d-rubricae-phalanx",
+    "name": "All is Dust",
+    "summary": "Each time an attack with an unmodified Damage characteristic of 1 is allocated to a Rubricae model from your army, add 1 to any armour saving throw made against that attack.",
+    "review_state": "approved",
+    "mechanic_digest": "7b65fb6c91b3df6a3e536ad2d71e9079",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "reviewed_at": "2026-09-15T04:35:16Z"
+  },
+  {
     "summary_key": "detachment:d-sekhetar-cohort:ensorcelled-animus",
     "detachment_id": "d-sekhetar-cohort",
     "name": "Ensorcelled Animus",

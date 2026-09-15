@@ -1,5 +1,25 @@
 [
   {
+    "keyword": "ADEPTUS ASTARTES",
+    "keyword_class": "faction",
+    "note": "Classified as a faction keyword during the 2026-09 CSV cutover: the export publishes it as a top-level faction with no parent, so it is not a chapter of anything."
+  },
+  {
+    "keyword": "ADEPTUS TITANICUS",
+    "keyword_class": "faction",
+    "note": "Classified as a faction keyword during the 2026-09 CSV cutover: the export publishes it as a top-level faction with no parent, so it is not a chapter of anything."
+  },
+  {
+    "keyword": "AGENTS OF THE IMPERIUM",
+    "keyword_class": "faction",
+    "note": "Classified as a faction keyword during the 2026-09 CSV cutover: the export publishes it as a top-level faction with no parent, so it is not a chapter of anything."
+  },
+  {
+    "keyword": "ASURYANI",
+    "keyword_class": "faction",
+    "note": "Classified as a faction keyword during the 2026-09 CSV cutover: the export publishes it as a top-level faction with no parent, so it is not a chapter of anything."
+  },
+  {
     "chapter_faction_id": "f-black-templars",
     "keyword": "BLACK TEMPLARS",
     "keyword_class": "chapter",
@@ -12,6 +32,12 @@
     "keyword_class": "chapter",
     "note": "The points source prices this chapter on its own faction page, and the detail source publishes its copies of shared datasheets on the parent's page carrying this keyword.",
     "parent_faction_id": "f-space-marines"
+  },
+  {
+    "keyword": "BLOOD LEGIONS",
+    "keyword_class": "chapter",
+    "note": "Classified as a chapter keyword during the 2026-09 CSV cutover: the detail source publishes these datasheets on the parent faction's page carrying this keyword, and the points source does not price it as a faction of its own.",
+    "parent_faction_id": "f-chaos-daemons"
   },
   {
     "chapter_faction_id": "f-dark-angels",
@@ -28,10 +54,86 @@
     "parent_faction_id": "f-space-marines"
   },
   {
+    "keyword": "HARLEQUINS",
+    "keyword_class": "chapter",
+    "note": "Classified as a chapter keyword during the 2026-09 CSV cutover: the detail source publishes these datasheets on the parent faction's page carrying this keyword, and the points source does not price it as a faction of its own.",
+    "parent_faction_id": "f-aeldari"
+  },
+  {
+    "keyword": "HERETIC ASTARTES",
+    "keyword_class": "faction",
+    "note": "Classified as a faction keyword during the 2026-09 CSV cutover: the export publishes it as a top-level faction with no parent, so it is not a chapter of anything."
+  },
+  {
+    "keyword": "IMPERIAL FISTS",
+    "keyword_class": "chapter",
+    "note": "Classified as a chapter keyword during the 2026-09 CSV cutover: the detail source publishes these datasheets on the parent faction's page carrying this keyword, and the points source does not price it as a faction of its own.",
+    "parent_faction_id": "f-space-marines"
+  },
+  {
+    "keyword": "IRON HANDS",
+    "keyword_class": "chapter",
+    "note": "Classified as a chapter keyword during the 2026-09 CSV cutover: the detail source publishes these datasheets on the parent faction's page carrying this keyword, and the points source does not price it as a faction of its own.",
+    "parent_faction_id": "f-space-marines"
+  },
+  {
+    "keyword": "LEGIONES DAEMONICA",
+    "keyword_class": "faction",
+    "note": "Classified as a faction keyword during the 2026-09 CSV cutover: the export publishes it as a top-level faction with no parent, so it is not a chapter of anything."
+  },
+  {
+    "keyword": "LEGIONS OF EXCESS",
+    "keyword_class": "chapter",
+    "note": "Classified as a chapter keyword during the 2026-09 CSV cutover: the detail source publishes these datasheets on the parent faction's page carrying this keyword, and the points source does not price it as a faction of its own.",
+    "parent_faction_id": "f-chaos-daemons"
+  },
+  {
+    "keyword": "PLAGUE LEGIONS",
+    "keyword_class": "chapter",
+    "note": "Classified as a chapter keyword during the 2026-09 CSV cutover: the detail source publishes these datasheets on the parent faction's page carrying this keyword, and the points source does not price it as a faction of its own.",
+    "parent_faction_id": "f-chaos-daemons"
+  },
+  {
+    "keyword": "RAVEN GUARD",
+    "keyword_class": "chapter",
+    "note": "Classified as a chapter keyword during the 2026-09 CSV cutover: the detail source publishes these datasheets on the parent faction's page carrying this keyword, and the points source does not price it as a faction of its own.",
+    "parent_faction_id": "f-space-marines"
+  },
+  {
+    "keyword": "SALAMANDERS",
+    "keyword_class": "chapter",
+    "note": "Classified as a chapter keyword during the 2026-09 CSV cutover: the detail source publishes these datasheets on the parent faction's page carrying this keyword, and the points source does not price it as a faction of its own.",
+    "parent_faction_id": "f-space-marines"
+  },
+  {
+    "keyword": "SCINTILLATING LEGIONS",
+    "keyword_class": "chapter",
+    "note": "Classified as a chapter keyword during the 2026-09 CSV cutover: the detail source publishes these datasheets on the parent faction's page carrying this keyword, and the points source does not price it as a faction of its own.",
+    "parent_faction_id": "f-chaos-daemons"
+  },
+  {
     "chapter_faction_id": "f-space-wolves",
     "keyword": "SPACE WOLVES",
     "keyword_class": "chapter",
     "note": "The points source prices this chapter on its own faction page, and the detail source publishes its copies of shared datasheets on the parent's page carrying this keyword.",
     "parent_faction_id": "f-space-marines"
+  },
+  {
+    "keyword": "ULTRAMARINES",
+    "keyword_class": "chapter",
+    "note": "Classified as a chapter keyword during the 2026-09 CSV cutover: the detail source publishes these datasheets on the parent faction's page carrying this keyword, and the points source does not price it as a faction of its own.",
+    "parent_faction_id": "f-space-marines"
+  },
+  {
+    "keyword": "WHITE SCARS",
+    "keyword_class": "chapter",
+    "note": "Classified as a chapter keyword during the 2026-09 CSV cutover: the detail source publishes these datasheets on the parent faction's page carrying this keyword, and the points source does not price it as a faction of its own.",
+    "parent_faction_id": "f-space-marines"
+  },
+  {
+    "keyword": "YNNARI",
+    "keyword_class": "chapter",
+    "note": "Classified as a chapter keyword during the 2026-09 CSV cutover: the detail source publishes these datasheets on the parent faction's page carrying this keyword, and the points source does not price it as a faction of its own.",
+    "parent_faction_id": "f-aeldari"
   }
 ]

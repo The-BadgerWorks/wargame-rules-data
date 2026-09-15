@@ -30,6 +30,16 @@
     "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
+    "summary_key": "detachment:d-flyblown-host:verminous-haze",
+    "detachment_id": "d-flyblown-host",
+    "name": "Verminous Haze",
+    "summary": "In the Declare Battle Formations step, you can select up to two friendly PLAGUE MARINES units. Those units have Infiltrators. This detachment has the FLYBLOWN tag and cannot be taken with another FLYBLOWN detachment.",
+    "review_state": "approved",
+    "mechanic_digest": "1cf4e9f917c822924a96017d57166518",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "reviewed_at": "2026-09-15T04:35:16Z"
+  },
+  {
     "summary_key": "detachment:d-mortarions-hammer:miasmic-bombardment",
     "detachment_id": "d-mortarions-hammer",
     "name": "Miasmic Bombardment",
