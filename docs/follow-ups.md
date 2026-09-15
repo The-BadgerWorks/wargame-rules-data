@@ -121,6 +121,12 @@
      the amended standing rule 3 and 010 R7's drafting client/tool, keeping its original text
      beneath the resolution; added item 40, the drafting tool's candidates-only boundary and
      what would have to change for that to be revisited. -->
+<!-- AI-Assisted: Claude Code (model: claude-opus-5) - 010 R9 task 3, fix round 1: added item 41,
+     the valueless-attribute narrowing's newly EXPOSED blast radius inside table markup (a
+     pre-existing residual of item 24, not a new defect), recorded under Controller Ruling 10 as
+     unmeasured and therefore un-coded; and item 42, the ruling that refreshing a SYNTHETIC
+     fixture's mechanic digest to match an authorised algorithm change is legitimate and is not
+     the standing-rule-4 class that governs the tracked curation/ tree. -->
 # Follow-ups
 
 Open items surfaced during implementation that are deliberately **not** fixed as part of the work
@@ -1727,3 +1733,81 @@ still requires before a machine-drafted summary counts as approved.
 drafted summary land in `curation/` without an Owner read per entry would need its own ruling from
 the Owner, on the same footing as the 2026-09-14 amendment to standing rule 3 itself — not a
 follow-up item closed by code.
+
+## 41. Item 24's valueless-attribute narrowing is now EXPOSED inside table markup (010 R9 task 3)
+
+**This is item 24, not a second defect.** `_CLOSED_TAG` has refused valueless attributes since
+009 rung R01a, for the reasons item 24 records at length. Nothing about that narrowing changed
+here. What changed is its **blast radius**: until 010 R9 task 3, `_DROPPED_SUBTREES` removed
+`<table>` elements and their entire content, so any unrecognised tag *inside* a table was deleted
+along with everything else and the gap was masked. Moving `table` out of the content-dropping
+alternation — so the mechanic digest covers the table content `tools/draft_summaries.py` reads —
+leaves the table's own tags to the ordinary `_TAG` pass, and a table tag carrying a valueless
+attribute is exactly the shape `_CLOSED_TAG` will not match.
+
+**Reproducing one-liner** (synthetic input, `pipeline/normalize/ip_strip.py:99`):
+
+```python
+strip_field("<table><tr><td nowrap>Fen</td></tr></table>", field="description").text
+# -> '<td nowrap>Fen'   (with DQ-MARKUP-IN-FIELD, raised by the closing tags)
+NON_MECHANICAL_PATTERNS["markup"].search("<td nowrap>Fen")  # -> None
+```
+
+Re-derived first-hand at commit `7ee9029a`, not taken on report. The valued form is unaffected:
+`<td colspan=2>Fen</td>` inside a table still strips to `'Fen'`.
+
+The literal markup survives in the field, and — as item 24 already records — because
+`models/mechanical.py`'s `NON_MECHANICAL_PATTERNS["markup"]` is character-identical to
+`_HAS_MARKUP` by construction, **`validate/ip_scan.py` shares the blind spot and would not block
+a publish on it.** Severity depends entirely on the call site. In the digest path it is cosmetic:
+the literal `<` dies later in `hard_normalise`'s punctuation strip, so this cannot leak to a
+published artefact there, but the tag text enters the digest and a purely presentational upstream
+edit would false-flag the key for re-review. At a *name* or *composition* call site in
+`curate/assemble.py` it would be markup published. A run is not silent about it — the closing
+tags raise `DQ-MARKUP-IN-FIELD` on their own, exactly as item 24 records — but that finding is
+advisory, and the **blocking** check, `validate/ip_scan.py`, is the one that cannot see it.
+`td`/`tr`/`th` are the plausible carriers of a valueless attribute (`nowrap`); `colspan=2` is
+valued and already matches.
+
+**Not measured, and that is why there is no code.** Controller Ruling 10, 2026-09-15: no count
+exists for how often a table tag in the acquired export carries a valueless attribute. *Unmeasured
+is not the same as zero*, so this is not a standing-rule-10 refusal on a measured-empty class — it
+is a refusal to act before the number exists. Widening `_CLOSED_TAG` to admit valueless attributes
+is the obvious fix and is the wrong trade: it re-opens the `a <b and c> d` over-strip that the
+pinned narrowing exists to prevent (item 24 explains why every rule fitted to that distinction is
+fitted to a sample of one), trading a measured, closed defect for an unmeasured, speculative one.
+
+**Action needed**: count the class as part of round 9's live build against the acquired export —
+specifically, how many ability texts contain a table tag carrying an `=`-less attribute, and
+whether any such text reaches a `curate/assemble.py` call site rather than only the digest. The
+decision to fix or accept is the **Owner's** once that count exists. If it is non-zero, the
+closure is item 24's own: the HTML boolean-attribute allowlist, applied in lockstep across
+`ip_strip.py` and `models/mechanical.py` as always, which closes both items at once.
+
+**Cross-reference**: item 24 holds the full account of the narrowing, the `origin/main@2c603c7f`
+comparison table, why it was not closed in R01a, and the strict-xfail pin
+(`tests/ip/test_ip_strip.py::test_a_valueless_attribute_is_a_known_open_narrowing_against_main`)
+that forces whoever closes it to promote the rows rather than leave a stale note. That pin covers
+this item too — there is one residual here, with one closure, not two.
+
+## 42. Refreshing a *synthetic fixture's* mechanic digest is not the standing-rule-4 class (010 R9 task 3)
+
+**Controller ruling, 2026-09-15.** The path spelling `fixtures/sample/curation/` invites confusion
+with the tracked `curation/` tree that standing rule 4 protects, so the distinction is written down
+here rather than left to be re-litigated.
+
+When an authorised change to the digest algorithm moves a **synthetic fixture's** stored
+`mechanic_digest`, refreshing that fixture value to match is legitimate and necessary: leaving it
+stale would make the fixture silently encode the *superseded* algorithm, and the test that reads it
+would then assert the old behaviour under a new name. That is a different class from standing rule
+4 and from the "summary digest refreshed without its authorization citation" Tier 1 class, both of
+which govern the **tracked `curation/` tree and real keys** — where a refresh needs an Owner
+authorization string and a per-entry human read. A fixture record with an invented name, an
+`example.invalid` host and invented placeholder prose has no such entries to re-review.
+
+**Precedent**: 010 R9 task 3 moved table content into the digest projection, which moved
+`fixtures/sample`'s synthetic `datasheet:slag-wake` record (its invented ability text carries a
+table on purpose) from `approved` to `SUM-NEEDS-REREVIEW`. The stored digest was recomputed with
+the pipeline's own `compute_current_digests` under the documented fixture key and refreshed,
+restoring the row's designed meaning. No real key was touched; the real-corpus refresh is a
+separate task under an Owner authorization string.
