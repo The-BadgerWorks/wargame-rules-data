@@ -5,6 +5,9 @@
      main since PR #27, standing rule 6 rewritten for a single detail arm, and the
      arm-swap receipt example replaced, the second arm having been deleted; standing rule 4 no
      longer names the detail-source authority declaration, whose schema and loader are gone. -->
+<!-- AI-Assisted: Claude Code (model: claude-sonnet-5) - 010 R7 task 6: standing rule 3 rewritten
+     for the Owner's 2026-09-14 amendment (WargameCompanion CLAUDE.md), citing this repo's own
+     drafting client and tool now that the earlier human-authored-only wording is superseded. -->
 # wargame-rules-data — working rules for agents
 
 This repository is the whole rules-data pipeline: it acquires two upstream sources, strips
@@ -163,8 +166,16 @@ Breaking one of these is Tier 1.
    `tests/ip/test_no_raw_source_committed.py` enforces it.
 2. **The publisher's wording is never retained**, anywhere, including working storage and
    history. Change detection on an ability uses a one-way normalised digest, never a stored copy.
-3. **Ability summaries are authored by a human from the mechanic.** Machine paraphrase, synonym
-   substitution, or reordering of the publisher's text is a policy violation, not a shortcut.
+3. **Summaries describe mechanics, and may be machine-drafted.** (Owner ruling, 2026-09-14,
+   replacing the earlier human-authored-only wording, which the existing summaries never met.) A
+   summary is drafted by `pipeline/summaries/client.py` from the export's rules text, reviewed by
+   a second model pass, and approved by the Owner before it reaches `curation/`
+   (`tools/draft_summaries.py` is the drafting half of this and writes candidates only — never
+   `curation/` — per standing rules 4 and 5). Where a mechanic cannot be restated without
+   changing its meaning, the export's rules text for that mechanic may be used as written. What
+   may never be carried is lore, flavour, or world text, and the corpus may never be reproduced
+   wholesale. Rules text still never enters an interactive session: the drafting client reads it
+   inside the build workspace, and only the summary, a digest, and counts come out.
 4. **The pipeline writes `data/`; humans write `curation/`.** Neither ever writes the other. No
    code path may generate the crosswalk, the faction codes, or a refreshed digest. Machine-**drafted** through the pipeline's own client, **human-verified per
    entry before merge**.
@@ -214,7 +225,7 @@ Breaking one of these is Tier 1.
 | Path | Holds |
 |---|---|
 | `pipeline/` | `acquire` → `parse` → `normalize` → `reconcile` → `curate` → `validate` → `build`, plus `detect`, `report`, `publish`, `render` |
-| `curation/` | human-authored: faction map, unit map, glossary, overrides, authored summaries |
+| `curation/` | human-authored: faction map, unit map, glossary, overrides, Owner-approved summaries |
 | `data/` | machine-written curated tree; never hand-edited |
 | `reports/`, `state/` | run output and change-detection state; counts and codes only |
 | `fixtures/` | synthetic only — `minimal/`, `disagreements/`, `enrichment/`, `identity-baseline/` |

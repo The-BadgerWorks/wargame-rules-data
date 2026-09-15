@@ -21,6 +21,11 @@
 # built once per build and threaded to the assembly rather than memoised in a module global,
 # so no `Abilities.csv` read result (and so no publisher text) outlives the build block, and
 # the index is returned read-only because every datasheet in the build shares it.
+# AI-Assisted: Claude Code (model: claude-opus-5) - 010 R7 task 2: factored the ability
+# binding join out of `compute_current_digests` into the shared `binding_texts` generator, so
+# the digest step and `tools/draft_summaries.py` read one reading of the source rows rather
+# than two. Behaviour-preserving: `compute_current_digests` is now that generator plus the
+# digest, and `tests/summaries` is unedited.
 """Compare an ability's *current* mechanic against what a curator approved.
 
 Two things this module deliberately does **not** do:
@@ -53,7 +58,7 @@ stored state as-is — it can still catch a key with no summary at all, or one a
 
 from __future__ import annotations
 
-from collections.abc import Iterable, Mapping
+from collections.abc import Iterable, Iterator, Mapping
 from enum import StrEnum
 from types import MappingProxyType
 from typing import Protocol
@@ -265,22 +270,31 @@ def resolve_binding_name(fields: Mapping[str, str], *, names: Mapping[str, str])
     return names.get(fields.get("ability_id", "").strip(), "")
 
 
-def compute_current_digests(detail: Mapping[str, CsvReadResult], *, key: bytes) -> dict[str, str]:
-    """The current mechanic digest per ability key, joined from the detail source.
+def binding_texts(detail: Mapping[str, CsvReadResult]) -> Iterator[tuple[str, str, str]]:
+    """``(ability_key, name, mechanic_text)`` for every distinct ability key the source binds.
+
+    The join that :func:`compute_current_digests` used to perform inline, stated once so that
+    the digest and any other consumer of the same text can never disagree about which text
+    belongs to which key (010 R7). ``tools/draft_summaries.py`` is the second consumer: it asks
+    a model to restate the mechanic, and a key/text pairing derived a second way would be a
+    summary approved against text the digest was not taken over.
 
     An ability's mechanic text is its own `description` where the binding carries one (a
     datasheet-local override), else the text of the `Abilities.csv` row its `ability_id` names.
-    Neither is retained past this function: only the keyed digest is returned (FR-013, C6/R8).
 
     A key used by more than one binding (the overwhelmingly common case — thousands of bindings
-    resolve to a much smaller distinct set, research D6) is digested once, from the first
-    binding carrying non-empty text, in source file order. Two bindings sharing a key are
-    expected to share a mechanic; if the source ever disagrees, the first is authoritative for
-    this run rather than the digest being taken twice and silently picking one.
+    resolve to a much smaller distinct set, research D6) is yielded **once**, from the first
+    binding in source file order. Two bindings sharing a key are expected to share a mechanic;
+    if the source ever disagrees, the first is authoritative for this run rather than the key
+    being emitted twice and a consumer silently picking one.
+
+    **This generator is the one place the publisher's text leaves the CSV read result.** Every
+    caller is inside a ``with workspace(...)`` block and nothing but a digest or a
+    model-authored summary comes back out of it (FR-013, FR-027, C6/R8).
     """
     bindings = detail.get("Datasheets_abilities.csv")
     if bindings is None:
-        return {}
+        return
 
     by_ability_id: dict[str, str] = {}
     abilities = detail.get("Abilities.csv")
@@ -292,7 +306,7 @@ def compute_current_digests(detail: Mapping[str, CsvReadResult], *, key: bytes) 
 
     names = ability_name_index(detail)
 
-    digests: dict[str, str] = {}
+    seen: set[str] = set()
     for row in bindings.rows:
         name = resolve_binding_name(row.fields, names=names)
         if not name:
@@ -302,17 +316,30 @@ def compute_current_digests(detail: Mapping[str, CsvReadResult], *, key: bytes) 
             continue  # DQ-ABILITY-TYPE already raised once by the assemble-stage pass.
 
         key_value = ability_key(ability_type, name, parameter=row.fields.get("parameter", ""))
-        if key_value in digests:
+        if key_value in seen:
             continue
+        seen.add(key_value)
 
         text = row.fields.get("description", "").strip()
         if not text:
             ability_id = row.fields.get("ability_id", "").strip()
             text = by_ability_id.get(ability_id, "")
 
-        digests[key_value] = mechanic_digest(text, key=key)
+        yield key_value, name, text
 
-    return digests
+
+def compute_current_digests(detail: Mapping[str, CsvReadResult], *, key: bytes) -> dict[str, str]:
+    """The current mechanic digest per ability key, joined from the detail source.
+
+    The join itself is :func:`binding_texts`; this function is the digest step over it, and the
+    only thing that leaves it is the keyed digest (FR-013, C6/R8). Splitting the two is what
+    lets ``tools/draft_summaries.py`` read exactly the text this digest was taken over rather
+    than a second, separately-maintained reading of the same rows.
+    """
+    return {
+        key_value: mechanic_digest(text, key=key)
+        for key_value, _name, text in binding_texts(detail)
+    }
 
 
 def effective_status(

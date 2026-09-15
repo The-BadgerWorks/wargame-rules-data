@@ -1,3 +1,6 @@
+# AI-Assisted: Claude Code (model: claude-opus-5) - 010 R7 task 1: widened the two sensitive-set
+# assertions to admit WGC_ANTHROPIC_API_KEY. Both are exhaustive equalities on purpose -- a new
+# secret must be declared here before it can be added, which is what caught this one.
 # AI-Assisted: Claude Code (model: claude-opus-5) - Asserts the configuration surface of
 # contracts/pipeline-run-interface.md §5 (task T016): documented defaults, layered resolution,
 # and sensitive values that never reach a log (Principle 7).
@@ -151,7 +154,14 @@ def test_a_malformed_config_file_is_refused(tmp_path: Path) -> None:
 
 def test_sensitive_values_are_declared_sensitive() -> None:
     sensitive = {var.env_name for var in CONFIG_VARS if var.sensitive}
-    assert sensitive == {"WGC_NOTIFY_WEBHOOK_URL", "WGC_MECHANIC_DIGEST_KEY"}
+    assert sensitive == {
+        "WGC_NOTIFY_WEBHOOK_URL",
+        "WGC_MECHANIC_DIGEST_KEY",
+        # 010 R7: the drafting client's credential. A second secret, deliberately -- it
+        # rotates on its own schedule and, unlike the digest key, its rotation re-baselines
+        # nothing.
+        "WGC_ANTHROPIC_API_KEY",
+    }
 
 
 def test_a_sensitive_value_never_appears_in_the_redacted_view() -> None:
@@ -253,7 +263,14 @@ def test_no_enrichment_variable_is_sensitive() -> None:
     # being introduced: one secret, one rotation story (004 plan, Security/configuration gate).
     sensitive = {var.env_name for var in CONFIG_VARS if var.sensitive}
     assert sensitive.isdisjoint(ENRICHMENT_DEFAULTS)
-    assert sensitive == {"WGC_NOTIFY_WEBHOOK_URL", "WGC_MECHANIC_DIGEST_KEY"}
+    assert sensitive == {
+        "WGC_NOTIFY_WEBHOOK_URL",
+        "WGC_MECHANIC_DIGEST_KEY",
+        # 010 R7: the drafting client's credential. A second secret, deliberately -- it
+        # rotates on its own schedule and, unlike the digest key, its rotation re-baselines
+        # nothing.
+        "WGC_ANTHROPIC_API_KEY",
+    }
 
 
 def test_an_unknown_config_file_key_still_fails_beside_the_new_ones(tmp_path: Path) -> None:

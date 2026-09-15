@@ -112,6 +112,10 @@
      match_units reads it through curate/assemble.py's detail_source_ids). The correction states
      what is live, drops the stale unit-map keying claim, and refuses to assert a current
      REC-AMBIGUOUS-MATCH count that no run on this branch measured. -->
+<!-- AI-Assisted: Claude Code (model: claude-sonnet-5) - 010 R7 task 6: closed item 38 against
+     the amended standing rule 3 and 010 R7's drafting client/tool, keeping its original text
+     beneath the resolution; added item 40, the drafting tool's candidates-only boundary and
+     what would have to change for that to be revisited. -->
 # Follow-ups
 
 Open items surfaced during implementation that are deliberately **not** fixed as part of the work
@@ -1585,7 +1589,17 @@ non-empty declared set as `unused` rather than dropping it under any arm but `ht
 `pr_body.py` that keeps a bulk arm from being read as advising retirement of a declaration it was
 never in a position to test.
 
-## 38. Unauthored ability and detachment-rule summaries block publication at `tolerance_percent: 0` (010 R6)
+## 38. ~~Unauthored ability and detachment-rule summaries block publication at `tolerance_percent: 0`~~ — **closed 2026-09-14**
+
+**Closed, 2026-09-14 (010 R7).** Standing rule 3 was amended the same day: a summary may be
+machine-drafted from the export's rules text, reviewed by a second model pass, and approved by
+the Owner before it reaches `curation/`. `pipeline/summaries/client.py` and
+`tools/draft_summaries.py` (010 R7) are the drafting half of that — they produce Owner-approved
+candidates only and never write `curation/` themselves. Copying an approved candidate into
+`curation/` is a separate, human-made curation-class commit, landing in its own PR; this item
+tracked the block itself, not that follow-on curation work, so it closes here.
+
+### Original text (010 R6)
 
 **Owner deferred on 2026-09-14.** Recorded, not scheduled.
 
@@ -1635,3 +1649,26 @@ parity the wrapping was introduced to achieve — so it cannot be done inside th
 first re-baselining what "parity" means for the field. The choice is: keep `(⌀…)` and accept the 29,
 or define a canonical shape for `base_size` and accept a one-time reader-visible change plus a
 parity delta against the published tree for as long as the two trees are compared.
+
+## 40. `tools/draft_summaries.py` produces candidates only, and the Owner reads every one before it becomes curation (010 R7)
+
+**Deliberate. Revisiting it is a design decision, not a bug fix.**
+
+**What was done and why.** The drafting tool built for the amended standing rule 3 writes every
+drafted summary to a candidate file under `--out`, which must resolve outside the curation tree
+of both `--repo` and the tool's own checkout — the run refuses before it starts otherwise. It
+never writes `curation/` itself. The Owner reads each candidate and copies what they approve into
+`curation/` by hand, in its own curation-class PR, which is where `tools/check_summary_approvals.py`
+meets it.
+
+**Why left this way.** Standing rules 4 and 5 draw the line between machine and human writes at
+`curation/` and the publish path respectively: the pipeline writes `data/`, humans write
+`curation/`, and no code path outside the reviewer-approved publish job may touch a Release or
+the manifest. A drafting tool that wrote `curation/` directly — even gated on a model's own
+confidence — would cross that boundary and remove the per-entry human read the amended rule 3
+still requires before a machine-drafted summary counts as approved.
+
+**What would have to change for this to be revisited.** Nothing in this tool's scope. Letting a
+drafted summary land in `curation/` without an Owner read per entry would need its own ruling from
+the Owner, on the same footing as the 2026-09-14 amendment to standing rule 3 itself — not a
+follow-up item closed by code.
