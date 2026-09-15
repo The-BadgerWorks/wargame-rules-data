@@ -13,12 +13,15 @@
   },
   {
     "ability_key": "datasheet:ancestral-fortune",
-    "mechanic_digest": "b35b6d6cd6bd277cc2b6b6cb77f566b3",
+    "mechanic_digest": "a7c92ccca73880c1bea8032f2bb5dbc8",
     "name": "Ancestral Fortune",
     "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "Once per turn, pay 1 Votann Point to set one Hit roll, Wound roll, or saving throw made for this model to an automatic unmodified 6."
+    "reviewed_at": "2026-09-15T15:44:22Z",
+    "reviewed_by": "claude-fable-5-1-manager-hand-review",
+    "summary": "Once per turn, spend 1 Yield Point to change one Hit roll, one Wound roll or one saving throw made for this model to an unmodified 6.",
+    "authored_against_acquisition": "wahapedia-20260915T154300Z-ae4bfdaf",
+    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
+    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation"
   },
   {
     "ability_key": "datasheet:breaching-fire",
@@ -406,12 +409,15 @@
   },
   {
     "ability_key": "datasheet:resource-transmutation",
-    "mechanic_digest": "a6b8db1c6ec7132e30e3e0516df6e39a",
+    "mechanic_digest": "13c493ffe71ac2a98041599096e08ee1",
     "name": "Resource Transmutation",
     "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "Once per turn when selected to shoot, spend 1 Votann Point: this model's ranged weapons gain Sustained Hits 1 for the phase, and if an enemy unit is destroyed by those attacks you may gain up to 2 Votann Points."
+    "reviewed_at": "2026-09-15T15:44:22Z",
+    "reviewed_by": "claude-fable-5-1-manager-hand-review",
+    "summary": "Once per turn in your Shooting phase, when one model with this ability is selected to shoot, you may spend 1 Yield Point: until the end of the phase its ranged weapons have Sustained Hits 1, and after it has shot, if those attacks destroyed one or more enemy units, you gain up to 2 Yield Points.",
+    "authored_against_acquisition": "wahapedia-20260915T154300Z-ae4bfdaf",
+    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
+    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation"
   },
   {
     "ability_key": "datasheet:rollbar-searchlight",
@@ -523,11 +529,14 @@
   },
   {
     "ability_key": "faction:prioritised-efficiency",
-    "mechanic_digest": "6588ccac82a3fdd0297fd8d0c440a0b9",
+    "mechanic_digest": "006058e02f955cc08f2bb3440824130d",
     "name": "Prioritised Efficiency",
     "review_state": "approved",
-    "summary": "Set at your Command phase end: under 7 Yield Points units have Hostile Acquisition (+1 Hit vs targets on an objective, re-roll Advance/Charge); 7+ gives Fortify Takeover (+1 Hit on an objective you hold, -1 Wound vs higher S, non-Vehicle).",
-    "reviewed_by": "claude-opus-5-final-reviewer",
-    "reviewed_at": "2026-08-06T00:00:00Z"
+    "summary": "If your Army Faction is Leagues of Votann, your units have Hostile Acquisition at the start of the battle and whenever you have fewer than 7 Yield Points at the end of your Command phase (+1 to Hit against enemy units within range of an objective marker; re-roll Advance and Charge rolls), or Fortify Takeover with 7 or more (+1 to Hit while this unit is within range of an objective you control; non-Vehicle units give -1 to Wound against attacks whose Strength exceeds their Toughness). You gain 1 YP at the end of each Command phase for holding an objective in your deployment zone, and from round 2 one more for each of: holding one objective outside it, two outside it, and more objectives than your opponent.",
+    "reviewed_by": "claude-fable-5-1-manager-hand-review",
+    "reviewed_at": "2026-09-15T15:44:22Z",
+    "authored_against_acquisition": "wahapedia-20260915T154300Z-ae4bfdaf",
+    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
+    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation"
   }
 ]

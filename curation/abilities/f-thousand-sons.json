@@ -514,12 +514,15 @@
   },
   {
     "ability_key": "faction:cabal-of-sorcerers-scarab-occult-sorcerer-only",
-    "mechanic_digest": "fa308c93308cb434d71b1c724bf9f789",
+    "mechanic_digest": "17843e74846785181a45fec7ace25f2f",
     "name": "Cabal of Sorcerers (Scarab Occult Sorcerer only)",
     "review_state": "approved",
-    "reviewed_at": "2026-08-06T00:00:00Z",
-    "reviewed_by": "claude-opus-5-second-reviewer",
-    "summary": "Shooting phase start: each model with this ability may attempt one Ritual per turn, each Ritual once per turn. Roll 2D6, optionally Channelling the Warp; any double or triple costs its unit D3 mortal wounds; total must meet the Warp Charge."
+    "reviewed_at": "2026-09-15T15:44:22Z",
+    "reviewed_by": "claude-fable-5-1-manager-hand-review",
+    "summary": "If your Army Faction is Thousand Sons, at the start of your Shooting phase each model with this ability that has not yet attempted a Ritual this turn can attempt one Ritual your army has not yet attempted this turn, by taking a Psychic test for that model: roll 2D6, optionally Channelling the Warp; a double or triple costs the unit D3 mortal wounds; the Ritual manifests if the total meets its Warp Charge.",
+    "authored_against_acquisition": "wahapedia-20260915T154300Z-ae4bfdaf",
+    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
+    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation"
   },
   {
     "ability_key": "faction:pact-of-sorcery",

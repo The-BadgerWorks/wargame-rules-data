@@ -289,12 +289,15 @@
   },
   {
     "ability_key": "datasheet:fade-away-pain",
-    "mechanic_digest": "83e430bef75a173a4fc48ce5dc455b3a",
+    "mechanic_digest": "a634cc567841c566398b674646eb3b9b",
     "name": "Fade Away (Pain)",
     "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "At the end of the opponent's Fight phase, if this unit is not within Engagement Range of any enemy unit, it can spend 1 Pain token to be removed from the battlefield and placed into Strategic Reserves."
+    "reviewed_at": "2026-09-15T15:44:22Z",
+    "reviewed_by": "claude-fable-5-1-manager-hand-review",
+    "summary": "At the end of your opponent's Fight phase, if this unit is not within Engagement Range of any enemy unit, you can spend 1 Pain token to Empower it: remove the unit from the battlefield and place it into Strategic Reserves.",
+    "authored_against_acquisition": "wahapedia-20260915T154300Z-ae4bfdaf",
+    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
+    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation"
   },
   {
     "ability_key": "datasheet:father-of-pain",

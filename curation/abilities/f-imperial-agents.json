@@ -373,12 +373,15 @@
   },
   {
     "ability_key": "datasheet:kill-team",
-    "mechanic_digest": "47990ff08d0e829b2226947629e7fc7a",
+    "mechanic_digest": "2548616fbf6a6d5acfd4f0d7b7c80fa9",
     "name": "Kill Team",
     "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "When a mixed-Toughness unit with this ability is attacked, the attacker uses the majority Toughness value, and certain larger models count as taking up two Transport slots."
+    "reviewed_at": "2026-09-15T15:44:22Z",
+    "reviewed_by": "claude-fable-5-1-manager-hand-review",
+    "summary": "When an attack targets this unit and its models have different Toughness values, use the Toughness of the majority of its models (the highest if tied) to determine the wound roll, until the attacking unit has finished its attacks. Gravis Veteran models take up the space of 2 models in a Transport but can embark in any Transport the unit can embark in.",
+    "authored_against_acquisition": "wahapedia-20260915T154300Z-ae4bfdaf",
+    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
+    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation"
   },
   {
     "ability_key": "datasheet:lord-of-deceit-aura",

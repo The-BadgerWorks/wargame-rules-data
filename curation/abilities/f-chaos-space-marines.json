@@ -1009,21 +1009,27 @@
   },
   {
     "ability_key": "faction:cabal-of-sorcerers-aspiring-sorcerer-only",
-    "mechanic_digest": "fa308c93308cb434d71b1c724bf9f789",
+    "mechanic_digest": "17843e74846785181a45fec7ace25f2f",
     "name": "Cabal of Sorcerers (Aspiring Sorcerer only)",
     "review_state": "approved",
-    "reviewed_at": "2026-08-06T00:00:00Z",
-    "reviewed_by": "claude-opus-5-second-reviewer",
-    "summary": "Shooting phase start: each model with this ability may attempt one Ritual per turn, each Ritual once per turn. Roll 2D6, optionally Channelling the Warp; any double or triple costs its unit D3 mortal wounds; total must meet the Warp Charge."
+    "reviewed_at": "2026-09-15T15:44:22Z",
+    "reviewed_by": "claude-fable-5-1-manager-hand-review",
+    "summary": "If your Army Faction is Thousand Sons, at the start of your Shooting phase each model with this ability that has not yet attempted a Ritual this turn can attempt one Ritual your army has not yet attempted this turn, by taking a Psychic test for that model: roll 2D6, optionally Channelling the Warp; a double or triple costs the unit D3 mortal wounds; the Ritual manifests if the total meets its Warp Charge.",
+    "authored_against_acquisition": "wahapedia-20260915T154300Z-ae4bfdaf",
+    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
+    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation"
   },
   {
     "ability_key": "faction:nurgles-gift-aura",
-    "mechanic_digest": "cfb9167a905fea095b727e9e1b1d3db0",
+    "mechanic_digest": "726aeae84b60e88418736808890078a5",
     "name": "Nurgle's Gift (Aura)",
     "review_state": "approved",
-    "reviewed_at": "2026-08-06T00:00:00Z",
-    "reviewed_by": "claude-opus-5-second-reviewer",
-    "summary": "Enemy units within Contagion Range (max 12\") of your Death Guard models are Afflicted: -1 Toughness, plus the Plague you chose at deployment - -1 to their melee Hit rolls, or -1 Save, or -1 Move, Leadership and Objective Control."
+    "reviewed_at": "2026-09-15T15:44:22Z",
+    "reviewed_by": "claude-fable-5-1-manager-hand-review",
+    "summary": "If your Army Faction is Death Guard, enemy units within Contagion Range (never more than 12\" after modifiers) of your Death Guard models are Afflicted: subtract 1 from the Toughness of their models, and they suffer the Plague you selected during Declare Battle Formations for the whole battle (-1 to melee Hit rolls, or -1 to Save, or -1 to Move, Leadership and Objective Control).",
+    "authored_against_acquisition": "wahapedia-20260915T154300Z-ae4bfdaf",
+    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
+    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation"
   },
   {
     "ability_key": "faction:thrill-seekers",
