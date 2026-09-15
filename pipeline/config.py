@@ -1,3 +1,8 @@
+# AI-Assisted: Claude Code (model: claude-opus-5) - 010 R7 task 1: added the three
+# summary-drafting variables (WGC_ANTHROPIC_API_KEY, WGC_DRAFT_MODEL, WGC_REVIEW_MODEL) for the
+# Owner's amended standing rule 3. The key is the second SENSITIVE variable in the table and is
+# therefore redacted by the existing `redacted()`/`log_resolved()` paths with no change to them;
+# it is a separate secret from WGC_MECHANIC_DIGEST_KEY because the two rotate independently.
 # AI-Assisted: Claude Code (model: Claude Opus 5) - 010 R5 final-review fix items 4 and 5:
 # corrected the 004 block's variable count (thirteen, counted in the tree) and removed the
 # `detail_mode` ValueKind member, which no ConfigVar declared and no `_as_*` handler implemented
@@ -410,6 +415,39 @@ CONFIG_VARS: Final[tuple[ConfigVar, ...]] = (
         False,
         "default-equipment coverage regression tolerance (008 FR-021)",
     ),
+    # -- 010-csv-cutover, round 7: machine-drafted summaries -----------------------------------
+    # Three variables, for the Owner's amended standing rule 3 (2026-09-14): a summary may be
+    # drafted by the pipeline's own API client from the export's rules text and reviewed by a
+    # second model pass before the Owner approves it. The key is a SECOND secret rather than a
+    # reuse of WGC_MECHANIC_DIGEST_KEY, because the two rotate for different reasons and on
+    # different authority -- the digest key's rotation re-baselines every approved summary
+    # (010 R7), while this credential's rotation changes nothing about the published data.
+    ConfigVar(
+        "WGC_ANTHROPIC_API_KEY",
+        "anthropic_api_key",
+        "",
+        "str",
+        True,
+        "SENSITIVE: credential for the summary drafting client (secret store only)",
+    ),
+    # The two passes are deliberately different models: a second pass by the same model reviews
+    # its own reasoning, which is not the independent check standing rule 3 asks for.
+    ConfigVar(
+        "WGC_DRAFT_MODEL",
+        "draft_model",
+        "claude-opus-5",
+        "str",
+        False,
+        "model id for the summary drafting pass (standing rule 3, amended 2026-09-14)",
+    ),
+    ConfigVar(
+        "WGC_REVIEW_MODEL",
+        "review_model",
+        "claude-sonnet-5",
+        "str",
+        False,
+        "model id for the summary reviewing pass (standing rule 3, amended 2026-09-14)",
+    ),
 )
 
 _BY_ENV_NAME: Final[Mapping[str, ConfigVar]] = {var.env_name: var for var in CONFIG_VARS}
@@ -455,6 +493,9 @@ class PipelineConfig:
     ratchet_tolerance_options: float
     equivalence_check_enabled: bool
     ratchet_tolerance_equipment: float
+    anthropic_api_key: str
+    draft_model: str
+    review_model: str
 
     @property
     def manifest_path(self) -> str:
@@ -691,4 +732,7 @@ def load_config(
         ratchet_tolerance_options=_as_ratio(raw, "WGC_RATCHET_TOLERANCE_OPTIONS"),
         equivalence_check_enabled=_as_bool(raw, "WGC_EQUIVALENCE_CHECK_ENABLED"),
         ratchet_tolerance_equipment=_as_ratio(raw, "WGC_RATCHET_TOLERANCE_EQUIPMENT"),
+        anthropic_api_key=_as_str(raw, "WGC_ANTHROPIC_API_KEY"),
+        draft_model=_as_str(raw, "WGC_DRAFT_MODEL"),
+        review_model=_as_str(raw, "WGC_REVIEW_MODEL"),
     )
