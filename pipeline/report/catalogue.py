@@ -43,6 +43,10 @@
 # longer dropped — it reaches the equipment table as an empty description at its own ordinal, so
 # EQP-UNPARSED also fires for it and the datasheet's state is partial rather than none. Updated
 # EQP-BOUNDARY-AMBIGUOUS's text to describe delivery-as-empty-row instead of omission.
+# AI-Assisted: Claude Code (model: claude-opus-5) - 010 R9 task 5: registered
+# GLS-UNIT-NAME-EXCLUDED, the advisory `pipeline/validate/gates.py::check_unit_name_exclusions`
+# raises with the count of keys the unit-name exclusion removed from the glossary denominator.
+# Additive, per FR-001 -- no existing code's severity or class moves.
 # AI-Assisted: Claude Code (model: claude-sonnet-5) - 010 round 4 task 1: registered
 # OPT-FOOTNOTE-ROW for `pipeline/acquire/export_rows.py::drop_non_option_rows`'s new footnote-row
 # routing (the export's `button` `*`, html parity).
@@ -375,6 +379,14 @@ _DEFINITIONS: Final[tuple[FindingDefinition, ...]] = (
         _A,
         "004 FR-023",
         "a glossary entry's keyword is used by no published datasheet or weapon",
+    ),
+    _d(
+        "GLS-UNIT-NAME-EXCLUDED",
+        _COV,
+        _A,
+        "010 R9, Owner ruling 2026-09-15",
+        "keywords whose key equals a published datasheet or model name left the glossary "
+        "denominator; carries how many keys went, so the shrink is visible rather than silent",
     ),
     # Deliberately ONE code across all four classes, with the class in its detail. A per-class
     # code would invite a per-class severity, which is the failure §3 exists to prevent

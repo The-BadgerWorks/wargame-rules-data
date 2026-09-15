@@ -36,6 +36,10 @@
 # short-circuit. The mechanism is deleted (Owner ruling 2026-09-15), so there is nothing left to
 # decline to wire. `run_detect`'s own `state_path` local is unrelated: it names
 # `state/detection-digest.json`, the detection sweep's live state, and stays.
+# AI-Assisted: Claude Code (model: claude-opus-5) - 010 R9 task 5: wired
+# `check_unit_name_exclusions` into both candidate paths beside `check_glossary_orphans`, so the
+# count of keywords the unit-name exclusion took out of the glossary denominator travels with
+# every build and validate run rather than the denominator quietly being smaller.
 # AI-Assisted: Claude Code (model: claude-opus-5) - 010 R5: dropped this call site's
 # `apply_detail_source_authority` overlay along with the hybrid it expressed; `read_detail`'s
 # return now reaches the stages below untouched.
@@ -183,6 +187,7 @@ from pipeline.validate.gates import (
     check_option_ratchet,
     check_summary_gates,
     check_summary_ratchet,
+    check_unit_name_exclusions,
     class_coverage,
     detachment_rule_keys,
     detachment_rule_summaries,
@@ -674,6 +679,11 @@ def _reconcile_against_prior(
     # limitation, since a stem-digested entry can never flag for re-review on its own
     # (contract §3.1, §5.1).
     findings.extend(check_glossary_orphans(snapshot, authored.glossary_entries))
+    # Advisory, beside the orphan check and for the mirror-image reason: a keyword that names a
+    # unit left the denominator entirely (Owner ruling 2026-09-15), and a denominator that shrank
+    # looks exactly like a denominator that was always that size. The count travels with the build
+    # so the shrink is readable beside the coverage figure it changed.
+    findings.extend(check_unit_name_exclusions(snapshot))
     coverage.figures.update(summary_figures)
 
     # 006 FR-022. Kept OUT of `coverage.findings`, whose non-emptiness is what exits 42 for a
@@ -1097,6 +1107,11 @@ def run_validate(
     # limitation, since a stem-digested entry can never flag for re-review on its own
     # (contract §3.1, §5.1).
     findings.extend(check_glossary_orphans(snapshot, authored.glossary_entries))
+    # Advisory, beside the orphan check and for the mirror-image reason: a keyword that names a
+    # unit left the denominator entirely (Owner ruling 2026-09-15), and a denominator that shrank
+    # looks exactly like a denominator that was always that size. The count travels with the build
+    # so the shrink is readable beside the coverage figure it changed.
+    findings.extend(check_unit_name_exclusions(snapshot))
     coverage.figures.update(summary_figures)
 
     # 006 FR-022. Kept OUT of `coverage.findings`, whose non-emptiness is what exits 42 for a

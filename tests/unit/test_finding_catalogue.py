@@ -6,6 +6,10 @@
 # AI-Assisted: Claude Code (model: claude-sonnet-5) - Transcribed 009-csv-migration's three
 # Foundational codes (009 task T017) into PENDING_CONTRACT_SEVERITIES, independently of
 # catalogue.py.
+# AI-Assisted: Claude Code (model: claude-opus-5) - 010 R9 task 5: transcribed
+# GLS-UNIT-NAME-EXCLUDED into PENDING_CONTRACT_SEVERITIES, independently of catalogue.py. This
+# table is transcribed by hand, so a code added to the catalogue has to be added here too or the
+# two disagree.
 # AI-Assisted: Claude Code (model: claude-opus-5) - 010 R9 task 1: dropped SRC-EXPORT-UNCHANGED
 # and SRC-STATE-CORRUPT from this transcription along with the export-timestamp short-circuit
 # that was the only producer of either. This table is transcribed from the contract by hand, so
@@ -167,6 +171,10 @@ PENDING_CONTRACT_SEVERITIES = {
     # never delivered to the options grammar, on the identical ahead-of-contract terms as the
     # block above.
     "OPT-FOOTNOTE-ROW": A,
+    # 010-csv-cutover round 9 task 5 (Owner ruling 2026-09-15): the advisory carrying the count of
+    # keywords that left the glossary denominator for naming a unit, on the identical
+    # ahead-of-contract terms as the block above.
+    "GLS-UNIT-NAME-EXCLUDED": A,
 }
 
 #: Transcribed by hand from 006's data-model.md §5 table and its contracts/
