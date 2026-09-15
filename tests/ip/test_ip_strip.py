@@ -489,9 +489,9 @@ def test_the_doubled_quote_widening_still_accepts_an_ordinary_attribute() -> Non
     """The true positive still fires: widening the value alternative did not cost the plain
     quoted, plain unquoted, or self-closing forms their match."""
     for raw, expected in (
-        ('<span class="kwb">Bolt rifle</span>', "Bolt rifle"),
-        ("<td colspan=2>Bolt rifle</td>", "Bolt rifle"),
-        ("<span class='kwb'>Bolt rifle</span>", "Bolt rifle"),
+        ('<span class="kwb">Grelth rifle</span>', "Grelth rifle"),
+        ("<td colspan=2>Grelth rifle</td>", "Grelth rifle"),
+        ("<span class='kwb'>Grelth rifle</span>", "Grelth rifle"),
     ):
         result = strip_field(raw, field="description")
         assert result.text == expected
