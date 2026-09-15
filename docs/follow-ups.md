@@ -1584,3 +1584,54 @@ non-empty declared set as `unused` rather than dropping it under any arm but `ht
 (`CarriedForwardOutcome.answers_per_faction`), and the arm-aware `unused` rendering in
 `pr_body.py` that keeps a bulk arm from being read as advising retirement of a declaration it was
 never in a position to test.
+
+## 38. Unauthored ability and detachment-rule summaries block publication at `tolerance_percent: 0` (010 R6)
+
+**Owner deferred on 2026-09-14.** Recorded, not scheduled.
+
+**What blocks.** The r6 live build emits `SUM-MISSING` for ability summaries that have never been
+authored, and `COV-SUMMARY-REGRESSION` twice, against `summaries.abilities` and
+`summaries.detachment_rules`. Both are blocking codes in the 229-finding blocking set, and the
+summary ratchets carry `tolerance_percent: 0`, so neither clears by any amount of pipeline work.
+
+**Counts.** Round 5 measured `SUM-MISSING` at **69** — 65 under `f-orks` and 4 under
+`f-astra-militarum`. The round-6 build measured it at **76**. The rise of 7 is not a regression: it
+follows this round's ability-key fix, which mints `core:` and `faction:` keys that did not exist on
+the r5 candidate at all, so more abilities are now in scope for a summary than were before.
+`SUM-NEEDS-REREVIEW` moved 114 -> 147 for the same reason. Behind the
+`summaries.detachment_rules` coverage ratio of **86 %** (318 current against a 324 floor, threshold
+100 %) sits a further set of detachment-rule summaries in the same state.
+
+**Why no code can close it.** Standing rule 3: *ability summaries are authored by a human from the
+mechanic*. Machine paraphrase, synonym substitution, or reordering of the publisher's text is a
+policy violation rather than a shortcut, so these counts fall only when a human authors the missing
+entries into `curation/`. Nothing in `pipeline/` may generate them, and the ratchet may not be
+lowered or made tolerant to let the build through (standing rule 8).
+
+**What closing it looks like.** A human authors the missing ability summaries and the missing
+detachment-rule summaries into `curation/`, one curation-class commit; the next build shows
+`SUM-MISSING` at 0 and both `summaries.*` ratios at their thresholds, and the two
+`COV-SUMMARY-REGRESSION` findings and the `SUM-MISSING` block drop out of the blocking set.
+
+## 39. `base_size` is published in the `(⌀…)` printed form, and ~30 published values carry descriptor text inside the wrapper (010 R6)
+
+**Deliberate, for parity. Any clean-up is a reader-visible change and belongs to the Owner.**
+
+**What was done and why.** Round 6 wired `printed_base_size` (in the new
+`pipeline/normalize/characteristics.py`) onto the model `base_size` field so the CSV arm emits the
+same `(⌀…)` wrapped form the published tree already carries. A reviewer re-derived it first-hand
+from the published tree: **all 43 distinct published `base_size` values are `(⌀…)`-wrapped**. The
+wrapping therefore exists to match what is already published, not because the wrapper is the shape
+the app wants. It closed the `base_size` model-profile difference from **2015 to 29**.
+
+**The residual.** Roughly **30** published values carry `base_size_descr` text *inside* the
+wrapper rather than a bare diameter, so the candidate's reconstructed wrapper cannot reproduce them
+character-for-character. That is the whole of the remaining **29 differing profiles** measured in
+r6 — base-size parity does not fully close, and it is not expected to under the present approach.
+
+**Why left.** Stripping the wrapper (or splitting the descriptor out of it) changes what a reader
+sees in the app, which is an Owner decision under this project's roles, and it would also break the
+parity the wrapping was introduced to achieve — so it cannot be done inside the cutover without
+first re-baselining what "parity" means for the field. The choice is: keep `(⌀…)` and accept the 29,
+or define a canonical shape for `base_size` and accept a one-time reader-visible change plus a
+parity delta against the published tree for as long as the two trees are compared.

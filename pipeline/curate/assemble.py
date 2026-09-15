@@ -1,3 +1,9 @@
+# AI-Assisted: Claude Opus 5 - 010 R6b task 2: read a `Datasheets_wargear.csv` row whose `line`
+# column is empty by validating `line_in_wargear` instead (1990 live rows, 287 datasheets).
+# AI-Assisted: Claude Opus 5 - 010 R6 task 5: publish the printed characteristic forms (skill,
+# invulnerable save, range, base size) and upper-case keywords, matching the published tree.
+# AI-Assisted: Claude Opus 5 - 010 R6: a model row stating `-` objective control is read as
+# zero rather than rejected as a malformed row (65 live rows, all on `OC`, all on `-`).
 # AI-Assisted: Claude Code (model: claude-opus-5) - Assemble the CuratedSnapshot from the two
 # normalized sources plus the authored tree (needed by the T073 build wiring, which names the
 # curate stage but assigns it no assembly module of its own).
@@ -52,6 +58,14 @@
 # DETACHMENT_ABILITIES_FILE's comment now that it has joined EXPORT_FILES under the csv arm too.
 # AI-Assisted: Claude Code (model: claude-opus-5) - 010 R5: dropped the
 # `carried_forward_detail_ids` pass-through along with the per-faction carry-forward mechanism.
+# AI-Assisted: Claude Code (model: claude-opus-5) - Resolved Core and Faction ability names
+# through `Abilities.csv` (010 R6): the binding rows carry an empty `name` and a populated
+# `ability_id`, so the key loop bound 0 `core:` keys against the published tree's 2 422, and
+# an unresolvable binding is now DQ-MALFORMED-ROW rather than a silent `continue`.
+# AI-Assisted: Claude Code (model: claude-opus-5) - 010 R6 review round 1: the name index is
+# built once per build and threaded to the assembly rather than memoised in a module global,
+# so no `Abilities.csv` read result (and so no publisher text) outlives the build block, and
+# the index is returned read-only because every datasheet in the build shares it.
 """Build one :class:`~pipeline.models.curated.CuratedSnapshot` from everything upstream.
 
 This is where the two sources stop being two sources. The **points** source is authoritative for
@@ -82,7 +96,11 @@ from dataclasses import dataclass, field
 from typing import Final
 
 from pipeline.curate.authored import AuthoredContent
-from pipeline.curate.summaries import detachment_rule_key
+from pipeline.curate.summaries import (
+    ability_name_index,
+    detachment_rule_key,
+    resolve_binding_name,
+)
 from pipeline.models.authored import OptionOverrideChoice
 from pipeline.models.curated import (
     ArmyRuleState,
@@ -123,7 +141,13 @@ from pipeline.models.provenance import (
     PricingConfidenceState,
 )
 from pipeline.models.source import MfmDetachmentCard, MfmUnitCostBlock, SourceAcquisition
+from pipeline.normalize.ability_key import ability_key
 from pipeline.normalize.ability_types import classify
+from pipeline.normalize.characteristics import (
+    printed_base_size,
+    printed_range,
+    printed_roll,
+)
 from pipeline.normalize.ip_strip import strip_field
 from pipeline.normalize.names import normalize_name
 from pipeline.normalize.numerics import (
@@ -488,8 +512,16 @@ def _faction_keywords_by_datasheet(
 
     Only the *faction* keywords, because only those can name a chapter — a unit keyword shared by
     two datasheets says nothing about which faction may field either. Read through the same
-    ``strip_field`` the curated keyword rows go through, so the token a curator writes in
-    ``curation/keyword-classes.json`` means one thing across both files rather than two.
+    ``strip_field`` **and the same upper-casing** the curated keyword rows go through, so the
+    token a curator writes in ``curation/keyword-classes.json`` means one thing across both
+    files rather than two.
+
+    The upper-casing is load-bearing, not cosmetic. ``match.py``'s rung 3 intersects these sets
+    with ``own_chapter_keywords``/``foreign_chapter_keywords``, which are built from
+    ``record.keyword`` — upper-case curation. The export does not state keywords upper (1 660
+    datasheets differ on keyword case alone, as derived by ``tools/compare_published_tree.py``
+    against the published tree), so leaving this view in export case made that intersection
+    empty and the rung inert: chapter disambiguation could never fire.
     """
     keywords = detail.get("Datasheets_keywords.csv")
     if keywords is None:
@@ -501,14 +533,33 @@ def _faction_keywords_by_datasheet(
         text = strip_field(row.fields.get("keyword", ""), field="keyword").text
         if not text:
             continue
-        by_datasheet.setdefault(row.fields.get("datasheet_id", ""), set()).add(text)
+        by_datasheet.setdefault(row.fields.get("datasheet_id", ""), set()).add(text.upper())
     return {datasheet_id: frozenset(values) for datasheet_id, values in by_datasheet.items()}
+
+
+def _objective_control(raw: str) -> int:
+    """A model's ``OC``, with the export's ``-`` read as **zero**.
+
+    ``-`` stated in the ``OC`` column means the model has no objective control, which is
+    mechanically zero rather than an unreadable row -- so rejecting the whole model line over it
+    (65 live rows, round 6's measurement) loses a model the app can otherwise render in full.
+
+    The mapping is confined to ``OC`` on purpose. ``line``, ``T`` and ``W`` were measured over
+    the same live export and fail ``to_int`` on **zero** rows, and the ``+``- and ``"``-suffixed
+    value classes measure zero occurrences anywhere in this file; a class measured at zero gets
+    no code. A non-numeric ``T``, ``W`` or ``line`` therefore remains ``DQ-MALFORMED-ROW``.
+    """
+    if raw.strip() == "-":
+        return 0
+    return to_int(raw, field="model.OC")
 
 
 def _detail_datasheet_fields(
     detail_id: str,
     detail: Mapping[str, CsvReadResult],
     legends_sources: frozenset[str] = frozenset(),
+    *,
+    ability_names: Mapping[str, str],
 ) -> tuple[dict[str, object], list[Finding]]:
     """Everything the detail source contributes to one datasheet."""
     findings: list[Finding] = []
@@ -540,6 +591,7 @@ def _detail_datasheet_fields(
                 )
             )
             continue
+        raw_invuln = optional_characteristic(model.fields.get("inv_sv"))
         try:
             models.append(
                 CuratedModelLine(
@@ -548,11 +600,13 @@ def _detail_datasheet_fields(
                     movement=model.fields["M"].strip() or "-",
                     toughness=to_int(model.fields["T"], field="model.T"),
                     save=model.fields["Sv"].strip() or "-",
-                    invuln_save=optional_characteristic(model.fields.get("inv_sv")),
+                    invuln_save=(None if raw_invuln is None else printed_roll(raw_invuln)),
                     wounds=to_int(model.fields["W"], field="model.W"),
                     leadership=model.fields["Ld"].strip() or "-",
-                    objective_control=to_int(model.fields["OC"], field="model.OC"),
-                    base_size=optional_characteristic(model.fields.get("base_size")),
+                    objective_control=_objective_control(model.fields["OC"]),
+                    base_size=printed_base_size(
+                        optional_characteristic(model.fields.get("base_size"))
+                    ),
                 )
             )
         except (NumericParseError, KeyError):
@@ -578,19 +632,32 @@ def _detail_datasheet_fields(
                 )
             )
             continue
-        weapon_range = optional_characteristic(weapon.fields.get("range"))
+        raw_range = optional_characteristic(weapon.fields.get("range"))
+        weapon_range = None if raw_range is None else printed_range(raw_range)
         is_melee = (weapon.fields.get("type", "") or "").strip().casefold() == "melee"
         try:
             # `line` is minted from the row's own position in this datasheet's weapon list, not
             # read off the export's `line` column (009 Finding A, CON-DUPLICATE-KEY, 39 live
             # instances). The export's `line` numbers a wargear CHOICE, not a row: a multi-profile
             # weapon (plasma standard/supercharge, missile frag/krak, ...) states two rows under
-            # one `line`, disambiguated only by `line_in_wargear` -- a column nothing here reads.
-            # The number has to be minted from the row's own position rather than read off the
-            # column, which is exactly what `line_number` does. `to_int` below still validates
-            # that the raw column parses -- a row whose own `line` is genuinely malformed is still
-            # `DQ-MALFORMED-ROW` -- it is simply no longer what identifies the row.
-            to_int(weapon.fields["line"], field="weapon.line")
+            # one `line`, disambiguated only by `line_in_wargear`. The number has to be minted
+            # from the row's own position rather than read off the column, which is exactly what
+            # `line_number` does. The block below still validates that a *stated* `line` parses --
+            # a row whose own `line` is non-empty but malformed is still `DQ-MALFORMED-ROW` -- it
+            # is simply no longer what identifies the row.
+            #
+            # 010 R6b: the live export states 1990 rows with `line` genuinely empty and a numeric
+            # `line_in_wargear` (287 datasheets' entire named wargear block, across 10
+            # `faction_id`s) -- every one of them a legitimate profile the published site
+            # renders, not a malformed row. Since neither column is read for identity, an empty
+            # `line` falls back to validating `line_in_wargear` instead: still `to_int`, so a
+            # genuinely malformed value on either column still raises and still lands as
+            # `DQ-MALFORMED-ROW`.
+            raw_line = weapon.fields["line"]
+            if raw_line.strip():
+                to_int(raw_line, field="weapon.line")
+            else:
+                to_int(weapon.fields["line_in_wargear"], field="weapon.line_in_wargear")
             weapons.append(
                 CuratedWeaponLine(
                     line=line_number,
@@ -598,7 +665,7 @@ def _detail_datasheet_fields(
                     is_melee=is_melee,
                     range=None if is_melee else weapon_range,
                     attacks=weapon.fields["A"].strip() or "-",
-                    skill=weapon.fields["BS_WS"].strip() or "-",
+                    skill=printed_roll(weapon.fields["BS_WS"].strip() or "-"),
                     strength=weapon.fields["S"].strip() or "-",
                     armour_penetration=weapon.fields["AP"].strip() or "0",
                     damage=weapon.fields["D"].strip() or "-",
@@ -631,7 +698,7 @@ def _detail_datasheet_fields(
             continue
         keywords.append(
             CuratedKeyword(
-                keyword=text,
+                keyword=text.upper(),
                 is_faction_keyword=keyword.fields.get("is_faction_keyword", "").strip().casefold()
                 == "true",
                 model_scope=strip_field(keyword.fields.get("model", ""), field="model").text
@@ -656,10 +723,26 @@ def _detail_datasheet_fields(
         "dedicated transport" in keyword_set or role_key in _TRANSPORT_ROLES
     )
 
+    # A Core or Faction binding states no name of its own — the export publishes it once, in
+    # `Abilities.csv`, and the binding joins to it by `ability_id` (010 R6: 2 015 Core and 1 437
+    # of 1 442 Faction rows live). Reading the binding's own column alone bound zero `core:` keys
+    # against the published tree's 2 422, and said nothing about it. The index is built once per
+    # build by the caller and passed in — not rebuilt here from this call's own `detail`, which
+    # would let a filtered mapping desynchronise a key from its digest.
     ability_keys: list[str] = []
     for binding in detail["Datasheets_abilities.csv"].grouped_by("datasheet_id").get(detail_id, []):
-        name = strip_field(binding.fields.get("name", ""), field="ability.name").text
+        name = resolve_binding_name(binding.fields, names=ability_names)
         if not name:
+            # Reported, not skipped in silence: a binding that names nothing and joins to
+            # nothing is a defect in the export, and five rounds passed without anyone seeing it
+            # because this branch was a bare `continue`.
+            findings.append(
+                build_finding(
+                    "DQ-MALFORMED-ROW",
+                    entity_refs=[f"wahapedia:{detail_id}"],
+                    detail={"file_name": "Datasheets_abilities.csv", "field": "name"},
+                )
+            )
             continue
         ability_type, finding = classify(
             binding.fields.get("type", ""), entity_ref=f"wahapedia:{detail_id}"
@@ -668,7 +751,9 @@ def _detail_datasheet_fields(
             findings.append(finding)
             continue
         assert ability_type is not None
-        ability_keys.append(f"{ability_type.value}:{slugify(name)}")
+        ability_keys.append(
+            ability_key(ability_type, name, parameter=binding.fields.get("parameter", ""))
+        )
     fields["ability_keys"] = sorted(set(ability_keys))
 
     return fields, findings
@@ -1462,6 +1547,10 @@ def assemble(  # noqa: PLR0913 - the stage genuinely needs every upstream input
     scopes = {scope.entry.mfm_slug: scope for scope in factions_outcome.scopes}
 
     legends_sources = _legends_source_ids(detail)
+    # Built once, here, and passed down: the `Abilities.csv` rows it reads carry the publisher's
+    # text, which goes out of scope with `work/` at the end of the build, so nothing may hold
+    # that read result alive past this call (010 R6 review, finding 1).
+    ability_names = ability_name_index(detail)
     detail_faction_keywords = _faction_keywords_by_datasheet(detail)
     source_detachment_rules = _source_detachment_rules(detail)
     findings.extend(
@@ -1568,6 +1657,7 @@ def assemble(  # noqa: PLR0913 - the stage genuinely needs every upstream input
                 points_acquisition=points_acquisition,
                 provenance=provenance if match.wahapedia_datasheet_id else points_only_provenance,
                 legends_sources=legends_sources,
+                ability_names=ability_names,
             )
             findings.extend(datasheet_findings)
             datasheets.append(datasheet)
@@ -1599,6 +1689,7 @@ def assemble(  # noqa: PLR0913 - the stage genuinely needs every upstream input
             registry=registry,
             detail_acquisition=detail_acquisition,
             legends_sources=legends_sources,
+            ability_names=ability_names,
         )
         findings.extend(unverified_findings)
         if unverified is not None:
@@ -1833,6 +1924,7 @@ def _datasheet_for(  # noqa: PLR0913 - one datasheet needs both sources and the 
     points_acquisition: SourceAcquisition,
     provenance: EntityProvenance,
     legends_sources: frozenset[str],
+    ability_names: Mapping[str, str],
 ) -> tuple[CuratedDatasheet, list[Finding]]:
     findings: list[Finding] = []
     costs, wargear_options, cost_findings = _costs(
@@ -1846,7 +1938,7 @@ def _datasheet_for(  # noqa: PLR0913 - one datasheet needs both sources and the 
     equipment = _EquipmentOutcome()
     if match.wahapedia_datasheet_id:
         fields, detail_findings = _detail_datasheet_fields(
-            match.wahapedia_datasheet_id, detail, legends_sources
+            match.wahapedia_datasheet_id, detail, legends_sources, ability_names=ability_names
         )
         findings.extend(detail_findings)
 
@@ -2006,6 +2098,7 @@ def _detail_only_datasheet(  # noqa: PLR0913 - one datasheet needs both trees an
     registry: IdRegistry,
     detail_acquisition: SourceAcquisition,
     legends_sources: frozenset[str],
+    ability_names: Mapping[str, str],
 ) -> tuple[CuratedDatasheet | None, list[Finding]]:
     """A datasheet the points authority did not price this release (FR-026, FR-035).
 
@@ -2064,7 +2157,9 @@ def _detail_only_datasheet(  # noqa: PLR0913 - one datasheet needs both trees an
         datasheet_key(faction_id, normalize_name(display_name), is_legends=is_legends),
         display_name,
     )
-    fields, detail_findings = _detail_datasheet_fields(detail_id, detail, legends_sources)
+    fields, detail_findings = _detail_datasheet_fields(
+        detail_id, detail, legends_sources, ability_names=ability_names
+    )
     findings.extend(detail_findings)
 
     models: Sequence[CuratedModelLine] = fields.get("models", ())  # type: ignore[assignment]

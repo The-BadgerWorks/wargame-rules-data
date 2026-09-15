@@ -41,6 +41,7 @@ from pipeline.curate.assemble import (
     _EquipmentOutcome,
 )
 from pipeline.curate.authored import AuthoredContent
+from pipeline.curate.summaries import ability_name_index
 from pipeline.models.curated import (
     CuratedDatasheet,
     CuratedEquipmentGroup,
@@ -170,7 +171,7 @@ def detail() -> Mapping[str, CsvReadResult]:
 def _outcome(detail: Mapping[str, CsvReadResult], detail_id: str, stem: str) -> _EquipmentOutcome:
     """One datasheet's equipment, built the way ``_datasheet_for`` builds it."""
     datasheet_id = f"ds-{stem}"
-    fields, _ = _detail_datasheet_fields(detail_id, detail, frozenset())
+    fields, _ = _detail_datasheet_fields(detail_id, detail, frozenset(), ability_names={})
     models: Sequence[CuratedModelLine] = fields.get("models", ())  # type: ignore[assignment]
     weapons: Sequence[CuratedWeaponLine] = fields.get("weapons", ())  # type: ignore[assignment]
     composition, _ = _composition_entries(
@@ -335,6 +336,8 @@ def _detail_only(
         registry=IdRegistry(),
         detail_acquisition=acquisition,
         legends_sources=frozenset(),
+        # 010 R6: the ability-name index is a build-level value the caller passes in.
+        ability_names=ability_name_index(detail),
     )
 
 

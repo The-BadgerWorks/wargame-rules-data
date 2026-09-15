@@ -13,6 +13,14 @@
 # AI-Assisted: Claude Code (model: claude-opus-5) - Added `glossary_current_digests` (004 task
 # T061): the §5.1 stem-digest fallback for a keyword the edition publishes no description for,
 # and the honest consequence — such an entry never auto-flags for re-review.
+# AI-Assisted: Claude Code (model: claude-opus-5) - Resolved Core and Faction ability names
+# through `Abilities.csv` (010 R6): `ability_name_index` and `resolve_binding_name`, read by
+# both this module's digest join and `assemble`'s key loop, so a nameless Core or Faction
+# binding — 2 015 and 1 437 rows live — is keyed and digested rather than dropped by both.
+# AI-Assisted: Claude Code (model: claude-opus-5) - 010 R6 review round 1: the name index is
+# built once per build and threaded to the assembly rather than memoised in a module global,
+# so no `Abilities.csv` read result (and so no publisher text) outlives the build block, and
+# the index is returned read-only because every datasheet in the build shares it.
 """Compare an ability's *current* mechanic against what a curator approved.
 
 Two things this module deliberately does **not** do:
@@ -47,9 +55,11 @@ from __future__ import annotations
 
 from collections.abc import Iterable, Mapping
 from enum import StrEnum
+from types import MappingProxyType
 from typing import Protocol
 
 from pipeline.models.authored import ReviewState
+from pipeline.normalize.ability_key import ability_key
 from pipeline.normalize.ability_types import classify
 from pipeline.normalize.ip_strip import strip_field
 from pipeline.normalize.mechanic_digest import mechanic_digest
@@ -202,6 +212,59 @@ def digestless_keyword_keys(
     return tuple(sorted(key for key in set(keyword_keys) if key not in texts))
 
 
+def ability_name_index(detail: Mapping[str, CsvReadResult]) -> Mapping[str, str]:
+    """`Abilities.csv` `id` → that ability's IP-stripped `name`.
+
+    The binding rows in `Datasheets_abilities.csv` are *join rows*: for Core and Faction
+    abilities the export states the name once, in `Abilities.csv`, and the binding carries an
+    empty `name` with a populated `ability_id` (010 R6 measured 2 015 Core and 1 437 of 1 442
+    Faction rows in that shape, all 3 452 resolving here). Reading the binding's own column
+    alone therefore mints no key for any of them, which is what this index exists to prevent.
+
+    Built **once per build**, from the whole detail mapping, and passed down — never rebuilt per
+    datasheet and never memoised in module state. The index is the only thing that outlives this
+    call: the `CsvReadResult` it reads carries the publisher's `description` text, which
+    `pipeline.cli` discards with `work/` at the end of the build block, and a cache holding that
+    result alive would defeat exactly that (010 R6 review, finding 1).
+
+    A detail source that publishes no `Abilities.csv` yields an empty index rather than raising.
+    All four fixture sets do publish the table; the branch is for a hand-built detail mapping
+    that states only the tables one test needs (e.g.
+    `tests/enrichment/test_weapon_line_identity.py`). A binding that then resolves to nothing is
+    the caller's reported defect, not this function's.
+
+    The return is read-only: the index is shared by every datasheet in the build, so one
+    caller's mutation would silently move another's key.
+    """
+    abilities = detail.get("Abilities.csv")
+    if abilities is None:
+        return MappingProxyType({})
+
+    index: dict[str, str] = {}
+    for row in abilities.rows:
+        ability_id = row.fields.get("id", "").strip()
+        if not ability_id or ability_id in index:
+            continue
+        name = strip_field(row.fields.get("name", ""), field="ability.name").text
+        if name:
+            index[ability_id] = name
+
+    return MappingProxyType(index)
+
+
+def resolve_binding_name(fields: Mapping[str, str], *, names: Mapping[str, str]) -> str:
+    """The name one ability binding carries: its own column, else the one it joins to.
+
+    The single rule both :func:`compute_current_digests` and
+    :mod:`pipeline.curate.assemble`'s key assembly read, so a key and its digest can never be
+    minted from two different readings of the same row.
+    """
+    own = strip_field(fields.get("name", ""), field="ability.name").text
+    if own:
+        return own
+    return names.get(fields.get("ability_id", "").strip(), "")
+
+
 def compute_current_digests(detail: Mapping[str, CsvReadResult], *, key: bytes) -> dict[str, str]:
     """The current mechanic digest per ability key, joined from the detail source.
 
@@ -227,17 +290,19 @@ def compute_current_digests(detail: Mapping[str, CsvReadResult], *, key: bytes) 
             if ability_id and ability_id not in by_ability_id:
                 by_ability_id[ability_id] = row.fields.get("description", "")
 
+    names = ability_name_index(detail)
+
     digests: dict[str, str] = {}
     for row in bindings.rows:
-        name = strip_field(row.fields.get("name", ""), field="ability.name").text
+        name = resolve_binding_name(row.fields, names=names)
         if not name:
             continue
         ability_type, _finding = classify(row.fields.get("type", ""))
         if ability_type is None:
             continue  # DQ-ABILITY-TYPE already raised once by the assemble-stage pass.
 
-        ability_key = f"{ability_type.value}:{slugify(name)}"
-        if ability_key in digests:
+        key_value = ability_key(ability_type, name, parameter=row.fields.get("parameter", ""))
+        if key_value in digests:
             continue
 
         text = row.fields.get("description", "").strip()
@@ -245,7 +310,7 @@ def compute_current_digests(detail: Mapping[str, CsvReadResult], *, key: bytes) 
             ability_id = row.fields.get("ability_id", "").strip()
             text = by_ability_id.get(ability_id, "")
 
-        digests[ability_key] = mechanic_digest(text, key=key)
+        digests[key_value] = mechanic_digest(text, key=key)
 
     return digests
 

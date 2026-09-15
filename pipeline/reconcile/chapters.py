@@ -1,3 +1,6 @@
+# AI-Assisted: Claude Opus 5 - 010 R6 task 5: the keyword-class index folds case on both sides so
+# it is not case-brittle. Fix round 1: this is defensive symmetry only -- no record is stranded
+# live, and the coverage restoration belongs to the upper-casing in curate/assemble.py.
 # AI-Assisted: Claude Code (model: claude-opus-5) - Implemented keyword classification and the
 # enumerable chapter vocabulary (004 task T038): data-model.md §1.6's three default rules, the
 # curator's exceptions from curation/keyword-classes.json, CuratedChapterKeyword construction
@@ -166,7 +169,14 @@ def classify_keywords(
         factions: the curated faction tree — the authority the chapter records answer to.
         authored: ``curation/keyword-classes.json``, the curator's exceptions.
     """
-    by_keyword = {record.keyword: record for record in authored}
+    # Folded on both sides so the index is not case-brittle: the case a token is printed in is a
+    # presentation fact, and a classification keyed on it is keyed on the wrong thing.
+    # **This is defensive symmetry, not the fix for anything live.** What moves
+    # `keyword_classification` coverage (1 297 -> 1 302, the r6 build's measurement — a gain of
+    # five, not a restoration) is publishing the observed keyword upper-case in
+    # `curate/assemble.py`; today's five curator records are already upper-case and none collide
+    # when folded, so this lookup returns exactly what an exact match returned.
+    by_keyword = {record.keyword.casefold(): record for record in authored}
     factions_by_id = {faction.faction_id: faction for faction in factions}
     parentless = _parentless_faction_slugs(factions)
 
@@ -175,7 +185,7 @@ def classify_keywords(
     findings: list[Finding] = []
 
     for keyword in sorted(observed):
-        record = by_keyword.get(keyword)
+        record = by_keyword.get(keyword.casefold())
         if record is not None:
             # The curator's record wins over the default, in both directions: it is how a
             # chapter that *does* resolve to a faction is told apart from a parent, and how a
