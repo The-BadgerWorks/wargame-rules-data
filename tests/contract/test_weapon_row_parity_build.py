@@ -1,4 +1,4 @@
-# AI-Assisted: Claude Code (model: claude-sonnet-5) - 010 R6b Task 2 end-to-end receipt: a
+# AI-Assisted: Claude Code (model: claude-opus-5) - 010 R6b Task 2 end-to-end receipt: a
 # `Datasheets_wargear.csv` row whose `line` column is empty but whose `line_in_wargear` parses is
 # read as a weapon profile, matching the live export's 1990 such rows. Identical weapon-row
 # counts between the two arms would mean the reader still rejects empty-`line` rows.

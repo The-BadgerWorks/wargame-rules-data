@@ -22,6 +22,16 @@ parenthesised group from the name — was measured against the live export and t
 and refuted: the published tree's keys *carry* the parenthetical tag, and stripping it would move
 257 further published `datasheet:` keys and 4 `faction:` keys, which is a Tier 1 identifier move.
 See `task-1-brief.md` for the measurement. Do not add parenthesis handling here.
+
+**Ordering residual, separate from the parenthesis question above and also unmeasured.** Some
+published keys place the parameter *before* a trailing parenthetical qualifier: the published
+`core:deadly-demise-d6-3-szarekh-model-only` puts its parameter (`d6-3`) ahead of the
+`-szarekh-model-only` tag, while this helper always appends the parameter after the whole name,
+parenthetical included. Measured over all 2083 published datasheets, stripping trailing
+parentheticals (the question above) would move a further 257 published `datasheet:` keys and 4
+`faction:` keys; the ordering class — where the parameter belongs before rather than after a
+retained parenthetical — has not itself been measured. Named here only so it is not
+rediscovered.
 """
 
 from __future__ import annotations
