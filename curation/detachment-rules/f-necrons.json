@@ -50,6 +50,16 @@
     "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
+    "summary_key": "detachment:d-hand-of-the-dynasty:hypermotility-protocols",
+    "detachment_id": "d-hand-of-the-dynasty",
+    "name": "Hypermotility Protocols",
+    "summary": "Friendly IMMORTALS and NECRON WARRIORS units' ranged attacks have the [ASSAULT] ability. When a friendly IMMORTALS or NECRON WARRIORS unit is selected to make an Advance move, that move does not prevent that unit from being eligible to start an action. This detachment has the DYNASTY tag and cannot be taken alongside another DYNASTY detachment.",
+    "review_state": "approved",
+    "mechanic_digest": "d5c8322c63a10ecae7fcfd825f2d013b",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "reviewed_at": "2026-09-15T04:35:16Z"
+  },
+  {
     "summary_key": "detachment:d-hypercrypt-legion:hyperphasing",
     "detachment_id": "d-hypercrypt-legion",
     "name": "Hyperphasing",

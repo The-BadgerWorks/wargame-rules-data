@@ -70,6 +70,16 @@
     "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
+    "summary_key": "detachment:d-luminen-auto-choir:cyber-static-canticles",
+    "detachment_id": "d-luminen-auto-choir",
+    "name": "Cyber-Static Canticles",
+    "summary": "Friendly CORPUSCARII units' ranged attacks have [LETHAL HITS]. When a friendly FULGURITE unit has fought, that unit heals D3 wounds. This detachment has the DATA-PSALM tag and cannot be taken with another DATA-PSALM detachment.",
+    "review_state": "approved",
+    "mechanic_digest": "1aa98672303ceefb33e6d76f06f82a5d",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "reviewed_at": "2026-09-15T04:35:16Z"
+  },
+  {
     "summary_key": "detachment:d-rad-zone-corps:rad-bombardment",
     "detachment_id": "d-rad-zone-corps",
     "name": "Rad-bombardment",

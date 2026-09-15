@@ -30,6 +30,16 @@
     "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
+    "summary_key": "detachment:d-bastion-task-force-3:interlocking-tactics",
+    "detachment_id": "d-bastion-task-force-3",
+    "name": "Interlocking Tactics",
+    "summary": "Adeptus Astartes Battleline units from your army are eligible to shoot and declare a charge, and to start to perform an Action, in a turn in which they Advanced or Fell Back. Each time an Adeptus Astartes Battleline unit from your army is selected to attack, after resolving those attacks, select one enemy unit hit by one or more of those attacks; until the end of the turn that unit is auspex scanned. Each time an Adeptus Astartes model from your army makes an attack that targets an auspex scanned unit, re-roll a Hit roll of 1.",
+    "review_state": "approved",
+    "mechanic_digest": "b1e7170f33dcf52917fd2668ff89c407",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "reviewed_at": "2026-09-15T04:35:16Z"
+  },
+  {
     "summary_key": "detachment:d-ceramite-sentinels-3:adaptive-defence",
     "detachment_id": "d-ceramite-sentinels-3",
     "name": "Adaptive Defence",
@@ -90,6 +100,16 @@
     "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
+    "summary_key": "detachment:d-gladius-task-force-3:combat-doctrines",
+    "detachment_id": "d-gladius-task-force-3",
+    "name": "Combat Doctrines",
+    "summary": "At the start of your Command phase, you can select one of three Combat Doctrines. Until the start of your next Command phase, it is active and applies to all ADEPTUS ASTARTES units from your army. Each Combat Doctrine can only be selected once per battle. Devastator Doctrine: the unit is eligible to shoot in a turn in which it Advanced. Tactical Doctrine: the unit is eligible to shoot and declare a charge in a turn in which it Fell Back. Assault Doctrine: the unit is eligible to declare a charge in a turn in which it Advanced.",
+    "review_state": "approved",
+    "mechanic_digest": "4f931c901f72ba0c611eb0c907397ead",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "reviewed_at": "2026-09-15T04:35:16Z"
+  },
+  {
     "summary_key": "detachment:d-headhunter-task-force-3:target-sighted",
     "detachment_id": "d-headhunter-task-force-3",
     "name": "Target Sighted",
@@ -98,6 +118,16 @@
     "mechanic_digest": "bc46cc142d681a090b361fc92b3e8454",
     "reviewed_by": "claude-opus-5-second-reviewer",
     "reviewed_at": "2026-08-06T00:00:00Z"
+  },
+  {
+    "summary_key": "detachment:d-inner-circle-task-force:vowed-target",
+    "detachment_id": "d-inner-circle-task-force",
+    "name": "Vowed Target",
+    "summary": "At the start of your Movement phase, select one option. Defensive Footing: select one objective you control; until the start of your next Movement phase it is your Vowed objective. Aggressive Push: select one or more objectives you do not control; until the start of your next Movement phase each is one of your Vowed objectives, rules referring to range of your Vowed objective apply if within range of one or more of them, and DEATHWING INFANTRY units add 1 to the Wound roll when attacking a unit within range of one or more of them. Army cannot include ADEPTUS ASTARTES units from another Chapter.",
+    "review_state": "approved",
+    "mechanic_digest": "b0ceae695bd9359e1728500ebf2e1bad",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "reviewed_at": "2026-09-15T04:35:16Z"
   },
   {
     "summary_key": "detachment:d-interrogation-conclave:dread-catechism",

@@ -30,6 +30,16 @@
     "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
+    "summary_key": "detachment:d-bastion-task-force-5:interlocking-tactics",
+    "detachment_id": "d-bastion-task-force-5",
+    "name": "Interlocking Tactics",
+    "summary": "Adeptus Astartes Battleline units from your army are eligible to shoot and declare a charge in a turn in which they Advanced or Fell Back, and are eligible to start to perform an Action in such a turn. Each time an ADEPTUS ASTARTES BATTLELINE unit from your army is selected to attack, after resolving those attacks, select one enemy unit hit by one or more of those attacks; until the end of the turn that unit is auspex scanned. Each time an ADEPTUS ASTARTES model from your army makes an attack that targets an auspex scanned unit, re-roll a Hit roll of 1.",
+    "review_state": "approved",
+    "mechanic_digest": "b1e7170f33dcf52917fd2668ff89c407",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "reviewed_at": "2026-09-15T04:35:16Z"
+  },
+  {
     "summary_key": "detachment:d-blade-of-ultramar:mastered-doctrines",
     "detachment_id": "d-blade-of-ultramar",
     "name": "Mastered Doctrines",
@@ -90,6 +100,16 @@
     "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
+    "summary_key": "detachment:d-gladius-task-force-5:combat-doctrines",
+    "detachment_id": "d-gladius-task-force-5",
+    "name": "Combat Doctrines",
+    "summary": "At the start of your Command phase, you can select one of the Combat Doctrines below. Until the start of your next Command phase, that Doctrine is active and its effects apply to all ADEPTUS ASTARTES units from your army. Each Combat Doctrine can only be selected once per battle. Devastator Doctrine: this unit is eligible to shoot in a turn in which it Advanced. Tactical Doctrine: this unit is eligible to shoot and declare a charge in a turn in which it Fell Back. Assault Doctrine: this unit is eligible to declare a charge in a turn in which it Advanced.",
+    "review_state": "approved",
+    "mechanic_digest": "4f931c901f72ba0c611eb0c907397ead",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "reviewed_at": "2026-09-15T04:35:16Z"
+  },
+  {
     "summary_key": "detachment:d-hammer-of-avernii:calculated-annihilation",
     "detachment_id": "d-hammer-of-avernii",
     "name": "Calculated Annihilation",
@@ -108,6 +128,16 @@
     "mechanic_digest": "121dc40e938e8f6da5a8497ced2fd638",
     "reviewed_by": "claude-opus-5-second-reviewer",
     "reviewed_at": "2026-08-06T00:00:00Z"
+  },
+  {
+    "summary_key": "detachment:d-hammer-of-avernii:restrictions",
+    "detachment_id": "d-hammer-of-avernii",
+    "name": "Restrictions",
+    "summary": "Army construction restriction: the army can include Iron Hands units, but cannot include any ADEPTUS ASTARTES units drawn from any other Chapter.",
+    "review_state": "approved",
+    "mechanic_digest": "24b8f8ae261f2197514583350be8769a",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "reviewed_at": "2026-09-15T04:35:16Z"
   },
   {
     "summary_key": "detachment:d-headhunter-task-force-5:target-sighted",
@@ -170,6 +200,16 @@
     "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
+    "summary_key": "detachment:d-shadowmark-talon:restrictions",
+    "detachment_id": "d-shadowmark-talon",
+    "name": "Restrictions",
+    "summary": "Army composition restriction: the army may include Raven Guard units, but may not include any ADEPTUS ASTARTES units drawn from any other Chapter.",
+    "review_state": "approved",
+    "mechanic_digest": "a4a8939cc1c23f1fc3afe62958d9c69b",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "reviewed_at": "2026-09-15T04:35:16Z"
+  },
+  {
     "summary_key": "detachment:d-shadowmark-talon:unparalleled-tactician",
     "detachment_id": "d-shadowmark-talon",
     "name": "Unparalleled Tactician",
@@ -178,6 +218,16 @@
     "mechanic_digest": "96009603c05a2d1a9d9094ec1e8fc8a3",
     "reviewed_by": "claude-opus-5-adversarial-reviewer",
     "reviewed_at": "2026-08-06T00:00:00Z"
+  },
+  {
+    "summary_key": "detachment:d-spearpoint-task-force:restrictions",
+    "detachment_id": "d-spearpoint-task-force",
+    "name": "Restrictions",
+    "summary": "Army composition restriction: the army may include White Scars units, but may not include any ADEPTUS ASTARTES units drawn from any other Chapter.",
+    "review_state": "approved",
+    "mechanic_digest": "ae513c74574f1a496d9be6165310d4af",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "reviewed_at": "2026-09-15T04:35:16Z"
   },
   {
     "summary_key": "detachment:d-spearpoint-task-force:storm-swift-onslaught",

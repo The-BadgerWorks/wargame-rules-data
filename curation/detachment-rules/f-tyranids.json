@@ -70,6 +70,16 @@
     "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
+    "summary_key": "detachment:d-unending-swarm:insurmountable-odds",
+    "detachment_id": "d-unending-swarm",
+    "name": "Insurmountable Odds",
+    "summary": "In your opponent's Shooting phase, when an enemy unit has shot, if a model from a friendly ENDLESS MULTITUDE unit was destroyed as a result of those attacks, that friendly unit can make a surge move of up to D6\".",
+    "review_state": "approved",
+    "mechanic_digest": "5d83dac2d7a96047d33e00ba21b434ed",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "reviewed_at": "2026-09-15T04:35:16Z"
+  },
+  {
     "summary_key": "detachment:d-vanguard-onslaught:questing-tendrils",
     "detachment_id": "d-vanguard-onslaught",
     "name": "Questing Tendrils",

@@ -30,6 +30,26 @@
     "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
+    "summary_key": "detachment:d-bastion-task-force-4:interlocking-tactics",
+    "detachment_id": "d-bastion-task-force-4",
+    "name": "Interlocking Tactics",
+    "summary": "Adeptus Astartes Battleline units from your army are eligible to shoot and declare a charge in a turn in which they Advanced or Fell Back, and are eligible to start to perform an Action in a turn in which they Advanced or Fell Back. Each time an ADEPTUS ASTARTES BATTLELINE unit from your army is selected to attack, after resolving those attacks, select one enemy unit hit by one or more of those attacks; until the end of the turn that unit is auspex scanned. Each time an ADEPTUS ASTARTES model from your army makes an attack targeting an auspex scanned unit, re-roll a Hit roll of 1.",
+    "review_state": "approved",
+    "mechanic_digest": "b1e7170f33dcf52917fd2668ff89c407",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "reviewed_at": "2026-09-15T04:35:16Z"
+  },
+  {
+    "summary_key": "detachment:d-black-spear-task-force:mission-tactics",
+    "detachment_id": "d-black-spear-task-force",
+    "name": "Mission Tactics",
+    "summary": "At the start of your Command phase, you can select one of three Mission Tactics. Until the start of your next Command phase, that tactic is active and its effects apply to all units from your army with this ability. Each can be selected only once per battle. Furor: weapons equipped by ADEPTUS ASTARTES units from your army have [SUSTAINED HITS 1]. Malleus: weapons equipped by ADEPTUS ASTARTES units from your army have [LETHAL HITS]. Purgatus: each time an ADEPTUS ASTARTES unit from your army makes an attack, if a Critical Hit is scored, that attack has [PRECISION].",
+    "review_state": "approved",
+    "mechanic_digest": "e61d56f6dedb9cca0c9aa01f4d9c867a",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "reviewed_at": "2026-09-15T04:35:16Z"
+  },
+  {
     "summary_key": "detachment:d-ceramite-sentinels-4:adaptive-defence",
     "detachment_id": "d-ceramite-sentinels-4",
     "name": "Adaptive Defence",
@@ -58,6 +78,16 @@
     "mechanic_digest": "dd17f424a97d1bb0e2dbc0bde5757be8",
     "reviewed_by": "claude-opus-5-adversarial-reviewer",
     "reviewed_at": "2026-08-06T00:00:00Z"
+  },
+  {
+    "summary_key": "detachment:d-gladius-task-force-4:combat-doctrines",
+    "detachment_id": "d-gladius-task-force-4",
+    "name": "Combat Doctrines",
+    "summary": "At the start of your Command phase, you can select one of three Combat Doctrines. Until the start of your next Command phase, it is active and applies to all ADEPTUS ASTARTES units from your army. Each Combat Doctrine can only be selected once per battle. Devastator Doctrine: the unit is eligible to shoot in a turn in which it Advanced. Tactical Doctrine: the unit is eligible to shoot and declare a charge in a turn in which it Fell Back. Assault Doctrine: the unit is eligible to declare a charge in a turn in which it Advanced.",
+    "review_state": "approved",
+    "mechanic_digest": "4f931c901f72ba0c611eb0c907397ead",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "reviewed_at": "2026-09-15T04:35:16Z"
   },
   {
     "summary_key": "detachment:d-headhunter-task-force-4:target-sighted",

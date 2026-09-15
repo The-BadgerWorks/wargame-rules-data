@@ -10,11 +10,14 @@
   },
   {
     "ability_key": "core:firing-deck-20",
-    "mechanic_digest": "bf3b4618b0621cdc4bf5eb5bb8fa1c3b",
+    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
+    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
+    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
+    "mechanic_digest": "ed014ebdca9226c626ac290c80ceed25",
     "name": "Firing Deck 20",
     "review_state": "approved",
-    "reviewed_at": "2026-08-06T00:00:00Z",
-    "reviewed_by": "claude-opus-5-second-reviewer",
+    "reviewed_at": "2026-09-15T04:35:16Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
     "summary": "Firing Deck X: in your Shooting phase, when this Transport shoots, up to X (here 20) embarked models whose units have not yet shot each lend it one ranged weapon (no one-shot); no unit embarked in it can shoot for the rest of the turn."
   },
   {
@@ -64,21 +67,27 @@
   },
   {
     "ability_key": "datasheet:big-an-shooty",
-    "mechanic_digest": "63d137a1e71d6792d1f89da136c5e4f5",
+    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
+    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
+    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
+    "mechanic_digest": "afa5468a6c80a75d8d6e2d95d9add2e4",
     "name": "Big an’ Shooty",
     "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "Ranged attacks from this model gain +1 to the Hit roll while the Waaagh! is active for your army."
+    "reviewed_at": "2026-09-15T04:35:16Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "summary": "In your Shooting phase, this unit's ranged attacks can re-roll hit rolls of 1."
   },
   {
     "ability_key": "datasheet:big-an-stompy",
-    "mechanic_digest": "ccc849eb28b9ac3bf667901d00fd517c",
+    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
+    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
+    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
+    "mechanic_digest": "d7fcf357da1c4081c46921f125f48389",
     "name": "Big an’ Stompy",
     "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "Melee attacks from this model gain +1 to the Hit roll while the Waaagh! is active for your army."
+    "reviewed_at": "2026-09-15T04:35:16Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "summary": "When this unit makes melee attacks, it can re-roll hit rolls of 1."
   },
   {
     "ability_key": "datasheet:big-bomms",
@@ -109,11 +118,14 @@
   },
   {
     "ability_key": "datasheet:bizarrely-resilient",
-    "mechanic_digest": "5b578e9fb2c9609eee77bc6ea84c3988",
+    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
+    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
+    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
+    "mechanic_digest": "e8af063e19187453f64a6b7d6db6b23d",
     "name": "Bizarrely Resilient",
     "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
+    "reviewed_at": "2026-09-15T04:35:16Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
     "summary": "Attacks that target this model have their Armour Penetration worsened by 1."
   },
   {
@@ -127,12 +139,15 @@
   },
   {
     "ability_key": "datasheet:blastajet-force-field",
-    "mechanic_digest": "2cb497beca2264a9a0174211f50f62fd",
+    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
+    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
+    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
+    "mechanic_digest": "27b2be22a69994f286ab213006edc9ff",
     "name": "Blastajet Force Field",
     "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "The bearer gains a 4+ invulnerable save but loses the Grenades keyword."
+    "reviewed_at": "2026-09-15T04:35:16Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "summary": "Models in this unit have 5+ InSv. Models in this unit do not have the SMOKE keyword."
   },
   {
     "ability_key": "datasheet:bomb-squigs",
@@ -145,12 +160,15 @@
   },
   {
     "ability_key": "datasheet:boom-bomb",
-    "mechanic_digest": "3f11db6502c1ca1541c895c7aa1d61ae",
+    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
+    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
+    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
+    "mechanic_digest": "534dd59d3fb7401c97fe01ca6d37aea8",
     "name": "Boom Bomb",
     "review_state": "approved",
-    "reviewed_at": "2026-08-06T00:00:00Z",
-    "reviewed_by": "claude-opus-5-adversarial-reviewer",
-    "summary": "At the end of your opponent's Fight phase, target one visible enemy unit (not Lone Operative) within 24\" and roll one D6: on a 4+, it suffers D6 mortal wounds."
+    "reviewed_at": "2026-09-15T04:35:16Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "summary": "At the end of the opponent's Fight phase, select one visible enemy unit within 24\" of this unit, excluding Lone Operative units, and roll one D6 for that unit. On a 1-3, that unit suffers D3 mortal wounds. On a 4-5, it suffers 3 mortal wounds. On a 6, it suffers D3+3 mortal wounds."
   },
   {
     "ability_key": "datasheet:breakin-heads",
@@ -172,12 +190,15 @@
   },
   {
     "ability_key": "datasheet:burna-bomb",
-    "mechanic_digest": "5ae3a620aefbe3778a49bb52441d4f75",
+    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
+    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
+    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
+    "mechanic_digest": "3d67eb82abe9e1e5c4f218d6506fe7e2",
     "name": "Burna Bomb",
     "review_state": "approved",
-    "reviewed_at": "2026-08-06T00:00:00Z",
-    "reviewed_by": "claude-opus-5-second-reviewer",
-    "summary": "At the end of your opponent's Fight phase, pick one visible enemy unit (not Lone Operative) within 24\": Orks ranged attacks at it gain Ignores Cover until the end of your next turn; roll a D6 per model in it, 1 mortal wound per 6."
+    "reviewed_at": "2026-09-15T04:35:16Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "summary": "At the end of the opponent's Fight phase, select one visible enemy unit within 36\" of this unit, excluding Lone Operative units and MONSTER/VEHICLE units, and roll one D6 for that unit. On a 2+: that enemy unit suffers D3 mortal wounds; that enemy unit cannot be hidden until the end of your next turn; and ranged attacks that target that enemy unit have [IGNORES COVER] until the end of your next turn."
   },
   {
     "ability_key": "datasheet:buzzer-squigs",
@@ -199,21 +220,27 @@
   },
   {
     "ability_key": "datasheet:da-bigger-dey-are-da-better-dey-drop",
-    "mechanic_digest": "a9265ddda19a6ca88c694e53cf19891b",
+    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
+    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
+    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
+    "mechanic_digest": "89b625d6e84958dddfba0187abb2f9e1",
     "name": "Da Bigger Dey Are, da Better Dey Drop",
     "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
+    "reviewed_at": "2026-09-15T04:35:16Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
     "summary": "When this model's lifta-droppa destroys an enemy model with the Deadly Demise ability, that ability triggers on a 3+ instead of a 6."
   },
   {
     "ability_key": "datasheet:da-bigger-dey-iz",
-    "mechanic_digest": "8022791adf8d838cb4c95e81462eb87c",
-    "name": "Da Bigger Dey iz...",
+    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
+    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
+    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
+    "mechanic_digest": "9f711c8bf50770ffdf3c00278f661018",
+    "name": "Da Bigger Dey Iz…",
     "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "Melee attacks from this model against a Monster or Vehicle gain +1 Damage, or +2 Damage instead if the target is Titanic."
+    "reviewed_at": "2026-09-15T04:35:16Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "summary": "This unit's melee attacks that target a MONSTER or VEHICLE unit can re-roll wound rolls."
   },
   {
     "ability_key": "datasheet:da-biggest-and-da-best",
@@ -289,11 +316,14 @@
   },
   {
     "ability_key": "datasheet:dats-our-loot",
-    "mechanic_digest": "6849052b609fe74f654815c907cef3e8",
+    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
+    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
+    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
+    "mechanic_digest": "b7f6043a6c2a0dbffeb231b5071a71b9",
     "name": "Dat’s Our Loot!",
     "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
+    "reviewed_at": "2026-09-15T04:35:16Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
     "summary": "Ranged attacks from this unit re-roll a Hit roll of 1, or any Hit roll if the target is within range of an objective marker."
   },
   {
@@ -325,21 +355,27 @@
   },
   {
     "ability_key": "datasheet:ded-glowy-ammo-aura",
-    "mechanic_digest": "5fa2d52737ea178daab08d0f2c216643",
+    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
+    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
+    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
+    "mechanic_digest": "0c8df47f044f97b0aa97f3f28e6fd77e",
     "name": "Ded Glowy Ammo (Aura)",
     "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
+    "reviewed_at": "2026-09-15T04:35:16Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
     "summary": "Enemy Infantry units within 6\" of this model have their Toughness reduced by 1."
   },
   {
     "ability_key": "datasheet:deff-from-above",
-    "mechanic_digest": "eb383ec8bb5289762fd48961aac2f27f",
+    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
+    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
+    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
+    "mechanic_digest": "e576303d9577904fe1108f7fcbdce0aa",
     "name": "Deff from Above",
     "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "After this unit moves over an enemy unit, roll one die per model in this unit: each 4+ deals that enemy unit 1 mortal wound."
+    "reviewed_at": "2026-09-15T04:35:16Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "summary": "In your Shooting phase, if this unit made an ingress move this turn, this unit's ranged attacks have +1 to hit rolls."
   },
   {
     "ability_key": "datasheet:deranged-snotling-assault",
@@ -370,11 +406,14 @@
   },
   {
     "ability_key": "datasheet:drill-boss",
-    "mechanic_digest": "3f67b79f9a024f19e42b4f1c486536cf",
+    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
+    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
+    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
+    "mechanic_digest": "aaf049ad7736255cff98bd7cd91263b6",
     "name": "Drill Boss",
     "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
+    "reviewed_at": "2026-09-15T04:35:16Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
     "summary": "While attached to a unit, melee attacks made by models in that unit gain +1 to the Hit roll."
   },
   {
@@ -433,30 +472,39 @@
   },
   {
     "ability_key": "datasheet:flashiest-gitz",
-    "mechanic_digest": "3e699acb1cb6d043f93c19eb383e6c0a",
+    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
+    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
+    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
+    "mechanic_digest": "76a9239ce70f8adf00e3ce435751969d",
     "name": "Flashiest Gitz",
     "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
+    "reviewed_at": "2026-09-15T04:35:16Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
     "summary": "While attached to a unit, ranged attacks made by models in that unit can re-roll the Hit roll."
   },
   {
     "ability_key": "datasheet:fuel-mixa-grot",
-    "mechanic_digest": "1a57fda70e7e686ae69d4a35744d3d8f",
+    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
+    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
+    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
+    "mechanic_digest": "ca249a0d59b9e4a625232c29fe11d3ec",
     "name": "Fuel-mixa Grot",
     "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "Instead of rolling to Advance, this unit's Move characteristic simply increases by 6\" until the end of the phase."
+    "reviewed_at": "2026-09-15T04:35:16Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "summary": "Add 1 to Advance rolls made for this unit."
   },
   {
     "ability_key": "datasheet:full-throttle",
-    "mechanic_digest": "eb4a787b3e16c9f663a5abda3d20332a",
+    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
+    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
+    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
+    "mechanic_digest": "8bbcc7ec5953f1f946f61eb3574857f9",
     "name": "Full Throttle",
     "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "This unit is eligible to declare a charge in a turn in which it Advanced or Fell Back."
+    "reviewed_at": "2026-09-15T04:35:16Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "summary": "In your Command phase, select one Throttlerokkit Shokka Engine ability from the list above. This unit has the selected ability until the start of your next Command phase."
   },
   {
     "ability_key": "datasheet:gargantsmasha",
@@ -469,11 +517,14 @@
   },
   {
     "ability_key": "datasheet:gargantuan",
-    "mechanic_digest": "cf542c667e09558da5caec0a56207ea7",
+    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
+    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
+    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
+    "mechanic_digest": "e90dd7e6bba20feb6d9a01932f56cfe1",
     "name": "Gargantuan",
     "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
+    "reviewed_at": "2026-09-15T04:35:16Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
     "summary": "This model can make Normal, Advance or Fall Back moves through models, excluding Titanic, and terrain features up to 4\" tall as if they were not there."
   },
   {
@@ -559,11 +610,14 @@
   },
   {
     "ability_key": "datasheet:high-octane-fuel",
-    "mechanic_digest": "1a57fda70e7e686ae69d4a35744d3d8f",
+    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
+    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
+    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
+    "mechanic_digest": "c8c76c1fe9494821af1033b2211e59fe",
     "name": "High-octane Fuel",
     "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
+    "reviewed_at": "2026-09-15T04:35:16Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
     "summary": "Instead of rolling to Advance, this unit's Move characteristic simply increases by 6\" until the end of the phase."
   },
   {
@@ -586,21 +640,27 @@
   },
   {
     "ability_key": "datasheet:krumpin-time",
-    "mechanic_digest": "bdc8248483192d090a948514ba56160e",
+    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
+    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
+    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
+    "mechanic_digest": "64c1fd7e66c5ef58d5aa3c2fac86c4f8",
     "name": "Krumpin’ Time",
     "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "While the Waaagh! is active for your army, models in this unit have the Feel No Pain 5+ ability."
+    "reviewed_at": "2026-09-15T04:35:16Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "summary": "In the Fight phase, if this unit is riled up, this unit has +1 to hit rolls."
   },
   {
     "ability_key": "datasheet:kunnin-infiltrator",
-    "mechanic_digest": "973c4ab0deab2b178c327db10791ff84",
+    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
+    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
+    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
+    "mechanic_digest": "8d837e88929ec055cb4d063db468b45d",
     "name": "Kunnin’ Infiltrator",
     "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "Once per battle, instead of a Normal move, this model's unit can be removed and redeployed anywhere more than 9\" from all enemy models."
+    "reviewed_at": "2026-09-15T04:35:16Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "summary": "At the end of your opponent's Fight phase, if every model in this unit is hidden and unengaged, you can place this unit into strategic reserves."
   },
   {
     "ability_key": "datasheet:kunnin-infiltrator-once-per-battle-per-army",
@@ -613,20 +673,26 @@
   },
   {
     "ability_key": "datasheet:kustom-force-field",
-    "mechanic_digest": "c0a878929e60db31c604b97b06251607",
+    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
+    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
+    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
+    "mechanic_digest": "855eca3fff27659464ac0cd8057e7827",
     "name": "Kustom Force Field",
     "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "While attached to a unit, models in it gain a 5+ invulnerable save against ranged attacks; once per battle this model can overcharge the field, improving that save to 4+ until the end of the phase."
+    "reviewed_at": "2026-09-15T04:35:16Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "summary": "This unit has 4+ InSv against ranged attacks."
   },
   {
     "ability_key": "datasheet:mad-dok",
-    "mechanic_digest": "c41914e4186d3d3d14e7f6f2fc5d6380",
+    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
+    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
+    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
+    "mechanic_digest": "b9bb03e67e5be7ce88730ca6c0a6c4e2",
     "name": "Mad Dok",
     "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
+    "reviewed_at": "2026-09-15T04:35:16Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
     "summary": "While attached to a unit, models in that unit gain the Feel No Pain 5+ ability."
   },
   {
@@ -658,12 +724,15 @@
   },
   {
     "ability_key": "datasheet:might-is-right",
-    "mechanic_digest": "3f67b79f9a024f19e42b4f1c486536cf",
-    "name": "Might is Right",
+    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
+    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
+    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
+    "mechanic_digest": "d960fba61ed7eb8e0dc35b3f13585792",
+    "name": "Might Is Right",
     "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "While attached to a unit, melee attacks made by models in that unit gain +1 to the Hit roll."
+    "reviewed_at": "2026-09-15T04:35:16Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "summary": "If this unit made a charge move this turn, this model's melee attacks have +3 A and +2 S."
   },
   {
     "ability_key": "datasheet:monster-hunters",
@@ -676,12 +745,15 @@
   },
   {
     "ability_key": "datasheet:more-dakka",
-    "mechanic_digest": "ae8f1947bfbd0f7eadbb3bad3010dfbb",
+    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
+    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
+    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
+    "mechanic_digest": "30497a995be9029afc7a2cad79e5154c",
     "name": "More Dakka",
     "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "While attached to a unit, ranged attacks made by models in that unit re-roll a Hit roll of 1."
+    "reviewed_at": "2026-09-15T04:35:16Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "summary": "This unit's ranged attacks have [Ignores Cover]. If this unit is riled up, its ranged attacks also have [Sustained Hits 1]."
   },
   {
     "ability_key": "datasheet:on-da-hunt",
@@ -694,20 +766,26 @@
   },
   {
     "ability_key": "datasheet:one-last-kill",
-    "mechanic_digest": "9006e5d54633303612fbb3ab2335b51d",
+    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
+    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
+    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
+    "mechanic_digest": "429bd5f8ee0cf969d73186f1d540ec88",
     "name": "One Last Kill",
     "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "While attached to a unit, if a model in it that has not yet fought is destroyed in melee, a 4+ roll lets it still fight before being removed from play."
+    "reviewed_at": "2026-09-15T04:35:16Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "summary": "In the Fight phase, when this model is destroyed, if this unit has not been selected to fight this phase, roll one D6. On a 2+, this model is not removed from the battlefield. It is removed from the battlefield when this unit has fought, or at the end of the phase, whichever comes first."
   },
   {
     "ability_key": "datasheet:one-scalpel-short-of-a-medpack",
-    "mechanic_digest": "f921ecdb996a20b73c926ff97cdb197c",
+    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
+    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
+    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
+    "mechanic_digest": "092a491acb707df4727dde8e6fa97b43",
     "name": "One Scalpel Short of a Medpack",
     "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
+    "reviewed_at": "2026-09-15T04:35:16Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
     "summary": "While attached to a unit, that unit is eligible to declare a charge in a turn in which it Fell Back."
   },
   {
@@ -739,11 +817,14 @@
   },
   {
     "ability_key": "datasheet:plummeting-descent",
-    "mechanic_digest": "da6b2334deac2099292daf89f3051ba5",
+    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
+    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
+    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
+    "mechanic_digest": "e4fe700c161707de53485ac28874beef",
     "name": "Plummeting Descent",
     "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
+    "reviewed_at": "2026-09-15T04:35:16Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
     "summary": "Charge rolls for this model's unit can be re-rolled in a turn in which it arrived from Reserves."
   },
   {
@@ -757,30 +838,39 @@
   },
   {
     "ability_key": "datasheet:pulsa-rokkit",
-    "mechanic_digest": "9365d3e459cf793d92943349f678823d",
+    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
+    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
+    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
+    "mechanic_digest": "8dc5a8673e19ee9579e7f3469a3932c9",
     "name": "Pulsa Rokkit",
     "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "Once per battle, when this unit is selected to shoot, its ranged weapons gain +1 Strength and +1 Armour Penetration until the end of the phase."
+    "reviewed_at": "2026-09-15T04:35:16Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "summary": "In your Shooting phase, when this unit is selected to shoot, you can select one enemy MONSTER/VEHICLE unit within 24\" of this unit. If you do, this unit's attacks that target that unit have +1 AP and [LETHAL HITS]."
   },
   {
     "ability_key": "datasheet:pulse-jet",
-    "mechanic_digest": "0c67f4892cfb15328003f4bdca3afd32",
+    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
+    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
+    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
+    "mechanic_digest": "9a0d7645e0e77d1cc05e1b9b3af0359c",
     "name": "Pulse Jet",
     "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "Instead of rolling to Advance, this unit's Move characteristic increases by 6\" and it can move through models and terrain, until the end of the phase."
+    "reviewed_at": "2026-09-15T04:35:16Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "summary": "In your Movement phase, when this unit is selected to move, if this unit is unengaged, this unit can make a pulse jet move."
   },
   {
     "ability_key": "datasheet:pyromaniaks",
-    "mechanic_digest": "5f4018b43a8952bd6ef1e2979fc539a4",
+    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
+    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
+    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
+    "mechanic_digest": "4f92488357a479d7f6fd63c1a8ba1f3e",
     "name": "Pyromaniaks",
     "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "Ranged attacks from this unit with a flame weapon against a target within 6\" re-roll a Wound roll of 1, or any Wound roll if the target is within range of an objective marker."
+    "reviewed_at": "2026-09-15T04:35:16Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "summary": "Each time a model in this unit makes a ranged attack with a burna that targets an enemy unit within 6\", re-roll a Wound roll of 1. If the target of that attack is also within range of an objective marker, you can re-roll the Wound roll instead."
   },
   {
     "ability_key": "datasheet:ramshackle-but-rugged",
@@ -793,11 +883,14 @@
   },
   {
     "ability_key": "datasheet:ramshackle-cover",
-    "mechanic_digest": "a36651fb50ac2cd42924bd84995caf4b",
+    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
+    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
+    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
+    "mechanic_digest": "3964f4c0bab44544ec35f95a3108dfa5",
     "name": "Ramshackle Cover",
     "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
+    "reviewed_at": "2026-09-15T04:35:16Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
     "summary": "A model not fully visible to the attacking unit because of this fortification has the Benefit of Cover against that ranged attack."
   },
   {
@@ -856,30 +949,39 @@
   },
   {
     "ability_key": "datasheet:scatter",
-    "mechanic_digest": "63e17d06ae556113173e4626ab7a95d4",
+    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
+    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
+    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
+    "mechanic_digest": "3109eca70c1160f760975889d5fcc998",
     "name": "Scatter!",
     "review_state": "approved",
-    "reviewed_at": "2026-08-06T00:00:00Z",
-    "reviewed_by": "claude-opus-5-second-reviewer",
+    "reviewed_at": "2026-09-15T04:35:16Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
     "summary": "In your opponent's Movement phase, when an enemy unit ends a Normal, Advance or Fall Back move within 8\" of this unit, this unit can make a Normal move of up to 6\", provided it is not within Engagement Range of any enemy unit."
   },
   {
     "ability_key": "datasheet:shokk-attack-engine",
-    "mechanic_digest": "2b94c2b0bcff73559e4cc89b2ea12348",
+    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
+    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
+    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
+    "mechanic_digest": "07d06ee27aad9cfd4a16a375d4aec994",
     "name": "Shokk Attack Engine",
     "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "In your Command phase, if this unit is not within Engagement Range of an enemy, it can be removed from the battlefield and placed into Strategic Reserves."
+    "reviewed_at": "2026-09-15T04:35:16Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "summary": "In your Command phase, if this unit is unengaged, you can place this unit in strategic reserves."
   },
   {
     "ability_key": "datasheet:shokk-boosta",
-    "mechanic_digest": "d7c3b155cfae04e209717f35d9d76426",
+    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
+    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
+    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
+    "mechanic_digest": "bb141d5ae1088bc7a9d196e3214d28b0",
     "name": "Shokk-boosta",
     "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "This unit can re-roll Advance rolls and move through models and terrain during any move without ending within Engagement Range, and automatically passes Desperate Escape tests."
+    "reviewed_at": "2026-09-15T04:35:16Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "summary": "In your Movement phase, when this unit is selected to make an advance move, you can use this ability. If you do: this unit can change that advance roll to a 6; this unit can move through all types of model; and when this unit ends that advance move, make a hazard roll for each model in this unit."
   },
   {
     "ability_key": "datasheet:shokk-tunnel",
@@ -982,21 +1084,27 @@
   },
   {
     "ability_key": "datasheet:speedboss",
-    "mechanic_digest": "3f67b79f9a024f19e42b4f1c486536cf",
+    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
+    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
+    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
+    "mechanic_digest": "aaf049ad7736255cff98bd7cd91263b6",
     "name": "Speedboss",
     "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
+    "reviewed_at": "2026-09-15T04:35:16Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
     "summary": "While attached to a unit, melee attacks made by models in that unit gain +1 to the Hit roll."
   },
   {
     "ability_key": "datasheet:spiked-ram",
-    "mechanic_digest": "c75dbf533f77b7ff08239c36dde767e2",
+    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
+    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
+    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
+    "mechanic_digest": "45fb26c908748dc09896a4bbcd143603",
     "name": "Spiked Ram",
     "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "After this model ends a Charge move, it can target an engaged enemy unit and roll a die: a 2-5 deals D3 mortal wounds, a 6 deals 3 mortal wounds."
+    "reviewed_at": "2026-09-15T04:35:16Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "summary": "Each time this model ends a Charge move, select one enemy unit within Engagement Range of it and roll one D6. On a 2-5, that enemy unit suffers D3 mortal wounds. On a 6, that enemy unit suffers 3 mortal wounds."
   },
   {
     "ability_key": "datasheet:spirit-of-gork-psychic",
@@ -1036,12 +1144,15 @@
   },
   {
     "ability_key": "datasheet:super-runts",
-    "mechanic_digest": "a8305f9cfbf8e10179c1b31571707893",
+    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
+    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
+    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
+    "mechanic_digest": "ef6b77509cef319c901ae6f57e55f0cd",
     "name": "Super Runts",
     "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "While attached to a unit, that unit gains Scouts 9\", its attacks gain +1 to Hit and +1 to Wound, and attacks against it suffer -1 to the Wound roll."
+    "reviewed_at": "2026-09-15T04:35:16Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "summary": "This unit is riled up. This unit's Scavenged Shivs weapons have +1 A, +1 WS and +1 S."
   },
   {
     "ability_key": "datasheet:tellyporta-tech",
@@ -1054,12 +1165,15 @@
   },
   {
     "ability_key": "datasheet:thievin-scavengers",
-    "mechanic_digest": "5a4f139631342bf0ae34bab33544feff",
+    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
+    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
+    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
+    "mechanic_digest": "83fc39285c5aee2375f1dd96c74f7faf",
     "name": "Thievin’ Scavengers",
     "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "At the start of your Movement phase, roll one die for each objective marker you control that has a non-Battle-shocked unit with this ability nearby: any 4+ grants 1CP."
+    "reviewed_at": "2026-09-15T04:35:16Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "summary": "At the end of your Movement phase, if this unit is controlling an objective, that objective is secured."
   },
   {
     "ability_key": "datasheet:throttlerokkit-shokka-engine",
@@ -1090,20 +1204,26 @@
   },
   {
     "ability_key": "datasheet:trophy-hunters",
-    "mechanic_digest": "fae61dbf046b693b9fd7c603950f5126",
+    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
+    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
+    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
+    "mechanic_digest": "d95f302138e8524e9b28cc5cfca17ff1",
     "name": "Trophy Hunters",
     "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "Charge rolls made for this unit can be re-rolled."
+    "reviewed_at": "2026-09-15T04:35:16Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "summary": "This unit has +1 to charge rolls."
   },
   {
     "ability_key": "datasheet:turbo-engine",
-    "mechanic_digest": "eb4a787b3e16c9f663a5abda3d20332a",
+    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
+    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
+    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
+    "mechanic_digest": "af56740ee31221155f8a68433b1108b5",
     "name": "Turbo Engine",
     "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
+    "reviewed_at": "2026-09-15T04:35:16Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
     "summary": "This unit is eligible to declare a charge in a turn in which it Advanced or Fell Back."
   },
   {
@@ -1117,12 +1237,15 @@
   },
   {
     "ability_key": "datasheet:waaagh-banner",
-    "mechanic_digest": "b90bfdff56297deb4981284e03220bda",
+    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
+    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
+    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
+    "mechanic_digest": "d95f302138e8524e9b28cc5cfca17ff1",
     "name": "Waaagh! Banner",
     "review_state": "approved",
-    "reviewed_at": "2026-08-06T00:00:00Z",
-    "reviewed_by": "claude-opus-5-adversarial-reviewer",
-    "summary": "This unit has a 5+ invulnerable save, and +1 Toughness while the Waaagh! is active for it."
+    "reviewed_at": "2026-09-15T04:35:16Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "summary": "This unit has +1 to charge rolls."
   },
   {
     "ability_key": "datasheet:waaagh-effigy-aura",
@@ -1153,20 +1276,26 @@
   },
   {
     "ability_key": "datasheet:walking-bastion",
-    "mechanic_digest": "7c8842a00626dc7f9f3203f45d977ef7",
+    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
+    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
+    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
+    "mechanic_digest": "bb78010485fb3354de152970156a78ba",
     "name": "Walking Bastion",
     "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
+    "reviewed_at": "2026-09-15T04:35:16Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
     "summary": "This model does not suffer the usual penalty to ranged Hit rolls while enemy units are within Engagement Range of it."
   },
   {
     "ability_key": "datasheet:wall-of-dakka",
-    "mechanic_digest": "e9291c9e325b6804e4323bac6be7a0e7",
+    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
+    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
+    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
+    "mechanic_digest": "98e7f392ca097f3726c3574e526e5059",
     "name": "Wall of Dakka",
     "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
+    "reviewed_at": "2026-09-15T04:35:16Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
     "summary": "Ranged attacks from this model against a target within half range gain +1 to the Hit roll."
   },
   {
@@ -1180,20 +1309,26 @@
   },
   {
     "ability_key": "datasheet:workshop",
-    "mechanic_digest": "a795ddfb802415421560cb293793d89e",
+    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
+    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
+    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
+    "mechanic_digest": "ba885653297c0118032f0070c10b59d5",
     "name": "Workshop",
     "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
+    "reviewed_at": "2026-09-15T04:35:16Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
     "summary": "Parts of this fortification must be set up within 1\" of each other; at the end of your Movement phase, each friendly Orks Vehicle within 12\" can regain up to D3 lost wounds, once per model per turn."
   },
   {
     "ability_key": "faction:waaagh",
-    "mechanic_digest": "04b28e192aa30b7f1d0547c1e3a01fef",
+    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
+    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
+    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
+    "mechanic_digest": "0510a2797836e3c580097f0a2bb43d16",
     "name": "Waaagh!",
     "review_state": "approved",
-    "reviewed_at": "2026-08-06T00:00:00Z",
-    "reviewed_by": "claude-opus-5-adversarial-reviewer",
-    "summary": "Once per battle, at the start of your Command phase, call a Waaagh!: until your next Command phase, ORKS units with this ability can charge after Advancing, get +1 melee Strength and Attacks, and gain a 5+ invulnerable save."
+    "reviewed_at": "2026-09-15T04:35:16Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "summary": "Friendly ORKS units with this ability can re-roll Advance rolls, and can become riled up as stated in other rules. While a unit is riled up: it has 5+ InSv; its ranged attacks have [ASSAULT]; and when it is selected to make an Advance move, that Advance move does not prevent it from being eligible to declare a charge. War Cry (once per battle, per army): at the start of the Command phase, you can use this ability; if you do, friendly ORKS units with the Waaagh! ability are riled up until the end of the next turn."
   }
 ]

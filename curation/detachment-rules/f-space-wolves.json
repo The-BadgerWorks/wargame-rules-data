@@ -30,6 +30,16 @@
     "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
+    "summary_key": "detachment:d-bastion-task-force-6:interlocking-tactics",
+    "detachment_id": "d-bastion-task-force-6",
+    "name": "Interlocking Tactics",
+    "summary": "Adeptus Astartes Battleline units from your army are eligible to shoot and declare a charge in a turn in which they Advanced or Fell Back, and are eligible to start to perform an Action in such a turn. Each time an ADEPTUS ASTARTES BATTLELINE unit from your army is selected to attack, after resolving those attacks, select one enemy unit hit by one or more of those attacks; until the end of the turn that unit is auspex scanned. Each time an ADEPTUS ASTARTES model from your army makes an attack targeting an auspex scanned unit, re-roll a Hit roll of 1.",
+    "review_state": "approved",
+    "mechanic_digest": "b1e7170f33dcf52917fd2668ff89c407",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "reviewed_at": "2026-09-15T04:35:16Z"
+  },
+  {
     "summary_key": "detachment:d-ceramite-sentinels-6:adaptive-defence",
     "detachment_id": "d-ceramite-sentinels-6",
     "name": "Adaptive Defence",
@@ -68,6 +78,16 @@
     "mechanic_digest": "dd17f424a97d1bb0e2dbc0bde5757be8",
     "reviewed_by": "claude-opus-5-adversarial-reviewer",
     "reviewed_at": "2026-08-06T00:00:00Z"
+  },
+  {
+    "summary_key": "detachment:d-gladius-task-force-6:combat-doctrines",
+    "detachment_id": "d-gladius-task-force-6",
+    "name": "Combat Doctrines",
+    "summary": "At the start of your Command phase, you can select one of the Combat Doctrines. Until the start of your next Command phase, that Combat Doctrine is active and its effects apply to all ADEPTUS ASTARTES units from your army. You can only select each Combat Doctrine once per battle. Devastator Doctrine: this unit is eligible to shoot in a turn in which it Advanced. Tactical Doctrine: this unit is eligible to shoot and declare a charge in a turn in which it Fell Back. Assault Doctrine: this unit is eligible to declare a charge in a turn in which it Advanced.",
+    "review_state": "approved",
+    "mechanic_digest": "4f931c901f72ba0c611eb0c907397ead",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "reviewed_at": "2026-09-15T04:35:16Z"
   },
   {
     "summary_key": "detachment:d-headhunter-task-force-6:target-sighted",
@@ -158,6 +178,16 @@
     "mechanic_digest": "f63af44117822a544bec407531e4c1d4",
     "reviewed_by": "claude-opus-5-adversarial-reviewer",
     "reviewed_at": "2026-08-06T00:00:00Z"
+  },
+  {
+    "summary_key": "detachment:d-saga-of-the-great-wolf:restrictions",
+    "detachment_id": "d-saga-of-the-great-wolf",
+    "name": "Restrictions",
+    "summary": "Your army can include Space Wolves units, but it cannot include any ADEPTUS ASTARTES units drawn from any other Chapter.",
+    "review_state": "approved",
+    "mechanic_digest": "2beadd204b7c7d32eb96d00831c8fa17",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "reviewed_at": "2026-09-15T04:35:16Z"
   },
   {
     "summary_key": "detachment:d-saga-of-the-hunter:packs-quarry",

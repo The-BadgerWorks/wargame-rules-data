@@ -48,5 +48,35 @@
     "mechanic_digest": "832a1074e151c66925dff4e8b19f0965",
     "reviewed_by": "claude-opus-5-second-reviewer",
     "reviewed_at": "2026-08-06T00:00:00Z"
+  },
+  {
+    "summary_key": "detachment:d-purestrain-broodswarm:enemy-within",
+    "detachment_id": "d-purestrain-broodswarm",
+    "name": "Enemy Within",
+    "summary": "At the end of your opponent's Fight phase, friendly unengaged PURESTRAIN GENESTEALER units can be placed in strategic reserves. This detachment has the PURESTRAIN tag and cannot be taken with another PURESTRAIN detachment.",
+    "review_state": "approved",
+    "mechanic_digest": "5b0b4b2b60f5499d93ebf971d366a492",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "reviewed_at": "2026-09-15T04:35:16Z"
+  },
+  {
+    "summary_key": "detachment:d-xenocreed-congregation:unquestioning-fanaticism",
+    "detachment_id": "d-xenocreed-congregation",
+    "name": "Unquestioning Fanaticism",
+    "summary": "For each ACOLYTE HYBRIDS, HYBRID METAMORPHS and NEOPHYTE HYBRIDS unit from your army, while one or more CHARACTER models are leading that unit, you can re-roll Advance and Charge rolls made for it. If that CHARACTER model is a MAGUS, PRIMUS or ACOLYTE ICONWARD, that model has the Feel No Pain 3+ ability while leading that unit.",
+    "review_state": "approved",
+    "mechanic_digest": "92dd637646c195ec0aa64709b3edb289",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "reviewed_at": "2026-09-15T04:35:16Z"
+  },
+  {
+    "summary_key": "detachment:d-xenocult-masses:hordes-of-the-faithful",
+    "detachment_id": "d-xenocult-masses",
+    "name": "Hordes of the Faithful",
+    "summary": "In your Command phase, a friendly NEOPHYTE HYBRIDS unit that is within a terrain area heals 3 wounds. This detachment has the HOSTS tag and cannot be taken alongside another HOSTS detachment.",
+    "review_state": "approved",
+    "mechanic_digest": "5d22f2d9e272285c1081f112e0e2241c",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "reviewed_at": "2026-09-15T04:35:16Z"
   }
 ]

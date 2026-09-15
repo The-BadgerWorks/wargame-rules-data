@@ -50,6 +50,16 @@
     "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
+    "summary_key": "detachment:d-kroot-hunting-pack:keywords",
+    "detachment_id": "d-kroot-hunting-pack",
+    "name": "KEYWORDS",
+    "summary": "If this Detachment is selected, Kroot Carnivore units in your army have the Battleline keyword.",
+    "review_state": "approved",
+    "mechanic_digest": "4dd2c412bc68eff5151529b73d515d32",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "reviewed_at": "2026-09-15T04:35:16Z"
+  },
+  {
     "summary_key": "detachment:d-kroot-hunting-pack:skirmish-fighters",
     "detachment_id": "d-kroot-hunting-pack",
     "name": "Skirmish Fighters",

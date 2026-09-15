@@ -10,6 +10,16 @@
     "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
+    "summary_key": "detachment:d-blitz-brigade:unstoppable-momentum",
+    "detachment_id": "d-blitz-brigade",
+    "name": "Unstoppable Momentum",
+    "summary": "Friendly Wagon units can re-roll charge rolls. When a friendly WAGON unit is selected to make an advance move, that unit can change advance rolls to a 6.",
+    "review_state": "approved",
+    "mechanic_digest": "224aa290189f8b2939b522488b7c14e7",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "reviewed_at": "2026-09-15T04:35:16Z"
+  },
+  {
     "summary_key": "detachment:d-bully-boyz:da-boss-is-watchin",
     "detachment_id": "d-bully-boyz",
     "name": "Da Boss Is Watchin’",
@@ -18,6 +28,16 @@
     "mechanic_digest": "d2835998ef4b0a678bcfccbc50ae25a3",
     "reviewed_by": "claude-opus-5-adversarial-reviewer",
     "reviewed_at": "2026-08-06T00:00:00Z"
+  },
+  {
+    "summary_key": "detachment:d-bully-boyz:displays-of-savagery",
+    "detachment_id": "d-bully-boyz",
+    "name": "Displays of Savagery",
+    "summary": "Friendly Meganobz and Nobz units' melee attacks have [Sustained Hits 1].",
+    "review_state": "approved",
+    "mechanic_digest": "17a3a6c7f293b77ec6035c095c783fb9",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "reviewed_at": "2026-09-15T04:35:16Z"
   },
   {
     "summary_key": "detachment:d-da-big-hunt:da-hunt-is-on",
@@ -40,14 +60,14 @@
     "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
-    "summary_key": "detachment:d-freebooter-krew:here-be-loot",
-    "detachment_id": "d-freebooter-krew",
-    "name": "Here Be Loot",
-    "summary": "Each Command phase, mark one objective as your loot objective. Orks Infantry, Mounted, or Walker attacks gain Sustained Hits 1 when their unit or the target is within range of it.",
+    "summary_key": "detachment:d-green-tide:mob-handed-brutality",
+    "detachment_id": "d-green-tide",
+    "name": "Mob-handed Brutality",
+    "summary": "Friendly Boyz units' melee attacks have [Sustained Hits 1]. If a friendly Orks Infantry unit made a charge move this turn, that unit's melee attacks have [Lethal Hits: non-Monster/Vehicle].",
     "review_state": "approved",
-    "mechanic_digest": "d7a9171798ba78fe8013ca8bb514efe6",
-    "reviewed_by": "claude-opus-5-adversarial-reviewer",
-    "reviewed_at": "2026-08-06T00:00:00Z"
+    "mechanic_digest": "44b287a648420c28c7ccb9e22dc4fd94",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "reviewed_at": "2026-09-15T04:35:16Z"
   },
   {
     "summary_key": "detachment:d-kult-of-speed:adrenaline-junkies",
@@ -60,34 +80,14 @@
     "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
-    "summary_key": "detachment:d-more-dakka:dakka-dakka-dakka",
-    "detachment_id": "d-more-dakka",
-    "name": "Dakka! Dakka! Dakka!",
-    "summary": "Orks Infantry ranged attacks gain Assault; while your Waaagh! is active, they also gain Sustained Hits 1 in the Shooting phase.",
+    "summary_key": "detachment:d-taktikal-brigade:suspiciously-well-organised",
+    "detachment_id": "d-taktikal-brigade",
+    "name": "Suspiciously Well Organised",
+    "summary": "Friendly Stormboyz units have the BATTLELINE keyword. When a friendly Boyz, Kommandos or Stormboyz unit is selected to make a fall-back move, that fall-back move does not prevent that unit from being eligible to declare a charge.",
     "review_state": "approved",
-    "mechanic_digest": "13422392216d4c018418037ed122e1d8",
-    "reviewed_by": "claude-opus-5-adversarial-reviewer",
-    "reviewed_at": "2026-08-06T00:00:00Z"
-  },
-  {
-    "summary_key": "detachment:d-rollin-deff:thundering-wagons",
-    "detachment_id": "d-rollin-deff",
-    "name": "Thundering Wagons",
-    "summary": "Friendly Battlewagon, Hunta Rig, and Kill Rig units gain the Wagon keyword; Wagon units re-roll charge rolls and can treat Advance rolls as a 6. Exclusive Wagons-tagged detachment.",
-    "review_state": "approved",
-    "mechanic_digest": "4393643832a5674c0884a67fcba29cb0",
-    "reviewed_by": "claude-opus-5-adversarial-reviewer",
-    "reviewed_at": "2026-08-06T00:00:00Z"
-  },
-  {
-    "summary_key": "detachment:d-speedwaaagh:turbo-boostas",
-    "detachment_id": "d-speedwaaagh",
-    "name": "Turbo Boostas",
-    "summary": "A Speed Freeks or Trukk unit (non-Aircraft) can turbo-boost on an Advance instead of rolling: it moves a straight 24\" and its ranged weapons gain Assault for the turn, but it cannot charge that turn.",
-    "review_state": "approved",
-    "mechanic_digest": "63fb93e9873c62c2a587fb8b172a9d94",
-    "reviewed_by": "claude-opus-5-adversarial-reviewer",
-    "reviewed_at": "2026-08-06T00:00:00Z"
+    "mechanic_digest": "28211b333ecf1dbdde749acfbf7d6edf",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "reviewed_at": "2026-09-15T04:35:16Z"
   },
   {
     "summary_key": "detachment:d-war-horde:get-stuck-in",
