@@ -2,8 +2,9 @@
   "ability_keys": [
     "core:feel-no-pain-6",
     "core:leader",
-    "datasheet:beastboss",
-    "datasheet:beastly-rage",
+    "datasheet:dodge-dis",
+    "datasheet:keep-huntin-once-per-battle-round-per-army",
+    "faction:da-boss",
     "faction:waaagh"
   ],
   "composition": [
@@ -12,7 +13,7 @@
       "max_count": 1,
       "min_count": 1,
       "model_line": 1,
-      "model_name": "Beastboss"
+      "model_name": "Beastboss model"
     }
   ],
   "costs": [
@@ -20,9 +21,9 @@
       "copy_index_min": 1,
       "label": "1 model",
       "model_count": 1,
-      "points": 80,
+      "points": 85,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260818T033550Z-0c772378"
+      "source_acquisition_id": "mfm-20260916T021400Z-1b0a18bd"
     }
   ],
   "datasheet_id": "ds-beastboss",
@@ -33,18 +34,15 @@
       "id": "eq-beastboss-1",
       "items": [
         {
+          "count": 1,
           "item_index": 1,
-          "item_name": "shoota",
+          "item_name": "Shoota",
           "weapon_line": 1
         },
         {
+          "count": 1,
           "item_index": 2,
-          "item_name": "beastchoppa",
-          "weapon_line": 3
-        },
-        {
-          "item_index": 3,
-          "item_name": "Beast Snagga klaw",
+          "item_name": "Beast Snagga Klaw and Beastchoppa",
           "weapon_line": 2
         }
       ],
@@ -61,11 +59,6 @@
     {
       "is_faction_keyword": false,
       "keyword": "BEAST SNAGGA",
-      "keyword_class": "unit"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "BEASTBOSS",
       "keyword_class": "unit"
     },
     {
@@ -102,23 +95,23 @@
       "name": "Beastboss",
       "objective_control": 1,
       "save": "4+",
-      "toughness": 5,
+      "toughness": 6,
       "wounds": 6
     }
   ],
   "name": "BEASTBOSS",
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
-    "last_verified_points_digest": "sha256:1d28e8ecc53fabf8370677d1207b796a090869ddce53671a84a15b7879bb6f71",
-    "last_verified_version": "wh40k-11e-2026-08-4",
+    "last_verified_points_digest": "sha256:3468f846dcc66346762e7fae78871fcd836198f24209c8b99ddfcb5a3edc48ba",
+    "last_verified_version": "wh40k-11e-2026-09-1",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+    "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
+    "points_acquisition_id": "mfm-20260916T021400Z-1b0a18bd",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
@@ -126,44 +119,31 @@
   "weapons": [
     {
       "ability_keywords": [
-        "rapid fire 1"
+        "LETHAL HITS: non-MONSTER/VEHICLE",
+        "Rapid Fire 1"
       ],
       "armour_penetration": "0",
       "attacks": "2",
       "damage": "1",
-      "is_melee": true,
+      "is_melee": false,
       "line": 1,
       "name": "Shoota",
+      "range": "18\"",
       "skill": "4+",
       "strength": "4"
     },
     {
       "ability_keywords": [
-        "anti-monster 4+",
-        "anti-vehicle 4+"
+        "SUSTAINED HITS 2: MONSTER/VEHICLE"
       ],
       "armour_penetration": "-2",
-      "attacks": "4",
-      "damage": "2",
-      "is_melee": true,
-      "line": 2,
-      "name": "Beast Snagga klaw",
-      "skill": "3+",
-      "strength": "10"
-    },
-    {
-      "ability_keywords": [
-        "anti-monster 4+",
-        "anti-vehicle 4+"
-      ],
-      "armour_penetration": "-1",
       "attacks": "6",
       "damage": "2",
       "is_melee": true,
-      "line": 3,
-      "name": "Beastchoppa",
+      "line": 2,
+      "name": "Beast Snagga Klaw and Beastchoppa",
       "skill": "2+",
-      "strength": "6"
+      "strength": "12"
     }
   ]
 }

@@ -2,6 +2,7 @@
   "ability_keys": [
     "core:deep-strike",
     "core:feel-no-pain-6",
+    "datasheet:attached-unit",
     "datasheet:black-rage",
     "datasheet:savage-fury",
     "faction:oath-of-moment"
@@ -20,9 +21,9 @@
       "copy_index_min": 1,
       "label": "5 models",
       "model_count": 5,
-      "points": 120,
+      "points": 115,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260818T033550Z-0c772378"
+      "source_acquisition_id": "mfm-20260916T021400Z-1b0a18bd"
     },
     {
       "copy_index_min": 1,
@@ -30,15 +31,15 @@
       "model_count": 10,
       "points": 230,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260818T033550Z-0c772378"
+      "source_acquisition_id": "mfm-20260916T021400Z-1b0a18bd"
     },
     {
       "copy_index_min": 3,
       "label": "5 models",
       "model_count": 5,
-      "points": 135,
+      "points": 130,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260818T033550Z-0c772378"
+      "source_acquisition_id": "mfm-20260916T021400Z-1b0a18bd"
     },
     {
       "copy_index_min": 3,
@@ -46,7 +47,7 @@
       "model_count": 10,
       "points": 245,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260818T033550Z-0c772378"
+      "source_acquisition_id": "mfm-20260916T021400Z-1b0a18bd"
     }
   ],
   "datasheet_id": "ds-death-company-marines-with-jump-packs",
@@ -79,7 +80,8 @@
   "keywords": [
     {
       "is_faction_keyword": true,
-      "keyword": "ADEPTUS ASTARTES"
+      "keyword": "ADEPTUS ASTARTES",
+      "keyword_class": "faction"
     },
     {
       "is_faction_keyword": true,
@@ -642,16 +644,16 @@
   ],
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
-    "last_verified_points_digest": "sha256:6b3462f1c0529874ebf782cafd509237941fefc98d2df56f3153a119e7a7c4a3",
-    "last_verified_version": "wh40k-11e-2026-08-4",
+    "last_verified_points_digest": "sha256:7cb1bc26a7cf5b208e75d6bfb2ed245b2456980edc6e7090beebd4e225d2873b",
+    "last_verified_version": "wh40k-11e-2026-09-1",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+    "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
+    "points_acquisition_id": "mfm-20260916T021400Z-1b0a18bd",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
@@ -709,9 +711,10 @@
       "armour_penetration": "-2",
       "attacks": "1",
       "damage": "1",
-      "is_melee": true,
+      "is_melee": false,
       "line": 4,
       "name": "Plasma pistol – standard",
+      "range": "12\"",
       "skill": "3+",
       "strength": "7"
     },
@@ -723,9 +726,10 @@
       "armour_penetration": "-3",
       "attacks": "1",
       "damage": "2",
-      "is_melee": true,
+      "is_melee": false,
       "line": 5,
       "name": "Plasma pistol – supercharge",
+      "range": "12\"",
       "skill": "3+",
       "strength": "8"
     },

@@ -2,6 +2,7 @@
   "ability_keys": [
     "core:scouts-6",
     "datasheet:cherub",
+    "datasheet:holy-vanguard",
     "datasheet:righteous-awareness",
     "datasheet:simulacrum-imperialis",
     "faction:acts-of-faith"
@@ -27,7 +28,7 @@
       "model_count": 10,
       "points": 90,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260818T033550Z-0c772378"
+      "source_acquisition_id": "mfm-20260916T021400Z-1b0a18bd"
     },
     {
       "copy_index_min": 3,
@@ -35,7 +36,7 @@
       "model_count": 10,
       "points": 100,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260818T033550Z-0c772378"
+      "source_acquisition_id": "mfm-20260916T021400Z-1b0a18bd"
     }
   ],
   "datasheet_id": "ds-dominion-squad",
@@ -405,15 +406,15 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:b30816f088486980db0e0cc021fb209636ff59f90fd574714ba7eb92910c1f1e",
-    "last_verified_version": "wh40k-11e-2026-08-4",
+    "last_verified_version": "wh40k-11e-2026-09-1",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+    "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
+    "points_acquisition_id": "mfm-20260916T021400Z-1b0a18bd",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
@@ -565,9 +566,10 @@
       "armour_penetration": "-2",
       "attacks": "1",
       "damage": "1",
-      "is_melee": true,
+      "is_melee": false,
       "line": 10,
       "name": "Plasma pistol – standard",
+      "range": "12\"",
       "skill": "3+",
       "strength": "7"
     },
@@ -579,9 +581,10 @@
       "armour_penetration": "-3",
       "attacks": "1",
       "damage": "2",
-      "is_melee": true,
+      "is_melee": false,
       "line": 11,
       "name": "Plasma pistol – supercharge",
+      "range": "12\"",
       "skill": "3+",
       "strength": "8"
     },

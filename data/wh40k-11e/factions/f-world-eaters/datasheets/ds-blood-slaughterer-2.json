@@ -1,6 +1,7 @@
 {
   "ability_keys": [
     "core:deadly-demise-d3",
+    "datasheet:impaled",
     "datasheet:scuttling-gait",
     "faction:blessings-of-khorne"
   ],
@@ -20,7 +21,7 @@
       "model_count": 1,
       "points": 160,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0"
+      "source_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf"
     }
   ],
   "datasheet_id": "ds-blood-slaughterer-2",
@@ -33,12 +34,12 @@
         {
           "item_index": 1,
           "item_name": "impaler harpoon",
-          "weapon_line": 1
+          "weapon_line": 2
         },
         {
           "item_index": 2,
           "item_name": "slaughter blade",
-          "weapon_line": 2
+          "weapon_line": 1
         }
       ],
       "line": 1
@@ -132,7 +133,7 @@
           "item_index": 2,
           "item_name": "slaughter blade",
           "role": "replaced",
-          "weapon_line": 2
+          "weapon_line": 1
         }
       ],
       "name": "twin slaughter blade"
@@ -146,12 +147,12 @@
     }
   ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 5,
+    "consecutive_unverified_releases": 6,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+    "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
@@ -161,6 +162,16 @@
   "wargear_option_state": "extracted",
   "weapons": [
     {
+      "armour_penetration": "-3",
+      "attacks": "5",
+      "damage": "3",
+      "is_melee": true,
+      "line": 1,
+      "name": "Slaughter blade",
+      "skill": "3+",
+      "strength": "12"
+    },
+    {
       "ability_keywords": [
         "anti-monster 2+",
         "anti-vehicle 2+",
@@ -169,19 +180,10 @@
       "armour_penetration": "-2",
       "attacks": "1",
       "damage": "3",
-      "is_melee": true,
-      "line": 1,
-      "name": "Impaler harpoon",
-      "skill": "3+",
-      "strength": "12"
-    },
-    {
-      "armour_penetration": "-3",
-      "attacks": "5",
-      "damage": "3",
-      "is_melee": true,
+      "is_melee": false,
       "line": 2,
-      "name": "Slaughter blade",
+      "name": "Impaler harpoon",
+      "range": "12\"",
       "skill": "3+",
       "strength": "12"
     },

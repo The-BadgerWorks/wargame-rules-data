@@ -19,17 +19,17 @@
       "copy_index_min": 1,
       "label": "5 models",
       "model_count": 5,
-      "points": 100,
+      "points": 95,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260818T033550Z-0c772378"
+      "source_acquisition_id": "mfm-20260916T021400Z-1b0a18bd"
     },
     {
       "copy_index_min": 1,
       "label": "10 models",
       "model_count": 10,
-      "points": 200,
+      "points": 190,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260818T033550Z-0c772378"
+      "source_acquisition_id": "mfm-20260916T021400Z-1b0a18bd"
     }
   ],
   "datasheet_id": "ds-cthonian-beserks",
@@ -78,7 +78,7 @@
   ],
   "models": [
     {
-      "base_size": "(⌀28.5mm 50mm with mole grenade launcher )",
+      "base_size": "(⌀28.5mm)",
       "leadership": "7+",
       "line": 1,
       "movement": "6\"",
@@ -180,16 +180,16 @@
   ],
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
-    "last_verified_points_digest": "sha256:e48578cd34af0a27a60b812a0e4500a8e3aa359e155e92f3f3a1c0fb10004e39",
-    "last_verified_version": "wh40k-11e-2026-08-4",
+    "last_verified_points_digest": "sha256:c3e0f99106b656cbfb54a7c28442f68af00576a506ce38f671f55c4c344cc297",
+    "last_verified_version": "wh40k-11e-2026-09-1",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+    "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
+    "points_acquisition_id": "mfm-20260916T021400Z-1b0a18bd",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
@@ -203,9 +203,10 @@
       "armour_penetration": "-1",
       "attacks": "D6",
       "damage": "1",
-      "is_melee": true,
+      "is_melee": false,
       "line": 1,
       "name": "Mole grenade launcher",
+      "range": "18\"",
       "skill": "5+",
       "strength": "5"
     },

@@ -20,10 +20,9 @@
       "model_count": 1,
       "points": 480,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0"
+      "source_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf"
     }
   ],
-  "damaged_threshold": 8,
   "datasheet_id": "ds-fellblade",
   "default_equipment_state": "extracted",
   "equipment_groups": [
@@ -34,7 +33,7 @@
         {
           "item_index": 1,
           "item_name": "demolisher cannon",
-          "weapon_line": 2
+          "weapon_line": 15
         },
         {
           "item_index": 2,
@@ -48,12 +47,12 @@
         {
           "item_index": 4,
           "item_name": "twin heavy bolter",
-          "weapon_line": 13
+          "weapon_line": 9
         },
         {
           "item_index": 5,
           "item_name": "armoured tracks",
-          "weapon_line": 15
+          "weapon_line": 14
         }
       ],
       "line": 1
@@ -73,12 +72,88 @@
     },
     {
       "is_faction_keyword": false,
+      "keyword": "CHAOS",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHAOS",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHAOS",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHAOS",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHAOS",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "FELLBLADE",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "FELLBLADE",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "FELLBLADE",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "FELLBLADE",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "FELLBLADE",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
       "keyword": "FELLBLADE",
       "keyword_class": "unit"
     },
     {
       "is_faction_keyword": true,
-      "keyword": "HERETIC ASTARTES"
+      "keyword": "HERETIC ASTARTES",
+      "keyword_class": "faction"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "SMOKE",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "SMOKE",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "SMOKE",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "SMOKE",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "SMOKE",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
@@ -88,6 +163,56 @@
     {
       "is_faction_keyword": false,
       "keyword": "TITANIC",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "TITANIC",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "TITANIC",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "TITANIC",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "TITANIC",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "TITANIC",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "VEHICLE",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "VEHICLE",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "VEHICLE",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "VEHICLE",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "VEHICLE",
       "keyword_class": "unit"
     },
     {
@@ -155,7 +280,7 @@
     },
     {
       "count": 1,
-      "grants_weapon_line": 14,
+      "grants_weapon_line": 10,
       "group_id": "og-fellblade-2",
       "id": "oc-fellblade-2-1",
       "is_default": false,
@@ -166,7 +291,7 @@
           "item_index": 1,
           "item_name": "twin heavy flamer",
           "role": "granted",
-          "weapon_line": 14
+          "weapon_line": 10
         },
         {
           "item_index": 1,
@@ -178,7 +303,7 @@
     },
     {
       "count": 1,
-      "grants_weapon_line": 5,
+      "grants_weapon_line": 1,
       "group_id": "og-fellblade-3",
       "id": "oc-fellblade-3-1",
       "is_default": false,
@@ -189,14 +314,14 @@
           "item_index": 1,
           "item_name": "havoc launcher",
           "role": "granted",
-          "weapon_line": 5
+          "weapon_line": 1
         }
       ],
       "name": "havoc launcher"
     },
     {
       "count": 1,
-      "grants_weapon_line": 1,
+      "grants_weapon_line": 16,
       "group_id": "og-fellblade-4",
       "id": "oc-fellblade-4-1",
       "is_default": false,
@@ -207,14 +332,14 @@
           "item_index": 1,
           "item_name": "combi-weapon",
           "role": "granted",
-          "weapon_line": 1
+          "weapon_line": 16
         }
       ],
       "name": "combi-weapon"
     },
     {
       "count": 1,
-      "grants_weapon_line": 6,
+      "grants_weapon_line": 2,
       "group_id": "og-fellblade-4",
       "id": "oc-fellblade-4-2",
       "is_default": false,
@@ -225,14 +350,14 @@
           "item_index": 1,
           "item_name": "heavy bolter",
           "role": "granted",
-          "weapon_line": 6
+          "weapon_line": 2
         }
       ],
       "name": "heavy bolter"
     },
     {
       "count": 1,
-      "grants_weapon_line": 7,
+      "grants_weapon_line": 12,
       "group_id": "og-fellblade-4",
       "id": "oc-fellblade-4-3",
       "is_default": false,
@@ -243,14 +368,14 @@
           "item_index": 1,
           "item_name": "heavy flamer",
           "role": "granted",
-          "weapon_line": 7
+          "weapon_line": 12
         }
       ],
       "name": "heavy flamer"
     },
     {
       "count": 1,
-      "grants_weapon_line": 9,
+      "grants_weapon_line": 5,
       "group_id": "og-fellblade-4",
       "id": "oc-fellblade-4-4",
       "is_default": false,
@@ -261,14 +386,14 @@
           "item_index": 1,
           "item_name": "multi-melta",
           "role": "granted",
-          "weapon_line": 9
+          "weapon_line": 5
         }
       ],
       "name": "multi-melta"
     },
     {
       "count": 1,
-      "grants_weapon_line": 12,
+      "grants_weapon_line": 8,
       "group_id": "og-fellblade-4",
       "id": "oc-fellblade-4-5",
       "is_default": false,
@@ -279,7 +404,7 @@
           "item_index": 1,
           "item_name": "storm bolter",
           "role": "granted",
-          "weapon_line": 12
+          "weapon_line": 8
         }
       ],
       "name": "storm bolter"
@@ -308,12 +433,12 @@
     }
   ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 5,
+    "consecutive_unverified_releases": 6,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+    "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
@@ -324,33 +449,31 @@
   "weapons": [
     {
       "ability_keywords": [
-        "anti-infantry 4+",
-        "devastating wounds",
-        "rapid fire 1"
+        "blast"
       ],
       "armour_penetration": "0",
-      "attacks": "1",
+      "attacks": "D6",
       "damage": "1",
       "is_melee": false,
       "line": 1,
-      "name": "Combi-weapon",
-      "range": "24\"",
+      "name": "Havoc launcher",
+      "range": "48\"",
       "skill": "3+",
-      "strength": "4"
+      "strength": "5"
     },
     {
       "ability_keywords": [
-        "blast"
+        "sustained hits 1"
       ],
-      "armour_penetration": "-3",
-      "attacks": "D6+3",
-      "damage": "D6",
+      "armour_penetration": "-1",
+      "attacks": "3",
+      "damage": "2",
       "is_melee": false,
       "line": 2,
-      "name": "Demolisher cannon",
-      "range": "24\"",
+      "name": "Heavy bolter",
+      "range": "36\"",
       "skill": "3+",
-      "strength": "14"
+      "strength": "5"
     },
     {
       "armour_penetration": "-3",
@@ -379,70 +502,13 @@
     },
     {
       "ability_keywords": [
-        "blast"
-      ],
-      "armour_penetration": "0",
-      "attacks": "D6",
-      "damage": "1",
-      "is_melee": false,
-      "line": 5,
-      "name": "Havoc launcher",
-      "range": "48\"",
-      "skill": "3+",
-      "strength": "5"
-    },
-    {
-      "ability_keywords": [
-        "sustained hits 1"
-      ],
-      "armour_penetration": "-1",
-      "attacks": "3",
-      "damage": "2",
-      "is_melee": false,
-      "line": 6,
-      "name": "Heavy bolter",
-      "range": "36\"",
-      "skill": "3+",
-      "strength": "5"
-    },
-    {
-      "ability_keywords": [
-        "ignores cover",
-        "torrent"
-      ],
-      "armour_penetration": "-1",
-      "attacks": "D6",
-      "damage": "1",
-      "is_melee": false,
-      "line": 7,
-      "name": "Heavy flamer",
-      "range": "12\"",
-      "skill": "N/A",
-      "strength": "5"
-    },
-    {
-      "ability_keywords": [
-        "heavy"
-      ],
-      "armour_penetration": "-4",
-      "attacks": "3",
-      "damage": "D6+1",
-      "is_melee": false,
-      "line": 8,
-      "name": "Laser destroyer",
-      "range": "36\"",
-      "skill": "3+",
-      "strength": "14"
-    },
-    {
-      "ability_keywords": [
         "melta 2"
       ],
       "armour_penetration": "-4",
       "attacks": "2",
       "damage": "D6",
       "is_melee": false,
-      "line": 9,
+      "line": 5,
       "name": "Multi-melta",
       "range": "18\"",
       "skill": "3+",
@@ -457,7 +523,7 @@
       "attacks": "6",
       "damage": "2",
       "is_melee": false,
-      "line": 10,
+      "line": 6,
       "name": "Quad heavy bolter",
       "range": "36\"",
       "skill": "3+",
@@ -468,7 +534,7 @@
       "attacks": "4",
       "damage": "D6+1",
       "is_melee": false,
-      "line": 11,
+      "line": 7,
       "name": "Quad lascannon",
       "range": "48\"",
       "skill": "3+",
@@ -482,7 +548,7 @@
       "attacks": "2",
       "damage": "1",
       "is_melee": false,
-      "line": 12,
+      "line": 8,
       "name": "Storm bolter",
       "range": "24\"",
       "skill": "3+",
@@ -497,7 +563,7 @@
       "attacks": "3",
       "damage": "2",
       "is_melee": false,
-      "line": 13,
+      "line": 9,
       "name": "Twin heavy bolter",
       "range": "36\"",
       "skill": "3+",
@@ -512,21 +578,81 @@
       "armour_penetration": "-1",
       "attacks": "D6",
       "damage": "1",
-      "is_melee": true,
-      "line": 14,
+      "is_melee": false,
+      "line": 10,
       "name": "Twin heavy flamer",
+      "range": "12\"",
       "skill": "N/A",
       "strength": "5"
+    },
+    {
+      "ability_keywords": [
+        "ignores cover",
+        "torrent"
+      ],
+      "armour_penetration": "-1",
+      "attacks": "D6",
+      "damage": "1",
+      "is_melee": false,
+      "line": 12,
+      "name": "Heavy flamer",
+      "range": "12\"",
+      "skill": "N/A",
+      "strength": "5"
+    },
+    {
+      "ability_keywords": [
+        "heavy"
+      ],
+      "armour_penetration": "-4",
+      "attacks": "3",
+      "damage": "D6+1",
+      "is_melee": false,
+      "line": 13,
+      "name": "Laser destroyer",
+      "range": "36\"",
+      "skill": "3+",
+      "strength": "14"
     },
     {
       "armour_penetration": "0",
       "attacks": "6",
       "damage": "1",
       "is_melee": true,
-      "line": 15,
+      "line": 14,
       "name": "Armoured tracks",
       "skill": "4+",
       "strength": "8"
+    },
+    {
+      "ability_keywords": [
+        "blast"
+      ],
+      "armour_penetration": "-3",
+      "attacks": "D6+3",
+      "damage": "D6",
+      "is_melee": false,
+      "line": 15,
+      "name": "Demolisher cannon",
+      "range": "24\"",
+      "skill": "3+",
+      "strength": "14"
+    },
+    {
+      "ability_keywords": [
+        "anti-infantry 4+",
+        "devastating wounds",
+        "rapid fire 1"
+      ],
+      "armour_penetration": "0",
+      "attacks": "1",
+      "damage": "1",
+      "is_melee": false,
+      "line": 16,
+      "name": "Combi-weapon",
+      "range": "24\"",
+      "skill": "4+",
+      "strength": "4"
     }
   ]
 }

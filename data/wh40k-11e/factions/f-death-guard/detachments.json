@@ -5,14 +5,14 @@
       "detachment_points_cost": 2,
       "force_disposition": "TAKE AND HOLD",
       "is_legends": false,
-      "is_unique": true,
+      "is_unique": false,
       "name": "CHAMPIONS OF CONTAGION",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+        "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
         "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
+        "points_acquisition_id": "mfm-20260916T021400Z-1b0a18bd",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       },
@@ -28,14 +28,14 @@
       "detachment_points_cost": 1,
       "force_disposition": "RECONNAISSANCE",
       "is_legends": false,
-      "is_unique": true,
+      "is_unique": false,
       "name": "CONTAGION ENGINES",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+        "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
         "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
+        "points_acquisition_id": "mfm-20260916T021400Z-1b0a18bd",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       },
@@ -54,11 +54,11 @@
       "is_unique": false,
       "name": "DEATH LORD’S CHOSEN",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+        "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
         "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
+        "points_acquisition_id": "mfm-20260916T021400Z-1b0a18bd",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       },
@@ -74,31 +74,37 @@
       "detachment_points_cost": 1,
       "force_disposition": "RECONNAISSANCE",
       "is_legends": false,
-      "is_unique": true,
+      "is_unique": false,
       "name": "FLYBLOWN HOST",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+        "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
         "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
+        "points_acquisition_id": "mfm-20260916T021400Z-1b0a18bd",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
-      }
+      },
+      "rules": [
+        {
+          "name": "Verminous Haze",
+          "summary_key": "detachment:d-flyblown-host:verminous-haze"
+        }
+      ]
     },
     {
       "detachment_id": "d-mortarions-hammer",
       "detachment_points_cost": 2,
       "force_disposition": "PURGE THE FOE",
       "is_legends": false,
-      "is_unique": true,
+      "is_unique": false,
       "name": "MORTARION’S HAMMER",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+        "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
         "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
+        "points_acquisition_id": "mfm-20260916T021400Z-1b0a18bd",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       },
@@ -117,11 +123,11 @@
       "is_unique": false,
       "name": "PARAGONS OF PUTRESCENCE",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+        "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
         "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
+        "points_acquisition_id": "mfm-20260916T021400Z-1b0a18bd",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       },
@@ -140,11 +146,11 @@
       "is_unique": false,
       "name": "SHAMBLEROT VECTORIUM",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+        "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
         "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
+        "points_acquisition_id": "mfm-20260916T021400Z-1b0a18bd",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       },
@@ -163,11 +169,11 @@
       "is_unique": false,
       "name": "TALLYBAND SUMMONERS",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+        "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
         "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
+        "points_acquisition_id": "mfm-20260916T021400Z-1b0a18bd",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       },
@@ -186,11 +192,11 @@
       "is_unique": false,
       "name": "VIRULENT VECTORIUM",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+        "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
         "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
+        "points_acquisition_id": "mfm-20260916T021400Z-1b0a18bd",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       },

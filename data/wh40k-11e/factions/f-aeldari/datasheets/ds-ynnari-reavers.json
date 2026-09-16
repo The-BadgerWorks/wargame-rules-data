@@ -27,7 +27,7 @@
       "model_count": 3,
       "points": 65,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260818T033550Z-0c772378"
+      "source_acquisition_id": "mfm-20260916T021400Z-1b0a18bd"
     },
     {
       "copy_index_min": 1,
@@ -35,7 +35,7 @@
       "model_count": 6,
       "points": 120,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260818T033550Z-0c772378"
+      "source_acquisition_id": "mfm-20260916T021400Z-1b0a18bd"
     }
   ],
   "datasheet_id": "ds-ynnari-reavers",
@@ -93,7 +93,8 @@
     },
     {
       "is_faction_keyword": true,
-      "keyword": "YNNARI"
+      "keyword": "YNNARI",
+      "keyword_class": "chapter"
     }
   ],
   "models": [
@@ -231,15 +232,15 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:0e266c5d2f8cf90dd8c732a17de15828bb8f82e638dd68b228934d4cd93f16cd",
-    "last_verified_version": "wh40k-11e-2026-08-4",
+    "last_verified_version": "wh40k-11e-2026-09-1",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+    "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
+    "points_acquisition_id": "mfm-20260916T021400Z-1b0a18bd",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
@@ -298,9 +299,10 @@
       "armour_penetration": "0",
       "attacks": "2",
       "damage": "1",
-      "is_melee": true,
+      "is_melee": false,
       "line": 4,
       "name": "Splinter rifle",
+      "range": "24\"",
       "skill": "3+",
       "strength": "2"
     },

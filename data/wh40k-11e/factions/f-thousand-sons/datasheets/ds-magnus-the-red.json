@@ -2,7 +2,11 @@
   "ability_keys": [
     "core:deadly-demise-d6",
     "core:deep-strike",
+    "datasheet:impossible-form-psychic",
     "datasheet:lord-of-the-planet-of-the-sorcerers-psychic",
+    "datasheet:supreme-commander",
+    "datasheet:time-flux-aura-psychic",
+    "datasheet:treason-of-tzeentch-psychic",
     "datasheet:unearthly-power",
     "faction:cabal-of-sorcerers"
   ],
@@ -12,7 +16,7 @@
       "max_count": 1,
       "min_count": 1,
       "model_line": 1,
-      "model_name": "Magnus the Red"
+      "model_name": "Magnus the Red - EPIC HERO"
     }
   ],
   "costs": [
@@ -22,7 +26,7 @@
       "model_count": 1,
       "points": 455,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260818T033550Z-0c772378"
+      "source_acquisition_id": "mfm-20260916T021400Z-1b0a18bd"
     }
   ],
   "damaged_threshold": 6,
@@ -132,15 +136,15 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:8ed5e86d01a47abf230da5459ef0160c089e3d48cf2e61b2a7e6d10615ed89d5",
-    "last_verified_version": "wh40k-11e-2026-08-4",
+    "last_verified_version": "wh40k-11e-2026-09-1",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+    "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
+    "points_acquisition_id": "mfm-20260916T021400Z-1b0a18bd",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
@@ -170,9 +174,10 @@
       "armour_penetration": "-1",
       "attacks": "D6+3",
       "damage": "2",
-      "is_melee": true,
+      "is_melee": false,
       "line": 2,
       "name": "Tzeentch’s Firestorm",
+      "range": "24\"",
       "skill": "2+",
       "strength": "6"
     },

@@ -5,6 +5,7 @@
     "datasheet:gung-ho-command",
     "datasheet:master-vox",
     "datasheet:medi-pack",
+    "datasheet:orders",
     "datasheet:regimental-standard",
     "faction:voice-of-command"
   ],
@@ -30,7 +31,7 @@
       "model_count": 5,
       "points": 60,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260818T033550Z-0c772378"
+      "source_acquisition_id": "mfm-20260916T021400Z-1b0a18bd"
     }
   ],
   "datasheet_id": "ds-catachan-command-squad",
@@ -317,8 +318,8 @@
     },
     {
       "count": 1,
-      "group_id": "og-catachan-command-squad-4",
-      "id": "oc-catachan-command-squad-4-1",
+      "group_id": "og-catachan-command-squad-5",
+      "id": "oc-catachan-command-squad-5-1",
       "is_default": false,
       "is_no_change": false,
       "items": [
@@ -334,8 +335,8 @@
     {
       "count": 1,
       "grants_weapon_line": 1,
-      "group_id": "og-catachan-command-squad-5",
-      "id": "oc-catachan-command-squad-5-1",
+      "group_id": "og-catachan-command-squad-7",
+      "id": "oc-catachan-command-squad-7-1",
       "is_default": false,
       "is_no_change": false,
       "items": [
@@ -356,8 +357,8 @@
     },
     {
       "count": 1,
-      "group_id": "og-catachan-command-squad-5",
-      "id": "oc-catachan-command-squad-5-2",
+      "group_id": "og-catachan-command-squad-7",
+      "id": "oc-catachan-command-squad-7-2",
       "is_default": false,
       "is_no_change": false,
       "items": [
@@ -378,8 +379,8 @@
     {
       "count": 1,
       "grants_weapon_line": 2,
-      "group_id": "og-catachan-command-squad-6",
-      "id": "oc-catachan-command-squad-6-1",
+      "group_id": "og-catachan-command-squad-8",
+      "id": "oc-catachan-command-squad-8-1",
       "is_default": false,
       "is_no_change": false,
       "items": [
@@ -396,8 +397,8 @@
     {
       "count": 1,
       "grants_weapon_line": 15,
-      "group_id": "og-catachan-command-squad-6",
-      "id": "oc-catachan-command-squad-6-2",
+      "group_id": "og-catachan-command-squad-8",
+      "id": "oc-catachan-command-squad-8-2",
       "is_default": false,
       "is_no_change": false,
       "items": [
@@ -414,8 +415,8 @@
     {
       "count": 1,
       "grants_weapon_line": 17,
-      "group_id": "og-catachan-command-squad-6",
-      "id": "oc-catachan-command-squad-6-3",
+      "group_id": "og-catachan-command-squad-8",
+      "id": "oc-catachan-command-squad-8-3",
       "is_default": false,
       "is_no_change": false,
       "items": [
@@ -432,8 +433,8 @@
     {
       "count": 1,
       "grants_weapon_line": 18,
-      "group_id": "og-catachan-command-squad-6",
-      "id": "oc-catachan-command-squad-6-4",
+      "group_id": "og-catachan-command-squad-8",
+      "id": "oc-catachan-command-squad-8-4",
       "is_default": false,
       "is_no_change": false,
       "items": [
@@ -457,33 +458,33 @@
       "scope": "unit"
     },
     {
-      "id": "og-catachan-command-squad-4",
-      "line": 4,
-      "scope": "unit"
-    },
-    {
       "id": "og-catachan-command-squad-5",
       "line": 5,
       "scope": "unit"
     },
     {
-      "id": "og-catachan-command-squad-6",
-      "line": 6,
+      "id": "og-catachan-command-squad-7",
+      "line": 7,
+      "scope": "unit"
+    },
+    {
+      "id": "og-catachan-command-squad-8",
+      "line": 8,
       "scope": "unit"
     }
   ],
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:93772c302f00645972b62e3cf909776c83307da44fefcdf6d4cfb06816ef82d6",
-    "last_verified_version": "wh40k-11e-2026-08-4",
+    "last_verified_version": "wh40k-11e-2026-09-1",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+    "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
+    "points_acquisition_id": "mfm-20260916T021400Z-1b0a18bd",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
@@ -680,9 +681,10 @@
       "armour_penetration": "-2",
       "attacks": "1",
       "damage": "2",
-      "is_melee": true,
+      "is_melee": false,
       "line": 14,
       "name": "Sniper rifle",
+      "range": "36\"",
       "skill": "4+",
       "strength": "4"
     },

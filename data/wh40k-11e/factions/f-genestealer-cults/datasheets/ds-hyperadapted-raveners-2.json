@@ -28,9 +28,9 @@
       "copy_index_min": 1,
       "label": "5 models",
       "model_count": 5,
-      "points": 165,
+      "points": 175,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0"
+      "source_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf"
     }
   ],
   "datasheet_id": "ds-hyperadapted-raveners-2",
@@ -44,7 +44,7 @@
         {
           "item_index": 1,
           "item_name": "Prime claws and talons",
-          "weapon_line": 2
+          "weapon_line": 3
         }
       ],
       "line": 1,
@@ -69,6 +69,11 @@
       "keyword": "CHARACTER",
       "keyword_class": "unit",
       "model_scope": "RAVENER PRIME"
+    },
+    {
+      "is_faction_keyword": true,
+      "keyword": "GENESTEALER CULTS",
+      "keyword_class": "faction"
     },
     {
       "is_faction_keyword": false,
@@ -135,12 +140,12 @@
   ],
   "name": "Hyperadapted Raveners",
   "pricing_confidence": {
-    "consecutive_unverified_releases": 5,
+    "consecutive_unverified_releases": 6,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+    "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
@@ -158,26 +163,12 @@
       "armour_penetration": "-1",
       "attacks": "D6+3",
       "damage": "1",
-      "is_melee": true,
+      "is_melee": false,
       "line": 1,
       "name": "Venom bolt",
+      "range": "12\"",
       "skill": "N/A",
       "strength": "6"
-    },
-    {
-      "ability_keywords": [
-        "anti-monster 5+",
-        "anti-vehicle 5+",
-        "twin-linked"
-      ],
-      "armour_penetration": "-2",
-      "attacks": "6",
-      "damage": "2",
-      "is_melee": true,
-      "line": 2,
-      "name": "Prime claws and talons",
-      "skill": "3+",
-      "strength": "5"
     },
     {
       "ability_keywords": [
@@ -189,8 +180,23 @@
       "attacks": "3",
       "damage": "2",
       "is_melee": true,
-      "line": 3,
+      "line": 2,
       "name": "Ravener heavy claws and talons",
+      "skill": "3+",
+      "strength": "5"
+    },
+    {
+      "ability_keywords": [
+        "anti-monster 5+",
+        "anti-vehicle 5+",
+        "twin-linked"
+      ],
+      "armour_penetration": "-2",
+      "attacks": "6",
+      "damage": "2",
+      "is_melee": true,
+      "line": 3,
+      "name": "Prime claws and talons",
       "skill": "3+",
       "strength": "5"
     }

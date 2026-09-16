@@ -21,17 +21,17 @@
       "copy_index_min": 1,
       "label": "5 models",
       "model_count": 5,
-      "points": 60,
+      "points": 65,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0"
+      "source_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf"
     },
     {
       "copy_index_min": 1,
       "label": "10 models",
       "model_count": 10,
-      "points": 120,
+      "points": 125,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0"
+      "source_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf"
     }
   ],
   "datasheet_id": "ds-attilan-rough-riders-2",
@@ -44,12 +44,12 @@
         {
           "item_index": 1,
           "item_name": "lasgun",
-          "weapon_line": 1
+          "weapon_line": 3
         },
         {
           "item_index": 2,
           "item_name": "laspistol",
-          "weapon_line": 2
+          "weapon_line": 1
         },
         {
           "item_index": 3,
@@ -58,7 +58,7 @@
         {
           "item_index": 4,
           "item_name": "steed’s hooves",
-          "weapon_line": 7
+          "weapon_line": 6
         }
       ],
       "line": 1
@@ -80,6 +80,11 @@
       "is_faction_keyword": false,
       "keyword": "ATTILAN ROUGH RIDERS",
       "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": true,
+      "keyword": "GENESTEALER CULTS",
+      "keyword_class": "faction"
     },
     {
       "is_faction_keyword": false,
@@ -119,7 +124,7 @@
   "option_choices": [
     {
       "count": 1,
-      "grants_weapon_line": 3,
+      "grants_weapon_line": 2,
       "group_id": "og-attilan-rough-riders-2-1",
       "id": "oc-attilan-rough-riders-2-1-1",
       "is_default": false,
@@ -130,7 +135,7 @@
           "item_index": 1,
           "item_name": "goad lance",
           "role": "granted",
-          "weapon_line": 3
+          "weapon_line": 2
         },
         {
           "item_index": 1,
@@ -142,7 +147,7 @@
     },
     {
       "count": 1,
-      "grants_weapon_line": 6,
+      "grants_weapon_line": 7,
       "group_id": "og-attilan-rough-riders-2-2",
       "id": "oc-attilan-rough-riders-2-2-1",
       "is_default": false,
@@ -153,7 +158,7 @@
           "item_index": 1,
           "item_name": "power sabre",
           "role": "granted",
-          "weapon_line": 6
+          "weapon_line": 7
         }
       ],
       "name": "power sabre"
@@ -173,12 +178,12 @@
     }
   ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 5,
+    "consecutive_unverified_releases": 6,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+    "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
@@ -189,28 +194,15 @@
   "weapons": [
     {
       "ability_keywords": [
-        "rapid fire 1"
+        "pistol"
       ],
       "armour_penetration": "0",
       "attacks": "1",
       "damage": "1",
       "is_melee": false,
       "line": 1,
-      "name": "Lasgun",
-      "range": "24\"",
-      "skill": "4+",
-      "strength": "3"
-    },
-    {
-      "ability_keywords": [
-        "pistol"
-      ],
-      "armour_penetration": "0",
-      "attacks": "1",
-      "damage": "1",
-      "is_melee": true,
-      "line": 2,
       "name": "Laspistol",
+      "range": "12\"",
       "skill": "4+",
       "strength": "3"
     },
@@ -222,23 +214,24 @@
       "attacks": "2",
       "damage": "2",
       "is_melee": true,
-      "line": 3,
+      "line": 2,
       "name": "Goad lance",
       "skill": "3+",
       "strength": "6"
     },
     {
       "ability_keywords": [
-        "lance"
+        "rapid fire 1"
       ],
       "armour_penetration": "0",
-      "attacks": "D6",
+      "attacks": "1",
       "damage": "1",
-      "is_melee": true,
-      "line": 4,
-      "name": "Hunting lance – frag tip",
-      "skill": "3+",
-      "strength": "4"
+      "is_melee": false,
+      "line": 3,
+      "name": "Lasgun",
+      "range": "24\"",
+      "skill": "4+",
+      "strength": "3"
     },
     {
       "ability_keywords": [
@@ -248,18 +241,21 @@
       "attacks": "1",
       "damage": "D6",
       "is_melee": true,
-      "line": 5,
+      "line": 4,
       "name": "Hunting lance – melta tip",
       "skill": "3+",
       "strength": "9"
     },
     {
-      "armour_penetration": "-2",
-      "attacks": "4",
+      "ability_keywords": [
+        "lance"
+      ],
+      "armour_penetration": "0",
+      "attacks": "D6",
       "damage": "1",
       "is_melee": true,
-      "line": 6,
-      "name": "Power sabre",
+      "line": 5,
+      "name": "Hunting lance – frag tip",
       "skill": "3+",
       "strength": "4"
     },
@@ -271,9 +267,19 @@
       "attacks": "2",
       "damage": "1",
       "is_melee": true,
-      "line": 7,
+      "line": 6,
       "name": "Steed’s hooves",
       "skill": "4+",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "4",
+      "damage": "1",
+      "is_melee": true,
+      "line": 7,
+      "name": "Power sabre",
+      "skill": "3+",
       "strength": "4"
     }
   ]

@@ -20,10 +20,9 @@
       "model_count": 1,
       "points": 420,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0"
+      "source_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf"
     }
   ],
-  "damaged_threshold": 8,
   "datasheet_id": "ds-falchion-2",
   "default_equipment_state": "extracted",
   "equipment_groups": [
@@ -39,7 +38,7 @@
         {
           "item_index": 2,
           "item_name": "twin heavy bolter",
-          "weapon_line": 8
+          "weapon_line": 10
         },
         {
           "item_index": 3,
@@ -49,7 +48,7 @@
         {
           "item_index": 4,
           "item_name": "armoured tracks",
-          "weapon_line": 10
+          "weapon_line": 9
         }
       ],
       "line": 1
@@ -68,6 +67,31 @@
       "keyword_class": "unit"
     },
     {
+      "is_faction_keyword": false,
+      "keyword": "CHAOS",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHAOS",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHAOS",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHAOS",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHAOS",
+      "keyword_class": "unit"
+    },
+    {
       "is_faction_keyword": true,
       "keyword": "DEATH GUARD",
       "keyword_class": "faction"
@@ -75,6 +99,56 @@
     {
       "is_faction_keyword": false,
       "keyword": "FALCHION",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "FALCHION",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "FALCHION",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "FALCHION",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "FALCHION",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "FALCHION",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "NURGLE",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "NURGLE",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "NURGLE",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "NURGLE",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "NURGLE",
       "keyword_class": "unit"
     },
     {
@@ -89,7 +163,82 @@
     },
     {
       "is_faction_keyword": false,
+      "keyword": "SMOKE",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "SMOKE",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "SMOKE",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "SMOKE",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "SMOKE",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
       "keyword": "TITANIC",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "TITANIC",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "TITANIC",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "TITANIC",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "TITANIC",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "TITANIC",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "VEHICLE",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "VEHICLE",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "VEHICLE",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "VEHICLE",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "VEHICLE",
       "keyword_class": "unit"
     },
     {
@@ -136,7 +285,7 @@
     },
     {
       "count": 1,
-      "grants_weapon_line": 9,
+      "grants_weapon_line": 8,
       "group_id": "og-falchion-2-2",
       "id": "oc-falchion-2-2-1",
       "is_default": false,
@@ -147,7 +296,7 @@
           "item_index": 1,
           "item_name": "twin heavy flamer",
           "role": "granted",
-          "weapon_line": 9
+          "weapon_line": 8
         },
         {
           "item_index": 1,
@@ -159,7 +308,7 @@
     },
     {
       "count": 1,
-      "grants_weapon_line": 1,
+      "grants_weapon_line": 2,
       "group_id": "og-falchion-2-3",
       "id": "oc-falchion-2-3-1",
       "is_default": false,
@@ -170,14 +319,14 @@
           "item_index": 1,
           "item_name": "heavy bolter",
           "role": "granted",
-          "weapon_line": 1
+          "weapon_line": 2
         }
       ],
       "name": "heavy bolter"
     },
     {
       "count": 1,
-      "grants_weapon_line": 2,
+      "grants_weapon_line": 3,
       "group_id": "og-falchion-2-3",
       "id": "oc-falchion-2-3-2",
       "is_default": false,
@@ -188,14 +337,14 @@
           "item_index": 1,
           "item_name": "heavy flamer",
           "role": "granted",
-          "weapon_line": 2
+          "weapon_line": 3
         }
       ],
       "name": "heavy flamer"
     },
     {
       "count": 1,
-      "grants_weapon_line": 4,
+      "grants_weapon_line": 5,
       "group_id": "og-falchion-2-3",
       "id": "oc-falchion-2-3-3",
       "is_default": false,
@@ -206,14 +355,14 @@
           "item_index": 1,
           "item_name": "multi-melta",
           "role": "granted",
-          "weapon_line": 4
+          "weapon_line": 5
         }
       ],
       "name": "multi-melta"
     },
     {
       "count": 1,
-      "grants_weapon_line": 6,
+      "grants_weapon_line": 1,
       "group_id": "og-falchion-2-3",
       "id": "oc-falchion-2-3-4",
       "is_default": false,
@@ -224,7 +373,7 @@
           "item_index": 1,
           "item_name": "storm bolter",
           "role": "granted",
-          "weapon_line": 6
+          "weapon_line": 1
         }
       ],
       "name": "storm bolter"
@@ -248,12 +397,12 @@
     }
   ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 5,
+    "consecutive_unverified_releases": 6,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+    "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
@@ -264,13 +413,27 @@
   "weapons": [
     {
       "ability_keywords": [
+        "rapid fire 2"
+      ],
+      "armour_penetration": "0",
+      "attacks": "2",
+      "damage": "1",
+      "is_melee": false,
+      "line": 1,
+      "name": "Storm bolter",
+      "range": "24\"",
+      "skill": "3+",
+      "strength": "4"
+    },
+    {
+      "ability_keywords": [
         "sustained hits 1"
       ],
       "armour_penetration": "-1",
       "attacks": "3",
       "damage": "2",
       "is_melee": false,
-      "line": 1,
+      "line": 2,
       "name": "Heavy bolter",
       "range": "36\"",
       "skill": "3+",
@@ -285,7 +448,7 @@
       "attacks": "D6",
       "damage": "1",
       "is_melee": false,
-      "line": 2,
+      "line": 3,
       "name": "Heavy flamer",
       "range": "12\"",
       "skill": "N/A",
@@ -299,7 +462,7 @@
       "attacks": "3",
       "damage": "D6+1",
       "is_melee": false,
-      "line": 3,
+      "line": 4,
       "name": "Laser destroyer",
       "range": "36\"",
       "skill": "3+",
@@ -313,7 +476,7 @@
       "attacks": "2",
       "damage": "D6",
       "is_melee": false,
-      "line": 4,
+      "line": 5,
       "name": "Multi-melta",
       "range": "18\"",
       "skill": "3+",
@@ -324,25 +487,11 @@
       "attacks": "4",
       "damage": "D6+1",
       "is_melee": false,
-      "line": 5,
+      "line": 6,
       "name": "Quad lascannon",
       "range": "48\"",
       "skill": "3+",
       "strength": "12"
-    },
-    {
-      "ability_keywords": [
-        "rapid fire 2"
-      ],
-      "armour_penetration": "0",
-      "attacks": "2",
-      "damage": "1",
-      "is_melee": false,
-      "line": 6,
-      "name": "Storm bolter",
-      "range": "24\"",
-      "skill": "3+",
-      "strength": "4"
     },
     {
       "ability_keywords": [
@@ -361,21 +510,6 @@
     },
     {
       "ability_keywords": [
-        "sustained hits 1",
-        "twin-linked"
-      ],
-      "armour_penetration": "-1",
-      "attacks": "3",
-      "damage": "2",
-      "is_melee": false,
-      "line": 8,
-      "name": "Twin heavy bolter",
-      "range": "36\"",
-      "skill": "3+",
-      "strength": "5"
-    },
-    {
-      "ability_keywords": [
         "ignores cover",
         "torrent",
         "twin-linked"
@@ -383,9 +517,10 @@
       "armour_penetration": "-1",
       "attacks": "D6",
       "damage": "1",
-      "is_melee": true,
-      "line": 9,
+      "is_melee": false,
+      "line": 8,
       "name": "Twin heavy flamer",
+      "range": "12\"",
       "skill": "N/A",
       "strength": "5"
     },
@@ -394,10 +529,25 @@
       "attacks": "6",
       "damage": "1",
       "is_melee": true,
-      "line": 10,
+      "line": 9,
       "name": "Armoured tracks",
       "skill": "4+",
       "strength": "8"
+    },
+    {
+      "ability_keywords": [
+        "sustained hits 1",
+        "twin-linked"
+      ],
+      "armour_penetration": "-1",
+      "attacks": "3",
+      "damage": "2",
+      "is_melee": false,
+      "line": 10,
+      "name": "Twin heavy bolter",
+      "range": "36\"",
+      "skill": "3+",
+      "strength": "5"
     }
   ]
 }

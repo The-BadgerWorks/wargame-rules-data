@@ -25,17 +25,17 @@
       "copy_index_min": 1,
       "label": "5 models",
       "model_count": 5,
-      "points": 135,
+      "points": 145,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0"
+      "source_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf"
     },
     {
       "copy_index_min": 1,
       "label": "10 models",
       "model_count": 10,
-      "points": 270,
+      "points": 280,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0"
+      "source_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf"
     }
   ],
   "datasheet_id": "ds-chosen-2",
@@ -53,12 +53,12 @@
         {
           "item_index": 2,
           "item_name": "bolt pistol",
-          "weapon_line": 1
+          "weapon_line": 7
         },
         {
           "item_index": 3,
           "item_name": "accursed weapon",
-          "weapon_line": 6
+          "weapon_line": 4
         }
       ],
       "line": 1
@@ -78,6 +78,36 @@
     },
     {
       "is_faction_keyword": false,
+      "keyword": "CHAOS",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHAOS",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHAOS",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHOSEN",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHOSEN",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHOSEN",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
       "keyword": "CHOSEN",
       "keyword_class": "unit"
     },
@@ -87,8 +117,24 @@
       "keyword_class": "unit"
     },
     {
+      "is_faction_keyword": false,
+      "keyword": "GRENADES",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "GRENADES",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "GRENADES",
+      "keyword_class": "unit"
+    },
+    {
       "is_faction_keyword": true,
-      "keyword": "HERETIC ASTARTES"
+      "keyword": "HERETIC ASTARTES",
+      "keyword_class": "faction"
     },
     {
       "is_faction_keyword": false,
@@ -97,7 +143,57 @@
     },
     {
       "is_faction_keyword": false,
+      "keyword": "INFANTRY",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "INFANTRY",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "INFANTRY",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": true,
+      "keyword": "LEGIONES DAEMONICA",
+      "keyword_class": "faction"
+    },
+    {
+      "is_faction_keyword": false,
       "keyword": "SHADOW LEGION",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "SHADOW LEGION",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "SHADOW LEGION",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "SHADOW LEGION",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "UNDIVIDED",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "UNDIVIDED",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "UNDIVIDED",
       "keyword_class": "unit"
     },
     {
@@ -138,11 +234,11 @@
           "item_index": 1,
           "item_name": "bolt pistol",
           "role": "replaced",
-          "weapon_line": 1
+          "weapon_line": 7
         }
       ],
       "name": "plasma pistol",
-      "replaces_weapon_line": 1
+      "replaces_weapon_line": 7
     },
     {
       "count": 1,
@@ -171,7 +267,7 @@
     },
     {
       "count": 1,
-      "grants_weapon_line": 7,
+      "grants_weapon_line": 1,
       "group_id": "og-chosen-2-3",
       "id": "oc-chosen-2-3-1",
       "is_default": false,
@@ -182,7 +278,7 @@
           "item_index": 1,
           "item_name": "paired accursed weapons",
           "role": "granted",
-          "weapon_line": 7
+          "weapon_line": 1
         },
         {
           "item_index": 1,
@@ -193,7 +289,7 @@
           "item_index": 2,
           "item_name": "accursed weapon",
           "role": "replaced",
-          "weapon_line": 6
+          "weapon_line": 4
         }
       ],
       "name": "paired accursed weapons"
@@ -215,11 +311,11 @@
           "item_index": 1,
           "item_name": "accursed weapon",
           "role": "replaced",
-          "weapon_line": 6
+          "weapon_line": 4
         }
       ],
       "name": "power fist. That model’s boltgun cannot be replaced",
-      "replaces_weapon_line": 6
+      "replaces_weapon_line": 4
     },
     {
       "count": 1,
@@ -272,12 +368,12 @@
     }
   ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 5,
+    "consecutive_unverified_releases": 6,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+    "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
@@ -288,17 +384,16 @@
   "weapons": [
     {
       "ability_keywords": [
-        "pistol"
+        "twin-linked"
       ],
-      "armour_penetration": "0",
-      "attacks": "1",
+      "armour_penetration": "-2",
+      "attacks": "5",
       "damage": "1",
-      "is_melee": false,
+      "is_melee": true,
       "line": 1,
-      "name": "Bolt pistol",
-      "range": "12\"",
+      "name": "Paired accursed weapons",
       "skill": "3+",
-      "strength": "4"
+      "strength": "5"
     },
     {
       "armour_penetration": "0",
@@ -328,17 +423,14 @@
       "strength": "4"
     },
     {
-      "ability_keywords": [
-        "pistol"
-      ],
       "armour_penetration": "-2",
-      "attacks": "1",
+      "attacks": "4",
       "damage": "1",
       "is_melee": true,
       "line": 4,
-      "name": "Plasma pistol – standard",
+      "name": "Accursed weapon",
       "skill": "3+",
-      "strength": "7"
+      "strength": "5"
     },
     {
       "ability_keywords": [
@@ -348,34 +440,40 @@
       "armour_penetration": "-3",
       "attacks": "1",
       "damage": "2",
-      "is_melee": true,
+      "is_melee": false,
       "line": 5,
       "name": "Plasma pistol – supercharge",
+      "range": "12\"",
       "skill": "3+",
       "strength": "8"
     },
     {
+      "ability_keywords": [
+        "pistol"
+      ],
       "armour_penetration": "-2",
-      "attacks": "4",
+      "attacks": "1",
       "damage": "1",
-      "is_melee": true,
+      "is_melee": false,
       "line": 6,
-      "name": "Accursed weapon",
+      "name": "Plasma pistol – standard",
+      "range": "12\"",
       "skill": "3+",
-      "strength": "5"
+      "strength": "7"
     },
     {
       "ability_keywords": [
-        "twin-linked"
+        "pistol"
       ],
-      "armour_penetration": "-2",
-      "attacks": "5",
+      "armour_penetration": "0",
+      "attacks": "1",
       "damage": "1",
-      "is_melee": true,
+      "is_melee": false,
       "line": 7,
-      "name": "Paired accursed weapons",
+      "name": "Bolt pistol",
+      "range": "12\"",
       "skill": "3+",
-      "strength": "5"
+      "strength": "4"
     },
     {
       "armour_penetration": "-2",

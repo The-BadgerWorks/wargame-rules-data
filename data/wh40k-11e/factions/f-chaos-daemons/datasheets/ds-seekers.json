@@ -27,9 +27,9 @@
       "copy_index_min": 1,
       "label": "5 models",
       "model_count": 5,
-      "points": 80,
+      "points": 85,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260818T033550Z-0c772378"
+      "source_acquisition_id": "mfm-20260916T021400Z-1b0a18bd"
     },
     {
       "copy_index_min": 1,
@@ -37,7 +37,7 @@
       "model_count": 10,
       "points": 155,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260818T033550Z-0c772378"
+      "source_acquisition_id": "mfm-20260916T021400Z-1b0a18bd"
     }
   ],
   "datasheet_id": "ds-seekers",
@@ -80,7 +80,8 @@
     },
     {
       "is_faction_keyword": true,
-      "keyword": "LEGIONES DAEMONICA"
+      "keyword": "LEGIONES DAEMONICA",
+      "keyword_class": "faction"
     },
     {
       "is_faction_keyword": false,
@@ -166,16 +167,16 @@
   ],
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
-    "last_verified_points_digest": "sha256:a5283e0302b8896d30f041b818cdb52556d1858b5ebb5cfa0cdcc951c950d7b4",
-    "last_verified_version": "wh40k-11e-2026-08-4",
+    "last_verified_points_digest": "sha256:ccc5e5d075abf8090145e646e618e76534b5635d65dc46037b1869d6276977fa",
+    "last_verified_version": "wh40k-11e-2026-09-1",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+    "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
+    "points_acquisition_id": "mfm-20260916T021400Z-1b0a18bd",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },

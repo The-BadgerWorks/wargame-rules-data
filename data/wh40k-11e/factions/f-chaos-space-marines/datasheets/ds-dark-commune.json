@@ -40,7 +40,7 @@
       "model_count": 5,
       "points": 90,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260818T033550Z-0c772378"
+      "source_acquisition_id": "mfm-20260916T021400Z-1b0a18bd"
     },
     {
       "copy_index_min": 3,
@@ -48,7 +48,7 @@
       "model_count": 5,
       "points": 100,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260818T033550Z-0c772378"
+      "source_acquisition_id": "mfm-20260916T021400Z-1b0a18bd"
     }
   ],
   "datasheet_id": "ds-dark-commune",
@@ -173,7 +173,8 @@
     },
     {
       "is_faction_keyword": true,
-      "keyword": "HERETIC ASTARTES"
+      "keyword": "HERETIC ASTARTES",
+      "keyword_class": "faction"
     },
     {
       "is_faction_keyword": false,
@@ -191,8 +192,8 @@
   "leader_pairs": [
     "ds-accursed-cultists",
     "ds-cultist-mob",
-    "ds-cultist-mob-with-firearms-3",
-    "ds-negavolt-cultists-3"
+    "ds-cultist-mob-with-firearms-2",
+    "ds-negavolt-cultists-2"
   ],
   "models": [
     {
@@ -222,15 +223,15 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:c2f313568643c48d517806b5fbbad206859470593a2aede8a2fd94f0f81412c2",
-    "last_verified_version": "wh40k-11e-2026-08-4",
+    "last_verified_version": "wh40k-11e-2026-09-1",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+    "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
+    "points_acquisition_id": "mfm-20260916T021400Z-1b0a18bd",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
@@ -257,9 +258,10 @@
       "armour_penetration": "-1",
       "attacks": "3",
       "damage": "2",
-      "is_melee": true,
+      "is_melee": false,
       "line": 2,
       "name": "Warp Curse – witchfire",
+      "range": "18\"",
       "skill": "3+",
       "strength": "4"
     },
@@ -272,9 +274,10 @@
       "armour_penetration": "-1",
       "attacks": "3",
       "damage": "2",
-      "is_melee": true,
+      "is_melee": false,
       "line": 3,
       "name": "Warp Curse – focused witchfire",
+      "range": "18\"",
       "skill": "3+",
       "strength": "5"
     },

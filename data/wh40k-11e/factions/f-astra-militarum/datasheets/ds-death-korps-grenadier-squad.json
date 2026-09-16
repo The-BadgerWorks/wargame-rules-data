@@ -1,6 +1,7 @@
 {
   "ability_keys": [
-    "datasheet:primed-and-ready",
+    "datasheet:grenadier-squad",
+    "datasheet:grenadiers",
     "datasheet:vox-caster"
   ],
   "costs": [
@@ -10,7 +11,7 @@
       "model_count": 10,
       "points": 110,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0"
+      "source_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf"
     }
   ],
   "datasheet_id": "ds-death-korps-grenadier-squad",
@@ -48,6 +49,11 @@
     },
     {
       "is_faction_keyword": false,
+      "keyword": "KRIEG",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
       "keyword": "PLATOON",
       "keyword_class": "unit"
     },
@@ -64,7 +70,7 @@
       "line": 1,
       "movement": "6\"",
       "name": "GRENADIER",
-      "objective_control": 2,
+      "objective_control": 1,
       "save": "4+",
       "toughness": 3,
       "wounds": 1
@@ -75,7 +81,7 @@
       "line": 2,
       "movement": "6\"",
       "name": "HEAVY WEAPONS TEAM",
-      "objective_control": 1,
+      "objective_control": 2,
       "save": "4+",
       "toughness": 3,
       "wounds": 2
@@ -241,12 +247,12 @@
     }
   ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 5,
+    "consecutive_unverified_releases": 6,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+    "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
@@ -404,9 +410,10 @@
       "armour_penetration": "-2",
       "attacks": "1",
       "damage": "2",
-      "is_melee": true,
+      "is_melee": false,
       "line": 11,
       "name": "Sniper rifle",
+      "range": "36\"",
       "skill": "3+",
       "strength": "4"
     },

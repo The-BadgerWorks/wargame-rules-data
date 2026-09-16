@@ -19,10 +19,9 @@
       "model_count": 1,
       "points": 320,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0"
+      "source_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf"
     }
   ],
-  "damaged_threshold": 6,
   "datasheet_id": "ds-typhon-4",
   "default_equipment_state": "extracted",
   "equipment_groups": [
@@ -33,7 +32,7 @@
         {
           "item_index": 1,
           "item_name": "dreadhammer siege cannon",
-          "weapon_line": 1
+          "weapon_line": 3
         },
         {
           "item_index": 2,
@@ -58,6 +57,46 @@
     },
     {
       "is_faction_keyword": false,
+      "keyword": "CHAOS",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHAOS",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHAOS",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHAOS",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "SMOKE",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "SMOKE",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "SMOKE",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "SMOKE",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
       "keyword": "SMOKE",
       "keyword_class": "unit"
     },
@@ -73,7 +112,67 @@
     },
     {
       "is_faction_keyword": false,
+      "keyword": "TYPHON",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "TYPHON",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "TYPHON",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "TYPHON",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
       "keyword": "TZEENTCH",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "TZEENTCH",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "TZEENTCH",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "TZEENTCH",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "TZEENTCH",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "VEHICLE",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "VEHICLE",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "VEHICLE",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "VEHICLE",
       "keyword_class": "unit"
     },
     {
@@ -131,7 +230,7 @@
     },
     {
       "count": 1,
-      "grants_weapon_line": 2,
+      "grants_weapon_line": 4,
       "group_id": "og-typhon-4-2",
       "id": "oc-typhon-4-2-1",
       "is_default": false,
@@ -142,14 +241,14 @@
           "item_index": 1,
           "item_name": "heavy bolter",
           "role": "granted",
-          "weapon_line": 2
+          "weapon_line": 4
         }
       ],
       "name": "heavy bolter"
     },
     {
       "count": 1,
-      "grants_weapon_line": 3,
+      "grants_weapon_line": 5,
       "group_id": "og-typhon-4-2",
       "id": "oc-typhon-4-2-2",
       "is_default": false,
@@ -160,14 +259,14 @@
           "item_index": 1,
           "item_name": "heavy flamer",
           "role": "granted",
-          "weapon_line": 3
+          "weapon_line": 5
         }
       ],
       "name": "heavy flamer"
     },
     {
       "count": 1,
-      "grants_weapon_line": 5,
+      "grants_weapon_line": 6,
       "group_id": "og-typhon-4-2",
       "id": "oc-typhon-4-2-3",
       "is_default": false,
@@ -178,14 +277,14 @@
           "item_index": 1,
           "item_name": "multi-melta",
           "role": "granted",
-          "weapon_line": 5
+          "weapon_line": 6
         }
       ],
       "name": "multi-melta"
     },
     {
       "count": 1,
-      "grants_weapon_line": 6,
+      "grants_weapon_line": 1,
       "group_id": "og-typhon-4-2",
       "id": "oc-typhon-4-2-4",
       "is_default": false,
@@ -196,7 +295,7 @@
           "item_index": 1,
           "item_name": "storm bolter",
           "role": "granted",
-          "weapon_line": 6
+          "weapon_line": 1
         }
       ],
       "name": "storm bolter"
@@ -215,12 +314,12 @@
     }
   ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 5,
+    "consecutive_unverified_releases": 6,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+    "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
@@ -231,13 +330,38 @@
   "weapons": [
     {
       "ability_keywords": [
+        "rapid fire 2"
+      ],
+      "armour_penetration": "0",
+      "attacks": "2",
+      "damage": "1",
+      "is_melee": false,
+      "line": 1,
+      "name": "Storm bolter",
+      "range": "24\"",
+      "skill": "3+",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "-3",
+      "attacks": "1",
+      "damage": "D6+1",
+      "is_melee": false,
+      "line": 2,
+      "name": "Lascannon",
+      "range": "48\"",
+      "skill": "3+",
+      "strength": "12"
+    },
+    {
+      "ability_keywords": [
         "blast"
       ],
       "armour_penetration": "-3",
       "attacks": "D6+6",
       "damage": "D6",
       "is_melee": false,
-      "line": 1,
+      "line": 3,
       "name": "Dreadhammer siege cannon",
       "range": "24\"",
       "skill": "3+",
@@ -251,7 +375,7 @@
       "attacks": "3",
       "damage": "2",
       "is_melee": false,
-      "line": 2,
+      "line": 4,
       "name": "Heavy bolter",
       "range": "36\"",
       "skill": "3+",
@@ -266,22 +390,11 @@
       "attacks": "D6",
       "damage": "1",
       "is_melee": false,
-      "line": 3,
+      "line": 5,
       "name": "Heavy flamer",
       "range": "12\"",
       "skill": "N/A",
       "strength": "5"
-    },
-    {
-      "armour_penetration": "-3",
-      "attacks": "1",
-      "damage": "D6+1",
-      "is_melee": false,
-      "line": 4,
-      "name": "Lascannon",
-      "range": "48\"",
-      "skill": "3+",
-      "strength": "12"
     },
     {
       "ability_keywords": [
@@ -291,24 +404,11 @@
       "attacks": "2",
       "damage": "D6",
       "is_melee": false,
-      "line": 5,
+      "line": 6,
       "name": "Multi-melta",
       "range": "18\"",
       "skill": "3+",
       "strength": "9"
-    },
-    {
-      "ability_keywords": [
-        "rapid fire 2"
-      ],
-      "armour_penetration": "0",
-      "attacks": "2",
-      "damage": "1",
-      "is_melee": true,
-      "line": 6,
-      "name": "Storm bolter",
-      "skill": "3+",
-      "strength": "4"
     },
     {
       "armour_penetration": "0",

@@ -1,7 +1,8 @@
 {
   "ability_keys": [
     "core:deadly-demise-d6-2",
-    "datasheet:close-range-devastation"
+    "datasheet:close-range-devastation",
+    "datasheet:one-shot"
   ],
   "composition": [
     {
@@ -19,10 +20,9 @@
       "model_count": 1,
       "points": 415,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0"
+      "source_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf"
     }
   ],
-  "damaged_threshold": 8,
   "datasheet_id": "ds-stormblade-2",
   "default_equipment_state": "extracted",
   "equipment_groups": [
@@ -70,6 +70,11 @@
       "is_faction_keyword": false,
       "keyword": "FRAME",
       "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": true,
+      "keyword": "GENESTEALER CULTS",
+      "keyword_class": "faction"
     },
     {
       "is_faction_keyword": false,
@@ -255,12 +260,12 @@
     }
   ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 5,
+    "consecutive_unverified_releases": 6,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+    "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
@@ -324,17 +329,18 @@
     },
     {
       "ability_keywords": [
-        "blast"
+        "sustained hits 1",
+        "twin-linked"
       ],
-      "armour_penetration": "-2",
-      "attacks": "D6+3",
-      "damage": "3",
+      "armour_penetration": "-1",
+      "attacks": "3",
+      "damage": "2",
       "is_melee": false,
       "line": 5,
-      "name": "Stormblade plasma blastgun – standard",
-      "range": "48\"",
+      "name": "Twin heavy bolter",
+      "range": "36\"",
       "skill": "4+",
-      "strength": "9"
+      "strength": "5"
     },
     {
       "ability_keywords": [
@@ -353,18 +359,17 @@
     },
     {
       "ability_keywords": [
-        "sustained hits 1",
-        "twin-linked"
+        "blast"
       ],
-      "armour_penetration": "-1",
-      "attacks": "3",
-      "damage": "2",
+      "armour_penetration": "-2",
+      "attacks": "D6+3",
+      "damage": "3",
       "is_melee": false,
       "line": 7,
-      "name": "Twin heavy bolter",
-      "range": "36\"",
+      "name": "Stormblade plasma blastgun – standard",
+      "range": "48\"",
       "skill": "4+",
-      "strength": "5"
+      "strength": "9"
     },
     {
       "ability_keywords": [
@@ -375,9 +380,10 @@
       "armour_penetration": "-1",
       "attacks": "D6",
       "damage": "1",
-      "is_melee": true,
+      "is_melee": false,
       "line": 8,
       "name": "Twin heavy flamer",
+      "range": "12\"",
       "skill": "N/A",
       "strength": "5"
     },

@@ -20,10 +20,9 @@
       "model_count": 1,
       "points": 140,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0"
+      "source_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf"
     }
   ],
-  "damaged_threshold": 5,
   "datasheet_id": "ds-trygon-2",
   "default_equipment_state": "extracted",
   "equipment_groups": [
@@ -53,8 +52,53 @@
   "is_legends": false,
   "keywords": [
     {
+      "is_faction_keyword": true,
+      "keyword": "GENESTEALER CULTS",
+      "keyword_class": "faction"
+    },
+    {
       "is_faction_keyword": false,
       "keyword": "GREAT DEVOURER",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "GREAT DEVOURER",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "GREAT DEVOURER",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "GREAT DEVOURER",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "GREAT DEVOURER",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "MONSTER",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "MONSTER",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "MONSTER",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "MONSTER",
       "keyword_class": "unit"
     },
     {
@@ -68,9 +112,49 @@
       "keyword_class": "unit"
     },
     {
+      "is_faction_keyword": false,
+      "keyword": "TRYGON",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "TRYGON",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "TRYGON",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "TRYGON",
+      "keyword_class": "unit"
+    },
+    {
       "is_faction_keyword": true,
       "keyword": "TYRANIDS",
       "keyword_class": "faction"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "VANGUARD INVADER",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "VANGUARD INVADER",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "VANGUARD INVADER",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "VANGUARD INVADER",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
@@ -93,12 +177,12 @@
   ],
   "name": "Trygon",
   "pricing_confidence": {
-    "consecutive_unverified_releases": 5,
+    "consecutive_unverified_releases": 6,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+    "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
@@ -114,9 +198,10 @@
       "armour_penetration": "0",
       "attacks": "6",
       "damage": "1",
-      "is_melee": true,
+      "is_melee": false,
       "line": 1,
       "name": "Bio-electric pulse",
+      "range": "12\"",
       "skill": "3+",
       "strength": "5"
     },

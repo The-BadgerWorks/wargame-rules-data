@@ -4,7 +4,7 @@
     "core:firing-deck-11",
     "datasheet:fortification",
     "datasheet:ramshackle-cover",
-    "datasheet:shoutin-pole-aura",
+    "datasheet:raucous-occupants",
     "faction:waaagh"
   ],
   "composition": [
@@ -13,7 +13,7 @@
       "max_count": 1,
       "min_count": 1,
       "model_line": 1,
-      "model_name": "Big’ed Bossbunka"
+      "model_name": "Big’ed Bossbunka model"
     }
   ],
   "costs": [
@@ -23,7 +23,7 @@
       "model_count": 1,
       "points": 135,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260818T033550Z-0c772378"
+      "source_acquisition_id": "mfm-20260916T021400Z-1b0a18bd"
     }
   ],
   "datasheet_id": "ds-biged-bossbunka",
@@ -34,11 +34,13 @@
       "id": "eq-biged-bossbunka-1",
       "items": [
         {
+          "count": 1,
           "item_index": 1,
-          "item_name": "big shoota",
+          "item_name": "Big Shoota",
           "weapon_line": 1
         },
         {
+          "count": 1,
           "item_index": 2,
           "item_name": "Gaze of Gork"
         }
@@ -55,12 +57,12 @@
   "keywords": [
     {
       "is_faction_keyword": false,
-      "keyword": "BIG’ED BOSSBUNKA",
+      "keyword": "FORTIFICATION",
       "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "FORTIFICATION",
+      "keyword": "FRAME",
       "keyword_class": "unit"
     },
     {
@@ -85,7 +87,7 @@
       "leadership": "7+",
       "line": 1,
       "movement": "-",
-      "name": "Big’ed Bossbunka",
+      "name": "Big 'Ed Bossbunka",
       "objective_control": 0,
       "save": "3+",
       "toughness": 10,
@@ -102,11 +104,11 @@
       "items": [
         {
           "item_index": 1,
-          "item_name": "up to 3 additional big shootas",
+          "item_name": "up to 3 Big Shootas",
           "role": "granted"
         }
       ],
-      "name": "up to 3 additional big shootas"
+      "name": "up to 3 Big Shootas"
     }
   ],
   "option_groups": [
@@ -119,15 +121,15 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:f9fc68dbe65275e1c366933bf4c3b1832af6b9d618acb3c5c31438b99396e565",
-    "last_verified_version": "wh40k-11e-2026-08-4",
+    "last_verified_version": "wh40k-11e-2026-09-1",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+    "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
+    "points_acquisition_id": "mfm-20260916T021400Z-1b0a18bd",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
@@ -135,43 +137,40 @@
   "weapons": [
     {
       "ability_keywords": [
-        "rapid fire 2"
+        "LETHAL HITS: non-MONSTER/VEHICLE",
+        "Rapid Fire 2"
       ],
       "armour_penetration": "0",
       "attacks": "3",
       "damage": "1",
       "is_melee": false,
       "line": 1,
-      "name": "Big shoota",
+      "name": "Big Shoota",
       "range": "36\"",
       "skill": "5+",
       "strength": "5"
     },
     {
       "ability_keywords": [
-        "blast",
-        "sustained hits d3"
+        "BLAST 1"
       ],
       "armour_penetration": "0",
-      "attacks": "D6",
+      "attacks": "3",
       "damage": "1",
       "is_melee": false,
       "line": 2,
-      "name": "Gaze of Gork – glare",
+      "name": "Gaze of Gork - Glare",
       "range": "24\"",
       "skill": "5+",
       "strength": "5"
     },
     {
-      "ability_keywords": [
-        "sustained hits D3"
-      ],
-      "armour_penetration": "-4",
+      "armour_penetration": "-3",
       "attacks": "1",
       "damage": "3",
       "is_melee": false,
       "line": 3,
-      "name": "Gaze of Gork – squint",
+      "name": "Gaze of Gork - Squint",
       "range": "18\"",
       "skill": "5+",
       "strength": "12"

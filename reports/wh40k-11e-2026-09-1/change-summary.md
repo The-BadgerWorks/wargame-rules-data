@@ -1,0 +1,1137 @@
+# Change summary
+
+Compared against **wh40k-11e-2026-08-4**.
+
+## Added datasheets
+
+- ds-ciaphas-cain
+- ds-gunwagon
+- ds-nazdreg
+- ds-rukkatrukk-squigbuggies
+- ds-runtherd
+- ds-wartrakks
+
+## Removed datasheets
+
+- ds-attack-fighta
+- ds-big-gunz
+- ds-big-mek-on-warbike
+- ds-big-mek-with-kustom-force-field
+- ds-boomdakka-snazzwagon
+- ds-chinork-warkopta
+- ds-da-red-gobbo
+- ds-deff-rolla-battle-fortress
+- ds-deffkoptas-with-big-shootas
+- ds-fighta-bommer
+- ds-grot-bomm-launcha
+- ds-kannonwagon
+- ds-kill-krusha
+- ds-kustom-boosta-blasta
+- ds-mega-dread
+- ds-megatrakk-scrapjet
+- ds-meka-dread
+- ds-nobz-on-warbikes
+- ds-painboy-on-warbike
+- ds-rukkatrukk-squigbuggy
+- ds-shokkjump-dragsta
+- ds-skorchas
+- ds-squiggoth
+- ds-ufthak-blackhawk
+- ds-wartrakk
+- ds-wurrboy
+
+## Renamed datasheets
+
+- `ds-ancient-on-bike`: Ancient On Bike → Ancient on Bike
+- `ds-apothecary-on-bike`: Apothecary On Bike → Apothecary on Bike
+- `ds-assault-squad-with-jump-packs`: Assault Squad With Jump Packs → Assault Squad with Jump Packs
+- `ds-burna-boyz`: BURNA BOYZ → Burna Boyz
+- `ds-captain-on-bike`: Captain On Bike → Captain on Bike
+- `ds-company-champion-on-bike`: Company Champion On Bike → Company Champion on Bike
+- `ds-librarian-on-bike`: Librarian On Bike → Librarian on Bike
+- `ds-librarian-with-jump-pack`: Librarian With Jump Pack → Librarian with Jump Pack
+- `ds-lootas`: LOOTAS → Lootas
+- `ds-techmarine-on-bike`: Techmarine On Bike → Techmarine on Bike
+- `ds-warboss-on-warbike`: Warboss On Warbike → Warboss on Warbike
+- `ds-warbuggies`: Warbuggies → WARBUGGIES
+
+## Unit point costs
+
+- `ds-accursed-cultists-2` copy 1+, 8 models: 90 → 110
+- `ds-accursed-cultists-2` copy 1+, 16 models: 195 → 215
+- `ds-accursed-cultists-3` copy 1+, 8 models: 90 → 110
+- `ds-accursed-cultists-3` copy 1+, 16 models: 195 → 215
+- `ds-allarus-custodians` copy 1+, 5 models: 275 → 280
+- `ds-allarus-custodians` copy 1+, 6 models: 330 → 340
+- `ds-allarus-custodians` copy 3+, 2 models: absent → 140
+- `ds-allarus-custodians` copy 3+, 3 models: absent → 195
+- `ds-allarus-custodians` copy 3+, 5 models: absent → 310
+- `ds-allarus-custodians` copy 3+, 6 models: absent → 370
+- `ds-attilan-rough-riders-2` copy 1+, 5 models: 60 → 65
+- `ds-attilan-rough-riders-2` copy 1+, 10 models: 120 → 125
+- `ds-baneblade-2` copy 1+, 1 models: 415 → 450
+- `ds-banehammer-2` copy 1+, 1 models: 385 → 420
+- `ds-banesword-2` copy 1+, 1 models: 415 → 450
+- `ds-bannernob` copy 1+, 1 models: 50 → 35
+- `ds-basilisk-2` copy 1+, 1 models: 115 → 135
+- `ds-battlewagon` copy 1+, 1 models: 145 → 150
+- `ds-battlewagon` copy 3+, 1 models: absent → 160
+- `ds-beast-snagga-boyz` copy 1+, 10 models: 90 → 85
+- `ds-beast-snagga-boyz` copy 4+, 10 models: absent → 95
+- `ds-beast-snagga-boyz` copy 4+, 20 models: absent → 180
+- `ds-beastboss` copy 1+, 1 models: 80 → 85
+- `ds-beastboss-on-squigosaur` copy 1+, 1 models: 95 → 140
+- `ds-beastboss-on-squigosaur` copy 3+, 1 models: absent → 155
+- `ds-beasts-of-nurgle` copy 1+, 1 models: 75 → 80
+- `ds-beasts-of-nurgle` copy 1+, 2 models: 140 → 150
+- `ds-big-mek` copy 1+, 1 models: 70 → 85
+- `ds-big-mek` copy 3+, 1 models: absent → 95
+- `ds-big-mek-dakkarig` copy 1+, 1 models: 115 → 135
+- `ds-big-mek-dakkarig` copy 3+, 1 models: absent → 145
+- `ds-big-mek-in-mega-armour` copy 1+, 1 models: 80 → 90
+- `ds-big-mek-with-shokk-attack-gun` copy 1+, 1 models: 70 → 95
+- `ds-big-mek-with-shokk-attack-gun` copy 2+, 1 models: 80 → 105
+- `ds-bigboss` copy 1+, 1 models: 55 → 50
+- `ds-blightlord-terminators` copy 1+, 5 models: 185 → 180
+- `ds-blightlord-terminators` copy 1+, 10 models: 370 → 360
+- `ds-blitza-bommer` copy 1+, 1 models: 105 → 115
+- `ds-bloodcrushers` copy 1+, 6 models: 190 → 200
+- `ds-bloodcrushers` copy 3+, 3 models: 115 → 135
+- `ds-bloodcrushers` copy 3+, 6 models: 210 → 240
+- `ds-boss-snikrot` copy 1+, 1 models: 75 → 80
+- `ds-boyz` copy 1+, 10 models: 75 → 90
+- `ds-boyz` copy 1+, 20 models: 160 → 180
+- `ds-boyz` copy 4+, 10 models: 85 → 100
+- `ds-boyz` copy 4+, 20 models: 170 → 190
+- `ds-breaka-boyz` copy 1+, 6 models: 125 → 135
+- `ds-breaka-boyz` copy 3+, 6 models: 135 → 145
+- `ds-brokhyr-thunderkyn` copy 1+, 6 models: 160 → 170
+- `ds-brokhyr-thunderkyn` copy 3+, 6 models: 170 → 180
+- `ds-burna-bommer` copy 1+, 1 models: 115 → 125
+- `ds-cadian-shock-troops` copy 1+, 10 models: 75 → 70
+- `ds-cadian-shock-troops-2` copy 1+, 10 models: 75 → 70
+- `ds-catachan-heavy-weapons-squad` copy 1+, 3 models: 65 → 70
+- `ds-catachan-heavy-weapons-squad-2` copy 1+, 3 models: 65 → 70
+- `ds-catachan-jungle-fighters` copy 1+, 10 models: 75 → 70
+- `ds-catachan-jungle-fighters` copy 1+, 20 models: 145 → 135
+- `ds-catachan-jungle-fighters-2` copy 1+, 10 models: 75 → 70
+- `ds-catachan-jungle-fighters-2` copy 1+, 20 models: 145 → 135
+- `ds-centaur-rsv-2` copy 1+, 1 models: 65 → 75
+- `ds-centurion-devastator-squad-4` copy 1+, 6 models: 350 → 365
+- `ds-centurion-devastator-squad-5` copy 1+, 6 models: 350 → 365
+- `ds-chaos-cerastus-knight-atrapos` copy 1+, 1 models: 395 → 385
+- `ds-chaos-cerastus-knight-lancer` copy 1+, 1 models: 395 → 385
+- `ds-chimera-2` copy 1+, 1 models: 75 → 85
+- `ds-chosen-2` copy 1+, 5 models: 135 → 145
+- `ds-chosen-2` copy 1+, 10 models: 270 → 280
+- `ds-contorted-epitome` copy 1+, 1 models: 100 → 115
+- `ds-contorted-epitome` copy 3+, 1 models: absent → 125
+- `ds-crisis-starscythe-battlesuits` copy 1+, 3 models: 90 → 100
+- `ds-crisis-starscythe-battlesuits` copy 3+, 3 models: 100 → 110
+- `ds-cthonian-beserks` copy 1+, 5 models: 100 → 95
+- `ds-cthonian-beserks` copy 1+, 10 models: 200 → 190
+- `ds-cthonian-earthshakers` copy 1+, 2 models: 110 → 100
+- `ds-cultist-firebrand-2` copy 1+, 1 models: 45 → 50
+- `ds-cultist-firebrand-3` copy 1+, 1 models: 45 → 50
+- `ds-cyclops-demolition-vehicle-2` copy 1+, 1 models: 40 → 45
+- `ds-daemonettes` copy 1+, 10 models: 90 → 100
+- `ds-daemonettes-2` copy 1+, 10 models: 90 → 100
+- `ds-dark-commune-2` copy 1+, 5 models: 90 → 100
+- `ds-dark-commune-3` copy 1+, 5 models: 90 → 100
+- `ds-dark-reapers` copy 1+, 5 models: 100 → 95
+- `ds-dark-reapers` copy 1+, 10 models: 210 → 200
+- `ds-death-company-marines-with-jump-packs` copy 1+, 5 models: 120 → 115
+- `ds-death-company-marines-with-jump-packs` copy 3+, 5 models: 135 → 130
+- `ds-death-korps-of-krieg` copy 1+, 10 models: 75 → 70
+- `ds-death-korps-of-krieg` copy 1+, 20 models: 145 → 135
+- `ds-death-korps-of-krieg-2` copy 1+, 10 models: 75 → 70
+- `ds-death-korps-of-krieg-2` copy 1+, 20 models: 145 → 135
+- `ds-deathstrike-2` copy 1+, 1 models: 125 → 135
+- `ds-deff-dread` copy 1+, 1 models: 110 → 130
+- `ds-deff-dread` copy 3+, 1 models: 120 → 140
+- `ds-deffkilla-wartrike` copy 1+, 1 models: 70 → 80
+- `ds-deffkoptas` copy 1+, 3 models: 75 → 80
+- `ds-deffkoptas` copy 1+, 6 models: 140 → 160
+- `ds-deffkoptas` copy 3+, 3 models: absent → 90
+- `ds-deffkoptas` copy 3+, 6 models: absent → 170
+- `ds-defiler` copy 2+, 1 models: 340 → 350
+- `ds-defiler-2` copy 2+, 1 models: 340 → 350
+- `ds-defiler-3` copy 2+, 1 models: 340 → 350
+- `ds-defiler-4` copy 2+, 1 models: 340 → 350
+- `ds-dire-avengers` copy 1+, 5 models: 75 → 70
+- `ds-dire-avengers` copy 1+, 10 models: 150 → 140
+- `ds-doomhammer-2` copy 1+, 1 models: 380 → 410
+- `ds-eldrad-ulthran` copy 1+, 1 models: 130 → 120
+- `ds-exalted-sorcerer` copy 1+, 1 models: 90 → 95
+- `ds-exocrine` copy 1+, 1 models: 140 → 135
+- `ds-exocrine` copy 3+, 1 models: 150 → 145
+- `ds-fiends` copy 1+, 6 models: 180 → 190
+- `ds-fiends` copy 3+, 3 models: absent → 105
+- `ds-fiends` copy 3+, 6 models: absent → 205
+- `ds-fiends-2` copy 1+, 6 models: 180 → 190
+- `ds-flash-gitz` copy 1+, 5 models: 75 → 105
+- `ds-flash-gitz` copy 1+, 10 models: 150 → 210
+- `ds-flash-gitz` copy 3+, 5 models: 85 → 135
+- `ds-flash-gitz` copy 3+, 10 models: 160 → 240
+- `ds-foul-blightspawn` copy 1+, 1 models: 65 → 60
+- `ds-gargantuan-squiggoth` copy 1+, 1 models: 440 → 500
+- `ds-gargantuan-squiggoth` copy 2+, 1 models: 490 → 550
+- `ds-ghazghkull-thraka` copy 1+, 1 models: absent → 300
+- `ds-ghazghkull-thraka` copy 1+, 2 models: 235 → absent
+- `ds-gorkanaut` copy 1+, 1 models: 255 → 325
+- `ds-gorkanaut` copy 3+, 1 models: 275 → 355
+- `ds-gretchin` copy 1+, 11 models: 45 → absent
+- `ds-gretchin` copy 1+, 21 models: 85 → absent
+- `ds-gretchin` copy 1+, 22 models: 90 → absent
+- `ds-havocs-2` copy 1+, 5 models: 125 → 135
+- `ds-hearthkyn-warriors` copy 1+, 10 models: 100 → 90
+- `ds-hellhammer-2` copy 1+, 1 models: 385 → 415
+- `ds-hellhound-2` copy 1+, 1 models: 125 → 135
+- `ds-hunta-rig` copy 1+, 1 models: 125 → 165
+- `ds-hunta-rig` copy 3+, 1 models: absent → 175
+- `ds-hyperadapted-raveners-2` copy 1+, 5 models: 165 → 175
+- `ds-infernal-master` copy 1+, 1 models: 95 → 100
+- `ds-ironkin-steeljacks-with-heavy-volkanite-disintegrators` copy 1+, 6 models: 160 → 170
+- `ds-ironkin-steeljacks-with-heavy-volkanite-disintegrators` copy 3+, 6 models: 170 → 180
+- `ds-ironkin-steeljacks-with-melee-weapons` copy 1+, 3 models: 80 → 75
+- `ds-ironkin-steeljacks-with-melee-weapons` copy 1+, 6 models: 160 → 150
+- `ds-ironkin-steeljacks-with-melee-weapons` copy 3+, 3 models: 90 → 85
+- `ds-ironkin-steeljacks-with-melee-weapons` copy 3+, 6 models: 170 → 160
+- `ds-kapricus-defenders` copy 1+, 1 models: 65 → 70
+- `ds-kapricus-defenders` copy 1+, 2 models: 130 → 140
+- `ds-kapricus-defenders` copy 3+, 1 models: absent → 80
+- `ds-kapricus-defenders` copy 3+, 2 models: absent → 150
+- `ds-kasrkin-2` copy 1+, 10 models: 105 → 120
+- `ds-kastelan-robots` copy 1+, 2 models: 160 → 150
+- `ds-kastelan-robots` copy 1+, 4 models: 320 → 300
+- `ds-kastelan-robots` copy 2+, 4 models: 340 → 330
+- `ds-keeper-of-secrets` copy 1+, 1 models: 255 → 265
+- `ds-keeper-of-secrets` copy 3+, 1 models: 270 → 280
+- `ds-keeper-of-secrets-2` copy 1+, 1 models: 255 → 265
+- `ds-keeper-of-secrets-2` copy 3+, 1 models: 270 → 280
+- `ds-khorne-berzerkers` copy 1+, 10 models: 170 → 160
+- `ds-khorne-berzerkers` copy 1+, 20 models: 330 → 320
+- `ds-khorne-berzerkers-2` copy 1+, 10 models: 170 → 160
+- `ds-khorne-berzerkers-2` copy 1+, 20 models: 330 → 320
+- `ds-kill-rig` copy 1+, 1 models: 145 → 175
+- `ds-kill-rig` copy 3+, 1 models: absent → 185
+- `ds-kill-tank` copy 1+, 1 models: 295 → 300
+- `ds-killa-kans` copy 1+, 3 models: 120 → 130
+- `ds-killa-kans` copy 1+, 6 models: 240 → 260
+- `ds-killa-kans` copy 3+, 3 models: 130 → 150
+- `ds-killa-kans` copy 3+, 6 models: 250 → 280
+- `ds-knight-despoiler` copy 1+, 1 models: 380 → 360
+- `ds-knight-despoiler` copy 2+, 1 models: 400 → 390
+- `ds-knight-rampager` copy 1+, 1 models: 365 → 355
+- `ds-knight-rampager` copy 3+, 1 models: 380 → 370
+- `ds-kommandos` copy 1+, 10 models: 120 → 125
+- `ds-krieg-combat-engineers-2` copy 1+, 5 models: 65 → 75
+- `ds-krieg-combat-engineers-2` copy 1+, 10 models: 95 → 105
+- `ds-krieg-heavy-weapons-squad` copy 1+, 4 models: 60 → 70
+- `ds-krieg-heavy-weapons-squad-2` copy 1+, 4 models: 60 → 70
+- `ds-land-raider-redeemer` copy 1+, 1 models: 250 → 260
+- `ds-land-raider-redeemer` copy 3+, 1 models: 270 → 280
+- `ds-land-raider-redeemer-2` copy 1+, 1 models: 250 → 260
+- `ds-land-raider-redeemer-2` copy 3+, 1 models: 270 → 280
+- `ds-land-raider-redeemer-3` copy 1+, 1 models: 250 → 260
+- `ds-land-raider-redeemer-3` copy 3+, 1 models: 270 → 280
+- `ds-land-raider-redeemer-4` copy 1+, 1 models: 250 → 260
+- `ds-land-raider-redeemer-4` copy 3+, 1 models: 270 → 280
+- `ds-land-raider-redeemer-5` copy 1+, 1 models: 250 → 260
+- `ds-land-raider-redeemer-5` copy 3+, 1 models: 270 → 280
+- `ds-land-raider-redeemer-6` copy 1+, 1 models: 250 → 260
+- `ds-land-raider-redeemer-6` copy 3+, 1 models: 270 → 280
+- `ds-land-raider-redeemer-7` copy 1+, 1 models: 250 → 260
+- `ds-land-raider-redeemer-7` copy 3+, 1 models: 270 → 280
+- `ds-leman-russ-battle-tank` copy 1+, 1 models: 185 → 160
+- `ds-leman-russ-battle-tank` copy 3+, 1 models: 195 → 175
+- `ds-leman-russ-battle-tank-2` copy 1+, 1 models: 185 → 175
+- `ds-leman-russ-commander` copy 1+, 1 models: 215 → 195
+- `ds-leman-russ-commander` copy 3+, 1 models: 230 → 210
+- `ds-leman-russ-commander-2` copy 1+, 1 models: 215 → 210
+- `ds-leman-russ-demolisher` copy 1+, 1 models: 180 → 160
+- `ds-leman-russ-demolisher` copy 3+, 1 models: 190 → 175
+- `ds-leman-russ-demolisher-2` copy 1+, 1 models: 180 → 175
+- `ds-leman-russ-eradicator` copy 1+, 1 models: 170 → 145
+- `ds-leman-russ-eradicator` copy 3+, 1 models: 180 → 160
+- `ds-leman-russ-eradicator-2` copy 1+, 1 models: 170 → 160
+- `ds-leman-russ-executioner` copy 1+, 1 models: 170 → 145
+- `ds-leman-russ-executioner` copy 3+, 1 models: 180 → 160
+- `ds-leman-russ-executioner-2` copy 1+, 1 models: 170 → 160
+- `ds-leman-russ-exterminator` copy 1+, 1 models: 180 → 160
+- `ds-leman-russ-exterminator` copy 3+, 1 models: 190 → 175
+- `ds-leman-russ-exterminator-2` copy 1+, 1 models: 180 → 175
+- `ds-leman-russ-punisher` copy 1+, 1 models: 150 → 130
+- `ds-leman-russ-punisher` copy 3+, 1 models: 160 → 145
+- `ds-leman-russ-punisher-2` copy 1+, 1 models: 150 → 145
+- `ds-leman-russ-vanquisher` copy 1+, 1 models: 150 → 130
+- `ds-leman-russ-vanquisher` copy 3+, 1 models: 160 → 145
+- `ds-leman-russ-vanquisher-2` copy 1+, 1 models: 150 → 145
+- `ds-librarian-in-terminator-armour` copy 1+, 1 models: 75 → 85
+- `ds-librarian-in-terminator-armour-2` copy 1+, 1 models: 75 → 85
+- `ds-librarian-in-terminator-armour-3` copy 1+, 1 models: 75 → 85
+- `ds-librarian-in-terminator-armour-4` copy 1+, 1 models: 75 → 85
+- `ds-librarian-in-terminator-armour-5` copy 1+, 1 models: 75 → 85
+- `ds-lokhust-destroyers` copy 1+, 6 models: 170 → 175
+- `ds-lokhust-destroyers` copy 3+, 1 models: 50 → 70
+- `ds-lokhust-destroyers` copy 3+, 2 models: 65 → 85
+- `ds-lokhust-destroyers` copy 3+, 3 models: 90 → 110
+- `ds-lokhust-destroyers` copy 3+, 6 models: 180 → 205
+- `ds-lokhust-heavy-destroyers` copy 1+, 3 models: 160 → 165
+- `ds-lokhust-heavy-destroyers` copy 3+, 3 models: 170 → 175
+- `ds-lokhust-lord` copy 1+, 1 models: 70 → 80
+- `ds-lootas` copy 1+, 5 models: 50 → 60
+- `ds-lootas` copy 1+, 10 models: 100 → 110
+- `ds-lootas` copy 3+, 5 models: 60 → absent
+- `ds-lootas` copy 3+, 10 models: 110 → absent
+- `ds-lord-exultant` copy 1+, 1 models: 80 → 90
+- `ds-lord-exultant` copy 3+, 1 models: 90 → 100
+- `ds-maleceptor` copy 1+, 1 models: 190 → 180
+- `ds-maleceptor` copy 3+, 1 models: 200 → 190
+- `ds-manticore-2` copy 1+, 1 models: 150 → 170
+- `ds-meganobz` copy 1+, 2 models: 60 → 75
+- `ds-meganobz` copy 1+, 3 models: 90 → 110
+- `ds-meganobz` copy 1+, 5 models: 150 → 185
+- `ds-meganobz` copy 1+, 6 models: 180 → 225
+- `ds-meganobz` copy 3+, 2 models: 80 → 115
+- `ds-meganobz` copy 3+, 3 models: 110 → 150
+- `ds-meganobz` copy 3+, 5 models: 170 → 225
+- `ds-meganobz` copy 3+, 6 models: 200 → 265
+- `ds-mek` copy 1+, 1 models: 55 → 45
+- `ds-mek-gunz` copy 1+, 1 models: 45 → 55
+- `ds-mek-gunz` copy 1+, 2 models: 90 → 110
+- `ds-mek-gunz` copy 1+, 3 models: 135 → 165
+- `ds-mek-gunz` copy 3+, 1 models: 55 → 65
+- `ds-mek-gunz` copy 3+, 2 models: 100 → 120
+- `ds-mek-gunz` copy 3+, 3 models: 145 → 175
+- `ds-morkanaut` copy 1+, 1 models: 270 → 345
+- `ds-morkanaut` copy 3+, 1 models: 290 → 375
+- `ds-mortarion` copy 1+, 1 models: 390 → 375
+- `ds-mozrog-skragbad` copy 1+, 1 models: 125 → 170
+- `ds-myphitic-blight-hauler` copy 1+, 1 models: 100 → 95
+- `ds-myphitic-blight-hauler` copy 1+, 2 models: 200 → 190
+- `ds-myphitic-blight-haulers` copy 1+, 1 models: 100 → 95
+- `ds-myphitic-blight-haulers` copy 1+, 2 models: 200 → 190
+- `ds-necron-warriors` copy 1+, 10 models: 80 → 85
+- `ds-neurolictor-2` copy 1+, 1 models: 80 → 90
+- `ds-nobz` copy 1+, 5 models: 105 → 125
+- `ds-nobz` copy 1+, 10 models: 210 → 250
+- `ds-nobz` copy 3+, 5 models: 115 → 155
+- `ds-nobz` copy 3+, 10 models: 220 → 280
+- `ds-noise-marines-2` copy 1+, 6 models: 145 → 160
+- `ds-noxious-blightbringer` copy 1+, 1 models: 60 → 50
+- `ds-ophydian-destroyers` copy 1+, 6 models: 145 → 150
+- `ds-ophydian-destroyers` copy 3+, 6 models: 155 → 160
+- `ds-painboss` copy 1+, 1 models: 70 → 60
+- `ds-painboss` copy 3+, 1 models: absent → 70
+- `ds-painboy` copy 1+, 1 models: 90 → 45
+- `ds-paladin-squad` copy 1+, 10 models: 450 → 460
+- `ds-paladin-squad` copy 3+, 4 models: 185 → 210
+- `ds-paladin-squad` copy 3+, 5 models: 230 → 255
+- `ds-paladin-squad` copy 3+, 8 models: 375 → 400
+- `ds-paladin-squad` copy 3+, 10 models: 465 → 500
+- `ds-plagueburst-crawler` copy 1+, 1 models: 185 → 170
+- `ds-plagueburst-crawler` copy 2+, 1 models: 210 → 200
+- `ds-plasmancer` copy 1+, 1 models: 55 → 60
+- `ds-possessed-2` copy 1+, 5 models: 120 → 130
+- `ds-possessed-2` copy 1+, 10 models: 250 → 260
+- `ds-poxbringer` copy 1+, 1 models: 55 → 60
+- `ds-poxbringer` copy 3+, 1 models: absent → 70
+- `ds-pteraxii-skystalkers` copy 1+, 5 models: 80 → 75
+- `ds-pteraxii-skystalkers` copy 3+, 5 models: 90 → 85
+- `ds-pteraxii-sterylizors` copy 1+, 5 models: 80 → 75
+- `ds-pteraxii-sterylizors` copy 1+, 10 models: 160 → 150
+- `ds-pteraxii-sterylizors` copy 3+, 5 models: 90 → 85
+- `ds-pteraxii-sterylizors` copy 3+, 10 models: 170 → 160
+- `ds-purgation-squad` copy 1+, 5 models: 110 → 105
+- `ds-purgation-squad` copy 1+, 10 models: 220 → 210
+- `ds-purgation-squad` copy 3+, 5 models: 120 → 115
+- `ds-purgation-squad` copy 3+, 10 models: 230 → 220
+- `ds-pyrovores` copy 1+, 1 models: 45 → 40
+- `ds-pyrovores` copy 1+, 2 models: 65 → 70
+- `ds-pyrovores` copy 1+, 3 models: 95 → 100
+- `ds-pyrovores` copy 3+, 1 models: 55 → 50
+- `ds-pyrovores` copy 3+, 2 models: 75 → 80
+- `ds-pyrovores` copy 3+, 3 models: 105 → 110
+- `ds-raptors-2` copy 1+, 5 models: 110 → 120
+- `ds-raptors-2` copy 1+, 10 models: 210 → 220
+- `ds-raveners-2` copy 1+, 5 models: 125 → 135
+- `ds-ravenwing-black-knights` copy 3+, 3 models: absent → 85
+- `ds-ravenwing-black-knights` copy 3+, 6 models: absent → 160
+- `ds-rendmaster-on-blood-throne` copy 1+, 1 models: 150 → 160
+- `ds-rendmaster-on-blood-throne` copy 3+, 1 models: 170 → 180
+- `ds-rogal-dorn-battle-tank-2` copy 1+, 1 models: 260 → 275
+- `ds-rogal-dorn-commander-2` copy 1+, 1 models: 290 → 305
+- `ds-rubric-marines-2` copy 1+, 5 models: 100 → 110
+- `ds-rubric-marines-2` copy 1+, 10 models: 190 → 200
+- `ds-sammael` copy 1+, 1 models: 95 → 105
+- `ds-sanguinary-guard` copy 1+, 3 models: 125 → 120
+- `ds-sanguinary-guard` copy 3+, 3 models: 145 → 140
+- `ds-seekers` copy 1+, 5 models: 80 → 85
+- `ds-seekers-2` copy 1+, 5 models: 80 → 85
+- `ds-servitor-battleclade` copy 3+, 9 models: absent → 75
+- `ds-shadowsword-2` copy 1+, 1 models: 375 → 405
+- `ds-skorpekh-lord` copy 1+, 1 models: 90 → 95
+- `ds-skorpekh-lord` copy 3+, 1 models: 100 → 105
+- `ds-skull-cannon` copy 1+, 1 models: 90 → 100
+- `ds-sorcerer-3` copy 1+, 1 models: 85 → 95
+- `ds-sorcerer-3` copy 3+, 1 models: 95 → 105
+- `ds-sorcerer-in-terminator-armour-2` copy 1+, 1 models: 95 → 100
+- `ds-sorcerer-in-terminator-armour-2` copy 3+, 1 models: 105 → 110
+- `ds-spiritseer` copy 1+, 1 models: 55 → 50
+- `ds-squighog-boyz` copy 1+, 8 models: 270 → 280
+- `ds-squighog-boyz` copy 3+, 4 models: absent → 160
+- `ds-squighog-boyz` copy 3+, 8 models: absent → 300
+- `ds-starweaver-2` copy 1+, 1 models: 70 → 80
+- `ds-stompa` copy 1+, 1 models: 600 → 700
+- `ds-stompa` copy 2+, 1 models: 700 → 800
+- `ds-storm-guardians` copy 1+, 11 models: 110 → 100
+- `ds-stormboyz` copy 1+, 5 models: 65 → 70
+- `ds-stormboyz` copy 1+, 10 models: 130 → 140
+- `ds-stormlord-2` copy 1+, 1 models: 395 → 430
+- `ds-stormsword-2` copy 1+, 1 models: 430 → 465
+- `ds-sword-brethren-squad` copy 1+, 4 models: 105 → 100
+- `ds-sword-brethren-squad` copy 1+, 5 models: 130 → 125
+- `ds-sword-brethren-squad` copy 1+, 9 models: 235 → 225
+- `ds-sword-brethren-squad` copy 1+, 10 models: 260 → 250
+- `ds-sword-brethren-squad` copy 3+, 9 models: 250 → 245
+- `ds-sword-brethren-squad` copy 3+, 10 models: 275 → 270
+- `ds-tankbustas` copy 1+, 6 models: 125 → 145
+- `ds-tankbustas` copy 3+, 6 models: 135 → 155
+- `ds-taurox-2` copy 1+, 1 models: 65 → 75
+- `ds-taurox-prime-2` copy 1+, 1 models: 75 → 85
+- `ds-tech-priest-dominus` copy 1+, 1 models: 65 → 60
+- `ds-tech-priest-dominus-2` copy 1+, 1 models: 65 → 60
+- `ds-the-sanguinor` copy 1+, 1 models: 130 → 120
+- `ds-the-twin-lance` copy 1+, 2 models: 220 → 230
+- `ds-the-visarch` copy 1+, 1 models: 90 → 80
+- `ds-thunderwolf-cavalry` copy 3+, 3 models: 110 → 130
+- `ds-thunderwolf-cavalry` copy 3+, 6 models: 210 → 230
+- `ds-tiger-shark` copy 1+, 1 models: 375 → 395
+- `ds-tiger-shark` copy 2+, 1 models: 425 → 445
+- `ds-trukk` copy 1+, 1 models: 55 → 60
+- `ds-trukk` copy 4+, 1 models: 65 → 70
+- `ds-tyrannocyte-2` copy 1+, 1 models: 80 → 90
+- `ds-tyrannofex` copy 1+, 1 models: 180 → 170
+- `ds-tyrannofex` copy 3+, 1 models: 190 → 180
+- `ds-tyrant-guard` copy 1+, 6 models: 160 → 170
+- `ds-vertus-praetors` copy 3+, 2 models: absent → 170
+- `ds-vertus-praetors` copy 3+, 3 models: absent → 240
+- `ds-vulkan-hestan` copy 1+, 1 models: 85 → 95
+- `ds-war-dog-brigand` copy 1+, 1 models: 140 → 135
+- `ds-war-dog-karnivore` copy 1+, 1 models: 155 → 145
+- `ds-war-walkers` copy 1+, 1 models: 85 → 80
+- `ds-warbikers` copy 1+, 3 models: 60 → 75
+- `ds-warbikers` copy 1+, 6 models: 120 → 140
+- `ds-warboss` copy 1+, 1 models: 85 → 100
+- `ds-warboss-in-mega-armour` copy 1+, 1 models: 80 → 125
+- `ds-warboss-in-mega-armour` copy 3+, 1 models: absent → 140
+- `ds-warbuggies` copy 1+, 1 models: 40 → 70
+- `ds-warbuggies` copy 1+, 2 models: 80 → 130
+- `ds-warlock` copy 1+, 1 models: 45 → 40
+- `ds-warlock-skyrunners` copy 1+, 1 models: 55 → 45
+- `ds-warp-talons-2` copy 1+, 5 models: 125 → 135
+- `ds-warp-talons-2` copy 1+, 10 models: 280 → 290
+- `ds-wazbom-blastajet` copy 1+, 1 models: 165 → 215
+- `ds-wazbom-blastajet` copy 3+, 1 models: absent → 235
+- `ds-wazdakka-gutsmek` copy 1+, 1 models: 175 → 200
+- `ds-wolf-guard-terminators` copy 1+, 5 models: 150 → 155
+- `ds-wolf-guard-terminators` copy 1+, 10 models: 300 → 310
+- `ds-wolf-guard-terminators` copy 3+, 5 models: 165 → 195
+- `ds-wolf-guard-terminators` copy 3+, 10 models: 315 → 350
+- `ds-wyvern-2` copy 1+, 1 models: 95 → 115
+- `ds-zoanthropes` copy 1+, 6 models: 200 → 190
+- `ds-zodgrod-wortsnagga` copy 1+, 1 models: 80 → 50
+
+## Detachment point costs
+
+- `d-blitz-brigade`: 2 → 1
+- `d-bully-boyz`: 2 → 1
+- `d-da-big-hunt`: 2 → 1
+- `d-dread-mob`: 2 → 1
+- `d-green-tide`: 3 → 1
+- `d-kult-of-speed`: 2 → 1
+- `d-lions-of-the-emperor`: 2 → 3
+- `d-recon-element`: 3 → 2
+
+## Enhancement costs
+
+- `e-brutal-but-kunnin`: 25 → 30
+- `e-da-gobshot-thunderbuss`: 15 → 20
+- `e-ferocious-show-off`: 10 → 15
+- `e-follow-me-ladz`: 25 → 20
+- `e-glory-hog`: 30 → 25
+- `e-headwoppas-killchoppa`: 20 → 15
+- `e-kunnin-but-brutal`: 15 → 20
+- `e-possessed-blade`: 25 → 35
+- `e-recon-hunter`: 20 → 30
+- `e-strike-swiftly`: 35 → 45
+- `e-supa-glowy-fing`: 20 → 25
+- `e-surly-as-a-squiggoth`: 20 → 25
+- `e-synaptoprescience-upgrade`: 25 → 30
+- `e-targetin-gizmos-upgrade`: 15 → 10
+- `e-umbralefic-crystal`: 20 → 30
+- `e-warp-walker`: 30 → 35
+
+## Pricing-confidence transitions
+
+- `ds-burna-boyz`: verified → unverified
+- `ds-lootas`: verified → unverified
+- `ds-warbuggies`: unverified → verified
+
+## Escalating price tiers
+
+- `ds-allarus-custodians`: gained an escalating tier
+- `ds-battlewagon`: gained an escalating tier
+- `ds-beast-snagga-boyz`: gained an escalating tier
+- `ds-beastboss-on-squigosaur`: gained an escalating tier
+- `ds-big-mek`: gained an escalating tier
+- `ds-big-mek-dakkarig`: gained an escalating tier
+- `ds-contorted-epitome`: gained an escalating tier
+- `ds-deffkoptas`: gained an escalating tier
+- `ds-fiends`: gained an escalating tier
+- `ds-hunta-rig`: gained an escalating tier
+- `ds-kapricus-defenders`: gained an escalating tier
+- `ds-kill-rig`: gained an escalating tier
+- `ds-lootas`: lost an escalating tier
+- `ds-painboss`: gained an escalating tier
+- `ds-poxbringer`: gained an escalating tier
+- `ds-ravenwing-black-knights`: gained an escalating tier
+- `ds-servitor-battleclade`: gained an escalating tier
+- `ds-squighog-boyz`: gained an escalating tier
+- `ds-vertus-praetors`: gained an escalating tier
+- `ds-warboss-in-mega-armour`: gained an escalating tier
+- `ds-wazbom-blastajet`: gained an escalating tier
+
+## Unit composition
+
+- `ds-abaddon-the-despoiler` line 1: Abaddon the Despoiler 1-1 → Abaddon the Despoiler - EPIC HERO 1-1
+- `ds-adrax-agatone` line 1: Adrax Agatone 1-1 → Adrax Agatone - EPIC HERO 1-1
+- `ds-aestred-thurga-and-agathae-dolan` line 1: Aestred Thurga 1-1 → Aestred Thurga - EPIC HERO 1-1
+- `ds-aestred-thurga-and-agathae-dolan` line 2: Agathae Dolan 1-1 → Agathae Dolan - EPIC HERO 1-1
+- `ds-aetaosraukeres` line 1: Aetaos'rau'keres 1-1 → Aetaos'rau'keres - EPIC HERO 1-1
+- `ds-aethon-shaan` line 1: Aethon Shaan 1-1 → Aethon Shaan - EPIC HERO 1-1
+- `ds-ahriman` line 1: Ahriman 1-1 → Ahriman - EPIC HERO 1-1
+- `ds-aleya` line 1: Aleya 1-1 → Aleya - EPIC HERO 1-1
+- `ds-amallyn-shadowguide` line 1: Amallyn Shadowguide 1-1 → Amallyn Shadowguide - EPIC HERO 1-1
+- `ds-anggrath-the-unbound` line 1: An'ggrath the Unbound 1-1 → An'ggrath the Unbound - EPIC HERO 1-1
+- `ds-angron` line 1: Angron 1-1 → Angron - EPIC HERO 1-1
+- `ds-anrakyr-the-traveller` line 1: Anrakyr the Traveller 1-1 → Anrakyr the Traveller - EPIC HERO 1-1
+- `ds-aquila-kill-team` line 1: Kill Team Sergeant 1-1 → absent
+- `ds-aquila-kill-team` line 2: Gravis Veteran 1-1 → absent
+- `ds-aquila-kill-team` line 3: Deathwatch Veterans 3-3 → absent
+- `ds-aquila-kill-team` line 4: Kill Team Sergeant 1-1 → absent
+- `ds-aquila-kill-team` line 5: Gravis Veterans 2-2 → absent
+- `ds-aquila-kill-team` line 6: Deathwatch Veterans 7-7 → absent
+- `ds-arjac-rockfist` line 1: Arjac Rockfist 1-1 → Arjac Rockfist - EPIC HERO 1-1
+- `ds-asmodai` line 1: Asmodai 1-1 → Asmodai - EPIC HERO 1-1
+- `ds-astorath` line 1: Astorath 1-1 → Astorath - EPIC HERO 1-1
+- `ds-asurmen` line 1: Asurmen 1-1 → Asurmen - EPIC HERO 1-1
+- `ds-attack-fighta` line 1: Attack Fighta 1-1 → absent
+- `ds-aunshi` line 1: Aun’Shi 1-1 → Aun’Shi - EPIC HERO 1-1
+- `ds-aunva` line 1: Aun’Va 1-1 → Aun’Va - EPIC HERO 1-1
+- `ds-avatar-of-khaine` line 1: Avatar of Khaine 1-1 → Avatar of Khaine - EPIC HERO 1-1
+- `ds-azrael` line 1: Azrael 1-1 → Azrael - EPIC HERO 1-1
+- `ds-baharroth` line 1: Baharroth 1-1 → Baharroth - EPIC HERO 1-1
+- `ds-bannernob` line 1: Bannernob 1-1 → Bannernob model 1-1
+- `ds-battlewagon` line 1: Battlewagon 1-1 → Battlewagon model 1-1
+- `ds-beast-snagga-boyz` line 1: Beast Snagga Nob 1-1 → Nob models 1-2
+- `ds-beast-snagga-boyz` line 2: Beast Snagga Boyz 9-19 → Beast Snagga Boy models 9-18
+- `ds-beastboss` line 1: Beastboss 1-1 → Beastboss model 1-1
+- `ds-beastboss-on-squigosaur` line 1: Beastboss on Squigosaur 1-1 → Beastboss on Squigosaur model 1-1
+- `ds-belakor` line 1: Be’lakor 1-1 → Be’lakor - EPIC HERO 1-1
+- `ds-belial` line 1: Belial 1-1 → Belial - EPIC HERO 1-1
+- `ds-belisarius-cawl` line 1: Belisarius Cawl 1-1 → Belisarius Cawl - EPIC HERO 1-1
+- `ds-berehk-stornbrow` line 1: Berehk Stornbröw 1-1 → Berehk Stornbröw - EPIC HERO 1-1
+- `ds-big-gunz` line 1: Big Gunz 1-2 → absent
+- `ds-big-mek` line 1: Big Mek 1-1 → Big Mek model 1-1
+- `ds-big-mek-dakkarig` line 1: Big Mek Dakkarig 1-1 → Big Mek Dakkarig model 1-1
+- `ds-big-mek-in-mega-armour` line 1: Big Mek in Mega Armour 1-1 → Big Mek in Mega Armour model 1-1
+- `ds-big-mek-on-warbike` line 1: Big Mek on Warbike 1-1 → absent
+- `ds-big-mek-with-kustom-force-field` line 1: Big Mek with Kustom Force Field 1-1 → absent
+- `ds-big-mek-with-shokk-attack-gun` line 1: Big Mek with Shokk Attack Gun 1-1 → Big Mek with Shokk Attack Gun model 1-1
+- `ds-bigboss` line 1: Bigboss 1-1 → Bigboss model 1-1
+- `ds-biged-bossbunka` line 1: Big’ed Bossbunka 1-1 → Big’ed Bossbunka model 1-1
+- `ds-bjorn-the-fell-handed` line 1: Bjorn the Fell-Handed 1-1 → Bjorn the Fell-Handed- EPIC HERO 1-1
+- `ds-blitza-bommer` line 1: Blitza-bommer 1-1 → Blitza-bommer model 1-1
+- `ds-boomdakka-snazzwagon` line 1: Boomdakka Snazzwagon 1-1 → absent
+- `ds-boss-snikrot` line 1: Boss Snikrot 1-1 → Boss Snikrot model 1-1
+- `ds-boss-zagstruk` line 1: Boss Zagstruk 1-1 → Boss Zagstruk - EPIC HERO 1-1
+- `ds-boyz` line 1: Boss Nob 1-1 → Nob models 1-2
+- `ds-boyz` line 2: Boyz 9-19 → Boy models 9-18
+- `ds-breaka-boyz` line 1: Boss Nob 1-1 → Nob model 1-1
+- `ds-breaka-boyz` line 2: Breaka Boyz 5-5 → Breaka Boy models 5-5
+- `ds-brother-captain-stern` line 1: Brother-Captain Stern 1-1 → Brother-Captain Stern - EPIC HERO 1-1
+- `ds-brother-corbulo` line 1: Brother Corbulo 1-1 → Brother Corbulo - EPIC HERO 1-1
+- `ds-buri-aegnirssen` line 1: Buri Aegnirssen 1-1 → Buri Aegnirssen - EPIC HERO 1-1
+- `ds-burna-bommer` line 1: Burna-bommer 1-1 → Burna-bommer model 1-1
+- `ds-caanok-var` line 1: Caanok Var 1-1 → Caanok Var - EPIC HERO 1-1
+- `ds-callidus-assassin` line 1: Callidus Assassin 1-1 → Callidus Assassin - EPIC HERO 1-1
+- `ds-canis-rex` line 1: Canis Rex 1-1 → Canis Rex - EPIC HERO 1-1
+- `ds-canis-wolfborn` line 1: Canis Wolfborn 1-1 → Canis Wolfborn - EPIC HERO 1-1
+- `ds-captain-titus` line 1: Captain Titus 1-1 → Captain Titus - EPIC HERO 1-1
+- `ds-captain-tycho` line 1: Captain Tycho 1-1 → Captain Tycho - EPIC HERO 1-1
+- `ds-carab-culln-the-risen` line 1: Carab Culln the Risen 1-1 → Carab Culln the Risen - EPIC HERO 1-1
+- `ds-castellan-crowe` line 1: Castellan Crowe 1-1 → Castellan Crowe - EPIC HERO 1-1
+- `ds-cato-sicarius` line 1: Cato Sicarius 1-1 → Cato Sicarius - EPIC HERO 1-1
+- `ds-celestian-sacresant-aveline` line 1: Celestian Sacresant Aveline 1-1 → Celestian Sacresant Aveline - EPIC HERO 1-1
+- `ds-chaplain-cassius` line 1: Chaplain Cassius 1-1 → Chaplain Cassius - EPIC HERO 1-1
+- `ds-chaplain-grimaldus` line 1: Chaplain Grimaldus 1-1 → Chaplain Grimaldus - EPIC HERO 1-1
+- `ds-chief-librarian-mephiston` line 1: Chief Librarian Mephiston 1-1 → Chief Librarian Mephiston - EPIC HERO 1-1
+- `ds-chief-librarian-tigurius` line 1: Chief Librarian Tigurius 1-1 → Chief Librarian Tigurius - EPIC HERO 1-1
+- `ds-chinork-warkopta` line 1: Chinork Warkopta 1-1 → absent
+- `ds-ciaphas-cain` line 1: absent → Ciaphas Cain mode 1-1
+- `ds-commander-dante` line 1: Commander Dante 1-1 → Commander Dante - EPIC HERO 1-1
+- `ds-commander-farsight` line 1: Commander Farsight 1-1 → Commander Farsight - EPIC HERO 1-1
+- `ds-commander-shadowsun` line 1: Commander Shadowsun 1-1 → Commander Shadowsun - EPIC HERO 1-1
+- `ds-commissar-graves` line 1: Commissar Graves 1-1 → Commissar Graves - EPIC HERO 1-1
+- `ds-commissar-graves-on-foot` line 1: Commissar Graves on Foot 1-1 → Commissar Graves on Foot - EPIC HERO 1-1
+- `ds-commissar-yarrick` line 1: Commissar Yarrick 1-1 → Commissar Yarrick - EPIC HERO 1-1
+- `ds-corsair-voidscarred` line 1: Voidscarred Felarch 1-1 → absent
+- `ds-corsair-voidscarred` line 2: Corsair Voidscarred 4-9 → absent
+- `ds-corsair-voidscarred` line 3: Shade Runner 0-1 → absent
+- `ds-corsair-voidscarred` line 4: Soul Weaver 0-1 → absent
+- `ds-corsair-voidscarred` line 5: Way Seeker 0-1 → absent
+- `ds-corsair-voidscarred-2` line 1: Voidscarred Felarch 1-1 → absent
+- `ds-corsair-voidscarred-2` line 2: Corsair Voidscarred 4-9 → absent
+- `ds-corsair-voidscarred-2` line 3: Shade Runner 0-1 → absent
+- `ds-corsair-voidscarred-2` line 4: Soul Weaver 0-1 → absent
+- `ds-corsair-voidscarred-2` line 5: Way Seeker 0-1 → absent
+- `ds-ctan-shard-of-the-deceiver` line 1: C’tan Shard of the Deceiver 1-1 → C’tan Shard of the Deceiver - EPIC HERO 1-1
+- `ds-ctan-shard-of-the-nightbringer` line 1: C’tan Shard of the Nightbringer 1-1 → C’tan Shard of the Nightbringer - EPIC HERO 1-1
+- `ds-ctan-shard-of-the-void-dragon` line 1: C’tan Shard of the Void Dragon 1-1 → C’tan Shard of the Void Dragon - EPIC HERO 1-1
+- `ds-culexus-assassin` line 1: Culexus Assassin 1-1 → Culexus Assassin - EPIC HERO 1-1
+- `ds-cypher` line 1: Cypher 1-1 → Cypher - EPIC HERO 1-1
+- `ds-da-red-gobbo` line 1: Da Red Gobbo 1-1 → absent
+- `ds-daemonifuge` line 1: Ephrael Stern 1-1 → Ephrael Stern - EPIC HERO 1-1
+- `ds-daemonifuge` line 2: Kyganil of the Bloody Tears 1-1 → Kyganil of the Bloody Tears - EPIC HERO 1-1
+- `ds-dakkajet` line 1: Dakkajet 1-1 → Dakkajet model 1-1
+- `ds-darkstrider` line 1: Darkstrider 1-1 → Darkstrider - EPIC HERO 1-1
+- `ds-darnath-lysander` line 1: Darnath Lysander 1-1 → Darnath Lysander - EPIC HERO 1-1
+- `ds-deathleaper` line 1: Deathleaper 1-1 → Deathleaper - EPIC HERO 1-1
+- `ds-deathleaper-2` line 1: Deathleaper 1-1 → Deathleaper - EPIC HERO 1-1
+- `ds-decimus-kill-team` line 1: Kill Team Sergeant 1-1 → absent
+- `ds-decimus-kill-team` line 2: Gravis Veteran 1-1 → absent
+- `ds-decimus-kill-team` line 3: Deathwatch Veterans 3-3 → absent
+- `ds-decimus-kill-team` line 4: Kill Team Sergeant 1-1 → absent
+- `ds-decimus-kill-team` line 5: Gravis Veterans 2-2 → absent
+- `ds-decimus-kill-team` line 6: Deathwatch Veterans 7-7 → absent
+- `ds-deff-dread` line 1: Deff Dread 1-1 → Deff Dread model 1-1
+- `ds-deff-rolla-battle-fortress` line 1: Deff Rolla Battle Fortress 1-1 → absent
+- `ds-deffkilla-wartrike` line 1: Defkilla Wartrike 1-1 → Deffkilla Wartrike model 1-1
+- `ds-deffkoptas` line 1: Deffkoptas 3-6 → Deffkopta models 3-6
+- `ds-deffkoptas-with-big-shootas` line 1: Deffkoptas with Big Shootas 3-3 → absent
+- `ds-drazhar` line 1: Drazhar 1-1 → Drazhar - EPIC HERO 1-1
+- `ds-eldrad-ulthran` line 1: Eldrad Ulthran 1-1 → Eldrad Ulthran - EPIC HERO 1-1
+- `ds-epidemius` line 1: Epidemius 1-1 → Epidemius - EPIC HERO 1-1
+- `ds-eversor-assassin` line 1: Eversor Assassin 1-1 → Eversor Assassin - EPIC HERO 1-1
+- `ds-ezekiel` line 1: Ezekiel 1-1 → Ezekiel - EPIC HERO 1-1
+- `ds-fabius-bile` line 1: Fabius Bile 1-1 → Fabius Bile - EPIC HERO 1-1
+- `ds-ferren-areios` line 1: Ferren Areios 1-1 → Ferren Areios - EPIC HERO 1-1
+- `ds-fighta-bommer` line 1: Fighta-Bommer 1-1 → absent
+- `ds-flash-gitz` line 1: Kaptin 1-1 → Kaptin model 1-1
+- `ds-flash-gitz` line 2: Flash Gitz 4-9 → Flash Git models 4-9
+- `ds-fuegan` line 1: Fuegan 1-1 → Fuegan - EPIC HERO 1-1
+- `ds-fulgrim` line 1: Fulgrim 1-1 → Fulgrim - EPIC HERO 1-1
+- `ds-gabriel-seth` line 1: Gabriel Seth 1-1 → Gabriel Seth - EPIC HERO 1-1
+- `ds-ghazghkull-thraka` line 1: Ghazghkull Thraka 1-1 → Ghazghkull Thraka model 1-1
+- `ds-ghazghkull-thraka` line 2: Makari 1-1 → absent
+- `ds-gorkanaut` line 1: Gorkanaut 1-1 → Gorkanaut model 1-1
+- `ds-grand-master-voldus` line 1: Grand Master Voldus 1-1 → Grand Master Voldus - EPIC HERO 1-1
+- `ds-gretchin` line 1: absent → Gretchin models 10-20
+- `ds-grot-bomm-launcha` line 1: Grot Bomm Launcha 1-1 → absent
+- `ds-gunwagon` line 1: absent → Gunwagon model 1-1
+- `ds-haarken-worldclaimer` line 1: Haarken Worldclaimer 1-1 → Haarken Worldclaimer - EPIC HERO 1-1
+- `ds-harald-deathwolf` line 1: Harald Deathwolf 1-1 → Harald Deathwolf - EPIC HERO 1-1
+- `ds-hells-last` line 1: Minka Lesk 1-1 → Minka Lesk - EPIC HERO 1-1
+- `ds-hells-last-2` line 1: Minka Lesk 1-1 → Minka Lesk - EPIC HERO 1-1
+- `ds-high-marshal-helbrecht` line 1: High Marshal Helbrecht 1-1 → High Marshal Helbrecht - EPIC HERO 1-1
+- `ds-horticulous-slimux` line 1: Horticulous Slimux 1-1 → Horticulous Slimux - EPIC HERO 1-1
+- `ds-hunta-rig` line 1: Hunta Rig 1-1 → Hunta Rig model 1-1
+- `ds-huron-blackheart` line 1: Huron Blackheart 1-1 → Huron Blackheart - EPIC HERO 1-1
+- `ds-illic-nightspear` line 1: Illic Nightspear 1-1 → Illic Nightspear - EPIC HERO 1-1
+- `ds-illuminor-szeras` line 1: Illuminor Szeras 1-1 → Illuminor Szeras - EPIC HERO 1-1
+- `ds-imotekh-the-stormlord` line 1: Imotekh the Stormlord 1-1 → Imotekh the Stormlord - EPIC HERO 1-1
+- `ds-inquisitor-coteaz` line 1: Inquisitor Coteaz 1-1 → Inquisitor Coteaz - EPIC HERO 1-1
+- `ds-inquisitor-draxus` line 1: Inquisitor Draxus 1-1 → Inquisitor Draxus - EPIC HERO 1-1
+- `ds-inquisitor-eisenhorn` line 1: Inquisitor Eisenhorn 1-1 → Inquisitor Eisenhorn - EPIC HERO 1-1
+- `ds-inquisitor-greyfax` line 1: Inquisitor Greyfax 1-1 → Inquisitor Greyfax - EPIC HERO 1-1
+- `ds-inquisitor-karamazov` line 1: Inquisitor Karamazov 1-1 → Inquisitor Karamazov - EPIC HERO 1-1
+- `ds-inquisitor-kroyle` line 1: Inquisitor Kroyle 1-1 → Inquisitor Kroyle - EPIC HERO 1-1
+- `ds-inquisitor-ostromandeus` line 1: Inquisitor Ostromandeus 1-1 → Inquisitor Ostromandeus - EPIC HERO 1-1
+- `ds-inquisitor-ostromandeus` line 2: Stentor-I-52 1-1 → Stentor-I-52 - EPIC HERO 1-1
+- `ds-intranzia-fraye` line 1: Intranzia Fraye 1-1 → Intranzia Fraye - EPIC HERO 1-1
+- `ds-irillyth` line 1: Irillyth 1-1 → Irillyth - EPIC HERO 1-1
+- `ds-iron-father-feirros` line 1: Iron Father Feirros 1-1 → Iron Father Feirros - EPIC HERO 1-1
+- `ds-iron-hand-straken` line 1: ‘Iron Hand’ Straken 1-1 → ‘Iron Hand’ Straken - EPIC HERO 1-1
+- `ds-jain-zar` line 1: Jain Zar 1-1 → Jain Zar - EPIC HERO 1-1
+- `ds-janus-draik` line 1: Janus Draik 1-1 → Janus Draik - EPIC HERO 1-1
+- `ds-junith-eruita` line 1: Junith Eruita 1-1 → Junith Eruita - EPIC HERO 1-1
+- `ds-kairos-fateweaver` line 1: Kairos Fateweaver 1-1 → Kairos Fateweaver - EPIC HERO 1-1
+- `ds-kairos-fateweaver-2` line 1: Kairos Fateweaver 1-1 → Kairos Fateweaver - EPIC HERO 1-1
+- `ds-kaldor-draigo` line 1: Kaldor Draigo 1-1 → Kaldor Draigo - EPIC HERO 1-1
+- `ds-kannonwagon` line 1: Kannonwagon 1-1 → absent
+- `ds-kaptin-badrukk` line 1: Kaptin Badrukk 1-1 → Kaptin Badrukk - EPIC HERO 1-1
+- `ds-karanak` line 1: Karanak 1-1 → Karanak - EPIC HERO 1-1
+- `ds-karandras` line 1: Karandras 1-1 → Karandras - EPIC HERO 1-1
+- `ds-kayvaan-shrike` line 1: Kayvaan Shrike 1-1 → Kayvaan Shrike - EPIC HERO 1-1
+- `ds-kharn-the-betrayer` line 1: Khârn the Betrayer 1-1 → Khârn the Betrayer - EPIC HERO 1-1
+- `ds-kharseth` line 1: Kharseth 1-1 → Kharseth - EPIC HERO 1-1
+- `ds-kharseth-2` line 1: Kharseth 1-1 → Kharseth - EPIC HERO 1-1
+- `ds-kill-krusha` line 1: Kill Krusha 1-1 → absent
+- `ds-kill-rig` line 1: Kill Rig 1-1 → Kill Rig model 1-1
+- `ds-killa-kans` line 1: Killa Kans 3-6 → Killa Kan models 3-6
+- `ds-kommandos` line 1: Boss Nob 1-1 → Nob model 1-1
+- `ds-kommandos` line 2: Kommandos 9-9 → Kommando models 9-9
+- `ds-korsarro-khan` line 1: Kor’sarro Khan 1-1 → Kor’sarro Khan - EPIC HERO 1-1
+- `ds-kravek-morne` line 1: Kravek Morne 1-1 → Kravek Morne - EPIC HERO 1-1
+- `ds-kustom-boosta-blasta` line 1: Kustom Boosta-blasta 1-1 → absent
+- `ds-lady-malys` line 1: Lady Malys 1-1 → Lady Malys - EPIC HERO 1-1
+- `ds-lazarus` line 1: Lazarus 1-1 → Lazarus - EPIC HERO 1-1
+- `ds-lelith-hesperax` line 1: Lelith Hesperax 1-1 → Lelith Hesperax - EPIC HERO 1-1
+- `ds-lemartes` line 1: Lemartes 1-1 → Lemartes - EPIC HERO 1-1
+- `ds-lhykhis` line 1: Lhykhis 1-1 → Lhykhis - EPIC HERO 1-1
+- `ds-lion-eljonson` line 1: Lion El’Jonson 1-1 → Lion El’Jonson - EPIC HERO 1-1
+- `ds-logan-grimnar` line 1: Logan Grimnar 1-1 → Logan Grimnar - EPIC HERO 1-1
+- `ds-logan-grimnar-on-stormrider` line 1: Logan Grimnar on Stormrider 1-1 → Logan Grimnar on Stormrider - EPIC HERO 1-1
+- `ds-longstrike` line 1: Longstrike 1-1 → Longstrike - EPIC HERO 1-1
+- `ds-lord-invocatus` line 1: Lord Invocatus 1-1 → Lord Invocatus - EPIC HERO 1-1
+- `ds-lord-marshal-dreir` line 1: Lord Marshal Dreir 1-1 → Lord Marshal Dreir - EPIC HERO 1-1
+- `ds-lord-solar-leontus` line 1: Lord Solar Leontus 1-1 → Lord Solar Leontus - EPIC HERO 1-1
+- `ds-lucius-the-eternal` line 1: Lucius the Eternal 1-1 → Lucius the Eternal - EPIC HERO 1-1
+- `ds-lukas-the-trickster` line 1: Lukas the Trickster 1-1 → Lukas the Trickster - EPIC HERO 1-1
+- `ds-mad-dok-grotsnik` line 1: Mad Dok Grotsnik 1-1 → Mad Dok Grotsnik - EPIC HERO 1-1
+- `ds-magnus-the-red` line 1: Magnus the Red 1-1 → Magnus the Red - EPIC HERO 1-1
+- `ds-marneus-calgar-in-armour-of-antilochus` line 1: Marneus Calgar in Armour of Antilochus 1-1 → Marneus Calgar in Armour of Antilochus - EPIC HERO 1-1
+- `ds-masters-of-the-maelstrom` line 1: Garreon the Corpsemaster 1-1 → Garreon the Corpsemaster - EPIC HERO 1-1
+- `ds-masters-of-the-maelstrom` line 2: Garlon Souleater 1-1 → Garlon Souleater - EPIC HERO 1-1
+- `ds-masters-of-the-maelstrom` line 3: Katar Garrix 1-1 → Katar Garrix - EPIC HERO 1-1
+- `ds-masters-of-the-maelstrom` line 4: Captain Sargotta 1-1 → Captain Sargotta - EPIC HERO 1-1
+- `ds-masters-of-the-maelstrom` line 5: The Enforcer 1-1 → The Enforcer - EPIC HERO 1-1
+- `ds-mega-dread` line 1: Mega Dread 1-1 → absent
+- `ds-meganobz` line 1: Meganobz 2-6 → Meganob models 2-6
+- `ds-megatrakk-scrapjet` line 1: Megatrakk Scrapjet 1-1 → absent
+- `ds-mek` line 1: Mek 1-1 → Mek model 1-1
+- `ds-mek-gunz` line 1: Mek Gunz 1-3 → Mek Gunz models 1-3
+- `ds-meka-dread` line 1: Meka-Dread 1-1 → absent
+- `ds-morkanaut` line 1: Morkanaut 1-1 → Morkanaut model 1-1
+- `ds-mortarion` line 1: Mortarion 1-1 → Mortarion - EPIC HERO 1-1
+- `ds-morvenn-vahl` line 1: Morvenn Vahl 1-1 → Morvenn Vahl - EPIC HERO 1-1
+- `ds-mozrog-skragbad` line 1: Mozrog Skragbad 1-1 → Mozrog Skragbad model 1-1
+- `ds-murderfang` line 1: Murderfang 1-1 → Murderfang - EPIC HERO 1-1
+- `ds-nazdreg` line 1: absent → Nazdreg model 1-1
+- `ds-nekrosor-ammentar` line 1: Nekrosor Ammentar 1-1 → Nekrosor Ammentar - EPIC HERO 1-1
+- `ds-nemesor-zahndrekh` line 1: Nemesor Zahndrekh 1-1 → Nemesor Zahndrekh - EPIC HERO 1-1
+- `ds-neyam-shai-murad` line 1: Neyam Shai Murad 1-1 → Neyam Shai Murad - EPIC HERO 1-1
+- `ds-njal-stormcaller` line 1: Njal Stormcaller 1-1 → Njal Stormcaller - EPIC HERO 1-1
+- `ds-nobz` line 1: Boss Nob 1-1 → Nob models 5-10
+- `ds-nobz` line 2: Nobz 4-9 → absent
+- `ds-nobz-on-warbikes` line 1: Nobz on Warbikes 3-3 → absent
+- `ds-nork-deddog` line 1: Nork Deddog 1-1 → Nork Deddog - EPIC HERO 1-1
+- `ds-old-one-eye` line 1: Old One Eye 1-1 → Old One Eye - EPIC HERO 1-1
+- `ds-orikan-the-diviner` line 1: Orikan the Diviner 1-1 → Orikan the Diviner - EPIC HERO 1-1
+- `ds-painboss` line 1: Painboss 1-1 → Painboss model 1-1
+- `ds-painboy` line 1: Painboy 1-1 → Painboy model 1-1
+- `ds-painboy-on-warbike` line 1: Painboy on Warbike 1-1 → absent
+- `ds-pedro-kantor` line 1: Pedro Kantor 1-1 → Pedro Kantor - EPIC HERO 1-1
+- `ds-prince-yriel` line 1: Prince Yriel 1-1 → Prince Yriel - EPIC HERO 1-1
+- `ds-prince-yriel-2` line 1: Prince Yriel 1-1 → Prince Yriel - EPIC HERO 1-1
+- `ds-provisionally-prepared` line 1: Provisionally Prepared 1-1 → Provisionally Prepared - EPIC HERO 1-1
+- `ds-ragnar-blackmane` line 1: Ragnar Blackmane 1-1 → Ragnar Blackmane - EPIC HERO 1-1
+- `ds-rein-and-raus` line 1: Rein 1-1 → Rein - EPIC HERO 1-1
+- `ds-rein-and-raus` line 2: Raus 1-1 → Raus - EPIC HERO 1-1
+- `ds-roboute-guilliman` line 1: Roboute Guilliman 1-1 → Roboute Guilliman - EPIC HERO 1-1
+- `ds-rotigus` line 1: Rotigus 1-1 → Rotigus - EPIC HERO 1-1
+- `ds-rotigus-2` line 1: Rotigus 1-1 → Rotigus - EPIC HERO 1-1
+- `ds-rukkatrukk-squigbuggies` line 1: absent → Rukkatrukk Squigbuggy models 1-2
+- `ds-rukkatrukk-squigbuggy` line 1: Rukkatrukk Squigbuggy 1-1 → absent
+- `ds-runtherd` line 1: absent → Runtherd model 1-1
+- `ds-saint-celestine` line 1: Celestine 1-1 → Celestine - EPIC HERO 1-1
+- `ds-sammael` line 1: Sammael 1-1 → Sammael - EPIC HERO 1-1
+- `ds-scabeiathrax-the-bloated` line 1: Scabeiathrax the Bloated 1-1 → Scabeiathrax the Bloated - EPIC HERO 1-1
+- `ds-sergeant-chronus` line 1: Sergeant Chronus 1-1 → Sergeant Chronus - EPIC HERO 1-1
+- `ds-sergeant-harker` line 1: Sergeant Harker 1-1 → Sergeant Harker - EPIC HERO 1-1
+- `ds-sergeant-telion` line 1: Sergeant Telion 1-1 → Sergeant Telion - EPIC HERO 1-1
+- `ds-shalaxi-helbane` line 1: Shalaxi Helbane 1-1 → Shalaxi Helbane - EPIC HERO 1-1
+- `ds-shalaxi-helbane-2` line 1: Shalaxi Helbane 1-1 → Shalaxi Helbane - EPIC HERO 1-1
+- `ds-shaso-ralai` line 1: Shas'o R'alai 1-1 → Shas'o R'alai - EPIC HERO 1-1
+- `ds-shokkjump-dragsta` line 1: Shokkjump Dragsta 1-1 → absent
+- `ds-skarbrand` line 1: Skarbrand 1-1 → Skarbrand - EPIC HERO 1-1
+- `ds-skarbrand-2` line 1: Skarbrand 1-1 → Skarbrand - EPIC HERO 1-1
+- `ds-skorchas` line 1: Skorchas 1-2 → absent
+- `ds-skulltaker` line 1: Skulltaker 1-1 → Skulltaker - EPIC HERO 1-1
+- `ds-sly-marbo` line 1: Sly Marbo 1-1 → Sly Marbo - EPIC HERO 1-1
+- `ds-solitaire` line 1: Solitaire 1-1 → Solitaire - EPIC HERO 1-1
+- `ds-solitaire-2` line 1: Solitaire 1-1 → Solitaire - EPIC HERO 1-1
+- `ds-squiggoth` line 1: Squiggoth 1-1 → absent
+- `ds-squighog-boyz` line 1: Nob On Smasha Squig 1-2 → Nob on Smasha Squig models 1-2
+- `ds-squighog-boyz` line 2: Squighog Boyz 3-6 → Squighog Boy models 3-6
+- `ds-stompa` line 1: Stompa 1-1 → Stompa model 1-1
+- `ds-stormboyz` line 1: Boss Nob 1-1 → Nob model 1-1
+- `ds-stormboyz` line 2: Stormboyz 4-9 → Stormboy models 4-9
+- `ds-suboden-khan` line 1: Suboden Khan 1-1 → Suboden Khan - EPIC HERO 1-1
+- `ds-syllesske` line 1: Syll’Esske 1-1 → Syll’Esske - EPIC HERO 1-1
+- `ds-tankbustas` line 1: Boss Nob 1-1 → Nob model 1-1
+- `ds-tankbustas` line 2: Tankbustas 5-5 → Tankbusta models 5-5
+- `ds-the-blue-scribes` line 1: The Blue Scribes 1-1 → The Blue Scribes - EPIC HERO 1-1
+- `ds-the-changeling` line 1: The Changeling 1-1 → The Changeling - EPIC HERO 1-1
+- `ds-the-masque-of-slaanesh` line 1: The Masque of Slaanesh 1-1 → The Masque of Slaanesh - EPIC HERO 1-1
+- `ds-the-red-terror` line 1: The Red Terror 1-1 → The Red Terror - EPIC HERO 1-1
+- `ds-the-red-terror-2` line 1: The Red Terror 1-1 → The Red Terror - EPIC HERO 1-1
+- `ds-the-sanguinor` line 1: The Sanguinor 1-1 → The Sanguinor - EPIC HERO 1-1
+- `ds-the-silent-king` line 1: Szarekh 1-1 → Szarekh - EPIC HERO 1-1
+- `ds-the-swarmlord` line 1: Swarmlord 1-1 → Swarmlord - EPIC HERO 1-1
+- `ds-the-twin-lance` line 1: Ri’Lantar 1-1 → Ri’Lantar - EPIC HERO 1-1
+- `ds-the-twin-lance` line 2: Ri’Locai 1-1 → Ri’Locai - EPIC HERO 1-1
+- `ds-the-visarch` line 1: Visarch 1-1 → Visarch - EPIC HERO 1-1
+- `ds-the-yncarne` line 1: Yncarne 1-1 → Yncarne - EPIC HERO 1-1
+- `ds-thulia-ghuld` line 1: Archmagos Terminus Thulia Ghuld 1-1 → Archmagos Terminus Thulia Ghuld - EPIC HERO 1-1
+- `ds-tor-garadon` line 1: Tor Garadon 1-1 → Tor Garadon - EPIC HERO 1-1
+- `ds-trajann-valoris` line 1: Trajann Valoris 1-1 → Trajann Valoris - EPIC HERO 1-1
+- `ds-trazyn-the-infinite` line 1: Trazyn the Infinite 1-1 → Trazyn the Infinite - EPIC HERO 1-1
+- `ds-triumph-of-saint-katherine` line 1: Triumph of Saint Katherine 1-1 → Triumph of Saint Katherine - EPIC HERO 1-1
+- `ds-trukk` line 1: Trukk 1-1 → Trukk model 1-1
+- `ds-tycho-the-lost` line 1: Tycho the Lost 1-1 → Tycho the Lost - EPIC HERO 1-1
+- `ds-typhus` line 1: Typhus 1-1 → Typhus - EPIC HERO 1-1
+- `ds-ufthak-blackhawk` line 1: Ufthak Blackhawk 1-1 → absent
+- `ds-ulrik-the-slayer` line 1: Ulrik the Slayer 1-1 → Ulrik the Slayer - EPIC HERO 1-1
+- `ds-ur-025` line 1: UR-025 1-1 → UR-025 - EPIC HERO 1-1
+- `ds-uriel-ventris` line 1: Uriel Ventris 1-1 → Uriel Ventris - EPIC HERO 1-1
+- `ds-urien-rakarth` line 1: Urien Rakarth 1-1 → Urien Rakarth - EPIC HERO 1-1
+- `ds-ursula-creed` line 1: Ursula Creed 1-1 → Ursula Creed - EPIC HERO 1-1
+- `ds-uthar-the-destined` line 1: Ûthar the Destined 1-1 → Ûthar the Destined - EPIC HERO 1-1
+- `ds-valerian` line 1: Valerian 1-1 → Valerian - EPIC HERO 1-1
+- `ds-vargard-obyron` line 1: Vargard Obyron 1-1 → Vargard Obyron - EPIC HERO 1-1
+- `ds-vashtorr-the-arkifane` line 1: Vashtorr the Arkifane 1-1 → Vashtorr the Arkifane - EPIC HERO 1-1
+- `ds-victrix-honour-guard` line 1: Chapter Ancient 0-1 → Chapter Ancient - EPIC HERO 0-1
+- `ds-victrix-honour-guard` line 2: Chapter Champion 0-1 → Chapter Champion - EPIC HERO 0-1
+- `ds-vindicare-assassin` line 1: Vindicare Assassin 1-1 → Vindicare Assassin - EPIC HERO 1-1
+- `ds-vulkan-hestan` line 1: Vulkan He’stan 1-1 → Vulkan He’stan - EPIC HERO 1-1
+- `ds-warbikers` line 1: Boss Nob on Warbike 1-1 → Biker Nob model 1-1
+- `ds-warbikers` line 2: Warbikers 2-5 → Warbiker models 2-5
+- `ds-warboss` line 1: Warboss 1-1 → Warboss model 1-1
+- `ds-warboss-in-mega-armour` line 1: Warboss in Mega Armour 1-1 → Warboss in Mega Armour model 1-1
+- `ds-warbuggies` line 1: Warbuggies 1-2 → Warbuggy models 1-2
+- `ds-wardens-of-ultramar` line 1: Ancient Gadriel 1-1 → Ancient Gadriel - EPIC HERO 1-1
+- `ds-wardens-of-ultramar` line 2: Veteran Sergeant Metaurus 1-1 → Veteran Sergeant Metaurus - EPIC HERO 1-1
+- `ds-wardens-of-ultramar` line 3: Gaius Silva 1-1 → Gaius Silva - EPIC HERO 1-1
+- `ds-wardens-of-ultramar` line 4: Aemelia Minervas 1-1 → Aemelia Minervas - EPIC HERO 1-1
+- `ds-wardens-of-ultramar` line 5: Dainal Kornelius 1-1 → Dainal Kornelius - EPIC HERO 1-1
+- `ds-wardens-of-ultramar` line 6: Lucia Vestha 1-1 → Lucia Vestha - EPIC HERO 1-1
+- `ds-wartrakk` line 1: Wartrakk 1-1 → absent
+- `ds-wartrakks` line 1: absent → Wartrakk models 1-2
+- `ds-wazbom-blastajet` line 1: Wazbom Blastajet 1-1 → Wazbom Blastajet model 1-1
+- `ds-wazdakka-gutsmek` line 1: Wazdakka Gutsmek 1-1 → Wazdakka Gutsmek model 1-1
+- `ds-weirdboy` line 1: Weirdboy 1-1 → Weirdboy model 1-1
+- `ds-wolf-scouts` line 1: Wolf Scout Pack Leader 1-1 → absent
+- `ds-wolf-scouts` line 2: Wolf Scouts 4-4 → absent
+- `ds-wolf-scouts` line 3: Hunting Wolf 1-1 → absent
+- `ds-wolf-scouts` line 4: Wolf Scout Pack Leader 1-1 → absent
+- `ds-wolf-scouts` line 5: Wolf Scouts 9-9 → absent
+- `ds-wolf-scouts` line 6: Hunting Wolves 2-2 → absent
+- `ds-wurrboy` line 1: Wurrboy 1-1 → absent
+- `ds-x-101` line 1: X-101 1-1 → X-101 - EPIC HERO 1-1
+- `ds-yvraine` line 1: Yvraine 1-1 → Yvraine - EPIC HERO 1-1
+- `ds-zarakynel` line 1: Zarakynel 1-1 → Zarakynel - EPIC HERO 1-1
+- `ds-zodgrod-wortsnagga` line 1: Zodgrod Wortsnagga 1-1 → Zodgrod Wortsnagga model 1-1
+
+## Wargear option groups
+
+- `ds-attack-fighta` `og-attack-fighta-1`: removed
+- `ds-battlewagon` `og-battlewagon-4`: removed
+- `ds-battlewagon` `og-battlewagon-5`: removed
+- `ds-big-gunz` `og-big-gunz-1`: removed
+- `ds-big-mek-in-mega-armour` `og-big-mek-in-mega-armour-3`: removed
+- `ds-big-mek-on-warbike` `og-big-mek-on-warbike-1`: removed
+- `ds-big-mek-on-warbike` `og-big-mek-on-warbike-2`: removed
+- `ds-big-mek-with-kustom-force-field` `og-big-mek-with-kustom-force-field-1`: removed
+- `ds-big-mek-with-shokk-attack-gun` `og-big-mek-with-shokk-attack-gun-1`: removed
+- `ds-boyz` `og-boyz-5`: added
+- `ds-boyz` `og-boyz-6`: added
+- `ds-catachan-command-squad` `og-catachan-command-squad-4`: removed
+- `ds-catachan-command-squad` `og-catachan-command-squad-6`: removed
+- `ds-catachan-command-squad` `og-catachan-command-squad-7`: added
+- `ds-catachan-command-squad` `og-catachan-command-squad-8`: added
+- `ds-catachan-command-squad-2` `og-catachan-command-squad-2-4`: removed
+- `ds-catachan-command-squad-2` `og-catachan-command-squad-2-6`: removed
+- `ds-catachan-command-squad-2` `og-catachan-command-squad-2-7`: added
+- `ds-catachan-command-squad-2` `og-catachan-command-squad-2-8`: added
+- `ds-chinork-warkopta` `og-chinork-warkopta-1`: removed
+- `ds-chinork-warkopta` `og-chinork-warkopta-2`: removed
+- `ds-chinork-warkopta` `og-chinork-warkopta-3`: removed
+- `ds-deff-rolla-battle-fortress` `og-deff-rolla-battle-fortress-1`: removed
+- `ds-deff-rolla-battle-fortress` `og-deff-rolla-battle-fortress-2`: removed
+- `ds-deff-rolla-battle-fortress` `og-deff-rolla-battle-fortress-3`: removed
+- `ds-deff-rolla-battle-fortress` `og-deff-rolla-battle-fortress-4`: removed
+- `ds-deffkoptas-with-big-shootas` `og-deffkoptas-with-big-shootas-1`: removed
+- `ds-deffkoptas-with-big-shootas` `og-deffkoptas-with-big-shootas-2`: removed
+- `ds-fighta-bommer` `og-fighta-bommer-1`: removed
+- `ds-flash-gitz` `og-flash-gitz-1`: removed
+- `ds-gunwagon` `og-gunwagon-1`: added
+- `ds-gunwagon` `og-gunwagon-2`: added
+- `ds-gunwagon` `og-gunwagon-3`: added
+- `ds-gunwagon` `og-gunwagon-4`: added
+- `ds-gunwagon` `og-gunwagon-5`: added
+- `ds-kannonwagon` `og-kannonwagon-1`: removed
+- `ds-kill-krusha` `og-kill-krusha-1`: removed
+- `ds-kill-krusha` `og-kill-krusha-2`: removed
+- `ds-killa-kans` `og-killa-kans-1`: removed
+- `ds-kommandos` `og-kommandos-6`: removed
+- `ds-kommandos` `og-kommandos-7`: removed
+- `ds-mega-dread` `og-mega-dread-1`: removed
+- `ds-mega-dread` `og-mega-dread-2`: removed
+- `ds-meganobz` `og-meganobz-2`: added
+- `ds-meganobz` `og-meganobz-3`: added
+- `ds-mek` `og-mek-1`: removed
+- `ds-meka-dread` `og-meka-dread-1`: removed
+- `ds-meka-dread` `og-meka-dread-2`: removed
+- `ds-nobz` `og-nobz-4`: added
+- `ds-nobz` `og-nobz-5`: added
+- `ds-nobz-on-warbikes` `og-nobz-on-warbikes-1`: removed
+- `ds-nobz-on-warbikes` `og-nobz-on-warbikes-2`: removed
+- `ds-painboss` `og-painboss-1`: removed
+- `ds-painboy` `og-painboy-1`: removed
+- `ds-painboy-on-warbike` `og-painboy-on-warbike-1`: removed
+- `ds-squiggoth` `og-squiggoth-1`: removed
+- `ds-squighog-boyz` `og-squighog-boyz-1`: removed
+- `ds-trukk` `og-trukk-2`: added
+- `ds-warbikers` `og-warbikers-1`: removed
+- `ds-warbikers` `og-warbikers-2`: removed
+- `ds-warboss` `og-warboss-3`: removed
+
+## Wargear option choices
+
+- `ds-attack-fighta` `oc-attack-fighta-1-1`: removed (unpriced → absent)
+- `ds-battlewagon` `oc-battlewagon-1-2`: removed (unpriced → absent)
+- `ds-battlewagon` `oc-battlewagon-1-3`: removed (unpriced → absent)
+- `ds-battlewagon` `oc-battlewagon-4-1`: removed (unpriced → absent)
+- `ds-battlewagon` `oc-battlewagon-5-1`: removed (unpriced → absent)
+- `ds-battlewagon` `oc-battlewagon-5-2`: removed (unpriced → absent)
+- `ds-battlewagon` `oc-battlewagon-5-3`: removed (unpriced → absent)
+- `ds-big-gunz` `oc-big-gunz-1-1`: removed (unpriced → absent)
+- `ds-big-gunz` `oc-big-gunz-1-2`: removed (unpriced → absent)
+- `ds-big-mek-in-mega-armour` `oc-big-mek-in-mega-armour-1-3`: removed (unpriced → absent)
+- `ds-big-mek-in-mega-armour` `oc-big-mek-in-mega-armour-2-3`: added (absent → unpriced)
+- `ds-big-mek-in-mega-armour` `oc-big-mek-in-mega-armour-3-1`: removed (unpriced → absent)
+- `ds-big-mek-on-warbike` `oc-big-mek-on-warbike-1-1`: removed (unpriced → absent)
+- `ds-big-mek-on-warbike` `oc-big-mek-on-warbike-1-2`: removed (unpriced → absent)
+- `ds-big-mek-on-warbike` `oc-big-mek-on-warbike-1-3`: removed (unpriced → absent)
+- `ds-big-mek-on-warbike` `oc-big-mek-on-warbike-1-4`: removed (unpriced → absent)
+- `ds-big-mek-on-warbike` `oc-big-mek-on-warbike-1-5`: removed (unpriced → absent)
+- `ds-big-mek-on-warbike` `oc-big-mek-on-warbike-1-6`: removed (unpriced → absent)
+- `ds-big-mek-on-warbike` `oc-big-mek-on-warbike-1-7`: removed (unpriced → absent)
+- `ds-big-mek-on-warbike` `oc-big-mek-on-warbike-1-8`: removed (unpriced → absent)
+- `ds-big-mek-on-warbike` `oc-big-mek-on-warbike-2-1`: removed (unpriced → absent)
+- `ds-big-mek-on-warbike` `oc-big-mek-on-warbike-2-2`: removed (unpriced → absent)
+- `ds-big-mek-on-warbike` `oc-big-mek-on-warbike-2-3`: removed (unpriced → absent)
+- `ds-big-mek-on-warbike` `oc-big-mek-on-warbike-2-4`: removed (unpriced → absent)
+- `ds-big-mek-on-warbike` `oc-big-mek-on-warbike-2-5`: removed (unpriced → absent)
+- `ds-big-mek-on-warbike` `oc-big-mek-on-warbike-2-6`: removed (unpriced → absent)
+- `ds-big-mek-on-warbike` `oc-big-mek-on-warbike-2-7`: removed (unpriced → absent)
+- `ds-big-mek-with-kustom-force-field` `oc-big-mek-with-kustom-force-field-1-1`: removed (unpriced → absent)
+- `ds-big-mek-with-shokk-attack-gun` `oc-big-mek-with-shokk-attack-gun-1-1`: removed (unpriced → absent)
+- `ds-boyz` `oc-boyz-2-2`: removed (unpriced → absent)
+- `ds-boyz` `oc-boyz-3-2`: added (absent → unpriced)
+- `ds-boyz` `oc-boyz-4-2`: removed (unpriced → absent)
+- `ds-boyz` `oc-boyz-5-1`: added (absent → unpriced)
+- `ds-boyz` `oc-boyz-6-1`: added (absent → unpriced)
+- `ds-catachan-command-squad` `oc-catachan-command-squad-4-1`: removed (unpriced → absent)
+- `ds-catachan-command-squad` `oc-catachan-command-squad-5-2`: removed (unpriced → absent)
+- `ds-catachan-command-squad` `oc-catachan-command-squad-6-1`: removed (unpriced → absent)
+- `ds-catachan-command-squad` `oc-catachan-command-squad-6-2`: removed (unpriced → absent)
+- `ds-catachan-command-squad` `oc-catachan-command-squad-6-3`: removed (unpriced → absent)
+- `ds-catachan-command-squad` `oc-catachan-command-squad-6-4`: removed (unpriced → absent)
+- `ds-catachan-command-squad` `oc-catachan-command-squad-7-1`: added (absent → unpriced)
+- `ds-catachan-command-squad` `oc-catachan-command-squad-7-2`: added (absent → unpriced)
+- `ds-catachan-command-squad` `oc-catachan-command-squad-8-1`: added (absent → unpriced)
+- `ds-catachan-command-squad` `oc-catachan-command-squad-8-2`: added (absent → unpriced)
+- `ds-catachan-command-squad` `oc-catachan-command-squad-8-3`: added (absent → unpriced)
+- `ds-catachan-command-squad` `oc-catachan-command-squad-8-4`: added (absent → unpriced)
+- `ds-catachan-command-squad-2` `oc-catachan-command-squad-2-4-1`: removed (unpriced → absent)
+- `ds-catachan-command-squad-2` `oc-catachan-command-squad-2-5-2`: removed (unpriced → absent)
+- `ds-catachan-command-squad-2` `oc-catachan-command-squad-2-6-1`: removed (unpriced → absent)
+- `ds-catachan-command-squad-2` `oc-catachan-command-squad-2-6-2`: removed (unpriced → absent)
+- `ds-catachan-command-squad-2` `oc-catachan-command-squad-2-6-3`: removed (unpriced → absent)
+- `ds-catachan-command-squad-2` `oc-catachan-command-squad-2-6-4`: removed (unpriced → absent)
+- `ds-catachan-command-squad-2` `oc-catachan-command-squad-2-7-1`: added (absent → unpriced)
+- `ds-catachan-command-squad-2` `oc-catachan-command-squad-2-7-2`: added (absent → unpriced)
+- `ds-catachan-command-squad-2` `oc-catachan-command-squad-2-8-1`: added (absent → unpriced)
+- `ds-catachan-command-squad-2` `oc-catachan-command-squad-2-8-2`: added (absent → unpriced)
+- `ds-catachan-command-squad-2` `oc-catachan-command-squad-2-8-3`: added (absent → unpriced)
+- `ds-catachan-command-squad-2` `oc-catachan-command-squad-2-8-4`: added (absent → unpriced)
+- `ds-chinork-warkopta` `oc-chinork-warkopta-1-1`: removed (unpriced → absent)
+- `ds-chinork-warkopta` `oc-chinork-warkopta-2-1`: removed (unpriced → absent)
+- `ds-chinork-warkopta` `oc-chinork-warkopta-2-2`: removed (unpriced → absent)
+- `ds-chinork-warkopta` `oc-chinork-warkopta-2-3`: removed (unpriced → absent)
+- `ds-chinork-warkopta` `oc-chinork-warkopta-3-1`: removed (unpriced → absent)
+- `ds-deff-dread` `oc-deff-dread-1-4`: removed (unpriced → absent)
+- `ds-deff-rolla-battle-fortress` `oc-deff-rolla-battle-fortress-1-1`: removed (unpriced → absent)
+- `ds-deff-rolla-battle-fortress` `oc-deff-rolla-battle-fortress-2-1`: removed (unpriced → absent)
+- `ds-deff-rolla-battle-fortress` `oc-deff-rolla-battle-fortress-2-2`: removed (unpriced → absent)
+- `ds-deff-rolla-battle-fortress` `oc-deff-rolla-battle-fortress-3-1`: removed (unpriced → absent)
+- `ds-deff-rolla-battle-fortress` `oc-deff-rolla-battle-fortress-3-2`: removed (unpriced → absent)
+- `ds-deff-rolla-battle-fortress` `oc-deff-rolla-battle-fortress-4-1`: removed (unpriced → absent)
+- `ds-deff-rolla-battle-fortress` `oc-deff-rolla-battle-fortress-4-2`: removed (unpriced → absent)
+- `ds-deffkoptas-with-big-shootas` `oc-deffkoptas-with-big-shootas-1-1`: removed (unpriced → absent)
+- `ds-deffkoptas-with-big-shootas` `oc-deffkoptas-with-big-shootas-1-2`: removed (unpriced → absent)
+- `ds-deffkoptas-with-big-shootas` `oc-deffkoptas-with-big-shootas-2-1`: removed (unpriced → absent)
+- `ds-fighta-bommer` `oc-fighta-bommer-1-1`: removed (unpriced → absent)
+- `ds-fighta-bommer` `oc-fighta-bommer-1-2`: removed (unpriced → absent)
+- `ds-fighta-bommer` `oc-fighta-bommer-1-3`: removed (unpriced → absent)
+- `ds-flash-gitz` `oc-flash-gitz-1-1`: removed (unpriced → absent)
+- `ds-gunwagon` `oc-gunwagon-1-1`: added (absent → unpriced)
+- `ds-gunwagon` `oc-gunwagon-2-1`: added (absent → unpriced)
+- `ds-gunwagon` `oc-gunwagon-3-1`: added (absent → unpriced)
+- `ds-gunwagon` `oc-gunwagon-4-1`: added (absent → unpriced)
+- `ds-gunwagon` `oc-gunwagon-5-1`: added (absent → unpriced)
+- `ds-gunwagon` `oc-gunwagon-5-2`: added (absent → unpriced)
+- `ds-kannonwagon` `oc-kannonwagon-1-1`: removed (unpriced → absent)
+- `ds-kill-krusha` `oc-kill-krusha-1-1`: removed (unpriced → absent)
+- `ds-kill-krusha` `oc-kill-krusha-1-2`: removed (unpriced → absent)
+- `ds-kill-krusha` `oc-kill-krusha-1-3`: removed (unpriced → absent)
+- `ds-kill-krusha` `oc-kill-krusha-2-1`: removed (unpriced → absent)
+- `ds-kill-krusha` `oc-kill-krusha-2-2`: removed (unpriced → absent)
+- `ds-kill-krusha` `oc-kill-krusha-2-3`: removed (unpriced → absent)
+- `ds-killa-kans` `oc-killa-kans-1-1`: removed (unpriced → absent)
+- `ds-killa-kans` `oc-killa-kans-1-2`: removed (unpriced → absent)
+- `ds-killa-kans` `oc-killa-kans-1-3`: removed (unpriced → absent)
+- `ds-kommandos` `oc-kommandos-6-1`: removed (unpriced → absent)
+- `ds-kommandos` `oc-kommandos-7-1`: removed (unpriced → absent)
+- `ds-mega-dread` `oc-mega-dread-1-1`: removed (unpriced → absent)
+- `ds-mega-dread` `oc-mega-dread-1-2`: removed (unpriced → absent)
+- `ds-mega-dread` `oc-mega-dread-2-1`: removed (unpriced → absent)
+- `ds-mega-dread` `oc-mega-dread-2-2`: removed (unpriced → absent)
+- `ds-meganobz` `oc-meganobz-1-2`: removed (unpriced → absent)
+- `ds-meganobz` `oc-meganobz-1-3`: removed (unpriced → absent)
+- `ds-meganobz` `oc-meganobz-1-4`: removed (unpriced → absent)
+- `ds-meganobz` `oc-meganobz-1-5`: removed (unpriced → absent)
+- `ds-meganobz` `oc-meganobz-2-1`: added (absent → unpriced)
+- `ds-meganobz` `oc-meganobz-3-1`: added (absent → unpriced)
+- `ds-mek` `oc-mek-1-1`: removed (unpriced → absent)
+- `ds-meka-dread` `oc-meka-dread-1-1`: removed (unpriced → absent)
+- `ds-meka-dread` `oc-meka-dread-1-2`: removed (unpriced → absent)
+- `ds-meka-dread` `oc-meka-dread-2-1`: removed (unpriced → absent)
+- `ds-meka-dread` `oc-meka-dread-2-2`: removed (unpriced → absent)
+- `ds-nobz` `oc-nobz-4-1`: added (absent → unpriced)
+- `ds-nobz` `oc-nobz-5-1`: added (absent → unpriced)
+- `ds-nobz-on-warbikes` `oc-nobz-on-warbikes-1-1`: removed (unpriced → absent)
+- `ds-nobz-on-warbikes` `oc-nobz-on-warbikes-2-1`: removed (unpriced → absent)
+- `ds-nobz-on-warbikes` `oc-nobz-on-warbikes-2-2`: removed (unpriced → absent)
+- `ds-nobz-on-warbikes` `oc-nobz-on-warbikes-2-3`: removed (unpriced → absent)
+- `ds-nobz-on-warbikes` `oc-nobz-on-warbikes-2-4`: removed (unpriced → absent)
+- `ds-nobz-on-warbikes` `oc-nobz-on-warbikes-2-5`: removed (unpriced → absent)
+- `ds-painboss` `oc-painboss-1-1`: removed (unpriced → absent)
+- `ds-painboy` `oc-painboy-1-1`: removed (unpriced → absent)
+- `ds-painboy-on-warbike` `oc-painboy-on-warbike-1-1`: removed (unpriced → absent)
+- `ds-squiggoth` `oc-squiggoth-1-1`: removed (unpriced → absent)
+- `ds-squighog-boyz` `oc-squighog-boyz-1-1`: removed (unpriced → absent)
+- `ds-trukk` `oc-trukk-2-1`: added (absent → unpriced)
+- `ds-trukk` `oc-trukk-2-2`: added (absent → unpriced)
+- `ds-warbikers` `oc-warbikers-1-1`: removed (unpriced → absent)
+- `ds-warbikers` `oc-warbikers-1-2`: removed (unpriced → absent)
+- `ds-warbikers` `oc-warbikers-2-1`: removed (unpriced → absent)
+- `ds-warbikers` `oc-warbikers-2-2`: removed (unpriced → absent)
+- `ds-warbikers` `oc-warbikers-2-3`: removed (unpriced → absent)
+- `ds-warboss` `oc-warboss-2-2`: added (absent → unpriced)
+- `ds-warboss` `oc-warboss-3-1`: removed (unpriced → absent)
+
+## Keyword classification
+
+- `ADEPTUS ASTARTES`: unclassified → faction
+- `ADEPTUS TITANICUS`: unclassified → faction
+- `AGENTS OF THE IMPERIUM`: unclassified → faction
+- `ASURYANI`: unclassified → faction
+- `ATTACK FIGHTA`: unit → unclassified
+- `BANNERNOB`: unit → unclassified
+- `BATTLEWAGON`: unit → unclassified
+- `BEAST SNAGGA BOYZ`: unit → unclassified
+- `BEASTBOSS`: unit → unclassified
+- `BEASTBOSS ON SQUIGOSAUR`: unit → unclassified
+- `BIG GUNZ`: unit → unclassified
+- `BIG MEK IN MEGA ARMOUR`: unit → unclassified
+- `BIG MEK ON WARBIKE`: unit → unclassified
+- `BIG MEK WITH KUSTOM FORCE FIELD`: unit → unclassified
+- `BIG MEK WITH SHOKK ATTACK GUN`: unit → unclassified
+- `BIGBOSS`: unit → unclassified
+- `BIG’ED BOSSBUNKA`: unit → unclassified
+- `BLITZA-BOMMER`: unit → unclassified
+- `BLOOD LEGIONS`: unclassified → chapter
+- `BOOMDAKKA SNAZZWAGON`: unit → unclassified
+- `BOSS SNIKROT`: unit → unclassified
+- `BOYZ`: unit → unclassified
+- `BREAKA BOYZ`: unit → unclassified
+- `BURNA-BOMMER`: unit → unclassified
+- `CELESTIAN`: unclassified → unit
+- `CHINORK WARKOPTA`: unit → unclassified
+- `DA RED GOBBO`: unit → unclassified
+- `DAKKAJET`: unit → unclassified
+- `DAKKARIG`: unit → unclassified
+- `DEFF DREAD`: unit → unclassified
+- `DEFF ROLLA BATTLE FORTRESS`: unit → unclassified
+- `DEFFKILLA WARTRIKE`: unit → unclassified
+- `DEFFKOPTAS`: unit → unclassified
+- `DEFFKOPTAS WITH BIG SHOOTAS`: unit → unclassified
+- `EXPLOSIVES`: unclassified → unit
+- `FIGHTA-BOMMER`: unit → unclassified
+- `FLASH GITZ`: unit → unclassified
+- `GHAZGHKULL THRAKA`: unit → unclassified
+- `GORKANAUT`: unit → unclassified
+- `GRETCHIN`: unit → unclassified
+- `GROT BOMM LAUNCHA`: unit → unclassified
+- `HARLEQUINS`: unclassified → chapter
+- `HERETIC ASTARTES`: unclassified → faction
+- `HUNTA RIG`: unit → unclassified
+- `IMPERIAL FISTS`: unclassified → chapter
+- `IRON HANDS`: unclassified → chapter
+- `KANNONWAGON`: unit → unclassified
+- `KILL KRUSHA`: unit → unclassified
+- `KILL RIG`: unit → unclassified
+- `KILLA KANS`: unit → unclassified
+- `KOMMANDOS`: unit → unclassified
+- `KUSTOM BOOSTA-BLASTA`: unit → unclassified
+- `LEGIONES DAEMONICA`: unclassified → faction
+- `LEGIONS OF EXCESS`: unclassified → chapter
+- `MEGA DREAD`: unit → unclassified
+- `MEGANOBZ`: unit → unclassified
+- `MEGATRAKK SCRAPJET`: unit → unclassified
+- `MEK`: unit → unclassified
+- `MEK GUNZ`: unit → unclassified
+- `MEKA-DREAD`: unit → unclassified
+- `MORKANAUT`: unit → unclassified
+- `MOZROG SKRAGBAD`: unit → unclassified
+- `NOBZ`: unit → unclassified
+- `NOBZ ON WARBIKES`: unit → unclassified
+- `PAINBOSS`: unit → unclassified
+- `PAINBOY ON WARBIKE`: unit → unclassified
+- `PLAGUE LEGIONS`: unclassified → chapter
+- `RAVEN GUARD`: unclassified → chapter
+- `RUKKATRUKK SQUIGBUGGY`: unit → unclassified
+- `RUNTHERD`: unclassified → unit
+- `SALAMANDERS`: unclassified → chapter
+- `SCINTILLATING LEGIONS`: unclassified → chapter
+- `SHOKKJUMP DRAGSTA`: unit → unclassified
+- `SKORCHAS`: unit → unclassified
+- `SQUIGGOTH`: unit → unclassified
+- `SQUIGHOG BOYZ`: unit → unclassified
+- `STOMPA`: unit → unclassified
+- `STORMBOYZ`: unit → unclassified
+- `TANKBUSTAS`: unit → unclassified
+- `TRUKK`: unit → unclassified
+- `UFTHAK BLACKHAWK`: unit → unclassified
+- `ULTRAMARINES`: unclassified → chapter
+- `WAGON`: unclassified → unit
+- `WARBIKERS`: unit → unclassified
+- `WARBOSS IN MEGA ARMOUR`: unit → unclassified
+- `WARBUGGIES`: unit → unclassified
+- `WARTRAKK`: unit → unclassified
+- `WAZBOM BLASTAJET`: unit → unclassified
+- `WAZDAKKA GUTSMEK`: unit → unclassified
+- `WEIRDBOY`: unit → unclassified
+- `WHITE SCARS`: unclassified → chapter
+- `WURRBOY`: unit → unclassified
+- `YNNARI`: unclassified → chapter
+- `ZODGROD WORTSNAGGA`: unit → unclassified
+
+## Authored summaries
+
+None.

@@ -2,6 +2,7 @@
   "ability_keys": [
     "core:deadly-demise-d3",
     "core:firing-deck-2",
+    "datasheet:one-shot",
     "datasheet:rapid-deployment",
     "faction:assigned-agents"
   ],
@@ -21,7 +22,7 @@
       "model_count": 1,
       "points": 60,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260818T033550Z-0c772378"
+      "source_acquisition_id": "mfm-20260916T021400Z-1b0a18bd"
     },
     {
       "copy_index_min": 4,
@@ -29,7 +30,7 @@
       "model_count": 1,
       "points": 70,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260818T033550Z-0c772378"
+      "source_acquisition_id": "mfm-20260916T021400Z-1b0a18bd"
     },
     {
       "copy_index_min": 1,
@@ -38,7 +39,7 @@
       "points": 60,
       "pricing_confidence": "verified",
       "pricing_context": "every-model-has-imperium",
-      "source_acquisition_id": "mfm-20260818T033550Z-0c772378"
+      "source_acquisition_id": "mfm-20260916T021400Z-1b0a18bd"
     },
     {
       "copy_index_min": 4,
@@ -47,7 +48,7 @@
       "points": 70,
       "pricing_confidence": "verified",
       "pricing_context": "every-model-has-imperium",
-      "source_acquisition_id": "mfm-20260818T033550Z-0c772378"
+      "source_acquisition_id": "mfm-20260916T021400Z-1b0a18bd"
     }
   ],
   "datasheet_id": "ds-inquisitorial-chimera",
@@ -90,7 +91,8 @@
   "keywords": [
     {
       "is_faction_keyword": true,
-      "keyword": "AGENTS OF THE IMPERIUM"
+      "keyword": "AGENTS OF THE IMPERIUM",
+      "keyword_class": "faction"
     },
     {
       "is_faction_keyword": false,
@@ -134,7 +136,7 @@
       "leadership": "7+",
       "line": 1,
       "movement": "10\"",
-      "name": "Inquisitorial Chimera",
+      "name": "Chimera",
       "objective_control": 2,
       "save": "3+",
       "toughness": 9,
@@ -292,15 +294,15 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:ecc76fc1f013b2bfe7046ca051727aef3f364b035662fef416f1011042b10ca1",
-    "last_verified_version": "wh40k-11e-2026-08-4",
+    "last_verified_version": "wh40k-11e-2026-09-1",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+    "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
+    "points_acquisition_id": "mfm-20260916T021400Z-1b0a18bd",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
@@ -395,9 +397,10 @@
       "armour_penetration": "0",
       "attacks": "2",
       "damage": "1",
-      "is_melee": true,
+      "is_melee": false,
       "line": 7,
       "name": "Storm bolter",
+      "range": "24\"",
       "skill": "4+",
       "strength": "4"
     },

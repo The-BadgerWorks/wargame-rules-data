@@ -1,5 +1,6 @@
 {
   "ability_keys": [
+    "core:damaged-4",
     "core:deadly-demise-d3",
     "datasheet:burna-bomb",
     "faction:waaagh"
@@ -9,7 +10,8 @@
       "line": 1,
       "max_count": 1,
       "min_count": 1,
-      "model_name": "Burna-bommer"
+      "model_line": 1,
+      "model_name": "Burna-bommer model"
     }
   ],
   "costs": [
@@ -17,12 +19,11 @@
       "copy_index_min": 1,
       "label": "1 model",
       "model_count": 1,
-      "points": 115,
+      "points": 125,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260818T033550Z-0c772378"
+      "source_acquisition_id": "mfm-20260916T021400Z-1b0a18bd"
     }
   ],
-  "damaged_threshold": 4,
   "datasheet_id": "ds-burna-bommer",
   "default_equipment_state": "extracted",
   "equipment_groups": [
@@ -31,19 +32,22 @@
       "id": "eq-burna-bommer-1",
       "items": [
         {
+          "count": 1,
           "item_index": 1,
-          "item_name": "twin big shoota",
+          "item_name": "Armoured Impact",
+          "weapon_line": 4
+        },
+        {
+          "count": 1,
+          "item_index": 2,
+          "item_name": "Dual Big Shoota",
           "weapon_line": 1
         },
         {
-          "item_index": 2,
-          "item_name": "twin supa-shoota",
-          "weapon_line": 2
-        },
-        {
+          "count": 1,
           "item_index": 3,
-          "item_name": "armoured hull",
-          "weapon_line": 4
+          "item_name": "Dual Supa Shoota",
+          "weapon_line": 2
         }
       ],
       "line": 1
@@ -59,11 +63,6 @@
     {
       "is_faction_keyword": false,
       "keyword": "AIRCRAFT",
-      "keyword_class": "unit"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "BURNA-BOMMER",
       "keyword_class": "unit"
     },
     {
@@ -87,6 +86,20 @@
       "keyword_class": "unit"
     }
   ],
+  "models": [
+    {
+      "base_size": "(⌀120 x 92mm flying base)",
+      "invuln_save": "6+",
+      "leadership": "7+",
+      "line": 1,
+      "movement": "-",
+      "name": "Burna-bommer",
+      "objective_control": 0,
+      "save": "3+",
+      "toughness": 9,
+      "wounds": 12
+    }
+  ],
   "name": "BURNA-BOMMER",
   "option_choices": [
     {
@@ -100,12 +113,12 @@
         {
           "count": 1,
           "item_index": 1,
-          "item_name": "skorcha missile rack",
+          "item_name": "Skorcha Missile Rack",
           "role": "granted",
           "weapon_line": 3
         }
       ],
-      "name": "skorcha missile rack"
+      "name": "Skorcha Missile Rack"
     }
   ],
   "option_groups": [
@@ -117,16 +130,16 @@
   ],
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
-    "last_verified_points_digest": "sha256:9e91cd3e2c6c33d1ce006a3fc9b04e64021c0d0554ffb517f277a9dacd729344",
-    "last_verified_version": "wh40k-11e-2026-08-4",
+    "last_verified_points_digest": "sha256:386c0f9820ea18176ab08168e114d432ebe7ef5ce9d7400d4f57ea3e5f410e04",
+    "last_verified_version": "wh40k-11e-2026-09-1",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+    "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
+    "points_acquisition_id": "mfm-20260916T021400Z-1b0a18bd",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
@@ -134,46 +147,47 @@
   "weapons": [
     {
       "ability_keywords": [
-        "rapid fire 2",
-        "twin-linked"
+        "LETHAL HITS: non-MONSTER/VEHICLE",
+        "Rapid Fire 4"
       ],
       "armour_penetration": "0",
-      "attacks": "3",
+      "attacks": "6",
       "damage": "1",
       "is_melee": false,
       "line": 1,
-      "name": "Twin big shoota",
+      "name": "Dual Big Shoota",
       "range": "36\"",
       "skill": "5+",
       "strength": "5"
     },
     {
       "ability_keywords": [
-        "rapid fire 2",
-        "sustained hits 1",
-        "twin-linked"
+        "LETHAL HITS: non-MONSTER/VEHICLE",
+        "Rapid Fire 4",
+        "Sustained Hits 1"
       ],
       "armour_penetration": "-1",
-      "attacks": "4",
+      "attacks": "8",
       "damage": "1",
       "is_melee": false,
       "line": 2,
-      "name": "Twin supa-shoota",
+      "name": "Dual Supa Shoota",
       "range": "36\"",
       "skill": "5+",
       "strength": "6"
     },
     {
       "ability_keywords": [
-        "blast",
-        "ignores cover"
+        "BLAST 2",
+        "Ignores Cover"
       ],
-      "armour_penetration": "-1",
-      "attacks": "2D6",
+      "armour_penetration": "0",
+      "attacks": "6",
       "damage": "1",
-      "is_melee": true,
+      "is_melee": false,
       "line": 3,
-      "name": "Skorcha missile rack",
+      "name": "Skorcha Missile Rack",
+      "range": "36\"",
       "skill": "5+",
       "strength": "5"
     },
@@ -183,7 +197,7 @@
       "damage": "1",
       "is_melee": true,
       "line": 4,
-      "name": "Armoured hull",
+      "name": "Armoured Impact",
       "skill": "4+",
       "strength": "6"
     }

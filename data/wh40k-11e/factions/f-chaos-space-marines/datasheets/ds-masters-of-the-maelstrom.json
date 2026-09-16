@@ -1,5 +1,6 @@
 {
   "ability_keys": [
+    "core:support",
     "datasheet:choice-samples",
     "datasheet:fleet-command",
     "datasheet:plunder",
@@ -10,31 +11,31 @@
       "line": 1,
       "max_count": 1,
       "min_count": 1,
-      "model_name": "Garreon the Corpsemaster"
+      "model_name": "Garreon the Corpsemaster - EPIC HERO"
     },
     {
       "line": 2,
       "max_count": 1,
       "min_count": 1,
-      "model_name": "Garlon Souleater"
+      "model_name": "Garlon Souleater - EPIC HERO"
     },
     {
       "line": 3,
       "max_count": 1,
       "min_count": 1,
-      "model_name": "Katar Garrix"
+      "model_name": "Katar Garrix - EPIC HERO"
     },
     {
       "line": 4,
       "max_count": 1,
       "min_count": 1,
-      "model_name": "Captain Sargotta"
+      "model_name": "Captain Sargotta - EPIC HERO"
     },
     {
       "line": 5,
       "max_count": 1,
       "min_count": 1,
-      "model_name": "The Enforcer"
+      "model_name": "The Enforcer - EPIC HERO"
     }
   ],
   "costs": [
@@ -44,7 +45,7 @@
       "model_count": 5,
       "points": 145,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260818T033550Z-0c772378"
+      "source_acquisition_id": "mfm-20260916T021400Z-1b0a18bd"
     }
   ],
   "datasheet_id": "ds-masters-of-the-maelstrom",
@@ -52,7 +53,6 @@
   "equipment_groups": [
     {
       "applies_to": "model_group",
-      "composition_line": 1,
       "id": "eq-masters-of-the-maelstrom-1",
       "items": [
         {
@@ -71,7 +71,6 @@
     },
     {
       "applies_to": "model_group",
-      "composition_line": 2,
       "id": "eq-masters-of-the-maelstrom-2",
       "items": [
         {
@@ -90,7 +89,6 @@
     },
     {
       "applies_to": "model_group",
-      "composition_line": 3,
       "id": "eq-masters-of-the-maelstrom-3",
       "items": [
         {
@@ -109,7 +107,6 @@
     },
     {
       "applies_to": "model_group",
-      "composition_line": 4,
       "id": "eq-masters-of-the-maelstrom-4",
       "items": [
         {
@@ -128,7 +125,6 @@
     },
     {
       "applies_to": "model_group",
-      "composition_line": 5,
       "id": "eq-masters-of-the-maelstrom-5",
       "items": [
         {
@@ -175,7 +171,8 @@
     },
     {
       "is_faction_keyword": true,
-      "keyword": "HERETIC ASTARTES"
+      "keyword": "HERETIC ASTARTES",
+      "keyword_class": "faction"
     },
     {
       "is_faction_keyword": false,
@@ -194,6 +191,11 @@
       "model_scope": "GARLON SOULEATER"
     }
   ],
+  "leader_pairs": [
+    "ds-chosen",
+    "ds-legionaries",
+    "ds-red-corsairs-raiders"
+  ],
   "models": [
     {
       "base_size": "(⌀40mm)",
@@ -207,7 +209,7 @@
       "wounds": 4
     },
     {
-      "base_size": "(⌀40mm The Enforcer 32mm )",
+      "base_size": "(⌀40mm)",
       "leadership": "6+",
       "line": 2,
       "movement": "6\"",
@@ -222,15 +224,15 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:851a76dfbe7f90d1df7f9212cf73f40d1667de17b00857ce415e05fb6e35b4d5",
-    "last_verified_version": "wh40k-11e-2026-08-4",
+    "last_verified_version": "wh40k-11e-2026-09-1",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+    "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
+    "points_acquisition_id": "mfm-20260916T021400Z-1b0a18bd",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
@@ -300,9 +302,10 @@
       "armour_penetration": "-2",
       "attacks": "1",
       "damage": "D6+1",
-      "is_melee": true,
+      "is_melee": false,
       "line": 5,
       "name": "Mind Wrench",
+      "range": "12\"",
       "skill": "2+",
       "strength": "6"
     },

@@ -9,6 +9,7 @@
       "line": 1,
       "max_count": 1,
       "min_count": 1,
+      "model_line": 1,
       "model_name": "Ravenwing Dark Talon"
     }
   ],
@@ -19,7 +20,7 @@
       "model_count": 1,
       "points": 200,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260818T033550Z-0c772378"
+      "source_acquisition_id": "mfm-20260916T021400Z-1b0a18bd"
     }
   ],
   "damaged_threshold": 3,
@@ -58,7 +59,8 @@
   "keywords": [
     {
       "is_faction_keyword": true,
-      "keyword": "ADEPTUS ASTARTES"
+      "keyword": "ADEPTUS ASTARTES",
+      "keyword_class": "faction"
     },
     {
       "is_faction_keyword": false,
@@ -96,19 +98,33 @@
       "keyword_class": "unit"
     }
   ],
+  "models": [
+    {
+      "base_size": "(⌀120 x 92mm flying base)",
+      "invuln_save": "5+",
+      "leadership": "6+",
+      "line": 1,
+      "movement": "-",
+      "name": "Ravenwing Dark Talon",
+      "objective_control": 0,
+      "save": "3+",
+      "toughness": 8,
+      "wounds": 11
+    }
+  ],
   "name": "RAVENWING DARK TALON",
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:a5a0b34ea1e2447ebb32fe2d9207fb5dd933824c2a767c0eb33396a1c752a051",
-    "last_verified_version": "wh40k-11e-2026-08-4",
+    "last_verified_version": "wh40k-11e-2026-09-1",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+    "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
+    "points_acquisition_id": "mfm-20260916T021400Z-1b0a18bd",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
@@ -137,9 +153,10 @@
       "armour_penetration": "-4",
       "attacks": "D3+1",
       "damage": "3",
-      "is_melee": true,
+      "is_melee": false,
       "line": 2,
       "name": "Rift cannon",
+      "range": "18\"",
       "skill": "3+",
       "strength": "16"
     },

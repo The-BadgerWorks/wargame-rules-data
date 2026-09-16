@@ -1,7 +1,8 @@
 {
   "ability_keys": [
     "core:deep-strike",
-    "datasheet:mark-the-target"
+    "datasheet:mark-the-target",
+    "datasheet:sniper-teams"
   ],
   "composition": [
     {
@@ -18,7 +19,7 @@
       "model_count": 3,
       "points": 65,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0"
+      "source_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf"
     }
   ],
   "datasheet_id": "ds-elysian-sniper-squad",
@@ -100,12 +101,12 @@
   ],
   "name": "Elysian Sniper Squad",
   "pricing_confidence": {
-    "consecutive_unverified_releases": 5,
+    "consecutive_unverified_releases": 6,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+    "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
@@ -136,9 +137,10 @@
       "armour_penetration": "-2",
       "attacks": "1",
       "damage": "2",
-      "is_melee": true,
+      "is_melee": false,
       "line": 2,
       "name": "Sniper rifle",
+      "range": "36\"",
       "skill": "3+",
       "strength": "4"
     },

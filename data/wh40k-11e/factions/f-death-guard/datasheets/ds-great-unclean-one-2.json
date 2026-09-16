@@ -5,6 +5,7 @@
     "core:feel-no-pain-6",
     "datasheet:daemon-lord-of-nurgle-aura",
     "datasheet:nurgles-rot-psychic",
+    "datasheet:reverberating-summons",
     "faction:pact-of-decay"
   ],
   "composition": [
@@ -23,7 +24,7 @@
       "model_count": 1,
       "points": 265,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260818T033550Z-0c772378"
+      "source_acquisition_id": "mfm-20260916T021400Z-1b0a18bd"
     },
     {
       "copy_index_min": 3,
@@ -31,7 +32,7 @@
       "model_count": 1,
       "points": 280,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260818T033550Z-0c772378"
+      "source_acquisition_id": "mfm-20260916T021400Z-1b0a18bd"
     }
   ],
   "damaged_threshold": 7,
@@ -99,7 +100,8 @@
     },
     {
       "is_faction_keyword": true,
-      "keyword": "PLAGUE LEGIONS"
+      "keyword": "PLAGUE LEGIONS",
+      "keyword_class": "chapter"
     },
     {
       "is_faction_keyword": false,
@@ -190,15 +192,15 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:14383ad7474074bb537bb9937a3ae063762c29ba3cdabcb7684c894adf0303dd",
-    "last_verified_version": "wh40k-11e-2026-08-4",
+    "last_verified_version": "wh40k-11e-2026-09-1",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+    "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
+    "points_acquisition_id": "mfm-20260916T021400Z-1b0a18bd",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
@@ -223,9 +225,10 @@
       "armour_penetration": "-2",
       "attacks": "D6+3",
       "damage": "1",
-      "is_melee": true,
+      "is_melee": false,
       "line": 2,
       "name": "Putrid vomit",
+      "range": "12\"",
       "skill": "N/A",
       "strength": "5"
     },

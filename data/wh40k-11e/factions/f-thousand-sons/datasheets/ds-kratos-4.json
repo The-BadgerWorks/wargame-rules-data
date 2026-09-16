@@ -1,7 +1,8 @@
 {
   "ability_keys": [
     "core:deadly-demise-d6",
-    "datasheet:line-breaker"
+    "datasheet:line-breaker",
+    "datasheet:one-shot"
   ],
   "composition": [
     {
@@ -19,10 +20,9 @@
       "model_count": 1,
       "points": 240,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0"
+      "source_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf"
     }
   ],
-  "damaged_threshold": 6,
   "datasheet_id": "ds-kratos-4",
   "default_equipment_state": "extracted",
   "equipment_groups": [
@@ -33,7 +33,7 @@
         {
           "item_index": 1,
           "item_name": "autocannon",
-          "weapon_line": 1
+          "weapon_line": 2
         },
         {
           "item_index": 2,
@@ -47,7 +47,7 @@
         {
           "item_index": 4,
           "item_name": "armoured tracks",
-          "weapon_line": 16
+          "weapon_line": 10
         }
       ],
       "line": 1
@@ -67,7 +67,67 @@
     },
     {
       "is_faction_keyword": false,
+      "keyword": "CHAOS",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHAOS",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHAOS",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHAOS",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
       "keyword": "KRATOS",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "KRATOS",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "KRATOS",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "KRATOS",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "KRATOS",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "SMOKE",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "SMOKE",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "SMOKE",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "SMOKE",
       "keyword_class": "unit"
     },
     {
@@ -83,6 +143,46 @@
     {
       "is_faction_keyword": false,
       "keyword": "TZEENTCH",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "TZEENTCH",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "TZEENTCH",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "TZEENTCH",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "TZEENTCH",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "VEHICLE",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "VEHICLE",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "VEHICLE",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "VEHICLE",
       "keyword_class": "unit"
     },
     {
@@ -108,7 +208,7 @@
   "option_choices": [
     {
       "count": 1,
-      "grants_weapon_line": 10,
+      "grants_weapon_line": 11,
       "group_id": "og-kratos-4-1",
       "id": "oc-kratos-4-1-1",
       "is_default": false,
@@ -119,7 +219,7 @@
           "item_index": 1,
           "item_name": "melta blast-gun",
           "role": "granted",
-          "weapon_line": 10
+          "weapon_line": 11
         },
         {
           "item_index": 1,
@@ -131,7 +231,7 @@
     },
     {
       "count": 1,
-      "grants_weapon_line": 14,
+      "grants_weapon_line": 15,
       "group_id": "og-kratos-4-1",
       "id": "oc-kratos-4-1-2",
       "is_default": false,
@@ -142,7 +242,7 @@
           "item_index": 1,
           "item_name": "volkite cardanelle",
           "role": "granted",
-          "weapon_line": 14
+          "weapon_line": 15
         },
         {
           "item_index": 1,
@@ -284,7 +384,7 @@
     },
     {
       "count": 1,
-      "grants_weapon_line": 2,
+      "grants_weapon_line": 3,
       "group_id": "og-kratos-4-4",
       "id": "oc-kratos-4-4-1",
       "is_default": false,
@@ -295,14 +395,14 @@
           "item_index": 1,
           "item_name": "combi-weapon",
           "role": "granted",
-          "weapon_line": 2
+          "weapon_line": 3
         }
       ],
       "name": "combi-weapon"
     },
     {
       "count": 1,
-      "grants_weapon_line": 3,
+      "grants_weapon_line": 4,
       "group_id": "og-kratos-4-4",
       "id": "oc-kratos-4-4-2",
       "is_default": false,
@@ -313,14 +413,14 @@
           "item_index": 1,
           "item_name": "havoc launcher",
           "role": "granted",
-          "weapon_line": 3
+          "weapon_line": 4
         }
       ],
       "name": "havoc launcher"
     },
     {
       "count": 1,
-      "grants_weapon_line": 4,
+      "grants_weapon_line": 5,
       "group_id": "og-kratos-4-4",
       "id": "oc-kratos-4-4-3",
       "is_default": false,
@@ -331,14 +431,14 @@
           "item_index": 1,
           "item_name": "heavy bolter",
           "role": "granted",
-          "weapon_line": 4
+          "weapon_line": 5
         }
       ],
       "name": "heavy bolter"
     },
     {
       "count": 1,
-      "grants_weapon_line": 5,
+      "grants_weapon_line": 6,
       "group_id": "og-kratos-4-4",
       "id": "oc-kratos-4-4-4",
       "is_default": false,
@@ -349,14 +449,14 @@
           "item_index": 1,
           "item_name": "heavy flamer",
           "role": "granted",
-          "weapon_line": 5
+          "weapon_line": 6
         }
       ],
       "name": "heavy flamer"
     },
     {
       "count": 1,
-      "grants_weapon_line": 11,
+      "grants_weapon_line": 12,
       "group_id": "og-kratos-4-4",
       "id": "oc-kratos-4-4-5",
       "is_default": false,
@@ -367,14 +467,14 @@
           "item_index": 1,
           "item_name": "multi-melta",
           "role": "granted",
-          "weapon_line": 11
+          "weapon_line": 12
         }
       ],
       "name": "multi-melta"
     },
     {
       "count": 1,
-      "grants_weapon_line": 12,
+      "grants_weapon_line": 13,
       "group_id": "og-kratos-4-4",
       "id": "oc-kratos-4-4-6",
       "is_default": false,
@@ -385,14 +485,14 @@
           "item_index": 1,
           "item_name": "twin boltgun",
           "role": "granted",
-          "weapon_line": 12
+          "weapon_line": 13
         }
       ],
       "name": "twin boltgun"
     },
     {
       "count": 1,
-      "grants_weapon_line": 6,
+      "grants_weapon_line": 7,
       "group_id": "og-kratos-4-5",
       "id": "oc-kratos-4-5-1",
       "is_default": false,
@@ -403,7 +503,7 @@
           "item_index": 1,
           "item_name": "hunter killer missile",
           "role": "granted",
-          "weapon_line": 6
+          "weapon_line": 7
         }
       ],
       "name": "hunter killer missile"
@@ -437,12 +537,12 @@
     }
   ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 5,
+    "consecutive_unverified_releases": 6,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+    "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
@@ -452,11 +552,25 @@
   "wargear_option_state": "extracted",
   "weapons": [
     {
+      "ability_keywords": [
+        "devastating wounds"
+      ],
+      "armour_penetration": "0",
+      "attacks": "4",
+      "damage": "2",
+      "is_melee": false,
+      "line": 1,
+      "name": "Volkite culverin",
+      "range": "36\"",
+      "skill": "3+",
+      "strength": "6"
+    },
+    {
       "armour_penetration": "-1",
       "attacks": "2",
       "damage": "3",
       "is_melee": false,
-      "line": 1,
+      "line": 2,
       "name": "Autocannon",
       "range": "48\"",
       "skill": "3+",
@@ -472,7 +586,7 @@
       "attacks": "1",
       "damage": "1",
       "is_melee": false,
-      "line": 2,
+      "line": 3,
       "name": "Combi-weapon",
       "range": "24\"",
       "skill": "3+",
@@ -486,7 +600,7 @@
       "attacks": "D6",
       "damage": "1",
       "is_melee": false,
-      "line": 3,
+      "line": 4,
       "name": "Havoc launcher",
       "range": "48\"",
       "skill": "3+",
@@ -500,7 +614,7 @@
       "attacks": "3",
       "damage": "2",
       "is_melee": false,
-      "line": 4,
+      "line": 5,
       "name": "Heavy bolter",
       "range": "36\"",
       "skill": "3+",
@@ -515,7 +629,7 @@
       "attacks": "D6",
       "damage": "1",
       "is_melee": false,
-      "line": 5,
+      "line": 6,
       "name": "Heavy flamer",
       "range": "12\"",
       "skill": "N/A",
@@ -529,25 +643,11 @@
       "attacks": "1",
       "damage": "D6",
       "is_melee": false,
-      "line": 6,
+      "line": 7,
       "name": "Hunter-killer missile",
       "range": "48\"",
       "skill": "2+",
       "strength": "14"
-    },
-    {
-      "ability_keywords": [
-        "heavy"
-      ],
-      "armour_penetration": "-4",
-      "attacks": "1",
-      "damage": "D6+3",
-      "is_melee": false,
-      "line": 7,
-      "name": "Kratos battle cannon – AP",
-      "range": "36\"",
-      "skill": "3+",
-      "strength": "18"
     },
     {
       "ability_keywords": [
@@ -575,6 +675,16 @@
       "strength": "12"
     },
     {
+      "armour_penetration": "0",
+      "attacks": "6",
+      "damage": "1",
+      "is_melee": true,
+      "line": 10,
+      "name": "Armoured tracks",
+      "skill": "4+",
+      "strength": "8"
+    },
+    {
       "ability_keywords": [
         "melta 2"
       ],
@@ -582,7 +692,7 @@
       "attacks": "4",
       "damage": "D6",
       "is_melee": false,
-      "line": 10,
+      "line": 11,
       "name": "Melta blast-gun",
       "range": "24\"",
       "skill": "3+",
@@ -596,7 +706,7 @@
       "attacks": "2",
       "damage": "D6",
       "is_melee": false,
-      "line": 11,
+      "line": 12,
       "name": "Multi-melta",
       "range": "18\"",
       "skill": "3+",
@@ -610,7 +720,7 @@
       "attacks": "2",
       "damage": "1",
       "is_melee": false,
-      "line": 12,
+      "line": 13,
       "name": "Twin boltgun",
       "range": "24\"",
       "skill": "3+",
@@ -624,7 +734,7 @@
       "attacks": "2",
       "damage": "2",
       "is_melee": false,
-      "line": 13,
+      "line": 14,
       "name": "Volkite caliver",
       "range": "24\"",
       "skill": "3+",
@@ -638,7 +748,7 @@
       "attacks": "9",
       "damage": "3",
       "is_melee": false,
-      "line": 14,
+      "line": 15,
       "name": "Volkite cardanelle",
       "range": "36\"",
       "skill": "3+",
@@ -646,26 +756,17 @@
     },
     {
       "ability_keywords": [
-        "devastating wounds"
+        "heavy"
       ],
-      "armour_penetration": "0",
-      "attacks": "4",
-      "damage": "2",
-      "is_melee": true,
-      "line": 15,
-      "name": "Volkite culverin",
-      "skill": "3+",
-      "strength": "6"
-    },
-    {
-      "armour_penetration": "0",
-      "attacks": "6",
-      "damage": "1",
-      "is_melee": true,
+      "armour_penetration": "-4",
+      "attacks": "1",
+      "damage": "D6+3",
+      "is_melee": false,
       "line": 16,
-      "name": "Armoured tracks",
-      "skill": "4+",
-      "strength": "8"
+      "name": "Kratos battle cannon – AP",
+      "range": "36\"",
+      "skill": "3+",
+      "strength": "18"
     }
   ]
 }

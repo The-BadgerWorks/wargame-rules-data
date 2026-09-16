@@ -23,7 +23,7 @@
       "model_count": 1,
       "points": 70,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0"
+      "source_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf"
     }
   ],
   "datasheet_id": "ds-parasite-of-mortrex-2",
@@ -36,12 +36,12 @@
         {
           "item_index": 1,
           "item_name": "barbed ovipositor",
-          "weapon_line": 1
+          "weapon_line": 2
         },
         {
           "item_index": 2,
           "item_name": "clawed limbs",
-          "weapon_line": 2
+          "weapon_line": 1
         }
       ],
       "line": 1
@@ -63,6 +63,11 @@
       "is_faction_keyword": false,
       "keyword": "FLY",
       "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": true,
+      "keyword": "GENESTEALER CULTS",
+      "keyword_class": "faction"
     },
     {
       "is_faction_keyword": false,
@@ -110,12 +115,12 @@
   ],
   "name": "Parasite Of Mortrex",
   "pricing_confidence": {
-    "consecutive_unverified_releases": 5,
+    "consecutive_unverified_releases": 6,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+    "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
@@ -125,6 +130,16 @@
   "wargear_option_state": "none",
   "weapons": [
     {
+      "armour_penetration": "-1",
+      "attacks": "6",
+      "damage": "1",
+      "is_melee": true,
+      "line": 1,
+      "name": "Clawed limbs",
+      "skill": "2+",
+      "strength": "5"
+    },
+    {
       "ability_keywords": [
         "anti-infantry 3+",
         "extra attacks"
@@ -133,20 +148,10 @@
       "attacks": "1",
       "damage": "3",
       "is_melee": true,
-      "line": 1,
+      "line": 2,
       "name": "Barbed ovipositor",
       "skill": "2+",
       "strength": "3"
-    },
-    {
-      "armour_penetration": "-1",
-      "attacks": "6",
-      "damage": "1",
-      "is_melee": true,
-      "line": 2,
-      "name": "Clawed limbs",
-      "skill": "2+",
-      "strength": "5"
     }
   ]
 }

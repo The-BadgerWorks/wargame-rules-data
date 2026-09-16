@@ -1,6 +1,7 @@
 {
   "ability_keys": [
     "core:deadly-demise-1",
+    "datasheet:conversion",
     "datasheet:even-in-death-i-serve",
     "faction:blessings-of-khorne"
   ],
@@ -20,7 +21,7 @@
       "model_count": 1,
       "points": 140,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0"
+      "source_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf"
     }
   ],
   "datasheet_id": "ds-relic-contemptor-dreadnought-5",
@@ -38,7 +39,7 @@
         {
           "item_index": 2,
           "item_name": "armoured feet",
-          "weapon_line": 17
+          "weapon_line": 18
         }
       ],
       "line": 1
@@ -58,7 +59,82 @@
     },
     {
       "is_faction_keyword": false,
+      "keyword": "CHAOS",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHAOS",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHAOS",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHAOS",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHAOS",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
       "keyword": "DREADNOUGHT",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "DREADNOUGHT",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "DREADNOUGHT",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "DREADNOUGHT",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "DREADNOUGHT",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "DREADNOUGHT",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "KHORNE",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "KHORNE",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "KHORNE",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "KHORNE",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "KHORNE",
       "keyword_class": "unit"
     },
     {
@@ -73,7 +149,82 @@
     },
     {
       "is_faction_keyword": false,
+      "keyword": "RELIC CONTEMPTOR DREADNOUGHT",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "RELIC CONTEMPTOR DREADNOUGHT",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "RELIC CONTEMPTOR DREADNOUGHT",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "RELIC CONTEMPTOR DREADNOUGHT",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "RELIC CONTEMPTOR DREADNOUGHT",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
       "keyword": "VEHICLE",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "VEHICLE",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "VEHICLE",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "VEHICLE",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "VEHICLE",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "VEHICLE",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "WALKER",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "WALKER",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "WALKER",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "WALKER",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "WALKER",
       "keyword_class": "unit"
     },
     {
@@ -105,7 +256,7 @@
   "option_choices": [
     {
       "count": 1,
-      "grants_weapon_line": 2,
+      "grants_weapon_line": 13,
       "group_id": "og-relic-contemptor-dreadnought-5-1",
       "id": "oc-relic-contemptor-dreadnought-5-1-1",
       "is_default": false,
@@ -116,7 +267,7 @@
           "item_index": 1,
           "item_name": "conversion beam cannon",
           "role": "granted",
-          "weapon_line": 2
+          "weapon_line": 13
         },
         {
           "item_index": 1,
@@ -128,7 +279,7 @@
     },
     {
       "count": 1,
-      "grants_weapon_line": 12,
+      "grants_weapon_line": 3,
       "group_id": "og-relic-contemptor-dreadnought-5-1",
       "id": "oc-relic-contemptor-dreadnought-5-1-2",
       "is_default": false,
@@ -139,7 +290,7 @@
           "item_index": 1,
           "item_name": "kheres-pattern assault cannon",
           "role": "granted",
-          "weapon_line": 12
+          "weapon_line": 3
         },
         {
           "item_index": 1,
@@ -151,7 +302,7 @@
     },
     {
       "count": 1,
-      "grants_weapon_line": 13,
+      "grants_weapon_line": 2,
       "group_id": "og-relic-contemptor-dreadnought-5-1",
       "id": "oc-relic-contemptor-dreadnought-5-1-3",
       "is_default": false,
@@ -162,7 +313,7 @@
           "item_index": 1,
           "item_name": "multi-melta",
           "role": "granted",
-          "weapon_line": 13
+          "weapon_line": 2
         },
         {
           "item_index": 1,
@@ -174,7 +325,7 @@
     },
     {
       "count": 1,
-      "grants_weapon_line": 6,
+      "grants_weapon_line": 10,
       "group_id": "og-relic-contemptor-dreadnought-5-1",
       "id": "oc-relic-contemptor-dreadnought-5-1-4",
       "is_default": false,
@@ -185,7 +336,7 @@
           "item_index": 1,
           "item_name": "twin autocannon",
           "role": "granted",
-          "weapon_line": 6
+          "weapon_line": 10
         },
         {
           "item_index": 1,
@@ -220,7 +371,7 @@
     },
     {
       "count": 1,
-      "grants_weapon_line": 8,
+      "grants_weapon_line": 6,
       "group_id": "og-relic-contemptor-dreadnought-5-1",
       "id": "oc-relic-contemptor-dreadnought-5-1-6",
       "is_default": false,
@@ -231,7 +382,7 @@
           "item_index": 1,
           "item_name": "twin lascannon",
           "role": "granted",
-          "weapon_line": 8
+          "weapon_line": 6
         },
         {
           "item_index": 1,
@@ -243,7 +394,7 @@
     },
     {
       "count": 1,
-      "grants_weapon_line": 16,
+      "grants_weapon_line": 19,
       "group_id": "og-relic-contemptor-dreadnought-5-1",
       "id": "oc-relic-contemptor-dreadnought-5-1-7",
       "is_default": false,
@@ -254,7 +405,7 @@
           "item_index": 1,
           "item_name": "twin volkite culverin",
           "role": "granted",
-          "weapon_line": 16
+          "weapon_line": 19
         },
         {
           "item_index": 1,
@@ -276,14 +427,14 @@
           "item_index": 1,
           "item_name": "Dreadnought chainfist",
           "role": "granted",
-          "weapon_line": 18
+          "weapon_line": 17
         },
         {
           "count": 1,
           "item_index": 2,
           "item_name": "combi-bolter",
           "role": "granted",
-          "weapon_line": 1
+          "weapon_line": 14
         },
         {
           "item_index": 1,
@@ -305,14 +456,14 @@
           "item_index": 1,
           "item_name": "Dreadnought combat weapon",
           "role": "granted",
-          "weapon_line": 19
+          "weapon_line": 16
         },
         {
           "count": 1,
           "item_index": 2,
           "item_name": "combi-bolter",
           "role": "granted",
-          "weapon_line": 1
+          "weapon_line": 14
         },
         {
           "item_index": 1,
@@ -324,7 +475,7 @@
     },
     {
       "count": 1,
-      "grants_weapon_line": 5,
+      "grants_weapon_line": 11,
       "group_id": "og-relic-contemptor-dreadnought-5-2",
       "id": "oc-relic-contemptor-dreadnought-5-2-1",
       "is_default": false,
@@ -335,7 +486,7 @@
           "item_index": 1,
           "item_name": "graviton blaster",
           "role": "granted",
-          "weapon_line": 5
+          "weapon_line": 11
         },
         {
           "item_index": 1,
@@ -347,7 +498,7 @@
     },
     {
       "count": 1,
-      "grants_weapon_line": 9,
+      "grants_weapon_line": 5,
       "group_id": "og-relic-contemptor-dreadnought-5-2",
       "id": "oc-relic-contemptor-dreadnought-5-2-2",
       "is_default": false,
@@ -358,7 +509,7 @@
           "item_index": 1,
           "item_name": "heavy flamer",
           "role": "granted",
-          "weapon_line": 9
+          "weapon_line": 5
         },
         {
           "item_index": 1,
@@ -424,12 +575,12 @@
     }
   ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 5,
+    "consecutive_unverified_releases": 6,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+    "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
@@ -439,86 +590,87 @@
   "wargear_option_state": "extracted",
   "weapons": [
     {
-      "ability_keywords": [
-        "rapid fire 2"
-      ],
-      "armour_penetration": "0",
+      "armour_penetration": "-2",
       "attacks": "2",
       "damage": "1",
       "is_melee": false,
       "line": 1,
-      "name": "Combi-bolter",
-      "range": "24\"",
+      "name": "Plasma blaster – standard",
+      "range": "18\"",
       "skill": "3+",
-      "strength": "4"
+      "strength": "7"
     },
     {
       "ability_keywords": [
-        "conversion",
-        "sustained hits d3"
+        "MELTA 2"
       ],
-      "armour_penetration": "-1",
-      "attacks": "1",
-      "damage": "3",
+      "armour_penetration": "-4",
+      "attacks": "2",
+      "damage": "D6",
       "is_melee": false,
       "line": 2,
-      "name": "Conversion beam cannon",
+      "name": "Multi-melta",
+      "range": "18\"",
+      "skill": "3+",
+      "strength": "9"
+    },
+    {
+      "ability_keywords": [
+        "devastating wounds"
+      ],
+      "armour_penetration": "-1",
+      "attacks": "6",
+      "damage": "1",
+      "is_melee": false,
+      "line": 3,
+      "name": "Kheres-pattern assault cannon",
       "range": "24\"",
       "skill": "3+",
       "strength": "7"
     },
     {
       "ability_keywords": [
-        "BLAST"
+        "blast",
+        "hazardous"
       ],
-      "armour_penetration": "0",
-      "attacks": "2D6",
-      "damage": "1",
-      "is_melee": false,
-      "line": 3,
-      "name": "Cyclone missile launcher – frag",
-      "range": "36\"",
-      "skill": "3+",
-      "strength": "4"
-    },
-    {
-      "armour_penetration": "-2",
-      "attacks": "2",
-      "damage": "D6",
+      "armour_penetration": "-3",
+      "attacks": "D3",
+      "damage": "3",
       "is_melee": false,
       "line": 4,
-      "name": "Cyclone missile launcher – krak",
+      "name": "Heavy plasma cannon – supercharge",
       "range": "36\"",
       "skill": "3+",
-      "strength": "9"
+      "strength": "8"
     },
     {
       "ability_keywords": [
-        "anti-vehicle 2+"
+        "IGNORES COVER",
+        "TORRENT"
       ],
       "armour_penetration": "-1",
-      "attacks": "2",
+      "attacks": "D6",
       "damage": "1",
       "is_melee": false,
       "line": 5,
-      "name": "Graviton blaster",
-      "range": "18\"",
-      "skill": "3+",
+      "name": "Heavy flamer",
+      "range": "12\"",
+      "skill": "N/A",
       "strength": "5"
     },
     {
       "ability_keywords": [
         "TWIN-LINKED"
       ],
-      "armour_penetration": "-1",
-      "attacks": "2",
-      "damage": "3",
+      "armour_penetration": "-3",
+      "attacks": "1",
+      "damage": "D6+1",
       "is_melee": false,
       "line": 6,
-      "name": "Twin autocannon",
+      "name": "Twin lascannon",
       "range": "48\"",
       "skill": "3+",
-      "strength": "9"
+      "strength": "12"
     },
     {
       "ability_keywords": [
@@ -537,32 +689,17 @@
     },
     {
       "ability_keywords": [
-        "TWIN-LINKED"
+        "BLAST"
       ],
-      "armour_penetration": "-3",
-      "attacks": "1",
-      "damage": "D6+1",
-      "is_melee": false,
-      "line": 8,
-      "name": "Twin lascannon",
-      "range": "48\"",
-      "skill": "3+",
-      "strength": "12"
-    },
-    {
-      "ability_keywords": [
-        "IGNORES COVER",
-        "TORRENT"
-      ],
-      "armour_penetration": "-1",
-      "attacks": "D6",
+      "armour_penetration": "0",
+      "attacks": "2D6",
       "damage": "1",
       "is_melee": false,
-      "line": 9,
-      "name": "Heavy flamer",
-      "range": "12\"",
-      "skill": "N/A",
-      "strength": "5"
+      "line": 8,
+      "name": "Cyclone missile launcher – frag",
+      "range": "36\"",
+      "skill": "3+",
+      "strength": "4"
     },
     {
       "ability_keywords": [
@@ -572,7 +709,7 @@
       "attacks": "D3",
       "damage": "2",
       "is_melee": false,
-      "line": 10,
+      "line": 9,
       "name": "Heavy plasma cannon – standard",
       "range": "36\"",
       "skill": "3+",
@@ -580,57 +717,71 @@
     },
     {
       "ability_keywords": [
-        "blast",
-        "hazardous"
+        "TWIN-LINKED"
       ],
-      "armour_penetration": "-3",
-      "attacks": "D3",
+      "armour_penetration": "-1",
+      "attacks": "2",
       "damage": "3",
       "is_melee": false,
-      "line": 11,
-      "name": "Heavy plasma cannon – supercharge",
-      "range": "36\"",
+      "line": 10,
+      "name": "Twin autocannon",
+      "range": "48\"",
       "skill": "3+",
-      "strength": "8"
+      "strength": "9"
     },
     {
       "ability_keywords": [
-        "devastating wounds"
+        "anti-vehicle 2+"
       ],
       "armour_penetration": "-1",
-      "attacks": "6",
+      "attacks": "2",
       "damage": "1",
       "is_melee": false,
+      "line": 11,
+      "name": "Graviton blaster",
+      "range": "18\"",
+      "skill": "3+",
+      "strength": "5"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "2",
+      "damage": "D6",
+      "is_melee": false,
       "line": 12,
-      "name": "Kheres-pattern assault cannon",
+      "name": "Cyclone missile launcher – krak",
+      "range": "36\"",
+      "skill": "3+",
+      "strength": "9"
+    },
+    {
+      "ability_keywords": [
+        "conversion",
+        "sustained hits d3"
+      ],
+      "armour_penetration": "-1",
+      "attacks": "1",
+      "damage": "3",
+      "is_melee": false,
+      "line": 13,
+      "name": "Conversion beam cannon",
       "range": "24\"",
       "skill": "3+",
       "strength": "7"
     },
     {
       "ability_keywords": [
-        "MELTA 2"
+        "rapid fire 2"
       ],
-      "armour_penetration": "-4",
-      "attacks": "2",
-      "damage": "D6",
-      "is_melee": false,
-      "line": 13,
-      "name": "Multi-melta",
-      "range": "18\"",
-      "skill": "3+",
-      "strength": "9"
-    },
-    {
-      "armour_penetration": "-2",
+      "armour_penetration": "0",
       "attacks": "2",
       "damage": "1",
       "is_melee": false,
       "line": 14,
-      "name": "Plasma blaster – standard",
-      "range": "18\"",
+      "name": "Combi-bolter",
+      "range": "24\"",
       "skill": "3+",
-      "strength": "7"
+      "strength": "4"
     },
     {
       "ability_keywords": [
@@ -647,28 +798,14 @@
       "strength": "8"
     },
     {
-      "ability_keywords": [
-        "devastating wounds",
-        "twin-linked"
-      ],
-      "armour_penetration": "0",
-      "attacks": "4",
-      "damage": "2",
+      "armour_penetration": "-2",
+      "attacks": "5",
+      "damage": "3",
       "is_melee": true,
       "line": 16,
-      "name": "Twin volkite culverin",
+      "name": "Dreadnought combat weapon",
       "skill": "3+",
-      "strength": "6"
-    },
-    {
-      "armour_penetration": "0",
-      "attacks": "5",
-      "damage": "1",
-      "is_melee": true,
-      "line": 17,
-      "name": "Armoured feet",
-      "skill": "3+",
-      "strength": "6"
+      "strength": "12"
     },
     {
       "ability_keywords": [
@@ -678,20 +815,35 @@
       "attacks": "4",
       "damage": "3",
       "is_melee": true,
-      "line": 18,
+      "line": 17,
       "name": "Dreadnought chainfist",
       "skill": "3+",
       "strength": "12"
     },
     {
-      "armour_penetration": "-2",
+      "armour_penetration": "0",
       "attacks": "5",
-      "damage": "3",
+      "damage": "1",
       "is_melee": true,
-      "line": 19,
-      "name": "Dreadnought combat weapon",
+      "line": 18,
+      "name": "Armoured feet",
       "skill": "3+",
-      "strength": "12"
+      "strength": "6"
+    },
+    {
+      "ability_keywords": [
+        "devastating wounds",
+        "twin-linked"
+      ],
+      "armour_penetration": "0",
+      "attacks": "4",
+      "damage": "2",
+      "is_melee": false,
+      "line": 19,
+      "name": "Twin volkite culverin",
+      "range": "36\"",
+      "skill": "3+",
+      "strength": "6"
     }
   ]
 }

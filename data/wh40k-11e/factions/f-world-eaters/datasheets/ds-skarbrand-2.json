@@ -12,7 +12,7 @@
       "max_count": 1,
       "min_count": 1,
       "model_line": 1,
-      "model_name": "Skarbrand"
+      "model_name": "Skarbrand - EPIC HERO"
     }
   ],
   "costs": [
@@ -22,7 +22,7 @@
       "model_count": 1,
       "points": 315,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260818T033550Z-0c772378"
+      "source_acquisition_id": "mfm-20260916T021400Z-1b0a18bd"
     }
   ],
   "damaged_threshold": 7,
@@ -55,7 +55,8 @@
   "keywords": [
     {
       "is_faction_keyword": true,
-      "keyword": "BLOOD LEGIONS"
+      "keyword": "BLOOD LEGIONS",
+      "keyword_class": "chapter"
     },
     {
       "is_faction_keyword": false,
@@ -116,15 +117,15 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:83dfaf2437d0663360f2cc29378c46a7bcc19936f97f3ae8e63e0671c1b8431f",
-    "last_verified_version": "wh40k-11e-2026-08-4",
+    "last_verified_version": "wh40k-11e-2026-09-1",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+    "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
+    "points_acquisition_id": "mfm-20260916T021400Z-1b0a18bd",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
@@ -138,9 +139,10 @@
       "armour_penetration": "-1",
       "attacks": "2D6",
       "damage": "1",
-      "is_melee": true,
+      "is_melee": false,
       "line": 1,
       "name": "Bellow of endless fury",
+      "range": "12\"",
       "skill": "N/A",
       "strength": "8"
     },

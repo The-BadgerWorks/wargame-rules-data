@@ -7,47 +7,6 @@
     "datasheet:hunting-hounds",
     "faction:oath-of-moment"
   ],
-  "composition": [
-    {
-      "line": 1,
-      "max_count": 1,
-      "min_count": 1,
-      "model_name": "Wolf Scout Pack Leader"
-    },
-    {
-      "line": 2,
-      "max_count": 4,
-      "min_count": 4,
-      "model_line": 1,
-      "model_name": "Wolf Scouts"
-    },
-    {
-      "line": 3,
-      "max_count": 1,
-      "min_count": 1,
-      "model_name": "Hunting Wolf"
-    },
-    {
-      "line": 4,
-      "max_count": 1,
-      "min_count": 1,
-      "model_name": "Wolf Scout Pack Leader"
-    },
-    {
-      "line": 5,
-      "max_count": 9,
-      "min_count": 9,
-      "model_line": 1,
-      "model_name": "Wolf Scouts"
-    },
-    {
-      "line": 6,
-      "max_count": 2,
-      "min_count": 2,
-      "model_line": 2,
-      "model_name": "Hunting Wolves"
-    }
-  ],
   "costs": [
     {
       "copy_index_min": 1,
@@ -55,7 +14,7 @@
       "model_count": 6,
       "points": 90,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260818T033550Z-0c772378"
+      "source_acquisition_id": "mfm-20260916T021400Z-1b0a18bd"
     },
     {
       "copy_index_min": 1,
@@ -63,61 +22,10 @@
       "model_count": 12,
       "points": 180,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260818T033550Z-0c772378"
+      "source_acquisition_id": "mfm-20260916T021400Z-1b0a18bd"
     }
   ],
   "datasheet_id": "ds-wolf-scouts",
-  "default_equipment_state": "extracted",
-  "equipment_groups": [
-    {
-      "applies_to": "model_group",
-      "id": "eq-wolf-scouts-1",
-      "items": [
-        {
-          "item_index": 1,
-          "item_name": "plasma pistol"
-        },
-        {
-          "item_index": 2,
-          "item_name": "power weapon",
-          "weapon_line": 9
-        }
-      ],
-      "line": 1,
-      "model_name": "Wolf Scout Pack Leader model"
-    },
-    {
-      "applies_to": "model_group",
-      "id": "eq-wolf-scouts-2",
-      "items": [
-        {
-          "item_index": 1,
-          "item_name": "plasma pistol"
-        },
-        {
-          "item_index": 2,
-          "item_name": "combat blade",
-          "weapon_line": 8
-        }
-      ],
-      "line": 2,
-      "model_name": "Wolf Scout model"
-    },
-    {
-      "applies_to": "model_group",
-      "composition_line": 3,
-      "id": "eq-wolf-scouts-3",
-      "items": [
-        {
-          "item_index": 1,
-          "item_name": "teeth and claws",
-          "weapon_line": 11
-        }
-      ],
-      "line": 3,
-      "model_name": "Hunting Wolf model"
-    }
-  ],
   "faction_id": "f-space-wolves",
   "is_battleline": false,
   "is_character": false,
@@ -127,7 +35,8 @@
   "keywords": [
     {
       "is_faction_keyword": true,
-      "keyword": "ADEPTUS ASTARTES"
+      "keyword": "ADEPTUS ASTARTES",
+      "keyword_class": "faction"
     },
     {
       "is_faction_keyword": false,
@@ -283,15 +192,15 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:a6d4cf2a5cd4282f49d95cb26da44059c64b51456200269875ee08c3e6b8b069",
-    "last_verified_version": "wh40k-11e-2026-08-4",
+    "last_verified_version": "wh40k-11e-2026-09-1",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+    "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
+    "points_acquisition_id": "mfm-20260916T021400Z-1b0a18bd",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
@@ -391,9 +300,10 @@
       "armour_penetration": "-1",
       "attacks": "D3",
       "damage": "2",
-      "is_melee": true,
+      "is_melee": false,
       "line": 7,
       "name": "Thunderclap",
+      "range": "12\"",
       "skill": "3+",
       "strength": "5"
     },

@@ -1,209 +1,209 @@
 {
   "enhancements": [
     {
-      "detachment_id": "d-bully-boyz",
-      "enhancement_id": "e-big-gob",
+      "detachment_id": "d-green-tide",
+      "enhancement_id": "e-ardboyz-upgrade",
       "max_per_army": 1,
-      "name": "Big Gob",
-      "points": 20,
+      "name": "'Ardboyz (Upgrade)",
+      "points": 25,
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+        "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
         "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
+        "points_acquisition_id": "mfm-20260916T021400Z-1b0a18bd",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       }
     },
     {
-      "detachment_id": "d-freebooter-krew",
-      "enhancement_id": "e-bionik-workshop",
+      "detachment_id": "d-brute-bosses",
+      "enhancement_id": "e-blitzboss",
       "max_per_army": 1,
-      "name": "Bionik Workshop",
-      "points": 15,
+      "name": "Blitzboss",
+      "points": 20,
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+        "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
         "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
+        "points_acquisition_id": "mfm-20260916T021400Z-1b0a18bd",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       }
     },
     {
       "detachment_id": "d-blitz-brigade",
-      "enhancement_id": "e-blitzkaptin",
+      "enhancement_id": "e-boss-boomer-upgrade",
       "max_per_army": 1,
-      "name": "Blitzkaptin",
-      "points": 25,
-      "provenance": {
-        "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
-        "detail_edition_code": "wh40k-11e",
-        "detail_source": "wahapedia",
-        "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
-        "points_edition_code": "wh40k-11e",
-        "points_source": "mfm"
-      }
-    },
-    {
-      "detachment_id": "d-green-tide",
-      "enhancement_id": "e-bloodthirsty-belligerence",
-      "max_per_army": 1,
-      "name": "Bloodthirsty Belligerence",
-      "points": 15,
-      "provenance": {
-        "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
-        "detail_edition_code": "wh40k-11e",
-        "detail_source": "wahapedia",
-        "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
-        "points_edition_code": "wh40k-11e",
-        "points_source": "mfm"
-      }
-    },
-    {
-      "detachment_id": "d-rollin-deff",
-      "enhancement_id": "e-boarding-ramps-upgrade",
-      "max_per_army": 1,
-      "name": "Boarding Ramps (Upgrade)",
+      "name": "Boss Boomer (Upgrade)",
       "points": 10,
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+        "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
         "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
+        "points_acquisition_id": "mfm-20260916T021400Z-1b0a18bd",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       }
     },
     {
-      "detachment_id": "d-green-tide",
+      "detachment_id": "d-brute-bosses",
       "enhancement_id": "e-brutal-but-kunnin",
       "max_per_army": 1,
       "name": "Brutal But Kunnin’",
-      "points": 25,
+      "points": 30,
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+        "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
         "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
-        "points_edition_code": "wh40k-11e",
-        "points_source": "mfm"
-      }
-    },
-    {
-      "detachment_id": "d-bully-boyz",
-      "enhancement_id": "e-da-biggest-boss",
-      "max_per_army": 1,
-      "name": "Da Biggest Boss",
-      "points": 15,
-      "provenance": {
-        "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
-        "detail_edition_code": "wh40k-11e",
-        "detail_source": "wahapedia",
-        "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
-        "points_edition_code": "wh40k-11e",
-        "points_source": "mfm"
-      }
-    },
-    {
-      "detachment_id": "d-more-dakka",
-      "enhancement_id": "e-da-gobshot-thunderbuss",
-      "max_per_army": 1,
-      "name": "Da Gobshot Thunderbuss",
-      "points": 15,
-      "provenance": {
-        "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
-        "detail_edition_code": "wh40k-11e",
-        "detail_source": "wahapedia",
-        "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
-        "points_edition_code": "wh40k-11e",
-        "points_source": "mfm"
-      }
-    },
-    {
-      "detachment_id": "d-freebooter-krew",
-      "enhancement_id": "e-da-kaptin",
-      "max_per_army": 1,
-      "name": "Da Kaptin",
-      "points": 10,
-      "provenance": {
-        "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
-        "detail_edition_code": "wh40k-11e",
-        "detail_source": "wahapedia",
-        "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
-        "points_edition_code": "wh40k-11e",
-        "points_source": "mfm"
-      }
-    },
-    {
-      "detachment_id": "d-speedwaaagh",
-      "enhancement_id": "e-dakkamek",
-      "max_per_army": 1,
-      "name": "Dakkamek",
-      "points": 25,
-      "provenance": {
-        "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
-        "detail_edition_code": "wh40k-11e",
-        "detail_source": "wahapedia",
-        "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
-        "points_edition_code": "wh40k-11e",
-        "points_source": "mfm"
-      }
-    },
-    {
-      "detachment_id": "d-more-dakka",
-      "enhancement_id": "e-dead-shiny-shootas-upgrade",
-      "max_per_army": 1,
-      "name": "Dead Shiny Shootas (Upgrade)",
-      "points": 15,
-      "provenance": {
-        "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
-        "detail_edition_code": "wh40k-11e",
-        "detail_source": "wahapedia",
-        "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
-        "points_edition_code": "wh40k-11e",
-        "points_source": "mfm"
-      }
-    },
-    {
-      "detachment_id": "d-bully-boyz",
-      "enhancement_id": "e-eadstompa",
-      "max_per_army": 1,
-      "name": "’Eadstompa",
-      "points": 10,
-      "provenance": {
-        "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
-        "detail_edition_code": "wh40k-11e",
-        "detail_source": "wahapedia",
-        "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
+        "points_acquisition_id": "mfm-20260916T021400Z-1b0a18bd",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       }
     },
     {
       "detachment_id": "d-kult-of-speed",
-      "enhancement_id": "e-fasta-than-yooz",
+      "enhancement_id": "e-competitive-streak",
       "max_per_army": 1,
-      "name": "Fasta Than Yooz",
-      "points": 35,
+      "name": "Competitive Streak",
+      "points": 15,
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+        "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
         "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
+        "points_acquisition_id": "mfm-20260916T021400Z-1b0a18bd",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    },
+    {
+      "detachment_id": "d-dread-mob",
+      "enhancement_id": "e-cybork-boosta",
+      "max_per_army": 1,
+      "name": "Cybork Boosta",
+      "points": 10,
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
+        "detail_edition_code": "wh40k-11e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20260916T021400Z-1b0a18bd",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    },
+    {
+      "detachment_id": "d-war-horde",
+      "enhancement_id": "e-da-boss-is-watchin",
+      "max_per_army": 1,
+      "name": "Da Boss is Watchin'",
+      "points": 25,
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
+        "detail_edition_code": "wh40k-11e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20260916T021400Z-1b0a18bd",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    },
+    {
+      "detachment_id": "d-brute-bosses",
+      "enhancement_id": "e-da-gobshot-thunderbuss",
+      "max_per_army": 1,
+      "name": "Da Gobshot Thunderbuss",
+      "points": 20,
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
+        "detail_edition_code": "wh40k-11e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20260916T021400Z-1b0a18bd",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    },
+    {
+      "detachment_id": "d-wurrband",
+      "enhancement_id": "e-da-krunch",
+      "max_per_army": 1,
+      "name": "Da Krunch",
+      "points": 10,
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
+        "detail_edition_code": "wh40k-11e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20260916T021400Z-1b0a18bd",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    },
+    {
+      "detachment_id": "d-dread-mob",
+      "enhancement_id": "e-dreadherder",
+      "max_per_army": 1,
+      "name": "Dreadherder",
+      "points": 20,
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
+        "detail_edition_code": "wh40k-11e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20260916T021400Z-1b0a18bd",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    },
+    {
+      "detachment_id": "d-wurrband",
+      "enhancement_id": "e-eadbanger",
+      "max_per_army": 1,
+      "name": "'Eadbanger",
+      "points": 15,
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
+        "detail_edition_code": "wh40k-11e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20260916T021400Z-1b0a18bd",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    },
+    {
+      "detachment_id": "d-madcap-meks",
+      "enhancement_id": "e-enhanced-runt-maw-upgrade",
+      "max_per_army": 1,
+      "name": "Enhanced Runt-maw (Upgrade)",
+      "points": 10,
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
+        "detail_edition_code": "wh40k-11e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20260916T021400Z-1b0a18bd",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    },
+    {
+      "detachment_id": "d-runt-swarm",
+      "enhancement_id": "e-extra-sneaky-upgrade",
+      "max_per_army": 1,
+      "name": "Extra Sneaky (Upgrade)",
+      "points": 10,
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
+        "detail_edition_code": "wh40k-11e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20260916T021400Z-1b0a18bd",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       }
@@ -213,13 +213,29 @@
       "enhancement_id": "e-ferocious-show-off",
       "max_per_army": 1,
       "name": "Ferocious Show Off",
-      "points": 10,
+      "points": 15,
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+        "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
         "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
+        "points_acquisition_id": "mfm-20260916T021400Z-1b0a18bd",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    },
+    {
+      "detachment_id": "d-flyboyz",
+      "enhancement_id": "e-flyboss-upgrade",
+      "max_per_army": 1,
+      "name": "Flyboss (Upgrade)",
+      "points": 20,
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
+        "detail_edition_code": "wh40k-11e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20260916T021400Z-1b0a18bd",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       }
@@ -229,45 +245,13 @@
       "enhancement_id": "e-follow-me-ladz",
       "max_per_army": 1,
       "name": "Follow Me Ladz",
-      "points": 25,
-      "provenance": {
-        "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
-        "detail_edition_code": "wh40k-11e",
-        "detail_source": "wahapedia",
-        "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
-        "points_edition_code": "wh40k-11e",
-        "points_source": "mfm"
-      }
-    },
-    {
-      "detachment_id": "d-freebooter-krew",
-      "enhancement_id": "e-git-spotter-squig",
-      "max_per_army": 1,
-      "name": "Git-Spotter Squig",
       "points": 20,
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+        "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
         "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
-        "points_edition_code": "wh40k-11e",
-        "points_source": "mfm"
-      }
-    },
-    {
-      "detachment_id": "d-dread-mob",
-      "enhancement_id": "e-gitfinder-gogglez",
-      "max_per_army": 1,
-      "name": "Gitfinder Gogglez",
-      "points": 10,
-      "provenance": {
-        "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
-        "detail_edition_code": "wh40k-11e",
-        "detail_source": "wahapedia",
-        "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
+        "points_acquisition_id": "mfm-20260916T021400Z-1b0a18bd",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       }
@@ -277,13 +261,13 @@
       "enhancement_id": "e-glory-hog",
       "max_per_army": 1,
       "name": "Glory Hog",
-      "points": 30,
+      "points": 25,
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+        "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
         "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
+        "points_acquisition_id": "mfm-20260916T021400Z-1b0a18bd",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       }
@@ -293,13 +277,77 @@
       "enhancement_id": "e-headwoppas-killchoppa",
       "max_per_army": 1,
       "name": "Headwoppa’s Killchoppa",
-      "points": 20,
+      "points": 15,
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+        "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
         "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
+        "points_acquisition_id": "mfm-20260916T021400Z-1b0a18bd",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    },
+    {
+      "detachment_id": "d-flyboyz",
+      "enhancement_id": "e-impulsive-recon-upgrade",
+      "max_per_army": 1,
+      "name": "Impulsive Recon (Upgrade)",
+      "points": 15,
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
+        "detail_edition_code": "wh40k-11e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20260916T021400Z-1b0a18bd",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    },
+    {
+      "detachment_id": "d-da-big-hunt",
+      "enhancement_id": "e-it-came-from-da-drops",
+      "max_per_army": 1,
+      "name": "It Came from da Drops",
+      "points": 20,
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
+        "detail_edition_code": "wh40k-11e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20260916T021400Z-1b0a18bd",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    },
+    {
+      "detachment_id": "d-wreckas",
+      "enhancement_id": "e-kaptins-hat",
+      "max_per_army": 1,
+      "name": "Kaptin's Hat",
+      "points": 25,
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
+        "detail_edition_code": "wh40k-11e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20260916T021400Z-1b0a18bd",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    },
+    {
+      "detachment_id": "d-taktikal-brigade",
+      "enhancement_id": "e-kill-kommanda",
+      "max_per_army": 1,
+      "name": "Kill Kommanda",
+      "points": 20,
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
+        "detail_edition_code": "wh40k-11e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20260916T021400Z-1b0a18bd",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       }
@@ -309,397 +357,253 @@
       "enhancement_id": "e-kunnin-but-brutal",
       "max_per_army": 1,
       "name": "Kunnin’ But Brutal",
-      "points": 15,
+      "points": 20,
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+        "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
         "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
+        "points_acquisition_id": "mfm-20260916T021400Z-1b0a18bd",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       }
     },
     {
-      "detachment_id": "d-equatorial-hordes",
-      "enhancement_id": "e-kunnin-hunta",
+      "detachment_id": "d-madcap-meks",
+      "enhancement_id": "e-mekwaaagh-mastermind",
       "max_per_army": 1,
-      "name": "Kunnin’ Hunta",
-      "points": 25,
+      "name": "Mekwaaagh! Mastermind",
+      "points": 30,
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+        "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
         "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
+        "points_acquisition_id": "mfm-20260916T021400Z-1b0a18bd",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       }
     },
     {
-      "detachment_id": "d-speedwaaagh",
-      "enhancement_id": "e-kustom-shokk-box",
+      "detachment_id": "d-runt-swarm",
+      "enhancement_id": "e-minefield-detail-upgrade",
       "max_per_army": 1,
-      "name": "Kustom Shokk Box",
+      "name": "Minefield Detail (Upgrade)",
       "points": 10,
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+        "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
         "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
+        "points_acquisition_id": "mfm-20260916T021400Z-1b0a18bd",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       }
     },
     {
-      "detachment_id": "d-speedwaaagh",
-      "enhancement_id": "e-master-meknologist",
+      "detachment_id": "d-brute-bosses",
+      "enhancement_id": "e-morgogs-finkin-cap",
       "max_per_army": 1,
-      "name": "Master Meknologist",
-      "points": 20,
+      "name": "Morgog’s Finkin’ Cap",
+      "points": 50,
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+        "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
         "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
+        "points_acquisition_id": "mfm-20260916T021400Z-1b0a18bd",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       }
     },
     {
-      "detachment_id": "d-taktikal-brigade",
-      "enhancement_id": "e-morks-kunnin",
-      "max_per_army": 1,
-      "name": "Mork’s Kunnin’",
-      "points": 20,
-      "provenance": {
-        "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
-        "detail_edition_code": "wh40k-11e",
-        "detail_source": "wahapedia",
-        "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
-        "points_edition_code": "wh40k-11e",
-        "points_source": "mfm"
-      }
-    },
-    {
-      "detachment_id": "d-dread-mob",
-      "enhancement_id": "e-press-it-fasta",
-      "max_per_army": 1,
-      "name": "Press It Fasta!",
-      "points": 35,
-      "provenance": {
-        "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
-        "detail_edition_code": "wh40k-11e",
-        "detail_source": "wahapedia",
-        "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
-        "points_edition_code": "wh40k-11e",
-        "points_source": "mfm"
-      }
-    },
-    {
-      "detachment_id": "d-da-big-hunt",
+      "detachment_id": "d-brute-bosses",
       "enhancement_id": "e-proper-killy",
       "max_per_army": 1,
       "name": "Proper Killy",
       "points": 15,
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+        "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
         "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
+        "points_acquisition_id": "mfm-20260916T021400Z-1b0a18bd",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       }
     },
     {
-      "detachment_id": "d-green-tide",
-      "enhancement_id": "e-raucous-warcaller",
+      "detachment_id": "d-kult-of-speed",
+      "enhancement_id": "e-smoky-gubbinz-upgrade",
       "max_per_army": 1,
-      "name": "Raucous Warcaller",
-      "points": 20,
-      "provenance": {
-        "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
-        "detail_edition_code": "wh40k-11e",
-        "detail_source": "wahapedia",
-        "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
-        "points_edition_code": "wh40k-11e",
-        "points_source": "mfm"
-      }
-    },
-    {
-      "detachment_id": "d-freebooter-krew",
-      "enhancement_id": "e-razgits-magik-map",
-      "max_per_army": 1,
-      "name": "Razgit’s Magik Map",
-      "points": 25,
-      "provenance": {
-        "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
-        "detail_edition_code": "wh40k-11e",
-        "detail_source": "wahapedia",
-        "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
-        "points_edition_code": "wh40k-11e",
-        "points_source": "mfm"
-      }
-    },
-    {
-      "detachment_id": "d-blitz-brigade",
-      "enhancement_id": "e-runnin-boots",
-      "max_per_army": 1,
-      "name": "Runnin’ Boots",
+      "name": "Smoky Gubbinz (Upgrade)",
       "points": 10,
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+        "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
         "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
+        "points_acquisition_id": "mfm-20260916T021400Z-1b0a18bd",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       }
     },
     {
-      "detachment_id": "d-da-big-hunt",
-      "enhancement_id": "e-skrag-every-stash",
-      "max_per_army": 1,
-      "name": "Skrag Every Stash!",
-      "points": 25,
-      "provenance": {
-        "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
-        "detail_edition_code": "wh40k-11e",
-        "detail_source": "wahapedia",
-        "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
-        "points_edition_code": "wh40k-11e",
-        "points_source": "mfm"
-      }
-    },
-    {
-      "detachment_id": "d-taktikal-brigade",
-      "enhancement_id": "e-slippery-git",
-      "max_per_army": 1,
-      "name": "Slippery Git",
-      "points": 15,
-      "provenance": {
-        "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
-        "detail_edition_code": "wh40k-11e",
-        "detail_source": "wahapedia",
-        "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
-        "points_edition_code": "wh40k-11e",
-        "points_source": "mfm"
-      }
-    },
-    {
-      "detachment_id": "d-dread-mob",
-      "enhancement_id": "e-smoky-gubbinz",
-      "max_per_army": 1,
-      "name": "Smoky Gubbinz",
-      "points": 15,
-      "provenance": {
-        "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
-        "detail_edition_code": "wh40k-11e",
-        "detail_source": "wahapedia",
-        "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
-        "points_edition_code": "wh40k-11e",
-        "points_source": "mfm"
-      }
-    },
-    {
-      "detachment_id": "d-kult-of-speed",
-      "enhancement_id": "e-speed-makes-right",
-      "max_per_army": 1,
-      "name": "Speed Makes Right",
-      "points": 25,
-      "provenance": {
-        "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
-        "detail_edition_code": "wh40k-11e",
-        "detail_source": "wahapedia",
-        "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
-        "points_edition_code": "wh40k-11e",
-        "points_source": "mfm"
-      }
-    },
-    {
-      "detachment_id": "d-kult-of-speed",
-      "enhancement_id": "e-squig-hide-tyres",
-      "max_per_army": 1,
-      "name": "Squig-hide Tyres",
-      "points": 15,
-      "provenance": {
-        "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
-        "detail_edition_code": "wh40k-11e",
-        "detail_source": "wahapedia",
-        "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
-        "points_edition_code": "wh40k-11e",
-        "points_source": "mfm"
-      }
-    },
-    {
-      "detachment_id": "d-speedwaaagh",
-      "enhancement_id": "e-supa-burny-fuel",
-      "max_per_army": 1,
-      "name": "Supa-Burny Fuel",
-      "points": 15,
-      "provenance": {
-        "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
-        "detail_edition_code": "wh40k-11e",
-        "detail_source": "wahapedia",
-        "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
-        "points_edition_code": "wh40k-11e",
-        "points_source": "mfm"
-      }
-    },
-    {
-      "detachment_id": "d-war-horde",
-      "enhancement_id": "e-supa-cybork-body",
-      "max_per_army": 1,
-      "name": "Supa-Cybork Body",
-      "points": 15,
-      "provenance": {
-        "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
-        "detail_edition_code": "wh40k-11e",
-        "detail_source": "wahapedia",
-        "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
-        "points_edition_code": "wh40k-11e",
-        "points_source": "mfm"
-      }
-    },
-    {
-      "detachment_id": "d-dread-mob",
+      "detachment_id": "d-shoota-boyz",
       "enhancement_id": "e-supa-glowy-fing",
       "max_per_army": 1,
       "name": "Supa-glowy Fing",
-      "points": 20,
+      "points": 25,
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+        "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
         "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
+        "points_acquisition_id": "mfm-20260916T021400Z-1b0a18bd",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    },
+    {
+      "detachment_id": "d-wreckas",
+      "enhancement_id": "e-supa-snazz-dakka-upgrade",
+      "max_per_army": 1,
+      "name": "Supa-snazz Dakka (Upgrade)",
+      "points": 20,
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
+        "detail_edition_code": "wh40k-11e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20260916T021400Z-1b0a18bd",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    },
+    {
+      "detachment_id": "d-brute-bosses",
+      "enhancement_id": "e-surly-as-a-squiggoth",
+      "max_per_army": 1,
+      "name": "Surly as a Squiggoth",
+      "points": 25,
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
+        "detail_edition_code": "wh40k-11e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20260916T021400Z-1b0a18bd",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       }
     },
     {
       "detachment_id": "d-blitz-brigade",
-      "enhancement_id": "e-supercharged-squig-oil",
-      "max_per_army": 1,
-      "name": "Supercharged Squig Oil",
-      "points": 10,
-      "provenance": {
-        "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
-        "detail_edition_code": "wh40k-11e",
-        "detail_source": "wahapedia",
-        "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
-        "points_edition_code": "wh40k-11e",
-        "points_source": "mfm"
-      }
-    },
-    {
-      "detachment_id": "d-da-big-hunt",
-      "enhancement_id": "e-surly-as-a-squiggoth",
-      "max_per_army": 1,
-      "name": "Surly as a Squiggoth",
-      "points": 20,
-      "provenance": {
-        "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
-        "detail_edition_code": "wh40k-11e",
-        "detail_source": "wahapedia",
-        "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
-        "points_edition_code": "wh40k-11e",
-        "points_source": "mfm"
-      }
-    },
-    {
-      "detachment_id": "d-rollin-deff",
       "enhancement_id": "e-targetin-gizmos-upgrade",
       "max_per_army": 1,
       "name": "Targetin’ Gizmos (Upgrade)",
-      "points": 15,
+      "points": 10,
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+        "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
         "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
+        "points_acquisition_id": "mfm-20260916T021400Z-1b0a18bd",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    },
+    {
+      "detachment_id": "d-shoota-boyz",
+      "enhancement_id": "e-targetin-squigs",
+      "max_per_army": 1,
+      "name": "Targetin' Squigs",
+      "points": 20,
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
+        "detail_edition_code": "wh40k-11e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20260916T021400Z-1b0a18bd",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       }
     },
     {
       "detachment_id": "d-bully-boyz",
-      "enhancement_id": "e-tellyporta",
+      "enhancement_id": "e-tellyporta-boss",
       "max_per_army": 1,
-      "name": "Tellyporta",
+      "name": "Tellyporta Boss",
+      "points": 20,
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
+        "detail_edition_code": "wh40k-11e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20260916T021400Z-1b0a18bd",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    },
+    {
+      "detachment_id": "d-madcap-meks",
+      "enhancement_id": "e-temperamental-shokka-upgrade",
+      "max_per_army": 1,
+      "name": "Temperamental Shokka (Upgrade)",
+      "points": 20,
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
+        "detail_edition_code": "wh40k-11e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20260916T021400Z-1b0a18bd",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    },
+    {
+      "detachment_id": "d-taktikal-brigade",
+      "enhancement_id": "e-throat-slittas-upgrade",
+      "max_per_army": 1,
+      "name": "Throat-slittas (Upgrade)",
+      "points": 15,
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
+        "detail_edition_code": "wh40k-11e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20260916T021400Z-1b0a18bd",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    },
+    {
+      "detachment_id": "d-wurrband",
+      "enhancement_id": "e-warphead",
+      "max_per_army": 1,
+      "name": "Warphead",
       "points": 25,
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+        "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
         "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
+        "points_acquisition_id": "mfm-20260916T021400Z-1b0a18bd",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       }
     },
     {
-      "detachment_id": "d-blitz-brigade",
-      "enhancement_id": "e-tuff-git",
+      "detachment_id": "d-bully-boyz",
+      "enhancement_id": "e-wimp-kickaz-upgrade",
       "max_per_army": 1,
-      "name": "Tuff Git",
-      "points": 5,
+      "name": "Wimp-kickaz (Upgrade)",
+      "points": 15,
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+        "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
         "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
-        "points_edition_code": "wh40k-11e",
-        "points_source": "mfm"
-      }
-    },
-    {
-      "detachment_id": "d-equatorial-hordes",
-      "enhancement_id": "e-unkillable-scourge",
-      "max_per_army": 1,
-      "name": "Unkillable Scourge",
-      "points": 25,
-      "provenance": {
-        "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
-        "detail_edition_code": "wh40k-11e",
-        "detail_source": "wahapedia",
-        "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
-        "points_edition_code": "wh40k-11e",
-        "points_source": "mfm"
-      }
-    },
-    {
-      "detachment_id": "d-kult-of-speed",
-      "enhancement_id": "e-wazblasta",
-      "max_per_army": 1,
-      "name": "Wazblasta",
-      "points": 10,
-      "provenance": {
-        "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
-        "detail_edition_code": "wh40k-11e",
-        "detail_source": "wahapedia",
-        "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
+        "points_acquisition_id": "mfm-20260916T021400Z-1b0a18bd",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       }

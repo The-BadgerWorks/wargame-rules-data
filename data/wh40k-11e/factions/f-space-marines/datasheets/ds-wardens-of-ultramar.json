@@ -12,37 +12,37 @@
       "line": 1,
       "max_count": 1,
       "min_count": 1,
-      "model_name": "Ancient Gadriel"
+      "model_name": "Ancient Gadriel - EPIC HERO"
     },
     {
       "line": 2,
       "max_count": 1,
       "min_count": 1,
-      "model_name": "Veteran Sergeant Metaurus"
+      "model_name": "Veteran Sergeant Metaurus - EPIC HERO"
     },
     {
       "line": 3,
       "max_count": 1,
       "min_count": 1,
-      "model_name": "Gaius Silva"
+      "model_name": "Gaius Silva - EPIC HERO"
     },
     {
       "line": 4,
       "max_count": 1,
       "min_count": 1,
-      "model_name": "Aemelia Minervas"
+      "model_name": "Aemelia Minervas - EPIC HERO"
     },
     {
       "line": 5,
       "max_count": 1,
       "min_count": 1,
-      "model_name": "Dainal Kornelius"
+      "model_name": "Dainal Kornelius - EPIC HERO"
     },
     {
       "line": 6,
       "max_count": 1,
       "min_count": 1,
-      "model_name": "Lucia Vestha"
+      "model_name": "Lucia Vestha - EPIC HERO"
     }
   ],
   "costs": [
@@ -52,7 +52,7 @@
       "model_count": 6,
       "points": 120,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260818T033550Z-0c772378"
+      "source_acquisition_id": "mfm-20260916T021400Z-1b0a18bd"
     }
   ],
   "datasheet_id": "ds-wardens-of-ultramar",
@@ -60,7 +60,6 @@
   "equipment_groups": [
     {
       "applies_to": "model_group",
-      "composition_line": 1,
       "id": "eq-wardens-of-ultramar-1",
       "items": [
         {
@@ -79,7 +78,6 @@
     },
     {
       "applies_to": "model_group",
-      "composition_line": 2,
       "id": "eq-wardens-of-ultramar-2",
       "items": [
         {
@@ -102,7 +100,6 @@
     },
     {
       "applies_to": "model_group",
-      "composition_line": 3,
       "id": "eq-wardens-of-ultramar-3",
       "items": [
         {
@@ -125,7 +122,6 @@
     },
     {
       "applies_to": "model_group",
-      "composition_line": 4,
       "id": "eq-wardens-of-ultramar-4",
       "items": [
         {
@@ -144,7 +140,6 @@
     },
     {
       "applies_to": "model_group",
-      "composition_line": 5,
       "id": "eq-wardens-of-ultramar-5",
       "items": [
         {
@@ -163,7 +158,6 @@
     },
     {
       "applies_to": "model_group",
-      "composition_line": 6,
       "id": "eq-wardens-of-ultramar-6",
       "items": [
         {
@@ -190,7 +184,8 @@
   "keywords": [
     {
       "is_faction_keyword": true,
-      "keyword": "ADEPTUS ASTARTES"
+      "keyword": "ADEPTUS ASTARTES",
+      "keyword_class": "faction"
     },
     {
       "is_faction_keyword": false,
@@ -230,7 +225,8 @@
     },
     {
       "is_faction_keyword": true,
-      "keyword": "ULTRAMARINES"
+      "keyword": "ULTRAMARINES",
+      "keyword_class": "chapter"
     },
     {
       "is_faction_keyword": false,
@@ -238,6 +234,16 @@
       "keyword_class": "unit",
       "model_scope": "ALL MODELS"
     }
+  ],
+  "leader_pairs": [
+    "ds-assault-intercessor-squad-6",
+    "ds-assault-squad",
+    "ds-assault-squad-with-jump-packs",
+    "ds-bladeguard-veteran-squad-6",
+    "ds-intercessor-squad-6",
+    "ds-sternguard-veteran-squad-6",
+    "ds-vanguard-veteran-squad",
+    "ds-vanguard-veteran-squad-with-jump-packs-6"
   ],
   "models": [
     {
@@ -267,15 +273,15 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:5faa92508c3166938885a04664a2952b303e54400998959b87185e262e39767f",
-    "last_verified_version": "wh40k-11e-2026-08-4",
+    "last_verified_version": "wh40k-11e-2026-09-1",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+    "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
+    "points_acquisition_id": "mfm-20260916T021400Z-1b0a18bd",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
@@ -332,9 +338,10 @@
       "armour_penetration": "-1",
       "attacks": "1",
       "damage": "1",
-      "is_melee": true,
+      "is_melee": false,
       "line": 4,
       "name": "Heavy bolt pistol",
+      "range": "18\"",
       "skill": "3+",
       "strength": "4"
     },

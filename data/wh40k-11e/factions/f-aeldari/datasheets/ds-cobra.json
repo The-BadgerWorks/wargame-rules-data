@@ -20,7 +20,7 @@
       "model_count": 1,
       "points": 415,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0"
+      "source_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf"
     }
   ],
   "damaged_threshold": 8,
@@ -64,7 +64,8 @@
     },
     {
       "is_faction_keyword": true,
-      "keyword": "ASURYANI"
+      "keyword": "ASURYANI",
+      "keyword_class": "faction"
     },
     {
       "is_faction_keyword": false,
@@ -74,11 +75,6 @@
     {
       "is_faction_keyword": false,
       "keyword": "FLY",
-      "keyword_class": "unit"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "FRAME",
       "keyword_class": "unit"
     },
     {
@@ -93,7 +89,8 @@
     },
     {
       "is_faction_keyword": true,
-      "keyword": "YNNARI"
+      "keyword": "YNNARI",
+      "keyword_class": "chapter"
     }
   ],
   "models": [
@@ -211,12 +208,12 @@
     }
   ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 5,
+    "consecutive_unverified_releases": 6,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+    "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
@@ -305,9 +302,10 @@
       "armour_penetration": "-3",
       "attacks": "2",
       "damage": "2",
-      "is_melee": true,
+      "is_melee": false,
       "line": 7,
       "name": "Starcannon",
+      "range": "36\"",
       "skill": "3+",
       "strength": "8"
     },

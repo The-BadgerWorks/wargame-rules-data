@@ -19,7 +19,7 @@
       "model_count": 1,
       "points": 90,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0"
+      "source_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf"
     }
   ],
   "datasheet_id": "ds-rapier-carrier",
@@ -37,12 +37,12 @@
         {
           "item_index": 2,
           "item_name": "quad heavy bolter",
-          "weapon_line": 4
+          "weapon_line": 5
         },
         {
           "item_index": 3,
           "item_name": "close combat weapon",
-          "weapon_line": 7
+          "weapon_line": 2
         }
       ],
       "line": 1
@@ -62,16 +62,97 @@
     },
     {
       "is_faction_keyword": false,
+      "keyword": "ARTILLERY",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "ARTILLERY",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "ARTILLERY",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "ARTILLERY",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHAOS",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHAOS",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHAOS",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHAOS",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
       "keyword": "CHAOS",
       "keyword_class": "unit"
     },
     {
       "is_faction_keyword": true,
-      "keyword": "HERETIC ASTARTES"
+      "keyword": "HERETIC ASTARTES",
+      "keyword_class": "faction"
     },
     {
       "is_faction_keyword": false,
       "keyword": "RAPIER CARRIER",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "RAPIER CARRIER",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "RAPIER CARRIER",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "RAPIER CARRIER",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "RAPIER CARRIER",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "VEHICLE",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "VEHICLE",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "VEHICLE",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "VEHICLE",
       "keyword_class": "unit"
     },
     {
@@ -97,7 +178,7 @@
   "option_choices": [
     {
       "count": 1,
-      "grants_weapon_line": 2,
+      "grants_weapon_line": 7,
       "group_id": "og-rapier-carrier-1",
       "id": "oc-rapier-carrier-1-1",
       "is_default": false,
@@ -108,7 +189,7 @@
           "item_index": 1,
           "item_name": "graviton cannon",
           "role": "granted",
-          "weapon_line": 2
+          "weapon_line": 7
         },
         {
           "item_index": 1,
@@ -120,7 +201,7 @@
     },
     {
       "count": 1,
-      "grants_weapon_line": 3,
+      "grants_weapon_line": 6,
       "group_id": "og-rapier-carrier-1",
       "id": "oc-rapier-carrier-1-2",
       "is_default": false,
@@ -131,7 +212,7 @@
           "item_index": 1,
           "item_name": "laser destroyer",
           "role": "granted",
-          "weapon_line": 3
+          "weapon_line": 6
         },
         {
           "item_index": 1,
@@ -171,12 +252,12 @@
     }
   ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 5,
+    "consecutive_unverified_releases": 6,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+    "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
@@ -197,34 +278,44 @@
       "strength": "4"
     },
     {
-      "ability_keywords": [
-        "anti-vehicle 2+",
-        "blast",
-        "heavy"
-      ],
-      "armour_penetration": "-2",
-      "attacks": "D6",
-      "damage": "2",
-      "is_melee": false,
+      "armour_penetration": "0",
+      "attacks": "2",
+      "damage": "1",
+      "is_melee": true,
       "line": 2,
-      "name": "Graviton cannon",
-      "range": "36\"",
+      "name": "Close combat weapon",
       "skill": "3+",
-      "strength": "6"
+      "strength": "4"
+    },
+    {
+      "ability_keywords": [
+        "blast",
+        "heavy",
+        "indirect fire"
+      ],
+      "armour_penetration": "0",
+      "attacks": "D6+4",
+      "damage": "1",
+      "is_melee": false,
+      "line": 3,
+      "name": "Quad launcher – thunderfire shells",
+      "range": "60\"",
+      "skill": "3+",
+      "strength": "5"
     },
     {
       "ability_keywords": [
         "heavy"
       ],
-      "armour_penetration": "-4",
-      "attacks": "3",
-      "damage": "D6+1",
+      "armour_penetration": "-2",
+      "attacks": "4",
+      "damage": "3",
       "is_melee": false,
-      "line": 3,
-      "name": "Laser destroyer",
-      "range": "36\"",
+      "line": 4,
+      "name": "Quad launcher – shatter shells",
+      "range": "24\"",
       "skill": "3+",
-      "strength": "14"
+      "strength": "9"
     },
     {
       "ability_keywords": [
@@ -236,7 +327,7 @@
       "attacks": "6",
       "damage": "2",
       "is_melee": false,
-      "line": 4,
+      "line": 5,
       "name": "Quad heavy bolter",
       "range": "36\"",
       "skill": "3+",
@@ -246,39 +337,31 @@
       "ability_keywords": [
         "heavy"
       ],
-      "armour_penetration": "-2",
-      "attacks": "4",
-      "damage": "3",
-      "is_melee": true,
-      "line": 5,
-      "name": "Quad launcher – shatter shells",
+      "armour_penetration": "-4",
+      "attacks": "3",
+      "damage": "D6+1",
+      "is_melee": false,
+      "line": 6,
+      "name": "Laser destroyer",
+      "range": "36\"",
       "skill": "3+",
-      "strength": "9"
+      "strength": "14"
     },
     {
       "ability_keywords": [
+        "anti-vehicle 2+",
         "blast",
-        "heavy",
-        "indirect fire"
+        "heavy"
       ],
-      "armour_penetration": "0",
-      "attacks": "D6+4",
-      "damage": "1",
-      "is_melee": true,
-      "line": 6,
-      "name": "Quad launcher – thunderfire shells",
-      "skill": "3+",
-      "strength": "5"
-    },
-    {
-      "armour_penetration": "0",
-      "attacks": "2",
-      "damage": "1",
-      "is_melee": true,
+      "armour_penetration": "-2",
+      "attacks": "D6",
+      "damage": "2",
+      "is_melee": false,
       "line": 7,
-      "name": "Close combat weapon",
+      "name": "Graviton cannon",
+      "range": "36\"",
       "skill": "3+",
-      "strength": "4"
+      "strength": "6"
     }
   ]
 }

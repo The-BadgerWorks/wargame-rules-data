@@ -1,6 +1,7 @@
 {
   "ability_keys": [
     "datasheet:breaching-fire",
+    "datasheet:conversion",
     "faction:prioritised-efficiency"
   ],
   "composition": [
@@ -19,15 +20,15 @@
       "model_count": 3,
       "points": 80,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260818T033550Z-0c772378"
+      "source_acquisition_id": "mfm-20260916T021400Z-1b0a18bd"
     },
     {
       "copy_index_min": 1,
       "label": "6 models",
       "model_count": 6,
-      "points": 160,
+      "points": 170,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260818T033550Z-0c772378"
+      "source_acquisition_id": "mfm-20260916T021400Z-1b0a18bd"
     },
     {
       "copy_index_min": 3,
@@ -35,15 +36,15 @@
       "model_count": 3,
       "points": 90,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260818T033550Z-0c772378"
+      "source_acquisition_id": "mfm-20260916T021400Z-1b0a18bd"
     },
     {
       "copy_index_min": 3,
       "label": "6 models",
       "model_count": 6,
-      "points": 170,
+      "points": 180,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260818T033550Z-0c772378"
+      "source_acquisition_id": "mfm-20260916T021400Z-1b0a18bd"
     }
   ],
   "datasheet_id": "ds-brokhyr-thunderkyn",
@@ -182,16 +183,16 @@
   ],
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
-    "last_verified_points_digest": "sha256:b29ff5bf98e062c83111279cd8739e5b6e8393b84ca4775e8bf886cfdf6dc50c",
-    "last_verified_version": "wh40k-11e-2026-08-4",
+    "last_verified_points_digest": "sha256:ae4baf2929aa87dbe7c44323f020f7f25f343ed0afbbdbb3cbc9db0c949c7bbc",
+    "last_verified_version": "wh40k-11e-2026-09-1",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+    "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
+    "points_acquisition_id": "mfm-20260916T021400Z-1b0a18bd",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
@@ -234,9 +235,10 @@
       "armour_penetration": "-2",
       "attacks": "2",
       "damage": "3",
-      "is_melee": true,
+      "is_melee": false,
       "line": 3,
       "name": "SP conversion beamer",
+      "range": "24\"",
       "skill": "4+",
       "strength": "7"
     },

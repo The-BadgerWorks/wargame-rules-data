@@ -1,5 +1,6 @@
 {
   "ability_keys": [
+    "datasheet:attached-unit",
     "datasheet:righteous-zeal",
     "faction:templar-vows"
   ],
@@ -31,7 +32,7 @@
       "model_count": 10,
       "points": 150,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260818T033550Z-0c772378"
+      "source_acquisition_id": "mfm-20260916T021400Z-1b0a18bd"
     },
     {
       "copy_index_min": 1,
@@ -39,7 +40,7 @@
       "model_count": 20,
       "points": 290,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260818T033550Z-0c772378"
+      "source_acquisition_id": "mfm-20260916T021400Z-1b0a18bd"
     }
   ],
   "datasheet_id": "ds-crusader-squad",
@@ -115,7 +116,8 @@
   "keywords": [
     {
       "is_faction_keyword": true,
-      "keyword": "ADEPTUS ASTARTES"
+      "keyword": "ADEPTUS ASTARTES",
+      "keyword_class": "faction"
     },
     {
       "is_faction_keyword": false,
@@ -166,7 +168,7 @@
       "wounds": 2
     },
     {
-      "base_size": "(⌀32mm Sword Brother 40mm )",
+      "base_size": "(⌀32mm)",
       "leadership": "6+",
       "line": 2,
       "movement": "6\"",
@@ -357,15 +359,15 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:23409788361d3b92c4ba1305d795b9af6e927654a6ab42fcf3c4b0a5ca1b5b00",
-    "last_verified_version": "wh40k-11e-2026-08-4",
+    "last_verified_version": "wh40k-11e-2026-09-1",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+    "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
+    "points_acquisition_id": "mfm-20260916T021400Z-1b0a18bd",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
@@ -452,9 +454,10 @@
       "armour_penetration": "0",
       "attacks": "D6",
       "damage": "1",
-      "is_melee": true,
+      "is_melee": false,
       "line": 6,
       "name": "Pyreblaster",
+      "range": "12\"",
       "skill": "N/A",
       "strength": "5"
     },

@@ -4,6 +4,7 @@
     "datasheet:cat-unit",
     "datasheet:endurant-shield",
     "datasheet:gheistskull",
+    "datasheet:one-shot",
     "faction:assigned-agents"
   ],
   "composition": [
@@ -27,7 +28,7 @@
       "model_count": 10,
       "points": 90,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260818T033550Z-0c772378"
+      "source_acquisition_id": "mfm-20260916T021400Z-1b0a18bd"
     },
     {
       "copy_index_min": 1,
@@ -36,7 +37,7 @@
       "points": 90,
       "pricing_confidence": "verified",
       "pricing_context": "every-model-has-imperium",
-      "source_acquisition_id": "mfm-20260818T033550Z-0c772378"
+      "source_acquisition_id": "mfm-20260916T021400Z-1b0a18bd"
     }
   ],
   "datasheet_id": "ds-imperial-navy-breachers",
@@ -89,7 +90,8 @@
   "keywords": [
     {
       "is_faction_keyword": true,
-      "keyword": "AGENTS OF THE IMPERIUM"
+      "keyword": "AGENTS OF THE IMPERIUM",
+      "keyword_class": "faction"
     },
     {
       "is_faction_keyword": false,
@@ -134,7 +136,7 @@
   ],
   "models": [
     {
-      "base_size": "(⌀25mm Navis Armsman 28mm if armed with meltagun or plasmagun )",
+      "base_size": "(⌀25mm)",
       "leadership": "7+",
       "line": 1,
       "movement": "6\"",
@@ -356,15 +358,15 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:d43dfc3c8eecc7a316b3cfd662908c9403ccd3c39ad10e9ea2448123481e4fb6",
-    "last_verified_version": "wh40k-11e-2026-08-4",
+    "last_verified_version": "wh40k-11e-2026-09-1",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+    "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
+    "points_acquisition_id": "mfm-20260916T021400Z-1b0a18bd",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
@@ -475,9 +477,10 @@
       "armour_penetration": "-1",
       "attacks": "1",
       "damage": "1",
-      "is_melee": true,
+      "is_melee": false,
       "line": 8,
       "name": "Plasma gun – standard",
+      "range": "24\"",
       "skill": "4+",
       "strength": "7"
     },
@@ -489,9 +492,10 @@
       "armour_penetration": "-2",
       "attacks": "1",
       "damage": "2",
-      "is_melee": true,
+      "is_melee": false,
       "line": 9,
       "name": "Plasma gun – supercharge",
+      "range": "24\"",
       "skill": "4+",
       "strength": "8"
     },

@@ -21,10 +21,9 @@
       "model_count": 1,
       "points": 200,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0"
+      "source_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf"
     }
   ],
-  "damaged_threshold": 5,
   "datasheet_id": "ds-terrax-pattern-termite-2",
   "default_equipment_state": "extracted",
   "equipment_groups": [
@@ -45,7 +44,7 @@
         {
           "item_index": 3,
           "item_name": "Termite drill",
-          "weapon_line": 5
+          "weapon_line": 2
         }
       ],
       "line": 1
@@ -65,12 +64,88 @@
     },
     {
       "is_faction_keyword": false,
+      "keyword": "CHAOS",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHAOS",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHAOS",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHAOS",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHAOS",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "DEDICATED TRANSPORT",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "DEDICATED TRANSPORT",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "DEDICATED TRANSPORT",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "DEDICATED TRANSPORT",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "DEDICATED TRANSPORT",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
       "keyword": "DEDICATED TRANSPORT",
       "keyword_class": "unit"
     },
     {
       "is_faction_keyword": true,
-      "keyword": "HERETIC ASTARTES"
+      "keyword": "HERETIC ASTARTES",
+      "keyword_class": "faction"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "TERRAX-PATTERN TERMITE",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "TERRAX-PATTERN TERMITE",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "TERRAX-PATTERN TERMITE",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "TERRAX-PATTERN TERMITE",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "TERRAX-PATTERN TERMITE",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
@@ -80,6 +155,56 @@
     {
       "is_faction_keyword": false,
       "keyword": "TRANSPORT",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "TRANSPORT",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "TRANSPORT",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "TRANSPORT",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "TRANSPORT",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "TRANSPORT",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "VEHICLE",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "VEHICLE",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "VEHICLE",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "VEHICLE",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "VEHICLE",
       "keyword_class": "unit"
     },
     {
@@ -154,12 +279,12 @@
     }
   ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 5,
+    "consecutive_unverified_releases": 6,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+    "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
@@ -170,32 +295,31 @@
   "weapons": [
     {
       "ability_keywords": [
-        "rapid fire 2"
+        "devastating wounds",
+        "twin-linked"
       ],
       "armour_penetration": "0",
       "attacks": "2",
-      "damage": "1",
+      "damage": "2",
       "is_melee": false,
       "line": 1,
-      "name": "Combi-bolter",
-      "range": "24\"",
+      "name": "Twin volkite charger",
+      "range": "18\"",
       "skill": "3+",
-      "strength": "4"
+      "strength": "5"
     },
     {
       "ability_keywords": [
-        "ignores cover",
-        "torrent"
+        "anti-vehicle 3+"
       ],
-      "armour_penetration": "-1",
-      "attacks": "D6",
-      "damage": "1",
-      "is_melee": false,
+      "armour_penetration": "-2",
+      "attacks": "6",
+      "damage": "D3+3",
+      "is_melee": true,
       "line": 2,
-      "name": "Heavy flamer",
-      "range": "12\"",
-      "skill": "N/A",
-      "strength": "5"
+      "name": "Termite drill",
+      "skill": "4+",
+      "strength": "14"
     },
     {
       "ability_keywords": [
@@ -213,30 +337,32 @@
     },
     {
       "ability_keywords": [
-        "devastating wounds",
-        "twin-linked"
+        "rapid fire 2"
       ],
       "armour_penetration": "0",
       "attacks": "2",
-      "damage": "2",
-      "is_melee": true,
+      "damage": "1",
+      "is_melee": false,
       "line": 4,
-      "name": "Twin volkite charger",
+      "name": "Combi-bolter",
+      "range": "24\"",
       "skill": "3+",
-      "strength": "5"
+      "strength": "4"
     },
     {
       "ability_keywords": [
-        "anti-vehicle 3+"
+        "ignores cover",
+        "torrent"
       ],
-      "armour_penetration": "-2",
-      "attacks": "6",
-      "damage": "D3+3",
-      "is_melee": true,
+      "armour_penetration": "-1",
+      "attacks": "D6",
+      "damage": "1",
+      "is_melee": false,
       "line": 5,
-      "name": "Termite drill",
-      "skill": "4+",
-      "strength": "14"
+      "name": "Heavy flamer",
+      "range": "12\"",
+      "skill": "N/A",
+      "strength": "5"
     }
   ]
 }
