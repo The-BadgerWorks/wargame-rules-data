@@ -5,6 +5,8 @@
 # new schemas (004 task T015): two curated-tree collections and the six curation/ files. Three
 # further schemas -- datasheet, factions, detachments -- gained optional properties rather than
 # new registrations, since they were already registered.
+# AI-Assisted: Claude Code (model: Claude Sonnet 5) - Registered "wargear-abilities" in
+# CURATION_SCHEMAS (010 round 13 task 1).
 """JSON Schema loading and validation.
 
 Three schema sets, one loader:
@@ -74,6 +76,8 @@ CURATION_SCHEMAS: Final[Mapping[str, str]] = {
     "option-overrides": "curation/option-overrides.schema.json",
     # 006-unit-loadout-fidelity.
     "equipment-overrides": "curation/equipment-overrides.schema.json",
+    # 010 round 13, task 1.
+    "wargear-abilities": "curation/wargear-abilities.schema.json",
 }
 
 #: The published bundle schema.

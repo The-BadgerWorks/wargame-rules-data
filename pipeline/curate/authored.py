@@ -1,6 +1,8 @@
 # AI-Assisted: Claude Code (model: claude-opus-5) - Implemented authored-content loading (task
 # T064): every file under curation/ is schema-validated on read, exposed read-only, and the
 # package asserts at process level that no code path opens a curation/ file for writing.
+# AI-Assisted: Claude Code (model: Claude Sonnet 5) - Registered "wargear-abilities" (010 round
+# 13 task 1): new flat-file stem, loaded and exposed exactly like composition-overrides.
 """Load `curation/` — the authored tree — and expose it read-only.
 
 Every file is validated against its schema **on read**, so a hand-edited file fails fast with a
@@ -39,6 +41,7 @@ from pipeline.models.authored import (
     RestrictionAuthoring,
     UnitAlias,
     UnitMapEntry,
+    WargearAbilityEntry,
 )
 from pipeline.schema_validation import validate_authored
 
@@ -60,6 +63,8 @@ _FILES: Final[Mapping[str, str]] = {
     # 006-unit-loadout-fidelity's own escape hatch, for the default-equipment sentences research
     # D1e's compound-and-conditional tail leaves unresolved.
     "equipment-overrides": "equipment-overrides",
+    # 010 round 13, task 1: the authored, faction-scoped curated wargear-ability entries.
+    "wargear-abilities": "wargear-abilities",
 }
 
 ABILITIES_DIR: Final = "abilities"
@@ -117,6 +122,8 @@ class AuthoredContent:
     option_overrides: tuple[OptionOverrideEntry, ...] = ()
     # -- 006-unit-loadout-fidelity ----------------------------------------------------------
     equipment_overrides: tuple[EquipmentOverrideEntry, ...] = ()
+    # -- 010 round 13 -------------------------------------------------------------------------
+    wargear_abilities: tuple[WargearAbilityEntry, ...] = ()
 
     def faction_for_slug(self, slug: str) -> FactionMapEntry | None:
         return next((entry for entry in self.faction_map if entry.mfm_slug == slug), None)
@@ -323,6 +330,10 @@ def load_authored(curation_dir: Path) -> AuthoredContent:
         equipment_overrides=tuple(
             EquipmentOverrideEntry.model_validate(r)
             for r in _load_list(curation_dir, "equipment-overrides", _FILES["equipment-overrides"])
+        ),
+        wargear_abilities=tuple(
+            WargearAbilityEntry.model_validate(r)
+            for r in _load_list(curation_dir, "wargear-abilities", _FILES["wargear-abilities"])
         ),
     )
 

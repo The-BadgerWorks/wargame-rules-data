@@ -34,6 +34,7 @@ CURATION_SCHEMAS = (
     "faction-rules",
     "detachment-rules",
     "glossary",
+    "wargear-abilities",
 )
 
 
