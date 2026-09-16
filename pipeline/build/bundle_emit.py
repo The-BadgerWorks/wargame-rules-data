@@ -36,6 +36,9 @@
 # AI-Assisted: Claude Code (model: Claude Sonnet 5) - Emitted `wargearAbilityId` on
 # `datasheetOptionChoiceItems` and `datasheetEquipmentItems` (010 R13 task 3), via `omit_absent`
 # so it is present only when task 3's exact-name linker resolved exactly one candidate.
+# AI-Assisted: Claude Code (model: Claude Sonnet 5) - Emitted `datasheetAbilities.abilityClass`
+# (010 R13 task 4), via `omit_absent` so it is present only for a key whose raw source type
+# carried one; added `ability_classes` to `CuratedDatasheet`'s `FIELD_MAPPING` entry.
 """Turn the curated tree into the published bundle. A pure function, and nothing else.
 
 No network, no source re-acquisition, no input the tree does not already contain, and no clock:
@@ -221,6 +224,7 @@ FIELD_MAPPING: Final[Mapping[type, tuple[set[str], set[str]]]] = {
             "weapons",
             "keywords",
             "ability_keys",
+            "ability_classes",
             "leader_pairs",
             "wargear_options",
             "costs",
@@ -1045,12 +1049,17 @@ def _emit_abilities(snapshot: CuratedSnapshot) -> list[dict[str, JsonValue]]:
             if summary is None or not summary.summary.strip():
                 continue
             rows.append(
-                {
-                    "datasheetId": datasheet.datasheet_id,
-                    "name": summary.name,
-                    "abilityType": key.split(":", 1)[0],
-                    "summary": summary.summary,
-                }
+                omit_absent(
+                    {
+                        "datasheetId": datasheet.datasheet_id,
+                        "name": summary.name,
+                        "abilityType": key.split(":", 1)[0],
+                        "summary": summary.summary,
+                        # 010 R13 task 4: the source's own classification, OPTIONAL and OMITTED
+                        # when the raw type carries no class -- an added tag, never a re-typing.
+                        "abilityClass": datasheet.ability_classes.get(key),
+                    }
+                )
             )
     return _rows(_narrowest_scope_wins(rows), "datasheetId", "name")
 

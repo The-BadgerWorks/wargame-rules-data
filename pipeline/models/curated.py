@@ -23,6 +23,10 @@
 # AI-Assisted: Claude Code (model: Claude Sonnet 5) - 010 R13 task 3: added
 # `wargear_ability_id` to `CuratedOptionChoiceItem` and `CuratedEquipmentItem`, the exact-name
 # link to a curated `CuratedWargearAbility`, OMITTED on zero or >= 2 matches -- never guessed.
+# AI-Assisted: Claude Code (model: Claude Sonnet 5) - 010 R13 task 4: added
+# `CuratedDatasheet.ability_classes`, `ability_key -> source_class`, an OPTIONAL tag carried
+# beside `ability_keys` -- never a re-typing, because the published key's prefix IS
+# `abilityType` and re-typing would move ~700 published identifiers.
 """Curated records — the canonical reviewable state, machine-written into ``data/``.
 
 Every record here maps to a row in the consumer schema; the field-level mapping is
@@ -787,6 +791,13 @@ class CuratedDatasheet(_Curated):
         description="KEYS, not text. Summaries live in curation/abilities/<faction-id>.json and "
         "are resolved at build time — which is what keeps authored content out of the "
         "machine-written tree entirely.",
+    )
+    ability_classes: Mapping[str, str] = Field(
+        default_factory=dict,
+        description="010 R13 task 4: ability_key -> the SOURCE's own classification ('wargear', "
+        "'wargear-profile', 'primarch', 'psychic'), only for keys whose raw type carries one. "
+        "The AbilityType vocabulary and the published key are UNCHANGED by this — it is an "
+        "optional tag, never a re-typing (see pipeline/normalize/ability_types.py).",
     )
     leader_pairs: Sequence[str] = ()
     composition: Sequence[CuratedCompositionEntry] = Field(

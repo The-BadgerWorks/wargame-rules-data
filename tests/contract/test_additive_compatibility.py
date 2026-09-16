@@ -17,6 +17,9 @@
 # AI-Assisted: Claude Code (model: Claude Sonnet 5) - Added `wargearAbilities` to NEW_ARRAYS and
 # LOADOUT_ARRAYS (010 R13 task 2): the first new top-level array since 007, measured against both
 # frozen baselines exactly as `datasheetItemConstraints` already is.
+# AI-Assisted: Claude Code (model: Claude Sonnet 5) - Added `datasheetAbilities.abilityClass` to
+# NEW_COLUMNS and LOADOUT_COLUMNS (010 R13 task 4): a column on an array that predates BOTH
+# baselines, governed by both dicts exactly as `defaultEquipmentState` on `datasheets` already is.
 """Nothing existing moved. Proven by comparison, not by assertion.
 
 `contracts/bundle-schema-delta.md` §1 makes a claim about a document nobody in this repository
@@ -141,6 +144,9 @@ NEW_COLUMNS: dict[str, frozenset[str]] = {
     "datasheets": frozenset({"wargearOptionState", "defaultEquipmentState"}),
     "datasheetKeywords": frozenset({"keywordClass"}),
     "factions": frozenset({"armyRuleState"}),
+    # 010 R13 task 4. `datasheetAbilities` existed pre-enrichment; `abilityClass` is new
+    # relative to that baseline exactly as `defaultEquipmentState` (006, on `datasheets`) is.
+    "datasheetAbilities": frozenset({"abilityClass"}),
 }
 
 #: Flattened ``(array, column)`` pairs, for the assertions that parametrise or compare per pair.
@@ -183,6 +189,10 @@ SNAPSHOT_META_NEW_FIELDS: frozenset[str] = frozenset(
 LOADOUT_COLUMNS: dict[str, frozenset[str]] = {
     "datasheets": frozenset({"defaultEquipmentState"}),
     "datasheetOptionGroups": frozenset({"eligibleModelName", "eligibleMaxCount", "isPerModel"}),
+    # 010 R13 task 4. `datasheetAbilities` predates the pre-loadout baseline too, so
+    # `abilityClass` is new relative to it as well -- both dicts govern it, same as any column
+    # added on an array that predates both baselines.
+    "datasheetAbilities": frozenset({"abilityClass"}),
 }
 
 LOADOUT_COLUMN_PAIRS: frozenset[tuple[str, str]] = frozenset(

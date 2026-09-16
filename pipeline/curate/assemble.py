@@ -10,6 +10,10 @@
 # faction-scoped. Covers curator-authored items automatically because they are already part of
 # the items `_option_structure` returns. A two-or-more match raises the advisory
 # `WGA-LINK-AMBIGUOUS` and the item ships unlinked.
+# AI-Assisted: Claude Code (model: Claude Sonnet 5) - 010 R13 task 4: populated
+# `fields["ability_classes"]` beside `fields["ability_keys"]` in `_detail_datasheet_fields`,
+# reading `source_class` off the same raw `type` value `classify()` already reads, and threaded
+# it into both `CuratedDatasheet` construction sites.
 # AI-Assisted: Claude Opus 5 - 010 R6b task 2: read a `Datasheets_wargear.csv` row whose `line`
 # column is empty by validating `line_in_wargear` instead (1990 live rows, 287 datasheets).
 # AI-Assisted: Claude Opus 5 - 010 R6 task 5: publish the printed characteristic forms (skill,
@@ -155,7 +159,7 @@ from pipeline.models.provenance import (
 )
 from pipeline.models.source import MfmDetachmentCard, MfmUnitCostBlock, SourceAcquisition
 from pipeline.normalize.ability_key import ability_key
-from pipeline.normalize.ability_types import classify
+from pipeline.normalize.ability_types import classify, source_class
 from pipeline.normalize.characteristics import (
     printed_base_size,
     printed_range,
@@ -744,6 +748,7 @@ def _detail_datasheet_fields(
     # build by the caller and passed in — not rebuilt here from this call's own `detail`, which
     # would let a filtered mapping desynchronise a key from its digest.
     ability_keys: list[str] = []
+    ability_classes: dict[str, str] = {}
     for binding in detail["Datasheets_abilities.csv"].grouped_by("datasheet_id").get(detail_id, []):
         name = resolve_binding_name(binding.fields, names=ability_names)
         if not name:
@@ -765,10 +770,16 @@ def _detail_datasheet_fields(
             findings.append(finding)
             continue
         assert ability_type is not None
-        ability_keys.append(
-            ability_key(ability_type, name, parameter=binding.fields.get("parameter", ""))
-        )
+        raw_type = binding.fields.get("type", "")
+        key = ability_key(ability_type, name, parameter=binding.fields.get("parameter", ""))
+        ability_keys.append(key)
+        # 010 R13 task 4: the SAME raw value classify() just mapped, so the tag and the key it
+        # is attached to are always read off one column, never two.
+        cls = source_class(raw_type)
+        if cls is not None:
+            ability_classes[key] = cls
     fields["ability_keys"] = sorted(set(ability_keys))
+    fields["ability_classes"] = ability_classes
 
     return fields, findings
 
@@ -2176,6 +2187,7 @@ def _datasheet_for(  # noqa: PLR0913 - one datasheet needs both sources and the 
         weapons=fields.get("weapons", ()),  # type: ignore[arg-type]
         keywords=fields.get("keywords", ()),  # type: ignore[arg-type]
         ability_keys=fields.get("ability_keys", ()),  # type: ignore[arg-type]
+        ability_classes=fields.get("ability_classes", {}),  # type: ignore[arg-type]
         leader_pairs=(),
         composition=composition,
         option_groups=options.groups,
@@ -2377,6 +2389,7 @@ def _detail_only_datasheet(  # noqa: PLR0913 - one datasheet needs both trees an
         weapons=fields.get("weapons", ()),  # type: ignore[arg-type]
         keywords=fields.get("keywords", ()),  # type: ignore[arg-type]
         ability_keys=fields.get("ability_keys", ()),  # type: ignore[arg-type]
+        ability_classes=fields.get("ability_classes", {}),  # type: ignore[arg-type]
         leader_pairs=(),
         composition=composition,
         option_groups=options.groups,

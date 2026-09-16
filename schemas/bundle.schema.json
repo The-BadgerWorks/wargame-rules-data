@@ -469,6 +469,10 @@
             "minLength": 1,
             "maxLength": 1000,
             "description": "An ORIGINAL, MECHANICS-ONLY summary authored for this data set, target <= 1000 characters. Never the publisher's rules text and never a light rewording of it (reference-db-schema.md §6.1)."
+          },
+          "abilityClass": {
+            "enum": ["wargear", "wargear-profile", "primarch", "psychic"],
+            "description": "010 R13 task 4: the source's own classification, OPTIONAL and present only where the raw type carried one. Never used to derive abilityType -- the published key's prefix IS abilityType, unchanged."
           }
         }
       }

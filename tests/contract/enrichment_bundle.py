@@ -5,6 +5,9 @@
 # AI-Assisted: Claude Code (model: Claude Sonnet 5) - Added one invented `wargear_abilities`
 # entry (010 R13 task 2) so the loadout/enriched consumer-compat dry-run's "every new array is
 # non-empty" assertion, unscoped over NEW_ARRAYS, covers `wargearAbilities` too.
+# AI-Assisted: Claude Code (model: Claude Sonnet 5) - Gave the Fen Warden a second, classed
+# ability key (010 R13 task 4) so the additive-compatibility and consumer-compat proofs run
+# against a bundle that actually carries `datasheetAbilities.abilityClass`, not an empty column.
 """A snapshot carrying **every** addition `004-rules-data-enrichment` makes.
 
 Phase 8's whole point is that the additions are invisible to a consumer that does not read them.
@@ -97,9 +100,14 @@ def _weapon(line: int, name: str, *, abilities: tuple[str, ...] = ()) -> Curated
 def _warden() -> CuratedDatasheet:
     """The dense one: composition, a nested option group, an unpriced choice, a priced link."""
     return factories.datasheet(
-        "ds-fen-warden", faction_id=PARENT_FACTION, ability_keys=("core:tidewalk",)
+        "ds-fen-warden",
+        faction_id=PARENT_FACTION,
+        ability_keys=("core:tidewalk", "datasheet:tide-hook-limpet"),
     ).model_copy(
         update={
+            # 010 R13 task 4: one classed key, so the additive-compatibility proofs run against
+            # a bundle that actually carries `abilityClass`, not an empty column.
+            "ability_classes": {"datasheet:tide-hook-limpet": "wargear"},
             "name": "FEN WARDEN",
             "models": [_model(1, "Fen Warden"), _model(2, "Fen Warden Prime")],
             "weapons": [
@@ -350,7 +358,7 @@ def enriched_snapshot() -> CuratedSnapshot:
             # the same mechanism, flagged differently (FR-018).
             CuratedChapterKeyword(keyword="BRACKLIGHT HOST", parent_faction_id=PARENT_FACTION),
         ],
-        ability_summaries=factories.summaries(("core:tidewalk",)),
+        ability_summaries=factories.summaries(("core:tidewalk", "datasheet:tide-hook-limpet")),
         faction_rules=_faction_rules(),
         detachment_rules=_detachment_rules(),
         # 010-csv-cutover round 13 task 2. One invented entry so the dry-run's "every new array
