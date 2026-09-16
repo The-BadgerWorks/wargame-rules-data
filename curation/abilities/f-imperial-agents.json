@@ -850,15 +850,15 @@
   },
   {
     "ability_key": "faction:assigned-agents",
-    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
+    "authored_against_acquisition": "wahapedia-20260915T220055Z-ae4bfdaf",
     "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
-    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
-    "mechanic_digest": "71ff44b0ee60a0f73021a05de890c52a",
+    "digest_refreshed_under_authorization": "owner-2026-09-15-table-digest-rereview",
+    "mechanic_digest": "734aea74a328bd76dc6bb8b469c5e411",
     "name": "Assigned Agents",
     "review_state": "approved",
-    "reviewed_at": "2026-09-15T04:35:16Z",
+    "reviewed_at": "2026-09-15T22:00:19Z",
     "reviewed_by": "claude-sonnet-5-reviewer",
-    "summary": "If every model in your army has Imperium, you can include Agents of the Imperium units lacking your Faction keyword: retinue/character/requisitioned caps are 1/1/1 at Incursion, 2/2/1 at Strike Force, 3/3/2 at Onslaught."
+    "summary": "If your Army Faction is AGENTS OF THE IMPERIUM, you select an available Detachment as normal in the Select Detachment Rules step. If it is not, but every model in your army has the IMPERIUM keyword, you can include AGENTS OF THE IMPERIUM units lacking your selected Faction keyword, limited by battle size (RETINUE/CHARACTER/REQUISITIONED): Incursion 1/1/1, Strike Force 2/2/1, Onslaught 3/3/2. Their DEDICATED TRANSPORT units are included as normal, but each must start the battle with one or more units embarked, or it cannot be deployed and counts as destroyed in the first battle round."
   },
   {
     "ability_key": "faction:kill-team",

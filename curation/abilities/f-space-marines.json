@@ -1522,13 +1522,13 @@
   },
   {
     "ability_key": "faction:mission-tactics",
-    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
+    "authored_against_acquisition": "wahapedia-20260915T220055Z-ae4bfdaf",
     "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
-    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
-    "mechanic_digest": "e61d56f6dedb9cca0c9aa01f4d9c867a",
+    "digest_refreshed_under_authorization": "owner-2026-09-15-table-digest-rereview",
+    "mechanic_digest": "702d5b32e4004ef1fcf48d547fe6b9d4",
     "name": "Mission Tactics",
     "review_state": "approved",
-    "reviewed_at": "2026-09-15T04:35:16Z",
+    "reviewed_at": "2026-09-15T22:00:19Z",
     "reviewed_by": "claude-sonnet-5-reviewer",
     "summary": "At the start of your Command phase you can select a Mission Tactic, active until your next Command phase for your Adeptus Astartes units: Sustained Hits 1, Lethal Hits, or Precision on Critical Hits. Each can be selected once per battle."
   },
@@ -1546,14 +1546,14 @@
   },
   {
     "ability_key": "faction:templar-vows",
-    "mechanic_digest": "bff3e98e18c497804849694f4412c815",
+    "authored_against_acquisition": "wahapedia-20260915T220055Z-ae4bfdaf",
+    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
+    "digest_refreshed_under_authorization": "owner-2026-09-15-table-digest-rereview",
+    "mechanic_digest": "d2d7e3198443db4a90dee68110447e7c",
     "name": "Templar Vows",
     "review_state": "approved",
-    "summary": "If your Army Faction is Adeptus Astartes, at the start of the first battle round select one Vow; while it is active, Adeptus Astartes units from your army have its ability. Abhor the Witch: melee attacks against Psykers have Precision, and a charge declared with an enemy Psyker within 12\" can be re-rolled but must end engaged with one. Accept Any Challenge: +1 to melee Wound rolls when the attack's Strength does not exceed the target's Toughness. Suffer Not the Unclean: can charge after Falling Back, and Pile-in and Consolidate moves need only end as close as possible to the nearest enemy. Uphold the Honour: Infantry on an objective you control at the end of your Command phase keep it until the opponent out-controls you, and can start Actions after Advancing.",
-    "reviewed_by": "claude-fable-5-1-manager-hand-review",
-    "reviewed_at": "2026-09-15T15:44:22Z",
-    "authored_against_acquisition": "wahapedia-20260915T154300Z-ae4bfdaf",
-    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
-    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation"
+    "reviewed_at": "2026-09-15T22:00:19Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "summary": "ADEPTUS ASTARTES armies: at the first battle round's start, select one Vow for those units: - melee attacks vs PSYKER have [PRECISION]; with an enemy PSYKER within 12\", may re-roll a charge roll, ending engaged with one. - add 1 to melee Wound rolls if Strength <= target Toughness. - can charge after Falling Back; Pile-in/Consolidation moves need only end as close as possible to the closest enemy unit. - INFANTRY: objectives within range you control at each Command phase end stay yours until the opponent's Level of Control exceeds yours at end of a phase; can start Actions after Advancing."
   }
 ]

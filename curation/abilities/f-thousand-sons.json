@@ -490,39 +490,39 @@
   },
   {
     "ability_key": "faction:cabal-of-sorcerers",
-    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
+    "authored_against_acquisition": "wahapedia-20260916T005129Z-ae4bfdaf",
     "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
-    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
-    "mechanic_digest": "17843e74846785181a45fec7ace25f2f",
+    "digest_refreshed_under_authorization": "owner-2026-09-15-table-digest-rereview",
+    "mechanic_digest": "cf9b03a111cb70eb818b30f92d7d1edd",
     "name": "Cabal of Sorcerers",
     "review_state": "approved",
-    "reviewed_at": "2026-09-15T04:35:16Z",
-    "reviewed_by": "claude-sonnet-5-reviewer",
-    "summary": "Shooting phase start: each model with this ability may attempt one Ritual per turn, each Ritual once per turn. Roll 2D6, optionally Channelling the Warp; any double or triple costs its unit D3 mortal wounds; total must meet the Warp Charge."
+    "reviewed_at": "2026-09-16T00:53:24Z",
+    "reviewed_by": "claude-fable-5-1-manager-hand-review",
+    "summary": "If your Army Faction is Thousand Sons, at the start of your Shooting phase each model with this ability that has not attempted a Ritual this turn can attempt one Ritual no model of yours has attempted this turn: roll 2D6, optionally Channel the Warp; any double or triple costs the model's unit D3 mortal wounds; if the total meets the Ritual's Warp Charge it manifests. Destiny's Ruin (WC 5): pick one enemy unit within 24\" and visible; this phase your Thousand Sons and Scintillating Legions attacks against it re-roll Hit rolls of 1 (any Hit roll on a test result of 10+). Temporal Surge (WC 6): one friendly such unit not in Engagement Range, within 24\" and visible, makes a Normal move of up to D6\" (6\" on 10+) and cannot charge this turn. Doombolt (WC 7): one enemy unit within 24\" and visible (a Lone Operative only within 12\") suffers D3 mortal wounds (D3+3 on 11+). Twist of Fate (WC 9): this phase such attacks against one enemy unit within 24\" and visible improve AP by 1 (by 2 on 12+)."
   },
   {
     "ability_key": "faction:cabal-of-sorcerers-1",
-    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
+    "authored_against_acquisition": "wahapedia-20260916T005129Z-ae4bfdaf",
     "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
-    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
-    "mechanic_digest": "17843e74846785181a45fec7ace25f2f",
+    "digest_refreshed_under_authorization": "owner-2026-09-15-table-digest-rereview",
+    "mechanic_digest": "cf9b03a111cb70eb818b30f92d7d1edd",
     "name": "Cabal of Sorcerers",
     "review_state": "approved",
-    "reviewed_at": "2026-09-15T04:35:16Z",
-    "reviewed_by": "claude-sonnet-5-reviewer",
-    "summary": "Shooting phase start: each model with this ability may attempt one Ritual per turn, each Ritual once per turn. Roll 2D6, optionally Channelling the Warp; any double or triple costs its unit D3 mortal wounds; total must meet the Warp Charge."
+    "reviewed_at": "2026-09-16T00:53:24Z",
+    "reviewed_by": "claude-fable-5-1-manager-hand-review",
+    "summary": "If your Army Faction is Thousand Sons, at the start of your Shooting phase each model with this ability that has not attempted a Ritual this turn can attempt one Ritual no model of yours has attempted this turn: roll 2D6, optionally Channel the Warp; any double or triple costs the model's unit D3 mortal wounds; if the total meets the Ritual's Warp Charge it manifests. Destiny's Ruin (WC 5): pick one enemy unit within 24\" and visible; this phase your Thousand Sons and Scintillating Legions attacks against it re-roll Hit rolls of 1 (any Hit roll on a test result of 10+). Temporal Surge (WC 6): one friendly such unit not in Engagement Range, within 24\" and visible, makes a Normal move of up to D6\" (6\" on 10+) and cannot charge this turn. Doombolt (WC 7): one enemy unit within 24\" and visible (a Lone Operative only within 12\") suffers D3 mortal wounds (D3+3 on 11+). Twist of Fate (WC 9): this phase such attacks against one enemy unit within 24\" and visible improve AP by 1 (by 2 on 12+)."
   },
   {
     "ability_key": "faction:cabal-of-sorcerers-scarab-occult-sorcerer-only",
-    "mechanic_digest": "17843e74846785181a45fec7ace25f2f",
+    "authored_against_acquisition": "wahapedia-20260915T220055Z-ae4bfdaf",
+    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
+    "digest_refreshed_under_authorization": "owner-2026-09-15-table-digest-rereview",
+    "mechanic_digest": "cf9b03a111cb70eb818b30f92d7d1edd",
     "name": "Cabal of Sorcerers (Scarab Occult Sorcerer only)",
     "review_state": "approved",
-    "reviewed_at": "2026-09-15T15:44:22Z",
-    "reviewed_by": "claude-fable-5-1-manager-hand-review",
-    "summary": "If your Army Faction is Thousand Sons, at the start of your Shooting phase each model with this ability that has not yet attempted a Ritual this turn can attempt one Ritual your army has not yet attempted this turn, by taking a Psychic test for that model: roll 2D6, optionally Channelling the Warp; a double or triple costs the unit D3 mortal wounds; the Ritual manifests if the total meets its Warp Charge.",
-    "authored_against_acquisition": "wahapedia-20260915T154300Z-ae4bfdaf",
-    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
-    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation"
+    "reviewed_at": "2026-09-15T22:00:19Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "summary": "If your Army Faction is Thousand Sons, at the start of your Shooting phase each model with this ability that has not yet attempted a Ritual this turn can attempt one Ritual your army has not yet attempted this turn, by taking a Psychic test for that model: roll 2D6, optionally Channelling the Warp; a double or triple costs the unit D3 mortal wounds; the Ritual manifests if the total meets its Warp Charge."
   },
   {
     "ability_key": "faction:pact-of-sorcery",

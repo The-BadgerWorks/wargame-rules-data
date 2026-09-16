@@ -2069,13 +2069,13 @@
   },
   {
     "ability_key": "faction:voice-of-command",
-    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
+    "authored_against_acquisition": "wahapedia-20260915T220055Z-ae4bfdaf",
     "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
-    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
-    "mechanic_digest": "f66fdfee3518e1a9228fe23b635c0ba5",
+    "digest_refreshed_under_authorization": "owner-2026-09-15-table-digest-rereview",
+    "mechanic_digest": "56d51decd46f1b99a97db4e1f050013c",
     "name": "Voice of Command",
     "review_state": "approved",
-    "reviewed_at": "2026-09-15T04:35:16Z",
+    "reviewed_at": "2026-09-15T22:00:19Z",
     "reviewed_by": "claude-sonnet-5-reviewer",
     "summary": "ASTRA MILITARUM OFFICER models issue Orders; the datasheet gives the number per battle round and eligible units. Issue in your Command phase or at the end of a phase in which the Officer disembarked or was set up: pick one Order and one eligible friendly unit within 6\". It lasts until the start of your next Command phase; one Order per unit, a new one replacing it; Battle-shocked units can't receive one and lose it. Only ASTRA MILITARUM models benefit. Orders: Move +3\"; melee WS +1; ranged BS +1; Rapid Fire A +1; Save +1 (not better than 3+); Ld and OC +1."
   }

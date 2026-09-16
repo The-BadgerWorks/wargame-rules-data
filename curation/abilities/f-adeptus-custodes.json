@@ -637,13 +637,13 @@
   },
   {
     "ability_key": "faction:martial-katah",
-    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
+    "authored_against_acquisition": "wahapedia-20260915T220055Z-ae4bfdaf",
     "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
-    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
-    "mechanic_digest": "b20881a379f842def091ec15ed94aa8d",
+    "digest_refreshed_under_authorization": "owner-2026-09-15-table-digest-rereview",
+    "mechanic_digest": "3c3441636f3e281c5ce85e5b32729f2d",
     "name": "Martial Ka'tah",
     "review_state": "approved",
-    "reviewed_at": "2026-09-15T04:35:16Z",
+    "reviewed_at": "2026-09-15T22:00:19Z",
     "reviewed_by": "claude-sonnet-5-reviewer",
     "summary": "Before this unit fights, choose a Ka'tah Stance for that activation: Dacatarai grants its melee weapons Sustained Hits 1; Rendax grants its melee weapons Lethal Hits."
   }

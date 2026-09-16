@@ -781,13 +781,13 @@
   },
   {
     "ability_key": "faction:cult-ambush",
-    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
+    "authored_against_acquisition": "wahapedia-20260915T220055Z-ae4bfdaf",
     "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
-    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
-    "mechanic_digest": "48d48a886d9a0642cd347b952f7384e5",
+    "digest_refreshed_under_authorization": "owner-2026-09-15-table-digest-rereview",
+    "mechanic_digest": "f1703e7e386cb7a02b42f0b574db2022",
     "name": "Cult Ambush",
     "review_state": "approved",
-    "reviewed_at": "2026-09-15T04:35:16Z",
+    "reviewed_at": "2026-09-15T22:00:19Z",
     "reviewed_by": "claude-sonnet-5-reviewer",
     "summary": "Destroyed units made entirely of models with this ability can return via Cult Ambush by spending Resurgence points (by battle size, cost by unit size); a marker is placed, letting units ingress near it, removed if an enemy nears within 8\"."
   },
