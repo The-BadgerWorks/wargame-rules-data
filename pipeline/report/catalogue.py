@@ -50,6 +50,13 @@
 # AI-Assisted: Claude Code (model: claude-sonnet-5) - 010 round 4 task 1: registered
 # OPT-FOOTNOTE-ROW for `pipeline/acquire/export_rows.py::drop_non_option_rows`'s new footnote-row
 # routing (the export's `button` `*`, html parity).
+# AI-Assisted: Claude Code (model: Claude Sonnet 5) - 010 R13 task 2: registered WGA-DUPLICATE,
+# raised by `pipeline/curate/assemble.py` when two authored wargear-ability entries compute the
+# same id; neither colliding entry enters the curated snapshot.
+# AI-Assisted: Claude Code (model: Claude Sonnet 5) - 010 R13 task 3: registered
+# WGA-LINK-AMBIGUOUS, raised by `pipeline/curate/assemble.py::_link_wargear_abilities` when an
+# option or equipment item's name matches two-or-more curated wargear abilities in its faction;
+# the item ships unlinked, mirroring OPT-LINK-AMBIGUOUS.
 """The finding catalogue.
 
 ``validation-report.md`` §1.1: **severity is a property of the code, not of the occurrence.** A
@@ -598,6 +605,24 @@ _DEFINITIONS: Final[tuple[FindingDefinition, ...]] = (
         "loadout.default_equipment fell below the previous PUBLISHED version's percent, less "
         "the configured tolerance; the symmetric twin of COV-OPTION-REGRESSION for the second "
         "ratcheted loadout figure",
+    ),
+    # -- 010-csv-cutover round 13 (curated wargear abilities) -------------------------------
+    _d(
+        "WGA-DUPLICATE",
+        _CON,
+        _B,
+        "010 R13",
+        "two authored wargear-ability entries compute the same id; a self-contradicting "
+        "snapshot the producer may not resolve on the curator's behalf, so neither entry "
+        "enters the curated snapshot",
+    ),
+    _d(
+        "WGA-LINK-AMBIGUOUS",
+        _REC,
+        _A,
+        "010 R13",
+        "an option or equipment item's name matched two-or-more curated wargear abilities in "
+        "its faction; the item ships unlinked, never guessed, mirroring OPT-LINK-AMBIGUOUS",
     ),
 )
 

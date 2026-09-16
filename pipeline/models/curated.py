@@ -17,6 +17,16 @@
 # item's own name. Follows CuratedCompositionEntry's (datasheet_id, constraint_index) identity
 # pattern exactly -- datasheet_id comes from the owning CuratedDatasheet.item_constraints list,
 # never from a field on the record itself.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - Added CuratedWargearAbility (010 round 13
+# task 2): the curated projection of `WargearAbilityEntry`, carried on the snapshot keyed by id
+# so the item linker (task 3) can resolve names against it before datasheets are built.
+# AI-Assisted: Claude Code (model: Claude Sonnet 5) - 010 R13 task 3: added
+# `wargear_ability_id` to `CuratedOptionChoiceItem` and `CuratedEquipmentItem`, the exact-name
+# link to a curated `CuratedWargearAbility`, OMITTED on zero or >= 2 matches -- never guessed.
+# AI-Assisted: Claude Code (model: Claude Sonnet 5) - 010 R13 task 4: added
+# `CuratedDatasheet.ability_classes`, `ability_key -> source_class`, an OPTIONAL tag carried
+# beside `ability_keys` -- never a re-typing, because the published key's prefix IS
+# `abilityType` and re-typing would move ~700 published identifiers.
 """Curated records — the canonical reviewable state, machine-written into ``data/``.
 
 Every record here maps to a row in the consumer schema; the field-level mapping is
@@ -562,6 +572,11 @@ class CuratedOptionChoiceItem(_CuratedMechanical):
         description="exactly-one-match linking, per item; OMITTED on zero or >= 2 matches, "
         "where the item ships unlinked with OPT-BUNDLE-UNLINKED and its siblings ship too",
     )
+    wargear_ability_id: str | None = Field(
+        default=None,
+        description="010 R13 task 3: -> CuratedWargearAbility.id, by exact normalised name or "
+        "alias, faction-scoped. OMITTED on zero or >= 2 matches -- never guessed.",
+    )
 
 
 class CuratedEquipmentItem(_CuratedMechanical):
@@ -577,6 +592,11 @@ class CuratedEquipmentItem(_CuratedMechanical):
     count: int | None = Field(default=None, ge=1, description="OMITTED when unstated")
     weapon_line: int | None = Field(
         default=None, ge=1, description="OMITTED on zero or >= 2 matches (FR-014)"
+    )
+    wargear_ability_id: str | None = Field(
+        default=None,
+        description="010 R13 task 3: -> CuratedWargearAbility.id, by exact normalised name or "
+        "alias, faction-scoped. OMITTED on zero or >= 2 matches -- never guessed.",
     )
 
 
@@ -707,6 +727,21 @@ class CuratedWargearOption(_Curated):
     models_per_instance: int | None = None
 
 
+class CuratedWargearAbility(_Curated):
+    """A faction-scoped, curated wargear ability (010 round 13), keyed by ``id`` on the snapshot.
+
+    Carries the same four consumer-facing fields ``WargearAbilityEntry`` authors, plus
+    ``aliases`` — kept curated-only (dropped at the bundle boundary) because it exists purely to
+    help the item linker (task 3) resolve a name, not to be read by a player.
+    """
+
+    id: str
+    faction_id: str
+    name: str
+    summary: str
+    aliases: Sequence[str] = ()
+
+
 class CuratedDatasheetCost(_Curated):
     """One cost row, keyed ``(pricing_context, model_count, copy_index_min)`` in its datasheet.
 
@@ -756,6 +791,13 @@ class CuratedDatasheet(_Curated):
         description="KEYS, not text. Summaries live in curation/abilities/<faction-id>.json and "
         "are resolved at build time — which is what keeps authored content out of the "
         "machine-written tree entirely.",
+    )
+    ability_classes: Mapping[str, str] = Field(
+        default_factory=dict,
+        description="010 R13 task 4: ability_key -> the SOURCE's own classification ('wargear', "
+        "'wargear-profile', 'primarch', 'psychic'), only for keys whose raw type carries one. "
+        "The AbilityType vocabulary and the published key are UNCHANGED by this — it is an "
+        "optional tag, never a re-typing (see pipeline/normalize/ability_types.py).",
     )
     leader_pairs: Sequence[str] = ()
     composition: Sequence[CuratedCompositionEntry] = Field(
@@ -853,6 +895,11 @@ class CuratedSnapshot(_Curated):
         "and faction_rules do. The rules THEMSELVES live on CuratedDetachment.rules and come "
         "from the source; this mapping carries only each rule's authored summary, which is why "
         "a rule with no record here still ships with its name.",
+    )
+    wargear_abilities: Mapping[str, CuratedWargearAbility] = Field(
+        default_factory=dict,
+        description="id -> curation/wargear-abilities.json's entry (010 round 13). A duplicate "
+        "id is the blocking WGA-DUPLICATE and neither colliding entry enters this mapping.",
     )
     keyword_glossary: Mapping[str, GlossaryEntry] = Field(
         default_factory=dict,

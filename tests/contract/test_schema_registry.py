@@ -3,6 +3,8 @@
 # unmapped field is a hard failure rather than a silent pass-through (tasks T032-T035).
 # AI-Assisted: Claude Code (model: claude-sonnet-5) - Added `datasheetItemConstraints` to
 # EMPTY_BUNDLE (007 task T011): the array is now root-required, so the skeleton must carry it.
+# AI-Assisted: Claude Code (model: Claude Sonnet 5) - Added `wargearAbilities` to EMPTY_BUNDLE
+# (010 R13 task 2): the array is now root-required, so the skeleton must carry it.
 """The schemas are the "nowhere to land it" half of the IP boundary.
 
 Control 1 of research D8 is that a violation has no field to occupy. That only holds if every
@@ -99,6 +101,8 @@ EMPTY_BUNDLE: dict[str, Any] = {
     "chapterKeywords": [],
     # 004 task T048.
     "factionRules": [],
+    # 010-csv-cutover round 13 task 2.
+    "wargearAbilities": [],
     # 004 task T055.
     "detachmentRules": [],
     # 004 task T062.

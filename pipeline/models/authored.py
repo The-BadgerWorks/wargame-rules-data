@@ -27,6 +27,9 @@
 # detail_source_faction_id, and the unit-map crosswalk's optional faction scope, which is what
 # stops a chapter-shared entry from adopting one datasheet_id into all six Space Marine chapters
 # (risk R-C, the C1 ruling).
+# AI-Assisted: Claude Code (model: Claude Sonnet 5) - Added WargearAbilityEntry (010 round 13
+# task 1): the authored, faction-scoped curated wargear-ability record, ahead of the curated
+# table, emitter, and linker later tasks add. Mirrors CompositionOverrideEntry's pattern.
 """Authored records — human-written, under ``curation/``.
 
 **Invariant:** the pipeline reads these and never writes them; humans write these and never
@@ -43,11 +46,12 @@ from __future__ import annotations
 
 from collections.abc import Mapping, Sequence
 from enum import StrEnum
-from typing import Final, Self
+from typing import Annotated, Final, Literal, Self
 
 from pydantic import BaseModel, ConfigDict, Field, model_validator
 
 from pipeline.build.canonical_json import JsonValue
+from pipeline.reconcile.identity import slugify
 
 #: The hard ceiling on an authored summary, in characters, and the ONE place it is written down
 #: on the Python side. Every ``schemas/curation/*.schema.json`` and ``schemas/bundle.schema.json``
@@ -520,6 +524,35 @@ class CompositionOverrideEntry(_Authored):
                 "and max_count are all required unless remove=true"
             )
         return self
+
+
+class WargearAbilityEntry(_Authored):
+    """``curation/wargear-abilities.json``, keyed by ``id`` (010 round 13).
+
+    A faction-scoped, curated wargear ability — authored directly by the Owner, with no
+    upstream digest to gate against, unlike :class:`AbilitySummary` and the other summary
+    classes. Approval here is entirely the schema: ``review_state: "approved"`` plus a named
+    ``reviewed_by``. ``tools/check_summary_approvals.py`` is deliberately **not** extended for
+    this class — its whole model is a digest of export text, and these entries carry none.
+
+    ``id`` is derived, never authored, from ``faction_id`` and ``name`` — the same
+    "computed, not written" shape as every other curated identifier — so a curator cannot
+    accidentally collide two entries' ids by typo, and a renamed ability's id moves with it
+    (later tasks' linker resolves by name, not by this id).
+    """
+
+    faction_id: str = Field(min_length=1)
+    name: str = Field(min_length=1)
+    summary: str = Field(min_length=1, max_length=SUMMARY_MAX_LENGTH)
+    aliases: Sequence[Annotated[str, Field(min_length=1)]] = Field(default_factory=tuple)
+    review_state: Literal["approved"]
+    reviewed_by: str = Field(min_length=1)
+    reviewed_at: str
+    note: str | None = None
+
+    @property
+    def id(self) -> str:
+        return f"wga-{self.faction_id.removeprefix('f-')}-{slugify(self.name)}"
 
 
 class OptionOverrideItem(_Authored):

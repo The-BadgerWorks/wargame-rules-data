@@ -3,6 +3,9 @@
 # had moved to 1 000. Nothing caught it: the fixtures carry no summary long enough to tell the
 # two numbers apart, so the first thing to notice was a live build dying in the curation loader
 # after it had already acquired every page from both upstreams.
+# AI-Assisted: Claude Code (model: Claude Sonnet 5) - Raised the bundle-schema summary-node count
+# to five (010 R13 task 2): `wargearAbilities.summary` is a fifth bundle field capped at the same
+# ceiling.
 """The authored-summary ceiling is one number, asserted to be one number.
 
 Four JSON schemas under `schemas/curation/`, one field of `schemas/bundle.schema.json`, a pydantic
@@ -34,6 +37,7 @@ CURATION_SCHEMAS = (
     "faction-rules",
     "detachment-rules",
     "glossary",
+    "wargear-abilities",
 )
 
 
@@ -71,7 +75,7 @@ def test_each_curation_schema_caps_summary_at_the_one_ceiling(name: str) -> None
 def test_the_bundle_schema_caps_every_summary_at_the_same_ceiling() -> None:
     nodes = _summary_nodes(_schema(ROOT / "schemas" / "bundle.schema.json"))
 
-    assert len(nodes) == 4, f"expected four summary-bearing arrays, found {len(nodes)}"
+    assert len(nodes) == 5, f"expected five summary-bearing arrays, found {len(nodes)}"
     for node in nodes:
         assert node.get("maxLength") == SUMMARY_MAX_LENGTH
 

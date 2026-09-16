@@ -10,6 +10,8 @@
 # AI-Assisted: Claude Code (model: claude-sonnet-5) - Added check_marker_residue (007 task T036,
 # guarantee 21): the blocking CST-MARKER-RESIDUE check that proves the T038 extraction-time strip
 # actually ran, scanned independently of pipeline/validate/ip_scan.py's generic markup scan.
+# AI-Assisted: Claude Code (model: Claude Sonnet 5) - Added `wargearAbilities` to
+# CONSUMER_PRIMARY_KEYS (010 R13 task 2) so V20 covers it too.
 """V1-V6, V19 and V20 — the guarantees the producer owes the consumer (FR-030, FR-049).
 
 These are the checks that decide whether a candidate may ship at all. Each one exists because
@@ -403,6 +405,8 @@ CONSUMER_PRIMARY_KEYS: Final[dict[str, tuple[str, ...]]] = {
     "factionRules": ("id",),
     "detachmentRules": ("id",),
     "keywordGlossary": ("keywordKey",),
+    # 010-csv-cutover round 13 task 2.
+    "wargearAbilities": ("id",),
     # 006-unit-loadout-fidelity's additive tables (contracts/loadout-schema-delta.md §2).
     # Each key is a composite the SOURCE supplies -- the choice or group it hangs off, plus the
     # source's own conjunct or sentence ordinal -- so no identity is minted here and a rebuild

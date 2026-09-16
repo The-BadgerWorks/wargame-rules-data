@@ -2,6 +2,16 @@
 # (task T063): an explicit mapping onto the closed core|faction|datasheet vocabulary, including
 # the observed Cyrillic artefacts; any unmapped value raises DQ-ABILITY-TYPE and is never passed
 # through (FR-006, research §0.1).
+# AI-Assisted: Claude Code (model: Claude Sonnet 5) - 010 R13 task 4: mapped `psychic ->
+# AbilityType.DATASHEET` (it was previously unmapped and raised DQ-ABILITY-TYPE, dropping every
+# Psychic binding) and added `source_class`, which reports the source's own classification
+# (`wargear`, `wargear-profile`, `primarch`, `psychic`) separately from the closed vocabulary so
+# the app can carry it as an optional `abilityClass` tag without moving a single published key.
+# AI-Assisted: Claude Code (model: Claude Sonnet 5) - 010 R13 task 13: withdrew the `psychic ->
+# AbilityType.DATASHEET` mapping. A live build showed it mints three new ability keys (Orks
+# psychic powers) that have no approved summaries, which the publish gate blocks with
+# SUM-MISSING; admitting those keys is a curation-and-drafting round of its own, not a pipeline
+# change. A Psychic row is once again dropped with DQ-ABILITY-TYPE; `source_class` is unaffected.
 """Map the detail source's classification field onto the contract's closed vocabulary.
 
 The consumer contract's `datasheet_ability.ability_type` is `core | faction | datasheet` and
@@ -21,7 +31,7 @@ here — which is a one-line change, reviewed, and permanent.
 from __future__ import annotations
 
 from collections.abc import Mapping
-from typing import Final
+from typing import Final, Literal
 
 from pipeline.models.findings import Finding
 from pipeline.models.normalized import AbilityType
@@ -40,6 +50,12 @@ ABILITY_TYPE_MAP: Final[Mapping[str, AbilityType]] = {
     "wargear": AbilityType.DATASHEET,
     "wargear profile": AbilityType.DATASHEET,
     "primarch": AbilityType.DATASHEET,
+    # "psychic" is deliberately absent: 010 R13 task 4 mapped it onto AbilityType.DATASHEET, but
+    # task 13 withdrew that mapping. A live build showed it mints three new ability keys (Orks
+    # psychic powers) that have no approved summaries, which the publish gate blocks with
+    # SUM-MISSING. Admitting those keys is a curation-and-drafting round of its own, not a
+    # pipeline change, so a Psychic row is once again unmapped and raises DQ-ABILITY-TYPE,
+    # dropping the binding. `source_class("Psychic")` still reports "psychic" unchanged.
     # The observed Cyrillic scraper artefacts (research §0.1). Layout labels, not taxonomy.
     "special (правая колонка)": AbilityType.DATASHEET,
     "fortification (левая колонка)": AbilityType.DATASHEET,
@@ -49,6 +65,34 @@ ABILITY_TYPE_MAP: Final[Mapping[str, AbilityType]] = {
 
 class AbilityTypeUnmapped(ValueError):
     """A classification value outside the mapping table."""
+
+
+#: Source value (casefolded, whitespace-collapsed) -> the source's own class tag.
+#:
+#: A strict subset of `ABILITY_TYPE_MAP`'s keys: `core`, `faction`, `datasheet` and the three
+#: Cyrillic layout artefacts carry no class of their own (`None`), because they are not the
+#: thing this tag distinguishes — where a Wargear, Wargear profile, Primarch or Psychic entry
+#: all collapse to the SAME `AbilityType.DATASHEET`, this is what tells them apart again without
+#: moving the published key.
+_SOURCE_CLASS_MAP: Final[
+    Mapping[str, Literal["wargear", "wargear-profile", "primarch", "psychic"]]
+] = {
+    "wargear": "wargear",
+    "wargear profile": "wargear-profile",
+    "primarch": "primarch",
+    "psychic": "psychic",
+}
+
+
+def source_class(raw: str) -> Literal["wargear", "wargear-profile", "primarch", "psychic"] | None:
+    """The source's own classification, or `None` for core/faction/datasheet and the artefacts.
+
+    Uses the same `_key` normalisation as `coerce_ability_type` so the two functions agree on
+    what one raw value means, but this one is total — an unmapped value is simply `None`, never
+    a finding, because the class is an OPTIONAL tag and `classify` already reports the raw value
+    it cannot place at all.
+    """
+    return _SOURCE_CLASS_MAP.get(_key(raw))
 
 
 def _key(raw: str) -> str:

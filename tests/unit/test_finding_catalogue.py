@@ -23,6 +23,12 @@
 # AI-Assisted: Claude Code (model: claude-sonnet-5) - Transcribed OPT-FOOTNOTE-ROW (010 R4 task
 # 1) into PENDING_CONTRACT_SEVERITIES, independently of catalogue.py, matching the severity now
 # registered there.
+# AI-Assisted: Claude Code (model: Claude Sonnet 5) - Transcribed WGA-DUPLICATE (010 R13 task 2)
+# into PENDING_CONTRACT_SEVERITIES, independently of catalogue.py, matching the severity now
+# registered there.
+# AI-Assisted: Claude Code (model: Claude Sonnet 5) - Transcribed WGA-LINK-AMBIGUOUS (010 R13
+# task 3) into PENDING_CONTRACT_SEVERITIES, independently of catalogue.py, matching the severity
+# now registered there.
 """Severity belongs to the code, not to the occurrence.
 
 ``curation/resolutions.json`` entries reference finding codes, so a code whose severity moved
@@ -175,6 +181,12 @@ PENDING_CONTRACT_SEVERITIES = {
     # keywords that left the glossary denominator for naming a unit, on the identical
     # ahead-of-contract terms as the block above.
     "GLS-UNIT-NAME-EXCLUDED": A,
+    # 010-csv-cutover round 13 task 2: two authored wargear-ability entries computing the same
+    # id, on the identical ahead-of-contract terms as the block above.
+    "WGA-DUPLICATE": B,
+    # 010-csv-cutover round 13 task 3: an option/equipment item's name matching two-or-more
+    # curated wargear abilities in its faction, on the identical ahead-of-contract terms.
+    "WGA-LINK-AMBIGUOUS": A,
 }
 
 #: Transcribed by hand from 006's data-model.md §5 table and its contracts/

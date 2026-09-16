@@ -1,3 +1,19 @@
+# AI-Assisted: Claude Code (model: Claude Sonnet 5) - 010 R13 task 2: built the curated
+# wargear-abilities mapping from `authored.wargear_abilities`, keyed by id, near the top of
+# `assemble()` (before the faction loop) so the round-13 item linker has it available before
+# datasheets are built. A duplicate id raises the blocking `WGA-DUPLICATE` and neither colliding
+# entry enters the snapshot.
+# AI-Assisted: Claude Code (model: Claude Sonnet 5) - 010 R13 task 3: added
+# `_link_wargear_abilities`, a post-pass run in both `_datasheet_for` and
+# `_detail_only_datasheet` after their option and equipment structures are built, linking every
+# choice/equipment item to a curated wargear ability by exact normalised name or alias,
+# faction-scoped. Covers curator-authored items automatically because they are already part of
+# the items `_option_structure` returns. A two-or-more match raises the advisory
+# `WGA-LINK-AMBIGUOUS` and the item ships unlinked.
+# AI-Assisted: Claude Code (model: Claude Sonnet 5) - 010 R13 task 4: populated
+# `fields["ability_classes"]` beside `fields["ability_keys"]` in `_detail_datasheet_fields`,
+# reading `source_class` off the same raw `type` value `classify()` already reads, and threaded
+# it into both `CuratedDatasheet` construction sites.
 # AI-Assisted: Claude Opus 5 - 010 R6b task 2: read a `Datasheets_wargear.csv` row whose `line`
 # column is empty by validating `line_in_wargear` instead (1990 live rows, 287 datasheets).
 # AI-Assisted: Claude Opus 5 - 010 R6 task 5: publish the printed characteristic forms (skill,
@@ -101,7 +117,7 @@ from pipeline.curate.summaries import (
     detachment_rule_key,
     resolve_binding_name,
 )
-from pipeline.models.authored import OptionOverrideChoice
+from pipeline.models.authored import OptionOverrideChoice, WargearAbilityEntry
 from pipeline.models.curated import (
     ArmyRuleState,
     CuratedCompositionEntry,
@@ -124,6 +140,7 @@ from pipeline.models.curated import (
     CuratedOptionChoiceItem,
     CuratedOptionGroup,
     CuratedSnapshot,
+    CuratedWargearAbility,
     CuratedWargearOption,
     CuratedWeaponLine,
     DefaultEquipmentState,
@@ -142,7 +159,7 @@ from pipeline.models.provenance import (
 )
 from pipeline.models.source import MfmDetachmentCard, MfmUnitCostBlock, SourceAcquisition
 from pipeline.normalize.ability_key import ability_key
-from pipeline.normalize.ability_types import classify
+from pipeline.normalize.ability_types import classify, source_class
 from pipeline.normalize.characteristics import (
     printed_base_size,
     printed_range,
@@ -205,6 +222,7 @@ from pipeline.reconcile.options_link import (
     project_priced_options,
     weapon_lines_named,
 )
+from pipeline.reconcile.wargear_link import wargear_ability_ids_named
 from pipeline.report.catalogue import build_finding
 
 #: The cost-table label that carries the *later* copies of an escalating price. The publisher
@@ -730,6 +748,7 @@ def _detail_datasheet_fields(
     # build by the caller and passed in — not rebuilt here from this call's own `detail`, which
     # would let a filtered mapping desynchronise a key from its digest.
     ability_keys: list[str] = []
+    ability_classes: dict[str, str] = {}
     for binding in detail["Datasheets_abilities.csv"].grouped_by("datasheet_id").get(detail_id, []):
         name = resolve_binding_name(binding.fields, names=ability_names)
         if not name:
@@ -751,10 +770,16 @@ def _detail_datasheet_fields(
             findings.append(finding)
             continue
         assert ability_type is not None
-        ability_keys.append(
-            ability_key(ability_type, name, parameter=binding.fields.get("parameter", ""))
-        )
+        raw_type = binding.fields.get("type", "")
+        key = ability_key(ability_type, name, parameter=binding.fields.get("parameter", ""))
+        ability_keys.append(key)
+        # 010 R13 task 4: the SAME raw value classify() just mapped, so the tag and the key it
+        # is attached to are always read off one column, never two.
+        cls = source_class(raw_type)
+        if cls is not None:
+            ability_classes[key] = cls
     fields["ability_keys"] = sorted(set(ability_keys))
+    fields["ability_classes"] = ability_classes
 
     return fields, findings
 
@@ -1513,6 +1538,106 @@ def _army_rule_state(authored: AuthoredContent, faction_id: str) -> ArmyRuleStat
     return ArmyRuleState(state) if state is not None else None
 
 
+def _wargear_abilities(
+    authored: AuthoredContent,
+) -> tuple[dict[str, CuratedWargearAbility], list[Finding]]:
+    """The curated wargear-abilities mapping, keyed by id (010 R13 task 2).
+
+    A duplicate id — two authored entries whose ``faction_id``/``name`` pair computes the same
+    id — is the blocking ``WGA-DUPLICATE``, and **neither** colliding entry enters the mapping:
+    publishing either one would be the producer silently picking a winner on the curator's
+    behalf. A dangling ``faction_id`` is deliberately NOT checked here; it is caught the same way
+    every other authored dangling reference is, through :func:`authored_entity_refs` and V9.
+    """
+    by_id: dict[str, list[WargearAbilityEntry]] = {}
+    for entry in authored.wargear_abilities:
+        by_id.setdefault(entry.id, []).append(entry)
+
+    findings: list[Finding] = []
+    result: dict[str, CuratedWargearAbility] = {}
+    for wga_id in sorted(by_id):
+        entries = by_id[wga_id]
+        if len(entries) > 1:
+            findings.append(
+                build_finding(
+                    "WGA-DUPLICATE",
+                    entity_refs=[wga_id],
+                    detail={"id": wga_id, "count": len(entries)},
+                )
+            )
+            continue
+        entry = entries[0]
+        result[wga_id] = CuratedWargearAbility(
+            id=entry.id,
+            faction_id=entry.faction_id,
+            name=entry.name,
+            summary=entry.summary,
+            aliases=tuple(entry.aliases),
+        )
+    return result, findings
+
+
+def _link_wargear_abilities(
+    *,
+    datasheet_id: str,
+    faction_id: str,
+    choices: Sequence[CuratedOptionChoice],
+    equipment_groups: Sequence[CuratedEquipmentGroup],
+    wargear_abilities: Sequence[CuratedWargearAbility],
+) -> tuple[list[CuratedOptionChoice], tuple[CuratedEquipmentGroup, ...], list[Finding]]:
+    """The post-pass task 3 adds: link every option/equipment item by exact name (010 R13).
+
+    Runs once per datasheet, after `_option_structure` and `_equipment` have both returned, using
+    the datasheet's own already-resolved `faction_id`. A curator-authored item from
+    `_authored_items` is already part of the choice items `_option_structure` returns, so this
+    pass covers it automatically -- there is no second, authored-only code path.
+
+    Zero matches raises nothing: most items are weapons and legitimately link nowhere. A
+    two-or-more match is the advisory `WGA-LINK-AMBIGUOUS`, and the item ships unlinked exactly
+    as `weapon_lines_named`'s callers ship an unlinked weapon item.
+    """
+    if not wargear_abilities:
+        return list(choices), tuple(equipment_groups), []
+
+    findings: list[Finding] = []
+
+    def _linked_id(item_name: str) -> str | None:
+        matches = wargear_ability_ids_named(item_name, faction_id, wargear_abilities)
+        if len(matches) >= 2:
+            findings.append(
+                build_finding(
+                    "WGA-LINK-AMBIGUOUS",
+                    entity_refs=[datasheet_id],
+                    detail={"item_name": item_name, "candidate_ids": matches},
+                )
+            )
+        return matches[0] if len(matches) == 1 else None
+
+    linked_choices = [
+        choice.model_copy(
+            update={
+                "items": tuple(
+                    item.model_copy(update={"wargear_ability_id": _linked_id(item.item_name)})
+                    for item in choice.items
+                )
+            }
+        )
+        for choice in choices
+    ]
+    linked_groups = tuple(
+        group.model_copy(
+            update={
+                "items": tuple(
+                    item.model_copy(update={"wargear_ability_id": _linked_id(item.item_name)})
+                    for item in group.items
+                )
+            }
+        )
+        for group in equipment_groups
+    )
+    return linked_choices, linked_groups, findings
+
+
 def assemble(  # noqa: PLR0913 - the stage genuinely needs every upstream input
     *,
     pages: Sequence[MfmPage],
@@ -1558,6 +1683,11 @@ def assemble(  # noqa: PLR0913 - the stage genuinely needs every upstream input
             [row.fields.get("faction_id", "") for row in detail_datasheets.rows], authored
         )
     )
+
+    # Built here, before any datasheet is assembled, so the round-13 item linker (task 3) has
+    # the whole curated wargear-abilities mapping available while it builds datasheets below.
+    wargear_abilities, wargear_ability_findings = _wargear_abilities(authored)
+    findings.extend(wargear_ability_findings)
 
     provenance = _provenance(points_acquisition, detail_acquisition, snapshot_edition=edition_code)
     # A unit the detail source has never heard of has no *detail* edition, so it is not hybrid
@@ -1658,6 +1788,7 @@ def assemble(  # noqa: PLR0913 - the stage genuinely needs every upstream input
                 provenance=provenance if match.wahapedia_datasheet_id else points_only_provenance,
                 legends_sources=legends_sources,
                 ability_names=ability_names,
+                wargear_abilities=tuple(wargear_abilities.values()),
             )
             findings.extend(datasheet_findings)
             datasheets.append(datasheet)
@@ -1690,6 +1821,7 @@ def assemble(  # noqa: PLR0913 - the stage genuinely needs every upstream input
             detail_acquisition=detail_acquisition,
             legends_sources=legends_sources,
             ability_names=ability_names,
+            wargear_abilities=tuple(wargear_abilities.values()),
         )
         findings.extend(unverified_findings)
         if unverified is not None:
@@ -1750,6 +1882,7 @@ def assemble(  # noqa: PLR0913 - the stage genuinely needs every upstream input
         ability_summaries=authored.ability_summaries,
         faction_rules=authored.faction_rule_files,
         detachment_rules=authored.detachment_rule_summaries,
+        wargear_abilities=wargear_abilities,
         keyword_glossary=authored.glossary_entries,
     )
 
@@ -1925,6 +2058,7 @@ def _datasheet_for(  # noqa: PLR0913 - one datasheet needs both sources and the 
     provenance: EntityProvenance,
     legends_sources: frozenset[str],
     ability_names: Mapping[str, str],
+    wargear_abilities: Sequence[CuratedWargearAbility] = (),
 ) -> tuple[CuratedDatasheet, list[Finding]]:
     findings: list[Finding] = []
     costs, wargear_options, cost_findings = _costs(
@@ -1972,6 +2106,18 @@ def _datasheet_for(  # noqa: PLR0913 - one datasheet needs both sources and the 
             weapons,
         )
         findings.extend(equipment.findings)
+
+        # 010 R13 task 3: link every option/equipment item to a curated wargear ability by exact
+        # name, now that both are built and the datasheet's own faction_id is resolved. Covers
+        # curator-authored items automatically -- they are already part of `options.choices`.
+        options.choices, equipment.groups, link_findings = _link_wargear_abilities(
+            datasheet_id=match.datasheet_id,
+            faction_id=match.faction_id,
+            choices=options.choices,
+            equipment_groups=equipment.groups,
+            wargear_abilities=wargear_abilities,
+        )
+        findings.extend(link_findings)
 
         # Both sources priced it: the points source wins, both values are reported, and the
         # losing value is carried nowhere (FR-028).
@@ -2041,6 +2187,7 @@ def _datasheet_for(  # noqa: PLR0913 - one datasheet needs both sources and the 
         weapons=fields.get("weapons", ()),  # type: ignore[arg-type]
         keywords=fields.get("keywords", ()),  # type: ignore[arg-type]
         ability_keys=fields.get("ability_keys", ()),  # type: ignore[arg-type]
+        ability_classes=fields.get("ability_classes", {}),  # type: ignore[arg-type]
         leader_pairs=(),
         composition=composition,
         option_groups=options.groups,
@@ -2099,6 +2246,7 @@ def _detail_only_datasheet(  # noqa: PLR0913 - one datasheet needs both trees an
     detail_acquisition: SourceAcquisition,
     legends_sources: frozenset[str],
     ability_names: Mapping[str, str],
+    wargear_abilities: Sequence[CuratedWargearAbility] = (),
 ) -> tuple[CuratedDatasheet | None, list[Finding]]:
     """A datasheet the points authority did not price this release (FR-026, FR-035).
 
@@ -2183,6 +2331,17 @@ def _detail_only_datasheet(  # noqa: PLR0913 - one datasheet needs both trees an
     equipment = _equipment(detail_id, datasheet_id, detail, authored, composition, weapons)
     findings.extend(equipment.findings)
 
+    # 010 R13 task 3: the identical post-pass the matched path runs, on the identical terms --
+    # a detail-only datasheet's options and equipment are linked exactly as a matched one's are.
+    options.choices, equipment.groups, link_findings = _link_wargear_abilities(
+        datasheet_id=datasheet_id,
+        faction_id=faction_id,
+        choices=options.choices,
+        equipment_groups=equipment.groups,
+        wargear_abilities=wargear_abilities,
+    )
+    findings.extend(link_findings)
+
     findings.extend(
         reconcile_composition_bands(
             datasheet_id=datasheet_id,
@@ -2230,6 +2389,7 @@ def _detail_only_datasheet(  # noqa: PLR0913 - one datasheet needs both trees an
         weapons=fields.get("weapons", ()),  # type: ignore[arg-type]
         keywords=fields.get("keywords", ()),  # type: ignore[arg-type]
         ability_keys=fields.get("ability_keys", ()),  # type: ignore[arg-type]
+        ability_classes=fields.get("ability_classes", {}),  # type: ignore[arg-type]
         leader_pairs=(),
         composition=composition,
         option_groups=options.groups,

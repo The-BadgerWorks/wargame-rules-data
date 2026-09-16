@@ -1,0 +1,26 @@
+{
+  "_comment": "AI-Assisted: Claude Code (model: Claude Sonnet 5) - Authored for 010 round 13 task 1, for curation/wargear-abilities.json. Keyed by the derived id (faction_id + slugified name). The Owner authors every entry directly (ruling 2) -- no upstream digest, so approval is this schema's review_state: approved plus a named reviewed_by, not a mechanic_digest gate. Mirrors curation/composition-overrides.schema.json's pattern.",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://the-badgerworks.github.io/wargame-rules-data/schemas/curation/wargear-abilities.schema.json",
+  "title": "curation/wargear-abilities.json",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": ["faction_id", "name", "summary", "review_state", "reviewed_by", "reviewed_at"],
+    "properties": {
+      "faction_id": { "type": "string", "minLength": 1 },
+      "name": { "type": "string", "minLength": 1 },
+      "summary": { "type": "string", "minLength": 1, "maxLength": 1000 },
+      "aliases": {
+        "type": "array",
+        "items": { "type": "string", "minLength": 1 },
+        "default": []
+      },
+      "review_state": { "type": "string", "const": "approved" },
+      "reviewed_by": { "type": "string", "minLength": 1 },
+      "reviewed_at": { "type": "string" },
+      "note": { "type": "string" }
+    }
+  }
+}
