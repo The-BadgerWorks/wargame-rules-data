@@ -680,6 +680,11 @@
             "type": "integer",
             "minimum": 1,
             "description": "FK to datasheetWeapons.line. OMITTED when the name match is not unique -- never guessed (006 FR-007). An unlinked item ships, and discards neither its siblings nor its choice."
+          },
+          "wargearAbilityId": {
+            "type": "string",
+            "minLength": 1,
+            "description": "010 R13 task 3. FK to wargearAbilities.id, by exact normalised name or alias, faction-scoped. OMITTED on zero or >= 2 matches -- never guessed."
           }
         }
       }
@@ -726,7 +731,12 @@
           "itemIndex": { "type": "integer", "minimum": 1 },
           "itemName": { "type": "string", "minLength": 1, "maxLength": 120 },
           "count": { "type": "integer", "minimum": 1 },
-          "weaponLine": { "type": "integer", "minimum": 1 }
+          "weaponLine": { "type": "integer", "minimum": 1 },
+          "wargearAbilityId": {
+            "type": "string",
+            "minLength": 1,
+            "description": "010 R13 task 3. FK to wargearAbilities.id, by exact normalised name or alias, faction-scoped. OMITTED on zero or >= 2 matches -- never guessed."
+          }
         }
       }
     },

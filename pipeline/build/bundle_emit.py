@@ -33,6 +33,9 @@
 # AI-Assisted: Claude Code (model: Claude Sonnet 5) - Emitted `wargearAbilities` (010 R13 task
 # 2): a curated-only `aliases` field dropped at this boundary, everything else mapped, sorted by
 # `id`, placed between `factionRules` and `detachmentRules`.
+# AI-Assisted: Claude Code (model: Claude Sonnet 5) - Emitted `wargearAbilityId` on
+# `datasheetOptionChoiceItems` and `datasheetEquipmentItems` (010 R13 task 3), via `omit_absent`
+# so it is present only when task 3's exact-name linker resolved exactly one candidate.
 """Turn the curated tree into the published bundle. A pure function, and nothing else.
 
 No network, no source re-acquisition, no input the tree does not already contain, and no clock:
@@ -275,7 +278,7 @@ FIELD_MAPPING: Final[Mapping[type, tuple[set[str], set[str]]]] = {
         set(),
     ),
     CuratedOptionChoiceItem: (
-        {"role", "item_index", "item_name", "count", "weapon_line"},
+        {"role", "item_index", "item_name", "count", "weapon_line", "wargear_ability_id"},
         set(),
     ),
     CuratedEquipmentGroup: (
@@ -283,7 +286,7 @@ FIELD_MAPPING: Final[Mapping[type, tuple[set[str], set[str]]]] = {
         set(),
     ),
     CuratedEquipmentItem: (
-        {"item_index", "item_name", "count", "weapon_line"},
+        {"item_index", "item_name", "count", "weapon_line", "wargear_ability_id"},
         set(),
     ),
     # 007-loadout-display-fidelity. Every field mapped, none dropped: `datasheet_id` is injected
@@ -696,6 +699,8 @@ def _emit_datasheets(snapshot: CuratedSnapshot) -> dict[str, list[dict[str, Json
                     "itemName": item.item_name,
                     "count": item.count,
                     "weaponLine": item.weapon_line,
+                    # 010 R13 task 3: OMITTED on zero or >= 2 matches (never guessed).
+                    "wargearAbilityId": item.wargear_ability_id,
                 }
             )
             for choice in datasheet.option_choices
@@ -722,6 +727,8 @@ def _emit_datasheets(snapshot: CuratedSnapshot) -> dict[str, list[dict[str, Json
                     "itemName": item.item_name,
                     "count": item.count,
                     "weaponLine": item.weapon_line,
+                    # 010 R13 task 3: OMITTED on zero or >= 2 matches (never guessed).
+                    "wargearAbilityId": item.wargear_ability_id,
                 }
             )
             for group in datasheet.equipment_groups

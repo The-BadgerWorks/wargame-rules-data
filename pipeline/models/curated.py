@@ -20,6 +20,9 @@
 # AI-Assisted: Claude Code (model: claude-sonnet-5) - Added CuratedWargearAbility (010 round 13
 # task 2): the curated projection of `WargearAbilityEntry`, carried on the snapshot keyed by id
 # so the item linker (task 3) can resolve names against it before datasheets are built.
+# AI-Assisted: Claude Code (model: Claude Sonnet 5) - 010 R13 task 3: added
+# `wargear_ability_id` to `CuratedOptionChoiceItem` and `CuratedEquipmentItem`, the exact-name
+# link to a curated `CuratedWargearAbility`, OMITTED on zero or >= 2 matches -- never guessed.
 """Curated records — the canonical reviewable state, machine-written into ``data/``.
 
 Every record here maps to a row in the consumer schema; the field-level mapping is
@@ -565,6 +568,11 @@ class CuratedOptionChoiceItem(_CuratedMechanical):
         description="exactly-one-match linking, per item; OMITTED on zero or >= 2 matches, "
         "where the item ships unlinked with OPT-BUNDLE-UNLINKED and its siblings ship too",
     )
+    wargear_ability_id: str | None = Field(
+        default=None,
+        description="010 R13 task 3: -> CuratedWargearAbility.id, by exact normalised name or "
+        "alias, faction-scoped. OMITTED on zero or >= 2 matches -- never guessed.",
+    )
 
 
 class CuratedEquipmentItem(_CuratedMechanical):
@@ -580,6 +588,11 @@ class CuratedEquipmentItem(_CuratedMechanical):
     count: int | None = Field(default=None, ge=1, description="OMITTED when unstated")
     weapon_line: int | None = Field(
         default=None, ge=1, description="OMITTED on zero or >= 2 matches (FR-014)"
+    )
+    wargear_ability_id: str | None = Field(
+        default=None,
+        description="010 R13 task 3: -> CuratedWargearAbility.id, by exact normalised name or "
+        "alias, faction-scoped. OMITTED on zero or >= 2 matches -- never guessed.",
     )
 
 
