@@ -58,6 +58,11 @@
 # not valid JSON (json.JSONDecodeError IS a ValueError) or not the shape SOURCES expects reaches
 # CI as this guard's own named refusal instead of an unhandled traceback out of `main`; the exit
 # code was already non-zero either way, this only names why.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - Round 9c: `attribution_defects` compared
+# the version half against base too, so a second re-baseline landing before its version shipped
+# was refused for repeating a truthful version stamp. Staleness is now checked on the
+# authorization half alone (FR-029: one authorization names one operation); the version is still
+# required present, never compared with base.
 """Self-approval guard for every authored summary class.
 
   check_summary_approvals.py diff --base <ref> --head <ref> --actor <login>
@@ -435,10 +440,11 @@ class DigestRefresh:
     def attribution_defects(self) -> list[str]:
         """Why this refresh's attribution does not authorize it, half by half, or ``[]``.
 
-        A half is defective when it is absent (``missing``) or when it repeats the value the
-        record already carried at base (``stale``). Stale is the case that matters: a stamp
-        identical to the one already on the record describes that record's *previous* refresh,
-        so it attributes this one to nothing. Reported per half so the refusal says which.
+        A half is defective when it is absent (``missing``). The authorization is also defective
+        when it repeats the value the record already carried at base (``stale``): an
+        authorization names one operation (FR-029), so a repeated one attributes this refresh to
+        the previous decision. The version is not compared with base: two refreshes can land
+        before a version ships, and both are truthfully at that version.
         """
         defects: list[str] = []
         for field, value, prior in (
@@ -447,7 +453,7 @@ class DigestRefresh:
         ):
             if not value:
                 defects.append(f"missing {field}")
-            elif value == prior:
+            elif field == REBASELINE_AUTHORIZATION_FIELD and value == prior:
                 defects.append(f"stale {field}")
         return defects
 

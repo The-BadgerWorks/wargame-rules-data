@@ -35,6 +35,10 @@
 # has no prior at the changed-file-only base read) and 28 (a non-ASCII curation path dropped by
 # `git diff --name-only`'s default quoting). Fixes nothing; the diff-based guard is being replaced
 # by whole-tree validation at build time, and this is what carries both gaps across that move.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - Round 9c: added the
+# same-version/new-authorization fresh case and narrowed the parametrized stale-pair
+# expectations to the authorization half alone, matching `attribution_defects` no longer
+# treating a repeated, unreleased version as stale.
 """Feature 009 re-baselines every approved summary digest once. These five rules bound it.
 
 A bulk digest refresh is mechanically indistinguishable from **laundering an approval** —
@@ -572,15 +576,46 @@ def test_the_first_stamp_on_a_never_refreshed_record_is_fresh() -> None:
     assert unattributed_refreshes(refreshes) == []
 
 
+def test_a_second_refresh_at_the_same_unreleased_version_under_a_new_authorization_is_fresh() -> (
+    None
+):
+    """Two re-baselines can land before one version ships; both are truthfully at that version.
+
+    Round 9 (2026-09-15) refreshed 17 records a second time at ``wh40k-11e-2026-09-1`` under a
+    new authorization, and the per-half rule called the repeated version stale. The version says
+    which build the digest was taken against; the authorization is what names this operation.
+    """
+    base = [
+        _record(
+            review_state="approved",
+            mechanic_digest=OLD_DIGEST,
+            version=VERSION,
+            authorization=AUTHORIZATION,
+        )
+    ]
+    head = [
+        _record(
+            review_state="approved",
+            mechanic_digest=NEW_DIGEST,
+            version=VERSION,
+            authorization=NEWER_AUTHORIZATION,
+        )
+    ]
+
+    refreshes = digest_refreshes(base, head)
+
+    assert refreshes[0].attribution_defects == []
+    assert unattributed_refreshes(refreshes) == []
+
+
 @pytest.mark.parametrize(
     ("version", "authorization", "defects"),
     [
-        (VERSION, NEWER_AUTHORIZATION, [f"stale {REBASELINE_VERSION_FIELD}"]),
         (NEWER_VERSION, AUTHORIZATION, [f"stale {REBASELINE_AUTHORIZATION_FIELD}"]),
         (
             VERSION,
             AUTHORIZATION,
-            [f"stale {REBASELINE_VERSION_FIELD}", f"stale {REBASELINE_AUTHORIZATION_FIELD}"],
+            [f"stale {REBASELINE_AUTHORIZATION_FIELD}"],
         ),
         (None, NEWER_AUTHORIZATION, [f"missing {REBASELINE_VERSION_FIELD}"]),
         (NEWER_VERSION, None, [f"missing {REBASELINE_AUTHORIZATION_FIELD}"]),
@@ -589,13 +624,12 @@ def test_the_first_stamp_on_a_never_refreshed_record_is_fresh() -> None:
 def test_half_a_refreshed_pair_is_not_a_refreshed_pair(
     version: str | None, authorization: str | None, defects: list[str]
 ) -> None:
-    """Freshness is per half, for the same reason presence is.
+    """Presence is tested per half; staleness is the authorization's alone.
 
-    A new version beside the previous authorization says *when* this refresh happened but names
-    the decision that authorised the previous one; a new authorization beside the previous
-    version names a decision but not the build it was taken against. FR-029's blanket
-    authorization covers *one* operation, so a record's second refresh is a second operation and
-    cites its own.
+    The version may legitimately repeat while unreleased -- two re-baselines can land before one
+    version ships, and both are truthfully at that version. The authorization is what identifies
+    the operation, so a repeated authorization beside any version attributes this refresh to the
+    decision that authorised a previous one.
     """
     base = [
         _record(
@@ -838,7 +872,6 @@ def test_cmd_diff_refuses_a_stale_stamp_carried_across_a_second_refresh(
     assert code == 1
     error = capsys.readouterr().err
     assert f"{CURATION_PATH}: {KEY}" in error
-    assert f"stale {REBASELINE_VERSION_FIELD}" in error
     assert f"stale {REBASELINE_AUTHORIZATION_FIELD}" in error
 
 
