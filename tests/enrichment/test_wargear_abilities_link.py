@@ -1,9 +1,14 @@
 # AI-Assisted: Claude Code (model: Claude Sonnet 5) - 010 R13 task 3: assembly-level tests for
 # `pipeline.curate.assemble._link_wargear_abilities`, the post-pass run in both `_datasheet_for`
 # and `_detail_only_datasheet` after `_option_structure` and `_equipment` return.
+# AI-Assisted: Claude Code (model: Claude Sonnet 5) - 010 R13 task 3 review fix (Important
+# finding): added the wiring tests every prior test in this file skipped -- they all called
+# `_link_wargear_abilities` directly, so nothing exercised the two real call sites and nothing
+# would fail if a future edit threaded the wrong `faction_id`, dropped `wargear_abilities`, or
+# discarded the post-pass's return instead of reassigning `options.choices`/`equipment.groups`.
 """010 R13 task 3: the item-to-wargear-ability post-pass, proven against `assemble.py` itself.
 
-Four things this test proves:
+Five things this test proves:
 
 1. A single unambiguous match links, and the match is faction-scoped.
 2. A curator-authored item -- one built by `_authored_items`, not the parsed-row path -- links
@@ -12,11 +17,29 @@ Four things this test proves:
 3. A two-or-more match is the advisory `WGA-LINK-AMBIGUOUS`, with the item name and the sorted
    candidate ids, and the item ships unlinked.
 4. `emit_bundle` carries `wargearAbilityId` only on the row that actually linked.
+5. `_datasheet_for` and `_detail_only_datasheet` -- the two real call sites, driven end to end
+   over a small CSV export -- actually thread `wargear_abilities` through, pass the datasheet's
+   own `faction_id`, and reassign `options.choices`/`equipment.groups` from the post-pass's
+   return rather than discarding it.
 """
 
 from __future__ import annotations
 
-from pipeline.curate.assemble import _authored_items, _link_wargear_abilities
+from collections.abc import Mapping
+
+import pytest
+
+from pipeline.acquire.detail_source import read_export_payloads
+from pipeline.acquire.fixtures import FixturePayload
+from pipeline.curate.assemble import (
+    _authored_items,
+    _datasheet_for,
+    _detail_only_datasheet,
+    _link_wargear_abilities,
+    _provenance,
+)
+from pipeline.curate.authored import AuthoredContent
+from pipeline.curate.summaries import ability_name_index
 from pipeline.models.authored import OptionOverrideChoice
 from pipeline.models.curated import (
     CuratedEquipmentGroup,
@@ -27,6 +50,10 @@ from pipeline.models.curated import (
     EquipmentAppliesTo,
     OptionItemRole,
 )
+from pipeline.models.source import SourceAcquisition, SourceKey
+from pipeline.parse.wahapedia_csv import CsvReadResult
+from pipeline.reconcile.identity import IdRegistry
+from pipeline.reconcile.match import UnitMatch
 
 DATASHEET = "ds-fen-warden"
 FACTION = "f-ex"
@@ -220,3 +247,190 @@ def test_emit_bundle_carries_wargear_ability_id_only_where_linked() -> None:
     rows = {row["choiceId"]: row for row in bundle["datasheetOptionChoiceItems"]}
     assert rows["oc-fen-warden-1-1"]["wargearAbilityId"] == "wga-ex-hover-limpet"
     assert "wargearAbilityId" not in rows["oc-fen-warden-2-1"]
+
+
+# --- the real call sites: `_datasheet_for` and `_detail_only_datasheet` ----------------------
+#
+# Every test above calls `_link_wargear_abilities` directly, which proves the post-pass itself
+# is correct but proves nothing about its two callers: whether `wargear_abilities` actually
+# reaches the call, whether the datasheet's own `faction_id` (and not some other value) is what
+# gets passed, and whether the caller reassigns `options.choices` / `equipment.groups` from the
+# post-pass's return rather than discarding it. This section drives both real functions over a
+# small invented CSV export -- the same `read_export_payloads` pattern
+# `tests/enrichment/test_us2_independent.py` uses -- so a regression at either call site fails
+# here even though `_link_wargear_abilities` itself is untouched.
+
+WIRING_FACTION = "f-glimmerfen-covenant"
+WIRING_WRONG_FACTION = "f-thornlight-chorus"
+
+WIRING_ENTRY = CuratedWargearAbility(
+    id="wga-glimmerfen-covenant-hover-limpet",
+    faction_id=WIRING_FACTION,
+    name="Hover Limpet",
+    summary="placeholder",
+)
+WIRING_WRONG_FACTION_ENTRY = CuratedWargearAbility(
+    id="wga-thornlight-chorus-hover-limpet",
+    faction_id=WIRING_WRONG_FACTION,
+    name="Hover Limpet",
+    summary="placeholder",
+)
+
+#: One invented datasheet: a default-equipment sentence naming "hover limpet" (for the
+#: `_equipment` / `equipment.groups` half) and a wargear-option row granting the same name (for
+#: the `_option_structure` / `options.choices` half), so one fixture drives both call sites.
+_WIRING_DATASHEETS = (
+    "id|name|faction_id|source_id|role|damaged_w|legend|loadout|\n"
+    "GF01|Purgeflight Wardens|glimmerfen-covenant|current||||"
+    "<b>Every model</b> is equipped with: hover limpet.|\n"
+)
+_WIRING_MODELS = (
+    "datasheet_id|line|name|M|T|Sv|inv_sv|W|Ld|OC|base_size|\n"
+    'GF01|1|Purgeflight Adept|6"|3|3+||2|6+|1|(25mm)|\n'
+)
+_WIRING_WARGEAR = "datasheet_id|line|name|description|type|range|A|BS_WS|S|AP|D|\n"
+_WIRING_COMPOSITION = "datasheet_id|line|description|\nGF01|1|1 Purgeflight Adept|\n"
+_WIRING_MODEL_COSTS = "datasheet_id|line|description|cost|\nGF01|1|5 models|90|\n"
+_WIRING_OPTIONS = (
+    "datasheet_id|line|button|description|\n"
+    "GF01|1|Wargear Options|This model can be equipped with 1 hover limpet.|\n"
+)
+_WIRING_EMPTY_TABLES = {
+    "Datasheets_keywords.csv": "datasheet_id|keyword|model|is_faction_keyword|\n",
+    "Datasheets_abilities.csv": "datasheet_id|line|ability_id|model|name|description|type|\n",
+    "Datasheets_leader.csv": "leader_id|attached_id|\n",
+    "Abilities.csv": "id|name|legend|faction_id|description|\n",
+    "Detachments.csv": "id|faction_id|name|legend|type|\n",
+    "Detachment_abilities.csv": "id|detachment_id|name|legend|description|\n",
+}
+
+
+@pytest.fixture(scope="module")
+def wiring_detail() -> Mapping[str, CsvReadResult]:
+    return read_export_payloads(
+        [
+            FixturePayload(name="Datasheets.csv", text=_WIRING_DATASHEETS),
+            FixturePayload(name="Datasheets_models.csv", text=_WIRING_MODELS),
+            FixturePayload(name="Datasheets_wargear.csv", text=_WIRING_WARGEAR),
+            FixturePayload(name="Datasheets_unit_composition.csv", text=_WIRING_COMPOSITION),
+            FixturePayload(name="Datasheets_models_cost.csv", text=_WIRING_MODEL_COSTS),
+            FixturePayload(name="Datasheets_options.csv", text=_WIRING_OPTIONS),
+            *(
+                FixturePayload(name=name, text=header)
+                for name, header in _WIRING_EMPTY_TABLES.items()
+            ),
+        ]
+    )
+
+
+def _acquisition() -> SourceAcquisition:
+    return SourceAcquisition(
+        acquisition_id="wahapedia-fixture",
+        source_key=SourceKey.WAHAPEDIA,
+        source_base_url="https://example.invalid/fixture",
+        declared_edition_code="wh40k-11e",
+        retrieved_at="2026-08-11T00:00:00Z",
+        content_fingerprint="0" * 64,
+    )
+
+
+def _matched_datasheet(
+    detail: Mapping[str, CsvReadResult], *, faction_id: str, wargear_abilities: tuple = ()
+):
+    """One datasheet down `_datasheet_for` -- the matched path -- as `assemble()` drives it."""
+    acquisition = _acquisition()
+    match = UnitMatch(
+        datasheet_id="ds-purgeflight-wardens",
+        faction_id=faction_id,
+        display_name="Purgeflight Wardens",
+        wahapedia_datasheet_id="GF01",
+        stage="exact",
+    )
+    return _datasheet_for(
+        match,
+        blocks=[],
+        detail=detail,
+        authored=AuthoredContent(),
+        edition_id="ed-wh40k-11e",
+        points_acquisition=acquisition,
+        provenance=_provenance(acquisition, acquisition, snapshot_edition="wh40k-11e"),
+        legends_sources=frozenset(),
+        ability_names=ability_name_index(detail),
+        wargear_abilities=wargear_abilities,
+    )
+
+
+def _unpriced_datasheet(
+    detail: Mapping[str, CsvReadResult], *, faction_id: str, wargear_abilities: tuple = ()
+):
+    """The same datasheet down `_detail_only_datasheet` -- the unpriced path."""
+    acquisition = _acquisition()
+    return _detail_only_datasheet(
+        "GF01",
+        display_name="Purgeflight Wardens",
+        faction_id=faction_id,
+        detail=detail,
+        authored=AuthoredContent(),
+        edition_id="ed-wh40k-11e",
+        provenance=_provenance(None, acquisition, snapshot_edition="wh40k-11e"),
+        registry=IdRegistry(),
+        detail_acquisition=acquisition,
+        legends_sources=frozenset(),
+        ability_names=ability_name_index(detail),
+        wargear_abilities=wargear_abilities,
+    )
+
+
+def test_datasheet_for_threads_wargear_abilities_and_links_the_option_item(
+    wiring_detail: Mapping[str, CsvReadResult],
+) -> None:
+    datasheet, _findings = _matched_datasheet(
+        wiring_detail, faction_id=WIRING_FACTION, wargear_abilities=(WIRING_ENTRY,)
+    )
+
+    (choice,) = datasheet.option_choices
+    assert choice.items[0].wargear_ability_id == WIRING_ENTRY.id
+
+
+def test_datasheet_for_passes_no_wargear_abilities_by_default(
+    wiring_detail: Mapping[str, CsvReadResult],
+) -> None:
+    """The default parameter is `()`, so a caller that forgets to thread it links nothing."""
+    datasheet, _findings = _matched_datasheet(wiring_detail, faction_id=WIRING_FACTION)
+
+    (choice,) = datasheet.option_choices
+    assert choice.items[0].wargear_ability_id is None
+
+
+def test_datasheet_for_passes_the_datasheets_own_faction_id_not_some_other_value(
+    wiring_detail: Mapping[str, CsvReadResult],
+) -> None:
+    """An entry in the WRONG faction never links -- proof the real `match.faction_id` governs."""
+    datasheet, _findings = _matched_datasheet(
+        wiring_detail, faction_id=WIRING_FACTION, wargear_abilities=(WIRING_WRONG_FACTION_ENTRY,)
+    )
+
+    (choice,) = datasheet.option_choices
+    assert choice.items[0].wargear_ability_id is None
+
+
+def test_detail_only_datasheet_threads_wargear_abilities_and_links_the_equipment_item(
+    wiring_detail: Mapping[str, CsvReadResult],
+) -> None:
+    datasheet, _findings = _unpriced_datasheet(
+        wiring_detail, faction_id=WIRING_FACTION, wargear_abilities=(WIRING_ENTRY,)
+    )
+
+    assert datasheet is not None
+    (group,) = datasheet.equipment_groups
+    assert group.items[0].wargear_ability_id == WIRING_ENTRY.id
+
+
+def test_detail_only_datasheet_passes_no_wargear_abilities_by_default(
+    wiring_detail: Mapping[str, CsvReadResult],
+) -> None:
+    datasheet, _findings = _unpriced_datasheet(wiring_detail, faction_id=WIRING_FACTION)
+
+    assert datasheet is not None
+    (group,) = datasheet.equipment_groups
+    assert group.items[0].wargear_ability_id is None
