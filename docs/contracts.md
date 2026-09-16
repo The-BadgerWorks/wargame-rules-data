@@ -52,6 +52,15 @@ still frozen and unamended; and the rendering contract governing `render/loadout
 sentence templates and selection tables, the reference implementation `007` hands to the
 `003`/`005` site team as a frozen conformance target (O2).
 
+`010` round 13 (2026-09-16) adds a third additive delta on the same frozen base, owed a v1.7.0
+row in `reference-db-schema.md` (WargameCompanion): one new bundle array, `wargearAbilities`
+(curated, faction-scoped definitions for wargear the export names but never defines), an optional
+`wargearAbilityId` on `datasheetOptionChoiceItems` and `datasheetEquipmentItems` resolved by
+exact `normalize_name` match within the faction, and an optional `abilityClass` on
+`datasheetAbilities` carrying the source's Wargear / Wargear profile / Primarch class. Ability
+keys and `abilityType` are unchanged by it; `bundleFormatVersion` and `schemaContractVersion`
+stay `1`.
+
 `pipeline-run-interface.md` still owes two additive amendments this feature's own work created —
 the `option-regression` command and the `build --published-at`/`--published-at-from-report`
 options — both implemented ahead of the contract row they are owed, for the reasons
