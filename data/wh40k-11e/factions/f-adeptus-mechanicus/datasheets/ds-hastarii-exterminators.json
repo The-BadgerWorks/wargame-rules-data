@@ -26,7 +26,7 @@
       "model_count": 5,
       "points": 105,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260916T021400Z-1b0a18bd"
+      "source_acquisition_id": "mfm-20260916T053002Z-1b0a18bd"
     },
     {
       "copy_index_min": 3,
@@ -34,7 +34,7 @@
       "model_count": 5,
       "points": 120,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260916T021400Z-1b0a18bd"
+      "source_acquisition_id": "mfm-20260916T053002Z-1b0a18bd"
     }
   ],
   "datasheet_id": "ds-hastarii-exterminators",
@@ -142,15 +142,15 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:6e797607ae0c7140b1a4b9fc4e162f8e0279aee40dcd42284782450b2b39b435",
-    "last_verified_version": "wh40k-11e-2026-09-1",
+    "last_verified_version": "wh40k-11e-2026-09-2",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
+    "detail_acquisition_id": "wahapedia-20260916T053039Z-ae4bfdaf",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260916T021400Z-1b0a18bd",
+    "points_acquisition_id": "mfm-20260916T053002Z-1b0a18bd",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },

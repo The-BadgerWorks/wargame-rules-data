@@ -28,7 +28,7 @@
       "model_count": 10,
       "points": 90,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260916T021400Z-1b0a18bd"
+      "source_acquisition_id": "mfm-20260916T053002Z-1b0a18bd"
     },
     {
       "copy_index_min": 1,
@@ -37,7 +37,7 @@
       "points": 90,
       "pricing_confidence": "verified",
       "pricing_context": "every-model-has-imperium",
-      "source_acquisition_id": "mfm-20260916T021400Z-1b0a18bd"
+      "source_acquisition_id": "mfm-20260916T053002Z-1b0a18bd"
     }
   ],
   "datasheet_id": "ds-imperial-navy-breachers",
@@ -358,15 +358,15 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:d43dfc3c8eecc7a316b3cfd662908c9403ccd3c39ad10e9ea2448123481e4fb6",
-    "last_verified_version": "wh40k-11e-2026-09-1",
+    "last_verified_version": "wh40k-11e-2026-09-2",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
+    "detail_acquisition_id": "wahapedia-20260916T053039Z-ae4bfdaf",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260916T021400Z-1b0a18bd",
+    "points_acquisition_id": "mfm-20260916T053002Z-1b0a18bd",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
