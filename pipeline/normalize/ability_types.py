@@ -7,6 +7,11 @@
 # Psychic binding) and added `source_class`, which reports the source's own classification
 # (`wargear`, `wargear-profile`, `primarch`, `psychic`) separately from the closed vocabulary so
 # the app can carry it as an optional `abilityClass` tag without moving a single published key.
+# AI-Assisted: Claude Code (model: Claude Sonnet 5) - 010 R13 task 13: withdrew the `psychic ->
+# AbilityType.DATASHEET` mapping. A live build showed it mints three new ability keys (Orks
+# psychic powers) that have no approved summaries, which the publish gate blocks with
+# SUM-MISSING; admitting those keys is a curation-and-drafting round of its own, not a pipeline
+# change. A Psychic row is once again dropped with DQ-ABILITY-TYPE; `source_class` is unaffected.
 """Map the detail source's classification field onto the contract's closed vocabulary.
 
 The consumer contract's `datasheet_ability.ability_type` is `core | faction | datasheet` and
@@ -45,10 +50,12 @@ ABILITY_TYPE_MAP: Final[Mapping[str, AbilityType]] = {
     "wargear": AbilityType.DATASHEET,
     "wargear profile": AbilityType.DATASHEET,
     "primarch": AbilityType.DATASHEET,
-    # 010 R13 task 4: previously unmapped (raised DQ-ABILITY-TYPE, dropping the binding). A
-    # Psychic power is printed on the datasheet exactly as Wargear and Primarch are, so it joins
-    # them here; its source classification is carried separately by `source_class` below.
-    "psychic": AbilityType.DATASHEET,
+    # "psychic" is deliberately absent: 010 R13 task 4 mapped it onto AbilityType.DATASHEET, but
+    # task 13 withdrew that mapping. A live build showed it mints three new ability keys (Orks
+    # psychic powers) that have no approved summaries, which the publish gate blocks with
+    # SUM-MISSING. Admitting those keys is a curation-and-drafting round of its own, not a
+    # pipeline change, so a Psychic row is once again unmapped and raises DQ-ABILITY-TYPE,
+    # dropping the binding. `source_class("Psychic")` still reports "psychic" unchanged.
     # The observed Cyrillic scraper artefacts (research §0.1). Layout labels, not taxonomy.
     "special (правая колонка)": AbilityType.DATASHEET,
     "fortification (левая колонка)": AbilityType.DATASHEET,
