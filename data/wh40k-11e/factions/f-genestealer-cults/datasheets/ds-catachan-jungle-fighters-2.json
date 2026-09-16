@@ -9,17 +9,17 @@
       "copy_index_min": 1,
       "label": "10 models",
       "model_count": 10,
-      "points": 75,
+      "points": 70,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0"
+      "source_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf"
     },
     {
       "copy_index_min": 1,
       "label": "20 models",
       "model_count": 20,
-      "points": 145,
+      "points": 135,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0"
+      "source_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf"
     }
   ],
   "datasheet_id": "ds-catachan-jungle-fighters-2",
@@ -44,6 +44,11 @@
       "is_faction_keyword": false,
       "keyword": "CATACHAN JUNGLE FIGHTERS",
       "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": true,
+      "keyword": "GENESTEALER CULTS",
+      "keyword_class": "faction"
     },
     {
       "is_faction_keyword": false,
@@ -88,7 +93,7 @@
   "option_choices": [
     {
       "count": 1,
-      "grants_weapon_line": 1,
+      "grants_weapon_line": 2,
       "group_id": "og-catachan-jungle-fighters-2-1",
       "id": "oc-catachan-jungle-fighters-2-1-1",
       "is_default": false,
@@ -99,7 +104,7 @@
           "item_index": 1,
           "item_name": "flamer",
           "role": "granted",
-          "weapon_line": 1
+          "weapon_line": 2
         },
         {
           "item_index": 1,
@@ -141,12 +146,12 @@
     }
   ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 5,
+    "consecutive_unverified_releases": 6,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+    "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
@@ -156,6 +161,16 @@
   "wargear_option_state": "extracted",
   "weapons": [
     {
+      "armour_penetration": "0",
+      "attacks": "1",
+      "damage": "1",
+      "is_melee": true,
+      "line": 1,
+      "name": "Close combat weapon",
+      "skill": "4+",
+      "strength": "3"
+    },
+    {
       "ability_keywords": [
         "ignores cover",
         "torrent"
@@ -164,7 +179,7 @@
       "attacks": "D6",
       "damage": "1",
       "is_melee": false,
-      "line": 1,
+      "line": 2,
       "name": "Flamer",
       "range": "12\"",
       "skill": "N/A",
@@ -178,7 +193,7 @@
       "attacks": "1",
       "damage": "1",
       "is_melee": false,
-      "line": 2,
+      "line": 3,
       "name": "Lasgun",
       "range": "24\"",
       "skill": "4+",
@@ -191,19 +206,10 @@
       "armour_penetration": "0",
       "attacks": "1",
       "damage": "1",
-      "is_melee": true,
-      "line": 3,
-      "name": "Laspistol",
-      "skill": "4+",
-      "strength": "3"
-    },
-    {
-      "armour_penetration": "0",
-      "attacks": "1",
-      "damage": "1",
-      "is_melee": true,
+      "is_melee": false,
       "line": 4,
-      "name": "Close combat weapon",
+      "name": "Laspistol",
+      "range": "12\"",
       "skill": "4+",
       "strength": "3"
     }

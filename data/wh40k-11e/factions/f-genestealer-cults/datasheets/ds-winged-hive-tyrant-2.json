@@ -23,7 +23,7 @@
       "model_count": 1,
       "points": 185,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0"
+      "source_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf"
     }
   ],
   "datasheet_id": "ds-winged-hive-tyrant-2",
@@ -36,12 +36,12 @@
         {
           "item_index": 1,
           "item_name": "monstrous bonesword and lash whip",
-          "weapon_line": 3
+          "weapon_line": 1
         },
         {
           "item_index": 2,
           "item_name": "Tyrant talons",
-          "weapon_line": 5
+          "weapon_line": 4
         }
       ],
       "line": 1
@@ -63,6 +63,11 @@
       "is_faction_keyword": false,
       "keyword": "FLY",
       "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": true,
+      "keyword": "GENESTEALER CULTS",
+      "keyword_class": "faction"
     },
     {
       "is_faction_keyword": false,
@@ -123,7 +128,7 @@
   "option_choices": [
     {
       "count": 1,
-      "grants_weapon_line": 1,
+      "grants_weapon_line": 3,
       "group_id": "og-winged-hive-tyrant-2-1",
       "id": "oc-winged-hive-tyrant-2-1-1",
       "is_default": false,
@@ -134,7 +139,7 @@
           "item_index": 1,
           "item_name": "heavy venom cannon",
           "role": "granted",
-          "weapon_line": 1
+          "weapon_line": 3
         },
         {
           "item_index": 1,
@@ -179,7 +184,7 @@
     },
     {
       "count": 1,
-      "grants_weapon_line": 4,
+      "grants_weapon_line": 5,
       "group_id": "og-winged-hive-tyrant-2-1",
       "id": "oc-winged-hive-tyrant-2-1-3",
       "is_default": false,
@@ -190,7 +195,7 @@
           "item_index": 1,
           "item_name": "monstrous scything talons",
           "role": "granted",
-          "weapon_line": 4
+          "weapon_line": 5
         },
         {
           "item_index": 1,
@@ -214,12 +219,12 @@
     }
   ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 5,
+    "consecutive_unverified_releases": 6,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+    "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
@@ -230,15 +235,14 @@
   "weapons": [
     {
       "ability_keywords": [
-        "blast"
+        "twin-linked"
       ],
       "armour_penetration": "-2",
-      "attacks": "D3",
+      "attacks": "6",
       "damage": "3",
-      "is_melee": false,
+      "is_melee": true,
       "line": 1,
-      "name": "Heavy venom cannon",
-      "range": "36\"",
+      "name": "Monstrous bonesword and lash whip",
       "skill": "2+",
       "strength": "9"
     },
@@ -249,24 +253,36 @@
       "armour_penetration": "-1",
       "attacks": "D6+1",
       "damage": "2",
-      "is_melee": true,
+      "is_melee": false,
       "line": 2,
       "name": "Stranglethorn cannon",
+      "range": "36\"",
       "skill": "2+",
       "strength": "7"
     },
     {
       "ability_keywords": [
-        "twin-linked"
+        "blast"
       ],
       "armour_penetration": "-2",
-      "attacks": "6",
+      "attacks": "D3",
       "damage": "3",
-      "is_melee": true,
+      "is_melee": false,
       "line": 3,
-      "name": "Monstrous bonesword and lash whip",
+      "name": "Heavy venom cannon",
+      "range": "36\"",
       "skill": "2+",
       "strength": "9"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "5",
+      "damage": "2",
+      "is_melee": true,
+      "line": 4,
+      "name": "Tyrant talons",
+      "skill": "2+",
+      "strength": "7"
     },
     {
       "ability_keywords": [
@@ -276,18 +292,8 @@
       "attacks": "4",
       "damage": "2",
       "is_melee": true,
-      "line": 4,
-      "name": "Monstrous scything talons",
-      "skill": "2+",
-      "strength": "7"
-    },
-    {
-      "armour_penetration": "-2",
-      "attacks": "5",
-      "damage": "2",
-      "is_melee": true,
       "line": 5,
-      "name": "Tyrant talons",
+      "name": "Monstrous scything talons",
       "skill": "2+",
       "strength": "7"
     }

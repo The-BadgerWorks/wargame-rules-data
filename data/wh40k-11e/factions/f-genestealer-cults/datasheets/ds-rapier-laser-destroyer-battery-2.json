@@ -17,7 +17,7 @@
       "model_count": 1,
       "points": 35,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0"
+      "source_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf"
     },
     {
       "copy_index_min": 1,
@@ -25,7 +25,7 @@
       "model_count": 2,
       "points": 70,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0"
+      "source_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf"
     },
     {
       "copy_index_min": 1,
@@ -33,7 +33,7 @@
       "model_count": 3,
       "points": 105,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0"
+      "source_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf"
     }
   ],
   "datasheet_id": "ds-rapier-laser-destroyer-battery-2",
@@ -46,12 +46,12 @@
         {
           "item_index": 1,
           "item_name": "laser destroyer",
-          "weapon_line": 1
+          "weapon_line": 2
         },
         {
           "item_index": 2,
           "item_name": "close combat weapon",
-          "weapon_line": 2
+          "weapon_line": 1
         }
       ],
       "line": 1
@@ -72,6 +72,11 @@
     {
       "is_faction_keyword": true,
       "keyword": "ASTRA MILITARUM",
+      "keyword_class": "faction"
+    },
+    {
+      "is_faction_keyword": true,
+      "keyword": "GENESTEALER CULTS",
       "keyword_class": "faction"
     },
     {
@@ -115,12 +120,12 @@
   ],
   "name": "Rapier Laser Destroyer Battery",
   "pricing_confidence": {
-    "consecutive_unverified_releases": 5,
+    "consecutive_unverified_releases": 6,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+    "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
@@ -130,6 +135,16 @@
   "wargear_option_state": "none",
   "weapons": [
     {
+      "armour_penetration": "0",
+      "attacks": "2",
+      "damage": "1",
+      "is_melee": true,
+      "line": 1,
+      "name": "Close combat weapon",
+      "skill": "4+",
+      "strength": "3"
+    },
+    {
       "ability_keywords": [
         "heavy",
         "twin-linked"
@@ -137,21 +152,12 @@
       "armour_penetration": "-2",
       "attacks": "2",
       "damage": "D6+1",
-      "is_melee": true,
-      "line": 1,
+      "is_melee": false,
+      "line": 2,
       "name": "Laser destroyer",
+      "range": "36\"",
       "skill": "5+",
       "strength": "12"
-    },
-    {
-      "armour_penetration": "0",
-      "attacks": "2",
-      "damage": "1",
-      "is_melee": true,
-      "line": 2,
-      "name": "Close combat weapon",
-      "skill": "4+",
-      "strength": "3"
     }
   ]
 }

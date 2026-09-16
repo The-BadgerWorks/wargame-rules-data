@@ -22,10 +22,9 @@
       "model_count": 1,
       "points": 400,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0"
+      "source_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf"
     }
   ],
-  "damaged_threshold": 8,
   "datasheet_id": "ds-kytan-ravager-2",
   "default_equipment_state": "extracted",
   "equipment_groups": [
@@ -36,7 +35,7 @@
         {
           "item_index": 1,
           "item_name": "Kytan gatling cannon",
-          "weapon_line": 1
+          "weapon_line": 3
         },
         {
           "item_index": 2,
@@ -110,12 +109,12 @@
   ],
   "name": "Kytan Ravager",
   "pricing_confidence": {
-    "consecutive_unverified_releases": 5,
+    "consecutive_unverified_releases": 6,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+    "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
@@ -125,21 +124,11 @@
   "wargear_option_state": "none",
   "weapons": [
     {
-      "armour_penetration": "-2",
-      "attacks": "18",
-      "damage": "2",
-      "is_melee": true,
-      "line": 1,
-      "name": "Kytan gatling cannon",
-      "skill": "3+",
-      "strength": "6"
-    },
-    {
       "armour_penetration": "-4",
       "attacks": "4",
       "damage": "6",
       "is_melee": true,
-      "line": 2,
+      "line": 1,
       "name": "Kytan cleaver – strike",
       "skill": "3+",
       "strength": "14"
@@ -149,10 +138,21 @@
       "attacks": "12",
       "damage": "2",
       "is_melee": true,
-      "line": 3,
+      "line": 2,
       "name": "Kytan cleaver – sweep",
       "skill": "3+",
       "strength": "9"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "18",
+      "damage": "2",
+      "is_melee": false,
+      "line": 3,
+      "name": "Kytan gatling cannon",
+      "range": "36\"",
+      "skill": "3+",
+      "strength": "6"
     }
   ]
 }

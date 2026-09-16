@@ -1,6 +1,7 @@
 {
   "ability_keys": [
-    "datasheet:mindlock"
+    "datasheet:mindlock",
+    "datasheet:servitor-retinue"
   ],
   "composition": [
     {
@@ -18,7 +19,7 @@
       "model_count": 4,
       "points": 35,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0"
+      "source_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf"
     }
   ],
   "datasheet_id": "ds-munitorum-servitors-2",
@@ -31,7 +32,7 @@
         {
           "item_index": 1,
           "item_name": "Servitor’s servo-arm",
-          "weapon_line": 6
+          "weapon_line": 1
         }
       ],
       "line": 1
@@ -47,6 +48,11 @@
     {
       "is_faction_keyword": true,
       "keyword": "ASTRA MILITARUM",
+      "keyword_class": "faction"
+    },
+    {
+      "is_faction_keyword": true,
+      "keyword": "GENESTEALER CULTS",
       "keyword_class": "faction"
     },
     {
@@ -83,7 +89,7 @@
   "option_choices": [
     {
       "count": 1,
-      "grants_weapon_line": 1,
+      "grants_weapon_line": 5,
       "group_id": "og-munitorum-servitors-2-1",
       "id": "oc-munitorum-servitors-2-1-1",
       "is_default": false,
@@ -94,21 +100,21 @@
           "item_index": 1,
           "item_name": "heavy bolter",
           "role": "granted",
-          "weapon_line": 1
+          "weapon_line": 5
         },
         {
           "item_index": 1,
           "item_name": "Servitor’s servo-arm",
           "role": "replaced",
-          "weapon_line": 6
+          "weapon_line": 1
         }
       ],
       "name": "heavy bolter",
-      "replaces_weapon_line": 6
+      "replaces_weapon_line": 1
     },
     {
       "count": 1,
-      "grants_weapon_line": 2,
+      "grants_weapon_line": 4,
       "group_id": "og-munitorum-servitors-2-1",
       "id": "oc-munitorum-servitors-2-1-2",
       "is_default": false,
@@ -119,17 +125,17 @@
           "item_index": 1,
           "item_name": "multi-melta",
           "role": "granted",
-          "weapon_line": 2
+          "weapon_line": 4
         },
         {
           "item_index": 1,
           "item_name": "Servitor’s servo-arm",
           "role": "replaced",
-          "weapon_line": 6
+          "weapon_line": 1
         }
       ],
       "name": "multi-melta",
-      "replaces_weapon_line": 6
+      "replaces_weapon_line": 1
     },
     {
       "count": 1,
@@ -148,11 +154,11 @@
           "item_index": 1,
           "item_name": "Servitor’s servo-arm",
           "role": "replaced",
-          "weapon_line": 6
+          "weapon_line": 1
         }
       ],
       "name": "plasma cannon",
-      "replaces_weapon_line": 6
+      "replaces_weapon_line": 1
     }
   ],
   "option_groups": [
@@ -165,12 +171,12 @@
     }
   ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 5,
+    "consecutive_unverified_releases": 6,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+    "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
@@ -180,34 +186,14 @@
   "wargear_option_state": "extracted",
   "weapons": [
     {
-      "ability_keywords": [
-        "heavy",
-        "sustained hits 1"
-      ],
-      "armour_penetration": "-1",
-      "attacks": "3",
-      "damage": "2",
-      "is_melee": false,
+      "armour_penetration": "-2",
+      "attacks": "1",
+      "damage": "3",
+      "is_melee": true,
       "line": 1,
-      "name": "Heavy bolter",
-      "range": "36\"",
-      "skill": "6+",
-      "strength": "5"
-    },
-    {
-      "ability_keywords": [
-        "heavy",
-        "melta 2"
-      ],
-      "armour_penetration": "-4",
-      "attacks": "2",
-      "damage": "D6",
-      "is_melee": false,
-      "line": 2,
-      "name": "Multi-melta",
-      "range": "18\"",
-      "skill": "6+",
-      "strength": "9"
+      "name": "Servitor’s servo-arm",
+      "skill": "5+",
+      "strength": "6"
     },
     {
       "ability_keywords": [
@@ -217,9 +203,10 @@
       "armour_penetration": "-2",
       "attacks": "D3",
       "damage": "1",
-      "is_melee": true,
-      "line": 3,
+      "is_melee": false,
+      "line": 2,
       "name": "Plasma cannon – standard",
+      "range": "36\"",
       "skill": "6+",
       "strength": "7"
     },
@@ -232,31 +219,52 @@
       "armour_penetration": "-3",
       "attacks": "D3",
       "damage": "2",
-      "is_melee": true,
-      "line": 4,
+      "is_melee": false,
+      "line": 3,
       "name": "Plasma cannon – supercharge",
+      "range": "36\"",
       "skill": "6+",
       "strength": "8"
+    },
+    {
+      "ability_keywords": [
+        "heavy",
+        "melta 2"
+      ],
+      "armour_penetration": "-4",
+      "attacks": "2",
+      "damage": "D6",
+      "is_melee": false,
+      "line": 4,
+      "name": "Multi-melta",
+      "range": "18\"",
+      "skill": "6+",
+      "strength": "9"
+    },
+    {
+      "ability_keywords": [
+        "heavy",
+        "sustained hits 1"
+      ],
+      "armour_penetration": "-1",
+      "attacks": "3",
+      "damage": "2",
+      "is_melee": false,
+      "line": 5,
+      "name": "Heavy bolter",
+      "range": "36\"",
+      "skill": "6+",
+      "strength": "5"
     },
     {
       "armour_penetration": "0",
       "attacks": "1",
       "damage": "1",
       "is_melee": true,
-      "line": 5,
+      "line": 6,
       "name": "Close combat weapon",
       "skill": "5+",
       "strength": "3"
-    },
-    {
-      "armour_penetration": "-2",
-      "attacks": "1",
-      "damage": "3",
-      "is_melee": true,
-      "line": 6,
-      "name": "Servitor’s servo-arm",
-      "skill": "5+",
-      "strength": "6"
     }
   ]
 }

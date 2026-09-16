@@ -19,17 +19,17 @@
       "copy_index_min": 1,
       "label": "1 model",
       "model_count": 1,
-      "points": 90,
+      "points": 95,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260818T033550Z-0c772378"
+      "source_acquisition_id": "mfm-20260916T021400Z-1b0a18bd"
     },
     {
       "copy_index_min": 3,
       "label": "1 model",
       "model_count": 1,
-      "points": 100,
+      "points": 105,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260818T033550Z-0c772378"
+      "source_acquisition_id": "mfm-20260916T021400Z-1b0a18bd"
     }
   ],
   "datasheet_id": "ds-skorpekh-lord",
@@ -111,16 +111,16 @@
   "name": "SKORPEKH LORD",
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
-    "last_verified_points_digest": "sha256:27ef6b34f4f6d2c552ffe9409aabc16343be1900b13cc8f2f31a1ee7c3ba2f98",
-    "last_verified_version": "wh40k-11e-2026-08-4",
+    "last_verified_points_digest": "sha256:2adb7438e68175df5dd321c73119a968a299b77c4904c2bbef8637a92f343187",
+    "last_verified_version": "wh40k-11e-2026-09-1",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+    "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
+    "points_acquisition_id": "mfm-20260916T021400Z-1b0a18bd",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
@@ -133,9 +133,10 @@
       "armour_penetration": "-1",
       "attacks": "2",
       "damage": "1",
-      "is_melee": true,
+      "is_melee": false,
       "line": 1,
       "name": "Enmitic annihilator",
+      "range": "18\"",
       "skill": "2+",
       "strength": "6"
     },

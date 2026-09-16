@@ -2,6 +2,7 @@
   "ability_keys": [
     "core:deadly-demise-1",
     "core:scouts-9",
+    "datasheet:one-shot",
     "datasheet:turbo-boost"
   ],
   "composition": [
@@ -20,7 +21,7 @@
       "model_count": 1,
       "points": 50,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0"
+      "source_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf"
     }
   ],
   "datasheet_id": "ds-tauros-assault-vehicle-2",
@@ -33,7 +34,7 @@
         {
           "item_index": 1,
           "item_name": "heavy flamer",
-          "weapon_line": 1
+          "weapon_line": 4
         },
         {
           "item_index": 2,
@@ -60,6 +61,11 @@
       "is_faction_keyword": false,
       "keyword": "FRAME",
       "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": true,
+      "keyword": "GENESTEALER CULTS",
+      "keyword_class": "faction"
     },
     {
       "is_faction_keyword": false,
@@ -125,7 +131,7 @@
     },
     {
       "count": 1,
-      "grants_weapon_line": 2,
+      "grants_weapon_line": 3,
       "group_id": "og-tauros-assault-vehicle-2-2",
       "id": "oc-tauros-assault-vehicle-2-2-1",
       "is_default": false,
@@ -136,7 +142,7 @@
           "item_index": 1,
           "item_name": "hunter-killer missile",
           "role": "granted",
-          "weapon_line": 2
+          "weapon_line": 3
         }
       ],
       "name": "hunter-killer missile"
@@ -155,12 +161,12 @@
     }
   ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 5,
+    "consecutive_unverified_releases": 6,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+    "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
@@ -171,18 +177,28 @@
   "weapons": [
     {
       "ability_keywords": [
-        "ignores cover",
-        "torrent"
+        "blast"
       ],
-      "armour_penetration": "-1",
+      "armour_penetration": "0",
       "attacks": "D6",
       "damage": "1",
       "is_melee": false,
       "line": 1,
-      "name": "Heavy flamer",
-      "range": "12\"",
-      "skill": "N/A",
-      "strength": "5"
+      "name": "Tauros grenade launcher – frag",
+      "range": "24\"",
+      "skill": "4+",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "2",
+      "damage": "D3",
+      "is_melee": false,
+      "line": 2,
+      "name": "Tauros grenade launcher – krak",
+      "range": "24\"",
+      "skill": "4+",
+      "strength": "9"
     },
     {
       "ability_keywords": [
@@ -192,7 +208,7 @@
       "attacks": "1",
       "damage": "D6",
       "is_melee": false,
-      "line": 2,
+      "line": 3,
       "name": "Hunter-killer missile",
       "range": "48\"",
       "skill": "4+",
@@ -200,26 +216,18 @@
     },
     {
       "ability_keywords": [
-        "blast"
+        "ignores cover",
+        "torrent"
       ],
-      "armour_penetration": "0",
+      "armour_penetration": "-1",
       "attacks": "D6",
       "damage": "1",
-      "is_melee": true,
-      "line": 3,
-      "name": "Tauros grenade launcher – frag",
-      "skill": "4+",
-      "strength": "4"
-    },
-    {
-      "armour_penetration": "-2",
-      "attacks": "2",
-      "damage": "D3",
-      "is_melee": true,
+      "is_melee": false,
       "line": 4,
-      "name": "Tauros grenade launcher – krak",
-      "skill": "4+",
-      "strength": "9"
+      "name": "Heavy flamer",
+      "range": "12\"",
+      "skill": "N/A",
+      "strength": "5"
     },
     {
       "armour_penetration": "0",

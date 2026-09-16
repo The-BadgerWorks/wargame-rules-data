@@ -21,7 +21,7 @@
       "model_count": 1,
       "points": 45,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260818T033550Z-0c772378"
+      "source_acquisition_id": "mfm-20260916T021400Z-1b0a18bd"
     }
   ],
   "datasheet_id": "ds-technoarcheologist",
@@ -88,6 +88,19 @@
       "keyword_class": "unit"
     }
   ],
+  "leader_pairs": [
+    "ds-corpuscarii-electro-priests",
+    "ds-fulgurite-electro-priests",
+    "ds-hastarii-exterminators",
+    "ds-hastarii-fusiliers",
+    "ds-kataphron-breachers",
+    "ds-kataphron-destroyers",
+    "ds-secutarii-hoplites",
+    "ds-secutarii-peltasts",
+    "ds-servitor-battleclade",
+    "ds-skitarii-rangers",
+    "ds-skitarii-vanguard"
+  ],
   "models": [
     {
       "base_size": "(⌀32mm)",
@@ -106,15 +119,15 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:582f2b67f0c1b101fca2f0dc174b802505f8b664f00105a7c51cdd6938081d14",
-    "last_verified_version": "wh40k-11e-2026-08-4",
+    "last_verified_version": "wh40k-11e-2026-09-1",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+    "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
+    "points_acquisition_id": "mfm-20260916T021400Z-1b0a18bd",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
@@ -128,9 +141,10 @@
       "armour_penetration": "-1",
       "attacks": "1",
       "damage": "1",
-      "is_melee": true,
+      "is_melee": false,
       "line": 1,
       "name": "Mechanicus pistol",
+      "range": "12\"",
       "skill": "3+",
       "strength": "6"
     },

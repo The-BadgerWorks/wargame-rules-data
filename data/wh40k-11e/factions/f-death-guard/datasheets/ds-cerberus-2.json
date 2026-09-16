@@ -20,10 +20,9 @@
       "model_count": 1,
       "points": 270,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0"
+      "source_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf"
     }
   ],
-  "damaged_threshold": 6,
   "datasheet_id": "ds-cerberus-2",
   "default_equipment_state": "extracted",
   "equipment_groups": [
@@ -34,7 +33,7 @@
         {
           "item_index": 1,
           "item_name": "Cerberus neutron pulse array",
-          "weapon_line": 1
+          "weapon_line": 2
         },
         {
           "item_index": 2,
@@ -59,6 +58,46 @@
     },
     {
       "is_faction_keyword": false,
+      "keyword": "CERBERUS",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CERBERUS",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CERBERUS",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CERBERUS",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHAOS",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHAOS",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHAOS",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHAOS",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
       "keyword": "CHAOS",
       "keyword_class": "unit"
     },
@@ -74,7 +113,67 @@
     },
     {
       "is_faction_keyword": false,
+      "keyword": "NURGLE",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "NURGLE",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "NURGLE",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "NURGLE",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
       "keyword": "SMOKE",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "SMOKE",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "SMOKE",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "SMOKE",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "SMOKE",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "VEHICLE",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "VEHICLE",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "VEHICLE",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "VEHICLE",
       "keyword_class": "unit"
     },
     {
@@ -132,7 +231,7 @@
     },
     {
       "count": 1,
-      "grants_weapon_line": 2,
+      "grants_weapon_line": 3,
       "group_id": "og-cerberus-2-2",
       "id": "oc-cerberus-2-2-1",
       "is_default": false,
@@ -143,14 +242,14 @@
           "item_index": 1,
           "item_name": "heavy bolter",
           "role": "granted",
-          "weapon_line": 2
+          "weapon_line": 3
         }
       ],
       "name": "heavy bolter"
     },
     {
       "count": 1,
-      "grants_weapon_line": 3,
+      "grants_weapon_line": 4,
       "group_id": "og-cerberus-2-2",
       "id": "oc-cerberus-2-2-2",
       "is_default": false,
@@ -161,7 +260,7 @@
           "item_index": 1,
           "item_name": "heavy flamer",
           "role": "granted",
-          "weapon_line": 3
+          "weapon_line": 4
         }
       ],
       "name": "heavy flamer"
@@ -216,12 +315,12 @@
     }
   ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 5,
+    "consecutive_unverified_releases": 6,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+    "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
@@ -231,6 +330,17 @@
   "wargear_option_state": "extracted",
   "weapons": [
     {
+      "armour_penetration": "-3",
+      "attacks": "1",
+      "damage": "D6+1",
+      "is_melee": false,
+      "line": 1,
+      "name": "Lascannon",
+      "range": "48\"",
+      "skill": "3+",
+      "strength": "12"
+    },
+    {
       "ability_keywords": [
         "twin-linked"
       ],
@@ -238,7 +348,7 @@
       "attacks": "3",
       "damage": "D6+3",
       "is_melee": false,
-      "line": 1,
+      "line": 2,
       "name": "Cerberus neutron pulse array",
       "range": "48\"",
       "skill": "3+",
@@ -252,7 +362,7 @@
       "attacks": "3",
       "damage": "2",
       "is_melee": false,
-      "line": 2,
+      "line": 3,
       "name": "Heavy bolter",
       "range": "36\"",
       "skill": "3+",
@@ -267,22 +377,11 @@
       "attacks": "D6",
       "damage": "1",
       "is_melee": false,
-      "line": 3,
+      "line": 4,
       "name": "Heavy flamer",
       "range": "12\"",
       "skill": "N/A",
       "strength": "5"
-    },
-    {
-      "armour_penetration": "-3",
-      "attacks": "1",
-      "damage": "D6+1",
-      "is_melee": false,
-      "line": 4,
-      "name": "Lascannon",
-      "range": "48\"",
-      "skill": "3+",
-      "strength": "12"
     },
     {
       "ability_keywords": [
@@ -305,9 +404,10 @@
       "armour_penetration": "0",
       "attacks": "2",
       "damage": "1",
-      "is_melee": true,
+      "is_melee": false,
       "line": 6,
       "name": "Storm bolter",
+      "range": "24\"",
       "skill": "3+",
       "strength": "4"
     },

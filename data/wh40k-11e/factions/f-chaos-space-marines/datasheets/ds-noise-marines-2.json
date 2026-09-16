@@ -23,9 +23,9 @@
       "copy_index_min": 1,
       "label": "6 models",
       "model_count": 6,
-      "points": 145,
+      "points": 160,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0"
+      "source_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf"
     }
   ],
   "datasheet_id": "ds-noise-marines-2",
@@ -38,12 +38,12 @@
         {
           "item_index": 1,
           "item_name": "sonic blaster",
-          "weapon_line": 4
+          "weapon_line": 6
         },
         {
           "item_index": 2,
           "item_name": "close combat weapon",
-          "weapon_line": 5
+          "weapon_line": 1
         }
       ],
       "line": 1
@@ -68,7 +68,8 @@
     },
     {
       "is_faction_keyword": true,
-      "keyword": "HERETIC ASTARTES"
+      "keyword": "HERETIC ASTARTES",
+      "keyword_class": "faction"
     },
     {
       "is_faction_keyword": false,
@@ -113,14 +114,14 @@
           "item_index": 1,
           "item_name": "screamer pistol",
           "role": "granted",
-          "weapon_line": 3
+          "weapon_line": 5
         },
         {
           "count": 1,
           "item_index": 2,
           "item_name": "power sword",
           "role": "granted",
-          "weapon_line": 6
+          "weapon_line": 2
         },
         {
           "item_index": 1,
@@ -147,11 +148,11 @@
           "item_index": 1,
           "item_name": "sonic blaster",
           "role": "replaced",
-          "weapon_line": 4
+          "weapon_line": 6
         }
       ],
       "name": "blastmaster",
-      "replaces_weapon_line": 4
+      "replaces_weapon_line": 6
     }
   ],
   "option_groups": [
@@ -170,12 +171,12 @@
     }
   ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 5,
+    "consecutive_unverified_releases": 6,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+    "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
@@ -185,6 +186,26 @@
   "wargear_option_state": "extracted",
   "weapons": [
     {
+      "armour_penetration": "0",
+      "attacks": "3",
+      "damage": "1",
+      "is_melee": true,
+      "line": 1,
+      "name": "Close combat weapon",
+      "skill": "3+",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "4",
+      "damage": "1",
+      "is_melee": true,
+      "line": 2,
+      "name": "Power sword",
+      "skill": "3+",
+      "strength": "5"
+    },
+    {
       "ability_keywords": [
         "ignores cover"
       ],
@@ -192,7 +213,7 @@
       "attacks": "3",
       "damage": "3",
       "is_melee": false,
-      "line": 1,
+      "line": 3,
       "name": "Blastmaster – single frequency",
       "range": "18\"",
       "skill": "3+",
@@ -206,7 +227,7 @@
       "attacks": "6",
       "damage": "1",
       "is_melee": false,
-      "line": 2,
+      "line": 4,
       "name": "Blastmaster – varied frequency",
       "range": "18\"",
       "skill": "3+",
@@ -221,7 +242,7 @@
       "attacks": "3",
       "damage": "2",
       "is_melee": false,
-      "line": 3,
+      "line": 5,
       "name": "Screamer pistol",
       "range": "12\"",
       "skill": "3+",
@@ -234,29 +255,10 @@
       "armour_penetration": "-1",
       "attacks": "3",
       "damage": "2",
-      "is_melee": true,
-      "line": 4,
-      "name": "Sonic blaster",
-      "skill": "3+",
-      "strength": "5"
-    },
-    {
-      "armour_penetration": "0",
-      "attacks": "3",
-      "damage": "1",
-      "is_melee": true,
-      "line": 5,
-      "name": "Close combat weapon",
-      "skill": "3+",
-      "strength": "4"
-    },
-    {
-      "armour_penetration": "-2",
-      "attacks": "4",
-      "damage": "1",
-      "is_melee": true,
+      "is_melee": false,
       "line": 6,
-      "name": "Power sword",
+      "name": "Sonic blaster",
+      "range": "18\"",
       "skill": "3+",
       "strength": "5"
     }

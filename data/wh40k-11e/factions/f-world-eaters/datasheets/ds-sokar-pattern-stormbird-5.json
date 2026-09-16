@@ -21,10 +21,9 @@
       "model_count": 1,
       "points": 900,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0"
+      "source_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf"
     }
   ],
-  "damaged_threshold": 13,
   "datasheet_id": "ds-sokar-pattern-stormbird-5",
   "default_equipment_state": "extracted",
   "equipment_groups": [
@@ -35,7 +34,7 @@
         {
           "item_index": 1,
           "item_name": "hellstrike missile battery",
-          "weapon_line": 1
+          "weapon_line": 4
         },
         {
           "count": 3,
@@ -50,7 +49,7 @@
         {
           "item_index": 4,
           "item_name": "armoured hull",
-          "weapon_line": 4
+          "weapon_line": 2
         }
       ],
       "line": 1
@@ -70,7 +69,112 @@
     },
     {
       "is_faction_keyword": false,
+      "keyword": "AIRCRAFT",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "AIRCRAFT",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "AIRCRAFT",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "AIRCRAFT",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "AIRCRAFT",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "AIRCRAFT",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "AIRCRAFT",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
       "keyword": "CHAOS",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHAOS",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHAOS",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHAOS",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHAOS",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHAOS",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHAOS",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHAOS",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "FLY",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "FLY",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "FLY",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "FLY",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "FLY",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "FLY",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "FLY",
       "keyword_class": "unit"
     },
     {
@@ -85,6 +189,76 @@
     },
     {
       "is_faction_keyword": false,
+      "keyword": "KHORNE",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "KHORNE",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "KHORNE",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "KHORNE",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "KHORNE",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "KHORNE",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "KHORNE",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "SOKAR-PATTERN STORMBIRD",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "SOKAR-PATTERN STORMBIRD",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "SOKAR-PATTERN STORMBIRD",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "SOKAR-PATTERN STORMBIRD",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "SOKAR-PATTERN STORMBIRD",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "SOKAR-PATTERN STORMBIRD",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "SOKAR-PATTERN STORMBIRD",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
       "keyword": "SOKAR-PATTERN STORMBIRD",
       "keyword_class": "unit"
     },
@@ -95,7 +269,112 @@
     },
     {
       "is_faction_keyword": false,
+      "keyword": "TITANIC",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "TITANIC",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "TITANIC",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "TITANIC",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "TITANIC",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "TITANIC",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "TITANIC",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
       "keyword": "TRANSPORT",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "TRANSPORT",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "TRANSPORT",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "TRANSPORT",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "TRANSPORT",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "TRANSPORT",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "TRANSPORT",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "TRANSPORT",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "VEHICLE",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "VEHICLE",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "VEHICLE",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "VEHICLE",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "VEHICLE",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "VEHICLE",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "VEHICLE",
       "keyword_class": "unit"
     },
     {
@@ -125,12 +404,12 @@
   ],
   "name": "Sokar-pattern Stormbird",
   "pricing_confidence": {
-    "consecutive_unverified_releases": 5,
+    "consecutive_unverified_releases": 6,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+    "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
@@ -141,17 +420,27 @@
   "weapons": [
     {
       "ability_keywords": [
-        "anti-fly 3+"
+        "twin-linked"
       ],
       "armour_penetration": "-3",
-      "attacks": "4",
-      "damage": "D6",
+      "attacks": "1",
+      "damage": "D6+1",
       "is_melee": false,
       "line": 1,
-      "name": "Hellstrike missile battery",
+      "name": "Twin lascannon",
       "range": "48\"",
       "skill": "3+",
-      "strength": "10"
+      "strength": "12"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "9",
+      "damage": "1",
+      "is_melee": true,
+      "line": 2,
+      "name": "Armoured hull",
+      "skill": "4+",
+      "strength": "9"
     },
     {
       "ability_keywords": [
@@ -162,7 +451,7 @@
       "attacks": "3",
       "damage": "2",
       "is_melee": false,
-      "line": 2,
+      "line": 3,
       "name": "Twin heavy bolter",
       "range": "36\"",
       "skill": "3+",
@@ -170,26 +459,17 @@
     },
     {
       "ability_keywords": [
-        "twin-linked"
+        "anti-fly 3+"
       ],
       "armour_penetration": "-3",
-      "attacks": "1",
-      "damage": "D6+1",
-      "is_melee": true,
-      "line": 3,
-      "name": "Twin lascannon",
-      "skill": "3+",
-      "strength": "12"
-    },
-    {
-      "armour_penetration": "0",
-      "attacks": "9",
-      "damage": "1",
-      "is_melee": true,
+      "attacks": "4",
+      "damage": "D6",
+      "is_melee": false,
       "line": 4,
-      "name": "Armoured hull",
-      "skill": "4+",
-      "strength": "9"
+      "name": "Hellstrike missile battery",
+      "range": "48\"",
+      "skill": "3+",
+      "strength": "10"
     }
   ]
 }

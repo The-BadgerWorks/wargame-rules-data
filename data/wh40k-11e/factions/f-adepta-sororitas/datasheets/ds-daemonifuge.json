@@ -13,14 +13,14 @@
       "max_count": 1,
       "min_count": 1,
       "model_line": 1,
-      "model_name": "Ephrael Stern"
+      "model_name": "Ephrael Stern - EPIC HERO"
     },
     {
       "line": 2,
       "max_count": 1,
       "min_count": 1,
       "model_line": 2,
-      "model_name": "Kyganil of the Bloody Tears"
+      "model_name": "Kyganil of the Bloody Tears - EPIC HERO"
     }
   ],
   "costs": [
@@ -30,7 +30,7 @@
       "model_count": 2,
       "points": 85,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260818T033550Z-0c772378"
+      "source_acquisition_id": "mfm-20260916T021400Z-1b0a18bd"
     }
   ],
   "datasheet_id": "ds-daemonifuge",
@@ -38,7 +38,6 @@
   "equipment_groups": [
     {
       "applies_to": "model_group",
-      "composition_line": 1,
       "id": "eq-daemonifuge-1",
       "items": [
         {
@@ -57,7 +56,6 @@
     },
     {
       "applies_to": "model_group",
-      "composition_line": 2,
       "id": "eq-daemonifuge-2",
       "items": [
         {
@@ -143,15 +141,15 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:f5edfa9c5d0a66da68a05dd5a63656d3898637d2e738a033c0a0354d574e0499",
-    "last_verified_version": "wh40k-11e-2026-08-4",
+    "last_verified_version": "wh40k-11e-2026-09-1",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+    "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
+    "points_acquisition_id": "mfm-20260916T021400Z-1b0a18bd",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
@@ -164,9 +162,10 @@
       "armour_penetration": "0",
       "attacks": "1",
       "damage": "1",
-      "is_melee": true,
+      "is_melee": false,
       "line": 1,
       "name": "Bolt pistol",
+      "range": "12\"",
       "skill": "3+",
       "strength": "4"
     },

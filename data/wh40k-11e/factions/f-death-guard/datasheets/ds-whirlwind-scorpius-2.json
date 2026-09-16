@@ -1,6 +1,7 @@
 {
   "ability_keys": [
     "core:deadly-demise-d3",
+    "datasheet:one-shot",
     "datasheet:pinning-bombardment",
     "faction:nurgles-gift-aura"
   ],
@@ -20,10 +21,9 @@
       "model_count": 1,
       "points": 115,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0"
+      "source_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf"
     }
   ],
-  "damaged_threshold": 4,
   "datasheet_id": "ds-whirlwind-scorpius-2",
   "default_equipment_state": "extracted",
   "equipment_groups": [
@@ -39,7 +39,7 @@
         {
           "item_index": 2,
           "item_name": "armoured tracks",
-          "weapon_line": 4
+          "weapon_line": 3
         }
       ],
       "line": 1
@@ -58,9 +58,49 @@
       "keyword_class": "unit"
     },
     {
+      "is_faction_keyword": false,
+      "keyword": "CHAOS",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHAOS",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHAOS",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHAOS",
+      "keyword_class": "unit"
+    },
+    {
       "is_faction_keyword": true,
       "keyword": "DEATH GUARD",
       "keyword_class": "faction"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "NURGLE",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "NURGLE",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "NURGLE",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "NURGLE",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
@@ -74,7 +114,67 @@
     },
     {
       "is_faction_keyword": false,
+      "keyword": "SMOKE",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "SMOKE",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "SMOKE",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "SMOKE",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
       "keyword": "VEHICLE",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "VEHICLE",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "VEHICLE",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "VEHICLE",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "VEHICLE",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "WHIRLWIND SCORPIUS",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "WHIRLWIND SCORPIUS",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "WHIRLWIND SCORPIUS",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "WHIRLWIND SCORPIUS",
       "keyword_class": "unit"
     },
     {
@@ -118,7 +218,7 @@
     },
     {
       "count": 1,
-      "grants_weapon_line": 3,
+      "grants_weapon_line": 4,
       "group_id": "og-whirlwind-scorpius-2-2",
       "id": "oc-whirlwind-scorpius-2-2-1",
       "is_default": false,
@@ -129,7 +229,7 @@
           "item_index": 1,
           "item_name": "storm bolter",
           "role": "granted",
-          "weapon_line": 3
+          "weapon_line": 4
         }
       ],
       "name": "storm bolter"
@@ -148,12 +248,12 @@
     }
   ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 5,
+    "consecutive_unverified_releases": 6,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+    "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
@@ -192,27 +292,28 @@
       "strength": "6"
     },
     {
+      "armour_penetration": "0",
+      "attacks": "3",
+      "damage": "1",
+      "is_melee": true,
+      "line": 3,
+      "name": "Armoured tracks",
+      "skill": "4+",
+      "strength": "6"
+    },
+    {
       "ability_keywords": [
         "rapid fire 2"
       ],
       "armour_penetration": "0",
       "attacks": "2",
       "damage": "1",
-      "is_melee": true,
-      "line": 3,
+      "is_melee": false,
+      "line": 4,
       "name": "Storm bolter",
+      "range": "24\"",
       "skill": "3+",
       "strength": "4"
-    },
-    {
-      "armour_penetration": "0",
-      "attacks": "3",
-      "damage": "1",
-      "is_melee": true,
-      "line": 4,
-      "name": "Armoured tracks",
-      "skill": "4+",
-      "strength": "6"
     }
   ]
 }

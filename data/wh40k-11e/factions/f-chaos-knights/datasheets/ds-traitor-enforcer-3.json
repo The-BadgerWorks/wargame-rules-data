@@ -28,7 +28,7 @@
       "model_count": 2,
       "points": 70,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0"
+      "source_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf"
     }
   ],
   "datasheet_id": "ds-traitor-enforcer-3",
@@ -42,7 +42,7 @@
         {
           "item_index": 1,
           "item_name": "bolt pistol",
-          "weapon_line": 1
+          "weapon_line": 2
         },
         {
           "item_index": 2,
@@ -61,7 +61,7 @@
         {
           "item_index": 1,
           "item_name": "Ogryn weapons",
-          "weapon_line": 2
+          "weapon_line": 1
         }
       ],
       "line": 2,
@@ -80,6 +80,11 @@
       "keyword": "CHAOS",
       "keyword_class": "unit",
       "model_scope": "ALL MODELS"
+    },
+    {
+      "is_faction_keyword": true,
+      "keyword": "CHAOS KNIGHTS",
+      "keyword_class": "faction"
     },
     {
       "is_faction_keyword": false,
@@ -101,7 +106,8 @@
     },
     {
       "is_faction_keyword": true,
-      "keyword": "HERETIC ASTARTES"
+      "keyword": "HERETIC ASTARTES",
+      "keyword_class": "faction"
     },
     {
       "is_faction_keyword": false,
@@ -146,12 +152,12 @@
   ],
   "name": "Traitor Enforcer",
   "pricing_confidence": {
-    "consecutive_unverified_releases": 5,
+    "consecutive_unverified_releases": 6,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+    "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
@@ -161,27 +167,28 @@
   "wargear_option_state": "none",
   "weapons": [
     {
+      "armour_penetration": "-1",
+      "attacks": "5",
+      "damage": "2",
+      "is_melee": true,
+      "line": 1,
+      "name": "Ogryn weapons",
+      "skill": "3+",
+      "strength": "7"
+    },
+    {
       "ability_keywords": [
         "pistol"
       ],
       "armour_penetration": "0",
       "attacks": "1",
       "damage": "1",
-      "is_melee": true,
-      "line": 1,
+      "is_melee": false,
+      "line": 2,
       "name": "Bolt pistol",
+      "range": "12\"",
       "skill": "3+",
       "strength": "4"
-    },
-    {
-      "armour_penetration": "-1",
-      "attacks": "5",
-      "damage": "2",
-      "is_melee": true,
-      "line": 2,
-      "name": "Ogryn weapons",
-      "skill": "3+",
-      "strength": "7"
     },
     {
       "armour_penetration": "-2",

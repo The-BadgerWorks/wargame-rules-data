@@ -2,6 +2,7 @@
   "ability_keys": [
     "datasheet:aeronautica-commander",
     "datasheet:artillery-commander",
+    "datasheet:attaches",
     "datasheet:divination-psychic"
   ],
   "costs": [
@@ -11,7 +12,7 @@
       "model_count": 3,
       "points": 40,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0"
+      "source_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf"
     }
   ],
   "datasheet_id": "ds-regimental-attaches-2",
@@ -25,6 +26,11 @@
     {
       "is_faction_keyword": true,
       "keyword": "ASTRA MILITARUM",
+      "keyword_class": "faction"
+    },
+    {
+      "is_faction_keyword": true,
+      "keyword": "GENESTEALER CULTS",
       "keyword_class": "faction"
     },
     {
@@ -66,12 +72,12 @@
   ],
   "name": "Regimental Attachés",
   "pricing_confidence": {
-    "consecutive_unverified_releases": 5,
+    "consecutive_unverified_releases": 6,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+    "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
@@ -81,25 +87,26 @@
   "wargear_option_state": "none",
   "weapons": [
     {
+      "armour_penetration": "0",
+      "attacks": "1",
+      "damage": "1",
+      "is_melee": true,
+      "line": 1,
+      "name": "Close combat weapon",
+      "skill": "4+",
+      "strength": "3"
+    },
+    {
       "ability_keywords": [
         "pistol"
       ],
       "armour_penetration": "0",
       "attacks": "1",
       "damage": "1",
-      "is_melee": true,
-      "line": 1,
-      "name": "Laspistol",
-      "skill": "4+",
-      "strength": "3"
-    },
-    {
-      "armour_penetration": "0",
-      "attacks": "1",
-      "damage": "1",
-      "is_melee": true,
+      "is_melee": false,
       "line": 2,
-      "name": "Close combat weapon",
+      "name": "Laspistol",
+      "range": "12\"",
       "skill": "4+",
       "strength": "3"
     },

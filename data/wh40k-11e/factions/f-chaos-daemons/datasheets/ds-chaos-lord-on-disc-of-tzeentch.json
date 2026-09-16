@@ -21,7 +21,7 @@
       "model_count": 1,
       "points": 100,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0"
+      "source_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf"
     }
   ],
   "datasheet_id": "ds-chaos-lord-on-disc-of-tzeentch",
@@ -34,17 +34,17 @@
         {
           "item_index": 1,
           "item_name": "bolt pistol",
-          "weapon_line": 1
+          "weapon_line": 8
         },
         {
           "item_index": 2,
           "item_name": "Astartes chainsword",
-          "weapon_line": 7
+          "weapon_line": 1
         },
         {
           "item_index": 3,
           "item_name": "close combat weapon",
-          "weapon_line": 8
+          "weapon_line": 5
         }
       ],
       "line": 1
@@ -64,7 +64,112 @@
     },
     {
       "is_faction_keyword": false,
+      "keyword": "CHAOS",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHAOS",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHAOS",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHAOS",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHAOS",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHAOS",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHAOS",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
       "keyword": "CHAOS LORD",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHAOS LORD",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHAOS LORD",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHAOS LORD",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHAOS LORD",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHAOS LORD",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHAOS LORD",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHAOS LORD",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHARACTER",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHARACTER",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHARACTER",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHARACTER",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHARACTER",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHARACTER",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHARACTER",
       "keyword_class": "unit"
     },
     {
@@ -79,6 +184,76 @@
     },
     {
       "is_faction_keyword": false,
+      "keyword": "DISC OF TZEENTCH",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "DISC OF TZEENTCH",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "DISC OF TZEENTCH",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "DISC OF TZEENTCH",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "DISC OF TZEENTCH",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "DISC OF TZEENTCH",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "DISC OF TZEENTCH",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "FLY",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "FLY",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "FLY",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "FLY",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "FLY",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "FLY",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "FLY",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
       "keyword": "FLY",
       "keyword_class": "unit"
     },
@@ -88,12 +263,123 @@
       "keyword_class": "unit"
     },
     {
+      "is_faction_keyword": false,
+      "keyword": "GRENADES",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "GRENADES",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "GRENADES",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "GRENADES",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "GRENADES",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "GRENADES",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "GRENADES",
+      "keyword_class": "unit"
+    },
+    {
       "is_faction_keyword": true,
-      "keyword": "HERETIC ASTARTES"
+      "keyword": "HERETIC ASTARTES",
+      "keyword_class": "faction"
     },
     {
       "is_faction_keyword": false,
       "keyword": "INFANTRY",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "INFANTRY",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "INFANTRY",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "INFANTRY",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "INFANTRY",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "INFANTRY",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "INFANTRY",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "INFANTRY",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": true,
+      "keyword": "LEGIONES DAEMONICA",
+      "keyword_class": "faction"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "SHADOW LEGION",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "SHADOW LEGION",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "SHADOW LEGION",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "SHADOW LEGION",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "SHADOW LEGION",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "SHADOW LEGION",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "SHADOW LEGION",
       "keyword_class": "unit"
     },
     {
@@ -104,6 +390,76 @@
     {
       "is_faction_keyword": false,
       "keyword": "TZEENTCH",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "TZEENTCH",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "TZEENTCH",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "TZEENTCH",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "TZEENTCH",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "TZEENTCH",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "TZEENTCH",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "TZEENTCH",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "UNDIVIDED",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "UNDIVIDED",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "UNDIVIDED",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "UNDIVIDED",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "UNDIVIDED",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "UNDIVIDED",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "UNDIVIDED",
       "keyword_class": "unit"
     },
     {
@@ -155,7 +511,7 @@
     },
     {
       "count": 1,
-      "grants_weapon_line": 2,
+      "grants_weapon_line": 9,
       "group_id": "og-chaos-lord-on-disc-of-tzeentch-1",
       "id": "oc-chaos-lord-on-disc-of-tzeentch-1-2",
       "is_default": false,
@@ -166,7 +522,7 @@
           "item_index": 1,
           "item_name": "combi-bolter",
           "role": "granted",
-          "weapon_line": 2
+          "weapon_line": 9
         },
         {
           "item_index": 1,
@@ -178,7 +534,7 @@
     },
     {
       "count": 1,
-      "grants_weapon_line": 3,
+      "grants_weapon_line": 4,
       "group_id": "og-chaos-lord-on-disc-of-tzeentch-1",
       "id": "oc-chaos-lord-on-disc-of-tzeentch-1-3",
       "is_default": false,
@@ -189,7 +545,7 @@
           "item_index": 1,
           "item_name": "combi-weapon",
           "role": "granted",
-          "weapon_line": 3
+          "weapon_line": 4
         },
         {
           "item_index": 1,
@@ -201,7 +557,7 @@
     },
     {
       "count": 1,
-      "grants_weapon_line": 6,
+      "grants_weapon_line": 2,
       "group_id": "og-chaos-lord-on-disc-of-tzeentch-1",
       "id": "oc-chaos-lord-on-disc-of-tzeentch-1-4",
       "is_default": false,
@@ -212,7 +568,7 @@
           "item_index": 1,
           "item_name": "accursed weapon",
           "role": "granted",
-          "weapon_line": 6
+          "weapon_line": 2
         },
         {
           "item_index": 1,
@@ -224,7 +580,7 @@
     },
     {
       "count": 1,
-      "grants_weapon_line": 10,
+      "grants_weapon_line": 7,
       "group_id": "og-chaos-lord-on-disc-of-tzeentch-1",
       "id": "oc-chaos-lord-on-disc-of-tzeentch-1-5",
       "is_default": false,
@@ -235,7 +591,7 @@
           "item_index": 1,
           "item_name": "power fist",
           "role": "granted",
-          "weapon_line": 10
+          "weapon_line": 7
         },
         {
           "item_index": 1,
@@ -247,7 +603,7 @@
     },
     {
       "count": 1,
-      "grants_weapon_line": 1,
+      "grants_weapon_line": 8,
       "group_id": "og-chaos-lord-on-disc-of-tzeentch-2",
       "id": "oc-chaos-lord-on-disc-of-tzeentch-2-1",
       "is_default": false,
@@ -258,7 +614,7 @@
           "item_index": 1,
           "item_name": "bolt pistol",
           "role": "granted",
-          "weapon_line": 1
+          "weapon_line": 8
         },
         {
           "item_index": 1,
@@ -291,7 +647,7 @@
     },
     {
       "count": 1,
-      "grants_weapon_line": 6,
+      "grants_weapon_line": 2,
       "group_id": "og-chaos-lord-on-disc-of-tzeentch-2",
       "id": "oc-chaos-lord-on-disc-of-tzeentch-2-3",
       "is_default": false,
@@ -302,7 +658,7 @@
           "item_index": 1,
           "item_name": "accursed weapon",
           "role": "granted",
-          "weapon_line": 6
+          "weapon_line": 2
         },
         {
           "item_index": 1,
@@ -314,7 +670,7 @@
     },
     {
       "count": 1,
-      "grants_weapon_line": 10,
+      "grants_weapon_line": 7,
       "group_id": "og-chaos-lord-on-disc-of-tzeentch-2",
       "id": "oc-chaos-lord-on-disc-of-tzeentch-2-4",
       "is_default": false,
@@ -325,7 +681,7 @@
           "item_index": 1,
           "item_name": "power fist",
           "role": "granted",
-          "weapon_line": 10
+          "weapon_line": 7
         },
         {
           "item_index": 1,
@@ -337,7 +693,7 @@
     },
     {
       "count": 1,
-      "grants_weapon_line": 9,
+      "grants_weapon_line": 6,
       "group_id": "og-chaos-lord-on-disc-of-tzeentch-3",
       "id": "oc-chaos-lord-on-disc-of-tzeentch-3-1",
       "is_default": false,
@@ -348,7 +704,7 @@
           "item_index": 1,
           "item_name": "paired accursed weapons",
           "role": "granted",
-          "weapon_line": 9
+          "weapon_line": 6
         },
         {
           "item_index": 1,
@@ -359,7 +715,7 @@
           "item_index": 2,
           "item_name": "Astartes chainsword",
           "role": "replaced",
-          "weapon_line": 7
+          "weapon_line": 1
         }
       ],
       "name": "paired accursed weapons"
@@ -383,12 +739,12 @@
     }
   ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 5,
+    "consecutive_unverified_releases": 6,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+    "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
@@ -398,6 +754,89 @@
   "wargear_option_state": "extracted",
   "weapons": [
     {
+      "armour_penetration": "-1",
+      "attacks": "7",
+      "damage": "1",
+      "is_melee": true,
+      "line": 1,
+      "name": "Astartes chainsword",
+      "skill": "2+",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "6",
+      "damage": "1",
+      "is_melee": true,
+      "line": 2,
+      "name": "Accursed weapon",
+      "skill": "2+",
+      "strength": "5"
+    },
+    {
+      "ability_keywords": [
+        "pistol"
+      ],
+      "armour_penetration": "-2",
+      "attacks": "1",
+      "damage": "1",
+      "is_melee": false,
+      "line": 3,
+      "name": "Plasma pistol – standard",
+      "range": "12\"",
+      "skill": "2+",
+      "strength": "7"
+    },
+    {
+      "ability_keywords": [
+        "anti-infantry 4+",
+        "devastating wounds",
+        "rapid fire 1"
+      ],
+      "armour_penetration": "0",
+      "attacks": "1",
+      "damage": "1",
+      "is_melee": false,
+      "line": 4,
+      "name": "Combi-weapon",
+      "range": "24\"",
+      "skill": "4+",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "6",
+      "damage": "1",
+      "is_melee": true,
+      "line": 5,
+      "name": "Close combat weapon",
+      "skill": "2+",
+      "strength": "4"
+    },
+    {
+      "ability_keywords": [
+        "twin-linked"
+      ],
+      "armour_penetration": "-1",
+      "attacks": "7",
+      "damage": "1",
+      "is_melee": true,
+      "line": 6,
+      "name": "Paired accursed weapons",
+      "skill": "2+",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "5",
+      "damage": "2",
+      "is_melee": true,
+      "line": 7,
+      "name": "Power fist",
+      "skill": "2+",
+      "strength": "8"
+    },
+    {
       "ability_keywords": [
         "pistol"
       ],
@@ -405,7 +844,7 @@
       "attacks": "1",
       "damage": "1",
       "is_melee": false,
-      "line": 1,
+      "line": 8,
       "name": "Bolt pistol",
       "range": "12\"",
       "skill": "2+",
@@ -419,40 +858,11 @@
       "attacks": "2",
       "damage": "1",
       "is_melee": false,
-      "line": 2,
+      "line": 9,
       "name": "Combi-bolter",
       "range": "24\"",
       "skill": "2+",
       "strength": "4"
-    },
-    {
-      "ability_keywords": [
-        "anti-infantry 4+",
-        "devastating wounds",
-        "rapid fire 1"
-      ],
-      "armour_penetration": "0",
-      "attacks": "1",
-      "damage": "1",
-      "is_melee": false,
-      "line": 3,
-      "name": "Combi-weapon",
-      "range": "24\"",
-      "skill": "4+",
-      "strength": "4"
-    },
-    {
-      "ability_keywords": [
-        "pistol"
-      ],
-      "armour_penetration": "-2",
-      "attacks": "1",
-      "damage": "1",
-      "is_melee": true,
-      "line": 4,
-      "name": "Plasma pistol – standard",
-      "skill": "2+",
-      "strength": "7"
     },
     {
       "ability_keywords": [
@@ -462,62 +872,10 @@
       "armour_penetration": "-3",
       "attacks": "1",
       "damage": "2",
-      "is_melee": true,
-      "line": 5,
-      "name": "Plasma pistol – supercharge",
-      "skill": "2+",
-      "strength": "8"
-    },
-    {
-      "armour_penetration": "-2",
-      "attacks": "6",
-      "damage": "1",
-      "is_melee": true,
-      "line": 6,
-      "name": "Accursed weapon",
-      "skill": "2+",
-      "strength": "5"
-    },
-    {
-      "armour_penetration": "-1",
-      "attacks": "7",
-      "damage": "1",
-      "is_melee": true,
-      "line": 7,
-      "name": "Astartes chainsword",
-      "skill": "2+",
-      "strength": "4"
-    },
-    {
-      "armour_penetration": "0",
-      "attacks": "6",
-      "damage": "1",
-      "is_melee": true,
-      "line": 8,
-      "name": "Close combat weapon",
-      "skill": "2+",
-      "strength": "4"
-    },
-    {
-      "ability_keywords": [
-        "twin-linked"
-      ],
-      "armour_penetration": "-1",
-      "attacks": "7",
-      "damage": "1",
-      "is_melee": true,
-      "line": 9,
-      "name": "Paired accursed weapons",
-      "skill": "2+",
-      "strength": "4"
-    },
-    {
-      "armour_penetration": "-2",
-      "attacks": "5",
-      "damage": "2",
-      "is_melee": true,
+      "is_melee": false,
       "line": 10,
-      "name": "Power fist",
+      "name": "Plasma pistol – supercharge",
+      "range": "12\"",
       "skill": "2+",
       "strength": "8"
     }

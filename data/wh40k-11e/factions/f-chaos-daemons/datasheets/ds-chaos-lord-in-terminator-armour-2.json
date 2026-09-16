@@ -22,7 +22,7 @@
       "model_count": 1,
       "points": 85,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0"
+      "source_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf"
     }
   ],
   "datasheet_id": "ds-chaos-lord-in-terminator-armour-2",
@@ -60,7 +60,82 @@
     },
     {
       "is_faction_keyword": false,
+      "keyword": "CHAOS",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHAOS",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHAOS",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHAOS",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHAOS",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
       "keyword": "CHAOS LORD",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHAOS LORD",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHAOS LORD",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHAOS LORD",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHAOS LORD",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHAOS LORD",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHAOS LORD IN TERMINATOR ARMOUR",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHAOS LORD IN TERMINATOR ARMOUR",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHAOS LORD IN TERMINATOR ARMOUR",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHAOS LORD IN TERMINATOR ARMOUR",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHAOS LORD IN TERMINATOR ARMOUR",
       "keyword_class": "unit"
     },
     {
@@ -74,12 +149,93 @@
       "keyword_class": "unit"
     },
     {
+      "is_faction_keyword": false,
+      "keyword": "CHARACTER",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHARACTER",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHARACTER",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHARACTER",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHARACTER",
+      "keyword_class": "unit"
+    },
+    {
       "is_faction_keyword": true,
-      "keyword": "HERETIC ASTARTES"
+      "keyword": "HERETIC ASTARTES",
+      "keyword_class": "faction"
     },
     {
       "is_faction_keyword": false,
       "keyword": "INFANTRY",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "INFANTRY",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "INFANTRY",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "INFANTRY",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "INFANTRY",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "INFANTRY",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": true,
+      "keyword": "LEGIONES DAEMONICA",
+      "keyword_class": "faction"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "SHADOW LEGION",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "SHADOW LEGION",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "SHADOW LEGION",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "SHADOW LEGION",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "SHADOW LEGION",
       "keyword_class": "unit"
     },
     {
@@ -90,6 +246,56 @@
     {
       "is_faction_keyword": false,
       "keyword": "TERMINATOR",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "TERMINATOR",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "TERMINATOR",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "TERMINATOR",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "TERMINATOR",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "TERMINATOR",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "UNDIVIDED",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "UNDIVIDED",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "UNDIVIDED",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "UNDIVIDED",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "UNDIVIDED",
       "keyword_class": "unit"
     },
     {
@@ -119,7 +325,7 @@
   "option_choices": [
     {
       "count": 1,
-      "grants_weapon_line": 2,
+      "grants_weapon_line": 6,
       "group_id": "og-chaos-lord-in-terminator-armour-2-1",
       "id": "oc-chaos-lord-in-terminator-armour-2-1-1",
       "is_default": false,
@@ -130,7 +336,7 @@
           "item_index": 1,
           "item_name": "combi-weapon",
           "role": "granted",
-          "weapon_line": 2
+          "weapon_line": 6
         },
         {
           "item_index": 1,
@@ -142,7 +348,7 @@
     },
     {
       "count": 1,
-      "grants_weapon_line": 3,
+      "grants_weapon_line": 5,
       "group_id": "og-chaos-lord-in-terminator-armour-2-2",
       "id": "oc-chaos-lord-in-terminator-armour-2-2-1",
       "is_default": false,
@@ -153,7 +359,7 @@
           "item_index": 1,
           "item_name": "chainfist",
           "role": "granted",
-          "weapon_line": 3
+          "weapon_line": 5
         },
         {
           "item_index": 1,
@@ -165,7 +371,7 @@
     },
     {
       "count": 1,
-      "grants_weapon_line": 6,
+      "grants_weapon_line": 2,
       "group_id": "og-chaos-lord-in-terminator-armour-2-2",
       "id": "oc-chaos-lord-in-terminator-armour-2-2-2",
       "is_default": false,
@@ -176,7 +382,7 @@
           "item_index": 1,
           "item_name": "power fist",
           "role": "granted",
-          "weapon_line": 6
+          "weapon_line": 2
         },
         {
           "item_index": 1,
@@ -188,7 +394,7 @@
     },
     {
       "count": 1,
-      "grants_weapon_line": 5,
+      "grants_weapon_line": 3,
       "group_id": "og-chaos-lord-in-terminator-armour-2-3",
       "id": "oc-chaos-lord-in-terminator-armour-2-3-1",
       "is_default": false,
@@ -199,7 +405,7 @@
           "item_index": 1,
           "item_name": "paired accursed weapons",
           "role": "granted",
-          "weapon_line": 5
+          "weapon_line": 3
         },
         {
           "item_index": 1,
@@ -234,12 +440,12 @@
     }
   ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 5,
+    "consecutive_unverified_releases": 6,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+    "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
@@ -263,32 +469,27 @@
       "strength": "4"
     },
     {
-      "ability_keywords": [
-        "anti-infantry 4+",
-        "devastating wounds",
-        "rapid fire 1"
-      ],
-      "armour_penetration": "0",
-      "attacks": "1",
-      "damage": "1",
-      "is_melee": true,
-      "line": 2,
-      "name": "Combi-weapon",
-      "skill": "3+",
-      "strength": "4"
-    },
-    {
-      "ability_keywords": [
-        "anti-vehicle 3+"
-      ],
       "armour_penetration": "-2",
       "attacks": "5",
       "damage": "2",
       "is_melee": true,
-      "line": 3,
-      "name": "Chainfist",
-      "skill": "3+",
+      "line": 2,
+      "name": "Power fist",
+      "skill": "2+",
       "strength": "8"
+    },
+    {
+      "ability_keywords": [
+        "twin-linked"
+      ],
+      "armour_penetration": "-2",
+      "attacks": "7",
+      "damage": "1",
+      "is_melee": true,
+      "line": 3,
+      "name": "Paired accursed weapons",
+      "skill": "2+",
+      "strength": "5"
     },
     {
       "armour_penetration": "-2",
@@ -302,26 +503,32 @@
     },
     {
       "ability_keywords": [
-        "twin-linked"
+        "anti-vehicle 3+"
       ],
-      "armour_penetration": "-2",
-      "attacks": "7",
-      "damage": "1",
-      "is_melee": true,
-      "line": 5,
-      "name": "Paired accursed weapons",
-      "skill": "2+",
-      "strength": "5"
-    },
-    {
       "armour_penetration": "-2",
       "attacks": "5",
       "damage": "2",
       "is_melee": true,
-      "line": 6,
-      "name": "Power fist",
-      "skill": "2+",
+      "line": 5,
+      "name": "Chainfist",
+      "skill": "3+",
       "strength": "8"
+    },
+    {
+      "ability_keywords": [
+        "anti-infantry 4+",
+        "devastating wounds",
+        "rapid fire 1"
+      ],
+      "armour_penetration": "0",
+      "attacks": "1",
+      "damage": "1",
+      "is_melee": false,
+      "line": 6,
+      "name": "Combi-weapon",
+      "range": "24\"",
+      "skill": "3+",
+      "strength": "4"
     }
   ]
 }

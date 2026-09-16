@@ -1,6 +1,7 @@
 {
   "ability_keys": [
     "core:deadly-demise-d6-2",
+    "datasheet:one-shot",
     "datasheet:tank-hunter"
   ],
   "composition": [
@@ -19,10 +20,9 @@
       "model_count": 1,
       "points": 285,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0"
+      "source_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf"
     }
   ],
-  "damaged_threshold": 7,
   "datasheet_id": "ds-macharius-vanquisher-2",
   "default_equipment_state": "extracted",
   "equipment_groups": [
@@ -38,7 +38,7 @@
         {
           "item_index": 2,
           "item_name": "Macharius twin vanquisher cannon",
-          "weapon_line": 5
+          "weapon_line": 2
         },
         {
           "item_index": 3,
@@ -70,6 +70,11 @@
       "is_faction_keyword": false,
       "keyword": "FRAME",
       "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": true,
+      "keyword": "GENESTEALER CULTS",
+      "keyword_class": "faction"
     },
     {
       "is_faction_keyword": false,
@@ -156,7 +161,7 @@
     },
     {
       "count": 1,
-      "grants_weapon_line": 4,
+      "grants_weapon_line": 3,
       "group_id": "og-macharius-vanquisher-2-2",
       "id": "oc-macharius-vanquisher-2-2-1",
       "is_default": false,
@@ -167,14 +172,14 @@
           "item_index": 1,
           "item_name": "hunter-killer missile",
           "role": "granted",
-          "weapon_line": 4
+          "weapon_line": 3
         }
       ],
       "name": "hunter-killer missile"
     },
     {
       "count": 1,
-      "grants_weapon_line": 3,
+      "grants_weapon_line": 4,
       "group_id": "og-macharius-vanquisher-2-3",
       "id": "oc-macharius-vanquisher-2-3-1",
       "is_default": false,
@@ -185,14 +190,14 @@
           "item_index": 1,
           "item_name": "heavy stubber",
           "role": "granted",
-          "weapon_line": 3
+          "weapon_line": 4
         }
       ],
       "name": "heavy stubber"
     },
     {
       "count": 1,
-      "grants_weapon_line": 6,
+      "grants_weapon_line": 1,
       "group_id": "og-macharius-vanquisher-2-3",
       "id": "oc-macharius-vanquisher-2-3-2",
       "is_default": false,
@@ -203,7 +208,7 @@
           "item_index": 1,
           "item_name": "storm bolter",
           "role": "granted",
-          "weapon_line": 6
+          "weapon_line": 1
         }
       ],
       "name": "storm bolter"
@@ -227,12 +232,12 @@
     }
   ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 5,
+    "consecutive_unverified_releases": 6,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+    "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
@@ -243,60 +248,17 @@
   "weapons": [
     {
       "ability_keywords": [
-        "sustained hits 1"
-      ],
-      "armour_penetration": "-1",
-      "attacks": "3",
-      "damage": "2",
-      "is_melee": false,
-      "line": 1,
-      "name": "Heavy bolter",
-      "range": "36\"",
-      "skill": "4+",
-      "strength": "5"
-    },
-    {
-      "ability_keywords": [
-        "ignores cover",
-        "torrent"
-      ],
-      "armour_penetration": "-1",
-      "attacks": "D6",
-      "damage": "1",
-      "is_melee": false,
-      "line": 2,
-      "name": "Heavy flamer",
-      "range": "12\"",
-      "skill": "N/A",
-      "strength": "5"
-    },
-    {
-      "ability_keywords": [
-        "rapid fire 3"
+        "rapid fire 2"
       ],
       "armour_penetration": "0",
-      "attacks": "3",
+      "attacks": "2",
       "damage": "1",
       "is_melee": false,
-      "line": 3,
-      "name": "Heavy stubber",
-      "range": "36\"",
+      "line": 1,
+      "name": "Storm bolter",
+      "range": "24\"",
       "skill": "4+",
       "strength": "4"
-    },
-    {
-      "ability_keywords": [
-        "one shot"
-      ],
-      "armour_penetration": "-3",
-      "attacks": "1",
-      "damage": "D6",
-      "is_melee": false,
-      "line": 4,
-      "name": "Hunter-killer missile",
-      "range": "48\"",
-      "skill": "4+",
-      "strength": "14"
     },
     {
       "ability_keywords": [
@@ -307,7 +269,7 @@
       "attacks": "1",
       "damage": "D6+6",
       "is_melee": false,
-      "line": 5,
+      "line": 2,
       "name": "Macharius twin vanquisher cannon",
       "range": "72\"",
       "skill": "4+",
@@ -315,17 +277,60 @@
     },
     {
       "ability_keywords": [
-        "rapid fire 2"
+        "one shot"
+      ],
+      "armour_penetration": "-3",
+      "attacks": "1",
+      "damage": "D6",
+      "is_melee": false,
+      "line": 3,
+      "name": "Hunter-killer missile",
+      "range": "48\"",
+      "skill": "4+",
+      "strength": "14"
+    },
+    {
+      "ability_keywords": [
+        "rapid fire 3"
       ],
       "armour_penetration": "0",
-      "attacks": "2",
+      "attacks": "3",
       "damage": "1",
       "is_melee": false,
-      "line": 6,
-      "name": "Storm bolter",
-      "range": "24\"",
+      "line": 4,
+      "name": "Heavy stubber",
+      "range": "36\"",
       "skill": "4+",
       "strength": "4"
+    },
+    {
+      "ability_keywords": [
+        "ignores cover",
+        "torrent"
+      ],
+      "armour_penetration": "-1",
+      "attacks": "D6",
+      "damage": "1",
+      "is_melee": false,
+      "line": 5,
+      "name": "Heavy flamer",
+      "range": "12\"",
+      "skill": "N/A",
+      "strength": "5"
+    },
+    {
+      "ability_keywords": [
+        "sustained hits 1"
+      ],
+      "armour_penetration": "-1",
+      "attacks": "3",
+      "damage": "2",
+      "is_melee": false,
+      "line": 6,
+      "name": "Heavy bolter",
+      "range": "36\"",
+      "skill": "4+",
+      "strength": "5"
     },
     {
       "ability_keywords": [
@@ -335,9 +340,10 @@
       "armour_penetration": "0",
       "attacks": "3",
       "damage": "1",
-      "is_melee": true,
+      "is_melee": false,
       "line": 7,
       "name": "Twin heavy stubber",
+      "range": "36\"",
       "skill": "4+",
       "strength": "4"
     },

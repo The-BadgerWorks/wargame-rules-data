@@ -13,7 +13,7 @@
       "max_count": 1,
       "min_count": 1,
       "model_line": 1,
-      "model_name": "Rotigus"
+      "model_name": "Rotigus - EPIC HERO"
     }
   ],
   "costs": [
@@ -23,7 +23,7 @@
       "model_count": 1,
       "points": 280,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260818T033550Z-0c772378"
+      "source_acquisition_id": "mfm-20260916T021400Z-1b0a18bd"
     }
   ],
   "damaged_threshold": 7,
@@ -86,7 +86,8 @@
     },
     {
       "is_faction_keyword": true,
-      "keyword": "PLAGUE LEGIONS"
+      "keyword": "PLAGUE LEGIONS",
+      "keyword_class": "chapter"
     },
     {
       "is_faction_keyword": false,
@@ -122,15 +123,15 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:fd88f0ddd2279c3ff463d12cc6ed1e6fea50cf529117bf96d711704bcc08416a",
-    "last_verified_version": "wh40k-11e-2026-08-4",
+    "last_verified_version": "wh40k-11e-2026-09-1",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+    "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
+    "points_acquisition_id": "mfm-20260916T021400Z-1b0a18bd",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
@@ -145,9 +146,10 @@
       "armour_penetration": "-2",
       "attacks": "2D6",
       "damage": "1",
-      "is_melee": true,
+      "is_melee": false,
       "line": 1,
       "name": "Streams of brackish filth",
+      "range": "12\"",
       "skill": "N/A",
       "strength": "8"
     },

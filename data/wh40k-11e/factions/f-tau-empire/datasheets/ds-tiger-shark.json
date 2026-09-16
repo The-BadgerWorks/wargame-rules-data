@@ -1,6 +1,7 @@
 {
   "ability_keys": [
     "core:deadly-demise-d6-2",
+    "datasheet:one-shot",
     "datasheet:strafing-run",
     "datasheet:transport-bay",
     "faction:for-the-greater-good"
@@ -10,6 +11,7 @@
       "line": 1,
       "max_count": 1,
       "min_count": 1,
+      "model_line": 1,
       "model_name": "Tiger Shark"
     }
   ],
@@ -18,17 +20,17 @@
       "copy_index_min": 1,
       "label": "1 model",
       "model_count": 1,
-      "points": 375,
+      "points": 395,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260818T033550Z-0c772378"
+      "source_acquisition_id": "mfm-20260916T021400Z-1b0a18bd"
     },
     {
       "copy_index_min": 2,
       "label": "1 model",
       "model_count": 1,
-      "points": 425,
+      "points": 445,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260818T033550Z-0c772378"
+      "source_acquisition_id": "mfm-20260916T021400Z-1b0a18bd"
     }
   ],
   "damaged_threshold": 6,
@@ -98,6 +100,20 @@
       "is_faction_keyword": false,
       "keyword": "VEHICLE",
       "keyword_class": "unit"
+    }
+  ],
+  "models": [
+    {
+      "base_size": "(⌀160mm)",
+      "invuln_save": "5+",
+      "leadership": "7+",
+      "line": 1,
+      "movement": "-",
+      "name": "Tiger Shark",
+      "objective_control": 0,
+      "save": "3+",
+      "toughness": 11,
+      "wounds": 18
     }
   ],
   "name": "TIGER SHARK",
@@ -225,16 +241,16 @@
   ],
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
-    "last_verified_points_digest": "sha256:00f5569442aefde60e5dab196ab7f70f6e3a00aec5b933b030789dc8ebc329f0",
-    "last_verified_version": "wh40k-11e-2026-08-4",
+    "last_verified_points_digest": "sha256:029a3607e6b7354015c6e67c9918c360f2914685107925ef5460e7964fc55665",
+    "last_verified_version": "wh40k-11e-2026-09-1",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+    "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
+    "points_acquisition_id": "mfm-20260916T021400Z-1b0a18bd",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
@@ -363,9 +379,10 @@
       "armour_penetration": "-5",
       "attacks": "1",
       "damage": "D6+6",
-      "is_melee": true,
+      "is_melee": false,
       "line": 10,
       "name": "Swiftstrike railgun",
+      "range": "72\"",
       "skill": "4+",
       "strength": "20"
     },

@@ -2,6 +2,7 @@
   "ability_keys": [
     "core:deadly-demise-d6",
     "datasheet:line-breaker",
+    "datasheet:one-shot",
     "faction:blessings-of-khorne"
   ],
   "composition": [
@@ -20,10 +21,9 @@
       "model_count": 1,
       "points": 240,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0"
+      "source_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf"
     }
   ],
-  "damaged_threshold": 6,
   "datasheet_id": "ds-kratos-5",
   "default_equipment_state": "extracted",
   "equipment_groups": [
@@ -48,7 +48,7 @@
         {
           "item_index": 4,
           "item_name": "armoured tracks",
-          "weapon_line": 16
+          "weapon_line": 14
         }
       ],
       "line": 1
@@ -68,6 +68,46 @@
     },
     {
       "is_faction_keyword": false,
+      "keyword": "CHAOS",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHAOS",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHAOS",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHAOS",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "KHORNE",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "KHORNE",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "KHORNE",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "KHORNE",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
       "keyword": "KHORNE",
       "keyword_class": "unit"
     },
@@ -78,7 +118,67 @@
     },
     {
       "is_faction_keyword": false,
+      "keyword": "KRATOS",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "KRATOS",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "KRATOS",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "KRATOS",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
       "keyword": "SMOKE",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "SMOKE",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "SMOKE",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "SMOKE",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "SMOKE",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "VEHICLE",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "VEHICLE",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "VEHICLE",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "VEHICLE",
       "keyword_class": "unit"
     },
     {
@@ -132,7 +232,7 @@
     },
     {
       "count": 1,
-      "grants_weapon_line": 14,
+      "grants_weapon_line": 13,
       "group_id": "og-kratos-5-1",
       "id": "oc-kratos-5-1-2",
       "is_default": false,
@@ -143,7 +243,7 @@
           "item_index": 1,
           "item_name": "volkite cardanelle",
           "role": "granted",
-          "weapon_line": 14
+          "weapon_line": 13
         },
         {
           "item_index": 1,
@@ -303,7 +403,7 @@
     },
     {
       "count": 1,
-      "grants_weapon_line": 3,
+      "grants_weapon_line": 11,
       "group_id": "og-kratos-5-4",
       "id": "oc-kratos-5-4-2",
       "is_default": false,
@@ -314,7 +414,7 @@
           "item_index": 1,
           "item_name": "havoc launcher",
           "role": "granted",
-          "weapon_line": 3
+          "weapon_line": 11
         }
       ],
       "name": "havoc launcher"
@@ -357,7 +457,7 @@
     },
     {
       "count": 1,
-      "grants_weapon_line": 11,
+      "grants_weapon_line": 12,
       "group_id": "og-kratos-5-4",
       "id": "oc-kratos-5-4-5",
       "is_default": false,
@@ -368,14 +468,14 @@
           "item_index": 1,
           "item_name": "multi-melta",
           "role": "granted",
-          "weapon_line": 11
+          "weapon_line": 12
         }
       ],
       "name": "multi-melta"
     },
     {
       "count": 1,
-      "grants_weapon_line": 12,
+      "grants_weapon_line": 15,
       "group_id": "og-kratos-5-4",
       "id": "oc-kratos-5-4-6",
       "is_default": false,
@@ -386,7 +486,7 @@
           "item_index": 1,
           "item_name": "twin boltgun",
           "role": "granted",
-          "weapon_line": 12
+          "weapon_line": 15
         }
       ],
       "name": "twin boltgun"
@@ -438,12 +538,12 @@
     }
   ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 5,
+    "consecutive_unverified_releases": 6,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+    "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
@@ -481,15 +581,15 @@
     },
     {
       "ability_keywords": [
-        "blast"
+        "devastating wounds"
       ],
       "armour_penetration": "0",
-      "attacks": "D6",
-      "damage": "1",
+      "attacks": "2",
+      "damage": "2",
       "is_melee": false,
       "line": 3,
-      "name": "Havoc launcher",
-      "range": "48\"",
+      "name": "Volkite caliver",
+      "range": "24\"",
       "skill": "3+",
       "strength": "5"
     },
@@ -591,17 +691,55 @@
     },
     {
       "ability_keywords": [
+        "blast"
+      ],
+      "armour_penetration": "0",
+      "attacks": "D6",
+      "damage": "1",
+      "is_melee": false,
+      "line": 11,
+      "name": "Havoc launcher",
+      "range": "48\"",
+      "skill": "3+",
+      "strength": "5"
+    },
+    {
+      "ability_keywords": [
         "MELTA 2"
       ],
       "armour_penetration": "-4",
       "attacks": "2",
       "damage": "D6",
       "is_melee": false,
-      "line": 11,
+      "line": 12,
       "name": "Multi-melta",
       "range": "18\"",
       "skill": "3+",
       "strength": "9"
+    },
+    {
+      "ability_keywords": [
+        "devastating wounds"
+      ],
+      "armour_penetration": "0",
+      "attacks": "9",
+      "damage": "3",
+      "is_melee": false,
+      "line": 13,
+      "name": "Volkite cardanelle",
+      "range": "36\"",
+      "skill": "3+",
+      "strength": "9"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "6",
+      "damage": "1",
+      "is_melee": true,
+      "line": 14,
+      "name": "Armoured tracks",
+      "skill": "4+",
+      "strength": "8"
     },
     {
       "ability_keywords": [
@@ -611,7 +749,7 @@
       "attacks": "2",
       "damage": "1",
       "is_melee": false,
-      "line": 12,
+      "line": 15,
       "name": "Twin boltgun",
       "range": "24\"",
       "skill": "3+",
@@ -622,51 +760,14 @@
         "devastating wounds"
       ],
       "armour_penetration": "0",
-      "attacks": "2",
-      "damage": "2",
-      "is_melee": false,
-      "line": 13,
-      "name": "Volkite caliver",
-      "range": "24\"",
-      "skill": "3+",
-      "strength": "5"
-    },
-    {
-      "ability_keywords": [
-        "devastating wounds"
-      ],
-      "armour_penetration": "0",
-      "attacks": "9",
-      "damage": "3",
-      "is_melee": false,
-      "line": 14,
-      "name": "Volkite cardanelle",
-      "range": "36\"",
-      "skill": "3+",
-      "strength": "9"
-    },
-    {
-      "ability_keywords": [
-        "devastating wounds"
-      ],
-      "armour_penetration": "0",
       "attacks": "4",
       "damage": "2",
-      "is_melee": true,
-      "line": 15,
+      "is_melee": false,
+      "line": 16,
       "name": "Volkite culverin",
+      "range": "36\"",
       "skill": "3+",
       "strength": "6"
-    },
-    {
-      "armour_penetration": "0",
-      "attacks": "6",
-      "damage": "1",
-      "is_melee": true,
-      "line": 16,
-      "name": "Armoured tracks",
-      "skill": "4+",
-      "strength": "8"
     }
   ]
 }

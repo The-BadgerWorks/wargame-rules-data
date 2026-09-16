@@ -8,11 +8,11 @@
       "is_unique": false,
       "name": "ADVANCED ACQUISITION CADRE",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+        "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
         "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
+        "points_acquisition_id": "mfm-20260916T021400Z-1b0a18bd",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       },
@@ -31,11 +31,11 @@
       "is_unique": true,
       "name": "AUXILIARY CADRE",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+        "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
         "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
+        "points_acquisition_id": "mfm-20260916T021400Z-1b0a18bd",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       },
@@ -54,11 +54,11 @@
       "is_unique": true,
       "name": "EXPERIMENTAL PROTOTYPE CADRE",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+        "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
         "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
+        "points_acquisition_id": "mfm-20260916T021400Z-1b0a18bd",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       },
@@ -77,11 +77,11 @@
       "is_unique": false,
       "name": "KAUYON",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+        "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
         "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
+        "points_acquisition_id": "mfm-20260916T021400Z-1b0a18bd",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       },
@@ -100,11 +100,11 @@
       "is_unique": true,
       "name": "KROOT HUNTING PACK",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+        "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
         "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
+        "points_acquisition_id": "mfm-20260916T021400Z-1b0a18bd",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       },
@@ -112,6 +112,10 @@
         {
           "name": "Hunter’s Instincts",
           "summary_key": "detachment:d-kroot-hunting-pack:hunters-instincts"
+        },
+        {
+          "name": "KEYWORDS",
+          "summary_key": "detachment:d-kroot-hunting-pack:keywords"
         },
         {
           "name": "Skirmish Fighters",
@@ -127,11 +131,11 @@
       "is_unique": false,
       "name": "MONT’KA",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+        "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
         "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
+        "points_acquisition_id": "mfm-20260916T021400Z-1b0a18bd",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       },
@@ -150,11 +154,11 @@
       "is_unique": true,
       "name": "RETALIATION CADRE",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+        "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
         "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
+        "points_acquisition_id": "mfm-20260916T021400Z-1b0a18bd",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       },

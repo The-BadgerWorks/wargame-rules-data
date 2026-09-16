@@ -24,16 +24,16 @@
       "label": "5 models",
       "model_count": 5,
       "points": 60,
-      "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260818T033550Z-0c772378"
+      "pricing_confidence": "unverified",
+      "source_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf"
     },
     {
       "copy_index_min": 1,
       "label": "10 models",
       "model_count": 10,
       "points": 120,
-      "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260818T033550Z-0c772378"
+      "pricing_confidence": "unverified",
+      "source_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf"
     }
   ],
   "datasheet_id": "ds-burna-boyz",
@@ -81,7 +81,7 @@
   "is_character": false,
   "is_dedicated_transport": false,
   "is_epic_hero": false,
-  "is_legends": false,
+  "is_legends": true,
   "keywords": [
     {
       "is_faction_keyword": false,
@@ -112,7 +112,7 @@
       "wounds": 1
     }
   ],
-  "name": "BURNA BOYZ",
+  "name": "Burna Boyz",
   "option_choices": [
     {
       "count": 1,
@@ -175,19 +175,19 @@
     }
   ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 0,
+    "consecutive_unverified_releases": 1,
     "last_verified_points_digest": "sha256:7160abeea58e84e6121c8a71c817f9085255e54cb52f8660163cd4d65eb1b3d4",
     "last_verified_version": "wh40k-11e-2026-08-4",
-    "state": "verified"
+    "state": "unverified",
+    "unverified_since_version": "wh40k-11e-2026-09-1"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+    "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
     "points_edition_code": "wh40k-11e",
-    "points_source": "mfm"
+    "points_source": "none"
   },
   "wargear_option_state": "extracted",
   "weapons": [
@@ -241,9 +241,10 @@
       "armour_penetration": "-2",
       "attacks": "D3",
       "damage": "3",
-      "is_melee": true,
+      "is_melee": false,
       "line": 4,
       "name": "Rokkit launcha",
+      "range": "24\"",
       "skill": "5+",
       "strength": "9"
     },

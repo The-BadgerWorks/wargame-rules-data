@@ -23,7 +23,7 @@
       "model_count": 1,
       "points": 65,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260818T033550Z-0c772378"
+      "source_acquisition_id": "mfm-20260916T021400Z-1b0a18bd"
     }
   ],
   "datasheet_id": "ds-ancient-in-terminator-armour-6",
@@ -56,7 +56,8 @@
   "keywords": [
     {
       "is_faction_keyword": true,
-      "keyword": "ADEPTUS ASTARTES"
+      "keyword": "ADEPTUS ASTARTES",
+      "keyword_class": "faction"
     },
     {
       "is_faction_keyword": false,
@@ -88,6 +89,16 @@
       "keyword": "TERMINATOR",
       "keyword_class": "unit"
     }
+  ],
+  "leader_pairs": [
+    "ds-deathwatch-terminator-squad",
+    "ds-deathwing-command-squad",
+    "ds-deathwing-knights",
+    "ds-deathwing-terminator-squad",
+    "ds-relic-terminator-squad",
+    "ds-terminator-assault-squad-5",
+    "ds-terminator-squad",
+    "ds-terminator-squad-5"
   ],
   "models": [
     {
@@ -276,15 +287,15 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:bfdd82562214edaaf8e411cd492d5fde983b9a4d02a86f0f9a51aef986f2be9c",
-    "last_verified_version": "wh40k-11e-2026-08-4",
+    "last_verified_version": "wh40k-11e-2026-09-1",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+    "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
+    "points_acquisition_id": "mfm-20260916T021400Z-1b0a18bd",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
@@ -297,9 +308,10 @@
       "armour_penetration": "0",
       "attacks": "2",
       "damage": "1",
-      "is_melee": true,
+      "is_melee": false,
       "line": 1,
       "name": "Storm bolter",
+      "range": "24\"",
       "skill": "3+",
       "strength": "4"
     },

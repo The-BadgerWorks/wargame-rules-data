@@ -1,0 +1,152 @@
+{
+  "ability_keys": [
+    "core:leader",
+    "core:stealth",
+    "datasheet:embarking",
+    "datasheet:hero-of-the-imperium-aura",
+    "datasheet:orders",
+    "datasheet:psychic-blank",
+    "datasheet:trapped-by-excuses",
+    "datasheet:unparalleled-luck-once-per-battle-per-army",
+    "faction:voice-of-command"
+  ],
+  "composition": [
+    {
+      "line": 1,
+      "max_count": 1,
+      "min_count": 1,
+      "model_name": "Ciaphas Cain mode"
+    }
+  ],
+  "costs": [
+    {
+      "copy_index_min": 1,
+      "label": "1 model",
+      "model_count": 1,
+      "points": 70,
+      "pricing_confidence": "unverified",
+      "source_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf"
+    }
+  ],
+  "datasheet_id": "ds-ciaphas-cain",
+  "default_equipment_state": "partial",
+  "faction_id": "f-astra-militarum",
+  "is_battleline": false,
+  "is_character": true,
+  "is_dedicated_transport": false,
+  "is_epic_hero": true,
+  "is_legends": true,
+  "keywords": [
+    {
+      "is_faction_keyword": true,
+      "keyword": "ASTRA MILITARUM",
+      "keyword_class": "faction"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHARACTER",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "COMMISSAR",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "EPIC HERO",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "IMPERIUM",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "INFANTRY",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "OFFICER",
+      "keyword_class": "unit"
+    }
+  ],
+  "leader_pairs": [
+    "ds-cadian-shock-troops",
+    "ds-catachan-jungle-fighters",
+    "ds-death-korps-of-krieg",
+    "ds-kasrkin",
+    "ds-tempestus-scions"
+  ],
+  "models": [
+    {
+      "base_size": "(⌀28.5mm)",
+      "invuln_save": "5+",
+      "leadership": "6+",
+      "line": 1,
+      "movement": "6\"",
+      "name": "Commissar",
+      "objective_control": 3,
+      "save": "4+",
+      "toughness": 3,
+      "wounds": 5
+    }
+  ],
+  "name": "Ciaphas Cain",
+  "pricing_confidence": {
+    "consecutive_unverified_releases": 1,
+    "state": "unverified",
+    "unverified_since_version": "wh40k-11e-2026-09-1"
+  },
+  "provenance": {
+    "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
+    "detail_edition_code": "wh40k-11e",
+    "detail_source": "wahapedia",
+    "is_hybrid_edition": false,
+    "points_edition_code": "wh40k-11e",
+    "points_source": "none"
+  },
+  "wargear_option_state": "none",
+  "weapons": [
+    {
+      "ability_keywords": [
+        "PRECISION"
+      ],
+      "armour_penetration": "-1",
+      "attacks": "2",
+      "damage": "1",
+      "is_melee": false,
+      "line": 1,
+      "name": "Laspistols",
+      "range": "12\"",
+      "skill": "2+",
+      "strength": "3"
+    },
+    {
+      "ability_keywords": [
+        "MELTA 2"
+      ],
+      "armour_penetration": "-4",
+      "attacks": "1",
+      "damage": "D6",
+      "is_melee": false,
+      "line": 2,
+      "name": "Meltagun",
+      "range": "12\"",
+      "skill": "2+",
+      "strength": "9"
+    },
+    {
+      "armour_penetration": "-1",
+      "attacks": "6",
+      "damage": "1",
+      "is_melee": true,
+      "line": 3,
+      "name": "Chainsword and Gun But",
+      "skill": "2+",
+      "strength": "3"
+    }
+  ]
+}

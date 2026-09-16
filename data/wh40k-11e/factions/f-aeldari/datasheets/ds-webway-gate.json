@@ -2,6 +2,7 @@
   "ability_keys": [
     "core:deadly-demise-d3",
     "datasheet:arcane-cover",
+    "datasheet:deployment",
     "datasheet:fortification",
     "datasheet:webway-strike"
   ],
@@ -20,7 +21,7 @@
       "model_count": 2,
       "points": 105,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0"
+      "source_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf"
     }
   ],
   "datasheet_id": "ds-webway-gate",
@@ -53,7 +54,8 @@
     },
     {
       "is_faction_keyword": true,
-      "keyword": "ASURYANI"
+      "keyword": "ASURYANI",
+      "keyword_class": "faction"
     },
     {
       "is_faction_keyword": false,
@@ -72,30 +74,18 @@
     },
     {
       "is_faction_keyword": true,
-      "keyword": "YNNARI"
-    }
-  ],
-  "models": [
-    {
-      "base_size": "(⌀Use model)",
-      "leadership": "6+",
-      "line": 1,
-      "movement": "-",
-      "name": "Webway Gate",
-      "objective_control": 0,
-      "save": "3+",
-      "toughness": 12,
-      "wounds": 14
+      "keyword": "YNNARI",
+      "keyword_class": "chapter"
     }
   ],
   "name": "Webway Gate",
   "pricing_confidence": {
-    "consecutive_unverified_releases": 5,
+    "consecutive_unverified_releases": 6,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+    "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,

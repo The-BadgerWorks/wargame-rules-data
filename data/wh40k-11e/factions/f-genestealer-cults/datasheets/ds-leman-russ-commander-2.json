@@ -2,6 +2,8 @@
   "ability_keys": [
     "core:deadly-demise-d3",
     "datasheet:death-befitting-an-officer",
+    "datasheet:one-shot",
+    "datasheet:orders",
     "datasheet:vox-net"
   ],
   "composition": [
@@ -18,12 +20,11 @@
       "copy_index_min": 1,
       "label": "1 model",
       "model_count": 1,
-      "points": 215,
+      "points": 210,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0"
+      "source_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf"
     }
   ],
-  "damaged_threshold": 4,
   "datasheet_id": "ds-leman-russ-commander-2",
   "default_equipment_state": "extracted",
   "equipment_groups": [
@@ -34,17 +35,17 @@
         {
           "item_index": 1,
           "item_name": "lascannon",
-          "weapon_line": 11
+          "weapon_line": 6
         },
         {
           "item_index": 2,
           "item_name": "Leman Russ battle cannon",
-          "weapon_line": 12
+          "weapon_line": 10
         },
         {
           "item_index": 3,
           "item_name": "armoured tracks",
-          "weapon_line": 18
+          "weapon_line": 9
         }
       ],
       "line": 1
@@ -71,6 +72,11 @@
       "is_faction_keyword": false,
       "keyword": "FRAME",
       "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": true,
+      "keyword": "GENESTEALER CULTS",
+      "keyword_class": "faction"
     },
     {
       "is_faction_keyword": false,
@@ -120,7 +126,7 @@
   "option_choices": [
     {
       "count": 1,
-      "grants_weapon_line": 1,
+      "grants_weapon_line": 17,
       "group_id": "og-leman-russ-commander-2-1",
       "id": "oc-leman-russ-commander-2-1-1",
       "is_default": false,
@@ -131,7 +137,7 @@
           "item_index": 1,
           "item_name": "demolisher battle cannon",
           "role": "granted",
-          "weapon_line": 1
+          "weapon_line": 17
         },
         {
           "item_index": 1,
@@ -143,7 +149,7 @@
     },
     {
       "count": 1,
-      "grants_weapon_line": 2,
+      "grants_weapon_line": 18,
       "group_id": "og-leman-russ-commander-2-1",
       "id": "oc-leman-russ-commander-2-1-2",
       "is_default": false,
@@ -154,7 +160,7 @@
           "item_index": 1,
           "item_name": "eradicator nova cannon",
           "role": "granted",
-          "weapon_line": 2
+          "weapon_line": 18
         },
         {
           "item_index": 1,
@@ -187,7 +193,7 @@
     },
     {
       "count": 1,
-      "grants_weapon_line": 5,
+      "grants_weapon_line": 21,
       "group_id": "og-leman-russ-commander-2-1",
       "id": "oc-leman-russ-commander-2-1-4",
       "is_default": false,
@@ -198,7 +204,7 @@
           "item_index": 1,
           "item_name": "exterminator autocannon",
           "role": "granted",
-          "weapon_line": 5
+          "weapon_line": 21
         },
         {
           "item_index": 1,
@@ -210,7 +216,7 @@
     },
     {
       "count": 1,
-      "grants_weapon_line": 6,
+      "grants_weapon_line": 22,
       "group_id": "og-leman-russ-commander-2-1",
       "id": "oc-leman-russ-commander-2-1-5",
       "is_default": false,
@@ -221,7 +227,7 @@
           "item_index": 1,
           "item_name": "punisher gatling cannon",
           "role": "granted",
-          "weapon_line": 6
+          "weapon_line": 22
         },
         {
           "item_index": 1,
@@ -233,7 +239,7 @@
     },
     {
       "count": 1,
-      "grants_weapon_line": 17,
+      "grants_weapon_line": 23,
       "group_id": "og-leman-russ-commander-2-1",
       "id": "oc-leman-russ-commander-2-1-6",
       "is_default": false,
@@ -244,7 +250,7 @@
           "item_index": 1,
           "item_name": "vanquisher battle cannon",
           "role": "granted",
-          "weapon_line": 17
+          "weapon_line": 23
         },
         {
           "item_index": 1,
@@ -256,7 +262,7 @@
     },
     {
       "count": 1,
-      "grants_weapon_line": 7,
+      "grants_weapon_line": 14,
       "group_id": "og-leman-russ-commander-2-2",
       "id": "oc-leman-russ-commander-2-2-1",
       "is_default": false,
@@ -267,7 +273,7 @@
           "item_index": 1,
           "item_name": "heavy bolter",
           "role": "granted",
-          "weapon_line": 7
+          "weapon_line": 14
         },
         {
           "item_index": 1,
@@ -279,7 +285,7 @@
     },
     {
       "count": 1,
-      "grants_weapon_line": 8,
+      "grants_weapon_line": 13,
       "group_id": "og-leman-russ-commander-2-2",
       "id": "oc-leman-russ-commander-2-2-2",
       "is_default": false,
@@ -290,7 +296,7 @@
           "item_index": 1,
           "item_name": "heavy flamer",
           "role": "granted",
-          "weapon_line": 8
+          "weapon_line": 13
         },
         {
           "item_index": 1,
@@ -366,7 +372,7 @@
     },
     {
       "count": 1,
-      "grants_weapon_line": 9,
+      "grants_weapon_line": 12,
       "group_id": "og-leman-russ-commander-2-4",
       "id": "oc-leman-russ-commander-2-4-1",
       "is_default": false,
@@ -377,14 +383,14 @@
           "item_index": 1,
           "item_name": "heavy stubber",
           "role": "granted",
-          "weapon_line": 9
+          "weapon_line": 12
         }
       ],
       "name": "heavy stubber"
     },
     {
       "count": 1,
-      "grants_weapon_line": 16,
+      "grants_weapon_line": 7,
       "group_id": "og-leman-russ-commander-2-4",
       "id": "oc-leman-russ-commander-2-4-2",
       "is_default": false,
@@ -395,14 +401,14 @@
           "item_index": 1,
           "item_name": "storm bolter",
           "role": "granted",
-          "weapon_line": 16
+          "weapon_line": 7
         }
       ],
       "name": "storm bolter"
     },
     {
       "count": 1,
-      "grants_weapon_line": 10,
+      "grants_weapon_line": 11,
       "group_id": "og-leman-russ-commander-2-5",
       "id": "oc-leman-russ-commander-2-5-1",
       "is_default": false,
@@ -413,7 +419,7 @@
           "item_index": 1,
           "item_name": "hunter-killer missile",
           "role": "granted",
-          "weapon_line": 10
+          "weapon_line": 11
         }
       ],
       "name": "hunter-killer missile"
@@ -447,12 +453,12 @@
     }
   ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 5,
+    "consecutive_unverified_releases": 6,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+    "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
@@ -463,13 +469,133 @@
   "weapons": [
     {
       "ability_keywords": [
+        "melta 2"
+      ],
+      "armour_penetration": "-4",
+      "attacks": "2",
+      "damage": "D6",
+      "is_melee": false,
+      "line": 5,
+      "name": "Multi-melta",
+      "range": "18\"",
+      "skill": "4+",
+      "strength": "9"
+    },
+    {
+      "armour_penetration": "-3",
+      "attacks": "1",
+      "damage": "D6+1",
+      "is_melee": false,
+      "line": 6,
+      "name": "Lascannon",
+      "range": "48\"",
+      "skill": "4+",
+      "strength": "12"
+    },
+    {
+      "ability_keywords": [
+        "rapid fire 2"
+      ],
+      "armour_penetration": "0",
+      "attacks": "2",
+      "damage": "1",
+      "is_melee": false,
+      "line": 7,
+      "name": "Storm bolter",
+      "range": "24\"",
+      "skill": "4+",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "6",
+      "damage": "1",
+      "is_melee": true,
+      "line": 9,
+      "name": "Armoured tracks",
+      "skill": "4+",
+      "strength": "7"
+    },
+    {
+      "ability_keywords": [
+        "blast"
+      ],
+      "armour_penetration": "-1",
+      "attacks": "D6+3",
+      "damage": "3",
+      "is_melee": false,
+      "line": 10,
+      "name": "Leman Russ battle cannon",
+      "range": "48\"",
+      "skill": "4+",
+      "strength": "10"
+    },
+    {
+      "ability_keywords": [
+        "one shot"
+      ],
+      "armour_penetration": "-3",
+      "attacks": "1",
+      "damage": "D6",
+      "is_melee": false,
+      "line": 11,
+      "name": "Hunter-killer missile",
+      "range": "48\"",
+      "skill": "4+",
+      "strength": "14"
+    },
+    {
+      "ability_keywords": [
+        "rapid fire 3"
+      ],
+      "armour_penetration": "0",
+      "attacks": "3",
+      "damage": "1",
+      "is_melee": false,
+      "line": 12,
+      "name": "Heavy stubber",
+      "range": "36\"",
+      "skill": "4+",
+      "strength": "4"
+    },
+    {
+      "ability_keywords": [
+        "ignores cover",
+        "torrent"
+      ],
+      "armour_penetration": "-1",
+      "attacks": "D6",
+      "damage": "1",
+      "is_melee": false,
+      "line": 13,
+      "name": "Heavy flamer",
+      "range": "12\"",
+      "skill": "N/A",
+      "strength": "5"
+    },
+    {
+      "ability_keywords": [
+        "sustained hits 1"
+      ],
+      "armour_penetration": "-1",
+      "attacks": "3",
+      "damage": "2",
+      "is_melee": false,
+      "line": 14,
+      "name": "Heavy bolter",
+      "range": "36\"",
+      "skill": "4+",
+      "strength": "5"
+    },
+    {
+      "ability_keywords": [
         "blast"
       ],
       "armour_penetration": "-3",
       "attacks": "D6+1",
       "damage": "D6",
       "is_melee": false,
-      "line": 1,
+      "line": 17,
       "name": "Demolisher battle cannon",
       "range": "24\"",
       "skill": "4+",
@@ -484,7 +610,7 @@
       "attacks": "D3+6",
       "damage": "2",
       "is_melee": false,
-      "line": 2,
+      "line": 18,
       "name": "Eradicator nova cannon",
       "range": "36\"",
       "skill": "4+",
@@ -498,7 +624,7 @@
       "attacks": "D6+3",
       "damage": "2",
       "is_melee": false,
-      "line": 3,
+      "line": 19,
       "name": "Executioner plasma cannon – standard",
       "range": "36\"",
       "skill": "4+",
@@ -513,7 +639,7 @@
       "attacks": "D6+3",
       "damage": "3",
       "is_melee": false,
-      "line": 4,
+      "line": 20,
       "name": "Executioner plasma cannon – supercharge",
       "range": "36\"",
       "skill": "4+",
@@ -528,7 +654,7 @@
       "attacks": "4",
       "damage": "3",
       "is_melee": false,
-      "line": 5,
+      "line": 21,
       "name": "Exterminator autocannon",
       "range": "48\"",
       "skill": "4+",
@@ -539,150 +665,11 @@
       "attacks": "20",
       "damage": "1",
       "is_melee": false,
-      "line": 6,
+      "line": 22,
       "name": "Punisher gatling cannon",
       "range": "24\"",
       "skill": "4+",
       "strength": "6"
-    },
-    {
-      "ability_keywords": [
-        "sustained hits 1"
-      ],
-      "armour_penetration": "-1",
-      "attacks": "3",
-      "damage": "2",
-      "is_melee": false,
-      "line": 7,
-      "name": "Heavy bolter",
-      "range": "36\"",
-      "skill": "4+",
-      "strength": "5"
-    },
-    {
-      "ability_keywords": [
-        "ignores cover",
-        "torrent"
-      ],
-      "armour_penetration": "-1",
-      "attacks": "D6",
-      "damage": "1",
-      "is_melee": false,
-      "line": 8,
-      "name": "Heavy flamer",
-      "range": "12\"",
-      "skill": "N/A",
-      "strength": "5"
-    },
-    {
-      "ability_keywords": [
-        "rapid fire 3"
-      ],
-      "armour_penetration": "0",
-      "attacks": "3",
-      "damage": "1",
-      "is_melee": false,
-      "line": 9,
-      "name": "Heavy stubber",
-      "range": "36\"",
-      "skill": "4+",
-      "strength": "4"
-    },
-    {
-      "ability_keywords": [
-        "one shot"
-      ],
-      "armour_penetration": "-3",
-      "attacks": "1",
-      "damage": "D6",
-      "is_melee": false,
-      "line": 10,
-      "name": "Hunter-killer missile",
-      "range": "48\"",
-      "skill": "4+",
-      "strength": "14"
-    },
-    {
-      "armour_penetration": "-3",
-      "attacks": "1",
-      "damage": "D6+1",
-      "is_melee": false,
-      "line": 11,
-      "name": "Lascannon",
-      "range": "48\"",
-      "skill": "4+",
-      "strength": "12"
-    },
-    {
-      "ability_keywords": [
-        "blast"
-      ],
-      "armour_penetration": "-1",
-      "attacks": "D6+3",
-      "damage": "3",
-      "is_melee": false,
-      "line": 12,
-      "name": "Leman Russ battle cannon",
-      "range": "48\"",
-      "skill": "4+",
-      "strength": "10"
-    },
-    {
-      "ability_keywords": [
-        "melta 2"
-      ],
-      "armour_penetration": "-4",
-      "attacks": "2",
-      "damage": "D6",
-      "is_melee": false,
-      "line": 13,
-      "name": "Multi-melta",
-      "range": "18\"",
-      "skill": "4+",
-      "strength": "9"
-    },
-    {
-      "ability_keywords": [
-        "blast"
-      ],
-      "armour_penetration": "-2",
-      "attacks": "D3",
-      "damage": "1",
-      "is_melee": false,
-      "line": 14,
-      "name": "Plasma cannon – standard",
-      "range": "36\"",
-      "skill": "4+",
-      "strength": "7"
-    },
-    {
-      "ability_keywords": [
-        "blast",
-        "hazardous"
-      ],
-      "armour_penetration": "-3",
-      "attacks": "D3",
-      "damage": "2",
-      "is_melee": false,
-      "line": 15,
-      "name": "Plasma cannon – supercharge",
-      "range": "36\"",
-      "skill": "4+",
-      "strength": "8"
-    },
-    {
-      "ability_keywords": [
-        "rapid fire 2"
-      ],
-      "armour_penetration": "0",
-      "attacks": "2",
-      "damage": "1",
-      "is_melee": false,
-      "line": 16,
-      "name": "Storm bolter",
-      "range": "24\"",
-      "skill": "4+",
-      "strength": "4"
     },
     {
       "ability_keywords": [
@@ -691,21 +678,12 @@
       "armour_penetration": "-4",
       "attacks": "1",
       "damage": "D6+6",
-      "is_melee": true,
-      "line": 17,
+      "is_melee": false,
+      "line": 23,
       "name": "Vanquisher battle cannon",
+      "range": "72\"",
       "skill": "4+",
       "strength": "18"
-    },
-    {
-      "armour_penetration": "0",
-      "attacks": "6",
-      "damage": "1",
-      "is_melee": true,
-      "line": 18,
-      "name": "Armoured tracks",
-      "skill": "4+",
-      "strength": "7"
     }
   ]
 }

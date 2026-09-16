@@ -21,7 +21,7 @@
       "model_count": 1,
       "points": 80,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260818T033550Z-0c772378"
+      "source_acquisition_id": "mfm-20260916T021400Z-1b0a18bd"
     }
   ],
   "datasheet_id": "ds-blood-angels-captain",
@@ -54,7 +54,8 @@
   "keywords": [
     {
       "is_faction_keyword": true,
-      "keyword": "ADEPTUS ASTARTES"
+      "keyword": "ADEPTUS ASTARTES",
+      "keyword_class": "faction"
     },
     {
       "is_faction_keyword": true,
@@ -110,7 +111,7 @@
       "leadership": "6+",
       "line": 1,
       "movement": "6\"",
-      "name": "Blood Angels Captain",
+      "name": "Captain",
       "objective_control": 1,
       "save": "3+",
       "toughness": 4,
@@ -204,15 +205,15 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:1d28e8ecc53fabf8370677d1207b796a090869ddce53671a84a15b7879bb6f71",
-    "last_verified_version": "wh40k-11e-2026-08-4",
+    "last_verified_version": "wh40k-11e-2026-09-1",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+    "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
+    "points_acquisition_id": "mfm-20260916T021400Z-1b0a18bd",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
@@ -240,9 +241,10 @@
       "armour_penetration": "-4",
       "attacks": "1",
       "damage": "D3",
-      "is_melee": true,
+      "is_melee": false,
       "line": 2,
       "name": "Inferno pistol",
+      "range": "6\"",
       "skill": "2+",
       "strength": "8"
     },

@@ -20,7 +20,7 @@
       "model_count": 1,
       "points": 165,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0"
+      "source_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf"
     }
   ],
   "datasheet_id": "ds-venerable-dreadnought-3",
@@ -63,7 +63,8 @@
   "keywords": [
     {
       "is_faction_keyword": true,
-      "keyword": "ADEPTUS ASTARTES"
+      "keyword": "ADEPTUS ASTARTES",
+      "keyword_class": "faction"
     },
     {
       "is_faction_keyword": false,
@@ -380,12 +381,12 @@
     }
   ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 4,
+    "consecutive_unverified_releases": 5,
     "state": "unverified",
     "unverified_since_version": "wh40k-11e-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+    "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
@@ -572,9 +573,10 @@
       "armour_penetration": "-3",
       "attacks": "1",
       "damage": "D6+1",
-      "is_melee": true,
+      "is_melee": false,
       "line": 13,
       "name": "Twin lascannon",
+      "range": "48\"",
       "skill": "3+",
       "strength": "12"
     },

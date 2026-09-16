@@ -24,17 +24,17 @@
       "copy_index_min": 1,
       "label": "10 models",
       "model_count": 10,
-      "points": 170,
+      "points": 160,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0"
+      "source_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf"
     },
     {
       "copy_index_min": 1,
       "label": "20 models",
       "model_count": 20,
-      "points": 330,
+      "points": 320,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0"
+      "source_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf"
     }
   ],
   "datasheet_id": "ds-khorne-berzerkers-2",
@@ -47,12 +47,12 @@
         {
           "item_index": 1,
           "item_name": "bolt pistol",
-          "weapon_line": 1
+          "weapon_line": 4
         },
         {
           "item_index": 2,
           "item_name": "chainblade",
-          "weapon_line": 4
+          "weapon_line": 1
         }
       ],
       "line": 1
@@ -87,7 +87,8 @@
     },
     {
       "is_faction_keyword": true,
-      "keyword": "HERETIC ASTARTES"
+      "keyword": "HERETIC ASTARTES",
+      "keyword_class": "faction"
     },
     {
       "is_faction_keyword": false,
@@ -227,12 +228,12 @@
     }
   ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 5,
+    "consecutive_unverified_releases": 6,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+    "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
@@ -242,31 +243,14 @@
   "wargear_option_state": "extracted",
   "weapons": [
     {
-      "ability_keywords": [
-        "pistol"
-      ],
-      "armour_penetration": "0",
-      "attacks": "1",
-      "damage": "1",
-      "is_melee": false,
-      "line": 1,
-      "name": "Bolt pistol",
-      "range": "12\"",
-      "skill": "4+",
-      "strength": "4"
-    },
-    {
-      "ability_keywords": [
-        "pistol"
-      ],
-      "armour_penetration": "-2",
-      "attacks": "1",
+      "armour_penetration": "-1",
+      "attacks": "4",
       "damage": "1",
       "is_melee": true,
-      "line": 2,
-      "name": "Plasma pistol – standard",
-      "skill": "4+",
-      "strength": "7"
+      "line": 1,
+      "name": "Chainblade",
+      "skill": "3+",
+      "strength": "4"
     },
     {
       "ability_keywords": [
@@ -276,20 +260,39 @@
       "armour_penetration": "-3",
       "attacks": "1",
       "damage": "2",
-      "is_melee": true,
-      "line": 3,
+      "is_melee": false,
+      "line": 2,
       "name": "Plasma pistol – supercharge",
+      "range": "12\"",
       "skill": "4+",
       "strength": "8"
     },
     {
-      "armour_penetration": "-1",
-      "attacks": "4",
+      "ability_keywords": [
+        "pistol"
+      ],
+      "armour_penetration": "-2",
+      "attacks": "1",
       "damage": "1",
-      "is_melee": true,
+      "is_melee": false,
+      "line": 3,
+      "name": "Plasma pistol – standard",
+      "range": "12\"",
+      "skill": "4+",
+      "strength": "7"
+    },
+    {
+      "ability_keywords": [
+        "pistol"
+      ],
+      "armour_penetration": "0",
+      "attacks": "1",
+      "damage": "1",
+      "is_melee": false,
       "line": 4,
-      "name": "Chainblade",
-      "skill": "3+",
+      "name": "Bolt pistol",
+      "range": "12\"",
+      "skill": "4+",
       "strength": "4"
     },
     {

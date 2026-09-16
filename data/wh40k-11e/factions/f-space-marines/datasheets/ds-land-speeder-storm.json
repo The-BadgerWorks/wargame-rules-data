@@ -21,7 +21,7 @@
       "model_count": 1,
       "points": 70,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0"
+      "source_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf"
     }
   ],
   "datasheet_id": "ds-land-speeder-storm",
@@ -59,7 +59,8 @@
   "keywords": [
     {
       "is_faction_keyword": true,
-      "keyword": "ADEPTUS ASTARTES"
+      "keyword": "ADEPTUS ASTARTES",
+      "keyword_class": "faction"
     },
     {
       "is_faction_keyword": false,
@@ -69,11 +70,6 @@
     {
       "is_faction_keyword": false,
       "keyword": "FLY",
-      "keyword_class": "unit"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "FRAME",
       "keyword_class": "unit"
     },
     {
@@ -117,12 +113,12 @@
   ],
   "name": "Land Speeder Storm",
   "pricing_confidence": {
-    "consecutive_unverified_releases": 5,
+    "consecutive_unverified_releases": 6,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+    "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
@@ -152,9 +148,10 @@
       "armour_penetration": "-1",
       "attacks": "3",
       "damage": "2",
-      "is_melee": true,
+      "is_melee": false,
       "line": 2,
       "name": "Heavy bolter",
+      "range": "36\"",
       "skill": "3+",
       "strength": "5"
     },

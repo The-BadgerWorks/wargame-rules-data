@@ -21,7 +21,7 @@
       "model_count": 1,
       "points": 65,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0"
+      "source_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf"
     }
   ],
   "datasheet_id": "ds-renegade-enforcer",
@@ -34,12 +34,12 @@
         {
           "item_index": 1,
           "item_name": "Enforcer pistol",
-          "weapon_line": 2
+          "weapon_line": 7
         },
         {
           "item_index": 2,
           "item_name": "Enforcer melee weapon",
-          "weapon_line": 5
+          "weapon_line": 2
         }
       ],
       "line": 1
@@ -59,7 +59,82 @@
     },
     {
       "is_faction_keyword": false,
+      "keyword": "CHAOS",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHAOS",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHAOS",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHAOS",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHAOS",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
       "keyword": "CHARACTER",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHARACTER",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHARACTER",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHARACTER",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHARACTER",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHARACTER",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "DAMNED",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "DAMNED",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "DAMNED",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "DAMNED",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "DAMNED",
       "keyword_class": "unit"
     },
     {
@@ -73,12 +148,93 @@
       "keyword_class": "unit"
     },
     {
+      "is_faction_keyword": false,
+      "keyword": "GRENADES",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "GRENADES",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "GRENADES",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "GRENADES",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "GRENADES",
+      "keyword_class": "unit"
+    },
+    {
       "is_faction_keyword": true,
-      "keyword": "HERETIC ASTARTES"
+      "keyword": "HERETIC ASTARTES",
+      "keyword_class": "faction"
     },
     {
       "is_faction_keyword": false,
       "keyword": "INFANTRY",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "INFANTRY",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "INFANTRY",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "INFANTRY",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "INFANTRY",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "INFANTRY",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": true,
+      "keyword": "LEGIONES DAEMONICA",
+      "keyword_class": "faction"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "RENEGADE ENFORCER",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "RENEGADE ENFORCER",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "RENEGADE ENFORCER",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "RENEGADE ENFORCER",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "RENEGADE ENFORCER",
       "keyword_class": "unit"
     },
     {
@@ -89,6 +245,56 @@
     {
       "is_faction_keyword": false,
       "keyword": "SHADOW LEGION",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "SHADOW LEGION",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "SHADOW LEGION",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "SHADOW LEGION",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "SHADOW LEGION",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "SHADOW LEGION",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "UNDIVIDED",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "UNDIVIDED",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "UNDIVIDED",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "UNDIVIDED",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "UNDIVIDED",
       "keyword_class": "unit"
     },
     {
@@ -119,7 +325,7 @@
   "option_choices": [
     {
       "count": 1,
-      "grants_weapon_line": 1,
+      "grants_weapon_line": 6,
       "group_id": "og-renegade-enforcer-1",
       "id": "oc-renegade-enforcer-1-1",
       "is_default": false,
@@ -130,7 +336,7 @@
           "item_index": 1,
           "item_name": "autogun",
           "role": "granted",
-          "weapon_line": 1
+          "weapon_line": 6
         },
         {
           "item_index": 1,
@@ -142,7 +348,7 @@
     },
     {
       "count": 1,
-      "grants_weapon_line": 3,
+      "grants_weapon_line": 5,
       "group_id": "og-renegade-enforcer-1",
       "id": "oc-renegade-enforcer-1-2",
       "is_default": false,
@@ -153,7 +359,7 @@
           "item_index": 1,
           "item_name": "lasgun",
           "role": "granted",
-          "weapon_line": 3
+          "weapon_line": 5
         },
         {
           "item_index": 1,
@@ -165,7 +371,7 @@
     },
     {
       "count": 1,
-      "grants_weapon_line": 4,
+      "grants_weapon_line": 1,
       "group_id": "og-renegade-enforcer-1",
       "id": "oc-renegade-enforcer-1-3",
       "is_default": false,
@@ -176,7 +382,7 @@
           "item_index": 1,
           "item_name": "shotgun",
           "role": "granted",
-          "weapon_line": 4
+          "weapon_line": 1
         },
         {
           "item_index": 1,
@@ -188,7 +394,7 @@
     },
     {
       "count": 1,
-      "grants_weapon_line": 6,
+      "grants_weapon_line": 4,
       "group_id": "og-renegade-enforcer-2",
       "id": "oc-renegade-enforcer-2-1",
       "is_default": false,
@@ -199,7 +405,7 @@
           "item_index": 1,
           "item_name": "power fist",
           "role": "granted",
-          "weapon_line": 6
+          "weapon_line": 4
         },
         {
           "item_index": 1,
@@ -211,7 +417,7 @@
     },
     {
       "count": 1,
-      "grants_weapon_line": 7,
+      "grants_weapon_line": 3,
       "group_id": "og-renegade-enforcer-2",
       "id": "oc-renegade-enforcer-2-2",
       "is_default": false,
@@ -222,7 +428,7 @@
           "item_index": 1,
           "item_name": "power weapon",
           "role": "granted",
-          "weapon_line": 7
+          "weapon_line": 3
         },
         {
           "item_index": 1,
@@ -246,12 +452,12 @@
     }
   ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 5,
+    "consecutive_unverified_releases": 6,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+    "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
@@ -262,13 +468,71 @@
   "weapons": [
     {
       "ability_keywords": [
+        "assault"
+      ],
+      "armour_penetration": "0",
+      "attacks": "2",
+      "damage": "1",
+      "is_melee": false,
+      "line": 1,
+      "name": "Shotgun",
+      "range": "12\"",
+      "skill": "3+",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "4",
+      "damage": "1",
+      "is_melee": true,
+      "line": 2,
+      "name": "Enforcer melee weapon",
+      "skill": "3+",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "3",
+      "damage": "1",
+      "is_melee": true,
+      "line": 3,
+      "name": "Power weapon",
+      "skill": "3+",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "3",
+      "damage": "2",
+      "is_melee": true,
+      "line": 4,
+      "name": "Power fist",
+      "skill": "3+",
+      "strength": "6"
+    },
+    {
+      "ability_keywords": [
         "rapid fire 1"
       ],
       "armour_penetration": "0",
       "attacks": "1",
       "damage": "1",
       "is_melee": false,
-      "line": 1,
+      "line": 5,
+      "name": "Lasgun",
+      "range": "24\"",
+      "skill": "3+",
+      "strength": "3"
+    },
+    {
+      "ability_keywords": [
+        "rapid fire 1"
+      ],
+      "armour_penetration": "0",
+      "attacks": "1",
+      "damage": "1",
+      "is_melee": false,
+      "line": 6,
       "name": "Autogun",
       "range": "24\"",
       "skill": "3+",
@@ -282,66 +546,9 @@
       "attacks": "1",
       "damage": "1",
       "is_melee": false,
-      "line": 2,
+      "line": 7,
       "name": "Enforcer pistol",
       "range": "12\"",
-      "skill": "3+",
-      "strength": "4"
-    },
-    {
-      "ability_keywords": [
-        "rapid fire 1"
-      ],
-      "armour_penetration": "0",
-      "attacks": "1",
-      "damage": "1",
-      "is_melee": false,
-      "line": 3,
-      "name": "Lasgun",
-      "range": "24\"",
-      "skill": "3+",
-      "strength": "3"
-    },
-    {
-      "ability_keywords": [
-        "assault"
-      ],
-      "armour_penetration": "0",
-      "attacks": "2",
-      "damage": "1",
-      "is_melee": true,
-      "line": 4,
-      "name": "Shotgun",
-      "skill": "3+",
-      "strength": "4"
-    },
-    {
-      "armour_penetration": "0",
-      "attacks": "4",
-      "damage": "1",
-      "is_melee": true,
-      "line": 5,
-      "name": "Enforcer melee weapon",
-      "skill": "3+",
-      "strength": "4"
-    },
-    {
-      "armour_penetration": "-2",
-      "attacks": "3",
-      "damage": "2",
-      "is_melee": true,
-      "line": 6,
-      "name": "Power fist",
-      "skill": "3+",
-      "strength": "6"
-    },
-    {
-      "armour_penetration": "-2",
-      "attacks": "3",
-      "damage": "1",
-      "is_melee": true,
-      "line": 7,
-      "name": "Power weapon",
       "skill": "3+",
       "strength": "4"
     }

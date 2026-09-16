@@ -25,7 +25,7 @@
       "model_count": 10,
       "points": 60,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0"
+      "source_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf"
     }
   ],
   "datasheet_id": "ds-fellgor-beastmen-3",
@@ -39,12 +39,12 @@
         {
           "item_index": 1,
           "item_name": "bolt pistol",
-          "weapon_line": 2
+          "weapon_line": 6
         },
         {
           "item_index": 2,
           "item_name": "chainsword",
-          "weapon_line": 6
+          "weapon_line": 3
         }
       ],
       "line": 1,
@@ -57,12 +57,12 @@
         {
           "item_index": 1,
           "item_name": "autopistol",
-          "weapon_line": 1
+          "weapon_line": 8
         },
         {
           "item_index": 2,
           "item_name": "close combat weapon",
-          "weapon_line": 7
+          "weapon_line": 2
         }
       ],
       "line": 2,
@@ -82,6 +82,11 @@
       "keyword_class": "unit"
     },
     {
+      "is_faction_keyword": true,
+      "keyword": "CHAOS KNIGHTS",
+      "keyword_class": "faction"
+    },
+    {
       "is_faction_keyword": false,
       "keyword": "DAMNED",
       "keyword_class": "unit"
@@ -98,7 +103,8 @@
     },
     {
       "is_faction_keyword": true,
-      "keyword": "HERETIC ASTARTES"
+      "keyword": "HERETIC ASTARTES",
+      "keyword_class": "faction"
     },
     {
       "is_faction_keyword": false,
@@ -205,12 +211,12 @@
     }
   ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 5,
+    "consecutive_unverified_releases": 6,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+    "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
@@ -221,31 +227,51 @@
   "weapons": [
     {
       "ability_keywords": [
-        "pistol"
+        "devastating wounds",
+        "psychic"
       ],
-      "armour_penetration": "0",
-      "attacks": "1",
-      "damage": "1",
-      "is_melee": false,
+      "armour_penetration": "-1",
+      "attacks": "2",
+      "damage": "D3",
+      "is_melee": true,
       "line": 1,
-      "name": "Autopistol",
-      "range": "12\"",
+      "name": "Corrupted stave",
       "skill": "4+",
-      "strength": "3"
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "2",
+      "damage": "1",
+      "is_melee": true,
+      "line": 2,
+      "name": "Close combat weapon",
+      "skill": "4+",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "3",
+      "damage": "1",
+      "is_melee": true,
+      "line": 3,
+      "name": "Chainsword",
+      "skill": "4+",
+      "strength": "4"
     },
     {
       "ability_keywords": [
         "pistol"
       ],
-      "armour_penetration": "0",
+      "armour_penetration": "-2",
       "attacks": "1",
       "damage": "1",
       "is_melee": false,
-      "line": 2,
-      "name": "Bolt pistol",
+      "line": 4,
+      "name": "Plasma pistol – standard",
       "range": "12\"",
       "skill": "4+",
-      "strength": "4"
+      "strength": "7"
     },
     {
       "ability_keywords": [
@@ -256,7 +282,7 @@
       "attacks": "D3",
       "damage": "1",
       "is_melee": false,
-      "line": 3,
+      "line": 5,
       "name": "Corrupted stave",
       "range": "18\"",
       "skill": "4+",
@@ -266,14 +292,15 @@
       "ability_keywords": [
         "pistol"
       ],
-      "armour_penetration": "-2",
+      "armour_penetration": "0",
       "attacks": "1",
       "damage": "1",
-      "is_melee": true,
-      "line": 4,
-      "name": "Plasma pistol – standard",
+      "is_melee": false,
+      "line": 6,
+      "name": "Bolt pistol",
+      "range": "12\"",
       "skill": "4+",
-      "strength": "7"
+      "strength": "4"
     },
     {
       "ability_keywords": [
@@ -283,45 +310,26 @@
       "armour_penetration": "-3",
       "attacks": "1",
       "damage": "2",
-      "is_melee": true,
-      "line": 5,
+      "is_melee": false,
+      "line": 7,
       "name": "Plasma pistol – supercharge",
+      "range": "12\"",
       "skill": "4+",
       "strength": "8"
     },
     {
-      "armour_penetration": "0",
-      "attacks": "3",
-      "damage": "1",
-      "is_melee": true,
-      "line": 6,
-      "name": "Chainsword",
-      "skill": "4+",
-      "strength": "4"
-    },
-    {
-      "armour_penetration": "0",
-      "attacks": "2",
-      "damage": "1",
-      "is_melee": true,
-      "line": 7,
-      "name": "Close combat weapon",
-      "skill": "4+",
-      "strength": "4"
-    },
-    {
       "ability_keywords": [
-        "devastating wounds",
-        "psychic"
+        "pistol"
       ],
-      "armour_penetration": "-1",
-      "attacks": "2",
-      "damage": "D3",
-      "is_melee": true,
+      "armour_penetration": "0",
+      "attacks": "1",
+      "damage": "1",
+      "is_melee": false,
       "line": 8,
-      "name": "Corrupted stave",
+      "name": "Autopistol",
+      "range": "12\"",
       "skill": "4+",
-      "strength": "4"
+      "strength": "3"
     },
     {
       "armour_penetration": "-1",

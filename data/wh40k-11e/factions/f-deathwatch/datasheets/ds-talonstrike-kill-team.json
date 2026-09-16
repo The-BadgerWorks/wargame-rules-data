@@ -1,6 +1,7 @@
 {
   "ability_keys": [
     "core:deep-strike",
+    "datasheet:attached-unit",
     "datasheet:talonstrike-doctrines",
     "faction:mission-tactics",
     "faction:oath-of-moment"
@@ -33,7 +34,7 @@
       "model_count": 10,
       "points": 265,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260818T033550Z-0c772378"
+      "source_acquisition_id": "mfm-20260916T021400Z-1b0a18bd"
     },
     {
       "copy_index_min": 3,
@@ -41,7 +42,7 @@
       "model_count": 10,
       "points": 280,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260818T033550Z-0c772378"
+      "source_acquisition_id": "mfm-20260916T021400Z-1b0a18bd"
     }
   ],
   "datasheet_id": "ds-talonstrike-kill-team",
@@ -55,7 +56,8 @@
   "keywords": [
     {
       "is_faction_keyword": true,
-      "keyword": "ADEPTUS ASTARTES"
+      "keyword": "ADEPTUS ASTARTES",
+      "keyword_class": "faction"
     },
     {
       "is_faction_keyword": true,
@@ -296,15 +298,15 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:e518019abd8d385fae84e048a51335ca8884ce1c2a3639ff1de88f4a848b7f22",
-    "last_verified_version": "wh40k-11e-2026-08-4",
+    "last_verified_version": "wh40k-11e-2026-09-1",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+    "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
+    "points_acquisition_id": "mfm-20260916T021400Z-1b0a18bd",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
@@ -397,9 +399,10 @@
       "armour_penetration": "-2",
       "attacks": "1",
       "damage": "1",
-      "is_melee": true,
+      "is_melee": false,
       "line": 6,
       "name": "Plasma pistol - standard",
+      "range": "12\"",
       "skill": "3+",
       "strength": "7"
     },
@@ -411,9 +414,10 @@
       "armour_penetration": "-3",
       "attacks": "1",
       "damage": "2",
-      "is_melee": true,
+      "is_melee": false,
       "line": 7,
       "name": "Plasma pistol - supercharge",
+      "range": "12\"",
       "skill": "3+",
       "strength": "8"
     },

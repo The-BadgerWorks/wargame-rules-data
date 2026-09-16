@@ -8,14 +8,20 @@
       "is_unique": false,
       "name": "ARGENT ASSAULT",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+        "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
         "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
+        "points_acquisition_id": "mfm-20260916T021400Z-1b0a18bd",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
-      }
+      },
+      "rules": [
+        {
+          "name": "Dauntless Champions",
+          "summary_key": "detachment:d-argent-assault:dauntless-champions"
+        }
+      ]
     },
     {
       "detachment_id": "d-augurium-task-force",
@@ -25,11 +31,11 @@
       "is_unique": false,
       "name": "AUGURIUM TASK FORCE",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+        "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
         "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
+        "points_acquisition_id": "mfm-20260916T021400Z-1b0a18bd",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       },
@@ -48,11 +54,11 @@
       "is_unique": false,
       "name": "BANISHERS",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+        "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
         "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
+        "points_acquisition_id": "mfm-20260916T021400Z-1b0a18bd",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       },
@@ -71,11 +77,11 @@
       "is_unique": false,
       "name": "BROTHERHOOD STRIKE",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+        "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
         "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
+        "points_acquisition_id": "mfm-20260916T021400Z-1b0a18bd",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       },
@@ -94,14 +100,20 @@
       "is_unique": false,
       "name": "FIRES OF PURGATION",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+        "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
         "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
+        "points_acquisition_id": "mfm-20260916T021400Z-1b0a18bd",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
-      }
+      },
+      "rules": [
+        {
+          "name": "Searing Soulflame",
+          "summary_key": "detachment:d-fires-of-purgation:searing-soulflame"
+        }
+      ]
     },
     {
       "detachment_id": "d-hallowed-conclave",
@@ -111,11 +123,11 @@
       "is_unique": false,
       "name": "HALLOWED CONCLAVE",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+        "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
         "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
+        "points_acquisition_id": "mfm-20260916T021400Z-1b0a18bd",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       },
@@ -134,14 +146,20 @@
       "is_unique": false,
       "name": "IMMATERIAL INTERDICTION",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+        "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
         "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
+        "points_acquisition_id": "mfm-20260916T021400Z-1b0a18bd",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
-      }
+      },
+      "rules": [
+        {
+          "name": "Echojump",
+          "summary_key": "detachment:d-immaterial-interdiction:echojump"
+        }
+      ]
     },
     {
       "detachment_id": "d-sanctic-spearhead",
@@ -151,11 +169,11 @@
       "is_unique": false,
       "name": "SANCTIC SPEARHEAD",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+        "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
         "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
+        "points_acquisition_id": "mfm-20260916T021400Z-1b0a18bd",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       },
@@ -174,11 +192,11 @@
       "is_unique": false,
       "name": "WARPBANE TASK FORCE",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+        "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
         "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
+        "points_acquisition_id": "mfm-20260916T021400Z-1b0a18bd",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       },

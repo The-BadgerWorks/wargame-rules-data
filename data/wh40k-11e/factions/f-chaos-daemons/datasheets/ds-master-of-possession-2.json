@@ -21,7 +21,7 @@
       "model_count": 1,
       "points": 60,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0"
+      "source_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf"
     }
   ],
   "datasheet_id": "ds-master-of-possession-2",
@@ -34,7 +34,7 @@
         {
           "item_index": 1,
           "item_name": "bolt pistol",
-          "weapon_line": 1
+          "weapon_line": 4
         },
         {
           "item_index": 2,
@@ -43,7 +43,7 @@
         {
           "item_index": 3,
           "item_name": "staff of possession",
-          "weapon_line": 4
+          "weapon_line": 3
         }
       ],
       "line": 1
@@ -63,16 +63,102 @@
     },
     {
       "is_faction_keyword": false,
+      "keyword": "CHAOS",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHAOS",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHAOS",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHAOS",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHARACTER",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHARACTER",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHARACTER",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHARACTER",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
       "keyword": "CHARACTER",
       "keyword_class": "unit"
     },
     {
       "is_faction_keyword": true,
-      "keyword": "HERETIC ASTARTES"
+      "keyword": "HERETIC ASTARTES",
+      "keyword_class": "faction"
     },
     {
       "is_faction_keyword": false,
       "keyword": "INFANTRY",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "INFANTRY",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "INFANTRY",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "INFANTRY",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "INFANTRY",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": true,
+      "keyword": "LEGIONES DAEMONICA",
+      "keyword_class": "faction"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "MASTER OF POSSESSION",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "MASTER OF POSSESSION",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "MASTER OF POSSESSION",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "MASTER OF POSSESSION",
       "keyword_class": "unit"
     },
     {
@@ -87,7 +173,67 @@
     },
     {
       "is_faction_keyword": false,
+      "keyword": "PSYKER",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "PSYKER",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "PSYKER",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "PSYKER",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
       "keyword": "SHADOW LEGION",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "SHADOW LEGION",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "SHADOW LEGION",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "SHADOW LEGION",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "SHADOW LEGION",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "UNDIVIDED",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "UNDIVIDED",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "UNDIVIDED",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "UNDIVIDED",
       "keyword_class": "unit"
     },
     {
@@ -117,12 +263,12 @@
   ],
   "name": "Master Of Possession",
   "pricing_confidence": {
-    "consecutive_unverified_releases": 5,
+    "consecutive_unverified_releases": 6,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+    "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
@@ -133,20 +279,6 @@
   "weapons": [
     {
       "ability_keywords": [
-        "pistol"
-      ],
-      "armour_penetration": "0",
-      "attacks": "1",
-      "damage": "1",
-      "is_melee": false,
-      "line": 1,
-      "name": "Bolt pistol",
-      "range": "12\"",
-      "skill": "3+",
-      "strength": "4"
-    },
-    {
-      "ability_keywords": [
         "anti-psyker 2+",
         "pistol",
         "precision",
@@ -155,9 +287,10 @@
       "armour_penetration": "-3",
       "attacks": "2",
       "damage": "2",
-      "is_melee": true,
-      "line": 2,
+      "is_melee": false,
+      "line": 1,
       "name": "Rite of Possession – witchfire",
+      "range": "18\"",
       "skill": "3+",
       "strength": "4"
     },
@@ -172,9 +305,10 @@
       "armour_penetration": "-3",
       "attacks": "2",
       "damage": "3",
-      "is_melee": true,
-      "line": 3,
+      "is_melee": false,
+      "line": 2,
       "name": "Rite of Possession – focused witchfire",
+      "range": "18\"",
       "skill": "3+",
       "strength": "6"
     },
@@ -187,10 +321,24 @@
       "attacks": "4",
       "damage": "D3",
       "is_melee": true,
-      "line": 4,
+      "line": 3,
       "name": "Staff of possession",
       "skill": "3+",
       "strength": "6"
+    },
+    {
+      "ability_keywords": [
+        "pistol"
+      ],
+      "armour_penetration": "0",
+      "attacks": "1",
+      "damage": "1",
+      "is_melee": false,
+      "line": 4,
+      "name": "Bolt pistol",
+      "range": "12\"",
+      "skill": "3+",
+      "strength": "4"
     }
   ]
 }

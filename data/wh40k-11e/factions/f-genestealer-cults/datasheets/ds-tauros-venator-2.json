@@ -1,7 +1,8 @@
 {
   "ability_keys": [
     "core:deadly-demise-1",
-    "datasheet:mobile-hunter-killer"
+    "datasheet:mobile-hunter-killer",
+    "datasheet:one-shot"
   ],
   "composition": [
     {
@@ -19,7 +20,7 @@
       "model_count": 1,
       "points": 50,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0"
+      "source_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf"
     }
   ],
   "datasheet_id": "ds-tauros-venator-2",
@@ -32,12 +33,12 @@
         {
           "item_index": 1,
           "item_name": "twin multi-laser",
-          "weapon_line": 3
+          "weapon_line": 1
         },
         {
           "item_index": 2,
           "item_name": "armoured frame",
-          "weapon_line": 4
+          "weapon_line": 3
         }
       ],
       "line": 1
@@ -59,6 +60,11 @@
       "is_faction_keyword": false,
       "keyword": "FRAME",
       "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": true,
+      "keyword": "GENESTEALER CULTS",
+      "keyword_class": "faction"
     },
     {
       "is_faction_keyword": false,
@@ -126,7 +132,7 @@
     },
     {
       "count": 1,
-      "grants_weapon_line": 1,
+      "grants_weapon_line": 4,
       "group_id": "og-tauros-venator-2-2",
       "id": "oc-tauros-venator-2-2-1",
       "is_default": false,
@@ -137,7 +143,7 @@
           "item_index": 1,
           "item_name": "hunter-killer missile",
           "role": "granted",
-          "weapon_line": 1
+          "weapon_line": 4
         }
       ],
       "name": "hunter-killer missile"
@@ -156,12 +162,12 @@
     }
   ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 5,
+    "consecutive_unverified_releases": 6,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+    "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
@@ -172,17 +178,17 @@
   "weapons": [
     {
       "ability_keywords": [
-        "one shot"
+        "twin-linked"
       ],
-      "armour_penetration": "-3",
-      "attacks": "1",
-      "damage": "D6",
+      "armour_penetration": "0",
+      "attacks": "4",
+      "damage": "1",
       "is_melee": false,
       "line": 1,
-      "name": "Hunter-killer missile",
-      "range": "48\"",
+      "name": "Twin multi-laser",
+      "range": "36\"",
       "skill": "4+",
-      "strength": "14"
+      "strength": "6"
     },
     {
       "ability_keywords": [
@@ -199,27 +205,28 @@
       "strength": "12"
     },
     {
-      "ability_keywords": [
-        "twin-linked"
-      ],
-      "armour_penetration": "0",
-      "attacks": "4",
-      "damage": "1",
-      "is_melee": true,
-      "line": 3,
-      "name": "Twin multi-laser",
-      "skill": "4+",
-      "strength": "6"
-    },
-    {
       "armour_penetration": "0",
       "attacks": "2",
       "damage": "1",
       "is_melee": true,
-      "line": 4,
+      "line": 3,
       "name": "Armoured frame",
       "skill": "4+",
       "strength": "5"
+    },
+    {
+      "ability_keywords": [
+        "one shot"
+      ],
+      "armour_penetration": "-3",
+      "attacks": "1",
+      "damage": "D6",
+      "is_melee": false,
+      "line": 4,
+      "name": "Hunter-killer missile",
+      "range": "48\"",
+      "skill": "4+",
+      "strength": "14"
     }
   ]
 }

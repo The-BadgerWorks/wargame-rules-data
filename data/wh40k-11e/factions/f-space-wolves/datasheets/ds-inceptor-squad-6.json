@@ -25,7 +25,7 @@
       "model_count": 3,
       "points": 125,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260818T033550Z-0c772378"
+      "source_acquisition_id": "mfm-20260916T021400Z-1b0a18bd"
     },
     {
       "copy_index_min": 1,
@@ -33,7 +33,7 @@
       "model_count": 6,
       "points": 250,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260818T033550Z-0c772378"
+      "source_acquisition_id": "mfm-20260916T021400Z-1b0a18bd"
     },
     {
       "copy_index_min": 3,
@@ -41,7 +41,7 @@
       "model_count": 3,
       "points": 140,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260818T033550Z-0c772378"
+      "source_acquisition_id": "mfm-20260916T021400Z-1b0a18bd"
     },
     {
       "copy_index_min": 3,
@@ -49,7 +49,7 @@
       "model_count": 6,
       "points": 265,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260818T033550Z-0c772378"
+      "source_acquisition_id": "mfm-20260916T021400Z-1b0a18bd"
     }
   ],
   "datasheet_id": "ds-inceptor-squad-6",
@@ -82,7 +82,8 @@
   "keywords": [
     {
       "is_faction_keyword": true,
-      "keyword": "ADEPTUS ASTARTES"
+      "keyword": "ADEPTUS ASTARTES",
+      "keyword_class": "faction"
     },
     {
       "is_faction_keyword": false,
@@ -165,15 +166,15 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:cb487d4d2f5002415de2ab2a251b575dd7f11f92d8c88532b760ee1f00cb5947",
-    "last_verified_version": "wh40k-11e-2026-08-4",
+    "last_verified_version": "wh40k-11e-2026-09-1",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+    "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
+    "points_acquisition_id": "mfm-20260916T021400Z-1b0a18bd",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
@@ -205,9 +206,10 @@
       "armour_penetration": "-2",
       "attacks": "2",
       "damage": "2",
-      "is_melee": true,
+      "is_melee": false,
       "line": 2,
       "name": "Plasma exterminators – standard",
+      "range": "18\"",
       "skill": "3+",
       "strength": "7"
     },
@@ -221,9 +223,10 @@
       "armour_penetration": "-3",
       "attacks": "2",
       "damage": "3",
-      "is_melee": true,
+      "is_melee": false,
       "line": 3,
       "name": "Plasma exterminators – supercharge",
+      "range": "18\"",
       "skill": "3+",
       "strength": "8"
     },

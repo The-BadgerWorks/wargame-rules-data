@@ -3,8 +3,12 @@
     "core:deadly-demise-d6",
     "core:deep-strike",
     "core:feel-no-pain-5",
+    "datasheet:boon-of-death",
+    "datasheet:diseased-influence",
     "datasheet:host-of-plagues",
+    "datasheet:inflamed-reprisal",
     "datasheet:lord-of-the-death-guard",
+    "datasheet:supreme-commander",
     "faction:nurgles-gift-aura"
   ],
   "composition": [
@@ -13,7 +17,7 @@
       "max_count": 1,
       "min_count": 1,
       "model_line": 1,
-      "model_name": "Mortarion"
+      "model_name": "Mortarion - EPIC HERO"
     }
   ],
   "costs": [
@@ -21,9 +25,9 @@
       "copy_index_min": 1,
       "label": "1 model",
       "model_count": 1,
-      "points": 390,
+      "points": 375,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260818T033550Z-0c772378"
+      "source_acquisition_id": "mfm-20260916T021400Z-1b0a18bd"
     }
   ],
   "damaged_threshold": 6,
@@ -137,16 +141,16 @@
   "name": "MORTARION",
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
-    "last_verified_points_digest": "sha256:5816a238420090e2fe2cec4490039cbace3abde401e20f3d68d93bfffceaad9b",
-    "last_verified_version": "wh40k-11e-2026-08-4",
+    "last_verified_points_digest": "sha256:66b61fade2f9bd2df624aefcad0d562591b0af92e3bd34cfa56fa13f9b0a32c5",
+    "last_verified_version": "wh40k-11e-2026-09-1",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+    "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
+    "points_acquisition_id": "mfm-20260916T021400Z-1b0a18bd",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
@@ -177,9 +181,10 @@
       "armour_penetration": "-2",
       "attacks": "D6+3",
       "damage": "1",
-      "is_melee": true,
+      "is_melee": false,
       "line": 2,
       "name": "Rotwind",
+      "range": "24\"",
       "skill": "2+",
       "strength": "7"
     },

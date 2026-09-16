@@ -26,7 +26,7 @@
       "model_count": 5,
       "points": 90,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0"
+      "source_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf"
     },
     {
       "copy_index_min": 1,
@@ -34,7 +34,7 @@
       "model_count": 7,
       "points": 125,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0"
+      "source_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf"
     },
     {
       "copy_index_min": 1,
@@ -42,7 +42,7 @@
       "model_count": 10,
       "points": 180,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0"
+      "source_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf"
     }
   ],
   "datasheet_id": "ds-plague-marines-2",
@@ -55,12 +55,12 @@
         {
           "item_index": 1,
           "item_name": "boltgun",
-          "weapon_line": 2
+          "weapon_line": 5
         },
         {
           "item_index": 2,
           "item_name": "plague knives",
-          "weapon_line": 13
+          "weapon_line": 9
         }
       ],
       "line": 1
@@ -95,7 +95,8 @@
     },
     {
       "is_faction_keyword": true,
-      "keyword": "HERETIC ASTARTES"
+      "keyword": "HERETIC ASTARTES",
+      "keyword_class": "faction"
     },
     {
       "is_faction_keyword": false,
@@ -130,7 +131,7 @@
   "option_choices": [
     {
       "count": 1,
-      "grants_weapon_line": 3,
+      "grants_weapon_line": 4,
       "group_id": "og-plague-marines-2-1",
       "id": "oc-plague-marines-2-1-1",
       "is_default": false,
@@ -141,7 +142,7 @@
           "item_index": 1,
           "item_name": "bolt pistol",
           "role": "granted",
-          "weapon_line": 3
+          "weapon_line": 4
         },
         {
           "item_index": 1,
@@ -195,7 +196,7 @@
     },
     {
       "count": 1,
-      "grants_weapon_line": 11,
+      "grants_weapon_line": 14,
       "group_id": "og-plague-marines-2-2",
       "id": "oc-plague-marines-2-2-1",
       "is_default": false,
@@ -206,7 +207,7 @@
           "item_index": 1,
           "item_name": "bubotic weapons",
           "role": "granted",
-          "weapon_line": 11
+          "weapon_line": 14
         },
         {
           "item_index": 1,
@@ -218,7 +219,7 @@
     },
     {
       "count": 1,
-      "grants_weapon_line": 14,
+      "grants_weapon_line": 8,
       "group_id": "og-plague-marines-2-2",
       "id": "oc-plague-marines-2-2-2",
       "is_default": false,
@@ -229,7 +230,7 @@
           "item_index": 1,
           "item_name": "power fist",
           "role": "granted",
-          "weapon_line": 14
+          "weapon_line": 8
         },
         {
           "item_index": 1,
@@ -241,7 +242,7 @@
     },
     {
       "count": 1,
-      "grants_weapon_line": 1,
+      "grants_weapon_line": 7,
       "group_id": "og-plague-marines-2-3",
       "id": "oc-plague-marines-2-3-1",
       "is_default": false,
@@ -252,7 +253,7 @@
           "item_index": 1,
           "item_name": "blight launcher",
           "role": "granted",
-          "weapon_line": 1
+          "weapon_line": 7
         },
         {
           "item_index": 1,
@@ -264,7 +265,7 @@
     },
     {
       "count": 1,
-      "grants_weapon_line": 6,
+      "grants_weapon_line": 1,
       "group_id": "og-plague-marines-2-4",
       "id": "oc-plague-marines-2-4-1",
       "is_default": false,
@@ -275,7 +276,7 @@
           "item_index": 1,
           "item_name": "plague spewer",
           "role": "granted",
-          "weapon_line": 6
+          "weapon_line": 1
         },
         {
           "item_index": 1,
@@ -287,7 +288,7 @@
     },
     {
       "count": 1,
-      "grants_weapon_line": 4,
+      "grants_weapon_line": 2,
       "group_id": "og-plague-marines-2-5",
       "id": "oc-plague-marines-2-5-1",
       "is_default": false,
@@ -298,7 +299,7 @@
           "item_index": 1,
           "item_name": "meltagun",
           "role": "granted",
-          "weapon_line": 4
+          "weapon_line": 2
         },
         {
           "item_index": 1,
@@ -310,7 +311,7 @@
     },
     {
       "count": 1,
-      "grants_weapon_line": 5,
+      "grants_weapon_line": 3,
       "group_id": "og-plague-marines-2-5",
       "id": "oc-plague-marines-2-5-2",
       "is_default": false,
@@ -321,7 +322,7 @@
           "item_index": 1,
           "item_name": "plague belcher",
           "role": "granted",
-          "weapon_line": 5
+          "weapon_line": 3
         },
         {
           "item_index": 1,
@@ -354,7 +355,7 @@
     },
     {
       "count": 1,
-      "grants_weapon_line": 11,
+      "grants_weapon_line": 14,
       "group_id": "og-plague-marines-2-6",
       "id": "oc-plague-marines-2-6-1",
       "is_default": false,
@@ -365,21 +366,21 @@
           "item_index": 1,
           "item_name": "bubotic weapons",
           "role": "granted",
-          "weapon_line": 11
+          "weapon_line": 14
         },
         {
           "item_index": 1,
           "item_name": "boltgun",
           "role": "replaced",
-          "weapon_line": 2
+          "weapon_line": 5
         }
       ],
       "name": "bubotic weapons",
-      "replaces_weapon_line": 2
+      "replaces_weapon_line": 5
     },
     {
       "count": 1,
-      "grants_weapon_line": 12,
+      "grants_weapon_line": 6,
       "group_id": "og-plague-marines-2-7",
       "id": "oc-plague-marines-2-7-1",
       "is_default": false,
@@ -390,17 +391,17 @@
           "item_index": 1,
           "item_name": "heavy plague weapon",
           "role": "granted",
-          "weapon_line": 12
+          "weapon_line": 6
         },
         {
           "item_index": 1,
           "item_name": "boltgun",
           "role": "replaced",
-          "weapon_line": 2
+          "weapon_line": 5
         }
       ],
       "name": "heavy plague weapon",
-      "replaces_weapon_line": 2
+      "replaces_weapon_line": 5
     }
   ],
   "option_groups": [
@@ -448,12 +449,12 @@
     }
   ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 5,
+    "consecutive_unverified_releases": 6,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+    "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
@@ -464,47 +465,19 @@
   "weapons": [
     {
       "ability_keywords": [
-        "blast",
-        "lethal hits"
+        "anti-infantry 2+",
+        "ignores cover",
+        "torrent"
       ],
       "armour_penetration": "-1",
-      "attacks": "D3",
-      "damage": "2",
+      "attacks": "D6",
+      "damage": "1",
       "is_melee": false,
       "line": 1,
-      "name": "Blight launcher",
-      "range": "24\"",
-      "skill": "3+",
-      "strength": "6"
-    },
-    {
-      "ability_keywords": [
-        "lethal hits"
-      ],
-      "armour_penetration": "0",
-      "attacks": "2",
-      "damage": "1",
-      "is_melee": false,
-      "line": 2,
-      "name": "Boltgun",
-      "range": "24\"",
-      "skill": "3+",
-      "strength": "4"
-    },
-    {
-      "ability_keywords": [
-        "lethal hits",
-        "pistol"
-      ],
-      "armour_penetration": "0",
-      "attacks": "1",
-      "damage": "1",
-      "is_melee": false,
-      "line": 3,
-      "name": "Bolt pistol",
+      "name": "Plague spewer",
       "range": "12\"",
-      "skill": "3+",
-      "strength": "4"
+      "skill": "N/A",
+      "strength": "5"
     },
     {
       "ability_keywords": [
@@ -514,7 +487,7 @@
       "attacks": "1",
       "damage": "D6",
       "is_melee": false,
-      "line": 4,
+      "line": 2,
       "name": "Meltagun",
       "range": "12\"",
       "skill": "3+",
@@ -530,7 +503,7 @@
       "attacks": "D6",
       "damage": "1",
       "is_melee": false,
-      "line": 5,
+      "line": 3,
       "name": "Plague belcher",
       "range": "12\"",
       "skill": "N/A",
@@ -538,88 +511,32 @@
     },
     {
       "ability_keywords": [
-        "anti-infantry 2+",
-        "ignores cover",
-        "torrent"
+        "lethal hits",
+        "pistol"
       ],
-      "armour_penetration": "-1",
-      "attacks": "D6",
+      "armour_penetration": "0",
+      "attacks": "1",
       "damage": "1",
       "is_melee": false,
-      "line": 6,
-      "name": "Plague spewer",
+      "line": 4,
+      "name": "Bolt pistol",
       "range": "12\"",
-      "skill": "N/A",
-      "strength": "5"
-    },
-    {
-      "ability_keywords": [
-        "rapid fire 1"
-      ],
-      "armour_penetration": "-2",
-      "attacks": "1",
-      "damage": "1",
-      "is_melee": false,
-      "line": 7,
-      "name": "Plasma gun – standard",
-      "range": "24\"",
       "skill": "3+",
-      "strength": "7"
-    },
-    {
-      "ability_keywords": [
-        "hazardous",
-        "rapid fire 1"
-      ],
-      "armour_penetration": "-3",
-      "attacks": "1",
-      "damage": "2",
-      "is_melee": false,
-      "line": 8,
-      "name": "Plasma gun – supercharge",
-      "range": "24\"",
-      "skill": "3+",
-      "strength": "8"
-    },
-    {
-      "ability_keywords": [
-        "pistol"
-      ],
-      "armour_penetration": "-2",
-      "attacks": "1",
-      "damage": "1",
-      "is_melee": true,
-      "line": 9,
-      "name": "Plasma pistol – standard",
-      "skill": "3+",
-      "strength": "7"
-    },
-    {
-      "ability_keywords": [
-        "hazardous",
-        "pistol"
-      ],
-      "armour_penetration": "-3",
-      "attacks": "1",
-      "damage": "2",
-      "is_melee": true,
-      "line": 10,
-      "name": "Plasma pistol – supercharge",
-      "skill": "3+",
-      "strength": "8"
+      "strength": "4"
     },
     {
       "ability_keywords": [
         "lethal hits"
       ],
-      "armour_penetration": "-2",
-      "attacks": "4",
+      "armour_penetration": "0",
+      "attacks": "2",
       "damage": "1",
-      "is_melee": true,
-      "line": 11,
-      "name": "Bubotic weapons",
+      "is_melee": false,
+      "line": 5,
+      "name": "Boltgun",
+      "range": "24\"",
       "skill": "3+",
-      "strength": "5"
+      "strength": "4"
     },
     {
       "ability_keywords": [
@@ -629,9 +546,37 @@
       "attacks": "3",
       "damage": "2",
       "is_melee": true,
-      "line": 12,
+      "line": 6,
       "name": "Heavy plague weapon",
       "skill": "4+",
+      "strength": "8"
+    },
+    {
+      "ability_keywords": [
+        "blast",
+        "lethal hits"
+      ],
+      "armour_penetration": "-1",
+      "attacks": "D3",
+      "damage": "2",
+      "is_melee": false,
+      "line": 7,
+      "name": "Blight launcher",
+      "range": "24\"",
+      "skill": "3+",
+      "strength": "6"
+    },
+    {
+      "ability_keywords": [
+        "lethal hits"
+      ],
+      "armour_penetration": "-2",
+      "attacks": "3",
+      "damage": "2",
+      "is_melee": true,
+      "line": 8,
+      "name": "Power fist",
+      "skill": "3+",
       "strength": "8"
     },
     {
@@ -642,23 +587,81 @@
       "attacks": "3",
       "damage": "1",
       "is_melee": true,
-      "line": 13,
+      "line": 9,
       "name": "Plague knives",
       "skill": "3+",
       "strength": "4"
     },
     {
       "ability_keywords": [
+        "hazardous",
+        "pistol"
+      ],
+      "armour_penetration": "-3",
+      "attacks": "1",
+      "damage": "2",
+      "is_melee": false,
+      "line": 10,
+      "name": "Plasma pistol – supercharge",
+      "range": "12\"",
+      "skill": "3+",
+      "strength": "8"
+    },
+    {
+      "ability_keywords": [
+        "pistol"
+      ],
+      "armour_penetration": "-2",
+      "attacks": "1",
+      "damage": "1",
+      "is_melee": false,
+      "line": 11,
+      "name": "Plasma pistol – standard",
+      "range": "12\"",
+      "skill": "3+",
+      "strength": "7"
+    },
+    {
+      "ability_keywords": [
+        "hazardous",
+        "rapid fire 1"
+      ],
+      "armour_penetration": "-3",
+      "attacks": "1",
+      "damage": "2",
+      "is_melee": false,
+      "line": 12,
+      "name": "Plasma gun – supercharge",
+      "range": "24\"",
+      "skill": "3+",
+      "strength": "8"
+    },
+    {
+      "ability_keywords": [
+        "rapid fire 1"
+      ],
+      "armour_penetration": "-2",
+      "attacks": "1",
+      "damage": "1",
+      "is_melee": false,
+      "line": 13,
+      "name": "Plasma gun – standard",
+      "range": "24\"",
+      "skill": "3+",
+      "strength": "7"
+    },
+    {
+      "ability_keywords": [
         "lethal hits"
       ],
       "armour_penetration": "-2",
-      "attacks": "3",
-      "damage": "2",
+      "attacks": "4",
+      "damage": "1",
       "is_melee": true,
       "line": 14,
-      "name": "Power fist",
+      "name": "Bubotic weapons",
       "skill": "3+",
-      "strength": "8"
+      "strength": "5"
     }
   ]
 }

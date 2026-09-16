@@ -1,6 +1,7 @@
 {
   "ability_keys": [
     "core:deadly-demise-1",
+    "datasheet:fortification",
     "datasheet:furious-barrage",
     "datasheet:reinforced-cover"
   ],
@@ -20,7 +21,7 @@
       "model_count": 1,
       "points": 95,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0"
+      "source_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf"
     }
   ],
   "datasheet_id": "ds-manticore-platform-2",
@@ -33,12 +34,12 @@
         {
           "item_index": 1,
           "item_name": "storm eagle rockets",
-          "weapon_line": 1
+          "weapon_line": 2
         },
         {
           "item_index": 2,
           "item_name": "close combat weapons",
-          "weapon_line": 2
+          "weapon_line": 1
         }
       ],
       "line": 1
@@ -72,6 +73,11 @@
       "keyword_class": "unit"
     },
     {
+      "is_faction_keyword": true,
+      "keyword": "GENESTEALER CULTS",
+      "keyword_class": "faction"
+    },
+    {
       "is_faction_keyword": false,
       "keyword": "IMPERIUM",
       "keyword_class": "unit"
@@ -97,12 +103,12 @@
   ],
   "name": "Manticore Platform",
   "pricing_confidence": {
-    "consecutive_unverified_releases": 5,
+    "consecutive_unverified_releases": 6,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+    "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
@@ -112,6 +118,16 @@
   "wargear_option_state": "none",
   "weapons": [
     {
+      "armour_penetration": "0",
+      "attacks": "3",
+      "damage": "1",
+      "is_melee": true,
+      "line": 1,
+      "name": "Close combat weapons",
+      "skill": "4+",
+      "strength": "3"
+    },
+    {
       "ability_keywords": [
         "blast",
         "indirect fire"
@@ -119,21 +135,12 @@
       "armour_penetration": "-2",
       "attacks": "D6+1",
       "damage": "3",
-      "is_melee": true,
-      "line": 1,
+      "is_melee": false,
+      "line": 2,
       "name": "Storm eagle rockets",
+      "range": "120\"",
       "skill": "4+",
       "strength": "10"
-    },
-    {
-      "armour_penetration": "0",
-      "attacks": "3",
-      "damage": "1",
-      "is_melee": true,
-      "line": 2,
-      "name": "Close combat weapons",
-      "skill": "4+",
-      "strength": "3"
     }
   ]
 }

@@ -1,6 +1,7 @@
 {
   "ability_keys": [
     "core:deadly-demise-d6-2",
+    "datasheet:one-shot",
     "datasheet:power-overload"
   ],
   "composition": [
@@ -19,10 +20,9 @@
       "model_count": 1,
       "points": 285,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0"
+      "source_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf"
     }
   ],
-  "damaged_threshold": 7,
   "datasheet_id": "ds-valdor-2",
   "default_equipment_state": "extracted",
   "equipment_groups": [
@@ -33,17 +33,17 @@
         {
           "item_index": 1,
           "item_name": "autocannon",
-          "weapon_line": 1
+          "weapon_line": 5
         },
         {
           "item_index": 2,
           "item_name": "Valdor neutron laser",
-          "weapon_line": 8
+          "weapon_line": 2
         },
         {
           "item_index": 3,
           "item_name": "armoured tracks",
-          "weapon_line": 9
+          "weapon_line": 1
         }
       ],
       "line": 1
@@ -65,6 +65,11 @@
       "is_faction_keyword": false,
       "keyword": "FRAME",
       "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": true,
+      "keyword": "GENESTEALER CULTS",
+      "keyword_class": "faction"
     },
     {
       "is_faction_keyword": false,
@@ -109,7 +114,7 @@
   "option_choices": [
     {
       "count": 1,
-      "grants_weapon_line": 2,
+      "grants_weapon_line": 9,
       "group_id": "og-valdor-2-1",
       "id": "oc-valdor-2-1-1",
       "is_default": false,
@@ -120,7 +125,7 @@
           "item_index": 1,
           "item_name": "heavy bolter",
           "role": "granted",
-          "weapon_line": 2
+          "weapon_line": 9
         },
         {
           "item_index": 1,
@@ -132,7 +137,7 @@
     },
     {
       "count": 1,
-      "grants_weapon_line": 3,
+      "grants_weapon_line": 8,
       "group_id": "og-valdor-2-1",
       "id": "oc-valdor-2-1-2",
       "is_default": false,
@@ -143,7 +148,7 @@
           "item_index": 1,
           "item_name": "heavy flamer",
           "role": "granted",
-          "weapon_line": 3
+          "weapon_line": 8
         },
         {
           "item_index": 1,
@@ -178,7 +183,7 @@
     },
     {
       "count": 1,
-      "grants_weapon_line": 5,
+      "grants_weapon_line": 4,
       "group_id": "og-valdor-2-2",
       "id": "oc-valdor-2-2-1",
       "is_default": false,
@@ -189,14 +194,14 @@
           "item_index": 1,
           "item_name": "hunter-killer missile",
           "role": "granted",
-          "weapon_line": 5
+          "weapon_line": 4
         }
       ],
       "name": "hunter-killer missile"
     },
     {
       "count": 1,
-      "grants_weapon_line": 4,
+      "grants_weapon_line": 3,
       "group_id": "og-valdor-2-3",
       "id": "oc-valdor-2-3-1",
       "is_default": false,
@@ -207,7 +212,7 @@
           "item_index": 1,
           "item_name": "heavy stubber",
           "role": "granted",
-          "weapon_line": 4
+          "weapon_line": 3
         }
       ],
       "name": "heavy stubber"
@@ -249,12 +254,12 @@
     }
   ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 5,
+    "consecutive_unverified_releases": 6,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+    "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
@@ -264,44 +269,28 @@
   "wargear_option_state": "extracted",
   "weapons": [
     {
-      "armour_penetration": "-1",
-      "attacks": "2",
-      "damage": "3",
-      "is_melee": false,
+      "armour_penetration": "0",
+      "attacks": "6",
+      "damage": "1",
+      "is_melee": true,
       "line": 1,
-      "name": "Autocannon",
-      "range": "48\"",
+      "name": "Armoured tracks",
       "skill": "4+",
-      "strength": "9"
+      "strength": "8"
     },
     {
       "ability_keywords": [
-        "sustained hits 1"
+        "heavy"
       ],
-      "armour_penetration": "-1",
-      "attacks": "3",
-      "damage": "2",
+      "armour_penetration": "-4",
+      "attacks": "2",
+      "damage": "D6+1",
       "is_melee": false,
       "line": 2,
-      "name": "Heavy bolter",
-      "range": "36\"",
+      "name": "Valdor neutron laser",
+      "range": "48\"",
       "skill": "4+",
-      "strength": "5"
-    },
-    {
-      "ability_keywords": [
-        "ignores cover",
-        "torrent"
-      ],
-      "armour_penetration": "-1",
-      "attacks": "D6",
-      "damage": "1",
-      "is_melee": false,
-      "line": 3,
-      "name": "Heavy flamer",
-      "range": "12\"",
-      "skill": "N/A",
-      "strength": "5"
+      "strength": "16"
     },
     {
       "ability_keywords": [
@@ -311,7 +300,7 @@
       "attacks": "3",
       "damage": "1",
       "is_melee": false,
-      "line": 4,
+      "line": 3,
       "name": "Heavy stubber",
       "range": "36\"",
       "skill": "4+",
@@ -325,11 +314,22 @@
       "attacks": "1",
       "damage": "D6",
       "is_melee": false,
-      "line": 5,
+      "line": 4,
       "name": "Hunter-killer missile",
       "range": "48\"",
       "skill": "4+",
       "strength": "14"
+    },
+    {
+      "armour_penetration": "-1",
+      "attacks": "2",
+      "damage": "3",
+      "is_melee": false,
+      "line": 5,
+      "name": "Autocannon",
+      "range": "48\"",
+      "skill": "4+",
+      "strength": "9"
     },
     {
       "armour_penetration": "-3",
@@ -358,26 +358,32 @@
     },
     {
       "ability_keywords": [
-        "heavy"
+        "ignores cover",
+        "torrent"
       ],
-      "armour_penetration": "-4",
-      "attacks": "2",
-      "damage": "D6+1",
-      "is_melee": true,
+      "armour_penetration": "-1",
+      "attacks": "D6",
+      "damage": "1",
+      "is_melee": false,
       "line": 8,
-      "name": "Valdor neutron laser",
-      "skill": "4+",
-      "strength": "16"
+      "name": "Heavy flamer",
+      "range": "12\"",
+      "skill": "N/A",
+      "strength": "5"
     },
     {
-      "armour_penetration": "0",
-      "attacks": "6",
-      "damage": "1",
-      "is_melee": true,
+      "ability_keywords": [
+        "sustained hits 1"
+      ],
+      "armour_penetration": "-1",
+      "attacks": "3",
+      "damage": "2",
+      "is_melee": false,
       "line": 9,
-      "name": "Armoured tracks",
+      "name": "Heavy bolter",
+      "range": "36\"",
       "skill": "4+",
-      "strength": "8"
+      "strength": "5"
     }
   ]
 }

@@ -13,7 +13,7 @@
       "max_count": 1,
       "min_count": 1,
       "model_line": 1,
-      "model_name": "Lord Invocatus"
+      "model_name": "Lord Invocatus - EPIC HERO"
     }
   ],
   "costs": [
@@ -23,7 +23,7 @@
       "model_count": 1,
       "points": 100,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260818T033550Z-0c772378"
+      "source_acquisition_id": "mfm-20260916T021400Z-1b0a18bd"
     }
   ],
   "datasheet_id": "ds-lord-invocatus",
@@ -112,15 +112,15 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:58f35ba3ac341406be9f8660d5cb106048687a0c08370852a12b717d0c57ebfa",
-    "last_verified_version": "wh40k-11e-2026-08-4",
+    "last_verified_version": "wh40k-11e-2026-09-1",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+    "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
+    "points_acquisition_id": "mfm-20260916T021400Z-1b0a18bd",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
@@ -133,9 +133,10 @@
       "armour_penetration": "0",
       "attacks": "1",
       "damage": "1",
-      "is_melee": true,
+      "is_melee": false,
       "line": 1,
       "name": "Bolt pistol",
+      "range": "12\"",
       "skill": "3+",
       "strength": "4"
     },

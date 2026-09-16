@@ -20,9 +20,9 @@
       "copy_index_min": 1,
       "label": "1 model",
       "model_count": 1,
-      "points": 395,
+      "points": 385,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260818T033550Z-0c772378"
+      "source_acquisition_id": "mfm-20260916T021400Z-1b0a18bd"
     },
     {
       "copy_index_min": 2,
@@ -30,7 +30,7 @@
       "model_count": 1,
       "points": 415,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260818T033550Z-0c772378"
+      "source_acquisition_id": "mfm-20260916T021400Z-1b0a18bd"
     }
   ],
   "damaged_threshold": 10,
@@ -120,16 +120,16 @@
   "name": "CHAOS CERASTUS KNIGHT LANCER",
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
-    "last_verified_points_digest": "sha256:1577407e15b4b674f8d8d043e2989b544e07be211649cff2842379e857d3c112",
-    "last_verified_version": "wh40k-11e-2026-08-4",
+    "last_verified_points_digest": "sha256:0fb3fe9b0bfa2fddc9df2cf5d399b806ef02c2aa5c85281f65b63f6650d813cf",
+    "last_verified_version": "wh40k-11e-2026-09-1",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+    "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
+    "points_acquisition_id": "mfm-20260916T021400Z-1b0a18bd",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
@@ -143,9 +143,10 @@
       "armour_penetration": "0",
       "attacks": "6",
       "damage": "2",
-      "is_melee": true,
+      "is_melee": false,
       "line": 1,
       "name": "Cerastus shock lance",
+      "range": "12\"",
       "skill": "3+",
       "strength": "6"
     },

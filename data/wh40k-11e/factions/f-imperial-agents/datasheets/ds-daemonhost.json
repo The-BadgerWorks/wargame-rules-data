@@ -2,6 +2,7 @@
   "ability_keys": [
     "core:deadly-demise-1",
     "datasheet:bound-daemon",
+    "datasheet:inquisitorial-retinue",
     "datasheet:malefic-warding",
     "faction:assigned-agents"
   ],
@@ -21,7 +22,7 @@
       "model_count": 1,
       "points": 40,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0"
+      "source_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf"
     },
     {
       "copy_index_min": 1,
@@ -29,7 +30,7 @@
       "model_count": 2,
       "points": 80,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0"
+      "source_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf"
     }
   ],
   "datasheet_id": "ds-daemonhost",
@@ -62,7 +63,8 @@
   "keywords": [
     {
       "is_faction_keyword": true,
-      "keyword": "AGENTS OF THE IMPERIUM"
+      "keyword": "AGENTS OF THE IMPERIUM",
+      "keyword_class": "faction"
     },
     {
       "is_faction_keyword": false,
@@ -111,12 +113,12 @@
   ],
   "name": "Daemonhost",
   "pricing_confidence": {
-    "consecutive_unverified_releases": 5,
+    "consecutive_unverified_releases": 6,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+    "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
@@ -132,9 +134,10 @@
       "armour_penetration": "-2",
       "attacks": "3",
       "damage": "D3",
-      "is_melee": true,
+      "is_melee": false,
       "line": 1,
       "name": "Unholy gaze",
+      "range": "18\"",
       "skill": "4+",
       "strength": "8"
     },

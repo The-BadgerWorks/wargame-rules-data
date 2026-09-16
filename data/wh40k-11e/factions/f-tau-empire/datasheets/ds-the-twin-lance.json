@@ -13,13 +13,13 @@
       "line": 1,
       "max_count": 1,
       "min_count": 1,
-      "model_name": "Ri’Lantar"
+      "model_name": "Ri’Lantar - EPIC HERO"
     },
     {
       "line": 2,
       "max_count": 1,
       "min_count": 1,
-      "model_name": "Ri’Locai"
+      "model_name": "Ri’Locai - EPIC HERO"
     }
   ],
   "costs": [
@@ -27,9 +27,9 @@
       "copy_index_min": 1,
       "label": "2 models",
       "model_count": 2,
-      "points": 220,
+      "points": 230,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260818T033550Z-0c772378"
+      "source_acquisition_id": "mfm-20260916T021400Z-1b0a18bd"
     }
   ],
   "datasheet_id": "ds-the-twin-lance",
@@ -37,7 +37,6 @@
   "equipment_groups": [
     {
       "applies_to": "model_group",
-      "composition_line": 1,
       "id": "eq-the-twin-lance-1",
       "items": [
         {
@@ -67,7 +66,6 @@
     },
     {
       "applies_to": "model_group",
-      "composition_line": 2,
       "id": "eq-the-twin-lance-2",
       "items": [
         {
@@ -145,33 +143,19 @@
       "keyword_class": "unit"
     }
   ],
-  "models": [
-    {
-      "base_size": "(⌀60mm)",
-      "invuln_save": "4+",
-      "leadership": "6+",
-      "line": 1,
-      "movement": "10\"",
-      "name": "The Twin Lance",
-      "objective_control": 2,
-      "save": "2+",
-      "toughness": 6,
-      "wounds": 8
-    }
-  ],
   "name": "THE TWIN LANCE",
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
-    "last_verified_points_digest": "sha256:aaab8d9f9a1667ada1571e01d8f7d89a2a7110372752051e68594f920e0f172b",
-    "last_verified_version": "wh40k-11e-2026-08-4",
+    "last_verified_points_digest": "sha256:d117a0b843700b0b7b4c8b9cf4c840390ff221941335ecd3e9df6380e88de530",
+    "last_verified_version": "wh40k-11e-2026-09-1",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+    "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
+    "points_acquisition_id": "mfm-20260916T021400Z-1b0a18bd",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
@@ -256,9 +240,10 @@
       "armour_penetration": "-1",
       "attacks": "2",
       "damage": "2",
-      "is_melee": true,
+      "is_melee": false,
       "line": 6,
       "name": "XV pulse pistol",
+      "range": "12\"",
       "skill": "2+",
       "strength": "6"
     },

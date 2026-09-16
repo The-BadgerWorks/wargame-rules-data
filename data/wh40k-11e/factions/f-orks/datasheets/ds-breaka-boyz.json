@@ -1,6 +1,6 @@
 {
   "ability_keys": [
-    "datasheet:bomb-squigs",
+    "datasheet:bomb-squigs-once-per-turn-twice-per-battle-per-unit",
     "datasheet:trophy-hunters",
     "faction:waaagh"
   ],
@@ -9,14 +9,15 @@
       "line": 1,
       "max_count": 1,
       "min_count": 1,
-      "model_name": "Boss Nob"
+      "model_line": 2,
+      "model_name": "Nob model"
     },
     {
       "line": 2,
       "max_count": 5,
       "min_count": 5,
       "model_line": 1,
-      "model_name": "Breaka Boyz"
+      "model_name": "Breaka Boy models"
     }
   ],
   "costs": [
@@ -24,17 +25,17 @@
       "copy_index_min": 1,
       "label": "6 models",
       "model_count": 6,
-      "points": 125,
+      "points": 135,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260818T033550Z-0c772378"
+      "source_acquisition_id": "mfm-20260916T021400Z-1b0a18bd"
     },
     {
       "copy_index_min": 3,
       "label": "6 models",
       "model_count": 6,
-      "points": 135,
+      "points": 145,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260818T033550Z-0c772378"
+      "source_acquisition_id": "mfm-20260916T021400Z-1b0a18bd"
     }
   ],
   "datasheet_id": "ds-breaka-boyz",
@@ -42,36 +43,37 @@
   "equipment_groups": [
     {
       "applies_to": "model_group",
-      "composition_line": 1,
       "id": "eq-breaka-boyz-1",
       "items": [
         {
+          "count": 1,
           "item_index": 1,
-          "item_name": "rokkit pistol",
-          "weapon_line": 1
-        },
-        {
-          "item_index": 2,
-          "item_name": "smash hammer",
+          "item_name": "Choppa",
           "weapon_line": 4
         },
         {
+          "count": 1,
+          "item_index": 2,
+          "item_name": "Rokkit Pistol",
+          "weapon_line": 1
+        },
+        {
+          "count": 1,
           "item_index": 3,
-          "item_name": "choppa",
-          "weapon_line": 2
+          "item_name": "Smash Hammer"
         }
       ],
       "line": 1,
-      "model_name": "Boss Nob"
+      "model_name": "Nob"
     },
     {
       "applies_to": "model_group",
       "id": "eq-breaka-boyz-2",
       "items": [
         {
+          "count": 1,
           "item_index": 1,
-          "item_name": "smash hammer",
-          "weapon_line": 4
+          "item_name": "Smash Hammer"
         }
       ],
       "line": 2,
@@ -87,12 +89,7 @@
   "keywords": [
     {
       "is_faction_keyword": false,
-      "keyword": "BREAKA BOYZ",
-      "keyword_class": "unit"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "GRENADES",
+      "keyword": "EXPLOSIVES",
       "keyword_class": "unit"
     },
     {
@@ -108,15 +105,26 @@
   ],
   "models": [
     {
-      "base_size": "(⌀32mm Nob on 40mm )",
+      "base_size": "(⌀32mm)",
       "leadership": "7+",
       "line": 1,
       "movement": "6\"",
-      "name": "Breaka Boyz",
+      "name": "Breaka Boy",
       "objective_control": 1,
       "save": "4+",
       "toughness": 5,
       "wounds": 2
+    },
+    {
+      "base_size": "(⌀40mm)",
+      "leadership": "7+",
+      "line": 2,
+      "movement": "6\"",
+      "name": "Nob",
+      "objective_control": 1,
+      "save": "4+",
+      "toughness": 5,
+      "wounds": 3
     }
   ],
   "name": "BREAKA BOYZ",
@@ -132,21 +140,21 @@
         {
           "count": 1,
           "item_index": 1,
-          "item_name": "rokkit pistol",
+          "item_name": "Rokkit Pistol",
           "role": "granted",
           "weapon_line": 1
         },
         {
           "item_index": 1,
-          "item_name": "Boss Nob’s smash hammer",
+          "item_name": "Smash Hammer",
           "role": "replaced"
         }
       ],
-      "name": "rokkit pistol"
+      "name": "Rokkit Pistol"
     },
     {
       "count": 1,
-      "grants_weapon_line": 3,
+      "grants_weapon_line": 5,
       "group_id": "og-breaka-boyz-2",
       "id": "oc-breaka-boyz-2-1",
       "is_default": false,
@@ -155,23 +163,21 @@
         {
           "count": 1,
           "item_index": 1,
-          "item_name": "knucklebustas",
+          "item_name": "Knucklebustas",
           "role": "granted",
-          "weapon_line": 3
+          "weapon_line": 5
         },
         {
           "item_index": 1,
-          "item_name": "smash hammer",
-          "role": "replaced",
-          "weapon_line": 4
+          "item_name": "Smash Hammer",
+          "role": "replaced"
         }
       ],
-      "name": "knucklebustas",
-      "replaces_weapon_line": 4
+      "name": "Knucklebustas"
     },
     {
       "count": 1,
-      "grants_weapon_line": 5,
+      "grants_weapon_line": 6,
       "group_id": "og-breaka-boyz-3",
       "id": "oc-breaka-boyz-3-1",
       "is_default": false,
@@ -180,19 +186,17 @@
         {
           "count": 1,
           "item_index": 1,
-          "item_name": "tankhammer",
+          "item_name": "Tankhammer",
           "role": "granted",
-          "weapon_line": 5
+          "weapon_line": 6
         },
         {
           "item_index": 1,
-          "item_name": "smash hammer",
-          "role": "replaced",
-          "weapon_line": 4
+          "item_name": "Smash Hammer",
+          "role": "replaced"
         }
       ],
-      "name": "tankhammer",
-      "replaces_weapon_line": 4
+      "name": "Tankhammer"
     }
   ],
   "option_groups": [
@@ -202,15 +206,11 @@
       "scope": "unit"
     },
     {
-      "eligible_max_count": 1,
-      "eligible_model_name": "Breaka Boy",
       "id": "og-breaka-boyz-2",
       "line": 2,
       "scope": "unit"
     },
     {
-      "eligible_max_count": 1,
-      "eligible_model_name": "Breaka Boy",
       "id": "og-breaka-boyz-3",
       "line": 3,
       "scope": "unit"
@@ -218,16 +218,16 @@
   ],
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
-    "last_verified_points_digest": "sha256:e2da9f20bfb830398b68b588e967630239c2778973c9f23bc3fb561e9c9f0f49",
-    "last_verified_version": "wh40k-11e-2026-08-4",
+    "last_verified_points_digest": "sha256:ebd42e69f837eedc70075587bc4832c551930e2e5cdb3e2133817ac3f540a278",
+    "last_verified_version": "wh40k-11e-2026-09-1",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+    "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
+    "points_acquisition_id": "mfm-20260916T021400Z-1b0a18bd",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
@@ -235,71 +235,74 @@
   "weapons": [
     {
       "ability_keywords": [
-        "pistol"
+        "CLOSE-QUARTERS"
       ],
       "armour_penetration": "-2",
       "attacks": "1",
       "damage": "3",
-      "is_melee": true,
+      "is_melee": false,
       "line": 1,
-      "name": "Rokkit pistol",
+      "name": "Rokkit Pistol",
+      "range": "12\"",
       "skill": "5+",
-      "strength": "9"
+      "strength": "10"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "3",
+      "damage": "2",
+      "is_melee": true,
+      "line": 2,
+      "name": "Smash Hammer - Standard",
+      "skill": "3+",
+      "strength": "7"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "3",
+      "damage": "3",
+      "is_melee": true,
+      "line": 3,
+      "name": "Smash Hammer - Hunter",
+      "skill": "3+",
+      "strength": "12"
     },
     {
       "armour_penetration": "-1",
       "attacks": "4",
       "damage": "1",
       "is_melee": true,
-      "line": 2,
+      "line": 4,
       "name": "Choppa",
       "skill": "3+",
       "strength": "5"
     },
     {
       "ability_keywords": [
-        "anti-monster 4+",
-        "anti-vehicle 4+",
-        "twin-linked"
+        "ANTI-MONSTER/VEHICLE 4+"
       ],
-      "armour_penetration": "-1",
-      "attacks": "5",
-      "damage": "1",
+      "armour_penetration": "-2",
+      "attacks": "4",
+      "damage": "2",
       "is_melee": true,
-      "line": 3,
+      "line": 5,
       "name": "Knucklebustas",
       "skill": "3+",
       "strength": "5"
     },
     {
       "ability_keywords": [
-        "anti-monster 4+",
-        "anti-vehicle 4+"
+        "Devastating Wounds",
+        "Hazardous"
       ],
       "armour_penetration": "-2",
-      "attacks": "2",
+      "attacks": "3",
       "damage": "3",
       "is_melee": true,
-      "line": 4,
-      "name": "Smash hammer",
-      "skill": "3+",
-      "strength": "6"
-    },
-    {
-      "ability_keywords": [
-        "anti-monster 4+",
-        "anti-vehicle 4+",
-        "devastating wounds",
-        "hazardous"
-      ],
-      "armour_penetration": "-2",
-      "attacks": "2",
-      "damage": "3",
-      "is_melee": true,
-      "line": 5,
+      "line": 6,
       "name": "Tankhammer",
-      "skill": "3+",
-      "strength": "6"
+      "skill": "4+",
+      "strength": "12"
     }
   ]
 }

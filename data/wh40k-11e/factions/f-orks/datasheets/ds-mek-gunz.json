@@ -1,6 +1,6 @@
 {
   "ability_keys": [
-    "datasheet:splat",
+    "datasheet:madcap-artillery",
     "faction:waaagh"
   ],
   "composition": [
@@ -9,7 +9,7 @@
       "max_count": 3,
       "min_count": 1,
       "model_line": 1,
-      "model_name": "Mek Gunz"
+      "model_name": "Mek Gunz models"
     }
   ],
   "costs": [
@@ -17,49 +17,49 @@
       "copy_index_min": 1,
       "label": "1 model",
       "model_count": 1,
-      "points": 45,
+      "points": 55,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260818T033550Z-0c772378"
+      "source_acquisition_id": "mfm-20260916T021400Z-1b0a18bd"
     },
     {
       "copy_index_min": 1,
       "label": "2 models",
       "model_count": 2,
-      "points": 90,
+      "points": 110,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260818T033550Z-0c772378"
+      "source_acquisition_id": "mfm-20260916T021400Z-1b0a18bd"
     },
     {
       "copy_index_min": 1,
       "label": "3 models",
       "model_count": 3,
-      "points": 135,
+      "points": 165,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260818T033550Z-0c772378"
+      "source_acquisition_id": "mfm-20260916T021400Z-1b0a18bd"
     },
     {
       "copy_index_min": 3,
       "label": "1 model",
       "model_count": 1,
-      "points": 55,
+      "points": 65,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260818T033550Z-0c772378"
+      "source_acquisition_id": "mfm-20260916T021400Z-1b0a18bd"
     },
     {
       "copy_index_min": 3,
       "label": "2 models",
       "model_count": 2,
-      "points": 100,
+      "points": 120,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260818T033550Z-0c772378"
+      "source_acquisition_id": "mfm-20260916T021400Z-1b0a18bd"
     },
     {
       "copy_index_min": 3,
       "label": "3 models",
       "model_count": 3,
-      "points": 145,
+      "points": 175,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260818T033550Z-0c772378"
+      "source_acquisition_id": "mfm-20260916T021400Z-1b0a18bd"
     }
   ],
   "datasheet_id": "ds-mek-gunz",
@@ -70,14 +70,16 @@
       "id": "eq-mek-gunz-1",
       "items": [
         {
+          "count": 1,
           "item_index": 1,
-          "item_name": "smasha gun",
+          "item_name": "Scavenged Shivs",
           "weapon_line": 5
         },
         {
+          "count": 1,
           "item_index": 2,
-          "item_name": "grot crew",
-          "weapon_line": 7
+          "item_name": "Smasha Gun",
+          "weapon_line": 1
         }
       ],
       "line": 1
@@ -92,12 +94,12 @@
   "keywords": [
     {
       "is_faction_keyword": false,
-      "keyword": "GROTS",
+      "keyword": "FRAME",
       "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "MEK GUNZ",
+      "keyword": "GROTS",
       "keyword_class": "unit"
     },
     {
@@ -117,11 +119,11 @@
       "invuln_save": "6+",
       "leadership": "8+",
       "line": 1,
-      "movement": "3\"",
+      "movement": "5\"",
       "name": "Mek Gunz",
       "objective_control": 2,
-      "save": "5+",
-      "toughness": 5,
+      "save": "4+",
+      "toughness": 6,
       "wounds": 6
     }
   ],
@@ -129,6 +131,7 @@
   "option_choices": [
     {
       "count": 1,
+      "grants_weapon_line": 2,
       "group_id": "og-mek-gunz-1",
       "id": "oc-mek-gunz-1-1",
       "is_default": false,
@@ -137,22 +140,23 @@
         {
           "count": 1,
           "item_index": 1,
-          "item_name": "bubblechukka",
-          "role": "granted"
+          "item_name": "Bubblechukka",
+          "role": "granted",
+          "weapon_line": 2
         },
         {
           "item_index": 1,
-          "item_name": "smasha gun",
+          "item_name": "Smasha Gun",
           "role": "replaced",
-          "weapon_line": 5
+          "weapon_line": 1
         }
       ],
-      "name": "bubblechukka",
-      "replaces_weapon_line": 5
+      "name": "Bubblechukka",
+      "replaces_weapon_line": 1
     },
     {
       "count": 1,
-      "grants_weapon_line": 4,
+      "grants_weapon_line": 3,
       "group_id": "og-mek-gunz-1",
       "id": "oc-mek-gunz-1-2",
       "is_default": false,
@@ -161,23 +165,23 @@
         {
           "count": 1,
           "item_index": 1,
-          "item_name": "kustom mega-kannon",
+          "item_name": "Kustom Mega-kannon",
           "role": "granted",
-          "weapon_line": 4
+          "weapon_line": 3
         },
         {
           "item_index": 1,
-          "item_name": "smasha gun",
+          "item_name": "Smasha Gun",
           "role": "replaced",
-          "weapon_line": 5
+          "weapon_line": 1
         }
       ],
-      "name": "kustom mega-kannon",
-      "replaces_weapon_line": 5
+      "name": "Kustom Mega-kannon",
+      "replaces_weapon_line": 1
     },
     {
       "count": 1,
-      "grants_weapon_line": 6,
+      "grants_weapon_line": 4,
       "group_id": "og-mek-gunz-1",
       "id": "oc-mek-gunz-1-3",
       "is_default": false,
@@ -186,19 +190,19 @@
         {
           "count": 1,
           "item_index": 1,
-          "item_name": "traktor kannon",
+          "item_name": "Traktor Kannon",
           "role": "granted",
-          "weapon_line": 6
+          "weapon_line": 4
         },
         {
           "item_index": 1,
-          "item_name": "smasha gun",
+          "item_name": "Smasha Gun",
           "role": "replaced",
-          "weapon_line": 5
+          "weapon_line": 1
         }
       ],
-      "name": "traktor kannon",
-      "replaces_weapon_line": 5
+      "name": "Traktor Kannon",
+      "replaces_weapon_line": 1
     }
   ],
   "option_groups": [
@@ -211,16 +215,16 @@
   ],
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
-    "last_verified_points_digest": "sha256:059348092c93a42eaacd2fa948067f81f6d8764d5f79acab11f15658e0151af3",
-    "last_verified_version": "wh40k-11e-2026-08-4",
+    "last_verified_points_digest": "sha256:2fd9a71bfb979e7b2fb8a7b09ad3424db630ac0b7c1bf9e24c1b75d523042541",
+    "last_verified_version": "wh40k-11e-2026-09-1",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+    "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
+    "points_acquisition_id": "mfm-20260916T021400Z-1b0a18bd",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
@@ -228,99 +232,69 @@
   "weapons": [
     {
       "ability_keywords": [
-        "blast",
-        "bubblechukka"
-      ],
-      "armour_penetration": "-1",
-      "attacks": "2D6",
-      "damage": "1",
-      "is_melee": false,
-      "line": 1,
-      "name": "Bubblechukka – big bubble",
-      "range": "48\"",
-      "skill": "4+",
-      "strength": "6"
-    },
-    {
-      "ability_keywords": [
-        "blast",
-        "bubblechukka"
-      ],
-      "armour_penetration": "-2",
-      "attacks": "D6",
-      "damage": "3",
-      "is_melee": false,
-      "line": 2,
-      "name": "Bubblechukka – wobbly bubble",
-      "range": "48\"",
-      "skill": "4+",
-      "strength": "9"
-    },
-    {
-      "ability_keywords": [
-        "blast",
-        "bubblechukka"
+        "BLAST 1"
       ],
       "armour_penetration": "-3",
-      "attacks": "D3",
-      "damage": "D6+3",
+      "attacks": "4",
+      "damage": "3",
       "is_melee": false,
-      "line": 3,
-      "name": "Bubblechukka – dense bubble",
+      "line": 1,
+      "name": "Smasha Gun",
       "range": "48\"",
       "skill": "4+",
-      "strength": "12"
+      "strength": "7"
     },
     {
       "ability_keywords": [
-        "BLAST",
-        "HAZARDOUS"
+        "BLAST 3",
+        "Lethal Hits"
       ],
-      "armour_penetration": "-1",
-      "attacks": "D6",
-      "damage": "D6",
+      "armour_penetration": "-3",
+      "attacks": "8",
+      "damage": "1",
       "is_melee": false,
-      "line": 4,
-      "name": "Kustom mega-kannon",
+      "line": 2,
+      "name": "Bubblechukka",
+      "range": "48\"",
+      "skill": "4+",
+      "strength": "3"
+    },
+    {
+      "ability_keywords": [
+        "BLAST 1",
+        "Hazardous"
+      ],
+      "armour_penetration": "-2",
+      "attacks": "D3+1",
+      "damage": "4",
+      "is_melee": false,
+      "line": 3,
+      "name": "Kustom Mega-kannon",
       "range": "36\"",
       "skill": "4+",
       "strength": "12"
     },
     {
       "ability_keywords": [
-        "BLAST"
-      ],
-      "armour_penetration": "-3",
-      "attacks": "D3+1",
-      "damage": "3",
-      "is_melee": false,
-      "line": 5,
-      "name": "Smasha gun",
-      "range": "48\"",
-      "skill": "4+",
-      "strength": "9"
-    },
-    {
-      "ability_keywords": [
-        "ANTI-FLY 2+",
-        "DEVASTATING WOUNDS"
+        "Anti-Fly 2+"
       ],
       "armour_penetration": "-2",
-      "attacks": "1",
-      "damage": "D6+1",
-      "is_melee": true,
-      "line": 6,
-      "name": "Traktor kannon",
+      "attacks": "2",
+      "damage": "D3+3",
+      "is_melee": false,
+      "line": 4,
+      "name": "Traktor Kannon",
+      "range": "48\"",
       "skill": "4+",
-      "strength": "10"
+      "strength": "6"
     },
     {
       "armour_penetration": "0",
-      "attacks": "6",
+      "attacks": "5",
       "damage": "1",
       "is_melee": true,
-      "line": 7,
-      "name": "Grot crew",
+      "line": 5,
+      "name": "Scavenged Shivs",
       "skill": "5+",
       "strength": "2"
     }

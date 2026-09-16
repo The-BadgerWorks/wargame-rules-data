@@ -12,6 +12,11 @@
     "parent_faction_id": "f-space-marines"
   },
   {
+    "is_modelled_as_faction": false,
+    "keyword": "BLOOD LEGIONS",
+    "parent_faction_id": "f-chaos-daemons"
+  },
+  {
     "chapter_faction_id": "f-dark-angels",
     "is_modelled_as_faction": true,
     "keyword": "DARK ANGELS",
@@ -24,9 +29,64 @@
     "parent_faction_id": "f-space-marines"
   },
   {
+    "is_modelled_as_faction": false,
+    "keyword": "HARLEQUINS",
+    "parent_faction_id": "f-aeldari"
+  },
+  {
+    "is_modelled_as_faction": false,
+    "keyword": "IMPERIAL FISTS",
+    "parent_faction_id": "f-space-marines"
+  },
+  {
+    "is_modelled_as_faction": false,
+    "keyword": "IRON HANDS",
+    "parent_faction_id": "f-space-marines"
+  },
+  {
+    "is_modelled_as_faction": false,
+    "keyword": "LEGIONS OF EXCESS",
+    "parent_faction_id": "f-chaos-daemons"
+  },
+  {
+    "is_modelled_as_faction": false,
+    "keyword": "PLAGUE LEGIONS",
+    "parent_faction_id": "f-chaos-daemons"
+  },
+  {
+    "is_modelled_as_faction": false,
+    "keyword": "RAVEN GUARD",
+    "parent_faction_id": "f-space-marines"
+  },
+  {
+    "is_modelled_as_faction": false,
+    "keyword": "SALAMANDERS",
+    "parent_faction_id": "f-space-marines"
+  },
+  {
+    "is_modelled_as_faction": false,
+    "keyword": "SCINTILLATING LEGIONS",
+    "parent_faction_id": "f-chaos-daemons"
+  },
+  {
     "chapter_faction_id": "f-space-wolves",
     "is_modelled_as_faction": true,
     "keyword": "SPACE WOLVES",
     "parent_faction_id": "f-space-marines"
+  },
+  {
+    "is_modelled_as_faction": false,
+    "keyword": "ULTRAMARINES",
+    "parent_faction_id": "f-space-marines"
+  },
+  {
+    "is_modelled_as_faction": false,
+    "keyword": "WHITE SCARS",
+    "parent_faction_id": "f-space-marines"
+  },
+  {
+    "is_modelled_as_faction": false,
+    "keyword": "YNNARI",
+    "parent_faction_id": "f-aeldari"
   }
 ]

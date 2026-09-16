@@ -1,5 +1,6 @@
 {
   "ability_keys": [
+    "datasheet:attached-unit",
     "datasheet:banner-of-macragge",
     "datasheet:glory-of-ultramar",
     "datasheet:ultramarines-honour-guard",
@@ -10,13 +11,13 @@
       "line": 1,
       "max_count": 1,
       "min_count": 0,
-      "model_name": "Chapter Ancient"
+      "model_name": "Chapter Ancient - EPIC HERO"
     },
     {
       "line": 2,
       "max_count": 1,
       "min_count": 0,
-      "model_name": "Chapter Champion"
+      "model_name": "Chapter Champion - EPIC HERO"
     },
     {
       "line": 3,
@@ -33,7 +34,7 @@
       "model_count": 3,
       "points": 110,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260818T033550Z-0c772378"
+      "source_acquisition_id": "mfm-20260916T021400Z-1b0a18bd"
     },
     {
       "copy_index_min": 1,
@@ -41,7 +42,7 @@
       "model_count": 6,
       "points": 230,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260818T033550Z-0c772378"
+      "source_acquisition_id": "mfm-20260916T021400Z-1b0a18bd"
     },
     {
       "copy_index_min": 2,
@@ -49,7 +50,7 @@
       "model_count": 3,
       "points": 130,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260818T033550Z-0c772378"
+      "source_acquisition_id": "mfm-20260916T021400Z-1b0a18bd"
     },
     {
       "copy_index_min": 2,
@@ -57,7 +58,7 @@
       "model_count": 6,
       "points": 250,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260818T033550Z-0c772378"
+      "source_acquisition_id": "mfm-20260916T021400Z-1b0a18bd"
     }
   ],
   "datasheet_id": "ds-victrix-honour-guard",
@@ -65,7 +66,6 @@
   "equipment_groups": [
     {
       "applies_to": "model_group",
-      "composition_line": 1,
       "id": "eq-victrix-honour-guard-1",
       "items": [
         {
@@ -84,7 +84,6 @@
     },
     {
       "applies_to": "model_group",
-      "composition_line": 2,
       "id": "eq-victrix-honour-guard-2",
       "items": [
         {
@@ -128,7 +127,8 @@
   "keywords": [
     {
       "is_faction_keyword": true,
-      "keyword": "ADEPTUS ASTARTES"
+      "keyword": "ADEPTUS ASTARTES",
+      "keyword_class": "faction"
     },
     {
       "is_faction_keyword": false,
@@ -174,7 +174,8 @@
     },
     {
       "is_faction_keyword": true,
-      "keyword": "ULTRAMARINES"
+      "keyword": "ULTRAMARINES",
+      "keyword_class": "chapter"
     },
     {
       "is_faction_keyword": false,
@@ -200,15 +201,15 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:120f3b344b3b70a28bb272278643b09c3cce8f8d13e78da6cab5e8bed176eea0",
-    "last_verified_version": "wh40k-11e-2026-08-4",
+    "last_verified_version": "wh40k-11e-2026-09-1",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+    "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
+    "points_acquisition_id": "mfm-20260916T021400Z-1b0a18bd",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
@@ -218,9 +219,10 @@
       "armour_penetration": "-1",
       "attacks": "2",
       "damage": "2",
-      "is_melee": true,
+      "is_melee": false,
       "line": 1,
       "name": "Master-crafted bolt carbine",
+      "range": "24\"",
       "skill": "2+",
       "strength": "4"
     },

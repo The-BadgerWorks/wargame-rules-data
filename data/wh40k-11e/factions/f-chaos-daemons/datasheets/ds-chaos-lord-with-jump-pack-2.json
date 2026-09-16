@@ -11,6 +11,7 @@
       "line": 1,
       "max_count": 1,
       "min_count": 1,
+      "model_line": 1,
       "model_name": "Chaos Lord"
     }
   ],
@@ -21,7 +22,7 @@
       "model_count": 1,
       "points": 80,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0"
+      "source_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf"
     }
   ],
   "datasheet_id": "ds-chaos-lord-with-jump-pack-2",
@@ -39,7 +40,7 @@
         {
           "item_index": 2,
           "item_name": "accursed weapon",
-          "weapon_line": 4
+          "weapon_line": 3
         }
       ],
       "line": 1
@@ -59,7 +60,97 @@
     },
     {
       "is_faction_keyword": false,
+      "keyword": "CHAOS",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHAOS",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHAOS",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHAOS",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHAOS",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHAOS",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
       "keyword": "CHAOS LORD",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHAOS LORD",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHAOS LORD",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHAOS LORD",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHAOS LORD",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHAOS LORD",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHAOS LORD",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHARACTER",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHARACTER",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHARACTER",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHARACTER",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHARACTER",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHARACTER",
       "keyword_class": "unit"
     },
     {
@@ -74,12 +165,103 @@
     },
     {
       "is_faction_keyword": false,
+      "keyword": "FLY",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "FLY",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "FLY",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "FLY",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "FLY",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "FLY",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "GRENADES",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "GRENADES",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "GRENADES",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "GRENADES",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "GRENADES",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "GRENADES",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
       "keyword": "GRENADES",
       "keyword_class": "unit"
     },
     {
       "is_faction_keyword": true,
-      "keyword": "HERETIC ASTARTES"
+      "keyword": "HERETIC ASTARTES",
+      "keyword_class": "faction"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "INFANTRY",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "INFANTRY",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "INFANTRY",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "INFANTRY",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "INFANTRY",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "INFANTRY",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
@@ -93,7 +275,102 @@
     },
     {
       "is_faction_keyword": false,
+      "keyword": "JUMP PACK",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "JUMP PACK",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "JUMP PACK",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "JUMP PACK",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "JUMP PACK",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "JUMP PACK",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": true,
+      "keyword": "LEGIONES DAEMONICA",
+      "keyword_class": "faction"
+    },
+    {
+      "is_faction_keyword": false,
       "keyword": "SHADOW LEGION",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "SHADOW LEGION",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "SHADOW LEGION",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "SHADOW LEGION",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "SHADOW LEGION",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "SHADOW LEGION",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "SHADOW LEGION",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "UNDIVIDED",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "UNDIVIDED",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "UNDIVIDED",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "UNDIVIDED",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "UNDIVIDED",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "UNDIVIDED",
       "keyword_class": "unit"
     },
     {
@@ -112,7 +389,7 @@
       "leadership": "6+",
       "line": 1,
       "movement": "12\"",
-      "name": "Chaos Lord with Jump Pack",
+      "name": "Chaos Lord",
       "objective_control": 1,
       "save": "3+",
       "toughness": 4,
@@ -167,7 +444,7 @@
     },
     {
       "count": 1,
-      "grants_weapon_line": 6,
+      "grants_weapon_line": 4,
       "group_id": "og-chaos-lord-with-jump-pack-2-3",
       "id": "oc-chaos-lord-with-jump-pack-2-3-1",
       "is_default": false,
@@ -178,7 +455,7 @@
           "item_index": 1,
           "item_name": "twin lightning claws",
           "role": "granted",
-          "weapon_line": 6
+          "weapon_line": 4
         },
         {
           "item_index": 1,
@@ -189,7 +466,7 @@
           "item_index": 2,
           "item_name": "accursed weapon",
           "role": "replaced",
-          "weapon_line": 4
+          "weapon_line": 3
         }
       ],
       "name": "twin lightning claws"
@@ -213,12 +490,12 @@
     }
   ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 5,
+    "consecutive_unverified_releases": 6,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+    "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
@@ -243,28 +520,16 @@
     },
     {
       "ability_keywords": [
-        "pistol"
-      ],
-      "armour_penetration": "-2",
-      "attacks": "1",
-      "damage": "1",
-      "is_melee": true,
-      "line": 2,
-      "name": "Plasma pistol – standard",
-      "skill": "2+",
-      "strength": "7"
-    },
-    {
-      "ability_keywords": [
         "hazardous",
         "pistol"
       ],
       "armour_penetration": "-3",
       "attacks": "1",
       "damage": "2",
-      "is_melee": true,
-      "line": 3,
+      "is_melee": false,
+      "line": 2,
       "name": "Plasma pistol – supercharge",
+      "range": "12\"",
       "skill": "2+",
       "strength": "8"
     },
@@ -273,8 +538,21 @@
       "attacks": "6",
       "damage": "1",
       "is_melee": true,
-      "line": 4,
+      "line": 3,
       "name": "Accursed weapon",
+      "skill": "2+",
+      "strength": "5"
+    },
+    {
+      "ability_keywords": [
+        "TWIN-LINKED"
+      ],
+      "armour_penetration": "-2",
+      "attacks": "6",
+      "damage": "1",
+      "is_melee": true,
+      "line": 4,
+      "name": "Twin lightning claws",
       "skill": "2+",
       "strength": "5"
     },
@@ -290,16 +568,17 @@
     },
     {
       "ability_keywords": [
-        "TWIN-LINKED"
+        "pistol"
       ],
       "armour_penetration": "-2",
-      "attacks": "6",
+      "attacks": "1",
       "damage": "1",
-      "is_melee": true,
+      "is_melee": false,
       "line": 6,
-      "name": "Twin lightning claws",
+      "name": "Plasma pistol – standard",
+      "range": "12\"",
       "skill": "2+",
-      "strength": "5"
+      "strength": "7"
     }
   ]
 }

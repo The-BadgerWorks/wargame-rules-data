@@ -17,12 +17,11 @@
       "copy_index_min": 1,
       "label": "1 model",
       "model_count": 1,
-      "points": 385,
+      "points": 415,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0"
+      "source_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf"
     }
   ],
-  "damaged_threshold": 8,
   "datasheet_id": "ds-hellhammer-2",
   "default_equipment_state": "extracted",
   "equipment_groups": [
@@ -33,22 +32,22 @@
         {
           "item_index": 1,
           "item_name": "coaxial autocannon",
-          "weapon_line": 1
+          "weapon_line": 5
         },
         {
           "item_index": 2,
           "item_name": "demolisher cannon",
-          "weapon_line": 2
+          "weapon_line": 7
         },
         {
           "item_index": 3,
           "item_name": "heavy stubber",
-          "weapon_line": 3
+          "weapon_line": 8
         },
         {
           "item_index": 4,
           "item_name": "Hellhammer cannon",
-          "weapon_line": 4
+          "weapon_line": 2
         },
         {
           "count": 2,
@@ -58,7 +57,7 @@
         {
           "item_index": 6,
           "item_name": "twin heavy bolter",
-          "weapon_line": 6
+          "weapon_line": 1
         },
         {
           "count": 2,
@@ -68,7 +67,7 @@
         {
           "item_index": 8,
           "item_name": "armoured tracks",
-          "weapon_line": 8
+          "weapon_line": 6
         }
       ],
       "line": 1
@@ -90,6 +89,11 @@
       "is_faction_keyword": false,
       "keyword": "FRAME",
       "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": true,
+      "keyword": "GENESTEALER CULTS",
+      "keyword_class": "faction"
     },
     {
       "is_faction_keyword": false,
@@ -211,12 +215,12 @@
     }
   ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 5,
+    "consecutive_unverified_releases": 6,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+    "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
@@ -226,15 +230,82 @@
   "wargear_option_state": "extracted",
   "weapons": [
     {
+      "ability_keywords": [
+        "sustained hits 1",
+        "twin-linked"
+      ],
+      "armour_penetration": "-1",
+      "attacks": "3",
+      "damage": "2",
+      "is_melee": false,
+      "line": 1,
+      "name": "Twin heavy bolter",
+      "range": "36\"",
+      "skill": "4+",
+      "strength": "5"
+    },
+    {
+      "ability_keywords": [
+        "blast",
+        "ignores cover"
+      ],
+      "armour_penetration": "-1",
+      "attacks": "4D6",
+      "damage": "2",
+      "is_melee": false,
+      "line": 2,
+      "name": "Hellhammer cannon",
+      "range": "30\"",
+      "skill": "4+",
+      "strength": "7"
+    },
+    {
+      "armour_penetration": "-3",
+      "attacks": "1",
+      "damage": "D6+1",
+      "is_melee": false,
+      "line": 3,
+      "name": "Lascannon",
+      "range": "48\"",
+      "skill": "4+",
+      "strength": "12"
+    },
+    {
+      "ability_keywords": [
+        "ignores cover",
+        "torrent",
+        "twin-linked"
+      ],
+      "armour_penetration": "-1",
+      "attacks": "D6",
+      "damage": "1",
+      "is_melee": false,
+      "line": 4,
+      "name": "Twin heavy flamer",
+      "range": "12\"",
+      "skill": "N/A",
+      "strength": "5"
+    },
+    {
       "armour_penetration": "-1",
       "attacks": "2",
       "damage": "3",
       "is_melee": false,
-      "line": 1,
+      "line": 5,
       "name": "Coaxial autocannon",
       "range": "48\"",
       "skill": "4+",
       "strength": "9"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "6",
+      "damage": "1",
+      "is_melee": true,
+      "line": 6,
+      "name": "Armoured tracks",
+      "skill": "4+",
+      "strength": "8"
     },
     {
       "ability_keywords": [
@@ -244,7 +315,7 @@
       "attacks": "D6+3",
       "damage": "D6",
       "is_melee": false,
-      "line": 2,
+      "line": 7,
       "name": "Demolisher cannon",
       "range": "24\"",
       "skill": "4+",
@@ -258,77 +329,11 @@
       "attacks": "3",
       "damage": "1",
       "is_melee": false,
-      "line": 3,
+      "line": 8,
       "name": "Heavy stubber",
       "range": "36\"",
       "skill": "4+",
       "strength": "4"
-    },
-    {
-      "ability_keywords": [
-        "blast",
-        "ignores cover"
-      ],
-      "armour_penetration": "-1",
-      "attacks": "4D6",
-      "damage": "2",
-      "is_melee": false,
-      "line": 4,
-      "name": "Hellhammer cannon",
-      "range": "30\"",
-      "skill": "4+",
-      "strength": "7"
-    },
-    {
-      "armour_penetration": "-3",
-      "attacks": "1",
-      "damage": "D6+1",
-      "is_melee": false,
-      "line": 5,
-      "name": "Lascannon",
-      "range": "48\"",
-      "skill": "4+",
-      "strength": "12"
-    },
-    {
-      "ability_keywords": [
-        "sustained hits 1",
-        "twin-linked"
-      ],
-      "armour_penetration": "-1",
-      "attacks": "3",
-      "damage": "2",
-      "is_melee": false,
-      "line": 6,
-      "name": "Twin heavy bolter",
-      "range": "36\"",
-      "skill": "4+",
-      "strength": "5"
-    },
-    {
-      "ability_keywords": [
-        "ignores cover",
-        "torrent",
-        "twin-linked"
-      ],
-      "armour_penetration": "-1",
-      "attacks": "D6",
-      "damage": "1",
-      "is_melee": true,
-      "line": 7,
-      "name": "Twin heavy flamer",
-      "skill": "N/A",
-      "strength": "5"
-    },
-    {
-      "armour_penetration": "0",
-      "attacks": "6",
-      "damage": "1",
-      "is_melee": true,
-      "line": 8,
-      "name": "Armoured tracks",
-      "skill": "4+",
-      "strength": "8"
     }
   ]
 }

@@ -2,6 +2,7 @@
   "ability_keys": [
     "core:deadly-demise-d6",
     "datasheet:called-shots",
+    "datasheet:orders",
     "datasheet:vox-net",
     "faction:voice-of-command"
   ],
@@ -10,6 +11,7 @@
       "line": 1,
       "max_count": 1,
       "min_count": 1,
+      "model_line": 1,
       "model_name": "Rogal Dorn Tank Commander"
     }
   ],
@@ -20,7 +22,7 @@
       "model_count": 1,
       "points": 290,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260818T033550Z-0c772378"
+      "source_acquisition_id": "mfm-20260916T021400Z-1b0a18bd"
     },
     {
       "copy_index_min": 2,
@@ -28,7 +30,7 @@
       "model_count": 1,
       "points": 305,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260818T033550Z-0c772378"
+      "source_acquisition_id": "mfm-20260916T021400Z-1b0a18bd"
     }
   ],
   "damaged_threshold": 6,
@@ -52,12 +54,12 @@
         {
           "item_index": 3,
           "item_name": "twin battle cannon",
-          "weapon_line": 9
+          "weapon_line": 8
         },
         {
           "item_index": 4,
           "item_name": "armoured tracks",
-          "weapon_line": 10
+          "weapon_line": 9
         }
       ],
       "line": 1
@@ -122,7 +124,7 @@
       "leadership": "7+",
       "line": 1,
       "movement": "10\"",
-      "name": "Rogal Dorn Commander",
+      "name": "Rogal Dorn Tank Commander",
       "objective_control": 5,
       "save": "2+",
       "toughness": 12,
@@ -143,7 +145,7 @@
           "item_index": 1,
           "item_name": "oppressor cannon",
           "role": "granted",
-          "weapon_line": 7
+          "weapon_line": 6
         },
         {
           "count": 1,
@@ -162,7 +164,7 @@
     },
     {
       "count": 1,
-      "grants_weapon_line": 8,
+      "grants_weapon_line": 7,
       "group_id": "og-rogal-dorn-commander-2",
       "id": "oc-rogal-dorn-commander-2-1",
       "is_default": false,
@@ -173,7 +175,7 @@
           "item_index": 1,
           "item_name": "pulveriser cannon",
           "role": "granted",
-          "weapon_line": 8
+          "weapon_line": 7
         },
         {
           "item_index": 1,
@@ -273,15 +275,15 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:7ae35e80729a4493f183a533af9eef54f001e5102f0199f3e6543e593ce456e3",
-    "last_verified_version": "wh40k-11e-2026-08-4",
+    "last_verified_version": "wh40k-11e-2026-09-1",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+    "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
+    "points_acquisition_id": "mfm-20260916T021400Z-1b0a18bd",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
@@ -342,24 +344,10 @@
         "melta 2"
       ],
       "armour_penetration": "-4",
-      "attacks": "1",
-      "damage": "D6",
-      "is_melee": false,
-      "line": 5,
-      "name": "Meltagun",
-      "range": "12\"",
-      "skill": "4+",
-      "strength": "9"
-    },
-    {
-      "ability_keywords": [
-        "melta 2"
-      ],
-      "armour_penetration": "-4",
       "attacks": "2",
       "damage": "D6",
       "is_melee": false,
-      "line": 6,
+      "line": 5,
       "name": "Multi-melta",
       "range": "18\"",
       "skill": "4+",
@@ -373,7 +361,7 @@
       "attacks": "D6+3",
       "damage": "3",
       "is_melee": false,
-      "line": 7,
+      "line": 6,
       "name": "Oppressor cannon",
       "range": "72\"",
       "skill": "4+",
@@ -387,7 +375,7 @@
       "attacks": "D6",
       "damage": "3",
       "is_melee": false,
-      "line": 8,
+      "line": 7,
       "name": "Pulveriser cannon",
       "range": "24\"",
       "skill": "4+",
@@ -401,9 +389,10 @@
       "armour_penetration": "-1",
       "attacks": "D6+3",
       "damage": "3",
-      "is_melee": true,
-      "line": 9,
+      "is_melee": false,
+      "line": 8,
       "name": "Twin battle cannon",
+      "range": "48\"",
       "skill": "4+",
       "strength": "10"
     },
@@ -412,7 +401,7 @@
       "attacks": "6",
       "damage": "1",
       "is_melee": true,
-      "line": 10,
+      "line": 9,
       "name": "Armoured tracks",
       "skill": "4+",
       "strength": "7"

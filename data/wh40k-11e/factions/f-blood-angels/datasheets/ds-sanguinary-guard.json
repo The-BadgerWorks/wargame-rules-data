@@ -2,6 +2,7 @@
   "ability_keys": [
     "core:deep-strike",
     "datasheet:angelic-visage",
+    "datasheet:attached-unit",
     "datasheet:heirs-of-azkaellon",
     "datasheet:sanguinary-banner",
     "faction:oath-of-moment"
@@ -20,9 +21,9 @@
       "copy_index_min": 1,
       "label": "3 models",
       "model_count": 3,
-      "points": 125,
+      "points": 120,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260818T033550Z-0c772378"
+      "source_acquisition_id": "mfm-20260916T021400Z-1b0a18bd"
     },
     {
       "copy_index_min": 1,
@@ -30,15 +31,15 @@
       "model_count": 6,
       "points": 260,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260818T033550Z-0c772378"
+      "source_acquisition_id": "mfm-20260916T021400Z-1b0a18bd"
     },
     {
       "copy_index_min": 3,
       "label": "3 models",
       "model_count": 3,
-      "points": 145,
+      "points": 140,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260818T033550Z-0c772378"
+      "source_acquisition_id": "mfm-20260916T021400Z-1b0a18bd"
     },
     {
       "copy_index_min": 3,
@@ -46,7 +47,7 @@
       "model_count": 6,
       "points": 280,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260818T033550Z-0c772378"
+      "source_acquisition_id": "mfm-20260916T021400Z-1b0a18bd"
     }
   ],
   "datasheet_id": "ds-sanguinary-guard",
@@ -79,7 +80,8 @@
   "keywords": [
     {
       "is_faction_keyword": true,
-      "keyword": "ADEPTUS ASTARTES"
+      "keyword": "ADEPTUS ASTARTES",
+      "keyword_class": "faction"
     },
     {
       "is_faction_keyword": true,
@@ -225,16 +227,16 @@
   ],
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
-    "last_verified_points_digest": "sha256:d79d204dbdb7fb22e62092079836f85e5aec5961ef97d5247c4bdb4a4ba8de90",
-    "last_verified_version": "wh40k-11e-2026-08-4",
+    "last_verified_points_digest": "sha256:6ad9e86ba6739cc10f1cad55f12f883b60ef86c80df10cdb7e0632be2dc6a3a6",
+    "last_verified_version": "wh40k-11e-2026-09-1",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+    "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
+    "points_acquisition_id": "mfm-20260916T021400Z-1b0a18bd",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
@@ -262,9 +264,10 @@
       "armour_penetration": "-4",
       "attacks": "1",
       "damage": "D3",
-      "is_melee": true,
+      "is_melee": false,
       "line": 2,
       "name": "Inferno pistol",
+      "range": "6\"",
       "skill": "3+",
       "strength": "8"
     },

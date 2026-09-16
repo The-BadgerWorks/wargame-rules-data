@@ -20,10 +20,9 @@
       "model_count": 1,
       "points": 540,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0"
+      "source_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf"
     }
   ],
-  "damaged_threshold": 10,
   "datasheet_id": "ds-mastodon-5",
   "default_equipment_state": "extracted",
   "equipment_groups": [
@@ -49,12 +48,12 @@
         {
           "item_index": 4,
           "item_name": "skyreaper battery",
-          "weapon_line": 5
+          "weapon_line": 3
         },
         {
           "item_index": 5,
           "item_name": "armoured tracks",
-          "weapon_line": 7
+          "weapon_line": 1
         }
       ],
       "line": 1
@@ -74,7 +73,97 @@
     },
     {
       "is_faction_keyword": false,
+      "keyword": "CHAOS",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHAOS",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHAOS",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHAOS",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHAOS",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHAOS",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
       "keyword": "KHORNE",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "KHORNE",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "KHORNE",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "KHORNE",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "KHORNE",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "KHORNE",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "KHORNE",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "MASTODON",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "MASTODON",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "MASTODON",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "MASTODON",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "MASTODON",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "MASTODON",
       "keyword_class": "unit"
     },
     {
@@ -89,12 +178,132 @@
     },
     {
       "is_faction_keyword": false,
+      "keyword": "SMOKE",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "SMOKE",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "SMOKE",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "SMOKE",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "SMOKE",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "SMOKE",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "TITANIC",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "TITANIC",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "TITANIC",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "TITANIC",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "TITANIC",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "TITANIC",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
       "keyword": "TITANIC",
       "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
       "keyword": "TRANSPORT",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "TRANSPORT",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "TRANSPORT",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "TRANSPORT",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "TRANSPORT",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "TRANSPORT",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "TRANSPORT",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "VEHICLE",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "VEHICLE",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "VEHICLE",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "VEHICLE",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "VEHICLE",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "VEHICLE",
       "keyword_class": "unit"
     },
     {
@@ -263,12 +472,12 @@
     }
   ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 5,
+    "consecutive_unverified_releases": 6,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+    "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
@@ -278,44 +487,42 @@
   "wargear_option_state": "extracted",
   "weapons": [
     {
+      "armour_penetration": "0",
+      "attacks": "6",
+      "damage": "1",
+      "is_melee": true,
+      "line": 1,
+      "name": "Armoured tracks",
+      "skill": "4+",
+      "strength": "8"
+    },
+    {
       "ability_keywords": [
-        "sustained hits 1"
+        "devastating wounds"
       ],
-      "armour_penetration": "-1",
-      "attacks": "3",
+      "armour_penetration": "0",
+      "attacks": "4",
       "damage": "2",
       "is_melee": false,
-      "line": 1,
-      "name": "Heavy bolter",
+      "line": 2,
+      "name": "Volkite culverin",
       "range": "36\"",
       "skill": "3+",
-      "strength": "5"
+      "strength": "6"
     },
     {
       "ability_keywords": [
-        "ignores cover",
-        "torrent"
+        "anti-fly 4+"
       ],
       "armour_penetration": "-1",
-      "attacks": "D6",
-      "damage": "1",
-      "is_melee": false,
-      "line": 2,
-      "name": "Heavy flamer",
-      "range": "12\"",
-      "skill": "N/A",
-      "strength": "5"
-    },
-    {
-      "armour_penetration": "-3",
-      "attacks": "1",
-      "damage": "D6+1",
+      "attacks": "8",
+      "damage": "2",
       "is_melee": false,
       "line": 3,
-      "name": "Lascannon",
+      "name": "Skyreaper battery",
       "range": "48\"",
       "skill": "3+",
-      "strength": "12"
+      "strength": "7"
     },
     {
       "ability_keywords": [
@@ -332,41 +539,44 @@
       "strength": "9"
     },
     {
-      "ability_keywords": [
-        "anti-fly 4+"
-      ],
-      "armour_penetration": "-1",
-      "attacks": "8",
-      "damage": "2",
+      "armour_penetration": "-3",
+      "attacks": "1",
+      "damage": "D6+1",
       "is_melee": false,
       "line": 5,
-      "name": "Skyreaper battery",
+      "name": "Lascannon",
       "range": "48\"",
       "skill": "3+",
-      "strength": "7"
+      "strength": "12"
     },
     {
       "ability_keywords": [
-        "devastating wounds"
+        "ignores cover",
+        "torrent"
       ],
-      "armour_penetration": "0",
-      "attacks": "4",
-      "damage": "2",
-      "is_melee": true,
+      "armour_penetration": "-1",
+      "attacks": "D6",
+      "damage": "1",
+      "is_melee": false,
       "line": 6,
-      "name": "Volkite culverin",
-      "skill": "3+",
-      "strength": "6"
+      "name": "Heavy flamer",
+      "range": "12\"",
+      "skill": "N/A",
+      "strength": "5"
     },
     {
-      "armour_penetration": "0",
-      "attacks": "6",
-      "damage": "1",
-      "is_melee": true,
+      "ability_keywords": [
+        "sustained hits 1"
+      ],
+      "armour_penetration": "-1",
+      "attacks": "3",
+      "damage": "2",
+      "is_melee": false,
       "line": 7,
-      "name": "Armoured tracks",
-      "skill": "4+",
-      "strength": "8"
+      "name": "Heavy bolter",
+      "range": "36\"",
+      "skill": "3+",
+      "strength": "5"
     }
   ]
 }

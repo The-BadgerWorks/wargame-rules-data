@@ -4,17 +4,17 @@
       "copy_index_min": 1,
       "label": "1 model",
       "model_count": 1,
-      "points": 100,
+      "points": 95,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260818T033550Z-0c772378"
+      "source_acquisition_id": "mfm-20260916T021400Z-1b0a18bd"
     },
     {
       "copy_index_min": 1,
       "label": "2 models",
       "model_count": 2,
-      "points": 200,
+      "points": 190,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260818T033550Z-0c772378"
+      "source_acquisition_id": "mfm-20260916T021400Z-1b0a18bd"
     }
   ],
   "datasheet_id": "ds-myphitic-blight-haulers",
@@ -27,15 +27,15 @@
   "name": "MYPHITIC BLIGHT-HAULERS",
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
-    "last_verified_points_digest": "sha256:05df652db4b3f0cd9024d87e3995083ce32fd080ab9c42abd3cfdf4c9907ff36",
-    "last_verified_version": "wh40k-11e-2026-08-4",
+    "last_verified_points_digest": "sha256:ef574a2150d82c19a63c17a7ba13ffb6744b5cec1ec9cc0cab97dce00f4ca089",
+    "last_verified_version": "wh40k-11e-2026-09-1",
     "state": "verified"
   },
   "provenance": {
     "detail_edition_code": "wh40k-11e",
     "detail_source": "none",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
+    "points_acquisition_id": "mfm-20260916T021400Z-1b0a18bd",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   }

@@ -26,7 +26,7 @@
       "model_count": 4,
       "points": 40,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0"
+      "source_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf"
     },
     {
       "copy_index_min": 1,
@@ -34,7 +34,7 @@
       "model_count": 7,
       "points": 70,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0"
+      "source_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf"
     }
   ],
   "datasheet_id": "ds-renegade-ogryn-beast-handler",
@@ -48,7 +48,7 @@
         {
           "item_index": 1,
           "item_name": "mauler goad and ripper claw",
-          "weapon_line": 2
+          "weapon_line": 1
         }
       ],
       "line": 1,
@@ -61,7 +61,7 @@
         {
           "item_index": 1,
           "item_name": "befouled claws and fangs",
-          "weapon_line": 1
+          "weapon_line": 2
         }
       ],
       "line": 2,
@@ -82,6 +82,36 @@
     },
     {
       "is_faction_keyword": false,
+      "keyword": "BEASTS",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "BEASTS",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "BEASTS",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHAOS",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHAOS",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHAOS",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
       "keyword": "CHAOS",
       "keyword_class": "unit"
     },
@@ -91,8 +121,44 @@
       "keyword_class": "unit"
     },
     {
+      "is_faction_keyword": false,
+      "keyword": "DAMNED",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "DAMNED",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "DAMNED",
+      "keyword_class": "unit"
+    },
+    {
       "is_faction_keyword": true,
-      "keyword": "HERETIC ASTARTES"
+      "keyword": "HERETIC ASTARTES",
+      "keyword_class": "faction"
+    },
+    {
+      "is_faction_keyword": true,
+      "keyword": "LEGIONES DAEMONICA",
+      "keyword_class": "faction"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "RENEGADE OGRYN BEAST HANDLER",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "RENEGADE OGRYN BEAST HANDLER",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "RENEGADE OGRYN BEAST HANDLER",
+      "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
@@ -102,6 +168,36 @@
     {
       "is_faction_keyword": false,
       "keyword": "SHADOW LEGION",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "SHADOW LEGION",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "SHADOW LEGION",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "SHADOW LEGION",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "UNDIVIDED",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "UNDIVIDED",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "UNDIVIDED",
       "keyword_class": "unit"
     },
     {
@@ -136,12 +232,12 @@
   ],
   "name": "Renegade Ogryn Beast Handler",
   "pricing_confidence": {
-    "consecutive_unverified_releases": 5,
+    "consecutive_unverified_releases": 6,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+    "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
@@ -151,24 +247,24 @@
   "wargear_option_state": "none",
   "weapons": [
     {
-      "armour_penetration": "0",
-      "attacks": "2",
-      "damage": "1",
-      "is_melee": true,
-      "line": 1,
-      "name": "Befouled claws and fangs",
-      "skill": "3+",
-      "strength": "5"
-    },
-    {
       "armour_penetration": "-1",
       "attacks": "4",
       "damage": "2",
       "is_melee": true,
-      "line": 2,
+      "line": 1,
       "name": "Mauler goad and ripper claw",
       "skill": "3+",
       "strength": "6"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "2",
+      "damage": "1",
+      "is_melee": true,
+      "line": 2,
+      "name": "Befouled claws and fangs",
+      "skill": "3+",
+      "strength": "5"
     }
   ]
 }

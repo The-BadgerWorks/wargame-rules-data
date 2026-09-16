@@ -1,7 +1,8 @@
 {
   "ability_keys": [
     "core:deadly-demise-d3",
-    "datasheet:mow-down-the-enemy"
+    "datasheet:mow-down-the-enemy",
+    "datasheet:one-shot"
   ],
   "composition": [
     {
@@ -17,17 +18,17 @@
       "copy_index_min": 1,
       "label": "1 model",
       "model_count": 1,
-      "points": 150,
+      "points": 130,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260818T033550Z-0c772378"
+      "source_acquisition_id": "mfm-20260916T021400Z-1b0a18bd"
     },
     {
       "copy_index_min": 3,
       "label": "1 model",
       "model_count": 1,
-      "points": 160,
+      "points": 145,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260818T033550Z-0c772378"
+      "source_acquisition_id": "mfm-20260916T021400Z-1b0a18bd"
     }
   ],
   "damaged_threshold": 4,
@@ -304,16 +305,16 @@
   ],
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
-    "last_verified_points_digest": "sha256:ef3dfcbde6a74757dabce338b080e5d4a7fb8ba67210757452434c805bba14de",
-    "last_verified_version": "wh40k-11e-2026-08-4",
+    "last_verified_points_digest": "sha256:590e4aba176df4afa2cd1313c5c573cd5f91544f70c43d02c56d425d77cad95b",
+    "last_verified_version": "wh40k-11e-2026-09-1",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+    "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
+    "points_acquisition_id": "mfm-20260916T021400Z-1b0a18bd",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
@@ -448,9 +449,10 @@
       "armour_penetration": "0",
       "attacks": "2",
       "damage": "1",
-      "is_melee": true,
+      "is_melee": false,
       "line": 10,
       "name": "Storm bolter",
+      "range": "24\"",
       "skill": "4+",
       "strength": "4"
     },

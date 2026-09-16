@@ -8,11 +8,11 @@
       "is_unique": false,
       "name": "CABAL OF CHAOS",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+        "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
         "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
+        "points_acquisition_id": "mfm-20260916T021400Z-1b0a18bd",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       },
@@ -31,11 +31,11 @@
       "is_unique": false,
       "name": "CHAOS CULT",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+        "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
         "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
+        "points_acquisition_id": "mfm-20260916T021400Z-1b0a18bd",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       },
@@ -43,6 +43,10 @@
         {
           "name": "Desperate Devotion",
           "summary_key": "detachment:d-chaos-cult:desperate-devotion"
+        },
+        {
+          "name": "KEYWORDS",
+          "summary_key": "detachment:d-chaos-cult:keywords"
         }
       ]
     },
@@ -54,11 +58,11 @@
       "is_unique": false,
       "name": "CREATIONS OF BILE",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+        "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
         "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
+        "points_acquisition_id": "mfm-20260916T021400Z-1b0a18bd",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       },
@@ -77,11 +81,11 @@
       "is_unique": false,
       "name": "CULT OF THE ARKIFANE",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+        "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
         "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
+        "points_acquisition_id": "mfm-20260916T021400Z-1b0a18bd",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       },
@@ -100,11 +104,11 @@
       "is_unique": false,
       "name": "DECEPTORS",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+        "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
         "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
+        "points_acquisition_id": "mfm-20260916T021400Z-1b0a18bd",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       },
@@ -123,14 +127,20 @@
       "is_unique": false,
       "name": "DEVOTEES OF DESTRUCTION",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+        "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
         "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
+        "points_acquisition_id": "mfm-20260916T021400Z-1b0a18bd",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
-      }
+      },
+      "rules": [
+        {
+          "name": "Rain of Ruin",
+          "summary_key": "detachment:d-devotees-of-destruction:rain-of-ruin"
+        }
+      ]
     },
     {
       "detachment_id": "d-dread-talons",
@@ -140,11 +150,11 @@
       "is_unique": false,
       "name": "DREAD TALONS",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+        "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
         "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
+        "points_acquisition_id": "mfm-20260916T021400Z-1b0a18bd",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       },
@@ -163,11 +173,11 @@
       "is_unique": false,
       "name": "FELLHAMMER SIEGE-HOST",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+        "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
         "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
+        "points_acquisition_id": "mfm-20260916T021400Z-1b0a18bd",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       },
@@ -181,16 +191,16 @@
     {
       "detachment_id": "d-hurons-marauders",
       "detachment_points_cost": 3,
-      "force_disposition": "DISRUPTION",
+      "force_disposition": "PURGE THE FOE",
       "is_legends": false,
       "is_unique": false,
       "name": "HURON’S MARAUDERS",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+        "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
         "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
+        "points_acquisition_id": "mfm-20260916T021400Z-1b0a18bd",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       },
@@ -209,11 +219,11 @@
       "is_unique": true,
       "name": "MURDERTALON RAIDERS",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+        "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
         "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
+        "points_acquisition_id": "mfm-20260916T021400Z-1b0a18bd",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       },
@@ -232,11 +242,11 @@
       "is_unique": true,
       "name": "NIGHTMARE HUNT",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+        "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
         "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
+        "points_acquisition_id": "mfm-20260916T021400Z-1b0a18bd",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       },
@@ -255,11 +265,11 @@
       "is_unique": false,
       "name": "PACTBOUND ZEALOTS",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+        "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
         "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
+        "points_acquisition_id": "mfm-20260916T021400Z-1b0a18bd",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       },
@@ -278,11 +288,11 @@
       "is_unique": false,
       "name": "RENEGADE RAIDERS",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+        "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
         "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
+        "points_acquisition_id": "mfm-20260916T021400Z-1b0a18bd",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       },
@@ -301,11 +311,11 @@
       "is_unique": false,
       "name": "RENEGADE WARBAND",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+        "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
         "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
+        "points_acquisition_id": "mfm-20260916T021400Z-1b0a18bd",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       },
@@ -332,11 +342,11 @@
       "is_unique": false,
       "name": "SOULFORGED WARPACK",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+        "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
         "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
+        "points_acquisition_id": "mfm-20260916T021400Z-1b0a18bd",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       },
@@ -355,11 +365,11 @@
       "is_unique": false,
       "name": "VETERANS OF THE LONG WAR",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+        "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
         "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
+        "points_acquisition_id": "mfm-20260916T021400Z-1b0a18bd",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       },
@@ -378,11 +388,11 @@
       "is_unique": false,
       "name": "WARPSTRIKE CHAMPIONS",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+        "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
         "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
+        "points_acquisition_id": "mfm-20260916T021400Z-1b0a18bd",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       },

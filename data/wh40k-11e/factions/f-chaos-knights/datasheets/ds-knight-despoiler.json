@@ -20,17 +20,17 @@
       "copy_index_min": 1,
       "label": "1 model",
       "model_count": 1,
-      "points": 380,
+      "points": 360,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260818T033550Z-0c772378"
+      "source_acquisition_id": "mfm-20260916T021400Z-1b0a18bd"
     },
     {
       "copy_index_min": 2,
       "label": "1 model",
       "model_count": 1,
-      "points": 400,
+      "points": 390,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260818T033550Z-0c772378"
+      "source_acquisition_id": "mfm-20260916T021400Z-1b0a18bd"
     }
   ],
   "damaged_threshold": 9,
@@ -396,16 +396,16 @@
   ],
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
-    "last_verified_points_digest": "sha256:f4a14da7e3119f74c65c7e915124c945609562c72b031561c2dde4b1cc996362",
-    "last_verified_version": "wh40k-11e-2026-08-4",
+    "last_verified_points_digest": "sha256:840728dcc963f62c7de25a52b3c8ccf26fafc9c7ebcbafe3ca32758b4766e30c",
+    "last_verified_version": "wh40k-11e-2026-09-1",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+    "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
+    "points_acquisition_id": "mfm-20260916T021400Z-1b0a18bd",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
@@ -529,9 +529,10 @@
       "armour_penetration": "-2",
       "attacks": "3",
       "damage": "D6",
-      "is_melee": true,
+      "is_melee": false,
       "line": 9,
       "name": "Ruinspear rocket pod",
+      "range": "48\"",
       "skill": "3+",
       "strength": "8"
     },

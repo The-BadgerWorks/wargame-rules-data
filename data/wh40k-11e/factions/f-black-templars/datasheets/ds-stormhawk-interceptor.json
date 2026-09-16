@@ -9,6 +9,7 @@
       "line": 1,
       "max_count": 1,
       "min_count": 1,
+      "model_line": 1,
       "model_name": "Stormhawk Interceptor"
     }
   ],
@@ -19,7 +20,7 @@
       "model_count": 1,
       "points": 155,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260818T033550Z-0c772378"
+      "source_acquisition_id": "mfm-20260916T021400Z-1b0a18bd"
     }
   ],
   "datasheet_id": "ds-stormhawk-interceptor",
@@ -62,7 +63,8 @@
   "keywords": [
     {
       "is_faction_keyword": true,
-      "keyword": "ADEPTUS ASTARTES"
+      "keyword": "ADEPTUS ASTARTES",
+      "keyword_class": "faction"
     },
     {
       "is_faction_keyword": false,
@@ -98,6 +100,19 @@
       "is_faction_keyword": false,
       "keyword": "VEHICLE",
       "keyword_class": "unit"
+    }
+  ],
+  "models": [
+    {
+      "base_size": "(⌀120 x 92mm flying base)",
+      "leadership": "6+",
+      "line": 1,
+      "movement": "-",
+      "name": "Stormhawk Interceptor",
+      "objective_control": 0,
+      "save": "3+",
+      "toughness": 9,
+      "wounds": 10
     }
   ],
   "name": "STORMHAWK INTERCEPTOR",
@@ -185,15 +200,15 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:70d16b70a3d00bb38906ded940800fbe6a2b4405df3139b0617b38e38d8b42c8",
-    "last_verified_version": "wh40k-11e-2026-08-4",
+    "last_verified_version": "wh40k-11e-2026-09-1",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+    "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260818T033550Z-0c772378",
+    "points_acquisition_id": "mfm-20260916T021400Z-1b0a18bd",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
@@ -275,9 +290,10 @@
       "armour_penetration": "0",
       "attacks": "2D6",
       "damage": "1",
-      "is_melee": true,
+      "is_melee": false,
       "line": 6,
       "name": "Typhoon missile launcher – frag",
+      "range": "48\"",
       "skill": "3+",
       "strength": "4"
     },
@@ -285,9 +301,10 @@
       "armour_penetration": "-2",
       "attacks": "2",
       "damage": "D6",
-      "is_melee": true,
+      "is_melee": false,
       "line": 7,
       "name": "Typhoon missile launcher – krak",
+      "range": "48\"",
       "skill": "3+",
       "strength": "9"
     },

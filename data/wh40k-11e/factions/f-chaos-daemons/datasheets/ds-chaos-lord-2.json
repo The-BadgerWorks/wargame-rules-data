@@ -21,7 +21,7 @@
       "model_count": 1,
       "points": 90,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0"
+      "source_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf"
     }
   ],
   "datasheet_id": "ds-chaos-lord-2",
@@ -38,7 +38,7 @@
         {
           "item_index": 2,
           "item_name": "daemon hammer",
-          "weapon_line": 5
+          "weapon_line": 4
         }
       ],
       "line": 1
@@ -58,7 +58,67 @@
     },
     {
       "is_faction_keyword": false,
+      "keyword": "CHAOS",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHAOS",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHAOS",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHAOS",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
       "keyword": "CHAOS LORD",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHAOS LORD",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHAOS LORD",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHAOS LORD",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHAOS LORD",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHARACTER",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHARACTER",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHARACTER",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "CHARACTER",
       "keyword_class": "unit"
     },
     {
@@ -72,8 +132,29 @@
       "keyword_class": "unit"
     },
     {
+      "is_faction_keyword": false,
+      "keyword": "GRENADES",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "GRENADES",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "GRENADES",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "GRENADES",
+      "keyword_class": "unit"
+    },
+    {
       "is_faction_keyword": true,
-      "keyword": "HERETIC ASTARTES"
+      "keyword": "HERETIC ASTARTES",
+      "keyword_class": "faction"
     },
     {
       "is_faction_keyword": false,
@@ -82,7 +163,72 @@
     },
     {
       "is_faction_keyword": false,
+      "keyword": "INFANTRY",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "INFANTRY",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "INFANTRY",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "INFANTRY",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": true,
+      "keyword": "LEGIONES DAEMONICA",
+      "keyword_class": "faction"
+    },
+    {
+      "is_faction_keyword": false,
       "keyword": "SHADOW LEGION",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "SHADOW LEGION",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "SHADOW LEGION",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "SHADOW LEGION",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "SHADOW LEGION",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "UNDIVIDED",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "UNDIVIDED",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "UNDIVIDED",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "UNDIVIDED",
       "keyword_class": "unit"
     },
     {
@@ -113,7 +259,7 @@
   "option_choices": [
     {
       "count": 1,
-      "grants_weapon_line": 3,
+      "grants_weapon_line": 1,
       "group_id": "og-chaos-lord-2-1",
       "id": "oc-chaos-lord-2-1-1",
       "is_default": false,
@@ -124,7 +270,7 @@
           "item_index": 1,
           "item_name": "accursed weapon",
           "role": "granted",
-          "weapon_line": 3
+          "weapon_line": 1
         },
         {
           "item_index": 1,
@@ -157,7 +303,7 @@
     },
     {
       "count": 1,
-      "grants_weapon_line": 6,
+      "grants_weapon_line": 5,
       "group_id": "og-chaos-lord-2-2",
       "id": "oc-chaos-lord-2-2-1",
       "is_default": false,
@@ -168,7 +314,7 @@
           "item_index": 1,
           "item_name": "power fist",
           "role": "granted",
-          "weapon_line": 6
+          "weapon_line": 5
         },
         {
           "item_index": 1,
@@ -192,12 +338,12 @@
     }
   ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 5,
+    "consecutive_unverified_releases": 6,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260818T033715Z-2a890ad0",
+    "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
@@ -207,15 +353,26 @@
   "wargear_option_state": "extracted",
   "weapons": [
     {
+      "armour_penetration": "-2",
+      "attacks": "6",
+      "damage": "1",
+      "is_melee": true,
+      "line": 1,
+      "name": "Accursed weapon",
+      "skill": "2+",
+      "strength": "5"
+    },
+    {
       "ability_keywords": [
         "pistol"
       ],
       "armour_penetration": "-2",
       "attacks": "1",
       "damage": "1",
-      "is_melee": true,
-      "line": 1,
+      "is_melee": false,
+      "line": 2,
       "name": "Plasma pistol – standard",
+      "range": "12\"",
       "skill": "2+",
       "strength": "7"
     },
@@ -227,31 +384,12 @@
       "armour_penetration": "-3",
       "attacks": "1",
       "damage": "2",
-      "is_melee": true,
-      "line": 2,
+      "is_melee": false,
+      "line": 3,
       "name": "Plasma pistol – supercharge",
+      "range": "12\"",
       "skill": "2+",
       "strength": "8"
-    },
-    {
-      "armour_penetration": "-2",
-      "attacks": "6",
-      "damage": "1",
-      "is_melee": true,
-      "line": 3,
-      "name": "Accursed weapon",
-      "skill": "2+",
-      "strength": "5"
-    },
-    {
-      "armour_penetration": "-1",
-      "attacks": "7",
-      "damage": "1",
-      "is_melee": true,
-      "line": 4,
-      "name": "Astartes chainblade",
-      "skill": "2+",
-      "strength": "4"
     },
     {
       "ability_keywords": [
@@ -261,7 +399,7 @@
       "attacks": "5",
       "damage": "2",
       "is_melee": true,
-      "line": 5,
+      "line": 4,
       "name": "Daemon hammer",
       "skill": "3+",
       "strength": "8"
@@ -271,10 +409,20 @@
       "attacks": "5",
       "damage": "2",
       "is_melee": true,
-      "line": 6,
+      "line": 5,
       "name": "Power fist",
       "skill": "2+",
       "strength": "8"
+    },
+    {
+      "armour_penetration": "-1",
+      "attacks": "7",
+      "damage": "1",
+      "is_melee": true,
+      "line": 6,
+      "name": "Astartes chainblade",
+      "skill": "2+",
+      "strength": "4"
     }
   ]
 }
