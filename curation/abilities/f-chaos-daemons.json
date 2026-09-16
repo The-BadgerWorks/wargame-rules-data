@@ -2119,13 +2119,13 @@
   },
   {
     "ability_key": "faction:the-shadow-of-chaos",
-    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
+    "authored_against_acquisition": "wahapedia-20260915T220055Z-ae4bfdaf",
     "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
-    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
-    "mechanic_digest": "c95a4fb5881c874f695790618e8d2cfe",
+    "digest_refreshed_under_authorization": "owner-2026-09-15-table-digest-rereview",
+    "mechanic_digest": "fa2519e888b545010d7ca209c2ecb412",
     "name": "The Shadow of Chaos",
     "review_state": "approved",
-    "reviewed_at": "2026-09-15T04:35:16Z",
+    "reviewed_at": "2026-09-15T22:00:19Z",
     "reviewed_by": "claude-sonnet-5-reviewer",
     "summary": "LEGIONES DAEMONICA armies only. Shadow of Chaos (SoC): your deployment zone (DZ), plus, each phase start, No Man's Land or enemy DZ while you control at least half its objective markers, that phase. Friendly LEGIONES DAEMONICA units in SoC: +1 to battle-shock rolls; on a success one model heals D3 wounds (BATTLELINE: instead return up to D3 destroyed non-CHARACTER models). Enemy units in SoC or within 6\" of your BLOODTHIRSTER, GREAT UNCLEAN ONE, KAIROS FATEWEAVER, KEEPER OF SECRETS, LORD OF CHANGE, ROTIGUS, SHALAXI HELBANE or SKARBRAND: -1 to Battle-shock tests; D3 mortal wounds if failed."
   }

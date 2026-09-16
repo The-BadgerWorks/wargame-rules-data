@@ -349,14 +349,14 @@
   },
   {
     "ability_key": "faction:code-chivalric",
-    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
+    "authored_against_acquisition": "wahapedia-20260916T005129Z-ae4bfdaf",
     "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
-    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
-    "mechanic_digest": "50a790536c92936f0749b69591c5e035",
+    "digest_refreshed_under_authorization": "owner-2026-09-15-table-digest-rereview",
+    "mechanic_digest": "0ae5f490628f5b45ee5f154312117edb",
     "name": "Code Chivalric",
     "review_state": "approved",
-    "reviewed_at": "2026-09-15T04:35:16Z",
-    "reviewed_by": "claude-sonnet-5-reviewer",
-    "summary": "IMPERIAL KNIGHTS army: at end of Read Mission Objectives, pick or roll D6 for a Deed and a Quality. Deeds: 1-2 pick an enemy CHARACTER at battle start, completed at end of a turn if destroyed; 3-4 at end of opponent's turn if you control more objective markers; 5-6 at end of battle round if enemy units destroyed that round > round number. Quality lasts until battle end for models with this ability: 1-2 when it shoots or fights, re-roll one Hit and one Wound roll; 3-4 +2\" Move, +1 Advance/Charge; 5-6 +2 OC, +1 Ld. First completion: Honoured; 2CP (3CP if either rolled), ignoring the 1CP/round cap."
+    "reviewed_at": "2026-09-16T00:53:24Z",
+    "reviewed_by": "claude-fable-5-1-manager-hand-review",
+    "summary": "If your Army Faction is Imperial Knights, at the end of the Read Mission Objectives step choose or roll (D6) one Deed and one Quality. Deeds: 1-2 select an enemy Character at the start of the battle, completed at the end of a turn in which it is destroyed; 3-4 completed at the end of your opponent's turn if you control more objective markers; 5-6 completed at the end of a battle round if the enemy units destroyed that round exceed the round number. Quality, applied to all models with this ability for the battle: 1-2 when the model shoots or fights, re-roll one Hit roll and one Wound roll; 3-4 +2\" Move and +1 to Advance and Charge rolls; 5-6 +2 Objective Control and +1 Leadership. The first time the Deed is completed your army becomes Honoured and you gain 2CP, or 3CP if either part was rolled, ignoring the 1CP-per-round cap."
   }
 ]

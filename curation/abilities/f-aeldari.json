@@ -1999,15 +1999,15 @@
   },
   {
     "ability_key": "faction:battle-focus",
-    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
+    "authored_against_acquisition": "wahapedia-20260916T005129Z-ae4bfdaf",
     "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
-    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
-    "mechanic_digest": "a558a322769fb94933da153b5afe29a7",
+    "digest_refreshed_under_authorization": "owner-2026-09-15-table-digest-rereview",
+    "mechanic_digest": "1fc735a02f191a58f0ee2517fcebc638",
     "name": "Battle Focus",
     "review_state": "approved",
-    "reviewed_at": "2026-09-15T04:35:16Z",
-    "reviewed_by": "claude-sonnet-5-reviewer",
-    "summary": "Each battle round you get 2/4/6 Battle Focus tokens by battle size; unspent ones are lost. Spend one for an Agile Manoeuvre (one per unit per phase): +2\" Move, no Overwatch, Assault on Advance, 6\" Pile-in, or a D6+1\" move."
+    "reviewed_at": "2026-09-16T00:53:24Z",
+    "reviewed_by": "claude-fable-5-1-manager-hand-review",
+    "summary": "Asuryani army: each battle round gain Battle Focus tokens by battle size (Incursion 2, Strike Force 4, Onslaught 6); unspent tokens are lost at the round's end. On a trigger, spend one token so a unit with this ability that has not done so this phase performs the Agile Manoeuvre; each once per phase unless stated. Swift as the Wind: on a Normal, Advance or Fall Back move, +2\" Move this phase (repeatable with different units). Flitting Shadows: on a move, set-up or charge declaration, no Fire Overwatch against it this turn. Star Engines: a Vehicle that Advances gains Assault on ranged weapons this turn. Sudden Strike: when selected to fight, Pile-in and Consolidation moves up to 6\". Opportunity Seized: when an enemy unit ends a Fall Back move, one non-Titanic unit that began the phase in Engagement Range of it makes a Normal move up to D6+1\". Fade Back: after an enemy unit shoots in your opponent's Shooting phase, one non-Titanic unit it hit makes a Normal move up to D6+1\"."
   },
   {
     "ability_key": "faction:disparate-paths",

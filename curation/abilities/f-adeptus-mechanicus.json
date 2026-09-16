@@ -838,13 +838,13 @@
   },
   {
     "ability_key": "faction:doctrina-imperatives",
-    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
+    "authored_against_acquisition": "wahapedia-20260915T220055Z-ae4bfdaf",
     "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
-    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
-    "mechanic_digest": "2b00d83fd391f01339332a1c0a46d8ee",
+    "digest_refreshed_under_authorization": "owner-2026-09-15-table-digest-rereview",
+    "mechanic_digest": "96ffb52b7277e27dbb2cdbd18c7a675e",
     "name": "Doctrina Imperatives",
     "review_state": "approved",
-    "reviewed_at": "2026-09-15T04:35:16Z",
+    "reviewed_at": "2026-09-15T22:00:19Z",
     "reviewed_by": "claude-sonnet-5-reviewer",
     "summary": "Pick an Imperative each round. Protector: ranged Heavy, improved Ballistic Skill, -1 to enemy melee Hit rolls. Conqueror: ranged Assault, improved melee Weapon Skill, +1 Armour Penetration. Last effects need Battleline, or one within 6\"."
   }
