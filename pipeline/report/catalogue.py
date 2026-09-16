@@ -20,27 +20,21 @@
 # AI-Assisted: Claude Code (model: claude-sonnet-5) - Added 009-csv-migration's three Foundational
 # codes (009 task T017, data-model.md §2, plan.md "New finding codes"): the loud faction-mismatch
 # guard the plan's finding 2 established the coverage ratchets cannot catch on their own
-# (REC-DETAIL-FACTION-EMPTY), the acquired-set table-presence guard FR-018 requires
-# (SRC-TABLE-MISSING), and the advisory short-circuit outcome FR-031 needs to tell a skipped
-# fetch from an unchanged source from a failed one (SRC-EXPORT-UNCHANGED). Additions only, per
-# FR-001 -- no existing code's severity or class moves.
+# (REC-DETAIL-FACTION-EMPTY) and the acquired-set table-presence guard FR-018 requires
+# (SRC-TABLE-MISSING). Additions only, per FR-001 -- no existing code's severity or class
+# moves.
 # AI-Assisted: Claude Code (model: claude-opus-5) - 010 R5: removed `SRC-CLASS-ARM`, the
 # per-class acquisition-arm advisory, and the three `SRC-FACTION-CARR*-FORWARD*` codes, along
 # with the hybrid and the per-faction carry-forward mechanisms that emitted them. With a single
 # bulk arm there is no second arm a class could be declared onto and no per-faction page failure
 # a declaration could excuse, so no run can emit any of them.
-# AI-Assisted: Claude Code (model: claude-sonnet-5) - Corrected SRC-EXPORT-UNCHANGED's own
-# description (009 rung R05-fix item 3, gate on PR #30): it claimed "the export's content
-# fingerprint is unmoved since the last run", but the check that fires it compares only the
-# `Last_update.csv` timestamp digest -- this repository's own
-# `test_the_short_circuits_own_fingerprint_never_claims_full_verification` proves the content
-# fingerprint can differ while this code still fires. The text now says what the check actually
-# checks.
-# AI-Assisted: Claude Code (model: claude-sonnet-5) - Registered SRC-STATE-CORRUPT (009 rung
-# R05-fix3 item 2): `pipeline/acquire/wahapedia.py::ExportStateCorrupt` has raised this code since
-# R05-fix item 4, but it was absent here, so `definition("SRC-STATE-CORRUPT")` raised
-# `UnknownFindingCodeError` -- unlike every other `finding_code` in `pipeline/`. Given the same
-# class and severity as its acquire-stage siblings SRC-UNREACHABLE and SRC-REFUSED.
+# AI-Assisted: Claude Code (model: claude-opus-5) - 010 R9 task 1: removed SRC-EXPORT-UNCHANGED
+# and SRC-STATE-CORRUPT along with the export-timestamp short-circuit that was the only producer
+# of either (`pipeline/acquire/wahapedia.py`'s own header states why the mechanism went).
+# SRC-EXPORT-UNCHANGED reported a skipped fetch and nothing can skip one now; SRC-STATE-CORRUPT
+# was `ExportStateCorrupt`'s code and described a tracked state file this round deletes. Same
+# no-run-can-emit-it removal as 010 R5's SRC-CLASS-ARM, and on the same reading of FR-001: a
+# severity or class that MOVES is what is forbidden, not a code retired with its mechanism.
 # AI-Assisted: Claude Code (model: claude-sonnet-5) - Registered EQP-BOUNDARY-AMBIGUOUS (010 R2
 # task 1, spec §4.2): the advisory `pipeline/acquire/export_rows.py::derive_equipment_from_loadout`
 # raises when a loadout sentence's tail is structurally ambiguous between a trailing sentence and
@@ -49,6 +43,10 @@
 # longer dropped — it reaches the equipment table as an empty description at its own ordinal, so
 # EQP-UNPARSED also fires for it and the datasheet's state is partial rather than none. Updated
 # EQP-BOUNDARY-AMBIGUOUS's text to describe delivery-as-empty-row instead of omission.
+# AI-Assisted: Claude Code (model: claude-opus-5) - 010 R9 task 5: registered
+# GLS-UNIT-NAME-EXCLUDED, the advisory `pipeline/validate/gates.py::check_unit_name_exclusions`
+# raises with the count of keys the unit-name exclusion removed from the glossary denominator.
+# Additive, per FR-001 -- no existing code's severity or class moves.
 # AI-Assisted: Claude Code (model: claude-sonnet-5) - 010 round 4 task 1: registered
 # OPT-FOOTNOTE-ROW for `pipeline/acquire/export_rows.py::drop_non_option_rows`'s new footnote-row
 # routing (the export's `button` `*`, html parity).
@@ -202,26 +200,6 @@ _DEFINITIONS: Final[tuple[FindingDefinition, ...]] = (
         "009 FR-018",
         "a table the build consumes is absent or empty in the acquired set; named by table, "
         "asserted against a real acquisition rather than a fixture directory listing",
-    ),
-    _d(
-        "SRC-STATE-CORRUPT",
-        _COV,
-        _B,
-        "009 FR-030, R05-fix item 4",
-        "state/wahapedia-export-digest.json exists but is not a JSON object; this pipeline is "
-        "the only writer of that file, so finding something else there is evidence of external "
-        "tampering or truncation, never a fact to route around -- fails closed on the same "
-        "severity and class as SRC-UNREACHABLE and SRC-REFUSED, its acquire-stage siblings",
-    ),
-    _d(
-        "SRC-EXPORT-UNCHANGED",
-        _COV,
-        _A,
-        "009 FR-030, FR-031",
-        "the export's own Last_update.csv timestamp digest matched the last recorded run under "
-        "the same source identity, so the rest of the export was never re-fetched; a convenience "
-        "pre-check, not a claim that the content fingerprint is unmoved -- only a full fetch "
-        "verifies that",
     ),
     _d("COV-COLLAPSE", _COV, _B, "FR-009", "coverage fell below the configured proportion"),
     _d(
@@ -401,6 +379,14 @@ _DEFINITIONS: Final[tuple[FindingDefinition, ...]] = (
         _A,
         "004 FR-023",
         "a glossary entry's keyword is used by no published datasheet or weapon",
+    ),
+    _d(
+        "GLS-UNIT-NAME-EXCLUDED",
+        _COV,
+        _A,
+        "010 R9, Owner ruling 2026-09-15",
+        "keywords whose key equals a published datasheet or model name left the glossary "
+        "denominator; carries how many keys went, so the shrink is visible rather than silent",
     ),
     # Deliberately ONE code across all four classes, with the class in its detail. A per-class
     # code would invite a per-class severity, which is the failure §3 exists to prevent

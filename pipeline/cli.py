@@ -31,20 +31,15 @@
 # AI-Assisted: Claude Code (model: claude-opus-5) - 010 R5: removed the carry-forward split and
 # splice (`resolve_carried_forward`, `apply_carried_forward`) from `run_build` along with the
 # per-faction carry-forward mechanism itself.
-# AI-Assisted: Claude Code (model: claude-sonnet-5) - 009 rung R05-fix2 (gate on PR #30): the
-# Product Owner reversed the previous round's ruling that wired `run_detect` to the detail
-# source's export-timestamp short-circuit. `run_detect` is reverted here to its byte-for-byte
-# pre-wiring behaviour -- no detail-source acquisition, no `state_path`, no short-circuit
-# involvement of any kind -- because `detect.yml` has no `env:` block passing
-# `WGC_DETAIL_SOURCE_URL`, so the wiring would have made `detect` demand a variable it never
-# receives on a real run and exit CONFIG_ERROR (60) with no candidate, no fault alert, and no
-# ledger entry; because it coupled the release trigger to a source `detect` never otherwise
-# reads; and because the short-circuit's saving was never actually there for `detect` -- on a
-# moved timestamp `detect` fetches and discards the whole export exactly as before, since the
-# saving belongs to whichever stage consumes the detail source, which is `build`, not `detect`.
-# Wiring is deferred to a future rung, decided once a caller is genuinely consuming the detail
-# source (see `docs/follow-ups.md` item 30). The mechanism itself (`acquire_wahapedia`'s
-# `state_path` opt-in) is untouched here and stays proven in isolation.
+# AI-Assisted: Claude Code (model: claude-opus-5) - 010 R9 task 1: dropped the two comments
+# explaining why `run_detect` was NOT wired to the detail source's export-timestamp
+# short-circuit. The mechanism is deleted (Owner ruling 2026-09-15), so there is nothing left to
+# decline to wire. `run_detect`'s own `state_path` local is unrelated: it names
+# `state/detection-digest.json`, the detection sweep's live state, and stays.
+# AI-Assisted: Claude Code (model: claude-opus-5) - 010 R9 task 5: wired
+# `check_unit_name_exclusions` into both candidate paths beside `check_glossary_orphans`, so the
+# count of keywords the unit-name exclusion took out of the glossary denominator travels with
+# every build and validate run rather than the denominator quietly being smaller.
 # AI-Assisted: Claude Code (model: claude-opus-5) - 010 R5: dropped this call site's
 # `apply_detail_source_authority` overlay along with the hybrid it expressed; `read_detail`'s
 # return now reaches the stages below untouched.
@@ -192,6 +187,7 @@ from pipeline.validate.gates import (
     check_option_ratchet,
     check_summary_gates,
     check_summary_ratchet,
+    check_unit_name_exclusions,
     class_coverage,
     detachment_rule_keys,
     detachment_rule_summaries,
@@ -683,6 +679,11 @@ def _reconcile_against_prior(
     # limitation, since a stem-digested entry can never flag for re-review on its own
     # (contract §3.1, §5.1).
     findings.extend(check_glossary_orphans(snapshot, authored.glossary_entries))
+    # Advisory, beside the orphan check and for the mirror-image reason: a keyword that names a
+    # unit left the denominator entirely (Owner ruling 2026-09-15), and a denominator that shrank
+    # looks exactly like a denominator that was always that size. The count travels with the build
+    # so the shrink is readable beside the coverage figure it changed.
+    findings.extend(check_unit_name_exclusions(snapshot))
     coverage.figures.update(summary_figures)
 
     # 006 FR-022. Kept OUT of `coverage.findings`, whose non-emptiness is what exits 42 for a
@@ -789,12 +790,10 @@ def run_build(  # noqa: PLR0913 - the stage boundary is the argument list
         findings: list[Finding] = []
         for result in detail.values():
             findings.extend(result.findings)
-        # 009 rung R05 (T087, T091, FR-031): acquisition-time findings -- SRC-EXPORT-UNCHANGED,
-        # were a caller ever to opt `detail_acq` into the export-timestamp short-circuit -- reach
-        # the run's report the same way a table-level finding does. `run_build` itself never
-        # passes `state_path` to `acquire_detail` (see that function's own docstring), so this is
-        # presently always `()`; it is here so a future caller that does opt in needs no second
-        # wiring point.
+        # 009 rung R05 (T087, FR-031): acquisition-time findings reach the run's report the
+        # same way a table-level finding does. No acquisition raises one today -- the one code
+        # that did, SRC-EXPORT-UNCHANGED, went with the short-circuit in 010 R9 -- so this is
+        # presently always `()`, and it is the single wiring point should one return.
         findings.extend(detail_acq.findings)
 
         assembly = assemble(
@@ -1108,6 +1107,11 @@ def run_validate(
     # limitation, since a stem-digested entry can never flag for re-review on its own
     # (contract §3.1, §5.1).
     findings.extend(check_glossary_orphans(snapshot, authored.glossary_entries))
+    # Advisory, beside the orphan check and for the mirror-image reason: a keyword that names a
+    # unit left the denominator entirely (Owner ruling 2026-09-15), and a denominator that shrank
+    # looks exactly like a denominator that was always that size. The count travels with the build
+    # so the shrink is readable beside the coverage figure it changed.
+    findings.extend(check_unit_name_exclusions(snapshot))
     coverage.figures.update(summary_figures)
 
     # 006 FR-022. Kept OUT of `coverage.findings`, whose non-emptiness is what exits 42 for a

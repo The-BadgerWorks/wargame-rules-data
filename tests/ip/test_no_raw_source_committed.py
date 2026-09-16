@@ -1,3 +1,11 @@
+# AI-Assisted: Claude Code (model: claude-opus-5) - 010 R9 task 1: deleted
+# `test_the_tracked_export_digest_state_file_holds_no_raw_timestamp` and the
+# `EXPORT_DIGEST_STATE_PATH` constant it read. `state/wahapedia-export-digest.json` is deleted
+# with the export-timestamp short-circuit that wrote it, so a test asserting the tracked file is
+# clean would be asserting against a file that does not exist. The timestamp-shape scan itself
+# and all eight of its planted-and-clean receipts stay: the shape it catches is a class of IP
+# leak, not a property of that one file, and the next state file to hold a digest inherits a
+# scan already proven able to fail.
 # AI-Assisted: Claude Code (model: claude-opus-5) - Wrote the repository-wide raw-source scan
 # (task T053): no tracked file under work/, no .csv outside fixtures/, no committed HTML outside
 # fixtures/. Runs in CI on every PR.
@@ -53,7 +61,6 @@ why the files there are authored rather than captured.
 from __future__ import annotations
 
 import hashlib
-import json
 import re
 import subprocess
 from pathlib import Path
@@ -237,8 +244,13 @@ def test_the_009_diagnosis_reports_carry_no_quoted_phrase() -> None:
 
 # --- 009 rung R05 T094: no raw publisher timestamp anywhere (FR-030) ---------------------------
 #
-# The export-timestamp short-circuit's own hazard: `state/wahapedia-export-digest.json` is the
-# one file this feature adds that reads the publisher's `Last_update.csv` at all. Everything else
+# 010 R9: the file this scan was built for, `state/wahapedia-export-digest.json`, is deleted with
+# the export-timestamp short-circuit, so the tracked-file assertion is gone and what remains is
+# the shape scan and its receipts -- kept because the shape is a class of leak rather than one
+# file's property. The history below is why the scan looks the way it does.
+#
+# The export-timestamp short-circuit's own hazard: `state/wahapedia-export-digest.json` was the
+# one file that feature added that read the publisher's `Last_update.csv` at all. Everything else
 # it could leak through -- a report, a log, the run ledger -- either does not carry the value
 # (`pipeline.observability.ledger.RunLedgerEntry`'s `coverage` field is typed `Mapping[str, int]`,
 # which structurally cannot hold a timestamp string) or is covered by the scans above.
@@ -268,8 +280,6 @@ def test_the_009_diagnosis_reports_carry_no_quoted_phrase() -> None:
 # whole decoded JSON structure -- dicts and lists, to any depth -- and yields every string value
 # it finds with a dotted/indexed path label, so `_raw_timestamp_shaped_values` catches a planted
 # timestamp at any depth rather than only at the object's own top level.
-
-EXPORT_DIGEST_STATE_PATH = "state/wahapedia-export-digest.json"
 
 #: The shape `Last_update.csv`'s own text takes -- `YYYY-MM-DD`, optionally followed by a time
 #: (space- or `T`-separated, optionally `Z`-suffixed). Matches both the real mirror's own
@@ -380,23 +390,6 @@ def test_the_timestamp_shape_scan_accepts_the_identity_fields() -> None:
 
 def test_the_timestamp_shape_scan_accepts_the_seeded_empty_state() -> None:
     assert _raw_timestamp_shaped_values({}) == []
-
-
-def test_the_tracked_export_digest_state_file_holds_no_raw_timestamp() -> None:
-    """FR-030: whatever the tracked `state/wahapedia-export-digest.json` currently holds --
-    seeded empty, or carrying a digest and identity from a real run -- it is never the
-    publisher's raw `Last_update.csv` text."""
-    tracked = _tracked_files()
-    assert EXPORT_DIGEST_STATE_PATH in tracked, (
-        "the export-digest state file should exist and be tracked (state/README.md)"
-    )
-    raw = json.loads((REPO_ROOT / EXPORT_DIGEST_STATE_PATH).read_text(encoding="utf-8"))
-    offenders = _raw_timestamp_shaped_values(raw)
-    assert offenders == [], (
-        f"state/wahapedia-export-digest.json carries a raw-timestamp-shaped value, which FR-030 "
-        f"forbids -- it must hold a one-way digest and source identity, never the raw "
-        f"timestamp: {offenders}"
-    )
 
 
 def test_the_run_ledger_entry_schema_structurally_cannot_carry_a_timestamp_string() -> None:

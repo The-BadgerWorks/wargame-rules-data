@@ -12,6 +12,12 @@
 # the two loadout coverage rows (006 task T038): check_summary_ratchet's shape reused for a
 # figure that is not an authored class, comparing PERCENTS against the previous PUBLISHED
 # version where the collapse check compares counts against a configured floor.
+# AI-Assisted: Claude Code (model: claude-opus-5) - 010 R9 task 5: excluded keywords that NAME a
+# unit from the glossary denominator (Owner ruling 2026-09-15) -- unit_name_keys, the second
+# exclusion in used_keyword_keys, and the GLS-UNIT-NAME-EXCLUDED advisory that keeps the shrink
+# visible per build. Round 8 measured 1030 of GLS-OUTSTANDING's 1264 keys as datasheet or model
+# names with no source text anywhere in the export, so the figure was counting work no curator
+# could do.
 # AI-Assisted: Claude Code (model: claude-sonnet-5) - 008 task T060: generalised
 # check_option_ratchet over both ratcheted loadout figures -- one function, a per-figure finding
 # code selected by the coverage's own key (COV-OPTION-REGRESSION / COV-EQUIPMENT-REGRESSION),
@@ -484,19 +490,12 @@ def detachment_rule_summaries(
     return dict(records)
 
 
-def used_keyword_keys(snapshot: CuratedSnapshot) -> tuple[str, ...]:
-    """Every distinct ``keyword_key`` a published datasheet or weapon uses, **excluding**
-    faction and chapter keywords (§4.1, FR-023).
+def _mechanical_keyword_keys(snapshot: CuratedSnapshot) -> set[str]:
+    """Every keyword key in use with the faction/chapter exclusion applied and nothing else.
 
-    The exclusion is the interesting half. A faction or chapter keyword is a *label for who the
-    unit belongs to*, not a mechanic anyone could define, so counting it would make the glossary's
-    denominator permanently unreachable and its coverage figure meaningless — which is why the
-    keyword classification of US2 and this class ship in the same feature. Excluded means
-    **excluded, not counted as missing work**: an unclassified keyword is still counted, because
-    "nobody has classified this yet" is not evidence that it needs no definition.
-
-    Weapon ability keywords are counted in full. They are mechanics by construction — a weapon
-    ability is never a faction label — so there is nothing to exclude among them.
+    The one enumeration both :func:`used_keyword_keys` and :func:`check_unit_name_exclusions`
+    read, so the count the advisory reports is arithmetic on the same set the denominator is
+    taken from rather than a second traversal that could drift from it.
     """
     keys: set[str] = set()
     for datasheet in snapshot.datasheets:
@@ -509,7 +508,85 @@ def used_keyword_keys(snapshot: CuratedSnapshot) -> tuple[str, ...]:
             for ability in weapon.ability_keywords:
                 if resolved := keyword_key(ability):
                     keys.add(resolved)
-    return tuple(sorted(keys))
+    return keys
+
+
+def unit_name_keys(snapshot: CuratedSnapshot) -> frozenset[str]:
+    """Every datasheet and model-line name, in the keywords' own ``keyword_key`` vocabulary.
+
+    Snapshot-wide, and deliberately not per faction: one glossary entry serves a keyword across
+    every faction that prints it (FR-023), so the key is the narrowest scope the denominator can
+    express. A per-faction exclusion could not be honoured — the same key would be excluded in one
+    faction and counted in another, and there is only one candidate to count.
+
+    Names go through :func:`keyword_key` rather than being compared raw, because that is the
+    vocabulary the other side of the comparison is already in: casing, spacing and punctuation
+    variants have collapsed before a keyword reaches here, and comparing a printed name against a
+    collapsed key would miss every variant.
+    """
+    return frozenset(
+        resolved
+        for datasheet in snapshot.datasheets
+        for name in (datasheet.name, *(model.name for model in datasheet.models))
+        if (resolved := keyword_key(name))
+    )
+
+
+def used_keyword_keys(snapshot: CuratedSnapshot) -> tuple[str, ...]:
+    """Every distinct ``keyword_key`` a published datasheet or weapon uses, **excluding**
+    faction and chapter keywords, and **excluding** keywords that name a unit (§4.1, FR-023).
+
+    The exclusion is the interesting half. A faction or chapter keyword is a *label for who the
+    unit belongs to*, not a mechanic anyone could define, so counting it would make the glossary's
+    denominator permanently unreachable and its coverage figure meaningless — which is why the
+    keyword classification of US2 and this class ship in the same feature. Excluded means
+    **excluded, not counted as missing work**: an unclassified keyword is still counted, because
+    "nobody has classified this yet" is not evidence that it needs no definition.
+
+    The second exclusion is the same argument applied to unit names (Owner ruling 2026-09-15). A
+    keyword whose key EQUALS a published datasheet or model name is a label for *which model this
+    is*, and the export publishes no text describing it anywhere — round 8 measured 1030 such keys
+    among ``GLS-OUTSTANDING``'s 1264 — so counting them made the outstanding figure a count of work
+    no curator could ever do. **Equality, never containment**: a keyword that merely contains a
+    unit name is a different keyword and stays in, because over-excluding shrinks the denominator
+    past what the ruling authorised and a collapsed denominator reads green for free. The shrink is
+    reported per build by :func:`check_unit_name_exclusions`, so it is never silent.
+
+    Applied to weapon ability keywords too, and for the same reason: the enumeration excludes by
+    key, and a key that names a unit is no more definable for having been printed on a weapon row.
+    Every other weapon ability keyword is counted in full — a weapon ability is never a faction
+    label — so there is nothing else to exclude among them.
+    """
+    return tuple(sorted(_mechanical_keyword_keys(snapshot) - unit_name_keys(snapshot)))
+
+
+def check_unit_name_exclusions(snapshot: CuratedSnapshot) -> list[Finding]:
+    """``GLS-UNIT-NAME-EXCLUDED`` — how many keys the unit-name exclusion took out (Owner ruling
+    2026-09-15).
+
+    Advisory, and it exists for one reason: a denominator that shrinks is indistinguishable in the
+    report from a denominator that was always that size, and this project's traps are full of
+    figures that read green because their denominator collapsed. So the count of what left travels
+    with the build, beside the coverage figure it changed.
+
+    Counts **keys**, not usages, because the denominator counts keys. It carries no keyword or unit
+    name in its detail: the figure is the finding, and the names are the publisher's.
+    """
+    used = _mechanical_keyword_keys(snapshot)
+    excluded_names = unit_name_keys(snapshot)
+    excluded = used & excluded_names
+    if not excluded:
+        return []
+    return [
+        build_finding(
+            "GLS-UNIT-NAME-EXCLUDED",
+            entity_refs=["coverage:summaries.glossary"],
+            detail={
+                "excluded_keys": len(excluded),
+                "candidate_keys": len(used - excluded_names),
+            },
+        )
+    ]
 
 
 def glossary_keys(snapshot: CuratedSnapshot) -> tuple[str, ...]:

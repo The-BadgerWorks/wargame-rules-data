@@ -2,6 +2,9 @@
 # keyed mechanic digest (task T127): hard normalisation and the HMAC-truncated digest, with the
 # key read from configuration and never logged, and the source text discarded the moment the
 # digest is taken (FR-013, FR-024, C6/R8).
+# AI-Assisted: Claude Code (model: claude-opus-5) - Corrected `hard_normalise`'s docstring for
+# 010 rung R9 task 3: table content is now part of the projection, so the doc no longer claims
+# the opposite of what the code does. No behaviour in this module changed.
 """The keyed, truncated mechanic digest — US5's answer to "did the mechanic actually change".
 
 **Why keyed.** A plain sha256 of a short, publicly known string is a verification oracle: anyone
@@ -49,9 +52,15 @@ def _collapse(value: str) -> str:
 def hard_normalise(text: str) -> str:
     """The presentation-free projection a mechanic digest is taken over.
 
-    Markup gone, entities decoded, `<table>`/`<img>` content dropped, whitespace collapsed,
-    casefolded, punctuation stripped. Two texts that differ only in how they are *written*
-    produce the same projection; two that differ in what they *do* do not.
+    Markup gone, entities decoded, `<img>`/`<svg>`/`<script>`/`<style>` content dropped,
+    whitespace collapsed, casefolded, punctuation stripped. Two texts that differ only in how
+    they are *written* produce the same projection; two that differ in what they *do* do not.
+
+    **Table content is part of the projection** (010 rung R9). It was dropped until round 8
+    measured the cost — 17 ability keys whose cell text never arrived, and whose projection was
+    unchanged when every cell in all 17 was mutated — while `tools/draft_summaries.py` passed
+    the drafting prompt the raw, unstripped text. A summary drafted from a tabular mechanic
+    could therefore never auto-flag for re-review. The digest must cover what the drafter reads.
     """
     stripped = strip_field(text, field="mechanic").text
     folded = unicodedata.normalize("NFKC", stripped).casefold()

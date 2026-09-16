@@ -94,6 +94,11 @@
      exist (tests/unit/test_state_path_inert.py proves no caller passes state_path a real value),
      so none is fixed here -- recording them is the job, exactly as item 30 already does for the
      coverage-guard precondition. -->
+<!-- AI-Assisted: Claude Code (model: claude-opus-5) - 010 R9 task 1: closed items 30-34 by
+     deletion. The header above cites tests/unit/test_state_path_inert.py as the inertness proof
+     for items 31-34; that test is deleted along with the export-timestamp short-circuit itself,
+     and the items are closed rather than still gated. tests/unit/test_no_export_short_circuit.py
+     is the successor guard, and it asserts absence rather than inertness. -->
 <!-- AI-Assisted: Claude Code (model: claude-sonnet-5) - 009 rung R06a-fix3: added item 37,
      recording that T096's per-class carry-forward composition (added R06a, corrected across
      R06a-fix and R06a-fix2) was withdrawn -- three fix rounds each closed one defect and exposed
@@ -116,6 +121,12 @@
      the amended standing rule 3 and 010 R7's drafting client/tool, keeping its original text
      beneath the resolution; added item 40, the drafting tool's candidates-only boundary and
      what would have to change for that to be revisited. -->
+<!-- AI-Assisted: Claude Code (model: claude-opus-5) - 010 R9 task 3, fix round 1: added item 41,
+     the valueless-attribute narrowing's newly EXPOSED blast radius inside table markup (a
+     pre-existing residual of item 24, not a new defect), recorded under Controller Ruling 10 as
+     unmeasured and therefore un-coded; and item 42, the ruling that refreshing a SYNTHETIC
+     fixture's mechanic digest to match an authorised algorithm change is legitimate and is not
+     the standing-rule-4 class that governs the tracked curation/ tree. -->
 # Follow-ups
 
 Open items surfaced during implementation that are deliberately **not** fixed as part of the work
@@ -1300,7 +1311,17 @@ non-JSON file, rather than a distinct, unhandled failure mode.
 **Not pinned.** The kickoff for this rung asked only for items 1 and 2 (this file's items 27 and
 28) to be pinned if cheap; item 3 (this entry) was to be recorded only.
 
-## 30. No caller is wired to the export-timestamp short-circuit -- `detect` was tried and rejected (009 rung R05-fix / R05-fix2)
+## 30. ~~No caller is wired to the export-timestamp short-circuit -- `detect` was tried and rejected~~ (009 rung R05-fix / R05-fix2) — **closed 2026-09-15**
+
+**Closed by deletion, 2026-09-15 (010 R9 task 1).** The export-timestamp short-circuit was
+deleted outright on the Owner's ruling — `ExportDigestState` and its load/save/derive helpers,
+`ExportStateCorrupt`, `_one_way_export_digest`, `EXPORT_DIGEST_STATE_RELATIVE_PATH`, the
+`state_path` opt-in, the skip branch, the `SRC-EXPORT-UNCHANGED` and `SRC-STATE-CORRUPT` codes,
+`AcquisitionOutcome.UNCHANGED`, and the tracked `state/wahapedia-export-digest.json`. The
+mechanism had no caller from the day it landed and could acquire none: the corpus is never
+retained, so no stage can consume a fetch that did not happen. There is no code left for this
+item to describe. `tests/unit/test_no_export_short_circuit.py` asserts the absence structurally,
+replacing `tests/unit/test_state_path_inert.py`.
 
 **Superseded, 2026-09-03 (R05-fix2).** The ruling this entry originally recorded — `detect` opts
 into `pipeline.acquire.wahapedia.acquire_wahapedia`'s export-timestamp short-circuit, `build`
@@ -1353,7 +1374,17 @@ not safe to wire before that guard blocks on its own.
 nothing to reproduce yet; this entry records the precondition and the rejected direction for the
 day either is proposed again.
 
-## 31. An UNCHANGED run reports `coverage["corpus_files"] == 0` while `content_fingerprint` describes the prior run's corpus (009 rung R05-fix3)
+## 31. ~~An UNCHANGED run reports `coverage["corpus_files"] == 0` while `content_fingerprint` describes the prior run's corpus~~ (009 rung R05-fix3) — **closed 2026-09-15**
+
+**Closed by deletion, 2026-09-15 (010 R9 task 1).** The export-timestamp short-circuit was
+deleted outright on the Owner's ruling — `ExportDigestState` and its load/save/derive helpers,
+`ExportStateCorrupt`, `_one_way_export_digest`, `EXPORT_DIGEST_STATE_RELATIVE_PATH`, the
+`state_path` opt-in, the skip branch, the `SRC-EXPORT-UNCHANGED` and `SRC-STATE-CORRUPT` codes,
+`AcquisitionOutcome.UNCHANGED`, and the tracked `state/wahapedia-export-digest.json`. The
+mechanism had no caller from the day it landed and could acquire none: the corpus is never
+retained, so no stage can consume a fetch that did not happen. There is no code left for this
+item to describe. `tests/unit/test_no_export_short_circuit.py` asserts the absence structurally,
+replacing `tests/unit/test_state_path_inert.py`.
 
 **Gated behind wiring that does not exist.** `tests/unit/test_state_path_inert.py` asserts no
 caller in `pipeline/` passes `acquire_wahapedia`'s `state_path` a real value, so the short-circuit
@@ -1377,7 +1408,17 @@ case was never proven. Fixing it now (making `corpus_files` report the prior run
 count, or documenting the field as "this run's own fetch count" explicitly) is design work on a
 mechanism nothing calls; R07 is where that design happens, once a caller opts in.
 
-## 32. `ExportStateCorrupt` inherits `exit_code = SOURCE_UNAVAILABLE` (40), tripping `detect.yml`'s source-fault alert for a local file problem (009 rung R05-fix3)
+## 32. ~~`ExportStateCorrupt` inherits `exit_code = SOURCE_UNAVAILABLE` (40), tripping `detect.yml`'s source-fault alert for a local file problem~~ (009 rung R05-fix3) — **closed 2026-09-15**
+
+**Closed by deletion, 2026-09-15 (010 R9 task 1).** The export-timestamp short-circuit was
+deleted outright on the Owner's ruling — `ExportDigestState` and its load/save/derive helpers,
+`ExportStateCorrupt`, `_one_way_export_digest`, `EXPORT_DIGEST_STATE_RELATIVE_PATH`, the
+`state_path` opt-in, the skip branch, the `SRC-EXPORT-UNCHANGED` and `SRC-STATE-CORRUPT` codes,
+`AcquisitionOutcome.UNCHANGED`, and the tracked `state/wahapedia-export-digest.json`. The
+mechanism had no caller from the day it landed and could acquire none: the corpus is never
+retained, so no stage can consume a fetch that did not happen. There is no code left for this
+item to describe. `tests/unit/test_no_export_short_circuit.py` asserts the absence structurally,
+replacing `tests/unit/test_state_path_inert.py`.
 
 **Gated behind wiring that does not exist** -- same inertness proof as item 31.
 
@@ -1403,7 +1444,17 @@ a one-line, low-risk change, which is exactly why it is tempting to fix opportun
 now would be speculative work on a mechanism nobody calls, and R07 revisits every exit-code and
 alert-routing decision for this short-circuit once a caller exists to observe it against.
 
-## 33. `export_digest_state_for` matches the probe by exact filename while `_is_probe` matches by stem, so under `--fixtures` the documented save sequence raises `AttributeError` (009 rung R05-fix3)
+## 33. ~~`export_digest_state_for` matches the probe by exact filename while `_is_probe` matches by stem, so under `--fixtures` the documented save sequence raises `AttributeError`~~ (009 rung R05-fix3) — **closed 2026-09-15**
+
+**Closed by deletion, 2026-09-15 (010 R9 task 1).** The export-timestamp short-circuit was
+deleted outright on the Owner's ruling — `ExportDigestState` and its load/save/derive helpers,
+`ExportStateCorrupt`, `_one_way_export_digest`, `EXPORT_DIGEST_STATE_RELATIVE_PATH`, the
+`state_path` opt-in, the skip branch, the `SRC-EXPORT-UNCHANGED` and `SRC-STATE-CORRUPT` codes,
+`AcquisitionOutcome.UNCHANGED`, and the tracked `state/wahapedia-export-digest.json`. The
+mechanism had no caller from the day it landed and could acquire none: the corpus is never
+retained, so no stage can consume a fetch that did not happen. There is no code left for this
+item to describe. `tests/unit/test_no_export_short_circuit.py` asserts the absence structurally,
+replacing `tests/unit/test_state_path_inert.py`.
 
 **Gated behind wiring that does not exist** -- same inertness proof as items 31 and 32.
 
@@ -1429,7 +1480,17 @@ either function with `state_path` set, so no run this repository performs can hi
 `export_digest_state_for` onto the same stem comparison `_is_probe` already uses is the obvious
 fix, and obvious is not the same as in scope -- it moves with R07's wiring, not ahead of it.
 
-## 34. An UNCHANGED run with a workspace leaves a one-file "export" in `work/`, and `outcome` is never used as a guard on what gets written or returned (009 rung R05-fix3)
+## 34. ~~An UNCHANGED run with a workspace leaves a one-file "export" in `work/`, and `outcome` is never used as a guard on what gets written or returned~~ (009 rung R05-fix3) — **closed 2026-09-15**
+
+**Closed by deletion, 2026-09-15 (010 R9 task 1).** The export-timestamp short-circuit was
+deleted outright on the Owner's ruling — `ExportDigestState` and its load/save/derive helpers,
+`ExportStateCorrupt`, `_one_way_export_digest`, `EXPORT_DIGEST_STATE_RELATIVE_PATH`, the
+`state_path` opt-in, the skip branch, the `SRC-EXPORT-UNCHANGED` and `SRC-STATE-CORRUPT` codes,
+`AcquisitionOutcome.UNCHANGED`, and the tracked `state/wahapedia-export-digest.json`. The
+mechanism had no caller from the day it landed and could acquire none: the corpus is never
+retained, so no stage can consume a fetch that did not happen. There is no code left for this
+item to describe. `tests/unit/test_no_export_short_circuit.py` asserts the absence structurally,
+replacing `tests/unit/test_state_path_inert.py`.
 
 **Gated behind wiring that does not exist** -- same inertness proof as items 31-33.
 
@@ -1672,3 +1733,81 @@ still requires before a machine-drafted summary counts as approved.
 drafted summary land in `curation/` without an Owner read per entry would need its own ruling from
 the Owner, on the same footing as the 2026-09-14 amendment to standing rule 3 itself — not a
 follow-up item closed by code.
+
+## 41. Item 24's valueless-attribute narrowing is now EXPOSED inside table markup (010 R9 task 3)
+
+**This is item 24, not a second defect.** `_CLOSED_TAG` has refused valueless attributes since
+009 rung R01a, for the reasons item 24 records at length. Nothing about that narrowing changed
+here. What changed is its **blast radius**: until 010 R9 task 3, `_DROPPED_SUBTREES` removed
+`<table>` elements and their entire content, so any unrecognised tag *inside* a table was deleted
+along with everything else and the gap was masked. Moving `table` out of the content-dropping
+alternation — so the mechanic digest covers the table content `tools/draft_summaries.py` reads —
+leaves the table's own tags to the ordinary `_TAG` pass, and a table tag carrying a valueless
+attribute is exactly the shape `_CLOSED_TAG` will not match.
+
+**Reproducing one-liner** (synthetic input, `pipeline/normalize/ip_strip.py:99`):
+
+```python
+strip_field("<table><tr><td nowrap>Fen</td></tr></table>", field="description").text
+# -> '<td nowrap>Fen'   (with DQ-MARKUP-IN-FIELD, raised by the closing tags)
+NON_MECHANICAL_PATTERNS["markup"].search("<td nowrap>Fen")  # -> None
+```
+
+Re-derived first-hand at commit `7ee9029a`, not taken on report. The valued form is unaffected:
+`<td colspan=2>Fen</td>` inside a table still strips to `'Fen'`.
+
+The literal markup survives in the field, and — as item 24 already records — because
+`models/mechanical.py`'s `NON_MECHANICAL_PATTERNS["markup"]` is character-identical to
+`_HAS_MARKUP` by construction, **`validate/ip_scan.py` shares the blind spot and would not block
+a publish on it.** Severity depends entirely on the call site. In the digest path it is cosmetic:
+the literal `<` dies later in `hard_normalise`'s punctuation strip, so this cannot leak to a
+published artefact there, but the tag text enters the digest and a purely presentational upstream
+edit would false-flag the key for re-review. At a *name* or *composition* call site in
+`curate/assemble.py` it would be markup published. A run is not silent about it — the closing
+tags raise `DQ-MARKUP-IN-FIELD` on their own, exactly as item 24 records — but that finding is
+advisory, and the **blocking** check, `validate/ip_scan.py`, is the one that cannot see it.
+`td`/`tr`/`th` are the plausible carriers of a valueless attribute (`nowrap`); `colspan=2` is
+valued and already matches.
+
+**Not measured, and that is why there is no code.** Controller Ruling 10, 2026-09-15: no count
+exists for how often a table tag in the acquired export carries a valueless attribute. *Unmeasured
+is not the same as zero*, so this is not a standing-rule-10 refusal on a measured-empty class — it
+is a refusal to act before the number exists. Widening `_CLOSED_TAG` to admit valueless attributes
+is the obvious fix and is the wrong trade: it re-opens the `a <b and c> d` over-strip that the
+pinned narrowing exists to prevent (item 24 explains why every rule fitted to that distinction is
+fitted to a sample of one), trading a measured, closed defect for an unmeasured, speculative one.
+
+**Action needed**: count the class as part of round 9's live build against the acquired export —
+specifically, how many ability texts contain a table tag carrying an `=`-less attribute, and
+whether any such text reaches a `curate/assemble.py` call site rather than only the digest. The
+decision to fix or accept is the **Owner's** once that count exists. If it is non-zero, the
+closure is item 24's own: the HTML boolean-attribute allowlist, applied in lockstep across
+`ip_strip.py` and `models/mechanical.py` as always, which closes both items at once.
+
+**Cross-reference**: item 24 holds the full account of the narrowing, the `origin/main@2c603c7f`
+comparison table, why it was not closed in R01a, and the strict-xfail pin
+(`tests/ip/test_ip_strip.py::test_a_valueless_attribute_is_a_known_open_narrowing_against_main`)
+that forces whoever closes it to promote the rows rather than leave a stale note. That pin covers
+this item too — there is one residual here, with one closure, not two.
+
+## 42. Refreshing a *synthetic fixture's* mechanic digest is not the standing-rule-4 class (010 R9 task 3)
+
+**Controller ruling, 2026-09-15.** The path spelling `fixtures/sample/curation/` invites confusion
+with the tracked `curation/` tree that standing rule 4 protects, so the distinction is written down
+here rather than left to be re-litigated.
+
+When an authorised change to the digest algorithm moves a **synthetic fixture's** stored
+`mechanic_digest`, refreshing that fixture value to match is legitimate and necessary: leaving it
+stale would make the fixture silently encode the *superseded* algorithm, and the test that reads it
+would then assert the old behaviour under a new name. That is a different class from standing rule
+4 and from the "summary digest refreshed without its authorization citation" Tier 1 class, both of
+which govern the **tracked `curation/` tree and real keys** — where a refresh needs an Owner
+authorization string and a per-entry human read. A fixture record with an invented name, an
+`example.invalid` host and invented placeholder prose has no such entries to re-review.
+
+**Precedent**: 010 R9 task 3 moved table content into the digest projection, which moved
+`fixtures/sample`'s synthetic `datasheet:slag-wake` record (its invented ability text carries a
+table on purpose) from `approved` to `SUM-NEEDS-REREVIEW`. The stored digest was recomputed with
+the pipeline's own `compute_current_digests` under the documented fixture key and refreshed,
+restoring the row's designed meaning. No real key was touched; the real-corpus refresh is a
+separate task under an Owner authorization string.

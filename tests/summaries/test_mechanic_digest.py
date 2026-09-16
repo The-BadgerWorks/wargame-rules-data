@@ -2,6 +2,10 @@
 # T123), confirmed failing before pipeline.normalize.mechanic_digest existed, covering the
 # keying property, the hard-normalisation projection, and the "text never leaves the function"
 # guarantee (FR-013, FR-024, C6/R8).
+# AI-Assisted: Claude Code (model: claude-opus-5) - Added the table-content receipt (010 rung R9,
+# task 3), written failing-first: a table cell's number changing must move the digest, and the
+# paired direction that an img/svg/script/style edit still must not. The superseded
+# `test_table_and_image_content_is_dropped_before_digesting` was narrowed to image alone.
 """The keyed digest: keying is not decoration, and normalisation is not lossy of mechanics.
 
 Every text used here is invented placeholder prose (research D10) — never real MFM or
@@ -74,13 +78,14 @@ def test_casing_and_punctuation_changes_leave_the_digest_unchanged() -> None:
     )
 
 
-def test_table_and_image_content_is_dropped_before_digesting() -> None:
+def test_image_content_is_dropped_before_digesting() -> None:
+    """010 R9 task 3 narrowed this test from "table and image" to image alone. The table half
+    asserted the change-detection gap round 8 measured — a cell could move without the digest
+    moving — and is now inverted by `test_a_table_cell_change_moves_the_digest` below. The image
+    half is unchanged and still load-bearing: an artwork reference is never a mechanic."""
     key = b"repository-key"
-    with_table = (
-        "<table><tr><td>Distance</td><td>Effect</td></tr></table>"
-        '<img src="https://example.invalid/x.png"/> Add 1 to the roll.'
-    )
-    assert mechanic_digest(with_table, key=key) == mechanic_digest("Add 1 to the roll.", key=key)
+    with_image = '<img src="https://example.invalid/x.png"/> Add 1 to the roll.'
+    assert mechanic_digest(with_image, key=key) == mechanic_digest("Add 1 to the roll.", key=key)
 
 
 def test_a_mechanic_change_moves_the_digest() -> None:
@@ -110,3 +115,68 @@ def test_resolve_digest_key_refuses_an_empty_key() -> None:
     config = load_config(env={"WGC_MECHANIC_DIGEST_KEY": ""})
     with pytest.raises(DigestKeyMissingError):
         resolve_digest_key(config)
+
+
+# -- 010 R9, task 3: the digest covers table content the drafter reads ---------------------------
+#
+# Round 8 measured 17 keys whose table content never reached `hard_normalise`, and mutating every
+# cell in all 17 left the projection unchanged, 17/17. `tools/draft_summaries.py` passes the raw,
+# unstripped text to the drafting prompt, so a summary drafted from a tabular mechanic could
+# never auto-flag when that table changed. Every text below is invented placeholder prose.
+
+
+def test_a_table_cell_change_moves_the_digest() -> None:
+    """The receipt. Revert the `_DROPPED_SUBTREES` change and these two digests are identical,
+    which is the change-detection gap round 8 measured: the drafter reads the cell, the digest
+    does not, so the summary can never be flagged when the cell moves."""
+    key = b"repository-key"
+    before = "Range effect: <table><tr><td>Fen</td><td>3</td></tr></table>"
+    after = "Range effect: <table><tr><td>Fen</td><td>4</td></tr></table>"
+
+    assert mechanic_digest(before, key=key) != mechanic_digest(after, key=key), (
+        "identical digests mean table content is still dropped before hard_normalise, so a "
+        "tabular mechanic can change upstream without its summary ever being flagged"
+    )
+
+
+def test_table_content_reaches_the_projection_the_digest_is_taken_over() -> None:
+    key = b"repository-key"
+    tabular = "<table><tr><td>Fen</td><td>3</td></tr></table>"
+
+    assert hard_normalise(tabular) == "fen 3"
+    assert mechanic_digest(tabular, key=key) == mechanic_digest("Fen 3", key=key)
+
+
+@pytest.mark.parametrize(
+    ("before", "after"),
+    [
+        pytest.param(
+            '<img src="https://example.invalid/a.png">Grelth 7</img> Add 1 to the roll.',
+            '<img src="https://example.invalid/b.png">Grelth 8</img> Add 1 to the roll.',
+            id="img-subtree",
+        ),
+        pytest.param(
+            "<svg><title>Grelth 7</title></svg> Add 1 to the roll.",
+            "<svg><title>Grelth 8</title></svg> Add 1 to the roll.",
+            id="svg-subtree",
+        ),
+        pytest.param(
+            "<script>var invented = 7;</script> Add 1 to the roll.",
+            "<script>var invented = 8;</script> Add 1 to the roll.",
+            id="script-subtree",
+        ),
+        pytest.param(
+            "<style>.invented { top: 7px; }</style> Add 1 to the roll.",
+            "<style>.invented { top: 8px; }</style> Add 1 to the roll.",
+            id="style-subtree",
+        ),
+    ],
+)
+def test_artwork_and_payload_subtrees_still_never_reach_the_digest(before: str, after: str) -> None:
+    """The other direction: only `table` moved. An artwork reference or a stylesheet edit must
+    still leave the digest exactly where it was, and equal to the bare mechanic's own digest."""
+    key = b"repository-key"
+    plain = mechanic_digest("Add 1 to the roll.", key=key)
+
+    assert mechanic_digest(before, key=key) == plain
+    assert mechanic_digest(after, key=key) == plain

@@ -11,6 +11,12 @@
 <!-- AI-Assisted: Claude Code (model: Claude Opus 5) - 010 R5: the export-digest identity no
      longer carries an acquisition-arm field, so the field count and the two sentences that
      named it are corrected here. -->
+<!-- AI-Assisted: Claude Code (model: claude-opus-5) - 010 R9 task 1: removed the
+     `wahapedia-export-digest.json` entry. The file and the export-timestamp short-circuit that
+     read it are deleted (Owner ruling 2026-09-15), so the entry documented four fields, a
+     writer and an opt-in parameter that no longer exist. Replaced by one past-tense line under
+     the list, so a curator who remembers the file learns it was removed rather than that the
+     tree is broken. The three live entries above are untouched. -->
 # state/
 
 Operational state written and read only by the pipeline and its CI workflows. These files hold
@@ -28,24 +34,8 @@ nothing from which any acquired text could be reconstructed (FR-010, FR-013).
   empty. Entries carry mechanical values only -- ids, counts, and codes, never free text.
 - `published-checksums.json` -- sha256 and size for every published release asset, re-verified
   daily by `.github/workflows/integrity.yml`. Seeded as `[]`.
-- `wahapedia-export-digest.json` -- four fields: `digest` (sha256 hex over the detail source's
-  `Last_update.csv` text, never the text itself -- 009 rung R05, task T090, FR-030), the source
-  identity it was taken under -- `source_base_url` and `declared_edition_code` (rung R05-fix
-  item 5; a third identity field naming the acquisition arm was dropped by `010` R5, there being
-  one arm) -- and `content_fingerprint`, the corpus fingerprint the acquisition that recorded this
-  state itself computed (rung R05-fix2 item 2), carried forward so a future short-circuited
-  acquisition can report "the same corpus as this one had" rather than fingerprinting the
-  near-empty payload set a skip actually fetches. Compared by
-  `pipeline.acquire.wahapedia.acquire_wahapedia`'s opt-in short-circuit (its `state_path`
-  parameter) to decide whether the rest of the export is worth re-fetching -- a convenience
-  pre-check, never a substitute for the content fingerprint the pipeline already computes over
-  whatever it actually fetches, and never comparable across a changed source identity: a digest
-  match recorded under a different `source_base_url` or `declared_edition_code` is "no
-  comparable prior," not a skip. Written only by
-  `pipeline.acquire.wahapedia.save_export_digest_state`, and only once a caller's own whole sweep
-  has succeeded -- never from inside acquisition itself, so a run that acquires a changed export
-  and then fails downstream cannot advance this file (item 2). **No caller reads or writes it
-  today**: `rung R05-fix` wired `rules-pipeline detect` to it, and the Product Owner reversed
-  that ruling (`rung R05-fix2`, `docs/follow-ups.md` item 30) -- `detect` is reverted to its
-  pre-wiring behaviour and `rules-pipeline build` was never wired either. Seeded empty (`{}`): no
-  run has ever reached the short-circuit.
+
+`wahapedia-export-digest.json` was a fourth file here. It held a one-way digest of the detail
+source's whole-export change marker, and the export-timestamp short-circuit that compared it was
+deleted in 010 R9 (Owner ruling 2026-09-15) having never had a caller. Both the file and the
+mechanism are gone; `docs/follow-ups.md` items 30-34 record the close-out.
