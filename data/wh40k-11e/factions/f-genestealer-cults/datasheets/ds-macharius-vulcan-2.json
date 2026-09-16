@@ -20,7 +20,7 @@
       "model_count": 1,
       "points": 310,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf"
+      "source_acquisition_id": "wahapedia-20260916T053039Z-ae4bfdaf"
     }
   ],
   "datasheet_id": "ds-macharius-vulcan-2",
@@ -232,12 +232,12 @@
     }
   ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 6,
+    "consecutive_unverified_releases": 7,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260916T021438Z-ae4bfdaf",
+    "detail_acquisition_id": "wahapedia-20260916T053039Z-ae4bfdaf",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
