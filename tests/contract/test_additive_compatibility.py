@@ -14,6 +14,9 @@
 # `datasheetItemConstraints` to NEW_ARRAYS and LOADOUT_ARRAYS (007 task T011), and the two new
 # OPTIONAL snapshotMeta fields to a permitted-exception set the same way NEW_COLUMNS/
 # LOADOUT_COLUMNS already except additive columns on ordinary arrays.
+# AI-Assisted: Claude Code (model: Claude Sonnet 5) - Added `wargearAbilities` to NEW_ARRAYS and
+# LOADOUT_ARRAYS (010 R13 task 2): the first new top-level array since 007, measured against both
+# frozen baselines exactly as `datasheetItemConstraints` already is.
 """Nothing existing moved. Proven by comparison, not by assertion.
 
 `contracts/bundle-schema-delta.md` §1 makes a claim about a document nobody in this repository
@@ -104,6 +107,9 @@ NEW_ARRAYS: frozenset[str] = frozenset(
         # consumer released before `004` has never heard of any array added since, including
         # this one.
         "datasheetItemConstraints",
+        # 010-csv-cutover round 13 task 2 (010 R13). Measured against the same PRE-ENRICHMENT
+        # baseline: a consumer released before `004` has never heard of this array either.
+        "wargearAbilities",
     }
 )
 
@@ -154,6 +160,9 @@ LOADOUT_ARRAYS: frozenset[str] = frozenset(
         "datasheetEquipmentGroups",
         "datasheetEquipmentItems",
         "datasheetItemConstraints",
+        # 010-csv-cutover round 13 task 2 (010 R13). Measured against the same PRE-LOADOUT
+        # baseline: a consumer released before `006` has never heard of this array either.
+        "wargearAbilities",
     }
 )
 

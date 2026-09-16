@@ -13,6 +13,8 @@
 # AI-Assisted: Claude Code (model: claude-sonnet-5) - Added `datasheetItemConstraints` to
 # CONSUMER_ARRAYS (007 task T011). Always empty here — 007's Foundational phase adds the schema,
 # the model, and the mapping, but nothing yet produces a row.
+# AI-Assisted: Claude Code (model: Claude Sonnet 5) - Added `wargearAbilities` to CONSUMER_ARRAYS
+# (010 R13 task 2), the first new top-level array since 007.
 """Tests for the published bundle's shape (`curated-snapshot-format.md` §3-§4).
 
 The bundle exists so the app's ingestor is a mechanical array-to-table load with no reshaping.
@@ -79,6 +81,9 @@ CONSUMER_ARRAYS = (
     "chapterKeywords",
     # 004 task T048, contract §2.5. A faction may own more than one army rule.
     "factionRules",
+    # 010-csv-cutover round 13 task 2. A faction-scoped, curator-authored wargear ability, with
+    # no upstream digest to gate against — approval is the schema alone.
+    "wargearAbilities",
     # 004 task T055, contract §2.6. A detachment may own more than one rule, so the RULE is
     # the key; the name is always carried and the summary appears only once approved.
     "detachmentRules",

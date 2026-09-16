@@ -17,6 +17,9 @@
 # item's own name. Follows CuratedCompositionEntry's (datasheet_id, constraint_index) identity
 # pattern exactly -- datasheet_id comes from the owning CuratedDatasheet.item_constraints list,
 # never from a field on the record itself.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - Added CuratedWargearAbility (010 round 13
+# task 2): the curated projection of `WargearAbilityEntry`, carried on the snapshot keyed by id
+# so the item linker (task 3) can resolve names against it before datasheets are built.
 """Curated records — the canonical reviewable state, machine-written into ``data/``.
 
 Every record here maps to a row in the consumer schema; the field-level mapping is
@@ -707,6 +710,21 @@ class CuratedWargearOption(_Curated):
     models_per_instance: int | None = None
 
 
+class CuratedWargearAbility(_Curated):
+    """A faction-scoped, curated wargear ability (010 round 13), keyed by ``id`` on the snapshot.
+
+    Carries the same four consumer-facing fields ``WargearAbilityEntry`` authors, plus
+    ``aliases`` — kept curated-only (dropped at the bundle boundary) because it exists purely to
+    help the item linker (task 3) resolve a name, not to be read by a player.
+    """
+
+    id: str
+    faction_id: str
+    name: str
+    summary: str
+    aliases: Sequence[str] = ()
+
+
 class CuratedDatasheetCost(_Curated):
     """One cost row, keyed ``(pricing_context, model_count, copy_index_min)`` in its datasheet.
 
@@ -853,6 +871,11 @@ class CuratedSnapshot(_Curated):
         "and faction_rules do. The rules THEMSELVES live on CuratedDetachment.rules and come "
         "from the source; this mapping carries only each rule's authored summary, which is why "
         "a rule with no record here still ships with its name.",
+    )
+    wargear_abilities: Mapping[str, CuratedWargearAbility] = Field(
+        default_factory=dict,
+        description="id -> curation/wargear-abilities.json's entry (010 round 13). A duplicate "
+        "id is the blocking WGA-DUPLICATE and neither colliding entry enters this mapping.",
     )
     keyword_glossary: Mapping[str, GlossaryEntry] = Field(
         default_factory=dict,

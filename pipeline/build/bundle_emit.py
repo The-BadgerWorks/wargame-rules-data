@@ -30,6 +30,9 @@
 # optional `snapshotMeta` fields to `BundleMeta` and wrapped that dict in `omit_absent` for the
 # first time, so a producer with nothing to say for either simply omits it rather than emitting
 # `null` — the schema forbids `null` on every property (§5).
+# AI-Assisted: Claude Code (model: Claude Sonnet 5) - Emitted `wargearAbilities` (010 R13 task
+# 2): a curated-only `aliases` field dropped at this boundary, everything else mapped, sorted by
+# `id`, placed between `factionRules` and `detachmentRules`.
 """Turn the curated tree into the published bundle. A pure function, and nothing else.
 
 No network, no source re-acquisition, no input the tree does not already contain, and no clock:
@@ -96,6 +99,7 @@ from pipeline.models.curated import (
     CuratedOptionChoiceItem,
     CuratedOptionGroup,
     CuratedSnapshot,
+    CuratedWargearAbility,
     CuratedWargearOption,
     CuratedWeaponLine,
 )
@@ -337,6 +341,12 @@ FIELD_MAPPING: Final[Mapping[type, tuple[set[str], set[str]]]] = {
     CuratedWargearOption: (
         {"id", "group_key", "name", "points_delta", "max_per_unit", "models_per_instance"},
         set(),
+    ),
+    # 010-csv-cutover round 13 task 2. `aliases` exists to help the item linker (task 3) resolve
+    # a name; a consumer has no business reading it.
+    CuratedWargearAbility: (
+        {"id", "faction_id", "name", "summary"},
+        {"aliases"},
     ),
 }
 
@@ -881,6 +891,25 @@ def _emit_faction_rules(snapshot: CuratedSnapshot) -> list[dict[str, JsonValue]]
     return _rows(rows, "id")
 
 
+def _emit_wargear_abilities(snapshot: CuratedSnapshot) -> list[dict[str, JsonValue]]:
+    """`wargearAbilities`, sorted by `id` (010 R13 task 2).
+
+    `aliases` stops at this boundary — it exists to help the item linker (task 3) resolve a
+    curated ability against the name a datasheet's wargear actually states, not to be read by a
+    player, so it is dropped here exactly as `FIELD_MAPPING` declares.
+    """
+    rows: list[dict[str, JsonValue]] = [
+        {
+            "id": ability.id,
+            "factionId": ability.faction_id,
+            "name": ability.name,
+            "summary": ability.summary,
+        }
+        for ability in snapshot.wargear_abilities.values()
+    ]
+    return _rows(rows, "id")
+
+
 def _emit_detachment_rules(snapshot: CuratedSnapshot) -> list[dict[str, JsonValue]]:
     """`detachmentRules`, sorted by `id` (contract §2.6).
 
@@ -1076,6 +1105,7 @@ def emit_bundle(snapshot: CuratedSnapshot, meta: BundleMeta) -> dict[str, Any]:
         "datasheetAbilities": _emit_abilities(snapshot),
         "chapterKeywords": _emit_chapter_keywords(snapshot),
         "factionRules": _emit_faction_rules(snapshot),
+        "wargearAbilities": _emit_wargear_abilities(snapshot),
         "detachmentRules": _emit_detachment_rules(snapshot),
         "keywordGlossary": _emit_keyword_glossary(snapshot),
         **datasheet_arrays,

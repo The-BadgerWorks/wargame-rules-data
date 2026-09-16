@@ -2,6 +2,9 @@
 # proofs share (004 tasks T065-T067, T071): every one of the seven new arrays non-empty, all
 # three additive columns set, and an army that prices against it, so "additive" is proven against
 # a bundle that actually carries the additions rather than against an empty one.
+# AI-Assisted: Claude Code (model: Claude Sonnet 5) - Added one invented `wargear_abilities`
+# entry (010 R13 task 2) so the loadout/enriched consumer-compat dry-run's "every new array is
+# non-empty" assertion, unscoped over NEW_ARRAYS, covers `wargearAbilities` too.
 """A snapshot carrying **every** addition `004-rules-data-enrichment` makes.
 
 Phase 8's whole point is that the additions are invisible to a consumer that does not read them.
@@ -40,6 +43,7 @@ from pipeline.models.curated import (
     CuratedOptionChoice,
     CuratedOptionGroup,
     CuratedSnapshot,
+    CuratedWargearAbility,
     CuratedWargearOption,
     CuratedWeaponLine,
     KeywordClass,
@@ -349,6 +353,16 @@ def enriched_snapshot() -> CuratedSnapshot:
         ability_summaries=factories.summaries(("core:tidewalk",)),
         faction_rules=_faction_rules(),
         detachment_rules=_detachment_rules(),
+        # 010-csv-cutover round 13 task 2. One invented entry so the dry-run's "every new array
+        # is non-empty" assertion covers `wargearAbilities` too.
+        wargear_abilities={
+            "wga-glimmerfen-covenant-placeholder-ward": CuratedWargearAbility(
+                id="wga-glimmerfen-covenant-placeholder-ward",
+                faction_id=PARENT_FACTION,
+                name="Placeholder Ward",
+                summary="Placeholder: an invented mechanics-only summary for this data set.",
+            )
+        },
         keyword_glossary=_glossary(),
     )
 

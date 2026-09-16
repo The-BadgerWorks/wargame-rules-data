@@ -38,7 +38,8 @@
     "datasheetOptionChoiceItems",
     "datasheetEquipmentGroups",
     "datasheetEquipmentItems",
-    "datasheetItemConstraints"
+    "datasheetItemConstraints",
+    "wargearAbilities"
   ],
   "properties": {
     "bundleFormatVersion": {
@@ -174,6 +175,21 @@
           "factionId": { "type": "string", "minLength": 1 },
           "name": { "type": "string", "minLength": 1, "maxLength": 120 },
           "displayOrder": { "type": "integer", "minimum": 1 },
+          "summary": { "type": "string", "minLength": 1, "maxLength": 1000 }
+        }
+      }
+    },
+    "wargearAbilities": {
+      "type": "array",
+      "description": "Sorted by id. One row per curated wargear ability (010 round 13), authored directly by the Owner with no upstream digest to gate against. `aliases` is curated-only and stops here.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "factionId", "name", "summary"],
+        "properties": {
+          "id": { "type": "string", "minLength": 1 },
+          "factionId": { "type": "string", "minLength": 1 },
+          "name": { "type": "string", "minLength": 1, "maxLength": 120 },
           "summary": { "type": "string", "minLength": 1, "maxLength": 1000 }
         }
       }

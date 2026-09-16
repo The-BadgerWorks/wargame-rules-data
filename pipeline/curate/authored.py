@@ -3,6 +3,9 @@
 # package asserts at process level that no code path opens a curation/ file for writing.
 # AI-Assisted: Claude Code (model: Claude Sonnet 5) - Registered "wargear-abilities" (010 round
 # 13 task 1): new flat-file stem, loaded and exposed exactly like composition-overrides.
+# AI-Assisted: Claude Code (model: Claude Sonnet 5) - Joined wargear-abilities.json's faction_id
+# to the V9 authored-reference check (010 round 13 task 2): an entry naming a faction the curated
+# snapshot does not contain is the same AUT-DANGLING-REF a retired datasheet already raises.
 """Load `curation/` — the authored tree — and expose it read-only.
 
 Every file is validated against its schema **on read**, so a hand-edited file fails fast with a
@@ -389,4 +392,8 @@ def authored_entity_refs(content: AuthoredContent) -> Sequence[tuple[str, str, s
     # reason: an equipment override outlives the datasheet it resolves unless something says so.
     for equipment_override in content.equipment_overrides:
         refs.append(("equipment-overrides.json", "datasheet_id", equipment_override.datasheet_id))
+    # -- 010-csv-cutover round 13. A wargear ability naming a faction the curated snapshot does
+    # not contain outlives that faction the same way an override outlives a retired datasheet.
+    for wargear_ability in content.wargear_abilities:
+        refs.append(("wargear-abilities.json", "faction_id", wargear_ability.faction_id))
     return refs

@@ -1,3 +1,8 @@
+# AI-Assisted: Claude Code (model: Claude Sonnet 5) - 010 R13 task 2: built the curated
+# wargear-abilities mapping from `authored.wargear_abilities`, keyed by id, near the top of
+# `assemble()` (before the faction loop) so the round-13 item linker has it available before
+# datasheets are built. A duplicate id raises the blocking `WGA-DUPLICATE` and neither colliding
+# entry enters the snapshot.
 # AI-Assisted: Claude Opus 5 - 010 R6b task 2: read a `Datasheets_wargear.csv` row whose `line`
 # column is empty by validating `line_in_wargear` instead (1990 live rows, 287 datasheets).
 # AI-Assisted: Claude Opus 5 - 010 R6 task 5: publish the printed characteristic forms (skill,
@@ -101,7 +106,7 @@ from pipeline.curate.summaries import (
     detachment_rule_key,
     resolve_binding_name,
 )
-from pipeline.models.authored import OptionOverrideChoice
+from pipeline.models.authored import OptionOverrideChoice, WargearAbilityEntry
 from pipeline.models.curated import (
     ArmyRuleState,
     CuratedCompositionEntry,
@@ -124,6 +129,7 @@ from pipeline.models.curated import (
     CuratedOptionChoiceItem,
     CuratedOptionGroup,
     CuratedSnapshot,
+    CuratedWargearAbility,
     CuratedWargearOption,
     CuratedWeaponLine,
     DefaultEquipmentState,
@@ -1513,6 +1519,45 @@ def _army_rule_state(authored: AuthoredContent, faction_id: str) -> ArmyRuleStat
     return ArmyRuleState(state) if state is not None else None
 
 
+def _wargear_abilities(
+    authored: AuthoredContent,
+) -> tuple[dict[str, CuratedWargearAbility], list[Finding]]:
+    """The curated wargear-abilities mapping, keyed by id (010 R13 task 2).
+
+    A duplicate id — two authored entries whose ``faction_id``/``name`` pair computes the same
+    id — is the blocking ``WGA-DUPLICATE``, and **neither** colliding entry enters the mapping:
+    publishing either one would be the producer silently picking a winner on the curator's
+    behalf. A dangling ``faction_id`` is deliberately NOT checked here; it is caught the same way
+    every other authored dangling reference is, through :func:`authored_entity_refs` and V9.
+    """
+    by_id: dict[str, list[WargearAbilityEntry]] = {}
+    for entry in authored.wargear_abilities:
+        by_id.setdefault(entry.id, []).append(entry)
+
+    findings: list[Finding] = []
+    result: dict[str, CuratedWargearAbility] = {}
+    for wga_id in sorted(by_id):
+        entries = by_id[wga_id]
+        if len(entries) > 1:
+            findings.append(
+                build_finding(
+                    "WGA-DUPLICATE",
+                    entity_refs=[wga_id],
+                    detail={"id": wga_id, "count": len(entries)},
+                )
+            )
+            continue
+        entry = entries[0]
+        result[wga_id] = CuratedWargearAbility(
+            id=entry.id,
+            faction_id=entry.faction_id,
+            name=entry.name,
+            summary=entry.summary,
+            aliases=tuple(entry.aliases),
+        )
+    return result, findings
+
+
 def assemble(  # noqa: PLR0913 - the stage genuinely needs every upstream input
     *,
     pages: Sequence[MfmPage],
@@ -1558,6 +1603,11 @@ def assemble(  # noqa: PLR0913 - the stage genuinely needs every upstream input
             [row.fields.get("faction_id", "") for row in detail_datasheets.rows], authored
         )
     )
+
+    # Built here, before any datasheet is assembled, so the round-13 item linker (task 3) has
+    # the whole curated wargear-abilities mapping available while it builds datasheets below.
+    wargear_abilities, wargear_ability_findings = _wargear_abilities(authored)
+    findings.extend(wargear_ability_findings)
 
     provenance = _provenance(points_acquisition, detail_acquisition, snapshot_edition=edition_code)
     # A unit the detail source has never heard of has no *detail* edition, so it is not hybrid
@@ -1750,6 +1800,7 @@ def assemble(  # noqa: PLR0913 - the stage genuinely needs every upstream input
         ability_summaries=authored.ability_summaries,
         faction_rules=authored.faction_rule_files,
         detachment_rules=authored.detachment_rule_summaries,
+        wargear_abilities=wargear_abilities,
         keyword_glossary=authored.glossary_entries,
     )
 
