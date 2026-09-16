@@ -262,6 +262,11 @@ jobs:
           fi
           git commit -m "Publish ${{ inputs.rules_version_id }} to ${{ inputs.channel }}"
           bookkeeping=$(git rev-parse HEAD)
+          # Everything the rebuild left in the working tree outside site/ and state/ is
+          # throwaway (a live rebuild rewrites data/ with fresh acquisition ids), and a
+          # dirty tree makes the checkout below abort -- after the Release and the Pages
+          # deploy have already happened (run 35047728703, wh40k-11e-2026-09-1).
+          git checkout -- .
           git fetch origin main
           git checkout --detach origin/main
           git cherry-pick "$bookkeeping"
