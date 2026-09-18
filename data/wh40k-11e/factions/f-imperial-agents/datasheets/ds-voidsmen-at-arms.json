@@ -31,7 +31,7 @@
       "model_count": 6,
       "points": 50,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260916T053002Z-1b0a18bd"
+      "source_acquisition_id": "mfm-20260918T133619Z-1b0a18bd"
     },
     {
       "copy_index_min": 1,
@@ -40,7 +40,7 @@
       "points": 70,
       "pricing_confidence": "verified",
       "pricing_context": "every-model-has-imperium",
-      "source_acquisition_id": "mfm-20260916T053002Z-1b0a18bd"
+      "source_acquisition_id": "mfm-20260918T133619Z-1b0a18bd"
     }
   ],
   "datasheet_id": "ds-voidsmen-at-arms",
@@ -168,15 +168,15 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:08db6a5acb5f76cc4557964c8bbd142c415075d0b62c9ae34c6bcc0a55f6e78f",
-    "last_verified_version": "wh40k-11e-2026-09-2",
+    "last_verified_version": "wh40k-11e-2026-09-3",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260916T053039Z-ae4bfdaf",
+    "detail_acquisition_id": "wahapedia-20260918T133654Z-ae4bfdaf",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260916T053002Z-1b0a18bd",
+    "points_acquisition_id": "mfm-20260918T133619Z-1b0a18bd",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
