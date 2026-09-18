@@ -23,7 +23,7 @@
       "model_count": 1,
       "points": 95,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260918T133619Z-1b0a18bd"
+      "source_acquisition_id": "mfm-20260918T172817Z-1b0a18bd"
     },
     {
       "copy_index_min": 1,
@@ -31,7 +31,7 @@
       "model_count": 2,
       "points": 160,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260918T133619Z-1b0a18bd"
+      "source_acquisition_id": "mfm-20260918T172817Z-1b0a18bd"
     },
     {
       "copy_index_min": 3,
@@ -39,7 +39,7 @@
       "model_count": 1,
       "points": 105,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260918T133619Z-1b0a18bd"
+      "source_acquisition_id": "mfm-20260918T172817Z-1b0a18bd"
     },
     {
       "copy_index_min": 3,
@@ -47,7 +47,7 @@
       "model_count": 2,
       "points": 170,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260918T133619Z-1b0a18bd"
+      "source_acquisition_id": "mfm-20260918T172817Z-1b0a18bd"
     }
   ],
   "datasheet_id": "ds-achilles-ridgerunners",
@@ -232,15 +232,15 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:77dc3ef6e09f672dbc97873f46d3d92785618a384e461cb0b8121e00423a2c37",
-    "last_verified_version": "wh40k-11e-2026-09-3",
+    "last_verified_version": "wh40k-11e-2026-09-4",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260918T133654Z-ae4bfdaf",
+    "detail_acquisition_id": "wahapedia-20260918T172853Z-ae4bfdaf",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260918T133619Z-1b0a18bd",
+    "points_acquisition_id": "mfm-20260918T172817Z-1b0a18bd",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
