@@ -56,9 +56,10 @@ def test_equipment_groups_round_trip(tmp_path: Path) -> None:
     assert rebuilt_group.applies_to == original_group.applies_to
     assert rebuilt_group.model_name == original_group.model_name
     assert rebuilt_group.composition_line == original_group.composition_line
-    assert [(i.item_name, i.weapon_line) for i in rebuilt_group.items] == [
-        (i.item_name, i.weapon_line) for i in original_group.items
+    assert [(i.item_name, i.weapon_line, i.wargear_ability_id) for i in rebuilt_group.items] == [
+        (i.item_name, i.weapon_line, i.wargear_ability_id) for i in original_group.items
     ]
+    assert rebuilt_group.items[0].wargear_ability_id == "wga-example-hover-limpet"
 
 
 # --- 006 class 2: default_equipment_state -----------------------------------------------------
@@ -76,9 +77,14 @@ def test_option_choice_items_round_trip(tmp_path: Path) -> None:
     original, rebuilt = _round_tripped(tmp_path)
     original_bundle = next(c for c in original.option_choices if c.items)
     rebuilt_bundle = next(c for c in rebuilt.option_choices if c.id == original_bundle.id)
-    assert [(i.role, i.item_index, i.item_name, i.weapon_line) for i in rebuilt_bundle.items] == [
-        (i.role, i.item_index, i.item_name, i.weapon_line) for i in original_bundle.items
+    assert [
+        (i.role, i.item_index, i.item_name, i.weapon_line, i.wargear_ability_id)
+        for i in rebuilt_bundle.items
+    ] == [
+        (i.role, i.item_index, i.item_name, i.weapon_line, i.wargear_ability_id)
+        for i in original_bundle.items
     ]
+    assert rebuilt_bundle.items[0].wargear_ability_id == "wga-example-hover-limpet"
     # The single-choice-with-no-items case must also survive: an empty bundle stays empty, not a
     # fabricated one-item array.
     original_no_change = next(c for c in original.option_choices if c.is_no_change)
@@ -126,8 +132,14 @@ def test_all_five_classes_together_leave_no_field_silently_dropped(tmp_path: Pat
     it, not empty arrays and an absent state — the second-order defect research D2 names."""
     original, rebuilt = _round_tripped(tmp_path)
     assert rebuilt.equipment_groups != ()
+    assert rebuilt.equipment_groups[0].items[0].wargear_ability_id == "wga-example-hover-limpet"
     assert rebuilt.default_equipment_state is not None
     assert any(choice.items for choice in rebuilt.option_choices)
+    assert any(
+        item.wargear_ability_id == "wga-example-hover-limpet"
+        for choice in rebuilt.option_choices
+        for item in choice.items
+    )
     assert rebuilt.option_groups[0].eligible_model_name is not None
     assert rebuilt.option_groups[0].eligible_max_count is not None
     assert rebuilt.option_groups[0].is_per_model is not None

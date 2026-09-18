@@ -13,6 +13,8 @@
 # AI-Assisted: Claude Code (model: claude-sonnet-5) - Wrote item_constraints (007 US3, the
 # carried-over round-trip gap US4's T032 deliberately left for this entity): a flat row per
 # footnote-style restriction, closing issue #14's divergence class before a real producer exists.
+# AI-Assisted: Claude Sonnet 5 - 010 R13c: wargear_ability_id round-trips through the curated
+# tree.
 """Write the curated tree — the artifact a human reviews.
 
 The layout exists for **diff quality**, which FR-016 and FR-037 make a requirement rather than
@@ -133,6 +135,7 @@ def _equipment_group(group: CuratedEquipmentGroup) -> dict[str, JsonValue]:
                         "item_name": item.item_name,
                         "count": item.count,
                         "weapon_line": item.weapon_line,
+                        "wargear_ability_id": item.wargear_ability_id,
                     }
                 )
                 for item in sorted(group.items, key=lambda item: item.item_index)
@@ -360,6 +363,7 @@ def _datasheet(datasheet: CuratedDatasheet) -> dict[str, JsonValue]:
                                     "item_name": item.item_name,
                                     "count": item.count,
                                     "weapon_line": item.weapon_line,
+                                    "wargear_ability_id": item.wargear_ability_id,
                                 }
                             )
                             for item in sorted(
