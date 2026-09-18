@@ -44,11 +44,13 @@
   {
     "faction_id": "f-tau-empire",
     "name": "Missile Drone",
-    "aliases": [],
+    "aliases": [
+      "up to 2 missile drones"
+    ],
     "summary": "The bearer is equipped with a missile pod: range 30 inches, 2 attacks, Ballistic Skill 5+, Strength 7, Armour Penetration -1, Damage 2, with no weapon abilities.",
     "review_state": "approved",
     "reviewed_by": "adhoxx",
     "reviewed_at": "2026-09-18",
-    "note": "Round 13 PR B: named in option text, defined nowhere in the export; mechanics authored by the Owner."
+    "note": "Round 13 PR B: named in option text, defined nowhere in the export; mechanics authored by the Owner. Alias 'up to 2 missile drones' (2026-09-18) resolves the Riptide, R'varna and Y'vahra option residue."
   }
 ]
