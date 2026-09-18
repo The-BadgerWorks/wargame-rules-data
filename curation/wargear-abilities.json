@@ -1,0 +1,54 @@
+[
+  {
+    "faction_id": "f-tau-empire",
+    "name": "Guardian Drone",
+    "aliases": [
+      "guardian drone (it cannot take duplicates of this piece of wargear)"
+    ],
+    "summary": "Each time a ranged attack targets the bearer's unit, subtract 1 from the Wound roll.",
+    "review_state": "approved",
+    "reviewed_by": "adhoxx",
+    "reviewed_at": "2026-09-18",
+    "note": "Round 13 PR B: named in option text, defined nowhere in the export; mechanics authored by the Owner."
+  },
+  {
+    "faction_id": "f-tau-empire",
+    "name": "Gun Drone",
+    "aliases": [],
+    "summary": "The bearer is equipped with a twin pulse carbine: range 20 inches, 2 attacks, Ballistic Skill 5+, Strength 5, Armour Penetration 0, Damage 1, with the Assault and Twin-linked abilities.",
+    "review_state": "approved",
+    "reviewed_by": "adhoxx",
+    "reviewed_at": "2026-09-18",
+    "note": "Round 13 PR B: named in option text, defined nowhere in the export; mechanics authored by the Owner."
+  },
+  {
+    "faction_id": "f-tau-empire",
+    "name": "Marker Drone",
+    "aliases": [],
+    "summary": "The bearer's unit gains the MARKERLIGHT keyword and can act as an Observer unit for another unit even if it Advanced this turn.",
+    "review_state": "approved",
+    "reviewed_by": "adhoxx",
+    "reviewed_at": "2026-09-18",
+    "note": "Round 13 PR B: named in option text, defined nowhere in the export; mechanics authored by the Owner."
+  },
+  {
+    "faction_id": "f-tau-empire",
+    "name": "Shield Drone",
+    "aliases": [],
+    "summary": "Add 1 to the bearer's Wounds characteristic.",
+    "review_state": "approved",
+    "reviewed_by": "adhoxx",
+    "reviewed_at": "2026-09-18",
+    "note": "Round 13 PR B: named in option text, defined nowhere in the export; mechanics authored by the Owner."
+  },
+  {
+    "faction_id": "f-tau-empire",
+    "name": "Missile Drone",
+    "aliases": [],
+    "summary": "The bearer is equipped with a missile pod: range 30 inches, 2 attacks, Ballistic Skill 5+, Strength 7, Armour Penetration -1, Damage 2, with no weapon abilities.",
+    "review_state": "approved",
+    "reviewed_by": "adhoxx",
+    "reviewed_at": "2026-09-18",
+    "note": "Round 13 PR B: named in option text, defined nowhere in the export; mechanics authored by the Owner."
+  }
+]
