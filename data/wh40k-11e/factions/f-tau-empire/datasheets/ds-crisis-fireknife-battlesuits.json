@@ -26,7 +26,7 @@
       "model_count": 3,
       "points": 100,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260916T053002Z-1b0a18bd"
+      "source_acquisition_id": "mfm-20260918T133619Z-1b0a18bd"
     },
     {
       "copy_index_min": 3,
@@ -34,7 +34,7 @@
       "model_count": 3,
       "points": 110,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260916T053002Z-1b0a18bd"
+      "source_acquisition_id": "mfm-20260918T133619Z-1b0a18bd"
     }
   ],
   "datasheet_id": "ds-crisis-fireknife-battlesuits",
@@ -182,7 +182,8 @@
           "count": 1,
           "item_index": 1,
           "item_name": "gun drone",
-          "role": "granted"
+          "role": "granted",
+          "wargear_ability_id": "wga-tau-empire-gun-drone"
         }
       ],
       "name": "gun drone"
@@ -198,7 +199,8 @@
           "count": 1,
           "item_index": 1,
           "item_name": "marker drone",
-          "role": "granted"
+          "role": "granted",
+          "wargear_ability_id": "wga-tau-empire-marker-drone"
         }
       ],
       "name": "marker drone"
@@ -214,7 +216,8 @@
           "count": 1,
           "item_index": 1,
           "item_name": "shield drone",
-          "role": "granted"
+          "role": "granted",
+          "wargear_ability_id": "wga-tau-empire-shield-drone"
         }
       ],
       "name": "shield drone"
@@ -243,15 +246,15 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:9b8ce27dbdc6b2f50acdc4b2632ee0c1dbe25bb3b843521874f87e7709bf49a6",
-    "last_verified_version": "wh40k-11e-2026-09-2",
+    "last_verified_version": "wh40k-11e-2026-09-3",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260916T053039Z-ae4bfdaf",
+    "detail_acquisition_id": "wahapedia-20260918T133654Z-ae4bfdaf",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260916T053002Z-1b0a18bd",
+    "points_acquisition_id": "mfm-20260918T133619Z-1b0a18bd",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
