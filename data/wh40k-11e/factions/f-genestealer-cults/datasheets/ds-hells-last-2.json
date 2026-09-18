@@ -29,7 +29,7 @@
       "model_count": 5,
       "points": 80,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260918T133654Z-ae4bfdaf"
+      "source_acquisition_id": "wahapedia-20260918T172853Z-ae4bfdaf"
     }
   ],
   "datasheet_id": "ds-hells-last-2",
@@ -155,12 +155,12 @@
   ],
   "name": "Hell’s Last",
   "pricing_confidence": {
-    "consecutive_unverified_releases": 8,
+    "consecutive_unverified_releases": 9,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260918T133654Z-ae4bfdaf",
+    "detail_acquisition_id": "wahapedia-20260918T172853Z-ae4bfdaf",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
