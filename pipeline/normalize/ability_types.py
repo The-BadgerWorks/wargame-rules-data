@@ -12,6 +12,10 @@
 # psychic powers) that have no approved summaries, which the publish gate blocks with
 # SUM-MISSING; admitting those keys is a curation-and-drafting round of its own, not a pipeline
 # change. A Psychic row is once again dropped with DQ-ABILITY-TYPE; `source_class` is unaffected.
+# AI-Assisted: Claude Code (model: Claude Sonnet 5) - 010 R14 task 1: restored `psychic ->
+# AbilityType.DATASHEET`. The three ability keys it mints now have approved summaries curated in
+# a separate PR that merges first, clearing the SUM-MISSING block task 13 hit; `source_class` is
+# unaffected and still reports "psychic".
 """Map the detail source's classification field onto the contract's closed vocabulary.
 
 The consumer contract's `datasheet_ability.ability_type` is `core | faction | datasheet` and
@@ -50,12 +54,12 @@ ABILITY_TYPE_MAP: Final[Mapping[str, AbilityType]] = {
     "wargear": AbilityType.DATASHEET,
     "wargear profile": AbilityType.DATASHEET,
     "primarch": AbilityType.DATASHEET,
-    # "psychic" is deliberately absent: 010 R13 task 4 mapped it onto AbilityType.DATASHEET, but
-    # task 13 withdrew that mapping. A live build showed it mints three new ability keys (Orks
-    # psychic powers) that have no approved summaries, which the publish gate blocks with
-    # SUM-MISSING. Admitting those keys is a curation-and-drafting round of its own, not a
-    # pipeline change, so a Psychic row is once again unmapped and raises DQ-ABILITY-TYPE,
-    # dropping the binding. `source_class("Psychic")` still reports "psychic" unchanged.
+    # 010 R13 task 4 mapped "psychic" onto AbilityType.DATASHEET; task 13 withdrew it because a
+    # live build minted three new ability keys (Orks psychic powers) with no approved summaries,
+    # which the publish gate blocks with SUM-MISSING. 010 R14 task 1 restores the mapping: those
+    # three summaries are drafted and curated in a separate PR that merges first, clearing the
+    # block. `source_class("Psychic")` still reports "psychic" unchanged.
+    "psychic": AbilityType.DATASHEET,
     # The observed Cyrillic scraper artefacts (research §0.1). Layout labels, not taxonomy.
     "special (правая колонка)": AbilityType.DATASHEET,
     "fortification (левая колонка)": AbilityType.DATASHEET,

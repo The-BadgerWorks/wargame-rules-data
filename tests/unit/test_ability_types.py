@@ -1,9 +1,9 @@
 # AI-Assisted: Claude Code (model: Claude Sonnet 5) - 010 R13 task 4 mapped `psychic` onto
-# `AbilityType.DATASHEET`; task 13 withdrew that mapping. A live build showed it mints three new
-# ability keys (Orks psychic powers) with no approved summaries, which the publish gate blocks
-# with SUM-MISSING. Admitting those keys is a curation-and-drafting round of its own, not a
-# pipeline change, so `psychic` is unmapped again and `Psychic` rows drop with `DQ-ABILITY-TYPE`,
-# exactly as before task 4. `source_class` is unaffected and still reports `"psychic"`.
+# `AbilityType.DATASHEET`; task 13 withdrew that mapping because a live build showed it mints
+# three new ability keys (Orks psychic powers) with no approved summaries, which the publish gate
+# blocks with SUM-MISSING. Round 14 restores the mapping deliberately: the three summaries are
+# drafted and curated in a separate PR that merges first, so the block is now cleared rather than
+# avoided. `source_class` is unaffected throughout and still reports `"psychic"`.
 """`abilityClass` is a new optional tag; the closed `AbilityType` vocabulary does not grow.
 
 `tests/unit/test_models.py:149` is the Tier 1 guard that `AbilityType` stays exactly
@@ -11,13 +11,13 @@
 new function that reports the *source's own* classification (`Wargear`, `Wargear profile`,
 `Primarch`, `Psychic`) so the app can distinguish it later without moving a single published key.
 
-The Psychic flip (010 R13 task 4: `psychic -> AbilityType.DATASHEET`) was withdrawn in task 13:
-a live build showed it mints three new ability keys with no approved summaries, which the
-publish gate blocks with `SUM-MISSING`.
-`test_psychic_still_drops_with_dq_ability_type_while_source_class_reports_it` now records the
-restored behaviour: a `Psychic` row is unmapped in `ABILITY_TYPE_MAP` and raises
-`DQ-ABILITY-TYPE`, dropping the binding, while `source_class("Psychic")` still reports
-`"psychic"` unchanged.
+The Psychic flip (010 R13 task 4: `psychic -> AbilityType.DATASHEET`) was withdrawn in task 13
+because a live build showed it mints three new ability keys with no approved summaries, which the
+publish gate blocks with `SUM-MISSING`. Round 14 admits those rows deliberately: the three
+summaries are drafted and curated in a separate PR that merges first.
+`test_psychic_maps_to_datasheet_and_source_class_reports_it` records the restored behaviour: a
+`Psychic` row resolves to `AbilityType.DATASHEET` with no finding, while `source_class("Psychic")`
+still reports `"psychic"` unchanged.
 """
 
 from __future__ import annotations
@@ -71,18 +71,17 @@ def test_source_class_is_none_for_a_cyrillic_scraper_artefact() -> None:
     assert source_class("Без заголовка") is None
 
 
-# --- the Psychic flip, withdrawn -------------------------------------------------------------
+# --- the Psychic flip, restored ----------------------------------------------------------------
 
 
-def test_psychic_still_drops_with_dq_ability_type_while_source_class_reports_it() -> None:
-    """The task-4 flip is withdrawn: a `Psychic` row is dropped with `DQ-ABILITY-TYPE` again,
-    because admitting it mints ability keys with no approved summaries (`SUM-MISSING` at
-    publish). `source_class` is a separate, unaffected concern and still reports `"psychic"`."""
+def test_psychic_maps_to_datasheet_and_source_class_reports_it() -> None:
+    """Round 14 restores the task-4 flip: a `Psychic` row resolves to `AbilityType.DATASHEET`
+    with no finding, now that the three ability keys it mints have approved summaries curated in
+    a separate, prior-merging PR. `source_class` is a separate, unaffected concern and still
+    reports `"psychic"`."""
     ability_type, finding = classify("Psychic", entity_ref="wahapedia:x")
 
-    assert ability_type is None
-    assert finding is not None
-    assert finding.finding_code == "DQ-ABILITY-TYPE"
+    assert (ability_type, finding) == (AbilityType.DATASHEET, None)
     assert source_class("Psychic") == "psychic"
 
 
