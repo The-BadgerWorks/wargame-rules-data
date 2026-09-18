@@ -151,8 +151,8 @@
     "mechanic_digest": "5c9dddbd06de5f8df167e7bdddb6016a",
     "name": "Beastscent (psychic level 1)",
     "review_state": "approved",
-    "reviewed_at": "2026-09-18",
-    "reviewed_by": "adhoxx",
+    "reviewed_at": "2026-09-18T16:33:46Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
     "summary": "In your Movement phase, when a unit embarked within this unit is selected to make a disembark move, if this unit is not battle-shocked, you can make a psychic roll for this unit by rolling one D6. If you do: on a 1, this unit is battle-shocked; and that disembarking unit's attacks that target a MONSTER/VEHICLE unit have +1 to wound rolls until the end of the turn."
   },
   {
@@ -493,8 +493,8 @@
     "mechanic_digest": "aa4e2484f1602d4d7f6f71f318b986db",
     "name": "Da Jump (psychic level 1, once per army, per battle round)",
     "review_state": "approved",
-    "reviewed_at": "2026-09-18",
-    "reviewed_by": "adhoxx",
+    "reviewed_at": "2026-09-18T16:33:46Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
     "summary": "Psychic level 1. Usable once per army, once per battle round. In your Movement phase, if this unit is not battle-shocked, you can make a psychic roll for this unit by rolling one D6. If you do: on a 1, this unit is battle-shocked; place this unit in strategic reserves; this unit has Deep Strike."
   },
   {
@@ -2004,8 +2004,8 @@
     "mechanic_digest": "c69cb472734c2533ab8614c47a2d4c1c",
     "name": "Warpath (psychic level 1)",
     "review_state": "approved",
-    "reviewed_at": "2026-09-18",
-    "reviewed_by": "adhoxx",
+    "reviewed_at": "2026-09-18T16:33:46Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
     "summary": "In the Fight phase, when this unit is selected to fight, if this unit is not battle-shocked, you can make a psychic roll for this unit by rolling one D6. If you do: on a 1, this unit is battle-shocked; this unit's melee attacks can re-roll wound rolls of 1; and this unit's melee attacks have [Psychic]."
   },
   {
