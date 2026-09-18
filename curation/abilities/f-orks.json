@@ -146,6 +146,16 @@
     "summary": "After this model makes a Charge move, its melee weapons gain the Devastating Wounds ability until the end of the turn."
   },
   {
+    "ability_key": "datasheet:beastscent-psychic-level-1",
+    "authored_against_acquisition": "wahapedia-20260918T163422Z-ae4bfdaf",
+    "mechanic_digest": "5c9dddbd06de5f8df167e7bdddb6016a",
+    "name": "Beastscent (psychic level 1)",
+    "review_state": "approved",
+    "reviewed_at": "2026-09-18T16:33:46Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "summary": "In your Movement phase, when a unit embarked within this unit is selected to make a disembark move, if this unit is not battle-shocked, you can make a psychic roll for this unit by rolling one D6. If you do: on a 1, this unit is battle-shocked; and that disembarking unit's attacks that target a MONSTER/VEHICLE unit have +1 to wound rolls until the end of the turn."
+  },
+  {
     "ability_key": "datasheet:big-an-shooty",
     "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
     "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
@@ -476,6 +486,16 @@
     "reviewed_at": "2026-08-06T00:00:00Z",
     "reviewed_by": "claude-opus-5-second-reviewer",
     "summary": "Once per turn, at the end of your Movement phase, one Weirdboy can roll one D6: on a 1 its unit suffers D6 mortal wounds; on a 2+ redeploy that unit more than 8\" horizontally from all enemy models."
+  },
+  {
+    "ability_key": "datasheet:da-jump-psychic-level-1-once-per-army-per-battle-round",
+    "authored_against_acquisition": "wahapedia-20260918T163422Z-ae4bfdaf",
+    "mechanic_digest": "aa4e2484f1602d4d7f6f71f318b986db",
+    "name": "Da Jump (psychic level 1, once per army, per battle round)",
+    "review_state": "approved",
+    "reviewed_at": "2026-09-18T16:33:46Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "summary": "Psychic level 1. Usable once per army, once per battle round. In your Movement phase, if this unit is not battle-shocked, you can make a psychic roll for this unit by rolling one D6. If you do: on a 1, this unit is battle-shocked; place this unit in strategic reserves; this unit has Deep Strike."
   },
   {
     "ability_key": "datasheet:da-revolushun",
@@ -1977,6 +1997,16 @@
     "reviewed_at": "2026-09-15T04:35:16Z",
     "reviewed_by": "claude-sonnet-5-reviewer",
     "summary": "Ranged attacks from this model against a target within half range gain +1 to the Hit roll."
+  },
+  {
+    "ability_key": "datasheet:warpath-psychic-level-1",
+    "authored_against_acquisition": "wahapedia-20260918T163422Z-ae4bfdaf",
+    "mechanic_digest": "c69cb472734c2533ab8614c47a2d4c1c",
+    "name": "Warpath (psychic level 1)",
+    "review_state": "approved",
+    "reviewed_at": "2026-09-18T16:33:46Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "summary": "In the Fight phase, when this unit is selected to fight, if this unit is not battle-shocked, you can make a psychic roll for this unit by rolling one D6. If you do: on a 1, this unit is battle-shocked; this unit's melee attacks can re-roll wound rolls of 1; and this unit's melee attacks have [Psychic]."
   },
   {
     "ability_key": "datasheet:wild-ride",
