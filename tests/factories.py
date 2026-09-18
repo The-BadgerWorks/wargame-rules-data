@@ -339,7 +339,12 @@ def loadout_datasheet(
                 model_name="Sootveil Warden",
                 composition_line=1,
                 items=[
-                    CuratedEquipmentItem(item_index=1, item_name="Glow lance", weapon_line=1),
+                    CuratedEquipmentItem(
+                        item_index=1,
+                        item_name="Glow lance",
+                        weapon_line=1,
+                        wargear_ability_id="wga-example-hover-limpet",
+                    ),
                     CuratedEquipmentItem(item_index=2, item_name="Storm maul", weapon_line=2),
                 ],
             ),
@@ -369,6 +374,7 @@ def loadout_datasheet(
                         item_index=1,
                         item_name="Marsh axe",
                         weapon_line=3,
+                        wargear_ability_id="wga-example-hover-limpet",
                     ),
                     CuratedOptionChoiceItem(
                         role=OptionItemRole.GRANTED,
