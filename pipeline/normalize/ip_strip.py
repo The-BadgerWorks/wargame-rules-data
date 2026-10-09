@@ -30,9 +30,13 @@
 # punctuation rather than casefolding them away, for the one field the Owner has ruled publishable
 # as the source states it -- a datasheet's wargear-options text.
 # AI-Assisted: Claude Code (model: claude-sonnet-5) - Fix round 1 (review finding 4): noted in
-# `published_text` why its discarded `strip_field` findings are not a gap -- the field is still
-# covered by the blocking IP scan independently, and `options_grammar.pre_pass` reports the same
-# underlying field from the same raw row.
+# `published_text` why its discarded `strip_field` findings are not a gap -- the published field
+# is still covered by the blocking IP scan independently.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - Fix round 2: corrected the round-1 comment
+# above (and the matching one inside `published_text`) -- `options_grammar.pre_pass` does NOT
+# report `strip_field`'s findings either (it drops them on the same precedent, see
+# `composition_grammar.pre_pass`'s own docstring), so it was never a second control. The blocking
+# IP scan (`pipeline.validate.ip_scan`) is the only control on this field's content.
 # AI-Assisted: Claude Code (model: claude-opus-5) - Moved `table` out of _DROPPED_SUBTREES' own
 # content-dropping alternation (010 rung R9, task 3), so a table cell's mechanical text reaches
 # `hard_normalise` and the mechanic digest, which round 8 measured it never did (17 keys, 59,674
@@ -256,9 +260,9 @@ def published_text(raw: str, *, field: str) -> str:
     datasheet's wargear-options text) the Owner has ruled publishable as written.
     """
     # `strip_field`'s own findings (DQ-MARKUP-IN-FIELD / DQ-PLACEHOLDER-TOKEN) are discarded here
-    # on purpose: the published field is still covered by the blocking IP scan independently
-    # (`pipeline.validate.ip_scan`), and `options_grammar.pre_pass` reports the same underlying
-    # field from the same raw row, so nothing here would be the only place an anomaly surfaces.
+    # on purpose: the blocking IP scan (`pipeline.validate.ip_scan`) is the only control on this
+    # published field's content, and it runs over the field's final value independently of
+    # whatever `strip_field` reported or dropped on the way there.
     text = strip_field(raw, field=field).text
     return " ".join(unicodedata.normalize("NFKC", text).split())
 

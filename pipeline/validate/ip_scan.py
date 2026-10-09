@@ -6,13 +6,19 @@
 # `_scan_json_document`, keyed on the JSON pointer's own last segment -- the only violation class
 # waived for `wargear_options_text` / `wargearOptionsText`, because text that passed
 # `published_text` cannot legitimately carry markup, entities, placeholders or Cyrillic either.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - Fix round 2: corrected this module's
+# docstring, which still claimed no field downstream of normalize holds prose -- stated the one
+# exception the task 4 header above already describes.
 """V8 — prove the IP boundary held, rather than assume it.
 
 Two independent mechanisms back the boundary (research D8). The first is that there is nowhere
 to *put* prose: no field anywhere downstream of `normalize` is typed to hold it, so the policy
-holds by schema design rather than by review vigilance. This module is the second — the scan
-that turns the claim into a monitored control, and the one that would notice if the first ever
-developed a hole.
+holds by schema design rather than by review vigilance. **One exception** (Owner ruling 3,
+2026-10-09): `wargear_options_text` / `wargearOptionsText` is typed to carry the source's own
+wording, and is waived from the `over_length` class only -- markup, entities, placeholders and
+Cyrillic still fire for it exactly as for every other field. This module is the second mechanism
+— the scan that turns the claim into a monitored control, and the one that would notice if the
+first ever developed a hole.
 
 It scans for the classes actually observed in the sources rather than for prose in the abstract:
 markup, HTML entities, unresolved `$` tokens, Cyrillic scraper artefacts, and any string long

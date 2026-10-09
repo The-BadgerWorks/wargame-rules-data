@@ -18,12 +18,16 @@
 # directions of the length-exemption receipt (Owner ruling 3) -- the one field downstream of
 # `normalize` carrying published source text is waived from `over_length` only, never from
 # markup, entities, placeholders or Cyrillic, on both the bundle side and the tree side.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - Fix round 2: corrected this module's
+# docstring, which still claimed no field downstream of normalize holds prose at all -- stated
+# the one exception the task 4 header above already describes.
 """Tests for validation V8, the scan that turns the IP boundary into a monitored control.
 
 The schema design is what *makes* the boundary hold — there is no prose-typed field anywhere
-downstream of normalize. This scan is the independent second mechanism (research D8), and the
-poisoned-tree case is the part that matters: a scanner nobody has ever seen fail is a scanner
-nobody knows works.
+downstream of normalize, with one exception: `wargear_options_text` / `wargearOptionsText`
+(Owner ruling 3, 2026-10-09), waived from the `over_length` class only. This scan is the
+independent second mechanism (research D8), and the poisoned-tree case is the part that matters:
+a scanner nobody has ever seen fail is a scanner nobody knows works.
 """
 
 from __future__ import annotations

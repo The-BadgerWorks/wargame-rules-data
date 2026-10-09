@@ -198,8 +198,8 @@ FIELD_MAPPING: Final[Mapping[type, tuple[set[str], set[str]]]] = {
             "rules",
             # 2026-10-09 pipeline P2 task 2: mapped so `check_mapping_totality` and this task's
             # own `run_build` end-to-end test are green. The emitter itself, and the bundle
-            # schema key, are task 3's -- this task's failing-first test depends on the emitter
-            # not yet emitting it.
+            # schema key, were task 3's -- both now shipped (`_emit_detachments` below emits
+            # `chapterKeyword`; fix round 2 corrected this comment, which had gone stale).
             "chapter_keyword",
         },
         {"force_disposition", "is_unique", "provenance"},
