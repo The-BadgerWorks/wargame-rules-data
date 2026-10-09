@@ -15,6 +15,9 @@
 # footnote-style restriction, closing issue #14's divergence class before a real producer exists.
 # AI-Assisted: Claude Sonnet 5 - 010 R13c: wargear_ability_id round-trips through the curated
 # tree.
+# AI-Assisted: Claude Code (model: Claude Sonnet 5) - 2026-10-09 pipeline P2 task 2:
+# chapter_keyword round-trips through the curated tree, omitted exactly as force_disposition and
+# is_unique already are.
 """Write the curated tree — the artifact a human reviews.
 
 The layout exists for **diff quality**, which FR-016 and FR-037 make a requirement rather than
@@ -199,6 +202,7 @@ def _detachment(detachment: CuratedDetachment) -> dict[str, JsonValue]:
             "is_legends": detachment.is_legends,
             "force_disposition": detachment.force_disposition,
             "is_unique": detachment.is_unique,
+            "chapter_keyword": detachment.chapter_keyword,
             # The rule's key and name only. Its authored summary lives in
             # `curation/detachment-rules/<faction-id>.json` and is never written here — the
             # pipeline writes `data/`, humans write `curation/`, and this file is the boundary

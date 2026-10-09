@@ -57,6 +57,9 @@
 # WGA-LINK-AMBIGUOUS, raised by `pipeline/curate/assemble.py::_link_wargear_abilities` when an
 # option or equipment item's name matches two-or-more curated wargear abilities in its faction;
 # the item ships unlinked, mirroring OPT-LINK-AMBIGUOUS.
+# AI-Assisted: Claude Code (model: Claude Sonnet 5) - 2026-10-09 pipeline P2 task 2: registered
+# DET-CHAPTER-UNMATCHED, raised by `pipeline/curate/assemble.py::_attach_chapter_keywords` when a
+# curation/detachment-chapters.json entry binds nothing.
 """The finding catalogue.
 
 ``validation-report.md`` §1.1: **severity is a property of the code, not of the occurrence.** A
@@ -623,6 +626,17 @@ _DEFINITIONS: Final[tuple[FindingDefinition, ...]] = (
         "010 R13",
         "an option or equipment item's name matched two-or-more curated wargear abilities in "
         "its faction; the item ships unlinked, never guessed, mirroring OPT-LINK-AMBIGUOUS",
+    ),
+    # -- 2026-10-09 P2 (chapter-scoped detachments) ------------------------------------------------
+    _d(
+        "DET-CHAPTER-UNMATCHED",
+        _AUT,
+        _B,
+        "2026-10-09 spec §1.2",
+        "a curation/detachment-chapters.json entry binds nothing: its (faction, normalised name) "
+        "matches no minted detachment, its keyword is not a chapter keyword of that faction, or it "
+        "repeats an earlier entry; a curated restriction that binds nothing is a doc contradicting "
+        "behaviour, so the run refuses rather than publishing the detachment unscoped",
     ),
 )
 

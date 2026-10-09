@@ -39,6 +39,9 @@
 # AI-Assisted: Claude Code (model: Claude Sonnet 5) - Emitted `datasheetAbilities.abilityClass`
 # (010 R13 task 4), via `omit_absent` so it is present only for a key whose raw source type
 # carried one; added `ability_classes` to `CuratedDatasheet`'s `FIELD_MAPPING` entry.
+# AI-Assisted: Claude Code (model: Claude Sonnet 5) - 2026-10-09 pipeline P2 task 2: added
+# `chapter_keyword` to `CuratedDetachment`'s `FIELD_MAPPING` mapped set so
+# `check_mapping_totality` is satisfied; the emitter itself is task 3's.
 """Turn the curated tree into the published bundle. A pure function, and nothing else.
 
 No network, no source re-acquisition, no input the tree does not already contain, and no clock:
@@ -186,6 +189,11 @@ FIELD_MAPPING: Final[Mapping[type, tuple[set[str], set[str]]]] = {
             "is_legends",
             "restrictions",
             "rules",
+            # 2026-10-09 pipeline P2 task 2: mapped so `check_mapping_totality` and this task's
+            # own `run_build` end-to-end test are green. The emitter itself, and the bundle
+            # schema key, are task 3's -- this task's failing-first test depends on the emitter
+            # not yet emitting it.
+            "chapter_keyword",
         },
         {"force_disposition", "is_unique", "provenance"},
     ),

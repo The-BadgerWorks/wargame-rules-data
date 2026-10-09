@@ -6,6 +6,10 @@
 # US3, the carried-over gap US4's T032 deliberately left for this entity — recorded in
 # `.impl-progress.md`'s US3 section — since US3 is the phase that creates the first real
 # producer for it).
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - Added the chapter_keyword round-trip
+# (2026-10-09 pipeline P2 task 2): one detachment stamped by `_attach_chapter_keywords`, one
+# sibling left unstamped, so both the present and the omitted case survive `write_tree` /
+# `read_curated_tree` rather than only the coincidence of one of them being set.
 """User Story 4: the curated `data/` tree round-trips everything `006` published.
 
 research D2 found the curated writer's per-datasheet serialisation and the prior-snapshot reader
@@ -26,7 +30,7 @@ from pathlib import Path
 
 from pipeline.curate.prior import read_curated_tree
 from pipeline.curate.writer import write_tree
-from tests.factories import faction, loadout_datasheet, snapshot
+from tests.factories import detachment, faction, loadout_datasheet, snapshot
 
 
 def _round_tripped(tmp_path: Path) -> tuple[object, object]:
@@ -122,6 +126,27 @@ def test_item_constraints_round_trip(tmp_path: Path) -> None:
         (c.constraint_index, c.constraint_type, c.item_name, c.weapon_line, c.model_name)
         for c in original.item_constraints
     ]
+
+
+# --- 2026-10-09 P2: CuratedDetachment.chapter_keyword -------------------------------------------
+
+
+def test_chapter_keyword_round_trips_and_an_unstamped_sibling_reads_back_none(
+    tmp_path: Path,
+) -> None:
+    scoped = detachment("d-anvil-vigil").model_copy(update={"chapter_keyword": "FEN WARDENS"})
+    unscoped = detachment("d-fx-charge").model_copy(update={"name": "Thornlight Charge"})
+    original_snapshot = snapshot(factions=[faction()], detachments=[scoped, unscoped])
+
+    data_dir = tmp_path / "data" / "wh40k-11e"
+    curation_dir = tmp_path / "curation"
+    write_tree(original_snapshot, data_dir=data_dir, curation_dir=curation_dir)
+
+    rebuilt_snapshot = read_curated_tree(data_dir)
+    assert rebuilt_snapshot is not None
+    rebuilt_by_id = {d.detachment_id: d for d in rebuilt_snapshot.detachments}
+    assert rebuilt_by_id["d-anvil-vigil"].chapter_keyword == "FEN WARDENS"
+    assert rebuilt_by_id["d-fx-charge"].chapter_keyword is None
 
 
 # --- the whole point: a bundle rebuilt from the tree matches a freshly-acquired one -------------

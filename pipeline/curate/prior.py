@@ -12,6 +12,9 @@
 # a generalisation bug cannot feed summaries.abilities to the option ratchet.
 # AI-Assisted: Claude Code (model: claude-sonnet-5) - Read item_constraints back (007 US3, the
 # carried-over round-trip gap US4's T032 deliberately left for this entity).
+# AI-Assisted: Claude Code (model: Claude Sonnet 5) - Read chapter_keyword back (2026-10-09
+# pipeline P2 task 2), `.get` so an older tree written before this field existed still reads as
+# `None` rather than raising.
 """The baseline: what we published last time.
 
 Four of US2's guarantees are statements *about a previous release* — last-known pricing, rename
@@ -374,6 +377,7 @@ def read_curated_tree(data_dir: Path) -> CuratedSnapshot | None:
                     is_legends=bool(row.get("is_legends", False)),
                     force_disposition=row.get("force_disposition"),
                     is_unique=row.get("is_unique"),
+                    chapter_keyword=row.get("chapter_keyword"),
                     restrictions=_restrictions(
                         row.get("restrictions", []),
                         edition_id=edition.id,
