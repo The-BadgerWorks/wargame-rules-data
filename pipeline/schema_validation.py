@@ -7,6 +7,8 @@
 # new registrations, since they were already registered.
 # AI-Assisted: Claude Code (model: Claude Sonnet 5) - Registered "wargear-abilities" in
 # CURATION_SCHEMAS (010 round 13 task 1).
+# AI-Assisted: Claude Code (model: Claude Sonnet 5) - Registered "detachment-chapters" in
+# CURATION_SCHEMAS (2026-10-09 pipeline P2 task 1).
 """JSON Schema loading and validation.
 
 Three schema sets, one loader:
@@ -78,6 +80,8 @@ CURATION_SCHEMAS: Final[Mapping[str, str]] = {
     "equipment-overrides": "curation/equipment-overrides.schema.json",
     # 010 round 13, task 1.
     "wargear-abilities": "curation/wargear-abilities.schema.json",
+    # 2026-10-09 P2.
+    "detachment-chapters": "curation/detachment-chapters.schema.json",
 }
 
 #: The published bundle schema.

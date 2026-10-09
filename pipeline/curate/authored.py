@@ -6,6 +6,9 @@
 # AI-Assisted: Claude Code (model: Claude Sonnet 5) - Joined wargear-abilities.json's faction_id
 # to the V9 authored-reference check (010 round 13 task 2): an entry naming a faction the curated
 # snapshot does not contain is the same AUT-DANGLING-REF a retired datasheet already raises.
+# AI-Assisted: Claude Code (model: Claude Sonnet 5) - Registered "detachment-chapters" (2026-10-09
+# pipeline P2 task 1): new flat-file stem, loaded and exposed exactly like wargear-abilities, and
+# joined to the same V9 authored-reference check on faction_id.
 """Load `curation/` — the authored tree — and expose it read-only.
 
 Every file is validated against its schema **on read**, so a hand-edited file fails fast with a
@@ -31,6 +34,7 @@ from pipeline.models.authored import (
     AbilitySummary,
     CompositionOverrideEntry,
     CopyLimit,
+    DetachmentChapterEntry,
     DetachmentRuleSummary,
     EditionRuleValue,
     EquipmentOverrideEntry,
@@ -68,6 +72,8 @@ _FILES: Final[Mapping[str, str]] = {
     "equipment-overrides": "equipment-overrides",
     # 010 round 13, task 1: the authored, faction-scoped curated wargear-ability entries.
     "wargear-abilities": "wargear-abilities",
+    # 2026-10-09 P2, task 1: the authored keyword-only-chapter detachment entries.
+    "detachment-chapters": "detachment-chapters",
 }
 
 ABILITIES_DIR: Final = "abilities"
@@ -127,6 +133,8 @@ class AuthoredContent:
     equipment_overrides: tuple[EquipmentOverrideEntry, ...] = ()
     # -- 010 round 13 -------------------------------------------------------------------------
     wargear_abilities: tuple[WargearAbilityEntry, ...] = ()
+    # -- 2026-10-09 P2 --
+    detachment_chapters: tuple[DetachmentChapterEntry, ...] = ()
 
     def faction_for_slug(self, slug: str) -> FactionMapEntry | None:
         return next((entry for entry in self.faction_map if entry.mfm_slug == slug), None)
@@ -338,6 +346,10 @@ def load_authored(curation_dir: Path) -> AuthoredContent:
             WargearAbilityEntry.model_validate(r)
             for r in _load_list(curation_dir, "wargear-abilities", _FILES["wargear-abilities"])
         ),
+        detachment_chapters=tuple(
+            DetachmentChapterEntry.model_validate(r)
+            for r in _load_list(curation_dir, "detachment-chapters", _FILES["detachment-chapters"])
+        ),
     )
 
 
@@ -396,4 +408,8 @@ def authored_entity_refs(content: AuthoredContent) -> Sequence[tuple[str, str, s
     # not contain outlives that faction the same way an override outlives a retired datasheet.
     for wargear_ability in content.wargear_abilities:
         refs.append(("wargear-abilities.json", "faction_id", wargear_ability.faction_id))
+    # -- 2026-10-09 P2. A keyword-only-chapter detachment entry naming a faction the curated
+    # snapshot does not contain outlives that faction the same way a wargear ability does.
+    for detachment_chapter in content.detachment_chapters:
+        refs.append(("detachment-chapters.json", "faction_id", detachment_chapter.faction_id))
     return refs

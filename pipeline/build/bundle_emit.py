@@ -39,6 +39,16 @@
 # AI-Assisted: Claude Code (model: Claude Sonnet 5) - Emitted `datasheetAbilities.abilityClass`
 # (010 R13 task 4), via `omit_absent` so it is present only for a key whose raw source type
 # carried one; added `ability_classes` to `CuratedDatasheet`'s `FIELD_MAPPING` entry.
+# AI-Assisted: Claude Code (model: Claude Sonnet 5) - 2026-10-09 pipeline P2 task 2: added
+# `chapter_keyword` to `CuratedDetachment`'s `FIELD_MAPPING` mapped set so
+# `check_mapping_totality` is satisfied; the emitter itself is task 3's.
+# AI-Assisted: Claude Code (model: Claude Sonnet 5) - 2026-10-09 pipeline P2 task 3: emitted
+# `detachments.chapterKeyword` via `omit_absent`, OMITTED for every detachment
+# `_attach_chapter_keywords` did not bind to a chapter, so an existing row is byte-identical.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - 2026-10-09 pipeline P2 task 4 (Owner ruling
+# 3): added `wargear_options_text` to `CuratedDatasheet`'s `FIELD_MAPPING` mapped set, and emitted
+# `datasheets.wargearOptionsText` via `omit_absent`, OMITTED for every datasheet with no option
+# rows at all -- the one field downstream of normalize permitted to carry the source's wording.
 """Turn the curated tree into the published bundle. A pure function, and nothing else.
 
 No network, no source re-acquisition, no input the tree does not already contain, and no clock:
@@ -186,6 +196,11 @@ FIELD_MAPPING: Final[Mapping[type, tuple[set[str], set[str]]]] = {
             "is_legends",
             "restrictions",
             "rules",
+            # 2026-10-09 pipeline P2 task 2: mapped so `check_mapping_totality` and this task's
+            # own `run_build` end-to-end test are green. The emitter itself, and the bundle
+            # schema key, were task 3's -- both now shipped (`_emit_detachments` below emits
+            # `chapterKeyword`; fix round 2 corrected this comment, which had gone stale).
+            "chapter_keyword",
         },
         {"force_disposition", "is_unique", "provenance"},
     ),
@@ -232,6 +247,8 @@ FIELD_MAPPING: Final[Mapping[type, tuple[set[str], set[str]]]] = {
             "option_groups",
             "option_choices",
             "wargear_option_state",
+            # 2026-10-09 pipeline P2 task 4 (Owner ruling 3).
+            "wargear_options_text",
             # 006-unit-loadout-fidelity.
             "equipment_groups",
             "default_equipment_state",
@@ -508,14 +525,17 @@ def _emit_factions(snapshot: CuratedSnapshot) -> list[dict[str, JsonValue]]:
 def _emit_detachments(snapshot: CuratedSnapshot) -> list[dict[str, JsonValue]]:
     return _rows(
         [
-            {
-                "id": detachment.detachment_id,
-                "editionId": detachment.edition_id,
-                "factionId": detachment.faction_id,
-                "name": detachment.name,
-                "detachmentPointsCost": detachment.detachment_points_cost,
-                "isLegends": detachment.is_legends,
-            }
+            omit_absent(
+                {
+                    "id": detachment.detachment_id,
+                    "editionId": detachment.edition_id,
+                    "factionId": detachment.faction_id,
+                    "name": detachment.name,
+                    "detachmentPointsCost": detachment.detachment_points_cost,
+                    "isLegends": detachment.is_legends,
+                    "chapterKeyword": detachment.chapter_keyword,
+                }
+            )
             for detachment in snapshot.detachments
         ],
         "id",
@@ -632,6 +652,9 @@ def _emit_datasheets(snapshot: CuratedSnapshot) -> dict[str, list[dict[str, Json
                         if datasheet.default_equipment_state is not None
                         else None
                     ),
+                    # 2026-10-09 additive column (Owner ruling 3). Already inside `omit_absent`,
+                    # so `None` (no option rows at all) omits the key rather than publishing null.
+                    "wargearOptionsText": datasheet.wargear_options_text,
                 }
             )
         )

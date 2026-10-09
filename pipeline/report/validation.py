@@ -17,6 +17,10 @@
 # AI-Assisted: Claude Code (model: claude-opus-5) - Added the `weapon_ability_keywords` figure
 # (issue #4), the second one carrying its own denominator, so a weapon-ability class that is
 # empty on every published weapon line is a number an approver reads rather than a silence.
+# AI-Assisted: Claude Code (model: Claude Sonnet 5) - Added the `detachments.chapter_scoped`
+# figure (2026-10-09 pipeline P2 task 2): a third figure with its own denominator, the
+# detachment count rather than the datasheet count, since the question is what proportion of
+# *detachments* `_attach_chapter_keywords` bound to a chapter keyword.
 """`reports/<rulesVersionId>/report.json` and `report.md`.
 
 Every run produces this, whether or not it publishes (FR-031), and the report of a run that
@@ -136,6 +140,12 @@ def scale_figures(snapshot: CuratedSnapshot, findings: Sequence[Finding]) -> dic
         if keyword.keyword_class is not None
     }
 
+    # `detachments.chapter_scoped` carries its OWN denominator too, exactly as
+    # `keyword_classification` and `weapon_ability_keywords` do above: the question is what
+    # proportion of *detachments* `_attach_chapter_keywords` bound to a chapter keyword, and the
+    # datasheet count this function's other figures share would mean nothing for it.
+    chapter_scoped = sum(1 for d in snapshot.detachments if d.chapter_keyword is not None)
+
     return {
         "unverified_pricing": figure(unverified),
         "hybrid_edition": figure(hybrid),
@@ -157,6 +167,14 @@ def scale_figures(snapshot: CuratedSnapshot, findings: Sequence[Finding]) -> dic
         "weapon_ability_keywords": ScaleFigure(
             count=weapons_with_keywords,
             proportion=(round(weapons_with_keywords / weapon_lines, 4) if weapon_lines else 0.0),
+        ),
+        "detachments.chapter_scoped": ScaleFigure(
+            count=chapter_scoped,
+            proportion=(
+                round(chapter_scoped / len(snapshot.detachments), 4)
+                if snapshot.detachments
+                else 0.0
+            ),
         ),
     }
 

@@ -12,6 +12,14 @@
 # a generalisation bug cannot feed summaries.abilities to the option ratchet.
 # AI-Assisted: Claude Code (model: claude-sonnet-5) - Read item_constraints back (007 US3, the
 # carried-over round-trip gap US4's T032 deliberately left for this entity).
+# AI-Assisted: Claude Code (model: Claude Sonnet 5) - Read chapter_keyword back (2026-10-09
+# pipeline P2 task 2), `.get` so an older tree written before this field existed still reads as
+# `None` rather than raising.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - Read wargear_options_text back in
+# `_datasheet` (2026-10-09 pipeline P2 task 4, Owner ruling 3), `.get` on the same precedent.
+# `PriorDatasheet` (the narrower comparison projection below) is deliberately NOT given the
+# field: nothing in the comparison/coverage path reads option TEXT, only the structural
+# wargear_option_state -- a use measured at zero gets no code (standing rule 10).
 """The baseline: what we published last time.
 
 Four of US2's guarantees are statements *about a previous release* — last-known pricing, rename
@@ -276,6 +284,9 @@ def _datasheet(raw: Mapping[str, Any], *, edition_id: str, edition_code: str) ->
             if raw.get("wargear_option_state")
             else None
         ),
+        # 2026-10-09 pipeline P2 task 4 (Owner ruling 3): the raw string round-trips unchanged --
+        # there is no enum or nested structure to reconstruct, unlike wargear_option_state above.
+        wargear_options_text=raw.get("wargear_options_text"),
         # `006` §1.2/§3, closed the round-trip by `007` T032 (research D2, issue #14). Nested
         # `items` inside each group validate into `CuratedEquipmentItem` automatically — pydantic
         # parses `**row`'s sequence-of-dicts against the field's declared item type, the same way
@@ -374,6 +385,7 @@ def read_curated_tree(data_dir: Path) -> CuratedSnapshot | None:
                     is_legends=bool(row.get("is_legends", False)),
                     force_disposition=row.get("force_disposition"),
                     is_unique=row.get("is_unique"),
+                    chapter_keyword=row.get("chapter_keyword"),
                     restrictions=_restrictions(
                         row.get("restrictions", []),
                         edition_id=edition.id,

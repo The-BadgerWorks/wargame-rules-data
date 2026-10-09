@@ -29,6 +29,9 @@
 # AI-Assisted: Claude Code (model: Claude Sonnet 5) - Transcribed WGA-LINK-AMBIGUOUS (010 R13
 # task 3) into PENDING_CONTRACT_SEVERITIES, independently of catalogue.py, matching the severity
 # now registered there.
+# AI-Assisted: Claude Code (model: Claude Sonnet 5) - Transcribed DET-CHAPTER-UNMATCHED (2026-10-09
+# pipeline P2 task 2) into PENDING_CONTRACT_SEVERITIES, independently of catalogue.py, matching the
+# severity now registered there.
 """Severity belongs to the code, not to the occurrence.
 
 ``curation/resolutions.json`` entries reference finding codes, so a code whose severity moved
@@ -187,6 +190,10 @@ PENDING_CONTRACT_SEVERITIES = {
     # 010-csv-cutover round 13 task 3: an option/equipment item's name matching two-or-more
     # curated wargear abilities in its faction, on the identical ahead-of-contract terms.
     "WGA-LINK-AMBIGUOUS": A,
+    # 2026-10-09 pipeline P2 task 2: a curation/detachment-chapters.json entry binding nothing --
+    # no minted detachment, no chapter keyword of that faction, or a repeat of an earlier entry --
+    # on the identical ahead-of-contract terms as the block above.
+    "DET-CHAPTER-UNMATCHED": B,
 }
 
 #: Transcribed by hand from 006's data-model.md §5 table and its contracts/

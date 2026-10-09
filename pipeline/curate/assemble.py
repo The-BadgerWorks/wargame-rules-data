@@ -14,6 +14,10 @@
 # `fields["ability_classes"]` beside `fields["ability_keys"]` in `_detail_datasheet_fields`,
 # reading `source_class` off the same raw `type` value `classify()` already reads, and threaded
 # it into both `CuratedDatasheet` construction sites.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - 2026-10-09 pipeline P2 task 4 (Owner ruling
+# 3): `_OptionOutcome` gains `text`, computed in `_option_structure` over every option row's
+# `description` through `published_text`, regardless of whether `parse_row` resolves it
+# structurally; threaded into `CuratedDatasheet.wargear_options_text` at both construction sites.
 # AI-Assisted: Claude Opus 5 - 010 R6b task 2: read a `Datasheets_wargear.csv` row whose `line`
 # column is empty by validating `line_in_wargear` instead (1990 live rows, 287 datasheets).
 # AI-Assisted: Claude Opus 5 - 010 R6 task 5: publish the printed characteristic forms (skill,
@@ -82,6 +86,12 @@
 # built once per build and threaded to the assembly rather than memoised in a module global,
 # so no `Abilities.csv` read result (and so no publisher text) outlives the build block, and
 # the index is returned read-only because every datasheet in the build shares it.
+# AI-Assisted: Claude Code (model: Claude Sonnet 5) - 2026-10-09 pipeline P2 task 2: added
+# `_attach_chapter_keywords`, run after keyword classification stamps `CuratedDetachment.
+# chapter_keyword` from `curation/detachment-chapters.json` (task 1), matching by
+# `(faction_id, normalised name)`. An entry that matches no detachment, names a keyword that is
+# not a chapter keyword of that faction, or repeats an earlier entry binds nothing and raises the
+# blocking `DET-CHAPTER-UNMATCHED` instead of stamping anything.
 """Build one :class:`~pipeline.models.curated.CuratedSnapshot` from everything upstream.
 
 This is where the two sources stop being two sources. The **points** source is authoritative for
@@ -120,6 +130,7 @@ from pipeline.curate.summaries import (
 from pipeline.models.authored import OptionOverrideChoice, WargearAbilityEntry
 from pipeline.models.curated import (
     ArmyRuleState,
+    CuratedChapterKeyword,
     CuratedCompositionEntry,
     CuratedDatasheet,
     CuratedDatasheetCost,
@@ -165,7 +176,7 @@ from pipeline.normalize.characteristics import (
     printed_range,
     printed_roll,
 )
-from pipeline.normalize.ip_strip import strip_field
+from pipeline.normalize.ip_strip import published_text, strip_field
 from pipeline.normalize.names import normalize_name
 from pipeline.normalize.numerics import (
     NumericParseError,
@@ -792,6 +803,11 @@ class _OptionOutcome:
     choices: list[CuratedOptionChoice] = field(default_factory=list)
     state: WargearOptionState | None = None
     findings: list[Finding] = field(default_factory=list)
+    #: 2026-10-09 pipeline P2 task 4 (Owner ruling 3): every option row's `description`, through
+    #: `published_text` -- markup stripped, NFKC, whitespace folded, case and punctuation kept --
+    #: one row per line. `None` when the table was not consulted or carried no rows for this
+    #: datasheet; never the empty string.
+    text: str | None = None
     #: 007-loadout-display-fidelity US3: restrictions the same option rows state, captured
     #: alongside the option set they were refused out of rather than in a second pass over the
     #: same file (research D4.2).
@@ -1200,6 +1216,17 @@ def _option_structure(  # noqa: PLR0913 - composition is needed to resolve a sco
         return _OptionOutcome()
 
     source_rows = rows.grouped_by("datasheet_id").get(detail_id, [])
+    # 2026-10-09 pipeline P2 task 4 (Owner ruling 3): computed over EVERY row the table states
+    # for this datasheet, regardless of whether `parse_row` later resolves it structurally --
+    # the one field downstream of normalize permitted to carry the source's own wording.
+    text = (
+        "\n".join(
+            t
+            for row in source_rows
+            if (t := published_text(row.fields.get("description", ""), field="option.description"))
+        )
+        or None
+    )
     # 007 T025: the same exactly-one-match containment join `equipment_link.py` uses to resolve
     # an equipment sentence's subject, reused here for a scoped option stem's eligibility
     # subject — `OPT-SCOPE-UNRESOLVED`'s producer, wired the moment FR-004 makes a legacy stem
@@ -1397,6 +1424,7 @@ def _option_structure(  # noqa: PLR0913 - composition is needed to resolve a sco
         item_constraints=sorted(
             item_constraints, key=lambda constraint: constraint.constraint_index
         ),
+        text=text,
     )
 
 
@@ -1638,6 +1666,59 @@ def _link_wargear_abilities(
     return linked_choices, linked_groups, findings
 
 
+def _attach_chapter_keywords(
+    detachments: Sequence[CuratedDetachment],
+    *,
+    authored: AuthoredContent,
+    chapter_keywords: Sequence[CuratedChapterKeyword],
+) -> tuple[list[CuratedDetachment], list[Finding]]:
+    """Stamp each authored (faction, normalised name) onto its minted detachment; block on a miss.
+
+    2026-10-09 P2 task 2. An authored `detachment-chapters.json` entry (task 1) is the curator's
+    assertion that one detachment belongs to one chapter keyword. Three ways that assertion can
+    bind nothing, and all three are the blocking ``DET-CHAPTER-UNMATCHED`` rather than a silent
+    no-op: the (faction, name) matches no minted detachment ("detachment"), the stated keyword is
+    not a chapter keyword of that faction ("keyword"), or the entry repeats an earlier one
+    ("duplicate") — reasons combine, comma-joined, when more than one applies.
+    """
+    by_key = {(d.faction_id, normalize_name(d.name)): i for i, d in enumerate(detachments)}
+    chapters = {(c.parent_faction_id, c.keyword) for c in chapter_keywords}
+    updated = list(detachments)
+    findings: list[Finding] = []
+    seen: set[tuple[str, str]] = set()
+    for entry in authored.detachment_chapters:
+        key = (entry.faction_id, normalize_name(entry.name))
+        reasons: list[str] = []
+        if key in seen:
+            reasons.append("duplicate")
+        seen.add(key)
+        index = by_key.get(key)
+        if index is None:
+            reasons.append("detachment")
+        if (entry.faction_id, entry.chapter_keyword) not in chapters:
+            reasons.append("keyword")
+        if reasons:
+            findings.append(
+                build_finding(
+                    "DET-CHAPTER-UNMATCHED",
+                    entity_refs=[f"detachment-chapters.json:{entry.faction_id}/{key[1]}"],
+                    detail={
+                        "file_name": "detachment-chapters.json",
+                        "faction_id": entry.faction_id,
+                        "name": entry.name,
+                        "chapter_keyword": entry.chapter_keyword,
+                        "reason": ",".join(reasons),
+                    },
+                )
+            )
+            continue
+        assert index is not None
+        updated[index] = updated[index].model_copy(
+            update={"chapter_keyword": entry.chapter_keyword}
+        )
+    return updated, findings
+
+
 def assemble(  # noqa: PLR0913 - the stage genuinely needs every upstream input
     *,
     pages: Sequence[MfmPage],
@@ -1841,6 +1922,14 @@ def assemble(  # noqa: PLR0913 - the stage genuinely needs every upstream input
     )
     findings.extend(classification.findings)
     datasheets = apply_keyword_classes(datasheets, classification.classes)
+
+    # 2026-10-09 P2 task 2: run after classification so the chapter keyword vocabulary
+    # (`classification.chapter_keywords`) it checks against is the same one the snapshot
+    # publishes, never a second derivation that could disagree with it.
+    detachments, chapter_findings = _attach_chapter_keywords(
+        detachments, authored=authored, chapter_keywords=classification.chapter_keywords
+    )
+    findings.extend(chapter_findings)
 
     snapshot = CuratedSnapshot(
         edition=CuratedEdition(
@@ -2193,6 +2282,7 @@ def _datasheet_for(  # noqa: PLR0913 - one datasheet needs both sources and the 
         option_groups=options.groups,
         option_choices=options.choices,
         wargear_option_state=options.state,
+        wargear_options_text=options.text,
         equipment_groups=equipment.groups,
         default_equipment_state=equipment.state,
         item_constraints=options.item_constraints,
@@ -2395,6 +2485,7 @@ def _detail_only_datasheet(  # noqa: PLR0913 - one datasheet needs both trees an
         option_groups=options.groups,
         option_choices=options.choices,
         wargear_option_state=options.state,
+        wargear_options_text=options.text,
         equipment_groups=equipment.groups,
         default_equipment_state=equipment.state,
         item_constraints=options.item_constraints,

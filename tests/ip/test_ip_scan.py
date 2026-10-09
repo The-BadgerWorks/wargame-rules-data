@@ -10,12 +10,24 @@
 # T036): itemName, modelName and eligibleModelName are poisoned one at a time, in the tree and in
 # the built bundle, proving the pointer walk reaches fields nested three deep inside a datasheet
 # and that no allowlist had to be updated for them to be covered.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - 2026-10-09 pipeline P2 task 3 (commit
+# 719bc631 added the pair without a header line; recorded here on fix round 1): added
+# `("detachments", "chapterKeyword")` to the poisoned-new-column parametrize.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - 2026-10-09 pipeline P2 task 4: added
+# `("datasheets", "wargearOptionsText")` to the poisoned-new-column parametrize, and both
+# directions of the length-exemption receipt (Owner ruling 3) -- the one field downstream of
+# `normalize` carrying published source text is waived from `over_length` only, never from
+# markup, entities, placeholders or Cyrillic, on both the bundle side and the tree side.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - Fix round 2: corrected this module's
+# docstring, which still claimed no field downstream of normalize holds prose at all -- stated
+# the one exception the task 4 header above already describes.
 """Tests for validation V8, the scan that turns the IP boundary into a monitored control.
 
 The schema design is what *makes* the boundary hold — there is no prose-typed field anywhere
-downstream of normalize. This scan is the independent second mechanism (research D8), and the
-poisoned-tree case is the part that matters: a scanner nobody has ever seen fail is a scanner
-nobody knows works.
+downstream of normalize, with one exception: `wargear_options_text` / `wargearOptionsText`
+(Owner ruling 3, 2026-10-09), waived from the `over_length` class only. This scan is the
+independent second mechanism (research D8), and the poisoned-tree case is the part that matters:
+a scanner nobody has ever seen fail is a scanner nobody knows works.
 """
 
 from __future__ import annotations
@@ -312,6 +324,8 @@ def test_the_loadout_bundle_is_scanned_clean_before_it_is_ever_written() -> None
         ("datasheetEquipmentItems", "itemName"),
         ("datasheetEquipmentGroups", "modelName"),
         ("datasheetOptionGroups", "eligibleModelName"),
+        ("detachments", "chapterKeyword"),
+        ("datasheets", "wargearOptionsText"),
     ],
 )
 def test_a_poisoned_new_column_is_caught_the_moment_it_is_emitted(array: str, column: str) -> None:
@@ -333,3 +347,92 @@ def test_a_poisoned_new_column_is_caught_the_moment_it_is_emitted(array: str, co
     assert finding.finding_code == "CON-IP-BOUNDARY"
     assert finding.detail["violation"] == "markup"
     assert column in str(finding.detail["pointer"])
+
+
+# --- 2026-10-09 pipeline P2 task 4: wargearOptionsText, length-exempt, nothing else is -----------
+
+
+def test_over_length_published_options_text_is_not_a_boundary_finding() -> None:
+    """Owner ruling 3 (2026-10-09): `wargearOptionsText` is published text that passed
+    `published_text` -- a long but mechanical value, not prose that has stopped being a field.
+    `OVER_LENGTH_EXEMPT_SEGMENTS` waives only the `over_length` class for it."""
+    from pipeline.build.bundle_emit import emit_bundle
+    from tests import factories
+    from tests.contract.loadout_bundle import loadout_snapshot
+
+    bundle = emit_bundle(loadout_snapshot(), factories.meta())
+    long_text = " ".join(["test lantern"] * 120)  # > IP_SCAN_MAX_CHARS
+    assert len(long_text) > IP_SCAN_MAX_CHARS
+    poisoned = {
+        **bundle,
+        "datasheets": [
+            {**bundle["datasheets"][0], "wargearOptionsText": long_text},
+            *bundle["datasheets"][1:],
+        ],
+    }
+    assert scan_bundle(poisoned) == []
+
+
+def test_over_length_in_any_other_column_still_fires() -> None:
+    """The other direction of the same receipt: the exemption is scoped to the one field, not a
+    blanket relaxation of the length check."""
+    from pipeline.build.bundle_emit import emit_bundle
+    from tests import factories
+    from tests.contract.loadout_bundle import loadout_snapshot
+
+    bundle = emit_bundle(loadout_snapshot(), factories.meta())
+    long_text = " ".join(["test lantern"] * 120)
+    poisoned = {
+        **bundle,
+        "datasheets": [
+            {**bundle["datasheets"][0], "name": long_text},
+            *bundle["datasheets"][1:],
+        ],
+    }
+
+    (finding,) = scan_bundle(poisoned)
+
+    assert finding.detail["violation"] == "over_length"
+
+
+def test_markup_in_published_options_text_is_still_caught() -> None:
+    """Only `over_length` is waived for the field -- markup, entities, placeholders and Cyrillic
+    still fire, because text that passed `published_text` cannot legitimately carry any of them."""
+    from pipeline.build.bundle_emit import emit_bundle
+    from tests import factories
+    from tests.contract.loadout_bundle import loadout_snapshot
+
+    bundle = emit_bundle(loadout_snapshot(), factories.meta())
+    poisoned = {
+        **bundle,
+        "datasheets": [
+            {**bundle["datasheets"][0], "wargearOptionsText": "<b>x</b>"},
+            *bundle["datasheets"][1:],
+        ],
+    }
+
+    (finding,) = scan_bundle(poisoned)
+
+    assert finding.detail["violation"] == "markup"
+    assert "wargearOptionsText" in str(finding.detail["pointer"])
+
+
+def test_the_tree_side_field_is_exempt_from_length_only(temp_repo) -> None:  # type: ignore[no-untyped-def]
+    """The same exemption, on the tree side rather than the bundle: `scan_repository` walks
+    `data/` by the same `_scan_json_document`, keyed on the pointer's own last segment, so the
+    curated-tree field name (`wargear_options_text`) is exempted on exactly the same footing as
+    the bundle's `wargearOptionsText`."""
+    root = temp_repo()
+    _write(
+        root,
+        "data/wh40k-11e/factions/f-a/datasheets/ds-a.json",
+        {"datasheet_id": "ds-a", "wargear_options_text": " ".join(["test lantern"] * 120)},
+    )
+    assert scan_repository(root) == []
+
+    _write(
+        root,
+        "data/wh40k-11e/factions/f-a/datasheets/ds-b.json",
+        {"datasheet_id": "ds-b", "wargear_options_text": "<b>x</b>"},
+    )
+    assert [f.detail["violation"] for f in scan_repository(root)] == ["markup"]

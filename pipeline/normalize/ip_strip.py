@@ -25,6 +25,18 @@
 # widening sits on the value's tail only: the `=`-plus-value requirement that keeps the
 # `a <b and c> d` over-strip closed, and the valueless-attribute narrowing pinned as a strict
 # xfail, are both unchanged.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - Added `published_text` (2026-10-09 pipeline
+# P2 task 4, Owner ruling 3): the one projection downstream of `strip_field` that keeps case and
+# punctuation rather than casefolding them away, for the one field the Owner has ruled publishable
+# as the source states it -- a datasheet's wargear-options text.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - Fix round 1 (review finding 4): noted in
+# `published_text` why its discarded `strip_field` findings are not a gap -- the published field
+# is still covered by the blocking IP scan independently.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - Fix round 2: corrected the round-1 comment
+# above (and the matching one inside `published_text`) -- `options_grammar.pre_pass` does NOT
+# report `strip_field`'s findings either (it drops them on the same precedent, see
+# `composition_grammar.pre_pass`'s own docstring), so it was never a second control. The blocking
+# IP scan (`pipeline.validate.ip_scan`) is the only control on this field's content.
 # AI-Assisted: Claude Code (model: claude-opus-5) - Moved `table` out of _DROPPED_SUBTREES' own
 # content-dropping alternation (010 rung R9, task 3), so a table cell's mechanical text reaches
 # `hard_normalise` and the mechanic digest, which round 8 measured it never did (17 keys, 59,674
@@ -33,6 +45,11 @@
 # `script` and `style` still drop content and all; `picture`/`figure` measured at zero and were
 # left untouched (standing rule 10). _DROPPED_SUBTREES is NOT one of the patterns
 # models/mechanical.py mirrors -- only _HAS_MARKUP is -- so nothing there moved with it.
+# AI-Assisted: Claude Code (model: claude-opus-5-5) - 2026-10-09 P2 fix round (Owner ruling of
+# that date): `published_text` keeps the list structure inside one option row -- `<br>`, `<li>`,
+# `</li>` and `</p>` become line breaks instead of spaces, and spaces fold within each line only.
+# The breaks ride through `strip_field` on a sentinel, because `strip_field` folds a newline
+# like any other whitespace and is itself unchanged.
 """Strip everything the product may not carry, and keep only mechanical values.
 
 **Relationship to the `strip-wahapedia-ip` precedent.** That skill's per-record classification —
@@ -70,6 +87,7 @@ from __future__ import annotations
 
 import html
 import re
+import unicodedata
 from dataclasses import dataclass
 from typing import Final
 
@@ -237,6 +255,39 @@ def strip_field(raw: str, *, field: str, entity_ref: str | None = None) -> Strip
         )
 
     return StripResult(text, tuple(findings))
+
+
+#: The tags that end a line in published text: a line break, either end of a list item, and the
+#: close of a paragraph. The OPENING `<li>` is here as well as the closing one because the first
+#: item of a list follows its lead-in sentence with no closing tag between them; the empty line
+#: a `</li><li>` pair would make is dropped by `published_text`. Matched before `strip_field`
+#: runs, which would otherwise turn each into a space.
+_BREAK_TAG: Final = re.compile(r"<br\b[^>]*>|</?li\b[^>]*>|</p\s*>", re.IGNORECASE)
+
+#: Stands in for a line break across `strip_field`, whose `_collapse` folds a real newline away
+#: with every other whitespace character. NUL is not whitespace, survives NFKC unchanged, and is
+#: not a character a source field legitimately carries (one that does is treated as a space).
+_BREAK: Final = "\x00"
+
+
+def published_text(raw: str, *, field: str) -> str:
+    """Owner ruling 3 (2026-10-09): markup stripped, NFKC-normalised, whitespace folded -- case
+    and punctuation KEPT. **Not** `hard_normalise`, which casefolds and strips punctuation for the
+    digest and is therefore not publishable text: this is the one projection downstream of
+    `strip_field` that is allowed to carry the source's own wording, for the one field (a
+    datasheet's wargear-options text) the Owner has ruled publishable as written.
+
+    A line break, either end of a list item, and the end of a paragraph are each kept as a
+    newline (Owner ruling, 2026-10-09 fix round): spaces fold within each line, and an empty
+    line is dropped.
+    """
+    # `strip_field`'s own findings (DQ-MARKUP-IN-FIELD / DQ-PLACEHOLDER-TOKEN) are discarded here
+    # on purpose: the blocking IP scan (`pipeline.validate.ip_scan`) is the only control on this
+    # published field's content, and it runs over the field's final value independently of
+    # whatever `strip_field` reported or dropped on the way there.
+    marked = _BREAK_TAG.sub(_BREAK, raw.replace(_BREAK, " "))
+    text = unicodedata.normalize("NFKC", strip_field(marked, field=field).text)
+    return "\n".join(line for part in text.split(_BREAK) if (line := " ".join(part.split())))
 
 
 # `hard_normalise` and `mechanic_digest` moved to their own contract path,

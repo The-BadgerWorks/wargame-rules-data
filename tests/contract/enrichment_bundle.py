@@ -8,6 +8,14 @@
 # AI-Assisted: Claude Code (model: Claude Sonnet 5) - Gave the Fen Warden a second, classed
 # ability key (010 R13 task 4) so the additive-compatibility and consumer-compat proofs run
 # against a bundle that actually carries `datasheetAbilities.abilityClass`, not an empty column.
+# AI-Assisted: Claude Code (model: Claude Sonnet 5) - Gave the Fenlight Vigil detachment its
+# parent faction's keyword-only chapter keyword (2026-10-09 pipeline P2 task 3), same footing as
+# 010 R13 task 4 above: the additive-compatibility equality proofs can only govern a column some
+# row of this shared bundle actually carries, so `chapterKeyword` needs a real value here too.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - Gave the Fen Warden invented placeholder
+# `wargear_options_text` (2026-10-09 pipeline P2 task 4, pre-empted in the Task 3 brief's own
+# note), same footing as the two additions above: `datasheets.wargearOptionsText` needs a row
+# that actually carries it for the equality proofs to govern.
 """A snapshot carrying **every** addition `004-rules-data-enrichment` makes.
 
 Phase 8's whole point is that the additions are invisible to a consumer that does not read them.
@@ -186,6 +194,12 @@ def _warden() -> CuratedDatasheet:
                 )
             ],
             "wargear_option_state": WargearOptionState.EXTRACTED,
+            # 2026-10-09 pipeline P2 task 4 (Owner ruling 3): invented placeholder prose, same
+            # footing as the classed ability key above -- the additive-compatibility equality
+            # proofs can only govern a column some row of this shared bundle actually carries.
+            "wargear_options_text": (
+                "Any number of Test Wardens can each replace their test spar with 1 test hook."
+            ),
             "costs": factories.costs(((1, 5, 90), (1, 10, 175), (3, 5, 100))),
         }
     )
@@ -227,6 +241,9 @@ def _detachments() -> list[CuratedDetachment]:
         update={
             "name": "Fenlight Vigil",
             "detachment_points_cost": 1,
+            # 2026-10-09 pipeline P2 task 3: the fixture's existing keyword-only chapter
+            # keyword on PARENT_FACTION (see BRACKLIGHT HOST below), bound to this detachment.
+            "chapter_keyword": "BRACKLIGHT HOST",
             "rules": [
                 CuratedDetachmentRule(
                     summary_key="detachment:d-fenlight-vigil:veiled-advance",

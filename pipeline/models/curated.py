@@ -27,6 +27,14 @@
 # `CuratedDatasheet.ability_classes`, `ability_key -> source_class`, an OPTIONAL tag carried
 # beside `ability_keys` -- never a re-typing, because the published key's prefix IS
 # `abilityType` and re-typing would move ~700 published identifiers.
+# AI-Assisted: Claude Code (model: Claude Sonnet 5) - 2026-10-09 pipeline P2 task 2: added
+# `CuratedDetachment.chapter_keyword`, OMITTED for every detachment
+# `curation/detachment-chapters.json` does not name -- stamped by
+# `pipeline.curate.assemble._attach_chapter_keywords`.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - 2026-10-09 pipeline P2 task 4: added
+# `CuratedDatasheet.wargear_options_text` (Owner ruling 3) -- the one field downstream of
+# `normalize` that carries the source's own wording, by Owner ruling. OMITTED when the datasheet
+# has no option rows at all.
 """Curated records — the canonical reviewable state, machine-written into ``data/``.
 
 Every record here maps to a row in the consumer schema; the field-level mapping is
@@ -316,6 +324,13 @@ class CuratedDetachment(_Curated):
         description="the rules this detachment publishes, name always carried (004 FR-022). "
         "One-to-many: the measured baseline carries 284 detachment abilities over 261 "
         "detachments, which is why the rule rather than the detachment is the key.",
+    )
+    chapter_keyword: str | None = Field(
+        default=None,
+        min_length=1,
+        max_length=64,
+        description="2026-10-09 P2: the chapter keyword curation/detachment-chapters.json binds "
+        "this detachment to; OMITTED for every detachment the file does not name",
     )
     provenance: EntityProvenance
 
@@ -811,6 +826,13 @@ class CuratedDatasheet(_Curated):
         default=None,
         description="none | extracted | partial; OMITTED = the source was not consulted "
         "(FR-016). This is what distinguishes 'no options' from 'options that failed'.",
+    )
+    wargear_options_text: str | None = Field(
+        default=None,
+        min_length=1,
+        description="2026-10-09 ruling 3: the option rows' text, markup stripped and whitespace "
+        "folded, one row per line; OMITTED when the datasheet has no option rows. The one field "
+        "downstream of normalize that carries the source's wording, by Owner ruling.",
     )
     equipment_groups: Sequence[CuratedEquipmentGroup] = Field(
         default=(),
