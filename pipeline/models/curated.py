@@ -31,7 +31,7 @@
 # `CuratedDetachment.chapter_keyword`, OMITTED for every detachment
 # `curation/detachment-chapters.json` does not name -- stamped by
 # `pipeline.curate.assemble._attach_chapter_keywords`.
-# AI-Assisted: Claude Code (model: Claude Sonnet 5) - 2026-10-09 pipeline P2 task 4: added
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - 2026-10-09 pipeline P2 task 4: added
 # `CuratedDatasheet.wargear_options_text` (Owner ruling 3) -- the one field downstream of
 # `normalize` that carries the source's own wording, by Owner ruling. OMITTED when the datasheet
 # has no option rows at all.

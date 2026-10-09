@@ -10,6 +10,9 @@
 # T036): itemName, modelName and eligibleModelName are poisoned one at a time, in the tree and in
 # the built bundle, proving the pointer walk reaches fields nested three deep inside a datasheet
 # and that no allowlist had to be updated for them to be covered.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - 2026-10-09 pipeline P2 task 3 (commit
+# 719bc631 added the pair without a header line; recorded here on fix round 1): added
+# `("detachments", "chapterKeyword")` to the poisoned-new-column parametrize.
 # AI-Assisted: Claude Code (model: claude-sonnet-5) - 2026-10-09 pipeline P2 task 4: added
 # `("datasheets", "wargearOptionsText")` to the poisoned-new-column parametrize, and both
 # directions of the length-exemption receipt (Owner ruling 3) -- the one field downstream of

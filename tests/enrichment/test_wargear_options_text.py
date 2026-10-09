@@ -5,6 +5,10 @@
 # from EVERY option row regardless of whether `parse_row` can resolve it structurally, that the
 # field reaches the bundle via `omit_absent` (present/absent symmetry), and that a full offline
 # build over `fixtures/minimal` wires the reader end to end.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - Fix round 1 (review findings 2 and 3): added
+# a direct `published_text` NFKC receipt (nothing else here pinned the NFKC step), and put real
+# `<b>...</b>` markup into the injected option row so the end-to-end test's `"<" not in ...`
+# assertion has something to catch rather than being vacuously true.
 """Tests for the one field downstream of `normalize` the Owner has ruled publishable."""
 
 from __future__ import annotations
@@ -15,9 +19,23 @@ from pathlib import Path
 from pipeline.build.bundle_emit import emit_bundle
 from pipeline.curate.assemble import _option_structure
 from pipeline.curate.authored import AuthoredContent
+from pipeline.normalize.ip_strip import published_text
 from pipeline.parse.wahapedia_csv import read_text
 from pipeline.schema_validation import validate_bundle
 from tests import factories
+
+
+def test_published_text_applies_nfkc_and_keeps_case_and_punctuation() -> None:
+    """Direct unit receipt for the NFKC step, which nothing else in this file pins: deleting the
+    `unicodedata.normalize("NFKC", ...)` call from `published_text` fails no other test, because
+    every other fixture's invented prose is already NFKC-normal. `ﬁeld` (U+FB01, the "fi"
+    ligature) is a synthetic compatibility character no ordinary sentence would contain; NFKC
+    decomposes it to the two letters `f` + `i`, so its presence in the output is the receipt.
+    Case (`Test`) and the trailing full stop are asserted in the same test so a future change
+    cannot "fix" one by discarding the other."""
+    raw = "This Test ﬁeld can be used."
+    assert published_text(raw, field="test.field") == "This Test field can be used."
+
 
 ROWS = (
     "datasheet_id|line|button|description|\n"
@@ -81,7 +99,7 @@ def test_the_text_reaches_the_bundle_and_is_absent_without_rows() -> None:
 MINIMAL = Path(__file__).resolve().parents[2] / "fixtures" / "minimal"
 FIRST_ID = "AV01"
 SECOND_ID = "AV02"
-_OPTION_TEXT = "This model can be equipped with 1 test lantern."
+_OPTION_TEXT = "This model can be equipped with 1 <b>test lantern</b> for free."
 
 
 def _empty_repo(tmp: Path) -> Path:

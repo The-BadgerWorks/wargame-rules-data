@@ -29,6 +29,10 @@
 # P2 task 4, Owner ruling 3): the one projection downstream of `strip_field` that keeps case and
 # punctuation rather than casefolding them away, for the one field the Owner has ruled publishable
 # as the source states it -- a datasheet's wargear-options text.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - Fix round 1 (review finding 4): noted in
+# `published_text` why its discarded `strip_field` findings are not a gap -- the field is still
+# covered by the blocking IP scan independently, and `options_grammar.pre_pass` reports the same
+# underlying field from the same raw row.
 # AI-Assisted: Claude Code (model: claude-opus-5) - Moved `table` out of _DROPPED_SUBTREES' own
 # content-dropping alternation (010 rung R9, task 3), so a table cell's mechanical text reaches
 # `hard_normalise` and the mechanic digest, which round 8 measured it never did (17 keys, 59,674
@@ -251,6 +255,10 @@ def published_text(raw: str, *, field: str) -> str:
     `strip_field` that is allowed to carry the source's own wording, for the one field (a
     datasheet's wargear-options text) the Owner has ruled publishable as written.
     """
+    # `strip_field`'s own findings (DQ-MARKUP-IN-FIELD / DQ-PLACEHOLDER-TOKEN) are discarded here
+    # on purpose: the published field is still covered by the blocking IP scan independently
+    # (`pipeline.validate.ip_scan`), and `options_grammar.pre_pass` reports the same underlying
+    # field from the same raw row, so nothing here would be the only place an anomaly surfaces.
     text = strip_field(raw, field=field).text
     return " ".join(unicodedata.normalize("NFKC", text).split())
 
