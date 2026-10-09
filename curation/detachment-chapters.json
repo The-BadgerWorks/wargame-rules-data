@@ -1,0 +1,37 @@
+[
+  {
+    "faction_id": "f-space-marines",
+    "name": "Blade of Ultramar",
+    "chapter_keyword": "ULTRAMARINES"
+  },
+  {
+    "faction_id": "f-space-marines",
+    "name": "Emperor's Shield",
+    "chapter_keyword": "IMPERIAL FISTS"
+  },
+  {
+    "faction_id": "f-space-marines",
+    "name": "Forgefather's Seekers",
+    "chapter_keyword": "SALAMANDERS"
+  },
+  {
+    "faction_id": "f-space-marines",
+    "name": "Hammer of Avernii",
+    "chapter_keyword": "IRON HANDS"
+  },
+  {
+    "faction_id": "f-space-marines",
+    "name": "Reclamation Force",
+    "chapter_keyword": "ULTRAMARINES"
+  },
+  {
+    "faction_id": "f-space-marines",
+    "name": "Shadowmark Talon",
+    "chapter_keyword": "RAVEN GUARD"
+  },
+  {
+    "faction_id": "f-space-marines",
+    "name": "Spearpoint Task Force",
+    "chapter_keyword": "WHITE SCARS"
+  }
+]
