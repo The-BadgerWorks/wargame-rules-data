@@ -9,6 +9,10 @@
 # a direct `published_text` NFKC receipt (nothing else here pinned the NFKC step), and put real
 # `<b>...</b>` markup into the injected option row so the end-to-end test's `"<" not in ...`
 # assertion has something to catch rather than being vacuously true.
+# AI-Assisted: Claude Code (model: claude-opus-5-5) - 2026-10-09 P2 fix round (Owner ruling of
+# that date): failing-first receipt that `published_text` keeps a row's list items on their own
+# lines, and its other direction -- spaces still fold within a line and no newline appears
+# where the source had no break tag.
 """Tests for the one field downstream of `normalize` the Owner has ruled publishable."""
 
 from __future__ import annotations
@@ -35,6 +39,25 @@ def test_published_text_applies_nfkc_and_keeps_case_and_punctuation() -> None:
     cannot "fix" one by discarding the other."""
     raw = "This Test ﬁeld can be used."
     assert published_text(raw, field="test.field") == "This Test field can be used."
+
+
+def test_published_text_keeps_list_items_on_their_own_lines() -> None:
+    """Owner ruling 2026-10-09: the list inside one option row keeps its item boundaries. Red
+    before: every tag became a space and all whitespace was folded, so the row published as one
+    run-on line with nothing between the items."""
+    raw = (
+        "Pick one of the following:"
+        "<ul><li>1 test spar and 1 test hook</li><li>1 test lantern</li></ul>"
+    )
+    assert published_text(raw, field="test.field") == (
+        "Pick one of the following:\n1 test spar and 1 test hook\n1 test lantern"
+    )
+
+
+def test_published_text_still_folds_runs_of_spaces_within_a_line() -> None:
+    """The other direction: a tag that is not a break still becomes a space, runs of spaces
+    still fold to one, and no newline appears where the source had no break tag."""
+    assert published_text("a  <b>test</b>   spar", field="test.field") == "a test spar"
 
 
 ROWS = (
