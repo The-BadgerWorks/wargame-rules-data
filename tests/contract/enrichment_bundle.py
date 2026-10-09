@@ -8,6 +8,10 @@
 # AI-Assisted: Claude Code (model: Claude Sonnet 5) - Gave the Fen Warden a second, classed
 # ability key (010 R13 task 4) so the additive-compatibility and consumer-compat proofs run
 # against a bundle that actually carries `datasheetAbilities.abilityClass`, not an empty column.
+# AI-Assisted: Claude Code (model: Claude Sonnet 5) - Gave the Fenlight Vigil detachment its
+# parent faction's keyword-only chapter keyword (2026-10-09 pipeline P2 task 3), same footing as
+# 010 R13 task 4 above: the additive-compatibility equality proofs can only govern a column some
+# row of this shared bundle actually carries, so `chapterKeyword` needs a real value here too.
 """A snapshot carrying **every** addition `004-rules-data-enrichment` makes.
 
 Phase 8's whole point is that the additions are invisible to a consumer that does not read them.
@@ -227,6 +231,9 @@ def _detachments() -> list[CuratedDetachment]:
         update={
             "name": "Fenlight Vigil",
             "detachment_points_cost": 1,
+            # 2026-10-09 pipeline P2 task 3: the fixture's existing keyword-only chapter
+            # keyword on PARENT_FACTION (see BRACKLIGHT HOST below), bound to this detachment.
+            "chapter_keyword": "BRACKLIGHT HOST",
             "rules": [
                 CuratedDetachmentRule(
                     summary_key="detachment:d-fenlight-vigil:veiled-advance",

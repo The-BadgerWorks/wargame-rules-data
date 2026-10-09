@@ -42,6 +42,9 @@
 # AI-Assisted: Claude Code (model: Claude Sonnet 5) - 2026-10-09 pipeline P2 task 2: added
 # `chapter_keyword` to `CuratedDetachment`'s `FIELD_MAPPING` mapped set so
 # `check_mapping_totality` is satisfied; the emitter itself is task 3's.
+# AI-Assisted: Claude Code (model: Claude Sonnet 5) - 2026-10-09 pipeline P2 task 3: emitted
+# `detachments.chapterKeyword` via `omit_absent`, OMITTED for every detachment
+# `_attach_chapter_keywords` did not bind to a chapter, so an existing row is byte-identical.
 """Turn the curated tree into the published bundle. A pure function, and nothing else.
 
 No network, no source re-acquisition, no input the tree does not already contain, and no clock:
@@ -516,14 +519,17 @@ def _emit_factions(snapshot: CuratedSnapshot) -> list[dict[str, JsonValue]]:
 def _emit_detachments(snapshot: CuratedSnapshot) -> list[dict[str, JsonValue]]:
     return _rows(
         [
-            {
-                "id": detachment.detachment_id,
-                "editionId": detachment.edition_id,
-                "factionId": detachment.faction_id,
-                "name": detachment.name,
-                "detachmentPointsCost": detachment.detachment_points_cost,
-                "isLegends": detachment.is_legends,
-            }
+            omit_absent(
+                {
+                    "id": detachment.detachment_id,
+                    "editionId": detachment.edition_id,
+                    "factionId": detachment.faction_id,
+                    "name": detachment.name,
+                    "detachmentPointsCost": detachment.detachment_points_cost,
+                    "isLegends": detachment.is_legends,
+                    "chapterKeyword": detachment.chapter_keyword,
+                }
+            )
             for detachment in snapshot.detachments
         ],
         "id",

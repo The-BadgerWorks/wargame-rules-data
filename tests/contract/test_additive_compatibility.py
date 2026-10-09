@@ -20,6 +20,12 @@
 # AI-Assisted: Claude Code (model: Claude Sonnet 5) - Added `datasheetAbilities.abilityClass` to
 # NEW_COLUMNS and LOADOUT_COLUMNS (010 R13 task 4): a column on an array that predates BOTH
 # baselines, governed by both dicts exactly as `defaultEquipmentState` on `datasheets` already is.
+# AI-Assisted: Claude Code (model: Claude Sonnet 5) - 2026-10-09 pipeline P2 task 3: added
+# `detachments.chapterKeyword` to NEW_COLUMNS and LOADOUT_COLUMNS, same footing as
+# `datasheetAbilities.abilityClass`. The column IS governed by the two equality assertions
+# below, not only the `<=`/`>=` ones, which is exactly why `enrichment_bundle.py`'s Fenlight
+# Vigil detachment was given a real `chapter_keyword` value: an equality proof can only observe
+# a column some row of the shared bundle actually carries.
 """Nothing existing moved. Proven by comparison, not by assertion.
 
 `contracts/bundle-schema-delta.md` §1 makes a claim about a document nobody in this repository
@@ -147,6 +153,10 @@ NEW_COLUMNS: dict[str, frozenset[str]] = {
     # 010 R13 task 4. `datasheetAbilities` existed pre-enrichment; `abilityClass` is new
     # relative to that baseline exactly as `defaultEquipmentState` (006, on `datasheets`) is.
     "datasheetAbilities": frozenset({"abilityClass"}),
+    # 2026-10-09 pipeline P2 task 3. `detachments` existed pre-enrichment; `chapterKeyword` is
+    # new relative to that baseline exactly as `abilityClass` (010 R13, on `datasheetAbilities`)
+    # is.
+    "detachments": frozenset({"chapterKeyword"}),
 }
 
 #: Flattened ``(array, column)`` pairs, for the assertions that parametrise or compare per pair.
@@ -193,6 +203,10 @@ LOADOUT_COLUMNS: dict[str, frozenset[str]] = {
     # `abilityClass` is new relative to it as well -- both dicts govern it, same as any column
     # added on an array that predates both baselines.
     "datasheetAbilities": frozenset({"abilityClass"}),
+    # 2026-10-09 pipeline P2 task 3. `detachments` predates the pre-loadout baseline too, so
+    # `chapterKeyword` is new relative to it as well -- both dicts govern it, same as any column
+    # added on an array that predates both baselines.
+    "detachments": frozenset({"chapterKeyword"}),
 }
 
 LOADOUT_COLUMN_PAIRS: frozenset[tuple[str, str]] = frozenset(

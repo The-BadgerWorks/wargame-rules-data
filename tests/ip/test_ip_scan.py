@@ -312,6 +312,7 @@ def test_the_loadout_bundle_is_scanned_clean_before_it_is_ever_written() -> None
         ("datasheetEquipmentItems", "itemName"),
         ("datasheetEquipmentGroups", "modelName"),
         ("datasheetOptionGroups", "eligibleModelName"),
+        ("detachments", "chapterKeyword"),
     ],
 )
 def test_a_poisoned_new_column_is_caught_the_moment_it_is_emitted(array: str, column: str) -> None:
