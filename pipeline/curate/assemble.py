@@ -14,6 +14,10 @@
 # `fields["ability_classes"]` beside `fields["ability_keys"]` in `_detail_datasheet_fields`,
 # reading `source_class` off the same raw `type` value `classify()` already reads, and threaded
 # it into both `CuratedDatasheet` construction sites.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - 2026-10-09 pipeline P2 task 4 (Owner ruling
+# 3): `_OptionOutcome` gains `text`, computed in `_option_structure` over every option row's
+# `description` through `published_text`, regardless of whether `parse_row` resolves it
+# structurally; threaded into `CuratedDatasheet.wargear_options_text` at both construction sites.
 # AI-Assisted: Claude Opus 5 - 010 R6b task 2: read a `Datasheets_wargear.csv` row whose `line`
 # column is empty by validating `line_in_wargear` instead (1990 live rows, 287 datasheets).
 # AI-Assisted: Claude Opus 5 - 010 R6 task 5: publish the printed characteristic forms (skill,
@@ -172,7 +176,7 @@ from pipeline.normalize.characteristics import (
     printed_range,
     printed_roll,
 )
-from pipeline.normalize.ip_strip import strip_field
+from pipeline.normalize.ip_strip import published_text, strip_field
 from pipeline.normalize.names import normalize_name
 from pipeline.normalize.numerics import (
     NumericParseError,
@@ -799,6 +803,11 @@ class _OptionOutcome:
     choices: list[CuratedOptionChoice] = field(default_factory=list)
     state: WargearOptionState | None = None
     findings: list[Finding] = field(default_factory=list)
+    #: 2026-10-09 pipeline P2 task 4 (Owner ruling 3): every option row's `description`, through
+    #: `published_text` -- markup stripped, NFKC, whitespace folded, case and punctuation kept --
+    #: one row per line. `None` when the table was not consulted or carried no rows for this
+    #: datasheet; never the empty string.
+    text: str | None = None
     #: 007-loadout-display-fidelity US3: restrictions the same option rows state, captured
     #: alongside the option set they were refused out of rather than in a second pass over the
     #: same file (research D4.2).
@@ -1207,6 +1216,17 @@ def _option_structure(  # noqa: PLR0913 - composition is needed to resolve a sco
         return _OptionOutcome()
 
     source_rows = rows.grouped_by("datasheet_id").get(detail_id, [])
+    # 2026-10-09 pipeline P2 task 4 (Owner ruling 3): computed over EVERY row the table states
+    # for this datasheet, regardless of whether `parse_row` later resolves it structurally --
+    # the one field downstream of normalize permitted to carry the source's own wording.
+    text = (
+        "\n".join(
+            t
+            for row in source_rows
+            if (t := published_text(row.fields.get("description", ""), field="option.description"))
+        )
+        or None
+    )
     # 007 T025: the same exactly-one-match containment join `equipment_link.py` uses to resolve
     # an equipment sentence's subject, reused here for a scoped option stem's eligibility
     # subject — `OPT-SCOPE-UNRESOLVED`'s producer, wired the moment FR-004 makes a legacy stem
@@ -1404,6 +1424,7 @@ def _option_structure(  # noqa: PLR0913 - composition is needed to resolve a sco
         item_constraints=sorted(
             item_constraints, key=lambda constraint: constraint.constraint_index
         ),
+        text=text,
     )
 
 
@@ -2261,6 +2282,7 @@ def _datasheet_for(  # noqa: PLR0913 - one datasheet needs both sources and the 
         option_groups=options.groups,
         option_choices=options.choices,
         wargear_option_state=options.state,
+        wargear_options_text=options.text,
         equipment_groups=equipment.groups,
         default_equipment_state=equipment.state,
         item_constraints=options.item_constraints,
@@ -2463,6 +2485,7 @@ def _detail_only_datasheet(  # noqa: PLR0913 - one datasheet needs both trees an
         option_groups=options.groups,
         option_choices=options.choices,
         wargear_option_state=options.state,
+        wargear_options_text=options.text,
         equipment_groups=equipment.groups,
         default_equipment_state=equipment.state,
         item_constraints=options.item_constraints,

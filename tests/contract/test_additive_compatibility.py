@@ -26,6 +26,11 @@
 # below, not only the `<=`/`>=` ones, which is exactly why `enrichment_bundle.py`'s Fenlight
 # Vigil detachment was given a real `chapter_keyword` value: an equality proof can only observe
 # a column some row of the shared bundle actually carries.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - 2026-10-09 pipeline P2 task 4 (Owner ruling
+# 3): added `datasheets.wargearOptionsText` to NEW_COLUMNS and LOADOUT_COLUMNS, same footing as
+# `detachments.chapterKeyword` above -- `datasheets` predates both baselines, so both dicts
+# govern it, and the Fen Warden fixture needed a real `wargear_options_text` value for the same
+# equality-proof reason (pre-empted in the Task 3 brief's own note, 010 R13 task 4 precedent).
 """Nothing existing moved. Proven by comparison, not by assertion.
 
 `contracts/bundle-schema-delta.md` §1 makes a claim about a document nobody in this repository
@@ -147,7 +152,7 @@ ENRICHMENT_ARRAYS: frozenset[str] = frozenset(
 #: which is itself an array `004` added — so it is outside this baseline entirely, and the
 #: comparison that governs it is the pre-loadout one (006 task T033).
 NEW_COLUMNS: dict[str, frozenset[str]] = {
-    "datasheets": frozenset({"wargearOptionState", "defaultEquipmentState"}),
+    "datasheets": frozenset({"wargearOptionState", "defaultEquipmentState", "wargearOptionsText"}),
     "datasheetKeywords": frozenset({"keywordClass"}),
     "factions": frozenset({"armyRuleState"}),
     # 010 R13 task 4. `datasheetAbilities` existed pre-enrichment; `abilityClass` is new
@@ -197,7 +202,7 @@ SNAPSHOT_META_NEW_FIELDS: frozenset[str] = frozenset(
 #: invisible to the pre-enrichment comparison above and this is the only place they are governed.
 #: That is exactly why a second baseline exists rather than a wider permission on the first.
 LOADOUT_COLUMNS: dict[str, frozenset[str]] = {
-    "datasheets": frozenset({"defaultEquipmentState"}),
+    "datasheets": frozenset({"defaultEquipmentState", "wargearOptionsText"}),
     "datasheetOptionGroups": frozenset({"eligibleModelName", "eligibleMaxCount", "isPerModel"}),
     # 010 R13 task 4. `datasheetAbilities` predates the pre-loadout baseline too, so
     # `abilityClass` is new relative to it as well -- both dicts govern it, same as any column

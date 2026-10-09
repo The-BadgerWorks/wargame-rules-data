@@ -1,6 +1,11 @@
 # AI-Assisted: Claude Code (model: claude-opus-5) - Implemented validation V8 (task T067): the
 # scan over data/, curation/, reports/, state/ and the built bundle, plus the work/-emptiness
 # assertion, raising the blocking CON-IP-BOUNDARY (SC-003, FR-012, FR-013).
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - 2026-10-09 pipeline P2 task 4: added
+# `OVER_LENGTH_EXEMPT_SEGMENTS` (Owner ruling 3) and threaded `check_length` through
+# `_scan_json_document`, keyed on the JSON pointer's own last segment -- the only violation class
+# waived for `wargear_options_text` / `wargearOptionsText`, because text that passed
+# `published_text` cannot legitimately carry markup, entities, placeholders or Cyrillic either.
 """V8 — prove the IP boundary held, rather than assume it.
 
 Two independent mechanisms back the boundary (research D8). The first is that there is nowhere
@@ -50,6 +55,13 @@ WORK_DIRECTORY: Final = "work"
 
 #: What a finding names when the scanned document is the in-memory bundle rather than a file.
 BUNDLE_PATH: Final = "bundle"
+
+#: Pointer leaf segments whose values are published text by Owner ruling 3 (2026-10-09). Only
+#: the `over_length` class is waived for them; markup, entities, placeholders and Cyrillic still
+#: fire, because text that passed `published_text` cannot legitimately carry any of those.
+OVER_LENGTH_EXEMPT_SEGMENTS: Final[frozenset[str]] = frozenset(
+    {"wargear_options_text", "wargearOptionsText"}
+)
 
 # AI-Assisted: Claude Code (model: claude-sonnet-5) - Exempted the report renderer's own
 # collapsible-section tags from the "markup" violation class (CI run 30939452542 on PR #1,
@@ -128,7 +140,8 @@ def _scan_json_document(relative: str, document: Any) -> list[Finding]:
     findings: list[Finding] = []
     seen: set[str] = set()
     for pointer, value in _walk_json(document):
-        for violation in _violations(value, check_length=True):
+        check_length = pointer.rsplit("/", 1)[-1] not in OVER_LENGTH_EXEMPT_SEGMENTS
+        for violation in _violations(value, check_length=check_length):
             if violation in seen:
                 continue
             seen.add(violation)

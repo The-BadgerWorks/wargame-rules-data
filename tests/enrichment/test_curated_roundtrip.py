@@ -10,6 +10,9 @@
 # (2026-10-09 pipeline P2 task 2): one detachment stamped by `_attach_chapter_keywords`, one
 # sibling left unstamped, so both the present and the omitted case survive `write_tree` /
 # `read_curated_tree` rather than only the coincidence of one of them being set.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - Added the wargear_options_text round-trip
+# (2026-10-09 pipeline P2 task 4, Owner ruling 3): one datasheet carrying the field, one bare
+# sibling, so both the present and the omitted case survive `write_tree` / `read_curated_tree`.
 """User Story 4: the curated `data/` tree round-trips everything `006` published.
 
 research D2 found the curated writer's per-datasheet serialisation and the prior-snapshot reader
@@ -30,6 +33,7 @@ from pathlib import Path
 
 from pipeline.curate.prior import read_curated_tree
 from pipeline.curate.writer import write_tree
+from tests import factories
 from tests.factories import detachment, faction, loadout_datasheet, snapshot
 
 
@@ -147,6 +151,32 @@ def test_chapter_keyword_round_trips_and_an_unstamped_sibling_reads_back_none(
     rebuilt_by_id = {d.detachment_id: d for d in rebuilt_snapshot.detachments}
     assert rebuilt_by_id["d-anvil-vigil"].chapter_keyword == "FEN WARDENS"
     assert rebuilt_by_id["d-fx-charge"].chapter_keyword is None
+
+
+# --- 2026-10-09 P2 task 4: CuratedDatasheet.wargear_options_text --------------------------------
+
+
+def test_wargear_options_text_round_trips_and_an_unset_sibling_reads_back_none(
+    tmp_path: Path,
+) -> None:
+    carrying = factories.datasheet("ds-fx-text-one").model_copy(
+        update={"wargear_options_text": "This model can be equipped with 1 test lantern."}
+    )
+    bare = factories.datasheet("ds-fx-text-two")
+    original_snapshot = snapshot(factions=[faction()], datasheets=[carrying, bare])
+
+    data_dir = tmp_path / "data" / "wh40k-11e"
+    curation_dir = tmp_path / "curation"
+    write_tree(original_snapshot, data_dir=data_dir, curation_dir=curation_dir)
+
+    rebuilt_snapshot = read_curated_tree(data_dir)
+    assert rebuilt_snapshot is not None
+    rebuilt_by_id = {d.datasheet_id: d for d in rebuilt_snapshot.datasheets}
+    assert (
+        rebuilt_by_id["ds-fx-text-one"].wargear_options_text
+        == "This model can be equipped with 1 test lantern."
+    )
+    assert rebuilt_by_id["ds-fx-text-two"].wargear_options_text is None
 
 
 # --- the whole point: a bundle rebuilt from the tree matches a freshly-acquired one -------------

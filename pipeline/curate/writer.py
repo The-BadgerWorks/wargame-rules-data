@@ -18,6 +18,9 @@
 # AI-Assisted: Claude Code (model: Claude Sonnet 5) - 2026-10-09 pipeline P2 task 2:
 # chapter_keyword round-trips through the curated tree, omitted exactly as force_disposition and
 # is_unique already are.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - 2026-10-09 pipeline P2 task 4 (Owner ruling
+# 3): wargear_options_text round-trips through the curated tree, omitted when the datasheet has
+# no option rows, same `omit_absent` footing as every other optional field on this record.
 """Write the curated tree — the artifact a human reviews.
 
 The layout exists for **diff quality**, which FR-016 and FR-037 make a requirement rather than
@@ -385,6 +388,10 @@ def _datasheet(datasheet: CuratedDatasheet) -> dict[str, JsonValue]:
                 if datasheet.wargear_option_state is not None
                 else None
             ),
+            # 2026-10-09 pipeline P2 task 4 (Owner ruling 3): the one field downstream of
+            # normalize that carries the source's own wording. `None` round-trips as the key's
+            # absence, exactly as every other optional field on this record does.
+            "wargear_options_text": datasheet.wargear_options_text,
             # `006` §1.2/§3, closed the round-trip by `007` T032 (research D2, issue #14): the
             # curated tree previously carried none of `006`'s equipment classes at all, so a
             # bundle rebuilt from the tree (what `validate` does) diverged from a freshly

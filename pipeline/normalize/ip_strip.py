@@ -25,6 +25,10 @@
 # widening sits on the value's tail only: the `=`-plus-value requirement that keeps the
 # `a <b and c> d` over-strip closed, and the valueless-attribute narrowing pinned as a strict
 # xfail, are both unchanged.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - Added `published_text` (2026-10-09 pipeline
+# P2 task 4, Owner ruling 3): the one projection downstream of `strip_field` that keeps case and
+# punctuation rather than casefolding them away, for the one field the Owner has ruled publishable
+# as the source states it -- a datasheet's wargear-options text.
 # AI-Assisted: Claude Code (model: claude-opus-5) - Moved `table` out of _DROPPED_SUBTREES' own
 # content-dropping alternation (010 rung R9, task 3), so a table cell's mechanical text reaches
 # `hard_normalise` and the mechanic digest, which round 8 measured it never did (17 keys, 59,674
@@ -70,6 +74,7 @@ from __future__ import annotations
 
 import html
 import re
+import unicodedata
 from dataclasses import dataclass
 from typing import Final
 
@@ -237,6 +242,17 @@ def strip_field(raw: str, *, field: str, entity_ref: str | None = None) -> Strip
         )
 
     return StripResult(text, tuple(findings))
+
+
+def published_text(raw: str, *, field: str) -> str:
+    """Owner ruling 3 (2026-10-09): markup stripped, NFKC-normalised, whitespace folded -- case
+    and punctuation KEPT. **Not** `hard_normalise`, which casefolds and strips punctuation for the
+    digest and is therefore not publishable text: this is the one projection downstream of
+    `strip_field` that is allowed to carry the source's own wording, for the one field (a
+    datasheet's wargear-options text) the Owner has ruled publishable as written.
+    """
+    text = strip_field(raw, field=field).text
+    return " ".join(unicodedata.normalize("NFKC", text).split())
 
 
 # `hard_normalise` and `mechanic_digest` moved to their own contract path,
