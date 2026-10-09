@@ -1,7 +1,7 @@
 [
   {
     "rule_key": "enhancement_limit_per_army",
-    "value": 3
+    "value": 4
   },
   {
     "rule_key": "legends_allowed_by_default",

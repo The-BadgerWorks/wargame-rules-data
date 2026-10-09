@@ -27,6 +27,8 @@
      since-removed acquisition-mode configuration variable in the present tense; the mapping's
      slug values were authored while that now-deleted arm was in use, and the passage now says
      so without asserting the variable still exists. -->
+<!-- AI-Assisted: Claude Code (model: claude-sonnet-5) - 2026-10-09: band table and blockquote
+     brought in line with the Owner's rulings; detachment-chapters.json documented. -->
 # `curation/` — the authored tree
 
 **Humans write this directory. The pipeline never does.** The pipeline writes `data/` and never
@@ -60,6 +62,7 @@ fails fast with a path and a message rather than producing a snapshot with a qui
 | `keyword-classes.json` | The exceptions to the default faction/chapter/unit keyword classification | curator (004 US2) |
 | `composition-overrides.json` | A curator's resolution for a composition line the grammar could not resolve | curator (004 US1) |
 | `option-overrides.json` | A curator's group-and-choice structure for an unparsed option row | curator (004 US1) |
+| `detachment-chapters.json` | Keyword-only-chapter detachments on a parent faction page, keyed by faction and normalised name; the keyword must be a chapter keyword of that parent | curator (2026-10-09 ruling 1) |
 
 ### The six files `004-rules-data-enrichment` adds
 
@@ -258,14 +261,13 @@ they carry the conventional battle-size names and budgets:
 
 | Band | Points | DP budget | Detachments | Enhancements |
 |---|---|---|---|---|
-| Combat Patrol | 500-999 | 3 | 1 | 1 |
-| Incursion | 1000-1999 | 6 | 2 | 2 |
-| Strike Force | 2000-2999 | 9 | 3 | 3 |
-| Onslaught | 3000-5000 | 12 | 4 | 3 |
+| Combat Patrol | 500-999 | 1 | 1 | 1 |
+| Incursion | 1000-1999 | 2 | 2 | 2 |
+| Strike Force | 2000-2999 | 3 | 3 | 4 |
+| Onslaught | 3000-5000 | 3 | 3 | 3 |
 
-> **Confirm before the first publication.** These budgets are the pipeline's working values, not
-> a transcription of a published table, and the product owner should confirm them against the
-> edition in play before a candidate is approved. They are stated here rather than left implicit
-> precisely so the confirmation has something to point at. The `500`..`5000` bounds are **not**
+> These are the Owner's rulings of 2026-10-09 (max detachments equals the DP budget;
+> `enhancement_limit_per_army` is 4 so it never sits below a band's cap), superseding the
+> 2026-09-21 values. The `500`..`5000` bounds are **not**
 > negotiable here: `reference-db-schema.md` §3.4 declares them normative and shared with the app,
 > and changing them is a contract revision on both sides.
