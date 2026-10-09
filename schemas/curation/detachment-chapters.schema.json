@@ -1,0 +1,28 @@
+{
+  "_comment": "AI-Assisted: Claude Code (model: Claude Sonnet 5) - 2026-10-09 spec §1.2: keyword-only-chapter detachments on a parent faction page, keyed by faction and NORMALISED NAME (never by numbered id, so a re-mint cannot silently detach an entry). chapter_keyword must be a chapter keyword whose parent is faction_id, spelled as data/<edition>/chapter-keywords.json spells it; an entry that binds no minted detachment or names no such keyword is the blocking DET-CHAPTER-UNMATCHED.",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://the-badgerworks.github.io/wargame-rules-data/schemas/curation/detachment-chapters.schema.json",
+  "title": "curation/detachment-chapters.json",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": ["faction_id", "name", "chapter_keyword"],
+    "properties": {
+      "faction_id": { "type": "string", "pattern": "^f-[a-z0-9-]+$" },
+      "name": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 120,
+        "description": "The detachment's name as the points source prints it; joined by normalize_name on both sides."
+      },
+      "chapter_keyword": { "type": "string", "minLength": 1, "maxLength": 64 },
+      "note": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 240,
+        "description": "A curator's sentence about MECHANICS OR PROCESS. It must not quote source text."
+      }
+    }
+  }
+}

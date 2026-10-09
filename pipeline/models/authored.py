@@ -30,6 +30,10 @@
 # AI-Assisted: Claude Code (model: Claude Sonnet 5) - Added WargearAbilityEntry (010 round 13
 # task 1): the authored, faction-scoped curated wargear-ability record, ahead of the curated
 # table, emitter, and linker later tasks add. Mirrors CompositionOverrideEntry's pattern.
+# AI-Assisted: Claude Code (model: Claude Sonnet 5) - Added DetachmentChapterEntry (pipeline P2
+# task 1): the authored record binding a keyword-only-chapter detachment, on a parent faction's
+# page, to its chapter keyword, keyed by (faction_id, name) rather than a numbered id so a
+# re-mint cannot silently detach an entry (2026-10-09 spec §1.2).
 """Authored records — human-written, under ``curation/``.
 
 **Invariant:** the pipeline reads these and never writes them; humans write these and never
@@ -553,6 +557,18 @@ class WargearAbilityEntry(_Authored):
     @property
     def id(self) -> str:
         return f"wga-{self.faction_id.removeprefix('f-')}-{slugify(self.name)}"
+
+
+class DetachmentChapterEntry(_Authored):
+    """``curation/detachment-chapters.json`` (2026-10-09 spec §1.2).
+
+    Keyed by ``(faction_id, name)``.
+    """
+
+    faction_id: str = Field(pattern=r"^f-[a-z0-9-]+$")
+    name: str = Field(min_length=1, max_length=120)
+    chapter_keyword: str = Field(min_length=1, max_length=64)
+    note: str | None = Field(default=None, min_length=1, max_length=240)
 
 
 class OptionOverrideItem(_Authored):
