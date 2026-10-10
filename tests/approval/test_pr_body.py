@@ -13,6 +13,10 @@
 # AI-Assisted: Claude Code (model: claude-opus-5) - 010 R5: removed every carried-forward
 # rendering receipt along with `_carried_forward_section` and the per-faction carry-forward
 # mechanism whose findings it rendered.
+# AI-Assisted: Claude Code (model: Claude Sonnet 5) - 2026-10-09 pipeline P3 task 5 (self-directed
+# receipt): added test_the_footer_names_all_three_ratcheted_figures, confirmed failing against
+# the pre-fix footer text ("both ratcheted") before pr_body.py's prose was rewritten for the
+# third ratcheted figure, options_line_scoped.
 """Tests for `pipeline.report.pr_body` — the PR body a candidate opens with (FR-037)."""
 
 from __future__ import annotations
@@ -173,6 +177,20 @@ def test_the_table_says_which_figure_can_refuse_a_release() -> None:
 
     assert "reported only" in table
     assert "blocks below" in table
+
+
+def test_the_footer_names_all_three_ratcheted_figures() -> None:
+    """2026-10-09 P3 task 5 (self-directed receipt): the footer prose used to say
+    `options_resolved`/`default_equipment` are "both ratcheted" -- a shipped report asserting a
+    count of two once a third figure (`options_line_scoped`) joined `_RATCHETED_LOADOUT_FIGURES`
+    would be a report contradicting what the table itself now shows. Fails if the footer is
+    reverted to its two-figure wording.
+    """
+    body = render_pr_body(_loadout_json())
+
+    assert "options_line_scoped" in body
+    assert "all three ratcheted" in body
+    assert "both ratcheted" not in body
 
 
 def test_the_loadout_table_is_separate_from_the_authored_summary_one() -> None:
