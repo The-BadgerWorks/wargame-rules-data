@@ -9,6 +9,18 @@
 # re-running this file), and a documenting test for the mixed-resolution case the derivation's
 # own rule leaves unaddressed (spec §4.2 P4b omits the field only when there is NO line-resolved
 # loadout at all; it does not require every candidate equipment group on a line to resolve).
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - final review C1/I4: `derive_line_scopes` now
+# takes a required `default_equipment_state` and withholds `eligible_composition_lines` on every
+# group of a datasheet unless the state is EXTRACTED and every model-group equipment group
+# resolved its own composition_line. `test_a_mixed_resolution_line_still_scopes_on_what_did_
+# resolve` is REPLACED by `test_a_mixed_resolution_datasheet_withholds_scoping_entirely` (the old
+# rule's premise -- that a mixed-resolution line still scopes on what resolved -- no longer
+# holds, so the fixture it pinned now demonstrates the opposite). `EQUIPMENT` no longer carries an
+# unresolved model-group sentence (that shape is now its own, dedicated fixture, since any
+# unresolved model-group group anywhere on the datasheet withholds scoping for every group, not
+# just the line it names). The unit-wide union is removed (measured zero on the published tree,
+# standing rule 10); its two tests are deleted, and `_unit_wide_group` now exists only to support
+# the "no line-resolved group at all" receipt.
 """Tests for `pipeline.reconcile.option_scope.derive_line_scopes` (spec §4.2 P4b).
 
 `fixtures/minimal` carries zero option rows (`tests/enrichment/test_wargear_options_text.py`
@@ -36,6 +48,7 @@ from pipeline.models.curated import (
     CuratedOptionChoice,
     CuratedOptionChoiceItem,
     CuratedOptionGroup,
+    DefaultEquipmentState,
     EquipmentAppliesTo,
     OptionItemRole,
     OptionScope,
@@ -102,6 +115,9 @@ def _granted(name: str, index: int, *, weapon_line: int | None = None) -> Curate
 
 
 # --- the spec receipt, in synthetic form ----------------------------------------------------------
+# Every model-group equipment group here resolves its own composition_line -- the datasheet's
+# default loadout is fully known, so these fixtures exercise the per-line rule, not the C1
+# precondition (that gets its own, dedicated fixture below).
 
 EQUIPMENT = (
     _equipment_group(1, "Test Sergeant", composition_line=1, items=("test blade",)),
@@ -109,9 +125,6 @@ EQUIPMENT = (
     _equipment_group(
         3, "Test Trooper with test shield", composition_line=3, items=("test shield", "test blade")
     ),
-    # Unresolved: zero/two-or-more name matches. Carries a real item, but contributes nothing --
-    # "carried only by an unresolved group" must read the same as "carried by nobody".
-    _equipment_group(4, "Test Lantern Bearer", composition_line=None, items=("test lantern",)),
 )
 
 GROUP = _option_group("og-fx-1", eligible_max_count=1)
@@ -120,7 +133,10 @@ CHOICE = _option_choice("og-fx-1", items=(_replaced("test blade", 1), _granted("
 
 def test_replaced_items_resolve_to_every_line_that_carries_them() -> None:
     (group,) = derive_line_scopes(
-        option_groups=[GROUP], option_choices=[CHOICE], equipment_groups=list(EQUIPMENT)
+        option_groups=[GROUP],
+        option_choices=[CHOICE],
+        equipment_groups=list(EQUIPMENT),
+        default_equipment_state=DefaultEquipmentState.EXTRACTED,
     )
     assert group.eligible_composition_lines == (1, 2, 3)
 
@@ -130,7 +146,10 @@ def test_a_shield_only_replacement_scopes_to_the_shield_line() -> None:
         "og-fx-1", items=(_replaced("test shield", 1), _granted("test maul", 2))
     )
     (group,) = derive_line_scopes(
-        option_groups=[GROUP], option_choices=[choice], equipment_groups=list(EQUIPMENT)
+        option_groups=[GROUP],
+        option_choices=[choice],
+        equipment_groups=list(EQUIPMENT),
+        default_equipment_state=DefaultEquipmentState.EXTRACTED,
     )
     assert group.eligible_composition_lines == (3,)
 
@@ -139,7 +158,6 @@ def test_a_shield_only_replacement_scopes_to_the_shield_line() -> None:
     "items",
     [
         (_granted("test maul", 1),),  # nothing replaced
-        (_replaced("test lantern", 1),),  # carried only by an unresolved group
         (_replaced("test pike", 1),),  # carried by nobody
     ],
 )
@@ -150,35 +168,24 @@ def test_underivable_groups_publish_nothing(
         option_groups=[GROUP],
         option_choices=[_option_choice("og-fx-1", items=items)],
         equipment_groups=list(EQUIPMENT),
+        default_equipment_state=DefaultEquipmentState.EXTRACTED,
     )
     assert group.eligible_composition_lines == ()
 
 
 def test_a_datasheet_with_no_line_resolved_equipment_group_at_all_publishes_nothing() -> None:
-    """A unit-wide group never manufactures a candidate line by itself."""
+    """A unit-only loadout (no model-group equipment group at all) yields nothing. Condition (ii)
+    of the C1 precondition is vacuously satisfied here (there is no model-group group to be
+    unresolved), so this exercises the per-line rule's own "no candidate line" case, not the
+    precondition."""
     unit_only = (_unit_wide_group(1, items=("test blade",)),)
     (group,) = derive_line_scopes(
-        option_groups=[GROUP], option_choices=[CHOICE], equipment_groups=list(unit_only)
+        option_groups=[GROUP],
+        option_choices=[CHOICE],
+        equipment_groups=list(unit_only),
+        default_equipment_state=DefaultEquipmentState.EXTRACTED,
     )
     assert group.eligible_composition_lines == ()
-
-
-# --- controller ruling (a): a unit-wide group's items count toward every candidate line --------
-
-
-def test_a_unit_wide_equipment_groups_item_counts_toward_every_candidate_line() -> None:
-    """`test maul` is carried by nobody's own line, only by a unit-wide sentence -- every
-    candidate line's loadout still includes it, because a unit-wide item sits on every model."""
-    equipment = (
-        _equipment_group(1, "Test Sergeant", composition_line=1, items=("test blade",)),
-        _equipment_group(2, "Test Trooper", composition_line=2, items=("test shield",)),
-        _unit_wide_group(3, items=("test maul",)),
-    )
-    choice = _option_choice("og-fx-1", items=(_replaced("test maul", 1), _granted("test pike", 2)))
-    (group,) = derive_line_scopes(
-        option_groups=[GROUP], option_choices=[choice], equipment_groups=list(equipment)
-    )
-    assert group.eligible_composition_lines == (1, 2)
 
 
 # --- controller ruling (b): weapon-line matching beats a differing name -------------------------
@@ -201,7 +208,10 @@ def test_weapon_line_matching_beats_a_differing_name() -> None:
         "og-fx-1", items=(_replaced("test blade", 1, weapon_line=7), _granted("test maul", 2))
     )
     (group,) = derive_line_scopes(
-        option_groups=[GROUP], option_choices=[choice], equipment_groups=list(equipment)
+        option_groups=[GROUP],
+        option_choices=[choice],
+        equipment_groups=list(equipment),
+        default_equipment_state=DefaultEquipmentState.EXTRACTED,
     )
     assert group.eligible_composition_lines == (1,)
 
@@ -223,7 +233,66 @@ def test_a_same_name_item_with_a_different_weapon_line_on_both_sides_does_not_ma
         "og-fx-1", items=(_replaced("test blade", 1, weapon_line=9), _granted("test maul", 2))
     )
     (group,) = derive_line_scopes(
-        option_groups=[GROUP], option_choices=[choice], equipment_groups=list(equipment)
+        option_groups=[GROUP],
+        option_choices=[choice],
+        equipment_groups=list(equipment),
+        default_equipment_state=DefaultEquipmentState.EXTRACTED,
+    )
+    assert group.eligible_composition_lines == ()
+
+
+# --- final review C1: the default loadout must be fully known, or every group keeps () ----------
+
+# A second (different-named) model group on the SAME composition line as a resolved one, whose
+# own sentence did not resolve -- `composition_line=None` is EQP-GROUP-UNRESOLVED's own shape.
+# Both groups carry the replaced item.
+_MIXED_RESOLUTION_EQUIPMENT = (
+    _equipment_group(1, "Test Sergeant", composition_line=1, items=("test blade",)),
+    _equipment_group(1, "Test Sergeant Prime", composition_line=None, items=("test blade",)),
+)
+
+
+def test_a_mixed_resolution_datasheet_withholds_scoping_entirely() -> None:
+    """The real shape final review C1 names: line 1 has a resolved group, but a sibling
+    model-group equipment group on the same datasheet did not resolve, and both carry the
+    replaced item. REPLACES `test_a_mixed_resolution_line_still_scopes_on_what_did_resolve`
+    (fix round 1): that test's premise -- that a mixed-resolution line still scopes on what did
+    resolve -- was never settled, only documented as an open question for the Owner. The
+    controller's C1 ruling settles it: an unresolved model-group group anywhere on the datasheet
+    means the default loadout is not fully known, so EVERY option group on that datasheet keeps
+    `()`, not just the ones naming the unresolved line."""
+    (group,) = derive_line_scopes(
+        option_groups=[GROUP],
+        option_choices=[CHOICE],
+        equipment_groups=list(_MIXED_RESOLUTION_EQUIPMENT),
+        default_equipment_state=DefaultEquipmentState.EXTRACTED,
+    )
+    assert group.eligible_composition_lines == ()
+
+
+def test_state_partial_withholds_scoping_even_when_every_present_group_resolved() -> None:
+    """`default_equipment_state=PARTIAL` means at least one default-equipment SENTENCE did not
+    parse at all (`EQP-UNPARSED`) -- a fact this function cannot see from the equipment groups
+    alone, since an unparsed sentence contributes no group to inspect. Every group that DID
+    resolve its own composition_line is exactly `EQUIPMENT` above, yet the state alone is enough
+    to withhold scoping on the whole datasheet."""
+    (group,) = derive_line_scopes(
+        option_groups=[GROUP],
+        option_choices=[CHOICE],
+        equipment_groups=list(EQUIPMENT),
+        default_equipment_state=DefaultEquipmentState.PARTIAL,
+    )
+    assert group.eligible_composition_lines == ()
+
+
+def test_state_none_withholds_scoping_even_when_every_present_group_resolved() -> None:
+    """`default_equipment_state=None` means the source was never consulted for this datasheet
+    (FR-016) -- the same withholding as PARTIAL, over the same fully-resolved `EQUIPMENT`."""
+    (group,) = derive_line_scopes(
+        option_groups=[GROUP],
+        option_choices=[CHOICE],
+        equipment_groups=list(EQUIPMENT),
+        default_equipment_state=None,
     )
     assert group.eligible_composition_lines == ()
 
@@ -286,7 +355,9 @@ def _fixture_with_scoped_option(tmp: Path) -> Path:
 
 def test_a_full_offline_build_scopes_the_minimal_fixtures_groups(tmp_path: Path) -> None:
     """A real build wires `derive_line_scopes` end to end: the replace group scopes to AV01's
-    only composition line, and the sibling equip-only group (no REPLACED item) carries none."""
+    only composition line, and the sibling equip-only group (no REPLACED item) carries none.
+    AV01's single-sentence loadout resolves to `DefaultEquipmentState.EXTRACTED` with its one
+    model-group equipment group's own composition_line resolved, so the C1 precondition is met."""
     from pipeline.cli import run_build
     from pipeline.config import load_config
     from pipeline.exit_codes import ExitCode
@@ -419,7 +490,9 @@ def test_the_detail_only_path_scopes_its_replace_group_too(
     _detail_only_detail: Mapping[str, CsvReadResult],
 ) -> None:
     """Red when `_detail_only_datasheet`'s own `derive_line_scopes` call is removed (see the
-    section banner above for the removal-and-restore this receipt rests on)."""
+    section banner above for the removal-and-restore this receipt rests on). `FX01`'s single
+    default-equipment sentence resolves to `EXTRACTED` with its one model-group equipment group
+    resolved, so the C1 precondition is met."""
     datasheet, _findings = _build_detail_only(_detail_only_detail)
     assert datasheet is not None
     scoped = [g for g in datasheet.option_groups if g.eligible_composition_lines]
@@ -427,39 +500,3 @@ def test_the_detail_only_path_scopes_its_replace_group_too(
     assert scoped, "no group carried eligible_composition_lines on the detail-only path"
     assert unscoped, "the equip-only group (no REPLACED item) must carry no scoping at all"
     assert scoped[0].eligible_composition_lines == (1,)
-
-
-# --- fix round 1 finding 2: the mixed-resolution case, documented rather than settled -----------
-
-
-def test_a_mixed_resolution_line_still_scopes_on_what_did_resolve() -> None:
-    """Spec §4.2 P4b's rule, read literally and recorded for the Owner as an open question.
-
-    The derivation's stated rule omits the field only when a datasheet has **no** line-resolved
-    equipment group at all -- it does not require every equipment group naming composition line 1
-    to have resolved. Here line 1 carries BOTH a line-resolved group (model_name "Test Sergeant",
-    `composition_line=1`) and a second, unresolved model-group sentence (`composition_line=None`)
-    for a DIFFERENT model on the same line, and both carry the replaced item. Per the rule as
-    written, line 1 is still a candidate (it has a line-resolved group of its own) and its
-    loadout still carries "test blade" (from the resolved group), so the result is `(1,)`.
-
-    **What this leaves silent**: the unresolved group's own models are never listed anywhere in
-    `eligible_composition_lines` -- a player whose model matches ONLY the unresolved sentence has
-    no way to tell, from this field alone, whether their model is covered. Whether that silence
-    is acceptable, or whether a mixed-resolution line should instead be withheld entirely, is not
-    decided by this test or by the spec text it is read from -- it is recorded here as an open
-    question for the Owner, not as settled behaviour. This test pins the rule as written, not as
-    endorsed.
-    """
-    equipment = (
-        _equipment_group(1, "Test Sergeant", composition_line=1, items=("test blade",)),
-        # Same composition line, a second (different-named) model group the source names, whose
-        # own sentence did not resolve -- `composition_line=None` is EQP-GROUP-UNRESOLVED's own
-        # shape, carried here unmodified by this test.
-        _equipment_group(1, "Test Sergeant Prime", composition_line=None, items=("test blade",)),
-    )
-    choice = _option_choice("og-fx-1", items=(_replaced("test blade", 1), _granted("test maul", 2)))
-    (group,) = derive_line_scopes(
-        option_groups=[GROUP], option_choices=[choice], equipment_groups=list(equipment)
-    )
-    assert group.eligible_composition_lines == (1,)

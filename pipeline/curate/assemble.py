@@ -2,6 +2,10 @@
 # P4b): after `_link_wargear_abilities` runs at both `CuratedDatasheet` construction sites,
 # `options.groups` is re-derived through `reconcile/option_scope.py::derive_line_scopes`, filling
 # `eligible_composition_lines` from the now-linked choices and equipment groups.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - final review C1: both `derive_line_scopes`
+# calls now pass `default_equipment_state=equipment.state`, the same value each site puts on the
+# `CuratedDatasheet` it builds a few lines later -- the new precondition the function checks
+# before scoping anything.
 # AI-Assisted: Claude Code (model: claude-sonnet-5) - 2026-10-09 pipeline P3 task 2 (Owner ruling
 # 5): `_equipment` tries `parse_variant_sentence` when `parse_sentence` refuses a row, and
 # publishes the variant group only when `_exact_composition_line` (new) names exactly one
@@ -2292,10 +2296,14 @@ def _datasheet_for(  # noqa: PLR0913 - one datasheet needs both sources and the 
         # equipment group's own composition_line is settled, derive each option group's
         # eligible_composition_lines from the choices' REPLACED items and the line-resolved
         # equipment groups. Nothing else about the groups or choices changes.
+        # final review C1: withheld entirely unless `equipment.state` (the same
+        # `default_equipment_state` this datasheet is about to publish) is EXTRACTED and every
+        # model-group equipment group resolved its own composition_line.
         options.groups = derive_line_scopes(
             option_groups=options.groups,
             option_choices=options.choices,
             equipment_groups=equipment.groups,
+            default_equipment_state=equipment.state,
         )
 
         # Both sources priced it: the points source wins, both values are reported, and the
@@ -2525,10 +2533,13 @@ def _detail_only_datasheet(  # noqa: PLR0913 - one datasheet needs both trees an
     # 2026-10-09 pipeline P3 task 3 (spec §4.2 P4b): the identical derivation the matched path
     # runs, on the identical terms -- a detail-only datasheet's option groups are scoped exactly
     # as a matched one's are.
+    # final review C1: the same precondition, on the same terms -- `equipment.state` is this
+    # datasheet's own `default_equipment_state`.
     options.groups = derive_line_scopes(
         option_groups=options.groups,
         option_choices=options.choices,
         equipment_groups=equipment.groups,
+        default_equipment_state=equipment.state,
     )
 
     findings.extend(
