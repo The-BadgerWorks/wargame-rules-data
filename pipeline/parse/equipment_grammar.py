@@ -3,6 +3,10 @@
 # ahead of them, `;`-then-`,` item splitting with a leading-count reader, and the three-state
 # machine of data-model.md section 3 — in its own module, because its residual rule is the
 # opposite of the composition grammar's.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - 2026-10-09 pipeline P3 task 2 (Owner ruling
+# 5): added `parse_variant_sentence` and its own `_VARIANT_SUBJECTS`/`_VARIANT_REFUSED` tables for
+# the `<base model name> with <phrase>` subject, the ONE production added since 009 rule 5.
+# `_SUBJECTS`, `_COMPLETION_SUBJECTS`, `_REFUSED` and `parse_sentence` are untouched.
 """Resolve one default-equipment sentence into a subject and the items it names.
 
 The source prints, inside the ``UNIT COMPOSITION`` block and after the composition lists, a
@@ -124,6 +128,44 @@ _LEADING_COUNT: Final = re.compile(r"^(\d+)\s+(\S.*)$")
 _COMPLETION_SUBJECTS: Final[tuple[tuple[re.Pattern[str], EquipmentAppliesTo], ...]] = ()
 
 
+# -- `2026-10-09 pipeline P3` (line-scoped options): one VARIANT subject -------------------------
+#
+# 2026-10-09 Owner ruling 5: the ONE production added since 009 rule 5. A subject of the form
+# `<base model name> with <phrase>` is accepted by the grammar as a VARIANT subject; it is the
+# caller's job (`pipeline.curate.assemble._equipment`) to require that the whole subject names
+# exactly one composition line of the same datasheet, by exact normalised name — else the
+# sentence stays `EQP-UNPARSED`. The grammar never sees the composition; it is string-only, same
+# as every other production in this module.
+#
+# `_REFUSED`, `_SUBJECTS`, `_COMPLETION_SUBJECTS` and `parse_sentence` are untouched: a variant
+# subject still matches `_REFUSED`'s bare `\bwith\b` pattern and is refused by `parse_sentence`
+# exactly as before (asserted below). `parse_variant_sentence` is a second, narrower entry point
+# that accepts exactly one `with` inside the subject and refuses every other `_REFUSED` shape
+# (`One`/`A`/`An`, a leading digit, `For every`/`If`/`Unless`/`Up to`, a comma) unchanged.
+
+#: `_REFUSED` minus the one rule a variant subject is allowed to violate: the bare "a `with`
+#: appears in the subject" refusal. Everything else `_REFUSED` rejects still applies.
+_VARIANT_REFUSED: Final[tuple[re.Pattern[str], ...]] = tuple(
+    pattern for pattern in _REFUSED if pattern.pattern != r"\bwith\b"
+)
+
+#: The one variant subject production: an optional leading `Every`/`Each`/`The` (the heads
+#: `_SUBJECTS` already knows), followed by `<name> with <phrase>`. The pattern alone cannot state
+#: "exactly one `with`" without duplicating `_REFUSED`'s own word-boundary logic, so that count is
+#: checked separately in :func:`_match_variant_subject`; a subject with two `with`s (nested) is
+#: refused there, not here.
+_VARIANT_SUBJECTS: Final[tuple[tuple[re.Pattern[str], EquipmentAppliesTo], ...]] = (
+    (
+        re.compile(r"^(?:(?:Every|Each|The)\s+)?(\S.*\bwith\b.*)$"),
+        EquipmentAppliesTo.MODEL_GROUP,
+    ),
+)
+
+#: Counts the subject's own `with`s, post-match, to refuse a nested qualifier (`<name> with
+#: <phrase> with <phrase>`) that the single capture group above cannot itself exclude.
+_VARIANT_WITH_COUNT: Final = re.compile(r"\bwith\b")
+
+
 @dataclass(frozen=True, slots=True)
 class EquipmentItemParse:
     """One item of a sentence's list. ``weapon_line`` is linked separately, never guessed."""
@@ -197,6 +239,47 @@ def _match_subject(subject: str) -> tuple[EquipmentAppliesTo, str | None] | None
         if applies_to is EquipmentAppliesTo.UNIT:
             return applies_to, None
         name = match.group(1).strip()
+        return (applies_to, name) if _is_name(name) else None
+    return None
+
+
+def parse_variant_sentence(description: str) -> EquipmentParse | None:
+    """Like :func:`parse_sentence`, but the subject may carry one `with` qualifier.
+
+    Same shape, same split at the `is/are equipped with:` marker, same item parsing — the only
+    difference is the subject match, which accepts `<name> with <phrase>` (optionally preceded by
+    `Every`/`Each`/`The`) and refuses a subject with two `with`s. ``None`` on any refusal,
+    exactly like `parse_sentence`; the caller never learns *why*.
+    """
+    text = pre_pass(description, field="equipment.description")
+    marker = _MARKER.search(text)
+    if marker is None:
+        return None
+
+    subject = text[: marker.start()].strip()
+    items = _parse_items(text[marker.end() :])
+    if not items:
+        return None
+
+    resolved = _match_variant_subject(subject)
+    if resolved is None:
+        return None
+
+    applies_to, model_name = resolved
+    return EquipmentParse(applies_to=applies_to, model_name=model_name, items=items)
+
+
+def _match_variant_subject(subject: str) -> tuple[EquipmentAppliesTo, str | None] | None:
+    if not subject or any(pattern.search(subject) for pattern in _VARIANT_REFUSED):
+        return None
+    for pattern, applies_to in _VARIANT_SUBJECTS:
+        match = pattern.match(subject)
+        if match is None:
+            continue
+        name = match.group(1).strip()
+        if len(_VARIANT_WITH_COUNT.findall(name)) != 1:
+            # Nested qualifier (`<name> with <phrase> with <phrase>`): refused, not approximated.
+            return None
         return (applies_to, name) if _is_name(name) else None
     return None
 

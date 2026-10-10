@@ -1,3 +1,9 @@
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - 2026-10-09 pipeline P3 task 2 (Owner ruling
+# 5): `_equipment` tries `parse_variant_sentence` when `parse_sentence` refuses a row, and
+# publishes the variant group only when `_exact_composition_line` (new) names exactly one
+# composition line by exact normalised equality; otherwise `EQP-UNPARSED` gains
+# `detail["reason"] = "variant-no-exact-line"`. `equipment_link.link_equipment` passes a group
+# whose `composition_line` is already set through unchanged.
 # AI-Assisted: Claude Code (model: Claude Sonnet 5) - 010 R13 task 2: built the curated
 # wargear-abilities mapping from `authored.wargear_abilities`, keyed by id, near the top of
 # `assemble()` (before the faction loop) so the round-13 item linker has it available before
@@ -192,6 +198,7 @@ from pipeline.parse.equipment_grammar import (
     equipment_group_id,
     equipment_state,
     parse_sentence,
+    parse_variant_sentence,
 )
 from pipeline.parse.mfm_dom import MfmPage
 from pipeline.parse.options_grammar import (
@@ -1067,6 +1074,27 @@ def _flag_header_row_candidate(
     )
 
 
+def _exact_composition_line(
+    name: str, composition: Sequence[CuratedCompositionEntry]
+) -> int | None:
+    """The one composition line whose name is EXACTLY ``name``, normalised — or ``None``.
+
+    2026-10-09 Owner ruling 5. Deliberately not :func:`pipeline.parse.composition_grammar.
+    link_model_line`'s containment join: a variant subject's whole name (`<base model name> with
+    <phrase>`) must match one line's name outright, never merely be contained in or contain one —
+    containment here would let `Test Trooper with test shield` attach to a `Test Trooper` line it
+    only extends. No singular/plural tolerance, no positional fallback: zero or two-or-more exact
+    matches leave the sentence `EQP-UNPARSED`.
+    """
+    needle = normalize_name(name)
+    if not needle:
+        return None
+    matches = sorted(
+        {entry.line for entry in composition if normalize_name(entry.model_name) == needle}
+    )
+    return matches[0] if len(matches) == 1 else None
+
+
 def _equipment(
     detail_id: str,
     datasheet_id: str,
@@ -1145,19 +1173,40 @@ def _equipment(
             )
             continue
 
-        parsed = parse_sentence(row.fields.get("description", "")) if line is not None else None
+        description = row.fields.get("description", "")
+        parsed = parse_sentence(description) if line is not None else None
+        # 2026-10-09 pipeline P3 task 2 (Owner ruling 5): a base-grammar refusal gets one more
+        # chance, scoped to the `<base model name> with <phrase>` variant subject class B
+        # measured non-zero. The grammar never sees composition (it is string-only); this is the
+        # caller enforcing "the whole subject names exactly one composition line, by exact
+        # normalised name, else the sentence stays EQP-UNPARSED" that `parse_variant_sentence`'s
+        # own docstring defers here.
+        variant_line: int | None = None
+        variant_unmatched = False
+        if parsed is None and line is not None:
+            variant = parse_variant_sentence(description)
+            if variant is not None:
+                variant_line = (
+                    _exact_composition_line(variant.model_name, composition)
+                    if variant.model_name
+                    else None
+                )
+                if variant_line is not None:
+                    parsed = variant
+                else:
+                    variant_unmatched = True
+
         if line is None or parsed is None:
             unparsed += 1
+            unparsed_detail: dict[str, str | int] = {
+                "datasheet_id": datasheet_id,
+                "line": line if line is not None else 0,
+                "file_name": EQUIPMENT_TABLE,
+            }
+            if variant_unmatched:
+                unparsed_detail["reason"] = "variant-no-exact-line"
             findings.append(
-                build_finding(
-                    "EQP-UNPARSED",
-                    entity_refs=[datasheet_id],
-                    detail={
-                        "datasheet_id": datasheet_id,
-                        "line": line if line is not None else 0,
-                        "file_name": EQUIPMENT_TABLE,
-                    },
-                )
+                build_finding("EQP-UNPARSED", entity_refs=[datasheet_id], detail=unparsed_detail)
             )
             continue
 
@@ -1167,6 +1216,7 @@ def _equipment(
                 line=line,
                 applies_to=parsed.applies_to,
                 model_name=parsed.model_name,
+                composition_line=variant_line,
                 items=tuple(
                     CuratedEquipmentItem(
                         item_index=index, item_name=item.item_name, count=item.count
