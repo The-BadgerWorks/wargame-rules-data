@@ -202,9 +202,13 @@ SNAPSHOT_META_NEW_FIELDS: frozenset[str] = frozenset(
     {"itemConstraintVocabularyVersion", "renderingContractVersion"}
 )
 
-#: The four columns `006` alone adds, as ``array -> columns``.
+#: Fix round 1: this dict started as "the four columns `006` alone adds", but every column added
+#: to an array that predates the pre-loadout baseline joins it on the same footing, whichever
+#: feature added it -- `datasheetAbilities.abilityClass` (010 R13), `detachments.chapterKeyword`
+#: (2026-10-09 P2), and `datasheetOptionGroups.eligibleCompositionLines` (2026-10-09 P3) all do,
+#: beside `006`'s original four. ``array -> columns``.
 #:
-#: Three of them land on `datasheetOptionGroups`, which is an array `004` added — so they are
+#: Four of them land on `datasheetOptionGroups`, which is an array `004` added — so they are
 #: invisible to the pre-enrichment comparison above and this is the only place they are governed.
 #: That is exactly why a second baseline exists rather than a wider permission on the first.
 LOADOUT_COLUMNS: dict[str, frozenset[str]] = {

@@ -3,6 +3,12 @@
 # omitted cases, a receipt that a unit-wide equipment group counts toward every candidate line
 # (and alone yields nothing), a receipt that weapon-line matching beats a differing name, and the
 # end-to-end receipt that a full offline build over `fixtures/minimal` scopes a real group.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - Fix round 1 (review findings 1/2): added a
+# receipt for the `_detail_only_datasheet` call site (the end-to-end test above only ever
+# exercised `_datasheet_for`, the matched path -- confirmed by removing each call in turn and
+# re-running this file), and a documenting test for the mixed-resolution case the derivation's
+# own rule leaves unaddressed (spec §4.2 P4b omits the field only when there is NO line-resolved
+# loadout at all; it does not require every candidate equipment group on a line to resolve).
 """Tests for `pipeline.reconcile.option_scope.derive_line_scopes` (spec §4.2 P4b).
 
 `fixtures/minimal` carries zero option rows (`tests/enrichment/test_wargear_options_text.py`
@@ -14,10 +20,16 @@ itself is never touched.
 from __future__ import annotations
 
 import shutil
+from collections.abc import Mapping
 from pathlib import Path
 
 import pytest
 
+from pipeline.acquire.detail_source import read_export_payloads
+from pipeline.acquire.fixtures import FixturePayload
+from pipeline.curate.assemble import _detail_only_datasheet
+from pipeline.curate.authored import AuthoredContent
+from pipeline.curate.summaries import ability_name_index
 from pipeline.models.curated import (
     CuratedEquipmentGroup,
     CuratedEquipmentItem,
@@ -28,6 +40,10 @@ from pipeline.models.curated import (
     OptionItemRole,
     OptionScope,
 )
+from pipeline.models.provenance import DetailSource, EntityProvenance, PointsSource
+from pipeline.models.source import SourceAcquisition, SourceKey
+from pipeline.parse.wahapedia_csv import CsvReadResult
+from pipeline.reconcile.identity import IdRegistry
 from pipeline.reconcile.option_scope import derive_line_scopes
 
 # --- local builders ------------------------------------------------------------------------------
@@ -309,3 +325,141 @@ def test_a_full_offline_build_scopes_the_minimal_fixtures_groups(tmp_path: Path)
     for row in scoped:
         for line in row["eligibleCompositionLines"]:
             assert line in composition_lines, (line, composition_lines)
+
+
+# --- fix round 1 finding 1: the `_detail_only_datasheet` call site had no receipt ---------------
+#
+# The end-to-end test above drives `fixtures/minimal`'s `AV01`, which the points-source fixture
+# prices -- confirmed by temporarily removing each of `assemble.py`'s two `derive_line_scopes`
+# calls in turn and re-running this file: removing the call in `_datasheet_for` (the matched
+# path) broke `test_a_full_offline_build_scopes_the_minimal_fixtures_groups`; removing the call
+# in `_detail_only_datasheet` (the unpriced path) left every test in this file green. This
+# section drives `_detail_only_datasheet` directly, the same way
+# `tests/enrichment/test_wargear_abilities_link.py` drives it for the wargear-ability post-pass.
+
+_DETAIL_ONLY_FACTION = "f-fx-detail-only"
+
+_DETAIL_ONLY_DATASHEETS = (
+    "id|name|faction_id|source_id|role|damaged_w|legend|loadout|\n"
+    "FX01|Test Detail Only Squad|fx-detail-only|current||||"
+    "The Test Sergeant is equipped with: test blade.|\n"
+)
+_DETAIL_ONLY_MODELS = (
+    "datasheet_id|line|name|M|T|Sv|inv_sv|W|Ld|OC|base_size|\n"
+    'FX01|1|Test Sergeant|6"|3|3+||2|6+|1|(25mm)|\n'
+)
+_DETAIL_ONLY_WARGEAR = "datasheet_id|line|name|description|type|range|A|BS_WS|S|AP|D|\n"
+_DETAIL_ONLY_COMPOSITION = "datasheet_id|line|description|\nFX01|1|1 Test Sergeant|\n"
+_DETAIL_ONLY_MODEL_COSTS = "datasheet_id|line|description|cost|\nFX01|1|5 models|90|\n"
+_DETAIL_ONLY_OPTIONS = (
+    "datasheet_id|line|button|description|\n"
+    "FX01|1|Wargear Options|This model can be equipped with 1 test lantern.|\n"
+    "FX01|2|Wargear Options|One Test Sergeant's test blade can be replaced with 1 test maul.|\n"
+)
+_DETAIL_ONLY_EMPTY_TABLES = {
+    "Datasheets_keywords.csv": "datasheet_id|keyword|model|is_faction_keyword|\n",
+    "Datasheets_abilities.csv": "datasheet_id|line|ability_id|model|name|description|type|\n",
+    "Datasheets_leader.csv": "leader_id|attached_id|\n",
+    "Abilities.csv": "id|name|legend|faction_id|description|\n",
+    "Detachments.csv": "id|faction_id|name|legend|type|\n",
+    "Detachment_abilities.csv": "id|detachment_id|name|legend|description|\n",
+}
+
+
+@pytest.fixture(scope="module")
+def _detail_only_detail() -> Mapping[str, CsvReadResult]:
+    return read_export_payloads(
+        [
+            FixturePayload(name="Datasheets.csv", text=_DETAIL_ONLY_DATASHEETS),
+            FixturePayload(name="Datasheets_models.csv", text=_DETAIL_ONLY_MODELS),
+            FixturePayload(name="Datasheets_wargear.csv", text=_DETAIL_ONLY_WARGEAR),
+            FixturePayload(name="Datasheets_unit_composition.csv", text=_DETAIL_ONLY_COMPOSITION),
+            FixturePayload(name="Datasheets_models_cost.csv", text=_DETAIL_ONLY_MODEL_COSTS),
+            FixturePayload(name="Datasheets_options.csv", text=_DETAIL_ONLY_OPTIONS),
+            *(
+                FixturePayload(name=name, text=header)
+                for name, header in _DETAIL_ONLY_EMPTY_TABLES.items()
+            ),
+        ]
+    )
+
+
+def _build_detail_only(detail: Mapping[str, CsvReadResult]):  # type: ignore[no-untyped-def]
+    """`FX01` down `_detail_only_datasheet`, exactly as `assemble()` drives the unpriced path."""
+    acquisition = SourceAcquisition(
+        acquisition_id="wahapedia-fixture",
+        source_key=SourceKey.WAHAPEDIA,
+        source_base_url="https://example.invalid/fixture",
+        declared_edition_code="wh40k-11e",
+        retrieved_at="2026-08-11T00:00:00Z",
+        content_fingerprint="0" * 64,
+    )
+    return _detail_only_datasheet(
+        "FX01",
+        display_name="Test Detail Only Squad",
+        faction_id=_DETAIL_ONLY_FACTION,
+        detail=detail,
+        authored=AuthoredContent(),
+        edition_id="ed-wh40k-11e",
+        provenance=EntityProvenance(
+            points_source=PointsSource.NONE,
+            points_edition_code="wh40k-11e",
+            detail_source=DetailSource.WAHAPEDIA,
+            detail_acquisition_id=acquisition.acquisition_id,
+            detail_edition_code="wh40k-11e",
+        ),
+        registry=IdRegistry(),
+        detail_acquisition=acquisition,
+        legends_sources=frozenset(),
+        ability_names=ability_name_index(detail),
+    )
+
+
+def test_the_detail_only_path_scopes_its_replace_group_too(
+    _detail_only_detail: Mapping[str, CsvReadResult],
+) -> None:
+    """Red when `_detail_only_datasheet`'s own `derive_line_scopes` call is removed (see the
+    section banner above for the removal-and-restore this receipt rests on)."""
+    datasheet, _findings = _build_detail_only(_detail_only_detail)
+    assert datasheet is not None
+    scoped = [g for g in datasheet.option_groups if g.eligible_composition_lines]
+    unscoped = [g for g in datasheet.option_groups if not g.eligible_composition_lines]
+    assert scoped, "no group carried eligible_composition_lines on the detail-only path"
+    assert unscoped, "the equip-only group (no REPLACED item) must carry no scoping at all"
+    assert scoped[0].eligible_composition_lines == (1,)
+
+
+# --- fix round 1 finding 2: the mixed-resolution case, documented rather than settled -----------
+
+
+def test_a_mixed_resolution_line_still_scopes_on_what_did_resolve() -> None:
+    """Spec §4.2 P4b's rule, read literally and recorded for the Owner as an open question.
+
+    The derivation's stated rule omits the field only when a datasheet has **no** line-resolved
+    equipment group at all -- it does not require every equipment group naming composition line 1
+    to have resolved. Here line 1 carries BOTH a line-resolved group (model_name "Test Sergeant",
+    `composition_line=1`) and a second, unresolved model-group sentence (`composition_line=None`)
+    for a DIFFERENT model on the same line, and both carry the replaced item. Per the rule as
+    written, line 1 is still a candidate (it has a line-resolved group of its own) and its
+    loadout still carries "test blade" (from the resolved group), so the result is `(1,)`.
+
+    **What this leaves silent**: the unresolved group's own models are never listed anywhere in
+    `eligible_composition_lines` -- a player whose model matches ONLY the unresolved sentence has
+    no way to tell, from this field alone, whether their model is covered. Whether that silence
+    is acceptable, or whether a mixed-resolution line should instead be withheld entirely, is not
+    decided by this test or by the spec text it is read from -- it is recorded here as an open
+    question for the Owner, not as settled behaviour. This test pins the rule as written, not as
+    endorsed.
+    """
+    equipment = (
+        _equipment_group(1, "Test Sergeant", composition_line=1, items=("test blade",)),
+        # Same composition line, a second (different-named) model group the source names, whose
+        # own sentence did not resolve -- `composition_line=None` is EQP-GROUP-UNRESOLVED's own
+        # shape, carried here unmodified by this test.
+        _equipment_group(1, "Test Sergeant Prime", composition_line=None, items=("test blade",)),
+    )
+    choice = _option_choice("og-fx-1", items=(_replaced("test blade", 1), _granted("test maul", 2)))
+    (group,) = derive_line_scopes(
+        option_groups=[GROUP], option_choices=[choice], equipment_groups=list(equipment)
+    )
+    assert group.eligible_composition_lines == (1,)
