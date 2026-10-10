@@ -196,7 +196,7 @@ from pipeline.normalize.numerics import (
     upper_bound,
 )
 from pipeline.normalize.weapon_abilities import parse_weapon_ability_keywords
-from pipeline.parse.composition_grammar import link_model_line, parse_entry
+from pipeline.parse.composition_grammar import link_model_line, parse_entry, pre_pass
 from pipeline.parse.equipment_grammar import (
     EQUIPMENT_TABLE,
     equipment_group_id,
@@ -1245,6 +1245,23 @@ def _equipment(
     )
 
 
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - 2026-10-09 pipeline P3 task 4 (P4c): a bare
+# "N model(s) can ..." stem states a headcount `options_grammar.py::parse_row` never extracts for
+# a plain (unscoped) UNIT-scope option row. `pipeline/parse/options_grammar.py` is never edited
+# for this fill (rule), so it lives here instead, applied only to the narrow band the grammar
+# itself leaves both `eligible_max_count` and `eligible_model_name` empty for, and never
+# overriding a count the grammar already set.
+_LEADING_MODEL_COUNT: Final[re.Pattern[str]] = re.compile(
+    r"^(\d+)\s+models?\s+can\b", re.IGNORECASE
+)
+
+
+def _leading_model_count(description: str) -> int | None:
+    """The N of an `N model(s) can ...` stem, after `pre_pass`; None otherwise."""
+    match = _LEADING_MODEL_COUNT.match(pre_pass(description, field="option.description"))
+    return int(match.group(1)) if match else None
+
+
 def _option_structure(  # noqa: PLR0913 - composition is needed to resolve a scoped stem's subject
     detail_id: str,
     datasheet_id: str,
@@ -1395,7 +1412,15 @@ def _option_structure(  # noqa: PLR0913 - composition is needed to resolve a sco
                 min_choices=parsed.min_choices,
                 max_choices=parsed.max_choices,
                 eligible_model_name=parsed.eligible_model_name,
-                eligible_max_count=parsed.eligible_max_count,
+                eligible_max_count=(
+                    parsed.eligible_max_count
+                    if parsed.eligible_max_count is not None
+                    else (
+                        _leading_model_count(description)
+                        if parsed.scope is OptionScope.UNIT and parsed.eligible_model_name is None
+                        else None
+                    )
+                ),
                 is_per_model=parsed.is_per_model,
             )
         )
