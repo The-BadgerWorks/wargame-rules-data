@@ -1,6 +1,8 @@
-# AI-Assisted: Claude Code (model: Claude Sonnet 5) - 2026-10-09 pipeline P3 task 5 (spec §4.3):
-# added WGC_RATCHET_TOLERANCE_LINE_SCOPE, the third loadout ratchet's tolerance knob, same shape
-# (parse, default, bounds) as WGC_RATCHET_TOLERANCE_EQUIPMENT.
+# AI-Assisted: Claude Code (model: Claude Sonnet 5) - 2026-10-09 pipeline P3 task 5 (spec §4.2
+# P4b): added WGC_RATCHET_TOLERANCE_LINE_SCOPE, the third loadout ratchet's tolerance knob, same
+# shape (parse, default, bounds) as WGC_RATCHET_TOLERANCE_EQUIPMENT.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - final review I1: corrected this variable's
+# "spec §4.3" citation to "spec §4.2 P4b".
 # AI-Assisted: Claude Code (model: claude-opus-5) - 010 R7 task 1: added the three
 # summary-drafting variables (WGC_ANTHROPIC_API_KEY, WGC_DRAFT_MODEL, WGC_REVIEW_MODEL) for the
 # Owner's amended standing rule 3. The key is the second SENSITIVE variable in the table and is
@@ -480,7 +482,7 @@ CONFIG_VARS: Final[tuple[ConfigVar, ...]] = (
         "0.00",
         "ratio",
         False,
-        "line-scope coverage regression tolerance (2026-10-09 P3 spec §4.3)",
+        "line-scope coverage regression tolerance (2026-10-09 P3 spec §4.2 P4b)",
     ),
 )
 

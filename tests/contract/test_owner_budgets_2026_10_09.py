@@ -6,6 +6,10 @@
 # rather than discovered downstream. curation/ itself is READ-ONLY to this task -- nothing here
 # writes it; the "bite" receipt (see task-6-report.md) edits it only transiently, in the working
 # tree, and reverts before anything is committed.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - final review I1 minor: `_bands()` is typed
+# `dict[str, GameSizeBand]` (the model `load_authored(...).game_sizes` actually returns) instead
+# of `dict[str, object]`, so the five `# type: ignore[attr-defined]` comments that worked around
+# the untyped access are removed outright rather than silenced.
 """The Owner's 2026-10-09 budget ruling, pinned.
 
 These three facts are curated in ``curation/game-sizes.json`` and
@@ -20,6 +24,7 @@ import pytest
 
 from pipeline.config import repo_root
 from pipeline.curate.authored import load_authored
+from pipeline.models.authored import GameSizeBand
 
 REPO = repo_root()
 
@@ -34,7 +39,7 @@ _OWNER_BUDGETS = (
 )
 
 
-def _bands() -> dict[str, object]:
+def _bands() -> dict[str, GameSizeBand]:
     return {band.id: band for band in load_authored(REPO / "curation").game_sizes}
 
 
@@ -45,9 +50,9 @@ def test_each_bands_budget_matches_the_owners_2026_10_09_ruling(
     band_id: str, max_detachments: int, detachment_points_budget: int, max_enhancements: int
 ) -> None:
     band = _bands()[band_id]
-    assert band.max_detachments == max_detachments  # type: ignore[attr-defined]
-    assert band.detachment_points_budget == detachment_points_budget  # type: ignore[attr-defined]
-    assert band.max_enhancements == max_enhancements  # type: ignore[attr-defined]
+    assert band.max_detachments == max_detachments
+    assert band.detachment_points_budget == detachment_points_budget
+    assert band.max_enhancements == max_enhancements
 
 
 def test_the_edition_wide_enhancement_limit_is_four() -> None:
@@ -73,5 +78,5 @@ def test_every_band_is_covered_and_the_two_cross_band_invariants_hold() -> None:
     enhancement_limit = edition_rules["enhancement_limit_per_army"]
 
     for band in bands.values():
-        assert band.max_detachments == band.detachment_points_budget  # type: ignore[attr-defined]
-        assert enhancement_limit >= band.max_enhancements  # type: ignore[attr-defined]
+        assert band.max_detachments == band.detachment_points_budget
+        assert enhancement_limit >= band.max_enhancements

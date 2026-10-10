@@ -25,11 +25,13 @@
 # its own identity. loadout_coverage_figures now takes a tolerance PER ratcheted key rather than
 # one shared scalar, so a release that configures the two ratchets' tolerances differently gets a
 # report threshold column that agrees with what the gate actually enforced (FR-021).
-# AI-Assisted: Claude Code (model: Claude Sonnet 5) - 2026-10-09 pipeline P3 task 5 (spec §4.3):
-# added COV-LINE-SCOPE-REGRESSION, the third ratcheted loadout figure's finding code, and
+# AI-Assisted: Claude Code (model: Claude Sonnet 5) - 2026-10-09 pipeline P3 task 5 (spec §4.2
+# P4b): added COV-LINE-SCOPE-REGRESSION, the third ratcheted loadout figure's finding code, and
 # OPTIONS_LINE_SCOPED_KEY's tolerance branch in loadout_ratchet_tolerance_for
 # (WGC_RATCHET_TOLERANCE_LINE_SCOPE) -- the identical mechanism COV-EQUIPMENT-REGRESSION already
 # established for the second figure.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - final review I1: corrected this citation
+# from "spec §4.3" to "spec §4.2 P4b".
 """V7, generalised — every authored summary class, one gate mechanism.
 
 **A gate selects a code. It never selects a severity.** That single sentence is why this module
@@ -312,11 +314,13 @@ _RATCHET_FINDING_CODE: Final[Mapping[str, str]] = {
 def check_option_ratchet(
     coverage: LoadoutCoverage, *, previous_percent: int | None, tolerance: float
 ) -> list[Finding]:
-    """``COV-OPTION-REGRESSION`` / ``COV-EQUIPMENT-REGRESSION`` — resolved-loadout coverage must
-    not fall (`006` FR-022, `008` FR-021, Clarifications 2026-08-15 Q2's two-step ruling).
+    """``COV-OPTION-REGRESSION`` / ``COV-EQUIPMENT-REGRESSION`` / ``COV-LINE-SCOPE-REGRESSION`` —
+    resolved-loadout coverage must not fall (`006` FR-022, `008` FR-021, Clarifications
+    2026-08-15 Q2's two-step ruling; `options_line_scoped` joins on the identical terms,
+    2026-10-09 spec §4.2 P4b).
 
-    One function over **both** ratcheted loadout figures. ``coverage.key`` selects the finding
-    code from :data:`_RATCHET_FINDING_CODE`, exactly the way :func:`gate_for` and
+    One function over **all three** ratcheted loadout figures. ``coverage.key`` selects the
+    finding code from :data:`_RATCHET_FINDING_CODE`, exactly the way :func:`gate_for` and
     :func:`tolerance_for` already select a summary class's own gate and tolerance by the class's
     own identity rather than by a second code path the caller has to keep in sync.
 
@@ -338,10 +342,11 @@ def check_option_ratchet(
             mid-campaign rather than needing a seeded baseline. This is FR-020's two-step rule
             made literal: the floor is always the previous *published* figure, never a function
             of the candidate's own.
-        tolerance: ``WGC_RATCHET_TOLERANCE_OPTIONS`` or ``WGC_RATCHET_TOLERANCE_EQUIPMENT``,
-            matching ``coverage.key``, as a ratio. There is deliberately **no** absolute threshold
-            knob beside either: a floor is exactly the ceiling the clarification rules out, since
-            it would let source-wording drift wedge a release ahead of a parser fix.
+        tolerance: ``WGC_RATCHET_TOLERANCE_OPTIONS``, ``WGC_RATCHET_TOLERANCE_EQUIPMENT``, or
+            ``WGC_RATCHET_TOLERANCE_LINE_SCOPE``, matching ``coverage.key``, as a ratio. There is
+            deliberately **no** absolute threshold knob beside any of them: a floor is exactly the
+            ceiling the clarification rules out, since it would let source-wording drift wedge a
+            release ahead of a parser fix.
     """
     if previous_percent is None:
         return []

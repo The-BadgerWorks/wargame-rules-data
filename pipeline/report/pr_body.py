@@ -20,9 +20,13 @@
 # AI-Assisted: Claude Code (model: claude-opus-5) - 010 R5: removed the carried-forward section
 # (`_carried_line`, `_carried_forward_section`) along with the per-faction carry-forward
 # mechanism whose findings it rendered.
-# AI-Assisted: Claude Code (model: Claude Sonnet 5) - 2026-10-09 pipeline P3 task 5 (spec §4.3):
-# `options_line_scoped` joins `_RATCHETED_LOADOUT_FIGURES` as the table's third guarded row, on
-# the identical terms `default_equipment` joined it under (008 FR-021).
+# AI-Assisted: Claude Code (model: Claude Sonnet 5) - 2026-10-09 pipeline P3 task 5 (spec §4.2
+# P4b): `options_line_scoped` joins `_RATCHETED_LOADOUT_FIGURES` as the table's third guarded
+# row, on the identical terms `default_equipment` joined it under (008 FR-021).
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - task 5 follow-up (self-directed, commit
+# e46a4aee): rewrote `_loadout_coverage_section`'s footer paragraph to name all three ratcheted
+# figures instead of two, so a shipped report stops asserting a count the table had already
+# outgrown.
 """What an approver reads first, in the order they should read it.
 
 `docs/approval-checklist.md` (task T121) states the same order in prose, for a human skimming
@@ -129,7 +133,7 @@ def _loadout_coverage_section(coverage: Mapping[str, Mapping[str, Any]]) -> list
         "`options_resolved`, `default_equipment`, and `options_line_scoped` are **all three "
         "ratcheted, with no absolute ceiling on any of them** (`008` FR-021, Clarifications "
         "2026-08-15 Q2's two-step ruling; `options_line_scoped` joins them on the identical "
-        "terms, 2026-10-09 spec §4.3): each must not fall below the previous *published* "
+        "terms, 2026-10-09 spec §4.2 P4b): each must not fall below the previous *published* "
         "version's own percent, less its own configured tolerance, and no threshold blocks a "
         "release on its own — so source-wording drift cannot wedge a release ahead of a parser "
         "fix. A rejected candidate never moves any baseline. `default_equipment` reported "
