@@ -208,15 +208,15 @@
   },
   {
     "ability_key": "datasheet:bizarrely-resilient",
-    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
-    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
-    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
-    "mechanic_digest": "e8af063e19187453f64a6b7d6db6b23d",
+    "authored_against_acquisition": "wahapedia-20261010T144139Z-2b8f39c2",
+    "digest_refreshed_at_version": "wh40k-11e-2026-10-1",
+    "digest_refreshed_under_authorization": "owner-2026-10-10-orks-text-update",
+    "mechanic_digest": "0a318d0ff0c56f085811c671117787d6",
     "name": "Bizarrely Resilient",
     "review_state": "approved",
-    "reviewed_at": "2026-09-15T04:35:16Z",
+    "reviewed_at": "2026-10-10T14:41:04Z",
     "reviewed_by": "claude-sonnet-5-reviewer",
-    "summary": "Attacks that target this model have their Armour Penetration worsened by 1."
+    "summary": "While this unit is the target of an attack, that attack has -1 AP."
   },
   {
     "ability_key": "datasheet:blastajet-attack-run",
@@ -410,15 +410,15 @@
   },
   {
     "ability_key": "datasheet:da-bigger-dey-are-da-better-dey-drop",
-    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
-    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
-    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
-    "mechanic_digest": "89b625d6e84958dddfba0187abb2f9e1",
-    "name": "Da Bigger Dey Are, da Better Dey Drop",
+    "authored_against_acquisition": "wahapedia-20261010T144139Z-2b8f39c2",
+    "digest_refreshed_at_version": "wh40k-11e-2026-10-1",
+    "digest_refreshed_under_authorization": "owner-2026-10-10-orks-text-update",
+    "mechanic_digest": "3bc75ddcb8cbf9a70a6dbfc8f1e939d9",
+    "name": "Da Bigger Dey Are, Da Better Dey Drop",
     "review_state": "approved",
-    "reviewed_at": "2026-09-15T04:35:16Z",
+    "reviewed_at": "2026-10-10T14:41:04Z",
     "reviewed_by": "claude-sonnet-5-reviewer",
-    "summary": "When this model's lifta-droppa destroys an enemy model with the Deadly Demise ability, that ability triggers on a 3+ instead of a 6."
+    "summary": "In your Shooting phase, when this unit's Lifta-droppa destroys an enemy MONSTER/VEHICLE model with Deadly Demise, that enemy model suffers a Deadly Demise on a roll of 3+, instead of a 6."
   },
   {
     "ability_key": "datasheet:da-bigger-dey-iz",
@@ -440,6 +440,16 @@
     "reviewed_at": "2026-08-04T00:00:00Z",
     "reviewed_by": "claude-reviewer-opus",
     "summary": "While the Waaagh! is active for your army, this model's melee weapons gain +4 Attacks."
+  },
+  {
+    "ability_key": "datasheet:da-biggest-boom",
+    "authored_against_acquisition": "wahapedia-20261010T144139Z-2b8f39c2",
+    "mechanic_digest": "cf9be03e08dc90e75c3f9d8403820ae3",
+    "name": "Da Biggest Boom",
+    "review_state": "approved",
+    "reviewed_at": "2026-10-10T14:41:04Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "summary": "In your Shooting phase, when this unit has shot, you can select one enemy unit that was hit by this unit's Tank Kannon attacks. If you do, each enemy unit within 3\" of that selected unit, excluding MONSTER and VEHICLE units, makes a battle-shock roll."
   },
   {
     "ability_key": "datasheet:da-biggest-booms",
@@ -526,13 +536,13 @@
   },
   {
     "ability_key": "datasheet:dats-our-loot",
-    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
-    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
-    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
-    "mechanic_digest": "b7f6043a6c2a0dbffeb231b5071a71b9",
+    "authored_against_acquisition": "wahapedia-20261010T144139Z-2b8f39c2",
+    "digest_refreshed_at_version": "wh40k-11e-2026-10-1",
+    "digest_refreshed_under_authorization": "owner-2026-10-10-orks-text-update",
+    "mechanic_digest": "633e747b78b046b858b29946c068e183",
     "name": "Dat’s Our Loot!",
     "review_state": "approved",
-    "reviewed_at": "2026-09-15T04:35:16Z",
+    "reviewed_at": "2026-10-10T14:41:04Z",
     "reviewed_by": "claude-sonnet-5-reviewer",
     "summary": "Ranged attacks from this unit re-roll a Hit roll of 1, or any Hit roll if the target is within range of an objective marker."
   },
@@ -562,6 +572,16 @@
     "reviewed_at": "2026-08-04T00:00:00Z",
     "reviewed_by": "claude-reviewer-opus",
     "summary": "If this model is equipped with two of the same named melee weapon, those weapons gain the Twin-linked ability."
+  },
+  {
+    "ability_key": "datasheet:ded-glowy-ammo",
+    "authored_against_acquisition": "wahapedia-20261010T144139Z-2b8f39c2",
+    "mechanic_digest": "c30e0ae00e1dd6f58ea5807a2e130f77",
+    "name": "Ded Glowy Ammo",
+    "review_state": "approved",
+    "reviewed_at": "2026-10-10T14:41:04Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "summary": "Enemy units within 6\" of this model have -1 T."
   },
   {
     "ability_key": "datasheet:ded-glowy-ammo-aura",
@@ -656,15 +676,15 @@
   },
   {
     "ability_key": "datasheet:drill-boss",
-    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
-    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
-    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
-    "mechanic_digest": "aaf049ad7736255cff98bd7cd91263b6",
+    "authored_against_acquisition": "wahapedia-20261010T144139Z-2b8f39c2",
+    "digest_refreshed_at_version": "wh40k-11e-2026-10-1",
+    "digest_refreshed_under_authorization": "owner-2026-10-10-orks-text-update",
+    "mechanic_digest": "c5a0b45df3efa0a1c78c14bb39508afb",
     "name": "Drill Boss",
     "review_state": "approved",
-    "reviewed_at": "2026-09-15T04:35:16Z",
+    "reviewed_at": "2026-10-10T14:41:04Z",
     "reviewed_by": "claude-sonnet-5-reviewer",
-    "summary": "While attached to a unit, melee attacks made by models in that unit gain +1 to the Hit roll."
+    "summary": "Melee attacks made by this unit add 1 to their hit rolls."
   },
   {
     "ability_key": "datasheet:drill-through",
@@ -762,15 +782,15 @@
   },
   {
     "ability_key": "datasheet:flashiest-gitz",
-    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
-    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
-    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
-    "mechanic_digest": "76a9239ce70f8adf00e3ce435751969d",
+    "authored_against_acquisition": "wahapedia-20261010T144139Z-2b8f39c2",
+    "digest_refreshed_at_version": "wh40k-11e-2026-10-1",
+    "digest_refreshed_under_authorization": "owner-2026-10-10-orks-text-update",
+    "mechanic_digest": "f29c164eeaa6f9ebd67a5cf1cffc28cc",
     "name": "Flashiest Gitz",
     "review_state": "approved",
-    "reviewed_at": "2026-09-15T04:35:16Z",
+    "reviewed_at": "2026-10-10T14:41:04Z",
     "reviewed_by": "claude-sonnet-5-reviewer",
-    "summary": "While attached to a unit, ranged attacks made by models in that unit can re-roll the Hit roll."
+    "summary": "Ranged attacks made by this unit can re-roll their hit rolls."
   },
   {
     "ability_key": "datasheet:found-em",
@@ -836,6 +856,16 @@
     "reviewed_at": "2026-09-15T04:35:16Z",
     "reviewed_by": "claude-sonnet-5-reviewer",
     "summary": "This model can make Normal, Advance or Fall Back moves through models, excluding Titanic, and terrain features up to 4\" tall as if they were not there."
+  },
+  {
+    "ability_key": "datasheet:get-back-in-da-race",
+    "authored_against_acquisition": "wahapedia-20261010T144139Z-2b8f39c2",
+    "mechanic_digest": "70668d8b6a42c30232f815fe7589c9ec",
+    "name": "Get Back in Da Race",
+    "review_state": "approved",
+    "reviewed_at": "2026-10-10T14:41:04Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "summary": "In your Movement phase, at the start or end of this unit's move, you can select one friendly Speed Freeks unit within 6\" of this unit. That unit, and any units embarked within that unit, is no longer battle-shocked and is riled up until the start of your next turn."
   },
   {
     "ability_key": "datasheet:get-back-in-da-race-once-per-battle-round-per-army",
@@ -1105,15 +1135,15 @@
   },
   {
     "ability_key": "datasheet:mad-dok",
-    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
-    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
-    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
-    "mechanic_digest": "b9bb03e67e5be7ce88730ca6c0a6c4e2",
+    "authored_against_acquisition": "wahapedia-20261010T144139Z-2b8f39c2",
+    "digest_refreshed_at_version": "wh40k-11e-2026-10-1",
+    "digest_refreshed_under_authorization": "owner-2026-10-10-orks-text-update",
+    "mechanic_digest": "b18f354f212ee050a98f2c6028af21d5",
     "name": "Mad Dok",
     "review_state": "approved",
-    "reviewed_at": "2026-09-15T04:35:16Z",
+    "reviewed_at": "2026-10-10T14:41:04Z",
     "reviewed_by": "claude-sonnet-5-reviewer",
-    "summary": "While attached to a unit, models in that unit gain the Feel No Pain 5+ ability."
+    "summary": "In your Command phase, select one friendly Orks Infantry unit within 6\" of this model, then select one of the following: that unit heals 3 wounds; or, if all models in that unit have their starting number of wounds, revive one CHARACTER model in that unit."
   },
   {
     "ability_key": "datasheet:madcap-artillery",
@@ -1268,15 +1298,15 @@
   },
   {
     "ability_key": "datasheet:one-scalpel-short-of-a-medpack",
-    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
-    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
-    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
-    "mechanic_digest": "092a491acb707df4727dde8e6fa97b43",
+    "authored_against_acquisition": "wahapedia-20261010T144139Z-2b8f39c2",
+    "digest_refreshed_at_version": "wh40k-11e-2026-10-1",
+    "digest_refreshed_under_authorization": "owner-2026-10-10-orks-text-update",
+    "mechanic_digest": "d8b0599715cde473bedf932cdfc60eb4",
     "name": "One Scalpel Short of a Medpack",
     "review_state": "approved",
-    "reviewed_at": "2026-09-15T04:35:16Z",
+    "reviewed_at": "2026-10-10T14:41:04Z",
     "reviewed_by": "claude-sonnet-5-reviewer",
-    "summary": "While attached to a unit, that unit is eligible to declare a charge in a turn in which it Fell Back."
+    "summary": "When this unit is selected to make a fall-back move, that fall-back move does not prevent this unit from being eligible to declare a charge."
   },
   {
     "ability_key": "datasheet:paired-krumpas",
@@ -1327,13 +1357,13 @@
   },
   {
     "ability_key": "datasheet:plummeting-descent",
-    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
-    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
-    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
-    "mechanic_digest": "e4fe700c161707de53485ac28874beef",
+    "authored_against_acquisition": "wahapedia-20261010T144139Z-2b8f39c2",
+    "digest_refreshed_at_version": "wh40k-11e-2026-10-1",
+    "digest_refreshed_under_authorization": "owner-2026-10-10-orks-text-update",
+    "mechanic_digest": "57d2ec1f14672b47acbd2e3ecb37ee44",
     "name": "Plummeting Descent",
     "review_state": "approved",
-    "reviewed_at": "2026-09-15T04:35:16Z",
+    "reviewed_at": "2026-10-10T14:41:04Z",
     "reviewed_by": "claude-sonnet-5-reviewer",
     "summary": "Charge rolls for this model's unit can be re-rolled in a turn in which it arrived from Reserves."
   },
@@ -1392,15 +1422,15 @@
   },
   {
     "ability_key": "datasheet:pyromaniaks",
-    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
-    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
-    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
-    "mechanic_digest": "4f92488357a479d7f6fd63c1a8ba1f3e",
+    "authored_against_acquisition": "wahapedia-20261010T144139Z-2b8f39c2",
+    "digest_refreshed_at_version": "wh40k-11e-2026-10-1",
+    "digest_refreshed_under_authorization": "owner-2026-10-10-orks-text-update",
+    "mechanic_digest": "9bb6928bfa1a9636c685604e72cdf205",
     "name": "Pyromaniaks",
     "review_state": "approved",
-    "reviewed_at": "2026-09-15T04:35:16Z",
+    "reviewed_at": "2026-10-10T14:41:04Z",
     "reviewed_by": "claude-sonnet-5-reviewer",
-    "summary": "Each time a model in this unit makes a ranged attack with a burna that targets an enemy unit within 6\", re-roll a Wound roll of 1. If the target of that attack is also within range of an objective marker, you can re-roll the Wound roll instead."
+    "summary": "This unit's attacks that target a unit within 6\" of this unit can re-roll wound rolls of 1."
   },
   {
     "ability_key": "datasheet:ramshackle-but-rugged",
@@ -1413,15 +1443,15 @@
   },
   {
     "ability_key": "datasheet:ramshackle-cover",
-    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
-    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
-    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
-    "mechanic_digest": "3964f4c0bab44544ec35f95a3108dfa5",
+    "authored_against_acquisition": "wahapedia-20261010T144139Z-2b8f39c2",
+    "digest_refreshed_at_version": "wh40k-11e-2026-10-1",
+    "digest_refreshed_under_authorization": "owner-2026-10-10-orks-text-update",
+    "mechanic_digest": "f536fd99c576c39ad3e91ff8193abdba",
     "name": "Ramshackle Cover",
     "review_state": "approved",
-    "reviewed_at": "2026-09-15T04:35:16Z",
+    "reviewed_at": "2026-10-10T14:41:04Z",
     "reviewed_by": "claude-sonnet-5-reviewer",
-    "summary": "A model not fully visible to the attacking unit because of this fortification has the Benefit of Cover against that ranged attack."
+    "summary": "When an attack targets a unit that is not fully visible to the attacking model because of this unit, the target has the benefit of cover against that attack."
   },
   {
     "ability_key": "datasheet:raucous-occupants",
@@ -1528,6 +1558,16 @@
     "reviewed_at": "2026-09-15T04:35:16Z",
     "reviewed_by": "claude-sonnet-5-reviewer",
     "summary": "In your opponent's Movement phase, when an enemy unit ends a Normal, Advance or Fall Back move within 8\" of this unit, this unit can make a Normal move of up to 6\", provided it is not within Engagement Range of any enemy unit."
+  },
+  {
+    "ability_key": "datasheet:scatter-once-per-phase-per-unit",
+    "authored_against_acquisition": "wahapedia-20261010T144139Z-2b8f39c2",
+    "mechanic_digest": "ca4a67d2f38f839cc47902f057ef5fc2",
+    "name": "Scatter! (Once per phase, per unit)",
+    "review_state": "approved",
+    "reviewed_at": "2026-10-10T14:41:04Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "summary": "Once per phase, per unit: in your opponent's Movement phase, when an enemy unit ends a move within 8\" of this unit, if this unit is unengaged, this unit can make a normal move of up to 6\"."
   },
   {
     "ability_key": "datasheet:shokk-attack-engine",
@@ -1654,15 +1694,15 @@
   },
   {
     "ability_key": "datasheet:speedboss",
-    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
-    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
-    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
-    "mechanic_digest": "aaf049ad7736255cff98bd7cd91263b6",
+    "authored_against_acquisition": "wahapedia-20261010T144139Z-2b8f39c2",
+    "digest_refreshed_at_version": "wh40k-11e-2026-10-1",
+    "digest_refreshed_under_authorization": "owner-2026-10-10-orks-text-update",
+    "mechanic_digest": "c5a0b45df3efa0a1c78c14bb39508afb",
     "name": "Speedboss",
     "review_state": "approved",
-    "reviewed_at": "2026-09-15T04:35:16Z",
+    "reviewed_at": "2026-10-10T14:41:04Z",
     "reviewed_by": "claude-sonnet-5-reviewer",
-    "summary": "While attached to a unit, melee attacks made by models in that unit gain +1 to the Hit roll."
+    "summary": "This unit's melee attacks have +1 to hit rolls."
   },
   {
     "ability_key": "datasheet:speednob-support",
@@ -1676,13 +1716,13 @@
   },
   {
     "ability_key": "datasheet:spiked-ram",
-    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
-    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
-    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
-    "mechanic_digest": "45fb26c908748dc09896a4bbcd143603",
+    "authored_against_acquisition": "wahapedia-20261010T144139Z-2b8f39c2",
+    "digest_refreshed_at_version": "wh40k-11e-2026-10-1",
+    "digest_refreshed_under_authorization": "owner-2026-10-10-orks-text-update",
+    "mechanic_digest": "0f9cd2009ad4e3194e3c3b411c0978ca",
     "name": "Spiked Ram",
     "review_state": "approved",
-    "reviewed_at": "2026-09-15T04:35:16Z",
+    "reviewed_at": "2026-10-10T14:41:04Z",
     "reviewed_by": "claude-sonnet-5-reviewer",
     "summary": "Each time this model ends a Charge move, select one enemy unit within Engagement Range of it and roll one D6. On a 2-5, that enemy unit suffers D3 mortal wounds. On a 6, that enemy unit suffers 3 mortal wounds."
   },
@@ -2019,15 +2059,15 @@
   },
   {
     "ability_key": "datasheet:workshop",
-    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
-    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
-    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
-    "mechanic_digest": "ba885653297c0118032f0070c10b59d5",
+    "authored_against_acquisition": "wahapedia-20261010T144139Z-2b8f39c2",
+    "digest_refreshed_at_version": "wh40k-11e-2026-10-1",
+    "digest_refreshed_under_authorization": "owner-2026-10-10-orks-text-update",
+    "mechanic_digest": "e7e2d8372307ef877f5df09c2a3bf1a0",
     "name": "Workshop",
     "review_state": "approved",
-    "reviewed_at": "2026-09-15T04:35:16Z",
+    "reviewed_at": "2026-10-10T14:41:04Z",
     "reviewed_by": "claude-sonnet-5-reviewer",
-    "summary": "Parts of this fortification must be set up within 1\" of each other; at the end of your Movement phase, each friendly Orks Vehicle within 12\" can regain up to D3 lost wounds, once per model per turn."
+    "summary": "When this unit is set up, all parts of it must be set up in a single group, in which each part is within 1\" of another part. At the end of the Movement phase, each friendly ORKS VEHICLE unit within 6\" of this unit heals D3 wounds. Each friendly ORKS VEHICLE unit can only be affected by this ability once per turn."
   },
   {
     "ability_key": "datasheet:wurrboy-psyker-level-1",
