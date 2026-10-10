@@ -58,6 +58,7 @@ from pipeline.validate.coverage import (
     DEFAULT_EQUIPMENT_KEY,
     ITEM_CONSTRAINTS_KEY,
     LOADOUT_RATCHETED_KEYS,
+    OPTIONS_LINE_SCOPED_KEY,
     OPTIONS_RESOLVED_KEY,
     RENDERING_EQUIVALENCE_KEY,
     RENDERING_EQUIVALENCE_NOT_COMPARED_KEY,
@@ -76,6 +77,7 @@ from pipeline.validate.gates import (
     class_coverage,
     faction_rule_keys,
     loadout_coverage_figures,
+    loadout_ratchet_tolerance_for,
 )
 from tests.enrichment.test_class_state_machine import KEYS, record
 from tests.factories import datasheet, faction, snapshot
@@ -531,7 +533,11 @@ def test_an_empty_option_denominator_is_complete_rather_than_zero() -> None:
     assert _loadout(0, 0).ratio_percent == 100
 
 
-def test_the_ratcheted_key_set_is_both_loadout_figures_now(tmp_path: Path) -> None:
+# 2026-10-09 P3: renamed from `..._is_both_loadout_figures_now` — `options_line_scoped` joins
+# `options_resolved`/`default_equipment` as the set's third ratcheted member (spec §4.3), so
+# "both" no longer describes it. `item_constraints` and `rendering_equivalence` are still
+# untouched (007 FR-022, PO decision 2026-08-13; this feature does not reopen it).
+def test_the_ratcheted_key_set_is_the_three_loadout_figures_now(tmp_path: Path) -> None:
     """008 T058 supersedes the 006-era claim this test used to make.
 
     Research D4's "`default_equipment` carries no ratchet" state was explicitly a FIRST-release
@@ -544,7 +550,11 @@ def test_the_ratcheted_key_set_is_both_loadout_figures_now(tmp_path: Path) -> No
     _write_previous_report(tmp_path, "prev", {"loadout.default_equipment": (900, 90)})
 
     assert previous_loadout_coverage(tmp_path, "prev") == {"default_equipment": (900, 90)}
-    assert set(LOADOUT_RATCHETED_KEYS) == {OPTIONS_RESOLVED_KEY, DEFAULT_EQUIPMENT_KEY}
+    assert set(LOADOUT_RATCHETED_KEYS) == {
+        OPTIONS_RESOLVED_KEY,
+        DEFAULT_EQUIPMENT_KEY,
+        OPTIONS_LINE_SCOPED_KEY,
+    }
     assert ITEM_CONSTRAINTS_KEY not in LOADOUT_RATCHETED_KEYS
     assert RENDERING_EQUIVALENCE_KEY not in LOADOUT_RATCHETED_KEYS
     assert RENDERING_EQUIVALENCE_NOT_COMPARED_KEY not in LOADOUT_RATCHETED_KEYS
@@ -1020,6 +1030,17 @@ def test_the_default_equipment_tolerance_permits_nothing() -> None:
         load_config(env={"WGC_RATCHET_TOLERANCE_EQUIPMENT": "0.05"}).ratchet_tolerance_equipment
         == 0.05
     )
+
+
+def test_the_line_scope_tolerance_permits_nothing_by_default() -> None:
+    """`WGC_RATCHET_TOLERANCE_LINE_SCOPE` (2026-10-09 P3, spec §4.3): same shape, same default,
+    as every `WGC_RATCHET_TOLERANCE_*` variable before it."""
+    assert load_config(env={}).ratchet_tolerance_line_scope == 0.0
+    assert (
+        load_config(env={"WGC_RATCHET_TOLERANCE_LINE_SCOPE": "0.05"}).ratchet_tolerance_line_scope
+        == 0.05
+    )
+    assert loadout_ratchet_tolerance_for(OPTIONS_LINE_SCOPED_KEY, load_config(env={})) == 0.0
 
 
 # --- 008 T063 (FR-015, SC-007): the deliberately-regressed candidate -----------------------------

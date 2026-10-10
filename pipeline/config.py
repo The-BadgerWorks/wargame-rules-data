@@ -1,3 +1,6 @@
+# AI-Assisted: Claude Code (model: Claude Sonnet 5) - 2026-10-09 pipeline P3 task 5 (spec §4.3):
+# added WGC_RATCHET_TOLERANCE_LINE_SCOPE, the third loadout ratchet's tolerance knob, same shape
+# (parse, default, bounds) as WGC_RATCHET_TOLERANCE_EQUIPMENT.
 # AI-Assisted: Claude Code (model: claude-opus-5) - 010 R7 task 1: added the three
 # summary-drafting variables (WGC_ANTHROPIC_API_KEY, WGC_DRAFT_MODEL, WGC_REVIEW_MODEL) for the
 # Owner's amended standing rule 3. The key is the second SENSITIVE variable in the table and is
@@ -467,6 +470,18 @@ CONFIG_VARS: Final[tuple[ConfigVar, ...]] = (
         False,
         "executable name/path for the Claude Code CLI transport",
     ),
+    # -- 2026-10-09 pipeline P3 (line-scoped wargear options) ----------------------------------
+    # One variable: options_line_scoped's own tolerance, same shape as every WGC_RATCHET_TOLERANCE_*
+    # variable before it -- no absolute ceiling, only a tolerance either side of the previous
+    # published percent (standing rule 8).
+    ConfigVar(
+        "WGC_RATCHET_TOLERANCE_LINE_SCOPE",
+        "ratchet_tolerance_line_scope",
+        "0.00",
+        "ratio",
+        False,
+        "line-scope coverage regression tolerance (2026-10-09 P3 spec §4.3)",
+    ),
 )
 
 _BY_ENV_NAME: Final[Mapping[str, ConfigVar]] = {var.env_name: var for var in CONFIG_VARS}
@@ -517,6 +532,7 @@ class PipelineConfig:
     review_model: str
     draft_transport: str
     claude_cli: str
+    ratchet_tolerance_line_scope: float
 
     @property
     def manifest_path(self) -> str:
@@ -771,4 +787,5 @@ def load_config(
         review_model=_as_str(raw, "WGC_REVIEW_MODEL"),
         draft_transport=_as_draft_transport(raw, "WGC_DRAFT_TRANSPORT"),
         claude_cli=_as_str(raw, "WGC_CLAUDE_CLI"),
+        ratchet_tolerance_line_scope=_as_ratio(raw, "WGC_RATCHET_TOLERANCE_LINE_SCOPE"),
     )

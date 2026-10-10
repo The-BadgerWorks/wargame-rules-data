@@ -20,6 +20,9 @@
 # AI-Assisted: Claude Code (model: claude-opus-5) - 010 R5: removed the carried-forward section
 # (`_carried_line`, `_carried_forward_section`) along with the per-faction carry-forward
 # mechanism whose findings it rendered.
+# AI-Assisted: Claude Code (model: Claude Sonnet 5) - 2026-10-09 pipeline P3 task 5 (spec §4.3):
+# `options_line_scoped` joins `_RATCHETED_LOADOUT_FIGURES` as the table's third guarded row, on
+# the identical terms `default_equipment` joined it under (008 FR-021).
 """What an approver reads first, in the order they should read it.
 
 `docs/approval-checklist.md` (task T121) states the same order in prose, for a human skimming
@@ -81,7 +84,9 @@ _LOADOUT_COVERAGE_PREFIX = "loadout."
 #: 2026-08-13) are still absent -- new report-only baselines with no prior release to compare
 #: against -- and a table that showed every figure without saying which is which would let an
 #: approver read a falling unratcheted number as something a gate had already considered.
-_RATCHETED_LOADOUT_FIGURES: frozenset[str] = frozenset({"options_resolved", "default_equipment"})
+_RATCHETED_LOADOUT_FIGURES: frozenset[str] = frozenset(
+    {"options_resolved", "default_equipment", "options_line_scoped"}
+)
 
 #: `pipeline.cli option-regression`'s report: FR-009's layer-2 evidence, rebuilt from the previous
 #: published version's own source rows and diffed per choice and per field.

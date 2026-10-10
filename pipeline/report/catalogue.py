@@ -60,6 +60,12 @@
 # AI-Assisted: Claude Code (model: Claude Sonnet 5) - 2026-10-09 pipeline P2 task 2: registered
 # DET-CHAPTER-UNMATCHED, raised by `pipeline/curate/assemble.py::_attach_chapter_keywords` when a
 # curation/detachment-chapters.json entry binds nothing.
+# AI-Assisted: Claude Code (model: Claude Sonnet 5) - 2026-10-09 pipeline P3 task 5 (spec §4.3):
+# registered COV-LINE-SCOPE-REGRESSION, raised by
+# `pipeline/validate/gates.py::check_option_ratchet` when `loadout.options_line_scoped` falls
+# below the previous published version's percent, less its configured tolerance -- the third
+# ratcheted loadout figure, on the identical terms COV-OPTION-REGRESSION/COV-EQUIPMENT-REGRESSION
+# already establish.
 """The finding catalogue.
 
 ``validation-report.md`` §1.1: **severity is a property of the code, not of the occurrence.** A
@@ -637,6 +643,16 @@ _DEFINITIONS: Final[tuple[FindingDefinition, ...]] = (
         "matches no minted detachment, its keyword is not a chapter keyword of that faction, or it "
         "repeats an earlier entry; a curated restriction that binds nothing is a doc contradicting "
         "behaviour, so the run refuses rather than publishing the detachment unscoped",
+    ),
+    # -- 2026-10-09 pipeline P3 (line-scoped wargear options, spec §4.3) --------------------
+    _d(
+        "COV-LINE-SCOPE-REGRESSION",
+        _COV,
+        _B,
+        "2026-10-09 spec §4.3",
+        "the share of option groups with a replaced item that publish eligible_composition_lines "
+        "fell below the previous published report's figure by more than the tolerance; the floor "
+        "is read, never authored",
     ),
 )
 

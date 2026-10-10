@@ -18,6 +18,12 @@
 # LOADOUT_RATCHETED_KEYS, on the Product Owner's 2026-08-15 two-step ruling (FR-021) -- research
 # D4's "becomes ratchetable for free the release after this one, when a baseline exists" is no
 # longer a future condition, it is this release's condition.
+# AI-Assisted: Claude Code (model: Claude Sonnet 5) - 2026-10-09 pipeline P3 task 5 (spec §4.3):
+# added OPTIONS_LINE_SCOPED_KEY, line_scope_candidate_groups, and line_scoped_groups -- the
+# ratcheted figure over CuratedOptionGroup.eligible_composition_lines (derived at build by
+# pipeline/reconcile/option_scope.py::derive_line_scopes). Joins LOADOUT_RATCHETED_KEYS as its
+# third member; the floor is read from the previous published report by the existing machinery,
+# never authored here (CLAUDE.md standing rule 8).
 """V10 — did we just publish a fraction of the release without noticing?
 
 This is the check for the failure that looks like success. A partial response, or an error page
@@ -45,7 +51,14 @@ from typing import Final
 from pipeline.config import PipelineConfig
 from pipeline.curate.prior import PriorSnapshot, classified_keywords
 from pipeline.exit_codes import ExitCode
-from pipeline.models.curated import CuratedSnapshot, DefaultEquipmentState, WargearOptionState
+from pipeline.models.curated import (
+    CuratedOptionChoice,
+    CuratedOptionGroup,
+    CuratedSnapshot,
+    DefaultEquipmentState,
+    OptionItemRole,
+    WargearOptionState,
+)
 from pipeline.models.findings import CoverageFigure, Finding
 from pipeline.report.catalogue import build_finding
 from pipeline.validate.equivalence import EquivalenceSummary
@@ -80,7 +93,18 @@ RENDERING_EQUIVALENCE_NOT_COMPARED_KEY: Final = f"{RENDERING_EQUIVALENCE_KEY}_no
 #: baselines with no prior release to compare against. Adding either key here is the entire
 #: implementation of a future decision to ratchet it — nothing else about how it is computed or
 #: reported changes.
-LOADOUT_RATCHETED_KEYS: Final[tuple[str, ...]] = (OPTIONS_RESOLVED_KEY, DEFAULT_EQUIPMENT_KEY)
+#: The third ratcheted loadout figure (2026-10-09 P3, spec §4.3): the share of option groups with
+#: at least one `REPLACED` choice item that `derive_line_scopes` resolved to one-or-more
+#: composition lines. Same ratchet shape as the two above -- floored on the previous *published*
+#: version's percent, never a function of the candidate's own, so introducing it mid-campaign
+#: cannot itself regress anything (standing rule 8).
+OPTIONS_LINE_SCOPED_KEY: Final = "options_line_scoped"
+
+LOADOUT_RATCHETED_KEYS: Final[tuple[str, ...]] = (
+    OPTIONS_RESOLVED_KEY,
+    DEFAULT_EQUIPMENT_KEY,
+    OPTIONS_LINE_SCOPED_KEY,
+)
 
 
 @dataclass(slots=True)
@@ -189,6 +213,44 @@ def item_constraints_resolved_datasheets(snapshot: CuratedSnapshot) -> int:
     )
 
 
+def _line_scope_candidate_groups(snapshot: CuratedSnapshot) -> list[CuratedOptionGroup]:
+    """Option groups with >= 1 choice item of role ``REPLACED`` (spec §4.3's denominator).
+
+    A group whose choices only ``GRANT`` has no `R` set for :func:`~pipeline.reconcile.
+    option_scope.derive_line_scopes` to resolve a composition-line scope from, so it is outside
+    the question this figure asks entirely -- the same "outside the question" reasoning
+    :func:`options_resolved_datasheets` already uses for an option-free datasheet.
+
+    Shared by both :func:`line_scope_candidate_groups` and :func:`line_scoped_groups` so the two
+    counts cannot independently drift on what "candidate" means.
+    """
+    candidates: list[CuratedOptionGroup] = []
+    for datasheet in snapshot.datasheets:
+        choices_by_group: dict[str, list[CuratedOptionChoice]] = {}
+        for choice in datasheet.option_choices:
+            choices_by_group.setdefault(choice.group_id, []).append(choice)
+        for group in datasheet.option_groups:
+            choices = choices_by_group.get(group.id, [])
+            if any(
+                item.role is OptionItemRole.REPLACED for choice in choices for item in choice.items
+            ):
+                candidates.append(group)
+    return candidates
+
+
+def line_scope_candidate_groups(snapshot: CuratedSnapshot) -> int:
+    """The denominator of `loadout.options_line_scoped`: option groups with a replaced item."""
+    return len(_line_scope_candidate_groups(snapshot))
+
+
+def line_scoped_groups(snapshot: CuratedSnapshot) -> int:
+    """Of those, the ones whose line-scope derivation resolved (`eligible_composition_lines`
+    non-empty) -- the numerator of `loadout.options_line_scoped`."""
+    return sum(
+        1 for group in _line_scope_candidate_groups(snapshot) if group.eligible_composition_lines
+    )
+
+
 def loadout_coverages(
     snapshot: CuratedSnapshot, equivalence: EquivalenceSummary | None = None
 ) -> dict[str, LoadoutCoverage]:
@@ -215,6 +277,11 @@ def loadout_coverages(
             key=ITEM_CONSTRAINTS_KEY,
             resolved=item_constraints_resolved_datasheets(snapshot),
             total=item_constraints_stated_datasheets(snapshot),
+        ),
+        OPTIONS_LINE_SCOPED_KEY: LoadoutCoverage(
+            key=OPTIONS_LINE_SCOPED_KEY,
+            resolved=line_scoped_groups(snapshot),
+            total=line_scope_candidate_groups(snapshot),
         ),
     }
     if equivalence is not None:

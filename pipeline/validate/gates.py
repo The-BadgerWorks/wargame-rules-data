@@ -25,6 +25,11 @@
 # its own identity. loadout_coverage_figures now takes a tolerance PER ratcheted key rather than
 # one shared scalar, so a release that configures the two ratchets' tolerances differently gets a
 # report threshold column that agrees with what the gate actually enforced (FR-021).
+# AI-Assisted: Claude Code (model: Claude Sonnet 5) - 2026-10-09 pipeline P3 task 5 (spec §4.3):
+# added COV-LINE-SCOPE-REGRESSION, the third ratcheted loadout figure's finding code, and
+# OPTIONS_LINE_SCOPED_KEY's tolerance branch in loadout_ratchet_tolerance_for
+# (WGC_RATCHET_TOLERANCE_LINE_SCOPE) -- the identical mechanism COV-EQUIPMENT-REGRESSION already
+# established for the second figure.
 """V7, generalised — every authored summary class, one gate mechanism.
 
 **A gate selects a code. It never selects a severity.** That single sentence is why this module
@@ -87,6 +92,7 @@ from pipeline.report.catalogue import build_finding
 from pipeline.validate.coverage import (
     DEFAULT_EQUIPMENT_KEY,
     LOADOUT_RATCHETED_KEYS,
+    OPTIONS_LINE_SCOPED_KEY,
     OPTIONS_RESOLVED_KEY,
     LoadoutCoverage,
 )
@@ -299,6 +305,7 @@ def check_summary_ratchet(
 _RATCHET_FINDING_CODE: Final[Mapping[str, str]] = {
     OPTIONS_RESOLVED_KEY: "COV-OPTION-REGRESSION",
     DEFAULT_EQUIPMENT_KEY: "COV-EQUIPMENT-REGRESSION",
+    OPTIONS_LINE_SCOPED_KEY: "COV-LINE-SCOPE-REGRESSION",
 }
 
 
@@ -358,14 +365,16 @@ def check_option_ratchet(
 def loadout_ratchet_tolerance_for(key: str, config: PipelineConfig) -> float:
     """The ratcheted loadout figure's own tolerance (008 FR-021).
 
-    ``options_resolved`` and ``default_equipment`` are configured independently
-    (``WGC_RATCHET_TOLERANCE_OPTIONS`` / ``WGC_RATCHET_TOLERANCE_EQUIPMENT``) — the same
-    one-knob-per-figure shape :func:`tolerance_for` already gives the four authored summary
-    classes, so a campaign can tune how much slack each figure gets without the two moving
-    together.
+    ``options_resolved``, ``default_equipment``, and ``options_line_scoped`` are configured
+    independently (``WGC_RATCHET_TOLERANCE_OPTIONS`` / ``WGC_RATCHET_TOLERANCE_EQUIPMENT`` /
+    ``WGC_RATCHET_TOLERANCE_LINE_SCOPE``) — the same one-knob-per-figure shape
+    :func:`tolerance_for` already gives the four authored summary classes, so a campaign can
+    tune how much slack each figure gets without the others moving with it.
     """
     if key == DEFAULT_EQUIPMENT_KEY:
         return config.ratchet_tolerance_equipment
+    if key == OPTIONS_LINE_SCOPED_KEY:
+        return config.ratchet_tolerance_line_scope
     return config.ratchet_tolerance_options
 
 
