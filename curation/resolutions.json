@@ -102,5 +102,93 @@
     "finding_code": "COV-COLLAPSE",
     "resolved_at": "2026-08-12T00:00:00Z",
     "resolved_by": "adhoxx"
+  },
+  {
+    "data_digest": "sha256:1bd20ce89ebb3b84e99b9c4dd1abf45069c813faa72f3855d553e1dfb03138ef",
+    "entity_ref": "coverage:composition",
+    "explanation": "The publisher retired its Legends and firstborn Space Marines datasheets with the 2026-10 codex and the detail source removed those rows on 2026-10-10. The 1830 this release counts are the same ones wh40k-11e-2026-09-5 published (2057), minus the retired ones; nothing changed value. Owner ruling 1(a), 2026-10-10.",
+    "finding_code": "COV-COLLAPSE",
+    "resolved_at": "2026-10-10T00:00:00Z",
+    "resolved_by": "adhoxx"
+  },
+  {
+    "data_digest": "sha256:8295fa52cd9dc6dc48eb82cfc6ff43ad71924fa8dc30c82cf647755a8ccf1ce4",
+    "entity_ref": "coverage:datasheets",
+    "explanation": "The publisher retired its Legends and firstborn Space Marines datasheets with the 2026-10 codex and the detail source removed those rows on 2026-10-10. The 1836 this release counts are the same ones wh40k-11e-2026-09-5 published (2063), minus the retired ones; nothing changed value. Owner ruling 1(a), 2026-10-10.",
+    "finding_code": "COV-COLLAPSE",
+    "resolved_at": "2026-10-10T00:00:00Z",
+    "resolved_by": "adhoxx"
+  },
+  {
+    "data_digest": "sha256:f1e0b6b9bdbdc05e7120c5b043e83faa15ecee00b0aeec45566e6a39c6c3964d",
+    "entity_ref": "coverage:keyword_classification",
+    "explanation": "The publisher retired its Legends and firstborn Space Marines datasheets with the 2026-10 codex and the detail source removed those rows on 2026-10-10. The 1083 this release counts are the same ones wh40k-11e-2026-09-5 published (1320), minus the retired ones; nothing changed value. Owner ruling 1(a), 2026-10-10.",
+    "finding_code": "COV-COLLAPSE",
+    "resolved_at": "2026-10-10T00:00:00Z",
+    "resolved_by": "adhoxx"
+  },
+  {
+    "data_digest": "sha256:887b72248ef0c636db48f6242658dd83a451c1028b24dfa087c6369b7b5a56b3",
+    "entity_ref": "coverage:priced_datasheets",
+    "explanation": "The publisher retired its Legends and firstborn Space Marines datasheets with the 2026-10 codex and the detail source removed those rows on 2026-10-10. The 1836 this release counts are the same ones wh40k-11e-2026-09-5 published (2063), minus the retired ones; nothing changed value. Owner ruling 1(a), 2026-10-10.",
+    "finding_code": "COV-COLLAPSE",
+    "resolved_at": "2026-10-10T00:00:00Z",
+    "resolved_by": "adhoxx"
+  },
+  {
+    "data_digest": "sha256:2c93ba0afd64c8d534c8843fce336ef48cbf3e3fd225acdaf55f82c1dbcce7ec",
+    "entity_ref": "coverage:wargear_options",
+    "explanation": "The publisher retired its Legends and firstborn Space Marines datasheets with the 2026-10 codex and the detail source removed those rows on 2026-10-10. The 1770 this release counts are the same ones wh40k-11e-2026-09-5 published (1972), minus the retired ones; nothing changed value. Owner ruling 1(a), 2026-10-10.",
+    "finding_code": "COV-COLLAPSE",
+    "resolved_at": "2026-10-10T00:00:00Z",
+    "resolved_by": "adhoxx"
+  },
+  {
+    "data_digest": "sha256:533d8dac1d43f9d8dfe79e3e15b06f50ce02279e2b8665d7b2276b3228e445cc",
+    "entity_ref": "datasheet:litanies-of-the-devout",
+    "explanation": "The 2026-10 codex moved this ability's digest. The drafted replacement was dropped as lore by the review pass (C2, 2026-10-10), so the existing mechanics summary is retained pending a hand re-review (debt ledger #31). Owner decision 2026-10-10; the record is digest-bound, so a further text change raises the finding again.",
+    "finding_code": "SUM-NEEDS-REREVIEW",
+    "resolved_at": "2026-10-10T00:00:00Z",
+    "resolved_by": "adhoxx"
+  },
+  {
+    "data_digest": "sha256:1de63c3147e7cb0707bee6f7025e074e74cbe61f56f320489eed8924de645e44",
+    "entity_ref": "datasheet:pious-fervour",
+    "explanation": "The 2026-10 codex moved this ability's digest. The drafted replacement was dropped as lore by the review pass (C2, 2026-10-10), so the existing mechanics summary is retained pending a hand re-review (debt ledger #31). Owner decision 2026-10-10; the record is digest-bound, so a further text change raises the finding again.",
+    "finding_code": "SUM-NEEDS-REREVIEW",
+    "resolved_at": "2026-10-10T00:00:00Z",
+    "resolved_by": "adhoxx"
+  },
+  {
+    "data_digest": "sha256:2f957186153c22be64b0c0b2949d3a14e9a39d6118771c6722cebd649aa647d9",
+    "entity_ref": "datasheet:priority-target-acquisition",
+    "explanation": "The 2026-10 codex moved this ability's digest. The drafted replacement was dropped as lore by the review pass (C2, 2026-10-10), so the existing mechanics summary is retained pending a hand re-review (debt ledger #31). Owner decision 2026-10-10; the record is digest-bound, so a further text change raises the finding again.",
+    "finding_code": "SUM-NEEDS-REREVIEW",
+    "resolved_at": "2026-10-10T00:00:00Z",
+    "resolved_by": "adhoxx"
+  },
+  {
+    "data_digest": "sha256:74074ec6135fdb876ede04298b3b9f97bf0733014e2085a3a4c2a27494b1e474",
+    "entity_ref": "datasheet:reaping-tally",
+    "explanation": "The 2026-10 codex moved this ability's digest. The drafted replacement was dropped as lore by the review pass (C2, 2026-10-10), so the existing mechanics summary is retained pending a hand re-review (debt ledger #31). Owner decision 2026-10-10; the record is digest-bound, so a further text change raises the finding again.",
+    "finding_code": "SUM-NEEDS-REREVIEW",
+    "resolved_at": "2026-10-10T00:00:00Z",
+    "resolved_by": "adhoxx"
+  },
+  {
+    "data_digest": "sha256:f3c46ee573af2906947732d0082be1260ad5de45b96c831cd7b4e16e8247a6d5",
+    "entity_ref": "datasheet:temple-relics",
+    "explanation": "The 2026-10 codex moved this ability's digest. The drafted replacement was dropped as lore by the review pass (C2, 2026-10-10), so the existing mechanics summary is retained pending a hand re-review (debt ledger #31). Owner decision 2026-10-10; the record is digest-bound, so a further text change raises the finding again.",
+    "finding_code": "SUM-NEEDS-REREVIEW",
+    "resolved_at": "2026-10-10T00:00:00Z",
+    "resolved_by": "adhoxx"
+  },
+  {
+    "data_digest": "sha256:f51c32b9595f3ff4a86b3026f82a6b96c0d32b568bfe2f82ef8948cec5d620f8",
+    "entity_ref": "datasheet:the-lion-helm",
+    "explanation": "The 2026-10 codex moved this ability's digest. The drafted replacement was dropped as lore by the review pass (C2, 2026-10-10), so the existing mechanics summary is retained pending a hand re-review (debt ledger #31). Owner decision 2026-10-10; the record is digest-bound, so a further text change raises the finding again.",
+    "finding_code": "SUM-NEEDS-REREVIEW",
+    "resolved_at": "2026-10-10T00:00:00Z",
+    "resolved_by": "adhoxx"
   }
 ]
