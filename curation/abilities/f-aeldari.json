@@ -898,15 +898,15 @@
   },
   {
     "ability_key": "datasheet:interceptor",
-    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
-    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
-    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
-    "mechanic_digest": "0111ab3064e11c913f313fcb99c0a599",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "digest_refreshed_at_version": "wh40k-11e-2026-10-1",
+    "digest_refreshed_under_authorization": "owner-2026-10-10-codex-catch-up",
+    "mechanic_digest": "0ea47fdc500ee84d2be3883bfb166893",
     "name": "Interceptor",
     "review_state": "approved",
-    "reviewed_at": "2026-09-15T04:35:16Z",
+    "reviewed_at": "2026-10-10T16:21:09Z",
     "reviewed_by": "claude-sonnet-5-reviewer",
-    "summary": "Ranged attacks this model makes against a unit that can Fly get +1 to the Hit roll."
+    "summary": "This unit's ranged attacks that target a FLY unit have +1 to hit rolls."
   },
   {
     "ability_key": "datasheet:into-the-foe",

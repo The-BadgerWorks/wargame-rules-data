@@ -1127,15 +1127,15 @@
   },
   {
     "ability_key": "datasheet:meteoric-descent",
-    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
-    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
-    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
-    "mechanic_digest": "c768ea9a74e48fdb6d39adea512efb08",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "digest_refreshed_at_version": "wh40k-11e-2026-10-1",
+    "digest_refreshed_under_authorization": "owner-2026-10-10-codex-catch-up",
+    "mechanic_digest": "0e64210af40d9ac48aed97f8915c838d",
     "name": "Meteoric Descent",
     "review_state": "approved",
-    "reviewed_at": "2026-09-15T04:35:16Z",
+    "reviewed_at": "2026-10-10T16:21:09Z",
     "reviewed_by": "claude-sonnet-5-reviewer",
-    "summary": "In your Movement phase, when this unit is set up on the battlefield using the Deep Strike ability, it can perform a meteoric descent. If it does, this unit can be set up anywhere on the battlefield that is more than 6\" horizontally away from all enemy units, but until the end of the turn, it is not eligible to declare a charge."
+    "summary": "If this unit made an ingress move this turn, this unit's ranged attacks have +1 to hit rolls."
   },
   {
     "ability_key": "datasheet:mobile-command-vehicle",
@@ -1235,15 +1235,15 @@
   },
   {
     "ability_key": "datasheet:outflank",
-    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
-    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
-    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
-    "mechanic_digest": "21e979d1b9ecc3ed2d8819b0b39296ba",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "digest_refreshed_at_version": "wh40k-11e-2026-10-1",
+    "digest_refreshed_under_authorization": "owner-2026-10-10-codex-catch-up",
+    "mechanic_digest": "c5fb8b7f5b60b02e89475795db7c2d6c",
     "name": "Outflank",
     "review_state": "approved",
-    "reviewed_at": "2026-09-15T04:35:16Z",
+    "reviewed_at": "2026-10-10T16:21:09Z",
     "reviewed_by": "claude-sonnet-5-reviewer",
-    "summary": "When this model arrives from Strategic Reserves, it can be set up within the opponent's deployment zone (other restrictions still apply)."
+    "summary": "When this unit makes an ingress move, it can be set up within your opponent's deployment zone."
   },
   {
     "ability_key": "datasheet:overwhelming-short-range-firepower",
@@ -1331,15 +1331,15 @@
   },
   {
     "ability_key": "datasheet:powerful-volley",
-    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
-    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
-    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
-    "mechanic_digest": "0b46734e3a131311b87765dd2ac39548",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "digest_refreshed_at_version": "wh40k-11e-2026-10-1",
+    "digest_refreshed_under_authorization": "owner-2026-10-10-codex-catch-up",
+    "mechanic_digest": "e3f4cdc0b3520a792fbf7c2621b4b73c",
     "name": "Powerful Volley",
     "review_state": "approved",
-    "reviewed_at": "2026-09-15T04:35:16Z",
+    "reviewed_at": "2026-10-10T16:21:09Z",
     "reviewed_by": "claude-sonnet-5-reviewer",
-    "summary": "Each time this model shoots in your Shooting phase, provided it Remained Stationary this turn, all [HEAVY] weapons equipped by models in this unit have the [LETHAL HITS] ability."
+    "summary": "In a turn in which this unit remained stationary, its ranged attacks that have [HEAVY] also have [LETHAL HITS]."
   },
   {
     "ability_key": "datasheet:powerlifter-charge",
@@ -1569,15 +1569,15 @@
   },
   {
     "ability_key": "datasheet:sentry-programming",
-    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
-    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
-    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
-    "mechanic_digest": "e0733fddbf5bef487ce88a9552dc4ad3",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "digest_refreshed_at_version": "wh40k-11e-2026-10-1",
+    "digest_refreshed_under_authorization": "owner-2026-10-10-codex-catch-up",
+    "mechanic_digest": "ee525881f8cbacefbf34302941276077",
     "name": "Sentry Programming",
     "review_state": "approved",
-    "reviewed_at": "2026-09-15T04:35:16Z",
+    "reviewed_at": "2026-10-10T16:21:09Z",
     "reviewed_by": "claude-sonnet-5-reviewer",
-    "summary": "You can target this model with the Fire Overwatch Stratagem for 0CP, and may do so even if you have already targeted a different unit with that Stratagem this turn. This model can be targeted with that Stratagem only once per turn."
+    "summary": "This unit can be targeted with the Fire Overwatch Stratagem for 0CP. It can be targeted with that Stratagem even if that Stratagem has already been used on a different unit in the same phase."
   },
   {
     "ability_key": "datasheet:servo-scribes",

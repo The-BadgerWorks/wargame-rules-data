@@ -1,15 +1,15 @@
 [
   {
     "ability_key": "datasheet:book-of-salvation",
-    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
-    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
-    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
-    "mechanic_digest": "97e0e68369bee0269745170d2d453774",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "digest_refreshed_at_version": "wh40k-11e-2026-10-1",
+    "digest_refreshed_under_authorization": "owner-2026-10-10-codex-catch-up",
+    "mechanic_digest": "83ffeb36af20ddbae761bb163d7883f1",
     "name": "Book of Salvation",
     "review_state": "approved",
-    "reviewed_at": "2026-09-15T04:35:16Z",
+    "reviewed_at": "2026-10-10T16:21:09Z",
     "reviewed_by": "claude-sonnet-5-reviewer",
-    "summary": "While leading a unit, melee weapons of models in it gain +1 Attacks; if this model is destroyed, each friendly Adeptus Astartes unit within 6\" must take a Battle-shock test."
+    "summary": "This unit's melee attacks have +1 A."
   },
   {
     "ability_key": "datasheet:braziers-of-judgement",
@@ -25,27 +25,37 @@
   },
   {
     "ability_key": "datasheet:dark-angels-bodyguard",
-    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
-    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
-    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
-    "mechanic_digest": "f0b9099f8f8e54d769f192598b531f43",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "digest_refreshed_at_version": "wh40k-11e-2026-10-1",
+    "digest_refreshed_under_authorization": "owner-2026-10-10-codex-catch-up",
+    "mechanic_digest": "899275be45c097fe68561eaf50906b6a",
     "name": "Dark Angels Bodyguard",
     "review_state": "approved",
-    "reviewed_at": "2026-09-15T04:35:16Z",
+    "reviewed_at": "2026-10-10T16:21:09Z",
     "reviewed_by": "claude-sonnet-5-reviewer",
-    "summary": "While within 3\" of a friendly Adeptus Astartes Infantry unit, this model has the Lone Operative ability."
+    "summary": "While this unit is within 3\" of a friendly Dark Angels Infantry unit, this unit has the Lone Operative ability."
   },
   {
     "ability_key": "datasheet:deathwing",
-    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
-    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
-    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
-    "mechanic_digest": "0f78fb3ec934147a38f849310ca34ff1",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "digest_refreshed_at_version": "wh40k-11e-2026-10-1",
+    "digest_refreshed_under_authorization": "owner-2026-10-10-codex-catch-up",
+    "mechanic_digest": "1da27b2685cbfc966db63faa9752f24d",
     "name": "Deathwing",
     "review_state": "approved",
-    "reviewed_at": "2026-09-15T04:35:16Z",
+    "reviewed_at": "2026-10-10T16:21:09Z",
     "reviewed_by": "claude-sonnet-5-reviewer",
-    "summary": "This unit's attacks can ignore modifiers to Ballistic Skill, Weapon Skill, or the Hit roll; attacks against the unit selected for Oath of Moment also get +1 to Hit."
+    "summary": "This unit's attacks can ignore modifiers to BS and WS, and modifiers to Hit rolls."
+  },
+  {
+    "ability_key": "datasheet:emnity-for-the-unworthy",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "mechanic_digest": "6d2e5d4fd07b5b7f849d9f1c67668d74",
+    "name": "Emnity for the Unworthy",
+    "review_state": "approved",
+    "reviewed_at": "2026-10-10T16:21:09Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "summary": "This unit's attacks that target a CHARACTER unit have +1 to hit rolls."
   },
   {
     "ability_key": "datasheet:engulfing-fear-psychic",
@@ -58,6 +68,16 @@
     "reviewed_at": "2026-09-15T04:35:16Z",
     "reviewed_by": "claude-sonnet-5-reviewer",
     "summary": "In your Shooting phase, force one enemy unit within 18\" of this model to take a Battle-shock test."
+  },
+  {
+    "ability_key": "datasheet:engulfing-fear-psychic-level-1",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "mechanic_digest": "2ea589a0996fb03fbedfa986c68413bc",
+    "name": "Engulfing Fear (psychic level 1)",
+    "review_state": "approved",
+    "reviewed_at": "2026-10-10T16:21:09Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "summary": "In your Shooting phase, if this unit is not battle-shocked, you can make a psychic roll for this unit by rolling one D6. If you do: on a 1, this unit is battle-shocked; and select one enemy unit within 12\" of this model, and that unit makes a battle-shock roll with -1 to that battle-shock roll."
   },
   {
     "ability_key": "datasheet:enmity-for-the-unworthy",
@@ -73,63 +93,73 @@
   },
   {
     "ability_key": "datasheet:exemplar-of-hate",
-    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
-    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
-    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
-    "mechanic_digest": "4f2d56a3039aa7741908e6d9100f4e42",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "digest_refreshed_at_version": "wh40k-11e-2026-10-1",
+    "digest_refreshed_under_authorization": "owner-2026-10-10-codex-catch-up",
+    "mechanic_digest": "d8515bfcdcf395cce2ace03b2e35e0fc",
     "name": "Exemplar of Hate",
     "review_state": "approved",
-    "reviewed_at": "2026-09-15T04:35:16Z",
+    "reviewed_at": "2026-10-10T16:21:09Z",
     "reviewed_by": "claude-sonnet-5-reviewer",
-    "summary": "While leading a unit, melee attacks by models in that unit can re-roll the Hit roll."
+    "summary": "This unit’s melee attacks can re-roll hit rolls."
   },
   {
     "ability_key": "datasheet:feared-interrogator",
-    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
-    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
-    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
-    "mechanic_digest": "c487fed6e48593f5aba89a18ec23d48a",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "digest_refreshed_at_version": "wh40k-11e-2026-10-1",
+    "digest_refreshed_under_authorization": "owner-2026-10-10-codex-catch-up",
+    "mechanic_digest": "52377c310ab5ec3db5cf0a624a77bcef",
     "name": "Feared Interrogator",
     "review_state": "approved",
-    "reviewed_at": "2026-09-15T04:35:16Z",
+    "reviewed_at": "2026-10-10T16:21:09Z",
     "reviewed_by": "claude-sonnet-5-reviewer",
-    "summary": "At the start of the Fight phase, each enemy Character unit within 6\" of this model must take a Battle-shock test at -1; destroying an enemy Character with a melee attack grants 1CP."
+    "summary": "At the start of the Fight phase, each enemy CHARACTER unit within 6\" of this model makes a battle-shock roll, with -1 to that battle-shock roll."
   },
   {
     "ability_key": "datasheet:grand-master-of-the-deathwing",
-    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
-    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
-    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
-    "mechanic_digest": "5e429eb8f44f281d34209b4217d3cdf1",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "digest_refreshed_at_version": "wh40k-11e-2026-10-1",
+    "digest_refreshed_under_authorization": "owner-2026-10-10-codex-catch-up",
+    "mechanic_digest": "8161861df2d6ce15466da50d913ba3ff",
     "name": "Grand Master of the Deathwing",
     "review_state": "approved",
-    "reviewed_at": "2026-09-15T04:35:16Z",
+    "reviewed_at": "2026-10-10T16:21:09Z",
     "reviewed_by": "claude-sonnet-5-reviewer",
-    "summary": "While leading a unit, attacks by models in it that score a Critical Hit gain the Precision ability."
+    "summary": "This unit's attacks that target an enemy CHARACTER unit have +1 to wound rolls."
   },
   {
     "ability_key": "datasheet:grand-master-of-the-ravenwing",
-    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
-    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
-    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
-    "mechanic_digest": "9647143bc466e35f839eb928739860a4",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "digest_refreshed_at_version": "wh40k-11e-2026-10-1",
+    "digest_refreshed_under_authorization": "owner-2026-10-10-codex-catch-up",
+    "mechanic_digest": "dae4215073a590f9e923a685c5f29069",
     "name": "Grand Master of the Ravenwing",
     "review_state": "approved",
-    "reviewed_at": "2026-09-15T04:35:16Z",
+    "reviewed_at": "2026-10-10T16:21:09Z",
     "reviewed_by": "claude-sonnet-5-reviewer",
-    "summary": "This unit's ranged attacks have Assault, its Advance move does not stop it charging, and it has the Mobile ability."
+    "summary": "This unit has Mobile. In your Command phase, you can use this ability; if you do, select one combat doctrine to be active for this unit until the start of your next Command phase."
   },
   {
     "ability_key": "datasheet:honour-or-death",
-    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
-    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
-    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
-    "mechanic_digest": "feaa2b8d69e0faaa0ffde286789fcc52",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "digest_refreshed_at_version": "wh40k-11e-2026-10-1",
+    "digest_refreshed_under_authorization": "owner-2026-10-10-codex-catch-up",
+    "mechanic_digest": "b42851222ace747097c84db9f3dd8d87",
     "name": "Honour or Death",
     "review_state": "approved",
-    "reviewed_at": "2026-09-15T04:35:16Z",
+    "reviewed_at": "2026-10-10T16:21:09Z",
     "reviewed_by": "claude-sonnet-5-reviewer",
-    "summary": "While this unit contains a Company Champion, add 1 to Advance and Charge rolls made for this unit. When you target this unit with the Heroic Intervention Stratagem, that use is -1 CP."
+    "summary": "While this unit contains a Ravenwing Champion, it has +1 to Advance rolls and Charge rolls, and when you target this unit with the Heroic Intervention Stratagem, that use is -1CP."
+  },
+  {
+    "ability_key": "datasheet:icon-of-old-caliban",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "mechanic_digest": "21c14d60cc8b9c30683c869f710fbdea",
+    "name": "Icon of Old Caliban",
+    "review_state": "approved",
+    "reviewed_at": "2026-10-10T16:21:09Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "summary": "While a friendly Dark Angels unit is within 6\" of this unit, that unit has Stealth."
   },
   {
     "ability_key": "datasheet:icon-of-old-caliban-aura",
@@ -145,39 +175,39 @@
   },
   {
     "ability_key": "datasheet:inner-circle",
-    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
-    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
-    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
-    "mechanic_digest": "e960e398d0ccfb5cd3a96473f078291a",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "digest_refreshed_at_version": "wh40k-11e-2026-10-1",
+    "digest_refreshed_under_authorization": "owner-2026-10-10-codex-catch-up",
+    "mechanic_digest": "cab188d375bf203d12830436f743fdcb",
     "name": "Inner Circle",
     "review_state": "approved",
-    "reviewed_at": "2026-09-15T04:35:16Z",
+    "reviewed_at": "2026-10-10T16:21:09Z",
     "reviewed_by": "claude-sonnet-5-reviewer",
-    "summary": "Attacks allocated to a model in this unit have their Damage characteristic reduced by 1."
+    "summary": "Attacks that target this unit have -1 D. This unit cannot be targeted with the Tactical Dreadnought Fortitude stratagem."
   },
   {
     "ability_key": "datasheet:intractable-will",
-    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
-    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
-    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
-    "mechanic_digest": "7bc608958b57ab18be094876a8342125",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "digest_refreshed_at_version": "wh40k-11e-2026-10-1",
+    "digest_refreshed_under_authorization": "owner-2026-10-10-codex-catch-up",
+    "mechanic_digest": "8c0d30e39cee25f4b1f08cca8f799e69",
     "name": "Intractable Will",
     "review_state": "approved",
-    "reviewed_at": "2026-09-15T04:35:16Z",
+    "reviewed_at": "2026-10-10T16:21:09Z",
     "reviewed_by": "claude-sonnet-5-reviewer",
-    "summary": "While leading a unit, when a model in it that has not yet fought is destroyed by a melee attack, roll a D6: on a 4+ it fights after the attacker before being removed from play."
+    "summary": "In the Fight phase, when a model in this unit is destroyed, if this unit has not been selected to fight this phase, roll one D6. On a 4+, do not remove that model from the battlefield. That model is removed from the battlefield when this unit has fought, or at the end of the phase, whichever comes first."
   },
   {
     "ability_key": "datasheet:knights-of-caliban",
-    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
-    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
-    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
-    "mechanic_digest": "256b557345fbab6a5c324c2bf9b7f0b5",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "digest_refreshed_at_version": "wh40k-11e-2026-10-1",
+    "digest_refreshed_under_authorization": "owner-2026-10-10-codex-catch-up",
+    "mechanic_digest": "b4c709f6cd665ff1bfcb5c691d20851f",
     "name": "Knights of Caliban",
     "review_state": "approved",
-    "reviewed_at": "2026-09-15T04:35:16Z",
+    "reviewed_at": "2026-10-10T16:21:09Z",
     "reviewed_by": "claude-sonnet-5-reviewer",
-    "summary": "If this unit made a Charge move this turn, its melee weapons gain Anti-Monster 4+ and Anti-Vehicle 4+ for the rest of the phase when it fights."
+    "summary": "If this unit made a charge move this turn, this unit's melee attacks have [ANTI-MONSTER/VEHICLE 4+]."
   },
   {
     "ability_key": "datasheet:lightning-fast-manoeuvres",
@@ -192,6 +222,16 @@
     "summary": "Ranged attacks that target this unit take -1 to wound."
   },
   {
+    "ability_key": "datasheet:martial-exemplar",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "mechanic_digest": "a44d043a5abc942466e7fc159fe2ecd9",
+    "name": "Martial Exemplar",
+    "review_state": "approved",
+    "reviewed_at": "2026-10-10T16:21:09Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "summary": "While a friendly Dark Angels unit is within 6\" of this unit, that unit's melee attacks can re-roll hit rolls of 1 and can re-roll wound rolls of 1."
+  },
+  {
     "ability_key": "datasheet:martial-exemplar-aura",
     "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
     "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
@@ -204,16 +244,26 @@
     "summary": "While a friendly Adeptus Astartes unit is within 6\" of this model, its melee attacks re-roll Hit rolls of 1 and Wound rolls of 1."
   },
   {
+    "ability_key": "datasheet:master-strategist",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "mechanic_digest": "051e8628c8eb2fee67d1cd038bf776ff",
+    "name": "Master Strategist",
+    "review_state": "approved",
+    "reviewed_at": "2026-10-10T16:21:09Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "summary": "In your Command phase, you can use this ability. If you do, select one combat doctrine to be active for this unit until the start of your next Command phase, in addition to any other combat doctrine."
+  },
+  {
     "ability_key": "datasheet:masterful-tactician",
-    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
-    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
-    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
-    "mechanic_digest": "f8f2f3a1fabbea1e01878b77f39fb7f0",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "digest_refreshed_at_version": "wh40k-11e-2026-10-1",
+    "digest_refreshed_under_authorization": "owner-2026-10-10-codex-catch-up",
+    "mechanic_digest": "c5d6df4a0f81364706c35bd384030c9c",
     "name": "Masterful Tactician",
     "review_state": "approved",
-    "reviewed_at": "2026-09-15T04:35:16Z",
+    "reviewed_at": "2026-10-10T16:21:09Z",
     "reviewed_by": "claude-sonnet-5-reviewer",
-    "summary": "At the start of your Command phase, while this model is on the battlefield, gain 1CP."
+    "summary": "In your Movement phase, select up to one visible friendly ADEPTUS ASTARTES unit within 9\" of this model, and select one combat doctrine. That combat doctrine is active for that unit until the start of your next Command phase."
   },
   {
     "ability_key": "datasheet:mist-wreathed-shadow-realms",
@@ -226,6 +276,16 @@
     "reviewed_at": "2026-09-15T04:35:16Z",
     "reviewed_by": "claude-sonnet-5-reviewer",
     "summary": "In your Command phase, if this unit is unengaged, you can use this ability. If you do: place this unit in strategic reserves; this unit can make an ingress move in your next Movement phase, including in your first turn."
+  },
+  {
+    "ability_key": "datasheet:no-hiding-from-the-watchers",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "mechanic_digest": "c0d084aadec516865be1caa1962ac13c",
+    "name": "No Hiding from the Watchers",
+    "review_state": "approved",
+    "reviewed_at": "2026-10-10T16:21:09Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "summary": "While a friendly Dark Angels unit is within 6\" of this unit, that unit has Feel No Pain 5+ against psychic attacks and mortal wounds."
   },
   {
     "ability_key": "datasheet:no-hiding-from-the-watchers-aura",
@@ -241,13 +301,13 @@
   },
   {
     "ability_key": "datasheet:primarch-of-the-first-legion",
-    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
-    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
-    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
-    "mechanic_digest": "1af65dbf8c46c4ca3c08cd030f0895df",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "digest_refreshed_at_version": "wh40k-11e-2026-10-1",
+    "digest_refreshed_under_authorization": "owner-2026-10-10-codex-catch-up",
+    "mechanic_digest": "0ee6d591d45a9c0d4d5064a1c80734f7",
     "name": "Primarch of the First Legion",
     "review_state": "approved",
-    "reviewed_at": "2026-09-15T04:35:16Z",
+    "reviewed_at": "2026-10-10T16:21:09Z",
     "reviewed_by": "claude-sonnet-5-reviewer",
     "summary": "At the start of your Command phase, choose two Primarch of the First Legion abilities for this model to have until your next Command phase."
   },
@@ -276,38 +336,48 @@
     "summary": "Once per turn, in your opponent's Shooting phase, when a friendly Adeptus Astartes unit within 6\" of this model is destroyed, this model can use this ability. It cannot use this ability when it is itself destroyed. If it does, after the attacking unit has finished making its attacks, this model can shoot as if it were your Shooting phase, but when resolving those attacks it can only target that enemy unit, and only if that unit is an eligible target."
   },
   {
+    "ability_key": "datasheet:storm-of-vengeance-once-per-turn-per-unit",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "mechanic_digest": "29922e534ca2a9526dc45cfc6b5be40a",
+    "name": "Storm of Vengeance (Once per turn, per unit)",
+    "review_state": "approved",
+    "reviewed_at": "2026-10-10T16:21:09Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "summary": "Usable once per turn, per unit. Trigger: in your opponent's Shooting phase, when an enemy unit has shot, if those attacks destroyed a friendly Dark Angels unit within 6\" of this unit. If used, this unit shoots using normal shooting, and while doing so it can only target that enemy unit."
+  },
+  {
     "ability_key": "datasheet:strikes-of-retribution",
-    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
-    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
-    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
-    "mechanic_digest": "4ec4c617317fd7256a522d4f15c24eba",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "digest_refreshed_at_version": "wh40k-11e-2026-10-1",
+    "digest_refreshed_under_authorization": "owner-2026-10-10-codex-catch-up",
+    "mechanic_digest": "c6968ed8e6096331b4c9d6cabcc80504",
     "name": "Strikes of Retribution",
     "review_state": "approved",
-    "reviewed_at": "2026-09-15T04:35:16Z",
+    "reviewed_at": "2026-10-10T16:21:09Z",
     "reviewed_by": "claude-sonnet-5-reviewer",
-    "summary": "When a melee attack is allocated to this model, after the attacker finishes its attacks, roll up to six D6: each 4+ deals 1 mortal wound to the attacking unit."
+    "summary": "In the fight phase, when this model is destroyed, if this unit has not been selected to fight this phase, roll one D6. On a 2+, this model is not removed from the battlefield. It is removed from the battlefield when its unit has fought, or at the end of the phase, whichever comes first."
   },
   {
     "ability_key": "datasheet:supreme-grand-master",
-    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
-    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
-    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
-    "mechanic_digest": "9d89eacf0385d3484028799505e292e3",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "digest_refreshed_at_version": "wh40k-11e-2026-10-1",
+    "digest_refreshed_under_authorization": "owner-2026-10-10-codex-catch-up",
+    "mechanic_digest": "8e7d3ddb1f2a657ed247d25d4a4b013d",
     "name": "Supreme Grand Master",
     "review_state": "approved",
-    "reviewed_at": "2026-09-15T04:35:16Z",
+    "reviewed_at": "2026-10-10T16:21:09Z",
     "reviewed_by": "claude-sonnet-5-reviewer",
-    "summary": "While leading a unit, weapons equipped by models in that unit gain Sustained Hits 1."
+    "summary": "This unit's attacks have [SUSTAINED HITS 1]."
   },
   {
     "ability_key": "datasheet:the-emperors-shield",
-    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
-    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
-    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
-    "mechanic_digest": "34e01a4529a258df8c8d3c020f20b87b",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "digest_refreshed_at_version": "wh40k-11e-2026-10-1",
+    "digest_refreshed_under_authorization": "owner-2026-10-10-codex-catch-up",
+    "mechanic_digest": "9362d03dc177597b5858538c5d7649f3",
     "name": "The Emperor’s Shield",
     "review_state": "approved",
-    "reviewed_at": "2026-09-15T04:35:16Z",
+    "reviewed_at": "2026-10-10T16:21:09Z",
     "reviewed_by": "claude-sonnet-5-reviewer",
     "summary": "When an attack with higher Strength than this model's Toughness is allocated to it, subtract 1 from the Wound roll."
   },
@@ -325,15 +395,25 @@
   },
   {
     "ability_key": "datasheet:the-spiritshield-helm",
-    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
-    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
-    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
-    "mechanic_digest": "6a811733f94d3ee1f7e2ade146ca7707",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "digest_refreshed_at_version": "wh40k-11e-2026-10-1",
+    "digest_refreshed_under_authorization": "owner-2026-10-10-codex-catch-up",
+    "mechanic_digest": "74ca3fb6adff7e04ae6c9dd5cc90e5e7",
     "name": "The Spiritshield Helm",
     "review_state": "approved",
-    "reviewed_at": "2026-09-15T04:35:16Z",
+    "reviewed_at": "2026-10-10T16:21:09Z",
     "reviewed_by": "claude-sonnet-5-reviewer",
-    "summary": "This model has Feel No Pain 3+ against Psychic Attacks and mortal wounds."
+    "summary": "This unit has Feel No Pain 3+ against psychic attacks and against mortal wounds."
+  },
+  {
+    "ability_key": "datasheet:the-watchers",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "mechanic_digest": "caaf46eb5a55035ea388a17ae47bd5ae",
+    "name": "The Watchers",
+    "review_state": "approved",
+    "reviewed_at": "2026-10-10T16:21:09Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "summary": "This unit has Feel No Pain 4+ against psychic attacks and mortal wounds."
   },
   {
     "ability_key": "datasheet:watcher-in-the-dark",
@@ -346,5 +426,25 @@
     "reviewed_at": "2026-09-15T04:35:16Z",
     "reviewed_by": "claude-sonnet-5-reviewer",
     "summary": "Once per battle, in any phase, just after a mortal wound is allocated to an ADEPTUS ASTARTES model in this unit, this unit can use this ability. Until the end of that phase, models in this unit have the Feel No Pain 4+ ability against mortal wounds."
+  },
+  {
+    "ability_key": "datasheet:watcher-in-the-dark-once-per-battle-per-unit",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "mechanic_digest": "5ef45d2c74604a481656dd8cb9d5ef85",
+    "name": "Watcher in the Dark (Once per battle, per unit)",
+    "review_state": "approved",
+    "reviewed_at": "2026-10-10T16:21:09Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "summary": "Once per battle, per unit. In any phase, when this unit suffers a mortal wound, this unit can use this ability. If it does, this unit has Feel No Pain 4+ against mortal wounds."
+  },
+  {
+    "ability_key": "datasheet:whispers-of-the-shadow-forest-psychic-level-1",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "mechanic_digest": "f13fdb24e372a08de500ffbcaf7bdc92",
+    "name": "Whispers of the Shadow Forest (psychic level 1)",
+    "review_state": "approved",
+    "reviewed_at": "2026-10-10T16:21:09Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "summary": "When an enemy unit targets this unit, if this unit is not battle-shocked, you can make a psychic roll for this unit by rolling one D6. If you do: on a 1, this unit is battle-shocked; attacks that target this unit have -1 to hit rolls until the end of the phase."
   }
 ]

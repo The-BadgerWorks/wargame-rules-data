@@ -241,13 +241,13 @@
   },
   {
     "ability_key": "datasheet:personal-teleporters",
-    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
-    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
-    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
-    "mechanic_digest": "a1d232c41032c0b27729058e57f98dea",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "digest_refreshed_at_version": "wh40k-11e-2026-10-1",
+    "digest_refreshed_under_authorization": "owner-2026-10-10-codex-catch-up",
+    "mechanic_digest": "ba057ea368c40a6fcc55c0dd7650beff",
     "name": "Personal Teleporters",
     "review_state": "approved",
-    "reviewed_at": "2026-09-15T04:35:16Z",
+    "reviewed_at": "2026-10-10T16:21:09Z",
     "reviewed_by": "claude-sonnet-5-reviewer",
     "summary": "After this unit shoots, if it is not within Engagement Range of any enemy, it can make a further 6\" Normal move, but becomes ineligible to charge that turn."
   },

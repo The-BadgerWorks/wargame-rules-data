@@ -325,13 +325,13 @@
   },
   {
     "ability_key": "datasheet:sunderer-of-fortresses",
-    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
-    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
-    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
-    "mechanic_digest": "787d92ef3790940a6f64a0193c7307d1",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "digest_refreshed_at_version": "wh40k-11e-2026-10-1",
+    "digest_refreshed_under_authorization": "owner-2026-10-10-codex-catch-up",
+    "mechanic_digest": "c69b6a9b91ac16841d70a0fc7382a29b",
     "name": "Sunderer of Fortresses",
     "review_state": "approved",
-    "reviewed_at": "2026-09-15T04:35:16Z",
+    "reviewed_at": "2026-10-10T16:21:09Z",
     "reviewed_by": "claude-sonnet-5-reviewer",
     "summary": "Each time this model attacks a VEHICLE, improve that attack's Strength and Damage by 1 (by 2 instead if the target is a FORTIFICATION)."
   },

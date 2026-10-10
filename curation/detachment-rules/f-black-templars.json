@@ -1,5 +1,15 @@
 [
   {
+    "summary_key": "detachment:d-assault-brethren:assault-mastery",
+    "detachment_id": "d-assault-brethren",
+    "name": "Assault Mastery",
+    "summary": "You can select the assault doctrine one additional time per battle.",
+    "review_state": "approved",
+    "mechanic_digest": "665c5ba11717dddaa5550d83752c8e03",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "reviewed_at": "2026-10-10T16:21:09Z"
+  },
+  {
     "summary_key": "detachment:d-ceramite-sentinels:adaptive-defence",
     "detachment_id": "d-ceramite-sentinels",
     "name": "Adaptive Defence",
@@ -8,6 +18,46 @@
     "mechanic_digest": "baaf7422ec0d14aaf6e17fcbaa987c9a",
     "reviewed_by": "claude-opus-5-adversarial-reviewer",
     "reviewed_at": "2026-08-06T00:00:00Z"
+  },
+  {
+    "summary_key": "detachment:d-deathwatch-support:mission-tactics",
+    "detachment_id": "d-deathwatch-support",
+    "name": "Mission Tactics",
+    "summary": "Friendly KILL TEAM units with this ability gain: Furor Tactics — if the devastator doctrine is active for the unit, its attacks have [SUSTAINED HITS 1]; Malleus Tactics — if the tactical doctrine is active, its attacks have [LETHAL HITS]; Purgatus Tactics — if the assault doctrine is active, its attacks that target an enemy unit within 9\" of it have [PRECISION]. DEATHWATCH units may be included without the army's Chapter keyword, up to 500 points total. Unless otherwise stated, a DEATHWATCH model cannot be the WARLORD. KILL TEAM units take enhancements only from this detachment.",
+    "review_state": "approved",
+    "mechanic_digest": "507a056e5d75f0c5b35c1cc9f0af2802",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "reviewed_at": "2026-10-10T16:21:09Z"
+  },
+  {
+    "summary_key": "detachment:d-devastator-brethren:devastator-mastery",
+    "detachment_id": "d-devastator-brethren",
+    "name": "Devastator Mastery",
+    "summary": "Once per battle, you can select the devastator doctrine one additional time.",
+    "review_state": "approved",
+    "mechanic_digest": "c3f225cccf83ba4bc3d9774af5f71d25",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "reviewed_at": "2026-10-10T16:21:09Z"
+  },
+  {
+    "summary_key": "detachment:d-fist-of-the-god-emperor:purge-and-sanctify",
+    "detachment_id": "d-fist-of-the-god-emperor",
+    "name": "Purge and Sanctify",
+    "summary": "Each time a friendly CRUSADER SQUAD unit makes a surge move, instead of selecting a surge target, you can select the closest objective to that unit. When that unit makes that surge move, each model in that unit must end that surge move as close as possible to that objective instead. Restrictions: your army can include Black Templars units, but it cannot include any ADEPTUS ASTARTES units drawn from any other Chapter.",
+    "review_state": "approved",
+    "mechanic_digest": "ef8201bc0efcfe5ff64d839c1b0c2087",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "reviewed_at": "2026-10-10T16:21:09Z"
+  },
+  {
+    "summary_key": "detachment:d-gauntlet-task-force:combined-deployment",
+    "detachment_id": "d-gauntlet-task-force",
+    "name": "Combined Deployment",
+    "summary": "In your Shooting phase, when a friendly Adeptus Astartes Transport unit has shot, you can select one enemy unit hit by those attacks. That unit is assailed until the end of the turn. While a unit is assailed, when an ADEPTUS ASTARTES unit that disembarked this turn targets that unit, those attacks have [Sustained Hits 1].",
+    "review_state": "approved",
+    "mechanic_digest": "a1237cad32548f8526b29af533ef733b",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "reviewed_at": "2026-10-10T16:21:09Z"
   },
   {
     "summary_key": "detachment:d-gladius-task-force:combat-doctrines",
@@ -20,6 +70,36 @@
     "reviewed_at": "2026-09-15T04:35:16Z"
   },
   {
+    "summary_key": "detachment:d-gravis-linebreaker-force:walking-fortress",
+    "detachment_id": "d-gravis-linebreaker-force",
+    "name": "Walking Fortress",
+    "summary": "In a turn in which a friendly Gravis unit made a normal move, that unit's ranged attacks do not have [Heavy] and have +1 to hit rolls.",
+    "review_state": "approved",
+    "mechanic_digest": "5474151d8f85e4b025dc17dfb56c8528",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "reviewed_at": "2026-10-10T16:21:09Z"
+  },
+  {
+    "summary_key": "detachment:d-gravis-siege-force:indomitable-defence",
+    "detachment_id": "d-gravis-siege-force",
+    "name": "Indomitable Defence",
+    "summary": "While a friendly Gravis unit is within range of an objective, attacks that target that unit with a S greater than that unit's T have -1 to wound rolls.",
+    "review_state": "approved",
+    "mechanic_digest": "d9fe8f2a262532c04ea814b715032905",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "reviewed_at": "2026-10-10T16:21:09Z"
+  },
+  {
+    "summary_key": "detachment:d-ironclad-champions:enduring-vengeance",
+    "detachment_id": "d-ironclad-champions",
+    "name": "Enduring Vengeance",
+    "summary": "Friendly Adeptus Astartes Dreadnought units can re-roll hit rolls of 1.",
+    "review_state": "approved",
+    "mechanic_digest": "d2d94dba4ab5d22a34c10c18165c6048",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "reviewed_at": "2026-10-10T16:21:09Z"
+  },
+  {
     "summary_key": "detachment:d-ironstorm-spearhead:armoured-wrath",
     "detachment_id": "d-ironstorm-spearhead",
     "name": "Armoured Wrath",
@@ -28,6 +108,16 @@
     "mechanic_digest": "8cf805dd763b86d1e0fd41db8c770094",
     "reviewed_by": "claude-opus-5-adversarial-reviewer",
     "reviewed_at": "2026-08-06T00:00:00Z"
+  },
+  {
+    "summary_key": "detachment:d-ironstorm-spearhead:ironstorm-auto-targeters",
+    "detachment_id": "d-ironstorm-spearhead",
+    "name": "Ironstorm Auto-targeters",
+    "summary": "Friendly Adeptus Astartes Vehicle units, excluding walker units, can re-roll one hit roll and re-roll one wound roll for their ranged attacks.",
+    "review_state": "approved",
+    "mechanic_digest": "4066814012e130d0b0da708ebb09c147",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "reviewed_at": "2026-10-10T16:21:09Z"
   },
   {
     "summary_key": "detachment:d-marshals-household:faith-fuelled-resolve",
@@ -40,6 +130,26 @@
     "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
+    "summary_key": "detachment:d-phobos-shadow-force:shadow-masters",
+    "detachment_id": "d-phobos-shadow-force",
+    "name": "Shadow Masters",
+    "summary": "When a friendly Phobos or Scout Squad unit has shot, choose one of the following: those attacks do not prevent that unit from being hidden; or that unit can make a normal move of up to D6\", and that unit is not eligible to declare a charge until the end of the turn.",
+    "review_state": "approved",
+    "mechanic_digest": "8645d2a523a790a82b6b424ad28e9ea4",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "reviewed_at": "2026-10-10T16:21:09Z"
+  },
+  {
+    "summary_key": "detachment:d-phobos-shock-force:vanguard-ambushers",
+    "detachment_id": "d-phobos-shock-force",
+    "name": "Vanguard Ambushers",
+    "summary": "At the end of your Movement phase, if a friendly Phobos unit is hidden, that unit's attacks can re-roll wound rolls of 1 until the end of the turn.",
+    "review_state": "approved",
+    "mechanic_digest": "aef56cc851653d80b6617189fdf7cbc6",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "reviewed_at": "2026-10-10T16:21:09Z"
+  },
+  {
     "summary_key": "detachment:d-stormlance-task-force:lightning-assault",
     "detachment_id": "d-stormlance-task-force",
     "name": "Lightning Assault",
@@ -48,5 +158,65 @@
     "mechanic_digest": "6cac692ade2f72f445085835ff0f6c25",
     "reviewed_by": "claude-opus-5-adversarial-reviewer",
     "reviewed_at": "2026-08-06T00:00:00Z"
+  },
+  {
+    "summary_key": "detachment:d-stormlance-task-force:lightning-fast-strike",
+    "detachment_id": "d-stormlance-task-force",
+    "name": "Lightning-fast Strike",
+    "summary": "Friendly Adeptus Astartes Mounted or Speeder units have +2\" Move.",
+    "review_state": "approved",
+    "mechanic_digest": "941f4eb0b76d187b4005d81ce1b1ab19",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "reviewed_at": "2026-10-10T16:21:09Z"
+  },
+  {
+    "summary_key": "detachment:d-tactical-brethren:tactical-mastery",
+    "detachment_id": "d-tactical-brethren",
+    "name": "Tactical Mastery",
+    "summary": "You can select the tactical doctrine one additional time per battle.",
+    "review_state": "approved",
+    "mechanic_digest": "21c88a4d5d2dd8c6359b01cbe6ba702d",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "reviewed_at": "2026-10-10T16:21:09Z"
+  },
+  {
+    "summary_key": "detachment:d-tacticus-attack-force:wrath-of-the-chapter",
+    "detachment_id": "d-tacticus-attack-force",
+    "name": "Wrath of the Chapter",
+    "summary": "Friendly Tacticus units can re-roll advance rolls.",
+    "review_state": "approved",
+    "mechanic_digest": "86618b74b55917d60613cf3dd384c51a",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "reviewed_at": "2026-10-10T16:21:09Z"
+  },
+  {
+    "summary_key": "detachment:d-tacticus-firestorm-force:codex-fire-patterns",
+    "detachment_id": "d-tacticus-firestorm-force",
+    "name": "Codex Fire-patterns",
+    "summary": "Friendly Tacticus units' attacks with the [Rapid Fire] ability benefit from [Rapid Fire] when targeting units at any range up to that attack's maximum range.",
+    "review_state": "approved",
+    "mechanic_digest": "e36bb1725ef6332531cf2f1584c08813",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "reviewed_at": "2026-10-10T16:21:09Z"
+  },
+  {
+    "summary_key": "detachment:d-terminator-storm-force:death-blow",
+    "detachment_id": "d-terminator-storm-force",
+    "name": "Death Blow",
+    "summary": "Friendly Adeptus Astartes Terminator units have +1 to charge rolls.",
+    "review_state": "approved",
+    "mechanic_digest": "6f314a548684bd0c687ed4229478a3cd",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "reviewed_at": "2026-10-10T16:21:09Z"
+  },
+  {
+    "summary_key": "detachment:d-vow-sworn-crusaders:templar-vows",
+    "detachment_id": "d-vow-sworn-crusaders",
+    "name": "Templar Vows",
+    "summary": "At the start of the first battle round, select one of three Vows, active for friendly ADEPTUS ASTARTES units until the end of the battle. Vow 1: this unit's melee attacks targeting a PSYKER unit have [PRECISION] and [LANCE]. Vow 2: friendly melee attacks targeting a unit with T greater than this unit's S have +1 to wound rolls. Vow 3: friendly INFANTRY units secure objectives they control at the end of your Movement phase, and an advance move does not prevent eligibility to start an action. Army may include Black Templars units but no ADEPTUS ASTARTES units from another Chapter.",
+    "review_state": "approved",
+    "mechanic_digest": "6fae57a23f77bbb3a702fb322ee4ee27",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "reviewed_at": "2026-10-10T16:21:09Z"
   }
 ]

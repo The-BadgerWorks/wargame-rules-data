@@ -12,6 +12,16 @@
     "summary": "In your opponent's Shooting phase, if a model in this unit was destroyed by an enemy unit's attacks, this unit can make a surge move of up to D6\"."
   },
   {
+    "ability_key": "datasheet:aggressive-reconnaissance",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "mechanic_digest": "b3ff7665765df85919a7ecd8ccf1e247",
+    "name": "Aggressive Reconnaissance",
+    "review_state": "approved",
+    "reviewed_at": "2026-10-10T16:21:09Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "summary": "In your Shooting phase, this unit's ranged attacks that target an enemy unit that is not within 6\" of any other enemy units have +1 to wound rolls."
+  },
+  {
     "ability_key": "datasheet:alpha-hunter",
     "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
     "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
@@ -61,27 +71,27 @@
   },
   {
     "ability_key": "datasheet:author-of-the-codex",
-    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
-    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
-    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
-    "mechanic_digest": "b3e04e0d6772cb4f92cfa8f27c403156",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "digest_refreshed_at_version": "wh40k-11e-2026-10-1",
+    "digest_refreshed_under_authorization": "owner-2026-10-10-codex-catch-up",
+    "mechanic_digest": "b24f08e09f96962c897c31ea8c8ef349",
     "name": "Author of the Codex",
     "review_state": "approved",
-    "reviewed_at": "2026-09-15T04:35:16Z",
+    "reviewed_at": "2026-10-10T16:21:09Z",
     "reviewed_by": "claude-sonnet-5-reviewer",
-    "summary": "At the start of your Command phase, choose two listed abilities; this model has those abilities until the start of your next Command phase."
+    "summary": "In your Movement phase, you can select one visible friendly ADEPTUS ASTARTES unit within 12\" of this model, and select one combat doctrine. That combat doctrine is active for that unit, in addition to any other combat doctrines that are active for that unit, until the start of your next Command phase."
   },
   {
     "ability_key": "datasheet:banner-of-macragge",
-    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
-    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
-    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
-    "mechanic_digest": "eacabc0752d3b0805a2cc67c83d7eac9",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "digest_refreshed_at_version": "wh40k-11e-2026-10-1",
+    "digest_refreshed_under_authorization": "owner-2026-10-10-codex-catch-up",
+    "mechanic_digest": "dfe160616580061025c6aaef8dfbd8fd",
     "name": "Banner of Macragge",
     "review_state": "approved",
-    "reviewed_at": "2026-09-15T04:35:16Z",
+    "reviewed_at": "2026-10-10T16:21:09Z",
     "reviewed_by": "claude-sonnet-5-reviewer",
-    "summary": "Once per battle, at the start of the Fight phase, the bearer can add 1 to the Strength and Attacks characteristics of melee weapons equipped by models in its unit until the end of the phase."
+    "summary": "At the end of your Movement phase, if this unit is controlling an objective, that objective is secured. Once per battle, per army, when this unit is selected to fight, you can use this ability; if you do, this unit's melee attacks have +1 A and +1 S."
   },
   {
     "ability_key": "datasheet:berserk-fury",
@@ -108,6 +118,46 @@
     "summary": "You can target this unit with Rapid Ingress or Heroic Intervention for -1 CP, regardless of other uses of that stratagem this phase; it does not prevent other units from also using it."
   },
   {
+    "ability_key": "datasheet:blackwing-mantle-once-per-phase-per-army",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "mechanic_digest": "39754b37492370d26eb9288588fa7b6b",
+    "name": "Blackwing Mantle (Once per phase, per army)",
+    "review_state": "approved",
+    "reviewed_at": "2026-10-10T16:21:09Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "summary": "Once per phase, per army: you can target this unit with the Heroic Intervention Stratagem, regardless of any other uses of that Stratagem this phase. If you do: that use is -1 CP; and that use does not prevent any uses of that Stratagem on other units this phase."
+  },
+  {
+    "ability_key": "datasheet:bladeguard-once-per-turn-per-unit",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "mechanic_digest": "678e5be9d7c38ee3a7cd9bba592710df",
+    "name": "Bladeguard (Once per turn, per unit)",
+    "review_state": "approved",
+    "reviewed_at": "2026-10-10T16:21:09Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "summary": "Once per turn, per unit. In the Fight phase, when this unit is selected to fight or when an enemy unit targets this unit, select one of the following: this unit's melee attacks have +1 to hit rolls; or attacks that target this unit have -1 to hit rolls."
+  },
+  {
+    "ability_key": "datasheet:blessings-of-the-omnissiah",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "mechanic_digest": "e50ccf777477c15792ced573245b3677",
+    "name": "Blessings of the Omnissiah",
+    "review_state": "approved",
+    "reviewed_at": "2026-10-10T16:21:09Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "summary": "In your Movement phase, at the start or end of this unit's move, you can select one friendly Adeptus Astartes Vehicle model within 3\" of this model. That Vehicle model heals D3 wounds. That Vehicle model's attacks can ignore modifiers to hit rolls and wound rolls until the start of your next Movement phase."
+  },
+  {
+    "ability_key": "datasheet:bolter-discipline",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "mechanic_digest": "3f6f4d2339d206326bebdba23a582501",
+    "name": "Bolter Discipline",
+    "review_state": "approved",
+    "reviewed_at": "2026-10-10T16:21:09Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "summary": "In your Shooting phase, this unit's ranged attacks have +1 to hit rolls if either of the following applies: this unit is within range of an objective; or the target of that attack is within range of an objective."
+  },
+  {
     "ability_key": "datasheet:born-of-wolves",
     "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
     "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
@@ -120,16 +170,46 @@
     "summary": "While this model leads a unit, melee weapons equipped by models in that unit gain the Sustained Hits 1 ability."
   },
   {
+    "ability_key": "datasheet:brutalis-charge-once-per-phase-per-unit",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "mechanic_digest": "f14ab4d52a3d05b6996c36eec012599c",
+    "name": "Brutalis Charge (Once per phase, per unit)",
+    "review_state": "approved",
+    "reviewed_at": "2026-10-10T16:21:09Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "summary": "Once per phase, per unit: you can target this unit with the Crushing Impact stratagem, regardless of any other uses of that stratagem this phase. If you do, that use is -1 CP, and that use does not prevent any uses of that stratagem on other units this phase."
+  },
+  {
+    "ability_key": "datasheet:calgars-champion",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "mechanic_digest": "c701e796df16f5ce4383ff48e03be423",
+    "name": "Calgar’s Champion",
+    "review_state": "approved",
+    "reviewed_at": "2026-10-10T16:21:09Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "summary": "This model's attacks that target a CHARACTER unit can re-roll hit rolls of 1 and can re-roll wound rolls of 1."
+  },
+  {
+    "ability_key": "datasheet:captain-of-the-honour-guard",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "mechanic_digest": "575a3ef5f9f2ac551979aa8eca112441",
+    "name": "Captain of the Honour Guard",
+    "review_state": "approved",
+    "reviewed_at": "2026-10-10T16:21:09Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "summary": "If your army includes a Marneus Calgar unit, this unit's Leader ability is replaced with the Support ability. This unit can still be attached to the same units."
+  },
+  {
     "ability_key": "datasheet:cerebrex-logic-engine",
-    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
-    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
-    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
-    "mechanic_digest": "e550972108bd22661ab1ae217f164352",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "digest_refreshed_at_version": "wh40k-11e-2026-10-1",
+    "digest_refreshed_under_authorization": "owner-2026-10-10-codex-catch-up",
+    "mechanic_digest": "c9baf3bcd28b885e51af8d59f9e7a23f",
     "name": "Cerebrex Logic Engine",
     "review_state": "approved",
-    "reviewed_at": "2026-09-15T04:35:16Z",
+    "reviewed_at": "2026-10-10T16:21:09Z",
     "reviewed_by": "claude-sonnet-5-reviewer",
-    "summary": "At the start of the Declare Battle Formations step, you can select one Adeptus Astartes Infantry unit from your army; until the end of the battle, that unit gains the Scouts 6\" ability. After both players have deployed their armies, you can select one Adeptus Astartes unit from your army and redeploy it; when doing so, you can set that unit up in Strategic Reserves if you wish, regardless of how many units are already in Strategic Reserves."
+    "summary": "In the Declare Battle Formations step, you can select one friendly Adeptus Astartes Infantry unit. That unit has Scouts 6\"."
   },
   {
     "ability_key": "datasheet:chainsword-doctrines",
@@ -144,6 +224,16 @@
     "summary": "When this unit fights, choose Sustained Hits 1, Lethal Hits, or Lance for its Astartes chainswords until the end of the phase."
   },
   {
+    "ability_key": "datasheet:chameleoline-cloaks",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "mechanic_digest": "762fed0a2036461f33a1c65519f63232",
+    "name": "Chameleoline Cloaks",
+    "review_state": "approved",
+    "reviewed_at": "2026-10-10T16:21:09Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "summary": "This unit has -3\" detection range."
+  },
+  {
     "ability_key": "datasheet:chapter-master-of-the-raven-guard",
     "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
     "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
@@ -154,6 +244,16 @@
     "reviewed_at": "2026-09-15T04:35:16Z",
     "reviewed_by": "claude-sonnet-5-reviewer",
     "summary": "At the start of the Declare Battle Formations step, if your army includes AETHON SHAAN and Kayvaan Shrike, then until the end of the battle your KAYVAAN SHRIKE unit loses its Lone Operative ability and replaces its CHAPTER MASTER keyword with CAPTAIN."
+  },
+  {
+    "ability_key": "datasheet:chief-librarian-psyker-level-3",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "mechanic_digest": "7ea81308ff47b27651a2047aacaf42a6",
+    "name": "Chief Librarian (psyker level 3)",
+    "review_state": "approved",
+    "reviewed_at": "2026-10-10T16:21:09Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "summary": "This model has the psychic abilities listed in the Psychic Abilities section."
   },
   {
     "ability_key": "datasheet:chosen-companions",
@@ -192,16 +292,56 @@
     "summary": "When this model attacks an enemy unit that is Below Half-strength, add 1 to the Hit roll and add 1 to the Wound roll."
   },
   {
+    "ability_key": "datasheet:close-quarters-firestorm",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "mechanic_digest": "ec5d8c005cd5478395db40e858936b8e",
+    "name": "Close-quarters Firestorm",
+    "review_state": "approved",
+    "reviewed_at": "2026-10-10T16:21:09Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "summary": "This unit's attacks that target an enemy unit within 9\" of this unit have +1 Strength."
+  },
+  {
+    "ability_key": "datasheet:codex-adept",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "mechanic_digest": "f0754f4408771a56d1ba508f03aa49b0",
+    "name": "Codex Adept",
+    "review_state": "approved",
+    "reviewed_at": "2026-10-10T16:21:09Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "summary": "The assault doctrine, the devastator doctrine, and the tactical doctrine are all active for this unit at the same time."
+  },
+  {
     "ability_key": "datasheet:cold-and-calculating",
-    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
-    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
-    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
-    "mechanic_digest": "8dbaa0744833dadeff611fe4404c6757",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "digest_refreshed_at_version": "wh40k-11e-2026-10-1",
+    "digest_refreshed_under_authorization": "owner-2026-10-10-codex-catch-up",
+    "mechanic_digest": "e568804b3b07b7da9aa110277cf8c011",
     "name": "Cold and Calculating",
     "review_state": "approved",
-    "reviewed_at": "2026-09-15T04:35:16Z",
+    "reviewed_at": "2026-10-10T16:21:09Z",
     "reviewed_by": "claude-sonnet-5-reviewer",
-    "summary": "When a model in this model's unit attacks a Monster or Vehicle unit, that attack gains the Lethal Hits ability; against any other unit, it gains the Sustained Hits 1 ability instead."
+    "summary": "In your Shooting phase or the Fight phase, when this unit is selected to attack, select one of the following for this unit's attacks to have: [Lethal Hits: Monster/Vehicle]; or [Sustained Hits 1: non-Monster/Vehicle]; or, if the tactical doctrine is active for this unit, both [Lethal Hits: Monster/Vehicle] and [Sustained Hits 1: non-Monster/Vehicle]."
+  },
+  {
+    "ability_key": "datasheet:combat-embarkation",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "mechanic_digest": "5003d15fd364d15977d80042b50ab7ac",
+    "name": "Combat Embarkation",
+    "review_state": "approved",
+    "reviewed_at": "2026-10-10T16:21:09Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "summary": "In your opponent's Charge phase, when an enemy unit has selected charge targets, you can select one friendly unengaged ADEPTUS ASTARTES unit that was one of those charge targets and is eligible to embark within this TRANSPORT. If every model in that unit is within 3\" of this TRANSPORT, that unit can embark within this TRANSPORT. That enemy unit can then select new charge targets for that charge move."
+  },
+  {
+    "ability_key": "datasheet:combat-shield",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "mechanic_digest": "d8cc6c775e89b1ad38c9f1f36412fc09",
+    "name": "Combat Shield",
+    "review_state": "approved",
+    "reviewed_at": "2026-10-10T16:21:09Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "summary": "This model has 5+ InSv."
   },
   {
     "ability_key": "datasheet:command-squad-bodyguard",
@@ -288,6 +428,26 @@
     "summary": "This model must start the battle in Reserves without counting against normal Reserves limits, and can arrive in the Reinforcements step of your first, second, or third Movement phase regardless of mission rules."
   },
   {
+    "ability_key": "datasheet:deeds-of-legend",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "mechanic_digest": "97b98231be559f2fc7788d2cc441c009",
+    "name": "Deeds of Legend",
+    "review_state": "approved",
+    "reviewed_at": "2026-10-10T16:21:09Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "summary": "While this unit is within range of an objective, this unit's melee attacks have +1 A."
+  },
+  {
+    "ability_key": "datasheet:defensive-array-once-per-phase-per-unit",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "mechanic_digest": "a7cab9a3e2e3de0bed6b1227f46c0d9a",
+    "name": "Defensive Array (Once per phase, per unit)",
+    "review_state": "approved",
+    "reviewed_at": "2026-10-10T16:21:09Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "summary": "Once per phase, per unit: you can target this unit with the Fire Overwatch stratagem regardless of any other uses of that stratagem this phase. If you do, that use is -1 CP."
+  },
+  {
     "ability_key": "datasheet:demetrian-titus",
     "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
     "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
@@ -300,16 +460,46 @@
     "summary": "Army composition limit: an army can include a maximum of one Titus unit."
   },
   {
+    "ability_key": "datasheet:demi-company-commander-once-per-turn-per-unit",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "mechanic_digest": "27ca67dbe8a83d88212e0e0a289a88bb",
+    "name": "Demi-company Commander (Once per turn, per unit)",
+    "review_state": "approved",
+    "reviewed_at": "2026-10-10T16:21:09Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "summary": "Once per turn, per unit. When a friendly Captain unit uses its Strategic Acumen ability, you can use this ability. If you do, the selected combat doctrine is active for this unit until the start of your next Command phase."
+  },
+  {
+    "ability_key": "datasheet:divinator-class-auspexes-once-per-phase-per-unit",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "mechanic_digest": "214c0c8efc4de9487a49cf0615d6f24c",
+    "name": "Divinator-class Auspexes (Once per phase, per unit)",
+    "review_state": "approved",
+    "reviewed_at": "2026-10-10T16:21:09Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "summary": "Once per phase, per unit. In your Shooting phase, when a friendly ADEPTUS ASTARTES unit is selected to shoot, you can use this ability. If you do, select one visible enemy unit within 18\" of this unit; that unit is scanned. While a unit is scanned, ranged attacks that target that unit can re-roll hit rolls of 1."
+  },
+  {
+    "ability_key": "datasheet:driven-from-cover",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "mechanic_digest": "f3ae48be11f20fde64ba77683799317f",
+    "name": "Driven from Cover",
+    "review_state": "approved",
+    "reviewed_at": "2026-10-10T16:21:09Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "summary": "In your Shooting phase, when this unit has shot, select one enemy unit that was hit by those attacks. Ranged attacks made by friendly ADEPTUS ASTARTES units that target that enemy unit have the [IGNORES COVER] ability."
+  },
+  {
     "ability_key": "datasheet:echo-of-the-ravenspire",
-    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
-    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
-    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
-    "mechanic_digest": "1ac6d706eebe38a9cf4114cddc70cf82",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "digest_refreshed_at_version": "wh40k-11e-2026-10-1",
+    "digest_refreshed_under_authorization": "owner-2026-10-10-codex-catch-up",
+    "mechanic_digest": "b5d0a364c88c89fea5ff1ada44877e64",
     "name": "Echo of the Ravenspire",
     "review_state": "approved",
-    "reviewed_at": "2026-09-15T04:35:16Z",
+    "reviewed_at": "2026-10-10T16:21:09Z",
     "reviewed_by": "claude-sonnet-5-reviewer",
-    "summary": "At the end of the opponent's turn, if this model's unit is not within Engagement Range of any enemy, you may remove it from the battlefield and place it into Strategic Reserves."
+    "summary": "At the end of your opponent's Fight phase, if this unit is unengaged, you can place this unit in strategic reserves."
   },
   {
     "ability_key": "datasheet:embittered",
@@ -322,6 +512,26 @@
     "reviewed_at": "2026-09-15T04:35:16Z",
     "reviewed_by": "claude-sonnet-5-reviewer",
     "summary": "The first time this model is attacked, after that attacking unit finishes its attacks, this model's named weapon permanently gains an Attacks characteristic of 12 for the rest of the battle."
+  },
+  {
+    "ability_key": "datasheet:evade-and-survive-once-per-phase-per-unit",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "mechanic_digest": "270d51c229d631aeebfb2e3bc97c8ced",
+    "name": "Evade and Survive (Once per phase, per unit)",
+    "review_state": "approved",
+    "reviewed_at": "2026-10-10T16:21:09Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "summary": "Once per phase, per unit. In your opponent's Movement phase, when an enemy unit ends a move within 8\" of this unit, if this unit is unengaged, this unit can make a normal move of up to D3+3\"."
+  },
+  {
+    "ability_key": "datasheet:finest-hour-once-per-battle-per-unit",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "mechanic_digest": "aae1c3bfc3a9a67fe648137ffa95bb31",
+    "name": "Finest Hour (Once per battle, per unit)",
+    "review_state": "approved",
+    "reviewed_at": "2026-10-10T16:21:09Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "summary": "Usable once per battle, per unit. In the Fight phase, when this unit is selected to fight, you can use this ability. If you do, this model's melee attacks have +3 A and [Devastating Wounds]."
   },
   {
     "ability_key": "datasheet:fire-and-redeploy",
@@ -348,6 +558,16 @@
     "summary": "Each time this unit Remains Stationary, if it includes a Long Fang Pack Leader, you can select one enemy unit visible to that model. Until the end of the turn, each time a model in this unit makes a ranged attack targeting that enemy unit, re-roll a Hit roll of 1."
   },
   {
+    "ability_key": "datasheet:fire-supprt",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "mechanic_digest": "0b82ec2a988d209b4336a0bbf86dd216",
+    "name": "Fire Supprt",
+    "review_state": "approved",
+    "reviewed_at": "2026-10-10T16:21:09Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "summary": "In your Shooting phase, when this unit has shot, select one enemy unit hit by those attacks. Attacks that target that unit made by friendly ADEPTUS ASTARTES units that Disembarked from this TRANSPORT this turn can re-roll wound rolls."
+  },
+  {
     "ability_key": "datasheet:flesh-tearers",
     "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
     "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
@@ -360,28 +580,58 @@
     "summary": "This model belongs to a named successor Chapter and is treated as a model of its parent Chapter for rules purposes, but cannot be included alongside other Epic Heroes of that parent Chapter."
   },
   {
+    "ability_key": "datasheet:flexible-asset",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "mechanic_digest": "513d83e69508099a822cdd089096a0dd",
+    "name": "Flexible Asset",
+    "review_state": "approved",
+    "reviewed_at": "2026-10-10T16:21:09Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "summary": "When this unit is selected to make an Advance or Fall Back move, that Advance or Fall Back move does not prevent this unit from being eligible to start an action."
+  },
+  {
     "ability_key": "datasheet:for-the-khan",
-    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
-    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
-    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
-    "mechanic_digest": "ae9699a1d780bbf345d2b1b852e16256",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "digest_refreshed_at_version": "wh40k-11e-2026-10-1",
+    "digest_refreshed_under_authorization": "owner-2026-10-10-codex-catch-up",
+    "mechanic_digest": "612f93b55dc5f0318fb14de0ccc98218",
     "name": "For the Khan!",
     "review_state": "approved",
-    "reviewed_at": "2026-09-15T04:35:16Z",
+    "reviewed_at": "2026-10-10T16:21:09Z",
     "reviewed_by": "claude-sonnet-5-reviewer",
-    "summary": "While this model leads a unit, ranged weapons equipped by models in that unit gain the Assault ability and melee weapons gain the Lance ability."
+    "summary": "This unit's ranged attacks have [ASSAULT]. This unit's melee attacks have [LANCE]."
+  },
+  {
+    "ability_key": "datasheet:force-dome-psychic-level-1",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "mechanic_digest": "98836f2327f497ea1cdceaa8d7f538d5",
+    "name": "Force Dome (psychic level 1)",
+    "review_state": "approved",
+    "reviewed_at": "2026-10-10T16:21:09Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "summary": "In your Movement phase, if this unit is not battle-shocked, you can make a psychic roll for this unit by rolling one D6. If you do: on a 1, this unit is battle-shocked; and this unit has 4+ InSv until the start of your next turn."
   },
   {
     "ability_key": "datasheet:forgefather",
-    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
-    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
-    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
-    "mechanic_digest": "fa4f96ccdc17c36a4c4a384882b6a874",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "digest_refreshed_at_version": "wh40k-11e-2026-10-1",
+    "digest_refreshed_under_authorization": "owner-2026-10-10-codex-catch-up",
+    "mechanic_digest": "d884848bf0b52306036e23f43f135483",
     "name": "Forgefather",
     "review_state": "approved",
-    "reviewed_at": "2026-09-15T04:35:16Z",
+    "reviewed_at": "2026-10-10T16:21:09Z",
     "reviewed_by": "claude-sonnet-5-reviewer",
-    "summary": "In your Shooting phase, select one enemy unit within 24\" of and visible to this model. Until the end of the phase, each time a friendly ADEPTUS ASTARTES model makes a ranged attack with a Torrent or Melta weapon that targets that enemy unit, you can re-roll the Wound roll."
+    "summary": "In your Shooting phase, select one visible enemy unit within 24\" of this model. Friendly ADEPTUS ASTARTES units' [Melta]/[Torrent] attacks that target that enemy unit have +2 S."
+  },
+  {
+    "ability_key": "datasheet:forward-assault-warsuit",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "mechanic_digest": "120cd66b11d6b94fbc1b4f000666d43e",
+    "name": "Forward Assault Warsuit",
+    "review_state": "approved",
+    "reviewed_at": "2026-10-10T16:21:09Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "summary": "At the start of the first battle round, you can select one enemy unit to be this unit's mark. This unit's attacks that target this unit's mark can re-roll wound rolls of 1. Each time this unit's mark is destroyed, select one enemy unit to be this unit's mark."
   },
   {
     "ability_key": "datasheet:frenzied-reprisal",
@@ -408,6 +658,26 @@
     "summary": "After this model shoots, if an enemy Monster or Vehicle was hit by this model's named weapon, until the end of the opponent's next turn it is Frozen: -2 to its Move characteristic and -2 to Advance and Charge rolls."
   },
   {
+    "ability_key": "datasheet:full-throttle-assault",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "mechanic_digest": "50c37e6101919d86d5e4801eff56346e",
+    "name": "Full-throttle Assault",
+    "review_state": "approved",
+    "reviewed_at": "2026-10-10T16:21:09Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "summary": "If this unit made a charge move this turn, this unit's Thunder Hammer weapons have +1 to hit rolls and [Sustained Hits 1], and this unit's other melee weapons have +1 D and [Sustained Hits 1]."
+  },
+  {
+    "ability_key": "datasheet:fury-of-the-machine-spirit",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "mechanic_digest": "270132bfc84b213e3ee79b2137f2b3aa",
+    "name": "Fury of the Machine Spirit",
+    "review_state": "approved",
+    "reviewed_at": "2026-10-10T16:21:09Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "summary": "This unit’s ranged attacks that target a unit within 12\" of this unit have [Lethal Hits]."
+  },
+  {
     "ability_key": "datasheet:gifted-commander",
     "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
     "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
@@ -430,6 +700,26 @@
     "reviewed_at": "2026-09-15T04:35:16Z",
     "reviewed_by": "claude-sonnet-5-reviewer",
     "summary": "In your opponent's Shooting phase, if a model in this unit was destroyed by an enemy unit's attacks, this unit can make a surge move of up to D6\"."
+  },
+  {
+    "ability_key": "datasheet:grapnel-launchers",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "mechanic_digest": "d5e2703d2a82273de15f271de6affada",
+    "name": "Grapnel Launchers",
+    "review_state": "approved",
+    "reviewed_at": "2026-10-10T16:21:09Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "summary": "When this unit makes a move, it can move through all types of model, and it ignores all vertical distance for the purposes of how far it has moved."
+  },
+  {
+    "ability_key": "datasheet:grav-chutes",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "mechanic_digest": "caab08900d7a756a5f7d1e32fc120b9d",
+    "name": "Grav-chutes",
+    "review_state": "approved",
+    "reviewed_at": "2026-10-10T16:21:09Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "summary": "This unit has Deep Strike."
   },
   {
     "ability_key": "datasheet:grenade-harness",
@@ -466,6 +756,16 @@
     "reviewed_at": "2026-09-15T04:35:16Z",
     "reviewed_by": "claude-sonnet-5-reviewer",
     "summary": "In your Shooting phase, when this unit is selected to shoot, select up to one visible enemy unit. While making those attacks, this unit's Bolt Rifle attacks that targeted that enemy unit have +2 A."
+  },
+  {
+    "ability_key": "datasheet:haywire-mine-once-per-battle-per-unit",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "mechanic_digest": "aa5d2db8d77d6262faf8c67ae560e0f0",
+    "name": "Haywire Mine (Once per battle, per unit)",
+    "review_state": "approved",
+    "reviewed_at": "2026-10-10T16:21:09Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "summary": "Once per battle, per unit. In your Shooting phase, you can select one visible enemy unit within 6\" of this unit and roll one D6. On a 2+, that enemy unit suffers D3 mortal wounds; or, if that enemy unit is a VEHICLE unit, it suffers 2D3 mortal wounds instead."
   },
   {
     "ability_key": "datasheet:headstrong",
@@ -511,24 +811,37 @@
   },
   {
     "ability_key": "datasheet:honour-guard-of-macragge",
-    "mechanic_digest": "d1e336269c9435f426dbcc4e8c603134",
-    "name": "HONOUR GUARD OF MACRAGGE",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "digest_refreshed_at_version": "wh40k-11e-2026-10-1",
+    "digest_refreshed_under_authorization": "owner-2026-10-10-codex-catch-up",
+    "mechanic_digest": "6d9092e321a0e5866608a7dd6188696c",
+    "name": "Honour Guard of Macragge",
     "review_state": "approved",
-    "reviewed_at": "2026-08-04T00:00:00Z",
-    "reviewed_by": "claude-reviewer-opus",
-    "summary": "A named hero can be attached to this unit; a Captain that could attach to a named squad may attach to this unit instead."
+    "reviewed_at": "2026-10-10T16:21:09Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "summary": "Attacks that target this unit have -1 to wound rolls."
+  },
+  {
+    "ability_key": "datasheet:honour-of-the-company",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "mechanic_digest": "f769d26d88dc46b01dbe6239a00b6eea",
+    "name": "Honour of the Company",
+    "review_state": "approved",
+    "reviewed_at": "2026-10-10T16:21:09Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "summary": "This unit has +1 OC."
   },
   {
     "ability_key": "datasheet:honour-of-ultramar",
-    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
-    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
-    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
-    "mechanic_digest": "c8979f432865be0a312616d1ca0cac14",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "digest_refreshed_at_version": "wh40k-11e-2026-10-1",
+    "digest_refreshed_under_authorization": "owner-2026-10-10-codex-catch-up",
+    "mechanic_digest": "c6968ed8e6096331b4c9d6cabcc80504",
     "name": "Honour of Ultramar",
     "review_state": "approved",
-    "reviewed_at": "2026-09-15T04:35:16Z",
+    "reviewed_at": "2026-10-10T16:21:09Z",
     "reviewed_by": "claude-sonnet-5-reviewer",
-    "summary": "If this model is destroyed in melee before it has fought this phase, roll a D6: on 2+ it fights before removal, and if that fight destroys an enemy model it regains D3 wounds and survives instead."
+    "summary": "In the fight phase, when this model is destroyed, if its unit has not been selected to fight this phase, roll one D6. On a 2+, do not remove this model from the battlefield. The model is removed from the battlefield when its unit has fought, or at the end of the phase, whichever comes first."
   },
   {
     "ability_key": "datasheet:hood-of-hellfire",
@@ -541,6 +854,16 @@
     "reviewed_at": "2026-09-15T04:35:16Z",
     "reviewed_by": "claude-sonnet-5-reviewer",
     "summary": "While this model leads a unit, models in that unit gain the Feel No Pain 4+ ability against psychic attacks and mortal wounds."
+  },
+  {
+    "ability_key": "datasheet:hood-of-hellfire-psychic",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "mechanic_digest": "caaf46eb5a55035ea388a17ae47bd5ae",
+    "name": "Hood of Hellfire (Psychic)",
+    "review_state": "approved",
+    "reviewed_at": "2026-10-10T16:21:09Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "summary": "This unit has Feel No Pain 4+ against psychic attacks and mortal wounds."
   },
   {
     "ability_key": "datasheet:hunter-missile-targeting",
@@ -568,15 +891,15 @@
   },
   {
     "ability_key": "datasheet:icon-of-obstinacy",
-    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
-    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
-    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
-    "mechanic_digest": "383c87011f3c5d1aef377edb179d3d0d",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "digest_refreshed_at_version": "wh40k-11e-2026-10-1",
+    "digest_refreshed_under_authorization": "owner-2026-10-10-codex-catch-up",
+    "mechanic_digest": "167696de5d6f8c6868d2b2aef72feade",
     "name": "Icon of Obstinacy",
     "review_state": "approved",
-    "reviewed_at": "2026-09-15T04:35:16Z",
+    "reviewed_at": "2026-10-10T16:21:09Z",
     "reviewed_by": "claude-sonnet-5-reviewer",
-    "summary": "When an attack against this model's unit has a Strength at least equal to the unit's Toughness, subtract 1 from the Wound roll."
+    "summary": "Attacks that target this unit have -1 to hit rolls."
   },
   {
     "ability_key": "datasheet:indomitable-assault",
@@ -624,28 +947,38 @@
     "summary": "While this model is leading a unit, once per battle, when a Battle-shock test is taken for that unit, you can re-roll that test."
   },
   {
+    "ability_key": "datasheet:into-the-fray",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "mechanic_digest": "4a5ce8ca7e87ee5db212c2921b73d00c",
+    "name": "Into the Fray",
+    "review_state": "approved",
+    "reviewed_at": "2026-10-10T16:21:09Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "summary": "If this unit made a charge move this turn, this unit’s melee attacks have [cleave 1]."
+  },
+  {
     "ability_key": "datasheet:iron-father",
-    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
-    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
-    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
-    "mechanic_digest": "9f6d0c69be2b03ea7f503b1ac5fef01a",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "digest_refreshed_at_version": "wh40k-11e-2026-10-1",
+    "digest_refreshed_under_authorization": "owner-2026-10-10-codex-catch-up",
+    "mechanic_digest": "d96eb159833084eae9c00e8a502a51f5",
     "name": "Iron Father",
     "review_state": "approved",
-    "reviewed_at": "2026-09-15T04:35:16Z",
+    "reviewed_at": "2026-10-10T16:21:09Z",
     "reviewed_by": "claude-sonnet-5-reviewer",
     "summary": "While this model is within 3\" of one or more friendly Adeptus Astartes Vehicle units, it has the Lone Operative ability."
   },
   {
     "ability_key": "datasheet:iron-priest",
-    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
-    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
-    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
-    "mechanic_digest": "b328a9985dffc899d66d4064001bfd5d",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "digest_refreshed_at_version": "wh40k-11e-2026-10-1",
+    "digest_refreshed_under_authorization": "owner-2026-10-10-codex-catch-up",
+    "mechanic_digest": "7dcfbc3aa16249fa2bc6717846b7683c",
     "name": "Iron Priest",
     "review_state": "approved",
-    "reviewed_at": "2026-09-15T04:35:16Z",
+    "reviewed_at": "2026-10-10T16:21:09Z",
     "reviewed_by": "claude-sonnet-5-reviewer",
-    "summary": "While this model is within 3\" of one or more friendly Adeptus Astartes Vehicle units, this model has the Lone Operative ability."
+    "summary": "While this model is within 3\" of a friendly Space Wolves Vehicle unit, this model has Lone Operative."
   },
   {
     "ability_key": "datasheet:ironclad-assault-launchers",
@@ -684,6 +1017,16 @@
     "summary": "In your opponent's Movement phase, when an enemy unit ends any move within 8\" of this unit, this unit can make a Normal move of up to 6\", provided it is not within Engagement Range of any enemy unit."
   },
   {
+    "ability_key": "datasheet:knight-champion-of-macragge-once-per-phase-per-army",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "mechanic_digest": "ca4a67d2f38f839cc47902f057ef5fc2",
+    "name": "Knight Champion of Macragge (Once per phase, per army)",
+    "review_state": "approved",
+    "reviewed_at": "2026-10-10T16:21:09Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "summary": "Usable once per phase, per army. In the opponent's Movement phase, when an enemy unit ends a move within 8\" of this unit, and this unit is unengaged, this unit can make a normal move of up to 6\"."
+  },
+  {
     "ability_key": "datasheet:last-laugh",
     "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
     "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
@@ -694,6 +1037,26 @@
     "reviewed_at": "2026-09-15T04:35:16Z",
     "reviewed_by": "claude-sonnet-5-reviewer",
     "summary": "If this model is destroyed in melee, after the attacking unit finishes its attacks, roll a D6: on 4+ the attacking unit suffers D6 mortal wounds and becomes Battle-shocked."
+  },
+  {
+    "ability_key": "datasheet:leader-of-astartes",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "mechanic_digest": "fec333deb9b4e07694b1c5e07d10b162",
+    "name": "Leader of Astartes",
+    "review_state": "approved",
+    "reviewed_at": "2026-10-10T16:21:09Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "summary": "While this unit is within 3\" of a friendly Adeptus Astartes Infantry unit, this unit has the Lone Operative ability."
+  },
+  {
+    "ability_key": "datasheet:librarian-psyker-level-1",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "mechanic_digest": "7ea81308ff47b27651a2047aacaf42a6",
+    "name": "Librarian (psyker level 1)",
+    "review_state": "approved",
+    "reviewed_at": "2026-10-10T16:21:09Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "summary": "This model has the psychic abilities listed in the Psychic Abilities section."
   },
   {
     "ability_key": "datasheet:logan-grimnar",
@@ -721,15 +1084,15 @@
   },
   {
     "ability_key": "datasheet:lord-of-the-pyroclasts",
-    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
-    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
-    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
-    "mechanic_digest": "813af4499af8655e959c5165a3ada7a5",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "digest_refreshed_at_version": "wh40k-11e-2026-10-1",
+    "digest_refreshed_under_authorization": "owner-2026-10-10-codex-catch-up",
+    "mechanic_digest": "36868f0027b583e93cc7136ac05412b8",
     "name": "Lord of the Pyroclasts",
     "review_state": "approved",
-    "reviewed_at": "2026-09-15T04:35:16Z",
+    "reviewed_at": "2026-10-10T16:21:09Z",
     "reviewed_by": "claude-sonnet-5-reviewer",
-    "summary": "While an enemy unit is within Engagement Range of this model, halve that unit's Objective Control characteristic."
+    "summary": "While an enemy unit is engaged with this unit, that enemy unit has -1 OC."
   },
   {
     "ability_key": "datasheet:lord-of-the-wolfkin",
@@ -841,15 +1204,15 @@
   },
   {
     "ability_key": "datasheet:master-of-shadows",
-    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
-    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
-    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
-    "mechanic_digest": "9b9243dcf0713b014810131f173a1fd4",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "digest_refreshed_at_version": "wh40k-11e-2026-10-1",
+    "digest_refreshed_under_authorization": "owner-2026-10-10-codex-catch-up",
+    "mechanic_digest": "4081cde31686f888db1634c09c63fdff",
     "name": "Master of Shadows",
     "review_state": "approved",
-    "reviewed_at": "2026-09-15T04:35:16Z",
+    "reviewed_at": "2026-10-10T16:21:09Z",
     "reviewed_by": "claude-sonnet-5-reviewer",
-    "summary": "In your Command phase, you can select one unit from your opponent's army. Until the start of your next Command phase, each time an ADEPTUS ASTARTES unit from your army declares a charge while it is within 12\" of that enemy unit, you can re-roll the Charge roll, but that charging unit must declare that enemy unit as a target of that charge (if possible)."
+    "summary": "In your Command phase, you can select one friendly Adeptus Astartes Infantry unit. Until the start of your next Command phase, you can re-roll charge rolls for that unit."
   },
   {
     "ability_key": "datasheet:master-of-the-fleet",
@@ -865,27 +1228,27 @@
   },
   {
     "ability_key": "datasheet:master-of-the-forge",
-    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
-    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
-    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
-    "mechanic_digest": "8fdf42b20d8d688e4fd11212ce527165",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "digest_refreshed_at_version": "wh40k-11e-2026-10-1",
+    "digest_refreshed_under_authorization": "owner-2026-10-10-codex-catch-up",
+    "mechanic_digest": "4353c1b9789f16bc49101a0f2ea0bf93",
     "name": "Master of the Forge",
     "review_state": "approved",
-    "reviewed_at": "2026-09-15T04:35:16Z",
+    "reviewed_at": "2026-10-10T16:21:09Z",
     "reviewed_by": "claude-sonnet-5-reviewer",
-    "summary": "In your Command phase, select one friendly ADEPTUS ASTARTES VEHICLE model within 3\" of this model. That model regains up to 3 lost wounds, and until the start of your next Command phase, each time that VEHICLE model makes an attack, add 1 to the Hit roll. You cannot select a unit for this ability that has already been selected for the Blessing of the Omnissiah ability this phase, and vice versa."
+    "summary": "In your Movement phase, at the start or end of this unit's move, you can select one friendly Adeptus Astartes Vehicle model within 3\" of this model. That Vehicle model heals 3 wounds. That Vehicle model's attacks can ignore modifiers to BS and to Hit rolls and wound rolls until the start of your next Movement phase."
   },
   {
     "ability_key": "datasheet:master-tactician",
-    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
-    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
-    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
-    "mechanic_digest": "9d7d390b36f402df65b876a961720062",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "digest_refreshed_at_version": "wh40k-11e-2026-10-1",
+    "digest_refreshed_under_authorization": "owner-2026-10-10-codex-catch-up",
+    "mechanic_digest": "196e1b4959146b47a2ff2b7dbf41c6d2",
     "name": "Master Tactician",
     "review_state": "approved",
-    "reviewed_at": "2026-09-15T04:35:16Z",
+    "reviewed_at": "2026-10-10T16:21:09Z",
     "reviewed_by": "claude-sonnet-5-reviewer",
-    "summary": "At the start of your Command phase, if this model is your Warlord and on the battlefield, gain 1CP."
+    "summary": "In your Movement phase, you can select one visible friendly ADEPTUS ASTARTES unit within 9\" of this model, and select one combat doctrine. That combat doctrine is active for that unit until the start of your next Command phase."
   },
   {
     "ability_key": "datasheet:might-of-heroes-psychic",
@@ -898,6 +1261,16 @@
     "reviewed_at": "2026-09-15T04:35:16Z",
     "reviewed_by": "claude-sonnet-5-reviewer",
     "summary": "While this model leads a unit, melee weapons equipped by models in that unit gain +1 Armour Penetration."
+  },
+  {
+    "ability_key": "datasheet:might-of-heroes-psychic-level-1",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "mechanic_digest": "6638406deadcabfc7099a8a2791bf6be",
+    "name": "Might of Heroes (psychic level 1)",
+    "review_state": "approved",
+    "reviewed_at": "2026-10-10T16:21:09Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "summary": "In the Fight phase, if this unit is not battle-shocked, you can make a psychic roll for this unit by rolling one D6. If you do: on a 1, this unit is battle-shocked; and this unit's melee attacks have +2 Strength."
   },
   {
     "ability_key": "datasheet:morkais-howl",
@@ -924,6 +1297,16 @@
     "summary": "When this model makes a ranged attack against a unit that is not Below Half-strength, you can re-roll the Hit roll."
   },
   {
+    "ability_key": "datasheet:never-shall-the-standard-fall",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "mechanic_digest": "60a5f202f0dcf148a9b1b7fff5724b18",
+    "name": "Never Shall the Standard Fall",
+    "review_state": "approved",
+    "reviewed_at": "2026-10-10T16:21:09Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "summary": "While this unit is within range of an objective, attacks that target this unit with a Strength greater than this unit's Toughness have -1 to wound rolls."
+  },
+  {
     "ability_key": "datasheet:nowhere-to-hide",
     "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
     "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
@@ -948,6 +1331,26 @@
     "summary": "Once per battle, at the start of either Command phase, this model can add 1 to the Attacks characteristic of weapons equipped by models in its unit until the end of the turn."
   },
   {
+    "ability_key": "datasheet:orbital-comms-array",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "mechanic_digest": "9aab9940b640e8648b721b6d50fe29d3",
+    "name": "Orbital Comms Array",
+    "review_state": "approved",
+    "reviewed_at": "2026-10-10T16:21:09Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "summary": "While a friendly ADEPTUS ASTARTES unit is within 6\" of this unit, each time you target that unit with a stratagem, roll 1D6: on a 5+, you gain 1 CP."
+  },
+  {
+    "ability_key": "datasheet:overlapping-destruction",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "mechanic_digest": "0a8dab91846d6bb9ff166a2fde60f755",
+    "name": "Overlapping Destruction",
+    "review_state": "approved",
+    "reviewed_at": "2026-10-10T16:21:09Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "summary": "In your Shooting phase, you can select one enemy unit. This unit's Heavy Bolter weapons that target that enemy unit have [Blast 1]."
+  },
+  {
     "ability_key": "datasheet:overlapping-detonations",
     "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
     "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
@@ -958,6 +1361,16 @@
     "reviewed_at": "2026-09-15T04:35:16Z",
     "reviewed_by": "claude-sonnet-5-reviewer",
     "summary": "When this unit shoots, select one visible non-MONSTER/VEHICLE enemy unit: its Heavy Bolter attacks against that unit gain Blast 1."
+  },
+  {
+    "ability_key": "datasheet:parabolic-jetleap",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "mechanic_digest": "b5d0a364c88c89fea5ff1ada44877e64",
+    "name": "Parabolic Jetleap",
+    "review_state": "approved",
+    "reviewed_at": "2026-10-10T16:21:09Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "summary": "At the end of your opponent's Fight phase, if this unit is unengaged, you can place this unit in strategic reserves."
   },
   {
     "ability_key": "datasheet:pelt-of-the-doppegangrel",
@@ -972,40 +1385,100 @@
     "summary": "While this model leads a unit, attacks against that unit subtract 1 from the Hit roll."
   },
   {
+    "ability_key": "datasheet:power-of-the-machine-spirit",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "mechanic_digest": "12bf292374801553d24509f99515f714",
+    "name": "Power of the Machine Spirit",
+    "review_state": "approved",
+    "reviewed_at": "2026-10-10T16:21:09Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "summary": "When this unit makes ranged attacks, it can re-roll one hit roll and re-roll one wound roll."
+  },
+  {
+    "ability_key": "datasheet:prescience-psychic-level-2",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "mechanic_digest": "fd4931e2b0b71faa9b532bec22980936",
+    "name": "Prescience (psychic level 2)",
+    "review_state": "approved",
+    "reviewed_at": "2026-10-10T16:21:09Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "summary": "In your Movement phase, if this unit is not battle-shocked, you can make a psychic roll for this unit by rolling one D6. If you do: on a 1, this unit is battle-shocked; and this unit has +1 Sv until the start of your next turn."
+  },
+  {
     "ability_key": "datasheet:press-the-attack",
-    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
-    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
-    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
-    "mechanic_digest": "1d886a4f784517734d32e9f4bca75502",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "digest_refreshed_at_version": "wh40k-11e-2026-10-1",
+    "digest_refreshed_under_authorization": "owner-2026-10-10-codex-catch-up",
+    "mechanic_digest": "9462b4c18cc56dab67677bbfafe4fbca",
     "name": "Press the Attack",
     "review_state": "approved",
-    "reviewed_at": "2026-09-15T04:35:16Z",
+    "reviewed_at": "2026-10-10T16:21:09Z",
     "reviewed_by": "claude-sonnet-5-reviewer",
-    "summary": "Weapons equipped by models in this model's unit gain the Sustained Hits 1 ability."
+    "summary": "This unit's melee attacks have [Sustained Hits 1: non-Monster/vehicle]. Alternatively, if the assault doctrine is active for this unit, this unit's melee attacks have [Sustained Hits 1]."
   },
   {
     "ability_key": "datasheet:primarch-of-the-xiii-aura",
-    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
-    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
-    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
-    "mechanic_digest": "79d6286cf6c156748e3b33a8a1c4933d",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "digest_refreshed_at_version": "wh40k-11e-2026-10-1",
+    "digest_refreshed_under_authorization": "owner-2026-10-10-codex-catch-up",
+    "mechanic_digest": "fdee18b5c6e2a4d2002a2948a80fb489",
     "name": "Primarch of the XIII (Aura)",
     "review_state": "approved",
-    "reviewed_at": "2026-09-15T04:35:16Z",
+    "reviewed_at": "2026-10-10T16:21:09Z",
     "reviewed_by": "claude-sonnet-5-reviewer",
-    "summary": "Aura. While a friendly ADEPTUS ASTARTES unit is within 6\" of this model, add 1 to the Objective Control characteristic of models in that unit, and you can re-roll Battle-shock and Leadership tests taken for that unit."
+    "summary": "Aura. While a friendly ADEPTUS ASTARTES unit is within 6\" of this unit, that unit's attacks can re-roll hit rolls of 1 and re-roll wound rolls of 1."
+  },
+  {
+    "ability_key": "datasheet:priority-target-identified-once-per-battle-per-unit",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "mechanic_digest": "1112032f5ae53a85461a0ccaaf321bfd",
+    "name": "Priority Target Identified (Once per battle, per unit)",
+    "review_state": "approved",
+    "reviewed_at": "2026-10-10T16:21:09Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "summary": "Once per battle, per unit. In your Command phase, you can use this ability. If you do, select one visible terrain feature; that terrain feature is identified until the end of the turn. While an enemy unit is within an identified terrain feature, that enemy unit has +3\" detection range."
+  },
+  {
+    "ability_key": "datasheet:psychic-hood-psychic",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "mechanic_digest": "2e18c2ea426aa9e232fbf32910984a08",
+    "name": "Psychic Hood (Psychic)",
+    "review_state": "approved",
+    "reviewed_at": "2026-10-10T16:21:09Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "summary": "This unit has Feel No Pain 4+ against psychic attacks."
+  },
+  {
+    "ability_key": "datasheet:punishing-bombardment",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "mechanic_digest": "b8d01e21730f66b7c411fe04576e87ad",
+    "name": "Punishing Bombardment",
+    "review_state": "approved",
+    "reviewed_at": "2026-10-10T16:21:09Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "summary": "In your Shooting phase, when this unit has shot, select one enemy INFANTRY unit hit by Whirlwind Vengeance Launcher attacks. That enemy unit makes a battle-shock roll."
   },
   {
     "ability_key": "datasheet:purgation-run",
-    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
-    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
-    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
-    "mechanic_digest": "5976d3690ec675297b9171845e55ed4d",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "digest_refreshed_at_version": "wh40k-11e-2026-10-1",
+    "digest_refreshed_under_authorization": "owner-2026-10-10-codex-catch-up",
+    "mechanic_digest": "6f4db101fe65c0fce2ad5987c51642d5",
     "name": "Purgation Run",
     "review_state": "approved",
-    "reviewed_at": "2026-09-15T04:35:16Z",
+    "reviewed_at": "2026-10-10T16:21:09Z",
     "reviewed_by": "claude-sonnet-5-reviewer",
     "summary": "After this unit shoots, it can make a Normal move of up to D6\"; if it does, it cannot declare a charge this turn."
+  },
+  {
+    "ability_key": "datasheet:raise-the-banner",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "mechanic_digest": "83fc39285c5aee2375f1dd96c74f7faf",
+    "name": "Raise the Banner",
+    "review_state": "approved",
+    "reviewed_at": "2026-10-10T16:21:09Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "summary": "At the end of your Movement phase, if this unit is controlling an objective, that objective is secured."
   },
   {
     "ability_key": "datasheet:rampart",
@@ -1018,6 +1491,26 @@
     "reviewed_at": "2026-09-15T04:35:16Z",
     "reviewed_by": "claude-sonnet-5-reviewer",
     "summary": "Once per battle, at the start of any phase, this model can gain a 2+ invulnerable save until the end of the phase."
+  },
+  {
+    "ability_key": "datasheet:rampart-once-per-battle-per-army",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "mechanic_digest": "6a0cd00082613dc5d3ea94744f31227c",
+    "name": "Rampart (Once per battle, per army)",
+    "review_state": "approved",
+    "reviewed_at": "2026-10-10T16:21:09Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "summary": "Usable once per battle, per army. At the start of any phase, you can use this ability. If you do, this model has 2+ InSv until the end of that phase."
+  },
+  {
+    "ability_key": "datasheet:rapid-disembarkation",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "mechanic_digest": "2afaab6028a739ddae77acfc7b999f8d",
+    "name": "Rapid Disembarkation",
+    "review_state": "approved",
+    "reviewed_at": "2026-10-10T16:21:09Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "summary": "In your Movement phase, when this unit ends an Advance move, units embarked within this unit can each make a shock disembark move."
   },
   {
     "ability_key": "datasheet:refractor-field",
@@ -1044,16 +1537,36 @@
     "summary": "While this model leads a unit, its attacks add 1 to the Hit roll if the unit is below Starting Strength, and add 1 to the Wound roll as well if Below Half-strength."
   },
   {
+    "ability_key": "datasheet:righteous-fury-once-per-battle-per-army",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "mechanic_digest": "dc06284c2ff13f2b6fa8bfd430ffa8db",
+    "name": "Righteous Fury (Once per battle, per army)",
+    "review_state": "approved",
+    "reviewed_at": "2026-10-10T16:21:09Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "summary": "Once per battle, per army. In the Fight phase, you can use this ability. If you do, this unit's melee attacks have +1 Strength, and when this unit has fought, this model heals D3 wounds; or, if this model destroyed an enemy model this phase, this model heals 2D3 wounds instead."
+  },
+  {
     "ability_key": "datasheet:rites-of-tempering",
-    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
-    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
-    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
-    "mechanic_digest": "b9bb03e67e5be7ce88730ca6c0a6c4e2",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "digest_refreshed_at_version": "wh40k-11e-2026-10-1",
+    "digest_refreshed_under_authorization": "owner-2026-10-10-codex-catch-up",
+    "mechanic_digest": "9362d03dc177597b5858538c5d7649f3",
     "name": "Rites of Tempering",
     "review_state": "approved",
-    "reviewed_at": "2026-09-15T04:35:16Z",
+    "reviewed_at": "2026-10-10T16:21:09Z",
     "reviewed_by": "claude-sonnet-5-reviewer",
-    "summary": "While this model leads a unit, models in that unit gain the Feel No Pain 5+ ability."
+    "summary": "Attacks that target this unit with a Strength characteristic greater than this unit's Toughness characteristic have -1 to their wound rolls."
+  },
+  {
+    "ability_key": "datasheet:rites-of-thermal-appeasement",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "mechanic_digest": "fdddedc1d1fb566eb3265bc585ad5734",
+    "name": "Rites of Thermal Appeasement",
+    "review_state": "approved",
+    "reviewed_at": "2026-10-10T16:21:09Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "summary": "This unit adds 1 to hazard rolls made for its Plasma Incinerator and Plasma Pistol weapons."
   },
   {
     "ability_key": "datasheet:second-company-banner",
@@ -1069,15 +1582,35 @@
   },
   {
     "ability_key": "datasheet:seeker-of-the-unfound",
-    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
-    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
-    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
-    "mechanic_digest": "ca5e87e0bdac0db6f8d490b82d231d0f",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "digest_refreshed_at_version": "wh40k-11e-2026-10-1",
+    "digest_refreshed_under_authorization": "owner-2026-10-10-codex-catch-up",
+    "mechanic_digest": "3f457b733fef922bb341f98fce67de26",
     "name": "Seeker of the Unfound",
     "review_state": "approved",
-    "reviewed_at": "2026-09-15T04:35:16Z",
+    "reviewed_at": "2026-10-10T16:21:09Z",
     "reviewed_by": "claude-sonnet-5-reviewer",
     "summary": "The first time this model deploys, choose an objective marker; while within range of it, this model gains an Objective Control characteristic of 10, a Leadership characteristic of 5+, and the Feel No Pain 4+ ability."
+  },
+  {
+    "ability_key": "datasheet:sentinel-protocols-once-per-phase-per-unit",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "mechanic_digest": "3f0b6e1f917a469dc58dbf10d6bc2f0c",
+    "name": "Sentinel Protocols (Once per phase, per unit)",
+    "review_state": "approved",
+    "reviewed_at": "2026-10-10T16:21:09Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "summary": "Once per phase, per unit: you can target this unit with the Fire Overwatch stratagem regardless of any other uses of that stratagem this phase. If you do, this unit's snap shooting attacks hit on unmodified hit rolls of 4+ until that stratagem is resolved, and that use does not prevent any uses of that stratagem on other units this phase."
+  },
+  {
+    "ability_key": "datasheet:sentry-programming-once-per-phase-per-unit",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "mechanic_digest": "22097710c8cfcffd33f9a05b9ab44a7c",
+    "name": "Sentry Programming (Once per phase, per unit)",
+    "review_state": "approved",
+    "reviewed_at": "2026-10-10T16:21:09Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "summary": "Once per phase, per unit: you can target this unit with the Fire Overwatch stratagem regardless of any other uses of that stratagem this phase. If you do: that use is -1 CP, and that use does not prevent any uses of that stratagem on other units this phase."
   },
   {
     "ability_key": "datasheet:shadowmaster",
@@ -1092,6 +1625,16 @@
     "summary": "While this model leads a unit, models in that unit cannot be targeted by ranged attacks unless the attacker is within 12\"."
   },
   {
+    "ability_key": "datasheet:shattered-defences",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "mechanic_digest": "f4fc7dd09235cac8a1d0fe9fe130a679",
+    "name": "Shattered Defences",
+    "review_state": "approved",
+    "reviewed_at": "2026-10-10T16:21:09Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "summary": "In your Shooting phase, when this unit has shot, select one enemy MONSTER or VEHICLE unit hit by those attacks. Friendly ADEPTUS ASTARTES units' ranged attacks that target that enemy unit have +1 AP."
+  },
+  {
     "ability_key": "datasheet:shield-of-sanguinius-aura-psychic",
     "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
     "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
@@ -1102,6 +1645,16 @@
     "reviewed_at": "2026-09-15T04:35:16Z",
     "reviewed_by": "claude-sonnet-5-reviewer",
     "summary": "While a friendly ADEPTUS ASTARTES unit is within 6\" of this model, models in that unit have the Feel No Pain 5+ ability against mortal wounds and Psychic Attacks."
+  },
+  {
+    "ability_key": "datasheet:shrouding-psychic-level-1",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "mechanic_digest": "f13fdb24e372a08de500ffbcaf7bdc92",
+    "name": "Shrouding (psychic level 1)",
+    "review_state": "approved",
+    "reviewed_at": "2026-10-10T16:21:09Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "summary": "When an enemy unit targets this unit, if this unit is not battle-shocked, you can make a psychic roll for this unit by rolling one D6. If you do: on a 1, this unit is battle-shocked; and attacks that target this unit have -1 to hit rolls until the end of the phase."
   },
   {
     "ability_key": "datasheet:siege-breaker-protocols",
@@ -1117,37 +1670,37 @@
   },
   {
     "ability_key": "datasheet:siege-captain",
-    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
-    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
-    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
-    "mechanic_digest": "06fe419781a92cbe820c989cf94faac4",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "digest_refreshed_at_version": "wh40k-11e-2026-10-1",
+    "digest_refreshed_under_authorization": "owner-2026-10-10-codex-catch-up",
+    "mechanic_digest": "40f5ea95b5d19627c72fd38916692cb8",
     "name": "Siege Captain",
     "review_state": "approved",
-    "reviewed_at": "2026-09-15T04:35:16Z",
+    "reviewed_at": "2026-10-10T16:21:09Z",
     "reviewed_by": "claude-sonnet-5-reviewer",
     "summary": "When this model attacks a Monster, Vehicle, or Fortification unit, improve that attack's Strength, Armour Penetration, and Damage characteristics by 2."
   },
   {
     "ability_key": "datasheet:signum-array",
-    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
-    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
-    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
-    "mechanic_digest": "1385e53b29305735a558df6c435a487a",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "digest_refreshed_at_version": "wh40k-11e-2026-10-1",
+    "digest_refreshed_under_authorization": "owner-2026-10-10-codex-catch-up",
+    "mechanic_digest": "3d8f398e8f6bae98dc93277f471ceeb6",
     "name": "Signum Array",
     "review_state": "approved",
-    "reviewed_at": "2026-09-15T04:35:16Z",
+    "reviewed_at": "2026-10-10T16:21:09Z",
     "reviewed_by": "claude-sonnet-5-reviewer",
-    "summary": "While this model leads a unit, ranged weapons equipped by models in that unit gain the Ignores Cover ability."
+    "summary": "In your Shooting phase, you can select one visible enemy unit within 18\" of this unit. That enemy unit cannot have the benefit of cover."
   },
   {
     "ability_key": "datasheet:skilled-riders",
-    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
-    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
-    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
-    "mechanic_digest": "80d1be71207f19d6409c1aa8a6441aba",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "digest_refreshed_at_version": "wh40k-11e-2026-10-1",
+    "digest_refreshed_under_authorization": "owner-2026-10-10-codex-catch-up",
+    "mechanic_digest": "cda2e993644e16ddb24b96eb80269f65",
     "name": "Skilled Riders",
     "review_state": "approved",
-    "reviewed_at": "2026-09-15T04:35:16Z",
+    "reviewed_at": "2026-10-10T16:21:09Z",
     "reviewed_by": "claude-sonnet-5-reviewer",
     "summary": "Each time a model in this model's unit makes a Normal, Advance, Fall Back or Charge move, that model can move horizontally through terrain features."
   },
@@ -1176,16 +1729,36 @@
     "summary": "The bearer loses the Magna-grapple ability and gains the Smoke keyword."
   },
   {
+    "ability_key": "datasheet:soul-sight-psychic-level-1",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "mechanic_digest": "330e0ff70f16e669acb44e49080faac6",
+    "name": "Soul Sight (psychic level 1)",
+    "review_state": "approved",
+    "reviewed_at": "2026-10-10T16:21:09Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "summary": "Psychic level 1. In your Shooting phase, if this unit is not battle-shocked, you can make a psychic roll for this unit by rolling one D6. If you do: on a 1, this unit is battle-shocked; and select one visible enemy unit — ranged attacks that target that enemy unit have [IGNORES COVER]."
+  },
+  {
     "ability_key": "datasheet:spear-of-chogoris",
-    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
-    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
-    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
-    "mechanic_digest": "212f21be00c75c3fcb6637e8c75d3bff",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "digest_refreshed_at_version": "wh40k-11e-2026-10-1",
+    "digest_refreshed_under_authorization": "owner-2026-10-10-codex-catch-up",
+    "mechanic_digest": "734e9a2a8e13612bea35a0512887373e",
     "name": "Spear of Chogoris",
     "review_state": "approved",
-    "reviewed_at": "2026-09-15T04:35:16Z",
+    "reviewed_at": "2026-10-10T16:21:09Z",
     "reviewed_by": "claude-sonnet-5-reviewer",
-    "summary": "This model's unit remains eligible to shoot and charge in a turn it Advanced or Fell Back; if already eligible after Advancing, it instead gains +1 to Advance and Charge rolls."
+    "summary": "This unit's ranged attacks have [Assault]. When this unit is selected to make an advance move, that advance move does not prevent this unit from being eligible to declare a charge. While the assault doctrine is active for this unit, this unit has +1 to advance rolls and charge rolls."
+  },
+  {
+    "ability_key": "datasheet:special-issue-optics-and-ammunition",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "mechanic_digest": "c6a4bfc0fb60cb12b2292b9d7a06abbf",
+    "name": "Special-issue Optics and Ammunition",
+    "review_state": "approved",
+    "reviewed_at": "2026-10-10T16:21:09Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "summary": "In your Shooting phase, when this unit is selected to shoot, you can select one of the following: this unit's ranged attacks have [Ignores Cover]; or select one enemy unit within 24\" of this unit, and that enemy unit has +6\" detection range until this unit has shot."
   },
   {
     "ability_key": "datasheet:specialised-weapon-system",
@@ -1212,6 +1785,16 @@
     "summary": "Add 1 to Advance and Charge rolls made for this model's unit."
   },
   {
+    "ability_key": "datasheet:spiritual-leader-once-per-battle-round-per-unit",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "mechanic_digest": "7a956b8e530bdd696c035c333fe8f009",
+    "name": "Spiritual Leader (Once per battle round, per unit)",
+    "review_state": "approved",
+    "reviewed_at": "2026-10-10T16:21:09Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "summary": "Usable once per battle round, per unit. At the start of any phase, you can select one friendly battle-shocked ADEPTUS ASTARTES unit within 6\" of this model. That unit is no longer battle-shocked."
+  },
+  {
     "ability_key": "datasheet:storm-assault",
     "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
     "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
@@ -1236,16 +1819,26 @@
     "summary": "When this model ends a Normal move, target a non-Monster, non-Vehicle enemy unit it moved over and roll six D6: each 4+ deals 1 mortal wound to that unit."
   },
   {
+    "ability_key": "datasheet:strategic-acumen",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "mechanic_digest": "bdc261e49d7ae9466daf63727de4c2f3",
+    "name": "Strategic Acumen",
+    "review_state": "approved",
+    "reviewed_at": "2026-10-10T16:21:09Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "summary": "In your Command phase, you can use this ability. If you do, select one combat doctrine; that doctrine is active for this unit until the start of your next Command phase."
+  },
+  {
     "ability_key": "datasheet:strategium-command",
-    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
-    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
-    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
-    "mechanic_digest": "0b1c1b89e6ef168e3cb784d080d9cf45",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "digest_refreshed_at_version": "wh40k-11e-2026-10-1",
+    "digest_refreshed_under_authorization": "owner-2026-10-10-codex-catch-up",
+    "mechanic_digest": "40727284d2ded1b9d0cb559df345896c",
     "name": "Strategium Command",
     "review_state": "approved",
-    "reviewed_at": "2026-09-15T04:35:16Z",
+    "reviewed_at": "2026-10-10T16:21:09Z",
     "reviewed_by": "claude-sonnet-5-reviewer",
-    "summary": "After both players have deployed their armies, if this unit is on the battlefield (or any Transport it is embarked within is on the battlefield), select up to three ADEPTUS ASTARTES units from your army and redeploy them. When doing so, you can set those units up in Strategic Reserves, regardless of how many units are already in Strategic Reserves."
+    "summary": "After both players have deployed their armies, you can redeploy up to three friendly ADEPTUS ASTARTES units. When redeploying them this way, you can place those units in Strategic Reserves, regardless of how many units are already in Strategic Reserves."
   },
   {
     "ability_key": "datasheet:supreme-strategist",
@@ -1258,6 +1851,26 @@
     "reviewed_at": "2026-09-15T04:35:16Z",
     "reviewed_by": "claude-sonnet-5-reviewer",
     "summary": "Once per battle round, one unit from your army with this ability can use it when a friendly ADEPTUS ASTARTES unit within 12\" of that model is targeted with a Stratagem. If it does, reduce the CP cost of that usage of that Stratagem by 1CP."
+  },
+  {
+    "ability_key": "datasheet:tactical-fluidity-once-per-battle-round-per-unit",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "mechanic_digest": "8f3c1104b6d54538a3db98e5d0af19aa",
+    "name": "Tactical Fluidity (Once per battle round, per unit)",
+    "review_state": "approved",
+    "reviewed_at": "2026-10-10T16:21:09Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "summary": "Once per battle round, this unit can use one of the following options. In your Shooting phase, when this unit has shot, if this unit is unengaged, it can make a normal move of up to D6\". Or, at the end of your opponent's Fight phase, if this unit is engaged, it can make a fall-back move of up to 6\"."
+  },
+  {
+    "ability_key": "datasheet:tactical-mainstay",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "mechanic_digest": "45c7374daa518a48d70b31f9790e4aa4",
+    "name": "Tactical Mainstay",
+    "review_state": "approved",
+    "reviewed_at": "2026-10-10T16:21:09Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "summary": "Being engaged or battle-shocked does not prevent this unit from being eligible to start an action. When this unit starts an action, that action does not prevent this unit from being eligible to shoot."
   },
   {
     "ability_key": "datasheet:talonmaster",
@@ -1282,6 +1895,36 @@
     "reviewed_at": "2026-09-15T04:35:16Z",
     "reviewed_by": "claude-sonnet-5-reviewer",
     "summary": "While this model is commanding a VEHICLE model: ranged weapons equipped by that VEHICLE model have a Ballistic Skill characteristic of 2+; and each time that VEHICLE model is selected to shoot, you can re-roll one Wound roll when resolving those attacks."
+  },
+  {
+    "ability_key": "datasheet:targeted-intercession",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "mechanic_digest": "eb364c6a4335c9b15a814137e410f55b",
+    "name": "Targeted Intercession",
+    "review_state": "approved",
+    "reviewed_at": "2026-10-10T16:21:09Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "summary": "If this unit made a charge move this turn, this unit's melee attacks have +1 S and +1 AP."
+  },
+  {
+    "ability_key": "datasheet:telepathic-assault-psychic-level-1",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "mechanic_digest": "cecaffef7c6489d2586c184ec3127cf2",
+    "name": "Telepathic Assault (psychic level 1)",
+    "review_state": "approved",
+    "reviewed_at": "2026-10-10T16:21:09Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "summary": "In your Shooting phase, if this unit is not battle-shocked, you can make a psychic roll for this unit by rolling one D6. If you do: on a 1, this unit is battle-shocked; and select one visible enemy unit within 24\" of this unit, which suffers 2D3 mortal wounds."
+  },
+  {
+    "ability_key": "datasheet:teleport-homer-once-per-battle-per-unit",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "mechanic_digest": "20bd46cf561f95f4708d6838cde8d5ad",
+    "name": "Teleport Homer (Once per battle, per unit)",
+    "review_state": "approved",
+    "reviewed_at": "2026-10-10T16:21:09Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "summary": "Once per battle, per unit. At the start of the battle, you can set up one Teleport Homer token for this unit on the battlefield. If you do: when you target this unit with the Rapid Ingress Stratagem, you can use that token; if you do, that use is -1 CP, but when resolving that Stratagem this unit must be set up within 3\" of that token and not within 8\" of an enemy unit, and that token is then removed from the battlefield. If an enemy unit ends a move within 1\" of that token, that token is removed from the battlefield."
   },
   {
     "ability_key": "datasheet:the-fierce-eye",
@@ -1320,6 +1963,26 @@
     "summary": "While this model leads a unit, add 1 to the Attacks characteristic of melee weapons equipped by models in that unit."
   },
   {
+    "ability_key": "datasheet:thunderhawk-insertion",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "mechanic_digest": "e506c9b2091eb4f5615b6cb211a4581e",
+    "name": "Thunderhawk Insertion",
+    "review_state": "approved",
+    "reviewed_at": "2026-10-10T16:21:09Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "summary": "In the Declare Battle Formations step, you can select one friendly Gravis, Phobos, or Tacticus unit. That unit has the Deep Strike ability."
+  },
+  {
+    "ability_key": "datasheet:thunderous-force-psychic-level-1",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "mechanic_digest": "cebf025aa00fdd50dc552114fb98a23f",
+    "name": "Thunderous Force (psychic level 1)",
+    "review_state": "approved",
+    "reviewed_at": "2026-10-10T16:21:09Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "summary": "In your Shooting phase, if this unit is not battle-shocked, you can make a psychic roll for this unit by rolling one D6. If you do: on a 1, this unit is battle-shocked; and this unit's ranged attacks have +6\" R."
+  },
+  {
     "ability_key": "datasheet:to-the-last",
     "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
     "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
@@ -1342,6 +2005,16 @@
     "reviewed_at": "2026-09-15T04:35:16Z",
     "reviewed_by": "claude-sonnet-5-reviewer",
     "summary": "After this unit shoots, if its named weapon hit an enemy Infantry unit, until the end of the opponent's next turn that unit is shaken: -2 to Move and -2 to Advance and Charge rolls."
+  },
+  {
+    "ability_key": "datasheet:trifold-path-of-shadow",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "mechanic_digest": "24803d428a434fd349dbc34c963b4b1f",
+    "name": "Trifold Path of Shadow",
+    "review_state": "approved",
+    "reviewed_at": "2026-10-10T16:21:09Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "summary": "This unit has the Stealth ability. This unit also has -3\" detection range."
   },
   {
     "ability_key": "datasheet:tycho",
@@ -1416,16 +2089,26 @@
     "summary": "While this model leads a unit, attacks made by models in that unit can ignore modifiers to Ballistic Skill, Weapon Skill, or the Hit roll."
   },
   {
+    "ability_key": "datasheet:unstoppable-valour",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "mechanic_digest": "f318332245897416b3e725003459dca6",
+    "name": "Unstoppable Valour",
+    "review_state": "approved",
+    "reviewed_at": "2026-10-10T16:21:09Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "summary": "You can re-roll charge rolls for this unit."
+  },
+  {
     "ability_key": "datasheet:unto-the-anvil",
-    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
-    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
-    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
-    "mechanic_digest": "b7d21a0813d7a28308506d799306834f",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "digest_refreshed_at_version": "wh40k-11e-2026-10-1",
+    "digest_refreshed_under_authorization": "owner-2026-10-10-codex-catch-up",
+    "mechanic_digest": "7e65245df2995cabdae5a1176ab2400e",
     "name": "Unto the Anvil",
     "review_state": "approved",
-    "reviewed_at": "2026-09-15T04:35:16Z",
+    "reviewed_at": "2026-10-10T16:21:09Z",
     "reviewed_by": "claude-sonnet-5-reviewer",
-    "summary": "While this model leads a unit, melee attacks made by models in that unit can re-roll the Wound roll."
+    "summary": "This unit's melee attacks can re-roll wound rolls of 1. Or, if the assault doctrine is active for this unit, this unit's melee attacks can re-roll wound rolls."
   },
   {
     "ability_key": "datasheet:vanquish-the-foe",
@@ -1438,6 +2121,56 @@
     "reviewed_at": "2026-09-15T04:35:16Z",
     "reviewed_by": "claude-sonnet-5-reviewer",
     "summary": "When this model attacks an enemy unit that is Below Half-strength, add 1 to the Hit roll and add 1 to the Wound roll."
+  },
+  {
+    "ability_key": "datasheet:veil-of-time-psychic-level-1",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "mechanic_digest": "1edc8184573b7898af6b4ece6e77c854",
+    "name": "Veil of Time (psychic level 1)",
+    "review_state": "approved",
+    "reviewed_at": "2026-10-10T16:21:09Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "summary": "When this unit is selected to make an advance move, if this unit is not battle-shocked, you can make a psychic roll for this unit by rolling one D6. If you do: on a 1, this unit is battle-shocked; and this unit can change that advance roll to a 6."
+  },
+  {
+    "ability_key": "datasheet:veiling-smoke-once-per-phase-per-unit",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "mechanic_digest": "9dbf2bf52ba8f1c2a7586e4a752cc14c",
+    "name": "Veiling Smoke (Once per phase, per unit)",
+    "review_state": "approved",
+    "reviewed_at": "2026-10-10T16:21:09Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "summary": "Once per phase, per unit: you can target this unit with the Smokescreen stratagem, regardless of any other uses of that stratagem this phase. If you do, that use is -1 CP, and that use does not prevent any uses of that stratagem on other units this phase."
+  },
+  {
+    "ability_key": "datasheet:veteran-bodyguard",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "mechanic_digest": "507d9f86fe93b69983d8308519d8a825",
+    "name": "Veteran Bodyguard",
+    "review_state": "approved",
+    "reviewed_at": "2026-10-10T16:21:09Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "summary": "While this model is attached to a unit, other CHARACTER models in this unit have Feel No Pain 4+."
+  },
+  {
+    "ability_key": "datasheet:veteran-marksmen",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "mechanic_digest": "1da81b8aafb7fb7e28e436caddc8ca1c",
+    "name": "Veteran Marksmen",
+    "review_state": "approved",
+    "reviewed_at": "2026-10-10T16:21:09Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "summary": "When this unit makes ranged attacks, it can re-roll hit rolls of 1 for those attacks."
+  },
+  {
+    "ability_key": "datasheet:vivispectral-analysis-targeting",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "mechanic_digest": "35b962179776eade8f26f74e2b3eb0d8",
+    "name": "Vivispectral Analysis Targeting",
+    "review_state": "approved",
+    "reviewed_at": "2026-10-10T16:21:09Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "summary": "Attacks made by this unit have the [LETHAL HITS] ability when the target does not have the Vehicle keyword."
   },
   {
     "ability_key": "datasheet:voice-of-experience",
@@ -1476,6 +2209,16 @@
     "summary": "Once per turn, at the end of your Movement phase, one Psyker with this ability rolls one D6: on a 1 it suffers D3 mortal wounds; on a 2+ redeploy a friendly Adeptus Astartes Infantry unit within 12\", more than 8\" horizontally from enemies."
   },
   {
+    "ability_key": "datasheet:wisdom-of-the-ancients",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "mechanic_digest": "4d585844322d3f8e98c3e23938296463",
+    "name": "Wisdom of the Ancients",
+    "review_state": "approved",
+    "reviewed_at": "2026-10-10T16:21:09Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "summary": "While a friendly Adeptus Astartes Infantry unit is within 6\" of this model, that unit's attacks can re-roll hit rolls of 1."
+  },
+  {
     "ability_key": "datasheet:wolfkin",
     "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
     "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
@@ -1486,6 +2229,16 @@
     "reviewed_at": "2026-09-15T04:35:16Z",
     "reviewed_by": "claude-sonnet-5-reviewer",
     "summary": "This model cannot be your Warlord and cannot be given Enhancements."
+  },
+  {
+    "ability_key": "datasheet:wrath-of-the-machine-spirit",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "mechanic_digest": "f379a910da2f401293c7889eff23f3d0",
+    "name": "Wrath of the Machine Spirit",
+    "review_state": "approved",
+    "reviewed_at": "2026-10-10T16:21:09Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "summary": "This unit's ranged attacks that target a unit within 12\" of this unit have [Devastating Wounds: non-Monster/vehicle]."
   },
   {
     "ability_key": "datasheet:wrathful-rampage",
@@ -1509,16 +2262,46 @@
     "summary": "This model's unit remains eligible to declare a charge in a turn in which it Fell Back."
   },
   {
+    "ability_key": "datasheet:zealous-fortitude",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "mechanic_digest": "5369068d01b70068a3089ccafab1e61f",
+    "name": "Zealous Fortitude",
+    "review_state": "approved",
+    "reviewed_at": "2026-10-10T16:21:09Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "summary": "This unit has Feel No Pain 4+ against mortal wounds."
+  },
+  {
+    "ability_key": "faction:combat-doctrines",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "mechanic_digest": "41eaea7584cfc707bf77daf7ca73fbe1",
+    "name": "Combat Doctrines",
+    "review_state": "approved",
+    "reviewed_at": "2026-10-10T16:21:09Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "summary": "At the start of your Command phase, you can select one combat doctrine; it is active for friendly ADEPTUS ASTARTES units with this ability until the start of your next Command phase. Assault Doctrine: an advance move does not prevent this unit from being eligible to declare a charge. Devastator Doctrine: this unit's ranged attacks have [ASSAULT]. Tactical Doctrine: a fall-back move does not prevent this unit from being eligible to shoot and eligible to declare a charge. Each doctrine can be selected once per battle; only one is active per unit, and a new one ends the previous."
+  },
+  {
     "ability_key": "faction:curse-of-the-wulfen",
-    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
-    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
-    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
-    "mechanic_digest": "d9340e198f86abedb86d49a4a8797319",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "digest_refreshed_at_version": "wh40k-11e-2026-10-1",
+    "digest_refreshed_under_authorization": "owner-2026-10-10-codex-catch-up",
+    "mechanic_digest": "2405fc3f7c9ddeb5c9a44538a93d4f41",
     "name": "Curse of the Wulfen",
     "review_state": "approved",
-    "reviewed_at": "2026-09-15T04:35:16Z",
+    "reviewed_at": "2026-10-10T16:21:09Z",
     "reviewed_by": "claude-sonnet-5-reviewer",
-    "summary": "While within 6\" of a friendly SPACE WOLVES CHARACTER (not WULFEN) or 12\" of a WOLF PRIEST, and not Battle-shocked, this unit's Infantry models get +1 Objective Control and Vehicle models get +3."
+    "summary": "While this unit is within 6\" of a friendly SPACE WOLVES CHARACTER model (excluding WULFEN models), or within 12\" of a friendly WOLF PRIEST model, and this unit is not battle-shocked: if this unit has INFANTRY, it has +1 OC; if this unit has VEHICLE, it has +3 OC. Bestial Forms: for the purposes of transport capacity, each WULFEN model takes up the space of 2 models."
+  },
+  {
+    "ability_key": "faction:librarius",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "mechanic_digest": "6946f598437746e2efa6b7ebe544cd33",
+    "name": "Librarius",
+    "review_state": "approved",
+    "reviewed_at": "2026-10-10T16:21:09Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "summary": "ADEPTUS ASTARTES PSYKER units with this ability have a psyker level of 1 or higher, specified in that unit's abilities. Each psychic ability has a psychic level of 1 or higher, specified in that ability's name. In a battle round, a friendly ADEPTUS ASTARTES PSYKER unit can use a number of psychic abilities whose total psychic level does not exceed that PSYKER unit's psyker level."
   },
   {
     "ability_key": "faction:mission-tactics",
@@ -1555,5 +2338,15 @@
     "reviewed_at": "2026-09-15T22:00:19Z",
     "reviewed_by": "claude-sonnet-5-reviewer",
     "summary": "ADEPTUS ASTARTES armies: at the first battle round's start, select one Vow for those units: - melee attacks vs PSYKER have [PRECISION]; with an enemy PSYKER within 12\", may re-roll a charge roll, ending engaged with one. - add 1 to melee Wound rolls if Strength <= target Toughness. - can charge after Falling Back; Pile-in/Consolidation moves need only end as close as possible to the closest enemy unit. - INFANTRY: objectives within range you control at each Command phase end stay yours until the opponent's Level of Control exceeds yours at end of a phase; can start Actions after Advancing."
+  },
+  {
+    "ability_key": "faction:transhuman-strategist",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "mechanic_digest": "59029c9d092d96401dc79562da9b7db2",
+    "name": "Transhuman Strategist",
+    "review_state": "approved",
+    "reviewed_at": "2026-10-10T16:21:09Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "summary": "At the start of the battle round, if a model with this ability is your WARLORD, gain 1CP."
   }
 ]

@@ -133,15 +133,15 @@
   },
   {
     "ability_key": "datasheet:catechism-of-death",
-    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
-    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
-    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
-    "mechanic_digest": "90f30354aa92adc49fb43d251091cc2b",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "digest_refreshed_at_version": "wh40k-11e-2026-10-1",
+    "digest_refreshed_under_authorization": "owner-2026-10-10-codex-catch-up",
+    "mechanic_digest": "d038e0074de6921149e8c4e73af21681",
     "name": "Catechism of Death",
     "review_state": "approved",
-    "reviewed_at": "2026-09-15T04:35:16Z",
+    "reviewed_at": "2026-10-10T16:21:09Z",
     "reviewed_by": "claude-sonnet-5-reviewer",
-    "summary": "While this model is leading a unit, melee weapons equipped by models in that unit have the [DEVASTATING WOUNDS] ability."
+    "summary": "While this unit contains Chaplain Cassius, melee weapons equipped by models in this unit have the [DEVASTATING WOUNDS] ability."
   },
   {
     "ability_key": "datasheet:deadshot",
@@ -373,15 +373,15 @@
   },
   {
     "ability_key": "datasheet:kill-team",
-    "mechanic_digest": "2548616fbf6a6d5acfd4f0d7b7c80fa9",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "digest_refreshed_at_version": "wh40k-11e-2026-10-1",
+    "digest_refreshed_under_authorization": "owner-2026-10-10-codex-catch-up",
+    "mechanic_digest": "cf2e08a1edc5d94676ad30cb7de171c6",
     "name": "Kill Team",
     "review_state": "approved",
-    "reviewed_at": "2026-09-15T15:44:22Z",
-    "reviewed_by": "claude-fable-5-1-manager-hand-review",
-    "summary": "When an attack targets this unit and its models have different Toughness values, use the Toughness of the majority of its models (the highest if tied) to determine the wound roll, until the attacking unit has finished its attacks. Gravis Veteran models take up the space of 2 models in a Transport but can embark in any Transport the unit can embark in.",
-    "authored_against_acquisition": "wahapedia-20260915T154300Z-ae4bfdaf",
-    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
-    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation"
+    "reviewed_at": "2026-10-10T16:21:09Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "summary": "When an attack targets this unit and its models have different Toughness values, use the Toughness of the majority of its models (the highest if tied) to determine the wound roll, until the attacking unit has finished its attacks. Gravis Veteran models take up the space of 2 models in a Transport but can embark in any Transport the unit can embark in."
   },
   {
     "ability_key": "datasheet:lord-of-deceit-aura",
@@ -835,6 +835,16 @@
     "reviewed_at": "2026-09-15T04:35:16Z",
     "reviewed_by": "claude-sonnet-5-reviewer",
     "summary": "If your army includes one or more units with this ability, after both players have deployed their armies, select up to D3 IMPERIUM BATTLELINE units from your army and redeploy them. When doing so, you can set those units up in Strategic Reserves, regardless of how many units are already in Strategic Reserves."
+  },
+  {
+    "ability_key": "datasheet:watch-that",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "mechanic_digest": "257951a465da0ed32221010b07e1e366",
+    "name": "Watch That",
+    "review_state": "approved",
+    "reviewed_at": "2026-10-10T16:21:09Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "summary": "At the start of the first battle round, select up to one enemy unit to be this unit's hunted. This unit's attacks that target its hunted unit can re-roll wound rolls of 1. Each time this unit's hunted unit is destroyed, select up to one enemy unit to be this unit's hunted."
   },
   {
     "ability_key": "datasheet:xenos-hunter",
