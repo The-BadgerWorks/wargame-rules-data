@@ -20,16 +20,6 @@
     "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
-    "summary_key": "detachment:d-canoptek-court:power-matrix",
-    "detachment_id": "d-canoptek-court",
-    "name": "Power Matrix",
-    "summary": "Your deployment zone, and No Man's Land or your opponent's deployment zone when you hold half its objectives, form your Power Matrix. Crypteks and Canoptek units re-roll hit rolls of 1, or any hit roll while wholly within it.",
-    "review_state": "approved",
-    "mechanic_digest": "76f444848a1c85f21dcd452c958db975",
-    "reviewed_by": "claude-opus-5-adversarial-reviewer",
-    "reviewed_at": "2026-08-06T00:00:00Z"
-  },
-  {
     "summary_key": "detachment:d-cryptek-conclave:technosorcerous-augmentations",
     "detachment_id": "d-cryptek-conclave",
     "name": "Technosorcerous Augmentations",

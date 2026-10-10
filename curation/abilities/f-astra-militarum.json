@@ -1521,15 +1521,15 @@
   },
   {
     "ability_key": "datasheet:rolling-fortress",
-    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
-    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
-    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
-    "mechanic_digest": "5fc79c27845758fdabc83a882edba301",
+    "authored_against_acquisition": "wahapedia-20261010T144139Z-2b8f39c2",
+    "digest_refreshed_at_version": "wh40k-11e-2026-10-1",
+    "digest_refreshed_under_authorization": "owner-2026-10-10-orks-text-update",
+    "mechanic_digest": "ab1ac81ec85d1b930aad25fbc683ae6a",
     "name": "Rolling Fortress",
     "review_state": "approved",
-    "reviewed_at": "2026-09-15T04:35:16Z",
+    "reviewed_at": "2026-10-10T14:41:04Z",
     "reviewed_by": "claude-sonnet-5-reviewer",
-    "summary": "Each time a ranged attack is allocated to an ASTRA MILITARUM model from your army, if that model is not fully visible to every model in the attacking unit because of this BANEBLADE model, that model has the Benefit of Cover against that attack."
+    "summary": "When an attack targets a friendly ORKS unit that is not fully visible to the attacking model because of this unit, the target has the benefit of cover against that attack."
   },
   {
     "ability_key": "datasheet:rugged-reliability",

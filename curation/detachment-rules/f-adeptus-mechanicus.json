@@ -10,32 +10,12 @@
     "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
-    "summary_key": "detachment:d-cohort-cybernetica:cyber-psalm-programming",
-    "detachment_id": "d-cohort-cybernetica",
-    "name": "Cyber-Psalm Programming",
-    "summary": "Legio Cybernetica units get +2\" Move, and +1 Objective Control while not Battle-shocked.",
-    "review_state": "approved",
-    "mechanic_digest": "2c5211905a1d27bd7e6981cb56184f06",
-    "reviewed_by": "claude-opus-5-adversarial-reviewer",
-    "reviewed_at": "2026-08-06T00:00:00Z"
-  },
-  {
     "summary_key": "detachment:d-data-psalm-conclave:benedictions-of-the-omnissiah",
     "detachment_id": "d-data-psalm-conclave",
     "name": "Benedictions Of The Omnissiah",
     "summary": "At the first battle round, pick a Benediction for Cult Mechanicus units until the battle ends: Panegyric Procession adds 1 AP to ranged attacks at half range; Citation in Savagery adds 1 Strength and Attacks to melee weapons after a Charge.",
     "review_state": "approved",
     "mechanic_digest": "f072d5811bbb92bc38c88142f603c2ba",
-    "reviewed_by": "claude-opus-5-adversarial-reviewer",
-    "reviewed_at": "2026-08-06T00:00:00Z"
-  },
-  {
-    "summary_key": "detachment:d-eradication-cohort:murderous-imperative",
-    "detachment_id": "d-eradication-cohort",
-    "name": "Murderous Imperative",
-    "summary": "Skitarii attacks re-roll a Hit roll of 1 while Protector Imperative is active, or a Wound roll of 1 while Conqueror Imperative is active.",
-    "review_state": "approved",
-    "mechanic_digest": "8c2db58a9a027ca824d948e2fc352ccf",
     "reviewed_by": "claude-opus-5-adversarial-reviewer",
     "reviewed_at": "2026-08-06T00:00:00Z"
   },
@@ -57,16 +37,6 @@
     "review_state": "approved",
     "mechanic_digest": "0f8f55e9342ff6452fb87ee527d529da",
     "reviewed_by": "claude-opus-5-adversarial-reviewer",
-    "reviewed_at": "2026-08-06T00:00:00Z"
-  },
-  {
-    "summary_key": "detachment:d-lords-of-the-forge:war-form-mantles",
-    "detachment_id": "d-lords-of-the-forge",
-    "name": "War-Form Mantles",
-    "summary": "Tech-Priest models get a 4+ invulnerable save and Feel No Pain 5+. Unshocked, when selected to shoot they roll a D6; on 2+ either force a battle-shock roll at -1 on an enemy Vehicle within 12\", once per turn, or stay Hidden after shooting.",
-    "review_state": "approved",
-    "mechanic_digest": "f85b553183e1a6b05cfd3a23bf88a29a",
-    "reviewed_by": "claude-opus-5-second-reviewer",
     "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {

@@ -1,15 +1,5 @@
 [
   {
-    "summary_key": "detachment:d-carnival-of-excess:daemonic-empowerment",
-    "detachment_id": "d-carnival-of-excess",
-    "name": "Daemonic Empowerment",
-    "summary": "Emperor's Children and Legions of Excess units within 6\" of each other are Empowered: their weapons gain Sustained Hits 1, or crit on unmodified 5+ if they already had it. Take up to 500/1000/1500 pts of Legions of Excess, never Warlord.",
-    "review_state": "approved",
-    "mechanic_digest": "19b5f9e57cef59e43f7c0790c7adae61",
-    "reviewed_by": "claude-opus-5-second-reviewer",
-    "reviewed_at": "2026-08-06T00:00:00Z"
-  },
-  {
     "summary_key": "detachment:d-coterie-of-the-conceited:pledges-to-the-dark-prince",
     "detachment_id": "d-coterie-of-the-conceited",
     "name": "Pledges to the Dark Prince",
@@ -86,16 +76,6 @@
     "summary": "An Emperor's Children Transport model, or one that disembarked this turn, re-rolls a Hit roll of 1 and a Wound roll of 1 on its attacks.",
     "review_state": "approved",
     "mechanic_digest": "b2dc74f6073e2b0ec695fb8660ad9334",
-    "reviewed_by": "claude-opus-5-adversarial-reviewer",
-    "reviewed_at": "2026-08-06T00:00:00Z"
-  },
-  {
-    "summary_key": "detachment:d-slaaneshs-chosen:internal-rivalries",
-    "detachment_id": "d-slaaneshs-chosen",
-    "name": "Internal Rivalries",
-    "summary": "Emperor's Children Character units ignore Move, Advance and Charge modifiers. Your Warlord's unit starts as Favoured Champions, replaced by the first Character unit to destroy an enemy each turn; it re-rolls wound rolls.",
-    "review_state": "approved",
-    "mechanic_digest": "f57d1cea64d268618bf700597186d3ca",
     "reviewed_by": "claude-opus-5-adversarial-reviewer",
     "reviewed_at": "2026-08-06T00:00:00Z"
   },

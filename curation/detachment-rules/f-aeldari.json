@@ -150,16 +150,6 @@
     "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
-    "summary_key": "detachment:d-warhost:martial-grace",
-    "detachment_id": "d-warhost",
-    "name": "Martial Grace",
-    "summary": "Each battle round you get one extra Battle Focus token. The Swift as the Wind Agile Manoeuvre grants an extra 1\" Move, and any Agile Manoeuvre D6 roll gets +1.",
-    "review_state": "approved",
-    "mechanic_digest": "b495db83b78ef4427e19a39ee4ac127e",
-    "reviewed_by": "claude-opus-5-adversarial-reviewer",
-    "reviewed_at": "2026-08-06T00:00:00Z"
-  },
-  {
     "summary_key": "detachment:d-windrider-host:ride-the-wind",
     "detachment_id": "d-windrider-host",
     "name": "Ride the Wind",

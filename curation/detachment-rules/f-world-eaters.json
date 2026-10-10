@@ -1,15 +1,5 @@
 [
   {
-    "summary_key": "detachment:d-berzerker-warband:relentless-rage",
-    "detachment_id": "d-berzerker-warband",
-    "name": "Relentless Rage",
-    "summary": "When a World Eaters unit makes a Charge move, until end of turn its melee weapons get +1 Attacks and +2 Strength.",
-    "review_state": "approved",
-    "mechanic_digest": "91391c1c010ff2616d36900152a07d7e",
-    "reviewed_by": "claude-opus-5-adversarial-reviewer",
-    "reviewed_at": "2026-08-06T00:00:00Z"
-  },
-  {
     "summary_key": "detachment:d-brazen-engines:rampaging-terrors",
     "detachment_id": "d-brazen-engines",
     "name": "Rampaging Terrors",

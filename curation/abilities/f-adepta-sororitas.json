@@ -157,13 +157,13 @@
   },
   {
     "ability_key": "core:support",
-    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
-    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
-    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
-    "mechanic_digest": "abbbd3a8538df5450fa88d85f2e82f0a",
+    "authored_against_acquisition": "wahapedia-20261010T144139Z-2b8f39c2",
+    "digest_refreshed_at_version": "wh40k-11e-2026-10-1",
+    "digest_refreshed_under_authorization": "owner-2026-10-10-orks-text-update",
+    "mechanic_digest": "01e566ba4b3d46ad78fa96f29cde890d",
     "name": "Support",
     "review_state": "approved",
-    "reviewed_at": "2026-09-15T04:35:16Z",
+    "reviewed_at": "2026-10-10T14:41:04Z",
     "reviewed_by": "claude-sonnet-5-reviewer",
     "summary": "Before the battle, in the Muster Armies step, for each Leader and Support unit in your army, you can select one friendly Bodyguard unit that that unit can Lead. That unit then Leads that Bodyguard unit for the battle and forms an Attached unit with it. Unless otherwise stated, each Bodyguard unit can only have one Leader unit and one Support unit attached to it."
   },
