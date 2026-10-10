@@ -31,6 +31,12 @@
 # `detachments.chapterKeyword` above -- `datasheets` predates both baselines, so both dicts
 # govern it, and the Fen Warden fixture needed a real `wargear_options_text` value for the same
 # equality-proof reason (pre-empted in the Task 3 brief's own note, 010 R13 task 4 precedent).
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - 2026-10-09 pipeline P3 task 3 (spec §4.2
+# P4b): added `datasheetOptionGroups.eligibleCompositionLines` to LOADOUT_COLUMNS only --
+# `datasheetOptionGroups` is itself a `004` array, invisible to the pre-enrichment baseline, same
+# footing as `eligibleModelName`/`eligibleMaxCount`/`isPerModel` already on this dict. Gave
+# `tests/contract/loadout_bundle.py`'s scoped group a real value for the same equality-proof
+# reason as the two entries above.
 """Nothing existing moved. Proven by comparison, not by assertion.
 
 `contracts/bundle-schema-delta.md` §1 makes a claim about a document nobody in this repository
@@ -203,7 +209,17 @@ SNAPSHOT_META_NEW_FIELDS: frozenset[str] = frozenset(
 #: That is exactly why a second baseline exists rather than a wider permission on the first.
 LOADOUT_COLUMNS: dict[str, frozenset[str]] = {
     "datasheets": frozenset({"defaultEquipmentState", "wargearOptionsText"}),
-    "datasheetOptionGroups": frozenset({"eligibleModelName", "eligibleMaxCount", "isPerModel"}),
+    "datasheetOptionGroups": frozenset(
+        {
+            "eligibleModelName",
+            "eligibleMaxCount",
+            "isPerModel",
+            # 2026-10-09 pipeline P3 task 3 (spec §4.2 P4b): a fourth column on the same array,
+            # on the same footing as the three above -- `datasheetOptionGroups` is itself a `004`
+            # array, so this one is only governed here, never by the pre-enrichment baseline.
+            "eligibleCompositionLines",
+        }
+    ),
     # 010 R13 task 4. `datasheetAbilities` predates the pre-loadout baseline too, so
     # `abilityClass` is new relative to it as well -- both dicts govern it, same as any column
     # added on an array that predates both baselines.

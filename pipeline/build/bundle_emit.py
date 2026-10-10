@@ -49,6 +49,10 @@
 # 3): added `wargear_options_text` to `CuratedDatasheet`'s `FIELD_MAPPING` mapped set, and emitted
 # `datasheets.wargearOptionsText` via `omit_absent`, OMITTED for every datasheet with no option
 # rows at all -- the one field downstream of normalize permitted to carry the source's wording.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - 2026-10-09 pipeline P3 task 3 (spec §4.2
+# P4b): added `eligible_composition_lines` to `CuratedOptionGroup`'s `FIELD_MAPPING` mapped set,
+# and emitted `datasheetOptionGroups.eligibleCompositionLines` via `omit_absent`, OMITTED when the
+# derivation found nothing.
 """Turn the curated tree into the published bundle. A pure function, and nothing else.
 
 No network, no source re-acquisition, no input the tree does not already contain, and no clock:
@@ -276,6 +280,9 @@ FIELD_MAPPING: Final[Mapping[type, tuple[set[str], set[str]]]] = {
             "eligible_model_name",
             "eligible_max_count",
             "is_per_model",
+            # 2026-10-09 pipeline P3 task 3 (spec §4.2 P4b): derived at build by
+            # `pipeline/reconcile/option_scope.py`, never curated.
+            "eligible_composition_lines",
         },
         set(),
     ),
@@ -689,6 +696,10 @@ def _emit_datasheets(snapshot: CuratedSnapshot) -> dict[str, list[dict[str, Json
                     "eligibleModelName": group.eligible_model_name,
                     "eligibleMaxCount": group.eligible_max_count,
                     "isPerModel": group.is_per_model,
+                    # 2026-10-09 pipeline P3 task 3 (spec §4.2 P4b): the line-scoped eligibility
+                    # an app uses to show a per-model option only on the composition rows that
+                    # could legally take it. () (underivable) stays ABSENT, never an empty array.
+                    "eligibleCompositionLines": list(group.eligible_composition_lines) or None,
                 }
             )
             for group in datasheet.option_groups

@@ -1,3 +1,7 @@
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - 2026-10-09 pipeline P3 task 3 (spec §4.2
+# P4b): after `_link_wargear_abilities` runs at both `CuratedDatasheet` construction sites,
+# `options.groups` is re-derived through `reconcile/option_scope.py::derive_line_scopes`, filling
+# `eligible_composition_lines` from the now-linked choices and equipment groups.
 # AI-Assisted: Claude Code (model: claude-sonnet-5) - 2026-10-09 pipeline P3 task 2 (Owner ruling
 # 5): `_equipment` tries `parse_variant_sentence` when `parse_sentence` refuses a row, and
 # publishes the variant group only when `_exact_composition_line` (new) names exactly one
@@ -234,6 +238,7 @@ from pipeline.reconcile.match import (
     report_orphan_detail_factions,
     resolve_factions,
 )
+from pipeline.reconcile.option_scope import derive_line_scopes
 from pipeline.reconcile.options_link import (
     link_choice_items,
     link_choice_weapons,
@@ -2258,6 +2263,16 @@ def _datasheet_for(  # noqa: PLR0913 - one datasheet needs both sources and the 
         )
         findings.extend(link_findings)
 
+        # 2026-10-09 pipeline P3 task 3 (spec §4.2 P4b): now that items are linked and every
+        # equipment group's own composition_line is settled, derive each option group's
+        # eligible_composition_lines from the choices' REPLACED items and the line-resolved
+        # equipment groups. Nothing else about the groups or choices changes.
+        options.groups = derive_line_scopes(
+            option_groups=options.groups,
+            option_choices=options.choices,
+            equipment_groups=equipment.groups,
+        )
+
         # Both sources priced it: the points source wins, both values are reported, and the
         # losing value is carried nowhere (FR-028).
         detail_prices = _detail_prices(match.wahapedia_datasheet_id, detail)
@@ -2481,6 +2496,15 @@ def _detail_only_datasheet(  # noqa: PLR0913 - one datasheet needs both trees an
         wargear_abilities=wargear_abilities,
     )
     findings.extend(link_findings)
+
+    # 2026-10-09 pipeline P3 task 3 (spec §4.2 P4b): the identical derivation the matched path
+    # runs, on the identical terms -- a detail-only datasheet's option groups are scoped exactly
+    # as a matched one's are.
+    options.groups = derive_line_scopes(
+        option_groups=options.groups,
+        option_choices=options.choices,
+        equipment_groups=equipment.groups,
+    )
 
     findings.extend(
         reconcile_composition_bands(

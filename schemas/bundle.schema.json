@@ -3,6 +3,7 @@
   "_comment2": "AI-Assisted: Claude Code (model: claude-sonnet-5) - Added 007-loadout-display-fidelity's datasheetItemConstraints array (007 task T011, display-fidelity-schema-delta.md §2.1), appended to the root required list rather than inserted, and the two optional snapshotMeta fields itemConstraintVocabularyVersion and renderingContractVersion (§3). Additive: bundleFormatVersion stays 1, additionalProperties stays false throughout, and a producer with nothing to say for either snapshotMeta field simply omits it.",
   "_comment3": "AI-Assisted: Claude Code (model: Claude Sonnet 5) - 2026-10-09 pipeline P2 task 3: added the optional detachments.chapterKeyword column (additive, same footing as datasheetAbilities.abilityClass) — OMITTED for every detachment curation does not bind to a chapter keyword, so an existing row stays byte-identical.",
   "_comment4": "AI-Assisted: Claude Code (model: claude-sonnet-5) - 2026-10-09 pipeline P2 task 4 (Owner ruling 3): added the optional datasheets.wargearOptionsText column (additive, same footing as detachments.chapterKeyword) — the one field downstream of normalize permitted to carry the source's own wording, OMITTED for every datasheet with no option rows.",
+  "_comment5": "AI-Assisted: Claude Code (model: claude-sonnet-5) - 2026-10-09 pipeline P3 task 3 (spec §4.2 P4b): added the optional datasheetOptionGroups.eligibleCompositionLines column (additive, bundleFormatVersion stays 1) -- derived at build from a group's REPLACED items and the datasheet's line-resolved default-equipment groups, never curated directly; OMITTED (never an empty array) when underivable.",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://the-badgerworks.github.io/wargame-rules-data/schemas/bundle.schema.json",
   "title": "Published snapshot bundle rules-<rulesVersionId>.json",
@@ -639,6 +640,12 @@
           "isPerModel": {
             "type": "boolean",
             "description": "006 additive column (FR-004). True when the source distributes the option per eligible model rather than once across the unit. OMITTED when the source does not distinguish. Not a nicety: research D1c measured a distributive `can each` on 350 of 571 unparsed rows, and publishing one of those as a plain unit-scoped group would over-grant."
+          },
+          "eligibleCompositionLines": {
+            "type": "array",
+            "minItems": 1,
+            "items": { "type": "integer", "minimum": 1 },
+            "description": "2026-10-09 additive column (spec §4.2 P4b). Derived at build, never curated: the composition line numbers whose models carry every item this group's choices replace, so an app can show a per-model option only on the rows that could legally take it. OMITTED (never an empty array) when underivable, in which case the app falls back to `scope`."
           }
         }
       }
