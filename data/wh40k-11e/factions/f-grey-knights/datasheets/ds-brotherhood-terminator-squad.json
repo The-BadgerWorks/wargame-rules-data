@@ -25,33 +25,33 @@
       "copy_index_min": 1,
       "label": "4 models",
       "model_count": 4,
-      "points": 140,
+      "points": 150,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260922T170502Z-1b0a18bd"
+      "source_acquisition_id": "mfm-20261010T224054Z-86fd7d73"
     },
     {
       "copy_index_min": 1,
       "label": "5 models",
       "model_count": 5,
-      "points": 175,
+      "points": 185,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260922T170502Z-1b0a18bd"
+      "source_acquisition_id": "mfm-20261010T224054Z-86fd7d73"
     },
     {
       "copy_index_min": 1,
       "label": "8 models",
       "model_count": 8,
-      "points": 300,
+      "points": 315,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260922T170502Z-1b0a18bd"
+      "source_acquisition_id": "mfm-20261010T224054Z-86fd7d73"
     },
     {
       "copy_index_min": 1,
       "label": "10 models",
       "model_count": 10,
-      "points": 360,
+      "points": 380,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260922T170502Z-1b0a18bd"
+      "source_acquisition_id": "mfm-20261010T224054Z-86fd7d73"
     }
   ],
   "datasheet_id": "ds-brotherhood-terminator-squad",
@@ -133,7 +133,7 @@
       "name": "Brotherhood Terminator Squad",
       "objective_control": 2,
       "save": "2+",
-      "toughness": 5,
+      "toughness": 6,
       "wounds": 3
     }
   ],
@@ -364,20 +364,22 @@
   ],
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
-    "last_verified_points_digest": "sha256:d6ff0782f1f5f5c04c194705a7ac8320098f2d477e4aa60b6cdb3e6bac6f3ecf",
-    "last_verified_version": "wh40k-11e-2026-09-5",
+    "last_verified_points_digest": "sha256:1afd40ea6f0dc94dd1fc88addc1d97541c589f6cc58e2351846b8f2d430cafda",
+    "last_verified_version": "wh40k-11e-2026-10-1",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
+    "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
+    "points_acquisition_id": "mfm-20261010T224054Z-86fd7d73",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
+  "role": "Battleline",
   "wargear_option_state": "extracted",
+  "wargear_options_text": "For every 5 models in this unit, 1 Terminator’s storm bolter can be replaced with one of the following:\n1 incinerator\n1 psilencer\n1 psycannon\n1 Terminator can have its storm bolter replaced with 1 Apothecary’s narthecium.\n1 Terminator’s storm bolter can be replaced with one of the following:\n1 incinerator and 1 Ancient’s banner\n1 psilencer and 1 Ancient’s banner\n1 psycannon and 1 Ancient’s banner\n1 storm bolter and 1 Ancient’s banner*",
   "weapons": [
     {
       "ability_keywords": [
@@ -428,7 +430,7 @@
       "ability_keywords": [
         "rapid fire 2"
       ],
-      "armour_penetration": "0",
+      "armour_penetration": "-1",
       "attacks": "2",
       "damage": "1",
       "is_melee": false,
@@ -436,7 +438,7 @@
       "name": "Storm bolter",
       "range": "24\"",
       "skill": "3+",
-      "strength": "4"
+      "strength": "5"
     },
     {
       "ability_keywords": [

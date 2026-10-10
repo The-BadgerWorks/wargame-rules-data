@@ -1,49 +1,17 @@
 {
   "enhancements": [
     {
-      "detachment_id": "d-firestorm-assault-force-3",
-      "enhancement_id": "e-adamantine-mantle-3",
-      "max_per_army": 1,
-      "name": "Adamantine Mantle",
-      "points": 20,
-      "provenance": {
-        "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
-        "detail_edition_code": "wh40k-11e",
-        "detail_source": "wahapedia",
-        "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
-        "points_edition_code": "wh40k-11e",
-        "points_source": "mfm"
-      }
-    },
-    {
-      "detachment_id": "d-gladius-task-force-3",
-      "enhancement_id": "e-adept-of-the-codex-3",
+      "detachment_id": "d-gladius-task-force-2",
+      "enhancement_id": "e-adept-of-the-codex-2",
       "max_per_army": 1,
       "name": "Adept of the Codex",
       "points": 20,
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
+        "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
         "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
-        "points_edition_code": "wh40k-11e",
-        "points_source": "mfm"
-      }
-    },
-    {
-      "detachment_id": "d-ironstorm-spearhead-3",
-      "enhancement_id": "e-adept-of-the-omnissiah-3",
-      "max_per_army": 1,
-      "name": "Adept of the Omnissiah",
-      "points": 35,
-      "provenance": {
-        "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
-        "detail_edition_code": "wh40k-11e",
-        "detail_source": "wahapedia",
-        "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
+        "points_acquisition_id": "mfm-20261010T224054Z-86fd7d73",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       }
@@ -53,205 +21,77 @@
       "enhancement_id": "e-ancient-weapons",
       "max_per_army": 1,
       "name": "Ancient Weapons",
-      "points": 25,
+      "points": 20,
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
+        "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
         "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
+        "points_acquisition_id": "mfm-20261010T224054Z-86fd7d73",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       }
     },
     {
-      "detachment_id": "d-anvil-siege-force-3",
-      "enhancement_id": "e-architect-of-war-3",
-      "max_per_army": 1,
-      "name": "Architect of War",
-      "points": 25,
-      "provenance": {
-        "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
-        "detail_edition_code": "wh40k-11e",
-        "detail_source": "wahapedia",
-        "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
-        "points_edition_code": "wh40k-11e",
-        "points_source": "mfm"
-      }
-    },
-    {
-      "detachment_id": "d-armoured-speartip-3",
-      "enhancement_id": "e-armoured-commander-3",
-      "max_per_army": 1,
-      "name": "Armoured Commander",
-      "points": 25,
-      "provenance": {
-        "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
-        "detail_edition_code": "wh40k-11e",
-        "detail_source": "wahapedia",
-        "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
-        "points_edition_code": "wh40k-11e",
-        "points_source": "mfm"
-      }
-    },
-    {
-      "detachment_id": "d-gladius-task-force-3",
-      "enhancement_id": "e-artificer-armour-3",
+      "detachment_id": "d-gladius-task-force-2",
+      "enhancement_id": "e-artificer-armour-2",
       "max_per_army": 1,
       "name": "Artificer Armour",
-      "points": 20,
+      "points": 15,
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
+        "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
         "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
+        "points_acquisition_id": "mfm-20261010T224054Z-86fd7d73",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       }
     },
     {
-      "detachment_id": "d-headhunter-task-force-3",
-      "enhancement_id": "e-astartes-tank-ace-3",
+      "detachment_id": "d-ironclad-champions-3",
+      "enhancement_id": "e-artificer-sarcophagus-upgrade-3",
       "max_per_army": 1,
-      "name": "Astartes Tank Ace",
+      "name": "Artificer Sarcophagus (Upgrade)",
       "points": 40,
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
+        "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
         "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
+        "points_acquisition_id": "mfm-20261010T224054Z-86fd7d73",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       }
     },
     {
-      "detachment_id": "d-vengeful-hosts-3",
-      "enhancement_id": "e-avenging-angel-3",
+      "detachment_id": "d-stormlance-task-force-3",
+      "enhancement_id": "e-auspex-triangulation-shrines-upgrade-3",
       "max_per_army": 1,
-      "name": "Avenging Angel",
-      "points": 20,
-      "provenance": {
-        "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
-        "detail_edition_code": "wh40k-11e",
-        "detail_source": "wahapedia",
-        "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
-        "points_edition_code": "wh40k-11e",
-        "points_source": "mfm"
-      }
-    },
-    {
-      "detachment_id": "d-fulguris-task-force-3",
-      "enhancement_id": "e-bellicose-weapon-spirits-upgrade-3",
-      "max_per_army": 1,
-      "name": "Bellicose Weapon Spirits (Upgrade)",
-      "points": 15,
-      "provenance": {
-        "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
-        "detail_edition_code": "wh40k-11e",
-        "detail_source": "wahapedia",
-        "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
-        "points_edition_code": "wh40k-11e",
-        "points_source": "mfm"
-      }
-    },
-    {
-      "detachment_id": "d-bastion-task-force-3",
-      "enhancement_id": "e-blades-of-valour-3",
-      "max_per_army": 1,
-      "name": "Blades of Valour",
-      "points": 15,
-      "provenance": {
-        "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
-        "detail_edition_code": "wh40k-11e",
-        "detail_source": "wahapedia",
-        "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
-        "points_edition_code": "wh40k-11e",
-        "points_source": "mfm"
-      }
-    },
-    {
-      "detachment_id": "d-bastion-task-force-3",
-      "enhancement_id": "e-bombast-omnivox-3",
-      "max_per_army": 1,
-      "name": "Bombast Omnivox",
-      "points": 15,
-      "provenance": {
-        "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
-        "detail_edition_code": "wh40k-11e",
-        "detail_source": "wahapedia",
-        "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
-        "points_edition_code": "wh40k-11e",
-        "points_source": "mfm"
-      }
-    },
-    {
-      "detachment_id": "d-lions-blade-task-force",
-      "enhancement_id": "e-calibanite-armaments",
-      "max_per_army": 1,
-      "name": "Calibanite Armaments",
-      "points": 15,
-      "provenance": {
-        "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
-        "detail_edition_code": "wh40k-11e",
-        "detail_source": "wahapedia",
-        "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
-        "points_edition_code": "wh40k-11e",
-        "points_source": "mfm"
-      }
-    },
-    {
-      "detachment_id": "d-ceramite-sentinels-3",
-      "enhancement_id": "e-castellum-omnivox-3",
-      "max_per_army": 1,
-      "name": "Castellum Omnivox",
-      "points": 20,
-      "provenance": {
-        "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
-        "detail_edition_code": "wh40k-11e",
-        "detail_source": "wahapedia",
-        "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
-        "points_edition_code": "wh40k-11e",
-        "points_source": "mfm"
-      }
-    },
-    {
-      "detachment_id": "d-librarius-conclave-2",
-      "enhancement_id": "e-celerity-2",
-      "max_per_army": 1,
-      "name": "Celerity",
-      "points": 35,
-      "provenance": {
-        "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
-        "detail_edition_code": "wh40k-11e",
-        "detail_source": "wahapedia",
-        "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
-        "points_edition_code": "wh40k-11e",
-        "points_source": "mfm"
-      }
-    },
-    {
-      "detachment_id": "d-firestorm-assault-force-3",
-      "enhancement_id": "e-champion-of-humanity-3",
-      "max_per_army": 1,
-      "name": "Champion of Humanity",
+      "name": "Auspex Triangulation Shrines (Upgrade)",
       "points": 10,
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
+        "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
         "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
+        "points_acquisition_id": "mfm-20261010T224054Z-86fd7d73",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    },
+    {
+      "detachment_id": "d-deathwatch-support-3",
+      "enhancement_id": "e-beacon-angelis-3",
+      "max_per_army": 1,
+      "name": "Beacon Angelis",
+      "points": 25,
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
+        "detail_edition_code": "wh40k-11e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20261010T224054Z-86fd7d73",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       }
@@ -261,493 +101,253 @@
       "enhancement_id": "e-champion-of-the-deathwing",
       "max_per_army": 1,
       "name": "Champion of the Deathwing",
-      "points": 15,
+      "points": 20,
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
+        "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
         "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
+        "points_acquisition_id": "mfm-20261010T224054Z-86fd7d73",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       }
     },
     {
-      "detachment_id": "d-subversion-assets-3",
-      "enhancement_id": "e-death-in-the-dark-upgrade-3",
+      "detachment_id": "d-terminator-storm-force-3",
+      "enhancement_id": "e-champion-of-the-first-company-3",
       "max_per_army": 1,
-      "name": "Death in the Dark (Upgrade)",
-      "points": 15,
+      "name": "Champion of the First Company",
+      "points": 20,
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
+        "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
         "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
+        "points_acquisition_id": "mfm-20261010T224054Z-86fd7d73",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       }
     },
     {
-      "detachment_id": "d-inner-circle-task-force",
-      "enhancement_id": "e-deathwing-assault",
+      "detachment_id": "d-terminator-storm-force-3",
+      "enhancement_id": "e-corporeum-reliquary-3",
       "max_per_army": 1,
-      "name": "Deathwing Assault",
-      "points": 30,
+      "name": "Corporeum Reliquary",
+      "points": 25,
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
+        "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
         "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
+        "points_acquisition_id": "mfm-20261010T224054Z-86fd7d73",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    },
+    {
+      "detachment_id": "d-tacticus-firestorm-force-3",
+      "enhancement_id": "e-cyber-familiar-3",
+      "max_per_army": 1,
+      "name": "Cyber-familiar",
+      "points": 15,
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
+        "detail_edition_code": "wh40k-11e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20261010T224054Z-86fd7d73",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    },
+    {
+      "detachment_id": "d-gauntlet-task-force-3",
+      "enhancement_id": "e-damocles-class-uplink-3",
+      "max_per_army": 1,
+      "name": "Damocles-class Uplink",
+      "points": 15,
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
+        "detail_edition_code": "wh40k-11e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20261010T224054Z-86fd7d73",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       }
     },
     {
       "detachment_id": "d-wrath-of-the-rock",
-      "enhancement_id": "e-deathwing-assault-2",
+      "enhancement_id": "e-deathwing-assault",
       "max_per_army": 1,
       "name": "Deathwing Assault",
       "points": 15,
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
+        "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
         "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
+        "points_acquisition_id": "mfm-20261010T224054Z-86fd7d73",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       }
     },
     {
-      "detachment_id": "d-orbital-assault-force-3",
-      "enhancement_id": "e-dedicated-gunship-3",
-      "max_per_army": 1,
-      "name": "Dedicated Gunship",
-      "points": 15,
-      "provenance": {
-        "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
-        "detail_edition_code": "wh40k-11e",
-        "detail_source": "wahapedia",
-        "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
-        "points_edition_code": "wh40k-11e",
-        "points_source": "mfm"
-      }
-    },
-    {
-      "detachment_id": "d-ceramite-sentinels-3",
-      "enhancement_id": "e-defensive-mastery-3",
-      "max_per_army": 1,
-      "name": "Defensive Mastery",
-      "points": 25,
-      "provenance": {
-        "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
-        "detail_edition_code": "wh40k-11e",
-        "detail_source": "wahapedia",
-        "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
-        "points_edition_code": "wh40k-11e",
-        "points_source": "mfm"
-      }
-    },
-    {
-      "detachment_id": "d-dark-age-arsenal",
-      "enhancement_id": "e-entreaty-of-perpetual-ardour-upgrade",
-      "max_per_army": 1,
-      "name": "Entreaty of Perpetual Ardour (Upgrade)",
-      "points": 15,
-      "provenance": {
-        "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
-        "detail_edition_code": "wh40k-11e",
-        "detail_source": "wahapedia",
-        "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
-        "points_edition_code": "wh40k-11e",
-        "points_source": "mfm"
-      }
-    },
-    {
-      "detachment_id": "d-vanguard-spearhead-3",
+      "detachment_id": "d-phobos-shadow-force-3",
       "enhancement_id": "e-execute-and-redeploy-3",
       "max_per_army": 1,
       "name": "Execute and Redeploy",
-      "points": 20,
+      "points": 25,
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
+        "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
         "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
+        "points_acquisition_id": "mfm-20261010T224054Z-86fd7d73",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       }
     },
     {
-      "detachment_id": "d-bastion-task-force-3",
-      "enhancement_id": "e-eye-of-the-primarch-3",
+      "detachment_id": "d-assault-brethren-3",
+      "enhancement_id": "e-furious-assault-upgrade-3",
       "max_per_army": 1,
-      "name": "Eye of the Primarch",
+      "name": "Furious Assault (Upgrade)",
       "points": 10,
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
+        "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
         "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
+        "points_acquisition_id": "mfm-20261010T224054Z-86fd7d73",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       }
     },
     {
-      "detachment_id": "d-inner-circle-task-force",
-      "enhancement_id": "e-eye-of-the-unseen",
+      "detachment_id": "d-ironstorm-spearhead-3",
+      "enhancement_id": "e-gunnery-honours-upgrade-3",
       "max_per_army": 1,
-      "name": "Eye of the Unseen",
+      "name": "Gunnery Honours (Upgrade)",
+      "points": 15,
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
+        "detail_edition_code": "wh40k-11e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20261010T224054Z-86fd7d73",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    },
+    {
+      "detachment_id": "d-devastator-brethren-3",
+      "enhancement_id": "e-honour-of-vigilance-3",
+      "max_per_army": 1,
+      "name": "Honour of Vigilance",
+      "points": 20,
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
+        "detail_edition_code": "wh40k-11e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20261010T224054Z-86fd7d73",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    },
+    {
+      "detachment_id": "d-gravis-siege-force-3",
+      "enhancement_id": "e-immovable-conquerors-upgrade-3",
+      "max_per_army": 1,
+      "name": "Immovable Conquerors (Upgrade)",
+      "points": 15,
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
+        "detail_edition_code": "wh40k-11e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20261010T224054Z-86fd7d73",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    },
+    {
+      "detachment_id": "d-assault-brethren-3",
+      "enhancement_id": "e-imperiums-sword-3",
+      "max_per_army": 1,
+      "name": "Imperium’s Sword",
+      "points": 20,
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
+        "detail_edition_code": "wh40k-11e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20261010T224054Z-86fd7d73",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    },
+    {
+      "detachment_id": "d-gravis-linebreaker-force-3",
+      "enhancement_id": "e-indefatigable-fortitude-3",
+      "max_per_army": 1,
+      "name": "Indefatigable Fortitude",
+      "points": 20,
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
+        "detail_edition_code": "wh40k-11e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20261010T224054Z-86fd7d73",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    },
+    {
+      "detachment_id": "d-gladius-task-force-2",
+      "enhancement_id": "e-laurels-of-triumph-2",
+      "max_per_army": 1,
+      "name": "Laurels of Triumph",
+      "points": 20,
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
+        "detail_edition_code": "wh40k-11e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20261010T224054Z-86fd7d73",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    },
+    {
+      "detachment_id": "d-tactical-brethren-3",
+      "enhancement_id": "e-laurels-of-vigilance-3",
+      "max_per_army": 1,
+      "name": "Laurels of Vigilance",
       "points": 10,
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
+        "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
         "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
+        "points_acquisition_id": "mfm-20261010T224054Z-86fd7d73",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       }
     },
     {
-      "detachment_id": "d-1st-company-task-force-2",
-      "enhancement_id": "e-fear-made-manifest-2",
+      "detachment_id": "d-gauntlet-task-force-3",
+      "enhancement_id": "e-linebreaker-onslaught-3",
       "max_per_army": 1,
-      "name": "Fear Made Manifest",
-      "points": 30,
-      "provenance": {
-        "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
-        "detail_edition_code": "wh40k-11e",
-        "detail_source": "wahapedia",
-        "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
-        "points_edition_code": "wh40k-11e",
-        "points_source": "mfm"
-      }
-    },
-    {
-      "detachment_id": "d-stormlance-task-force-3",
-      "enhancement_id": "e-feinting-withdrawal-3",
-      "max_per_army": 1,
-      "name": "Feinting Withdrawal",
-      "points": 10,
-      "provenance": {
-        "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
-        "detail_edition_code": "wh40k-11e",
-        "detail_source": "wahapedia",
-        "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
-        "points_edition_code": "wh40k-11e",
-        "points_source": "mfm"
-      }
-    },
-    {
-      "detachment_id": "d-gladius-task-force-3",
-      "enhancement_id": "e-fire-discipline-3",
-      "max_per_army": 1,
-      "name": "Fire Discipline",
-      "points": 25,
-      "provenance": {
-        "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
-        "detail_edition_code": "wh40k-11e",
-        "detail_source": "wahapedia",
-        "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
-        "points_edition_code": "wh40k-11e",
-        "points_source": "mfm"
-      }
-    },
-    {
-      "detachment_id": "d-headhunter-task-force-3",
-      "enhancement_id": "e-firestorm-coordinators-3",
-      "max_per_army": 1,
-      "name": "Firestorm Coordinators",
+      "name": "Linebreaker Onslaught",
       "points": 20,
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
+        "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
         "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
-        "points_edition_code": "wh40k-11e",
-        "points_source": "mfm"
-      }
-    },
-    {
-      "detachment_id": "d-anvil-siege-force-3",
-      "enhancement_id": "e-fleet-commander-3",
-      "max_per_army": 1,
-      "name": "Fleet Commander",
-      "points": 15,
-      "provenance": {
-        "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
-        "detail_edition_code": "wh40k-11e",
-        "detail_source": "wahapedia",
-        "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
-        "points_edition_code": "wh40k-11e",
-        "points_source": "mfm"
-      }
-    },
-    {
-      "detachment_id": "d-firestorm-assault-force-3",
-      "enhancement_id": "e-forged-in-battle-3",
-      "max_per_army": 1,
-      "name": "Forged in Battle",
-      "points": 15,
-      "provenance": {
-        "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
-        "detail_edition_code": "wh40k-11e",
-        "detail_source": "wahapedia",
-        "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
-        "points_edition_code": "wh40k-11e",
-        "points_source": "mfm"
-      }
-    },
-    {
-      "detachment_id": "d-lions-blade-task-force",
-      "enhancement_id": "e-fulgus-magna",
-      "max_per_army": 1,
-      "name": "Fulgus Magna",
-      "points": 20,
-      "provenance": {
-        "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
-        "detail_edition_code": "wh40k-11e",
-        "detail_source": "wahapedia",
-        "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
-        "points_edition_code": "wh40k-11e",
-        "points_source": "mfm"
-      }
-    },
-    {
-      "detachment_id": "d-stormlance-task-force-3",
-      "enhancement_id": "e-fury-of-the-storm-3",
-      "max_per_army": 1,
-      "name": "Fury of the Storm",
-      "points": 25,
-      "provenance": {
-        "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
-        "detail_edition_code": "wh40k-11e",
-        "detail_source": "wahapedia",
-        "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
-        "points_edition_code": "wh40k-11e",
-        "points_source": "mfm"
-      }
-    },
-    {
-      "detachment_id": "d-librarius-conclave-2",
-      "enhancement_id": "e-fusillade-2",
-      "max_per_army": 1,
-      "name": "Fusillade",
-      "points": 25,
-      "provenance": {
-        "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
-        "detail_edition_code": "wh40k-11e",
-        "detail_source": "wahapedia",
-        "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
-        "points_edition_code": "wh40k-11e",
-        "points_source": "mfm"
-      }
-    },
-    {
-      "detachment_id": "d-vanguard-spearhead-3",
-      "enhancement_id": "e-ghostweave-cloak-3",
-      "max_per_army": 1,
-      "name": "Ghostweave Cloak",
-      "points": 15,
-      "provenance": {
-        "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
-        "detail_edition_code": "wh40k-11e",
-        "detail_source": "wahapedia",
-        "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
-        "points_edition_code": "wh40k-11e",
-        "points_source": "mfm"
-      }
-    },
-    {
-      "detachment_id": "d-headhunter-task-force-3",
-      "enhancement_id": "e-gunnery-honours-3",
-      "max_per_army": 1,
-      "name": "Gunnery Honours",
-      "points": 20,
-      "provenance": {
-        "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
-        "detail_edition_code": "wh40k-11e",
-        "detail_source": "wahapedia",
-        "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
-        "points_edition_code": "wh40k-11e",
-        "points_source": "mfm"
-      }
-    },
-    {
-      "detachment_id": "d-bastion-task-force-3",
-      "enhancement_id": "e-hero-of-the-chapter-3",
-      "max_per_army": 1,
-      "name": "Hero of the Chapter",
-      "points": 20,
-      "provenance": {
-        "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
-        "detail_edition_code": "wh40k-11e",
-        "detail_source": "wahapedia",
-        "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
-        "points_edition_code": "wh40k-11e",
-        "points_source": "mfm"
-      }
-    },
-    {
-      "detachment_id": "d-ceramite-sentinels-3",
-      "enhancement_id": "e-honour-indefatigable-3",
-      "max_per_army": 1,
-      "name": "Honour Indefatigable",
-      "points": 25,
-      "provenance": {
-        "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
-        "detail_edition_code": "wh40k-11e",
-        "detail_source": "wahapedia",
-        "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
-        "points_edition_code": "wh40k-11e",
-        "points_source": "mfm"
-      }
-    },
-    {
-      "detachment_id": "d-stormlance-task-force-3",
-      "enhancement_id": "e-hunters-instincts-3",
-      "max_per_army": 1,
-      "name": "Hunter’s Instincts",
-      "points": 25,
-      "provenance": {
-        "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
-        "detail_edition_code": "wh40k-11e",
-        "detail_source": "wahapedia",
-        "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
-        "points_edition_code": "wh40k-11e",
-        "points_source": "mfm"
-      }
-    },
-    {
-      "detachment_id": "d-anvil-siege-force-3",
-      "enhancement_id": "e-indomitable-fury-3",
-      "max_per_army": 1,
-      "name": "Indomitable Fury",
-      "points": 20,
-      "provenance": {
-        "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
-        "detail_edition_code": "wh40k-11e",
-        "detail_source": "wahapedia",
-        "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
-        "points_edition_code": "wh40k-11e",
-        "points_source": "mfm"
-      }
-    },
-    {
-      "detachment_id": "d-interrogation-conclave",
-      "enhancement_id": "e-inescapable-interrogation",
-      "max_per_army": 1,
-      "name": "Inescapable Interrogation",
-      "points": 20,
-      "provenance": {
-        "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
-        "detail_edition_code": "wh40k-11e",
-        "detail_source": "wahapedia",
-        "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
-        "points_edition_code": "wh40k-11e",
-        "points_source": "mfm"
-      }
-    },
-    {
-      "detachment_id": "d-1st-company-task-force-2",
-      "enhancement_id": "e-iron-resolve-2",
-      "max_per_army": 1,
-      "name": "Iron Resolve",
-      "points": 15,
-      "provenance": {
-        "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
-        "detail_edition_code": "wh40k-11e",
-        "detail_source": "wahapedia",
-        "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
-        "points_edition_code": "wh40k-11e",
-        "points_source": "mfm"
-      }
-    },
-    {
-      "detachment_id": "d-orbital-assault-force-3",
-      "enhancement_id": "e-laurels-of-thunder-3",
-      "max_per_army": 1,
-      "name": "Laurels of Thunder",
-      "points": 15,
-      "provenance": {
-        "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
-        "detail_edition_code": "wh40k-11e",
-        "detail_source": "wahapedia",
-        "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
-        "points_edition_code": "wh40k-11e",
-        "points_source": "mfm"
-      }
-    },
-    {
-      "detachment_id": "d-armoured-speartip-3",
-      "enhancement_id": "e-liberator-3",
-      "max_per_army": 1,
-      "name": "Liberator",
-      "points": 15,
-      "provenance": {
-        "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
-        "detail_edition_code": "wh40k-11e",
-        "detail_source": "wahapedia",
-        "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
-        "points_edition_code": "wh40k-11e",
-        "points_source": "mfm"
-      }
-    },
-    {
-      "detachment_id": "d-interrogation-conclave",
-      "enhancement_id": "e-limitless-zeal",
-      "max_per_army": 1,
-      "name": "Limitless Zeal",
-      "points": 10,
-      "provenance": {
-        "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
-        "detail_edition_code": "wh40k-11e",
-        "detail_source": "wahapedia",
-        "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
-        "points_edition_code": "wh40k-11e",
-        "points_source": "mfm"
-      }
-    },
-    {
-      "detachment_id": "d-lions-blade-task-force",
-      "enhancement_id": "e-lord-of-the-hunt",
-      "max_per_army": 1,
-      "name": "Lord of the Hunt",
-      "points": 15,
-      "provenance": {
-        "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
-        "detail_edition_code": "wh40k-11e",
-        "detail_source": "wahapedia",
-        "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
+        "points_acquisition_id": "mfm-20261010T224054Z-86fd7d73",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       }
@@ -757,333 +357,125 @@
       "enhancement_id": "e-lord-of-the-ravenwing",
       "max_per_army": 1,
       "name": "Lord of the Ravenwing",
-      "points": 10,
-      "provenance": {
-        "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
-        "detail_edition_code": "wh40k-11e",
-        "detail_source": "wahapedia",
-        "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
-        "points_edition_code": "wh40k-11e",
-        "points_source": "mfm"
-      }
-    },
-    {
-      "detachment_id": "d-company-of-hunters",
-      "enhancement_id": "e-master-crafted-weapon",
-      "max_per_army": 1,
-      "name": "Master-crafted Weapon",
-      "points": 10,
-      "provenance": {
-        "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
-        "detail_edition_code": "wh40k-11e",
-        "detail_source": "wahapedia",
-        "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
-        "points_edition_code": "wh40k-11e",
-        "points_source": "mfm"
-      }
-    },
-    {
-      "detachment_id": "d-ironstorm-spearhead-3",
-      "enhancement_id": "e-master-of-machine-war-3",
-      "max_per_army": 1,
-      "name": "Master of Machine War",
-      "points": 20,
-      "provenance": {
-        "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
-        "detail_edition_code": "wh40k-11e",
-        "detail_source": "wahapedia",
-        "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
-        "points_edition_code": "wh40k-11e",
-        "points_source": "mfm"
-      }
-    },
-    {
-      "detachment_id": "d-company-of-hunters",
-      "enhancement_id": "e-master-of-manoeuvre",
-      "max_per_army": 1,
-      "name": "Master of Manoeuvre",
       "points": 15,
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
+        "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
         "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
+        "points_acquisition_id": "mfm-20261010T224054Z-86fd7d73",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       }
     },
     {
-      "detachment_id": "d-company-of-hunters",
-      "enhancement_id": "e-mounted-strategist",
+      "detachment_id": "d-tacticus-attack-force-3",
+      "enhancement_id": "e-martial-paragon-3",
       "max_per_army": 1,
-      "name": "Mounted Strategist",
-      "points": 30,
+      "name": "Martial Paragon",
+      "points": 10,
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
+        "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
         "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
+        "points_acquisition_id": "mfm-20261010T224054Z-86fd7d73",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    },
+    {
+      "detachment_id": "d-devastator-brethren-3",
+      "enhancement_id": "e-master-forged-firearms-3",
+      "max_per_army": 1,
+      "name": "Master-forged Firearms",
+      "points": 15,
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
+        "detail_edition_code": "wh40k-11e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20261010T224054Z-86fd7d73",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    },
+    {
+      "detachment_id": "d-gravis-siege-force-3",
+      "enhancement_id": "e-narthecis-gauntlet-3",
+      "max_per_army": 1,
+      "name": "Narthecis Gauntlet",
+      "points": 20,
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
+        "detail_edition_code": "wh40k-11e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20261010T224054Z-86fd7d73",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       }
     },
     {
       "detachment_id": "d-darkflight-pursuit",
-      "enhancement_id": "e-nightforged-battery-upgrade",
+      "enhancement_id": "e-nightforged-battery-upgarde",
       "max_per_army": 1,
-      "name": "Nightforged Battery (Upgrade)",
-      "points": 15,
-      "provenance": {
-        "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
-        "detail_edition_code": "wh40k-11e",
-        "detail_source": "wahapedia",
-        "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
-        "points_edition_code": "wh40k-11e",
-        "points_source": "mfm"
-      }
-    },
-    {
-      "detachment_id": "d-librarius-conclave-2",
-      "enhancement_id": "e-obfuscation-2",
-      "max_per_army": 1,
-      "name": "Obfuscation",
-      "points": 25,
-      "provenance": {
-        "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
-        "detail_edition_code": "wh40k-11e",
-        "detail_source": "wahapedia",
-        "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
-        "points_edition_code": "wh40k-11e",
-        "points_source": "mfm"
-      }
-    },
-    {
-      "detachment_id": "d-orbital-assault-force-3",
-      "enhancement_id": "e-orbital-uplink-reliquary-3",
-      "max_per_army": 1,
-      "name": "Orbital Uplink Reliquary",
-      "points": 25,
-      "provenance": {
-        "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
-        "detail_edition_code": "wh40k-11e",
-        "detail_source": "wahapedia",
-        "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
-        "points_edition_code": "wh40k-11e",
-        "points_source": "mfm"
-      }
-    },
-    {
-      "detachment_id": "d-vengeful-hosts-3",
-      "enhancement_id": "e-orksbane-3",
-      "max_per_army": 1,
-      "name": "Orksbane",
-      "points": 20,
-      "provenance": {
-        "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
-        "detail_edition_code": "wh40k-11e",
-        "detail_source": "wahapedia",
-        "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
-        "points_edition_code": "wh40k-11e",
-        "points_source": "mfm"
-      }
-    },
-    {
-      "detachment_id": "d-unforgiven-task-force",
-      "enhancement_id": "e-pennant-of-remembrance",
-      "max_per_army": 1,
-      "name": "Pennant of Remembrance",
+      "name": "Nightforged Battery (Upgarde)",
       "points": 10,
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
+        "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
         "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
+        "points_acquisition_id": "mfm-20261010T224054Z-86fd7d73",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       }
     },
     {
-      "detachment_id": "d-dark-age-arsenal",
-      "enhancement_id": "e-petition-of-stability-upgrade",
+      "detachment_id": "d-ironstorm-spearhead-3",
+      "enhancement_id": "e-redoubtable-machine-spirit-upgrade-3",
       "max_per_army": 1,
-      "name": "Petition of Stability (Upgrade)",
-      "points": 15,
-      "provenance": {
-        "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
-        "detail_edition_code": "wh40k-11e",
-        "detail_source": "wahapedia",
-        "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
-        "points_edition_code": "wh40k-11e",
-        "points_source": "mfm"
-      }
-    },
-    {
-      "detachment_id": "d-stormlance-task-force-3",
-      "enhancement_id": "e-portents-of-wisdom-3",
-      "max_per_army": 1,
-      "name": "Portents of Wisdom",
-      "points": 15,
-      "provenance": {
-        "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
-        "detail_edition_code": "wh40k-11e",
-        "detail_source": "wahapedia",
-        "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
-        "points_edition_code": "wh40k-11e",
-        "points_source": "mfm"
-      }
-    },
-    {
-      "detachment_id": "d-librarius-conclave-2",
-      "enhancement_id": "e-prescience-2",
-      "max_per_army": 1,
-      "name": "Prescience",
-      "points": 20,
-      "provenance": {
-        "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
-        "detail_edition_code": "wh40k-11e",
-        "detail_source": "wahapedia",
-        "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
-        "points_edition_code": "wh40k-11e",
-        "points_source": "mfm"
-      }
-    },
-    {
-      "detachment_id": "d-fulguris-task-force-3",
-      "enhancement_id": "e-raptorial-cogitator-core-upgrade-3",
-      "max_per_army": 1,
-      "name": "Raptorial Cogitator Core (Upgrade)",
-      "points": 15,
-      "provenance": {
-        "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
-        "detail_edition_code": "wh40k-11e",
-        "detail_source": "wahapedia",
-        "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
-        "points_edition_code": "wh40k-11e",
-        "points_source": "mfm"
-      }
-    },
-    {
-      "detachment_id": "d-company-of-hunters",
-      "enhancement_id": "e-recon-hunter",
-      "max_per_army": 1,
-      "name": "Recon Hunter",
-      "points": 30,
-      "provenance": {
-        "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
-        "detail_edition_code": "wh40k-11e",
-        "detail_source": "wahapedia",
-        "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
-        "points_edition_code": "wh40k-11e",
-        "points_source": "mfm"
-      }
-    },
-    {
-      "detachment_id": "d-headhunter-task-force-3",
-      "enhancement_id": "e-redoubtable-machine-spirit-3",
-      "max_per_army": 1,
-      "name": "Redoubtable Machine Spirit",
+      "name": "Redoubtable Machine Spirit (Upgrade)",
       "points": 25,
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
+        "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
         "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
+        "points_acquisition_id": "mfm-20261010T224054Z-86fd7d73",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       }
     },
     {
-      "detachment_id": "d-1st-company-task-force-2",
-      "enhancement_id": "e-rites-of-war-2",
+      "detachment_id": "d-gravis-linebreaker-force-3",
+      "enhancement_id": "e-relentless-advance-3",
       "max_per_army": 1,
-      "name": "Rites of War",
-      "points": 10,
-      "provenance": {
-        "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
-        "detail_edition_code": "wh40k-11e",
-        "detail_source": "wahapedia",
-        "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
-        "points_edition_code": "wh40k-11e",
-        "points_source": "mfm"
-      }
-    },
-    {
-      "detachment_id": "d-vanguard-spearhead-3",
-      "enhancement_id": "e-shadow-war-veteran-3",
-      "max_per_army": 1,
-      "name": "Shadow War Veteran",
-      "points": 30,
-      "provenance": {
-        "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
-        "detail_edition_code": "wh40k-11e",
-        "detail_source": "wahapedia",
-        "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
-        "points_edition_code": "wh40k-11e",
-        "points_source": "mfm"
-      }
-    },
-    {
-      "detachment_id": "d-armoured-speartip-3",
-      "enhancement_id": "e-shock-deployment-3",
-      "max_per_army": 1,
-      "name": "Shock Deployment",
+      "name": "Relentless Advance",
       "points": 20,
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
+        "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
         "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
+        "points_acquisition_id": "mfm-20261010T224054Z-86fd7d73",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       }
     },
     {
-      "detachment_id": "d-subversion-assets-3",
-      "enhancement_id": "e-shroud-field-3",
+      "detachment_id": "d-phobos-shock-force-3",
+      "enhancement_id": "e-seal-of-shrouding-3",
       "max_per_army": 1,
-      "name": "Shroud Field",
-      "points": 20,
+      "name": "Seal of Shrouding",
+      "points": 15,
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
+        "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
         "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
-        "points_edition_code": "wh40k-11e",
-        "points_source": "mfm"
-      }
-    },
-    {
-      "detachment_id": "d-unforgiven-task-force",
-      "enhancement_id": "e-shroud-of-heroes",
-      "max_per_army": 1,
-      "name": "Shroud of Heroes",
-      "points": 25,
-      "provenance": {
-        "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
-        "detail_edition_code": "wh40k-11e",
-        "detail_source": "wahapedia",
-        "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
+        "points_acquisition_id": "mfm-20261010T224054Z-86fd7d73",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       }
@@ -1095,187 +487,107 @@
       "name": "Singular Will",
       "points": 20,
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
+        "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
         "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
+        "points_acquisition_id": "mfm-20261010T224054Z-86fd7d73",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       }
     },
     {
-      "detachment_id": "d-ceramite-sentinels-3",
-      "enhancement_id": "e-spy-skull-data-link-3",
+      "detachment_id": "d-tacticus-attack-force-3",
+      "enhancement_id": "e-spearpoint-war-leader-3",
       "max_per_army": 1,
-      "name": "Spy-skull Data Link",
+      "name": "Spearpoint War Leader",
       "points": 15,
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
+        "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
         "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
+        "points_acquisition_id": "mfm-20261010T224054Z-86fd7d73",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       }
     },
     {
-      "detachment_id": "d-lions-blade-task-force",
-      "enhancement_id": "e-stalwart-champion",
+      "detachment_id": "d-gladius-task-force-2",
+      "enhancement_id": "e-standard-of-the-emperor-ascendant-2",
       "max_per_army": 1,
-      "name": "Stalwart Champion",
+      "name": "Standard of the Emperor Ascendant",
+      "points": 25,
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
+        "detail_edition_code": "wh40k-11e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20261010T224054Z-86fd7d73",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    },
+    {
+      "detachment_id": "d-stormlance-task-force-3",
+      "enhancement_id": "e-supercharged-engines-upgrade-3",
+      "max_per_army": 1,
+      "name": "Supercharged Engines (Upgrade)",
+      "points": 10,
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
+        "detail_edition_code": "wh40k-11e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20261010T224054Z-86fd7d73",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    },
+    {
+      "detachment_id": "d-tactical-brethren-3",
+      "enhancement_id": "e-tactical-insight-3",
+      "max_per_army": 1,
+      "name": "Tactical Insight",
       "points": 15,
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
+        "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
         "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
+        "points_acquisition_id": "mfm-20261010T224054Z-86fd7d73",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       }
     },
     {
-      "detachment_id": "d-anvil-siege-force-3",
-      "enhancement_id": "e-stoic-defender-3",
+      "detachment_id": "d-tacticus-firestorm-force-3",
+      "enhancement_id": "e-tempered-in-battle-aura-3",
       "max_per_army": 1,
-      "name": "Stoic Defender",
-      "points": 15,
+      "name": "Tempered in Battle (Aura)",
+      "points": 10,
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
+        "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
         "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
-        "points_edition_code": "wh40k-11e",
-        "points_source": "mfm"
-      }
-    },
-    {
-      "detachment_id": "d-unforgiven-task-force",
-      "enhancement_id": "e-stubborn-tenacity",
-      "max_per_army": 1,
-      "name": "Stubborn Tenacity",
-      "points": 15,
-      "provenance": {
-        "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
-        "detail_edition_code": "wh40k-11e",
-        "detail_source": "wahapedia",
-        "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
-        "points_edition_code": "wh40k-11e",
-        "points_source": "mfm"
-      }
-    },
-    {
-      "detachment_id": "d-ironstorm-spearhead-3",
-      "enhancement_id": "e-target-augury-web-3",
-      "max_per_army": 1,
-      "name": "Target Augury Web",
-      "points": 30,
-      "provenance": {
-        "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
-        "detail_edition_code": "wh40k-11e",
-        "detail_source": "wahapedia",
-        "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
+        "points_acquisition_id": "mfm-20261010T224054Z-86fd7d73",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       }
     },
     {
       "detachment_id": "d-wrath-of-the-rock",
-      "enhancement_id": "e-tempered-in-battle-aura",
+      "enhancement_id": "e-tempered-in-battle-aura-4",
       "max_per_army": 1,
       "name": "Tempered in Battle (Aura)",
       "points": 10,
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
+        "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
         "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
-        "points_edition_code": "wh40k-11e",
-        "points_source": "mfm"
-      }
-    },
-    {
-      "detachment_id": "d-librarius-conclave-2",
-      "enhancement_id": "e-temporal-corridor-2",
-      "max_per_army": 1,
-      "name": "Temporal Corridor",
-      "points": 25,
-      "provenance": {
-        "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
-        "detail_edition_code": "wh40k-11e",
-        "detail_source": "wahapedia",
-        "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
-        "points_edition_code": "wh40k-11e",
-        "points_source": "mfm"
-      }
-    },
-    {
-      "detachment_id": "d-vanguard-spearhead-3",
-      "enhancement_id": "e-the-blade-driven-deep-3",
-      "max_per_army": 1,
-      "name": "The Blade Driven Deep",
-      "points": 25,
-      "provenance": {
-        "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
-        "detail_edition_code": "wh40k-11e",
-        "detail_source": "wahapedia",
-        "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
-        "points_edition_code": "wh40k-11e",
-        "points_source": "mfm"
-      }
-    },
-    {
-      "detachment_id": "d-ironstorm-spearhead-3",
-      "enhancement_id": "e-the-flesh-is-weak-3",
-      "max_per_army": 1,
-      "name": "The Flesh Is Weak",
-      "points": 20,
-      "provenance": {
-        "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
-        "detail_edition_code": "wh40k-11e",
-        "detail_source": "wahapedia",
-        "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
-        "points_edition_code": "wh40k-11e",
-        "points_source": "mfm"
-      }
-    },
-    {
-      "detachment_id": "d-gladius-task-force-3",
-      "enhancement_id": "e-the-honour-vehement-3",
-      "max_per_army": 1,
-      "name": "The Honour Vehement",
-      "points": 15,
-      "provenance": {
-        "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
-        "detail_edition_code": "wh40k-11e",
-        "detail_source": "wahapedia",
-        "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
-        "points_edition_code": "wh40k-11e",
-        "points_source": "mfm"
-      }
-    },
-    {
-      "detachment_id": "d-1st-company-task-force-2",
-      "enhancement_id": "e-the-imperiums-sword-2",
-      "max_per_army": 1,
-      "name": "The Imperium’s Sword",
-      "points": 25,
-      "provenance": {
-        "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
-        "detail_edition_code": "wh40k-11e",
-        "detail_source": "wahapedia",
-        "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
+        "points_acquisition_id": "mfm-20261010T224054Z-86fd7d73",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       }
@@ -1287,75 +599,59 @@
       "name": "Thundercowl Turbines (Upgrade)",
       "points": 15,
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
+        "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
         "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
+        "points_acquisition_id": "mfm-20261010T224054Z-86fd7d73",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       }
     },
     {
-      "detachment_id": "d-armoured-speartip-3",
-      "enhancement_id": "e-tip-of-the-spear-3",
+      "detachment_id": "d-phobos-shadow-force-3",
+      "enhancement_id": "e-venator-omni-auspex-5",
       "max_per_army": 1,
-      "name": "Tip of the Spear",
-      "points": 40,
-      "provenance": {
-        "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
-        "detail_edition_code": "wh40k-11e",
-        "detail_source": "wahapedia",
-        "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
-        "points_edition_code": "wh40k-11e",
-        "points_source": "mfm"
-      }
-    },
-    {
-      "detachment_id": "d-orbital-assault-force-3",
-      "enhancement_id": "e-veteran-of-the-vanguard-3",
-      "max_per_army": 1,
-      "name": "Veteran of the Vanguard",
-      "points": 20,
-      "provenance": {
-        "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
-        "detail_edition_code": "wh40k-11e",
-        "detail_source": "wahapedia",
-        "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
-        "points_edition_code": "wh40k-11e",
-        "points_source": "mfm"
-      }
-    },
-    {
-      "detachment_id": "d-firestorm-assault-force-3",
-      "enhancement_id": "e-war-tempered-artifice-3",
-      "max_per_army": 1,
-      "name": "War-tempered Artifice",
-      "points": 25,
-      "provenance": {
-        "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
-        "detail_edition_code": "wh40k-11e",
-        "detail_source": "wahapedia",
-        "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
-        "points_edition_code": "wh40k-11e",
-        "points_source": "mfm"
-      }
-    },
-    {
-      "detachment_id": "d-unforgiven-task-force",
-      "enhancement_id": "e-weapons-of-the-first-legion",
-      "max_per_army": 1,
-      "name": "Weapons of the First Legion",
+      "name": "Venator Omni-auspex",
       "points": 15,
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
+        "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
         "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
+        "points_acquisition_id": "mfm-20261010T224054Z-86fd7d73",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    },
+    {
+      "detachment_id": "d-phobos-shock-force-3",
+      "enhancement_id": "e-venator-omni-auspex-6",
+      "max_per_army": 1,
+      "name": "Venator Omni-auspex",
+      "points": 15,
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
+        "detail_edition_code": "wh40k-11e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20261010T224054Z-86fd7d73",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      }
+    },
+    {
+      "detachment_id": "d-ironclad-champions-3",
+      "enhancement_id": "e-venerable-champion-aura-upgrade-3",
+      "max_per_army": 1,
+      "name": "Venerable Champion (Aura) (Upgrade)",
+      "points": 30,
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
+        "detail_edition_code": "wh40k-11e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20261010T224054Z-86fd7d73",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       }

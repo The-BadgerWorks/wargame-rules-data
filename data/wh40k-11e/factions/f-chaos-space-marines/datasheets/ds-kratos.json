@@ -1,9 +1,9 @@
 {
   "ability_keys": [
+    "core:damaged-6",
     "core:deadly-demise-d6",
     "datasheet:line-breaker",
-    "datasheet:one-shot",
-    "faction:dark-pacts"
+    "faction:combat-doctrines"
   ],
   "composition": [
     {
@@ -11,7 +11,7 @@
       "max_count": 1,
       "min_count": 1,
       "model_line": 1,
-      "model_name": "Kratos"
+      "model_name": "Kratos model"
     }
   ],
   "costs": [
@@ -21,7 +21,7 @@
       "model_count": 1,
       "points": 240,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf"
+      "source_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587"
     }
   ],
   "datasheet_id": "ds-kratos",
@@ -32,23 +32,27 @@
       "id": "eq-kratos-1",
       "items": [
         {
+          "count": 1,
           "item_index": 1,
-          "item_name": "autocannon",
-          "weapon_line": 2
+          "item_name": "Armoured Tracks",
+          "weapon_line": 5
         },
         {
+          "count": 1,
           "item_index": 2,
-          "item_name": "Kratos battle cannon"
+          "item_name": "Autocannon",
+          "weapon_line": 10
         },
         {
           "count": 4,
           "item_index": 3,
-          "item_name": "heavy bolters"
+          "item_name": "Heavy Bolter",
+          "weapon_line": 16
         },
         {
+          "count": 1,
           "item_index": 4,
-          "item_name": "armoured tracks",
-          "weapon_line": 4
+          "item_name": "Kratos Battle Cannon"
         }
       ],
       "line": 1
@@ -61,11 +65,6 @@
   "is_epic_hero": false,
   "is_legends": true,
   "keywords": [
-    {
-      "is_faction_keyword": false,
-      "keyword": "CHAOS",
-      "keyword_class": "unit"
-    },
     {
       "is_faction_keyword": false,
       "keyword": "CHAOS",
@@ -113,11 +112,6 @@
     },
     {
       "is_faction_keyword": false,
-      "keyword": "KRATOS",
-      "keyword_class": "unit"
-    },
-    {
-      "is_faction_keyword": false,
       "keyword": "SMOKE",
       "keyword_class": "unit"
     },
@@ -134,16 +128,6 @@
     {
       "is_faction_keyword": false,
       "keyword": "SMOKE",
-      "keyword_class": "unit"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "SMOKE",
-      "keyword_class": "unit"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "VEHICLE",
       "keyword_class": "unit"
     },
     {
@@ -183,292 +167,79 @@
   "name": "Kratos",
   "option_choices": [
     {
-      "count": 1,
-      "grants_weapon_line": 8,
       "group_id": "og-kratos-1",
       "id": "oc-kratos-1-1",
       "is_default": false,
       "is_no_change": false,
       "items": [
         {
-          "count": 1,
           "item_index": 1,
-          "item_name": "melta blast-gun",
-          "role": "granted",
-          "weapon_line": 8
+          "item_name": "one of the following: 2 Autocannons, 2 Lascannonss, 2 Volkite Calivers",
+          "role": "granted"
         },
         {
           "item_index": 1,
-          "item_name": "’s Kratos battle cannon",
+          "item_name": "'s 2 Heavy Bolters",
           "role": "replaced"
         }
       ],
-      "name": "melta blast-gun"
+      "name": "one of the following: 2 Autocannons, 2 Lascannonss, 2 Volkite Calivers"
     },
     {
-      "count": 1,
-      "grants_weapon_line": 1,
-      "group_id": "og-kratos-1",
-      "id": "oc-kratos-1-2",
-      "is_default": false,
-      "is_no_change": false,
-      "items": [
-        {
-          "count": 1,
-          "item_index": 1,
-          "item_name": "volkite cardanelle",
-          "role": "granted",
-          "weapon_line": 1
-        },
-        {
-          "item_index": 1,
-          "item_name": "’s Kratos battle cannon",
-          "role": "replaced"
-        }
-      ],
-      "name": "volkite cardanelle"
-    },
-    {
-      "count": 2,
       "group_id": "og-kratos-2",
       "id": "oc-kratos-2-1",
       "is_default": false,
       "is_no_change": false,
       "items": [
         {
-          "count": 2,
           "item_index": 1,
-          "item_name": "autocannons",
+          "item_name": "one of the following: 1 Melta Blast-gun, 1 Volkite Cardanelle",
           "role": "granted"
         },
         {
           "item_index": 1,
-          "item_name": "of this model’s heavy bolters",
+          "item_name": "'s Kratos Battle Cannon",
           "role": "replaced"
         }
       ],
-      "name": "autocannons"
+      "name": "one of the following: 1 Melta Blast-gun, 1 Volkite Cardanelle"
     },
     {
-      "count": 2,
-      "grants_weapon_line": 12,
-      "group_id": "og-kratos-2",
-      "id": "oc-kratos-2-2",
-      "is_default": false,
-      "is_no_change": false,
-      "items": [
-        {
-          "count": 2,
-          "item_index": 1,
-          "item_name": "lascannons",
-          "role": "granted",
-          "weapon_line": 12
-        },
-        {
-          "item_index": 1,
-          "item_name": "of this model’s heavy bolters",
-          "role": "replaced"
-        }
-      ],
-      "name": "lascannons"
-    },
-    {
-      "count": 2,
-      "group_id": "og-kratos-2",
-      "id": "oc-kratos-2-3",
-      "is_default": false,
-      "is_no_change": false,
-      "items": [
-        {
-          "count": 2,
-          "item_index": 1,
-          "item_name": "volkite calivers",
-          "role": "granted"
-        },
-        {
-          "item_index": 1,
-          "item_name": "of this model’s heavy bolters",
-          "role": "replaced"
-        }
-      ],
-      "name": "volkite calivers"
-    },
-    {
-      "count": 2,
       "group_id": "og-kratos-3",
       "id": "oc-kratos-3-1",
       "is_default": false,
       "is_no_change": false,
       "items": [
         {
-          "count": 2,
           "item_index": 1,
-          "item_name": "heavy flamers",
+          "item_name": "one of the following: 2 Heavy Flamers, 2 Lascannonss, 2 Volkite Culverins",
           "role": "granted"
         },
         {
           "item_index": 1,
-          "item_name": "of this model’s heavy bolters",
+          "item_name": "'s 2 Heavy Bolters",
           "role": "replaced"
         }
       ],
-      "name": "heavy flamers"
+      "name": "one of the following: 2 Heavy Flamers, 2 Lascannonss, 2 Volkite Culverins"
     },
     {
-      "count": 2,
-      "grants_weapon_line": 12,
-      "group_id": "og-kratos-3",
-      "id": "oc-kratos-3-2",
-      "is_default": false,
-      "is_no_change": false,
-      "items": [
-        {
-          "count": 2,
-          "item_index": 1,
-          "item_name": "lascannons",
-          "role": "granted",
-          "weapon_line": 12
-        },
-        {
-          "item_index": 1,
-          "item_name": "of this model’s heavy bolters",
-          "role": "replaced"
-        }
-      ],
-      "name": "lascannons"
-    },
-    {
-      "count": 2,
-      "group_id": "og-kratos-3",
-      "id": "oc-kratos-3-3",
-      "is_default": false,
-      "is_no_change": false,
-      "items": [
-        {
-          "count": 2,
-          "item_index": 1,
-          "item_name": "volkite culverins",
-          "role": "granted"
-        },
-        {
-          "item_index": 1,
-          "item_name": "of this model’s heavy bolters",
-          "role": "replaced"
-        }
-      ],
-      "name": "volkite culverins"
-    },
-    {
-      "count": 1,
-      "grants_weapon_line": 16,
       "group_id": "og-kratos-4",
       "id": "oc-kratos-4-1",
       "is_default": false,
       "is_no_change": false,
       "items": [
         {
-          "count": 1,
           "item_index": 1,
-          "item_name": "combi-weapon",
-          "role": "granted",
-          "weapon_line": 16
+          "item_name": "one of the following: 1 Combi-weapon, 1 Havoc Launcher, 1 Heavy Bolter, 1 Heavy Flamer, 1 Multi-melta, 1 Twin Boltgun",
+          "role": "granted"
         }
       ],
-      "name": "combi-weapon"
-    },
-    {
-      "count": 1,
-      "grants_weapon_line": 13,
-      "group_id": "og-kratos-4",
-      "id": "oc-kratos-4-2",
-      "is_default": false,
-      "is_no_change": false,
-      "items": [
-        {
-          "count": 1,
-          "item_index": 1,
-          "item_name": "havoc launcher",
-          "role": "granted",
-          "weapon_line": 13
-        }
-      ],
-      "name": "havoc launcher"
-    },
-    {
-      "count": 1,
-      "grants_weapon_line": 15,
-      "group_id": "og-kratos-4",
-      "id": "oc-kratos-4-3",
-      "is_default": false,
-      "is_no_change": false,
-      "items": [
-        {
-          "count": 1,
-          "item_index": 1,
-          "item_name": "heavy bolter",
-          "role": "granted",
-          "weapon_line": 15
-        }
-      ],
-      "name": "heavy bolter"
-    },
-    {
-      "count": 1,
-      "grants_weapon_line": 14,
-      "group_id": "og-kratos-4",
-      "id": "oc-kratos-4-4",
-      "is_default": false,
-      "is_no_change": false,
-      "items": [
-        {
-          "count": 1,
-          "item_index": 1,
-          "item_name": "heavy flamer",
-          "role": "granted",
-          "weapon_line": 14
-        }
-      ],
-      "name": "heavy flamer"
-    },
-    {
-      "count": 1,
-      "grants_weapon_line": 7,
-      "group_id": "og-kratos-4",
-      "id": "oc-kratos-4-5",
-      "is_default": false,
-      "is_no_change": false,
-      "items": [
-        {
-          "count": 1,
-          "item_index": 1,
-          "item_name": "multi-melta",
-          "role": "granted",
-          "weapon_line": 7
-        }
-      ],
-      "name": "multi-melta"
+      "name": "one of the following: 1 Combi-weapon, 1 Havoc Launcher, 1 Heavy Bolter, 1 Heavy Flamer, 1 Multi-melta, 1 Twin Boltgun"
     },
     {
       "count": 1,
       "grants_weapon_line": 6,
-      "group_id": "og-kratos-4",
-      "id": "oc-kratos-4-6",
-      "is_default": false,
-      "is_no_change": false,
-      "items": [
-        {
-          "count": 1,
-          "item_index": 1,
-          "item_name": "twin boltgun",
-          "role": "granted",
-          "weapon_line": 6
-        }
-      ],
-      "name": "twin boltgun"
-    },
-    {
-      "count": 1,
-      "grants_weapon_line": 11,
       "group_id": "og-kratos-5",
       "id": "oc-kratos-5-1",
       "is_default": false,
@@ -477,12 +248,12 @@
         {
           "count": 1,
           "item_index": 1,
-          "item_name": "hunter killer missile",
+          "item_name": "Hunter-killer Missile",
           "role": "granted",
-          "weapon_line": 11
+          "weapon_line": 6
         }
       ],
-      "name": "hunter killer missile"
+      "name": "Hunter-killer Missile"
     }
   ],
   "option_groups": [
@@ -494,12 +265,12 @@
     {
       "id": "og-kratos-2",
       "line": 2,
-      "scope": "unit"
+      "scope": "model"
     },
     {
       "id": "og-kratos-3",
       "line": 3,
-      "scope": "unit"
+      "scope": "model"
     },
     {
       "id": "og-kratos-4",
@@ -513,55 +284,75 @@
     }
   ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 10,
+    "consecutive_unverified_releases": 11,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
+    "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
     "points_edition_code": "wh40k-11e",
     "points_source": "none"
   },
+  "role": "Vehicle",
   "wargear_option_state": "extracted",
+  "wargear_options_text": "This model's 2 Heavy Bolters can be replaced with one of the following: 2 Autocannons, 2 Lascannonss, 2 Volkite Calivers\nThis model's Kratos Battle Cannon can be replaced with one of the following: 1 Melta Blast-gun, 1 Volkite Cardanelle\nThis model's 2 Heavy Bolters can be replaced with one of the following: 2 Heavy Flamers, 2 Lascannonss, 2 Volkite Culverins\nThis model can be equipped with one of the following: 1 Combi-weapon, 1 Havoc Launcher, 1 Heavy Bolter, 1 Heavy Flamer, 1 Multi-melta, 1 Twin Boltgun\nThis model can be equipped with 1 Hunter-killer Missile",
   "weapons": [
     {
       "ability_keywords": [
-        "devastating wounds"
+        "Rapid Fire 1",
+        "Twin-linked"
+      ],
+      "armour_penetration": "-1",
+      "attacks": "2",
+      "damage": "1",
+      "is_melee": false,
+      "line": 1,
+      "name": "Twin Boltgun",
+      "range": "24\"",
+      "skill": "3+",
+      "strength": "5"
+    },
+    {
+      "ability_keywords": [
+        "Devastating Wounds"
+      ],
+      "armour_penetration": "0",
+      "attacks": "2",
+      "damage": "2",
+      "is_melee": false,
+      "line": 2,
+      "name": "Volkite Caliver",
+      "range": "24\"",
+      "skill": "3+",
+      "strength": "5"
+    },
+    {
+      "ability_keywords": [
+        "Devastating Wounds"
       ],
       "armour_penetration": "0",
       "attacks": "9",
       "damage": "3",
       "is_melee": false,
-      "line": 1,
-      "name": "Volkite cardanelle",
+      "line": 3,
+      "name": "Volkite Cardanelle",
       "range": "36\"",
       "skill": "3+",
       "strength": "9"
     },
     {
-      "armour_penetration": "-1",
-      "attacks": "2",
-      "damage": "3",
-      "is_melee": false,
-      "line": 2,
-      "name": "Autocannon",
-      "range": "48\"",
-      "skill": "3+",
-      "strength": "9"
-    },
-    {
       "ability_keywords": [
-        "devastating wounds"
+        "Devastating Wounds"
       ],
       "armour_penetration": "0",
       "attacks": "4",
       "damage": "2",
       "is_melee": false,
-      "line": 3,
-      "name": "Volkite culverin",
+      "line": 4,
+      "name": "Volkite Culverin",
       "range": "36\"",
       "skill": "3+",
       "strength": "6"
@@ -571,177 +362,188 @@
       "attacks": "6",
       "damage": "1",
       "is_melee": true,
-      "line": 4,
-      "name": "Armoured tracks",
+      "line": 5,
+      "name": "Armoured Tracks",
       "skill": "4+",
       "strength": "8"
     },
     {
       "ability_keywords": [
-        "devastating wounds"
+        "ONE SHOT"
       ],
-      "armour_penetration": "0",
+      "armour_penetration": "-3",
+      "attacks": "1",
+      "damage": "D3+3",
+      "is_melee": false,
+      "line": 6,
+      "name": "Hunter-killer Missile",
+      "range": "48\"",
+      "skill": "2+",
+      "strength": "14"
+    },
+    {
+      "armour_penetration": "-2",
       "attacks": "2",
       "damage": "2",
       "is_melee": false,
-      "line": 5,
-      "name": "Volkite caliver",
+      "line": 7,
+      "name": "Combi-weapon - Purgatus",
       "range": "24\"",
+      "skill": "3+",
+      "strength": "7"
+    },
+    {
+      "ability_keywords": [
+        "BLAST 1"
+      ],
+      "armour_penetration": "-1",
+      "attacks": "3",
+      "damage": "1",
+      "is_melee": false,
+      "line": 8,
+      "name": "Havoc Launcher",
+      "range": "48\"",
       "skill": "3+",
       "strength": "5"
     },
     {
       "ability_keywords": [
-        "twin-linked"
+        "Melta 2"
       ],
-      "armour_penetration": "0",
-      "attacks": "2",
-      "damage": "1",
+      "armour_penetration": "-3",
+      "attacks": "1",
+      "damage": "D3+2",
       "is_melee": false,
-      "line": 6,
-      "name": "Twin boltgun",
-      "range": "24\"",
-      "skill": "3+",
-      "strength": "4"
-    },
-    {
-      "ability_keywords": [
-        "MELTA 2"
-      ],
-      "armour_penetration": "-4",
-      "attacks": "2",
-      "damage": "D6",
-      "is_melee": false,
-      "line": 7,
-      "name": "Multi-melta",
-      "range": "18\"",
+      "line": 9,
+      "name": "Combi-weapon - Damnatus",
+      "range": "12\"",
       "skill": "3+",
       "strength": "9"
     },
     {
       "ability_keywords": [
-        "melta 2"
+        "Rapid Fire 2"
       ],
-      "armour_penetration": "-4",
+      "armour_penetration": "-1",
       "attacks": "4",
-      "damage": "D6",
+      "damage": "3",
       "is_melee": false,
-      "line": 8,
-      "name": "Melta blast-gun",
-      "range": "24\"",
+      "line": 10,
+      "name": "Autocannon",
+      "range": "48\"",
       "skill": "3+",
-      "strength": "12"
+      "strength": "9"
     },
     {
       "ability_keywords": [
-        "blast"
+        "BLAST 2",
+        "Torrent"
       ],
       "armour_penetration": "-1",
-      "attacks": "D6+3",
+      "attacks": "3",
+      "damage": "1",
+      "is_melee": false,
+      "line": 11,
+      "name": "Heavy Flamer",
+      "range": "12\"",
+      "skill": "-",
+      "strength": "5"
+    },
+    {
+      "ability_keywords": [
+        "BLAST 2"
+      ],
+      "armour_penetration": "-1",
+      "attacks": "D3+3",
       "damage": "3",
       "is_melee": false,
-      "line": 9,
-      "name": "Kratos battle cannon – HE",
+      "line": 12,
+      "name": "Kratos Battle Cannon - Blast",
       "range": "36\"",
       "skill": "3+",
       "strength": "10"
     },
     {
       "ability_keywords": [
-        "heavy"
+        "Heavy"
       ],
       "armour_penetration": "-4",
       "attacks": "1",
-      "damage": "D6+3",
+      "damage": "D3+6",
       "is_melee": false,
-      "line": 10,
-      "name": "Kratos battle cannon – AP",
+      "line": 13,
+      "name": "Kratos Battle Cannon - Piercing",
       "range": "36\"",
       "skill": "3+",
       "strength": "18"
     },
     {
-      "ability_keywords": [
-        "one shot"
-      ],
       "armour_penetration": "-3",
       "attacks": "1",
-      "damage": "D6",
+      "damage": "D3+3",
       "is_melee": false,
-      "line": 11,
-      "name": "Hunter-killer missile",
-      "range": "48\"",
-      "skill": "2+",
-      "strength": "14"
-    },
-    {
-      "armour_penetration": "-3",
-      "attacks": "1",
-      "damage": "D6+1",
-      "is_melee": false,
-      "line": 12,
-      "name": "Lascannons",
+      "line": 14,
+      "name": "Lascannon",
       "range": "48\"",
       "skill": "3+",
       "strength": "12"
     },
     {
       "ability_keywords": [
-        "blast"
+        "Melta 3"
       ],
-      "armour_penetration": "0",
-      "attacks": "D6",
-      "damage": "1",
+      "armour_penetration": "-3",
+      "attacks": "4",
+      "damage": "D3+2",
       "is_melee": false,
-      "line": 13,
-      "name": "Havoc launcher",
-      "range": "48\"",
+      "line": 15,
+      "name": "Melta Blast-gun",
+      "range": "24\"",
       "skill": "3+",
-      "strength": "5"
+      "strength": "12"
     },
     {
       "ability_keywords": [
-        "IGNORES COVER",
-        "TORRENT"
-      ],
-      "armour_penetration": "-1",
-      "attacks": "D6",
-      "damage": "1",
-      "is_melee": false,
-      "line": 14,
-      "name": "Heavy flamer",
-      "range": "12\"",
-      "skill": "N/A",
-      "strength": "5"
-    },
-    {
-      "ability_keywords": [
-        "SUSTAINED HITS 1"
+        "Rapid Fire 2",
+        "Sustained Hits 1"
       ],
       "armour_penetration": "-1",
       "attacks": "3",
       "damage": "2",
       "is_melee": false,
-      "line": 15,
-      "name": "Heavy bolter",
+      "line": 16,
+      "name": "Heavy Bolter",
       "range": "36\"",
       "skill": "3+",
       "strength": "5"
     },
     {
       "ability_keywords": [
-        "ANTI-INFANTRY 4+",
-        "DEVASTATING WOUNDS",
-        "RAPID FIRE 1"
+        "Melta 3"
+      ],
+      "armour_penetration": "-3",
+      "attacks": "2",
+      "damage": "D3+2",
+      "is_melee": false,
+      "line": 17,
+      "name": "Multi-melta",
+      "range": "18\"",
+      "skill": "3+",
+      "strength": "10"
+    },
+    {
+      "ability_keywords": [
+        "BLAST 1",
+        "Torrent"
       ],
       "armour_penetration": "0",
-      "attacks": "1",
+      "attacks": "3",
       "damage": "1",
       "is_melee": false,
-      "line": 16,
-      "name": "Combi-weapon",
-      "range": "24\"",
-      "skill": "3+",
+      "line": 18,
+      "name": "Combi-weapon - Infernus",
+      "range": "12\"",
+      "skill": "-",
       "strength": "4"
     }
   ]

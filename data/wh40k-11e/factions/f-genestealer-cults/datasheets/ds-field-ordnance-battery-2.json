@@ -17,7 +17,7 @@
       "model_count": 2,
       "points": 90,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf"
+      "source_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587"
     }
   ],
   "datasheet_id": "ds-field-ordnance-battery-2",
@@ -30,22 +30,22 @@
         {
           "item_index": 1,
           "item_name": "malleus rocket launcher",
-          "weapon_line": 5
+          "weapon_line": 2
         },
         {
           "item_index": 2,
           "item_name": "lasgun",
-          "weapon_line": 1
+          "weapon_line": 5
         },
         {
           "item_index": 3,
           "item_name": "laspistol",
-          "weapon_line": 6
+          "weapon_line": 4
         },
         {
           "item_index": 4,
           "item_name": "battery close combat weapons",
-          "weapon_line": 4
+          "weapon_line": 3
         }
       ],
       "line": 1
@@ -116,7 +116,7 @@
   "option_choices": [
     {
       "count": 1,
-      "grants_weapon_line": 2,
+      "grants_weapon_line": 1,
       "group_id": "og-field-ordnance-battery-2-1",
       "id": "oc-field-ordnance-battery-2-1-1",
       "is_default": false,
@@ -127,21 +127,21 @@
           "item_index": 1,
           "item_name": "bombast field gun",
           "role": "granted",
-          "weapon_line": 2
+          "weapon_line": 1
         },
         {
           "item_index": 1,
           "item_name": "malleus rocket launcher",
           "role": "replaced",
-          "weapon_line": 5
+          "weapon_line": 2
         }
       ],
       "name": "bombast field gun",
-      "replaces_weapon_line": 5
+      "replaces_weapon_line": 2
     },
     {
       "count": 1,
-      "grants_weapon_line": 3,
+      "grants_weapon_line": 6,
       "group_id": "og-field-ordnance-battery-2-1",
       "id": "oc-field-ordnance-battery-2-1-2",
       "is_default": false,
@@ -152,17 +152,17 @@
           "item_index": 1,
           "item_name": "heavy lascannon",
           "role": "granted",
-          "weapon_line": 3
+          "weapon_line": 6
         },
         {
           "item_index": 1,
           "item_name": "malleus rocket launcher",
           "role": "replaced",
-          "weapon_line": 5
+          "weapon_line": 2
         }
       ],
       "name": "heavy lascannon",
-      "replaces_weapon_line": 5
+      "replaces_weapon_line": 2
     }
   ],
   "option_groups": [
@@ -174,34 +174,22 @@
     }
   ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 10,
+    "consecutive_unverified_releases": 11,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
+    "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
     "points_edition_code": "wh40k-11e",
     "points_source": "none"
   },
+  "role": "Infantry",
   "wargear_option_state": "extracted",
+  "wargear_options_text": "Any number of models can each have their malleus rocket launcher replaced with one of the following:\n1 bombast field gun\n1 heavy lascannon",
   "weapons": [
-    {
-      "ability_keywords": [
-        "rapid fire 1"
-      ],
-      "armour_penetration": "0",
-      "attacks": "1",
-      "damage": "1",
-      "is_melee": false,
-      "line": 1,
-      "name": "Lasgun",
-      "range": "24\"",
-      "skill": "4+",
-      "strength": "3"
-    },
     {
       "ability_keywords": [
         "blast",
@@ -212,35 +200,11 @@
       "attacks": "D6",
       "damage": "2",
       "is_melee": false,
-      "line": 2,
+      "line": 1,
       "name": "Bombast field gun",
       "range": "48\"",
       "skill": "5+",
       "strength": "7"
-    },
-    {
-      "ability_keywords": [
-        "heavy"
-      ],
-      "armour_penetration": "-3",
-      "attacks": "2",
-      "damage": "D6+1",
-      "is_melee": false,
-      "line": 3,
-      "name": "Heavy lascannon",
-      "range": "48\"",
-      "skill": "5+",
-      "strength": "14"
-    },
-    {
-      "armour_penetration": "0",
-      "attacks": "3",
-      "damage": "1",
-      "is_melee": true,
-      "line": 4,
-      "name": "Battery close combat weapons",
-      "skill": "4+",
-      "strength": "3"
     },
     {
       "ability_keywords": [
@@ -251,11 +215,21 @@
       "attacks": "D6+6",
       "damage": "1",
       "is_melee": false,
-      "line": 5,
+      "line": 2,
       "name": "Malleus rocket launcher",
       "range": "48\"",
       "skill": "5+",
       "strength": "6"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "3",
+      "damage": "1",
+      "is_melee": true,
+      "line": 3,
+      "name": "Battery close combat weapons",
+      "skill": "4+",
+      "strength": "3"
     },
     {
       "ability_keywords": [
@@ -265,11 +239,39 @@
       "attacks": "1",
       "damage": "1",
       "is_melee": false,
-      "line": 6,
+      "line": 4,
       "name": "Laspistol",
       "range": "12\"",
       "skill": "4+",
       "strength": "3"
+    },
+    {
+      "ability_keywords": [
+        "rapid fire 1"
+      ],
+      "armour_penetration": "0",
+      "attacks": "1",
+      "damage": "1",
+      "is_melee": false,
+      "line": 5,
+      "name": "Lasgun",
+      "range": "24\"",
+      "skill": "4+",
+      "strength": "3"
+    },
+    {
+      "ability_keywords": [
+        "heavy"
+      ],
+      "armour_penetration": "-3",
+      "attacks": "2",
+      "damage": "D6+1",
+      "is_melee": false,
+      "line": 6,
+      "name": "Heavy lascannon",
+      "range": "48\"",
+      "skill": "5+",
+      "strength": "14"
     }
   ]
 }

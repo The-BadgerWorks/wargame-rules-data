@@ -26,7 +26,7 @@
       "model_count": 10,
       "points": 95,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260922T170502Z-1b0a18bd"
+      "source_acquisition_id": "mfm-20261010T224054Z-86fd7d73"
     }
   ],
   "datasheet_id": "ds-tempestus-aquilons",
@@ -425,19 +425,21 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:265bac37763c8abea4645d036c392f32f5b18c4202fa8268f6bbba80778dc8d0",
-    "last_verified_version": "wh40k-11e-2026-09-5",
+    "last_verified_version": "wh40k-11e-2026-10-1",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
+    "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
+    "points_acquisition_id": "mfm-20261010T224054Z-86fd7d73",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
+  "role": "Infantry",
   "wargear_option_state": "partial",
+  "wargear_options_text": "The Tempestor Aquilon’s sentry flamer can be replaced with one of the following:\n1 sentry hot-shot volley gun\n1 sentry grenade launcher\nThe Tempestor Aquilon’s hot-shot lascarbine can be replaced with one of the following:\n1 chainsword\n1 power weapon\n1 hot-shot laspistol\nThe Tempestor Aquilon can be equipped with one of the following:\n1 bolt pistol\n1 hot-shot laspistol\nOne Tempestus Aquilon’s hot‐shot lascarbine can be replaced with 1 of the following:\n1 melta carbine\n1 plasma carbine\nOne Tempestus Aquilon’s hot-shot lascarbine can be replaced with 2 hot-shot laspistols.\nOne Tempestus Aquilon’s hot-shot lascarbine can be replaced with 1 hot-shot long-las.\nUp to two Tempestus Aquilons can each have their hot-shot lascarbine replaced with 1 hot-shot laspistol.",
   "weapons": [
     {
       "ability_keywords": [

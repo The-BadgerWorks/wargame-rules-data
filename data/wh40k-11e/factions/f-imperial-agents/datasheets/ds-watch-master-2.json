@@ -1,9 +1,9 @@
 {
   "ability_keys": [
     "core:leader",
-    "datasheet:rites-of-battle",
-    "datasheet:strategic-knowledge",
-    "faction:assigned-agents"
+    "datasheet:strategic-acumen",
+    "datasheet:watch-master",
+    "datasheet:watch-that"
   ],
   "composition": [
     {
@@ -19,18 +19,18 @@
       "copy_index_min": 1,
       "label": "1 model",
       "model_count": 1,
-      "points": 95,
+      "points": 105,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260922T170502Z-1b0a18bd"
+      "source_acquisition_id": "mfm-20261010T224054Z-86fd7d73"
     },
     {
       "copy_index_min": 1,
       "label": "1 model",
       "model_count": 1,
-      "points": 95,
+      "points": 105,
       "pricing_confidence": "verified",
       "pricing_context": "every-model-has-imperium",
-      "source_acquisition_id": "mfm-20260922T170502Z-1b0a18bd"
+      "source_acquisition_id": "mfm-20261010T224054Z-86fd7d73"
     }
   ],
   "datasheet_id": "ds-watch-master-2",
@@ -41,8 +41,9 @@
       "id": "eq-watch-master-2-1",
       "items": [
         {
+          "count": 1,
           "item_index": 1,
-          "item_name": "vigil spear"
+          "item_name": "Vigil Spear"
         }
       ],
       "line": 1
@@ -67,12 +68,7 @@
     },
     {
       "is_faction_keyword": false,
-      "keyword": "DEATHWATCH",
-      "keyword_class": "chapter"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "GRENADES",
+      "keyword": "EXPLOSIVES",
       "keyword_class": "unit"
     },
     {
@@ -88,11 +84,6 @@
     {
       "is_faction_keyword": false,
       "keyword": "ORDO XENOS",
-      "keyword_class": "unit"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "WATCH MASTER",
       "keyword_class": "unit"
     }
   ],
@@ -115,26 +106,27 @@
       "name": "Watch Master",
       "objective_control": 1,
       "save": "2+",
-      "toughness": 4,
+      "toughness": 5,
       "wounds": 5
     }
   ],
   "name": "WATCH MASTER",
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
-    "last_verified_points_digest": "sha256:f5668ff6c025983565ad77dbfa40efd29f328ada17f35217308311f598dd9716",
-    "last_verified_version": "wh40k-11e-2026-09-5",
+    "last_verified_points_digest": "sha256:bd1e989cecb4adc1eac102e4c03333402a7369403fd26318fe54a5945426a23a",
+    "last_verified_version": "wh40k-11e-2026-10-1",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
+    "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
+    "points_acquisition_id": "mfm-20261010T224054Z-86fd7d73",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
+  "role": "Infantry Character",
   "wargear_option_state": "none",
   "weapons": [
     {
@@ -146,7 +138,7 @@
       "name": "Vigil spear",
       "range": "24\"",
       "skill": "2+",
-      "strength": "4"
+      "strength": "5"
     },
     {
       "ability_keywords": [
@@ -154,7 +146,7 @@
       ],
       "armour_penetration": "-2",
       "attacks": "6",
-      "damage": "D3",
+      "damage": "2",
       "is_melee": true,
       "line": 2,
       "name": "Vigil spear",

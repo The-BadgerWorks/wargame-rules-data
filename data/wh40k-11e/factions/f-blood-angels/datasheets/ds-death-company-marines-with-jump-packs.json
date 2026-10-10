@@ -2,10 +2,9 @@
   "ability_keys": [
     "core:deep-strike",
     "core:feel-no-pain-6",
-    "datasheet:attached-unit",
     "datasheet:black-rage",
     "datasheet:savage-fury",
-    "faction:oath-of-moment"
+    "faction:combat-doctrines"
   ],
   "composition": [
     {
@@ -13,7 +12,7 @@
       "max_count": 10,
       "min_count": 5,
       "model_line": 1,
-      "model_name": "Death Company Marines with Jump Packs"
+      "model_name": "Death Company Marines with Jump Packs models"
     }
   ],
   "costs": [
@@ -21,33 +20,33 @@
       "copy_index_min": 1,
       "label": "5 models",
       "model_count": 5,
-      "points": 115,
+      "points": 130,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260922T170502Z-1b0a18bd"
+      "source_acquisition_id": "mfm-20261010T224054Z-86fd7d73"
     },
     {
       "copy_index_min": 1,
       "label": "10 models",
       "model_count": 10,
-      "points": 230,
+      "points": 260,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260922T170502Z-1b0a18bd"
+      "source_acquisition_id": "mfm-20261010T224054Z-86fd7d73"
     },
     {
       "copy_index_min": 3,
       "label": "5 models",
       "model_count": 5,
-      "points": 130,
+      "points": 160,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260922T170502Z-1b0a18bd"
+      "source_acquisition_id": "mfm-20261010T224054Z-86fd7d73"
     },
     {
       "copy_index_min": 3,
       "label": "10 models",
       "model_count": 10,
-      "points": 245,
+      "points": 290,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260922T170502Z-1b0a18bd"
+      "source_acquisition_id": "mfm-20261010T224054Z-86fd7d73"
     }
   ],
   "datasheet_id": "ds-death-company-marines-with-jump-packs",
@@ -58,14 +57,16 @@
       "id": "eq-death-company-marines-with-jump-packs-1",
       "items": [
         {
+          "count": 1,
           "item_index": 1,
-          "item_name": "heavy bolt pistol",
-          "weapon_line": 2
+          "item_name": "Chainsword",
+          "weapon_line": 6
         },
         {
+          "count": 1,
           "item_index": 2,
-          "item_name": "Astartes chainsword",
-          "weapon_line": 6
+          "item_name": "Heavy Bolt Pistol",
+          "weapon_line": 1
         }
       ],
       "line": 1
@@ -95,17 +96,12 @@
     },
     {
       "is_faction_keyword": false,
-      "keyword": "DEATH COMPANY MARINES WITH JUMP PACKS",
+      "keyword": "EXPLOSIVES",
       "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
       "keyword": "FLY",
-      "keyword_class": "unit"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "GRENADES",
       "keyword_class": "unit"
     },
     {
@@ -135,10 +131,10 @@
       "leadership": "6+",
       "line": 1,
       "movement": "12\"",
-      "name": "Death Company Marines With Jump Packs",
+      "name": "Death Company Marines with Jump Packs",
       "objective_control": 1,
       "save": "3+",
-      "toughness": 4,
+      "toughness": 5,
       "wounds": 2
     }
   ],
@@ -146,6 +142,7 @@
   "option_choices": [
     {
       "count": 1,
+      "grants_weapon_line": 7,
       "group_id": "og-death-company-marines-with-jump-packs-1",
       "id": "oc-death-company-marines-with-jump-packs-1-1",
       "is_default": false,
@@ -154,20 +151,23 @@
         {
           "count": 1,
           "item_index": 1,
-          "item_name": "plasma pistol",
-          "role": "granted"
+          "item_name": "Eviscerator",
+          "role": "granted",
+          "weapon_line": 7
         },
         {
           "item_index": 1,
-          "item_name": "in this unit, 1 model’s heavy bolt pistol",
-          "role": "replaced"
+          "item_name": "Chainsword",
+          "role": "replaced",
+          "weapon_line": 6
         }
       ],
-      "name": "plasma pistol"
+      "name": "Eviscerator",
+      "replaces_weapon_line": 6
     },
     {
       "count": 1,
-      "grants_weapon_line": 7,
+      "grants_weapon_line": 8,
       "group_id": "og-death-company-marines-with-jump-packs-2",
       "id": "oc-death-company-marines-with-jump-packs-2-1",
       "is_default": false,
@@ -176,21 +176,23 @@
         {
           "count": 1,
           "item_index": 1,
-          "item_name": "eviscerator",
+          "item_name": "Power Fist",
           "role": "granted",
-          "weapon_line": 7
+          "weapon_line": 8
         },
         {
           "item_index": 1,
-          "item_name": "in this unit, 1 model’s Astartes chainsword",
-          "role": "replaced"
+          "item_name": "Chainsword",
+          "role": "replaced",
+          "weapon_line": 6
         }
       ],
-      "name": "eviscerator"
+      "name": "Power Fist",
+      "replaces_weapon_line": 6
     },
     {
       "count": 1,
-      "grants_weapon_line": 8,
+      "grants_weapon_line": 2,
       "group_id": "og-death-company-marines-with-jump-packs-3",
       "id": "oc-death-company-marines-with-jump-packs-3-1",
       "is_default": false,
@@ -199,43 +201,23 @@
         {
           "count": 1,
           "item_index": 1,
-          "item_name": "power fist",
+          "item_name": "Hand Flamer",
           "role": "granted",
-          "weapon_line": 8
+          "weapon_line": 2
         },
         {
           "item_index": 1,
-          "item_name": "model’s Astartes chainsword",
-          "role": "replaced"
+          "item_name": "Heavy Bolt Pistol",
+          "role": "replaced",
+          "weapon_line": 1
         }
       ],
-      "name": "power fist"
+      "name": "Hand Flamer",
+      "replaces_weapon_line": 1
     },
     {
       "count": 1,
       "grants_weapon_line": 9,
-      "group_id": "og-death-company-marines-with-jump-packs-3",
-      "id": "oc-death-company-marines-with-jump-packs-3-2",
-      "is_default": false,
-      "is_no_change": false,
-      "items": [
-        {
-          "count": 1,
-          "item_index": 1,
-          "item_name": "power weapon",
-          "role": "granted",
-          "weapon_line": 9
-        },
-        {
-          "item_index": 1,
-          "item_name": "model’s Astartes chainsword",
-          "role": "replaced"
-        }
-      ],
-      "name": "power weapon"
-    },
-    {
-      "count": 1,
       "group_id": "og-death-company-marines-with-jump-packs-4",
       "id": "oc-death-company-marines-with-jump-packs-4-1",
       "is_default": false,
@@ -244,377 +226,67 @@
         {
           "count": 1,
           "item_index": 1,
-          "item_name": "hand flamer",
-          "role": "granted",
-          "weapon_line": 1
-        },
-        {
-          "count": 1,
-          "item_index": 2,
-          "item_name": "Astartes chainsword",
-          "role": "granted",
-          "weapon_line": 6
-        },
-        {
-          "item_index": 1,
-          "item_name": "in this unit, 1 model’s heavy bolt pistol",
-          "role": "replaced"
-        },
-        {
-          "item_index": 2,
-          "item_name": "Astartes chainsword",
-          "role": "replaced",
-          "weapon_line": 6
-        }
-      ],
-      "name": "hand flamer and 1 Astartes chainsword"
-    },
-    {
-      "count": 1,
-      "group_id": "og-death-company-marines-with-jump-packs-4",
-      "id": "oc-death-company-marines-with-jump-packs-4-10",
-      "is_default": false,
-      "is_no_change": false,
-      "items": [
-        {
-          "count": 1,
-          "item_index": 1,
-          "item_name": "plasma pistol",
-          "role": "granted"
-        },
-        {
-          "count": 1,
-          "item_index": 2,
-          "item_name": "power fist",
-          "role": "granted",
-          "weapon_line": 8
-        },
-        {
-          "item_index": 1,
-          "item_name": "in this unit, 1 model’s heavy bolt pistol",
-          "role": "replaced"
-        },
-        {
-          "item_index": 2,
-          "item_name": "Astartes chainsword",
-          "role": "replaced",
-          "weapon_line": 6
-        }
-      ],
-      "name": "plasma pistol and 1 power fist"
-    },
-    {
-      "count": 1,
-      "group_id": "og-death-company-marines-with-jump-packs-4",
-      "id": "oc-death-company-marines-with-jump-packs-4-11",
-      "is_default": false,
-      "is_no_change": false,
-      "items": [
-        {
-          "count": 1,
-          "item_index": 1,
-          "item_name": "plasma pistol",
-          "role": "granted"
-        },
-        {
-          "count": 1,
-          "item_index": 2,
-          "item_name": "power weapon",
+          "item_name": "Power Weapon",
           "role": "granted",
           "weapon_line": 9
         },
         {
           "item_index": 1,
-          "item_name": "in this unit, 1 model’s heavy bolt pistol",
-          "role": "replaced"
-        },
-        {
-          "item_index": 2,
-          "item_name": "Astartes chainsword",
+          "item_name": "Chainsword",
           "role": "replaced",
           "weapon_line": 6
         }
       ],
-      "name": "plasma pistol and 1 power weapon"
+      "name": "Power Weapon",
+      "replaces_weapon_line": 6
     },
     {
       "count": 1,
-      "group_id": "og-death-company-marines-with-jump-packs-4",
-      "id": "oc-death-company-marines-with-jump-packs-4-2",
+      "grants_weapon_line": 3,
+      "group_id": "og-death-company-marines-with-jump-packs-5",
+      "id": "oc-death-company-marines-with-jump-packs-5-1",
       "is_default": false,
       "is_no_change": false,
       "items": [
         {
           "count": 1,
           "item_index": 1,
-          "item_name": "hand flamer",
-          "role": "granted",
-          "weapon_line": 1
-        },
-        {
-          "count": 1,
-          "item_index": 2,
-          "item_name": "power fist",
-          "role": "granted",
-          "weapon_line": 8
-        },
-        {
-          "item_index": 1,
-          "item_name": "in this unit, 1 model’s heavy bolt pistol",
-          "role": "replaced"
-        },
-        {
-          "item_index": 2,
-          "item_name": "Astartes chainsword",
-          "role": "replaced",
-          "weapon_line": 6
-        }
-      ],
-      "name": "hand flamer and 1 power fist"
-    },
-    {
-      "count": 1,
-      "group_id": "og-death-company-marines-with-jump-packs-4",
-      "id": "oc-death-company-marines-with-jump-packs-4-3",
-      "is_default": false,
-      "is_no_change": false,
-      "items": [
-        {
-          "count": 1,
-          "item_index": 1,
-          "item_name": "hand flamer",
-          "role": "granted",
-          "weapon_line": 1
-        },
-        {
-          "count": 1,
-          "item_index": 2,
-          "item_name": "power weapon",
-          "role": "granted",
-          "weapon_line": 9
-        },
-        {
-          "item_index": 1,
-          "item_name": "in this unit, 1 model’s heavy bolt pistol",
-          "role": "replaced"
-        },
-        {
-          "item_index": 2,
-          "item_name": "Astartes chainsword",
-          "role": "replaced",
-          "weapon_line": 6
-        }
-      ],
-      "name": "hand flamer and 1 power weapon"
-    },
-    {
-      "count": 1,
-      "group_id": "og-death-company-marines-with-jump-packs-4",
-      "id": "oc-death-company-marines-with-jump-packs-4-4",
-      "is_default": false,
-      "is_no_change": false,
-      "items": [
-        {
-          "count": 1,
-          "item_index": 1,
-          "item_name": "heavy bolt pistol",
-          "role": "granted",
-          "weapon_line": 2
-        },
-        {
-          "count": 1,
-          "item_index": 2,
-          "item_name": "power fist",
-          "role": "granted",
-          "weapon_line": 8
-        },
-        {
-          "item_index": 1,
-          "item_name": "in this unit, 1 model’s heavy bolt pistol",
-          "role": "replaced"
-        },
-        {
-          "item_index": 2,
-          "item_name": "Astartes chainsword",
-          "role": "replaced",
-          "weapon_line": 6
-        }
-      ],
-      "name": "heavy bolt pistol and 1 power fist"
-    },
-    {
-      "count": 1,
-      "group_id": "og-death-company-marines-with-jump-packs-4",
-      "id": "oc-death-company-marines-with-jump-packs-4-5",
-      "is_default": false,
-      "is_no_change": false,
-      "items": [
-        {
-          "count": 1,
-          "item_index": 1,
-          "item_name": "heavy bolt pistol",
-          "role": "granted",
-          "weapon_line": 2
-        },
-        {
-          "count": 1,
-          "item_index": 2,
-          "item_name": "power weapon",
-          "role": "granted",
-          "weapon_line": 9
-        },
-        {
-          "item_index": 1,
-          "item_name": "in this unit, 1 model’s heavy bolt pistol",
-          "role": "replaced"
-        },
-        {
-          "item_index": 2,
-          "item_name": "Astartes chainsword",
-          "role": "replaced",
-          "weapon_line": 6
-        }
-      ],
-      "name": "heavy bolt pistol and 1 power weapon"
-    },
-    {
-      "count": 1,
-      "group_id": "og-death-company-marines-with-jump-packs-4",
-      "id": "oc-death-company-marines-with-jump-packs-4-6",
-      "is_default": false,
-      "is_no_change": false,
-      "items": [
-        {
-          "count": 1,
-          "item_index": 1,
-          "item_name": "inferno pistol",
+          "item_name": "Inferno Pistol",
           "role": "granted",
           "weapon_line": 3
         },
         {
-          "count": 1,
-          "item_index": 2,
-          "item_name": "Astartes chainsword",
-          "role": "granted",
-          "weapon_line": 6
-        },
-        {
           "item_index": 1,
-          "item_name": "in this unit, 1 model’s heavy bolt pistol",
-          "role": "replaced"
-        },
-        {
-          "item_index": 2,
-          "item_name": "Astartes chainsword",
+          "item_name": "Heavy Bolt Pistol",
           "role": "replaced",
-          "weapon_line": 6
+          "weapon_line": 1
         }
       ],
-      "name": "inferno pistol and 1 Astartes chainsword"
+      "name": "Inferno Pistol",
+      "replaces_weapon_line": 1
     },
     {
       "count": 1,
-      "group_id": "og-death-company-marines-with-jump-packs-4",
-      "id": "oc-death-company-marines-with-jump-packs-4-7",
+      "group_id": "og-death-company-marines-with-jump-packs-6",
+      "id": "oc-death-company-marines-with-jump-packs-6-1",
       "is_default": false,
       "is_no_change": false,
       "items": [
         {
           "count": 1,
           "item_index": 1,
-          "item_name": "inferno pistol",
-          "role": "granted",
-          "weapon_line": 3
-        },
-        {
-          "count": 1,
-          "item_index": 2,
-          "item_name": "power fist",
-          "role": "granted",
-          "weapon_line": 8
-        },
-        {
-          "item_index": 1,
-          "item_name": "in this unit, 1 model’s heavy bolt pistol",
-          "role": "replaced"
-        },
-        {
-          "item_index": 2,
-          "item_name": "Astartes chainsword",
-          "role": "replaced",
-          "weapon_line": 6
-        }
-      ],
-      "name": "inferno pistol and 1 power fist"
-    },
-    {
-      "count": 1,
-      "group_id": "og-death-company-marines-with-jump-packs-4",
-      "id": "oc-death-company-marines-with-jump-packs-4-8",
-      "is_default": false,
-      "is_no_change": false,
-      "items": [
-        {
-          "count": 1,
-          "item_index": 1,
-          "item_name": "inferno pistol",
-          "role": "granted",
-          "weapon_line": 3
-        },
-        {
-          "count": 1,
-          "item_index": 2,
-          "item_name": "power weapon",
-          "role": "granted",
-          "weapon_line": 9
-        },
-        {
-          "item_index": 1,
-          "item_name": "in this unit, 1 model’s heavy bolt pistol",
-          "role": "replaced"
-        },
-        {
-          "item_index": 2,
-          "item_name": "Astartes chainsword",
-          "role": "replaced",
-          "weapon_line": 6
-        }
-      ],
-      "name": "inferno pistol and 1 power weapon"
-    },
-    {
-      "count": 1,
-      "group_id": "og-death-company-marines-with-jump-packs-4",
-      "id": "oc-death-company-marines-with-jump-packs-4-9",
-      "is_default": false,
-      "is_no_change": false,
-      "items": [
-        {
-          "count": 1,
-          "item_index": 1,
-          "item_name": "plasma pistol",
+          "item_name": "Plasma Pistol",
           "role": "granted"
         },
         {
-          "count": 1,
-          "item_index": 2,
-          "item_name": "Astartes chainsword",
-          "role": "granted",
-          "weapon_line": 6
-        },
-        {
           "item_index": 1,
-          "item_name": "in this unit, 1 model’s heavy bolt pistol",
-          "role": "replaced"
-        },
-        {
-          "item_index": 2,
-          "item_name": "Astartes chainsword",
+          "item_name": "Heavy Bolt Pistol",
           "role": "replaced",
-          "weapon_line": 6
+          "weapon_line": 1
         }
       ],
-      "name": "plasma pistol and 1 Astartes chainsword"
+      "name": "Plasma Pistol",
+      "replaces_weapon_line": 1
     }
   ],
   "option_groups": [
@@ -633,102 +305,118 @@
     {
       "id": "og-death-company-marines-with-jump-packs-3",
       "line": 3,
-      "scope": "unit"
+      "scope": "per_n_models",
+      "scope_n": 5
     },
     {
       "id": "og-death-company-marines-with-jump-packs-4",
+      "is_per_model": true,
       "line": 4,
+      "scope": "per_n_models",
+      "scope_n": 5
+    },
+    {
+      "id": "og-death-company-marines-with-jump-packs-5",
+      "line": 5,
+      "scope": "per_n_models",
+      "scope_n": 5
+    },
+    {
+      "id": "og-death-company-marines-with-jump-packs-6",
+      "is_per_model": true,
+      "line": 6,
       "scope": "per_n_models",
       "scope_n": 5
     }
   ],
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
-    "last_verified_points_digest": "sha256:7cb1bc26a7cf5b208e75d6bfb2ed245b2456980edc6e7090beebd4e225d2873b",
-    "last_verified_version": "wh40k-11e-2026-09-5",
+    "last_verified_points_digest": "sha256:0ca4f05c37f8651e509f00dc0305c8130b6c661d94e2dae9e582ebc5542841a2",
+    "last_verified_version": "wh40k-11e-2026-10-1",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
+    "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
+    "points_acquisition_id": "mfm-20261010T224054Z-86fd7d73",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
+  "role": "Infantry",
   "wargear_option_state": "extracted",
+  "wargear_options_text": "For every 5 models in this unit, 1 model can have their Chainsword replaced with 1 Eviscerator.\nFor every 5 models in this unit, 1 model can have their Chainsword replaced with 1 Power Fist.\nFor every 5 models in this unit, 1 model can have their Heavy Bolt Pistol replaced with 1 Hand Flamer.\nFor every 5 models in this unit, up to 2 models can each have their Chainsword replaced with 1 Power Weapon.\nFor every 5 models in this unit, 1 model can have their Heavy Bolt Pistol replaced with 1 Inferno Pistol.\nFor every 5 models in this unit, up to 2 models can each have their Heavy Bolt Pistol replaced with 1 Plasma Pistol.",
   "weapons": [
     {
       "ability_keywords": [
-        "ignores cover",
-        "pistol",
-        "torrent"
-      ],
-      "armour_penetration": "0",
-      "attacks": "D6",
-      "damage": "1",
-      "is_melee": false,
-      "line": 1,
-      "name": "Hand flamer",
-      "range": "12\"",
-      "skill": "N/A",
-      "strength": "3"
-    },
-    {
-      "ability_keywords": [
-        "pistol"
+        "CLOSE-QUARTERS"
       ],
       "armour_penetration": "-1",
       "attacks": "1",
       "damage": "1",
       "is_melee": false,
-      "line": 2,
-      "name": "Heavy bolt pistol",
+      "line": 1,
+      "name": "Heavy Bolt Pistol",
       "range": "18\"",
       "skill": "3+",
+      "strength": "5"
+    },
+    {
+      "ability_keywords": [
+        "CLOSE-QUARTERS",
+        "Torrent"
+      ],
+      "armour_penetration": "0",
+      "attacks": "3",
+      "damage": "1",
+      "is_melee": false,
+      "line": 2,
+      "name": "Hand Flamer",
+      "range": "9\"",
+      "skill": "-",
       "strength": "4"
     },
     {
       "ability_keywords": [
-        "melta 2",
-        "pistol"
+        "CLOSE-QUARTERS",
+        "Melta 1"
       ],
-      "armour_penetration": "-4",
+      "armour_penetration": "-3",
       "attacks": "1",
-      "damage": "D3",
+      "damage": "D3+2",
       "is_melee": false,
       "line": 3,
-      "name": "Inferno pistol",
-      "range": "6\"",
+      "name": "Inferno Pistol",
+      "range": "9\"",
       "skill": "3+",
       "strength": "8"
     },
     {
       "ability_keywords": [
-        "pistol"
+        "CLOSE-QUARTERS"
       ],
       "armour_penetration": "-2",
       "attacks": "1",
       "damage": "1",
       "is_melee": false,
       "line": 4,
-      "name": "Plasma pistol – standard",
+      "name": "Plasma Pistol - Standard",
       "range": "12\"",
       "skill": "3+",
       "strength": "7"
     },
     {
       "ability_keywords": [
-        "hazardous",
-        "pistol"
+        "CLOSE-QUARTERS",
+        "Hazardous"
       ],
       "armour_penetration": "-3",
       "attacks": "1",
       "damage": "2",
       "is_melee": false,
       "line": 5,
-      "name": "Plasma pistol – supercharge",
+      "name": "Plasma Pistol - Supercharge",
       "range": "12\"",
       "skill": "3+",
       "strength": "8"
@@ -739,13 +427,13 @@
       "damage": "1",
       "is_melee": true,
       "line": 6,
-      "name": "Astartes chainsword",
+      "name": "Chainsword",
       "skill": "3+",
-      "strength": "4"
+      "strength": "5"
     },
     {
       "ability_keywords": [
-        "sustained hits 1"
+        "CLEAVE 1"
       ],
       "armour_penetration": "-2",
       "attacks": "3",
@@ -753,7 +441,7 @@
       "is_melee": true,
       "line": 7,
       "name": "Eviscerator",
-      "skill": "4+",
+      "skill": "3+",
       "strength": "7"
     },
     {
@@ -762,7 +450,7 @@
       "damage": "2",
       "is_melee": true,
       "line": 8,
-      "name": "Power fist",
+      "name": "Power Fist",
       "skill": "3+",
       "strength": "8"
     },
@@ -772,7 +460,7 @@
       "damage": "1",
       "is_melee": true,
       "line": 9,
-      "name": "Power weapon",
+      "name": "Power Weapon",
       "skill": "3+",
       "strength": "5"
     }

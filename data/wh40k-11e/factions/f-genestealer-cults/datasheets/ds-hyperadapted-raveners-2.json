@@ -30,7 +30,7 @@
       "model_count": 5,
       "points": 175,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf"
+      "source_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587"
     }
   ],
   "datasheet_id": "ds-hyperadapted-raveners-2",
@@ -44,7 +44,7 @@
         {
           "item_index": 1,
           "item_name": "Prime claws and talons",
-          "weapon_line": 3
+          "weapon_line": 2
         }
       ],
       "line": 1,
@@ -140,36 +140,21 @@
   ],
   "name": "Hyperadapted Raveners",
   "pricing_confidence": {
-    "consecutive_unverified_releases": 10,
+    "consecutive_unverified_releases": 11,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
+    "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
     "points_edition_code": "wh40k-11e",
     "points_source": "none"
   },
+  "role": "Infantry Character",
   "wargear_option_state": "none",
   "weapons": [
-    {
-      "ability_keywords": [
-        "assault",
-        "ignores cover",
-        "torrent"
-      ],
-      "armour_penetration": "-1",
-      "attacks": "D6+3",
-      "damage": "1",
-      "is_melee": false,
-      "line": 1,
-      "name": "Venom bolt",
-      "range": "12\"",
-      "skill": "N/A",
-      "strength": "6"
-    },
     {
       "ability_keywords": [
         "anti-monster 5+",
@@ -180,7 +165,7 @@
       "attacks": "3",
       "damage": "2",
       "is_melee": true,
-      "line": 2,
+      "line": 1,
       "name": "Ravener heavy claws and talons",
       "skill": "3+",
       "strength": "5"
@@ -195,10 +180,26 @@
       "attacks": "6",
       "damage": "2",
       "is_melee": true,
-      "line": 3,
+      "line": 2,
       "name": "Prime claws and talons",
       "skill": "3+",
       "strength": "5"
+    },
+    {
+      "ability_keywords": [
+        "assault",
+        "ignores cover",
+        "torrent"
+      ],
+      "armour_penetration": "-1",
+      "attacks": "D6+3",
+      "damage": "1",
+      "is_melee": false,
+      "line": 3,
+      "name": "Venom bolt",
+      "range": "12\"",
+      "skill": "N/A",
+      "strength": "6"
     }
   ]
 }

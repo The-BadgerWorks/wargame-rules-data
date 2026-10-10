@@ -21,7 +21,7 @@
       "model_count": 1,
       "points": 55,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf"
+      "source_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587"
     }
   ],
   "datasheet_id": "ds-cadian-castellan-2",
@@ -34,12 +34,12 @@
         {
           "item_index": 1,
           "item_name": "laspistol",
-          "weapon_line": 5
+          "weapon_line": 3
         },
         {
           "item_index": 2,
           "item_name": "chainsword",
-          "weapon_line": 3
+          "weapon_line": 7
         }
       ],
       "line": 1
@@ -125,7 +125,7 @@
           "item_index": 1,
           "item_name": "boltgun",
           "role": "granted",
-          "weapon_line": 7
+          "weapon_line": 1
         },
         {
           "count": 1,
@@ -144,7 +144,7 @@
     },
     {
       "count": 1,
-      "grants_weapon_line": 1,
+      "grants_weapon_line": 4,
       "group_id": "og-cadian-castellan-2-1",
       "id": "oc-cadian-castellan-2-1-2",
       "is_default": false,
@@ -155,7 +155,7 @@
           "item_index": 1,
           "item_name": "power fist",
           "role": "granted",
-          "weapon_line": 1
+          "weapon_line": 4
         },
         {
           "item_index": 1,
@@ -190,7 +190,7 @@
     },
     {
       "count": 1,
-      "grants_weapon_line": 6,
+      "grants_weapon_line": 2,
       "group_id": "og-cadian-castellan-2-2",
       "id": "oc-cadian-castellan-2-2-1",
       "is_default": false,
@@ -201,7 +201,7 @@
           "item_index": 1,
           "item_name": "bolt pistol",
           "role": "granted",
-          "weapon_line": 6
+          "weapon_line": 2
         },
         {
           "item_index": 1,
@@ -246,39 +246,87 @@
     }
   ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 10,
+    "consecutive_unverified_releases": 11,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
+    "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
     "points_edition_code": "wh40k-11e",
     "points_source": "none"
   },
+  "role": "Infantry Character",
   "wargear_option_state": "extracted",
+  "wargear_options_text": "This model’s chainsword can be replaced with one of the following:\n1 boltgun and 1 close combat weapon\n1 power fist\n1 power weapon\nThis model’s laspistol can be replaced with one of the following:\n1 bolt pistol\n1 plasma pistol",
   "weapons": [
+    {
+      "ability_keywords": [
+        "rapid fire 1"
+      ],
+      "armour_penetration": "0",
+      "attacks": "1",
+      "damage": "1",
+      "is_melee": false,
+      "line": 1,
+      "name": "Boltgun",
+      "range": "24\"",
+      "skill": "3+",
+      "strength": "4"
+    },
+    {
+      "ability_keywords": [
+        "pistol"
+      ],
+      "armour_penetration": "0",
+      "attacks": "1",
+      "damage": "1",
+      "is_melee": false,
+      "line": 2,
+      "name": "Bolt pistol",
+      "range": "12\"",
+      "skill": "3+",
+      "strength": "4"
+    },
+    {
+      "ability_keywords": [
+        "pistol"
+      ],
+      "armour_penetration": "0",
+      "attacks": "1",
+      "damage": "1",
+      "is_melee": false,
+      "line": 3,
+      "name": "Laspistol",
+      "range": "12\"",
+      "skill": "3+",
+      "strength": "3"
+    },
     {
       "armour_penetration": "-2",
       "attacks": "3",
       "damage": "2",
       "is_melee": true,
-      "line": 1,
+      "line": 4,
       "name": "Power fist",
       "skill": "3+",
       "strength": "6"
     },
     {
-      "armour_penetration": "0",
-      "attacks": "5",
+      "ability_keywords": [
+        "pistol"
+      ],
+      "armour_penetration": "-2",
+      "attacks": "1",
       "damage": "1",
-      "is_melee": true,
-      "line": 3,
-      "name": "Chainsword",
+      "is_melee": false,
+      "line": 5,
+      "name": "Plasma pistol – standard",
+      "range": "12\"",
       "skill": "3+",
-      "strength": "3"
+      "strength": "7"
     },
     {
       "ability_keywords": [
@@ -289,67 +337,21 @@
       "attacks": "1",
       "damage": "2",
       "is_melee": false,
-      "line": 4,
+      "line": 6,
       "name": "Plasma pistol – supercharge",
       "range": "12\"",
       "skill": "3+",
       "strength": "8"
     },
     {
-      "ability_keywords": [
-        "pistol"
-      ],
       "armour_penetration": "0",
-      "attacks": "1",
+      "attacks": "5",
       "damage": "1",
-      "is_melee": false,
-      "line": 5,
-      "name": "Laspistol",
-      "range": "12\"",
+      "is_melee": true,
+      "line": 7,
+      "name": "Chainsword",
       "skill": "3+",
       "strength": "3"
-    },
-    {
-      "ability_keywords": [
-        "pistol"
-      ],
-      "armour_penetration": "0",
-      "attacks": "1",
-      "damage": "1",
-      "is_melee": false,
-      "line": 6,
-      "name": "Bolt pistol",
-      "range": "12\"",
-      "skill": "3+",
-      "strength": "4"
-    },
-    {
-      "ability_keywords": [
-        "rapid fire 1"
-      ],
-      "armour_penetration": "0",
-      "attacks": "1",
-      "damage": "1",
-      "is_melee": false,
-      "line": 7,
-      "name": "Boltgun",
-      "range": "24\"",
-      "skill": "3+",
-      "strength": "4"
-    },
-    {
-      "ability_keywords": [
-        "pistol"
-      ],
-      "armour_penetration": "-2",
-      "attacks": "1",
-      "damage": "1",
-      "is_melee": false,
-      "line": 8,
-      "name": "Plasma pistol – standard",
-      "range": "12\"",
-      "skill": "3+",
-      "strength": "7"
     },
     {
       "armour_penetration": "-2",

@@ -24,7 +24,7 @@
       "model_count": 1,
       "points": 80,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260922T170502Z-1b0a18bd"
+      "source_acquisition_id": "mfm-20261010T224054Z-86fd7d73"
     }
   ],
   "datasheet_id": "ds-commander-in-enforcer-battlesuit",
@@ -557,19 +557,21 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:1d28e8ecc53fabf8370677d1207b796a090869ddce53671a84a15b7879bb6f71",
-    "last_verified_version": "wh40k-11e-2026-09-5",
+    "last_verified_version": "wh40k-11e-2026-10-1",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
+    "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
+    "points_acquisition_id": "mfm-20261010T224054Z-86fd7d73",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
+  "role": "Vehicle Character",
   "wargear_option_state": "extracted",
+  "wargear_options_text": "This model’s burst cannon can be replaced with one of the following:\n1 airbursting fragmentation projector*\n1 battlesuit support system*\n1 cyclic ion blaster*\n1 fusion blaster\n1 missile pod\n1 plasma rifle\n1 shield generator*\n1 T’au flamer\n1 weapon support system*\nThis model can be equipped with up to two of the following, and can take duplicates:\n1 gun drone\n1 marker drone\n1 shield drone\nThis model can be equipped with up to three of the following, and can take duplicates:\n1 airbursting fragmentation projector*\n1 battlesuit support system*\n1 burst cannon\n1 cyclic ion blaster*\n1 fusion blaster\n1 missile pod\n1 plasma rifle\n1 shield generator*\n1 T’au flamer\n1 weapon support system*",
   "weapons": [
     {
       "ability_keywords": [

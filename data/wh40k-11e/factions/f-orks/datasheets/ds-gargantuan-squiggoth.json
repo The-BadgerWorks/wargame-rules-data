@@ -1,8 +1,9 @@
 {
   "ability_keys": [
+    "core:damaged-10",
     "core:deadly-demise-2d6",
-    "core:firing-deck-20",
-    "datasheet:gargantuan",
+    "core:firing-deck-11",
+    "core:super-heavy-walker",
     "datasheet:walking-bastion",
     "faction:waaagh"
   ],
@@ -22,18 +23,17 @@
       "model_count": 1,
       "points": 500,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260922T170502Z-1b0a18bd"
+      "source_acquisition_id": "mfm-20261010T224054Z-86fd7d73"
     },
     {
       "copy_index_min": 2,
       "label": "1 model",
       "model_count": 1,
-      "points": 550,
+      "points": 600,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260922T170502Z-1b0a18bd"
+      "source_acquisition_id": "mfm-20261010T224054Z-86fd7d73"
     }
   ],
-  "damaged_threshold": 10,
   "datasheet_id": "ds-gargantuan-squiggoth",
   "default_equipment_state": "extracted",
   "equipment_groups": [
@@ -42,8 +42,15 @@
       "id": "eq-gargantuan-squiggoth-1",
       "items": [
         {
+          "count": 1,
           "item_index": 1,
-          "item_name": "huge tusks"
+          "item_name": "Huge Tusks"
+        },
+        {
+          "count": 1,
+          "item_index": 2,
+          "item_name": "Kannon - Shell",
+          "weapon_line": 2
         }
       ],
       "line": 1
@@ -59,11 +66,6 @@
     {
       "is_faction_keyword": false,
       "keyword": "FRAME",
-      "keyword_class": "unit"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "GARGANTUAN SQUIGGOTH",
       "keyword_class": "unit"
     },
     {
@@ -109,8 +111,31 @@
   "option_choices": [
     {
       "count": 1,
+      "grants_weapon_line": 3,
       "group_id": "og-gargantuan-squiggoth-1",
       "id": "oc-gargantuan-squiggoth-1-1",
+      "is_default": false,
+      "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "Supa-kannon",
+          "role": "granted",
+          "weapon_line": 3
+        },
+        {
+          "item_index": 1,
+          "item_name": "'s Kannon",
+          "role": "replaced"
+        }
+      ],
+      "name": "Supa-kannon"
+    },
+    {
+      "count": 1,
+      "group_id": "og-gargantuan-squiggoth-2",
+      "id": "oc-gargantuan-squiggoth-2-1",
       "is_default": false,
       "is_no_change": false,
       "items": [
@@ -126,8 +151,8 @@
     {
       "count": 1,
       "grants_weapon_line": 3,
-      "group_id": "og-gargantuan-squiggoth-1",
-      "id": "oc-gargantuan-squiggoth-1-2",
+      "group_id": "og-gargantuan-squiggoth-2",
+      "id": "oc-gargantuan-squiggoth-2-2",
       "is_default": false,
       "is_no_change": false,
       "items": [
@@ -147,56 +172,67 @@
       "id": "og-gargantuan-squiggoth-1",
       "line": 1,
       "scope": "model"
+    },
+    {
+      "id": "og-gargantuan-squiggoth-2",
+      "line": 2,
+      "scope": "model"
     }
   ],
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
-    "last_verified_points_digest": "sha256:d6ce0fbffe2cfeecde5f258f28b7fd34e01d8da1c990db9a1ed3ff5e682a74cc",
-    "last_verified_version": "wh40k-11e-2026-09-5",
+    "last_verified_points_digest": "sha256:d4a044cb13a3adf5d60e56f6d50b7ff61933bb486f52ea8a8e50317b188d47e4",
+    "last_verified_version": "wh40k-11e-2026-10-1",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
+    "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
+    "points_acquisition_id": "mfm-20261010T224054Z-86fd7d73",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
+  "role": "Monster",
   "wargear_option_state": "extracted",
+  "wargear_options_text": "This model's Kannon can be replaced with 1 Supa-kannon.\nThis model can be equipped with one of the following:\n1 kannon\n1 supa-kannon",
   "weapons": [
     {
       "ability_keywords": [
-        "blast"
+        "Blast 1",
+        "Rapid Fire 6"
       ],
       "armour_penetration": "0",
-      "attacks": "D6",
+      "attacks": "6",
       "damage": "1",
       "is_melee": false,
       "line": 1,
-      "name": "Kannon – frag",
+      "name": "Kannon - frag",
       "range": "36\"",
       "skill": "5+",
       "strength": "5"
     },
     {
+      "ability_keywords": [
+        "Rapid Fire 2"
+      ],
       "armour_penetration": "-2",
-      "attacks": "1",
-      "damage": "D6",
+      "attacks": "2",
+      "damage": "D6+1",
       "is_melee": false,
       "line": 2,
-      "name": "Kannon – shell",
+      "name": "Kannon - shell",
       "range": "36\"",
       "skill": "5+",
-      "strength": "9"
+      "strength": "10"
     },
     {
       "ability_keywords": [
-        "blast"
+        "Blast 1"
       ],
       "armour_penetration": "-2",
-      "attacks": "2D6",
+      "attacks": "8",
       "damage": "3",
       "is_melee": false,
       "line": 3,
@@ -207,26 +243,16 @@
     },
     {
       "ability_keywords": [
-        "lance"
+        "Lance"
       ],
       "armour_penetration": "-3",
       "attacks": "6",
       "damage": "12",
       "is_melee": true,
       "line": 4,
-      "name": "Huge tusks – strike",
+      "name": "Huge tusks - strike",
       "skill": "3+",
       "strength": "14"
-    },
-    {
-      "armour_penetration": "-2",
-      "attacks": "18",
-      "damage": "3",
-      "is_melee": true,
-      "line": 5,
-      "name": "Huge tusks – sweep",
-      "skill": "3+",
-      "strength": "9"
     }
   ]
 }

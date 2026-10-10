@@ -1,22 +1,20 @@
 {
   "ability_keys": [
     "datasheet:astartes-shield",
-    "datasheet:death-to-the-alien",
-    "faction:assigned-agents"
+    "datasheet:death-to-the-alien"
   ],
   "composition": [
     {
       "line": 1,
       "max_count": 1,
       "min_count": 1,
-      "model_name": "Watch Sergeant"
+      "model_name": "Watch Sergeant model"
     },
     {
       "line": 2,
       "max_count": 9,
       "min_count": 4,
-      "model_line": 1,
-      "model_name": "Deathwatch Veterans"
+      "model_name": "Deathwatch Veteran models"
     }
   ],
   "costs": [
@@ -24,35 +22,35 @@
       "copy_index_min": 1,
       "label": "5 models",
       "model_count": 5,
-      "points": 100,
+      "points": 115,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260922T170502Z-1b0a18bd"
+      "source_acquisition_id": "mfm-20261010T224054Z-86fd7d73"
     },
     {
       "copy_index_min": 1,
       "label": "10 models",
       "model_count": 10,
-      "points": 190,
+      "points": 220,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260922T170502Z-1b0a18bd"
+      "source_acquisition_id": "mfm-20261010T224054Z-86fd7d73"
     },
     {
       "copy_index_min": 1,
       "label": "5 models",
       "model_count": 5,
-      "points": 100,
+      "points": 115,
       "pricing_confidence": "verified",
       "pricing_context": "every-model-has-imperium",
-      "source_acquisition_id": "mfm-20260922T170502Z-1b0a18bd"
+      "source_acquisition_id": "mfm-20261010T224054Z-86fd7d73"
     },
     {
       "copy_index_min": 1,
       "label": "10 models",
       "model_count": 10,
-      "points": 190,
+      "points": 220,
       "pricing_confidence": "verified",
       "pricing_context": "every-model-has-imperium",
-      "source_acquisition_id": "mfm-20260922T170502Z-1b0a18bd"
+      "source_acquisition_id": "mfm-20261010T224054Z-86fd7d73"
     }
   ],
   "datasheet_id": "ds-deathwatch-kill-team",
@@ -63,14 +61,16 @@
       "id": "eq-deathwatch-kill-team-1",
       "items": [
         {
+          "count": 1,
           "item_index": 1,
-          "item_name": "boltgun",
+          "item_name": "Boltgun",
           "weapon_line": 1
         },
         {
+          "count": 1,
           "item_index": 2,
-          "item_name": "power weapon",
-          "weapon_line": 11
+          "item_name": "Power Weapon",
+          "weapon_line": 10
         }
       ],
       "line": 1
@@ -95,12 +95,7 @@
     },
     {
       "is_faction_keyword": false,
-      "keyword": "DEATHWATCH",
-      "keyword_class": "chapter"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "GRENADES",
+      "keyword": "EXPLOSIVES",
       "keyword_class": "unit"
     },
     {
@@ -138,7 +133,7 @@
       "name": "Deathwatch Veterans",
       "objective_control": 2,
       "save": "3+",
-      "toughness": 4,
+      "toughness": 5,
       "wounds": 2
     }
   ],
@@ -146,6 +141,7 @@
   "option_choices": [
     {
       "count": 1,
+      "grants_weapon_line": 13,
       "group_id": "og-deathwatch-kill-team-1",
       "id": "oc-deathwatch-kill-team-1-1",
       "is_default": false,
@@ -154,69 +150,28 @@
         {
           "count": 1,
           "item_index": 1,
-          "item_name": "boltgun",
+          "item_name": "Heavy Thunder Hammer",
           "role": "granted",
-          "weapon_line": 1
-        },
-        {
-          "count": 1,
-          "item_index": 2,
-          "item_name": "Astartes shield",
-          "role": "granted"
+          "weapon_line": 13
         },
         {
           "item_index": 1,
-          "item_name": "boltgun",
+          "item_name": "Boltgun",
           "role": "replaced",
           "weapon_line": 1
         },
         {
           "item_index": 2,
-          "item_name": "power weapon",
+          "item_name": "Power Weapon",
           "role": "replaced",
-          "weapon_line": 11
+          "weapon_line": 10
         }
       ],
-      "name": "boltgun and 1 Astartes shield"
+      "name": "Heavy Thunder Hammer"
     },
     {
       "count": 1,
-      "group_id": "og-deathwatch-kill-team-1",
-      "id": "oc-deathwatch-kill-team-1-2",
-      "is_default": false,
-      "is_no_change": false,
-      "items": [
-        {
-          "count": 1,
-          "item_index": 1,
-          "item_name": "power weapon",
-          "role": "granted",
-          "weapon_line": 11
-        },
-        {
-          "count": 1,
-          "item_index": 2,
-          "item_name": "Astartes shield",
-          "role": "granted"
-        },
-        {
-          "item_index": 1,
-          "item_name": "boltgun",
-          "role": "replaced",
-          "weapon_line": 1
-        },
-        {
-          "item_index": 2,
-          "item_name": "power weapon",
-          "role": "replaced",
-          "weapon_line": 11
-        }
-      ],
-      "name": "power weapon and 1 Astartes shield"
-    },
-    {
-      "count": 1,
-      "grants_weapon_line": 10,
+      "grants_weapon_line": 14,
       "group_id": "og-deathwatch-kill-team-2",
       "id": "oc-deathwatch-kill-team-2-1",
       "is_default": false,
@@ -225,24 +180,24 @@
         {
           "count": 1,
           "item_index": 1,
-          "item_name": "Deathwatch thunder hammer",
+          "item_name": "Black Shield Blades",
           "role": "granted",
-          "weapon_line": 10
+          "weapon_line": 14
         },
         {
           "item_index": 1,
-          "item_name": "boltgun",
+          "item_name": "Boltgun",
           "role": "replaced",
           "weapon_line": 1
         },
         {
           "item_index": 2,
-          "item_name": "power weapon",
+          "item_name": "Power Weapon",
           "role": "replaced",
-          "weapon_line": 11
+          "weapon_line": 10
         }
       ],
-      "name": "Deathwatch thunder hammer"
+      "name": "Black Shield Blades"
     },
     {
       "count": 1,
@@ -254,31 +209,31 @@
         {
           "count": 1,
           "item_index": 1,
-          "item_name": "stalker-pattern boltgun",
+          "item_name": "Stalker-pattern Boltgun",
           "role": "granted",
-          "weapon_line": 6
+          "weapon_line": 2
         },
         {
           "count": 1,
           "item_index": 2,
-          "item_name": "close combat weapon",
+          "item_name": "Knives and Fists",
           "role": "granted",
-          "weapon_line": 9
+          "weapon_line": 11
         },
         {
           "item_index": 1,
-          "item_name": "boltgun",
+          "item_name": "Boltgun",
           "role": "replaced",
           "weapon_line": 1
         },
         {
           "item_index": 2,
-          "item_name": "power weapon",
+          "item_name": "Power Weapon",
           "role": "replaced",
-          "weapon_line": 11
+          "weapon_line": 10
         }
       ],
-      "name": "stalker-pattern boltgun and 1 close combat weapon"
+      "name": "Stalker-pattern Boltgun and 1 Knives and Fists"
     },
     {
       "count": 1,
@@ -290,67 +245,69 @@
         {
           "count": 1,
           "item_index": 1,
-          "item_name": "Deathwatch shotgun",
+          "item_name": "Deathwatch Shotgun",
           "role": "granted",
           "weapon_line": 7
         },
         {
           "count": 1,
           "item_index": 2,
-          "item_name": "close combat weapon",
+          "item_name": "Knives and Fists",
           "role": "granted",
-          "weapon_line": 9
+          "weapon_line": 11
         },
         {
           "item_index": 1,
-          "item_name": "boltgun",
+          "item_name": "Boltgun",
           "role": "replaced",
           "weapon_line": 1
         },
         {
           "item_index": 2,
-          "item_name": "power weapon",
+          "item_name": "Power Weapon",
           "role": "replaced",
-          "weapon_line": 11
+          "weapon_line": 10
         }
       ],
-      "name": "Deathwatch shotgun and 1 close combat weapon"
+      "name": "Deathwatch Shotgun and 1 Knives and Fists"
     },
     {
-      "count": 1,
       "group_id": "og-deathwatch-kill-team-5",
       "id": "oc-deathwatch-kill-team-5-1",
       "is_default": false,
       "is_no_change": false,
       "items": [
         {
-          "count": 1,
           "item_index": 1,
-          "item_name": "frag cannon",
-          "role": "granted",
-          "weapon_line": 2
+          "item_name": "one of the following: 1 Boltgun",
+          "role": "granted"
         },
         {
           "count": 1,
           "item_index": 2,
-          "item_name": "close combat weapon",
-          "role": "granted",
-          "weapon_line": 9
+          "item_name": "Storm Shield, 1 Power Weapon",
+          "role": "granted"
+        },
+        {
+          "count": 1,
+          "item_index": 3,
+          "item_name": "Storm Shield",
+          "role": "granted"
         },
         {
           "item_index": 1,
-          "item_name": "boltgun",
+          "item_name": "Boltgun",
           "role": "replaced",
           "weapon_line": 1
         },
         {
           "item_index": 2,
-          "item_name": "power weapon",
+          "item_name": "Power Weapon",
           "role": "replaced",
-          "weapon_line": 11
+          "weapon_line": 10
         }
       ],
-      "name": "frag cannon and 1 close combat weapon"
+      "name": "one of the following: 1 Boltgun and 1 Storm Shield, 1 Power Weapon and 1 Storm Shield"
     },
     {
       "count": 1,
@@ -362,34 +319,22 @@
         {
           "count": 1,
           "item_index": 1,
-          "item_name": "infernus heavy bolter",
+          "item_name": "Combi-weapon",
           "role": "granted"
         },
         {
-          "count": 1,
-          "item_index": 2,
-          "item_name": "close combat weapon",
-          "role": "granted",
-          "weapon_line": 9
-        },
-        {
           "item_index": 1,
-          "item_name": "boltgun",
+          "item_name": "Boltgun",
           "role": "replaced",
           "weapon_line": 1
-        },
-        {
-          "item_index": 2,
-          "item_name": "power weapon",
-          "role": "replaced",
-          "weapon_line": 11
         }
       ],
-      "name": "infernus heavy bolter and 1 close combat weapon"
+      "name": "Combi-weapon",
+      "replaces_weapon_line": 1
     },
     {
       "count": 1,
-      "grants_weapon_line": 8,
+      "grants_weapon_line": 12,
       "group_id": "og-deathwatch-kill-team-7",
       "id": "oc-deathwatch-kill-team-7-1",
       "is_default": false,
@@ -398,28 +343,22 @@
         {
           "count": 1,
           "item_index": 1,
-          "item_name": "Black Shield blades",
+          "item_name": "Xenophase Blade",
           "role": "granted",
-          "weapon_line": 8
+          "weapon_line": 12
         },
         {
           "item_index": 1,
-          "item_name": "boltgun",
+          "item_name": "Power Weapon",
           "role": "replaced",
-          "weapon_line": 1
-        },
-        {
-          "item_index": 2,
-          "item_name": "power weapon",
-          "role": "replaced",
-          "weapon_line": 11
+          "weapon_line": 10
         }
       ],
-      "name": "Black Shield blades"
+      "name": "Xenophase Blade",
+      "replaces_weapon_line": 10
     },
     {
       "count": 1,
-      "grants_weapon_line": 12,
       "group_id": "og-deathwatch-kill-team-8",
       "id": "oc-deathwatch-kill-team-8-1",
       "is_default": false,
@@ -428,21 +367,33 @@
         {
           "count": 1,
           "item_index": 1,
-          "item_name": "xenophase blade",
+          "item_name": "Infernus Heavy Bolter",
+          "role": "granted"
+        },
+        {
+          "count": 1,
+          "item_index": 2,
+          "item_name": "Knives and Fists",
           "role": "granted",
-          "weapon_line": 12
+          "weapon_line": 11
         },
         {
           "item_index": 1,
-          "item_name": "Watch Sergeant’s power weapon",
-          "role": "replaced"
+          "item_name": "Boltgun",
+          "role": "replaced",
+          "weapon_line": 1
+        },
+        {
+          "item_index": 2,
+          "item_name": "Power Weapon",
+          "role": "replaced",
+          "weapon_line": 10
         }
       ],
-      "name": "xenophase blade"
+      "name": "Infernus Heavy Bolter and 1 Knives and Fists"
     },
     {
       "count": 1,
-      "grants_weapon_line": 5,
       "group_id": "og-deathwatch-kill-team-9",
       "id": "oc-deathwatch-kill-team-9-1",
       "is_default": false,
@@ -451,17 +402,31 @@
         {
           "count": 1,
           "item_index": 1,
-          "item_name": "combi-weapon",
+          "item_name": "Frag Cannon",
           "role": "granted",
-          "weapon_line": 5
+          "weapon_line": 3
+        },
+        {
+          "count": 1,
+          "item_index": 2,
+          "item_name": "Knives and Fists",
+          "role": "granted",
+          "weapon_line": 11
         },
         {
           "item_index": 1,
-          "item_name": "Watch Sergeant's boltgun",
-          "role": "replaced"
+          "item_name": "Boltgun",
+          "role": "replaced",
+          "weapon_line": 1
+        },
+        {
+          "item_index": 2,
+          "item_name": "Power Weapon",
+          "role": "replaced",
+          "weapon_line": 10
         }
       ],
-      "name": "combi-weapon"
+      "name": "Frag Cannon and 1 Knives and Fists"
     }
   ],
   "option_groups": [
@@ -474,10 +439,8 @@
     },
     {
       "id": "og-deathwatch-kill-team-2",
-      "is_per_model": true,
       "line": 2,
-      "scope": "per_n_models",
-      "scope_n": 5
+      "scope": "unit"
     },
     {
       "id": "og-deathwatch-kill-team-3",
@@ -494,6 +457,7 @@
     },
     {
       "id": "og-deathwatch-kill-team-5",
+      "is_per_model": true,
       "line": 5,
       "scope": "per_n_models",
       "scope_n": 5
@@ -501,11 +465,9 @@
     {
       "id": "og-deathwatch-kill-team-6",
       "line": 6,
-      "scope": "per_n_models",
-      "scope_n": 5
+      "scope": "unit"
     },
     {
-      "eligible_max_count": 1,
       "id": "og-deathwatch-kill-team-7",
       "line": 7,
       "scope": "unit"
@@ -513,103 +475,48 @@
     {
       "id": "og-deathwatch-kill-team-8",
       "line": 8,
-      "scope": "unit"
+      "scope": "per_n_models",
+      "scope_n": 5
     },
     {
       "id": "og-deathwatch-kill-team-9",
       "line": 9,
-      "scope": "unit"
+      "scope": "per_n_models",
+      "scope_n": 5
     }
   ],
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
-    "last_verified_points_digest": "sha256:efd5e3aa4a1c592a6c530badb0ae16189b40f5329e003aa50a28bd0d7227f721",
-    "last_verified_version": "wh40k-11e-2026-09-5",
+    "last_verified_points_digest": "sha256:d0182934f8d6204c0a68e3e5da3273b43d85c926ec3a4c203c6a12f64a224636",
+    "last_verified_version": "wh40k-11e-2026-10-1",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
+    "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
+    "points_acquisition_id": "mfm-20261010T224054Z-86fd7d73",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
+  "role": "Battleline",
   "wargear_option_state": "extracted",
+  "wargear_options_text": "For every 5 models in this unit, up to 2 Deathwatch Veteran models can each have their Boltgun and Power Weapon replaced with 1 Heavy Thunder Hammer.\n1 Deathwatch Veteran model can have their Boltgun and Power Weapon replaced with 1 Black Shield Blades.\nFor every 5 models in this unit, 1 Deathwatch Veteran model can have their Boltgun and Power Weapon replaced with 1 Stalker-pattern Boltgun and 1 Knives and Fists.\nFor every 5 models in this unit, up to 2 Deathwatch Veteran models can each have their Boltgun and Power Weapon replaced with 1 Deathwatch Shotgun and 1 Knives and Fists.\nFor every 5 models in this unit, up to 2 Deathwatch Veteran models can each have their Boltgun and Power Weapon replaced with one of the following: 1 Boltgun and 1 Storm Shield, 1 Power Weapon and 1 Storm Shield\nThe Watch Sergeant can have their Boltgun replaced with 1 Combi-weapon.\nThe Watch Sergeant can have their Power Weapon replaced with 1 Xenophase Blade.\nFor every 5 models in this unit, 1 Deathwatch Veteran model can have their Boltgun and Power Weapon replaced with 1 Infernus Heavy Bolter and 1 Knives and Fists.\nFor every 5 models in this unit, 1 Deathwatch Veteran model can have their Boltgun and Power Weapon replaced with 1 Frag Cannon and 1 Knives and Fists.",
   "weapons": [
     {
-      "armour_penetration": "0",
-      "attacks": "2",
+      "ability_keywords": [
+        "rapid fire 1"
+      ],
+      "armour_penetration": "-1",
+      "attacks": "1",
       "damage": "1",
       "is_melee": false,
       "line": 1,
       "name": "Boltgun",
       "range": "24\"",
       "skill": "3+",
-      "strength": "4"
-    },
-    {
-      "ability_keywords": [
-        "blast",
-        "heavy",
-        "rapid fire d3"
-      ],
-      "armour_penetration": "-1",
-      "attacks": "D3",
-      "damage": "2",
-      "is_melee": false,
-      "line": 2,
-      "name": "Frag cannon",
-      "range": "18\"",
-      "skill": "4+",
-      "strength": "7"
-    },
-    {
-      "ability_keywords": [
-        "heavy",
-        "sustained hits 1"
-      ],
-      "armour_penetration": "-1",
-      "attacks": "3",
-      "damage": "2",
-      "is_melee": false,
-      "line": 3,
-      "name": "Infernus heavy bolter – heavy bolter",
-      "range": "36\"",
-      "skill": "4+",
       "strength": "5"
-    },
-    {
-      "ability_keywords": [
-        "ignores cover",
-        "torrent"
-      ],
-      "armour_penetration": "-1",
-      "attacks": "D6",
-      "damage": "1",
-      "is_melee": false,
-      "line": 4,
-      "name": "Infernus heavy bolter – heavy flamer",
-      "range": "12\"",
-      "skill": "N/A",
-      "strength": "5"
-    },
-    {
-      "ability_keywords": [
-        "anti-infantry 4+",
-        "devastating wounds",
-        "rapid fire 1"
-      ],
-      "armour_penetration": "0",
-      "attacks": "1",
-      "damage": "1",
-      "is_melee": false,
-      "line": 5,
-      "name": "Combi-weapon",
-      "range": "24\"",
-      "skill": "4+",
-      "strength": "4"
     },
     {
       "ability_keywords": [
@@ -620,17 +527,74 @@
       "attacks": "1",
       "damage": "2",
       "is_melee": false,
-      "line": 6,
+      "line": 2,
       "name": "Stalker-pattern boltgun",
       "range": "24\"",
       "skill": "3+",
+      "strength": "5"
+    },
+    {
+      "ability_keywords": [
+        "blast 1",
+        "heavy",
+        "lethal hits",
+        "rapid fire 1"
+      ],
+      "armour_penetration": "-2",
+      "attacks": "2",
+      "damage": "2",
+      "is_melee": false,
+      "line": 3,
+      "name": "Frag cannon",
+      "range": "18\"",
+      "skill": "3+",
+      "strength": "7"
+    },
+    {
+      "ability_keywords": [
+        "MELTA 2"
+      ],
+      "armour_penetration": "-3",
+      "attacks": "1",
+      "damage": "D3+2",
+      "is_melee": false,
+      "line": 4,
+      "name": "Combi-weapon – damnatus",
+      "range": "12\"",
+      "skill": "3+",
+      "strength": "9"
+    },
+    {
+      "ability_keywords": [
+        "BLAST 1",
+        "TORRENT"
+      ],
+      "armour_penetration": "0",
+      "attacks": "3",
+      "damage": "1",
+      "is_melee": false,
+      "line": 5,
+      "name": "Combi-weapon – infernus",
+      "range": "12\"",
+      "skill": "-",
       "strength": "4"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "2",
+      "damage": "2",
+      "is_melee": false,
+      "line": 6,
+      "name": "Combi-weapon – purgatus",
+      "range": "24\"",
+      "skill": "3+",
+      "strength": "7"
     },
     {
       "ability_keywords": [
         "ASSAULT"
       ],
-      "armour_penetration": "0",
+      "armour_penetration": "-1",
       "attacks": "2",
       "damage": "2",
       "is_melee": false,
@@ -642,14 +606,42 @@
     },
     {
       "ability_keywords": [
-        "TwIN-lINkED"
+        "heavy",
+        "rapid fire 2",
+        "sustained hits 1"
       ],
+      "armour_penetration": "-1",
+      "attacks": "3",
+      "damage": "2",
+      "is_melee": false,
+      "line": 8,
+      "name": "Infernus Heavy Bolter – bolt",
+      "range": "36\"",
+      "skill": "3+",
+      "strength": "5"
+    },
+    {
+      "ability_keywords": [
+        "blast 1",
+        "torrent"
+      ],
+      "armour_penetration": "-1",
+      "attacks": "3",
+      "damage": "1",
+      "is_melee": false,
+      "line": 9,
+      "name": "Infernus Heavy Bolter – infernus",
+      "range": "12\"",
+      "skill": "-",
+      "strength": "5"
+    },
+    {
       "armour_penetration": "-2",
-      "attacks": "4",
+      "attacks": "3",
       "damage": "1",
       "is_melee": true,
-      "line": 8,
-      "name": "Black Shield blades",
+      "line": 10,
+      "name": "Power weapon",
       "skill": "3+",
       "strength": "5"
     },
@@ -658,31 +650,8 @@
       "attacks": "3",
       "damage": "1",
       "is_melee": true,
-      "line": 9,
-      "name": "Close combat weapon",
-      "skill": "3+",
-      "strength": "4"
-    },
-    {
-      "ability_keywords": [
-        "devastating wounds"
-      ],
-      "armour_penetration": "-2",
-      "attacks": "3",
-      "damage": "3",
-      "is_melee": true,
-      "line": 10,
-      "name": "Deathwatch thunder hammer",
-      "skill": "4+",
-      "strength": "10"
-    },
-    {
-      "armour_penetration": "-2",
-      "attacks": "3",
-      "damage": "1",
-      "is_melee": true,
       "line": 11,
-      "name": "Power weapon",
+      "name": "Knives and Fists",
       "skill": "3+",
       "strength": "5"
     },
@@ -696,6 +665,32 @@
       "is_melee": true,
       "line": 12,
       "name": "Xenophase blade",
+      "skill": "3+",
+      "strength": "5"
+    },
+    {
+      "ability_keywords": [
+        "devastating wounds"
+      ],
+      "armour_penetration": "-2",
+      "attacks": "3",
+      "damage": "3",
+      "is_melee": true,
+      "line": 13,
+      "name": "Heavy Thunder Hammer",
+      "skill": "4+",
+      "strength": "10"
+    },
+    {
+      "ability_keywords": [
+        "TwIN-lINkED"
+      ],
+      "armour_penetration": "-2",
+      "attacks": "4",
+      "damage": "1",
+      "is_melee": true,
+      "line": 14,
+      "name": "Black Shield blades",
       "skill": "3+",
       "strength": "5"
     }

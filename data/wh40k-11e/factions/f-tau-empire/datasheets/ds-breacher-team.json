@@ -23,9 +23,9 @@
       "copy_index_min": 1,
       "label": "10 models",
       "model_count": 10,
-      "points": 90,
+      "points": 80,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260922T170502Z-1b0a18bd"
+      "source_acquisition_id": "mfm-20261010T224054Z-86fd7d73"
     }
   ],
   "datasheet_id": "ds-breacher-team",
@@ -191,20 +191,22 @@
   ],
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
-    "last_verified_points_digest": "sha256:37d3ec03de3a41fe8363af0a16a955140ec2e90f64de737d09e879c631b3ca43",
-    "last_verified_version": "wh40k-11e-2026-09-5",
+    "last_verified_points_digest": "sha256:18213df34815923aea7b921008bd5114020ae9a0c9245d2d45ddb3ecd5669419",
+    "last_verified_version": "wh40k-11e-2026-10-1",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
+    "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
+    "points_acquisition_id": "mfm-20261010T224054Z-86fd7d73",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
+  "role": "Battleline",
   "wargear_option_state": "extracted",
+  "wargear_options_text": "The Breacher Fire Warrior Shas’ui can be equipped with up to two of the following, and can take duplicates:\n1 guardian drone (it cannot take duplicates of this piece of wargear)\n1 gun drone\n1 marker drone\n1 shield drone",
   "weapons": [
     {
       "ability_keywords": [

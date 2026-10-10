@@ -25,7 +25,7 @@
       "model_count": 10,
       "points": 70,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260922T170502Z-1b0a18bd"
+      "source_acquisition_id": "mfm-20261010T224054Z-86fd7d73"
     },
     {
       "copy_index_min": 1,
@@ -33,7 +33,7 @@
       "model_count": 20,
       "points": 135,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260922T170502Z-1b0a18bd"
+      "source_acquisition_id": "mfm-20261010T224054Z-86fd7d73"
     }
   ],
   "datasheet_id": "ds-death-korps-of-krieg",
@@ -430,19 +430,21 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:0f329aade0b6123120379dd3700e550cea7146f32eba349abe56a73f086beba2",
-    "last_verified_version": "wh40k-11e-2026-09-5",
+    "last_verified_version": "wh40k-11e-2026-10-1",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
+    "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
+    "points_acquisition_id": "mfm-20261010T224054Z-86fd7d73",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
+  "role": "Battleline",
   "wargear_option_state": "extracted",
+  "wargear_options_text": "For every 10 models in this unit, up to 2 Death Korps Troopers can each have their lasgun replaced with one of the following*:\n1 flamer\n1 grenade launcher\n1 long-las\n1 meltagun\n1 plasma gun\nFor every 10 models in this unit, 1 Death Korps Trooper equipped with a lasgun can be equipped with 1 Death Korps medi-pack (that model’s lasgun cannot be replaced)**.\nFor every 10 models in this unit, 1 Death Korps Trooper equipped with a lasgun can be equipped with 1 vox-caster (that model’s lasgun cannot be replaced).**\nAny number of Death Korps Watchmasters can each replace their laspistol and chainsword with 1 boltgun and 1 close combat weapon.\nAny number of Death Korps Watchmasters can each replace their chainsword with 1 power weapon.\nAny number of Death Korps Watchmasters can each replace their laspistol with one of the following:\n1 bolt pistol\n1 plasma pistol",
   "weapons": [
     {
       "ability_keywords": [

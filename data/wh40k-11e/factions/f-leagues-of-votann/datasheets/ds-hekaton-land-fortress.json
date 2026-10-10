@@ -23,15 +23,15 @@
       "model_count": 1,
       "points": 250,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260922T170502Z-1b0a18bd"
+      "source_acquisition_id": "mfm-20261010T224054Z-86fd7d73"
     },
     {
       "copy_index_min": 2,
       "label": "1 model",
       "model_count": 1,
-      "points": 265,
+      "points": 270,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260922T170502Z-1b0a18bd"
+      "source_acquisition_id": "mfm-20261010T224054Z-86fd7d73"
     }
   ],
   "damaged_threshold": 5,
@@ -257,20 +257,22 @@
   ],
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
-    "last_verified_points_digest": "sha256:0807b00e9878d231837b1653ebe77e5d70670c27f7c0c35cb8da281e7d6aa018",
-    "last_verified_version": "wh40k-11e-2026-09-5",
+    "last_verified_points_digest": "sha256:8bb1005067116ffc0fc9c8cf8a89d9dd23347d1f4c86b9ddebed9c0d8cf0dde9",
+    "last_verified_version": "wh40k-11e-2026-10-1",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
+    "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
+    "points_acquisition_id": "mfm-20261010T224054Z-86fd7d73",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
+  "role": "Transport",
   "wargear_option_state": "extracted",
+  "wargear_options_text": "This model’s 2 twin bolt cannons can be replaced with one of the following:\n1 twin bolt cannon and 1 twin ion beamer\n2 twin ion beamers\nThis model’s cyclic ion cannon can be replaced with one of the following:\n1 SP heavy conversion beamer\n1 heavy magna-rail cannon\nThis model’s panspectral scanner can be replaced with 1 Hekaton warhead.",
   "weapons": [
     {
       "ability_keywords": [

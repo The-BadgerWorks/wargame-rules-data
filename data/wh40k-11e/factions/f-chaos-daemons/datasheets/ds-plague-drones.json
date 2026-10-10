@@ -28,7 +28,7 @@
       "model_count": 3,
       "points": 110,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260922T170502Z-1b0a18bd"
+      "source_acquisition_id": "mfm-20261010T224054Z-86fd7d73"
     },
     {
       "copy_index_min": 1,
@@ -36,7 +36,7 @@
       "model_count": 6,
       "points": 220,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260922T170502Z-1b0a18bd"
+      "source_acquisition_id": "mfm-20261010T224054Z-86fd7d73"
     }
   ],
   "datasheet_id": "ds-plague-drones",
@@ -115,7 +115,7 @@
   ],
   "models": [
     {
-      "base_size": "(⌀60mm)",
+      "base_size": "(⌀60mm flying base)",
       "invuln_save": "5+",
       "leadership": "7+",
       "line": 1,
@@ -177,19 +177,21 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:867e54385c046d4252611800eae3eceeb10653d8db73a8e19eb5ec4a4bc49108",
-    "last_verified_version": "wh40k-11e-2026-09-5",
+    "last_verified_version": "wh40k-11e-2026-10-1",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
+    "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
+    "points_acquisition_id": "mfm-20261010T224054Z-86fd7d73",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
+  "role": "Mounted",
   "wargear_option_state": "extracted",
+  "wargear_options_text": "1 Plague Drone that is not equipped with a daemonic icon can be equipped with 1 instrument of Chaos.\n1 Plague Drone that is not equipped with an instrument of Chaos can be equipped with 1 daemonic icon.",
   "weapons": [
     {
       "ability_keywords": [

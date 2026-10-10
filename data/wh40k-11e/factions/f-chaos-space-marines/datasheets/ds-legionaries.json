@@ -24,17 +24,17 @@
       "copy_index_min": 1,
       "label": "5 models",
       "model_count": 5,
-      "points": 90,
+      "points": 95,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260922T170502Z-1b0a18bd"
+      "source_acquisition_id": "mfm-20261010T224054Z-86fd7d73"
     },
     {
       "copy_index_min": 1,
       "label": "10 models",
       "model_count": 10,
-      "points": 170,
+      "points": 180,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260922T170502Z-1b0a18bd"
+      "source_acquisition_id": "mfm-20261010T224054Z-86fd7d73"
     }
   ],
   "datasheet_id": "ds-legionaries",
@@ -110,7 +110,7 @@
       "name": "Legionaries",
       "objective_control": 2,
       "save": "3+",
-      "toughness": 4,
+      "toughness": 5,
       "wounds": 2
     }
   ],
@@ -608,6 +608,7 @@
       "scope": "unit"
     },
     {
+      "eligible_max_count": 1,
       "id": "og-legionaries-3",
       "line": 3,
       "scope": "unit"
@@ -642,20 +643,22 @@
   ],
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
-    "last_verified_points_digest": "sha256:2a3f98f0811a3ffc71f19545ca26aab5179d4e966af7e138db48ab72efbe3788",
-    "last_verified_version": "wh40k-11e-2026-09-5",
+    "last_verified_points_digest": "sha256:20af2e52452d90d92eef0fd68fcdce494617cb19352cdd055491c9b90e28b88f",
+    "last_verified_version": "wh40k-11e-2026-10-1",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
+    "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
+    "points_acquisition_id": "mfm-20261010T224054Z-86fd7d73",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
+  "role": "Battleline",
   "wargear_option_state": "extracted",
+  "wargear_options_text": "The Aspiring Champion’s boltgun can be replaced with one of the following:\n1 plasma pistol*\n1 accursed weapon\n1 Astartes chainsword\n1 heavy melee weapon\nThe Aspiring Champion’s bolt pistol can be replaced with one of the following:\n1 plasma pistol*\n1 accursed weapon\n1 Astartes chainsword\n1 heavy melee weapon\n1 model can be equipped with 1 Chaos icon.\nAny number of Legionaries can each have their boltgun replaced with 1 Astartes chainsword.\nOne Legionary’s boltgun can be replaced with 1 heavy melee weapon.\nOne Legionary’s boltgun can be replaced with 1 balefire tome.\nFor every 5 models in this unit, 1 Legionary’s boltgun can be replaced with one of the following (duplicates are not allowed):\n1 plasma pistol and 1 Astartes chainsword\n1 flamer\n1 havoc autocannon\n1 heavy bolter\n1 lascannon\n1 meltagun\n1 missile launcher\n1 plasma gun\n1 reaper chaincannon",
   "weapons": [
     {
       "ability_keywords": [
@@ -675,7 +678,7 @@
       "ability_keywords": [
         "pistol"
       ],
-      "armour_penetration": "0",
+      "armour_penetration": "-1",
       "attacks": "1",
       "damage": "1",
       "is_melee": false,
@@ -683,10 +686,10 @@
       "name": "Bolt pistol",
       "range": "12\"",
       "skill": "3+",
-      "strength": "4"
+      "strength": "5"
     },
     {
-      "armour_penetration": "0",
+      "armour_penetration": "-1",
       "attacks": "2",
       "damage": "1",
       "is_melee": false,
@@ -694,7 +697,7 @@
       "name": "Boltgun",
       "range": "24\"",
       "skill": "3+",
-      "strength": "4"
+      "strength": "5"
     },
     {
       "ability_keywords": [
@@ -884,7 +887,7 @@
       "line": 17,
       "name": "Astartes chainsword",
       "skill": "3+",
-      "strength": "4"
+      "strength": "5"
     },
     {
       "armour_penetration": "0",
@@ -894,7 +897,7 @@
       "line": 18,
       "name": "Close combat weapon",
       "skill": "3+",
-      "strength": "4"
+      "strength": "5"
     },
     {
       "armour_penetration": "-2",

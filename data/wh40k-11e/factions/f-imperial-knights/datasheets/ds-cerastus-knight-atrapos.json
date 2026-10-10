@@ -20,17 +20,17 @@
       "copy_index_min": 1,
       "label": "1 model",
       "model_count": 1,
-      "points": 405,
+      "points": 420,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260922T170502Z-1b0a18bd"
+      "source_acquisition_id": "mfm-20261010T224054Z-86fd7d73"
     },
     {
       "copy_index_min": 2,
       "label": "1 model",
       "model_count": 1,
-      "points": 425,
+      "points": 440,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260922T170502Z-1b0a18bd"
+      "source_acquisition_id": "mfm-20261010T224054Z-86fd7d73"
     }
   ],
   "damaged_threshold": 10,
@@ -123,19 +123,20 @@
   "name": "CERASTUS KNIGHT ATRAPOS",
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
-    "last_verified_points_digest": "sha256:32f0906d4875745b99481b4bb5fbaa2e93393efa8a80d1b23c7908c920a45a42",
-    "last_verified_version": "wh40k-11e-2026-09-5",
+    "last_verified_points_digest": "sha256:30625a2d0ff53a0a0b4c94a8f1faef2b782623d92710c4c6c4315e2fcd9f55a8",
+    "last_verified_version": "wh40k-11e-2026-10-1",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
+    "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
+    "points_acquisition_id": "mfm-20261010T224054Z-86fd7d73",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
+  "role": "Vehicle Character",
   "wargear_option_state": "none",
   "weapons": [
     {

@@ -21,9 +21,9 @@
       "copy_index_min": 1,
       "label": "1 model",
       "model_count": 1,
-      "points": 75,
+      "points": 70,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260922T170502Z-1b0a18bd"
+      "source_acquisition_id": "mfm-20261010T224054Z-86fd7d73"
     }
   ],
   "datasheet_id": "ds-lord-marshal-dreir",
@@ -120,19 +120,20 @@
   "name": "LORD MARSHAL DREIR",
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
-    "last_verified_points_digest": "sha256:3ef9b0b950694b9c2204fe4c1a14b9688c6bd63b6f2babb06888bc26464b773a",
-    "last_verified_version": "wh40k-11e-2026-09-5",
+    "last_verified_points_digest": "sha256:e848ec11450ed9ecb7d2b7768b1808d24c7f55f4121478b70e73c06d9cfbd8b3",
+    "last_verified_version": "wh40k-11e-2026-10-1",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
+    "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
+    "points_acquisition_id": "mfm-20261010T224054Z-86fd7d73",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
+  "role": "Mounted Epic Hero",
   "wargear_option_state": "none",
   "weapons": [
     {

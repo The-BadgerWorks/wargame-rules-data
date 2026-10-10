@@ -26,7 +26,7 @@
       "model_count": 10,
       "points": 100,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260922T170502Z-1b0a18bd"
+      "source_acquisition_id": "mfm-20261010T224054Z-86fd7d73"
     },
     {
       "copy_index_min": 1,
@@ -35,7 +35,7 @@
       "points": 110,
       "pricing_confidence": "verified",
       "pricing_context": "every-model-has-imperium",
-      "source_acquisition_id": "mfm-20260922T170502Z-1b0a18bd"
+      "source_acquisition_id": "mfm-20261010T224054Z-86fd7d73"
     }
   ],
   "datasheet_id": "ds-sisters-of-battle-squad",
@@ -549,19 +549,21 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:d6d4b96bd776fa3afa1bf8d5f3e971a8559f378ac17dd23d024c1b9bb4d52714",
-    "last_verified_version": "wh40k-11e-2026-09-5",
+    "last_verified_version": "wh40k-11e-2026-10-1",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
+    "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
+    "points_acquisition_id": "mfm-20261010T224054Z-86fd7d73",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
+  "role": "Infantry",
   "wargear_option_state": "extracted",
+  "wargear_options_text": "The Sister Superior’s boltgun can be replaced with one of the following:\n1 bolt pistol\n1 combi-weapon\n1 condemnor boltgun\n1 inferno pistol\n1 Ministorum hand flamer\n1 plasma pistol\nThe Sister Superior can be equipped with one of the following:\n1 chainsword\n1 power weapon\n1 Battle Sister’s boltgun can be replaced with one of the following:\n1 artificer-crafted storm bolter\n1 meltagun\n1 Ministorum flamer\n1 Battle Sister’s boltgun can be replaced with one of the following:\n1 artificer-crafted storm bolter\n1 heavy bolter\n1 meltagun\n1 Ministorum flamer\n1 Ministorum heavy flamer\n1 multi-melta\n1 Battle Sister equipped with 1 boltgun can be equipped with 1 simulacrum imperialis (that model’s boltgun cannot be replaced).",
   "weapons": [
     {
       "ability_keywords": [

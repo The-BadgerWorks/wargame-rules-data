@@ -24,17 +24,17 @@
       "copy_index_min": 1,
       "label": "3 models",
       "model_count": 3,
-      "points": 70,
+      "points": 80,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260922T170502Z-1b0a18bd"
+      "source_acquisition_id": "mfm-20261010T224054Z-86fd7d73"
     },
     {
       "copy_index_min": 1,
       "label": "6 models",
       "model_count": 6,
-      "points": 130,
+      "points": 150,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260922T170502Z-1b0a18bd"
+      "source_acquisition_id": "mfm-20261010T224054Z-86fd7d73"
     }
   ],
   "datasheet_id": "ds-chaos-bikers",
@@ -105,7 +105,7 @@
       "name": "Chaos Bikers",
       "objective_control": 2,
       "save": "3+",
-      "toughness": 5,
+      "toughness": 6,
       "wounds": 3
     }
   ],
@@ -316,6 +316,7 @@
       "scope": "unit"
     },
     {
+      "eligible_max_count": 1,
       "id": "og-chaos-bikers-4",
       "line": 4,
       "scope": "unit"
@@ -323,26 +324,28 @@
   ],
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
-    "last_verified_points_digest": "sha256:6e7ec8cdf47b4802e12b07a1bd9247858dc9d78323d43a1634cae602bc19e99e",
-    "last_verified_version": "wh40k-11e-2026-09-5",
+    "last_verified_points_digest": "sha256:5fcb1e6cd714a82a32297d08536ef836f7c04fc355236536fd7e05cb84289dcf",
+    "last_verified_version": "wh40k-11e-2026-10-1",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
+    "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
+    "points_acquisition_id": "mfm-20261010T224054Z-86fd7d73",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
+  "role": "Mounted",
   "wargear_option_state": "extracted",
+  "wargear_options_text": "The Biker Champion’s bolt pistol can be replaced with one of the following:\n1 plasma pistol\n1 accursed weapon\n1 Astartes chainsword\n1 power fist\nAny number of Chaos Bikers can each have their bolt pistol replaced with 1 Astartes chainsword.\nUp to 2 Chaos Bikers can each have their combi-bolter replaced with 1 combi-weapon, or can be equipped with one of the following:\n1 flamer\n1 meltagun\n1 plasma gun\n1 model can be equipped with 1 Chaos icon.",
   "weapons": [
     {
       "ability_keywords": [
         "pistol"
       ],
-      "armour_penetration": "0",
+      "armour_penetration": "-1",
       "attacks": "1",
       "damage": "1",
       "is_melee": false,
@@ -350,13 +353,13 @@
       "name": "Bolt pistol",
       "range": "12\"",
       "skill": "3+",
-      "strength": "4"
+      "strength": "5"
     },
     {
       "ability_keywords": [
         "rapid fire 2"
       ],
-      "armour_penetration": "0",
+      "armour_penetration": "-1",
       "attacks": "2",
       "damage": "1",
       "is_melee": false,
@@ -364,7 +367,7 @@
       "name": "Combi-bolter",
       "range": "24\"",
       "skill": "3+",
-      "strength": "4"
+      "strength": "5"
     },
     {
       "ability_keywords": [
@@ -477,7 +480,7 @@
       "line": 10,
       "name": "Close combat weapon",
       "skill": "3+",
-      "strength": "4"
+      "strength": "5"
     },
     {
       "armour_penetration": "-2",
@@ -497,7 +500,7 @@
       "line": 12,
       "name": "Astartes chainsword",
       "skill": "3+",
-      "strength": "4"
+      "strength": "5"
     },
     {
       "armour_penetration": "-2",

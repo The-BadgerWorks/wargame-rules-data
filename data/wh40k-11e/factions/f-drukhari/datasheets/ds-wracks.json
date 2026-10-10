@@ -24,25 +24,25 @@
       "copy_index_min": 1,
       "label": "5 models",
       "model_count": 5,
-      "points": 60,
+      "points": 55,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260922T170502Z-1b0a18bd"
+      "source_acquisition_id": "mfm-20261010T224054Z-86fd7d73"
     },
     {
       "copy_index_min": 1,
       "label": "8 models",
       "model_count": 8,
-      "points": 100,
+      "points": 90,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260922T170502Z-1b0a18bd"
+      "source_acquisition_id": "mfm-20261010T224054Z-86fd7d73"
     },
     {
       "copy_index_min": 1,
       "label": "10 models",
       "model_count": 10,
-      "points": 120,
+      "points": 110,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260922T170502Z-1b0a18bd"
+      "source_acquisition_id": "mfm-20261010T224054Z-86fd7d73"
     }
   ],
   "datasheet_id": "ds-wracks",
@@ -153,20 +153,22 @@
   ],
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
-    "last_verified_points_digest": "sha256:bb7f834efc4244e173cf9fb020a90ac99ea72bb45f33998632e66f1eb275bcbd",
-    "last_verified_version": "wh40k-11e-2026-09-5",
+    "last_verified_points_digest": "sha256:f4d8e201caf9769c635252ade6c334fd0a4c3d8473b30e9c67230d798c2cd2ad",
+    "last_verified_version": "wh40k-11e-2026-10-1",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
+    "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
+    "points_acquisition_id": "mfm-20261010T224054Z-86fd7d73",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
+  "role": "Battleline",
   "wargear_option_state": "partial",
+  "wargear_options_text": "For every 5 models in this unit:\n1 model’s twin torturer’s tools can be replaced with 1 hexrifle and 1 torturer’s tool\n1 model’s twin torturer’s tools can be replaced with 1 liquifier gun and 1 torturer’s tool\n1 model’s twin torturer’s tools can be replaced with 1 ossefactor and 1 torturer’s tool\n1 model’s twin torturer’s tools can be replaced with 1 stinger pistol and 1 torturer’s tool\nThe Acothyst’s twin torturer’s tools can be replaced with 1 power weapon and 1 torturer’s tool.\nIf the Acothyst is not equipped with a power weapon, its torturer’s tool can be replaced with 1 power weapon.",
   "weapons": [
     {
       "ability_keywords": [

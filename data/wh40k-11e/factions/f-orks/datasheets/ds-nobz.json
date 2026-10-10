@@ -19,33 +19,33 @@
       "copy_index_min": 1,
       "label": "5 models",
       "model_count": 5,
-      "points": 125,
+      "points": 115,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260922T170502Z-1b0a18bd"
+      "source_acquisition_id": "mfm-20261010T224054Z-86fd7d73"
     },
     {
       "copy_index_min": 1,
       "label": "10 models",
       "model_count": 10,
-      "points": 250,
+      "points": 230,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260922T170502Z-1b0a18bd"
+      "source_acquisition_id": "mfm-20261010T224054Z-86fd7d73"
     },
     {
       "copy_index_min": 3,
       "label": "5 models",
       "model_count": 5,
-      "points": 155,
+      "points": 145,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260922T170502Z-1b0a18bd"
+      "source_acquisition_id": "mfm-20261010T224054Z-86fd7d73"
     },
     {
       "copy_index_min": 3,
       "label": "10 models",
       "model_count": 10,
-      "points": 280,
+      "points": 260,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260922T170502Z-1b0a18bd"
+      "source_acquisition_id": "mfm-20261010T224054Z-86fd7d73"
     }
   ],
   "datasheet_id": "ds-nobz",
@@ -292,20 +292,22 @@
   ],
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
-    "last_verified_points_digest": "sha256:244bad0076fb84505a5685d2d422521b5e27ecc3049c5bb4056ed2a9957dcc68",
-    "last_verified_version": "wh40k-11e-2026-09-5",
+    "last_verified_points_digest": "sha256:1121381b5c49cf1099204145672ba9713956aa862fc58c3ebb29382a58696d18",
+    "last_verified_version": "wh40k-11e-2026-10-1",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
+    "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
+    "points_acquisition_id": "mfm-20261010T224054Z-86fd7d73",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
+  "role": "Infantry",
   "wargear_option_state": "extracted",
+  "wargear_options_text": "For every 5 models in this unit, 1 model can have their Kustom Krumpa and Kustom Shoota replaced with 1 Big Skorcha and 1 Kustom Choppa.\nFor every 5 models in this unit, 1 model can have their Kustom Krumpa and Kustom Shoota replaced with 1 Kustom Big Shoota and 1 Kustom Choppa.\nFor every 5 models in this unit, 1 model can have their Kustom Krumpa and Kustom Shoota replaced with 1 Big Choppa.\nFor every 5 models in this unit, 1 model can have their Kustom Shoota replaced with 1 Paired Krumpas.\nAny number of models can each have their Kustom Shoota replaced with 1 Kombi-rokkit.",
   "weapons": [
     {
       "ability_keywords": [

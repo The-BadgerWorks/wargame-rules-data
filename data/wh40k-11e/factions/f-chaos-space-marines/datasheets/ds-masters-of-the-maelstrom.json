@@ -43,9 +43,9 @@
       "copy_index_min": 1,
       "label": "5 models",
       "model_count": 5,
-      "points": 145,
+      "points": 150,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260922T170502Z-1b0a18bd"
+      "source_acquisition_id": "mfm-20261010T224054Z-86fd7d73"
     }
   ],
   "datasheet_id": "ds-masters-of-the-maelstrom",
@@ -205,7 +205,7 @@
       "name": "GARLON SOULEATER, GARREON THE CORPSEMASTER, KATAR GARRIX",
       "objective_control": 1,
       "save": "3+",
-      "toughness": 4,
+      "toughness": 5,
       "wounds": 4
     },
     {
@@ -223,19 +223,20 @@
   "name": "MASTERS OF THE MAELSTROM",
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
-    "last_verified_points_digest": "sha256:851a76dfbe7f90d1df7f9212cf73f40d1667de17b00857ce415e05fb6e35b4d5",
-    "last_verified_version": "wh40k-11e-2026-09-5",
+    "last_verified_points_digest": "sha256:fb6403c587d05c6f194108c57de9cb05d989dd4934dbaa7eec07961efebd77c9",
+    "last_verified_version": "wh40k-11e-2026-10-1",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
+    "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
+    "points_acquisition_id": "mfm-20261010T224054Z-86fd7d73",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
+  "role": "Infantry Epic Hero",
   "wargear_option_state": "none",
   "weapons": [
     {
@@ -264,7 +265,7 @@
       "name": "Bolt pistol",
       "range": "12\"",
       "skill": "3+",
-      "strength": "4"
+      "strength": "5"
     },
     {
       "ability_keywords": [

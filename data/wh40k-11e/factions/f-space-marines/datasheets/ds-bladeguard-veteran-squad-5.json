@@ -1,20 +1,21 @@
 {
   "ability_keys": [
-    "datasheet:bladeguard",
-    "faction:oath-of-moment"
+    "datasheet:bladeguard-once-per-turn-per-unit",
+    "faction:combat-doctrines"
   ],
   "composition": [
     {
       "line": 1,
       "max_count": 1,
       "min_count": 1,
-      "model_name": "Bladeguard Veteran Sergeant"
+      "model_name": "Bladeguard Veteran Sergeant model"
     },
     {
       "line": 2,
       "max_count": 5,
       "min_count": 2,
-      "model_name": "Bladeguard Veterans"
+      "model_line": 2,
+      "model_name": "Bladeguard Veteran models"
     }
   ],
   "costs": [
@@ -22,33 +23,33 @@
       "copy_index_min": 1,
       "label": "3 models",
       "model_count": 3,
-      "points": 80,
+      "points": 90,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260922T170502Z-1b0a18bd"
+      "source_acquisition_id": "mfm-20261010T224054Z-86fd7d73"
     },
     {
       "copy_index_min": 1,
       "label": "6 models",
       "model_count": 6,
-      "points": 160,
+      "points": 180,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260922T170502Z-1b0a18bd"
+      "source_acquisition_id": "mfm-20261010T224054Z-86fd7d73"
     },
     {
       "copy_index_min": 3,
       "label": "3 models",
       "model_count": 3,
-      "points": 90,
+      "points": 110,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260922T170502Z-1b0a18bd"
+      "source_acquisition_id": "mfm-20261010T224054Z-86fd7d73"
     },
     {
       "copy_index_min": 3,
       "label": "6 models",
       "model_count": 6,
-      "points": 170,
+      "points": 200,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260922T170502Z-1b0a18bd"
+      "source_acquisition_id": "mfm-20261010T224054Z-86fd7d73"
     }
   ],
   "datasheet_id": "ds-bladeguard-veteran-squad-5",
@@ -59,13 +60,15 @@
       "id": "eq-bladeguard-veteran-squad-5-1",
       "items": [
         {
+          "count": 1,
           "item_index": 1,
-          "item_name": "heavy bolt pistol",
+          "item_name": "Heavy Bolt Pistol",
           "weapon_line": 1
         },
         {
+          "count": 1,
           "item_index": 2,
-          "item_name": "master-crafted power weapon",
+          "item_name": "Master-crafted Power Sword",
           "weapon_line": 5
         }
       ],
@@ -86,17 +89,12 @@
     },
     {
       "is_faction_keyword": false,
-      "keyword": "BLADEGUARD VETERAN SQUAD",
-      "keyword_class": "unit"
-    },
-    {
-      "is_faction_keyword": false,
       "keyword": "DEATHWING",
       "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "GRENADES",
+      "keyword": "EXPLOSIVES",
       "keyword_class": "unit"
     },
     {
@@ -122,10 +120,22 @@
       "leadership": "6+",
       "line": 1,
       "movement": "6\"",
-      "name": "Bladeguard Veteran Squad",
+      "name": "Bladeguard Veteran Sergeant",
       "objective_control": 1,
       "save": "3+",
-      "toughness": 4,
+      "toughness": 5,
+      "wounds": 3
+    },
+    {
+      "base_size": "(⌀40mm)",
+      "invuln_save": "4+",
+      "leadership": "6+",
+      "line": 2,
+      "movement": "6\"",
+      "name": "Bladeguard Veteran",
+      "objective_control": 1,
+      "save": "3+",
+      "toughness": 5,
       "wounds": 3
     }
   ],
@@ -142,17 +152,19 @@
         {
           "count": 1,
           "item_index": 1,
-          "item_name": "neo-volkite pistol",
+          "item_name": "Neo-volkite Pistol",
           "role": "granted",
           "weapon_line": 2
         },
         {
           "item_index": 1,
-          "item_name": "Bladeguard Veteran Sergeant’s heavy bolt pistol",
-          "role": "replaced"
+          "item_name": "Heavy bolt pistol",
+          "role": "replaced",
+          "weapon_line": 1
         }
       ],
-      "name": "neo-volkite pistol"
+      "name": "Neo-volkite Pistol",
+      "replaces_weapon_line": 1
     },
     {
       "count": 1,
@@ -164,16 +176,18 @@
         {
           "count": 1,
           "item_index": 1,
-          "item_name": "plasma pistol",
+          "item_name": "Plasma Pistol",
           "role": "granted"
         },
         {
           "item_index": 1,
-          "item_name": "Bladeguard Veteran Sergeant’s heavy bolt pistol",
-          "role": "replaced"
+          "item_name": "Heavy bolt pistol",
+          "role": "replaced",
+          "weapon_line": 1
         }
       ],
-      "name": "plasma pistol"
+      "name": "Plasma Pistol",
+      "replaces_weapon_line": 1
     }
   ],
   "option_groups": [
@@ -185,75 +199,77 @@
   ],
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
-    "last_verified_points_digest": "sha256:b29ff5bf98e062c83111279cd8739e5b6e8393b84ca4775e8bf886cfdf6dc50c",
-    "last_verified_version": "wh40k-11e-2026-09-5",
+    "last_verified_points_digest": "sha256:005234c30f57e726017917c4a515027181c317ee01ed3bd6d83461867cf9c738",
+    "last_verified_version": "wh40k-11e-2026-10-1",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
+    "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
+    "points_acquisition_id": "mfm-20261010T224054Z-86fd7d73",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
+  "role": "Infantry",
   "wargear_option_state": "extracted",
+  "wargear_options_text": "The Bladeguard Veteran Sergeant can have their Heavy bolt pistol replaced with one of the following:\n1 Neo-volkite Pistol\n1 Plasma Pistol",
   "weapons": [
     {
       "ability_keywords": [
-        "pistol"
+        "CLOSE-QUARTERS"
       ],
       "armour_penetration": "-1",
       "attacks": "1",
       "damage": "1",
       "is_melee": false,
       "line": 1,
-      "name": "Heavy bolt pistol",
+      "name": "Heavy Bolt Pistol",
       "range": "18\"",
       "skill": "3+",
-      "strength": "4"
+      "strength": "5"
     },
     {
       "ability_keywords": [
-        "devastating wounds",
-        "pistol"
+        "CLOSE-QUARTERS",
+        "Devastating Wounds"
       ],
       "armour_penetration": "0",
       "attacks": "1",
       "damage": "2",
       "is_melee": false,
       "line": 2,
-      "name": "Neo-volkite pistol",
+      "name": "Neo-volkite Pistol",
       "range": "12\"",
       "skill": "3+",
       "strength": "5"
     },
     {
       "ability_keywords": [
-        "pistol"
+        "CLOSE-QUARTERS"
       ],
       "armour_penetration": "-2",
       "attacks": "1",
       "damage": "1",
       "is_melee": false,
       "line": 3,
-      "name": "Plasma pistol – standard",
+      "name": "Plasma Pistol - Standard",
       "range": "12\"",
       "skill": "3+",
       "strength": "7"
     },
     {
       "ability_keywords": [
-        "hazardous",
-        "pistol"
+        "CLOSE-QUARTERS",
+        "Hazardous"
       ],
       "armour_penetration": "-3",
       "attacks": "1",
       "damage": "2",
       "is_melee": false,
       "line": 4,
-      "name": "Plasma pistol – supercharge",
+      "name": "Plasma Pistol - Supercharge",
       "range": "12\"",
       "skill": "3+",
       "strength": "8"
@@ -264,7 +280,7 @@
       "damage": "2",
       "is_melee": true,
       "line": 5,
-      "name": "Master-crafted power weapon",
+      "name": "Master-crafted Power Sword",
       "skill": "3+",
       "strength": "5"
     }

@@ -1,9 +1,10 @@
 {
   "ability_keys": [
+    "core:damaged-6",
     "core:deadly-demise-d6",
     "datasheet:assault-ramp",
-    "datasheet:one-shot",
-    "faction:oath-of-moment"
+    "datasheet:wrath-of-the-machine-spirit",
+    "faction:combat-doctrines"
   ],
   "composition": [
     {
@@ -11,7 +12,7 @@
       "max_count": 1,
       "min_count": 1,
       "model_line": 1,
-      "model_name": "Land Raider Redeemer"
+      "model_name": "Land Raider Redeemer model"
     }
   ],
   "costs": [
@@ -19,20 +20,19 @@
       "copy_index_min": 1,
       "label": "1 model",
       "model_count": 1,
-      "points": 260,
+      "points": 245,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260922T170502Z-1b0a18bd"
+      "source_acquisition_id": "mfm-20261010T224054Z-86fd7d73"
     },
     {
-      "copy_index_min": 3,
+      "copy_index_min": 2,
       "label": "1 model",
       "model_count": 1,
-      "points": 280,
+      "points": 265,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260922T170502Z-1b0a18bd"
+      "source_acquisition_id": "mfm-20261010T224054Z-86fd7d73"
     }
   ],
-  "damaged_threshold": 5,
   "datasheet_id": "ds-land-raider-redeemer",
   "default_equipment_state": "extracted",
   "equipment_groups": [
@@ -41,19 +41,22 @@
       "id": "eq-land-raider-redeemer-1",
       "items": [
         {
-          "count": 2,
+          "count": 1,
           "item_index": 1,
-          "item_name": "flamestorm cannons"
-        },
-        {
-          "item_index": 2,
-          "item_name": "twin assault cannon",
-          "weapon_line": 5
-        },
-        {
-          "item_index": 3,
-          "item_name": "armoured tracks",
+          "item_name": "Armoured Tracks",
           "weapon_line": 6
+        },
+        {
+          "count": 2,
+          "item_index": 2,
+          "item_name": "Flamestorm Cannon",
+          "weapon_line": 1
+        },
+        {
+          "count": 1,
+          "item_index": 3,
+          "item_name": "Twin Assault Cannon",
+          "weapon_line": 5
         }
       ],
       "line": 1
@@ -78,27 +81,17 @@
     },
     {
       "is_faction_keyword": false,
+      "keyword": "EXPLOSIVES",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
       "keyword": "FRAME",
       "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "GRENADES",
-      "keyword_class": "unit"
-    },
-    {
-      "is_faction_keyword": false,
       "keyword": "IMPERIUM",
-      "keyword_class": "unit"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "LAND RAIDER",
-      "keyword_class": "unit"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "LAND RAIDER REDEEMER",
       "keyword_class": "unit"
     },
     {
@@ -143,12 +136,12 @@
         {
           "count": 1,
           "item_index": 1,
-          "item_name": "hunter-killer missile",
+          "item_name": "Hunter-killer Missile",
           "role": "granted",
           "weapon_line": 2
         }
       ],
-      "name": "hunter-killer missile"
+      "name": "Hunter-killer Missile"
     },
     {
       "count": 1,
@@ -161,12 +154,12 @@
         {
           "count": 1,
           "item_index": 1,
-          "item_name": "multi-melta",
+          "item_name": "Multi-melta",
           "role": "granted",
           "weapon_line": 3
         }
       ],
-      "name": "multi-melta"
+      "name": "Multi-melta"
     },
     {
       "count": 1,
@@ -179,12 +172,12 @@
         {
           "count": 1,
           "item_index": 1,
-          "item_name": "storm bolter",
+          "item_name": "Storm Bolter",
           "role": "granted",
           "weapon_line": 4
         }
       ],
-      "name": "storm bolter"
+      "name": "Storm Bolter"
     }
   ],
   "option_groups": [
@@ -206,89 +199,91 @@
   ],
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
-    "last_verified_points_digest": "sha256:1b10ac24e93bdd77a4c9be9e1c5dc09ebfc91f6c4f861be30c6bf6a1fa5fb20e",
-    "last_verified_version": "wh40k-11e-2026-09-5",
+    "last_verified_points_digest": "sha256:35c68bcca121bf40ca571404d90b4533ff7c7de2a98396cc42aafd25d3411822",
+    "last_verified_version": "wh40k-11e-2026-10-1",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
+    "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
+    "points_acquisition_id": "mfm-20261010T224054Z-86fd7d73",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
+  "role": "Transport",
   "wargear_option_state": "extracted",
+  "wargear_options_text": "This model can be equipped with 1 Hunter-killer Missile.\nThis model can be equipped with 1 Multi-melta.\nThis model can be equipped with 1 Storm Bolter.",
   "weapons": [
     {
       "ability_keywords": [
-        "ignores cover",
-        "torrent"
+        "BLAST 2",
+        "Torrent"
       ],
       "armour_penetration": "-2",
-      "attacks": "D6+3",
+      "attacks": "4",
       "damage": "2",
       "is_melee": false,
       "line": 1,
-      "name": "Flamestorm cannon",
+      "name": "Flamestorm Cannon",
       "range": "12\"",
-      "skill": "N/A",
+      "skill": "-",
       "strength": "6"
     },
     {
       "ability_keywords": [
-        "one shot"
+        "ONE SHOT"
       ],
       "armour_penetration": "-3",
       "attacks": "1",
-      "damage": "D6",
+      "damage": "D3+3",
       "is_melee": false,
       "line": 2,
-      "name": "Hunter-killer missile",
+      "name": "Hunter-killer Missile",
       "range": "48\"",
       "skill": "2+",
       "strength": "14"
     },
     {
       "ability_keywords": [
-        "melta 2"
+        "Melta 3"
       ],
-      "armour_penetration": "-4",
+      "armour_penetration": "-3",
       "attacks": "2",
-      "damage": "D6",
+      "damage": "D3+2",
       "is_melee": false,
       "line": 3,
       "name": "Multi-melta",
       "range": "18\"",
       "skill": "3+",
-      "strength": "9"
+      "strength": "10"
     },
     {
       "ability_keywords": [
-        "rapid fire 2"
+        "Rapid Fire 2"
       ],
-      "armour_penetration": "0",
+      "armour_penetration": "-1",
       "attacks": "2",
       "damage": "1",
       "is_melee": false,
       "line": 4,
-      "name": "Storm bolter",
+      "name": "Storm Bolter",
       "range": "24\"",
       "skill": "3+",
-      "strength": "4"
+      "strength": "5"
     },
     {
       "ability_keywords": [
-        "devastating wounds",
-        "twin-linked"
+        "Sustained Hits 1",
+        "Twin-linked"
       ],
-      "armour_penetration": "0",
+      "armour_penetration": "-2",
       "attacks": "6",
       "damage": "1",
       "is_melee": false,
       "line": 5,
-      "name": "Twin assault cannon",
+      "name": "Twin Assault Cannon",
       "range": "24\"",
       "skill": "3+",
       "strength": "6"
@@ -299,7 +294,7 @@
       "damage": "1",
       "is_melee": true,
       "line": 6,
-      "name": "Armoured tracks",
+      "name": "Armoured Tracks",
       "skill": "4+",
       "strength": "8"
     }

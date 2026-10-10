@@ -20,7 +20,7 @@
       "model_count": 1,
       "points": 80,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf"
+      "source_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587"
     }
   ],
   "datasheet_id": "ds-trojan-support-vehicle-2",
@@ -38,7 +38,7 @@
         {
           "item_index": 2,
           "item_name": "armoured tracks",
-          "weapon_line": 3
+          "weapon_line": 4
         }
       ],
       "line": 1
@@ -109,7 +109,7 @@
   "option_choices": [
     {
       "count": 1,
-      "grants_weapon_line": 4,
+      "grants_weapon_line": 2,
       "group_id": "og-trojan-support-vehicle-2-1",
       "id": "oc-trojan-support-vehicle-2-1-1",
       "is_default": false,
@@ -120,7 +120,7 @@
           "item_index": 1,
           "item_name": "heavy flamer",
           "role": "granted",
-          "weapon_line": 4
+          "weapon_line": 2
         },
         {
           "item_index": 1,
@@ -132,7 +132,7 @@
     },
     {
       "count": 1,
-      "grants_weapon_line": 2,
+      "grants_weapon_line": 3,
       "group_id": "og-trojan-support-vehicle-2-2",
       "id": "oc-trojan-support-vehicle-2-2-1",
       "is_default": false,
@@ -143,7 +143,7 @@
           "item_index": 1,
           "item_name": "hunter-killer missile",
           "role": "granted",
-          "weapon_line": 2
+          "weapon_line": 3
         }
       ],
       "name": "hunter-killer missile"
@@ -162,19 +162,21 @@
     }
   ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 10,
+    "consecutive_unverified_releases": 11,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
+    "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
     "points_edition_code": "wh40k-11e",
     "points_source": "none"
   },
+  "role": "Vehicle",
   "wargear_option_state": "extracted",
+  "wargear_options_text": "This model’s heavy bolter can be replaced with 1 heavy flamer.\nThis model can be equipped with 1 hunter-killer missile.",
   "weapons": [
     {
       "ability_keywords": [
@@ -192,13 +194,28 @@
     },
     {
       "ability_keywords": [
+        "ignores cover",
+        "torrent"
+      ],
+      "armour_penetration": "-1",
+      "attacks": "D6",
+      "damage": "1",
+      "is_melee": false,
+      "line": 2,
+      "name": "Heavy flamer",
+      "range": "12\"",
+      "skill": "N/A",
+      "strength": "5"
+    },
+    {
+      "ability_keywords": [
         "one shot"
       ],
       "armour_penetration": "-3",
       "attacks": "1",
       "damage": "D6",
       "is_melee": false,
-      "line": 2,
+      "line": 3,
       "name": "Hunter-killer missile",
       "range": "48\"",
       "skill": "4+",
@@ -209,25 +226,10 @@
       "attacks": "3",
       "damage": "1",
       "is_melee": true,
-      "line": 3,
+      "line": 4,
       "name": "Armoured tracks",
       "skill": "4+",
       "strength": "6"
-    },
-    {
-      "ability_keywords": [
-        "ignores cover",
-        "torrent"
-      ],
-      "armour_penetration": "-1",
-      "attacks": "D6",
-      "damage": "1",
-      "is_melee": false,
-      "line": 4,
-      "name": "Heavy flamer",
-      "range": "12\"",
-      "skill": "N/A",
-      "strength": "5"
     }
   ]
 }

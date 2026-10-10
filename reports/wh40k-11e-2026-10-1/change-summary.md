@@ -1,0 +1,5686 @@
+# Change summary
+
+Compared against **wh40k-11e-2026-09-5**.
+
+## Added datasheets
+
+- ds-captain-on-bike-2
+- ds-captain-on-bike-3
+- ds-captain-on-bike-4
+- ds-captain-on-bike-5
+- ds-captain-on-bike-6
+- ds-eradicator-squad-with-melta-rifles
+- ds-eradicator-squad-with-melta-rifles-2
+- ds-eradicator-squad-with-melta-rifles-3
+- ds-eradicator-squad-with-melta-rifles-4
+- ds-eradicator-squad-with-melta-rifles-5
+- ds-eradicator-squad-with-melta-rifles-6
+- ds-invader-atvs
+- ds-invader-atvs-2
+- ds-invader-atvs-3
+- ds-invader-atvs-4
+- ds-invader-atvs-5
+- ds-invader-atvs-6
+- ds-kaius-konorius
+- ds-marneus-calgar
+- ds-sicaran
+
+## Removed datasheets
+
+- ds-ancient-on-bike
+- ds-apothecary-on-bike
+- ds-assault-squad
+- ds-assault-squad-with-jump-packs
+- ds-astartes-servitors
+- ds-attack-bike-squad
+- ds-bike-squad
+- ds-brother-corbulo
+- ds-caestus-assault-ram
+- ds-canis-wolfborn
+- ds-captain-tycho
+- ds-carab-culln-the-risen
+- ds-centurion-assault-squad-2
+- ds-centurion-assault-squad-3
+- ds-centurion-assault-squad-4
+- ds-centurion-assault-squad-5
+- ds-centurion-assault-squad-6
+- ds-centurion-devastator-squad-2
+- ds-centurion-devastator-squad-3
+- ds-centurion-devastator-squad-4
+- ds-centurion-devastator-squad-5
+- ds-centurion-devastator-squad-6
+- ds-chaplain-cassius
+- ds-chaplain-venerable-dreadnought
+- ds-command-squad
+- ds-company-champion-on-bike
+- ds-company-veterans-on-bikes
+- ds-cyberwolf
+- ds-death-company-dreadnought-with-magna-grapple
+- ds-death-company-marines-with-bolt-rifles
+- ds-death-company-marines-with-boltguns
+- ds-death-company-marines-with-boltguns-and-jump-packs
+- ds-deathstorm-drop-pod
+- ds-deathwing-command-squad
+- ds-deathwing-strikemaster
+- ds-deimos-predator
+- ds-deredeo-dreadnought
+- ds-deredeo-dreadnought-2
+- ds-deredeo-dreadnought-3
+- ds-deredeo-dreadnought-4
+- ds-deredeo-dreadnought-5
+- ds-devastator-squad
+- ds-devastator-squad-2
+- ds-devastator-squad-3
+- ds-devastator-squad-4
+- ds-dreadnought-2
+- ds-dreadnought-3
+- ds-dreadnought-4
+- ds-dreadnought-5
+- ds-dreadnought-6
+- ds-dreadnought-drop-pod
+- ds-eradicator-squad
+- ds-eradicator-squad-2
+- ds-eradicator-squad-3
+- ds-eradicator-squad-4
+- ds-eradicator-squad-5
+- ds-eradicator-squad-6
+- ds-fellblade
+- ds-fellblade-2
+- ds-fellblade-3
+- ds-fellblade-4
+- ds-fellblade-5
+- ds-ferren-areios
+- ds-fire-raptor-gunship
+- ds-fire-raptor-gunship-2
+- ds-fire-raptor-gunship-3
+- ds-fire-raptor-gunship-4
+- ds-fire-raptor-gunship-5
+- ds-furioso-dreadnought
+- ds-gabriel-seth
+- ds-hammerfall-bunker-2
+- ds-hammerfall-bunker-3
+- ds-hammerfall-bunker-4
+- ds-hammerfall-bunker-5
+- ds-hammerfall-bunker-6
+- ds-harald-deathwolf
+- ds-hounds-of-morkai
+- ds-hunter
+- ds-imperial-space-marine
+- ds-invader-atv
+- ds-invader-atv-2
+- ds-invader-atv-3
+- ds-invader-atv-4
+- ds-invader-atv-5
+- ds-invader-atv-6
+- ds-ironclad-dreadnought
+- ds-javelin-attack-speeder
+- ds-krom-dragongaze
+- ds-land-raider-achilles
+- ds-land-raider-achilles-2
+- ds-land-raider-achilles-3
+- ds-land-raider-achilles-4
+- ds-land-raider-achilles-5
+- ds-land-raider-helios
+- ds-land-raider-prometheus
+- ds-land-raider-proteus
+- ds-land-raider-proteus-2
+- ds-land-raider-proteus-3
+- ds-land-raider-proteus-4
+- ds-land-raider-proteus-5
+- ds-land-speeder-storm
+- ds-land-speeder-tempest
+- ds-land-speeder-tornado
+- ds-land-speeder-typhoon
+- ds-leviathan-dreadnought
+- ds-leviathan-dreadnought-2
+- ds-leviathan-dreadnought-3
+- ds-leviathan-dreadnought-4
+- ds-leviathan-dreadnought-5
+- ds-librarian-dreadnought
+- ds-librarian-on-bike
+- ds-librarian-with-jump-pack
+- ds-lieutenant-in-reiver-armour
+- ds-lieutenant-in-reiver-armour-2
+- ds-lieutenant-in-reiver-armour-3
+- ds-lieutenant-in-reiver-armour-4
+- ds-lieutenant-in-reiver-armour-5
+- ds-lieutenant-in-reiver-armour-6
+- ds-logan-grimnar-on-stormrider
+- ds-long-fangs
+- ds-lukas-the-trickster
+- ds-marneus-calgar-in-armour-of-antilochus
+- ds-mortis-dreadnought
+- ds-pedro-kantor
+- ds-predator-annihilator-2
+- ds-predator-annihilator-3
+- ds-predator-annihilator-4
+- ds-predator-annihilator-5
+- ds-predator-annihilator-6
+- ds-predator-destructor-2
+- ds-predator-destructor-3
+- ds-predator-destructor-4
+- ds-predator-destructor-5
+- ds-predator-destructor-6
+- ds-primaris-company-champion
+- ds-ravenwing-talonmaster
+- ds-razorback-3
+- ds-razorback-4
+- ds-razorback-5
+- ds-razorback-6
+- ds-razorback-7
+- ds-relic-contemptor-dreadnought
+- ds-relic-contemptor-dreadnought-2
+- ds-relic-contemptor-dreadnought-3
+- ds-relic-contemptor-dreadnought-4
+- ds-relic-contemptor-dreadnought-5
+- ds-relic-terminator-squad
+- ds-sanguinary-priest-with-jump-pack
+- ds-scout-sniper-squad
+- ds-sergeant-chronus
+- ds-sergeant-telion
+- ds-sicaran-arcus
+- ds-sicaran-battle-tank
+- ds-sicaran-battle-tank-2
+- ds-sicaran-battle-tank-3
+- ds-sicaran-battle-tank-4
+- ds-sicaran-battle-tank-5
+- ds-sicaran-omega
+- ds-sicaran-punisher
+- ds-sicaran-punisher-2
+- ds-sicaran-punisher-3
+- ds-sicaran-punisher-4
+- ds-sicaran-punisher-5
+- ds-sicaran-venator
+- ds-sicaran-venator-2
+- ds-sicaran-venator-3
+- ds-sicaran-venator-4
+- ds-sicaran-venator-5
+- ds-skyclaws
+- ds-sokar-pattern-stormbird
+- ds-sokar-pattern-stormbird-2
+- ds-sokar-pattern-stormbird-3
+- ds-sokar-pattern-stormbird-4
+- ds-sokar-pattern-stormbird-5
+- ds-spartan
+- ds-spartan-2
+- ds-spartan-3
+- ds-spartan-4
+- ds-spartan-5
+- ds-stalker
+- ds-storm-eagle-gunship
+- ds-storm-eagle-gunship-2
+- ds-storm-eagle-gunship-3
+- ds-storm-eagle-gunship-4
+- ds-storm-eagle-gunship-5
+- ds-stormfang-gunship
+- ds-stormhawk-interceptor-3
+- ds-stormhawk-interceptor-4
+- ds-stormhawk-interceptor-5
+- ds-stormhawk-interceptor-6
+- ds-stormhawk-interceptor-7
+- ds-stormraven-gunship-3
+- ds-stormraven-gunship-4
+- ds-stormraven-gunship-5
+- ds-stormraven-gunship-6
+- ds-stormraven-gunship-7
+- ds-stormtalon-gunship-3
+- ds-stormtalon-gunship-4
+- ds-stormtalon-gunship-5
+- ds-stormtalon-gunship-6
+- ds-stormtalon-gunship-7
+- ds-stormwolf
+- ds-suppressor-squad
+- ds-suppressor-squad-2
+- ds-suppressor-squad-3
+- ds-suppressor-squad-4
+- ds-suppressor-squad-5
+- ds-suppressor-squad-6
+- ds-tactical-squad
+- ds-tactical-squad-2
+- ds-tactical-squad-3
+- ds-tactical-squad-4
+- ds-techmarine-on-bike
+- ds-terminus-ultra
+- ds-thunderfire-cannon
+- ds-thunderhawk-transporter
+- ds-tycho-the-lost
+- ds-tyrannic-war-veterans
+- ds-uriel-ventris
+- ds-vindicator-2
+- ds-vindicator-3
+- ds-vindicator-4
+- ds-vindicator-5
+- ds-vindicator-6
+- ds-vindicator-laser-destroyer
+- ds-whirlwind-2
+- ds-whirlwind-3
+- ds-whirlwind-4
+- ds-whirlwind-5
+- ds-whirlwind-6
+- ds-whirlwind-scorpius
+- ds-whirlwind-scorpius-2
+- ds-whirlwind-scorpius-3
+- ds-whirlwind-scorpius-4
+- ds-whirlwind-scorpius-5
+- ds-wolf-guard
+- ds-wolf-guard-battle-leader-in-terminator-armour
+- ds-wolf-guard-battle-leader-on-thunderwolf
+- ds-wolf-guard-pack-leader
+- ds-wolf-guard-pack-leader-in-terminator-armour
+- ds-wolf-guard-pack-leader-with-jump-pack
+- ds-wolf-lord-on-thunderwolf
+- ds-xiphon-interceptor
+- ds-xiphon-interceptor-2
+- ds-xiphon-interceptor-3
+- ds-xiphon-interceptor-4
+- ds-xiphon-interceptor-5
+
+## Renamed datasheets
+
+- `ds-captain-on-bike`: Captain on Bike → CAPTAIN ON BIKE
+- `ds-centurion-assault-squad`: CENTURION ASSAULT SQUAD → Centurion Assault Squad
+- `ds-centurion-devastator-squad`: CENTURION DEVASTATOR SQUAD → Centurion Devastator Squad
+- `ds-dreadnought`: DREADNOUGHT → Dreadnought
+- `ds-hammerfall-bunker`: HAMMERFALL BUNKER → Hammerfall Bunker
+- `ds-predator-annihilator`: PREDATOR ANNIHILATOR → Predator Annihilator
+- `ds-predator-destructor`: PREDATOR DESTRUCTOR → Predator Destructor
+- `ds-razorback-2`: RAZORBACK → Razorback
+- `ds-stormhawk-interceptor-2`: STORMHAWK INTERCEPTOR → Stormhawk Interceptor
+- `ds-stormraven-gunship-2`: STORMRAVEN GUNSHIP → Stormraven Gunship
+- `ds-stormtalon-gunship-2`: STORMTALON GUNSHIP → Stormtalon Gunship
+- `ds-vindicator`: VINDICATOR → Vindicator
+- `ds-whirlwind`: WHIRLWIND → Whirlwind
+
+## Unit point costs
+
+- `ds-abaddon-the-despoiler` copy 1+, 1 models: 295 → 300
+- `ds-accursed-cultists` copy 1+, 16 models: 195 → 185
+- `ds-accursed-cultists` copy 3+, 16 models: 215 → 205
+- `ds-accursed-cultists-2` copy 1+, 16 models: 215 → 205
+- `ds-accursed-cultists-3` copy 1+, 16 models: 215 → 205
+- `ds-acolyte-hybrids-with-autopistols` copy 1+, 5 models: 70 → 65
+- `ds-acolyte-hybrids-with-autopistols` copy 1+, 10 models: 130 → 120
+- `ds-adrax-agatone` copy 1+, 1 models: 80 → 90
+- `ds-aethon-shaan` copy 1+, 1 models: 100 → 105
+- `ds-aggressor-squad` copy 1+, 3 models: 80 → 90
+- `ds-aggressor-squad` copy 1+, 6 models: 165 → 180
+- `ds-aggressor-squad` copy 3+, 3 models: 90 → absent
+- `ds-aggressor-squad` copy 3+, 6 models: 175 → absent
+- `ds-aggressor-squad-2` copy 1+, 3 models: 80 → 90
+- `ds-aggressor-squad-2` copy 1+, 6 models: 165 → 180
+- `ds-aggressor-squad-2` copy 3+, 3 models: 90 → absent
+- `ds-aggressor-squad-2` copy 3+, 6 models: 175 → absent
+- `ds-aggressor-squad-3` copy 1+, 3 models: 80 → 90
+- `ds-aggressor-squad-3` copy 1+, 6 models: 165 → 180
+- `ds-aggressor-squad-3` copy 3+, 3 models: 90 → absent
+- `ds-aggressor-squad-3` copy 3+, 6 models: 175 → absent
+- `ds-aggressor-squad-4` copy 1+, 3 models: 80 → 90
+- `ds-aggressor-squad-4` copy 1+, 6 models: 165 → 180
+- `ds-aggressor-squad-4` copy 3+, 3 models: 90 → absent
+- `ds-aggressor-squad-4` copy 3+, 6 models: 175 → absent
+- `ds-aggressor-squad-5` copy 1+, 3 models: 80 → 90
+- `ds-aggressor-squad-5` copy 1+, 6 models: 165 → 180
+- `ds-aggressor-squad-5` copy 3+, 3 models: 90 → absent
+- `ds-aggressor-squad-5` copy 3+, 6 models: 175 → absent
+- `ds-aggressor-squad-6` copy 1+, 3 models: 80 → 90
+- `ds-aggressor-squad-6` copy 1+, 6 models: 165 → 180
+- `ds-aggressor-squad-6` copy 3+, 3 models: 90 → absent
+- `ds-aggressor-squad-6` copy 3+, 6 models: 175 → absent
+- `ds-ahriman` copy 1+, 1 models: 100 → 105
+- `ds-allarus-custodians` copy 1+, 2 models: 110 → 120
+- `ds-allarus-custodians` copy 1+, 3 models: 165 → 180
+- `ds-allarus-custodians` copy 1+, 5 models: 280 → 300
+- `ds-allarus-custodians` copy 1+, 6 models: 340 → 360
+- `ds-allarus-custodians` copy 3+, 2 models: 140 → 160
+- `ds-allarus-custodians` copy 3+, 3 models: 195 → 220
+- `ds-allarus-custodians` copy 3+, 5 models: 310 → 340
+- `ds-allarus-custodians` copy 3+, 6 models: 370 → 400
+- `ds-ancient-in-terminator-armour` copy 1+, 1 models: 65 → 75
+- `ds-ancient-in-terminator-armour-2` copy 1+, 1 models: 65 → 75
+- `ds-ancient-in-terminator-armour-3` copy 1+, 1 models: 65 → 75
+- `ds-ancient-in-terminator-armour-4` copy 1+, 1 models: 65 → 75
+- `ds-ancient-in-terminator-armour-5` copy 1+, 1 models: 65 → 75
+- `ds-ancient-in-terminator-armour-6` copy 1+, 1 models: 65 → 75
+- `ds-annihilation-barge` copy 1+, 1 models: 95 → 100
+- `ds-apothecary` copy 1+, 1 models: 40 → 45
+- `ds-apothecary-2` copy 1+, 1 models: 40 → 45
+- `ds-apothecary-3` copy 1+, 1 models: 40 → 45
+- `ds-apothecary-4` copy 1+, 1 models: 40 → 45
+- `ds-apothecary-5` copy 1+, 1 models: 40 → 45
+- `ds-apothecary-biologis` copy 1+, 1 models: 70 → 60
+- `ds-apothecary-biologis-2` copy 1+, 1 models: 70 → 60
+- `ds-apothecary-biologis-3` copy 1+, 1 models: 70 → 60
+- `ds-apothecary-biologis-4` copy 1+, 1 models: 70 → 60
+- `ds-apothecary-biologis-5` copy 1+, 1 models: 70 → 60
+- `ds-aquila-kill-team` copy 1+, 5 models: 100 → 110
+- `ds-aquila-kill-team` copy 1+, 5 models (every-model-has-imperium): 100 → 110
+- `ds-aquila-kill-team` copy 1+, 10 models: 200 → 210
+- `ds-aquila-kill-team` copy 1+, 10 models (every-model-has-imperium): 200 → 210
+- `ds-arjac-rockfist` copy 1+, 1 models: 95 → 105
+- `ds-asmodai` copy 1+, 1 models: 70 → 80
+- `ds-assault-intercessor-squad` copy 1+, 5 models: 75 → 85
+- `ds-assault-intercessor-squad` copy 1+, 10 models: 150 → 170
+- `ds-assault-intercessor-squad-2` copy 1+, 5 models: 80 → 85
+- `ds-assault-intercessor-squad-2` copy 1+, 10 models: 150 → 170
+- `ds-assault-intercessor-squad-3` copy 1+, 5 models: 75 → 85
+- `ds-assault-intercessor-squad-3` copy 1+, 10 models: 150 → 170
+- `ds-assault-intercessor-squad-4` copy 1+, 5 models: 75 → 85
+- `ds-assault-intercessor-squad-4` copy 1+, 10 models: 150 → 170
+- `ds-assault-intercessor-squad-5` copy 1+, 5 models: 75 → 85
+- `ds-assault-intercessor-squad-5` copy 1+, 10 models: 150 → 170
+- `ds-assault-intercessor-squad-6` copy 1+, 5 models: 75 → 85
+- `ds-assault-intercessor-squad-6` copy 1+, 10 models: 150 → 170
+- `ds-assault-intercessors-with-jump-packs` copy 1+, 5 models: 85 → 95
+- `ds-assault-intercessors-with-jump-packs` copy 1+, 10 models: 160 → 190
+- `ds-assault-intercessors-with-jump-packs` copy 3+, 5 models: 95 → 105
+- `ds-assault-intercessors-with-jump-packs` copy 3+, 10 models: 170 → 200
+- `ds-assault-intercessors-with-jump-packs-2` copy 1+, 10 models: 180 → 190
+- `ds-assault-intercessors-with-jump-packs-2` copy 3+, 10 models: 190 → 200
+- `ds-assault-intercessors-with-jump-packs-3` copy 1+, 5 models: 85 → 95
+- `ds-assault-intercessors-with-jump-packs-3` copy 1+, 10 models: 160 → 190
+- `ds-assault-intercessors-with-jump-packs-3` copy 3+, 5 models: 95 → 105
+- `ds-assault-intercessors-with-jump-packs-3` copy 3+, 10 models: 170 → 200
+- `ds-assault-intercessors-with-jump-packs-4` copy 1+, 5 models: 85 → 95
+- `ds-assault-intercessors-with-jump-packs-4` copy 1+, 10 models: 160 → 190
+- `ds-assault-intercessors-with-jump-packs-4` copy 3+, 5 models: 95 → 105
+- `ds-assault-intercessors-with-jump-packs-4` copy 3+, 10 models: 170 → 200
+- `ds-assault-intercessors-with-jump-packs-5` copy 1+, 5 models: 85 → 95
+- `ds-assault-intercessors-with-jump-packs-5` copy 1+, 10 models: 160 → 190
+- `ds-assault-intercessors-with-jump-packs-5` copy 3+, 5 models: 95 → 105
+- `ds-assault-intercessors-with-jump-packs-5` copy 3+, 10 models: 170 → 200
+- `ds-assault-intercessors-with-jump-packs-6` copy 1+, 5 models: 85 → 95
+- `ds-assault-intercessors-with-jump-packs-6` copy 1+, 10 models: 160 → 190
+- `ds-assault-intercessors-with-jump-packs-6` copy 3+, 5 models: 95 → 105
+- `ds-assault-intercessors-with-jump-packs-6` copy 3+, 10 models: 170 → 200
+- `ds-astorath` copy 1+, 1 models: 85 → 90
+- `ds-astraeus` copy 1+, 1 models: 525 → 550
+- `ds-astraeus` copy 2+, 1 models: 575 → 650
+- `ds-astraeus-2` copy 1+, 1 models: 525 → 550
+- `ds-astraeus-2` copy 2+, 1 models: 575 → 650
+- `ds-astraeus-3` copy 1+, 1 models: 525 → 550
+- `ds-astraeus-3` copy 2+, 1 models: 575 → 650
+- `ds-astraeus-4` copy 1+, 1 models: 525 → 550
+- `ds-astraeus-4` copy 2+, 1 models: 575 → 650
+- `ds-astraeus-5` copy 1+, 1 models: 525 → 550
+- `ds-astraeus-5` copy 2+, 1 models: 575 → 650
+- `ds-astraeus-6` copy 1+, 1 models: 525 → 550
+- `ds-astraeus-6` copy 2+, 1 models: 575 → 650
+- `ds-autarch` copy 1+, 1 models: 75 → 70
+- `ds-azrael` copy 1+, 1 models: 140 → 150
+- `ds-baal-predator` copy 1+, 1 models: 125 → 135
+- `ds-baal-predator` copy 3+, 1 models: 135 → 150
+- `ds-ballistus-dreadnought` copy 3+, 1 models: 160 → 170
+- `ds-ballistus-dreadnought-2` copy 3+, 1 models: 160 → 170
+- `ds-ballistus-dreadnought-3` copy 3+, 1 models: 160 → 170
+- `ds-ballistus-dreadnought-4` copy 3+, 1 models: 160 → 170
+- `ds-ballistus-dreadnought-5` copy 3+, 1 models: 160 → 170
+- `ds-ballistus-dreadnought-6` copy 3+, 1 models: 160 → 170
+- `ds-bannernob` copy 1+, 1 models: 35 → 30
+- `ds-barbgaunts` copy 1+, 5 models: 55 → 50
+- `ds-barbgaunts` copy 1+, 10 models: 110 → 100
+- `ds-basilisk` copy 2+, 1 models: 135 → absent
+- `ds-basilisk` copy 3+, 1 models: absent → 145
+- `ds-basilisk-2` copy 1+, 1 models: 135 → 145
+- `ds-battlewagon` copy 1+, 1 models: 150 → 160
+- `ds-battlewagon` copy 3+, 1 models: 160 → 180
+- `ds-beast-snagga-boyz` copy 1+, 10 models: 85 → 80
+- `ds-beast-snagga-boyz` copy 1+, 20 models: 170 → 160
+- `ds-beast-snagga-boyz` copy 4+, 10 models: 95 → 90
+- `ds-beast-snagga-boyz` copy 4+, 20 models: 180 → 170
+- `ds-belial` copy 1+, 1 models: 75 → 100
+- `ds-big-mek` copy 1+, 1 models: 85 → 100
+- `ds-big-mek` copy 3+, 1 models: 95 → 115
+- `ds-big-mek-dakkarig` copy 1+, 1 models: 135 → 160
+- `ds-big-mek-dakkarig` copy 3+, 1 models: 145 → 180
+- `ds-big-mek-with-shokk-attack-gun` copy 1+, 1 models: 95 → 110
+- `ds-big-mek-with-shokk-attack-gun` copy 2+, 1 models: 105 → 125
+- `ds-bladeguard-ancient` copy 1+, 1 models: 40 → 70
+- `ds-bladeguard-ancient-2` copy 1+, 1 models: 40 → 70
+- `ds-bladeguard-ancient-3` copy 1+, 1 models: 40 → 70
+- `ds-bladeguard-ancient-4` copy 1+, 1 models: 40 → 70
+- `ds-bladeguard-ancient-5` copy 1+, 1 models: 40 → 70
+- `ds-bladeguard-ancient-6` copy 1+, 1 models: 40 → 70
+- `ds-bladeguard-veteran-squad` copy 1+, 3 models: 80 → 90
+- `ds-bladeguard-veteran-squad` copy 1+, 6 models: 160 → 180
+- `ds-bladeguard-veteran-squad` copy 3+, 3 models: 90 → 110
+- `ds-bladeguard-veteran-squad` copy 3+, 6 models: 170 → 200
+- `ds-bladeguard-veteran-squad-2` copy 1+, 3 models: 85 → 90
+- `ds-bladeguard-veteran-squad-2` copy 1+, 6 models: 170 → 180
+- `ds-bladeguard-veteran-squad-2` copy 3+, 3 models: 95 → 110
+- `ds-bladeguard-veteran-squad-2` copy 3+, 6 models: 180 → 200
+- `ds-bladeguard-veteran-squad-3` copy 1+, 3 models: 80 → 90
+- `ds-bladeguard-veteran-squad-3` copy 1+, 6 models: 160 → 180
+- `ds-bladeguard-veteran-squad-3` copy 3+, 3 models: 90 → 110
+- `ds-bladeguard-veteran-squad-3` copy 3+, 6 models: 170 → 200
+- `ds-bladeguard-veteran-squad-4` copy 1+, 3 models: 80 → 90
+- `ds-bladeguard-veteran-squad-4` copy 1+, 6 models: 160 → 180
+- `ds-bladeguard-veteran-squad-4` copy 3+, 3 models: 90 → 110
+- `ds-bladeguard-veteran-squad-4` copy 3+, 6 models: 170 → 200
+- `ds-bladeguard-veteran-squad-5` copy 1+, 3 models: 80 → 90
+- `ds-bladeguard-veteran-squad-5` copy 1+, 6 models: 160 → 180
+- `ds-bladeguard-veteran-squad-5` copy 3+, 3 models: 90 → 110
+- `ds-bladeguard-veteran-squad-5` copy 3+, 6 models: 170 → 200
+- `ds-bladeguard-veteran-squad-6` copy 1+, 3 models: 80 → 90
+- `ds-bladeguard-veteran-squad-6` copy 1+, 6 models: 160 → 180
+- `ds-bladeguard-veteran-squad-6` copy 3+, 3 models: 90 → 110
+- `ds-bladeguard-veteran-squad-6` copy 3+, 6 models: 170 → 200
+- `ds-blightlord-terminators` copy 1+, 5 models: 180 → 185
+- `ds-blightlord-terminators` copy 1+, 10 models: 360 → 370
+- `ds-blightlord-terminators` copy 3+, 3 models: absent → 145
+- `ds-blightlord-terminators` copy 3+, 5 models: absent → 215
+- `ds-blightlord-terminators` copy 3+, 10 models: absent → 400
+- `ds-blood-angels-captain` copy 1+, 1 models: 80 → 90
+- `ds-blood-claws` copy 1+, 10 models: 135 → 150
+- `ds-blood-claws` copy 1+, 20 models: 270 → 290
+- `ds-bloodcrushers` copy 1+, 6 models: 200 → 210
+- `ds-bloodcrushers` copy 3+, 6 models: 240 → 250
+- `ds-boyz` copy 1+, 10 models: 90 → 85
+- `ds-boyz` copy 1+, 20 models: 180 → 170
+- `ds-boyz` copy 4+, 10 models: 100 → 95
+- `ds-boyz` copy 4+, 20 models: 190 → 180
+- `ds-breacher-team` copy 1+, 10 models: 90 → 80
+- `ds-breaka-boyz` copy 1+, 6 models: 135 → 120
+- `ds-breaka-boyz` copy 3+, 6 models: 145 → 130
+- `ds-brother-captain` copy 1+, 1 models: 95 → 100
+- `ds-brotherhood-champion` copy 1+, 1 models: 70 → 75
+- `ds-brotherhood-chaplain` copy 1+, 1 models: 65 → 70
+- `ds-brotherhood-librarian` copy 1+, 1 models: 90 → 95
+- `ds-brotherhood-librarian` copy 2+, 1 models: 100 → 105
+- `ds-brotherhood-techmarine` copy 1+, 1 models: 70 → 75
+- `ds-brotherhood-terminator-squad` copy 1+, 4 models: 140 → 150
+- `ds-brotherhood-terminator-squad` copy 1+, 5 models: 175 → 185
+- `ds-brotherhood-terminator-squad` copy 1+, 8 models: 300 → 315
+- `ds-brotherhood-terminator-squad` copy 1+, 10 models: 360 → 380
+- `ds-brutalis-dreadnought` copy 1+, 1 models: 150 → 160
+- `ds-brutalis-dreadnought` copy 3+, 1 models: 160 → 180
+- `ds-brutalis-dreadnought-2` copy 1+, 1 models: 150 → 160
+- `ds-brutalis-dreadnought-2` copy 3+, 1 models: 160 → 180
+- `ds-brutalis-dreadnought-3` copy 1+, 1 models: 150 → 160
+- `ds-brutalis-dreadnought-3` copy 3+, 1 models: 160 → 180
+- `ds-brutalis-dreadnought-4` copy 1+, 1 models: 150 → 160
+- `ds-brutalis-dreadnought-4` copy 3+, 1 models: 160 → 180
+- `ds-brutalis-dreadnought-5` copy 1+, 1 models: 150 → 160
+- `ds-brutalis-dreadnought-5` copy 3+, 1 models: 160 → 180
+- `ds-brutalis-dreadnought-6` copy 1+, 1 models: 150 → 160
+- `ds-brutalis-dreadnought-6` copy 3+, 1 models: 160 → 180
+- `ds-bullgryn-squad` copy 2+, 3 models: 105 → absent
+- `ds-bullgryn-squad` copy 2+, 6 models: 215 → absent
+- `ds-bullgryn-squad` copy 3+, 3 models: absent → 120
+- `ds-bullgryn-squad` copy 3+, 6 models: absent → 230
+- `ds-caanok-var` copy 1+, 1 models: 90 → 100
+- `ds-canoptek-doomstalker` copy 1+, 1 models: 140 → 130
+- `ds-canoptek-tomb-crawlers` copy 1+, 2 models: 50 → 60
+- `ds-captain` copy 1+, 1 models: 80 → 90
+- `ds-captain-2` copy 1+, 1 models: 80 → 90
+- `ds-captain-3` copy 1+, 1 models: 80 → 90
+- `ds-captain-4` copy 1+, 1 models: 80 → 90
+- `ds-captain-5` copy 1+, 1 models: 80 → 90
+- `ds-captain-6` copy 1+, 1 models: 80 → 90
+- `ds-captain-in-gravis-armour` copy 1+, 1 models: 80 → 90
+- `ds-captain-in-gravis-armour-2` copy 1+, 1 models: 80 → 90
+- `ds-captain-in-gravis-armour-3` copy 1+, 1 models: 80 → 90
+- `ds-captain-in-gravis-armour-4` copy 1+, 1 models: 80 → 90
+- `ds-captain-in-gravis-armour-5` copy 1+, 1 models: 80 → 90
+- `ds-captain-in-gravis-armour-6` copy 1+, 1 models: 80 → 90
+- `ds-captain-in-phobos-armour` copy 1+, 1 models: 70 → 75
+- `ds-captain-in-phobos-armour-2` copy 1+, 1 models: 70 → 75
+- `ds-captain-in-phobos-armour-3` copy 1+, 1 models: 70 → 75
+- `ds-captain-in-phobos-armour-4` copy 1+, 1 models: 70 → 75
+- `ds-captain-in-phobos-armour-5` copy 1+, 1 models: 70 → 75
+- `ds-captain-in-phobos-armour-6` copy 1+, 1 models: 70 → 75
+- `ds-captain-in-terminator-armour` copy 1+, 1 models: 85 → 90
+- `ds-captain-in-terminator-armour-2` copy 1+, 1 models: 85 → 90
+- `ds-captain-in-terminator-armour-3` copy 1+, 1 models: 85 → 90
+- `ds-captain-in-terminator-armour-4` copy 1+, 1 models: 85 → 90
+- `ds-captain-in-terminator-armour-5` copy 1+, 1 models: 85 → 90
+- `ds-captain-in-terminator-armour-6` copy 1+, 1 models: 85 → 90
+- `ds-captain-on-bike` copy 1+, 1 models: 95 → 110
+- `ds-captain-titus` copy 1+, 1 models: 100 → 115
+- `ds-captain-with-jump-pack` copy 1+, 1 models: 75 → 90
+- `ds-captain-with-jump-pack-2` copy 1+, 1 models: 80 → 90
+- `ds-captain-with-jump-pack-3` copy 1+, 1 models: 75 → 90
+- `ds-captain-with-jump-pack-4` copy 1+, 1 models: 75 → 90
+- `ds-captain-with-jump-pack-5` copy 1+, 1 models: 75 → 90
+- `ds-captain-with-jump-pack-6` copy 1+, 1 models: 75 → 90
+- `ds-castellan` copy 1+, 1 models: 70 → 75
+- `ds-castellan-crowe` copy 1+, 1 models: 100 → 105
+- `ds-castigator` copy 3+, 1 models: 175 → 185
+- `ds-cato-sicarius` copy 1+, 1 models: 105 → 115
+- `ds-celestian-insidiants` copy 1+, 10 models: 120 → 115
+- `ds-cerastus-knight-atrapos` copy 1+, 1 models: 405 → 420
+- `ds-cerastus-knight-atrapos` copy 2+, 1 models: 425 → 440
+- `ds-chaos-bikers` copy 1+, 3 models: 70 → 80
+- `ds-chaos-bikers` copy 1+, 6 models: 130 → 150
+- `ds-chaos-land-raider-3` copy 1+, 1 models: 220 → 210
+- `ds-chaos-land-raider-3` copy 3+, 1 models: 240 → 230
+- `ds-chaos-land-raider-5` copy 1+, 1 models: 220 → 200
+- `ds-chaos-land-raider-5` copy 3+, 1 models: 240 → 220
+- `ds-chaos-lord` copy 1+, 1 models: 90 → 95
+- `ds-chaos-lord-2` copy 1+, 1 models: 90 → 95
+- `ds-chaos-lord-in-terminator-armour` copy 1+, 1 models: 85 → 90
+- `ds-chaos-lord-in-terminator-armour-2` copy 1+, 1 models: 85 → 90
+- `ds-chaos-lord-with-jump-pack` copy 1+, 1 models: 80 → 85
+- `ds-chaos-lord-with-jump-pack-2` copy 1+, 1 models: 80 → 85
+- `ds-chaos-predator-annihilator` copy 1+, 1 models: 145 → 140
+- `ds-chaos-predator-annihilator` copy 3+, 1 models: 155 → 150
+- `ds-chaos-predator-annihilator-2` copy 1+, 1 models: 135 → 130
+- `ds-chaos-predator-annihilator-2` copy 3+, 1 models: 145 → 140
+- `ds-chaos-predator-destructor` copy 1+, 1 models: 150 → 145
+- `ds-chaos-predator-destructor` copy 3+, 1 models: 160 → 155
+- `ds-chaos-predator-destructor-2` copy 1+, 1 models: 145 → 140
+- `ds-chaos-predator-destructor-2` copy 3+, 1 models: 155 → 150
+- `ds-chaos-terminator-squad` copy 1+, 5 models: 175 → 185
+- `ds-chaos-terminator-squad` copy 1+, 10 models: 350 → 370
+- `ds-chaos-terminator-squad` copy 3+, 5 models: absent → 215
+- `ds-chaos-terminator-squad` copy 3+, 10 models: absent → 400
+- `ds-chaos-terminator-squad-2` copy 1+, 5 models: 175 → 215
+- `ds-chaos-terminator-squad-2` copy 1+, 10 models: 350 → 400
+- `ds-chaos-terminators` copy 1+, 5 models: 145 → 155
+- `ds-chaos-terminators-2` copy 1+, 5 models: 165 → 175
+- `ds-chaos-terminators-2` copy 1+, 10 models: 330 → 350
+- `ds-chaos-terminators-2` copy 3+, 5 models: 175 → 185
+- `ds-chaos-terminators-2` copy 3+, 10 models: 340 → 360
+- `ds-chaos-vindicator` copy 1+, 1 models: 185 → 180
+- `ds-chaos-vindicator` copy 3+, 1 models: 195 → 190
+- `ds-chaplain-grimaldus` copy 1+, 4 models: 100 → 120
+- `ds-chaplain-on-bike` copy 1+, 1 models: 70 → 75
+- `ds-chaplain-on-bike-2` copy 1+, 1 models: 70 → 75
+- `ds-chaplain-on-bike-3` copy 1+, 1 models: 70 → 75
+- `ds-chaplain-on-bike-4` copy 1+, 1 models: 70 → 75
+- `ds-chaplain-on-bike-5` copy 1+, 1 models: 70 → 75
+- `ds-chaplain-on-bike-6` copy 1+, 1 models: 70 → 75
+- `ds-chaplain-with-jump-pack-2` copy 1+, 1 models: 80 → 75
+- `ds-chief-librarian-mephiston` copy 1+, 1 models: 110 → 175
+- `ds-chief-librarian-tigurius` copy 1+, 1 models: 85 → 115
+- `ds-chosen` copy 1+, 5 models: 135 → 140
+- `ds-chosen` copy 1+, 10 models: 270 → 280
+- `ds-chosen` copy 3+, 5 models: 145 → 150
+- `ds-chosen` copy 3+, 10 models: 280 → 290
+- `ds-chosen-2` copy 1+, 5 models: 145 → 150
+- `ds-chosen-2` copy 1+, 10 models: 280 → 290
+- `ds-commander-dante` copy 1+, 1 models: 125 → 140
+- `ds-commissar-yarrick` copy 1+, 1 models: 120 → 110
+- `ds-company-heroes` copy 1+, 4 models: 105 → 125
+- `ds-company-heroes` copy 3+, 4 models: absent → 145
+- `ds-company-heroes-2` copy 1+, 4 models: 105 → 125
+- `ds-company-heroes-2` copy 3+, 4 models: absent → 145
+- `ds-company-heroes-3` copy 1+, 4 models: 105 → 125
+- `ds-company-heroes-3` copy 3+, 4 models: absent → 145
+- `ds-company-heroes-4` copy 1+, 4 models: 105 → 125
+- `ds-company-heroes-4` copy 3+, 4 models: absent → 145
+- `ds-company-heroes-5` copy 1+, 4 models: 105 → 125
+- `ds-company-heroes-5` copy 3+, 4 models: absent → 145
+- `ds-company-heroes-6` copy 1+, 4 models: 105 → 125
+- `ds-company-heroes-6` copy 3+, 4 models: absent → 145
+- `ds-corpuscarii-electro-priests` copy 1+, 5 models: 65 → 60
+- `ds-corpuscarii-electro-priests` copy 1+, 10 models: 130 → 120
+- `ds-corsair-voidscarred-2` copy 1+, 6 models: absent → 140
+- `ds-corsair-voidscarred-2` copy 1+, 7 models: absent → 140
+- `ds-corsair-voidscarred-2` copy 1+, 8 models: absent → 140
+- `ds-corsair-voidscarred-2` copy 1+, 10 models: 140 → absent
+- `ds-corsair-voidscarred-2` copy 1+, 13 models: absent → 140
+- `ds-crusade-ancient` copy 1+, 1 models: 40 → 45
+- `ds-crusader-squad` copy 1+, 10 models: 150 → 160
+- `ds-crusader-squad` copy 1+, 20 models: 290 → 305
+- `ds-cthonian-beserks` copy 1+, 5 models: 95 → 90
+- `ds-cthonian-beserks` copy 1+, 10 models: 190 → 180
+- `ds-custodian-guard` copy 1+, 4 models: 170 → 180
+- `ds-custodian-guard` copy 1+, 5 models: 215 → 225
+- `ds-custodian-guard` copy 4+, 4 models: 180 → 190
+- `ds-custodian-guard` copy 4+, 5 models: 225 → 235
+- `ds-custodian-wardens` copy 1+, 4 models: 200 → 210
+- `ds-custodian-wardens` copy 1+, 5 models: 250 → 260
+- `ds-custodian-wardens` copy 2+, 4 models: 220 → 230
+- `ds-custodian-wardens` copy 2+, 5 models: 270 → 280
+- `ds-cybernetica-datasmith` copy 1+, 1 models: 25 → 20
+- `ds-cypher` copy 1+, 1 models: 90 → 95
+- `ds-d-cannon-platform` copy 2+, 1 models: 125 → absent
+- `ds-d-cannon-platform` copy 3+, 1 models: absent → 130
+- `ds-daemon-prince-of-nurgle` copy 1+, 1 models: 195 → 185
+- `ds-daemon-prince-of-nurgle-with-wings` copy 1+, 1 models: 170 → 160
+- `ds-daemon-prince-of-slaanesh` copy 1+, 1 models: 170 → 165
+- `ds-daemon-prince-of-slaanesh` copy 2+, 1 models: 185 → 180
+- `ds-daemon-prince-of-slaanesh-with-wings` copy 2+, 1 models: 235 → 225
+- `ds-dark-apostle` copy 1+, 3 models: 65 → 70
+- `ds-dark-apostle-2` copy 1+, 3 models: 65 → 70
+- `ds-darnath-lysander` copy 1+, 1 models: 100 → 160
+- `ds-death-company-captain` copy 1+, 1 models: 70 → 80
+- `ds-death-company-captain-with-jump-pack` copy 1+, 1 models: 75 → 85
+- `ds-death-company-dreadnought` copy 1+, 1 models: 150 → 165
+- `ds-death-company-dreadnought` copy 3+, 1 models: 160 → 185
+- `ds-death-company-marines` copy 1+, 5 models: 85 → 90
+- `ds-death-company-marines` copy 1+, 10 models: 160 → 170
+- `ds-death-company-marines` copy 3+, 5 models: 95 → 105
+- `ds-death-company-marines` copy 3+, 10 models: 170 → 185
+- `ds-death-company-marines-with-jump-packs` copy 1+, 5 models: 115 → 130
+- `ds-death-company-marines-with-jump-packs` copy 1+, 10 models: 230 → 260
+- `ds-death-company-marines-with-jump-packs` copy 3+, 5 models: 130 → 160
+- `ds-death-company-marines-with-jump-packs` copy 3+, 10 models: 245 → 290
+- `ds-death-jester` copy 1+, 1 models: 70 → 65
+- `ds-death-jester-2` copy 1+, 1 models: 70 → 65
+- `ds-deathshroud-terminators` copy 1+, 3 models: 160 → 150
+- `ds-deathshroud-terminators` copy 3+, 3 models: 170 → 160
+- `ds-deathstrike` copy 2+, 1 models: 135 → absent
+- `ds-deathstrike` copy 3+, 1 models: absent → 145
+- `ds-deathstrike-2` copy 1+, 1 models: 135 → 145
+- `ds-deathwatch-kill-team` copy 1+, 5 models: 100 → 115
+- `ds-deathwatch-kill-team` copy 1+, 5 models (every-model-has-imperium): 100 → 115
+- `ds-deathwatch-kill-team` copy 1+, 10 models: 190 → 220
+- `ds-deathwatch-kill-team` copy 1+, 10 models (every-model-has-imperium): 190 → 220
+- `ds-deathwatch-terminator-squad` copy 1+, 5 models: 180 → 190
+- `ds-deathwatch-terminator-squad` copy 1+, 10 models: 330 → 380
+- `ds-deathwatch-terminator-squad` copy 3+, 5 models: absent → 230
+- `ds-deathwatch-terminator-squad` copy 3+, 10 models: absent → 420
+- `ds-deathwatch-veterans` copy 1+, 5 models: 100 → 115
+- `ds-deathwatch-veterans` copy 1+, 10 models: 190 → 220
+- `ds-deathwing-knights` copy 1+, 5 models: 240 → 255
+- `ds-deathwing-knights` copy 3+, 5 models: 260 → 275
+- `ds-deathwing-terminator-squad` copy 1+, 5 models: 165 → 190
+- `ds-deathwing-terminator-squad` copy 1+, 10 models: 330 → 380
+- `ds-deathwing-terminator-squad` copy 3+, 5 models: absent → 230
+- `ds-deathwing-terminator-squad` copy 3+, 10 models: absent → 420
+- `ds-decimus-kill-team` copy 1+, 5 models: 100 → 110
+- `ds-decimus-kill-team` copy 1+, 10 models: 190 → 210
+- `ds-deffkoptas` copy 1+, 3 models: 80 → 85
+- `ds-deffkoptas` copy 1+, 6 models: 160 → 170
+- `ds-deffkoptas` copy 3+, 3 models: 90 → 95
+- `ds-deffkoptas` copy 3+, 6 models: 170 → 180
+- `ds-desolation-squad` copy 1+, 5 models: 180 → 140
+- `ds-desolation-squad` copy 2+, 5 models: 210 → absent
+- `ds-desolation-squad` copy 3+, 5 models: absent → 150
+- `ds-desolation-squad-2` copy 1+, 5 models: 180 → 140
+- `ds-desolation-squad-2` copy 2+, 5 models: 210 → absent
+- `ds-desolation-squad-2` copy 3+, 5 models: absent → 150
+- `ds-desolation-squad-3` copy 1+, 5 models: 180 → 140
+- `ds-desolation-squad-3` copy 2+, 5 models: 210 → absent
+- `ds-desolation-squad-3` copy 3+, 5 models: absent → 150
+- `ds-desolation-squad-4` copy 1+, 5 models: 180 → 140
+- `ds-desolation-squad-4` copy 2+, 5 models: 210 → absent
+- `ds-desolation-squad-4` copy 3+, 5 models: absent → 150
+- `ds-desolation-squad-5` copy 1+, 5 models: 180 → 140
+- `ds-desolation-squad-5` copy 2+, 5 models: 210 → absent
+- `ds-desolation-squad-5` copy 3+, 5 models: absent → 150
+- `ds-desolation-squad-6` copy 1+, 5 models: 180 → 140
+- `ds-desolation-squad-6` copy 2+, 5 models: 210 → absent
+- `ds-desolation-squad-6` copy 3+, 5 models: absent → 150
+- `ds-doomsday-ark` copy 1+, 1 models: 210 → 200
+- `ds-dragon-knights` copy 1+, 3 models: 90 → 85
+- `ds-dragon-knights` copy 3+, 3 models: absent → 95
+- `ds-dragon-knights` copy 3+, 6 models: absent → 190
+- `ds-eightbound` copy 1+, 6 models: 255 → 250
+- `ds-eightbound` copy 3+, 6 models: 270 → 265
+- `ds-eliminator-squad` copy 1+, 3 models: 75 → 85
+- `ds-eliminator-squad-2` copy 1+, 3 models: 75 → 85
+- `ds-eliminator-squad-3` copy 1+, 3 models: 75 → 85
+- `ds-eliminator-squad-4` copy 1+, 3 models: 75 → 85
+- `ds-eliminator-squad-5` copy 1+, 3 models: 75 → 85
+- `ds-eliminator-squad-6` copy 1+, 3 models: 75 → 85
+- `ds-emperors-champion` copy 1+, 1 models: 90 → 100
+- `ds-eradicator-squad-with-heavy-bolters` copy 1+, 3 models: 80 → 100
+- `ds-eradicator-squad-with-heavy-bolters` copy 1+, 6 models: absent → 215
+- `ds-eradicator-squad-with-heavy-bolters` copy 3+, 3 models: absent → 130
+- `ds-eradicator-squad-with-heavy-bolters` copy 3+, 6 models: absent → 245
+- `ds-eradicator-squad-with-heavy-bolters-2` copy 1+, 3 models: 80 → 100
+- `ds-eradicator-squad-with-heavy-bolters-2` copy 1+, 6 models: absent → 215
+- `ds-eradicator-squad-with-heavy-bolters-2` copy 3+, 3 models: absent → 130
+- `ds-eradicator-squad-with-heavy-bolters-2` copy 3+, 6 models: absent → 245
+- `ds-eradicator-squad-with-heavy-bolters-3` copy 1+, 3 models: 80 → 100
+- `ds-eradicator-squad-with-heavy-bolters-3` copy 1+, 6 models: absent → 215
+- `ds-eradicator-squad-with-heavy-bolters-3` copy 3+, 3 models: absent → 130
+- `ds-eradicator-squad-with-heavy-bolters-3` copy 3+, 6 models: absent → 245
+- `ds-eradicator-squad-with-heavy-bolters-4` copy 1+, 3 models: 80 → 100
+- `ds-eradicator-squad-with-heavy-bolters-4` copy 1+, 6 models: absent → 215
+- `ds-eradicator-squad-with-heavy-bolters-4` copy 3+, 3 models: absent → 130
+- `ds-eradicator-squad-with-heavy-bolters-4` copy 3+, 6 models: absent → 245
+- `ds-eradicator-squad-with-heavy-bolters-5` copy 1+, 3 models: 80 → 100
+- `ds-eradicator-squad-with-heavy-bolters-5` copy 1+, 6 models: absent → 215
+- `ds-eradicator-squad-with-heavy-bolters-5` copy 3+, 3 models: absent → 130
+- `ds-eradicator-squad-with-heavy-bolters-5` copy 3+, 6 models: absent → 245
+- `ds-eradicator-squad-with-heavy-bolters-6` copy 1+, 3 models: 80 → 100
+- `ds-eradicator-squad-with-heavy-bolters-6` copy 1+, 6 models: absent → 215
+- `ds-eradicator-squad-with-heavy-bolters-6` copy 3+, 3 models: absent → 130
+- `ds-eradicator-squad-with-heavy-bolters-6` copy 3+, 6 models: absent → 245
+- `ds-exalted-eightbound` copy 1+, 6 models: 265 → 260
+- `ds-exalted-eightbound` copy 3+, 6 models: 280 → 275
+- `ds-exalted-sorcerer` copy 1+, 1 models: 95 → 100
+- `ds-exalted-sorcerer-on-disc-of-tzeentch` copy 1+, 1 models: 90 → 95
+- `ds-execrator` copy 1+, 1 models: 50 → 65
+- `ds-exorcist` copy 2+, 1 models: 220 → absent
+- `ds-exorcist` copy 3+, 1 models: absent → 220
+- `ds-ezekiel` copy 1+, 1 models: 75 → 110
+- `ds-fabius-bile` copy 1+, 2 models: 100 → 110
+- `ds-farseer` copy 1+, 1 models: 65 → 60
+- `ds-fiends` copy 3+, 3 models: 105 → 115
+- `ds-fiends` copy 3+, 6 models: 205 → 215
+- `ds-fire-dragons` copy 1+, 5 models: 120 → 110
+- `ds-fire-dragons` copy 3+, 5 models: 130 → 120
+- `ds-firestrike-servo-turrets` copy 1+, 1 models: 75 → 80
+- `ds-firestrike-servo-turrets` copy 1+, 2 models: 150 → 160
+- `ds-firestrike-servo-turrets-2` copy 1+, 1 models: 75 → 80
+- `ds-firestrike-servo-turrets-2` copy 1+, 2 models: 150 → 160
+- `ds-firestrike-servo-turrets-3` copy 1+, 1 models: 75 → 80
+- `ds-firestrike-servo-turrets-3` copy 1+, 2 models: 150 → 160
+- `ds-firestrike-servo-turrets-4` copy 1+, 1 models: 75 → 80
+- `ds-firestrike-servo-turrets-4` copy 1+, 2 models: 150 → 160
+- `ds-firestrike-servo-turrets-5` copy 1+, 1 models: 75 → 80
+- `ds-firestrike-servo-turrets-5` copy 1+, 2 models: 150 → 160
+- `ds-firestrike-servo-turrets-6` copy 1+, 1 models: 75 → 80
+- `ds-firestrike-servo-turrets-6` copy 1+, 2 models: 150 → 160
+- `ds-flash-gitz` copy 1+, 5 models: 105 → 110
+- `ds-flash-gitz` copy 1+, 10 models: 210 → 220
+- `ds-flash-gitz` copy 3+, 5 models: 135 → 150
+- `ds-flash-gitz` copy 3+, 10 models: 240 → 260
+- `ds-flesh-hounds` copy 1+, 5 models: 75 → 80
+- `ds-forgefiend` copy 1+, 1 models: 160 → 155
+- `ds-forgefiend` copy 3+, 1 models: 170 → 165
+- `ds-fortis-kill-team` copy 1+, 10 models: 195 → 210
+- `ds-fortis-kill-team` copy 3+, 10 models: 210 → 225
+- `ds-fulgurite-electro-priests` copy 1+, 5 models: 70 → 65
+- `ds-fulgurite-electro-priests` copy 1+, 10 models: 140 → 130
+- `ds-gargantuan-squiggoth` copy 2+, 1 models: 550 → 600
+- `ds-gargoyles` copy 1+, 10 models: 80 → 75
+- `ds-gargoyles` copy 1+, 20 models: 155 → 150
+- `ds-gargoyles-2` copy 1+, 10 models: 80 → 75
+- `ds-gargoyles-2` copy 1+, 20 models: 155 → 150
+- `ds-ghazghkull-thraka` copy 1+, 1 models: 300 → 290
+- `ds-gladiator-lancer` copy 1+, 1 models: 160 → 165
+- `ds-gladiator-lancer` copy 3+, 1 models: 170 → 185
+- `ds-gladiator-lancer-2` copy 3+, 1 models: 170 → 180
+- `ds-gladiator-lancer-3` copy 3+, 1 models: 170 → 180
+- `ds-gladiator-lancer-4` copy 3+, 1 models: 170 → 180
+- `ds-gladiator-lancer-5` copy 3+, 1 models: 170 → 180
+- `ds-gladiator-lancer-6` copy 3+, 1 models: 170 → 180
+- `ds-gladiator-reaper` copy 1+, 1 models: 160 → 165
+- `ds-gladiator-reaper` copy 3+, 1 models: 170 → 185
+- `ds-gladiator-reaper-2` copy 1+, 1 models: 160 → 165
+- `ds-gladiator-reaper-2` copy 3+, 1 models: 170 → 185
+- `ds-gladiator-reaper-3` copy 1+, 1 models: 160 → 165
+- `ds-gladiator-reaper-3` copy 3+, 1 models: 170 → 185
+- `ds-gladiator-reaper-4` copy 1+, 1 models: 160 → 165
+- `ds-gladiator-reaper-4` copy 3+, 1 models: 170 → 185
+- `ds-gladiator-reaper-5` copy 1+, 1 models: 160 → 165
+- `ds-gladiator-reaper-5` copy 3+, 1 models: 170 → 185
+- `ds-gladiator-reaper-6` copy 1+, 1 models: 160 → 165
+- `ds-gladiator-reaper-6` copy 3+, 1 models: 170 → 185
+- `ds-gladiator-valiant` copy 1+, 1 models: 150 → 145
+- `ds-gladiator-valiant` copy 3+, 1 models: 160 → 165
+- `ds-gladiator-valiant-2` copy 1+, 1 models: 150 → 165
+- `ds-gladiator-valiant-2` copy 3+, 1 models: 160 → 185
+- `ds-gladiator-valiant-3` copy 1+, 1 models: 150 → 165
+- `ds-gladiator-valiant-3` copy 3+, 1 models: 160 → 185
+- `ds-gladiator-valiant-4` copy 1+, 1 models: 150 → 165
+- `ds-gladiator-valiant-4` copy 3+, 1 models: 160 → 185
+- `ds-gladiator-valiant-5` copy 1+, 1 models: 150 → 165
+- `ds-gladiator-valiant-5` copy 3+, 1 models: 160 → 185
+- `ds-gladiator-valiant-6` copy 1+, 1 models: 150 → 165
+- `ds-gladiator-valiant-6` copy 3+, 1 models: 160 → 185
+- `ds-goliath-rockgrinder` copy 1+, 1 models: 120 → 110
+- `ds-goliath-rockgrinder` copy 3+, 1 models: 130 → 120
+- `ds-goremongers` copy 1+, 8 models: 75 → 70
+- `ds-grand-master` copy 1+, 1 models: 95 → 100
+- `ds-grand-master-in-nemesis-dreadknight` copy 1+, 1 models: 200 → 210
+- `ds-grand-master-in-nemesis-dreadknight` copy 3+, 1 models: 215 → 225
+- `ds-grand-master-voldus` copy 1+, 1 models: 125 → 130
+- `ds-grey-hunters` copy 1+, 10 models: 165 → 180
+- `ds-haarken-worldclaimer` copy 1+, 1 models: 90 → 95
+- `ds-hastarii-exterminators` copy 1+, 5 models: 105 → 100
+- `ds-hastarii-exterminators` copy 3+, 5 models: 120 → 115
+- `ds-hastarii-fusiliers` copy 1+, 5 models: 115 → 105
+- `ds-hastarii-fusiliers` copy 3+, 5 models: 130 → 120
+- `ds-havocs` copy 1+, 5 models: 125 → 135
+- `ds-havocs` copy 3+, 5 models: 135 → 145
+- `ds-havocs-2` copy 1+, 5 models: 135 → 145
+- `ds-heavy-intercessor-squad` copy 1+, 5 models: 100 → 115
+- `ds-heavy-intercessor-squad` copy 1+, 10 models: 200 → 230
+- `ds-heavy-intercessor-squad-2` copy 1+, 5 models: 100 → 115
+- `ds-heavy-intercessor-squad-2` copy 1+, 10 models: 200 → 230
+- `ds-heavy-intercessor-squad-3` copy 1+, 5 models: 100 → 115
+- `ds-heavy-intercessor-squad-3` copy 1+, 10 models: 200 → 230
+- `ds-heavy-intercessor-squad-4` copy 1+, 5 models: 100 → 115
+- `ds-heavy-intercessor-squad-4` copy 1+, 10 models: 200 → 230
+- `ds-heavy-intercessor-squad-5` copy 1+, 5 models: 100 → 115
+- `ds-heavy-intercessor-squad-5` copy 1+, 10 models: 200 → 230
+- `ds-heavy-intercessor-squad-6` copy 1+, 5 models: 100 → 115
+- `ds-heavy-intercessor-squad-6` copy 1+, 10 models: 200 → 230
+- `ds-hekaton-land-fortress` copy 2+, 1 models: 265 → 270
+- `ds-helbrute` copy 1+, 1 models: 130 → 125
+- `ds-helbrute-2` copy 1+, 1 models: 110 → 105
+- `ds-hellblaster-squad` copy 1+, 5 models: 110 → 115
+- `ds-hellblaster-squad` copy 1+, 10 models: 220 → 230
+- `ds-hellblaster-squad` copy 3+, 5 models: absent → 130
+- `ds-hellblaster-squad` copy 3+, 10 models: absent → 245
+- `ds-hellblaster-squad-2` copy 1+, 5 models: 110 → 115
+- `ds-hellblaster-squad-2` copy 1+, 10 models: 220 → 230
+- `ds-hellblaster-squad-2` copy 3+, 5 models: absent → 130
+- `ds-hellblaster-squad-2` copy 3+, 10 models: absent → 245
+- `ds-hellblaster-squad-3` copy 1+, 5 models: 110 → 115
+- `ds-hellblaster-squad-3` copy 1+, 10 models: 220 → 230
+- `ds-hellblaster-squad-3` copy 3+, 5 models: absent → 130
+- `ds-hellblaster-squad-3` copy 3+, 10 models: absent → 245
+- `ds-hellblaster-squad-4` copy 1+, 5 models: 110 → 115
+- `ds-hellblaster-squad-4` copy 1+, 10 models: 220 → 230
+- `ds-hellblaster-squad-4` copy 3+, 5 models: absent → 130
+- `ds-hellblaster-squad-4` copy 3+, 10 models: absent → 245
+- `ds-hellblaster-squad-5` copy 1+, 5 models: 110 → 115
+- `ds-hellblaster-squad-5` copy 1+, 10 models: 220 → 230
+- `ds-hellblaster-squad-5` copy 3+, 5 models: absent → 130
+- `ds-hellblaster-squad-5` copy 3+, 10 models: absent → 245
+- `ds-hellblaster-squad-6` copy 1+, 5 models: 110 → 115
+- `ds-hellblaster-squad-6` copy 1+, 10 models: 220 → 230
+- `ds-hellblaster-squad-6` copy 3+, 5 models: absent → 130
+- `ds-hellblaster-squad-6` copy 3+, 10 models: absent → 245
+- `ds-hellhound` copy 1+, 1 models: 125 → 115
+- `ds-hellhound` copy 3+, 1 models: 135 → 125
+- `ds-hellhound-2` copy 1+, 1 models: 135 → 125
+- `ds-heretic-astartes-daemon-prince` copy 1+, 1 models: 165 → 155
+- `ds-heretic-astartes-daemon-prince-with-wings` copy 1+, 1 models: 180 → 170
+- `ds-hernkyn-pioneers` copy 1+, 3 models: 80 → 85
+- `ds-hernkyn-pioneers` copy 1+, 6 models: 160 → 170
+- `ds-hernkyn-pioneers` copy 3+, 3 models: 90 → 95
+- `ds-hernkyn-pioneers` copy 3+, 6 models: 170 → 180
+- `ds-high-marshal-helbrecht` copy 1+, 1 models: 110 → 125
+- `ds-hunta-rig` copy 3+, 1 models: 175 → 185
+- `ds-huron-blackheart` copy 1+, 1 models: 130 → 135
+- `ds-immortals` copy 1+, 5 models: 70 → 65
+- `ds-immortals` copy 1+, 10 models: 140 → 130
+- `ds-impulsor` copy 1+, 1 models: 75 → 70
+- `ds-impulsor` copy 4+, 1 models: 85 → 80
+- `ds-inceptor-squad` copy 1+, 3 models: 125 → 130
+- `ds-inceptor-squad` copy 1+, 6 models: 250 → 260
+- `ds-inceptor-squad` copy 3+, 3 models: 140 → 150
+- `ds-inceptor-squad` copy 3+, 6 models: 265 → 280
+- `ds-inceptor-squad-2` copy 1+, 3 models: 125 → 130
+- `ds-inceptor-squad-2` copy 1+, 6 models: 250 → 260
+- `ds-inceptor-squad-2` copy 3+, 3 models: 140 → 150
+- `ds-inceptor-squad-2` copy 3+, 6 models: 265 → 280
+- `ds-inceptor-squad-3` copy 1+, 3 models: 125 → 130
+- `ds-inceptor-squad-3` copy 1+, 6 models: 250 → 260
+- `ds-inceptor-squad-3` copy 3+, 3 models: 140 → 150
+- `ds-inceptor-squad-3` copy 3+, 6 models: 265 → 280
+- `ds-inceptor-squad-4` copy 1+, 3 models: 125 → 130
+- `ds-inceptor-squad-4` copy 1+, 6 models: 250 → 260
+- `ds-inceptor-squad-4` copy 3+, 3 models: 140 → 150
+- `ds-inceptor-squad-4` copy 3+, 6 models: 265 → 280
+- `ds-inceptor-squad-5` copy 1+, 3 models: 125 → 130
+- `ds-inceptor-squad-5` copy 1+, 6 models: 250 → 260
+- `ds-inceptor-squad-5` copy 3+, 3 models: 140 → 150
+- `ds-inceptor-squad-5` copy 3+, 6 models: 265 → 280
+- `ds-inceptor-squad-6` copy 1+, 3 models: 125 → 130
+- `ds-inceptor-squad-6` copy 1+, 6 models: 250 → 260
+- `ds-inceptor-squad-6` copy 3+, 3 models: 140 → 150
+- `ds-inceptor-squad-6` copy 3+, 6 models: 265 → 280
+- `ds-incursor-squad` copy 1+, 5 models: 85 → 90
+- `ds-incursor-squad` copy 1+, 10 models: 150 → 170
+- `ds-incursor-squad` copy 3+, 5 models: 95 → 100
+- `ds-incursor-squad` copy 3+, 10 models: 160 → 180
+- `ds-incursor-squad-2` copy 1+, 5 models: 85 → 90
+- `ds-incursor-squad-2` copy 1+, 10 models: 150 → 170
+- `ds-incursor-squad-2` copy 3+, 5 models: 95 → 100
+- `ds-incursor-squad-2` copy 3+, 10 models: 160 → 180
+- `ds-incursor-squad-3` copy 1+, 5 models: 85 → 90
+- `ds-incursor-squad-3` copy 1+, 10 models: 150 → 170
+- `ds-incursor-squad-3` copy 3+, 5 models: 95 → 100
+- `ds-incursor-squad-3` copy 3+, 10 models: 160 → 180
+- `ds-incursor-squad-4` copy 1+, 5 models: 85 → 90
+- `ds-incursor-squad-4` copy 1+, 10 models: 150 → 170
+- `ds-incursor-squad-4` copy 3+, 5 models: 95 → 100
+- `ds-incursor-squad-4` copy 3+, 10 models: 160 → 180
+- `ds-incursor-squad-5` copy 1+, 5 models: 85 → 90
+- `ds-incursor-squad-5` copy 1+, 10 models: 150 → 170
+- `ds-incursor-squad-5` copy 3+, 5 models: 95 → 100
+- `ds-incursor-squad-5` copy 3+, 10 models: 160 → 180
+- `ds-incursor-squad-6` copy 1+, 5 models: 85 → 90
+- `ds-incursor-squad-6` copy 1+, 10 models: 150 → 170
+- `ds-incursor-squad-6` copy 3+, 5 models: 95 → 100
+- `ds-incursor-squad-6` copy 3+, 10 models: 160 → 180
+- `ds-indomitor-kill-team` copy 1+, 10 models: 275 → 280
+- `ds-indomitor-kill-team` copy 3+, 10 models: 290 → 300
+- `ds-infernal-master` copy 1+, 1 models: 100 → 105
+- `ds-infernus-squad` copy 1+, 5 models: 85 → 95
+- `ds-infernus-squad` copy 1+, 10 models: 180 → 190
+- `ds-infernus-squad` copy 3+, 5 models: absent → 105
+- `ds-infernus-squad` copy 3+, 10 models: absent → 200
+- `ds-infernus-squad-2` copy 1+, 5 models: 85 → 95
+- `ds-infernus-squad-2` copy 1+, 10 models: 180 → 190
+- `ds-infernus-squad-2` copy 3+, 5 models: absent → 105
+- `ds-infernus-squad-2` copy 3+, 10 models: absent → 200
+- `ds-infernus-squad-3` copy 1+, 5 models: 85 → 95
+- `ds-infernus-squad-3` copy 1+, 10 models: 180 → 190
+- `ds-infernus-squad-3` copy 3+, 5 models: absent → 105
+- `ds-infernus-squad-3` copy 3+, 10 models: absent → 200
+- `ds-infernus-squad-4` copy 1+, 5 models: 85 → 95
+- `ds-infernus-squad-4` copy 1+, 10 models: 180 → 190
+- `ds-infernus-squad-4` copy 3+, 5 models: absent → 105
+- `ds-infernus-squad-4` copy 3+, 10 models: absent → 200
+- `ds-infernus-squad-5` copy 1+, 5 models: 85 → 95
+- `ds-infernus-squad-5` copy 1+, 10 models: 180 → 190
+- `ds-infernus-squad-5` copy 3+, 5 models: absent → 105
+- `ds-infernus-squad-5` copy 3+, 10 models: absent → 200
+- `ds-infernus-squad-6` copy 1+, 5 models: 85 → 95
+- `ds-infernus-squad-6` copy 1+, 10 models: 180 → 190
+- `ds-infernus-squad-6` copy 3+, 5 models: absent → 105
+- `ds-infernus-squad-6` copy 3+, 10 models: absent → 200
+- `ds-infiltrator-squad` copy 1+, 5 models: 110 → 85
+- `ds-infiltrator-squad` copy 1+, 10 models: 180 → 150
+- `ds-infiltrator-squad` copy 3+, 5 models: 120 → absent
+- `ds-infiltrator-squad` copy 3+, 10 models: 190 → absent
+- `ds-infiltrator-squad-2` copy 1+, 5 models: 110 → 85
+- `ds-infiltrator-squad-2` copy 1+, 10 models: 180 → 150
+- `ds-infiltrator-squad-2` copy 3+, 5 models: 120 → absent
+- `ds-infiltrator-squad-2` copy 3+, 10 models: 190 → absent
+- `ds-infiltrator-squad-3` copy 1+, 5 models: 110 → 85
+- `ds-infiltrator-squad-3` copy 1+, 10 models: 180 → 150
+- `ds-infiltrator-squad-3` copy 3+, 5 models: 120 → absent
+- `ds-infiltrator-squad-3` copy 3+, 10 models: 190 → absent
+- `ds-infiltrator-squad-4` copy 1+, 5 models: 110 → 85
+- `ds-infiltrator-squad-4` copy 1+, 10 models: 180 → 150
+- `ds-infiltrator-squad-4` copy 3+, 5 models: 120 → absent
+- `ds-infiltrator-squad-4` copy 3+, 10 models: 190 → absent
+- `ds-infiltrator-squad-5` copy 1+, 5 models: 110 → 85
+- `ds-infiltrator-squad-5` copy 1+, 10 models: 180 → 150
+- `ds-infiltrator-squad-5` copy 3+, 5 models: 120 → absent
+- `ds-infiltrator-squad-5` copy 3+, 10 models: 190 → absent
+- `ds-infiltrator-squad-6` copy 1+, 5 models: 110 → 85
+- `ds-infiltrator-squad-6` copy 1+, 10 models: 180 → 150
+- `ds-infiltrator-squad-6` copy 3+, 5 models: 120 → absent
+- `ds-infiltrator-squad-6` copy 3+, 10 models: 190 → absent
+- `ds-infractors` copy 1+, 5 models: 85 → 95
+- `ds-infractors` copy 1+, 10 models: 160 → 175
+- `ds-inner-circle-companions` copy 1+, 3 models: 80 → 90
+- `ds-inner-circle-companions` copy 1+, 6 models: 160 → 180
+- `ds-inner-circle-companions` copy 3+, 3 models: 90 → 105
+- `ds-inner-circle-companions` copy 3+, 6 models: 170 → 195
+- `ds-interceptor-squad` copy 1+, 5 models: 125 → 135
+- `ds-interceptor-squad` copy 1+, 10 models: 250 → 270
+- `ds-interceptor-squad` copy 3+, 5 models: 135 → 145
+- `ds-interceptor-squad` copy 3+, 10 models: 260 → 280
+- `ds-intercessor-squad` copy 1+, 5 models: 80 → 85
+- `ds-intercessor-squad` copy 1+, 10 models: 150 → 170
+- `ds-intercessor-squad-2` copy 1+, 5 models: 80 → 85
+- `ds-intercessor-squad-2` copy 1+, 10 models: 150 → 170
+- `ds-intercessor-squad-3` copy 1+, 5 models: 80 → 85
+- `ds-intercessor-squad-3` copy 1+, 10 models: 150 → 170
+- `ds-intercessor-squad-4` copy 1+, 5 models: 80 → 85
+- `ds-intercessor-squad-4` copy 1+, 10 models: 150 → 170
+- `ds-intercessor-squad-5` copy 1+, 5 models: 80 → 85
+- `ds-intercessor-squad-5` copy 1+, 10 models: 150 → 170
+- `ds-intercessor-squad-6` copy 1+, 5 models: 80 → 85
+- `ds-intercessor-squad-6` copy 1+, 10 models: 150 → 170
+- `ds-invictor-tactical-warsuit` copy 1+, 1 models: 125 → 135
+- `ds-invictor-tactical-warsuit` copy 3+, 1 models: absent → 150
+- `ds-invictor-tactical-warsuit-2` copy 1+, 1 models: 125 → 135
+- `ds-invictor-tactical-warsuit-2` copy 3+, 1 models: absent → 150
+- `ds-invictor-tactical-warsuit-3` copy 1+, 1 models: 125 → 135
+- `ds-invictor-tactical-warsuit-3` copy 3+, 1 models: absent → 150
+- `ds-invictor-tactical-warsuit-4` copy 1+, 1 models: 125 → 135
+- `ds-invictor-tactical-warsuit-4` copy 3+, 1 models: absent → 150
+- `ds-invictor-tactical-warsuit-5` copy 1+, 1 models: 125 → 135
+- `ds-invictor-tactical-warsuit-5` copy 3+, 1 models: absent → 150
+- `ds-invictor-tactical-warsuit-6` copy 1+, 1 models: 125 → 135
+- `ds-invictor-tactical-warsuit-6` copy 3+, 1 models: absent → 150
+- `ds-iron-priest` copy 1+, 1 models: 50 → 60
+- `ds-jakhals` copy 1+, 20 models: 130 → 120
+- `ds-judiciar` copy 1+, 1 models: 55 → 50
+- `ds-judiciar-2` copy 1+, 1 models: 55 → 50
+- `ds-judiciar-3` copy 1+, 1 models: 55 → 50
+- `ds-judiciar-4` copy 1+, 1 models: 55 → 50
+- `ds-judiciar-5` copy 1+, 1 models: 55 → 50
+- `ds-judiciar-6` copy 1+, 1 models: 55 → 50
+- `ds-kapricus-defenders` copy 1+, 1 models: 70 → 75
+- `ds-kapricus-defenders` copy 1+, 2 models: 140 → 150
+- `ds-kapricus-defenders` copy 3+, 1 models: 80 → 95
+- `ds-kapricus-defenders` copy 3+, 2 models: 150 → 170
+- `ds-kastelan-robots` copy 2+, 2 models: 180 → absent
+- `ds-kastelan-robots` copy 2+, 4 models: 330 → absent
+- `ds-kastelan-robots` copy 3+, 2 models: absent → 180
+- `ds-kastelan-robots` copy 3+, 4 models: absent → 330
+- `ds-kataphron-breachers` copy 1+, 3 models: 150 → 140
+- `ds-kataphron-breachers` copy 1+, 6 models: 310 → 290
+- `ds-kayvaan-shrike` copy 1+, 1 models: 100 → 95
+- `ds-kharseth` copy 1+, 1 models: 85 → 80
+- `ds-kharseth-2` copy 1+, 1 models: 85 → 80
+- `ds-khorne-berzerkers` copy 1+, 10 models: 160 → 170
+- `ds-khorne-berzerkers` copy 1+, 20 models: 320 → 330
+- `ds-khorne-berzerkers-2` copy 1+, 10 models: 160 → 170
+- `ds-khorne-berzerkers-2` copy 1+, 20 models: 320 → 330
+- `ds-kill-rig` copy 3+, 1 models: 185 → 195
+- `ds-killa-kans` copy 1+, 6 models: 260 → 275
+- `ds-killa-kans` copy 3+, 3 models: 150 → 170
+- `ds-killa-kans` copy 3+, 6 models: 280 → 315
+- `ds-knight-abominant` copy 1+, 1 models: 355 → 350
+- `ds-knight-defender` copy 1+, 1 models: 400 → 385
+- `ds-knight-defender` copy 2+, 1 models: 420 → 405
+- `ds-knight-desecrator` copy 1+, 1 models: 355 → 350
+- `ds-knight-rampager` copy 1+, 1 models: 355 → 350
+- `ds-knight-ruinator` copy 1+, 1 models: 340 → 325
+- `ds-knight-ruinator` copy 3+, 1 models: 355 → 345
+- `ds-knight-tyrant` copy 1+, 1 models: 400 → 390
+- `ds-knight-tyrant` copy 2+, 1 models: 420 → 410
+- `ds-knight-valiant` copy 1+, 1 models: 400 → 390
+- `ds-knight-valiant` copy 3+, 1 models: 415 → 405
+- `ds-knight-warden` copy 1+, 1 models: 375 → 365
+- `ds-knight-warden` copy 3+, 1 models: 390 → 380
+- `ds-korsarro-khan` copy 1+, 1 models: 55 → 80
+- `ds-kravek-morne` copy 1+, 1 models: 120 → 130
+- `ds-land-raider` copy 1+, 1 models: 220 → 245
+- `ds-land-raider` copy 2+, 1 models: absent → 265
+- `ds-land-raider` copy 3+, 1 models: 240 → absent
+- `ds-land-raider-2` copy 1+, 1 models: 220 → 245
+- `ds-land-raider-2` copy 2+, 1 models: absent → 265
+- `ds-land-raider-2` copy 3+, 1 models: 240 → absent
+- `ds-land-raider-3` copy 1+, 1 models: 220 → 245
+- `ds-land-raider-3` copy 2+, 1 models: absent → 265
+- `ds-land-raider-3` copy 3+, 1 models: 240 → absent
+- `ds-land-raider-4` copy 1+, 1 models: 220 → 245
+- `ds-land-raider-4` copy 2+, 1 models: absent → 265
+- `ds-land-raider-4` copy 3+, 1 models: 240 → absent
+- `ds-land-raider-6` copy 1+, 1 models: 220 → 245
+- `ds-land-raider-6` copy 2+, 1 models: absent → 265
+- `ds-land-raider-6` copy 3+, 1 models: 240 → absent
+- `ds-land-raider-7` copy 1+, 1 models: 220 → 245
+- `ds-land-raider-7` copy 2+, 1 models: absent → 265
+- `ds-land-raider-7` copy 3+, 1 models: 240 → absent
+- `ds-land-raider-crusader` copy 1+, 1 models: 220 → 230
+- `ds-land-raider-crusader` copy 2+, 1 models: absent → 250
+- `ds-land-raider-crusader` copy 3+, 1 models: 240 → absent
+- `ds-land-raider-crusader-2` copy 1+, 1 models: 220 → 230
+- `ds-land-raider-crusader-2` copy 2+, 1 models: absent → 250
+- `ds-land-raider-crusader-2` copy 3+, 1 models: 240 → absent
+- `ds-land-raider-crusader-3` copy 1+, 1 models: 220 → 230
+- `ds-land-raider-crusader-3` copy 2+, 1 models: absent → 250
+- `ds-land-raider-crusader-3` copy 3+, 1 models: 240 → absent
+- `ds-land-raider-crusader-4` copy 1+, 1 models: 220 → 230
+- `ds-land-raider-crusader-4` copy 2+, 1 models: absent → 250
+- `ds-land-raider-crusader-4` copy 3+, 1 models: 240 → absent
+- `ds-land-raider-crusader-6` copy 1+, 1 models: 220 → 230
+- `ds-land-raider-crusader-6` copy 2+, 1 models: absent → 250
+- `ds-land-raider-crusader-6` copy 3+, 1 models: 240 → absent
+- `ds-land-raider-crusader-7` copy 1+, 1 models: 220 → 230
+- `ds-land-raider-crusader-7` copy 2+, 1 models: absent → 250
+- `ds-land-raider-crusader-7` copy 3+, 1 models: 240 → absent
+- `ds-land-raider-redeemer` copy 1+, 1 models: 260 → 245
+- `ds-land-raider-redeemer` copy 2+, 1 models: absent → 265
+- `ds-land-raider-redeemer` copy 3+, 1 models: 280 → absent
+- `ds-land-raider-redeemer-2` copy 1+, 1 models: 260 → 245
+- `ds-land-raider-redeemer-2` copy 2+, 1 models: absent → 265
+- `ds-land-raider-redeemer-2` copy 3+, 1 models: 280 → absent
+- `ds-land-raider-redeemer-3` copy 1+, 1 models: 260 → 245
+- `ds-land-raider-redeemer-3` copy 2+, 1 models: absent → 265
+- `ds-land-raider-redeemer-3` copy 3+, 1 models: 280 → absent
+- `ds-land-raider-redeemer-4` copy 1+, 1 models: 260 → 245
+- `ds-land-raider-redeemer-4` copy 2+, 1 models: absent → 265
+- `ds-land-raider-redeemer-4` copy 3+, 1 models: 280 → absent
+- `ds-land-raider-redeemer-6` copy 1+, 1 models: 260 → 245
+- `ds-land-raider-redeemer-6` copy 2+, 1 models: absent → 265
+- `ds-land-raider-redeemer-6` copy 3+, 1 models: 280 → absent
+- `ds-land-raider-redeemer-7` copy 1+, 1 models: 260 → 245
+- `ds-land-raider-redeemer-7` copy 2+, 1 models: absent → 265
+- `ds-land-raider-redeemer-7` copy 3+, 1 models: 280 → absent
+- `ds-land-speeder-vengeance` copy 1+, 1 models: 130 → 150
+- `ds-land-speeder-vengeance` copy 3+, 1 models: 140 → 160
+- `ds-lazarus` copy 1+, 1 models: 70 → 80
+- `ds-legionaries` copy 1+, 5 models: 90 → 95
+- `ds-legionaries` copy 1+, 10 models: 170 → 180
+- `ds-legionaries-2` copy 1+, 5 models: 90 → 95
+- `ds-legionaries-2` copy 1+, 10 models: 170 → 180
+- `ds-lemartes` copy 1+, 1 models: 100 → 110
+- `ds-leystalker` copy 1+, 1 models: 80 → 75
+- `ds-librarian` copy 1+, 1 models: 70 → 75
+- `ds-librarian` copy 3+, 1 models: 80 → absent
+- `ds-librarian-2` copy 1+, 1 models: 70 → 75
+- `ds-librarian-2` copy 3+, 1 models: 80 → absent
+- `ds-librarian-3` copy 1+, 1 models: 70 → 75
+- `ds-librarian-3` copy 3+, 1 models: 80 → absent
+- `ds-librarian-4` copy 1+, 1 models: 70 → 75
+- `ds-librarian-4` copy 3+, 1 models: 80 → absent
+- `ds-librarian-5` copy 1+, 1 models: 70 → 75
+- `ds-librarian-5` copy 3+, 1 models: 80 → absent
+- `ds-librarian-in-phobos-armour` copy 1+, 1 models: 70 → 75
+- `ds-librarian-in-phobos-armour-2` copy 1+, 1 models: 70 → 75
+- `ds-librarian-in-phobos-armour-3` copy 1+, 1 models: 70 → 75
+- `ds-librarian-in-phobos-armour-4` copy 1+, 1 models: 70 → 75
+- `ds-librarian-in-phobos-armour-5` copy 1+, 1 models: 70 → 75
+- `ds-librarian-in-terminator-armour` copy 1+, 1 models: 85 → 80
+- `ds-librarian-in-terminator-armour-2` copy 1+, 1 models: 85 → 80
+- `ds-librarian-in-terminator-armour-3` copy 1+, 1 models: 85 → 80
+- `ds-librarian-in-terminator-armour-4` copy 1+, 1 models: 85 → 80
+- `ds-librarian-in-terminator-armour-5` copy 1+, 1 models: 85 → 80
+- `ds-lieutenant` copy 1+, 1 models: 45 → 50
+- `ds-lieutenant-2` copy 1+, 1 models: 45 → 50
+- `ds-lieutenant-3` copy 1+, 1 models: 45 → 50
+- `ds-lieutenant-4` copy 1+, 1 models: 45 → 50
+- `ds-lieutenant-5` copy 1+, 1 models: 45 → 50
+- `ds-lieutenant-6` copy 1+, 1 models: 45 → 50
+- `ds-lieutenant-in-phobos-armour` copy 1+, 1 models: 45 → 40
+- `ds-lieutenant-in-phobos-armour-2` copy 1+, 1 models: 45 → 40
+- `ds-lieutenant-in-phobos-armour-3` copy 1+, 1 models: 45 → 40
+- `ds-lieutenant-in-phobos-armour-4` copy 1+, 1 models: 45 → 40
+- `ds-lieutenant-in-phobos-armour-5` copy 1+, 1 models: 45 → 40
+- `ds-lieutenant-in-phobos-armour-6` copy 1+, 1 models: 45 → 40
+- `ds-lieutenant-with-combi-weapon` copy 1+, 1 models: 95 → 85
+- `ds-lieutenant-with-combi-weapon-2` copy 1+, 1 models: 95 → 85
+- `ds-lieutenant-with-combi-weapon-3` copy 1+, 1 models: 95 → 85
+- `ds-lieutenant-with-combi-weapon-4` copy 1+, 1 models: 95 → 85
+- `ds-lieutenant-with-combi-weapon-5` copy 1+, 1 models: 95 → 85
+- `ds-lieutenant-with-combi-weapon-6` copy 1+, 1 models: 95 → 85
+- `ds-lion-eljonson` copy 1+, 1 models: 265 → 415
+- `ds-logan-grimnar` copy 1+, 1 models: 100 → 150
+- `ds-lokhust-destroyers` copy 1+, 6 models: 175 → 190
+- `ds-lokhust-destroyers` copy 3+, 6 models: 205 → 220
+- `ds-lord-discordant-on-helstalker` copy 1+, 1 models: 160 → 155
+- `ds-lord-exultant` copy 1+, 1 models: 90 → 95
+- `ds-lord-exultant` copy 3+, 1 models: 100 → 105
+- `ds-lord-marshal-dreir` copy 1+, 1 models: 75 → 70
+- `ds-lord-of-contagion` copy 1+, 1 models: 120 → 110
+- `ds-lord-of-virulence` copy 1+, 1 models: 100 → 90
+- `ds-lord-solar-leontus` copy 1+, 1 models: 130 → 120
+- `ds-lucius-the-eternal` copy 1+, 1 models: 120 → 130
+- `ds-manticore` copy 2+, 1 models: 170 → absent
+- `ds-manticore` copy 3+, 1 models: absent → 180
+- `ds-manticore-2` copy 1+, 1 models: 170 → 180
+- `ds-marshal` copy 3+, 1 models: 90 → absent
+- `ds-master-of-executions` copy 1+, 1 models: 70 → 75
+- `ds-master-of-possession` copy 1+, 1 models: 60 → 65
+- `ds-master-of-possession-2` copy 1+, 1 models: 60 → 65
+- `ds-masters-of-the-maelstrom` copy 1+, 5 models: 145 → 150
+- `ds-maulerfiend` copy 1+, 1 models: 130 → 125
+- `ds-mawloc` copy 1+, 1 models: 135 → 130
+- `ds-mawloc-2` copy 1+, 1 models: 135 → 130
+- `ds-meganobz` copy 1+, 2 models: 75 → 70
+- `ds-meganobz` copy 1+, 3 models: 110 → 105
+- `ds-meganobz` copy 1+, 5 models: 185 → 175
+- `ds-meganobz` copy 1+, 6 models: 225 → 210
+- `ds-meganobz` copy 3+, 2 models: 115 → 110
+- `ds-meganobz` copy 3+, 3 models: 150 → 145
+- `ds-meganobz` copy 3+, 5 models: 225 → 215
+- `ds-meganobz` copy 3+, 6 models: 265 → 250
+- `ds-mek` copy 1+, 1 models: 45 → 55
+- `ds-morvenn-vahl` copy 1+, 1 models: 200 → 215
+- `ds-mutilators` copy 3+, 3 models: 175 → 185
+- `ds-nazdreg` copy 1+, 1 models: 175 → 165
+- `ds-nekrosor-ammentar` copy 1+, 1 models: 185 → 195
+- `ds-nemesis-claw` copy 1+, 5 models: 100 → 105
+- `ds-nemesis-claw` copy 1+, 10 models: 180 → 190
+- `ds-nemesis-dreadknight` copy 1+, 1 models: 195 → 205
+- `ds-nemesis-dreadknight` copy 3+, 1 models: 210 → 220
+- `ds-nephilim-jetfighter` copy 1+, 1 models: 180 → 200
+- `ds-neurotyrant` copy 1+, 1 models: 130 → 120
+- `ds-nexos` copy 1+, 1 models: 60 → 50
+- `ds-night-spinner` copy 1+, 1 models: 170 → 165
+- `ds-night-spinner` copy 2+, 1 models: 190 → absent
+- `ds-night-spinner` copy 3+, 1 models: absent → 195
+- `ds-njal-stormcaller` copy 1+, 1 models: 75 → 100
+- `ds-nobz` copy 1+, 5 models: 125 → 115
+- `ds-nobz` copy 1+, 10 models: 250 → 230
+- `ds-nobz` copy 3+, 5 models: 155 → 145
+- `ds-nobz` copy 3+, 10 models: 280 → 260
+- `ds-noise-marines` copy 1+, 6 models: 145 → 160
+- `ds-noise-marines` copy 3+, 6 models: 160 → 175
+- `ds-noise-marines-2` copy 1+, 6 models: 160 → 175
+- `ds-old-one-eye` copy 1+, 1 models: 140 → 130
+- `ds-onager-dunecrawler` copy 1+, 1 models: 155 → 150
+- `ds-outrider-squad` copy 1+, 3 models: 70 → 80
+- `ds-outrider-squad` copy 1+, 6 models: 140 → 160
+- `ds-outrider-squad-2` copy 1+, 3 models: 75 → 80
+- `ds-outrider-squad-2` copy 1+, 6 models: 140 → 160
+- `ds-outrider-squad-3` copy 1+, 3 models: 70 → 80
+- `ds-outrider-squad-3` copy 1+, 6 models: 140 → 160
+- `ds-outrider-squad-4` copy 1+, 3 models: 70 → 80
+- `ds-outrider-squad-4` copy 1+, 6 models: 140 → 160
+- `ds-outrider-squad-5` copy 1+, 3 models: 70 → 80
+- `ds-outrider-squad-5` copy 1+, 6 models: 140 → 160
+- `ds-outrider-squad-6` copy 1+, 3 models: 70 → 80
+- `ds-outrider-squad-6` copy 1+, 6 models: 140 → 160
+- `ds-paladin-squad` copy 1+, 4 models: 170 → 185
+- `ds-paladin-squad` copy 1+, 5 models: 215 → 230
+- `ds-paladin-squad` copy 1+, 8 models: 360 → 385
+- `ds-paladin-squad` copy 1+, 10 models: 460 → 490
+- `ds-paladin-squad` copy 3+, 4 models: 210 → 225
+- `ds-paladin-squad` copy 3+, 5 models: 255 → 270
+- `ds-paladin-squad` copy 3+, 8 models: 400 → 425
+- `ds-paladin-squad` copy 3+, 10 models: 500 → 530
+- `ds-paragon-warsuits` copy 1+, 3 models: 180 → 165
+- `ds-paragon-warsuits` copy 3+, 3 models: 190 → 175
+- `ds-parasite-of-mortrex` copy 1+, 1 models: 70 → 65
+- `ds-parasite-of-mortrex-2` copy 1+, 1 models: 70 → 65
+- `ds-plague-marines` copy 1+, 10 models: 180 → 175
+- `ds-plague-marines-2` copy 1+, 10 models: 180 → 175
+- `ds-plagueburst-crawler` copy 2+, 1 models: 200 → absent
+- `ds-plagueburst-crawler` copy 3+, 1 models: absent → 200
+- `ds-possessed` copy 1+, 5 models: 120 → 130
+- `ds-possessed` copy 1+, 10 models: 250 → 260
+- `ds-possessed` copy 3+, 5 models: 130 → 150
+- `ds-possessed` copy 3+, 10 models: 260 → 280
+- `ds-possessed-2` copy 1+, 5 models: 130 → 150
+- `ds-possessed-2` copy 1+, 10 models: 260 → 280
+- `ds-predator-annihilator` copy 1+, 1 models: 135 → 145
+- `ds-predator-annihilator` copy 3+, 1 models: 145 → absent
+- `ds-predator-destructor` copy 1+, 1 models: 140 → 150
+- `ds-predator-destructor` copy 3+, 1 models: 150 → absent
+- `ds-primus` copy 1+, 1 models: 70 → 60
+- `ds-prosecutors` copy 1+, 4 models: 45 → 50
+- `ds-prosecutors` copy 1+, 5 models: 50 → 55
+- `ds-prosecutors` copy 1+, 9 models: 75 → 80
+- `ds-prosecutors` copy 1+, 10 models: 85 → 90
+- `ds-psychomancer` copy 1+, 1 models: 55 → 65
+- `ds-purgation-squad` copy 1+, 5 models: 105 → 115
+- `ds-purgation-squad` copy 1+, 10 models: 210 → 230
+- `ds-purgation-squad` copy 3+, 5 models: 115 → 125
+- `ds-purgation-squad` copy 3+, 10 models: 220 → 240
+- `ds-purifier-squad` copy 1+, 5 models: 130 → 145
+- `ds-purifier-squad` copy 1+, 10 models: 260 → 290
+- `ds-purifier-squad` copy 3+, 5 models: 140 → 155
+- `ds-purifier-squad` copy 3+, 10 models: 270 → 300
+- `ds-ragnar-blackmane` copy 1+, 1 models: 90 → 100
+- `ds-raptors` copy 1+, 5 models: 110 → 115
+- `ds-raptors` copy 1+, 10 models: 210 → 225
+- `ds-raptors` copy 3+, 5 models: 120 → 125
+- `ds-raptors` copy 3+, 10 models: 220 → 235
+- `ds-raptors-2` copy 1+, 5 models: 120 → 125
+- `ds-raptors-2` copy 1+, 10 models: 220 → 235
+- `ds-ravenwing-black-knights` copy 1+, 3 models: 75 → 85
+- `ds-ravenwing-black-knights` copy 1+, 6 models: 150 → 170
+- `ds-ravenwing-black-knights` copy 3+, 3 models: 85 → 95
+- `ds-ravenwing-black-knights` copy 3+, 6 models: 160 → 180
+- `ds-ravenwing-command-squad` copy 1+, 3 models: 105 → 115
+- `ds-ravenwing-command-squad` copy 3+, 3 models: 115 → 135
+- `ds-ravenwing-dark-talon` copy 1+, 1 models: 200 → 190
+- `ds-ravenwing-darkshroud` copy 1+, 1 models: 70 → 80
+- `ds-razorback` copy 1+, 1 models: 85 → 75
+- `ds-razorback` copy 4+, 1 models: 95 → 85
+- `ds-razorback-2` copy 1+, 1 models: 85 → 95
+- `ds-razorback-2` copy 4+, 1 models: 95 → absent
+- `ds-red-corsairs-raiders` copy 1+, 5 models: 110 → 120
+- `ds-red-corsairs-raiders` copy 1+, 10 models: 210 → 220
+- `ds-red-corsairs-raiders` copy 3+, 5 models: 120 → 130
+- `ds-red-corsairs-raiders` copy 3+, 10 models: 220 → 230
+- `ds-red-corsairs-reave-captain` copy 1+, 1 models: 60 → 65
+- `ds-redemptor-dreadnought` copy 1+, 1 models: 195 → 170
+- `ds-redemptor-dreadnought` copy 3+, 1 models: 210 → 190
+- `ds-redemptor-dreadnought-2` copy 1+, 1 models: 195 → 170
+- `ds-redemptor-dreadnought-2` copy 3+, 1 models: 210 → 190
+- `ds-redemptor-dreadnought-3` copy 1+, 1 models: 195 → 170
+- `ds-redemptor-dreadnought-3` copy 3+, 1 models: 210 → 190
+- `ds-redemptor-dreadnought-4` copy 1+, 1 models: 195 → 170
+- `ds-redemptor-dreadnought-4` copy 3+, 1 models: 210 → 190
+- `ds-redemptor-dreadnought-5` copy 1+, 1 models: 195 → 170
+- `ds-redemptor-dreadnought-5` copy 3+, 1 models: 210 → 190
+- `ds-redemptor-dreadnought-6` copy 1+, 1 models: 195 → 170
+- `ds-redemptor-dreadnought-6` copy 3+, 1 models: 210 → 190
+- `ds-reiver-squad` copy 1+, 5 models: 75 → 85
+- `ds-reiver-squad` copy 1+, 10 models: 150 → 165
+- `ds-reiver-squad-2` copy 1+, 5 models: 75 → 85
+- `ds-reiver-squad-2` copy 1+, 10 models: 150 → 165
+- `ds-reiver-squad-3` copy 1+, 5 models: 75 → 85
+- `ds-reiver-squad-3` copy 1+, 10 models: 150 → 165
+- `ds-reiver-squad-4` copy 1+, 5 models: 75 → 85
+- `ds-reiver-squad-4` copy 1+, 10 models: 150 → 165
+- `ds-reiver-squad-5` copy 1+, 5 models: 75 → 85
+- `ds-reiver-squad-5` copy 1+, 10 models: 150 → 165
+- `ds-reiver-squad-6` copy 1+, 5 models: 75 → 85
+- `ds-reiver-squad-6` copy 1+, 10 models: 150 → 165
+- `ds-repulsor` copy 1+, 1 models: 170 → 190
+- `ds-repulsor` copy 3+, 1 models: 190 → 210
+- `ds-repulsor-2` copy 1+, 1 models: 170 → 190
+- `ds-repulsor-2` copy 3+, 1 models: 190 → 210
+- `ds-repulsor-3` copy 1+, 1 models: 170 → 190
+- `ds-repulsor-3` copy 3+, 1 models: 190 → 210
+- `ds-repulsor-4` copy 1+, 1 models: 170 → 190
+- `ds-repulsor-4` copy 3+, 1 models: 190 → 210
+- `ds-repulsor-5` copy 1+, 1 models: 170 → 190
+- `ds-repulsor-5` copy 3+, 1 models: 190 → 210
+- `ds-repulsor-6` copy 1+, 1 models: 170 → 190
+- `ds-repulsor-6` copy 3+, 1 models: 190 → 210
+- `ds-repulsor-executioner` copy 1+, 1 models: 255 → 265
+- `ds-repulsor-executioner` copy 3+, 1 models: 275 → 285
+- `ds-repulsor-executioner-2` copy 1+, 1 models: 230 → 260
+- `ds-repulsor-executioner-2` copy 3+, 1 models: 250 → 280
+- `ds-repulsor-executioner-3` copy 1+, 1 models: 230 → 260
+- `ds-repulsor-executioner-3` copy 3+, 1 models: 250 → 280
+- `ds-repulsor-executioner-4` copy 1+, 1 models: 230 → 260
+- `ds-repulsor-executioner-4` copy 3+, 1 models: 250 → 280
+- `ds-repulsor-executioner-5` copy 1+, 1 models: 255 → 260
+- `ds-repulsor-executioner-5` copy 3+, 1 models: 275 → 280
+- `ds-repulsor-executioner-6` copy 1+, 1 models: 230 → 260
+- `ds-repulsor-executioner-6` copy 3+, 1 models: 250 → 280
+- `ds-rhino` copy 1+, 1 models: 65 → 70
+- `ds-rhino` copy 4+, 1 models: 75 → 80
+- `ds-rhino-2` copy 1+, 1 models: 65 → 70
+- `ds-rhino-2` copy 4+, 1 models: 75 → 80
+- `ds-rhino-3` copy 1+, 1 models: 65 → 70
+- `ds-rhino-3` copy 4+, 1 models: 75 → 80
+- `ds-rhino-4` copy 1+, 1 models: 65 → 70
+- `ds-rhino-4` copy 4+, 1 models: 75 → 80
+- `ds-rhino-6` copy 1+, 1 models: 65 → 70
+- `ds-rhino-6` copy 4+, 1 models: 75 → 80
+- `ds-rhino-7` copy 1+, 1 models: 65 → 70
+- `ds-rhino-7` copy 4+, 1 models: 75 → 80
+- `ds-roboute-guilliman` copy 1+, 1 models: 355 → 415
+- `ds-rubric-marines` copy 1+, 5 models: 100 → 115
+- `ds-rubric-marines` copy 1+, 10 models: 190 → 210
+- `ds-rubric-marines` copy 4+, 5 models: 110 → 125
+- `ds-rubric-marines` copy 4+, 10 models: 200 → 220
+- `ds-rubric-marines-2` copy 1+, 5 models: 110 → 125
+- `ds-rubric-marines-2` copy 1+, 10 models: 200 → 220
+- `ds-saint-celestine` copy 1+, 3 models: 150 → 135
+- `ds-sammael` copy 1+, 1 models: 105 → 120
+- `ds-sanctus` copy 1+, 1 models: 65 → 60
+- `ds-sanguinary-guard` copy 1+, 3 models: 120 → 135
+- `ds-sanguinary-guard` copy 1+, 6 models: 260 → 275
+- `ds-sanguinary-guard` copy 3+, 3 models: 140 → 150
+- `ds-sanguinary-guard` copy 3+, 6 models: 280 → 290
+- `ds-sanguinary-priest` copy 1+, 1 models: 75 → 60
+- `ds-sanguinary-priest` copy 3+, 1 models: 85 → absent
+- `ds-scarab-occult-terminators` copy 1+, 5 models: 180 → 200
+- `ds-scarab-occult-terminators` copy 1+, 10 models: 385 → 425
+- `ds-scarab-occult-terminators` copy 3+, 5 models: 195 → 240
+- `ds-scarab-occult-terminators` copy 3+, 10 models: 400 → 465
+- `ds-scout-squad` copy 3+, 5 models: 75 → absent
+- `ds-scout-squad` copy 3+, 10 models: 130 → absent
+- `ds-scout-squad-2` copy 3+, 5 models: 75 → absent
+- `ds-scout-squad-2` copy 3+, 10 models: 130 → absent
+- `ds-scout-squad-3` copy 3+, 5 models: 75 → absent
+- `ds-scout-squad-3` copy 3+, 10 models: 130 → absent
+- `ds-scout-squad-4` copy 3+, 5 models: 75 → absent
+- `ds-scout-squad-4` copy 3+, 10 models: 130 → absent
+- `ds-scout-squad-5` copy 3+, 5 models: 75 → absent
+- `ds-scout-squad-5` copy 3+, 10 models: 130 → absent
+- `ds-serberys-raiders` copy 1+, 6 models: 110 → 105
+- `ds-serberys-sulphurhounds` copy 1+, 6 models: 100 → 95
+- `ds-servitor-battleclade` copy 1+, 9 models: 65 → 75
+- `ds-servitor-battleclade` copy 3+, 9 models: 75 → 85
+- `ds-shield-captain-on-dawneagle-jetbike` copy 1+, 1 models: 140 → 150
+- `ds-shroud-runners` copy 1+, 6 models: 175 → 165
+- `ds-skarbrand` copy 1+, 1 models: 315 → 330
+- `ds-skyweavers` copy 1+, 2 models: 95 → 90
+- `ds-skyweavers` copy 1+, 4 models: 190 → 180
+- `ds-skyweavers-2` copy 1+, 2 models: 95 → 90
+- `ds-skyweavers-2` copy 1+, 4 models: 190 → 180
+- `ds-slaughterbound` copy 1+, 1 models: 100 → 90
+- `ds-solitaire` copy 1+, 1 models: 115 → 105
+- `ds-solitaire-2` copy 1+, 1 models: 115 → 105
+- `ds-sorcerer` copy 1+, 1 models: 60 → 65
+- `ds-sorcerer-3` copy 1+, 1 models: 95 → 100
+- `ds-sorcerer-3` copy 3+, 1 models: 105 → 110
+- `ds-sorcerer-4` copy 1+, 1 models: 60 → 65
+- `ds-sorcerer-in-terminator-armour` copy 1+, 1 models: 80 → 85
+- `ds-sorcerer-in-terminator-armour-2` copy 1+, 1 models: 100 → 110
+- `ds-sorcerer-in-terminator-armour-2` copy 3+, 1 models: 110 → 120
+- `ds-sorcerer-in-terminator-armour-3` copy 1+, 1 models: 80 → 85
+- `ds-spectrus-kill-team` copy 1+, 10 models: 170 → 185
+- `ds-spectrus-kill-team` copy 3+, 10 models: 180 → 195
+- `ds-squighog-boyz` copy 1+, 4 models: 140 → 130
+- `ds-squighog-boyz` copy 1+, 8 models: 280 → 260
+- `ds-squighog-boyz` copy 3+, 8 models: 300 → 290
+- `ds-sternguard-veteran-squad` copy 1+, 5 models: 85 → 105
+- `ds-sternguard-veteran-squad` copy 1+, 10 models: 160 → 210
+- `ds-sternguard-veteran-squad` copy 3+, 5 models: absent → 120
+- `ds-sternguard-veteran-squad` copy 3+, 10 models: absent → 225
+- `ds-sternguard-veteran-squad-2` copy 1+, 5 models: 100 → 105
+- `ds-sternguard-veteran-squad-2` copy 1+, 10 models: 200 → 210
+- `ds-sternguard-veteran-squad-2` copy 3+, 5 models: absent → 120
+- `ds-sternguard-veteran-squad-2` copy 3+, 10 models: absent → 225
+- `ds-sternguard-veteran-squad-3` copy 1+, 5 models: 100 → 105
+- `ds-sternguard-veteran-squad-3` copy 1+, 10 models: 200 → 210
+- `ds-sternguard-veteran-squad-3` copy 3+, 5 models: absent → 120
+- `ds-sternguard-veteran-squad-3` copy 3+, 10 models: absent → 225
+- `ds-sternguard-veteran-squad-4` copy 1+, 5 models: 100 → 105
+- `ds-sternguard-veteran-squad-4` copy 1+, 10 models: 200 → 210
+- `ds-sternguard-veteran-squad-4` copy 3+, 5 models: absent → 120
+- `ds-sternguard-veteran-squad-4` copy 3+, 10 models: absent → 225
+- `ds-sternguard-veteran-squad-5` copy 1+, 5 models: 100 → 105
+- `ds-sternguard-veteran-squad-5` copy 1+, 10 models: 200 → 210
+- `ds-sternguard-veteran-squad-5` copy 3+, 5 models: absent → 120
+- `ds-sternguard-veteran-squad-5` copy 3+, 10 models: absent → 225
+- `ds-sternguard-veteran-squad-6` copy 1+, 5 models: 100 → 105
+- `ds-sternguard-veteran-squad-6` copy 1+, 10 models: 200 → 210
+- `ds-sternguard-veteran-squad-6` copy 3+, 5 models: absent → 120
+- `ds-sternguard-veteran-squad-6` copy 3+, 10 models: absent → 225
+- `ds-stonesinger` copy 1+, 1 models: 60 → 55
+- `ds-storm-speeder-hailstrike` copy 1+, 1 models: 105 → 110
+- `ds-storm-speeder-hailstrike` copy 3+, 1 models: 115 → 120
+- `ds-storm-speeder-hailstrike-2` copy 1+, 1 models: 105 → 110
+- `ds-storm-speeder-hailstrike-2` copy 3+, 1 models: 115 → 120
+- `ds-storm-speeder-hailstrike-3` copy 1+, 1 models: 105 → 110
+- `ds-storm-speeder-hailstrike-3` copy 3+, 1 models: 115 → 120
+- `ds-storm-speeder-hailstrike-4` copy 1+, 1 models: 105 → 110
+- `ds-storm-speeder-hailstrike-4` copy 3+, 1 models: 115 → 120
+- `ds-storm-speeder-hailstrike-5` copy 1+, 1 models: 105 → 110
+- `ds-storm-speeder-hailstrike-5` copy 3+, 1 models: 115 → 120
+- `ds-storm-speeder-hailstrike-6` copy 1+, 1 models: 105 → 110
+- `ds-storm-speeder-hailstrike-6` copy 3+, 1 models: 115 → 120
+- `ds-storm-speeder-thunderstrike` copy 1+, 1 models: 135 → 140
+- `ds-storm-speeder-thunderstrike` copy 3+, 1 models: 145 → 150
+- `ds-storm-speeder-thunderstrike-2` copy 1+, 1 models: 135 → 140
+- `ds-storm-speeder-thunderstrike-2` copy 3+, 1 models: 145 → 150
+- `ds-storm-speeder-thunderstrike-3` copy 1+, 1 models: 135 → 140
+- `ds-storm-speeder-thunderstrike-3` copy 3+, 1 models: 145 → 150
+- `ds-storm-speeder-thunderstrike-4` copy 1+, 1 models: 135 → 140
+- `ds-storm-speeder-thunderstrike-4` copy 3+, 1 models: 145 → 150
+- `ds-storm-speeder-thunderstrike-5` copy 1+, 1 models: 135 → 140
+- `ds-storm-speeder-thunderstrike-5` copy 3+, 1 models: 145 → 150
+- `ds-storm-speeder-thunderstrike-6` copy 1+, 1 models: 135 → 140
+- `ds-storm-speeder-thunderstrike-6` copy 3+, 1 models: 145 → 150
+- `ds-stormhawk-interceptor` copy 1+, 1 models: 155 → 160
+- `ds-stormraven-gunship-2` copy 1+, 1 models: 280 → 300
+- `ds-stormraven-gunship-2` copy 2+, 1 models: 300 → absent
+- `ds-stormtalon-gunship` copy 1+, 1 models: 165 → 170
+- `ds-strike-squad` copy 1+, 5 models: 115 → 125
+- `ds-strike-squad` copy 1+, 10 models: 230 → 250
+- `ds-suboden-khan` copy 1+, 1 models: 90 → 105
+- `ds-sword-brethren-squad` copy 1+, 4 models: 100 → 115
+- `ds-sword-brethren-squad` copy 1+, 5 models: 125 → 140
+- `ds-sword-brethren-squad` copy 1+, 9 models: 225 → 250
+- `ds-sword-brethren-squad` copy 1+, 10 models: 250 → 275
+- `ds-sword-brethren-squad` copy 3+, 4 models: 120 → 135
+- `ds-sword-brethren-squad` copy 3+, 5 models: 145 → 160
+- `ds-sword-brethren-squad` copy 3+, 9 models: 245 → 270
+- `ds-sword-brethren-squad` copy 3+, 10 models: 270 → 295
+- `ds-sydonian-dragoons-with-radium-jezzails` copy 1+, 2 models: 100 → 95
+- `ds-sydonian-dragoons-with-radium-jezzails` copy 1+, 3 models: 150 → 140
+- `ds-sydonian-skatros` copy 1+, 1 models: 50 → 45
+- `ds-talonstrike-kill-team` copy 1+, 10 models: 265 → 280
+- `ds-talonstrike-kill-team` copy 3+, 10 models: 280 → 300
+- `ds-talos` copy 1+, 1 models: 75 → 70
+- `ds-talos` copy 1+, 2 models: 150 → 140
+- `ds-talos` copy 3+, 1 models: 85 → 80
+- `ds-talos` copy 3+, 2 models: 160 → 150
+- `ds-tankbustas` copy 1+, 6 models: 145 → 160
+- `ds-tankbustas` copy 3+, 6 models: 155 → 170
+- `ds-termagants` copy 1+, 10 models: 60 → 55
+- `ds-terminator-assault-squad` copy 1+, 5 models: 155 → 170
+- `ds-terminator-assault-squad` copy 1+, 10 models: 310 → 340
+- `ds-terminator-assault-squad` copy 3+, 5 models: absent → 210
+- `ds-terminator-assault-squad` copy 3+, 10 models: absent → 380
+- `ds-terminator-assault-squad-2` copy 1+, 5 models: 155 → 170
+- `ds-terminator-assault-squad-2` copy 1+, 10 models: 310 → 340
+- `ds-terminator-assault-squad-2` copy 3+, 5 models: absent → 210
+- `ds-terminator-assault-squad-2` copy 3+, 10 models: absent → 380
+- `ds-terminator-assault-squad-3` copy 1+, 5 models: 155 → 170
+- `ds-terminator-assault-squad-3` copy 1+, 10 models: 310 → 340
+- `ds-terminator-assault-squad-3` copy 3+, 5 models: absent → 210
+- `ds-terminator-assault-squad-3` copy 3+, 10 models: absent → 380
+- `ds-terminator-assault-squad-4` copy 1+, 5 models: 155 → 170
+- `ds-terminator-assault-squad-4` copy 1+, 10 models: 310 → 340
+- `ds-terminator-assault-squad-4` copy 3+, 5 models: absent → 210
+- `ds-terminator-assault-squad-4` copy 3+, 10 models: absent → 380
+- `ds-terminator-assault-squad-5` copy 1+, 5 models: 155 → 170
+- `ds-terminator-assault-squad-5` copy 1+, 10 models: 310 → 340
+- `ds-terminator-assault-squad-5` copy 3+, 5 models: absent → 210
+- `ds-terminator-assault-squad-5` copy 3+, 10 models: absent → 380
+- `ds-terminator-squad` copy 1+, 5 models: 160 → 190
+- `ds-terminator-squad` copy 1+, 10 models: 320 → 380
+- `ds-terminator-squad` copy 3+, 5 models: absent → 230
+- `ds-terminator-squad` copy 3+, 10 models: absent → 420
+- `ds-terminator-squad-2` copy 1+, 5 models: 160 → 190
+- `ds-terminator-squad-2` copy 1+, 10 models: 320 → 380
+- `ds-terminator-squad-2` copy 3+, 5 models: absent → 230
+- `ds-terminator-squad-2` copy 3+, 10 models: absent → 420
+- `ds-terminator-squad-3` copy 1+, 5 models: 160 → 190
+- `ds-terminator-squad-3` copy 1+, 10 models: 320 → 380
+- `ds-terminator-squad-3` copy 3+, 5 models: absent → 230
+- `ds-terminator-squad-3` copy 3+, 10 models: absent → 420
+- `ds-terminator-squad-4` copy 1+, 5 models: 160 → 190
+- `ds-terminator-squad-4` copy 1+, 10 models: 320 → 380
+- `ds-terminator-squad-4` copy 3+, 5 models: absent → 230
+- `ds-terminator-squad-4` copy 3+, 10 models: absent → 420
+- `ds-terminator-squad-5` copy 1+, 5 models: 160 → 190
+- `ds-terminator-squad-5` copy 1+, 10 models: 320 → 380
+- `ds-terminator-squad-5` copy 3+, 5 models: absent → 230
+- `ds-terminator-squad-5` copy 3+, 10 models: absent → 420
+- `ds-tervigon` copy 1+, 1 models: 160 → 150
+- `ds-tesseract-vault` copy 2+, 1 models: 485 → 505
+- `ds-the-red-terror` copy 1+, 1 models: 130 → 120
+- `ds-the-red-terror-2` copy 1+, 1 models: 130 → 120
+- `ds-the-twin-lance` copy 1+, 2 models: 230 → 240
+- `ds-the-yncarne` copy 1+, 1 models: 245 → 230
+- `ds-thunderhawk-gunship` copy 1+, 1 models: 840 → 850
+- `ds-thunderhawk-gunship` copy 2+, 1 models: absent → 950
+- `ds-thunderhawk-gunship-2` copy 1+, 1 models: 840 → 850
+- `ds-thunderhawk-gunship-2` copy 2+, 1 models: absent → 950
+- `ds-thunderhawk-gunship-3` copy 1+, 1 models: 840 → 850
+- `ds-thunderhawk-gunship-3` copy 2+, 1 models: absent → 950
+- `ds-thunderhawk-gunship-4` copy 1+, 1 models: 840 → 850
+- `ds-thunderhawk-gunship-4` copy 2+, 1 models: absent → 950
+- `ds-thunderhawk-gunship-5` copy 1+, 1 models: 840 → 850
+- `ds-thunderhawk-gunship-5` copy 2+, 1 models: absent → 950
+- `ds-thunderhawk-gunship-6` copy 1+, 1 models: 840 → 850
+- `ds-thunderhawk-gunship-6` copy 2+, 1 models: absent → 950
+- `ds-thunderwolf-cavalry` copy 1+, 3 models: 100 → 115
+- `ds-thunderwolf-cavalry` copy 1+, 6 models: 200 → 230
+- `ds-thunderwolf-cavalry` copy 3+, 3 models: 130 → 145
+- `ds-thunderwolf-cavalry` copy 3+, 6 models: 230 → 260
+- `ds-tor-garadon` copy 1+, 1 models: 80 → 90
+- `ds-tormentors` copy 1+, 5 models: 80 → 85
+- `ds-tormentors` copy 1+, 10 models: 160 → 170
+- `ds-traitor-guardsmen-squad` copy 1+, 10 models: 70 → 65
+- `ds-traitor-guardsmen-squad-2` copy 1+, 10 models: 70 → 65
+- `ds-traitor-guardsmen-squad-3` copy 1+, 10 models: 70 → 65
+- `ds-trazyn-the-infinite` copy 1+, 1 models: 65 → 60
+- `ds-trygon` copy 1+, 1 models: 140 → 135
+- `ds-trygon-2` copy 1+, 1 models: 140 → 135
+- `ds-typhus` copy 1+, 1 models: 100 → 90
+- `ds-ulrik-the-slayer` copy 1+, 1 models: 70 → 90
+- `ds-uthar-the-destined` copy 1+, 1 models: 90 → 100
+- `ds-valerian` copy 1+, 1 models: 110 → 120
+- `ds-vanguard-veteran-squad-with-jump-packs` copy 1+, 5 models: 105 → 110
+- `ds-vanguard-veteran-squad-with-jump-packs` copy 1+, 10 models: 210 → 220
+- `ds-vanguard-veteran-squad-with-jump-packs` copy 3+, 5 models: 115 → 130
+- `ds-vanguard-veteran-squad-with-jump-packs` copy 3+, 10 models: 220 → 240
+- `ds-vanguard-veteran-squad-with-jump-packs-2` copy 3+, 5 models: 120 → 130
+- `ds-vanguard-veteran-squad-with-jump-packs-2` copy 3+, 10 models: 230 → 240
+- `ds-vanguard-veteran-squad-with-jump-packs-3` copy 1+, 5 models: 105 → 110
+- `ds-vanguard-veteran-squad-with-jump-packs-3` copy 1+, 10 models: 210 → 220
+- `ds-vanguard-veteran-squad-with-jump-packs-3` copy 3+, 5 models: 115 → 130
+- `ds-vanguard-veteran-squad-with-jump-packs-3` copy 3+, 10 models: 220 → 240
+- `ds-vanguard-veteran-squad-with-jump-packs-4` copy 1+, 5 models: 105 → 110
+- `ds-vanguard-veteran-squad-with-jump-packs-4` copy 1+, 10 models: 210 → 220
+- `ds-vanguard-veteran-squad-with-jump-packs-4` copy 3+, 5 models: 115 → 130
+- `ds-vanguard-veteran-squad-with-jump-packs-4` copy 3+, 10 models: 220 → 240
+- `ds-vanguard-veteran-squad-with-jump-packs-5` copy 1+, 5 models: 105 → 110
+- `ds-vanguard-veteran-squad-with-jump-packs-5` copy 1+, 10 models: 210 → 220
+- `ds-vanguard-veteran-squad-with-jump-packs-5` copy 3+, 5 models: 115 → 130
+- `ds-vanguard-veteran-squad-with-jump-packs-5` copy 3+, 10 models: 220 → 240
+- `ds-vanguard-veteran-squad-with-jump-packs-6` copy 1+, 5 models: 105 → 110
+- `ds-vanguard-veteran-squad-with-jump-packs-6` copy 1+, 10 models: 210 → 220
+- `ds-vanguard-veteran-squad-with-jump-packs-6` copy 3+, 5 models: 115 → 130
+- `ds-vanguard-veteran-squad-with-jump-packs-6` copy 3+, 10 models: 220 → 240
+- `ds-venerable-dreadnought-2` copy 1+, 1 models: 125 → 130
+- `ds-venerable-dreadnought-2` copy 3+, 1 models: 135 → 140
+- `ds-vertus-praetors` copy 1+, 2 models: 145 → 155
+- `ds-vertus-praetors` copy 1+, 3 models: 215 → 230
+- `ds-vertus-praetors` copy 3+, 2 models: 170 → 180
+- `ds-vertus-praetors` copy 3+, 3 models: 240 → 255
+- `ds-victrix-honour-guard` copy 1+, 3 models: 110 → 120
+- `ds-victrix-honour-guard` copy 1+, 6 models: 230 → 250
+- `ds-victrix-honour-guard` copy 2+, 3 models: 130 → absent
+- `ds-victrix-honour-guard` copy 2+, 6 models: 250 → absent
+- `ds-victrix-honour-guard` copy 3+, 3 models: absent → 150
+- `ds-victrix-honour-guard` copy 3+, 6 models: absent → 280
+- `ds-vindicator` copy 1+, 1 models: 185 → 200
+- `ds-vindicator` copy 3+, 1 models: 200 → absent
+- `ds-vulkan-hestan` copy 1+, 1 models: 95 → 105
+- `ds-warboss-in-mega-armour` copy 1+, 1 models: 125 → 115
+- `ds-warboss-in-mega-armour` copy 3+, 1 models: 140 → 130
+- `ds-wardens-of-ultramar` copy 1+, 6 models: 120 → 115
+- `ds-warlock-conclave` copy 1+, 4 models: 120 → 110
+- `ds-warp-talons` copy 1+, 5 models: 125 → 130
+- `ds-warp-talons` copy 1+, 10 models: 280 → 290
+- `ds-warp-talons` copy 3+, 5 models: 135 → 140
+- `ds-warp-talons` copy 3+, 10 models: 290 → 300
+- `ds-warp-talons-2` copy 1+, 5 models: 135 → 140
+- `ds-warp-talons-2` copy 1+, 10 models: 290 → 300
+- `ds-warpsmith` copy 1+, 1 models: 60 → 65
+- `ds-watch-captain-artemis` copy 1+, 1 models: 65 → 75
+- `ds-watch-captain-artemis-2` copy 1+, 1 models: 65 → 75
+- `ds-watch-captain-artemis-2` copy 1+, 1 models (every-model-has-imperium): 65 → 75
+- `ds-watch-master` copy 1+, 1 models: 95 → 105
+- `ds-watch-master-2` copy 1+, 1 models: 95 → 105
+- `ds-watch-master-2` copy 1+, 1 models (every-model-has-imperium): 95 → 105
+- `ds-weirdboy` copy 1+, 1 models: 65 → 60
+- `ds-whirlwind` copy 1+, 1 models: 175 → 195
+- `ds-whirlwind` copy 2+, 1 models: 195 → absent
+- `ds-wolf-guard-battle-leader` copy 1+, 1 models: 65 → 80
+- `ds-wolf-guard-terminators` copy 1+, 5 models: 155 → 180
+- `ds-wolf-guard-terminators` copy 1+, 10 models: 310 → 365
+- `ds-wolf-guard-terminators` copy 3+, 5 models: 195 → 220
+- `ds-wolf-guard-terminators` copy 3+, 10 models: 350 → 405
+- `ds-wolf-priest` copy 1+, 1 models: 70 → 75
+- `ds-wolf-scouts` copy 1+, 6 models: 90 → 95
+- `ds-wolf-scouts` copy 1+, 12 models: 180 → 190
+- `ds-wolf-scouts` copy 3+, 6 models: absent → 105
+- `ds-wolf-scouts` copy 3+, 12 models: absent → 200
+- `ds-wracks` copy 1+, 5 models: 60 → 55
+- `ds-wracks` copy 1+, 8 models: 100 → 90
+- `ds-wracks` copy 1+, 10 models: 120 → 110
+- `ds-wulfen` copy 1+, 5 models: 85 → 90
+- `ds-wulfen` copy 1+, 10 models: 170 → 180
+- `ds-wulfen` copy 3+, 5 models: 95 → 105
+- `ds-wulfen` copy 3+, 10 models: 180 → 195
+- `ds-wulfen-dreadnought` copy 1+, 1 models: 135 → 140
+- `ds-wulfen-dreadnought` copy 3+, 1 models: 145 → 150
+- `ds-wulfen-with-storm-shields` copy 1+, 5 models: 100 → 125
+- `ds-wulfen-with-storm-shields` copy 1+, 10 models: 200 → 250
+- `ds-wulfen-with-storm-shields` copy 3+, 5 models: 110 → 155
+- `ds-wulfen-with-storm-shields` copy 3+, 10 models: 210 → 280
+- `ds-wyvern` copy 2+, 1 models: 115 → absent
+- `ds-wyvern` copy 3+, 1 models: absent → 125
+- `ds-wyvern-2` copy 1+, 1 models: 115 → 125
+- `ds-yvraine` copy 1+, 1 models: 100 → 90
+
+## Detachment point costs
+
+- `d-ceramite-sentinels`: 3 → 2
+- `d-inner-circle-task-force`: 2 → 1
+- `d-ironstorm-spearhead`: 2 → 1
+- `d-ironstorm-spearhead-2`: 2 → 1
+- `d-ironstorm-spearhead-3`: 2 → 1
+- `d-ironstorm-spearhead-4`: 2 → 1
+- `d-ironstorm-spearhead-5`: 2 → 1
+- `d-ironstorm-spearhead-6`: 2 → 1
+- `d-saga-of-the-beastslayer`: 2 → 1
+- `d-stormlance-task-force`: 2 → 1
+- `d-stormlance-task-force-2`: 2 → 1
+- `d-stormlance-task-force-3`: 3 → 1
+- `d-stormlance-task-force-4`: 2 → 1
+- `d-stormlance-task-force-5`: 3 → 1
+- `d-stormlance-task-force-6`: 3 → 1
+- `d-wrath-of-the-rock`: 3 → 2
+
+## Enhancement costs
+
+- `e-adept-of-the-omnissiah`: 35 → 25
+- `e-ancient-weapons`: 25 → 20
+- `e-angelic-executioner`: 25 → 20
+- `e-armour-of-antoninus`: 20 → 15
+- `e-artificer-armour`: 20 → 15
+- `e-artificer-armour-2`: 20 → 15
+- `e-artificer-armour-3`: 20 → 15
+- `e-artificer-armour-4`: 20 → 15
+- `e-artificer-armour-5`: 20 → 15
+- `e-augury-servo-host`: 15 → 20
+- `e-beacon-angelis-2`: 30 → 25
+- `e-castellum-omnivox`: 20 → 10
+- `e-champion-of-the-deathwing`: 15 → 20
+- `e-consecrating-aura`: 25 → 20
+- `e-deathwing-assault`: 30 → 15
+- `e-defensive-mastery`: 25 → 10
+- `e-dreadherder`: 20 → 30
+- `e-execute-and-redeploy`: 20 → 25
+- `e-execute-and-redeploy-2`: 20 → 25
+- `e-execute-and-redeploy-3`: 20 → 25
+- `e-execute-and-redeploy-4`: 20 → 25
+- `e-execute-and-redeploy-5`: 20 → 25
+- `e-execute-and-redeploy-6`: 20 → 25
+- `e-forged-in-battle`: 15 → 25
+- `e-grimnars-mark`: 20 → 15
+- `e-honour-indefatigable`: 25 → 10
+- `e-hunters-eye-2`: 20 → 25
+- `e-immolator`: 10 → 20
+- `e-lord-of-the-ravenwing`: 10 → 15
+- `e-oath-of-macragge`: 15 → 20
+- `e-oathbound-exemplar`: 15 → 10
+- `e-prescient-flash`: 20 → 25
+- `e-shadow-of-abomination`: 25 → 15
+- `e-skjalds-foretelling`: 25 → 20
+- `e-spy-skull-data-link`: 15 → 10
+- `e-supa-snazz-dakka-upgrade`: 20 → 25
+- `e-targetin-gizmos-upgrade`: 10 → 25
+- `e-the-flesh-is-weak`: 20 → 15
+- `e-the-tome-of-ectoclades`: 30 → 15
+- `e-veteran-of-behemoth`: 25 → 20
+- `e-zealous-vanguard`: 20 → 25
+
+## Pricing-confidence transitions
+
+- `ds-captain-on-bike`: unverified → verified
+- `ds-centurion-assault-squad`: verified → unverified
+- `ds-centurion-devastator-squad`: verified → unverified
+- `ds-dreadnought`: verified → unverified
+- `ds-hammerfall-bunker`: verified → unverified
+- `ds-predator-annihilator`: verified → unverified
+- `ds-predator-destructor`: verified → unverified
+- `ds-razorback-2`: verified → unverified
+- `ds-stormhawk-interceptor-2`: verified → unverified
+- `ds-stormraven-gunship-2`: verified → unverified
+- `ds-stormtalon-gunship-2`: verified → unverified
+- `ds-vindicator`: verified → unverified
+- `ds-whirlwind`: verified → unverified
+
+## Escalating price tiers
+
+- `ds-aggressor-squad`: lost an escalating tier
+- `ds-aggressor-squad-2`: lost an escalating tier
+- `ds-aggressor-squad-3`: lost an escalating tier
+- `ds-aggressor-squad-4`: lost an escalating tier
+- `ds-aggressor-squad-5`: lost an escalating tier
+- `ds-aggressor-squad-6`: lost an escalating tier
+- `ds-blightlord-terminators`: gained an escalating tier
+- `ds-chaos-terminator-squad`: gained an escalating tier
+- `ds-company-heroes`: gained an escalating tier
+- `ds-company-heroes-2`: gained an escalating tier
+- `ds-company-heroes-3`: gained an escalating tier
+- `ds-company-heroes-4`: gained an escalating tier
+- `ds-company-heroes-5`: gained an escalating tier
+- `ds-company-heroes-6`: gained an escalating tier
+- `ds-deathwatch-terminator-squad`: gained an escalating tier
+- `ds-deathwing-terminator-squad`: gained an escalating tier
+- `ds-dragon-knights`: gained an escalating tier
+- `ds-eradicator-squad-with-heavy-bolters`: gained an escalating tier
+- `ds-eradicator-squad-with-heavy-bolters-2`: gained an escalating tier
+- `ds-eradicator-squad-with-heavy-bolters-3`: gained an escalating tier
+- `ds-eradicator-squad-with-heavy-bolters-4`: gained an escalating tier
+- `ds-eradicator-squad-with-heavy-bolters-5`: gained an escalating tier
+- `ds-eradicator-squad-with-heavy-bolters-6`: gained an escalating tier
+- `ds-hellblaster-squad`: gained an escalating tier
+- `ds-hellblaster-squad-2`: gained an escalating tier
+- `ds-hellblaster-squad-3`: gained an escalating tier
+- `ds-hellblaster-squad-4`: gained an escalating tier
+- `ds-hellblaster-squad-5`: gained an escalating tier
+- `ds-hellblaster-squad-6`: gained an escalating tier
+- `ds-infernus-squad`: gained an escalating tier
+- `ds-infernus-squad-2`: gained an escalating tier
+- `ds-infernus-squad-3`: gained an escalating tier
+- `ds-infernus-squad-4`: gained an escalating tier
+- `ds-infernus-squad-5`: gained an escalating tier
+- `ds-infernus-squad-6`: gained an escalating tier
+- `ds-infiltrator-squad`: lost an escalating tier
+- `ds-infiltrator-squad-2`: lost an escalating tier
+- `ds-infiltrator-squad-3`: lost an escalating tier
+- `ds-infiltrator-squad-4`: lost an escalating tier
+- `ds-infiltrator-squad-5`: lost an escalating tier
+- `ds-infiltrator-squad-6`: lost an escalating tier
+- `ds-invictor-tactical-warsuit`: gained an escalating tier
+- `ds-invictor-tactical-warsuit-2`: gained an escalating tier
+- `ds-invictor-tactical-warsuit-3`: gained an escalating tier
+- `ds-invictor-tactical-warsuit-4`: gained an escalating tier
+- `ds-invictor-tactical-warsuit-5`: gained an escalating tier
+- `ds-invictor-tactical-warsuit-6`: gained an escalating tier
+- `ds-librarian`: lost an escalating tier
+- `ds-librarian-2`: lost an escalating tier
+- `ds-librarian-3`: lost an escalating tier
+- `ds-librarian-4`: lost an escalating tier
+- `ds-librarian-5`: lost an escalating tier
+- `ds-marshal`: lost an escalating tier
+- `ds-predator-annihilator`: lost an escalating tier
+- `ds-predator-destructor`: lost an escalating tier
+- `ds-razorback-2`: lost an escalating tier
+- `ds-sanguinary-priest`: lost an escalating tier
+- `ds-scout-squad`: lost an escalating tier
+- `ds-scout-squad-2`: lost an escalating tier
+- `ds-scout-squad-3`: lost an escalating tier
+- `ds-scout-squad-4`: lost an escalating tier
+- `ds-scout-squad-5`: lost an escalating tier
+- `ds-sternguard-veteran-squad`: gained an escalating tier
+- `ds-sternguard-veteran-squad-2`: gained an escalating tier
+- `ds-sternguard-veteran-squad-3`: gained an escalating tier
+- `ds-sternguard-veteran-squad-4`: gained an escalating tier
+- `ds-sternguard-veteran-squad-5`: gained an escalating tier
+- `ds-sternguard-veteran-squad-6`: gained an escalating tier
+- `ds-stormraven-gunship-2`: lost an escalating tier
+- `ds-terminator-assault-squad`: gained an escalating tier
+- `ds-terminator-assault-squad-2`: gained an escalating tier
+- `ds-terminator-assault-squad-3`: gained an escalating tier
+- `ds-terminator-assault-squad-4`: gained an escalating tier
+- `ds-terminator-assault-squad-5`: gained an escalating tier
+- `ds-terminator-squad`: gained an escalating tier
+- `ds-terminator-squad-2`: gained an escalating tier
+- `ds-terminator-squad-3`: gained an escalating tier
+- `ds-terminator-squad-4`: gained an escalating tier
+- `ds-terminator-squad-5`: gained an escalating tier
+- `ds-thunderhawk-gunship`: gained an escalating tier
+- `ds-thunderhawk-gunship-2`: gained an escalating tier
+- `ds-thunderhawk-gunship-3`: gained an escalating tier
+- `ds-thunderhawk-gunship-4`: gained an escalating tier
+- `ds-thunderhawk-gunship-5`: gained an escalating tier
+- `ds-thunderhawk-gunship-6`: gained an escalating tier
+- `ds-vindicator`: lost an escalating tier
+- `ds-whirlwind`: lost an escalating tier
+- `ds-wolf-scouts`: gained an escalating tier
+
+## Unit composition
+
+- `ds-adrax-agatone` line 1: Adrax Agatone - EPIC HERO 1-1 → Adrax Agatone model 1-1
+- `ds-aethon-shaan` line 1: Aethon Shaan - EPIC HERO 1-1 → Aethon Shaan model 1-1
+- `ds-aggressor-squad` line 1: Aggressor Sergeant 1-1 → Aggressor Sergeant model 1-1
+- `ds-aggressor-squad` line 2: Aggressors 2-5 → Aggressor models 2-5
+- `ds-aggressor-squad-2` line 1: Aggressor Sergeant 1-1 → Aggressor Sergeant model 1-1
+- `ds-aggressor-squad-2` line 2: Aggressors 2-5 → Aggressor models 2-5
+- `ds-aggressor-squad-3` line 1: Aggressor Sergeant 1-1 → Aggressor Sergeant model 1-1
+- `ds-aggressor-squad-3` line 2: Aggressors 2-5 → Aggressor models 2-5
+- `ds-aggressor-squad-4` line 1: Aggressor Sergeant 1-1 → Aggressor Sergeant model 1-1
+- `ds-aggressor-squad-4` line 2: Aggressors 2-5 → Aggressor models 2-5
+- `ds-aggressor-squad-5` line 1: Aggressor Sergeant 1-1 → Aggressor Sergeant model 1-1
+- `ds-aggressor-squad-5` line 2: Aggressors 2-5 → Aggressor models 2-5
+- `ds-aggressor-squad-6` line 1: Aggressor Sergeant 1-1 → Aggressor Sergeant model 1-1
+- `ds-aggressor-squad-6` line 2: Aggressors 2-5 → Aggressor models 2-5
+- `ds-ancient` line 1: Ancient 1-1 → Ancient model 1-1
+- `ds-ancient-2` line 1: Ancient 1-1 → Ancient model 1-1
+- `ds-ancient-3` line 1: Ancient 1-1 → Ancient model 1-1
+- `ds-ancient-4` line 1: Ancient 1-1 → Ancient model 1-1
+- `ds-ancient-5` line 1: Ancient 1-1 → Ancient model 1-1
+- `ds-ancient-6` line 1: Ancient 1-1 → Ancient model 1-1
+- `ds-ancient-in-terminator-armour` line 1: Ancient in Terminator Armour 1-1 → Ancient in Terminator Armour model 1-1
+- `ds-ancient-in-terminator-armour-2` line 1: Ancient in Terminator Armour 1-1 → Ancient in Terminator Armour model 1-1
+- `ds-ancient-in-terminator-armour-3` line 1: Ancient in Terminator Armour 1-1 → Ancient in Terminator Armour model 1-1
+- `ds-ancient-in-terminator-armour-4` line 1: Ancient in Terminator Armour 1-1 → Ancient in Terminator Armour model 1-1
+- `ds-ancient-in-terminator-armour-5` line 1: Ancient in Terminator Armour 1-1 → Ancient in Terminator Armour model 1-1
+- `ds-ancient-in-terminator-armour-6` line 1: Ancient in Terminator Armour 1-1 → Ancient in Terminator Armour model 1-1
+- `ds-ancient-on-bike` line 1: Ancient on Bike 1-1 → absent
+- `ds-apothecary` line 1: Apothecary 1-1 → Apothecary model 1-1
+- `ds-apothecary-2` line 1: Apothecary 1-1 → Apothecary model 1-1
+- `ds-apothecary-3` line 1: Apothecary 1-1 → Apothecary model 1-1
+- `ds-apothecary-4` line 1: Apothecary 1-1 → Apothecary model 1-1
+- `ds-apothecary-5` line 1: Apothecary 1-1 → Apothecary model 1-1
+- `ds-apothecary-biologis` line 1: Apothecary Biologis 1-1 → Apothecary Biologis model 1-1
+- `ds-apothecary-biologis-2` line 1: Apothecary Biologis 1-1 → Apothecary Biologis model 1-1
+- `ds-apothecary-biologis-3` line 1: Apothecary Biologis 1-1 → Apothecary Biologis model 1-1
+- `ds-apothecary-biologis-4` line 1: Apothecary Biologis 1-1 → Apothecary Biologis model 1-1
+- `ds-apothecary-biologis-5` line 1: Apothecary Biologis 1-1 → Apothecary Biologis model 1-1
+- `ds-apothecary-on-bike` line 1: Apothecary on Bike 1-1 → absent
+- `ds-aquila-kill-team` line 1: Kill Team Sergeant 1-1 → Deathwatch Veteran with Xenophase Blade and Special-issue Bolt Pistol model 1-1
+- `ds-arjac-rockfist` line 1: Arjac Rockfist - EPIC HERO 1-1 → Arjac Rockfist model 1-1
+- `ds-asmodai` line 1: Asmodai - EPIC HERO 1-1 → Asmodai model 1-1
+- `ds-assault-intercessor-squad` line 1: Assault Intercessor Sergeant 1-1 → Assault Intercessor Sergeant model 1-1
+- `ds-assault-intercessor-squad` line 2: Assault Intercessors 4-9 → Assault Intercessor models 4-9
+- `ds-assault-intercessor-squad-2` line 1: Assault Intercessor Sergeant 1-1 → Assault Intercessor Sergeant model 1-1
+- `ds-assault-intercessor-squad-2` line 2: Assault Intercessors 4-9 → Assault Intercessor models 4-9
+- `ds-assault-intercessor-squad-3` line 1: Assault Intercessor Sergeant 1-1 → Assault Intercessor Sergeant model 1-1
+- `ds-assault-intercessor-squad-3` line 2: Assault Intercessors 4-9 → Assault Intercessor models 4-9
+- `ds-assault-intercessor-squad-4` line 1: Assault Intercessor Sergeant 1-1 → Assault Intercessor Sergeant model 1-1
+- `ds-assault-intercessor-squad-4` line 2: Assault Intercessors 4-9 → Assault Intercessor models 4-9
+- `ds-assault-intercessor-squad-5` line 1: Assault Intercessor Sergeant 1-1 → Assault Intercessor Sergeant model 1-1
+- `ds-assault-intercessor-squad-5` line 2: Assault Intercessors 4-9 → Assault Intercessor models 4-9
+- `ds-assault-intercessor-squad-6` line 1: Assault Intercessor Sergeant 1-1 → Assault Intercessor Sergeant model 1-1
+- `ds-assault-intercessor-squad-6` line 2: Assault Intercessors 4-9 → Assault Intercessor models 4-9
+- `ds-assault-intercessors-with-jump-packs` line 1: Assault Intercessor Sergeant with Jump Pack 1-1 → Assault Intercessor Sergeant with Jump Pack model 1-1
+- `ds-assault-intercessors-with-jump-packs` line 2: Assault Intercessors with Jump Packs 4-9 → Assault Intercessor with Jump Pack models 4-9
+- `ds-assault-intercessors-with-jump-packs-2` line 1: Assault Intercessor Sergeant with Jump Pack 1-1 → Assault Intercessor Sergeant with Jump Pack model 1-1
+- `ds-assault-intercessors-with-jump-packs-2` line 2: Assault Intercessors with Jump Packs 4-9 → Assault Intercessor with Jump Pack models 4-9
+- `ds-assault-intercessors-with-jump-packs-3` line 1: Assault Intercessor Sergeant with Jump Pack 1-1 → Assault Intercessor Sergeant with Jump Pack model 1-1
+- `ds-assault-intercessors-with-jump-packs-3` line 2: Assault Intercessors with Jump Packs 4-9 → Assault Intercessor with Jump Pack models 4-9
+- `ds-assault-intercessors-with-jump-packs-4` line 1: Assault Intercessor Sergeant with Jump Pack 1-1 → Assault Intercessor Sergeant with Jump Pack model 1-1
+- `ds-assault-intercessors-with-jump-packs-4` line 2: Assault Intercessors with Jump Packs 4-9 → Assault Intercessor with Jump Pack models 4-9
+- `ds-assault-intercessors-with-jump-packs-5` line 1: Assault Intercessor Sergeant with Jump Pack 1-1 → Assault Intercessor Sergeant with Jump Pack model 1-1
+- `ds-assault-intercessors-with-jump-packs-5` line 2: Assault Intercessors with Jump Packs 4-9 → Assault Intercessor with Jump Pack models 4-9
+- `ds-assault-intercessors-with-jump-packs-6` line 1: Assault Intercessor Sergeant with Jump Pack 1-1 → Assault Intercessor Sergeant with Jump Pack model 1-1
+- `ds-assault-intercessors-with-jump-packs-6` line 2: Assault Intercessors with Jump Packs 4-9 → Assault Intercessor with Jump Pack models 4-9
+- `ds-assault-squad` line 1: Assault Sergeant 1-1 → absent
+- `ds-assault-squad` line 2: Assault Marines 4-9 → absent
+- `ds-assault-squad-with-jump-packs` line 1: Assault Sergeant with Jump Pack 1-1 → absent
+- `ds-assault-squad-with-jump-packs` line 2: Assault Marines with Jump Packs 4-9 → absent
+- `ds-astartes-servitors` line 1: Astartes Servitors 4-4 → absent
+- `ds-astorath` line 1: Astorath - EPIC HERO 1-1 → Astorath model 1-1
+- `ds-astraeus` line 1: Astraeus 1-1 → Astraeus model 1-1
+- `ds-astraeus-2` line 1: Astraeus 1-1 → Astraeus model 1-1
+- `ds-astraeus-3` line 1: Astraeus 1-1 → Astraeus model 1-1
+- `ds-astraeus-4` line 1: Astraeus 1-1 → Astraeus model 1-1
+- `ds-astraeus-5` line 1: Astraeus 1-1 → Astraeus model 1-1
+- `ds-astraeus-6` line 1: Astraeus 1-1 → Astraeus model 1-1
+- `ds-attack-bike-squad` line 1: Attack Bikes 1-3 → absent
+- `ds-azrael` line 1: Azrael - EPIC HERO 1-1 → Azrael model 1-1
+- `ds-baal-predator` line 1: Baal Predator 1-1 → Baal Predator model 1-1
+- `ds-ballistus-dreadnought` line 1: Ballistus Dreadnought 1-1 → Ballistus Dreadnought model 1-1
+- `ds-ballistus-dreadnought-2` line 1: Ballistus Dreadnought 1-1 → Ballistus Dreadnought model 1-1
+- `ds-ballistus-dreadnought-3` line 1: Ballistus Dreadnought 1-1 → Ballistus Dreadnought model 1-1
+- `ds-ballistus-dreadnought-4` line 1: Ballistus Dreadnought 1-1 → Ballistus Dreadnought model 1-1
+- `ds-ballistus-dreadnought-5` line 1: Ballistus Dreadnought 1-1 → Ballistus Dreadnought model 1-1
+- `ds-ballistus-dreadnought-6` line 1: Ballistus Dreadnought 1-1 → Ballistus Dreadnought model 1-1
+- `ds-belial` line 1: Belial - EPIC HERO 1-1 → Belial model 1-1
+- `ds-big-trakk` line 1: Big Trakk 1-1 → Big Trakk model 1-1
+- `ds-bike-squad` line 1: Biker Sergeant 1-1 → absent
+- `ds-bike-squad` line 2: Space Marine Bikers 2-5 → absent
+- `ds-bike-squad` line 3: Attack Bike 0-1 → absent
+- `ds-bjorn-the-fell-handed` line 1: Bjorn the Fell-Handed- EPIC HERO 1-1 → Bjorn the Fell-handed model 1-1
+- `ds-bladeguard-ancient` line 1: Bladeguard Ancient 1-1 → Bladeguard Ancient model 1-1
+- `ds-bladeguard-ancient-2` line 1: Bladeguard Ancient 1-1 → Bladeguard Ancient model 1-1
+- `ds-bladeguard-ancient-3` line 1: Bladeguard Ancient 1-1 → Bladeguard Ancient model 1-1
+- `ds-bladeguard-ancient-4` line 1: Bladeguard Ancient 1-1 → Bladeguard Ancient model 1-1
+- `ds-bladeguard-ancient-5` line 1: Bladeguard Ancient 1-1 → Bladeguard Ancient model 1-1
+- `ds-bladeguard-ancient-6` line 1: Bladeguard Ancient 1-1 → Bladeguard Ancient model 1-1
+- `ds-bladeguard-veteran-squad` line 1: Bladeguard Veteran Sergeant 1-1 → Bladeguard Veteran Sergeant model 1-1
+- `ds-bladeguard-veteran-squad` line 2: Bladeguard Veterans 2-5 → Bladeguard Veteran models 2-5
+- `ds-bladeguard-veteran-squad-2` line 1: Bladeguard Veteran Sergeant 1-1 → Bladeguard Veteran Sergeant model 1-1
+- `ds-bladeguard-veteran-squad-2` line 2: Bladeguard Veterans 2-5 → Bladeguard Veteran models 2-5
+- `ds-bladeguard-veteran-squad-3` line 1: Bladeguard Veteran Sergeant 1-1 → Bladeguard Veteran Sergeant model 1-1
+- `ds-bladeguard-veteran-squad-3` line 2: Bladeguard Veterans 2-5 → Bladeguard Veteran models 2-5
+- `ds-bladeguard-veteran-squad-4` line 1: Bladeguard Veteran Sergeant 1-1 → Bladeguard Veteran Sergeant model 1-1
+- `ds-bladeguard-veteran-squad-4` line 2: Bladeguard Veterans 2-5 → Bladeguard Veteran models 2-5
+- `ds-bladeguard-veteran-squad-5` line 1: Bladeguard Veteran Sergeant 1-1 → Bladeguard Veteran Sergeant model 1-1
+- `ds-bladeguard-veteran-squad-5` line 2: Bladeguard Veterans 2-5 → Bladeguard Veteran models 2-5
+- `ds-bladeguard-veteran-squad-6` line 1: Bladeguard Veteran Sergeant 1-1 → Bladeguard Veteran Sergeant model 1-1
+- `ds-bladeguard-veteran-squad-6` line 2: Bladeguard Veterans 2-5 → Bladeguard Veteran models 2-5
+- `ds-blood-angels-captain` line 1: Blood Angels Captain 1-1 → Blood Angels Captain model 1-1
+- `ds-blood-claws` line 1: Blood Claw Pack Leader 1-1 → Blood Claw Pack Leader model 1-1
+- `ds-blood-claws` line 2: Blood Claws 9-19 → Blood Claw models 9-19
+- `ds-boss-zagstruk` line 1: Boss Zagstruk - EPIC HERO 1-1 → Boss Zagstruk model 1-1
+- `ds-brother-corbulo` line 1: Brother Corbulo - EPIC HERO 1-1 → absent
+- `ds-brutalis-dreadnought` line 1: Brutalis Dreadnought 1-1 → Brutalis Dreadnought model 1-1
+- `ds-brutalis-dreadnought-2` line 1: Brutalis Dreadnought 1-1 → Brutalis Dreadnought model 1-1
+- `ds-brutalis-dreadnought-3` line 1: Brutalis Dreadnought 1-1 → Brutalis Dreadnought model 1-1
+- `ds-brutalis-dreadnought-4` line 1: Brutalis Dreadnought 1-1 → Brutalis Dreadnought model 1-1
+- `ds-brutalis-dreadnought-5` line 1: Brutalis Dreadnought 1-1 → Brutalis Dreadnought model 1-1
+- `ds-brutalis-dreadnought-6` line 1: Brutalis Dreadnought 1-1 → Brutalis Dreadnought model 1-1
+- `ds-burna-boyz` line 1: Spanners 1-2 → Spanner models 1-2
+- `ds-burna-boyz` line 2: Burna Boyz 4-8 → Burna Boy models 4-8
+- `ds-caanok-var` line 1: Caanok Var - EPIC HERO 1-1 → Caanok Var model 1-1
+- `ds-caestus-assault-ram` line 1: Caestus Assault Ram 1-1 → absent
+- `ds-canis-wolfborn` line 1: Canis Wolfborn - EPIC HERO 1-1 → absent
+- `ds-captain` line 1: Captain 1-1 → Captain model 1-1
+- `ds-captain-2` line 1: Captain 1-1 → Captain model 1-1
+- `ds-captain-3` line 1: Captain 1-1 → Captain model 1-1
+- `ds-captain-4` line 1: Captain 1-1 → Captain model 1-1
+- `ds-captain-5` line 1: Captain 1-1 → Captain model 1-1
+- `ds-captain-6` line 1: Captain 1-1 → Captain model 1-1
+- `ds-captain-in-gravis-armour` line 1: Captain in Gravis Armour 1-1 → Captain in Gravis Armour model 1-1
+- `ds-captain-in-gravis-armour-2` line 1: Captain in Gravis Armour 1-1 → Captain in Gravis Armour model 1-1
+- `ds-captain-in-gravis-armour-3` line 1: Captain in Gravis Armour 1-1 → Captain in Gravis Armour model 1-1
+- `ds-captain-in-gravis-armour-4` line 1: Captain in Gravis Armour 1-1 → Captain in Gravis Armour model 1-1
+- `ds-captain-in-gravis-armour-5` line 1: Captain in Gravis Armour 1-1 → Captain in Gravis Armour model 1-1
+- `ds-captain-in-gravis-armour-6` line 1: Captain in Gravis Armour 1-1 → Captain in Gravis Armour model 1-1
+- `ds-captain-in-phobos-armour` line 1: Captain in Phobos Armour 1-1 → Captain in Phobos Armour model 1-1
+- `ds-captain-in-phobos-armour-2` line 1: Captain in Phobos Armour 1-1 → Captain in Phobos Armour model 1-1
+- `ds-captain-in-phobos-armour-3` line 1: Captain in Phobos Armour 1-1 → Captain in Phobos Armour model 1-1
+- `ds-captain-in-phobos-armour-4` line 1: Captain in Phobos Armour 1-1 → Captain in Phobos Armour model 1-1
+- `ds-captain-in-phobos-armour-5` line 1: Captain in Phobos Armour 1-1 → Captain in Phobos Armour model 1-1
+- `ds-captain-in-phobos-armour-6` line 1: Captain in Phobos Armour 1-1 → Captain in Phobos Armour model 1-1
+- `ds-captain-in-terminator-armour` line 1: Captain in Terminator Armour 1-1 → Captain in Terminator Armour model 1-1
+- `ds-captain-in-terminator-armour-2` line 1: Captain in Terminator Armour 1-1 → Captain in Terminator Armour model 1-1
+- `ds-captain-in-terminator-armour-3` line 1: Captain in Terminator Armour 1-1 → Captain in Terminator Armour model 1-1
+- `ds-captain-in-terminator-armour-4` line 1: Captain in Terminator Armour 1-1 → Captain in Terminator Armour model 1-1
+- `ds-captain-in-terminator-armour-5` line 1: Captain in Terminator Armour 1-1 → Captain in Terminator Armour model 1-1
+- `ds-captain-in-terminator-armour-6` line 1: Captain in Terminator Armour 1-1 → Captain in Terminator Armour model 1-1
+- `ds-captain-on-bike` line 1: Captain on Bike 1-1 → Captain on Bike model 1-1
+- `ds-captain-on-bike-2` line 1: absent → Captain on Bike model 1-1
+- `ds-captain-on-bike-3` line 1: absent → Captain on Bike model 1-1
+- `ds-captain-on-bike-4` line 1: absent → Captain on Bike model 1-1
+- `ds-captain-on-bike-5` line 1: absent → Captain on Bike model 1-1
+- `ds-captain-on-bike-6` line 1: absent → Captain on Bike model 1-1
+- `ds-captain-titus` line 1: Captain Titus - EPIC HERO 1-1 → Captain Titus model 1-1
+- `ds-captain-tycho` line 1: Captain Tycho - EPIC HERO 1-1 → absent
+- `ds-captain-with-jump-pack` line 1: Captain with Jump Pack 1-1 → Captain with Jump Pack model 1-1
+- `ds-captain-with-jump-pack-2` line 1: Captain with Jump Pack 1-1 → Captain with Jump Pack model 1-1
+- `ds-captain-with-jump-pack-3` line 1: Captain with Jump Pack 1-1 → Captain with Jump Pack model 1-1
+- `ds-captain-with-jump-pack-4` line 1: Captain with Jump Pack 1-1 → Captain with Jump Pack model 1-1
+- `ds-captain-with-jump-pack-5` line 1: Captain with Jump Pack 1-1 → Captain with Jump Pack model 1-1
+- `ds-captain-with-jump-pack-6` line 1: Captain with Jump Pack 1-1 → Captain with Jump Pack model 1-1
+- `ds-carab-culln-the-risen` line 1: Carab Culln the Risen - EPIC HERO 1-1 → absent
+- `ds-castellan` line 1: Castellan 1-1 → Castellan model 1-1
+- `ds-cato-sicarius` line 1: Cato Sicarius - EPIC HERO 1-1 → Cato Sicarius model 1-1
+- `ds-centurion-assault-squad` line 1: Assault Centurion Sergeant 1-1 → Assault Centurion Sergeant model 1-1
+- `ds-centurion-assault-squad` line 2: Assault Centurions 2-5 → Assault Centurion models 2-5
+- `ds-centurion-assault-squad-2` line 1: Assault Centurion Sergeant 1-1 → absent
+- `ds-centurion-assault-squad-2` line 2: Assault Centurions 2-5 → absent
+- `ds-centurion-assault-squad-3` line 1: Assault Centurion Sergeant 1-1 → absent
+- `ds-centurion-assault-squad-3` line 2: Assault Centurions 2-5 → absent
+- `ds-centurion-assault-squad-4` line 1: Assault Centurion Sergeant 1-1 → absent
+- `ds-centurion-assault-squad-4` line 2: Assault Centurions 2-5 → absent
+- `ds-centurion-assault-squad-5` line 1: Assault Centurion Sergeant 1-1 → absent
+- `ds-centurion-assault-squad-5` line 2: Assault Centurions 2-5 → absent
+- `ds-centurion-assault-squad-6` line 1: Assault Centurion Sergeant 1-1 → absent
+- `ds-centurion-assault-squad-6` line 2: Assault Centurions 2-5 → absent
+- `ds-centurion-devastator-squad` line 1: Devastator Centurion Sergeant 1-1 → Devastator Centurion Sergeant model 1-1
+- `ds-centurion-devastator-squad` line 2: Devastator Centurions 2-5 → Devastator Centurion models 2-5
+- `ds-centurion-devastator-squad-2` line 1: Devastator Centurion Sergeant 1-1 → absent
+- `ds-centurion-devastator-squad-2` line 2: Devastator Centurions 2-5 → absent
+- `ds-centurion-devastator-squad-3` line 1: Devastator Centurion Sergeant 1-1 → absent
+- `ds-centurion-devastator-squad-3` line 2: Devastator Centurions 2-5 → absent
+- `ds-centurion-devastator-squad-4` line 1: Devastator Centurion Sergeant 1-1 → absent
+- `ds-centurion-devastator-squad-4` line 2: Devastator Centurions 2-5 → absent
+- `ds-centurion-devastator-squad-5` line 1: Devastator Centurion Sergeant 1-1 → absent
+- `ds-centurion-devastator-squad-5` line 2: Devastator Centurions 2-5 → absent
+- `ds-centurion-devastator-squad-6` line 1: Devastator Centurion Sergeant 1-1 → absent
+- `ds-centurion-devastator-squad-6` line 2: Devastator Centurions 2-5 → absent
+- `ds-cerberus` line 1: Cerberus 1-1 → Cerberus model 1-1
+- `ds-cerberus-2` line 1: Cerberus 1-1 → Cerberus model 1-1
+- `ds-cerberus-3` line 1: Cerberus 1-1 → Cerberus model 1-1
+- `ds-cerberus-4` line 1: Cerberus 1-1 → Cerberus model 1-1
+- `ds-cerberus-5` line 1: Cerberus 1-1 → Cerberus model 1-1
+- `ds-chaplain` line 1: Chaplain 1-1 → Chaplain model 1-1
+- `ds-chaplain-2` line 1: Chaplain 1-1 → Chaplain model 1-1
+- `ds-chaplain-3` line 1: Chaplain 1-1 → Chaplain model 1-1
+- `ds-chaplain-4` line 1: Chaplain 1-1 → Chaplain model 1-1
+- `ds-chaplain-5` line 1: Chaplain 1-1 → Chaplain model 1-1
+- `ds-chaplain-6` line 1: Chaplain 1-1 → Chaplain model 1-1
+- `ds-chaplain-cassius` line 1: Chaplain Cassius - EPIC HERO 1-1 → absent
+- `ds-chaplain-grimaldus` line 1: Chaplain Grimaldus - EPIC HERO 1-1 → Chaplain Grimaldus model 1-1
+- `ds-chaplain-grimaldus` line 2: Cenobyte Servitors 3-3 → Cenobyte Servitor models 3-3
+- `ds-chaplain-in-terminator-armour` line 1: Chaplain in Terminator Armour 1-1 → Chaplain in Terminator Armour model 1-1
+- `ds-chaplain-in-terminator-armour-2` line 1: Chaplain in Terminator Armour 1-1 → Chaplain in Terminator Armour model 1-1
+- `ds-chaplain-in-terminator-armour-3` line 1: Chaplain in Terminator Armour 1-1 → Chaplain in Terminator Armour model 1-1
+- `ds-chaplain-in-terminator-armour-4` line 1: Chaplain in Terminator Armour 1-1 → Chaplain in Terminator Armour model 1-1
+- `ds-chaplain-in-terminator-armour-5` line 1: Chaplain in Terminator Armour 1-1 → Chaplain in Terminator Armour model 1-1
+- `ds-chaplain-in-terminator-armour-6` line 1: Chaplain in Terminator Armour 1-1 → Chaplain in Terminator Armour model 1-1
+- `ds-chaplain-on-bike` line 1: Chaplain on Bike 1-1 → Chaplain on Bike model 1-1
+- `ds-chaplain-on-bike-2` line 1: Chaplain on Bike 1-1 → Chaplain on Bike model 1-1
+- `ds-chaplain-on-bike-3` line 1: Chaplain on Bike 1-1 → Chaplain on Bike model 1-1
+- `ds-chaplain-on-bike-4` line 1: Chaplain on Bike 1-1 → Chaplain on Bike model 1-1
+- `ds-chaplain-on-bike-5` line 1: Chaplain on Bike 1-1 → Chaplain on Bike model 1-1
+- `ds-chaplain-on-bike-6` line 1: Chaplain on Bike 1-1 → Chaplain on Bike model 1-1
+- `ds-chaplain-venerable-dreadnought` line 1: Chaplain Venerable Dreadnought 1-1 → absent
+- `ds-chaplain-with-jump-pack` line 1: Chaplain with Jump Pack 1-1 → Chaplain with Jump Pack model 1-1
+- `ds-chaplain-with-jump-pack-2` line 1: Chaplain with Jump Pack 1-1 → Chaplain with Jump Pack model 1-1
+- `ds-chaplain-with-jump-pack-3` line 1: Chaplain with Jump Pack 1-1 → Chaplain with Jump Pack model 1-1
+- `ds-chaplain-with-jump-pack-4` line 1: Chaplain with Jump Pack 1-1 → Chaplain with Jump Pack model 1-1
+- `ds-chaplain-with-jump-pack-5` line 1: Chaplain with Jump Pack 1-1 → Chaplain with Jump Pack model 1-1
+- `ds-chaplain-with-jump-pack-6` line 1: Chaplain with Jump Pack 1-1 → Chaplain with Jump Pack model 1-1
+- `ds-chief-librarian-mephiston` line 1: Chief Librarian Mephiston - EPIC HERO 1-1 → Chief Librarian Mephiston model 1-1
+- `ds-chief-librarian-tigurius` line 1: Chief Librarian Tigurius - EPIC HERO 1-1 → Chief Librarian Tigurius model 1-1
+- `ds-command-squad` line 1: Apothecary 1-1 → absent
+- `ds-command-squad` line 2: Company Ancient 1-1 → absent
+- `ds-command-squad` line 3: Company Champion 1-1 → absent
+- `ds-command-squad` line 4: Company Veterans 2-2 → absent
+- `ds-commander-dante` line 1: Commander Dante - EPIC HERO 1-1 → Commander Dante model 1-1
+- `ds-company-champion-on-bike` line 1: Company Champion on Bike 1-1 → absent
+- `ds-company-heroes` line 1: Ancient 1-1 → Ancient model 1-1
+- `ds-company-heroes` line 2: Company Champion 1-1 → Company Champion model 1-1
+- `ds-company-heroes` line 3: Company Veterans 2-2 → Company Veteran with Bolt Rifle model 1-1
+- `ds-company-heroes` line 4: absent → Company Veteran with Heavy Bolter model 1-1
+- `ds-company-heroes-2` line 1: Ancient 1-1 → Ancient model 1-1
+- `ds-company-heroes-2` line 2: Company Champion 1-1 → Company Champion model 1-1
+- `ds-company-heroes-2` line 3: Company Veterans 2-2 → Company Veteran with Bolt Rifle model 1-1
+- `ds-company-heroes-2` line 4: absent → Company Veteran with Heavy Bolter model 1-1
+- `ds-company-heroes-3` line 1: Ancient 1-1 → Ancient model 1-1
+- `ds-company-heroes-3` line 2: Company Champion 1-1 → Company Champion model 1-1
+- `ds-company-heroes-3` line 3: Company Veterans 2-2 → Company Veteran with Bolt Rifle model 1-1
+- `ds-company-heroes-3` line 4: absent → Company Veteran with Heavy Bolter model 1-1
+- `ds-company-heroes-4` line 1: Ancient 1-1 → Ancient model 1-1
+- `ds-company-heroes-4` line 2: Company Champion 1-1 → Company Champion model 1-1
+- `ds-company-heroes-4` line 3: Company Veterans 2-2 → Company Veteran with Bolt Rifle model 1-1
+- `ds-company-heroes-4` line 4: absent → Company Veteran with Heavy Bolter model 1-1
+- `ds-company-heroes-5` line 1: Ancient 1-1 → Ancient model 1-1
+- `ds-company-heroes-5` line 2: Company Champion 1-1 → Company Champion model 1-1
+- `ds-company-heroes-5` line 3: Company Veterans 2-2 → Company Veteran with Bolt Rifle model 1-1
+- `ds-company-heroes-5` line 4: absent → Company Veteran with Heavy Bolter model 1-1
+- `ds-company-heroes-6` line 1: Ancient 1-1 → Ancient model 1-1
+- `ds-company-heroes-6` line 2: Company Champion 1-1 → Company Champion model 1-1
+- `ds-company-heroes-6` line 3: Company Veterans 2-2 → Company Veteran with Bolt Rifle model 1-1
+- `ds-company-heroes-6` line 4: absent → Company Veteran with Heavy Bolter model 1-1
+- `ds-company-veterans-on-bikes` line 1: Veteran Biker Sergeant 1-1 → absent
+- `ds-company-veterans-on-bikes` line 2: Veteran Bikers 1-4 → absent
+- `ds-corvus-blackstar` line 1: Corvus Blackstar 1-1 → Corvus Blackstar model 1-1
+- `ds-crusade-ancient` line 1: Crusade Ancient 1-1 → Crusade Ancient model 1-1
+- `ds-crusader-squad` line 1: Sword Brother 1-1 → Sword Brother model 1-1
+- `ds-crusader-squad` line 2: Initiates 5-11 → Neophyte models 4-8
+- `ds-crusader-squad` line 3: Neophytes 4-8 → Initiate models 5-11
+- `ds-cyberwolf` line 1: Cyberwolf 1-1 → absent
+- `ds-darnath-lysander` line 1: Darnath Lysander - EPIC HERO 1-1 → Darnath Lysander model 1-1
+- `ds-death-company-captain` line 1: Death Company Captain 1-1 → Death Company Captain model 1-1
+- `ds-death-company-captain-with-jump-pack` line 1: Death Company Captain with Jump Pack 1-1 → Death Company Captain with Jump Pack model 1-1
+- `ds-death-company-dreadnought` line 1: Death Company Dreadnought 1-1 → Death Company Dreadnought model 1-1
+- `ds-death-company-dreadnought-with-magna-grapple` line 1: Death Company Dreadnought 1-1 → absent
+- `ds-death-company-marines` line 1: Death Company Marines 5-10 → Death Company Marines models 5-10
+- `ds-death-company-marines-with-bolt-rifles` line 1: Death Company Marines with Bolt Rifles 5-10 → absent
+- `ds-death-company-marines-with-boltguns` line 1: Death Company Marines 5-10 → absent
+- `ds-death-company-marines-with-boltguns-and-jump-packs` line 1: Death Company Marines with Jump Packs 5-10 → absent
+- `ds-death-company-marines-with-jump-packs` line 1: Death Company Marines with Jump Packs 5-10 → Death Company Marines with Jump Packs models 5-10
+- `ds-deathstorm-drop-pod` line 1: Deathstorm Drop Pod 1-1 → absent
+- `ds-deathwatch-kill-team` line 1: Watch Sergeant 1-1 → Watch Sergeant model 1-1
+- `ds-deathwatch-kill-team` line 2: Deathwatch Veterans 4-9 → Deathwatch Veteran models 4-9
+- `ds-deathwatch-terminator-squad` line 1: Deathwatch Terminator Sergeant 1-1 → Deathwatch Terminator Sergeant model 1-1
+- `ds-deathwatch-terminator-squad` line 2: Deathwatch Terminators 4-9 → Deathwatch Terminator models 4-9
+- `ds-deathwatch-veterans` line 1: Watch Sergeant 1-1 → Watch Sergeant model 1-1
+- `ds-deathwatch-veterans` line 2: Deathwatch Veterans 4-9 → Deathwatch Veteran models 4-9
+- `ds-deathwing-command-squad` line 1: Deathwing Ancient 1-1 → absent
+- `ds-deathwing-command-squad` line 2: Deathwing Apothecary 1-1 → absent
+- `ds-deathwing-command-squad` line 3: Deathwing Champion 1-1 → absent
+- `ds-deathwing-command-squad` line 4: Deathwing Command Terminators 2-7 → absent
+- `ds-deathwing-knights` line 1: Knight Master 1-1 → Knight Master model 1-1
+- `ds-deathwing-knights` line 2: Deathwing Knights 4-4 → Deathwing Knights models 4-4
+- `ds-deathwing-strikemaster` line 1: Deathwing Strikemaster 1-1 → absent
+- `ds-deathwing-terminator-squad` line 1: Deathwing Sergeant 1-1 → Deathwing Sergeant model 1-1
+- `ds-deathwing-terminator-squad` line 2: Deathwing Terminators 4-9 → Deathwing Terminators models 4-9
+- `ds-decimus-kill-team` line 1: Kill Team Sergeant 1-1 → Deathwatch Veteran with Xenophase Blade and Special-issue Bolt Pistol model 1-1
+- `ds-deimos-predator` line 1: Deimos Predator 1-1 → absent
+- `ds-deredeo-dreadnought` line 1: Deredeo Dreadnought 1-1 → absent
+- `ds-deredeo-dreadnought-2` line 1: Deredeo Dreadnought 1-1 → absent
+- `ds-deredeo-dreadnought-3` line 1: Deredeo Dreadnought 1-1 → absent
+- `ds-deredeo-dreadnought-4` line 1: Deredeo Dreadnought 1-1 → absent
+- `ds-deredeo-dreadnought-5` line 1: Deredeo Dreadnought 1-1 → absent
+- `ds-desolation-squad` line 1: Desolation Sergeant 1-1 → Desolation Sergeant model 1-1
+- `ds-desolation-squad` line 2: Desolation Marines 4-4 → Desolation Marine models 4-4
+- `ds-desolation-squad-2` line 1: Desolation Sergeant 1-1 → Desolation Sergeant model 1-1
+- `ds-desolation-squad-2` line 2: Desolation Marines 4-4 → Desolation Marine models 4-4
+- `ds-desolation-squad-3` line 1: Desolation Sergeant 1-1 → Desolation Sergeant model 1-1
+- `ds-desolation-squad-3` line 2: Desolation Marines 4-4 → Desolation Marine models 4-4
+- `ds-desolation-squad-4` line 1: Desolation Sergeant 1-1 → Desolation Sergeant model 1-1
+- `ds-desolation-squad-4` line 2: Desolation Marines 4-4 → Desolation Marine models 4-4
+- `ds-desolation-squad-5` line 1: Desolation Sergeant 1-1 → Desolation Sergeant model 1-1
+- `ds-desolation-squad-5` line 2: Desolation Marines 4-4 → Desolation Marine models 4-4
+- `ds-desolation-squad-6` line 1: Desolation Sergeant 1-1 → Desolation Sergeant model 1-1
+- `ds-desolation-squad-6` line 2: Desolation Marines 4-4 → Desolation Marine models 4-4
+- `ds-devastator-squad` line 1: Devastator Sergeant 1-1 → absent
+- `ds-devastator-squad` line 2: Devastator Marines 4-9 → absent
+- `ds-devastator-squad-2` line 1: Devastator Sergeant 1-1 → absent
+- `ds-devastator-squad-2` line 2: Devastator Marines 4-9 → absent
+- `ds-devastator-squad-3` line 1: Devastator Sergeant 1-1 → absent
+- `ds-devastator-squad-3` line 2: Devastator Marines 4-9 → absent
+- `ds-devastator-squad-4` line 1: Devastator Sergeant 1-1 → absent
+- `ds-devastator-squad-4` line 2: Devastator Marines 4-9 → absent
+- `ds-dreadnought` line 1: Dreadnought 1-1 → Dreadnought model 1-1
+- `ds-dreadnought-2` line 1: Dreadnought 1-1 → absent
+- `ds-dreadnought-3` line 1: Dreadnought 1-1 → absent
+- `ds-dreadnought-4` line 1: Dreadnought 1-1 → absent
+- `ds-dreadnought-5` line 1: Dreadnought 1-1 → absent
+- `ds-dreadnought-6` line 1: Dreadnought 1-1 → absent
+- `ds-dreadnought-drop-pod` line 1: Dreadnought Drop Pod 1-1 → absent
+- `ds-drop-pod` line 1: Drop Pod 1-1 → Drop Pod model 1-1
+- `ds-drop-pod-2` line 1: Drop Pod 1-1 → Drop Pod model 1-1
+- `ds-drop-pod-3` line 1: Drop Pod 1-1 → Drop Pod model 1-1
+- `ds-drop-pod-4` line 1: Drop Pod 1-1 → Drop Pod model 1-1
+- `ds-drop-pod-5` line 1: Drop Pod 1-1 → Drop Pod model 1-1
+- `ds-drop-pod-6` line 1: Drop Pod 1-1 → Drop Pod model 1-1
+- `ds-eliminator-squad` line 1: Eliminator Sergeant 1-1 → Eliminator Sergeant model 1-1
+- `ds-eliminator-squad` line 2: Eliminators 2-2 → Eliminator models 2-2
+- `ds-eliminator-squad-2` line 1: Eliminator Sergeant 1-1 → Eliminator Sergeant model 1-1
+- `ds-eliminator-squad-2` line 2: Eliminators 2-2 → Eliminator models 2-2
+- `ds-eliminator-squad-3` line 1: Eliminator Sergeant 1-1 → Eliminator Sergeant model 1-1
+- `ds-eliminator-squad-3` line 2: Eliminators 2-2 → Eliminator models 2-2
+- `ds-eliminator-squad-4` line 1: Eliminator Sergeant 1-1 → Eliminator Sergeant model 1-1
+- `ds-eliminator-squad-4` line 2: Eliminators 2-2 → Eliminator models 2-2
+- `ds-eliminator-squad-5` line 1: Eliminator Sergeant 1-1 → Eliminator Sergeant model 1-1
+- `ds-eliminator-squad-5` line 2: Eliminators 2-2 → Eliminator models 2-2
+- `ds-eliminator-squad-6` line 1: Eliminator Sergeant 1-1 → Eliminator Sergeant model 1-1
+- `ds-eliminator-squad-6` line 2: Eliminators 2-2 → Eliminator models 2-2
+- `ds-emperors-champion` line 1: Emperor’s Champion 1-1 → Emperor's Champion model 1-1
+- `ds-eradicator-squad` line 1: Eradicator Sergeant 1-1 → absent
+- `ds-eradicator-squad` line 2: Eradicators 2-5 → absent
+- `ds-eradicator-squad-2` line 1: Eradicator Sergeant 1-1 → absent
+- `ds-eradicator-squad-2` line 2: Eradicators 2-5 → absent
+- `ds-eradicator-squad-3` line 1: Eradicator Sergeant 1-1 → absent
+- `ds-eradicator-squad-3` line 2: Eradicators 2-5 → absent
+- `ds-eradicator-squad-4` line 1: Eradicator Sergeant 1-1 → absent
+- `ds-eradicator-squad-4` line 2: Eradicators 2-5 → absent
+- `ds-eradicator-squad-5` line 1: Eradicator Sergeant 1-1 → absent
+- `ds-eradicator-squad-5` line 2: Eradicators 2-5 → absent
+- `ds-eradicator-squad-6` line 1: Eradicator Sergeant 1-1 → absent
+- `ds-eradicator-squad-6` line 2: Eradicators 2-5 → absent
+- `ds-eradicator-squad-with-heavy-bolters` line 1: Eradicator Sergeant 1-1 → Eradicator Sergeant model 1-1
+- `ds-eradicator-squad-with-heavy-bolters` line 2: Eradicators 2-2 → Eradicator models 2-5
+- `ds-eradicator-squad-with-heavy-bolters-2` line 1: Eradicator Sergeant 1-1 → Eradicator Sergeant model 1-1
+- `ds-eradicator-squad-with-heavy-bolters-2` line 2: Eradicators 2-2 → Eradicator models 2-5
+- `ds-eradicator-squad-with-heavy-bolters-3` line 1: Eradicator Sergeant 1-1 → Eradicator Sergeant model 1-1
+- `ds-eradicator-squad-with-heavy-bolters-3` line 2: Eradicators 2-2 → Eradicator models 2-5
+- `ds-eradicator-squad-with-heavy-bolters-4` line 1: Eradicator Sergeant 1-1 → Eradicator Sergeant model 1-1
+- `ds-eradicator-squad-with-heavy-bolters-4` line 2: Eradicators 2-2 → Eradicator models 2-5
+- `ds-eradicator-squad-with-heavy-bolters-5` line 1: Eradicator Sergeant 1-1 → Eradicator Sergeant model 1-1
+- `ds-eradicator-squad-with-heavy-bolters-5` line 2: Eradicators 2-2 → Eradicator models 2-5
+- `ds-eradicator-squad-with-heavy-bolters-6` line 1: Eradicator Sergeant 1-1 → Eradicator Sergeant model 1-1
+- `ds-eradicator-squad-with-heavy-bolters-6` line 2: Eradicators 2-2 → Eradicator models 2-5
+- `ds-eradicator-squad-with-melta-rifles` line 1: absent → Eradicator Sergeant model 1-1
+- `ds-eradicator-squad-with-melta-rifles` line 2: absent → Eradicator models 2-5
+- `ds-eradicator-squad-with-melta-rifles-2` line 1: absent → Eradicator Sergeant model 1-1
+- `ds-eradicator-squad-with-melta-rifles-2` line 2: absent → Eradicator models 2-5
+- `ds-eradicator-squad-with-melta-rifles-3` line 1: absent → Eradicator Sergeant model 1-1
+- `ds-eradicator-squad-with-melta-rifles-3` line 2: absent → Eradicator models 2-5
+- `ds-eradicator-squad-with-melta-rifles-4` line 1: absent → Eradicator Sergeant model 1-1
+- `ds-eradicator-squad-with-melta-rifles-4` line 2: absent → Eradicator models 2-5
+- `ds-eradicator-squad-with-melta-rifles-5` line 1: absent → Eradicator Sergeant model 1-1
+- `ds-eradicator-squad-with-melta-rifles-5` line 2: absent → Eradicator models 2-5
+- `ds-eradicator-squad-with-melta-rifles-6` line 1: absent → Eradicator Sergeant model 1-1
+- `ds-eradicator-squad-with-melta-rifles-6` line 2: absent → Eradicator models 2-5
+- `ds-execrator` line 1: Execrator 1-1 → Execrator model 1-1
+- `ds-ezekiel` line 1: Ezekiel - EPIC HERO 1-1 → Ezekiel model 1-1
+- `ds-falchion` line 1: Falchion 1-1 → Falchion model 1-1
+- `ds-falchion-2` line 1: Falchion 1-1 → Falchion model 1-1
+- `ds-falchion-3` line 1: Falchion 1-1 → Falchion model 1-1
+- `ds-falchion-4` line 1: Falchion 1-1 → Falchion model 1-1
+- `ds-falchion-5` line 1: Falchion 1-1 → Falchion model 1-1
+- `ds-fellblade` line 1: Fellblade 1-1 → absent
+- `ds-fellblade-2` line 1: Fellblade 1-1 → absent
+- `ds-fellblade-3` line 1: Fellblade 1-1 → absent
+- `ds-fellblade-4` line 1: Fellblade 1-1 → absent
+- `ds-fellblade-5` line 1: Fellblade 1-1 → absent
+- `ds-fenrisian-wolves` line 1: Fenrisian Wolves 5-10 → Fenrisian Wolf models 5-10
+- `ds-ferren-areios` line 1: Ferren Areios - EPIC HERO 1-1 → absent
+- `ds-fire-raptor-gunship` line 1: Fire Raptor Gunship 1-1 → absent
+- `ds-fire-raptor-gunship-2` line 1: Fire Raptor Gunship 1-1 → absent
+- `ds-fire-raptor-gunship-3` line 1: Fire Raptor Gunship 1-1 → absent
+- `ds-fire-raptor-gunship-4` line 1: Fire Raptor Gunship 1-1 → absent
+- `ds-fire-raptor-gunship-5` line 1: Fire Raptor Gunship 1-1 → absent
+- `ds-firestrike-servo-turrets` line 1: Firestrike Servo-turrets 1-2 → Firestrike Servo-turrets models 1-2
+- `ds-firestrike-servo-turrets-2` line 1: Firestrike Servo-turrets 1-2 → Firestrike Servo-turrets models 1-2
+- `ds-firestrike-servo-turrets-3` line 1: Firestrike Servo-turrets 1-2 → Firestrike Servo-turrets models 1-2
+- `ds-firestrike-servo-turrets-4` line 1: Firestrike Servo-turrets 1-2 → Firestrike Servo-turrets models 1-2
+- `ds-firestrike-servo-turrets-5` line 1: Firestrike Servo-turrets 1-2 → Firestrike Servo-turrets models 1-2
+- `ds-firestrike-servo-turrets-6` line 1: Firestrike Servo-turrets 1-2 → Firestrike Servo-turrets models 1-2
+- `ds-fortis-kill-team` line 2: Kill Team Sergeant 1-1 → Kill Team Sergeant model 1-1
+- `ds-fortis-kill-team` line 3: Kill Team Intercessors 2-9 → Deathwatch Intercessor with Plasma Incinerator, Bolt Pistol and Knives and Fists models 2-2
+- `ds-fortis-kill-team` line 4: Kill Team Intercessors with plasma incinerators 0-4 → Kill Team Intercessor with Deathwatch Bolt Rifle, Bolt Pistol and Knives and Fists models 2-2
+- `ds-fortis-kill-team` line 5: Kill Team Intercessors with heavy bolt pistols 0-4 → Kill Team Intercessor with Heavy Bolt Pistol and Chainsword models 2-2
+- `ds-fortis-kill-team` line 6: Kill Team Intercessors with pyreblasters 0-4 → Kill Team Intercessor with Pyreblaster, Bolt Pistol and Knives and Fists models 2-2
+- `ds-fortis-kill-team` line 7: Kill Team Intercessors with superfrag rocket launchers 0-2 → absent
+- `ds-furioso-dreadnought` line 1: Furioso Dreadnought 1-1 → absent
+- `ds-gabriel-seth` line 1: Gabriel Seth - EPIC HERO 1-1 → absent
+- `ds-gladiator-lancer` line 1: Gladiator Lancer 1-1 → Gladiator Lancer model 1-1
+- `ds-gladiator-lancer-2` line 1: Gladiator Lancer 1-1 → Gladiator Lancer model 1-1
+- `ds-gladiator-lancer-3` line 1: Gladiator Lancer 1-1 → Gladiator Lancer model 1-1
+- `ds-gladiator-lancer-4` line 1: Gladiator Lancer 1-1 → Gladiator Lancer model 1-1
+- `ds-gladiator-lancer-5` line 1: Gladiator Lancer 1-1 → Gladiator Lancer model 1-1
+- `ds-gladiator-lancer-6` line 1: Gladiator Lancer 1-1 → Gladiator Lancer model 1-1
+- `ds-gladiator-reaper` line 1: Gladiator Reaper 1-1 → Gladiator Reaper model 1-1
+- `ds-gladiator-reaper-2` line 1: Gladiator Reaper 1-1 → Gladiator Reaper model 1-1
+- `ds-gladiator-reaper-3` line 1: Gladiator Reaper 1-1 → Gladiator Reaper model 1-1
+- `ds-gladiator-reaper-4` line 1: Gladiator Reaper 1-1 → Gladiator Reaper model 1-1
+- `ds-gladiator-reaper-5` line 1: Gladiator Reaper 1-1 → Gladiator Reaper model 1-1
+- `ds-gladiator-reaper-6` line 1: Gladiator Reaper 1-1 → Gladiator Reaper model 1-1
+- `ds-gladiator-valiant` line 1: Gladiator Valiant 1-1 → Gladiator Valiant model 1-1
+- `ds-gladiator-valiant-2` line 1: Gladiator Valiant 1-1 → Gladiator Valiant model 1-1
+- `ds-gladiator-valiant-3` line 1: Gladiator Valiant 1-1 → Gladiator Valiant model 1-1
+- `ds-gladiator-valiant-4` line 1: Gladiator Valiant 1-1 → Gladiator Valiant model 1-1
+- `ds-gladiator-valiant-5` line 1: Gladiator Valiant 1-1 → Gladiator Valiant model 1-1
+- `ds-gladiator-valiant-6` line 1: Gladiator Valiant 1-1 → Gladiator Valiant model 1-1
+- `ds-grey-hunters` line 1: Grey Hunter Pack Leader 1-1 → Grey Hunter Pack Leader model 1-1
+- `ds-grey-hunters` line 2: Grey Hunters 9-9 → Grey Hunter models 9-9
+- `ds-grot-mega-tank` line 1: Grot Mega-Tank 1-1 → Grot Mega-tank model 1-1
+- `ds-grot-tanks` line 1: Grot Tanks 4-8 → Grot Tank models 4-8
+- `ds-hammerfall-bunker` line 1: Hammerfall Bunker 1-1 → Hammerfall Bunker model 1-1
+- `ds-hammerfall-bunker-2` line 1: Hammerfall Bunker 1-1 → absent
+- `ds-hammerfall-bunker-3` line 1: Hammerfall Bunker 1-1 → absent
+- `ds-hammerfall-bunker-4` line 1: Hammerfall Bunker 1-1 → absent
+- `ds-hammerfall-bunker-5` line 1: Hammerfall Bunker 1-1 → absent
+- `ds-hammerfall-bunker-6` line 1: Hammerfall Bunker 1-1 → absent
+- `ds-harald-deathwolf` line 1: Harald Deathwolf - EPIC HERO 1-1 → absent
+- `ds-heavy-intercessor-squad` line 1: Heavy Intercessor Sergeant 1-1 → Heavy Intercessor Sergeant model 1-1
+- `ds-heavy-intercessor-squad` line 2: Heavy Intercessors 4-9 → Heavy Intercessor models 4-9
+- `ds-heavy-intercessor-squad-2` line 1: Heavy Intercessor Sergeant 1-1 → Heavy Intercessor Sergeant model 1-1
+- `ds-heavy-intercessor-squad-2` line 2: Heavy Intercessors 4-9 → Heavy Intercessor models 4-9
+- `ds-heavy-intercessor-squad-3` line 1: Heavy Intercessor Sergeant 1-1 → Heavy Intercessor Sergeant model 1-1
+- `ds-heavy-intercessor-squad-3` line 2: Heavy Intercessors 4-9 → Heavy Intercessor models 4-9
+- `ds-heavy-intercessor-squad-4` line 1: Heavy Intercessor Sergeant 1-1 → Heavy Intercessor Sergeant model 1-1
+- `ds-heavy-intercessor-squad-4` line 2: Heavy Intercessors 4-9 → Heavy Intercessor models 4-9
+- `ds-heavy-intercessor-squad-5` line 1: Heavy Intercessor Sergeant 1-1 → Heavy Intercessor Sergeant model 1-1
+- `ds-heavy-intercessor-squad-5` line 2: Heavy Intercessors 4-9 → Heavy Intercessor models 4-9
+- `ds-heavy-intercessor-squad-6` line 1: Heavy Intercessor Sergeant 1-1 → Heavy Intercessor Sergeant model 1-1
+- `ds-heavy-intercessor-squad-6` line 2: Heavy Intercessors 4-9 → Heavy Intercessor models 4-9
+- `ds-hellblaster-squad` line 1: Hellblaster Sergeant 1-1 → Hellblaster Sergeant model 1-1
+- `ds-hellblaster-squad` line 2: Hellblasters 4-9 → Hellblaster models 4-9
+- `ds-hellblaster-squad-2` line 1: Hellblaster Sergeant 1-1 → Hellblaster Sergeant model 1-1
+- `ds-hellblaster-squad-2` line 2: Hellblasters 4-9 → Hellblaster models 4-9
+- `ds-hellblaster-squad-3` line 1: Hellblaster Sergeant 1-1 → Hellblaster Sergeant model 1-1
+- `ds-hellblaster-squad-3` line 2: Hellblasters 4-9 → Hellblaster models 4-9
+- `ds-hellblaster-squad-4` line 1: Hellblaster Sergeant 1-1 → Hellblaster Sergeant model 1-1
+- `ds-hellblaster-squad-4` line 2: Hellblasters 4-9 → Hellblaster models 4-9
+- `ds-hellblaster-squad-5` line 1: Hellblaster Sergeant 1-1 → Hellblaster Sergeant model 1-1
+- `ds-hellblaster-squad-5` line 2: Hellblasters 4-9 → Hellblaster models 4-9
+- `ds-hellblaster-squad-6` line 1: Hellblaster Sergeant 1-1 → Hellblaster Sergeant model 1-1
+- `ds-hellblaster-squad-6` line 2: Hellblasters 4-9 → Hellblaster models 4-9
+- `ds-high-marshal-helbrecht` line 1: High Marshal Helbrecht - EPIC HERO 1-1 → High Marshal Helbrecht model 1-1
+- `ds-hounds-of-morkai` line 1: Hound of Morkai Pack Leader 1-1 → absent
+- `ds-hounds-of-morkai` line 2: Hound of Morkai 4-9 → absent
+- `ds-hunter` line 1: Hunter 1-1 → absent
+- `ds-imperial-space-marine` line 1: Imperial Space Marine 1-1 → absent
+- `ds-impulsor` line 1: Impulsor 1-1 → Impulsor model 1-1
+- `ds-impulsor-2` line 1: Impulsor 1-1 → Impulsor model 1-1
+- `ds-impulsor-3` line 1: Impulsor 1-1 → Impulsor model 1-1
+- `ds-impulsor-4` line 1: Impulsor 1-1 → Impulsor model 1-1
+- `ds-impulsor-5` line 1: Impulsor 1-1 → Impulsor model 1-1
+- `ds-impulsor-6` line 1: Impulsor 1-1 → Impulsor model 1-1
+- `ds-inceptor-squad` line 1: Inceptor Sergeant 1-1 → Inceptor Sergeant model 1-1
+- `ds-inceptor-squad` line 2: Inceptors 2-5 → Inceptor models 2-5
+- `ds-inceptor-squad-2` line 1: Inceptor Sergeant 1-1 → Inceptor Sergeant model 1-1
+- `ds-inceptor-squad-2` line 2: Inceptors 2-5 → Inceptor models 2-5
+- `ds-inceptor-squad-3` line 1: Inceptor Sergeant 1-1 → Inceptor Sergeant model 1-1
+- `ds-inceptor-squad-3` line 2: Inceptors 2-5 → Inceptor models 2-5
+- `ds-inceptor-squad-4` line 1: Inceptor Sergeant 1-1 → Inceptor Sergeant model 1-1
+- `ds-inceptor-squad-4` line 2: Inceptors 2-5 → Inceptor models 2-5
+- `ds-inceptor-squad-5` line 1: Inceptor Sergeant 1-1 → Inceptor Sergeant model 1-1
+- `ds-inceptor-squad-5` line 2: Inceptors 2-5 → Inceptor models 2-5
+- `ds-inceptor-squad-6` line 1: Inceptor Sergeant 1-1 → Inceptor Sergeant model 1-1
+- `ds-inceptor-squad-6` line 2: Inceptors 2-5 → Inceptor models 2-5
+- `ds-incursor-squad` line 1: Incursor Sergeant 1-1 → Incursor Sergeant model 1-1
+- `ds-incursor-squad` line 2: Incursors 4-9 → Incursor models 4-9
+- `ds-incursor-squad-2` line 1: Incursor Sergeant 1-1 → Incursor Sergeant model 1-1
+- `ds-incursor-squad-2` line 2: Incursors 4-9 → Incursor models 4-9
+- `ds-incursor-squad-3` line 1: Incursor Sergeant 1-1 → Incursor Sergeant model 1-1
+- `ds-incursor-squad-3` line 2: Incursors 4-9 → Incursor models 4-9
+- `ds-incursor-squad-4` line 1: Incursor Sergeant 1-1 → Incursor Sergeant model 1-1
+- `ds-incursor-squad-4` line 2: Incursors 4-9 → Incursor models 4-9
+- `ds-incursor-squad-5` line 1: Incursor Sergeant 1-1 → Incursor Sergeant model 1-1
+- `ds-incursor-squad-5` line 2: Incursors 4-9 → Incursor models 4-9
+- `ds-incursor-squad-6` line 1: Incursor Sergeant 1-1 → Incursor Sergeant model 1-1
+- `ds-incursor-squad-6` line 2: Incursors 4-9 → Incursor models 4-9
+- `ds-indomitor-kill-team` line 2: Kill Team Heavy Intercessors 3-10 → Kill Team Heavy Intercessor with Melta Rifle, Bolt Pistol and Ceramite Fists models 3-3
+- `ds-indomitor-kill-team` line 3: Kill Team Heavy Intercessors with power fists 0-3 → Kill Team Heavy Intercessor with Deathwatch Heavy Bolt Rifle and Ceramite Fists models 4-4
+- `ds-indomitor-kill-team` line 4: Kill Team Heavy Intercessors with melta rifles 0-3 → absent
+- `ds-infernus-squad` line 1: Infernus Sergeant 1-1 → Infernus Sergeant model 1-1
+- `ds-infernus-squad` line 2: Infernus Marines 4-9 → Infernus Marine models 4-9
+- `ds-infernus-squad-2` line 1: Infernus Sergeant 1-1 → Infernus Sergeant model 1-1
+- `ds-infernus-squad-2` line 2: Infernus Marines 4-9 → Infernus Marine models 4-9
+- `ds-infernus-squad-3` line 1: Infernus Sergeant 1-1 → Infernus Sergeant model 1-1
+- `ds-infernus-squad-3` line 2: Infernus Marines 4-9 → Infernus Marine models 4-9
+- `ds-infernus-squad-4` line 1: Infernus Sergeant 1-1 → Infernus Sergeant model 1-1
+- `ds-infernus-squad-4` line 2: Infernus Marines 4-9 → Infernus Marine models 4-9
+- `ds-infernus-squad-5` line 1: Infernus Sergeant 1-1 → Infernus Sergeant model 1-1
+- `ds-infernus-squad-5` line 2: Infernus Marines 4-9 → Infernus Marine models 4-9
+- `ds-infernus-squad-6` line 1: Infernus Sergeant 1-1 → Infernus Sergeant model 1-1
+- `ds-infernus-squad-6` line 2: Infernus Marines 4-9 → Infernus Marine models 4-9
+- `ds-infiltrator-squad` line 1: Infiltrator Sergeant 1-1 → Infiltrator Sergeant model 1-1
+- `ds-infiltrator-squad` line 2: Infiltrators 4-9 → Infiltrator models 4-9
+- `ds-infiltrator-squad-2` line 1: Infiltrator Sergeant 1-1 → Infiltrator Sergeant model 1-1
+- `ds-infiltrator-squad-2` line 2: Infiltrators 4-9 → Infiltrator models 4-9
+- `ds-infiltrator-squad-3` line 1: Infiltrator Sergeant 1-1 → Infiltrator Sergeant model 1-1
+- `ds-infiltrator-squad-3` line 2: Infiltrators 4-9 → Infiltrator models 4-9
+- `ds-infiltrator-squad-4` line 1: Infiltrator Sergeant 1-1 → Infiltrator Sergeant model 1-1
+- `ds-infiltrator-squad-4` line 2: Infiltrators 4-9 → Infiltrator models 4-9
+- `ds-infiltrator-squad-5` line 1: Infiltrator Sergeant 1-1 → Infiltrator Sergeant model 1-1
+- `ds-infiltrator-squad-5` line 2: Infiltrators 4-9 → Infiltrator models 4-9
+- `ds-infiltrator-squad-6` line 1: Infiltrator Sergeant 1-1 → Infiltrator Sergeant model 1-1
+- `ds-infiltrator-squad-6` line 2: Infiltrators 4-9 → Infiltrator models 4-9
+- `ds-inner-circle-companions` line 1: Inner Circle Companions 3-6 → Inner Circle Companions models 3-6
+- `ds-intercessor-squad` line 1: Intercessor Sergeant 1-1 → Intercessor Sergeant model 1-1
+- `ds-intercessor-squad` line 2: Intercessors 4-9 → Intercessor models 4-9
+- `ds-intercessor-squad-2` line 1: Intercessor Sergeant 1-1 → Intercessor Sergeant model 1-1
+- `ds-intercessor-squad-2` line 2: Intercessors 4-9 → Intercessor models 4-9
+- `ds-intercessor-squad-3` line 1: Intercessor Sergeant 1-1 → Intercessor Sergeant model 1-1
+- `ds-intercessor-squad-3` line 2: Intercessors 4-9 → Intercessor models 4-9
+- `ds-intercessor-squad-4` line 1: Intercessor Sergeant 1-1 → Intercessor Sergeant model 1-1
+- `ds-intercessor-squad-4` line 2: Intercessors 4-9 → Intercessor models 4-9
+- `ds-intercessor-squad-5` line 1: Intercessor Sergeant 1-1 → Intercessor Sergeant model 1-1
+- `ds-intercessor-squad-5` line 2: Intercessors 4-9 → Intercessor models 4-9
+- `ds-intercessor-squad-6` line 1: Intercessor Sergeant 1-1 → Intercessor Sergeant model 1-1
+- `ds-intercessor-squad-6` line 2: Intercessors 4-9 → Intercessor models 4-9
+- `ds-invader-atv` line 1: Invader ATV 1-1 → absent
+- `ds-invader-atv-2` line 1: Invader ATV 1-1 → absent
+- `ds-invader-atv-3` line 1: Invader ATV 1-1 → absent
+- `ds-invader-atv-4` line 1: Invader ATV 1-1 → absent
+- `ds-invader-atv-5` line 1: Invader ATV 1-1 → absent
+- `ds-invader-atv-6` line 1: Invader ATV 1-1 → absent
+- `ds-invader-atvs` line 1: absent → Invader ATV models 1-2
+- `ds-invader-atvs-2` line 1: absent → Invader ATV models 1-2
+- `ds-invader-atvs-3` line 1: absent → Invader ATV models 1-2
+- `ds-invader-atvs-4` line 1: absent → Invader ATV models 1-2
+- `ds-invader-atvs-5` line 1: absent → Invader ATV models 1-2
+- `ds-invader-atvs-6` line 1: absent → Invader ATV models 1-2
+- `ds-invictor-tactical-warsuit` line 1: Invictor Tactical Warsuit 1-1 → Invictor Tactical Warsuit model 1-1
+- `ds-invictor-tactical-warsuit-2` line 1: Invictor Tactical Warsuit 1-1 → Invictor Tactical Warsuit model 1-1
+- `ds-invictor-tactical-warsuit-3` line 1: Invictor Tactical Warsuit 1-1 → Invictor Tactical Warsuit model 1-1
+- `ds-invictor-tactical-warsuit-4` line 1: Invictor Tactical Warsuit 1-1 → Invictor Tactical Warsuit model 1-1
+- `ds-invictor-tactical-warsuit-5` line 1: Invictor Tactical Warsuit 1-1 → Invictor Tactical Warsuit model 1-1
+- `ds-invictor-tactical-warsuit-6` line 1: Invictor Tactical Warsuit 1-1 → Invictor Tactical Warsuit model 1-1
+- `ds-iron-father-feirros` line 1: Iron Father Feirros - EPIC HERO 1-1 → Iron Father Feirros model 1-1
+- `ds-iron-priest` line 1: Iron Priest 1-1 → Iron Priest model 1-1
+- `ds-ironclad-dreadnought` line 1: Ironclad Dreadnought 1-1 → absent
+- `ds-javelin-attack-speeder` line 1: Javelin Attack Speeder 1-1 → absent
+- `ds-judiciar` line 1: Judiciar 1-1 → Judiciar model 1-1
+- `ds-judiciar-2` line 1: Judiciar 1-1 → Judiciar model 1-1
+- `ds-judiciar-3` line 1: Judiciar 1-1 → Judiciar model 1-1
+- `ds-judiciar-4` line 1: Judiciar 1-1 → Judiciar model 1-1
+- `ds-judiciar-5` line 1: Judiciar 1-1 → Judiciar model 1-1
+- `ds-judiciar-6` line 1: Judiciar 1-1 → Judiciar model 1-1
+- `ds-kaius-konorius` line 1: absent → Kaius Konorius model 1-1
+- `ds-kaptin-badrukk` line 1: Kaptin Badrukk - EPIC HERO 1-1 → Kaptin Badrukk model 1-1
+- `ds-kayvaan-shrike` line 1: Kayvaan Shrike - EPIC HERO 1-1 → Kayvaan Shrike model 1-1
+- `ds-kill-tank` line 1: Kill Tank 1-1 → Kill Tank model 1-1
+- `ds-korsarro-khan` line 1: Kor’sarro Khan - EPIC HERO 1-1 → Kor’sarro Khan model 1-1
+- `ds-kratos` line 1: Kratos 1-1 → Kratos model 1-1
+- `ds-kratos-2` line 1: Kratos 1-1 → Kratos model 1-1
+- `ds-kratos-3` line 1: Kratos 1-1 → Kratos model 1-1
+- `ds-kratos-4` line 1: Kratos 1-1 → Kratos model 1-1
+- `ds-kratos-5` line 1: Kratos 1-1 → Kratos model 1-1
+- `ds-krom-dragongaze` line 1: Krom Dragongaze 1-1 → absent
+- `ds-land-raider` line 1: Land Raider 1-1 → Land Raider model 1-1
+- `ds-land-raider-2` line 1: Land Raider 1-1 → Land Raider model 1-1
+- `ds-land-raider-3` line 1: Land Raider 1-1 → Land Raider model 1-1
+- `ds-land-raider-4` line 1: Land Raider 1-1 → Land Raider model 1-1
+- `ds-land-raider-6` line 1: Land Raider 1-1 → Land Raider model 1-1
+- `ds-land-raider-7` line 1: Land Raider 1-1 → Land Raider model 1-1
+- `ds-land-raider-achilles` line 1: Land Raider Achilles 1-1 → absent
+- `ds-land-raider-achilles-2` line 1: Land Raider Achilles 1-1 → absent
+- `ds-land-raider-achilles-3` line 1: Land Raider Achilles 1-1 → absent
+- `ds-land-raider-achilles-4` line 1: Land Raider Achilles 1-1 → absent
+- `ds-land-raider-achilles-5` line 1: Land Raider Achilles 1-1 → absent
+- `ds-land-raider-crusader` line 1: Land Raider Crusader 1-1 → Land Raider Crusader model 1-1
+- `ds-land-raider-crusader-2` line 1: Land Raider Crusader 1-1 → Land Raider Crusader model 1-1
+- `ds-land-raider-crusader-3` line 1: Land Raider Crusader 1-1 → Land Raider Crusader model 1-1
+- `ds-land-raider-crusader-4` line 1: Land Raider Crusader 1-1 → Land Raider Crusader model 1-1
+- `ds-land-raider-crusader-6` line 1: Land Raider Crusader 1-1 → Land Raider Crusader model 1-1
+- `ds-land-raider-crusader-7` line 1: Land Raider Crusader 1-1 → Land Raider Crusader model 1-1
+- `ds-land-raider-excelsior` line 1: Land Raider Excelsior 1-1 → Land Raider Excelsior model 1-1
+- `ds-land-raider-helios` line 1: Land Raider Helios 1-1 → absent
+- `ds-land-raider-prometheus` line 1: Land Raider Prometheus 1-1 → absent
+- `ds-land-raider-proteus` line 1: Land Raider Proteus 1-1 → absent
+- `ds-land-raider-proteus-2` line 1: Land Raider Proteus 1-1 → absent
+- `ds-land-raider-proteus-3` line 1: Land Raider Proteus 1-1 → absent
+- `ds-land-raider-proteus-4` line 1: Land Raider Proteus 1-1 → absent
+- `ds-land-raider-proteus-5` line 1: Land Raider Proteus 1-1 → absent
+- `ds-land-raider-redeemer` line 1: Land Raider Redeemer 1-1 → Land Raider Redeemer model 1-1
+- `ds-land-raider-redeemer-2` line 1: Land Raider Redeemer 1-1 → Land Raider Redeemer model 1-1
+- `ds-land-raider-redeemer-3` line 1: Land Raider Redeemer 1-1 → Land Raider Redeemer model 1-1
+- `ds-land-raider-redeemer-4` line 1: Land Raider Redeemer 1-1 → Land Raider Redeemer model 1-1
+- `ds-land-raider-redeemer-6` line 1: Land Raider Redeemer 1-1 → Land Raider Redeemer model 1-1
+- `ds-land-raider-redeemer-7` line 1: Land Raider Redeemer 1-1 → Land Raider Redeemer model 1-1
+- `ds-land-speeder` line 1: Land Speeder 1-1 → Land Speeder model 1-1
+- `ds-land-speeder-2` line 1: Land Speeder 1-1 → Land Speeder model 1-1
+- `ds-land-speeder-3` line 1: Land Speeder 1-1 → Land Speeder model 1-1
+- `ds-land-speeder-4` line 1: Land Speeder 1-1 → Land Speeder model 1-1
+- `ds-land-speeder-5` line 1: Land Speeder 1-1 → Land Speeder model 1-1
+- `ds-land-speeder-6` line 1: Land Speeder 1-1 → Land Speeder model 1-1
+- `ds-land-speeder-storm` line 1: Land Speeder Storm 1-1 → absent
+- `ds-land-speeder-tempest` line 1: Land Speeder Tempest 1-1 → absent
+- `ds-land-speeder-tornado` line 1: Land Speeder Tornado 1-1 → absent
+- `ds-land-speeder-typhoon` line 1: Land Speeder Typhoon 1-1 → absent
+- `ds-land-speeder-vengeance` line 1: Land Speeder Vengeance 1-1 → Land Speeder Vengeance model 1-1
+- `ds-lazarus` line 1: Lazarus - EPIC HERO 1-1 → Lazarus model 1-1
+- `ds-lemartes` line 1: Lemartes - EPIC HERO 1-1 → Lemartes model 1-1
+- `ds-leviathan-dreadnought` line 1: Leviathan Dreadnought 1-1 → absent
+- `ds-leviathan-dreadnought-2` line 1: Leviathan Dreadnought 1-1 → absent
+- `ds-leviathan-dreadnought-3` line 1: Leviathan Dreadnought 1-1 → absent
+- `ds-leviathan-dreadnought-4` line 1: Leviathan Dreadnought 1-1 → absent
+- `ds-leviathan-dreadnought-5` line 1: Leviathan Dreadnought 1-1 → absent
+- `ds-librarian` line 1: Librarian 1-1 → Librarian model 1-1
+- `ds-librarian-2` line 1: Librarian 1-1 → Librarian model 1-1
+- `ds-librarian-3` line 1: Librarian 1-1 → Librarian model 1-1
+- `ds-librarian-4` line 1: Librarian 1-1 → Librarian model 1-1
+- `ds-librarian-5` line 1: Librarian 1-1 → Librarian model 1-1
+- `ds-librarian-dreadnought` line 1: Librarian Dreadnought 1-1 → absent
+- `ds-librarian-in-phobos-armour` line 1: Librarian in Phobos Armour 1-1 → Librarian in Phobos Armour model 1-1
+- `ds-librarian-in-phobos-armour-2` line 1: Librarian in Phobos Armour 1-1 → Librarian in Phobos Armour model 1-1
+- `ds-librarian-in-phobos-armour-3` line 1: Librarian in Phobos Armour 1-1 → Librarian in Phobos Armour model 1-1
+- `ds-librarian-in-phobos-armour-4` line 1: Librarian in Phobos Armour 1-1 → Librarian in Phobos Armour model 1-1
+- `ds-librarian-in-phobos-armour-5` line 1: Librarian in Phobos Armour 1-1 → Librarian in Phobos Armour model 1-1
+- `ds-librarian-in-terminator-armour` line 1: Librarian in Terminator Armour 1-1 → Librarian in Terminator Armour model 1-1
+- `ds-librarian-in-terminator-armour-2` line 1: Librarian in Terminator Armour 1-1 → Librarian in Terminator Armour model 1-1
+- `ds-librarian-in-terminator-armour-3` line 1: Librarian in Terminator Armour 1-1 → Librarian in Terminator Armour model 1-1
+- `ds-librarian-in-terminator-armour-4` line 1: Librarian in Terminator Armour 1-1 → Librarian in Terminator Armour model 1-1
+- `ds-librarian-in-terminator-armour-5` line 1: Librarian in Terminator Armour 1-1 → Librarian in Terminator Armour model 1-1
+- `ds-librarian-on-bike` line 1: Librarian on Bike 1-1 → absent
+- `ds-librarian-with-jump-pack` line 1: Librarian with Jump Pack 1-1 → absent
+- `ds-lieutenant` line 1: Lieutenant 1-1 → Lieutenant model 1-1
+- `ds-lieutenant-2` line 1: Lieutenant 1-1 → Lieutenant model 1-1
+- `ds-lieutenant-3` line 1: Lieutenant 1-1 → Lieutenant model 1-1
+- `ds-lieutenant-4` line 1: Lieutenant 1-1 → Lieutenant model 1-1
+- `ds-lieutenant-5` line 1: Lieutenant 1-1 → Lieutenant model 1-1
+- `ds-lieutenant-6` line 1: Lieutenant 1-1 → Lieutenant model 1-1
+- `ds-lieutenant-in-phobos-armour` line 1: Lieutenant in Phobos Armour 1-1 → Lieutenant in Phobos Armour model 1-1
+- `ds-lieutenant-in-phobos-armour-2` line 1: Lieutenant in Phobos Armour 1-1 → Lieutenant in Phobos Armour model 1-1
+- `ds-lieutenant-in-phobos-armour-3` line 1: Lieutenant in Phobos Armour 1-1 → Lieutenant in Phobos Armour model 1-1
+- `ds-lieutenant-in-phobos-armour-4` line 1: Lieutenant in Phobos Armour 1-1 → Lieutenant in Phobos Armour model 1-1
+- `ds-lieutenant-in-phobos-armour-5` line 1: Lieutenant in Phobos Armour 1-1 → Lieutenant in Phobos Armour model 1-1
+- `ds-lieutenant-in-phobos-armour-6` line 1: Lieutenant in Phobos Armour 1-1 → Lieutenant in Phobos Armour model 1-1
+- `ds-lieutenant-in-reiver-armour` line 1: Lieutenant in Reiver Armour 1-1 → absent
+- `ds-lieutenant-in-reiver-armour-2` line 1: Lieutenant in Reiver Armour 1-1 → absent
+- `ds-lieutenant-in-reiver-armour-3` line 1: Lieutenant in Reiver Armour 1-1 → absent
+- `ds-lieutenant-in-reiver-armour-4` line 1: Lieutenant in Reiver Armour 1-1 → absent
+- `ds-lieutenant-in-reiver-armour-5` line 1: Lieutenant in Reiver Armour 1-1 → absent
+- `ds-lieutenant-in-reiver-armour-6` line 1: Lieutenant in Reiver Armour 1-1 → absent
+- `ds-lieutenant-with-combi-weapon` line 1: Lieutenant with Combi-weapon 1-1 → Lieutenant with Combi-weapon model 1-1
+- `ds-lieutenant-with-combi-weapon-2` line 1: Lieutenant with Combi-weapon 1-1 → Lieutenant with Combi-weapon model 1-1
+- `ds-lieutenant-with-combi-weapon-3` line 1: Lieutenant with Combi-weapon 1-1 → Lieutenant with Combi-weapon model 1-1
+- `ds-lieutenant-with-combi-weapon-4` line 1: Lieutenant with Combi-weapon 1-1 → Lieutenant with Combi-weapon model 1-1
+- `ds-lieutenant-with-combi-weapon-5` line 1: Lieutenant with Combi-weapon 1-1 → Lieutenant with Combi-weapon model 1-1
+- `ds-lieutenant-with-combi-weapon-6` line 1: Lieutenant with Combi-weapon 1-1 → Lieutenant with Combi-weapon model 1-1
+- `ds-lifta-wagon` line 1: Lifta Wagon 1-1 → Lifta Wagon model 1-1
+- `ds-lion-eljonson` line 1: Lion El’Jonson - EPIC HERO 1-1 → Lion El'Jonson model 1-1
+- `ds-logan-grimnar` line 1: Logan Grimnar - EPIC HERO 1-1 → Logan Grimnar model 1-1
+- `ds-logan-grimnar-on-stormrider` line 1: Logan Grimnar on Stormrider - EPIC HERO 1-1 → absent
+- `ds-long-fangs` line 1: Long Fang Pack Leader 1-1 → absent
+- `ds-long-fangs` line 2: Long Fangs 4-5 → absent
+- `ds-lootas` line 1: Spanners 1-2 → Spanner models 1-2
+- `ds-lootas` line 2: Lootas 4-8 → Loota models 4-8
+- `ds-lukas-the-trickster` line 1: Lukas the Trickster - EPIC HERO 1-1 → absent
+- `ds-mad-dok-grotsnik` line 1: Mad Dok Grotsnik - EPIC HERO 1-1 → Mad Dok Grotsnik model 1-1
+- `ds-marneus-calgar` line 1: absent → Marneus Calgar model 1-1
+- `ds-marneus-calgar-in-armour-of-antilochus` line 1: Marneus Calgar in Armour of Antilochus - EPIC HERO 1-1 → absent
+- `ds-marshal` line 1: Marshal 1-1 → Marshal model 1-1
+- `ds-mastodon` line 1: Mastodon 1-1 → Mastodon model 1-1
+- `ds-mastodon-2` line 1: Mastodon 1-1 → Mastodon model 1-1
+- `ds-mastodon-3` line 1: Mastodon 1-1 → Mastodon model 1-1
+- `ds-mastodon-4` line 1: Mastodon 1-1 → Mastodon model 1-1
+- `ds-mastodon-5` line 1: Mastodon 1-1 → Mastodon model 1-1
+- `ds-mekboy-workshop` line 1: Mekboy Workshop 1-1 → Mekboy Workshop model 1-1
+- `ds-mortis-dreadnought` line 1: Mortis Dreadnought 1-1 → absent
+- `ds-murderfang` line 1: Murderfang - EPIC HERO 1-1 → Murderfang model 1-1
+- `ds-nephilim-jetfighter` line 1: Nephilim Jetfighter 1-1 → Nephilim Jetfighter model 1-1
+- `ds-njal-stormcaller` line 1: Njal Stormcaller - EPIC HERO 1-1 → Njal Stormcaller model 1-1
+- `ds-outrider-squad` line 1: Outrider Sergeant 1-1 → Outrider Sergeant model 1-1
+- `ds-outrider-squad` line 2: Outriders 2-5 → Outrider models 2-5
+- `ds-outrider-squad` line 3: Invader ATV 0-1 → absent
+- `ds-outrider-squad-2` line 1: Outrider Sergeant 1-1 → Outrider Sergeant model 1-1
+- `ds-outrider-squad-2` line 2: Outriders 2-5 → Outrider models 2-5
+- `ds-outrider-squad-2` line 3: Invader ATV 0-1 → absent
+- `ds-outrider-squad-3` line 1: Outrider Sergeant 1-1 → Outrider Sergeant model 1-1
+- `ds-outrider-squad-3` line 2: Outriders 2-5 → Outrider models 2-5
+- `ds-outrider-squad-3` line 3: Invader ATV 0-1 → absent
+- `ds-outrider-squad-4` line 1: Outrider Sergeant 1-1 → Outrider Sergeant model 1-1
+- `ds-outrider-squad-4` line 2: Outriders 2-5 → Outrider models 2-5
+- `ds-outrider-squad-4` line 3: Invader ATV 0-1 → absent
+- `ds-outrider-squad-5` line 1: Outrider Sergeant 1-1 → Outrider Sergeant model 1-1
+- `ds-outrider-squad-5` line 2: Outriders 2-5 → Outrider models 2-5
+- `ds-outrider-squad-5` line 3: Invader ATV 0-1 → absent
+- `ds-outrider-squad-6` line 1: Outrider Sergeant 1-1 → Outrider Sergeant model 1-1
+- `ds-outrider-squad-6` line 2: Outriders 2-5 → Outrider models 2-5
+- `ds-outrider-squad-6` line 3: Invader ATV 0-1 → absent
+- `ds-pedro-kantor` line 1: Pedro Kantor - EPIC HERO 1-1 → absent
+- `ds-predator-annihilator` line 1: Predator Annihilator 1-1 → Predator Annihilator model 1-1
+- `ds-predator-annihilator-2` line 1: Predator Annihilator 1-1 → absent
+- `ds-predator-annihilator-3` line 1: Predator Annihilator 1-1 → absent
+- `ds-predator-annihilator-4` line 1: Predator Annihilator 1-1 → absent
+- `ds-predator-annihilator-5` line 1: Predator Annihilator 1-1 → absent
+- `ds-predator-annihilator-6` line 1: Predator Annihilator 1-1 → absent
+- `ds-predator-destructor` line 1: Predator Destructor 1-1 → Predator Destructor model 1-1
+- `ds-predator-destructor-2` line 1: Predator Destructor 1-1 → absent
+- `ds-predator-destructor-3` line 1: Predator Destructor 1-1 → absent
+- `ds-predator-destructor-4` line 1: Predator Destructor 1-1 → absent
+- `ds-predator-destructor-5` line 1: Predator Destructor 1-1 → absent
+- `ds-predator-destructor-6` line 1: Predator Destructor 1-1 → absent
+- `ds-primaris-company-champion` line 1: Primaris Company Champion 1-1 → absent
+- `ds-ragnar-blackmane` line 1: Ragnar Blackmane - EPIC HERO 1-1 → Ragnar Blackmane model 1-1
+- `ds-rapier-carrier` line 1: Rapier Carrier 1-1 → Rapier Carrier model 1-1
+- `ds-rapier-carrier-2` line 1: Rapier Carrier 1-1 → Rapier Carrier model 1-1
+- `ds-rapier-carrier-3` line 1: Rapier Carrier 1-1 → Rapier Carrier model 1-1
+- `ds-rapier-carrier-4` line 1: Rapier Carrier 1-1 → Rapier Carrier model 1-1
+- `ds-rapier-carrier-5` line 1: Rapier Carrier 1-1 → Rapier Carrier model 1-1
+- `ds-ravenwing-black-knights` line 1: Ravenwing Huntmaster 1-1 → Ravenwing Huntmaster model 1-1
+- `ds-ravenwing-black-knights` line 2: Ravenwing Black Knights 2-5 → Ravenwing Black Knight models 2-5
+- `ds-ravenwing-command-squad` line 1: Ravenwing Champion 1-1 → Ravenwing Ancient model 1-1
+- `ds-ravenwing-command-squad` line 2: Ravenwing Apothecary 1-1 → Ravenwing Apothecary model 1-1
+- `ds-ravenwing-command-squad` line 3: Ravenwing Ancient 1-1 → Ravenwing Champion model 1-1
+- `ds-ravenwing-dark-talon` line 1: Ravenwing Dark Talon 1-1 → Ravenwing Dark Talon model 1-1
+- `ds-ravenwing-darkshroud` line 1: Ravenwing Darkshroud 1-1 → Ravenwing Darkshroud model 1-1
+- `ds-ravenwing-talonmaster` line 1: Ravenwing Talonmaster 1-1 → absent
+- `ds-razorback-2` line 1: Razorback 1-1 → Razorback model 1-1
+- `ds-razorback-3` line 1: Razorback 1-1 → absent
+- `ds-razorback-4` line 1: Razorback 1-1 → absent
+- `ds-razorback-5` line 1: Razorback 1-1 → absent
+- `ds-razorback-6` line 1: Razorback 1-1 → absent
+- `ds-razorback-7` line 1: Razorback 1-1 → absent
+- `ds-redemptor-dreadnought` line 1: Redemptor Dreadnought 1-1 → Redemptor Dreadnought model 1-1
+- `ds-redemptor-dreadnought-2` line 1: Redemptor Dreadnought 1-1 → Redemptor Dreadnought model 1-1
+- `ds-redemptor-dreadnought-3` line 1: Redemptor Dreadnought 1-1 → Redemptor Dreadnought model 1-1
+- `ds-redemptor-dreadnought-4` line 1: Redemptor Dreadnought 1-1 → Redemptor Dreadnought model 1-1
+- `ds-redemptor-dreadnought-5` line 1: Redemptor Dreadnought 1-1 → Redemptor Dreadnought model 1-1
+- `ds-redemptor-dreadnought-6` line 1: Redemptor Dreadnought 1-1 → Redemptor Dreadnought model 1-1
+- `ds-reiver-squad` line 1: Reiver Sergeant 1-1 → Reiver Sergeant model 1-1
+- `ds-reiver-squad` line 2: Reivers 4-9 → Reiver models 4-9
+- `ds-reiver-squad-2` line 1: Reiver Sergeant 1-1 → Reiver Sergeant model 1-1
+- `ds-reiver-squad-2` line 2: Reivers 4-9 → Reiver models 4-9
+- `ds-reiver-squad-3` line 1: Reiver Sergeant 1-1 → Reiver Sergeant model 1-1
+- `ds-reiver-squad-3` line 2: Reivers 4-9 → Reiver models 4-9
+- `ds-reiver-squad-4` line 1: Reiver Sergeant 1-1 → Reiver Sergeant model 1-1
+- `ds-reiver-squad-4` line 2: Reivers 4-9 → Reiver models 4-9
+- `ds-reiver-squad-5` line 1: Reiver Sergeant 1-1 → Reiver Sergeant model 1-1
+- `ds-reiver-squad-5` line 2: Reivers 4-9 → Reiver models 4-9
+- `ds-reiver-squad-6` line 1: Reiver Sergeant 1-1 → Reiver Sergeant model 1-1
+- `ds-reiver-squad-6` line 2: Reivers 4-9 → Reiver models 4-9
+- `ds-relic-contemptor-dreadnought` line 1: Relic Contemptor Dreadnought 1-1 → absent
+- `ds-relic-contemptor-dreadnought-2` line 1: Relic Contemptor Dreadnought 1-1 → absent
+- `ds-relic-contemptor-dreadnought-3` line 1: Relic Contemptor Dreadnought 1-1 → absent
+- `ds-relic-contemptor-dreadnought-4` line 1: Relic Contemptor Dreadnought 1-1 → absent
+- `ds-relic-contemptor-dreadnought-5` line 1: Relic Contemptor Dreadnought 1-1 → absent
+- `ds-relic-razorback` line 1: Relic Razorback 1-1 → Relic Razorback model 1-1
+- `ds-relic-terminator-squad` line 1: Relic Terminator Sergeant 1-1 → absent
+- `ds-relic-terminator-squad` line 2: Relic Terminators 4-9 → absent
+- `ds-repulsor` line 1: Repulsor 1-1 → Repulsor model 1-1
+- `ds-repulsor-2` line 1: Repulsor 1-1 → Repulsor model 1-1
+- `ds-repulsor-3` line 1: Repulsor 1-1 → Repulsor model 1-1
+- `ds-repulsor-4` line 1: Repulsor 1-1 → Repulsor model 1-1
+- `ds-repulsor-5` line 1: Repulsor 1-1 → Repulsor model 1-1
+- `ds-repulsor-6` line 1: Repulsor 1-1 → Repulsor model 1-1
+- `ds-repulsor-executioner` line 1: Repulsor Executioner 1-1 → Repulsor Executioner model 1-1
+- `ds-repulsor-executioner-2` line 1: Repulsor Executioner 1-1 → Repulsor Executioner model 1-1
+- `ds-repulsor-executioner-3` line 1: Repulsor Executioner 1-1 → Repulsor Executioner model 1-1
+- `ds-repulsor-executioner-4` line 1: Repulsor Executioner 1-1 → Repulsor Executioner model 1-1
+- `ds-repulsor-executioner-5` line 1: Repulsor Executioner 1-1 → Repulsor Executioner model 1-1
+- `ds-repulsor-executioner-6` line 1: Repulsor Executioner 1-1 → Repulsor Executioner model 1-1
+- `ds-rhino` line 1: Rhino 1-1 → Rhino model 1-1
+- `ds-rhino-2` line 1: Rhino 1-1 → Rhino model 1-1
+- `ds-rhino-3` line 1: Rhino 1-1 → Rhino model 1-1
+- `ds-rhino-4` line 1: Rhino 1-1 → Rhino model 1-1
+- `ds-rhino-6` line 1: Rhino 1-1 → Rhino model 1-1
+- `ds-rhino-7` line 1: Rhino 1-1 → Rhino model 1-1
+- `ds-rhino-primaris` line 1: Rhino Primaris 1-1 → Rhino Primaris model 1-1
+- `ds-roboute-guilliman` line 1: Roboute Guilliman - EPIC HERO 1-1 → Roboute Guilliman model 1-1
+- `ds-sammael` line 1: Sammael - EPIC HERO 1-1 → Sammael model 1-1
+- `ds-sanguinary-guard` line 1: Sanguinary Guard 3-6 → Sanguinary Guard models 3-6
+- `ds-sanguinary-priest` line 1: Sanguinary Priest 1-1 → Sanguinary Priest model 1-1
+- `ds-sanguinary-priest-with-jump-pack` line 1: Sanguinary Priest 1-1 → absent
+- `ds-scout-bike-squad` line 1: Scout Biker Sergeant 1-1 → Scout Biker Sergeant model 1-1
+- `ds-scout-bike-squad` line 2: Scout Bikers 2-5 → Scout Biker models 2-5
+- `ds-scout-sniper-squad` line 1: Scout Sniper Sergeant 1-1 → absent
+- `ds-scout-sniper-squad` line 2: Scout Snipers 4-9 → absent
+- `ds-scout-squad` line 1: Scout Sergeant 1-1 → Scout Sergeant model 1-1
+- `ds-scout-squad` line 2: Scouts 4-9 → Scout models 4-9
+- `ds-scout-squad-2` line 1: Scout Sergeant 1-1 → Scout Sergeant model 1-1
+- `ds-scout-squad-2` line 2: Scouts 4-9 → Scout models 4-9
+- `ds-scout-squad-3` line 1: Scout Sergeant 1-1 → Scout Sergeant model 1-1
+- `ds-scout-squad-3` line 2: Scouts 4-9 → Scout models 4-9
+- `ds-scout-squad-4` line 1: Scout Sergeant 1-1 → Scout Sergeant model 1-1
+- `ds-scout-squad-4` line 2: Scouts 4-9 → Scout models 4-9
+- `ds-scout-squad-5` line 1: Scout Sergeant 1-1 → Scout Sergeant model 1-1
+- `ds-scout-squad-5` line 2: Scouts 4-9 → Scout models 4-9
+- `ds-sergeant-chronus` line 1: Sergeant Chronus - EPIC HERO 1-1 → absent
+- `ds-sergeant-telion` line 1: Sergeant Telion - EPIC HERO 1-1 → absent
+- `ds-sicaran` line 1: absent → Sicaran model 1-1
+- `ds-sicaran-arcus` line 1: Sicaran Arcus 1-1 → absent
+- `ds-sicaran-battle-tank` line 1: Sicaran Battle Tank 1-1 → absent
+- `ds-sicaran-battle-tank-2` line 1: Sicaran Battle Tank 1-1 → absent
+- `ds-sicaran-battle-tank-3` line 1: Sicaran Battle Tank 1-1 → absent
+- `ds-sicaran-battle-tank-4` line 1: Sicaran Battle Tank 1-1 → absent
+- `ds-sicaran-battle-tank-5` line 1: Sicaran Battle Tank 1-1 → absent
+- `ds-sicaran-omega` line 1: Sicaran Omega 1-1 → absent
+- `ds-sicaran-punisher` line 1: Sicaran Punisher 1-1 → absent
+- `ds-sicaran-punisher-2` line 1: Sicaran Punisher 1-1 → absent
+- `ds-sicaran-punisher-3` line 1: Sicaran Punisher 1-1 → absent
+- `ds-sicaran-punisher-4` line 1: Sicaran Punisher 1-1 → absent
+- `ds-sicaran-punisher-5` line 1: Sicaran Punisher 1-1 → absent
+- `ds-sicaran-venator` line 1: Sicaran Venator 1-1 → absent
+- `ds-sicaran-venator-2` line 1: Sicaran Venator 1-1 → absent
+- `ds-sicaran-venator-3` line 1: Sicaran Venator 1-1 → absent
+- `ds-sicaran-venator-4` line 1: Sicaran Venator 1-1 → absent
+- `ds-sicaran-venator-5` line 1: Sicaran Venator 1-1 → absent
+- `ds-skyclaws` line 1: Skyclaw Pack Leader 1-1 → absent
+- `ds-skyclaws` line 2: Skyclaws 4-14 → absent
+- `ds-sokar-pattern-stormbird` line 1: Sokar-pattern Stormbird 1-1 → absent
+- `ds-sokar-pattern-stormbird-2` line 1: Sokar-pattern Stormbird 1-1 → absent
+- `ds-sokar-pattern-stormbird-3` line 1: Sokar-pattern Stormbird 1-1 → absent
+- `ds-sokar-pattern-stormbird-4` line 1: Sokar-pattern Stormbird 1-1 → absent
+- `ds-sokar-pattern-stormbird-5` line 1: Sokar-pattern Stormbird 1-1 → absent
+- `ds-spartan` line 1: Spartan 1-1 → absent
+- `ds-spartan-2` line 1: Spartan 1-1 → absent
+- `ds-spartan-3` line 1: Spartan 1-1 → absent
+- `ds-spartan-4` line 1: Spartan 1-1 → absent
+- `ds-spartan-5` line 1: Spartan 1-1 → absent
+- `ds-spectrus-kill-team` line 2: Kill Team Infiltrators 3-10 → Kill Team Infiltrator with Deathwatch Occulus Bolt Carbine, Bolt Pistol and Paired Combat Blades models 2-2
+- `ds-spectrus-kill-team` line 3: Kill Team Infiltrators with bolt sniper rifles 0-3 → Kill Team Infiltrator with Special-issue Bolt Pistol and Combat Knife models 2-2
+- `ds-spectrus-kill-team` line 4: Kill Team Infiltrators with Deathwatch occulus bolt carbines 0-4 → Kill Team Infiltrator with Deathwatch Marksman Bolt Carbine, Bolt Pistol and Ceramite Fists models 4-4
+- `ds-spectrus-kill-team` line 5: Kill Team Infiltrators with combat knives 0-4 → absent
+- `ds-stalker` line 1: Stalker 1-1 → absent
+- `ds-sternguard-veteran-squad` line 1: Sternguard Veteran Squad Leader 1-1 → Sternguard Veteran Sergeant model 1-1
+- `ds-sternguard-veteran-squad` line 2: Sternguard Veterans 4-9 → Sternguard Veteran models 4-9
+- `ds-sternguard-veteran-squad-2` line 1: Sternguard Veteran Sergeant 1-1 → Sternguard Veteran Sergeant model 1-1
+- `ds-sternguard-veteran-squad-2` line 2: Sternguard Veterans 4-9 → Sternguard Veteran models 4-9
+- `ds-sternguard-veteran-squad-3` line 1: Sternguard Veteran Sergeant 1-1 → Sternguard Veteran Sergeant model 1-1
+- `ds-sternguard-veteran-squad-3` line 2: Sternguard Veterans 4-9 → Sternguard Veteran models 4-9
+- `ds-sternguard-veteran-squad-4` line 1: Sternguard Veteran Sergeant 1-1 → Sternguard Veteran Sergeant model 1-1
+- `ds-sternguard-veteran-squad-4` line 2: Sternguard Veterans 4-9 → Sternguard Veteran models 4-9
+- `ds-sternguard-veteran-squad-5` line 1: Sternguard Veteran Sergeant 1-1 → Sternguard Veteran Sergeant model 1-1
+- `ds-sternguard-veteran-squad-5` line 2: Sternguard Veterans 4-9 → Sternguard Veteran models 4-9
+- `ds-sternguard-veteran-squad-6` line 1: Sternguard Veteran Sergeant 1-1 → Sternguard Veteran Sergeant model 1-1
+- `ds-sternguard-veteran-squad-6` line 2: Sternguard Veterans 4-9 → Sternguard Veteran models 4-9
+- `ds-storm-eagle-gunship` line 1: Storm Eagle Gunship 1-1 → absent
+- `ds-storm-eagle-gunship-2` line 1: Storm Eagle Gunship 1-1 → absent
+- `ds-storm-eagle-gunship-3` line 1: Storm Eagle Gunship 1-1 → absent
+- `ds-storm-eagle-gunship-4` line 1: Storm Eagle Gunship 1-1 → absent
+- `ds-storm-eagle-gunship-5` line 1: Storm Eagle Gunship 1-1 → absent
+- `ds-storm-speeder-hailstrike` line 1: Storm Speeder Hailstrike 1-1 → Storm Speeder Hailstrike model 1-1
+- `ds-storm-speeder-hailstrike-2` line 1: Storm Speeder Hailstrike 1-1 → Storm Speeder Hailstrike model 1-1
+- `ds-storm-speeder-hailstrike-3` line 1: Storm Speeder Hailstrike 1-1 → Storm Speeder Hailstrike model 1-1
+- `ds-storm-speeder-hailstrike-4` line 1: Storm Speeder Hailstrike 1-1 → Storm Speeder Hailstrike model 1-1
+- `ds-storm-speeder-hailstrike-5` line 1: Storm Speeder Hailstrike 1-1 → Storm Speeder Hailstrike model 1-1
+- `ds-storm-speeder-hailstrike-6` line 1: Storm Speeder Hailstrike 1-1 → Storm Speeder Hailstrike model 1-1
+- `ds-storm-speeder-hammerstrike` line 1: Storm Speeder Hammerstrike 1-1 → Storm Speeder Hammerstrike model 1-1
+- `ds-storm-speeder-hammerstrike-2` line 1: Storm Speeder Hammerstrike 1-1 → Storm Speeder Hammerstrike model 1-1
+- `ds-storm-speeder-hammerstrike-3` line 1: Storm Speeder Hammerstrike 1-1 → Storm Speeder Hammerstrike model 1-1
+- `ds-storm-speeder-hammerstrike-4` line 1: Storm Speeder Hammerstrike 1-1 → Storm Speeder Hammerstrike model 1-1
+- `ds-storm-speeder-hammerstrike-5` line 1: Storm Speeder Hammerstrike 1-1 → Storm Speeder Hammerstrike model 1-1
+- `ds-storm-speeder-hammerstrike-6` line 1: Storm Speeder Hammerstrike 1-1 → Storm Speeder Hammerstrike model 1-1
+- `ds-storm-speeder-thunderstrike` line 1: Storm Speeder Thunderstrike 1-1 → Storm Speeder Thunderstrike model 1-1
+- `ds-storm-speeder-thunderstrike-2` line 1: Storm Speeder Thunderstrike 1-1 → Storm Speeder Thunderstrike model 1-1
+- `ds-storm-speeder-thunderstrike-3` line 1: Storm Speeder Thunderstrike 1-1 → Storm Speeder Thunderstrike model 1-1
+- `ds-storm-speeder-thunderstrike-4` line 1: Storm Speeder Thunderstrike 1-1 → Storm Speeder Thunderstrike model 1-1
+- `ds-storm-speeder-thunderstrike-5` line 1: Storm Speeder Thunderstrike 1-1 → Storm Speeder Thunderstrike model 1-1
+- `ds-storm-speeder-thunderstrike-6` line 1: Storm Speeder Thunderstrike 1-1 → Storm Speeder Thunderstrike model 1-1
+- `ds-stormfang-gunship` line 1: Stormfang Gunship 1-1 → absent
+- `ds-stormhawk-interceptor-2` line 1: Stormhawk Interceptor 1-1 → Stormhawk Interceptor model 1-1
+- `ds-stormhawk-interceptor-3` line 1: Stormhawk Interceptor 1-1 → absent
+- `ds-stormhawk-interceptor-4` line 1: Stormhawk Interceptor 1-1 → absent
+- `ds-stormhawk-interceptor-5` line 1: Stormhawk Interceptor 1-1 → absent
+- `ds-stormhawk-interceptor-6` line 1: Stormhawk Interceptor 1-1 → absent
+- `ds-stormhawk-interceptor-7` line 1: Stormhawk Interceptor 1-1 → absent
+- `ds-stormraven-gunship-2` line 1: Stormraven Gunship 1-1 → Stormraven Gunship model 1-1
+- `ds-stormraven-gunship-3` line 1: Stormraven Gunship 1-1 → absent
+- `ds-stormraven-gunship-4` line 1: Stormraven Gunship 1-1 → absent
+- `ds-stormraven-gunship-5` line 1: Stormraven Gunship 1-1 → absent
+- `ds-stormraven-gunship-6` line 1: Stormraven Gunship 1-1 → absent
+- `ds-stormraven-gunship-7` line 1: Stormraven Gunship 1-1 → absent
+- `ds-stormtalon-gunship-2` line 1: Stormtalon Gunship 1-1 → Stormtalon Gunship model 1-1
+- `ds-stormtalon-gunship-3` line 1: Stormtalon Gunship 1-1 → absent
+- `ds-stormtalon-gunship-4` line 1: Stormtalon Gunship 1-1 → absent
+- `ds-stormtalon-gunship-5` line 1: Stormtalon Gunship 1-1 → absent
+- `ds-stormtalon-gunship-6` line 1: Stormtalon Gunship 1-1 → absent
+- `ds-stormtalon-gunship-7` line 1: Stormtalon Gunship 1-1 → absent
+- `ds-stormwolf` line 1: Stormwolf 1-1 → absent
+- `ds-suboden-khan` line 1: Suboden Khan - EPIC HERO 1-1 → Suboden Khan model 1-1
+- `ds-suppressor-squad` line 1: Suppressor Sergeant 1-1 → absent
+- `ds-suppressor-squad` line 2: Suppressors 2-2 → absent
+- `ds-suppressor-squad-2` line 1: Suppressor Sergeant 1-1 → absent
+- `ds-suppressor-squad-2` line 2: Suppressors 2-2 → absent
+- `ds-suppressor-squad-3` line 1: Suppressor Sergeant 1-1 → absent
+- `ds-suppressor-squad-3` line 2: Suppressors 2-2 → absent
+- `ds-suppressor-squad-4` line 1: Suppressor Sergeant 1-1 → absent
+- `ds-suppressor-squad-4` line 2: Suppressors 2-2 → absent
+- `ds-suppressor-squad-5` line 1: Suppressor Sergeant 1-1 → absent
+- `ds-suppressor-squad-5` line 2: Suppressors 2-2 → absent
+- `ds-suppressor-squad-6` line 1: Suppressor Sergeant 1-1 → absent
+- `ds-suppressor-squad-6` line 2: Suppressors 2-2 → absent
+- `ds-sword-brethren-squad` line 1: Sword Brothers 4-10 → Sword Brother models 4-10
+- `ds-tactical-squad` line 1: Tactical Sergeant 1-1 → absent
+- `ds-tactical-squad` line 2: Tactical Marines 9-9 → absent
+- `ds-tactical-squad-2` line 1: Tactical Sergeant 1-1 → absent
+- `ds-tactical-squad-2` line 2: Tactical Marines 9-9 → absent
+- `ds-tactical-squad-3` line 1: Tactical Sergeant 1-1 → absent
+- `ds-tactical-squad-3` line 2: Tactical Marines 9-9 → absent
+- `ds-tactical-squad-4` line 1: Tactical Sergeant 1-1 → absent
+- `ds-tactical-squad-4` line 2: Tactical Marines 9-9 → absent
+- `ds-talonstrike-kill-team` line 2: Kill Team Sergeant with Jump Pack 1-1 → Kill Team Heavy Intercessor with Jump Pack models 4-4
+- `ds-talonstrike-kill-team` line 3: Kill Team Intercessors with Jump Packs 2-9 → Kill Team Intercessor with Jump Pack models 5-5
+- `ds-talonstrike-kill-team` line 4: Kill Team Heavy Intercessors with Jump Packs 0-5 → absent
+- `ds-tarantula-air-defence-battery` line 1: Tarantula Air Defence Battery 1-1 → Tarantula Air Defence Battery model 1-1
+- `ds-tarantula-sentry-battery` line 1: Tarantula Sentry Battery 1-1 → Tarantula Sentry Battery models 1-3
+- `ds-techmarine` line 1: Techmarine 1-1 → Techmarine model 1-1
+- `ds-techmarine-2` line 1: Techmarine 1-1 → Techmarine model 1-1
+- `ds-techmarine-3` line 1: Techmarine 1-1 → Techmarine model 1-1
+- `ds-techmarine-4` line 1: Techmarine 1-1 → Techmarine model 1-1
+- `ds-techmarine-5` line 1: Techmarine 1-1 → Techmarine model 1-1
+- `ds-techmarine-6` line 1: Techmarine 1-1 → Techmarine model 1-1
+- `ds-techmarine-on-bike` line 1: Techmarine on Bike 1-1 → absent
+- `ds-terminator-assault-squad` line 1: Assault Terminator Sergeant 1-1 → Terminator Sergeant model 1-1
+- `ds-terminator-assault-squad` line 2: Assault Terminators 4-9 → Terminator models 4-9
+- `ds-terminator-assault-squad-2` line 1: Assault Terminator Sergeant 1-1 → Terminator Sergeant model 1-1
+- `ds-terminator-assault-squad-2` line 2: Assault Terminators 4-9 → Terminator models 4-9
+- `ds-terminator-assault-squad-3` line 1: Assault Terminator Sergeant 1-1 → Terminator Sergeant model 1-1
+- `ds-terminator-assault-squad-3` line 2: Assault Terminators 4-9 → Terminator models 4-9
+- `ds-terminator-assault-squad-4` line 1: Assault Terminator Sergeant 1-1 → Terminator Sergeant model 1-1
+- `ds-terminator-assault-squad-4` line 2: Assault Terminators 4-9 → Terminator models 4-9
+- `ds-terminator-assault-squad-5` line 1: Assault Terminator Sergeant 1-1 → Terminator Sergeant model 1-1
+- `ds-terminator-assault-squad-5` line 2: Assault Terminators 4-9 → Terminator models 4-9
+- `ds-terminator-squad` line 1: Terminator Squad Leader 1-1 → Terminator Sergeant model 1-1
+- `ds-terminator-squad` line 2: Terminators 4-9 → Terminator models 4-9
+- `ds-terminator-squad-2` line 1: Terminator Sergeant 1-1 → Terminator Sergeant model 1-1
+- `ds-terminator-squad-2` line 2: Terminators 4-9 → Terminator models 4-9
+- `ds-terminator-squad-3` line 1: Terminator Sergeant 1-1 → Terminator Sergeant model 1-1
+- `ds-terminator-squad-3` line 2: Terminators 4-9 → Terminator models 4-9
+- `ds-terminator-squad-4` line 1: Terminator Sergeant 1-1 → Terminator Sergeant model 1-1
+- `ds-terminator-squad-4` line 2: Terminators 4-9 → Terminator models 4-9
+- `ds-terminator-squad-5` line 1: Terminator Sergeant 1-1 → Terminator Sergeant model 1-1
+- `ds-terminator-squad-5` line 2: Terminators 4-9 → Terminator models 4-9
+- `ds-terminus-ultra` line 1: Terminus Ultra 1-1 → absent
+- `ds-terrax-pattern-termite-2` line 1: Terrax-pattern Termite 1-1 → Terrax-pattern Termite model 1-1
+- `ds-terrax-pattern-termite-3` line 1: Terrax-pattern Termite 1-1 → Terrax-pattern Termite model 1-1
+- `ds-terrax-pattern-termite-4` line 1: Terrax-pattern Termite 1-1 → Terrax-pattern Termite model 1-1
+- `ds-terrax-pattern-termite-5` line 1: Terrax-pattern Termite 1-1 → Terrax-pattern Termite model 1-1
+- `ds-terrax-pattern-termite-6` line 1: Terrax-pattern Termite 1-1 → Terrax-pattern Termite model 1-1
+- `ds-the-sanguinor` line 1: The Sanguinor - EPIC HERO 1-1 → The Sanguinor model 1-1
+- `ds-thunderfire-cannon` line 1: Techmarine Gunner 1-1 → absent
+- `ds-thunderfire-cannon` line 2: Thunderfire Cannon 1-1 → absent
+- `ds-thunderhawk-gunship` line 1: Thunderhawk Gunship 1-1 → Thunderhawk Gunship model 1-1
+- `ds-thunderhawk-gunship-2` line 1: Thunderhawk Gunship 1-1 → Thunderhawk Gunship model 1-1
+- `ds-thunderhawk-gunship-3` line 1: Thunderhawk Gunship 1-1 → Thunderhawk Gunship model 1-1
+- `ds-thunderhawk-gunship-4` line 1: Thunderhawk Gunship 1-1 → Thunderhawk Gunship model 1-1
+- `ds-thunderhawk-gunship-5` line 1: Thunderhawk Gunship 1-1 → Thunderhawk Gunship model 1-1
+- `ds-thunderhawk-gunship-6` line 1: Thunderhawk Gunship 1-1 → Thunderhawk Gunship model 1-1
+- `ds-thunderhawk-transporter` line 1: Thunderhawk Transporter 1-1 → absent
+- `ds-thunderwolf-cavalry` line 1: Thunderwolf Cavalry Pack Leader 1-1 → Thunderwolf Cavalry Pack Leader model 1-1
+- `ds-thunderwolf-cavalry` line 2: Thunderwolf Cavalry 2-5 → Thunderwolf Cavalry models 2-5
+- `ds-tor-garadon` line 1: Tor Garadon - EPIC HERO 1-1 → Tor Garadon model 1-1
+- `ds-tycho-the-lost` line 1: Tycho the Lost - EPIC HERO 1-1 → absent
+- `ds-typhon` line 1: Typhon 1-1 → Typhon model 1-1
+- `ds-typhon-2` line 1: Typhon 1-1 → Typhon model 1-1
+- `ds-typhon-3` line 1: Typhon 1-1 → Typhon model 1-1
+- `ds-typhon-4` line 1: Typhon 1-1 → Typhon model 1-1
+- `ds-typhon-5` line 1: Typhon 1-1 → Typhon model 1-1
+- `ds-tyrannic-war-veterans` line 1: Veteran Sergeant 1-1 → absent
+- `ds-tyrannic-war-veterans` line 2: Tyrannic War Veterans 4-4 → absent
+- `ds-ulrik-the-slayer` line 1: Ulrik the Slayer - EPIC HERO 1-1 → Ulrik the Slayer model 1-1
+- `ds-uriel-ventris` line 1: Uriel Ventris - EPIC HERO 1-1 → absent
+- `ds-vanguard-veteran-squad` line 1: Vanguard Veteran Sergeant 1-1 → Vanguard Veteran Sergeant model 1-1
+- `ds-vanguard-veteran-squad` line 2: Vanguard Veterans 4-9 → Vanguard Veteran models 4-9
+- `ds-vanguard-veteran-squad-with-jump-packs` line 1: Vanguard Veteran Sergeant with Jump Pack 1-1 → Vanguard Veteran Sergeant with Jump Pack model 1-1
+- `ds-vanguard-veteran-squad-with-jump-packs` line 2: Vanguard Veterans with Jump Packs 4-9 → Vanguard Veteran with Jump Pack models 4-9
+- `ds-vanguard-veteran-squad-with-jump-packs-2` line 1: Vanguard Veteran Sergeant with Jump Pack 1-1 → Vanguard Veteran Sergeant with Jump Pack model 1-1
+- `ds-vanguard-veteran-squad-with-jump-packs-2` line 2: Vanguard Veterans with Jump Packs 4-9 → Vanguard Veteran with Jump Pack models 4-9
+- `ds-vanguard-veteran-squad-with-jump-packs-3` line 1: Vanguard Veteran Sergeant with Jump Pack 1-1 → Vanguard Veteran Sergeant with Jump Pack model 1-1
+- `ds-vanguard-veteran-squad-with-jump-packs-3` line 2: Vanguard Veterans with Jump Packs 4-9 → Vanguard Veteran with Jump Pack models 4-9
+- `ds-vanguard-veteran-squad-with-jump-packs-4` line 1: Vanguard Veteran Sergeant with Jump Pack 1-1 → Vanguard Veteran Sergeant with Jump Pack model 1-1
+- `ds-vanguard-veteran-squad-with-jump-packs-4` line 2: Vanguard Veterans with Jump Packs 4-9 → Vanguard Veteran with Jump Pack models 4-9
+- `ds-vanguard-veteran-squad-with-jump-packs-5` line 1: Vanguard Veteran Sergeant with Jump Pack 1-1 → Vanguard Veteran Sergeant with Jump Pack model 1-1
+- `ds-vanguard-veteran-squad-with-jump-packs-5` line 2: Vanguard Veterans with Jump Packs 4-9 → Vanguard Veteran with Jump Pack models 4-9
+- `ds-vanguard-veteran-squad-with-jump-packs-6` line 1: Vanguard Veteran Sergeant with Jump Pack 1-1 → Vanguard Veteran Sergeant with Jump Pack model 1-1
+- `ds-vanguard-veteran-squad-with-jump-packs-6` line 2: Vanguard Veterans with Jump Packs 4-9 → Vanguard Veteran with Jump Pack models 4-9
+- `ds-venerable-dreadnought-2` line 1: Venerable Dreadnought 1-1 → Venerable Dreadnought model 1-1
+- `ds-venerable-dreadnought-3` line 1: Venerable Dreadnought 1-1 → Venerable Dreadnought model 1-1
+- `ds-victrix-honour-guard` line 1: Chapter Ancient - EPIC HERO 0-1 → Chapter Ancient model 0-1
+- `ds-victrix-honour-guard` line 2: Chapter Champion - EPIC HERO 0-1 → Chapter Champion model 0-1
+- `ds-victrix-honour-guard` line 3: Victrix Honour Guard 1-6 → Victrix Honour Guard models 1-6
+- `ds-vindicator` line 1: Vindicator 1-1 → Vindicator model 1-1
+- `ds-vindicator-2` line 1: Vindicator 1-1 → absent
+- `ds-vindicator-3` line 1: Vindicator 1-1 → absent
+- `ds-vindicator-4` line 1: Vindicator 1-1 → absent
+- `ds-vindicator-5` line 1: Vindicator 1-1 → absent
+- `ds-vindicator-6` line 1: Vindicator 1-1 → absent
+- `ds-vindicator-laser-destroyer` line 1: Vindicator Laser Destroyer 1-1 → absent
+- `ds-vulkan-hestan` line 1: Vulkan He’stan - EPIC HERO 1-1 → Vulkan He’stan model 1-1
+- `ds-warboss-on-warbike` line 1: Warboss on Warbike 1-1 → Warboss on Warbike model 1-1
+- `ds-wardens-of-ultramar` line 1: Ancient Gadriel - EPIC HERO 1-1 → Aemelia Minervas model 1-1
+- `ds-wardens-of-ultramar` line 2: Veteran Sergeant Metaurus - EPIC HERO 1-1 → Ancient Gadriel model 1-1
+- `ds-wardens-of-ultramar` line 3: Gaius Silva - EPIC HERO 1-1 → Dainal Kornelius model 1-1
+- `ds-wardens-of-ultramar` line 4: Aemelia Minervas - EPIC HERO 1-1 → Gaius Silva model 1-1
+- `ds-wardens-of-ultramar` line 5: Dainal Kornelius - EPIC HERO 1-1 → Lucia Vestha model 1-1
+- `ds-wardens-of-ultramar` line 6: Lucia Vestha - EPIC HERO 1-1 → Veteran Sergeant Metaurus model 1-1
+- `ds-watch-captain-artemis` line 1: Watch Captain Artemis 1-1 → Watch Captain Artemis model 1-1
+- `ds-watch-master` line 1: Watch Master 1-1 → Watch Master model 1-1
+- `ds-whirlwind` line 1: Whirlwind 1-1 → Whirlwind model 1-1
+- `ds-whirlwind-2` line 1: Whirlwind 1-1 → absent
+- `ds-whirlwind-3` line 1: Whirlwind 1-1 → absent
+- `ds-whirlwind-4` line 1: Whirlwind 1-1 → absent
+- `ds-whirlwind-5` line 1: Whirlwind 1-1 → absent
+- `ds-whirlwind-6` line 1: Whirlwind 1-1 → absent
+- `ds-whirlwind-scorpius` line 1: Whirlwind Scorpius 1-1 → absent
+- `ds-whirlwind-scorpius-2` line 1: Whirlwind Scorpius 1-1 → absent
+- `ds-whirlwind-scorpius-3` line 1: Whirlwind Scorpius 1-1 → absent
+- `ds-whirlwind-scorpius-4` line 1: Whirlwind Scorpius 1-1 → absent
+- `ds-whirlwind-scorpius-5` line 1: Whirlwind Scorpius 1-1 → absent
+- `ds-wolf-guard` line 1: Wolf Guard Pack Leader 1-1 → absent
+- `ds-wolf-guard` line 2: Wolf Guard 4-9 → absent
+- `ds-wolf-guard-battle-leader` line 1: Wolf Guard Battle Leader 1-1 → Wolf Guard Battle Leader model 1-1
+- `ds-wolf-guard-battle-leader-in-terminator-armour` line 1: Wolf Guard Battle Leader in Terminator Armour 1-1 → absent
+- `ds-wolf-guard-battle-leader-on-thunderwolf` line 1: Wolf Guard Battle Leader on Thunderworlf 1-1 → absent
+- `ds-wolf-guard-headtakers` line 1: Wolf Guard Headtakers 3-6 → Hunting Wolf models 3-6
+- `ds-wolf-guard-headtakers` line 2: Hunting Wolves 0-6 → Wolf Guard Headtaker models 3-6
+- `ds-wolf-guard-pack-leader` line 1: Wolf Guard Pack Leader 1-1 → absent
+- `ds-wolf-guard-pack-leader-in-terminator-armour` line 1: Wolf Guard Pack Leader in Terminator Armour 1-1 → absent
+- `ds-wolf-guard-pack-leader-with-jump-pack` line 1: Wolf Guard Pack Leader with Jump Pack 1-1 → absent
+- `ds-wolf-guard-terminators` line 1: Wolf Guard Terminator Pack Leader 1-1 → Wolf Guard Terminator Pack Leader model 1-1
+- `ds-wolf-guard-terminators` line 2: Wolf Guard Terminators 4-9 → Wolf Guard Terminator models 4-9
+- `ds-wolf-lord-on-thunderwolf` line 1: Wolf Lord on Thunderwolf 1-1 → absent
+- `ds-wolf-priest` line 1: Wolf Priest 1-1 → Wolf Priest model 1-1
+- `ds-wolf-scouts` line 1: Wolf Scout Pack Leader 1-1 → Wolf Scout Pack Leader model 1-1
+- `ds-wulfen` line 1: Wulfen 5-10 → Wulfen models 5-10
+- `ds-wulfen-dreadnought` line 1: Wulfen Dreadnought 1-1 → Wulfen Dreadnought model 1-1
+- `ds-wulfen-with-storm-shields` line 1: Wulfen 5-10 → Wulfen with Storm Shield models 5-10
+- `ds-xiphon-interceptor` line 1: Xiphon Interceptor 1-1 → absent
+- `ds-xiphon-interceptor-2` line 1: Xiphon Interceptor 1-1 → absent
+- `ds-xiphon-interceptor-3` line 1: Xiphon Interceptor 1-1 → absent
+- `ds-xiphon-interceptor-4` line 1: Xiphon Interceptor 1-1 → absent
+- `ds-xiphon-interceptor-5` line 1: Xiphon Interceptor 1-1 → absent
+
+## Wargear option groups
+
+- `ds-ancient-in-terminator-armour` `og-ancient-in-terminator-armour-1`: removed
+- `ds-ancient-in-terminator-armour` `og-ancient-in-terminator-armour-2`: removed
+- `ds-ancient-in-terminator-armour-2` `og-ancient-in-terminator-armour-2-1`: removed
+- `ds-ancient-in-terminator-armour-2` `og-ancient-in-terminator-armour-2-2`: removed
+- `ds-ancient-in-terminator-armour-3` `og-ancient-in-terminator-armour-3-1`: removed
+- `ds-ancient-in-terminator-armour-3` `og-ancient-in-terminator-armour-3-2`: removed
+- `ds-ancient-in-terminator-armour-4` `og-ancient-in-terminator-armour-4-1`: removed
+- `ds-ancient-in-terminator-armour-4` `og-ancient-in-terminator-armour-4-2`: removed
+- `ds-ancient-in-terminator-armour-5` `og-ancient-in-terminator-armour-5-1`: removed
+- `ds-ancient-in-terminator-armour-5` `og-ancient-in-terminator-armour-5-2`: removed
+- `ds-ancient-in-terminator-armour-6` `og-ancient-in-terminator-armour-6-1`: removed
+- `ds-ancient-in-terminator-armour-6` `og-ancient-in-terminator-armour-6-2`: removed
+- `ds-ancient-on-bike` `og-ancient-on-bike-1`: removed
+- `ds-aquila-kill-team` `og-aquila-kill-team-4`: removed
+- `ds-assault-squad` `og-assault-squad-1`: removed
+- `ds-assault-squad` `og-assault-squad-2`: removed
+- `ds-assault-squad` `og-assault-squad-4`: removed
+- `ds-assault-squad` `og-assault-squad-5`: removed
+- `ds-assault-squad-with-jump-packs` `og-assault-squad-with-jump-packs-1`: removed
+- `ds-assault-squad-with-jump-packs` `og-assault-squad-with-jump-packs-2`: removed
+- `ds-assault-squad-with-jump-packs` `og-assault-squad-with-jump-packs-4`: removed
+- `ds-assault-squad-with-jump-packs` `og-assault-squad-with-jump-packs-5`: removed
+- `ds-astartes-servitors` `og-astartes-servitors-1`: removed
+- `ds-astraeus` `og-astraeus-4`: added
+- `ds-astraeus` `og-astraeus-5`: added
+- `ds-astraeus` `og-astraeus-6`: added
+- `ds-astraeus-2` `og-astraeus-2-4`: added
+- `ds-astraeus-2` `og-astraeus-2-5`: added
+- `ds-astraeus-2` `og-astraeus-2-6`: added
+- `ds-astraeus-3` `og-astraeus-3-4`: added
+- `ds-astraeus-3` `og-astraeus-3-5`: added
+- `ds-astraeus-3` `og-astraeus-3-6`: added
+- `ds-astraeus-4` `og-astraeus-4-4`: added
+- `ds-astraeus-4` `og-astraeus-4-5`: added
+- `ds-astraeus-4` `og-astraeus-4-6`: added
+- `ds-astraeus-5` `og-astraeus-5-4`: added
+- `ds-astraeus-5` `og-astraeus-5-5`: added
+- `ds-astraeus-5` `og-astraeus-5-6`: added
+- `ds-astraeus-6` `og-astraeus-6-4`: added
+- `ds-astraeus-6` `og-astraeus-6-5`: added
+- `ds-astraeus-6` `og-astraeus-6-6`: added
+- `ds-attack-bike-squad` `og-attack-bike-squad-1`: removed
+- `ds-bike-squad` `og-bike-squad-1`: removed
+- `ds-bike-squad` `og-bike-squad-2`: removed
+- `ds-bike-squad` `og-bike-squad-3`: removed
+- `ds-bike-squad` `og-bike-squad-4`: removed
+- `ds-captain` `og-captain-3`: added
+- `ds-captain-2` `og-captain-2-3`: added
+- `ds-captain-3` `og-captain-3-3`: added
+- `ds-captain-4` `og-captain-4-3`: added
+- `ds-captain-5` `og-captain-5-3`: added
+- `ds-captain-6` `og-captain-6-3`: added
+- `ds-captain-on-bike` `og-captain-on-bike-3`: removed
+- `ds-captain-on-bike-2` `og-captain-on-bike-2-1`: added
+- `ds-captain-on-bike-2` `og-captain-on-bike-2-2`: added
+- `ds-captain-on-bike-3` `og-captain-on-bike-3-1`: added
+- `ds-captain-on-bike-3` `og-captain-on-bike-3-2`: added
+- `ds-captain-on-bike-4` `og-captain-on-bike-4-1`: added
+- `ds-captain-on-bike-4` `og-captain-on-bike-4-2`: added
+- `ds-captain-on-bike-5` `og-captain-on-bike-5-1`: added
+- `ds-captain-on-bike-5` `og-captain-on-bike-5-2`: added
+- `ds-captain-on-bike-6` `og-captain-on-bike-6-1`: added
+- `ds-captain-on-bike-6` `og-captain-on-bike-6-2`: added
+- `ds-centurion-assault-squad-2` `og-centurion-assault-squad-2-1`: removed
+- `ds-centurion-assault-squad-2` `og-centurion-assault-squad-2-2`: removed
+- `ds-centurion-assault-squad-3` `og-centurion-assault-squad-3-1`: removed
+- `ds-centurion-assault-squad-3` `og-centurion-assault-squad-3-2`: removed
+- `ds-centurion-assault-squad-4` `og-centurion-assault-squad-4-1`: removed
+- `ds-centurion-assault-squad-4` `og-centurion-assault-squad-4-2`: removed
+- `ds-centurion-assault-squad-5` `og-centurion-assault-squad-5-1`: removed
+- `ds-centurion-assault-squad-5` `og-centurion-assault-squad-5-2`: removed
+- `ds-centurion-assault-squad-6` `og-centurion-assault-squad-6-1`: removed
+- `ds-centurion-assault-squad-6` `og-centurion-assault-squad-6-2`: removed
+- `ds-centurion-devastator-squad-2` `og-centurion-devastator-squad-2-1`: removed
+- `ds-centurion-devastator-squad-2` `og-centurion-devastator-squad-2-2`: removed
+- `ds-centurion-devastator-squad-3` `og-centurion-devastator-squad-3-1`: removed
+- `ds-centurion-devastator-squad-3` `og-centurion-devastator-squad-3-2`: removed
+- `ds-centurion-devastator-squad-4` `og-centurion-devastator-squad-4-1`: removed
+- `ds-centurion-devastator-squad-4` `og-centurion-devastator-squad-4-2`: removed
+- `ds-centurion-devastator-squad-5` `og-centurion-devastator-squad-5-1`: removed
+- `ds-centurion-devastator-squad-5` `og-centurion-devastator-squad-5-2`: removed
+- `ds-centurion-devastator-squad-6` `og-centurion-devastator-squad-6-1`: removed
+- `ds-centurion-devastator-squad-6` `og-centurion-devastator-squad-6-2`: removed
+- `ds-chaplain-venerable-dreadnought` `og-chaplain-venerable-dreadnought-1`: removed
+- `ds-chaplain-venerable-dreadnought` `og-chaplain-venerable-dreadnought-2`: removed
+- `ds-chaplain-with-jump-pack` `og-chaplain-with-jump-pack-1`: removed
+- `ds-chaplain-with-jump-pack-2` `og-chaplain-with-jump-pack-2-1`: removed
+- `ds-chaplain-with-jump-pack-3` `og-chaplain-with-jump-pack-3-1`: removed
+- `ds-chaplain-with-jump-pack-4` `og-chaplain-with-jump-pack-4-1`: removed
+- `ds-chaplain-with-jump-pack-5` `og-chaplain-with-jump-pack-5-1`: removed
+- `ds-chaplain-with-jump-pack-6` `og-chaplain-with-jump-pack-6-1`: removed
+- `ds-command-squad` `og-command-squad-1`: removed
+- `ds-command-squad` `og-command-squad-2`: removed
+- `ds-command-squad` `og-command-squad-3`: removed
+- `ds-command-squad` `og-command-squad-4`: removed
+- `ds-command-squad` `og-command-squad-5`: removed
+- `ds-company-veterans-on-bikes` `og-company-veterans-on-bikes-1`: removed
+- `ds-company-veterans-on-bikes` `og-company-veterans-on-bikes-2`: removed
+- `ds-company-veterans-on-bikes` `og-company-veterans-on-bikes-3`: removed
+- `ds-company-veterans-on-bikes` `og-company-veterans-on-bikes-4`: removed
+- `ds-corvus-blackstar` `og-corvus-blackstar-4`: removed
+- `ds-corvus-blackstar-2` `og-corvus-blackstar-2-4`: removed
+- `ds-death-company-captain-with-jump-pack` `og-death-company-captain-with-jump-pack-3`: added
+- `ds-death-company-captain-with-jump-pack` `og-death-company-captain-with-jump-pack-4`: added
+- `ds-death-company-dreadnought-with-magna-grapple` `og-death-company-dreadnought-with-magna-grapple-1`: removed
+- `ds-death-company-dreadnought-with-magna-grapple` `og-death-company-dreadnought-with-magna-grapple-2`: removed
+- `ds-death-company-dreadnought-with-magna-grapple` `og-death-company-dreadnought-with-magna-grapple-3`: removed
+- `ds-death-company-dreadnought-with-magna-grapple` `og-death-company-dreadnought-with-magna-grapple-4`: removed
+- `ds-death-company-marines` `og-death-company-marines-4`: added
+- `ds-death-company-marines` `og-death-company-marines-5`: added
+- `ds-death-company-marines-with-bolt-rifles` `og-death-company-marines-with-bolt-rifles-1`: removed
+- `ds-death-company-marines-with-bolt-rifles` `og-death-company-marines-with-bolt-rifles-2`: removed
+- `ds-death-company-marines-with-bolt-rifles` `og-death-company-marines-with-bolt-rifles-3`: removed
+- `ds-death-company-marines-with-bolt-rifles` `og-death-company-marines-with-bolt-rifles-4`: removed
+- `ds-death-company-marines-with-boltguns` `og-death-company-marines-with-boltguns-1`: removed
+- `ds-death-company-marines-with-boltguns` `og-death-company-marines-with-boltguns-2`: removed
+- `ds-death-company-marines-with-boltguns` `og-death-company-marines-with-boltguns-3`: removed
+- `ds-death-company-marines-with-boltguns-and-jump-packs` `og-death-company-marines-with-boltguns-and-jump-packs-1`: removed
+- `ds-death-company-marines-with-boltguns-and-jump-packs` `og-death-company-marines-with-boltguns-and-jump-packs-2`: removed
+- `ds-death-company-marines-with-boltguns-and-jump-packs` `og-death-company-marines-with-boltguns-and-jump-packs-3`: removed
+- `ds-death-company-marines-with-jump-packs` `og-death-company-marines-with-jump-packs-5`: added
+- `ds-death-company-marines-with-jump-packs` `og-death-company-marines-with-jump-packs-6`: added
+- `ds-deathstorm-drop-pod` `og-deathstorm-drop-pod-1`: removed
+- `ds-deathwatch-terminator-squad` `og-deathwatch-terminator-squad-1`: removed
+- `ds-deathwing-command-squad` `og-deathwing-command-squad-1`: removed
+- `ds-deathwing-command-squad` `og-deathwing-command-squad-2`: removed
+- `ds-deathwing-command-squad` `og-deathwing-command-squad-3`: removed
+- `ds-deathwing-command-squad` `og-deathwing-command-squad-4`: removed
+- `ds-deathwing-command-squad` `og-deathwing-command-squad-5`: removed
+- `ds-deathwing-knights` `og-deathwing-knights-2`: added
+- `ds-deathwing-knights` `og-deathwing-knights-3`: removed
+- `ds-deathwing-strikemaster` `og-deathwing-strikemaster-1`: removed
+- `ds-decimus-kill-team` `og-decimus-kill-team-4`: removed
+- `ds-deimos-predator` `og-deimos-predator-1`: removed
+- `ds-deimos-predator` `og-deimos-predator-2`: removed
+- `ds-deimos-predator` `og-deimos-predator-3`: removed
+- `ds-deimos-predator` `og-deimos-predator-4`: removed
+- `ds-deredeo-dreadnought` `og-deredeo-dreadnought-1`: removed
+- `ds-deredeo-dreadnought` `og-deredeo-dreadnought-2`: removed
+- `ds-deredeo-dreadnought` `og-deredeo-dreadnought-3`: removed
+- `ds-deredeo-dreadnought-2` `og-deredeo-dreadnought-2-1`: removed
+- `ds-deredeo-dreadnought-2` `og-deredeo-dreadnought-2-2`: removed
+- `ds-deredeo-dreadnought-2` `og-deredeo-dreadnought-2-3`: removed
+- `ds-deredeo-dreadnought-3` `og-deredeo-dreadnought-3-1`: removed
+- `ds-deredeo-dreadnought-3` `og-deredeo-dreadnought-3-2`: removed
+- `ds-deredeo-dreadnought-3` `og-deredeo-dreadnought-3-3`: removed
+- `ds-deredeo-dreadnought-4` `og-deredeo-dreadnought-4-1`: removed
+- `ds-deredeo-dreadnought-4` `og-deredeo-dreadnought-4-2`: removed
+- `ds-deredeo-dreadnought-4` `og-deredeo-dreadnought-4-3`: removed
+- `ds-deredeo-dreadnought-5` `og-deredeo-dreadnought-5-1`: removed
+- `ds-deredeo-dreadnought-5` `og-deredeo-dreadnought-5-2`: removed
+- `ds-deredeo-dreadnought-5` `og-deredeo-dreadnought-5-3`: removed
+- `ds-desolation-squad` `og-desolation-squad-1`: added
+- `ds-desolation-squad` `og-desolation-squad-3`: added
+- `ds-desolation-squad-2` `og-desolation-squad-2-1`: added
+- `ds-desolation-squad-2` `og-desolation-squad-2-3`: added
+- `ds-desolation-squad-3` `og-desolation-squad-3-1`: added
+- `ds-desolation-squad-3` `og-desolation-squad-3-3`: added
+- `ds-desolation-squad-4` `og-desolation-squad-4-1`: added
+- `ds-desolation-squad-4` `og-desolation-squad-4-3`: added
+- `ds-desolation-squad-5` `og-desolation-squad-5-1`: added
+- `ds-desolation-squad-5` `og-desolation-squad-5-3`: added
+- `ds-desolation-squad-6` `og-desolation-squad-6-1`: added
+- `ds-desolation-squad-6` `og-desolation-squad-6-3`: added
+- `ds-devastator-squad` `og-devastator-squad-1`: removed
+- `ds-devastator-squad` `og-devastator-squad-2`: removed
+- `ds-devastator-squad-2` `og-devastator-squad-2-1`: removed
+- `ds-devastator-squad-2` `og-devastator-squad-2-2`: removed
+- `ds-devastator-squad-3` `og-devastator-squad-3-1`: removed
+- `ds-devastator-squad-3` `og-devastator-squad-3-2`: removed
+- `ds-devastator-squad-4` `og-devastator-squad-4-1`: removed
+- `ds-devastator-squad-4` `og-devastator-squad-4-2`: removed
+- `ds-dreadnought` `og-dreadnought-3`: added
+- `ds-dreadnought-2` `og-dreadnought-2-1`: removed
+- `ds-dreadnought-2` `og-dreadnought-2-2`: removed
+- `ds-dreadnought-3` `og-dreadnought-3-1`: removed
+- `ds-dreadnought-3` `og-dreadnought-3-2`: removed
+- `ds-dreadnought-4` `og-dreadnought-4-1`: removed
+- `ds-dreadnought-4` `og-dreadnought-4-2`: removed
+- `ds-dreadnought-5` `og-dreadnought-5-1`: removed
+- `ds-dreadnought-5` `og-dreadnought-5-2`: removed
+- `ds-dreadnought-6` `og-dreadnought-6-1`: removed
+- `ds-dreadnought-6` `og-dreadnought-6-2`: removed
+- `ds-eradicator-squad` `og-eradicator-squad-1`: removed
+- `ds-eradicator-squad-2` `og-eradicator-squad-2-1`: removed
+- `ds-eradicator-squad-3` `og-eradicator-squad-3-1`: removed
+- `ds-eradicator-squad-4` `og-eradicator-squad-4-1`: removed
+- `ds-eradicator-squad-5` `og-eradicator-squad-5-1`: removed
+- `ds-eradicator-squad-6` `og-eradicator-squad-6-1`: removed
+- `ds-eradicator-squad-with-melta-rifles` `og-eradicator-squad-with-melta-rifles-1`: added
+- `ds-eradicator-squad-with-melta-rifles-2` `og-eradicator-squad-with-melta-rifles-2-1`: added
+- `ds-eradicator-squad-with-melta-rifles-3` `og-eradicator-squad-with-melta-rifles-3-1`: added
+- `ds-eradicator-squad-with-melta-rifles-4` `og-eradicator-squad-with-melta-rifles-4-1`: added
+- `ds-eradicator-squad-with-melta-rifles-5` `og-eradicator-squad-with-melta-rifles-5-1`: added
+- `ds-eradicator-squad-with-melta-rifles-6` `og-eradicator-squad-with-melta-rifles-6-1`: added
+- `ds-fellblade` `og-fellblade-1`: removed
+- `ds-fellblade` `og-fellblade-2`: removed
+- `ds-fellblade` `og-fellblade-3`: removed
+- `ds-fellblade` `og-fellblade-4`: removed
+- `ds-fellblade-2` `og-fellblade-2-1`: removed
+- `ds-fellblade-2` `og-fellblade-2-2`: removed
+- `ds-fellblade-2` `og-fellblade-2-3`: removed
+- `ds-fellblade-2` `og-fellblade-2-4`: removed
+- `ds-fellblade-3` `og-fellblade-3-1`: removed
+- `ds-fellblade-3` `og-fellblade-3-2`: removed
+- `ds-fellblade-3` `og-fellblade-3-3`: removed
+- `ds-fellblade-3` `og-fellblade-3-4`: removed
+- `ds-fellblade-4` `og-fellblade-4-1`: removed
+- `ds-fellblade-4` `og-fellblade-4-2`: removed
+- `ds-fellblade-4` `og-fellblade-4-3`: removed
+- `ds-fellblade-4` `og-fellblade-4-4`: removed
+- `ds-fellblade-5` `og-fellblade-5-1`: removed
+- `ds-fellblade-5` `og-fellblade-5-2`: removed
+- `ds-fellblade-5` `og-fellblade-5-3`: removed
+- `ds-fellblade-5` `og-fellblade-5-4`: removed
+- `ds-fire-raptor-gunship` `og-fire-raptor-gunship-1`: removed
+- `ds-fire-raptor-gunship` `og-fire-raptor-gunship-2`: removed
+- `ds-fire-raptor-gunship-2` `og-fire-raptor-gunship-2-1`: removed
+- `ds-fire-raptor-gunship-2` `og-fire-raptor-gunship-2-2`: removed
+- `ds-fire-raptor-gunship-3` `og-fire-raptor-gunship-3-1`: removed
+- `ds-fire-raptor-gunship-3` `og-fire-raptor-gunship-3-2`: removed
+- `ds-fire-raptor-gunship-4` `og-fire-raptor-gunship-4-1`: removed
+- `ds-fire-raptor-gunship-4` `og-fire-raptor-gunship-4-2`: removed
+- `ds-fire-raptor-gunship-5` `og-fire-raptor-gunship-5-1`: removed
+- `ds-fire-raptor-gunship-5` `og-fire-raptor-gunship-5-2`: removed
+- `ds-furioso-dreadnought` `og-furioso-dreadnought-1`: removed
+- `ds-furioso-dreadnought` `og-furioso-dreadnought-2`: removed
+- `ds-furioso-dreadnought` `og-furioso-dreadnought-3`: removed
+- `ds-furioso-dreadnought` `og-furioso-dreadnought-4`: removed
+- `ds-gargantuan-squiggoth` `og-gargantuan-squiggoth-2`: added
+- `ds-gladiator-lancer` `og-gladiator-lancer-2`: removed
+- `ds-gladiator-lancer` `og-gladiator-lancer-3`: removed
+- `ds-gladiator-lancer-2` `og-gladiator-lancer-2-1`: removed
+- `ds-gladiator-lancer-2` `og-gladiator-lancer-2-2`: removed
+- `ds-gladiator-lancer-2` `og-gladiator-lancer-2-3`: removed
+- `ds-gladiator-lancer-3` `og-gladiator-lancer-3-1`: removed
+- `ds-gladiator-lancer-3` `og-gladiator-lancer-3-2`: removed
+- `ds-gladiator-lancer-3` `og-gladiator-lancer-3-3`: removed
+- `ds-gladiator-lancer-4` `og-gladiator-lancer-4-1`: removed
+- `ds-gladiator-lancer-4` `og-gladiator-lancer-4-2`: removed
+- `ds-gladiator-lancer-4` `og-gladiator-lancer-4-3`: removed
+- `ds-gladiator-lancer-5` `og-gladiator-lancer-5-1`: removed
+- `ds-gladiator-lancer-5` `og-gladiator-lancer-5-2`: removed
+- `ds-gladiator-lancer-5` `og-gladiator-lancer-5-3`: removed
+- `ds-gladiator-lancer-6` `og-gladiator-lancer-6-1`: removed
+- `ds-gladiator-lancer-6` `og-gladiator-lancer-6-2`: removed
+- `ds-gladiator-lancer-6` `og-gladiator-lancer-6-3`: removed
+- `ds-gladiator-reaper` `og-gladiator-reaper-2`: removed
+- `ds-gladiator-reaper-2` `og-gladiator-reaper-2-1`: removed
+- `ds-gladiator-reaper-2` `og-gladiator-reaper-2-2`: removed
+- `ds-gladiator-reaper-3` `og-gladiator-reaper-3-1`: removed
+- `ds-gladiator-reaper-3` `og-gladiator-reaper-3-2`: removed
+- `ds-gladiator-reaper-4` `og-gladiator-reaper-4-1`: removed
+- `ds-gladiator-reaper-4` `og-gladiator-reaper-4-2`: removed
+- `ds-gladiator-reaper-5` `og-gladiator-reaper-5-1`: removed
+- `ds-gladiator-reaper-5` `og-gladiator-reaper-5-2`: removed
+- `ds-gladiator-reaper-6` `og-gladiator-reaper-6-1`: removed
+- `ds-gladiator-reaper-6` `og-gladiator-reaper-6-2`: removed
+- `ds-gladiator-valiant` `og-gladiator-valiant-2`: removed
+- `ds-gladiator-valiant-2` `og-gladiator-valiant-2-1`: removed
+- `ds-gladiator-valiant-2` `og-gladiator-valiant-2-2`: removed
+- `ds-gladiator-valiant-3` `og-gladiator-valiant-3-1`: removed
+- `ds-gladiator-valiant-3` `og-gladiator-valiant-3-2`: removed
+- `ds-gladiator-valiant-4` `og-gladiator-valiant-4-1`: removed
+- `ds-gladiator-valiant-4` `og-gladiator-valiant-4-2`: removed
+- `ds-gladiator-valiant-5` `og-gladiator-valiant-5-1`: removed
+- `ds-gladiator-valiant-5` `og-gladiator-valiant-5-2`: removed
+- `ds-gladiator-valiant-6` `og-gladiator-valiant-6-1`: removed
+- `ds-gladiator-valiant-6` `og-gladiator-valiant-6-2`: removed
+- `ds-hammerfall-bunker-2` `og-hammerfall-bunker-2-1`: removed
+- `ds-hammerfall-bunker-3` `og-hammerfall-bunker-3-1`: removed
+- `ds-hammerfall-bunker-4` `og-hammerfall-bunker-4-1`: removed
+- `ds-hammerfall-bunker-5` `og-hammerfall-bunker-5-1`: removed
+- `ds-hammerfall-bunker-6` `og-hammerfall-bunker-6-1`: removed
+- `ds-hunter` `og-hunter-1`: removed
+- `ds-hunter` `og-hunter-2`: removed
+- `ds-incursor-squad` `og-incursor-squad-1`: removed
+- `ds-incursor-squad-2` `og-incursor-squad-2-1`: removed
+- `ds-incursor-squad-3` `og-incursor-squad-3-1`: removed
+- `ds-incursor-squad-4` `og-incursor-squad-4-1`: removed
+- `ds-incursor-squad-5` `og-incursor-squad-5-1`: removed
+- `ds-incursor-squad-6` `og-incursor-squad-6-1`: removed
+- `ds-infiltrator-squad` `og-infiltrator-squad-2`: removed
+- `ds-infiltrator-squad-2` `og-infiltrator-squad-2-2`: removed
+- `ds-infiltrator-squad-3` `og-infiltrator-squad-3-2`: removed
+- `ds-infiltrator-squad-4` `og-infiltrator-squad-4-2`: removed
+- `ds-infiltrator-squad-5` `og-infiltrator-squad-5-2`: removed
+- `ds-infiltrator-squad-6` `og-infiltrator-squad-6-2`: removed
+- `ds-invader-atv` `og-invader-atv-1`: removed
+- `ds-invader-atv-2` `og-invader-atv-2-1`: removed
+- `ds-invader-atv-3` `og-invader-atv-3-1`: removed
+- `ds-invader-atv-4` `og-invader-atv-4-1`: removed
+- `ds-invader-atv-5` `og-invader-atv-5-1`: removed
+- `ds-invader-atv-6` `og-invader-atv-6-1`: removed
+- `ds-invader-atvs` `og-invader-atvs-1`: added
+- `ds-invader-atvs-2` `og-invader-atvs-2-1`: added
+- `ds-invader-atvs-3` `og-invader-atvs-3-1`: added
+- `ds-invader-atvs-4` `og-invader-atvs-4-1`: added
+- `ds-invader-atvs-5` `og-invader-atvs-5-1`: added
+- `ds-invader-atvs-6` `og-invader-atvs-6-1`: added
+- `ds-ironclad-dreadnought` `og-ironclad-dreadnought-1`: removed
+- `ds-ironclad-dreadnought` `og-ironclad-dreadnought-2`: removed
+- `ds-ironclad-dreadnought` `og-ironclad-dreadnought-3`: removed
+- `ds-ironclad-dreadnought` `og-ironclad-dreadnought-4`: removed
+- `ds-ironclad-dreadnought` `og-ironclad-dreadnought-5`: removed
+- `ds-ironclad-dreadnought` `og-ironclad-dreadnought-6`: removed
+- `ds-javelin-attack-speeder` `og-javelin-attack-speeder-1`: removed
+- `ds-javelin-attack-speeder` `og-javelin-attack-speeder-2`: removed
+- `ds-javelin-attack-speeder` `og-javelin-attack-speeder-3`: removed
+- `ds-kill-tank` `og-kill-tank-2`: added
+- `ds-kill-tank` `og-kill-tank-3`: added
+- `ds-kill-tank` `og-kill-tank-4`: added
+- `ds-land-raider-achilles` `og-land-raider-achilles-1`: removed
+- `ds-land-raider-achilles` `og-land-raider-achilles-2`: removed
+- `ds-land-raider-achilles` `og-land-raider-achilles-3`: removed
+- `ds-land-raider-achilles-2` `og-land-raider-achilles-2-1`: removed
+- `ds-land-raider-achilles-2` `og-land-raider-achilles-2-2`: removed
+- `ds-land-raider-achilles-2` `og-land-raider-achilles-2-3`: removed
+- `ds-land-raider-achilles-3` `og-land-raider-achilles-3-1`: removed
+- `ds-land-raider-achilles-3` `og-land-raider-achilles-3-2`: removed
+- `ds-land-raider-achilles-3` `og-land-raider-achilles-3-3`: removed
+- `ds-land-raider-achilles-4` `og-land-raider-achilles-4-1`: removed
+- `ds-land-raider-achilles-4` `og-land-raider-achilles-4-2`: removed
+- `ds-land-raider-achilles-4` `og-land-raider-achilles-4-3`: removed
+- `ds-land-raider-achilles-5` `og-land-raider-achilles-5-1`: removed
+- `ds-land-raider-achilles-5` `og-land-raider-achilles-5-2`: removed
+- `ds-land-raider-achilles-5` `og-land-raider-achilles-5-3`: removed
+- `ds-land-raider-helios` `og-land-raider-helios-1`: removed
+- `ds-land-raider-helios` `og-land-raider-helios-2`: removed
+- `ds-land-raider-prometheus` `og-land-raider-prometheus-1`: removed
+- `ds-land-raider-prometheus` `og-land-raider-prometheus-2`: removed
+- `ds-land-raider-prometheus` `og-land-raider-prometheus-3`: removed
+- `ds-land-raider-proteus` `og-land-raider-proteus-1`: removed
+- `ds-land-raider-proteus` `og-land-raider-proteus-2`: removed
+- `ds-land-raider-proteus` `og-land-raider-proteus-3`: removed
+- `ds-land-raider-proteus` `og-land-raider-proteus-4`: removed
+- `ds-land-raider-proteus-2` `og-land-raider-proteus-2-1`: removed
+- `ds-land-raider-proteus-2` `og-land-raider-proteus-2-2`: removed
+- `ds-land-raider-proteus-2` `og-land-raider-proteus-2-3`: removed
+- `ds-land-raider-proteus-2` `og-land-raider-proteus-2-4`: removed
+- `ds-land-raider-proteus-3` `og-land-raider-proteus-3-1`: removed
+- `ds-land-raider-proteus-3` `og-land-raider-proteus-3-2`: removed
+- `ds-land-raider-proteus-3` `og-land-raider-proteus-3-3`: removed
+- `ds-land-raider-proteus-3` `og-land-raider-proteus-3-4`: removed
+- `ds-land-raider-proteus-4` `og-land-raider-proteus-4-1`: removed
+- `ds-land-raider-proteus-4` `og-land-raider-proteus-4-2`: removed
+- `ds-land-raider-proteus-4` `og-land-raider-proteus-4-3`: removed
+- `ds-land-raider-proteus-4` `og-land-raider-proteus-4-4`: removed
+- `ds-land-raider-proteus-5` `og-land-raider-proteus-5-1`: removed
+- `ds-land-raider-proteus-5` `og-land-raider-proteus-5-2`: removed
+- `ds-land-raider-proteus-5` `og-land-raider-proteus-5-3`: removed
+- `ds-land-raider-proteus-5` `og-land-raider-proteus-5-4`: removed
+- `ds-land-speeder-tornado` `og-land-speeder-tornado-1`: removed
+- `ds-land-speeder-tornado` `og-land-speeder-tornado-2`: removed
+- `ds-land-speeder-typhoon` `og-land-speeder-typhoon-1`: removed
+- `ds-leviathan-dreadnought` `og-leviathan-dreadnought-1`: removed
+- `ds-leviathan-dreadnought` `og-leviathan-dreadnought-2`: removed
+- `ds-leviathan-dreadnought` `og-leviathan-dreadnought-3`: removed
+- `ds-leviathan-dreadnought-2` `og-leviathan-dreadnought-2-1`: removed
+- `ds-leviathan-dreadnought-2` `og-leviathan-dreadnought-2-2`: removed
+- `ds-leviathan-dreadnought-2` `og-leviathan-dreadnought-2-3`: removed
+- `ds-leviathan-dreadnought-3` `og-leviathan-dreadnought-3-1`: removed
+- `ds-leviathan-dreadnought-3` `og-leviathan-dreadnought-3-2`: removed
+- `ds-leviathan-dreadnought-3` `og-leviathan-dreadnought-3-3`: removed
+- `ds-leviathan-dreadnought-4` `og-leviathan-dreadnought-4-1`: removed
+- `ds-leviathan-dreadnought-4` `og-leviathan-dreadnought-4-2`: removed
+- `ds-leviathan-dreadnought-4` `og-leviathan-dreadnought-4-3`: removed
+- `ds-leviathan-dreadnought-5` `og-leviathan-dreadnought-5-1`: removed
+- `ds-leviathan-dreadnought-5` `og-leviathan-dreadnought-5-2`: removed
+- `ds-leviathan-dreadnought-5` `og-leviathan-dreadnought-5-3`: removed
+- `ds-librarian-dreadnought` `og-librarian-dreadnought-1`: removed
+- `ds-librarian-in-terminator-armour` `og-librarian-in-terminator-armour-1`: removed
+- `ds-librarian-in-terminator-armour-2` `og-librarian-in-terminator-armour-2-1`: removed
+- `ds-librarian-in-terminator-armour-3` `og-librarian-in-terminator-armour-3-1`: removed
+- `ds-librarian-in-terminator-armour-4` `og-librarian-in-terminator-armour-4-1`: removed
+- `ds-librarian-in-terminator-armour-5` `og-librarian-in-terminator-armour-5-1`: removed
+- `ds-librarian-on-bike` `og-librarian-on-bike-1`: removed
+- `ds-librarian-with-jump-pack` `og-librarian-with-jump-pack-1`: removed
+- `ds-lieutenant` `og-lieutenant-2`: removed
+- `ds-lieutenant` `og-lieutenant-5`: added
+- `ds-lieutenant-2` `og-lieutenant-2-2`: removed
+- `ds-lieutenant-2` `og-lieutenant-2-5`: added
+- `ds-lieutenant-3` `og-lieutenant-3-2`: removed
+- `ds-lieutenant-3` `og-lieutenant-3-5`: added
+- `ds-lieutenant-4` `og-lieutenant-4-2`: removed
+- `ds-lieutenant-4` `og-lieutenant-4-5`: added
+- `ds-lieutenant-5` `og-lieutenant-5-2`: removed
+- `ds-lieutenant-5` `og-lieutenant-5-5`: added
+- `ds-lieutenant-6` `og-lieutenant-6-2`: removed
+- `ds-lieutenant-6` `og-lieutenant-6-5`: added
+- `ds-lieutenant-in-phobos-armour` `og-lieutenant-in-phobos-armour-1`: added
+- `ds-lieutenant-in-phobos-armour-2` `og-lieutenant-in-phobos-armour-2-1`: added
+- `ds-lieutenant-in-phobos-armour-3` `og-lieutenant-in-phobos-armour-3-1`: added
+- `ds-lieutenant-in-phobos-armour-4` `og-lieutenant-in-phobos-armour-4-1`: added
+- `ds-lieutenant-in-phobos-armour-5` `og-lieutenant-in-phobos-armour-5-1`: added
+- `ds-lieutenant-in-phobos-armour-6` `og-lieutenant-in-phobos-armour-6-1`: added
+- `ds-lifta-wagon` `og-lifta-wagon-4`: removed
+- `ds-long-fangs` `og-long-fangs-1`: removed
+- `ds-long-fangs` `og-long-fangs-3`: removed
+- `ds-mortis-dreadnought` `og-mortis-dreadnought-1`: removed
+- `ds-outrider-squad` `og-outrider-squad-2`: added
+- `ds-outrider-squad-2` `og-outrider-squad-2-2`: added
+- `ds-outrider-squad-3` `og-outrider-squad-3-2`: added
+- `ds-outrider-squad-4` `og-outrider-squad-4-2`: added
+- `ds-outrider-squad-5` `og-outrider-squad-5-2`: added
+- `ds-outrider-squad-6` `og-outrider-squad-6-2`: added
+- `ds-predator-annihilator-2` `og-predator-annihilator-2-1`: removed
+- `ds-predator-annihilator-2` `og-predator-annihilator-2-2`: removed
+- `ds-predator-annihilator-2` `og-predator-annihilator-2-3`: removed
+- `ds-predator-annihilator-3` `og-predator-annihilator-3-1`: removed
+- `ds-predator-annihilator-3` `og-predator-annihilator-3-2`: removed
+- `ds-predator-annihilator-3` `og-predator-annihilator-3-3`: removed
+- `ds-predator-annihilator-4` `og-predator-annihilator-4-1`: removed
+- `ds-predator-annihilator-4` `og-predator-annihilator-4-2`: removed
+- `ds-predator-annihilator-4` `og-predator-annihilator-4-3`: removed
+- `ds-predator-annihilator-5` `og-predator-annihilator-5-1`: removed
+- `ds-predator-annihilator-5` `og-predator-annihilator-5-2`: removed
+- `ds-predator-annihilator-5` `og-predator-annihilator-5-3`: removed
+- `ds-predator-annihilator-6` `og-predator-annihilator-6-1`: removed
+- `ds-predator-annihilator-6` `og-predator-annihilator-6-2`: removed
+- `ds-predator-annihilator-6` `og-predator-annihilator-6-3`: removed
+- `ds-predator-destructor-2` `og-predator-destructor-2-1`: removed
+- `ds-predator-destructor-2` `og-predator-destructor-2-2`: removed
+- `ds-predator-destructor-2` `og-predator-destructor-2-3`: removed
+- `ds-predator-destructor-3` `og-predator-destructor-3-1`: removed
+- `ds-predator-destructor-3` `og-predator-destructor-3-2`: removed
+- `ds-predator-destructor-3` `og-predator-destructor-3-3`: removed
+- `ds-predator-destructor-4` `og-predator-destructor-4-1`: removed
+- `ds-predator-destructor-4` `og-predator-destructor-4-2`: removed
+- `ds-predator-destructor-4` `og-predator-destructor-4-3`: removed
+- `ds-predator-destructor-5` `og-predator-destructor-5-1`: removed
+- `ds-predator-destructor-5` `og-predator-destructor-5-2`: removed
+- `ds-predator-destructor-5` `og-predator-destructor-5-3`: removed
+- `ds-predator-destructor-6` `og-predator-destructor-6-1`: removed
+- `ds-predator-destructor-6` `og-predator-destructor-6-2`: removed
+- `ds-predator-destructor-6` `og-predator-destructor-6-3`: removed
+- `ds-razorback-3` `og-razorback-3-1`: removed
+- `ds-razorback-3` `og-razorback-3-2`: removed
+- `ds-razorback-3` `og-razorback-3-3`: removed
+- `ds-razorback-4` `og-razorback-4-1`: removed
+- `ds-razorback-4` `og-razorback-4-2`: removed
+- `ds-razorback-4` `og-razorback-4-3`: removed
+- `ds-razorback-5` `og-razorback-5-1`: removed
+- `ds-razorback-5` `og-razorback-5-2`: removed
+- `ds-razorback-5` `og-razorback-5-3`: removed
+- `ds-razorback-6` `og-razorback-6-1`: removed
+- `ds-razorback-6` `og-razorback-6-2`: removed
+- `ds-razorback-6` `og-razorback-6-3`: removed
+- `ds-razorback-7` `og-razorback-7-1`: removed
+- `ds-razorback-7` `og-razorback-7-2`: removed
+- `ds-razorback-7` `og-razorback-7-3`: removed
+- `ds-reiver-squad` `og-reiver-squad-2`: added
+- `ds-reiver-squad` `og-reiver-squad-3`: removed
+- `ds-reiver-squad` `og-reiver-squad-4`: removed
+- `ds-reiver-squad-2` `og-reiver-squad-2-2`: added
+- `ds-reiver-squad-2` `og-reiver-squad-2-3`: removed
+- `ds-reiver-squad-2` `og-reiver-squad-2-4`: removed
+- `ds-reiver-squad-3` `og-reiver-squad-3-2`: added
+- `ds-reiver-squad-3` `og-reiver-squad-3-3`: removed
+- `ds-reiver-squad-3` `og-reiver-squad-3-4`: removed
+- `ds-reiver-squad-4` `og-reiver-squad-4-2`: added
+- `ds-reiver-squad-4` `og-reiver-squad-4-3`: removed
+- `ds-reiver-squad-4` `og-reiver-squad-4-4`: removed
+- `ds-reiver-squad-5` `og-reiver-squad-5-2`: added
+- `ds-reiver-squad-5` `og-reiver-squad-5-3`: removed
+- `ds-reiver-squad-5` `og-reiver-squad-5-4`: removed
+- `ds-reiver-squad-6` `og-reiver-squad-6-2`: added
+- `ds-reiver-squad-6` `og-reiver-squad-6-3`: removed
+- `ds-reiver-squad-6` `og-reiver-squad-6-4`: removed
+- `ds-relic-contemptor-dreadnought` `og-relic-contemptor-dreadnought-1`: removed
+- `ds-relic-contemptor-dreadnought` `og-relic-contemptor-dreadnought-2`: removed
+- `ds-relic-contemptor-dreadnought` `og-relic-contemptor-dreadnought-3`: removed
+- `ds-relic-contemptor-dreadnought-2` `og-relic-contemptor-dreadnought-2-1`: removed
+- `ds-relic-contemptor-dreadnought-2` `og-relic-contemptor-dreadnought-2-2`: removed
+- `ds-relic-contemptor-dreadnought-2` `og-relic-contemptor-dreadnought-2-3`: removed
+- `ds-relic-contemptor-dreadnought-3` `og-relic-contemptor-dreadnought-3-1`: removed
+- `ds-relic-contemptor-dreadnought-3` `og-relic-contemptor-dreadnought-3-2`: removed
+- `ds-relic-contemptor-dreadnought-3` `og-relic-contemptor-dreadnought-3-3`: removed
+- `ds-relic-contemptor-dreadnought-4` `og-relic-contemptor-dreadnought-4-1`: removed
+- `ds-relic-contemptor-dreadnought-4` `og-relic-contemptor-dreadnought-4-2`: removed
+- `ds-relic-contemptor-dreadnought-4` `og-relic-contemptor-dreadnought-4-3`: removed
+- `ds-relic-contemptor-dreadnought-5` `og-relic-contemptor-dreadnought-5-1`: removed
+- `ds-relic-contemptor-dreadnought-5` `og-relic-contemptor-dreadnought-5-2`: removed
+- `ds-relic-contemptor-dreadnought-5` `og-relic-contemptor-dreadnought-5-3`: removed
+- `ds-relic-terminator-squad` `og-relic-terminator-squad-1`: removed
+- `ds-relic-terminator-squad` `og-relic-terminator-squad-2`: removed
+- `ds-relic-terminator-squad` `og-relic-terminator-squad-3`: removed
+- `ds-relic-terminator-squad` `og-relic-terminator-squad-4`: removed
+- `ds-relic-terminator-squad` `og-relic-terminator-squad-5`: removed
+- `ds-relic-terminator-squad` `og-relic-terminator-squad-6`: removed
+- `ds-repulsor-executioner` `og-repulsor-executioner-3`: removed
+- `ds-repulsor-executioner-2` `og-repulsor-executioner-2-2`: removed
+- `ds-repulsor-executioner-2` `og-repulsor-executioner-2-3`: removed
+- `ds-repulsor-executioner-3` `og-repulsor-executioner-3-2`: removed
+- `ds-repulsor-executioner-3` `og-repulsor-executioner-3-3`: removed
+- `ds-repulsor-executioner-4` `og-repulsor-executioner-4-2`: removed
+- `ds-repulsor-executioner-4` `og-repulsor-executioner-4-3`: removed
+- `ds-repulsor-executioner-5` `og-repulsor-executioner-5-2`: removed
+- `ds-repulsor-executioner-5` `og-repulsor-executioner-5-3`: removed
+- `ds-repulsor-executioner-6` `og-repulsor-executioner-6-2`: removed
+- `ds-repulsor-executioner-6` `og-repulsor-executioner-6-3`: removed
+- `ds-sanguinary-guard` `og-sanguinary-guard-2`: removed
+- `ds-sanguinary-guard` `og-sanguinary-guard-3`: removed
+- `ds-scout-bike-squad` `og-scout-bike-squad-2`: removed
+- `ds-scout-sniper-squad` `og-scout-sniper-squad-1`: removed
+- `ds-scout-squad` `og-scout-squad-5`: added
+- `ds-scout-squad-2` `og-scout-squad-2-5`: added
+- `ds-scout-squad-3` `og-scout-squad-3-5`: added
+- `ds-scout-squad-4` `og-scout-squad-4-5`: added
+- `ds-scout-squad-5` `og-scout-squad-5-5`: added
+- `ds-sicaran` `og-sicaran-1`: added
+- `ds-sicaran` `og-sicaran-2`: added
+- `ds-sicaran` `og-sicaran-3`: added
+- `ds-sicaran` `og-sicaran-4`: added
+- `ds-sicaran-arcus` `og-sicaran-arcus-1`: removed
+- `ds-sicaran-arcus` `og-sicaran-arcus-2`: removed
+- `ds-sicaran-arcus` `og-sicaran-arcus-3`: removed
+- `ds-sicaran-battle-tank` `og-sicaran-battle-tank-1`: removed
+- `ds-sicaran-battle-tank` `og-sicaran-battle-tank-2`: removed
+- `ds-sicaran-battle-tank` `og-sicaran-battle-tank-3`: removed
+- `ds-sicaran-battle-tank-2` `og-sicaran-battle-tank-2-1`: removed
+- `ds-sicaran-battle-tank-2` `og-sicaran-battle-tank-2-2`: removed
+- `ds-sicaran-battle-tank-2` `og-sicaran-battle-tank-2-3`: removed
+- `ds-sicaran-battle-tank-3` `og-sicaran-battle-tank-3-1`: removed
+- `ds-sicaran-battle-tank-3` `og-sicaran-battle-tank-3-2`: removed
+- `ds-sicaran-battle-tank-3` `og-sicaran-battle-tank-3-3`: removed
+- `ds-sicaran-battle-tank-4` `og-sicaran-battle-tank-4-1`: removed
+- `ds-sicaran-battle-tank-4` `og-sicaran-battle-tank-4-2`: removed
+- `ds-sicaran-battle-tank-4` `og-sicaran-battle-tank-4-3`: removed
+- `ds-sicaran-battle-tank-5` `og-sicaran-battle-tank-5-1`: removed
+- `ds-sicaran-battle-tank-5` `og-sicaran-battle-tank-5-2`: removed
+- `ds-sicaran-battle-tank-5` `og-sicaran-battle-tank-5-3`: removed
+- `ds-sicaran-omega` `og-sicaran-omega-1`: removed
+- `ds-sicaran-omega` `og-sicaran-omega-2`: removed
+- `ds-sicaran-omega` `og-sicaran-omega-3`: removed
+- `ds-sicaran-punisher` `og-sicaran-punisher-1`: removed
+- `ds-sicaran-punisher` `og-sicaran-punisher-2`: removed
+- `ds-sicaran-punisher` `og-sicaran-punisher-3`: removed
+- `ds-sicaran-punisher-2` `og-sicaran-punisher-2-1`: removed
+- `ds-sicaran-punisher-2` `og-sicaran-punisher-2-2`: removed
+- `ds-sicaran-punisher-2` `og-sicaran-punisher-2-3`: removed
+- `ds-sicaran-punisher-3` `og-sicaran-punisher-3-1`: removed
+- `ds-sicaran-punisher-3` `og-sicaran-punisher-3-2`: removed
+- `ds-sicaran-punisher-3` `og-sicaran-punisher-3-3`: removed
+- `ds-sicaran-punisher-4` `og-sicaran-punisher-4-1`: removed
+- `ds-sicaran-punisher-4` `og-sicaran-punisher-4-2`: removed
+- `ds-sicaran-punisher-4` `og-sicaran-punisher-4-3`: removed
+- `ds-sicaran-punisher-5` `og-sicaran-punisher-5-1`: removed
+- `ds-sicaran-punisher-5` `og-sicaran-punisher-5-2`: removed
+- `ds-sicaran-punisher-5` `og-sicaran-punisher-5-3`: removed
+- `ds-sicaran-venator` `og-sicaran-venator-1`: removed
+- `ds-sicaran-venator` `og-sicaran-venator-2`: removed
+- `ds-sicaran-venator` `og-sicaran-venator-3`: removed
+- `ds-sicaran-venator-2` `og-sicaran-venator-2-1`: removed
+- `ds-sicaran-venator-2` `og-sicaran-venator-2-2`: removed
+- `ds-sicaran-venator-2` `og-sicaran-venator-2-3`: removed
+- `ds-sicaran-venator-3` `og-sicaran-venator-3-1`: removed
+- `ds-sicaran-venator-3` `og-sicaran-venator-3-2`: removed
+- `ds-sicaran-venator-3` `og-sicaran-venator-3-3`: removed
+- `ds-sicaran-venator-4` `og-sicaran-venator-4-1`: removed
+- `ds-sicaran-venator-4` `og-sicaran-venator-4-2`: removed
+- `ds-sicaran-venator-4` `og-sicaran-venator-4-3`: removed
+- `ds-sicaran-venator-5` `og-sicaran-venator-5-1`: removed
+- `ds-sicaran-venator-5` `og-sicaran-venator-5-2`: removed
+- `ds-sicaran-venator-5` `og-sicaran-venator-5-3`: removed
+- `ds-skyclaws` `og-skyclaws-1`: removed
+- `ds-skyclaws` `og-skyclaws-2`: removed
+- `ds-skyclaws` `og-skyclaws-3`: removed
+- `ds-spartan` `og-spartan-1`: removed
+- `ds-spartan` `og-spartan-2`: removed
+- `ds-spartan` `og-spartan-3`: removed
+- `ds-spartan-2` `og-spartan-2-1`: removed
+- `ds-spartan-2` `og-spartan-2-2`: removed
+- `ds-spartan-2` `og-spartan-2-3`: removed
+- `ds-spartan-3` `og-spartan-3-1`: removed
+- `ds-spartan-3` `og-spartan-3-2`: removed
+- `ds-spartan-3` `og-spartan-3-3`: removed
+- `ds-spartan-4` `og-spartan-4-1`: removed
+- `ds-spartan-4` `og-spartan-4-2`: removed
+- `ds-spartan-4` `og-spartan-4-3`: removed
+- `ds-spartan-5` `og-spartan-5-1`: removed
+- `ds-spartan-5` `og-spartan-5-2`: removed
+- `ds-spartan-5` `og-spartan-5-3`: removed
+- `ds-spectrus-kill-team` `og-spectrus-kill-team-1`: added
+- `ds-stalker` `og-stalker-1`: removed
+- `ds-stalker` `og-stalker-2`: removed
+- `ds-sternguard-veteran-squad` `og-sternguard-veteran-squad-3`: removed
+- `ds-sternguard-veteran-squad-2` `og-sternguard-veteran-squad-2-3`: removed
+- `ds-sternguard-veteran-squad-3` `og-sternguard-veteran-squad-3-3`: removed
+- `ds-sternguard-veteran-squad-4` `og-sternguard-veteran-squad-4-3`: removed
+- `ds-sternguard-veteran-squad-5` `og-sternguard-veteran-squad-5-3`: removed
+- `ds-sternguard-veteran-squad-6` `og-sternguard-veteran-squad-6-3`: removed
+- `ds-storm-eagle-gunship` `og-storm-eagle-gunship-1`: removed
+- `ds-storm-eagle-gunship` `og-storm-eagle-gunship-2`: removed
+- `ds-storm-eagle-gunship-2` `og-storm-eagle-gunship-2-1`: removed
+- `ds-storm-eagle-gunship-2` `og-storm-eagle-gunship-2-2`: removed
+- `ds-storm-eagle-gunship-3` `og-storm-eagle-gunship-3-1`: removed
+- `ds-storm-eagle-gunship-3` `og-storm-eagle-gunship-3-2`: removed
+- `ds-storm-eagle-gunship-4` `og-storm-eagle-gunship-4-1`: removed
+- `ds-storm-eagle-gunship-4` `og-storm-eagle-gunship-4-2`: removed
+- `ds-storm-eagle-gunship-5` `og-storm-eagle-gunship-5-1`: removed
+- `ds-storm-eagle-gunship-5` `og-storm-eagle-gunship-5-2`: removed
+- `ds-stormfang-gunship` `og-stormfang-gunship-1`: removed
+- `ds-stormfang-gunship` `og-stormfang-gunship-2`: removed
+- `ds-stormhawk-interceptor-3` `og-stormhawk-interceptor-3-1`: removed
+- `ds-stormhawk-interceptor-3` `og-stormhawk-interceptor-3-2`: removed
+- `ds-stormhawk-interceptor-4` `og-stormhawk-interceptor-4-1`: removed
+- `ds-stormhawk-interceptor-4` `og-stormhawk-interceptor-4-2`: removed
+- `ds-stormhawk-interceptor-5` `og-stormhawk-interceptor-5-1`: removed
+- `ds-stormhawk-interceptor-5` `og-stormhawk-interceptor-5-2`: removed
+- `ds-stormhawk-interceptor-6` `og-stormhawk-interceptor-6-1`: removed
+- `ds-stormhawk-interceptor-6` `og-stormhawk-interceptor-6-2`: removed
+- `ds-stormhawk-interceptor-7` `og-stormhawk-interceptor-7-1`: removed
+- `ds-stormhawk-interceptor-7` `og-stormhawk-interceptor-7-2`: removed
+- `ds-stormraven-gunship-3` `og-stormraven-gunship-3-1`: removed
+- `ds-stormraven-gunship-3` `og-stormraven-gunship-3-2`: removed
+- `ds-stormraven-gunship-3` `og-stormraven-gunship-3-3`: removed
+- `ds-stormraven-gunship-4` `og-stormraven-gunship-4-1`: removed
+- `ds-stormraven-gunship-4` `og-stormraven-gunship-4-2`: removed
+- `ds-stormraven-gunship-4` `og-stormraven-gunship-4-3`: removed
+- `ds-stormraven-gunship-5` `og-stormraven-gunship-5-1`: removed
+- `ds-stormraven-gunship-5` `og-stormraven-gunship-5-2`: removed
+- `ds-stormraven-gunship-5` `og-stormraven-gunship-5-3`: removed
+- `ds-stormraven-gunship-6` `og-stormraven-gunship-6-1`: removed
+- `ds-stormraven-gunship-6` `og-stormraven-gunship-6-2`: removed
+- `ds-stormraven-gunship-6` `og-stormraven-gunship-6-3`: removed
+- `ds-stormraven-gunship-7` `og-stormraven-gunship-7-1`: removed
+- `ds-stormraven-gunship-7` `og-stormraven-gunship-7-2`: removed
+- `ds-stormraven-gunship-7` `og-stormraven-gunship-7-3`: removed
+- `ds-stormtalon-gunship-3` `og-stormtalon-gunship-3-1`: removed
+- `ds-stormtalon-gunship-4` `og-stormtalon-gunship-4-1`: removed
+- `ds-stormtalon-gunship-5` `og-stormtalon-gunship-5-1`: removed
+- `ds-stormtalon-gunship-6` `og-stormtalon-gunship-6-1`: removed
+- `ds-stormtalon-gunship-7` `og-stormtalon-gunship-7-1`: removed
+- `ds-tactical-squad` `og-tactical-squad-1`: removed
+- `ds-tactical-squad` `og-tactical-squad-2`: removed
+- `ds-tactical-squad` `og-tactical-squad-3`: removed
+- `ds-tactical-squad-2` `og-tactical-squad-2-1`: removed
+- `ds-tactical-squad-2` `og-tactical-squad-2-2`: removed
+- `ds-tactical-squad-2` `og-tactical-squad-2-3`: removed
+- `ds-tactical-squad-3` `og-tactical-squad-3-1`: removed
+- `ds-tactical-squad-3` `og-tactical-squad-3-2`: removed
+- `ds-tactical-squad-3` `og-tactical-squad-3-3`: removed
+- `ds-tactical-squad-4` `og-tactical-squad-4-1`: removed
+- `ds-tactical-squad-4` `og-tactical-squad-4-2`: removed
+- `ds-tactical-squad-4` `og-tactical-squad-4-3`: removed
+- `ds-tarantula-sentry-battery` `og-tarantula-sentry-battery-1`: added
+- `ds-techmarine-on-bike` `og-techmarine-on-bike-1`: removed
+- `ds-techmarine-on-bike` `og-techmarine-on-bike-2`: removed
+- `ds-terminus-ultra` `og-terminus-ultra-1`: removed
+- `ds-terminus-ultra` `og-terminus-ultra-2`: removed
+- `ds-terminus-ultra` `og-terminus-ultra-3`: removed
+- `ds-thunderhawk-gunship` `og-thunderhawk-gunship-3`: added
+- `ds-thunderhawk-gunship-2` `og-thunderhawk-gunship-2-3`: added
+- `ds-thunderhawk-gunship-3` `og-thunderhawk-gunship-3-3`: added
+- `ds-thunderhawk-gunship-4` `og-thunderhawk-gunship-4-3`: added
+- `ds-thunderhawk-gunship-5` `og-thunderhawk-gunship-5-3`: added
+- `ds-thunderhawk-gunship-6` `og-thunderhawk-gunship-6-3`: added
+- `ds-vanguard-veteran-squad` `og-vanguard-veteran-squad-1`: added
+- `ds-vanguard-veteran-squad` `og-vanguard-veteran-squad-2`: added
+- `ds-vanguard-veteran-squad-with-jump-packs` `og-vanguard-veteran-squad-with-jump-packs-1`: added
+- `ds-vanguard-veteran-squad-with-jump-packs` `og-vanguard-veteran-squad-with-jump-packs-2`: added
+- `ds-vanguard-veteran-squad-with-jump-packs` `og-vanguard-veteran-squad-with-jump-packs-4`: added
+- `ds-vanguard-veteran-squad-with-jump-packs-2` `og-vanguard-veteran-squad-with-jump-packs-2-1`: added
+- `ds-vanguard-veteran-squad-with-jump-packs-2` `og-vanguard-veteran-squad-with-jump-packs-2-2`: added
+- `ds-vanguard-veteran-squad-with-jump-packs-2` `og-vanguard-veteran-squad-with-jump-packs-2-4`: added
+- `ds-vanguard-veteran-squad-with-jump-packs-3` `og-vanguard-veteran-squad-with-jump-packs-3-1`: added
+- `ds-vanguard-veteran-squad-with-jump-packs-3` `og-vanguard-veteran-squad-with-jump-packs-3-2`: added
+- `ds-vanguard-veteran-squad-with-jump-packs-3` `og-vanguard-veteran-squad-with-jump-packs-3-4`: added
+- `ds-vanguard-veteran-squad-with-jump-packs-4` `og-vanguard-veteran-squad-with-jump-packs-4-1`: added
+- `ds-vanguard-veteran-squad-with-jump-packs-4` `og-vanguard-veteran-squad-with-jump-packs-4-2`: added
+- `ds-vanguard-veteran-squad-with-jump-packs-4` `og-vanguard-veteran-squad-with-jump-packs-4-4`: added
+- `ds-vanguard-veteran-squad-with-jump-packs-5` `og-vanguard-veteran-squad-with-jump-packs-5-1`: added
+- `ds-vanguard-veteran-squad-with-jump-packs-5` `og-vanguard-veteran-squad-with-jump-packs-5-2`: added
+- `ds-vanguard-veteran-squad-with-jump-packs-5` `og-vanguard-veteran-squad-with-jump-packs-5-4`: added
+- `ds-vanguard-veteran-squad-with-jump-packs-6` `og-vanguard-veteran-squad-with-jump-packs-6-1`: added
+- `ds-vanguard-veteran-squad-with-jump-packs-6` `og-vanguard-veteran-squad-with-jump-packs-6-2`: added
+- `ds-vanguard-veteran-squad-with-jump-packs-6` `og-vanguard-veteran-squad-with-jump-packs-6-4`: added
+- `ds-venerable-dreadnought-3` `og-venerable-dreadnought-3-2`: removed
+- `ds-vindicator` `og-vindicator-3`: added
+- `ds-vindicator` `og-vindicator-4`: added
+- `ds-vindicator-2` `og-vindicator-2-1`: removed
+- `ds-vindicator-2` `og-vindicator-2-2`: removed
+- `ds-vindicator-3` `og-vindicator-3-1`: removed
+- `ds-vindicator-3` `og-vindicator-3-2`: removed
+- `ds-vindicator-4` `og-vindicator-4-1`: removed
+- `ds-vindicator-4` `og-vindicator-4-2`: removed
+- `ds-vindicator-5` `og-vindicator-5-1`: removed
+- `ds-vindicator-5` `og-vindicator-5-2`: removed
+- `ds-vindicator-6` `og-vindicator-6-1`: removed
+- `ds-vindicator-6` `og-vindicator-6-2`: removed
+- `ds-vindicator-laser-destroyer` `og-vindicator-laser-destroyer-1`: removed
+- `ds-whirlwind-2` `og-whirlwind-2-1`: removed
+- `ds-whirlwind-2` `og-whirlwind-2-2`: removed
+- `ds-whirlwind-3` `og-whirlwind-3-1`: removed
+- `ds-whirlwind-3` `og-whirlwind-3-2`: removed
+- `ds-whirlwind-4` `og-whirlwind-4-1`: removed
+- `ds-whirlwind-4` `og-whirlwind-4-2`: removed
+- `ds-whirlwind-5` `og-whirlwind-5-1`: removed
+- `ds-whirlwind-5` `og-whirlwind-5-2`: removed
+- `ds-whirlwind-6` `og-whirlwind-6-1`: removed
+- `ds-whirlwind-6` `og-whirlwind-6-2`: removed
+- `ds-whirlwind-scorpius` `og-whirlwind-scorpius-1`: removed
+- `ds-whirlwind-scorpius` `og-whirlwind-scorpius-2`: removed
+- `ds-whirlwind-scorpius-2` `og-whirlwind-scorpius-2-1`: removed
+- `ds-whirlwind-scorpius-2` `og-whirlwind-scorpius-2-2`: removed
+- `ds-whirlwind-scorpius-3` `og-whirlwind-scorpius-3-1`: removed
+- `ds-whirlwind-scorpius-3` `og-whirlwind-scorpius-3-2`: removed
+- `ds-whirlwind-scorpius-4` `og-whirlwind-scorpius-4-1`: removed
+- `ds-whirlwind-scorpius-4` `og-whirlwind-scorpius-4-2`: removed
+- `ds-whirlwind-scorpius-5` `og-whirlwind-scorpius-5-1`: removed
+- `ds-whirlwind-scorpius-5` `og-whirlwind-scorpius-5-2`: removed
+- `ds-wolf-guard` `og-wolf-guard-1`: removed
+- `ds-wolf-guard-battle-leader-in-terminator-armour` `og-wolf-guard-battle-leader-in-terminator-armour-1`: removed
+- `ds-wolf-guard-battle-leader-in-terminator-armour` `og-wolf-guard-battle-leader-in-terminator-armour-2`: removed
+- `ds-wolf-guard-battle-leader-in-terminator-armour` `og-wolf-guard-battle-leader-in-terminator-armour-3`: removed
+- `ds-wolf-guard-battle-leader-on-thunderwolf` `og-wolf-guard-battle-leader-on-thunderwolf-1`: removed
+- `ds-wolf-guard-battle-leader-on-thunderwolf` `og-wolf-guard-battle-leader-on-thunderwolf-2`: removed
+- `ds-wolf-guard-battle-leader-on-thunderwolf` `og-wolf-guard-battle-leader-on-thunderwolf-3`: removed
+- `ds-wolf-guard-headtakers` `og-wolf-guard-headtakers-1`: added
+- `ds-wolf-guard-pack-leader` `og-wolf-guard-pack-leader-1`: removed
+- `ds-wolf-guard-pack-leader` `og-wolf-guard-pack-leader-2`: removed
+- `ds-wolf-guard-pack-leader-in-terminator-armour` `og-wolf-guard-pack-leader-in-terminator-armour-1`: removed
+- `ds-wolf-guard-pack-leader-in-terminator-armour` `og-wolf-guard-pack-leader-in-terminator-armour-2`: removed
+- `ds-wolf-guard-pack-leader-in-terminator-armour` `og-wolf-guard-pack-leader-in-terminator-armour-3`: removed
+- `ds-wolf-guard-pack-leader-with-jump-pack` `og-wolf-guard-pack-leader-with-jump-pack-1`: removed
+- `ds-wolf-guard-pack-leader-with-jump-pack` `og-wolf-guard-pack-leader-with-jump-pack-2`: removed
+- `ds-wolf-lord-on-thunderwolf` `og-wolf-lord-on-thunderwolf-1`: removed
+- `ds-wolf-lord-on-thunderwolf` `og-wolf-lord-on-thunderwolf-2`: removed
+- `ds-wolf-lord-on-thunderwolf` `og-wolf-lord-on-thunderwolf-3`: removed
+- `ds-wolf-scouts` `og-wolf-scouts-4`: added
+- `ds-wolf-scouts` `og-wolf-scouts-5`: added
+- `ds-wulfen-dreadnought` `og-wulfen-dreadnought-2`: added
+
+## Wargear option choices
+
+- `ds-ancient-in-terminator-armour` `oc-ancient-in-terminator-armour-1-1`: removed (unpriced → absent)
+- `ds-ancient-in-terminator-armour` `oc-ancient-in-terminator-armour-1-2`: removed (unpriced → absent)
+- `ds-ancient-in-terminator-armour` `oc-ancient-in-terminator-armour-1-3`: removed (unpriced → absent)
+- `ds-ancient-in-terminator-armour` `oc-ancient-in-terminator-armour-1-4`: removed (unpriced → absent)
+- `ds-ancient-in-terminator-armour` `oc-ancient-in-terminator-armour-2-1`: removed (unpriced → absent)
+- `ds-ancient-in-terminator-armour` `oc-ancient-in-terminator-armour-2-2`: removed (unpriced → absent)
+- `ds-ancient-in-terminator-armour-2` `oc-ancient-in-terminator-armour-2-1-1`: removed (unpriced → absent)
+- `ds-ancient-in-terminator-armour-2` `oc-ancient-in-terminator-armour-2-1-2`: removed (unpriced → absent)
+- `ds-ancient-in-terminator-armour-2` `oc-ancient-in-terminator-armour-2-1-3`: removed (unpriced → absent)
+- `ds-ancient-in-terminator-armour-2` `oc-ancient-in-terminator-armour-2-1-4`: removed (unpriced → absent)
+- `ds-ancient-in-terminator-armour-2` `oc-ancient-in-terminator-armour-2-2-1`: removed (unpriced → absent)
+- `ds-ancient-in-terminator-armour-2` `oc-ancient-in-terminator-armour-2-2-2`: removed (unpriced → absent)
+- `ds-ancient-in-terminator-armour-3` `oc-ancient-in-terminator-armour-3-1-1`: removed (unpriced → absent)
+- `ds-ancient-in-terminator-armour-3` `oc-ancient-in-terminator-armour-3-1-2`: removed (unpriced → absent)
+- `ds-ancient-in-terminator-armour-3` `oc-ancient-in-terminator-armour-3-1-3`: removed (unpriced → absent)
+- `ds-ancient-in-terminator-armour-3` `oc-ancient-in-terminator-armour-3-1-4`: removed (unpriced → absent)
+- `ds-ancient-in-terminator-armour-3` `oc-ancient-in-terminator-armour-3-2-1`: removed (unpriced → absent)
+- `ds-ancient-in-terminator-armour-3` `oc-ancient-in-terminator-armour-3-2-2`: removed (unpriced → absent)
+- `ds-ancient-in-terminator-armour-4` `oc-ancient-in-terminator-armour-4-1-1`: removed (unpriced → absent)
+- `ds-ancient-in-terminator-armour-4` `oc-ancient-in-terminator-armour-4-1-2`: removed (unpriced → absent)
+- `ds-ancient-in-terminator-armour-4` `oc-ancient-in-terminator-armour-4-1-3`: removed (unpriced → absent)
+- `ds-ancient-in-terminator-armour-4` `oc-ancient-in-terminator-armour-4-1-4`: removed (unpriced → absent)
+- `ds-ancient-in-terminator-armour-4` `oc-ancient-in-terminator-armour-4-2-1`: removed (unpriced → absent)
+- `ds-ancient-in-terminator-armour-4` `oc-ancient-in-terminator-armour-4-2-2`: removed (unpriced → absent)
+- `ds-ancient-in-terminator-armour-5` `oc-ancient-in-terminator-armour-5-1-1`: removed (unpriced → absent)
+- `ds-ancient-in-terminator-armour-5` `oc-ancient-in-terminator-armour-5-1-2`: removed (unpriced → absent)
+- `ds-ancient-in-terminator-armour-5` `oc-ancient-in-terminator-armour-5-1-3`: removed (unpriced → absent)
+- `ds-ancient-in-terminator-armour-5` `oc-ancient-in-terminator-armour-5-1-4`: removed (unpriced → absent)
+- `ds-ancient-in-terminator-armour-5` `oc-ancient-in-terminator-armour-5-2-1`: removed (unpriced → absent)
+- `ds-ancient-in-terminator-armour-5` `oc-ancient-in-terminator-armour-5-2-2`: removed (unpriced → absent)
+- `ds-ancient-in-terminator-armour-6` `oc-ancient-in-terminator-armour-6-1-1`: removed (unpriced → absent)
+- `ds-ancient-in-terminator-armour-6` `oc-ancient-in-terminator-armour-6-1-2`: removed (unpriced → absent)
+- `ds-ancient-in-terminator-armour-6` `oc-ancient-in-terminator-armour-6-1-3`: removed (unpriced → absent)
+- `ds-ancient-in-terminator-armour-6` `oc-ancient-in-terminator-armour-6-1-4`: removed (unpriced → absent)
+- `ds-ancient-in-terminator-armour-6` `oc-ancient-in-terminator-armour-6-2-1`: removed (unpriced → absent)
+- `ds-ancient-in-terminator-armour-6` `oc-ancient-in-terminator-armour-6-2-2`: removed (unpriced → absent)
+- `ds-ancient-on-bike` `oc-ancient-on-bike-1-1`: removed (unpriced → absent)
+- `ds-ancient-on-bike` `oc-ancient-on-bike-1-2`: removed (unpriced → absent)
+- `ds-ancient-on-bike` `oc-ancient-on-bike-1-3`: removed (unpriced → absent)
+- `ds-ancient-on-bike` `oc-ancient-on-bike-1-4`: removed (unpriced → absent)
+- `ds-ancient-on-bike` `oc-ancient-on-bike-1-5`: removed (unpriced → absent)
+- `ds-ancient-on-bike` `oc-ancient-on-bike-1-6`: removed (unpriced → absent)
+- `ds-ancient-on-bike` `oc-ancient-on-bike-1-7`: removed (unpriced → absent)
+- `ds-ancient-on-bike` `oc-ancient-on-bike-1-8`: removed (unpriced → absent)
+- `ds-aquila-kill-team` `oc-aquila-kill-team-1-2`: removed (unpriced → absent)
+- `ds-aquila-kill-team` `oc-aquila-kill-team-4-1`: removed (unpriced → absent)
+- `ds-assault-intercessors-with-jump-packs` `oc-assault-intercessors-with-jump-packs-1-2`: added (absent → unpriced)
+- `ds-assault-intercessors-with-jump-packs` `oc-assault-intercessors-with-jump-packs-3-2`: removed (unpriced → absent)
+- `ds-assault-intercessors-with-jump-packs-2` `oc-assault-intercessors-with-jump-packs-2-1-2`: added (absent → unpriced)
+- `ds-assault-intercessors-with-jump-packs-2` `oc-assault-intercessors-with-jump-packs-2-3-2`: removed (unpriced → absent)
+- `ds-assault-intercessors-with-jump-packs-3` `oc-assault-intercessors-with-jump-packs-3-1-2`: added (absent → unpriced)
+- `ds-assault-intercessors-with-jump-packs-3` `oc-assault-intercessors-with-jump-packs-3-3-2`: removed (unpriced → absent)
+- `ds-assault-intercessors-with-jump-packs-4` `oc-assault-intercessors-with-jump-packs-4-1-2`: added (absent → unpriced)
+- `ds-assault-intercessors-with-jump-packs-4` `oc-assault-intercessors-with-jump-packs-4-3-2`: removed (unpriced → absent)
+- `ds-assault-intercessors-with-jump-packs-5` `oc-assault-intercessors-with-jump-packs-5-1-2`: added (absent → unpriced)
+- `ds-assault-intercessors-with-jump-packs-5` `oc-assault-intercessors-with-jump-packs-5-3-2`: removed (unpriced → absent)
+- `ds-assault-intercessors-with-jump-packs-6` `oc-assault-intercessors-with-jump-packs-6-1-2`: added (absent → unpriced)
+- `ds-assault-intercessors-with-jump-packs-6` `oc-assault-intercessors-with-jump-packs-6-3-2`: removed (unpriced → absent)
+- `ds-assault-squad` `oc-assault-squad-1-1`: removed (unpriced → absent)
+- `ds-assault-squad` `oc-assault-squad-1-2`: removed (unpriced → absent)
+- `ds-assault-squad` `oc-assault-squad-1-3`: removed (unpriced → absent)
+- `ds-assault-squad` `oc-assault-squad-1-4`: removed (unpriced → absent)
+- `ds-assault-squad` `oc-assault-squad-2-1`: removed (unpriced → absent)
+- `ds-assault-squad` `oc-assault-squad-2-2`: removed (unpriced → absent)
+- `ds-assault-squad` `oc-assault-squad-2-3`: removed (unpriced → absent)
+- `ds-assault-squad` `oc-assault-squad-4-1`: removed (unpriced → absent)
+- `ds-assault-squad` `oc-assault-squad-4-2`: removed (unpriced → absent)
+- `ds-assault-squad` `oc-assault-squad-4-3`: removed (unpriced → absent)
+- `ds-assault-squad` `oc-assault-squad-4-4`: removed (unpriced → absent)
+- `ds-assault-squad` `oc-assault-squad-5-1`: removed (unpriced → absent)
+- `ds-assault-squad-with-jump-packs` `oc-assault-squad-with-jump-packs-1-1`: removed (unpriced → absent)
+- `ds-assault-squad-with-jump-packs` `oc-assault-squad-with-jump-packs-1-2`: removed (unpriced → absent)
+- `ds-assault-squad-with-jump-packs` `oc-assault-squad-with-jump-packs-1-3`: removed (unpriced → absent)
+- `ds-assault-squad-with-jump-packs` `oc-assault-squad-with-jump-packs-1-4`: removed (unpriced → absent)
+- `ds-assault-squad-with-jump-packs` `oc-assault-squad-with-jump-packs-2-1`: removed (unpriced → absent)
+- `ds-assault-squad-with-jump-packs` `oc-assault-squad-with-jump-packs-2-2`: removed (unpriced → absent)
+- `ds-assault-squad-with-jump-packs` `oc-assault-squad-with-jump-packs-2-3`: removed (unpriced → absent)
+- `ds-assault-squad-with-jump-packs` `oc-assault-squad-with-jump-packs-4-1`: removed (unpriced → absent)
+- `ds-assault-squad-with-jump-packs` `oc-assault-squad-with-jump-packs-4-2`: removed (unpriced → absent)
+- `ds-assault-squad-with-jump-packs` `oc-assault-squad-with-jump-packs-4-3`: removed (unpriced → absent)
+- `ds-assault-squad-with-jump-packs` `oc-assault-squad-with-jump-packs-4-4`: removed (unpriced → absent)
+- `ds-assault-squad-with-jump-packs` `oc-assault-squad-with-jump-packs-5-1`: removed (unpriced → absent)
+- `ds-astartes-servitors` `oc-astartes-servitors-1-1`: removed (unpriced → absent)
+- `ds-astartes-servitors` `oc-astartes-servitors-1-2`: removed (unpriced → absent)
+- `ds-astartes-servitors` `oc-astartes-servitors-1-3`: removed (unpriced → absent)
+- `ds-astraeus` `oc-astraeus-4-1`: added (absent → unpriced)
+- `ds-astraeus` `oc-astraeus-5-1`: added (absent → unpriced)
+- `ds-astraeus` `oc-astraeus-6-1`: added (absent → unpriced)
+- `ds-astraeus-2` `oc-astraeus-2-4-1`: added (absent → unpriced)
+- `ds-astraeus-2` `oc-astraeus-2-5-1`: added (absent → unpriced)
+- `ds-astraeus-2` `oc-astraeus-2-6-1`: added (absent → unpriced)
+- `ds-astraeus-3` `oc-astraeus-3-4-1`: added (absent → unpriced)
+- `ds-astraeus-3` `oc-astraeus-3-5-1`: added (absent → unpriced)
+- `ds-astraeus-3` `oc-astraeus-3-6-1`: added (absent → unpriced)
+- `ds-astraeus-4` `oc-astraeus-4-4-1`: added (absent → unpriced)
+- `ds-astraeus-4` `oc-astraeus-4-5-1`: added (absent → unpriced)
+- `ds-astraeus-4` `oc-astraeus-4-6-1`: added (absent → unpriced)
+- `ds-astraeus-5` `oc-astraeus-5-4-1`: added (absent → unpriced)
+- `ds-astraeus-5` `oc-astraeus-5-5-1`: added (absent → unpriced)
+- `ds-astraeus-5` `oc-astraeus-5-6-1`: added (absent → unpriced)
+- `ds-astraeus-6` `oc-astraeus-6-4-1`: added (absent → unpriced)
+- `ds-astraeus-6` `oc-astraeus-6-5-1`: added (absent → unpriced)
+- `ds-astraeus-6` `oc-astraeus-6-6-1`: added (absent → unpriced)
+- `ds-attack-bike-squad` `oc-attack-bike-squad-1-1`: removed (unpriced → absent)
+- `ds-baal-predator` `oc-baal-predator-4-2`: removed (unpriced → absent)
+- `ds-big-trakk` `oc-big-trakk-1-2`: removed (unpriced → absent)
+- `ds-bike-squad` `oc-bike-squad-1-1`: removed (unpriced → absent)
+- `ds-bike-squad` `oc-bike-squad-1-10`: removed (unpriced → absent)
+- `ds-bike-squad` `oc-bike-squad-1-11`: removed (unpriced → absent)
+- `ds-bike-squad` `oc-bike-squad-1-2`: removed (unpriced → absent)
+- `ds-bike-squad` `oc-bike-squad-1-3`: removed (unpriced → absent)
+- `ds-bike-squad` `oc-bike-squad-1-4`: removed (unpriced → absent)
+- `ds-bike-squad` `oc-bike-squad-1-5`: removed (unpriced → absent)
+- `ds-bike-squad` `oc-bike-squad-1-6`: removed (unpriced → absent)
+- `ds-bike-squad` `oc-bike-squad-1-7`: removed (unpriced → absent)
+- `ds-bike-squad` `oc-bike-squad-1-8`: removed (unpriced → absent)
+- `ds-bike-squad` `oc-bike-squad-1-9`: removed (unpriced → absent)
+- `ds-bike-squad` `oc-bike-squad-2-1`: removed (unpriced → absent)
+- `ds-bike-squad` `oc-bike-squad-3-1`: removed (unpriced → absent)
+- `ds-bike-squad` `oc-bike-squad-3-2`: removed (unpriced → absent)
+- `ds-bike-squad` `oc-bike-squad-3-3`: removed (unpriced → absent)
+- `ds-bike-squad` `oc-bike-squad-3-4`: removed (unpriced → absent)
+- `ds-bike-squad` `oc-bike-squad-3-5`: removed (unpriced → absent)
+- `ds-bike-squad` `oc-bike-squad-4-1`: removed (unpriced → absent)
+- `ds-bjorn-the-fell-handed` `oc-bjorn-the-fell-handed-1-2`: removed (unpriced → absent)
+- `ds-blood-angels-captain` `oc-blood-angels-captain-2-2`: removed (unpriced → absent)
+- `ds-burna-boyz` `oc-burna-boyz-1-2`: removed (unpriced → absent)
+- `ds-captain` `oc-captain-1-3`: removed (unpriced → absent)
+- `ds-captain` `oc-captain-1-4`: removed (unpriced → absent)
+- `ds-captain` `oc-captain-1-5`: removed (unpriced → absent)
+- `ds-captain` `oc-captain-1-6`: removed (unpriced → absent)
+- `ds-captain` `oc-captain-1-7`: removed (unpriced → absent)
+- `ds-captain` `oc-captain-2-2`: removed (unpriced → absent)
+- `ds-captain` `oc-captain-3-1`: added (absent → unpriced)
+- `ds-captain-2` `oc-captain-2-1-3`: removed (unpriced → absent)
+- `ds-captain-2` `oc-captain-2-1-4`: removed (unpriced → absent)
+- `ds-captain-2` `oc-captain-2-1-5`: removed (unpriced → absent)
+- `ds-captain-2` `oc-captain-2-1-6`: removed (unpriced → absent)
+- `ds-captain-2` `oc-captain-2-1-7`: removed (unpriced → absent)
+- `ds-captain-2` `oc-captain-2-2-2`: removed (unpriced → absent)
+- `ds-captain-2` `oc-captain-2-3-1`: added (absent → unpriced)
+- `ds-captain-3` `oc-captain-3-1-3`: removed (unpriced → absent)
+- `ds-captain-3` `oc-captain-3-1-4`: removed (unpriced → absent)
+- `ds-captain-3` `oc-captain-3-1-5`: removed (unpriced → absent)
+- `ds-captain-3` `oc-captain-3-1-6`: removed (unpriced → absent)
+- `ds-captain-3` `oc-captain-3-1-7`: removed (unpriced → absent)
+- `ds-captain-3` `oc-captain-3-2-2`: removed (unpriced → absent)
+- `ds-captain-3` `oc-captain-3-3-1`: added (absent → unpriced)
+- `ds-captain-4` `oc-captain-4-1-3`: removed (unpriced → absent)
+- `ds-captain-4` `oc-captain-4-1-4`: removed (unpriced → absent)
+- `ds-captain-4` `oc-captain-4-1-5`: removed (unpriced → absent)
+- `ds-captain-4` `oc-captain-4-1-6`: removed (unpriced → absent)
+- `ds-captain-4` `oc-captain-4-1-7`: removed (unpriced → absent)
+- `ds-captain-4` `oc-captain-4-2-2`: removed (unpriced → absent)
+- `ds-captain-4` `oc-captain-4-3-1`: added (absent → unpriced)
+- `ds-captain-5` `oc-captain-5-1-3`: removed (unpriced → absent)
+- `ds-captain-5` `oc-captain-5-1-4`: removed (unpriced → absent)
+- `ds-captain-5` `oc-captain-5-1-5`: removed (unpriced → absent)
+- `ds-captain-5` `oc-captain-5-1-6`: removed (unpriced → absent)
+- `ds-captain-5` `oc-captain-5-1-7`: removed (unpriced → absent)
+- `ds-captain-5` `oc-captain-5-2-2`: removed (unpriced → absent)
+- `ds-captain-5` `oc-captain-5-3-1`: added (absent → unpriced)
+- `ds-captain-6` `oc-captain-6-1-3`: removed (unpriced → absent)
+- `ds-captain-6` `oc-captain-6-1-4`: removed (unpriced → absent)
+- `ds-captain-6` `oc-captain-6-1-5`: removed (unpriced → absent)
+- `ds-captain-6` `oc-captain-6-1-6`: removed (unpriced → absent)
+- `ds-captain-6` `oc-captain-6-1-7`: removed (unpriced → absent)
+- `ds-captain-6` `oc-captain-6-2-2`: removed (unpriced → absent)
+- `ds-captain-6` `oc-captain-6-3-1`: added (absent → unpriced)
+- `ds-captain-on-bike` `oc-captain-on-bike-1-10`: removed (unpriced → absent)
+- `ds-captain-on-bike` `oc-captain-on-bike-1-2`: removed (unpriced → absent)
+- `ds-captain-on-bike` `oc-captain-on-bike-1-3`: removed (unpriced → absent)
+- `ds-captain-on-bike` `oc-captain-on-bike-1-4`: removed (unpriced → absent)
+- `ds-captain-on-bike` `oc-captain-on-bike-1-5`: removed (unpriced → absent)
+- `ds-captain-on-bike` `oc-captain-on-bike-1-6`: removed (unpriced → absent)
+- `ds-captain-on-bike` `oc-captain-on-bike-1-7`: removed (unpriced → absent)
+- `ds-captain-on-bike` `oc-captain-on-bike-1-8`: removed (unpriced → absent)
+- `ds-captain-on-bike` `oc-captain-on-bike-1-9`: removed (unpriced → absent)
+- `ds-captain-on-bike` `oc-captain-on-bike-2-2`: removed (unpriced → absent)
+- `ds-captain-on-bike` `oc-captain-on-bike-2-3`: removed (unpriced → absent)
+- `ds-captain-on-bike` `oc-captain-on-bike-3-1`: removed (unpriced → absent)
+- `ds-captain-on-bike-2` `oc-captain-on-bike-2-1-1`: added (absent → unpriced)
+- `ds-captain-on-bike-2` `oc-captain-on-bike-2-2-1`: added (absent → unpriced)
+- `ds-captain-on-bike-3` `oc-captain-on-bike-3-1-1`: added (absent → unpriced)
+- `ds-captain-on-bike-3` `oc-captain-on-bike-3-2-1`: added (absent → unpriced)
+- `ds-captain-on-bike-4` `oc-captain-on-bike-4-1-1`: added (absent → unpriced)
+- `ds-captain-on-bike-4` `oc-captain-on-bike-4-2-1`: added (absent → unpriced)
+- `ds-captain-on-bike-5` `oc-captain-on-bike-5-1-1`: added (absent → unpriced)
+- `ds-captain-on-bike-5` `oc-captain-on-bike-5-2-1`: added (absent → unpriced)
+- `ds-captain-on-bike-6` `oc-captain-on-bike-6-1-1`: added (absent → unpriced)
+- `ds-captain-on-bike-6` `oc-captain-on-bike-6-2-1`: added (absent → unpriced)
+- `ds-captain-with-jump-pack` `oc-captain-with-jump-pack-3-2`: added (absent → unpriced)
+- `ds-captain-with-jump-pack-2` `oc-captain-with-jump-pack-2-3-2`: added (absent → unpriced)
+- `ds-captain-with-jump-pack-3` `oc-captain-with-jump-pack-3-3-2`: added (absent → unpriced)
+- `ds-captain-with-jump-pack-4` `oc-captain-with-jump-pack-4-3-2`: added (absent → unpriced)
+- `ds-captain-with-jump-pack-5` `oc-captain-with-jump-pack-5-3-2`: added (absent → unpriced)
+- `ds-captain-with-jump-pack-6` `oc-captain-with-jump-pack-6-3-2`: added (absent → unpriced)
+- `ds-centurion-assault-squad-2` `oc-centurion-assault-squad-2-1-1`: removed (unpriced → absent)
+- `ds-centurion-assault-squad-2` `oc-centurion-assault-squad-2-2-1`: removed (unpriced → absent)
+- `ds-centurion-assault-squad-3` `oc-centurion-assault-squad-3-1-1`: removed (unpriced → absent)
+- `ds-centurion-assault-squad-3` `oc-centurion-assault-squad-3-2-1`: removed (unpriced → absent)
+- `ds-centurion-assault-squad-4` `oc-centurion-assault-squad-4-1-1`: removed (unpriced → absent)
+- `ds-centurion-assault-squad-4` `oc-centurion-assault-squad-4-2-1`: removed (unpriced → absent)
+- `ds-centurion-assault-squad-5` `oc-centurion-assault-squad-5-1-1`: removed (unpriced → absent)
+- `ds-centurion-assault-squad-5` `oc-centurion-assault-squad-5-2-1`: removed (unpriced → absent)
+- `ds-centurion-assault-squad-6` `oc-centurion-assault-squad-6-1-1`: removed (unpriced → absent)
+- `ds-centurion-assault-squad-6` `oc-centurion-assault-squad-6-2-1`: removed (unpriced → absent)
+- `ds-centurion-devastator-squad` `oc-centurion-devastator-squad-2-2`: removed (unpriced → absent)
+- `ds-centurion-devastator-squad-2` `oc-centurion-devastator-squad-2-1-1`: removed (unpriced → absent)
+- `ds-centurion-devastator-squad-2` `oc-centurion-devastator-squad-2-2-1`: removed (unpriced → absent)
+- `ds-centurion-devastator-squad-2` `oc-centurion-devastator-squad-2-2-2`: removed (unpriced → absent)
+- `ds-centurion-devastator-squad-3` `oc-centurion-devastator-squad-3-1-1`: removed (unpriced → absent)
+- `ds-centurion-devastator-squad-3` `oc-centurion-devastator-squad-3-2-1`: removed (unpriced → absent)
+- `ds-centurion-devastator-squad-3` `oc-centurion-devastator-squad-3-2-2`: removed (unpriced → absent)
+- `ds-centurion-devastator-squad-4` `oc-centurion-devastator-squad-4-1-1`: removed (unpriced → absent)
+- `ds-centurion-devastator-squad-4` `oc-centurion-devastator-squad-4-2-1`: removed (unpriced → absent)
+- `ds-centurion-devastator-squad-4` `oc-centurion-devastator-squad-4-2-2`: removed (unpriced → absent)
+- `ds-centurion-devastator-squad-5` `oc-centurion-devastator-squad-5-1-1`: removed (unpriced → absent)
+- `ds-centurion-devastator-squad-5` `oc-centurion-devastator-squad-5-2-1`: removed (unpriced → absent)
+- `ds-centurion-devastator-squad-5` `oc-centurion-devastator-squad-5-2-2`: removed (unpriced → absent)
+- `ds-centurion-devastator-squad-6` `oc-centurion-devastator-squad-6-1-1`: removed (unpriced → absent)
+- `ds-centurion-devastator-squad-6` `oc-centurion-devastator-squad-6-2-1`: removed (unpriced → absent)
+- `ds-centurion-devastator-squad-6` `oc-centurion-devastator-squad-6-2-2`: removed (unpriced → absent)
+- `ds-cerberus` `oc-cerberus-1-2`: removed (unpriced → absent)
+- `ds-cerberus` `oc-cerberus-2-2`: removed (unpriced → absent)
+- `ds-cerberus` `oc-cerberus-2-3`: removed (unpriced → absent)
+- `ds-cerberus` `oc-cerberus-2-4`: removed (unpriced → absent)
+- `ds-cerberus-2` `oc-cerberus-2-1-2`: removed (unpriced → absent)
+- `ds-cerberus-2` `oc-cerberus-2-2-2`: removed (unpriced → absent)
+- `ds-cerberus-2` `oc-cerberus-2-2-3`: removed (unpriced → absent)
+- `ds-cerberus-2` `oc-cerberus-2-2-4`: removed (unpriced → absent)
+- `ds-cerberus-3` `oc-cerberus-3-1-2`: removed (unpriced → absent)
+- `ds-cerberus-3` `oc-cerberus-3-2-2`: removed (unpriced → absent)
+- `ds-cerberus-3` `oc-cerberus-3-2-3`: removed (unpriced → absent)
+- `ds-cerberus-3` `oc-cerberus-3-2-4`: removed (unpriced → absent)
+- `ds-cerberus-4` `oc-cerberus-4-1-2`: removed (unpriced → absent)
+- `ds-cerberus-4` `oc-cerberus-4-2-2`: removed (unpriced → absent)
+- `ds-cerberus-4` `oc-cerberus-4-2-3`: removed (unpriced → absent)
+- `ds-cerberus-4` `oc-cerberus-4-2-4`: removed (unpriced → absent)
+- `ds-cerberus-5` `oc-cerberus-5-1-2`: removed (unpriced → absent)
+- `ds-cerberus-5` `oc-cerberus-5-2-2`: removed (unpriced → absent)
+- `ds-cerberus-5` `oc-cerberus-5-2-3`: removed (unpriced → absent)
+- `ds-cerberus-5` `oc-cerberus-5-2-4`: removed (unpriced → absent)
+- `ds-chaplain-venerable-dreadnought` `oc-chaplain-venerable-dreadnought-1-1`: removed (unpriced → absent)
+- `ds-chaplain-venerable-dreadnought` `oc-chaplain-venerable-dreadnought-1-2`: removed (unpriced → absent)
+- `ds-chaplain-venerable-dreadnought` `oc-chaplain-venerable-dreadnought-1-3`: removed (unpriced → absent)
+- `ds-chaplain-venerable-dreadnought` `oc-chaplain-venerable-dreadnought-1-4`: removed (unpriced → absent)
+- `ds-chaplain-venerable-dreadnought` `oc-chaplain-venerable-dreadnought-1-5`: removed (unpriced → absent)
+- `ds-chaplain-venerable-dreadnought` `oc-chaplain-venerable-dreadnought-1-6`: removed (unpriced → absent)
+- `ds-chaplain-venerable-dreadnought` `oc-chaplain-venerable-dreadnought-2-1`: removed (unpriced → absent)
+- `ds-chaplain-venerable-dreadnought` `oc-chaplain-venerable-dreadnought-2-2`: removed (unpriced → absent)
+- `ds-chaplain-venerable-dreadnought` `oc-chaplain-venerable-dreadnought-2-3`: removed (unpriced → absent)
+- `ds-chaplain-venerable-dreadnought` `oc-chaplain-venerable-dreadnought-2-4`: removed (unpriced → absent)
+- `ds-chaplain-venerable-dreadnought` `oc-chaplain-venerable-dreadnought-2-5`: removed (unpriced → absent)
+- `ds-chaplain-venerable-dreadnought` `oc-chaplain-venerable-dreadnought-2-6`: removed (unpriced → absent)
+- `ds-chaplain-with-jump-pack` `oc-chaplain-with-jump-pack-1-1`: removed (unpriced → absent)
+- `ds-chaplain-with-jump-pack` `oc-chaplain-with-jump-pack-1-2`: removed (unpriced → absent)
+- `ds-chaplain-with-jump-pack` `oc-chaplain-with-jump-pack-1-3`: removed (unpriced → absent)
+- `ds-chaplain-with-jump-pack` `oc-chaplain-with-jump-pack-1-4`: removed (unpriced → absent)
+- `ds-chaplain-with-jump-pack` `oc-chaplain-with-jump-pack-1-5`: removed (unpriced → absent)
+- `ds-chaplain-with-jump-pack` `oc-chaplain-with-jump-pack-1-6`: removed (unpriced → absent)
+- `ds-chaplain-with-jump-pack` `oc-chaplain-with-jump-pack-1-7`: removed (unpriced → absent)
+- `ds-chaplain-with-jump-pack` `oc-chaplain-with-jump-pack-1-8`: removed (unpriced → absent)
+- `ds-chaplain-with-jump-pack` `oc-chaplain-with-jump-pack-1-9`: removed (unpriced → absent)
+- `ds-chaplain-with-jump-pack-2` `oc-chaplain-with-jump-pack-2-1-1`: removed (unpriced → absent)
+- `ds-chaplain-with-jump-pack-2` `oc-chaplain-with-jump-pack-2-1-2`: removed (unpriced → absent)
+- `ds-chaplain-with-jump-pack-2` `oc-chaplain-with-jump-pack-2-1-3`: removed (unpriced → absent)
+- `ds-chaplain-with-jump-pack-2` `oc-chaplain-with-jump-pack-2-1-4`: removed (unpriced → absent)
+- `ds-chaplain-with-jump-pack-2` `oc-chaplain-with-jump-pack-2-1-5`: removed (unpriced → absent)
+- `ds-chaplain-with-jump-pack-2` `oc-chaplain-with-jump-pack-2-1-6`: removed (unpriced → absent)
+- `ds-chaplain-with-jump-pack-2` `oc-chaplain-with-jump-pack-2-1-7`: removed (unpriced → absent)
+- `ds-chaplain-with-jump-pack-2` `oc-chaplain-with-jump-pack-2-1-8`: removed (unpriced → absent)
+- `ds-chaplain-with-jump-pack-2` `oc-chaplain-with-jump-pack-2-1-9`: removed (unpriced → absent)
+- `ds-chaplain-with-jump-pack-3` `oc-chaplain-with-jump-pack-3-1-1`: removed (unpriced → absent)
+- `ds-chaplain-with-jump-pack-3` `oc-chaplain-with-jump-pack-3-1-2`: removed (unpriced → absent)
+- `ds-chaplain-with-jump-pack-3` `oc-chaplain-with-jump-pack-3-1-3`: removed (unpriced → absent)
+- `ds-chaplain-with-jump-pack-3` `oc-chaplain-with-jump-pack-3-1-4`: removed (unpriced → absent)
+- `ds-chaplain-with-jump-pack-3` `oc-chaplain-with-jump-pack-3-1-5`: removed (unpriced → absent)
+- `ds-chaplain-with-jump-pack-3` `oc-chaplain-with-jump-pack-3-1-6`: removed (unpriced → absent)
+- `ds-chaplain-with-jump-pack-3` `oc-chaplain-with-jump-pack-3-1-7`: removed (unpriced → absent)
+- `ds-chaplain-with-jump-pack-3` `oc-chaplain-with-jump-pack-3-1-8`: removed (unpriced → absent)
+- `ds-chaplain-with-jump-pack-3` `oc-chaplain-with-jump-pack-3-1-9`: removed (unpriced → absent)
+- `ds-chaplain-with-jump-pack-4` `oc-chaplain-with-jump-pack-4-1-1`: removed (unpriced → absent)
+- `ds-chaplain-with-jump-pack-4` `oc-chaplain-with-jump-pack-4-1-2`: removed (unpriced → absent)
+- `ds-chaplain-with-jump-pack-4` `oc-chaplain-with-jump-pack-4-1-3`: removed (unpriced → absent)
+- `ds-chaplain-with-jump-pack-4` `oc-chaplain-with-jump-pack-4-1-4`: removed (unpriced → absent)
+- `ds-chaplain-with-jump-pack-4` `oc-chaplain-with-jump-pack-4-1-5`: removed (unpriced → absent)
+- `ds-chaplain-with-jump-pack-4` `oc-chaplain-with-jump-pack-4-1-6`: removed (unpriced → absent)
+- `ds-chaplain-with-jump-pack-4` `oc-chaplain-with-jump-pack-4-1-7`: removed (unpriced → absent)
+- `ds-chaplain-with-jump-pack-4` `oc-chaplain-with-jump-pack-4-1-8`: removed (unpriced → absent)
+- `ds-chaplain-with-jump-pack-4` `oc-chaplain-with-jump-pack-4-1-9`: removed (unpriced → absent)
+- `ds-chaplain-with-jump-pack-5` `oc-chaplain-with-jump-pack-5-1-1`: removed (unpriced → absent)
+- `ds-chaplain-with-jump-pack-5` `oc-chaplain-with-jump-pack-5-1-2`: removed (unpriced → absent)
+- `ds-chaplain-with-jump-pack-5` `oc-chaplain-with-jump-pack-5-1-3`: removed (unpriced → absent)
+- `ds-chaplain-with-jump-pack-5` `oc-chaplain-with-jump-pack-5-1-4`: removed (unpriced → absent)
+- `ds-chaplain-with-jump-pack-5` `oc-chaplain-with-jump-pack-5-1-5`: removed (unpriced → absent)
+- `ds-chaplain-with-jump-pack-5` `oc-chaplain-with-jump-pack-5-1-6`: removed (unpriced → absent)
+- `ds-chaplain-with-jump-pack-5` `oc-chaplain-with-jump-pack-5-1-7`: removed (unpriced → absent)
+- `ds-chaplain-with-jump-pack-5` `oc-chaplain-with-jump-pack-5-1-8`: removed (unpriced → absent)
+- `ds-chaplain-with-jump-pack-5` `oc-chaplain-with-jump-pack-5-1-9`: removed (unpriced → absent)
+- `ds-chaplain-with-jump-pack-6` `oc-chaplain-with-jump-pack-6-1-1`: removed (unpriced → absent)
+- `ds-chaplain-with-jump-pack-6` `oc-chaplain-with-jump-pack-6-1-2`: removed (unpriced → absent)
+- `ds-chaplain-with-jump-pack-6` `oc-chaplain-with-jump-pack-6-1-3`: removed (unpriced → absent)
+- `ds-chaplain-with-jump-pack-6` `oc-chaplain-with-jump-pack-6-1-4`: removed (unpriced → absent)
+- `ds-chaplain-with-jump-pack-6` `oc-chaplain-with-jump-pack-6-1-5`: removed (unpriced → absent)
+- `ds-chaplain-with-jump-pack-6` `oc-chaplain-with-jump-pack-6-1-6`: removed (unpriced → absent)
+- `ds-chaplain-with-jump-pack-6` `oc-chaplain-with-jump-pack-6-1-7`: removed (unpriced → absent)
+- `ds-chaplain-with-jump-pack-6` `oc-chaplain-with-jump-pack-6-1-8`: removed (unpriced → absent)
+- `ds-chaplain-with-jump-pack-6` `oc-chaplain-with-jump-pack-6-1-9`: removed (unpriced → absent)
+- `ds-command-squad` `oc-command-squad-1-1`: removed (unpriced → absent)
+- `ds-command-squad` `oc-command-squad-1-2`: removed (unpriced → absent)
+- `ds-command-squad` `oc-command-squad-1-3`: removed (unpriced → absent)
+- `ds-command-squad` `oc-command-squad-1-4`: removed (unpriced → absent)
+- `ds-command-squad` `oc-command-squad-2-1`: removed (unpriced → absent)
+- `ds-command-squad` `oc-command-squad-3-1`: removed (unpriced → absent)
+- `ds-command-squad` `oc-command-squad-4-1`: removed (unpriced → absent)
+- `ds-command-squad` `oc-command-squad-4-2`: removed (unpriced → absent)
+- `ds-command-squad` `oc-command-squad-5-1`: removed (unpriced → absent)
+- `ds-command-squad` `oc-command-squad-5-10`: removed (unpriced → absent)
+- `ds-command-squad` `oc-command-squad-5-11`: removed (unpriced → absent)
+- `ds-command-squad` `oc-command-squad-5-12`: removed (unpriced → absent)
+- `ds-command-squad` `oc-command-squad-5-13`: removed (unpriced → absent)
+- `ds-command-squad` `oc-command-squad-5-14`: removed (unpriced → absent)
+- `ds-command-squad` `oc-command-squad-5-15`: removed (unpriced → absent)
+- `ds-command-squad` `oc-command-squad-5-16`: removed (unpriced → absent)
+- `ds-command-squad` `oc-command-squad-5-17`: removed (unpriced → absent)
+- `ds-command-squad` `oc-command-squad-5-18`: removed (unpriced → absent)
+- `ds-command-squad` `oc-command-squad-5-2`: removed (unpriced → absent)
+- `ds-command-squad` `oc-command-squad-5-3`: removed (unpriced → absent)
+- `ds-command-squad` `oc-command-squad-5-4`: removed (unpriced → absent)
+- `ds-command-squad` `oc-command-squad-5-5`: removed (unpriced → absent)
+- `ds-command-squad` `oc-command-squad-5-6`: removed (unpriced → absent)
+- `ds-command-squad` `oc-command-squad-5-7`: removed (unpriced → absent)
+- `ds-command-squad` `oc-command-squad-5-8`: removed (unpriced → absent)
+- `ds-command-squad` `oc-command-squad-5-9`: removed (unpriced → absent)
+- `ds-company-veterans-on-bikes` `oc-company-veterans-on-bikes-1-1`: removed (unpriced → absent)
+- `ds-company-veterans-on-bikes` `oc-company-veterans-on-bikes-1-2`: removed (unpriced → absent)
+- `ds-company-veterans-on-bikes` `oc-company-veterans-on-bikes-1-3`: removed (unpriced → absent)
+- `ds-company-veterans-on-bikes` `oc-company-veterans-on-bikes-1-4`: removed (unpriced → absent)
+- `ds-company-veterans-on-bikes` `oc-company-veterans-on-bikes-1-5`: removed (unpriced → absent)
+- `ds-company-veterans-on-bikes` `oc-company-veterans-on-bikes-2-1`: removed (unpriced → absent)
+- `ds-company-veterans-on-bikes` `oc-company-veterans-on-bikes-2-2`: removed (unpriced → absent)
+- `ds-company-veterans-on-bikes` `oc-company-veterans-on-bikes-2-3`: removed (unpriced → absent)
+- `ds-company-veterans-on-bikes` `oc-company-veterans-on-bikes-3-1`: removed (unpriced → absent)
+- `ds-company-veterans-on-bikes` `oc-company-veterans-on-bikes-3-2`: removed (unpriced → absent)
+- `ds-company-veterans-on-bikes` `oc-company-veterans-on-bikes-3-3`: removed (unpriced → absent)
+- `ds-company-veterans-on-bikes` `oc-company-veterans-on-bikes-3-4`: removed (unpriced → absent)
+- `ds-company-veterans-on-bikes` `oc-company-veterans-on-bikes-3-5`: removed (unpriced → absent)
+- `ds-company-veterans-on-bikes` `oc-company-veterans-on-bikes-3-6`: removed (unpriced → absent)
+- `ds-company-veterans-on-bikes` `oc-company-veterans-on-bikes-4-1`: removed (unpriced → absent)
+- `ds-company-veterans-on-bikes` `oc-company-veterans-on-bikes-4-10`: removed (unpriced → absent)
+- `ds-company-veterans-on-bikes` `oc-company-veterans-on-bikes-4-2`: removed (unpriced → absent)
+- `ds-company-veterans-on-bikes` `oc-company-veterans-on-bikes-4-3`: removed (unpriced → absent)
+- `ds-company-veterans-on-bikes` `oc-company-veterans-on-bikes-4-4`: removed (unpriced → absent)
+- `ds-company-veterans-on-bikes` `oc-company-veterans-on-bikes-4-5`: removed (unpriced → absent)
+- `ds-company-veterans-on-bikes` `oc-company-veterans-on-bikes-4-6`: removed (unpriced → absent)
+- `ds-company-veterans-on-bikes` `oc-company-veterans-on-bikes-4-7`: removed (unpriced → absent)
+- `ds-company-veterans-on-bikes` `oc-company-veterans-on-bikes-4-8`: removed (unpriced → absent)
+- `ds-company-veterans-on-bikes` `oc-company-veterans-on-bikes-4-9`: removed (unpriced → absent)
+- `ds-corvus-blackstar` `oc-corvus-blackstar-4-1`: removed (unpriced → absent)
+- `ds-corvus-blackstar` `oc-corvus-blackstar-4-2`: removed (unpriced → absent)
+- `ds-corvus-blackstar-2` `oc-corvus-blackstar-2-4-1`: removed (unpriced → absent)
+- `ds-corvus-blackstar-2` `oc-corvus-blackstar-2-4-2`: removed (unpriced → absent)
+- `ds-crusader-squad` `oc-crusader-squad-4-2`: removed (unpriced → absent)
+- `ds-death-company-captain` `oc-death-company-captain-2-2`: removed (unpriced → absent)
+- `ds-death-company-captain-with-jump-pack` `oc-death-company-captain-with-jump-pack-1-2`: removed (unpriced → absent)
+- `ds-death-company-captain-with-jump-pack` `oc-death-company-captain-with-jump-pack-2-2`: removed (unpriced → absent)
+- `ds-death-company-captain-with-jump-pack` `oc-death-company-captain-with-jump-pack-3-1`: added (absent → unpriced)
+- `ds-death-company-captain-with-jump-pack` `oc-death-company-captain-with-jump-pack-4-1`: added (absent → unpriced)
+- `ds-death-company-dreadnought-with-magna-grapple` `oc-death-company-dreadnought-with-magna-grapple-1-1`: removed (unpriced → absent)
+- `ds-death-company-dreadnought-with-magna-grapple` `oc-death-company-dreadnought-with-magna-grapple-2-1`: removed (unpriced → absent)
+- `ds-death-company-dreadnought-with-magna-grapple` `oc-death-company-dreadnought-with-magna-grapple-3-1`: removed (unpriced → absent)
+- `ds-death-company-dreadnought-with-magna-grapple` `oc-death-company-dreadnought-with-magna-grapple-4-1`: removed (unpriced → absent)
+- `ds-death-company-marines` `oc-death-company-marines-1-2`: removed (unpriced → absent)
+- `ds-death-company-marines` `oc-death-company-marines-1-3`: removed (unpriced → absent)
+- `ds-death-company-marines` `oc-death-company-marines-3-2`: removed (unpriced → absent)
+- `ds-death-company-marines` `oc-death-company-marines-3-3`: removed (unpriced → absent)
+- `ds-death-company-marines` `oc-death-company-marines-4-1`: added (absent → unpriced)
+- `ds-death-company-marines` `oc-death-company-marines-5-1`: added (absent → unpriced)
+- `ds-death-company-marines-with-bolt-rifles` `oc-death-company-marines-with-bolt-rifles-1-1`: removed (unpriced → absent)
+- `ds-death-company-marines-with-bolt-rifles` `oc-death-company-marines-with-bolt-rifles-1-2`: removed (unpriced → absent)
+- `ds-death-company-marines-with-bolt-rifles` `oc-death-company-marines-with-bolt-rifles-1-3`: removed (unpriced → absent)
+- `ds-death-company-marines-with-bolt-rifles` `oc-death-company-marines-with-bolt-rifles-1-4`: removed (unpriced → absent)
+- `ds-death-company-marines-with-bolt-rifles` `oc-death-company-marines-with-bolt-rifles-2-1`: removed (unpriced → absent)
+- `ds-death-company-marines-with-bolt-rifles` `oc-death-company-marines-with-bolt-rifles-3-1`: removed (unpriced → absent)
+- `ds-death-company-marines-with-bolt-rifles` `oc-death-company-marines-with-bolt-rifles-4-1`: removed (unpriced → absent)
+- `ds-death-company-marines-with-bolt-rifles` `oc-death-company-marines-with-bolt-rifles-4-2`: removed (unpriced → absent)
+- `ds-death-company-marines-with-bolt-rifles` `oc-death-company-marines-with-bolt-rifles-4-3`: removed (unpriced → absent)
+- `ds-death-company-marines-with-bolt-rifles` `oc-death-company-marines-with-bolt-rifles-4-4`: removed (unpriced → absent)
+- `ds-death-company-marines-with-boltguns` `oc-death-company-marines-with-boltguns-1-1`: removed (unpriced → absent)
+- `ds-death-company-marines-with-boltguns` `oc-death-company-marines-with-boltguns-1-2`: removed (unpriced → absent)
+- `ds-death-company-marines-with-boltguns` `oc-death-company-marines-with-boltguns-2-1`: removed (unpriced → absent)
+- `ds-death-company-marines-with-boltguns` `oc-death-company-marines-with-boltguns-2-2`: removed (unpriced → absent)
+- `ds-death-company-marines-with-boltguns` `oc-death-company-marines-with-boltguns-2-3`: removed (unpriced → absent)
+- `ds-death-company-marines-with-boltguns` `oc-death-company-marines-with-boltguns-3-1`: removed (unpriced → absent)
+- `ds-death-company-marines-with-boltguns` `oc-death-company-marines-with-boltguns-3-2`: removed (unpriced → absent)
+- `ds-death-company-marines-with-boltguns-and-jump-packs` `oc-death-company-marines-with-boltguns-and-jump-packs-1-1`: removed (unpriced → absent)
+- `ds-death-company-marines-with-boltguns-and-jump-packs` `oc-death-company-marines-with-boltguns-and-jump-packs-1-2`: removed (unpriced → absent)
+- `ds-death-company-marines-with-boltguns-and-jump-packs` `oc-death-company-marines-with-boltguns-and-jump-packs-2-1`: removed (unpriced → absent)
+- `ds-death-company-marines-with-boltguns-and-jump-packs` `oc-death-company-marines-with-boltguns-and-jump-packs-2-2`: removed (unpriced → absent)
+- `ds-death-company-marines-with-boltguns-and-jump-packs` `oc-death-company-marines-with-boltguns-and-jump-packs-2-3`: removed (unpriced → absent)
+- `ds-death-company-marines-with-boltguns-and-jump-packs` `oc-death-company-marines-with-boltguns-and-jump-packs-3-1`: removed (unpriced → absent)
+- `ds-death-company-marines-with-boltguns-and-jump-packs` `oc-death-company-marines-with-boltguns-and-jump-packs-3-2`: removed (unpriced → absent)
+- `ds-death-company-marines-with-jump-packs` `oc-death-company-marines-with-jump-packs-3-2`: removed (unpriced → absent)
+- `ds-death-company-marines-with-jump-packs` `oc-death-company-marines-with-jump-packs-4-10`: removed (unpriced → absent)
+- `ds-death-company-marines-with-jump-packs` `oc-death-company-marines-with-jump-packs-4-11`: removed (unpriced → absent)
+- `ds-death-company-marines-with-jump-packs` `oc-death-company-marines-with-jump-packs-4-2`: removed (unpriced → absent)
+- `ds-death-company-marines-with-jump-packs` `oc-death-company-marines-with-jump-packs-4-3`: removed (unpriced → absent)
+- `ds-death-company-marines-with-jump-packs` `oc-death-company-marines-with-jump-packs-4-4`: removed (unpriced → absent)
+- `ds-death-company-marines-with-jump-packs` `oc-death-company-marines-with-jump-packs-4-5`: removed (unpriced → absent)
+- `ds-death-company-marines-with-jump-packs` `oc-death-company-marines-with-jump-packs-4-6`: removed (unpriced → absent)
+- `ds-death-company-marines-with-jump-packs` `oc-death-company-marines-with-jump-packs-4-7`: removed (unpriced → absent)
+- `ds-death-company-marines-with-jump-packs` `oc-death-company-marines-with-jump-packs-4-8`: removed (unpriced → absent)
+- `ds-death-company-marines-with-jump-packs` `oc-death-company-marines-with-jump-packs-4-9`: removed (unpriced → absent)
+- `ds-death-company-marines-with-jump-packs` `oc-death-company-marines-with-jump-packs-5-1`: added (absent → unpriced)
+- `ds-death-company-marines-with-jump-packs` `oc-death-company-marines-with-jump-packs-6-1`: added (absent → unpriced)
+- `ds-deathstorm-drop-pod` `oc-deathstorm-drop-pod-1-1`: removed (unpriced → absent)
+- `ds-deathwatch-kill-team` `oc-deathwatch-kill-team-1-2`: removed (unpriced → absent)
+- `ds-deathwatch-terminator-squad` `oc-deathwatch-terminator-squad-1-1`: removed (unpriced → absent)
+- `ds-deathwatch-terminator-squad` `oc-deathwatch-terminator-squad-1-2`: removed (unpriced → absent)
+- `ds-deathwatch-terminator-squad` `oc-deathwatch-terminator-squad-1-3`: removed (unpriced → absent)
+- `ds-deathwatch-terminator-squad` `oc-deathwatch-terminator-squad-1-4`: removed (unpriced → absent)
+- `ds-deathwatch-terminator-squad` `oc-deathwatch-terminator-squad-2-2`: removed (unpriced → absent)
+- `ds-deathwatch-terminator-squad` `oc-deathwatch-terminator-squad-2-3`: removed (unpriced → absent)
+- `ds-deathwatch-terminator-squad` `oc-deathwatch-terminator-squad-2-4`: removed (unpriced → absent)
+- `ds-deathwatch-veterans` `oc-deathwatch-veterans-1-2`: removed (unpriced → absent)
+- `ds-deathwing-command-squad` `oc-deathwing-command-squad-1-1`: removed (unpriced → absent)
+- `ds-deathwing-command-squad` `oc-deathwing-command-squad-1-2`: removed (unpriced → absent)
+- `ds-deathwing-command-squad` `oc-deathwing-command-squad-2-1`: removed (unpriced → absent)
+- `ds-deathwing-command-squad` `oc-deathwing-command-squad-3-1`: removed (unpriced → absent)
+- `ds-deathwing-command-squad` `oc-deathwing-command-squad-4-1`: removed (unpriced → absent)
+- `ds-deathwing-command-squad` `oc-deathwing-command-squad-4-2`: removed (unpriced → absent)
+- `ds-deathwing-command-squad` `oc-deathwing-command-squad-4-3`: removed (unpriced → absent)
+- `ds-deathwing-command-squad` `oc-deathwing-command-squad-4-4`: removed (unpriced → absent)
+- `ds-deathwing-command-squad` `oc-deathwing-command-squad-5-1`: removed (unpriced → absent)
+- `ds-deathwing-knights` `oc-deathwing-knights-2-1`: added (absent → unpriced)
+- `ds-deathwing-knights` `oc-deathwing-knights-3-1`: removed (unpriced → absent)
+- `ds-deathwing-strikemaster` `oc-deathwing-strikemaster-1-1`: removed (unpriced → absent)
+- `ds-deathwing-strikemaster` `oc-deathwing-strikemaster-1-2`: removed (unpriced → absent)
+- `ds-deathwing-strikemaster` `oc-deathwing-strikemaster-1-3`: removed (unpriced → absent)
+- `ds-deathwing-strikemaster` `oc-deathwing-strikemaster-1-4`: removed (unpriced → absent)
+- `ds-deathwing-strikemaster` `oc-deathwing-strikemaster-1-5`: removed (unpriced → absent)
+- `ds-deathwing-strikemaster` `oc-deathwing-strikemaster-1-6`: removed (unpriced → absent)
+- `ds-deathwing-terminator-squad` `oc-deathwing-terminator-squad-2-2`: removed (unpriced → absent)
+- `ds-deathwing-terminator-squad` `oc-deathwing-terminator-squad-2-3`: removed (unpriced → absent)
+- `ds-deathwing-terminator-squad` `oc-deathwing-terminator-squad-2-4`: removed (unpriced → absent)
+- `ds-decimus-kill-team` `oc-decimus-kill-team-1-2`: removed (unpriced → absent)
+- `ds-decimus-kill-team` `oc-decimus-kill-team-4-1`: removed (unpriced → absent)
+- `ds-deimos-predator` `oc-deimos-predator-1-1`: removed (unpriced → absent)
+- `ds-deimos-predator` `oc-deimos-predator-1-2`: removed (unpriced → absent)
+- `ds-deimos-predator` `oc-deimos-predator-1-3`: removed (unpriced → absent)
+- `ds-deimos-predator` `oc-deimos-predator-2-1`: removed (unpriced → absent)
+- `ds-deimos-predator` `oc-deimos-predator-2-2`: removed (unpriced → absent)
+- `ds-deimos-predator` `oc-deimos-predator-2-3`: removed (unpriced → absent)
+- `ds-deimos-predator` `oc-deimos-predator-3-1`: removed (unpriced → absent)
+- `ds-deimos-predator` `oc-deimos-predator-4-1`: removed (unpriced → absent)
+- `ds-deredeo-dreadnought` `oc-deredeo-dreadnought-1-1`: removed (unpriced → absent)
+- `ds-deredeo-dreadnought` `oc-deredeo-dreadnought-1-2`: removed (unpriced → absent)
+- `ds-deredeo-dreadnought` `oc-deredeo-dreadnought-1-3`: removed (unpriced → absent)
+- `ds-deredeo-dreadnought` `oc-deredeo-dreadnought-2-1`: removed (unpriced → absent)
+- `ds-deredeo-dreadnought` `oc-deredeo-dreadnought-3-1`: removed (unpriced → absent)
+- `ds-deredeo-dreadnought` `oc-deredeo-dreadnought-3-2`: removed (unpriced → absent)
+- `ds-deredeo-dreadnought-2` `oc-deredeo-dreadnought-2-1-1`: removed (unpriced → absent)
+- `ds-deredeo-dreadnought-2` `oc-deredeo-dreadnought-2-1-2`: removed (unpriced → absent)
+- `ds-deredeo-dreadnought-2` `oc-deredeo-dreadnought-2-1-3`: removed (unpriced → absent)
+- `ds-deredeo-dreadnought-2` `oc-deredeo-dreadnought-2-2-1`: removed (unpriced → absent)
+- `ds-deredeo-dreadnought-2` `oc-deredeo-dreadnought-2-3-1`: removed (unpriced → absent)
+- `ds-deredeo-dreadnought-2` `oc-deredeo-dreadnought-2-3-2`: removed (unpriced → absent)
+- `ds-deredeo-dreadnought-3` `oc-deredeo-dreadnought-3-1-1`: removed (unpriced → absent)
+- `ds-deredeo-dreadnought-3` `oc-deredeo-dreadnought-3-1-2`: removed (unpriced → absent)
+- `ds-deredeo-dreadnought-3` `oc-deredeo-dreadnought-3-1-3`: removed (unpriced → absent)
+- `ds-deredeo-dreadnought-3` `oc-deredeo-dreadnought-3-2-1`: removed (unpriced → absent)
+- `ds-deredeo-dreadnought-3` `oc-deredeo-dreadnought-3-3-1`: removed (unpriced → absent)
+- `ds-deredeo-dreadnought-3` `oc-deredeo-dreadnought-3-3-2`: removed (unpriced → absent)
+- `ds-deredeo-dreadnought-4` `oc-deredeo-dreadnought-4-1-1`: removed (unpriced → absent)
+- `ds-deredeo-dreadnought-4` `oc-deredeo-dreadnought-4-1-2`: removed (unpriced → absent)
+- `ds-deredeo-dreadnought-4` `oc-deredeo-dreadnought-4-1-3`: removed (unpriced → absent)
+- `ds-deredeo-dreadnought-4` `oc-deredeo-dreadnought-4-2-1`: removed (unpriced → absent)
+- `ds-deredeo-dreadnought-4` `oc-deredeo-dreadnought-4-3-1`: removed (unpriced → absent)
+- `ds-deredeo-dreadnought-4` `oc-deredeo-dreadnought-4-3-2`: removed (unpriced → absent)
+- `ds-deredeo-dreadnought-5` `oc-deredeo-dreadnought-5-1-1`: removed (unpriced → absent)
+- `ds-deredeo-dreadnought-5` `oc-deredeo-dreadnought-5-1-2`: removed (unpriced → absent)
+- `ds-deredeo-dreadnought-5` `oc-deredeo-dreadnought-5-1-3`: removed (unpriced → absent)
+- `ds-deredeo-dreadnought-5` `oc-deredeo-dreadnought-5-2-1`: removed (unpriced → absent)
+- `ds-deredeo-dreadnought-5` `oc-deredeo-dreadnought-5-3-1`: removed (unpriced → absent)
+- `ds-deredeo-dreadnought-5` `oc-deredeo-dreadnought-5-3-2`: removed (unpriced → absent)
+- `ds-desolation-squad` `oc-desolation-squad-1-1`: added (absent → unpriced)
+- `ds-desolation-squad` `oc-desolation-squad-3-1`: added (absent → unpriced)
+- `ds-desolation-squad-2` `oc-desolation-squad-2-1-1`: added (absent → unpriced)
+- `ds-desolation-squad-2` `oc-desolation-squad-2-3-1`: added (absent → unpriced)
+- `ds-desolation-squad-3` `oc-desolation-squad-3-1-1`: added (absent → unpriced)
+- `ds-desolation-squad-3` `oc-desolation-squad-3-3-1`: added (absent → unpriced)
+- `ds-desolation-squad-4` `oc-desolation-squad-4-1-1`: added (absent → unpriced)
+- `ds-desolation-squad-4` `oc-desolation-squad-4-3-1`: added (absent → unpriced)
+- `ds-desolation-squad-5` `oc-desolation-squad-5-1-1`: added (absent → unpriced)
+- `ds-desolation-squad-5` `oc-desolation-squad-5-3-1`: added (absent → unpriced)
+- `ds-desolation-squad-6` `oc-desolation-squad-6-1-1`: added (absent → unpriced)
+- `ds-desolation-squad-6` `oc-desolation-squad-6-3-1`: added (absent → unpriced)
+- `ds-devastator-squad` `oc-devastator-squad-1-1`: removed (unpriced → absent)
+- `ds-devastator-squad` `oc-devastator-squad-1-2`: removed (unpriced → absent)
+- `ds-devastator-squad` `oc-devastator-squad-1-3`: removed (unpriced → absent)
+- `ds-devastator-squad` `oc-devastator-squad-1-4`: removed (unpriced → absent)
+- `ds-devastator-squad` `oc-devastator-squad-1-5`: removed (unpriced → absent)
+- `ds-devastator-squad` `oc-devastator-squad-1-6`: removed (unpriced → absent)
+- `ds-devastator-squad` `oc-devastator-squad-2-1`: removed (unpriced → absent)
+- `ds-devastator-squad` `oc-devastator-squad-2-2`: removed (unpriced → absent)
+- `ds-devastator-squad` `oc-devastator-squad-2-3`: removed (unpriced → absent)
+- `ds-devastator-squad` `oc-devastator-squad-2-4`: removed (unpriced → absent)
+- `ds-devastator-squad` `oc-devastator-squad-2-5`: removed (unpriced → absent)
+- `ds-devastator-squad` `oc-devastator-squad-2-6`: removed (unpriced → absent)
+- `ds-devastator-squad` `oc-devastator-squad-2-7`: removed (unpriced → absent)
+- `ds-devastator-squad` `oc-devastator-squad-2-8`: removed (unpriced → absent)
+- `ds-devastator-squad` `oc-devastator-squad-2-9`: removed (unpriced → absent)
+- `ds-devastator-squad-2` `oc-devastator-squad-2-1-1`: removed (unpriced → absent)
+- `ds-devastator-squad-2` `oc-devastator-squad-2-1-2`: removed (unpriced → absent)
+- `ds-devastator-squad-2` `oc-devastator-squad-2-1-3`: removed (unpriced → absent)
+- `ds-devastator-squad-2` `oc-devastator-squad-2-1-4`: removed (unpriced → absent)
+- `ds-devastator-squad-2` `oc-devastator-squad-2-1-5`: removed (unpriced → absent)
+- `ds-devastator-squad-2` `oc-devastator-squad-2-1-6`: removed (unpriced → absent)
+- `ds-devastator-squad-2` `oc-devastator-squad-2-2-1`: removed (unpriced → absent)
+- `ds-devastator-squad-2` `oc-devastator-squad-2-2-2`: removed (unpriced → absent)
+- `ds-devastator-squad-2` `oc-devastator-squad-2-2-3`: removed (unpriced → absent)
+- `ds-devastator-squad-2` `oc-devastator-squad-2-2-4`: removed (unpriced → absent)
+- `ds-devastator-squad-2` `oc-devastator-squad-2-2-5`: removed (unpriced → absent)
+- `ds-devastator-squad-2` `oc-devastator-squad-2-2-6`: removed (unpriced → absent)
+- `ds-devastator-squad-2` `oc-devastator-squad-2-2-7`: removed (unpriced → absent)
+- `ds-devastator-squad-2` `oc-devastator-squad-2-2-8`: removed (unpriced → absent)
+- `ds-devastator-squad-2` `oc-devastator-squad-2-2-9`: removed (unpriced → absent)
+- `ds-devastator-squad-3` `oc-devastator-squad-3-1-1`: removed (unpriced → absent)
+- `ds-devastator-squad-3` `oc-devastator-squad-3-1-2`: removed (unpriced → absent)
+- `ds-devastator-squad-3` `oc-devastator-squad-3-1-3`: removed (unpriced → absent)
+- `ds-devastator-squad-3` `oc-devastator-squad-3-1-4`: removed (unpriced → absent)
+- `ds-devastator-squad-3` `oc-devastator-squad-3-1-5`: removed (unpriced → absent)
+- `ds-devastator-squad-3` `oc-devastator-squad-3-1-6`: removed (unpriced → absent)
+- `ds-devastator-squad-3` `oc-devastator-squad-3-2-1`: removed (unpriced → absent)
+- `ds-devastator-squad-3` `oc-devastator-squad-3-2-2`: removed (unpriced → absent)
+- `ds-devastator-squad-3` `oc-devastator-squad-3-2-3`: removed (unpriced → absent)
+- `ds-devastator-squad-3` `oc-devastator-squad-3-2-4`: removed (unpriced → absent)
+- `ds-devastator-squad-3` `oc-devastator-squad-3-2-5`: removed (unpriced → absent)
+- `ds-devastator-squad-3` `oc-devastator-squad-3-2-6`: removed (unpriced → absent)
+- `ds-devastator-squad-3` `oc-devastator-squad-3-2-7`: removed (unpriced → absent)
+- `ds-devastator-squad-3` `oc-devastator-squad-3-2-8`: removed (unpriced → absent)
+- `ds-devastator-squad-3` `oc-devastator-squad-3-2-9`: removed (unpriced → absent)
+- `ds-devastator-squad-4` `oc-devastator-squad-4-1-1`: removed (unpriced → absent)
+- `ds-devastator-squad-4` `oc-devastator-squad-4-1-2`: removed (unpriced → absent)
+- `ds-devastator-squad-4` `oc-devastator-squad-4-1-3`: removed (unpriced → absent)
+- `ds-devastator-squad-4` `oc-devastator-squad-4-1-4`: removed (unpriced → absent)
+- `ds-devastator-squad-4` `oc-devastator-squad-4-1-5`: removed (unpriced → absent)
+- `ds-devastator-squad-4` `oc-devastator-squad-4-1-6`: removed (unpriced → absent)
+- `ds-devastator-squad-4` `oc-devastator-squad-4-2-1`: removed (unpriced → absent)
+- `ds-devastator-squad-4` `oc-devastator-squad-4-2-2`: removed (unpriced → absent)
+- `ds-devastator-squad-4` `oc-devastator-squad-4-2-3`: removed (unpriced → absent)
+- `ds-devastator-squad-4` `oc-devastator-squad-4-2-4`: removed (unpriced → absent)
+- `ds-devastator-squad-4` `oc-devastator-squad-4-2-5`: removed (unpriced → absent)
+- `ds-devastator-squad-4` `oc-devastator-squad-4-2-6`: removed (unpriced → absent)
+- `ds-devastator-squad-4` `oc-devastator-squad-4-2-7`: removed (unpriced → absent)
+- `ds-devastator-squad-4` `oc-devastator-squad-4-2-8`: removed (unpriced → absent)
+- `ds-devastator-squad-4` `oc-devastator-squad-4-2-9`: removed (unpriced → absent)
+- `ds-dreadnought` `oc-dreadnought-1-2`: removed (unpriced → absent)
+- `ds-dreadnought` `oc-dreadnought-1-3`: removed (unpriced → absent)
+- `ds-dreadnought` `oc-dreadnought-2-2`: removed (unpriced → absent)
+- `ds-dreadnought` `oc-dreadnought-3-1`: added (absent → unpriced)
+- `ds-dreadnought-2` `oc-dreadnought-2-1-1`: removed (unpriced → absent)
+- `ds-dreadnought-2` `oc-dreadnought-2-1-2`: removed (unpriced → absent)
+- `ds-dreadnought-2` `oc-dreadnought-2-1-3`: removed (unpriced → absent)
+- `ds-dreadnought-2` `oc-dreadnought-2-2-1`: removed (unpriced → absent)
+- `ds-dreadnought-2` `oc-dreadnought-2-2-2`: removed (unpriced → absent)
+- `ds-dreadnought-3` `oc-dreadnought-3-1-1`: removed (unpriced → absent)
+- `ds-dreadnought-3` `oc-dreadnought-3-1-2`: removed (unpriced → absent)
+- `ds-dreadnought-3` `oc-dreadnought-3-1-3`: removed (unpriced → absent)
+- `ds-dreadnought-3` `oc-dreadnought-3-2-1`: removed (unpriced → absent)
+- `ds-dreadnought-3` `oc-dreadnought-3-2-2`: removed (unpriced → absent)
+- `ds-dreadnought-4` `oc-dreadnought-4-1-1`: removed (unpriced → absent)
+- `ds-dreadnought-4` `oc-dreadnought-4-1-2`: removed (unpriced → absent)
+- `ds-dreadnought-4` `oc-dreadnought-4-1-3`: removed (unpriced → absent)
+- `ds-dreadnought-4` `oc-dreadnought-4-2-1`: removed (unpriced → absent)
+- `ds-dreadnought-4` `oc-dreadnought-4-2-2`: removed (unpriced → absent)
+- `ds-dreadnought-5` `oc-dreadnought-5-1-1`: removed (unpriced → absent)
+- `ds-dreadnought-5` `oc-dreadnought-5-1-2`: removed (unpriced → absent)
+- `ds-dreadnought-5` `oc-dreadnought-5-1-3`: removed (unpriced → absent)
+- `ds-dreadnought-5` `oc-dreadnought-5-2-1`: removed (unpriced → absent)
+- `ds-dreadnought-5` `oc-dreadnought-5-2-2`: removed (unpriced → absent)
+- `ds-dreadnought-6` `oc-dreadnought-6-1-1`: removed (unpriced → absent)
+- `ds-dreadnought-6` `oc-dreadnought-6-1-2`: removed (unpriced → absent)
+- `ds-dreadnought-6` `oc-dreadnought-6-1-3`: removed (unpriced → absent)
+- `ds-dreadnought-6` `oc-dreadnought-6-2-1`: removed (unpriced → absent)
+- `ds-dreadnought-6` `oc-dreadnought-6-2-2`: removed (unpriced → absent)
+- `ds-eradicator-squad` `oc-eradicator-squad-1-1`: removed (unpriced → absent)
+- `ds-eradicator-squad-2` `oc-eradicator-squad-2-1-1`: removed (unpriced → absent)
+- `ds-eradicator-squad-3` `oc-eradicator-squad-3-1-1`: removed (unpriced → absent)
+- `ds-eradicator-squad-4` `oc-eradicator-squad-4-1-1`: removed (unpriced → absent)
+- `ds-eradicator-squad-5` `oc-eradicator-squad-5-1-1`: removed (unpriced → absent)
+- `ds-eradicator-squad-6` `oc-eradicator-squad-6-1-1`: removed (unpriced → absent)
+- `ds-eradicator-squad-with-melta-rifles` `oc-eradicator-squad-with-melta-rifles-1-1`: added (absent → unpriced)
+- `ds-eradicator-squad-with-melta-rifles-2` `oc-eradicator-squad-with-melta-rifles-2-1-1`: added (absent → unpriced)
+- `ds-eradicator-squad-with-melta-rifles-3` `oc-eradicator-squad-with-melta-rifles-3-1-1`: added (absent → unpriced)
+- `ds-eradicator-squad-with-melta-rifles-4` `oc-eradicator-squad-with-melta-rifles-4-1-1`: added (absent → unpriced)
+- `ds-eradicator-squad-with-melta-rifles-5` `oc-eradicator-squad-with-melta-rifles-5-1-1`: added (absent → unpriced)
+- `ds-eradicator-squad-with-melta-rifles-6` `oc-eradicator-squad-with-melta-rifles-6-1-1`: added (absent → unpriced)
+- `ds-falchion` `oc-falchion-3-2`: removed (unpriced → absent)
+- `ds-falchion` `oc-falchion-3-3`: removed (unpriced → absent)
+- `ds-falchion` `oc-falchion-3-4`: removed (unpriced → absent)
+- `ds-falchion-2` `oc-falchion-2-3-2`: removed (unpriced → absent)
+- `ds-falchion-2` `oc-falchion-2-3-3`: removed (unpriced → absent)
+- `ds-falchion-2` `oc-falchion-2-3-4`: removed (unpriced → absent)
+- `ds-falchion-3` `oc-falchion-3-3-2`: removed (unpriced → absent)
+- `ds-falchion-3` `oc-falchion-3-3-3`: removed (unpriced → absent)
+- `ds-falchion-3` `oc-falchion-3-3-4`: removed (unpriced → absent)
+- `ds-falchion-4` `oc-falchion-4-3-2`: removed (unpriced → absent)
+- `ds-falchion-4` `oc-falchion-4-3-3`: removed (unpriced → absent)
+- `ds-falchion-4` `oc-falchion-4-3-4`: removed (unpriced → absent)
+- `ds-falchion-5` `oc-falchion-5-3-2`: removed (unpriced → absent)
+- `ds-falchion-5` `oc-falchion-5-3-3`: removed (unpriced → absent)
+- `ds-falchion-5` `oc-falchion-5-3-4`: removed (unpriced → absent)
+- `ds-fellblade` `oc-fellblade-1-1`: removed (unpriced → absent)
+- `ds-fellblade` `oc-fellblade-1-2`: removed (unpriced → absent)
+- `ds-fellblade` `oc-fellblade-2-1`: removed (unpriced → absent)
+- `ds-fellblade` `oc-fellblade-3-1`: removed (unpriced → absent)
+- `ds-fellblade` `oc-fellblade-4-1`: removed (unpriced → absent)
+- `ds-fellblade` `oc-fellblade-4-2`: removed (unpriced → absent)
+- `ds-fellblade` `oc-fellblade-4-3`: removed (unpriced → absent)
+- `ds-fellblade` `oc-fellblade-4-4`: removed (unpriced → absent)
+- `ds-fellblade` `oc-fellblade-4-5`: removed (unpriced → absent)
+- `ds-fellblade-2` `oc-fellblade-2-1-1`: removed (unpriced → absent)
+- `ds-fellblade-2` `oc-fellblade-2-1-2`: removed (unpriced → absent)
+- `ds-fellblade-2` `oc-fellblade-2-2-1`: removed (unpriced → absent)
+- `ds-fellblade-2` `oc-fellblade-2-3-1`: removed (unpriced → absent)
+- `ds-fellblade-2` `oc-fellblade-2-4-1`: removed (unpriced → absent)
+- `ds-fellblade-2` `oc-fellblade-2-4-2`: removed (unpriced → absent)
+- `ds-fellblade-2` `oc-fellblade-2-4-3`: removed (unpriced → absent)
+- `ds-fellblade-2` `oc-fellblade-2-4-4`: removed (unpriced → absent)
+- `ds-fellblade-2` `oc-fellblade-2-4-5`: removed (unpriced → absent)
+- `ds-fellblade-3` `oc-fellblade-3-1-1`: removed (unpriced → absent)
+- `ds-fellblade-3` `oc-fellblade-3-1-2`: removed (unpriced → absent)
+- `ds-fellblade-3` `oc-fellblade-3-2-1`: removed (unpriced → absent)
+- `ds-fellblade-3` `oc-fellblade-3-3-1`: removed (unpriced → absent)
+- `ds-fellblade-3` `oc-fellblade-3-4-1`: removed (unpriced → absent)
+- `ds-fellblade-3` `oc-fellblade-3-4-2`: removed (unpriced → absent)
+- `ds-fellblade-3` `oc-fellblade-3-4-3`: removed (unpriced → absent)
+- `ds-fellblade-3` `oc-fellblade-3-4-4`: removed (unpriced → absent)
+- `ds-fellblade-3` `oc-fellblade-3-4-5`: removed (unpriced → absent)
+- `ds-fellblade-4` `oc-fellblade-4-1-1`: removed (unpriced → absent)
+- `ds-fellblade-4` `oc-fellblade-4-1-2`: removed (unpriced → absent)
+- `ds-fellblade-4` `oc-fellblade-4-2-1`: removed (unpriced → absent)
+- `ds-fellblade-4` `oc-fellblade-4-3-1`: removed (unpriced → absent)
+- `ds-fellblade-4` `oc-fellblade-4-4-1`: removed (unpriced → absent)
+- `ds-fellblade-4` `oc-fellblade-4-4-2`: removed (unpriced → absent)
+- `ds-fellblade-4` `oc-fellblade-4-4-3`: removed (unpriced → absent)
+- `ds-fellblade-4` `oc-fellblade-4-4-4`: removed (unpriced → absent)
+- `ds-fellblade-4` `oc-fellblade-4-4-5`: removed (unpriced → absent)
+- `ds-fellblade-5` `oc-fellblade-5-1-1`: removed (unpriced → absent)
+- `ds-fellblade-5` `oc-fellblade-5-1-2`: removed (unpriced → absent)
+- `ds-fellblade-5` `oc-fellblade-5-2-1`: removed (unpriced → absent)
+- `ds-fellblade-5` `oc-fellblade-5-3-1`: removed (unpriced → absent)
+- `ds-fellblade-5` `oc-fellblade-5-4-1`: removed (unpriced → absent)
+- `ds-fellblade-5` `oc-fellblade-5-4-2`: removed (unpriced → absent)
+- `ds-fellblade-5` `oc-fellblade-5-4-3`: removed (unpriced → absent)
+- `ds-fellblade-5` `oc-fellblade-5-4-4`: removed (unpriced → absent)
+- `ds-fellblade-5` `oc-fellblade-5-4-5`: removed (unpriced → absent)
+- `ds-fire-raptor-gunship` `oc-fire-raptor-gunship-1-1`: removed (unpriced → absent)
+- `ds-fire-raptor-gunship` `oc-fire-raptor-gunship-2-1`: removed (unpriced → absent)
+- `ds-fire-raptor-gunship-2` `oc-fire-raptor-gunship-2-1-1`: removed (unpriced → absent)
+- `ds-fire-raptor-gunship-2` `oc-fire-raptor-gunship-2-2-1`: removed (unpriced → absent)
+- `ds-fire-raptor-gunship-3` `oc-fire-raptor-gunship-3-1-1`: removed (unpriced → absent)
+- `ds-fire-raptor-gunship-3` `oc-fire-raptor-gunship-3-2-1`: removed (unpriced → absent)
+- `ds-fire-raptor-gunship-4` `oc-fire-raptor-gunship-4-1-1`: removed (unpriced → absent)
+- `ds-fire-raptor-gunship-4` `oc-fire-raptor-gunship-4-2-1`: removed (unpriced → absent)
+- `ds-fire-raptor-gunship-5` `oc-fire-raptor-gunship-5-1-1`: removed (unpriced → absent)
+- `ds-fire-raptor-gunship-5` `oc-fire-raptor-gunship-5-2-1`: removed (unpriced → absent)
+- `ds-fortis-kill-team` `oc-fortis-kill-team-1-2`: removed (unpriced → absent)
+- `ds-fortis-kill-team` `oc-fortis-kill-team-1-3`: removed (unpriced → absent)
+- `ds-fortis-kill-team` `oc-fortis-kill-team-1-4`: removed (unpriced → absent)
+- `ds-fortis-kill-team` `oc-fortis-kill-team-2-2`: removed (unpriced → absent)
+- `ds-fortis-kill-team` `oc-fortis-kill-team-2-3`: removed (unpriced → absent)
+- `ds-fortis-kill-team` `oc-fortis-kill-team-2-4`: removed (unpriced → absent)
+- `ds-furioso-dreadnought` `oc-furioso-dreadnought-1-1`: removed (unpriced → absent)
+- `ds-furioso-dreadnought` `oc-furioso-dreadnought-1-2`: removed (unpriced → absent)
+- `ds-furioso-dreadnought` `oc-furioso-dreadnought-2-1`: removed (unpriced → absent)
+- `ds-furioso-dreadnought` `oc-furioso-dreadnought-3-1`: removed (unpriced → absent)
+- `ds-furioso-dreadnought` `oc-furioso-dreadnought-4-1`: removed (unpriced → absent)
+- `ds-gargantuan-squiggoth` `oc-gargantuan-squiggoth-1-2`: removed (unpriced → absent)
+- `ds-gargantuan-squiggoth` `oc-gargantuan-squiggoth-2-1`: added (absent → unpriced)
+- `ds-gargantuan-squiggoth` `oc-gargantuan-squiggoth-2-2`: added (absent → unpriced)
+- `ds-gladiator-lancer` `oc-gladiator-lancer-2-1`: removed (unpriced → absent)
+- `ds-gladiator-lancer` `oc-gladiator-lancer-2-2`: removed (unpriced → absent)
+- `ds-gladiator-lancer` `oc-gladiator-lancer-3-1`: removed (unpriced → absent)
+- `ds-gladiator-lancer-2` `oc-gladiator-lancer-2-1-1`: removed (unpriced → absent)
+- `ds-gladiator-lancer-2` `oc-gladiator-lancer-2-2-1`: removed (unpriced → absent)
+- `ds-gladiator-lancer-2` `oc-gladiator-lancer-2-3-1`: removed (unpriced → absent)
+- `ds-gladiator-lancer-3` `oc-gladiator-lancer-3-1-1`: removed (unpriced → absent)
+- `ds-gladiator-lancer-3` `oc-gladiator-lancer-3-2-1`: removed (unpriced → absent)
+- `ds-gladiator-lancer-3` `oc-gladiator-lancer-3-3-1`: removed (unpriced → absent)
+- `ds-gladiator-lancer-4` `oc-gladiator-lancer-4-1-1`: removed (unpriced → absent)
+- `ds-gladiator-lancer-4` `oc-gladiator-lancer-4-2-1`: removed (unpriced → absent)
+- `ds-gladiator-lancer-4` `oc-gladiator-lancer-4-3-1`: removed (unpriced → absent)
+- `ds-gladiator-lancer-5` `oc-gladiator-lancer-5-1-1`: removed (unpriced → absent)
+- `ds-gladiator-lancer-5` `oc-gladiator-lancer-5-2-1`: removed (unpriced → absent)
+- `ds-gladiator-lancer-5` `oc-gladiator-lancer-5-3-1`: removed (unpriced → absent)
+- `ds-gladiator-lancer-6` `oc-gladiator-lancer-6-1-1`: removed (unpriced → absent)
+- `ds-gladiator-lancer-6` `oc-gladiator-lancer-6-2-1`: removed (unpriced → absent)
+- `ds-gladiator-lancer-6` `oc-gladiator-lancer-6-3-1`: removed (unpriced → absent)
+- `ds-gladiator-reaper` `oc-gladiator-reaper-1-2`: removed (unpriced → absent)
+- `ds-gladiator-reaper` `oc-gladiator-reaper-2-1`: removed (unpriced → absent)
+- `ds-gladiator-reaper-2` `oc-gladiator-reaper-2-1-1`: removed (unpriced → absent)
+- `ds-gladiator-reaper-2` `oc-gladiator-reaper-2-2-1`: removed (unpriced → absent)
+- `ds-gladiator-reaper-3` `oc-gladiator-reaper-3-1-1`: removed (unpriced → absent)
+- `ds-gladiator-reaper-3` `oc-gladiator-reaper-3-2-1`: removed (unpriced → absent)
+- `ds-gladiator-reaper-4` `oc-gladiator-reaper-4-1-1`: removed (unpriced → absent)
+- `ds-gladiator-reaper-4` `oc-gladiator-reaper-4-2-1`: removed (unpriced → absent)
+- `ds-gladiator-reaper-5` `oc-gladiator-reaper-5-1-1`: removed (unpriced → absent)
+- `ds-gladiator-reaper-5` `oc-gladiator-reaper-5-2-1`: removed (unpriced → absent)
+- `ds-gladiator-reaper-6` `oc-gladiator-reaper-6-1-1`: removed (unpriced → absent)
+- `ds-gladiator-reaper-6` `oc-gladiator-reaper-6-2-1`: removed (unpriced → absent)
+- `ds-gladiator-valiant` `oc-gladiator-valiant-1-2`: removed (unpriced → absent)
+- `ds-gladiator-valiant` `oc-gladiator-valiant-2-1`: removed (unpriced → absent)
+- `ds-gladiator-valiant-2` `oc-gladiator-valiant-2-1-1`: removed (unpriced → absent)
+- `ds-gladiator-valiant-2` `oc-gladiator-valiant-2-2-1`: removed (unpriced → absent)
+- `ds-gladiator-valiant-3` `oc-gladiator-valiant-3-1-1`: removed (unpriced → absent)
+- `ds-gladiator-valiant-3` `oc-gladiator-valiant-3-2-1`: removed (unpriced → absent)
+- `ds-gladiator-valiant-4` `oc-gladiator-valiant-4-1-1`: removed (unpriced → absent)
+- `ds-gladiator-valiant-4` `oc-gladiator-valiant-4-2-1`: removed (unpriced → absent)
+- `ds-gladiator-valiant-5` `oc-gladiator-valiant-5-1-1`: removed (unpriced → absent)
+- `ds-gladiator-valiant-5` `oc-gladiator-valiant-5-2-1`: removed (unpriced → absent)
+- `ds-gladiator-valiant-6` `oc-gladiator-valiant-6-1-1`: removed (unpriced → absent)
+- `ds-gladiator-valiant-6` `oc-gladiator-valiant-6-2-1`: removed (unpriced → absent)
+- `ds-grey-hunters` `oc-grey-hunters-2-2`: removed (unpriced → absent)
+- `ds-grot-mega-tank` `oc-grot-mega-tank-1-2`: removed (unpriced → absent)
+- `ds-grot-mega-tank` `oc-grot-mega-tank-1-3`: removed (unpriced → absent)
+- `ds-grot-mega-tank` `oc-grot-mega-tank-1-4`: removed (unpriced → absent)
+- `ds-grot-mega-tank` `oc-grot-mega-tank-2-2`: removed (unpriced → absent)
+- `ds-grot-mega-tank` `oc-grot-mega-tank-2-3`: removed (unpriced → absent)
+- `ds-grot-mega-tank` `oc-grot-mega-tank-2-4`: removed (unpriced → absent)
+- `ds-grot-tanks` `oc-grot-tanks-1-2`: removed (unpriced → absent)
+- `ds-grot-tanks` `oc-grot-tanks-1-3`: removed (unpriced → absent)
+- `ds-grot-tanks` `oc-grot-tanks-1-4`: removed (unpriced → absent)
+- `ds-hammerfall-bunker-2` `oc-hammerfall-bunker-2-1-1`: removed (unpriced → absent)
+- `ds-hammerfall-bunker-3` `oc-hammerfall-bunker-3-1-1`: removed (unpriced → absent)
+- `ds-hammerfall-bunker-4` `oc-hammerfall-bunker-4-1-1`: removed (unpriced → absent)
+- `ds-hammerfall-bunker-5` `oc-hammerfall-bunker-5-1-1`: removed (unpriced → absent)
+- `ds-hammerfall-bunker-6` `oc-hammerfall-bunker-6-1-1`: removed (unpriced → absent)
+- `ds-hunter` `oc-hunter-1-1`: removed (unpriced → absent)
+- `ds-hunter` `oc-hunter-2-1`: removed (unpriced → absent)
+- `ds-impulsor` `oc-impulsor-1-2`: removed (unpriced → absent)
+- `ds-impulsor` `oc-impulsor-3-2`: removed (unpriced → absent)
+- `ds-impulsor` `oc-impulsor-3-3`: removed (unpriced → absent)
+- `ds-impulsor` `oc-impulsor-3-4`: removed (unpriced → absent)
+- `ds-impulsor-2` `oc-impulsor-2-1-2`: added (absent → unpriced)
+- `ds-impulsor-2` `oc-impulsor-2-1-3`: added (absent → unpriced)
+- `ds-impulsor-2` `oc-impulsor-2-1-4`: added (absent → unpriced)
+- `ds-impulsor-2` `oc-impulsor-2-3-2`: removed (unpriced → absent)
+- `ds-impulsor-2` `oc-impulsor-2-3-3`: removed (unpriced → absent)
+- `ds-impulsor-2` `oc-impulsor-2-3-4`: removed (unpriced → absent)
+- `ds-impulsor-3` `oc-impulsor-3-1-2`: added (absent → unpriced)
+- `ds-impulsor-3` `oc-impulsor-3-1-3`: added (absent → unpriced)
+- `ds-impulsor-3` `oc-impulsor-3-1-4`: added (absent → unpriced)
+- `ds-impulsor-3` `oc-impulsor-3-3-2`: removed (unpriced → absent)
+- `ds-impulsor-3` `oc-impulsor-3-3-3`: removed (unpriced → absent)
+- `ds-impulsor-3` `oc-impulsor-3-3-4`: removed (unpriced → absent)
+- `ds-impulsor-4` `oc-impulsor-4-1-2`: added (absent → unpriced)
+- `ds-impulsor-4` `oc-impulsor-4-1-3`: added (absent → unpriced)
+- `ds-impulsor-4` `oc-impulsor-4-1-4`: added (absent → unpriced)
+- `ds-impulsor-4` `oc-impulsor-4-3-2`: removed (unpriced → absent)
+- `ds-impulsor-4` `oc-impulsor-4-3-3`: removed (unpriced → absent)
+- `ds-impulsor-4` `oc-impulsor-4-3-4`: removed (unpriced → absent)
+- `ds-impulsor-5` `oc-impulsor-5-1-2`: added (absent → unpriced)
+- `ds-impulsor-5` `oc-impulsor-5-1-3`: added (absent → unpriced)
+- `ds-impulsor-5` `oc-impulsor-5-1-4`: added (absent → unpriced)
+- `ds-impulsor-5` `oc-impulsor-5-3-2`: removed (unpriced → absent)
+- `ds-impulsor-5` `oc-impulsor-5-3-3`: removed (unpriced → absent)
+- `ds-impulsor-5` `oc-impulsor-5-3-4`: removed (unpriced → absent)
+- `ds-impulsor-6` `oc-impulsor-6-1-2`: added (absent → unpriced)
+- `ds-impulsor-6` `oc-impulsor-6-1-3`: added (absent → unpriced)
+- `ds-impulsor-6` `oc-impulsor-6-1-4`: added (absent → unpriced)
+- `ds-impulsor-6` `oc-impulsor-6-3-2`: removed (unpriced → absent)
+- `ds-impulsor-6` `oc-impulsor-6-3-3`: removed (unpriced → absent)
+- `ds-impulsor-6` `oc-impulsor-6-3-4`: removed (unpriced → absent)
+- `ds-incursor-squad` `oc-incursor-squad-1-1`: removed (unpriced → absent)
+- `ds-incursor-squad-2` `oc-incursor-squad-2-1-1`: removed (unpriced → absent)
+- `ds-incursor-squad-3` `oc-incursor-squad-3-1-1`: removed (unpriced → absent)
+- `ds-incursor-squad-4` `oc-incursor-squad-4-1-1`: removed (unpriced → absent)
+- `ds-incursor-squad-5` `oc-incursor-squad-5-1-1`: removed (unpriced → absent)
+- `ds-incursor-squad-6` `oc-incursor-squad-6-1-1`: removed (unpriced → absent)
+- `ds-infiltrator-squad` `oc-infiltrator-squad-2-1`: removed (unpriced → absent)
+- `ds-infiltrator-squad-2` `oc-infiltrator-squad-2-2-1`: removed (unpriced → absent)
+- `ds-infiltrator-squad-3` `oc-infiltrator-squad-3-2-1`: removed (unpriced → absent)
+- `ds-infiltrator-squad-4` `oc-infiltrator-squad-4-2-1`: removed (unpriced → absent)
+- `ds-infiltrator-squad-5` `oc-infiltrator-squad-5-2-1`: removed (unpriced → absent)
+- `ds-infiltrator-squad-6` `oc-infiltrator-squad-6-2-1`: removed (unpriced → absent)
+- `ds-invader-atv` `oc-invader-atv-1-1`: removed (unpriced → absent)
+- `ds-invader-atv-2` `oc-invader-atv-2-1-1`: removed (unpriced → absent)
+- `ds-invader-atv-3` `oc-invader-atv-3-1-1`: removed (unpriced → absent)
+- `ds-invader-atv-4` `oc-invader-atv-4-1-1`: removed (unpriced → absent)
+- `ds-invader-atv-5` `oc-invader-atv-5-1-1`: removed (unpriced → absent)
+- `ds-invader-atv-6` `oc-invader-atv-6-1-1`: removed (unpriced → absent)
+- `ds-invader-atvs` `oc-invader-atvs-1-1`: added (absent → unpriced)
+- `ds-invader-atvs-2` `oc-invader-atvs-2-1-1`: added (absent → unpriced)
+- `ds-invader-atvs-3` `oc-invader-atvs-3-1-1`: added (absent → unpriced)
+- `ds-invader-atvs-4` `oc-invader-atvs-4-1-1`: added (absent → unpriced)
+- `ds-invader-atvs-5` `oc-invader-atvs-5-1-1`: added (absent → unpriced)
+- `ds-invader-atvs-6` `oc-invader-atvs-6-1-1`: added (absent → unpriced)
+- `ds-ironclad-dreadnought` `oc-ironclad-dreadnought-1-1`: removed (unpriced → absent)
+- `ds-ironclad-dreadnought` `oc-ironclad-dreadnought-2-1`: removed (unpriced → absent)
+- `ds-ironclad-dreadnought` `oc-ironclad-dreadnought-3-1`: removed (unpriced → absent)
+- `ds-ironclad-dreadnought` `oc-ironclad-dreadnought-4-1`: removed (unpriced → absent)
+- `ds-ironclad-dreadnought` `oc-ironclad-dreadnought-5-1`: removed (unpriced → absent)
+- `ds-ironclad-dreadnought` `oc-ironclad-dreadnought-6-1`: removed (unpriced → absent)
+- `ds-javelin-attack-speeder` `oc-javelin-attack-speeder-1-1`: removed (unpriced → absent)
+- `ds-javelin-attack-speeder` `oc-javelin-attack-speeder-2-1`: removed (unpriced → absent)
+- `ds-javelin-attack-speeder` `oc-javelin-attack-speeder-3-1`: removed (unpriced → absent)
+- `ds-kill-tank` `oc-kill-tank-2-1`: added (absent → unpriced)
+- `ds-kill-tank` `oc-kill-tank-3-1`: added (absent → unpriced)
+- `ds-kill-tank` `oc-kill-tank-4-1`: added (absent → unpriced)
+- `ds-kratos` `oc-kratos-1-2`: removed (unpriced → absent)
+- `ds-kratos` `oc-kratos-2-2`: removed (unpriced → absent)
+- `ds-kratos` `oc-kratos-2-3`: removed (unpriced → absent)
+- `ds-kratos` `oc-kratos-3-2`: removed (unpriced → absent)
+- `ds-kratos` `oc-kratos-3-3`: removed (unpriced → absent)
+- `ds-kratos` `oc-kratos-4-2`: removed (unpriced → absent)
+- `ds-kratos` `oc-kratos-4-3`: removed (unpriced → absent)
+- `ds-kratos` `oc-kratos-4-4`: removed (unpriced → absent)
+- `ds-kratos` `oc-kratos-4-5`: removed (unpriced → absent)
+- `ds-kratos` `oc-kratos-4-6`: removed (unpriced → absent)
+- `ds-kratos-2` `oc-kratos-2-1-2`: removed (unpriced → absent)
+- `ds-kratos-2` `oc-kratos-2-2-2`: removed (unpriced → absent)
+- `ds-kratos-2` `oc-kratos-2-2-3`: removed (unpriced → absent)
+- `ds-kratos-2` `oc-kratos-2-3-2`: removed (unpriced → absent)
+- `ds-kratos-2` `oc-kratos-2-3-3`: removed (unpriced → absent)
+- `ds-kratos-2` `oc-kratos-2-4-2`: removed (unpriced → absent)
+- `ds-kratos-2` `oc-kratos-2-4-3`: removed (unpriced → absent)
+- `ds-kratos-2` `oc-kratos-2-4-4`: removed (unpriced → absent)
+- `ds-kratos-2` `oc-kratos-2-4-5`: removed (unpriced → absent)
+- `ds-kratos-2` `oc-kratos-2-4-6`: removed (unpriced → absent)
+- `ds-kratos-3` `oc-kratos-3-1-2`: removed (unpriced → absent)
+- `ds-kratos-3` `oc-kratos-3-2-2`: removed (unpriced → absent)
+- `ds-kratos-3` `oc-kratos-3-2-3`: removed (unpriced → absent)
+- `ds-kratos-3` `oc-kratos-3-3-2`: removed (unpriced → absent)
+- `ds-kratos-3` `oc-kratos-3-3-3`: removed (unpriced → absent)
+- `ds-kratos-3` `oc-kratos-3-4-2`: removed (unpriced → absent)
+- `ds-kratos-3` `oc-kratos-3-4-3`: removed (unpriced → absent)
+- `ds-kratos-3` `oc-kratos-3-4-4`: removed (unpriced → absent)
+- `ds-kratos-3` `oc-kratos-3-4-5`: removed (unpriced → absent)
+- `ds-kratos-3` `oc-kratos-3-4-6`: removed (unpriced → absent)
+- `ds-kratos-4` `oc-kratos-4-1-2`: removed (unpriced → absent)
+- `ds-kratos-4` `oc-kratos-4-2-2`: removed (unpriced → absent)
+- `ds-kratos-4` `oc-kratos-4-2-3`: removed (unpriced → absent)
+- `ds-kratos-4` `oc-kratos-4-3-2`: removed (unpriced → absent)
+- `ds-kratos-4` `oc-kratos-4-3-3`: removed (unpriced → absent)
+- `ds-kratos-4` `oc-kratos-4-4-2`: removed (unpriced → absent)
+- `ds-kratos-4` `oc-kratos-4-4-3`: removed (unpriced → absent)
+- `ds-kratos-4` `oc-kratos-4-4-4`: removed (unpriced → absent)
+- `ds-kratos-4` `oc-kratos-4-4-5`: removed (unpriced → absent)
+- `ds-kratos-4` `oc-kratos-4-4-6`: removed (unpriced → absent)
+- `ds-kratos-5` `oc-kratos-5-1-2`: removed (unpriced → absent)
+- `ds-kratos-5` `oc-kratos-5-2-2`: removed (unpriced → absent)
+- `ds-kratos-5` `oc-kratos-5-2-3`: removed (unpriced → absent)
+- `ds-kratos-5` `oc-kratos-5-3-2`: removed (unpriced → absent)
+- `ds-kratos-5` `oc-kratos-5-3-3`: removed (unpriced → absent)
+- `ds-kratos-5` `oc-kratos-5-4-2`: removed (unpriced → absent)
+- `ds-kratos-5` `oc-kratos-5-4-3`: removed (unpriced → absent)
+- `ds-kratos-5` `oc-kratos-5-4-4`: removed (unpriced → absent)
+- `ds-kratos-5` `oc-kratos-5-4-5`: removed (unpriced → absent)
+- `ds-kratos-5` `oc-kratos-5-4-6`: removed (unpriced → absent)
+- `ds-land-raider-achilles` `oc-land-raider-achilles-1-1`: removed (unpriced → absent)
+- `ds-land-raider-achilles` `oc-land-raider-achilles-2-1`: removed (unpriced → absent)
+- `ds-land-raider-achilles` `oc-land-raider-achilles-3-1`: removed (unpriced → absent)
+- `ds-land-raider-achilles-2` `oc-land-raider-achilles-2-1-1`: removed (unpriced → absent)
+- `ds-land-raider-achilles-2` `oc-land-raider-achilles-2-2-1`: removed (unpriced → absent)
+- `ds-land-raider-achilles-2` `oc-land-raider-achilles-2-3-1`: removed (unpriced → absent)
+- `ds-land-raider-achilles-3` `oc-land-raider-achilles-3-1-1`: removed (unpriced → absent)
+- `ds-land-raider-achilles-3` `oc-land-raider-achilles-3-2-1`: removed (unpriced → absent)
+- `ds-land-raider-achilles-3` `oc-land-raider-achilles-3-3-1`: removed (unpriced → absent)
+- `ds-land-raider-achilles-4` `oc-land-raider-achilles-4-1-1`: removed (unpriced → absent)
+- `ds-land-raider-achilles-4` `oc-land-raider-achilles-4-2-1`: removed (unpriced → absent)
+- `ds-land-raider-achilles-4` `oc-land-raider-achilles-4-3-1`: removed (unpriced → absent)
+- `ds-land-raider-achilles-5` `oc-land-raider-achilles-5-1-1`: removed (unpriced → absent)
+- `ds-land-raider-achilles-5` `oc-land-raider-achilles-5-2-1`: removed (unpriced → absent)
+- `ds-land-raider-achilles-5` `oc-land-raider-achilles-5-3-1`: removed (unpriced → absent)
+- `ds-land-raider-helios` `oc-land-raider-helios-1-1`: removed (unpriced → absent)
+- `ds-land-raider-helios` `oc-land-raider-helios-2-1`: removed (unpriced → absent)
+- `ds-land-raider-prometheus` `oc-land-raider-prometheus-1-1`: removed (unpriced → absent)
+- `ds-land-raider-prometheus` `oc-land-raider-prometheus-2-1`: removed (unpriced → absent)
+- `ds-land-raider-prometheus` `oc-land-raider-prometheus-3-1`: removed (unpriced → absent)
+- `ds-land-raider-proteus` `oc-land-raider-proteus-1-1`: removed (unpriced → absent)
+- `ds-land-raider-proteus` `oc-land-raider-proteus-1-2`: removed (unpriced → absent)
+- `ds-land-raider-proteus` `oc-land-raider-proteus-1-3`: removed (unpriced → absent)
+- `ds-land-raider-proteus` `oc-land-raider-proteus-1-4`: removed (unpriced → absent)
+- `ds-land-raider-proteus` `oc-land-raider-proteus-2-1`: removed (unpriced → absent)
+- `ds-land-raider-proteus` `oc-land-raider-proteus-3-1`: removed (unpriced → absent)
+- `ds-land-raider-proteus` `oc-land-raider-proteus-4-1`: removed (unpriced → absent)
+- `ds-land-raider-proteus-2` `oc-land-raider-proteus-2-1-1`: removed (unpriced → absent)
+- `ds-land-raider-proteus-2` `oc-land-raider-proteus-2-1-2`: removed (unpriced → absent)
+- `ds-land-raider-proteus-2` `oc-land-raider-proteus-2-1-3`: removed (unpriced → absent)
+- `ds-land-raider-proteus-2` `oc-land-raider-proteus-2-1-4`: removed (unpriced → absent)
+- `ds-land-raider-proteus-2` `oc-land-raider-proteus-2-2-1`: removed (unpriced → absent)
+- `ds-land-raider-proteus-2` `oc-land-raider-proteus-2-3-1`: removed (unpriced → absent)
+- `ds-land-raider-proteus-2` `oc-land-raider-proteus-2-4-1`: removed (unpriced → absent)
+- `ds-land-raider-proteus-3` `oc-land-raider-proteus-3-1-1`: removed (unpriced → absent)
+- `ds-land-raider-proteus-3` `oc-land-raider-proteus-3-1-2`: removed (unpriced → absent)
+- `ds-land-raider-proteus-3` `oc-land-raider-proteus-3-1-3`: removed (unpriced → absent)
+- `ds-land-raider-proteus-3` `oc-land-raider-proteus-3-1-4`: removed (unpriced → absent)
+- `ds-land-raider-proteus-3` `oc-land-raider-proteus-3-2-1`: removed (unpriced → absent)
+- `ds-land-raider-proteus-3` `oc-land-raider-proteus-3-3-1`: removed (unpriced → absent)
+- `ds-land-raider-proteus-3` `oc-land-raider-proteus-3-4-1`: removed (unpriced → absent)
+- `ds-land-raider-proteus-4` `oc-land-raider-proteus-4-1-1`: removed (unpriced → absent)
+- `ds-land-raider-proteus-4` `oc-land-raider-proteus-4-1-2`: removed (unpriced → absent)
+- `ds-land-raider-proteus-4` `oc-land-raider-proteus-4-1-3`: removed (unpriced → absent)
+- `ds-land-raider-proteus-4` `oc-land-raider-proteus-4-1-4`: removed (unpriced → absent)
+- `ds-land-raider-proteus-4` `oc-land-raider-proteus-4-2-1`: removed (unpriced → absent)
+- `ds-land-raider-proteus-4` `oc-land-raider-proteus-4-3-1`: removed (unpriced → absent)
+- `ds-land-raider-proteus-4` `oc-land-raider-proteus-4-4-1`: removed (unpriced → absent)
+- `ds-land-raider-proteus-5` `oc-land-raider-proteus-5-1-1`: removed (unpriced → absent)
+- `ds-land-raider-proteus-5` `oc-land-raider-proteus-5-1-2`: removed (unpriced → absent)
+- `ds-land-raider-proteus-5` `oc-land-raider-proteus-5-1-3`: removed (unpriced → absent)
+- `ds-land-raider-proteus-5` `oc-land-raider-proteus-5-1-4`: removed (unpriced → absent)
+- `ds-land-raider-proteus-5` `oc-land-raider-proteus-5-2-1`: removed (unpriced → absent)
+- `ds-land-raider-proteus-5` `oc-land-raider-proteus-5-3-1`: removed (unpriced → absent)
+- `ds-land-raider-proteus-5` `oc-land-raider-proteus-5-4-1`: removed (unpriced → absent)
+- `ds-land-speeder-tornado` `oc-land-speeder-tornado-1-1`: removed (unpriced → absent)
+- `ds-land-speeder-tornado` `oc-land-speeder-tornado-2-1`: removed (unpriced → absent)
+- `ds-land-speeder-typhoon` `oc-land-speeder-typhoon-1-1`: removed (unpriced → absent)
+- `ds-leviathan-dreadnought` `oc-leviathan-dreadnought-1-1`: removed (unpriced → absent)
+- `ds-leviathan-dreadnought` `oc-leviathan-dreadnought-1-2`: removed (unpriced → absent)
+- `ds-leviathan-dreadnought` `oc-leviathan-dreadnought-1-3`: removed (unpriced → absent)
+- `ds-leviathan-dreadnought` `oc-leviathan-dreadnought-1-4`: removed (unpriced → absent)
+- `ds-leviathan-dreadnought` `oc-leviathan-dreadnought-2-1`: removed (unpriced → absent)
+- `ds-leviathan-dreadnought` `oc-leviathan-dreadnought-3-1`: removed (unpriced → absent)
+- `ds-leviathan-dreadnought-2` `oc-leviathan-dreadnought-2-1-1`: removed (unpriced → absent)
+- `ds-leviathan-dreadnought-2` `oc-leviathan-dreadnought-2-1-2`: removed (unpriced → absent)
+- `ds-leviathan-dreadnought-2` `oc-leviathan-dreadnought-2-1-3`: removed (unpriced → absent)
+- `ds-leviathan-dreadnought-2` `oc-leviathan-dreadnought-2-1-4`: removed (unpriced → absent)
+- `ds-leviathan-dreadnought-2` `oc-leviathan-dreadnought-2-2-1`: removed (unpriced → absent)
+- `ds-leviathan-dreadnought-2` `oc-leviathan-dreadnought-2-3-1`: removed (unpriced → absent)
+- `ds-leviathan-dreadnought-3` `oc-leviathan-dreadnought-3-1-1`: removed (unpriced → absent)
+- `ds-leviathan-dreadnought-3` `oc-leviathan-dreadnought-3-1-2`: removed (unpriced → absent)
+- `ds-leviathan-dreadnought-3` `oc-leviathan-dreadnought-3-1-3`: removed (unpriced → absent)
+- `ds-leviathan-dreadnought-3` `oc-leviathan-dreadnought-3-1-4`: removed (unpriced → absent)
+- `ds-leviathan-dreadnought-3` `oc-leviathan-dreadnought-3-2-1`: removed (unpriced → absent)
+- `ds-leviathan-dreadnought-3` `oc-leviathan-dreadnought-3-3-1`: removed (unpriced → absent)
+- `ds-leviathan-dreadnought-4` `oc-leviathan-dreadnought-4-1-1`: removed (unpriced → absent)
+- `ds-leviathan-dreadnought-4` `oc-leviathan-dreadnought-4-1-2`: removed (unpriced → absent)
+- `ds-leviathan-dreadnought-4` `oc-leviathan-dreadnought-4-1-3`: removed (unpriced → absent)
+- `ds-leviathan-dreadnought-4` `oc-leviathan-dreadnought-4-1-4`: removed (unpriced → absent)
+- `ds-leviathan-dreadnought-4` `oc-leviathan-dreadnought-4-2-1`: removed (unpriced → absent)
+- `ds-leviathan-dreadnought-4` `oc-leviathan-dreadnought-4-3-1`: removed (unpriced → absent)
+- `ds-leviathan-dreadnought-5` `oc-leviathan-dreadnought-5-1-1`: removed (unpriced → absent)
+- `ds-leviathan-dreadnought-5` `oc-leviathan-dreadnought-5-1-2`: removed (unpriced → absent)
+- `ds-leviathan-dreadnought-5` `oc-leviathan-dreadnought-5-1-3`: removed (unpriced → absent)
+- `ds-leviathan-dreadnought-5` `oc-leviathan-dreadnought-5-1-4`: removed (unpriced → absent)
+- `ds-leviathan-dreadnought-5` `oc-leviathan-dreadnought-5-2-1`: removed (unpriced → absent)
+- `ds-leviathan-dreadnought-5` `oc-leviathan-dreadnought-5-3-1`: removed (unpriced → absent)
+- `ds-librarian-dreadnought` `oc-librarian-dreadnought-1-1`: removed (unpriced → absent)
+- `ds-librarian-dreadnought` `oc-librarian-dreadnought-1-2`: removed (unpriced → absent)
+- `ds-librarian-in-terminator-armour` `oc-librarian-in-terminator-armour-1-1`: removed (unpriced → absent)
+- `ds-librarian-in-terminator-armour` `oc-librarian-in-terminator-armour-1-2`: removed (unpriced → absent)
+- `ds-librarian-in-terminator-armour-2` `oc-librarian-in-terminator-armour-2-1-1`: removed (unpriced → absent)
+- `ds-librarian-in-terminator-armour-2` `oc-librarian-in-terminator-armour-2-1-2`: removed (unpriced → absent)
+- `ds-librarian-in-terminator-armour-3` `oc-librarian-in-terminator-armour-3-1-1`: removed (unpriced → absent)
+- `ds-librarian-in-terminator-armour-3` `oc-librarian-in-terminator-armour-3-1-2`: removed (unpriced → absent)
+- `ds-librarian-in-terminator-armour-4` `oc-librarian-in-terminator-armour-4-1-1`: removed (unpriced → absent)
+- `ds-librarian-in-terminator-armour-4` `oc-librarian-in-terminator-armour-4-1-2`: removed (unpriced → absent)
+- `ds-librarian-in-terminator-armour-5` `oc-librarian-in-terminator-armour-5-1-1`: removed (unpriced → absent)
+- `ds-librarian-in-terminator-armour-5` `oc-librarian-in-terminator-armour-5-1-2`: removed (unpriced → absent)
+- `ds-librarian-on-bike` `oc-librarian-on-bike-1-1`: removed (unpriced → absent)
+- `ds-librarian-on-bike` `oc-librarian-on-bike-1-2`: removed (unpriced → absent)
+- `ds-librarian-on-bike` `oc-librarian-on-bike-1-3`: removed (unpriced → absent)
+- `ds-librarian-on-bike` `oc-librarian-on-bike-1-4`: removed (unpriced → absent)
+- `ds-librarian-on-bike` `oc-librarian-on-bike-1-5`: removed (unpriced → absent)
+- `ds-librarian-with-jump-pack` `oc-librarian-with-jump-pack-1-1`: removed (unpriced → absent)
+- `ds-librarian-with-jump-pack` `oc-librarian-with-jump-pack-1-2`: removed (unpriced → absent)
+- `ds-librarian-with-jump-pack` `oc-librarian-with-jump-pack-1-3`: removed (unpriced → absent)
+- `ds-librarian-with-jump-pack` `oc-librarian-with-jump-pack-1-4`: removed (unpriced → absent)
+- `ds-librarian-with-jump-pack` `oc-librarian-with-jump-pack-1-5`: removed (unpriced → absent)
+- `ds-librarian-with-jump-pack` `oc-librarian-with-jump-pack-1-6`: removed (unpriced → absent)
+- `ds-librarian-with-jump-pack` `oc-librarian-with-jump-pack-1-7`: removed (unpriced → absent)
+- `ds-lieutenant` `oc-lieutenant-1-2`: removed (unpriced → absent)
+- `ds-lieutenant` `oc-lieutenant-1-3`: removed (unpriced → absent)
+- `ds-lieutenant` `oc-lieutenant-2-1`: removed (unpriced → absent)
+- `ds-lieutenant` `oc-lieutenant-4-3`: added (absent → unpriced)
+- `ds-lieutenant` `oc-lieutenant-5-1`: added (absent → unpriced)
+- `ds-lieutenant` `oc-lieutenant-5-2`: added (absent → unpriced)
+- `ds-lieutenant-2` `oc-lieutenant-2-1-2`: removed (unpriced → absent)
+- `ds-lieutenant-2` `oc-lieutenant-2-1-3`: removed (unpriced → absent)
+- `ds-lieutenant-2` `oc-lieutenant-2-2-1`: removed (unpriced → absent)
+- `ds-lieutenant-2` `oc-lieutenant-2-4-3`: added (absent → unpriced)
+- `ds-lieutenant-2` `oc-lieutenant-2-5-1`: added (absent → unpriced)
+- `ds-lieutenant-2` `oc-lieutenant-2-5-2`: added (absent → unpriced)
+- `ds-lieutenant-3` `oc-lieutenant-3-1-2`: removed (unpriced → absent)
+- `ds-lieutenant-3` `oc-lieutenant-3-1-3`: removed (unpriced → absent)
+- `ds-lieutenant-3` `oc-lieutenant-3-2-1`: removed (unpriced → absent)
+- `ds-lieutenant-3` `oc-lieutenant-3-4-3`: added (absent → unpriced)
+- `ds-lieutenant-3` `oc-lieutenant-3-5-1`: added (absent → unpriced)
+- `ds-lieutenant-3` `oc-lieutenant-3-5-2`: added (absent → unpriced)
+- `ds-lieutenant-4` `oc-lieutenant-4-1-2`: removed (unpriced → absent)
+- `ds-lieutenant-4` `oc-lieutenant-4-1-3`: removed (unpriced → absent)
+- `ds-lieutenant-4` `oc-lieutenant-4-2-1`: removed (unpriced → absent)
+- `ds-lieutenant-4` `oc-lieutenant-4-4-3`: added (absent → unpriced)
+- `ds-lieutenant-4` `oc-lieutenant-4-5-1`: added (absent → unpriced)
+- `ds-lieutenant-4` `oc-lieutenant-4-5-2`: added (absent → unpriced)
+- `ds-lieutenant-5` `oc-lieutenant-5-1-2`: removed (unpriced → absent)
+- `ds-lieutenant-5` `oc-lieutenant-5-1-3`: removed (unpriced → absent)
+- `ds-lieutenant-5` `oc-lieutenant-5-2-1`: removed (unpriced → absent)
+- `ds-lieutenant-5` `oc-lieutenant-5-4-3`: added (absent → unpriced)
+- `ds-lieutenant-5` `oc-lieutenant-5-5-1`: added (absent → unpriced)
+- `ds-lieutenant-5` `oc-lieutenant-5-5-2`: added (absent → unpriced)
+- `ds-lieutenant-6` `oc-lieutenant-6-1-2`: removed (unpriced → absent)
+- `ds-lieutenant-6` `oc-lieutenant-6-1-3`: removed (unpriced → absent)
+- `ds-lieutenant-6` `oc-lieutenant-6-2-1`: removed (unpriced → absent)
+- `ds-lieutenant-6` `oc-lieutenant-6-4-3`: added (absent → unpriced)
+- `ds-lieutenant-6` `oc-lieutenant-6-5-1`: added (absent → unpriced)
+- `ds-lieutenant-6` `oc-lieutenant-6-5-2`: added (absent → unpriced)
+- `ds-lieutenant-in-phobos-armour` `oc-lieutenant-in-phobos-armour-1-1`: added (absent → unpriced)
+- `ds-lieutenant-in-phobos-armour-2` `oc-lieutenant-in-phobos-armour-2-1-1`: added (absent → unpriced)
+- `ds-lieutenant-in-phobos-armour-3` `oc-lieutenant-in-phobos-armour-3-1-1`: added (absent → unpriced)
+- `ds-lieutenant-in-phobos-armour-4` `oc-lieutenant-in-phobos-armour-4-1-1`: added (absent → unpriced)
+- `ds-lieutenant-in-phobos-armour-5` `oc-lieutenant-in-phobos-armour-5-1-1`: added (absent → unpriced)
+- `ds-lieutenant-in-phobos-armour-6` `oc-lieutenant-in-phobos-armour-6-1-1`: added (absent → unpriced)
+- `ds-lifta-wagon` `oc-lifta-wagon-4-1`: removed (unpriced → absent)
+- `ds-lifta-wagon` `oc-lifta-wagon-4-2`: removed (unpriced → absent)
+- `ds-lifta-wagon` `oc-lifta-wagon-4-3`: removed (unpriced → absent)
+- `ds-lifta-wagon` `oc-lifta-wagon-4-4`: removed (unpriced → absent)
+- `ds-lifta-wagon` `oc-lifta-wagon-4-5`: removed (unpriced → absent)
+- `ds-long-fangs` `oc-long-fangs-1-1`: removed (unpriced → absent)
+- `ds-long-fangs` `oc-long-fangs-1-2`: removed (unpriced → absent)
+- `ds-long-fangs` `oc-long-fangs-1-3`: removed (unpriced → absent)
+- `ds-long-fangs` `oc-long-fangs-1-4`: removed (unpriced → absent)
+- `ds-long-fangs` `oc-long-fangs-1-5`: removed (unpriced → absent)
+- `ds-long-fangs` `oc-long-fangs-1-6`: removed (unpriced → absent)
+- `ds-long-fangs` `oc-long-fangs-1-7`: removed (unpriced → absent)
+- `ds-long-fangs` `oc-long-fangs-3-1`: removed (unpriced → absent)
+- `ds-long-fangs` `oc-long-fangs-3-2`: removed (unpriced → absent)
+- `ds-long-fangs` `oc-long-fangs-3-3`: removed (unpriced → absent)
+- `ds-lootas` `oc-lootas-1-2`: removed (unpriced → absent)
+- `ds-mastodon` `oc-mastodon-1-2`: removed (unpriced → absent)
+- `ds-mastodon` `oc-mastodon-1-3`: removed (unpriced → absent)
+- `ds-mastodon` `oc-mastodon-2-2`: removed (unpriced → absent)
+- `ds-mastodon` `oc-mastodon-2-3`: removed (unpriced → absent)
+- `ds-mastodon-2` `oc-mastodon-2-1-2`: removed (unpriced → absent)
+- `ds-mastodon-2` `oc-mastodon-2-1-3`: removed (unpriced → absent)
+- `ds-mastodon-2` `oc-mastodon-2-2-2`: removed (unpriced → absent)
+- `ds-mastodon-2` `oc-mastodon-2-2-3`: removed (unpriced → absent)
+- `ds-mastodon-3` `oc-mastodon-3-1-2`: removed (unpriced → absent)
+- `ds-mastodon-3` `oc-mastodon-3-1-3`: removed (unpriced → absent)
+- `ds-mastodon-3` `oc-mastodon-3-2-2`: removed (unpriced → absent)
+- `ds-mastodon-3` `oc-mastodon-3-2-3`: removed (unpriced → absent)
+- `ds-mastodon-4` `oc-mastodon-4-1-2`: removed (unpriced → absent)
+- `ds-mastodon-4` `oc-mastodon-4-1-3`: removed (unpriced → absent)
+- `ds-mastodon-4` `oc-mastodon-4-2-2`: removed (unpriced → absent)
+- `ds-mastodon-4` `oc-mastodon-4-2-3`: removed (unpriced → absent)
+- `ds-mastodon-5` `oc-mastodon-5-1-2`: removed (unpriced → absent)
+- `ds-mastodon-5` `oc-mastodon-5-1-3`: removed (unpriced → absent)
+- `ds-mastodon-5` `oc-mastodon-5-2-2`: removed (unpriced → absent)
+- `ds-mastodon-5` `oc-mastodon-5-2-3`: removed (unpriced → absent)
+- `ds-mortis-dreadnought` `oc-mortis-dreadnought-1-1`: removed (unpriced → absent)
+- `ds-mortis-dreadnought` `oc-mortis-dreadnought-1-2`: removed (unpriced → absent)
+- `ds-mortis-dreadnought` `oc-mortis-dreadnought-1-3`: removed (unpriced → absent)
+- `ds-mortis-dreadnought` `oc-mortis-dreadnought-1-4`: removed (unpriced → absent)
+- `ds-mortis-dreadnought` `oc-mortis-dreadnought-1-5`: removed (unpriced → absent)
+- `ds-mortis-dreadnought` `oc-mortis-dreadnought-1-6`: removed (unpriced → absent)
+- `ds-mortis-dreadnought` `oc-mortis-dreadnought-1-7`: removed (unpriced → absent)
+- `ds-outrider-squad` `oc-outrider-squad-1-2`: added (absent → unpriced)
+- `ds-outrider-squad` `oc-outrider-squad-2-1`: added (absent → unpriced)
+- `ds-outrider-squad-2` `oc-outrider-squad-2-1-2`: added (absent → unpriced)
+- `ds-outrider-squad-2` `oc-outrider-squad-2-2-1`: added (absent → unpriced)
+- `ds-outrider-squad-3` `oc-outrider-squad-3-1-2`: added (absent → unpriced)
+- `ds-outrider-squad-3` `oc-outrider-squad-3-2-1`: added (absent → unpriced)
+- `ds-outrider-squad-4` `oc-outrider-squad-4-1-2`: added (absent → unpriced)
+- `ds-outrider-squad-4` `oc-outrider-squad-4-2-1`: added (absent → unpriced)
+- `ds-outrider-squad-5` `oc-outrider-squad-5-1-2`: added (absent → unpriced)
+- `ds-outrider-squad-5` `oc-outrider-squad-5-2-1`: added (absent → unpriced)
+- `ds-outrider-squad-6` `oc-outrider-squad-6-1-2`: added (absent → unpriced)
+- `ds-outrider-squad-6` `oc-outrider-squad-6-2-1`: added (absent → unpriced)
+- `ds-predator-annihilator` `oc-predator-annihilator-1-2`: removed (unpriced → absent)
+- `ds-predator-annihilator-2` `oc-predator-annihilator-2-1-1`: removed (unpriced → absent)
+- `ds-predator-annihilator-2` `oc-predator-annihilator-2-1-2`: removed (unpriced → absent)
+- `ds-predator-annihilator-2` `oc-predator-annihilator-2-2-1`: removed (unpriced → absent)
+- `ds-predator-annihilator-2` `oc-predator-annihilator-2-3-1`: removed (unpriced → absent)
+- `ds-predator-annihilator-3` `oc-predator-annihilator-3-1-1`: removed (unpriced → absent)
+- `ds-predator-annihilator-3` `oc-predator-annihilator-3-1-2`: removed (unpriced → absent)
+- `ds-predator-annihilator-3` `oc-predator-annihilator-3-2-1`: removed (unpriced → absent)
+- `ds-predator-annihilator-3` `oc-predator-annihilator-3-3-1`: removed (unpriced → absent)
+- `ds-predator-annihilator-4` `oc-predator-annihilator-4-1-1`: removed (unpriced → absent)
+- `ds-predator-annihilator-4` `oc-predator-annihilator-4-1-2`: removed (unpriced → absent)
+- `ds-predator-annihilator-4` `oc-predator-annihilator-4-2-1`: removed (unpriced → absent)
+- `ds-predator-annihilator-4` `oc-predator-annihilator-4-3-1`: removed (unpriced → absent)
+- `ds-predator-annihilator-5` `oc-predator-annihilator-5-1-1`: removed (unpriced → absent)
+- `ds-predator-annihilator-5` `oc-predator-annihilator-5-1-2`: removed (unpriced → absent)
+- `ds-predator-annihilator-5` `oc-predator-annihilator-5-2-1`: removed (unpriced → absent)
+- `ds-predator-annihilator-5` `oc-predator-annihilator-5-3-1`: removed (unpriced → absent)
+- `ds-predator-annihilator-6` `oc-predator-annihilator-6-1-1`: removed (unpriced → absent)
+- `ds-predator-annihilator-6` `oc-predator-annihilator-6-1-2`: removed (unpriced → absent)
+- `ds-predator-annihilator-6` `oc-predator-annihilator-6-2-1`: removed (unpriced → absent)
+- `ds-predator-annihilator-6` `oc-predator-annihilator-6-3-1`: removed (unpriced → absent)
+- `ds-predator-destructor` `oc-predator-destructor-1-2`: removed (unpriced → absent)
+- `ds-predator-destructor-2` `oc-predator-destructor-2-1-1`: removed (unpriced → absent)
+- `ds-predator-destructor-2` `oc-predator-destructor-2-1-2`: removed (unpriced → absent)
+- `ds-predator-destructor-2` `oc-predator-destructor-2-2-1`: removed (unpriced → absent)
+- `ds-predator-destructor-2` `oc-predator-destructor-2-3-1`: removed (unpriced → absent)
+- `ds-predator-destructor-3` `oc-predator-destructor-3-1-1`: removed (unpriced → absent)
+- `ds-predator-destructor-3` `oc-predator-destructor-3-1-2`: removed (unpriced → absent)
+- `ds-predator-destructor-3` `oc-predator-destructor-3-2-1`: removed (unpriced → absent)
+- `ds-predator-destructor-3` `oc-predator-destructor-3-3-1`: removed (unpriced → absent)
+- `ds-predator-destructor-4` `oc-predator-destructor-4-1-1`: removed (unpriced → absent)
+- `ds-predator-destructor-4` `oc-predator-destructor-4-1-2`: removed (unpriced → absent)
+- `ds-predator-destructor-4` `oc-predator-destructor-4-2-1`: removed (unpriced → absent)
+- `ds-predator-destructor-4` `oc-predator-destructor-4-3-1`: removed (unpriced → absent)
+- `ds-predator-destructor-5` `oc-predator-destructor-5-1-1`: removed (unpriced → absent)
+- `ds-predator-destructor-5` `oc-predator-destructor-5-1-2`: removed (unpriced → absent)
+- `ds-predator-destructor-5` `oc-predator-destructor-5-2-1`: removed (unpriced → absent)
+- `ds-predator-destructor-5` `oc-predator-destructor-5-3-1`: removed (unpriced → absent)
+- `ds-predator-destructor-6` `oc-predator-destructor-6-1-1`: removed (unpriced → absent)
+- `ds-predator-destructor-6` `oc-predator-destructor-6-1-2`: removed (unpriced → absent)
+- `ds-predator-destructor-6` `oc-predator-destructor-6-2-1`: removed (unpriced → absent)
+- `ds-predator-destructor-6` `oc-predator-destructor-6-3-1`: removed (unpriced → absent)
+- `ds-rapier-carrier` `oc-rapier-carrier-1-2`: removed (unpriced → absent)
+- `ds-rapier-carrier` `oc-rapier-carrier-1-3`: removed (unpriced → absent)
+- `ds-rapier-carrier-2` `oc-rapier-carrier-2-1-2`: removed (unpriced → absent)
+- `ds-rapier-carrier-2` `oc-rapier-carrier-2-1-3`: removed (unpriced → absent)
+- `ds-rapier-carrier-3` `oc-rapier-carrier-3-1-2`: removed (unpriced → absent)
+- `ds-rapier-carrier-3` `oc-rapier-carrier-3-1-3`: removed (unpriced → absent)
+- `ds-rapier-carrier-4` `oc-rapier-carrier-4-1-2`: removed (unpriced → absent)
+- `ds-rapier-carrier-4` `oc-rapier-carrier-4-1-3`: removed (unpriced → absent)
+- `ds-rapier-carrier-5` `oc-rapier-carrier-5-1-2`: removed (unpriced → absent)
+- `ds-rapier-carrier-5` `oc-rapier-carrier-5-1-3`: removed (unpriced → absent)
+- `ds-razorback-3` `oc-razorback-3-1-1`: removed (unpriced → absent)
+- `ds-razorback-3` `oc-razorback-3-2-1`: removed (unpriced → absent)
+- `ds-razorback-3` `oc-razorback-3-3-1`: removed (unpriced → absent)
+- `ds-razorback-4` `oc-razorback-4-1-1`: removed (unpriced → absent)
+- `ds-razorback-4` `oc-razorback-4-2-1`: removed (unpriced → absent)
+- `ds-razorback-4` `oc-razorback-4-3-1`: removed (unpriced → absent)
+- `ds-razorback-5` `oc-razorback-5-1-1`: removed (unpriced → absent)
+- `ds-razorback-5` `oc-razorback-5-2-1`: removed (unpriced → absent)
+- `ds-razorback-5` `oc-razorback-5-3-1`: removed (unpriced → absent)
+- `ds-razorback-6` `oc-razorback-6-1-1`: removed (unpriced → absent)
+- `ds-razorback-6` `oc-razorback-6-2-1`: removed (unpriced → absent)
+- `ds-razorback-6` `oc-razorback-6-3-1`: removed (unpriced → absent)
+- `ds-razorback-7` `oc-razorback-7-1-1`: removed (unpriced → absent)
+- `ds-razorback-7` `oc-razorback-7-2-1`: removed (unpriced → absent)
+- `ds-razorback-7` `oc-razorback-7-3-1`: removed (unpriced → absent)
+- `ds-reiver-squad` `oc-reiver-squad-2-1`: added (absent → unpriced)
+- `ds-reiver-squad` `oc-reiver-squad-3-1`: removed (unpriced → absent)
+- `ds-reiver-squad` `oc-reiver-squad-4-1`: removed (unpriced → absent)
+- `ds-reiver-squad-2` `oc-reiver-squad-2-2-1`: added (absent → unpriced)
+- `ds-reiver-squad-2` `oc-reiver-squad-2-3-1`: removed (unpriced → absent)
+- `ds-reiver-squad-2` `oc-reiver-squad-2-4-1`: removed (unpriced → absent)
+- `ds-reiver-squad-3` `oc-reiver-squad-3-2-1`: added (absent → unpriced)
+- `ds-reiver-squad-3` `oc-reiver-squad-3-3-1`: removed (unpriced → absent)
+- `ds-reiver-squad-3` `oc-reiver-squad-3-4-1`: removed (unpriced → absent)
+- `ds-reiver-squad-4` `oc-reiver-squad-4-2-1`: added (absent → unpriced)
+- `ds-reiver-squad-4` `oc-reiver-squad-4-3-1`: removed (unpriced → absent)
+- `ds-reiver-squad-4` `oc-reiver-squad-4-4-1`: removed (unpriced → absent)
+- `ds-reiver-squad-5` `oc-reiver-squad-5-2-1`: added (absent → unpriced)
+- `ds-reiver-squad-5` `oc-reiver-squad-5-3-1`: removed (unpriced → absent)
+- `ds-reiver-squad-5` `oc-reiver-squad-5-4-1`: removed (unpriced → absent)
+- `ds-reiver-squad-6` `oc-reiver-squad-6-2-1`: added (absent → unpriced)
+- `ds-reiver-squad-6` `oc-reiver-squad-6-3-1`: removed (unpriced → absent)
+- `ds-reiver-squad-6` `oc-reiver-squad-6-4-1`: removed (unpriced → absent)
+- `ds-relic-contemptor-dreadnought` `oc-relic-contemptor-dreadnought-1-1`: removed (unpriced → absent)
+- `ds-relic-contemptor-dreadnought` `oc-relic-contemptor-dreadnought-1-2`: removed (unpriced → absent)
+- `ds-relic-contemptor-dreadnought` `oc-relic-contemptor-dreadnought-1-3`: removed (unpriced → absent)
+- `ds-relic-contemptor-dreadnought` `oc-relic-contemptor-dreadnought-1-4`: removed (unpriced → absent)
+- `ds-relic-contemptor-dreadnought` `oc-relic-contemptor-dreadnought-1-5`: removed (unpriced → absent)
+- `ds-relic-contemptor-dreadnought` `oc-relic-contemptor-dreadnought-1-6`: removed (unpriced → absent)
+- `ds-relic-contemptor-dreadnought` `oc-relic-contemptor-dreadnought-1-7`: removed (unpriced → absent)
+- `ds-relic-contemptor-dreadnought` `oc-relic-contemptor-dreadnought-1-8`: removed (unpriced → absent)
+- `ds-relic-contemptor-dreadnought` `oc-relic-contemptor-dreadnought-1-9`: removed (unpriced → absent)
+- `ds-relic-contemptor-dreadnought` `oc-relic-contemptor-dreadnought-2-1`: removed (unpriced → absent)
+- `ds-relic-contemptor-dreadnought` `oc-relic-contemptor-dreadnought-2-2`: removed (unpriced → absent)
+- `ds-relic-contemptor-dreadnought` `oc-relic-contemptor-dreadnought-2-3`: removed (unpriced → absent)
+- `ds-relic-contemptor-dreadnought` `oc-relic-contemptor-dreadnought-3-1`: removed (unpriced → absent)
+- `ds-relic-contemptor-dreadnought-2` `oc-relic-contemptor-dreadnought-2-1-1`: removed (unpriced → absent)
+- `ds-relic-contemptor-dreadnought-2` `oc-relic-contemptor-dreadnought-2-1-2`: removed (unpriced → absent)
+- `ds-relic-contemptor-dreadnought-2` `oc-relic-contemptor-dreadnought-2-1-3`: removed (unpriced → absent)
+- `ds-relic-contemptor-dreadnought-2` `oc-relic-contemptor-dreadnought-2-1-4`: removed (unpriced → absent)
+- `ds-relic-contemptor-dreadnought-2` `oc-relic-contemptor-dreadnought-2-1-5`: removed (unpriced → absent)
+- `ds-relic-contemptor-dreadnought-2` `oc-relic-contemptor-dreadnought-2-1-6`: removed (unpriced → absent)
+- `ds-relic-contemptor-dreadnought-2` `oc-relic-contemptor-dreadnought-2-1-7`: removed (unpriced → absent)
+- `ds-relic-contemptor-dreadnought-2` `oc-relic-contemptor-dreadnought-2-1-8`: removed (unpriced → absent)
+- `ds-relic-contemptor-dreadnought-2` `oc-relic-contemptor-dreadnought-2-1-9`: removed (unpriced → absent)
+- `ds-relic-contemptor-dreadnought-2` `oc-relic-contemptor-dreadnought-2-2-1`: removed (unpriced → absent)
+- `ds-relic-contemptor-dreadnought-2` `oc-relic-contemptor-dreadnought-2-2-2`: removed (unpriced → absent)
+- `ds-relic-contemptor-dreadnought-2` `oc-relic-contemptor-dreadnought-2-2-3`: removed (unpriced → absent)
+- `ds-relic-contemptor-dreadnought-2` `oc-relic-contemptor-dreadnought-2-3-1`: removed (unpriced → absent)
+- `ds-relic-contemptor-dreadnought-3` `oc-relic-contemptor-dreadnought-3-1-1`: removed (unpriced → absent)
+- `ds-relic-contemptor-dreadnought-3` `oc-relic-contemptor-dreadnought-3-1-2`: removed (unpriced → absent)
+- `ds-relic-contemptor-dreadnought-3` `oc-relic-contemptor-dreadnought-3-1-3`: removed (unpriced → absent)
+- `ds-relic-contemptor-dreadnought-3` `oc-relic-contemptor-dreadnought-3-1-4`: removed (unpriced → absent)
+- `ds-relic-contemptor-dreadnought-3` `oc-relic-contemptor-dreadnought-3-1-5`: removed (unpriced → absent)
+- `ds-relic-contemptor-dreadnought-3` `oc-relic-contemptor-dreadnought-3-1-6`: removed (unpriced → absent)
+- `ds-relic-contemptor-dreadnought-3` `oc-relic-contemptor-dreadnought-3-1-7`: removed (unpriced → absent)
+- `ds-relic-contemptor-dreadnought-3` `oc-relic-contemptor-dreadnought-3-1-8`: removed (unpriced → absent)
+- `ds-relic-contemptor-dreadnought-3` `oc-relic-contemptor-dreadnought-3-1-9`: removed (unpriced → absent)
+- `ds-relic-contemptor-dreadnought-3` `oc-relic-contemptor-dreadnought-3-2-1`: removed (unpriced → absent)
+- `ds-relic-contemptor-dreadnought-3` `oc-relic-contemptor-dreadnought-3-2-2`: removed (unpriced → absent)
+- `ds-relic-contemptor-dreadnought-3` `oc-relic-contemptor-dreadnought-3-2-3`: removed (unpriced → absent)
+- `ds-relic-contemptor-dreadnought-3` `oc-relic-contemptor-dreadnought-3-3-1`: removed (unpriced → absent)
+- `ds-relic-contemptor-dreadnought-4` `oc-relic-contemptor-dreadnought-4-1-1`: removed (unpriced → absent)
+- `ds-relic-contemptor-dreadnought-4` `oc-relic-contemptor-dreadnought-4-1-2`: removed (unpriced → absent)
+- `ds-relic-contemptor-dreadnought-4` `oc-relic-contemptor-dreadnought-4-1-3`: removed (unpriced → absent)
+- `ds-relic-contemptor-dreadnought-4` `oc-relic-contemptor-dreadnought-4-1-4`: removed (unpriced → absent)
+- `ds-relic-contemptor-dreadnought-4` `oc-relic-contemptor-dreadnought-4-1-5`: removed (unpriced → absent)
+- `ds-relic-contemptor-dreadnought-4` `oc-relic-contemptor-dreadnought-4-1-6`: removed (unpriced → absent)
+- `ds-relic-contemptor-dreadnought-4` `oc-relic-contemptor-dreadnought-4-1-7`: removed (unpriced → absent)
+- `ds-relic-contemptor-dreadnought-4` `oc-relic-contemptor-dreadnought-4-1-8`: removed (unpriced → absent)
+- `ds-relic-contemptor-dreadnought-4` `oc-relic-contemptor-dreadnought-4-1-9`: removed (unpriced → absent)
+- `ds-relic-contemptor-dreadnought-4` `oc-relic-contemptor-dreadnought-4-2-1`: removed (unpriced → absent)
+- `ds-relic-contemptor-dreadnought-4` `oc-relic-contemptor-dreadnought-4-2-2`: removed (unpriced → absent)
+- `ds-relic-contemptor-dreadnought-4` `oc-relic-contemptor-dreadnought-4-2-3`: removed (unpriced → absent)
+- `ds-relic-contemptor-dreadnought-4` `oc-relic-contemptor-dreadnought-4-3-1`: removed (unpriced → absent)
+- `ds-relic-contemptor-dreadnought-5` `oc-relic-contemptor-dreadnought-5-1-1`: removed (unpriced → absent)
+- `ds-relic-contemptor-dreadnought-5` `oc-relic-contemptor-dreadnought-5-1-2`: removed (unpriced → absent)
+- `ds-relic-contemptor-dreadnought-5` `oc-relic-contemptor-dreadnought-5-1-3`: removed (unpriced → absent)
+- `ds-relic-contemptor-dreadnought-5` `oc-relic-contemptor-dreadnought-5-1-4`: removed (unpriced → absent)
+- `ds-relic-contemptor-dreadnought-5` `oc-relic-contemptor-dreadnought-5-1-5`: removed (unpriced → absent)
+- `ds-relic-contemptor-dreadnought-5` `oc-relic-contemptor-dreadnought-5-1-6`: removed (unpriced → absent)
+- `ds-relic-contemptor-dreadnought-5` `oc-relic-contemptor-dreadnought-5-1-7`: removed (unpriced → absent)
+- `ds-relic-contemptor-dreadnought-5` `oc-relic-contemptor-dreadnought-5-1-8`: removed (unpriced → absent)
+- `ds-relic-contemptor-dreadnought-5` `oc-relic-contemptor-dreadnought-5-1-9`: removed (unpriced → absent)
+- `ds-relic-contemptor-dreadnought-5` `oc-relic-contemptor-dreadnought-5-2-1`: removed (unpriced → absent)
+- `ds-relic-contemptor-dreadnought-5` `oc-relic-contemptor-dreadnought-5-2-2`: removed (unpriced → absent)
+- `ds-relic-contemptor-dreadnought-5` `oc-relic-contemptor-dreadnought-5-2-3`: removed (unpriced → absent)
+- `ds-relic-contemptor-dreadnought-5` `oc-relic-contemptor-dreadnought-5-3-1`: removed (unpriced → absent)
+- `ds-relic-razorback` `oc-relic-razorback-1-2`: removed (unpriced → absent)
+- `ds-relic-razorback` `oc-relic-razorback-1-3`: removed (unpriced → absent)
+- `ds-relic-terminator-squad` `oc-relic-terminator-squad-1-1`: removed (unpriced → absent)
+- `ds-relic-terminator-squad` `oc-relic-terminator-squad-1-2`: removed (unpriced → absent)
+- `ds-relic-terminator-squad` `oc-relic-terminator-squad-2-1`: removed (unpriced → absent)
+- `ds-relic-terminator-squad` `oc-relic-terminator-squad-2-2`: removed (unpriced → absent)
+- `ds-relic-terminator-squad` `oc-relic-terminator-squad-3-1`: removed (unpriced → absent)
+- `ds-relic-terminator-squad` `oc-relic-terminator-squad-4-1`: removed (unpriced → absent)
+- `ds-relic-terminator-squad` `oc-relic-terminator-squad-5-1`: removed (unpriced → absent)
+- `ds-relic-terminator-squad` `oc-relic-terminator-squad-6-1`: removed (unpriced → absent)
+- `ds-repulsor-executioner` `oc-repulsor-executioner-2-2`: removed (unpriced → absent)
+- `ds-repulsor-executioner` `oc-repulsor-executioner-3-1`: removed (unpriced → absent)
+- `ds-repulsor-executioner-2` `oc-repulsor-executioner-2-2-1`: removed (unpriced → absent)
+- `ds-repulsor-executioner-2` `oc-repulsor-executioner-2-3-1`: removed (unpriced → absent)
+- `ds-repulsor-executioner-3` `oc-repulsor-executioner-3-2-1`: removed (unpriced → absent)
+- `ds-repulsor-executioner-3` `oc-repulsor-executioner-3-3-1`: removed (unpriced → absent)
+- `ds-repulsor-executioner-4` `oc-repulsor-executioner-4-2-1`: removed (unpriced → absent)
+- `ds-repulsor-executioner-4` `oc-repulsor-executioner-4-3-1`: removed (unpriced → absent)
+- `ds-repulsor-executioner-5` `oc-repulsor-executioner-5-2-1`: removed (unpriced → absent)
+- `ds-repulsor-executioner-5` `oc-repulsor-executioner-5-3-1`: removed (unpriced → absent)
+- `ds-repulsor-executioner-6` `oc-repulsor-executioner-6-2-1`: removed (unpriced → absent)
+- `ds-repulsor-executioner-6` `oc-repulsor-executioner-6-3-1`: removed (unpriced → absent)
+- `ds-sanguinary-guard` `oc-sanguinary-guard-2-1`: removed (unpriced → absent)
+- `ds-sanguinary-guard` `oc-sanguinary-guard-3-1`: removed (unpriced → absent)
+- `ds-scout-bike-squad` `oc-scout-bike-squad-1-10`: removed (unpriced → absent)
+- `ds-scout-bike-squad` `oc-scout-bike-squad-1-11`: removed (unpriced → absent)
+- `ds-scout-bike-squad` `oc-scout-bike-squad-1-2`: removed (unpriced → absent)
+- `ds-scout-bike-squad` `oc-scout-bike-squad-1-3`: removed (unpriced → absent)
+- `ds-scout-bike-squad` `oc-scout-bike-squad-1-4`: removed (unpriced → absent)
+- `ds-scout-bike-squad` `oc-scout-bike-squad-1-5`: removed (unpriced → absent)
+- `ds-scout-bike-squad` `oc-scout-bike-squad-1-6`: removed (unpriced → absent)
+- `ds-scout-bike-squad` `oc-scout-bike-squad-1-7`: removed (unpriced → absent)
+- `ds-scout-bike-squad` `oc-scout-bike-squad-1-8`: removed (unpriced → absent)
+- `ds-scout-bike-squad` `oc-scout-bike-squad-1-9`: removed (unpriced → absent)
+- `ds-scout-bike-squad` `oc-scout-bike-squad-2-1`: removed (unpriced → absent)
+- `ds-scout-sniper-squad` `oc-scout-sniper-squad-1-1`: removed (unpriced → absent)
+- `ds-scout-squad` `oc-scout-squad-2-2`: removed (unpriced → absent)
+- `ds-scout-squad` `oc-scout-squad-4-2`: removed (unpriced → absent)
+- `ds-scout-squad` `oc-scout-squad-5-1`: added (absent → unpriced)
+- `ds-scout-squad` `oc-scout-squad-5-2`: added (absent → unpriced)
+- `ds-scout-squad-2` `oc-scout-squad-2-2-2`: removed (unpriced → absent)
+- `ds-scout-squad-2` `oc-scout-squad-2-4-2`: removed (unpriced → absent)
+- `ds-scout-squad-2` `oc-scout-squad-2-5-1`: added (absent → unpriced)
+- `ds-scout-squad-2` `oc-scout-squad-2-5-2`: added (absent → unpriced)
+- `ds-scout-squad-3` `oc-scout-squad-3-2-2`: removed (unpriced → absent)
+- `ds-scout-squad-3` `oc-scout-squad-3-4-2`: removed (unpriced → absent)
+- `ds-scout-squad-3` `oc-scout-squad-3-5-1`: added (absent → unpriced)
+- `ds-scout-squad-3` `oc-scout-squad-3-5-2`: added (absent → unpriced)
+- `ds-scout-squad-4` `oc-scout-squad-4-2-2`: removed (unpriced → absent)
+- `ds-scout-squad-4` `oc-scout-squad-4-4-2`: removed (unpriced → absent)
+- `ds-scout-squad-4` `oc-scout-squad-4-5-1`: added (absent → unpriced)
+- `ds-scout-squad-4` `oc-scout-squad-4-5-2`: added (absent → unpriced)
+- `ds-scout-squad-5` `oc-scout-squad-5-2-2`: removed (unpriced → absent)
+- `ds-scout-squad-5` `oc-scout-squad-5-4-2`: removed (unpriced → absent)
+- `ds-scout-squad-5` `oc-scout-squad-5-5-1`: added (absent → unpriced)
+- `ds-scout-squad-5` `oc-scout-squad-5-5-2`: added (absent → unpriced)
+- `ds-sicaran` `oc-sicaran-1-1`: added (absent → unpriced)
+- `ds-sicaran` `oc-sicaran-2-1`: added (absent → unpriced)
+- `ds-sicaran` `oc-sicaran-3-1`: added (absent → unpriced)
+- `ds-sicaran` `oc-sicaran-4-1`: added (absent → unpriced)
+- `ds-sicaran-arcus` `oc-sicaran-arcus-1-1`: removed (unpriced → absent)
+- `ds-sicaran-arcus` `oc-sicaran-arcus-1-2`: removed (unpriced → absent)
+- `ds-sicaran-arcus` `oc-sicaran-arcus-2-1`: removed (unpriced → absent)
+- `ds-sicaran-arcus` `oc-sicaran-arcus-3-1`: removed (unpriced → absent)
+- `ds-sicaran-battle-tank` `oc-sicaran-battle-tank-1-1`: removed (unpriced → absent)
+- `ds-sicaran-battle-tank` `oc-sicaran-battle-tank-1-2`: removed (unpriced → absent)
+- `ds-sicaran-battle-tank` `oc-sicaran-battle-tank-2-1`: removed (unpriced → absent)
+- `ds-sicaran-battle-tank` `oc-sicaran-battle-tank-3-1`: removed (unpriced → absent)
+- `ds-sicaran-battle-tank-2` `oc-sicaran-battle-tank-2-1-1`: removed (unpriced → absent)
+- `ds-sicaran-battle-tank-2` `oc-sicaran-battle-tank-2-1-2`: removed (unpriced → absent)
+- `ds-sicaran-battle-tank-2` `oc-sicaran-battle-tank-2-2-1`: removed (unpriced → absent)
+- `ds-sicaran-battle-tank-2` `oc-sicaran-battle-tank-2-3-1`: removed (unpriced → absent)
+- `ds-sicaran-battle-tank-3` `oc-sicaran-battle-tank-3-1-1`: removed (unpriced → absent)
+- `ds-sicaran-battle-tank-3` `oc-sicaran-battle-tank-3-1-2`: removed (unpriced → absent)
+- `ds-sicaran-battle-tank-3` `oc-sicaran-battle-tank-3-2-1`: removed (unpriced → absent)
+- `ds-sicaran-battle-tank-3` `oc-sicaran-battle-tank-3-3-1`: removed (unpriced → absent)
+- `ds-sicaran-battle-tank-4` `oc-sicaran-battle-tank-4-1-1`: removed (unpriced → absent)
+- `ds-sicaran-battle-tank-4` `oc-sicaran-battle-tank-4-1-2`: removed (unpriced → absent)
+- `ds-sicaran-battle-tank-4` `oc-sicaran-battle-tank-4-2-1`: removed (unpriced → absent)
+- `ds-sicaran-battle-tank-4` `oc-sicaran-battle-tank-4-3-1`: removed (unpriced → absent)
+- `ds-sicaran-battle-tank-5` `oc-sicaran-battle-tank-5-1-1`: removed (unpriced → absent)
+- `ds-sicaran-battle-tank-5` `oc-sicaran-battle-tank-5-1-2`: removed (unpriced → absent)
+- `ds-sicaran-battle-tank-5` `oc-sicaran-battle-tank-5-2-1`: removed (unpriced → absent)
+- `ds-sicaran-battle-tank-5` `oc-sicaran-battle-tank-5-3-1`: removed (unpriced → absent)
+- `ds-sicaran-omega` `oc-sicaran-omega-1-1`: removed (unpriced → absent)
+- `ds-sicaran-omega` `oc-sicaran-omega-1-2`: removed (unpriced → absent)
+- `ds-sicaran-omega` `oc-sicaran-omega-2-1`: removed (unpriced → absent)
+- `ds-sicaran-omega` `oc-sicaran-omega-3-1`: removed (unpriced → absent)
+- `ds-sicaran-punisher` `oc-sicaran-punisher-1-1`: removed (unpriced → absent)
+- `ds-sicaran-punisher` `oc-sicaran-punisher-1-2`: removed (unpriced → absent)
+- `ds-sicaran-punisher` `oc-sicaran-punisher-2-1`: removed (unpriced → absent)
+- `ds-sicaran-punisher` `oc-sicaran-punisher-3-1`: removed (unpriced → absent)
+- `ds-sicaran-punisher-2` `oc-sicaran-punisher-2-1-1`: removed (unpriced → absent)
+- `ds-sicaran-punisher-2` `oc-sicaran-punisher-2-1-2`: removed (unpriced → absent)
+- `ds-sicaran-punisher-2` `oc-sicaran-punisher-2-2-1`: removed (unpriced → absent)
+- `ds-sicaran-punisher-2` `oc-sicaran-punisher-2-3-1`: removed (unpriced → absent)
+- `ds-sicaran-punisher-3` `oc-sicaran-punisher-3-1-1`: removed (unpriced → absent)
+- `ds-sicaran-punisher-3` `oc-sicaran-punisher-3-1-2`: removed (unpriced → absent)
+- `ds-sicaran-punisher-3` `oc-sicaran-punisher-3-2-1`: removed (unpriced → absent)
+- `ds-sicaran-punisher-3` `oc-sicaran-punisher-3-3-1`: removed (unpriced → absent)
+- `ds-sicaran-punisher-4` `oc-sicaran-punisher-4-1-1`: removed (unpriced → absent)
+- `ds-sicaran-punisher-4` `oc-sicaran-punisher-4-1-2`: removed (unpriced → absent)
+- `ds-sicaran-punisher-4` `oc-sicaran-punisher-4-2-1`: removed (unpriced → absent)
+- `ds-sicaran-punisher-4` `oc-sicaran-punisher-4-3-1`: removed (unpriced → absent)
+- `ds-sicaran-punisher-5` `oc-sicaran-punisher-5-1-1`: removed (unpriced → absent)
+- `ds-sicaran-punisher-5` `oc-sicaran-punisher-5-1-2`: removed (unpriced → absent)
+- `ds-sicaran-punisher-5` `oc-sicaran-punisher-5-2-1`: removed (unpriced → absent)
+- `ds-sicaran-punisher-5` `oc-sicaran-punisher-5-3-1`: removed (unpriced → absent)
+- `ds-sicaran-venator` `oc-sicaran-venator-1-1`: removed (unpriced → absent)
+- `ds-sicaran-venator` `oc-sicaran-venator-1-2`: removed (unpriced → absent)
+- `ds-sicaran-venator` `oc-sicaran-venator-2-1`: removed (unpriced → absent)
+- `ds-sicaran-venator` `oc-sicaran-venator-3-1`: removed (unpriced → absent)
+- `ds-sicaran-venator-2` `oc-sicaran-venator-2-1-1`: removed (unpriced → absent)
+- `ds-sicaran-venator-2` `oc-sicaran-venator-2-1-2`: removed (unpriced → absent)
+- `ds-sicaran-venator-2` `oc-sicaran-venator-2-2-1`: removed (unpriced → absent)
+- `ds-sicaran-venator-2` `oc-sicaran-venator-2-3-1`: removed (unpriced → absent)
+- `ds-sicaran-venator-3` `oc-sicaran-venator-3-1-1`: removed (unpriced → absent)
+- `ds-sicaran-venator-3` `oc-sicaran-venator-3-1-2`: removed (unpriced → absent)
+- `ds-sicaran-venator-3` `oc-sicaran-venator-3-2-1`: removed (unpriced → absent)
+- `ds-sicaran-venator-3` `oc-sicaran-venator-3-3-1`: removed (unpriced → absent)
+- `ds-sicaran-venator-4` `oc-sicaran-venator-4-1-1`: removed (unpriced → absent)
+- `ds-sicaran-venator-4` `oc-sicaran-venator-4-1-2`: removed (unpriced → absent)
+- `ds-sicaran-venator-4` `oc-sicaran-venator-4-2-1`: removed (unpriced → absent)
+- `ds-sicaran-venator-4` `oc-sicaran-venator-4-3-1`: removed (unpriced → absent)
+- `ds-sicaran-venator-5` `oc-sicaran-venator-5-1-1`: removed (unpriced → absent)
+- `ds-sicaran-venator-5` `oc-sicaran-venator-5-1-2`: removed (unpriced → absent)
+- `ds-sicaran-venator-5` `oc-sicaran-venator-5-2-1`: removed (unpriced → absent)
+- `ds-sicaran-venator-5` `oc-sicaran-venator-5-3-1`: removed (unpriced → absent)
+- `ds-skyclaws` `oc-skyclaws-1-1`: removed (unpriced → absent)
+- `ds-skyclaws` `oc-skyclaws-1-2`: removed (unpriced → absent)
+- `ds-skyclaws` `oc-skyclaws-2-1`: removed (unpriced → absent)
+- `ds-skyclaws` `oc-skyclaws-3-1`: removed (unpriced → absent)
+- `ds-skyclaws` `oc-skyclaws-3-2`: removed (unpriced → absent)
+- `ds-skyclaws` `oc-skyclaws-3-3`: removed (unpriced → absent)
+- `ds-skyclaws` `oc-skyclaws-3-4`: removed (unpriced → absent)
+- `ds-skyclaws` `oc-skyclaws-3-5`: removed (unpriced → absent)
+- `ds-spartan` `oc-spartan-1-1`: removed (unpriced → absent)
+- `ds-spartan` `oc-spartan-2-1`: removed (unpriced → absent)
+- `ds-spartan` `oc-spartan-3-1`: removed (unpriced → absent)
+- `ds-spartan` `oc-spartan-3-2`: removed (unpriced → absent)
+- `ds-spartan` `oc-spartan-3-3`: removed (unpriced → absent)
+- `ds-spartan` `oc-spartan-3-4`: removed (unpriced → absent)
+- `ds-spartan-2` `oc-spartan-2-1-1`: removed (unpriced → absent)
+- `ds-spartan-2` `oc-spartan-2-2-1`: removed (unpriced → absent)
+- `ds-spartan-2` `oc-spartan-2-3-1`: removed (unpriced → absent)
+- `ds-spartan-2` `oc-spartan-2-3-2`: removed (unpriced → absent)
+- `ds-spartan-2` `oc-spartan-2-3-3`: removed (unpriced → absent)
+- `ds-spartan-2` `oc-spartan-2-3-4`: removed (unpriced → absent)
+- `ds-spartan-3` `oc-spartan-3-1-1`: removed (unpriced → absent)
+- `ds-spartan-3` `oc-spartan-3-2-1`: removed (unpriced → absent)
+- `ds-spartan-3` `oc-spartan-3-3-1`: removed (unpriced → absent)
+- `ds-spartan-3` `oc-spartan-3-3-2`: removed (unpriced → absent)
+- `ds-spartan-3` `oc-spartan-3-3-3`: removed (unpriced → absent)
+- `ds-spartan-3` `oc-spartan-3-3-4`: removed (unpriced → absent)
+- `ds-spartan-4` `oc-spartan-4-1-1`: removed (unpriced → absent)
+- `ds-spartan-4` `oc-spartan-4-2-1`: removed (unpriced → absent)
+- `ds-spartan-4` `oc-spartan-4-3-1`: removed (unpriced → absent)
+- `ds-spartan-4` `oc-spartan-4-3-2`: removed (unpriced → absent)
+- `ds-spartan-4` `oc-spartan-4-3-3`: removed (unpriced → absent)
+- `ds-spartan-4` `oc-spartan-4-3-4`: removed (unpriced → absent)
+- `ds-spartan-5` `oc-spartan-5-1-1`: removed (unpriced → absent)
+- `ds-spartan-5` `oc-spartan-5-2-1`: removed (unpriced → absent)
+- `ds-spartan-5` `oc-spartan-5-3-1`: removed (unpriced → absent)
+- `ds-spartan-5` `oc-spartan-5-3-2`: removed (unpriced → absent)
+- `ds-spartan-5` `oc-spartan-5-3-3`: removed (unpriced → absent)
+- `ds-spartan-5` `oc-spartan-5-3-4`: removed (unpriced → absent)
+- `ds-spectrus-kill-team` `oc-spectrus-kill-team-1-1`: added (absent → unpriced)
+- `ds-stalker` `oc-stalker-1-1`: removed (unpriced → absent)
+- `ds-stalker` `oc-stalker-2-1`: removed (unpriced → absent)
+- `ds-sternguard-veteran-squad` `oc-sternguard-veteran-squad-1-3`: removed (unpriced → absent)
+- `ds-sternguard-veteran-squad` `oc-sternguard-veteran-squad-1-4`: removed (unpriced → absent)
+- `ds-sternguard-veteran-squad` `oc-sternguard-veteran-squad-1-5`: removed (unpriced → absent)
+- `ds-sternguard-veteran-squad` `oc-sternguard-veteran-squad-1-6`: removed (unpriced → absent)
+- `ds-sternguard-veteran-squad` `oc-sternguard-veteran-squad-1-7`: removed (unpriced → absent)
+- `ds-sternguard-veteran-squad` `oc-sternguard-veteran-squad-2-2`: added (absent → unpriced)
+- `ds-sternguard-veteran-squad` `oc-sternguard-veteran-squad-3-1`: removed (unpriced → absent)
+- `ds-sternguard-veteran-squad` `oc-sternguard-veteran-squad-3-2`: removed (unpriced → absent)
+- `ds-sternguard-veteran-squad-2` `oc-sternguard-veteran-squad-2-1-3`: removed (unpriced → absent)
+- `ds-sternguard-veteran-squad-2` `oc-sternguard-veteran-squad-2-1-4`: removed (unpriced → absent)
+- `ds-sternguard-veteran-squad-2` `oc-sternguard-veteran-squad-2-1-5`: removed (unpriced → absent)
+- `ds-sternguard-veteran-squad-2` `oc-sternguard-veteran-squad-2-1-6`: removed (unpriced → absent)
+- `ds-sternguard-veteran-squad-2` `oc-sternguard-veteran-squad-2-1-7`: removed (unpriced → absent)
+- `ds-sternguard-veteran-squad-2` `oc-sternguard-veteran-squad-2-2-2`: added (absent → unpriced)
+- `ds-sternguard-veteran-squad-2` `oc-sternguard-veteran-squad-2-3-1`: removed (unpriced → absent)
+- `ds-sternguard-veteran-squad-2` `oc-sternguard-veteran-squad-2-3-2`: removed (unpriced → absent)
+- `ds-sternguard-veteran-squad-3` `oc-sternguard-veteran-squad-3-1-3`: removed (unpriced → absent)
+- `ds-sternguard-veteran-squad-3` `oc-sternguard-veteran-squad-3-1-4`: removed (unpriced → absent)
+- `ds-sternguard-veteran-squad-3` `oc-sternguard-veteran-squad-3-1-5`: removed (unpriced → absent)
+- `ds-sternguard-veteran-squad-3` `oc-sternguard-veteran-squad-3-1-6`: removed (unpriced → absent)
+- `ds-sternguard-veteran-squad-3` `oc-sternguard-veteran-squad-3-1-7`: removed (unpriced → absent)
+- `ds-sternguard-veteran-squad-3` `oc-sternguard-veteran-squad-3-2-2`: added (absent → unpriced)
+- `ds-sternguard-veteran-squad-3` `oc-sternguard-veteran-squad-3-3-1`: removed (unpriced → absent)
+- `ds-sternguard-veteran-squad-3` `oc-sternguard-veteran-squad-3-3-2`: removed (unpriced → absent)
+- `ds-sternguard-veteran-squad-4` `oc-sternguard-veteran-squad-4-1-3`: removed (unpriced → absent)
+- `ds-sternguard-veteran-squad-4` `oc-sternguard-veteran-squad-4-1-4`: removed (unpriced → absent)
+- `ds-sternguard-veteran-squad-4` `oc-sternguard-veteran-squad-4-1-5`: removed (unpriced → absent)
+- `ds-sternguard-veteran-squad-4` `oc-sternguard-veteran-squad-4-1-6`: removed (unpriced → absent)
+- `ds-sternguard-veteran-squad-4` `oc-sternguard-veteran-squad-4-1-7`: removed (unpriced → absent)
+- `ds-sternguard-veteran-squad-4` `oc-sternguard-veteran-squad-4-2-2`: added (absent → unpriced)
+- `ds-sternguard-veteran-squad-4` `oc-sternguard-veteran-squad-4-3-1`: removed (unpriced → absent)
+- `ds-sternguard-veteran-squad-4` `oc-sternguard-veteran-squad-4-3-2`: removed (unpriced → absent)
+- `ds-sternguard-veteran-squad-5` `oc-sternguard-veteran-squad-5-1-3`: removed (unpriced → absent)
+- `ds-sternguard-veteran-squad-5` `oc-sternguard-veteran-squad-5-1-4`: removed (unpriced → absent)
+- `ds-sternguard-veteran-squad-5` `oc-sternguard-veteran-squad-5-1-5`: removed (unpriced → absent)
+- `ds-sternguard-veteran-squad-5` `oc-sternguard-veteran-squad-5-1-6`: removed (unpriced → absent)
+- `ds-sternguard-veteran-squad-5` `oc-sternguard-veteran-squad-5-1-7`: removed (unpriced → absent)
+- `ds-sternguard-veteran-squad-5` `oc-sternguard-veteran-squad-5-2-2`: added (absent → unpriced)
+- `ds-sternguard-veteran-squad-5` `oc-sternguard-veteran-squad-5-3-1`: removed (unpriced → absent)
+- `ds-sternguard-veteran-squad-5` `oc-sternguard-veteran-squad-5-3-2`: removed (unpriced → absent)
+- `ds-sternguard-veteran-squad-6` `oc-sternguard-veteran-squad-6-1-3`: removed (unpriced → absent)
+- `ds-sternguard-veteran-squad-6` `oc-sternguard-veteran-squad-6-1-4`: removed (unpriced → absent)
+- `ds-sternguard-veteran-squad-6` `oc-sternguard-veteran-squad-6-1-5`: removed (unpriced → absent)
+- `ds-sternguard-veteran-squad-6` `oc-sternguard-veteran-squad-6-1-6`: removed (unpriced → absent)
+- `ds-sternguard-veteran-squad-6` `oc-sternguard-veteran-squad-6-1-7`: removed (unpriced → absent)
+- `ds-sternguard-veteran-squad-6` `oc-sternguard-veteran-squad-6-2-2`: added (absent → unpriced)
+- `ds-sternguard-veteran-squad-6` `oc-sternguard-veteran-squad-6-3-1`: removed (unpriced → absent)
+- `ds-sternguard-veteran-squad-6` `oc-sternguard-veteran-squad-6-3-2`: removed (unpriced → absent)
+- `ds-storm-eagle-gunship` `oc-storm-eagle-gunship-1-1`: removed (unpriced → absent)
+- `ds-storm-eagle-gunship` `oc-storm-eagle-gunship-1-2`: removed (unpriced → absent)
+- `ds-storm-eagle-gunship` `oc-storm-eagle-gunship-2-1`: removed (unpriced → absent)
+- `ds-storm-eagle-gunship-2` `oc-storm-eagle-gunship-2-1-1`: removed (unpriced → absent)
+- `ds-storm-eagle-gunship-2` `oc-storm-eagle-gunship-2-1-2`: removed (unpriced → absent)
+- `ds-storm-eagle-gunship-2` `oc-storm-eagle-gunship-2-2-1`: removed (unpriced → absent)
+- `ds-storm-eagle-gunship-3` `oc-storm-eagle-gunship-3-1-1`: removed (unpriced → absent)
+- `ds-storm-eagle-gunship-3` `oc-storm-eagle-gunship-3-1-2`: removed (unpriced → absent)
+- `ds-storm-eagle-gunship-3` `oc-storm-eagle-gunship-3-2-1`: removed (unpriced → absent)
+- `ds-storm-eagle-gunship-4` `oc-storm-eagle-gunship-4-1-1`: removed (unpriced → absent)
+- `ds-storm-eagle-gunship-4` `oc-storm-eagle-gunship-4-1-2`: removed (unpriced → absent)
+- `ds-storm-eagle-gunship-4` `oc-storm-eagle-gunship-4-2-1`: removed (unpriced → absent)
+- `ds-storm-eagle-gunship-5` `oc-storm-eagle-gunship-5-1-1`: removed (unpriced → absent)
+- `ds-storm-eagle-gunship-5` `oc-storm-eagle-gunship-5-1-2`: removed (unpriced → absent)
+- `ds-storm-eagle-gunship-5` `oc-storm-eagle-gunship-5-2-1`: removed (unpriced → absent)
+- `ds-stormfang-gunship` `oc-stormfang-gunship-1-1`: removed (unpriced → absent)
+- `ds-stormfang-gunship` `oc-stormfang-gunship-1-2`: removed (unpriced → absent)
+- `ds-stormfang-gunship` `oc-stormfang-gunship-2-1`: removed (unpriced → absent)
+- `ds-stormhawk-interceptor` `oc-stormhawk-interceptor-1-2`: removed (unpriced → absent)
+- `ds-stormhawk-interceptor` `oc-stormhawk-interceptor-2-2`: added (absent → unpriced)
+- `ds-stormhawk-interceptor-2` `oc-stormhawk-interceptor-2-1-2`: removed (unpriced → absent)
+- `ds-stormhawk-interceptor-3` `oc-stormhawk-interceptor-3-1-1`: removed (unpriced → absent)
+- `ds-stormhawk-interceptor-3` `oc-stormhawk-interceptor-3-1-2`: removed (unpriced → absent)
+- `ds-stormhawk-interceptor-3` `oc-stormhawk-interceptor-3-2-1`: removed (unpriced → absent)
+- `ds-stormhawk-interceptor-4` `oc-stormhawk-interceptor-4-1-1`: removed (unpriced → absent)
+- `ds-stormhawk-interceptor-4` `oc-stormhawk-interceptor-4-1-2`: removed (unpriced → absent)
+- `ds-stormhawk-interceptor-4` `oc-stormhawk-interceptor-4-2-1`: removed (unpriced → absent)
+- `ds-stormhawk-interceptor-5` `oc-stormhawk-interceptor-5-1-1`: removed (unpriced → absent)
+- `ds-stormhawk-interceptor-5` `oc-stormhawk-interceptor-5-2-1`: removed (unpriced → absent)
+- `ds-stormhawk-interceptor-5` `oc-stormhawk-interceptor-5-2-2`: removed (unpriced → absent)
+- `ds-stormhawk-interceptor-6` `oc-stormhawk-interceptor-6-1-1`: removed (unpriced → absent)
+- `ds-stormhawk-interceptor-6` `oc-stormhawk-interceptor-6-1-2`: removed (unpriced → absent)
+- `ds-stormhawk-interceptor-6` `oc-stormhawk-interceptor-6-2-1`: removed (unpriced → absent)
+- `ds-stormhawk-interceptor-7` `oc-stormhawk-interceptor-7-1-1`: removed (unpriced → absent)
+- `ds-stormhawk-interceptor-7` `oc-stormhawk-interceptor-7-1-2`: removed (unpriced → absent)
+- `ds-stormhawk-interceptor-7` `oc-stormhawk-interceptor-7-2-1`: removed (unpriced → absent)
+- `ds-stormraven-gunship` `oc-stormraven-gunship-1-2`: removed (unpriced → absent)
+- `ds-stormraven-gunship` `oc-stormraven-gunship-3-2`: added (absent → unpriced)
+- `ds-stormraven-gunship-2` `oc-stormraven-gunship-2-1-2`: removed (unpriced → absent)
+- `ds-stormraven-gunship-2` `oc-stormraven-gunship-2-2-2`: removed (unpriced → absent)
+- `ds-stormraven-gunship-3` `oc-stormraven-gunship-3-1-1`: removed (unpriced → absent)
+- `ds-stormraven-gunship-3` `oc-stormraven-gunship-3-1-2`: removed (unpriced → absent)
+- `ds-stormraven-gunship-3` `oc-stormraven-gunship-3-2-1`: removed (unpriced → absent)
+- `ds-stormraven-gunship-3` `oc-stormraven-gunship-3-2-2`: removed (unpriced → absent)
+- `ds-stormraven-gunship-3` `oc-stormraven-gunship-3-3-1`: removed (unpriced → absent)
+- `ds-stormraven-gunship-4` `oc-stormraven-gunship-4-1-1`: removed (unpriced → absent)
+- `ds-stormraven-gunship-4` `oc-stormraven-gunship-4-1-2`: removed (unpriced → absent)
+- `ds-stormraven-gunship-4` `oc-stormraven-gunship-4-2-1`: removed (unpriced → absent)
+- `ds-stormraven-gunship-4` `oc-stormraven-gunship-4-2-2`: removed (unpriced → absent)
+- `ds-stormraven-gunship-4` `oc-stormraven-gunship-4-3-1`: removed (unpriced → absent)
+- `ds-stormraven-gunship-5` `oc-stormraven-gunship-5-1-1`: removed (unpriced → absent)
+- `ds-stormraven-gunship-5` `oc-stormraven-gunship-5-2-1`: removed (unpriced → absent)
+- `ds-stormraven-gunship-5` `oc-stormraven-gunship-5-2-2`: removed (unpriced → absent)
+- `ds-stormraven-gunship-5` `oc-stormraven-gunship-5-3-1`: removed (unpriced → absent)
+- `ds-stormraven-gunship-5` `oc-stormraven-gunship-5-3-2`: removed (unpriced → absent)
+- `ds-stormraven-gunship-6` `oc-stormraven-gunship-6-1-1`: removed (unpriced → absent)
+- `ds-stormraven-gunship-6` `oc-stormraven-gunship-6-1-2`: removed (unpriced → absent)
+- `ds-stormraven-gunship-6` `oc-stormraven-gunship-6-2-1`: removed (unpriced → absent)
+- `ds-stormraven-gunship-6` `oc-stormraven-gunship-6-2-2`: removed (unpriced → absent)
+- `ds-stormraven-gunship-6` `oc-stormraven-gunship-6-3-1`: removed (unpriced → absent)
+- `ds-stormraven-gunship-7` `oc-stormraven-gunship-7-1-1`: removed (unpriced → absent)
+- `ds-stormraven-gunship-7` `oc-stormraven-gunship-7-1-2`: removed (unpriced → absent)
+- `ds-stormraven-gunship-7` `oc-stormraven-gunship-7-2-1`: removed (unpriced → absent)
+- `ds-stormraven-gunship-7` `oc-stormraven-gunship-7-2-2`: removed (unpriced → absent)
+- `ds-stormraven-gunship-7` `oc-stormraven-gunship-7-3-1`: removed (unpriced → absent)
+- `ds-stormtalon-gunship-2` `oc-stormtalon-gunship-2-1-2`: removed (unpriced → absent)
+- `ds-stormtalon-gunship-2` `oc-stormtalon-gunship-2-1-3`: removed (unpriced → absent)
+- `ds-stormtalon-gunship-3` `oc-stormtalon-gunship-3-1-1`: removed (unpriced → absent)
+- `ds-stormtalon-gunship-3` `oc-stormtalon-gunship-3-1-2`: removed (unpriced → absent)
+- `ds-stormtalon-gunship-3` `oc-stormtalon-gunship-3-1-3`: removed (unpriced → absent)
+- `ds-stormtalon-gunship-4` `oc-stormtalon-gunship-4-1-1`: removed (unpriced → absent)
+- `ds-stormtalon-gunship-4` `oc-stormtalon-gunship-4-1-2`: removed (unpriced → absent)
+- `ds-stormtalon-gunship-4` `oc-stormtalon-gunship-4-1-3`: removed (unpriced → absent)
+- `ds-stormtalon-gunship-5` `oc-stormtalon-gunship-5-1-1`: removed (unpriced → absent)
+- `ds-stormtalon-gunship-5` `oc-stormtalon-gunship-5-1-2`: removed (unpriced → absent)
+- `ds-stormtalon-gunship-5` `oc-stormtalon-gunship-5-1-3`: removed (unpriced → absent)
+- `ds-stormtalon-gunship-6` `oc-stormtalon-gunship-6-1-1`: removed (unpriced → absent)
+- `ds-stormtalon-gunship-6` `oc-stormtalon-gunship-6-1-2`: removed (unpriced → absent)
+- `ds-stormtalon-gunship-6` `oc-stormtalon-gunship-6-1-3`: removed (unpriced → absent)
+- `ds-stormtalon-gunship-7` `oc-stormtalon-gunship-7-1-1`: removed (unpriced → absent)
+- `ds-stormtalon-gunship-7` `oc-stormtalon-gunship-7-1-2`: removed (unpriced → absent)
+- `ds-stormtalon-gunship-7` `oc-stormtalon-gunship-7-1-3`: removed (unpriced → absent)
+- `ds-tactical-squad` `oc-tactical-squad-1-1`: removed (unpriced → absent)
+- `ds-tactical-squad` `oc-tactical-squad-1-10`: removed (unpriced → absent)
+- `ds-tactical-squad` `oc-tactical-squad-1-2`: removed (unpriced → absent)
+- `ds-tactical-squad` `oc-tactical-squad-1-3`: removed (unpriced → absent)
+- `ds-tactical-squad` `oc-tactical-squad-1-4`: removed (unpriced → absent)
+- `ds-tactical-squad` `oc-tactical-squad-1-5`: removed (unpriced → absent)
+- `ds-tactical-squad` `oc-tactical-squad-1-6`: removed (unpriced → absent)
+- `ds-tactical-squad` `oc-tactical-squad-1-7`: removed (unpriced → absent)
+- `ds-tactical-squad` `oc-tactical-squad-1-8`: removed (unpriced → absent)
+- `ds-tactical-squad` `oc-tactical-squad-1-9`: removed (unpriced → absent)
+- `ds-tactical-squad` `oc-tactical-squad-2-1`: removed (unpriced → absent)
+- `ds-tactical-squad` `oc-tactical-squad-2-2`: removed (unpriced → absent)
+- `ds-tactical-squad` `oc-tactical-squad-2-3`: removed (unpriced → absent)
+- `ds-tactical-squad` `oc-tactical-squad-2-4`: removed (unpriced → absent)
+- `ds-tactical-squad` `oc-tactical-squad-3-1`: removed (unpriced → absent)
+- `ds-tactical-squad` `oc-tactical-squad-3-10`: removed (unpriced → absent)
+- `ds-tactical-squad` `oc-tactical-squad-3-2`: removed (unpriced → absent)
+- `ds-tactical-squad` `oc-tactical-squad-3-3`: removed (unpriced → absent)
+- `ds-tactical-squad` `oc-tactical-squad-3-4`: removed (unpriced → absent)
+- `ds-tactical-squad` `oc-tactical-squad-3-5`: removed (unpriced → absent)
+- `ds-tactical-squad` `oc-tactical-squad-3-6`: removed (unpriced → absent)
+- `ds-tactical-squad` `oc-tactical-squad-3-7`: removed (unpriced → absent)
+- `ds-tactical-squad` `oc-tactical-squad-3-8`: removed (unpriced → absent)
+- `ds-tactical-squad` `oc-tactical-squad-3-9`: removed (unpriced → absent)
+- `ds-tactical-squad-2` `oc-tactical-squad-2-1-1`: removed (unpriced → absent)
+- `ds-tactical-squad-2` `oc-tactical-squad-2-1-10`: removed (unpriced → absent)
+- `ds-tactical-squad-2` `oc-tactical-squad-2-1-2`: removed (unpriced → absent)
+- `ds-tactical-squad-2` `oc-tactical-squad-2-1-3`: removed (unpriced → absent)
+- `ds-tactical-squad-2` `oc-tactical-squad-2-1-4`: removed (unpriced → absent)
+- `ds-tactical-squad-2` `oc-tactical-squad-2-1-5`: removed (unpriced → absent)
+- `ds-tactical-squad-2` `oc-tactical-squad-2-1-6`: removed (unpriced → absent)
+- `ds-tactical-squad-2` `oc-tactical-squad-2-1-7`: removed (unpriced → absent)
+- `ds-tactical-squad-2` `oc-tactical-squad-2-1-8`: removed (unpriced → absent)
+- `ds-tactical-squad-2` `oc-tactical-squad-2-1-9`: removed (unpriced → absent)
+- `ds-tactical-squad-2` `oc-tactical-squad-2-2-1`: removed (unpriced → absent)
+- `ds-tactical-squad-2` `oc-tactical-squad-2-2-2`: removed (unpriced → absent)
+- `ds-tactical-squad-2` `oc-tactical-squad-2-2-3`: removed (unpriced → absent)
+- `ds-tactical-squad-2` `oc-tactical-squad-2-2-4`: removed (unpriced → absent)
+- `ds-tactical-squad-2` `oc-tactical-squad-2-3-1`: removed (unpriced → absent)
+- `ds-tactical-squad-2` `oc-tactical-squad-2-3-10`: removed (unpriced → absent)
+- `ds-tactical-squad-2` `oc-tactical-squad-2-3-2`: removed (unpriced → absent)
+- `ds-tactical-squad-2` `oc-tactical-squad-2-3-3`: removed (unpriced → absent)
+- `ds-tactical-squad-2` `oc-tactical-squad-2-3-4`: removed (unpriced → absent)
+- `ds-tactical-squad-2` `oc-tactical-squad-2-3-5`: removed (unpriced → absent)
+- `ds-tactical-squad-2` `oc-tactical-squad-2-3-6`: removed (unpriced → absent)
+- `ds-tactical-squad-2` `oc-tactical-squad-2-3-7`: removed (unpriced → absent)
+- `ds-tactical-squad-2` `oc-tactical-squad-2-3-8`: removed (unpriced → absent)
+- `ds-tactical-squad-2` `oc-tactical-squad-2-3-9`: removed (unpriced → absent)
+- `ds-tactical-squad-3` `oc-tactical-squad-3-1-1`: removed (unpriced → absent)
+- `ds-tactical-squad-3` `oc-tactical-squad-3-1-10`: removed (unpriced → absent)
+- `ds-tactical-squad-3` `oc-tactical-squad-3-1-2`: removed (unpriced → absent)
+- `ds-tactical-squad-3` `oc-tactical-squad-3-1-3`: removed (unpriced → absent)
+- `ds-tactical-squad-3` `oc-tactical-squad-3-1-4`: removed (unpriced → absent)
+- `ds-tactical-squad-3` `oc-tactical-squad-3-1-5`: removed (unpriced → absent)
+- `ds-tactical-squad-3` `oc-tactical-squad-3-1-6`: removed (unpriced → absent)
+- `ds-tactical-squad-3` `oc-tactical-squad-3-1-7`: removed (unpriced → absent)
+- `ds-tactical-squad-3` `oc-tactical-squad-3-1-8`: removed (unpriced → absent)
+- `ds-tactical-squad-3` `oc-tactical-squad-3-1-9`: removed (unpriced → absent)
+- `ds-tactical-squad-3` `oc-tactical-squad-3-2-1`: removed (unpriced → absent)
+- `ds-tactical-squad-3` `oc-tactical-squad-3-2-2`: removed (unpriced → absent)
+- `ds-tactical-squad-3` `oc-tactical-squad-3-2-3`: removed (unpriced → absent)
+- `ds-tactical-squad-3` `oc-tactical-squad-3-2-4`: removed (unpriced → absent)
+- `ds-tactical-squad-3` `oc-tactical-squad-3-3-1`: removed (unpriced → absent)
+- `ds-tactical-squad-3` `oc-tactical-squad-3-3-10`: removed (unpriced → absent)
+- `ds-tactical-squad-3` `oc-tactical-squad-3-3-2`: removed (unpriced → absent)
+- `ds-tactical-squad-3` `oc-tactical-squad-3-3-3`: removed (unpriced → absent)
+- `ds-tactical-squad-3` `oc-tactical-squad-3-3-4`: removed (unpriced → absent)
+- `ds-tactical-squad-3` `oc-tactical-squad-3-3-5`: removed (unpriced → absent)
+- `ds-tactical-squad-3` `oc-tactical-squad-3-3-6`: removed (unpriced → absent)
+- `ds-tactical-squad-3` `oc-tactical-squad-3-3-7`: removed (unpriced → absent)
+- `ds-tactical-squad-3` `oc-tactical-squad-3-3-8`: removed (unpriced → absent)
+- `ds-tactical-squad-3` `oc-tactical-squad-3-3-9`: removed (unpriced → absent)
+- `ds-tactical-squad-4` `oc-tactical-squad-4-1-1`: removed (unpriced → absent)
+- `ds-tactical-squad-4` `oc-tactical-squad-4-1-10`: removed (unpriced → absent)
+- `ds-tactical-squad-4` `oc-tactical-squad-4-1-2`: removed (unpriced → absent)
+- `ds-tactical-squad-4` `oc-tactical-squad-4-1-3`: removed (unpriced → absent)
+- `ds-tactical-squad-4` `oc-tactical-squad-4-1-4`: removed (unpriced → absent)
+- `ds-tactical-squad-4` `oc-tactical-squad-4-1-5`: removed (unpriced → absent)
+- `ds-tactical-squad-4` `oc-tactical-squad-4-1-6`: removed (unpriced → absent)
+- `ds-tactical-squad-4` `oc-tactical-squad-4-1-7`: removed (unpriced → absent)
+- `ds-tactical-squad-4` `oc-tactical-squad-4-1-8`: removed (unpriced → absent)
+- `ds-tactical-squad-4` `oc-tactical-squad-4-1-9`: removed (unpriced → absent)
+- `ds-tactical-squad-4` `oc-tactical-squad-4-2-1`: removed (unpriced → absent)
+- `ds-tactical-squad-4` `oc-tactical-squad-4-2-2`: removed (unpriced → absent)
+- `ds-tactical-squad-4` `oc-tactical-squad-4-2-3`: removed (unpriced → absent)
+- `ds-tactical-squad-4` `oc-tactical-squad-4-2-4`: removed (unpriced → absent)
+- `ds-tactical-squad-4` `oc-tactical-squad-4-3-1`: removed (unpriced → absent)
+- `ds-tactical-squad-4` `oc-tactical-squad-4-3-10`: removed (unpriced → absent)
+- `ds-tactical-squad-4` `oc-tactical-squad-4-3-2`: removed (unpriced → absent)
+- `ds-tactical-squad-4` `oc-tactical-squad-4-3-3`: removed (unpriced → absent)
+- `ds-tactical-squad-4` `oc-tactical-squad-4-3-4`: removed (unpriced → absent)
+- `ds-tactical-squad-4` `oc-tactical-squad-4-3-5`: removed (unpriced → absent)
+- `ds-tactical-squad-4` `oc-tactical-squad-4-3-6`: removed (unpriced → absent)
+- `ds-tactical-squad-4` `oc-tactical-squad-4-3-7`: removed (unpriced → absent)
+- `ds-tactical-squad-4` `oc-tactical-squad-4-3-8`: removed (unpriced → absent)
+- `ds-tactical-squad-4` `oc-tactical-squad-4-3-9`: removed (unpriced → absent)
+- `ds-talonstrike-kill-team` `oc-talonstrike-kill-team-1-2`: removed (unpriced → absent)
+- `ds-talonstrike-kill-team` `oc-talonstrike-kill-team-2-2`: removed (unpriced → absent)
+- `ds-tarantula-sentry-battery` `oc-tarantula-sentry-battery-1-1`: added (absent → unpriced)
+- `ds-techmarine-on-bike` `oc-techmarine-on-bike-1-1`: removed (unpriced → absent)
+- `ds-techmarine-on-bike` `oc-techmarine-on-bike-1-2`: removed (unpriced → absent)
+- `ds-techmarine-on-bike` `oc-techmarine-on-bike-1-3`: removed (unpriced → absent)
+- `ds-techmarine-on-bike` `oc-techmarine-on-bike-1-4`: removed (unpriced → absent)
+- `ds-techmarine-on-bike` `oc-techmarine-on-bike-1-5`: removed (unpriced → absent)
+- `ds-techmarine-on-bike` `oc-techmarine-on-bike-2-1`: removed (unpriced → absent)
+- `ds-techmarine-on-bike` `oc-techmarine-on-bike-2-2`: removed (unpriced → absent)
+- `ds-techmarine-on-bike` `oc-techmarine-on-bike-2-3`: removed (unpriced → absent)
+- `ds-terminator-squad` `oc-terminator-squad-1-3`: removed (unpriced → absent)
+- `ds-terminator-squad` `oc-terminator-squad-3-2`: added (absent → unpriced)
+- `ds-terminator-squad` `oc-terminator-squad-3-3`: added (absent → unpriced)
+- `ds-terminator-squad-2` `oc-terminator-squad-2-1-3`: removed (unpriced → absent)
+- `ds-terminator-squad-2` `oc-terminator-squad-2-3-2`: added (absent → unpriced)
+- `ds-terminator-squad-2` `oc-terminator-squad-2-3-3`: added (absent → unpriced)
+- `ds-terminator-squad-3` `oc-terminator-squad-3-1-3`: removed (unpriced → absent)
+- `ds-terminator-squad-3` `oc-terminator-squad-3-3-2`: added (absent → unpriced)
+- `ds-terminator-squad-3` `oc-terminator-squad-3-3-3`: added (absent → unpriced)
+- `ds-terminator-squad-4` `oc-terminator-squad-4-1-3`: removed (unpriced → absent)
+- `ds-terminator-squad-4` `oc-terminator-squad-4-3-2`: added (absent → unpriced)
+- `ds-terminator-squad-4` `oc-terminator-squad-4-3-3`: added (absent → unpriced)
+- `ds-terminator-squad-5` `oc-terminator-squad-5-1-3`: removed (unpriced → absent)
+- `ds-terminator-squad-5` `oc-terminator-squad-5-3-2`: added (absent → unpriced)
+- `ds-terminator-squad-5` `oc-terminator-squad-5-3-3`: added (absent → unpriced)
+- `ds-terminus-ultra` `oc-terminus-ultra-1-1`: removed (unpriced → absent)
+- `ds-terminus-ultra` `oc-terminus-ultra-2-1`: removed (unpriced → absent)
+- `ds-terminus-ultra` `oc-terminus-ultra-3-1`: removed (unpriced → absent)
+- `ds-terrax-pattern-termite-2` `oc-terrax-pattern-termite-2-1-2`: removed (unpriced → absent)
+- `ds-terrax-pattern-termite-3` `oc-terrax-pattern-termite-3-1-2`: removed (unpriced → absent)
+- `ds-terrax-pattern-termite-4` `oc-terrax-pattern-termite-4-1-2`: removed (unpriced → absent)
+- `ds-terrax-pattern-termite-5` `oc-terrax-pattern-termite-5-1-2`: removed (unpriced → absent)
+- `ds-terrax-pattern-termite-6` `oc-terrax-pattern-termite-6-1-2`: removed (unpriced → absent)
+- `ds-thunderhawk-gunship` `oc-thunderhawk-gunship-3-1`: added (absent → unpriced)
+- `ds-thunderhawk-gunship-2` `oc-thunderhawk-gunship-2-3-1`: added (absent → unpriced)
+- `ds-thunderhawk-gunship-3` `oc-thunderhawk-gunship-3-3-1`: added (absent → unpriced)
+- `ds-thunderhawk-gunship-4` `oc-thunderhawk-gunship-4-3-1`: added (absent → unpriced)
+- `ds-thunderhawk-gunship-5` `oc-thunderhawk-gunship-5-3-1`: added (absent → unpriced)
+- `ds-thunderhawk-gunship-6` `oc-thunderhawk-gunship-6-3-1`: added (absent → unpriced)
+- `ds-thunderwolf-cavalry` `oc-thunderwolf-cavalry-1-2`: removed (unpriced → absent)
+- `ds-typhon` `oc-typhon-1-2`: removed (unpriced → absent)
+- `ds-typhon` `oc-typhon-2-2`: removed (unpriced → absent)
+- `ds-typhon` `oc-typhon-2-3`: removed (unpriced → absent)
+- `ds-typhon` `oc-typhon-2-4`: removed (unpriced → absent)
+- `ds-typhon-2` `oc-typhon-2-1-2`: removed (unpriced → absent)
+- `ds-typhon-2` `oc-typhon-2-2-2`: removed (unpriced → absent)
+- `ds-typhon-2` `oc-typhon-2-2-3`: removed (unpriced → absent)
+- `ds-typhon-2` `oc-typhon-2-2-4`: removed (unpriced → absent)
+- `ds-typhon-3` `oc-typhon-3-1-2`: removed (unpriced → absent)
+- `ds-typhon-3` `oc-typhon-3-2-2`: removed (unpriced → absent)
+- `ds-typhon-3` `oc-typhon-3-2-3`: removed (unpriced → absent)
+- `ds-typhon-3` `oc-typhon-3-2-4`: removed (unpriced → absent)
+- `ds-typhon-4` `oc-typhon-4-1-2`: removed (unpriced → absent)
+- `ds-typhon-4` `oc-typhon-4-2-2`: removed (unpriced → absent)
+- `ds-typhon-4` `oc-typhon-4-2-3`: removed (unpriced → absent)
+- `ds-typhon-4` `oc-typhon-4-2-4`: removed (unpriced → absent)
+- `ds-typhon-5` `oc-typhon-5-1-2`: removed (unpriced → absent)
+- `ds-typhon-5` `oc-typhon-5-2-2`: removed (unpriced → absent)
+- `ds-typhon-5` `oc-typhon-5-2-3`: removed (unpriced → absent)
+- `ds-typhon-5` `oc-typhon-5-2-4`: removed (unpriced → absent)
+- `ds-vanguard-veteran-squad` `oc-vanguard-veteran-squad-1-1`: added (absent → unpriced)
+- `ds-vanguard-veteran-squad` `oc-vanguard-veteran-squad-2-1`: added (absent → unpriced)
+- `ds-vanguard-veteran-squad-with-jump-packs` `oc-vanguard-veteran-squad-with-jump-packs-1-1`: added (absent → unpriced)
+- `ds-vanguard-veteran-squad-with-jump-packs` `oc-vanguard-veteran-squad-with-jump-packs-1-2`: added (absent → unpriced)
+- `ds-vanguard-veteran-squad-with-jump-packs` `oc-vanguard-veteran-squad-with-jump-packs-2-1`: added (absent → unpriced)
+- `ds-vanguard-veteran-squad-with-jump-packs` `oc-vanguard-veteran-squad-with-jump-packs-4-1`: added (absent → unpriced)
+- `ds-vanguard-veteran-squad-with-jump-packs-2` `oc-vanguard-veteran-squad-with-jump-packs-2-1-1`: added (absent → unpriced)
+- `ds-vanguard-veteran-squad-with-jump-packs-2` `oc-vanguard-veteran-squad-with-jump-packs-2-1-2`: added (absent → unpriced)
+- `ds-vanguard-veteran-squad-with-jump-packs-2` `oc-vanguard-veteran-squad-with-jump-packs-2-2-1`: added (absent → unpriced)
+- `ds-vanguard-veteran-squad-with-jump-packs-2` `oc-vanguard-veteran-squad-with-jump-packs-2-4-1`: added (absent → unpriced)
+- `ds-vanguard-veteran-squad-with-jump-packs-3` `oc-vanguard-veteran-squad-with-jump-packs-3-1-1`: added (absent → unpriced)
+- `ds-vanguard-veteran-squad-with-jump-packs-3` `oc-vanguard-veteran-squad-with-jump-packs-3-1-2`: added (absent → unpriced)
+- `ds-vanguard-veteran-squad-with-jump-packs-3` `oc-vanguard-veteran-squad-with-jump-packs-3-2-1`: added (absent → unpriced)
+- `ds-vanguard-veteran-squad-with-jump-packs-3` `oc-vanguard-veteran-squad-with-jump-packs-3-4-1`: added (absent → unpriced)
+- `ds-vanguard-veteran-squad-with-jump-packs-4` `oc-vanguard-veteran-squad-with-jump-packs-4-1-1`: added (absent → unpriced)
+- `ds-vanguard-veteran-squad-with-jump-packs-4` `oc-vanguard-veteran-squad-with-jump-packs-4-1-2`: added (absent → unpriced)
+- `ds-vanguard-veteran-squad-with-jump-packs-4` `oc-vanguard-veteran-squad-with-jump-packs-4-2-1`: added (absent → unpriced)
+- `ds-vanguard-veteran-squad-with-jump-packs-4` `oc-vanguard-veteran-squad-with-jump-packs-4-4-1`: added (absent → unpriced)
+- `ds-vanguard-veteran-squad-with-jump-packs-5` `oc-vanguard-veteran-squad-with-jump-packs-5-1-1`: added (absent → unpriced)
+- `ds-vanguard-veteran-squad-with-jump-packs-5` `oc-vanguard-veteran-squad-with-jump-packs-5-1-2`: added (absent → unpriced)
+- `ds-vanguard-veteran-squad-with-jump-packs-5` `oc-vanguard-veteran-squad-with-jump-packs-5-2-1`: added (absent → unpriced)
+- `ds-vanguard-veteran-squad-with-jump-packs-5` `oc-vanguard-veteran-squad-with-jump-packs-5-4-1`: added (absent → unpriced)
+- `ds-vanguard-veteran-squad-with-jump-packs-6` `oc-vanguard-veteran-squad-with-jump-packs-6-1-1`: added (absent → unpriced)
+- `ds-vanguard-veteran-squad-with-jump-packs-6` `oc-vanguard-veteran-squad-with-jump-packs-6-1-2`: added (absent → unpriced)
+- `ds-vanguard-veteran-squad-with-jump-packs-6` `oc-vanguard-veteran-squad-with-jump-packs-6-2-1`: added (absent → unpriced)
+- `ds-vanguard-veteran-squad-with-jump-packs-6` `oc-vanguard-veteran-squad-with-jump-packs-6-4-1`: added (absent → unpriced)
+- `ds-venerable-dreadnought-2` `oc-venerable-dreadnought-2-1-2`: removed (unpriced → absent)
+- `ds-venerable-dreadnought-2` `oc-venerable-dreadnought-2-3-2`: removed (unpriced → absent)
+- `ds-venerable-dreadnought-3` `oc-venerable-dreadnought-3-1-2`: removed (unpriced → absent)
+- `ds-venerable-dreadnought-3` `oc-venerable-dreadnought-3-1-3`: removed (unpriced → absent)
+- `ds-venerable-dreadnought-3` `oc-venerable-dreadnought-3-1-4`: removed (unpriced → absent)
+- `ds-venerable-dreadnought-3` `oc-venerable-dreadnought-3-1-5`: removed (unpriced → absent)
+- `ds-venerable-dreadnought-3` `oc-venerable-dreadnought-3-1-6`: removed (unpriced → absent)
+- `ds-venerable-dreadnought-3` `oc-venerable-dreadnought-3-1-7`: removed (unpriced → absent)
+- `ds-venerable-dreadnought-3` `oc-venerable-dreadnought-3-2-1`: removed (unpriced → absent)
+- `ds-venerable-dreadnought-3` `oc-venerable-dreadnought-3-2-2`: removed (unpriced → absent)
+- `ds-venerable-dreadnought-3` `oc-venerable-dreadnought-3-2-3`: removed (unpriced → absent)
+- `ds-vindicator` `oc-vindicator-3-1`: added (absent → unpriced)
+- `ds-vindicator` `oc-vindicator-4-1`: added (absent → unpriced)
+- `ds-vindicator-2` `oc-vindicator-2-1-1`: removed (unpriced → absent)
+- `ds-vindicator-2` `oc-vindicator-2-2-1`: removed (unpriced → absent)
+- `ds-vindicator-3` `oc-vindicator-3-1-1`: removed (unpriced → absent)
+- `ds-vindicator-3` `oc-vindicator-3-2-1`: removed (unpriced → absent)
+- `ds-vindicator-4` `oc-vindicator-4-1-1`: removed (unpriced → absent)
+- `ds-vindicator-4` `oc-vindicator-4-2-1`: removed (unpriced → absent)
+- `ds-vindicator-5` `oc-vindicator-5-1-1`: removed (unpriced → absent)
+- `ds-vindicator-5` `oc-vindicator-5-2-1`: removed (unpriced → absent)
+- `ds-vindicator-6` `oc-vindicator-6-1-1`: removed (unpriced → absent)
+- `ds-vindicator-6` `oc-vindicator-6-2-1`: removed (unpriced → absent)
+- `ds-vindicator-laser-destroyer` `oc-vindicator-laser-destroyer-1-1`: removed (unpriced → absent)
+- `ds-warboss-on-warbike` `oc-warboss-on-warbike-1-2`: removed (unpriced → absent)
+- `ds-whirlwind-2` `oc-whirlwind-2-1-1`: removed (unpriced → absent)
+- `ds-whirlwind-2` `oc-whirlwind-2-2-1`: removed (unpriced → absent)
+- `ds-whirlwind-3` `oc-whirlwind-3-1-1`: removed (unpriced → absent)
+- `ds-whirlwind-3` `oc-whirlwind-3-2-1`: removed (unpriced → absent)
+- `ds-whirlwind-4` `oc-whirlwind-4-1-1`: removed (unpriced → absent)
+- `ds-whirlwind-4` `oc-whirlwind-4-2-1`: removed (unpriced → absent)
+- `ds-whirlwind-5` `oc-whirlwind-5-1-1`: removed (unpriced → absent)
+- `ds-whirlwind-5` `oc-whirlwind-5-2-1`: removed (unpriced → absent)
+- `ds-whirlwind-6` `oc-whirlwind-6-1-1`: removed (unpriced → absent)
+- `ds-whirlwind-6` `oc-whirlwind-6-2-1`: removed (unpriced → absent)
+- `ds-whirlwind-scorpius` `oc-whirlwind-scorpius-1-1`: removed (unpriced → absent)
+- `ds-whirlwind-scorpius` `oc-whirlwind-scorpius-2-1`: removed (unpriced → absent)
+- `ds-whirlwind-scorpius-2` `oc-whirlwind-scorpius-2-1-1`: removed (unpriced → absent)
+- `ds-whirlwind-scorpius-2` `oc-whirlwind-scorpius-2-2-1`: removed (unpriced → absent)
+- `ds-whirlwind-scorpius-3` `oc-whirlwind-scorpius-3-1-1`: removed (unpriced → absent)
+- `ds-whirlwind-scorpius-3` `oc-whirlwind-scorpius-3-2-1`: removed (unpriced → absent)
+- `ds-whirlwind-scorpius-4` `oc-whirlwind-scorpius-4-1-1`: removed (unpriced → absent)
+- `ds-whirlwind-scorpius-4` `oc-whirlwind-scorpius-4-2-1`: removed (unpriced → absent)
+- `ds-whirlwind-scorpius-5` `oc-whirlwind-scorpius-5-1-1`: removed (unpriced → absent)
+- `ds-whirlwind-scorpius-5` `oc-whirlwind-scorpius-5-2-1`: removed (unpriced → absent)
+- `ds-wolf-guard` `oc-wolf-guard-1-1`: removed (unpriced → absent)
+- `ds-wolf-guard` `oc-wolf-guard-1-2`: removed (unpriced → absent)
+- `ds-wolf-guard` `oc-wolf-guard-1-3`: removed (unpriced → absent)
+- `ds-wolf-guard` `oc-wolf-guard-1-4`: removed (unpriced → absent)
+- `ds-wolf-guard` `oc-wolf-guard-1-5`: removed (unpriced → absent)
+- `ds-wolf-guard-battle-leader` `oc-wolf-guard-battle-leader-2-2`: removed (unpriced → absent)
+- `ds-wolf-guard-battle-leader` `oc-wolf-guard-battle-leader-2-3`: removed (unpriced → absent)
+- `ds-wolf-guard-battle-leader-in-terminator-armour` `oc-wolf-guard-battle-leader-in-terminator-armour-1-1`: removed (unpriced → absent)
+- `ds-wolf-guard-battle-leader-in-terminator-armour` `oc-wolf-guard-battle-leader-in-terminator-armour-1-2`: removed (unpriced → absent)
+- `ds-wolf-guard-battle-leader-in-terminator-armour` `oc-wolf-guard-battle-leader-in-terminator-armour-1-3`: removed (unpriced → absent)
+- `ds-wolf-guard-battle-leader-in-terminator-armour` `oc-wolf-guard-battle-leader-in-terminator-armour-1-4`: removed (unpriced → absent)
+- `ds-wolf-guard-battle-leader-in-terminator-armour` `oc-wolf-guard-battle-leader-in-terminator-armour-2-1`: removed (unpriced → absent)
+- `ds-wolf-guard-battle-leader-in-terminator-armour` `oc-wolf-guard-battle-leader-in-terminator-armour-3-1`: removed (unpriced → absent)
+- `ds-wolf-guard-battle-leader-in-terminator-armour` `oc-wolf-guard-battle-leader-in-terminator-armour-3-2`: removed (unpriced → absent)
+- `ds-wolf-guard-battle-leader-in-terminator-armour` `oc-wolf-guard-battle-leader-in-terminator-armour-3-3`: removed (unpriced → absent)
+- `ds-wolf-guard-battle-leader-in-terminator-armour` `oc-wolf-guard-battle-leader-in-terminator-armour-3-4`: removed (unpriced → absent)
+- `ds-wolf-guard-battle-leader-in-terminator-armour` `oc-wolf-guard-battle-leader-in-terminator-armour-3-5`: removed (unpriced → absent)
+- `ds-wolf-guard-battle-leader-on-thunderwolf` `oc-wolf-guard-battle-leader-on-thunderwolf-1-1`: removed (unpriced → absent)
+- `ds-wolf-guard-battle-leader-on-thunderwolf` `oc-wolf-guard-battle-leader-on-thunderwolf-2-1`: removed (unpriced → absent)
+- `ds-wolf-guard-battle-leader-on-thunderwolf` `oc-wolf-guard-battle-leader-on-thunderwolf-2-2`: removed (unpriced → absent)
+- `ds-wolf-guard-battle-leader-on-thunderwolf` `oc-wolf-guard-battle-leader-on-thunderwolf-2-3`: removed (unpriced → absent)
+- `ds-wolf-guard-battle-leader-on-thunderwolf` `oc-wolf-guard-battle-leader-on-thunderwolf-2-4`: removed (unpriced → absent)
+- `ds-wolf-guard-battle-leader-on-thunderwolf` `oc-wolf-guard-battle-leader-on-thunderwolf-2-5`: removed (unpriced → absent)
+- `ds-wolf-guard-battle-leader-on-thunderwolf` `oc-wolf-guard-battle-leader-on-thunderwolf-2-6`: removed (unpriced → absent)
+- `ds-wolf-guard-battle-leader-on-thunderwolf` `oc-wolf-guard-battle-leader-on-thunderwolf-2-7`: removed (unpriced → absent)
+- `ds-wolf-guard-battle-leader-on-thunderwolf` `oc-wolf-guard-battle-leader-on-thunderwolf-3-1`: removed (unpriced → absent)
+- `ds-wolf-guard-battle-leader-on-thunderwolf` `oc-wolf-guard-battle-leader-on-thunderwolf-3-2`: removed (unpriced → absent)
+- `ds-wolf-guard-battle-leader-on-thunderwolf` `oc-wolf-guard-battle-leader-on-thunderwolf-3-3`: removed (unpriced → absent)
+- `ds-wolf-guard-battle-leader-on-thunderwolf` `oc-wolf-guard-battle-leader-on-thunderwolf-3-4`: removed (unpriced → absent)
+- `ds-wolf-guard-headtakers` `oc-wolf-guard-headtakers-1-1`: added (absent → unpriced)
+- `ds-wolf-guard-pack-leader` `oc-wolf-guard-pack-leader-1-1`: removed (unpriced → absent)
+- `ds-wolf-guard-pack-leader` `oc-wolf-guard-pack-leader-2-1`: removed (unpriced → absent)
+- `ds-wolf-guard-pack-leader` `oc-wolf-guard-pack-leader-2-10`: removed (unpriced → absent)
+- `ds-wolf-guard-pack-leader` `oc-wolf-guard-pack-leader-2-2`: removed (unpriced → absent)
+- `ds-wolf-guard-pack-leader` `oc-wolf-guard-pack-leader-2-3`: removed (unpriced → absent)
+- `ds-wolf-guard-pack-leader` `oc-wolf-guard-pack-leader-2-4`: removed (unpriced → absent)
+- `ds-wolf-guard-pack-leader` `oc-wolf-guard-pack-leader-2-5`: removed (unpriced → absent)
+- `ds-wolf-guard-pack-leader` `oc-wolf-guard-pack-leader-2-6`: removed (unpriced → absent)
+- `ds-wolf-guard-pack-leader` `oc-wolf-guard-pack-leader-2-7`: removed (unpriced → absent)
+- `ds-wolf-guard-pack-leader` `oc-wolf-guard-pack-leader-2-8`: removed (unpriced → absent)
+- `ds-wolf-guard-pack-leader` `oc-wolf-guard-pack-leader-2-9`: removed (unpriced → absent)
+- `ds-wolf-guard-pack-leader-in-terminator-armour` `oc-wolf-guard-pack-leader-in-terminator-armour-1-1`: removed (unpriced → absent)
+- `ds-wolf-guard-pack-leader-in-terminator-armour` `oc-wolf-guard-pack-leader-in-terminator-armour-2-1`: removed (unpriced → absent)
+- `ds-wolf-guard-pack-leader-in-terminator-armour` `oc-wolf-guard-pack-leader-in-terminator-armour-2-2`: removed (unpriced → absent)
+- `ds-wolf-guard-pack-leader-in-terminator-armour` `oc-wolf-guard-pack-leader-in-terminator-armour-2-3`: removed (unpriced → absent)
+- `ds-wolf-guard-pack-leader-in-terminator-armour` `oc-wolf-guard-pack-leader-in-terminator-armour-2-4`: removed (unpriced → absent)
+- `ds-wolf-guard-pack-leader-in-terminator-armour` `oc-wolf-guard-pack-leader-in-terminator-armour-2-5`: removed (unpriced → absent)
+- `ds-wolf-guard-pack-leader-in-terminator-armour` `oc-wolf-guard-pack-leader-in-terminator-armour-2-6`: removed (unpriced → absent)
+- `ds-wolf-guard-pack-leader-in-terminator-armour` `oc-wolf-guard-pack-leader-in-terminator-armour-2-7`: removed (unpriced → absent)
+- `ds-wolf-guard-pack-leader-in-terminator-armour` `oc-wolf-guard-pack-leader-in-terminator-armour-2-8`: removed (unpriced → absent)
+- `ds-wolf-guard-pack-leader-in-terminator-armour` `oc-wolf-guard-pack-leader-in-terminator-armour-3-1`: removed (unpriced → absent)
+- `ds-wolf-guard-pack-leader-with-jump-pack` `oc-wolf-guard-pack-leader-with-jump-pack-1-1`: removed (unpriced → absent)
+- `ds-wolf-guard-pack-leader-with-jump-pack` `oc-wolf-guard-pack-leader-with-jump-pack-2-1`: removed (unpriced → absent)
+- `ds-wolf-guard-pack-leader-with-jump-pack` `oc-wolf-guard-pack-leader-with-jump-pack-2-2`: removed (unpriced → absent)
+- `ds-wolf-guard-pack-leader-with-jump-pack` `oc-wolf-guard-pack-leader-with-jump-pack-2-3`: removed (unpriced → absent)
+- `ds-wolf-guard-pack-leader-with-jump-pack` `oc-wolf-guard-pack-leader-with-jump-pack-2-4`: removed (unpriced → absent)
+- `ds-wolf-guard-pack-leader-with-jump-pack` `oc-wolf-guard-pack-leader-with-jump-pack-2-5`: removed (unpriced → absent)
+- `ds-wolf-guard-pack-leader-with-jump-pack` `oc-wolf-guard-pack-leader-with-jump-pack-2-6`: removed (unpriced → absent)
+- `ds-wolf-guard-pack-leader-with-jump-pack` `oc-wolf-guard-pack-leader-with-jump-pack-2-7`: removed (unpriced → absent)
+- `ds-wolf-guard-pack-leader-with-jump-pack` `oc-wolf-guard-pack-leader-with-jump-pack-2-8`: removed (unpriced → absent)
+- `ds-wolf-guard-pack-leader-with-jump-pack` `oc-wolf-guard-pack-leader-with-jump-pack-2-9`: removed (unpriced → absent)
+- `ds-wolf-guard-terminators` `oc-wolf-guard-terminators-3-2`: removed (unpriced → absent)
+- `ds-wolf-lord-on-thunderwolf` `oc-wolf-lord-on-thunderwolf-1-1`: removed (unpriced → absent)
+- `ds-wolf-lord-on-thunderwolf` `oc-wolf-lord-on-thunderwolf-1-2`: removed (unpriced → absent)
+- `ds-wolf-lord-on-thunderwolf` `oc-wolf-lord-on-thunderwolf-1-3`: removed (unpriced → absent)
+- `ds-wolf-lord-on-thunderwolf` `oc-wolf-lord-on-thunderwolf-1-4`: removed (unpriced → absent)
+- `ds-wolf-lord-on-thunderwolf` `oc-wolf-lord-on-thunderwolf-1-5`: removed (unpriced → absent)
+- `ds-wolf-lord-on-thunderwolf` `oc-wolf-lord-on-thunderwolf-1-6`: removed (unpriced → absent)
+- `ds-wolf-lord-on-thunderwolf` `oc-wolf-lord-on-thunderwolf-1-7`: removed (unpriced → absent)
+- `ds-wolf-lord-on-thunderwolf` `oc-wolf-lord-on-thunderwolf-2-1`: removed (unpriced → absent)
+- `ds-wolf-lord-on-thunderwolf` `oc-wolf-lord-on-thunderwolf-2-2`: removed (unpriced → absent)
+- `ds-wolf-lord-on-thunderwolf` `oc-wolf-lord-on-thunderwolf-2-3`: removed (unpriced → absent)
+- `ds-wolf-lord-on-thunderwolf` `oc-wolf-lord-on-thunderwolf-2-4`: removed (unpriced → absent)
+- `ds-wolf-lord-on-thunderwolf` `oc-wolf-lord-on-thunderwolf-3-1`: removed (unpriced → absent)
+- `ds-wolf-scouts` `oc-wolf-scouts-4-1`: added (absent → unpriced)
+- `ds-wolf-scouts` `oc-wolf-scouts-5-1`: added (absent → unpriced)
+- `ds-wulfen-dreadnought` `oc-wulfen-dreadnought-2-1`: added (absent → unpriced)
+
+## Keyword classification
+
+- `ADRAX AGATONE`: unit → unclassified
+- `AETHON SHAAN`: unit → unclassified
+- `AGGRESSOR SQUAD`: unit → unclassified
+- `AQUILA KILL TEAM`: unit → unclassified
+- `ARJAC ROCKFIST`: unit → unclassified
+- `ASMODAI`: unit → unclassified
+- `ASSAULT INTERCESSOR SQUAD`: unit → unclassified
+- `ASSAULT INTERCESSORS WITH JUMP PACKS`: unit → unclassified
+- `ASSAULT SQUAD`: unit → unclassified
+- `ASSAULT SQUAD WITH JUMP PACKS`: unit → unclassified
+- `ASTARTES SERVITORS`: unit → unclassified
+- `ASTORATH`: unit → unclassified
+- `ASTRAEUS`: unit → unclassified
+- `ATTACK BIKE SQUAD`: unit → unclassified
+- `AZRAEL`: unit → unclassified
+- `BAAL PREDATOR`: unit → unclassified
+- `BALLISTUS DREADNOUGHT`: unit → unclassified
+- `BATTLE LEADER`: unit → unclassified
+- `BELIAL`: unit → unclassified
+- `BIG TRAKK`: unit → unclassified
+- `BIKE SQUAD`: unit → unclassified
+- `BIOLOGIS`: unit → unclassified
+- `BJORN THE FELL-HANDED`: unit → unclassified
+- `BLADEGUARD ANCIENT`: unit → unclassified
+- `BLADEGUARD VETERAN SQUAD`: unit → unclassified
+- `BLOOD CLAWS`: unit → unclassified
+- `BOSS ZAGSTRUK`: unit → unclassified
+- `BROTHER CORBULO`: unit → unclassified
+- `BRUTALIS DREADNOUGHT`: unit → unclassified
+- `BURNA BOYZ`: unit → unclassified
+- `CAANOK VAR`: unit → unclassified
+- `CAESTUS ASSAULT RAM`: unit → unclassified
+- `CANIS WOLFBORN`: unit → unclassified
+- `CARAB CULLN THE RISEN`: unit → unclassified
+- `CASTELLAN`: unit → unclassified
+- `CATO`: unit → unclassified
+- `CENTURION ASSAULT SQUAD`: unit → unclassified
+- `CENTURION DEVASTATOR SQUAD`: unit → unclassified
+- `CHAPLAIN CASSIUS`: unit → unclassified
+- `CHAPLAIN GRIMALDUS`: unit → unclassified
+- `CHAPLAIN VENERABLE DREADNOUGHT`: unit → unclassified
+- `CHIEF LIBRARIAN MEPHISTON`: unit → unclassified
+- `CHIEF LIBRARIAN TIGURIUS`: unit → unclassified
+- `COMMANDER DANTE`: unit → unclassified
+- `COMPANY CHAMPION`: unit → unclassified
+- `COMPANY HEROES`: unit → unclassified
+- `COMPANY VETERANS`: unit → unclassified
+- `CORVUS BLACKSTAR`: unit → unclassified
+- `CRUSADE ANCIENT`: unit → unclassified
+- `CRUSADER SQUAD`: unit → unclassified
+- `CYBERWOLF`: unit → unclassified
+- `DARK TALON`: unit → unclassified
+- `DARNATH LYSANDER`: unit → unclassified
+- `DEATH COMPANY DREADNOUGHT`: unit → unclassified
+- `DEATH COMPANY MARINES`: unit → unclassified
+- `DEATH COMPANY MARINES WITH BOLT RIFLES`: unit → unclassified
+- `DEATH COMPANY MARINES WITH BOLTGUNS`: unit → unclassified
+- `DEATH COMPANY MARINES WITH BOLTGUNS AND JUMP PACKS`: unit → unclassified
+- `DEATH COMPANY MARINES WITH JUMP PACKS`: unit → unclassified
+- `DEATHSTORM DROP POD`: unit → unclassified
+- `DEATHWATCH TERMINATOR SQUAD`: unit → unclassified
+- `DEATHWATCH VETERANS`: unit → unclassified
+- `DEATHWING COMMAND SQUAD`: unit → unclassified
+- `DEATHWING KNIGHTS`: unit → unclassified
+- `DEATHWING STRIKEMASTER`: unit → unclassified
+- `DEATHWING TERMINATOR SQUAD`: unit → unclassified
+- `DECIMUS KILL TEAM`: unit → unclassified
+- `DEREDEO DREADNOUGHT`: unit → unclassified
+- `DESOLATION SQUAD`: unit → unclassified
+- `DEVASTATOR SQUAD`: unit → unclassified
+- `DREADNOUGHT DROP POD`: unit → unclassified
+- `DROP POD`: unit → unclassified
+- `ELIMINATOR SQUAD`: unit → unclassified
+- `EMPEROR’S CHAMPION`: unit → unclassified
+- `ERADICATOR SQUAD`: unit → unclassified
+- `ERADICATOR SQUAD WITH HEAVY BOLTERS`: unit → unclassified
+- `EXECRATOR`: unit → unclassified
+- `EZEKIEL`: unit → unclassified
+- `FELLBLADE`: unit → unclassified
+- `FENRISIAN WOLVES`: unit → unclassified
+- `FERREN AREIOS`: unit → unclassified
+- `FIRE RAPTOR GUNSHIP`: unit → unclassified
+- `FIRESTRIKE SERVO-TURRETS`: unit → unclassified
+- `FURIOSO DREADNOUGHT`: unit → unclassified
+- `GABRIEL SETH`: unit → unclassified
+- `GARGANTUAN SQUIGGOTH`: unit → unclassified
+- `GLADIATOR LANCER`: unit → unclassified
+- `GLADIATOR REAPER`: unit → unclassified
+- `GLADIATOR VALIANT`: unit → unclassified
+- `GREY HUNTERS`: unit → unclassified
+- `GROT MEGA-TANK`: unit → unclassified
+- `GROT TANKS`: unit → unclassified
+- `HAMMERFALL BUNKER`: unit → unclassified
+- `HARALD DEATHWOLF`: unit → unclassified
+- `HEADTAKERS`: unit → unclassified
+- `HEAVY INTERCESSOR SQUAD`: unit → unclassified
+- `HELLBLASTER SQUAD`: unit → unclassified
+- `HIGH MARSHAL HELBRECHT`: unit → unclassified
+- `HOUNDS OF MORKAI`: unit → unclassified
+- `HUNTER`: unit → unclassified
+- `HUNTING WOLVES`: unit → unclassified
+- `IMPERIAL SPACE MARINE`: unit → unclassified
+- `IMPULSOR`: unit → unclassified
+- `INCEPTOR SQUAD`: unit → unclassified
+- `INCURSOR SQUAD`: unit → unclassified
+- `INFERNUS SQUAD`: unit → unclassified
+- `INFILTRATOR SQUAD`: unit → unclassified
+- `INNER CIRCLE COMPANIONS`: unit → unclassified
+- `INTERCESSOR SQUAD`: unit → unclassified
+- `INVADER ATV`: unit → unclassified
+- `INVICTOR TACTICAL WARSUIT`: unit → unclassified
+- `IRON FATHER FEIRROS`: unit → unclassified
+- `IRON PRIEST`: unit → unclassified
+- `IRONCLAD DREADNOUGHT`: unit → unclassified
+- `JAVELIN ATTACK SPEEDER`: unit → unclassified
+- `JUDICIAR`: unit → unclassified
+- `KAPTIN BADRUKK`: unit → unclassified
+- `KAYVAAN SHRIKE`: unit → unclassified
+- `KILL TANK`: unit → unclassified
+- `KOR’SARRO KHAN`: unit → unclassified
+- `KROM DRAGONGAZE`: unit → unclassified
+- `LAND RAIDER ACHILLES`: unit → unclassified
+- `LAND RAIDER CRUSADER`: unit → unclassified
+- `LAND RAIDER EXCELSIOR`: unit → unclassified
+- `LAND RAIDER HELIOS`: unit → unclassified
+- `LAND RAIDER PROMETHEUS`: unit → unclassified
+- `LAND RAIDER PROTEUS`: unit → unclassified
+- `LAND RAIDER REDEEMER`: unit → unclassified
+- `LAND SPEEDER`: unit → unclassified
+- `LAND SPEEDER STORM`: unit → unclassified
+- `LAND SPEEDER TEMPEST`: unit → unclassified
+- `LAND SPEEDER TORNADO`: unit → unclassified
+- `LAND SPEEDER TYPHOON`: unit → unclassified
+- `LAND SPEEDER VENGEANCE`: unit → unclassified
+- `LAZARUS`: unit → unclassified
+- `LEMARTES`: unit → unclassified
+- `LEVIATHAN DREADNOUGHT`: unit → unclassified
+- `LIBRARIAN DREADNOUGHT`: unit → unclassified
+- `LIEUTENANT IN REIVER ARMOUR`: unit → unclassified
+- `LIEUTENANT WITH COMBI-WEAPON`: unit → unclassified
+- `LIFTA WAGON`: unit → unclassified
+- `LION EL’JONSON`: unit → unclassified
+- `LOGAN GRIMNAR`: unit → unclassified
+- `LOGAN GRIMNAR ON STORMRIDER`: unit → unclassified
+- `LONG FANGS`: unit → unclassified
+- `LOOTAS`: unit → unclassified
+- `LUKAS THE TRICKSTER`: unit → unclassified
+- `MAD DOK GROTSNIK`: unit → unclassified
+- `MARNEUS CALGAR`: unit → unclassified
+- `MEKBOY WORKSHOP`: unit → unclassified
+- `MORTIS DREADNOUGHT`: unit → unclassified
+- `MURDERFANG`: unit → unclassified
+- `NEPHILIM JETFIGHTER`: unit → unclassified
+- `NJAL STORMCALLER`: unit → unclassified
+- `OUTRIDER SQUAD`: unit → unclassified
+- `PACK LEADER`: unit → unclassified
+- `PEDRO KANTOR`: unit → unclassified
+- `PRIMARIS COMPANY CHAMPION`: unit → unclassified
+- `RAGNAR BLACKMANE`: unit → unclassified
+- `RAVENWING BLACK KNIGHTS`: unit → unclassified
+- `RAVENWING COMMAND SQUAD`: unit → unclassified
+- `RAVENWING DARKSHROUD`: unit → unclassified
+- `RAVENWING TALONMASTER`: unit → unclassified
+- `REDEMPTOR DREADNOUGHT`: unit → unclassified
+- `REIVER SQUAD`: unit → unclassified
+- `RELIC CONTEMPTOR DREADNOUGHT`: unit → unclassified
+- `RELIC TERMINATOR SQUAD`: unit → unclassified
+- `REPULSOR`: unit → unclassified
+- `REPULSOR EXECUTIONER`: unit → unclassified
+- `RHINO PRIMARIS`: unit → unclassified
+- `ROBOUTE GUILLIMAN`: unit → unclassified
+- `SAMMAEL`: unit → unclassified
+- `SANGUINARY GUARD`: unit → unclassified
+- `SANGUINARY PRIEST`: unit → unclassified
+- `SCOUT BIKE SQUAD`: unit → unclassified
+- `SCOUT SNIPER SQUAD`: unit → unclassified
+- `SCOUT SQUAD`: unit → unclassified
+- `SERGEANT CHRONUS`: unit → unclassified
+- `SERGEANT TELION`: unit → unclassified
+- `SICARAN ARCUS`: unit → unclassified
+- `SICARAN BATTLE TANK`: unit → unclassified
+- `SICARAN OMEGA`: unit → unclassified
+- `SICARAN PUNISHER`: unit → unclassified
+- `SICARAN VENATOR`: unit → unclassified
+- `SICARIUS`: unit → unclassified
+- `SKYCLAWS`: unit → unclassified
+- `SOKAR-PATTERN STORMBIRD`: unit → unclassified
+- `SPARTAN`: unit → unclassified
+- `SPEEDER`: unclassified → unit
+- `STERNGUARD VETERAN SQUAD`: unit → unclassified
+- `STORM EAGLE GUNSHIP`: unit → unclassified
+- `STORM SPEEDER HAILSTRIKE`: unit → unclassified
+- `STORM SPEEDER HAMMERSTRIKE`: unit → unclassified
+- `STORM SPEEDER THUNDERSTRIKE`: unit → unclassified
+- `STORMFANG GUNSHIP`: unit → unclassified
+- `STORMWOLF`: unit → unclassified
+- `SUBODEN KHAN`: unit → unclassified
+- `SUPPRESSOR SQUAD`: unit → unclassified
+- `SWORD BRETHREN SQUAD`: unit → unclassified
+- `TACTICAL SQUAD`: unit → unclassified
+- `TALONSTRIKE KILL TEAM`: unit → unclassified
+- `TARANTULA AIR DEFENCE BATTERY`: unit → unclassified
+- `TARANTULA SENTRY BATTERY`: unit → unclassified
+- `TERMINATOR ASSAULT SQUAD`: unit → unclassified
+- `TERMINATORS`: unit → unclassified
+- `TERMINUS ULTRA`: unit → unclassified
+- `THE SANGUINOR`: unit → unclassified
+- `THUNDERFIRE CANNON`: unit → unclassified
+- `THUNDERHAWK TRANSPORTER`: unit → unclassified
+- `THUNDERWOLF CAVALRY`: unit → unclassified
+- `TITUS`: unit → unclassified
+- `TOR GARADON`: unit → unclassified
+- `TYCHO`: unit → unclassified
+- `TYCHO THE LOST`: unit → unclassified
+- `TYRANNIC WAR VETERANS`: unit → unclassified
+- `ULRIK THE SLAYER`: unit → unclassified
+- `URIEL VENTRIS`: unit → unclassified
+- `VANGUARD VETERAN SQUAD`: unit → unclassified
+- `VANGUARD VETERAN SQUAD WITH JUMP PACKS`: unit → unclassified
+- `VENERABLE`: unit → unclassified
+- `VICTRIX HONOUR GUARD`: unit → unclassified
+- `VINDICATOR LASER DESTROYER`: unit → unclassified
+- `VULKAN HE’STAN`: unit → unclassified
+- `WARDENS OF ULTRAMAR`: unit → unclassified
+- `WATCH CAPTAIN ARTEMIS`: unit → unclassified
+- `WATCH MASTER`: unit → unclassified
+- `WHIRLWIND`: unit → unclassified
+- `WHIRLWIND SCORPIUS`: unit → unclassified
+- `WOLF GUARD`: unit → unclassified
+- `WOLF GUARD BATTLE LEADER IN TERMINATOR ARMOUR`: unit → unclassified
+- `WOLF GUARD BATTLE LEADER ON THUNDERWOLF`: unit → unclassified
+- `WOLF GUARD PACK LEADER`: unit → unclassified
+- `WOLF GUARD PACK LEADER IN TERMINATOR ARMOUR`: unit → unclassified
+- `WOLF GUARD PACK LEADER WITH JUMP PACK`: unit → unclassified
+- `WOLF GUARD TERMINATORS`: unit → unclassified
+- `WOLF LORD ON THUNDERWOLF`: unit → unclassified
+- `WOLF SCOUTS`: unit → unclassified
+- `WULFEN WITH STORM SHIELDS`: unit → unclassified
+- `XIPHON INTERCEPTOR`: unit → unclassified
+
+## Authored summaries
+
+None.

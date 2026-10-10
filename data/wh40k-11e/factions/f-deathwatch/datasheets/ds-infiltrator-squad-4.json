@@ -2,22 +2,22 @@
   "ability_keys": [
     "core:infiltrators",
     "datasheet:helix-gauntlet",
-    "datasheet:infiltrator-comms-array",
     "datasheet:omni-scramblers",
-    "faction:oath-of-moment"
+    "faction:combat-doctrines"
   ],
   "composition": [
     {
       "line": 1,
       "max_count": 1,
       "min_count": 1,
-      "model_name": "Infiltrator Sergeant"
+      "model_name": "Infiltrator Sergeant model"
     },
     {
       "line": 2,
       "max_count": 9,
       "min_count": 4,
-      "model_name": "Infiltrators"
+      "model_line": 2,
+      "model_name": "Infiltrator models"
     }
   ],
   "costs": [
@@ -25,33 +25,17 @@
       "copy_index_min": 1,
       "label": "5 models",
       "model_count": 5,
-      "points": 110,
+      "points": 85,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260922T170502Z-1b0a18bd"
+      "source_acquisition_id": "mfm-20261010T224054Z-86fd7d73"
     },
     {
       "copy_index_min": 1,
       "label": "10 models",
       "model_count": 10,
-      "points": 180,
+      "points": 150,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260922T170502Z-1b0a18bd"
-    },
-    {
-      "copy_index_min": 3,
-      "label": "5 models",
-      "model_count": 5,
-      "points": 120,
-      "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260922T170502Z-1b0a18bd"
-    },
-    {
-      "copy_index_min": 3,
-      "label": "10 models",
-      "model_count": 10,
-      "points": 190,
-      "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260922T170502Z-1b0a18bd"
+      "source_acquisition_id": "mfm-20261010T224054Z-86fd7d73"
     }
   ],
   "datasheet_id": "ds-infiltrator-squad-4",
@@ -62,19 +46,22 @@
       "id": "eq-infiltrator-squad-4-1",
       "items": [
         {
+          "count": 1,
           "item_index": 1,
-          "item_name": "bolt pistol",
+          "item_name": "Bolt Pistol",
           "weapon_line": 1
         },
         {
+          "count": 1,
           "item_index": 2,
-          "item_name": "marksman bolt carbine",
-          "weapon_line": 2
+          "item_name": "Ceramite Fists",
+          "weapon_line": 3
         },
         {
+          "count": 1,
           "item_index": 3,
-          "item_name": "close combat weapon",
-          "weapon_line": 3
+          "item_name": "Marksman Bolt Carbine",
+          "weapon_line": 2
         }
       ],
       "line": 1
@@ -94,7 +81,7 @@
     },
     {
       "is_faction_keyword": false,
-      "keyword": "GRENADES",
+      "keyword": "EXPLOSIVES",
       "keyword_class": "unit"
     },
     {
@@ -105,11 +92,6 @@
     {
       "is_faction_keyword": false,
       "keyword": "INFANTRY",
-      "keyword_class": "unit"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "INFILTRATOR SQUAD",
       "keyword_class": "unit"
     },
     {
@@ -128,8 +110,19 @@
       "base_size": "(⌀32mm)",
       "leadership": "6+",
       "line": 1,
-      "movement": "6\"",
-      "name": "Infiltrator Squad",
+      "movement": "8\"",
+      "name": "Infiltrator Sergeant",
+      "objective_control": 1,
+      "save": "3+",
+      "toughness": 4,
+      "wounds": 2
+    },
+    {
+      "base_size": "(⌀32mm)",
+      "leadership": "6+",
+      "line": 2,
+      "movement": "8\"",
+      "name": "Infiltrator",
       "objective_control": 1,
       "save": "3+",
       "toughness": 4,
@@ -148,85 +141,68 @@
         {
           "count": 1,
           "item_index": 1,
-          "item_name": "helix gauntlet.",
+          "item_name": "Helix Gauntlet",
           "role": "granted"
         }
       ],
-      "name": "helix gauntlet."
-    },
-    {
-      "count": 1,
-      "group_id": "og-infiltrator-squad-4-2",
-      "id": "oc-infiltrator-squad-4-2-1",
-      "is_default": false,
-      "is_no_change": false,
-      "items": [
-        {
-          "count": 1,
-          "item_index": 1,
-          "item_name": "Infiltrator comms array.",
-          "role": "granted"
-        }
-      ],
-      "name": "Infiltrator comms array."
+      "name": "Helix Gauntlet"
     }
   ],
   "option_groups": [
     {
+      "eligible_max_count": 1,
       "id": "og-infiltrator-squad-4-1",
       "line": 1,
-      "scope": "unit"
-    },
-    {
-      "id": "og-infiltrator-squad-4-2",
-      "line": 2,
       "scope": "unit"
     }
   ],
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
-    "last_verified_points_digest": "sha256:ccb79ca5d460a32b4ab293265a8dadc75c1d21a71cd469470087330d8e74556c",
-    "last_verified_version": "wh40k-11e-2026-09-5",
+    "last_verified_points_digest": "sha256:869b5b2b069fed5289fc247ca1e075667f6629f08a884c584221e522e643703a",
+    "last_verified_version": "wh40k-11e-2026-10-1",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
+    "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
+    "points_acquisition_id": "mfm-20261010T224054Z-86fd7d73",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
+  "role": "Infantry",
   "wargear_option_state": "extracted",
+  "wargear_options_text": "1 model can be equipped with 1 Helix Gauntlet.",
   "weapons": [
     {
       "ability_keywords": [
-        "pistol"
+        "CLOSE-QUARTERS"
       ],
-      "armour_penetration": "0",
+      "armour_penetration": "-1",
       "attacks": "1",
       "damage": "1",
       "is_melee": false,
       "line": 1,
-      "name": "Bolt pistol",
+      "name": "Bolt Pistol",
       "range": "12\"",
       "skill": "3+",
-      "strength": "4"
+      "strength": "5"
     },
     {
       "ability_keywords": [
-        "heavy"
+        "Precision",
+        "Rapid Fire 1"
       ],
-      "armour_penetration": "0",
+      "armour_penetration": "-1",
       "attacks": "2",
       "damage": "1",
       "is_melee": false,
       "line": 2,
-      "name": "Marksman bolt carbine",
+      "name": "Marksman Bolt Carbine",
       "range": "24\"",
       "skill": "3+",
-      "strength": "4"
+      "strength": "5"
     },
     {
       "armour_penetration": "0",
@@ -234,9 +210,9 @@
       "damage": "1",
       "is_melee": true,
       "line": 3,
-      "name": "Close combat weapon",
+      "name": "Ceramite Fists",
       "skill": "3+",
-      "strength": "4"
+      "strength": "5"
     }
   ]
 }

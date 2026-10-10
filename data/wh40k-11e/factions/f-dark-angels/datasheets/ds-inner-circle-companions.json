@@ -1,9 +1,8 @@
 {
   "ability_keys": [
-    "datasheet:attached-unit",
     "datasheet:braziers-of-judgement",
-    "datasheet:enmity-for-the-unworthy",
-    "faction:oath-of-moment"
+    "datasheet:emnity-for-the-unworthy",
+    "faction:combat-doctrines"
   ],
   "composition": [
     {
@@ -11,7 +10,7 @@
       "max_count": 6,
       "min_count": 3,
       "model_line": 1,
-      "model_name": "Inner Circle Companions"
+      "model_name": "Inner Circle Companions models"
     }
   ],
   "costs": [
@@ -19,54 +18,55 @@
       "copy_index_min": 1,
       "label": "3 models",
       "model_count": 3,
-      "points": 80,
+      "points": 90,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260922T170502Z-1b0a18bd"
+      "source_acquisition_id": "mfm-20261010T224054Z-86fd7d73"
     },
     {
       "copy_index_min": 1,
       "label": "6 models",
       "model_count": 6,
-      "points": 160,
+      "points": 180,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260922T170502Z-1b0a18bd"
+      "source_acquisition_id": "mfm-20261010T224054Z-86fd7d73"
     },
     {
       "copy_index_min": 3,
       "label": "3 models",
       "model_count": 3,
-      "points": 90,
+      "points": 105,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260922T170502Z-1b0a18bd"
+      "source_acquisition_id": "mfm-20261010T224054Z-86fd7d73"
     },
     {
       "copy_index_min": 3,
       "label": "6 models",
       "model_count": 6,
-      "points": 170,
+      "points": 195,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260922T170502Z-1b0a18bd"
+      "source_acquisition_id": "mfm-20261010T224054Z-86fd7d73"
     }
   ],
   "datasheet_id": "ds-inner-circle-companions",
   "default_equipment_state": "extracted",
   "equipment_groups": [
     {
-      "applies_to": "model_group",
+      "applies_to": "unit",
       "id": "eq-inner-circle-companions-1",
       "items": [
         {
+          "count": 1,
           "item_index": 1,
-          "item_name": "heavy bolt pistol",
-          "weapon_line": 1
+          "item_name": "Calibanite Greatsword"
         },
         {
+          "count": 1,
           "item_index": 2,
-          "item_name": "Calibanite greatsword"
+          "item_name": "Heavy Bolt Pistol",
+          "weapon_line": 1
         }
       ],
-      "line": 1,
-      "model_name": "Inner Circle Companion"
+      "line": 1
     }
   ],
   "faction_id": "f-dark-angels",
@@ -103,11 +103,6 @@
     },
     {
       "is_faction_keyword": false,
-      "keyword": "INNER CIRCLE COMPANIONS",
-      "keyword_class": "unit"
-    },
-    {
-      "is_faction_keyword": false,
       "keyword": "TACTICUS",
       "keyword_class": "unit"
     }
@@ -121,65 +116,66 @@
       "name": "Inner Circle Companions",
       "objective_control": 2,
       "save": "3+",
-      "toughness": 4,
+      "toughness": 5,
       "wounds": 3
     }
   ],
   "name": "INNER CIRCLE COMPANIONS",
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
-    "last_verified_points_digest": "sha256:b29ff5bf98e062c83111279cd8739e5b6e8393b84ca4775e8bf886cfdf6dc50c",
-    "last_verified_version": "wh40k-11e-2026-09-5",
+    "last_verified_points_digest": "sha256:c58d533b83f7130db2081c4d69735e48e46c46e2f4f36bda3f45d75a259a0c00",
+    "last_verified_version": "wh40k-11e-2026-10-1",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
+    "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
+    "points_acquisition_id": "mfm-20261010T224054Z-86fd7d73",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
+  "role": "Infantry",
   "wargear_option_state": "none",
   "weapons": [
     {
       "ability_keywords": [
-        "Pistol"
+        "CLOSE-QUARTERS"
       ],
       "armour_penetration": "-1",
       "attacks": "1",
       "damage": "1",
       "is_melee": false,
       "line": 1,
-      "name": "Heavy bolt pistol",
+      "name": "Heavy Bolt Pistol",
       "range": "18\"",
       "skill": "3+",
-      "strength": "4"
+      "strength": "5"
     },
     {
       "ability_keywords": [
-        "lethal hits"
-      ],
-      "armour_penetration": "-2",
-      "attacks": "4",
-      "damage": "2",
-      "is_melee": true,
-      "line": 2,
-      "name": "Calibanite greatsword - strike",
-      "skill": "3+",
-      "strength": "6"
-    },
-    {
-      "ability_keywords": [
-        "sustained hits 2"
+        "Sustained Hits 2"
       ],
       "armour_penetration": "-2",
       "attacks": "5",
       "damage": "1",
       "is_melee": true,
+      "line": 2,
+      "name": "Calibanite Greatsword - Sweep",
+      "skill": "3+",
+      "strength": "6"
+    },
+    {
+      "ability_keywords": [
+        "Lethal Hits"
+      ],
+      "armour_penetration": "-2",
+      "attacks": "4",
+      "damage": "2",
+      "is_melee": true,
       "line": 3,
-      "name": "Calibanite greatsword - sweep",
+      "name": "Calibanite Greatsword - Strike",
       "skill": "3+",
       "strength": "6"
     }

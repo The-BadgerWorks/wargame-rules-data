@@ -2,6 +2,7 @@
   "ability_keys": [
     "datasheet:blood-surge",
     "datasheet:icon-of-khorne",
+    "datasheet:murderous-charge",
     "faction:blessings-of-khorne"
   ],
   "composition": [
@@ -24,17 +25,17 @@
       "copy_index_min": 1,
       "label": "10 models",
       "model_count": 10,
-      "points": 160,
+      "points": 170,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260922T170502Z-1b0a18bd"
+      "source_acquisition_id": "mfm-20261010T224054Z-86fd7d73"
     },
     {
       "copy_index_min": 1,
       "label": "20 models",
       "model_count": 20,
-      "points": 320,
+      "points": 330,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260922T170502Z-1b0a18bd"
+      "source_acquisition_id": "mfm-20261010T224054Z-86fd7d73"
     }
   ],
   "datasheet_id": "ds-khorne-berzerkers",
@@ -110,7 +111,7 @@
       "name": "Khorne Berzerkers",
       "objective_control": 2,
       "save": "3+",
-      "toughness": 4,
+      "toughness": 5,
       "wounds": 2
     }
   ],
@@ -217,6 +218,7 @@
       "scope_n": 5
     },
     {
+      "eligible_max_count": 1,
       "id": "og-khorne-berzerkers-4",
       "line": 4,
       "scope": "unit"
@@ -224,26 +226,28 @@
   ],
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
-    "last_verified_points_digest": "sha256:0ebdc28c4db9e7c4b6d20a381b742b191f13d42e9fc16be331b2d7fbe2c4549b",
-    "last_verified_version": "wh40k-11e-2026-09-5",
+    "last_verified_points_digest": "sha256:339429a55e7f8b1b191fa30636a435c2654a3c613ae801d005018332f6d4251b",
+    "last_verified_version": "wh40k-11e-2026-10-1",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
+    "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
+    "points_acquisition_id": "mfm-20261010T224054Z-86fd7d73",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
+  "role": "Battleline",
   "wargear_option_state": "extracted",
+  "wargear_options_text": "The Khorne Berzerker Champion’s bolt pistol can be replaced with 1 plasma pistol.\nFor every 5 models in this unit, 1 Khorne Berzerker’s bolt pistol can be replaced with 1 plasma pistol.\nFor every 5 models in this unit, 1 Khorne Berzerker’s chainblade can be replaced with 1 Khornate eviscerator.\n1 model can be equipped with 1 icon of Khorne.",
   "weapons": [
     {
       "ability_keywords": [
         "pistol"
       ],
-      "armour_penetration": "0",
+      "armour_penetration": "-1",
       "attacks": "1",
       "damage": "1",
       "is_melee": false,
@@ -251,7 +255,7 @@
       "name": "Bolt pistol",
       "range": "12\"",
       "skill": "4+",
-      "strength": "4"
+      "strength": "5"
     },
     {
       "ability_keywords": [
@@ -290,7 +294,7 @@
       "line": 4,
       "name": "Chainblade",
       "skill": "3+",
-      "strength": "4"
+      "strength": "5"
     },
     {
       "armour_penetration": "-2",

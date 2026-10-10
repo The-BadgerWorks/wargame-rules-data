@@ -20,7 +20,7 @@
       "model_count": 1,
       "points": 415,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf"
+      "source_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587"
     }
   ],
   "datasheet_id": "ds-stormblade-2",
@@ -260,19 +260,21 @@
     }
   ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 10,
+    "consecutive_unverified_releases": 11,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
+    "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
     "points_edition_code": "wh40k-11e",
     "points_source": "none"
   },
+  "role": "Titanic",
   "wargear_option_state": "extracted",
+  "wargear_options_text": "This model’s 2 twin heavy bolters can be replaced with 2 twin heavy flamers.\nThis model can be equipped with 1 hunter-killer missile.\nThis model can be equipped with one of the following:\n1 heavy stubber\n1 storm bolter\nThis model can be equipped with one of the following:\n2 lascannons and 2 twin heavy bolters\n2 lascannons and 2 twin heavy flamers",
   "weapons": [
     {
       "ability_keywords": [
@@ -329,18 +331,17 @@
     },
     {
       "ability_keywords": [
-        "sustained hits 1",
-        "twin-linked"
+        "blast"
       ],
-      "armour_penetration": "-1",
-      "attacks": "3",
-      "damage": "2",
+      "armour_penetration": "-2",
+      "attacks": "D6+3",
+      "damage": "3",
       "is_melee": false,
       "line": 5,
-      "name": "Twin heavy bolter",
-      "range": "36\"",
+      "name": "Stormblade plasma blastgun – standard",
+      "range": "48\"",
       "skill": "4+",
-      "strength": "5"
+      "strength": "9"
     },
     {
       "ability_keywords": [
@@ -359,17 +360,18 @@
     },
     {
       "ability_keywords": [
-        "blast"
+        "sustained hits 1",
+        "twin-linked"
       ],
-      "armour_penetration": "-2",
-      "attacks": "D6+3",
-      "damage": "3",
+      "armour_penetration": "-1",
+      "attacks": "3",
+      "damage": "2",
       "is_melee": false,
       "line": 7,
-      "name": "Stormblade plasma blastgun – standard",
-      "range": "48\"",
+      "name": "Twin heavy bolter",
+      "range": "36\"",
       "skill": "4+",
-      "strength": "9"
+      "strength": "5"
     },
     {
       "ability_keywords": [

@@ -18,9 +18,9 @@
       "copy_index_min": 1,
       "label": "1 model",
       "model_count": 1,
-      "points": 140,
+      "points": 135,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf"
+      "source_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587"
     }
   ],
   "datasheet_id": "ds-trygon-2",
@@ -33,12 +33,12 @@
         {
           "item_index": 1,
           "item_name": "bio-electric pulse",
-          "weapon_line": 1
+          "weapon_line": 2
         },
         {
           "item_index": 2,
           "item_name": "Trygon scything talons",
-          "weapon_line": 2
+          "weapon_line": 1
         }
       ],
       "line": 1
@@ -177,20 +177,31 @@
   ],
   "name": "Trygon",
   "pricing_confidence": {
-    "consecutive_unverified_releases": 10,
+    "consecutive_unverified_releases": 11,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
+    "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
     "points_edition_code": "wh40k-11e",
     "points_source": "none"
   },
+  "role": "Monster",
   "wargear_option_state": "none",
   "weapons": [
+    {
+      "armour_penetration": "-2",
+      "attacks": "12",
+      "damage": "3",
+      "is_melee": true,
+      "line": 1,
+      "name": "Trygon scything talons",
+      "skill": "3+",
+      "strength": "9"
+    },
     {
       "ability_keywords": [
         "sustained hits 2"
@@ -199,21 +210,11 @@
       "attacks": "6",
       "damage": "1",
       "is_melee": false,
-      "line": 1,
+      "line": 2,
       "name": "Bio-electric pulse",
       "range": "12\"",
       "skill": "3+",
       "strength": "5"
-    },
-    {
-      "armour_penetration": "-2",
-      "attacks": "12",
-      "damage": "3",
-      "is_melee": true,
-      "line": 2,
-      "name": "Trygon scything talons",
-      "skill": "3+",
-      "strength": "9"
     }
   ]
 }

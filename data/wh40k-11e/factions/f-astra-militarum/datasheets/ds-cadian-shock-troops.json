@@ -24,7 +24,7 @@
       "model_count": 10,
       "points": 70,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260922T170502Z-1b0a18bd"
+      "source_acquisition_id": "mfm-20261010T224054Z-86fd7d73"
     },
     {
       "copy_index_min": 1,
@@ -32,7 +32,7 @@
       "model_count": 20,
       "points": 145,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260922T170502Z-1b0a18bd"
+      "source_acquisition_id": "mfm-20261010T224054Z-86fd7d73"
     }
   ],
   "datasheet_id": "ds-cadian-shock-troops",
@@ -332,19 +332,21 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:4a453f8e1d547a70af53a621fc794c1f48f76963da09ce4cc92bf363293283c1",
-    "last_verified_version": "wh40k-11e-2026-09-5",
+    "last_verified_version": "wh40k-11e-2026-10-1",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
+    "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
+    "points_acquisition_id": "mfm-20261010T224054Z-86fd7d73",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
+  "role": "Battleline",
   "wargear_option_state": "extracted",
+  "wargear_options_text": "For every 10 models in this unit, up to 2 Shock Troopers can each have their lasgun replaced with one of the following*:\n1 flamer\n1 grenade launcher\n1 meltagun\n1 plasma gun\nFor every 10 models in this unit, 1 Shock Trooper equipped with a lasgun can be equipped with 1 vox-caster (that model’s lasgun cannot be replaced).\nAny number of Shock Trooper Sergeants can each have their laspistol replaced with 1 bolt pistol.\nAny number of Shock Trooper Sergeants can each have their laspistol and chainsword replaced with 1 Sergeant's autogun and 1 close combat weapon.",
   "weapons": [
     {
       "ability_keywords": [

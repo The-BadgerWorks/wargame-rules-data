@@ -1,41 +1,18 @@
 {
   "detachments": [
     {
-      "detachment_id": "d-1st-company-task-force",
-      "detachment_points_cost": 2,
-      "force_disposition": "PURGE THE FOE",
-      "is_legends": false,
-      "is_unique": false,
-      "name": "1ST COMPANY TASK FORCE",
-      "provenance": {
-        "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
-        "detail_edition_code": "wh40k-11e",
-        "detail_source": "wahapedia",
-        "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
-        "points_edition_code": "wh40k-11e",
-        "points_source": "mfm"
-      },
-      "rules": [
-        {
-          "name": "Extremis-level Threat",
-          "summary_key": "detachment:d-1st-company-task-force:extremis-level-threat"
-        }
-      ]
-    },
-    {
       "detachment_id": "d-angelic-inheritors",
       "detachment_points_cost": 3,
       "force_disposition": "PRIORITY ASSETS",
       "is_legends": false,
-      "is_unique": true,
+      "is_unique": false,
       "name": "ANGELIC INHERITORS",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
+        "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
         "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
+        "points_acquisition_id": "mfm-20261010T224054Z-86fd7d73",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       },
@@ -47,94 +24,71 @@
       ]
     },
     {
-      "detachment_id": "d-anvil-siege-force-2",
-      "detachment_points_cost": 2,
+      "detachment_id": "d-assault-brethren-2",
+      "detachment_points_cost": 1,
       "force_disposition": "TAKE AND HOLD",
       "is_legends": false,
-      "is_unique": false,
-      "name": "ANVIL SIEGE FORCE",
+      "is_unique": true,
+      "name": "ASSAULT BRETHREN",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
+        "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
         "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
+        "points_acquisition_id": "mfm-20261010T224054Z-86fd7d73",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       },
       "rules": [
         {
-          "name": "Shield of the Imperium",
-          "summary_key": "detachment:d-anvil-siege-force-2:shield-of-the-imperium"
+          "name": "Assault Mastery",
+          "summary_key": "detachment:d-assault-brethren-2:assault-mastery"
         }
       ]
     },
     {
-      "detachment_id": "d-armoured-speartip-2",
-      "detachment_points_cost": 3,
-      "force_disposition": "TAKE AND HOLD",
+      "detachment_id": "d-deathwatch-support-2",
+      "detachment_points_cost": 1,
+      "force_disposition": "DISRUPTION",
       "is_legends": false,
       "is_unique": false,
-      "name": "ARMOURED SPEARTIP",
+      "name": "DEATHWATCH SUPPORT",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
+        "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
         "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
+        "points_acquisition_id": "mfm-20261010T224054Z-86fd7d73",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       },
       "rules": [
         {
-          "name": "Rapid Deployment",
-          "summary_key": "detachment:d-armoured-speartip-2:rapid-deployment"
+          "name": "Mission Tactics",
+          "summary_key": "detachment:d-deathwatch-support-2:mission-tactics"
         }
       ]
     },
     {
-      "detachment_id": "d-bastion-task-force-2",
-      "detachment_points_cost": 2,
-      "force_disposition": "TAKE AND HOLD",
+      "detachment_id": "d-devastator-brethren-2",
+      "detachment_points_cost": 1,
+      "force_disposition": "PURGE THE FOE",
       "is_legends": false,
-      "is_unique": false,
-      "name": "BASTION TASK FORCE",
+      "is_unique": true,
+      "name": "DEVASTATOR BRETHREN",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
+        "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
         "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
+        "points_acquisition_id": "mfm-20261010T224054Z-86fd7d73",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       },
       "rules": [
         {
-          "name": "Interlocking Tactics",
-          "summary_key": "detachment:d-bastion-task-force-2:interlocking-tactics"
-        }
-      ]
-    },
-    {
-      "detachment_id": "d-ceramite-sentinels-2",
-      "detachment_points_cost": 3,
-      "force_disposition": "TAKE AND HOLD",
-      "is_legends": false,
-      "is_unique": false,
-      "name": "CERAMITE SENTINELS",
-      "provenance": {
-        "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
-        "detail_edition_code": "wh40k-11e",
-        "detail_source": "wahapedia",
-        "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
-        "points_edition_code": "wh40k-11e",
-        "points_source": "mfm"
-      },
-      "rules": [
-        {
-          "name": "Adaptive Defence",
-          "summary_key": "detachment:d-ceramite-sentinels-2:adaptive-defence"
+          "name": "Devastator Mastery",
+          "summary_key": "detachment:d-devastator-brethren-2:devastator-mastery"
         }
       ]
     },
@@ -146,11 +100,11 @@
       "is_unique": false,
       "name": "ENCARMINE SPEARTIP",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
+        "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
         "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
+        "points_acquisition_id": "mfm-20261010T224054Z-86fd7d73",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       },
@@ -162,370 +116,301 @@
       ]
     },
     {
-      "detachment_id": "d-firestorm-assault-force-2",
-      "detachment_points_cost": 2,
-      "force_disposition": "PRIORITY ASSETS",
-      "is_legends": false,
-      "is_unique": false,
-      "name": "FIRESTORM ASSAULT FORCE",
-      "provenance": {
-        "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
-        "detail_edition_code": "wh40k-11e",
-        "detail_source": "wahapedia",
-        "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
-        "points_edition_code": "wh40k-11e",
-        "points_source": "mfm"
-      },
-      "rules": [
-        {
-          "name": "Close-range Eradication",
-          "summary_key": "detachment:d-firestorm-assault-force-2:close-range-eradication"
-        }
-      ]
-    },
-    {
-      "detachment_id": "d-fulguris-task-force-2",
+      "detachment_id": "d-gauntlet-task-force-2",
       "detachment_points_cost": 1,
       "force_disposition": "RECONNAISSANCE",
       "is_legends": false,
       "is_unique": false,
-      "name": "FULGURIS TASK FORCE",
+      "name": "GAUNTLET TASK FORCE",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
+        "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
         "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
+        "points_acquisition_id": "mfm-20261010T224054Z-86fd7d73",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       },
       "rules": [
         {
-          "name": "Skystrike",
-          "summary_key": "detachment:d-fulguris-task-force-2:skystrike"
+          "name": "Combined Deployment",
+          "summary_key": "detachment:d-gauntlet-task-force-2:combined-deployment"
         }
       ]
     },
     {
-      "detachment_id": "d-gladius-task-force-2",
+      "detachment_id": "d-gladius-task-force",
       "detachment_points_cost": 3,
-      "force_disposition": "PRIORITY ASSETS",
+      "force_disposition": "TAKE AND HOLD",
       "is_legends": false,
       "is_unique": false,
       "name": "GLADIUS TASK FORCE",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
+        "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
         "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
+        "points_acquisition_id": "mfm-20261010T224054Z-86fd7d73",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       },
       "rules": [
         {
-          "name": "Combat Doctrines",
-          "summary_key": "detachment:d-gladius-task-force-2:combat-doctrines"
+          "name": "Codex Discipline",
+          "summary_key": "detachment:d-gladius-task-force:codex-discipline"
         }
       ]
     },
     {
-      "detachment_id": "d-headhunter-task-force-2",
-      "detachment_points_cost": 2,
-      "force_disposition": "PRIORITY ASSETS",
+      "detachment_id": "d-gravis-linebreaker-force-2",
+      "detachment_points_cost": 1,
+      "force_disposition": "TAKE AND HOLD",
       "is_legends": false,
-      "is_unique": false,
-      "name": "HEADHUNTER TASK FORCE",
+      "is_unique": true,
+      "name": "GRAVIS LINEBREAKER FORCE",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
+        "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
         "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
+        "points_acquisition_id": "mfm-20261010T224054Z-86fd7d73",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       },
       "rules": [
         {
-          "name": "Target Sighted",
-          "summary_key": "detachment:d-headhunter-task-force-2:target-sighted"
+          "name": "Walking Fortress",
+          "summary_key": "detachment:d-gravis-linebreaker-force-2:walking-fortress"
+        }
+      ]
+    },
+    {
+      "detachment_id": "d-gravis-siege-force-2",
+      "detachment_points_cost": 1,
+      "force_disposition": "TAKE AND HOLD",
+      "is_legends": false,
+      "is_unique": true,
+      "name": "GRAVIS SIEGE FORCE",
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
+        "detail_edition_code": "wh40k-11e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20261010T224054Z-86fd7d73",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      },
+      "rules": [
+        {
+          "name": "Indomitable Defence",
+          "summary_key": "detachment:d-gravis-siege-force-2:indomitable-defence"
+        }
+      ]
+    },
+    {
+      "detachment_id": "d-ironclad-champions-2",
+      "detachment_points_cost": 1,
+      "force_disposition": "PRIORITY ASSETS",
+      "is_legends": false,
+      "is_unique": false,
+      "name": "IRONCLAD CHAMPIONS",
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
+        "detail_edition_code": "wh40k-11e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20261010T224054Z-86fd7d73",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      },
+      "rules": [
+        {
+          "name": "Enduring Vengeance",
+          "summary_key": "detachment:d-ironclad-champions-2:enduring-vengeance"
         }
       ]
     },
     {
       "detachment_id": "d-ironstorm-spearhead-2",
-      "detachment_points_cost": 2,
-      "force_disposition": "TAKE AND HOLD",
+      "detachment_points_cost": 1,
+      "force_disposition": "PURGE THE FOE",
       "is_legends": false,
-      "is_unique": false,
+      "is_unique": true,
       "name": "IRONSTORM SPEARHEAD",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
+        "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
         "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
+        "points_acquisition_id": "mfm-20261010T224054Z-86fd7d73",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       },
       "rules": [
         {
-          "name": "Armoured Wrath",
-          "summary_key": "detachment:d-ironstorm-spearhead-2:armoured-wrath"
+          "name": "Ironstorm Auto-targeters",
+          "summary_key": "detachment:d-ironstorm-spearhead-2:ironstorm-auto-targeters"
         }
       ]
     },
     {
-      "detachment_id": "d-legacy-of-grace",
-      "detachment_points_cost": 1,
-      "force_disposition": "PRIORITY ASSETS",
-      "is_legends": false,
-      "is_unique": true,
-      "name": "LEGACY OF GRACE",
-      "provenance": {
-        "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
-        "detail_edition_code": "wh40k-11e",
-        "detail_source": "wahapedia",
-        "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
-        "points_edition_code": "wh40k-11e",
-        "points_source": "mfm"
-      },
-      "rules": [
-        {
-          "name": "Legacy of the Angel",
-          "summary_key": "detachment:d-legacy-of-grace:legacy-of-the-angel"
-        }
-      ]
-    },
-    {
-      "detachment_id": "d-liberator-assault-group",
-      "detachment_points_cost": 3,
-      "force_disposition": "TAKE AND HOLD",
-      "is_legends": false,
-      "is_unique": false,
-      "name": "LIBERATOR ASSAULT GROUP",
-      "provenance": {
-        "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
-        "detail_edition_code": "wh40k-11e",
-        "detail_source": "wahapedia",
-        "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
-        "points_edition_code": "wh40k-11e",
-        "points_source": "mfm"
-      },
-      "rules": [
-        {
-          "name": "Red Thirst",
-          "summary_key": "detachment:d-liberator-assault-group:red-thirst"
-        }
-      ]
-    },
-    {
-      "detachment_id": "d-librarius-conclave",
-      "detachment_points_cost": 1,
-      "force_disposition": "RECONNAISSANCE",
-      "is_legends": false,
-      "is_unique": false,
-      "name": "LIBRARIUS CONCLAVE",
-      "provenance": {
-        "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
-        "detail_edition_code": "wh40k-11e",
-        "detail_source": "wahapedia",
-        "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
-        "points_edition_code": "wh40k-11e",
-        "points_source": "mfm"
-      },
-      "rules": [
-        {
-          "name": "Psychic Disciplines",
-          "summary_key": "detachment:d-librarius-conclave:psychic-disciplines"
-        }
-      ]
-    },
-    {
-      "detachment_id": "d-orbital-assault-force-2",
-      "detachment_points_cost": 2,
-      "force_disposition": "TAKE AND HOLD",
-      "is_legends": false,
-      "is_unique": false,
-      "name": "ORBITAL ASSAULT FORCE",
-      "provenance": {
-        "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
-        "detail_edition_code": "wh40k-11e",
-        "detail_source": "wahapedia",
-        "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
-        "points_edition_code": "wh40k-11e",
-        "points_source": "mfm"
-      },
-      "rules": [
-        {
-          "name": "Rapid-drop Deployment",
-          "summary_key": "detachment:d-orbital-assault-force-2:rapid-drop-deployment"
-        }
-      ]
-    },
-    {
-      "detachment_id": "d-rage-cursed-onslaught",
-      "detachment_points_cost": 3,
-      "force_disposition": "PURGE THE FOE",
-      "is_legends": false,
-      "is_unique": true,
-      "name": "RAGE-CURSED ONSLAUGHT",
-      "provenance": {
-        "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
-        "detail_edition_code": "wh40k-11e",
-        "detail_source": "wahapedia",
-        "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
-        "points_edition_code": "wh40k-11e",
-        "points_source": "mfm"
-      },
-      "rules": [
-        {
-          "name": "Maddened Ferocity",
-          "summary_key": "detachment:d-rage-cursed-onslaught:maddened-ferocity"
-        }
-      ]
-    },
-    {
-      "detachment_id": "d-stormlance-task-force-2",
-      "detachment_points_cost": 2,
-      "force_disposition": "DISRUPTION",
-      "is_legends": false,
-      "is_unique": false,
-      "name": "STORMLANCE TASK FORCE",
-      "provenance": {
-        "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
-        "detail_edition_code": "wh40k-11e",
-        "detail_source": "wahapedia",
-        "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
-        "points_edition_code": "wh40k-11e",
-        "points_source": "mfm"
-      },
-      "rules": [
-        {
-          "name": "Lightning Assault",
-          "summary_key": "detachment:d-stormlance-task-force-2:lightning-assault"
-        }
-      ]
-    },
-    {
-      "detachment_id": "d-subversion-assets-2",
+      "detachment_id": "d-phobos-shadow-force-2",
       "detachment_points_cost": 1,
       "force_disposition": "DISRUPTION",
       "is_legends": false,
-      "is_unique": false,
-      "name": "SUBVERSION ASSETS",
-      "provenance": {
-        "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
-        "detail_edition_code": "wh40k-11e",
-        "detail_source": "wahapedia",
-        "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
-        "points_edition_code": "wh40k-11e",
-        "points_source": "mfm"
-      },
-      "rules": [
-        {
-          "name": "Nowhere to Hide",
-          "summary_key": "detachment:d-subversion-assets-2:nowhere-to-hide"
-        }
-      ]
-    },
-    {
-      "detachment_id": "d-the-angelic-host",
-      "detachment_points_cost": 2,
-      "force_disposition": "DISRUPTION",
-      "is_legends": false,
-      "is_unique": false,
-      "name": "THE ANGELIC HOST",
-      "provenance": {
-        "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
-        "detail_edition_code": "wh40k-11e",
-        "detail_source": "wahapedia",
-        "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
-        "points_edition_code": "wh40k-11e",
-        "points_source": "mfm"
-      },
-      "rules": [
-        {
-          "name": "Upon Wings of Fire",
-          "summary_key": "detachment:d-the-angelic-host:upon-wings-of-fire"
-        }
-      ]
-    },
-    {
-      "detachment_id": "d-the-lost-brethren",
-      "detachment_points_cost": 2,
-      "force_disposition": "PURGE THE FOE",
-      "is_legends": false,
       "is_unique": true,
-      "name": "THE LOST BRETHREN",
+      "name": "PHOBOS SHADOW FORCE",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
+        "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
         "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
-        "points_edition_code": "wh40k-11e",
-        "points_source": "mfm"
-      },
-      "rules": [
-        {
-          "name": "A Noble Death in Combat",
-          "summary_key": "detachment:d-the-lost-brethren:a-noble-death-in-combat"
-        }
-      ]
-    },
-    {
-      "detachment_id": "d-vanguard-spearhead-2",
-      "detachment_points_cost": 2,
-      "force_disposition": "RECONNAISSANCE",
-      "is_legends": false,
-      "is_unique": false,
-      "name": "VANGUARD SPEARHEAD",
-      "provenance": {
-        "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
-        "detail_edition_code": "wh40k-11e",
-        "detail_source": "wahapedia",
-        "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
+        "points_acquisition_id": "mfm-20261010T224054Z-86fd7d73",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       },
       "rules": [
         {
           "name": "Shadow Masters",
-          "summary_key": "detachment:d-vanguard-spearhead-2:shadow-masters"
+          "summary_key": "detachment:d-phobos-shadow-force-2:shadow-masters"
         }
       ]
     },
     {
-      "detachment_id": "d-vengeful-hosts-2",
+      "detachment_id": "d-phobos-shock-force-2",
       "detachment_points_cost": 1,
-      "force_disposition": "TAKE AND HOLD",
+      "force_disposition": "DISRUPTION",
       "is_legends": false,
-      "is_unique": false,
-      "name": "VENGEFUL HOSTS",
+      "is_unique": true,
+      "name": "PHOBOS SHOCK FORCE",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
+        "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
         "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
+        "points_acquisition_id": "mfm-20261010T224054Z-86fd7d73",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       },
       "rules": [
         {
-          "name": "Imperator Unleashed",
-          "summary_key": "detachment:d-vengeful-hosts-2:imperator-unleashed"
+          "name": "Vanguard Ambushers",
+          "summary_key": "detachment:d-phobos-shock-force-2:vanguard-ambushers"
+        }
+      ]
+    },
+    {
+      "detachment_id": "d-stormlance-task-force-2",
+      "detachment_points_cost": 1,
+      "force_disposition": "RECONNAISSANCE",
+      "is_legends": false,
+      "is_unique": false,
+      "name": "STORMLANCE TASK FORCE",
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
+        "detail_edition_code": "wh40k-11e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20261010T224054Z-86fd7d73",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      },
+      "rules": [
+        {
+          "name": "Lightning-fast Strike",
+          "summary_key": "detachment:d-stormlance-task-force-2:lightning-fast-strike"
+        }
+      ]
+    },
+    {
+      "detachment_id": "d-tactical-brethren-2",
+      "detachment_points_cost": 1,
+      "force_disposition": "PRIORITY ASSETS",
+      "is_legends": false,
+      "is_unique": true,
+      "name": "TACTICAL BRETHREN",
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
+        "detail_edition_code": "wh40k-11e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20261010T224054Z-86fd7d73",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      },
+      "rules": [
+        {
+          "name": "Tactical Mastery",
+          "summary_key": "detachment:d-tactical-brethren-2:tactical-mastery"
+        }
+      ]
+    },
+    {
+      "detachment_id": "d-tacticus-attack-force-2",
+      "detachment_points_cost": 1,
+      "force_disposition": "TAKE AND HOLD",
+      "is_legends": false,
+      "is_unique": true,
+      "name": "TACTICUS ATTACK FORCE",
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
+        "detail_edition_code": "wh40k-11e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20261010T224054Z-86fd7d73",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      },
+      "rules": [
+        {
+          "name": "Wrath of the Chapter",
+          "summary_key": "detachment:d-tacticus-attack-force-2:wrath-of-the-chapter"
+        }
+      ]
+    },
+    {
+      "detachment_id": "d-tacticus-firestorm-force-2",
+      "detachment_points_cost": 1,
+      "force_disposition": "PRIORITY ASSETS",
+      "is_legends": false,
+      "is_unique": true,
+      "name": "TACTICUS FIRESTORM FORCE",
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
+        "detail_edition_code": "wh40k-11e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20261010T224054Z-86fd7d73",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      },
+      "rules": [
+        {
+          "name": "Codex Fire-patterns",
+          "summary_key": "detachment:d-tacticus-firestorm-force-2:codex-fire-patterns"
+        }
+      ]
+    },
+    {
+      "detachment_id": "d-terminator-storm-force-2",
+      "detachment_points_cost": 1,
+      "force_disposition": "PRIORITY ASSETS",
+      "is_legends": false,
+      "is_unique": true,
+      "name": "TERMINATOR STORM FORCE",
+      "provenance": {
+        "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
+        "detail_edition_code": "wh40k-11e",
+        "detail_source": "wahapedia",
+        "is_hybrid_edition": false,
+        "points_acquisition_id": "mfm-20261010T224054Z-86fd7d73",
+        "points_edition_code": "wh40k-11e",
+        "points_source": "mfm"
+      },
+      "rules": [
+        {
+          "name": "Death Blow",
+          "summary_key": "detachment:d-terminator-storm-force-2:death-blow"
         }
       ]
     },
@@ -534,21 +419,21 @@
       "detachment_points_cost": 1,
       "force_disposition": "PURGE THE FOE",
       "is_legends": false,
-      "is_unique": true,
+      "is_unique": false,
       "name": "WRATH OF THE DOOMED",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
+        "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
         "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
+        "points_acquisition_id": "mfm-20261010T224054Z-86fd7d73",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       },
       "rules": [
         {
-          "name": "Fanatical Celerity",
-          "summary_key": "detachment:d-wrath-of-the-doomed:fanatical-celerity"
+          "name": "Sanguinius' Fury",
+          "summary_key": "detachment:d-wrath-of-the-doomed:sanguinius-fury"
         }
       ]
     }

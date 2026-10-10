@@ -23,17 +23,17 @@
       "copy_index_min": 1,
       "label": "5 models",
       "model_count": 5,
-      "points": 125,
+      "points": 135,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260922T170502Z-1b0a18bd"
+      "source_acquisition_id": "mfm-20261010T224054Z-86fd7d73"
     },
     {
       "copy_index_min": 3,
       "label": "5 models",
       "model_count": 5,
-      "points": 135,
+      "points": 145,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260922T170502Z-1b0a18bd"
+      "source_acquisition_id": "mfm-20261010T224054Z-86fd7d73"
     }
   ],
   "datasheet_id": "ds-havocs",
@@ -97,7 +97,7 @@
       "objective_control": 1,
       "save": "3+",
       "toughness": 5,
-      "wounds": 2
+      "wounds": 3
     }
   ],
   "name": "HAVOCS",
@@ -417,23 +417,25 @@
   ],
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
-    "last_verified_points_digest": "sha256:1c808482c500a2a12646fceca1072131668552f863cab7a4323aed3445ea7c82",
-    "last_verified_version": "wh40k-11e-2026-09-5",
+    "last_verified_points_digest": "sha256:1b9acc6b6920cc650d3d6912690c4e7a0565fa1d28d0f0a0f76f8d423df351b4",
+    "last_verified_version": "wh40k-11e-2026-10-1",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
+    "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
+    "points_acquisition_id": "mfm-20261010T224054Z-86fd7d73",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
+  "role": "Infantry",
   "wargear_option_state": "extracted",
+  "wargear_options_text": "The Havoc Champion’s Astartes chainsword can be replaced with one of the following:\n1 accursed weapon\n1 power fist\nThe Havoc Champion’s flamer can be replaced with one of the following:\n1 boltgun\n1 meltagun\n1 plasma gun\n1 plasma pistol\n1 accursed weapon\n1 power fist\nAny number of Havocs can each have their Havoc autocannon or Havoc lascannon replaced with one of the following:\n1 Havoc autocannon\n1 Havoc heavy bolter\n1 Havoc lascannon\n1 Havoc missile launcher\n1 Havoc reaper chaincannon",
   "weapons": [
     {
-      "armour_penetration": "0",
+      "armour_penetration": "-1",
       "attacks": "2",
       "damage": "1",
       "is_melee": false,
@@ -441,7 +443,7 @@
       "name": "Boltgun",
       "range": "24\"",
       "skill": "3+",
-      "strength": "4"
+      "strength": "5"
     },
     {
       "ability_keywords": [
@@ -620,7 +622,7 @@
       "line": 15,
       "name": "Astartes chainsword",
       "skill": "3+",
-      "strength": "4"
+      "strength": "5"
     },
     {
       "armour_penetration": "0",
@@ -630,7 +632,7 @@
       "line": 16,
       "name": "Close combat weapon",
       "skill": "3+",
-      "strength": "4"
+      "strength": "5"
     },
     {
       "armour_penetration": "-2",

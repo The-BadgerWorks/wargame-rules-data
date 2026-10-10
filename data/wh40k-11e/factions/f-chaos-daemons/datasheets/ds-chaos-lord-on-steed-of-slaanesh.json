@@ -21,7 +21,7 @@
       "model_count": 1,
       "points": 100,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf"
+      "source_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587"
     }
   ],
   "datasheet_id": "ds-chaos-lord-on-steed-of-slaanesh",
@@ -34,22 +34,22 @@
         {
           "item_index": 1,
           "item_name": "bolt pistol",
-          "weapon_line": 11
+          "weapon_line": 3
         },
         {
           "item_index": 2,
           "item_name": "Astartes chainsword",
-          "weapon_line": 2
+          "weapon_line": 7
         },
         {
           "item_index": 3,
           "item_name": "close combat weapon",
-          "weapon_line": 3
+          "weapon_line": 6
         },
         {
           "item_index": 4,
           "item_name": "lashing tongue",
-          "weapon_line": 8
+          "weapon_line": 5
         }
       ],
       "line": 1
@@ -427,7 +427,7 @@
     },
     {
       "count": 1,
-      "grants_weapon_line": 7,
+      "grants_weapon_line": 2,
       "group_id": "og-chaos-lord-on-steed-of-slaanesh-1",
       "id": "oc-chaos-lord-on-steed-of-slaanesh-1-2",
       "is_default": false,
@@ -438,7 +438,7 @@
           "item_index": 1,
           "item_name": "combi-bolter",
           "role": "granted",
-          "weapon_line": 7
+          "weapon_line": 2
         },
         {
           "item_index": 1,
@@ -450,7 +450,7 @@
     },
     {
       "count": 1,
-      "grants_weapon_line": 1,
+      "grants_weapon_line": 11,
       "group_id": "og-chaos-lord-on-steed-of-slaanesh-1",
       "id": "oc-chaos-lord-on-steed-of-slaanesh-1-3",
       "is_default": false,
@@ -461,7 +461,7 @@
           "item_index": 1,
           "item_name": "combi-weapon",
           "role": "granted",
-          "weapon_line": 1
+          "weapon_line": 11
         },
         {
           "item_index": 1,
@@ -473,7 +473,7 @@
     },
     {
       "count": 1,
-      "grants_weapon_line": 4,
+      "grants_weapon_line": 8,
       "group_id": "og-chaos-lord-on-steed-of-slaanesh-1",
       "id": "oc-chaos-lord-on-steed-of-slaanesh-1-4",
       "is_default": false,
@@ -484,7 +484,7 @@
           "item_index": 1,
           "item_name": "accursed weapon",
           "role": "granted",
-          "weapon_line": 4
+          "weapon_line": 8
         },
         {
           "item_index": 1,
@@ -496,7 +496,7 @@
     },
     {
       "count": 1,
-      "grants_weapon_line": 9,
+      "grants_weapon_line": 4,
       "group_id": "og-chaos-lord-on-steed-of-slaanesh-1",
       "id": "oc-chaos-lord-on-steed-of-slaanesh-1-5",
       "is_default": false,
@@ -507,7 +507,7 @@
           "item_index": 1,
           "item_name": "power fist",
           "role": "granted",
-          "weapon_line": 9
+          "weapon_line": 4
         },
         {
           "item_index": 1,
@@ -519,7 +519,7 @@
     },
     {
       "count": 1,
-      "grants_weapon_line": 11,
+      "grants_weapon_line": 3,
       "group_id": "og-chaos-lord-on-steed-of-slaanesh-2",
       "id": "oc-chaos-lord-on-steed-of-slaanesh-2-1",
       "is_default": false,
@@ -530,7 +530,7 @@
           "item_index": 1,
           "item_name": "bolt pistol",
           "role": "granted",
-          "weapon_line": 11
+          "weapon_line": 3
         },
         {
           "item_index": 1,
@@ -563,7 +563,7 @@
     },
     {
       "count": 1,
-      "grants_weapon_line": 4,
+      "grants_weapon_line": 8,
       "group_id": "og-chaos-lord-on-steed-of-slaanesh-2",
       "id": "oc-chaos-lord-on-steed-of-slaanesh-2-3",
       "is_default": false,
@@ -574,7 +574,7 @@
           "item_index": 1,
           "item_name": "accursed weapon",
           "role": "granted",
-          "weapon_line": 4
+          "weapon_line": 8
         },
         {
           "item_index": 1,
@@ -586,7 +586,7 @@
     },
     {
       "count": 1,
-      "grants_weapon_line": 9,
+      "grants_weapon_line": 4,
       "group_id": "og-chaos-lord-on-steed-of-slaanesh-2",
       "id": "oc-chaos-lord-on-steed-of-slaanesh-2-4",
       "is_default": false,
@@ -597,7 +597,7 @@
           "item_index": 1,
           "item_name": "power fist",
           "role": "granted",
-          "weapon_line": 9
+          "weapon_line": 4
         },
         {
           "item_index": 1,
@@ -609,7 +609,7 @@
     },
     {
       "count": 1,
-      "grants_weapon_line": 10,
+      "grants_weapon_line": 1,
       "group_id": "og-chaos-lord-on-steed-of-slaanesh-3",
       "id": "oc-chaos-lord-on-steed-of-slaanesh-3-1",
       "is_default": false,
@@ -620,7 +620,7 @@
           "item_index": 1,
           "item_name": "paired accursed weapons",
           "role": "granted",
-          "weapon_line": 10
+          "weapon_line": 1
         },
         {
           "item_index": 1,
@@ -631,7 +631,7 @@
           "item_index": 2,
           "item_name": "Astartes chainsword",
           "role": "replaced",
-          "weapon_line": 2
+          "weapon_line": 7
         }
       ],
       "name": "paired accursed weapons"
@@ -655,44 +655,85 @@
     }
   ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 10,
+    "consecutive_unverified_releases": 11,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
+    "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
     "points_edition_code": "wh40k-11e",
     "points_source": "none"
   },
+  "role": "Mounted Character",
   "wargear_option_state": "extracted",
+  "wargear_options_text": "This model’s bolt pistol can be replaced with one of the following:\n1 plasma pistol\n1 combi-bolter\n1 combi-weapon\n1 accursed weapon\n1 power fist\nThis model’s Astartes chainsword can be replaced with one of the following:\n1 bolt pistol\n1 plasma pistol\n1 accursed weapon\n1 power fist\nThis model’s bolt pistol and Astartes chainsword can be replaced with 1 paired accursed weapons.",
   "weapons": [
     {
       "ability_keywords": [
-        "anti-infantry 4+",
-        "devastating wounds",
-        "rapid fire 1"
+        "twin-linked"
+      ],
+      "armour_penetration": "-1",
+      "attacks": "7",
+      "damage": "1",
+      "is_melee": true,
+      "line": 1,
+      "name": "Paired accursed weapons",
+      "skill": "2+",
+      "strength": "4"
+    },
+    {
+      "ability_keywords": [
+        "rapid fire 2"
+      ],
+      "armour_penetration": "0",
+      "attacks": "2",
+      "damage": "1",
+      "is_melee": false,
+      "line": 2,
+      "name": "Combi-bolter",
+      "range": "24\"",
+      "skill": "2+",
+      "strength": "4"
+    },
+    {
+      "ability_keywords": [
+        "pistol"
       ],
       "armour_penetration": "0",
       "attacks": "1",
       "damage": "1",
       "is_melee": false,
-      "line": 1,
-      "name": "Combi-weapon",
-      "range": "24\"",
-      "skill": "4+",
+      "line": 3,
+      "name": "Bolt pistol",
+      "range": "12\"",
+      "skill": "2+",
       "strength": "4"
     },
     {
-      "armour_penetration": "-1",
-      "attacks": "7",
+      "armour_penetration": "-2",
+      "attacks": "5",
+      "damage": "2",
+      "is_melee": true,
+      "line": 4,
+      "name": "Power fist",
+      "skill": "2+",
+      "strength": "8"
+    },
+    {
+      "ability_keywords": [
+        "extra attacks",
+        "lethal hits"
+      ],
+      "armour_penetration": "0",
+      "attacks": "2",
       "damage": "1",
       "is_melee": true,
-      "line": 2,
-      "name": "Astartes chainsword",
-      "skill": "2+",
+      "line": 5,
+      "name": "Lashing tongue",
+      "skill": "4+",
       "strength": "4"
     },
     {
@@ -700,8 +741,18 @@
       "attacks": "6",
       "damage": "1",
       "is_melee": true,
-      "line": 3,
+      "line": 6,
       "name": "Close combat weapon",
+      "skill": "2+",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "-1",
+      "attacks": "7",
+      "damage": "1",
+      "is_melee": true,
+      "line": 7,
+      "name": "Astartes chainsword",
       "skill": "2+",
       "strength": "4"
     },
@@ -710,7 +761,7 @@
       "attacks": "6",
       "damage": "1",
       "is_melee": true,
-      "line": 4,
+      "line": 8,
       "name": "Accursed weapon",
       "skill": "2+",
       "strength": "5"
@@ -724,7 +775,7 @@
       "attacks": "1",
       "damage": "2",
       "is_melee": false,
-      "line": 5,
+      "line": 9,
       "name": "Plasma pistol – supercharge",
       "range": "12\"",
       "skill": "2+",
@@ -738,7 +789,7 @@
       "attacks": "1",
       "damage": "1",
       "is_melee": false,
-      "line": 6,
+      "line": 10,
       "name": "Plasma pistol – standard",
       "range": "12\"",
       "skill": "2+",
@@ -746,67 +797,18 @@
     },
     {
       "ability_keywords": [
-        "rapid fire 2"
-      ],
-      "armour_penetration": "0",
-      "attacks": "2",
-      "damage": "1",
-      "is_melee": false,
-      "line": 7,
-      "name": "Combi-bolter",
-      "range": "24\"",
-      "skill": "2+",
-      "strength": "4"
-    },
-    {
-      "ability_keywords": [
-        "extra attacks",
-        "lethal hits"
-      ],
-      "armour_penetration": "0",
-      "attacks": "2",
-      "damage": "1",
-      "is_melee": true,
-      "line": 8,
-      "name": "Lashing tongue",
-      "skill": "4+",
-      "strength": "4"
-    },
-    {
-      "armour_penetration": "-2",
-      "attacks": "5",
-      "damage": "2",
-      "is_melee": true,
-      "line": 9,
-      "name": "Power fist",
-      "skill": "2+",
-      "strength": "8"
-    },
-    {
-      "ability_keywords": [
-        "twin-linked"
-      ],
-      "armour_penetration": "-1",
-      "attacks": "7",
-      "damage": "1",
-      "is_melee": true,
-      "line": 10,
-      "name": "Paired accursed weapons",
-      "skill": "2+",
-      "strength": "4"
-    },
-    {
-      "ability_keywords": [
-        "pistol"
+        "anti-infantry 4+",
+        "devastating wounds",
+        "rapid fire 1"
       ],
       "armour_penetration": "0",
       "attacks": "1",
       "damage": "1",
       "is_melee": false,
       "line": 11,
-      "name": "Bolt pistol",
-      "range": "12\"",
-      "skill": "2+",
+      "name": "Combi-weapon",
+      "range": "24\"",
+      "skill": "4+",
       "strength": "4"
     }
   ]

@@ -28,7 +28,7 @@
       "model_count": 10,
       "points": 90,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260922T170502Z-1b0a18bd"
+      "source_acquisition_id": "mfm-20261010T224054Z-86fd7d73"
     },
     {
       "copy_index_min": 1,
@@ -37,7 +37,7 @@
       "points": 90,
       "pricing_confidence": "verified",
       "pricing_context": "every-model-has-imperium",
-      "source_acquisition_id": "mfm-20260922T170502Z-1b0a18bd"
+      "source_acquisition_id": "mfm-20261010T224054Z-86fd7d73"
     }
   ],
   "datasheet_id": "ds-imperial-navy-breachers",
@@ -358,19 +358,21 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:d43dfc3c8eecc7a316b3cfd662908c9403ccd3c39ad10e9ea2448123481e4fb6",
-    "last_verified_version": "wh40k-11e-2026-09-5",
+    "last_verified_version": "wh40k-11e-2026-10-1",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
+    "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
+    "points_acquisition_id": "mfm-20261010T224054Z-86fd7d73",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
+  "role": "Battleline",
   "wargear_option_state": "extracted",
+  "wargear_options_text": "The Navis Sergeant-at-Arms’ Navis shotgun can be replaced with one of the following:\n1 autopistol and 1 chainsword\n1 bolt pistol and 1 power weapon\n1 Navis Armsman’s Navis las-volley can be replaced with one of the following:\n1 meltagun\n1 plasma gun\n1 Navis Armsman's Navis shotgun can be replaced with 1 autopistol and 1 power weapon.\n1 Navis Armsman’s Navis shotgun can be replaced with 1 autopistol and 1 chainfist.\n1 Navis Armsman can be equipped with 1 demolition charge.",
   "weapons": [
     {
       "ability_keywords": [

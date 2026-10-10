@@ -24,7 +24,7 @@
       "model_count": 3,
       "points": 125,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf"
+      "source_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587"
     },
     {
       "copy_index_min": 1,
@@ -32,7 +32,7 @@
       "model_count": 4,
       "points": 150,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf"
+      "source_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587"
     },
     {
       "copy_index_min": 1,
@@ -40,7 +40,7 @@
       "model_count": 6,
       "points": 210,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf"
+      "source_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587"
     },
     {
       "copy_index_min": 1,
@@ -48,7 +48,7 @@
       "model_count": 7,
       "points": 245,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf"
+      "source_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587"
     }
   ],
   "datasheet_id": "ds-corsair-cloud-dancer-band",
@@ -311,19 +311,21 @@
     }
   ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 10,
+    "consecutive_unverified_releases": 11,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
+    "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
     "points_edition_code": "wh40k-11e",
     "points_source": "none"
   },
+  "role": "Mounted",
   "wargear_option_state": "extracted",
+  "wargear_options_text": "Any number of models can each have their twin shuriken catapult replaced with one of the following:\n1 dark lance\n1 dissonance cannon\n1 scatter laser\n1 shuriken cannon\n1 splinter cannon\nThe Cloud Dancer Felarch can be equipped with one of the following:\n1 dissonance pistol\n1 void sabre",
   "weapons": [
     {
       "ability_keywords": [

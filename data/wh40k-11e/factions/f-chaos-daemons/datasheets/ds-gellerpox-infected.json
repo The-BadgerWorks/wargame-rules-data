@@ -27,7 +27,7 @@
       "model_count": 7,
       "points": 125,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf"
+      "source_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587"
     }
   ],
   "datasheet_id": "ds-gellerpox-infected",
@@ -40,7 +40,7 @@
         {
           "item_index": 1,
           "item_name": "brutal weapons",
-          "weapon_line": 3
+          "weapon_line": 2
         }
       ],
       "line": 1,
@@ -53,7 +53,7 @@
         {
           "item_index": 1,
           "item_name": "hideous mutations",
-          "weapon_line": 1
+          "weapon_line": 3
         }
       ],
       "line": 3,
@@ -279,30 +279,21 @@
   ],
   "name": "Gellerpox Infected",
   "pricing_confidence": {
-    "consecutive_unverified_releases": 10,
+    "consecutive_unverified_releases": 11,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
+    "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
     "points_edition_code": "wh40k-11e",
     "points_source": "none"
   },
+  "role": "Infantry",
   "wargear_option_state": "none",
   "weapons": [
-    {
-      "armour_penetration": "-1",
-      "attacks": "4",
-      "damage": "2",
-      "is_melee": true,
-      "line": 1,
-      "name": "Hideous mutations",
-      "skill": "4+",
-      "strength": "6"
-    },
     {
       "ability_keywords": [
         "ignores cover",
@@ -312,7 +303,7 @@
       "attacks": "D6",
       "damage": "1",
       "is_melee": false,
-      "line": 2,
+      "line": 1,
       "name": "Belly-flamer",
       "range": "12\"",
       "skill": "N/A",
@@ -323,10 +314,20 @@
       "attacks": "2",
       "damage": "1",
       "is_melee": true,
-      "line": 3,
+      "line": 2,
       "name": "Brutal weapons",
       "skill": "4+",
       "strength": "4"
+    },
+    {
+      "armour_penetration": "-1",
+      "attacks": "4",
+      "damage": "2",
+      "is_melee": true,
+      "line": 3,
+      "name": "Hideous mutations",
+      "skill": "4+",
+      "strength": "6"
     }
   ]
 }

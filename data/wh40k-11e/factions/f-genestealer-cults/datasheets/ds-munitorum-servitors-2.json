@@ -19,7 +19,7 @@
       "model_count": 4,
       "points": 35,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf"
+      "source_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587"
     }
   ],
   "datasheet_id": "ds-munitorum-servitors-2",
@@ -89,7 +89,7 @@
   "option_choices": [
     {
       "count": 1,
-      "grants_weapon_line": 5,
+      "grants_weapon_line": 6,
       "group_id": "og-munitorum-servitors-2-1",
       "id": "oc-munitorum-servitors-2-1-1",
       "is_default": false,
@@ -100,7 +100,7 @@
           "item_index": 1,
           "item_name": "heavy bolter",
           "role": "granted",
-          "weapon_line": 5
+          "weapon_line": 6
         },
         {
           "item_index": 1,
@@ -114,7 +114,7 @@
     },
     {
       "count": 1,
-      "grants_weapon_line": 4,
+      "grants_weapon_line": 5,
       "group_id": "og-munitorum-servitors-2-1",
       "id": "oc-munitorum-servitors-2-1-2",
       "is_default": false,
@@ -125,7 +125,7 @@
           "item_index": 1,
           "item_name": "multi-melta",
           "role": "granted",
-          "weapon_line": 4
+          "weapon_line": 5
         },
         {
           "item_index": 1,
@@ -171,19 +171,21 @@
     }
   ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 10,
+    "consecutive_unverified_releases": 11,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
+    "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
     "points_edition_code": "wh40k-11e",
     "points_source": "none"
   },
+  "role": "Infantry",
   "wargear_option_state": "extracted",
+  "wargear_options_text": "Up to 2 models can each have their Servitor’s servo-arm replaced with one of the following:\n1 heavy bolter\n1 multi-melta\n1 plasma cannon",
   "weapons": [
     {
       "armour_penetration": "-2",
@@ -196,19 +198,14 @@
       "strength": "6"
     },
     {
-      "ability_keywords": [
-        "blast",
-        "heavy"
-      ],
-      "armour_penetration": "-2",
-      "attacks": "D3",
+      "armour_penetration": "0",
+      "attacks": "1",
       "damage": "1",
-      "is_melee": false,
+      "is_melee": true,
       "line": 2,
-      "name": "Plasma cannon – standard",
-      "range": "36\"",
-      "skill": "6+",
-      "strength": "7"
+      "name": "Close combat weapon",
+      "skill": "5+",
+      "strength": "3"
     },
     {
       "ability_keywords": [
@@ -228,6 +225,21 @@
     },
     {
       "ability_keywords": [
+        "blast",
+        "heavy"
+      ],
+      "armour_penetration": "-2",
+      "attacks": "D3",
+      "damage": "1",
+      "is_melee": false,
+      "line": 4,
+      "name": "Plasma cannon – standard",
+      "range": "36\"",
+      "skill": "6+",
+      "strength": "7"
+    },
+    {
+      "ability_keywords": [
         "heavy",
         "melta 2"
       ],
@@ -235,7 +247,7 @@
       "attacks": "2",
       "damage": "D6",
       "is_melee": false,
-      "line": 4,
+      "line": 5,
       "name": "Multi-melta",
       "range": "18\"",
       "skill": "6+",
@@ -250,21 +262,11 @@
       "attacks": "3",
       "damage": "2",
       "is_melee": false,
-      "line": 5,
+      "line": 6,
       "name": "Heavy bolter",
       "range": "36\"",
       "skill": "6+",
       "strength": "5"
-    },
-    {
-      "armour_penetration": "0",
-      "attacks": "1",
-      "damage": "1",
-      "is_melee": true,
-      "line": 6,
-      "name": "Close combat weapon",
-      "skill": "5+",
-      "strength": "3"
     }
   ]
 }

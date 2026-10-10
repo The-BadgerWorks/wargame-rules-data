@@ -25,7 +25,7 @@
       "model_count": 10,
       "points": 70,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf"
+      "source_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587"
     },
     {
       "copy_index_min": 1,
@@ -33,7 +33,7 @@
       "model_count": 20,
       "points": 135,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf"
+      "source_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587"
     }
   ],
   "datasheet_id": "ds-death-korps-of-krieg-2",
@@ -47,12 +47,12 @@
         {
           "item_index": 1,
           "item_name": "laspistol",
-          "weapon_line": 6
+          "weapon_line": 10
         },
         {
           "item_index": 2,
           "item_name": "chainsword",
-          "weapon_line": 13
+          "weapon_line": 14
         }
       ],
       "line": 1,
@@ -129,7 +129,7 @@
   "option_choices": [
     {
       "count": 1,
-      "grants_weapon_line": 2,
+      "grants_weapon_line": 4,
       "group_id": "og-death-korps-of-krieg-2-1",
       "id": "oc-death-korps-of-krieg-2-1-1",
       "is_default": false,
@@ -140,17 +140,17 @@
           "item_index": 1,
           "item_name": "flamer",
           "role": "granted",
-          "weapon_line": 2
+          "weapon_line": 4
         },
         {
           "item_index": 1,
           "item_name": "lasgun",
           "role": "replaced",
-          "weapon_line": 7
+          "weapon_line": 12
         }
       ],
       "name": "flamer",
-      "replaces_weapon_line": 7
+      "replaces_weapon_line": 12
     },
     {
       "count": 1,
@@ -169,15 +169,15 @@
           "item_index": 1,
           "item_name": "lasgun",
           "role": "replaced",
-          "weapon_line": 7
+          "weapon_line": 12
         }
       ],
       "name": "grenade launcher",
-      "replaces_weapon_line": 7
+      "replaces_weapon_line": 12
     },
     {
       "count": 1,
-      "grants_weapon_line": 5,
+      "grants_weapon_line": 9,
       "group_id": "og-death-korps-of-krieg-2-1",
       "id": "oc-death-korps-of-krieg-2-1-3",
       "is_default": false,
@@ -188,21 +188,21 @@
           "item_index": 1,
           "item_name": "long-las",
           "role": "granted",
-          "weapon_line": 5
+          "weapon_line": 9
         },
         {
           "item_index": 1,
           "item_name": "lasgun",
           "role": "replaced",
-          "weapon_line": 7
+          "weapon_line": 12
         }
       ],
       "name": "long-las",
-      "replaces_weapon_line": 7
+      "replaces_weapon_line": 12
     },
     {
       "count": 1,
-      "grants_weapon_line": 3,
+      "grants_weapon_line": 6,
       "group_id": "og-death-korps-of-krieg-2-1",
       "id": "oc-death-korps-of-krieg-2-1-4",
       "is_default": false,
@@ -213,17 +213,17 @@
           "item_index": 1,
           "item_name": "meltagun",
           "role": "granted",
-          "weapon_line": 3
+          "weapon_line": 6
         },
         {
           "item_index": 1,
           "item_name": "lasgun",
           "role": "replaced",
-          "weapon_line": 7
+          "weapon_line": 12
         }
       ],
       "name": "meltagun",
-      "replaces_weapon_line": 7
+      "replaces_weapon_line": 12
     },
     {
       "count": 1,
@@ -242,11 +242,11 @@
           "item_index": 1,
           "item_name": "lasgun",
           "role": "replaced",
-          "weapon_line": 7
+          "weapon_line": 12
         }
       ],
       "name": "plasma gun",
-      "replaces_weapon_line": 7
+      "replaces_weapon_line": 12
     },
     {
       "count": 1,
@@ -299,26 +299,26 @@
           "item_index": 2,
           "item_name": "close combat weapon",
           "role": "granted",
-          "weapon_line": 14
+          "weapon_line": 15
         },
         {
           "item_index": 1,
           "item_name": "laspistol",
           "role": "replaced",
-          "weapon_line": 6
+          "weapon_line": 10
         },
         {
           "item_index": 2,
           "item_name": "chainsword",
           "role": "replaced",
-          "weapon_line": 13
+          "weapon_line": 14
         }
       ],
       "name": "boltgun and 1 close combat weapon"
     },
     {
       "count": 1,
-      "grants_weapon_line": 15,
+      "grants_weapon_line": 1,
       "group_id": "og-death-korps-of-krieg-2-5",
       "id": "oc-death-korps-of-krieg-2-5-1",
       "is_default": false,
@@ -329,17 +329,17 @@
           "item_index": 1,
           "item_name": "power weapon",
           "role": "granted",
-          "weapon_line": 15
+          "weapon_line": 1
         },
         {
           "item_index": 1,
           "item_name": "chainsword",
           "role": "replaced",
-          "weapon_line": 13
+          "weapon_line": 14
         }
       ],
       "name": "power weapon",
-      "replaces_weapon_line": 13
+      "replaces_weapon_line": 14
     },
     {
       "count": 1,
@@ -360,11 +360,11 @@
           "item_index": 1,
           "item_name": "laspistol",
           "role": "replaced",
-          "weapon_line": 6
+          "weapon_line": 10
         }
       ],
       "name": "bolt pistol",
-      "replaces_weapon_line": 6
+      "replaces_weapon_line": 10
     },
     {
       "count": 1,
@@ -383,11 +383,11 @@
           "item_index": 1,
           "item_name": "laspistol",
           "role": "replaced",
-          "weapon_line": 6
+          "weapon_line": 10
         }
       ],
       "name": "plasma pistol",
-      "replaces_weapon_line": 6
+      "replaces_weapon_line": 10
     }
   ],
   "option_groups": [
@@ -433,20 +433,46 @@
     }
   ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 10,
+    "consecutive_unverified_releases": 11,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
+    "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
     "points_edition_code": "wh40k-11e",
     "points_source": "none"
   },
+  "role": "Battleline",
   "wargear_option_state": "extracted",
+  "wargear_options_text": "For every 10 models in this unit, up to 2 Death Korps Troopers can each have their lasgun replaced with one of the following*:\n1 flamer\n1 grenade launcher\n1 long-las\n1 meltagun\n1 plasma gun\nFor every 10 models in this unit, 1 Death Korps Trooper equipped with a lasgun can be equipped with 1 Death Korps medi-pack (that model’s lasgun cannot be replaced)**.\nFor every 10 models in this unit, 1 Death Korps Trooper equipped with a lasgun can be equipped with 1 vox-caster (that model’s lasgun cannot be replaced).**\nAny number of Death Korps Watchmasters can each replace their laspistol and chainsword with 1 boltgun and 1 close combat weapon.\nAny number of Death Korps Watchmasters can each replace their chainsword with 1 power weapon.\nAny number of Death Korps Watchmasters can each replace their laspistol with one of the following:\n1 bolt pistol\n1 plasma pistol",
   "weapons": [
+    {
+      "armour_penetration": "-2",
+      "attacks": "2",
+      "damage": "1",
+      "is_melee": true,
+      "line": 1,
+      "name": "Power weapon",
+      "skill": "4+",
+      "strength": "4"
+    },
+    {
+      "ability_keywords": [
+        "blast"
+      ],
+      "armour_penetration": "0",
+      "attacks": "D3",
+      "damage": "1",
+      "is_melee": false,
+      "line": 2,
+      "name": "Grenade launcher – frag",
+      "range": "24\"",
+      "skill": "4+",
+      "strength": "4"
+    },
     {
       "ability_keywords": [
         "ignores cover",
@@ -456,7 +482,7 @@
       "attacks": "D6",
       "damage": "1",
       "is_melee": false,
-      "line": 2,
+      "line": 4,
       "name": "Flamer",
       "range": "12\"",
       "skill": "N/A",
@@ -470,7 +496,7 @@
       "attacks": "1",
       "damage": "D6",
       "is_melee": false,
-      "line": 3,
+      "line": 6,
       "name": "Meltagun",
       "range": "12\"",
       "skill": "4+",
@@ -478,17 +504,18 @@
     },
     {
       "ability_keywords": [
+        "hazardous",
         "rapid fire 1"
       ],
-      "armour_penetration": "-2",
+      "armour_penetration": "-3",
       "attacks": "1",
-      "damage": "1",
+      "damage": "2",
       "is_melee": false,
-      "line": 4,
-      "name": "Plasma gun – standard",
+      "line": 7,
+      "name": "Plasma gun – supercharge",
       "range": "24\"",
       "skill": "4+",
-      "strength": "7"
+      "strength": "8"
     },
     {
       "ability_keywords": [
@@ -499,7 +526,7 @@
       "attacks": "1",
       "damage": "2",
       "is_melee": false,
-      "line": 5,
+      "line": 9,
       "name": "Long-las",
       "range": "36\"",
       "skill": "4+",
@@ -513,7 +540,7 @@
       "attacks": "1",
       "damage": "1",
       "is_melee": false,
-      "line": 6,
+      "line": 10,
       "name": "Laspistol",
       "range": "12\"",
       "skill": "4+",
@@ -523,11 +550,25 @@
       "ability_keywords": [
         "rapid fire 1"
       ],
+      "armour_penetration": "-2",
+      "attacks": "1",
+      "damage": "1",
+      "is_melee": false,
+      "line": 11,
+      "name": "Plasma gun – standard",
+      "range": "24\"",
+      "skill": "4+",
+      "strength": "7"
+    },
+    {
+      "ability_keywords": [
+        "rapid fire 1"
+      ],
       "armour_penetration": "0",
       "attacks": "1",
       "damage": "1",
       "is_melee": false,
-      "line": 7,
+      "line": 12,
       "name": "Lasgun",
       "range": "24\"",
       "skill": "4+",
@@ -538,47 +579,18 @@
       "attacks": "1",
       "damage": "D3",
       "is_melee": false,
-      "line": 8,
+      "line": 13,
       "name": "Grenade launcher – krak",
       "range": "24\"",
       "skill": "4+",
       "strength": "9"
     },
     {
-      "ability_keywords": [
-        "blast"
-      ],
-      "armour_penetration": "0",
-      "attacks": "D3",
-      "damage": "1",
-      "is_melee": false,
-      "line": 9,
-      "name": "Grenade launcher – frag",
-      "range": "24\"",
-      "skill": "4+",
-      "strength": "4"
-    },
-    {
-      "ability_keywords": [
-        "hazardous",
-        "rapid fire 1"
-      ],
-      "armour_penetration": "-3",
-      "attacks": "1",
-      "damage": "2",
-      "is_melee": false,
-      "line": 11,
-      "name": "Plasma gun – supercharge",
-      "range": "24\"",
-      "skill": "4+",
-      "strength": "8"
-    },
-    {
       "armour_penetration": "0",
       "attacks": "3",
       "damage": "1",
       "is_melee": true,
-      "line": 13,
+      "line": 14,
       "name": "Chainsword",
       "skill": "4+",
       "strength": "3"
@@ -588,20 +600,10 @@
       "attacks": "1",
       "damage": "1",
       "is_melee": true,
-      "line": 14,
+      "line": 15,
       "name": "Close combat weapon",
       "skill": "4+",
       "strength": "3"
-    },
-    {
-      "armour_penetration": "-2",
-      "attacks": "2",
-      "damage": "1",
-      "is_melee": true,
-      "line": 15,
-      "name": "Power weapon",
-      "skill": "4+",
-      "strength": "4"
     },
     {
       "ability_keywords": [
