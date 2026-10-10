@@ -6,6 +6,9 @@
 # calls now pass `default_equipment_state=equipment.state`, the same value each site puts on the
 # `CuratedDatasheet` it builds a few lines later -- the new precondition the function checks
 # before scoping anything.
+# AI-Assisted: Claude Code (model: claude-opus-5-5) - P3 fix round 1 (plan Task 3b): both
+# `derive_line_scopes` calls also pass `composition=composition`, the datasheet's own entries,
+# which the eligible-model veto reads.
 # AI-Assisted: Claude Code (model: claude-sonnet-5) - 2026-10-09 pipeline P3 task 2 (Owner ruling
 # 5): `_equipment` tries `parse_variant_sentence` when `parse_sentence` refuses a row, and
 # publishes the variant group only when `_exact_composition_line` (new) names exactly one
@@ -2304,6 +2307,7 @@ def _datasheet_for(  # noqa: PLR0913 - one datasheet needs both sources and the 
             option_choices=options.choices,
             equipment_groups=equipment.groups,
             default_equipment_state=equipment.state,
+            composition=composition,
         )
 
         # Both sources priced it: the points source wins, both values are reported, and the
@@ -2540,6 +2544,7 @@ def _detail_only_datasheet(  # noqa: PLR0913 - one datasheet needs both trees an
         option_choices=options.choices,
         equipment_groups=equipment.groups,
         default_equipment_state=equipment.state,
+        composition=composition,
     )
 
     findings.extend(

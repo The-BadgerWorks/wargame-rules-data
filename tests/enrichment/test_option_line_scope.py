@@ -21,6 +21,11 @@
 # just the line it names). The unit-wide union is removed (measured zero on the published tree,
 # standing rule 10); its two tests are deleted, and `_unit_wide_group` now exists only to support
 # the "no line-resolved group at all" receipt.
+# AI-Assisted: Claude Code (model: claude-opus-5-5) - P3 fix round 1 (plan Task 3b, Owner ruling
+# 2026-10-09): `derive_line_scopes` takes a required `composition` and withholds a group's derived
+# lines when they contradict the group's own `eligible_model_name` (that name equals exactly one
+# composition entry whose line is not in the derived set). Three tests: the veto fires, an agreeing
+# scope is published, and a name matching zero or two-plus entries never vetoes.
 """Tests for `pipeline.reconcile.option_scope.derive_line_scopes` (spec §4.2 P4b).
 
 `fixtures/minimal` carries zero option rows (`tests/enrichment/test_wargear_options_text.py`
@@ -43,6 +48,7 @@ from pipeline.curate.assemble import _detail_only_datasheet
 from pipeline.curate.authored import AuthoredContent
 from pipeline.curate.summaries import ability_name_index
 from pipeline.models.curated import (
+    CuratedCompositionEntry,
     CuratedEquipmentGroup,
     CuratedEquipmentItem,
     CuratedOptionChoice,
@@ -137,6 +143,7 @@ def test_replaced_items_resolve_to_every_line_that_carries_them() -> None:
         option_choices=[CHOICE],
         equipment_groups=list(EQUIPMENT),
         default_equipment_state=DefaultEquipmentState.EXTRACTED,
+        composition=[],
     )
     assert group.eligible_composition_lines == (1, 2, 3)
 
@@ -150,6 +157,7 @@ def test_a_shield_only_replacement_scopes_to_the_shield_line() -> None:
         option_choices=[choice],
         equipment_groups=list(EQUIPMENT),
         default_equipment_state=DefaultEquipmentState.EXTRACTED,
+        composition=[],
     )
     assert group.eligible_composition_lines == (3,)
 
@@ -169,6 +177,7 @@ def test_underivable_groups_publish_nothing(
         option_choices=[_option_choice("og-fx-1", items=items)],
         equipment_groups=list(EQUIPMENT),
         default_equipment_state=DefaultEquipmentState.EXTRACTED,
+        composition=[],
     )
     assert group.eligible_composition_lines == ()
 
@@ -184,6 +193,7 @@ def test_a_datasheet_with_no_line_resolved_equipment_group_at_all_publishes_noth
         option_choices=[CHOICE],
         equipment_groups=list(unit_only),
         default_equipment_state=DefaultEquipmentState.EXTRACTED,
+        composition=[],
     )
     assert group.eligible_composition_lines == ()
 
@@ -212,6 +222,7 @@ def test_weapon_line_matching_beats_a_differing_name() -> None:
         option_choices=[choice],
         equipment_groups=list(equipment),
         default_equipment_state=DefaultEquipmentState.EXTRACTED,
+        composition=[],
     )
     assert group.eligible_composition_lines == (1,)
 
@@ -237,6 +248,7 @@ def test_a_same_name_item_with_a_different_weapon_line_on_both_sides_does_not_ma
         option_choices=[choice],
         equipment_groups=list(equipment),
         default_equipment_state=DefaultEquipmentState.EXTRACTED,
+        composition=[],
     )
     assert group.eligible_composition_lines == ()
 
@@ -266,6 +278,7 @@ def test_a_mixed_resolution_datasheet_withholds_scoping_entirely() -> None:
         option_choices=[CHOICE],
         equipment_groups=list(_MIXED_RESOLUTION_EQUIPMENT),
         default_equipment_state=DefaultEquipmentState.EXTRACTED,
+        composition=[],
     )
     assert group.eligible_composition_lines == ()
 
@@ -281,6 +294,7 @@ def test_state_partial_withholds_scoping_even_when_every_present_group_resolved(
         option_choices=[CHOICE],
         equipment_groups=list(EQUIPMENT),
         default_equipment_state=DefaultEquipmentState.PARTIAL,
+        composition=[],
     )
     assert group.eligible_composition_lines == ()
 
@@ -293,8 +307,75 @@ def test_state_none_withholds_scoping_even_when_every_present_group_resolved() -
         option_choices=[CHOICE],
         equipment_groups=list(EQUIPMENT),
         default_equipment_state=None,
+        composition=[],
     )
     assert group.eligible_composition_lines == ()
+
+
+# --- fix round 1 (plan Task 3b): a scope contradicting the stem's eligible model is withheld -----
+
+
+def _composition(*names: str) -> list[CuratedCompositionEntry]:
+    return [
+        CuratedCompositionEntry(line=i + 1, model_name=name, min_count=1, max_count=1)
+        for i, name in enumerate(names)
+    ]
+
+
+def test_a_scope_that_contradicts_the_stems_eligible_model_is_withheld() -> None:
+    # The live shape: one equipment group with a compound subject resolved to the leader's line
+    # (1) only, no group on the trooper line (2); the stem names the trooper line.
+    equipment = [
+        _equipment_group(
+            1, "Test Leader and Test Trooper", composition_line=1, items=("test maul",)
+        ),
+        _equipment_group(2, "Test Hound", composition_line=3, items=("test fangs",)),
+    ]
+    group = _option_group("og-fx-1", eligible_model_name="Test Troopers", eligible_max_count=2)
+    choice = _option_choice("og-fx-1", items=(_replaced("test maul", 1), _granted("test pike", 2)))
+    (out,) = derive_line_scopes(
+        option_groups=[group],
+        option_choices=[choice],
+        equipment_groups=equipment,
+        default_equipment_state=DefaultEquipmentState.EXTRACTED,
+        composition=_composition("Test Leader", "Test Troopers", "Test Hound"),
+    )
+    assert out.eligible_composition_lines == (), (
+        "derived (1,) contradicts eligible_model_name on line 2: the app would hide the option "
+        "on the line that legally takes it"
+    )
+
+
+def test_a_scope_that_agrees_with_the_stems_eligible_model_is_published() -> None:
+    equipment = [
+        _equipment_group(1, "Test Leader", composition_line=1, items=("test maul",)),
+        _equipment_group(2, "Test Troopers", composition_line=2, items=("test maul",)),
+    ]
+    group = _option_group("og-fx-1", eligible_model_name="Test Troopers", eligible_max_count=2)
+    choice = _option_choice("og-fx-1", items=(_replaced("test maul", 1), _granted("test pike", 2)))
+    (out,) = derive_line_scopes(
+        option_groups=[group],
+        option_choices=[choice],
+        equipment_groups=equipment,
+        default_equipment_state=DefaultEquipmentState.EXTRACTED,
+        composition=_composition("Test Leader", "Test Troopers"),
+    )
+    assert out.eligible_composition_lines == (1, 2)
+
+
+@pytest.mark.parametrize("name", ["Test Nobody", "Test"])  # zero matches; two matches below
+def test_a_name_that_resolves_to_no_single_line_never_vetoes(name: str) -> None:
+    equipment = [_equipment_group(1, "Test Leader", composition_line=1, items=("test maul",))]
+    group = _option_group("og-fx-1", eligible_model_name=name)
+    choice = _option_choice("og-fx-1", items=(_replaced("test maul", 1),))
+    (out,) = derive_line_scopes(
+        option_groups=[group],
+        option_choices=[choice],
+        equipment_groups=equipment,
+        default_equipment_state=DefaultEquipmentState.EXTRACTED,
+        composition=_composition("Test Leader", "Test", "Test"),
+    )
+    assert out.eligible_composition_lines == (1,)
 
 
 # --- end-to-end: a full offline build over `fixtures/minimal` scopes a real group ---------------

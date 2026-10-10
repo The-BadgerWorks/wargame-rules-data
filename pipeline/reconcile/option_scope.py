@@ -7,6 +7,9 @@
 # parameter, plus every model-group equipment group's own `composition_line` resolved), and
 # removed the unit-wide union (`unit_wide_items`) -- standing rule 10, measured zero on the
 # published tree.
+# AI-Assisted: Claude Code (model: claude-opus-5-5) - P3 fix round 1 (plan Task 3b, Owner ruling
+# 2026-10-09): a required `composition` parameter and the eligible-model veto -- a derived line
+# set that contradicts the group's own `eligible_model_name` is withheld.
 """Derive which composition lines a wargear option group is eligible on.
 
 An option group's `scope` stays whatever `004`/`006` already resolved it to -- `unit`, `model`,
@@ -49,9 +52,20 @@ that trusted the published list, which is the wrong side of the fallback ruling 
 * The result is empty when ``R`` is empty, when the datasheet has no candidate line at all, or
   when no candidate line's loadout covers every member of ``R``.
 
-**This is narrower than spec §4.2 P4b's wording, in two declared ways, both pending the Owner**:
-it withholds on any datasheet whose loadout is not fully known (spec §0 ruling 4), and it does
-not add unit-wide groups to a line's loadout (measured zero, standing rule 10).
+**The eligible-model veto (P3 fix round 1, Owner ruling 2026-10-09)**: after a group's lines are
+derived, if the group's own `eligible_model_name` equals (by `normalize_name`) the name of
+**exactly one** composition entry and that entry's line is not among the derived lines, the group
+publishes nothing. Reason: an equipment group with a compound subject can resolve to one line
+only while the line the stem names carries no equipment group at all, so the precondition above
+passes and the derived set points away from the models the option is for (`og-exaction-squad-1`
+and `og-vigilant-squad-1` on the published tree; `og-jakhals-2` is unaffected). The name only
+vetoes: zero or two-plus name matches, or no name, leave the derivation as it stands, and a line
+is never added because of the name.
+
+**This is narrower than spec §4.2 P4b's wording, in three declared ways**: it withholds on any
+datasheet whose loadout is not fully known (spec §0 ruling 4, pending the Owner), it does not add
+unit-wide groups to a line's loadout (measured zero, standing rule 10, pending the Owner), and it
+withholds a derived set that contradicts the stem's eligible model (Owner ruling 2026-10-09).
 
 Groups are returned in input order; nothing but `eligible_composition_lines` changes on any of
 them.
@@ -62,6 +76,7 @@ from __future__ import annotations
 from collections.abc import Sequence
 
 from pipeline.models.curated import (
+    CuratedCompositionEntry,
     CuratedEquipmentGroup,
     CuratedEquipmentItem,
     CuratedOptionChoice,
@@ -102,12 +117,29 @@ def _default_loadout_fully_known(
     )
 
 
+def _contradicts_eligible_model(
+    option_group: CuratedOptionGroup,
+    eligible: Sequence[int],
+    composition: Sequence[CuratedCompositionEntry],
+) -> bool:
+    """The eligible-model veto (P3 fix round 1). True only when the group's own
+    `eligible_model_name` equals exactly one composition entry's name and that entry's line is
+    missing from the derived set. No name, or a name matching zero or two-plus entries, never
+    vetoes -- and the name never adds a line."""
+    if option_group.eligible_model_name is None:
+        return False
+    wanted = normalize_name(option_group.eligible_model_name)
+    lines = [entry.line for entry in composition if normalize_name(entry.model_name) == wanted]
+    return len(lines) == 1 and lines[0] not in eligible
+
+
 def derive_line_scopes(
     *,
     option_groups: Sequence[CuratedOptionGroup],
     option_choices: Sequence[CuratedOptionChoice],
     equipment_groups: Sequence[CuratedEquipmentGroup],
     default_equipment_state: DefaultEquipmentState | None,
+    composition: Sequence[CuratedCompositionEntry],
 ) -> list[CuratedOptionGroup]:
     """Spec §4.2 P4b. See the module docstring for the derivation this function implements."""
     if not _default_loadout_fully_known(equipment_groups, default_equipment_state):
@@ -141,7 +173,7 @@ def derive_line_scopes(
             )
         ]
 
-        if eligible:
+        if eligible and not _contradicts_eligible_model(option_group, eligible, composition):
             results.append(
                 option_group.model_copy(update={"eligible_composition_lines": tuple(eligible)})
             )
