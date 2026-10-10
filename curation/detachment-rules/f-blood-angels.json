@@ -10,6 +10,36 @@
     "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
+    "summary_key": "detachment:d-assault-brethren-2:assault-mastery",
+    "detachment_id": "d-assault-brethren-2",
+    "name": "Assault Mastery",
+    "summary": "You can select the assault doctrine one additional time per battle.",
+    "review_state": "approved",
+    "mechanic_digest": "665c5ba11717dddaa5550d83752c8e03",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "reviewed_at": "2026-10-10T16:21:09Z"
+  },
+  {
+    "summary_key": "detachment:d-deathwatch-support-2:mission-tactics",
+    "detachment_id": "d-deathwatch-support-2",
+    "name": "Mission Tactics",
+    "summary": "Friendly KILL TEAM units with this ability gain: Furor Tactics — if the devastator doctrine is active for the unit, its attacks have [SUSTAINED HITS 1]; Malleus Tactics — if the tactical doctrine is active, its attacks have [LETHAL HITS]; Purgatus Tactics — if the assault doctrine is active, its attacks targeting an enemy unit within 9\" of this unit have [PRECISION]. DEATHWATCH units may be included without matching the army's Chapter faction keyword, combined value max 500 points. A DEATHWATCH model cannot be WARLORD; KILL TEAM units take enhancements only from this detachment.",
+    "review_state": "approved",
+    "mechanic_digest": "507a056e5d75f0c5b35c1cc9f0af2802",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "reviewed_at": "2026-10-10T22:19:40Z"
+  },
+  {
+    "summary_key": "detachment:d-devastator-brethren-2:devastator-mastery",
+    "detachment_id": "d-devastator-brethren-2",
+    "name": "Devastator Mastery",
+    "summary": "You can select the devastator doctrine one additional time per battle.",
+    "review_state": "approved",
+    "mechanic_digest": "c3f225cccf83ba4bc3d9774af5f71d25",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "reviewed_at": "2026-10-10T16:21:09Z"
+  },
+  {
     "summary_key": "detachment:d-encarmine-speartip:wrath-of-angels",
     "detachment_id": "d-encarmine-speartip",
     "name": "Wrath of Angels",
@@ -18,6 +48,16 @@
     "mechanic_digest": "a17843536a9a3530d72bb6081c655223",
     "reviewed_by": "claude-sonnet-5-reviewer",
     "reviewed_at": "2026-09-15T04:35:16Z"
+  },
+  {
+    "summary_key": "detachment:d-gauntlet-task-force-2:combined-deployment",
+    "detachment_id": "d-gauntlet-task-force-2",
+    "name": "Combined Deployment",
+    "summary": "In your Shooting phase, after a friendly Adeptus Astartes Transport unit has shot, you can select one enemy unit hit by those attacks. That unit is assailed until the end of the turn. While a unit is assailed, attacks made against it by an Adeptus Astartes unit that disembarked this turn have the [Sustained Hits 1] ability.",
+    "review_state": "approved",
+    "mechanic_digest": "a1237cad32548f8526b29af533ef733b",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "reviewed_at": "2026-10-10T16:21:09Z"
   },
   {
     "summary_key": "detachment:d-gladius-task-force-2:combat-doctrines",
@@ -30,6 +70,46 @@
     "reviewed_at": "2026-09-15T04:35:16Z"
   },
   {
+    "summary_key": "detachment:d-gladius-task-force:codex-discipline",
+    "detachment_id": "d-gladius-task-force",
+    "name": "Codex Discipline",
+    "summary": "You can select one combat doctrine one additional time per battle.",
+    "review_state": "approved",
+    "mechanic_digest": "d36b65932b39f8ec915a431906948e62",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "reviewed_at": "2026-10-10T16:21:09Z"
+  },
+  {
+    "summary_key": "detachment:d-gravis-linebreaker-force-2:walking-fortress",
+    "detachment_id": "d-gravis-linebreaker-force-2",
+    "name": "Walking Fortress",
+    "summary": "In a turn in which a friendly Gravis unit made a Normal move, that unit's ranged attacks do not have [Heavy] and have +1 to hit rolls.",
+    "review_state": "approved",
+    "mechanic_digest": "5474151d8f85e4b025dc17dfb56c8528",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "reviewed_at": "2026-10-10T16:21:09Z"
+  },
+  {
+    "summary_key": "detachment:d-gravis-siege-force-2:indomitable-defence",
+    "detachment_id": "d-gravis-siege-force-2",
+    "name": "Indomitable Defence",
+    "summary": "Applies while a friendly Gravis unit is within range of an objective. Attacks that target that unit subtract 1 from their Wound rolls if the attack's Strength is greater than that unit's Toughness.",
+    "review_state": "approved",
+    "mechanic_digest": "d9fe8f2a262532c04ea814b715032905",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "reviewed_at": "2026-10-10T16:21:09Z"
+  },
+  {
+    "summary_key": "detachment:d-ironclad-champions-2:enduring-vengeance",
+    "detachment_id": "d-ironclad-champions-2",
+    "name": "Enduring Vengeance",
+    "summary": "Friendly Adeptus Astartes Dreadnought units can re-roll hit rolls of 1.",
+    "review_state": "approved",
+    "mechanic_digest": "d2d94dba4ab5d22a34c10c18165c6048",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "reviewed_at": "2026-10-10T16:21:09Z"
+  },
+  {
     "summary_key": "detachment:d-ironstorm-spearhead-2:armoured-wrath",
     "detachment_id": "d-ironstorm-spearhead-2",
     "name": "Armoured Wrath",
@@ -38,6 +118,36 @@
     "mechanic_digest": "8cf805dd763b86d1e0fd41db8c770094",
     "reviewed_by": "claude-opus-5-adversarial-reviewer",
     "reviewed_at": "2026-08-06T00:00:00Z"
+  },
+  {
+    "summary_key": "detachment:d-ironstorm-spearhead-2:ironstorm-auto-targeters",
+    "detachment_id": "d-ironstorm-spearhead-2",
+    "name": "Ironstorm Auto-targeters",
+    "summary": "Friendly Adeptus Astartes Vehicle units, excluding Walker units, can re-roll one hit roll and re-roll one wound roll for their ranged attacks.",
+    "review_state": "approved",
+    "mechanic_digest": "4066814012e130d0b0da708ebb09c147",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "reviewed_at": "2026-10-10T16:21:09Z"
+  },
+  {
+    "summary_key": "detachment:d-phobos-shadow-force-2:shadow-masters",
+    "detachment_id": "d-phobos-shadow-force-2",
+    "name": "Shadow Masters",
+    "summary": "When a friendly Phobos or Scout SQUAD unit has shot, select one of the following: those attacks do not prevent that unit from being hidden; or that unit can make a normal move of up to D6\", and that unit is not eligible to declare a charge until the end of the turn.",
+    "review_state": "approved",
+    "mechanic_digest": "8645d2a523a790a82b6b424ad28e9ea4",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "reviewed_at": "2026-10-10T16:21:09Z"
+  },
+  {
+    "summary_key": "detachment:d-phobos-shock-force-2:vanguard-ambushers",
+    "detachment_id": "d-phobos-shock-force-2",
+    "name": "Vanguard Ambushers",
+    "summary": "At the end of your Movement phase, if a friendly Phobos unit is hidden, that unit's attacks can re-roll wound rolls of 1 until the end of the turn.",
+    "review_state": "approved",
+    "mechanic_digest": "aef56cc851653d80b6617189fdf7cbc6",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "reviewed_at": "2026-10-10T16:21:09Z"
   },
   {
     "summary_key": "detachment:d-stormlance-task-force-2:lightning-assault",
@@ -50,6 +160,56 @@
     "reviewed_at": "2026-08-06T00:00:00Z"
   },
   {
+    "summary_key": "detachment:d-stormlance-task-force-2:lightning-fast-strike",
+    "detachment_id": "d-stormlance-task-force-2",
+    "name": "Lightning-fast Strike",
+    "summary": "Friendly Adeptus Astartes units with the Mounted or Speeder keyword add 2\" to their Move characteristic.",
+    "review_state": "approved",
+    "mechanic_digest": "941f4eb0b76d187b4005d81ce1b1ab19",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "reviewed_at": "2026-10-10T16:21:09Z"
+  },
+  {
+    "summary_key": "detachment:d-tactical-brethren-2:tactical-mastery",
+    "detachment_id": "d-tactical-brethren-2",
+    "name": "Tactical Mastery",
+    "summary": "You can select the tactical doctrine one additional time per battle.",
+    "review_state": "approved",
+    "mechanic_digest": "21c88a4d5d2dd8c6359b01cbe6ba702d",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "reviewed_at": "2026-10-10T16:21:09Z"
+  },
+  {
+    "summary_key": "detachment:d-tacticus-attack-force-2:wrath-of-the-chapter",
+    "detachment_id": "d-tacticus-attack-force-2",
+    "name": "Wrath of the Chapter",
+    "summary": "Friendly Tacticus units can re-roll advance rolls.",
+    "review_state": "approved",
+    "mechanic_digest": "86618b74b55917d60613cf3dd384c51a",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "reviewed_at": "2026-10-10T16:21:09Z"
+  },
+  {
+    "summary_key": "detachment:d-tacticus-firestorm-force-2:codex-fire-patterns",
+    "detachment_id": "d-tacticus-firestorm-force-2",
+    "name": "Codex Fire-patterns",
+    "summary": "Friendly Tacticus units' [Rapid Fire] attacks benefit from [Rapid Fire] when targeting units up to that attack's maximum range.",
+    "review_state": "approved",
+    "mechanic_digest": "e36bb1725ef6332531cf2f1584c08813",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "reviewed_at": "2026-10-10T16:21:09Z"
+  },
+  {
+    "summary_key": "detachment:d-terminator-storm-force-2:death-blow",
+    "detachment_id": "d-terminator-storm-force-2",
+    "name": "Death Blow",
+    "summary": "Friendly Adeptus Astartes Terminator units add 1 to their charge rolls.",
+    "review_state": "approved",
+    "mechanic_digest": "6f314a548684bd0c687ed4229478a3cd",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "reviewed_at": "2026-10-10T16:21:09Z"
+  },
+  {
     "summary_key": "detachment:d-wrath-of-the-doomed:fanatical-celerity",
     "detachment_id": "d-wrath-of-the-doomed",
     "name": "Fanatical Celerity",
@@ -58,5 +218,15 @@
     "mechanic_digest": "94478f81f5970584472782024dd9af2f",
     "reviewed_by": "claude-sonnet-5-reviewer",
     "reviewed_at": "2026-09-15T04:35:16Z"
+  },
+  {
+    "summary_key": "detachment:d-wrath-of-the-doomed:sanguinius-fury",
+    "detachment_id": "d-wrath-of-the-doomed",
+    "name": "Sanguinius' Fury",
+    "summary": "Friendly DEATH COMPANY units gain the following: at the start of each phase, the assault doctrine is active for that unit, and the devastator/tactical doctrine cannot be active for that unit. Regardless of any other rules, DEATH COMPANY units can never have an active doctrine other than the assault doctrine. Restriction: the army can include Blood Angels units, but it cannot include any ADEPTUS ASTARTES units drawn from any other Chapter.",
+    "review_state": "approved",
+    "mechanic_digest": "65594d095850eeb27e66ca5429aa6028",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "reviewed_at": "2026-10-10T16:21:09Z"
   }
 ]

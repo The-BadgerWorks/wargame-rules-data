@@ -109,15 +109,15 @@
   },
   {
     "ability_key": "datasheet:driven-by-ultimate-rage-aura",
-    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
-    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
-    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
-    "mechanic_digest": "b0f96bacb4c4e7963fffcd0b8a27a7ad",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "digest_refreshed_at_version": "wh40k-11e-2026-10-1",
+    "digest_refreshed_under_authorization": "owner-2026-10-10-codex-catch-up",
+    "mechanic_digest": "e6f3a94acb735fbc346b87a617936a01",
     "name": "Driven by Ultimate Rage (Aura)",
     "review_state": "approved",
-    "reviewed_at": "2026-09-15T04:35:16Z",
+    "reviewed_at": "2026-10-10T16:21:09Z",
     "reviewed_by": "claude-sonnet-5-reviewer",
-    "summary": "While a friendly World Eaters unit is within 6\" of this model, it can ignore modifiers to its Move characteristic, Advance/Charge rolls, and its melee attacks' Weapon Skill and Hit roll."
+    "summary": "Aura. While a friendly WORLD EATERS unit is within 6\" of this unit, that unit's melee attacks can re-roll hit rolls of 1 and can re-roll wound rolls of 1."
   },
   {
     "ability_key": "datasheet:fire-riders",
@@ -349,15 +349,15 @@
   },
   {
     "ability_key": "datasheet:swooping-predator",
-    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
-    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
-    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
-    "mechanic_digest": "9909e5737446cc43742f6025e2194f2f",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "digest_refreshed_at_version": "wh40k-11e-2026-10-1",
+    "digest_refreshed_under_authorization": "owner-2026-10-10-codex-catch-up",
+    "mechanic_digest": "b8f0537d20c75eb800a902a847247f9a",
     "name": "Swooping Predator",
     "review_state": "approved",
-    "reviewed_at": "2026-09-15T04:35:16Z",
+    "reviewed_at": "2026-10-10T16:21:09Z",
     "reviewed_by": "claude-sonnet-5-reviewer",
-    "summary": "After a Normal or Advance move, roll 6D6 against one enemy unit this model moved over: each 4+ deals 1 mortal wound to that unit."
+    "summary": "Each time this model ends a Normal move, you can select one enemy unit that it moved over during that move and roll six D6. For each result of 4+, that enemy unit suffers 1 mortal wound."
   },
   {
     "ability_key": "datasheet:the-betrayer",

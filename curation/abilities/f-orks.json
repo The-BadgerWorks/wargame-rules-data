@@ -10,12 +10,32 @@
     "summary": "This ability always takes the form Damaged X. While a model's remaining wounds are equal to or less than X, that model is damaged. While damaged, that model's attacks have -1 to hit rolls."
   },
   {
+    "ability_key": "core:damaged-3",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "mechanic_digest": "ed7b79ffabd74afebcb510c46ff01cbf",
+    "name": "Damaged",
+    "review_state": "approved",
+    "reviewed_at": "2026-10-10T16:21:09Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "summary": "This ability always takes the form Damaged X. While a model's remaining wounds are equal to or less than X, that model is damaged. While damaged, that model's attacks have -1 to hit rolls."
+  },
+  {
     "ability_key": "core:damaged-4",
     "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
     "mechanic_digest": "ed7b79ffabd74afebcb510c46ff01cbf",
     "name": "Damaged",
     "review_state": "approved",
     "reviewed_at": "2026-09-15T04:35:16Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "summary": "This ability always takes the form Damaged X. While a model's remaining wounds are equal to or less than X, that model is damaged. While damaged, that model's attacks have -1 to hit rolls."
+  },
+  {
+    "ability_key": "core:damaged-5",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "mechanic_digest": "ed7b79ffabd74afebcb510c46ff01cbf",
+    "name": "Damaged",
+    "review_state": "approved",
+    "reviewed_at": "2026-10-10T16:21:09Z",
     "reviewed_by": "claude-sonnet-5-reviewer",
     "summary": "This ability always takes the form Damaged X. While a model's remaining wounds are equal to or less than X, that model is damaged. While damaged, that model's attacks have -1 to hit rolls."
   },
@@ -38,6 +58,16 @@
     "reviewed_at": "2026-09-15T04:35:16Z",
     "reviewed_by": "claude-sonnet-5-reviewer",
     "summary": "This ability takes the form Damaged X. While a model's remaining wounds are equal to or less than X, that model is damaged. While damaged, that model's attacks have -1 to hit rolls."
+  },
+  {
+    "ability_key": "core:damaged-8",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "mechanic_digest": "ed7b79ffabd74afebcb510c46ff01cbf",
+    "name": "Damaged",
+    "review_state": "approved",
+    "reviewed_at": "2026-10-10T16:21:09Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "summary": "This ability always takes the form Damaged X. While a model's remaining wounds are equal to or less than X, that model is damaged. While damaged, that model's attacks have -1 to hit rolls."
   },
   {
     "ability_key": "core:firing-deck-10",
@@ -1399,6 +1429,16 @@
     "summary": "In your Shooting phase, when this unit is selected to shoot, you can select one enemy MONSTER/VEHICLE unit within 24\" of this unit. If you do, this unit's attacks that target that unit have +1 AP and [LETHAL HITS]."
   },
   {
+    "ability_key": "datasheet:pulsa-rokkit-once-per-battle-per-unit",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "mechanic_digest": "8dc5a8673e19ee9579e7f3469a3932c9",
+    "name": "Pulsa Rokkit (Once per battle, per unit)",
+    "review_state": "approved",
+    "reviewed_at": "2026-10-10T16:21:09Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "summary": "Once per battle, per unit. In your Shooting phase, when this unit is selected to shoot, you can select one enemy MONSTER/VEHICLE unit within 24\" of this unit. If you do, this unit's attacks that target that unit have +1 AP and [LETHAL HITS]."
+  },
+  {
     "ability_key": "datasheet:pulse-jet",
     "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
     "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
@@ -2016,15 +2056,15 @@
   },
   {
     "ability_key": "datasheet:walking-bastion",
-    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
-    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
-    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
-    "mechanic_digest": "bb78010485fb3354de152970156a78ba",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "digest_refreshed_at_version": "wh40k-11e-2026-10-1",
+    "digest_refreshed_under_authorization": "owner-2026-10-10-codex-catch-up",
+    "mechanic_digest": "3fab5013728fa9c7c31bb5f2624c80e4",
     "name": "Walking Bastion",
     "review_state": "approved",
-    "reviewed_at": "2026-09-15T04:35:16Z",
+    "reviewed_at": "2026-10-10T16:21:09Z",
     "reviewed_by": "claude-sonnet-5-reviewer",
-    "summary": "This model does not suffer the usual penalty to ranged Hit rolls while enemy units are within Engagement Range of it."
+    "summary": "This unit's attacks can ignore modifiers to BS/WS and modifiers to Hit rolls."
   },
   {
     "ability_key": "datasheet:wall-of-dakka",
@@ -2071,11 +2111,13 @@
   },
   {
     "ability_key": "datasheet:wurrboy-psyker-level-1",
-    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
-    "mechanic_digest": "40b70f61fc01f6c5a1fe4dd652066159",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "digest_refreshed_at_version": "wh40k-11e-2026-10-1",
+    "digest_refreshed_under_authorization": "owner-2026-10-10-codex-catch-up",
+    "mechanic_digest": "7ea81308ff47b27651a2047aacaf42a6",
     "name": "Wurrboy (psyker level 1)",
     "review_state": "approved",
-    "reviewed_at": "2026-09-15T04:35:16Z",
+    "reviewed_at": "2026-10-10T16:21:09Z",
     "reviewed_by": "claude-sonnet-5-reviewer",
     "summary": "This model has the psychic abilities listed in the Psychic Abilities section (see above)."
   },

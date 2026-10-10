@@ -108,6 +108,16 @@
     "summary": "Firing Deck X: in your Shooting phase, when this Transport shoots, up to X (here 6) embarked models whose units have not yet shot each lend it one ranged weapon (no one-shot); no unit embarked in it can shoot for the rest of the turn."
   },
   {
+    "ability_key": "core:firing-deck-7",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "mechanic_digest": "ed014ebdca9226c626ac290c80ceed25",
+    "name": "Firing Deck",
+    "review_state": "approved",
+    "reviewed_at": "2026-10-10T16:21:09Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "summary": "Takes the form Firing Deck X. In your Shooting phase, each time this TRANSPORT is selected to shoot while one or more units are embarked within it: select up to X models embarked within it, excluding models whose units have already been selected to shoot this phase; for each selected model, select one of its ranged weapons, excluding [ONE SHOT] weapons; until this TRANSPORT has resolved all of its attacks it has those selected weapons in addition to its other weapons; until the end of the turn, units embarked within it are not eligible to shoot."
+  },
+  {
     "ability_key": "core:infiltrators",
     "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
     "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
@@ -142,6 +152,16 @@
     "reviewed_at": "2026-09-15T04:35:16Z",
     "reviewed_by": "claude-sonnet-5-reviewer",
     "summary": "Unless part of an attached unit, this unit is not visible to enemies beyond 12\" and cannot be targeted by Indirect Fire weapons from beyond 12\" (or the ability's stated distance)."
+  },
+  {
+    "ability_key": "core:lone-operative-15",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "mechanic_digest": "72f72966a535c2ddfd934b7bfac51d41",
+    "name": "Lone Operative",
+    "review_state": "approved",
+    "reviewed_at": "2026-10-10T16:21:09Z",
+    "reviewed_by": "claude-sonnet-5-reviewer",
+    "summary": "Unless this unit is part of an attached unit, it is not visible to enemy models unless they are within 12\" of it, and it cannot be targeted by [INDIRECT FIRE] weapons unless the attacking model is within 12\" of it. If the ability takes the form Lone Operative X\", then unless this unit is part of an attached unit, it is not visible to enemy models unless they are within X\" of it, and it cannot be targeted by [INDIRECT FIRE] weapons unless the attacking model is within X\" of it."
   },
   {
     "ability_key": "core:scouts-6",
@@ -217,15 +237,15 @@
   },
   {
     "ability_key": "datasheet:attached-unit",
-    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
-    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
-    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
-    "mechanic_digest": "6783798b6592de4d2784d6248c1efaa0",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "digest_refreshed_at_version": "wh40k-11e-2026-10-1",
+    "digest_refreshed_under_authorization": "owner-2026-10-10-codex-catch-up",
+    "mechanic_digest": "e7ea500a1680767a98b64eb402f6adec",
     "name": "ATTACHED UNIT",
     "review_state": "approved",
-    "reviewed_at": "2026-09-15T04:35:16Z",
+    "reviewed_at": "2026-10-10T16:21:09Z",
     "reviewed_by": "claude-sonnet-5-reviewer",
-    "summary": "If a Captain model in your army has the Leader ability and is eligible to be attached to an Assault Intercessors with Jump Packs unit, it may be attached to this unit instead."
+    "summary": "A Character unit from your army with the Leader ability that is able to be attached to a Battle Sisters Squad can instead be attached to this unit."
   },
   {
     "ability_key": "datasheet:auto-tapestry-of-the-emperors-judgement",
@@ -433,15 +453,15 @@
   },
   {
     "ability_key": "datasheet:fortification",
-    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
-    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
-    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
-    "mechanic_digest": "32824fe1982f9b37b5a1a6d895979a7d",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "digest_refreshed_at_version": "wh40k-11e-2026-10-1",
+    "digest_refreshed_under_authorization": "owner-2026-10-10-codex-catch-up",
+    "mechanic_digest": "252f3ef89a3e67137a9ea427ec6a50aa",
     "name": "Fortification",
     "review_state": "approved",
-    "reviewed_at": "2026-09-15T04:35:16Z",
+    "reviewed_at": "2026-10-10T16:21:09Z",
     "reviewed_by": "claude-sonnet-5-reviewer",
-    "summary": "While an enemy unit is only within Engagement Range of friendly Fortifications, non-Pistol attacks against it suffer -1 to Hit, and its models are exempt from Desperate Escape tests unless they'd move over enemy models."
+    "summary": "While an enemy unit is engaged with only FORTIFICATION units: that enemy unit can be selected as a target of ranged attacks; when shooting that enemy unit, those ranged attacks have -1 to hit rolls (excluding [CLOSE-QUARTERS] attacks); when that enemy unit is selected to make a fall-back move, if that enemy unit is not battle-shocked, hazard rolls made for that enemy unit are automatically passed."
   },
   {
     "ability_key": "datasheet:fury-of-the-righteous",
@@ -889,15 +909,15 @@
   },
   {
     "ability_key": "datasheet:self-repair",
-    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
-    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
-    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
-    "mechanic_digest": "f0efe07fa80b481796f033abd5c6a666",
-    "name": "Self Repair",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "digest_refreshed_at_version": "wh40k-11e-2026-10-1",
+    "digest_refreshed_under_authorization": "owner-2026-10-10-codex-catch-up",
+    "mechanic_digest": "58a6df53e7a248cb24cb2dc6e0347519",
+    "name": "Self-repair",
     "review_state": "approved",
-    "reviewed_at": "2026-09-15T04:35:16Z",
+    "reviewed_at": "2026-10-10T16:21:09Z",
     "reviewed_by": "claude-sonnet-5-reviewer",
-    "summary": "At the end of your Command phase, this model regains 1 lost wound."
+    "summary": "In your Command phase, this unit heals 1 wound."
   },
   {
     "ability_key": "datasheet:simulacrum-imperialis",

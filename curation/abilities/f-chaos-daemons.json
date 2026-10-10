@@ -889,15 +889,15 @@
   },
   {
     "ability_key": "datasheet:for-the-dark-gods",
-    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
-    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
-    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
-    "mechanic_digest": "9f27259cd47b118f07648646e6e60183",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "digest_refreshed_at_version": "wh40k-11e-2026-10-1",
+    "digest_refreshed_under_authorization": "owner-2026-10-10-codex-catch-up",
+    "mechanic_digest": "5ea19e99fbe71a4c6e1f68dd42f1bdb3",
     "name": "For the Dark Gods",
     "review_state": "approved",
-    "reviewed_at": "2026-09-15T04:35:16Z",
+    "reviewed_at": "2026-10-10T16:21:09Z",
     "reviewed_by": "claude-sonnet-5-reviewer",
-    "summary": "At the end of your Command phase, if this unit is within range of an objective marker you control, that objective marker stays under your control even while you have no models within range of it. This lasts until your opponent controls that objective marker at the start or end of any turn."
+    "summary": "At the end of your Command phase, if this unit is within range of an objective marker you control, that objective marker stays under your control until your opponent's Level of Control over that objective marker is greater than yours at the end of a phase."
   },
   {
     "ability_key": "datasheet:formidably-resilient",

@@ -37,13 +37,13 @@
   },
   {
     "ability_key": "datasheet:assault-ramp",
-    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
-    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
-    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
-    "mechanic_digest": "d98e7e1a53fe769e1e0bafc639b45838",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "digest_refreshed_at_version": "wh40k-11e-2026-10-1",
+    "digest_refreshed_under_authorization": "owner-2026-10-10-codex-catch-up",
+    "mechanic_digest": "97a0fa789c16393fd6822efd3c56e981",
     "name": "Assault Ramp",
     "review_state": "approved",
-    "reviewed_at": "2026-09-15T04:35:16Z",
+    "reviewed_at": "2026-10-10T16:21:09Z",
     "reviewed_by": "claude-sonnet-5-reviewer",
     "summary": "Each time a unit disembarks from this model after this model has made a Normal move, that unit makes an assault disembark move for that disembarkation."
   },
@@ -169,15 +169,15 @@
   },
   {
     "ability_key": "datasheet:fire-support",
-    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
-    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
-    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
-    "mechanic_digest": "95264f08436ed03f35b9672c55734fa7",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "digest_refreshed_at_version": "wh40k-11e-2026-10-1",
+    "digest_refreshed_under_authorization": "owner-2026-10-10-codex-catch-up",
+    "mechanic_digest": "0b82ec2a988d209b4336a0bbf86dd216",
     "name": "Fire Support",
     "review_state": "approved",
-    "reviewed_at": "2026-09-15T04:35:16Z",
+    "reviewed_at": "2026-10-10T16:21:09Z",
     "reviewed_by": "claude-sonnet-5-reviewer",
-    "summary": "After this transport shoots and hits an enemy unit, until the end of the phase, models that disembarked from it this turn may re-roll the Wound roll when attacking that unit."
+    "summary": "In your Shooting phase, when this unit has shot, select one enemy unit hit by those attacks. Attacks that target that unit made by friendly ADEPTUS ASTARTES units that Disembarked from this TRANSPORT this turn can re-roll wound rolls."
   },
   {
     "ability_key": "datasheet:from-golden-light",
@@ -601,15 +601,15 @@
   },
   {
     "ability_key": "datasheet:turbo-boost",
-    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
-    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
-    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
-    "mechanic_digest": "1c337e87ed936e16fd13d27cc459b735",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "digest_refreshed_at_version": "wh40k-11e-2026-10-1",
+    "digest_refreshed_under_authorization": "owner-2026-10-10-codex-catch-up",
+    "mechanic_digest": "a21f1f231b3370fd7823ab500e88fd9e",
     "name": "Turbo-boost",
     "review_state": "approved",
-    "reviewed_at": "2026-09-15T04:35:16Z",
+    "reviewed_at": "2026-10-10T16:21:09Z",
     "reviewed_by": "claude-sonnet-5-reviewer",
-    "summary": "Each time this unit Advances, skip the Advance roll and instead add 6\" to the Move characteristic of models in this unit until the end of the phase."
+    "summary": "Each time this model Advances, make no Advance roll for it. Instead, until the end of the phase, add 6\" to this model's Move characteristic."
   },
   {
     "ability_key": "datasheet:unyielding-ancient",

@@ -154,13 +154,13 @@
   },
   {
     "ability_key": "datasheet:flame-wreathed",
-    "authored_against_acquisition": "wahapedia-20260915T043553Z-ae4bfdaf",
-    "digest_refreshed_at_version": "wh40k-11e-2026-09-1",
-    "digest_refreshed_under_authorization": "owner-2026-09-15-digest-key-rotation",
-    "mechanic_digest": "6595e54fb2dae793d2b0131a20df679e",
+    "authored_against_acquisition": "wahapedia-20261010T162145Z-3e4e2587",
+    "digest_refreshed_at_version": "wh40k-11e-2026-10-1",
+    "digest_refreshed_under_authorization": "owner-2026-10-10-codex-catch-up",
+    "mechanic_digest": "c0fe40adabe71949a2de3f24b3bf0ed4",
     "name": "Flame-wreathed",
     "review_state": "approved",
-    "reviewed_at": "2026-09-15T04:35:16Z",
+    "reviewed_at": "2026-10-10T16:21:09Z",
     "reviewed_by": "claude-sonnet-5-reviewer",
     "summary": "After this model's Normal move, pick an enemy unit it moved over; until end of turn models in that unit cannot claim Benefit of Cover."
   },
