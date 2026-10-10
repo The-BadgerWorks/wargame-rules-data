@@ -1,18 +1,18 @@
 {
   "ability_keys": [
     "core:infiltrators",
-    "core:scouts-7",
+    "core:scouts-8",
     "datasheet:deadly-stalkers",
-    "datasheet:haywire-mine",
+    "datasheet:haywire-mine-once-per-battle-per-unit",
     "datasheet:hunting-hounds",
-    "faction:oath-of-moment"
+    "faction:combat-doctrines"
   ],
   "composition": [
     {
       "line": 1,
       "max_count": 1,
       "min_count": 1,
-      "model_name": "Wolf Scout Pack Leader"
+      "model_name": "Wolf Scout Pack Leader model"
     },
     {
       "line": 2,
@@ -34,17 +34,33 @@
       "copy_index_min": 1,
       "label": "6 models",
       "model_count": 6,
-      "points": 90,
+      "points": 95,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260922T170502Z-1b0a18bd"
+      "source_acquisition_id": "mfm-20261010T224054Z-86fd7d73"
     },
     {
       "copy_index_min": 1,
       "label": "12 models",
       "model_count": 12,
-      "points": 180,
+      "points": 190,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260922T170502Z-1b0a18bd"
+      "source_acquisition_id": "mfm-20261010T224054Z-86fd7d73"
+    },
+    {
+      "copy_index_min": 3,
+      "label": "6 models",
+      "model_count": 6,
+      "points": 105,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20261010T224054Z-86fd7d73"
+    },
+    {
+      "copy_index_min": 3,
+      "label": "12 models",
+      "model_count": 12,
+      "points": 200,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20261010T224054Z-86fd7d73"
     }
   ],
   "datasheet_id": "ds-wolf-scouts",
@@ -52,51 +68,55 @@
   "equipment_groups": [
     {
       "applies_to": "model_group",
-      "composition_line": 1,
       "id": "eq-wolf-scouts-1",
       "items": [
         {
+          "count": 1,
           "item_index": 1,
-          "item_name": "plasma pistol"
+          "item_name": "Plasma Pistol"
         },
         {
+          "count": 1,
           "item_index": 2,
-          "item_name": "power weapon",
+          "item_name": "Power Weapon",
           "weapon_line": 9
         }
       ],
       "line": 1,
-      "model_name": "Wolf Scout Pack Leader model"
+      "model_name": "Wolf Scout Pack Leader"
     },
     {
       "applies_to": "model_group",
       "id": "eq-wolf-scouts-2",
       "items": [
         {
+          "count": 1,
           "item_index": 1,
-          "item_name": "plasma pistol"
-        },
-        {
-          "item_index": 2,
-          "item_name": "combat blade",
-          "weapon_line": 8
+          "item_name": "Teeth and Claws",
+          "weapon_line": 11
         }
       ],
       "line": 2,
-      "model_name": "Wolf Scout model"
+      "model_name": "Hunting Wolf"
     },
     {
       "applies_to": "model_group",
       "id": "eq-wolf-scouts-3",
       "items": [
         {
+          "count": 1,
           "item_index": 1,
-          "item_name": "teeth and claws",
-          "weapon_line": 11
+          "item_name": "Combat Knife",
+          "weapon_line": 8
+        },
+        {
+          "count": 1,
+          "item_index": 2,
+          "item_name": "Plasma Pistol"
         }
       ],
       "line": 3,
-      "model_name": "Hunting Wolf model"
+      "model_name": "Wolf Scout"
     }
   ],
   "faction_id": "f-space-wolves",
@@ -113,7 +133,7 @@
     },
     {
       "is_faction_keyword": false,
-      "keyword": "GRENADES",
+      "keyword": "EXPLOSIVES",
       "keyword_class": "unit"
     },
     {
@@ -140,35 +160,41 @@
       "is_faction_keyword": true,
       "keyword": "SPACE WOLVES",
       "keyword_class": "chapter"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "WOLF SCOUTS",
-      "keyword_class": "unit"
     }
   ],
   "models": [
     {
       "base_size": "(⌀32mm)",
-      "leadership": "6+",
+      "leadership": "8+",
       "line": 1,
-      "movement": "7\"",
-      "name": "WOLF SCOUTS",
+      "movement": "10\"",
+      "name": "Hunting Wolf",
+      "objective_control": 0,
+      "save": "6+",
+      "toughness": 4,
+      "wounds": 1
+    },
+    {
+      "base_size": "(⌀32mm)",
+      "leadership": "6+",
+      "line": 2,
+      "movement": "8\"",
+      "name": "Wolf Scout",
       "objective_control": 1,
       "save": "3+",
       "toughness": 4,
       "wounds": 2
     },
     {
-      "base_size": "(⌀60 x 35.5mm)",
-      "leadership": "8+",
-      "line": 2,
-      "movement": "10\"",
-      "name": "HUNTING WOLVES",
-      "objective_control": 0,
-      "save": "6+",
+      "base_size": "(⌀32mm)",
+      "leadership": "6+",
+      "line": 3,
+      "movement": "8\"",
+      "name": "Wolf Scout Pack Leader",
+      "objective_control": 1,
+      "save": "3+",
       "toughness": 4,
-      "wounds": 1
+      "wounds": 2
     }
   ],
   "name": "WOLF SCOUTS",
@@ -183,37 +209,16 @@
         {
           "count": 1,
           "item_index": 1,
-          "item_name": "plasma gun",
+          "item_name": "Haywire Mine",
           "role": "granted"
-        },
-        {
-          "item_index": 1,
-          "item_name": "Wolf Scout’s plasma pistol",
-          "role": "replaced"
         }
       ],
-      "name": "plasma gun"
+      "name": "Haywire Mine"
     },
     {
       "count": 1,
       "group_id": "og-wolf-scouts-2",
       "id": "oc-wolf-scouts-2-1",
-      "is_default": false,
-      "is_no_change": false,
-      "items": [
-        {
-          "count": 1,
-          "item_index": 1,
-          "item_name": "haywire mine (That model’s plasma pistol cannot be replaced)",
-          "role": "granted"
-        }
-      ],
-      "name": "haywire mine (That model’s plasma pistol cannot be replaced)"
-    },
-    {
-      "count": 1,
-      "group_id": "og-wolf-scouts-3",
-      "id": "oc-wolf-scouts-3-1",
       "is_default": false,
       "is_no_change": false,
       "items": [
@@ -238,11 +243,79 @@
         {
           "item_index": 2,
           "item_name": "combat blade",
+          "role": "replaced"
+        }
+      ],
+      "name": "bolt pistol, 1 Thunderclap and 1 runic stave"
+    },
+    {
+      "count": 1,
+      "grants_weapon_line": 2,
+      "group_id": "og-wolf-scouts-3",
+      "id": "oc-wolf-scouts-3-1",
+      "is_default": false,
+      "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "Instigator Bolt Carbine",
+          "role": "granted",
+          "weapon_line": 2
+        },
+        {
+          "item_index": 1,
+          "item_name": "Plasma Pistol",
+          "role": "replaced"
+        }
+      ],
+      "name": "Instigator Bolt Carbine"
+    },
+    {
+      "count": 1,
+      "group_id": "og-wolf-scouts-4",
+      "id": "oc-wolf-scouts-4-1",
+      "is_default": false,
+      "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "Plasma Gun",
+          "role": "granted"
+        },
+        {
+          "item_index": 1,
+          "item_name": "Plasma Pistol",
+          "role": "replaced"
+        }
+      ],
+      "name": "Plasma Gun"
+    },
+    {
+      "group_id": "og-wolf-scouts-5",
+      "id": "oc-wolf-scouts-5-1",
+      "is_default": false,
+      "is_no_change": false,
+      "items": [
+        {
+          "item_index": 1,
+          "item_name": "one of the following: 1 Bolt Pistol, 1 Runic Stave, 1 Thunderclap",
+          "role": "granted"
+        },
+        {
+          "item_index": 1,
+          "item_name": "Plasma Pistol",
+          "role": "replaced"
+        },
+        {
+          "item_index": 2,
+          "item_name": "Combat Knife",
           "role": "replaced",
           "weapon_line": 8
         }
       ],
-      "name": "bolt pistol, 1 Thunderclap and 1 runic stave"
+      "name": "one of the following: 1 Bolt Pistol, 1 Runic Stave, 1 Thunderclap"
     }
   ],
   "option_groups": [
@@ -259,119 +332,133 @@
     {
       "id": "og-wolf-scouts-3",
       "line": 3,
+      "scope": "per_n_models",
+      "scope_n": 12
+    },
+    {
+      "id": "og-wolf-scouts-4",
+      "line": 4,
+      "scope": "unit"
+    },
+    {
+      "id": "og-wolf-scouts-5",
+      "line": 5,
       "scope": "unit"
     }
   ],
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
-    "last_verified_points_digest": "sha256:a6d4cf2a5cd4282f49d95cb26da44059c64b51456200269875ee08c3e6b8b069",
-    "last_verified_version": "wh40k-11e-2026-09-5",
+    "last_verified_points_digest": "sha256:6bea7dcf9f143ecbf17afc483172a502e743b7657e33777a00c16a4d9f9f9161",
+    "last_verified_version": "wh40k-11e-2026-10-1",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
+    "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
+    "points_acquisition_id": "mfm-20261010T224054Z-86fd7d73",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
-  "wargear_option_state": "partial",
+  "role": "Infantry",
+  "wargear_option_state": "extracted",
+  "wargear_options_text": "1 model equipped with 1 Plasma Pistol can be equipped with 1 Haywire Mine\n1 Wolf Scout’s plasma pistol and combat blade can be replaced with 1 bolt pistol, 1 Thunderclap and 1 runic stave.\nFor every 12 models in this unit, 1 Wolf Scout model can have their Plasma Pistol replaced with 1 Instigator Bolt Carbine.\n1 Wolf Scout model can have their Plasma Pistol replaced with 1 Plasma Gun.\n1 Wolf Scout model can have their Plasma Pistol and Combat Knife replaced with one of the following: 1 Bolt Pistol, 1 Runic Stave, 1 Thunderclap",
   "weapons": [
     {
       "ability_keywords": [
-        "pistol"
+        "CLOSE-QUARTERS"
       ],
-      "armour_penetration": "0",
+      "armour_penetration": "-1",
       "attacks": "1",
       "damage": "1",
       "is_melee": false,
       "line": 1,
-      "name": "Bolt pistol",
+      "name": "Bolt Pistol",
       "range": "12\"",
       "skill": "3+",
-      "strength": "4"
+      "strength": "5"
     },
     {
       "ability_keywords": [
-        "precision"
+        "LETHAL HITS: non-MONSTER/VEHICLE",
+        "Precision"
       ],
       "armour_penetration": "-2",
-      "attacks": "1",
+      "attacks": "2",
       "damage": "2",
       "is_melee": false,
       "line": 2,
-      "name": "Instigator bolt carbine",
+      "name": "Instigator Bolt Carbine",
       "range": "24\"",
       "skill": "3+",
-      "strength": "4"
+      "strength": "5"
     },
     {
       "ability_keywords": [
-        "rapid fire 1"
+        "Rapid Fire 1"
       ],
       "armour_penetration": "-2",
       "attacks": "1",
       "damage": "1",
       "is_melee": false,
       "line": 3,
-      "name": "Plasma gun – standard",
+      "name": "Plasma Gun - Standard",
       "range": "24\"",
       "skill": "3+",
       "strength": "7"
     },
     {
       "ability_keywords": [
-        "hazardous",
-        "rapid fire 1"
+        "Hazardous",
+        "Rapid Fire 1"
       ],
       "armour_penetration": "-3",
       "attacks": "1",
       "damage": "2",
       "is_melee": false,
       "line": 4,
-      "name": "Plasma gun – supercharge",
+      "name": "Plasma Gun - Supercharge",
       "range": "24\"",
       "skill": "3+",
       "strength": "8"
     },
     {
       "ability_keywords": [
-        "pistol"
+        "CLOSE-QUARTERS"
       ],
       "armour_penetration": "-2",
       "attacks": "1",
       "damage": "1",
       "is_melee": false,
       "line": 5,
-      "name": "Plasma pistol – standard",
+      "name": "Plasma Pistol - Standard",
       "range": "12\"",
       "skill": "3+",
       "strength": "7"
     },
     {
       "ability_keywords": [
-        "hazardous",
-        "pistol"
+        "CLOSE-QUARTERS",
+        "Hazardous"
       ],
       "armour_penetration": "-3",
       "attacks": "1",
       "damage": "2",
       "is_melee": false,
       "line": 6,
-      "name": "Plasma pistol – supercharge",
+      "name": "Plasma Pistol - Supercharge",
       "range": "12\"",
       "skill": "3+",
       "strength": "8"
     },
     {
       "ability_keywords": [
-        "blast",
-        "psychic"
+        "BLAST 1",
+        "PSYCHIC"
       ],
       "armour_penetration": "-1",
-      "attacks": "D3",
+      "attacks": "2",
       "damage": "2",
       "is_melee": false,
       "line": 7,
@@ -386,7 +473,7 @@
       "damage": "1",
       "is_melee": true,
       "line": 8,
-      "name": "Combat blade",
+      "name": "Combat Knife",
       "skill": "3+",
       "strength": "4"
     },
@@ -396,20 +483,20 @@
       "damage": "1",
       "is_melee": true,
       "line": 9,
-      "name": "Power weapon",
+      "name": "Power Weapon",
       "skill": "3+",
       "strength": "5"
     },
     {
       "ability_keywords": [
-        "psychic"
+        "PSYCHIC"
       ],
       "armour_penetration": "-1",
       "attacks": "3",
-      "damage": "D3",
+      "damage": "2",
       "is_melee": true,
       "line": 10,
-      "name": "Runic stave",
+      "name": "Runic Stave",
       "skill": "3+",
       "strength": "6"
     },
@@ -419,7 +506,7 @@
       "damage": "1",
       "is_melee": true,
       "line": 11,
-      "name": "Teeth and claws",
+      "name": "Teeth and Claws",
       "skill": "4+",
       "strength": "4"
     }

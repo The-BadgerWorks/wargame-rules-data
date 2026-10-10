@@ -2,8 +2,9 @@
   "ability_keys": [
     "core:leader",
     "datasheet:refuse-to-yield",
-    "datasheet:rites-of-battle",
-    "faction:oath-of-moment"
+    "datasheet:strategic-acumen",
+    "faction:combat-doctrines",
+    "faction:transhuman-strategist"
   ],
   "composition": [
     {
@@ -11,7 +12,7 @@
       "max_count": 1,
       "min_count": 1,
       "model_line": 1,
-      "model_name": "Captain in Gravis Armour"
+      "model_name": "Captain in Gravis Armour model"
     }
   ],
   "costs": [
@@ -19,9 +20,9 @@
       "copy_index_min": 1,
       "label": "1 model",
       "model_count": 1,
-      "points": 80,
+      "points": 90,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260922T170502Z-1b0a18bd"
+      "source_acquisition_id": "mfm-20261010T224054Z-86fd7d73"
     }
   ],
   "datasheet_id": "ds-captain-in-gravis-armour-6",
@@ -32,14 +33,16 @@
       "id": "eq-captain-in-gravis-armour-6-1",
       "items": [
         {
+          "count": 1,
           "item_index": 1,
-          "item_name": "master-crafted heavy bolt rifle",
+          "item_name": "Master-crafted Heavy Bolt Rifle",
           "weapon_line": 2
         },
         {
+          "count": 1,
           "item_index": 2,
-          "item_name": "master-crafted power weapon",
-          "weapon_line": 3
+          "item_name": "Master-crafted Power Weapon",
+          "weapon_line": 4
         }
       ],
       "line": 1
@@ -69,12 +72,12 @@
     },
     {
       "is_faction_keyword": false,
-      "keyword": "GRAVIS",
+      "keyword": "EXPLOSIVES",
       "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
-      "keyword": "GRENADES",
+      "keyword": "GRAVIS",
       "keyword_class": "unit"
     },
     {
@@ -90,8 +93,8 @@
   ],
   "leader_pairs": [
     "ds-aggressor-squad-6",
-    "ds-eradicator-squad-6",
     "ds-eradicator-squad-with-heavy-bolters-6",
+    "ds-eradicator-squad-with-melta-rifles-6",
     "ds-heavy-intercessor-squad-6",
     "ds-indomitor-kill-team"
   ],
@@ -102,7 +105,7 @@
       "leadership": "6+",
       "line": 1,
       "movement": "5\"",
-      "name": "Captain In Gravis Armour",
+      "name": "Captain in Gravis Armour",
       "objective_control": 1,
       "save": "3+",
       "toughness": 6,
@@ -121,29 +124,29 @@
         {
           "count": 1,
           "item_index": 1,
-          "item_name": "boltstorm gauntlet, 1 power fist",
+          "item_name": "Boltstorm Gauntlet",
           "role": "granted"
         },
         {
           "count": 1,
           "item_index": 2,
-          "item_name": "relic chainsword",
+          "item_name": "Relic Blade",
           "role": "granted",
-          "weapon_line": 6
+          "weapon_line": 5
         },
         {
           "item_index": 1,
-          "item_name": "’s master-crafted heavy bolt rifle",
+          "item_name": "’s Master-crafted Heavy Bolt Rifle",
           "role": "replaced"
         },
         {
           "item_index": 2,
-          "item_name": "master-crafted power weapon",
+          "item_name": "Master-crafted Power Weapon",
           "role": "replaced",
-          "weapon_line": 3
+          "weapon_line": 4
         }
       ],
-      "name": "boltstorm gauntlet, 1 power fist and 1 relic chainsword"
+      "name": "Boltstorm Gauntlet and 1 Relic Blade"
     },
     {
       "count": 1,
@@ -155,29 +158,29 @@
         {
           "count": 1,
           "item_index": 1,
-          "item_name": "boltstorm gauntlet, 1 power fist",
+          "item_name": "Boltstorm Gauntlet",
           "role": "granted"
         },
         {
           "count": 1,
           "item_index": 2,
-          "item_name": "relic blade",
+          "item_name": "Relic Chainsword",
           "role": "granted",
-          "weapon_line": 5
+          "weapon_line": 6
         },
         {
           "item_index": 1,
-          "item_name": "’s master-crafted heavy bolt rifle",
+          "item_name": "’s Master-crafted Heavy Bolt Rifle",
           "role": "replaced"
         },
         {
           "item_index": 2,
-          "item_name": "master-crafted power weapon",
+          "item_name": "Master-crafted Power Weapon",
           "role": "replaced",
-          "weapon_line": 3
+          "weapon_line": 4
         }
       ],
-      "name": "boltstorm gauntlet, 1 power fist and 1 relic blade"
+      "name": "Boltstorm Gauntlet and 1 Relic Chainsword"
     },
     {
       "count": 1,
@@ -189,29 +192,29 @@
         {
           "count": 1,
           "item_index": 1,
-          "item_name": "boltstorm gauntlet, 1 power fist",
+          "item_name": "Boltstorm Gauntlet",
           "role": "granted"
         },
         {
           "count": 1,
           "item_index": 2,
-          "item_name": "relic fist",
+          "item_name": "Relic Power Fist",
           "role": "granted",
           "weapon_line": 7
         },
         {
           "item_index": 1,
-          "item_name": "’s master-crafted heavy bolt rifle",
+          "item_name": "’s Master-crafted Heavy Bolt Rifle",
           "role": "replaced"
         },
         {
           "item_index": 2,
-          "item_name": "master-crafted power weapon",
+          "item_name": "Master-crafted Power Weapon",
           "role": "replaced",
-          "weapon_line": 3
+          "weapon_line": 4
         }
       ],
-      "name": "boltstorm gauntlet, 1 power fist and 1 relic fist"
+      "name": "Boltstorm Gauntlet and 1 Relic Power Fist"
     }
   ],
   "option_groups": [
@@ -223,106 +226,109 @@
   ],
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
-    "last_verified_points_digest": "sha256:1d28e8ecc53fabf8370677d1207b796a090869ddce53671a84a15b7879bb6f71",
-    "last_verified_version": "wh40k-11e-2026-09-5",
+    "last_verified_points_digest": "sha256:e44414db501bb26ca640da94337f11b3d663084e8077e4ba8b901744af55657a",
+    "last_verified_version": "wh40k-11e-2026-10-1",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
+    "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
+    "points_acquisition_id": "mfm-20261010T224054Z-86fd7d73",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
+  "role": "Infantry Character",
   "wargear_option_state": "extracted",
+  "wargear_options_text": "This model’s Master-crafted Heavy Bolt Rifle and Master-crafted Power Weapon can be replaced with one of the following:\n1 Boltstorm Gauntlet and 1 Relic Blade\n1 Boltstorm Gauntlet and 1 Relic Chainsword\n1 Boltstorm Gauntlet and 1 Relic Power Fist",
   "weapons": [
     {
       "ability_keywords": [
-        "pistol"
+        "CLOSE-QUARTERS"
       ],
       "armour_penetration": "-1",
       "attacks": "3",
       "damage": "1",
       "is_melee": false,
       "line": 1,
-      "name": "Boltstorm gauntlet",
+      "name": "Boltstorm Gauntlet",
       "range": "12\"",
       "skill": "2+",
-      "strength": "4"
+      "strength": "5"
     },
     {
       "ability_keywords": [
-        "assault",
-        "heavy"
+        "ASSAULT",
+        "Heavy",
+        "Rapid Fire 1"
       ],
       "armour_penetration": "-1",
       "attacks": "2",
       "damage": "3",
       "is_melee": false,
       "line": 2,
-      "name": "Master-crafted heavy bolt rifle",
+      "name": "Master-crafted Heavy Bolt Rifle",
       "range": "30\"",
       "skill": "2+",
-      "strength": "5"
-    },
-    {
-      "armour_penetration": "-2",
-      "attacks": "6",
-      "damage": "2",
-      "is_melee": true,
-      "line": 3,
-      "name": "Master-crafted power weapon",
-      "skill": "2+",
-      "strength": "5"
+      "strength": "6"
     },
     {
       "armour_penetration": "-2",
       "attacks": "5",
       "damage": "2",
       "is_melee": true,
-      "line": 4,
-      "name": "Power fist",
+      "line": 3,
+      "name": "Boltstorm Gauntlet",
       "skill": "2+",
       "strength": "8"
     },
     {
+      "armour_penetration": "-2",
+      "attacks": "6",
+      "damage": "2",
+      "is_melee": true,
+      "line": 4,
+      "name": "Master-crafted Power Weapon",
+      "skill": "2+",
+      "strength": "6"
+    },
+    {
       "ability_keywords": [
-        "extra attacks"
+        "Extra Attacks"
       ],
       "armour_penetration": "-2",
       "attacks": "2",
       "damage": "2",
       "is_melee": true,
       "line": 5,
-      "name": "Relic blade",
+      "name": "Relic Blade",
       "skill": "2+",
-      "strength": "5"
+      "strength": "6"
     },
     {
       "ability_keywords": [
-        "extra attacks"
+        "Extra Attacks"
       ],
       "armour_penetration": "-1",
       "attacks": "3",
       "damage": "2",
       "is_melee": true,
       "line": 6,
-      "name": "Relic chainsword",
+      "name": "Relic Chainsword",
       "skill": "2+",
-      "strength": "4"
+      "strength": "5"
     },
     {
       "ability_keywords": [
-        "extra attacks"
+        "Extra Attacks"
       ],
       "armour_penetration": "-2",
       "attacks": "1",
       "damage": "2",
       "is_melee": true,
       "line": 7,
-      "name": "Relic fist",
+      "name": "Relic Power Fist",
       "skill": "2+",
       "strength": "8"
     }

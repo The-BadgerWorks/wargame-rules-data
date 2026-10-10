@@ -2,6 +2,7 @@
   "ability_keys": [
     "datasheet:blood-surge",
     "datasheet:icon-of-khorne",
+    "datasheet:murderous-charge",
     "faction:blessings-of-khorne"
   ],
   "composition": [
@@ -24,17 +25,17 @@
       "copy_index_min": 1,
       "label": "10 models",
       "model_count": 10,
-      "points": 160,
+      "points": 170,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf"
+      "source_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587"
     },
     {
       "copy_index_min": 1,
       "label": "20 models",
       "model_count": 20,
-      "points": 320,
+      "points": 330,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf"
+      "source_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587"
     }
   ],
   "datasheet_id": "ds-khorne-berzerkers-2",
@@ -47,7 +48,7 @@
         {
           "item_index": 1,
           "item_name": "bolt pistol",
-          "weapon_line": 4
+          "weapon_line": 3
         },
         {
           "item_index": 2,
@@ -115,7 +116,7 @@
       "name": "Khorne Berzerkers",
       "objective_control": 2,
       "save": "3+",
-      "toughness": 4,
+      "toughness": 5,
       "wounds": 2
     }
   ],
@@ -165,7 +166,7 @@
     },
     {
       "count": 1,
-      "grants_weapon_line": 5,
+      "grants_weapon_line": 4,
       "group_id": "og-khorne-berzerkers-2-3",
       "id": "oc-khorne-berzerkers-2-3-1",
       "is_default": false,
@@ -176,7 +177,7 @@
           "item_index": 1,
           "item_name": "Khornate eviscerator",
           "role": "granted",
-          "weapon_line": 5
+          "weapon_line": 4
         },
         {
           "item_index": 1,
@@ -222,25 +223,28 @@
       "scope_n": 5
     },
     {
+      "eligible_max_count": 1,
       "id": "og-khorne-berzerkers-2-4",
       "line": 4,
       "scope": "unit"
     }
   ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 10,
+    "consecutive_unverified_releases": 11,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
+    "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
     "points_edition_code": "wh40k-11e",
     "points_source": "none"
   },
+  "role": "Battleline",
   "wargear_option_state": "extracted",
+  "wargear_options_text": "The Khorne Berzerker Champion’s bolt pistol can be replaced with 1 plasma pistol.\nFor every 5 models in this unit, 1 Khorne Berzerker’s bolt pistol can be replaced with 1 plasma pistol.\nFor every 5 models in this unit, 1 Khorne Berzerker’s chainblade can be replaced with 1 Khornate eviscerator.\n1 model can be equipped with 1 icon of Khorne.",
   "weapons": [
     {
       "armour_penetration": "-1",
@@ -250,7 +254,45 @@
       "line": 1,
       "name": "Chainblade",
       "skill": "3+",
-      "strength": "4"
+      "strength": "5"
+    },
+    {
+      "ability_keywords": [
+        "pistol"
+      ],
+      "armour_penetration": "-2",
+      "attacks": "1",
+      "damage": "1",
+      "is_melee": false,
+      "line": 2,
+      "name": "Plasma pistol – standard",
+      "range": "12\"",
+      "skill": "4+",
+      "strength": "7"
+    },
+    {
+      "ability_keywords": [
+        "pistol"
+      ],
+      "armour_penetration": "-1",
+      "attacks": "1",
+      "damage": "1",
+      "is_melee": false,
+      "line": 3,
+      "name": "Bolt pistol",
+      "range": "12\"",
+      "skill": "4+",
+      "strength": "5"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "3",
+      "damage": "2",
+      "is_melee": true,
+      "line": 4,
+      "name": "Khornate eviscerator",
+      "skill": "3+",
+      "strength": "8"
     },
     {
       "ability_keywords": [
@@ -261,48 +303,10 @@
       "attacks": "1",
       "damage": "2",
       "is_melee": false,
-      "line": 2,
+      "line": 5,
       "name": "Plasma pistol – supercharge",
       "range": "12\"",
       "skill": "4+",
-      "strength": "8"
-    },
-    {
-      "ability_keywords": [
-        "pistol"
-      ],
-      "armour_penetration": "-2",
-      "attacks": "1",
-      "damage": "1",
-      "is_melee": false,
-      "line": 3,
-      "name": "Plasma pistol – standard",
-      "range": "12\"",
-      "skill": "4+",
-      "strength": "7"
-    },
-    {
-      "ability_keywords": [
-        "pistol"
-      ],
-      "armour_penetration": "0",
-      "attacks": "1",
-      "damage": "1",
-      "is_melee": false,
-      "line": 4,
-      "name": "Bolt pistol",
-      "range": "12\"",
-      "skill": "4+",
-      "strength": "4"
-    },
-    {
-      "armour_penetration": "-2",
-      "attacks": "3",
-      "damage": "2",
-      "is_melee": true,
-      "line": 5,
-      "name": "Khornate eviscerator",
-      "skill": "3+",
       "strength": "8"
     }
   ]

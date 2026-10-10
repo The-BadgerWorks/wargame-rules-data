@@ -25,7 +25,7 @@
       "model_count": 1,
       "points": 50,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf"
+      "source_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587"
     }
   ],
   "datasheet_id": "ds-shadowseer-2",
@@ -38,12 +38,12 @@
         {
           "item_index": 1,
           "item_name": "shuriken pistol",
-          "weapon_line": 2
+          "weapon_line": 3
         },
         {
           "item_index": 2,
           "item_name": "miststave",
-          "weapon_line": 1
+          "weapon_line": 2
         },
         {
           "item_index": 3,
@@ -122,7 +122,7 @@
   "option_choices": [
     {
       "count": 1,
-      "grants_weapon_line": 3,
+      "grants_weapon_line": 1,
       "group_id": "og-shadowseer-2-1",
       "id": "oc-shadowseer-2-1-1",
       "is_default": false,
@@ -133,7 +133,7 @@
           "item_index": 1,
           "item_name": "neuro disruptor",
           "role": "granted",
-          "weapon_line": 3
+          "weapon_line": 1
         },
         {
           "item_index": 1,
@@ -152,20 +152,38 @@
     }
   ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 10,
+    "consecutive_unverified_releases": 11,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
+    "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
     "points_edition_code": "wh40k-11e",
     "points_source": "none"
   },
+  "role": "Infantry Character",
   "wargear_option_state": "extracted",
+  "wargear_options_text": "This model’s shuriken pistol can be replaced with 1 neuro disruptor.",
   "weapons": [
+    {
+      "ability_keywords": [
+        "anti-infantry 2+",
+        "assault",
+        "pistol"
+      ],
+      "armour_penetration": "-2",
+      "attacks": "1",
+      "damage": "1",
+      "is_melee": false,
+      "line": 1,
+      "name": "Neuro disruptor",
+      "range": "12\"",
+      "skill": "2+",
+      "strength": "4"
+    },
     {
       "ability_keywords": [
         "psychic"
@@ -174,7 +192,7 @@
       "attacks": "4",
       "damage": "D3",
       "is_melee": true,
-      "line": 1,
+      "line": 2,
       "name": "Miststave",
       "skill": "2+",
       "strength": "5"
@@ -188,24 +206,8 @@
       "attacks": "1",
       "damage": "1",
       "is_melee": false,
-      "line": 2,
-      "name": "Shuriken pistol",
-      "range": "12\"",
-      "skill": "2+",
-      "strength": "4"
-    },
-    {
-      "ability_keywords": [
-        "anti-infantry 2+",
-        "assault",
-        "pistol"
-      ],
-      "armour_penetration": "-2",
-      "attacks": "1",
-      "damage": "1",
-      "is_melee": false,
       "line": 3,
-      "name": "Neuro disruptor",
+      "name": "Shuriken pistol",
       "range": "12\"",
       "skill": "2+",
       "strength": "4"

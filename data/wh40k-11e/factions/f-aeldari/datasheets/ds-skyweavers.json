@@ -18,17 +18,17 @@
       "copy_index_min": 1,
       "label": "2 models",
       "model_count": 2,
-      "points": 95,
+      "points": 90,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260922T170502Z-1b0a18bd"
+      "source_acquisition_id": "mfm-20261010T224054Z-86fd7d73"
     },
     {
       "copy_index_min": 1,
       "label": "4 models",
       "model_count": 4,
-      "points": 190,
+      "points": 180,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260922T170502Z-1b0a18bd"
+      "source_acquisition_id": "mfm-20261010T224054Z-86fd7d73"
     }
   ],
   "datasheet_id": "ds-skyweavers",
@@ -178,20 +178,22 @@
   ],
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
-    "last_verified_points_digest": "sha256:6b19bdbd0cdc97afe6b223c8bf792ed1cea0f2edc2f17a52a119a0249faf3d57",
-    "last_verified_version": "wh40k-11e-2026-09-5",
+    "last_verified_points_digest": "sha256:1a59f139653f0bb86b956bcf2899d1a79070411391e19ec95c1ca2a4019462e5",
+    "last_verified_version": "wh40k-11e-2026-10-1",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
+    "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
+    "points_acquisition_id": "mfm-20261010T224054Z-86fd7d73",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
+  "role": "Mounted",
   "wargear_option_state": "extracted",
+  "wargear_options_text": "Any number of models can each have their shuriken cannon replaced with 1 Skyweaver haywire cannon.\nAny number of models can each have their star bolas replaced with 1 zephyrglaive.",
   "weapons": [
     {
       "ability_keywords": [

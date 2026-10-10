@@ -23,17 +23,33 @@
       "copy_index_min": 1,
       "label": "5 models",
       "model_count": 5,
-      "points": 175,
+      "points": 185,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260922T170502Z-1b0a18bd"
+      "source_acquisition_id": "mfm-20261010T224054Z-86fd7d73"
     },
     {
       "copy_index_min": 1,
       "label": "10 models",
       "model_count": 10,
-      "points": 350,
+      "points": 370,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260922T170502Z-1b0a18bd"
+      "source_acquisition_id": "mfm-20261010T224054Z-86fd7d73"
+    },
+    {
+      "copy_index_min": 3,
+      "label": "5 models",
+      "model_count": 5,
+      "points": 215,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20261010T224054Z-86fd7d73"
+    },
+    {
+      "copy_index_min": 3,
+      "label": "10 models",
+      "model_count": 10,
+      "points": 400,
+      "pricing_confidence": "verified",
+      "source_acquisition_id": "mfm-20261010T224054Z-86fd7d73"
     }
   ],
   "datasheet_id": "ds-chaos-terminator-squad",
@@ -100,7 +116,7 @@
       "name": "Chaos Terminator Squad",
       "objective_control": 1,
       "save": "2+",
-      "toughness": 5,
+      "toughness": 6,
       "wounds": 3
     }
   ],
@@ -290,26 +306,28 @@
   ],
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
-    "last_verified_points_digest": "sha256:9a1008cde10e9042e6bf8cbfa38a113ccfe40748bb310a2cafc7b3083978dd82",
-    "last_verified_version": "wh40k-11e-2026-09-5",
+    "last_verified_points_digest": "sha256:19776b1476164f484552f548e3144d79da744f981bb617a9ed9bea2570121615",
+    "last_verified_version": "wh40k-11e-2026-10-1",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
+    "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
+    "points_acquisition_id": "mfm-20261010T224054Z-86fd7d73",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
+  "role": "Infantry",
   "wargear_option_state": "extracted",
+  "wargear_options_text": "For every 5 models in this unit, 1 Terminator’s combi-bolter can be replaced with one of the following:\n1 heavy flamer\n1 reaper autocannon\nAny number of models can each have their combi-bolter replaced with 1 combi-weapon.\nFor every 5 models in this unit, 1 model’s combi-bolter and accursed weapon can be replaced with 1 paired accursed weapons.\nFor every 5 models in this unit, up to 3 models can each have their accursed weapon replaced with 1 power fist.\nFor every 5 models in this unit, 1 model’s accursed weapon can be replaced with 1 chainfist.",
   "weapons": [
     {
       "ability_keywords": [
         "rapid fire 2"
       ],
-      "armour_penetration": "0",
+      "armour_penetration": "-1",
       "attacks": "2",
       "damage": "1",
       "is_melee": false,
@@ -317,7 +335,7 @@
       "name": "Combi-bolter",
       "range": "24\"",
       "skill": "3+",
-      "strength": "4"
+      "strength": "5"
     },
     {
       "ability_keywords": [
@@ -325,7 +343,7 @@
         "devastating wounds",
         "rapid fire 1"
       ],
-      "armour_penetration": "0",
+      "armour_penetration": "-1",
       "attacks": "1",
       "damage": "1",
       "is_melee": false,
@@ -333,7 +351,7 @@
       "name": "Combi-weapon",
       "range": "24\"",
       "skill": "4+",
-      "strength": "4"
+      "strength": "5"
     },
     {
       "ability_keywords": [

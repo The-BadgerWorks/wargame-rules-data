@@ -27,7 +27,7 @@
       "model_count": 5,
       "points": 100,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260922T170502Z-1b0a18bd"
+      "source_acquisition_id": "mfm-20261010T224054Z-86fd7d73"
     },
     {
       "copy_index_min": 3,
@@ -35,7 +35,7 @@
       "model_count": 5,
       "points": 110,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260922T170502Z-1b0a18bd"
+      "source_acquisition_id": "mfm-20261010T224054Z-86fd7d73"
     }
   ],
   "datasheet_id": "ds-stealth-battlesuits",
@@ -233,6 +233,7 @@
       "scope": "unit"
     },
     {
+      "eligible_max_count": 2,
       "id": "og-stealth-battlesuits-5",
       "is_per_model": true,
       "line": 5,
@@ -242,19 +243,21 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:a18d8066f0df5f4562de5385ba0cfaab46ae61de42088b8d23434fde3b7b4c39",
-    "last_verified_version": "wh40k-11e-2026-09-5",
+    "last_verified_version": "wh40k-11e-2026-10-1",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
+    "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
+    "points_acquisition_id": "mfm-20261010T224054Z-86fd7d73",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
+  "role": "Infantry",
   "wargear_option_state": "extracted",
+  "wargear_options_text": "The Stealth Shas’vre can be equipped with 1 gun drone.\nThe Stealth Shas’vre can be equipped with 1 marker drone.\nThe Stealth Shas’vre can be equipped with 1 pulse pistol.\n1 Stealth Shas’ui can be equipped with 1 homing beacon.\n2 models can each have their burst cannon replaced with 1 fusion blaster.",
   "weapons": [
     {
       "armour_penetration": "0",

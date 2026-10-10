@@ -18,17 +18,17 @@
       "copy_index_min": 1,
       "label": "1 model",
       "model_count": 1,
-      "points": 220,
+      "points": 210,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260922T170502Z-1b0a18bd"
+      "source_acquisition_id": "mfm-20261010T224054Z-86fd7d73"
     },
     {
       "copy_index_min": 3,
       "label": "1 model",
       "model_count": 1,
-      "points": 240,
+      "points": 230,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260922T170502Z-1b0a18bd"
+      "source_acquisition_id": "mfm-20261010T224054Z-86fd7d73"
     }
   ],
   "damaged_threshold": 5,
@@ -190,26 +190,28 @@
   ],
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
-    "last_verified_points_digest": "sha256:f0001945290bb0151727c26758f667d23d693aa1135e3236e058a64cb26517b2",
-    "last_verified_version": "wh40k-11e-2026-09-5",
+    "last_verified_points_digest": "sha256:2027322631eed59fc6841f07f2e601ea3088e834faa730c6eb1f9530033b1ff6",
+    "last_verified_version": "wh40k-11e-2026-10-1",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
+    "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
+    "points_acquisition_id": "mfm-20261010T224054Z-86fd7d73",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
+  "role": "Transport",
   "wargear_option_state": "extracted",
+  "wargear_options_text": "This model can be equipped with one of the following:\n1 combi-bolter\n1 combi-weapon\nThis model can be equipped with 1 havoc launcher.",
   "weapons": [
     {
       "ability_keywords": [
         "rapid fire 2"
       ],
-      "armour_penetration": "0",
+      "armour_penetration": "-1",
       "attacks": "2",
       "damage": "1",
       "is_melee": false,
@@ -217,7 +219,7 @@
       "name": "Combi-bolter",
       "range": "24\"",
       "skill": "3+",
-      "strength": "4"
+      "strength": "5"
     },
     {
       "ability_keywords": [
@@ -225,7 +227,7 @@
         "devastating wounds",
         "rapid fire 1"
       ],
-      "armour_penetration": "0",
+      "armour_penetration": "-1",
       "attacks": "1",
       "damage": "1",
       "is_melee": false,
@@ -233,7 +235,7 @@
       "name": "Combi-weapon",
       "range": "24\"",
       "skill": "4+",
-      "strength": "4"
+      "strength": "5"
     },
     {
       "ability_keywords": [

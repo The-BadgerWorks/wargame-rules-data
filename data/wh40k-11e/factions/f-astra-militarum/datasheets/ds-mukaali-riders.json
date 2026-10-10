@@ -25,7 +25,7 @@
       "model_count": 3,
       "points": 110,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf"
+      "source_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587"
     }
   ],
   "datasheet_id": "ds-mukaali-riders",
@@ -292,19 +292,21 @@
     }
   ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 10,
+    "consecutive_unverified_releases": 11,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
+    "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
     "points_edition_code": "wh40k-11e",
     "points_source": "none"
   },
+  "role": "Mounted",
   "wargear_option_state": "extracted",
+  "wargear_options_text": "The Mukaali Rider Sergeant’s laspistol can be replaced with 1 plasma pistol.\nThe Mukaali Rider Sergeant’s hunting lance can be replaced with one of the following:\n1 chainsword\n1 power weapon\nUp to 2 Mukaali Riders can each have their hunting lance replaced with one of the following:\n1 flamer\n1 grenade launcher\n1 meltagun\n1 plasma gun",
   "weapons": [
     {
       "ability_keywords": [

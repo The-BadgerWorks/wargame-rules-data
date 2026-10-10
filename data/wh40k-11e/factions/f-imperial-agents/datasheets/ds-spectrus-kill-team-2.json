@@ -50,7 +50,7 @@
       "model_count": 5,
       "points": 90,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf"
+      "source_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587"
     },
     {
       "copy_index_min": 1,
@@ -58,7 +58,7 @@
       "model_count": 10,
       "points": 180,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf"
+      "source_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587"
     }
   ],
   "datasheet_id": "ds-spectrus-kill-team-2",
@@ -264,19 +264,21 @@
     }
   ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 10,
+    "consecutive_unverified_releases": 11,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
+    "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
     "points_edition_code": "wh40k-11e",
     "points_source": "none"
   },
+  "role": "Infantry",
   "wargear_option_state": "partial",
+  "wargear_options_text": "One model equipped with a marksman bolt carbine can be equipped with 1 helix gauntlet.*\nOne model equipped with a marksman bolt carbine can be equipped with 1 Infiltrator comms array.*\nOne model can replace its bolt sniper rifle with 1 bolt carbine.\nAny number of models can each replace their bolt sniper rifle with 1 las fusil.\nAny number of models can each replace their combat knife with 1 bolt carbine and 1 close combat weapon.",
   "weapons": [
     {
       "ability_keywords": [

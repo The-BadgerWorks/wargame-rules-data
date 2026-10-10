@@ -21,7 +21,7 @@
       "model_count": 2,
       "points": 150,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260922T170502Z-1b0a18bd"
+      "source_acquisition_id": "mfm-20261010T224054Z-86fd7d73"
     },
     {
       "copy_index_min": 1,
@@ -29,23 +29,23 @@
       "model_count": 4,
       "points": 300,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260922T170502Z-1b0a18bd"
+      "source_acquisition_id": "mfm-20261010T224054Z-86fd7d73"
     },
     {
-      "copy_index_min": 2,
+      "copy_index_min": 3,
       "label": "2 models",
       "model_count": 2,
       "points": 180,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260922T170502Z-1b0a18bd"
+      "source_acquisition_id": "mfm-20261010T224054Z-86fd7d73"
     },
     {
-      "copy_index_min": 2,
+      "copy_index_min": 3,
       "label": "4 models",
       "model_count": 4,
       "points": 330,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260922T170502Z-1b0a18bd"
+      "source_acquisition_id": "mfm-20261010T224054Z-86fd7d73"
     }
   ],
   "datasheet_id": "ds-kastelan-robots",
@@ -227,20 +227,22 @@
   ],
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
-    "last_verified_points_digest": "sha256:1cde4593b477d4c84fa9a806d9ac4f3d330a8ce1349a90fd49fa6a0aa3d2f13f",
-    "last_verified_version": "wh40k-11e-2026-09-5",
+    "last_verified_points_digest": "sha256:dc8f364414b81c9be1209017520868d7d20f12b0c50241a681132115936c3c72",
+    "last_verified_version": "wh40k-11e-2026-10-1",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
+    "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
+    "points_acquisition_id": "mfm-20261010T224054Z-86fd7d73",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
+  "role": "Walker",
   "wargear_option_state": "extracted",
+  "wargear_options_text": "Any number of models can each have their twin Kastelan fist replaced with one of the following:\n1 Kastelan phosphor blaster and 1 Kastelan fist\n1 twin Kastelan phosphor blaster and 1 close combat weapon\nAny number of models can each have their incendine combustor replaced with 1 heavy phosphor blaster.",
   "weapons": [
     {
       "ability_keywords": [

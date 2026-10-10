@@ -20,9 +20,9 @@
       "copy_index_min": 1,
       "label": "1 model",
       "model_count": 1,
-      "points": 85,
+      "points": 90,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260922T170502Z-1b0a18bd"
+      "source_acquisition_id": "mfm-20261010T224054Z-86fd7d73"
     }
   ],
   "datasheet_id": "ds-chaos-lord-in-terminator-armour",
@@ -102,7 +102,7 @@
       "name": "Chaos Lord In Terminator Armour",
       "objective_control": 1,
       "save": "2+",
-      "toughness": 5,
+      "toughness": 6,
       "wounds": 6
     }
   ],
@@ -226,26 +226,28 @@
   ],
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
-    "last_verified_points_digest": "sha256:3468f846dcc66346762e7fae78871fcd836198f24209c8b99ddfcb5a3edc48ba",
-    "last_verified_version": "wh40k-11e-2026-09-5",
+    "last_verified_points_digest": "sha256:e44414db501bb26ca640da94337f11b3d663084e8077e4ba8b901744af55657a",
+    "last_verified_version": "wh40k-11e-2026-10-1",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
+    "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
+    "points_acquisition_id": "mfm-20261010T224054Z-86fd7d73",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
+  "role": "Infantry Character",
   "wargear_option_state": "extracted",
+  "wargear_options_text": "This model’s combi-bolter can be replaced with 1 combi-weapon.\nThis model’s exalted weapon can be replaced with one of the following:\n1 chainfist\n1 power fist\nThis model’s combi-bolter and exalted weapon can be replaced with 1 paired accursed weapons.",
   "weapons": [
     {
       "ability_keywords": [
         "rapid fire 2"
       ],
-      "armour_penetration": "0",
+      "armour_penetration": "-1",
       "attacks": "2",
       "damage": "1",
       "is_melee": false,
@@ -253,7 +255,7 @@
       "name": "Combi-bolter",
       "range": "24\"",
       "skill": "2+",
-      "strength": "4"
+      "strength": "5"
     },
     {
       "ability_keywords": [
@@ -261,7 +263,7 @@
         "devastating wounds",
         "rapid fire 1"
       ],
-      "armour_penetration": "0",
+      "armour_penetration": "-1",
       "attacks": "1",
       "damage": "1",
       "is_melee": false,
@@ -269,7 +271,7 @@
       "name": "Combi-weapon",
       "range": "24\"",
       "skill": "3+",
-      "strength": "4"
+      "strength": "5"
     },
     {
       "ability_keywords": [

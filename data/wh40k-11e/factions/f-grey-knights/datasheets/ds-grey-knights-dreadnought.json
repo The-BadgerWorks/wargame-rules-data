@@ -20,7 +20,7 @@
       "model_count": 1,
       "points": 160,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf"
+      "source_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587"
     }
   ],
   "datasheet_id": "ds-grey-knights-dreadnought",
@@ -330,19 +330,21 @@
     }
   ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 10,
+    "consecutive_unverified_releases": 11,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
+    "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
     "points_edition_code": "wh40k-11e",
     "points_source": "none"
   },
+  "role": "Walker",
   "wargear_option_state": "extracted",
+  "wargear_options_text": "This model’s assault cannon can be replaced with one of the following:\n1 heavy plasma cannon\n1 multi-melta\n1 twin lascannon\nThis model’s assault cannon, storm bolter and Dreadnought combat weapon can be replaced with one of the following:\n1 heavy psycannon, 1 storm bolter and 1 Nemesis doomglaive\n1 heavy psycannon, 1 incinerator and 1 Nemesis doomglaive\nThis model’s storm bolter and Dreadnought combat weapon can be replaced with one of the following:\n1 missile launcher and 1 armoured feet\n1 heavy flamer and 1 Dreadnought combat weapon",
   "weapons": [
     {
       "ability_keywords": [

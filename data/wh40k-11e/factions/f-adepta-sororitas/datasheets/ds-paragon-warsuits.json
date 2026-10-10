@@ -22,17 +22,17 @@
       "copy_index_min": 1,
       "label": "3 models",
       "model_count": 3,
-      "points": 180,
+      "points": 165,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260922T170502Z-1b0a18bd"
+      "source_acquisition_id": "mfm-20261010T224054Z-86fd7d73"
     },
     {
       "copy_index_min": 3,
       "label": "3 models",
       "model_count": 3,
-      "points": 190,
+      "points": 175,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260922T170502Z-1b0a18bd"
+      "source_acquisition_id": "mfm-20261010T224054Z-86fd7d73"
     }
   ],
   "datasheet_id": "ds-paragon-warsuits",
@@ -243,20 +243,22 @@
   ],
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
-    "last_verified_points_digest": "sha256:e51c4b47ef1d5438d46e87bcc3651c68bae020be642210f12fcad11a75e08451",
-    "last_verified_version": "wh40k-11e-2026-09-5",
+    "last_verified_points_digest": "sha256:550dc10d9f2c020fae68d494279c502c38760d00532da714b54550ab486c8034",
+    "last_verified_version": "wh40k-11e-2026-10-1",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
+    "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
+    "points_acquisition_id": "mfm-20261010T224054Z-86fd7d73",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
+  "role": "Walker",
   "wargear_option_state": "extracted",
+  "wargear_options_text": "Any number of models can each have their Paragon storm bolters replaced with 1 Paragon grenade launchers.\nAny number of models can each have their Paragon war blade replaced with 1 Paragon war mace.\nAny number of models can each have their heavy bolter replaced with one of the following:\n1 Ministorum heavy flamer\n1 multi-melta",
   "weapons": [
     {
       "ability_keywords": [

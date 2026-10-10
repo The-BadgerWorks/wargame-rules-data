@@ -23,7 +23,7 @@
       "model_count": 1,
       "points": 185,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf"
+      "source_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587"
     }
   ],
   "datasheet_id": "ds-winged-hive-tyrant-2",
@@ -36,12 +36,12 @@
         {
           "item_index": 1,
           "item_name": "monstrous bonesword and lash whip",
-          "weapon_line": 1
+          "weapon_line": 3
         },
         {
           "item_index": 2,
           "item_name": "Tyrant talons",
-          "weapon_line": 4
+          "weapon_line": 1
         }
       ],
       "line": 1
@@ -128,7 +128,7 @@
   "option_choices": [
     {
       "count": 1,
-      "grants_weapon_line": 3,
+      "grants_weapon_line": 2,
       "group_id": "og-winged-hive-tyrant-2-1",
       "id": "oc-winged-hive-tyrant-2-1-1",
       "is_default": false,
@@ -139,7 +139,7 @@
           "item_index": 1,
           "item_name": "heavy venom cannon",
           "role": "granted",
-          "weapon_line": 3
+          "weapon_line": 2
         },
         {
           "item_index": 1,
@@ -156,7 +156,7 @@
     },
     {
       "count": 1,
-      "grants_weapon_line": 2,
+      "grants_weapon_line": 5,
       "group_id": "og-winged-hive-tyrant-2-1",
       "id": "oc-winged-hive-tyrant-2-1-2",
       "is_default": false,
@@ -167,7 +167,7 @@
           "item_index": 1,
           "item_name": "stranglethorn cannon",
           "role": "granted",
-          "weapon_line": 2
+          "weapon_line": 5
         },
         {
           "item_index": 1,
@@ -184,7 +184,7 @@
     },
     {
       "count": 1,
-      "grants_weapon_line": 5,
+      "grants_weapon_line": 4,
       "group_id": "og-winged-hive-tyrant-2-1",
       "id": "oc-winged-hive-tyrant-2-1-3",
       "is_default": false,
@@ -195,7 +195,7 @@
           "item_index": 1,
           "item_name": "monstrous scything talons",
           "role": "granted",
-          "weapon_line": 5
+          "weapon_line": 4
         },
         {
           "item_index": 1,
@@ -219,44 +219,29 @@
     }
   ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 10,
+    "consecutive_unverified_releases": 11,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
+    "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
     "points_edition_code": "wh40k-11e",
     "points_source": "none"
   },
+  "role": "Monster Character",
   "wargear_option_state": "extracted",
+  "wargear_options_text": "This model’s monstrous bonesword and lash whip can be replaced with one of the following:\n1 heavy venom cannon\n1 stranglethorn cannon\n1 monstrous scything talons",
   "weapons": [
     {
-      "ability_keywords": [
-        "twin-linked"
-      ],
       "armour_penetration": "-2",
-      "attacks": "6",
-      "damage": "3",
+      "attacks": "5",
+      "damage": "2",
       "is_melee": true,
       "line": 1,
-      "name": "Monstrous bonesword and lash whip",
-      "skill": "2+",
-      "strength": "9"
-    },
-    {
-      "ability_keywords": [
-        "blast"
-      ],
-      "armour_penetration": "-1",
-      "attacks": "D6+1",
-      "damage": "2",
-      "is_melee": false,
-      "line": 2,
-      "name": "Stranglethorn cannon",
-      "range": "36\"",
+      "name": "Tyrant talons",
       "skill": "2+",
       "strength": "7"
     },
@@ -268,21 +253,24 @@
       "attacks": "D3",
       "damage": "3",
       "is_melee": false,
-      "line": 3,
+      "line": 2,
       "name": "Heavy venom cannon",
       "range": "36\"",
       "skill": "2+",
       "strength": "9"
     },
     {
+      "ability_keywords": [
+        "twin-linked"
+      ],
       "armour_penetration": "-2",
-      "attacks": "5",
-      "damage": "2",
+      "attacks": "6",
+      "damage": "3",
       "is_melee": true,
-      "line": 4,
-      "name": "Tyrant talons",
+      "line": 3,
+      "name": "Monstrous bonesword and lash whip",
       "skill": "2+",
-      "strength": "7"
+      "strength": "9"
     },
     {
       "ability_keywords": [
@@ -292,8 +280,22 @@
       "attacks": "4",
       "damage": "2",
       "is_melee": true,
-      "line": 5,
+      "line": 4,
       "name": "Monstrous scything talons",
+      "skill": "2+",
+      "strength": "7"
+    },
+    {
+      "ability_keywords": [
+        "blast"
+      ],
+      "armour_penetration": "-1",
+      "attacks": "D6+1",
+      "damage": "2",
+      "is_melee": false,
+      "line": 5,
+      "name": "Stranglethorn cannon",
+      "range": "36\"",
       "skill": "2+",
       "strength": "7"
     }

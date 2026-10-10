@@ -17,9 +17,9 @@
       "copy_index_min": 1,
       "label": "10 models",
       "model_count": 10,
-      "points": 60,
+      "points": 55,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260922T170502Z-1b0a18bd"
+      "source_acquisition_id": "mfm-20261010T224054Z-86fd7d73"
     },
     {
       "copy_index_min": 1,
@@ -27,7 +27,7 @@
       "model_count": 20,
       "points": 110,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260922T170502Z-1b0a18bd"
+      "source_acquisition_id": "mfm-20261010T224054Z-86fd7d73"
     }
   ],
   "datasheet_id": "ds-termagants",
@@ -258,20 +258,22 @@
   ],
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
-    "last_verified_points_digest": "sha256:bb84b90b63f757e236383a51a48746c08afda1949b32fd90bab328c1dd82dc22",
-    "last_verified_version": "wh40k-11e-2026-09-5",
+    "last_verified_points_digest": "sha256:00399a61f8b56ee0017ce48aef66dcf75ce27ed05ce4f4456bd0dd0eb933624a",
+    "last_verified_version": "wh40k-11e-2026-10-1",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
+    "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
+    "points_acquisition_id": "mfm-20261010T224054Z-86fd7d73",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
+  "role": "Battleline",
   "wargear_option_state": "extracted",
+  "wargear_options_text": "All models in this unit can each have their fleshborer replaced with 1 Termagant devourer.\nAll models in this unit can each have their fleshborer replaced with 1 Termagant spinefists.\nFor every 10 models in this unit, 1 model’s ranged weapon can be replaced with 1 shardlauncher\nFor every 10 models in this unit, 1 model’s ranged weapon can be replaced with 1 spike rifle.\nFor every 10 models in this unit, 1 model’s ranged weapon can be replaced with 1 strangleweb",
   "weapons": [
     {
       "ability_keywords": [

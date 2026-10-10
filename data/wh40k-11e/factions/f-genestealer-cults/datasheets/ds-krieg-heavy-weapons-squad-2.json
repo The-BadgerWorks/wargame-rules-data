@@ -26,7 +26,7 @@
       "model_count": 4,
       "points": 70,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf"
+      "source_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587"
     }
   ],
   "datasheet_id": "ds-krieg-heavy-weapons-squad-2",
@@ -39,17 +39,17 @@
         {
           "item_index": 1,
           "item_name": "lascannon",
-          "weapon_line": 1
+          "weapon_line": 4
         },
         {
           "item_index": 2,
           "item_name": "laspistol",
-          "weapon_line": 2
+          "weapon_line": 5
         },
         {
           "item_index": 3,
           "item_name": "close combat weapon",
-          "weapon_line": 3
+          "weapon_line": 2
         }
       ],
       "line": 1,
@@ -63,12 +63,12 @@
         {
           "item_index": 1,
           "item_name": "laspistol",
-          "weapon_line": 2
+          "weapon_line": 5
         },
         {
           "item_index": 2,
           "item_name": "close combat weapon",
-          "weapon_line": 3
+          "weapon_line": 2
         }
       ],
       "line": 2,
@@ -146,7 +146,7 @@
   "option_choices": [
     {
       "count": 1,
-      "grants_weapon_line": 5,
+      "grants_weapon_line": 3,
       "group_id": "og-krieg-heavy-weapons-squad-2-1",
       "id": "oc-krieg-heavy-weapons-squad-2-1-1",
       "is_default": false,
@@ -157,21 +157,21 @@
           "item_index": 1,
           "item_name": "Krieg heavy flamer",
           "role": "granted",
-          "weapon_line": 5
+          "weapon_line": 3
         },
         {
           "item_index": 1,
           "item_name": "lascannon",
           "role": "replaced",
-          "weapon_line": 1
+          "weapon_line": 4
         }
       ],
       "name": "Krieg heavy flamer",
-      "replaces_weapon_line": 1
+      "replaces_weapon_line": 4
     },
     {
       "count": 1,
-      "grants_weapon_line": 4,
+      "grants_weapon_line": 1,
       "group_id": "og-krieg-heavy-weapons-squad-2-1",
       "id": "oc-krieg-heavy-weapons-squad-2-1-2",
       "is_default": false,
@@ -182,17 +182,17 @@
           "item_index": 1,
           "item_name": "twin Krieg heavy stubber",
           "role": "granted",
-          "weapon_line": 4
+          "weapon_line": 1
         },
         {
           "item_index": 1,
           "item_name": "lascannon",
           "role": "replaced",
-          "weapon_line": 1
+          "weapon_line": 4
         }
       ],
       "name": "twin Krieg heavy stubber",
-      "replaces_weapon_line": 1
+      "replaces_weapon_line": 4
     }
   ],
   "option_groups": [
@@ -205,20 +205,63 @@
     }
   ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 10,
+    "consecutive_unverified_releases": 11,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
+    "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
     "points_edition_code": "wh40k-11e",
     "points_source": "none"
   },
+  "role": "Infantry",
   "wargear_option_state": "extracted",
+  "wargear_options_text": "Any number of Heavy Weapons Gunners can each have their lascannon replaced with one of the following:\n1 Krieg heavy flamer\n1 twin Krieg heavy stubber",
   "weapons": [
+    {
+      "ability_keywords": [
+        "heavy",
+        "rapid fire 3",
+        "twin-linked"
+      ],
+      "armour_penetration": "-1",
+      "attacks": "3",
+      "damage": "1",
+      "is_melee": false,
+      "line": 1,
+      "name": "Twin Krieg heavy stubber",
+      "range": "48\"",
+      "skill": "5+",
+      "strength": "6"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "1",
+      "damage": "1",
+      "is_melee": true,
+      "line": 2,
+      "name": "Close combat weapon",
+      "skill": "4+",
+      "strength": "3"
+    },
+    {
+      "ability_keywords": [
+        "ignores cover",
+        "torrent"
+      ],
+      "armour_penetration": "-1",
+      "attacks": "D6",
+      "damage": "2",
+      "is_melee": false,
+      "line": 3,
+      "name": "Krieg heavy flamer",
+      "range": "18\"",
+      "skill": "N/A",
+      "strength": "5"
+    },
     {
       "ability_keywords": [
         "heavy"
@@ -227,7 +270,7 @@
       "attacks": "1",
       "damage": "D6+1",
       "is_melee": false,
-      "line": 1,
+      "line": 4,
       "name": "Lascannon",
       "range": "48\"",
       "skill": "5+",
@@ -241,52 +284,11 @@
       "attacks": "1",
       "damage": "1",
       "is_melee": false,
-      "line": 2,
+      "line": 5,
       "name": "Laspistol",
       "range": "12\"",
       "skill": "4+",
       "strength": "3"
-    },
-    {
-      "armour_penetration": "0",
-      "attacks": "1",
-      "damage": "1",
-      "is_melee": true,
-      "line": 3,
-      "name": "Close combat weapon",
-      "skill": "4+",
-      "strength": "3"
-    },
-    {
-      "ability_keywords": [
-        "heavy",
-        "rapid fire 3",
-        "twin-linked"
-      ],
-      "armour_penetration": "-1",
-      "attacks": "3",
-      "damage": "1",
-      "is_melee": false,
-      "line": 4,
-      "name": "Twin Krieg heavy stubber",
-      "range": "48\"",
-      "skill": "5+",
-      "strength": "6"
-    },
-    {
-      "ability_keywords": [
-        "ignores cover",
-        "torrent"
-      ],
-      "armour_penetration": "-1",
-      "attacks": "D6",
-      "damage": "2",
-      "is_melee": false,
-      "line": 5,
-      "name": "Krieg heavy flamer",
-      "range": "18\"",
-      "skill": "N/A",
-      "strength": "5"
     }
   ]
 }

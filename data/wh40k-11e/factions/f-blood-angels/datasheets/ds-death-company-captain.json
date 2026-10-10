@@ -3,9 +3,9 @@
     "core:feel-no-pain-6",
     "core:leader",
     "datasheet:black-rage",
-    "datasheet:death-vision-of-sanguinius",
+    "datasheet:death-visions-of-sanguinius",
     "datasheet:forlorn-hero",
-    "faction:oath-of-moment"
+    "faction:combat-doctrines"
   ],
   "composition": [
     {
@@ -13,7 +13,7 @@
       "max_count": 1,
       "min_count": 1,
       "model_line": 1,
-      "model_name": "Death Company Captain"
+      "model_name": "Death Company Captain model"
     }
   ],
   "costs": [
@@ -21,9 +21,9 @@
       "copy_index_min": 1,
       "label": "1 model",
       "model_count": 1,
-      "points": 70,
+      "points": 80,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260922T170502Z-1b0a18bd"
+      "source_acquisition_id": "mfm-20261010T224054Z-86fd7d73"
     }
   ],
   "datasheet_id": "ds-death-company-captain",
@@ -34,13 +34,15 @@
       "id": "eq-death-company-captain-1",
       "items": [
         {
+          "count": 1,
           "item_index": 1,
-          "item_name": "heavy bolt pistol",
+          "item_name": "Heavy Bolt Pistol",
           "weapon_line": 1
         },
         {
+          "count": 1,
           "item_index": 2,
-          "item_name": "master-crafted chainsword",
+          "item_name": "Master-crafted Chainsword",
           "weapon_line": 3
         }
       ],
@@ -81,7 +83,7 @@
     },
     {
       "is_faction_keyword": false,
-      "keyword": "GRENADES",
+      "keyword": "EXPLOSIVES",
       "keyword_class": "unit"
     },
     {
@@ -102,8 +104,7 @@
   ],
   "leader_pairs": [
     "ds-death-company-marines",
-    "ds-death-company-marines-with-bolt-rifles",
-    "ds-death-company-marines-with-boltguns"
+    "ds-death-company-marines-with-jump-packs"
   ],
   "models": [
     {
@@ -115,38 +116,34 @@
       "name": "Death Company Captain",
       "objective_control": 1,
       "save": "3+",
-      "toughness": 4,
+      "toughness": 5,
       "wounds": 5
     }
   ],
   "name": "DEATH COMPANY CAPTAIN",
   "option_choices": [
     {
-      "count": 1,
-      "grants_weapon_line": 2,
       "group_id": "og-death-company-captain-1",
       "id": "oc-death-company-captain-1-1",
       "is_default": false,
       "is_no_change": false,
       "items": [
         {
-          "count": 1,
           "item_index": 1,
-          "item_name": "inferno pistol",
-          "role": "granted",
-          "weapon_line": 2
+          "item_name": "one of the following: 1 Power Fist, 1 Relic Weapon",
+          "role": "granted"
         },
         {
           "item_index": 1,
-          "item_name": "’s heavy bolt pistol",
+          "item_name": "'s Master-crafted Chainsword",
           "role": "replaced"
         }
       ],
-      "name": "inferno pistol"
+      "name": "one of the following: 1 Power Fist, 1 Relic Weapon"
     },
     {
       "count": 1,
-      "grants_weapon_line": 5,
+      "grants_weapon_line": 2,
       "group_id": "og-death-company-captain-2",
       "id": "oc-death-company-captain-2-1",
       "is_default": false,
@@ -155,40 +152,17 @@
         {
           "count": 1,
           "item_index": 1,
-          "item_name": "relic weapon",
+          "item_name": "Inferno Pistol",
           "role": "granted",
-          "weapon_line": 5
+          "weapon_line": 2
         },
         {
           "item_index": 1,
-          "item_name": "’s master-crafted chainsword",
+          "item_name": "'s Heavy Bolt Pistol",
           "role": "replaced"
         }
       ],
-      "name": "relic weapon"
-    },
-    {
-      "count": 1,
-      "grants_weapon_line": 4,
-      "group_id": "og-death-company-captain-2",
-      "id": "oc-death-company-captain-2-2",
-      "is_default": false,
-      "is_no_change": false,
-      "items": [
-        {
-          "count": 1,
-          "item_index": 1,
-          "item_name": "power fist",
-          "role": "granted",
-          "weapon_line": 4
-        },
-        {
-          "item_index": 1,
-          "item_name": "’s master-crafted chainsword",
-          "role": "replaced"
-        }
-      ],
-      "name": "power fist"
+      "name": "Inferno Pistol"
     }
   ],
   "option_groups": [
@@ -205,79 +179,84 @@
   ],
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
-    "last_verified_points_digest": "sha256:e848ec11450ed9ecb7d2b7768b1808d24c7f55f4121478b70e73c06d9cfbd8b3",
-    "last_verified_version": "wh40k-11e-2026-09-5",
+    "last_verified_points_digest": "sha256:1d28e8ecc53fabf8370677d1207b796a090869ddce53671a84a15b7879bb6f71",
+    "last_verified_version": "wh40k-11e-2026-10-1",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
+    "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
+    "points_acquisition_id": "mfm-20261010T224054Z-86fd7d73",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
+  "role": "Infantry Character",
   "wargear_option_state": "extracted",
+  "wargear_options_text": "This model's Master-crafted Chainsword can be replaced with one of the following: 1 Power Fist, 1 Relic Weapon\nThis model's Heavy Bolt Pistol can be replaced with 1 Inferno Pistol.",
   "weapons": [
     {
       "ability_keywords": [
-        "Pistol"
+        "CLOSE-QUARTERS"
       ],
       "armour_penetration": "-1",
       "attacks": "1",
       "damage": "1",
       "is_melee": false,
       "line": 1,
-      "name": "Heavy bolt pistol",
+      "name": "Heavy Bolt Pistol",
       "range": "18\"",
       "skill": "2+",
-      "strength": "4"
+      "strength": "5"
     },
     {
       "ability_keywords": [
-        "melta 2",
-        "pistol"
+        "CLOSE-QUARTERS",
+        "Melta 1"
       ],
-      "armour_penetration": "-4",
+      "armour_penetration": "-3",
       "attacks": "1",
-      "damage": "D3",
+      "damage": "D3+2",
       "is_melee": false,
       "line": 2,
-      "name": "Inferno pistol",
-      "range": "6\"",
+      "name": "Inferno Pistol",
+      "range": "9\"",
       "skill": "2+",
       "strength": "8"
     },
     {
+      "ability_keywords": [
+        "Sustained Hits 1"
+      ],
       "armour_penetration": "-1",
-      "attacks": "7",
+      "attacks": "8",
       "damage": "2",
       "is_melee": true,
       "line": 3,
-      "name": "Master-crafted chainsword",
+      "name": "Master-crafted Chainsword",
       "skill": "2+",
-      "strength": "4"
-    },
-    {
-      "armour_penetration": "-2",
-      "attacks": "5",
-      "damage": "2",
-      "is_melee": true,
-      "line": 4,
-      "name": "Power fist",
-      "skill": "2+",
-      "strength": "8"
+      "strength": "5"
     },
     {
       "armour_penetration": "-2",
       "attacks": "6",
       "damage": "2",
       "is_melee": true,
-      "line": 5,
-      "name": "Relic weapon",
+      "line": 4,
+      "name": "Power Fist",
       "skill": "2+",
-      "strength": "5"
+      "strength": "8"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "7",
+      "damage": "2",
+      "is_melee": true,
+      "line": 5,
+      "name": "Relic Weapon",
+      "skill": "2+",
+      "strength": "6"
     }
   ]
 }

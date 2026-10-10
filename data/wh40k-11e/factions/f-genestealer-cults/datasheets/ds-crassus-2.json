@@ -19,7 +19,7 @@
       "model_count": 1,
       "points": 180,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf"
+      "source_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587"
     }
   ],
   "datasheet_id": "ds-crassus-2",
@@ -113,7 +113,7 @@
   "option_choices": [
     {
       "count": 1,
-      "grants_weapon_line": 2,
+      "grants_weapon_line": 3,
       "group_id": "og-crassus-2-1",
       "id": "oc-crassus-2-1-1",
       "is_default": false,
@@ -124,7 +124,7 @@
           "item_index": 1,
           "item_name": "heavy stubber",
           "role": "granted",
-          "weapon_line": 2
+          "weapon_line": 3
         }
       ],
       "name": "heavy stubber"
@@ -156,19 +156,21 @@
     }
   ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 10,
+    "consecutive_unverified_releases": 11,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
+    "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
     "points_edition_code": "wh40k-11e",
     "points_source": "none"
   },
+  "role": "Transport",
   "wargear_option_state": "extracted",
+  "wargear_options_text": "This model can be equipped with one of the following:\n1 heavy stubber\n1 storm bolter",
   "weapons": [
     {
       "armour_penetration": "0",
@@ -182,31 +184,31 @@
     },
     {
       "ability_keywords": [
-        "rapid fire 3"
-      ],
-      "armour_penetration": "0",
-      "attacks": "3",
-      "damage": "1",
-      "is_melee": false,
-      "line": 2,
-      "name": "Heavy stubber",
-      "range": "36\"",
-      "skill": "4+",
-      "strength": "4"
-    },
-    {
-      "ability_keywords": [
         "sustained hits 1"
       ],
       "armour_penetration": "-1",
       "attacks": "3",
       "damage": "2",
       "is_melee": false,
-      "line": 3,
+      "line": 2,
       "name": "Heavy bolter",
       "range": "36\"",
       "skill": "4+",
       "strength": "5"
+    },
+    {
+      "ability_keywords": [
+        "rapid fire 3"
+      ],
+      "armour_penetration": "0",
+      "attacks": "3",
+      "damage": "1",
+      "is_melee": false,
+      "line": 3,
+      "name": "Heavy stubber",
+      "range": "36\"",
+      "skill": "4+",
+      "strength": "4"
     },
     {
       "ability_keywords": [

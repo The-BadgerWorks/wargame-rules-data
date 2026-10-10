@@ -19,9 +19,9 @@
       "copy_index_min": 1,
       "label": "1 model",
       "model_count": 1,
-      "points": 90,
+      "points": 95,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf"
+      "source_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587"
     }
   ],
   "datasheet_id": "ds-chaos-lord-2",
@@ -38,7 +38,7 @@
         {
           "item_index": 2,
           "item_name": "daemon hammer",
-          "weapon_line": 4
+          "weapon_line": 6
         }
       ],
       "line": 1
@@ -251,7 +251,7 @@
       "name": "Chaos Lord",
       "objective_control": 1,
       "save": "3+",
-      "toughness": 4,
+      "toughness": 5,
       "wounds": 5
     }
   ],
@@ -259,7 +259,7 @@
   "option_choices": [
     {
       "count": 1,
-      "grants_weapon_line": 1,
+      "grants_weapon_line": 2,
       "group_id": "og-chaos-lord-2-1",
       "id": "oc-chaos-lord-2-1-1",
       "is_default": false,
@@ -270,7 +270,7 @@
           "item_index": 1,
           "item_name": "accursed weapon",
           "role": "granted",
-          "weapon_line": 1
+          "weapon_line": 2
         },
         {
           "item_index": 1,
@@ -338,43 +338,41 @@
     }
   ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 10,
+    "consecutive_unverified_releases": 11,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
+    "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
     "points_edition_code": "wh40k-11e",
     "points_source": "none"
   },
+  "role": "Infantry Character",
   "wargear_option_state": "extracted",
+  "wargear_options_text": "This model’s daemon hammer can be replaced with one of the following:\n1 accursed weapon\n1 Astartes chainsword\nThis model’s plasma pistol can be replaced with 1 power fist.",
   "weapons": [
+    {
+      "armour_penetration": "-1",
+      "attacks": "7",
+      "damage": "1",
+      "is_melee": true,
+      "line": 1,
+      "name": "Astartes chainblade",
+      "skill": "2+",
+      "strength": "5"
+    },
     {
       "armour_penetration": "-2",
       "attacks": "6",
       "damage": "1",
       "is_melee": true,
-      "line": 1,
+      "line": 2,
       "name": "Accursed weapon",
       "skill": "2+",
       "strength": "5"
-    },
-    {
-      "ability_keywords": [
-        "pistol"
-      ],
-      "armour_penetration": "-2",
-      "attacks": "1",
-      "damage": "1",
-      "is_melee": false,
-      "line": 2,
-      "name": "Plasma pistol – standard",
-      "range": "12\"",
-      "skill": "2+",
-      "strength": "7"
     },
     {
       "ability_keywords": [
@@ -393,16 +391,17 @@
     },
     {
       "ability_keywords": [
-        "devastating wounds"
+        "pistol"
       ],
       "armour_penetration": "-2",
-      "attacks": "5",
-      "damage": "2",
-      "is_melee": true,
+      "attacks": "1",
+      "damage": "1",
+      "is_melee": false,
       "line": 4,
-      "name": "Daemon hammer",
-      "skill": "3+",
-      "strength": "8"
+      "name": "Plasma pistol – standard",
+      "range": "12\"",
+      "skill": "2+",
+      "strength": "7"
     },
     {
       "armour_penetration": "-2",
@@ -415,14 +414,17 @@
       "strength": "8"
     },
     {
-      "armour_penetration": "-1",
-      "attacks": "7",
-      "damage": "1",
+      "ability_keywords": [
+        "devastating wounds"
+      ],
+      "armour_penetration": "-2",
+      "attacks": "5",
+      "damage": "2",
       "is_melee": true,
       "line": 6,
-      "name": "Astartes chainblade",
-      "skill": "2+",
-      "strength": "4"
+      "name": "Daemon hammer",
+      "skill": "3+",
+      "strength": "8"
     }
   ]
 }

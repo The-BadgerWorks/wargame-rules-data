@@ -22,7 +22,7 @@
       "model_count": 1,
       "points": 60,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260922T170502Z-1b0a18bd"
+      "source_acquisition_id": "mfm-20261010T224054Z-86fd7d73"
     },
     {
       "copy_index_min": 4,
@@ -30,7 +30,7 @@
       "model_count": 1,
       "points": 70,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260922T170502Z-1b0a18bd"
+      "source_acquisition_id": "mfm-20261010T224054Z-86fd7d73"
     },
     {
       "copy_index_min": 1,
@@ -39,7 +39,7 @@
       "points": 60,
       "pricing_confidence": "verified",
       "pricing_context": "every-model-has-imperium",
-      "source_acquisition_id": "mfm-20260922T170502Z-1b0a18bd"
+      "source_acquisition_id": "mfm-20261010T224054Z-86fd7d73"
     },
     {
       "copy_index_min": 4,
@@ -48,7 +48,7 @@
       "points": 70,
       "pricing_confidence": "verified",
       "pricing_context": "every-model-has-imperium",
-      "source_acquisition_id": "mfm-20260922T170502Z-1b0a18bd"
+      "source_acquisition_id": "mfm-20261010T224054Z-86fd7d73"
     }
   ],
   "datasheet_id": "ds-inquisitorial-chimera",
@@ -294,19 +294,21 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:ecc76fc1f013b2bfe7046ca051727aef3f364b035662fef416f1011042b10ca1",
-    "last_verified_version": "wh40k-11e-2026-09-5",
+    "last_verified_version": "wh40k-11e-2026-10-1",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
+    "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
+    "points_acquisition_id": "mfm-20261010T224054Z-86fd7d73",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
+  "role": "Dedicated Transports",
   "wargear_option_state": "extracted",
+  "wargear_options_text": "This model’s heavy bolter can be replaced with 1 heavy flamer.\nThis model’s multi-laser can be replaced with one of the following:\n1 Heavy bolter*\n1 Heavy flamer*\nThis model can be equipped with one of the following:\n1 heavy stubber\n1 storm bolter\nThis model can be equipped with 1 hunter-killer missile.",
   "weapons": [
     {
       "ability_keywords": [

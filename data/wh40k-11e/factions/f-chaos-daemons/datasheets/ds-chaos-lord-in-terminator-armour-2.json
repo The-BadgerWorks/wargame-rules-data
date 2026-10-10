@@ -20,9 +20,9 @@
       "copy_index_min": 1,
       "label": "1 model",
       "model_count": 1,
-      "points": 85,
+      "points": 90,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf"
+      "source_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587"
     }
   ],
   "datasheet_id": "ds-chaos-lord-in-terminator-armour-2",
@@ -40,7 +40,7 @@
         {
           "item_index": 2,
           "item_name": "exalted weapon",
-          "weapon_line": 4
+          "weapon_line": 3
         }
       ],
       "line": 1
@@ -317,7 +317,7 @@
       "name": "Chaos Lord In Terminator Armour",
       "objective_control": 1,
       "save": "2+",
-      "toughness": 5,
+      "toughness": 6,
       "wounds": 6
     }
   ],
@@ -348,7 +348,7 @@
     },
     {
       "count": 1,
-      "grants_weapon_line": 5,
+      "grants_weapon_line": 2,
       "group_id": "og-chaos-lord-in-terminator-armour-2-2",
       "id": "oc-chaos-lord-in-terminator-armour-2-2-1",
       "is_default": false,
@@ -359,7 +359,7 @@
           "item_index": 1,
           "item_name": "chainfist",
           "role": "granted",
-          "weapon_line": 5
+          "weapon_line": 2
         },
         {
           "item_index": 1,
@@ -371,7 +371,7 @@
     },
     {
       "count": 1,
-      "grants_weapon_line": 2,
+      "grants_weapon_line": 5,
       "group_id": "og-chaos-lord-in-terminator-armour-2-2",
       "id": "oc-chaos-lord-in-terminator-armour-2-2-2",
       "is_default": false,
@@ -382,7 +382,7 @@
           "item_index": 1,
           "item_name": "power fist",
           "role": "granted",
-          "weapon_line": 2
+          "weapon_line": 5
         },
         {
           "item_index": 1,
@@ -394,7 +394,7 @@
     },
     {
       "count": 1,
-      "grants_weapon_line": 3,
+      "grants_weapon_line": 4,
       "group_id": "og-chaos-lord-in-terminator-armour-2-3",
       "id": "oc-chaos-lord-in-terminator-armour-2-3-1",
       "is_default": false,
@@ -405,7 +405,7 @@
           "item_index": 1,
           "item_name": "paired accursed weapons",
           "role": "granted",
-          "weapon_line": 3
+          "weapon_line": 4
         },
         {
           "item_index": 1,
@@ -416,7 +416,7 @@
           "item_index": 2,
           "item_name": "exalted weapon",
           "role": "replaced",
-          "weapon_line": 4
+          "weapon_line": 3
         }
       ],
       "name": "paired accursed weapons"
@@ -440,64 +440,33 @@
     }
   ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 10,
+    "consecutive_unverified_releases": 11,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
+    "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
     "points_edition_code": "wh40k-11e",
     "points_source": "none"
   },
+  "role": "Infantry Character",
   "wargear_option_state": "extracted",
+  "wargear_options_text": "This model’s combi-bolter can be replaced with 1 combi-weapon.\nThis model’s exalted weapon can be replaced with one of the following:\n1 chainfist\n1 power fist\nThis model’s combi-bolter and exalted weapon can be replaced with 1 paired accursed weapons.",
   "weapons": [
     {
       "ability_keywords": [
         "rapid fire 2"
       ],
-      "armour_penetration": "0",
+      "armour_penetration": "-1",
       "attacks": "2",
       "damage": "1",
       "is_melee": false,
       "line": 1,
       "name": "Combi-bolter",
       "range": "24\"",
-      "skill": "2+",
-      "strength": "4"
-    },
-    {
-      "armour_penetration": "-2",
-      "attacks": "5",
-      "damage": "2",
-      "is_melee": true,
-      "line": 2,
-      "name": "Power fist",
-      "skill": "2+",
-      "strength": "8"
-    },
-    {
-      "ability_keywords": [
-        "twin-linked"
-      ],
-      "armour_penetration": "-2",
-      "attacks": "7",
-      "damage": "1",
-      "is_melee": true,
-      "line": 3,
-      "name": "Paired accursed weapons",
-      "skill": "2+",
-      "strength": "5"
-    },
-    {
-      "armour_penetration": "-2",
-      "attacks": "6",
-      "damage": "2",
-      "is_melee": true,
-      "line": 4,
-      "name": "Exalted weapon",
       "skill": "2+",
       "strength": "5"
     },
@@ -509,9 +478,42 @@
       "attacks": "5",
       "damage": "2",
       "is_melee": true,
-      "line": 5,
+      "line": 2,
       "name": "Chainfist",
       "skill": "3+",
+      "strength": "8"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "6",
+      "damage": "2",
+      "is_melee": true,
+      "line": 3,
+      "name": "Exalted weapon",
+      "skill": "2+",
+      "strength": "5"
+    },
+    {
+      "ability_keywords": [
+        "twin-linked"
+      ],
+      "armour_penetration": "-2",
+      "attacks": "7",
+      "damage": "1",
+      "is_melee": true,
+      "line": 4,
+      "name": "Paired accursed weapons",
+      "skill": "2+",
+      "strength": "5"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "5",
+      "damage": "2",
+      "is_melee": true,
+      "line": 5,
+      "name": "Power fist",
+      "skill": "2+",
       "strength": "8"
     },
     {
@@ -520,7 +522,7 @@
         "devastating wounds",
         "rapid fire 1"
       ],
-      "armour_penetration": "0",
+      "armour_penetration": "-1",
       "attacks": "1",
       "damage": "1",
       "is_melee": false,
@@ -528,7 +530,7 @@
       "name": "Combi-weapon",
       "range": "24\"",
       "skill": "3+",
-      "strength": "4"
+      "strength": "5"
     }
   ]
 }

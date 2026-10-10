@@ -22,15 +22,15 @@
     "id": "gs-strike-force",
     "label": "Strike Force",
     "max_detachments": 3,
-    "max_enhancements": 3,
+    "max_enhancements": 4,
     "max_points": 2999,
     "min_points": 2000
   },
   {
-    "detachment_points_budget": 4,
+    "detachment_points_budget": 3,
     "id": "gs-onslaught",
     "label": "Onslaught",
-    "max_detachments": 4,
+    "max_detachments": 3,
     "max_enhancements": 3,
     "max_points": 5000,
     "min_points": 3000

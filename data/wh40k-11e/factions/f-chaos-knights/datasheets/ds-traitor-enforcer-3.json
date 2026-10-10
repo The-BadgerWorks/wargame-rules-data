@@ -28,7 +28,7 @@
       "model_count": 2,
       "points": 70,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf"
+      "source_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587"
     }
   ],
   "datasheet_id": "ds-traitor-enforcer-3",
@@ -42,7 +42,7 @@
         {
           "item_index": 1,
           "item_name": "bolt pistol",
-          "weapon_line": 2
+          "weapon_line": 1
         },
         {
           "item_index": 2,
@@ -61,7 +61,7 @@
         {
           "item_index": 1,
           "item_name": "Ogryn weapons",
-          "weapon_line": 1
+          "weapon_line": 2
         }
       ],
       "line": 2,
@@ -152,30 +152,21 @@
   ],
   "name": "Traitor Enforcer",
   "pricing_confidence": {
-    "consecutive_unverified_releases": 10,
+    "consecutive_unverified_releases": 11,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
+    "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
     "points_edition_code": "wh40k-11e",
     "points_source": "none"
   },
+  "role": "Infantry Character",
   "wargear_option_state": "none",
   "weapons": [
-    {
-      "armour_penetration": "-1",
-      "attacks": "5",
-      "damage": "2",
-      "is_melee": true,
-      "line": 1,
-      "name": "Ogryn weapons",
-      "skill": "3+",
-      "strength": "7"
-    },
     {
       "ability_keywords": [
         "pistol"
@@ -184,11 +175,21 @@
       "attacks": "1",
       "damage": "1",
       "is_melee": false,
-      "line": 2,
+      "line": 1,
       "name": "Bolt pistol",
       "range": "12\"",
       "skill": "3+",
       "strength": "4"
+    },
+    {
+      "armour_penetration": "-1",
+      "attacks": "5",
+      "damage": "2",
+      "is_melee": true,
+      "line": 2,
+      "name": "Ogryn weapons",
+      "skill": "3+",
+      "strength": "7"
     },
     {
       "armour_penetration": "-2",

@@ -21,33 +21,33 @@
       "copy_index_min": 1,
       "label": "1 model",
       "model_count": 1,
-      "points": 75,
+      "points": 70,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260922T170502Z-1b0a18bd"
+      "source_acquisition_id": "mfm-20261010T224054Z-86fd7d73"
     },
     {
       "copy_index_min": 1,
       "label": "2 models",
       "model_count": 2,
-      "points": 150,
+      "points": 140,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260922T170502Z-1b0a18bd"
+      "source_acquisition_id": "mfm-20261010T224054Z-86fd7d73"
     },
     {
       "copy_index_min": 3,
       "label": "1 model",
       "model_count": 1,
-      "points": 85,
+      "points": 80,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260922T170502Z-1b0a18bd"
+      "source_acquisition_id": "mfm-20261010T224054Z-86fd7d73"
     },
     {
       "copy_index_min": 3,
       "label": "2 models",
       "model_count": 2,
-      "points": 160,
+      "points": 150,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260922T170502Z-1b0a18bd"
+      "source_acquisition_id": "mfm-20261010T224054Z-86fd7d73"
     }
   ],
   "datasheet_id": "ds-talos",
@@ -211,20 +211,22 @@
   ],
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
-    "last_verified_points_digest": "sha256:b997e29615dc9dbff49ca0dc42d64bf22535723ae33e42eb964a0e5e48135d67",
-    "last_verified_version": "wh40k-11e-2026-09-5",
+    "last_verified_points_digest": "sha256:cf5d2fefb8f12cf35fbbac833d7f41a6c19fc2245ebf795dc6d84ce8f7f11ccb",
+    "last_verified_version": "wh40k-11e-2026-10-1",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
+    "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
+    "points_acquisition_id": "mfm-20261010T224054Z-86fd7d73",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
+  "role": "Monster",
   "wargear_option_state": "partial",
+  "wargear_options_text": "Any number of models can each replace their twin splinter cannon with one of the following:\n1 stinger pod\n1 twin haywire blaster\n1 twin heat lance\nAny number of models can each replace one of their macro-scalpels with one of the following:\n1 Talos ichor injector\n1 twin liquifier gun\nAny number of models can each replace one of their macro-scalpels with one of the following:\n1 chain flails\n1 Talos gauntlet",
   "weapons": [
     {
       "armour_penetration": "0",

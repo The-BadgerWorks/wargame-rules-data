@@ -27,9 +27,9 @@
       "copy_index_min": 1,
       "label": "2 models",
       "model_count": 2,
-      "points": 230,
+      "points": 240,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260922T170502Z-1b0a18bd"
+      "source_acquisition_id": "mfm-20261010T224054Z-86fd7d73"
     }
   ],
   "datasheet_id": "ds-the-twin-lance",
@@ -146,19 +146,20 @@
   "name": "THE TWIN LANCE",
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
-    "last_verified_points_digest": "sha256:d117a0b843700b0b7b4c8b9cf4c840390ff221941335ecd3e9df6380e88de530",
-    "last_verified_version": "wh40k-11e-2026-09-5",
+    "last_verified_points_digest": "sha256:b6c8c8ffd48ce46d97c4573eaa8aad3ac3995e88ac3875e2b9cf2e8dfb37aa88",
+    "last_verified_version": "wh40k-11e-2026-10-1",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
+    "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
+    "points_acquisition_id": "mfm-20261010T224054Z-86fd7d73",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
+  "role": "Vehicle Epic Hero",
   "wargear_option_state": "none",
   "weapons": [
     {

@@ -27,7 +27,7 @@
       "model_count": 10,
       "points": 70,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260922T170502Z-1b0a18bd"
+      "source_acquisition_id": "mfm-20261010T224054Z-86fd7d73"
     },
     {
       "copy_index_min": 1,
@@ -35,7 +35,7 @@
       "model_count": 20,
       "points": 135,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260922T170502Z-1b0a18bd"
+      "source_acquisition_id": "mfm-20261010T224054Z-86fd7d73"
     }
   ],
   "datasheet_id": "ds-neophyte-hybrids",
@@ -348,19 +348,21 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:0f329aade0b6123120379dd3700e550cea7146f32eba349abe56a73f086beba2",
-    "last_verified_version": "wh40k-11e-2026-09-5",
+    "last_verified_version": "wh40k-11e-2026-10-1",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
+    "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
+    "points_acquisition_id": "mfm-20261010T224054Z-86fd7d73",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
+  "role": "Battleline",
   "wargear_option_state": "partial",
+  "wargear_options_text": "One Neophyte Hybrid equipped with a Hybrid firearm can be equipped with 1 cult icon.\nFor every 10 models in this unit, up to 2 Neophyte Hybrids can each have their Hybrid firearm replaced with one of the following:\nHeavy stubber*\nMining laser*\nSeismic cannon*\nFor every 10 models in this unit, up to 2 Neophyte Hybrids can each have their Hybrid firearm replaced with one of the following:\nFlamer*\nGrenade launcher*\nWebber*\nThe Neophyte Leader’s Hybrid firearm and close combat weapon can be replaced with 1 of the following:\n1 anointed pistol and 1 chainsword\n1 anointed pistol and 1 power weapon",
   "weapons": [
     {
       "ability_keywords": [

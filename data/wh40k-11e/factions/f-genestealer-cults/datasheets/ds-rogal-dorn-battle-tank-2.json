@@ -19,7 +19,7 @@
       "model_count": 1,
       "points": 275,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf"
+      "source_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587"
     }
   ],
   "datasheet_id": "ds-rogal-dorn-battle-tank-2",
@@ -32,12 +32,12 @@
         {
           "item_index": 1,
           "item_name": "castigator gatling cannon",
-          "weapon_line": 10
+          "weapon_line": 2
         },
         {
           "item_index": 2,
           "item_name": "heavy stubber",
-          "weapon_line": 3
+          "weapon_line": 9
         },
         {
           "item_index": 3,
@@ -128,14 +128,14 @@
           "item_index": 1,
           "item_name": "oppressor cannon",
           "role": "granted",
-          "weapon_line": 2
+          "weapon_line": 10
         },
         {
           "count": 1,
           "item_index": 2,
           "item_name": "coaxial autocannon",
           "role": "granted",
-          "weapon_line": 9
+          "weapon_line": 1
         },
         {
           "item_index": 1,
@@ -256,61 +256,57 @@
     }
   ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 10,
+    "consecutive_unverified_releases": 11,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
+    "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
     "points_edition_code": "wh40k-11e",
     "points_source": "none"
   },
+  "role": "Vehicle",
   "wargear_option_state": "extracted",
+  "wargear_options_text": "This model’s twin battle cannon can be replaced with 1 oppressor cannon and 1 coaxial autocannon.\nThis model’s castigator gatling cannon can be replaced with 1 pulveriser cannon.\nThis model can be equipped with one of the following:\n2 meltaguns\n2 additional heavy stubbers\nThis model can be equipped with one of the following:\n2 heavy bolters\n2 multi-meltas",
   "weapons": [
+    {
+      "armour_penetration": "-1",
+      "attacks": "2",
+      "damage": "3",
+      "is_melee": false,
+      "line": 1,
+      "name": "Coaxial autocannon",
+      "range": "48\"",
+      "skill": "4+",
+      "strength": "9"
+    },
+    {
+      "armour_penetration": "0",
+      "attacks": "12",
+      "damage": "1",
+      "is_melee": false,
+      "line": 2,
+      "name": "Castigator gatling cannon",
+      "range": "24\"",
+      "skill": "4+",
+      "strength": "5"
+    },
     {
       "ability_keywords": [
         "melta 2"
       ],
       "armour_penetration": "-4",
-      "attacks": "2",
+      "attacks": "1",
       "damage": "D6",
       "is_melee": false,
-      "line": 1,
-      "name": "Multi-melta",
-      "range": "18\"",
+      "line": 3,
+      "name": "Meltagun",
+      "range": "12\"",
       "skill": "4+",
       "strength": "9"
-    },
-    {
-      "ability_keywords": [
-        "blast"
-      ],
-      "armour_penetration": "-2",
-      "attacks": "D6+3",
-      "damage": "3",
-      "is_melee": false,
-      "line": 2,
-      "name": "Oppressor cannon",
-      "range": "72\"",
-      "skill": "4+",
-      "strength": "12"
-    },
-    {
-      "ability_keywords": [
-        "rapid fire 3"
-      ],
-      "armour_penetration": "0",
-      "attacks": "3",
-      "damage": "1",
-      "is_melee": false,
-      "line": 3,
-      "name": "Heavy stubber",
-      "range": "36\"",
-      "skill": "4+",
-      "strength": "4"
     },
     {
       "ability_keywords": [
@@ -356,12 +352,12 @@
         "melta 2"
       ],
       "armour_penetration": "-4",
-      "attacks": "1",
+      "attacks": "2",
       "damage": "D6",
       "is_melee": false,
       "line": 7,
-      "name": "Meltagun",
-      "range": "12\"",
+      "name": "Multi-melta",
+      "range": "18\"",
       "skill": "4+",
       "strength": "9"
     },
@@ -380,26 +376,32 @@
       "strength": "5"
     },
     {
-      "armour_penetration": "-1",
-      "attacks": "2",
-      "damage": "3",
-      "is_melee": false,
-      "line": 9,
-      "name": "Coaxial autocannon",
-      "range": "48\"",
-      "skill": "4+",
-      "strength": "9"
-    },
-    {
+      "ability_keywords": [
+        "rapid fire 3"
+      ],
       "armour_penetration": "0",
-      "attacks": "12",
+      "attacks": "3",
       "damage": "1",
       "is_melee": false,
-      "line": 10,
-      "name": "Castigator gatling cannon",
-      "range": "24\"",
+      "line": 9,
+      "name": "Heavy stubber",
+      "range": "36\"",
       "skill": "4+",
-      "strength": "5"
+      "strength": "4"
+    },
+    {
+      "ability_keywords": [
+        "blast"
+      ],
+      "armour_penetration": "-2",
+      "attacks": "D6+3",
+      "damage": "3",
+      "is_melee": false,
+      "line": 10,
+      "name": "Oppressor cannon",
+      "range": "72\"",
+      "skill": "4+",
+      "strength": "12"
     }
   ]
 }

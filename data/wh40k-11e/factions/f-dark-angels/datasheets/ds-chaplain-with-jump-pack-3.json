@@ -4,7 +4,7 @@
     "core:leader",
     "datasheet:exhortation-of-rage",
     "datasheet:litany-of-hate",
-    "faction:oath-of-moment"
+    "faction:combat-doctrines"
   ],
   "composition": [
     {
@@ -12,7 +12,7 @@
       "max_count": 1,
       "min_count": 1,
       "model_line": 1,
-      "model_name": "Chaplain with Jump Pack"
+      "model_name": "Chaplain with Jump Pack model"
     }
   ],
   "costs": [
@@ -22,7 +22,7 @@
       "model_count": 1,
       "points": 75,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260922T170502Z-1b0a18bd"
+      "source_acquisition_id": "mfm-20261010T224054Z-86fd7d73"
     }
   ],
   "datasheet_id": "ds-chaplain-with-jump-pack-3",
@@ -33,14 +33,16 @@
       "id": "eq-chaplain-with-jump-pack-3-1",
       "items": [
         {
+          "count": 1,
           "item_index": 1,
-          "item_name": "bolt pistol",
-          "weapon_line": 2
+          "item_name": "Absolvor Bolt Pistol",
+          "weapon_line": 1
         },
         {
+          "count": 1,
           "item_index": 2,
-          "item_name": "crozius arcanum",
-          "weapon_line": 11
+          "item_name": "Crozius Arcanum",
+          "weapon_line": 2
         }
       ],
       "line": 1
@@ -70,6 +72,11 @@
     },
     {
       "is_faction_keyword": false,
+      "keyword": "EXPLOSIVES",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
       "keyword": "FLY",
       "keyword_class": "unit"
     },
@@ -87,417 +94,72 @@
       "is_faction_keyword": false,
       "keyword": "JUMP PACK",
       "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "TACTICUS",
+      "keyword_class": "unit"
     }
   ],
   "models": [
     {
-      "base_size": "(⌀32mm)",
+      "base_size": "(⌀40mm)",
       "invuln_save": "4+",
       "leadership": "5+",
       "line": 1,
       "movement": "12\"",
-      "name": "Chaplain With Jump Pack",
+      "name": "Chaplain with Jump Pack",
       "objective_control": 1,
       "save": "3+",
-      "toughness": 4,
+      "toughness": 5,
       "wounds": 4
     }
   ],
   "name": "CHAPLAIN WITH JUMP PACK",
-  "option_choices": [
-    {
-      "count": 1,
-      "grants_weapon_line": 3,
-      "group_id": "og-chaplain-with-jump-pack-3-1",
-      "id": "oc-chaplain-with-jump-pack-3-1-1",
-      "is_default": false,
-      "is_no_change": false,
-      "items": [
-        {
-          "count": 1,
-          "item_index": 1,
-          "item_name": "boltgun",
-          "role": "granted",
-          "weapon_line": 3
-        },
-        {
-          "item_index": 1,
-          "item_name": "’s bolt pistol",
-          "role": "replaced"
-        }
-      ],
-      "name": "boltgun"
-    },
-    {
-      "count": 1,
-      "grants_weapon_line": 4,
-      "group_id": "og-chaplain-with-jump-pack-3-1",
-      "id": "oc-chaplain-with-jump-pack-3-1-2",
-      "is_default": false,
-      "is_no_change": false,
-      "items": [
-        {
-          "count": 1,
-          "item_index": 1,
-          "item_name": "combi-weapon",
-          "role": "granted",
-          "weapon_line": 4
-        },
-        {
-          "item_index": 1,
-          "item_name": "’s bolt pistol",
-          "role": "replaced"
-        }
-      ],
-      "name": "combi-weapon"
-    },
-    {
-      "count": 1,
-      "grants_weapon_line": 5,
-      "group_id": "og-chaplain-with-jump-pack-3-1",
-      "id": "oc-chaplain-with-jump-pack-3-1-3",
-      "is_default": false,
-      "is_no_change": false,
-      "items": [
-        {
-          "count": 1,
-          "item_index": 1,
-          "item_name": "grav-pistol",
-          "role": "granted",
-          "weapon_line": 5
-        },
-        {
-          "item_index": 1,
-          "item_name": "’s bolt pistol",
-          "role": "replaced"
-        }
-      ],
-      "name": "grav-pistol"
-    },
-    {
-      "count": 1,
-      "grants_weapon_line": 6,
-      "group_id": "og-chaplain-with-jump-pack-3-1",
-      "id": "oc-chaplain-with-jump-pack-3-1-4",
-      "is_default": false,
-      "is_no_change": false,
-      "items": [
-        {
-          "count": 1,
-          "item_index": 1,
-          "item_name": "hand flamer",
-          "role": "granted",
-          "weapon_line": 6
-        },
-        {
-          "item_index": 1,
-          "item_name": "’s bolt pistol",
-          "role": "replaced"
-        }
-      ],
-      "name": "hand flamer"
-    },
-    {
-      "count": 1,
-      "grants_weapon_line": 7,
-      "group_id": "og-chaplain-with-jump-pack-3-1",
-      "id": "oc-chaplain-with-jump-pack-3-1-5",
-      "is_default": false,
-      "is_no_change": false,
-      "items": [
-        {
-          "count": 1,
-          "item_index": 1,
-          "item_name": "inferno pistol",
-          "role": "granted",
-          "weapon_line": 7
-        },
-        {
-          "item_index": 1,
-          "item_name": "’s bolt pistol",
-          "role": "replaced"
-        }
-      ],
-      "name": "inferno pistol"
-    },
-    {
-      "count": 1,
-      "group_id": "og-chaplain-with-jump-pack-3-1",
-      "id": "oc-chaplain-with-jump-pack-3-1-6",
-      "is_default": false,
-      "is_no_change": false,
-      "items": [
-        {
-          "count": 1,
-          "item_index": 1,
-          "item_name": "plasma pistol",
-          "role": "granted"
-        },
-        {
-          "item_index": 1,
-          "item_name": "’s bolt pistol",
-          "role": "replaced"
-        }
-      ],
-      "name": "plasma pistol"
-    },
-    {
-      "count": 1,
-      "grants_weapon_line": 10,
-      "group_id": "og-chaplain-with-jump-pack-3-1",
-      "id": "oc-chaplain-with-jump-pack-3-1-7",
-      "is_default": false,
-      "is_no_change": false,
-      "items": [
-        {
-          "count": 1,
-          "item_index": 1,
-          "item_name": "storm bolter",
-          "role": "granted",
-          "weapon_line": 10
-        },
-        {
-          "item_index": 1,
-          "item_name": "’s bolt pistol",
-          "role": "replaced"
-        }
-      ],
-      "name": "storm bolter"
-    },
-    {
-      "count": 1,
-      "grants_weapon_line": 12,
-      "group_id": "og-chaplain-with-jump-pack-3-1",
-      "id": "oc-chaplain-with-jump-pack-3-1-8",
-      "is_default": false,
-      "is_no_change": false,
-      "items": [
-        {
-          "count": 1,
-          "item_index": 1,
-          "item_name": "power fist",
-          "role": "granted",
-          "weapon_line": 12
-        },
-        {
-          "item_index": 1,
-          "item_name": "’s bolt pistol",
-          "role": "replaced"
-        }
-      ],
-      "name": "power fist"
-    },
-    {
-      "count": 1,
-      "grants_weapon_line": 1,
-      "group_id": "og-chaplain-with-jump-pack-3-1",
-      "id": "oc-chaplain-with-jump-pack-3-1-9",
-      "is_default": false,
-      "is_no_change": false,
-      "items": [
-        {
-          "count": 1,
-          "item_index": 1,
-          "item_name": "absolvor bolt pistol",
-          "role": "granted",
-          "weapon_line": 1
-        },
-        {
-          "item_index": 1,
-          "item_name": "’s bolt pistol",
-          "role": "replaced"
-        }
-      ],
-      "name": "absolvor bolt pistol"
-    }
-  ],
-  "option_groups": [
-    {
-      "id": "og-chaplain-with-jump-pack-3-1",
-      "line": 1,
-      "scope": "model"
-    }
-  ],
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:3ef9b0b950694b9c2204fe4c1a14b9688c6bd63b6f2babb06888bc26464b773a",
-    "last_verified_version": "wh40k-11e-2026-09-5",
+    "last_verified_version": "wh40k-11e-2026-10-1",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
+    "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
+    "points_acquisition_id": "mfm-20261010T224054Z-86fd7d73",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
-  "wargear_option_state": "extracted",
+  "role": "Infantry Character",
+  "wargear_option_state": "none",
   "weapons": [
     {
       "ability_keywords": [
-        "close-quarters"
+        "CLOSE-QUARTERS"
       ],
-      "armour_penetration": "-1",
+      "armour_penetration": "-2",
       "attacks": "1",
       "damage": "2",
       "is_melee": false,
       "line": 1,
-      "name": "Absolvor bolt pistol",
+      "name": "Absolvor Bolt Pistol",
       "range": "18\"",
       "skill": "3+",
       "strength": "5"
     },
     {
       "ability_keywords": [
-        "pistol"
+        "CLEAVE 1"
       ],
-      "armour_penetration": "0",
-      "attacks": "1",
-      "damage": "1",
-      "is_melee": false,
-      "line": 2,
-      "name": "Bolt pistol",
-      "range": "12\"",
-      "skill": "3+",
-      "strength": "4"
-    },
-    {
-      "armour_penetration": "0",
-      "attacks": "2",
-      "damage": "1",
-      "is_melee": false,
-      "line": 3,
-      "name": "Boltgun",
-      "range": "24\"",
-      "skill": "3+",
-      "strength": "4"
-    },
-    {
-      "ability_keywords": [
-        "anti-infantry 4+",
-        "devastating wounds",
-        "rapid fire 1"
-      ],
-      "armour_penetration": "0",
-      "attacks": "1",
-      "damage": "1",
-      "is_melee": false,
-      "line": 4,
-      "name": "Combi-weapon",
-      "range": "24\"",
-      "skill": "4+",
-      "strength": "4"
-    },
-    {
-      "ability_keywords": [
-        "anti-vehicle 2+",
-        "pistol"
-      ],
-      "armour_penetration": "-1",
-      "attacks": "1",
-      "damage": "2",
-      "is_melee": false,
-      "line": 5,
-      "name": "Grav-pistol",
-      "range": "12\"",
-      "skill": "3+",
-      "strength": "4"
-    },
-    {
-      "ability_keywords": [
-        "ignores cover",
-        "pistol",
-        "torrent"
-      ],
-      "armour_penetration": "0",
-      "attacks": "D6",
-      "damage": "1",
-      "is_melee": false,
-      "line": 6,
-      "name": "Hand flamer",
-      "range": "12\"",
-      "skill": "N/A",
-      "strength": "3"
-    },
-    {
-      "ability_keywords": [
-        "melta 2",
-        "pistol"
-      ],
-      "armour_penetration": "-4",
-      "attacks": "1",
-      "damage": "D3",
-      "is_melee": false,
-      "line": 7,
-      "name": "Inferno pistol",
-      "range": "6\"",
-      "skill": "3+",
-      "strength": "8"
-    },
-    {
-      "ability_keywords": [
-        "pistol"
-      ],
-      "armour_penetration": "-2",
-      "attacks": "1",
-      "damage": "1",
-      "is_melee": false,
-      "line": 8,
-      "name": "Plasma pistol – standard",
-      "range": "12\"",
-      "skill": "3+",
-      "strength": "7"
-    },
-    {
-      "ability_keywords": [
-        "hazardous",
-        "pistol"
-      ],
-      "armour_penetration": "-3",
-      "attacks": "1",
-      "damage": "2",
-      "is_melee": false,
-      "line": 9,
-      "name": "Plasma pistol – supercharge",
-      "range": "12\"",
-      "skill": "3+",
-      "strength": "8"
-    },
-    {
-      "ability_keywords": [
-        "rapid fire 2"
-      ],
-      "armour_penetration": "0",
-      "attacks": "2",
-      "damage": "1",
-      "is_melee": false,
-      "line": 10,
-      "name": "Storm bolter",
-      "range": "24\"",
-      "skill": "3+",
-      "strength": "4"
-    },
-    {
       "armour_penetration": "-1",
       "attacks": "5",
       "damage": "2",
       "is_melee": true,
-      "line": 11,
-      "name": "Crozius arcanum",
+      "line": 2,
+      "name": "Crozius Arcanum",
       "skill": "2+",
       "strength": "6"
-    },
-    {
-      "armour_penetration": "-2",
-      "attacks": "4",
-      "damage": "2",
-      "is_melee": true,
-      "line": 12,
-      "name": "Power fist",
-      "skill": "2+",
-      "strength": "8"
     }
   ]
 }

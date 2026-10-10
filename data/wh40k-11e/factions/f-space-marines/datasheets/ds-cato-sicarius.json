@@ -1,9 +1,11 @@
 {
   "ability_keys": [
-    "core:support",
+    "core:leader",
+    "datasheet:captain-of-the-honour-guard",
     "datasheet:honour-or-death",
-    "datasheet:knight-champion-of-macragge",
-    "faction:oath-of-moment"
+    "datasheet:knight-champion-of-macragge-once-per-phase-per-army",
+    "faction:combat-doctrines",
+    "faction:transhuman-strategist"
   ],
   "composition": [
     {
@@ -11,7 +13,7 @@
       "max_count": 1,
       "min_count": 1,
       "model_line": 1,
-      "model_name": "Cato Sicarius - EPIC HERO"
+      "model_name": "Cato Sicarius model"
     }
   ],
   "costs": [
@@ -19,9 +21,9 @@
       "copy_index_min": 1,
       "label": "1 model",
       "model_count": 1,
-      "points": 105,
+      "points": 115,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260922T170502Z-1b0a18bd"
+      "source_acquisition_id": "mfm-20261010T224054Z-86fd7d73"
     }
   ],
   "datasheet_id": "ds-cato-sicarius",
@@ -34,13 +36,13 @@
         {
           "count": 1,
           "item_index": 1,
-          "item_name": "artisan plasma pistol",
+          "item_name": "Artisan Plasma Pistol",
           "weapon_line": 1
         },
         {
           "count": 1,
           "item_index": 2,
-          "item_name": "Talassarian tempest blade"
+          "item_name": "Talassarian Tempest Blade"
         }
       ],
       "line": 1
@@ -60,16 +62,6 @@
     },
     {
       "is_faction_keyword": false,
-      "keyword": "CAPTAIN",
-      "keyword_class": "unit"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "CATO",
-      "keyword_class": "unit"
-    },
-    {
-      "is_faction_keyword": false,
       "keyword": "CHARACTER",
       "keyword_class": "unit"
     },
@@ -80,17 +72,17 @@
     },
     {
       "is_faction_keyword": false,
+      "keyword": "EXPLOSIVES",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
       "keyword": "IMPERIUM",
       "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
       "keyword": "INFANTRY",
-      "keyword_class": "unit"
-    },
-    {
-      "is_faction_keyword": false,
-      "keyword": "SICARIUS",
       "keyword_class": "unit"
     },
     {
@@ -117,78 +109,79 @@
       "name": "Cato Sicarius",
       "objective_control": 1,
       "save": "2+",
-      "toughness": 4,
+      "toughness": 5,
       "wounds": 5
     }
   ],
   "name": "CATO SICARIUS",
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
-    "last_verified_points_digest": "sha256:8641e4b4146f71a53c7a3bbead41a9c1af813ce55f494ba90c3ba05208ad8aae",
-    "last_verified_version": "wh40k-11e-2026-09-5",
+    "last_verified_points_digest": "sha256:9e91cd3e2c6c33d1ce006a3fc9b04e64021c0d0554ffb517f277a9dacd729344",
+    "last_verified_version": "wh40k-11e-2026-10-1",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
+    "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
+    "points_acquisition_id": "mfm-20261010T224054Z-86fd7d73",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
+  "role": "Infantry Epic Hero",
   "wargear_option_state": "none",
   "weapons": [
     {
       "ability_keywords": [
-        "pistol"
+        "CLOSE-QUARTERS"
       ],
       "armour_penetration": "-3",
       "attacks": "1",
       "damage": "2",
       "is_melee": false,
       "line": 1,
-      "name": "Artisan plasma pistol",
+      "name": "Artisan Plasma Pistol",
       "range": "12\"",
       "skill": "2+",
       "strength": "8"
     },
     {
       "ability_keywords": [
-        "devastating wounds"
+        "Devastating Wounds"
       ],
       "armour_penetration": "-3",
       "attacks": "4",
       "damage": "3",
       "is_melee": true,
       "line": 2,
-      "name": "Talassarian tempest blade – strike",
+      "name": "Talassarian tempest blade - Strike",
       "skill": "2+",
       "strength": "6"
     },
     {
       "ability_keywords": [
-        "sustained hits 1"
-      ],
-      "armour_penetration": "-2",
-      "attacks": "9",
-      "damage": "1",
-      "is_melee": true,
-      "line": 3,
-      "name": "Talassarian tempest blade – sweep",
-      "skill": "2+",
-      "strength": "5"
-    },
-    {
-      "ability_keywords": [
-        "precision"
+        "Precision"
       ],
       "armour_penetration": "-2",
       "attacks": "6",
       "damage": "2",
       "is_melee": true,
+      "line": 3,
+      "name": "Talassarian tempest blade - Coup de Grace",
+      "skill": "2+",
+      "strength": "5"
+    },
+    {
+      "ability_keywords": [
+        "Sustained Hits 1"
+      ],
+      "armour_penetration": "-2",
+      "attacks": "9",
+      "damage": "1",
+      "is_melee": true,
       "line": 4,
-      "name": "Talassarian tempest blade – coup de grace",
+      "name": "Talassarian tempest blade - Sweep",
       "skill": "2+",
       "strength": "5"
     }

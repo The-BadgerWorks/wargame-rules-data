@@ -30,17 +30,17 @@
       "copy_index_min": 1,
       "label": "9 models",
       "model_count": 9,
-      "points": 65,
+      "points": 75,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260922T170502Z-1b0a18bd"
+      "source_acquisition_id": "mfm-20261010T224054Z-86fd7d73"
     },
     {
       "copy_index_min": 3,
       "label": "9 models",
       "model_count": 9,
-      "points": 75,
+      "points": 85,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260922T170502Z-1b0a18bd"
+      "source_acquisition_id": "mfm-20261010T224054Z-86fd7d73"
     }
   ],
   "datasheet_id": "ds-servitor-battleclade",
@@ -225,20 +225,22 @@
   ],
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
-    "last_verified_points_digest": "sha256:5a2b234d83c624865d316fb1f57f70ea0cc3f4d4bb1c2c2aee55759e15cbf223",
-    "last_verified_version": "wh40k-11e-2026-09-5",
+    "last_verified_points_digest": "sha256:e94860392002c1bb54fb09cd71fbfc2c56ce355c5af24af0ed451e3224f60607",
+    "last_verified_version": "wh40k-11e-2026-10-1",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
+    "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
+    "points_acquisition_id": "mfm-20261010T224054Z-86fd7d73",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
+  "role": "Infantry",
   "wargear_option_state": "extracted",
+  "wargear_options_text": "1 Combat Servitor model can have its 1 phosphor blaster replaced with 1 meltagun.\nUp to 3 Combat Servitor models can each have their 1 phosphor blaster replaced with 1 incendine igniter.",
   "weapons": [
     {
       "ability_keywords": [

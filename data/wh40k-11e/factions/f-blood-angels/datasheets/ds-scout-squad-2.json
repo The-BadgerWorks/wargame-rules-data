@@ -2,21 +2,22 @@
   "ability_keys": [
     "core:infiltrators",
     "core:scouts-6",
-    "datasheet:guerrilla-tactics",
-    "faction:oath-of-moment"
+    "datasheet:flexible-asset",
+    "faction:combat-doctrines"
   ],
   "composition": [
     {
       "line": 1,
       "max_count": 1,
       "min_count": 1,
-      "model_name": "Scout Sergeant"
+      "model_name": "Scout Sergeant model"
     },
     {
       "line": 2,
       "max_count": 9,
       "min_count": 4,
-      "model_name": "Scouts"
+      "model_line": 1,
+      "model_name": "Scout models"
     }
   ],
   "costs": [
@@ -26,7 +27,7 @@
       "model_count": 5,
       "points": 65,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260922T170502Z-1b0a18bd"
+      "source_acquisition_id": "mfm-20261010T224054Z-86fd7d73"
     },
     {
       "copy_index_min": 1,
@@ -34,23 +35,7 @@
       "model_count": 10,
       "points": 120,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260922T170502Z-1b0a18bd"
-    },
-    {
-      "copy_index_min": 3,
-      "label": "5 models",
-      "model_count": 5,
-      "points": 75,
-      "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260922T170502Z-1b0a18bd"
-    },
-    {
-      "copy_index_min": 3,
-      "label": "10 models",
-      "model_count": 10,
-      "points": 130,
-      "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260922T170502Z-1b0a18bd"
+      "source_acquisition_id": "mfm-20261010T224054Z-86fd7d73"
     }
   ],
   "datasheet_id": "ds-scout-squad-2",
@@ -61,18 +46,21 @@
       "id": "eq-scout-squad-2-1",
       "items": [
         {
+          "count": 1,
           "item_index": 1,
-          "item_name": "bolt pistol",
+          "item_name": "Boltgun",
           "weapon_line": 2
         },
         {
+          "count": 1,
           "item_index": 2,
-          "item_name": "boltgun",
-          "weapon_line": 3
+          "item_name": "Bolt Pistol",
+          "weapon_line": 1
         },
         {
+          "count": 1,
           "item_index": 3,
-          "item_name": "close combat weapon",
+          "item_name": "Combat Knife",
           "weapon_line": 9
         }
       ],
@@ -93,7 +81,7 @@
     },
     {
       "is_faction_keyword": false,
-      "keyword": "GRENADES",
+      "keyword": "EXPLOSIVES",
       "keyword_class": "unit"
     },
     {
@@ -108,11 +96,6 @@
     },
     {
       "is_faction_keyword": false,
-      "keyword": "SCOUT SQUAD",
-      "keyword_class": "unit"
-    },
-    {
-      "is_faction_keyword": false,
       "keyword": "SMOKE",
       "keyword_class": "unit"
     }
@@ -123,7 +106,18 @@
       "leadership": "6+",
       "line": 1,
       "movement": "6\"",
-      "name": "Scout Squad",
+      "name": "Scout",
+      "objective_control": 1,
+      "save": "4+",
+      "toughness": 4,
+      "wounds": 2
+    },
+    {
+      "base_size": "(⌀28.5mm)",
+      "leadership": "6+",
+      "line": 2,
+      "movement": "6\"",
+      "name": "Scout Sergeant",
       "objective_control": 1,
       "save": "4+",
       "toughness": 4,
@@ -134,7 +128,7 @@
   "option_choices": [
     {
       "count": 1,
-      "grants_weapon_line": 8,
+      "grants_weapon_line": 6,
       "group_id": "og-scout-squad-2-1",
       "id": "oc-scout-squad-2-1-1",
       "is_default": false,
@@ -143,21 +137,23 @@
         {
           "count": 1,
           "item_index": 1,
-          "item_name": "Astartes chainsword",
+          "item_name": "Shotgun",
           "role": "granted",
-          "weapon_line": 8
+          "weapon_line": 6
         },
         {
           "item_index": 1,
-          "item_name": "Scout Sergeant's boltgun",
-          "role": "replaced"
+          "item_name": "Boltgun",
+          "role": "replaced",
+          "weapon_line": 2
         }
       ],
-      "name": "Astartes chainsword"
+      "name": "Shotgun",
+      "replaces_weapon_line": 2
     },
     {
       "count": 1,
-      "grants_weapon_line": 1,
+      "grants_weapon_line": 8,
       "group_id": "og-scout-squad-2-2",
       "id": "oc-scout-squad-2-2-1",
       "is_default": false,
@@ -166,48 +162,23 @@
         {
           "count": 1,
           "item_index": 1,
-          "item_name": "Astartes shotgun",
+          "item_name": "Chainsword",
           "role": "granted",
-          "weapon_line": 1
+          "weapon_line": 8
         },
         {
           "item_index": 1,
-          "item_name": "boltgun",
+          "item_name": "Combat Knife",
           "role": "replaced",
-          "weapon_line": 3
+          "weapon_line": 9
         }
       ],
-      "name": "Astartes shotgun",
-      "replaces_weapon_line": 3
+      "name": "Chainsword",
+      "replaces_weapon_line": 9
     },
     {
       "count": 1,
-      "grants_weapon_line": 10,
-      "group_id": "og-scout-squad-2-2",
-      "id": "oc-scout-squad-2-2-2",
-      "is_default": false,
-      "is_no_change": false,
-      "items": [
-        {
-          "count": 1,
-          "item_index": 1,
-          "item_name": "combat knife",
-          "role": "granted",
-          "weapon_line": 10
-        },
-        {
-          "item_index": 1,
-          "item_name": "boltgun",
-          "role": "replaced",
-          "weapon_line": 3
-        }
-      ],
-      "name": "combat knife",
-      "replaces_weapon_line": 3
-    },
-    {
-      "count": 1,
-      "grants_weapon_line": 7,
+      "grants_weapon_line": 6,
       "group_id": "og-scout-squad-2-3",
       "id": "oc-scout-squad-2-3-1",
       "is_default": false,
@@ -216,21 +187,23 @@
         {
           "count": 1,
           "item_index": 1,
-          "item_name": "Scout sniper rifle",
+          "item_name": "Shotgun",
           "role": "granted",
-          "weapon_line": 7
+          "weapon_line": 6
         },
         {
           "item_index": 1,
-          "item_name": "in this unit, 1 Scout’s boltgun",
-          "role": "replaced"
+          "item_name": "Boltgun",
+          "role": "replaced",
+          "weapon_line": 2
         }
       ],
-      "name": "Scout sniper rifle"
+      "name": "Shotgun",
+      "replaces_weapon_line": 2
     },
     {
       "count": 1,
-      "grants_weapon_line": 4,
+      "grants_weapon_line": 7,
       "group_id": "og-scout-squad-2-4",
       "id": "oc-scout-squad-2-4-1",
       "is_default": false,
@@ -239,38 +212,67 @@
         {
           "count": 1,
           "item_index": 1,
-          "item_name": "heavy bolter",
+          "item_name": "Sniper Rifle",
           "role": "granted",
-          "weapon_line": 4
+          "weapon_line": 7
         },
         {
           "item_index": 1,
-          "item_name": "in this unit, 1 Scout’s boltgun",
-          "role": "replaced"
+          "item_name": "Boltgun",
+          "role": "replaced",
+          "weapon_line": 2
         }
       ],
-      "name": "heavy bolter"
+      "name": "Sniper Rifle",
+      "replaces_weapon_line": 2
     },
     {
       "count": 1,
-      "group_id": "og-scout-squad-2-4",
-      "id": "oc-scout-squad-2-4-2",
+      "grants_weapon_line": 3,
+      "group_id": "og-scout-squad-2-5",
+      "id": "oc-scout-squad-2-5-1",
       "is_default": false,
       "is_no_change": false,
       "items": [
         {
           "count": 1,
           "item_index": 1,
-          "item_name": "missile launcher",
+          "item_name": "Heavy Bolter",
+          "role": "granted",
+          "weapon_line": 3
+        },
+        {
+          "item_index": 1,
+          "item_name": "Boltgun",
+          "role": "replaced",
+          "weapon_line": 2
+        }
+      ],
+      "name": "Heavy Bolter",
+      "replaces_weapon_line": 2
+    },
+    {
+      "count": 1,
+      "group_id": "og-scout-squad-2-5",
+      "id": "oc-scout-squad-2-5-2",
+      "is_default": false,
+      "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "Missile Launcher",
           "role": "granted"
         },
         {
           "item_index": 1,
-          "item_name": "in this unit, 1 Scout’s boltgun",
-          "role": "replaced"
+          "item_name": "Boltgun",
+          "role": "replaced",
+          "weapon_line": 2
         }
       ],
-      "name": "missile launcher"
+      "name": "Missile Launcher",
+      "replaces_weapon_line": 2
     }
   ],
   "option_groups": [
@@ -281,137 +283,146 @@
     },
     {
       "id": "og-scout-squad-2-2",
-      "is_per_model": true,
       "line": 2,
       "scope": "unit"
     },
     {
       "id": "og-scout-squad-2-3",
+      "is_per_model": true,
       "line": 3,
-      "scope": "per_n_models",
-      "scope_n": 5
+      "scope": "unit"
     },
     {
       "id": "og-scout-squad-2-4",
       "line": 4,
       "scope": "per_n_models",
       "scope_n": 5
+    },
+    {
+      "id": "og-scout-squad-2-5",
+      "line": 5,
+      "scope": "per_n_models",
+      "scope_n": 5
     }
   ],
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
-    "last_verified_points_digest": "sha256:b1e9512cc5e00188b530a3e70f4c3a71c7c560f604f6b9992c7fcf8ff76493ae",
-    "last_verified_version": "wh40k-11e-2026-09-5",
+    "last_verified_points_digest": "sha256:b56b2c88db3581757ff5d58c4a248a4e8f3e239acb687895d9d7ad97e1d17cfe",
+    "last_verified_version": "wh40k-11e-2026-10-1",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
+    "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
+    "points_acquisition_id": "mfm-20261010T224054Z-86fd7d73",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
+  "role": "Infantry",
   "wargear_option_state": "extracted",
+  "wargear_options_text": "The Scout Sergeant can have their Boltgun replaced with 1 Shotgun.\nThe Scout Sergeant can have their Combat Knife replaced with 1 Chainsword.\nAny number of Scout models can each have their Boltgun replaced with 1 Shotgun.\nFor every 5 models in this unit, 1 Scout model can have their Boltgun replaced with 1 Sniper Rifle.\nFor every 5 models in this unit, 1 Scout model can have their Boltgun replaced with one of the following:\n1 Heavy Bolter\n1 Missile Launcher",
   "weapons": [
     {
       "ability_keywords": [
-        "assault"
+        "CLOSE-QUARTERS"
       ],
-      "armour_penetration": "0",
-      "attacks": "2",
+      "armour_penetration": "-1",
+      "attacks": "1",
       "damage": "1",
       "is_melee": false,
       "line": 1,
-      "name": "Astartes shotgun",
-      "range": "18\"",
+      "name": "Bolt Pistol",
+      "range": "12\"",
       "skill": "3+",
-      "strength": "4"
+      "strength": "5"
     },
     {
       "ability_keywords": [
-        "pistol"
+        "Rapid Fire 1"
       ],
-      "armour_penetration": "0",
+      "armour_penetration": "-1",
       "attacks": "1",
       "damage": "1",
       "is_melee": false,
       "line": 2,
-      "name": "Bolt pistol",
-      "range": "12\"",
-      "skill": "3+",
-      "strength": "4"
-    },
-    {
-      "armour_penetration": "0",
-      "attacks": "2",
-      "damage": "1",
-      "is_melee": false,
-      "line": 3,
       "name": "Boltgun",
       "range": "24\"",
       "skill": "3+",
-      "strength": "4"
+      "strength": "5"
     },
     {
       "ability_keywords": [
-        "heavy",
-        "sustained hits 1"
+        "Heavy",
+        "Rapid Fire 2",
+        "Sustained Hits 1"
       ],
       "armour_penetration": "-1",
       "attacks": "3",
       "damage": "2",
       "is_melee": false,
-      "line": 4,
-      "name": "Heavy bolter",
+      "line": 3,
+      "name": "Heavy Bolter",
       "range": "36\"",
       "skill": "4+",
       "strength": "5"
     },
     {
       "ability_keywords": [
-        "blast",
-        "heavy"
+        "BLAST 1",
+        "Heavy"
       ],
-      "armour_penetration": "0",
-      "attacks": "D6",
+      "armour_penetration": "-1",
+      "attacks": "4",
       "damage": "1",
       "is_melee": false,
-      "line": 5,
-      "name": "Missile launcher – frag",
+      "line": 4,
+      "name": "Missile Launcher - Frag",
       "range": "48\"",
       "skill": "4+",
       "strength": "4"
     },
     {
-      "ability_keywords": [
-        "heavy"
-      ],
       "armour_penetration": "-2",
       "attacks": "1",
-      "damage": "D6",
+      "damage": "D3+3",
       "is_melee": false,
-      "line": 6,
-      "name": "Missile launcher – krak",
+      "line": 5,
+      "name": "Missile Launcher - Krak",
       "range": "48\"",
       "skill": "4+",
-      "strength": "9"
+      "strength": "10"
     },
     {
       "ability_keywords": [
-        "HEAVY",
-        "PRECISION"
+        "ASSAULT",
+        "BLAST 1"
+      ],
+      "armour_penetration": "-1",
+      "attacks": "2",
+      "damage": "1",
+      "is_melee": false,
+      "line": 6,
+      "name": "Shotgun",
+      "range": "18\"",
+      "skill": "3+",
+      "strength": "4"
+    },
+    {
+      "ability_keywords": [
+        "Heavy",
+        "Precision"
       ],
       "armour_penetration": "-2",
       "attacks": "1",
       "damage": "2",
       "is_melee": false,
       "line": 7,
-      "name": "Scout sniper rifle",
+      "name": "Sniper Rifle",
       "range": "36\"",
       "skill": "3+",
-      "strength": "4"
+      "strength": "5"
     },
     {
       "armour_penetration": "-1",
@@ -419,17 +430,7 @@
       "damage": "1",
       "is_melee": true,
       "line": 8,
-      "name": "Astartes chainsword",
-      "skill": "3+",
-      "strength": "4"
-    },
-    {
-      "armour_penetration": "0",
-      "attacks": "2",
-      "damage": "1",
-      "is_melee": true,
-      "line": 9,
-      "name": "Close combat weapon",
+      "name": "Chainsword",
       "skill": "3+",
       "strength": "4"
     },
@@ -438,8 +439,8 @@
       "attacks": "3",
       "damage": "1",
       "is_melee": true,
-      "line": 10,
-      "name": "Combat knife",
+      "line": 9,
+      "name": "Combat Knife",
       "skill": "3+",
       "strength": "4"
     }

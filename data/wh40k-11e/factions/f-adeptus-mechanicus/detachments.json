@@ -8,11 +8,11 @@
       "is_unique": false,
       "name": "COHORT ACQUISITUS",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
+        "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
         "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
+        "points_acquisition_id": "mfm-20261010T224054Z-86fd7d73",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       },
@@ -24,29 +24,6 @@
       ]
     },
     {
-      "detachment_id": "d-cohort-cybernetica",
-      "detachment_points_cost": 2,
-      "force_disposition": "TAKE AND HOLD",
-      "is_legends": false,
-      "is_unique": false,
-      "name": "COHORT CYBERNETICA",
-      "provenance": {
-        "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
-        "detail_edition_code": "wh40k-11e",
-        "detail_source": "wahapedia",
-        "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
-        "points_edition_code": "wh40k-11e",
-        "points_source": "mfm"
-      },
-      "rules": [
-        {
-          "name": "Cyber-Psalm Programming",
-          "summary_key": "detachment:d-cohort-cybernetica:cyber-psalm-programming"
-        }
-      ]
-    },
-    {
       "detachment_id": "d-data-psalm-conclave",
       "detachment_points_cost": 2,
       "force_disposition": "DISRUPTION",
@@ -54,11 +31,11 @@
       "is_unique": true,
       "name": "DATA-PSALM CONCLAVE",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
+        "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
         "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
+        "points_acquisition_id": "mfm-20261010T224054Z-86fd7d73",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       },
@@ -70,29 +47,6 @@
       ]
     },
     {
-      "detachment_id": "d-eradication-cohort",
-      "detachment_points_cost": 3,
-      "force_disposition": "PURGE THE FOE",
-      "is_legends": false,
-      "is_unique": false,
-      "name": "ERADICATION COHORT",
-      "provenance": {
-        "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
-        "detail_edition_code": "wh40k-11e",
-        "detail_source": "wahapedia",
-        "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
-        "points_edition_code": "wh40k-11e",
-        "points_source": "mfm"
-      },
-      "rules": [
-        {
-          "name": "Murderous Imperative",
-          "summary_key": "detachment:d-eradication-cohort:murderous-imperative"
-        }
-      ]
-    },
-    {
       "detachment_id": "d-explorator-maniple",
       "detachment_points_cost": 2,
       "force_disposition": "PRIORITY ASSETS",
@@ -100,11 +54,11 @@
       "is_unique": false,
       "name": "EXPLORATOR MANIPLE",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
+        "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
         "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
+        "points_acquisition_id": "mfm-20261010T224054Z-86fd7d73",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       },
@@ -123,11 +77,11 @@
       "is_unique": false,
       "name": "HALOSCREED BATTLE CLADE",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
+        "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
         "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
+        "points_acquisition_id": "mfm-20261010T224054Z-86fd7d73",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       },
@@ -139,29 +93,6 @@
       ]
     },
     {
-      "detachment_id": "d-lords-of-the-forge",
-      "detachment_points_cost": 1,
-      "force_disposition": "PRIORITY ASSETS",
-      "is_legends": false,
-      "is_unique": false,
-      "name": "LORDS OF THE FORGE",
-      "provenance": {
-        "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
-        "detail_edition_code": "wh40k-11e",
-        "detail_source": "wahapedia",
-        "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
-        "points_edition_code": "wh40k-11e",
-        "points_source": "mfm"
-      },
-      "rules": [
-        {
-          "name": "War-Form Mantles",
-          "summary_key": "detachment:d-lords-of-the-forge:war-form-mantles"
-        }
-      ]
-    },
-    {
       "detachment_id": "d-luminen-auto-choir",
       "detachment_points_cost": 1,
       "force_disposition": "DISRUPTION",
@@ -169,11 +100,11 @@
       "is_unique": true,
       "name": "LUMINEN AUTO-CHOIR",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
+        "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
         "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
+        "points_acquisition_id": "mfm-20261010T224054Z-86fd7d73",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       },
@@ -192,11 +123,11 @@
       "is_unique": false,
       "name": "RAD-ZONE CORPS",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
+        "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
         "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
+        "points_acquisition_id": "mfm-20261010T224054Z-86fd7d73",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       },
@@ -215,11 +146,11 @@
       "is_unique": false,
       "name": "SKITARII HUNTER COHORT",
       "provenance": {
-        "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
+        "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
         "detail_edition_code": "wh40k-11e",
         "detail_source": "wahapedia",
         "is_hybrid_edition": false,
-        "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
+        "points_acquisition_id": "mfm-20261010T224054Z-86fd7d73",
         "points_edition_code": "wh40k-11e",
         "points_source": "mfm"
       },

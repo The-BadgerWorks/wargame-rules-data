@@ -2,8 +2,8 @@
   "ability_keys": [
     "core:deadly-demise-1",
     "datasheet:blizzard-shield",
-    "datasheet:fervour-of-the-ancients-aura",
-    "faction:oath-of-moment"
+    "datasheet:fervour-of-the-ancients",
+    "faction:combat-doctrines"
   ],
   "composition": [
     {
@@ -11,7 +11,7 @@
       "max_count": 1,
       "min_count": 1,
       "model_line": 1,
-      "model_name": "Venerable Dreadnought"
+      "model_name": "Venerable Dreadnought model"
     }
   ],
   "costs": [
@@ -19,17 +19,17 @@
       "copy_index_min": 1,
       "label": "1 model",
       "model_count": 1,
-      "points": 125,
+      "points": 130,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260922T170502Z-1b0a18bd"
+      "source_acquisition_id": "mfm-20261010T224054Z-86fd7d73"
     },
     {
       "copy_index_min": 3,
       "label": "1 model",
       "model_count": 1,
-      "points": 135,
+      "points": 140,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260922T170502Z-1b0a18bd"
+      "source_acquisition_id": "mfm-20261010T224054Z-86fd7d73"
     }
   ],
   "datasheet_id": "ds-venerable-dreadnought-2",
@@ -40,19 +40,22 @@
       "id": "eq-venerable-dreadnought-2-1",
       "items": [
         {
+          "count": 1,
           "item_index": 1,
-          "item_name": "assault cannon",
+          "item_name": "Assault Cannon",
           "weapon_line": 1
         },
         {
+          "count": 1,
           "item_index": 2,
-          "item_name": "storm bolter",
-          "weapon_line": 6
+          "item_name": "Dreadnought Combat Weapon",
+          "weapon_line": 7
         },
         {
+          "count": 1,
           "item_index": 3,
-          "item_name": "Dreadnought combat weapon",
-          "weapon_line": 7
+          "item_name": "Storm Bolter",
+          "weapon_line": 6
         }
       ],
       "line": 1
@@ -97,11 +100,6 @@
     },
     {
       "is_faction_keyword": false,
-      "keyword": "VENERABLE DREADNOUGHT",
-      "keyword_class": "unit"
-    },
-    {
-      "is_faction_keyword": false,
       "keyword": "WALKER",
       "keyword_class": "unit"
     }
@@ -122,48 +120,23 @@
   "name": "VENERABLE DREADNOUGHT",
   "option_choices": [
     {
-      "count": 1,
       "group_id": "og-venerable-dreadnought-2-1",
       "id": "oc-venerable-dreadnought-2-1-1",
       "is_default": false,
       "is_no_change": false,
       "items": [
         {
-          "count": 1,
           "item_index": 1,
-          "item_name": "helfrost cannon",
+          "item_name": "one of the following: 1 Helfrost Cannon, 1 Multi-melta",
           "role": "granted"
         },
         {
           "item_index": 1,
-          "item_name": "’s assault cannon",
+          "item_name": "'s Assault Cannon",
           "role": "replaced"
         }
       ],
-      "name": "helfrost cannon"
-    },
-    {
-      "count": 1,
-      "grants_weapon_line": 5,
-      "group_id": "og-venerable-dreadnought-2-1",
-      "id": "oc-venerable-dreadnought-2-1-2",
-      "is_default": false,
-      "is_no_change": false,
-      "items": [
-        {
-          "count": 1,
-          "item_index": 1,
-          "item_name": "multi-melta",
-          "role": "granted",
-          "weapon_line": 5
-        },
-        {
-          "item_index": 1,
-          "item_name": "’s assault cannon",
-          "role": "replaced"
-        }
-      ],
-      "name": "multi-melta"
+      "name": "one of the following: 1 Helfrost Cannon, 1 Multi-melta"
     },
     {
       "count": 1,
@@ -176,17 +149,17 @@
         {
           "count": 1,
           "item_index": 1,
-          "item_name": "heavy flamer",
+          "item_name": "Heavy Flamer",
           "role": "granted",
           "weapon_line": 2
         },
         {
           "item_index": 1,
-          "item_name": "’s storm bolter",
+          "item_name": "'s Storm Bolter",
           "role": "replaced"
         }
       ],
-      "name": "heavy flamer"
+      "name": "Heavy Flamer"
     },
     {
       "count": 1,
@@ -198,63 +171,28 @@
         {
           "count": 1,
           "item_index": 1,
-          "item_name": "Fenrisian greataxe, 1 blizzard shield",
+          "item_name": "Fenrisian Great Axe",
           "role": "granted"
         },
         {
           "count": 1,
           "item_index": 2,
-          "item_name": "storm bolter",
-          "role": "granted",
-          "weapon_line": 6
-        },
-        {
-          "item_index": 1,
-          "item_name": "’s assault cannon, storm bolter",
-          "role": "replaced"
-        },
-        {
-          "item_index": 2,
-          "item_name": "Dreadnought combat weapon",
-          "role": "replaced",
-          "weapon_line": 7
-        }
-      ],
-      "name": "Fenrisian greataxe, 1 blizzard shield and 1 storm bolter"
-    },
-    {
-      "count": 1,
-      "group_id": "og-venerable-dreadnought-2-3",
-      "id": "oc-venerable-dreadnought-2-3-2",
-      "is_default": false,
-      "is_no_change": false,
-      "items": [
-        {
-          "count": 1,
-          "item_index": 1,
-          "item_name": "Fenrisian greataxe, 1 blizzard shield",
+          "item_name": "Blizzard Shield",
           "role": "granted"
         },
         {
-          "count": 1,
-          "item_index": 2,
-          "item_name": "heavy flamer",
-          "role": "granted",
-          "weapon_line": 2
-        },
-        {
           "item_index": 1,
-          "item_name": "’s assault cannon, storm bolter",
+          "item_name": "'s Assault Cannon",
           "role": "replaced"
         },
         {
           "item_index": 2,
-          "item_name": "Dreadnought combat weapon",
+          "item_name": "Dreadnought Combat Weapon",
           "role": "replaced",
           "weapon_line": 7
         }
       ],
-      "name": "Fenrisian greataxe, 1 blizzard shield and 1 heavy flamer"
+      "name": "Fenrisian Great Axe and 1 Blizzard Shield"
     }
   ],
   "option_groups": [
@@ -276,62 +214,64 @@
   ],
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
-    "last_verified_points_digest": "sha256:a4014a14965bf716f2cb81333079c619e4f03d82faebe0fa26aba1a2212c21f2",
-    "last_verified_version": "wh40k-11e-2026-09-5",
+    "last_verified_points_digest": "sha256:9d5e5e89d640a4ca312919c4c0d8c82c2d2c23a3e52f1c4185390c00f0fdefed",
+    "last_verified_version": "wh40k-11e-2026-10-1",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
+    "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
+    "points_acquisition_id": "mfm-20261010T224054Z-86fd7d73",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
+  "role": "Walker",
   "wargear_option_state": "extracted",
+  "wargear_options_text": "This model's Assault Cannon can be replaced with one of the following: 1 Helfrost Cannon, 1 Multi-melta\nThis model's Storm Bolter can be replaced with 1 Heavy Flamer.\nThis model's Assault Cannon and Dreadnought Combat Weapon can be replaced with 1 Fenrisian Great Axe and 1 Blizzard Shield.",
   "weapons": [
     {
       "ability_keywords": [
-        "devastating wounds"
+        "Sustained Hits 1"
       ],
-      "armour_penetration": "0",
+      "armour_penetration": "-2",
       "attacks": "6",
       "damage": "1",
       "is_melee": false,
       "line": 1,
-      "name": "Assault cannon",
+      "name": "Assault Cannon",
       "range": "24\"",
       "skill": "3+",
       "strength": "6"
     },
     {
       "ability_keywords": [
-        "ignores cover",
-        "torrent"
+        "BLAST 2",
+        "Torrent"
       ],
       "armour_penetration": "-1",
-      "attacks": "D6",
+      "attacks": "3",
       "damage": "1",
       "is_melee": false,
       "line": 2,
-      "name": "Heavy flamer",
+      "name": "Heavy Flamer",
       "range": "12\"",
-      "skill": "3+",
+      "skill": "-",
       "strength": "5"
     },
     {
       "ability_keywords": [
-        "torrent"
+        "Torrent"
       ],
       "armour_penetration": "-1",
-      "attacks": "D6",
+      "attacks": "3",
       "damage": "2",
       "is_melee": false,
       "line": 3,
-      "name": "Helfrost cannon – dispersed",
+      "name": "Helfrost Cannon - Dispersed",
       "range": "12\"",
-      "skill": "N/A",
+      "skill": "-",
       "strength": "6"
     },
     {
@@ -340,38 +280,38 @@
       "damage": "5",
       "is_melee": false,
       "line": 4,
-      "name": "Helfrost cannon – focused",
+      "name": "Helfrost Cannon - Focused",
       "range": "36\"",
       "skill": "3+",
       "strength": "10"
     },
     {
       "ability_keywords": [
-        "melta 2"
+        "Melta 3"
       ],
-      "armour_penetration": "-4",
+      "armour_penetration": "-3",
       "attacks": "2",
-      "damage": "D6",
+      "damage": "D3+2",
       "is_melee": false,
       "line": 5,
       "name": "Multi-melta",
       "range": "18\"",
       "skill": "3+",
-      "strength": "9"
+      "strength": "10"
     },
     {
       "ability_keywords": [
-        "rapid fire 2"
+        "Rapid Fire 2"
       ],
-      "armour_penetration": "0",
+      "armour_penetration": "-1",
       "attacks": "2",
       "damage": "1",
       "is_melee": false,
       "line": 6,
-      "name": "Storm bolter",
+      "name": "Storm Bolter",
       "range": "24\"",
       "skill": "3+",
-      "strength": "4"
+      "strength": "5"
     },
     {
       "armour_penetration": "-2",
@@ -379,17 +319,17 @@
       "damage": "3",
       "is_melee": true,
       "line": 7,
-      "name": "Dreadnought combat weapon",
+      "name": "Dreadnought Combat Weapon",
       "skill": "3+",
       "strength": "12"
     },
     {
       "armour_penetration": "-2",
       "attacks": "6",
-      "damage": "D6+1",
+      "damage": "D3+3",
       "is_melee": true,
       "line": 8,
-      "name": "Fenrisian greataxe – strike",
+      "name": "Fenrisian Great Axe - Strike",
       "skill": "3+",
       "strength": "10"
     },
@@ -399,7 +339,7 @@
       "damage": "1",
       "is_melee": true,
       "line": 9,
-      "name": "Fenrisian greataxe – sweep",
+      "name": "Fenrisian Great Axe - Sweep",
       "skill": "3+",
       "strength": "6"
     }

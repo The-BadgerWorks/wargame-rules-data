@@ -25,33 +25,33 @@
       "copy_index_min": 1,
       "label": "5 models",
       "model_count": 5,
-      "points": 135,
+      "points": 140,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260922T170502Z-1b0a18bd"
+      "source_acquisition_id": "mfm-20261010T224054Z-86fd7d73"
     },
     {
       "copy_index_min": 1,
       "label": "10 models",
       "model_count": 10,
-      "points": 270,
+      "points": 280,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260922T170502Z-1b0a18bd"
+      "source_acquisition_id": "mfm-20261010T224054Z-86fd7d73"
     },
     {
       "copy_index_min": 3,
       "label": "5 models",
       "model_count": 5,
-      "points": 145,
+      "points": 150,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260922T170502Z-1b0a18bd"
+      "source_acquisition_id": "mfm-20261010T224054Z-86fd7d73"
     },
     {
       "copy_index_min": 3,
       "label": "10 models",
       "model_count": 10,
-      "points": 280,
+      "points": 290,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260922T170502Z-1b0a18bd"
+      "source_acquisition_id": "mfm-20261010T224054Z-86fd7d73"
     }
   ],
   "datasheet_id": "ds-chosen",
@@ -122,7 +122,7 @@
       "name": "Chosen",
       "objective_control": 1,
       "save": "3+",
-      "toughness": 4,
+      "toughness": 5,
       "wounds": 3
     }
   ],
@@ -273,6 +273,7 @@
       "scope_n": 5
     },
     {
+      "eligible_max_count": 1,
       "id": "og-chosen-5",
       "line": 5,
       "scope": "unit"
@@ -280,26 +281,28 @@
   ],
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
-    "last_verified_points_digest": "sha256:9051fdbad84a1cfc2d0f0444076bf68aa13f3820ab43e1e55273d76c296f3231",
-    "last_verified_version": "wh40k-11e-2026-09-5",
+    "last_verified_points_digest": "sha256:f8f12aeb39943dcfe2807f02374611bcee9e22e862c28fdcbf49410dc83bc4b3",
+    "last_verified_version": "wh40k-11e-2026-10-1",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
+    "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
+    "points_acquisition_id": "mfm-20261010T224054Z-86fd7d73",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
+  "role": "Infantry",
   "wargear_option_state": "extracted",
+  "wargear_options_text": "For every 5 models in this unit, up to 2 models can each have their bolt pistol replaced with 1 plasma pistol.\nFor every 5 models in this unit, up to 2 models can each have their boltgun replaced with 1 combi-weapon.\nFor every 5 models in this unit, 1 model’s boltgun and accursed weapon can be replaced with 1 paired accursed weapons.\nFor every 5 models in this unit, 1 model equipped with a boltgun can have its accursed weapon replaced with 1 power fist. That model’s boltgun cannot be replaced.\n1 model can be equipped with 1 Chaos icon.",
   "weapons": [
     {
       "ability_keywords": [
         "pistol"
       ],
-      "armour_penetration": "0",
+      "armour_penetration": "-1",
       "attacks": "1",
       "damage": "1",
       "is_melee": false,
@@ -307,10 +310,10 @@
       "name": "Bolt pistol",
       "range": "12\"",
       "skill": "3+",
-      "strength": "4"
+      "strength": "5"
     },
     {
-      "armour_penetration": "0",
+      "armour_penetration": "-1",
       "attacks": "2",
       "damage": "1",
       "is_melee": false,
@@ -318,7 +321,7 @@
       "name": "Boltgun",
       "range": "24\"",
       "skill": "3+",
-      "strength": "4"
+      "strength": "5"
     },
     {
       "ability_keywords": [
@@ -326,7 +329,7 @@
         "devastating wounds",
         "rapid fire 1"
       ],
-      "armour_penetration": "0",
+      "armour_penetration": "-1",
       "attacks": "1",
       "damage": "1",
       "is_melee": false,
@@ -334,7 +337,7 @@
       "name": "Combi-weapon",
       "range": "24\"",
       "skill": "4+",
-      "strength": "4"
+      "strength": "5"
     },
     {
       "ability_keywords": [

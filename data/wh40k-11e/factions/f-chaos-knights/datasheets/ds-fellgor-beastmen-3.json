@@ -25,7 +25,7 @@
       "model_count": 10,
       "points": 60,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf"
+      "source_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587"
     }
   ],
   "datasheet_id": "ds-fellgor-beastmen-3",
@@ -39,12 +39,12 @@
         {
           "item_index": 1,
           "item_name": "bolt pistol",
-          "weapon_line": 6
+          "weapon_line": 5
         },
         {
           "item_index": 2,
           "item_name": "chainsword",
-          "weapon_line": 3
+          "weapon_line": 9
         }
       ],
       "line": 1,
@@ -57,7 +57,7 @@
         {
           "item_index": 1,
           "item_name": "autopistol",
-          "weapon_line": 8
+          "weapon_line": 4
         },
         {
           "item_index": 2,
@@ -150,7 +150,7 @@
     },
     {
       "count": 1,
-      "grants_weapon_line": 9,
+      "grants_weapon_line": 1,
       "group_id": "og-fellgor-beastmen-3-2",
       "id": "oc-fellgor-beastmen-3-2-1",
       "is_default": false,
@@ -161,7 +161,7 @@
           "item_index": 1,
           "item_name": "great weapon",
           "role": "granted",
-          "weapon_line": 9
+          "weapon_line": 1
         },
         {
           "item_index": 1,
@@ -211,33 +211,31 @@
     }
   ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 10,
+    "consecutive_unverified_releases": 11,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
+    "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
     "points_edition_code": "wh40k-11e",
     "points_source": "none"
   },
+  "role": "Infantry",
   "wargear_option_state": "extracted",
+  "wargear_options_text": "The Fellgor Champion’s bolt pistol can be replaced with 1 plasma pistol.\n1 Fellgor Beastman’s close combat weapon can be replaced with 1 great weapon.\n1 Fellgor Beastman’s close combat weapon can be replaced with 1 corrupted stave.",
   "weapons": [
     {
-      "ability_keywords": [
-        "devastating wounds",
-        "psychic"
-      ],
       "armour_penetration": "-1",
       "attacks": "2",
-      "damage": "D3",
+      "damage": "2",
       "is_melee": true,
       "line": 1,
-      "name": "Corrupted stave",
-      "skill": "4+",
-      "strength": "4"
+      "name": "Great weapon",
+      "skill": "5+",
+      "strength": "8"
     },
     {
       "armour_penetration": "0",
@@ -250,12 +248,16 @@
       "strength": "4"
     },
     {
-      "armour_penetration": "0",
-      "attacks": "3",
-      "damage": "1",
+      "ability_keywords": [
+        "devastating wounds",
+        "psychic"
+      ],
+      "armour_penetration": "-1",
+      "attacks": "2",
+      "damage": "D3",
       "is_melee": true,
       "line": 3,
-      "name": "Chainsword",
+      "name": "Corrupted stave",
       "skill": "4+",
       "strength": "4"
     },
@@ -263,15 +265,29 @@
       "ability_keywords": [
         "pistol"
       ],
-      "armour_penetration": "-2",
+      "armour_penetration": "0",
       "attacks": "1",
       "damage": "1",
       "is_melee": false,
       "line": 4,
-      "name": "Plasma pistol – standard",
+      "name": "Autopistol",
       "range": "12\"",
       "skill": "4+",
-      "strength": "7"
+      "strength": "3"
+    },
+    {
+      "ability_keywords": [
+        "pistol"
+      ],
+      "armour_penetration": "0",
+      "attacks": "1",
+      "damage": "1",
+      "is_melee": false,
+      "line": 5,
+      "name": "Bolt pistol",
+      "range": "12\"",
+      "skill": "4+",
+      "strength": "4"
     },
     {
       "ability_keywords": [
@@ -282,7 +298,7 @@
       "attacks": "D3",
       "damage": "1",
       "is_melee": false,
-      "line": 5,
+      "line": 6,
       "name": "Corrupted stave",
       "range": "18\"",
       "skill": "4+",
@@ -292,15 +308,15 @@
       "ability_keywords": [
         "pistol"
       ],
-      "armour_penetration": "0",
+      "armour_penetration": "-2",
       "attacks": "1",
       "damage": "1",
       "is_melee": false,
-      "line": 6,
-      "name": "Bolt pistol",
+      "line": 7,
+      "name": "Plasma pistol – standard",
       "range": "12\"",
       "skill": "4+",
-      "strength": "4"
+      "strength": "7"
     },
     {
       "ability_keywords": [
@@ -311,35 +327,21 @@
       "attacks": "1",
       "damage": "2",
       "is_melee": false,
-      "line": 7,
+      "line": 8,
       "name": "Plasma pistol – supercharge",
       "range": "12\"",
       "skill": "4+",
       "strength": "8"
     },
     {
-      "ability_keywords": [
-        "pistol"
-      ],
       "armour_penetration": "0",
-      "attacks": "1",
+      "attacks": "3",
       "damage": "1",
-      "is_melee": false,
-      "line": 8,
-      "name": "Autopistol",
-      "range": "12\"",
-      "skill": "4+",
-      "strength": "3"
-    },
-    {
-      "armour_penetration": "-1",
-      "attacks": "2",
-      "damage": "2",
       "is_melee": true,
       "line": 9,
-      "name": "Great weapon",
-      "skill": "5+",
-      "strength": "8"
+      "name": "Chainsword",
+      "skill": "4+",
+      "strength": "4"
     }
   ]
 }

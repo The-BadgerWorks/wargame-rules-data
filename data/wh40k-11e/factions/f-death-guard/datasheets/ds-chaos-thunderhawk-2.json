@@ -22,7 +22,7 @@
       "model_count": 1,
       "points": 840,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf"
+      "source_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587"
     }
   ],
   "datasheet_id": "ds-chaos-thunderhawk-2",
@@ -40,7 +40,7 @@
         {
           "item_index": 2,
           "item_name": "Thunderhawk heavy cannon",
-          "weapon_line": 2
+          "weapon_line": 3
         },
         {
           "count": 4,
@@ -50,7 +50,7 @@
         {
           "item_index": 4,
           "item_name": "armoured hull",
-          "weapon_line": 5
+          "weapon_line": 6
         },
         {
           "item_index": 5,
@@ -125,7 +125,7 @@
   "option_choices": [
     {
       "count": 1,
-      "grants_weapon_line": 3,
+      "grants_weapon_line": 4,
       "group_id": "og-chaos-thunderhawk-2-1",
       "id": "oc-chaos-thunderhawk-2-1-1",
       "is_default": false,
@@ -136,7 +136,7 @@
           "item_index": 1,
           "item_name": "turbo-laser destructor",
           "role": "granted",
-          "weapon_line": 3
+          "weapon_line": 4
         },
         {
           "item_index": 1,
@@ -183,19 +183,21 @@
     }
   ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 10,
+    "consecutive_unverified_releases": 11,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
+    "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
     "points_edition_code": "wh40k-11e",
     "points_source": "none"
   },
+  "role": "Aircraft",
   "wargear_option_state": "extracted",
+  "wargear_options_text": "This model’s Thunderhawk heavy cannon can be replaced with 1 turbo-laser destructor.\nThis model’s Thunderhawk cluster bombs can be replaced with 1 hellstrike missile battery",
   "weapons": [
     {
       "ability_keywords": [
@@ -212,6 +214,17 @@
       "strength": "8"
     },
     {
+      "armour_penetration": "-3",
+      "attacks": "1",
+      "damage": "D6+1",
+      "is_melee": false,
+      "line": 2,
+      "name": "Lascannon",
+      "range": "48\"",
+      "skill": "3+",
+      "strength": "12"
+    },
+    {
       "ability_keywords": [
         "blast"
       ],
@@ -219,7 +232,7 @@
       "attacks": "D6+6",
       "damage": "3",
       "is_melee": false,
-      "line": 2,
+      "line": 3,
       "name": "Thunderhawk heavy cannon",
       "range": "48\"",
       "skill": "3+",
@@ -233,7 +246,7 @@
       "attacks": "D3+1",
       "damage": "D6+6",
       "is_melee": false,
-      "line": 3,
+      "line": 4,
       "name": "Turbo-laser destructor",
       "range": "96\"",
       "skill": "3+",
@@ -248,7 +261,7 @@
       "attacks": "3",
       "damage": "2",
       "is_melee": false,
-      "line": 4,
+      "line": 5,
       "name": "Twin heavy bolter",
       "range": "36\"",
       "skill": "3+",
@@ -259,21 +272,10 @@
       "attacks": "6",
       "damage": "1",
       "is_melee": true,
-      "line": 5,
+      "line": 6,
       "name": "Armoured hull",
       "skill": "4+",
       "strength": "8"
-    },
-    {
-      "armour_penetration": "-3",
-      "attacks": "1",
-      "damage": "D6+1",
-      "is_melee": false,
-      "line": 6,
-      "name": "Lascannon",
-      "range": "48\"",
-      "skill": "3+",
-      "strength": "12"
     }
   ]
 }

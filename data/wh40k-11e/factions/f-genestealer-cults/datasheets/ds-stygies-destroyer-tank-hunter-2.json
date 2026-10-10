@@ -20,7 +20,7 @@
       "model_count": 1,
       "points": 180,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf"
+      "source_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587"
     }
   ],
   "datasheet_id": "ds-stygies-destroyer-tank-hunter-2",
@@ -127,7 +127,7 @@
     },
     {
       "count": 1,
-      "grants_weapon_line": 3,
+      "grants_weapon_line": 1,
       "group_id": "og-stygies-destroyer-tank-hunter-2-2",
       "id": "oc-stygies-destroyer-tank-hunter-2-2-1",
       "is_default": false,
@@ -138,14 +138,14 @@
           "item_index": 1,
           "item_name": "heavy stubber",
           "role": "granted",
-          "weapon_line": 3
+          "weapon_line": 1
         }
       ],
       "name": "heavy stubber"
     },
     {
       "count": 1,
-      "grants_weapon_line": 1,
+      "grants_weapon_line": 3,
       "group_id": "og-stygies-destroyer-tank-hunter-2-2",
       "id": "oc-stygies-destroyer-tank-hunter-2-2-2",
       "is_default": false,
@@ -156,7 +156,7 @@
           "item_index": 1,
           "item_name": "storm bolter",
           "role": "granted",
-          "weapon_line": 1
+          "weapon_line": 3
         }
       ],
       "name": "storm bolter"
@@ -175,31 +175,33 @@
     }
   ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 10,
+    "consecutive_unverified_releases": 11,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
+    "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
     "points_edition_code": "wh40k-11e",
     "points_source": "none"
   },
+  "role": "Vehicle",
   "wargear_option_state": "extracted",
+  "wargear_options_text": "This model can be equipped with 1 hunter-killer missile.\nThis model can be equipped with one of the following:\n1 heavy stubber\n1 storm bolter",
   "weapons": [
     {
       "ability_keywords": [
-        "rapid fire 2"
+        "rapid fire 3"
       ],
       "armour_penetration": "0",
-      "attacks": "2",
+      "attacks": "3",
       "damage": "1",
       "is_melee": false,
       "line": 1,
-      "name": "Storm bolter",
-      "range": "24\"",
+      "name": "Heavy stubber",
+      "range": "36\"",
       "skill": "4+",
       "strength": "4"
     },
@@ -219,15 +221,15 @@
     },
     {
       "ability_keywords": [
-        "rapid fire 3"
+        "rapid fire 2"
       ],
       "armour_penetration": "0",
-      "attacks": "3",
+      "attacks": "2",
       "damage": "1",
       "is_melee": false,
       "line": 3,
-      "name": "Heavy stubber",
-      "range": "36\"",
+      "name": "Storm bolter",
+      "range": "24\"",
       "skill": "4+",
       "strength": "4"
     },

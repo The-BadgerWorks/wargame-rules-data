@@ -27,7 +27,7 @@
       "model_count": 10,
       "points": 80,
       "pricing_confidence": "verified",
-      "source_acquisition_id": "mfm-20260922T170502Z-1b0a18bd"
+      "source_acquisition_id": "mfm-20261010T224054Z-86fd7d73"
     }
   ],
   "datasheet_id": "ds-cadian-recon-squad",
@@ -203,19 +203,21 @@
   "pricing_confidence": {
     "consecutive_unverified_releases": 0,
     "last_verified_points_digest": "sha256:18213df34815923aea7b921008bd5114020ae9a0c9245d2d45ddb3ecd5669419",
-    "last_verified_version": "wh40k-11e-2026-09-5",
+    "last_verified_version": "wh40k-11e-2026-10-1",
     "state": "verified"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
+    "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
-    "points_acquisition_id": "mfm-20260922T170502Z-1b0a18bd",
+    "points_acquisition_id": "mfm-20261010T224054Z-86fd7d73",
     "points_edition_code": "wh40k-11e",
     "points_source": "mfm"
   },
+  "role": "Infantry",
   "wargear_option_state": "partial",
+  "wargear_options_text": "One Recon Trooper can replace their lasgun with 1 autostubber.\nOne Recon Trooper can replace their lasgun with one of the following:\n1 plasma gun\n1 meltagun\nUp to one Recon Trooper can replace their lasgun with 1 long-las.\nOne Recon Trooper equipped with 1 lasgun can be equipped with 1 vox-caster and 1 vox-relay beacon (that model’s lasgun cannot be replaced).\nYou can select one of the following options:\nUp to one Recon Trooper can replace their lasgun with 1 long-las.\nUp to two Recon Troopers each equipped with a lasgun can form a weapons team. If they do, one model’s lasgun is replaced with 1 laspistol, and one model’s lasgun is replaced with 1 missile launcher and 1 laspistol.",
   "weapons": [
     {
       "ability_keywords": [

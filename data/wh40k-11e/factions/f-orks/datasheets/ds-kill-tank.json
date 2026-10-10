@@ -1,7 +1,10 @@
 {
   "ability_keys": [
-    "core:deadly-demise-d6-2",
-    "datasheet:wall-of-dakka",
+    "core:damaged-6",
+    "core:deadly-demise-d6",
+    "core:firing-deck-12",
+    "datasheet:da-biggest-boom",
+    "datasheet:rolling-fortress",
     "faction:waaagh"
   ],
   "composition": [
@@ -10,7 +13,7 @@
       "max_count": 1,
       "min_count": 1,
       "model_line": 1,
-      "model_name": "Kill Tank"
+      "model_name": "Kill Tank model"
     }
   ],
   "costs": [
@@ -20,10 +23,9 @@
       "model_count": 1,
       "points": 300,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf"
+      "source_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587"
     }
   ],
-  "damaged_threshold": 8,
   "datasheet_id": "ds-kill-tank",
   "default_equipment_state": "extracted",
   "equipment_groups": [
@@ -32,24 +34,21 @@
       "id": "eq-kill-tank-1",
       "items": [
         {
+          "count": 2,
           "item_index": 1,
-          "item_name": "bursta kannon",
+          "item_name": "Big Shoota",
           "weapon_line": 1
         },
         {
+          "count": 1,
           "item_index": 2,
-          "item_name": "skorcha",
-          "weapon_line": 3
+          "item_name": "Crushin' Bulk",
+          "weapon_line": 11
         },
         {
+          "count": 1,
           "item_index": 3,
-          "item_name": "twin big shoota",
-          "weapon_line": 4
-        },
-        {
-          "item_index": 4,
-          "item_name": "reinforced ram",
-          "weapon_line": 5
+          "item_name": "Tank Kannon"
         }
       ],
       "line": 1
@@ -64,7 +63,7 @@
   "keywords": [
     {
       "is_faction_keyword": false,
-      "keyword": "KILL TANK",
+      "keyword": "FRAME",
       "keyword_class": "unit"
     },
     {
@@ -74,17 +73,17 @@
     },
     {
       "is_faction_keyword": false,
-      "keyword": "TITANIC",
-      "keyword_class": "unit"
-    },
-    {
-      "is_faction_keyword": false,
       "keyword": "TRANSPORT",
       "keyword_class": "unit"
     },
     {
       "is_faction_keyword": false,
       "keyword": "VEHICLE",
+      "keyword_class": "unit"
+    },
+    {
+      "is_faction_keyword": false,
+      "keyword": "WAGON",
       "keyword_class": "unit"
     }
   ],
@@ -104,27 +103,90 @@
   "name": "Kill Tank",
   "option_choices": [
     {
-      "count": 1,
-      "grants_weapon_line": 2,
       "group_id": "og-kill-tank-1",
       "id": "oc-kill-tank-1-1",
       "is_default": false,
       "is_no_change": false,
       "items": [
         {
-          "count": 1,
           "item_index": 1,
-          "item_name": "giga shoota",
-          "role": "granted",
-          "weapon_line": 2
+          "item_name": "up to 4 Big Shootas",
+          "role": "granted"
+        }
+      ],
+      "name": "up to 4 Big Shootas"
+    },
+    {
+      "group_id": "og-kill-tank-2",
+      "id": "oc-kill-tank-2-1",
+      "is_default": false,
+      "is_no_change": false,
+      "items": [
+        {
+          "item_index": 1,
+          "item_name": "one of the following: 2 Rokkit Launcha, 2 Skorchas",
+          "role": "granted"
         },
         {
           "item_index": 1,
-          "item_name": "’s bursta kannon",
+          "item_name": "'s 2 Big Shootas",
           "role": "replaced"
         }
       ],
-      "name": "giga shoota"
+      "name": "one of the following: 2 Rokkit Launcha, 2 Skorchas"
+    },
+    {
+      "count": 1,
+      "group_id": "og-kill-tank-3",
+      "id": "oc-kill-tank-3-1",
+      "is_default": false,
+      "is_no_change": false,
+      "items": [
+        {
+          "count": 1,
+          "item_index": 1,
+          "item_name": "Deff Rolla",
+          "role": "granted",
+          "weapon_line": 12
+        },
+        {
+          "count": 3,
+          "item_index": 2,
+          "item_name": "Zzap Guns",
+          "role": "granted"
+        },
+        {
+          "item_index": 1,
+          "item_name": "'s Tank Kannon",
+          "role": "replaced"
+        },
+        {
+          "item_index": 2,
+          "item_name": "Crushin' Bulk",
+          "role": "replaced",
+          "weapon_line": 11
+        }
+      ],
+      "name": "Deff Rolla and 3 Zzap Guns"
+    },
+    {
+      "group_id": "og-kill-tank-4",
+      "id": "oc-kill-tank-4-1",
+      "is_default": false,
+      "is_no_change": false,
+      "items": [
+        {
+          "item_index": 1,
+          "item_name": "one of the following: 1 Kannon, 1 Lobba",
+          "role": "granted"
+        },
+        {
+          "item_index": 1,
+          "item_name": "'s Zzap Gun",
+          "role": "replaced"
+        }
+      ],
+      "name": "one of the following: 1 Kannon, 1 Lobba"
     }
   ],
   "option_groups": [
@@ -132,90 +194,205 @@
       "id": "og-kill-tank-1",
       "line": 1,
       "scope": "model"
+    },
+    {
+      "id": "og-kill-tank-2",
+      "line": 2,
+      "scope": "model"
+    },
+    {
+      "id": "og-kill-tank-3",
+      "line": 3,
+      "scope": "model"
+    },
+    {
+      "id": "og-kill-tank-4",
+      "line": 4,
+      "scope": "model"
     }
   ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 10,
+    "consecutive_unverified_releases": 11,
     "state": "unverified",
     "unverified_since_version": "mfm-2026-08"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20260922T170537Z-ae4bfdaf",
+    "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
     "points_edition_code": "wh40k-11e",
     "points_source": "none"
   },
+  "role": "Transport",
   "wargear_option_state": "extracted",
+  "wargear_options_text": "This model can be equipped with up to 4 Big Shootas.\nThis model's 2 Big Shootas can be replaced with one of the following: 2 Rokkit Launcha, 2 Skorchas\nThis model's Tank Kannon and Crushin' Bulk can be replaced with 1 Deff Rolla and 3 Zzap Guns.\nThis model's Zzap Gun can be replaced with one of the following: 1 Kannon, 1 Lobba",
   "weapons": [
     {
       "ability_keywords": [
-        "blast"
+        "LETHAL HITS: non-MONSTER/VEHICLE",
+        "Rapid Fire 2"
       ],
-      "armour_penetration": "-2",
-      "attacks": "3D6",
-      "damage": "3",
+      "armour_penetration": "0",
+      "attacks": "3",
+      "damage": "1",
       "is_melee": false,
       "line": 1,
-      "name": "Bursta kannon",
+      "name": "Big Shoota",
       "range": "36\"",
       "skill": "5+",
-      "strength": "14"
+      "strength": "5"
     },
     {
       "ability_keywords": [
-        "sustained hits 1"
+        "BLAST 2"
       ],
       "armour_penetration": "-1",
-      "attacks": "30",
+      "attacks": "10",
       "damage": "1",
       "is_melee": false,
       "line": 2,
-      "name": "Giga shoota",
+      "name": "Tank Kannon - Blasta",
       "range": "48\"",
       "skill": "5+",
       "strength": "6"
     },
     {
       "ability_keywords": [
-        "ignores cover",
-        "torrent"
+        "Heavy"
       ],
-      "armour_penetration": "-1",
-      "attacks": "D6",
-      "damage": "1",
+      "armour_penetration": "-3",
+      "attacks": "2",
+      "damage": "D6+6",
       "is_melee": false,
       "line": 3,
-      "name": "Skorcha",
-      "range": "12\"",
-      "skill": "N/A",
-      "strength": "5"
+      "name": "Tank Kannon - Tankhamma",
+      "range": "48\"",
+      "skill": "5+",
+      "strength": "16"
     },
     {
       "ability_keywords": [
-        "rapid fire 2",
-        "twin-linked"
+        "BLAST 2"
+      ],
+      "armour_penetration": "0",
+      "attacks": "2",
+      "damage": "1",
+      "is_melee": false,
+      "line": 4,
+      "name": "Rokkit Launcha - Blasta",
+      "range": "24\"",
+      "skill": "5+",
+      "strength": "4"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "2",
+      "damage": "3",
+      "is_melee": false,
+      "line": 5,
+      "name": "Rokkit Launcha - Busta",
+      "range": "24\"",
+      "skill": "5+",
+      "strength": "10"
+    },
+    {
+      "ability_keywords": [
+        "BLAST 1",
+        "Torrent"
       ],
       "armour_penetration": "0",
       "attacks": "3",
       "damage": "1",
       "is_melee": false,
-      "line": 4,
-      "name": "Twin big shoota",
-      "range": "18\"",
+      "line": 6,
+      "name": "Skorcha",
+      "range": "12\"",
+      "skill": "-",
+      "strength": "5"
+    },
+    {
+      "ability_keywords": [
+        "ANTI-MONSTER/VEHICLE 4+",
+        "DEVASTATING WOUNDS: MONSTER/VEHICLE",
+        "Rapid Fire 2",
+        "Sustained Hits 2"
+      ],
+      "armour_penetration": "-2",
+      "attacks": "2",
+      "damage": "4",
+      "is_melee": false,
+      "line": 7,
+      "name": "Zzap Gun",
+      "range": "36\"",
+      "skill": "5+",
+      "strength": "8"
+    },
+    {
+      "ability_keywords": [
+        "BLAST 2"
+      ],
+      "armour_penetration": "-1",
+      "attacks": "2D6",
+      "damage": "1",
+      "is_melee": false,
+      "line": 8,
+      "name": "Kannon - Frag",
+      "range": "48\"",
+      "skill": "5+",
+      "strength": "6"
+    },
+    {
+      "ability_keywords": [
+        "Heavy"
+      ],
+      "armour_penetration": "-3",
+      "attacks": "2",
+      "damage": "D3+3",
+      "is_melee": false,
+      "line": 9,
+      "name": "Kannon - Shell",
+      "range": "48\"",
+      "skill": "5+",
+      "strength": "12"
+    },
+    {
+      "ability_keywords": [
+        "BLAST 3",
+        "Indirect Fire"
+      ],
+      "armour_penetration": "0",
+      "attacks": "3",
+      "damage": "1",
+      "is_melee": false,
+      "line": 10,
+      "name": "Lobba",
+      "range": "48\"",
       "skill": "5+",
       "strength": "5"
     },
     {
-      "armour_penetration": "-1",
-      "attacks": "8",
+      "ability_keywords": [
+        "CLEAVE 2"
+      ],
+      "armour_penetration": "-2",
+      "attacks": "6",
       "damage": "2",
       "is_melee": true,
-      "line": 5,
-      "name": "Reinforced ram",
-      "skill": "4+",
-      "strength": "9"
+      "line": 11,
+      "name": "Crushin' Bulk",
+      "skill": "3+",
+      "strength": "8"
+    },
+    {
+      "armour_penetration": "-2",
+      "attacks": "6",
+      "damage": "3",
+      "is_melee": true,
+      "line": 12,
+      "name": "Deff Rolla",
+      "skill": "3+",
+      "strength": "10"
     }
   ]
 }
