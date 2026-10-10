@@ -21,6 +21,9 @@
 # AI-Assisted: Claude Code (model: claude-sonnet-5) - 2026-10-09 pipeline P2 task 4 (Owner ruling
 # 3): wargear_options_text round-trips through the curated tree, omitted when the datasheet has
 # no option rows, same `omit_absent` footing as every other optional field on this record.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - 2026-10-09 pipeline P3 task 3 (spec §4.2
+# P4b): eligible_composition_lines round-trips through the curated tree, omitted (never an empty
+# array) when the derivation found nothing.
 """Write the curated tree — the artifact a human reviews.
 
 The layout exists for **diff quality**, which FR-016 and FR-037 make a requirement rather than
@@ -342,6 +345,11 @@ def _datasheet(datasheet: CuratedDatasheet) -> dict[str, JsonValue]:
                         "eligible_model_name": group.eligible_model_name,
                         "eligible_max_count": group.eligible_max_count,
                         "is_per_model": group.is_per_model,
+                        # 2026-10-09 pipeline P3 task 3 (spec §4.2 P4b): derived at build, never
+                        # curator-authored. list(...) or None keeps the empty-tuple default
+                        # ABSENT, same footing as every other optional column here.
+                        "eligible_composition_lines": list(group.eligible_composition_lines)
+                        or None,
                     }
                 )
                 for group in sorted(datasheet.option_groups, key=lambda group: group.id)

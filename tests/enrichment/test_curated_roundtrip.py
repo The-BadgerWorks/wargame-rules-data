@@ -13,6 +13,10 @@
 # AI-Assisted: Claude Code (model: claude-sonnet-5) - Added the wargear_options_text round-trip
 # (2026-10-09 pipeline P2 task 4, Owner ruling 3): one datasheet carrying the field, one bare
 # sibling, so both the present and the omitted case survive `write_tree` / `read_curated_tree`.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - Added the eligible_composition_lines
+# round-trip (2026-10-09 pipeline P3 task 3, spec §4.2 P4b): one option group carrying a
+# non-empty tuple, one sibling with the default empty tuple, so both the present and the
+# underivable case survive `write_tree` / `read_curated_tree`.
 """User Story 4: the curated `data/` tree round-trips everything `006` published.
 
 research D2 found the curated writer's per-datasheet serialisation and the prior-snapshot reader
@@ -33,6 +37,7 @@ from pathlib import Path
 
 from pipeline.curate.prior import read_curated_tree
 from pipeline.curate.writer import write_tree
+from pipeline.models.curated import CuratedOptionGroup, OptionScope
 from tests import factories
 from tests.factories import detachment, faction, loadout_datasheet, snapshot
 
@@ -177,6 +182,40 @@ def test_wargear_options_text_round_trips_and_an_unset_sibling_reads_back_none(
         == "This model can be equipped with 1 test lantern."
     )
     assert rebuilt_by_id["ds-fx-text-two"].wargear_options_text is None
+
+
+# --- 2026-10-09 P3 task 3: CuratedOptionGroup.eligible_composition_lines -----------------------
+
+
+def test_eligible_composition_lines_round_trips_and_an_underivable_sibling_reads_back_empty(
+    tmp_path: Path,
+) -> None:
+    scoped = CuratedOptionGroup(
+        id="og-fx-roundtrip-scoped",
+        line=1,
+        scope=OptionScope.UNIT,
+        eligible_composition_lines=(2, 3),
+    )
+    unscoped = CuratedOptionGroup(id="og-fx-roundtrip-unscoped", line=2, scope=OptionScope.UNIT)
+    datasheet = factories.datasheet("ds-fx-line-scope-roundtrip").model_copy(
+        update={"option_groups": [scoped, unscoped]}
+    )
+    original_snapshot = snapshot(factions=[faction()], datasheets=[datasheet])
+
+    data_dir = tmp_path / "data" / "wh40k-11e"
+    curation_dir = tmp_path / "curation"
+    write_tree(original_snapshot, data_dir=data_dir, curation_dir=curation_dir)
+
+    rebuilt_snapshot = read_curated_tree(data_dir)
+    assert rebuilt_snapshot is not None
+    rebuilt_groups = {
+        group.id: group
+        for ds in rebuilt_snapshot.datasheets
+        if ds.datasheet_id == "ds-fx-line-scope-roundtrip"
+        for group in ds.option_groups
+    }
+    assert rebuilt_groups["og-fx-roundtrip-scoped"].eligible_composition_lines == (2, 3)
+    assert rebuilt_groups["og-fx-roundtrip-unscoped"].eligible_composition_lines == ()
 
 
 # --- the whole point: a bundle rebuilt from the tree matches a freshly-acquired one -------------

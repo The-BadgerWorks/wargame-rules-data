@@ -2,6 +2,11 @@
 # composition rows and their items to weapon profiles (006 task T029): the exactly-one-match NAME
 # join for `composition_line` with no ordinal fallback anywhere, and the per-item weapon join that
 # reports what it could not resolve instead of dropping it.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - 2026-10-09 pipeline P3 task 2 (Owner ruling
+# 5): a group whose `composition_line` is already set (resolved upstream in `assemble._equipment`
+# by exact-name match for a variant subject) now passes through this join unchanged and is not
+# counted toward `EQP-GROUP-UNRESOLVED` -- `link_model_line`'s containment join is for the base
+# subject only and is never re-run over a variant's already-settled link.
 """Two joins the source does not publish, both refusing to guess.
 
 **A sentence to a composition row (FR-013).** There is no foreign key. Research D1e measured what
@@ -60,7 +65,11 @@ def link_equipment(
     for group in groups:
         update: dict[str, object] = {"items": _linked_items(group, weapons, datasheet_id, findings)}
 
-        if group.applies_to is EquipmentAppliesTo.MODEL_GROUP and group.model_name is not None:
+        if group.composition_line is not None:
+            # 2026-10-09 Owner ruling 5: already resolved upstream (a variant subject's exact-name
+            # match) -- passed through unchanged, and not re-derived or counted unresolved.
+            pass
+        elif group.applies_to is EquipmentAppliesTo.MODEL_GROUP and group.model_name is not None:
             composition_line = link_model_line(group.model_name, model_lines)
             if composition_line is None:
                 findings.append(

@@ -35,6 +35,10 @@
 # `CuratedDatasheet.wargear_options_text` (Owner ruling 3) -- the one field downstream of
 # `normalize` that carries the source's own wording, by Owner ruling. OMITTED when the datasheet
 # has no option rows at all.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - 2026-10-09 pipeline P3 task 3 (spec §4.2
+# P4b): added `CuratedOptionGroup.eligible_composition_lines`, derived at build by
+# `pipeline/reconcile/option_scope.py::derive_line_scopes` -- never parsed or curated directly.
+# () when underivable, never guessed.
 """Curated records — the canonical reviewable state, machine-written into ``data/``.
 
 Every record here maps to a row in the consumer schema; the field-level mapping is
@@ -491,6 +495,11 @@ class CuratedOptionGroup(_CuratedMechanical):
         "when the source does not distinguish. Never defaulted to False: research D1c measured "
         "a distributive `can each` on 350 of 571 unparsed rows, so defaulting would over-grant "
         "the majority form of the residual",
+    )
+    eligible_composition_lines: tuple[int, ...] = Field(
+        default=(),
+        description="2026-10-09 P4b: composition line numbers whose models carry every replaced "
+        "item of this group's choices; () when underivable (then the app falls back to scope)",
     )
 
     @model_validator(mode="after")

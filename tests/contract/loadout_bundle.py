@@ -7,6 +7,11 @@
 # tests/publication/test_consumer_compat_loadout.py asserts every member of that set is
 # non-empty. Direct model construction, like the rest of this fixture -- no grammar production
 # exists yet (that is 007 US3's job), so this proves the model/schema/bundle wiring only.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - 2026-10-09 pipeline P3 task 3 (spec §4.2
+# P4b): gave the scoped group an invented `eligible_composition_lines=(1,)` -- the fourth
+# additive column `test_additive_compatibility.py`'s equality proof needs this fixture to
+# actually carry, same reason the Fen Warden fixture was given real `chapter_keyword` and
+# `wargear_options_text` values before it.
 """`004`'s enriched snapshot, plus **every** addition `006-unit-loadout-fidelity` makes.
 
 `tests/contract/enrichment_bundle.py` did this job for `004` and is deliberately left alone: its
@@ -98,6 +103,11 @@ def _warden_option_groups(existing: list[CuratedOptionGroup]) -> list[CuratedOpt
             "eligible_model_name": "Fen Warden Prime",
             "eligible_max_count": 1,
             "is_per_model": True,
+            # 2026-10-09 pipeline P3 task 3 (spec §4.2 P4b): a fourth additive column on this
+            # same array, on the same footing as the three above -- invented rather than
+            # re-derived, because this fixture builds its datasheets directly and never runs
+            # `derive_line_scopes`.
+            "eligible_composition_lines": (1,),
         }
     )
     swap = CuratedOptionGroup(

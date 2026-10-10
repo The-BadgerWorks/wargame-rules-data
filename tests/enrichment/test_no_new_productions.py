@@ -3,6 +3,11 @@
 # `parse/equipment_grammar.py` is pinned to the exact regex-pattern content it carried before this
 # feature touched anything, stated as a diff rather than a count -- a swap of one production for
 # an equal-sized replacement would still be caught, which a length-only assertion would miss.
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - 2026-10-09 pipeline P3 task 2 (Owner ruling
+# 5): extended the pin with `equipment_grammar._VARIANT_SUBJECTS`, the one table this feature is
+# authorised to add a production to -- `_current()` now reads it too, so a second addition to
+# that table (or an edit to the one entry it already holds) is caught exactly like every other
+# table here, never loosened.
 """Rule 5: no grammar production is authored by this feature, in either forbidden file.
 
 `options_grammar.py` and `equipment_grammar.py` are the two files 009's own rules block names
@@ -24,6 +29,13 @@ Two of the six (``_COMPLETION_HEADS``, ``_COMPLETION_SUBJECTS``) are empty today
 D2 left them as the extension points a later feature's productions would land in, and an empty
 table growing by even one entry is exactly what this test exists to catch, not a special case it
 carves out.
+
+A seventh table joined them 2026-10-09 (pipeline P3 task 2, Owner ruling 5):
+``equipment_grammar._VARIANT_SUBJECTS``, the one production the ruling authorises (the variant
+subject ``<base model name> with <phrase>``, scoped by its caller to an exact composition-line
+name match). It is pinned the same way as the other six, non-empty from the moment it exists, so
+a second production landing in it is caught exactly like a change to any of the other six would
+be.
 """
 
 from __future__ import annotations
@@ -74,6 +86,10 @@ _BASELINE: dict[str, tuple[str, ...]] = {
         r"^(\S.*)$",
     ),
     "equipment_grammar._COMPLETION_SUBJECTS": (),
+    # 2026-10-09 Owner ruling 5: the ONE production added since rule 5 was written -- the variant
+    # subject `<base model name> with <phrase>`, scoped by its caller to an exact composition-line
+    # name match. See `equipment_grammar.py`'s own comment for the full account.
+    "equipment_grammar._VARIANT_SUBJECTS": (r"^(?:(?:Every|Each|The)\s+)?(\S.*\bwith\b.*)$",),
 }
 
 
@@ -89,6 +105,7 @@ def _current() -> dict[str, tuple[str, ...]]:
         "options_grammar._COMPLETION_VERBS": _patterns(og._COMPLETION_VERBS),
         "equipment_grammar._SUBJECTS": _patterns(eg._SUBJECTS),
         "equipment_grammar._COMPLETION_SUBJECTS": _patterns(eg._COMPLETION_SUBJECTS),
+        "equipment_grammar._VARIANT_SUBJECTS": _patterns(eg._VARIANT_SUBJECTS),
     }
 
 
@@ -101,6 +118,7 @@ def test_the_baseline_itself_covers_every_production_table_rule_5_names() -> Non
         "options_grammar._COMPLETION_VERBS",
         "equipment_grammar._SUBJECTS",
         "equipment_grammar._COMPLETION_SUBJECTS",
+        "equipment_grammar._VARIANT_SUBJECTS",
     }
 
 

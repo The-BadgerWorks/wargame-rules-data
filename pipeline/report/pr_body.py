@@ -20,6 +20,13 @@
 # AI-Assisted: Claude Code (model: claude-opus-5) - 010 R5: removed the carried-forward section
 # (`_carried_line`, `_carried_forward_section`) along with the per-faction carry-forward
 # mechanism whose findings it rendered.
+# AI-Assisted: Claude Code (model: Claude Sonnet 5) - 2026-10-09 pipeline P3 task 5 (spec §4.2
+# P4b): `options_line_scoped` joins `_RATCHETED_LOADOUT_FIGURES` as the table's third guarded
+# row, on the identical terms `default_equipment` joined it under (008 FR-021).
+# AI-Assisted: Claude Code (model: claude-sonnet-5) - task 5 follow-up (self-directed, commit
+# e46a4aee): rewrote `_loadout_coverage_section`'s footer paragraph to name all three ratcheted
+# figures instead of two, so a shipped report stops asserting a count the table had already
+# outgrown.
 """What an approver reads first, in the order they should read it.
 
 `docs/approval-checklist.md` (task T121) states the same order in prose, for a human skimming
@@ -81,7 +88,9 @@ _LOADOUT_COVERAGE_PREFIX = "loadout."
 #: 2026-08-13) are still absent -- new report-only baselines with no prior release to compare
 #: against -- and a table that showed every figure without saying which is which would let an
 #: approver read a falling unratcheted number as something a gate had already considered.
-_RATCHETED_LOADOUT_FIGURES: frozenset[str] = frozenset({"options_resolved", "default_equipment"})
+_RATCHETED_LOADOUT_FIGURES: frozenset[str] = frozenset(
+    {"options_resolved", "default_equipment", "options_line_scoped"}
+)
 
 #: `pipeline.cli option-regression`'s report: FR-009's layer-2 evidence, rebuilt from the previous
 #: published version's own source rows and diffed per choice and per field.
@@ -89,7 +98,7 @@ _OPTION_REGRESSION_FILE = "option-regression.md"
 
 
 def _loadout_coverage_section(coverage: Mapping[str, Mapping[str, Any]]) -> list[str]:
-    """`006`'s two loadout figures, and which of them can refuse a release.
+    """`006`'s two loadout figures plus `2026-10-09` P3's third, and which can refuse a release.
 
     Separate from the summary table above rather than folded into it, because they answer
     different questions: that one is editorial backlog a curator works through, this one is how
@@ -121,15 +130,17 @@ def _loadout_coverage_section(coverage: Mapping[str, Mapping[str, Any]]) -> list
         )
     out += [
         "",
-        "`options_resolved` and `default_equipment` are **both ratcheted, with no absolute "
-        "ceiling on either** (`008` FR-021, Clarifications 2026-08-15 Q2's two-step ruling): "
-        "each must not fall below the previous *published* version's own percent, less its own "
-        "configured tolerance, and no threshold blocks a release on its own — so source-wording "
-        "drift cannot wedge a release ahead of a parser fix. A rejected candidate never moves "
-        "either baseline. `default_equipment` reported without a ratchet in `006`'s first "
-        "extended release, because no version had yet published the figure to compare against "
-        "(research D4); two releases later that baseline exists, and the ratchet is on. "
-        "`item_constraints` and `rendering_equivalence` (`007` US5) are still new report-only "
+        "`options_resolved`, `default_equipment`, and `options_line_scoped` are **all three "
+        "ratcheted, with no absolute ceiling on any of them** (`008` FR-021, Clarifications "
+        "2026-08-15 Q2's two-step ruling; `options_line_scoped` joins them on the identical "
+        "terms, 2026-10-09 spec §4.2 P4b): each must not fall below the previous *published* "
+        "version's own percent, less its own configured tolerance, and no threshold blocks a "
+        "release on its own — so source-wording drift cannot wedge a release ahead of a parser "
+        "fix. A rejected candidate never moves any baseline. `default_equipment` reported "
+        "without a ratchet in `006`'s first extended release, because no version had yet "
+        "published the figure to compare against (research D4); two releases later that "
+        "baseline exists, and the ratchet is on. `item_constraints` and `rendering_equivalence` "
+        "(`007` US5) are still new report-only "
         "baselines, reported from their first release and ratcheted by no version of this "
         "pipeline yet (PO decision 2026-08-13, untouched by this feature). "
         "`rendering_equivalence_not_compared` is a **raw count**, not a proportion — read its "

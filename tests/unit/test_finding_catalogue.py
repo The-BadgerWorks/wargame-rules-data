@@ -32,6 +32,9 @@
 # AI-Assisted: Claude Code (model: Claude Sonnet 5) - Transcribed DET-CHAPTER-UNMATCHED (2026-10-09
 # pipeline P2 task 2) into PENDING_CONTRACT_SEVERITIES, independently of catalogue.py, matching the
 # severity now registered there.
+# AI-Assisted: Claude Code (model: Claude Sonnet 5) - Transcribed COV-LINE-SCOPE-REGRESSION
+# (2026-10-09 pipeline P3 task 5) into PENDING_CONTRACT_SEVERITIES, independently of catalogue.py,
+# matching the severity now registered there.
 """Severity belongs to the code, not to the occurrence.
 
 ``curation/resolutions.json`` entries reference finding codes, so a code whose severity moved
@@ -194,6 +197,10 @@ PENDING_CONTRACT_SEVERITIES = {
     # no minted detachment, no chapter keyword of that faction, or a repeat of an earlier entry --
     # on the identical ahead-of-contract terms as the block above.
     "DET-CHAPTER-UNMATCHED": B,
+    # 2026-10-09 pipeline P3 task 5 (spec §4.3): loadout.options_line_scoped falling below the
+    # previous published version's percent, less the configured tolerance -- the third ratcheted
+    # loadout figure, on the identical ahead-of-contract terms as the block above.
+    "COV-LINE-SCOPE-REGRESSION": B,
 }
 
 #: Transcribed by hand from 006's data-model.md §5 table and its contracts/
