@@ -21,7 +21,7 @@
       "model_count": 1,
       "points": 150,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587"
+      "source_acquisition_id": "wahapedia-20261011T000524Z-3e4e2587"
     }
   ],
   "datasheet_id": "ds-predator-destructor",
@@ -177,14 +177,14 @@
     }
   ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 1,
+    "consecutive_unverified_releases": 2,
     "last_verified_points_digest": "sha256:718ebec0d410c70e372c7fd0bfe688773d55cc7fd45396ffb94319c0bc74b590",
     "last_verified_version": "wh40k-11e-2026-09-5",
     "state": "unverified",
     "unverified_since_version": "wh40k-11e-2026-10-1"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
+    "detail_acquisition_id": "wahapedia-20261011T000524Z-3e4e2587",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
