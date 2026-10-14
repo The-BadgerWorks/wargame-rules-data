@@ -1,9 +1,9 @@
 {
   "per_faction": {
-    "adepta-sororitas": "822f45f6cff5e43b360f31fef8811ca8090d25bcb3432003647fa36c07916f53",
-    "adeptus-custodes": "3bf27c428c176ca3e1a863edc39a511c3f401e4d71c6b03c6a805a723b429070",
-    "adeptus-mechanicus": "3f8eafe94ff2c5814c9c46c85c4b32a14c8d0836c5f711a225a0939d0067adfd",
-    "aeldari": "ed8c46f72f3b19bcc8e31b0d5e8be3d2e02c41e2833a3de5c2c11057ee35b7f1",
+    "adepta-sororitas": "06bf0e3219e612f4d2fd4310143d809d0fb2bec0fd96f8a6a828cf5a8f1f48a8",
+    "adeptus-custodes": "0fe5dc4e4ed97e49322043657235b9ca0c3deccba9f4f4af6032f7ab65694671",
+    "adeptus-mechanicus": "a91fad41dbb6296aa3eb43a6f1a2c2dea29bf38fb86d3c048c2ec62738710755",
+    "aeldari": "a7731dff4b0c15e6431741a3fb950da7fe988fa93e2302a413c5c2288ebe3eaf",
     "astra-militarum": "c33216f210862b2b612046240f5abb801a04fae2e79c32cf2a79f5ce06f7c82c",
     "black-templars": "b8f9dc8011353f2902a7d08f2087dc071b4047904bb990ab4834f9f30b078145",
     "blood-angels": "00be7aca243847f2177dde261f27450658c2c0ba773126e88fb4aa7b9e5175f6",
@@ -15,21 +15,21 @@
     "death-guard": "07ab10ef918543a23f5ef2b9699014a980790b9c9c1457991e0f9102aba317df",
     "deathwatch": "945b8de2561f1ab9400adb5019a7ae718ed684c42bcaffbf98ee76c5c78fcde2",
     "drukhari": "f16a5d4748e000e71371d130cf094a68ebcfd5e3f6a6b4364abcd70178e7c743",
-    "emperors-children": "f35fecd9ea4df1e66b14b7099f3bcd5666ffa78fa37ee90ff2953794403c1356",
+    "emperors-children": "9a7285d3de77b06274f3430ed62799377b4db5fabf500f44bed34344c33f314b",
     "genestealer-cults": "65cb2ddaf877bbb70fa3de9f18f91418f25658d0118d22d513bf3822b0cec6bb",
     "grey-knights": "12d2056edcd5e544f2b998ca9a429667ab16d183467e1fcef38395a9cc44bad6",
     "imperial-agents": "a8c667a07d900fd502cf4a3fea3509de2200582851c21d3c1893f79de66cf558",
     "imperial-knights": "5c58cc4e70d3430d2e976abd3f7d66589c51b1abcc511ee43975cf9cf369e3b9",
     "leagues-of-votann": "660b4c91fe7e2c71bbbfa9a7efc514241bd0753974dcfdbf3633ad9fed1f375c",
-    "necrons": "ecf1af0a78cac4afb3a56bc48834b28808315dbdb930234fcb131999674e282b",
-    "orks": "bbbe052847751d51eed3f5f051643ee9c2dce7af4275aa278d5455e0cb03a1bb",
+    "necrons": "42f84ce3c446b01f0af09dfd53d7e1c2a37d70406076f02940e2554429d2febd",
+    "orks": "480a833249f209418d2f6a5e42d9cd70dce3a885786e27d83d47fd976db69b3d",
     "space-marines": "259e986052541cf4f0abc783f763bf538983f64c6e328942d7d832fa93e14694",
     "space-wolves": "7faff73289417011e4bd23d876a3df4159aaae737715ea3140587907dddab119",
     "tau-empire": "2b9547de27f42068f3fcba1c8b3e134f818ab644e613048228e8b268165fc7cc",
     "thousand-sons": "7fb82d6f0a4e189cb8cd53d7ba759b386393a523bb2b1ea37657a313d397b5a0",
     "titan-legions": "8188d3f40db48f9005eff135400f929c0810603eaff82a82bb60d88d145883a4",
     "tyranids": "080efb84cb68068519d2abbded0e44ecb4be140adff3d6bdf96eeff32ca4dd84",
-    "world-eaters": "86e82f3dfe2127287dcaecd4eef398cf4f8b32bee0291e1b4a916598a80188ee"
+    "world-eaters": "7f2b1f2dbba5fda8796bfc8a23579401504e340aa2ee4678464924dee1ec9d45"
   },
-  "release_digest": "667802f5021afe7ae857eeeace70edf6f101ee56cfc8861965732ab2946d42ba"
+  "release_digest": "0f9703062a5625eb56706c90579cb8cf93e504968a93f4180769af1a0fad2d2b"
 }
