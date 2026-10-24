@@ -20,7 +20,7 @@
       "model_count": 1,
       "points": 155,
       "pricing_confidence": "unverified",
-      "source_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587"
+      "source_acquisition_id": "wahapedia-20261011T000524Z-3e4e2587"
     }
   ],
   "datasheet_id": "ds-stormhawk-interceptor-2",
@@ -172,14 +172,14 @@
     }
   ],
   "pricing_confidence": {
-    "consecutive_unverified_releases": 1,
+    "consecutive_unverified_releases": 2,
     "last_verified_points_digest": "sha256:70d16b70a3d00bb38906ded940800fbe6a2b4405df3139b0617b38e38d8b42c8",
     "last_verified_version": "wh40k-11e-2026-09-5",
     "state": "unverified",
     "unverified_since_version": "wh40k-11e-2026-10-1"
   },
   "provenance": {
-    "detail_acquisition_id": "wahapedia-20261010T224130Z-3e4e2587",
+    "detail_acquisition_id": "wahapedia-20261011T000524Z-3e4e2587",
     "detail_edition_code": "wh40k-11e",
     "detail_source": "wahapedia",
     "is_hybrid_edition": false,
